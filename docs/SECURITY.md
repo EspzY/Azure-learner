@@ -22,6 +22,10 @@ Pin versions, commit lockfile, use `npm ci`, audit runtime and developer depende
 
 ## Future boundary
 
+Phase 1A proposes local workspaces, command/evidence history and checkpoint promotion in [SIMULATION_PLATFORM.md](SIMULATION_PLATFORM.md); none is persisted by the current app. Before Phase 1B, validate versioned schemas, bounded sizes, resume/migration/duplicate delivery and stale-tab conflicts. Local checksums/IDs cannot authenticate evidence. Legacy completion IDs must never become trusted attempts. Explain unsaved storage failure and separate workspace reset from explicit deletion of all local data categories.
+
+Scenario packages are reviewed repository data with allowlisted evaluator IDs, not executable strings/remote plugins. Future terminal/KQL/Bicep teaching subsets must not execute arbitrary learner code, shell commands or outbound requests. Synthetic incident logs must contain no actual credentials, personal data or employer/customer traces. Structured reflection/evidence should minimize stored prose; permitted source links do not authorize external content ingestion or assessment scraping. Any later real-practice mode is a separate authorization/cost/security boundary.
+
 Before accounts: session security, CSRF controls, schemas/rate limits, independent organization IDs, per-request membership authorization and isolation tests. Define export/deletion, retention and administrator visibility. Rankings require opt-in, pseudonyms, comparable conditions and withdrawal. Personal data does not implicitly become employer data.
 
 No production resource creation, production deployment, paid service provisioning or real authentication is authorized in Phase 0. The owner explicitly approved automatic branch previews through the repository's existing Vercel integration during delivery. Report issues privately to the repository owner; no dedicated security inbox/process exists yet.

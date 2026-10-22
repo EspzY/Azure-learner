@@ -14,6 +14,12 @@
 
 Nothing connects to Azure, creates infrastructure, authenticates users or calls Microsoft Learn APIs. No cloud credentials or environment file is needed. Only completion IDs persist; the architecture resets on reload. This is an educational simplification, not an Azure emulator.
 
+## Phase 1A: blueprint for review
+
+The running app above is unchanged. The proposed product model combines a persistent reference world with isolated, versioned scenario workspaces and a competency graph that extends beyond Fundamentals. Start with the [product blueprint](docs/PRODUCT_BLUEPRINT.md), [learning journey](docs/LEARNING_JOURNEY.md), [interaction patterns](docs/EXPERIENCE_PATTERNS.md), [simulation contracts](docs/SIMULATION_PLATFORM.md) and [first chapter specification](docs/CHAPTER_01_BLUEPRINT.md). [Three experience blueprints](docs/EXPERIENCE_BLUEPRINTS.md) span foundations, engineering diagnosis and advanced design; the [source register](docs/SOURCE_REGISTER.md) records current technical/credential references.
+
+These are implementation specifications with deterministic test vectors and proposed architecture, not shipped chapters or verified learning outcomes. Owner review must precede full Phase 1B implementation. No new frontend, service integration, account or infrastructure was added. See [project status](docs/PROJECT_STATUS.md) and the [staged roadmap](docs/ROADMAP.md) for actual verification and review gates.
+
 ## Run locally
 
 Use Node.js **22.13 or newer** (Node 24 recommended) and npm:

@@ -15,6 +15,13 @@ export const requiredFiles = [
   'docs/SECURITY.md',
   'docs/MICROSOFT_LEARN.md',
   'docs/EXPERIENCE_DESIGN.md',
+  'docs/PRODUCT_BLUEPRINT.md',
+  'docs/LEARNING_JOURNEY.md',
+  'docs/EXPERIENCE_PATTERNS.md',
+  'docs/SIMULATION_PLATFORM.md',
+  'docs/CHAPTER_01_BLUEPRINT.md',
+  'docs/EXPERIENCE_BLUEPRINTS.md',
+  'docs/SOURCE_REGISTER.md',
 ];
 
 function markdownFiles(folder) {

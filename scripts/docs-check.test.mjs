@@ -42,8 +42,18 @@ test('reports missing files, heading targets and paths outside the repository', 
     assert.ok(result.errors.some((error) => error.includes('missing heading')));
     assert.ok(result.errors.some((error) => error.includes('leaves repository')));
   }));
-test('requires substantive continuity files', () =>
+test('requires substantive continuity files and Phase 1A blueprints', () =>
   fixture((root) => {
-    writeFileSync(join(root, 'AGENTS.md'), '   ');
-    assert.ok(validateDocumentation(root).errors.some((error) => error.includes('AGENTS.md')));
+    for (const file of [
+      'AGENTS.md',
+      'docs/PRODUCT_BLUEPRINT.md',
+      'docs/LEARNING_JOURNEY.md',
+      'docs/EXPERIENCE_PATTERNS.md',
+      'docs/SIMULATION_PLATFORM.md',
+      'docs/CHAPTER_01_BLUEPRINT.md',
+    ]) {
+      writeFileSync(join(root, file), '   ');
+      assert.ok(validateDocumentation(root).errors.some((error) => error.includes(file)));
+      writeFileSync(join(root, file), '# Restored fixture\n');
+    }
   }));

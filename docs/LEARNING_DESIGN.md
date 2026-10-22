@@ -1,5 +1,7 @@
 # Learning design
 
+This file describes the **implemented Phase 0.5 activity**. Phase 1A's wider competency graph, evidence distinctions and source lifecycle are proposed in [LEARNING_JOURNEY.md](LEARNING_JOURNEY.md), reusable mechanics in [EXPERIENCE_PATTERNS.md](EXPERIENCE_PATTERNS.md), and the first complete chapter in [CHAPTER_01_BLUEPRINT.md](CHAPTER_01_BLUEPRINT.md). They have not been implemented or evaluated with learners. Keep this legacy activity's validated rules/results separate from the new specification.
+
 ## Resource organization v1
 
 **Context:** a team needs an application resource group in a sandbox subscription. **Outcome:** explain identity, management containment and regional placement without conflating them.
@@ -48,3 +50,5 @@ Technical registry, reviewed **2026-10-22**, Microsoft documentation, reference-
 - [Resource groups](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/manage-resource-groups-portal): metadata location.
 
 All teaching text/questions are original. No practice assessment was copied, scraped or embedded. Future sources record attribution, licensing disposition, source version, review date and competency mapping. Re-review relevant sources when changing content and before certification-aligned releases; mark stale mappings until reconciled.
+
+The [source register](SOURCE_REGISTER.md) rechecks these dates and adds current retired/new credentials, Applied Skills and specialist references for Phase 1A. Its versioned overlay policy supersedes using these three exam codes as the product's curriculum boundary. The existing immediate check remains assisted evidence only; no historical completion is upgraded into independent performance.

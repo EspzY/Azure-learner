@@ -36,3 +36,9 @@ Camera transitions are approximately 420ms, inspector entry 220ms and object cre
 At 640px and below, Explore uses a bounded camera viewport plus contextual bottom sheet/HUD; essential learning does not become a long mobile document. Diagram/list alternatives and manual zoom/overview avoid precision-dependent gestures. Modal content scrolls at short heights and form inputs use mobile-readable sizing.
 
 Automated axe checks and viewport screenshots supplement manual inspection. They do not establish WCAG conformance, physical touch-device usability or screen-reader support across all engines. Those remain explicit validation work, including short landscape viewports and Safari foreignObject/dialog behavior.
+
+## Proposed journey expansion — not implemented
+
+Phase 1A preserves these visual tokens but broadens representation beyond one scene. The [product blueprint](PRODUCT_BLUEPRINT.md#coherent-experience-architecture) specifies orientation, competency navigation, active workspaces and evidence review. [Experience patterns](EXPERIENCE_PATTERNS.md) select spatial, matrix, flow, table, timeline or comparison based on the learning problem. Keep checkpoint, selected resource, relation type and simulation boundary consistent across lenses. Do not use a beautiful object, generic card or animation as evidence that learning occurred.
+
+Chapter 01's proposed matrix/receipt controls and mobile composition need new screenshots and human accessibility review when implemented. The existing screenshots/axe results validate only Phase 0.5 states. No new design is claimed as rendered or tested in Phase 1A.

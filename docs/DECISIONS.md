@@ -32,6 +32,22 @@ These decisions supersede the presentation choices in 003/004 while retaining th
 | 019 | Midnight/violet/magenta identity                   | Complete design-system reset; cyan communicates technical relationships, not decorative glow everywhere.                                                            |
 | 020 | Mandatory docs gate and documentation continuity   | Required files and local links checked in CI; tests prove failures are detected. Source accuracy still needs review. Docs commit with their related implementation. |
 
+## Phase 1A — product and learning architecture (proposed)
+
+These are recommendations for owner review, not implemented platform capabilities. Full Phase 1B implementation is gated on that review. They extend 015–020 without changing the running Phase 0.5 renderer/domain rules.
+
+| ID  | Proposed decision                                                                  | Reason / consequence                                                                                                                                                        |
+| --- | ---------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 021 | Competency journey + persistent reference world + isolated scenario forks          | Combines continuity with specialization, safe repetition and comparable transfer; alternatives/risk are evaluated in PRODUCT_BLUEPRINT.md.                                  |
+| 022 | Stable competency IDs; versioned credential overlay                                | Exam retirements/replacements do not restructure the curriculum. Current official status/dates and licensing boundaries live in SOURCE_REGISTER.md.                         |
+| 023 | Six system boundaries and typed relation meanings                                  | Separate domain, scenarios, content, rendering, assessment and progression; identity/containment/dependency/traffic cannot share one inferred edge meaning.                 |
+| 024 | Small authored data contracts before a general platform                            | Phase 1B proves Chapter 01; Phase 1C extracts reuse using real authoring evidence. No expression interpreter, remote plugins or arbitrary code execution.                   |
+| 025 | Predictions, causal witnesses and unfamiliar transfer                              | Guided task success and immediate recognition cannot establish independent or retained understanding. No fabricated mastery/readiness percentage.                           |
+| 026 | Explicit checkpoint promotion and provenance                                       | Practice/transfer cannot silently corrupt the journey. Reference fixtures do not become learner-created history. Local evidence remains untrusted.                          |
+| 027 | Task-specific lenses retain a coherent dark environment                            | Spatial organization, responsibility matrix, flow/access traces, timelines and comparisons serve different learning problems. Renderer complexity is not educational depth. |
+| 028 | First chapter connects service responsibility, scope, location, policy and hosting | A bounded PaaS vertical slice with two transfer variants and explicit test vectors; later network/advanced examples remain design-only.                                     |
+| 029 | Professional demonstration rubric and human gates                                  | Tests establish defined behavior, not learning effectiveness or full Azure fidelity. Technical, learner and assistive-technology reviews must be recorded separately.       |
+
 ## Dependency compatibility refinement (Phase 0)
 
 The initial Next ESLint preset introduced an unpatched development-only braces advisory and peer constraints that excluded ESLint 10. Replaced it with current ESLint core, TypeScript ESLint and React Hooks recommended rules, with Prettier handling formatting and axe covering browser accessibility checks. This removed that chain without a forced Next downgrade. Framework-specific lint rules are not enabled; production builds and browser tests cover the implemented Next integration. The small `scripts/next.mjs` entry point disables framework telemetry for all package commands without requiring user environment configuration.

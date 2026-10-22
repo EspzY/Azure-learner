@@ -19,6 +19,9 @@ Read README.md, docs/PROJECT_STATUS.md and relevant existing architecture, exper
 - Prefer accessible HTML controls alongside graph interaction. Support keyboard, touch, narrow viewports and reduced motion. Deferred capabilities must have honest preview states.
 - Avoid speculative frameworks, decorative 3D, network dependencies, remote fonts and excessive abstractions.
 - The primary experience is a dimensional, scene-first learning environment. Preserve native controls, the XYFlow diagram and equivalent list navigation. Spatial height is schematic scope depth, never geography or a physical Azure deployment.
+- Choose each representation for the learning task: spatial orientation, flow, matrix, timeline or decision comparison. New capabilities must specify what is learned, what the learner does, what changes and what independent evidence tests understanding.
+- Phase 1A documents are proposals. Read docs/PRODUCT_BLUEPRINT.md, docs/LEARNING_JOURNEY.md, docs/EXPERIENCE_PATTERNS.md, docs/SIMULATION_PLATFORM.md and docs/CHAPTER_01_BLUEPRINT.md before chapter/platform work. Do not begin full Phase 1B implementation before owner blueprint review/authorization. Keep implementation status distinct from proposed contracts.
+- New scenario/rule content needs stable IDs, versions, source records, supported/unsupported boundaries, deterministic counterexamples, transfer criteria and an accessible equivalent. Keep scenario data and award/evidence orchestration out of mission-specific JSX.
 
 ## Required verification
 

@@ -46,16 +46,14 @@ interface ContentSource {
   };
   sourceVersion: string;
   reviewedAt: string;
-  competencyMappings: {
-    exam: 'AZ-900' | 'AZ-104' | 'AZ-305';
-    objectivesEffectiveFrom: string;
-    objectiveId: string;
-    mappingVersion: string;
-  }[];
+  competencyRefs: { competencyId: string; revision: string }[];
+  credentialMappingIds: string[]; // separate versioned overlay, not exam codes in core content
 }
 ```
 
 Future modules reference metadata UIDs rather than importing lesson bodies. Provider completion is not proof of AzureLab mastery. Returned descriptions/images/URLs do not imply unrestricted reuse permissions.
+
+Phase 1A's [learning journey](LEARNING_JOURNEY.md#certification-is-a-versioned-overlay) and [source register](SOURCE_REGISTER.md) replace the earlier three-exam mapping sketch with a credential-neutral content reference and a separately reviewed overlay. This is a change to the proposed content architecture, not a new API client or authentication validation.
 
 ## Activation prerequisites
 

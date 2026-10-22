@@ -35,107 +35,13 @@ Rendering alternatives, motion and responsive composition are described once in 
 
 UI and learning copy live in `content/nb.ts`; `<html lang="nb">` identifies the locale. Domain/answer IDs are language neutral. A future English dictionary can share the Bokmål shape with locale selection at the routing boundary. No translation selector is advertised. Example names and service names remain technical identifiers.
 
-## Proposed contracts — design only
+## Phase 1A proposed evolution — not implemented
 
-These sketches are not implemented tables. Future API boundaries validate IDs and payloads; assessment rules run on trusted server state.
+The [product blueprint](PRODUCT_BLUEPRINT.md) selects a competency journey, persistent reference world and isolated scenario workspaces. [SIMULATION_PLATFORM.md](SIMULATION_PLATFORM.md) is now the canonical proposed contract for domain models, scenario orchestration, content, rendering, assessment, progression and local-to-account migration. It supersedes the generic Phase 0 schema sketches previously here; Git history retains them. No engine, storage format or runtime behavior was changed in Phase 1A.
 
-```ts
-type LearningModule = {
-  id: string;
-  version: string;
-  locale: 'nb' | 'en';
-  objectiveIds: string[];
-  missionIds: string[];
-  sourceIds: string[];
-  reviewedAt: string;
-};
-type Mission = {
-  id: string;
-  version: string;
-  moduleId: string;
-  context: string;
-  objectiveIds: string[];
-  initialScenarioId: string;
-  tasks: { id: string; instruction: string; ruleIds: string[]; hints: string[] }[];
-  successRuleIds: string[];
-  feedback: { pass: string; fail: string };
-  reflection: string;
-  awardId: string;
-  repeatable: boolean;
-};
-type SimulationResource = {
-  id: string;
-  type: string;
-  parentScopeId: string;
-  location: { kind: 'regional'; region: string } | { kind: 'global' };
-  configuration: Record<string, unknown>;
-  dependencyIds: string[];
-};
-type ScenarioState = {
-  version: string;
-  scopes: { id: string; kind: string; parentId?: string }[];
-  resources: SimulationResource[];
-  failures: { id: string; active: boolean }[];
-  sequence: number;
-};
-type ValidationRule = {
-  id: string;
-  version: string;
-  evaluate: (state: Readonly<ScenarioState>) => {
-    passed: boolean;
-    code: string;
-    affectedIds: string[];
-    explanationKey: string;
-  };
-};
-type ProgressionEvent = {
-  id: string;
-  userId: string;
-  organizationId: string | null;
-  missionVersion: string;
-  awardId: string;
-  eventType: 'mission-completed' | 'assessment-passed';
-  verifiedAttemptId: string;
-  occurredAt: string;
-};
-type MasteryEvidence = {
-  id: string;
-  userId: string;
-  topicId: string;
-  attemptId: string;
-  assessmentVersion: string;
-  outcome: number;
-  hintsUsed: number;
-  independence: 'guided' | 'independent';
-  collectedAt: string;
-  retentionReviewDue: string;
-};
-type UserAccount = {
-  id: string;
-  locale: 'nb' | 'en';
-  identityProviderSubject: string;
-  profileVisibility: 'private' | 'organization';
-};
-type Organization = { id: string; name: string; retentionPolicyId: string };
-type Membership = {
-  organizationId: string;
-  userId: string;
-  role: 'learner' | 'instructor' | 'admin';
-};
-type LeaderboardEntry = {
-  organizationId: string;
-  userId: string;
-  optedInAt: string;
-  pseudonym: string;
-  cohortId: string;
-  scoringPolicyVersion: string;
-  verifiedScore: number;
-};
-```
+Phase 1B should prove only the [first chapter](CHAPTER_01_BLUEPRINT.md): typed plan/app resources, a filtered policy subset, responsibility decisions, causal receipts, independent transfer and explicit local checkpoint promotion. Preserve legacy creation/progression behavior through an adapter. Phase 1C extracts registries/authoring validation after a working chapter and a second authored case demonstrate the actual reuse. Avoid a speculative generic platform rewrite.
 
-Never use an Entra tenant ID to infer product organization authorization. Future persistence needs membership-scoped access, isolation tests, export/deletion and opt-in rankings. The server award ledger needs a unique `(userId, organizationId, awardId)` constraint with transactional attempt verification. Updating module versions must not silently issue the same reward again. Offline progress imports remain untrusted.
-
-Readiness must consider objective coverage, varied independent performance, retention and uncertainty. It is not an XP conversion; no readiness algorithm is implemented.
+Competencies and evidence have stable IDs/revisions; credential mappings are a separate overlay in [LEARNING_JOURNEY.md](LEARNING_JOURNEY.md). A completed local task is not an authenticated credential, a trusted performance record or a readiness calculation. Future account/organization storage requires per-request membership authorization, isolation tests, export/deletion and transactional unique awards; an Entra tenant ID never grants product organization membership. No backend is introduced by this proposal.
 
 ## Integrations and deployment
 
