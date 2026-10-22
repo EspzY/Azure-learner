@@ -130,4 +130,4 @@ Readiness must consider objective coverage, varied independent performance, rete
 
 ## Integrations and deployment
 
-[MICROSOFT_LEARN.md](MICROSOFT_LEARN.md) defines a disabled future metadata adapter and source model. Supabase could later supply auth/data; Vercel could host the app. Neither is connected. Provider-free domain rules preserve portability. Enterprise deployment requires a separate security design.
+[MICROSOFT_LEARN.md](MICROSOFT_LEARN.md) defines a disabled future metadata adapter and source model. Supabase is not connected. A pre-existing Vercel/GitHub integration publishes branch previews; the owner explicitly approved automatic previews during delivery. Local development is independent of that hosting and requires no credentials. Production deployment and merge are not authorized. Provider-free domain rules preserve portability; enterprise deployment requires a separate security design.

@@ -2,7 +2,7 @@
 
 ## Phase 0 — foundation
 
-One responsive workbench, accurate hierarchy, contextual inspector, deterministic group creation, original knowledge check and repeat-safe local XP. Toolchain, documentation, CI definition and accessible alternatives. No services/deployment.
+One responsive workbench, accurate hierarchy, contextual inspector, deterministic group creation, original knowledge check and repeat-safe local XP. Toolchain, documentation, CI definition and accessible alternatives. No live learning services or production deployment. Automatic branch previews were explicitly approved during delivery.
 
 ## Phase 1 — validate learning and one consequence
 

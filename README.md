@@ -52,7 +52,7 @@ Next.js App Router, strict TypeScript, Tailwind CSS 4, React, XYFlow, Lucide ico
 
 ## Direction and boundaries
 
-XP records participation; independent performance and retention must support future mastery and certification readiness. No passing guarantees, copied practice assessments, employer data or internal integrations. Supabase and Vercel are future options, not dependencies. Enterprise accounts must be separate from personal data. Microsoft Learn integration is disabled; only a future authenticated metadata adapter is designed.
+XP records participation; independent performance and retention must support future mastery and certification readiness. No passing guarantees, copied practice assessments, employer data or internal integrations. Supabase is a future option. An existing Vercel integration provides owner-approved automatic branch previews; hosting is not required to run locally. Enterprise accounts must be separate from personal data. Microsoft Learn integration is disabled; only a future authenticated metadata adapter is designed.
 
 Read [AGENTS.md](AGENTS.md), [architecture](docs/ARCHITECTURE.md), [learning design](docs/LEARNING_DESIGN.md), [Learn API research](docs/MICROSOFT_LEARN.md), [security](docs/SECURITY.md), [decisions](docs/DECISIONS.md) and [roadmap](docs/ROADMAP.md). Use feature branches, preserve history and update project status. No merging, deployment or provisioning without explicit owner authorization.
 

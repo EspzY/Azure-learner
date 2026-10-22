@@ -22,4 +22,4 @@ Pin versions, commit lockfile, use `npm ci`, audit runtime and developer depende
 
 Before accounts: session security, CSRF controls, schemas/rate limits, independent organization IDs, per-request membership authorization and isolation tests. Define export/deletion, retention and administrator visibility. Rankings require opt-in, pseudonyms, comparable conditions and withdrawal. Personal data does not implicitly become employer data.
 
-No production resource creation, deployment, paid service provisioning or real authentication is authorized in Phase 0. Report issues privately to the repository owner; no dedicated security inbox/process exists yet.
+No production resource creation, production deployment, paid service provisioning or real authentication is authorized in Phase 0. The owner explicitly approved automatic branch previews through the repository's existing Vercel integration during delivery. Report issues privately to the repository owner; no dedicated security inbox/process exists yet.

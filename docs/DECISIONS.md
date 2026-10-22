@@ -23,4 +23,8 @@ Initial decisions dated **2026-10-22**.
 
 The initial Next ESLint preset introduced an unpatched development-only braces advisory and peer constraints that excluded ESLint 10. Replaced it with current ESLint core, TypeScript ESLint and React Hooks recommended rules, with Prettier handling formatting and axe covering browser accessibility checks. This removed that chain without a forced Next downgrade. Framework-specific lint rules are not enabled; production builds and browser tests cover the implemented Next integration. The small `scripts/next.mjs` entry point disables framework telemetry for all package commands without requiring user environment configuration.
 
+## Delivery clarifications
+
+The first branch push exposed an existing Vercel auto-preview integration. The owner explicitly approved automatic preview deployments after being informed. This does not authorize production deployment, merge or new infrastructure. No new Vercel account/project/configuration was created. A local dev check exposed Next's instruction-file injection; `agentRules: false` keeps AGENTS.md owned by this project, while generated next-env.d.ts is ignored to avoid environment-dependent Git changes.
+
 Revisit with learner evidence or concrete constraints. Security boundary/scope changes need updated decisions and appropriate owner authorization.

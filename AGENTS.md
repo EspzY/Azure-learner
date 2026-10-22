@@ -6,6 +6,7 @@ Read README.md and docs/PROJECT_STATUS.md before work. Preserve Git history and 
 
 - Simulation first. Never create Azure resources or imply that local actions reach Azure.
 - No cloud credentials, live authentication, databases, analytics, employer/customer data or live Microsoft Learn integration in Phase 0.
+- The owner approved automatic feature-branch preview deployments through the existing Vercel integration. This does not authorize production deployments, merges or new infrastructure.
 - No environment variables without an implemented requirement. Never commit secrets or local learner data.
 - Bokmål is the initial locale. Keep service names in English. All learner-facing copy belongs in src/content/nb.ts; domain identifiers must be locale independent.
 - XP measures participation. Mastery requires evidence; exam readiness requires broader independent evidence. No pass guarantees or repeat XP for non-repeatable work.
