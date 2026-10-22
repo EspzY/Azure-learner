@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { AppShell } from '@/components/app-shell';
 import { ProgressProvider } from '@/components/progress-provider';
 import { nb } from '@/content/nb';
+import { ExpeditionProvider } from '@/features/journey/expedition-provider';
 import '@xyflow/react/dist/style.css';
 import './globals.css';
 
@@ -14,7 +15,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="nb">
       <body>
         <ProgressProvider>
-          <AppShell>{children}</AppShell>
+          <ExpeditionProvider>
+            <AppShell>{children}</AppShell>
+          </ExpeditionProvider>
         </ProgressProvider>
       </body>
     </html>

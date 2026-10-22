@@ -1,10 +1,10 @@
-# Experience design — Phase 0.5
+# Experience design — resource world and expedition
 
 Reviewed **2026-10-22**. The product moves from a lesson page containing a diagram to a world in which the learner performs a technical assignment. One existing vertical slice is deepened; the Azure curriculum and domain rules are not expanded.
 
 ## Enter, discover, operate
 
-The control room launches a real local sandbox. Its architecture illustration is generated from the same eight scope records as Explore; it is not a pretend monitoring display. Mission status, milestones and XP come from local progress. Planned networking content has no nonfunctional launch control.
+Phase 1A.5 replaces the control room with the [Azure Expedition](JOURNEY_EXPERIENCE.md): perspective travel, teaching, side-route checks and a gateway into the real sandbox. That document owns journey/camera/content/resume decisions. The interactions below describe the retained organization world. Mission status and XP come from actual local progress; future worlds have no nonfunctional launch controls.
 
 Explore devotes the viewport to a projected environment. A separate crystalline Entra identity beacon connects to Tenant root group with a dashed pink association. Solid cyan lines express the existing management hierarchy. They never represent traffic or deployment dependencies. Open trays distinguish resource groups; raised control structures distinguish management scopes; individual service forms represent resources. Heights and distances are schematic, not actual Azure geography or hardware.
 

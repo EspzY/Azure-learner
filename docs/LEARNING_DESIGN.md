@@ -1,6 +1,6 @@
 # Learning design
 
-This file describes the **implemented Phase 0.5 activity**. Phase 1A's wider competency graph, evidence distinctions and source lifecycle are proposed in [LEARNING_JOURNEY.md](LEARNING_JOURNEY.md), reusable mechanics in [EXPERIENCE_PATTERNS.md](EXPERIENCE_PATTERNS.md), and the first complete chapter in [CHAPTER_01_BLUEPRINT.md](CHAPTER_01_BLUEPRINT.md). They have not been implemented or evaluated with learners. Keep this legacy activity's validated rules/results separate from the new specification.
+This file describes the **implemented legacy organization activity**. Phase 1A.5 adds the [expedition teaching and two guided detours](JOURNEY_EXPERIENCE.md), using requirement selection and responsibility allocation rather than repeating the legacy three-question component. All three checks are guided, not independent assessment. Phase 1A's wider competency graph, evidence distinctions and source lifecycle are proposed in [LEARNING_JOURNEY.md](LEARNING_JOURNEY.md), reusable mechanics in [EXPERIENCE_PATTERNS.md](EXPERIENCE_PATTERNS.md), and the first complete chapter in [CHAPTER_01_BLUEPRINT.md](CHAPTER_01_BLUEPRINT.md). The complete chapters/platform and independent evidence designs have not been implemented or evaluated with learners. Keep this legacy activity's validated rules/results separate from the new specification.
 
 ## Resource organization v1
 

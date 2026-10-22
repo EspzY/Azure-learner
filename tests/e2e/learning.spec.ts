@@ -130,7 +130,8 @@ test('mission is playable inside the world; commands, errors, feedback, replay a
   await expect(page.locator('.topbar .xp-pill')).toHaveText('120 XP');
   await page.reload();
   await expect(page.locator('.topbar .xp-pill')).toHaveText('120 XP');
-  await expect(page.locator('.scene-object')).toHaveCount(8);
+  await expect(page.locator('.scene-object')).toHaveCount(9);
+  await expect(page.locator('[data-scope-id="created-group-1"]')).toBeVisible();
   await expect(page.getByRole('dialog')).toBeVisible();
   await page.keyboard.press('Escape');
   await expect(page.getByRole('dialog')).toHaveCount(0);
@@ -253,6 +254,7 @@ test('corrupted and unavailable storage remain usable; deleting learner data is 
     });
   });
   await page.goto('/explore');
+  await expect(page.locator('.world-loading')).toHaveCount(0);
   await expect(page.getByRole('status')).toContainText('tillater ikke lokal lagring');
   await selectSubscription(page);
   await createGroup(page);

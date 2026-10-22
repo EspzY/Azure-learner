@@ -3,6 +3,192 @@ import type { CreationError, Region, ScopeKind } from '../domain/simulation';
 
 export const nb = {
   brand: 'AzureLab',
+  expedition: {
+    title: 'Azure-ekspedisjonen',
+    sector: 'EKSPEDISJON 01 / FRA ABSTRAKSJON TIL INFRASTRUKTUR',
+    scene: 'Reise gjennom Azure-kunnskap',
+    local: 'Lokal læringsverden · ingen Azure-tilkobling',
+    map: 'Ruteoversikt',
+    mapClose: 'Tilbake til nærvisning',
+    orientation: 'Reis direkte til et stopp',
+    travel: 'Reiser mot',
+    back: 'Forrige stopp',
+    begin: 'Begynn ekspedisjonen',
+    continue: 'Fortsett reisen',
+    inspect: 'Undersøk ansvaret',
+    detour: 'Ta avstikkeren',
+    return: 'Tilbake til hovedruten',
+    leave: 'Tilbake uten å fullføre',
+    retry: 'Endre svaret',
+    validate: 'Test beslutningen',
+    allocate: 'Kontroller ansvarsfordelingen',
+    portal: 'Gå inn i infrastrukturverdenen',
+    portalEntering: 'Åpner infrastrukturverdenen',
+    worldReturn: 'Tilbake til ekspedisjonen',
+    quickEntry: 'Gå inn i universet',
+    experienced: 'Kjenner du grunnlaget? Gå direkte til praktisk arbeid.',
+    future: 'Ikke spillbar ennå',
+    guided: 'Veiledet øving · ingen mestringsvurdering',
+    reward: 'Ingen XP for avstikkere. Det praktiske oppdraget gir inntil 120 XP én gang.',
+    saved: 'Arbeidet lagres på denne enheten.',
+    storageFailure:
+      'Reisen er bare lagret i minnet. Nettleseren avviste lokal lagring; omlasting kan miste arbeidet.',
+    source: 'Microsoft-kilder · gjennomgått 22.10.2026',
+    sourceResponsibility: 'Shared responsibility',
+    sourceRuntime: 'App Service: OS & runtime',
+    journeyNotGeography:
+      'Landskapet viser læringsprogresjon, ikke Azure-regioner eller ressursplassering.',
+    controls:
+      'Bruk stoppkontrollene for å reise. Oversikten viser hele ruten. Alle handlinger kan utføres med tastatur.',
+    stops: {
+      arrival: {
+        label: 'Utgangspunkt',
+        title: 'Et nytt perspektiv på skyen.',
+        text: 'Hvem drifter hva når du flytter en applikasjon til skyen? Følg signalet til ansvarsverkstedet. Prøv et valg, se konsekvensen og ta kunnskapen med inn i en faktisk simulering.',
+      },
+      models: {
+        label: 'Ansvarsverkstedet',
+        title: 'Samme behov. Ulikt ansvar.',
+        text: 'Bytt mellom tjenestemodellene. Lagene skifter eierskap. Velg et lag for å undersøke hva teamet faktisk må gjøre.',
+      },
+      decision: {
+        label: 'Beslutningsutsikten',
+        title: 'Velg en plattform for teamet.',
+        text: 'Et team har egen webkode og trenger en administrert plattform. De vil konfigurere appen, men ikke patche gjeste-OS. Hvilken modell passer dette behovet best?',
+      },
+      crossing: {
+        label: 'Krysningspunktet',
+        title: 'Mindre drift. Fortsatt ansvar.',
+        text: 'En administrert plattform overtar driftsoppgaver. Det fritar ikke teamet fra å beskytte det de kontrollerer. Neste avstikker tester denne grensen i en ferdig SaaS-tjeneste.',
+      },
+      ownership: {
+        label: 'Ansvarsstasjonen',
+        title: 'Hva beholder kunden?',
+        text: 'En organisasjon tar i bruk en ferdig SaaS-applikasjon. Marker alle oppgavene kunden fortsatt har ansvar for blant de fire nedenfor. Se hvilke signaler som forblir hos kunden.',
+      },
+      gateway: {
+        label: 'Infrastrukturporten',
+        title: 'Fra forståelse til handling.',
+        text: 'Et appteam trenger en resource group i sin sandbox. Gå inn, finn riktig subscription og opprett gruppen. Identitet, styringsomfang og geografi må holdes fra hverandre.',
+      },
+      horizon: {
+        label: 'Neste horisont',
+        title: 'Herfra forgrener verden seg.',
+        text: 'Du kan vende tilbake og eksperimentere. Nettverk, drift og arkitektur er kommende fagområder; de fjerne landemerkene er foreløpig ikke spillbare.',
+      },
+    },
+    models: {
+      iaas: {
+        label: 'IaaS',
+        example: 'Azure Virtual Machines',
+        summary: 'Du trenger kontroll over operativsystemet. Teamet får flere driftsoppgaver.',
+        application:
+          'Et eldre system krever en bestemt OS-konfigurasjon. En VM gir kontroll, men teamet må planlegge patching, hardening og appdrift.',
+      },
+      paas: {
+        label: 'PaaS',
+        example: 'Azure App Service',
+        summary:
+          'Plattformen driftes for deg. Egen kode og applikasjonsvalg er fortsatt ditt arbeid.',
+        application:
+          'Webteamet leverer kode til App Service med innebygd runtime. Plattformen håndterer OS; teamet tester avhengigheter og velger støttet runtime-versjon.',
+      },
+      saas: {
+        label: 'SaaS',
+        example: 'Microsoft 365',
+        summary:
+          'Du tar i bruk ferdig programvare. Tilgang, innstillinger og informasjon trenger fortsatt eiere.',
+        application:
+          'En ny medarbeider skal få riktig tilgang til samarbeidsverktøyet. At programvaren er ferdig, bestemmer ikke hvilke dokumenter personen bør se.',
+      },
+    },
+    owners: { customer: 'Kunden', microsoft: 'Microsoft', shared: 'Delt ansvar' },
+    layers: {
+      physical: {
+        label: 'Fysisk infrastruktur',
+        detail:
+          'Datasenter, fysisk nettverk, verter og virtualiseringslag driftes av leverandøren i disse skymodellene.',
+      },
+      os: {
+        label: 'Operativsystem',
+        detail:
+          'I IaaS styrer du gjeste-OS. Med administrert PaaS og SaaS ligger plattformens OS-drift hos leverandøren.',
+      },
+      runtime: {
+        label: 'Runtime og middleware',
+        detail:
+          'Her viser PaaS en innebygd App Service-runtime. Egen container eller opplastet runtime har andre vedlikeholdsgrenser; ikke overfør dette bildet ukritisk.',
+      },
+      application: {
+        label: 'Applikasjon',
+        detail:
+          'Applikasjonsansvar er delt i PaaS og SaaS. Leverandøren drifter deler av løsningen; kunden har fortsatt ansvar for blant annet egen kode, tilgang eller konfigurasjon.',
+      },
+      network: {
+        label: 'Nettverkskontroller',
+        detail:
+          'IaaS krever egne nettverksvalg. PaaS deler kontrollene med plattformen. SaaS-leverandøren drifter tjenestens nettverk; klienttilgang må fortsatt vurderes.',
+      },
+      settings: {
+        label: 'Konfigurasjon',
+        detail:
+          'En standardinnstilling er et utgangspunkt. Kunden må velge passende innstillinger og kontrollere at de dekker virksomhetens behov.',
+      },
+      identity: {
+        label: 'Brukere og tilgang',
+        detail:
+          'Kunden bestemmer hvem som skal få tilgang. Administrert identitetsinfrastruktur opphever ikke behovet for å opprette, avgrense og fjerne brukertilgang.',
+      },
+      data: {
+        label: 'Kundedata',
+        detail:
+          'Kunden må klassifisere og beskytte informasjonen og vurdere lagring, tilgang og styringskrav i alle modellene.',
+      },
+    },
+    levels: ['Intuisjon', 'Mekanisme', 'Teknisk dybde', 'Anvendelse'],
+    mechanism:
+      'Følg det valgte laget i stabelen. Endring av modell flytter driftsansvaret, mens data, tilgang og kundens innstillinger blir igjen hos kunden.',
+    nuance:
+      'Forenklet ansvarsmodell, ikke en kontrakt eller garanti. Tjeneste, driftsmodell og konfigurasjon avgjør detaljene. Høyere abstraksjon betyr ikke automatisk høyere sikkerhet.',
+    selection: 'Valgt ansvarslag',
+    checkTitles: {
+      'service-fit': 'Avstikker 01 / tjenestevalg',
+      'retained-control': 'Avstikker 02 / ansvarsfordeling',
+    },
+    choices: {
+      data: 'Klassifisere og beskytte kundedata',
+      identity: 'Administrere brukere og tilgang',
+      os: 'Patche SaaS-leverandørens OS',
+      physical: 'Vedlikeholde leverandørens fysiske verter',
+    },
+    decisionFeedback: {
+      iaas: 'En VM kan kjøre koden, men teamet beholder gjeste-OS-driften. Det bryter med kravet om å slippe OS-patching. Undersøk PaaS og prøv igjen.',
+      paas: 'PaaS passer det oppgitte behovet. App Service med innebygd runtime lar teamet levere egen kode mens plattformen drifter OS. Kode, avhengigheter, tilgang og konfigurasjon trenger fortsatt eiere.',
+      saas: 'SaaS gir en ferdig applikasjon. Her trenger teamet en plattform for egen webkode. Undersøk forskjellen mellom å bruke programvare og å levere en app.',
+    },
+    allocationGood:
+      'Riktig grense: data og brukertilgang krever kundens arbeid også i SaaS. Leverandøren vedlikeholder tjenestens OS og fysiske verter. Andre kundeoppgaver finnes, men inngår ikke i disse fire valgene.',
+    allocationBad:
+      'Fordelingen stemmer ikke ennå. Data og brukertilgang forblir hos kunden. Tjenestens OS og fysiske verter driftes av SaaS-leverandøren. Endre markeringene og se signalene oppdateres.',
+    correct: 'Beslutningen holder',
+    incorrect: 'Undersøk grensen på nytt',
+    recorded:
+      'Svaret er registrert som veiledet øving. Du kan prøve igjen; dette er ikke bevis på selvstendig kompetanse.',
+    checkDone: 'Øving gjennomført',
+    checkOpen: 'Øving gjenstår',
+    portalReady: 'Praktisk oppdrag tilgjengelig',
+    portalPartial: 'Resource group opprettet · refleksjon gjenstår',
+    portalComplete: 'Oppdrag og kunnskapssjekk gjennomført',
+    portalSkills: 'G01 · F02 / scope, identitet og lokasjon',
+    portalActions: 'Velg subscription → opprett resource group → reflekter',
+    portalBoundary: 'Støtter tre simulerte grupper. Ingen Azure-operasjoner utføres.',
+    resume: 'Fortsett lagret arbeid',
+    landmarks: { network: 'Nettverk', operations: 'Drift og innsikt', architecture: 'Arkitektur' },
+    milestone: 'Gjennomførte øvinger',
+    completionNote:
+      'Gjennomføring og XP viser deltakelse. Selvstendig vurdering og varig mestring er ikke implementert.',
+    worldLoading: 'Laster den lokale infrastrukturverdenen …',
+  },
   tagline: 'Fra nysgjerrighet til kompetanse.',
   universe: {
     title: 'Azure Universe',
@@ -115,14 +301,14 @@ export const nb = {
     description: 'Utforsk Azure gjennom interaktive arkitekturer og trygge, lokale simuleringer.',
   },
   nav: [
-    { href: '/', label: 'Kontrollrom', icon: 'dashboard' },
+    { href: '/', label: 'Ekspedisjon', icon: 'dashboard' },
     { href: '/explore', label: 'Utforsk', icon: 'explore' },
     { href: '/missions', label: 'Oppdrag', icon: 'missions' },
     { href: '/progress', label: 'Fremgang', icon: 'progress' },
   ],
   shell: {
     workspace: 'DITT LÆRINGSROM',
-    path: 'Azure Fundamentals',
+    path: 'Azure-ekspedisjonen',
     pathTag: 'Læringssti · første steg',
     local: 'Lokal prototype',
     simulation: 'Simulert miljø',
@@ -131,7 +317,7 @@ export const nb = {
     account: 'Fremgang på denne enheten',
     skip: 'Hopp til innhold',
     footer: 'Et uavhengig læringsprosjekt. Ikke tilknyttet Microsoft.',
-    phase: 'PHASE 0.5',
+    phase: 'PHASE 1A.5',
     storageError:
       'Nettleseren tillater ikke lokal lagring. Fremgangen beholdes bare mens denne siden er åpen.',
     loading: 'Laster lokal fremgang …',
@@ -293,11 +479,12 @@ export const nb = {
       'Første modul er knyttet til ressursorganisering i AZ-900. Læringsstier for AZ-104 og AZ-305 er planlagt. Ingen estimater eller løfter om bestått eksamen.',
     privacy: 'Dine data, på denne enheten',
     privacyText:
-      'Bare fullførte milepæler lagres. Ingen konto, sporing eller leaderboard. Nettleserdata kan endres eller slettes og er ikke et kompetansebevis.',
+      'Reiseposisjon, innsendte øvingssvar, simulerte ressurskommandoer og milepæler lagres på denne enheten. Ingen konto, sporing eller leaderboard. Nettleserdata kan endres eller slettes og er ikke et kompetansebevis.',
     reset: 'Slett lokal fremgang',
     cancel: 'Behold fremgangen',
     confirm: 'Slett fremgangen nå',
-    confirmText: 'Dette sletter de lokale milepælene og XP. Handlingen kan ikke angres.',
+    confirmText:
+      'Dette sletter reiseposisjon, øvingssvar, simulerte ressurser, milepæler og XP på denne enheten. Handlingen kan ikke angres.',
     resetDone: 'Lokal fremgang er slettet.',
   },
 } as const;

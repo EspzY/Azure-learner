@@ -1,6 +1,6 @@
 # Chapter 01 — Fra krav til en styrt applikasjonsplattform
 
-**Experience A: foundational understanding.** Status: detailed Phase 1B implementation specification, proposed version **1.0.0**, 2026-10-22. Not implemented or approved for full implementation. The owner must review the Phase 1A blueprint first. The current resource-group demo remains a legacy introductory activity, not this chapter. Content strings shown here are illustrative; implemented learner-facing text belongs in `src/content/nb.ts`, while scenario definitions contain locale-neutral IDs/keys.
+**Experience A: foundational understanding.** Status: detailed Phase 1B implementation specification, proposed version **1.0.0**, 2026-10-22. Not implemented or approved for full implementation. The owner must review the Phase 1A blueprint first. Phase 1A.5 now supplies the journey, interactive responsibility introduction, two guided detours, portal and saved legacy resource world; see [JOURNEY_EXPERIENCE.md](JOURNEY_EXPERIENCE.md). These are a reusable entry foundation, not this complete chapter. Plan/app deployment, policy, independent transfer and checkpoint promotion below remain unimplemented. Content strings shown here are illustrative; implemented learner-facing text belongs in `src/content/nb.ts`, while scenario definitions contain locale-neutral IDs/keys.
 
 ## Purpose and learning contract
 

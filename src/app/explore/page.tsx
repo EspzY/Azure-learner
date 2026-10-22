@@ -1,4 +1,4 @@
-import { Workbench } from '@/features/organization/workbench';
+import { OrganizationWorld } from '@/features/organization/world-entry';
 export default function ExplorePage() {
-  return <Workbench />;
+  return <OrganizationWorld />;
 }

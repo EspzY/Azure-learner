@@ -2,11 +2,14 @@
 
 ## Implemented
 
-Next.js App Router serves the preserved routes `/`, `/explore`, `/missions`, `/progress`. The root layout supplies the unchanged client `ProgressProvider` and shared dark shell. The client control room derives milestones from that provider; Explore composes a client workbench. No route handlers, server actions, databases, credentials or adapters exist.
+Next.js App Router serves the preserved routes `/`, `/explore`, `/missions`, `/progress`. The root layout supplies `ProgressProvider`, `ExpeditionProvider` and the shared dark shell. Root is the perspective journey; Explore loads the browser-interactive workbench through a small `next/dynamic` boundary. [JOURNEY_EXPERIENCE.md](JOURNEY_EXPERIENCE.md) owns the implemented route/content/challenge/world-transition contract. No route handlers, server actions, databases, credentials or adapters exist.
 
 ```mermaid
 flowchart LR
   Pages[App Router] --> Shell[Shell + ProgressProvider]
+  Pages --> Journey[Journey + route and detour definitions]
+  Journey --> Shared[ExpeditionProvider + validated command replay]
+  Shared --> Workbench
   Pages --> Workbench[Organization workbench]
   Workbench --> Scene[Projected SVG scene + HTML controls]
   Workbench --> Graph[XYFlow diagram + HTML list alternatives]
@@ -23,9 +26,10 @@ flowchart LR
 - `scene-layout.ts` owns schematic x/y/z coordinates, projection and related-branch selection. `spatial-scene.tsx` owns geometry/camera state. No WebGL, GPU dependency or frame loop. Layout never derives from region. Solid edges show containment; dashed tenant-root links show identity association. Neither shows traffic or physical Azure placement.
 - `Workbench` composes scene, XYFlow/list alternatives, contextual inspector, mission HUD and brief/create/check/reset overlays. Only validated commands mutate the existing simulation. Native dialogs manage modal focus; successful creation focuses the new node. Assessment presents the original questions sequentially with unchanged scoring.
 - `ProgressProvider`: hydrates after mount, gates awards until ready, catches storage errors, listens for storage events and re-reads before awarding. It is best-effort, not transactional multi-tab persistence.
-- Simulation, selection, camera, current-attempt HUD and answers reset on reload/navigation. Completion IDs persist. Scenario reset clears current steps/camera and retains XP. Previous awards do not imply successful current attempts. Explicit data deletion clears awards.
+- Accepted resources, mission activation, submitted guided answers, route position/visits and completion IDs survive reload/navigation. Camera frames, selection/current-attempt HUD and incomplete legacy check answers remain transient. Scenario reset clears current commands/steps and retains XP. Previous awards do not imply successful current attempts. Explicit data deletion clears both stores.
+- `domain/expedition.ts` owns typed route edges, versioned detour contracts/evaluators and runtime snapshot parsing. `route-geometry.ts` owns perspective coordinates and interruptible curve/side-route camera interpolation. Commands replay through existing rules; arbitrary persisted scopes/XP are ignored. Storage is best-effort, not transactional multi-tab editing.
 
-Rendering alternatives, motion and responsive composition are described once in [EXPERIENCE_DESIGN.md](EXPERIENCE_DESIGN.md). The original pure domain/persistence implementation remains unchanged.
+Rendering alternatives, motion and responsive composition are described once in [EXPERIENCE_DESIGN.md](EXPERIENCE_DESIGN.md). The original simulation/assessment/XP rules remain unchanged; Phase 1A.5 adds a separate validated expedition snapshot and command replay.
 
 ## Documentation gate
 

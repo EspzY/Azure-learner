@@ -22,6 +22,7 @@ export const requiredFiles = [
   'docs/CHAPTER_01_BLUEPRINT.md',
   'docs/EXPERIENCE_BLUEPRINTS.md',
   'docs/SOURCE_REGISTER.md',
+  'docs/JOURNEY_EXPERIENCE.md',
 ];
 
 function markdownFiles(folder) {

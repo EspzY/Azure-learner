@@ -5,7 +5,7 @@ Read README.md, docs/PROJECT_STATUS.md and relevant existing architecture, exper
 ## Product boundaries
 
 - Simulation first. Never create Azure resources or imply that local actions reach Azure.
-- No cloud credentials, live authentication, databases, analytics, employer/customer data or live Microsoft Learn integration in Phase 0.
+- No cloud credentials, live authentication, databases, analytics, employer/customer data or live Microsoft Learn integration without explicit new scope authorization.
 - The owner approved automatic feature-branch preview deployments through the existing Vercel integration. This does not authorize production deployments, merges or new infrastructure.
 - No environment variables without an implemented requirement. Never commit secrets or local learner data.
 - Bokmål is the initial locale. Keep service names in English. All learner-facing copy belongs in src/content/nb.ts; domain identifiers must be locale independent.
@@ -24,6 +24,8 @@ Read README.md, docs/PROJECT_STATUS.md and relevant existing architecture, exper
 - New scenario/rule content needs stable IDs, versions, source records, supported/unsupported boundaries, deterministic counterexamples, transfer criteria and an accessible equivalent. Keep scenario data and award/evidence orchestration out of mission-specific JSX.
 
 ## Required verification
+
+Read docs/JOURNEY_EXPERIENCE.md before changing routes, teaching, detours or world entry. Phase 1A.5 is an explicitly authorized journey slice; full Chapter 01 remains a separately reviewed scope. Keep typed route/detour definitions, deterministic evaluators, localized copy and rendering separate. Preserve exact return/history, validated command replay and memory-only warnings. Visiting scenery never completes learning; guided answers never become independent evidence.
 
 `npm run docs:check` is mandatory and included in `npm run check` and CI. Review desktop/mobile scene, selection and mission screenshots after interaction changes; inspect actual output instead of accepting tests alone.
 

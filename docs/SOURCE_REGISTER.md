@@ -1,6 +1,6 @@
 # Source and credential register
 
-Register version **2026-10-22.1**. Reviewed **2026-10-22** by Codex through public documentation; Azure subject-matter release review remains planned. These are primary Microsoft references except UX01 (W3C). Reading public pages is not an authenticated API test, a service capability test or permission to redistribute lessons. Several Learn pages display an authorization notice while exposing readable article text; no sign-in or restricted content was used.
+Register version **2026-10-22.2**. Reviewed **2026-10-22** by Codex through public documentation; Azure subject-matter release review remains planned. These are primary Microsoft references except UX01 (W3C). Reading public pages is not an authenticated API test, a service capability test or permission to redistribute lessons. Several Learn pages display an authorization notice while exposing readable article text; no sign-in or restricted content was used.
 
 ## Attribution, versions and review policy
 
@@ -78,3 +78,16 @@ Status is as observed on **2026-10-22**, not a promise of future availability. E
 | CR12 | [Microsoft August 2026 transition announcement](https://learn.microsoft.com/en-us/partner-center/announcements/2026-august)                                                                                                                                             | Confirms SC-500 availability from **2026-07-21** and AZ-500 retirement on **2026-08-31**                                                                   | Resolve older announcement dates against the current official register; never infer automatic credential conversion |
 
 Research corrections: earlier AZ-500 announcements can show a different planned date; use the current retirement register. New developer/security credentials change scope, not the identity of AzureLab competencies. Region pairs are not universal. Service Groups are preview grouping, not a replacement management hierarchy. Azure Local, Microsoft Foundry and Azure Managed Redis must be considered when authoring future specialist content. App Service availability-zone documentation can disagree with older troubleshooting pages: current service reliability documentation is the initial model authority, with discrepancies escalated for SME review. None of these observations expands the running simulator.
+
+## Phase 1A.5 responsibility teaching supplement
+
+Reviewed 2026-10-22 from public Microsoft pages, reference-only under this register's licensing/review policy. S01's shared-responsibility page reports update **2026-08-24**: application responsibility is shared in PaaS and SaaS; customer settings/data/users remain customer responsibilities. The implemented matrix follows that current model rather than treating every SaaS application duty as provider-owned. I01 is a conceptual connection, not a completed identity competency. No source lesson body/media or practice question is reproduced.
+
+| ID  | Official source                                                                                                                    | Supported claim / observed version                                                                                                      |
+| --- | ---------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
+| S39 | [App Service OS/runtime patching](https://learn.microsoft.com/en-us/azure/app-service/overview-patch-os-runtime)                   | Built-in platform management versus custom runtime maintenance and major/minor version migration; rolling page observed on review date. |
+| S40 | [Describe IaaS](https://learn.microsoft.com/en-us/training/modules/describe-cloud-service-types/2-describe-infrastructure-service) | Customer guest-OS/configuration/patching work; rolling page observed on review date.                                                    |
+| S41 | [Describe PaaS](https://learn.microsoft.com/en-us/training/modules/describe-cloud-service-types/3-describe-platform-service)       | Managed platform for customer applications; shared application/network controls; rolling page observed on review date.                  |
+| S42 | [Describe SaaS](https://learn.microsoft.com/en-us/training/modules/describe-cloud-service-types/4-describe-software-service)       | Ready application versus retained customer data/access duties; rolling page observed on review date.                                    |
+
+Original scenarios choose a model from stated requirements and allocate four specific duties. They are authored guided exercises, not Microsoft practice assessments or current exam-readiness evidence. Re-review before changing the matrix/feedback and by the register's technical review interval.

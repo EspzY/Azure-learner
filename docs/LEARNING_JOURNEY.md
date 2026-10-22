@@ -1,6 +1,6 @@
 # Learning journey and competency universe
 
-Status: **proposed curriculum architecture**, version 1.0.0, reviewed 2026-10-22. The only implemented learning activity remains the Phase 0.5 resource-organization mission/check. This map is a scope/progression design, not a claim of available courses or verified mastery. [SOURCE_REGISTER.md](SOURCE_REGISTER.md) owns authoritative URLs, observed versions, credential status, attribution and review rules.
+Status: **proposed curriculum architecture**, version 1.0.0, reviewed 2026-10-22. Phase 1A.5 adds playable F01 service-responsibility teaching, two assisted checks and a portal to the existing G01/F02 mission. [JOURNEY_EXPERIENCE.md](JOURNEY_EXPERIENCE.md) owns its actual scope. The 30 units/specializations remain curriculum specifications. Stable objective IDs connect the route to this graph; a completed detour does not complete a competency. Overview/direct practical entry supports experienced users; diagnostic placement is not implemented. This map is a scope/progression design, not a claim of available courses or verified mastery. [SOURCE_REGISTER.md](SOURCE_REGISTER.md) owns authoritative URLs, observed versions, credential status, attribution and review rules.
 
 ## A graph of capabilities, not an exam syllabus
 

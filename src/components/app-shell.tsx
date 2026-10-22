@@ -13,7 +13,9 @@ export function AppShell({ children }: { children: React.ReactNode }) {
   const { progress, ready } = useProgress();
   const active = nb.nav.find((item) => item.href === pathname);
   return (
-    <div className={`app-shell ${pathname === '/explore' ? 'shell-universe' : ''}`}>
+    <div
+      className={`app-shell ${pathname === '/explore' || pathname === '/' ? 'shell-universe' : ''}`}
+    >
       <a href="#main" className="skip-link">
         {nb.shell.skip}
       </a>
@@ -42,7 +44,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
         </nav>
         <div className="rail-bottom" title={nb.shell.safe}>
           <ShieldCheck size={20} />
-          <span>v0.5</span>
+          <span>v1A.5</span>
         </div>
       </aside>
       <div className="main-shell">
@@ -74,7 +76,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
         <main id="main" tabIndex={-1}>
           {children}
         </main>
-        {pathname !== '/explore' && (
+        {pathname !== '/explore' && pathname !== '/' && (
           <footer className="app-footer">
             <span>{nb.shell.footer}</span>
             <span>

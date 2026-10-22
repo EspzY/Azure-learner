@@ -73,7 +73,10 @@ export function ProgressProvider({ children }: { children: React.ReactNode }) {
     },
     [save],
   );
-  const clear = useCallback(() => save(emptyProgress), [save]);
+  const clear = useCallback(() => {
+    save(emptyProgress);
+    window.dispatchEvent(new Event('azurelab:clear'));
+  }, [save]);
 
   return (
     <ProgressContext.Provider value={{ progress, ready, storageFailed, award, clear }}>

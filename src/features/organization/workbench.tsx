@@ -1,6 +1,7 @@
 'use client';
 
 import { useCallback, useEffect, useRef, useState } from 'react';
+import Link from 'next/link';
 import {
   ArrowRight,
   Check,
@@ -15,7 +16,7 @@ import {
   X,
 } from 'lucide-react';
 import { nb, creationErrors, scopeCopy } from '@/content/nb';
-import { createResourceGroup, initialSimulation, missionSatisfied } from '@/domain/simulation';
+import { createResourceGroup, missionSatisfied } from '@/domain/simulation';
 import { useProgress } from '@/components/progress-provider';
 import { scopeIcons } from '@/components/icons';
 import { CommandDialog } from '@/components/command-dialog';
@@ -24,14 +25,15 @@ import { SpatialScene } from './spatial-scene';
 import { ContextInspector } from './context-inspector';
 import { CreateCommand } from './create-command';
 import { Assessment } from './assessment';
+import { useExpedition } from '@/features/journey/expedition-provider';
 
 type Overlay = 'brief' | 'create' | 'check' | 'reset' | null;
 export function Workbench() {
-  const [simulation, setSimulation] = useState(initialSimulation);
+  const { state: expedition, simulation, update, ready: worldReady } = useExpedition();
   const [selected, setSelected] = useState<string | null>(null);
   const [view, setView] = useState<'spatial' | 'diagram' | 'list'>('spatial');
   const [overlay, setOverlay] = useState<Overlay>(null);
-  const [mission, setMission] = useState(false);
+  const mission = expedition.missionActive;
   const [subscriptionFound, setSubscriptionFound] = useState(false);
   const [comparison, setComparison] = useState(false);
   const [error, setError] = useState('');
@@ -78,13 +80,16 @@ export function Workbench() {
       setError(creationErrors[result.error]);
       return;
     }
-    setSimulation(result.state);
+    update((previous) => ({
+      ...previous,
+      commands: [...previous.commands, { name, region, subscriptionId: scope?.id ?? '' }],
+    }));
     setSelected(result.created.id);
     setError('');
     setOverlay(null);
     pendingFocus.current = result.created.id;
     if (missionSatisfied(result.state)) {
-      setMission(true);
+      update((previous) => ({ ...previous, missionActive: true }));
       award('organization-mission-v1');
       setFeedback({
         title: nb.universe.createdTitle,
@@ -113,6 +118,20 @@ export function Workbench() {
             <span> / 01</span>
           </h1>
         </div>
+        <Link
+          className="world-return"
+          href="/?at=gateway"
+          onClick={() =>
+            update((previous) => ({
+              ...previous,
+              stop: 'gateway',
+              visited: [...new Set([...previous.visited, 'gateway' as const])],
+            }))
+          }
+        >
+          {nb.expedition.worldReturn}
+          <ArrowRight size={15} />
+        </Link>
         <div className="view-switch" aria-label={nb.explore.map}>
           {[
             { id: 'spatial' as const, text: nb.universe.spatial, icon: Layers3 },
@@ -341,7 +360,9 @@ export function Workbench() {
           <div className="brief-symbol">
             <Network size={36} />
           </div>
-          <p className="eyebrow">{nb.mission.eyebrow} / AZURE FUNDAMENTALS</p>
+          <p className="eyebrow">
+            {nb.mission.eyebrow} / {nb.expedition.portalSkills}
+          </p>
           <h3 className="brief-title">{nb.universe.missionTitle}</h3>
           <p className="brief-description">{nb.universe.briefText}</p>
           <dl className="brief-targets">
@@ -362,7 +383,7 @@ export function Workbench() {
             type="button"
             className="button button-primary command-submit"
             onClick={() => {
-              setMission(true);
+              update((previous) => ({ ...previous, missionActive: true }));
               setOverlay(null);
             }}
           >
@@ -377,7 +398,7 @@ export function Workbench() {
           <CreateCommand
             subscription={scope.label}
             error={error}
-            ready={ready}
+            ready={ready && worldReady}
             onCreate={create}
             onEdit={() => setError('')}
           />
@@ -405,7 +426,7 @@ export function Workbench() {
               type="button"
               className="button button-primary"
               onClick={() => {
-                setSimulation(initialSimulation);
+                update((previous) => ({ ...previous, commands: [] }));
                 setSceneEpoch((value) => value + 1);
                 setCheckPassed(false);
                 setSelected(null);

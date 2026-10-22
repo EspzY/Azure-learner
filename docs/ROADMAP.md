@@ -1,6 +1,6 @@
 # Roadmap
 
-Version: Phase 1A proposal, 2026-10-22. This supersedes the earlier feature-oriented Phase 1 roadmap. No schedules or whole-curriculum delivery promise. Completion means meeting the stated learning/engineering/human gates; status and actual checks live in [PROJECT_STATUS.md](PROJECT_STATUS.md). Phase 0/0.5 remain the implemented foundation, not evidence of a complete educational product.
+Version: Phase 1A proposal, 2026-10-22. This supersedes the earlier feature-oriented Phase 1 roadmap. No schedules or whole-curriculum delivery promise. Completion means meeting the stated learning/engineering/human gates; status and actual checks live in [PROJECT_STATUS.md](PROJECT_STATUS.md). Phase 0/0.5 and the bounded Phase 1A.5 expedition are implemented; none is evidence of a complete educational product.
 
 ## Phase 1A — product and learning architecture
 
@@ -12,6 +12,16 @@ Version: Phase 1A proposal, 2026-10-22. This supersedes the earlier feature-orie
 - **Human review:** owner reviews product choice, Chapter 01 scope and unresolved risks; planned Azure SME, learner and accessibility exercises are explicitly unperformed.
 - **Acceptance:** every major capability identifies learning/action/state/evidence; authoritative dated sources and exact example rules exist; no proposed feature is described as shipped; Phase 1B target is bounded enough to implement without reinventing it.
 - **Exclusions:** full Phase 1B implementation, frontend rewrite, new services, accounts, Azure calls, production deployment. Owner review is the gate to the next phase.
+
+## Phase 1A.5 — playable expedition foundation
+
+- **Learning outcomes:** compare service responsibilities, make a requirement-based service choice, retain SaaS data/access duties and apply organization concepts in the existing sandbox.
+- **Experience/scope:** one continuous route, four explanation depths, two distinct side-route checks, one actual portal/world and exact return/resume; future regions unavailable.
+- **Technical deliverables:** typed route/knowledge definitions, interruptible perspective camera, shared validated snapshot/command replay, unchanged legacy rules/awards, documentation and traceable browser evidence.
+- **Automated verification:** 48 unit tests plus three documentation fixtures, production desktop/mobile journey and legacy E2E/axe, type/lint/format/docs/build, dependency/secret/request checks; actual results in PROJECT_STATUS.md.
+- **Human gates:** screenshot inspection performed by Codex; learner, Azure SME, physical device and human assistive-technology reviews pending. Engineering passes do not establish learning effectiveness.
+- **Acceptance:** actual teaching state change, wrong/correct detours and exact return, real resource creation and persistent resume, no duplicate awards/false completion, usable keyboard/reduced-motion/mobile alternatives.
+- **Exclusions:** full Chapter 01, new service engines, independent assessment, backend, production deployment and claimed mastery. This explicitly authorized phase is not permission for uncontrolled Phase 1B expansion.
 
 ## Phase 1B — one complete playable chapter
 

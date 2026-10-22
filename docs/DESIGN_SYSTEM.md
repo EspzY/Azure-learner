@@ -42,3 +42,9 @@ Automated axe checks and viewport screenshots supplement manual inspection. They
 Phase 1A preserves these visual tokens but broadens representation beyond one scene. The [product blueprint](PRODUCT_BLUEPRINT.md#coherent-experience-architecture) specifies orientation, competency navigation, active workspaces and evidence review. [Experience patterns](EXPERIENCE_PATTERNS.md) select spatial, matrix, flow, table, timeline or comparison based on the learning problem. Keep checkpoint, selected resource, relation type and simulation boundary consistent across lenses. Do not use a beautiful object, generic card or animation as evidence that learning occurred.
 
 Chapter 01's proposed matrix/receipt controls and mobile composition need new screenshots and human accessibility review when implemented. The existing screenshots/axe results validate only Phase 0.5 states. No new design is claimed as rendered or tested in Phase 1A.
+
+## Phase 1A.5 journey composition
+
+The expedition uses a perspective landscape, a narrow contextual console and a route overview instead of a dashboard. Its geometry, camera timing and mobile bottom-console behavior are canonical in [JOURNEY_EXPERIENCE.md](JOURNEY_EXPERIENCE.md). The existing orthographic resource world keeps its distinct technical composition.
+
+Within responsibility teaching, magenta denotes customer work, cyan Microsoft operations and violet shared responsibility; adjacent native labels always state the owner. These are a context-specific legend, not a global claim that cyan always means Microsoft. Portal cyan/green confirms historical activity; it never indicates mastery. Navigation dots indicate visited positions only. Correctness also has text/icons; color is not the sole signal. New stops reset internal scroll/focus; mobile layer controls scroll horizontally without widening the viewport.

@@ -1,8 +1,10 @@
 # AzureLab product blueprint
 
-Status: **Phase 1A proposal for owner review**, 2026-10-22. The running application remains Phase 0.5 at `db02abf`. None of the new chapters, persistence or platform contracts in this document is implemented. Full Phase 1B work requires blueprint review and authorization. This is the product decision document; [LEARNING_JOURNEY.md](LEARNING_JOURNEY.md) owns competencies, [EXPERIENCE_PATTERNS.md](EXPERIENCE_PATTERNS.md) owns learning mechanics, [SIMULATION_PLATFORM.md](SIMULATION_PLATFORM.md) owns system contracts and [CHAPTER_01_BLUEPRINT.md](CHAPTER_01_BLUEPRINT.md) owns the first implementation target.
+Status: **Phase 1A proposal for owner review**, 2026-10-22. The owner-authorized Phase 1A.5 expedition is now implemented: continuous travel, model comparison, two assisted detours, a real technical portal and local command replay. Complete chapters, checkpoint promotion, independent transfer and the wider platform remain proposed. [JOURNEY_EXPERIENCE.md](JOURNEY_EXPERIENCE.md) owns the actual implementation contract. Full Phase 1B work requires blueprint review and authorization. This is the product decision document; [LEARNING_JOURNEY.md](LEARNING_JOURNEY.md) owns competencies, [EXPERIENCE_PATTERNS.md](EXPERIENCE_PATTERNS.md) owns learning mechanics, [SIMULATION_PLATFORM.md](SIMULATION_PLATFORM.md) owns system contracts and [CHAPTER_01_BLUEPRINT.md](CHAPTER_01_BLUEPRINT.md) owns the first implementation target.
 
-## Assessment of the actual product
+## Assessment of the Phase 0.5 baseline
+
+The table is the historical Phase 1A inspection. Phase 1A.5 replaces the control-room entry, adds responsibility comparison/assisted checks and saves the bounded resource world. Independent assessment, wider simulation fidelity, authoring reuse and human validation remain unresolved.
 
 Inspected domain functions, Workbench/Assessment, content, progress provider, renderers, tests and the retained desktop/mobile screenshots. Phase 0.5's [Linux CI passed](https://github.com/EspzY/Azure-learner/actions/runs/39849585882). That is engineering evidence, not evidence that people learn effectively.
 

@@ -1,6 +1,36 @@
 # Project status
 
-Updated **2026-10-22**. Phase 1A delivers product/learning architecture for review on `feat/phase-0-foundation`, continuing [draft PR #1](https://github.com/EspzY/Azure-learner/pull/1). The running application remains Phase 0.5 at `db02abf`; no chapter/platform runtime implementation was added. Main remains unmerged; automatic branch previews through the existing integration are authorized. No production deployment or new services are authorized.
+Updated **2026-10-23**. Phase 1A.5 implements the Azure Expedition on `feat/phase-0-foundation`, continuing [draft PR #1](https://github.com/EspzY/Azure-learner/pull/1) from Phase 1A blueprint commit `fde59291f0cd341df4b32be8f446f9b57128f70c`. Main remains unmerged; only existing automatic branch previews are authorized. No new infrastructure or production deployment.
+
+## Phase 1A.5 — playable expedition
+
+- Root is a continuous perspective journey, selected over constellation and layered-descent alternatives. Curved main-route travel, lateral detours, overview, revisits, interruption cancellation, history positions and exact gateway return are actual navigation state.
+- Interactive eight-layer IaaS/PaaS/SaaS responsibility teaching has four directly accessible explanation depths, native owner/layer controls, service-specific caveats and official references.
+- Two versioned original checks use different reasoning: service fit from requirements and multi-select retained SaaS responsibilities. Wrong/correct attempts have specific feedback, scene response and retry/return. Both are guided, award zero XP and do not establish independent competence.
+- One major portal explicitly loads the existing organization world. Existing simulation, assessment and 80/40 XP rules are unchanged; new groups/edges are real state. Journey position, submitted answers, mission activation and accepted resource commands survive exit/reload through validated replay. Explicit deletion clears both learner stores; scenario reset retains historical awards.
+- Future networking, operations and architecture landmarks are visibly unavailable. No full Chapter 01, new service simulator, independent transfer/mastery/readiness calculation or integration is implied.
+- [JOURNEY_EXPERIENCE.md](JOURNEY_EXPERIENCE.md) contains the design evaluation, implemented contracts, walkthrough, sources, screenshots and limits. Affected continuity documents are updated; docs:check now requires this document and its negative fixture.
+
+### Phase 1A.5 verification
+
+Executed locally on Windows / Node 24.18.0. Final verification results are recorded below after the complete documentation/screenshot pass; earlier failures exposed and corrected noninteractive return-link inheritance, an accessible-name mismatch, streamed SVG hydration duplication, a test that escaped before world entry, retained console scroll between stops, and a race where immediate navigation could precede saved-position reconciliation. Travel/portal/return intents now persist before routing. Tests were retained; the legacy reload assertion now verifies nine persisted objects rather than eight reset objects, and the storage test explicitly waits for world loading.
+
+| Check                                                 | Actual result                                                                                                                                                          |
+| ----------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `npm run typecheck`, `npm run lint`                   | Passed strict checking and zero-warning lint                                                                                                                           |
+| `npm test`                                            | 48 Vitest tests + three documentation fixtures passed; route/camera/rules/attempts/corruption/replay/XP covered                                                        |
+| `npm run build`                                       | Passed production build, all preserved routes                                                                                                                          |
+| `npm run test:e2e`                                    | 16 production Chromium cases passed (27.8 s), including compact viewport/camera interruption, full journey and legacy regressions, axe, keyboard and reduced motion    |
+| `npm audit --json`                                    | Registry audit passed with zero vulnerabilities after retry outside restricted network sandbox; lockfile/dependencies unchanged                                        |
+| Formatting, docs validation, staged secret/diff check | npm run check and final docs/format passed; staged whitespace and secret-pattern scans passed (54 files, no matches), with no runtime fetch/XHR/WebSocket/beacon calls |
+
+No clean reinstall was needed because manifests/lockfile are unchanged; CI runs `npm ci`. No unintended external app requests or page errors were observed by the full journey/legacy browser tests. Public Microsoft documentation research and npm audit are development-time requests; runtime remains same-origin only.
+
+### Review and limitations
+
+Fourteen screenshots across 1440 × 960, 1280 × 720, 412 × 839 and 360 × 780 were inspected as actual rendered evidence, not a learner usability study. Human Azure SME, screen-reader, physical-device, low-end performance and learning-effectiveness reviews are unperformed. Known bounds: one route/one world, assisted checks, no general scenario interpreter; unsubmitted/partial legacy quiz answers and current inspector/camera are transient; local tab sync is best-effort, not collaborative/authoritative. Historical portal completion can remain lit after a new practice reset, without completing the new attempt. Existing organization-world labels can crop at close mobile camera angles; list/diagram/overview remain available.
+
+Next: review the expedition, then implement Chapter 01's scope/geography prediction, plan/app dependency, filtered policy failure/correction, changed independent transfer variants and explicit checkpoint promotion. Keep the existing route/portal loop and legacy regression coverage. Phase 1C extracts wider reuse only after chapter/authoring evidence.
 
 ## Phase 1A — blueprint ready for review
 
