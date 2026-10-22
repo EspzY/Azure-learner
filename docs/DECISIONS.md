@@ -19,7 +19,20 @@ Initial decisions dated **2026-10-22**.
 | 013 | Vitest + production Playwright            | Domain invariants plus real desktop/mobile behavior, accessibility and external-request boundary.   |
 | 014 | Read-only CI, pinned versions             | Repeatable review without deployment credentials; track dev/runtime advisories separately.          |
 
-## Dependency compatibility refinement
+## Phase 0.5 — immersive experience reset
+
+These decisions supersede the presentation choices in 003/004 while retaining their history and the tested domain rules.
+
+| ID  | Decision                                           | Rationale/consequence                                                                                                                                               |
+| --- | -------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 015 | Orthographic 2.5D SVG from explicit x/y/z geometry | Real model volume, height, yaw and depth ordering without a GPU dependency or render loop. CSS 3D and R3F tradeoffs are recorded in EXPERIENCE_DESIGN.md.           |
+| 016 | Semantic label buttons; XYFlow/list alternatives   | Selection, parent/child navigation and creation remain available without spatial gestures. Upright labels remain readable.                                          |
+| 017 | Scene HUD + native modal commands                  | Mission flow stays inside the world; focus trap/Escape and restored node focus remain native. Short explanations expand on demand.                                  |
+| 018 | Preserve all pure domain/progression rules         | No aesthetic rewrite of validated state, scoring, storage or reward IDs. Current-attempt steps remain separate from saved milestones.                               |
+| 019 | Midnight/violet/magenta identity                   | Complete design-system reset; cyan communicates technical relationships, not decorative glow everywhere.                                                            |
+| 020 | Mandatory docs gate and documentation continuity   | Required files and local links checked in CI; tests prove failures are detected. Source accuracy still needs review. Docs commit with their related implementation. |
+
+## Dependency compatibility refinement (Phase 0)
 
 The initial Next ESLint preset introduced an unpatched development-only braces advisory and peer constraints that excluded ESLint 10. Replaced it with current ESLint core, TypeScript ESLint and React Hooks recommended rules, with Prettier handling formatting and axe covering browser accessibility checks. This removed that chain without a forced Next downgrade. Framework-specific lint rules are not enabled; production builds and browser tests cover the implemented Next integration. The small `scripts/next.mjs` entry point disables framework telemetry for all package commands without requiring user environment configuration.
 

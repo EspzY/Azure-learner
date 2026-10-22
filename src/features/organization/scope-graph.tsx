@@ -23,6 +23,7 @@ function ScopeCard({ data }: NodeProps<ScopeNode>) {
     <>
       <Handle type="target" position={Position.Top} />
       <button
+        id={`scene-node-${data.scope.id}`}
         type="button"
         onClick={() => data.select(data.scope.id)}
         className={`scope-node kind-${data.scope.kind} ${data.active ? 'is-selected' : ''}`}
@@ -88,7 +89,7 @@ export function ScopeGraph({
           selectable: false,
           focusable: false,
           style: {
-            stroke: scope.kind === 'root' ? '#9bafd0' : '#547ba8',
+            stroke: scope.kind === 'root' ? '#f08acb' : '#50d8e8',
             strokeWidth: 1.5,
             strokeDasharray: scope.kind === 'root' ? '5 5' : undefined,
           },

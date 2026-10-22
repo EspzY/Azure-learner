@@ -2,13 +2,15 @@
 
 ## Implemented
 
-Next.js App Router serves `/`, `/explore`, `/missions`, `/progress`. The root layout supplies a client `ProgressProvider` and shell. Dashboard/Explore route composition remains server-rendered; the workbench owns simulation state. No route handlers, server actions, databases, credentials or adapters exist.
+Next.js App Router serves the preserved routes `/`, `/explore`, `/missions`, `/progress`. The root layout supplies the unchanged client `ProgressProvider` and shared dark shell. The client control room derives milestones from that provider; Explore composes a client workbench. No route handlers, server actions, databases, credentials or adapters exist.
 
 ```mermaid
 flowchart LR
   Pages[App Router] --> Shell[Shell + ProgressProvider]
   Pages --> Workbench[Organization workbench]
-  Workbench --> Graph[XYFlow + HTML list]
+  Workbench --> Scene[Projected SVG scene + HTML controls]
+  Workbench --> Graph[XYFlow diagram + HTML list alternatives]
+  Workbench --> Commands[Inspector / native modal commands]
   Workbench --> Rules[Pure simulation + assessment rules]
   Workbench --> Awards[Progression awards]
   Awards --> Storage[Validated localStorage / memory fallback]
@@ -18,9 +20,16 @@ flowchart LR
 - `domain/simulation.ts`: immutable scope records, stable IDs, bounded commands, error codes and mission predicate. No clock, randomness or network effects.
 - `domain/assessment.ts`: stable answer IDs and an all-three-correct rule.
 - `domain/progression.ts`: allowed award IDs, fixed XP and versioned parsing. XP derives from unique IDs, never stored numeric input.
-- Graph layout is presentation state. Solid edges show containment; the dashed tenant-root link shows identity association. Neither shows network traffic.
+- `scene-layout.ts` owns schematic x/y/z coordinates, projection and related-branch selection. `spatial-scene.tsx` owns geometry/camera state. No WebGL, GPU dependency or frame loop. Layout never derives from region. Solid edges show containment; dashed tenant-root links show identity association. Neither shows traffic or physical Azure placement.
+- `Workbench` composes scene, XYFlow/list alternatives, contextual inspector, mission HUD and brief/create/check/reset overlays. Only validated commands mutate the existing simulation. Native dialogs manage modal focus; successful creation focuses the new node. Assessment presents the original questions sequentially with unchanged scoring.
 - `ProgressProvider`: hydrates after mount, gates awards until ready, catches storage errors, listens for storage events and re-reads before awarding. It is best-effort, not transactional multi-tab persistence.
-- Simulation, selection and answers reset on reload/navigation. Completion IDs persist. Scenario reset retains XP; explicit progress deletion clears awards.
+- Simulation, selection, camera, current-attempt HUD and answers reset on reload/navigation. Completion IDs persist. Scenario reset clears current steps/camera and retains XP. Previous awards do not imply successful current attempts. Explicit data deletion clears awards.
+
+Rendering alternatives, motion and responsive composition are described once in [EXPERIENCE_DESIGN.md](EXPERIENCE_DESIGN.md). The original pure domain/persistence implementation remains unchanged.
+
+## Documentation gate
+
+`scripts/docs-check.mjs` checks required documents and ordinary inline/reference repository-local links, images and Markdown heading targets. It ignores fenced code and external URLs, prohibits links escaping the checkout and makes no network requests. Three Node fixture tests verify valid links and failure cases. `npm run check` includes this gate, so existing CI runs it before production builds/browser tests. It validates structure/links, not factual accuracy or every Markdown extension; source review remains necessary.
 
 ## Localization
 

@@ -8,6 +8,8 @@ Headers restrict connections/assets to same-origin, deny framing, disable device
 
 ## Input and persistence
 
+Phase 0.5 changes presentation only: projected SVG geometry and native HTML controls introduce no WebGL, remote assets, integrations or executable learner markup. Native dialog layers use the same validated domain commands; scene coordinates/camera are not trusted persistence or evidence. Modal focus/Escape and non-spatial alternatives are checked in browser tests. The documentation gate reads repository files only and never fetches external links; links escaping the checkout are rejected.
+
 Only versioned completion IDs persist under `azurelab.progress.v1` in localStorage. No personal details, answers, tokens or resource configurations are saved. Data deletion requires explicit confirmation. Blocked storage falls back to memory with a visible notice; reload/navigation may lose such progress.
 
 The parser rejects malformed/unsupported data, filters unknown IDs and deduplicates awards. XP derives from code-owned values. Creation validates names, supported regions, parent type, subscription-local uniqueness and sandbox capacity. React escapes displayed text; no HTML injection API is used.

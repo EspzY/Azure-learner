@@ -4,13 +4,13 @@
 
 **Context:** a team needs an application resource group in a sandbox subscription. **Outcome:** explain identity, management containment and regional placement without conflating them.
 
-1. Explore the hierarchy and each scope's role/caveats. Tenant-root is dashed because identity association differs from containment.
-2. Compare `rg-webapp-dev` metadata in Norway East with its App Service in West Europe.
-3. Create `rg-azurelab-dev` under `Learning Sandbox`, metadata in Norway East. Name, scope and region are deterministic success conditions.
-4. Answer three original questions about group placement, geography and tenant/subscription association. Each option has its own explanation.
-5. Reflect on why a group and resource may have different locations.
+1. Enter the scene and accept a short mission brief. Identify Learning Sandbox and discover creation in its contextual actions.
+2. Explore actual parent/child relationships through focus and branch highlighting. Tenant-root remains a dashed identity association. Technical caveats are progressively disclosed in the inspector.
+3. Compare `rg-webapp-dev` metadata in Norway East with App Service in West Europe using the region layer. Geometry does not move; location labels expose the separate dimension.
+4. Create `rg-azurelab-dev` with metadata in Norway East through a scene command. Name, scope and region remain the same deterministic success conditions. The object and relationship appear visibly; wrong configurations do not award the mission.
+5. Answer the original questions one at a time, review every selected answer's explanation, and reflect on why group/resource locations differ. Scoring and award IDs are unchanged.
 
-Hints intentionally disclose the solution in this introductory activity. Wrong configurations remain visible with comparison feedback. Creation validates before mutation. The sandbox supports three new groups; reset preserves awards.
+The loop is discover → interact → observe → understand → apply → reflect. Explanations follow relevant actions. Hints still deliberately disclose this introductory solution. Invalid commands retain associated feedback; valid but wrong configurations remain visible with a correction/reset prompt. The sandbox supports three new groups; reset clears current-attempt steps and preserves historical awards. The original unit-tested domain implementation is retained.
 
 ## Accuracy and simplifications
 

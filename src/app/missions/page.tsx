@@ -64,7 +64,7 @@ export default function MissionsPage() {
               </li>
             ))}
           </ol>
-          <Link href="/explore" className="button button-dark">
+          <Link href="/explore?mission=organization" className="button button-dark">
             {t.open}
             <ArrowRight size={18} />
           </Link>

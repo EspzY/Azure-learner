@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { ArrowUpRight, ChevronRight, FlaskConical, Leaf, ShieldCheck } from 'lucide-react';
+import { ChevronRight, ShieldCheck, Sparkles } from 'lucide-react';
 import { nb } from '@/content/nb';
 import { totalXp } from '@/domain/progression';
 import { navIcons } from './icons';
@@ -13,67 +13,48 @@ export function AppShell({ children }: { children: React.ReactNode }) {
   const { progress, ready } = useProgress();
   const active = nb.nav.find((item) => item.href === pathname);
   return (
-    <div className="app-shell">
+    <div className={`app-shell ${pathname === '/explore' ? 'shell-universe' : ''}`}>
       <a href="#main" className="skip-link">
         {nb.shell.skip}
       </a>
-      <aside className="sidebar">
-        <Link href="/" className="brand" aria-label={nb.brand}>
-          <span className="brand-mark">
-            <FlaskConical size={23} strokeWidth={2.3} />
-          </span>
-          Azure<span className="brand-light">Lab</span>
-          <span className="brand-dot" />
+      <aside className="nav-rail">
+        <Link href="/" className="brand-symbol" aria-label={nb.brand}>
+          <svg viewBox="0 0 40 40" aria-hidden="true">
+            <path d="M20 4L36 13V30L20 39L4 30V13Z" />
+            <path d="M12 28L20 12L28 28M15 23H25" />
+          </svg>
         </Link>
-        <div className="nav-label">{nb.shell.workspace}</div>
         <nav aria-label={nb.shell.workspace}>
           {nb.nav.map((item) => {
             const Icon = navIcons[item.icon]!;
             return (
               <Link
-                href={item.href}
                 key={item.href}
-                className={`nav-item ${pathname === item.href ? 'active' : ''}`}
+                href={item.href}
                 aria-current={pathname === item.href ? 'page' : undefined}
+                className={`rail-link ${pathname === item.href ? 'active' : ''}`}
               >
-                <Icon size={19} />
+                <Icon size={21} />
                 <span>{item.label}</span>
-                {pathname === item.href && <ChevronRight size={15} />}
               </Link>
             );
           })}
         </nav>
-        <div className="sidebar-path">
-          <span className="tiny-label">{nb.shell.pathTag}</span>
-          <div>
-            <span className="path-symbol">
-              <Leaf size={17} />
-            </span>
-            {nb.shell.path}
-          </div>
-          <div className="path-track">
-            <span style={{ width: `${(progress.completed.length / 2) * 100}%` }} />
-          </div>
-          <span className="path-caption">
-            {ready ? totalXp(progress) : '—'} / 120 {nb.shell.xp}
-          </span>
-        </div>
-        <div className="sidebar-bottom">
-          <div className="safe-icon">
-            <ShieldCheck size={20} />
-          </div>
-          <strong>{nb.shell.local}</strong>
-          <p>{nb.shell.safe}</p>
-          <span className="version">
-            v0.1 <ArrowUpRight size={12} />
-          </span>
+        <div className="rail-bottom" title={nb.shell.safe}>
+          <ShieldCheck size={20} />
+          <span>v0.5</span>
         </div>
       </aside>
       <div className="main-shell">
         <header className="topbar">
+          <Link className="wordmark" href="/">
+            Azure<span>Lab</span>
+            <i />
+          </Link>
+          <span className="header-divider" />
           <div className="breadcrumb">
-            <span>{nb.brand}</span>
-            <ChevronRight size={14} />
+            <span>{nb.shell.path}</span>
+            <ChevronRight size={12} />
             <strong>{active?.label ?? nb.brand}</strong>
           </div>
           <div className="topbar-right">
@@ -82,7 +63,8 @@ export function AppShell({ children }: { children: React.ReactNode }) {
               {nb.shell.simulation}
             </span>
             <span className="xp-pill">
-              ✦ {ready ? totalXp(progress) : '—'} {nb.shell.xp}
+              <Sparkles size={13} />
+              {ready ? totalXp(progress) : '—'} XP
             </span>
             <span className="avatar" title={nb.shell.guest}>
               AL
@@ -92,12 +74,14 @@ export function AppShell({ children }: { children: React.ReactNode }) {
         <main id="main" tabIndex={-1}>
           {children}
         </main>
-        <footer className="app-footer">
-          <span>{nb.shell.footer}</span>
-          <span>
-            {nb.shell.phase} <i /> {nb.shell.local}
-          </span>
-        </footer>
+        {pathname !== '/explore' && (
+          <footer className="app-footer">
+            <span>{nb.shell.footer}</span>
+            <span>
+              {nb.shell.phase} · {nb.shell.safe}
+            </span>
+          </footer>
+        )}
       </div>
     </div>
   );
