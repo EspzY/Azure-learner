@@ -25,6 +25,8 @@ Read README.md, docs/PROJECT_STATUS.md and relevant existing architecture, exper
 
 ## Required verification
 
+Phase 1B.1 is owner-authorized guided Chapter 01 work on an isolated branch stacked on foundation. Read docs/CHAPTER_01_GUIDED.md with the full chapter blueprint. Preserve the legacy journey/awards. Transfer/classification, the 100-XP chapter award and checkpoint promotion remain Phase 1B.2 until their full prerequisites are implemented; guided build success is not chapter completion or independent mastery. Typed relation meanings and replayed receipts must agree across scene/diagram/list views.
+
 Read docs/JOURNEY_EXPERIENCE.md before changing routes, teaching, detours or world entry. Phase 1A.5 is an explicitly authorized journey slice; full Chapter 01 remains a separately reviewed scope. Keep typed route/detour definitions, deterministic evaluators, localized copy and rendering separate. Preserve exact return/history, validated command replay and memory-only warnings. Visiting scenery never completes learning; guided answers never become independent evidence.
 
 `npm run docs:check` is mandatory and included in `npm run check` and CI. Review desktop/mobile scene, selection and mission screenshots after interaction changes; inspect actual output instead of accepting tests alone.

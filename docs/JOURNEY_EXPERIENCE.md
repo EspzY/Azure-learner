@@ -2,6 +2,10 @@
 
 Delivered 2026-10-23. This is a bounded playable journey, not the full [Chapter 01](CHAPTER_01_BLUEPRINT.md) or the complete 30-unit curriculum. The owner explicitly authorized this implementation after Phase 1A. No backend, WebGL, Azure connection or live content integration is introduced. [PROJECT_STATUS.md](PROJECT_STATUS.md) records actual verification and remaining review gates.
 
+## Infrastructure gateway extension — Phase 1B.1
+
+The gateway's primary action now enters `/explore?journey=1&chapter=01`, the [guided technical world](CHAPTER_01_GUIDED.md). The original organization activity remains a separate secondary action and preserves its exact awards and saved commands. `ChapterProvider` shares validated guided findings with the journey; returning updates the separate guided status without treating legacy 80/40 XP as Chapter 01 completion. Unfinished exits preserve the chapter event log and return to `gateway`; re-entry reconstructs the same resources and observations. Inspector/camera and unsubmitted form fields remain transient. No checkpoint promotion, independent proficiency, chapter award or newly unlocked region is implied by the guided status.
+
 ## Creative exploration and selected direction
 
 These are design judgments, not measured learner preferences. Three distinct navigation concepts were evaluated before implementation:
@@ -114,7 +118,7 @@ Projection uses about 100 route samples and a small fixed landmark set, recalcul
 4. Take the other side route. Mark OS incorrectly, test, then change the set to customer data plus user access. Inspect the changed signals and return to the gateway. XP remains zero.
 5. Enter the infrastructure world, accept the brief, select Learning Sandbox, create `rg-azurelab-dev` with Norway East metadata and observe the new group/edge plus first-time 80 XP.
 6. Complete the original check: under a subscription; resource location separate; each subscription trusts one tenant. The first complete check adds 40 XP. Return to the expedition; the gateway now reflects actual historical completion.
-7. Reload, resume saved work, exit unfinished practice, revisit/retry a detour, use Back/Forward and verify XP stays 120. Resetting the simulation clears the current groups, not past awards. Explicit learner deletion clears both stores.
+7. Reload, resume saved work, exit unfinished practice, revisit/retry a detour, use Back/Forward and verify XP stays 120. Resetting the simulation clears the current groups, not past awards. Explicit learner deletion now clears all three local categories, including guided chapter work.
 
 Automated reproduction: `npm run check` then `npm run test:e2e`. The new test file retains desktop/mobile `trace.zip` files and screenshots under ignored `test-results/`; open a trace with `npx playwright show-trace <trace-path>`. Tests exercise wrong/correct decisions, actual commands, return, replay, reload, storage corruption/deletion, keyboard, reduced motion, axe and no external app requests. Reviewed screenshots below are committed separately from raw traces:
 
@@ -126,4 +130,4 @@ Automated reproduction: `npm run check` then `npm run test:e2e`. The new test fi
 
 One authored route, one teaching structure, two guided checks and one real technical world are playable. There is no diagnostic assessment, new service simulator, universal scenario renderer, checkpoint promotion, independent transfer assessment, mastery/readiness computation or account sync. Future landmarks are previews only. The 30-unit graph remains the reviewed curriculum specification, not a shipped content catalog.
 
-Complete Chapter 01 next by retaining this journey shell and adding its bounded scope/geography prediction, typed plan/app dependency, source-backed policy denial/correction, unfamiliar transfer fixtures and explicit checkpoint promotion. Validate learning demand with beginner, experienced-engineer and Azure-reviewer exercises before claiming educational effectiveness. Extract wider authoring infrastructure in Phase 1C from that evidence rather than expanding empty destinations.
+Phase 1B.1 now implements guided scope/geography prediction, typed plan/app dependency and policy denial/correction in the existing journey shell. Complete the remaining unfamiliar transfer, classification and explicit checkpoint promotion in Phase 1B.2. Validate learning demand with beginner, experienced-engineer and Azure-reviewer exercises before claiming educational effectiveness. Extract wider authoring infrastructure in Phase 1C from that evidence rather than expanding empty destinations.

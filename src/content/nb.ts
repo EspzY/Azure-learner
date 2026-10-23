@@ -3,6 +3,286 @@ import type { CreationError, Region, ScopeKind } from '../domain/simulation';
 
 export const nb = {
   brand: 'AzureLab',
+  chapter: {
+    title: 'Bygg, forutsi og rett opp',
+    sector: 'INFRASTRUKTUR / CHAPTER 01 · VEILEDET',
+    entry: 'Bygg applikasjonsplattformen',
+    legacy: 'Til introduksjonsmiljøet',
+    legacyStatus: 'Tidligere introduksjonsøving',
+    return: 'Tilbake til ekspedisjonen',
+    bridge:
+      'Du har undersøkt tjenestemodeller på reisen. Nå skal valget bli en sammenhengende konfigurasjon. Teamet har egen webkode og vil slippe å drifte et gjeste-OS.',
+    brief: 'Teamets krav',
+    requirements:
+      'App Sandbox · felles livssyklus · gruppemetadata i Norway East. Webappens hosting og en lokasjonsregel må undersøkes underveis.',
+    boundary: 'Lokal konfigurasjonssimulering. Ingen kode kjører, ingen Azure-ressurser opprettes.',
+    guidedOnly:
+      'Veiledet bygging. En selvstendig utfordring kommer senere. Dette arbeidet gir ingen nye XP.',
+    guidedBuilt: 'Veiledet konfigurasjon tilfredsstilt',
+    guidedPending: 'Veiledet arbeid gjenstår',
+    transferPending: 'Chapter 01 er ikke fullført eller vurdert som selvstendig mestret.',
+    choose: 'Velg en komponent for å undersøke eller konfigurere den.',
+    objective: 'Aktuelt undersøkelsesmål',
+    tools: 'Verktøy i verdenen',
+    stages: {
+      responsibility: 'Overfør tjenestevalget',
+      organize: 'Velg riktig livssyklus og scope',
+      predict: 'Forutsi lokasjonen før resultatet',
+      investigate: 'Undersøk et policyavslag',
+      construct: 'Koble plan og webapp',
+      explain: 'Forklar årsaken',
+      'guided-built': 'Veiledet konfigurering klar',
+    },
+    goals: {
+      responsibility: 'Bekreft hvem som drifter OS og egen kode i den valgte plattformen.',
+      organize:
+        'Opprett eller bind en gruppe i App Sandbox med metadata i Norway East. Andre gyldige grupper er tillatt, men dekker ikke teamets krav.',
+      predict:
+        'Gruppemetadata er på plass. Registrer hva du tror bestemmer planens og appens lokasjon før du prøver en plan.',
+      investigate:
+        'Undersøk en avvist Web-konfigurasjon og lokasjonsregelen. Har du allerede valgt en tillatt lokasjon? Prøv moteksemplet isolert.',
+      construct:
+        'Opprett en støttet Linux-plan og en webapp som bruker den samme planen i appgruppen.',
+      explain: 'Sammenlign metadata og hosting. Forklar hvilken konfigurasjon som rettet avslaget.',
+      'guided-built':
+        'Det støttede byggverket og de veiledede forklaringene passer kravene. Selvstendig overføring gjenstår.',
+    },
+    inspect: 'Inspeksjon',
+    responsibility: 'Tjenestevalg',
+    prediction: 'Prediksjon',
+    policy: 'Lokasjonsregel',
+    locations: 'Lokasjoner',
+    receipts: 'Kvitteringer',
+    explanation: 'Forklar sammenhengen',
+    spatial: 'Romlig',
+    diagram: 'Diagram',
+    list: 'Liste',
+    views: 'Representasjon av teknisk tilstand',
+    newGroup: 'Ny resource group',
+    newPlan: 'Ny App Service plan',
+    newApp: 'Ny webapp',
+    create: 'Registrer og bruk i oppdraget',
+    cancel: 'Tilbake til inspeksjon',
+    editConfiguration: 'Endre konfigurasjon',
+    name: 'Ressursnavn',
+    subscription: 'Subscription',
+    group: 'Resource group',
+    metadata: 'Region for gruppemetadata',
+    planRegion: 'Region for hosting-plan',
+    hostingPlan: 'Hosting-plan',
+    noPlan: 'Ingen valgt plan · undersøk manglende avhengighet',
+    profile: 'Linux · linux-learning-v1',
+    profileNote:
+      'Navngitt læringsprofil; ingen reell SKU, pris eller regional tilgjengelighet bekreftes.',
+    nameNote:
+      'Plan/app: liten bokstav først, deretter små bokstaver, tall eller bindestrek; 3–40 tegn. Kapittelkonvensjon, ikke alle Azure-navneregler.',
+    bindGroup: 'Bruk som appgruppe',
+    bindPlan: 'Bruk som hosting-plan',
+    bindApp: 'Bruk som applikasjon',
+    selectedRole: 'Knyttet til oppdraget',
+    mismatch:
+      'Gyldig ressurs, men feil scope eller metadata for dette oppdraget. Ingen Azure-tillatelse er avslått.',
+    noGroup: 'Opprett eller velg en resource group først.',
+    deleteGroup: 'Slett tom gruppe',
+    deleteText:
+      'Dette fjerner den tomme gruppen i den lokale øvingen. Andre grupper og tidligere XP beholdes.',
+    deleteConfirm: 'Fjern den tomme gruppen',
+    reset: 'Start øvingen på nytt',
+    resetText:
+      'Dette erstatter gjeldende kommandoer, prediksjon og observasjoner med et nytt veiledet forsøk. Reisen og tidligere XP beholdes. Dette er ingen selvstendig innlevering.',
+    resetConfirm: 'Start nytt veiledet forsøk',
+    model: 'Tjenestemodell for teamet',
+    osOwner: 'Hvem drifter plattformens OS?',
+    codeOwner: 'Hvem har ansvar for egen kode og kundens tilgangsvalg?',
+    microsoft: 'Microsoft',
+    customer: 'Kunden',
+    confirmModel: 'Bekreft operasjonelt ansvar',
+    modelFeedback:
+      'Kravet gjelder egen kode uten gjeste-OS-drift. PaaS passer her; Microsoft drifter plattformens OS, kunden har fortsatt kode-, konfigurasjons- og tilgangsoppgaver.',
+    predictionTitle: 'Stopp før du ser resultatet',
+    predictionIntro:
+      'Gruppens metadata er i Norway East. Må en hosting-plan i gruppen derfor ligge i Norway East? Hva vil bestemme appens lokasjon?',
+    placementQuestion: 'Forholdet mellom gruppemetadata og planlokasjon',
+    appLocationQuestion: 'Hva bestemmer webappens lokasjon?',
+    independent: 'Planlokasjon velges separat fra gruppemetadata',
+    forced: 'Planen må arve gruppens metadatalokasjon',
+    planDetermines: 'Webappen bruker hosting-planens lokasjon',
+    groupDetermines: 'Webappen bruker gruppens metadatalokasjon',
+    savePrediction: 'Lagre prediksjon og undersøk planen',
+    predictionSaved: 'Prediksjonen ble lagret før resultatet; Azure-tilstanden er uendret.',
+    predictionRecorded: 'Din opprinnelige prediksjon',
+    predictionLate:
+      'Prediksjonen kom etter et planforsøk. Start et nytt veiledet forsøk for å registrere den før resultatet.',
+    predictAgain:
+      'Den første prediksjonen beholdes. Forklaringen etter forsøket kan vise hva du har lært.',
+    operationRejected: 'Avvist forsøk · ingen ressurs opprettet',
+    inspectRejected: 'Undersøk avvist operasjon',
+    operationAccepted: 'Konfigurasjon registrert',
+    operationUnsupported: 'Utenfor modellen',
+    outcomes: { accepted: 'Registrert', rejected: 'Avvist', unsupported: 'Ikke støttet' },
+    operations: {
+      CreateGroup: 'Opprett resource group',
+      DeleteEmptyGroup: 'Slett tom resource group',
+      CreatePlan: 'Opprett App Service plan',
+      CreateWebApp: 'Opprett webapp',
+      unknown: 'Ukjent operasjon',
+    },
+    receiptTitle: 'Teknisk årsak og tilstand',
+    targetType: 'Ressurstype',
+    operation: 'Operasjon',
+    requestedLocation: 'Forespurt / avledet lokasjon',
+    scope: 'Mål-scope',
+    revision: 'Verdensrevisjon',
+    inventory: 'Aktive objekter',
+    rule: 'Modellregel',
+    unchanged: 'Ingen ressurs ble lagt til. Tidligere godkjente operasjoner står fortsatt.',
+    added: 'Nye objekt-ID-er',
+    removed: 'Fjernede objekt-ID-er',
+    noReceipts: 'Utfør en teknisk handling for å undersøke en ekte modellkvittering.',
+    inspectReceipt: 'Undersøk kvittering',
+    showPolicy: 'Undersøk gjeldende policy',
+    customPolicy: 'Egendefinert læringspolicy',
+    policyScope: 'Tildelt scope',
+    policyTypes: 'Gjelder bare Web-typer',
+    policyAllowed: 'Tillatte ressurslokasjoner',
+    policyMode: 'Resource Manager mode: all',
+    policyExpression: 'Web-type + lokasjon utenfor tillatt liste → deny',
+    policyExcluded:
+      'Resource groups er ikke måltypen. Gruppemetadata er derfor ikke en løsning på dette ressurslokasjonsavslaget.',
+    policyNuance:
+      'Dette er en avgrenset, forfattet regel inspirert av Azure Policy. Den er ikke den generelle innebygde Allowed locations-policyen og er ingen garanti for dataresidens.',
+    policyExisting:
+      'Deny kan stoppe nye forespørsler. Eksisterende ressurser flyttes eller slettes ikke av regelen; de kan være uten samsvar.',
+    probe: 'Test avvist alternativ isolert',
+    probeNote:
+      'Et faktisk CreatePlan-forsøk i North Europe kjøres i en forkastbar kopi. Din godkjente plan og verden endres ikke.',
+    probeReceipt: 'Isolert policyforsøk · hovedverden uendret',
+    remedy: 'Hvilket felt retter denne Web-lokasjonskonflikten?',
+    fixResource: 'Velg en tillatt ressurslokasjon; appen følger planen',
+    fixMetadata: 'Flytt gruppens metadata',
+    breakDependency: 'Fjern appens planreferanse',
+    saveExplanation: 'Registrer årsaksforklaring',
+    explanationWrong:
+      'Undersøk kvitteringen og hosting-avhengigheten. Metadata flytter ikke planen; en webapp trenger fortsatt en støttet plan.',
+    explanationGood:
+      'Forklaringen stemmer med den modellerte tilstanden. Dette er veiledet evidens, ikke en uavhengig vurdering.',
+    metadataValue: 'Gruppens metadatalokasjon',
+    resourceValue: 'Ressursens lokasjon',
+    derivedLocation: 'Avledet fra hosting-plan',
+    noResourceYet: 'Ingen slik ressurs er registrert ennå',
+    compareNote:
+      'Norway East beskriver her gruppemetadata. Hosting-planen plasserer Web-ressursene; ingen region er et management-scope.',
+    relationLabels: {
+      'identity-authority': 'Identitetsautoritet',
+      'management-parent': 'Management-scope',
+      'resource-member': 'Ressursmedlemskap',
+      'depends-on': 'Hosting-avhengighet · app → plan',
+    },
+    kindLabels: {
+      tenant: 'Microsoft Entra tenant',
+      root: 'Tenant root group',
+      management: 'Management group',
+      subscription: 'Subscription',
+      group: 'Resource group',
+      plan: 'App Service plan',
+      app: 'Webapp',
+    },
+    supported: 'Støttet konfigurasjon',
+    health: 'Kjøretid, kodeleveranse, helse og nettverk er ikke modellert.',
+    depth: 'Teknisk fordypning',
+    intuition: 'Formål',
+    mechanism: 'Mekanisme',
+    nuance: 'Grenser og moteksempler',
+    source: 'Microsoft-kilde · gjennomgått 23.10.2026',
+    topics: {
+      scope: {
+        purpose: 'En gruppe samler ressurser som teamet vil forvalte gjennom samme livssyklus.',
+        mechanism:
+          'Gruppen har én subscription som management-parent. Ressurser er medlemmer av gruppen. Entra-katalogen angir identitet, ikke fysisk plassering.',
+        nuance:
+          'Begge sandbox-subscriptions kan brukes i modellen. En gyldig opprettelse i Shared Sandbox dekker likevel ikke appteamets krav om App Sandbox. Tilgangskontroll simuleres ikke.',
+        url: 'https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/manage-resource-groups-portal',
+      },
+      hosting: {
+        purpose:
+          'Planen beskriver hosting-ressursene. Webappen er applikasjonskonfigurasjonen som bruker dem.',
+        mechanism:
+          'Planen velger OS og region. Appen refererer til en faktisk støttet plan og får samme OS/lokasjon. Begge er egne ressursmedlemmer av gruppen; app → plan er en annen relasjon.',
+        nuance:
+          'Modellen støtter bare Linux-profilen og samme gruppe. Azure kan støtte hosting over gruppegrenser; denne øvingen svarer eksplisitt «ikke støttet». Ingen appkode kjører etter opprettelse.',
+        url: 'https://learn.microsoft.com/en-us/azure/app-service/overview-hosting-plans',
+      },
+      location: {
+        purpose: 'Hvor styringsmetadata lagres og hvor en ressurs ligger er forskjellige spørsmål.',
+        mechanism:
+          'En gruppe med metadata i Norway East kan inneholde en hosting-plan i West Europe. Webappens region følger planen, ikke gruppefeltet.',
+        nuance:
+          'Gruppens metadata er ikke en instruks om å flytte eksisterende ressurser. Modellen tilbyr ingen metadataendring eller ressursflytting. Geografisk plassering vises som egne egenskaper.',
+        url: 'https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/manage-resource-groups-portal',
+      },
+      policy: {
+        purpose:
+          'Styringsregler avgrenser hvilke ellers gyldige konfigurasjoner som kan registreres.',
+        mechanism:
+          'Tildelingen ved App Sandbox undersøker Web-plan/app-type og ressurslokasjon. North Europe avvises av akkurat denne regelen; West Europe er tillatt.',
+        nuance:
+          'Gruppemetadata inngår ikke i typefilteret. Et avslag oppretter ingenting. En ny deny-regel flytter eller sletter ikke eksisterende ressurser. Full Azure Policy-evaluering er utenfor modellen.',
+        url: 'https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effect-deny',
+      },
+    },
+    errors: {
+      created:
+        'Konfigurasjonen er registrert i den lokale modellen. Dette bekrefter ikke at kode kjører.',
+      deleted: 'Den tomme gruppen er fjernet fra dette forsøket.',
+      'invalid-envelope': 'Forespørselen har ugyldig kommando-ID, revisjon eller format.',
+      'invalid-command': 'Kommandoen mangler et påkrevd tekstfelt.',
+      'invalid-name':
+        'Navnet følger ikke de støttede reglene. Gruppen bruker Resource Group-reglene; Web-navn bruker kapittelkonvensjonen.',
+      'invalid-region': 'Regionen er ikke en av de tre støttede fixture-regionene.',
+      'invalid-parent': 'Det angitte management-scope finnes ikke eller har feil type.',
+      'duplicate-name': 'Navnet finnes allerede for denne typen i det støttede navneomfanget.',
+      'missing-plan':
+        'Ingen støttet hosting-plan finnes med denne referansen. Gruppen og tidligere godkjente ressurser er uendret.',
+      'policy-location-denied':
+        'Web-ressursens lokasjon bryter den gjeldende tildelingen. Undersøk policyens scope, typefilter og tillatte regioner.',
+      'unsupported-capability':
+        'Denne Azure-operasjonen er utenfor kapittelmodellen. Ingen operasjon ble utført.',
+      'unsupported-field':
+        'Et ekstra konfigurasjonsfelt er utenfor modellen. Appens lokasjon kan for eksempel ikke velges uavhengig av planen.',
+      'unsupported-profile':
+        'Bare linux-learning-v1 støttes. Dette sier ikke hvilke Azure-profiler som faktisk finnes.',
+      'cross-group-hosting':
+        'Hosting på tvers av resource groups er utenfor denne modellen; det er ikke et generelt Azure-forbud.',
+      'cascade-delete-unsupported':
+        'Gruppen inneholder ressurser. Kaskadesletting er ikke modellert.',
+      capacity:
+        'Kapitlets grense er tre aktive grupper og 16 scope/ressursobjekter. Dette er ikke en Azure-kvote.',
+      'stale-revision':
+        'Kommandoen bygger på en gammel verdensrevisjon. Les gjeldende tilstand og prøv med ny kommando-ID.',
+      'command-id-conflict':
+        'Samme kommando-ID ble brukt med et annet innhold. Den opprinnelige operasjonen beholdes.',
+      'history-limit':
+        'Forsøkets kommandogrense er nådd. Eksporter arbeidet eller start et nytt forsøk.',
+    },
+    storage: {
+      corrupt:
+        'Lagrede kapitteldata kunne ikke valideres. Ingen tidligere gjennomføring er godkjent. Dataene beholdes til du velger å starte på nytt.',
+      unsupported:
+        'Lagringen bruker en ukjent scenario- eller modellversjon. Den spilles ikke av med dagens regler.',
+      conflict:
+        'En annen fane har endret lagringen. Ditt arbeid beholdes i minnet; nye handlinger er stanset for å unngå overskriving. Eksporter gjerne før du laster den andre versjonen.',
+      unsaved:
+        'Arbeidet er bare i minnet. Nettleseren avviste lesing eller lagring; omlasting kan miste endringene.',
+      limit: 'Forsøket har nådd lagrings-/hendelsesgrensen. Eksporter eller start et nytt forsøk.',
+      'invalid-action':
+        'Handlingen kunne ikke brukes på den nåværende tilstanden. Undersøk valgt scope og prøv igjen.',
+    },
+    loadSaved: 'Last lagret versjon',
+    export: 'Eksporter mitt veiledede arbeid',
+    recovered: 'Start en ny, kompatibel lokaløving',
+    saved: 'Lagret lokalt · uverifisert',
+    attempt: 'Veiledet forsøk',
+  },
   expedition: {
     title: 'Azure-ekspedisjonen',
     sector: 'EKSPEDISJON 01 / FRA ABSTRAKSJON TIL INFRASTRUKTUR',
@@ -69,7 +349,7 @@ export const nb = {
       gateway: {
         label: 'Infrastrukturporten',
         title: 'Fra forståelse til handling.',
-        text: 'Et appteam trenger en resource group i sin sandbox. Gå inn, finn riktig subscription og opprett gruppen. Identitet, styringsomfang og geografi må holdes fra hverandre.',
+        text: 'Et appteam har egen webkode og vil slippe gjeste-OS-drift. Bygg et PaaS-grunnlag, undersøk et lokasjonsavslag og koble appen til en hosting-plan.',
       },
       horizon: {
         label: 'Neste horisont',
@@ -179,9 +459,9 @@ export const nb = {
     portalReady: 'Praktisk oppdrag tilgjengelig',
     portalPartial: 'Resource group opprettet · refleksjon gjenstår',
     portalComplete: 'Oppdrag og kunnskapssjekk gjennomført',
-    portalSkills: 'G01 · F02 / scope, identitet og lokasjon',
-    portalActions: 'Velg subscription → opprett resource group → reflekter',
-    portalBoundary: 'Støtter tre simulerte grupper. Ingen Azure-operasjoner utføres.',
+    portalSkills: 'Scope · lokasjon · hosting · styringsregler',
+    portalActions: 'Forutsi → bygg → undersøk avslaget → rett opp',
+    portalBoundary: 'Lokal konfigurasjonssimulering. Ingen Azure-operasjoner utføres.',
     resume: 'Fortsett lagret arbeid',
     landmarks: { network: 'Nettverk', operations: 'Drift og innsikt', architecture: 'Arkitektur' },
     milestone: 'Gjennomførte øvinger',
@@ -317,7 +597,8 @@ export const nb = {
     account: 'Fremgang på denne enheten',
     skip: 'Hopp til innhold',
     footer: 'Et uavhengig læringsprosjekt. Ikke tilknyttet Microsoft.',
-    phase: 'PHASE 1A.5',
+    phase: 'PHASE 1B.1',
+    release: 'v1B.1',
     storageError:
       'Nettleseren tillater ikke lokal lagring. Fremgangen beholdes bare mens denne siden er åpen.',
     loading: 'Laster lokal fremgang …',
@@ -479,7 +760,7 @@ export const nb = {
       'Første modul er knyttet til ressursorganisering i AZ-900. Læringsstier for AZ-104 og AZ-305 er planlagt. Ingen estimater eller løfter om bestått eksamen.',
     privacy: 'Dine data, på denne enheten',
     privacyText:
-      'Reiseposisjon, innsendte øvingssvar, simulerte ressurskommandoer og milepæler lagres på denne enheten. Ingen konto, sporing eller leaderboard. Nettleserdata kan endres eller slettes og er ikke et kompetansebevis.',
+      'Reiseposisjon, øvingssvar, tekniske kommandoer, prediksjoner, undersøkelser og milepæler lagres på denne enheten. Ingen konto, sporing eller leaderboard. Nettleserdata kan endres eller slettes og er ikke et kompetansebevis.',
     reset: 'Slett lokal fremgang',
     cancel: 'Behold fremgangen',
     confirm: 'Slett fremgangen nå',

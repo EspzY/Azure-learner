@@ -16,12 +16,15 @@ import {
 } from '@/domain/expedition';
 import { useProgress } from '@/components/progress-provider';
 import { useExpedition } from './expedition-provider';
+import { useChapter } from '@/features/chapter01/provider';
+import { currentStage } from '@/domain/chapter01/scenario';
 import { JourneyScene } from './journey-scene';
 import { KnowledgeDetour } from './knowledge-detour';
 
 export function Journey() {
   const { state, update, ready } = useExpedition();
   const { progress } = useProgress();
+  const { attempt: guided, ready: guidedReady } = useChapter();
   const router = useRouter();
   const search = useSearchParams();
   const at = search.get('at');
@@ -63,7 +66,7 @@ export function Journey() {
     update((old) => ({ ...old, stop: next, visited: [...new Set([...old.visited, next])] }));
     router.push(`/?at=${next}`, { scroll: false });
   }
-  function enter() {
+  function enter(chapter = false) {
     if (!ready || entering) return;
     update((old) => ({
       ...old,
@@ -72,7 +75,10 @@ export function Journey() {
     }));
     setEntering(true);
     const enterWorld = () =>
-      router.push('/explore?journey=1&mission=organization', { scroll: false });
+      router.push(
+        chapter ? '/explore?journey=1&chapter=01' : '/explore?journey=1&mission=organization',
+        { scroll: false },
+      );
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) enterWorld();
     else timer.current = setTimeout(enterWorld, 440);
   }
@@ -254,18 +260,34 @@ export function Journey() {
               )}
               {stop === 'gateway' && (
                 <div className="portal-brief">
+                  <p className="portal-skills">{text.portalSkills}</p>
+                  <p>{text.portalActions}</p>
+                  <small>{text.portalBoundary}</small>
+                  <span className="chapter-portal-status">
+                    {guidedReady && currentStage(guided) === 'guided-built'
+                      ? nb.chapter.guidedBuilt
+                      : nb.chapter.guidedPending}{' '}
+                    · {nb.chapter.transferPending}
+                  </span>
+                  <button
+                    type="button"
+                    className="button button-primary chapter-launch"
+                    disabled={!ready || entering}
+                    onClick={() => enter(true)}
+                  >
+                    {nb.chapter.entry}
+                    <ArrowRight size={17} />
+                  </button>
+                  <small>{nb.chapter.legacyStatus}</small>
                   <span className={`portal-status ${complete ? 'complete' : ''}`}>
                     <i />
                     {portalStatus}
                   </span>
-                  <p className="portal-skills">{text.portalSkills}</p>
-                  <p>{text.portalActions}</p>
-                  <small>{text.portalBoundary}</small>
                   <button
                     type="button"
-                    className="button button-primary portal-launch"
+                    className="button button-secondary portal-launch"
                     disabled={!ready || entering}
-                    onClick={enter}
+                    onClick={() => enter()}
                   >
                     {entering
                       ? text.portalEntering

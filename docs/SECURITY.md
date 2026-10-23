@@ -16,6 +16,12 @@ The parser rejects malformed/unsupported data, filters unknown IDs and deduplica
 
 LocalStorage can be edited, evicted, cleared or raced across tabs. It is not a secure achievement ledger. Future backends must verify attempts and deduplicate transactionally, never trust uploaded XP.
 
+## Guided workspace — Phase 1B.1
+
+`azurelab.chapter01.guided.v1` is a third, isolated local category. It contains only pinned versions, store revision, attempt number and up to 500 typed command/learning events (250,000-character envelope cap). Full replay validates references and derives world, receipts and guided findings; serialized worlds, XP or completion flags are not trusted. Unknown versions/corruption are quarantined with a visible warning until an explicit restart. No legacy record is promoted to chapter evidence. Explicit data deletion clears this category through the shared clear event; attempt restart preserves expedition/legacy awards. Diagnostic JSON export is local and has no import/trust-elevation path.
+
+Commands validate envelopes, allowlisted operations/fields, name/parent/profile/dependency rules, policy and capacity. Unknown functionality returns rejection/unsupported rather than running code. Read/write denial retains memory-only work with a warning. The store checks the raw saved base before mutation/write and stops on detected concurrent change, offering export and explicit reload. This is not an atomic transaction; simultaneous writes between comparison and storage remain a local-only limitation. No credentials, real code execution, external requests or third-party infrastructure are added.
+
 ## Dependencies and secrets
 
 Pin versions, commit lockfile, use `npm ci`, audit runtime and developer dependencies. Do not force major-version downgrades without review. `.gitignore` excludes secrets/env files, build output and learner/test artifacts. Inspect staged content before pushing. Findings and disposition are recorded in PROJECT_STATUS.md. CI is read-only and has no deployment credentials.

@@ -1,6 +1,6 @@
 # Design system — immersive reset
 
-Phase 0.5 replaces the white/navy/mint dashboard direction. All routes share a dark environment with upright technical labels, carefully separated surfaces and restrained luminous selection. Full interaction/rendering reasoning is in [EXPERIENCE_DESIGN.md](EXPERIENCE_DESIGN.md).
+Phase 0.5 replaces the white/navy/mint dashboard direction. All routes share a dark environment with upright technical labels, carefully separated surfaces and restrained luminous selection. Full interaction/rendering reasoning is in [EXPERIENCE_DESIGN.md](EXPERIENCE_DESIGN.md). Phase 1B.1 extends that language: cyan dotted membership differs from solid management edges; directed violet hosting links differ from both. Amber policy/rejection annotations are not resource models. Plans use compute plates and apps a code window; visible selection and textual relationship/property alternatives carry the same meaning without relying only on color. The desktop operational console and mobile split scene/console share native controls and focus indicators.
 
 | Token          | Value     | Meaning                                        |
 | -------------- | --------- | ---------------------------------------------- |

@@ -1,5 +1,39 @@
 # Project status
 
+## Phase 1B.1 — guided technical world
+
+Branch `feat/chapter-01-guided` starts at verified foundation `707fc1bed0a47875e24b5c8726f2e629cddb7289`; PR #1 is unchanged. [CHAPTER_01_GUIDED.md](CHAPTER_01_GUIDED.md) owns the implemented contracts, walkthrough, screenshots and precise acceptance-vector coverage.
+
+- **A / technical model:** frozen organization/Web fixture, four registered commands, runtime validation, immutable accepted/rejected/unsupported outcomes, receipts, policy witnesses, delivery deduplication/revisions and replay. Committed after full quality check passed (75 Vitest + three documentation fixtures).
+- **B / playable technical experience:** responsibility bridge, actual group/scope binding, immutable pre-result prediction, real policy denial and scope inspection, corrected plan, app dependency rejection/creation, location lens and structured causal explanation. Distinct scene geometry/edge semantics/annotations project actual state. Same world through spatial/XYFlow/list alternatives.
+- **C / continuity:** primary gateway entry into the new world, exact return, isolated shared guided store, validated pinned replay, explicit restart/export/conflict recovery and all-data deletion. Legacy awards/expedition keys remain separate; no fake legacy-to-chapter migration.
+- **D / quality and documentation:** retained all 16 existing browser cases/assertions; added eight guided desktop/mobile cases, traces, store/projection tests and 16 committed screenshots from the production build. Relevant Markdown and the permanent engineering contract are updated; docs:check requires the new contract.
+
+The final state is **guided configuration satisfied**, not Chapter 01 complete, independent proficiency or checkpoint promotion. No chapter XP is implemented. Full transfer/classification, frozen submission/history, proposed chapter award and promotion remain Phase 1B.2. No Azure resources, new external service, authentication or production deployment.
+
+### Phase 1B.1 verification
+
+Executed locally on Windows / Node 24.18.0:
+
+| Command/check                                 | Actual result                                                                                                                                                                                                                                                                       |
+| --------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `npm run check`                               | Passed strict TypeScript, zero-warning ESLint, Prettier, 21-document/local-link/image validation, unit tests and production build                                                                                                                                                   |
+| `npm test` within check                       | **81 Vitest** tests + **three documentation fixtures** passed; model/receipts/replay/corruption/store/projection and legacy rules covered                                                                                                                                           |
+| `npm run build` after final gateway copy      | Passed; preserved routes, separate client-loaded workbenches, no runtime services                                                                                                                                                                                                   |
+| `npm run test:e2e` after final gateway change | **24/24 production Chromium cases passed (42.0 s)**: 16 preserved + eight new; full guided loop, first-correct fork, wrong scope, dependency failure, replay/reload/reset/all-category deletion, detected tab conflict, keyboard, reduced motion, mobile/compact and axe assertions |
+| Runtime request/page-error listeners          | Zero unintended external requests or page errors in monitored full-flow tests                                                                                                                                                                                                       |
+| Dependency audit                              | `npm audit --json`: zero vulnerabilities; manifest/lockfile unchanged                                                                                                                                                                                                               |
+
+Screenshots were generated from final interactions at 1440 × 960, 1280 × 720, 412 × 839 and 360 × 780. Sixteen selected actual images are linked in the guided contract; Playwright traces/screenshots remain reproducible in ignored test output. Staged secret-pattern review found no matches across 54 integration files; runtime source scan found no fetch/XHR/WebSocket/beacon calls. Whitespace review passed. This is heuristic review, not a security guarantee; no unexecuted remote CI result is implied here.
+
+`npm audit --json` passed: **zero vulnerabilities**, unchanged manifest/lockfile. No clean reinstall is necessary; dependencies did not change and CI retains `npm ci`. Required docs now include the focused guided contract (21 Markdown documents). Initial new tests exposed a missing semantic group role on the receipt tray; fixed. Native-select locator/expected reduced-motion/policy-class test errors were corrected without removing assertions. Visual review exposed mobile hosting-plan cropping and overlapping resource labels; viewport-aware framing and separated resource placement address those findings.
+
+### Remaining review and Phase 1B.2
+
+Screenshot review is Codex inspection of actual rendered evidence, not a human learner/SME study. Human screen-reader, physical-device, low-end performance and educational-effectiveness reviews remain unperformed. Spatial labels can be small/cropped at close angles, especially on mobile; zoom/overview and readable inspector/list are available. Only submitted events survive reload; camera/selection/unsubmitted forms are transient. One current guided attempt is retained, not an archive. Local compare-before-write cannot guarantee atomic multi-tab updates.
+
+Next: implement the changed transfer variants, freeze/replay submissions and criterion witnesses, classify assistance/exposure without inflating trust, explicitly promote a validated chosen world revision, then implement the chapter award only when its full prerequisites exist. Complete remaining V08/V11–V15 requirements and human review before calling Chapter 01 complete. Do not expand worlds/curriculum/backend in that task.
+
 Updated **2026-10-23**. Phase 1A.5 implements the Azure Expedition on `feat/phase-0-foundation`, continuing [draft PR #1](https://github.com/EspzY/Azure-learner/pull/1) from Phase 1A blueprint commit `fde59291f0cd341df4b32be8f446f9b57128f70c`. Main remains unmerged; only existing automatic branch previews are authorized. No new infrastructure or production deployment.
 
 ## Phase 1A.5 — playable expedition

@@ -132,6 +132,10 @@ export function Workbench() {
           {nb.expedition.worldReturn}
           <ArrowRight size={15} />
         </Link>
+        <Link className="chapter-entry-link" href="/explore?chapter=01">
+          {nb.chapter.entry}
+          <ArrowRight size={14} />
+        </Link>
         <div className="view-switch" aria-label={nb.explore.map}>
           {[
             { id: 'spatial' as const, text: nb.universe.spatial, icon: Layers3 },

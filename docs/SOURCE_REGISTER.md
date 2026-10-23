@@ -1,6 +1,6 @@
 # Source and credential register
 
-Register version **2026-10-22.2**. Reviewed **2026-10-22** by Codex through public documentation; Azure subject-matter release review remains planned. These are primary Microsoft references except UX01 (W3C). Reading public pages is not an authenticated API test, a service capability test or permission to redistribute lessons. Several Learn pages display an authorization notice while exposing readable article text; no sign-in or restricted content was used.
+Register version **2026-10-23.1**. Baseline reviewed **2026-10-22**, with the targeted Phase 1B.1 re-review below on **2026-10-23**, by Codex through public documentation; Azure subject-matter release review remains planned. Other source/credential observations retain their original dates. These are primary Microsoft references except UX01 (W3C). Reading public pages is not an authenticated API test, a service capability test or permission to redistribute lessons. Several Learn pages display an authorization notice while exposing readable article text; no sign-in or restricted content was used.
 
 ## Attribution, versions and review policy
 
@@ -59,6 +59,8 @@ Namespaces are explicit: `Sxx` technical sources, `CRxx` credential sources and 
 | UX01 | [W3C WCAG 2.2 Recommendation](https://www.w3.org/TR/WCAG22/)                                                                                              | Accessibility review reference, not a conformance claim. Test keyboard, focus, reflow and alternatives manually as well as automatically.                                            |
 
 ## Credential observations
+
+Phase 1B.1 technical re-review **2026-10-23**: S12 App Service plans (page update 2026-08-24) confirms regional plan compute/OS and app-to-plan hosting; S03 confirms resource-group metadata can differ from resource location; S38 confirms blocked new requests versus existing noncompliance. The implemented mode-all, Web-type-filtered West Europe constraint is an original training policy, not the generic built-in Allowed locations definition. `linux-learning-v1` and chapter naming/capacity are explicitly synthetic restrictions. These sources do not validate full provider behavior, real availability, prices, health or code deployment. Reference-only disposition and pending SME review remain unchanged.
 
 Status is as observed on **2026-10-22**, not a promise of future availability. Exam effective date, page update date and retirement date are different fields. These observations support the overlay strategy in [LEARNING_JOURNEY.md](LEARNING_JOURNEY.md#certification-is-a-versioned-overlay). No practice assessment or lab was accessed/copied.
 

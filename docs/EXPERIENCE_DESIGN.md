@@ -1,6 +1,12 @@
 # Experience design — resource world and expedition
 
-Reviewed **2026-10-22**. The product moves from a lesson page containing a diagram to a world in which the learner performs a technical assignment. One existing vertical slice is deepened; the Azure curriculum and domain rules are not expanded.
+Reviewed **2026-10-23**. The product moves from a lesson page containing a diagram to a world in which the learner performs a technical assignment. Phase 0.5 established the dimensional presentation; Phase 1A.5 added the expedition. Phase 1B.1 adds a bounded guided technical model without changing the legacy activity's rules.
+
+## Build, predict and recover
+
+The [guided chapter](CHAPTER_01_GUIDED.md) reuses the scene, camera and semantic alternatives. Compute plates identify an App Service plan; an upright code window identifies its webapp. Solid cyan management edges, dotted cyan resource membership, dashed magenta identity association and a directed violet hosting edge carry distinct meanings. An amber shield marks the custom policy at its actual subscription; inspecting it highlights that scope. An amber crossed footprint marks a rejected operation outside the resource inventory. It never becomes a deployed object.
+
+Native controls configure one contextual operation at a time; separate learning events record the original prediction and later explanation. Receipts preserve the causal chain and unchanged revisions/counts. The location lens exposes group metadata and plan-derived app location as properties without moving geometry. On narrow screens the scene remains above a scrolling technical console; commands are reachable by touch and keyboard. Camera framing uses actual viewport aspect and includes the selected app's plan. Zoom/overview, XYFlow and the complete semantic list remain available. Short-height layouts scroll the console, rather than hiding its commands or overflowing the page. These decisions improve investigation; they do not prove educational effectiveness.
 
 ## Enter, discover, operate
 

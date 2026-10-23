@@ -23,7 +23,21 @@ Version: Phase 1A proposal, 2026-10-22. This supersedes the earlier feature-orie
 - **Acceptance:** actual teaching state change, wrong/correct detours and exact return, real resource creation and persistent resume, no duplicate awards/false completion, usable keyboard/reduced-motion/mobile alternatives.
 - **Exclusions:** full Chapter 01, new service engines, independent assessment, backend, production deployment and claimed mastery. This explicitly authorized phase is not permission for uncontrolled Phase 1B expansion.
 
-## Phase 1B — one complete playable chapter
+## Phase 1B.1 — guided Build, Predict & Recover
+
+- **Learning outcomes:** apply PaaS responsibility, lifecycle scope, separate metadata/resource location, actual hosting dependency and a filtered resource-location constraint in guided practice.
+- **Experience/scope:** existing journey portal → operational world → pre-result prediction → real denial/receipt/policy investigation → corrected Linux plan → dependent app → causal explanation → saved return. The [guided implementation](CHAPTER_01_GUIDED.md) is the canonical contract.
+- **Technical deliverables:** bounded model, four commands, immutable receipts/delivery rules, typed scenario/evaluators, shared SVG/XYFlow/list projection, isolated versioned local replay/conflict handling, legacy compatibility and documentation. No new rendering library/services.
+- **Automated gate:** relevant V01–V16 subsets are enumerated in the implementation document; domain/store/projection tests plus retained legacy/journey browser cases and new guided desktop/mobile/keyboard/reduced-motion/axe checks. Run all normal type/lint/format/docs/unit/build gates, inspect screenshots, dependency/secret/request review. Actual results in PROJECT_STATUS.md.
+- **Human gate:** Codex visual inspection is performed; beginner/engineer/SME and human assistive-technology reviews remain unperformed. No claim of demonstrated learning effectiveness.
+- **Acceptance:** rejected requests never create resources; valid wrong-scope operations remain valid; corrections and real dependencies visibly project the same domain state; original predictions persist; leave/reload/reset preserves legacy history and never grants chapter completion/XP.
+- **Exclusions:** independent transfer, complete classification, chapter award, checkpoint promotion, real app execution/health/network/prices, full Azure Policy, new worlds/backend/accounts.
+
+## Phase 1B.2 — complete transfer, assessment and checkpoint handoff
+
+Implement the remaining full-chapter requirements below against the guided foundation: unfamiliar transfer variants including an existing noncompliant plan, immutable submissions/criterion witnesses, honest assistance/exposure classification, explicit promotion with revision checks, attempt/evidence retention and repeat-safe chapter participation. Keep guided/local evidence distinct from independently demonstrated performance and from trusted server evidence. Required gates include V08/V13/V15, remaining V11/V12/V14 semantics, malformed/migration/conflict cases, browser end-to-end transfer/promotion/replay and human rubric/SME review. Exclude curriculum breadth and generic engine extraction until the complete chapter is reviewable. The following full-chapter target remains authoritative; Phase 1B.1 alone does not satisfy it.
+
+## Full Phase 1B target — one complete playable chapter
 
 - **Learning outcomes:** apply service responsibility, identity/scope, independent metadata/resource location, hosting dependency and a filtered policy constraint on an unfamiliar variant (F01/F02/G01/G02/G03/C01 introductory outcomes).
 - **User experience:** [Chapter 01](CHAPTER_01_BLUEPRINT.md): responsibility matrix → scope/world construction → prediction → meaningful denial/correction → plan/app → independent transfer → explicit checkpoint promotion. Experienced entry avoids a forced tutorial.

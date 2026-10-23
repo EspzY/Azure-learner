@@ -44,7 +44,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
         </nav>
         <div className="rail-bottom" title={nb.shell.safe}>
           <ShieldCheck size={20} />
-          <span>v1A.5</span>
+          <span>{nb.shell.release}</span>
         </div>
       </aside>
       <div className="main-shell">
