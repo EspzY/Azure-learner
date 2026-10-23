@@ -330,11 +330,31 @@ describe('guided orchestration and safe replay', () => {
     expect(late.prediction?.beforeResult).toBe(false);
   });
   it('uses an isolated actual policy probe if correct resources were built first', () => {
-    const a = command(command(freshAttempt(), groupCommand), planCommand);
+    const a = command(command(freshAttempt(), groupCommand), {
+      ...planCommand,
+      name: 'probe-location',
+    });
     const probe = add(a, { kind: 'probe', groupId: 'group-1' });
     expect(probe.engine).toBe(a.engine);
     expect(probe.responses.at(-1)).toMatchObject({ probe: true, code: 'policy-location-denied' });
     expect(probe.engine.world.resources).toHaveLength(1);
+    const late = add(probe, {
+      kind: 'prediction',
+      placement: 'metadata-independent',
+      appLocation: 'plan-determines-app-location',
+    });
+    expect(late.prediction?.beforeResult).toBe(false);
+    const earlyProbe = add(command(freshAttempt(), groupCommand), {
+      kind: 'probe',
+      groupId: 'group-1',
+    });
+    expect(
+      add(earlyProbe, {
+        kind: 'prediction',
+        placement: 'metadata-independent',
+        appLocation: 'plan-determines-app-location',
+      }).prediction?.beforeResult,
+    ).toBe(false);
   });
   it('does not latch guided success when role bindings later violate lifecycle/scope requirements', () => {
     let a = completeGuided();

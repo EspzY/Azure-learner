@@ -3,6 +3,7 @@ import { AppShell } from '@/components/app-shell';
 import { ProgressProvider } from '@/components/progress-provider';
 import { nb } from '@/content/nb';
 import { ExpeditionProvider } from '@/features/journey/expedition-provider';
+import { ChapterProvider } from '@/features/chapter01/provider';
 import '@xyflow/react/dist/style.css';
 import './globals.css';
 
@@ -16,7 +17,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         <ProgressProvider>
           <ExpeditionProvider>
-            <AppShell>{children}</AppShell>
+            <ChapterProvider>
+              <AppShell>{children}</AppShell>
+            </ChapterProvider>
           </ExpeditionProvider>
         </ProgressProvider>
       </body>

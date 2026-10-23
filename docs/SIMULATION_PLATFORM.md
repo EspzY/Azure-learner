@@ -1,6 +1,6 @@
 # Bounded simulation and scenario platform
 
-Status: **proposed contracts**, version 1.0.0, 2026-10-22. No platform engine, scenario runner, world persistence or new service model is implemented in Phase 1A. Phase 1B should implement only the Chapter 01 subset, with small typed definitions; Phase 1C extracts reusable infrastructure after evidence from real use. This specification supersedes the generic Phase 0 future-schema sketches, not the tested current domain behavior.
+Status: **platform proposal with a bounded implemented subset**, version 1.0.0. Phase 1A (2026-10-22) defined these contracts; Phase 1B.1 (2026-10-23) implements only the guided organization/Web model, registered objective evaluators and replay store described in [CHAPTER_01_GUIDED.md](CHAPTER_01_GUIDED.md). The serialized examples below remain design-level shapes where they differ from that implementation. Independent assessment, checkpoint promotion and a general platform engine are unimplemented. Phase 1C extracts reuse after evidence from authored experiences. This specification supersedes generic Phase 0 future-schema sketches, not the tested legacy domain behavior.
 
 ## Six independent responsibilities
 

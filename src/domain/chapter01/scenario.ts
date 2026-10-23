@@ -178,7 +178,9 @@ export function applyEvent(attempt: Attempt, event: Event): Attempt | null {
       next.prediction = {
         ...event,
         beforeResult: !attempt.events.some(
-          (item) => item.kind === 'command' && item.request.command.type === 'CreatePlan',
+          (item) =>
+            item.kind === 'probe' ||
+            (item.kind === 'command' && item.request.command.type === 'CreatePlan'),
         ),
         worldRevision: attempt.engine.world.revision,
       };
@@ -186,6 +188,18 @@ export function applyEvent(attempt: Attempt, event: Event): Attempt | null {
     case 'probe': {
       const group = attempt.engine.world.groups.find((item) => item.id === event.groupId);
       if (!groupFits(group)) return null;
+      let probeName = 'probe-location';
+      for (
+        let suffix = 1;
+        attempt.engine.world.resources.some(
+          (resource) =>
+            resource.type === types.plan &&
+            resource.groupId === event.groupId &&
+            resource.name === probeName,
+        );
+        suffix++
+      )
+        probeName = `probe-location-${suffix}`;
       const result = execute(
         { world: attempt.engine.world, ledger: [] },
         {
@@ -194,7 +208,7 @@ export function applyEvent(attempt: Attempt, event: Event): Attempt | null {
           command: {
             type: 'CreatePlan',
             groupId: event.groupId,
-            name: 'probe-location',
+            name: probeName,
             region: chapterDefinition.constraints.probeRegion,
             profile: 'linux-learning-v1',
           },

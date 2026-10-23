@@ -1,6 +1,6 @@
 # Source and credential register
 
-Register version **2026-10-22.2**. Reviewed **2026-10-22** by Codex through public documentation; Azure subject-matter release review remains planned. These are primary Microsoft references except UX01 (W3C). Reading public pages is not an authenticated API test, a service capability test or permission to redistribute lessons. Several Learn pages display an authorization notice while exposing readable article text; no sign-in or restricted content was used.
+Register version **2026-10-23.1**. Baseline reviewed **2026-10-22**, with the targeted Phase 1B.1 re-review below on **2026-10-23**, by Codex through public documentation; Azure subject-matter release review remains planned. Other source/credential observations retain their original dates. These are primary Microsoft references except UX01 (W3C). Reading public pages is not an authenticated API test, a service capability test or permission to redistribute lessons. Several Learn pages display an authorization notice while exposing readable article text; no sign-in or restricted content was used.
 
 ## Attribution, versions and review policy
 

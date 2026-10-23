@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useId, useRef, useState } from 'react';
+import { useEffect, useId, useRef, useState, type ReactNode } from 'react';
 import { Focus, Maximize2, Minus, Plus, RotateCcw, RotateCw } from 'lucide-react';
 import { nb, regionLabels, scopeCopy } from '@/content/nb';
 import type { Scope } from '@/domain/simulation';
@@ -95,8 +95,18 @@ function StorageVolume({ center, yaw }: { center: Point3; yaw: number }) {
   );
 }
 
-function InfrastructureModel({ scope, yaw }: { scope: Scope; yaw: number }) {
-  const c = scenePosition(scope);
+function InfrastructureModel({
+  scope,
+  yaw,
+  center,
+  model,
+}: {
+  scope: Scope;
+  yaw: number;
+  center?: Point3;
+  model?: 'plan' | 'webapp';
+}) {
+  const c = center ?? scenePosition(scope);
   const p = project(c, yaw);
   if (scope.kind === 'tenant')
     return (
@@ -159,6 +169,55 @@ function InfrastructureModel({ scope, yaw }: { scope: Scope; yaw: number }) {
           />
           <polygon className="group-floor" points={points(footprint(c, 91, 52, yaw, 5))} />
         </>
+      ) : model === 'plan' ? (
+        <g className="hosting-plan-model">
+          {[18, 39].map((z) => (
+            <Prism
+              key={z}
+              center={{ ...c, z: c.z + z }}
+              width={72}
+              depth={48}
+              height={12}
+              yaw={yaw}
+              tone="violet"
+            />
+          ))}
+          <polyline className="server-line" points={points(footprint(c, 50, 30, yaw, 54))} />
+        </g>
+      ) : model === 'webapp' ? (
+        <g className="webapp-model">
+          <Prism
+            center={{ ...c, z: c.z + 4 }}
+            width={60}
+            depth={38}
+            height={9}
+            yaw={yaw}
+            tone="pink"
+          />
+          <polygon
+            points={points(
+              [
+                { x: c.x - 34, y: c.y, z: c.z + 20 },
+                { x: c.x + 34, y: c.y, z: c.z + 20 },
+                { x: c.x + 34, y: c.y, z: c.z + 79 },
+                { x: c.x - 34, y: c.y, z: c.z + 79 },
+              ].map((point) => project(point, yaw)),
+            )}
+            fill="#311c40"
+            stroke="#f08acb"
+            strokeWidth="2"
+          />
+          <text
+            x={p.x}
+            y={p.y - 35}
+            textAnchor="middle"
+            fill="#f5b9dd"
+            fontSize="19"
+            fontFamily="monospace"
+          >
+            {'</>'}
+          </text>
+        </g>
       ) : scope.id === 'storage' ? (
         <StorageVolume center={c} yaw={yaw} />
       ) : scope.kind === 'root' ? (
@@ -229,15 +288,28 @@ export function SpatialScene({
   onSelect,
   comparison = false,
   preview = false,
+  positions,
+  labels,
+  models,
+  dependencies = [],
+  overlay,
+  frameRelations = false,
 }: {
   scopes: Scope[];
   selected: string | null;
   onSelect?: (id: string) => void;
   comparison?: boolean;
   preview?: boolean;
+  positions?: Record<string, Point3>;
+  labels?: Record<string, string>;
+  models?: Record<string, 'plan' | 'webapp'>;
+  dependencies?: { from: string; to: string }[];
+  overlay?: (yaw: number) => ReactNode;
+  frameRelations?: boolean;
 }) {
   const ref = useRef<SVGSVGElement>(null);
   const [narrow, setNarrow] = useState(false);
+  const [aspect, setAspect] = useState(1.5);
   const [yaw, setYaw] = useState(45);
   const [zoom, setZoom] = useState(1);
   const [overview, setOverview] = useState(false);
@@ -249,26 +321,71 @@ export function SpatialScene({
     const node = ref.current;
     if (!node) return;
     const observer = new ResizeObserver(([entry]) => {
-      if (entry) setNarrow(entry.contentRect.width < 700);
+      if (entry) {
+        setNarrow(entry.contentRect.width < 700);
+        if (entry.contentRect.height > 0)
+          setAspect(entry.contentRect.width / entry.contentRect.height);
+      }
     });
     observer.observe(node);
     return () => observer.disconnect();
   }, []);
   const width = narrow && !preview ? 680 : 1280;
-  const height = 850;
+  const height = frameRelations ? width / aspect : 850;
+  const position = (scope: Scope) => positions?.[scope.id] ?? scenePosition(scope);
   const related = relatedScopes(scopes, selected);
+  for (const edge of dependencies)
+    if (selected === edge.from || selected === edge.to) {
+      related.add(edge.from);
+      related.add(edge.to);
+    }
   const targetScope = scopes.find((scope) => scope.id === (focused ?? selected));
-  const target =
+  let target =
     targetScope && !overview
-      ? project(scenePosition(targetScope), yaw)
+      ? project(position(targetScope), yaw)
       : narrow && !overview
-        ? project(scenePosition(scopes.find((scope) => scope.id === 'sub')!), yaw)
+        ? project(
+            position(scopes.find((scope) => scope.kind === 'subscription') ?? scopes[0]!),
+            yaw,
+          )
         : { x: 610, y: 365 };
-  const scale =
+  let scale =
     zoom *
     (targetScope && !overview ? 1.3 : narrow ? (overview ? 0.66 : 1.08) : preview ? 1.02 : 0.98);
+  if (frameRelations) {
+    const companionId = dependencies.find((edge) => edge.from === targetScope?.id)?.to;
+    const companion = scopes.find((scope) => scope.id === companionId);
+    const framed = overview
+      ? scopes
+      : companion && targetScope
+        ? [targetScope, companion]
+        : targetScope
+          ? [targetScope]
+          : scopes;
+    const coordinates = framed.map((scope) => project(position(scope), yaw));
+    const xs = coordinates.map((p) => p.x);
+    const ys = coordinates.map((p) => p.y);
+    target = {
+      x: (Math.min(...xs) + Math.max(...xs)) / 2,
+      y: (Math.min(...ys) + Math.max(...ys)) / 2 - 45,
+    };
+    scale =
+      zoom *
+      (overview
+        ? Math.min(
+            (width - 100) / (Math.max(...xs) - Math.min(...xs) + 220),
+            (height - 100) / (Math.max(...ys) - Math.min(...ys) + 240),
+            1.1,
+          )
+        : narrow
+          ? companion
+            ? 0.8
+            : 0.95
+          : 1.1);
+  }
   const offsetX = width * (selected && !narrow && !preview ? 0.43 : 0.5) - target.x * scale + pan.x;
-  const offsetY = height * (selected && narrow ? 0.4 : 0.49) - target.y * scale + pan.y;
+  const offsetY =
+    height * (frameRelations ? 0.5 : selected && narrow ? 0.4 : 0.49) - target.y * scale + pan.y;
   const resetCamera = () => {
     setZoom(1);
     setPan({ x: 0, y: 0 });
@@ -334,6 +451,17 @@ export function SpatialScene({
         }}
       >
         <defs>
+          <marker
+            id={`${gridId}-dependency`}
+            viewBox="0 0 10 10"
+            refX="9"
+            refY="5"
+            markerWidth="7"
+            markerHeight="7"
+            orient="auto-start-reverse"
+          >
+            <path d="M0 0L10 5L0 10Z" fill="#c7a4ff" />
+          </marker>
           <radialGradient id={`${gridId}-light`}>
             <stop stopColor="#54429e" stopOpacity=".26" />
             <stop offset="1" stopColor="#070b1a" stopOpacity="0" />
@@ -368,13 +496,20 @@ export function SpatialScene({
                 .filter((scope) => scope.parentId)
                 .map((scope) => {
                   const parent = scopes.find((item) => item.id === scope.parentId)!;
-                  const from = project(scenePosition(parent), yaw);
-                  const to = project(scenePosition(scope), yaw);
+                  const from = project(position(parent), yaw);
+                  const to = project(position(scope), yaw);
                   const active = related.has(scope.id) && related.has(parent.id);
                   return (
                     <g
                       key={scope.id}
-                      className={`${scope.kind === 'root' ? 'identity-link' : 'containment-link'} ${active ? 'link-related' : 'link-muted'}`}
+                      className={`${scope.kind === 'root' ? 'identity-link' : models?.[scope.id] ? 'resource-member-link' : 'containment-link'} ${active ? 'link-related' : 'link-muted'}`}
+                      data-relation={
+                        scope.kind === 'root'
+                          ? 'identity-authority'
+                          : scope.kind === 'resource'
+                            ? 'resource-member'
+                            : 'management-parent'
+                      }
                       data-from={parent.id}
                       data-to={scope.id}
                     >
@@ -386,23 +521,50 @@ export function SpatialScene({
                   );
                 })}
             </g>
+            {dependencies.map((edge) => {
+              const fromScope = scopes.find((s) => s.id === edge.from);
+              const toScope = scopes.find((s) => s.id === edge.to);
+              if (!fromScope || !toScope) return null;
+              const from = project({ ...position(fromScope), z: position(fromScope).z + 40 }, yaw);
+              const to = project({ ...position(toScope), z: position(toScope).z + 50 }, yaw);
+              return (
+                <path
+                  key={`${edge.from}-${edge.to}`}
+                  className="hosting-dependency"
+                  data-relation="depends-on"
+                  data-from={edge.from}
+                  data-to={edge.to}
+                  d={`M${from.x},${from.y} C${from.x},${from.y - 90} ${to.x},${to.y - 90} ${to.x},${to.y}`}
+                  fill="none"
+                  stroke="#c7a4ff"
+                  strokeWidth="2.5"
+                  strokeDasharray="10 6"
+                  markerEnd={`url(#${gridId}-dependency)`}
+                />
+              );
+            })}
           </g>
           {[...scopes]
-            .sort((a, b) => project(scenePosition(a), yaw).y - project(scenePosition(b), yaw).y)
+            .sort((a, b) => project(position(a), yaw).y - project(position(b), yaw).y)
             .map((scope) => {
-              const p = project(scenePosition(scope), yaw);
+              const p = project(position(scope), yaw);
               const active = selected === scope.id;
               return (
                 <g
                   key={scope.id}
-                  className={`scene-object object-${scope.kind} ${active ? 'object-selected' : ''} ${related.has(scope.id) ? 'object-related' : 'object-muted'} ${scope.id.startsWith('created-group-') ? 'object-created' : ''}`}
+                  className={`scene-object object-${models?.[scope.id] ?? scope.kind} ${active ? 'object-selected' : ''} ${related.has(scope.id) ? 'object-related' : 'object-muted'} ${scope.id.startsWith('created-group-') ? 'object-created' : ''}`}
                   data-scope-id={scope.id}
                 >
                   <g className="object-geometry" aria-hidden="true">
                     {active && (
                       <ellipse className="selection-ring" cx={p.x} cy={p.y + 9} rx="103" ry="42" />
                     )}
-                    <InfrastructureModel scope={scope} yaw={yaw} />
+                    <InfrastructureModel
+                      scope={scope}
+                      yaw={yaw}
+                      center={position(scope)}
+                      model={models?.[scope.id]}
+                    />
                   </g>
                   <foreignObject
                     x={p.x - 117}
@@ -413,7 +575,7 @@ export function SpatialScene({
                   >
                     {preview ? (
                       <div className="scene-node-label preview-node-label">
-                        <small>{scopeCopy[scope.kind].label}</small>
+                        <small>{labels?.[scope.id] ?? scopeCopy[scope.kind].label}</small>
                         <strong>{scope.label}</strong>
                       </div>
                     ) : (
@@ -430,7 +592,8 @@ export function SpatialScene({
                         aria-pressed={active}
                       >
                         <span className="node-hit-area" />
-                        <small>{scopeCopy[scope.kind].label}</small> <strong>{scope.label}</strong>
+                        <small>{labels?.[scope.id] ?? scopeCopy[scope.kind].label}</small>{' '}
+                        <strong>{scope.label}</strong>
                         {comparison && scope.region && (
                           <span className="node-location">
                             {scope.kind === 'group' ? nb.universe.metadata : nb.universe.location} ·{' '}
@@ -443,6 +606,7 @@ export function SpatialScene({
                 </g>
               );
             })}
+          {overlay?.(yaw)}
         </g>
       </svg>
       {!preview && (

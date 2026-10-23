@@ -2,7 +2,7 @@
 
 ## Implemented
 
-Next.js App Router serves the preserved routes `/`, `/explore`, `/missions`, `/progress`. The root layout supplies `ProgressProvider`, `ExpeditionProvider` and the shared dark shell. Root is the perspective journey; Explore loads the browser-interactive workbench through a small `next/dynamic` boundary. [JOURNEY_EXPERIENCE.md](JOURNEY_EXPERIENCE.md) owns the implemented route/content/challenge/world-transition contract. No route handlers, server actions, databases, credentials or adapters exist.
+Next.js App Router serves the preserved routes `/`, `/explore`, `/missions`, `/progress`. The root layout supplies `ProgressProvider`, `ExpeditionProvider`, `ChapterProvider` and the shared dark shell. Root is the perspective journey; Explore loads either the legacy workbench or the guided chapter (`?chapter=01`) through separate `next/dynamic` boundaries. [JOURNEY_EXPERIENCE.md](JOURNEY_EXPERIENCE.md) owns the route/world transition; [CHAPTER_01_GUIDED.md](CHAPTER_01_GUIDED.md) owns the implemented technical workspace. No route handlers, server actions, databases, credentials or network adapters exist.
 
 ```mermaid
 flowchart LR
@@ -26,10 +26,20 @@ flowchart LR
 - `scene-layout.ts` owns schematic x/y/z coordinates, projection and related-branch selection. `spatial-scene.tsx` owns geometry/camera state. No WebGL, GPU dependency or frame loop. Layout never derives from region. Solid edges show containment; dashed tenant-root links show identity association. Neither shows traffic or physical Azure placement.
 - `Workbench` composes scene, XYFlow/list alternatives, contextual inspector, mission HUD and brief/create/check/reset overlays. Only validated commands mutate the existing simulation. Native dialogs manage modal focus; successful creation focuses the new node. Assessment presents the original questions sequentially with unchanged scoring.
 - `ProgressProvider`: hydrates after mount, gates awards until ready, catches storage errors, listens for storage events and re-reads before awarding. It is best-effort, not transactional multi-tab persistence.
-- Accepted resources, mission activation, submitted guided answers, route position/visits and completion IDs survive reload/navigation. Camera frames, selection/current-attempt HUD and incomplete legacy check answers remain transient. Scenario reset clears current commands/steps and retains XP. Previous awards do not imply successful current attempts. Explicit data deletion clears both stores.
+- Accepted resources, mission activation, submitted guided answers, route position/visits and completion IDs survive reload/navigation. Camera frames, selection/current-attempt HUD and incomplete legacy check answers remain transient. Scenario reset clears current commands/steps and retains XP. Previous awards do not imply successful current attempts. Explicit data deletion clears all three local categories, including guided chapter work.
 - `domain/expedition.ts` owns typed route edges, versioned detour contracts/evaluators and runtime snapshot parsing. `route-geometry.ts` owns perspective coordinates and interruptible curve/side-route camera interpolation. Commands replay through existing rules; arbitrary persisted scopes/XP are ignored. Storage is best-effort, not transactional multi-tab editing.
 
 Rendering alternatives, motion and responsive composition are described once in [EXPERIENCE_DESIGN.md](EXPERIENCE_DESIGN.md). The original simulation/assessment/XP rules remain unchanged; Phase 1A.5 adds a separate validated expedition snapshot and command replay.
+
+## Guided Chapter 01 boundary
+
+`domain/chapter01/model.ts` owns the frozen organization/Web fixture, four registered command handlers, runtime validation, immutable transitions, delivery deduplication and deterministic receipts. `scenario.ts` owns versioned objectives, explicit role bindings, prediction/inspection/explanation events and six registered guided evaluators. It imports no React, storage, prose or progression ledger. `persistence.ts` pins schema/scenario/model versions and reconstructs an attempt by replay; stored completion/world/XP is never trusted.
+
+`features/chapter01/store.ts` coordinates bounded local snapshots, revision checks, quarantine, export and explicit restart. Its injected storage port enables denied-read/write tests. `ChapterProvider` shares this store between journey and world; the gateway derives guided status from the same findings. Legacy keys and awards remain separate. A detected stale tab stops mutation until explicit reload; compare-before-write is best-effort, not an atomic cross-tab transaction.
+
+`projectWorld` is a read-only adapter into the existing SVG/XYFlow/HTML controls. It supplies semantic resource shapes, typed relationships and locations; coordinates never determine a rule or score. Contextual command, learning, receipt and inspection components emit intents into the store. Policy/rejection annotations are presentation objects, not resources. Chapter camera framing includes the selected app's plan and actual viewport aspect; legacy camera defaults remain intact. No general scenario interpreter or WebGL dependency is introduced.
+
+Only guided local observations are implemented. The broader assessment, immutable submission/history and explicit checkpoint-promotion boxes below remain proposed, as do backend migration and organizations.
 
 ## Documentation gate
 
@@ -39,7 +49,7 @@ Rendering alternatives, motion and responsive composition are described once in 
 
 UI and learning copy live in `content/nb.ts`; `<html lang="nb">` identifies the locale. Domain/answer IDs are language neutral. A future English dictionary can share the Bokmål shape with locale selection at the routing boundary. No translation selector is advertised. Example names and service names remain technical identifiers.
 
-## Phase 1A proposed evolution — not implemented
+## Broader Phase 1A evolution — remaining proposal
 
 The [product blueprint](PRODUCT_BLUEPRINT.md) selects a competency journey, persistent reference world and isolated scenario workspaces. [SIMULATION_PLATFORM.md](SIMULATION_PLATFORM.md) is now the canonical proposed contract for domain models, scenario orchestration, content, rendering, assessment, progression and local-to-account migration. It supersedes the generic Phase 0 schema sketches previously here; Git history retains them. No engine, storage format or runtime behavior was changed in Phase 1A.
 

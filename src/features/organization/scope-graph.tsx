@@ -5,6 +5,7 @@ import {
   BackgroundVariant,
   Controls,
   Handle,
+  MarkerType,
   Position,
   ReactFlow,
   type Edge,
@@ -16,7 +17,10 @@ import { nb, scopeCopy } from '@/content/nb';
 import type { Scope } from '@/domain/simulation';
 import { scopeIcons } from '@/components/icons';
 
-type ScopeNode = Node<{ scope: Scope; active: boolean; select: (id: string) => void }, 'scope'>;
+type ScopeNode = Node<
+  { scope: Scope; label?: string; active: boolean; select: (id: string) => void },
+  'scope'
+>;
 function ScopeCard({ data }: NodeProps<ScopeNode>) {
   const Icon = scopeIcons[data.scope.kind];
   return (
@@ -33,7 +37,8 @@ function ScopeCard({ data }: NodeProps<ScopeNode>) {
           <Icon size={19} />
         </span>
         <span>
-          <small>{scopeCopy[data.scope.kind].label}</small> <strong>{data.scope.label}</strong>
+          <small>{data.label ?? scopeCopy[data.scope.kind].label}</small>{' '}
+          <strong>{data.scope.label}</strong>
         </span>
         <span className="node-indicator" />
       </button>
@@ -46,10 +51,16 @@ export function ScopeGraph({
   scopes,
   selected,
   onSelect,
+  labels,
+  layout,
+  dependencies = [],
 }: {
   scopes: Scope[];
   selected: string;
   onSelect: (id: string) => void;
+  labels?: Record<string, string>;
+  layout?: Record<string, { x: number; y: number }>;
+  dependencies?: { from: string; to: string }[];
 }) {
   const nodes = useMemo<ScopeNode[]>(
     () =>
@@ -68,18 +79,23 @@ export function ScopeGraph({
         return {
           id: scope.id,
           type: 'scope',
-          position,
-          data: { scope, active: selected === scope.id, select: onSelect },
+          position: layout?.[scope.id] ?? position,
+          data: {
+            scope,
+            label: labels?.[scope.id],
+            active: selected === scope.id,
+            select: onSelect,
+          },
           draggable: false,
           focusable: false,
           selectable: false,
         };
       }),
-    [scopes, selected, onSelect],
+    [scopes, selected, onSelect, labels, layout],
   );
   const edges = useMemo<Edge[]>(
-    () =>
-      scopes
+    () => [
+      ...scopes
         .filter((scope) => scope.parentId)
         .map((scope) => ({
           id: `${scope.parentId}-${scope.id}`,
@@ -91,10 +107,26 @@ export function ScopeGraph({
           style: {
             stroke: scope.kind === 'root' ? '#f08acb' : '#50d8e8',
             strokeWidth: 1.5,
-            strokeDasharray: scope.kind === 'root' ? '5 5' : undefined,
+            strokeDasharray:
+              scope.kind === 'root'
+                ? '5 5'
+                : layout && scope.kind === 'resource'
+                  ? '2 4'
+                  : undefined,
           },
         })),
-    [scopes],
+      ...dependencies.map((edge) => ({
+        id: `dependency-${edge.from}-${edge.to}`,
+        source: edge.from,
+        target: edge.to,
+        type: 'smoothstep',
+        selectable: false,
+        focusable: false,
+        style: { stroke: '#c7a4ff', strokeWidth: 2, strokeDasharray: '10 6' },
+        markerEnd: { type: MarkerType.ArrowClosed, color: '#c7a4ff' },
+      })),
+    ],
+    [scopes, dependencies, layout],
   );
   return (
     <div className="graph-canvas" role="region" aria-label={nb.explore.canvas}>
