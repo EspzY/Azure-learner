@@ -1,5 +1,9 @@
 # Design system — immersive reset
 
+## G1 spatial presentation
+
+The separate game route retains midnight/violet/cyan identity and adds ivory/slate construction, teal ground and warmer character/lighting accents. This avoids an all-purple world. [World design](GAME_WORLD_DESIGN.md) owns environment, camera, HUD and responsive dialogue composition; the licensed mesh/material pipeline is in [asset register](ASSET_REGISTER.md). Existing technical-workbench tokens remain below. All essential labels/choices have readable HTML equivalents; scene textures are not the sole learning interface.
+
 Phase 0.5 replaces the white/navy/mint dashboard direction. All routes share a dark environment with upright technical labels, carefully separated surfaces and restrained luminous selection. Full interaction/rendering reasoning is in [EXPERIENCE_DESIGN.md](EXPERIENCE_DESIGN.md). Phase 1B.1 extends that language: cyan dotted membership differs from solid management edges; directed violet hosting links differ from both. Amber policy/rejection annotations are not resource models. Plans use compute plates and apps a code window; visible selection and textual relationship/property alternatives carry the same meaning without relying only on color. The desktop operational console and mobile split scene/console share native controls and focus indicators.
 
 | Token          | Value     | Meaning                                        |

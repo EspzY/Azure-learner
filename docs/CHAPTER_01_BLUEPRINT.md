@@ -1,5 +1,7 @@
 # Chapter 01 — Fra krav til en styrt applikasjonsplattform
 
+G1 presentation note: the separate [3D game slice](GAMEPLAY_ARCHITECTURE.md) reuses the guided technical subset through NPC requirements and a physical portal. It implements no additional independent-transfer/checkpoint vectors and does not promote this blueprint to a fully completed chapter.
+
 **Experience A: foundational understanding.** Detailed full-chapter specification, version **1.0.0**, 2026-10-22; implementation status reviewed 2026-10-23. The owner authorized the Phase 1A.5 journey foundation and Phase 1B.1 guided technical subset. Plan/app configuration, filtered policy, receipts, guided prediction/explanation and local replay are implemented. Independent transfer/classification, complete assessment, chapter award and checkpoint promotion below remain Phase 1B.2 specifications. This is not a fully completed chapter. Content strings shown here are illustrative; learner-facing text belongs in `src/content/nb.ts`, while scenario definitions contain locale-neutral IDs/keys.
 
 ## Purpose and learning contract

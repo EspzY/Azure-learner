@@ -1,5 +1,9 @@
 # Experience design — resource world and expedition
 
+## G1 rendering exception
+
+The existing SVG technical experience remains intact. The owner's G1 direction adds genuine character exploration with a separate Fiber/Three route, not a replacement of technical diagrams by decorative 3D. [GAME_WORLD_DESIGN.md](GAME_WORLD_DESIGN.md) owns art, camera and responsive composition; [GAMEPLAY_ARCHITECTURE.md](GAMEPLAY_ARCHITECTURE.md) owns implementation and fallback. Native dialogue and semantic place selection share learning/quest truth with the scene. Owner visual acceptance remains pending; see project status for actual image review and measurements.
+
 Reviewed **2026-10-23**. The product moves from a lesson page containing a diagram to a world in which the learner performs a technical assignment. Phase 0.5 established the dimensional presentation; Phase 1A.5 added the expedition. Phase 1B.1 adds a bounded guided technical model without changing the legacy activity's rules.
 
 ## Build, predict and recover

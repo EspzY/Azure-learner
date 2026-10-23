@@ -1,5 +1,11 @@
 # Security and privacy
 
+## G1 local game boundary
+
+The new `azurelab.rpg.g1.v1` key contains only bounded versioned pose, quality and allowlisted dialogue/quest observations (200 events / 64,000 characters). Runtime restore validates walkability, finite values and versions; corrupt/unknown data is quarantined. Conflict/denied-write states are visible, and local records cannot authenticate proficiency. G1 reset confirms scope and preserves the three older categories; explicit all-data deletion clears all four. No learner identity, telemetry upload, external AI or executable dialogue scripts exist. Sources open only on explicit user action.
+
+Reviewed local GLBs/textures are included with CC0 license evidence and SHA-256 manifest. `assets:check` rejects unexpected paths/remote images/decoder requirements, invalid buffers or missing rigs/clips/licenses. GPU resources and context listeners are cleaned on exit; asset/context failure leaves semantic learning available. Build dependencies add pinned stable Fiber/Three, not cloud credentials or remote model services. Raw source archives, learner storage, Playwright videos/traces and generated reports remain ignored; only deliberately reviewed evidence images enter Git.
+
 ## Current boundary
 
 Local educational prototype: no backend, authentication, organization accounts, Azure SDK, API adapter or real infrastructure execution. Dev/start bind to `127.0.0.1`. Fonts/icons/assets are local; external links open only after selection. The Next command entry point disables framework telemetry in dev, type generation, build and start, without a required environment file.
