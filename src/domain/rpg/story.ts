@@ -102,7 +102,7 @@ export interface Choice {
   next?: NodeId;
   effect?: StoryEvent;
   when?: Condition;
-  action?: 'close' | 'installation' | 'enter';
+  action?: 'close' | 'installation' | 'enter' | 'reference';
 }
 export interface DialogueNode {
   speaker: 'guide' | 'engineer' | 'system';
@@ -247,7 +247,7 @@ export const dialogue: Record<NodeId, DialogueNode> = {
     sources: ['S03', 'S12', 'S38'],
     choices: [
       { id: 'accept', next: 'engineer-accepted', effect: { kind: 'accept' } },
-      { id: 'model-reason', next: 'service-question' },
+      { id: 'model-reason', action: 'installation' },
       { id: 'leave', action: 'close' },
     ],
   },
@@ -283,7 +283,7 @@ export const dialogue: Record<NodeId, DialogueNode> = {
   'engineer-reported': {
     speaker: 'engineer',
     choices: [
-      { id: 'depth', next: 'guide-detail' },
+      { id: 'depth', action: 'reference' },
       { id: 'leave', action: 'close' },
     ],
   },

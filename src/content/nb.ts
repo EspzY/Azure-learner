@@ -92,6 +92,63 @@ export const nb = {
       saas: 'SaaS: Leverandøren drifter applikasjonen. Kunden må fortsatt styre brukere, data og egne innstillinger. Dette er ikke en vert for vilkårlig egen webkode.',
     },
     detail: 'Teknisk fordypning og kilde',
+    cinematic: {
+      conversation: 'Samtale',
+      response: 'Ditt svar',
+      instruction: '↑ ↓ velg · Enter svar · Esc avslutt',
+      journal: 'Feltnotater',
+      back: 'Tilbake til samtalen',
+      inspect: 'Undersøk et ansvarslag',
+      textSize: 'Større samtaletekst',
+      system: 'Systemmelding · ikke en replikk',
+      demonstration: 'Ida veileder · ansvarsverkstedet',
+      layerHint:
+        'Laget lyser i modellen. Eierskapet følger valgt tjenestemodell; dette er ikke et Azure management-scope.',
+    },
+    spoken: {
+      'guide-welcome':
+        'Jeg heter Ida. Velkommen til Lysningen. Her undersøker vi hva som faktisk endres når et team velger en skytjeneste. Hvor vil du begynne?',
+      'guide-purpose':
+        'Teamet har egen webkode. Noen må drifte servere, OS, runtime og applikasjon. Tjenestemodellen fordeler dette arbeidet. Hvor mye vil teamet drifte selv?',
+      'guide-mechanism':
+        'Med en VM vedlikeholder kunden gjeste-OS og runtime. App Service lar teamet levere egen kode uten samme OS-drift. SaaS er en ferdig applikasjon. La oss se forskjellen.',
+      'guide-detail':
+        'Abstraksjon flytter oppgaver. Data, identiteter og forsvarlig konfigurasjon trenger fortsatt kundens arbeid. Feltnotatene forklarer tjenestegrensene og container-unntaket nærmere.',
+      'guide-expert':
+        'La oss undersøke mekanismen direkte. Du kan sammenligne modellene og prøve teamets beslutning. Å hoppe over introduksjonen registrerer ingen tidligere kompetanse.',
+      installation:
+        'Bytt modell og følg OS-laget. Hvem må drifte det nå? Data og tilgang trenger fortsatt kundens arbeid. Velg et lag hvis du vil undersøke grensen nærmere.',
+      'service-iaas':
+        'En VM kan kjøre koden, men kunden vedlikeholder fortsatt gjeste-OS og runtime. Det løser ikke ønsket om mindre OS-drift. Sammenlign OS-laget med PaaS.',
+      'service-saas':
+        'Her vil teamet kjøre egen webkode. SaaS leverer en ferdig applikasjon, ikke automatisk en generell hosting-plattform for den koden.',
+      'service-good':
+        'PaaS passer disse kravene, og App Service er et aktuelt eksempel. Teamet må fortsatt undersøke tjenestegrensene. Valget garanterer ikke sikkerhet eller tilgjengelighet.',
+      'ownership-os':
+        'Microsoft forvalter plattformens OS i dette eksemplet. Kunden vedlikeholder egen kode og tilgang. Med en egen container må kunden også vedlikeholde containerinnholdet.',
+      'ownership-all':
+        'En forvaltet plattform betyr ikke at Microsoft overtar alle sikkerhetsvalg. Data, identiteter, konfigurasjon og egen kode trenger fortsatt kundens arbeid.',
+      'ownership-good':
+        'Ja. Kode, data, tilgang og konfigurasjon er fortsatt kundens oppgaver. Du har begrunnet valget med veiledning. Noor kan knytte dette til faktisk konfigurasjon.',
+      'engineer-offer':
+        'Hei, jeg er Noor. Teamet beholder egen webkode, men vil slippe gjeste-OS-drift. Kan du hjelpe meg å organisere plattformen og undersøke en lokasjonsregel?',
+      'engineer-brief':
+        'Bruk App Sandbox og en resource group med felles livssyklus. Gruppemetadata skal være i Norway East. Bygg en Linux App Service plan og en webapp. Undersøk hva som bestemmer hosting-lokasjonen.',
+      'engineer-accepted':
+        'Oppdraget er ditt. Begrunn tjeneste- og ansvarsvalget ved verkstedet, og gå gjennom porten. Simulatoren oppretter bare lokale læringsressurser. Kom tilbake når du har undersøkt konfigurasjonen.',
+      'engineer-reminder':
+        'Alle de veiledede kravene er ennå ikke tilfredsstilt. Gyldig arbeid er bevart. Bruk kvitteringene og lokasjonsvisningen til å finne det som gjenstår.',
+      'engineer-progress':
+        'Jeg ser registrert arbeid, men ikke alle veiledede betingelser er tilfredsstilt. En gruppe alene bekrefter ikke hosting eller årsaksforståelse. Fortsett med det gyldige arbeidet.',
+      'engineer-built':
+        'Den validerte øvingen har riktig scope, plan, hosting-avhengighet og veiledede undersøkelser. Forklaringen knytter avslaget til ressurslokasjon. Skal vi gå gjennom funnene?',
+      'engineer-reported':
+        'Vi har gått gjennom det veiledede grunnlaget. Chapter 01 er fortsatt ikke selvstendig vurdert eller fullt fullført. Neste steg må prøve ideene med endrede krav, uten løsningen først.',
+      'portal-locked':
+        'Ta imot Noors oppdrag, sammenlign modellene og begrunn tjenestevalg og kundeansvar. Besøk og animasjoner alene åpner ikke porten.',
+      'portal-ready':
+        'Spillposisjonen lagres ved porten. Gå inn, bygg og undersøk. «Tilbake til 3D-ekspedisjonen» fører deg hit igjen. Gyldig uferdig arbeid beholdes.',
+    },
     source: 'Microsoft Learn · referanse',
     planSource: 'Microsoft Learn · App Service plan',
     resetExplanation:

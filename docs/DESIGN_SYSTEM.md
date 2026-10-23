@@ -1,5 +1,9 @@
 # Design system — immersive reset
 
+## G1.1 cinematic composition
+
+Conversation uses open subtitle/choice composition rather than a bordered command surface: important speech #f4f1f3, speaker #e0ceaa, response focus #e1bc80, restrained violet response wash and a midnight bottom gradient. Desktop speech is 20 px with 1.65 line height; mobile 16 px / 1.55. Optional larger text is 23/19 px. Choices remain at least 44 px high. Speaker head framing responds to viewport and the measured text boundary. Technical field notes deliberately retain an opaque readable surface and scroll independently. [World design](GAME_WORLD_DESIGN.md) owns responsive/shot decisions.
+
 ## G1 spatial presentation
 
 The separate game route retains midnight/violet/cyan identity and adds ivory/slate construction, teal ground and warmer character/lighting accents. This avoids an all-purple world. [World design](GAME_WORLD_DESIGN.md) owns environment, camera, HUD and responsive dialogue composition; the licensed mesh/material pipeline is in [asset register](ASSET_REGISTER.md). Existing technical-workbench tokens remain below. All essential labels/choices have readable HTML equivalents; scene textures are not the sole learning interface.

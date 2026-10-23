@@ -1,5 +1,9 @@
 # Security and privacy
 
+## G1.1 presentation boundary
+
+Cinematic shot/field-note/text-size state is transient and never trusted as assessment evidence. Camera positions/animation timing emit no progression events. A native modal dialog makes background controls inert; scoped choice keys cannot move the player. Official source links remain explicit new-tab actions. No new dependencies, assets, network endpoint, persisted schema or credentials are introduced; existing storage quarantine/replay and local asset checks remain mandatory.
+
 ## G1 local game boundary
 
 The new `azurelab.rpg.g1.v1` key contains only bounded versioned pose, quality and allowlisted dialogue/quest observations (200 events / 64,000 characters). Runtime restore validates walkability, finite values and versions; corrupt/unknown data is quarantined. Conflict/denied-write states are visible, and local records cannot authenticate proficiency. G1 reset confirms scope and preserves the three older categories; explicit all-data deletion clears all four. No learner identity, telemetry upload, external AI or executable dialogue scripts exist. Sources open only on explicit user action.

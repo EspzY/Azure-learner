@@ -1,5 +1,9 @@
 # Experience design — resource world and expedition
 
+## G1.1 cinematic conversations
+
+The game comparison now separates RPG speech from technical commands: transparent native CinematicDialogue, contextual shot direction and field-note inspection replace the generic CommandDialog conversation. The latter remains for settings/confirmation. [NPC dialogue design](NPC_DIALOGUE_DESIGN.md) owns pacing/depth; [gameplay architecture](GAMEPLAY_ARCHITECTURE.md) owns focus, camera and evidence boundaries. The Azure workbench and root journey are unchanged.
+
 ## G1 rendering exception
 
 The existing SVG technical experience remains intact. The owner's G1 direction adds genuine character exploration with a separate Fiber/Three route, not a replacement of technical diagrams by decorative 3D. [GAME_WORLD_DESIGN.md](GAME_WORLD_DESIGN.md) owns art, camera and responsive composition; [GAMEPLAY_ARCHITECTURE.md](GAMEPLAY_ARCHITECTURE.md) owns implementation and fallback. Native dialogue and semantic place selection share learning/quest truth with the scene. Owner visual acceptance remains pending; see project status for actual image review and measurements.
