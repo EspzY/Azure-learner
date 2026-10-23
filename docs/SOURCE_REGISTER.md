@@ -60,6 +60,8 @@ Namespaces are explicit: `Sxx` technical sources, `CRxx` credential sources and 
 
 ## Credential observations
 
+Phase 1B.1 technical re-review **2026-10-23**: S12 App Service plans (page update 2026-08-24) confirms regional plan compute/OS and app-to-plan hosting; S03 confirms resource-group metadata can differ from resource location; S38 confirms blocked new requests versus existing noncompliance. The implemented mode-all, Web-type-filtered West Europe constraint is an original training policy, not the generic built-in Allowed locations definition. `linux-learning-v1` and chapter naming/capacity are explicitly synthetic restrictions. These sources do not validate full provider behavior, real availability, prices, health or code deployment. Reference-only disposition and pending SME review remain unchanged.
+
 Status is as observed on **2026-10-22**, not a promise of future availability. Exam effective date, page update date and retirement date are different fields. These observations support the overlay strategy in [LEARNING_JOURNEY.md](LEARNING_JOURNEY.md#certification-is-a-versioned-overlay). No practice assessment or lab was accessed/copied.
 
 | ID   | Official source / credential                                                                                                                                                                                                                                            | Observed status and source version                                                                                                                         | Proposed mapping use, not implemented coverage                                                                      |

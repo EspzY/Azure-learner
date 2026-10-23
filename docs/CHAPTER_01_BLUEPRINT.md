@@ -4,6 +4,8 @@
 
 ## Purpose and learning contract
 
+Implementation delta, 2026-10-23: the owner authorized **Phase 1B.1**, the guided technical subset. Its implemented domain/scenario/replay contract is maintained in [CHAPTER_01_GUIDED.md](CHAPTER_01_GUIDED.md). The full sequence below remains the target; transfer, independent classification, participation award prerequisites and checkpoint promotion belong to Phase 1B.2. See PROJECT_STATUS.md for actual integration/verification, not an assumption that all V01–V16 pass.
+
 A fictional service team needs a custom HTTP application platform without taking responsibility for guest OS maintenance. The learner must choose an appropriate abstraction, establish the right management/lifecycle scope, satisfy a location constraint and construct the actual hosting dependency. A later chapter will deploy/observe application code. Here, successful resource configuration does **not** claim a serving, secure or resilient production application.
 
 | Objective / competency                 | Learner must do                                                                                     | System consequence / evidence                                                                                                |

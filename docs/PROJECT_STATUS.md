@@ -1,5 +1,9 @@
 # Project status
 
+## Phase 1B.1 — guided technical world in development
+
+Branch `feat/chapter-01-guided` starts at verified foundation `707fc1bed0a47875e24b5c8726f2e629cddb7289`; PR #1 is unchanged. Milestone A adds the frozen organization/Web model, four commands, deterministic receipts, filtered custom policy, separate learning events/objectives and versioned replay parser. No guided UI is connected yet at this milestone. Strict TypeScript and 75 Vitest + three documentation fixture tests pass. [CHAPTER_01_GUIDED.md](CHAPTER_01_GUIDED.md) owns the implementation delta. UI/persistence coordination, browser/visual verification and final quality gates remain in progress. Full chapter/independent transfer/promotion and the proposed chapter XP award are excluded from this phase.
+
 Updated **2026-10-23**. Phase 1A.5 implements the Azure Expedition on `feat/phase-0-foundation`, continuing [draft PR #1](https://github.com/EspzY/Azure-learner/pull/1) from Phase 1A blueprint commit `fde59291f0cd341df4b32be8f446f9b57128f70c`. Main remains unmerged; only existing automatic branch previews are authorized. No new infrastructure or production deployment.
 
 ## Phase 1A.5 — playable expedition

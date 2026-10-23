@@ -37,13 +37,15 @@ export type CreationResult =
   { ok: true; state: Simulation; created: Scope } | { ok: false; error: CreationError };
 
 // A bounded teaching sandbox, not the full Azure resource provider contract.
+export function validResourceGroupName(name: string): boolean {
+  return /^[\p{L}\p{N}_.()-]{1,90}$/u.test(name) && !name.endsWith('.');
+}
 export function createResourceGroup(
   state: Simulation,
   command: { name: string; region: string; subscriptionId: string },
 ): CreationResult {
   const name = command.name.trim();
-  if (!/^[\p{L}\p{N}_.()-]{1,90}$/u.test(name) || name.endsWith('.'))
-    return { ok: false, error: 'invalid-name' };
+  if (!validResourceGroupName(name)) return { ok: false, error: 'invalid-name' };
   if (!regions.includes(command.region as Region)) return { ok: false, error: 'invalid-region' };
   if (
     !state.scopes.some(
