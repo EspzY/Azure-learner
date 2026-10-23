@@ -1,5 +1,18 @@
 # Decisions
 
+## G1 decisions — 2026-10-23
+
+| ID  | Decision                                                                 | Reason and boundary                                                                                                                                                                                                                                                                |
+| --- | ------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 042 | Separate `/expedition-3d`, isolated branch stacked on guided work        | Preserve the approved technical engine, old root comparison and PR #1/#2 history; no production/root replacement before owner review.                                                                                                                                              |
+| 043 | Stable Fiber 9.8.2 / Three 0.186.1, no Drei or general physics engine    | Genuine rigged character exploration compatible with existing React 19.3.1. Imperative fixed-step control/camera/mixers avoid React frame churn; bounded zones/grid routing suit one small authored location. Supersedes 031's no-WebGL choice only for this new comparison route. |
+| 044 | Reviewed local Kenney CC0 assets plus original terrain/teaching geometry | Coherent mesh/character family, licensing evidence and reproducible compaction. Static geometry batches by material; no random models, remote runtime CDN or primitive building/NPC substitutes.                                                                                   |
+| 045 | Typed authored dialogue and derived quest facts                          | Original source-backed teaching and deterministic misconceptions; current Chapter 01 findings govern Noor's responses. No AI service or animation/visit-based completion.                                                                                                          |
+| 046 | Fourth isolated validated save, saved portal return                      | Preserve all prior work/awards; unknown/corrupt versions quarantine, stale tabs stop writes. Local state remains untrusted. No automatic evidence migration.                                                                                                                       |
+| 047 | Semantic learning parity and explicit visual acceptance gate             | WebGL/context failure, keyboard/touch and reduced motion must retain learning. Software-rendered tests/images are engineering evidence, not professional art approval, representative device performance or educational effectiveness.                                             |
+
+Detailed contracts and tradeoffs: [gameplay architecture](GAMEPLAY_ARCHITECTURE.md), [world design](GAME_WORLD_DESIGN.md), [dialogue](NPC_DIALOGUE_DESIGN.md), [asset provenance](ASSET_REGISTER.md). Historical decisions below remain intact.
+
 Initial decisions dated **2026-10-22**.
 
 | ID  | Decision                                  | Rationale/consequence                                                                               |

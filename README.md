@@ -1,5 +1,11 @@
 # AzureLab
 
+## G1 — playable RPG comparison
+
+Open [`/expedition-3d`](http://127.0.0.1:3000/expedition-3d) for **Lysningen**: a locally rendered third-person station with rigged locomotion, two authored NPCs, an interactive responsibility workshop and a physical gateway into the existing Chapter 01 workbench. Walk with WASD/arrows, interact with E, or use held touch controls / optional assisted walking. The semantic alternative retains all essential learning when WebGL is unavailable. The root expedition remains unchanged for comparison.
+
+No new XP or independent Chapter 01 completion is inferred from this guided game quest. Noor reads actual validated technical findings. See [world design](docs/GAME_WORLD_DESIGN.md), [gameplay contracts](docs/GAMEPLAY_ARCHITECTURE.md), [dialogue design](docs/NPC_DIALOGUE_DESIGN.md), [licensed asset register](docs/ASSET_REGISTER.md) and [actual verification / review limits](docs/PROJECT_STATUS.md). Engineering completion, owner visual acceptance and educational validation remain separate.
+
 **Learn Azure by using it.** An independent, simulation-first learning workbench, initially in Norwegian Bokmål. AzureLab combines architecture exploration, practical assignments and original knowledge checks. It is not affiliated with or endorsed by Microsoft.
 
 ## Phase 1B.1: build, predict and recover
@@ -47,7 +53,7 @@ npx playwright install chromium
 npm run test:e2e
 ```
 
-`check` runs route generation/type checking, ESLint, Prettier, documentation validation, unit tests and the production build. `npm run docs:check` verifies required Markdown, local links/images and heading targets without fetching external URLs; it is included in `check` and CI. Playwright starts its own production server on port 3000; stop any existing server first. Linux CI installs dependencies with `npx playwright install --with-deps chromium`. Raw reports/screenshots are ignored under `test-results/` and `playwright-report/`; reviewed evidence is kept in `docs/screenshots/`.
+`check` runs route generation/type checking, ESLint, Prettier, documentation validation, asset integrity, unit tests and the production build. `npm run docs:check` verifies required Markdown, local links/images and heading targets without fetching external URLs; it is included in `check` and CI. Playwright starts its own production server on port 3000; stop any existing server first. Linux CI installs dependencies with `npx playwright install --with-deps chromium`. Raw reports/screenshots are ignored under `test-results/` and `playwright-report/`; reviewed evidence is kept in `docs/screenshots/`.
 
 Unit tests cover unchanged domain rules, corruption recovery, XP deduplication, projection/relationship invariants and documentation failures. Chromium E2E covers the integrated mission, invalid/duplicate commands, visible creation, quiz retries, reload/replay, camera navigation, keyboard/dialog behavior, mobile, reduced motion, accessibility and external-request boundaries. See [project status](docs/PROJECT_STATUS.md) for actual results and screenshots. CI repeats checks on PRs; local passes do not imply remote passes.
 

@@ -24,6 +24,10 @@ export const requiredFiles = [
   'docs/SOURCE_REGISTER.md',
   'docs/JOURNEY_EXPERIENCE.md',
   'docs/CHAPTER_01_GUIDED.md',
+  'docs/GAME_WORLD_DESIGN.md',
+  'docs/GAMEPLAY_ARCHITECTURE.md',
+  'docs/NPC_DIALOGUE_DESIGN.md',
+  'docs/ASSET_REGISTER.md',
 ];
 
 function markdownFiles(folder) {

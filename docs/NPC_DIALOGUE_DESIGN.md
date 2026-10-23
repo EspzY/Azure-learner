@@ -1,0 +1,58 @@
+# G1 NPC dialogue and learning design
+
+## Characters and roles
+
+**Ida**, cloud guide: practical, curious, direct. She asks what a team wants to operate and uses the workshop to explain responsibility. She offers purpose → mechanism → caveat depth, or an experienced entry directly into investigation. Skipping the introduction grants no competence or award.
+
+**Noor**, platform engineer: precise about workload constraints and evidence. Noor requests a custom web application platform without customer operation of the guest OS. Noor distinguishes an accepted task, unfinished recorded work, satisfied guided findings and an explicitly reviewed result. Neither character promises security, availability, exam success or independent mastery.
+
+Both are actual rigged/animated people, physically approached in the spatial mode. Interaction is explicit; proximity never opens dialogue. Conversation pauses movement, turns people toward the learner, changes camera framing and uses a native keyboard-accessible dialogue. The same authored graph works in semantic mode without WebGL. No live AI model generates explanations or evaluates answers.
+
+## Implemented conversation graph
+
+Version 1.0.0; stable node IDs in `domain/rpg/story.ts`, original Bokmål in `src/content/nb.ts`. Node/choice references are validated in tests. Effects are allowlisted data, never scripts.
+
+| Entry / branch                            | Learner action                                                 | Response and state                                                                                    |
+| ----------------------------------------- | -------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
+| `guide-welcome`                           | Ask why, or choose experienced entry                           | Purpose/operational mechanism, or direct investigation; records meeting only                          |
+| `purpose` / `mechanism` / `guide-detail`  | Explore deeper explanation                                     | OS/runtime/code boundaries, container caveat and retained security responsibilities; no reward        |
+| `installation`                            | Select IaaS/PaaS/SaaS, compare at least two                    | Layer geometry/materials and corresponding explanation update; model observations recorded            |
+| `service-question`                        | Select a model for custom code without guest-OS administration | VM/SaaS choices receive distinct misconception responses; PaaS is supported for these requirements    |
+| `ownership-question`                      | Allocate remaining tasks                                       | OS/all-security misconceptions get corrective explanations; code/data/access/configuration is correct |
+| `engineer-offer` → `engineer-brief`       | Inspect requirements, explicitly accept                        | Saves acceptance; does not create resources or fulfill technical requirements                         |
+| `portal-ready`                            | Activate after investigation/decisions/acceptance              | Saves return context before loading the real guided workspace                                         |
+| `engineer-reminder` / `engineer-progress` | Return without all guided findings                             | No congratulations; explains remaining investigation and preserves work                               |
+| `engineer-built` → `engineer-reported`    | Review actual satisfied guided findings                        | Records discussion; explicitly says not independently assessed/full chapter complete                  |
+
+Re-entry is derived, not a one-way dialogue completion flag: meeting Ida changes her entry to `guide-expert`; current technical state changes Noor's entry. Reset technical work and Noor loses a satisfied-result response. Portal visits and render timing cannot create that response.
+
+## Teaching sequence and causal demonstration
+
+1. Discover why the operating boundary matters before choosing a product.
+2. Physically inspect the installation: infrastructure/OS/runtime/application/network/settings/identity/data are **responsibility layers**, never management scopes.
+3. Switch IaaS → PaaS. OS moves to Microsoft; customer data/identity/settings stay. Shared application/network responsibilities remain visible where relevant. SaaS represents using a supplied application, not hosting arbitrary custom code.
+4. Apply these differences to the team requirement. Incorrect answers explain the mismatch; retries preserve the history.
+5. Accept Noor's assignment and use actual resource/policy/dependency rules in the workbench.
+6. Return and discuss evidence from that work, retaining explicit guided/independent boundaries.
+
+The challenge tests two connected reasons, not the word “PaaS” alone. Feedback is immediate and assisted. Neither model comparison, correct retry nor a guided technical result is independent evidence. There is no new XP for replaying dialogue, clicking or following hints.
+
+## Source-backed nuances
+
+Technical sources use the existing [source register](SOURCE_REGISTER.md): **S01** shared responsibility, **S12** App Service plans, **S03** resource groups, **S38** policy deny. S01/S12 were re-read for G1 on 2026-10-23. UI references open explicitly in a new tab, preserving game state. Materials and questions are original; no proprietary Microsoft assessment is reproduced.
+
+- A managed platform does not transfer all customer security obligations. Data, identities, configuration and controlled code still need customer work.
+- The installation is a simplified responsibility comparison, not a complete inventory of Azure controls, endpoint protection or contractual obligations.
+- Built-in App Service runtime differs from customer-supplied container maintenance. The latter does not remove responsibility for container contents.
+- A plan supplies the app's compute/OS/region in the bounded guided model. A resource group's metadata location does not substitute for hosting configuration.
+- The custom Web-location rule is an authored training policy, not every Azure built-in policy or an authorization failure.
+
+## Authoring requirements
+
+Each new branch needs an objective, misconception or technical purpose; a real learner choice; an allowlisted observation/action; original localized feedback; source IDs; and an accessible equivalent. Choices may test a condition, trigger a workshop/navigation action or emit a typed observation. Re-entry must examine current validated state. All essential mechanisms must be available without finishing introductory prose. Do not hide missing technical logic behind dialogue congratulation or a successful animation.
+
+Before publishing a new teaching branch, verify both incorrect/correct paths, references, source date, version compatibility, controller escape/return, narrow readable layouts and the distinction between assistance and independent assessment. Future contextual tutoring may recommend authored nodes; factual truth and scoring must remain constrained by reviewed content and domain rules.
+
+## Evaluation status
+
+Automated graph, answer, state and browser checks establish implementation behavior only. A beginner should explain the responsibility change in their own words; an experienced engineer should challenge the container/hosting caveats and try unfinished return; an Azure reviewer should inspect policy and location reasoning. These human exercises remain planned, not completed learning validation.

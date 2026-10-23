@@ -1,5 +1,16 @@
 # Roadmap
 
+## G1 — separate playable RPG foundation
+
+- **Learning outcome:** explain service/operating boundaries through a physical comparison, justify a custom-app platform and investigate existing guided policy/hosting behavior.
+- **Experience/scope:** one station, real third-person control, two NPCs, a model-changing workshop, guided challenge, physical portal, actual Chapter 01 work and contextual return. Root stays the old comparison.
+- **Technical deliverables:** stable Fiber/Three rendering, local reviewed assets/pipeline, bounded movement, typed authored dialogue, derived quest facts and isolated validated save. Four focused game documents plus asset/docs gates.
+- **Automated gate:** retain existing assertions; test actual position/animation, branches, responsibility transform, wrong/correct choices, real workbench/return, resume, legacy XP, keyboard/touch/reduced motion, context loss and semantic parity. Asset hashes/licenses/local references pass.
+- **Human gate:** owner approves appearance and feel while walking/conversing; representative desktop/phone performance, screen-reader and Azure SME/beginner reasoning reviews. Passing tests alone cannot promote the route to primary entry.
+- **Exclusions:** root replacement, more worlds, independent Chapter 01 completion, new rewards, live Azure/AI/accounts, production deployment.
+
+Next iteration should close observed camera/animation/art/device/accessibility defects on this location before adding geography or chapters. Phase 1B.2's independent transfer/classification/checkpoint work remains necessary; presentation does not waive it. Actual results and limitations are in [project status](PROJECT_STATUS.md).
+
 Version: Phase 1A proposal, 2026-10-22. This supersedes the earlier feature-oriented Phase 1 roadmap. No schedules or whole-curriculum delivery promise. Completion means meeting the stated learning/engineering/human gates; status and actual checks live in [PROJECT_STATUS.md](PROJECT_STATUS.md). Phase 0/0.5 and the bounded Phase 1A.5 expedition are implemented; none is evidence of a complete educational product.
 
 ## Phase 1A — product and learning architecture

@@ -1,5 +1,7 @@
 # Chapter 01 guided implementation
 
+G1 adds a caller-preserving entry from the physical game portal at `/expedition-3d`. `from=rpg-g1` changes only the return link and leaves all technical/scenario/replay rules intact. [Gameplay architecture](GAMEPLAY_ARCHITECTURE.md) owns the saved game pose, NPC quest and return contract. A satisfied guided result supplies Noor's contextual response; it is not independent or full chapter completion.
+
 Phase 1B.1, 2026-10-23. This focused document owns the implemented technical workspace contract. The full learning target and V01–V16 remain in [CHAPTER_01_BLUEPRINT.md](CHAPTER_01_BLUEPRINT.md); independent transfer, assessment classification, participation award and checkpoint promotion are Phase 1B.2 scope.
 
 ## Technical model

@@ -1,5 +1,9 @@
 # The Azure Expedition — implemented Phase 1A.5
 
+## G1 comparison route
+
+The original journey below remains available at `/`. G1 adds `/expedition-3d`, a real controllable third-person location with authored NPC dialogue, physical responsibility demonstration and a saved-context gateway into the same guided workbench. Its route is deliberately separate until owner review. [World design](GAME_WORLD_DESIGN.md) and [gameplay architecture](GAMEPLAY_ARCHITECTURE.md) own the new control/camera/quest/return contracts. No SVG route position, legacy award or guided workspace is migrated or overwritten by visiting it.
+
 Delivered 2026-10-23. This is a bounded playable journey, not the full [Chapter 01](CHAPTER_01_BLUEPRINT.md) or the complete 30-unit curriculum. The owner explicitly authorized this implementation after Phase 1A. No backend, WebGL, Azure connection or live content integration is introduced. [PROJECT_STATUS.md](PROJECT_STATUS.md) records actual verification and remaining review gates.
 
 ## Infrastructure gateway extension — Phase 1B.1

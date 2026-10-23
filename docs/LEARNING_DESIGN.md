@@ -1,5 +1,9 @@
 # Learning design
 
+## G1 — conversations, demonstrations and real technical evidence
+
+The separate game route adds a connected **meet → investigate → choose → configure → report** presentation of the existing objectives. [NPC dialogue design](NPC_DIALOGUE_DESIGN.md) specifies both characters, misconception branches, physical responsibility changes and source-backed caveats. Ida teaches through comparison; Noor supplies workload requirements and responds to actual current guided findings. Experienced entry skips introductory prose without asserting prior knowledge. Corrective challenge responses are guided observations; game completion earns no XP, mastery, readiness or Chapter 01 promotion. No new Azure technical rule is introduced for visual effect. Learning effectiveness and transfer require the planned human/independent assessments, not successful traversal.
+
 This file describes the **implemented legacy organization activity**. Phase 1A.5 adds the [expedition teaching and two guided detours](JOURNEY_EXPERIENCE.md), using requirement selection and responsibility allocation rather than repeating the legacy three-question component. All three checks are guided, not independent assessment. Phase 1A's wider competency graph, evidence distinctions and source lifecycle are proposed in [LEARNING_JOURNEY.md](LEARNING_JOURNEY.md), reusable mechanics in [EXPERIENCE_PATTERNS.md](EXPERIENCE_PATTERNS.md), and the first complete chapter in [CHAPTER_01_BLUEPRINT.md](CHAPTER_01_BLUEPRINT.md). The complete chapters/platform and independent evidence designs have not been implemented or evaluated with learners. Keep this legacy activity's validated rules/results separate from the new specification.
 
 ## Guided technical extension — Phase 1B.1

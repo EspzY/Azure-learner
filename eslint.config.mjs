@@ -9,6 +9,8 @@ export default defineConfig([
   js.configs.recommended,
   ...tseslint.configs.recommended,
   reactHooks.configs.flat.recommended,
+  // R3F's documented useFrame model mutates Three objects, not React state.
+  { files: ['src/features/rpg/scene.tsx'], rules: { 'react-hooks/immutability': 'off' } },
   { languageOptions: { globals: { ...globals.browser, ...globals.node } } },
   prettier,
   globalIgnores(['.next/**', 'out/**', 'next-env.d.ts', 'playwright-report/**', 'test-results/**']),

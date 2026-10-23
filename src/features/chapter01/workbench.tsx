@@ -1,5 +1,6 @@
 'use client';
 import Link from 'next/link';
+import { useSearchParams } from 'next/navigation';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import {
   ArrowRight,
@@ -49,6 +50,7 @@ type Panel =
   | 'CreatePlan'
   | 'CreateWebApp';
 export function ChapterWorkbench() {
+  const fromGame = useSearchParams().get('from') === 'rpg-g1';
   const { attempt, ready, issue, attemptNumber, store } = useChapter();
   const { state: expedition, update: updateExpedition } = useExpedition();
   const { world } = attempt.engine;
@@ -171,8 +173,9 @@ export function ChapterWorkbench() {
           <h1 id="chapter-title">{t.title}</h1>
         </div>
         <Link
-          href="/?at=gateway"
+          href={fromGame ? '/expedition-3d?return=chapter01' : '/?at=gateway'}
           onClick={() =>
+            !fromGame &&
             updateExpedition((old) => ({
               ...old,
               stop: 'gateway',
@@ -180,7 +183,7 @@ export function ChapterWorkbench() {
             }))
           }
         >
-          {t.return}
+          {fromGame ? nb.rpg.returnToWorld : t.return}
           <ArrowRight size={15} />
         </Link>
       </header>

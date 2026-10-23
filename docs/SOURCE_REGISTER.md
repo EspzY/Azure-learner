@@ -1,5 +1,9 @@
 # Source and credential register
 
+## G1 targeted review — 2026-10-23
+
+Register amendment **2026-10-23.2**: S01 (shared responsibility) and S12 (App Service plans) were re-read from their current Microsoft Learn pages for the original G1 dialogue/workshop. Their responsibility matrix and app/plan compute-location relationship support the bounded explanation, not a full Azure emulator. Other guided policy/group claims reuse the Phase 1B.1 reviewed rules, unchanged. [NPC dialogue design](NPC_DIALOGUE_DESIGN.md) maps misconceptions/claims; [asset register](ASSET_REGISTER.md) separately records non-Microsoft art licenses. No lesson/media/assessment ingestion or live Learn adapter is enabled.
+
 Register version **2026-10-23.1**. Baseline reviewed **2026-10-22**, with the targeted Phase 1B.1 re-review below on **2026-10-23**, by Codex through public documentation; Azure subject-matter release review remains planned. Other source/credential observations retain their original dates. These are primary Microsoft references except UX01 (W3C). Reading public pages is not an authenticated API test, a service capability test or permission to redistribute lessons. Several Learn pages display an authorization notice while exposing readable article text; no sign-in or restricted content was used.
 
 ## Attribution, versions and review policy

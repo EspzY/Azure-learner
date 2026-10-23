@@ -12,6 +12,15 @@ export function AppShell({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const { progress, ready } = useProgress();
   const active = nb.nav.find((item) => item.href === pathname);
+  if (pathname === '/expedition-3d')
+    return (
+      <div className="game-shell">
+        <a href="#main" className="skip-link">
+          {nb.shell.skip}
+        </a>
+        <main id="main">{children}</main>
+      </div>
+    );
   return (
     <div
       className={`app-shell ${pathname === '/explore' || pathname === '/' ? 'shell-universe' : ''}`}
