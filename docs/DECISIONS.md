@@ -1,5 +1,15 @@
 # Decisions
 
+## G1.1 decisions — 2026-10-23
+
+| ID  | Decision                                                         | Reason / boundary                                                                                                                                    |
+| --- | ---------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 048 | Isolated cinematic branch stacked on verified G1                 | Preserve PR #1–#3 and technical history; no root replacement or production deployment.                                                               |
+| 049 | Bounded pure shot plans plus existing imperative renderer        | Context, actual character positions and viewport/UI safe area determine shots; no general cutscene engine, dependency or completion timing.          |
+| 050 | Dedicated open cinematic native dialog and secondary field notes | Retain modal accessibility and all original technical depth while freeing the visible environment from a large command panel.                        |
+| 051 | Preserve event schema; presentation is transient                 | No technical meaning, reward or evidence migration; existing game/legacy/guided work remains valid.                                                  |
+| 052 | Polish existing licensed assets before replacing art             | Smaller conditional signs, calmer gestures and lighting improve composition; source proportions/rig limitations still require a future art decision. |
+
 ## G1 decisions — 2026-10-23
 
 | ID  | Decision                                                                 | Reason and boundary                                                                                                                                                                                                                                                                |

@@ -1,5 +1,9 @@
 # The Azure Expedition — implemented Phase 1A.5
 
+## G1.1 presentation extension
+
+Only the separate game route gains cinematic conversations and workshop framing. Entry/portal/return positions, technical replay, quest facts and the root journey below remain unchanged. Unfinished work, guided satisfaction and explicit reporting still produce distinct Noor responses; camera shots and field notes cannot complete work or award XP. See [dialogue](NPC_DIALOGUE_DESIGN.md) and [rendering contracts](GAMEPLAY_ARCHITECTURE.md).
+
 ## G1 comparison route
 
 The original journey below remains available at `/`. G1 adds `/expedition-3d`, a real controllable third-person location with authored NPC dialogue, physical responsibility demonstration and a saved-context gateway into the same guided workbench. Its route is deliberately separate until owner review. [World design](GAME_WORLD_DESIGN.md) and [gameplay architecture](GAMEPLAY_ARCHITECTURE.md) own the new control/camera/quest/return contracts. No SVG route position, legacy award or guided workspace is migrated or overwritten by visiting it.

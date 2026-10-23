@@ -12,6 +12,7 @@ import {
   MathUtils,
   Mesh,
   MeshBasicMaterial,
+  MeshStandardMaterial,
   SkinnedMesh,
   Raycaster,
   RepeatWrapping,
@@ -21,6 +22,7 @@ import {
   type AnimationAction,
   type Sprite,
   type Skeleton,
+  PerspectiveCamera,
 } from 'three';
 import { nb } from '@/content/nb';
 import { layers, responsibility, type ServiceModel } from '@/domain/expedition';
@@ -35,6 +37,7 @@ import {
 } from './assets';
 import { PlayerRuntime } from './runtime';
 import { actorSupport, groundActor } from './grounding';
+import { actorEye, planShot, projectPoint, type ShotPlan } from './cinematics';
 
 function Sign({
   text,
@@ -42,12 +45,14 @@ function Sign({
   width = 3,
   color = '#c8efe6',
   runtime,
+  overlay = false,
 }: {
   text: string;
   position: [number, number, number];
   width?: number;
   color?: string;
   runtime?: PlayerRuntime;
+  overlay?: boolean;
 }) {
   const sprite = useRef<Sprite>(null);
   useFrame(() => {
@@ -58,10 +63,12 @@ function Sign({
     canvas.width = 1024;
     canvas.height = 160;
     const c = canvas.getContext('2d')!;
-    c.fillStyle = 'rgba(9,22,34,.88)';
-    c.fillRect(0, 0, 1024, 160);
+    c.fillStyle = 'rgba(9,22,34,.5)';
+    c.fillRect(130, 20, 764, 120);
     c.fillStyle = color;
     c.font = '600 54px sans-serif';
+    const fontSize = Math.min(54, (54 * 740) / Math.max(1, c.measureText(text).width));
+    c.font = `600 ${fontSize}px sans-serif`;
     c.textAlign = 'center';
     c.fillText(text, 512, 96);
     const t = new CanvasTexture(canvas);
@@ -71,7 +78,7 @@ function Sign({
   useEffect(() => () => texture.dispose(), [texture]);
   return (
     <sprite ref={sprite} position={position} scale={[width, width * 0.156, 1]}>
-      <spriteMaterial map={texture} depthTest transparent />
+      <spriteMaterial map={texture} depthTest={!overlay} depthWrite={false} transparent />
     </sprite>
   );
 }
@@ -209,11 +216,16 @@ function Environment({ runtime }: { runtime: PlayerRuntime }) {
     <>
       <Terrain />
       <StaticModels placements={staticPlacements} />
-      <Sign text={nb.rpg.worldSign} position={[-6, 3.3, 7]} width={4} />
-      <Sign text={nb.rpg.workshopSign} position={[3, 3.7, -3]} width={3.5} />
-      <Sign text={nb.rpg.portalSign} position={[0, 6.6, -24]} width={4.8} />
-      <Sign text={nb.rpg.places.guide} position={[-3, 2.25, 4]} width={2.5} runtime={runtime} />
-      <Sign text={nb.rpg.places.engineer} position={[-3, 2.25, -13]} width={3} runtime={runtime} />
+      <Sign text={nb.rpg.worldSign} position={[-6, 2.7, 7]} width={2.8} runtime={runtime} />
+      <Sign text={nb.rpg.workshopSign} position={[3, 3.5, -3]} width={2.6} runtime={runtime} />
+      <Sign text={nb.rpg.portalSign} position={[0, 6.3, -24]} width={3.6} runtime={runtime} />
+      <Sign text={nb.rpg.speakers.guide} position={[-3, 2.05, 4]} width={1.2} runtime={runtime} />
+      <Sign
+        text={nb.rpg.speakers.engineer}
+        position={[-3, 2.05, -13]}
+        width={1.2}
+        runtime={runtime}
+      />
     </>
   );
 }
@@ -262,6 +274,8 @@ function Character({
     [asset, mixer],
   );
   const current = useRef<AnimationAction | null>(null);
+  const beat = useRef('');
+  const gestureTime = useRef(0);
   useEffect(
     () => () => {
       mixer.stopAllAction();
@@ -278,21 +292,39 @@ function Character({
     const node = group.current;
     if (!node) return;
     const p = npc ? places[npc] : runtime.pose;
-    node.visible = !!npc || !runtime.conversation;
+    node.visible = !!npc || runtime.playerVisible;
     node.position.set(p.x, 0, p.z);
-    const interacting = npc ? runtime.conversation === npc : !!runtime.conversation;
+    const interacting = !!npc && runtime.shot?.speaker === npc;
+    if (beat.current !== runtime.shot?.node) {
+      beat.current = runtime.shot?.node ?? '';
+      gestureTime.current = 0;
+    }
+    gestureTime.current += delta;
+    const conversationTarget =
+      runtime.conversation === 'installation' ? places.installation : runtime.pose;
     const targetYaw = npc
-      ? Math.atan2(runtime.pose.x - p.x, runtime.pose.z - p.z)
-      : interacting && runtime.conversation
+      ? Math.atan2(conversationTarget.x - p.x, conversationTarget.z - p.z)
+      : runtime.conversation
         ? Math.atan2(places[runtime.conversation].x - p.x, places[runtime.conversation].z - p.z)
         : runtime.pose.yaw;
     const difference = Math.atan2(
       Math.sin(targetYaw - node.rotation.y),
       Math.cos(targetYaw - node.rotation.y),
     );
-    node.rotation.y += difference * (1 - Math.exp(-12 * delta));
+    node.rotation.y += difference * (1 - Math.exp(-(npc ? 5 : 12) * delta));
+    if (npc)
+      runtime.telemetry({
+        [`${npc}Facing`]: node.rotation.y.toFixed(3),
+        [`${npc}Target`]: targetYaw.toFixed(3),
+      });
     const next =
-      actions[!npc && runtime.moving ? 'walk' : interacting ? 'interact-right' : 'idle']!;
+      actions[
+        !npc && runtime.moving
+          ? 'walk'
+          : interacting && gestureTime.current < 1.3
+            ? 'interact-right'
+            : 'idle'
+      ]!;
     if (current.current !== next) {
       current.current?.fadeOut(0.18);
       next.reset().fadeIn(0.18).play();
@@ -304,6 +336,7 @@ function Character({
     if (!npc && runtime.root) {
       runtime.telemetry({ animation: runtime.moving ? 'walk' : interacting ? 'interact' : 'idle' });
       runtime.telemetry({ feetY: feetY.toFixed(3) });
+      runtime.telemetry({ playerVisible: String(node.visible) });
       const leg = rig.getObjectByName('leg-left');
       if (leg) runtime.telemetry({ legAngle: leg.quaternion.x.toFixed(4) });
     }
@@ -332,14 +365,22 @@ function Installation({
       if (node) {
         node.position.x = reduced ? target : MathUtils.damp(node.position.x, target, 8, dt);
         if (layer === 'os') runtime.telemetry({ osPosition: node.position.x.toFixed(2) });
+        const mesh = node.children.find((child) => child instanceof Mesh);
+        if (mesh?.material instanceof MeshStandardMaterial)
+          mesh.material.emissiveIntensity = runtime.inspectedLayer === layer ? 1.1 : 0.4;
+        if (runtime.inspectedLayer === layer && mesh?.material instanceof MeshStandardMaterial)
+          runtime.telemetry({
+            highlightedLayer: layer,
+            layerIntensity: String(mesh.material.emissiveIntensity),
+          });
       }
     });
   });
   return (
     <group position={[3, 0, -3]}>
       <Model name="machine_generatorLarge" position={[0, 0, 0]} scale={1.5} />
-      <Sign text={nb.rpg.owners.microsoft} position={[-1.2, 3.1, 0]} width={1.9} />
-      <Sign text={nb.rpg.owners.customer} position={[1.2, 3.1, 0]} width={1.6} />
+      <Sign text={nb.rpg.owners.microsoft} position={[-1.2, 3.05, 0]} width={1.55} />
+      <Sign text={nb.rpg.owners.customer} position={[1.2, 3.05, 0]} width={1.35} />
       {layers.map((layer, i) => {
         const owner = responsibility(model, layer);
         return (
@@ -359,10 +400,15 @@ function Installation({
                 metalness={0.3}
                 roughness={0.3}
                 emissive={owner === 'microsoft' ? '#123d52' : '#3f1e4b'}
-                emissiveIntensity={0.4}
+                emissiveIntensity={runtime.inspectedLayer === layer ? 1.2 : 0.4}
               />
             </mesh>
-            <Sign text={nb.expedition.layers[layer].label} position={[0, 0, 0.26]} width={1.23} />
+            <Sign
+              text={nb.expedition.layers[layer].label}
+              position={[0, 0, 0.26]}
+              width={1.23}
+              overlay
+            />
           </group>
         );
       })}
@@ -438,6 +484,7 @@ function Director({
   const solids = useRef<Box3[]>([]);
   const shadowLight = useRef<{ castShadow: boolean } | null>(null);
   const contact = useMemo(() => new Vector3(), []);
+  const shotCache = useRef<{ key: string; plan: ShotPlan } | null>(null);
   useEffect(() => {
     const lost = (event: Event) => {
       event.preventDefault();
@@ -463,20 +510,23 @@ function Director({
     elapsed.current += dt;
     sampled.current += dt;
     const p = runtime.pose;
-    const close = runtime.conversation && places[runtime.conversation];
-    if (close) {
-      if (runtime.conversation === 'installation') {
-        desired.set(close.x, 6, close.z + (size.width < 600 ? 16 : 13));
-        look.set(close.x, -1.8, close.z);
-      } else {
-        const bearing = Math.atan2(p.x - close.x, p.z - close.z);
-        desired.set(close.x + Math.sin(bearing) * 5.45, 2.5, close.z + Math.cos(bearing) * 5.45);
-        look.set(close.x, -0.1, close.z);
-      }
-    } else {
-      desired.set(p.x, size.width < 600 ? 3.6 : 3.2, p.z + (size.width < 600 ? 6.8 : 6.6));
-      look.set(p.x, 1, p.z - 2.4);
-    }
+    const shotKey = `${p.x}/${p.z}/${runtime.conversation}/${runtime.shot?.node}/${size.width}/${size.height}/${runtime.dialogueTop}`;
+    if (shotCache.current?.key !== shotKey)
+      shotCache.current = {
+        key: shotKey,
+        plan: planShot(
+          p,
+          runtime.conversation,
+          runtime.shot,
+          size.width,
+          size.height,
+          runtime.dialogueTop,
+        ),
+      };
+    const shot = shotCache.current.plan;
+    runtime.playerVisible = shot.playerVisible;
+    desired.copy(shot.eye);
+    look.copy(shot.target);
     // Authored corridor keeps solid architecture outside play zones; one ray shortens the camera if needed.
     direction.copy(desired).sub(look);
     const length = direction.length();
@@ -489,15 +539,50 @@ function Director({
     }
     if (obstruction < length)
       desired.copy(look).addScaledVector(direction, Math.max(1.5, obstruction - 0.3));
-    camera.position.lerp(desired, reduced ? 1 : 1 - Math.exp(-6 * dt));
-    lookCurrent.lerp(look, reduced ? 1 : 1 - Math.exp(-8 * dt));
+    camera.position.lerp(desired, reduced ? 1 : 1 - Math.exp((-3 / shot.duration) * dt));
+    lookCurrent.lerp(look, reduced ? 1 : 1 - Math.exp((-3 / shot.duration) * dt));
     camera.lookAt(lookCurrent);
     runtime.telemetry({
       cameraSettled: String(
         camera.position.distanceTo(desired) < 0.04 && lookCurrent.distanceTo(look) < 0.04,
       ),
       cameraPlace: runtime.conversation ?? '',
+      cameraShot: shot.intent,
+      cameraWidth: String(size.width),
+      cameraHeight: String(size.height),
+      cameraSpeaker: shot.speaker ?? '',
+      cameraTransition: reduced ? 'immediate' : 'damped',
     });
+    if (camera instanceof PerspectiveCamera && shot.speaker) {
+      camera.updateMatrixWorld();
+      const head = projectPoint(actorEye(places[shot.speaker]), camera);
+      const top = projectPoint(
+        new Vector3(places[shot.speaker].x, 1.8, places[shot.speaker].z),
+        camera,
+      );
+      const playerHead = projectPoint(actorEye(p), camera);
+      runtime.telemetry({
+        speakerX: head.x.toFixed(3),
+        speakerY: head.y.toFixed(3),
+        speakerTop: top.y.toFixed(3),
+        playerScreenX: playerHead.x.toFixed(3),
+        playerScreenY: playerHead.y.toFixed(3),
+        dialogueTop: runtime.dialogueTop.toFixed(3),
+      });
+      if (shot.intent === 'demonstration' && runtime.conversation === 'installation') {
+        const top = projectPoint(new Vector3(3, 3.2, -3), camera);
+        const bottom = projectPoint(new Vector3(3, 0.55, -2.3), camera);
+        const left = projectPoint(new Vector3(1.1, 1.8, -2.3), camera);
+        const right = projectPoint(new Vector3(4.9, 1.8, -2.3), camera);
+        runtime.telemetry({
+          workshopTop: top.y.toFixed(3),
+          workshopBottom: bottom.y.toFixed(3),
+          workshopLeft: left.x.toFixed(3),
+          workshopRight: right.x.toFixed(3),
+          dialogueLeft: runtime.dialogueLeft.toFixed(3),
+        });
+      }
+    }
     if (previousNear.current !== runtime.near) {
       previousNear.current = runtime.near;
       onNear(runtime.near);
@@ -584,10 +669,11 @@ export function GameScene({
         gl.toneMappingExposure = 1.25;
       }}
     >
-      <fog attach="fog" args={['#182a46', 25, 85]} />
+      <fog attach="fog" args={['#182a46', 18, 75]} />
       <Atmosphere />
-      <hemisphereLight args={['#91abc9', '#253040', 1.5]} />
-      <ambientLight intensity={0.5} />
+      <hemisphereLight args={['#91abc9', '#253040', 1.25]} />
+      <ambientLight intensity={0.3} />
+      <directionalLight position={[10, 8, -16]} color="#98b9ec" intensity={0.65} />
       <directionalLight
         position={[-14, 23, 8]}
         color="#ffe2b2"

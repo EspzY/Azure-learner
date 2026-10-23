@@ -1,5 +1,9 @@
 # G1 asset register
 
+## G1.1 reuse
+
+G1.1 introduces no third-party asset or download. All 26 GLBs, texture, licenses and manifest hashes below are unchanged. Runtime sign textures are original Canvas text with fitted sizing and revised transparency; lighting/material presentation remains original application code. Current Mini Characters proportions/rigs still limit mature character art; cinematic framing is not an asset-fidelity upgrade.
+
 ## Provenance and inclusion policy
 
 Included 2026-10-23. All runtime files are local/versioned under `public/game/`; no third-party asset server, decoder service or font is requested by the game. Publisher/creator: **Kenney**. Both source archives include CC0 licenses permitting personal, educational and commercial use. Credit is appreciated, not required; AzureLab credits Kenney here and retains the original license files. CC0 does not grant unrelated trademark/personality rights; no Microsoft logo or official Azure Portal artwork is included.

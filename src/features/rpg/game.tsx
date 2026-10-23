@@ -14,7 +14,6 @@ import {
   X,
 } from 'lucide-react';
 import { nb } from '@/content/nb';
-import { serviceModels, layers, responsibility } from '@/domain/expedition';
 import { currentStage } from '@/domain/chapter01/scenario';
 import { dialogue, entryNode, storyFacts, type Choice, type NodeId } from '@/domain/rpg/story';
 import { gatewayReturn, places, type PlaceId } from '@/domain/rpg/world';
@@ -24,6 +23,8 @@ import { useProgress } from '@/components/progress-provider';
 import { totalXp } from '@/domain/progression';
 import { useGame } from './game-provider';
 import { PlayerRuntime } from './runtime';
+import { CinematicDialogue } from './cinematic-dialogue';
+import { conversationShot } from './cinematics';
 
 const Scene = dynamic(() => import('./scene').then((m) => m.GameScene), { ssr: false });
 const t = nb.rpg;
@@ -77,8 +78,8 @@ export function Game() {
   const [metrics, setMetrics] = useState(runtime.measurement);
   const transitionTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const root = useRef<HTMLElement>(null),
-    viewport = useRef<HTMLDivElement>(null),
-    dialogScroll = useRef<HTMLDivElement>(null);
+    viewport = useRef<HTMLDivElement>(null);
+  const interactButton = useRef<HTMLButtonElement>(null);
   const technical = {
     guidedBuilt: currentStage(attempt) === 'guided-built',
     hasWork: attempt.engine.world.revision > 0,
@@ -178,8 +179,14 @@ export function Game() {
     [],
   );
   useEffect(() => {
-    dialogScroll.current?.scrollTo(0, 0);
-  }, [node]);
+    runtime.direct(node ? conversationShot(node, dialogue[node].speaker) : null);
+  }, [node, runtime]);
+  const restoreFocus = useCallback(() => {
+    if (runtime.route.length) viewport.current?.focus();
+    else if (interactButton.current && !interactButton.current.disabled)
+      interactButton.current.focus();
+    else viewport.current?.focus();
+  }, [runtime]);
   function close() {
     runtime.converse(null);
     setNode(null);
@@ -303,7 +310,12 @@ export function Game() {
                 </button>
               ))}
             </div>
-            <button type="button" className="button button-primary" onClick={interact}>
+            <button
+              ref={interactButton}
+              type="button"
+              className="button button-primary"
+              onClick={interact}
+            >
               {t.interact} · {t.places[semanticPlace]}
             </button>
           </div>
@@ -432,6 +444,7 @@ export function Game() {
           <button
             type="button"
             className="rpg-interact"
+            ref={interactButton}
             disabled={!active || entering}
             onClick={interact}
           >
@@ -484,89 +497,16 @@ export function Game() {
         </div>
       )}
       {node && (
-        <CommandDialog
-          title={`${t.speakers[dialogue[node].speaker]} · ${t.roles[dialogue[node].speaker]}`}
+        <CinematicDialogue
+          node={node}
+          model={facts.model}
+          facts={facts}
+          runtime={runtime}
+          onChoose={choose}
+          onModel={(model) => store.event({ kind: 'model', model })}
           onClose={close}
-          wide
-        >
-          <div className="rpg-dialogue" ref={dialogScroll} data-node={node}>
-            <p className="rpg-dialogue-text">{t.dialogue[node]}</p>
-            {node === 'installation' && (
-              <>
-                <div className="rpg-models" role="group" aria-label={t.installationTitle}>
-                  {serviceModels.map((model) => (
-                    <button
-                      type="button"
-                      key={model}
-                      aria-pressed={facts.model === model}
-                      onClick={() => store.event({ kind: 'model', model })}
-                    >
-                      {nb.expedition.models[model].label}
-                    </button>
-                  ))}
-                </div>
-                <p className="rpg-model-feedback" role="status">
-                  {t.modelNotes[facts.model]}
-                </p>
-                <p className="rpg-compare-hint">{t.compareHint}</p>
-                <details>
-                  <summary>{t.installationTitle}</summary>
-                  <dl className="rpg-responsibilities">
-                    {layers.map((layer) => (
-                      <div
-                        key={layer}
-                        data-layer={layer}
-                        data-owner={responsibility(facts.model, layer)}
-                      >
-                        <dt>{nb.expedition.layers[layer].label}</dt>
-                        <dd>{t.owners[responsibility(facts.model, layer)]}</dd>
-                      </div>
-                    ))}
-                  </dl>
-                </details>
-              </>
-            )}
-            {(dialogue[node].detail || dialogue[node].sources) && (
-              <details className="rpg-technical">
-                <summary>{t.detail}</summary>
-                <p>{t.mechanism}</p>
-                <p>{t.caveat}</p>
-                <a
-                  href="https://learn.microsoft.com/en-us/azure/security/fundamentals/shared-responsibility"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  {t.source}
-                </a>
-                {dialogue[node].speaker === 'engineer' && (
-                  <p>
-                    <a
-                      href="https://learn.microsoft.com/en-us/azure/app-service/overview-hosting-plans"
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      {t.planSource}
-                    </a>
-                  </p>
-                )}
-              </details>
-            )}
-            <div className="rpg-choices">
-              {dialogue[node].choices.map((choice, i) => (
-                <button
-                  type="button"
-                  key={choice.id}
-                  disabled={!!choice.when && !facts[choice.when]}
-                  onClick={() => choose(choice)}
-                >
-                  <span>{i + 1}</span>
-                  {t.choices[choice.id as keyof typeof t.choices]}
-                  <ArrowRight size={14} />
-                </button>
-              ))}
-            </div>
-          </div>
-        </CommandDialog>
+          restoreFocus={restoreFocus}
+        />
       )}
       {settings && (
         <CommandDialog title={t.settings} onClose={() => setSettings(false)}>

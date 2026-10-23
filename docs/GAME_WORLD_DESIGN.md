@@ -1,5 +1,15 @@
 # Lysningen — G1 world design
 
+## G1.1 conversation direction
+
+Exploration remains third-person in the same Lysningen location. Authored conversational intent selects an establishing/concluding two-character view, a player-shoulder question view, a focused NPC response or a workshop demonstration. Character eyes remain above the measured dialogue boundary. Position/bearing and aspect determine composition; the four building proxies still constrain the camera. Interrupting/advancing a beat retargets the current camera without queuing cutscenes. Exit damps to the unchanged player pose/orientation; motion reduction cuts immediately to equivalent compositions.
+
+Subtitles sit low on the left/centre, answers on a separate right-hand vertical list. A warm ivory/gold speaker/focus accent supports the navy/violet environment. A bottom gradient replaces the boxed conversation surface. Top HUD/nameplates/large station signs recede during conversation. Mobile places the speaker above a compact scrolling conversation area; short landscape uses two columns for people, while the workshop occupies the left half and scrollable controls occupy the right. That split reserves horizontal scene space instead of shrinking the installation behind a tall text stack. Larger text is available; it can require scrolling. Field notes are deliberately a readable inspection surface rather than pretending that long technical paragraphs are speech.
+
+Presentation polish reduces sign scale and background weight, fits text to label width and prevents responsibility labels intersecting plates. Cooler unshadowed fill, restrained ambient light and earlier atmospheric falloff separate faces/construction/distance; no postprocessing, new asset or environment rewrite. The workshop remains schematic responsibility geometry, never management containment or a physical Azure deployment.
+
+**Asset/art limit:** existing Kenney Mini Characters remain strongly stylized, large-headed figures with source limb/gesture limitations. Better composition does not make them high-fidelity mature character art. A future reviewed coherent character/animation family, all-limb clearance and representative-device review remain separate gates. No new assets are introduced in G1.1.
+
 ## Review status and purpose
 
 `/expedition-3d` is a playable comparison candidate, not a replacement for `/`. Engineering verification, owner visual acceptance and educational validation are separate gates. Automated coverage and image inspection cannot establish professional art acceptance or learning effectiveness. Actual results and open defects live in [project status](PROJECT_STATUS.md).
@@ -32,7 +42,7 @@ WASD/arrows move a real animated character at 2.7 units/second, including backwa
 
 Reduced motion makes camera and workshop changes immediate while retaining voluntarily initiated locomotion. NPCs face the learner and use interaction gestures during conversation. No autoplay conversations or movement are tied to approach. Fine motion/foot contact and camera framing still require human play review; animations do not prove learning.
 
-Conversation framing follows the learner's approach bearing, including returning from the gateway, so the camera views the person from the same side as the player. The player model and NPC nameplates are hidden during conversation to prevent occlusion. The quest HUD also recedes while dialogue is open, leaving responsibility labels and character faces readable.
+Conversation framing follows the learner's approach bearing, including returning from the gateway, so the camera views the person from the same side as the player. G1 originally hid the player and nameplates during all conversations; G1.1 supersedes that blanket player rule with shot-specific visibility. The quest HUD also recedes while dialogue is open, leaving responsibility labels and character faces readable.
 
 Foot contact is corrected against the actual animated shoe/leg geometry, and the walking rate is calibrated to controller speed. Side bays have continuous deck surfaces. This corrects source clip height drift; full IK, all-limb clearance and human locomotion review remain outside the verified claim.
 

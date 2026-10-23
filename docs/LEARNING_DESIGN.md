@@ -1,5 +1,9 @@
 # Learning design
 
+## G1.1 conversation pacing
+
+Short spoken beats now accompany intentional character/workshop shots. Full original explanations, misconceptions and source-backed caveats remain in resumable field notes. Layer inspection uses the same responsibility rules and emits no assessment/XP event. Immediate guided feedback still records assisted practice; neither cinematic pacing nor correct retries establish independent evidence. [NPC dialogue design](NPC_DIALOGUE_DESIGN.md) specifies the content split and re-entry behavior.
+
 ## G1 — conversations, demonstrations and real technical evidence
 
 The separate game route adds a connected **meet → investigate → choose → configure → report** presentation of the existing objectives. [NPC dialogue design](NPC_DIALOGUE_DESIGN.md) specifies both characters, misconception branches, physical responsibility changes and source-backed caveats. Ida teaches through comparison; Noor supplies workload requirements and responds to actual current guided findings. Experienced entry skips introductory prose without asserting prior knowledge. Corrective challenge responses are guided observations; game completion earns no XP, mastery, readiness or Chapter 01 promotion. No new Azure technical rule is introduced for visual effect. Learning effectiveness and transfer require the planned human/independent assessments, not successful traversal.

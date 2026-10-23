@@ -1,5 +1,9 @@
 # AzureLab
 
+## G1.1 — cinematic conversation candidate
+
+The separate /expedition-3d route now presents Ida and Noor through authored two-character, over-the-shoulder, close-up and workshop shots. Subtitles and response choices share the visible environment; optional field notes retain the full technical explanations. Native modal focus, keyboard/touch, reduced motion and semantic fallback remain. Azure rules, quest evidence, all four save categories and XP are preserved. This is a candidate for owner visual review, not a claim of finished character art or proven learning effectiveness. See [dialogue design](docs/NPC_DIALOGUE_DESIGN.md) and [actual verification](docs/PROJECT_STATUS.md).
+
 ## G1 — playable RPG comparison
 
 Open [`/expedition-3d`](http://127.0.0.1:3000/expedition-3d) for **Lysningen**: a locally rendered third-person station with rigged locomotion, two authored NPCs, an interactive responsibility workshop and a physical gateway into the existing Chapter 01 workbench. Walk with WASD/arrows, interact with E, or use held touch controls / optional assisted walking. The semantic alternative retains all essential learning when WebGL is unavailable. The root expedition remains unchanged for comparison.

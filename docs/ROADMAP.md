@@ -1,5 +1,15 @@
 # Roadmap
 
+## G1.1 — cinematic conversation candidate
+
+- **Learning outcome:** connect spoken responsibility reasoning to visible workshop changes, retain technical depth and distinguish Noor's actual findings from independent mastery.
+- **Delivered scope:** bounded context/position-aware shots, dedicated subtitles/responses, optional field notes, shot-aware characters, smaller signage and lighting polish in the existing location.
+- **Engineering gate:** preserve all G1/Azure regressions; verify speaker/head framing, player visibility/facing, keyboard focus/movement restoration, reduced motion, workshop inspection and compact viewports alongside actual screenshots.
+- **Human gate:** owner reviews the conversations during play; Azure SME/learner reasoning, physical-device performance and human accessibility review remain required. Green tests are not art approval.
+- **Exclusions:** new art packs/worlds, voice/lip-sync, full cutscene framework, root replacement, independent Chapter 01/Phase 1B.2, new awards, integrations or production deployment.
+
+Next: review this cinematic candidate, then decide on coherent character/animation replacement and remaining movement/camera/device issues before expanding content. G1 history below remains applicable to its delivered scope.
+
 ## G1 — separate playable RPG foundation
 
 - **Learning outcome:** explain service/operating boundaries through a physical comparison, justify a custom-app platform and investigate existing guided policy/hosting behavior.

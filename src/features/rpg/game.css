@@ -1,7 +1,7 @@
 .rpg-world {
   position: relative;
   height: 100dvh;
-  min-height: 520px;
+  min-height: 0;
   overflow: hidden;
   background: #132431;
   color: #edf4f7;
@@ -483,7 +483,7 @@
 @media (max-width: 640px) {
   .rpg-world {
     height: 100dvh;
-    min-height: 450px;
+    min-height: 0;
   }
   .rpg-top {
     top: 14px;
@@ -623,7 +623,7 @@
 }
 @media (max-height: 740px) and (min-width: 641px) {
   .rpg-world {
-    min-height: 450px;
+    min-height: 0;
   }
   .rpg-quest {
     max-width: 220px;

@@ -1,5 +1,15 @@
 # G1 NPC dialogue and learning design
 
+## G1.1 pacing and speaker contract
+
+The same reviewed graph/events now has two content layers: nb.rpg.spoken contains concise authored conversational beats; nb.rpg.dialogue retains the complete original explanations in field notes. Questions without an override use their original short text. There is no text truncation or automatic timed advancement. Explanation depth, including container maintenance and retained security duties, remains accessible before choosing an answer. Dialogue/inspection/replay earns no XP and never constitutes unaided evidence.
+
+Ida opens/concludes with both people visible, asks operational questions over the player's shoulder and gives targeted misconception responses in close-up. In the workshop, her attributed text accompanies the real model/layer change; the camera shows the installation. Ida is not teleported there and no voice/lip-sync is implied. The installation is the interlocutor's visual focus. Noor's offer, requirements, accepted, unfinished, guided-satisfied and explicitly reported states retain their existing deterministic derivation. Requirements use a shoulder shot, while return explanations use a close-up. Optional post-report depth stays with Noor in field notes; asking to reconsider the model sends the player to the actual workshop.
+
+The native cinematic dialog names the speaker, distinguishes system messages from NPC speech, labels player responses separately and restores an equivalent exploration interaction control after closing. Choices are authored **interface responses**, not recorded player audio or spoken lines. Arrow keys/numbers are scoped to a focused response; native select navigation is unaffected in notes. Escape closes notes before closing the conversation. Advancing a beat never waits for camera settling.
+
+Sources S01/S12 were re-read on **2026-10-23** for the original shorter wording; no new technical capability is claimed. Future audio may attach to authored beats, but playback must never gate evidence, XP or quest truth. Human Azure-SME and learner comprehension reviews remain planned.
+
 ## Characters and roles
 
 **Ida**, cloud guide: practical, curious, direct. She asks what a team wants to operate and uses the workshop to explain responsibility. She offers purpose → mechanism → caveat depth, or an experienced entry directly into investigation. Skipping the introduction grants no competence or award.

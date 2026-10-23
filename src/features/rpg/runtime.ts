@@ -7,6 +7,7 @@ import {
   type Point,
   type Pose,
 } from '@/domain/rpg/world';
+import type { ConversationShot } from './cinematics';
 export interface RenderMeasurement {
   frames: number;
   fps: number;
@@ -24,6 +25,18 @@ export class PlayerRuntime {
   moving = false;
   near: PlaceId | null = null;
   conversation: PlaceId | null = null;
+  shot: ConversationShot | null = null;
+  playerVisible = true;
+  dialogueTop = 0.63;
+  dialogueLeft = 0.08;
+  inspectedLayer: string | null = null;
+  inspect(layer: string | null) {
+    this.inspectedLayer = layer;
+  }
+  safeFrame(top: number, left: number) {
+    this.dialogueTop = Math.max(0.3, Math.min(0.8, top));
+    this.dialogueLeft = left;
+  }
   gate = false;
   root: HTMLElement | null = null;
   measurement: RenderMeasurement = {
@@ -52,6 +65,11 @@ export class PlayerRuntime {
   }
   converse(place: PlaceId | null) {
     this.conversation = place;
+    if (!place) this.shot = null;
+    this.telemetry({ cameraSettled: 'false' });
+  }
+  direct(shot: ConversationShot | null) {
+    this.shot = shot;
     this.telemetry({ cameraSettled: 'false' });
   }
   activateGate() {
