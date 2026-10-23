@@ -38,6 +38,8 @@ import {
 import { PlayerRuntime } from './runtime';
 import { actorSupport, groundActor } from './grounding';
 import { actorEye, planShot, projectPoint, type ShotPlan } from './cinematics';
+import { experiment } from '@/domain/curriculum/foundations';
+import type { LearningProjection } from '@/features/learning/session';
 
 function Sign({
   text,
@@ -415,6 +417,92 @@ function Installation({
     </group>
   );
 }
+function FoundationInstallation({ lesson }: { lesson: LearningProjection }) {
+  const { unit, input } = lesson;
+  if (unit === 'brief')
+    return (
+      <group position={[3, 0, -3]}>
+        <Model name="machine_generatorLarge" position={[0, 0, 0]} scale={1.5} />
+        <Sign text={nb.foundations.module} position={[0, 2.7, 0]} width={2.8} />
+      </group>
+    );
+  const result = experiment(input),
+    t = nb.foundations;
+  const topology = unit === 'models' || unit === 'placement';
+  return (
+    <group position={[3, 0, -3]}>
+      <Model name="machine_generatorLarge" position={[0, 0, 0]} scale={1.5} />
+      <Sign
+        text={topology ? t[input.topology] : t.investigate}
+        position={[0, 3.05, 0]}
+        width={2.8}
+      />
+      {topology ? (
+        <>
+          <mesh position={[-0.95, 0.95, 0.5]}>
+            <boxGeometry args={[1.25, 1.2, 0.7]} />
+            <meshStandardMaterial
+              color={input.topology === 'public' ? '#3b4353' : '#9c7bc9'}
+              roughness={0.6}
+            />
+          </mesh>
+          <mesh position={[0.95, 0.95, 0.5]}>
+            <boxGeometry args={[1.25, 1.2, 0.7]} />
+            <meshStandardMaterial
+              color={input.topology === 'private' ? '#3b4353' : '#449da9'}
+              roughness={0.6}
+            />
+          </mesh>
+          {input.topology === 'hybrid' && (
+            <mesh position={[0, 1, 0.5]}>
+              <boxGeometry args={[0.7, 0.07, 0.07]} />
+              <meshStandardMaterial color="#f0bd75" emissive="#583821" />
+            </mesh>
+          )}
+          <Sign text={t.localBoundary} position={[-0.95, 1.9, 0.6]} width={1.7} />
+          <Sign text={t.providerBoundary} position={[0.95, 2.25, 0.6]} width={1.7} />
+        </>
+      ) : (
+        result.demand.map((d, i) => (
+          <group key={i} position={[-1.5 + i, 0, 0.6]}>
+            <mesh position={[-0.18, 0.5 + result.served[i]! * 0.075, 0]}>
+              <boxGeometry args={[0.28, Math.max(0.025, result.served[i]! * 0.15), 0.32]} />
+              <meshStandardMaterial color="#dd8ac7" metalness={0.25} roughness={0.4} />
+            </mesh>
+            {d > result.served[i]! && (
+              <mesh
+                position={[
+                  -0.18,
+                  0.5 + result.served[i]! * 0.15 + (d - result.served[i]!) * 0.075,
+                  0,
+                ]}
+              >
+                <boxGeometry args={[0.28, (d - result.served[i]!) * 0.15, 0.32]} />
+                <meshStandardMaterial color="#f4b578" roughness={0.4} />
+              </mesh>
+            )}
+            <mesh position={[0.18, 0.5 + result.allocated[i]! * 0.075, 0]}>
+              <boxGeometry args={[0.28, Math.max(0.025, result.allocated[i]! * 0.15), 0.32]} />
+              <meshStandardMaterial color="#50c9dc" metalness={0.25} roughness={0.4} />
+            </mesh>
+            <Sign
+              text={`${i + 1} · ${d} / ${result.allocated[i]}`}
+              position={[0, 2.25, 0]}
+              width={0.85}
+            />
+          </group>
+        ))
+      )}
+      {!topology && (
+        <Sign
+          text={`${t.shortage}: ${result.shortfall} · ${t.cost}: ${result.cost}`}
+          position={[0, 2.7, 0.7]}
+          width={3.1}
+        />
+      )}
+    </group>
+  );
+}
 function Portal({ runtime }: { runtime: PlayerRuntime }) {
   const membrane = useRef<Mesh>(null);
   const material = useRef<MeshBasicMaterial>(null);
@@ -510,7 +598,7 @@ function Director({
     elapsed.current += dt;
     sampled.current += dt;
     const p = runtime.pose;
-    const shotKey = `${p.x}/${p.z}/${runtime.conversation}/${runtime.shot?.node}/${size.width}/${size.height}/${runtime.dialogueTop}`;
+    const shotKey = `${p.x}/${p.z}/${runtime.conversation}/${runtime.shot?.node}/${runtime.shot?.framing}/${size.width}/${size.height}/${runtime.dialogueTop}`;
     if (shotCache.current?.key !== shotKey)
       shotCache.current = {
         key: shotKey,
@@ -642,9 +730,11 @@ export function GameScene({
   onSave,
   onFailure,
   onReady,
+  lesson,
 }: {
   runtime: PlayerRuntime;
   model: ServiceModel;
+  lesson: LearningProjection | null;
   reduced: boolean;
   visible: boolean;
   quality: 'auto' | 'low' | 'high';
@@ -688,7 +778,11 @@ export function GameScene({
       />
       <AssetLibrary>
         <Environment runtime={runtime} />
-        <Installation model={model} runtime={runtime} reduced={reduced} />
+        {lesson && lesson.unit !== 'responsibility' ? (
+          <FoundationInstallation lesson={lesson} />
+        ) : (
+          <Installation model={lesson ? 'paas' : model} runtime={runtime} reduced={reduced} />
+        )}
         <Portal runtime={runtime} />
         <Character name="character-female-a" runtime={runtime} />
         <Character name="character-female-d" runtime={runtime} npc="guide" />

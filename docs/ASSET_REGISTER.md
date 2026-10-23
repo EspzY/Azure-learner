@@ -73,3 +73,7 @@ Runtime contact correction and walking-rate calibration are documented in [gamep
 ## Investigated but not included
 
 [Quaternius Ultimate Space Kit](https://quaternius.com/packs/ultimatespacekit.html) is advertised CC0, but its linked Drive folder did not yield a verified archive through the available read path; **no Quaternius files were included**. [Poly Haven licensing](https://polyhaven.com/license) was reviewed; photorealistic textures/HDRIs did not fit this small stylized slice and were not downloaded/included. Website previews/logos are not treated as licensed assets. No random/unlicensed model, paid asset or unrelated third-party runtime host is used.
+
+## L1 original teaching geometry
+
+No external asset or registered binary changes. Demand/allocation/shortfall bars, deployment-boundary shapes and journal diagrams are original repo-native code driven by the bounded teaching model; they reuse the existing installation and local fonts/materials. The 26-GLB hash/license budget remains unchanged.

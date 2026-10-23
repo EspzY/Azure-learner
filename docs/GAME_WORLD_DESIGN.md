@@ -1,5 +1,9 @@
 # Lysningen — G1 world design
 
+## L1 teaching projection
+
+The existing Lysningen art, characters and physical installation are retained. Curriculum investigations project original labelled demand/allocation/shortfall columns or deployment-boundary shapes at the installation; the amber shortfall derives from the pure model. A bounded learning-framing hint reserves the upper mobile view while preserving old cinematic shot intent. These are explanatory teaching geometry, not new Azure resources or a claim of upgraded environment/character fidelity. No third-party asset is added.
+
 ## G1.1 conversation direction
 
 Exploration remains third-person in the same Lysningen location. Authored conversational intent selects an establishing/concluding two-character view, a player-shoulder question view, a focused NPC response or a workshop demonstration. Character eyes remain above the measured dialogue boundary. Position/bearing and aspect determine composition; the four building proxies still constrain the camera. Interrupting/advancing a beat retargets the current camera without queuing cutscenes. Exit damps to the unchanged player pose/orientation; motion reduction cuts immediately to equivalent compositions.

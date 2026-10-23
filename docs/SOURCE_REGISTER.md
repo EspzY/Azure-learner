@@ -97,3 +97,20 @@ Reviewed 2026-10-22 from public Microsoft pages, reference-only under this regis
 | S42 | [Describe SaaS](https://learn.microsoft.com/en-us/training/modules/describe-cloud-service-types/4-describe-software-service)       | Ready application versus retained customer data/access duties; rolling page observed on review date.                                    |
 
 Original scenarios choose a model from stated requirements and allocate four specific duties. They are authored guided exercises, not Microsoft practice assessments or current exam-readiness evidence. Re-review before changing the matrix/feedback and by the register's technical review interval.
+
+## L1 introductory curriculum source review — 2026-10-23
+
+The [coverage audit](CURRICULUM_COVERAGE.md) records the complete 20-module unit-index inventory and 57 exam-objective overlay. Effective study-guide version remains 2026-07-20. Index/objective review is not a technical review of every Azure service. The first-module factual cross-check read cloud provisioning, responsibility, deployment and consumption units plus pricing/Reservations/savings-plan documentation. All teaching/assessment text is original; links are reference-only, not a redistribution license. No lesson body, protected question or live Learn API is integrated.
+
+| ID        | Reviewed official source                                                                                                                   | Mapping / limits                                                                 |
+| --------- | ------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------- |
+| L01       | [Describe cloud computing](https://learn.microsoft.com/en-us/training/modules/describe-cloud-compute/)                                     | Six objectives/eight-unit index, FC01–07; FC02 additional prerequisite           |
+| L02       | [Cloud definition](https://learn.microsoft.com/en-us/training/modules/describe-cloud-compute/3-what-cloud-compute)                         | FC01/02 provisioning versus procurement; original capacity fixture               |
+| L03 / S01 | [Shared responsibility](https://learn.microsoft.com/en-us/azure/security/fundamentals/shared-responsibility)                               | FC03 retained data/access/devices and service-specific boundaries                |
+| L04       | [Cloud models](https://learn.microsoft.com/en-us/training/modules/describe-cloud-compute/5-define-cloud-models)                            | FC04/05 public/private/hybrid, third-party private cloud, multicloud/Arc caveats |
+| L05       | [Consumption](https://learn.microsoft.com/en-us/training/modules/describe-cloud-compute/6-describe-consumption-based-model)                | FC06 capacity planning and CapEx/OpEx; service-specific meter caveat             |
+| L06       | [Pricing options](https://learn.microsoft.com/en-us/training/modules/describe-cost-management-azure/7a-describe-cost-optimization-options) | FC07 uncertainty, commitments, interruptible Spot                                |
+| L07       | [Reservations](https://learn.microsoft.com/en-us/azure/cost-management-billing/reservations/save-compute-costs-reservations)               | FC07 matching-use discount, not resource deployment                              |
+| L08       | [Savings plans](https://learn.microsoft.com/en-us/azure/cost-management-billing/savings-plan/savings-plan-overview)                        | FC07 hourly spend commitment; current redirected overview URL                    |
+
+Version1.0.0; author cross-check performed, human Azure-SME review not performed. Review again when changing mechanisms or official objectives, and before educational release. No current numerical Azure rates are encoded; synthetic teaching units have no currency. Existing S12/S32 support App Service and budget-not-cap caveats.

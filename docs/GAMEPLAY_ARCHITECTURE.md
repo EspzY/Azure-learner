@@ -1,5 +1,9 @@
 # G1 gameplay architecture
 
+## L1 content-driven workshop
+
+Ida's additional investigation action routes the player to the existing installation, pauses movement, selects the existing cinematic demonstration camera and opens a semantic learning session. Registered probes project synthetic demand/allocation columns or deployment-boundary shapes at that location. Responsibility uses the existing reviewed PaaS layer projection. Geometry never evaluates a lesson. Module events and journal are a separate root provider/store; old story version, portal, return pose and Chapter01 findings remain unchanged. [Content architecture](CONTENT_ARCHITECTURE.md) owns new contracts.
+
 ## G1.1 implemented cinematic layer
 
 - **Direction:** features/rpg/cinematics.ts owns a pure, bounded ShotPlan: position/target, intent, speaker, player visibility and transition duration. The dialogue node selects two-shot, over-shoulder, speaker-close or demonstration; exploration/return retains the existing follow pose. Plans use actual actor positions, 1.38 m eye targets, viewport aspect and measured conversation-content boundary. Conservative stylized-head silhouettes select a clear shoulder offset, with close-up fallback for an obstructing near approach. Plans are cached until pose/node/viewport/content bounds change; idle frame updates do not rebuild camera/projection objects. A distant player is excluded from a close-up; workshop dialogue targets the installation without teleporting Ida.

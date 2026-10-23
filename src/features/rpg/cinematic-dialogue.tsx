@@ -12,6 +12,7 @@ import {
 } from '@/domain/expedition';
 import { dialogue, type NodeId, type Choice } from '@/domain/rpg/story';
 import type { PlayerRuntime } from './runtime';
+import { useLearning } from '@/features/learning/provider';
 
 const t = nb.rpg;
 export function CinematicDialogue({
@@ -23,6 +24,7 @@ export function CinematicDialogue({
   onModel,
   onClose,
   restoreFocus,
+  onFoundations,
 }: {
   node: NodeId;
   model: ServiceModel;
@@ -32,7 +34,9 @@ export function CinematicDialogue({
   onModel: (model: ServiceModel) => void;
   onClose: () => void;
   restoreFocus: () => void;
+  onFoundations: () => void;
 }) {
+  const { openJournal } = useLearning();
   const dialog = useRef<HTMLDialogElement>(null);
   const content = useRef<HTMLDivElement>(null);
   const [journal, setJournal] = useState(false);
@@ -263,6 +267,14 @@ export function CinematicDialogue({
               ))}
             </div>
             <small>{t.cinematic.instruction}</small>
+            {speaker === 'guide' && (
+              <button type="button" className="cinematic-reference" onClick={onFoundations}>
+                {nb.foundations.launch}
+              </button>
+            )}
+            <button type="button" className="cinematic-reference" onClick={() => openJournal()}>
+              {nb.foundations.journal}
+            </button>
           </div>
         )}
       </div>

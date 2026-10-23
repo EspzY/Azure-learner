@@ -1,5 +1,11 @@
 # G1 NPC dialogue and learning design
 
+## L1 — educational manuscript drives investigation
+
+Ida offers an explicit cloud-computing investigation alongside the preserved G1 conversation. This action walks to the real installation; the curriculum session uses the existing cinematic demonstration shot, with concise original speech and the active technical investigation. The six unit manuscripts live in nb.foundations rather than an enlarged one-off story graph. Learners can inspect mechanism/Azure examples, ask for full journal depth, perform bounded experiments and receive causal feedback. Closing retains the module and restores exploration; old service-model choices/Noor quest remain intact.
+
+The shared journal is a structured reference, not the old dialogue transcript. Native nested modal focus returns to the original conversation/investigation, with assistance recorded during an active transfer. No dialogue event grants XP or fakes technical completion. [Manuscript](FOUNDATIONS_01_CONTENT.md) owns the actual educational text/spec and [content architecture](CONTENT_ARCHITECTURE.md) owns bindings.
+
 ## G1.1 pacing and speaker contract
 
 The same reviewed graph/events now has two content layers: nb.rpg.spoken contains concise authored conversational beats; nb.rpg.dialogue retains the complete original explanations in field notes. Questions without an override use their original short text. There is no text truncation or automatic timed advancement. Explanation depth, including container maintenance and retained security duties, remains accessible before choosing an answer. Dialogue/inspection/replay earns no XP and never constitutes unaided evidence.

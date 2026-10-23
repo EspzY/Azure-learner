@@ -7,10 +7,12 @@ import { nb } from '@/content/nb';
 import { totalXp } from '@/domain/progression';
 import { navIcons } from './icons';
 import { useProgress } from './progress-provider';
+import { useLearning } from '@/features/learning/provider';
 
 export function AppShell({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const { progress, ready } = useProgress();
+  const { openJournal } = useLearning();
   const active = nb.nav.find((item) => item.href === pathname);
   if (pathname === '/expedition-3d')
     return (
@@ -69,6 +71,9 @@ export function AppShell({ children }: { children: React.ReactNode }) {
             <strong>{active?.label ?? nb.brand}</strong>
           </div>
           <div className="topbar-right">
+            <button type="button" className="button button-secondary" onClick={() => openJournal()}>
+              {nb.foundations.journal}
+            </button>
             <span className="environment">
               <i />
               {nb.shell.simulation}

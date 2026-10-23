@@ -1,5 +1,9 @@
 # Experience design — resource world and expedition
 
+## L1 teaching and technical reference
+
+The existing world/cinematic identity is retained. Six active investigations use a compact readable instrument surface, visible 3D model response and equivalent labelled diagram/table/select controls. Detailed technical theory lives in a reusable unit journal, available without WebGL and without route changes. Mechanism and relevant result explanations are part of the active sequence; optional external links do not replace core teaching. [Manuscript](FOUNDATIONS_01_CONTENT.md) defines the decisions, feedback and limits. This phase adds educational depth rather than a new rendering stack.
+
 ## G1.1 cinematic conversations
 
 The game comparison now separates RPG speech from technical commands: transparent native CinematicDialogue, contextual shot direction and field-note inspection replace the generic CommandDialog conversation. The latter remains for settings/confirmation. [NPC dialogue design](NPC_DIALOGUE_DESIGN.md) owns pacing/depth; [gameplay architecture](GAMEPLAY_ARCHITECTURE.md) owns focus, camera and evidence boundaries. The Azure workbench and root journey are unchanged.

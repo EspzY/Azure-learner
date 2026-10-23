@@ -28,6 +28,10 @@ export const requiredFiles = [
   'docs/GAMEPLAY_ARCHITECTURE.md',
   'docs/NPC_DIALOGUE_DESIGN.md',
   'docs/ASSET_REGISTER.md',
+  'docs/CURRICULUM_COVERAGE.md',
+  'docs/CONTENT_STANDARDS.md',
+  'docs/CONTENT_ARCHITECTURE.md',
+  'docs/FOUNDATIONS_01_CONTENT.md',
 ];
 
 function markdownFiles(folder) {

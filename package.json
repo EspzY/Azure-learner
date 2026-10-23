@@ -16,7 +16,8 @@
     "test:e2e": "playwright test",
     "docs:check": "node scripts/docs-check.mjs",
     "assets:check": "node scripts/assets-check.mjs",
-    "check": "npm run typecheck && npm run lint && npm run format:check && npm run docs:check && npm run assets:check && npm test && npm run build"
+    "check": "npm run typecheck && npm run lint && npm run format:check && npm run docs:check && npm run curriculum:check && npm run assets:check && npm test && npm run build",
+    "curriculum:check": "vitest run src/domain/curriculum/integrity.test.ts"
   },
   "dependencies": {
     "@react-three/fiber": "9.8.2",

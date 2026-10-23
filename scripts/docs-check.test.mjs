@@ -57,6 +57,10 @@ test('requires substantive continuity files and Phase 1A blueprints', () =>
       'docs/GAMEPLAY_ARCHITECTURE.md',
       'docs/NPC_DIALOGUE_DESIGN.md',
       'docs/ASSET_REGISTER.md',
+      'docs/CURRICULUM_COVERAGE.md',
+      'docs/CONTENT_STANDARDS.md',
+      'docs/CONTENT_ARCHITECTURE.md',
+      'docs/FOUNDATIONS_01_CONTENT.md',
     ]) {
       writeFileSync(join(root, file), '   ');
       assert.ok(validateDocumentation(root).errors.some((error) => error.includes(file)));

@@ -1,5 +1,9 @@
 # Design system — immersive reset
 
+## L1 readable technical investigation
+
+The cinematic environment now supports a constrained instrument surface and a semantic shared Knowledge Journal: 15–16px body text, 1.75 line spacing for theory, visible violet section hierarchy, cyan data and amber unmet demand, native labelled controls and 3px cyan focus. Mobile uses a compact upper demonstration with a scrollable lower investigation; short landscape retains separate scene and control columns. Every chart has table/label equivalents. [Experience design](EXPERIENCE_DESIGN.md) and [content standards](CONTENT_STANDARDS.md) govern educational depth and visual review.
+
 ## G1.1 cinematic composition
 
 Conversation uses open subtitle/choice composition rather than a bordered command surface: important speech #f4f1f3, speaker #e0ceaa, response focus #e1bc80, restrained violet response wash and a midnight bottom gradient. Desktop speech is 20 px with 1.65 line height; mobile 16 px / 1.55. Optional larger text is 23/19 px. Choices remain at least 44 px high. Speaker head framing responds to viewport and the measured text boundary. Technical field notes deliberately retain an opaque readable surface and scroll independently. [World design](GAME_WORLD_DESIGN.md) owns responsive/shot decisions.

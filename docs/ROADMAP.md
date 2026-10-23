@@ -1,5 +1,14 @@
 # Roadmap
 
+## L1 — curriculum foundation candidate
+
+- Learning outcome: explain cloud provisioning, responsibility, deployment/use cases, consumption meters and pricing tradeoffs rather than merely identify service labels.
+- Implemented scope: one six-unit module, typed local hierarchy/manifest, paired deterministic probes, guided causal responses, changed-context first-submission criteria, contextual journal and isolated replayed persistence.
+- Gates: curriculum integrity plus all prior code/docs/assets/browser checks; inspect actual gameplay and verify every source/objective mapping. Author cross-check is separate from pending human SME, beginner/engineer and accessibility reviews.
+- Exclusions: full AZ-900/professional catalogue, real billing/scaling, new world/art assets, new XP, certification readiness, full Chapter01 independent transfer, backend/services.
+
+Next: human review/revise this module, then a complete service-types module reusing the existing App Service quest with more than one workload/counterexample. Benefits/reliability/failure boundaries follow; expand one validated experience at a time. [Coverage audit](CURRICULUM_COVERAGE.md) owns precise gaps.
+
 ## G1.1 — cinematic conversation candidate
 
 - **Learning outcome:** connect spoken responsibility reasoning to visible workshop changes, retain technical depth and distinguish Noor's actual findings from independent mastery.

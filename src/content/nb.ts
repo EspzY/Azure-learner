@@ -2,6 +2,522 @@ import type { QuestionId } from '../domain/assessment';
 import type { CreationError, Region, ScopeKind } from '../domain/simulation';
 
 export const nb = {
+  foundations: {
+    title: 'Fra maskinrom til skytjenester',
+    module: 'Cloud computing · Foundations 01',
+    launch: 'Undersøk cloud computing med Ida',
+    journal: 'Kunnskapsjournal',
+    journalHint: 'Teknisk referanse. Lesing alene registrerer ikke praktisk forståelse.',
+    close: 'Tilbake til der jeg var',
+    investigate: 'Undersøk installasjonen',
+    next: 'Neste undersøkelse',
+    previous: 'Forrige undersøkelse',
+    summary: 'Se læringsobservasjoner',
+    transfer: 'Prøv et ukjent oppdrag',
+    transferIntro:
+      'Museet åpner en bookingpilot. Behovet er [1, 1, 9, 1], mens det lokale systemet har fire plasser per periode. Et eldre samlingssystem må beholdes lokalt og integreres med nettfronten. Piloten har ukjent levetid og tåler ikke avbrudd. Besvar hele oppdraget før du får tilbakemelding.',
+    transferRules:
+      'Første innlevering bevares. Journal eller undervisning under oppdraget registreres som hjelp. Senere forsøk er øving. Oppgaven gir avgrensede observasjoner, ikke bevis på generell kompetanse.',
+    submit: 'Lever hele oppdraget',
+    retry: 'Nytt øvingsforsøk',
+    back: 'Tilbake til undersøkelsen',
+    independent: 'Første innlevering uten registrert hjelp i oppgaven',
+    assisted: 'Innlevering med hjelp i oppgaven',
+    retryResult: 'Gjentakelse · øving etter tilbakemelding',
+    aid: 'Hjelp er registrert i dette oppdraget.',
+    submitted: 'Innleveringen er lagret. Se begrunnelsen for hvert kriterium.',
+    select: 'Velg et svar',
+    correct: 'Begrunnet riktig svar',
+    incorrect: 'Undersøk begrunnelsen og prøv igjen',
+    pending: 'Ikke observert',
+    introduced: 'Introdusert',
+    practiced: 'Praktisert',
+    guided: 'Guidet oppgave løst',
+    independentLabel: 'Riktig i første oppgave uten registrert hjelp',
+    guidedComplete: 'Alle seks guidede undersøkelser er løst.',
+    incomplete: 'Modulen har fortsatt uløste guidede undersøkelser.',
+    evidenceHint:
+      'Ingen XP eller sertifiseringsberedskap beregnes her. Guidet gjennomføring, uavhengige oppgaveobservasjoner og varig kompetanse er forskjellige ting. Fagperson- og lærerevaluering gjenstår.',
+    reviewed:
+      'Kilder kontrollert 23. oktober 2026 · Innhold 1.0.0 · Menneskelig Azure-fagreview gjenstår',
+    sources: 'Offisielle kilder',
+    sourcePublisher: 'Microsoft Learn',
+    definition: 'Begreper før du begynner',
+    askMechanism: 'Spør Ida: Hvorfor skjer dette?',
+    observations: {
+      shortfall:
+        'Se den ravfargede delen: det er behov som den faste kapasiteten ikke dekker. Mer trafikk oppretter ikke flere maskiner. Vi må velge hvordan kapasiteten skal økes.',
+      owned:
+        'Her dekker den eide kapasiteten behovet. Betalingen følger den faste kapasiteten, ikke trafikken. Sammenlign samme last i skyen før du konkluderer; ledig kapasitet og driftsantakelsene betyr noe.',
+      provisioned:
+        'Nå følger kapasiteten den planen du valgte å bestille. Dette er en eksplisitt undervisningsplan, ikke automatisk Azure-skalering. I praksis må oppstart, kvoter og skalering konfigureres og vurderes.',
+      retained:
+        'Ansvarsplatene viser en administrert plattform. Microsoft håndterer underliggende OS, men kundens data, tilgangsvalg og klienter trenger fortsatt kundens oppfølging.',
+      public:
+        'Leverandøren tilbyr tjenester til flere kunder. Det gjør ikke kundedata offentlige. Tilgang, isolasjon og riktig konfigurasjon må fortsatt planlegges.',
+      private:
+        'Denne grensen er avsatt til én organisasjon. Den kan ligge hos tredjepart, men trenger fortsatt en skybasert tjenestemodell og noen som drifter den.',
+      hybrid:
+        'To miljøer må virke sammen. Forbindelsen her betyr et behov for integrasjon; den beviser ikke at nettverk, identitet eller dataflyt er konfigurert.',
+      metered:
+        'Ingen nyttig trafikk, men plasser er fortsatt allokert. Måleren teller allokeringen. Det er derfor kostnad og besøkstall ikke trenger å følge hverandre.',
+      released:
+        'Beregningen er frigitt i modellen, så denne forbruksmåleren er null. Det sier ingenting om lagring, andre ressurser eller en eventuell betalingsforpliktelse.',
+      flexible:
+        'Forbruksbetaling følger den allokerte bruken. Ved usikker eller kortvarig etterspørsel kan det unngå ubrukt binding, men følg med på samlet kostnad.',
+      wasted:
+        'Her er deler av forpliktelsen ubrukte, men de betales fortsatt. Sammenlign med forbruksbetaling på samme last. Rabatt på enhetsprisen er ikke det samme som en lavere total.',
+      committed:
+        'Det jevne grunnforbruket utnytter denne forpliktelsen. Sammenlign likevel samme last uten binding, og kontroller hvilke kostnader og avtalevilkår modellen utelater.',
+    },
+    roleFeedback: [
+      'Leverandøren driver den fysiske verten i denne offentlige administrerte plattformen.',
+      'Kunden må bestemme og kontrollere data og tilgang. Fysisk leverandørsikkerhet erstatter ikke dette.',
+      'Kundens PC-er og telefoner trenger kundens klientvern også når appen ligger i Azure.',
+    ],
+    placementFeedback: [
+      'Dette korte arrangementet har ikke krav om eget eksklusivt skymiljø. Public cloud er det begrunnede utgangspunktet her.',
+      'Kravet er et eksklusivt skymiljø med tilgjengelig driftsteam. Private cloud passer dette avgrensede kravsettet.',
+      'Den beholdte lokale tjenesten og den integrerte skyfronten danner et hybridmiljø. En strek alene utfører ikke integrasjonsarbeidet.',
+    ],
+    purpose: 'Hvorfor dette finnes',
+    mechanism: 'Slik virker det',
+    azure: 'I Azure',
+    example: 'Gjennomarbeidet eksempel',
+    misconception: 'Misforståelse og moteksempel',
+    limits: 'Modellens grenser',
+    detail: 'Åpne hele forklaringen i journalen',
+    run: 'Kjør og sammenlign',
+    predict: 'Forutsi udekket behov før kjøring',
+    predictionRecorded: 'Første registrerte forutsigelse',
+    predictionHint:
+      'Forutsigelsen beholdes også når den er feil. Resultatet kan undersøkes og forklares etterpå.',
+    check: 'Begrunn observasjonen',
+    needProbe: 'Utfør de viste sammenligningene før den guidede oppgaven kan godkjennes.',
+    practiceRequirements: {
+      capacity:
+        'Kjør begge lastene med begge kapasitetsvalg: kampanje og jevn last, eid og eksplisitt skybestilling. Sammenlign fire resultater.',
+      responsibility:
+        'Kjør ansvarssammenligningen. Fordel deretter fysisk drift, data/tilgang og klientbeskyttelse.',
+      models: 'Vis alle tre miljømodellene og undersøk grensen mellom dem.',
+      placement: 'Undersøk topologien og velg miljø for hvert av de tre kravsettene.',
+      metering: 'Kjør både inaktiv, allokert kapasitet og frigitt kapasitet. Sammenlign måleren.',
+      pricing:
+        'Kjør både jevn og usikker last med begge prismodeller. Sammenlign fire resultater og se hva ubrukt forpliktelse betyr.',
+    },
+    assumptions:
+      'Undervisningsmodell: fire like perioder, én plass per behovsenhet. Eiet: 4 × kapasitet + 12. Sky: 2 × allokerte plasser. Forpliktelse: 24 + 2 × plasser over seks. Tallene er oppdiktede undervisningsenheter, ikke kroner eller Azure-priser. Ingen automatisk Azure-skalering simuleres.',
+    assumptionTitle: 'Se modellantakelser og avgrensninger',
+    synthetic:
+      'Oppdiktede undervisningsenheter · ikke Azure-priser. Fire like perioder; ingen virkelig skalering eller deployering.',
+    exclusions:
+      'Lagring, overføring, lisenser, skatt, migrering, personalkostnader, kvoter, oppstartstid og virkelig fakturering er utelatt. Resultatene er ikke en fullstendig totalkostnadsvurdering.',
+    profile: 'Etterspørsel',
+    profiles: {
+      campaign: 'Kampanje · 2 / 2 / 10 / 2',
+      steady: 'Jevn · 6 / 6 / 6 / 6',
+      uncertain: 'Usikker · 0 / 0 / 0 / 4',
+      idle: 'Ingen nyttig trafikk · 0 / 0 / 0 / 0',
+    },
+    operation: 'Kapasitetsvalg',
+    owned: 'Eid, fast kapasitet',
+    cloud: 'Bestill kapasitet per periode',
+    fixed: 'Fast kapasitet',
+    billing: 'Undervisningens prismodell',
+    unusedCommitment: 'Ubrukt forpliktelse · plassperioder',
+    overflow: 'Bruk over forpliktelsen · plassperioder',
+    usage: 'Betal for allokerte plasser',
+    commitment: 'Betal en seks-plassers forpliktelse',
+    released: 'Frigi all beregningskapasitet',
+    demand: 'Behov',
+    allocated: 'Allokert',
+    served: 'Betjent',
+    shortage: 'Udekket behov',
+    idle: 'Ledig kapasitet',
+    cost: 'Undervisningsenheter',
+    period: 'Periode',
+    topology: 'Miljømodell',
+    public: 'Public cloud',
+    private: 'Private cloud',
+    hybrid: 'Hybrid cloud',
+    localBoundary: 'Organisasjonens miljø',
+    providerBoundary: 'Leverandørens tjenesteplattform',
+    integration: 'Krever planlagt integrasjon',
+    responsibilityTasks: [
+      'Drift av fysisk vert',
+      'Data og tilgangsvalg',
+      'Beskyttelse av kundens klienter',
+    ],
+    customer: 'Kunden',
+    provider: 'Leverandøren',
+    placements: [
+      'Midlertidig offentlig arrangement uten eksklusivitetskrav',
+      'Eksklusivt skymiljø med eget driftsteam',
+      'Nettfront som må integreres med beholdt lokalt system',
+    ],
+    reset: 'Nullstill bare denne modulen',
+    resetQuestion:
+      'Slette modulens undersøkelser og innleveringer? Eksisterende ekspedisjon, teknisk arbeid og XP beholdes.',
+    confirmReset: 'Ja, slett moduldata',
+    issue: {
+      corrupt:
+        'Moduldata kunne ikke valideres og er satt til side. Ingen fullføring er gjenopprettet.',
+      unsupported: 'Denne lagrede innholdsversjonen støttes ikke. Ingen resultater er migrert.',
+      unsaved:
+        'Modulen fortsetter i minnet. Lagring er ikke bekreftet; en reload kan miste nye observasjoner.',
+      conflict:
+        'En annen fane endret moduldata. Nye lagringer er stoppet for å unngå overskriving.',
+      limit: 'Grensen på 500 observasjoner er nådd. Beholdt historikk er ikke slettet.',
+    },
+    reloadSave: 'Les lagrede moduldata på nytt',
+    objectives: {
+      FC01: 'Forklare cloud computing',
+      FC02: 'Skille eierskap, behov og kapasitet',
+      FC03: 'Fordele ansvar',
+      FC04: 'Skille public, private og hybrid',
+      FC05: 'Velge miljø fra krav',
+      FC06: 'Forklare forbruksmåleren',
+      FC07: 'Sammenligne prismodeller og binding',
+    },
+    units: {
+      capacity: {
+        title: 'Fra maskinrom til tjenester',
+        spoken:
+          'Seks plasser i maskinrommet. Ti bestillinger på toppen. Se hva som faktisk mangler, og hva som står ledig. Sky endrer bestillingsmåten; den fjerner ikke de fysiske maskinene.',
+        terms: [
+          ['Server', 'En datamaskin eller avgrenset virtuell maskin som leverer arbeid til andre.'],
+          ['Kapasitet', 'Hvor mye arbeid systemet kan håndtere i et tidsrom.'],
+          ['Etterspørsel', 'Arbeidet brukerne ber systemet utføre.'],
+          ['Virtualisering', 'Teknikk som deler fysisk kapasitet i avgrensede virtuelle miljøer.'],
+        ],
+        purpose:
+          'En applikasjon er programvaren brukeren møter. Den trenger prosessorkraft, minne, lagring og nettverk. Cloud computing tilbyr slike IT-ressurser som tjenester gjennom nettverk, med bestilling og administrasjon via programvare. En nettside er ikke en skyplattform bare fordi den kan nås på internett.',
+        mechanism:
+          'I et eget maskinrom må noen planlegge, kjøpe, installere og drifte maskiner før ekstra kapasitet er tilgjengelig. For lite kapasitet kan gi kø eller avvisning. For mye binder penger i ledige ressurser. En leverandør har en større fysisk infrastruktur og tilbyr avgrensede ressurser gjennom en kontrollflate. Virtualisering kan dele kapasiteten mellom isolerte miljøer. Kunden bestiller en støttet konfigurasjon; maskinene finnes fortsatt. Kvoter, tilgjengelig kapasitet og oppstartstid setter grenser.',
+        azure:
+          'Azure tilbyr blant annet virtuelle maskiner, lagring og administrerte applikasjonstjenester. Kunden trenger ikke montere den fysiske serveren for å be om en ressurs. Det betyr verken at appen automatisk skalerer eller at en vellykket konfigurasjon beviser at applikasjonen virker. Vår installasjon viser en eksplisitt bestillingsplan, ikke en virkelig Azure-deployering.',
+        example:
+          'Kampanjen trenger [2, 2, 10, 2] plasser. Seks faste plasser gir fire udekkede behov i toppen. Ti faste plasser dekker toppen, men står mye ledig ellers. Bestilling etter behov gir 16 allokerte plassperioder mot 24 for seks faste plasser. Ved jevn last er eid kapasitet derimot rimeligere i våre antakelser: 36 mot 48 undervisningsenheter. Dette er et moteksempel til at offentlig sky alltid er billigst.',
+        misconception:
+          'Internettforbindelse alene gjør ikke en tradisjonell server til cloud computing. Det sentrale her er hvordan kapasitet tilbys og forvaltes som tjeneste. Skykapasitet er heller ikke uendelig eller automatisk tilpasset applikasjonen. Autoskalering krever støttede funksjoner og riktig konfigurasjon.',
+        limits:
+          'Plassene er kapasitetsenheter, ikke VM-er, CPU-kjerner eller Azure-SKU-er. Ingen kølengde, responstid, oppstart, feil eller reell fakturering beregnes.',
+        question:
+          'Hva skiller den viste skytjenesten fra bare å koble en eid server til internett?',
+        answers: {
+          provisioning: 'Ressurser fra en leverandørplattform bestilles og forvaltes som tjenester',
+          internet: 'Det holder at serveren har internett',
+          'no-hardware': 'Det finnes ikke fysiske maskiner i skyen',
+        },
+        feedback: {
+          provisioning:
+            'Riktig begrunnelse: bestillings- og driftsmodellen endres. Maskinvaren finnes fortsatt, og kapasitet må bestilles innenfor tjenestens grenser.',
+          internet:
+            'Nettverk gir tilgang, men sier ikke hvordan ressurser tilbys, isoleres eller bestilles. En tradisjonell server kan ha internett uten en skybasert tjenestemodell.',
+          'no-hardware':
+            'Skyen kjører på fysiske maskiner. Leverandøren driver dem; kunden bestiller avgrensede ressurser gjennom en tjeneste.',
+        },
+      },
+      responsibility: {
+        title: 'Hvem gjør arbeidet?',
+        spoken:
+          'Leverandøren kan drifte maskinene. Det bestemmer ikke hvem som får se kundedataene dine. Fordel tre oppgaver for en administrert applikasjon, og følg ansvarsgrensen.',
+        terms: [
+          [
+            'Operativsystem',
+            'Programvaren som forvalter maskinens ressurser og kjører programmer.',
+          ],
+          ['Identitet', 'En representasjon av en bruker eller arbeidslast.'],
+          [
+            'Administrert tjeneste',
+            'Leverandøren drifter avtalte plattformdeler, mens kunden fortsatt styrer det tjenesten overlater til kunden.',
+          ],
+          [
+            'IaaS / PaaS / SaaS',
+            'Infrastructure, Platform og Software as a Service: infrastruktur, plattform og ferdig programvare som tjenester. Ansvarsgrensene undersøkes videre i det eksisterende serviceverkstedet.',
+          ],
+          ['Tilgangsstyring', 'Regler som avgjør hva en identitet får gjøre.'],
+          [
+            'Endepunkt',
+            'Her: en klient-PC eller telefon som bruker tjenesten. Ikke et nettverksendepunkt i Azure.',
+          ],
+        ],
+        purpose:
+          'Ansvar betyr hvem som må konfigurere, vedlikeholde og kontrollere en oppgave. I eget maskinrom dekker virksomheten hele stakken, selv om kontraktører kan utføre arbeid. I offentlig sky drifter leverandøren den fysiske plattformen. Kunden må fortsatt beskytte data, identiteter, tilgangsvalg og det kunden selv kontrollerer.',
+        mechanism:
+          'Ansvarsgrensen følger den konkrete tjenesten og kontrollen. Når leverandøren håndterer fysisk sikkerhet, strøm og vertsdrift, kan kunden fortsatt velge en feil delingsregel eller sårbar kode. Leverandørens sikring av datasenteret retter ikke disse valgene. Klientene som kobler seg til tjenesten trenger også beskyttelse. Ansvar kan være delt; det er ikke ett enkelt spørsmål om hvem som har ansvar for all sikkerhet.',
+        azure:
+          'Med Azure Virtual Machines vedlikeholder kunden normalt gjesteoperativsystemet. Med en passende App Service-plattform håndterer Microsoft underliggende OS og plattform. Kundens kode, data, innstillinger og tilgang må fortsatt forvaltes. Egne containerinnhold trenger fortsatt vedlikehold. Kundens PC-er og telefoner blir ikke driftet av Microsoft bare fordi appen flyttes til Azure.',
+        example:
+          'Teamet bruker en administrert webplattform. En fysisk disk må erstattes: leverandøren håndterer verten. En ansatt slutter: kunden må fjerne riktig tilgang. En bærbar PC blir stjålet: organisasjonen må ha egnede klient- og tilgangskontroller. Tre hendelser har ulike ansvar selv om de berører samme applikasjon.',
+        misconception:
+          'PaaS betyr ikke at alle sikkerhetsoppgaver overføres. En generell matrise er veiledning, ikke juridisk garanti eller en fullstendig liste over kontroller. Se tjenestens spesifikke vilkår og det kunden faktisk kan konfigurere.',
+        limits:
+          'Installasjonen viser utvalgte ansvarsområder. Den konfigurerer ikke klientvern, autentisering, kryptering eller samsvar. IaaS/PaaS/SaaS-verkstedet er en tilknyttet videre undersøkelse.',
+        question: 'Fordel ansvar for den administrerte offentlige webplattformen.',
+        answers: {},
+        feedback: {
+          correct:
+            'Fysisk vert ligger hos leverandøren. Data/tilgang og kundens klienter krever fortsatt kundens arbeid.',
+          wrong:
+            'Skill drift av leverandørens vert fra kontrollene kunden eier: data, tilgangsvalg og klientbeskyttelse blir ikke automatisk ivaretatt av plattformen.',
+        },
+      },
+      models: {
+        title: 'Hvor og for hvem?',
+        spoken:
+          'Miljømodell og tjenestemodell svarer på ulike spørsmål. Se hvordan public, private og hybrid endrer grensene. Et dedikert miljø kan være private cloud også utenfor eget bygg.',
+        terms: [
+          ['Public cloud', 'Tjenester som en skyleverandør tilbyr til flere kunder.'],
+          ['Private cloud', 'Et skymiljø brukt eksklusivt av én organisasjon.'],
+          [
+            'Hybrid cloud',
+            'Et sammenkoblet miljø som kombinerer offentlig sky med private eller lokale miljøer.',
+          ],
+          ['Multicloud', 'Bruk av flere offentlige skyleverandører.'],
+        ],
+        purpose:
+          'Public, private og hybrid beskriver hvordan skymiljøer tilbys og kombineres. IaaS, PaaS og SaaS beskriver tjenestetype og ansvarsgrense. Spørsmålene er forskjellige. En private cloud trenger ikke stå i eget bygg; en tredjepart kan drifte et dedikert miljø for organisasjonen.',
+        mechanism:
+          'Public cloud tilbyr tjenester fra en leverandørstyrt plattform til flere kunder. Delt fysisk infrastruktur betyr ikke offentlig tilgjengelige kundedata: isolasjon, identitet og tilgangskontroll må fortsatt utformes. Private cloud tilbyr skyegenskaper innenfor én organisasjons eksklusive miljø og krever kapasitet og driftskompetanse. Hybrid krever en planlagt sammenkobling, eksempelvis dataflyt og identitet mellom lokal drift og offentlig sky. To tilfeldige apper på forskjellige steder er ikke en ferdig hybridarkitektur.',
+        azure:
+          'Azure kan brukes til nettfronten mens et eldre lokalt system beholdes og integreres. Nettverk, identitet, dataflyt og feilgrenser må planlegges. Azure Arc er et eksempel på forvaltning på tvers av miljøer; det flytter ikke automatisk arbeidslasten og gjør ikke alle Azure-tjenester lokale. Multicloud beskriver flere offentlige leverandører, ikke nødvendigvis hybrid.',
+        example:
+          'En tredjepart drifter en eksklusiv selvbetjent skyplattform for en enkelt organisasjon. Den kan være private cloud selv om serverne står hos tredjeparten. Hvis organisasjonen også integrerer dette miljøet med Azure, oppstår et hybridmiljø. Tjenestevalget kan samtidig være IaaS eller en administrert plattform.',
+        misconception:
+          'Et låst serverrom er ikke automatisk private cloud. Eksklusivitet alene beskriver hvem som bruker miljøet; skyegenskaper som tjenestebasert bestilling må også vurderes. Public cloud betyr ikke at data må være offentlige.',
+        limits:
+          'Grensefiguren viser begreper og en nødvendig integrasjon, ikke en ferdig nettverksforbindelse eller sikkerhetsgaranti.',
+        question:
+          'En tredjepart drifter en eksklusiv selvbetjent skyplattform for én organisasjon. Hvilken miljømodell passer?',
+        answers: {
+          private: 'Private cloud, selv om den står hos tredjepart',
+          public: 'All drift hos tredjepart er public cloud',
+          'building-only': 'Private cloud krever organisasjonens eget bygg',
+        },
+        feedback: {
+          private:
+            'Ja. Eksklusiv bruk og skyens driftsmodell er avgjørende. Adressen til datasenteret er ikke definisjonen.',
+          public:
+            'Tredjepartsdrift avgjør ikke alene. Et eksklusivt skymiljø for én organisasjon kan fortsatt være private cloud.',
+          'building-only':
+            'Private cloud kan driftes utenfor eget bygg. Eierskap, eksklusivitet og tjenestemodell må skilles fra fysisk adresse.',
+        },
+      },
+      placement: {
+        title: 'Krav før preferanser',
+        spoken:
+          'Velg ikke miljø etter hvilket som høres mest moderne ut. Sammenlign tre konkrete krav. Hvilket valg løser problemet, og hvilket ekstra arbeid følger med?',
+        terms: [
+          [
+            'Arbeidslast',
+            'Applikasjonen, dataene og avhengighetene som sammen leverer en funksjon.',
+          ],
+          [
+            'Integrasjon',
+            'En planlagt måte systemer utveksler data eller samordner funksjoner på.',
+          ],
+          ['Eksklusivitet', 'At miljøet er avsatt til én organisasjon.'],
+        ],
+        purpose:
+          'Start med krav: hva må kontrolleres, hvilke data kan flyttes, hvor mye varierer lasten og hvilken drift kan teamet håndtere? Miljøvalget skal møte disse kravene. Ingen modell er universelt best, billigst eller sikrest.',
+        mechanism:
+          'Public cloud gir tilgang til tjenester uten eget fysisk innkjøp, men krever koststyring og sikker konfigurasjon. Private cloud kan passe et dokumentert krav om eksklusivt miljø når organisasjonen har driftskompetanse. Hybrid kan støtte en trinnvis overgang eller et system som må bli lokalt, men legger til integrasjon, identitetsarbeid og flere feilkilder. Et diagram med en strek gjør ikke dette arbeidet ferdig.',
+        azure:
+          'En midlertidig nettfront i Azure kan bruke leverandørens tjenester. Hvis fronten trenger et lokalt produksjonssystem, må dataflyt, forbindelser og tilgang vurderes. Azure tilbyr også dedikerte løsninger; øvelsens valg må derfor ikke tolkes som at offentlig sky aldri kan tilby dedikert maskinvare.',
+        example:
+          'Et kort offentlig arrangement uten eksklusivitetskrav peker mot public cloud. Et uttrykkelig eksklusivt skymiljø med eget driftsteam peker mot private cloud. En nettfront som må integreres med et beholdt lokalt system peker mot hybrid. Hvis det lokale systemet senere avvikles, bør hybridbehovet vurderes på nytt.',
+        misconception:
+          'Hybrid er ikke automatisk sikrere, og private cloud er ikke automatisk et samsvarsbevis. Et privat miljø uten riktig kontroll kan fortsatt lekke data. Public cloud kan være et godt valg uten at det fritar kunden for ansvar.',
+        limits:
+          'Dette er avgrensede best-fit-situasjoner. Øvelsen erstatter ikke juridisk vurdering, dataklassifisering, nettverksdesign, anskaffelsesprosess eller kostanalyse.',
+        question: 'Knytt hvert kravsett til et begrunnet miljøvalg.',
+        answers: {},
+        feedback: {
+          correct:
+            'Valgene følger kravene: midlertidig offentlig tjeneste → public; eksklusivt skymiljø → private; beholdt lokalt system med integrert nettfront → hybrid.',
+          wrong:
+            'Se hvilket krav som mangler dekning: et kort arrangement krever ikke eget eksklusivt driftssystem; eksklusiv skybruk er private i dette eksemplet; beholdt lokal drift pluss integrert skyfront krever hybrid.',
+        },
+      },
+      metering: {
+        title: 'Forbruk er ikke trafikk',
+        spoken:
+          'Null besøkende, men seks allokerte plasser. Hvorfor går måleren fortsatt? Frigi kapasiteten og sammenlign. Det er forskjell på nyttig arbeid og det tjenesten fakturerer.',
+        terms: [
+          [
+            'Måleenhet',
+            'Størrelsen som faktureringen teller, for eksempel kapasitetstid eller lagrede data.',
+          ],
+          ['Allokere', 'Sette av en ressurs til bruk.'],
+          ['CapEx', 'Investering, eksempelvis kjøp av maskiner.'],
+          ['OpEx', 'Løpende drift, eksempelvis betaling for tjenesteforbruk.'],
+        ],
+        purpose:
+          'Forbruksbasert betaling knytter kostnad til målt bruk over tid. Måleren kan telle kapasitetstimer, lagring, forespørsler eller overføring. Kundens nyttige arbeid er ikke nødvendigvis den fakturerte enheten. Dermed kan lav trafikk og kostnader eksistere samtidig.',
+        mechanism:
+          'En allokert VM kan bruke fakturerbar beregningskapasitet uten besøkende. Å stoppe en prosess er ikke det samme som å frigi ressursen. Andre deler, som lagring, kan fortsette å koste selv etter at beregning er frigitt. Kostnadsstyring krever både forståelse av måleren og riktig livssyklus for hver ressurs.',
+        azure:
+          'Azure-tjenester har ulike målere og regler for stopp og frigjøring. Sjekk tjenestespesifikk dokumentasjon før reelle valg. Budsjettvarsler stopper ikke automatisk forbruk. CapEx/OpEx forklarer kostnadsstruktur på grunnnivå, men er ikke regnskapsråd: avtaler og regler må vurderes konkret.',
+        example:
+          'I fire perioder er behovet null, men seks skyplasser står allokert. Vår beregningsmåler teller 24 plassperioder og gir 48 undervisningsenheter. Ved eksplisitt frigjøring blir denne beregningsmåleren null. Ingen av resultatene sier at lagring, nettverk eller alle fakturalinjer er gratis.',
+        misconception:
+          '«Betal for det du bruker» betyr ikke alltid «betal bare når en sluttbruker besøker appen». Det avhenger av hva tjenesten måler. En inaktiv ressurs kan fortsatt være bestilt og fakturerbar.',
+        limits:
+          'Bare undervisningens kapasitet regnes. Dette er ikke en Azure-faktura, kostnadsestimator eller automatisk oppryddingsoperasjon.',
+        question: 'Hvorfor ga null trafikk fortsatt utslag på beregningsmåleren før frigjøring?',
+        answers: {
+          allocated: 'Kapasitet var fortsatt allokert; måleren teller plassperioder',
+          traffic: 'Skyen tar alltid bare betalt for besøkende',
+          'everything-free': 'Frigjort beregning betyr at alle andre tjenester også er gratis',
+        },
+        feedback: {
+          allocated:
+            'Riktig. Den viste måleren teller allokering, ikke besøk. Etter frigjøring er denne beregningsdelen null; andre kostnader er ikke vurdert.',
+          traffic:
+            'Måleenheten varierer. Her telles allokerte plasser over tid. Seks inaktive plasser er fortsatt satt av.',
+          'everything-free':
+            'Vi frigir bare beregningskapasiteten i denne modellen. Lagring og andre målere kan fortsette å gi kostnad i en virkelig løsning.',
+        },
+      },
+      pricing: {
+        title: 'Fleksibilitet har vilkår',
+        spoken:
+          'En lavere enhetspris kan kreve en forpliktelse. Sammenlign jevn og usikker last før du velger. En faktureringsrabatt er ikke det samme som ny kapasitet.',
+        terms: [
+          [
+            'Pay-as-you-go',
+            'Betaling for kvalifisert bruk uten den langsiktige forpliktelsen i eksemplet.',
+          ],
+          ['Forpliktelse', 'Avtale om betaling eller kvalifisert ressursbruk over en periode.'],
+          ['Spot', 'Prisalternativ for ledig kapasitet som leverandøren kan ta tilbake.'],
+          [
+            'Totalkostnad',
+            'Alle relevante kostnader gjennom løsningens levetid, ikke bare én prislinje.',
+          ],
+        ],
+        purpose:
+          'Pay-as-you-go gir fleksibilitet når behovet er usikkert, men ikke nødvendigvis lavest enhetspris. En forpliktelse kan gi rabatt mot risikoen for å betale for noe som ikke brukes. Valget avhenger av stabilitet, varighet, vilkår og avbruddstoleranse.',
+        mechanism:
+          'Reservations gjelder samsvarende ressursbruk. Savings plans knytter rabatt til en avtalt timebasert pengeforpliktelse for kvalifisert bruk. Tilbudene har egne regler og endrer ikke i seg selv ressursens kjøretid eller oppretter kapasitet. Ubrukt forpliktelse kan være bortkastet betaling. Spot kan passe arbeid som kan starte på nytt når kapasitet tas tilbake; lav pris alene gjør det ikke egnet for avbruddskritisk arbeid.',
+        azure:
+          'Azure har disse ulike faktureringstilbudene med bestemte produkt- og matchingsregler. Kontroller aktuelle vilkår, støttede tjenester og målt forbruk før en faktisk forpliktelse. Undervisningens seks-plassers avtale er bare en illustrasjon av binding, ikke en modell av et bestemt Azure-tilbud eller en prisgaranti.',
+        example:
+          'Jevn last bruker seks plasser i alle fire perioder: hypotetisk forpliktelse 24 mot forbruksbetaling 48. Usikker last [0, 0, 0, 4] gir derimot forpliktelse 24 mot forbruksbetaling 8. Eide seks plasser gir 36 ved jevn last i den andre sammenligningen. Resultatet favoriserer altså ikke alltid samme alternativ.',
+        misconception:
+          'En reservation-rabatt er ikke en bestilling som automatisk oppretter eller skalerer servere. «Sky er alltid billigere» og «rabatt er alltid billigere» ignorerer utnyttelse, binding og utelatte kostnader. Spot er ikke en gratis rabatt uten operasjonell risiko.',
+        limits:
+          'Ingen virkelig Azure-pris, rabattprosent, valuta, kontraktslengde eller TCO beregnes. Fire undervisningsperioder er ikke fire Azure-faktureringsperioder.',
+        question:
+          'En kort kampanje har ukjent levetid og tåler ikke at kapasitet tas tilbake. Hva unngår både fast forpliktelse og Spot-avbrudd i dette eksemplet?',
+        answers: {
+          usage: 'Pay-as-you-go, med oppfølging av faktisk forbruk',
+          commitment: 'En stor forpliktelse uansett fremtidig bruk',
+          spot: 'Spot uten hensyn til avbrudd',
+        },
+        feedback: {
+          usage:
+            'Dette passer de oppgitte kravene. Fleksibiliteten unngår en fast ubrukt forpliktelse; forbruket må fortsatt måles og styres.',
+          commitment:
+            'Forpliktelsen betales selv når behovet faller bort. Undersøk stabilt kvalifisert grunnforbruk før du binder deg.',
+          spot: 'Spot-kapasitet kan tas tilbake. Arbeid som ikke tåler avbrudd må ikke velges bare på grunn av lav enhetspris.',
+        },
+      },
+    },
+    transferItems: [
+      {
+        id: 'service',
+        question: 'Hva gjør pilotens kapasitet til en skytjeneste?',
+        choices: [
+          ['provisioning', 'Leverandørressurser tilbys og bestilles som tjenester'],
+          ['internet', 'Det finnes en internettkabel'],
+          ['no-hardware', 'Det finnes ingen maskinvare'],
+        ],
+        explanation:
+          'Bestillings- og driftsmodellen er forskjellen. Internett alene er ikke nok; maskinvare finnes fortsatt.',
+      },
+      {
+        id: 'shortfall',
+        question: 'Hvor mange behovsenheter mangler de fire faste plassene i periodens topp på ni?',
+        choices: [
+          ['0', '0'],
+          ['4', '4'],
+          ['5', '5'],
+          ['9', '9'],
+        ],
+        explanation:
+          'Ni behov minus fire plasser gir fem udekkede behovsenheter i toppen. Det er verken samlet etterspørsel eller ledig kapasitet.',
+      },
+      {
+        id: 'duties',
+        question:
+          'Hvem må fortsatt forvalte kundens data, tilgangsvalg og klientbeskyttelse når leverandøren drifter verten?',
+        choices: [
+          ['customer', 'Kunden'],
+          ['provider', 'Leverandøren overtar alle disse oppgavene'],
+        ],
+        explanation:
+          'Leverandørens vertsdrift overtar ikke kundens data-, tilgangs- eller klientkontroller.',
+      },
+      {
+        id: 'exclusive',
+        question:
+          'Et eksklusivt selvbetjent skymiljø for museet står hos tredjepart. Hvilken modell beskriver det?',
+        choices: [
+          ['public', 'Public cloud'],
+          ['private', 'Private cloud'],
+          ['hybrid', 'Hybrid bare fordi adressen er ekstern'],
+        ],
+        explanation:
+          'Eksklusivt skymiljø for én organisasjon kan være private cloud hos tredjepart. Ekstern adresse beviser ikke public eller hybrid.',
+      },
+      {
+        id: 'integration',
+        question:
+          'Nettfronten i offentlig sky må integreres med samlingssystemet som beholdes lokalt. Hva beskriver helheten?',
+        choices: [
+          ['public', 'Bare public cloud'],
+          ['private', 'Bare private cloud'],
+          ['hybrid', 'Hybrid, med reelt integrasjonsarbeid'],
+        ],
+        explanation:
+          'Kombinasjonen av offentlig sky og integrert beholdt lokalt miljø er hybrid. Nettverk, identitet og dataflyt må planlegges.',
+      },
+      {
+        id: 'idle',
+        question:
+          'Piloten har ingen besøkende i natt, men beregningsressursen er fortsatt allokert. Hvorfor kan beregningskostnaden fortsette?',
+        choices: [
+          ['traffic', 'All sky faktureres bare per besøkende'],
+          ['allocated', 'Måleren kan telle allokert kapasitet over tid'],
+        ],
+        explanation:
+          'Null nyttig trafikk betyr ikke null allokering. Den relevante tjenestens måleenhet avgjør hva som faktureres.',
+      },
+      {
+        id: 'uncertain',
+        question:
+          'Ukjent levetid og ingen toleranse for tilbakekalt kapasitet: hvilket utgangspunkt passer?',
+        choices: [
+          ['commitment', 'Bind stor kapasitet uten bruksdata'],
+          ['usage', 'Pay-as-you-go og følg forbruket'],
+          ['spot', 'Spot selv om avbrudd ikke tåles'],
+        ],
+        explanation:
+          'Forbruksbetaling unngår den faste forpliktelsen. Spot kan avbrytes; binding krever bedre grunnlag i stabil bruk.',
+      },
+      {
+        id: 'commitment',
+        question: 'Hva må museet forstå før det bruker installasjonens forpliktelsestall?',
+        choices: [
+          ['free', 'Ubrukt forpliktelse er gratis og tallene er Azure-priser'],
+          ['paid', 'Ubrukt forpliktelse kan betales; tallene er bare undervisningsantakelser'],
+        ],
+        explanation:
+          'Binding kan koste uten nyttig bruk. Våre enheter er ikke priser, valuta eller et konkret Azure-tilbud.',
+      },
+    ],
+  },
   brand: 'AzureLab',
   rpg: {
     title: 'Lysningen',

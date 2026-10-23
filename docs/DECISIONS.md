@@ -1,5 +1,16 @@
 # Decisions
 
+## L1 decisions — 2026-10-23
+
+| ID  | Decision                                                      | Reason / boundary                                                                                                                               |
+| --- | ------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| 053 | Stack a separate content branch on verified G1.1              | Preserve PR1–4 and the proven simulator; no merge/production infrastructure.                                                                    |
+| 054 | Manuscript-first local hierarchy and finite activity registry | A quest is presentation; objective coverage needs actual explanation, practice, assessment and source provenance. No CMS or remote interpreter. |
+| 055 | Synthetic paired capacity/meter/pricing model                 | Teach mechanisms and counterexamples without claiming Azure prices, automatic scaling or TCO.                                                   |
+| 056 | Contextual shared unit journal                                | Retain learning state and substantive accessible theory beyond cinematic dialogue; reading is not practice.                                     |
+| 057 | Separate first-submission rubric and fifth replayed save      | In-attempt help and retries remain distinct; no automatic migration, new XP or mastery/readiness.                                               |
+| 058 | Explicit human review status                                  | Structural/software validation cannot approve educational validity, SME quality or retention.                                                   |
+
 ## G1.1 decisions — 2026-10-23
 
 | ID  | Decision                                                         | Reason / boundary                                                                                                                                    |
