@@ -1,5 +1,9 @@
 # AzureLab product blueprint
 
+## L1 educational scope correction
+
+A persistent world requires a curriculum manuscript independent of quest dialogue. L1 adds one source-backed cloud-computing module candidate and a contextual journal, not a new catalogue. The [standards](CONTENT_STANDARDS.md) and [coverage audit](CURRICULUM_COVERAGE.md) make authored, implemented, assessed, source-reviewed and human-SME-reviewed states explicit. The hybrid product model below remains the long-term direction; no title, world visit or accumulated XP establishes coverage or competence.
+
 Status: **Phase 1A proposal for owner review**, 2026-10-22. The owner-authorized Phase 1A.5 expedition is now implemented: continuous travel, model comparison, two assisted detours, a real technical portal and local command replay. Complete chapters, checkpoint promotion, independent transfer and the wider platform remain proposed. [JOURNEY_EXPERIENCE.md](JOURNEY_EXPERIENCE.md) owns the actual implementation contract. Full Phase 1B work requires blueprint review and authorization. This is the product decision document; [LEARNING_JOURNEY.md](LEARNING_JOURNEY.md) owns competencies, [EXPERIENCE_PATTERNS.md](EXPERIENCE_PATTERNS.md) owns learning mechanics, [SIMULATION_PLATFORM.md](SIMULATION_PLATFORM.md) owns system contracts and [CHAPTER_01_BLUEPRINT.md](CHAPTER_01_BLUEPRINT.md) owns the first implementation target.
 
 ## Assessment of the Phase 0.5 baseline

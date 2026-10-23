@@ -1,5 +1,11 @@
 # Security and privacy
 
+## L1 fifth isolated local category
+
+The new azurelab.learning.foundations.v1 key contains only pinned content/model/rubric versions, current unit and up to 500 allowlisted observations (180,000-character restore cap). Restore replays and recomputes results; imported scores/completion flags are rejected. Unknown/corrupt input is quarantined, stale-tab writes stop, denied writes warn and continue in memory. Explicit module reset does not touch legacy/game/technical data; existing all-data deletion clears this fifth category too. No implicit old-content migration or new reward exists.
+
+The journal opens locally with native modal focus/inert background and explicit official links. Active transfer reference access records help. Local evidence cannot attest identity or prevent deliberate browser tampering; it is not an authoritative qualification. Numeric costs are invented teaching assumptions. No remote content/AI/API, executable content expressions, new dependency, credentials or asset host is introduced. Future accounts require server authorization, provenance and privacy controls.
+
 ## G1.1 presentation boundary
 
 Cinematic shot/field-note/text-size state is transient and never trusted as assessment evidence. Camera positions/animation timing emit no progression events. A native modal dialog makes background controls inert; scoped choice keys cannot move the player. Official source links remain explicit new-tab actions. No new dependencies, assets, network endpoint, persisted schema or credentials are introduced; existing storage quarantine/replay and local asset checks remain mandatory.

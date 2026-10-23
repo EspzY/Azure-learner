@@ -1,5 +1,9 @@
 # The Azure Expedition — implemented Phase 1A.5
 
+## L1 curriculum integration
+
+The root journey remains available. Its shared journal, the technical workbench journal and the RPG journal use the same locally authored unit content without navigating away or resetting state. The playable first full-module candidate starts through Ida/the existing installation in /expedition-3d. It supplements the preserved expedition/portal/Noor loop; it does not claim to implement all planned journey regions. Its independent local module save never upgrades old detours or guided technical findings into new evidence. [Content architecture](CONTENT_ARCHITECTURE.md) and [coverage](CURRICULUM_COVERAGE.md) define the boundary.
+
 ## G1.1 presentation extension
 
 Only the separate game route gains cinematic conversations and workshop framing. Entry/portal/return positions, technical replay, quest facts and the root journey below remain unchanged. Unfinished work, guided satisfaction and explicit reporting still produce distinct Noor responses; camera shots and field notes cannot complete work or award XP. See [dialogue](NPC_DIALOGUE_DESIGN.md) and [rendering contracts](GAMEPLAY_ARCHITECTURE.md).

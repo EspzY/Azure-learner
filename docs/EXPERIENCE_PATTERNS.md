@@ -1,5 +1,9 @@
 # Experience patterns and evidence design
 
+## L1 implemented conceptual investigations
+
+The first local module now implements paired capacity/demand prediction, responsibility allocation, deployment-boundary comparison, three workload placements, idle/released metering and pricing-commitment counterexamples. A changed-context submission separates first unaided criterion observations from guided feedback/retries. These are concrete bounded conceptual models, not generic replacements for network/identity simulation. [Manuscript](FOUNDATIONS_01_CONTENT.md) owns learning behavior; [content architecture](CONTENT_ARCHITECTURE.md) owns authoring and evidence contracts.
+
 Status: proposed reusable mechanics, version 1.0.0, 2026-10-22. Phase 1A.5 adds interactive responsibility comparison, two distinct assisted side-route checks and a portal/apply/return loop around the existing P01/P04 world. [JOURNEY_EXPERIENCE.md](JOURNEY_EXPERIENCE.md) specifies their actions, state changes, exact evaluators and accessible equivalents. Both new checks award zero XP and supply guided participation, not the independent evidence required below. The wider pattern catalog remains proposed. Each pattern specifies a learning problem, physical action, state transition/observation, technical basis, evidence and accessible representation. Sources Sxx resolve in [SOURCE_REGISTER.md](SOURCE_REGISTER.md). Full examples are in [EXPERIENCE_BLUEPRINTS.md](EXPERIENCE_BLUEPRINTS.md); A is specified once in [CHAPTER_01_BLUEPRINT.md](CHAPTER_01_BLUEPRINT.md).
 
 ## Common learning loop

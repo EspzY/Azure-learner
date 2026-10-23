@@ -5,6 +5,7 @@ import { nb } from '@/content/nb';
 import { ExpeditionProvider } from '@/features/journey/expedition-provider';
 import { ChapterProvider } from '@/features/chapter01/provider';
 import { GameProvider } from '@/features/rpg/game-provider';
+import { LearningProvider } from '@/features/learning/provider';
 import '@xyflow/react/dist/style.css';
 import './globals.css';
 
@@ -20,7 +21,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <ExpeditionProvider>
             <ChapterProvider>
               <GameProvider>
-                <AppShell>{children}</AppShell>
+                <LearningProvider>
+                  <AppShell>{children}</AppShell>
+                </LearningProvider>
               </GameProvider>
             </ChapterProvider>
           </ExpeditionProvider>

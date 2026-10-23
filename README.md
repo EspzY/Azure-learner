@@ -1,5 +1,11 @@
 # AzureLab
 
+## L1 — source-backed learning module candidate
+
+On /expedition-3d, approach Ida and choose **Undersøk cloud computing med Ida**. Walk to the existing installation and investigate six connected units: provisioning/capacity, responsibility, deployment models, workload placement, consumption and pricing. A shared **Kunnskapsjournal** opens from NPCs, the game header and the existing journey/workbench without leaving the route.
+
+The versioned curriculum, synthetic deterministic experiments, guided predicates and first-submission transfer observations are separate from Azure commands and the older quest/XP ledger. No new rewards, mastery percentages or live prices. The [coverage audit](docs/CURRICULUM_COVERAGE.md) names the many remaining gaps; [manuscript](docs/FOUNDATIONS_01_CONTENT.md), [standards](docs/CONTENT_STANDARDS.md) and [content contracts](docs/CONTENT_ARCHITECTURE.md) specify actual scope. Human SME/learner approval remains outstanding. Run npm run curriculum:check alongside the existing check/E2E/assets gates.
+
 ## G1.1 — cinematic conversation candidate
 
 The separate /expedition-3d route now presents Ida and Noor through authored two-character, over-the-shoulder, close-up and workshop shots. Subtitles and response choices share the visible environment; optional field notes retain the full technical explanations. Native modal focus, keyboard/touch, reduced motion and semantic fallback remain. Azure rules, quest evidence, all four save categories and XP are preserved. This is a candidate for owner visual review, not a claim of finished character art or proven learning effectiveness. See [dialogue design](docs/NPC_DIALOGUE_DESIGN.md) and [actual verification](docs/PROJECT_STATUS.md).

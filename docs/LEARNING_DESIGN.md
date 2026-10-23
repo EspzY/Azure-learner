@@ -1,5 +1,11 @@
 # Learning design
 
+## L1 — complete first-module investigation
+
+The new [manuscript](FOUNDATIONS_01_CONTENT.md) precedes presentation code. It teaches six official cloud-computing objectives plus on-premises prerequisites through paired capacity/pricing experiments, responsibility allocation, topology comparison, three workload placements and an idle/release meter. Each unit needs actual probe witnesses and a correct causal response for guided completion. Reading/visiting alone cannot complete it. Original wrong-answer explanations and worked/counterexamples remain accessible in the playable investigation and journal.
+
+A separate museum-pilot task changes the demand, capacity and operational constraints. Answers are committed together before feedback; in-attempt journal/instruction marks help. First criterion observations remain immutable, retries are practice, and neither implies retained competence. No new XP or Chapter01 promotion. [Content standards](CONTENT_STANDARDS.md) define the permanent authoring/review gate; [coverage](CURRICULUM_COVERAGE.md) distinguishes narrow legacy material from full modules.
+
 ## G1.1 conversation pacing
 
 Short spoken beats now accompany intentional character/workshop shots. Full original explanations, misconceptions and source-backed caveats remain in resumable field notes. Layer inspection uses the same responsibility rules and emits no assessment/XP event. Immediate guided feedback still records assisted practice; neither cinematic pacing nor correct retries establish independent evidence. [NPC dialogue design](NPC_DIALOGUE_DESIGN.md) specifies the content split and re-entry behavior.

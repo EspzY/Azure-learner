@@ -1,5 +1,9 @@
 # Learning journey and competency universe
 
+## L1 refinement: competencies are not lessons
+
+F01 and F03 now map to the first local module's seven objective IDs FC01–FC07. Six units contain separate teaching, practical investigations and guided decisions; the changed-context task retains first independent criterion observations and assistance/retry history. The remaining professional graph below stays a blueprint, not an implemented catalogue. A competency can require multiple modules, chapters and quest presentations. [Coverage](CURRICULUM_COVERAGE.md) audits every current introductory exam objective and all 20 path-module unit indexes; [content architecture](CONTENT_ARCHITECTURE.md) owns the new hierarchy and versioning. Existing service-model quests remain a connected follow-up, not proof of full F01 completion.
+
 Status: **proposed curriculum architecture**, version 1.0.0, reviewed 2026-10-22. Phase 1A.5 adds playable F01 service-responsibility teaching, two assisted checks and a portal to the existing G01/F02 mission. [JOURNEY_EXPERIENCE.md](JOURNEY_EXPERIENCE.md) owns its actual scope. The 30 units/specializations remain curriculum specifications. Stable objective IDs connect the route to this graph; a completed detour does not complete a competency. Overview/direct practical entry supports experienced users; diagnostic placement is not implemented. This map is a scope/progression design, not a claim of available courses or verified mastery. [SOURCE_REGISTER.md](SOURCE_REGISTER.md) owns authoritative URLs, observed versions, credential status, attribution and review rules.
 
 ## A graph of capabilities, not an exam syllabus

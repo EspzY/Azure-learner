@@ -8,6 +8,7 @@ export interface ConversationShot {
   node: NodeId;
   speaker: 'guide' | 'engineer' | 'system';
   intent: Exclude<ShotIntent, 'exploration'>;
+  framing?: 'learning';
 }
 // Presentation only: these intents never emit story events or determine technical findings.
 export function conversationShot(
@@ -86,6 +87,7 @@ export function planShot(
   let subjectX = compact ? 0.5 : 0.38;
   let subjectY = Math.max(0.25, Math.min(0.32, safeTop * 0.5));
   if (intent === 'demonstration') {
+    if (shot.framing === 'learning') subjectY = Math.max(0.12, Math.min(0.25, safeTop * 0.48));
     centre.set(focusPlace.x, conversation === 'portal' ? 3 : 1.8, focusPlace.z);
     const distance =
       conversation === 'portal'

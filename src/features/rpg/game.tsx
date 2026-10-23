@@ -12,6 +12,7 @@ import {
   MessageCircle,
   Settings2,
   X,
+  BookOpen,
 } from 'lucide-react';
 import { nb } from '@/content/nb';
 import { currentStage } from '@/domain/chapter01/scenario';
@@ -25,6 +26,9 @@ import { useGame } from './game-provider';
 import { PlayerRuntime } from './runtime';
 import { CinematicDialogue } from './cinematic-dialogue';
 import { conversationShot } from './cinematics';
+import { useLearning } from '@/features/learning/provider';
+import { FoundationsSession, type LearningProjection } from '@/features/learning/session';
+import { initialProbe } from '@/domain/curriculum/foundations';
 
 const Scene = dynamic(() => import('./scene').then((m) => m.GameScene), { ssr: false });
 const t = nb.rpg;
@@ -69,6 +73,11 @@ export function Game() {
   const restored = useRef(false);
   const sceneLoaded = useCallback(() => setSceneReady(true), []);
   const [node, setNode] = useState<NodeId | null>(null);
+  const { openJournal, journalOpen } = useLearning();
+  const [lessonOpen, setLessonOpen] = useState(false);
+  const [lessonPending, setLessonPending] = useState(false);
+  const [projection, setProjection] = useState<LearningProjection | null>(null);
+  const project = useCallback((p: LearningProjection | null) => setProjection(p), []);
   const [orientation, setOrientation] = useState(false);
   const [settings, setSettings] = useState(false);
   const [confirmReset, setConfirmReset] = useState(false);
@@ -104,9 +113,28 @@ export function Game() {
   useEffect(() => {
     runtime.attach(root.current);
     runtime.pause(
-      !started || !!node || settings || confirmReset || !visible || entering || mode !== 'webgl',
+      !started ||
+        !!node ||
+        lessonOpen ||
+        journalOpen ||
+        settings ||
+        confirmReset ||
+        !visible ||
+        entering ||
+        mode !== 'webgl',
     );
-  }, [runtime, started, node, settings, confirmReset, visible, entering, mode]);
+  }, [
+    runtime,
+    started,
+    node,
+    lessonOpen,
+    journalOpen,
+    settings,
+    confirmReset,
+    visible,
+    entering,
+    mode,
+  ]);
   useEffect(() => {
     const media = matchMedia('(prefers-reduced-motion: reduce)');
     const update = () => setReduced(media.matches);
@@ -136,6 +164,8 @@ export function Game() {
       if (
         !root.current?.contains(document.activeElement) ||
         node ||
+        lessonOpen ||
+        journalOpen ||
         settings ||
         confirmReset ||
         !started
@@ -166,7 +196,7 @@ export function Game() {
       window.removeEventListener('keydown', down);
       window.removeEventListener('keyup', up);
     };
-  }, [runtime, node, settings, confirmReset, started, mode]);
+  }, [runtime, node, lessonOpen, journalOpen, settings, confirmReset, started, mode]);
   useEffect(() => {
     if (!settings) return;
     const timer = setInterval(() => setMetrics({ ...runtime.measurement }), 1000);
@@ -179,8 +209,26 @@ export function Game() {
     [],
   );
   useEffect(() => {
-    runtime.direct(node ? conversationShot(node, dialogue[node].speaker) : null);
-  }, [node, runtime]);
+    runtime.direct(
+      lessonOpen
+        ? { ...conversationShot('installation', 'guide'), framing: 'learning' }
+        : node
+          ? conversationShot(node, dialogue[node].speaker)
+          : null,
+    );
+  }, [node, runtime, lessonOpen]);
+  const observeNear = useCallback(
+    (place: PlaceId | null) => {
+      setNear(place);
+      if (lessonPending && place === 'installation') {
+        runtime.stop();
+        runtime.converse('installation');
+        setLessonPending(false);
+        setLessonOpen(true);
+      }
+    },
+    [lessonPending, runtime],
+  );
   const restoreFocus = useCallback(() => {
     if (runtime.route.length) viewport.current?.focus();
     else if (interactButton.current && !interactButton.current.disabled)
@@ -190,6 +238,17 @@ export function Game() {
   function close() {
     runtime.converse(null);
     setNode(null);
+  }
+  function foundations() {
+    close();
+    if (mode !== 'webgl' || runtime.near === 'installation') {
+      runtime.stop();
+      runtime.converse('installation');
+      setLessonOpen(true);
+    } else {
+      navigate('installation');
+      setLessonPending(true);
+    }
   }
   function navigate(id: PlaceId) {
     runtime.converse(null);
@@ -258,6 +317,7 @@ export function Game() {
       data-reduced={String(reduced)}
       data-quest={objective}
       data-dialogue={node ?? ''}
+      data-learning-projection={lessonOpen ? (projection?.unit ?? 'brief') : ''}
     >
       <h1 id="rpg-title" className="rpg-sr">
         {t.title}
@@ -277,10 +337,11 @@ export function Game() {
               reduced={reduced}
               visible={visible}
               quality={save.quality}
-              onNear={setNear}
+              onNear={observeNear}
               onSave={savePosition}
               onFailure={failure}
               onReady={sceneLoaded}
+              lesson={lessonOpen ? (projection ?? { unit: 'brief', input: initialProbe }) : null}
             />
           </RenderBoundary>
         )}
@@ -330,6 +391,9 @@ export function Game() {
           </p>
         </div>
         <div className="rpg-top-actions">
+          <button type="button" aria-label={nb.foundations.journal} onClick={() => openJournal()}>
+            <BookOpen size={19} />
+          </button>
           <span className="rpg-xp">
             {totalXp(progress)} {nb.shell.xp}
           </span>
@@ -355,7 +419,7 @@ export function Game() {
           </Link>
         </div>
       </header>
-      {started && !node && (
+      {started && !node && !lessonOpen && (
         <aside className="rpg-quest" aria-label={t.questLabel}>
           <small>{t.questLabel}</small>
           <strong>{t.quest}</strong>
@@ -439,7 +503,7 @@ export function Game() {
           <small>{t.loadHint}</small>
         </div>
       )}
-      {started && !node && mode === 'webgl' && (
+      {started && !node && !lessonOpen && mode === 'webgl' && (
         <>
           <button
             type="button"
@@ -506,6 +570,18 @@ export function Game() {
           onModel={(model) => store.event({ kind: 'model', model })}
           onClose={close}
           restoreFocus={restoreFocus}
+          onFoundations={foundations}
+        />
+      )}
+      {lessonOpen && (
+        <FoundationsSession
+          runtime={runtime}
+          onProject={project}
+          onClose={() => {
+            setLessonOpen(false);
+            runtime.converse(null);
+            queueMicrotask(restoreFocus);
+          }}
         />
       )}
       {settings && (
