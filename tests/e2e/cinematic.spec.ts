@@ -94,6 +94,7 @@ test('cinematic speakers, framing, focus, workshop and exploration restoration',
     .toBeLessThan(0.05);
   expect((await new AxeBuilder({ page }).analyze()).violations).toEqual([]);
   await page.getByRole('button', { name: /Vis meg ansvarsverkstedet/ }).click();
+  await page.getByRole('button', { name: 'Vis meg veien', exact: true }).click();
   await expect(page.locator('.rpg-viewport')).toBeFocused();
   await expect(world).toHaveAttribute('data-near', 'installation', { timeout: 35000 });
   await page.getByRole('button', { name: /Undersøk Ansvarsverkstedet/ }).click();

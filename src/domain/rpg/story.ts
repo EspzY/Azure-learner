@@ -40,7 +40,8 @@ export function storyFacts(story: Story, technical: TechnicalContext) {
     accepted,
     canEnter: accepted && challenge && compared,
     ready,
-    reported: ready && story.events.some((e) => e.kind === 'report'),
+    canDebrief: technical.guidedBuilt,
+    reported: technical.guidedBuilt && story.events.some((e) => e.kind === 'report'),
   };
 }
 export function parseStoryEvent(raw: unknown): StoryEvent | null {
@@ -96,7 +97,7 @@ export const nodeIds = [
   'portal-ready',
 ] as const;
 export type NodeId = (typeof nodeIds)[number];
-type Condition = 'compared' | 'canEnter' | 'ready' | 'accepted';
+type Condition = 'compared' | 'canEnter' | 'ready' | 'accepted' | 'canDebrief';
 export interface Choice {
   id: string;
   next?: NodeId;
@@ -276,7 +277,7 @@ export const dialogue: Record<NodeId, DialogueNode> = {
     speaker: 'engineer',
     sources: ['S03', 'S12', 'S38'],
     choices: [
-      { id: 'report', next: 'engineer-reported', effect: { kind: 'report' }, when: 'ready' },
+      { id: 'report', next: 'engineer-reported', effect: { kind: 'report' }, when: 'canDebrief' },
       { id: 'leave', action: 'close' },
     ],
   },
@@ -308,7 +309,8 @@ export function entryNode(
     return story.events.some((e) => e.kind === 'meet' && e.npc === 'guide')
       ? 'guide-expert'
       : 'guide-welcome';
-  if (facts.ready) return facts.reported ? 'engineer-reported' : 'engineer-built';
+  if (technical.guidedBuilt) return facts.reported ? 'engineer-reported' : 'engineer-built';
+  if (technical.hasWork) return 'engineer-progress';
   if (facts.accepted) return technical.hasWork ? 'engineer-progress' : 'engineer-reminder';
   return 'engineer-offer';
 }

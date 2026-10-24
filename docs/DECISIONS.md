@@ -1,5 +1,15 @@
 # Decisions
 
+## G1.2 decisions — 2026-10-24
+
+| ID  | Decision                                           | Reason and boundary                                                                                                                                      |
+| --- | -------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 059 | Canonical RPG redirect; internal legacy expedition | Explicit owner correction supersedes G1 root-retention decision. One renderer/provider tree, historical regressions remain separately routed.            |
+| 060 | Read-only Expedition Log over existing evidence    | Connect six-unit L1, service quest and actual guided findings without a contradictory completion ledger. XP is displayed only as participation.          |
+| 061 | Minimal isolated orientation preference            | Save seen/allowlisted goal only; quarantine invalid/versioned input, warn on writes/conflicts. Preserve all five older schemas; no completion migration. |
+| 062 | Authored arrival and explicit assisted travel      | Three skippable shot compositions provide orientation; manual navigation always remains. Camera timing/proximity/goal selection never records learning.  |
+| 063 | Experienced direct workbench entry at real gateway | Access does not require fabricated prior answers. Noor/log still derive real technical work; no independent mastery/Chapter01 promotion.                 |
+
 ## L1 decisions — 2026-10-23
 
 | ID  | Decision                                                      | Reason / boundary                                                                                                                               |

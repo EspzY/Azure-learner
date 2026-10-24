@@ -1,5 +1,4 @@
 'use client';
-import Link from 'next/link';
 import dynamic from 'next/dynamic';
 import { Component, useCallback, useEffect, useRef, useState, type ReactNode } from 'react';
 import { useRouter } from 'next/navigation';
@@ -11,13 +10,13 @@ import {
   Compass,
   MessageCircle,
   Settings2,
-  X,
   BookOpen,
+  ScrollText,
 } from 'lucide-react';
 import { nb } from '@/content/nb';
 import { currentStage } from '@/domain/chapter01/scenario';
 import { dialogue, entryNode, storyFacts, type Choice, type NodeId } from '@/domain/rpg/story';
-import { gatewayReturn, places, type PlaceId } from '@/domain/rpg/world';
+import { gatewayReturn, places, nearestPlace, type PlaceId } from '@/domain/rpg/world';
 import { useChapter } from '@/features/chapter01/provider';
 import { CommandDialog } from '@/components/command-dialog';
 import { useProgress } from '@/components/progress-provider';
@@ -29,6 +28,11 @@ import { conversationShot } from './cinematics';
 import { useLearning } from '@/features/learning/provider';
 import { FoundationsSession, type LearningProjection } from '@/features/learning/session';
 import { initialProbe } from '@/domain/curriculum/foundations';
+import { journeyGoals, goalPlaces, type JourneyGoal } from '@/domain/rpg/expedition';
+import { useExpeditionFacts, useOrientation } from './use-expedition';
+import { ExpeditionLog } from './expedition-log';
+import { Arrival } from './arrival';
+import './orientation.css';
 
 const Scene = dynamic(() => import('./scene').then((m) => m.GameScene), { ssr: false });
 const t = nb.rpg;
@@ -62,12 +66,24 @@ export function Game() {
   const { attempt } = useChapter();
   const { progress } = useProgress();
   const router = useRouter();
+  const expedition = useExpeditionFacts();
+  const orientationState = useOrientation();
+  const [replayingArrival, setReplayingArrival] = useState(false);
+  const [logOpen, setLogOpen] = useState(false);
+  const [travel, setTravel] = useState<JourneyGoal | null>(null);
+  const [assisting, setAssisting] = useState(false);
+  const goal = orientationState.preferences.goal ?? expedition.recommended;
+  const destination = goalPlaces[goal];
+  const objectiveCopy = nb.orientation.steps[goal];
   const [runtime] = useState(
     () => new PlayerRuntime(save.returnPending ? gatewayReturn : save.pose),
   );
   const [near, setNear] = useState<PlaceId | null>(null);
   const [mode, setMode] = useState<'webgl' | 'semantic' | 'failed'>('webgl');
-  const [semanticPlace, setSemanticPlace] = useState<PlaceId>('guide');
+  const [semanticChoice, setSemanticPlace] = useState<PlaceId | null>(null);
+  const semanticPlace =
+    semanticChoice ??
+    (save.returnPending || save.pose.z < -18 ? 'portal' : (nearestPlace(save.pose) ?? 'guide'));
   const [started, setStarted] = useState(false);
   const [sceneReady, setSceneReady] = useState(false);
   const restored = useRef(false);
@@ -91,13 +107,14 @@ export function Game() {
   const interactButton = useRef<HTMLButtonElement>(null);
   const technical = {
     guidedBuilt: currentStage(attempt) === 'guided-built',
-    hasWork: attempt.engine.world.revision > 0,
+    hasWork: attempt.events.length > 0,
   };
   const facts = storyFacts(save, technical);
   const active = mode === 'webgl' ? near : semanticPlace;
   const interactRef = useRef<() => void>(() => {});
   const savePosition = useCallback(() => {
     store.position(runtime.pose);
+    if (!runtime.route.length) setAssisting(false);
   }, [store, runtime]);
   const failure = useCallback(() => {
     runtime.stop();
@@ -116,6 +133,8 @@ export function Game() {
       !started ||
         !!node ||
         lessonOpen ||
+        logOpen ||
+        !!travel ||
         journalOpen ||
         settings ||
         confirmReset ||
@@ -128,6 +147,8 @@ export function Game() {
     started,
     node,
     lessonOpen,
+    logOpen,
+    travel,
     journalOpen,
     settings,
     confirmReset,
@@ -165,6 +186,8 @@ export function Game() {
         !root.current?.contains(document.activeElement) ||
         node ||
         lessonOpen ||
+        logOpen ||
+        !!travel ||
         journalOpen ||
         settings ||
         confirmReset ||
@@ -172,6 +195,8 @@ export function Game() {
       )
         return;
       if (event.code === 'Escape') {
+        setAssisting(false);
+        setLessonPending(false);
         runtime.stop();
         setOrientation(false);
         return;
@@ -183,6 +208,8 @@ export function Game() {
       }
       const direction = keys[event.code];
       if (direction && mode === 'webgl') {
+        setAssisting(false);
+        setLessonPending(false);
         event.preventDefault();
         runtime.keys.add(direction);
       }
@@ -196,7 +223,18 @@ export function Game() {
       window.removeEventListener('keydown', down);
       window.removeEventListener('keyup', up);
     };
-  }, [runtime, node, lessonOpen, journalOpen, settings, confirmReset, started, mode]);
+  }, [
+    runtime,
+    node,
+    lessonOpen,
+    logOpen,
+    travel,
+    journalOpen,
+    settings,
+    confirmReset,
+    started,
+    mode,
+  ]);
   useEffect(() => {
     if (!settings) return;
     const timer = setInterval(() => setMetrics({ ...runtime.measurement }), 1000);
@@ -236,21 +274,72 @@ export function Game() {
     else viewport.current?.focus();
   }, [runtime]);
   function close() {
+    if (
+      expedition.statuses[goal] === 'guided-completed' ||
+      (goal === 'assignment' && facts.accepted)
+    )
+      orientationState.store.update({ goal: null });
     runtime.converse(null);
     setNode(null);
   }
-  function foundations() {
+  function selectGoal(next: JourneyGoal) {
+    setLessonOpen(false);
     close();
-    if (mode !== 'webgl' || runtime.near === 'installation') {
-      runtime.stop();
-      runtime.converse('installation');
-      setLessonOpen(true);
-    } else {
-      navigate('installation');
-      setLessonPending(true);
+    setLogOpen(false);
+    setOrientation(false);
+    runtime.stop();
+    setAssisting(false);
+    setLessonPending(false);
+    orientationState.store.update({ goal: next });
+    setTravel(next);
+  }
+  function foundations() {
+    selectGoal('foundations');
+  }
+  function enterWorld() {
+    if (!store.portal()) return;
+    runtime.activateGate();
+    setEntering(true);
+    close();
+    transitionTimer.current = setTimeout(
+      () => router.push('/explore?chapter=01&from=rpg-g1'),
+      reduced ? 0 : 650,
+    );
+  }
+  function begin(next?: JourneyGoal) {
+    setReplayingArrival(false);
+    if (goal === 'infrastructure' && expedition.built)
+      orientationState.store.update({ goal: null });
+    orientationState.store.update({
+      seen: true,
+      ...(!expedition.hasHistory && !next ? { goal: 'welcome' as const } : {}),
+    });
+    setStarted(true);
+    runtime.establish(null);
+    viewport.current?.focus();
+    const incoming = new URLSearchParams(window.location.search).get('goal');
+    const selected =
+      next ??
+      (journeyGoals.includes(incoming as JourneyGoal) ? (incoming as JourneyGoal) : undefined);
+    if (selected) {
+      selectGoal(selected);
+      if (incoming && journeyGoals.includes(incoming as JourneyGoal))
+        router.replace('/expedition-3d', { scroll: false });
     }
   }
-  function navigate(id: PlaceId) {
+  function navigate(id: PlaceId, activity = false) {
+    if (!activity)
+      orientationState.store.update({
+        goal:
+          id === 'guide'
+            ? 'welcome'
+            : id === 'installation'
+              ? 'service'
+              : id === 'engineer'
+                ? 'assignment'
+                : 'infrastructure',
+      });
+    setAssisting(mode === 'webgl');
     runtime.converse(null);
     setNode(null);
     setOrientation(false);
@@ -264,9 +353,15 @@ export function Game() {
     if (!target || entering) return;
     runtime.stop();
     savePosition();
+    if (target === 'installation' && goal === 'foundations') {
+      runtime.converse('installation');
+      setLessonOpen(true);
+      return;
+    }
     runtime.converse(target);
     setNode(entryNode(target, store.getSnapshot().save, technical));
     if (target === 'guide' || target === 'engineer') store.event({ kind: 'meet', npc: target });
+    if (target === 'guide' && goal === 'welcome') orientationState.store.update({ goal: null });
   }
   useEffect(() => {
     interactRef.current = interact;
@@ -279,24 +374,19 @@ export function Game() {
       return;
     }
     if (choice.action === 'installation') {
-      close();
-      navigate('installation');
+      selectGoal('service');
       return;
     }
     if (choice.action === 'enter') {
-      if (!facts.canEnter || !store.portal()) return;
-      runtime.activateGate();
-      setEntering(true);
-      close();
-      // Presentation delay only; eligibility and persistence precede this transition.
-      transitionTimer.current = setTimeout(
-        () => router.push('/explore?chapter=01&from=rpg-g1'),
-        reduced ? 0 : 650,
-      );
+      if (!facts.canEnter) return;
+      enterWorld();
       return;
     }
     if (choice.next) setNode(choice.next);
   }
+  useEffect(() => {
+    runtime.markDestination(destination);
+  }, [runtime, destination]);
   const objective = !facts.compared
     ? 'compare'
     : !facts.challenge
@@ -316,6 +406,8 @@ export function Game() {
       data-renderer={mode}
       data-reduced={String(reduced)}
       data-quest={objective}
+      data-objective={goal}
+      data-onboarding={started ? 'playing' : 'arrival'}
       data-dialogue={node ?? ''}
       data-learning-projection={lessonOpen ? (projection?.unit ?? 'brief') : ''}
     >
@@ -365,7 +457,19 @@ export function Game() {
                   type="button"
                   key={id}
                   aria-pressed={semanticPlace === id}
-                  onClick={() => setSemanticPlace(id)}
+                  onClick={() => {
+                    setSemanticPlace(id);
+                    orientationState.store.update({
+                      goal:
+                        id === 'guide'
+                          ? 'welcome'
+                          : id === 'installation'
+                            ? 'service'
+                            : id === 'engineer'
+                              ? 'assignment'
+                              : 'infrastructure',
+                    });
+                  }}
                 >
                   {t.places[id]}
                 </button>
@@ -414,20 +518,55 @@ export function Game() {
           >
             <Settings2 size={19} />
           </button>
-          <Link href="/" aria-label={t.exit}>
-            <X size={19} />
-          </Link>
+          <button
+            type="button"
+            className="expedition-log-button"
+            onClick={() => {
+              runtime.stop();
+              setLogOpen(true);
+            }}
+            aria-label={nb.orientation.log}
+          >
+            <ScrollText size={19} />
+            <span>{nb.orientation.log}</span>
+          </button>
         </div>
       </header>
       {started && !node && !lessonOpen && (
-        <aside className="rpg-quest" aria-label={t.questLabel}>
-          <small>{t.questLabel}</small>
-          <strong>{t.quest}</strong>
-          <p>{t.objectives[objective]}</p>
-          <span>{t.guided}</span>
+        <aside className="expedition-hud" aria-label={nb.orientation.selected}>
+          <small>
+            {nb.orientation.selected} · {t.places[destination]}
+          </small>
+          <strong aria-live="polite">{objectiveCopy.title}</strong>
+          <p>{objectiveCopy.why}</p>
+          <output data-wayfinding aria-live="off" key={destination} />
+          <button
+            type="button"
+            onClick={() => {
+              runtime.stop();
+              setLogOpen(true);
+            }}
+          >
+            {nb.orientation.log} <ArrowRight size={13} />
+          </button>
+          <button type="button" onClick={() => selectGoal(goal)}>
+            {nb.orientation.wayfinding}
+          </button>
+          {assisting && (
+            <button
+              type="button"
+              onClick={() => {
+                runtime.stop();
+                setAssisting(false);
+                setLessonPending(false);
+              }}
+            >
+              {nb.orientation.stop}
+            </button>
+          )}
         </aside>
       )}
-      {issue && (
+      {issue && started && (
         <div className="rpg-storage" role="alert">
           <p>{t.storage[issue]}</p>
           <button
@@ -482,26 +621,89 @@ export function Game() {
           </button>
         </CommandDialog>
       )}
-      {!started && (
-        <div className="rpg-arrival">
-          <p className="eyebrow">{t.subtitle}</p>
-          <h2>{t.welcome}</h2>
-          <p>{t.welcomeText}</p>
-          <button
-            type="button"
-            className="button button-primary"
-            disabled={!ready || (mode === 'webgl' && !sceneReady)}
-            onClick={() => {
-              setStarted(true);
-              viewport.current?.focus();
-            }}
-          >
-            {mode === 'webgl' && !sceneReady ? t.loading : t.begin}
-            <ArrowRight size={17} />
-          </button>
-          <small>{t.controls}</small>
-          <small>{t.loadHint}</small>
-        </div>
+      {!started && expedition.ready && orientationState.ready && (
+        <Arrival
+          notice={issue ? t.storage[issue] : undefined}
+          runtime={runtime}
+          returning={
+            !replayingArrival &&
+            (orientationState.preferences.seen ||
+              expedition.hasHistory ||
+              expedition.hasNavigationHistory ||
+              totalXp(progress) > 0)
+          }
+          available={ready && (mode !== 'webgl' || sceneReady)}
+          onBegin={begin}
+          onLog={() => setLogOpen(true)}
+        />
+      )}
+      {orientationState.issue && (
+        <span className="orientation-warning" role="status">
+          {nb.orientation.prefShort}
+        </span>
+      )}
+      {logOpen && (
+        <ExpeditionLog
+          selected={goal}
+          preferenceIssue={orientationState.issue}
+          onClose={() => setLogOpen(false)}
+          onGoal={(next) => {
+            if (!started) begin();
+            selectGoal(next);
+          }}
+          onReplay={() => {
+            close();
+            setLogOpen(false);
+            setStarted(false);
+            setReplayingArrival(true);
+            setLessonOpen(false);
+          }}
+        />
+      )}
+      {travel && (
+        <CommandDialog
+          title={nb.orientation.travelTitle}
+          restoreFocus={restoreFocus}
+          onClose={() => {
+            setTravel(null);
+            queueMicrotask(restoreFocus);
+          }}
+        >
+          <h3>{nb.orientation.steps[travel].title}</h3>
+          <p>{nb.orientation.steps[travel].why}</p>
+          <p>{nb.orientation.travelHint}</p>
+          {travel === 'foundations' && <p>{nb.orientation.moduleBrief}</p>}
+          <div className="travel-actions">
+            <button
+              type="button"
+              className="button button-secondary"
+              onClick={() => {
+                if (mode !== 'webgl') setSemanticPlace(goalPlaces[travel]);
+                setTravel(null);
+                queueMicrotask(restoreFocus);
+              }}
+            >
+              {nb.orientation.manual}
+            </button>
+            <button
+              type="button"
+              className="button button-primary"
+              onClick={() => {
+                const chosen = travel;
+                setTravel(null);
+                navigate(goalPlaces[chosen], true);
+                if (chosen === 'foundations') {
+                  if (mode !== 'webgl' || runtime.near === 'installation') {
+                    runtime.converse('installation');
+                    setLessonOpen(true);
+                  } else setLessonPending(true);
+                }
+              }}
+            >
+              {nb.orientation.assisted}
+            </button>
+          </div>
+        </CommandDialog>
       )}
       {started && !node && !lessonOpen && mode === 'webgl' && (
         <>
@@ -534,6 +736,8 @@ export function Game() {
                 aria-label={label}
                 onPointerDown={(event) => {
                   event.currentTarget.setPointerCapture(event.pointerId);
+                  setAssisting(false);
+                  setLessonPending(false);
                   runtime.keys.add(id);
                 }}
                 onPointerUp={() => runtime.keys.delete(id)}
@@ -571,14 +775,24 @@ export function Game() {
           onClose={close}
           restoreFocus={restoreFocus}
           onFoundations={foundations}
+          recommendFoundations={expedition.recommended === 'foundations'}
+          onLog={() => setLogOpen(true)}
+          onDirectEntry={active === 'portal' ? enterWorld : undefined}
         />
       )}
       {lessonOpen && (
         <FoundationsSession
           runtime={runtime}
           onProject={project}
+          initialUnit={
+            expedition.lesson.observations[expedition.lastUnit ?? expedition.nextUnit].guided
+              ? expedition.nextUnit
+              : (expedition.lastUnit ?? expedition.nextUnit)
+          }
+          onLog={() => setLogOpen(true)}
           onClose={() => {
             setLessonOpen(false);
+            if (expedition.lesson.guidedComplete) orientationState.store.update({ goal: null });
             runtime.converse(null);
             queueMicrotask(restoreFocus);
           }}
@@ -629,7 +843,15 @@ export function Game() {
                 {metrics.calls} · {t.triangles}: {metrics.triangles} · {t.samples}: {metrics.frames}
               </output>
             </details>
-            <Link href="/">{t.exit}</Link>
+            <button
+              type="button"
+              onClick={() => {
+                setSettings(false);
+                setLogOpen(true);
+              }}
+            >
+              {nb.orientation.log}
+            </button>
           </div>
         </CommandDialog>
       )}

@@ -1,5 +1,11 @@
 # AzureLab
 
+## G1.2 — coherent RPG entry candidate
+
+Open /: it canonically redirects to /expedition-3d. Arrive in Lysningen, meet Ida, investigate the existing Foundations 01 module, compare operational responsibility, receive Noor's practical assignment and return from the real guided workbench. **Ekspedisjonslogg** connects actual learning observations and technical findings to a next destination; manual and interruptible assisted walking are explicit choices. Returning players keep all prior work and receive factual continuation context. Experienced direct entry grants no prerequisite evidence.
+
+The historical SVG journey is internal at /legacy-expedition, absent from ordinary navigation. Non-WebGL learning and the shared journal remain usable. [Arrival/review specification](docs/PLAYER_ONBOARDING.md), [log/state contracts](docs/EXPEDITION_PROGRESSION.md) and [actual verification](docs/PROJECT_STATUS.md) distinguish implemented behavior from outstanding human usability acceptance. No new XP, assets, dependency or external service.
+
 ## L1 — source-backed learning module candidate
 
 On /expedition-3d, approach Ida and choose **Undersøk cloud computing med Ida**. Walk to the existing installation and investigate six connected units: provisioning/capacity, responsibility, deployment models, workload placement, consumption and pricing. A shared **Kunnskapsjournal** opens from NPCs, the game header and the existing journey/workbench without leaving the route.
@@ -12,7 +18,7 @@ The separate /expedition-3d route now presents Ida and Noor through authored two
 
 ## G1 — playable RPG comparison
 
-Open [`/expedition-3d`](http://127.0.0.1:3000/expedition-3d) for **Lysningen**: a locally rendered third-person station with rigged locomotion, two authored NPCs, an interactive responsibility workshop and a physical gateway into the existing Chapter 01 workbench. Walk with WASD/arrows, interact with E, or use held touch controls / optional assisted walking. The semantic alternative retains all essential learning when WebGL is unavailable. The root expedition remains unchanged for comparison.
+Open [`/expedition-3d`](http://127.0.0.1:3000/expedition-3d) for **Lysningen**: a locally rendered third-person station with rigged locomotion, two authored NPCs, an interactive responsibility workshop and a physical gateway into the existing Chapter 01 workbench. Walk with WASD/arrows, interact with E, or use held touch controls / optional assisted walking. The semantic alternative retains all essential learning when WebGL is unavailable. The historical expedition remains at /legacy-expedition for regression comparison.
 
 No new XP or independent Chapter 01 completion is inferred from this guided game quest. Noor reads actual validated technical findings. See [world design](docs/GAME_WORLD_DESIGN.md), [gameplay contracts](docs/GAMEPLAY_ARCHITECTURE.md), [dialogue design](docs/NPC_DIALOGUE_DESIGN.md), [licensed asset register](docs/ASSET_REGISTER.md) and [actual verification / review limits](docs/PROJECT_STATUS.md). Engineering completion, owner visual acceptance and educational validation remain separate.
 
@@ -26,7 +32,7 @@ Open `/explore?chapter=01` directly, or enter through the journey. Work resumes 
 
 ## Preserved Azure Expedition
 
-Root now opens a continuous perspective journey: travel a curved route, change responsibilities in an eight-layer teaching structure, take two different guided detours and enter the actual infrastructure workbench through its gateway. Return, resume resources and revisit without duplicate rewards. Future landmarks are explicitly unavailable. [Journey experience](docs/JOURNEY_EXPERIENCE.md) documents alternatives, architecture, a walkthrough and reviewed desktop/mobile screenshots. This is a bounded journey proof, not the complete Chapter 01 or evidence of independent mastery. The preserved technical world includes:
+The historical /legacy-expedition opens a continuous perspective journey: travel a curved route, change responsibilities in an eight-layer teaching structure, take two different guided detours and enter the actual infrastructure workbench through its gateway. Return, resume resources and revisit without duplicate rewards. Future landmarks are explicitly unavailable. [Journey experience](docs/JOURNEY_EXPERIENCE.md) documents alternatives, architecture, a walkthrough and reviewed desktop/mobile screenshots. This is a bounded journey proof, not the complete Chapter 01 or evidence of independent mastery. The preserved technical world includes:
 
 - A viewport-sized workbench shares the expedition's identity, local world state and progress providers.
 - A projected 2.5D Azure Universe with elevated scope platforms, service volumes, camera focus/pan/zoom/orbit, branch highlighting and contextual desktop/mobile inspectors. Heights are schematic scope depth, not physical Azure geography.

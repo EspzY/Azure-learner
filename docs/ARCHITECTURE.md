@@ -1,5 +1,9 @@
 # Architecture
 
+## G1.2 canonical entry and read-only journey projection
+
+The server root redirects once to /expedition-3d; /legacy-expedition retains historical route state and regression logic. Existing providers/renderers are not duplicated. domain/rpg/expedition derives log/recommendations from the five validated stores; OrientationStore persists only versioned introduction/goal preferences. Arrival shots, waypoint/distance cues and assisted walking remain presentation, never evidence. [Progression contracts](EXPEDITION_PROGRESSION.md) define prioritization, goal handoff and six-key deletion; [onboarding](PLAYER_ONBOARDING.md) defines agency/fallback. No new dependency or Azure rule.
+
 ## L1 local content subsystem
 
 The root LearningProvider owns an isolated validated module store and contextual journal. Pure curriculum manifest/evaluators/replay/store live in src/domain/curriculum; semantic session, journal, diagrams and changed-task presentation live in src/features/learning. Original copy remains in nb.ts. Game/scene consume only a read-only unit/probe projection; camera frames and numeric animations cannot create evidence. The existing Azure command engine, four older persistence schemas and award IDs are unchanged. See [content architecture](CONTENT_ARCHITECTURE.md) for the typed hierarchy, event validation, assistance classification and extension boundaries. No new dependency or external runtime service.

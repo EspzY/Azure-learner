@@ -35,6 +35,7 @@ async function startModule(page: Page) {
   });
   await page.getByRole('button', { name: /Snakk med Ida/ }).click();
   await page.getByRole('button', { name: t.launch, exact: true }).click();
+  await page.getByRole('button', { name: nb.orientation.assisted, exact: true }).click();
   await expect(page.locator('.learning-dialogue')).toBeVisible({ timeout: 35000 });
   await expect(page.locator('.rpg-world')).toHaveAttribute('data-near', 'installation');
 }
@@ -61,7 +62,7 @@ test('complete authored module, causal feedback, changed transfer, replay and pe
   page.on('request', (r) => {
     if (new URL(r.url()).origin !== 'http://127.0.0.1:3000') external.push(r.url());
   });
-  await page.goto('/');
+  await page.goto('/legacy-expedition');
   await page.evaluate(() =>
     localStorage.setItem(
       'azurelab.progress.v1',
@@ -179,12 +180,17 @@ test('complete authored module, causal feedback, changed transfer, replay and pe
   );
   await page.keyboard.press('Escape');
   await page.reload();
+  await expect(page.locator('.arrival-caption')).toContainText(
+    nb.orientation.foundationsResumeComplete,
+  );
+  await expect(page.locator('.arrival-caption')).not.toContainText(nb.orientation.remaining);
   await page.getByRole('button', { name: 'Ta kontroll', exact: true }).click();
   await expect(page.locator('.rpg-world')).toHaveAttribute('data-near', 'installation', {
     timeout: 15000,
   });
   await page.getByRole('button', { name: /Undersøk Ansvarsverkstedet/ }).click();
   await page.getByRole('button', { name: t.launch, exact: true }).click();
+  await page.getByRole('button', { name: nb.orientation.assisted, exact: true }).click();
   await expect(page.locator('[data-learning-unit]')).toHaveAttribute(
     'data-learning-unit',
     'pricing',
@@ -233,6 +239,7 @@ test('non-WebGL learning, reference assistance, keyboard/reduced motion and cont
   await page.keyboard.press('Enter');
   await page.getByRole('button', { name: t.launch, exact: true }).focus();
   await page.keyboard.press('Enter');
+  await page.getByRole('button', { name: nb.orientation.assisted, exact: true }).click();
   await expect(page.locator('.learning-dialogue')).toBeVisible();
   await page.getByRole('button', { name: t.transfer, exact: true }).click();
   await page.getByRole('spinbutton', { name: t.transferItems[1]!.question, exact: true }).fill('2');
@@ -243,6 +250,7 @@ test('non-WebGL learning, reference assistance, keyboard/reduced motion and cont
   await page.getByRole('button', { name: 'Ta kontroll', exact: true }).click();
   await page.getByRole('button', { name: 'Samhandle · Ida · skyguide', exact: true }).click();
   await page.getByRole('button', { name: t.launch, exact: true }).click();
+  await page.getByRole('button', { name: nb.orientation.assisted, exact: true }).click();
   await expect(
     page.getByRole('spinbutton', { name: t.transferItems[1]!.question, exact: true }),
   ).toHaveValue('2');
@@ -278,7 +286,7 @@ test('non-WebGL learning, reference assistance, keyboard/reduced motion and cont
   await expect(page.locator('.knowledge-journal')).toBeVisible();
   await page.keyboard.press('Escape');
   expect(page.url()).toContain('/explore?chapter=01');
-  await page.goto('/');
+  await page.goto('/legacy-expedition');
   await page.getByRole('button', { name: t.journal, exact: true }).click();
   await expect(page.locator('.knowledge-journal')).toBeVisible();
   await page.keyboard.press('Escape');

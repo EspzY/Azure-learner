@@ -1,5 +1,9 @@
 # G1 NPC dialogue and learning design
 
+## G1.2 educational context and re-entry
+
+Ida's opening speech now establishes Lysningen, Foundations 01, subsequent service responsibility and Noor's application team. Her returning speech points to actual progression in the log. Mechanism/misconception branches and full L1 material remain; welcome can be skipped without evidence. Log access overlays the conversation and returns to it. Choosing Foundations or the workshop offers manual versus explicit assisted walking. Noor uses real technical work even when the player bypassed the preliminary quest; guided findings are never independent mastery. [Onboarding](PLAYER_ONBOARDING.md) and [progression](EXPEDITION_PROGRESSION.md) own the cross-experience route. No new dialogue reward/event or content-version migration.
+
 ## L1 — educational manuscript drives investigation
 
 Ida offers an explicit cloud-computing investigation alongside the preserved G1 conversation. This action walks to the real installation; the curriculum session uses the existing cinematic demonstration shot, with concise original speech and the active technical investigation. The six unit manuscripts live in nb.foundations rather than an enlarged one-off story graph. Learners can inspect mechanism/Azure examples, ask for full journal depth, perform bounded experiments and receive causal feedback. Closing retains the module and restores exploration; old service-model choices/Noor quest remain intact.

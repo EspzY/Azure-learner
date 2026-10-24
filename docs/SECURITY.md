@@ -1,5 +1,9 @@
 # Security and privacy
 
+## G1.2 non-evidentiary orientation
+
+The sixth local key azurelab.orientation.v1 holds only validated schema/seen/allowlisted-goal preferences (500-character cap). Invalid/unknown data is quarantined; conflicts/denied writes are visible and memory-only. Existing five learner stores/replay rules are preserved. Explicit all-data deletion removes orientation even with the game unmounted. Goal query parameters are allowlisted navigation requests, never technical commands/completion imports. The root uses an internal fixed redirect; the legacy route cannot redirect back into itself. No external request, asset, credential or service is added. [Progression contracts](EXPEDITION_PROGRESSION.md) specify authority boundaries.
+
 ## L1 fifth isolated local category
 
 The new azurelab.learning.foundations.v1 key contains only pinned content/model/rubric versions, current unit and up to 500 allowlisted observations (180,000-character restore cap). Restore replays and recomputes results; imported scores/completion flags are rejected. Unknown/corrupt input is quarantined, stale-tab writes stop, denied writes warn and continue in memory. Explicit module reset does not touch legacy/game/technical data; existing all-data deletion clears this fifth category too. No implicit old-content migration or new reward exists.

@@ -1,5 +1,9 @@
 # Learning journey and competency universe
 
+## G1.2 implemented orientation route
+
+The canonical RPG now recommends welcome → Foundations 01 → service responsibilities → Noor → actual Infrastructure World → debrief. This is guidance, not a mandatory competency chain. The log projects real observations and supports direct experienced workbench entry without assumed mastery. Its honest world overview references the 30 IDs below; all additional regions remain planned/unavailable. [Expedition progression](EXPEDITION_PROGRESSION.md) owns current availability and next-action rules. No certification readiness or new competency coverage is inferred.
+
 ## L1 refinement: competencies are not lessons
 
 F01 and F03 now map to the first local module's seven objective IDs FC01–FC07. Six units contain separate teaching, practical investigations and guided decisions; the changed-context task retains first independent criterion observations and assistance/retry history. The remaining professional graph below stays a blueprint, not an implemented catalogue. A competency can require multiple modules, chapters and quest presentations. [Coverage](CURRICULUM_COVERAGE.md) audits every current introductory exam objective and all 20 path-module unit indexes; [content architecture](CONTENT_ARCHITECTURE.md) owns the new hierarchy and versioning. Existing service-model quests remain a connected follow-up, not proof of full F01 completion.

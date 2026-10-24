@@ -1,5 +1,9 @@
 # Learning design
 
+## G1.2 instructional orientation
+
+Before investigations, the learner now receives purpose, expected predict/change/observe/explain actions, recording rules and the distinction between the six guided units and a separate changed task. Ida supplies the learning context; Noor connects it to technical work. Return/debrief reads actual findings, preserving guided/independent boundaries. The log restores the thread without replaying completed teaching; manual and experienced entry stay available. [Onboarding](PLAYER_ONBOARDING.md) defines the unperformed novice/engineer review exercises. Existing L1 theory, original assessments and Azure rules are unchanged.
+
 ## L1 — complete first-module investigation
 
 The new [manuscript](FOUNDATIONS_01_CONTENT.md) precedes presentation code. It teaches six official cloud-computing objectives plus on-premises prerequisites through paired capacity/pricing experiments, responsibility allocation, topology comparison, three workload placements and an idle/release meter. Each unit needs actual probe witnesses and a correct causal response for guided completion. Reading/visiting alone cannot complete it. Original wrong-answer explanations and worked/counterexamples remain accessible in the playable investigation and journal.

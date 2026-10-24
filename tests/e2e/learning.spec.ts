@@ -64,7 +64,7 @@ test('mission is playable inside the world; commands, errors, feedback, replay a
     if (new URL(request.url()).origin !== 'http://127.0.0.1:3000') external.push(request.url());
   });
   page.on('pageerror', (error) => errors.push(error.message));
-  await page.goto('/');
+  await page.goto('/legacy-expedition');
   await expect(page.locator('.topbar .xp-pill')).toHaveText('0 XP');
   await capture(page, info, 'hub');
   await page.getByRole('link', { name: 'Gå inn i universet', exact: true }).click();
@@ -191,7 +191,7 @@ test('camera, contextual geography and diagram/list alternatives preserve meanin
   await expect(page.locator('.technical-depth')).toContainText('ikke et geografisk sted');
   await checkAccessibility(page);
   for (const [route, label] of [
-    ['/', 'hub-secondary'],
+    ['/legacy-expedition', 'legacy-expedition'],
     ['/missions', 'missions'],
     ['/progress', 'progress'],
   ]) {

@@ -42,7 +42,7 @@ export function Journey() {
   const created = progress.completed.includes('organization-mission-v1');
   const text = nb.expedition;
   const applyLocation = useEffectEvent(() => {
-    if (!isStop(at)) router.replace(`/?at=${state.stop}`, { scroll: false });
+    if (!isStop(at)) router.replace(`/legacy-expedition?at=${state.stop}`, { scroll: false });
     else if (at !== state.stop)
       update((old) => ({ ...old, stop: at, visited: [...new Set([...old.visited, at])] }));
   });
@@ -64,7 +64,7 @@ export function Journey() {
     setOverview(false);
     setEntering(false);
     update((old) => ({ ...old, stop: next, visited: [...new Set([...old.visited, next])] }));
-    router.push(`/?at=${next}`, { scroll: false });
+    router.push(`/legacy-expedition?at=${next}`, { scroll: false });
   }
   function enter(chapter = false) {
     if (!ready || entering) return;

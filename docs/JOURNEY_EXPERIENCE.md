@@ -1,5 +1,9 @@
 # The Azure Expedition — implemented Phase 1A.5
 
+## G1.2 canonical RPG supersedes the historical root
+
+/ now redirects to /expedition-3d. The SVG expedition documented below is retained at /legacy-expedition for historical/regression use and is absent from ordinary navigation. Its internal route/query/history and explicit journey=1 return remain intact. Normal home/logo and ordinary technical returns select the RPG. The current continuous player journey is defined in [player onboarding](PLAYER_ONBOARDING.md) and [expedition progression](EXPEDITION_PROGRESSION.md); the shared journal and all old stores remain. Earlier root-route statements below describe the delivered historical phase.
+
 ## L1 curriculum integration
 
 The root journey remains available. Its shared journal, the technical workbench journal and the RPG journal use the same locally authored unit content without navigating away or resetting state. The playable first full-module candidate starts through Ida/the existing installation in /expedition-3d. It supplements the preserved expedition/portal/Noor loop; it does not claim to implement all planned journey regions. Its independent local module save never upgrades old detours or guided technical findings into new evidence. [Content architecture](CONTENT_ARCHITECTURE.md) and [coverage](CURRICULUM_COVERAGE.md) define the boundary.

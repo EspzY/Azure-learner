@@ -36,13 +36,17 @@ export function FoundationsSession({
   runtime,
   onClose,
   onProject,
+  onLog,
+  initialUnit,
 }: {
   runtime: PlayerRuntime;
   onClose: () => void;
   onProject: (p: LearningProjection | null) => void;
+  onLog?: () => void;
+  initialUnit?: UnitId;
 }) {
   const { save, store, ready, issue, facts, openJournal } = useLearning();
-  const [unit, setUnit] = useState<UnitId>(save.unit);
+  const [unit, setUnit] = useState<UnitId>(initialUnit ?? save.unit);
   const [view, setView] = useState<'study' | 'transfer' | 'summary'>(
     facts.active ? 'transfer' : 'study',
   );
@@ -120,6 +124,11 @@ export function FoundationsSession({
     >
       <div className="cinematic-topline">
         <span>{t.module}</span>
+        {onLog && (
+          <button type="button" onClick={onLog}>
+            {nb.orientation.log}
+          </button>
+        )}
         <button type="button" onClick={onClose} aria-label={t.close}>
           ×
         </button>

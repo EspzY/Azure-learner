@@ -1,5 +1,9 @@
 # Lysningen — G1 world design
 
+## G1.2 authored arrival and wayfinding
+
+Lysningen is explicitly a fictional first learning station for an application team's modernization, with Ida as learning guide and Noor as platform engineer. Three skippable establishing views orient toward station, installation/people and gateway; the existing licensed geometry is retained. Selected destination gets a restrained ground marker and readable distance/direction cue. No new world, character, effect or asset is introduced. [Onboarding](PLAYER_ONBOARDING.md) owns the actual sequence; professional asset/hardware and human usability acceptance remain distinct from these presentation changes.
+
 ## L1 teaching projection
 
 The existing Lysningen art, characters and physical installation are retained. Curriculum investigations project original labelled demand/allocation/shortfall columns or deployment-boundary shapes at the installation; the amber shortfall derives from the pure model. A bounded learning-framing hint reserves the upper mobile view while preserving old cinematic shot intent. These are explanatory teaching geometry, not new Azure resources or a claim of upgraded environment/character fidelity. No third-party asset is added.

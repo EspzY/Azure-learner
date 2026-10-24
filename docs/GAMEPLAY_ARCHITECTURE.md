@@ -1,5 +1,9 @@
 # G1 gameplay architecture
 
+## G1.2 entry, orientation and continuity
+
+RPG is now canonical from /. Historical SVG movement/history lives only under /legacy-expedition. The existing follow/cinematic director accepts a transient three-composition arrival index; skip/replay never changes pose, evidence or quest facts. A read-only selected destination drives a small marker and distance/direction output. Module/workshop actions first offer manual or interruptible assisted walking. The shared log can overlay dialogue/session/workbench and restore focus. Noor reads real unfinished/built findings even for experienced direct workbench entry. [Expedition progression](EXPEDITION_PROGRESSION.md) specifies authority and persistence; [player onboarding](PLAYER_ONBOARDING.md) specifies controls and review gates.
+
 ## L1 content-driven workshop
 
 Ida's additional investigation action routes the player to the existing installation, pauses movement, selects the existing cinematic demonstration camera and opens a semantic learning session. Registered probes project synthetic demand/allocation columns or deployment-boundary shapes at that location. Responsibility uses the existing reviewed PaaS layer projection. Geometry never evaluates a lesson. Module events and journal are a separate root provider/store; old story version, portal, return pose and Chapter01 findings remain unchanged. [Content architecture](CONTENT_ARCHITECTURE.md) owns new contracts.

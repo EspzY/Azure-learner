@@ -50,7 +50,9 @@ type Panel =
   | 'CreatePlan'
   | 'CreateWebApp';
 export function ChapterWorkbench() {
-  const fromGame = useSearchParams().get('from') === 'rpg-g1';
+  const params = useSearchParams();
+  const fromGame = params.get('from') === 'rpg-g1';
+  const fromJourney = params.get('journey') === '1';
   const { attempt, ready, issue, attemptNumber, store } = useChapter();
   const { state: expedition, update: updateExpedition } = useExpedition();
   const { world } = attempt.engine;
@@ -173,9 +175,15 @@ export function ChapterWorkbench() {
           <h1 id="chapter-title">{t.title}</h1>
         </div>
         <Link
-          href={fromGame ? '/expedition-3d?return=chapter01' : '/?at=gateway'}
+          href={
+            fromGame
+              ? '/expedition-3d?return=chapter01'
+              : fromJourney
+                ? '/legacy-expedition?at=gateway'
+                : '/expedition-3d'
+          }
           onClick={() =>
-            !fromGame &&
+            fromJourney &&
             updateExpedition((old) => ({
               ...old,
               stop: 'gateway',
@@ -346,6 +354,7 @@ export function ChapterWorkbench() {
             <div className="chapter-brief">
               <h2>{t.brief}</h2>
               <p>{t.bridge}</p>
+              <p>{nb.orientation.handoff}</p>
               <p>{t.requirements}</p>
               <p>{t.boundary}</p>
               <button

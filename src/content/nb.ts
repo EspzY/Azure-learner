@@ -2,6 +2,183 @@ import type { QuestionId } from '../domain/assessment';
 import type { CreationError, Region, ScopeKind } from '../domain/simulation';
 
 export const nb = {
+  orientation: {
+    log: 'Ekspedisjonslogg',
+    logHint: 'Hvorfor du er her · hva du gjør · hvor du går videre',
+    chapter: 'Lysningen · Fra cloud computing til applikasjonsplattform',
+    premise:
+      'Et fiktivt applikasjonsteam skal modernisere en liten serverløsning. Her undersøker du valgene før du bygger en simulert plattform sammen med Noor.',
+    purpose:
+      'Lær å forstå, konfigurere og etter hvert feilsøke cloud-systemer. Lysningen er første stasjon. Det du gjør her er lokalt og simulert; ingen handling oppretter noe i Azure.',
+    intro: [
+      {
+        title: 'Velkommen til AzureLab',
+        text: 'Dette er Lysningen, første stasjon i en ekspedisjon gjennom cloud-teknologi. Du skal forstå, konfigurere og etter hvert feilsøke cloud-systemer. Her kan du prøve og ta feil uten å endre ekte infrastruktur.',
+      },
+      {
+        title: 'Møt menneskene. Undersøk systemene.',
+        text: 'Ida hjelper deg å forstå cloud computing. Ved installasjonen gjør du eksperimenter og forklarer resultatene. Noor knytter teorien til et applikasjonsteam. Loggen viser neste steg; journalen lar deg vende tilbake til teorien.',
+      },
+      {
+        title: 'Forstå først. Bygg og undersøk etterpå.',
+        text: 'Portalen åpner en teknisk arbeidsbenk med ressurser, policy-avslag og hosting-avhengigheter. Kom tilbake for en debrief. Foreløpig er denne stasjonen og én arbeidsbenk spillbare; resten av universet er planlagt.',
+      },
+    ],
+    nextView: 'Se neste del av Lysningen',
+    begin: 'Ta kontroll',
+    skip: 'Hopp over introduksjonen',
+    replay: 'Se ankomsten på nytt',
+    introHint: 'Kort orientering · ingen læringspoeng. Du styrer selv når du går videre.',
+    takeControl:
+      'Gå fritt med WASD eller piltastene. Gå nær en person og trykk E. På berøring bruker du retningsknappene. Kompasset tilbyr assistert gange; loggen hjelper når du er usikker.',
+    returning: 'Velkommen tilbake til Lysningen',
+    resume: 'Fortsett der det gir mening',
+    reorient: 'Finn tråden i ekspedisjonsloggen',
+    noHistory:
+      'Du har ikke registrert arbeid i RPG-oppdraget, Foundations 01 eller den veiledede arbeidsbenken ennå. Start gjerne hos Ida, eller velg en erfaren inngang i loggen.',
+    remembered: 'Sist åpnet læringsenhet:',
+    remaining: 'Neste uferdige undersøkelse:',
+    technicalResume:
+      'Du har påbegynt teknisk arbeid. Arbeidsbenken beholder det gyldige forsøket; du kan gå tilbake og fortsette uten å starte på nytt.',
+    technicalBuilt:
+      'De seks veiledede funnene i arbeidsbenken er oppfylt. Se hva de viser, og snakk med Noor. Dette er ikke fullført Chapter 01 eller uavhengig kompetanse.',
+    foundationsResumeComplete:
+      'Alle seks Foundations-undersøkelser er veiledet gjennomført. Følg neste anbefalte mål i loggen, eller gjenbesøk teorien og den separate endrede oppgaven. Veiledet gjennomføring er ikke uavhengig kompetanse.',
+    modelsResume:
+      'Du har begynt å sammenligne service-modeller. Loggen skiller mellom modellvalg, veiledede svar og teknisk arbeid.',
+    metGuideResume:
+      'Du har møtt Ida. Du kan fortsette samtalen eller velge Foundations 01 i loggen; møtet i seg selv fullfører ingen læringsmål.',
+    metEngineerResume:
+      'Du har møtt Noor. Les kravene sammen med ham, eller velg Foundations 01 i loggen. Oppdraget er ikke automatisk mottatt eller utført.',
+    serviceResume:
+      'Du har mottatt Noor sitt oppdrag. Loggen viser hvilke veiledede deler som faktisk er gjort, og hva du kan undersøke videre.',
+    states: {
+      available: 'Tilgjengelig',
+      'in-progress': 'Påbegynt',
+      'guided-completed': 'Veiledet gjennomført',
+    },
+    steps: {
+      welcome: {
+        title: 'Møt Ida i Lysningen',
+        why: 'Få oversikt over stasjonen og hvorfor teamets valg trenger både teori og praksis.',
+        action: 'Snakk med Ida',
+        skills: 'Orientering. Samtale og ankomst gir ingen læringsbevis.',
+      },
+      foundations: {
+        title: 'Foundations 01 — forstå cloud computing',
+        why: 'Undersøk eierskap, kapasitet, deployment-modeller og forbruk før du velger en plattform.',
+        action: 'Undersøk installasjonen med Ida',
+        skills:
+          'Seks enheter: kapasitet, delt ansvar, public/private/hybrid, plassering, forbruk og prismodeller.',
+      },
+      service: {
+        title: 'Velg driftsansvar — IaaS, PaaS og SaaS',
+        why: 'Når du forstår cloud computing, kan du vurdere hvem som drifter OS, runtime, kode og data.',
+        action: 'Sammenlign service-modeller ved verkstedet',
+        skills:
+          'Sammenlign minst to modeller og begrunn teamets valg i de to veiledede spørsmålene.',
+      },
+      assignment: {
+        title: 'Møt Noor og applikasjonsteamets behov',
+        why: 'Teamet har egen webkode og vil slippe gjeste-OS. Noor forklarer hva dere skal konfigurere og undersøke.',
+        action: 'Snakk med Noor',
+        skills:
+          'Knytt driftsansvar til et konkret teknisk oppdrag. Aksept er ikke gjennomført arbeid.',
+      },
+      infrastructure: {
+        title: 'Bygg, forutsi og rett i Infrastructure World',
+        why: 'Bruk teorien til scope, resource group, lokasjon, policy og App Service-avhengigheter.',
+        action: 'Gå til portalen og åpne arbeidsbenken',
+        skills:
+          'Veiledet simulering. Gyldige kommandoer, avslag og forklaringer lagres og kan gjenopptas.',
+      },
+      debrief: {
+        title: 'Tilbake til Noor — undersøk det du gjorde',
+        why: 'Skill mellom hva oppsettet viser, hva du forklarte med hjelp og hva som ennå ikke er vurdert uavhengig.',
+        action: 'Snakk med Noor om resultatene',
+        skills:
+          'Full Chapter 01-transfer og checkpoint er ikke implementert. Debrief gir ingen ny XP.',
+      },
+    },
+    wayfinding: 'Veivisning til målet',
+    directions: { forward: 'Fremover', back: 'Bakover', left: 'Mot venstre', right: 'Mot høyre' },
+    moduleBrief:
+      'Du skal forutsi, endre et avgrenset scenario, kjøre eksperimentet og begrunne resultatet. Hver av de seks enhetene krever bestemte eksperimenter og et veiledet svar. Til slutt viser oppsummeringen hvert læringsmål. Den endrede oppgaven er et separat forsøk, ikke en del av veiledet fullføring. Ingen nye XP gis for modulen.',
+    recommended: 'Anbefalt nå',
+    selected: 'Valgt mål',
+    changeGoal: 'Velg dette målet',
+    manual: 'Jeg går dit selv',
+    assisted: 'Vis meg veien',
+    travelTitle: 'Velg hvordan du går videre',
+    travelHint:
+      'Målet markeres. Du kan gå selv, eller la figuren følge en trygg gangrute. Piltaster/WASD, stoppknappen eller Escape avbryter assistert gange.',
+    routeActive: 'Assistert gange pågår',
+    stop: 'Stopp gange',
+    routeArrived: 'Fremme ved målet — samhandle når du er klar.',
+    goBack: 'Tilbake til utforsking',
+    startActivity: 'Åpne aktiviteten her',
+    world: 'Hvor er jeg i AzureLab?',
+    here: 'Spillbar region',
+    supported: 'Spillbar teknisk verden',
+    planned: 'Planlagt · ikke spillbart',
+    future: [
+      {
+        title: 'Nettverk og tilkobling',
+        ids: 'N01–N04',
+        text: 'IP, DNS, filtrering, private forbindelser og trafikkundersøkelser.',
+      },
+      {
+        title: 'Applikasjoner, compute og data',
+        ids: 'C01–C04 · D01–D03',
+        text: 'VM, containere, integrasjon og data. Bare den avgrensede App Service-arbeidsbenken finnes nå.',
+      },
+      {
+        title: 'Identitet, sikkerhet og governance',
+        ids: 'G01–G04 · I01–I03',
+        text: 'Tilgang, policy og sikkerhetsgrenser. Nå finnes bare Chapter 01 sitt avgrensede scope/policy-utvalg.',
+      },
+      {
+        title: 'Drift, automasjon og arkitektur',
+        ids: 'O01–O03 · A01–A03 · R01–R03',
+        text: 'Diagnose, IaC, pålitelighet og faglige arkitekturvalg.',
+      },
+    ],
+    overviewHint:
+      'F01–F03 er grunnlaget. De 30 kompetanseområdene kan romme flere moduler og spesialistløp. Ingen fremtidig region er låst opp av XP. Sertifisering er en separat kartlegging.',
+    evidence: 'Det som faktisk er registrert',
+    units: 'Foundations 01 · undersøkelser',
+    objectiveDetail: 'Objektiver og forklaringer',
+    notStarted: 'Ikke startet',
+    introduced: 'Introdusert · ikke øvd ferdig',
+    practiced: 'Eksperimentvilkår prøvd · svar gjenstår',
+    independent: 'Første endrede oppgave levert uten registrert hjelp',
+    assistedSubmission: 'Endret oppgave levert med registrert hjelp',
+    noAssessment: 'Ingen innsendt endret oppgave',
+    assessmentActive: 'Uferdig endret oppgave · svarutkast beholdes',
+    assessmentLimit:
+      'Dette er lokale oppgaveobservasjoner, ikke generell mestring, identitetskontroll eller eksamensklarhet. Åpner du teori eller journal under et aktivt forsøk, registreres hjelp.',
+    technicalWorld: 'Infrastructure World',
+    technical: 'Chapter 01 · veiledede funn',
+    technicalNone: 'Ingen veiledet konfigurasjon er fullført ennå.',
+    optional: 'Valgfri fordypning og erfaren inngang',
+    journal: 'Les teorien uten å spille samtaler på nytt',
+    expert: 'Jeg vil direkte til teknisk arbeid',
+    expertHint:
+      'Velg portalen som mål. Du kan åpne den tilgjengelige arbeidsbenken uten grunnkurset; dette registrerer ingen forkunnskap eller fullført modul.',
+    directEntry: 'Åpne arbeidsbenken uten grunnkurs',
+    debriefUnfinished:
+      'Arbeidet er ikke ferdig. Fortsett ved portalen når du vil; gyldige kommandoer og observasjoner beholdes.',
+    handoff:
+      'Du er i Noor sitt veiledede praktiske oppdrag. Her undersøker du scope, lokasjon, policy og hosting. Returner til Lysningen for debrief; denne arbeidsbenken fullfører ikke hele læringsreisen.',
+    prefShort: 'Orienteringsvalg: bare i denne økten',
+    prefIssue:
+      'Orienteringsvalget kunne ikke lagres trygt. Læringslagrene er urørt; du kan fortsette i denne økten.',
+    welcomeIda:
+      'Velkommen til Lysningen. Jeg er Ida, læringsguiden din. Vi følger et applikasjonsteam fra egne servere til en begrunnet cloud-plattform. Start med Foundations 01 ved installasjonen; så sammenligner vi driftsansvar før Noor gir deg et praktisk oppdrag.',
+    returnIda:
+      'Vi kan fortsette der du er i læringen. Ekspedisjonsloggen viser de faktiske undersøkelsene og neste anbefalte steg. Vil du fortsette Foundations 01, utforske driftsansvar eller spørre om mekanismen?',
+    bridge: 'Se læringsreisen sammen med Ida',
+  },
   foundations: {
     title: 'Fra maskinrom til skytjenester',
     module: 'Cloud computing · Foundations 01',
@@ -766,7 +943,7 @@ export const nb = {
     legacyStatus: 'Tidligere introduksjonsøving',
     return: 'Tilbake til ekspedisjonen',
     bridge:
-      'Du har undersøkt tjenestemodeller på reisen. Nå skal valget bli en sammenhengende konfigurasjon. Teamet har egen webkode og vil slippe å drifte et gjeste-OS.',
+      'Her kan du overføre kunnskap om tjenestemodeller til en sammenhengende konfigurasjon. Teamet har egen webkode og vil slippe å drifte et gjeste-OS.',
     brief: 'Teamets krav',
     requirements:
       'App Sandbox · felles livssyklus · gruppemetadata i Norway East. Webappens hosting og en lokasjonsregel må undersøkes underveis.',
