@@ -332,7 +332,7 @@ function Gameplay() {
     if (selected) {
       selectGoal(selected);
       if (incoming && journeyGoals.includes(incoming as JourneyGoal))
-        router.replace('/expedition-3d', { scroll: false });
+        router.replace('/legacy/rpg', { scroll: false });
     }
   }
   function navigate(id: PlaceId, activity = false) {

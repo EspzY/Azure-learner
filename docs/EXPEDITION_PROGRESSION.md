@@ -1,5 +1,7 @@
 # G1.2 — expedition progression and log
 
+Historical RPG subsystem: preserved at `/legacy/rpg` after the owner-authorized 2026-10-24 Portal pivot. Canonical entry and ordinary learning now follow [PORTAL_PRODUCT_STRATEGY](PORTAL_PRODUCT_STRATEGY.md). The implementation/history below remains valid for the archive; it does not mandate new game development.
+
 ## G1.3 presentation-only additions
 
 Exact official path/module titles now accompany the original local route; Lysningen remains the location and future path modules are honestly planned/partial. The log's evidence projection and all recommendation predicates are unchanged. Auto speech, skipped teaching, replay/history, visual cues and audio never create model/probe/answer/accept/report observations. Only deliberate existing actions do so. A separate presentation preference adds reading/music choices, not a seventh learning store. [Instructional engine](INSTRUCTIONAL_SEQUENCE_ENGINE.md) owns this distinction.

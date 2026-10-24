@@ -1,5 +1,11 @@
 # Learning design
 
+## Portal learning loop — 2026-10-24
+
+Learn → manipulate responsibility layers → justify a workload decision → configure through recognizable Portal services → investigate actual rejection → inspect membership/hosting/location → apply changed requirements. Full theory is focused and readable; an optional resizable pane gives guided instructions without replacing the manuscript. The same technical world underlies all modes. No resource/diagram duplicate is created for education.
+
+The preserved Foundations 01 investigations retain their original explanations, paired probes and evidence. The new service-types module has ST01–ST04 manuscript/source/activity bindings and three original model-plus-reason cases; a changed Shared Sandbox/North Europe task records actual new resources plus causal/model decisions. Starting a task captures technical attempt and command boundary; first errors/help remain visible after retries. This is local task evidence, not Chapter01 promotion or mastery. [Portal manuscript](PORTAL_LEARNING_EXPERIENCE.md) and [coverage audit](CURRICULUM_COVERAGE.md) own details; human SME/learning-effectiveness review remains pending.
+
 ## G1.3 connected explanations and demonstrations
 
 The guide leads explanations rather than requiring the learner to ask the right question. Complete original concept/mechanism/Azure/example/misconception/limit sections unfold in reading-aware beats; original flow, responsibility and capacity/topology illustrations explain the current text. Existing deliberate experiments/questions and first changed-task submission remain the evidence. Auto-demonstrated IaaS/PaaS/SaaS changes are visibly authored examples and do not satisfy the learner comparison predicate. Playback can pause, revisit, skip or switch to manual without awards. [Instructional sequence engine](INSTRUCTIONAL_SEQUENCE_ENGINE.md) owns timing/accessibility, while human comprehension/reading-pace review remains unperformed.

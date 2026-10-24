@@ -299,12 +299,14 @@ export function FoundationsSession({
     </dialog>
   );
 }
-function UnitInvestigation({
+export function UnitInvestigation({
   unit,
   onProject,
+  showCore = true,
 }: {
   unit: UnitId;
   onProject: (p: LearningProjection | null) => void;
+  showCore?: boolean;
 }) {
   const { save, store, facts, openJournal } = useLearning();
   const [input, setInput] = useState<Probe>(
@@ -341,27 +343,29 @@ function UnitInvestigation({
   }
   return (
     <>
-      <section className="learning-core">
-        <h3 data-lesson-focus tabIndex={-1}>
-          {t.purpose}
-        </h3>
-        <p>{c.purpose}</p>
-        <details open>
-          <summary>{t.askMechanism}</summary>
-          <p>{c.mechanism}</p>
-        </details>
-        <details>
-          <summary>{t.azure}</summary>
-          <p>{c.azure}</p>
-        </details>
-        <details>
-          <summary>{t.example}</summary>
-          <p>{c.example}</p>
-        </details>
-        <button type="button" onClick={() => openJournal(unit)}>
-          {t.detail}
-        </button>
-      </section>
+      {showCore && (
+        <section className="learning-core">
+          <h3 data-lesson-focus tabIndex={-1}>
+            {t.purpose}
+          </h3>
+          <p>{c.purpose}</p>
+          <details open>
+            <summary>{t.askMechanism}</summary>
+            <p>{c.mechanism}</p>
+          </details>
+          <details>
+            <summary>{t.azure}</summary>
+            <p>{c.azure}</p>
+          </details>
+          <details>
+            <summary>{t.example}</summary>
+            <p>{c.example}</p>
+          </details>
+          <button type="button" onClick={() => openJournal(unit)}>
+            {t.detail}
+          </button>
+        </section>
+      )}
       <fieldset disabled={!available}>
         <legend>{t.investigate}</legend>
         {['capacity', 'pricing'].includes(unit) && (

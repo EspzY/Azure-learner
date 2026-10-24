@@ -13,6 +13,8 @@ export function CurriculumTrail({
   unit?: UnitId;
 }) {
   const t = nb.official;
+  const officialUnits =
+    module === 'services' ? t.serviceUnits : module === 'computing' ? t.officialUnits : null;
   return (
     <details className="curriculum-trail">
       <summary>{t.label}</summary>
@@ -33,7 +35,7 @@ export function CurriculumTrail({
         </dd>
         <dt>{module === 'technical' ? t.activityLabel : t.moduleLabel}</dt>
         <dd>{module === 'technical' ? nb.orientation.steps.infrastructure.title : t[module]}</dd>
-        {unit && (
+        {unit && module === 'computing' && (
           <>
             <dt>{t.learningUnitLabel}</dt>
             <dd>{officialLearning.unitMapping[unit].map((i) => t.officialUnits[i]).join(' / ')}</dd>
@@ -57,7 +59,9 @@ export function CurriculumTrail({
                   {
                     t[
                       m.status === 'implemented'
-                        ? 'implemented'
+                        ? m.id === 'services'
+                          ? 'servicesImplemented'
+                          : 'implemented'
                         : m.status === 'planned'
                           ? 'planned'
                           : 'partial'
@@ -67,14 +71,16 @@ export function CurriculumTrail({
               </li>
             ))}
           </ol>
-          <details>
-            <summary>{t.mapping}</summary>
-            <ol>
-              {t.officialUnits.map((unit) => (
-                <li key={unit}>{unit}</li>
-              ))}
-            </ol>
-          </details>
+          {officialUnits && (
+            <details>
+              <summary>{t.mapping}</summary>
+              <ol>
+                {officialUnits.map((unit) => (
+                  <li key={unit}>{unit}</li>
+                ))}
+              </ol>
+            </details>
+          )}
         </>
       )}
       <p>{t.boundary}</p>

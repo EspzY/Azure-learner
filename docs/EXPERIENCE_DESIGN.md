@@ -1,5 +1,11 @@
 # Experience design — resource world and expedition
 
+## Current direction supersedes historical RPG entry — 2026-10-24
+
+AzureLab 2.0 is Portal-first: Learn → compare → configure → inspect actual consequences → apply changed requirements. `/` redirects to `/portal` after the first complete Portal browser slice passed on desktop/mobile. Historical RPG is isolated at `/legacy/rpg`; `/expedition-3d` preserves allowlisted old entry/return queries through a compatibility redirect. SVG remains internal at `/legacy-expedition`. No ordinary Portal navigation loads or links to these archives. Existing learning/domain/save contracts survive; the content below records the previous phase's experience.
+
+Current implementation, original manuscript and review boundaries are in [Portal strategy](PORTAL_PRODUCT_STRATEGY.md), [learning experience](PORTAL_LEARNING_EXPERIENCE.md), [state architecture](PORTAL_SANDBOX_ARCHITECTURE.md) and [project status](PROJECT_STATUS.md). Historical game art/camera features are no longer the product priority.
+
 ## G1.2 arrival and purpose
 
 The canonical entry is now the RPG, with a short optional environmental arrival, a purposeful Ida welcome, a compact objective HUD and a context-preserving Expedition Log. The log connects existing systems through actual observations rather than a new course-card dashboard. Manual/assisted choices clarify movement; the world overview honestly distinguishes one station/workbench from future regions. [Onboarding](PLAYER_ONBOARDING.md) defines responsive and human-review gates. No art replacement or additional rendering dependency is claimed.

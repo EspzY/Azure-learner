@@ -1,5 +1,15 @@
 # Roadmap
 
+## Current Portal reboot and next gates — 2026-10-24
+
+- Outcome: explain and justify IaaS/PaaS/SaaS, configure lifecycle/hosting, diagnose the training location denial and transfer the process to a changed scope/region.
+- Scope: one operational Portal-inspired subset integrated with complete original service-types education, the preserved cloud-computing module and actual live architecture. No new Azure service models.
+- Engineering gate: source/objective/content integrity, exact shared command replay, first/help/retry evidence, no renderer/external requests, all prior regressions, production browser/a11y checks and desktop/mobile/tablet capture review.
+- Human gate: Azure administrator workflow comparison using the fidelity rubric; beginner explanation/changed-task transfer; experienced engineer counterexamples; screen-reader/touch review. These are planned, not passed by automation.
+- Exclusions: complete Azure Portal/AZ-900, authentication, tags/SKU/prices/deployment/health, independent Chapter01 promotion, new XP, external services and production release.
+
+After review, correct observed Portal transfer/content problems before expanding. The next content candidate is **Describe the benefits of using cloud services**: demonstrate availability/scalability, reliability/predictability, security/governance and manageability using bounded counterexamples, then require changed-context reasoning. Networking/operations follow one verified domain slice at a time; do not resume RPG expansion. Historical plans below remain as development history and are superseded where they conflict with this pivot.
+
 ## G1.3 delivery and next gate
 
 This slice adds continuous complete teaching delivery, official metadata presentation, bounded synchronized cues and optional original audio, retaining existing curriculum evidence and technical engines. First verify actual playback, pause/history/manual/interrupt, demonstration-versus-practice and full regressions; then perform human reading-pace/first-time/SME/accessibility/audio review. Do not expand worlds or start Chapter01 transfer because software is green. The next complete official-path content candidate is Describe the benefits of using cloud services: explain availability/scalability, reliability/predictability, security/governance, manageability and sustainability with reviewed models, counterexamples and changed assessment before marking it playable. Service types remains partial and also needs full-module review.

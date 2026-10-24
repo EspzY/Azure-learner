@@ -1,5 +1,11 @@
 # The Azure Expedition — implemented Phase 1A.5
 
+## Current direction supersedes historical RPG entry — 2026-10-24
+
+AzureLab 2.0 is Portal-first: Learn → compare → configure → inspect actual consequences → apply changed requirements. `/` redirects to `/portal` after the first complete Portal browser slice passed on desktop/mobile. Historical RPG is isolated at `/legacy/rpg`; `/expedition-3d` preserves allowlisted old entry/return queries through a compatibility redirect. SVG remains internal at `/legacy-expedition`. No ordinary Portal navigation loads or links to these archives. Existing learning/domain/save contracts survive; the content below records the previous phase's experience.
+
+Current implementation, original manuscript and review boundaries are in [Portal strategy](PORTAL_PRODUCT_STRATEGY.md), [learning experience](PORTAL_LEARNING_EXPERIENCE.md), [state architecture](PORTAL_SANDBOX_ARCHITECTURE.md) and [project status](PROJECT_STATUS.md). Historical game art/camera features are no longer the product priority.
+
 ## G1.3 living teaching at the canonical station
 
 The root still redirects to the single RPG instance. Its NPC/unit sequences now deliver full original explanations with synchronized local visual cues and optional gesture-enabled ambient music. Journal/log/hidden-page interruption preserves cursor and context; no timer writes learning evidence. Portal/workbench/return, old SVG regression route and validated technical state remain. [Instructional sequence engine](INSTRUCTIONAL_SEQUENCE_ENGINE.md) owns the new presentation layer; historical route contracts below are retained.

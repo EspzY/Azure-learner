@@ -1,5 +1,9 @@
 # Architecture
 
+## Current Portal-first architecture — 2026-10-24
+
+The owner supersedes the historical RPG-first direction. `/portal` composes native operational controls, focused Learn content, a guided companion pane and XYFlow/semantic projections. The existing root ChapterProvider remains the only technical inventory/receipt owner; original progression, curriculum and archived game stores are retained. Pure portal adapters, URL allowlists, source/objective bindings and a separate versioned service-types evidence log live in `src/domain/portal`; presentation lives in `src/features/portal`. No rendering engine controls learning truth. Read [PORTAL_SANDBOX_ARCHITECTURE](PORTAL_SANDBOX_ARCHITECTURE.md) for implemented boundaries and [reference fidelity](PORTAL_REFERENCE_FIDELITY.md) for approximations. The sections below record the preserved historical architecture.
+
 ## G1.3 instructional presentation
 
 domain/instruction contains only finite beat/cue/pacing and presentation-preference contracts. content/instruction binds the original nb manuscript to stable sequence/beat/objective/source IDs. The shared playback hook owns a transient cursor, cancellation and history; the existing cinematic director and pure teaching model project its cues. There are no learning/quest writes in playback or scene frames. Domain engines and six prior stores remain. Game owns a single PresentationProvider/audio lifecycle and an isolated seventh UI preference, cleared by the existing all-data action. [Instructional engine](INSTRUCTIONAL_SEQUENCE_ENGINE.md) owns lifecycle, official metadata and review limits.

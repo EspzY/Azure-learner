@@ -177,10 +177,10 @@ export function ChapterWorkbench() {
         <Link
           href={
             fromGame
-              ? '/expedition-3d?return=chapter01'
+              ? '/legacy/rpg?return=chapter01'
               : fromJourney
                 ? '/legacy-expedition?at=gateway'
-                : '/expedition-3d'
+                : '/portal'
           }
           onClick={() =>
             fromJourney &&

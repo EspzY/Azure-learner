@@ -1,5 +1,11 @@
 # Security and privacy
 
+## Portal reboot boundary — 2026-10-24
+
+The Portal is an independent simulator, visibly labelled and unaffiliated with Microsoft. It has no account/sign-in imitation, credentials, Azure HTTP client, deployment or price service. Original icons/native controls are used; no protected Portal artwork or copied lessons. Normal portal navigation must load no Three/Fiber renderer, GLBs or ambient audio. Official sources are explicit outbound reference links, not runtime content ingestion.
+
+The shared technical store retains revision validation and command replay. The new service-types record validates exact event shape/version/size/count, pins technical attempt and command prefix, rejects stale writes, quarantines unknown/corrupt data and reports denied storage as memory-only. Local records remain editable and non-authoritative. Clearing the new record cannot clear legacy awards or technical resources; existing explicit all-data deletion includes it. Never expose learner save exports in committed screenshots or logs.
+
 ## G1.3 presentation and audio
 
 Instruction sequences/cues are finite compiled local definitions: no remote scripts, arbitrary HTML, LLM, speech service or Learn API. Timers/camera/audio cannot emit authoritative learning events. A seventh small versioned presentation record validates exact keys/ranges; corrupt/unknown/conflicting/denied storage keeps safe memory-only preferences and never erases older work. All-data deletion clears this key even when game is unmounted. The only new media request is the allowlisted local WAV after explicit enable. Browser autoplay/resume errors are caught; no policy bypass. Local CC0 provenance/hash/budget checks extend assets:check. Hidden tabs attenuate and route unmount disposes audio; no analytics or microphone permission.

@@ -132,7 +132,7 @@ describe('bounded teaching presentation', () => {
     expect(officialLearning.modules.map((m) => m.status)).toEqual([
       'implemented',
       'planned',
-      'partial',
+      'implemented',
     ]);
     expect(nb.official.officialUnits).toHaveLength(8);
     expect(officialLearning.unitMapping.pricing).toEqual([5]);

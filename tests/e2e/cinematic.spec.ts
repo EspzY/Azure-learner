@@ -62,7 +62,7 @@ test('cinematic speakers, framing, focus, workshop and exploration restoration',
   page.on('request', (r) => {
     if (new URL(r.url()).origin !== 'http://127.0.0.1:3000') external.push(r.url());
   });
-  await page.goto('/expedition-3d');
+  await page.goto('/legacy/rpg');
   await expect(page.getByRole('button', { name: 'Ta kontroll', exact: true })).toBeEnabled({
     timeout: 45000,
   });

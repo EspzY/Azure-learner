@@ -1,5 +1,9 @@
 # Content authoring and acceptance contract
 
+## Portal delivery amendment — 2026-10-24
+
+Original educational manuscripts precede Portal components. A complete supported module must connect objective → mechanism/example/counterexample → deliberate comparison → justified practice → changed independent requirement, with accessible presentation and precise limits. Preserve all substantial foundations content when changing presentation. Native portal inspection is different from hints/theory during an independent attempt; the latter records assistance. Source review, implemented availability, learner observations and human SME approval remain separate. `curriculum:check` now includes the service-types objective/source/activity bindings and counterexamples. No completion can be inferred from a service title, reading, diagram visit or source URL.
+
 ## G1.3 continuous-teaching refinement
 
 Essential explanations must be encountered in the guided sequence, not hidden behind optional notes. Bind complete manuscript sections to readable beats, meaningful reviewed cues and explicit action boundaries. Reading speed, skipping, animation or timer completion cannot submit practice, answer a question, accept a quest or imply mastery. Offer pause/manual/history and semantic access; source-review exact official names and distinguish them from original AzureLab investigations. The existing first-submission/help/retry and human SME gates remain unchanged. [Instructional engine](INSTRUCTIONAL_SEQUENCE_ENGINE.md) supersedes optional-notes-only delivery, not substantive content.

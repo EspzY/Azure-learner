@@ -1,5 +1,7 @@
 # G1.3 instructional sequences
 
+Historical RPG subsystem: preserved at `/legacy/rpg` after the owner-authorized 2026-10-24 Portal pivot. Canonical entry and ordinary learning now follow [PORTAL_PRODUCT_STRATEGY](PORTAL_PRODUCT_STRATEGY.md). The implementation/history below remains valid for the archive; it does not mandate new game development.
+
 Authoring specification, 2026-10-24. Implementation and executed verification are recorded in PROJECT_STATUS. This presentation layer supersedes G1.1's decision to keep essential mechanisms only in optional field notes. The original L1 manuscript/evaluators remain authoritative.
 
 ## Reviewed script before presentation

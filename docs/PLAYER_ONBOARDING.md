@@ -1,5 +1,7 @@
 # G1.2 — arrival and player orientation
 
+Historical RPG subsystem: preserved at `/legacy/rpg` after the owner-authorized 2026-10-24 Portal pivot. Canonical entry and ordinary learning now follow [PORTAL_PRODUCT_STRATEGY](PORTAL_PRODUCT_STRATEGY.md). The implementation/history below remains valid for the archive; it does not mandate new game development.
+
 ## G1.3 official orientation and living conversation
 
 The skippable station/people/gateway arrival remains; it now names the official certification, first path and current module explicitly. Ida leads an original continuous welcome/provisioning sequence before meaningful activity choices. Pause, previous, replay, speed, manual mode, history and experienced skip remain presentation controls without evidence. Required mechanisms are taught in the RPG and original L1 sequence, not dependent on optional notes. The native log and journal interrupt safely. Official future module status and broader professional paths stay honest. The human first-time rubric below is still unperformed, not upgraded by new software tests.

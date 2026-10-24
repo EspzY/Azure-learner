@@ -1,5 +1,7 @@
 # G1 NPC dialogue and learning design
 
+Historical RPG subsystem: preserved at `/legacy/rpg` after the owner-authorized 2026-10-24 Portal pivot. Canonical entry and ordinary learning now follow [PORTAL_PRODUCT_STRATEGY](PORTAL_PRODUCT_STRATEGY.md). The implementation/history below remains valid for the archive; it does not mandate new game development.
+
 ## G1.3 living teaching supersedes G1.1 pacing
 
 Versioned presentation scripts now lead Ida's welcome/provisioning and service-mechanism teaching, and Noor's workload/requirements conversation. Full essential content is in the live sequence; optional field notes retain revision and additional inspection. NPCs explain actual mechanisms and consequences instead of mostly reading evidence classifications. Long beats use subtitles; short opening text can be projected beside the active character, without duplicate visible speech. Manual/pause/history controls are available; explicit service answers, acceptance and report still use the original deterministic story graph. Camera/demo/history timing cannot emit those events. The existing return predicates select unfinished, guided-built and reported Noor scripts. Source-asset and human review limits remain.

@@ -1,5 +1,11 @@
 # Learning journey and competency universe
 
+## Current Portal-first learning route — 2026-10-24
+
+The owner replaces RPG progression as the main product. Learners enter the Portal workspace, select complete original **Describe cloud computing** or **Describe cloud service types**, explore the relevant responsibility/mechanism model, perform guided configuration, inspect actual relationships and submit a changed independent task. Exact topic/mode survives operational navigation. Existing six-unit observations/awards are preserved; new ST01–ST04 records do not complete F01, professional competencies or Microsoft training automatically.
+
+The 30-competency graph/specializations below remain the curriculum foundation. Service-model education now has a complete original bounded module rather than only an NPC workshop; [current coverage](CURRICULUM_COVERAGE.md) records exact implementations/gaps. Benefits, wider AZ-900 architecture/governance and specialist modules remain visibly unavailable beyond the explicitly implemented slices. The historical station/quest sequence below is archived, not ordinary navigation.
+
 ## G1.3 official names without exam-driven architecture
 
 Lysningen is the first fictional station, not the certification or path. The visible starting overlay is Microsoft Certified: Azure Fundamentals / AZ-900: Microsoft Azure Fundamentals / Introduction to Cloud Infrastructure: Describe cloud concepts. Describe cloud computing is delivered through the existing six original investigations, guided questions and separate changed task. Describe the benefits of using cloud services is planned; Describe cloud service types is partial and leads to Noor's bounded engineering quest. The professional competency graph and specialist directions below remain independent of credential codes. No local activity completes Microsoft Learn or grants official XP.

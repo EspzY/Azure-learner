@@ -1,5 +1,9 @@
 # AzureLab product blueprint
 
+## Owner-authorized strategic supersession — 2026-10-24
+
+AzureLab 2.0 abandons RPG-first presentation in favour of an independent, high-fidelity **Azure Portal-inspired simulator with integrated Learn/Practice/Understand**. The earlier product-model comparison below remains historical reasoning, not the current rendering/navigation mandate. Technical domain correctness, competency graph, original learning content and evidence distinctions survive. [PORTAL_PRODUCT_STRATEGY](PORTAL_PRODUCT_STRATEGY.md) owns current scope and rationale; [reference fidelity](PORTAL_REFERENCE_FIDELITY.md) discloses documented matches, approximations and unavailable features. No parity percentage, Microsoft affiliation or full curriculum claim.
+
 ## L1 educational scope correction
 
 A persistent world requires a curriculum manuscript independent of quest dialogue. L1 adds one source-backed cloud-computing module candidate and a contextual journal, not a new catalogue. The [standards](CONTENT_STANDARDS.md) and [coverage audit](CURRICULUM_COVERAGE.md) make authored, implemented, assessed, source-reviewed and human-SME-reviewed states explicit. The hybrid product model below remains the long-term direction; no title, world visit or accumulated XP establishes coverage or competence.

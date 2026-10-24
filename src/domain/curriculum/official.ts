@@ -30,8 +30,8 @@ export const officialLearning = {
     {
       id: 'services',
       slug: 'describe-cloud-service-types',
-      local: 'rpg-service-models',
-      status: 'partial',
+      local: 'service-types',
+      status: 'implemented',
       officialUnits: 6,
     },
   ],
