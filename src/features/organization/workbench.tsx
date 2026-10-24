@@ -124,7 +124,7 @@ export function Workbench() {
             typeof window !== 'undefined' &&
             new URLSearchParams(window.location.search).get('journey') === '1'
               ? '/legacy-expedition?at=gateway'
-              : '/expedition-3d'
+              : '/portal'
           }
           onClick={() =>
             update((previous) => ({

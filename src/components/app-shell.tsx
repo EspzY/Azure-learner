@@ -18,7 +18,8 @@ export function AppShell({ children }: { children: React.ReactNode }) {
   const { progress, ready } = useProgress();
   const { openJournal } = useLearning();
   const active = nb.nav.find((item) => item.href === pathname);
-  if (pathname === '/expedition-3d')
+  if (pathname === '/portal') return <>{children}</>;
+  if (pathname === '/legacy/rpg')
     return (
       <div className="game-shell">
         <a href="#main" className="skip-link">
@@ -113,7 +114,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
             onClose={() => setLog(false)}
             onGoal={(goal) => {
               setLog(false);
-              router.push(`/expedition-3d?goal=${goal}`);
+              router.push(`/legacy/rpg?goal=${goal}`);
             }}
           />
         )}

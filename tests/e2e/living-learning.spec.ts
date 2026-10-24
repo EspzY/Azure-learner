@@ -18,7 +18,7 @@ test.setTimeout(180000);
 const t = nb.teaching;
 async function begin(page: Page, semantic = false) {
   if (semantic) await page.route('**/game/people/character-female-a.glb', (r) => r.abort());
-  await page.goto('/');
+  await page.goto('/legacy/rpg');
   await expect(page.getByRole('button', { name: 'Ta kontroll', exact: true })).toBeEnabled({
     timeout: 45000,
   });
@@ -75,7 +75,7 @@ test('continuous semantic teaching, readable control, official structure, stale 
     page.locator('.knowledge-journal').getByText(nb.official.planned, { exact: true }),
   ).toBeVisible();
   await expect(
-    page.locator('.knowledge-journal').getByText(nb.official.partial, { exact: true }),
+    page.locator('.knowledge-journal').getByText(nb.official.servicesImplemented, { exact: true }),
   ).toBeVisible();
   await page.clock.fastForward(100000);
   await page.keyboard.press('Escape');

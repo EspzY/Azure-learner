@@ -1,6 +1,7 @@
 'use client';
 import { orientationKey } from '@/domain/rpg/expedition';
 import { presentationKey } from '@/domain/instruction/preferences';
+import { serviceLearningKey } from '@/domain/portal/learning';
 
 import { createContext, useCallback, useContext, useEffect, useRef, useState } from 'react';
 import {
@@ -80,6 +81,7 @@ export function ProgressProvider({ children }: { children: React.ReactNode }) {
     try {
       localStorage.removeItem(orientationKey);
       localStorage.removeItem(presentationKey);
+      localStorage.removeItem(serviceLearningKey);
     } catch {
       setStorageFailed(true);
     }

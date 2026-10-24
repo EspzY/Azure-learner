@@ -2,6 +2,443 @@ import type { QuestionId } from '../domain/assessment';
 import type { CreationError, Region, ScopeKind } from '../domain/simulation';
 
 export const nb = {
+  portal: {
+    brand: 'AzureLab',
+    directory: 'AzureLab Directory',
+    referencePublisher: 'Microsoft Learn',
+    version: '2.0',
+    simulation: 'SIMULERING',
+    environment: 'Lokalt treningsmiljø · ingen Azure-tilkobling',
+    menu: 'Åpne eller lukk portalmenyen',
+    search: 'Søk i ressurser, tjenester og kilder',
+    searchPlaceholder: 'Søk i ressurser, tjenester og dokumentasjon',
+    searchResults: 'Søkeresultater',
+    noResults: 'Ingen treff i det støttede treningsutvalget.',
+    areas: {
+      home: 'Home',
+      services: 'All services',
+      subscriptions: 'Subscriptions',
+      groups: 'Resource groups',
+      resources: 'All resources',
+      apps: 'App Services',
+      plans: 'App Service plans',
+      activity: 'Activity log',
+      resource: 'Overview',
+      create: 'Create a resource',
+      learn: 'Learning workspace',
+      responsibility: 'Responsibility explorer',
+      hierarchy: 'Resource hierarchy',
+      architecture: 'Architecture Explorer',
+      policy: 'Policy',
+      challenge: 'Independent challenge',
+    },
+    navLabel: 'Portalmeny',
+    favourites: 'Tjenester',
+    understand: 'Forstå sammenhengene',
+    learning: 'Læring',
+    serviceHint: 'Støttede tjenester i denne simulatoren',
+    unavailable: 'Ikke tilgjengelig i treningsmodellen',
+    unavailableServices:
+      'Virtual Machines, nettverk, Storage, IAM, kostnader, Cloud Shell og Marketplace er ikke implementert.',
+    homeTitle: 'Velkommen til AzureLab',
+    homeIntro: 'Lær prinsippene. Øv i en simulert portal. Undersøk hvorfor konfigurasjonen virker.',
+    services: 'AzureLab services',
+    recent: 'Recently visited resources',
+    recentHint:
+      'Ressurser du har åpnet i denne økten. Inventaret gjenopprettes separat fra tekniske kommandoer.',
+    noRecent: 'Ingen ressurser besøkt i denne økten.',
+    training: 'Aktiv læringskontekst',
+    startLearning: 'Åpne læringsarbeidsområdet',
+    continueChallenge: 'Fortsett den endrede oppgaven',
+    openPractice: 'Åpne veiledet praksis',
+    returnLearning: 'Tilbake til læringen',
+    journal: 'Kunnskapsjournal',
+    notifications: 'Notifications',
+    resetTechnical: 'Start nytt teknisk forsøk',
+    resetWarning:
+      'Dette nullstiller det delte tekniske forsøket: ressurser, operasjoner og gamle veiledede funn. Læringshistorikk og XP beholdes. Tidligere Portal-innleveringers tekniske referanser blir utilgjengelige. Et aktivt uavhengig forsøk registreres som avbrutt. Eksporter ved behov før du bekrefter.',
+    exportTechnical: 'Eksporter teknisk forsøk',
+    confirmReset: 'Bekreft nytt teknisk forsøk',
+    notificationCount: 'Operasjoner i den lokale historikken',
+    close: 'Lukk panelet',
+    create: 'Create',
+    review: 'Review + create',
+    basics: 'Basics',
+    tags: 'Tags',
+    next: 'Next',
+    previous: 'Previous',
+    edit: 'Endre konfigurasjon',
+    validation: 'Validation',
+    valid: 'Feltkontroll bestått. Policy vurderes ved Create.',
+    invalid: 'Feltkontrollen fant en feil. Rett konfigurasjonen før Create.',
+    tagsUnsupported:
+      'Tags er utenfor denne modellversjonen. Ingen tag-felt tas imot eller forkastes i det skjulte. I Azure kan tags organisere ressurser, men de endrer ikke management scope eller hosting.',
+    createTitles: {
+      group: 'Create a resource group',
+      plan: 'Create App Service Plan',
+      app: 'Create Web App',
+    },
+    projectDetails: 'Project details',
+    instanceDetails: 'Instance details',
+    subscription: 'Subscription',
+    group: 'Resource group',
+    name: 'Name',
+    groupName: 'Resource group name',
+    region: 'Region',
+    metadata: 'Metadata region',
+    resourceLocation: 'Resource location',
+    type: 'Type',
+    os: 'Operating System',
+    profile: 'Learning profile',
+    plan: 'App Service plan',
+    app: 'Web App',
+    locationNote:
+      'Resource group-regionen gjelder gruppens metadata. Ressursene kan ha andre lokasjoner.',
+    planNote:
+      'Linux learning profile v1 er en avgrenset undervisningskonfigurasjon, ikke en Azure-SKU, pris eller kapasitetsspesifikasjon.',
+    appNote:
+      'Webappen refererer en plan. OS og resource location avledes fra planen. Runtime, kodepublisering, DNS, nettverk og helse er ikke simulert.',
+    createNote:
+      'Review endrer ingen ressurser. Bare Create sender en kommando til den lokale motoren. Ingen deployering eller fakturering skjer i Azure.',
+    nameNote:
+      'Gruppenavn følger den delte valideringen. Plan/app bruker modellens konvensjon: liten bokstav først, deretter bokstaver, tall eller bindestrek, 3–40 tegn. Ingen global DNS-sjekk.',
+    noGroup: 'Velg en ressursgruppe',
+    noPlan: 'Ingen plan valgt',
+    noResource: 'Ingen ressurser i dette utvalget.',
+    noOperations: 'Ingen tekniske kommandoer er registrert ennå.',
+    filter: 'Filter by name or type',
+    allSubscriptions: 'All subscriptions',
+    allTypes: 'All types',
+    refresh: 'Refresh',
+    resources: 'Resources',
+    properties: 'Properties',
+    overview: 'Overview',
+    operations: 'Operations',
+    inspect: 'Undersøk',
+    inspectReceipt: 'Åpne teknisk kvittering',
+    operation: 'Operation',
+    outcome: 'Result',
+    revision: 'World revision',
+    sequence: 'Sekvens',
+    status: 'Status',
+    added: 'Opprettet i modellen',
+    rejected: 'Ikke opprettet',
+    resourceState: 'Konfigurasjon registrert lokalt · kjøretid og helse er ikke vurdert',
+    scope: 'Scope',
+    parent: 'Parent',
+    contains: 'Inneholder',
+    viewResource: 'Åpne ressursen i portalen',
+    viewArchitecture: 'Vis i Architecture Explorer',
+    relatedLearning: 'Les mekanismen',
+    supported: 'Støttet utvalg',
+    limitations: 'Modellgrenser',
+    boundary:
+      'AzureLab er uavhengig av Microsoft. Dette er original undervisning og lokal simulering, ikke Azure Portal, Microsoft Learn-fullføring eller en sertifisering.',
+    technicalLimits:
+      'To subscriptions, maksimalt tre grupper og en Linux learning profile. Ingen faktiske Azure-SKU-er, priser, tillatelser, runtime, apphelse eller nettverk simuleres. Hosting på tvers av grupper og cascading delete er ikke støttet her; dette er ikke generelle Azure-forbud.',
+    storage: 'Lagring trenger oppmerksomhet. Gyldig tidligere arbeid er ikke slettet.',
+    reload: 'Les lagret tilstand på nytt',
+    resetModule: 'Nullstill bare denne modulens observasjoner',
+    confirmModuleReset: 'Bekreft sletting av modulobservasjoner',
+    resetConfirm:
+      'Dette fjerner denne modulens lokale svar og forsøk. Ressurser, andre modulers resultater og XP beholdes. Fortsette?',
+    source: 'Offisielle kilder',
+    reviewed: 'Kilder kontrollert 24. oktober 2026 · menneskelig Azure-fagreview gjenstår',
+    modes: { learn: 'Learn', guided: 'Guided Practice', independent: 'Independent Challenge' },
+    modeHints: {
+      learn:
+        'Full teori, eksempler og interaktive forklaringer. Lesing alene er ikke praktisk gjennomføring.',
+      guided:
+        'Veiledet arbeid med kontekst og årsaksforklaring. Dette er øving, ikke uavhengig mestring.',
+      independent:
+        'Endret krav uten fremgangsmåte. Teori, sammenligning eller hint under forsøket registreres som hjelp.',
+    },
+    pane: 'Veiledning',
+    showPane: 'Vis veiledning',
+    hidePane: 'Skjul veiledning',
+    paneWidth: 'Bredde på læringspanelet',
+    focusLearning: 'Les teorien i full bredde',
+    guidedBrief:
+      'Et fiktivt applikasjonsteam vil beholde egen HTTP-kode, men slippe gjeste-OS-drift. Bruk App Sandbox. Gruppens metadata skal være i Norway East. Undersøk Web-policyen før du velger hosting-region.',
+    guidedSteps: [
+      'Velg en tjenestemodell og begrunn driftsansvaret i læringsarbeidsområdet.',
+      'Åpne Resource groups → Create. Velg subscription, navn og metadata-region. Kontroller Review + create før Create.',
+      'Opprett en App Service plan. Et forsøk i North Europe under App Sandbox avvises av den modellerte Web-policyen. Undersøk den faktiske kvitteringen og scope før du retter regionen.',
+      'Opprett en Web App som refererer den godkjente planen. Undersøk medlemskap og hosting hver for seg i Architecture Explorer.',
+      'Gå tilbake til teorien og prøv den endrede oppgaven. Guided-resultater blir ikke til uavhengig kompetanse.',
+    ],
+    lesson: {
+      title: 'Describe cloud service types',
+      subtitle: 'Original AzureLab-modul · fire læringsmål · F01 med praktisk G01/C01/G03',
+      objectives: [
+        'Forklare IaaS og arbeidet kunden beholder.',
+        'Forklare PaaS og grensene til en administrert plattform.',
+        'Forklare SaaS og kundens gjenværende data- og tilgangsansvar.',
+        'Velge en tjenestemodell ut fra faktiske krav og begrunne avveiningen.',
+      ],
+      terms: [
+        [
+          'Tjenestemodell',
+          'Fordelingen av hvilke driftsoppgaver kunden utfører og hvilke leverandøren utfører.',
+        ],
+        ['Operativsystem', 'Programvare som forvalter blant annet prosesser, minne og enheter.'],
+        ['Runtime', 'Miljø og biblioteker som kjører applikasjonskode.'],
+        ['Virtualisering', 'Avgrensning av virtuelle maskiner eller miljøer på fysisk kapasitet.'],
+        ['Hosting', 'Compute og plattform som en applikasjon bruker for å kjøre.'],
+        [
+          'Scope',
+          'Et avgrenset management-område, for eksempel subscription eller resource group.',
+        ],
+      ],
+      sections: {
+        overview: {
+          title: 'Tjenestemodeller er en fordeling av arbeid',
+          intro:
+            'En applikasjon trenger fysisk compute, avgrensning mellom miljøer, operativsystem, runtime, kode, konfigurasjon, identitet og data. Når vi velger en tjenestemodell, velger vi hvilket arbeid vi vil gjøre selv, og hvilke funksjoner vi vil kjøpe som en tjeneste.',
+          mechanism:
+            'Leverandøren kan drive flere av lagene uten at de forsvinner. IaaS gir kontroll over et gjestemiljø. PaaS tilbyr en støttet plattform for egen kode. SaaS tilbyr en ferdig applikasjon. Data, brukerrettigheter og riktig konfigurasjon krever fortsatt kundens vurderinger. Kunde, leverandør og delt eller tjenesteavhengig ansvar vises separat i utforskeren.',
+          example:
+            'Tenk på tre behov: en eldre agent trenger OS-kontroll; et team har egen webkode, men ønsker mindre plattformdrift; et kontor trenger ferdig e-post og samarbeid. Det er kravene og arbeidet teamet vil beholde som skiller valgene, ikke hvilken tjeneste som høres mest moderne ut.',
+          misconception:
+            'Public, private og hybrid cloud beskriver deployment-miljøet. IaaS, PaaS og SaaS beskriver en annen akse: tjeneste og operativt ansvar. Public cloud kan for eksempel tilby både IaaS og PaaS.',
+          limits:
+            'Modellene er et sammenligningsverktøy. Den nøyaktige grensen må sjekkes for tjenesten, konfigurasjonen og avtalen. Ingen modell garanterer riktig kode, sikkerhet, tilgjengelighet eller lavest pris.',
+        },
+        iaas: {
+          title: 'IaaS · kontroll over gjesteoperativsystemet',
+          intro:
+            'Infrastructure as a Service passer når kunden trenger et avgrenset datamaskinmiljø og selv vil kontrollere det som installeres der. Azure Virtual Machines er eksemplet vårt. En VM er en virtuell datamaskin, ikke en ferdig fungerende applikasjon.',
+          mechanism:
+            'Microsoft driver den fysiske infrastrukturen, sikkerheten rundt datasenteret og virtualiseringsplattformen. Kunden konfigurerer og vedlikeholder gjeste-OS, runtime, egen applikasjon og mange nettverks- og sikkerhetsinnstillinger. Patch-planlegging, tilgang, backupvalg og applikasjonens funksjon må fortsatt håndteres. Opprettet VM er ikke bevis på nettverkstilgang eller frisk applikasjon.',
+          example:
+            'En eldre agent forutsetter en bestemt OS-konfigurasjon. Teamet kan ha behov for IaaS-kontroll ved en lift-and-shift-flytting, eller for å gjenskape et etablert testmiljø. Kontrollen har en kostnad i driftsarbeid: teamet må planlegge oppdateringer og vedlikehold i gjesten.',
+          misconception:
+            'Hvis teamets krav er å slutte å vedlikeholde gjeste-OS, løser ikke en flytting til VM dette kravet. Vertsmiljøet ble flyttet, men gjesteoperativsystemet er fortsatt kundens oppgave. IaaS er heller ikke automatisk rimeligere enn de andre alternativene.',
+          limits:
+            'Vi sammenligner VM-ansvar, men oppretter ingen VM, disk, NSG eller nettverk i dette utvalget. Administrative muligheter, operativsystemstøtte og sikkerhetskrav må vurderes i den faktiske tjenesten.',
+        },
+        paas: {
+          title: 'PaaS · egen kode på en administrert plattform',
+          intro:
+            'Platform as a Service lar et team levere egen kode til en støttet plattform, med færre plattformoppgaver enn i en VM. Vårt konkrete eksempel er Azure App Service med innebygget runtime. Runtime er miljøet og bibliotekene som kjører koden.',
+          mechanism:
+            'I dette eksemplet driver Microsoft plattformens operativsystem og den innebygde runtime-en. Kunden vedlikeholder egen webkode og data, velger støttet konfigurasjon og styrer tilgang. Nettverks- og applikasjonsoppgaver kan være delte. En kundelevert container har en annen grense: kunden må vedlikeholde det som er inni imaget. Administrert plattform betyr ikke feilfri kode eller automatisk riktig sikkerhet.',
+          example:
+            'Applikasjonsteamet har egen HTTP-kode og ønsker å slippe gjeste-OS-drift. En støttet App Service-løsning passer denne arbeidsdelingen. En App Service plan representerer hosting-compute med blant annet OS og region. Webappen må referere den planen. En resource group organiserer management og livssyklus; den er ikke en server eller hosting-plan.',
+          misconception:
+            'Gruppemetadata i Norway East bestemmer ikke hosting-regionen. I modellen følger appens lokasjon planen, som kan ligge i West Europe. Å slette planreferansen fjerner ikke behovet for hosting. Å velge PaaS beviser heller ikke at autoskalering, backup eller overvåking er konfigurert.',
+          limits:
+            'Bare Linux learning profile v1 støttes her. Det er ingen faktisk SKU, pris, runtime-deployering eller SLA. Azure har flere hostingmuligheter enn modellen; samme-gruppe-kravet er en uttrykkelig simulatorgrense, ikke et generelt Azure-forbud.',
+        },
+        saas: {
+          title: 'SaaS · bruk og konfigurer en ferdig applikasjon',
+          intro:
+            'Software as a Service leverer en ferdig applikasjon gjennom støttede funksjoner. Microsoft 365 er et egnet eksempel for produktivitet og samarbeid. Teamet bruker og administrerer tjenesten fremfor å vedlikeholde dens gjesteoperativsystem og runtime.',
+          mechanism:
+            'Leverandøren driver applikasjonsplattformen og vedlikeholder tjenestens programvare. Kunden må fortsatt ta ansvar for egne data, brukere, rettigheter, deling og konfigurasjon. Kundeinnstillinger og leverandørens applikasjonsdrift er forskjellige oppgaver; derfor har applikasjonslaget en tjenesteavhengig grense i sammenligningen.',
+          example:
+            'Et lite kontor trenger ferdig e-post, dokumentdeling og møter. Et SaaS-alternativ kan løse bruksbehovet uten at kontoret bygger en tilsvarende applikasjon. De må likevel administrere hvem som har tilgang til hvilke data og hvilke innstillinger organisasjonen trenger.',
+          misconception:
+            'At leverandøren vedlikeholder tjenesten betyr ikke at kunden kan gi vilkårlig tilgang uten risiko. Det betyr heller ikke at et eget serverprogram kan lastes opp som om SaaS var en generell hosting-plan. Utvidelsesmuligheter er ikke det samme som valgfri runtime.',
+          limits:
+            'Ingen Microsoft 365-administrasjon, lisens, identitet eller databeskyttelse simuleres. Sammenligningen forklarer ansvar og brukstilfelle, ikke en garanti for personvern eller sikkerhet.',
+        },
+        selection: {
+          title: 'Velg ut fra kravene',
+          intro:
+            'Begynn med det teamet faktisk må levere: ferdig funksjon eller egen kode? Trenger det OS-kontroll? Hvilket arbeid kan og vil det beholde? Vurder deretter støttede plattformfunksjoner, eksisterende investeringer og operasjonell kapasitet.',
+          mechanism:
+            'En riktig begrunnelse knytter et konkret krav til en tjenestegrense. «Mer moderne» eller «leverandøren gjør alt» er ikke en forklaring. Sammenlign operativsystem med data og tilgang: plattformdrift kan flyttes, mens organisatoriske valg blir igjen hos kunden.',
+          example:
+            'For vår egen HTTP-kode uten gjeste-OS-drift er en støttet PaaS-plattform relevant. For en OS-avhengig legacy-agent kan IaaS-kontroll være avgjørende. For ferdig samarbeid er et SaaS-brukstilfelle naturlig. Det finnes ingen universell rangering som erstatter disse kravene.',
+          misconception:
+            'Et korrekt tjenestenavn med feil begrunnelse er ufullstendig forståelse. Cloud service types er heller ikke en trapp alle virksomheter må gå opp. Flere modeller kan eksistere samtidig og dekke forskjellige behov.',
+          limits:
+            'Valgene nedenfor er originale, avgrensede oppgaver. Tilbakemelding gjør dem til veiledet øving. Den senere endrede oppgaven registrerer første innsending og hjelp separat, uten å hevde generell mestring.',
+        },
+        practice: {
+          title: 'Fra tjenestevalg til hosting og scope',
+          intro:
+            'Det fiktive teamet skal organisere en applikasjonsplattform i App Sandbox. Metadata for resource group skal ligge i Norway East. Teamet beholder egen webkode og vil slippe gjeste-OS-drift. Hosting-regionen må vurderes separat.',
+          mechanism:
+            'En custom Web-policy er tildelt App Sandbox. Den modellerer deny bare for Microsoft.Web/serverfarms og Microsoft.Web/sites utenfor West Europe. Resource groups er utelatt etter type. Et avslag endrer operasjonshistorikken, men ikke ressursinventaret. Dette er en authored treningsregel, ikke alle Azures built-in lokasjonspolicyer.',
+          example:
+            'Et planforsøk i North Europe gir en kvittering med scope, type, ønsket lokasjon, aktuell constraint og uendret world revision. Undersøk årsaken og rett Web-ressursens region. Opprett deretter en app som refererer den godkjente planen; undersøk medlemskap, hosting og lokasjoner i arkitekturvisningen.',
+          misconception:
+            'Å endre gruppens metadata er ikke en rettelse av denne Web-resource-policyen. Et avvist planforsøk gir heller ingen gyldig vert som en app kan bruke. En plan kan eksistere selv om en senere app-kommando feiler.',
+          limits:
+            'Modellen validerer konfigurasjon og avhengighet. Den publiserer ikke kode og måler ingen apphelse, trafikk, sikkerhet eller Azure-kostnad. Tre grupper er en treningsgrense, ikke en Azure-kvote.',
+        },
+      },
+      headings: {
+        mechanism: 'Slik virker det',
+        example: 'Gjennomarbeidet eksempel',
+        misconception: 'Misforståelse og moteksempel',
+        limits: 'Avgrensning',
+        terms: 'Begreper og sammenhenger',
+      },
+      guided: 'Tre krav · velg og begrunn',
+      model: 'Tjenestemodell',
+      reason: 'Begrunnelse',
+      check: 'Kontroller valget',
+      compared: 'Modeller undersøkt bevisst',
+      guidedComplete:
+        'Veiledede sammenligninger og kravvalg registrert. Dette er ikke uavhengig mestring.',
+      guidedIncomplete:
+        'Gjennomfør sammenligningen og begrunn alle tre kravvalg. Å lese eller åpne siden er ikke gjennomføring.',
+      cases: {
+        legacy:
+          'En agent krever kontroll over et bestemt gjesteoperativsystem og installerte systemkomponenter.',
+        custom: 'Et team har egen webkode, men ønsker ikke å vedlikeholde gjesteoperativsystemet.',
+        ready: 'Et kontor vil ta i bruk ferdig e-post og samarbeid, ikke utvikle en egen løsning.',
+      },
+      reasons: {
+        'os-control': 'Arbeidslasten krever kontroll over gjeste-OS.',
+        'managed-platform': 'Teamet leverer egen kode på en støttet, administrert plattform.',
+        'ready-service': 'Behovet er en ferdig applikasjon med støttede funksjoner.',
+      },
+      feedback: {
+        legacy:
+          'Se etter kontroll over gjeste-OS. En ferdig tjeneste eller begrenset runtime gir ikke automatisk den kontrollen agenten krever.',
+        custom:
+          'En VM beholder gjeste-OS-arbeidet. Ferdig samarbeid er ikke hosting for vilkårlig egen kode. Knytt valget til en støttet administrert plattform.',
+        ready:
+          'Behovet er ferdig funksjon, ikke en plattform dere skal bygge tilsvarende programvare på. Kunden må likevel styre data og tilgang.',
+      },
+      correct: 'Valget og begrunnelsen passer kravet.',
+      incorrect: 'Undersøk kravet og begrunnelsen på nytt.',
+    },
+    responsibility: {
+      title: 'Hvem gjør arbeidet?',
+      intro:
+        'Sammenlign tjenestene og velg et lag. Fordelingen endres; de tekniske lagene forsvinner ikke.',
+      virtualization: 'Virtualisering og isolasjon',
+      examples: {
+        iaas: 'Azure Virtual Machines',
+        paas: 'Azure App Service · innebygget runtime',
+        saas: 'Microsoft 365',
+      },
+      layer: 'Lag',
+      owner: 'Operativt ansvar',
+      customer: 'Kunden',
+      microsoft: 'Leverandøren',
+      shared: 'Delt / tjenesteavhengig',
+      details: 'Hvorfor denne grensen?',
+      virtualizationNote:
+        'Microsoft driver virtualiseringsplattformen i disse tre eksemplene. I IaaS kontrollerer kunden gjeste-OS; det er et annet lag.',
+      networkLabel: 'Tjenestens nettverkslag',
+      notes: {
+        physical:
+          'Fysisk maskinvare, datasenter og drift av underlaget ligger hos leverandøren i disse skytjenestene.',
+        os: 'Følg gjeste-OS: kundens arbeid i VM-eksemplet, plattformarbeid hos leverandøren i innebygget App Service-runtime og SaaS.',
+        runtime:
+          'Runtime kjører koden. VM-kunden vedlikeholder den selv; en innebygget PaaS-runtime drives av plattformen. Kundeleverte containere har andre vedlikeholdsgrenser.',
+        application:
+          'Skill egen kode, støttet konfigurasjon og leverandørens kjøretjeneste. PaaS-kunden vedlikeholder sin kode; SaaS-leverandøren vedlikeholder den ferdige tjenesten.',
+        network:
+          'Leverandøren driver fysisk nettverk. Kundens logiske nettverksvalg og sikkerhetsinnstillinger avhenger av tjenesten; PaaS er ikke automatisk privat eller riktig avgrenset. SaaS-fordelingen her viser tjenestens nettverkslag. Kundens enheter, lokale nettverk og tilgangsbeslutninger er fortsatt kundens ansvar og er ikke overført til leverandøren.',
+        settings:
+          'Kunden velger riktig støttet konfigurasjon. En administrert tjeneste kjenner ikke automatisk organisasjonens behov.',
+        identity:
+          'Kunden må styre brukere, roller og tilgang. Plattformdrift alene avgjør ikke hvem som bør få tilgang.',
+        data: 'Kunden må forstå dataenes bruk, rettigheter og beskyttelsesbehov. Leverandørdrift overfører ikke alle organisatoriske datavurderinger.',
+      },
+    },
+    referenceTitles: {
+      S01: 'Shared responsibility · fordeling av ansvar',
+      S12: 'App Service plans · hosting, OS og lokasjon',
+      S39: 'App Service · oppdatering av OS og runtime',
+      P03: 'Resource groups · opprett og administrer',
+      P04: 'App Service plan · opprett og administrer',
+      P08: 'Describe infrastructure as a service',
+      P09: 'Describe platform as a service',
+      P10: 'Describe software as a service',
+    },
+    graph: {
+      title: 'Arkitekturen følger det faktiske inventaret',
+      diagram: 'Interaktiv arkitektur',
+      list: 'Liste og relasjoner',
+      legend: 'Relasjonstyper',
+      node: 'Komponent',
+      relation: 'Relasjon',
+      location: 'Lokasjon er en egenskap, aldri et management-nivå.',
+      inspectRelation: 'Undersøk relasjonen',
+      select: 'Velg en komponent eller relasjon.',
+      types: {
+        tenant: 'Microsoft Entra tenant',
+        root: 'Tenant root group',
+        management: 'Management group',
+        subscription: 'Subscription',
+        group: 'Resource group',
+        plan: 'App Service plan',
+        app: 'Web App',
+        policy: 'Policy assignment',
+      },
+      relations: {
+        'identity-authority': 'Identitetstilknytning',
+        'management-parent': 'Management parent',
+        'resource-member': 'Ressursmedlemskap',
+        'depends-on': 'Hosting-avhengighet',
+        'policy-scope': 'Policy gjelder ved scope',
+      },
+      explanations: {
+        'identity-authority':
+          'Entra tenant er identitetsautoriteten knyttet til directory/scope. Dette er ikke en fysisk eller geografisk ressursbeholder.',
+        'management-parent':
+          'Management-scope organiserer administrasjon. Gruppen tilhører subscription; geografi ligger i egne egenskaper.',
+        'resource-member':
+          'Ressursen er medlem av en resource group for management/livssyklus. Gruppen tilbyr ikke compute.',
+        'depends-on':
+          'Webappen refererer denne App Service-planen og bruker modellens hosting-compute, OS og lokasjon. Medlemskap alene erstatter ikke denne referansen.',
+        'policy-scope':
+          'Den custom tildelingen gjelder Web-plan/app-lokasjon under dette subscription-scope. Resource group-metadata er utelatt etter ressurstype.',
+      },
+    },
+    challenge: {
+      title: 'Et nytt team · samme tekniske modell',
+      abandon: 'Avslutt forsøket uten innlevering',
+      abandoned: 'Avbrutt forsøk · ingen teknisk vurdering eller mestring registrert.',
+      brief:
+        'Et nytt team trenger en ny, egen HTTP-applikasjon uten gjeste-OS-vedlikehold. Bruk Shared Sandbox. Gruppemetadata skal være i Norway East, men hosting skal være i North Europe. Bygg ny gruppe, plan og app i dette forsøket; velg egne navn. To andre krav gjelder OS-avhengig programvare og ferdig samarbeid. Du får kravene, ikke konfigurasjonstrinnene.',
+      start: 'Start endret oppgave',
+      submit: 'Lever vurderingsgrunnlaget',
+      retry: 'Start et øvingsforsøk',
+      active: 'Oppgaven pågår. Ressursarbeidet og svarutkastet lagres.',
+      assisted: 'Hjelp er registrert i dette forsøket.',
+      unassisted:
+        'Ingen registrert hjelp i dette forsøket. Dette attesterer ikke identitet eller hva du brukte utenfor AzureLab.',
+      os: 'Hvilken modell passer OS-avhengig programvare?',
+      web: 'Hvilken modell passer teamets egen HTTP-kode?',
+      ready: 'Hvilken modell passer ferdig samarbeid?',
+      reason: 'Hva begrunner valget for HTTP-koden?',
+      cause: 'Hva avgjør appens resource location?',
+      causes: {
+        plan: 'Den refererte hosting-planens lokasjon.',
+        metadata: 'Alltid resource groupens metadata-region.',
+        'policy-everywhere': 'Én global policy bestemmer lokasjonen i alle subscriptions.',
+      },
+      references: 'Velg de faktiske ressursene du bygget',
+      first: 'Første innsending',
+      retryResult: 'Senere innsending · øving',
+      noSubmission: 'Ingen innsending. Skjermbesøk og konfigurasjon alene er ikke en vurdering.',
+      passed: 'Alle kriteriene for denne avgrensede oppgaven er oppfylt.',
+      failed: 'Noen kriterier er ikke oppfylt.',
+      unverifiable:
+        'Den refererte tekniske historikken er ikke tilgjengelig. Teknisk resultat kan ikke bekreftes.',
+      criteria: {
+        service: 'Egen kode uten gjeste-OS-drift: PaaS med plattformbegrunnelse.',
+        os: 'OS-kontroll: IaaS passer det endrede kravet.',
+        ready: 'Ferdig samarbeid: SaaS passer bruksbehovet.',
+        scope: 'Ny gruppe i Shared Sandbox med metadata i Norway East.',
+        hosting: 'Ny plan/app i samme gruppe, North Europe og faktisk hosting-referanse.',
+        cause: 'Appens lokasjon følger hosting-planen, ikke gruppemetadata.',
+      },
+      notMastery:
+        'Dette er lokale kriterieobservasjoner for en endret oppgave. Første svar, hjelp og retries beholdes. Ingen XP, Chapter 01-fullføring, generell mestring eller eksamensklarhet tildeles.',
+      history: 'Innsendingshistorikk',
+      required: 'Velg et svar',
+    },
+  },
   official: {
     certification: 'Microsoft Certified: Azure Fundamentals',
     exam: 'AZ-900: Microsoft Azure Fundamentals',
@@ -27,12 +464,24 @@ export const nb = {
       'Summary',
     ],
     mapping: 'Offisielle enheter · flere AzureLab-undersøkelser kan belyse samme enhet',
-    references: 'Offisielle kildelenker · dette er ikke spillknapper eller lokal modulfullføring.',
-    implemented: 'Spillbar original undervisning · seks undersøkelser og separat endret oppgave',
-    planned: 'Planlagt · ikke spillbart',
+    serviceUnits: [
+      'Introduction',
+      'Describe Infrastructure as a Service',
+      'Describe Platform as a Service',
+      'Describe Software as a Service',
+      'Module assessment',
+      'Summary',
+    ],
+    references:
+      'Offisielle kildelenker · dette er ikke læringsaktiviteter eller lokal modulfullføring.',
+    implemented:
+      'Tilgjengelig original undervisning · seks undersøkelser og separat endret oppgave',
+    servicesImplemented:
+      'Original Portal-modul · fire mål, begrunnet øving og separat endret oppgave',
+    planned: 'Planlagt · ikke tilgjengelig',
     partial: 'Delvis undervisning · ikke en komplett modul',
     boundary:
-      'Lysningen er et sted i AzureLab. Resultatene er lokale AzureLab-observasjoner, ikke Microsoft Learn-fullføring, Microsoft XP eller en sertifisering. AzureLab er uavhengig og ikke godkjent av Microsoft.',
+      'Resultatene er lokale AzureLab-observasjoner, ikke Microsoft Learn-fullføring, Microsoft XP eller en sertifisering. AzureLab er uavhengig og ikke godkjent av Microsoft.',
     reviewed: 'Offisielle navn kontrollert 24. oktober 2026',
   },
   teaching: {
@@ -1633,7 +2082,7 @@ export const nb = {
     description: 'Utforsk Azure gjennom interaktive arkitekturer og trygge, lokale simuleringer.',
   },
   nav: [
-    { href: '/', label: 'Ekspedisjon', icon: 'dashboard' },
+    { href: '/', label: 'Portal', icon: 'dashboard' },
     { href: '/explore', label: 'Utforsk', icon: 'explore' },
     { href: '/missions', label: 'Oppdrag', icon: 'missions' },
     { href: '/progress', label: 'Fremgang', icon: 'progress' },

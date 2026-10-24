@@ -46,8 +46,8 @@ test('canonical arrival, intentional walking, curriculum bridge, log, resume and
   page.on('request', (r) => {
     if (new URL(r.url()).origin !== 'http://127.0.0.1:3000') external.push(r.url());
   });
-  await page.goto('/');
-  await expect(page).toHaveURL(/\/expedition-3d$/);
+  await page.goto('/legacy/rpg');
+  await expect(page).toHaveURL(/\/legacy\/rpg$/);
   await expect(page.locator('canvas')).toHaveCount(1);
   await expect(page.getByRole('heading', { name: t.intro[0].title, exact: true })).toBeVisible();
   await expect(page.getByRole('button', { name: t.nextView, exact: true })).toBeEnabled({
@@ -151,11 +151,11 @@ test('canonical arrival, intentional walking, curriculum bridge, log, resume and
   ).toBe(true);
   await page.goto('/progress');
   await page.getByRole('link', { name: 'AzureLab', exact: true }).first().click();
-  await expect(page).toHaveURL(/\/expedition-3d$/);
+  await expect(page).toHaveURL(/\/portal$/);
   await page.goBack();
   await expect(page).toHaveURL(/\/progress$/);
   await page.goForward();
-  await expect(page).toHaveURL(/\/expedition-3d$/);
+  await expect(page).toHaveURL(/\/portal$/);
   expect(errors).toEqual([]);
   expect(external).toEqual([]);
 });
@@ -188,7 +188,7 @@ test('saved learning and technical work, invalid preferences, semantic orientati
   );
   await page.route('**/game/people/character-female-a.glb', (r) => r.abort());
   await page.emulateMedia({ reducedMotion: 'reduce' });
-  await page.goto('/');
+  await page.goto('/legacy/rpg');
   await expect(page.getByRole('heading', { name: t.returning, exact: true })).toBeVisible({
     timeout: 45000,
   });
@@ -244,7 +244,7 @@ test('saved learning and technical work, invalid preferences, semantic orientati
   await page.goto('/legacy-expedition');
   await expect(page.locator('.journey-landscape')).toBeVisible();
   await page.getByRole('link', { name: 'AzureLab', exact: true }).first().click();
-  await expect(page).toHaveURL(/\/expedition-3d$/);
+  await expect(page).toHaveURL(/\/portal$/);
 });
 
 test('older position-only saves receive orientation without restarting or awarding learning', async ({
@@ -256,13 +256,13 @@ test('older position-only saves receive orientation without restarting or awardi
     game,
   );
   await page.route('**/game/people/character-female-a.glb', (r) => r.abort());
-  await page.goto('/expedition-3d?goal=infrastructure');
+  await page.goto('/legacy/rpg?goal=infrastructure');
   await expect(page.getByRole('heading', { name: t.returning, exact: true })).toBeVisible({
     timeout: 45000,
   });
   await expect(page.getByRole('button', { name: t.nextView, exact: true })).toHaveCount(0);
   await control(page);
-  await expect(page).toHaveURL(/\/expedition-3d$/);
+  await expect(page).toHaveURL(/\/legacy\/rpg$/);
   await expect(page.getByRole('heading', { name: t.travelTitle, exact: true })).toBeVisible();
   await page.getByRole('button', { name: t.manual, exact: true }).click();
   await log(page).click();

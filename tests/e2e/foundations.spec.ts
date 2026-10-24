@@ -24,7 +24,7 @@ async function capture(page: Page, info: TestInfo, name: string) {
   await page.screenshot({ path: info.outputPath(`l1-${name}.png`), scale: 'css' });
 }
 async function begin(page: Page) {
-  await page.goto('/expedition-3d');
+  await page.goto('/legacy/rpg');
   await expect(page.getByRole('button', { name: 'Ta kontroll', exact: true })).toBeEnabled({
     timeout: 45000,
   });

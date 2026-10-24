@@ -1,5 +1,7 @@
 # Lysningen — G1 world design
 
+Historical RPG subsystem: preserved at `/legacy/rpg` after the owner-authorized 2026-10-24 Portal pivot. Canonical entry and ordinary learning now follow [PORTAL_PRODUCT_STRATEGY](PORTAL_PRODUCT_STRATEGY.md). The implementation/history below remains valid for the archive; it does not mandate new game development.
+
 ## G1.3 presentation, not an environment replacement
 
 Existing Lysningen geometry, characters, lighting and movement remain. A bounded speaker projection links short opening text or a small speaker/beat marker to the actual NPC eye target; long technical text stays in readable subtitles. Short-height and non-WebGL modes use the subtitle rather than hiding core speech in an unavailable bubble. Demonstrations intentionally frame the real responsibility/teaching installation. Original semantic flow/matrix/topology/timeline cues supplement it; no Learn images, new character models or photorealistic-art claim. The optional original ambient bed is registered in [asset provenance](ASSET_REGISTER.md). Human art/musical/reading-pace acceptance remains separate.

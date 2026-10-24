@@ -1,5 +1,18 @@
 # Decisions
 
+## Portal reboot decisions — 2026-10-24
+
+| ID  | Decision                                                              | Reason and boundary                                                                                                                                                                                                     |
+| --- | --------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 068 | Owner-authorized Portal-first pivot on isolated stacked branch        | Supersedes RPG-first canonical entry, keeps all earlier branches/history and domain investment; archive game/SVG without normal navigation. No merge/production.                                                        |
+| 069 | Native semantic controls with scoped Fluent-inspired tokens           | Current Fluent React 9.74.11 is MIT and React19-compatible; bounded native forms/tables/dialogs need no new library. Icons/XYFlow already present. No copied Portal code/art or claim that Fluent equals Portal parity. |
+| 070 | One existing Chapter01 inventory for Portal, list and graph           | Dry review is not Create; accepted/rejected receipts drive all projections. Portal does not silently bind old guided evidence roles. Unsupported capabilities are explicit.                                             |
+| 071 | Separate versioned service-types module evidence                      | Preserve all seven old records/awards. Pin changed-task start/end receipts and technical attempt; missing/replaced history is unverifiable. No XP/chapter promotion/readiness.                                          |
+| 072 | Focused theory plus optional guided pane and changed independent mode | Full manuscript belongs in readable space; context follows allowlisted URL history. Theory/hints during an active assessment mark assistance. A native resource inspection alone does not.                              |
+| 073 | Primary-document fidelity matrix, no unmeasured percentage            | Match navigation/meaning against dated references; disclose approximate fields and unsupported services. Human workflow/learning/a11y reviews remain separate from automated checks.                                    |
+
+The historical decisions below remain; decisions 068–073 supersede conflicting presentation/routing choices, never technical correctness or persistence boundaries.
+
 ## G1.3 decisions — 2026-10-24
 
 | ID  | Decision                                                     | Reason and boundary                                                                                                                     |

@@ -1,5 +1,7 @@
 # G1 gameplay architecture
 
+Historical RPG subsystem: preserved at `/legacy/rpg` after the owner-authorized 2026-10-24 Portal pivot. Canonical entry and ordinary learning now follow [PORTAL_PRODUCT_STRATEGY](PORTAL_PRODUCT_STRATEGY.md). The implementation/history below remains valid for the archive; it does not mandate new game development.
+
 ## G1.3 sequence, cue and audio boundaries
 
 The same third-person world/director now consumes authored teaching-beat camera intent and temporary demo models. Independent model actions still dispatch the old story event; automatic examples never do. L1 teaching temporarily projects a registered example, then restores actual replayed probe state before interaction. Speaker anchors update from the existing projected eye position imperatively, not via React frame state. A shared native-dialog playback hook cancels timers on interruption, hidden page and nested journal/log; resume grants a fresh reading interval. One local AudioContext/loop is enabled explicitly, attenuated on hidden tabs and cleaned up on game unmount. [Engine specification](INSTRUCTIONAL_SEQUENCE_ENGINE.md) owns the finite contract.

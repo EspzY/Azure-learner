@@ -29,7 +29,7 @@ async function capture(page: Page, info: TestInfo, label: string) {
   });
 }
 async function start(page: Page) {
-  await page.goto('/expedition-3d');
+  await page.goto('/legacy/rpg');
   await expect(page.getByRole('button', { name: 'Ta kontroll', exact: true })).toBeEnabled({
     timeout: 45000,
   });
@@ -335,7 +335,7 @@ test('asset failure and unsupported saved versions recover explicitly without er
     );
   });
   await page.route('**/game/people/character-female-a.glb', (route) => route.abort());
-  await page.goto('/expedition-3d');
+  await page.goto('/legacy/rpg');
   await expect(page.locator('.rpg-world')).toHaveAttribute('data-renderer', 'failed', {
     timeout: 45000,
   });

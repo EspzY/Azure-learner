@@ -1,5 +1,17 @@
 # Source and credential register
 
+## Portal reboot targeted review — 2026-10-24
+
+P01–P07 document Portal overview, preferences, group/plan/web-app creation, resource filters and keyboard conventions in [PORTAL_REFERENCE_FIDELITY](PORTAL_REFERENCE_FIDELITY.md), with exact dates and supported/excluded behavior. S01/S12/S39 were re-read for responsibility, hosting and built-in-runtime/custom-container nuance. The official service-types module was inspected beyond its title: current units 2–4 and use cases inform original ST01–ST04 writing. No Microsoft lessons, questions, screenshots or authentication UI were imported. Public sources are verification/additional depth, not a substitute for AzureLab's basic teaching.
+
+| ID  | Primary reference (Microsoft Learn)                                                                                                                       | Reviewed/version                 | Supported claims                                                                 |
+| --- | --------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------- | -------------------------------------------------------------------------------- |
+| P08 | [Describe infrastructure as a service](https://learn.microsoft.com/en-us/training/modules/describe-cloud-service-types/2-describe-infrastructure-service) | Rolling page observed 2026-10-24 | Guest OS/customer control versus provider infrastructure, OS-dependent use cases |
+| P09 | [Describe platform as a service](https://learn.microsoft.com/en-us/training/modules/describe-cloud-service-types/3-describe-platform-service)             | Rolling page observed 2026-10-24 | Custom code on managed platform, retained customer tasks, use cases              |
+| P10 | [Describe software as a service](https://learn.microsoft.com/en-us/training/modules/describe-cloud-service-types/4-describe-software-service)             | Rolling page observed 2026-10-24 | Ready service/application, customer data/access/configuration, appropriate uses  |
+
+P08–P10 were reached through the actual module's unit links; initial guessed unit URLs failed and were not used as evidence. Runtime local records in `domain/portal/content.ts` retain IDs/URLs/review dates. Original manuscript: [PORTAL_LEARNING_EXPERIENCE](PORTAL_LEARNING_EXPERIENCE.md). Qualified independent SME review remains pending; the implementing agent's source cross-check is not SME sign-off. Credential mappings remain a secondary dated overlay.
+
 ## G1 targeted review — 2026-10-23
 
 Register amendment **2026-10-23.2**: S01 (shared responsibility) and S12 (App Service plans) were re-read from their current Microsoft Learn pages for the original G1 dialogue/workshop. Their responsibility matrix and app/plan compute-location relationship support the bounded explanation, not a full Azure emulator. Other guided policy/group claims reuse the Phase 1B.1 reviewed rules, unchanged. [NPC dialogue design](NPC_DIALOGUE_DESIGN.md) maps misconceptions/claims; [asset register](ASSET_REGISTER.md) separately records non-Microsoft art licenses. No lesson/media/assessment ingestion or live Learn adapter is enabled.
@@ -18,7 +30,7 @@ Re-review before changing a rule or publishing a chapter, at least every 90 days
 
 Each row carries the common publisher **Microsoft Learn**, reference-only disposition and review/version policy above. IDs are stable across document moves. The journey/pattern/chapter documents reference these IDs to avoid duplicating this register.
 
-Namespaces are explicit: `Sxx` technical sources, `CRxx` credential sources and `UX01` accessibility guidance. They are separate from competency IDs such as `C01` (PaaS hosting) and `A01` (automation).
+Namespaces are explicit: `Pxx` Portal/workflow and service-module references, `Sxx` technical sources, `CRxx` credential sources and `UX01` accessibility guidance. They are separate from competency IDs such as `C01` (PaaS hosting) and `A01` (automation).
 
 | ID   | Authoritative source                                                                                                                                      | Claim boundary / curriculum use                                                                                                                                                      |
 | ---- | --------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -127,3 +139,7 @@ Version1.0.0; author cross-check performed, human Azure-SME review not performed
 | M06 | [AZ-900 guide](https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900)           | Effective 2026-07-20; serverless remains outside current module                                          |
 
 Shared-responsibility S01/L03 and App Service plan S12 were re-read for original script claims. Platform patching S39 supports the retained custom-container caveat. No new price, deployment or security guarantee. This is implementing-author source cross-check, not human Azure-SME review. All prose/questions/diagrams are original; only metadata names and reference links are retained. No official image, complete lesson or protected assessment is copied; no live catalog API/authentication. Re-review on material changes or official metadata updates.
+
+## Portal resource taxonomy
+
+**P11**, Microsoft Learn, [Understanding the Azure Resource Graph query language](https://learn.microsoft.com/en-us/azure/governance/resource-graph/concepts/query-language), rolling page read **2026-10-24**, reference-only. Its table definitions distinguish management containers (groups/subscriptions) from service resources. This informs the local Portal projection: Resource groups has its own list; All resources shows supported Web instances. Global search, recents and hierarchy can still include containers. This is not an implementation of Resource Graph, its query language or a live-tenant observation.

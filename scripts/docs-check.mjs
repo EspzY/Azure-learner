@@ -35,6 +35,11 @@ export const requiredFiles = [
   'docs/PLAYER_ONBOARDING.md',
   'docs/EXPEDITION_PROGRESSION.md',
   'docs/INSTRUCTIONAL_SEQUENCE_ENGINE.md',
+  'docs/PORTAL_PRODUCT_STRATEGY.md',
+  'docs/PORTAL_SANDBOX_ARCHITECTURE.md',
+  'docs/PORTAL_REFERENCE_FIDELITY.md',
+  'docs/PORTAL_LEARNING_EXPERIENCE.md',
+  'docs/INTERACTIVE_VISUALIZATIONS.md',
 ];
 
 function markdownFiles(folder) {

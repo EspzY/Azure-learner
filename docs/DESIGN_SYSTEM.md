@@ -1,5 +1,11 @@
 # Design system — immersive reset
 
+## Current Portal presentation — 2026-10-24
+
+The Portal uses scoped light operational tokens: blue `#006cbe` header, neutral service rail, white working surface, blue links/focus, dense native tables and rectangular configuration controls. Native semantic HTML, Lucide and existing XYFlow keep the supported subset lightweight. Fluent React 9.74.11/MIT/React19 compatibility was evaluated; no additional package is needed for this slice. This is AzureLab's own implementation, not copied Portal code/art.
+
+Typography supports focused reading as well as dense operations. Native dialogs retain inert background/Escape/focus restoration. Narrow screens use a menu flyout, wrapped commands, single-column fields and locally scrollable tables/diagrams. Reduced-motion and forced-colour rules preserve meaning. Dark RPG tokens below remain scoped to the historical archive; they no longer define ordinary product navigation. See [fidelity checklist](PORTAL_REFERENCE_FIDELITY.md).
+
 ## L1 readable technical investigation
 
 The cinematic environment now supports a constrained instrument surface and a semantic shared Knowledge Journal: 15–16px body text, 1.75 line spacing for theory, visible violet section hierarchy, cyan data and amber unmet demand, native labelled controls and 3px cyan focus. Mobile uses a compact upper demonstration with a scrollable lower investigation; short landscape retains separate scene and control columns. Every chart has table/label equivalents. [Experience design](EXPERIENCE_DESIGN.md) and [content standards](CONTENT_STANDARDS.md) govern educational depth and visual review.

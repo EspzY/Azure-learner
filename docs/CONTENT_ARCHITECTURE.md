@@ -1,5 +1,11 @@
 # Local curriculum and evidence architecture
 
+## Portal service-types extension — 2026-10-24
+
+The Portal reboot retains the six-unit foundations manuscript, evaluators, evidence and storage. `domain/portal/content.ts` maps ST01–ST04 to original sections, three justified guided cases, changed criteria and dated primary sources. `validateServiceContent` rejects missing/orphaned teaching, incomplete objective bindings, absent feedback, assessment bindings and invalid source records. `curriculum:check` runs this alongside prior integrity tests. Browser tests separately verify the declared activities; structure alone proves neither instructional completeness nor SME review.
+
+The new `service-types@1.0.0` record stores deliberate comparisons, model-plus-reason decisions, assessment start boundary/technical attempt number, assistance, draft and submission references. It reconstructs the selected technical prefix from shared receipts. Old/missing attempt history cannot certify a new build. First answers and help remain distinct from retries; no XP/mastery/readiness is derived. [Manuscript and objective map](PORTAL_LEARNING_EXPERIENCE.md) and [state contract](PORTAL_SANDBOX_ARCHITECTURE.md) own this extension; historical content architecture remains below.
+
 ## G1.3 metadata overlay and narrative delivery
 
 The local hierarchy and 30 competency IDs are unchanged. domain/curriculum/official.ts records reviewed credential/path/module identity and explicit many-to-one mapping of six original investigations to the official eight-unit cloud module; no official lesson body is imported. UI uses exact English titles from nb.official with Bokmål explanation. Benefits is planned, service types partial. Local guided results do not claim Learn completion. Every existing purpose/mechanism/Azure/example/misconception/limit sentence is delivered by a versioned unit sequence as well as the journal; integrity tests compare the full manuscript, not word quotas. Sequence cursor/demo preferences are separate from replayed evidence. [Sequence engine](INSTRUCTIONAL_SEQUENCE_ENGINE.md) specifies implementation.
