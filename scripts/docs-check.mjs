@@ -32,6 +32,8 @@ export const requiredFiles = [
   'docs/CONTENT_STANDARDS.md',
   'docs/CONTENT_ARCHITECTURE.md',
   'docs/FOUNDATIONS_01_CONTENT.md',
+  'docs/PLAYER_ONBOARDING.md',
+  'docs/EXPEDITION_PROGRESSION.md',
 ];
 
 function markdownFiles(folder) {

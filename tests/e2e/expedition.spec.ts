@@ -12,7 +12,7 @@ test('short laptop and narrow touch layouts keep travel and interrupted camera n
       ? { width: 360, height: 780 }
       : { width: 1280, height: 720 },
   );
-  await page.goto('/');
+  await page.goto('/legacy-expedition');
   await page.getByRole('button', { name: 'Begynn ekspedisjonen', exact: true }).click();
   await page.getByRole('button', { name: 'Ruteoversikt', exact: true }).click();
   await page.getByRole('button', { name: 'Infrastrukturporten', exact: true }).click();
@@ -71,7 +71,7 @@ test('a continuous expedition teaches, detours, corrects, enters a real world an
     if (new URL(request.url()).origin !== 'http://127.0.0.1:3000') external.push(request.url());
   });
   page.on('pageerror', (error) => errors.push(error.message));
-  await page.goto('/');
+  await page.goto('/legacy-expedition');
   await expect(
     page.getByRole('button', { name: 'Begynn ekspedisjonen', exact: true }),
   ).toBeEnabled();
@@ -176,7 +176,7 @@ test('a continuous expedition teaches, detours, corrects, enters a real world an
   await expect(page.locator('.detour-feedback')).toContainText('Beslutningen holder');
   await expect(page.locator('.topbar .xp-pill')).toHaveText('120 XP');
   await page.getByRole('button', { name: 'Tilbake til hovedruten', exact: true }).click();
-  await page.goto('/');
+  await page.goto('/legacy-expedition');
   await expect(page).toHaveURL(/at=crossing/);
   expect(external).toEqual([]);
   expect(errors).toEqual([]);
@@ -186,7 +186,7 @@ test('keyboard, reduced motion, interruption and browser history preserve predic
   page,
 }) => {
   await page.emulateMedia({ reducedMotion: 'reduce' });
-  await page.goto('/');
+  await page.goto('/legacy-expedition');
   await page.keyboard.press('Tab');
   await expect(page.getByRole('link', { name: 'Hopp til innhold', exact: true })).toBeFocused();
   await page.keyboard.press('Enter');
@@ -227,7 +227,7 @@ test('unfinished world work survives exit and reload, corruption is bounded, exp
       sessionStorage.setItem('seeded', '1');
     }
   });
-  await page.goto('/?at=gateway');
+  await page.goto('/legacy-expedition?at=gateway');
   await page.getByRole('button', { name: 'Gå inn i infrastrukturverdenen', exact: true }).click();
   await page.getByRole('button', { name: 'Finn subscription', exact: true }).click();
   await page.getByRole('link', { name: 'Tilbake til ekspedisjonen', exact: true }).click();
@@ -246,7 +246,7 @@ test('unfinished world work survives exit and reload, corruption is bounded, exp
   await page.getByRole('link', { name: 'Fremgang', exact: true }).click();
   await page.getByRole('button', { name: 'Slett lokal fremgang', exact: true }).click();
   await page.getByRole('button', { name: 'Slett fremgangen nå', exact: true }).click();
-  await page.goto('/');
+  await page.goto('/legacy-expedition');
   await expect(page).toHaveURL(/at=arrival/);
   await expect(page.locator('.topbar .xp-pill')).toHaveText('0 XP');
   await page.goto('/explore');

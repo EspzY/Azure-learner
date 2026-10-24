@@ -503,6 +503,29 @@ function FoundationInstallation({ lesson }: { lesson: LearningProjection }) {
     </group>
   );
 }
+function ObjectiveMarker({ runtime }: { runtime: PlayerRuntime }) {
+  const ref = useRef<Group>(null);
+  useFrame(() => {
+    if (!ref.current) return;
+    ref.current.visible = !!runtime.destination && !runtime.conversation && runtime.intro === null;
+    if (runtime.destination) {
+      const p = places[runtime.destination].approach;
+      ref.current.position.set(p.x, 0.045, p.z);
+    }
+  });
+  return (
+    <group ref={ref}>
+      <mesh rotation={[-Math.PI / 2, 0, 0]}>
+        <ringGeometry args={[0.48, 0.54, 32]} />
+        <meshBasicMaterial color="#b9dbe7" transparent opacity={0.8} depthWrite={false} />
+      </mesh>
+      <mesh position={[0, 0.16, 0]} rotation={[0, 0, Math.PI / 4]}>
+        <octahedronGeometry args={[0.12]} />
+        <meshStandardMaterial color="#d8c3ff" emissive="#5a407d" emissiveIntensity={0.5} />
+      </mesh>
+    </group>
+  );
+}
 function Portal({ runtime }: { runtime: PlayerRuntime }) {
   const membrane = useRef<Mesh>(null);
   const material = useRef<MeshBasicMaterial>(null);
@@ -611,7 +634,29 @@ function Director({
           runtime.dialogueTop,
         ),
       };
-    const shot = shotCache.current.plan;
+    const shot =
+      runtime.intro === null
+        ? shotCache.current.plan
+        : {
+            intent: 'exploration' as const,
+            eye: new Vector3(
+              ...((runtime.intro === 0
+                ? [11, 12, 18]
+                : runtime.intro === 1
+                  ? [11, 7, 7]
+                  : [9, 8, -12]) as [number, number, number]),
+            ),
+            target: new Vector3(
+              ...((runtime.intro === 0
+                ? [0, 0, -6]
+                : runtime.intro === 1
+                  ? [0, 1, 0]
+                  : [0, 2, -24]) as [number, number, number]),
+            ),
+            playerVisible: true,
+            speaker: null,
+            duration: 0.9,
+          };
     runtime.playerVisible = shot.playerVisible;
     desired.copy(shot.eye);
     look.copy(shot.target);
@@ -640,6 +685,7 @@ function Director({
       cameraHeight: String(size.height),
       cameraSpeaker: shot.speaker ?? '',
       cameraTransition: reduced ? 'immediate' : 'damped',
+      arrivalShot: runtime.intro === null ? '' : String(runtime.intro),
     });
     if (camera instanceof PerspectiveCamera && shot.speaker) {
       camera.updateMatrixWorld();
@@ -682,6 +728,19 @@ function Director({
     } else moving.current = runtime.moving;
     if (sampled.current > 0.15 && runtime.root) {
       sampled.current = 0;
+      if (runtime.destination) {
+        const target = places[runtime.destination].approach;
+        const dx = target.x - p.x,
+          dz = target.z - p.z;
+        const key =
+          Math.abs(dx) > Math.abs(dz) ? (dx < 0 ? 'left' : 'right') : dz < 0 ? 'forward' : 'back';
+        const cue = runtime.root?.querySelector<HTMLOutputElement>('[data-wayfinding]');
+        if (cue)
+          cue.value =
+            Math.hypot(dx, dz) < 0.6
+              ? nb.orientation.routeArrived
+              : nb.orientation.directions[key] + ' · ' + Math.round(Math.hypot(dx, dz)) + ' m';
+      }
       runtime.telemetry({
         playerX: p.x.toFixed(2),
         playerZ: p.z.toFixed(2),
@@ -784,6 +843,7 @@ export function GameScene({
           <Installation model={lesson ? 'paas' : model} runtime={runtime} reduced={reduced} />
         )}
         <Portal runtime={runtime} />
+        <ObjectiveMarker runtime={runtime} />
         <Character name="character-female-a" runtime={runtime} />
         <Character name="character-female-d" runtime={runtime} npc="guide" />
         <Character name="character-male-f" runtime={runtime} npc="engineer" />

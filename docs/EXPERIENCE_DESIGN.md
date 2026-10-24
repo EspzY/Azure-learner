@@ -1,5 +1,9 @@
 # Experience design — resource world and expedition
 
+## G1.2 arrival and purpose
+
+The canonical entry is now the RPG, with a short optional environmental arrival, a purposeful Ida welcome, a compact objective HUD and a context-preserving Expedition Log. The log connects existing systems through actual observations rather than a new course-card dashboard. Manual/assisted choices clarify movement; the world overview honestly distinguishes one station/workbench from future regions. [Onboarding](PLAYER_ONBOARDING.md) defines responsive and human-review gates. No art replacement or additional rendering dependency is claimed.
+
 ## L1 teaching and technical reference
 
 The existing world/cinematic identity is retained. Six active investigations use a compact readable instrument surface, visible 3D model response and equivalent labelled diagram/table/select controls. Detailed technical theory lives in a reusable unit journal, available without WebGL and without route changes. Mechanism and relevant result explanations are part of the active sequence; optional external links do not replace core teaching. [Manuscript](FOUNDATIONS_01_CONTENT.md) defines the decisions, feedback and limits. This phase adds educational depth rather than a new rendering stack.

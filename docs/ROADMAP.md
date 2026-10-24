@@ -1,5 +1,14 @@
 # Roadmap
 
+## G1.2 — first-time continuity candidate
+
+- Learning outcome: explain the purpose of Lysningen, distinguish concept investigation, guided practice and independent observation, and find the next meaningful activity without external coaching.
+- Scope: canonical RPG root, skippable/replayable establishing sequence, contextual Ida/Noor, read-only Expedition Log, honest professional-world overview, explicit manual/assisted wayfinding and saved-work continuation.
+- Gates: preserve all learning/Azure tests, validate route/history/storage/agency, inspect actual desktop/mobile/short-height/fallback captures. Human novice and IT-experienced first-time reviews in PLAYER_ONBOARDING remain outstanding.
+- Exclusions: new curriculum/worlds/art, new XP, diagnostic mastery, full Chapter01 transfer/promotion, external services or production release.
+
+Next: run the human orientation exercises, fix observed confusion, then extend the complete service-types module connecting L1 and the existing App Service exercise. G1.2 explicitly supersedes earlier root-retention exclusions below; historical phase boundaries remain recorded.
+
 ## L1 — curriculum foundation candidate
 
 - Learning outcome: explain cloud provisioning, responsibility, deployment/use cases, consumption meters and pricing tradeoffs rather than merely identify service labels.

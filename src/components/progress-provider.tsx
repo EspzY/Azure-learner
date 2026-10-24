@@ -1,4 +1,5 @@
 'use client';
+import { orientationKey } from '@/domain/rpg/expedition';
 
 import { createContext, useCallback, useContext, useEffect, useRef, useState } from 'react';
 import {
@@ -75,6 +76,11 @@ export function ProgressProvider({ children }: { children: React.ReactNode }) {
   );
   const clear = useCallback(() => {
     save(emptyProgress);
+    try {
+      localStorage.removeItem(orientationKey);
+    } catch {
+      setStorageFailed(true);
+    }
     window.dispatchEvent(new Event('azurelab:clear'));
   }, [save]);
 

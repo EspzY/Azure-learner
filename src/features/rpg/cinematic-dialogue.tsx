@@ -25,16 +25,28 @@ export function CinematicDialogue({
   onClose,
   restoreFocus,
   onFoundations,
+  onLog,
+  onDirectEntry,
+  recommendFoundations,
 }: {
   node: NodeId;
   model: ServiceModel;
-  facts: { compared: boolean; canEnter: boolean; ready: boolean; accepted: boolean };
+  facts: {
+    compared: boolean;
+    canEnter: boolean;
+    ready: boolean;
+    accepted: boolean;
+    canDebrief: boolean;
+  };
   runtime: PlayerRuntime;
   onChoose: (choice: Choice) => void;
   onModel: (model: ServiceModel) => void;
   onClose: () => void;
   restoreFocus: () => void;
   onFoundations: () => void;
+  onLog: () => void;
+  onDirectEntry?: () => void;
+  recommendFoundations: boolean;
 }) {
   const { openJournal } = useLearning();
   const dialog = useRef<HTMLDialogElement>(null);
@@ -45,7 +57,18 @@ export function CinematicDialogue({
   const title = useId(),
     subtitle = useId();
   const speaker = dialogue[node].speaker;
-  const spoken = node in t.spoken ? t.spoken[node as keyof typeof t.spoken] : t.dialogue[node];
+  const foundationsEntry =
+    speaker === 'guide' &&
+    recommendFoundations &&
+    (node === 'guide-welcome' || node === 'guide-expert');
+  const spoken =
+    node === 'guide-welcome' && recommendFoundations
+      ? nb.orientation.welcomeIda
+      : node === 'guide-expert' || node === 'guide-welcome'
+        ? nb.orientation.returnIda
+        : node in t.spoken
+          ? t.spoken[node as keyof typeof t.spoken]
+          : t.dialogue[node];
   useEffect(() => {
     const el = dialog.current;
     el?.showModal();
@@ -251,6 +274,18 @@ export function CinematicDialogue({
           </section>
         ) : (
           <div className="cinematic-responses">
+            {foundationsEntry && (
+              <>
+                <p className="cinematic-response-label">{nb.orientation.recommended}</p>
+                <button
+                  type="button"
+                  className="cinematic-reference cinematic-foundations-entry"
+                  onClick={onFoundations}
+                >
+                  {nb.foundations.launch}
+                </button>
+              </>
+            )}
             <p className="cinematic-response-label">{t.cinematic.response}</p>
             <div className="rpg-choices">
               {dialogue[node].choices.map((choice, i) => (
@@ -267,10 +302,21 @@ export function CinematicDialogue({
               ))}
             </div>
             <small>{t.cinematic.instruction}</small>
-            {speaker === 'guide' && (
+            {speaker === 'guide' && !foundationsEntry && (
               <button type="button" className="cinematic-reference" onClick={onFoundations}>
                 {nb.foundations.launch}
               </button>
+            )}
+            <button type="button" className="cinematic-reference" onClick={onLog}>
+              {speaker === 'guide' ? nb.orientation.bridge : nb.orientation.log}
+            </button>
+            {onDirectEntry && (
+              <>
+                <p className="cinematic-response-label">{nb.orientation.expertHint}</p>
+                <button type="button" className="cinematic-reference" onClick={onDirectEntry}>
+                  {nb.orientation.directEntry}
+                </button>
+              </>
             )}
             <button type="button" className="cinematic-reference" onClick={() => openJournal()}>
               {nb.foundations.journal}

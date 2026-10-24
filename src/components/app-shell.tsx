@@ -1,8 +1,10 @@
 'use client';
 
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import { ChevronRight, ShieldCheck, Sparkles } from 'lucide-react';
+import { usePathname, useRouter } from 'next/navigation';
+import { useState } from 'react';
+import { ExpeditionLog } from '@/features/rpg/expedition-log';
+import { ChevronRight, ShieldCheck, Sparkles, BookOpen, ScrollText } from 'lucide-react';
 import { nb } from '@/content/nb';
 import { totalXp } from '@/domain/progression';
 import { navIcons } from './icons';
@@ -11,6 +13,8 @@ import { useLearning } from '@/features/learning/provider';
 
 export function AppShell({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
+  const router = useRouter();
+  const [log, setLog] = useState(false);
   const { progress, ready } = useProgress();
   const { openJournal } = useLearning();
   const active = nb.nav.find((item) => item.href === pathname);
@@ -25,7 +29,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
     );
   return (
     <div
-      className={`app-shell ${pathname === '/explore' || pathname === '/' ? 'shell-universe' : ''}`}
+      className={`app-shell ${pathname === '/explore' || pathname === '/legacy-expedition' ? 'shell-universe' : ''}`}
     >
       <a href="#main" className="skip-link">
         {nb.shell.skip}
@@ -60,7 +64,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
       </aside>
       <div className="main-shell">
         <header className="topbar">
-          <Link className="wordmark" href="/">
+          <Link className="wordmark" href="/" aria-label={nb.brand}>
             Azure<span>Lab</span>
             <i />
           </Link>
@@ -71,8 +75,25 @@ export function AppShell({ children }: { children: React.ReactNode }) {
             <strong>{active?.label ?? nb.brand}</strong>
           </div>
           <div className="topbar-right">
-            <button type="button" className="button button-secondary" onClick={() => openJournal()}>
-              {nb.foundations.journal}
+            <button
+              type="button"
+              className="button button-secondary shell-action"
+              aria-label={nb.orientation.log}
+              title={nb.orientation.log}
+              onClick={() => setLog(true)}
+            >
+              <ScrollText size={18} />
+              <span className="shell-action-label">{nb.orientation.log}</span>
+            </button>
+            <button
+              type="button"
+              className="button button-secondary shell-action"
+              aria-label={nb.foundations.journal}
+              title={nb.foundations.journal}
+              onClick={() => openJournal()}
+            >
+              <BookOpen size={18} />
+              <span className="shell-action-label">{nb.foundations.journal}</span>
             </button>
             <span className="environment">
               <i />
@@ -87,10 +108,19 @@ export function AppShell({ children }: { children: React.ReactNode }) {
             </span>
           </div>
         </header>
+        {log && (
+          <ExpeditionLog
+            onClose={() => setLog(false)}
+            onGoal={(goal) => {
+              setLog(false);
+              router.push(`/expedition-3d?goal=${goal}`);
+            }}
+          />
+        )}
         <main id="main" tabIndex={-1}>
           {children}
         </main>
-        {pathname !== '/explore' && pathname !== '/' && (
+        {pathname !== '/explore' && pathname !== '/legacy-expedition' && (
           <footer className="app-footer">
             <span>{nb.shell.footer}</span>
             <span>

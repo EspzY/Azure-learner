@@ -1,5 +1,9 @@
 # Local curriculum and evidence architecture
 
+## G1.2 navigation consumes content evidence
+
+The Expedition Log reads learningFacts and existing Chapter01/story predicates; it cannot complete units or author its own rubric. Six unit states and seven objective observations remain distinct from journey destinations. Module re-entry retains active changed-task drafts and an unfinished last unit or next unfinished unit. Opening the log is orientation; journal/instruction assistance rules remain unchanged. [Progression](EXPEDITION_PROGRESSION.md) owns selection/persistence. The L1 manuscript, evaluators, source-review status and all existing teaching depth are preserved.
+
 L1 / version 1.0.0 / 2026-10-23. This is a bounded local curriculum implementation, not a CMS or universal lesson interpreter. [Standards](CONTENT_STANDARDS.md), [first manuscript](FOUNDATIONS_01_CONTENT.md) and [coverage audit](CURRICULUM_COVERAGE.md) have distinct responsibilities.
 
 ## Hierarchy and ownership

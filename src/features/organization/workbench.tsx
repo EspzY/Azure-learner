@@ -120,7 +120,12 @@ export function Workbench() {
         </div>
         <Link
           className="world-return"
-          href="/?at=gateway"
+          href={
+            typeof window !== 'undefined' &&
+            new URLSearchParams(window.location.search).get('journey') === '1'
+              ? '/legacy-expedition?at=gateway'
+              : '/expedition-3d'
+          }
           onClick={() =>
             update((previous) => ({
               ...previous,

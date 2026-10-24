@@ -1,6 +1,7 @@
 import { expect, test, type Page, type TestInfo } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { buildGuided } from './helpers/guided-build';
+import { nb } from '../../src/content/nb';
 test.use({
   trace: 'on',
   video: 'on',
@@ -99,7 +100,7 @@ test('actual 3D movement, locomotion and two authored NPCs form a walkable learn
   page.on('request', (r) => {
     if (new URL(r.url()).origin !== 'http://127.0.0.1:3000') external.push(r.url());
   });
-  await page.goto('/');
+  await page.goto('/legacy-expedition');
   await page.evaluate(() =>
     localStorage.setItem(
       'azurelab.progress.v1',
@@ -136,6 +137,7 @@ test('actual 3D movement, locomotion and two authored NPCs form a walkable learn
   await page.getByRole('button', { name: /Hva endres teknisk/ }).click();
   await expect(page.locator('.rpg-dialogue-text')).toContainText('vedlikeholder kunden gjeste-OS');
   await page.getByRole('button', { name: /Vis meg ansvarsverkstedet/ }).click();
+  await page.getByRole('button', { name: 'Vis meg veien', exact: true }).click();
   await expect(page.locator('.rpg-world')).toHaveAttribute('data-near', 'installation', {
     timeout: 35000,
   });
@@ -228,6 +230,17 @@ test('actual 3D movement, locomotion and two authored NPCs form a walkable learn
     persisted,
   );
   await page.getByRole('button', { name: /Avslutt samtalen/ }).click();
+  await page.getByRole('button', { name: nb.orientation.log, exact: true }).first().click();
+  await expect(
+    page
+      .locator('.expedition-route nav')
+      .getByRole('button', { name: new RegExp(nb.orientation.steps.assignment.title) }),
+  ).toContainText(nb.orientation.states['guided-completed']);
+  await expect(page.locator('.expedition-evidence').first()).not.toContainText(
+    nb.orientation.states['guided-completed'],
+  );
+  await capture(page, info, 'completed-log');
+  await page.keyboard.press('Escape');
   expect(external).toEqual([]);
   expect(errors).toEqual([]);
   const axe = await new AxeBuilder({ page }).analyze();
@@ -308,7 +321,7 @@ test('keyboard, touch controls, reduced motion and actual WebGL context loss pre
 test('asset failure and unsupported saved versions recover explicitly without erasing legacy evidence', async ({
   page,
 }) => {
-  await page.goto('/');
+  await page.goto('/legacy-expedition');
   await page.evaluate(() => {
     localStorage.setItem('azurelab.rpg.g1.v1', JSON.stringify({ schema: 99 }));
     localStorage.setItem(
@@ -341,4 +354,5 @@ test('asset failure and unsupported saved versions recover explicitly without er
   await page.getByRole('button', { name: 'Slett lokal fremgang', exact: true }).click();
   await page.getByRole('button', { name: 'Slett fremgangen nå', exact: true }).click();
   expect(await page.evaluate(() => localStorage.getItem('azurelab.rpg.g1.v1'))).toBeNull();
+  expect(await page.evaluate(() => localStorage.getItem('azurelab.orientation.v1'))).toBeNull();
 });

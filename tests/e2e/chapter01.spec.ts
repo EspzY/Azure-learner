@@ -78,7 +78,7 @@ test('guided build predicts, inspects an immutable policy denial, corrects hosti
     if (new URL(r.url()).origin !== 'http://127.0.0.1:3000') external.push(r.url());
   });
   page.on('pageerror', (e) => errors.push(e.message));
-  await page.goto('/?at=gateway');
+  await page.goto('/legacy-expedition?at=gateway');
   await page.evaluate(() => {
     localStorage.setItem(
       'azurelab.progress.v1',

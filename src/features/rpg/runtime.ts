@@ -26,6 +26,15 @@ export class PlayerRuntime {
   near: PlaceId | null = null;
   conversation: PlaceId | null = null;
   shot: ConversationShot | null = null;
+  intro: number | null = null;
+  destination: PlaceId | null = null;
+  establish(beat: number | null) {
+    this.intro = beat;
+    this.telemetry({ cameraSettled: 'false' });
+  }
+  markDestination(place: PlaceId) {
+    this.destination = place;
+  }
   playerVisible = true;
   dialogueTop = 0.63;
   dialogueLeft = 0.08;
