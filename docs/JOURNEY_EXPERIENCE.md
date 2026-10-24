@@ -1,5 +1,9 @@
 # The Azure Expedition — implemented Phase 1A.5
 
+## G1.3 living teaching at the canonical station
+
+The root still redirects to the single RPG instance. Its NPC/unit sequences now deliver full original explanations with synchronized local visual cues and optional gesture-enabled ambient music. Journal/log/hidden-page interruption preserves cursor and context; no timer writes learning evidence. Portal/workbench/return, old SVG regression route and validated technical state remain. [Instructional sequence engine](INSTRUCTIONAL_SEQUENCE_ENGINE.md) owns the new presentation layer; historical route contracts below are retained.
+
 ## G1.2 canonical RPG supersedes the historical root
 
 / now redirects to /expedition-3d. The SVG expedition documented below is retained at /legacy-expedition for historical/regression use and is absent from ordinary navigation. Its internal route/query/history and explicit journey=1 return remain intact. Normal home/logo and ordinary technical returns select the RPG. The current continuous player journey is defined in [player onboarding](PLAYER_ONBOARDING.md) and [expedition progression](EXPEDITION_PROGRESSION.md); the shared journal and all old stores remain. Earlier root-route statements below describe the delivered historical phase.

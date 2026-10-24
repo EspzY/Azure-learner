@@ -1,5 +1,9 @@
 # Learning journey and competency universe
 
+## G1.3 official names without exam-driven architecture
+
+Lysningen is the first fictional station, not the certification or path. The visible starting overlay is Microsoft Certified: Azure Fundamentals / AZ-900: Microsoft Azure Fundamentals / Introduction to Cloud Infrastructure: Describe cloud concepts. Describe cloud computing is delivered through the existing six original investigations, guided questions and separate changed task. Describe the benefits of using cloud services is planned; Describe cloud service types is partial and leads to Noor's bounded engineering quest. The professional competency graph and specialist directions below remain independent of credential codes. No local activity completes Microsoft Learn or grants official XP.
+
 ## G1.2 implemented orientation route
 
 The canonical RPG now recommends welcome → Foundations 01 → service responsibilities → Noor → actual Infrastructure World → debrief. This is guidance, not a mandatory competency chain. The log projects real observations and supports direct experienced workbench entry without assumed mastery. Its honest world overview references the 30 IDs below; all additional regions remain planned/unavailable. [Expedition progression](EXPEDITION_PROGRESSION.md) owns current availability and next-action rules. No certification readiness or new competency coverage is inferred.

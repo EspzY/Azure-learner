@@ -8,7 +8,8 @@ export interface ConversationShot {
   node: NodeId;
   speaker: 'guide' | 'engineer' | 'system';
   intent: Exclude<ShotIntent, 'exploration'>;
-  framing?: 'learning';
+  framing?: 'learning' | 'side-dialogue';
+  focusSpeaker?: boolean;
 }
 // Presentation only: these intents never emit story events or determine technical findings.
 export function conversationShot(
@@ -72,7 +73,8 @@ export function planShot(
     };
   const speaker = shot.speaker === 'system' ? null : shot.speaker;
   const demonstration =
-    shot.intent === 'demonstration' || (conversation === 'installation' && speaker === 'guide');
+    shot.intent === 'demonstration' ||
+    (conversation === 'installation' && speaker === 'guide' && !shot.focusSpeaker);
   const focusPlace = demonstration
     ? places[conversation === 'portal' ? 'portal' : 'installation']
     : places[speaker ?? conversation];
@@ -124,6 +126,7 @@ export function planShot(
     eye.y += 0.18;
   }
   // Preserve physical camera height. A lower optical axis places the speaker above
+  if (shot.framing === 'side-dialogue' && splitDemo) subjectX = 0.3;
   // the subtitles while keeping the near shoulder below the speaker's eye-line.
   const aim = () => {
     const view = eye.clone().sub(centre);

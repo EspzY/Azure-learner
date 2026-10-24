@@ -1,5 +1,9 @@
 # Curriculum coverage audit
 
+## G1.3 review — 2026-10-24
+
+Re-read official certification, first path, cloud/benefits/service module indexes and current AZ-900 guide: first path still has three modules, with eight/eight/six official units respectively. The 2026-07-20 exam overlay still includes serverless, which this bounded cloud module does not teach. New exact-title UI and continuous delivery improve presentation, not coverage counts. Describe cloud computing retains all six original investigations/seven local objective IDs and its separate changed task. Benefits remains not authored/implemented; service types retains partial guided coverage, not official-equivalent completion. No new credential readiness, general independent mastery or SME review is claimed. Wider 30-competency gaps below remain. [Source register](SOURCE_REGISTER.md) and [content architecture](CONTENT_ARCHITECTURE.md) record mappings.
+
 Baseline **33f4f690** (G1.1), candidate L1 / inventory1.0.0 / source review **2026-10-23**. This audit separates a planned competency from actual manuscript, teaching, practice, assessment and evidence. No human SME or learner study has been performed. Source review here means author cross-check of the stated scope, not professional accreditation. Microsoft lessons/assessments are not imported.
 
 ## What existed before L1

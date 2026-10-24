@@ -621,7 +621,7 @@ function Director({
     elapsed.current += dt;
     sampled.current += dt;
     const p = runtime.pose;
-    const shotKey = `${p.x}/${p.z}/${runtime.conversation}/${runtime.shot?.node}/${runtime.shot?.framing}/${size.width}/${size.height}/${runtime.dialogueTop}`;
+    const shotKey = `${p.x}/${p.z}/${runtime.conversation}/${runtime.shot?.node}/${runtime.shot?.intent}/${runtime.shot?.speaker}/${runtime.shot?.focusSpeaker}/${runtime.shot?.framing}/${size.width}/${size.height}/${runtime.dialogueTop}`;
     if (shotCache.current?.key !== shotKey)
       shotCache.current = {
         key: shotKey,
@@ -695,6 +695,21 @@ function Director({
         camera,
       );
       const playerHead = projectPoint(actorEye(p), camera);
+      const anchor = runtime.root?.querySelector<HTMLElement>('.speaker-anchor');
+      if (anchor) {
+        // Imperative projection; never store frame positions in React or learning state.
+        const x = Math.max(
+          0.2,
+          Math.min(
+            0.8,
+            head.x + (runtime.dialogueLeft > 0.4 ? -0.17 : head.x < 0.5 ? 0.17 : -0.17),
+          ),
+        );
+        const y = Math.max(0.18, Math.min(runtime.dialogueTop - 0.08, head.y));
+        anchor.style.left = `${x * 100}%`;
+        anchor.style.top = `${y * 100}%`;
+        anchor.style.opacity = head.x > 0 && head.x < 1 && head.y > 0 && head.y < 1 ? '1' : '0';
+      }
       runtime.telemetry({
         speakerX: head.x.toFixed(3),
         speakerY: head.y.toFixed(3),

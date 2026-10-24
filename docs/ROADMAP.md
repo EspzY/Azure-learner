@@ -1,5 +1,9 @@
 # Roadmap
 
+## G1.3 delivery and next gate
+
+This slice adds continuous complete teaching delivery, official metadata presentation, bounded synchronized cues and optional original audio, retaining existing curriculum evidence and technical engines. First verify actual playback, pause/history/manual/interrupt, demonstration-versus-practice and full regressions; then perform human reading-pace/first-time/SME/accessibility/audio review. Do not expand worlds or start Chapter01 transfer because software is green. The next complete official-path content candidate is Describe the benefits of using cloud services: explain availability/scalability, reliability/predictability, security/governance, manageability and sustainability with reviewed models, counterexamples and changed assessment before marking it playable. Service types remains partial and also needs full-module review.
+
 ## G1.2 — first-time continuity candidate
 
 - Learning outcome: explain the purpose of Lysningen, distinguish concept investigation, guided practice and independent observation, and find the next meaningful activity without external coaching.

@@ -1,5 +1,11 @@
 # Foundations 01 — Hva er cloud computing?
 
+## G1.3 delivery manuscript refinement — 2026-10-24
+
+All six original unit manuscripts below and their nb.foundations purpose/mechanism/Azure/example/misconception/limit paragraphs are retained verbatim as original AzureLab material. content/instruction binds complete sections into natural sentence groups (never truncation); tests compare normalized complete text. Each unit ends in the same deliberate investigation/application; no automatic answer or changed-task submission.
+
+New original nb.teaching scripts are authored before presentation: ida-cloud-arrival covers fictional context, exact official path/module, on-premises capacity, provisioning/virtualization, quotas and the investigation bridge (FC01/02, L01/02); ida-service-comparison covers IaaS OS/runtime, built-in App Service platform, hosting dependency/location, ready-made SaaS, container/network/data/access caveats and independent comparison (S01/S12/S39); noor-platform-requirements covers custom code/no guest OS, scope/lifecycle, metadata/hosting separation, policy receipts and explicit acceptance (S03/S12/S38). Incorrect-answer feedback remains the original specific branches. [Engine specification](INSTRUCTIONAL_SEQUENCE_ENGINE.md) describes pause/action boundaries and reviewed cues; the full localized script is in nb.ts, not hardcoded JSX. No new assessment rubric/version migration or human SME approval.
+
 Original authored manuscript and executable teaching specification, **1.0.0**, 2026-10-23. Source cross-check by the implementing author; qualified human SME and learner review **not performed**. This is a complete local implementation candidate, not approved production courseware. Six Microsoft module objectives are mapped below; the on-premises comparison is an additional prerequisite objective. No Microsoft lesson or protected question is reproduced.
 
 ## Scope and learning contract

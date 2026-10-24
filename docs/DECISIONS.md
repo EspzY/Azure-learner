@@ -1,5 +1,14 @@
 # Decisions
 
+## G1.3 decisions — 2026-10-24
+
+| ID  | Decision                                                     | Reason and boundary                                                                                                                     |
+| --- | ------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------- |
+| 064 | Continuous full manuscript with explicit decision boundaries | Supersedes G1.1 optional-notes-only essential teaching; preserve all L1 content and deliberate evidence.                                |
+| 065 | Reading-aware transient sequence and finite cue registry     | Cancel stale timers; pause/manual/history/semantic support; no universal cutscene interpreter or camera rewards.                        |
+| 066 | Official names as versioned secondary metadata               | Certification/path/official units differ from local activity and professional competency hierarchy; no Learn completion or affiliation. |
+| 067 | Original local CC0 audio and isolated UI preferences         | Explicit gesture, gain/visibility/cleanup and licensing/hash checks; no third-party stream, voice or learner-state migration.           |
+
 ## G1.2 decisions — 2026-10-24
 
 | ID  | Decision                                           | Reason and boundary                                                                                                                                      |

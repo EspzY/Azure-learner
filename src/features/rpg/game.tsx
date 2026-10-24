@@ -15,7 +15,7 @@ import {
 } from 'lucide-react';
 import { nb } from '@/content/nb';
 import { currentStage } from '@/domain/chapter01/scenario';
-import { dialogue, entryNode, storyFacts, type Choice, type NodeId } from '@/domain/rpg/story';
+import { entryNode, storyFacts, type Choice, type NodeId } from '@/domain/rpg/story';
 import { gatewayReturn, places, nearestPlace, type PlaceId } from '@/domain/rpg/world';
 import { useChapter } from '@/features/chapter01/provider';
 import { CommandDialog } from '@/components/command-dialog';
@@ -33,6 +33,7 @@ import { useExpeditionFacts, useOrientation } from './use-expedition';
 import { ExpeditionLog } from './expedition-log';
 import { Arrival } from './arrival';
 import './orientation.css';
+import { PresentationProvider, AudioControls, usePresentation } from './presentation';
 
 const Scene = dynamic(() => import('./scene').then((m) => m.GameScene), { ssr: false });
 const t = nb.rpg;
@@ -62,6 +63,13 @@ class RenderBoundary extends Component<
   }
 }
 export function Game() {
+  return (
+    <PresentationProvider>
+      <Gameplay />
+    </PresentationProvider>
+  );
+}
+function Gameplay() {
   const { save, ready, issue, store } = useGame();
   const { attempt } = useChapter();
   const { progress } = useProgress();
@@ -110,6 +118,10 @@ export function Game() {
     hasWork: attempt.events.length > 0,
   };
   const facts = storyFacts(save, technical);
+  const presentation = usePresentation();
+  const [demonstration, setDemonstration] = useState<
+    import('@/domain/expedition').ServiceModel | null
+  >(null);
   const active = mode === 'webgl' ? near : semanticPlace;
   const interactRef = useRef<() => void>(() => {});
   const savePosition = useCallback(() => {
@@ -247,13 +259,9 @@ export function Game() {
     [],
   );
   useEffect(() => {
-    runtime.direct(
-      lessonOpen
-        ? { ...conversationShot('installation', 'guide'), framing: 'learning' }
-        : node
-          ? conversationShot(node, dialogue[node].speaker)
-          : null,
-    );
+    if (lessonOpen)
+      runtime.direct({ ...conversationShot('installation', 'guide'), framing: 'learning' });
+    else if (!node) runtime.direct(null);
   }, [node, runtime, lessonOpen]);
   const observeNear = useCallback(
     (place: PlaceId | null) => {
@@ -425,7 +433,7 @@ export function Game() {
           <RenderBoundary onFailure={failure}>
             <Scene
               runtime={runtime}
-              model={facts.model}
+              model={demonstration ?? facts.model}
               reduced={reduced}
               visible={visible}
               quality={save.quality}
@@ -539,6 +547,13 @@ export function Game() {
           </small>
           <strong aria-live="polite">{objectiveCopy.title}</strong>
           <p>{objectiveCopy.why}</p>
+          <small>
+            {goal === 'foundations' || goal === 'welcome'
+              ? nb.official.computing
+              : goal === 'service'
+                ? nb.official.services
+                : nb.orientation.technicalWorld}
+          </small>
           <output data-wayfinding aria-live="off" key={destination} />
           <button
             type="button"
@@ -771,11 +786,16 @@ export function Game() {
           facts={facts}
           runtime={runtime}
           onChoose={choose}
-          onModel={(model) => store.event({ kind: 'model', model })}
+          onModel={(model) => {
+            if (store.event({ kind: 'model', model })) presentation.audio.effect();
+          }}
           onClose={close}
           restoreFocus={restoreFocus}
           onFoundations={foundations}
           recommendFoundations={expedition.recommended === 'foundations'}
+          blocked={logOpen || journalOpen}
+          onDemonstration={setDemonstration}
+          spatial={mode === 'webgl'}
           onLog={() => setLogOpen(true)}
           onDirectEntry={active === 'portal' ? enterWorld : undefined}
         />
@@ -784,6 +804,7 @@ export function Game() {
         <FoundationsSession
           runtime={runtime}
           onProject={project}
+          blocked={logOpen}
           initialUnit={
             expedition.lesson.observations[expedition.lastUnit ?? expedition.nextUnit].guided
               ? expedition.nextUnit
@@ -801,6 +822,7 @@ export function Game() {
       {settings && (
         <CommandDialog title={t.settings} onClose={() => setSettings(false)}>
           <div className="rpg-settings">
+            <AudioControls />
             <label>
               {t.quality}
               <select

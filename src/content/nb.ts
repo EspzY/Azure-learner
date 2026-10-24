@@ -2,6 +2,126 @@ import type { QuestionId } from '../domain/assessment';
 import type { CreationError, Region, ScopeKind } from '../domain/simulation';
 
 export const nb = {
+  official: {
+    certification: 'Microsoft Certified: Azure Fundamentals',
+    exam: 'AZ-900: Microsoft Azure Fundamentals',
+    path: 'Introduction to Cloud Infrastructure: Describe cloud concepts',
+    computing: 'Describe cloud computing',
+    benefits: 'Describe the benefits of using cloud services',
+    services: 'Describe cloud service types',
+    label: 'Offisiell læringssti · AzureLabs originale undervisning',
+    certificationLabel: 'Sertifisering',
+    pathLabel: 'Learning path',
+    moduleLabel: 'Module',
+    unitLabel: 'AzureLab-undersøkelse',
+    learningUnitLabel: 'Learning unit',
+    activityLabel: 'AzureLab-aktivitet · anvendelse',
+    officialUnits: [
+      'Introduction to Microsoft Azure Fundamentals',
+      'Introduction to cloud computing',
+      'What is cloud computing',
+      'Describe the shared responsibility model',
+      'Define cloud models',
+      'Describe the consumption-based model',
+      'Module assessment',
+      'Summary',
+    ],
+    mapping: 'Offisielle enheter · flere AzureLab-undersøkelser kan belyse samme enhet',
+    references: 'Offisielle kildelenker · dette er ikke spillknapper eller lokal modulfullføring.',
+    implemented: 'Spillbar original undervisning · seks undersøkelser og separat endret oppgave',
+    planned: 'Planlagt · ikke spillbart',
+    partial: 'Delvis undervisning · ikke en komplett modul',
+    boundary:
+      'Lysningen er et sted i AzureLab. Resultatene er lokale AzureLab-observasjoner, ikke Microsoft Learn-fullføring, Microsoft XP eller en sertifisering. AzureLab er uavhengig og ikke godkjent av Microsoft.',
+    reviewed: 'Offisielle navn kontrollert 24. oktober 2026',
+  },
+  teaching: {
+    title: 'Ida underviser',
+    chooseActivity:
+      'Vil du starte Describe cloud computing ved installasjonen, eller undersøke driftsansvaret direkte? Du kan også se hele læringsreisen i loggen.',
+    next: 'Neste forklaring',
+    previous: 'Forrige forklaring',
+    replay: 'Spill forklaringen på nytt',
+    pause: 'Pause undervisningen',
+    resume: 'Fortsett undervisningen',
+    skip: 'Hopp over undervisningssekvensen',
+    skipBeat: 'Hopp over denne forklaringen',
+    history: 'Samtalehistorikk',
+    back: 'Tilbake til aktiv forklaring',
+    speed: 'Lesetempo',
+    slow: 'Rolig',
+    normal: 'Vanlig',
+    fast: 'Raskt',
+    manual: 'Manuell lesing',
+    auto: 'Automatisk undervisning',
+    progress: 'Forklaring',
+    ended: 'Din undersøkelse',
+    controlHint:
+      'Du kan pause, lese manuelt eller gå tilbake. Observasjon er ikke praktisk gjennomføring.',
+    demonstration: 'Idas gjennomarbeidede eksempel · ikke ditt lagrede forsøk',
+    interaction: 'Nå undersøker du selv. Gjør en endring og begrunn resultatet.',
+    category: {
+      opening: 'Introduksjon',
+      explanation: 'Forklaring',
+      mechanism: 'Mekanisme',
+      demonstration: 'Demonstrasjon',
+      example: 'Eksempel',
+      misconception: 'Misforståelse',
+      clarification: 'Presisering',
+      reflection: 'Refleksjon',
+      decision: 'Ditt valg',
+      conclusion: 'Oppsummering',
+    },
+    flow: [
+      'Fysiske maskiner',
+      'Virtualisering og isolasjon',
+      'Bestilte tjenester',
+      'Applikasjon og brukere',
+    ],
+    flowCaption:
+      'Forenklet eksempel med virtualisering. Bestilling går gjennom en kontrollflate. Arbeidet kjører fortsatt på fysisk infrastruktur; nettverkstilgang alene gjør ikke en server til en skytjeneste.',
+    preferencesIssue: 'Lese- og lydvalg beholdes bare i denne økten; lagret læring er urørt.',
+    introduction: [
+      'Velkommen til Lysningen. Jeg er Ida, læringsguiden din.',
+      'Vi følger et lite applikasjonsteam som vil modernisere egne servere, og undersøker valgene før vi bygger noe. Du begynner med Azure Fundamentals. Den offisielle læringsstien heter Introduction to Cloud Infrastructure: Describe cloud concepts. Først arbeider vi med Describe cloud computing, gjennom våre egne eksempler og undersøkelser.',
+      'En applikasjon trenger prosessorkraft, minne, lagring og nettverk. I et eget maskinrom må teamet kjøpe og klargjøre kapasitet før behovet kommer. Hvis etterspørselen endrer seg, kan maskinene bli for små eller stå ledige.',
+      'Cloud computing tilbyr IT-ressurser som tjenester gjennom nettverk. En kontrollflate lar kunden bestille en støttet ressurs. Leverandøren driver den fysiske infrastrukturen; virtualisering kan avgrense kapasitet mellom miljøer. Maskinene forsvinner ikke.',
+      'Det gir en annen bestillings- og driftsmodell, ikke uendelig kapasitet. Kvoter, tjenestevalg og tilgjengelig kapasitet setter grenser. En internettilkoblet server er ikke automatisk en cloud-plattform, og en bestilt ressurs skalerer ikke automatisk.',
+      'Ved installasjonen forutsier du hva som skjer, endrer en avgrenset modell og sammenligner utfallet. Vi undersøker også public, private og hybrid cloud, delt ansvar og forbruk. Deretter blir Noors spørsmål konkret: hva skal teamet selv drifte?',
+    ],
+    service: [
+      'Tjenestemodellen handler om hvilket arbeid teamet ønsker å beholde. En applikasjon trenger maskinvare, virtualisering, operativsystem, runtime, kode og data. Å flytte et lag til leverandøren fjerner ikke lagets funksjon.',
+      'Se IaaS. Microsoft forvalter fysisk infrastruktur og virtualisering. Med Azure Virtual Machines velger og vedlikeholder kunden blant annet gjeste-OS, runtime og egen applikasjon. Mer kontroll betyr at teamet må planlegge oppdateringer og forsvarlig konfigurasjon.',
+      'Nå PaaS. I vårt eksempel med innebygget App Service-runtime forvalter Microsoft plattformens operativsystem og runtime. Teamet leverer sin egen webkode og velger støttet konfigurasjon. OS-laget flytter til leverandøren, mens kode, data og tilgang fortsatt krever kundens arbeid.',
+      'En webapp bruker compute fra en App Service plan. Planen angir blant annet OS og region. En resource group organiserer livssyklus og scope, men erstatter ikke hosting-planen. Å plassere gruppemetadata i én region bestemmer ikke hvor appen kjører.',
+      'SaaS gir en ferdig applikasjon, som Microsoft 365. Teamet konfigurerer bruk og tilgang fremfor å levere vilkårlig webkode til den. Leverandøren driver applikasjonen, men kunden har fremdeles ansvar for egne data, identiteter og innstillinger.',
+      'Ansvar er tjenestespesifikt. PaaS kan dele nettverks- og applikasjonsoppgaver. Med en kundelevert container må kunden vedlikeholde innholdet i imaget; innebygget runtime er et annet tilfelle. Ingen modell garanterer sikkerhet eller tilgjengelighet av seg selv.',
+      'Undersøk forskjellen selv nå. Følg OS-laget når du bytter modell, og sammenlign det med data og tilgang. Så begrunner du et plattformvalg for teamets egen kode uten gjeste-OS-drift.',
+    ],
+    noor: [
+      'Hei, jeg er Noor, plattformingeniøren her. Teamet vårt har en egen webapplikasjon. Vi vil beholde koden, men slippe å vedlikeholde gjesteoperativsystemet. Det gjør driftsansvaret du undersøker hos Ida relevant.',
+      'Vi prøver en avgrenset App Service-løsning. Bruk App Sandbox, og organiser ressursene i en resource group med felles livssyklus. Gruppens metadata skal ligge i Norway East. Hosting-regionen må du undersøke separat.',
+      'I arbeidsbenken lager du en Linux App Service plan og kobler en webapp til den. Du vil møte en lokal treningspolicy som kan avvise en Web-ressurslokasjon. Les kvitteringen: et avslag oppretter ingen ressurs. Korriger konfigurasjonen fremfor å gjette.',
+      'Dette er simulert arbeid, uten en ekte Azure-konto. Kom tilbake, også hvis du ikke er ferdig. Vi kan undersøke scope, lokasjoner og avhengigheter sammen. Vil du ta oppdraget, eller se nærmere på driftsansvaret først?',
+    ],
+    unfinished:
+      'Vi har fortsatt noe å undersøke. Åpne arbeidet ved portalen igjen; gyldige konfigurasjoner er bevart. Se etter forholdet mellom krav, ressurslokasjon, policy og hosting-plan i kvitteringene.',
+    built:
+      'Nå henger konfigurasjonen sammen: riktig scope, en støttet plan og en webapp som faktisk peker på planen. Undersøkelsen knytter avslaget til Web-ressursens lokasjon, ikke gruppens metadata. La oss gå gjennom det du fant.',
+    reported:
+      'Vi har gått gjennom det veiledede arbeidet. Et nytt problem med endrede krav vil være neste prøve på om du kan bruke ideene uten den samme støtten. Den oppgaven finnes ikke i denne arbeidsbenken ennå.',
+    audio: {
+      title: 'Lyd i Lysningen',
+      enable: 'Aktiver rolig bakgrunnsmusikk',
+      mute: 'Demp all lyd',
+      music: 'Musikkvolum',
+      effects: 'Effektvolum',
+      ready: 'Lyd aktivert',
+      off: 'Lyd er avslått',
+      failed: 'Lyden kunne ikke startes. Prøv Aktiver igjen; undervisningen fortsetter uten lyd.',
+      hint: 'Original lokal musikk · ingen stemmer. Lyd kreves aldri for læring.',
+    },
+  },
   orientation: {
     log: 'Ekspedisjonslogg',
     logHint: 'Hvorfor du er her · hva du gjør · hvor du går videre',
@@ -35,7 +155,7 @@ export const nb = {
     resume: 'Fortsett der det gir mening',
     reorient: 'Finn tråden i ekspedisjonsloggen',
     noHistory:
-      'Du har ikke registrert arbeid i RPG-oppdraget, Foundations 01 eller den veiledede arbeidsbenken ennå. Start gjerne hos Ida, eller velg en erfaren inngang i loggen.',
+      'Du har ikke registrert arbeid i RPG-oppdraget, Describe cloud computing eller den veiledede arbeidsbenken ennå. Start gjerne hos Ida, eller velg en erfaren inngang i loggen.',
     remembered: 'Sist åpnet læringsenhet:',
     remaining: 'Neste uferdige undersøkelse:',
     technicalResume:
@@ -47,9 +167,9 @@ export const nb = {
     modelsResume:
       'Du har begynt å sammenligne service-modeller. Loggen skiller mellom modellvalg, veiledede svar og teknisk arbeid.',
     metGuideResume:
-      'Du har møtt Ida. Du kan fortsette samtalen eller velge Foundations 01 i loggen; møtet i seg selv fullfører ingen læringsmål.',
+      'Du har møtt Ida. Du kan fortsette samtalen eller velge Describe cloud computing i loggen; møtet i seg selv fullfører ingen læringsmål.',
     metEngineerResume:
-      'Du har møtt Noor. Les kravene sammen med ham, eller velg Foundations 01 i loggen. Oppdraget er ikke automatisk mottatt eller utført.',
+      'Du har møtt Noor. Les kravene sammen med ham, eller velg Describe cloud computing i loggen. Oppdraget er ikke automatisk mottatt eller utført.',
     serviceResume:
       'Du har mottatt Noor sitt oppdrag. Loggen viser hvilke veiledede deler som faktisk er gjort, og hva du kan undersøke videre.',
     states: {
@@ -65,7 +185,7 @@ export const nb = {
         skills: 'Orientering. Samtale og ankomst gir ingen læringsbevis.',
       },
       foundations: {
-        title: 'Foundations 01 — forstå cloud computing',
+        title: 'Describe cloud computing — forstå cloud computing',
         why: 'Undersøk eierskap, kapasitet, deployment-modeller og forbruk før du velger en plattform.',
         action: 'Undersøk installasjonen med Ida',
         skills:
@@ -146,7 +266,7 @@ export const nb = {
     overviewHint:
       'F01–F03 er grunnlaget. De 30 kompetanseområdene kan romme flere moduler og spesialistløp. Ingen fremtidig region er låst opp av XP. Sertifisering er en separat kartlegging.',
     evidence: 'Det som faktisk er registrert',
-    units: 'Foundations 01 · undersøkelser',
+    units: 'Describe cloud computing · undersøkelser',
     objectiveDetail: 'Objektiver og forklaringer',
     notStarted: 'Ikke startet',
     introduced: 'Introdusert · ikke øvd ferdig',
@@ -174,14 +294,14 @@ export const nb = {
     prefIssue:
       'Orienteringsvalget kunne ikke lagres trygt. Læringslagrene er urørt; du kan fortsette i denne økten.',
     welcomeIda:
-      'Velkommen til Lysningen. Jeg er Ida, læringsguiden din. Vi følger et applikasjonsteam fra egne servere til en begrunnet cloud-plattform. Start med Foundations 01 ved installasjonen; så sammenligner vi driftsansvar før Noor gir deg et praktisk oppdrag.',
+      'Velkommen til Lysningen. Jeg er Ida, læringsguiden din. Vi følger et applikasjonsteam fra egne servere til en begrunnet cloud-plattform. Start med Describe cloud computing ved installasjonen; så sammenligner vi driftsansvar før Noor gir deg et praktisk oppdrag.',
     returnIda:
-      'Vi kan fortsette der du er i læringen. Ekspedisjonsloggen viser de faktiske undersøkelsene og neste anbefalte steg. Vil du fortsette Foundations 01, utforske driftsansvar eller spørre om mekanismen?',
+      'Vi kan fortsette der du er i læringen. Ekspedisjonsloggen viser de faktiske undersøkelsene og neste anbefalte steg. Vil du fortsette Describe cloud computing, utforske driftsansvar eller spørre om mekanismen?',
     bridge: 'Se læringsreisen sammen med Ida',
   },
   foundations: {
     title: 'Fra maskinrom til skytjenester',
-    module: 'Cloud computing · Foundations 01',
+    module: 'Describe cloud computing',
     launch: 'Undersøk cloud computing med Ida',
     journal: 'Kunnskapsjournal',
     journalHint: 'Teknisk referanse. Lesing alene registrerer ikke praktisk forståelse.',

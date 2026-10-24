@@ -1,3 +1,4 @@
+import { installTeachingSkip } from './helpers/teaching-skip';
 import { expect, test, type Page, type TestInfo } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { nb } from '../../src/content/nb';
@@ -10,6 +11,10 @@ test.use({
     args: ['--use-gl=angle', '--use-angle=swiftshader', '--enable-unsafe-swiftshader'],
   },
 });
+test.beforeEach(async ({ page }) => {
+  await installTeachingSkip(page);
+});
+
 test.setTimeout(240000);
 async function capture(page: Page, info: TestInfo, name: string) {
   if ((await page.locator('.rpg-world').getAttribute('data-renderer')) === 'webgl')

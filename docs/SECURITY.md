@@ -1,5 +1,9 @@
 # Security and privacy
 
+## G1.3 presentation and audio
+
+Instruction sequences/cues are finite compiled local definitions: no remote scripts, arbitrary HTML, LLM, speech service or Learn API. Timers/camera/audio cannot emit authoritative learning events. A seventh small versioned presentation record validates exact keys/ranges; corrupt/unknown/conflicting/denied storage keeps safe memory-only preferences and never erases older work. All-data deletion clears this key even when game is unmounted. The only new media request is the allowlisted local WAV after explicit enable. Browser autoplay/resume errors are caught; no policy bypass. Local CC0 provenance/hash/budget checks extend assets:check. Hidden tabs attenuate and route unmount disposes audio; no analytics or microphone permission.
+
 ## G1.2 non-evidentiary orientation
 
 The sixth local key azurelab.orientation.v1 holds only validated schema/seen/allowlisted-goal preferences (500-character cap). Invalid/unknown data is quarantined; conflicts/denied writes are visible and memory-only. Existing five learner stores/replay rules are preserved. Explicit all-data deletion removes orientation even with the game unmounted. Goal query parameters are allowlisted navigation requests, never technical commands/completion imports. The root uses an internal fixed redirect; the legacy route cannot redirect back into itself. No external request, asset, credential or service is added. [Progression contracts](EXPEDITION_PROGRESSION.md) specify authority boundaries.

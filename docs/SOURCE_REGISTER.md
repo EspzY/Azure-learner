@@ -114,3 +114,16 @@ The [coverage audit](CURRICULUM_COVERAGE.md) records the complete 20-module unit
 | L08       | [Savings plans](https://learn.microsoft.com/en-us/azure/cost-management-billing/savings-plan/savings-plan-overview)                        | FC07 hourly spend commitment; current redirected overview URL                    |
 
 Version1.0.0; author cross-check performed, human Azure-SME review not performed. Review again when changing mechanisms or official objectives, and before educational release. No current numerical Azure rates are encoded; synthetic teaching units have no currency. Existing S12/S32 support App Service and budget-not-cap caveats.
+
+## G1.3 exact metadata and teaching review — 2026-10-24
+
+| ID  | Source                                                                                                               | Observed scope                                                                                           |
+| --- | -------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| M01 | [Certification](https://learn.microsoft.com/en-us/credentials/certifications/azure-fundamentals/)                    | Microsoft Certified: Azure Fundamentals; last updated 2026-07-20; no credential awarded locally          |
+| M02 | [First path](https://learn.microsoft.com/en-us/training/paths/microsoft-azure-fundamentals-describe-cloud-concepts/) | Introduction to Cloud Infrastructure: Describe cloud concepts; three modules                             |
+| M03 | [Cloud module](https://learn.microsoft.com/en-us/training/modules/describe-cloud-compute/)                           | Describe cloud computing; six objectives/eight official units, distinct from six original investigations |
+| M04 | [Benefits](https://learn.microsoft.com/en-us/training/modules/describe-benefits-use-cloud-services/)                 | Exact title, five current objectives/eight units including sustainability; remains planned               |
+| M05 | [Service types](https://learn.microsoft.com/en-us/training/modules/describe-cloud-service-types/)                    | Exact title, four objectives/six units; current local teaching partial                                   |
+| M06 | [AZ-900 guide](https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900)           | Effective 2026-07-20; serverless remains outside current module                                          |
+
+Shared-responsibility S01/L03 and App Service plan S12 were re-read for original script claims. Platform patching S39 supports the retained custom-container caveat. No new price, deployment or security guarantee. This is implementing-author source cross-check, not human Azure-SME review. All prose/questions/diagrams are original; only metadata names and reference links are retained. No official image, complete lesson or protected assessment is copied; no live catalog API/authentication. Re-review on material changes or official metadata updates.

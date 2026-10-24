@@ -93,6 +93,39 @@ for (const entry of manifest.assets) {
 for (const file of ['licenses/station.txt', 'licenses/people.txt'])
   requireValid(readFileSync(localPath(file), 'utf8').includes('CC0'), 'Missing asset license');
 requireValid(bytes < 2_000_000, 'Reviewed GLB transfer budget exceeded');
+const audio = JSON.parse(readFileSync(localPath('audio/manifest.json'), 'utf8'));
+const wave = readFileSync(localPath('audio/lysningen.wav'));
+requireValid(
+  audio.schema === 1 &&
+    audio.file === '/game/audio/lysningen.wav' &&
+    audio.license === 'CC0-1.0' &&
+    audio.creator === 'AzureLab',
+  'Unreviewed audio provenance',
+);
+requireValid(
+  wave.length === audio.bytes &&
+    wave.length < 1_500_000 &&
+    createHash('sha256').update(wave).digest('hex') === audio.sha256,
+  'Audio hash/budget mismatch',
+);
+requireValid(
+  wave.toString('ascii', 0, 4) === 'RIFF' &&
+    wave.toString('ascii', 8, 12) === 'WAVE' &&
+    wave.readUInt16LE(20) === 1 &&
+    wave.readUInt32LE(24) === 22050 &&
+    wave.readUInt32LE(40) === wave.length - 44,
+  'Unexpected local audio format',
+);
+requireValid(
+  readFileSync(localPath('audio/license.txt'), 'utf8').includes('CC0'),
+  'Missing original audio license',
+);
+for (const file of readdirSync(localPath('audio')))
+  requireValid(
+    ['lysningen.wav', 'manifest.json', 'license.txt'].includes(file),
+    'Unregistered audio file',
+  );
+console.log(`Audio: original CC0 PCM loop, ${wave.length} bytes; local hash/provenance valid.`);
 console.log(
   `Assets: ${manifest.assets.length} reviewed GLBs, ${bytes} bytes; hashes, local references, buffers, rigs, clips and licenses valid.`,
 );

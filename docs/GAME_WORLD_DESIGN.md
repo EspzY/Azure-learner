@@ -1,5 +1,9 @@
 # Lysningen — G1 world design
 
+## G1.3 presentation, not an environment replacement
+
+Existing Lysningen geometry, characters, lighting and movement remain. A bounded speaker projection links short opening text or a small speaker/beat marker to the actual NPC eye target; long technical text stays in readable subtitles. Short-height and non-WebGL modes use the subtitle rather than hiding core speech in an unavailable bubble. Demonstrations intentionally frame the real responsibility/teaching installation. Original semantic flow/matrix/topology/timeline cues supplement it; no Learn images, new character models or photorealistic-art claim. The optional original ambient bed is registered in [asset provenance](ASSET_REGISTER.md). Human art/musical/reading-pace acceptance remains separate.
+
 ## G1.2 authored arrival and wayfinding
 
 Lysningen is explicitly a fictional first learning station for an application team's modernization, with Ida as learning guide and Noor as platform engineer. Three skippable establishing views orient toward station, installation/people and gateway; the existing licensed geometry is retained. Selected destination gets a restrained ground marker and readable distance/direction cue. No new world, character, effect or asset is introduced. [Onboarding](PLAYER_ONBOARDING.md) owns the actual sequence; professional asset/hardware and human usability acceptance remain distinct from these presentation changes.

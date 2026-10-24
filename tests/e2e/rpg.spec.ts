@@ -1,3 +1,4 @@
+import { installTeachingSkip } from './helpers/teaching-skip';
 import { expect, test, type Page, type TestInfo } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { buildGuided } from './helpers/guided-build';
@@ -9,6 +10,10 @@ test.use({
     args: ['--use-gl=angle', '--use-angle=swiftshader', '--enable-unsafe-swiftshader'],
   },
 });
+test.beforeEach(async ({ page }) => {
+  await installTeachingSkip(page);
+});
+
 test.setTimeout(180_000);
 test.describe.configure({ mode: 'default' });
 async function capture(page: Page, info: TestInfo, label: string) {

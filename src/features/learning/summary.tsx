@@ -1,6 +1,7 @@
 import { nb } from '@/content/nb';
 import { objectiveIds } from '@/domain/curriculum/manifest';
 import { useLearning } from './provider';
+import { CurriculumTrail } from './curriculum-trail';
 const t = nb.foundations;
 export function LearningSummary() {
   const { facts } = useLearning();
@@ -10,6 +11,11 @@ export function LearningSummary() {
         {facts.guidedComplete ? t.guidedComplete : t.incomplete}
       </h3>
       <p>{t.evidenceHint}</p>
+      <p>
+        {nb.official.computing} · {nb.official.implemented}
+      </p>
+      <p>{nb.official.boundary}</p>
+      <CurriculumTrail />
       <dl>
         {objectiveIds.map((id) => (
           <div key={id}>

@@ -5,6 +5,7 @@ import { CommandDialog } from '@/components/command-dialog';
 import './learning.css';
 import { LearningDiagram } from './diagram';
 import { initialProbe } from '@/domain/curriculum/foundations';
+import { CurriculumTrail } from './curriculum-trail';
 const t = nb.foundations;
 export function KnowledgeJournal({
   unit,
@@ -21,6 +22,7 @@ export function KnowledgeJournal({
     <CommandDialog title={t.journal} onClose={onClose} wide>
       <div className="knowledge-journal">
         <p>{t.journalHint}</p>
+        <CurriculumTrail overview unit={unit} />
         <label>
           {t.module}
           <select
@@ -36,7 +38,9 @@ export function KnowledgeJournal({
           </select>
         </label>
         <article key={unit} tabIndex={-1}>
-          <p className="eyebrow">{definition.objectives.join(' · ')}</p>
+          <p className="eyebrow">
+            {nb.official.unitLabel} · {definition.objectives.join(' · ')}
+          </p>
           <h3>{c.title}</h3>
           <LearningDiagram
             unit={unit}
