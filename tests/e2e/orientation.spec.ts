@@ -1,3 +1,4 @@
+import { installTeachingSkip } from './helpers/teaching-skip';
 import { expect, test, type Page, type TestInfo } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { nb } from '../../src/content/nb';
@@ -17,6 +18,10 @@ test.use({
     args: ['--use-gl=angle', '--use-angle=swiftshader', '--enable-unsafe-swiftshader'],
   },
 });
+test.beforeEach(async ({ page }) => {
+  await installTeachingSkip(page);
+});
+
 test.setTimeout(180000);
 async function capture(page: Page, info: TestInfo, name: string) {
   if (await page.locator('.rpg-world[data-renderer="webgl"]').count())
@@ -86,7 +91,7 @@ test('canonical arrival, intentional walking, curriculum bridge, log, resume and
     timeout: 35000,
   });
   await page.getByRole('button', { name: /Snakk med Ida/ }).click();
-  await expect(page.locator('.rpg-dialogue-text')).toContainText('Foundations 01');
+  await expect(page.locator('.rpg-dialogue-text')).toContainText(nb.official.computing);
   await capture(page, info, 'npc-welcome');
   await page.getByRole('button', { name: t.bridge, exact: true }).click();
   await page
@@ -99,6 +104,7 @@ test('canonical arrival, intentional walking, curriculum bridge, log, resume and
   await page.keyboard.press('Tab');
   const evidenceSummary = page
     .locator('.expedition-log > details')
+    .filter({ has: page.getByText(t.evidence, { exact: true }) })
     .first()
     .locator('summary')
     .first();

@@ -1,5 +1,9 @@
 # G1 gameplay architecture
 
+## G1.3 sequence, cue and audio boundaries
+
+The same third-person world/director now consumes authored teaching-beat camera intent and temporary demo models. Independent model actions still dispatch the old story event; automatic examples never do. L1 teaching temporarily projects a registered example, then restores actual replayed probe state before interaction. Speaker anchors update from the existing projected eye position imperatively, not via React frame state. A shared native-dialog playback hook cancels timers on interruption, hidden page and nested journal/log; resume grants a fresh reading interval. One local AudioContext/loop is enabled explicitly, attenuated on hidden tabs and cleaned up on game unmount. [Engine specification](INSTRUCTIONAL_SEQUENCE_ENGINE.md) owns the finite contract.
+
 ## G1.2 entry, orientation and continuity
 
 RPG is now canonical from /. Historical SVG movement/history lives only under /legacy-expedition. The existing follow/cinematic director accepts a transient three-composition arrival index; skip/replay never changes pose, evidence or quest facts. A read-only selected destination drives a small marker and distance/direction output. Module/workshop actions first offer manual or interruptible assisted walking. The shared log can overlay dialogue/session/workbench and restore focus. Noor reads real unfinished/built findings even for experienced direct workbench entry. [Expedition progression](EXPEDITION_PROGRESSION.md) specifies authority and persistence; [player onboarding](PLAYER_ONBOARDING.md) specifies controls and review gates.

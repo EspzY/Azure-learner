@@ -1,5 +1,9 @@
 # Local curriculum and evidence architecture
 
+## G1.3 metadata overlay and narrative delivery
+
+The local hierarchy and 30 competency IDs are unchanged. domain/curriculum/official.ts records reviewed credential/path/module identity and explicit many-to-one mapping of six original investigations to the official eight-unit cloud module; no official lesson body is imported. UI uses exact English titles from nb.official with Bokmål explanation. Benefits is planned, service types partial. Local guided results do not claim Learn completion. Every existing purpose/mechanism/Azure/example/misconception/limit sentence is delivered by a versioned unit sequence as well as the journal; integrity tests compare the full manuscript, not word quotas. Sequence cursor/demo preferences are separate from replayed evidence. [Sequence engine](INSTRUCTIONAL_SEQUENCE_ENGINE.md) specifies implementation.
+
 ## G1.2 navigation consumes content evidence
 
 The Expedition Log reads learningFacts and existing Chapter01/story predicates; it cannot complete units or author its own rubric. Six unit states and seven objective observations remain distinct from journey destinations. Module re-entry retains active changed-task drafts and an unfinished last unit or next unfinished unit. Opening the log is orientation; journal/instruction assistance rules remain unchanged. [Progression](EXPEDITION_PROGRESSION.md) owns selection/persistence. The L1 manuscript, evaluators, source-review status and all existing teaching depth are preserved.

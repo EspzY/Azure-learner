@@ -77,3 +77,11 @@ Runtime contact correction and walking-rate calibration are documented in [gamep
 ## L1 original teaching geometry
 
 No external asset or registered binary changes. Demand/allocation/shortfall bars, deployment-boundary shapes and journal diagrams are original repo-native code driven by the bounded teaching model; they reuse the existing installation and local fonts/materials. The 26-GLB hash/license budget remains unchanged.
+
+## G1.3 original audio and teaching media — 2026-10-24
+
+Original procedural score **Lysningen**, creator AzureLab project: Dm9/Bbmaj7/Fmaj9/Cadd9 pads with periodic envelopes, authored and reproducible in [generate-ambient.mjs](../scripts/generate-ambient.mjs). No human performance, third-party samples, commercial game music or Microsoft illustration. The generated recording is explicitly dedicated under CC0 1.0, permitting public educational/workplace/commercial use; attribution appreciated, not required. [Local license](../public/game/audio/license.txt) and [hash/format manifest](../public/game/audio/manifest.json) are versioned. Included 2026-10-24, no modifications after synthesis other than metadata formatting.
+
+Runtime [lysningen.wav](../public/game/audio/lysningen.wav): 32 seconds, PCM16 mono 22,050 Hz, 1,411,244 bytes; decoded float buffer approximately 2.8 MB. Integer-cycle oscillators and periodic chord envelopes make the loop boundary continuous. Fetch/decode occurs only after explicit enable, not initial rendering. No decoder/streaming dependency; effects use a short original Web Audio tone. assets:check validates hash/RIFF/license/allowlist and <1.5 MB transfer. Native browser playback is tested; human listening/musical acceptance is outstanding.
+
+Provisioning flow, responsibility matrix, deployment comparison and synthetic timelines are original HTML/SVG/scene projections of reviewed local rules. No external image is downloaded, traced or hotlinked. Existing 26 GLBs and character/texture licenses/hashes are unchanged.

@@ -1,5 +1,9 @@
 # Learning design
 
+## G1.3 connected explanations and demonstrations
+
+The guide leads explanations rather than requiring the learner to ask the right question. Complete original concept/mechanism/Azure/example/misconception/limit sections unfold in reading-aware beats; original flow, responsibility and capacity/topology illustrations explain the current text. Existing deliberate experiments/questions and first changed-task submission remain the evidence. Auto-demonstrated IaaS/PaaS/SaaS changes are visibly authored examples and do not satisfy the learner comparison predicate. Playback can pause, revisit, skip or switch to manual without awards. [Instructional sequence engine](INSTRUCTIONAL_SEQUENCE_ENGINE.md) owns timing/accessibility, while human comprehension/reading-pace review remains unperformed.
+
 ## G1.2 instructional orientation
 
 Before investigations, the learner now receives purpose, expected predict/change/observe/explain actions, recording rules and the distinction between the six guided units and a separate changed task. Ida supplies the learning context; Noor connects it to technical work. Return/debrief reads actual findings, preserving guided/independent boundaries. The log restores the thread without replaying completed teaching; manual and experienced entry stay available. [Onboarding](PLAYER_ONBOARDING.md) defines the unperformed novice/engineer review exercises. Existing L1 theory, original assessments and Azure rules are unchanged.

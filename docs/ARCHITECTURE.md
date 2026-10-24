@@ -1,5 +1,9 @@
 # Architecture
 
+## G1.3 instructional presentation
+
+domain/instruction contains only finite beat/cue/pacing and presentation-preference contracts. content/instruction binds the original nb manuscript to stable sequence/beat/objective/source IDs. The shared playback hook owns a transient cursor, cancellation and history; the existing cinematic director and pure teaching model project its cues. There are no learning/quest writes in playback or scene frames. Domain engines and six prior stores remain. Game owns a single PresentationProvider/audio lifecycle and an isolated seventh UI preference, cleared by the existing all-data action. [Instructional engine](INSTRUCTIONAL_SEQUENCE_ENGINE.md) owns lifecycle, official metadata and review limits.
+
 ## G1.2 canonical entry and read-only journey projection
 
 The server root redirects once to /expedition-3d; /legacy-expedition retains historical route state and regression logic. Existing providers/renderers are not duplicated. domain/rpg/expedition derives log/recommendations from the five validated stores; OrientationStore persists only versioned introduction/goal preferences. Arrival shots, waypoint/distance cues and assisted walking remain presentation, never evidence. [Progression contracts](EXPEDITION_PROGRESSION.md) define prioritization, goal handoff and six-key deletion; [onboarding](PLAYER_ONBOARDING.md) defines agency/fallback. No new dependency or Azure rule.

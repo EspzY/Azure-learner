@@ -1,3 +1,4 @@
+import { installTeachingSkip } from './helpers/teaching-skip';
 import { expect, test, type Page, type TestInfo } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 test.use({
@@ -7,6 +8,10 @@ test.use({
     args: ['--use-gl=angle', '--use-angle=swiftshader', '--enable-unsafe-swiftshader'],
   },
 });
+test.beforeEach(async ({ page }) => {
+  await installTeachingSkip(page);
+});
+
 test.setTimeout(180000);
 async function shot(page: Page, info: TestInfo, name: string, intent: string) {
   const world = page.locator('.rpg-world');

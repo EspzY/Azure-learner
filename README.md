@@ -1,5 +1,9 @@
 # AzureLab
 
+## G1.3 — living teaching candidate
+
+The canonical RPG now presents the reviewed Microsoft Certified: Azure Fundamentals → Introduction to Cloud Infrastructure: Describe cloud concepts → Describe cloud computing hierarchy, while retaining AzureLab's original six investigations. Ida and Noor lead reading-time-aware sequences with pause/manual/speed/history controls and synchronized original diagrams/responsibility/capacity projections. The journal remains a reference, not the only source of essential mechanisms. Benefits is planned and service types partial; no Microsoft completion or certification is awarded. Optional original local ambient music requires explicit enable. [Sequence contracts](docs/INSTRUCTIONAL_SEQUENCE_ENGINE.md), [source review](docs/SOURCE_REGISTER.md) and [actual verification](docs/PROJECT_STATUS.md) distinguish implementation from human review. No simulation rule, old save or award migration.
+
 ## G1.2 — coherent RPG entry candidate
 
 Open /: it canonically redirects to /expedition-3d. Arrive in Lysningen, meet Ida, investigate the existing Foundations 01 module, compare operational responsibility, receive Noor's practical assignment and return from the real guided workbench. **Ekspedisjonslogg** connects actual learning observations and technical findings to a next destination; manual and interruptible assisted walking are explicit choices. Returning players keep all prior work and receive factual continuation context. Experienced direct entry grants no prerequisite evidence.
@@ -99,4 +103,4 @@ Read [AGENTS.md](AGENTS.md), [experience design](docs/EXPERIENCE_DESIGN.md), [ar
 
 ## License
 
-No distribution license has been selected; public visibility does not grant a general reuse license. Microsoft materials/trademarks and dependencies retain their respective terms. Our teaching copy and questions are original; external sources are referenced, not imported.
+No general distribution license has been selected; public visibility does not grant a general reuse license. Microsoft materials/trademarks and dependencies retain their respective terms. Our teaching copy and questions are original; external sources are referenced, not imported. The original ambient audio has a file-specific CC0 dedication, recorded alongside the existing licensed game assets in the [asset register](docs/ASSET_REGISTER.md); this does not license the application source.

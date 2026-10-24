@@ -1,6 +1,6 @@
 'use client';
 import './cinematic-dialogue.css';
-import { useEffect, useId, useRef, useState } from 'react';
+import { useEffect, useId, useMemo, useRef, useState } from 'react';
 import { ArrowLeft, ArrowUpRight, BookOpen, X } from 'lucide-react';
 import { nb } from '@/content/nb';
 import {
@@ -13,6 +13,11 @@ import {
 import { dialogue, type NodeId, type Choice } from '@/domain/rpg/story';
 import type { PlayerRuntime } from './runtime';
 import { useLearning } from '@/features/learning/provider';
+import { sequenceForNode } from '@/content/instruction';
+import { cueRegistry } from '@/domain/instruction/cues';
+import { conversationShot } from './cinematics';
+import { InstructionControls, InstructionIllustration, useInstruction } from './instruction';
+import { CurriculumTrail } from '@/features/learning/curriculum-trail';
 
 const t = nb.rpg;
 export function CinematicDialogue({
@@ -28,6 +33,9 @@ export function CinematicDialogue({
   onLog,
   onDirectEntry,
   recommendFoundations,
+  blocked,
+  onDemonstration,
+  spatial,
 }: {
   node: NodeId;
   model: ServiceModel;
@@ -47,28 +55,80 @@ export function CinematicDialogue({
   onLog: () => void;
   onDirectEntry?: () => void;
   recommendFoundations: boolean;
+  blocked: boolean;
+  onDemonstration: (model: ServiceModel | null) => void;
+  spatial: boolean;
 }) {
-  const { openJournal } = useLearning();
+  const { openJournal, journalOpen } = useLearning();
   const dialog = useRef<HTMLDialogElement>(null);
   const content = useRef<HTMLDivElement>(null);
   const [journal, setJournal] = useState(false);
   const [large, setLarge] = useState(false);
+  const [shortHeight, setShortHeight] = useState(false);
   const [layer, setLayer] = useState<Layer>('os');
   const title = useId(),
     subtitle = useId();
   const speaker = dialogue[node].speaker;
+  const sequence = useMemo(() => sequenceForNode(node), [node]);
+  const instruction = useInstruction(sequence, blocked || journal || journalOpen, node);
+  const beat = instruction.beat;
+  const curriculumModule =
+    sequence?.module ??
+    (speaker === 'guide'
+      ? node === 'guide-welcome' || node === 'guide-expert'
+        ? 'computing'
+        : 'services'
+      : 'technical');
+  const bubble =
+    spatial && !shortHeight && !!beat && beat.kind === 'opening' && beat.text.length < 175;
+  const choices =
+    node === 'engineer-offer'
+      ? [
+          ...dialogue[node].choices,
+          ...dialogue['engineer-brief'].choices.filter((c) => c.id === 'accept'),
+        ]
+      : dialogue[node].choices;
   const foundationsEntry =
     speaker === 'guide' &&
     recommendFoundations &&
     (node === 'guide-welcome' || node === 'guide-expert');
-  const spoken =
-    node === 'guide-welcome' && recommendFoundations
-      ? nb.orientation.welcomeIda
-      : node === 'guide-expert' || node === 'guide-welcome'
-        ? nb.orientation.returnIda
-        : node in t.spoken
-          ? t.spoken[node as keyof typeof t.spoken]
-          : t.dialogue[node];
+  const spoken = beat
+    ? beat.text
+    : sequence && node !== 'guide-purpose'
+      ? node === 'guide-welcome'
+        ? nb.teaching.chooseActivity
+        : sequence.beats.at(-1)!.text
+      : node === 'guide-welcome' && recommendFoundations
+        ? nb.orientation.welcomeIda
+        : node === 'guide-expert' || node === 'guide-welcome'
+          ? nb.orientation.returnIda
+          : node in t.spoken
+            ? t.spoken[node as keyof typeof t.spoken]
+            : t.dialogue[node];
+  useEffect(() => {
+    const media = matchMedia('(max-height: 550px)');
+    const update = () => setShortHeight(media.matches);
+    update();
+    media.addEventListener('change', update);
+    return () => media.removeEventListener('change', update);
+  }, []);
+  useEffect(() => {
+    const base = conversationShot(node, speaker);
+    runtime.direct(
+      beat
+        ? {
+            ...base,
+            intent: beat.camera,
+            focusSpeaker: beat.camera !== 'demonstration',
+            framing: beat.camera === 'demonstration' ? 'learning' : 'side-dialogue',
+          }
+        : base,
+    );
+    const cue = beat?.cue ? cueRegistry[beat.cue] : null;
+    onDemonstration(cue?.model ?? null);
+    if (!journal) runtime.inspect(cue?.model ? 'os' : null);
+    return () => onDemonstration(null);
+  }, [node, speaker, beat, runtime, onDemonstration, journal]);
   useEffect(() => {
     const el = dialog.current;
     el?.showModal();
@@ -82,9 +142,17 @@ export function CinematicDialogue({
   }, []);
   useEffect(() => {
     dialog.current
-      ?.querySelector<HTMLElement>(journal ? '[data-return]' : '[data-choice]:not(:disabled)')
+      ?.querySelector<HTMLElement>(
+        journal
+          ? '[data-return]'
+          : beat
+            ? '.instruction-transport button:not(:disabled)'
+            : '[data-choice]:not(:disabled)',
+      )
       ?.focus();
-  }, [node, journal]);
+    // Focus does not follow each automatically advancing explanation.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [node, journal, !!beat]);
   useEffect(() => {
     const el = content.current;
     if (!el) return;
@@ -108,7 +176,7 @@ export function CinematicDialogue({
   return (
     <dialog
       ref={dialog}
-      className={`cinematic-dialogue ${large ? 'cinematic-large' : ''}`}
+      className={`cinematic-dialogue ${large ? 'cinematic-large' : ''} ${beat ? 'cinematic-teaching' : ''}`}
       aria-labelledby={title}
       aria-describedby={subtitle}
       onCancel={(e) => {
@@ -121,7 +189,9 @@ export function CinematicDialogue({
       onKeyDown={(e) => {
         e.stopPropagation();
         const controls = Array.from(
-          e.currentTarget.querySelectorAll<HTMLElement>('button:not(:disabled), a[href], select'),
+          e.currentTarget.querySelectorAll<HTMLElement>(
+            'button:not(:disabled), a[href], select, input, summary, [tabindex="0"]',
+          ),
         ).filter((el) => el.getClientRects().length > 0);
         if (e.key === 'Tab') {
           const first = controls[0],
@@ -153,6 +223,17 @@ export function CinematicDialogue({
       <div className="cinematic-topline">
         <span>{speaker === 'system' ? t.cinematic.system : t.cinematic.conversation}</span>
         <div>
+          {beat && (
+            <button
+              type="button"
+              data-pause
+              aria-label={instruction.cursor.paused ? nb.teaching.resume : nb.teaching.pause}
+              title={instruction.cursor.paused ? nb.teaching.resume : nb.teaching.pause}
+              onClick={() => instruction.act({ type: 'pause' })}
+            >
+              {instruction.cursor.paused ? '▶' : 'Ⅱ'}
+            </button>
+          )}
           <button
             type="button"
             className="cinematic-type"
@@ -167,6 +248,13 @@ export function CinematicDialogue({
           </button>
         </div>
       </div>
+      {beat && spatial && (
+        <div className="speaker-anchor" aria-hidden="true" data-bubble={String(bubble)}>
+          <span>
+            {bubble ? beat.text : `${t.speakers[speaker]} · ${nb.teaching.category[beat.kind]}`}
+          </span>
+        </div>
+      )}
       <div
         ref={content}
         className={`cinematic-content rpg-dialogue ${node === 'installation' ? 'cinematic-workshop' : ''}`}
@@ -178,10 +266,15 @@ export function CinematicDialogue({
             {t.speakers[speaker]}
             <span>{t.roles[speaker]}</span>
           </h2>
-          <p className="rpg-dialogue-text" id={subtitle} aria-live="polite" aria-atomic="true">
+          <p
+            className={`rpg-dialogue-text ${bubble ? 'rpg-sr' : ''}`}
+            id={subtitle}
+            aria-live={instruction.preferences.manual ? 'polite' : 'off'}
+            aria-atomic="true"
+          >
             {spoken}
           </p>
-          {node === 'installation' && (
+          {node === 'installation' && !beat && (
             <>
               <div className="rpg-models" role="group" aria-label={t.installationTitle}>
                 {serviceModels.map((m) => (
@@ -204,6 +297,17 @@ export function CinematicDialogue({
             <BookOpen size={15} />
             {t.detail}
           </button>
+          <InstructionControls state={instruction} />
+          {beat && (
+            <div className="instruction-references">
+              <button type="button" className="cinematic-reference" onClick={() => openJournal()}>
+                {nb.foundations.journal}
+              </button>
+              <button type="button" className="cinematic-reference" onClick={onLog}>
+                {nb.orientation.log}
+              </button>
+            </div>
+          )}
         </div>
         {journal ? (
           <section className="cinematic-journal" aria-label={t.cinematic.journal}>
@@ -272,6 +376,16 @@ export function CinematicDialogue({
               <ArrowUpRight size={14} />
             </a>
           </section>
+        ) : beat ? (
+          <div className="cinematic-teaching-visual">
+            <InstructionIllustration
+              cue={beat.cue}
+              onInspect={() => {
+                if (!instruction.cursor.paused) instruction.act({ type: 'pause' });
+              }}
+            />
+            <CurriculumTrail module={curriculumModule} />
+          </div>
         ) : (
           <div className="cinematic-responses">
             {foundationsEntry && (
@@ -288,7 +402,7 @@ export function CinematicDialogue({
             )}
             <p className="cinematic-response-label">{t.cinematic.response}</p>
             <div className="rpg-choices">
-              {dialogue[node].choices.map((choice, i) => (
+              {choices.map((choice, i) => (
                 <button
                   type="button"
                   data-choice

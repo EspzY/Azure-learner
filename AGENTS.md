@@ -25,6 +25,8 @@ Read README.md, docs/PROJECT_STATUS.md and relevant existing architecture, exper
 
 For cinematic game work, read GAMEPLAY_ARCHITECTURE, GAME_WORLD_DESIGN and NPC_DIALOGUE_DESIGN. Keep authored shot direction and dialogue presentation independent of quest/technical truth; no camera/animation/inspection rewards. Preserve native focus/inert semantics, semantic fallback and original explanation depth. Review actual two-character, shoulder, close-up, workshop, return and mobile/short-height captures; document source asset limits separately from presentation quality.
 
+For living teaching/media work, read docs/INSTRUCTIONAL_SEQUENCE_ENGINE.md. Preserve full essential manuscript in guided delivery; exact official titles are a dated metadata overlay, never local Microsoft completion. Auto playback/camera/cues/audio cannot emit evidence or quest effects. Keep explicit questions/acceptance, pause/manual/history controls, interruption cancellation, semantic parity and all prior saves. Register local media provenance and test browser audio opt-in/cleanup. Human reading pace, SME, audio/art and learning review remain separate from tests.
+
 ## Required verification
 
 Content changes must follow docs/CONTENT_STANDARDS.md: audit actual coverage, author the manuscript before presentation, map objective/activity/source IDs, and distinguish guided completion, first unaided task observations and human SME review. All learner-facing material remains in src/content/nb.ts. Never mark SME review from automated checks. Run npm run curriculum:check for content or activity changes; maintain the manifest, manuscript and coverage audit with the implementation. Preserve old saves/awards and explicitly version new module evidence.

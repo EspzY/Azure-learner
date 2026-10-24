@@ -1,5 +1,9 @@
 # Content authoring and acceptance contract
 
+## G1.3 continuous-teaching refinement
+
+Essential explanations must be encountered in the guided sequence, not hidden behind optional notes. Bind complete manuscript sections to readable beats, meaningful reviewed cues and explicit action boundaries. Reading speed, skipping, animation or timer completion cannot submit practice, answer a question, accept a quest or imply mastery. Offer pause/manual/history and semantic access; source-review exact official names and distinguish them from original AzureLab investigations. The existing first-submission/help/retry and human SME gates remain unchanged. [Instructional engine](INSTRUCTIONAL_SEQUENCE_ENGINE.md) supersedes optional-notes-only delivery, not substantive content.
+
 L1 / 1.0.0 / 2026-10-23. Applies to future conceptual and technical modules, including specialist tracks. [Content architecture](CONTENT_ARCHITECTURE.md) owns executable contracts; [coverage](CURRICULUM_COVERAGE.md) owns the audit. An NPC quest is a presentation, not a curriculum unit.
 
 ## Required manuscript before presentation code

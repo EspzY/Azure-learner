@@ -1,5 +1,5 @@
 'use client';
-import { useEffect, useId, useRef, useState } from 'react';
+import { useCallback, useEffect, useId, useMemo, useRef, useState } from 'react';
 import { nb } from '@/content/nb';
 import { unitIds, units, type UnitId } from '@/domain/curriculum/manifest';
 import {
@@ -15,6 +15,14 @@ import { LearningDiagram } from './diagram';
 import { TransferAssessment } from './transfer';
 import { LearningSummary } from './summary';
 import './learning.css';
+import { unitSequence } from '@/content/instruction';
+import { cueRegistry } from '@/domain/instruction/cues';
+import {
+  InstructionControls,
+  InstructionIllustration,
+  useInstruction,
+} from '@/features/rpg/instruction';
+import { CurriculumTrail } from './curriculum-trail';
 const t = nb.foundations;
 export interface LearningProjection {
   unit: UnitId | 'brief';
@@ -38,19 +46,42 @@ export function FoundationsSession({
   onProject,
   onLog,
   initialUnit,
+  blocked = false,
 }: {
   runtime: PlayerRuntime;
   onClose: () => void;
   onProject: (p: LearningProjection | null) => void;
   onLog?: () => void;
   initialUnit?: UnitId;
+  blocked?: boolean;
 }) {
-  const { save, store, ready, issue, facts, openJournal } = useLearning();
+  const { save, store, ready, issue, facts, openJournal, journalOpen } = useLearning();
   const [unit, setUnit] = useState<UnitId>(initialUnit ?? save.unit);
   const [view, setView] = useState<'study' | 'transfer' | 'summary'>(
     facts.active ? 'transfer' : 'study',
   );
   const [reset, setReset] = useState(false);
+  const sequence = useMemo(() => unitSequence(unit), [unit]);
+  const instruction = useInstruction(
+    sequence,
+    blocked || journalOpen || reset || view !== 'study',
+    unit,
+  );
+  const beat = view === 'study' ? instruction.beat : null;
+  const [actualProjection, setActualProjection] = useState<LearningProjection | null>(null);
+  const projectActual = useCallback((p: LearningProjection | null) => setActualProjection(p), []);
+  useEffect(() => {
+    const cue = beat?.cue ? cueRegistry[beat.cue] : null;
+    onProject(
+      view !== 'study'
+        ? null
+        : cue?.unit && cue.input
+          ? { unit: cue.unit, input: cue.input }
+          : beat
+            ? null
+            : actualProjection,
+    );
+  }, [beat, actualProjection, view, onProject]);
   const dialog = useRef<HTMLDialogElement>(null),
     panel = useRef<HTMLDivElement>(null);
   const title = useId();
@@ -86,8 +117,14 @@ export function FoundationsSession({
     };
   }, [runtime]);
   useEffect(() => {
-    dialog.current?.querySelector<HTMLElement>('[data-lesson-focus]')?.focus();
-  }, [unit, view]);
+    dialog.current
+      ?.querySelector<HTMLElement>(
+        beat ? '.instruction-transport button:not(:disabled)' : '[data-lesson-focus]',
+      )
+      ?.focus();
+    // Automatic beat advancement must not steal focus.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [unit, view, !!beat]);
   function transfer() {
     if (!facts.active && !store.event({ kind: 'begin-transfer' })) return;
     setView('transfer');
@@ -97,7 +134,7 @@ export function FoundationsSession({
   return (
     <dialog
       ref={dialog}
-      className="cinematic-dialogue learning-dialogue"
+      className={`cinematic-dialogue learning-dialogue ${beat ? 'learning-speaking' : ''}`}
       aria-labelledby={title}
       onCancel={(e) => {
         e.preventDefault();
@@ -108,7 +145,7 @@ export function FoundationsSession({
         if (e.key !== 'Tab') return;
         const controls = Array.from(
           e.currentTarget.querySelectorAll<HTMLElement>(
-            'button:not(:disabled),a[href],input,select',
+            'button:not(:disabled),a[href],input,select,summary,[tabindex="0"]',
           ),
         ).filter((n) => n.getClientRects().length > 0);
         const first = controls[0],
@@ -124,6 +161,17 @@ export function FoundationsSession({
     >
       <div className="cinematic-topline">
         <span>{t.module}</span>
+        {beat && (
+          <button
+            type="button"
+            data-pause
+            aria-label={instruction.cursor.paused ? nb.teaching.resume : nb.teaching.pause}
+            title={instruction.cursor.paused ? nb.teaching.resume : nb.teaching.pause}
+            onClick={() => instruction.act({ type: 'pause' })}
+          >
+            {instruction.cursor.paused ? '▶' : 'Ⅱ'}
+          </button>
+        )}
         {onLog && (
           <button type="button" onClick={onLog}>
             {nb.orientation.log}
@@ -136,20 +184,25 @@ export function FoundationsSession({
       <div ref={panel} className="learning-content" data-learning-unit={unit}>
         <section className="learning-narration">
           <p className="eyebrow">
-            {nb.rpg.speakers.guide} · {units.find((u) => u.id === unit)!.objectives.join(' / ')}
+            {nb.official.unitLabel} · {nb.rpg.speakers.guide} ·{' '}
+            {units.find((u) => u.id === unit)!.objectives.join(' / ')}
           </p>
           <h2 id={title}>
             {view === 'study' ? c.title : view === 'transfer' ? t.transfer : t.summary}
           </h2>
           <p>
             {view === 'study'
-              ? latest
-                ? t.observations[observationKey(unit, latest.input)]
-                : c.spoken
+              ? beat
+                ? beat.text
+                : latest
+                  ? t.observations[observationKey(unit, latest.input)]
+                  : c.spoken
               : view === 'transfer'
                 ? t.transferRules
                 : t.evidenceHint}
           </p>
+          {view === 'study' && <InstructionControls state={instruction} />}
+          <CurriculumTrail unit={unit} />
           <button type="button" className="cinematic-reference" onClick={() => openJournal(unit)}>
             {t.journal}
           </button>
@@ -168,9 +221,23 @@ export function FoundationsSession({
               </button>
             </aside>
           )}
-          {ready && view === 'study' && (
-            <UnitInvestigation key={unit} unit={unit} onProject={onProject} />
-          )}
+          {ready &&
+            view === 'study' &&
+            (beat ? (
+              <>
+                <InstructionIllustration
+                  cue={beat.cue}
+                  onInspect={() => {
+                    if (!instruction.cursor.paused) instruction.act({ type: 'pause' });
+                  }}
+                />
+                <button type="button" onClick={() => instruction.act({ type: 'skip' })}>
+                  {nb.teaching.interaction}
+                </button>
+              </>
+            ) : (
+              <UnitInvestigation key={unit} unit={unit} onProject={projectActual} />
+            ))}
           {ready && view === 'transfer' && <TransferAssessment />}
           {view === 'summary' && <LearningSummary />}
           <nav aria-label={t.module} className="learning-navigation">

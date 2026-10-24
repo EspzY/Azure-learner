@@ -1,5 +1,9 @@
 # G1.2 — expedition progression and log
 
+## G1.3 presentation-only additions
+
+Exact official path/module titles now accompany the original local route; Lysningen remains the location and future path modules are honestly planned/partial. The log's evidence projection and all recommendation predicates are unchanged. Auto speech, skipped teaching, replay/history, visual cues and audio never create model/probe/answer/accept/report observations. Only deliberate existing actions do so. A separate presentation preference adds reading/music choices, not a seventh learning store. [Instructional engine](INSTRUCTIONAL_SEQUENCE_ENGINE.md) owns this distinction.
+
 Implemented candidate, 2026-10-24. [Player onboarding](PLAYER_ONBOARDING.md) owns narrative and first-time UX. This is an orientation projection over existing evidence, not another quest engine or curriculum catalogue.
 
 ## Current route and availability

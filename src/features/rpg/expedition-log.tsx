@@ -10,6 +10,7 @@ import { LearningSummary } from '@/features/learning/summary';
 import { useProgress } from '@/components/progress-provider';
 import { totalXp } from '@/domain/progression';
 import './orientation.css';
+import { CurriculumTrail } from '@/features/learning/curriculum-trail';
 const t = nb.orientation;
 export function ExpeditionLog({
   onClose,
@@ -38,6 +39,16 @@ export function ExpeditionLog({
         {preferenceIssue && <p role="status">{t.prefIssue}</p>}
         <h3>{t.chapter}</h3>
         <p>{t.premise}</p>
+        <CurriculumTrail
+          overview
+          module={
+            detail === 'service'
+              ? 'services'
+              : ['assignment', 'infrastructure', 'debrief'].includes(detail)
+                ? 'technical'
+                : 'computing'
+          }
+        />
         <div className="expedition-route">
           <nav aria-label={t.chapter}>
             {journeyGoals.map((id, i) => (

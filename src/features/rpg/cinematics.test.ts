@@ -63,6 +63,36 @@ describe('bounded cinematic direction', () => {
       }
     },
   );
+  it('can return from a teaching demonstration to the actual distant speaker', () => {
+    const pose = { ...places.installation.approach, yaw: 0 };
+    const plan = planShot(
+      pose,
+      'installation',
+      { ...conversationShot('installation', 'guide'), intent: 'speaker-close', focusSpeaker: true },
+      1440,
+      960,
+    );
+    expect(plan.intent).toBe('speaker-close');
+    expect(plan.speaker).toBe('guide');
+    expect(plan.playerVisible).toBe(false);
+  });
+  it('reserves the right-hand teaching column in short landscape', () => {
+    const pose = { ...places.engineer.approach, yaw: 0 };
+    const shot = planShot(
+      pose,
+      'engineer',
+      { ...conversationShot('engineer-offer', 'engineer'), framing: 'side-dialogue' },
+      844,
+      390,
+      0.3,
+    );
+    const camera = new PerspectiveCamera(48, 844 / 390, 0.1, 140);
+    camera.position.copy(shot.eye);
+    camera.lookAt(shot.target);
+    camera.updateMatrixWorld();
+    expect(projectPoint(actorEye(places.engineer), camera).x).toBeLessThan(0.43);
+    expect(projectPoint(actorEye(pose), camera).x).toBeGreaterThan(0.06);
+  });
   it('uses installation focus instead of inventing an NPC relocation; return preserves pose', () => {
     const pose = { ...places.installation.approach, yaw: 0 };
     const plan = planShot(

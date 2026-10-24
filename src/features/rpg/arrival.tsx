@@ -4,6 +4,7 @@ import { nb } from '@/content/nb';
 import type { PlayerRuntime } from './runtime';
 import { useExpeditionFacts } from './use-expedition';
 import type { JourneyGoal, expeditionFacts } from '@/domain/rpg/expedition';
+import { CurriculumTrail } from '@/features/learning/curriculum-trail';
 const t = nb.orientation;
 export function Arrival({
   runtime,
@@ -38,6 +39,18 @@ export function Arrival({
         </p>
         <h2>{returning ? t.returning : c.title}</h2>
         <p aria-live="polite">{returning ? resumeText(facts) : c.text}</p>
+        {!returning && (
+          <>
+            <p className="arrival-curriculum">
+              {nb.official.certification}
+              <br />
+              {nb.official.path}
+              <br />
+              {nb.official.moduleLabel}: {nb.official.computing}
+            </p>
+            <CurriculumTrail />
+          </>
+        )}
         {notice && (
           <p className="arrival-notice" role="alert">
             {notice}

@@ -1,5 +1,9 @@
 # G1.2 — arrival and player orientation
 
+## G1.3 official orientation and living conversation
+
+The skippable station/people/gateway arrival remains; it now names the official certification, first path and current module explicitly. Ida leads an original continuous welcome/provisioning sequence before meaningful activity choices. Pause, previous, replay, speed, manual mode, history and experienced skip remain presentation controls without evidence. Required mechanisms are taught in the RPG and original L1 sequence, not dependent on optional notes. The native log and journal interrupt safely. Official future module status and broader professional paths stay honest. The human first-time rubric below is still unperformed, not upgraded by new software tests.
+
 Implemented candidate, 2026-10-24. This document owns arrival, narrative, agency and first-time review; [progression contracts](EXPEDITION_PROGRESSION.md) own the read-only log projection. Human first-time usability acceptance remains outstanding.
 
 ## Diagnosis
