@@ -113,7 +113,8 @@ test('source-backed learning, real Portal creation, policy recovery, live graph 
     if (r.url().includes('/_next/static/') && r.url().endsWith('.js')) scripts.push(r.text());
   });
   page.on('request', (r) => {
-    if (!r.url().startsWith('http://127.0.0.1:3000')) external.push(r.url());
+    if (new URL(r.url()).origin !== new URL(info.project.use.baseURL!).origin)
+      external.push(r.url());
     if (/\/game\/|\.(glb|wav)(\?|$)/.test(r.url())) game.push(r.url());
   });
   page.on('pageerror', (e) => errors.push(e.message));

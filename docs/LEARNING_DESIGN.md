@@ -1,5 +1,9 @@
 # Learning design
 
+## 3.1B current module
+
+New learners begin with shop request→hardware/software→guest/host→provisioning before capacity. A worked hour does not expose the changed campaign result. Actions, guided explanations and changed-task first/help/retry are tracked under2.0.0, never inferred from old evidence. Later official outcomes retain substantive original theory/practice. The bridge uses the shared Portal and factual debrief. Human novice/SME/retention review remains outstanding.
+
 ## 3.1A prerequisite-first candidate — 2026-10-25
 
 Owner playtesting found that technical correctness did not establish beginner comprehension. The [audit](BEGINNER_LEARNING_AUDIT.md) grounds specific defects; the [blueprint](FOUNDATIONS_PEDAGOGY_BLUEPRINT.md) and [storyboard](FOUNDATIONS_31A_STORYBOARD.md) specify website request → physical computing → VM → provisioning → explained capacity → existing cloud objectives. Worked/practice/changed independent tasks remain distinct. The isolated proof evaluates presentation feasibility, not learning effectiveness. Existing manuscripts/evidence remain playable unchanged; full 3.1B implementation awaits separate instruction. Desktop-first supersedes earlier equal-priority mobile visual work; baseline accessibility and existing regressions remain.

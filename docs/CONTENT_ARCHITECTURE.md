@@ -1,5 +1,11 @@
 # Local curriculum and evidence architecture
 
+## 3.1B implemented content/evidence2.0.0
+
+Current course consumes `v2Bindings` in `domain/curriculum/foundations-v2.ts`: topics, S01–13, visuals, B01–B05/FC01–FC07/G01 and sources. `nb.foundationsV2` owns the complete prerequisite manuscript, causal checks and changed items. Later units preserve every purpose/mechanism/Azure/example/misconception/limit paragraph and term. The proof is no longer the delivery mechanism.
+
+`azurelab.learning.foundations.v2` pins schema2/content/model/rubric2.0.0. Replay recomputes observations; imported success flags are invalid. V1 stays separate. Request/inspection/memory/provision/capacity/check events distinguish exposure, action and explanation. The later evaluator runs only on v2-owned events. Assessment answers are drafted then committed together; first/help/retry remain. No XP/readiness/retention/SME status. [Handoff](FOUNDATIONS_31B_HANDOFF.md) specifies compatibility.
+
 ## 3.1A candidate, not a curriculum migration
 
 The isolated `/design/foundations-31a` proof uses localized copy, inline original SVG and a pure `domain/design-proof/capacity` calculator. It imports no learning-store hooks or command dispatch and is not registered as a curriculum activity. Existing root providers restore their stores; no new key/version/evidence/XP is written. Candidate prerequisite IDs B01–B05 do not become implemented official objectives. [Handoff](FOUNDATIONS_31B_HANDOFF.md) proposes explicit v1 preservation and separately versioned future observations; no mapper or v2 store exists yet. [Audit](BEGINNER_LEARNING_AUDIT.md) separates substantive authored coverage from inadequate beginner scaffolding.

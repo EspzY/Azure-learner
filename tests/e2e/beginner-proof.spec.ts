@@ -21,7 +21,7 @@ import { storageKey, totalXp } from '../../src/domain/progression';
 
 const t = nb.beginnerProof;
 test.use({ trace: 'on' });
-test('root exposes owner review above the fold and round-trip interaction preserves all saved evidence', async ({
+test('archived noindex proof remains isolated after ordinary-course integration', async ({
   page,
 }, info) => {
   test.skip(info.project.name !== 'desktop-chromium', 'Desktop-first review evidence.');
@@ -96,19 +96,9 @@ test('root exposes owner review above the fold and round-trip interaction preser
     await page.setViewportSize({ width: width!, height: height! });
     await page.goto('/');
     await expect(page).toHaveURL(/\/learn$/);
-    const entry = page.getByRole('complementary', { name: t.reviewTitle, exact: true });
-    const open = entry.getByRole('link', { name: t.reviewAction, exact: true });
-    await expect(entry).toContainText(t.reviewDescription);
-    await expect(open).toBeVisible();
-    const box = await open.boundingBox();
-    expect(box!.y).toBeGreaterThanOrEqual(0);
-    expect(box!.y + box!.height).toBeLessThanOrEqual(height!);
-    expect(await page.evaluate(() => scrollY)).toBe(0);
-    expect((await new AxeBuilder({ page }).analyze()).violations).toEqual([]);
-    await page.screenshot({ path: info.outputPath(`31a-review-landing-${width}.png`) });
+    await expect(page.getByRole('link', { name: t.reviewAction, exact: true })).toHaveCount(0);
     expect(await snapshot()).toBe(before);
-    await open.focus();
-    await page.keyboard.press('Enter');
+    await page.goto('/design/foundations-31a');
     await expect(page).toHaveURL(/\/design\/foundations-31a$/);
     await expect(page.locator('meta[name="robots"]')).toHaveAttribute('content', /noindex/);
     await page.getByRole('button', { name: t.send, exact: true }).click();
@@ -120,10 +110,10 @@ test('root exposes owner review above the fold and round-trip interaction preser
     expect(await snapshot()).toBe(before);
     await page.getByRole('link', { name: t.exit, exact: true }).click();
     await expect(page).toHaveURL(/\/learn$/);
-    await expect(page.getByRole('link', { name: t.reviewAction, exact: true })).toBeVisible();
+    await expect(page.getByRole('link', { name: t.reviewAction, exact: true })).toHaveCount(0);
     expect(await snapshot()).toBe(before);
     await page.reload();
-    await expect(page.getByRole('link', { name: t.reviewAction, exact: true })).toBeVisible();
+    await expect(page.getByRole('link', { name: t.reviewAction, exact: true })).toHaveCount(0);
     expect(await snapshot()).toBe(before);
   }
 });
@@ -231,7 +221,7 @@ test('proof supports keyboard, reduced motion, zoom and returns to the reviewabl
   await page.screenshot({ path: info.outputPath('31a-zoom.png'), fullPage: true });
   await page.getByRole('link', { name: t.exit, exact: true }).click();
   await expect(page).toHaveURL(/\/learn$/);
-  await expect(page.getByRole('link', { name: t.reviewAction, exact: true })).toBeVisible();
+  await expect(page.getByRole('link', { name: t.reviewAction, exact: true })).toHaveCount(0);
   await page.goto('/');
   await expect(page).toHaveURL(/\/learn$/);
 });

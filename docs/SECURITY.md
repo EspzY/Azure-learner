@@ -1,5 +1,11 @@
 # Security and privacy
 
+## 3.1B boundaries
+
+The isolated v2 record validates exact schema/content/model/rubric, choice, finite events/order, count600 and size220000 before replay. Corrupt/unsupported state is quarantined; stale tabs stop writes; denied storage is visible/memory-only. Per-version reset cannot delete other records; explicit global deletion clears v2 through its provider. Choice/origin/resume are not evidence. V1 schema, simulation rules and awards remain.
+
+Build details allow only a40-hex SHA and bounded branch from built-in Vercel metadata; absent when VERCEL_ENV is production. No secrets, environment dump, dependency, runtime API, auth or infrastructure change. Naming explains the existing Unicode-number discrepancy rather than silently altering validation.
+
 ## 3.1A design proof boundary
 
 `/design/foundations-31a` is discoverable from the course landing and remains `noindex`, **not access controlled or secret**. Its fictional in-memory calculator accepts only bounded finite inputs, uses no remote content/runtime API, and cannot dispatch simulation, assessment, XP or storage events. Existing root provider restoration is unchanged. No new assets, credentials, environment settings or dependencies. References open explicitly by learner action. Prototype state resets on reload; it cannot be promoted into learning evidence. Production stores/schemas and invalid-storage safeguards remain unchanged.

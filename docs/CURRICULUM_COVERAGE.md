@@ -1,5 +1,24 @@
 # Curriculum coverage audit
 
+## 3.1B — current learner-facing coverage
+
+Default computing implements the reviewed sequence. V1 remains labelled compatibility. No additional certification objective, Benefits, service or readiness score is claimed.
+
+| Outcome | Actual teaching/practice                                                          | Changed assessment2                                          |
+| ------- | --------------------------------------------------------------------------------- | ------------------------------------------------------------ |
+| B01–B03 | Request trace, server/software, CPU/RAM/storage/network/OS/app and causal choices | Supports reasoning, not separately certified                 |
+| B04     | Two guests share8 RAM units; over-budget rejected without mutation                | Finite host                                                  |
+| FC01    | Control/workload lanes, provisioning availability and limits                      | Provisioning versus Internet                                 |
+| FC02    | Defined work/hour,2/6 example,3/3/8/3 prediction,6→10 comparison + cause          | Changed1/7/4/2 at5: peak, unused intervals, allocation cause |
+| FC03    | Original manuscript/practice + nine-layer matrix                                  | Customer duties                                              |
+| FC04    | Original topology + offsite exclusive-private counterexample                      | Exclusive platform                                           |
+| FC05    | Three placements and requirement explanation                                      | Local integration                                            |
+| FC06    | Allocation/time before idle/release meter; full manuscript                        | Allocated versus traffic                                     |
+| FC07    | Full steady/uncertain practice, binding/interruption caveats                      | Uncertain use and commitment                                 |
+| G01     | Scope/location, actual naming form and shared technical lab                       | Existing service independent task separate                   |
+
+Checks verify bindings and behavior, not educational validity. SOURCE_REGISTER dates factual author cross-check. **Human SME, novice comprehension, retention and professional transfer reviews are unperformed.** Reading, guided correction and first task observations differ. None imply Microsoft completion. Wider30 competencies remain roadmap granularity.
+
 ## 3.1A scope and beginner-readiness correction — 2026-10-25
 
 L01/M02/CR01 were re-read: six cloud-computing outcomes/eight units, official first-path order unchanged; serverless remains an exam-overlay gap. Existing FC01–FC07 and ST01–ST04 manuscripts, practice and local task criteria are preserved. **No new official objective is implemented by 3.1A.** The [audit](BEGINNER_LEARNING_AUDIT.md) finds insufficient prerequisite scaffolding despite substantial authored coverage. Server/request/physical resources/VM/provisioning receive a candidate first-use graph and storyboard, not new module-completion claims. The isolated proof is unregistered, in-memory design review; it emits no assessment evidence. Human beginner, retention and Azure-SME review remain open. The wider30-competency roadmap and Benefits availability are unchanged.

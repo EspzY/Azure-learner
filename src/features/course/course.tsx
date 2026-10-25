@@ -29,7 +29,9 @@ import { PortalDialog } from '@/features/portal/shared';
 import { ArchitectureExplorer } from '@/features/portal/architecture';
 import { SavvyShark } from './savvy-shark';
 import { useCourse } from './provider';
-import { FoundationsReviewEntry } from './foundations-review';
+import { FoundationsV2 } from '@/features/learning/foundations-v2';
+import { useFoundationsV2 } from '@/features/learning/v2-provider';
+import { isV2Topic, v2Topics } from '@/domain/curriculum/foundations-v2';
 import '@/features/portal/portal.css';
 import './course.css';
 const c = nb.course;
@@ -44,18 +46,29 @@ export function Course({ module }: { module?: CourseModule }) {
     course = useCourse(),
     learning = useLearning(),
     services = usePortalLearning(),
-    chapter = useChapter();
+    chapter = useChapter(),
+    v2 = useFoundationsV2();
   const topic = module ? courseTopic(module, query.get('topic')) : 'overview';
+  const currentV2 = module === 'computing' && isV2Topic(topic);
+  const hasV1 = learning.save.events.length > 0;
+  const chooseVersion = currentV2 && hasV1 && v2.save.choice === null;
+  const computingEntry =
+    hasV1 && v2.save.choice === 'v1'
+      ? courseHref('computing', learning.facts.active ? 'assessment' : learning.save.unit)
+      : courseHref('computing', 'intro-request');
+  const labTopic =
+    (module === 'services' && topic === 'practice') ||
+    (module === 'computing' && topic === 'resource-bridge');
   const [journal, setJournal] = useState(false),
     [menu, setMenu] = useState(false);
   const labRef = useRef<HTMLElement>(null),
     debriefRef = useRef<HTMLElement>(null);
   useEffect(() => {
-    if (module && course.ready)
+    if (module && course.ready && !chooseVersion)
       course.store.update({ ...course.store.getSnapshot().save, resume: { module, topic } });
-  }, [module, topic, course.ready, course.store]);
+  }, [module, topic, course.ready, course.store, chooseVersion]);
   useEffect(() => {
-    if (!module && !journal) return;
+    if ((!module && !journal) || chooseVersion) return;
     if (services.facts.active) services.store.event({ kind: 'aid' });
     if (
       learning.facts.active &&
@@ -66,14 +79,22 @@ export function Course({ module }: { module?: CourseModule }) {
     module,
     topic,
     journal,
+    chooseVersion,
     services.facts.active,
     services.store,
     learning.facts.active,
     learning.store,
   ]);
+  useEffect(() => {
+    if (
+      v2.facts.active &&
+      (journal || (module && topic !== 'v2-assessment' && topic !== 'v2-summary'))
+    )
+      v2.store.event({ kind: 'aid' });
+  }, [v2.facts.active, v2.store, module, topic, journal]);
   const lab = labFacts(course.save.lab, chapter.attempt.engine, chapter.attemptNumber);
   useEffect(() => {
-    if (!course.ready || !chapter.ready || module !== 'services' || topic !== 'practice') return;
+    if (!course.ready || !chapter.ready || !labTopic) return;
     const scroll = () => {
       const activity = query.get('activity');
       if (activity === 'debrief' || activity === 'lab') {
@@ -90,21 +111,24 @@ export function Course({ module }: { module?: CourseModule }) {
       cancelAnimationFrame(frame);
       cancelAnimationFrame(settledFrame);
     };
-  }, [course.ready, chapter.ready, module, topic, lab.complete, query]);
+  }, [course.ready, chapter.ready, labTopic, lab.complete, query]);
   const preferredResume =
     course.save.resume ??
     (learning.save.events.length
       ? { module: 'computing' as const, topic: learning.save.unit }
       : null);
-  const resumeHref = services.facts.active
-    ? '/portal?area=challenge&course=1&module=services&topic=practice'
-    : learning.facts.active
-      ? courseHref('computing', 'assessment')
-      : preferredResume
-        ? preferredResume.module === 'services' && preferredResume.topic === 'practice'
-          ? courseLabHref(lab.complete)
-          : courseHref(preferredResume.module, preferredResume.topic)
-        : courseHref('computing', 'capacity');
+  const resumeHref = v2.facts.active
+    ? courseHref('computing', 'v2-assessment')
+    : services.facts.active
+      ? '/portal?area=challenge&course=1&module=services&topic=practice'
+      : learning.facts.active && v2.save.choice !== 'v2'
+        ? courseHref('computing', 'assessment')
+        : preferredResume
+          ? (preferredResume.module === 'services' && preferredResume.topic === 'practice') ||
+            (preferredResume.module === 'computing' && preferredResume.topic === 'resource-bridge')
+            ? courseLabHref(lab.complete, course.save.lab?.origin)
+            : courseHref(preferredResume.module, preferredResume.topic)
+          : computingEntry;
   const navigate = (area: PortalLocation['area'], change: Partial<PortalLocation> = {}) => {
     if (area === 'learn')
       router.push(courseHref(change.module ?? module ?? 'services', change.topic ?? topic));
@@ -118,7 +142,8 @@ export function Course({ module }: { module?: CourseModule }) {
         }),
       );
   };
-  const pathTopics: readonly string[] = module === 'computing' ? unitIds : topics;
+  const pathTopics: readonly string[] =
+    module === 'computing' ? (currentV2 ? v2Topics : unitIds) : topics;
   const index = pathTopics.indexOf(topic);
   const location = parseLocation(
     new URLSearchParams({ area: 'learn', module: module ?? 'services', topic }),
@@ -126,7 +151,8 @@ export function Course({ module }: { module?: CourseModule }) {
   const title = (m: CourseModule, t: string) =>
     m === 'services'
       ? nb.portal.lesson.sections[t as (typeof topics)[number]]?.title
-      : nb.foundations.units[t as (typeof unitIds)[number]]?.title;
+      : (nb.foundationsV2.topics[t as (typeof v2Topics)[number]]?.title ??
+        nb.foundations.units[t as (typeof unitIds)[number]]?.title);
   const begin = () => {
     if (services.facts.active) services.store.event({ kind: 'aid' });
     if (learning.facts.active) learning.store.event({ kind: 'aid' });
@@ -134,11 +160,16 @@ export function Course({ module }: { module?: CourseModule }) {
       course.save.lab && lab.verifiable
         ? course.save.lab
         : startLab(chapter.attempt.engine, chapter.attemptNumber);
-    if (course.store.update({ ...course.save, lab: session }))
+    if (
+      course.store.update({
+        ...course.save,
+        lab: { ...session, ...(module === 'computing' ? { origin: 'computing-v2' as const } : {}) },
+      })
+    )
       router.push('/portal?lab=web-platform&mode=guided&module=services&topic=practice');
   };
   return (
-    <div className="portal course-shell">
+    <div className={`portal course-shell ${currentV2 ? 'course-v2' : ''}`}>
       <a className="portal-skip" href="#course-main">
         {nb.shell.skip}
       </a>
@@ -190,10 +221,9 @@ export function Course({ module }: { module?: CourseModule }) {
                     {m.status === 'implemented' ? (
                       <Link
                         aria-current={module === m.id ? 'page' : undefined}
-                        href={courseHref(
-                          m.id as CourseModule,
-                          m.id === 'computing' ? 'capacity' : 'overview',
-                        )}
+                        href={
+                          m.id === 'computing' ? computingEntry : courseHref('services', 'overview')
+                        }
                         onClick={() => setMenu(false)}
                       >
                         {names[m.id]}
@@ -215,8 +245,17 @@ export function Course({ module }: { module?: CourseModule }) {
                             >
                               {title(module, t)}
                               {module === 'computing' &&
-                                learning.facts.observations[t as (typeof unitIds)[number]]
-                                  ?.guided && <Check size={14} aria-label={c.satisfied} />}
+                                (currentV2
+                                  ? v2.facts.guided(t as (typeof v2Topics)[number])
+                                  : learning.facts.observations[t as (typeof unitIds)[number]]
+                                      ?.guided) && (
+                                  <Check
+                                    size={14}
+                                    aria-label={
+                                      currentV2 ? nb.foundationsV2.practiced : c.satisfied
+                                    }
+                                  />
+                                )}
                             </Link>
                           </li>
                         ))}
@@ -245,19 +284,31 @@ export function Course({ module }: { module?: CourseModule }) {
               )}
             </div>
           )}
+          {v2.issue && (
+            <div className="course-storage" role="status">
+              <p>
+                {nb.foundationsV2.storage} ({v2.issue})
+              </p>
+              <button type="button" onClick={v2.store.load}>
+                {c.reload}
+              </button>
+              <button type="button" onClick={v2.store.clear}>
+                {nb.foundationsV2.reset}
+              </button>
+            </div>
+          )}
           {!module ? (
             <>
               <div className="course-intro">
                 <small>{c.eyebrow}</small>
                 <h1>{c.title}</h1>
-                <FoundationsReviewEntry />
                 <p>{c.intro}</p>
                 <div className="course-track">
                   <strong>{nb.official.certification}</strong>
                   <span>{nb.official.exam}</span>
                 </div>
                 <Link className="course-primary" href={resumeHref}>
-                  {services.facts.active || learning.facts.active
+                  {services.facts.active || learning.facts.active || v2.facts.active
                     ? nb.portal.continueChallenge
                     : preferredResume
                       ? c.resume
@@ -278,11 +329,23 @@ export function Course({ module }: { module?: CourseModule }) {
                         <h3>{names[m.id]}</h3>
                         <p>{c[m.id]}</p>
                         {m.id === 'computing' && (
-                          <p>
-                            {c.computingProgress}:{' '}
-                            {unitIds.filter((id) => learning.facts.observations[id].guided).length}{' '}
-                            / 6
-                          </p>
+                          <>
+                            <p>
+                              {c.computingProgress}:{' '}
+                              {v2Topics.filter((id) => v2.facts.guided(id)).length} / 11 ·{' '}
+                              {nb.foundationsV2.badge}
+                            </p>
+                            {hasV1 && (
+                              <p>
+                                {nb.foundationsV2.legacy} · {c.computingProgress}:{' '}
+                                {
+                                  unitIds.filter((id) => learning.facts.observations[id].guided)
+                                    .length
+                                }{' '}
+                                / 6
+                              </p>
+                            )}
+                          </>
                         )}
                         {m.id === 'services' && (
                           <p>
@@ -304,10 +367,11 @@ export function Course({ module }: { module?: CourseModule }) {
                       </div>
                       {m.status === 'implemented' && (
                         <Link
-                          href={courseHref(
-                            m.id as CourseModule,
-                            m.id === 'computing' ? 'capacity' : 'overview',
-                          )}
+                          href={
+                            m.id === 'computing'
+                              ? computingEntry
+                              : courseHref('services', 'overview')
+                          }
                           aria-label={`${c.open}: ${names[m.id]}`}
                         >
                           <ArrowRight size={24} />
@@ -335,7 +399,13 @@ export function Course({ module }: { module?: CourseModule }) {
                   {c.module} {module === 'computing' ? '01' : '03'} · {c.available}
                 </small>
                 <h1>{names[module]}</h1>
-                <p>{module === 'services' ? c.services : c.computing}</p>
+                <p>
+                  {module === 'services'
+                    ? c.services
+                    : currentV2
+                      ? nb.foundationsV2.intro
+                      : c.computing}
+                </p>
               </header>
               {services.facts.active && (
                 <p className="course-assessment-warning">
@@ -348,12 +418,59 @@ export function Course({ module }: { module?: CourseModule }) {
                   </button>
                 </p>
               )}
-              {module === 'services' ? (
+              {chooseVersion ? (
+                <section className="course-version-choice">
+                  <h2>{nb.foundationsV2.chooseTitle}</h2>
+                  <p>{nb.foundationsV2.chooseText}</p>
+                  {learning.facts.active && <p>{nb.foundationsV2.activeWarning}</p>}
+                  <button
+                    type="button"
+                    onClick={() => {
+                      v2.store.choose('v1');
+                      router.push(
+                        courseHref(
+                          'computing',
+                          learning.facts.active ? 'assessment' : learning.save.unit,
+                        ),
+                      );
+                    }}
+                  >
+                    {nb.foundationsV2.keepV1}
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      if (learning.facts.active) learning.store.event({ kind: 'aid' });
+                      v2.store.choose('v2');
+                      router.push(courseHref('computing', 'intro-request'));
+                    }}
+                  >
+                    {nb.foundationsV2.startV2}
+                  </button>
+                </section>
+              ) : module === 'computing' && currentV2 ? (
+                <FoundationsV2 key={topic} topic={topic} />
+              ) : module === 'services' ? (
                 <ServicesWorkspace location={location} navigate={navigate} course />
               ) : (
-                <FoundationsWorkspace location={location} navigate={navigate} />
+                <>
+                  <section className="course-legacy-note">
+                    <strong>{nb.foundationsV2.legacy}</strong>
+                    <p>{nb.foundationsV2.legacyNote}</p>
+                    {learning.facts.active && <p>{nb.foundationsV2.activeWarning}</p>}
+                    <button
+                      onClick={() => {
+                        v2.store.choose('v2');
+                        router.push(courseHref('computing', 'intro-request'));
+                      }}
+                    >
+                      {nb.foundationsV2.switchV2}
+                    </button>
+                  </section>
+                  <FoundationsWorkspace location={location} navigate={navigate} />
+                </>
               )}
-              {module === 'services' && topic === 'practice' && (
+              {labTopic && !chooseVersion && (
                 <section
                   className="course-lab"
                   id="practical-lab"
@@ -451,6 +568,16 @@ export function Course({ module }: { module?: CourseModule }) {
                   />
                 </details>
               )}
+              {module === 'computing' && currentV2 && hasV1 && !chooseVersion && (
+                <Link
+                  href={courseHref(
+                    'computing',
+                    learning.facts.active ? 'assessment' : learning.save.unit,
+                  )}
+                >
+                  {nb.foundationsV2.viewV1}
+                </Link>
+              )}
               <nav className="course-step-navigation" aria-label={c.next}>
                 {index > 0 && (
                   <Link href={courseHref(module, pathTopics[index - 1]!)}>
@@ -471,7 +598,12 @@ export function Course({ module }: { module?: CourseModule }) {
       </div>
       {journal && (
         <PortalDialog title={c.journal} onClose={() => setJournal(false)}>
-          {module === 'computing' || (!module && preferredResume?.module === 'computing') ? (
+          {currentV2 ? (
+            <FoundationsV2
+              topic={['v2-assessment', 'v2-summary'].includes(topic) ? 'intro-request' : topic}
+              journal
+            />
+          ) : module === 'computing' || (!module && preferredResume?.module === 'computing') ? (
             <FoundationsReference topic={topic} />
           ) : (
             <ServiceReference topic={topic} />

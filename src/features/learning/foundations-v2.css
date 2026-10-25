@@ -1,0 +1,289 @@
+.foundations-v2.proof-shell {
+  min-height: 0;
+  background: transparent;
+  font-size: 16px;
+  line-height: 1.65;
+}
+.v2-lesson-heading {
+  border-top: 1px solid #d2dee9;
+  padding-top: 24px;
+  margin: 20px 0 25px;
+}
+.v2-lesson-heading small {
+  color: #496780;
+  letter-spacing: 1px;
+  font-size: 11px;
+  font-weight: 650;
+}
+.portal .v2-lesson-heading h2 {
+  font-size: 30px;
+  line-height: 1.25;
+  font-weight: 600;
+  margin: 9px 0;
+  color: #172f48;
+}
+.v2-lesson-heading p {
+  color: #52677d;
+  margin: 0;
+}
+.v2-teaching {
+  display: grid;
+  grid-template-columns: minmax(280px, 0.9fr) minmax(390px, 1.35fr);
+  gap: 32px;
+  align-items: start;
+}
+.v2-explanation > p:first-child {
+  font-size: 18px;
+  color: #203e58;
+  margin-top: 0;
+}
+.v2-explanation p {
+  max-width: 72ch;
+}
+.v2-model {
+  min-width: 0;
+}
+.v2-model .proof-server {
+  min-height: 220px;
+}
+.portal .v2-model .proof-drawing-label,
+.portal .v2-model .proof-path-label {
+  font-size: 17px;
+  letter-spacing: 0.2px;
+}
+.portal .v2-model .proof-drawing-text {
+  font-size: 18px;
+}
+.portal .v2-model .proof-trace li[data-active='true'] {
+  color: #fff;
+  border-bottom: 2px solid #77d6e4;
+  font-weight: 650;
+}
+.portal .v2-model .proof-capacity dt {
+  font-size: 14px;
+}
+.v2-model .proof-system {
+  padding: 25px 14px;
+}
+.v2-model .proof-capacity {
+  padding: 20px 14px;
+}
+.v2-model .proof-columns {
+  gap: 8px;
+}
+.v2-model .proof-hour {
+  padding-left: 8px;
+}
+.v2-model .proof-trace {
+  flex-wrap: wrap;
+}
+.v2-traced .proof-server path {
+  stroke-width: 2px;
+}
+.v2-model button,
+.v2-check button,
+.v2-capacity-controls button {
+  margin-top: 12px;
+}
+.v2-toggle {
+  display: flex;
+  gap: 9px;
+  margin: 20px 0;
+  font-size: 14px;
+}
+.v2-vm,
+.v2-provision {
+  padding: 25px;
+  background: #152d43;
+  color: #e8f2fa;
+  border: 1px solid #3f5e76;
+  border-radius: 6px;
+}
+.portal .v2-model .v2-vm p,
+.portal .v2-model .v2-provision p {
+  color: #d5e5f4;
+}
+.v2-host-budget {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 5px;
+  margin: 22px 0;
+}
+.v2-host-budget span {
+  height: 30px;
+  border: 1px dashed #92aabd;
+}
+.v2-host-budget .vm-a {
+  background: #4289b8;
+  border: 1px solid #a1d0ee;
+}
+.v2-host-budget .vm-b {
+  background: #087b78;
+  border: 1px solid #82d7ce;
+}
+.v2-guests {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.v2-guests > div {
+  border: 1px solid #8aa9bf;
+  padding: 16px;
+}
+.v2-hypervisor {
+  text-align: center;
+  border-block: 1px solid #66849b;
+  padding: 12px 0;
+}
+.v2-selects {
+  display: flex;
+  gap: 15px;
+}
+.v2-selects label {
+  flex: 1;
+}
+.v2-lane {
+  border-left: 3px solid #76b8d9;
+  padding-left: 15px;
+  margin: 22px 0;
+}
+.v2-check {
+  border-block: 1px solid #d2dee9;
+  margin: 30px 0;
+  padding: 12px 0;
+}
+.portal .v2-check label,
+.portal .foundations-v2 fieldset label {
+  display: flex;
+  gap: 10px;
+  align-items: baseline;
+  margin: 12px 0;
+}
+.portal .foundations-v2 label:has(input[type='radio']),
+.portal .foundations-v2 label:has(input[type='checkbox']) {
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 10px;
+}
+.portal .foundations-v2 input[type='radio'],
+.portal .foundations-v2 input[type='checkbox'] {
+  flex-shrink: 0;
+  margin-top: 4px;
+}
+.portal .v2-model .proof-trace {
+  font-size: 14px;
+}
+.portal .foundations-v2 fieldset {
+  margin: 18px 0;
+  padding: 18px;
+}
+.portal .v2-capacity-controls fieldset {
+  padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+.v2-capacity-controls > p {
+  font-size: 13px;
+}
+.v2-capacity-controls input[type='number'] {
+  max-width: 160px;
+  display: block;
+}
+.v2-manuscript {
+  margin: 24px 0;
+  max-width: 78ch;
+}
+.v2-manuscript > section {
+  margin: 25px 0;
+}
+.v2-manuscript h3 {
+  font-size: 19px;
+  margin-bottom: 8px;
+}
+.v2-manuscript dl {
+  background: #edf3f8;
+  padding: 20px;
+}
+.v2-manuscript dt {
+  font-weight: 650;
+}
+.v2-manuscript dd {
+  margin: 3px 0 15px;
+}
+.v2-topology {
+  display: grid;
+  gap: 16px;
+}
+.v2-topology > div {
+  border: 1px solid #ccdce8;
+  border-left: 4px solid #11769e;
+  padding: 15px;
+}
+.v2-sources {
+  margin: 25px 0;
+}
+.v2-evidence-nav {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin: 25px 0;
+}
+.course-v2 .course-main {
+  max-width: 1600px;
+  padding: 30px clamp(24px, 3vw, 55px) 0;
+}
+.course-v2 .course-module-header > p {
+  max-width: 85ch;
+}
+.course-version-choice,
+.course-legacy-note {
+  padding: 20px;
+  background: #edf4f9;
+  border-left: 3px solid #126c9d;
+  margin: 22px 0;
+}
+.course-version-choice button {
+  display: block;
+  margin: 14px 0;
+}
+.course-build {
+  color: #4c647a;
+  font: 12px system-ui;
+  padding: 18px 30px;
+  border-top: 1px solid #d8e1eb;
+  background: #f3f6fa;
+}
+.course-build summary {
+  cursor: pointer;
+}
+.course-build code {
+  overflow-wrap: anywhere;
+}
+.portal .resource-naming {
+  max-width: 75ch;
+  margin: 14px 0 24px;
+  padding: 15px;
+  border-left: 3px solid #5287ad;
+  background: #f1f6fa;
+}
+.resource-naming dt {
+  font-weight: 650;
+}
+.resource-naming dd {
+  margin: 6px 0 15px;
+}
+@media (max-width: 1150px) {
+  .v2-teaching {
+    grid-template-columns: 1fr;
+  }
+  .v2-model {
+    max-width: 850px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .foundations-v2 * {
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}

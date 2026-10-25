@@ -1,5 +1,9 @@
 # Source and credential register
 
+## 3.1B source recheck — 2026-10-25
+
+Re-opened L01 and BL01–BL06 for actual implementation: module still lists six outcomes/eight units; VM overview distinguishes virtual flexibility from retained guest maintenance; Hyper-V supplies host/guest grounding; naming/convention/abbreviation/resource-group pages distinguish recommendations, per-type rules and metadata location. Articles with a sign-in notice still exposed readable article text; no tenant authentication or copied lesson body was used. Original new explanations/assessment and invented numerical fixtures are local. Register URLs below remain authoritative references, not a license to redistribute lesson content. No human SME/learning approval is claimed.
+
 ## 3.1A prerequisite and naming source review — 2026-10-25
 
 L01 module index (eight units/six objectives), M02 first path (computing→benefits→service types) and CR01 AZ-900 study guide (skills effective2026-07-20) were re-opened. Their basic-IT prerequisite explains why AzureLab needs an original bridge; serverless remains outside current module coverage. No assessment bodies or lesson/media were copied. The sources below were opened as public rolling pages; some display a sign-in notice but readable article content was available, without authentication. Review is factual author cross-check, not human SME/educational acceptance. Recheck before3.1B shipping; existing 90-day technical/30-day credential review policy applies.

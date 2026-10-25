@@ -1,5 +1,9 @@
 # G1 asset register
 
+## 3.1B reuse
+
+The original code-native drawing now lives in `src/features/learning/foundations-visuals.tsx`, shared by the real course and historical proof. No new external asset, texture, license or runtime source is added. The existing registered mascot remains unchanged.
+
 ## 3.1A original technical illustration — 2026-10-25
 
 The server chassis/backplane/chip/RAM/storage/network and client-request drawing in `src/features/design-proof/proof.tsx` are original inline SVG code authored for the isolated design proof. No external model, raster image, texture or illustration was downloaded; no new third-party license/attribution is asserted. The existing registered SavvyShark default is reused unchanged. There is no separate asset binary or runtime source server; existing `assets:check` provenance/integrity gates remain.

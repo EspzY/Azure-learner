@@ -1,5 +1,9 @@
 # Learning journey and competency universe
 
+## 3.1B implementation overlay
+
+The first module begins with reviewed browser→server→physical resources→OS→VM→provisioning teaching inside the actual course. Capacity, responsibility, deployment/use cases, consumption and pricing follow; Service Types and the shared lab remain available. Benefits stays planned in official second position. Direct access does not complete skipped material. V1 evidence is separate from v2; other professional competencies/readiness are not implemented here.
+
 ## Course-first refinement — 2026-10-25
 
 The current entry is the ordered cloud-concepts course at `/learn`; computing retains six full investigations and services connects complete theory, guided Portal work and a separate independent task. Benefits is unavailable. Direct module access credits no skipped content. The 30-competency professional graph below remains future scope; one competency may require several modules. [Course experience](COURSE_FIRST_PRODUCT_EXPERIENCE.md) owns the implemented sequence.

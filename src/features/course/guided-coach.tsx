@@ -140,7 +140,7 @@ export function GuidedCoach({
               <p>{copy[3]}</p>
             </details>
             {!bounds?.visible && <p className="coach-missing">{c.missing}</p>}
-            <Link href={courseLabHref(findings.complete)} className="coach-return">
+            <Link href={courseLabHref(findings.complete, lab.origin)} className="coach-return">
               {step.id === 'complete' ? c.returnCourse : c.leaveLab}
             </Link>
           </>

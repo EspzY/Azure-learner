@@ -1,5 +1,9 @@
 # Interactive technical visualizations
 
+## 3.1B visualization integration
+
+The reviewed browser/server cutaway, guest/host RAM budget, control/workload provisioning and defined-unit capacity model now render in the actual computing course. They do not create Azure resources. The existing responsibility and authoritative live hierarchy remain shared. The lab's optional computing origin preserves exact return; resource naming explanations accompany the actual form. The old proof is noindex historical comparison, no longer promoted as the new course.
+
 3.1A [visual learning specification](VISUAL_LEARNING_SYSTEM.md) adds candidate request/cutaway/VM/provisioning/capacity patterns and an isolated server/capacity proof. Existing responsibility/hierarchy/live-inventory diagrams below remain unchanged; no new curriculum coverage or production graph state is introduced. Desktop-first is the permanent target policy.
 
 ## Course-first refinement — 2026-10-25

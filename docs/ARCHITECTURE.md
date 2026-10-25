@@ -1,5 +1,13 @@
 # Architecture
 
+## 3.1B — actual course, isolated evidence
+
+`Course` selects in-place `FoundationsV2` for current topics; `FoundationsWorkspace` remains labelled v1 compatibility. One root `FoundationsV2Provider` owns the separate record; no second shell or simulator. Stable SSR snapshots and explicit client restoration remain. A finite manifest binds S01–S13, V01–V06 and FC01–FC07.
+
+Original server/capacity graphics are shared with the archive. Pure RAM/provisioning/capacity rules and replay are independent of React. Later investigations reuse presentation through an explicit evidence port; events replay into a fresh v1 **rule evaluator inside v2**, never the v1 key. Its semantics stay pinned; changes require a new model version. Assessment2 preserves first/help/retry.
+
+Optional allowlisted `LabSession.origin: computing-v2` changes return context only. Old shapes/service returns remain accepted. All findings derive from the Chapter ledger. Portal returns to `resource-bridge&activity=lab|debrief`. Server-rendered build details expose only Vercel branch/SHA, absent in production; no configuration/protection change. [Handoff](FOUNDATIONS_31B_HANDOFF.md) owns exact contracts.
+
 ## 3.1A isolated instructional proof — 2026-10-25
 
 The isolated `noindex` route `/design/foundations-31a` has a visible branch-review entry on the course landing and its own lightweight shell. `FoundationsReviewEntry` is a stateless native link presentation, not a new provider or activity; remove it before any production release. A feature-local HTML/SVG presenter consumes a pure bounded calculator in `domain/design-proof`, localized through nb.ts. It does not import store hooks, duplicate the inventory or issue learning/technical commands. Existing root providers stay singular and unchanged. No new persistence, schema migration, dependencies, backend or renderer. Production course/Portal behavior is preserved. [Visual system](VISUAL_LEARNING_SYSTEM.md) and [3.1B handoff](FOUNDATIONS_31B_HANDOFF.md) separate implemented proof from future production design.

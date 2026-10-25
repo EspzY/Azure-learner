@@ -89,6 +89,7 @@ function PortalWorkspace() {
   const courseReturn = guidedLab
     ? courseLabHref(
         labFacts(course.save.lab, chapter.attempt.engine, chapter.attemptNumber).complete,
+        course.save.lab?.origin,
       )
     : location.course
       ? courseHref(location.module, location.topic)
@@ -523,7 +524,10 @@ function PortalWorkspace() {
                     : p.modes[location.mode]}
             </span>
             <span>
-              {location.module === 'computing' ? nb.official.computing : nb.official.services}
+              {location.module === 'computing' ||
+              (guidedLab && course.save.lab?.origin === 'computing-v2')
+                ? nb.official.computing
+                : nb.official.services}
             </span>
             <Link href={courseReturn}>{nb.course.returnCourse}</Link>
             {module.facts.active ? (

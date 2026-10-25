@@ -1,5 +1,15 @@
 # Decisions
 
+## 3.1B decisions — 2026-10-25
+
+| ID  | Decision                               | Reason and boundary                                                                                          |
+| --- | -------------------------------------- | ------------------------------------------------------------------------------------------------------------ |
+| 083 | Reviewed direction in ordinary course  | Owner authorizes3.1B. Browser/server is default; no parallel product. Supersedes hold in079.                 |
+| 084 | Preserve v1; replay separate v2        | Old answers/XP cannot establish new prerequisites or numeric meaning. Users choose; old links stay labelled. |
+| 085 | Later evaluators through evidence port | Preserve full theory/causal practice without writing old observations or duplicating inventory.              |
+| 086 | Allowlisted computing lab origin       | Preserve shared workflow and exact return; context cannot satisfy technical predicates.                      |
+| 087 | Preview-only branch/SHA display        | Identify deployment with non-sensitive built-in metadata, without configuration/domain/protection changes.   |
+
 ## 3.1A decisions — 2026-10-25
 
 Decision082 supersedes only the **unlinked** portion of081: every owner-reviewable delivery must have a visible path from the preview root. The course landing now exposes a labelled 3.1A review entry after its main heading, with direct proof access and existing course return. Prototype noindex, in-memory isolation and unchanged evidence rules remain. This branch-local review entry must be removed before any production release; no new environment variable/configuration dependency or protection change is introduced.

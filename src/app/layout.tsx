@@ -7,6 +7,7 @@ import { ChapterProvider } from '@/features/chapter01/provider';
 import { GameProvider } from '@/features/rpg/game-provider';
 import { LearningProvider } from '@/features/learning/provider';
 import { PortalLearningProvider } from '@/features/portal/learning-provider';
+import { FoundationsV2Provider } from '@/features/learning/v2-provider';
 import { CourseProvider } from '@/features/course/provider';
 import '@xyflow/react/dist/style.css';
 import './globals.css';
@@ -25,9 +26,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <GameProvider>
                 <LearningProvider>
                   <PortalLearningProvider>
-                    <CourseProvider>
-                      <AppShell>{children}</AppShell>
-                    </CourseProvider>
+                    <FoundationsV2Provider>
+                      <CourseProvider>
+                        <AppShell>{children}</AppShell>
+                      </CourseProvider>
+                    </FoundationsV2Provider>
                   </PortalLearningProvider>
                 </LearningProvider>
               </GameProvider>
