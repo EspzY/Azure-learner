@@ -1,5 +1,9 @@
 # Learning journey and competency universe
 
+## Current practical bridge — 3.2.1
+
+Official order remains computing → benefits → service types. The third module now moves from its preserved conceptual models into persisted VM, existing Web platform/settings and separate SaaS administration. Benefits links to relevant configuration/relationships/history while retaining its explanatory failure/capacity/sustainability models. None becomes real telemetry, HA, failover or carbon measurement. The 30 professional competencies remain a progression proposal, not 30 implemented courses. [Coverage](FUNDAMENTALS_LAB_COVERAGE.md), [lab architecture](INTEGRATED_LABS_ARCHITECTURE.md).
+
 ## 3.2 first-path implementation
 
 The current ordinary course implements all three modules in official order: Describe cloud computing → Describe the benefits of using cloud services → Describe cloud service types. This is a local instructional implementation, not completion in Microsoft Learn. [The audit](MODULE_01_02_03_PROGRESSION_AUDIT.md) distinguishes prerequisite introduction from mechanism/application/transfer. Users may enter directly without skipped credit. Old Foundations and Service Types evidence remains versioned separately. The broader30-unit competency graph below remains the professional roadmap; no new architecture/network/security course is implied.

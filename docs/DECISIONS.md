@@ -1,5 +1,15 @@
 # Decisions
 
+## 3.2.1 — versioned integrated labs (2026-10-25)
+
+- **D321-01**: select frozen v1 prefix plus sandbox@2 continuation over widening v1 semantics. Preserve the old reducer and raw key, exact old receipts/capacity, archived consumers and old assessment criteria. New normal consumers use one SandboxProvider. A versioned fork of four bounded handlers is intentionally small; parity/replay tests guard drift rather than introducing a universal plugin engine.
+- **D321-02**: VM creation is an atomic local bundle of real resource objects, with typed dependency edges. Images, size/disk allocations, naming/network reuse and cleanup are explicit teaching constraints, not Azure-wide rules. No credentials/traffic/runtime/prices.
+- **D321-03**: choose allowlisted App settings as the PaaS extension. Configuration is persisted and receipted but never executes customer code or a restart. Keep Web policy/hosting rules.
+- **D321-04**: SaaS is a separate fictional product ledger. License, role, sharing and departure are independent controls, not ARM or Microsoft 365 parity.
+- **D321-05**: practical evidence is separate from old conceptual/module/award stores; pin boundary/attempt/through refs, retain first/help/retry and exact origin, suppress independent solution feedback before submission. Inspection/navigation is not mastery.
+
+See [alternatives and contracts](INTEGRATED_LABS_ARCHITECTURE.md) and [verification/human gates](PRACTICAL_LABS_QA.md). Older decisions remain historical where superseded.
+
 ## 3.2 decisions — 2026-10-25
 
 | ID  | Decision                                        | Reason/boundary                                                                                                      |

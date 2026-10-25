@@ -53,6 +53,12 @@ export const requiredFiles = [
   'docs/CLOUD_BENEFITS_CONTENT.md',
   'docs/SERVICE_TYPES_DEEP_LEARNING.md',
   'docs/FUNDAMENTALS_SUPPLEMENTARY_READING.md',
+  'docs/INTEGRATED_LABS_ARCHITECTURE.md',
+  'docs/VM_LAB_TECHNICAL_DESIGN.md',
+  'docs/PAAS_LAB_REFINEMENT.md',
+  'docs/SAAS_ADMIN_LAB.md',
+  'docs/FUNDAMENTALS_LAB_COVERAGE.md',
+  'docs/PRACTICAL_LABS_QA.md',
 ];
 
 function markdownFiles(folder) {

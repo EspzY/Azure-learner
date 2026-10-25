@@ -1,6 +1,6 @@
 'use client';
 import { useState } from 'react';
-import { nb, regionLabels } from '@/content/nb';
+import { labsNb, nb, regionLabels } from '@/content/nb';
 import {
   filterInventory,
   inventory,
@@ -37,7 +37,9 @@ export function ResourceTable({
             ? r.kind === 'plan'
             : area === 'apps'
               ? r.kind === 'app'
-              : r.kind === 'plan' || r.kind === 'app',
+              : area === 'vms'
+                ? r.kind === 'vm'
+                : r.kind !== 'subscription' && r.kind !== 'group',
     );
   const rows = filterInventory(base, query, subscription, kind);
   return (
@@ -65,7 +67,7 @@ export function ResourceTable({
             {p.type}
             <select value={kind} onChange={(e) => setKind(e.target.value)}>
               <option value="">{p.allTypes}</option>
-              {(['group', 'plan', 'app'] as const)
+              {(['group', 'plan', 'app', 'vm', 'disk', 'nic', 'vnet', 'subnet'] as const)
                 .filter((k) => base.some((row) => row.kind === k))
                 .map((k) => (
                   <option key={k} value={k}>
@@ -151,6 +153,11 @@ export function ResourceDetails({
         <button type="button" onClick={() => navigate('learn', { topic: 'practice' })}>
           {p.relatedLearning}
         </button>
+        {row?.kind === 'app' && (
+          <button type="button" onClick={() => navigate('settings', { id })}>
+            {labsNb.settings.title}
+          </button>
+        )}
         <small>{p.technicalLimits}</small>
       </div>
       <div className="portal-resource-main">
@@ -173,17 +180,27 @@ export function ResourceDetails({
               row?.kind === 'group' ? p.metadata : p.resourceLocation,
               row?.location ? regionLabels[row.location as keyof typeof regionLabels] : '—',
             ],
+            ...(row?.kind === 'app'
+              ? [
+                  [
+                    p.plan,
+                    row.planId ? (
+                      <button
+                        type="button"
+                        onClick={() => navigate('resource', { id: row.planId })}
+                      >
+                        {world.resources.find((r) => r.id === row.planId)?.name}
+                      </button>
+                    ) : (
+                      '—'
+                    ),
+                  ] as const,
+                ]
+              : []),
             [
-              p.plan,
-              row?.planId ? (
-                <button type="button" onClick={() => navigate('resource', { id: row.planId })}>
-                  {world.resources.find((r) => r.id === row.planId)?.name}
-                </button>
-              ) : (
-                '—'
-              ),
+              p.parent,
+              row?.parentId ?? scope?.parentId ?? row?.groupId ?? row?.subscriptionId ?? '—',
             ],
-            [p.parent, scope?.parentId ?? row?.groupId ?? row?.subscriptionId ?? '—'],
           ]}
         />
         {row?.kind === 'group' && <p className="portal-inline-info">{p.locationNote}</p>}

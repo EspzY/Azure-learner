@@ -1,4 +1,14 @@
 'use client';
+import {
+  PracticalCoach,
+  PracticalOutcome,
+  PracticalAssistance,
+} from '@/features/course/practical-lab';
+import { VmForm, type VmFormView } from './vm-form';
+import { AppSettings } from './app-settings';
+import { InfrastructureDetails } from './infrastructure-details';
+import { usePractical } from '@/features/course/practical-provider';
+import { practicalReturn } from '@/domain/sandbox/practical';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import {
@@ -22,8 +32,8 @@ import {
   Database,
   GitBranch,
 } from 'lucide-react';
-import { nb, regionLabels } from '@/content/nb';
-import { useChapter } from '@/features/chapter01/provider';
+import { labsNb, nb, regionLabels } from '@/content/nb';
+import { useSandbox as useChapter } from '@/features/portal/sandbox-provider';
 import { useLearning } from '@/features/learning/provider';
 import { ReceiptPanel } from '@/features/chapter01/receipt-panel';
 import {
@@ -33,7 +43,7 @@ import {
   requestFor,
   type CreateKind,
 } from '@/domain/portal/model';
-import type { Command, Receipt } from '@/domain/chapter01/model';
+import type { Command, Receipt } from '@/domain/sandbox/model';
 import { serviceSources } from '@/domain/portal/content';
 import { usePortalLearning } from './learning-provider';
 import { PortalDialog, PropertyList, type Navigate } from './shared';
@@ -49,12 +59,20 @@ import { ResponsibilityExplorer } from './responsibility';
 import { ArchitectureExplorer } from './architecture';
 import './portal.css';
 import { useCourse } from '@/features/course/provider';
-import { courseHref, courseLabHref, labFacts, type LabForm } from '@/domain/course/model';
+import { courseHref, courseLabHref, labFacts, startLab, type LabForm } from '@/domain/course/model';
 import { GuidedCoach } from '@/features/course/guided-coach';
 import Link from 'next/link';
 import { useExpansion, ExpansionAssistance } from '@/features/learning/expansion-provider';
 const p = nb.portal;
-const services = ['subscriptions', 'groups', 'resources', 'apps', 'plans', 'activity'] as const;
+const services = [
+  'subscriptions',
+  'groups',
+  'resources',
+  'apps',
+  'plans',
+  'vms',
+  'activity',
+] as const;
 const educational = ['learn', 'responsibility', 'hierarchy', 'architecture', 'challenge'] as const;
 const icons = {
   home: Home,
@@ -63,6 +81,8 @@ const icons = {
   groups: Folder,
   resources: Boxes,
   apps: AppWindow,
+  vms: Database,
+  settings: Layers,
   plans: Layers,
   activity: Activity,
   learn: BookOpen,
@@ -84,10 +104,16 @@ function PortalWorkspace() {
   const chapter = useChapter(),
     learning = useLearning(),
     module = usePortalLearning();
-  const course = useCourse();
+  const course = useCourse(),
+    practical = usePractical();
   const benefits = useExpansion('benefits'),
     services2 = useExpansion('services');
-  const independentContext = module.facts.active || benefits.facts.active || services2.facts.active;
+  const independentContext =
+    practical.activeIndependent ||
+    module.facts.active ||
+    benefits.facts.active ||
+    services2.facts.active;
+  const [vmForm, setVmForm] = useState<VmFormView | null>(null);
   const [labForm, setLabForm] = useState<LabForm | null>(null);
   const guidedLab =
     !!location.lab &&
@@ -96,19 +122,26 @@ function PortalWorkspace() {
     benefits.ready &&
     services2.ready &&
     !!course.save.lab &&
+    !practical.activeIndependent &&
     !module.facts.active &&
     !benefits.facts.active &&
     !services2.facts.active;
-  const courseReturn = guidedLab
-    ? courseLabHref(
-        labFacts(course.save.lab, chapter.attempt.engine, chapter.attemptNumber).complete,
-        course.save.lab?.origin,
-      )
-    : location.course
-      ? courseHref(location.module, location.topic)
-      : '/learn';
+  const courseReturn = location.bridge
+    ? `/learn/benefits?topic=${location.bridge}&activity=practical`
+    : location.practice && practical.current
+      ? practicalReturn(practical.current)
+      : guidedLab
+        ? courseLabHref(
+            labFacts(course.save.lab, chapter.attempt.engine, chapter.attemptNumber).complete,
+            course.save.lab?.origin,
+          )
+        : location.course
+          ? courseHref(location.module, location.topic)
+          : '/learn';
   const returnLearning = () =>
-    guidedLab || location.course ? router.push(courseReturn) : navigate('learn');
+    location.bridge || location.practice || guidedLab || location.course
+      ? router.push(courseReturn)
+      : navigate('learn');
   const { world } = chapter.attempt.engine;
   const rows = inventory(world),
     [menu, setMenu] = useState(false),
@@ -135,6 +168,7 @@ function PortalWorkspace() {
   const heading = useRef<HTMLHeadingElement>(null),
     searchRef = useRef<HTMLInputElement>(null);
   const helpLearning = () => {
+    if (practical.activeIndependent) practical.store.event({ type: 'aid' });
     if (module.facts.active) module.store.event({ kind: 'aid' });
   };
   // Address-bar entry and Back/Forward must classify the same displayed help as in-app navigation.
@@ -215,19 +249,42 @@ function PortalWorkspace() {
     const request = requestFor(snapshot.attempt.engine, value, snapshot.attempt.events.length + 1);
     if (chapter.store.dispatch({ kind: 'command', request, bindResult: false })) {
       const receipt = chapter.store.getSnapshot().attempt.responses.at(-1)!;
-      navigate(receipt.outcome === 'accepted' ? 'resource' : 'activity', {
-        id: receipt.outcome === 'accepted' ? (receipt.addedIds[0] ?? '') : receipt.commandId,
+      const showResource = receipt.outcome === 'accepted' && receipt.code !== 'deleted';
+      navigate(showResource ? 'resource' : 'activity', {
+        id: showResource
+          ? (receipt.addedIds[0] ??
+            (typeof value === 'object' && 'appId' in value ? value.appId : ''))
+          : receipt.commandId,
       });
+      return true;
     }
+    return false;
   };
-  const receipt = chapter.attempt.engine.ledger.find(
+  const receiptEntry = chapter.attempt.engine.ledger.find(
     (e) => e.request.commandId === location.id,
-  )?.receipt;
+  );
+  const receipt = receiptEntry?.receipt;
+  const updatedAppId = receiptEntry?.request.command.appId;
+  const receiptResourceId =
+    receipt?.outcome === 'accepted'
+      ? (receipt.addedIds.find((id) => rows.some((r) => r.id === id)) ??
+        (typeof updatedAppId === 'string' ? updatedAppId : ''))
+      : '';
   const edit = (r: Receipt) => {
     const cmd = chapter.attempt.engine.ledger.find((e) => e.request.commandId === r.commandId)
       ?.request.command;
+    if (cmd?.type === 'SetAppSettings' && typeof cmd.appId === 'string') {
+      navigate('settings', { id: cmd.appId });
+      return;
+    }
     const kind =
-      cmd?.type === 'CreateGroup' ? 'group' : cmd?.type === 'CreatePlan' ? 'plan' : 'app';
+      cmd?.type === 'CreateGroup'
+        ? 'group'
+        : cmd?.type === 'CreatePlan'
+          ? 'plan'
+          : cmd?.type === 'CreateVmBundle'
+            ? 'vm'
+            : 'app';
     navigate('create', { kind, edit: r.commandId });
   };
   const searchItems = useMemo(
@@ -253,24 +310,29 @@ function PortalWorkspace() {
     [rows, search],
   );
   const createKind: CreateKind =
-    current?.kind === 'plan'
-      ? 'app'
-      : current?.kind === 'group'
-        ? 'plan'
-        : location.area === 'plans'
+    location.area === 'vms' || current?.kind === 'vm'
+      ? 'vm'
+      : current?.kind === 'plan'
+        ? 'app'
+        : current?.kind === 'group'
           ? 'plan'
-          : location.area === 'apps'
-            ? 'app'
-            : 'group';
+          : location.area === 'plans'
+            ? 'plan'
+            : location.area === 'apps'
+              ? 'app'
+              : 'group';
   const startCreate = (kind: CreateKind = createKind) =>
     navigate('create', {
       kind,
-      id: current && ['group', 'subscription', 'plan'].includes(current.kind) ? current.id : '',
+      id:
+        current && ['group', 'subscription', 'plan', 'vm'].includes(current.kind) ? current.id : '',
     });
   const commands = (
     <div className="portal-commandbar">
-      {(['groups', 'plans', 'apps', 'resources'].includes(location.area) ||
-        (location.area === 'resource' && current && current.kind !== 'app')) && (
+      {(['groups', 'plans', 'apps', 'vms', 'resources'].includes(location.area) ||
+        (location.area === 'resource' &&
+          current &&
+          ['group', 'subscription', 'plan', 'vm'].includes(current.kind))) && (
         <button type="button" data-guide="create" onClick={() => startCreate()}>
           <Plus size={16} />
           {p.create}
@@ -302,10 +364,11 @@ function PortalWorkspace() {
   );
   return (
     <div
-      className={`portal ${collapsed ? 'portal-collapsed' : ''} ${guidedLab ? 'portal-guided-lab' : ''}`}
+      className={`portal ${collapsed ? 'portal-collapsed' : ''} ${location.practice && practical.activeIndependent ? 'portal-practical-independent' : ''} ${guidedLab || (location.practice && practical.current?.mode === 'guided') ? 'portal-guided-lab' : ''}`}
       style={{ '--teaching-width': `${width}px` } as React.CSSProperties}
     >
       <ExpansionAssistance />
+      <PracticalAssistance />
       <a className="portal-skip" href="#portal-main">
         {nb.shell.skip}
       </a>
@@ -535,18 +598,28 @@ function PortalWorkspace() {
             <span className={`mode-${independentContext ? 'independent' : location.mode}`}>
               {independentContext
                 ? p.modes.independent
-                : guidedLab
-                  ? nb.course.guided
-                  : location.mode === 'learn' &&
-                      !['learn', 'responsibility', 'hierarchy', 'challenge'].includes(location.area)
-                    ? nb.course.free
-                    : p.modes[location.mode]}
+                : location.bridge
+                  ? labsNb.bridge.mode
+                  : location.practice && practical.current
+                    ? practical.current.mode === 'guided'
+                      ? labsNb.guided
+                      : labsNb.independent
+                    : guidedLab
+                      ? nb.course.guided
+                      : location.mode === 'learn' &&
+                          !['learn', 'responsibility', 'hierarchy', 'challenge'].includes(
+                            location.area,
+                          )
+                        ? nb.course.free
+                        : p.modes[location.mode]}
             </span>
             <span>
-              {location.module === 'computing' ||
-              (guidedLab && course.save.lab?.origin === 'computing-v2')
-                ? nb.official.computing
-                : nb.official.services}
+              {location.bridge
+                ? nb.official.benefits
+                : location.module === 'computing' ||
+                    (guidedLab && course.save.lab?.origin === 'computing-v2')
+                  ? nb.official.computing
+                  : nb.official.services}
             </span>
             <Link href={courseReturn}>{nb.course.returnCourse}</Link>
             {module.facts.active ? (
@@ -564,16 +637,17 @@ function PortalWorkspace() {
               </button>
             )}
           </div>
-          {(chapter.issue || module.issue) && (
+          {(chapter.issue || module.issue || practical.issue) && (
             <div role="status" className="portal-storage">
               <p>
-                {p.storage} {chapter.issue ?? module.issue}
+                {p.storage} {chapter.issue ?? module.issue ?? practical.issue}
               </p>
               <button
                 type="button"
                 onClick={() => {
                   chapter.store.load();
                   module.store.load();
+                  practical.store.load();
                 }}
               >
                 {p.reload}
@@ -666,7 +740,7 @@ function PortalWorkspace() {
                   <h2>{p.unavailable}</h2>
                   <p>{p.unavailableServices}</p>
                 </>
-              ) : ['subscriptions', 'groups', 'resources', 'apps', 'plans'].includes(
+              ) : ['subscriptions', 'groups', 'resources', 'apps', 'plans', 'vms'].includes(
                   location.area,
                 ) ? (
                 <ResourceTable
@@ -676,18 +750,57 @@ function PortalWorkspace() {
                   area={location.area}
                 />
               ) : location.area === 'create' ? (
-                <CreateResource
-                  key={`${location.kind}-${location.edit}-${location.id}`}
-                  engine={chapter.attempt.engine}
-                  location={location}
-                  sequence={chapter.attempt.events.length + 1}
+                location.kind === 'vm' ? (
+                  <VmForm
+                    onObserve={setVmForm}
+                    key={`${location.kind}-${location.edit}-${location.id}`}
+                    engine={chapter.attempt.engine}
+                    location={location}
+                    sequence={chapter.attempt.events.length + 1}
+                    disabled={disabled}
+                    onCreate={command}
+                    navigate={navigate}
+                  />
+                ) : (
+                  <CreateResource
+                    key={`${location.kind}-${location.edit}-${location.id}`}
+                    engine={chapter.attempt.engine}
+                    location={location}
+                    sequence={chapter.attempt.events.length + 1}
+                    disabled={disabled}
+                    onCreate={command}
+                    navigate={navigate}
+                    onObserve={guidedLab ? setLabForm : undefined}
+                  />
+                )
+              ) : location.area === 'settings' ? (
+                <AppSettings
+                  key={location.id}
+                  world={world}
+                  id={location.id}
                   disabled={disabled}
                   onCreate={command}
-                  navigate={navigate}
-                  onObserve={guidedLab ? setLabForm : undefined}
                 />
               ) : location.area === 'resource' ? (
-                <ResourceDetails world={world} id={location.id} navigate={navigate} />
+                <>
+                  <ResourceDetails world={world} id={location.id} navigate={navigate} />
+                  <InfrastructureDetails
+                    world={world}
+                    id={location.id}
+                    navigate={navigate}
+                    onCreate={command}
+                    receipt={
+                      chapter.attempt.engine.ledger
+                        .filter(
+                          (e) =>
+                            e.receipt.outcome === 'accepted' &&
+                            (e.receipt.addedIds.includes(location.id) ||
+                              e.request.command.appId === location.id),
+                        )
+                        .at(-1)?.receipt
+                    }
+                  />
+                </>
               ) : location.area === 'learn' ? (
                 <LearningWorkspace location={location} navigate={navigate} />
               ) : location.area === 'challenge' ? (
@@ -759,8 +872,21 @@ function PortalWorkspace() {
                       <ReceiptPanel
                         receipt={receipt}
                         onPolicy={() => navigate('policy')}
-                        onEdit={() => edit(receipt)}
+                        onEdit={
+                          receipt.code === 'deleted' ||
+                          (receipt.operation === 'CreateVmBundle' && receipt.outcome === 'accepted')
+                            ? undefined
+                            : () => edit(receipt)
+                        }
                       />
+                      {receiptResourceId && (
+                        <button
+                          type="button"
+                          onClick={() => navigate('resource', { id: receiptResourceId })}
+                        >
+                          {p.viewResource}
+                        </button>
+                      )}
                     </div>
                   )}
                 </>
@@ -800,7 +926,27 @@ function PortalWorkspace() {
           <footer className="portal-footer">{p.boundary}</footer>
         </main>
       </div>
-      <GuidedCoach location={location} form={labForm} navigate={navigate} />
+      {!(
+        location.practice &&
+        practical.current?.kind === 'paas' &&
+        labFacts(course.save.lab, chapter.attempt.engine, chapter.attemptNumber).complete
+      ) &&
+        !practical.activeIndependent && (
+          <GuidedCoach location={location} form={labForm} navigate={navigate} />
+        )}
+      <PracticalCoach
+        location={location}
+        navigate={navigate}
+        suppressed={independentContext}
+        form={vmForm}
+      />
+      {location.practice && practical.current?.mode === 'independent' && (
+        <section className="portal-independent-practical">
+          <h2>{labsNb.independent}</h2>
+          <p>{labsNb.lab[practical.current.kind].changed}</p>
+          <PracticalOutcome />
+        </section>
+      )}
       {notification && (
         <PortalDialog title={p.notifications} onClose={() => setNotification(false)}>
           <p>{p.notificationCount}</p>
@@ -857,9 +1003,26 @@ function PortalWorkspace() {
                 onClick={() => {
                   if (module.facts.active) module.store.event({ kind: 'abandon' });
                   if (chapter.store.restart()) {
+                    if (location.practice && practical.current?.kind === location.practice) {
+                      const fresh = chapter.store.getSnapshot();
+                      practical.store.restartContext(fresh.attemptNumber);
+                      if (location.practice === 'paas' && practical.current.mode === 'guided')
+                        course.store.update({
+                          ...course.save,
+                          lab: {
+                            ...startLab(fresh.attempt.engine, fresh.attemptNumber),
+                            origin: 'services-v2',
+                          },
+                        });
+                    }
                     setHelp(false);
                     setResetConfirm(false);
-                    navigate('resources');
+                    navigate(
+                      'resources',
+                      location.practice === 'paas' && practical.current?.mode === 'guided'
+                        ? { lab: true }
+                        : {},
+                    );
                   }
                 }}
               >

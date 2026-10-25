@@ -1,5 +1,9 @@
 # Fundamentals supplementary reading register — 3.2
 
+## 3.2.1 operational sources
+
+The [new source register section](SOURCE_REGISTER.md#321-practical-lab-source-review--2026-10-25) records VM quickstarts, NIC/disk/name constraints, App settings/hosting/patch boundaries and SaaS account/license/role/departure principles, reviewed2026-10-25. These are **additional technical references**, not extra completed Learn modules. Original local examples/transactions and fictional profiles/roles are explicitly separated from Azure facts. Runtime sources stay local metadata and links; no API/scrape/media integration. Human SME, Portal expert and learner review are pending. [Objective-to-activity coverage](FUNDAMENTALS_LAB_COVERAGE.md) and [QA](PRACTICAL_LABS_QA.md) distinguish implemented operational work from the preserved conceptual models.
+
 Reviewed 2026-10-25 against public rolling Microsoft Learn pages. No authenticated Learn API, assessment body, Microsoft diagram or video is imported. Source author review is not human SME approval. Recheck technical content within90 days and credential objectives within30 days or earlier when a source materially changes. Unit index counts are 8/8/6, not a completeness score.
 
 ## Official structure actually inspected

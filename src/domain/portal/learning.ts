@@ -1,4 +1,5 @@
-import { execute, freshEngine, types, type Engine } from '../chapter01/model';
+import { replayEngine } from '../sandbox/replay';
+import { freshEngine, types, type Engine } from '../chapter01/model';
 export const serviceModule = {
   id: 'service-types',
   version: '1.0.0',
@@ -214,10 +215,8 @@ export function evaluateSubmission(
     end >= 0 &&
     (submission.boundary === null || start >= 0) &&
     end >= start;
-  let replay = freshEngine();
-  if (verifiable)
-    for (const entry of engine.ledger.slice(0, end + 1))
-      replay = execute(replay, entry.request).engine;
+  const verifiedReplay = verifiable ? replayEngine(engine, end + 1) : null;
+  const replay = verifiedReplay ?? freshEngine();
   const a = submission.answers,
     world = replay.world;
   const group = world.groups.find((g) => g.id === a.groupId),
@@ -254,5 +253,9 @@ export function evaluateSubmission(
       created.has(app.id),
     cause: a.locationCause === 'plan',
   };
-  return { verifiable, criteria, correct: verifiable && Object.values(criteria).every(Boolean) };
+  return {
+    verifiable: verifiable && !!verifiedReplay,
+    criteria,
+    correct: verifiable && !!verifiedReplay && Object.values(criteria).every(Boolean),
+  };
 }

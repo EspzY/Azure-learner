@@ -1,5 +1,9 @@
 # Guided sandbox engine
 
+## 3.2.1 guidance extension
+
+The existing DOM target resolver/ResizeObserver/scroll tracking is reused for actual VM image/profile/disk/network controls and App settings. Guidance observes form phase for presentation and replayed outcomes for technical progress. It never submits or configures on the learner's behalf. Action and inspection targets remain semantically different, missing targets fail closed, and independent contexts suppress all solution rings. VM/PaaS completion requires accepted state plus causal inspection/reasoning, not tab visits. SaaS uses its own visible product controls and causal history, never a fake Portal overlay. [Contracts](COURSE_LAB_ORCHESTRATION.md).
+
 ## 3.2 assessment and reuse boundary
 
 The existing step predicates, target registry, live bounding/resize behavior and command port remain unchanged. New Benefits/Service Types independent attempts suppress highlights and guided teaching panes as well as the original Portal assessment. Access to theory/guided context is classified as assistance in the appropriate new record; no automatic submit is introduced. The current course may explicitly reuse an accepted technical configuration in the same replayable attempt, but policy/hosting inspections and its new reasoned response remain necessary. See [session origins and reuse](COURSE_LAB_ORCHESTRATION.md) and [operational content](SERVICE_TYPES_DEEP_LEARNING.md).

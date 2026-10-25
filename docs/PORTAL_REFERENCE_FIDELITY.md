@@ -1,5 +1,15 @@
 # Portal reference and fidelity checklist
 
+## 3.2.1 documented workflow delta — reviewed 2026-10-25
+
+| Workflow     | Matched/documented                                                                                                          | Approximation or original training behavior                                                                                                                                 | Unsupported                                                                                                             |
+| ------------ | --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| VM           | Global search → Virtual machines → Create; scope/name/image/profile; Disks/Networking; Review + create; resource inspection | Four bounded tabs, two image aliases/two teaching sizes, synthetic disk allocations, explicit atomic bundle and cleanup; no claim of exact Portal or ARM transaction parity | Credentials, real SKU catalogue, zones, pricing, remote login, public IP/NSG/routing, boot, guest runtime, availability |
+| App settings | App → Environment variables → App settings → Apply, persisted values                                                        | Two harmless fictional keys, native selectors and one explicit Apply rather than Azure's add/edit dialog plus page Apply                                                    | Secrets, encryption/access enforcement, code deployment, restart execution, runtime health, deployment slots            |
+| SaaS         | License/role/departure principles researched                                                                                | Separate original fictional administration UI and roles; two local seats                                                                                                    | Microsoft 365/Entra parity, ARM resources, invitations, real authentication, billing, session revocation                |
+
+Sources/versions and exclusions: [VM design](VM_LAB_TECHNICAL_DESIGN.md), [PaaS refinement](PAAS_LAB_REFINEMENT.md), [SaaS design](SAAS_ADMIN_LAB.md), [source register](SOURCE_REGISTER.md). Human Portal/Azure review is pending. The older unsupported-VM row below is historical.
+
 ## Course-first training overlay — 2026-10-25
 
 The supported service workflows below are reused. Course entry, SavvyShark, measured control outlines and causal debrief are **E: original educational enhancements**, not claimed Azure Portal features. Guided fields may start unselected to make decisions explicit. Free/independent controls retain normal behavior. [Guide contract](GUIDED_SANDBOX_ENGINE.md) and [course flow](COURSE_FIRST_PRODUCT_EXPERIENCE.md) specify the difference; human/live-tenant transfer review remains outstanding.

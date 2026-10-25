@@ -11,7 +11,7 @@ import {
   type LabForm,
 } from '@/domain/course/model';
 import type { PortalLocation } from '@/domain/portal/model';
-import { useChapter } from '@/features/chapter01/provider';
+import { useSandbox as useChapter } from '@/features/portal/sandbox-provider';
 import { usePortalLearning } from '@/features/portal/learning-provider';
 import type { Navigate } from '@/features/portal/shared';
 import { useCourse } from './provider';

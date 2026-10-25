@@ -11,29 +11,48 @@ import {
   type NodeProps,
   type Edge,
 } from '@xyflow/react';
-import { Database, Layers, AppWindow, ShieldCheck, FolderTree, Network } from 'lucide-react';
-import { nb, regionLabels, scopeCopy } from '@/content/nb';
+import {
+  Database,
+  Server,
+  HardDrive,
+  Cable,
+  Layers,
+  AppWindow,
+  ShieldCheck,
+  FolderTree,
+  Network,
+} from 'lucide-react';
+import { labsNb, nb, regionLabels, scopeCopy } from '@/content/nb';
 import { projectArchitecture } from '@/domain/portal/model';
 import type { World } from '@/domain/chapter01/model';
 import type { Navigate } from './shared';
 import { PropertyList } from './shared';
+import { usePractical } from '@/features/course/practical-provider';
 import { usePortalLearning } from './learning-provider';
 const t = nb.portal,
   g = t.graph;
 type DiagramNode = Node<{ label: string; kind: string; location?: string }, 'resource'>;
 function ResourceNode({ data }: NodeProps<DiagramNode>) {
   const Icon =
-    data.kind === 'group'
-      ? FolderTree
-      : data.kind === 'plan'
-        ? Layers
-        : data.kind === 'app'
-          ? AppWindow
-          : data.kind === 'policy'
-            ? ShieldCheck
-            : data.kind === 'tenant'
-              ? Network
-              : Database;
+    data.kind === 'vm'
+      ? Server
+      : data.kind === 'disk'
+        ? HardDrive
+        : data.kind === 'nic'
+          ? Cable
+          : data.kind === 'vnet' || data.kind === 'subnet'
+            ? Network
+            : data.kind === 'group'
+              ? FolderTree
+              : data.kind === 'plan'
+                ? Layers
+                : data.kind === 'app'
+                  ? AppWindow
+                  : data.kind === 'policy'
+                    ? ShieldCheck
+                    : data.kind === 'tenant'
+                      ? Network
+                      : Database;
   return (
     <>
       <Handle type="target" position={Position.Top} />
@@ -53,6 +72,10 @@ function ResourceNode({ data }: NodeProps<DiagramNode>) {
 }
 const nodeTypes = { resource: ResourceNode };
 const colors = {
+  'disk-attachment': '#8b5e16',
+  'nic-attachment': '#b54d83',
+  'subnet-member': '#008a88',
+  'vnet-parent': '#435ec4',
   'identity-authority': '#8764b8',
   'management-parent': '#69797e',
   'resource-member': '#0078d4',
@@ -75,7 +98,8 @@ export function ArchitectureExplorer({
   const [selection, setSelection] = useState(initialSelection),
     [list, setList] = useState(false),
     [explaining, setExplaining] = useState(false);
-  const { store } = usePortalLearning();
+  const { store } = usePortalLearning(),
+    practical = usePractical();
   const projection = useMemo(() => projectArchitecture(world, lens), [world, lens]);
   const node = projection.nodes.find((n) => n.id === selection),
     relation = projection.edges.find((e) => e.id === selection);
@@ -95,14 +119,12 @@ export function ArchitectureExplorer({
   }));
   const edges: Edge[] = projection.edges.map((e) => ({
     id: e.id,
-    source:
-      e.kind === 'depends-on' || e.kind === 'identity-authority' || e.kind === 'policy-scope'
-        ? e.from
-        : e.to,
-    target:
-      e.kind === 'depends-on' || e.kind === 'identity-authority' || e.kind === 'policy-scope'
-        ? e.to
-        : e.from,
+    source: !['management-parent', 'resource-member', 'vnet-parent'].includes(e.kind)
+      ? e.from
+      : e.to,
+    target: !['management-parent', 'resource-member', 'vnet-parent'].includes(e.kind)
+      ? e.to
+      : e.from,
     ariaLabel: g.relations[e.kind],
     sourceHandle: e.kind === 'depends-on' || e.kind === 'policy-scope' ? 'side-out' : undefined,
     targetHandle: e.kind === 'depends-on' || e.kind === 'policy-scope' ? 'side-in' : undefined,
@@ -228,6 +250,7 @@ export function ArchitectureExplorer({
                 type="button"
                 onClick={() => {
                   store.event({ kind: 'aid' });
+                  if (practical.activeIndependent) practical.store.event({ type: 'aid' });
                   setExplaining(true);
                 }}
               >
@@ -245,7 +268,9 @@ export function ArchitectureExplorer({
                       ? t.planNote
                       : node.kind === 'app'
                         ? t.appNote
-                        : g.explanations['policy-scope']}
+                        : ['vm', 'disk', 'nic', 'vnet', 'subnet'].includes(node.kind)
+                          ? labsNb.vm.note
+                          : g.explanations['policy-scope']}
                   </p>
                 ))}
             </>
@@ -260,6 +285,7 @@ export function ArchitectureExplorer({
                 type="button"
                 onClick={() => {
                   store.event({ kind: 'aid' });
+                  if (practical.activeIndependent) practical.store.event({ type: 'aid' });
                   setExplaining(true);
                 }}
               >

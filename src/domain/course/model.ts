@@ -1,4 +1,5 @@
-import { execute, freshEngine, types, type Engine } from '../chapter01/model';
+import { replayEngine } from '../sandbox/replay';
+import { types, type Engine } from '../chapter01/model';
 import { validResourceGroupName } from '../simulation';
 import { topics, type PortalLocation } from '../portal/model';
 import { unitIds } from '../curriculum/manifest';
@@ -10,6 +11,13 @@ export const moduleIds = ['computing', 'benefits', 'services'] as const;
 export type CourseModule = (typeof moduleIds)[number];
 export const guideTargets = [
   'search',
+  'vm-image',
+  'vm-profile',
+  'vm-disk',
+  'vm-network',
+  'vm-details',
+  'inspect-practical',
+  'settings',
   'groups',
   'create',
   'subscription',
@@ -170,12 +178,8 @@ export function labFacts(session: LabSession | null, engine: Engine, attempt: nu
       ? -1
       : engine.ledger.findIndex((e) => e.request.commandId === session.boundary);
   if (session.boundary !== null && boundary < 0) return empty;
-  let replay = freshEngine();
-  for (const entry of engine.ledger) {
-    const result = execute(replay, entry.request);
-    replay = result.engine;
-    if (JSON.stringify(result.receipt) !== JSON.stringify(entry.receipt)) return empty;
-  }
+  const replay = replayEngine(engine);
+  if (!replay) return empty;
   const entries = engine.ledger.slice(boundary + 1),
     w = replay.world;
   const created = new Set(

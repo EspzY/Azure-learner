@@ -13,7 +13,7 @@ import {
   type Answers,
 } from '@/domain/portal/learning';
 import { topics, type PortalLocation } from '@/domain/portal/model';
-import { useChapter } from '@/features/chapter01/provider';
+import { useSandbox as useChapter } from '@/features/portal/sandbox-provider';
 import { useLearning } from '@/features/learning/provider';
 import { unitIds, sourceUrl, units, type UnitId } from '@/domain/curriculum/manifest';
 import { UnitInvestigation } from '@/features/learning/session';

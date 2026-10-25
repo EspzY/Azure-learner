@@ -1,11 +1,11 @@
 import {
-  execute,
-  relations,
-  types,
-  type Engine,
-  type World,
-  type Command,
-} from '../chapter01/model';
+  infrastructure,
+  infrastructureTypes,
+  infrastructureRelations,
+  type Command as SandboxCommand,
+} from '../sandbox/model';
+import { executeCurrent } from '../sandbox/replay';
+import { relations, types, type Engine, type World, type Command } from '../chapter01/model';
 export const areas = [
   'home',
   'services',
@@ -13,6 +13,8 @@ export const areas = [
   'groups',
   'resources',
   'apps',
+  'vms',
+  'settings',
   'plans',
   'activity',
   'resource',
@@ -27,7 +29,14 @@ export const areas = [
 export type Area = (typeof areas)[number];
 export const topics = ['overview', 'iaas', 'paas', 'saas', 'selection', 'practice'] as const;
 export type Topic = (typeof topics)[number];
-export type CreateKind = 'group' | 'plan' | 'app';
+export type CreateKind = 'group' | 'plan' | 'app' | 'vm';
+export const benefitBridgeTopics = [
+  'availability',
+  'reliability',
+  'governance',
+  'management',
+  'sustainability',
+] as const;
 export interface PortalLocation {
   area: Area;
   id: string;
@@ -38,16 +47,31 @@ export interface PortalLocation {
   edit: string;
   lab?: true;
   course?: true;
+  practice?: 'vm' | 'paas';
+  bridge?: (typeof benefitBridgeTopics)[number];
 }
 export function parseLocation(query: URLSearchParams): PortalLocation {
   const area = query.get('area') ?? 'home',
     mode = query.get('mode') ?? 'learn';
   return {
+    ...(benefitBridgeTopics.includes(query.get('bridge') as (typeof benefitBridgeTopics)[number])
+      ? { bridge: query.get('bridge') as (typeof benefitBridgeTopics)[number] }
+      : {}),
     ...(query.get('lab') === 'web-platform' ? { lab: true as const } : {}),
+    ...(['vm', 'paas'].includes(query.get('practice') ?? '')
+      ? { practice: query.get('practice') as 'vm' | 'paas' }
+      : {}),
     ...(query.get('course') === '1' ? { course: true as const } : {}),
     area: areas.includes(area as Area) ? (area as Area) : 'home',
     id: /^[a-zA-Z0-9_-]{1,64}$/.test(query.get('id') ?? '') ? query.get('id')! : '',
-    kind: query.get('kind') === 'plan' ? 'plan' : query.get('kind') === 'app' ? 'app' : 'group',
+    kind:
+      query.get('kind') === 'vm'
+        ? 'vm'
+        : query.get('kind') === 'plan'
+          ? 'plan'
+          : query.get('kind') === 'app'
+            ? 'app'
+            : 'group',
     module: query.get('module') === 'computing' ? 'computing' : 'services',
     topic: [
       ...topics,
@@ -87,10 +111,13 @@ export function portalHref(
   if (next.area === 'create') query.set('kind', next.kind);
   if (next.edit) query.set('edit', next.edit);
   if (next.lab) query.set('lab', 'web-platform');
+  if (next.practice) query.set('practice', next.practice);
+  if (next.bridge) query.set('bridge', next.bridge);
   if (next.course) query.set('course', '1');
   return `/portal?${query}`;
 }
-export type InventoryKind = 'subscription' | 'group' | 'plan' | 'app';
+export type InventoryKind =
+  'subscription' | 'group' | 'plan' | 'app' | 'vm' | 'disk' | 'nic' | 'vnet' | 'subnet';
 export interface InventoryRow {
   id: string;
   name: string;
@@ -100,9 +127,20 @@ export interface InventoryRow {
   groupId?: string;
   location?: string;
   planId?: string;
+  parentId?: string;
 }
 export function inventory(world: World): InventoryRow[] {
   return [
+    ...infrastructure(world).map((r) => ({
+      id: r.id,
+      name: r.name,
+      kind: r.kind,
+      type: infrastructureTypes[r.kind],
+      subscriptionId: world.groups.find((g) => g.id === r.groupId)!.subscriptionId,
+      groupId: r.groupId,
+      location: r.location,
+      ...(r.kind === 'subnet' ? { parentId: r.vnetId } : {}),
+    })),
     ...world.scopes
       .filter((s) => s.kind === 'subscription')
       .map((s) => ({
@@ -134,7 +172,7 @@ export function inventory(world: World): InventoryRow[] {
 }
 const normalize = (value: string) => value.normalize('NFKD').replace(/\p{M}/gu, '').toLowerCase();
 export function resourceInventory(world: World) {
-  return inventory(world).filter((row) => row.kind === 'plan' || row.kind === 'app');
+  return inventory(world).filter((row) => row.kind !== 'subscription' && row.kind !== 'group');
 }
 export function filterInventory(rows: InventoryRow[], query: string, subscription = '', kind = '') {
   const needle = normalize(query.trim());
@@ -174,7 +212,7 @@ export function creationContext(world: World, contextId: string, prior?: Record<
       ? prior.groupId
       : world.groups.some((g) => g.id === contextId)
         ? contextId
-        : resource?.groupId;
+        : (resource?.groupId ?? infrastructure(world).find((r) => r.id === contextId)?.groupId);
   const group = world.groups.find((g) => g.id === groupId);
   const subscription =
     typeof prior?.subscriptionId === 'string'
@@ -193,15 +231,20 @@ export function creationContext(world: World, contextId: string, prior?: Record<
           : '',
   };
 }
-export function requestFor(engine: Engine, command: Command, sequence: number, review = false) {
+export function requestFor(
+  engine: Engine,
+  command: SandboxCommand,
+  sequence: number,
+  review = false,
+) {
   return {
     commandId: `${review ? 'review' : 'portal'}-${sequence}`,
     expectedWorldRevision: engine.world.revision,
     command: { ...command },
   };
 }
-export function reviewCommand(engine: Engine, command: Command, sequence: number) {
-  return execute(engine, requestFor(engine, command, sequence, true)).receipt;
+export function reviewCommand(engine: Engine, command: SandboxCommand, sequence: number) {
+  return executeCurrent(engine, requestFor(engine, command, sequence, true)).receipt;
 }
 export function projectArchitecture(
   world: World,
@@ -238,11 +281,22 @@ export function projectArchitecture(
       }),
     );
   });
+  infrastructure(world).forEach((r, i) =>
+    nodes.push({
+      id: r.id,
+      name: r.name,
+      kind: r.kind,
+      location: r.location,
+      x: (i % 4) * 280,
+      y: 650 + Math.floor(i / 4) * 160,
+    }),
+  );
   world.policies.forEach((p, i) =>
     nodes.push({ id: p.id, name: p.id, kind: 'policy', x: 1100 + i * 270, y: 340 }),
   );
   const edges = [
     ...relations(world),
+    ...infrastructureRelations(world),
     ...world.policies.map((p) => ({ kind: 'policy-scope' as const, from: p.id, to: p.scopeId })),
   ];
   const visible = nodes
@@ -273,7 +327,9 @@ export function projectArchitecture(
                     ? 160
                     : n.kind === 'plan'
                       ? 320
-                      : 480,
+                      : ['vm', 'disk', 'nic', 'vnet', 'subnet'].includes(n.kind)
+                        ? n.y - 100
+                        : 480,
           },
     );
   const visibleIds = new Set(visible.map((n) => n.id));
@@ -284,7 +340,8 @@ export function projectArchitecture(
         (e) =>
           visibleIds.has(e.from) &&
           visibleIds.has(e.to) &&
-          (lens !== 'hierarchy' || (e.kind !== 'depends-on' && e.kind !== 'policy-scope')),
+          (lens !== 'hierarchy' ||
+            ['identity-authority', 'management-parent', 'resource-member'].includes(e.kind)),
       )
       .map((e, i) => ({ ...e, id: `${e.kind}-${e.from}-${e.to}-${i}` })),
   };

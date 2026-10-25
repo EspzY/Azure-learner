@@ -1,5 +1,11 @@
 # Architecture
 
+## Current 3.2.1 technical continuation
+
+Ordinary course and Portal consumers now use SandboxProvider. Historical ChapterProvider remains unchanged for archived gameplay. SandboxStore owns one World containing existing groups/Web resources plus infrastructure and app-settings partitions. It captures the validated old event snapshot without writing the old key, replays that prefix with organization-web@1, then executes the new versioned tail with sandbox@2. Receipt verification is model-aware across the boundary. Only shared TypeScript receipt vocabulary adds `updated`; old reducer behavior/limits are unchanged. New capacity is explicitly eight groups/eight VMs/96 objects, not an Azure quota.
+
+SaasProvider owns an independent fictional product account ledger; PracticalProvider owns only context, observations and evidence references. Existing module stores and XP are untouched. Both operational stores validate/replay commands, detect stale tabs, warn on failed storage and retain one prior attempt on explicit reset. No dependencies were added. [Detailed contract](INTEGRATED_LABS_ARCHITECTURE.md) and [QA](PRACTICAL_LABS_QA.md) supersede historical normal-Portal ChapterProvider statements below.
+
 ## 3.2 bounded educational expansion
 
 The existing Course owns routing, navigation and course/lab session; no new shell. `domain/curriculum/expansion-models.ts` contains finite runtime-validated conceptual experiments. Only the governance experiment calls the existing execute function, on a discarded fresh engine; shared technical state/receipts are unchanged. `expansion.ts` validates/replays observations and classifies first/help/retry/abandon. `expansion-store.ts` isolates each version, quarantines unknown/corrupt data, prevents stale-tab writes and warns on memory-only operation. ExpansionProvider reuses the root provider tree.

@@ -1,5 +1,9 @@
 # Curriculum coverage audit
 
+## 3.2.1 qualitative operational audit
+
+[All 15 selected path objectives](FUNDAMENTALS_LAB_COVERAGE.md) are mapped to actual teaching/practice/evidence and remaining boundaries. The existing M1/M2/M3 manuscripts and conceptual independent tasks are unchanged. New VM/PaaS/SaaS operational labs add separate changed-context evidence; they do not retrospectively upgrade conceptual answers or complete additional official modules. Wider AZ-900/architectural coverage and human SME review remain incomplete. Serverless remains an explicitly known wider exam gap.
+
 ## 3.2 current coverage — 2026-10-25
 
 This section supersedes earlier Benefits-planned/current-service-v1 rows. Full audit and source-to-activity boundaries: [Modules01–03](MODULE_01_02_03_PROGRESSION_AUDIT.md). Foundations v1/v2 official outcomes are retained; its new default responsibility illustration is a focused three-case introduction, not a second full operative service lesson.

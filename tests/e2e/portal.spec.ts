@@ -189,8 +189,8 @@ test('source-backed learning, real Portal creation, policy recovery, live graph 
   await audit(page);
   expect(
     (
-      await page.evaluate(() => JSON.parse(localStorage.getItem('azurelab.chapter01.guided.v1')!))
-    ).events.some((e: { kind: string }) => e.kind === 'command'),
+      await page.evaluate(() => JSON.parse(localStorage.getItem('azurelab.sandbox.v2')!))
+    ).commands.some((e: { command: { type: string } }) => e.command.type === 'CreatePlan'),
   ).toBe(true);
   await page.getByRole('button', { name: nb.chapter.showPolicy, exact: true }).click();
   await expect(page.locator('h1')).toHaveText(p.areas.policy);

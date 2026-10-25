@@ -1,9 +1,11 @@
 'use client';
+import { usePractical } from './practical-provider';
+import { practicalHref } from '@/domain/sandbox/practical';
 import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { BookOpen, ArrowRight, ChevronRight, FlaskConical, Check, Menu } from 'lucide-react';
-import { nb } from '@/content/nb';
+import { labsNb, nb } from '@/content/nb';
 import { officialLearning } from '@/domain/curriculum/official';
 import { unitIds } from '@/domain/curriculum/manifest';
 import { topics, portalHref, parseLocation, type PortalLocation } from '@/domain/portal/model';
@@ -15,7 +17,8 @@ import {
   startLab,
   type CourseModule,
 } from '@/domain/course/model';
-import { useChapter } from '@/features/chapter01/provider';
+import { PracticalAssistance, PracticalOutcome } from './practical-lab';
+import { useSandbox as useChapter } from '@/features/portal/sandbox-provider';
 import { useLearning } from '@/features/learning/provider';
 import { usePortalLearning } from '@/features/portal/learning-provider';
 import {
@@ -45,6 +48,7 @@ const names = {
   benefits: nb.official.benefits,
 };
 export function Course({ module }: { module?: CourseModule }) {
+  const practical = usePractical();
   const query = useSearchParams(),
     router = useRouter(),
     course = useCourse(),
@@ -64,7 +68,7 @@ export function Course({ module }: { module?: CourseModule }) {
     services.save.events.length > 0 &&
     service2.facts.choice === null;
   const serviceHref = (t: string) =>
-    `${courseHref('services', t)}${legacyServices ? '&version=1' : ''}`;
+    `${courseHref('services', t)}${legacyServices ? '&version=1' : query.get('version') === '2' ? '&version=2' : ''}`;
   const topic =
     legacyServices && !(topics as readonly string[]).includes(query.get('topic') ?? 'overview')
       ? 'overview'
@@ -190,23 +194,27 @@ export function Course({ module }: { module?: CourseModule }) {
     (learning.save.events.length
       ? { module: 'computing' as const, topic: learning.save.unit }
       : null);
-  const resumeHref = v2.facts.active
-    ? courseHref('computing', 'v2-assessment')
-    : benefits.facts.active
-      ? courseHref('benefits', 'assessment')
-      : service2.facts.active
-        ? courseHref('services', 'assessment')
-        : services.facts.active
-          ? '/portal?area=challenge&course=1&module=services&topic=practice'
-          : learning.facts.active && v2.save.choice !== 'v2'
-            ? courseHref('computing', 'assessment')
-            : preferredResume
-              ? (preferredResume.module === 'services' && preferredResume.topic === 'practice') ||
-                (preferredResume.module === 'computing' &&
-                  preferredResume.topic === 'resource-bridge')
-                ? courseLabHref(lab.complete, course.save.lab?.origin)
-                : courseHref(preferredResume.module, preferredResume.topic)
-              : computingEntry;
+  const resumeHref =
+    practical.current?.status === 'active'
+      ? practicalHref(practical.current, chapter.attempt.engine)
+      : v2.facts.active
+        ? courseHref('computing', 'v2-assessment')
+        : benefits.facts.active
+          ? courseHref('benefits', 'assessment')
+          : service2.facts.active
+            ? courseHref('services', 'assessment')
+            : services.facts.active
+              ? '/portal?area=challenge&course=1&module=services&topic=practice'
+              : learning.facts.active && v2.save.choice !== 'v2'
+                ? courseHref('computing', 'assessment')
+                : preferredResume
+                  ? (preferredResume.module === 'services' &&
+                      preferredResume.topic === 'practice') ||
+                    (preferredResume.module === 'computing' &&
+                      preferredResume.topic === 'resource-bridge')
+                    ? courseLabHref(lab.complete, course.save.lab?.origin)
+                    : courseHref(preferredResume.module, preferredResume.topic)
+                  : computingEntry;
   const navigate = (area: PortalLocation['area'], change: Partial<PortalLocation> = {}) => {
     if (area === 'learn')
       router.push(courseHref(change.module ?? module ?? 'services', change.topic ?? topic));
@@ -273,6 +281,7 @@ export function Course({ module }: { module?: CourseModule }) {
       className={`portal course-shell ${currentV2 || module === 'benefits' || (module === 'services' && !legacyServices) ? 'course-v2' : ''}`}
     >
       <ExpansionAssistance />
+      <PracticalAssistance />
       <a className="portal-skip" href="#course-main">
         {nb.shell.skip}
       </a>
@@ -293,6 +302,7 @@ export function Course({ module }: { module?: CourseModule }) {
           type="button"
           onClick={() => {
             if (services.facts.active) services.store.event({ kind: 'aid' });
+            if (practical.activeIndependent) practical.store.event({ type: 'aid' });
             setJournal(true);
           }}
         >
@@ -421,6 +431,21 @@ export function Course({ module }: { module?: CourseModule }) {
                   <ArrowRight size={18} />
                 </Link>
               </div>
+              <section className="course-lab-discovery" aria-label={labsNb.discover}>
+                <strong>{labsNb.discover}</strong>
+                <p>{labsNb.discoverNote}</p>
+                <nav>
+                  {(['iaas', 'paas', 'saas'] as const).map((topic) => (
+                    <Link
+                      key={topic}
+                      href={`/learn/services?topic=${topic}&activity=practical&version=2`}
+                      onClick={() => service2.store.event({ kind: 'choose', version: 'v2' })}
+                    >
+                      {labsNb.models[topic]} · {labsNb.title}
+                    </Link>
+                  ))}
+                </nav>
+              </section>
               <section className="course-syllabus">
                 <small>{c.path}</small>
                 <h2>{nb.official.path}</h2>
@@ -501,6 +526,19 @@ export function Course({ module }: { module?: CourseModule }) {
                 <p>{c.participation}</p>
               </section>
             </>
+          ) : practical.activeIndependent && practical.current && !practical.current.aided ? (
+            <section className="practical-entry">
+              <small>{labsNb.independent}</small>
+              <h1>{labsNb.lab[practical.current.kind].title}</h1>
+              <p>{labsNb.lab[practical.current.kind].changed}</p>
+              <Link
+                className="course-primary"
+                href={practicalHref(practical.current, chapter.attempt.engine)}
+              >
+                {labsNb.resume}
+              </Link>
+              <PracticalOutcome />
+            </section>
           ) : (
             <>
               <div className="course-breadcrumb">

@@ -1,5 +1,13 @@
 # Course/lab orchestration
 
+## 3.2.1 practical sessions and evidence
+
+New `azurelab.practical-labs.v1` / practical-labs@1 events pin kind, mode, allowlisted lesson origin, technical attempt and command-ID boundary. Stable lab/rubric/model/source definitions are in `domain/sandbox/practical.ts` and `content.ts`. Inspection references, reason drafts, explicit help, submit-through IDs and abandonment replay separately from inventory. Earlier sessions can be selected/resumed without replacing their boundary. First deliveries remain immutable; retries are new sessions. Versioning the definition/rubric requires a new content version, never reinterpretation.
+
+Current technical findings replay the versioned operational ledger; old service/course rubrics now use model-aware receipt verification while preserving their original criteria. Independent VM/PaaS require new post-boundary resources; SaaS requires post-boundary departure actions. Successful prior guided configuration cannot pass a new task. Resets make references to another attempt unverifiable rather than inventing success; old answers remain stored. All evidence is local and unauthenticated.
+
+PaaS without an app launches the existing real Web lab, reusing an eligible prior group and actual policy/hosting inspection. Its prerequisite stays resumable through the original pinned course session. Existing apps can be configured directly as guided practice. Return is `/learn/{allowlisted-module}?topic={origin}&activity=practical`, with section focus after hydration. Service Types practical links/returns explicitly retain version2, including a learner who previously chose the v1 archive; the old bytes are unchanged. Leaving unfinished keeps commands and session; unsubmitted form edits are transient. Benefits bridges carry their own originating topic. No independent task is started from URL parameters. [Architecture](INTEGRATED_LABS_ARCHITECTURE.md).
+
 ## 3.2 lab reuse and return
 
 LabSession retains schema/version and adds only allowlisted navigation origins services-v1/services-v2 alongside computing-v2. Restore accepts historical sessions without origin. Origins do not affect validated technical predicates. Current/archive entry explicitly sets its own origin, so one course cannot accidentally return to the other version. A user may opt into a boundary-null session for accepted prior resources in the same replayed attempt. Policy and hosting inspections still need actual matching receipt/resource IDs; resources and old observations are not recreated or migrated. New independent assessment contexts suppress coaching highlights. See [architecture](CONTENT_ARCHITECTURE.md).

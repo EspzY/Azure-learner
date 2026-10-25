@@ -1,4 +1,12 @@
-# AzureLab 3.2
+# AzureLab 3.2.1
+
+## 3.2.1 — integrated practical laboratories
+
+The ordinary `/` → `/learn` entry now links directly to the actual Service Types units and their practical laboratories. IaaS opens **Virtual machines** in the existing Portal: a validated atomic transaction creates VM, OS/data disks, NIC, VNet and subnet in the shared persistent inventory. PaaS retains the existing policy/hosting lab and adds persisted allowlisted **App settings**. SaaS uses a separate fictional product-admin lab with users, two license seats, roles, sharing, departure and replayed operation history.
+
+All three have pinned guided/independent sessions, causal inspection, changed-context tasks, immutable first deliveries, help classification and exact lesson return. No new XP is issued. Existing teaching, assessments and old stores remain intact. `azurelab.sandbox.v2` imports a frozen validated Chapter v1 prefix without rewriting it; new technical commands replay under sandbox@2. Normal course/Portal share this one inventory. No VM runs, code deploys, network connects, real administrator authenticates or Azure price/carbon/SLA is calculated. Benefits remains a conceptual model with explicit practical bridges.
+
+See [architecture](docs/INTEGRATED_LABS_ARCHITECTURE.md), [coverage review](docs/FUNDAMENTALS_LAB_COVERAGE.md), [VM specification](docs/VM_LAB_TECHNICAL_DESIGN.md), [PaaS](docs/PAAS_LAB_REFINEMENT.md), [SaaS](docs/SAAS_ADMIN_LAB.md), and [actual QA / human gates](docs/PRACTICAL_LABS_QA.md). Desktop-first; no new dependencies, services or assets. Earlier 3.2 feature limits below describe the preserved base, not the current practical inventory.
 
 ## 3.2 — progressive cloud concepts
 

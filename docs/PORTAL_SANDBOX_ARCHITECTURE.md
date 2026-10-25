@@ -1,5 +1,11 @@
 # Portal sandbox architecture
 
+## 3.2.1 — one versioned operational inventory
+
+Current `/portal` reads SandboxProvider, not the archive's mutable ChapterProvider. Frozen v1 prefix receipts are replayed unchanged; sandbox@2 tail handlers add atomic VM dependencies, cleanup and allowlisted App settings. Inventory/list/detail/history/graph all project this same world. Four existing Web operations retain validation/policy/hosting behavior with explicitly versioned larger training limits. Unknown fields/operations remain rejected or unsupported. [Migration, commands and boundaries](INTEGRATED_LABS_ARCHITECTURE.md).
+
+`/labs/saas` is a separate fictional product, deliberately outside ARM. Course session URLs are navigation hints, never evidence. [Practical session/evidence contract](COURSE_LAB_ORCHESTRATION.md) and [QA](PRACTICAL_LABS_QA.md). Historical provider/key references below apply to the older implementation.
+
 ## 3.2 separation from conceptual exercises
 
 The Portal still has one ChapterProvider inventory and unchanged command validation. New curriculum models cannot insert VM, SaaS user or load-balancer resources. The policy teaching experiment executes a fresh discarded engine and labels its receipt accordingly. The actual PaaS lab continues to observe shared accepted resources, denial receipts and typed hosting relations. Explicit current-attempt reuse and allowlisted version return are [course orchestration](COURSE_LAB_ORCHESTRATION.md), not alternative resource state. No additional backend, dependency or Azure operation was added.

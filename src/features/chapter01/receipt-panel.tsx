@@ -1,5 +1,5 @@
 'use client';
-import { nb, regionLabels } from '@/content/nb';
+import { nb, operationExplanation, regionLabels } from '@/content/nb';
 import type { Receipt } from '@/domain/chapter01/model';
 export function ReceiptPanel({
   receipt,
@@ -8,7 +8,7 @@ export function ReceiptPanel({
 }: {
   receipt?: Receipt & { probe?: boolean };
   onPolicy: () => void;
-  onEdit: () => void;
+  onEdit?: () => void;
 }) {
   const t = nb.chapter;
   if (!receipt) return <p>{t.noReceipts}</p>;
@@ -22,7 +22,7 @@ export function ReceiptPanel({
       </span>
       <h2>{t.receiptTitle}</h2>
       {receipt.probe && <p className="probe-notice">{t.probeReceipt}</p>}
-      <p className="receipt-cause">{t.errors[receipt.code]}</p>
+      <p className="receipt-cause">{operationExplanation(receipt)}</p>
       <dl className="technical-properties">
         <div>
           <dt>{t.operation}</dt>
@@ -88,9 +88,11 @@ export function ReceiptPanel({
           </button>
         </div>
       )}
-      <button type="button" className="text-control" onClick={onEdit}>
-        {t.editConfiguration}
-      </button>
+      {onEdit && (
+        <button type="button" className="text-control" onClick={onEdit}>
+          {t.editConfiguration}
+        </button>
+      )}
     </div>
   );
 }
