@@ -1,5 +1,11 @@
 # Interactive technical visualizations
 
+## 3.2 mechanisms and representations
+
+The [Benefits manuscript](CLOUD_BENEFITS_CONTENT.md) owns the numerical/causal contracts; [Service Types](SERVICE_TYPES_DEEP_LEARNING.md) owns conceptual component boundaries. Availability uses a client/routing/instance diagram and computed available/served/unmet capacity after one failure. Reliability shows a selected application/dependency path plus explicitly frozen trend observations. Governance displays the selected scope/request and actual receipt from an unsaved engine fork. Manageability uses a standards matrix that distinguishes equal from correct; sustainability uses a24-hour schedule and defined capacity-hours, never carbon.
+
+IaaS separates provider host, guest OS/vCPU/RAM/runtime, appdata and NIC; PaaS shows a compatibility gate and retained customer choices; SaaS separates account/license access, administration authority and sharing. Native controls and full textual causal results are equivalent to the diagrams. All diagrams project current validated finite inputs; only submitted runs create observations. The actual lab architecture remains derived from the shared real simulator inventory, not these conceptual models. No remote media, fonts, rendering dependency or WebGL is introduced.
+
 ## 3.1B visualization integration
 
 The reviewed browser/server cutaway, guest/host RAM budget, control/workload provisioning and defined-unit capacity model now render in the actual computing course. They do not create Azure resources. The existing responsibility and authoritative live hierarchy remain shared. The lab's optional computing origin preserves exact return; resource naming explanations accompany the actual form. The old proof is noindex historical comparison, no longer promoted as the new course.

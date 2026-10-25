@@ -9,6 +9,7 @@ import { LearningProvider } from '@/features/learning/provider';
 import { PortalLearningProvider } from '@/features/portal/learning-provider';
 import { FoundationsV2Provider } from '@/features/learning/v2-provider';
 import { CourseProvider } from '@/features/course/provider';
+import { ExpansionProvider } from '@/features/learning/expansion-provider';
 import '@xyflow/react/dist/style.css';
 import './globals.css';
 
@@ -28,7 +29,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                   <PortalLearningProvider>
                     <FoundationsV2Provider>
                       <CourseProvider>
-                        <AppShell>{children}</AppShell>
+                        <ExpansionProvider>
+                          <AppShell>{children}</AppShell>
+                        </ExpansionProvider>
                       </CourseProvider>
                     </FoundationsV2Provider>
                   </PortalLearningProvider>

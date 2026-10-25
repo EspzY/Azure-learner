@@ -1,8 +1,8 @@
 // Reviewed local metadata only. Credentials are overlays, never the content hierarchy.
 export const officialLearning = {
   schema: 1,
-  version: '2026-10-24',
-  reviewed: '2026-10-24',
+  version: '2026-10-25',
+  reviewed: '2026-10-25',
   certification: {
     id: 'azure-fundamentals',
     exam: 'AZ-900',
@@ -23,8 +23,8 @@ export const officialLearning = {
     {
       id: 'benefits',
       slug: 'describe-benefits-use-cloud-services',
-      local: null,
-      status: 'planned',
+      local: 'cloud-benefits',
+      status: 'implemented' as 'implemented' | 'planned',
       officialUnits: 8,
     },
     {

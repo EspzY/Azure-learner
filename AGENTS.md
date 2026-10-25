@@ -1,5 +1,11 @@
 # AzureLab engineering contract
 
+## 3.2 content and evidence boundary
+
+Keep Modules 1→2→3 cumulative. Read MODULE_01_02_03_PROGRESSION_AUDIT, CLOUD_BENEFITS_CONTENT, SERVICE_TYPES_DEEP_LEARNING and FUNDAMENTALS_SUPPLEMENTARY_READING before changing these activities. Preserve the full prior manuscripts and Foundations v1/v2 stores. ResponsibilityExplorer needs an explicit educational context: only a Service Types-owned context may emit that version's comparisons; Module 1's basic responsibility recap emits none. Never reinterpret historic comparisons with unknown provenance as operational v2 learning.
+
+Benefits uses `azurelab.learning.benefits.v1`, Service Types operational content uses `azurelab.learning.service-types.v2`; model/rubric/content versions and validated event replay are required. Legacy `azurelab.portal.learning.v1` remains unchanged and accessible with an explicit version choice/archive. Read/visit/resume is not guided completion; guided work needs witnessed configurations and a reason, and practical confirmation also queries actual labFacts. Independent drafts, assistance, abandoned attempts and immutable first submissions remain separate. Never add XP for these actions. Concept models cannot mutate the Portal inventory; policy teaching may execute only on a clearly labelled unsaved fork. No guidance highlights during any active independent assessment. New source/objective/assessment mappings must pass curriculum:check, and the actual root→Benefits→Service Types→real Portal→exact return must be browser-verified.
+
 Read README.md, docs/PROJECT_STATUS.md and relevant existing architecture, experience and learning documents before work. Preserve Git history and use a feature branch; never merge or deploy without explicit owner approval.
 
 ## Product boundaries

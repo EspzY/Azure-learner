@@ -1,5 +1,9 @@
 # Visual learning system — 3.1A
 
+## 3.2 context refinement
+
+V01–V05 remain unchanged. The default Module1 V06 treatment is now a focused physical/data/identity recap using the same responsibility rule, followed by the original Foundation investigation. The full nine-layer matrix is an explicitly contextual Module3 entrance to deeper component/platform/product exercises. Neither Module1 nor generic reference interaction writes Service Types comparisons. Original Service Types v1 remains labelled historical. [Boundary audit](MODULE_01_02_03_PROGRESSION_AUDIT.md) and [new visualization contracts](INTERACTIVE_VISUALIZATIONS.md) own the current distinction; earlier full-matrix-in-M1 statements describe the prior release.
+
 ## 3.1B implementation status
 
 V01–V06 are in the ordinary course after owner authorization. V01/V02 share original archive geometry; V03 shows requested/accepted RAM; V04 separates control/application lanes; V05 commits predictions before output and compares executed runs; V06 reuses the reviewed matrix. Full contracts below remain. The proof is historical. The actual course must pass root review at three desktop sizes. Billing units are separate from workload totals. [Handoff](FOUNDATIONS_31B_HANDOFF.md) owns implemented limits.

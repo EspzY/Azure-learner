@@ -1,5 +1,9 @@
 # Learning journey and competency universe
 
+## 3.2 first-path implementation
+
+The current ordinary course implements all three modules in official order: Describe cloud computing → Describe the benefits of using cloud services → Describe cloud service types. This is a local instructional implementation, not completion in Microsoft Learn. [The audit](MODULE_01_02_03_PROGRESSION_AUDIT.md) distinguishes prerequisite introduction from mechanism/application/transfer. Users may enter directly without skipped credit. Old Foundations and Service Types evidence remains versioned separately. The broader30-unit competency graph below remains the professional roadmap; no new architecture/network/security course is implied.
+
 ## 3.1B implementation overlay
 
 The first module begins with reviewed browser→server→physical resources→OS→VM→provisioning teaching inside the actual course. Capacity, responsibility, deployment/use cases, consumption and pricing follow; Service Types and the shared lab remain available. Benefits stays planned in official second position. Direct access does not complete skipped material. V1 evidence is separate from v2; other professional competencies/readiness are not implemented here.

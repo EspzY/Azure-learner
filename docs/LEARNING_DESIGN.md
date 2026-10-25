@@ -1,5 +1,11 @@
 # Learning design
 
+## 3.2 cumulative depth
+
+Module1 establishes intuition and retains its original outcome checks. Module2 asks why a capability helps and under which conditions: compare capacity with fault tolerance, diagnose before correcting, distinguish policy and security, repeat both correct and incorrect configuration, and reduce unnecessary resource use without losing required function. Module3 applies that reasoning to guest/platform/product control boundaries. Its nine-layer comparison is one recap entrance followed by distinct operational tasks, not repeated on every page.
+
+SavvyShark states objective, reason, action and expected observation per investigation. Full theory and assumptions are visible before action. Guidance and independent changed scenarios have separate rubrics/history; no default answers or solution highlights in independent use. [Benefits](CLOUD_BENEFITS_CONTENT.md), [service deepening](SERVICE_TYPES_DEEP_LEARNING.md) and [source register](FUNDAMENTALS_SUPPLEMENTARY_READING.md) specify concrete behaviors. Qualified SME, think-aloud beginner/IT and assistive-technology review remain human gates.
+
 ## 3.1B current module
 
 New learners begin with shop request→hardware/software→guest/host→provisioning before capacity. A worked hour does not expose the changed campaign result. Actions, guided explanations and changed-task first/help/retry are tracked under2.0.0, never inferred from old evidence. Later official outcomes retain substantive original theory/practice. The bridge uses the shared Portal and factual debrief. Human novice/SME/retention review remains outstanding.

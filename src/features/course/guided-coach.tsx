@@ -18,6 +18,7 @@ import { useCourse } from './provider';
 import { SavvyShark } from './savvy-shark';
 import { resolveGuideTarget, useGuideBounds } from './highlight';
 import './course.css';
+import { useExpansion } from '@/features/learning/expansion-provider';
 const c = nb.course;
 export function GuidedCoach({
   location,
@@ -31,9 +32,20 @@ export function GuidedCoach({
   const { save, store, ready } = useCourse(),
     chapter = useChapter(),
     module = usePortalLearning();
+  const benefits = useExpansion('benefits'),
+    services2 = useExpansion('services');
   const [minimized, setMinimized] = useState(false);
   const lab = save.lab;
-  const active = !!lab && ready && !!location.lab && !module.facts.active;
+  const active =
+    !!lab &&
+    ready &&
+    module.ready &&
+    benefits.ready &&
+    services2.ready &&
+    !!location.lab &&
+    !module.facts.active &&
+    !benefits.facts.active &&
+    !services2.facts.active;
   const findings = labFacts(lab, chapter.attempt.engine, chapter.attemptNumber);
   const nextStep = lab
     ? guideStep(lab, chapter.attempt.engine, chapter.attemptNumber, location, form)

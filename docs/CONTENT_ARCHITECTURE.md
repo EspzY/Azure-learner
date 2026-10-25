@@ -1,5 +1,11 @@
 # Local curriculum and evidence architecture
 
+## 3.2 implemented curriculum records
+
+The current first path contains computing, benefits and services in official order (metadata reviewed2026-10-25). The new [manuscripts](CLOUD_BENEFITS_CONTENT.md) and [Service Types deepening](SERVICE_TYPES_DEEP_LEARNING.md) precede the presentation implementation. `nb.expansion` is the learner-facing manuscript, terms, instructions, assumptions, misconception feedback and assessment items. `expansion-content.ts` links CB01–CB05/ST01–ST04 to existing competencies and reviewed source IDs B10–B14/T10–T23. Its integrity check verifies sections, required experiments, source links, objective-to-assessment mappings and orphan content/items; this does not prove instructional adequacy or human review.
+
+Benefits content/rubric1.0.0 and operational Service Types content/rubric2.0.0 use model1.0.0 and separate schema1 event records. Each unit exposes prerequisite→mechanism→Azure example→worked example→assumptions→experiment→causal result→reasoned application. The summary reports introduced and guided observations separately from changed-context first/help/retry submissions. A guided Portal result is not independently assessed by merely reading it. Human SME and learner-study fields remain null. Legacy service content/evidence remains v1; no automatic reinterpretation or migration.
+
 ## 3.1B implemented content/evidence2.0.0
 
 Current course consumes `v2Bindings` in `domain/curriculum/foundations-v2.ts`: topics, S01–13, visuals, B01–B05/FC01–FC07/G01 and sources. `nb.foundationsV2` owns the complete prerequisite manuscript, causal checks and changed items. Later units preserve every purpose/mechanism/Azure/example/misconception/limit paragraph and term. The proof is no longer the delivery mechanism.

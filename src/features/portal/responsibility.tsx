@@ -9,14 +9,24 @@ const p = nb.portal,
 export function ResponsibilityExplorer({
   initialModel = 'paas',
   guide = false,
+  context = 'reference',
+  onCompare,
 }: {
   initialModel?: ServiceModel;
   guide?: boolean;
+  context?: 'foundations' | 'reference' | 'service-v1' | 'services-v2';
+  onCompare?: (model: ServiceModel) => void;
 }) {
   const [model, setModel] = useState<ServiceModel>(initialModel),
     [previous, setPrevious] = useState<ServiceModel>(initialModel),
     [layer, setLayer] = useState<Layer | 'virtualization'>('os');
   const { store } = usePortalLearning();
+  const compare = (m: ServiceModel) => {
+    setPrevious(model);
+    setModel(m);
+    if (context === 'service-v1') store.event({ kind: 'compare', model: m });
+    if (context === 'services-v2') onCompare?.(m);
+  };
   const all = ['physical', 'virtualization', ...layers.filter((l) => l !== 'physical')] as const;
   const owner = (l: Layer | 'virtualization', m: ServiceModel = model) =>
     l === 'virtualization' ? 'microsoft' : responsibility(m, l);
@@ -36,9 +46,7 @@ export function ResponsibilityExplorer({
             key={m}
             aria-pressed={model === m}
             onClick={() => {
-              setPrevious(model);
-              setModel(m);
-              store.event({ kind: 'compare', model: m });
+              compare(m);
             }}
           >
             <strong>{m.toUpperCase()}</strong>
@@ -59,7 +67,7 @@ export function ResponsibilityExplorer({
               aria-pressed={l === layer}
               onClick={() => {
                 setLayer(l);
-                store.event({ kind: 'aid' });
+                if (context === 'service-v1') store.event({ kind: 'aid' });
               }}
             >
               <span>
@@ -97,9 +105,7 @@ export function ResponsibilityExplorer({
                 type="button"
                 aria-pressed={model === m}
                 onClick={() => {
-                  setPrevious(model);
-                  setModel(m);
-                  store.event({ kind: 'compare', model: m });
+                  compare(m);
                 }}
               >
                 <strong>{m.toUpperCase()}</strong>

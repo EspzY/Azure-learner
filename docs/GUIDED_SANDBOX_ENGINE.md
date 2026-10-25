@@ -1,5 +1,9 @@
 # Guided sandbox engine
 
+## 3.2 assessment and reuse boundary
+
+The existing step predicates, target registry, live bounding/resize behavior and command port remain unchanged. New Benefits/Service Types independent attempts suppress highlights and guided teaching panes as well as the original Portal assessment. Access to theory/guided context is classified as assistance in the appropriate new record; no automatic submit is introduced. The current course may explicitly reuse an accepted technical configuration in the same replayable attempt, but policy/hosting inspections and its new reasoned response remain necessary. See [session origins and reuse](COURSE_LAB_ORCHESTRATION.md) and [operational content](SERVICE_TYPES_DEEP_LEARNING.md).
+
 Bounded `web-platform@1` guidance observes the existing Chapter01 engine through a read-only projection. The coach never constructs or submits technical commands. The actual CreateResource UI remains responsible for explicit learner submissions and normal engine validation.
 
 ## 3.1B.1 target refinement

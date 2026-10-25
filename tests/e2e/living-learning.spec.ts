@@ -72,7 +72,7 @@ test('continuous semantic teaching, readable control, official structure, stale 
   await page.locator('.knowledge-journal > .curriculum-trail > summary').click();
   await expect(page.locator('.knowledge-journal')).toContainText(nb.official.path);
   await expect(
-    page.locator('.knowledge-journal').getByText(nb.official.planned, { exact: true }),
+    page.locator('.knowledge-journal').getByText(nb.official.benefitsImplemented, { exact: true }),
   ).toBeVisible();
   await expect(
     page.locator('.knowledge-journal').getByText(nb.official.servicesImplemented, { exact: true }),

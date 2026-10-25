@@ -1,5 +1,13 @@
 # Architecture
 
+## 3.2 bounded educational expansion
+
+The existing Course owns routing, navigation and course/lab session; no new shell. `domain/curriculum/expansion-models.ts` contains finite runtime-validated conceptual experiments. Only the governance experiment calls the existing execute function, on a discarded fresh engine; shared technical state/receipts are unchanged. `expansion.ts` validates/replays observations and classifies first/help/retry/abandon. `expansion-store.ts` isolates each version, quarantines unknown/corrupt data, prevents stale-tab writes and warns on memory-only operation. ExpansionProvider reuses the root provider tree.
+
+`ExpandedModule` presents original localized content with distinct flow, incident, matrix, schedule, VM-component, platform-gate and SaaS access representations plus semantic controls. ServicesWorkspace retains the original manuscript; its operational extension replaces duplicated per-page responsibility matrices, not the original technical prose. ResponsibilityRecap uses the same pure responsibility rule in Module 1 without another module's evidence. `expansion-content.ts` binds sources, stable competency/objective IDs and independent criteria. See [content contracts](CONTENT_ARCHITECTURE.md) and [implemented models](CLOUD_BENEFITS_CONTENT.md).
+
+The Portal and architecture still share the Chapter01 inventory. Allowlisted lab origins now distinguish computing-v2, services-v1 and services-v2 for exact return. Explicit opt-in may reuse accepted prior resources in the same replayable attempt; inspection predicates remain required. Navigation origins never create evidence.
+
 ## 3.1B — actual course, isolated evidence
 
 `Course` selects in-place `FoundationsV2` for current topics; `FoundationsWorkspace` remains labelled v1 compatibility. One root `FoundationsV2Provider` owns the separate record; no second shell or simulator. Stable SSR snapshots and explicit client restoration remain. A finite manifest binds S01–S13, V01–V06 and FC01–FC07.

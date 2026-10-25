@@ -24,7 +24,7 @@ import { units, sourceUrl } from '@/domain/curriculum/manifest';
 import { useFoundationsV2 } from './v2-provider';
 import { Server, CapacityBoard } from './foundations-visuals';
 import { VersionedInvestigation } from './session';
-import { ResponsibilityExplorer } from '@/features/portal/responsibility';
+import { ResponsibilityRecap } from './responsibility-recap';
 import { CloudDeployment } from './cloud-deployment';
 import { SavvyShark } from '@/features/course/savvy-shark';
 import '@/features/design-proof/proof.css';
@@ -168,7 +168,7 @@ export function FoundationsV2({ topic, journal = false }: { topic: string; journ
                 result={capacityProof({ allocation: 6, demand: workedDemand })}
               />
             )}
-            {unit === 'responsibility' && <ResponsibilityExplorer guide />}
+            {unit === 'responsibility' && <ResponsibilityRecap />}
             {unit === 'models' && <CloudDeployment />}
           </section>
         </div>

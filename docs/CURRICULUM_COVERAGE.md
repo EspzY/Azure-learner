@@ -1,5 +1,23 @@
 # Curriculum coverage audit
 
+## 3.2 current coverage — 2026-10-25
+
+This section supersedes earlier Benefits-planned/current-service-v1 rows. Full audit and source-to-activity boundaries: [Modules01–03](MODULE_01_02_03_PROGRESSION_AUDIT.md). Foundations v1/v2 official outcomes are retained; its new default responsibility illustration is a focused three-case introduction, not a second full operative service lesson.
+
+| Official objective         | Actual current teaching/practice                                                                          | Assessment                                     | Human SME |
+| -------------------------- | --------------------------------------------------------------------------------------------------------- | ---------------------------------------------- | --------- |
+| Benefits HA/scalability    | availability: routing, failure, vertical/horizontal capacity, elasticity/SLA qualifications               | changed capacity after failure                 | Pending   |
+| Reliability/predictability | reliability: four diagnoses, recovery, frozen trend, forecast uncertainty                                 | dependency and cost-reasoning items            | Pending   |
+| Security/governance        | governance: authorization vs custom policy vs security, actual rejected/accepted fork receipts            | one-rule acceptance counterexample             | Pending   |
+| Manageability              | management: manual drift, repeated correct and consistently wrong template; of/in distinction             | changed template review                        | Pending   |
+| Sustainability             | sustainability: bounded schedules/utilization, critical-service counterexample, environmental-data limits | need for real environmental comparison data    | Pending   |
+| IaaS                       | original full prose plus VM guest/compute/data/NIC/runtime/patch choices                                  | changed OS/patch requirement                   | Pending   |
+| PaaS                       | original prose plus runtime/retained work model and unchanged real hosting/policy lab                     | compatibility and hosting/metadata distinction | Pending   |
+| SaaS                       | original prose plus account/license/role/data/departure model                                             | changed employee-access scenario               | Pending   |
+| Service use cases          | model comparison once, four justified configuration scenarios including two valid alternatives            | paired architecture/reason alternatives        | Pending   |
+
+Official units are8/8/6, not a count of local investigations. Sustainability is a current Learn Benefits objective; it is not a separate AZ-900 benefits bullet in the reviewed exam outline. The module summaries expose local observations, never Microsoft completion or readiness. No completed human study/SME review is claimed. Professional tracks beyond these foundations remain the 30-competency blueprint, not implemented modules.
+
 ## 3.1B — current learner-facing coverage
 
 Default computing implements the reviewed sequence. V1 remains labelled compatibility. No additional certification objective, Benefits, service or readiness score is claimed.

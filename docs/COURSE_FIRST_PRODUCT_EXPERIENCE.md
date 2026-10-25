@@ -1,5 +1,9 @@
 # Course-first experience — AzureLab 3.0
 
+## 3.2 current path expansion
+
+Benefits is now available in the ordinary course between computing and services. Current Service Types uses the operational v2 extension of the existing workspace. New users see that directly; existing v1 users choose historical or new content without upgrading old evidence. Shared navigation, SavvyShark, journal, Portal and exact return remain. See [coverage](CURRICULUM_COVERAGE.md) and [progression audit](MODULE_01_02_03_PROGRESSION_AUDIT.md); earlier Benefits-planned statements are historical.
+
 ## 3.1B current default
 
 Open `/` → `/learn` → **Describe cloud computing**. New learners see browser/server teaching, not capacity-first v1 or a link to a separate proof. Steps run in the same shell/providers. Existing learners choose resume or separate v2; old links remain labelled archive access. The historical3.1A promotion below is removed. Current root, full course, shared lab and exact return are the acceptance path. [Handoff](FOUNDATIONS_31B_HANDOFF.md) owns mapping/walkthrough.

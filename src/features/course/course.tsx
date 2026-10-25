@@ -6,7 +6,6 @@ import { BookOpen, ArrowRight, ChevronRight, FlaskConical, Check, Menu } from 'l
 import { nb } from '@/content/nb';
 import { officialLearning } from '@/domain/curriculum/official';
 import { unitIds } from '@/domain/curriculum/manifest';
-import { cases, evaluateCase } from '@/domain/portal/learning';
 import { topics, portalHref, parseLocation, type PortalLocation } from '@/domain/portal/model';
 import {
   courseHref,
@@ -30,6 +29,10 @@ import { ArchitectureExplorer } from '@/features/portal/architecture';
 import { SavvyShark } from './savvy-shark';
 import { useCourse } from './provider';
 import { CourseNavigation } from './course-navigation';
+import { ExpandedModule, ExpansionReference } from '@/features/learning/expanded-module';
+import { useExpansion, ExpansionAssistance } from '@/features/learning/expansion-provider';
+import { trackUnits } from '@/domain/curriculum/expansion';
+import { manuscript } from '@/domain/curriculum/expansion-content';
 import { FoundationsV2 } from '@/features/learning/foundations-v2';
 import { useFoundationsV2 } from '@/features/learning/v2-provider';
 import { isV2Topic, v2Topics } from '@/domain/curriculum/foundations-v2';
@@ -48,8 +51,45 @@ export function Course({ module }: { module?: CourseModule }) {
     learning = useLearning(),
     services = usePortalLearning(),
     chapter = useChapter(),
-    v2 = useFoundationsV2();
-  const topic = module ? courseTopic(module, query.get('topic')) : 'overview';
+    v2 = useFoundationsV2(),
+    benefits = useExpansion('benefits'),
+    service2 = useExpansion('services');
+  const legacyServices =
+    module === 'services' &&
+    (query.get('version') === '1' ||
+      (query.get('version') === null && service2.facts.choice === 'v1'));
+  const serviceChoice =
+    module === 'services' &&
+    !legacyServices &&
+    services.save.events.length > 0 &&
+    service2.facts.choice === null;
+  const serviceHref = (t: string) =>
+    `${courseHref('services', t)}${legacyServices ? '&version=1' : ''}`;
+  const topic =
+    legacyServices && !(topics as readonly string[]).includes(query.get('topic') ?? 'overview')
+      ? 'overview'
+      : module
+        ? courseTopic(module, query.get('topic'))
+        : 'overview';
+  useEffect(() => {
+    if (
+      module === 'services' &&
+      !legacyServices &&
+      services.ready &&
+      service2.ready &&
+      !services.save.events.length &&
+      service2.facts.choice === null
+    )
+      service2.store.event({ kind: 'choose', version: 'v2' });
+  }, [
+    module,
+    legacyServices,
+    services.ready,
+    services.save.events.length,
+    service2.ready,
+    service2.facts.choice,
+    service2.store,
+  ]);
   const currentV2 = module === 'computing' && isV2Topic(topic);
   const hasV1 = learning.save.events.length > 0;
   const chooseVersion = currentV2 && hasV1 && v2.save.choice === null;
@@ -121,6 +161,11 @@ export function Course({ module }: { module?: CourseModule }) {
       v2.store.event({ kind: 'aid' });
   }, [v2.facts.active, v2.store, module, topic, journal]);
   const lab = labFacts(course.save.lab, chapter.attempt.engine, chapter.attemptNumber);
+  const existingSession = {
+    ...startLab(chapter.attempt.engine, chapter.attemptNumber),
+    boundary: null,
+  };
+  const existing = labFacts(existingSession, chapter.attempt.engine, chapter.attemptNumber);
   useEffect(() => {
     if (!course.ready || !chapter.ready || !labTopic) return;
     const scroll = () => {
@@ -147,23 +192,28 @@ export function Course({ module }: { module?: CourseModule }) {
       : null);
   const resumeHref = v2.facts.active
     ? courseHref('computing', 'v2-assessment')
-    : services.facts.active
-      ? '/portal?area=challenge&course=1&module=services&topic=practice'
-      : learning.facts.active && v2.save.choice !== 'v2'
-        ? courseHref('computing', 'assessment')
-        : preferredResume
-          ? (preferredResume.module === 'services' && preferredResume.topic === 'practice') ||
-            (preferredResume.module === 'computing' && preferredResume.topic === 'resource-bridge')
-            ? courseLabHref(lab.complete, course.save.lab?.origin)
-            : courseHref(preferredResume.module, preferredResume.topic)
-          : computingEntry;
+    : benefits.facts.active
+      ? courseHref('benefits', 'assessment')
+      : service2.facts.active
+        ? courseHref('services', 'assessment')
+        : services.facts.active
+          ? '/portal?area=challenge&course=1&module=services&topic=practice'
+          : learning.facts.active && v2.save.choice !== 'v2'
+            ? courseHref('computing', 'assessment')
+            : preferredResume
+              ? (preferredResume.module === 'services' && preferredResume.topic === 'practice') ||
+                (preferredResume.module === 'computing' &&
+                  preferredResume.topic === 'resource-bridge')
+                ? courseLabHref(lab.complete, course.save.lab?.origin)
+                : courseHref(preferredResume.module, preferredResume.topic)
+              : computingEntry;
   const navigate = (area: PortalLocation['area'], change: Partial<PortalLocation> = {}) => {
     if (area === 'learn')
       router.push(courseHref(change.module ?? module ?? 'services', change.topic ?? topic));
     else
       router.push(
         portalHref(parseLocation(new URLSearchParams()), area, {
-          module: module ?? 'services',
+          module: module === 'benefits' ? 'services' : (module ?? 'services'),
           topic,
           course: true,
           ...change,
@@ -171,16 +221,30 @@ export function Course({ module }: { module?: CourseModule }) {
       );
   };
   const pathTopics: readonly string[] =
-    module === 'computing' ? (currentV2 ? v2Topics : unitIds) : topics;
+    module === 'benefits'
+      ? [...trackUnits.benefits, 'summary']
+      : module === 'computing'
+        ? currentV2
+          ? v2Topics
+          : unitIds
+        : legacyServices
+          ? topics
+          : [...trackUnits.services, 'summary'];
   const index = pathTopics.indexOf(topic);
   const location = parseLocation(
     new URLSearchParams({ area: 'learn', module: module ?? 'services', topic }),
   );
   const title = (m: CourseModule, t: string) =>
-    m === 'services'
-      ? nb.portal.lesson.sections[t as (typeof topics)[number]]?.title
-      : (nb.foundationsV2.topics[t as (typeof v2Topics)[number]]?.title ??
-        nb.foundations.units[t as (typeof unitIds)[number]]?.title);
+    m === 'benefits'
+      ? (manuscript('benefits', t)?.title ??
+        (t === 'summary' ? nb.expansion.common.summary : nb.expansion.common.assessment))
+      : m === 'services'
+        ? legacyServices
+          ? nb.portal.lesson.sections[t as (typeof topics)[number]]?.title
+          : (manuscript('services', t)?.title ??
+            (t === 'summary' ? nb.expansion.common.summary : nb.expansion.common.assessment))
+        : (nb.foundationsV2.topics[t as (typeof v2Topics)[number]]?.title ??
+          nb.foundations.units[t as (typeof unitIds)[number]]?.title);
   const begin = () => {
     if (services.facts.active) services.store.event({ kind: 'aid' });
     if (learning.facts.active) learning.store.event({ kind: 'aid' });
@@ -191,13 +255,24 @@ export function Course({ module }: { module?: CourseModule }) {
     if (
       course.store.update({
         ...course.save,
-        lab: { ...session, ...(module === 'computing' ? { origin: 'computing-v2' as const } : {}) },
+        lab: {
+          ...session,
+          origin:
+            module === 'computing'
+              ? 'computing-v2'
+              : legacyServices
+                ? 'services-v1'
+                : 'services-v2',
+        },
       })
     )
       router.push('/portal?lab=web-platform&mode=guided&module=services&topic=practice');
   };
   return (
-    <div className={`portal course-shell ${currentV2 ? 'course-v2' : ''}`}>
+    <div
+      className={`portal course-shell ${currentV2 || module === 'benefits' || (module === 'services' && !legacyServices) ? 'course-v2' : ''}`}
+    >
+      <ExpansionAssistance />
       <a className="portal-skip" href="#course-main">
         {nb.shell.skip}
       </a>
@@ -250,7 +325,9 @@ export function Course({ module }: { module?: CourseModule }) {
                       <Link
                         aria-current={module === m.id ? 'page' : undefined}
                         href={
-                          m.id === 'computing' ? computingEntry : courseHref('services', 'overview')
+                          m.id === 'computing'
+                            ? computingEntry
+                            : courseHref(m.id, m.id === 'benefits' ? 'availability' : 'overview')
                         }
                         onClick={() => setMenu(false)}
                       >
@@ -268,7 +345,7 @@ export function Course({ module }: { module?: CourseModule }) {
                           <li key={t}>
                             <Link
                               aria-current={topic === t ? 'step' : undefined}
-                              href={courseHref(module, t)}
+                              href={module === 'services' ? serviceHref(t) : courseHref(module, t)}
                               onClick={() => setMenu(false)}
                             >
                               {title(module, t)}
@@ -377,19 +454,28 @@ export function Course({ module }: { module?: CourseModule }) {
                         )}
                         {m.id === 'services' && (
                           <p>
-                            {c.serviceProgress}:{' '}
+                            {nb.expansion.common.practiced}:{' '}
                             {
-                              cases.filter((id) => {
-                                const e = services.facts.guided[id];
-                                return e && evaluateCase(id, e.model, e.reason);
-                              }).length
+                              trackUnits.services.filter(
+                                (unit) => unit !== 'practice' && service2.facts.guided(unit),
+                              ).length
                             }{' '}
-                            / 3 ·{' '}
+                            / 5 ·{' '}
                             {lab.complete
                               ? c.satisfied
                               : course.save.lab
                                 ? c.unfinished
                                 : c.available}
+                          </p>
+                        )}
+                        {m.id === 'benefits' && (
+                          <p>
+                            {nb.expansion.common.practiced}:{' '}
+                            {
+                              trackUnits.benefits.filter((unit) => benefits.facts.guided(unit))
+                                .length
+                            }{' '}
+                            / 5 · {nb.expansion.common.noNewEvidence}
                           </p>
                         )}
                       </div>
@@ -398,7 +484,7 @@ export function Course({ module }: { module?: CourseModule }) {
                           href={
                             m.id === 'computing'
                               ? computingEntry
-                              : courseHref('services', 'overview')
+                              : courseHref(m.id, m.id === 'benefits' ? 'availability' : 'overview')
                           }
                           aria-label={`${c.open}: ${names[m.id]}`}
                         >
@@ -424,15 +510,18 @@ export function Course({ module }: { module?: CourseModule }) {
               </div>
               <header className="course-module-header">
                 <small>
-                  {c.module} {module === 'computing' ? '01' : '03'} · {c.available}
+                  {c.module} {module === 'computing' ? '01' : module === 'benefits' ? '02' : '03'} ·{' '}
+                  {c.available}
                 </small>
                 <h1>{names[module]}</h1>
                 <p>
-                  {module === 'services'
-                    ? c.services
-                    : currentV2
-                      ? nb.foundationsV2.intro
-                      : c.computing}
+                  {module === 'benefits'
+                    ? nb.expansion.benefits.intro
+                    : module === 'services'
+                      ? c.services
+                      : currentV2
+                        ? nb.foundationsV2.intro
+                        : c.computing}
                 </p>
               </header>
               {services.facts.active && (
@@ -477,10 +566,77 @@ export function Course({ module }: { module?: CourseModule }) {
                       {nb.foundationsV2.startV2}
                     </button>
                   </section>
+                ) : module === 'benefits' ? (
+                  <ExpandedModule key={topic} track="benefits" topic={topic} />
                 ) : module === 'computing' && currentV2 ? (
                   <FoundationsV2 key={topic} topic={topic} />
                 ) : module === 'services' ? (
-                  <ServicesWorkspace location={location} navigate={navigate} course />
+                  serviceChoice ? (
+                    <section className="course-version-choice">
+                      <h2>{nb.expansion.common.choiceTitle}</h2>
+                      <p>{nb.expansion.common.choiceText}</p>
+                      <button
+                        onClick={() => {
+                          service2.store.event({ kind: 'choose', version: 'v1' });
+                          router.push(`${courseHref('services', 'overview')}&version=1`);
+                        }}
+                      >
+                        {nb.expansion.common.keepLegacy}
+                      </button>
+                      <button
+                        onClick={() => service2.store.event({ kind: 'choose', version: 'v2' })}
+                      >
+                        {nb.expansion.common.startCurrent}
+                      </button>
+                    </section>
+                  ) : (
+                    <>
+                      {legacyServices ? (
+                        <section className="course-legacy-note">
+                          <strong>{nb.expansion.common.legacy}</strong>
+                          <p>{nb.expansion.common.legacyWarning}</p>
+                          <button
+                            onClick={() => {
+                              service2.store.event({ kind: 'choose', version: 'v2' });
+                              router.push(courseHref('services', 'overview'));
+                            }}
+                          >
+                            {nb.expansion.common.viewCurrent}
+                          </button>
+                        </section>
+                      ) : (
+                        <Link href={`${courseHref('services', 'overview')}&version=1`}>
+                          {nb.expansion.common.viewLegacy}
+                        </Link>
+                      )}
+                      {['assessment', 'summary'].includes(topic) ? (
+                        <ExpandedModule
+                          key={topic}
+                          track="services"
+                          topic={topic}
+                          technicalReady={lab.complete}
+                        />
+                      ) : (
+                        <ServicesWorkspace
+                          key={topic}
+                          location={location}
+                          navigate={navigate}
+                          course
+                          operational={!legacyServices}
+                          extension={
+                            !legacyServices ? (
+                              <ExpandedModule
+                                track="services"
+                                topic={topic}
+                                embedded
+                                technicalReady={lab.complete}
+                              />
+                            ) : undefined
+                          }
+                        />
+                      )}
+                    </>
+                  )
                 ) : (
                   <>
                     <section className="course-legacy-note">
@@ -500,7 +656,7 @@ export function Course({ module }: { module?: CourseModule }) {
                   </>
                 )}
               </div>
-              {labTopic && !chooseVersion && (
+              {labTopic && !chooseVersion && !serviceChoice && (
                 <section
                   className="course-lab"
                   id="practical-lab"
@@ -515,6 +671,29 @@ export function Course({ module }: { module?: CourseModule }) {
                   <SavvyShark>
                     <p>{c.labExpect}</p>
                   </SavvyShark>
+                  {!course.save.lab && existing.group && (
+                    <div>
+                      <p>{nb.expansion.common.existingLabNote}</p>
+                      <button
+                        onClick={() =>
+                          course.store.update({
+                            ...course.save,
+                            lab: {
+                              ...existingSession,
+                              origin:
+                                module === 'computing'
+                                  ? 'computing-v2'
+                                  : legacyServices
+                                    ? 'services-v1'
+                                    : 'services-v2',
+                            },
+                          })
+                        }
+                      >
+                        {nb.expansion.common.existingLab}
+                      </button>
+                    </div>
+                  )}
                   {course.save.lab && (
                     <p role="status">
                       {lab.complete
@@ -570,7 +749,9 @@ export function Course({ module }: { module?: CourseModule }) {
                       !course.ready ||
                       !chapter.ready ||
                       ['corrupt', 'unsupported', 'conflict'].includes(course.issue ?? '') ||
-                      services.facts.active
+                      services.facts.active ||
+                      benefits.facts.active ||
+                      service2.facts.active
                     }
                     onClick={begin}
                   >
@@ -612,46 +793,72 @@ export function Course({ module }: { module?: CourseModule }) {
                   {nb.foundationsV2.viewV1}
                 </Link>
               )}
-              {!chooseVersion && (
-                <CourseNavigation
-                  moduleName={names[module]}
-                  current={
-                    title(module, topic) ??
-                    (topic.includes('summary')
-                      ? nb.foundationsV2.summary
-                      : nb.foundationsV2.assessment)
-                  }
-                  index={index}
-                  count={pathTopics.length}
-                  previous={
-                    index > 0
-                      ? {
-                          href: courseHref(module, pathTopics[index - 1]!),
-                          title: title(module, pathTopics[index - 1]!)!,
-                        }
-                      : index < 0
+              {!chooseVersion && !serviceChoice && (
+                <>
+                  {((currentV2 && index === pathTopics.length - 1) ||
+                    (module === 'benefits' && topic === 'summary')) && (
+                    <SavvyShark compact>
+                      <p>
+                        {currentV2
+                          ? nb.expansion.common.nextBenefits
+                          : nb.expansion.common.nextServices}
+                      </p>
+                    </SavvyShark>
+                  )}
+                  <CourseNavigation
+                    moduleName={names[module]}
+                    current={
+                      title(module, topic) ??
+                      (topic.includes('summary')
+                        ? nb.foundationsV2.summary
+                        : nb.foundationsV2.assessment)
+                    }
+                    index={index}
+                    count={pathTopics.length}
+                    previous={
+                      index > 0
                         ? {
-                            href: courseHref(module, pathTopics.at(-1)!),
-                            title: title(module, pathTopics.at(-1)!)!,
+                            href:
+                              module === 'services'
+                                ? serviceHref(pathTopics[index - 1]!)
+                                : courseHref(module, pathTopics[index - 1]!),
+                            title: title(module, pathTopics[index - 1]!)!,
                           }
-                        : undefined
-                  }
-                  next={
-                    index >= 0 && index < pathTopics.length - 1
-                      ? {
-                          href: courseHref(module, pathTopics[index + 1]!),
-                          title: title(module, pathTopics[index + 1]!)!,
-                        }
-                      : index === pathTopics.length - 1
+                        : index < 0
+                          ? {
+                              href: courseHref(module, pathTopics.at(-1)!),
+                              title: title(module, pathTopics.at(-1)!)!,
+                            }
+                          : undefined
+                    }
+                    next={
+                      index >= 0 && index < pathTopics.length - 1
                         ? {
-                            href: currentV2 ? courseHref(module, 'v2-summary') : '/learn',
-                            title: currentV2 ? nb.foundationsV2.summary : c.overview,
+                            href:
+                              module === 'services'
+                                ? serviceHref(pathTopics[index + 1]!)
+                                : courseHref(module, pathTopics[index + 1]!),
+                            title: title(module, pathTopics[index + 1]!)!,
                           }
-                        : undefined
-                  }
-                  continueTeaching={labTopic && lab.complete}
-                  summary={topic.includes('summary')}
-                />
+                        : index === pathTopics.length - 1
+                          ? {
+                              href: currentV2
+                                ? courseHref('benefits', 'availability')
+                                : module === 'benefits'
+                                  ? courseHref('services', 'overview')
+                                  : '/learn',
+                              title: currentV2
+                                ? names.benefits
+                                : module === 'benefits'
+                                  ? names.services
+                                  : c.overview,
+                            }
+                          : undefined
+                    }
+                    continueTeaching={labTopic && lab.complete}
+                    summary={topic.includes('summary')}
+                  />
+                </>
               )}
             </>
           )}
@@ -660,7 +867,11 @@ export function Course({ module }: { module?: CourseModule }) {
       </div>
       {journal && (
         <PortalDialog title={c.journal} onClose={() => setJournal(false)}>
-          {currentV2 ? (
+          {module === 'benefits' ? (
+            <ExpansionReference track="benefits" topic={topic} />
+          ) : module === 'services' && !legacyServices ? (
+            <ExpansionReference track="services" topic={topic} />
+          ) : currentV2 ? (
             <FoundationsV2
               topic={['v2-assessment', 'v2-summary'].includes(topic) ? 'intro-request' : topic}
               journal

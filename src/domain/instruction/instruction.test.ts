@@ -128,10 +128,10 @@ describe('bounded teaching presentation', () => {
     expect(sequenceForNode('engineer-offer')?.beats.at(-1)?.text).toContain('Vil du ta oppdraget');
   });
   it('pins official metadata, distinct local investigations and honest implementation states', () => {
-    expect(officialLearning.reviewed).toBe('2026-10-24');
+    expect(officialLearning.reviewed).toBe('2026-10-25');
     expect(officialLearning.modules.map((m) => m.status)).toEqual([
       'implemented',
-      'planned',
+      'implemented',
       'implemented',
     ]);
     expect(nb.official.officialUnits).toHaveLength(8);

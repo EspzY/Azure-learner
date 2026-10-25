@@ -1,5 +1,9 @@
 # Phase 3.1B implementation specification — review candidate
 
+## 3.2 compatible refinement
+
+The prerequisite sequence, original complete prose, Foundation v1/v2 observations/rubrics and technical lab remain. Default responsibility visual is a focused three-incident physical/data/identity recap; the full operational matrix now belongs to Module3. This fixes cross-module comparison writes without migrating or reinterpreting historical records. The last course step now connects to available Benefits before Service Types; direct Portal entry from the existing resource bridge remains supported. Current content ownership is in [the progression audit](MODULE_01_02_03_PROGRESSION_AUDIT.md). Historical specifications below retain their original review record.
+
 ## 3.1B implemented handoff — supersedes candidate hold below
 
 The owner explicitly authorized this phase on2026-10-25. It is an **actual course implementation candidate**, with human educational/SME acceptance still open. The earlier proposed design remains historical specification, not a description of missing functionality.

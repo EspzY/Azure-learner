@@ -1,5 +1,11 @@
 # Content authoring and acceptance contract
 
+## 3.2 progression and numerical review
+
+Every repeated concept must have a declared role: recap, deeper mechanism, new application, transfer assessment or removed duplication. The [boundary matrix](MODULE_01_02_03_PROGRESSION_AUDIT.md) is the current reference. Supplementary research must be classified A essential/B applied/C optional/D later/E excluded and materially used in manuscript, counterexample or interaction. Source URL presence alone does not establish coverage.
+
+Explain numerical units before input. Keep worked and changed independent fixtures distinct. Explicitly separate available capacity from recovery, one-policy acceptance from security/compliance, consistency from correctness, and synthetic capacity-hours from energy/carbon. VM/PaaS/SaaS conceptual controls cannot claim provisioning, code execution or access enforcement on Azure. Guided practice requires authored observation witnesses plus a reasoned answer; independent submissions commit before feedback and preserve assistance/retry/abandon context. A real reviewer must still approve technical adequacy and beginner comprehension.
+
 ## 3.1B acceptance
 
 The reviewed prerequisite amendment is applied in the actual course. S01–S13 manuscript preceded presenter code. Preserve the beginner sequence and all later qualifications/counterexamples. V2 observations are separate; visiting/inspection alone cannot complete guided learning. Changed registration preserves first/help/retry. Human novice, qualified Azure-SME and accessibility review remain open despite software passes. Archive proof tests cannot substitute for actual-course acceptance.

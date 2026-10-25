@@ -49,6 +49,10 @@ export const requiredFiles = [
   'docs/VISUAL_LEARNING_SYSTEM.md',
   'docs/FOUNDATIONS_31A_STORYBOARD.md',
   'docs/FOUNDATIONS_31B_HANDOFF.md',
+  'docs/MODULE_01_02_03_PROGRESSION_AUDIT.md',
+  'docs/CLOUD_BENEFITS_CONTENT.md',
+  'docs/SERVICE_TYPES_DEEP_LEARNING.md',
+  'docs/FUNDAMENTALS_SUPPLEMENTARY_READING.md',
 ];
 
 function markdownFiles(folder) {

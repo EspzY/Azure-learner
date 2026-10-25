@@ -1,5 +1,11 @@
 # Portal learning manuscript and vertical slice
 
+## 3.2 operational Service Types extension
+
+The existing original service manuscript, simulation, guide, policy rejection and architecture remain. Current course Service Types v2 adds operational configuration/reasoning before and after the lab; legacy `version=1` preserves its original guided cases/assessment. The [deeper manuscript](SERVICE_TYPES_DEEP_LEARNING.md) distinguishes conceptual VM/SaaS/platform controls from actual supported group/plan/app operations.
+
+Lab origins preserve exact current/archive/computing return. An explicit reuse action can adopt replayable accepted resources from the current technical attempt when no course lab exists; it does not fabricate policy/hosting inspections or transfer old learning evidence. Existing valid lab sessions resume; no automatic inventory reset or duplicate group setup. Guided lab facts plus the new retained-responsibility answer are required by new practice; independent service evidence remains separate. New active assessments disable solution highlights, and external theory/guidance access is classified as assistance.
+
 ## Course-first refinement — 2026-10-25
 
 The complete manuscript below is reused in `/learn/services`, with explicit previous/next activities. Applied group/plan/app work follows theory and justified cases; SavvyShark guides actual controls and causal inspection. Exact return to `services/practice` provides a factual guided debrief and retained-responsibility reflection. Existing changed independent task/rubric remains separate. [Course flow](COURSE_FIRST_PRODUCT_EXPERIENCE.md) replaces manual coordination, not substantive content.
