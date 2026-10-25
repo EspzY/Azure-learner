@@ -1,5 +1,7 @@
 # Interactive technical visualizations
 
+3.1A [visual learning specification](VISUAL_LEARNING_SYSTEM.md) adds candidate request/cutaway/VM/provisioning/capacity patterns and an isolated server/capacity proof. Existing responsibility/hierarchy/live-inventory diagrams below remain unchanged; no new curriculum coverage or production graph state is introduced. Desktop-first is the permanent target policy.
+
 ## Course-first refinement — 2026-10-25
 
 The same responsibility explorer is embedded in course theory; changes update SavvyShark's service-specific explanation. The same hierarchy supports substantive inspection and actual Portal transitions. Guided architecture inspection references the actual hosting relation, validated against replayed state. Ownership transitions/inspection award no XP or mastery. Semantic lists and reduced-motion equivalents remain.

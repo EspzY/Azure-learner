@@ -1,5 +1,7 @@
 # Course-first experience — AzureLab 3.0
 
+3.1A adds an isolated [beginner design candidate](FOUNDATIONS_31A_STORYBOARD.md) and proof, not a changed production course. The current behavior/walkthrough below is preserved. Desktop-first now supersedes earlier equal-priority mobile visual polish; existing mobile/regression access remains.
+
 Owner-authorized refinement, 2026-10-25. The course owns the recommended sequence; the existing Portal remains the real laboratory. No duplicate simulator, iframe, remote tutor or new cloud service.
 
 `/` enters `/learn`. The overview identifies Azure Fundamentals, AZ-900 and the reviewed first cloud-concepts path. Modules follow official order: cloud computing (six complete original investigations), benefits (planned), service types (available). Direct module access never completes skipped material. `/learn/services` and `/learn/computing` preserve exact topic URLs. A resume preference is navigation, not learning evidence.

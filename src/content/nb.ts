@@ -2,6 +2,172 @@ import type { QuestionId } from '../domain/assessment';
 import type { CreationError, Region, ScopeKind } from '../domain/simulation';
 
 export const nb = {
+  beginnerProof: {
+    brand: 'AzureLab',
+    badge: 'DESIGNPRØVE · 3.1A',
+    exit: 'Tilbake til dagens kurs',
+    notice:
+      'En isolert designprøve. Ingen kursfullføring, XP eller lagring. Dagens kurs er uendret.',
+    eyebrow: 'FØR VI SNAKKER OM SKYEN',
+    title: 'Fra nettbutikk til datakraft',
+    intro:
+      'Hva er det egentlig som gjør arbeidet når du åpner en nettside? Følg én forespørsel, undersøk maskinen og prøv en tydelig avgrenset kapasitetsmodell.',
+    nav: 'Designprøvens undervisningssekvens',
+    stages: ['En kjent situasjon', 'Inne i serveren', 'Forstå modellen', 'Forutsi og undersøk'],
+    next: 'Gå videre',
+    previous: 'Tilbake',
+    stage: 'Del',
+    objective: 'Dette skal du forstå',
+    titles: [
+      'Du åpner en produktside',
+      'En server er en datamaskin med en oppgave',
+      'Én time. En tydelig enhet.',
+      'Hva skjer når kampanjen åpner?',
+    ],
+    purposes: [
+      'Skille nettleseren på din PC fra programmet som svarer et annet sted.',
+      'Skille fysisk maskinvare fra programvaren som bruker den.',
+      'Forstå hva tallene betyr før vi bruker dem til å forutsi noe.',
+      'Bruke modellen på et nytt behov og forklare resultatet.',
+    ],
+    explanations: [
+      'Nettleseren ber butikkens tjeneste om en produktside. Den som ber, har rollen klient. Beskjeden kaller vi en forespørsel, eller request. Et program på serveren behandler den og sender et svar tilbake. Nettleseren bruker svaret til å vise innholdet.',
+      'I denne illustrasjonen er serveren en fysisk datamaskin som leverer en tjeneste. Applikasjonen er programvaren som utfører butikkens oppgaver. Operativsystemet lar programmet bruke maskinens ressurser. Velg en del for å se hva den bidrar med.',
+      'Vi teller oppdiktede, like store arbeidspakker. Kapasiteten forteller hvor mange pakker modellen kan behandle i én undervisningstime. Behov er antallet vi ber om. Allokert betyr at kapasiteten er satt av og tilgjengelig. Med kapasitet til seks pakker og behov for to kan modellen behandle begge. Vi kunne behandlet fire pakker til: ubrukt kapasitet, ikke udekket behov.',
+      'Vi sammenligner fire like undervisningstimer på en kampanjedag. Behovet er tre, tre, åtte og tre arbeidspakker. Kapasiteten du velger gjelder hver time. Forutsi hvor mange pakker som ikke blir behandlet i den travleste timen. Kjør deretter modellen.',
+    ],
+    mentor: [
+      'Legg merke til retningen: Nettleseren ber. Tjenesten svarer. Vi simulerer ikke ekte nettverkstrafikk.',
+      'Applikasjonen og serveren er forskjellige ting. Programmet trenger en maskin, men er ikke selve maskinen.',
+      'En arbeidspakke er ikke én kunde, HTTP-forespørsel, CPU-kjerne, VM eller Azure-størrelse. Enheten gjør bare forholdet mellom behov og kapasitet synlig.',
+      'Kapasiteten endrer seg ikke automatisk med trafikken. Du velger en ny fordeling og kjører på nytt. Dette er ikke en modell av Azure-autoskalering.',
+    ],
+    send: 'Send en forespørsel',
+    replay: 'Følg forespørselen på nytt',
+    trace:
+      'Nettleseren ba om innhold → applikasjonen behandlet forespørselen → et svar ble sendt tilbake.',
+    websiteNote:
+      'En enkel nettside kan leveres fra filer. Ikke alle nettsider trenger en egen database. En database brukes når programmet trenger organiserte data det kan hente eller endre.',
+    client: 'DIN PC · KLIENT',
+    browser: 'Nettleser',
+    product: 'Nettbutikk',
+    productLine: 'En produktside',
+    server: 'BUTIKKENS FYSISKE SERVER',
+    request: 'Forespørsel om innhold',
+    requestLabel: 'Forespørsel',
+    response: 'Svar tilbake til nettleseren',
+    responseLabel: 'Svar',
+    pathNote: 'Forenklet meldingsflyt · ingen målt tid',
+    selectPart: 'Undersøk serverens deler',
+    parts: [
+      {
+        id: 'cpu',
+        name: 'CPU',
+        role: 'Utfører instruksjoner',
+        explanation:
+          'Prosessoren utfører instruksjonene i programmet. Butikkens produktberegning trenger prosessortid. Mer diskplass gjør ikke i seg selv at CPU-en utfører flere instruksjoner.',
+      },
+      {
+        id: 'ram',
+        name: 'RAM',
+        role: 'Arbeidsminne',
+        explanation:
+          'RAM holder data som programmet arbeider med akkurat nå. Det er en arbeidsflate, ikke varig arkivering. Produktlisten kan ligge her mens programmet lager et svar.',
+      },
+      {
+        id: 'storage',
+        name: 'Lagring',
+        role: 'Beholder data',
+        explanation:
+          'Lagring beholder for eksempel produktbilder mellom arbeidsøkter. Den er forskjellig fra arbeidsminnet. En database er en måte å organisere og bruke lagrede data på, ikke navnet på all lagring.',
+      },
+      {
+        id: 'network',
+        name: 'Nettverk',
+        role: 'Utveksler beskjeder',
+        explanation:
+          'Nettverkstilkoblingen lar serveren motta forespørsler og sende svar. En internettforbindelse alene gjør ikke en eid maskin til en skytjeneste.',
+      },
+      {
+        id: 'os',
+        name: 'Operativsystem',
+        role: 'Forvalter maskinens ressurser',
+        explanation:
+          'Operativsystemet håndterer blant annet prosesser, minne og enheter slik at programmer kan kjøre. Det er programvare, ikke enda en fysisk komponent i kabinettet.',
+      },
+      {
+        id: 'app',
+        name: 'Applikasjon',
+        role: 'Utfører butikkens oppgave',
+        explanation:
+          'Applikasjonen er programvaren som for eksempel finner produktinformasjon og lager et svar. Den bruker operativsystemet og maskinvaren; den er ikke en fysisk server.',
+      },
+    ],
+    software: 'PROGRAMVARE',
+    hardware: 'MASKINVARE · ENDELIGE RESSURSER',
+    singleHour: 'Gjennomarbeidet eksempel · kl. 09–10',
+    periods: ['09–10', '10–11', '11–12', '12–13'],
+    period: 'Undervisningstime',
+    numericTable: 'Vis de samme verdiene i tabell',
+    demand: 'Behov',
+    allocation: 'Allokert kapasitet',
+    served: 'Behandlet',
+    unused: 'Ubrukt kapasitet',
+    unmet: 'Udekket behov',
+    bundles: 'arbeidspakker',
+    unit: 'Arbeidspakker i hver undervisningstime',
+    assumptions: 'Modellens forutsetninger',
+    limits:
+      'Hver time regnes separat. Udekket arbeid flyttes ikke til neste time. Reelle systemer har blant annet køer, ulike jobbstørrelser og flaskehalser. Her beregner vi verken responstid, CPU-belastning, priser eller faktisk Azure-kapasitet.',
+    allocationLabel: 'Tilgjengelig kapasitet hver time',
+    allocationUnit: 'pakker/time',
+    prediction: 'Din prediksjon: udekkede pakker i den travleste timen',
+    predictionHint:
+      'Skriv et helt tall fra 0 til 12. Den nye kampanjens resultat vises først etter kjøring.',
+    run: 'Registrer prediksjon og kjør',
+    awaiting: 'Behovet er kjent. Resultatet er ennå ikke beregnet i visningen.',
+    stale:
+      'Kapasiteten er endret. Forrige resultat er satt til side; registrer en ny prediksjon og kjør igjen.',
+    invalid: 'Skriv et helt tall fra 0 til 12 før du kjører.',
+    result: 'Det modellen faktisk beregnet',
+    causal:
+      'I topptimen ber vi om 8 pakker. Modellen kan behandle høyst den allokerte kapasiteten. Forskjellen er udekket behov; ledig plass i andre timer kan ikke dekke den her.',
+    predictionWas: 'Du forutsa',
+    observed: 'Modellen viser',
+    correction:
+      'Forskjellen er nyttig å undersøke. Sammenlign behov og kapasitet i samme time, ikke summen av alle timene.',
+    matched: 'Prediksjonen samsvarer med dette forsøket. Forklar også hvorfor resultatet oppstår.',
+    peak: 'Udekket i topptimen',
+    totalUnused: 'Sum ubrukt kapasitet',
+    unusedUnit: 'pakker over fire timer',
+    compare: 'Forrige kjøring',
+    compareNote:
+      'Begge kjøringer bruker den samme kampanjen. Mer allokert kapasitet kan redusere udekket behov, men etterlate mer ubrukt kapasitet. Ingen pris er beregnet.',
+    reflection: 'Hva forteller ubrukt kapasitet oss?',
+    reflectChoices: [
+      'Modellen kunne håndtert mer arbeid i de timene.',
+      'Arbeid ble nødvendigvis avvist i de timene.',
+    ],
+    reflectFeedback: [
+      'Ja. Ubrukt kapasitet er forskjellen mellom tilgjengelig og behandlet arbeid. Udekket behov er noe annet: forespurt arbeid som ikke ble behandlet.',
+      'Ikke nødvendigvis. Ubrukt betyr at kapasitet var tilgjengelig uten å bli brukt. Avvist eller udekket arbeid må undersøkes ved å sammenligne behov med kapasitet.',
+    ],
+    continuation:
+      'Neste designsteg: virtualisering og bestilling gjennom en skyleverandør. Disse delene er spesifisert, men ikke implementert i prøven.',
+    references: 'Kilder og avgrensning',
+    sourceNote:
+      'Original illustrasjon og oppdiktet kapasitetsmodell. Microsoft-kildene under støtter den senere sky- og virtualiseringsforklaringen, ikke tallene eller en Azure-pris.',
+    sources: [
+      {
+        name: 'Describe cloud computing',
+        url: 'https://learn.microsoft.com/en-us/training/modules/describe-cloud-compute/',
+      },
+      {
+        name: 'Virtual machines in Azure',
+        url: 'https://learn.microsoft.com/en-us/azure/virtual-machines/overview',
+      },
+    ],
+  },
   course: {
     brand: 'AzureLab',
     version: '3.0',

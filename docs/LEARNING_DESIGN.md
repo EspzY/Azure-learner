@@ -1,5 +1,9 @@
 # Learning design
 
+## 3.1A prerequisite-first candidate — 2026-10-25
+
+Owner playtesting found that technical correctness did not establish beginner comprehension. The [audit](BEGINNER_LEARNING_AUDIT.md) grounds specific defects; the [blueprint](FOUNDATIONS_PEDAGOGY_BLUEPRINT.md) and [storyboard](FOUNDATIONS_31A_STORYBOARD.md) specify website request → physical computing → VM → provisioning → explained capacity → existing cloud objectives. Worked/practice/changed independent tasks remain distinct. The isolated proof evaluates presentation feasibility, not learning effectiveness. Existing manuscripts/evidence remain playable unchanged; full 3.1B implementation awaits separate instruction. Desktop-first supersedes earlier equal-priority mobile visual work; baseline accessibility and existing regressions remain.
+
 ## Course-first refinement — 2026-10-25
 
 Course order and explicit next activities now lead into the actual guided Portal lab and back to a causal debrief. The original manuscripts, diagrams, justified cases, six investigations and independent rubric are retained. Group creation applies resource-organization prerequisites, not service-module completion by itself. Source-reviewed guide and reflection copy stays in nb.ts. [Course strategy](COURSE_FIRST_PRODUCT_EXPERIENCE.md) and [guide mechanics](GUIDED_SANDBOX_ENGINE.md) define behavior. Human first-time usability/SME review remains outstanding.

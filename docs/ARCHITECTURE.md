@@ -1,5 +1,9 @@
 # Architecture
 
+## 3.1A isolated instructional proof — 2026-10-25
+
+One unlinked `noindex` route `/design/foundations-31a` bypasses ordinary shell navigation. A feature-local HTML/SVG presenter consumes a pure bounded calculator in `domain/design-proof`, localized through nb.ts. It does not import store hooks, duplicate the inventory or issue learning/technical commands. Existing root providers stay singular and unchanged. No new persistence, schema migration, dependencies, backend or renderer. Production course/Portal behavior is preserved. [Visual system](VISUAL_LEARNING_SYSTEM.md) and [3.1B handoff](FOUNDATIONS_31B_HANDOFF.md) separate implemented proof from future production design.
+
 ## Course-first refinement — 2026-10-25
 
 The primary course and shared Portal are connected by [course/lab orchestration](COURSE_LAB_ORCHESTRATION.md). One root ServiceStore serves both; a separate CourseStore tracks validated preference/session context. Four external stores expose stable initial server snapshots, avoiding late streamed hydration mismatch while retaining live client state. The coach observes forms and deterministic receipts; it cannot configure resources. No new dependency, backend or game renderer is introduced.

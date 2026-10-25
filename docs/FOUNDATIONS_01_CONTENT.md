@@ -1,5 +1,9 @@
 # Foundations 01 — Hva er cloud computing?
 
+## 3.1A instructional review — 2026-10-25
+
+The implementation/manuscript below remains version1.0.0. It is substantive but does not adequately scaffold a complete IT beginner: the [audit](BEGINNER_LEARNING_AUDIT.md) identifies early virtualization/control terminology, unexplained slot arithmetic and worked-answer leakage into predictions. The [replacement candidate storyboard](FOUNDATIONS_31A_STORYBOARD.md) and [prerequisite blueprint](FOUNDATIONS_PEDAGOGY_BLUEPRINT.md) are authored for review, not implemented in this module. The isolated proof supplies no new module coverage or evidence. Earlier “complete candidate” language describes authored/functional scope, not beginner comprehension or SME acceptance. Preserve all existing lesson and assessment history; no production-domain change in this phase.
+
 ## G1.3 delivery manuscript refinement — 2026-10-24
 
 All six original unit manuscripts below and their nb.foundations purpose/mechanism/Azure/example/misconception/limit paragraphs are retained verbatim as original AzureLab material. content/instruction binds complete sections into natural sentence groups (never truncation); tests compare normalized complete text. Each unit ends in the same deliberate investigation/application; no automatic answer or changed-task submission.

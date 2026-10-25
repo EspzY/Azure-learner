@@ -1,5 +1,14 @@
 # Decisions
 
+## 3.1A decisions — 2026-10-25
+
+| ID  | Decision                                                                | Reason and boundary                                                                                                                                                                                                           |
+| --- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 078 | Permanent desktop-first policy                                          | Owner prioritizes1920×1080,1440×900,1366×768. Preserve baseline accessibility and old mobile regressions; defer new mobile polish. Supersedes equal-priority historical visual requirements.                                  |
+| 079 | Prerequisite-first candidate, production held                           | Current audit reveals mental-model/unit/prediction defects despite correct arithmetic. Full original storyboard and first-use graph precede3.1B; existing module/rules/saves remain unchanged pending separate authorization. |
+| 080 | Explanation plus bounded experiment over narrative-only/workbench-first | Stable system, one meaningful variable and causal output support reasoning. Incorporate narrative pacing and persistent objects; no decorative3D/new dependency. Rationale in VISUAL_LEARNING_SYSTEM.                         |
+| 081 | Isolated unlinked noindex proof, no evidence writes                     | Code-owned SVG/HTML and pure finite arithmetic resolve feasibility without creating completion or migrating records. Public preview route is not private/authenticated. Proposed v2 remains only a handoff specification.     |
+
 ## Course-first decisions — 2026-10-25
 
 | ID  | Decision                                                     | Reason and boundary                                                                                                                                               |

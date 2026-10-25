@@ -1,5 +1,9 @@
 # Curriculum coverage audit
 
+## 3.1A scope and beginner-readiness correction — 2026-10-25
+
+L01/M02/CR01 were re-read: six cloud-computing outcomes/eight units, official first-path order unchanged; serverless remains an exam-overlay gap. Existing FC01–FC07 and ST01–ST04 manuscripts, practice and local task criteria are preserved. **No new official objective is implemented by 3.1A.** The [audit](BEGINNER_LEARNING_AUDIT.md) finds insufficient prerequisite scaffolding despite substantial authored coverage. Server/request/physical resources/VM/provisioning receive a candidate first-use graph and storyboard, not new module-completion claims. The isolated proof is unregistered, in-memory design review; it emits no assessment evidence. Human beginner, retention and Azure-SME review remain open. The wider30-competency roadmap and Benefits availability are unchanged.
+
 ## Course-first refinement — 2026-10-25
 
 Re-read the official first-path/service indexes on 2026-10-25: cloud computing → benefits → service types, with four service-type objectives/six official units. No new official topic is claimed covered. All six original computing investigations and four service objective manuscripts remain available through course routes. Benefits is planned. New guided work applies G01/C01 scope, metadata/hosting, policy diagnosis and dependency knowledge. Reflection is guided; original changed-task first/help/retry evidence is preserved. No new SME review, retention or readiness claim.

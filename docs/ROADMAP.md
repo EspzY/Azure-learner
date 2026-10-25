@@ -1,5 +1,11 @@
 # Roadmap
 
+## 3.1A → 3.1B — review before production rewrite
+
+3.1A delivers an evidence-based audit, prerequisite/first-use graph, three evaluated visual approaches, complete candidate storyboard, isolated non-evidentiary proof and [implementation handoff](FOUNDATIONS_31B_HANDOFF.md). It does not change the production module or its coverage. Owner review and novice/IT/qualified SME/accessibility exercises remain gates, not automated successes.
+
+3.1B requires separate authorization: teach request/server/hardware/VM/provisioning, introduce numeric units before capacity prediction, then preserve the full six official outcomes and practical lab/naming bridge. Version new observations separately; preserve every v1 save/first attempt and legacy award. Gates: deterministic model counterexamples, first-use/content integrity, source review, production browser/Axe/resume regression and actual1920/1440/1366 desktop inspection plus human comprehension review. Explicit exclusions: Benefits implementation, additional Azure services, schema reinterpretation, new infrastructure, readiness/mastery claims and dedicated mobile redesign. [Storyboard](FOUNDATIONS_31A_STORYBOARD.md) specifies per-stage outcomes/actions/acceptance, not just a feature list.
+
 ## Course-first refinement — 2026-10-25
 
 Delivered candidate scope: ordered course entry, full existing modules, original SavvyShark image, state-driven control guidance, real hosting/policy lab, exact debrief and existing independent handoff. Current verification/limitations are in PROJECT_STATUS. Next gate: novice completes the entire flow without outside help, Azure practitioner reviews scope/denial/dependency transfer, SME reviews explanations, and assistive-technology users review targets/focus. Resolve failures before authoring the benefits module (availability, scalability, reliability, governance/security/manageability). No new Azure service or full-course completion claim.

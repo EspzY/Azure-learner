@@ -1,5 +1,9 @@
 # Design system — immersive reset
 
+## 3.1A educational visual candidate
+
+[VISUAL_LEARNING_SYSTEM](VISUAL_LEARNING_SYSTEM.md) specifies consistent physical/software/scope representations, labelled relationships, blue selection, teal served work, hatched amber unmet demand and dashed unused capacity. It extends the current light course identity inside an isolated proof, not a site reskin. Native labels/table/controls accompany SVG; numerical units and execution state stay explicit. Permanent desktop-first targets are1920×1080,1440×900 and1366×768; earlier mobile visual-pair requirements are historical. Existing small-screen functionality/accessibility remains.
+
 ## Course-first surfaces — 2026-10-25
 
 The course uses a restrained light reading surface, ink-blue headings, desktop syllabus rail, explicit sequence and blue actions; mobile collapses the syllabus into a native control. Portal operational tokens remain scoped. SavvyShark is a small original local image with semantic text. Guidance reserves space rather than covering controls; target outlines are measured and pointer-transparent. Mobile commit controls stay in document flow. Ownership transitions respect reduced motion; labels, lists and native focus remain essential. No font/dependency/effect is added.
