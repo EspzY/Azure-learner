@@ -1,5 +1,9 @@
 # Visual learning system — 3.1A
 
+## 3.1B implementation status
+
+V01–V06 are in the ordinary course after owner authorization. V01/V02 share original archive geometry; V03 shows requested/accepted RAM; V04 separates control/application lanes; V05 commits predictions before output and compares executed runs; V06 reuses the reviewed matrix. Full contracts below remain. The proof is historical. The actual course must pass root review at three desktop sizes. Billing units are separate from workload totals. [Handoff](FOUNDATIONS_31B_HANDOFF.md) owns implemented limits.
+
 Candidate 2026-10-25. Inside the existing course identity, not a site reskin. [Pedagogy](FOUNDATIONS_PEDAGOGY_BLUEPRINT.md) owns content dependencies. This document specifies visual meaning; [storyboard](FOUNDATIONS_31A_STORYBOARD.md) binds it to teaching.
 
 ## Three alternatives evaluated

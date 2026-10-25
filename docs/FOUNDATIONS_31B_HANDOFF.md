@@ -1,5 +1,50 @@
 # Phase 3.1B implementation specification — review candidate
 
+## 3.1B implemented handoff — supersedes candidate hold below
+
+The owner explicitly authorized this phase on2026-10-25. It is an **actual course implementation candidate**, with human educational/SME acceptance still open. The earlier proposed design remains historical specification, not a description of missing functionality.
+
+### Route and component mapping
+
+| Entry                             | Before                                | Current                                                                                                                                                                                                  |
+| --------------------------------- | ------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `/`                               | Redirect `/learn`                     | Same redirect, single shell/providers                                                                                                                                                                    |
+| Computing module entry / no topic | Capacity-first `FoundationsWorkspace` | `FoundationsV2`, browser/shop explanation and adjacent request diagram                                                                                                                                   |
+| New topics                        | Only in isolated proof                | `intro-request`, `physical-server`, `virtualization`, `provisioning`, `capacity-basics`, `v2-capacity`, `v2-responsibility`, `v2-models`, `v2-placement`, `v2-metering`, `v2-pricing`, `resource-bridge` |
+| Original topic links              | V1 lesson                             | Explicitly labelled v1 lesson, intact original store/rubric                                                                                                                                              |
+| Assessment / summary              | V1 only                               | V1 remains; separate `v2-assessment` / `v2-summary`                                                                                                                                                      |
+| `/design/foundations-31a`         | Promoted candidate                    | Noindex archive; temporary landing promotion removed                                                                                                                                                     |
+| Portal group form                 | Name + validation hint                | Same field/command + advisory `rg`/workload/environment explanation and technical-rule distinction                                                                                                       |
+| Guided lab return                 | Service-types practice                | Same original return, or allowlisted computing bridge origin with exact activity                                                                                                                         |
+
+### Implemented storage and evidence contract
+
+`azurelab.learning.foundations.v1` is not migrated or reinterpreted. Existing users see a version choice on new-course entry. Resume v1 preserves its active task/draft. Starting v2 explicitly states that new theory during an active v1 task is help; the old attempt is neither erased nor reclassified as a v2 attempt. Old deep links continue intentionally. No cross-origin Vercel-save migration is claimed.
+
+The separate v2 record pins schema2, content/model/rubric2.0.0, version choice and at most600 finite events/220000 characters. Restore replays, never trusts imported completion. Compare-before-write stops stale tabs; corrupt/unsupported input is quarantined, denied writes warn/memory-only. Reset is version-scoped; global deletion clears the provider. Selection/resume/route is not competency evidence.
+
+Meaningful events: request trace; physical part inspection; requested guest RAM (accepted allocation derived, rejection retains prior); supported/unavailable provisioning illustration; campaign prediction+allocation committed together; causal answers; later five original practice events through a v2-owned evaluator. All later full manuscripts remain. Guided completion needs demonstrations and correct explanations, not reading/navigation. The host-budget model is not the Azure command engine. Synthetic meters/prices remain explicitly incomplete; provider selection does not manufacture capacity.
+
+Assessment2 has11 criteria: changed registration peak/unused intervals/same-allocation cause, finite host and original cloud/responsibility/deployment/consumption/pricing criteria. Registration demand1/7/4/2 at5 produces peak2 and unused4/0/1/3. Drafts restore; all answers commit before feedback; first/help/retry remain separate. No XP, Chapter01 completion, retention, exam readiness or SME approval.
+
+### Reproducible real-product walkthrough
+
+1. Open the branch preview root, enter Describe cloud computing. A new learner immediately sees the browser/shop scenario, not a glossary or capacity result.
+2. Send the illustrative request, inspect its direction and answer the server-side calculation question. Try the incorrect option and read the causal response.
+3. Inspect CPU/RAM/storage/network/OS/application. Explain working memory versus persistent files.
+4. Assign VM A5 and B3 within host8, then request B4: requested9 is rejected, accepted5+3 stays. This is an explicit no-overcommit teaching assumption.
+5. Compare procurement/control and shop traffic. Request supported and unavailable teaching capacity; no Azure operation occurs.
+6. Read the invented work/hour unit and2/6 worked example. For new campaign3/3/8/3 predict peak before Run. Change6→10, predict/run again; old output is stale until executed. Compare actual snapshots and explain unused versus unmet.
+7. Continue through all five retained official-objective investigations, including the same responsibility model, offsite-private counterexample, allocation/time units and pricing caveats. Summary distinguishes introduction and guided practice.
+8. Open the resource bridge and start the real guided Portal lab. Search, create a valid unprefixed group such as `teamA`, inspect naming advice, encounter actual North Europe Web-policy rejection, inspect the receipt/policy, choose correction, create allowed plan/Web App, inspect hosting in live architecture.
+9. Return to the exact computing bridge debrief; names/results are derived from actual inventory. Reload/Back/Forward retains context and valid work. Unfinished exit remains unfinished.
+10. Attempt the separately labelled changed registration task. All11 answers are committed together before feedback; opening theory/journal during it records help. Revisit v1 deliberately to compare preserved historical evidence.
+11. Open preview build information from learning footer: compare its SHA/branch with the delivered commit and stable Vercel branch alias. Authentication gates are not application passes; never change protection.
+
+### Remaining validation boundaries
+
+Desktop1920×1080/1440×900/1366×768 is primary. Existing mobile regressions remain, no dedicated new mobile system. Actual commands/results/screenshots belong to PROJECT_STATUS; this specification alone does not claim tests passed. Human beginner/IT/SME/assistive review and retention remain required. Benefits/new services/accounts/live APIs and production release are excluded.
+
 2026-10-25. **Do not implement this production plan until separately authorized.** 3.1A preserves the course and adds only an isolated proof. The [storyboard](FOUNDATIONS_31A_STORYBOARD.md), [first-use register](FOUNDATIONS_PEDAGOGY_BLUEPRINT.md#first-use-register) and [visual contracts](VISUAL_LEARNING_SYSTEM.md) together define the instructional specification; no developer should invent abbreviated substitute prose while writing components.
 
 ## Scope and concrete integration

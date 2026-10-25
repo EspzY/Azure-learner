@@ -1,5 +1,9 @@
 # Content authoring and acceptance contract
 
+## 3.1B acceptance
+
+The reviewed prerequisite amendment is applied in the actual course. S01–S13 manuscript preceded presenter code. Preserve the beginner sequence and all later qualifications/counterexamples. V2 observations are separate; visiting/inspection alone cannot complete guided learning. Changed registration preserves first/help/retry. Human novice, qualified Azure-SME and accessibility review remain open despite software passes. Archive proof tests cannot substitute for actual-course acceptance.
+
 ## Beginner prerequisite amendment — 3.1A, 2026-10-25
 
 Before an exercise, identify every required concept and its actual earlier teaching/check, not just a journal definition. Follow concrete problem → intuitive explanation → terminology → mechanism → visual model → experiment → causal explanation → changed independent task. Define numeric units, intervals and exclusions before calculations. Separate worked and prediction fixtures; the new result must not be revealed in preceding prose. Advice such as `rg-` is distinct from resource-type validation. Apply the [first-use register](FOUNDATIONS_PEDAGOGY_BLUEPRINT.md#first-use-register) and [storyboard](FOUNDATIONS_31A_STORYBOARD.md); desktop is primary under AGENTS. These are review-candidate specifications; existing content/evidence versions remain unchanged.

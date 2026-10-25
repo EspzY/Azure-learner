@@ -308,7 +308,30 @@ export function UnitInvestigation({
   onProject: (p: LearningProjection | null) => void;
   showCore?: boolean;
 }) {
-  const { save, store, facts, openJournal } = useLearning();
+  const learning = useLearning();
+  return (
+    <VersionedInvestigation
+      unit={unit}
+      onProject={onProject}
+      showCore={showCore}
+      learning={learning}
+    />
+  );
+}
+export function VersionedInvestigation({
+  unit,
+  onProject,
+  showCore = false,
+  learning,
+}: {
+  unit: UnitId;
+  onProject: (p: LearningProjection | null) => void;
+  showCore?: boolean;
+  learning: Pick<ReturnType<typeof useLearning>, 'save' | 'facts' | 'issue' | 'openJournal'> & {
+    store: { event: (event: unknown) => boolean };
+  };
+}) {
+  const { save, store, facts, openJournal } = learning;
   const [input, setInput] = useState<Probe>(
     () => facts.observations[unit].probes.at(-1)?.input ?? defaultProbe(unit),
   );
@@ -322,9 +345,7 @@ export function UnitInvestigation({
     onProject(last ? { unit, input: last.input } : null);
   }, [unit, last, onProject]);
   const update = (change: Partial<Probe>) => setInput((p) => ({ ...p, ...change }));
-  const available = !['corrupt', 'unsupported', 'conflict', 'limit'].includes(
-    useLearning().issue ?? '',
-  );
+  const available = !['corrupt', 'unsupported', 'conflict', 'limit'].includes(learning.issue ?? '');
   const response = observation.last?.kind === 'answer' ? observation.last.answer : null;
   const correct =
     response !== null &&

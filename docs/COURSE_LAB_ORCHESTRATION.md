@@ -1,5 +1,9 @@
 # Course/lab orchestration
 
+## 3.1B computing origin
+
+The same lab starts at `/learn/computing?topic=resource-bridge`. Sessions may carry `origin: computing-v2`; old sessions keep their shape/service return. Guidance, inventory and receipt predicates are unchanged. Return selects the originating bridge with `activity=lab|debrief` and focuses the saved section. Origin cannot complete a module/assessment. Unfinished work remains resumable after reload. Unsubmitted form values are transient.
+
 The course, Portal and live diagrams share the root ChapterProvider, LearningProvider and one ServiceStore. A minimal CourseProvider adds a separate `azurelab.course.v1` preference/session record; no original schema or award migrates. It holds an allowlisted resume topic and one bounded guided session with model version, technical attempt number, starting command boundary and validated inspection references. Resource state is never copied.
 
 Explicit lab start pins the existing technical attempt and command boundary and opens the real `/portal` with a lab-context hint. URL hints alone cannot create a session or learning completion. Course return is a fixed allowlisted module/topic. Leaving retains valid world state; course shows unfinished/resumable versus actual guided-satisfied findings. Re-entry does not reset resources or teaching observations. Browser history preserves operational pages and course context. Reload restores committed resources and session; uncommitted form values are not promised. Direct free Portal entry has no forced activity or guide.

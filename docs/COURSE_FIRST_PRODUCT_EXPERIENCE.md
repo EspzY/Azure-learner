@@ -1,5 +1,9 @@
 # Course-first experience — AzureLab 3.0
 
+## 3.1B current default
+
+Open `/` → `/learn` → **Describe cloud computing**. New learners see browser/server teaching, not capacity-first v1 or a link to a separate proof. Steps run in the same shell/providers. Existing learners choose resume or separate v2; old links remain labelled archive access. The historical3.1A promotion below is removed. Current root, full course, shared lab and exact return are the acceptance path. [Handoff](FOUNDATIONS_31B_HANDOFF.md) owns mapping/walkthrough.
+
 3.1A adds an isolated [beginner design candidate](FOUNDATIONS_31A_STORYBOARD.md) and proof, not a changed production course. The current behavior/walkthrough below is preserved. Desktop-first now supersedes earlier equal-priority mobile visual polish; existing mobile/regression access remains.
 
 Owner-review discoverability correction: `/` → `/learn` now presents **AzureLab 3.1A — Forhåndsvis nytt læringsdesign** near the top with **Åpne designprøven**. This is a review-only entry, not a new course activity or completion source. The proof's header returns to the course for comparison; the existing lesson/resume actions remain. Remove `FoundationsReviewEntry` from the landing before any future production release. No paid service, environment setting or deployment-protection change is required.

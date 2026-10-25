@@ -2,6 +2,7 @@ import { execute, freshEngine, types, type Engine } from '../chapter01/model';
 import { validResourceGroupName } from '../simulation';
 import { topics, type PortalLocation } from '../portal/model';
 import { unitIds } from '../curriculum/manifest';
+import { v2Routes } from '../curriculum/foundations-v2';
 
 export const courseKey = 'azurelab.course.v1';
 export const moduleIds = ['computing', 'services'] as const;
@@ -58,6 +59,7 @@ export const stepIds = [
 ] as const;
 export type StepId = (typeof stepIds)[number];
 export interface LabSession {
+  origin?: 'computing-v2';
   version: 'web-platform@1';
   attempt: number;
   boundary: string | null;
@@ -76,13 +78,17 @@ const exact = (v: object, keys: string[]) =>
   Object.keys(v).sort().join(',') === keys.sort().join(',');
 export function courseTopic(module: CourseModule, topic: string | null) {
   const allowed: readonly string[] =
-    module === 'services' ? topics : [...unitIds, 'assessment', 'summary'];
-  return allowed.includes(topic ?? '') ? topic! : module === 'services' ? 'overview' : 'capacity';
+    module === 'services' ? topics : [...unitIds, 'assessment', 'summary', ...v2Routes];
+  return allowed.includes(topic ?? '')
+    ? topic!
+    : module === 'services'
+      ? 'overview'
+      : 'intro-request';
 }
 export const courseHref = (module: CourseModule, topic: string) =>
   `/learn/${module}?topic=${courseTopic(module, topic)}`;
-export const courseLabHref = (complete: boolean) =>
-  `${courseHref('services', 'practice')}&activity=${complete ? 'debrief' : 'lab'}`;
+export const courseLabHref = (complete: boolean, origin?: LabSession['origin']) =>
+  `${origin === 'computing-v2' ? courseHref('computing', 'resource-bridge') : courseHref('services', 'practice')}&activity=${complete ? 'debrief' : 'lab'}`;
 export function restoreCourse(raw: string | null): {
   save: CourseSave;
   issue: 'corrupt' | 'unsupported' | null;
@@ -106,7 +112,16 @@ export function restoreCourse(raw: string | null): {
     if (
       l !== null &&
       (!l ||
-        !exact(l, ['version', 'attempt', 'boundary', 'policy', 'relationship', 'reflection']) ||
+        !exact(l, [
+          'version',
+          'attempt',
+          'boundary',
+          'policy',
+          'relationship',
+          'reflection',
+          ...(l.origin === undefined ? [] : ['origin']),
+        ]) ||
+        (l.origin !== undefined && l.origin !== 'computing-v2') ||
         l.version !== 'web-platform@1' ||
         !Number.isSafeInteger(l.attempt) ||
         l.attempt < 1 ||

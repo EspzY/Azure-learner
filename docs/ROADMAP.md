@@ -1,5 +1,9 @@
 # Roadmap
 
+## 3.1B integration and next gates
+
+Implemented candidate: the real prerequisite-first course, separate observations, preserved v1, actual naming advice and computing→shared Portal→exact debrief. Executed checks belong to PROJECT_STATUS. Before educational acceptance, a true novice explains request→capacity without outside coaching; an Azure SME reviews provisioning, responsibility, naming and pricing caveats; an accessibility reviewer checks model/journal interpretation. Fix observed confusion before expansion. No production release/merge is authorized. Next content priority is **Describe the benefits of using cloud services**, after learner review.
+
 ## 3.1A → 3.1B — review before production rewrite
 
 Review entry gate: the main feature-preview URL must expose the new work, not require a separately supplied hidden path. 3.1A now has a labelled landing entry and explicit return. Remove the branch-local `FoundationsReviewEntry` before any production release. This discoverability correction does not authorize 3.1B; all pedagogical review gates below remain.

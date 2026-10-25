@@ -12,6 +12,7 @@ import {
   guideDefinitions,
   stepIds,
   courseKey,
+  courseLabHref,
 } from './model';
 import { CourseStore } from './store';
 import { nb } from '../../content/nb';
@@ -60,7 +61,20 @@ function build() {
 describe('course and guided sandbox boundary', () => {
   it('allowlists course destinations and keeps a lab hint through actual portal navigation', () => {
     expect(courseTopic('services', 'https://bad')).toBe('overview');
-    expect(courseHref('computing', 'bad')).toBe('/learn/computing?topic=capacity');
+    expect(courseHref('computing', 'bad')).toBe('/learn/computing?topic=intro-request');
+    expect(courseHref('computing', 'capacity')).toBe('/learn/computing?topic=capacity');
+    expect(courseLabHref(true, 'computing-v2')).toBe(
+      '/learn/computing?topic=resource-bridge&activity=debrief',
+    );
+    const session = { ...startLab(freshEngine(), 1), origin: 'computing-v2' as const };
+    expect(restoreCourse(JSON.stringify({ ...freshCourse(), lab: session })).save.lab).toEqual(
+      session,
+    );
+    expect(
+      restoreCourse(
+        JSON.stringify({ ...freshCourse(), lab: { ...session, origin: 'https://bad' } }),
+      ).issue,
+    ).toBe('corrupt');
     const l = parseLocation(new URLSearchParams('lab=web-platform&area=groups'));
     expect(l.lab).toBe(true);
     expect(portalHref(l, 'create', { kind: 'group' })).toContain('lab=web-platform');

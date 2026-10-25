@@ -2,6 +2,316 @@ import type { QuestionId } from '../domain/assessment';
 import type { CreationError, Region, ScopeKind } from '../domain/simulation';
 
 export const nb = {
+  foundationsV2: {
+    traceNext: 'Følg neste del av forespørselen',
+    traceSteps: [
+      'Klienten sender forespørselen.',
+      'Serverens applikasjon behandler den.',
+      'Svaret kan brukes av nettleseren.',
+    ],
+    commitmentQuestion:
+      'Hva må registreringspiloten forstå før den bruker modellens forpliktelsestall?',
+    database: 'Valgfritt oppslag i database',
+    badge: 'GRUNNLAG · VERSJON 2',
+    intro:
+      'Start med en nettside du kjenner. Undersøk maskinen bak den, før vi bruker dette grunnlaget til cloud computing, driftsansvar og kostnadsvalg.',
+    legacy: 'Arkivert Foundations v1 · beholdt læringshistorikk',
+    legacyNote:
+      'Du leser den opprinnelige versjonen. Svar, første forsøk og XP er beholdt. Ny undervisning har et separat læringsspor.',
+    chooseTitle: 'Fortsett der du var, eller begynn med den nye forklaringen',
+    chooseText:
+      'Du har registrert arbeid i Foundations v1. Ingenting flyttes til v2 eller godskrives på nytt. V2 begynner med nettleser, server og datamaskin før cloud computing.',
+    activeWarning:
+      'Du har et uferdig v1-vurderingsforsøk. Å åpne ny teori registreres som hjelp i dette forsøket; svarutkast og første svar beholdes.',
+    keepV1: 'Fortsett min opprinnelige v1',
+    startV2: 'Begynn Foundations v2 med separat historikk',
+    switchV2: 'Åpne gjeldende undervisning (v2)',
+    viewV1: 'Se min bevarte v1-historikk',
+    introduced: 'Introdusert',
+    practiced: 'Veiledet øvd',
+    notYet: 'Ikke øvd ferdig',
+    check: 'Undersøk begrunnelsen',
+    guidedNote:
+      'Dette er veiledet læring. Retting og forklaringer gir ikke uavhengig kompetanse eller XP.',
+    summary: 'Dine observasjoner · Foundations v2',
+    summaryNote:
+      'Lesing, modellkjøring, veiledede svar og første selvstendige oppgave vises hver for seg. Dette er ikke en mestringsprosent, Microsoft-fullføring eller eksamensklarhet.',
+    complete: 'Alle veiledede undervisnings- og øvingsvilkår er oppfylt.',
+    incomplete: 'Noen veiledede øvingsvilkår gjenstår. Du kan gå direkte tilbake til dem.',
+    assessment: 'Endret oppgave · registreringspiloten',
+    assessmentIntro:
+      'Et lokalt arrangement skal åpne nettregistrering. Fire like undervisningstimer trenger 1, 7, 4 og 2 arbeidspakker. Allokert kapasitet er 5 pakker per time. Hver time regnes separat. Svar på alle spørsmål før du ser resultat og forklaring. Oppgaven bruker modellene du har undersøkt, men en annen arbeidsmengde.',
+    assessmentRules:
+      'Første innsendte svar beholdes. Teori eller journal under forsøket registreres som hjelp. Senere forsøk er øving; ingen XP eller generell mestring gis. Du kan gå direkte til oppgaven uten å få godskrevet undervisningen.',
+    beginAssessment: 'Start endret oppgave',
+    continueAssessment: 'Fortsett uferdig v2-oppgave',
+    submitted: 'Alle svar er registrert før tilbakemelding.',
+    first: 'Første oppgaveobservasjon uten registrert hjelp',
+    assisted: 'Oppgaveobservasjon med registrert hjelp',
+    retry: 'Nytt øvingsforsøk',
+    aid: 'Hjelp er registrert i dette forsøket.',
+    sendAnswers: 'Lever alle svar',
+    journal: 'Les hele teorien for dette steget',
+    sources: 'Kilder og modellgrenser',
+    storage:
+      'V2-lagringen er utilgjengelig eller må gjenopprettes. Ingen v1-data eller tekniske ressurser er slettet.',
+    reset: 'Nullstill bare Foundations v2',
+    topics: {
+      'intro-request': {
+        title: 'Du åpner en produktside',
+        objective: 'Skille nettleseren fra programmet som svarer.',
+        text: 'Du åpner en produktside i nettbutikken. Nettleseren på PC-en din ber et annet program om innholdet. Denne beskjeden kaller vi en forespørsel, eller request. Programmet som ber, har rollen klient. Når tjenesten svarer med innhold, kan nettleseren vise siden. Svaret kan også fortelle at noe gikk galt.',
+        detail:
+          'Butikkens server-side applikasjon kan for eksempel beregne en pris. Nettleseren viser svaret og kan også kjøre egen klientkode. Her følger vi bare én forenklet forespørsel. Pilene er meldinger, ikke Azure-scope eller målt nettverkstrafikk. En internettforbindelse gjør ikke automatisk en datamaskin til en skytjeneste.',
+      },
+      'physical-server': {
+        title: 'Inne i serveren',
+        objective: 'Skille fysisk maskinvare, operativsystem og applikasjon.',
+        text: 'Serveren er her en fysisk datamaskin som leverer en tjeneste til andre. Applikasjonen er programvaren som utfører butikkens oppgaver: finne produktopplysninger og lage et svar. Ordet server brukes også om programvare som tilbyr en tjeneste; i denne tegningen peker det på datamaskinen.',
+        detail:
+          'CPU-en utfører programmets instruksjoner. RAM er arbeidsminnet for data som brukes nå. Lagring beholder for eksempel bilder mellom arbeidsøkter. Nettverket lar maskinen utveksle beskjeder. Operativsystemet fordeler maskinens ressurser og lar applikasjonen kjøre. Mer lagringsplass gir ikke automatisk mer prosessorkraft. Arbeidskopien kan ligge i minnet mens den varige filen ligger på lagring.',
+      },
+      virtualization: {
+        title: 'Én vert, flere virtuelle maskiner',
+        objective: 'Forstå at virtuelle ressurser har fysisk backing.',
+        text: 'Én fysisk vert kan kjøre flere virtuelle maskiner, forkortet VM. Hver VM har tildelte virtuelle ressurser og sitt eget gjesteoperativsystem. Hypervisoren er laget som gjør dette mulig og styrer tilgangen til den fysiske verten. To virtuelle maskiner betyr ikke at vi har kjøpt to nye fysiske maskiner.',
+        detail:
+          'I denne undervisningsmodellen har verten et RAM-budsjett på 8 minneenheter. Hver VM tildeles et helt antall enheter, uten overcommit. Enheter her er kun et minnebudsjett, ikke arbeidspakkene vi bruker senere. Ekte hypervisorer kan ha andre minne- og planleggingsmekanismer. Illustrasjonen lover verken full sikkerhetsisolasjon eller at alle Azure-tjenester bruker samme oppbygning.',
+      },
+      provisioning: {
+        title: 'Fra innkjøp til provisioning',
+        objective: 'Skille en administrasjonsbestilling fra besøk i nettbutikken.',
+        text: 'I eget maskinrom må noen skaffe og klargjøre kapasiteten. En skyleverandør tilbyr definerte IT-tjenester fra infrastrukturen sin. Kunden ber om en støttet ressurs gjennom en administrasjonsflate eller et API: en programmatisk måte å sende forespørselen på. Å bestille og klargjøre ressursen kalles provisioning. Maskinvaren finnes fortsatt.',
+        detail:
+          'En Azure Virtual Machine er ett eksempel på en konfigurert virtuell ressurs. Bestillingen går til administrasjonssystemet, ikke til butikkens produktside. Tilgang, kvoter (tillatt ressursmengde), tilgjengelig kapasitet og oppstart kan begrense leveransen. Akseptert konfigurasjon beviser ikke at butikkoden fungerer. Modellen oppretter ingen VM og måler ingen Azure-ventetid.',
+      },
+      'capacity-basics': {
+        title: 'Én time. En tydelig enhet.',
+        objective: 'Forklare behov, allokering og ubrukt kapasitet før regning.',
+        text: 'Butikken har mer arbeid når kampanjen åpner. For å se forholdet mellom arbeid og kapasitet lager vi en enkel undervisningsmodell. Én arbeidspakke er en oppdiktet mengde arbeid som trenger én kapasitetsenhet i én hel undervisningstime. Den er ikke én kunde, HTTP-forespørsel, CPU-kjerne, VM eller Azure-størrelse.',
+        detail:
+          'Hver time regnes for seg; arbeid flyttes ikke til neste time i denne modellen. Behov er etterspurt arbeid. Allokert kapasitet er det som er satt av. Behandlet arbeid er det minste av behov og kapasitet. Behov 2 og kapasitet 6 gir behandlet 2, ubrukt 4 og udekket 0. Ubrukt kapasitet betyr at mer arbeid kunne vært behandlet, ikke at 4 pakker ble avvist.',
+      },
+      'v2-capacity': {
+        title: 'Forutsi kampanjedagen',
+        objective: 'Registrere en antakelse, kjøre og forklare en ny arbeidsmengde.',
+        text: 'Nå kommer en annen dag: timene 09–10, 10–11, 11–12 og 12–13 trenger 3, 3, 8 og 3 arbeidspakker. Kapasiteten gjelder hver time. Hvor mange pakker blir ikke behandlet i den travleste timen? Registrer en antakelse før du kjører. Den kan være feil; vi undersøker årsaken etterpå.',
+        detail:
+          'Etter kjøringen: endre bare kapasiteten og prøv igjen. Sammenlign to faktisk utførte kjøringer. Samme allokering gir samme behandlet arbeid uansett om maskinen eies eller kapasiteten bestilles fra en leverandør. Cloud innebærer ikke automatisk skalering; endring krever en støttet konfigurasjon innen grenser. Denne modellen beregner ikke pris, kø, CPU-belastning eller svartid.',
+      },
+      'v2-responsibility': {
+        title: 'Hvem gjør arbeidet nå?',
+        objective: 'Skille leverandørdrift fra kundens gjenværende ansvar.',
+        text: 'Leverandøren kan drifte den fysiske plattformen. Teamet må fortsatt ta riktige valg for egne data, tilganger og klientmaskiner. Hvem som vedlikeholder operativsystem og runtime avhenger av tjenesten. Runtime er miljøet som kjører applikasjonskoden.',
+        detail:
+          'Azure Virtual Machines og en App Service-plattform overlater ulike oppgaver til kunden. Sammenlign konkrete tjenester i modellen; farger alene er ikke en sikkerhetsgaranti. Endpoint betyr her kundens enhet, ikke Azure Private Endpoint.',
+      },
+      'v2-models': {
+        title: 'Public, private og hybrid cloud',
+        objective: 'Skille bruksgrenser fra byggets adresse.',
+        text: 'Public cloud tilbys til flere kunder av en leverandør. Det gjør ikke kundedata offentlige. Private cloud er et skymiljø for én organisasjon og kan drives hos en tredjepart. Hybrid kobler sammen miljøer som må fungere sammen.',
+        detail:
+          'Eierskap, hvem som bruker miljøet og faktisk integrasjon er viktigere enn adressen til bygget. Eget maskinrom alene etablerer ikke selvbetjening og andre cloud-egenskaper. Cloud-modell og IaaS/PaaS/SaaS er forskjellige akser: tilgang til miljøet og fordeling av driftsoppgaver.',
+      },
+      'v2-placement': {
+        title: 'Velg miljø ut fra kravet',
+        objective: 'Begrunne tre plasseringer med avgjørende behov.',
+        text: 'Et kort arrangement, et krav om eksklusivt skymiljø og en ny nettfront som må bruke et beholdt lokalt system er tre forskjellige behov. Velg ut fra kravet som faktisk avgjør valget. Ingen modell er alltid billigst eller tryggest.',
+        detail:
+          'Eksklusivitetscaset forutsetter en hel cloud-plattform under organisasjonens rammer, ikke bare én dedikert ressurs i public cloud. Hybrid krever integrasjon og driftsarbeid; en tegnet forbindelse konfigurerer ikke nettverk eller identitet. Begrunn både valgt miljø og hvilket krav alternativet ikke oppfyller.',
+      },
+      'v2-metering': {
+        title: 'Hva måler forbruket?',
+        objective: 'Skille allokert tid fra nyttig trafikk.',
+        text: 'En tjeneste kan måle tiden kapasitet er allokert, ikke bare antall besøkende. Null besøk betyr derfor ikke nødvendigvis null målt bruk. Å stoppe applikasjonen er heller ikke det samme som å frigi en ressurs. Lagring og andre tjenester kan fortsatt ha egne kostnader.',
+        detail:
+          'Nå innfører vi en annen måleenhet: kapasitetstimer. Én kapasitetsenhet kan i undervisningsmodellen behandle én arbeidspakke per time. 6 enheter allokert i 4 timer er 24 kapasitetstimer selv om 0 pakker behandles. Med en oppdiktet sats på 2 kreditter per kapasitetstime blir beregning 48. Frigitt compute gir 0 i bare denne måleren; lagring og overføring er utelatt. Dette er ingen Azure-pris.',
+      },
+      'v2-pricing': {
+        title: 'Prismodeller og risiko',
+        objective: 'Vurdere samlet forpliktelse, nyttig bruk og avbrudd.',
+        text: 'Fleksibel forbruksbetaling og en betalingsforpliktelse fordeler risiko forskjellig. Rabatt kan lønne seg ved jevnt, kvalifisert forbruk. Ubrukt binding kan koste mer ved usikkert behov. En reservation eller savings plan er et faktureringstilbud med vilkår, ikke en knapp som oppretter kapasitet.',
+        detail:
+          'Spot kan avbrytes og passer ikke alle oppgaver. Sammenlign totalen under samme etterspørsel, ikke bare en rabattert enhetspris. I de bevarte undervisningseksemplene koster binding 24 kreditter for fire timer med inntil 6 kapasitetsenheter per time, pluss 2 per overskytende kapasitetstime. Forbruksbetaling er 2 per allokert kapasitetstime. Dette er oppdiktede, ufullstendige antakelser, ikke priser eller kapasitetsgarantier.',
+      },
+      'resource-bridge': {
+        title: 'Fra forståelse til Portal-laboratoriet',
+        objective: 'Knytte provisioning og ansvar til scope og hosting.',
+        text: 'I laboratoriet skal vi konfigurere ressurser, ikke bestille virkelige Azure-tjenester. En subscription er en administrasjons- og faktureringsgrense. En resource group samler relaterte ressurser for forvaltning. Den er ikke datamaskinen som kjører appen. Gruppens metadataregion er et annet valg enn hostingressursens sted.',
+        detail:
+          'Appteamet har egen webkode og vil slippe gjesteoperativsystem. Den neste tilgjengelige modulen, Describe cloud service types, forklarer hvorfor en App Service-lignende plattform er relevant. Derfra bruker vi det samme Portal-laboratoriet: group, plan, Web App, policyavslag, retting og hostingrelasjon. Benefits er fortsatt planlagt; å gå videre gir ingen godskriving av den modulen.',
+      },
+    },
+    checkItems: {
+      'intro-request': {
+        question: 'Hvor utføres butikkens server-side prisberegning i dette eksempelet?',
+        choices: [
+          ['browser', 'All programvare flyttes til nettleseren'],
+          ['server', 'Applikasjonen på serveren behandler den'],
+        ],
+        correct:
+          'Server-side programmet behandler forespørselen og sender et svar. Nettleseren kan ha egen klientkode, men har ikke overtatt serverprogrammet.',
+        wrong: 'Nettleseren sender en beskjed. Den flytter ikke serverprogrammet til PC-en din.',
+      },
+      'physical-server': {
+        question:
+          'Produktbilder skal beholdes mellom arbeidsøkter. Hva skiller dette fra arbeidskopien som brukes nå?',
+        choices: [
+          ['ram', 'Bare RAM beholder bildene varig'],
+          ['storage', 'Lagring beholder filen; RAM er arbeidsflate'],
+        ],
+        correct:
+          'Den varige filen ligger på lagring; en arbeidskopi kan ligge i RAM under behandlingen.',
+        wrong:
+          'RAM er arbeidsminne. Lagring er den varige delen i denne modellen; mer diskplass er heller ikke mer prosessorkraft.',
+      },
+      virtualization: {
+        question: 'VM A bruker 5 av vertens 8 minneenheter. Hvorfor avvises 4 til VM B her?',
+        choices: [
+          ['new-memory', 'Det finnes ingen felles fysisk begrensning'],
+          ['finite', '5 + 4 overstiger vertens fysiske undervisningsbudsjett'],
+        ],
+        correct:
+          'Hypervisoren fordeler en begrenset vert. Den nye VM-en skaper ikke fysisk RAM. Reelle overcommit-mekanismer er utenfor modellen.',
+        wrong:
+          'Virtuelle maskiner har fysisk backing. I denne uttrykkelige modellen uten overcommit kan ikke 9 enheter allokeres fra 8.',
+      },
+      provisioning: {
+        question: 'Hvilken handling ber administrasjonssystemet om en ny ressurs?',
+        choices: [
+          ['traffic', 'En kunde åpner en produktside'],
+          ['control', 'Teamet sender en støttet konfigurasjonsbestilling'],
+        ],
+        correct:
+          'Dette er kontroll-/administrasjonsbanen. En kundeforespørsel bruker applikasjonen; den bestiller ikke infrastrukturen.',
+        wrong:
+          'En produktside er applikasjonstrafikk. Provisioning er en separat administrasjonsoperasjon med egne grenser.',
+      },
+      'capacity-basics': {
+        question: 'Behov 2 og kapasitet 6 gir fire ubrukte plasser. Hva betyr de?',
+        choices: [
+          ['unmet', 'Fire etterspurte pakker ble ikke behandlet'],
+          ['unused', 'Modellen kunne behandlet fire pakker til'],
+        ],
+        correct: 'Ubrukt = allokert − behandlet. Udekket = behov − behandlet. Her er udekket 0.',
+        wrong:
+          'Skill kapasitet som ikke trengtes fra arbeid som ikke ble behandlet. Bare to pakker ble etterspurt.',
+      },
+      'v2-capacity': {
+        question:
+          'Hvorfor kan ledig kapasitet i første time ikke dekke topptimens manglende arbeid her?',
+        choices: [
+          ['carry', 'Ledige plasser lagres automatisk til neste time'],
+          ['same-hour', 'Hver time beregnes separat uten overføring av arbeid'],
+        ],
+        correct:
+          'Modellen har ingen kø eller overføring mellom timer. Mer kapasitet reduserer udekket arbeid, men kan gi mer ubrukt kapasitet.',
+        wrong:
+          'Timer kan ikke låne kapasitet av hverandre i denne modellen. Et reelt system med kø ville trengt en annen modell.',
+      },
+    },
+    vm: {
+      host: 'Fysisk vert · RAM-budsjett 8',
+      hypervisor: 'Hypervisor · fordeler vertens ressurser',
+      guest: 'Gjeste-OS + applikasjon',
+      a: 'Minneenheter til VM A',
+      b: 'Minneenheter til VM B',
+      apply: 'Prøv minnetildelingen',
+      accepted: 'Akseptert tildeling',
+      requested: 'Forespurt tildeling',
+      denied: 'Avvist: totalen overstiger 8. Den aksepterte tildelingen er uendret.',
+      ok: 'Tildelingen passer innen vertens budsjett.',
+      unit: 'minneenheter',
+    },
+    provision: {
+      owned: 'Eget maskinrom',
+      cloud: 'Leverandørens tjeneste',
+      mode: 'Hvem klargjør kapasiteten?',
+      available: 'Støttet kapasitet tilgjengelig',
+      unavailable: 'Undervisningskapasitet utilgjengelig',
+      request: 'Send konfigurasjonsbestilling',
+      control: 'Administrasjonsbane',
+      workload: 'Applikasjonsbane',
+      result: 'Bestillingsresultat',
+      accepted:
+        'Akseptert: modellen tildelte en støttet konfigurasjon. Ingen app er testet eller deployet.',
+      denied: 'Avvist: ingen kapasitet tildelt i denne kjøringen.',
+      local: 'Anskaff maskin → installer OS → klargjør applikasjonen',
+      provider: 'Kunde ber → leverandør validerer → støttet konfigurasjon eller avslag',
+      traffic: 'Nettleser → butikkens program → svar. Denne banen bestiller ingen ressurs.',
+    },
+    privateOffsite: 'Vis private cloud hos ekstern operatør',
+    privateExplanation:
+      'Fortsatt private cloud: én organisasjon bruker denne cloud-plattformen eksklusivt. Flyttingen av bygget endrer ikke bruksgrensen.',
+    modelIntro:
+      'Eksperimenter som bestiller en bestemt kapasitet per time er undervisningsantakelser, ikke en innebygd autoskalerer. Leverandørvalg alene endrer ikke gjennomstrømning ved lik allokering.',
+    bridgeAction: 'Fortsett til service types og det eksisterende laboratoriet',
+    bridgeResume: 'Tilbake fra laboratoriet · se den faktiske debriefen',
+    bridgeReturn: 'Tilbake til cloud computing · praktisk kobling',
+    build: 'Bygginformasjon · forhåndsvisning',
+    branch: 'Gren',
+    commit: 'Commit',
+    local: 'Lokal kjøring · identifikator ikke oppgitt',
+    extraItems: [
+      {
+        id: 'shortfall',
+        question: 'Hvor mange pakker er udekket i pilotens travleste time?',
+        choices: [],
+        explanation:
+          'Time 2 trenger 7, mens kapasiteten er 5. Udekket er 7 − 5 = 2; andre timer kan ikke låne bort kapasitet.',
+      },
+      {
+        id: 'unused',
+        question: 'I hvilke timer finnes ubrukt kapasitet?',
+        choices: [
+          ['2', 'Bare time 2'],
+          ['1,3,4', 'Time 1, 3 og 4'],
+          ['1,2,3,4', 'Alle fire'],
+        ],
+        explanation:
+          'Behov 1/7/4/2 mot kapasitet 5 gir ubrukt 4/0/1/3: totalt 8 potensielle pakker over fire timer.',
+      },
+      {
+        id: 'cause',
+        question:
+          'Den samme faste kapasiteten kjøpes fra en leverandør. Hva skjer med behandlet arbeid i denne modellen?',
+        choices: [
+          ['provider', 'Alt arbeid behandles automatisk fordi det er cloud'],
+          ['allocation', 'Samme allokering og behov gir samme behandlet arbeid'],
+        ],
+        explanation:
+          'Procurement endrer ikke regnestykket min(behov, kapasitet). Skalering krever en ny tildeling; modellen lover ingen automatisk kapasitet.',
+      },
+      {
+        id: 'host',
+        question: 'Hvorfor gir en ekstra VM ikke ubegrenset fysisk RAM?',
+        choices: [
+          ['infinite', 'VM-er er uavhengige av maskinvare'],
+          ['finite', 'VM-ressurser må understøttes av en begrenset fysisk vert'],
+        ],
+        explanation:
+          'Hypervisoren forvalter fysisk backing. VM-antall er ikke det samme som fysisk kapasitet; den forenklede budsjettmodellen har ingen overcommit.',
+      },
+    ],
+  },
+  resourceNaming: {
+    title: 'Forstå navnet · en konvensjon, ikke et krav',
+    intro:
+      'Eksempelet rg-webapp-dev kan leses som type – arbeidslast – miljø. Du bestemmer selv navnet; veilederen endrer eller sender det ikke.',
+    parts: [
+      ['rg', 'Vanlig forkortelse for resource group. Azure krever ikke dette prefikset.'],
+      ['webapp', 'Prosjektet eller arbeidslasten gjør det lettere å finne relaterte ressurser.'],
+      [
+        'dev / test / prod',
+        'Development, testing og production. Ordene beskriver hensikt; de oppretter ikke sikkerhet, isolasjon eller et produksjonsmiljø.',
+      ],
+    ],
+    rulesTitle: 'Navneregler · teknisk validering',
+    rules:
+      'Resource group-navn er unike innen subscription, 1–90 tegn, uten punktum til slutt. Azure dokumenterer Unicode-bokstaver, desimalsifre, understrek, bindestrek, parenteser og punktum. Et navn som teamA er lovlig uten rg- eller miljøkode.',
+    limit:
+      'Simulatoren bruker sin eksisterende validator. Dens Unicode-tallkategori er litt bredere enn den offisielle desimalsifferregelen; dette er ikke full Azure-paritet. Review viser faktiske ugyldige navn og duplikater. Navnekonvensjonen gir ingen ekstra valideringsregel.',
+  },
   beginnerProof: {
     reviewBadge: 'REVIEWKANDIDAT · IKKE EN FULLFØRT LÆRINGSMODUL',
     reviewTitle: 'AzureLab 3.1A — Forhåndsvis nytt læringsdesign',
@@ -175,7 +485,7 @@ export const nb = {
   },
   course: {
     brand: 'AzureLab',
-    version: '3.0',
+    version: '3.1B',
     home: 'Læringsreisen',
     sandbox: 'Fri Portal-sandbox',
     learning: 'Kursinnhold',

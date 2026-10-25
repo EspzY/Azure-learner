@@ -162,6 +162,23 @@ export function CreateResource({
                 />
               </label>
               <p className="portal-field-hint">{p.nameNote}</p>
+              {kind === 'group' && (
+                <details className="resource-naming">
+                  <summary>{nb.resourceNaming.title}</summary>
+                  <p>{nb.resourceNaming.intro}</p>
+                  <dl>
+                    {nb.resourceNaming.parts.map(([term, meaning]) => (
+                      <div key={term}>
+                        <dt>{term}</dt>
+                        <dd>{meaning}</dd>
+                      </div>
+                    ))}
+                  </dl>
+                  <h3>{nb.resourceNaming.rulesTitle}</h3>
+                  <p>{nb.resourceNaming.rules}</p>
+                  <p>{nb.resourceNaming.limit}</p>
+                </details>
+              )}
               {kind !== 'app' ? (
                 <label>
                   {p.region}
