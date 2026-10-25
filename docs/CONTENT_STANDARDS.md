@@ -1,5 +1,9 @@
 # Content authoring and acceptance contract
 
+## Beginner prerequisite amendment — 3.1A, 2026-10-25
+
+Before an exercise, identify every required concept and its actual earlier teaching/check, not just a journal definition. Follow concrete problem → intuitive explanation → terminology → mechanism → visual model → experiment → causal explanation → changed independent task. Define numeric units, intervals and exclusions before calculations. Separate worked and prediction fixtures; the new result must not be revealed in preceding prose. Advice such as `rg-` is distinct from resource-type validation. Apply the [first-use register](FOUNDATIONS_PEDAGOGY_BLUEPRINT.md#first-use-register) and [storyboard](FOUNDATIONS_31A_STORYBOARD.md); desktop is primary under AGENTS. These are review-candidate specifications; existing content/evidence versions remain unchanged.
+
 ## Course-first refinement — 2026-10-25
 
 Preserve full manuscripts when reordering presentation. Every lab needs a prior purpose/prerequisite bridge, original control rationale, actual technical validation, causal feedback and exact-context debrief. A group task applies G01, not complete ST01–ST04 coverage. The mascot cannot replace core theory; following guidance cannot become independent evidence. Source/step/copy bindings enter curriculum checks. Human SME, accessibility and transfer review remain separate.

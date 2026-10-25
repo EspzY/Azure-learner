@@ -1,5 +1,9 @@
 # Local curriculum and evidence architecture
 
+## 3.1A candidate, not a curriculum migration
+
+The isolated `/design/foundations-31a` proof uses localized copy, inline original SVG and a pure `domain/design-proof/capacity` calculator. It imports no learning-store hooks or command dispatch and is not registered as a curriculum activity. Existing root providers restore their stores; no new key/version/evidence/XP is written. Candidate prerequisite IDs B01–B05 do not become implemented official objectives. [Handoff](FOUNDATIONS_31B_HANDOFF.md) proposes explicit v1 preservation and separately versioned future observations; no mapper or v2 store exists yet. [Audit](BEGINNER_LEARNING_AUDIT.md) separates substantive authored coverage from inadequate beginner scaffolding.
+
 ## Course-first refinement — 2026-10-25
 
 ServicesWorkspace and FoundationsWorkspace are reused directly in course routes, preserving full manuscript/investigations. Versioned guide definitions bind objective/source IDs, expected context, semantic targets, observable actions, validators and return to original nb.ts explanations/reasons/hints. UI observations guide presentation; replayed resources/receipts and validated inspection references determine guided satisfaction. Resume preferences are not evidence. [Guide architecture](GUIDED_SANDBOX_ENGINE.md) owns this bounded adapter, not a CMS.

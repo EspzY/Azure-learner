@@ -44,6 +44,11 @@ export const requiredFiles = [
   'docs/GUIDED_SANDBOX_ENGINE.md',
   'docs/SAVVYSHARK_INTEGRATION.md',
   'docs/COURSE_LAB_ORCHESTRATION.md',
+  'docs/BEGINNER_LEARNING_AUDIT.md',
+  'docs/FOUNDATIONS_PEDAGOGY_BLUEPRINT.md',
+  'docs/VISUAL_LEARNING_SYSTEM.md',
+  'docs/FOUNDATIONS_31A_STORYBOARD.md',
+  'docs/FOUNDATIONS_31B_HANDOFF.md',
 ];
 
 function markdownFiles(folder) {

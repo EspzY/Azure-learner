@@ -1,5 +1,9 @@
 # Security and privacy
 
+## 3.1A design proof boundary
+
+`/design/foundations-31a` is discoverable from the course landing and remains `noindex`, **not access controlled or secret**. Its fictional in-memory calculator accepts only bounded finite inputs, uses no remote content/runtime API, and cannot dispatch simulation, assessment, XP or storage events. Existing root provider restoration is unchanged. No new assets, credentials, environment settings or dependencies. References open explicitly by learner action. Prototype state resets on reload; it cannot be promoted into learning evidence. Production stores/schemas and invalid-storage safeguards remain unchanged.
+
 ## Course-first refinement — 2026-10-25
 
 The ninth record `azurelab.course.v1` contains bounded resume/session/inspection references, no copied inventory or score. Exact runtime validation, corruption quarantine, stale-tab stop and memory-only warnings apply. Isolated recovery cannot delete old work; global deletion includes it. Guided findings require actual replayed attempt/boundary/predicates; URL hints are navigation only. The finite coach target register cannot submit commands or execute content. Only the explicitly owner-authorized mascot PNG was copied; no financial/auth/database code, data or credentials were read/included.

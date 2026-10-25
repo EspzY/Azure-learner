@@ -29,6 +29,7 @@ import { PortalDialog } from '@/features/portal/shared';
 import { ArchitectureExplorer } from '@/features/portal/architecture';
 import { SavvyShark } from './savvy-shark';
 import { useCourse } from './provider';
+import { FoundationsReviewEntry } from './foundations-review';
 import '@/features/portal/portal.css';
 import './course.css';
 const c = nb.course;
@@ -249,6 +250,7 @@ export function Course({ module }: { module?: CourseModule }) {
               <div className="course-intro">
                 <small>{c.eyebrow}</small>
                 <h1>{c.title}</h1>
+                <FoundationsReviewEntry />
                 <p>{c.intro}</p>
                 <div className="course-track">
                   <strong>{nb.official.certification}</strong>
