@@ -1,5 +1,9 @@
 # Learning journey and competency universe
 
+## Course-first refinement — 2026-10-25
+
+The current entry is the ordered cloud-concepts course at `/learn`; computing retains six full investigations and services connects complete theory, guided Portal work and a separate independent task. Benefits is unavailable. Direct module access credits no skipped content. The 30-competency professional graph below remains future scope; one competency may require several modules. [Course experience](COURSE_FIRST_PRODUCT_EXPERIENCE.md) owns the implemented sequence.
+
 ## Current Portal-first learning route — 2026-10-24
 
 The owner replaces RPG progression as the main product. Learners enter the Portal workspace, select complete original **Describe cloud computing** or **Describe cloud service types**, explore the relevant responsibility/mechanism model, perform guided configuration, inspect actual relationships and submit a changed independent task. Exact topic/mode survives operational navigation. Existing six-unit observations/awards are preserved; new ST01–ST04 records do not complete F01, professional competencies or Microsoft training automatically.

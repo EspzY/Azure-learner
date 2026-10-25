@@ -195,12 +195,14 @@ export function LearningWorkspace({
     </div>
   );
 }
-function ServicesWorkspace({
+export function ServicesWorkspace({
   location,
   navigate,
+  course = false,
 }: {
   location: PortalLocation;
   navigate: Navigate;
+  course?: boolean;
 }) {
   const topic = topics.includes(location.topic as (typeof topics)[number])
     ? (location.topic as (typeof topics)[number])
@@ -212,15 +214,17 @@ function ServicesWorkspace({
       <small>{l.subtitle}</small>
       <h2>{c.title}</h2>
       <CurriculumTrail module="services" overview />
-      <div className="portal-learning-actions">
-        <button
-          type="button"
-          className="primary"
-          onClick={() => navigate('groups', { mode: 'guided' })}
-        >
-          {p.openPractice}
-        </button>
-      </div>
+      {!course && (
+        <div className="portal-learning-actions">
+          <button
+            type="button"
+            className="primary"
+            onClick={() => navigate('groups', { mode: 'guided' })}
+          >
+            {p.openPractice}
+          </button>
+        </div>
+      )}
       {topic === 'overview' && (
         <>
           <ul>
@@ -247,6 +251,7 @@ function ServicesWorkspace({
       {['overview', 'iaas', 'paas', 'saas'].includes(topic) && (
         <ResponsibilityExplorer
           key={topic}
+          guide={course}
           initialModel={models.includes(topic as Model) ? (topic as Model) : 'paas'}
         />
       )}
@@ -262,7 +267,7 @@ function ServicesWorkspace({
           ))}
         </>
       )}
-      {topic === 'practice' && (
+      {topic === 'practice' && !course && (
         <div className="portal-practice-brief">
           <h3>{p.guidedBrief}</h3>
           <ol>
@@ -525,7 +530,7 @@ export function IndependentChallenge({ navigate }: { navigate: Navigate }) {
     </article>
   );
 }
-function FoundationsWorkspace({
+export function FoundationsWorkspace({
   location,
   navigate,
 }: {

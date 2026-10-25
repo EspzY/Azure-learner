@@ -35,7 +35,7 @@ import {
 } from '@/domain/portal/model';
 import type { Command, Receipt } from '@/domain/chapter01/model';
 import { serviceSources } from '@/domain/portal/content';
-import { PortalLearningProvider, usePortalLearning } from './learning-provider';
+import { usePortalLearning } from './learning-provider';
 import { PortalDialog, PropertyList, type Navigate } from './shared';
 import { ResourceTable, ResourceDetails } from './inventory';
 import { CreateResource } from './create-resource';
@@ -48,6 +48,10 @@ import {
 import { ResponsibilityExplorer } from './responsibility';
 import { ArchitectureExplorer } from './architecture';
 import './portal.css';
+import { useCourse } from '@/features/course/provider';
+import { courseHref, courseLabHref, labFacts, type LabForm } from '@/domain/course/model';
+import { GuidedCoach } from '@/features/course/guided-coach';
+import Link from 'next/link';
 const p = nb.portal;
 const services = ['subscriptions', 'groups', 'resources', 'apps', 'plans', 'activity'] as const;
 const educational = ['learn', 'responsibility', 'hierarchy', 'architecture', 'challenge'] as const;
@@ -70,11 +74,7 @@ const icons = {
   create: Plus,
 };
 export function Portal() {
-  return (
-    <PortalLearningProvider>
-      <PortalWorkspace />
-    </PortalLearningProvider>
-  );
+  return <PortalWorkspace />;
 }
 function PortalWorkspace() {
   const router = useRouter(),
@@ -83,6 +83,18 @@ function PortalWorkspace() {
   const chapter = useChapter(),
     learning = useLearning(),
     module = usePortalLearning();
+  const course = useCourse();
+  const [labForm, setLabForm] = useState<LabForm | null>(null);
+  const guidedLab = !!location.lab && !!course.save.lab && !module.facts.active;
+  const courseReturn = guidedLab
+    ? courseLabHref(
+        labFacts(course.save.lab, chapter.attempt.engine, chapter.attemptNumber).complete,
+      )
+    : location.course
+      ? courseHref(location.module, location.topic)
+      : '/learn';
+  const returnLearning = () =>
+    guidedLab || location.course ? router.push(courseReturn) : navigate('learn');
   const { world } = chapter.attempt.engine;
   const rows = inventory(world),
     [menu, setMenu] = useState(false),
@@ -245,7 +257,7 @@ function PortalWorkspace() {
     <div className="portal-commandbar">
       {(['groups', 'plans', 'apps', 'resources'].includes(location.area) ||
         (location.area === 'resource' && current && current.kind !== 'app')) && (
-        <button type="button" onClick={() => startCreate()}>
+        <button type="button" data-guide="create" onClick={() => startCreate()}>
           <Plus size={16} />
           {p.create}
         </button>
@@ -260,11 +272,15 @@ function PortalWorkspace() {
         <RefreshCw size={15} />
         {p.refresh}
       </button>
-      <button type="button" onClick={() => navigate('architecture', { id: location.id })}>
+      <button
+        type="button"
+        data-guide="architecture"
+        onClick={() => navigate('architecture', { id: location.id })}
+      >
         <Network size={15} />
         {p.areas.architecture}
       </button>
-      <button type="button" onClick={() => navigate('learn')}>
+      <button type="button" onClick={returnLearning}>
         <BookOpen size={15} />
         {p.returnLearning}
       </button>
@@ -272,7 +288,7 @@ function PortalWorkspace() {
   );
   return (
     <div
-      className={`portal ${collapsed ? 'portal-collapsed' : ''}`}
+      className={`portal ${collapsed ? 'portal-collapsed' : ''} ${guidedLab ? 'portal-guided-lab' : ''}`}
       style={{ '--teaching-width': `${width}px` } as React.CSSProperties}
     >
       <a className="portal-skip" href="#portal-main">
@@ -303,6 +319,7 @@ function PortalWorkspace() {
         <div className="portal-search">
           <Search size={17} />
           <input
+            data-guide="search"
             ref={searchRef}
             type="search"
             aria-label={p.search}
@@ -412,6 +429,7 @@ function PortalWorkspace() {
               return (
                 <a
                   key={area}
+                  data-guide={area === 'groups' ? 'groups' : undefined}
                   href={portalHref(location, area)}
                   aria-current={location.area === area ? 'page' : undefined}
                   onClick={(e) => {
@@ -484,7 +502,7 @@ function PortalWorkspace() {
               })()}
             </span>
             <div>
-              <h1 ref={heading} tabIndex={-1} id="portal-page-title">
+              <h1 ref={heading} tabIndex={-1} id="portal-page-title" data-guide="resource">
                 {title}
               </h1>
               <small>
@@ -495,21 +513,29 @@ function PortalWorkspace() {
           {commands}
           <div className="portal-training-strip">
             <span className={`mode-${module.facts.active ? 'independent' : location.mode}`}>
-              {p.modes[module.facts.active ? 'independent' : location.mode]}
+              {module.facts.active
+                ? p.modes.independent
+                : guidedLab
+                  ? nb.course.guided
+                  : location.mode === 'learn' &&
+                      !['learn', 'responsibility', 'hierarchy', 'challenge'].includes(location.area)
+                    ? nb.course.free
+                    : p.modes[location.mode]}
             </span>
             <span>
               {location.module === 'computing' ? nb.official.computing : nb.official.services}
             </span>
+            <Link href={courseReturn}>{nb.course.returnCourse}</Link>
             {module.facts.active ? (
               <button type="button" onClick={() => navigate('challenge', { mode: 'independent' })}>
                 {p.continueChallenge}
               </button>
             ) : (
-              <button type="button" onClick={() => navigate('learn')}>
+              <button type="button" onClick={returnLearning}>
                 {p.returnLearning}
               </button>
             )}
-            {location.mode === 'guided' && !module.facts.active && (
+            {location.mode === 'guided' && !guidedLab && !module.facts.active && (
               <button type="button" onClick={() => setPane(!pane)}>
                 {pane ? p.hidePane : p.showPane}
               </button>
@@ -551,7 +577,7 @@ function PortalWorkspace() {
             </div>
           )}
           <div
-            className={`portal-content ${location.mode === 'guided' && pane && !module.facts.active && !['learn', 'challenge', 'architecture', 'hierarchy'].includes(location.area) ? 'with-teaching' : ''}`}
+            className={`portal-content ${location.mode === 'guided' && !guidedLab && pane && !module.facts.active && !['learn', 'challenge', 'architecture', 'hierarchy'].includes(location.area) ? 'with-teaching' : ''}`}
           >
             <div className="portal-view">
               {location.area === 'home' ? (
@@ -635,6 +661,7 @@ function PortalWorkspace() {
                   disabled={disabled}
                   onCreate={command}
                   navigate={navigate}
+                  onObserve={guidedLab ? setLabForm : undefined}
                 />
               ) : location.area === 'resource' ? (
                 <ResourceDetails world={world} id={location.id} navigate={navigate} />
@@ -654,10 +681,27 @@ function PortalWorkspace() {
                   initialSelection={location.id}
                   lens={location.area === 'hierarchy' ? 'hierarchy' : 'architecture'}
                   navigate={navigate}
+                  onSelectRelation={
+                    guidedLab
+                      ? (appId) => {
+                          const snapshot = course.store.getSnapshot().save;
+                          const f = labFacts(
+                            snapshot.lab,
+                            chapter.attempt.engine,
+                            chapter.attemptNumber,
+                          );
+                          if (snapshot.lab && f.app?.id === appId)
+                            course.store.update({
+                              ...snapshot,
+                              lab: { ...snapshot.lab, relationship: appId },
+                            });
+                        }
+                      : undefined
+                  }
                 />
               ) : location.area === 'policy' ? (
                 <>
-                  <h2>{nb.chapter.customPolicy}</h2>
+                  <h2 data-guide="policy">{nb.chapter.customPolicy}</h2>
                   {world.policies.map((policy) => (
                     <section key={policy.id}>
                       <PropertyList
@@ -688,16 +732,19 @@ function PortalWorkspace() {
                     onSelect={(r) => navigate('activity', { id: r.commandId })}
                   />
                   {receipt && (
-                    <ReceiptPanel
-                      receipt={receipt}
-                      onPolicy={() => navigate('policy')}
-                      onEdit={() => edit(receipt)}
-                    />
+                    <div data-guide="receipt">
+                      <ReceiptPanel
+                        receipt={receipt}
+                        onPolicy={() => navigate('policy')}
+                        onEdit={() => edit(receipt)}
+                      />
+                    </div>
                   )}
                 </>
               )}
             </div>
             {location.mode === 'guided' &&
+              !guidedLab &&
               pane &&
               !module.facts.active &&
               !['learn', 'challenge', 'architecture', 'hierarchy'].includes(location.area) && (
@@ -730,6 +777,7 @@ function PortalWorkspace() {
           <footer className="portal-footer">{p.boundary}</footer>
         </main>
       </div>
+      <GuidedCoach location={location} form={labForm} navigate={navigate} />
       {notification && (
         <PortalDialog title={p.notifications} onClose={() => setNotification(false)}>
           <p>{p.notificationCount}</p>

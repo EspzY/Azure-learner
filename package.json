@@ -17,7 +17,7 @@
     "docs:check": "node scripts/docs-check.mjs",
     "assets:check": "node scripts/assets-check.mjs",
     "check": "npm run typecheck && npm run lint && npm run format:check && npm run docs:check && npm run curriculum:check && npm run assets:check && npm test && npm run build",
-    "curriculum:check": "vitest run src/domain/curriculum/integrity.test.ts src/domain/instruction/instruction.test.ts src/domain/portal/portal.test.ts"
+    "curriculum:check": "vitest run src/domain/curriculum/integrity.test.ts src/domain/instruction/instruction.test.ts src/domain/portal/portal.test.ts src/domain/course/course.test.ts"
   },
   "dependencies": {
     "@react-three/fiber": "9.8.2",

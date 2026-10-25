@@ -1,5 +1,9 @@
 # AzureLab 2.0 portal reboot
 
+## Course-first refinement — 2026-10-25
+
+AzureLab 3.0 supersedes the Portal-first entry hierarchy, not this operational laboratory. `/` → `/learn` introduces the official ordered path and original activities; an authored guided session enters the same `/portal`. Free/independent use remains. [Course strategy](COURSE_FIRST_PRODUCT_EXPERIENCE.md) owns the current primary experience; reboot rationale below remains historical and technically relevant.
+
 Owner-authorized pivot, 2026-10-24. This supersedes the RPG-first product direction; historical game documents remain development history. Implementation and executed checks belong to PROJECT_STATUS, not this strategy.
 
 ## Learn, Practice, Understand

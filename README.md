@@ -1,6 +1,6 @@
-# AzureLab 2.0
+# AzureLab 3.0
 
-An independent **Azure Portal-inspired training simulator** with integrated **Learn · Practice · Understand**. It runs entirely in your browser without Azure credentials or cloud costs. All operations are simulated; AzureLab is not affiliated with Microsoft.
+An independent **course-driven Azure learning environment** with an integrated **Azure Portal-inspired training simulator**. `/` opens `/learn`; `/portal` is the shared laboratory and free sandbox. SavvyShark guides real controls at authored practical steps and returns to the exact lesson. The [course experience](docs/COURSE_FIRST_PRODUCT_EXPERIENCE.md), [guide engine](docs/GUIDED_SANDBOX_ENGINE.md), [mascot integration](docs/SAVVYSHARK_INTEGRATION.md) and [session contract](docs/COURSE_LAB_ORCHESTRATION.md) describe the new orchestration. Official module order, all original theory, six computing investigations and separate independent evidence are preserved. Benefits remains planned. It runs entirely in your browser without Azure credentials or cloud costs. All operations are simulated; AzureLab is not affiliated with Microsoft.
 
 ## Playable scope
 

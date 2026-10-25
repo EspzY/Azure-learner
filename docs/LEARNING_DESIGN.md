@@ -1,5 +1,9 @@
 # Learning design
 
+## Course-first refinement — 2026-10-25
+
+Course order and explicit next activities now lead into the actual guided Portal lab and back to a causal debrief. The original manuscripts, diagrams, justified cases, six investigations and independent rubric are retained. Group creation applies resource-organization prerequisites, not service-module completion by itself. Source-reviewed guide and reflection copy stays in nb.ts. [Course strategy](COURSE_FIRST_PRODUCT_EXPERIENCE.md) and [guide mechanics](GUIDED_SANDBOX_ENGINE.md) define behavior. Human first-time usability/SME review remains outstanding.
+
 ## Portal learning loop — 2026-10-24
 
 Learn → manipulate responsibility layers → justify a workload decision → configure through recognizable Portal services → investigate actual rejection → inspect membership/hosting/location → apply changed requirements. Full theory is focused and readable; an optional resizable pane gives guided instructions without replacing the manuscript. The same technical world underlies all modes. No resource/diagram duplicate is created for education.

@@ -36,11 +36,15 @@ export interface PortalLocation {
   topic: string;
   mode: 'learn' | 'guided' | 'independent';
   edit: string;
+  lab?: true;
+  course?: true;
 }
 export function parseLocation(query: URLSearchParams): PortalLocation {
   const area = query.get('area') ?? 'home',
     mode = query.get('mode') ?? 'learn';
   return {
+    ...(query.get('lab') === 'web-platform' ? { lab: true as const } : {}),
+    ...(query.get('course') === '1' ? { course: true as const } : {}),
     area: areas.includes(area as Area) ? (area as Area) : 'home',
     id: /^[a-zA-Z0-9_-]{1,64}$/.test(query.get('id') ?? '') ? query.get('id')! : '',
     kind: query.get('kind') === 'plan' ? 'plan' : query.get('kind') === 'app' ? 'app' : 'group',
@@ -82,6 +86,8 @@ export function portalHref(
   if (next.id) query.set('id', next.id);
   if (next.area === 'create') query.set('kind', next.kind);
   if (next.edit) query.set('edit', next.edit);
+  if (next.lab) query.set('lab', 'web-platform');
+  if (next.course) query.set('course', '1');
   return `/portal?${query}`;
 }
 export type InventoryKind = 'subscription' | 'group' | 'plan' | 'app';

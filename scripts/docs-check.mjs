@@ -40,6 +40,10 @@ export const requiredFiles = [
   'docs/PORTAL_REFERENCE_FIDELITY.md',
   'docs/PORTAL_LEARNING_EXPERIENCE.md',
   'docs/INTERACTIVE_VISUALIZATIONS.md',
+  'docs/COURSE_FIRST_PRODUCT_EXPERIENCE.md',
+  'docs/GUIDED_SANDBOX_ENGINE.md',
+  'docs/SAVVYSHARK_INTEGRATION.md',
+  'docs/COURSE_LAB_ORCHESTRATION.md',
 ];
 
 function markdownFiles(folder) {

@@ -3,9 +3,16 @@ import { useState } from 'react';
 import { nb } from '@/content/nb';
 import { layers, responsibility, type Layer, type ServiceModel } from '@/domain/expedition';
 import { usePortalLearning } from './learning-provider';
+import { SavvyShark } from '@/features/course/savvy-shark';
 const p = nb.portal,
   r = p.responsibility;
-export function ResponsibilityExplorer({ initialModel = 'paas' }: { initialModel?: ServiceModel }) {
+export function ResponsibilityExplorer({
+  initialModel = 'paas',
+  guide = false,
+}: {
+  initialModel?: ServiceModel;
+  guide?: boolean;
+}) {
   const [model, setModel] = useState<ServiceModel>(initialModel),
     [layer, setLayer] = useState<Layer | 'virtualization'>('os');
   const { store } = usePortalLearning();
@@ -31,6 +38,11 @@ export function ResponsibilityExplorer({ initialModel = 'paas' }: { initialModel
         ))}
       </div>
       <p>{r.intro}</p>
+      {guide && (
+        <SavvyShark compact>
+          <p aria-live="polite">{nb.course.modelGuide[model]}</p>
+        </SavvyShark>
+      )}
       <div className="portal-stack-layout">
         <div className="portal-layer-stack">
           {all.map((l) => (

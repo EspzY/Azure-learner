@@ -30,6 +30,6 @@ export function ChapterProvider({ children }: { children: React.ReactNode }) {
 export function useChapter() {
   const store = useContext(Context);
   if (!store) throw new Error('ChapterProvider required');
-  const view = useSyncExternalStore(store.subscribe, store.getSnapshot, store.getSnapshot);
+  const view = useSyncExternalStore(store.subscribe, store.getSnapshot, store.getServerSnapshot);
   return { ...view, store };
 }

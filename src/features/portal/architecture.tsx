@@ -64,11 +64,13 @@ export function ArchitectureExplorer({
   navigate,
   initialSelection = '',
   lens = 'architecture',
+  onSelectRelation,
 }: {
   world: World;
   navigate: Navigate;
   initialSelection?: string;
   lens?: 'architecture' | 'hierarchy';
+  onSelectRelation?: (appId: string) => void;
 }) {
   const [selection, setSelection] = useState(initialSelection),
     [list, setList] = useState(false),
@@ -80,6 +82,8 @@ export function ArchitectureExplorer({
   const select = (id: string) => {
     setSelection(id);
     setExplaining(false);
+    const edge = projection.edges.find((e) => e.id === id && e.kind === 'depends-on');
+    if (edge) onSelectRelation?.(edge.from);
   };
   const nodes: DiagramNode[] = projection.nodes.map((n) => ({
     id: n.id,
@@ -129,7 +133,7 @@ export function ArchitectureExplorer({
           {g.list}
         </button>
       </div>
-      <div className="portal-graph-layout">
+      <div className="portal-graph-layout" data-guide="relationship">
         <div>
           {!list && (
             <div className="portal-graph" aria-label={g.diagram}>

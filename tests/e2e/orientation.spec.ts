@@ -151,11 +151,11 @@ test('canonical arrival, intentional walking, curriculum bridge, log, resume and
   ).toBe(true);
   await page.goto('/progress');
   await page.getByRole('link', { name: 'AzureLab', exact: true }).first().click();
-  await expect(page).toHaveURL(/\/portal$/);
+  await expect(page).toHaveURL(/\/learn$/);
   await page.goBack();
   await expect(page).toHaveURL(/\/progress$/);
   await page.goForward();
-  await expect(page).toHaveURL(/\/portal$/);
+  await expect(page).toHaveURL(/\/learn$/);
   expect(errors).toEqual([]);
   expect(external).toEqual([]);
 });
@@ -244,7 +244,7 @@ test('saved learning and technical work, invalid preferences, semantic orientati
   await page.goto('/legacy-expedition');
   await expect(page.locator('.journey-landscape')).toBeVisible();
   await page.getByRole('link', { name: 'AzureLab', exact: true }).first().click();
-  await expect(page).toHaveURL(/\/portal$/);
+  await expect(page).toHaveURL(/\/learn$/);
 });
 
 test('older position-only saves receive orientation without restarting or awarding learning', async ({

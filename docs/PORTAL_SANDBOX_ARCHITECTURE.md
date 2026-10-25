@@ -1,5 +1,9 @@
 # Portal sandbox architecture
 
+## Course-first refinement — 2026-10-25
+
+One root ServiceStore now serves course and Portal; ChapterProvider and LearningProvider remain shared. Fixed initial server snapshots and live client subscriptions prevent streamed-page hydration mismatches without changing commands or old schemas. [Course/lab orchestration](COURSE_LAB_ORCHESTRATION.md) owns a ninth navigation/session record. The real create UI exposes semantic targets and read-only form observations to [authored guidance](GUIDED_SANDBOX_ENGINE.md), which cannot submit technical commands. URL hints preserve context, never authorize completion.
+
 Reboot contract v1, 2026-10-24. The existing pure technical engine remains authoritative; this document owns the new presentation and evidence boundaries. Historical technical contracts remain in CHAPTER_01_GUIDED and SIMULATION_PLATFORM.
 
 ## One inventory

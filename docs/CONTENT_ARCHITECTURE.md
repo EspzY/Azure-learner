@@ -1,5 +1,9 @@
 # Local curriculum and evidence architecture
 
+## Course-first refinement — 2026-10-25
+
+ServicesWorkspace and FoundationsWorkspace are reused directly in course routes, preserving full manuscript/investigations. Versioned guide definitions bind objective/source IDs, expected context, semantic targets, observable actions, validators and return to original nb.ts explanations/reasons/hints. UI observations guide presentation; replayed resources/receipts and validated inspection references determine guided satisfaction. Resume preferences are not evidence. [Guide architecture](GUIDED_SANDBOX_ENGINE.md) owns this bounded adapter, not a CMS.
+
 ## Portal service-types extension — 2026-10-24
 
 The Portal reboot retains the six-unit foundations manuscript, evaluators, evidence and storage. `domain/portal/content.ts` maps ST01–ST04 to original sections, three justified guided cases, changed criteria and dated primary sources. `validateServiceContent` rejects missing/orphaned teaching, incomplete objective bindings, absent feedback, assessment bindings and invalid source records. `curriculum:check` runs this alongside prior integrity tests. Browser tests separately verify the declared activities; structure alone proves neither instructional completeness nor SME review.

@@ -1,5 +1,9 @@
 # Curriculum coverage audit
 
+## Course-first refinement — 2026-10-25
+
+Re-read the official first-path/service indexes on 2026-10-25: cloud computing → benefits → service types, with four service-type objectives/six official units. No new official topic is claimed covered. All six original computing investigations and four service objective manuscripts remain available through course routes. Benefits is planned. New guided work applies G01/C01 scope, metadata/hosting, policy diagnosis and dependency knowledge. Reflection is guided; original changed-task first/help/retry evidence is preserved. No new SME review, retention or readiness claim.
+
 ## Portal reboot coverage amendment — 2026-10-24
 
 This current availability audit supersedes historical service-types “partial” rows below without changing the wider unimplemented catalogue. Two original local modules are available: the preserved six-unit cloud-computing module and the new Portal service-types module. Benefits and all further official modules remain planned or bounded partial demonstrations; certification readiness is not calculated.

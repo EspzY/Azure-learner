@@ -1,5 +1,9 @@
 # Content authoring and acceptance contract
 
+## Course-first refinement — 2026-10-25
+
+Preserve full manuscripts when reordering presentation. Every lab needs a prior purpose/prerequisite bridge, original control rationale, actual technical validation, causal feedback and exact-context debrief. A group task applies G01, not complete ST01–ST04 coverage. The mascot cannot replace core theory; following guidance cannot become independent evidence. Source/step/copy bindings enter curriculum checks. Human SME, accessibility and transfer review remain separate.
+
 ## Portal delivery amendment — 2026-10-24
 
 Original educational manuscripts precede Portal components. A complete supported module must connect objective → mechanism/example/counterexample → deliberate comparison → justified practice → changed independent requirement, with accessible presentation and precise limits. Preserve all substantial foundations content when changing presentation. Native portal inspection is different from hints/theory during an independent attempt; the latter records assistance. Source review, implemented availability, learner observations and human SME approval remain separate. `curriculum:check` now includes the service-types objective/source/activity bindings and counterexamples. No completion can be inferred from a service title, reading, diagram visit or source URL.

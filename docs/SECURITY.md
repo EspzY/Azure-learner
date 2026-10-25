@@ -1,5 +1,9 @@
 # Security and privacy
 
+## Course-first refinement — 2026-10-25
+
+The ninth record `azurelab.course.v1` contains bounded resume/session/inspection references, no copied inventory or score. Exact runtime validation, corruption quarantine, stale-tab stop and memory-only warnings apply. Isolated recovery cannot delete old work; global deletion includes it. Guided findings require actual replayed attempt/boundary/predicates; URL hints are navigation only. The finite coach target register cannot submit commands or execute content. Only the explicitly owner-authorized mascot PNG was copied; no financial/auth/database code, data or credentials were read/included.
+
 ## Portal reboot boundary — 2026-10-24
 
 The Portal is an independent simulator, visibly labelled and unaffiliated with Microsoft. It has no account/sign-in imitation, credentials, Azure HTTP client, deployment or price service. Original icons/native controls are used; no protected Portal artwork or copied lessons. Normal portal navigation must load no Three/Fiber renderer, GLBs or ambient audio. Official sources are explicit outbound reference links, not runtime content ingestion.

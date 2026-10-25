@@ -1,0 +1,13 @@
+# Guided sandbox engine
+
+Bounded `web-platform@1` guidance observes the existing Chapter01 engine through a read-only projection. The coach never constructs or submits technical commands. The actual CreateResource UI remains responsible for explicit learner submissions and normal engine validation.
+
+Each registered step has a stable ID, objective, expected context, semantic DOM target, original explanation/reason, expected action, validation contract, hint, alternative-path guidance and fixed course return. Definition IDs select local Bokmål copy; no scripts or arbitrary question interpreter execute from content. Search/navigation and field observations guide presentation only. Technical results are reconstructed from accepted/rejected receipts after the pinned start boundary in the same technical attempt. Policy inspection references a real denied receipt. Architecture inspection references the actual app's hosting relation. Rejected resources cannot satisfy build predicates.
+
+The progression projection handles leaving the expected page, existing invalid choices, missing dependencies, alternate navigation and reload. Required accepted group metadata/subscription, allowed plan location, real app→plan reference, actual denial and inspection are separate predicates. An accepted plan alone cannot fake the required policy investigation. Technical restart or missing history makes the session unverifiable. No guide state can complete the original module, independent assessment or Chapter01 promotion.
+
+UI targets use allowlisted `data-guide` identifiers on actual controls. A measured outline and contextual guide respond to ResizeObserver, subtree changes, scrolling and viewport changes. Unmounted/hidden/offscreen targets have a textual fallback and explicit locate action, not stale coordinates or automatic clicks. Narrow layouts reserve room for compact guidance. Instructions are semantic, keyboard/touch operable and independent of visual rings; reduced motion disables scrolling/ownership transitions. No spotlight traps focus or blocks safe exploration.
+
+Contextual navigation/Locate controls precede optional explanations so mobile users can reveal an offscreen target without scrolling through the coach first. Locate is offered only for an existing rendered element; an unmounted target receives prerequisite text. It scrolls/focuses, never clicks or submits. The coach can be minimized to inspect the full graph and restored without changing technical/evidence state.
+
+Verify pure step selection, evidence counterexamples, corrupt/conflicting/denied storage, target mount/unmount/resize/scroll and the complete production browser flow. Automated checks do not prove intuitive guidance or comprehensive screen-reader usability.

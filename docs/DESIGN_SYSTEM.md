@@ -1,5 +1,9 @@
 # Design system — immersive reset
 
+## Course-first surfaces — 2026-10-25
+
+The course uses a restrained light reading surface, ink-blue headings, desktop syllabus rail, explicit sequence and blue actions; mobile collapses the syllabus into a native control. Portal operational tokens remain scoped. SavvyShark is a small original local image with semantic text. Guidance reserves space rather than covering controls; target outlines are measured and pointer-transparent. Mobile commit controls stay in document flow. Ownership transitions respect reduced motion; labels, lists and native focus remain essential. No font/dependency/effect is added.
+
 ## Current Portal presentation — 2026-10-24
 
 The Portal uses scoped light operational tokens: blue `#006cbe` header, neutral service rail, white working surface, blue links/focus, dense native tables and rectangular configuration controls. Native semantic HTML, Lucide and existing XYFlow keep the supported subset lightweight. Fluent React 9.74.11/MIT/React19 compatibility was evaluated; no additional package is needed for this slice. This is AzureLab's own implementation, not copied Portal code/art.

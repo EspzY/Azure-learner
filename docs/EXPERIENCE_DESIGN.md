@@ -1,5 +1,9 @@
 # Experience design — resource world and expedition
 
+## Course-first refinement — 2026-10-25
+
+Primary orientation is the ordered course, not Portal Home. [Course experience](COURSE_FIRST_PRODUCT_EXPERIENCE.md) specifies full teaching → live concepts → authored lab introduction → real guided Portal controls → causal inspection → exact debrief → independent application. The shared Portal remains operationally familiar; the historical game stays archived. Rendering and guidance cannot become educational truth.
+
 ## Current direction supersedes historical RPG entry — 2026-10-24
 
 AzureLab 2.0 is Portal-first: Learn → compare → configure → inspect actual consequences → apply changed requirements. `/` redirects to `/portal` after the first complete Portal browser slice passed on desktop/mobile. Historical RPG is isolated at `/legacy/rpg`; `/expedition-3d` preserves allowlisted old entry/return queries through a compatibility redirect. SVG remains internal at `/legacy-expedition`. No ordinary Portal navigation loads or links to these archives. Existing learning/domain/save contracts survive; the content below records the previous phase's experience.

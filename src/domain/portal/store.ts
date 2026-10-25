@@ -13,6 +13,8 @@ export class ServiceStore {
     issue: 'corrupt' | 'unsupported' | 'conflict' | 'unsaved' | 'limit' | null;
   } = { save: freshServices(), ready: false, issue: null };
   private base: string | null = null;
+  private readonly serverView = this.view;
+  getServerSnapshot = () => this.serverView;
   private listeners = new Set<() => void>();
   constructor(private storage: LearningStorage) {}
   getSnapshot = () => this.view;
