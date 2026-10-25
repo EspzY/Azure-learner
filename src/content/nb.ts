@@ -1639,7 +1639,7 @@ export const nb = {
   },
   course: {
     brand: 'AzureLab',
-    version: '3.2',
+    version: '3.2.1',
     home: 'Læringsreisen',
     sandbox: 'Fri Portal-sandbox',
     learning: 'Kursinnhold',
@@ -1922,7 +1922,7 @@ export const nb = {
     brand: 'AzureLab',
     directory: 'AzureLab Directory',
     referencePublisher: 'Microsoft Learn',
-    version: '3.0',
+    version: '3.2.1',
     simulation: 'SIMULERING',
     environment: 'Lokalt treningsmiljø · ingen Azure-tilkobling',
     menu: 'Åpne eller lukk portalmenyen',
@@ -1937,6 +1937,8 @@ export const nb = {
       groups: 'Resource groups',
       resources: 'All resources',
       apps: 'App Services',
+      vms: 'Virtual machines',
+      settings: 'Environment variables',
       plans: 'App Service plans',
       activity: 'Activity log',
       resource: 'Overview',
@@ -1955,7 +1957,7 @@ export const nb = {
     serviceHint: 'Støttede tjenester i denne simulatoren',
     unavailable: 'Ikke tilgjengelig i treningsmodellen',
     unavailableServices:
-      'Virtual Machines, nettverk, Storage, IAM, kostnader, Cloud Shell og Marketplace er ikke implementert.',
+      'VM, disk og NIC/VNet/subnet er begrensede treningsmodeller. Storage accounts, IAM, priser, Cloud Shell og Marketplace er ikke implementert.',
     homeTitle: 'Velkommen til AzureLab',
     homeIntro: 'Lær prinsippene. Øv i en simulert portal. Undersøk hvorfor konfigurasjonen virker.',
     services: 'AzureLab services',
@@ -1990,6 +1992,7 @@ export const nb = {
     tagsUnsupported:
       'Tags er utenfor denne modellversjonen. Ingen tag-felt tas imot eller forkastes i det skjulte. I Azure kan tags organisere ressurser, men de endrer ikke management scope eller hosting.',
     createTitles: {
+      vm: 'Create a virtual machine',
       group: 'Create a resource group',
       plan: 'Create App Service Plan',
       app: 'Create Web App',
@@ -2051,7 +2054,7 @@ export const nb = {
     boundary:
       'AzureLab er uavhengig av Microsoft. Dette er original undervisning og lokal simulering, ikke Azure Portal, Microsoft Learn-fullføring eller en sertifisering.',
     technicalLimits:
-      'To subscriptions, maksimalt tre grupper og en Linux learning profile. Ingen faktiske Azure-SKU-er, priser, tillatelser, runtime, apphelse eller nettverk simuleres. Hosting på tvers av grupper og cascading delete er ikke støttet her; dette er ikke generelle Azure-forbud.',
+      'To subscriptions, maksimalt åtte grupper, åtte VM-er og 96 scope/ressursobjekter i sandbox v2. Avgrenset Web-hosting, VM/disk/NIC/VNet/subnet og App settings. Ingen faktiske SKU-er, priser, tillatelser, gjestekjøring, apphelse eller nettverkstrafikk. Historisk kapittel v1 har sine opprinnelige grenser.',
     storage: 'Lagring trenger oppmerksomhet. Gyldig tidligere arbeid er ikke slettet.',
     reload: 'Les lagret tilstand på nytt',
     resetModule: 'Nullstill bare denne modulens observasjoner',
@@ -2131,7 +2134,7 @@ export const nb = {
           misconception:
             'Hvis teamets krav er å slutte å vedlikeholde gjeste-OS, løser ikke en flytting til VM dette kravet. Vertsmiljøet ble flyttet, men gjesteoperativsystemet er fortsatt kundens oppgave. IaaS er heller ikke automatisk rimeligere enn de andre alternativene.',
           limits:
-            'Vi sammenligner VM-ansvar, men oppretter ingen VM, disk, NSG eller nettverk i dette utvalget. Administrative muligheter, operativsystemstøtte og sikkerhetskrav må vurderes i den faktiske tjenesten.',
+            'Ansvarssammenligningen og konfigurasjonsundersøkelsen er konseptuelle. Den separate praktiske labben nedenfor oppretter lagrede VM-, disk- og nettverksreferanser i den lokale Portal-simulatoren. Ingen VM kjører, og NSG-regler eller forbindelse er ikke simulert. Administrative muligheter, operativsystemstøtte og sikkerhetskrav må vurderes i den faktiske tjenesten.',
         },
         paas: {
           title: 'PaaS · egen kode på en administrert plattform',
@@ -2288,9 +2291,18 @@ export const nb = {
         group: 'Resource group',
         plan: 'App Service plan',
         app: 'Web App',
+        vm: 'Virtual machine',
+        disk: 'Managed disk',
+        nic: 'Network interface',
+        vnet: 'Virtual network',
+        subnet: 'Subnet',
         policy: 'Policy assignment',
       },
       relations: {
+        'disk-attachment': 'Disktilknytning',
+        'nic-attachment': 'NIC-tilknytning',
+        'subnet-member': 'NIC i subnet',
+        'vnet-parent': 'Subnet i VNet',
         'identity-authority': 'Identitetstilknytning',
         'management-parent': 'Management parent',
         'resource-member': 'Ressursmedlemskap',
@@ -2298,6 +2310,14 @@ export const nb = {
         'policy-scope': 'Policy gjelder ved scope',
       },
       explanations: {
+        'disk-attachment':
+          'VM refererer en OS- eller datadisk. Dette er varig lagring, ikke RAM, backup eller bevis på at gjesten kjører.',
+        'nic-attachment':
+          'VM refererer et nettverkskort. Dette alene beviser ikke tilkobling eller sikker trafikk.',
+        'subnet-member':
+          'NIC er knyttet til et subnet. IP-tildeling, NSG, ruter og trafikk er utenfor modellen.',
+        'vnet-parent':
+          'Subnet er et barn av VNet. Dette er en nettverksstruktur, ikke et geografisk management-nivå.',
         'identity-authority':
           'Entra tenant er identitetsautoriteten knyttet til directory/scope. Dette er ikke en fysisk eller geografisk ressursbeholder.',
         'management-parent':
@@ -3539,6 +3559,9 @@ export const nb = {
     operationUnsupported: 'Utenfor modellen',
     outcomes: { accepted: 'Registrert', rejected: 'Avvist', unsupported: 'Ikke støttet' },
     operations: {
+      CreateVmBundle: 'Opprett VM og avhengigheter',
+      DeleteVmBundle: 'Fjern VM og eksklusive avhengigheter',
+      SetAppSettings: 'Oppdater App settings',
       CreateGroup: 'Opprett resource group',
       DeleteEmptyGroup: 'Slett tom resource group',
       CreatePlan: 'Opprett App Service plan',
@@ -3649,6 +3672,8 @@ export const nb = {
       },
     },
     errors: {
+      updated:
+        'Innstillingene er lagret i den lokale modellen. Ingen kode eller omstart ble kjørt.',
       created:
         'Konfigurasjonen er registrert i den lokale modellen. Dette bekrefter ikke at kode kjører.',
       deleted: 'Den tomme gruppen er fjernet fra dette forsøket.',
@@ -4231,6 +4256,311 @@ export const scopeCopy: Record<ScopeKind, { label: string; role: string; nuance:
       'Ressursens region er separat fra gruppens metadataregion. Ikke alle Azure-tjenester er regionale. Linjene i dette kartet viser organisering, ikke nettverk eller datatrafikk.',
   },
 };
+export const labsNb = {
+  boolean: { yes: 'Ja', no: 'Nei' },
+  cancelled: 'Avbrutt forsøk · ingen fullføring eller vurdert mestring.',
+  attempts: 'Forsøk og leveringer · historikk',
+  debrief: 'Dette ble faktisk konfigurert og undersøkt',
+  debriefLabels: {
+    osDiskGiB: 'OS-disk',
+    dataDiskGiB: 'Ekstra datadisk',
+    resource: 'Ressurs',
+    image: 'Image',
+    profile: 'Treningsprofil',
+    resourceLocation: 'Ressursregion',
+    group: 'Resource group',
+    metadataLocation: 'Gruppens metadataregion',
+    plan: 'Hosting-plan',
+    environment: 'APP_ENVIRONMENT',
+    catalogMode: 'CATALOG_MODE',
+    account: 'Konto',
+    role: 'Rolle',
+    licensed: 'Lisens tildelt',
+    blocked: 'Innlogging blokkert',
+    sharing: 'Deling',
+  },
+  models: { iaas: 'IaaS', paas: 'PaaS', saas: 'SaaS' },
+  receipt: 'Undersøk operasjonskvitteringen',
+  fields: {
+    kind: 'Ressurstype',
+    image: 'Image',
+    profile: 'Size · treningsprofil',
+    osDiskId: 'OS disk',
+    dataDiskId: 'Data disk',
+    nicId: 'Network interface',
+    role: 'Diskrolle',
+    gib: 'Allokert lagring (GiB)',
+    subnetId: 'Subnet',
+    vnetId: 'Virtual network',
+    addressSpace: 'Address space',
+    addressPrefix: 'Address prefix',
+  },
+  domainMessages: {
+    networkRegion:
+      'VM og det refererte nettverket må ha samme ressursregion. Gruppens metadataregion løser ikke denne relasjonen.',
+    networkScope:
+      'Den refererte VM-/nettverksressursen mangler eller kan ikke brukes innenfor modellens subscription-grense. Dette er ingen test av Azure-tillatelser.',
+    networkGroup:
+      'Gjenbruk av nettverk i en annen resource group er utenfor denne modellen, selv om en slik Azure-konfigurasjon kan være gyldig. Ingen delressurs ble opprettet.',
+    capacity:
+      'Sandbox v2 støtter åtte grupper, åtte VM-er og maksimalt 96 scope/ressursobjekter. Et VM-sett må få plass samlet. Dette er treningsgrenser, ikke Azure-kvoter.',
+    vmDeleted:
+      'VM og eksklusive avhengigheter er fjernet. Delte nettverksressurser kan være beholdt.',
+    vmName:
+      'VM-navnet må følge treningsutvalget på 3–15 små bokstaver, tall og bindestrek, med bokstav først og bokstav/tall sist. Dette er ikke hele Azures navneregel.',
+    vmProfile:
+      'Image, størrelse eller diskvalg er utenfor det støttede treningsutvalget. Ingen del av VM-settet ble opprettet.',
+    settings:
+      'Innstillingen er utenfor de to ufarlige nøklene og verdiene som denne appmodellen støtter. Dette er ikke en generell App Service-begrensning.',
+  },
+  discover: 'Nye praktiske labber · servicetyper',
+  discoverNote:
+    'Lagrede VM-ressurser, App settings og separat SaaS-administrasjon. Åpne en undervisningsenhet og se formålet før du begynner.',
+  feedback: {
+    vm: 'VM-konfigurasjonen gir en virtuell gjest. Microsofts drift av verten erstatter ikke kundens patching og programvaredrift. NIC/subnet er referanser; ruter, filtrering og tilkobling er ikke testet.',
+    paas: 'App settings er verdier som kundens kode må lese. Plattformen drifter OS, men skriver, tester eller sikrer ikke kundens kode og data gjennom denne konfigurasjonen.',
+    saas: 'Lisens og administratorrolle er forskjellige tilganger. Blokkering regulerer fremtidig innlogging i modellen, men beviser ikke at tidligere økter eller delte kopier er fjernet.',
+  },
+  title: 'Praktisk laboratorium',
+  guided: 'Veiledet praksis',
+  independent: 'Selvstendig oppgave',
+  free: 'Fri øving',
+  launch: 'Start praktisk lab',
+  restartUnavailable: 'Avslutt utilgjengelig kontekst og start nytt labforsøk',
+  resume: 'Fortsett labben',
+  challenge: 'Start endret, selvstendig oppgave',
+  return: 'Tilbake til undervisningen',
+  inspect: 'Undersøk konfigurasjonen',
+  architecture: 'Undersøk faktisk arkitektur',
+  history: 'Operasjonshistorikk',
+  submit: 'Lever begrunnelse og konfigurasjon',
+  abandon: 'Avslutt forsøket uten levering',
+  hint: 'Vis veiledning (registreres som hjelp)',
+  complete:
+    'Veiledet praksis er bekreftet mot de lagrede operasjonene. Dette er ikke uavhengig mestring.',
+  pending: 'Ikke alle tekniske krav og undersøkelser er bekreftet ennå.',
+  independentResult: 'Lokalt oppgaveresultat — ikke sertifiseringsberedskap',
+  aided: 'Med registrert hjelp',
+  unaided: 'Uten registrert hjelp i dette forsøket',
+  first: 'Første levering beholdes. Et nytt forsøk registreres separat.',
+  unverifiable:
+    'Referansene kan ikke etterprøves i dette tekniske forsøket. Tidligere besvarelse beholdes, men ny fullføring godskrives ikke.',
+  storage:
+    'Lokal lagring trenger oppmerksomhet. Ved unsaved er arbeidet bare i minnet; ved konflikt eller ukjent format må du laste inn gjeldende data før endringer.',
+  reason: 'Forklar driftsgrensen',
+  wrong:
+    'Konfigurasjon og begrunnelse må vurderes separat. Undersøk de gjenstående kravene før et nytt forsøk.',
+  reasons: {
+    vm: [
+      [
+        'customer-os',
+        'Kunden må vedlikeholde gjeste-OS og programvare; et NIC beviser ikke nettverksforbindelse.',
+      ],
+      ['cloud-handles-all', 'En registrert VM gjør at Microsoft overtar all programvaredrift.'],
+    ],
+    paas: [
+      [
+        'customer-code',
+        'Plattformen drifter OS, men kunden må levere kode som leser innstillingene og beskytte data og tilgang.',
+      ],
+      ['provider-code', 'App settings gjør at plattformen skriver og tester kundens kode.'],
+    ],
+    saas: [
+      [
+        'retained-access',
+        'Kunden styrer brukere, rettigheter og deling; blokkering henter ikke tilbake kopier som allerede er delt.',
+      ],
+      ['license-is-admin', 'En lisens gir automatisk administratortilgang og sikrer alle data.'],
+    ],
+  },
+  lab: {
+    vm: {
+      title: 'IaaS · En VM med virkelige lokale avhengigheter',
+      purpose:
+        'Fra komponentvalg til en lagret konfigurasjon. Opprett en VM med OS-disk, NIC, VNet og subnet. Undersøk hvorfor RAM, varig lagring og nettverk har forskjellige roller.',
+      task: 'Opprett en støttet VM i en valgt gruppe. Undersøk deretter OS-disken, nettverksreferansen og arkitekturen. Ingen maskin startes og ingen tilkobling testes.',
+      changed:
+        'Et eldre program krever Windows og åtte GiB RAM. Opprett en NY Windows-VM med standardprofil og 64 GiB datadisk i Shared Sandbox etter oppgavestart. Undersøk den og begrunn hvem som patcher gjesten. Konfigurasjonen beviser ikke tilgjengelighet.',
+    },
+    paas: {
+      title: 'PaaS · Fra hosting til applikasjonsinnstillinger',
+      purpose:
+        'Bruk den eksisterende Web-labben til å etablere gruppe, hosting-plan og app. Deretter lagrer du en faktisk konfigurasjonsendring som kundens kode må kunne bruke.',
+      task: 'Opprett eller bruk en støttet Web App. Åpne Environment variables og lagre APP_ENVIRONMENT=staging og CATALOG_MODE=read-only. Undersøk appen og hosting-relasjonen. Ingen kode, omstart eller helse måles.',
+      changed:
+        'Opprett en NY plan og Web App etter oppgavestart. Lagre production og read-only i appens innstillinger. Undersøk appen og forklar hva kunden fortsatt må gjøre. Bruk Portal-kontrollene uten løsningsmarkeringer.',
+    },
+    saas: {
+      title: 'SaaS · Administrer et fiktivt samarbeidssystem',
+      purpose:
+        'Ferdig programvare fjerner ikke arbeidet med brukere, lisenser, minste privilegium og datadeling. Denne separate produktlabben er ikke Azure ARM eller en Microsoft 365-kopi.',
+      task: 'Undersøk lisensgrensen ved å forsøke å tildele Erin en lisens mens begge plassene er brukt. Frigjør Minas plass og tildel Erin. Mina slutter: blokker innlogging, fjern administratorrollen, begrens deling til team og registrer datagjennomgang. Undersøk historikken.',
+      changed:
+        'Leo slutter. Gjennomfør blokkering, fjern lisensen, sett rollen til member, bekreft teamdeling og registrer datagjennomgang med NYE handlinger etter oppgavestart. Forklar hvorfor tidligere delte kopier ikke dermed er hentet tilbake.',
+    },
+  },
+  vm: {
+    title: 'Create a virtual machine',
+    tabs: ['Basics', 'Disks', 'Networking', 'Review + create'],
+    note: 'Lokal undervisningskonfigurasjon. Ingen Azure-maskin opprettes. Image- og kapasitetsprofilene er et begrenset treningsutvalg, ikke en Marketplace- eller SKU-katalog.',
+    image: 'Image',
+    profile: 'Size · treningsprofil',
+    profiles: { small: 'Small · 2 vCPU / 4 GiB RAM', standard: 'Standard · 4 vCPU / 8 GiB RAM' },
+    images: {
+      'ubuntu-22-04': 'Ubuntu Server 22.04 · Linux',
+      'windows-2022': 'Windows Server 2022',
+    },
+    units:
+      'vCPU beskriver virtuell prosessorkapasitet. GiB er en minne-/lagringsenhet. RAM brukes av kjørende arbeid; disk beholder data uavhengig av RAM.',
+    name: 'Virtual machine name',
+    naming:
+      'Treningsutvalg: 3–15 små bokstaver, tall og bindestrek; bokstav først og bokstav/tall sist. Azure har egne regler for ressursnavn og OS-hostname. Dette er et snevrere undervisningsutvalg.',
+    osDisk: 'OS disk · obligatorisk',
+    osNote:
+      'Linux får 64 GiB og Windows 128 GiB i denne modellen. OS-disken inneholder oppstartssystemet. Dette er våre tildelinger, ikke Azure-minimum for alle images.',
+    dataDisk: 'Data disk · varig lagring',
+    noData: 'Ingen ekstra datadisk',
+    dataNote:
+      'En ekstra managed disk er separat fra OS-disk og RAM. Backup, krypteringsvalg og midlertidig disk er ikke modellert.',
+    network: 'Virtual network / subnet',
+    newNetwork: 'Opprett nytt treningsnettverk',
+    networkNote:
+      'Nytt VNet: 10.42.0.0/16; subnet: 10.42.1.0/24. En NIC knytter VM til subnet. Gjenbruk støttes her bare i samme gruppe og region. Ingen Public IP, NSG, IP-tildeling, SSH/RDP eller trafikk testes.',
+    review:
+      'Hele ressurssettet valideres før én atomisk opprettelse. Avslag oppretter ingen delressurser. Gruppens metadataregion tvinger ikke VM-ens ressursregion.',
+    reviewValid:
+      'Validering bestått. Ingen ressurser er opprettet ennå. Velg Create for å lagre hele ressurssettet i den lokale simulatoren.',
+    dependencies: 'Tilknyttede ressurser',
+    cleanup: 'Fjern VM og eksklusive treningsavhengigheter',
+    cleanupNote:
+      'Eksplisitt lokal opprydding. Delte subnet/VNet beholdes. Dette er ikke en gjengivelse av alle Azure-slettevalg.',
+    noGroup:
+      'Opprett først en resource group i ønsket subscription. Gå deretter tilbake til Virtual machines.',
+    accepted:
+      'Konfigurasjonen er lagret. VM, disk og nettverksobjekter finnes i samme inventar. Ingen gjest eller applikasjon kjører.',
+  },
+  settings: {
+    title: 'Environment variables',
+    subtitle: 'App settings',
+    environment: 'APP_ENVIRONMENT',
+    catalog: 'CATALOG_MODE',
+    apply: 'Apply',
+    note: 'Dette er ufarlige innstillinger for vår fiktive app. De er ikke innebygde Azure-brytere. Appens kode må lese dem. Ingen hemmeligheter skal legges inn.',
+    mechanism:
+      'I virkelig App Service injiseres App settings som miljøvariabler, og en endring kan starte appen på nytt. Her lagres bare konfigurasjonen; ingen kode eller omstart kjøres.',
+    saved: 'Lagrede innstillinger',
+    none: 'Ingen App settings er lagret for denne appen.',
+  },
+  criteria: {
+    vm: 'VM i riktig treningsprofil og scope',
+    os: 'Gyldig OS-disk',
+    nic: 'NIC og subnet-referanse',
+    settings: 'Riktig, faktisk innstillingsendring',
+    hosting: 'Gyldig hosting-plan',
+    newPlan: 'Ny hosting-plan etter oppgavestart',
+    newApp: 'Ny app etter oppgavestart',
+    blocked: 'Avsluttet innlogging',
+    role: 'Begrenset rolle',
+    license: 'Frigjort lisens',
+    sharing: 'Teamdeling',
+    dataReview: 'Eksplisitt datagjennomgang',
+    seatRejection: 'Undersøkt lisensgrense',
+    newLicense: 'Erin har lisens',
+  },
+  yes: 'Bekreftet',
+  no: 'Gjenstår',
+  search: 'Finn tjenesten med det virkelige søkefeltet. Du kan også bruke tjenestemenyen.',
+  guide: {
+    group:
+      'Velg Resource groups og opprett en gruppe i ønsket subscription. Metadataregionen er ikke VM-lokasjonen.',
+    createVm:
+      'Finn Virtual machines. Åpne Create og konfigurer gjesten, diskene og nettverksreferansen før du oppretter.',
+    inspectVm:
+      'Åpne den opprettede VM-en. Følg OS-disk og NIC/subnet, og sammenlign medlemskap med tekniske avhengigheter.',
+    web: 'Den eksisterende Web-labben etablerer en støttet plan og app. Du kan undersøke policyavslaget, rette ressursregionen og bruke den faktiske hosting-referansen.',
+    settings:
+      'Åpne appen, velg Environment variables, og lagre staging / read-only med Apply. Verdiene endrer konfigurasjonen, ikke programkode.',
+    explain:
+      'Undersøk ressursen og gi din begrunnelse. En godkjent operasjon viser konfigurasjon, ikke fungerende eller sikker drift.',
+  },
+  bridge: {
+    open: 'Åpne relevant praktisk visning',
+    mode: 'Faglig undersøkelse · ingen automatisk læringsuttelling',
+    title: 'Se dette i den praktiske modellen',
+    note: 'Den forklarende modellen over beholdes. Denne overgangen viser lagret konfigurasjon og relasjoner, ikke målt drift, failover, SLA, sikkerhetsnivå eller utslipp.',
+    availability: 'Undersøk VM-profil og avhengigheter — ikke en HA-test',
+    reliability: 'Følg faktiske hosting- og ressursavhengigheter',
+    governance: 'Undersøk Web-policy, avslag og korreksjon',
+    management: 'Endre App settings og undersøk operasjonskvitteringen',
+    sustainability: 'Undersøk valgt kapasitet — ingen karbonberegning',
+  },
+  saas: {
+    title: 'Samarbeidsrom · fiktiv SaaS-administrasjon',
+    requested: 'Forespurt verdi',
+    replay:
+      'Erin har allerede lisens i det lagrede oppsettet. Dette nye forsøket trenger en ny observasjon av lisensgrensen. Velg «Start nytt SaaS-forsøk» for å undersøke startoppsettet igjen. Tidligere leveringer beholdes.',
+    guidance: {
+      capacity:
+        'Erin mangler lisens. Velg Erin og forsøk å tildele en mens begge plassene er brukt. Kvitteringen forklarer grensen uten å endre roller eller kontoen.',
+      release:
+        'Mina skal slutte. Velg Mina og frigjør lisensen. En lisensplass blir tilgjengelig; administratorrollen og innloggingen endres ikke automatisk.',
+      assign:
+        'Velg Erin og tildel den ledige lisensen. Kontroller at rollen fortsatt er Member: produktbruk og administrasjon er ulike rettigheter.',
+      block:
+        'Gå tilbake til Mina og blokker innlogging. Dette setter modellens kontogrense; det beviser ikke at tidligere økter eller kopier er borte.',
+      role: 'Mina har fortsatt administrasjonsrettigheter. Velg Member og lagre rollen. Kontroller at lisensvalget ikke utførte denne endringen for deg.',
+      sharing:
+        'Begrens delingen til teamet og lagre. Dette endrer modellens delingsvalg, ikke kopier som noen allerede har tatt ut.',
+      data: 'Vurder dataeierskap og oppbevaring ved fratreden. Registrer gjennomgangen; ingen virkelige filer flyttes eller slettes her.',
+      inspect:
+        'Åpne Operasjonshistorikk og undersøk de faktiske avslagene og endringene. Bekreft undersøkelsen før du begrunner driftsansvaret.',
+      reflect:
+        'Du har konfigurert og undersøkt endringene. Forklar hvilke kundens oppgaver som fortsatt består, og lever begrunnelsen.',
+    },
+    note: 'Eget lokalt produkt med to lisensplasser. Ikke Azure Portal, Microsoft 365, fakturering eller virkelig tilgangsstyring.',
+    users: 'Brukere',
+    license: 'Lisens',
+    role: 'Rolle',
+    blocked: 'Innlogging blokkert',
+    sharing: 'Deling',
+    data: 'Datagjennomgang ved fratreden',
+    names: { mina: 'Mina', leo: 'Leo', erin: 'Erin' },
+    roles: {
+      member: 'Member · eget innhold',
+      'support-admin': 'Support admin · hjelpe med kontoer',
+      'service-admin': 'Service admin · endre produktets administrasjon',
+    },
+    licensed: 'Tildelt',
+    unlicensed: 'Ikke tildelt',
+    assign: 'Tildel lisens',
+    release: 'Frigjør lisens',
+    block: 'Blokker innlogging',
+    unblock: 'Tillat innlogging',
+    team: 'Bare team',
+    link: 'Alle med lenken',
+    saveRole: 'Lagre rolle',
+    saveSharing: 'Lagre deling',
+    review: 'Registrer datagjennomgang',
+    capacity: 'Lisensplasser brukt',
+    retained:
+      'Lisens er ikke administratorrettighet. Blokkering fjerner ikke automatisk lisenser eller data. Undersøk eierskap, oppbevaring og tidligere delte kopier i en virkelig tjeneste; denne modellen kan ikke bevise at alle økter er avsluttet.',
+    reasons: {
+      updated: 'Endringen er registrert i den fiktive produktmodellen.',
+      invalid: 'Ugyldig bruker, verdi eller forespørselsformat. Ingen endring.',
+      'seats-full':
+        'Begge lisensplassene er brukt. Frigjør en plass før du tildeler en ny. Roller endres ikke av lisensen.',
+      stale: 'Gammel revisjon. Last inn gjeldende tilstand før ny handling.',
+      conflict: 'Kommando-ID har allerede annet innhold.',
+      unsupported: 'Operasjonen er utenfor produktmodellen.',
+      limit: 'Historikkgrensen er nådd. Eksporter eller start et nytt lokalt forsøk.',
+    },
+    reset: 'Start nytt SaaS-forsøk',
+    resetConfirm:
+      'Dette starter et nytt lokalt SaaS-forsøk. Forrige forsøk arkiveres; læringshistorikk og XP beholdes. Et pågående labforsøk markeres avbrutt og en ny kontekst starter mot den nye tilstanden.',
+    confirmReset: 'Bekreft nytt forsøk',
+    export: 'Eksporter lokal historikk',
+  },
+} as const;
 export const creationErrors: Record<CreationError, string> = {
   'invalid-name': 'Bruk et gyldig navn på 1–90 tegn uten punktum til slutt.',
   'invalid-region': 'Velg en av regionene som støttes i simuleringen.',
@@ -4315,3 +4645,25 @@ export const questions: {
     ],
   },
 ];
+
+export function operationExplanation(receipt: {
+  ruleId: string;
+  code: keyof typeof nb.chapter.errors;
+}) {
+  if (receipt.ruleId === 'vm-dependency@2' && receipt.code === 'invalid-region')
+    return labsNb.domainMessages.networkRegion;
+  if (receipt.ruleId === 'vm-dependency@2' && receipt.code === 'invalid-parent')
+    return labsNb.domainMessages.networkScope;
+  if (receipt.ruleId === 'vm-dependency@2' && receipt.code === 'unsupported-capability')
+    return labsNb.domainMessages.networkGroup;
+  if (receipt.ruleId === 'vm-dependency@2' && receipt.code === 'deleted')
+    return labsNb.domainMessages.vmDeleted;
+  if (receipt.ruleId === 'capacity@2') return labsNb.domainMessages.capacity;
+  if (receipt.ruleId === 'vm-profile@2' && receipt.code === 'invalid-name')
+    return labsNb.domainMessages.vmName;
+  if (receipt.ruleId === 'vm-profile@2' && receipt.code === 'unsupported-profile')
+    return labsNb.domainMessages.vmProfile;
+  if (receipt.ruleId === 'app-settings@2' && receipt.code === 'unsupported-profile')
+    return labsNb.domainMessages.settings;
+  return nb.chapter.errors[receipt.code];
+}

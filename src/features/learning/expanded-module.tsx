@@ -21,6 +21,7 @@ import { useExpansion } from './expansion-provider';
 import { SavvyShark } from '@/features/course/savvy-shark';
 import { ResponsibilityExplorer } from '@/features/portal/responsibility';
 import './expansion.css';
+import { LabEntry, BenefitsLabBridge } from '@/features/course/practical-lab';
 const t = nb.expansion.common;
 export function ExpandedModule({
   track,
@@ -155,6 +156,13 @@ export function ExpandedModule({
               ))}
             </dl>
           </details>
+          {track === 'services' && ['iaas', 'paas', 'saas'].includes(unit) && (
+            <LabEntry
+              kind={unit === 'iaas' ? 'vm' : (unit as 'paas' | 'saas')}
+              origin={{ module: 'services', topic: unit }}
+            />
+          )}
+          {track === 'benefits' && <BenefitsLabBridge topic={unit} />}
           <Sources unit={unit} />
           <nav className="expanded-evidence">
             <Link href={`/learn/${track}?topic=assessment`}>{t.assessment}</Link>

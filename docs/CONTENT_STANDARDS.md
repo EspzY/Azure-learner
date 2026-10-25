@@ -1,5 +1,9 @@
 # Content authoring and acceptance contract
 
+## Operational lab acceptance addition — 3.2.1
+
+An operational activity must produce a validated persisted command outcome and inspectable causal relationships in its appropriate management interface. Conceptual model runs remain labelled as such. Reject partial bundle mutation, invented cloud behavior, diagram-only resources, licence=admin confusion, guest execution/health claims or silently changed old receipts. Require versioned objective/source/rubric bindings, exact return, negative examples, a changed task using post-boundary operations and separate first/help/retry classification. See [coverage review](FUNDAMENTALS_LAB_COVERAGE.md); human review remains mandatory and unperformed.
+
 ## 3.2 progression and numerical review
 
 Every repeated concept must have a declared role: recap, deeper mechanism, new application, transfer assessment or removed duplication. The [boundary matrix](MODULE_01_02_03_PROGRESSION_AUDIT.md) is the current reference. Supplementary research must be classified A essential/B applied/C optional/D later/E excluded and materially used in manuscript, counterexample or interaction. Source URL presence alone does not establish coverage.

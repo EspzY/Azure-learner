@@ -19,7 +19,12 @@ export function AppShell({ children }: { children: React.ReactNode }) {
   const { openJournal } = useLearning();
   const active = nb.nav.find((item) => item.href === pathname);
   if (pathname === '/design/foundations-31a') return <>{children}</>;
-  if (pathname === '/portal' || pathname === '/learn' || pathname.startsWith('/learn/'))
+  if (
+    pathname.startsWith('/labs/') ||
+    pathname === '/portal' ||
+    pathname === '/learn' ||
+    pathname.startsWith('/learn/')
+  )
     return <>{children}</>;
   if (pathname === '/legacy/rpg')
     return (

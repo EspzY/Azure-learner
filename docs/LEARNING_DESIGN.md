@@ -1,5 +1,9 @@
 # Learning design
 
+## 3.2.1 operational evidence boundary
+
+The preserved conceptual models explain mechanisms; their runs do not create infrastructure. New practical labs apply those concepts through accepted persistent commands, causal receipt/resource/relationship inspection and an original changed task. A VM profile does not prove a running guest, settings do not prove deployed code and account blocking does not prove recovery of shared data. Keep guided assistance and independent first submissions distinct. No new XP is awarded. [Qualitative coverage](FUNDAMENTALS_LAB_COVERAGE.md) records objective-specific limitations and unperformed human review.
+
 ## 3.2 cumulative depth
 
 Module1 establishes intuition and retains its original outcome checks. Module2 asks why a capability helps and under which conditions: compare capacity with fault tolerance, diagnose before correcting, distinguish policy and security, repeat both correct and incorrect configuration, and reduce unnecessary resource use without losing required function. Module3 applies that reasoning to guest/platform/product control boundaries. Its nine-layer comparison is one recap entrance followed by distinct operational tasks, not repeated on every page.

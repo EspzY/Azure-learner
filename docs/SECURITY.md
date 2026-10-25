@@ -1,5 +1,9 @@
 # Security and privacy
 
+## 3.2.1 local administrative boundaries
+
+New snapshot keys are sandbox.v2, saas-admin.v1 and practical-labs.v1. Every shape/version/command is bounded and replayed; legacy Chapter bytes are only read as a frozen prefix. Compare-before-write blocks stale tabs; denied writes warn and remain memory-only. Explicit reset is attempt-scoped and keeps one prior technical/SaaS attempt in bounded local storage. Local evidence is not identity-attested or server-authoritative. No credentials or personal data are accepted by the new labs. App settings use harmless allowlists; no arbitrary code/scripts/secrets/remote commands. SaaS capabilities are fictional administrative exercises, not real authorization enforcement. No new environment variables, dependencies, services, runtime external requests or assets. [Persistence design](INTEGRATED_LABS_ARCHITECTURE.md).
+
 ## 3.2 conceptual and evidence isolation
 
 New learning stores accept only exact bounded events, finite configuration values and expected content/model/rubric/schema versions; replay rejects malformed/order-invalid data. A cross-tab base comparison stops stale writes; denied reads/writes expose memory-only status. Reset affects only the selected new record, never historical learning or simulator keys. Local records remain editable by the user and are not authoritative credentials.

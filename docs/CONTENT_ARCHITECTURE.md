@@ -1,5 +1,9 @@
 # Local curriculum and evidence architecture
 
+## 3.2.1 operational activity bindings
+
+Existing curricular manuscripts/manifests and conceptual evidence are retained. Added bounded `labDefinitions` map ST01–ST04 to versioned technical models, rubrics, source records, supported commands and explicit exclusions. Bokmål operational copy is `labsNb` in the canonical nb.ts. The [qualitative matrix](FUNDAMENTALS_LAB_COVERAGE.md) separates theory, conceptual experiments, operational practice and changed tasks. Structural validation does not promote human SME status. Existing completion rules remain unchanged; new lab evidence is a separate event record, without XP or Microsoft completion.
+
 ## 3.2 implemented curriculum records
 
 The current first path contains computing, benefits and services in official order (metadata reviewed2026-10-25). The new [manuscripts](CLOUD_BENEFITS_CONTENT.md) and [Service Types deepening](SERVICE_TYPES_DEEP_LEARNING.md) precede the presentation implementation. `nb.expansion` is the learner-facing manuscript, terms, instructions, assumptions, misconception feedback and assessment items. `expansion-content.ts` links CB01–CB05/ST01–ST04 to existing competencies and reviewed source IDs B10–B14/T10–T23. Its integrity check verifies sections, required experiments, source links, objective-to-assessment mappings and orphan content/items; this does not prove instructional adequacy or human review.

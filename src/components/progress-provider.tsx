@@ -84,6 +84,12 @@ export function ProgressProvider({ children }: { children: React.ReactNode }) {
       localStorage.removeItem(presentationKey);
       localStorage.removeItem(serviceLearningKey);
       localStorage.removeItem(courseKey);
+      for (const key of [
+        'azurelab.sandbox.v2',
+        'azurelab.saas-admin.v1',
+        'azurelab.practical-labs.v1',
+      ])
+        localStorage.removeItem(key);
     } catch {
       setStorageFailed(true);
     }

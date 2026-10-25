@@ -1,5 +1,9 @@
 # SavvyShark integration
 
+## 3.2.1 practical roles
+
+The registered owner mascot is reused unchanged. SavvyShark introduces the original VM/PaaS/SaaS tasks, explains supported boundaries and observes actual local results. VM form phase determines the relevant control; domain rejection does not create a resource. PaaS keeps the existing denial/investigation guide before configuration. SaaS explains actual seat rejection and retained account/data duties. No AI, remote calls, new image assets or automatic commands. Independent help is explicit and classified; first submissions remain intact. [QA](PRACTICAL_LABS_QA.md).
+
 ## 3.2 activity-specific explanation
 
 The registered original mascot asset is unchanged. Benefits and operational Service Types supply objective, technical reason, learner action and expected observation from each authored manuscript in `nb.expansion`. These explanations are visible; hints remain optional. Result feedback describes actual finite model outputs, policy fork receipts or actual Portal lab findings. SavvyShark does not submit, repair, approve mastery or grant XP. Foundations→Benefits and Benefits→Service Types transitions explain why the next investigation matters; direct entry remains allowed without skipped credit.

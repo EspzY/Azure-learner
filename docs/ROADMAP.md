@@ -1,5 +1,11 @@
 # Roadmap
 
+## 3.2.1 acceptance and next scope
+
+Current engineering target: one complete course→VM/PaaS/SaaS lab→causal inspection→exact debrief loop, with replay/migration/negative/independent tests and desktop captures. See [actual gates](PRACTICAL_LABS_QA.md); human SME, Portal expert and novice uncoached review remain pending. Do not infer professional competence from local task success.
+
+Before broader scope, close observed learning/fidelity defects and the known serverless exam gap. Next bounded curriculum target is **Describe the core architectural components of Azure**, first in the verified five-module Architecture and Services path (reviewed2026-10-25). Teach identity versus containment, geography/zone limitations and lifecycle grouping using the existing live inventory. Acceptance requires original complete manuscript, region/scope counterexamples, persisted supported operations, accessible diagram and an independent changed case. Exclude new networking/identity/security engines and the rest of the five-module path until separately scoped. No schedules, cloud accounts or real infrastructure.
+
 ## 3.2 delivered scope and review gates
 
 This branch implements the authorized Benefits module and operative Service Types deepening, not another prototype. [Project status](PROJECT_STATUS.md) records actual checks. Before educational approval: a novice predicts fault/routing effects and explains sustainability limits; an IT learner diagnoses dependency versus capacity; an Azure SME reviews service/policy/runtime/SaaS qualifications; assistive-technology review checks visual/text equivalence. Record actual errors/confusion and iterate, without equating green tests to learning.

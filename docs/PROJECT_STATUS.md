@@ -1,5 +1,35 @@
 # Project status
 
+## AzureLab 3.2.1 — integrated practical laboratories, 2026-10-25
+
+Branch `feat/321-integrated-practical-labs`, based on verified `943d0d1954022c466cf0c41261e40b623df98440`, stacked on `feat/32-cloud-benefits-service-types`. PR13 and its ancestors are unchanged. No merge, production deployment, hosting/protection/alias change, new credentials, infrastructure, dependency or asset.
+
+### Implemented
+
+- Normal root/course navigation exposes IaaS/PaaS/SaaS practical entries; new Service Types links retain version2 even for an existing v1 learner. Official order and full manuscripts/experiments remain.
+- One current Portal inventory now persists atomic VM+OS/data disk+NIC+VNet/subnet resources, typed dependencies, properties, receipts and cleanup. Native Basics/Disks/Networking/Review controls use bounded named training profiles; no guest, remote access, traffic, price or availability execution.
+- Original Web policy/plan/app workflows remain. PaaS adds validated persisted allowlisted App settings; no code or restart runs. VM networking differentiates invalid subscription/region references from a valid Azure topology outside the training model.
+- Separate fictional SaaS administration persists accounts, two license seats, roles, sharing, departure and causal history; license≠admin and blocking≠recovered data/sessions. It is not ARM/Microsoft365 parity.
+- Practical sessions pin actual attempt/boundary, exact origin and receipt/resource observations. Guided reasoning follows configuration/inspection. Independent changed tasks require new actual operations, hide solution criteria before delivery, retain first/help/retry/abandon history and keep requirements fixed after help. No new XP or mastery/readiness claims.
+- New technical/SaaS stores replay validated commands, reject malformed/unknown versions, detect stale tabs and warn on failed writes. Frozen Chapter v1 bytes/receipts and old learning/award stores are preserved. One prior technical attempt is archived on reset; submitted new records can be re-evaluated against it, active work cannot silently edit it.
+- Benefits remains conceptual, with explicit links to relevant actual VM/configuration/receipt/policy/architecture views and exact return; no automatic benefit completion, HA/telemetry/carbon result.
+
+### Verification and review status
+
+[QA record](PRACTICAL_LABS_QA.md) contains executed commands, desktop evidence, remaining gates and reproducible walkthrough. Production-built local engineering tests and implementing-agent screenshot inspection are separate from final protected Vercel review and unperformed human SME/Portal/novice reviews. The stable preview and exact reviewed commit are reported with the Draft PR delivery after deployment; do not infer remote correctness from a local pass.
+
+Current local results:212Vitest across23files,67curriculum tests (subset),3docs fixtures,56Markdown/link checks, registered assets, strict TypeScript, lint, format and production build pass. Six relevant production browser files:33passed/15explicit desktop-duplicate skips, including five new practical scenarios. Exact final-commit recheck and archived semantic regression are reported with delivery. Dependency audit:0vulnerabilities/333dependencies; no reinstall/dependency change. [Before/after and three desktop sizes](PRACTICAL_LABS_QA.md#inspected-desktop-evidence) were actually inspected. Failed intermediate type/format runs are disclosed in QA, not counted as passes.
+
+Protected-preview root navigation confirmed the course entries and build metadata. That real review caught a VM Review wording defect; dry validation now explicitly states that nothing has been created, with a persisted-ledger browser assertion before Create. The final revision is rechecked and associated with the same stable branch alias in the owner delivery and Draft PR.
+
+Protected replay inspection also corrected the SaaS guide for an already licensed Erin in a new session: it describes the actual saved state and requests explicit restart of the teaching fixture, preserving earlier submissions. The prerequisite Web coach now shares the practical session's exact course exit. These are presentation/navigation corrections, not altered domain or historical-evidence semantics.
+
+The actual practical return now owns settled focus after loading; the generic lesson-heading effect skips it. The browser requires focused/visible debrief context after return and reload before capturing screenshots. This corrects the product's focus race rather than merely repositioning test screenshots.
+
+### Continuity
+
+[Architecture/alternatives](INTEGRATED_LABS_ARCHITECTURE.md), [VM](VM_LAB_TECHNICAL_DESIGN.md), [PaaS](PAAS_LAB_REFINEMENT.md), [SaaS](SAAS_ADMIN_LAB.md) and [15-objective qualitative audit](FUNDAMENTALS_LAB_COVERAGE.md) are current. Historical3.2 limits below are retained as history. Next: qualified Azure/fidelity and uncoached learner review, fix observed defects, then scope the first Architecture and Services module. Broader networking/identity/cloud execution remains unavailable.
+
 ## AzureLab 3.2 — cumulative Cloud Concepts course, 2026-10-25
 
 Branch `feat/32-cloud-benefits-service-types` is based on verified `97647d52e9c4097ca350cab7b1bb10c7d4d4e408`, stacked on `feat/31b1-ux-refinement`. No merge, production deployment, protection/alias/configuration change or new infrastructure. The final commit/stacked Draft PR and branch-preview root verification are recorded with the owner delivery; a local pass alone does not establish remote deployment correctness.

@@ -1,5 +1,9 @@
 # Portal learning manuscript and vertical slice
 
+## 3.2.1 practical extension
+
+The complete existing manuscript and conceptual experiments remain. Service Types IaaS/PaaS/SaaS now each have a practical entry with purpose, supported actions and exact lesson return. VM creation persists its real local dependency set; PaaS adds App settings to existing Web flows; SaaS administration uses a separate fictional product. Inspection and changed-task reasoning are required alongside actual accepted commands. Independent criteria/feedback are withheld until delivery or explicit help; guided correction is not independent mastery. [Coverage and gaps](FUNDAMENTALS_LAB_COVERAGE.md), [implemented specifications](INTEGRATED_LABS_ARCHITECTURE.md).
+
 ## 3.2 operational Service Types extension
 
 The existing original service manuscript, simulation, guide, policy rejection and architecture remain. Current course Service Types v2 adds operational configuration/reasoning before and after the lab; legacy `version=1` preserves its original guided cases/assessment. The [deeper manuscript](SERVICE_TYPES_DEEP_LEARNING.md) distinguishes conceptual VM/SaaS/platform controls from actual supported group/plan/app operations.

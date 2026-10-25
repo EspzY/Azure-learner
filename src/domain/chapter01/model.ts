@@ -100,6 +100,7 @@ export interface Request {
 export type Outcome = 'accepted' | 'rejected' | 'unsupported';
 export type Code =
   | 'created'
+  | 'updated'
   | 'deleted'
   | 'invalid-envelope'
   | 'invalid-command'

@@ -1,5 +1,11 @@
 # AzureLab engineering contract
 
+## 3.2.1 integrated lab continuity
+
+Read INTEGRATED_LABS_ARCHITECTURE, VM_LAB_TECHNICAL_DESIGN, PAAS_LAB_REFINEMENT, SAAS_ADMIN_LAB, FUNDAMENTALS_LAB_COVERAGE and PRACTICAL_LABS_QA before extending practical labs. The normal course/Portal uses SandboxProvider (`azurelab.sandbox.v2`), with a frozen validated Chapter v1 prefix and sandbox@2 continuation. Preserve the legacy reducer, its limits/receipt bytes and old storage keys; archived gameplay stays on ChapterProvider. Never silently replay old commands under new capacity rules. Version new resource semantics and test both migration and mixed-prefix replay. Domain counts, fields, list/detail/graph projections and receipts must agree. Web-only policy is not a generic VM deny rule.
+
+VM bundles are atomic, credentials/guest/traffic/health/prices are unsupported, and App settings are harmless allowlisted configuration, not executed code. SaaS is a separate fictional product store, never an ARM inventory or Microsoft 365 parity claim. Practical session/evidence records contain navigation/boundaries/observations, never a second inventory. Guided work and previous resources cannot satisfy a fresh independent task. Hide solution criteria until independent submission or explicit recorded help. Resume earlier sessions without rewriting their boundaries. No new participation awards are introduced. Verify root discoverability, all three lab returns, old bytes, rejected transactions, cross-tab/denied storage and real desktop screenshots. Qualified SME/fidelity/learning acceptance remains a human gate.
+
 ## 3.2 content and evidence boundary
 
 Keep Modules 1→2→3 cumulative. Read MODULE_01_02_03_PROGRESSION_AUDIT, CLOUD_BENEFITS_CONTENT, SERVICE_TYPES_DEEP_LEARNING and FUNDAMENTALS_SUPPLEMENTARY_READING before changing these activities. Preserve the full prior manuscripts and Foundations v1/v2 stores. ResponsibilityExplorer needs an explicit educational context: only a Service Types-owned context may emit that version's comparisons; Module 1's basic responsibility recap emits none. Never reinterpret historic comparisons with unknown provenance as operational v2 learning.

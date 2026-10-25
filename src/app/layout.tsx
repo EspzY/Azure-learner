@@ -1,3 +1,6 @@
+import { SaasProvider } from '@/features/portal/saas-provider';
+import { PracticalProvider } from '@/features/course/practical-provider';
+import { SandboxProvider } from '@/features/portal/sandbox-provider';
 import type { Metadata } from 'next';
 import { AppShell } from '@/components/app-shell';
 import { ProgressProvider } from '@/components/progress-provider';
@@ -30,7 +33,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                     <FoundationsV2Provider>
                       <CourseProvider>
                         <ExpansionProvider>
-                          <AppShell>{children}</AppShell>
+                          <SandboxProvider>
+                            <SaasProvider>
+                              <PracticalProvider>
+                                <AppShell>{children}</AppShell>
+                              </PracticalProvider>
+                            </SaasProvider>
+                          </SandboxProvider>
                         </ExpansionProvider>
                       </CourseProvider>
                     </FoundationsV2Provider>

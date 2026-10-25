@@ -1,5 +1,9 @@
 # Interactive technical visualizations
 
+## 3.2.1 live operational projection
+
+Architecture Explorer now includes VM, OS/data disk, NIC, VNet and subnet from the shared inventory. Membership, disk attachment, NIC attachment, subnet membership and VNet parent have distinct typed edges/causal explanations. Location remains a property. Accepted changes update list, details and graph; rejected bundles add nothing. Existing Web hosting/policy and responsibility diagrams remain. No synthetic traffic, guest status, runtime health or deployment animation was added. Benefits visuals still explain authored assumptions rather than inspect running infrastructure. [VM contract](VM_LAB_TECHNICAL_DESIGN.md).
+
 ## 3.2 mechanisms and representations
 
 The [Benefits manuscript](CLOUD_BENEFITS_CONTENT.md) owns the numerical/causal contracts; [Service Types](SERVICE_TYPES_DEEP_LEARNING.md) owns conceptual component boundaries. Availability uses a client/routing/instance diagram and computed available/served/unmet capacity after one failure. Reliability shows a selected application/dependency path plus explicitly frozen trend observations. Governance displays the selected scope/request and actual receipt from an unsaved engine fork. Manageability uses a standards matrix that distinguishes equal from correct; sustainability uses a24-hour schedule and defined capacity-hours, never carbon.

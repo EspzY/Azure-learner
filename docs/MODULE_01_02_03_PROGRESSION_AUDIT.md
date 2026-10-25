@@ -1,5 +1,9 @@
 # Modules 01–03 progression audit — 3.2
 
+## 3.2.1 practical closure of the 3.2 model-only gap
+
+The audit below remains the 3.2 conceptual baseline. Operational gaps are now addressed by a persistent VM dependency bundle, validated PaaS App settings and a separate fictional SaaS administration store. [Current 15-objective matrix](FUNDAMENTALS_LAB_COVERAGE.md) distinguishes these from the preserved models and old assessment histories. Benefits bridges inspect supported actual configuration without claiming HA, monitoring or environmental measurement. Human subject-matter and learner evaluation are still pending.
+
 2026-10-25. Base: 97647d52e9c4097ca350cab7b1bb10c7d4d4e408. This audit precedes new presentation code. It records actual baseline observations, not topic-title coverage. Source author review is separate from qualified human SME and learner validation.
 
 ## Baseline findings

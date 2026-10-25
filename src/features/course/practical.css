@@ -1,0 +1,205 @@
+.practical-entry {
+  margin-block: 2rem;
+  padding: 1.7rem 2rem;
+  border-left: 4px solid #0078d4;
+  background: #f1f6fc;
+  scroll-margin-top: 100px;
+}
+.practical-entry > small {
+  color: #185c8d;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+.practical-entry h3 {
+  font-size: 1.3rem;
+  margin-block: 0.5rem;
+}
+.practical-entry p {
+  max-width: 84ch;
+  line-height: 1.7;
+}
+.practical-actions {
+  display: flex;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+  margin-block: 1rem;
+}
+.practical-actions a,
+.practical-actions button {
+  border: 1px solid #0078d4;
+  padding: 0.65rem 1rem;
+  background: white;
+  color: #005c9f;
+  font-weight: 600;
+}
+.practical-actions > :first-child {
+  background: #006bb5;
+  color: white;
+}
+.practical-criteria {
+  padding: 0;
+  list-style: none;
+}
+.practical-criteria li {
+  display: flex;
+  gap: 0.6rem;
+  margin-block: 0.5rem;
+  font-size: 0.85rem;
+}
+.practical-criteria li span {
+  min-width: 64px;
+  font-weight: 700;
+}
+.practical-outcome h3 {
+  font-size: 1rem;
+  margin-block: 1rem 0.5rem;
+}
+.practical-outcome fieldset {
+  border: 0;
+  padding: 0;
+}
+.practical-outcome label {
+  display: flex;
+  gap: 0.5rem;
+  align-items: start;
+  font-size: 0.85rem;
+  line-height: 1.55;
+  margin-block: 0.6rem;
+}
+.practical-outcome input {
+  margin-top: 0.3rem;
+}
+.practical-outcome > button,
+.practical-outcome > a {
+  display: block;
+  margin-block: 0.65rem;
+}
+.practical-coach {
+  max-height: calc(100dvh - 130px);
+  overflow: auto;
+}
+.portal-infrastructure {
+  max-width: 920px;
+  padding: 1.4rem;
+  border-top: 1px solid #d7e0e9;
+  margin-top: 1rem;
+}
+.portal-infrastructure ul {
+  list-style: none;
+  padding: 0;
+}
+.portal-infrastructure li {
+  padding-block: 0.8rem;
+  border-bottom: 1px solid #d7e0e9;
+}
+.portal-infrastructure li p {
+  margin: 0.4rem 0;
+  color: #465763;
+}
+.vm-create {
+  max-width: 1040px;
+}
+.vm-create .portal-form-tabs {
+  display: flex;
+  gap: 1rem;
+  margin-block: 1rem;
+  border-bottom: 1px solid #ccc;
+}
+.vm-create .portal-form-tabs button {
+  padding: 0.8rem 0.4rem;
+}
+.vm-create .portal-form-tabs [aria-current] {
+  border-bottom: 3px solid #0078d4;
+}
+.vm-create form > label {
+  display: grid;
+  grid-template-columns: 220px minmax(200px, 520px);
+  gap: 1.2rem;
+  align-items: center;
+  margin-block: 1rem;
+}
+.vm-create input,
+.vm-create select {
+  min-height: 38px;
+  padding: 0.4rem;
+  border: 1px solid #7d8b95;
+  background: white;
+}
+.vm-create .portal-create-footer {
+  display: flex;
+  gap: 0.7rem;
+}
+.benefits-lab-bridge {
+  border-top: 1px solid #b8c9dc;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+}
+@media (max-width: 800px) {
+  .vm-create form > label {
+    grid-template-columns: 1fr;
+    gap: 0.4rem;
+  }
+  .practical-entry {
+    padding: 1rem;
+  }
+}
+
+.portal-independent-practical {
+  position: fixed;
+  right: 20px;
+  top: 130px;
+  bottom: 20px;
+  overflow-y: auto;
+  width: 340px;
+  z-index: 70;
+  padding: 1.2rem;
+  background: #fff;
+  color: #243747;
+  border: 1px solid #b8c9dc;
+  box-shadow: 0 8px 28px #183c5b22;
+  font:
+    14px/1.6 'Segoe UI',
+    sans-serif;
+}
+.portal-practical-independent .portal-view {
+  padding-right: 385px;
+}
+@media (max-width: 800px) {
+  .portal-independent-practical {
+    position: static;
+    width: auto;
+    margin: 1rem;
+  }
+  .portal-practical-independent .portal-view {
+    padding-right: 14px;
+  }
+}
+
+.portal-guided-lab:has(.practical-coach) .portal-architecture {
+  margin-right: 0;
+  padding-bottom: 0;
+}
+
+.course-lab-discovery {
+  padding: 1rem 0 1.25rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #c7d4e2;
+}
+.course-lab-discovery > strong {
+  color: #165c8b;
+  font-size: 1rem;
+}
+.course-lab-discovery p {
+  max-width: 80ch;
+  margin-block: 0.5rem;
+}
+.course-lab-discovery nav {
+  display: flex;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+.course-lab-discovery a {
+  color: #0066b0;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
