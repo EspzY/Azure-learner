@@ -83,3 +83,7 @@ No production resource creation, production deployment, paid service provisionin
 ## Expedition implementation boundary
 
 Reviewed repository definitions select allowlisted local evaluators; no arbitrary scripts, learner shell execution, remote question ingestion or outbound API calls are added. All actions remain local and source links require explicit selection. Storage errors have an explicit memory-only notice. Current workspace tab sync is best-effort/last-writer behavior, not collaborative editing or an authoritative assessment ledger. Future accounts need migration/provenance and server validation; never upload local answers as trusted competence. The journey uses bounded SVG projection and native controls, with no WebGL or new runtime dependencies.
+
+## 3.1B.1 presentation-only refinement
+
+No store/schema, dependency, external integration or technical rule was added. Scope-gated action/inspection metadata controls only local DOM emphasis; target ambiguity fails closed and no guide can submit an operation. All new explanatory copy is local. Original source links require explicit learner action. Reviewed screenshots use synthetic training names, not personal learner exports. Existing Vercel protection/production configuration is unchanged.

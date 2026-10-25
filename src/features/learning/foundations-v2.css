@@ -287,3 +287,151 @@
     scroll-behavior: auto !important;
   }
 }
+.v2-teaching.v2-comparison {
+  display: block;
+}
+.v2-comparison .v2-explanation {
+  max-width: 85ch;
+  margin-bottom: 26px;
+}
+.v2-comparison .v2-model {
+  max-width: none;
+}
+.cloud-deployment {
+  border: 1px solid #c5d7e5;
+  background: #f9fbfd;
+}
+.deployment-toolbar {
+  display: flex;
+  gap: 10px;
+  padding: 16px 22px;
+  border-bottom: 1px solid #d4e0ea;
+  background: white;
+}
+.portal .deployment-toolbar button {
+  margin: 0;
+  padding: 10px 22px;
+}
+.deployment-toolbar button[aria-pressed='true'] {
+  background: #e9f3fb;
+  border: 2px solid #1675af;
+  color: #125a86;
+  font-weight: 650;
+}
+.deployment-map {
+  padding: 14px 22px 8px;
+}
+.deployment-map svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 390px;
+}
+.deployment-map text {
+  fill: #304d63;
+  font:
+    16px 'Segoe UI',
+    sans-serif;
+}
+.deployment-map .deployment-title {
+  font-size: 19px;
+  font-weight: 650;
+}
+.deployment-map .deployment-caption {
+  font-size: 15px;
+}
+.deployment-boundary {
+  fill: #edf3f8;
+  stroke: #90aabd;
+  stroke-dasharray: 7 5;
+  stroke-width: 1.5;
+}
+.deployment-rack {
+  fill: #c1d6e5;
+  stroke: #62879f;
+  stroke-width: 1.5;
+}
+.deployment-rack ~ g rect {
+  fill: #f7fbff;
+  stroke: #8fadc2;
+}
+.deployment-cloud {
+  fill: #ddebf2;
+  stroke: #7b9db5;
+  stroke-width: 1.5;
+}
+.deployment-use {
+  fill: none;
+  stroke: #186b9b;
+  stroke-width: 2;
+  marker-end: url(#deployment-arrow);
+  color: #186b9b;
+}
+.deployment-integration {
+  stroke: #126e69;
+  stroke-width: 2;
+  stroke-dasharray: 6 5;
+  marker-start: url(#deployment-arrow);
+  marker-end: url(#deployment-arrow);
+  color: #126e69;
+}
+.deployment-person {
+  stroke: #39677f;
+  fill: #c8e0ec;
+  stroke-width: 2;
+}
+.portal .deployment-boundary-note {
+  font-size: 12px;
+  color: #587187;
+  line-height: 1.6;
+  margin: 4px 0;
+}
+.deployment-interpretation {
+  border-top: 1px solid #d4e0ea;
+  padding: 18px 24px;
+  background: white;
+}
+.portal .deployment-interpretation h3 {
+  font-size: 20px;
+  margin: 0 0 10px;
+}
+.deployment-interpretation p {
+  max-width: 88ch;
+}
+.deployment-interpretation label {
+  font-size: 14px;
+  margin: 16px 0;
+}
+.cloud-deployment > details {
+  margin: 0;
+  padding: 14px 24px;
+  border-top: 1px solid #d4e0ea;
+}
+@media (max-width: 800px) {
+  .deployment-toolbar {
+    flex-wrap: wrap;
+  }
+  .deployment-map {
+    padding: 10px 0;
+    overflow: auto;
+  }
+  .deployment-map svg {
+    min-width: 650px;
+  }
+  .deployment-boundary-note {
+    padding: 0 12px;
+  }
+}
+.portal-responsibility,
+.cloud-deployment {
+  scroll-margin-top: 86px;
+}
+.portal-layer-inspector details {
+  margin-top: 18px;
+}
+.portal-layer-inspector summary {
+  color: #1d5c85;
+  cursor: pointer;
+  font-size: 13px;
+  line-height: 1.6;
+}

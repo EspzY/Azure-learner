@@ -179,3 +179,10 @@ Decision 030 supersedes the Phase 0.5 control-room entry. Decisions about the re
 | 041 | Guided configuration only; no chapter XP or promotion                       | User explicitly splits Phase 1B.1 from 1B.2. Legacy 80/40 remain unchanged. Complete transfer, classification and explicit checkpoint prerequisites before calling Chapter 01 complete or awarding its proposed participation XP.               |
 
 These decisions implement a scoped portion of the Phase 1A proposal; the full blueprint and historical alternatives remain intact. [CHAPTER_01_GUIDED.md](CHAPTER_01_GUIDED.md) specifies exact behavior and omissions.
+
+## 3.1B.1 instructional refinement decisions — 2026-10-25
+
+- Replace nested comparison grids, not the curriculum: full-width responsibility/deployment models with readable original manuscripts preserve technical depth and existing evaluators.
+- Use original SVG relationships and native controls for deployment models. Moving a private environment changes location, not exclusivity; hybrid lines represent required integration, not successful configuration. No new rendering dependency or evidence contract is needed.
+- Distinguish action and inspection in the finite guide contract; resolve only eligible, scoped and unambiguous live elements. A resource heading is never a proxy Create button. Preserve the existing lab predicates, while keeping policy teaching visible after its observation is recorded.
+- One measured fixed desktop navigation bar replaces bottom-of-document links; semantic activity focus restores orientation. Completed-lab revisit is secondary to continuing teaching. UI changes add no XP, migration or competence claim.

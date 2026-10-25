@@ -29,6 +29,7 @@ import { PortalDialog } from '@/features/portal/shared';
 import { ArchitectureExplorer } from '@/features/portal/architecture';
 import { SavvyShark } from './savvy-shark';
 import { useCourse } from './provider';
+import { CourseNavigation } from './course-navigation';
 import { FoundationsV2 } from '@/features/learning/foundations-v2';
 import { useFoundationsV2 } from '@/features/learning/v2-provider';
 import { isV2Topic, v2Topics } from '@/domain/curriculum/foundations-v2';
@@ -62,7 +63,34 @@ export function Course({ module }: { module?: CourseModule }) {
   const [journal, setJournal] = useState(false),
     [menu, setMenu] = useState(false);
   const labRef = useRef<HTMLElement>(null),
-    debriefRef = useRef<HTMLElement>(null);
+    debriefRef = useRef<HTMLElement>(null),
+    activityRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (
+      !module ||
+      !course.ready ||
+      chooseVersion ||
+      ['lab', 'debrief'].includes(query.get('activity') ?? '')
+    )
+      return;
+    let settled = 0;
+    const frame = requestAnimationFrame(() => {
+      settled = requestAnimationFrame(() => {
+        const heading = activityRef.current?.querySelector<HTMLElement>(
+          '[data-activity-heading], h2, h3',
+        );
+        if (heading) {
+          heading.tabIndex = -1;
+          heading.scrollIntoView({ block: 'start', behavior: 'instant' });
+          heading.focus({ preventScroll: true });
+        }
+      });
+    });
+    return () => {
+      cancelAnimationFrame(frame);
+      cancelAnimationFrame(settled);
+    };
+  }, [module, topic, course.ready, chooseVersion, query]);
   useEffect(() => {
     if (module && course.ready && !chooseVersion)
       course.store.update({ ...course.store.getSnapshot().save, resume: { module, topic } });
@@ -418,58 +446,60 @@ export function Course({ module }: { module?: CourseModule }) {
                   </button>
                 </p>
               )}
-              {chooseVersion ? (
-                <section className="course-version-choice">
-                  <h2>{nb.foundationsV2.chooseTitle}</h2>
-                  <p>{nb.foundationsV2.chooseText}</p>
-                  {learning.facts.active && <p>{nb.foundationsV2.activeWarning}</p>}
-                  <button
-                    type="button"
-                    onClick={() => {
-                      v2.store.choose('v1');
-                      router.push(
-                        courseHref(
-                          'computing',
-                          learning.facts.active ? 'assessment' : learning.save.unit,
-                        ),
-                      );
-                    }}
-                  >
-                    {nb.foundationsV2.keepV1}
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => {
-                      if (learning.facts.active) learning.store.event({ kind: 'aid' });
-                      v2.store.choose('v2');
-                      router.push(courseHref('computing', 'intro-request'));
-                    }}
-                  >
-                    {nb.foundationsV2.startV2}
-                  </button>
-                </section>
-              ) : module === 'computing' && currentV2 ? (
-                <FoundationsV2 key={topic} topic={topic} />
-              ) : module === 'services' ? (
-                <ServicesWorkspace location={location} navigate={navigate} course />
-              ) : (
-                <>
-                  <section className="course-legacy-note">
-                    <strong>{nb.foundationsV2.legacy}</strong>
-                    <p>{nb.foundationsV2.legacyNote}</p>
+              <div ref={activityRef} className="course-activity">
+                {chooseVersion ? (
+                  <section className="course-version-choice">
+                    <h2>{nb.foundationsV2.chooseTitle}</h2>
+                    <p>{nb.foundationsV2.chooseText}</p>
                     {learning.facts.active && <p>{nb.foundationsV2.activeWarning}</p>}
                     <button
+                      type="button"
                       onClick={() => {
+                        v2.store.choose('v1');
+                        router.push(
+                          courseHref(
+                            'computing',
+                            learning.facts.active ? 'assessment' : learning.save.unit,
+                          ),
+                        );
+                      }}
+                    >
+                      {nb.foundationsV2.keepV1}
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        if (learning.facts.active) learning.store.event({ kind: 'aid' });
                         v2.store.choose('v2');
                         router.push(courseHref('computing', 'intro-request'));
                       }}
                     >
-                      {nb.foundationsV2.switchV2}
+                      {nb.foundationsV2.startV2}
                     </button>
                   </section>
-                  <FoundationsWorkspace location={location} navigate={navigate} />
-                </>
-              )}
+                ) : module === 'computing' && currentV2 ? (
+                  <FoundationsV2 key={topic} topic={topic} />
+                ) : module === 'services' ? (
+                  <ServicesWorkspace location={location} navigate={navigate} course />
+                ) : (
+                  <>
+                    <section className="course-legacy-note">
+                      <strong>{nb.foundationsV2.legacy}</strong>
+                      <p>{nb.foundationsV2.legacyNote}</p>
+                      {learning.facts.active && <p>{nb.foundationsV2.activeWarning}</p>}
+                      <button
+                        onClick={() => {
+                          v2.store.choose('v2');
+                          router.push(courseHref('computing', 'intro-request'));
+                        }}
+                      >
+                        {nb.foundationsV2.switchV2}
+                      </button>
+                    </section>
+                    <FoundationsWorkspace location={location} navigate={navigate} />
+                  </>
+                )}
+              </div>
               {labTopic && !chooseVersion && (
                 <section
                   className="course-lab"
@@ -532,7 +562,7 @@ export function Course({ module }: { module?: CourseModule }) {
                   ) : null}
                   <button
                     type="button"
-                    className="primary"
+                    className={lab.complete ? undefined : 'primary'}
                     data-course-ready={course.ready}
                     data-world-ready={chapter.ready}
                     data-course-issue={course.issue ?? ''}
@@ -544,7 +574,11 @@ export function Course({ module }: { module?: CourseModule }) {
                     }
                     onClick={begin}
                   >
-                    {course.save.lab && lab.verifiable ? c.resumeLab : c.startLab}
+                    {lab.complete
+                      ? nb.refinement.revisitLab
+                      : course.save.lab && lab.verifiable
+                        ? c.resumeLab
+                        : c.startLab}
                   </button>
                 </section>
               )}
@@ -578,19 +612,47 @@ export function Course({ module }: { module?: CourseModule }) {
                   {nb.foundationsV2.viewV1}
                 </Link>
               )}
-              <nav className="course-step-navigation" aria-label={c.next}>
-                {index > 0 && (
-                  <Link href={courseHref(module, pathTopics[index - 1]!)}>
-                    ← {c.previous}
-                    <small>{title(module, pathTopics[index - 1]!)}</small>
-                  </Link>
-                )}
-                {index >= 0 && index < pathTopics.length - 1 && (
-                  <Link href={courseHref(module, pathTopics[index + 1]!)}>
-                    {c.next} →<small>{title(module, pathTopics[index + 1]!)}</small>
-                  </Link>
-                )}
-              </nav>
+              {!chooseVersion && (
+                <CourseNavigation
+                  moduleName={names[module]}
+                  current={
+                    title(module, topic) ??
+                    (topic.includes('summary')
+                      ? nb.foundationsV2.summary
+                      : nb.foundationsV2.assessment)
+                  }
+                  index={index}
+                  count={pathTopics.length}
+                  previous={
+                    index > 0
+                      ? {
+                          href: courseHref(module, pathTopics[index - 1]!),
+                          title: title(module, pathTopics[index - 1]!)!,
+                        }
+                      : index < 0
+                        ? {
+                            href: courseHref(module, pathTopics.at(-1)!),
+                            title: title(module, pathTopics.at(-1)!)!,
+                          }
+                        : undefined
+                  }
+                  next={
+                    index >= 0 && index < pathTopics.length - 1
+                      ? {
+                          href: courseHref(module, pathTopics[index + 1]!),
+                          title: title(module, pathTopics[index + 1]!)!,
+                        }
+                      : index === pathTopics.length - 1
+                        ? {
+                            href: currentV2 ? courseHref(module, 'v2-summary') : '/learn',
+                            title: currentV2 ? nb.foundationsV2.summary : c.overview,
+                          }
+                        : undefined
+                  }
+                  continueTeaching={labTopic && lab.complete}
+                  summary={topic.includes('summary')}
+                />
+              )}
             </>
           )}
           <footer className="course-footer">{nb.portal.boundary}</footer>

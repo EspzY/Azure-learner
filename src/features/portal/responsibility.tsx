@@ -14,11 +14,19 @@ export function ResponsibilityExplorer({
   guide?: boolean;
 }) {
   const [model, setModel] = useState<ServiceModel>(initialModel),
+    [previous, setPrevious] = useState<ServiceModel>(initialModel),
     [layer, setLayer] = useState<Layer | 'virtualization'>('os');
   const { store } = usePortalLearning();
   const all = ['physical', 'virtualization', ...layers.filter((l) => l !== 'physical')] as const;
-  const owner = (l: Layer | 'virtualization') =>
-    l === 'virtualization' ? 'microsoft' : responsibility(model, l);
+  const owner = (l: Layer | 'virtualization', m: ServiceModel = model) =>
+    l === 'virtualization' ? 'microsoft' : responsibility(m, l);
+  const label = (l: Layer | 'virtualization') =>
+    l === 'virtualization'
+      ? r.virtualization
+      : l === 'network'
+        ? r.networkLabel
+        : nb.expedition.layers[l].label;
+  const changed = all.filter((l) => owner(l, previous) !== owner(l));
   return (
     <section className="portal-responsibility" aria-label={r.title}>
       <div className="portal-model-choice">
@@ -28,6 +36,7 @@ export function ResponsibilityExplorer({
             key={m}
             aria-pressed={model === m}
             onClick={() => {
+              setPrevious(model);
               setModel(m);
               store.event({ kind: 'compare', model: m });
             }}
@@ -38,11 +47,7 @@ export function ResponsibilityExplorer({
         ))}
       </div>
       <p>{r.intro}</p>
-      {guide && (
-        <SavvyShark compact>
-          <p aria-live="polite">{nb.course.modelGuide[model]}</p>
-        </SavvyShark>
-      )}
+      <p className="responsibility-instruction">{nb.refinement.responsibilityPrompt}</p>
       <div className="portal-stack-layout">
         <div className="portal-layer-stack">
           {all.map((l) => (
@@ -50,6 +55,7 @@ export function ResponsibilityExplorer({
               type="button"
               key={l}
               className={`owner-${owner(l)}`}
+              data-changed={changed.includes(l)}
               aria-pressed={l === layer}
               onClick={() => {
                 setLayer(l);
@@ -68,7 +74,9 @@ export function ResponsibilityExplorer({
           ))}
         </div>
         <aside className="portal-layer-inspector">
-          <small>{r.examples[model]}</small>
+          <small>
+            {nb.refinement.selectedLayer} · {model.toUpperCase()}
+          </small>
           <h3>
             {layer === 'virtualization'
               ? r.virtualization
@@ -78,10 +86,54 @@ export function ResponsibilityExplorer({
           </h3>
           <p className={`portal-owner owner-${owner(layer)}`}>{r[owner(layer)]}</p>
           <p>{layer === 'virtualization' ? r.virtualizationNote : r.notes[layer]}</p>
-          <p>{nb.rpg.modelNotes[model]}</p>
-          <p>{p.lesson.sections[model].limits}</p>
+          <div
+            className="responsibility-comparison"
+            role="group"
+            aria-label={nb.refinement.comparison}
+          >
+            {(['iaas', 'paas', 'saas'] as const).map((m) => (
+              <button
+                key={m}
+                type="button"
+                aria-pressed={model === m}
+                onClick={() => {
+                  setPrevious(model);
+                  setModel(m);
+                  store.event({ kind: 'compare', model: m });
+                }}
+              >
+                <strong>{m.toUpperCase()}</strong>
+                <span>{r[owner(layer, m)]}</span>
+              </button>
+            ))}
+          </div>
+          {guide && (
+            <SavvyShark compact>
+              <p>{nb.course.modelGuide[model]}</p>
+            </SavvyShark>
+          )}
+          <p className="responsibility-changes" role="status">
+            <strong>{nb.refinement.changes}: </strong>
+            {previous === model ? (
+              r.examples[model]
+            ) : (
+              <>
+                {previous.toUpperCase()} → {model.toUpperCase()} ·{' '}
+                {changed.length ? changed.map(label).join(', ') : nb.refinement.unchanged}
+              </>
+            )}
+          </p>
         </aside>
       </div>
+      <section className="responsibility-context" aria-label={nb.refinement.serviceNuance}>
+        <h4>
+          {nb.refinement.serviceNuance} · {r.examples[model]}
+        </h4>
+        <div>
+          <p>{nb.rpg.modelNotes[model]}</p>
+          <p>{p.lesson.sections[model].limits}</p>
+        </div>
+      </section>
     </section>
   );
 }

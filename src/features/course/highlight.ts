@@ -1,6 +1,6 @@
 'use client';
 import { useEffect, useState } from 'react';
-import type { GuideTarget } from '@/domain/course/model';
+import type { GuideTarget, GuideStep } from '@/domain/course/model';
 export interface TargetBounds {
   left: number;
   top: number;
@@ -8,15 +8,46 @@ export interface TargetBounds {
   height: number;
   visible: boolean;
 }
-export function resolveGuideTarget(target: GuideTarget): HTMLElement | null {
-  return (
-    [...document.querySelectorAll<HTMLElement>(`[data-guide="${target}"]`)].find(
-      (el) => el.getClientRects().length > 0,
-    ) ?? null
+export type TargetKind = GuideStep['targetKind'];
+/** Scope and native semantics prevent a coincidental duplicate from becoming a guide target. */
+export function resolveGuideTarget(
+  target: GuideTarget,
+  kind: TargetKind = 'action',
+): HTMLElement | null {
+  const root = document.querySelector(
+    target === 'search'
+      ? '.portal-header'
+      : target === 'create' || target === 'architecture'
+        ? '.portal-commandbar'
+        : '#portal-main',
   );
+  const candidates = [
+    ...(root?.querySelectorAll<HTMLElement>(`[data-guide="${target}"]`) ?? []),
+  ].filter((el) => {
+    if (
+      !el.getClientRects().length ||
+      el.closest('[hidden],[inert],[aria-hidden="true"]') ||
+      getComputedStyle(el).visibility === 'hidden'
+    )
+      return false;
+    return (
+      kind === 'inspection' ||
+      (el.matches('button,input,select,a[href],textarea') && !el.matches(':disabled'))
+    );
+  });
+  // Ambiguity is a missing target, never a guess.
+  return candidates.length === 1 ? (candidates[0] ?? null) : null;
 }
-export function useGuideBounds(target: GuideTarget, enabled: boolean) {
-  const [bounds, setBounds] = useState<TargetBounds | null>(null);
+export function useGuideBounds(
+  target: GuideTarget,
+  enabled: boolean,
+  kind: TargetKind = 'action',
+  context = '',
+) {
+  const key = `${target}:${kind}:${context}`;
+  const [snapshot, setSnapshot] = useState<{ key: string; bounds: TargetBounds | null } | null>(
+    null,
+  );
   useEffect(() => {
     if (!enabled) return;
     let element: HTMLElement | null = null,
@@ -24,14 +55,14 @@ export function useGuideBounds(target: GuideTarget, enabled: boolean) {
     const resized = new ResizeObserver(() => schedule());
     const measure = () => {
       frame = 0;
-      const next = resolveGuideTarget(target);
+      const next = resolveGuideTarget(target, kind);
       if (next !== element) {
         resized.disconnect();
         element = next;
         if (element) resized.observe(element);
       }
       const r = element?.getBoundingClientRect();
-      const value = r
+      const bounds = r
         ? {
             left: r.left,
             top: r.top,
@@ -44,7 +75,8 @@ export function useGuideBounds(target: GuideTarget, enabled: boolean) {
               r.left < window.innerWidth,
           }
         : null;
-      setBounds((old) => (JSON.stringify(old) === JSON.stringify(value) ? old : value));
+      const value = { key, bounds };
+      setSnapshot((old) => (JSON.stringify(old) === JSON.stringify(value) ? old : value));
     };
     function schedule() {
       if (!frame) frame = requestAnimationFrame(measure);
@@ -54,7 +86,7 @@ export function useGuideBounds(target: GuideTarget, enabled: boolean) {
       childList: true,
       subtree: true,
       attributes: true,
-      attributeFilter: ['class', 'style', 'hidden', 'open'],
+      attributeFilter: ['class', 'style', 'hidden', 'open', 'disabled', 'inert'],
     });
     window.addEventListener('scroll', schedule, true);
     window.addEventListener('resize', schedule);
@@ -66,6 +98,6 @@ export function useGuideBounds(target: GuideTarget, enabled: boolean) {
       window.removeEventListener('scroll', schedule, true);
       window.removeEventListener('resize', schedule);
     };
-  }, [target, enabled]);
-  return enabled ? bounds : null;
+  }, [target, enabled, kind, context, key]);
+  return enabled && snapshot?.key === key ? snapshot.bounds : null;
 }

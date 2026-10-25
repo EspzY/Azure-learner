@@ -220,6 +220,7 @@ export interface GuideStep {
   id: StepId;
   objective: 'G01' | 'C01' | 'F01';
   target: GuideTarget;
+  targetKind: 'action' | 'inspection';
   context: { area: PortalLocation['area']; kind?: 'group' | 'plan' | 'app' };
   action: 'navigate' | 'configure' | 'review' | 'submit' | 'inspect' | 'return';
   sourceIds: readonly string[];
@@ -265,6 +266,11 @@ export const guideDefinitions = Object.fromEntries(
       id,
       objective: id.includes('group') || ['subscription', 'metadata'].includes(id) ? 'G01' : 'C01',
       target: targetMap[id],
+      targetKind:
+        id.startsWith('inspect-') ||
+        ['relationship', 'complete', 'unverifiable', 'fix-validation'].includes(id)
+          ? 'inspection'
+          : 'action',
       context: {
         area: ['find-groups'].includes(id)
           ? 'home'
@@ -314,6 +320,17 @@ export const guideDefinitions = Object.fromEntries(
     },
   ]),
 ) as Record<StepId, GuideStep>;
+/** Presentation eligibility only: never advances the lab or validates a command. */
+export function guideContextMatches(step: GuideStep, location: PortalLocation): boolean {
+  if (step.id === 'unverifiable') return false;
+  if (step.target === 'search' || step.target === 'architecture') return true;
+  if (location.area !== step.context.area) return false;
+  return (
+    location.area !== 'create' ||
+    step.id === 'fix-validation' ||
+    location.kind === step.context.kind
+  );
+}
 export function guideStep(
   session: LabSession,
   engine: Engine,

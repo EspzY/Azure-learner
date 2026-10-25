@@ -1,4 +1,8 @@
-# AzureLab 3.1B
+# AzureLab 3.1B.1
+
+## Desktop learning refinement
+
+The actual course now has one persistent Previous/Next bar, full-width responsibility comparison and an original relational public/private/hybrid diagram. The existing lab differentiates controls to operate from information to inspect. SavvyShark exposes objective, reason, action and expected result; only the hint is optional. Completed practice says **Gå tilbake til laboratoriet**, with **Fortsett undervisningen** as the course action. No simulator, evidence, XP or storage schema was changed. See the [refinement handoff](docs/FOUNDATIONS_31B_HANDOFF.md#31b1-implemented-refinement) and [verification](docs/PROJECT_STATUS.md).
 
 ## Current course integration
 

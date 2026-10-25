@@ -150,6 +150,10 @@ test('course owns full theory, guided real controls, denial investigation, hosti
   await review(page);
   await expect(page.locator('h1')).toHaveText('rg-course');
   await expect(coach(page)).toHaveAttribute('data-step', 'inspect-group');
+  await expect(coach(page)).toHaveAttribute('data-target-kind', 'inspection');
+  await expect(page.locator('.guide-target-ring')).toHaveAttribute('data-kind', 'inspection');
+  await expect(page.locator('[data-guide="resource"]')).toHaveJSProperty('tagName', 'H1');
+  await capture(page, info, 'group-inspection');
   await page.getByRole('link', { name: c.returnCourse, exact: true }).first().click();
   await expect(page).toHaveURL(/\/learn\/services\?topic=practice/);
   await expect(page).toHaveURL(/&activity=lab$/);
@@ -157,6 +161,9 @@ test('course owns full theory, guided real controls, denial investigation, hosti
   await page.reload();
   await page.getByRole('button', { name: c.resumeLab, exact: true }).click();
   await expect(coach(page)).toHaveAttribute('data-step', 'create-plan');
+  await expect(page.locator('.guide-target-ring')).toHaveCount(0); // home is not the plans list
+  await area(page, 'apps');
+  await expect(page.locator('.guide-target-ring')).toHaveCount(0); // unrelated Create must never be highlighted
   await area(page, 'plans');
   await page
     .locator('.portal-commandbar')
@@ -174,10 +181,15 @@ test('course owns full theory, guided real controls, denial investigation, hosti
     nb.chapter.errors['policy-location-denied'],
   );
   await capture(page, info, 'denial');
+  await expect(page.locator('.guide-target-ring')).toHaveAttribute('data-kind', 'inspection');
   await coach(page).getByRole('button', { name: c.goPolicy, exact: true }).click();
   await expect(page.locator('h1')).toHaveText(p.areas.policy);
   await expect(page.locator('.portal-view')).toContainText('West Europe');
-  await expect(coach(page)).toHaveAttribute('data-step', 'create-plan');
+  await expect(coach(page)).toHaveAttribute('data-step', 'inspect-policy');
+  await expect(page.locator('.guide-target-ring')).toHaveAttribute('data-target', 'policy');
+  await expect(page.locator('.guide-target-ring')).toHaveAttribute('data-kind', 'inspection');
+  await capture(page, info, 'policy-inspection');
+  await expect(coach(page).locator('.coach-observed')).toContainText(nb.chapter.inventory);
   await area(page, 'plans');
   await expect(page.locator('table')).not.toContainText('plan-denied');
   await page
@@ -191,6 +203,7 @@ test('course owns full theory, guided real controls, denial investigation, hosti
   await page.getByRole('combobox', { name: p.region, exact: true }).selectOption('westeurope');
   await review(page);
   await expect(page.locator('h1')).toHaveText('plan-course');
+  await capture(page, info, 'corrected-plan');
   await area(page, 'apps');
   await page
     .locator('.portal-commandbar')
@@ -238,6 +251,15 @@ test('course owns full theory, guided real controls, denial investigation, hosti
   await page.getByRole('button', { name: c.checkReflection, exact: true }).click();
   await expect(page.getByText(c.reflectionCorrect, { exact: true })).toBeVisible();
   await capture(page, info, 'debrief');
+  await expect(
+    page.getByRole('button', { name: nb.refinement.revisitLab, exact: true }),
+  ).toHaveCount(1);
+  await expect(page.getByRole('button', { name: c.resumeLab, exact: true })).toHaveCount(0);
+  await expect(
+    page
+      .getByRole('navigation', { name: c.next, exact: true })
+      .getByRole('link', { name: new RegExp(nb.refinement.continueTeaching) }),
+  ).toHaveCount(1);
   await audit(page);
   await page.goBack();
   await expect(coach(page)).toHaveAttribute('data-step', 'complete');
@@ -284,6 +306,9 @@ test('keyboard, reduced motion, target lifecycle, resize, journal focus and inva
   await expect(coach(page)).toHaveAttribute('data-step', 'find-groups');
   const search = page.locator('[data-guide="search"]');
   await expect(page.locator('.guide-target-ring')).toBeVisible();
+  await expect(page.locator('.guide-target-ring')).toHaveAttribute('data-kind', 'action');
+  for (const label of [nb.refinement.why, nb.refinement.action, nb.refinement.expect])
+    await expect(coach(page).getByText(label, { exact: true })).toBeVisible();
   const ring = await page.locator('.guide-target-ring').boundingBox(),
     target = await search.boundingBox();
   expect(Math.abs(ring!.x - target!.x)).toBeLessThanOrEqual(5);
@@ -291,6 +316,14 @@ test('keyboard, reduced motion, target lifecycle, resize, journal focus and inva
   await expect(page.locator('.guide-target-ring')).toHaveCount(0);
   await expect(coach(page)).toContainText(c.missing);
   await search.evaluate((el) => ((el as HTMLElement).style.display = ''));
+  await expect(page.locator('.guide-target-ring')).toBeVisible();
+  await search.evaluate((el) => {
+    const clone = el.cloneNode(true) as HTMLElement;
+    clone.id = 'duplicate-guide-target';
+    el.parentElement!.append(clone);
+  });
+  await expect(page.locator('.guide-target-ring')).toHaveCount(0);
+  await page.locator('#duplicate-guide-target').evaluate((el) => el.remove());
   await expect(page.locator('.guide-target-ring')).toBeVisible();
   await page.setViewportSize({ width: 844, height: 390 });
   await expect(page.locator('.guide-target-ring')).toBeVisible();

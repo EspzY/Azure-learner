@@ -25,6 +25,7 @@ import { useFoundationsV2 } from './v2-provider';
 import { Server, CapacityBoard } from './foundations-visuals';
 import { VersionedInvestigation } from './session';
 import { ResponsibilityExplorer } from '@/features/portal/responsibility';
+import { CloudDeployment } from './cloud-deployment';
 import { SavvyShark } from '@/features/course/savvy-shark';
 import '@/features/design-proof/proof.css';
 import './foundations-v2.css';
@@ -36,7 +37,6 @@ export function FoundationsV2({ topic, journal = false }: { topic: string; journ
   const [part, setPart] = useState<(typeof p.parts)[number]['id']>('cpu');
   const [trace, setTrace] = useState(0),
     [catalogue, setCatalogue] = useState(false);
-  const [offsite, setOffsite] = useState(false);
   const onProject = useCallback(() => {}, []);
   const unit = laterUnits.find((u) => topic === `v2-${u}`);
   const copy = t.topics[topic as V2Topic];
@@ -69,11 +69,15 @@ export function FoundationsV2({ topic, journal = false }: { topic: string; journ
         <small>
           {t.badge} · {String(v2Topics.indexOf(topic as V2Topic) + 1).padStart(2, '0')} / 12
         </small>
-        <h2>{copy.title}</h2>
+        <h2 data-activity-heading tabIndex={-1}>
+          {copy.title}
+        </h2>
         <p>{copy.objective}</p>
       </header>
       {topic !== 'v2-capacity' && (
-        <div className={`v2-teaching ${unit ? 'v2-wide' : ''}`}>
+        <div
+          className={`v2-teaching ${unit === 'models' || unit === 'responsibility' ? 'v2-comparison' : ''}`}
+        >
           <section className="v2-explanation" aria-label={nb.foundations.purpose}>
             <p>{copy.text}</p>
             <p>{copy.detail}</p>
@@ -165,30 +169,7 @@ export function FoundationsV2({ topic, journal = false }: { topic: string; journ
               />
             )}
             {unit === 'responsibility' && <ResponsibilityExplorer guide />}
-            {unit === 'models' && (
-              <div className="v2-topology">
-                <div>
-                  <strong>{nb.foundations.public}</strong>
-                  <p>{t.topics['v2-models'].text.split('.')[0]}.</p>
-                </div>
-                <div>
-                  <strong>{nb.foundations.private}</strong>
-                  <label>
-                    <input
-                      type="checkbox"
-                      checked={offsite}
-                      onChange={(e) => setOffsite(e.target.checked)}
-                    />
-                    {t.privateOffsite}
-                  </label>
-                  <p>{offsite ? t.privateExplanation : t.topics['v2-models'].detail}</p>
-                </div>
-                <div>
-                  <strong>{nb.foundations.hybrid}</strong>
-                  <p>{nb.foundations.units.models.mechanism}</p>
-                </div>
-              </div>
-            )}
+            {unit === 'models' && <CloudDeployment />}
           </section>
         </div>
       )}

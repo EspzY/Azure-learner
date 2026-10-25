@@ -2,6 +2,14 @@
 
 Bounded `web-platform@1` guidance observes the existing Chapter01 engine through a read-only projection. The coach never constructs or submits technical commands. The actual CreateResource UI remains responsible for explicit learner submissions and normal engine validation.
 
+## 3.1B.1 target refinement
+
+`GuideStep.targetKind` distinguishes `action` from `inspection`; existing action categories, lab predicates and replayed receipts remain authoritative. `guideContextMatches` controls presentation only. List Create is eligible on the intended list; forms require the intended kind. Resource and receipt targets require the actual session ID. Global search and Architecture commands have explicit scopes.
+
+The resolver uses the header, command bar or current Portal main. Hidden/inert/disabled action targets and ambiguous duplicates fail closed. Bounds are keyed by target, kind and route, observed on DOM/size/scroll changes and cancelled on cleanup. Blue action rings may receive focus through Locate; amber inspection margins/tints scroll without button-like focus. Policy inspection marks properties/explanations and remains readable after the existing policy observation advances the next predicate.
+
+Objective/reason/action/result remain visible; hints alone use disclosure. Group names, denial counts/location and app→plan names come from replayed findings. Missing targets retain semantic instructions/recovery; no unrelated title substitutes. Independent mode still has no guide or solution highlight.
+
 Each registered step has a stable ID, objective, expected context, semantic DOM target, original explanation/reason, expected action, validation contract, hint, alternative-path guidance and fixed course return. Definition IDs select local Bokmål copy; no scripts or arbitrary question interpreter execute from content. Search/navigation and field observations guide presentation only. Technical results are reconstructed from accepted/rejected receipts after the pinned start boundary in the same technical attempt. Policy inspection references a real denied receipt. Architecture inspection references the actual app's hosting relation. Rejected resources cannot satisfy build predicates.
 
 The progression projection handles leaving the expected page, existing invalid choices, missing dependencies, alternate navigation and reload. Required accepted group metadata/subscription, allowed plan location, real app→plan reference, actual denial and inspection are separate predicates. An accepted plan alone cannot fake the required policy investigation. Technical restart or missing history makes the session unverifiable. No guide state can complete the original module, independent assessment or Chapter01 promotion.

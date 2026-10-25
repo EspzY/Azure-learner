@@ -2,6 +2,128 @@ import type { QuestionId } from '../domain/assessment';
 import type { CreationError, Region, ScopeKind } from '../domain/simulation';
 
 export const nb = {
+  refinement: {
+    activity: 'Aktivitet',
+    of: 'av',
+    assessmentPosition: 'Separat vurdering',
+    current: 'Nå',
+    continueTeaching: 'Fortsett undervisningen',
+    revisitLab: 'Gå tilbake til laboratoriet',
+    why: 'Hvorfor dette er viktig',
+    action: 'Gjør dette nå',
+    expect: 'Dette vil du se',
+    inspectTarget: 'Informasjon å undersøke',
+    actionTarget: 'Kontroll å bruke',
+    locateInspection: 'Vis informasjonen',
+    missingInspection:
+      'Informasjonen er ikke tilgjengelig i denne visningen. Åpne ressursoversikten, operasjonen eller relasjonen som steget beskriver. Ingen annen overskrift markeres som erstatning.',
+    changes: 'Når du bytter tjeneste',
+    unchanged: 'Ansvarsfordelingen er uendret for dette laget.',
+    responsibilityPrompt:
+      'Velg en konkret tjeneste øverst. Undersøk et lag, og sammenlign hvem som utfører oppgaven. Lagene finnes fortsatt når driftsansvaret flyttes.',
+    comparison: 'Samme lag, tre tjenesteeksempler',
+    selectedLayer: 'Laget du undersøker',
+    actual: 'Fra dette forsøket',
+    serviceNuance: 'Tjenestespesifikke forbehold og teknisk dybde',
+    expectations: {
+      'find-groups':
+        'Søket viser den støttede tjenesten. Når du åpner den, ser du gruppene i treningsmiljøet.',
+      'create-group':
+        'Basics åpnes med subscription, gruppenavn og metadataregion. Ingen ressurs opprettes ved å åpne skjemaet.',
+      subscription:
+        'Den valgte subscription følger gruppen og avgjør hvilket management-scope ressursene tilhører.',
+      'group-name':
+        'Ditt navn vises i Review. Et gyldig navn uten rg-prefiks er også tillatt; navnet setter ingen sikkerhetsregel.',
+      metadata:
+        'Gruppens metadata registreres i Norway East. Planens og appens lokasjon blir et separat valg.',
+      'review-group':
+        'Forhåndskontrollen viser den faktiske forespørselen og eventuelle feil. Gruppen finnes først etter en akseptert Create.',
+      'commit-group':
+        'En akseptert kvittering legger gruppen til i inventaret. Et avslag beholder ressursstatus uendret.',
+      'inspect-group':
+        'Oversikten viser den opprettede gruppens subscription og metadata. Neste ressurs, hosting-planen, vil gi compute i modellen.',
+      'create-plan':
+        'Planens eget skjema viser blant annet gruppemedlemskap, Linux-profil og ressurslokasjon.',
+      'plan-group':
+        'Planen blir medlem av denne gruppen ved aksept. Appens hosting blir en annen, eksplisitt relasjon.',
+      'plan-name':
+        'Review vil vise dette navnet og den støttede profilen. Navnet skaper verken kapasitet eller en prisavtale.',
+      'plan-region':
+        'Den egendefinerte treningspolicyen kan avvise ønsket lokasjon. Kvitteringen forklarer hvorfor; en avvist plan opprettes ikke.',
+      'review-plan':
+        'Den ønskede lokasjonen vises før innsending. Les kontrollen; Create er fortsatt en egen handling.',
+      'commit-plan':
+        'Du får en faktisk modellkvittering: akseptert konfigurasjon eller avslag med regel, scope og lokasjon.',
+      'inspect-denial':
+        'I operasjonen ser du ønsket lokasjon, policyen og uendret ressursantall. Policyvisningen gir grunnlaget for korreksjonen.',
+      'inspect-policy':
+        'Assignment scope og tillatte lokasjoner viser hvilken egenskap som må endres. Gruppens metadata løser ikke en Web-lokasjonsregel.',
+      'correct-plan':
+        'En tillatt konfigurasjon kan bli akseptert som en ny plan. Det tidligere avslaget beholdes i operasjonshistorikken.',
+      'create-app':
+        'Appskjemaet krever en eksisterende, akseptert plan. Samme resource group alene oppretter ingen hosting-avhengighet.',
+      'app-group':
+        'Denne modellen bruker samme gruppe for app og plan. Valget endrer ikke planens eksisterende lokasjon.',
+      'app-name':
+        'Navnet identifiserer appkonfigurasjonen i modellen. Det er ikke et globalt kontrollert DNS-navn.',
+      hosting:
+        'Appens viste OS og ressurslokasjon avledes fra den valgte planen. Gruppens metadataregion flytter ikke appen.',
+      'review-app':
+        'Review viser både gruppemedlemskapet og den valgte planen, slik at du kan kontrollere to forskjellige relasjoner.',
+      'commit-app':
+        'En akseptert kvittering legger appkonfigurasjonen til i inventaret. Den bekrefter ikke kjørende kode eller driftstilstand.',
+      'inspect-app':
+        'Planreferansen og appens avledede egenskaper stemmer med den samme ressursstatusen i Architecture Explorer.',
+      architecture:
+        'Gruppen, den aksepterte planen og appen vises sammen. Det avviste forsøket finnes bare i operasjonshistorikken.',
+      relationship:
+        'Relasjonsinspektøren viser app → plan som hosting-avhengighet, adskilt fra gruppemedlemskap og geografiske egenskaper.',
+      complete:
+        'Kurset viser en debrief med de faktiske ressursnavnene. Gyldig teknisk arbeid bevares; uavhengig vurdering er separat.',
+      unverifiable:
+        'Kurset viser at historikken ikke kan bekreftes. Manglende kvitteringer blir aldri erstattet av et fullført-flagg.',
+      'fix-validation':
+        'Når du retter det angitte feltet og åpner Review igjen, kjøres den samme faktiske forhåndskontrollen på nytt.',
+    },
+    topology: {
+      title: 'Hvem bruker miljøet — og hvem kobler det sammen?',
+      select: 'Undersøk en deployment-modell',
+      models: { public: 'Public cloud', private: 'Private cloud', hybrid: 'Hybrid cloud' },
+      orgA: 'Organisasjon A',
+      orgB: 'Organisasjon B',
+      provider: 'Skyleverandør',
+      operator: 'Ekstern operatør',
+      local: 'Organisasjonens lokasjon',
+      external: 'Operatørens lokasjon',
+      publicPlatform: 'Leverandørstyrt cloud-plattform',
+      dedicated: 'Dedikert cloud-miljø',
+      localWorkload: 'Beholdt lokalt system',
+      serviceA: 'A sitt tjenesteutvalg',
+      serviceB: 'B sitt tjenesteutvalg',
+      use: 'Bruker tjenester',
+      exclusive: 'Bare organisasjon A',
+      relationship: 'Vis behovet for integrasjon',
+      integration: 'Nødvendig samspill · illustrasjon',
+      separate: 'To miljøer alene beskriver ingen hybridintegrasjon.',
+      offsite: 'Vis private cloud hos ekstern operatør',
+      publicExplanation:
+        'A og B bruker tjenester fra en leverandørstyrt plattform. Deling av leverandørens infrastruktur betyr ikke at A får tilgang til B sine data. Identitet, isolasjon og tilgang må håndteres for de aktuelle tjenestene.',
+      privateExplanation:
+        'Bare organisasjon A bruker dette cloud-miljøet. Flytt miljøet til en ekstern operatør: bruksgrensen og private-klassifiseringen består. Operatørens og kundens konkrete driftsoppgaver må fortsatt avklares.',
+      hybridExplanation:
+        'A beholder et lokalt system som den nye cloud-tjenesten må fungere sammen med. Den viste forbindelsen uttrykker dette kravet. Nettverk, identitet, dataflyt og drift må faktisk utformes; illustrasjonen konfigurerer ingen av dem.',
+      unchanged: 'Fortsatt private cloud · eksklusivt for A',
+      boundary:
+        'Stiplet ramme viser hvem miljøet tilhører eller hvem som kan bruke det. Linjer viser illustrative bruks- eller integrasjonsrelasjoner, ikke management-scope eller simulert nettverkstrafikk.',
+      textView: 'De samme relasjonene som tekst',
+      publicRelations:
+        'A → leverandørens tjenester for A. B → leverandørens tjenester for B. Plattformen betjener flere kunder; data er ikke dermed offentlige.',
+      privateRelations:
+        'A → ett dedikert cloud-miljø for A. Lokasjonen kan være egen eller ekstern; B har ingen bruksrelasjon i dette eksempelet.',
+      hybridRelations:
+        'A sitt lokale system ↔ A sin tjeneste hos skyleverandøren. Samspillet er et arkitekturkrav, ikke et bevis på at integrasjonen virker.',
+    },
+  },
   foundationsV2: {
     traceNext: 'Følg neste del av forespørselen',
     traceSteps: [
@@ -485,7 +607,7 @@ export const nb = {
   },
   course: {
     brand: 'AzureLab',
-    version: '3.1B',
+    version: '3.1B.1',
     home: 'Læringsreisen',
     sandbox: 'Fri Portal-sandbox',
     learning: 'Kursinnhold',
@@ -597,7 +719,7 @@ export const nb = {
       'find-groups': [
         'Finn Resource groups',
         'Skriv Resource groups i globalt søk og åpne tjenesten. Du kan også bruke portalmenyen.',
-        'Tjenesten samler livssyklusgrupper under en subscription. Søk er navigasjon, ikke en Azure-operasjon.',
+        'Vi forbereder plattformen for teamets applikasjon. En resource group samler relaterte ressurser for management under en subscription; den gir ingen server eller compute-kapasitet. Søk åpner tjenesten uten å opprette noe.',
         'Bruk søkefeltet øverst. Piltast ned og Enter åpner et treff.',
       ],
       'create-group': [
@@ -615,7 +737,7 @@ export const nb = {
       'group-name': [
         'Gi gruppen et navn',
         'Skriv et eget gyldig navn for applikasjonsteamets nye Resource Group.',
-        'Navnet identifiserer gruppen innen valgt subscription. En duplikat blir avvist, ikke automatisk omdøpt.',
+        'Navnet identifiserer gruppen innen valgt subscription. rg betyr resource group; prosjekt og dev/test/prod kan gjøre hensikten lettere å lese. Dette er valgfrie konvensjoner, ikke nye Azure-navnekrav. En duplikat avvises.',
         'Bruk for eksempel et kort navn med bokstaver og bindestrek.',
       ],
       metadata: [
