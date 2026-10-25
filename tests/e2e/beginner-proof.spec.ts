@@ -1,10 +1,132 @@
 import { test, expect } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { nb } from '../../src/content/nb';
-import { freshLearning, learningKey } from '../../src/domain/curriculum/foundations';
+import {
+  applyLearning,
+  freshLearning,
+  learningKey,
+  restoreLearning,
+} from '../../src/domain/curriculum/foundations';
+import { transferCriteria } from '../../src/domain/curriculum/manifest';
+import { applyEvent, freshAttempt } from '../../src/domain/chapter01/scenario';
+import { chapterKey, snapshotOf, restoreChapter } from '../../src/domain/chapter01/persistence';
+import {
+  applyModuleEvent,
+  freshServices,
+  restoreServices,
+  serviceLearningKey,
+} from '../../src/domain/portal/learning';
+import { courseKey, freshCourse } from '../../src/domain/course/model';
+import { storageKey, totalXp } from '../../src/domain/progression';
 
 const t = nb.beginnerProof;
 test.use({ trace: 'on' });
+test('root exposes owner review above the fold and round-trip interaction preserves all saved evidence', async ({
+  page,
+}, info) => {
+  test.skip(info.project.name !== 'desktop-chromium', 'Desktop-first review evidence.');
+  let learning = applyLearning(freshLearning(), { kind: 'begin-transfer' })!;
+  learning = applyLearning(learning, {
+    kind: 'submit',
+    answers: Object.fromEntries(
+      transferCriteria.map((c) => [c.id, c.id === 'shortfall' ? '4' : c.answer]),
+    ),
+  })!;
+  learning = applyLearning(learning, { kind: 'begin-transfer' })!;
+  learning = applyLearning(learning, { kind: 'draft', answers: { shortfall: '3' } })!;
+  const technical = applyEvent(freshAttempt(), {
+    kind: 'command',
+    bindResult: false,
+    request: {
+      commandId: 'review-seed-group',
+      expectedWorldRevision: 0,
+      command: {
+        type: 'CreateGroup',
+        subscriptionId: 'sub-app',
+        name: 'rg-review-preserved',
+        metadataRegion: 'norwayeast',
+      },
+    },
+  })!;
+  expect(technical.responses[0]?.outcome).toBe('accepted');
+  let services = applyModuleEvent(freshServices(), {
+    kind: 'begin',
+    boundary: 'review-seed-group',
+    attemptNumber: 1,
+  })!;
+  services = applyModuleEvent(services, { kind: 'draft', answers: { webModel: 'iaas' } })!;
+  services = applyModuleEvent(services, { kind: 'submit', through: 'review-seed-group' })!;
+  services = applyModuleEvent(services, {
+    kind: 'begin',
+    boundary: 'review-seed-group',
+    attemptNumber: 1,
+  })!;
+  services = applyModuleEvent(services, { kind: 'draft', answers: { webModel: 'paas' } })!;
+  const progress = {
+    version: 1 as const,
+    completed: ['organization-mission-v1', 'organization-check-v1'] as (
+      'organization-mission-v1' | 'organization-check-v1'
+    )[],
+  };
+  expect(totalXp(progress)).toBe(120);
+  const records = {
+    [learningKey]: JSON.stringify(learning),
+    [chapterKey]: JSON.stringify(snapshotOf(technical, 1, 1)),
+    [serviceLearningKey]: JSON.stringify(services),
+    [courseKey]: JSON.stringify({
+      ...freshCourse(),
+      resume: { module: 'computing', topic: 'models' },
+    }),
+    [storageKey]: JSON.stringify(progress),
+  };
+  expect(restoreLearning(records[learningKey]).save).toEqual(learning);
+  expect(restoreChapter(records[chapterKey]).status).toBe('valid');
+  expect(restoreServices(records[serviceLearningKey]).save).toEqual(services);
+  await page.addInitScript((seed) => {
+    if (sessionStorage.getItem('review-fixture-ready')) return;
+    for (const [key, value] of Object.entries(seed)) localStorage.setItem(key, value);
+    sessionStorage.setItem('review-fixture-ready', 'yes');
+  }, records);
+  const snapshot = () => page.evaluate(() => JSON.stringify(Object.entries(localStorage).sort()));
+  const before = JSON.stringify(Object.entries(records).sort());
+  for (const [width, height] of [
+    [1920, 1080],
+    [1440, 900],
+  ]) {
+    await page.setViewportSize({ width: width!, height: height! });
+    await page.goto('/');
+    await expect(page).toHaveURL(/\/learn$/);
+    const entry = page.getByRole('complementary', { name: t.reviewTitle, exact: true });
+    const open = entry.getByRole('link', { name: t.reviewAction, exact: true });
+    await expect(entry).toContainText(t.reviewDescription);
+    await expect(open).toBeVisible();
+    const box = await open.boundingBox();
+    expect(box!.y).toBeGreaterThanOrEqual(0);
+    expect(box!.y + box!.height).toBeLessThanOrEqual(height!);
+    expect(await page.evaluate(() => scrollY)).toBe(0);
+    expect((await new AxeBuilder({ page }).analyze()).violations).toEqual([]);
+    await page.screenshot({ path: info.outputPath(`31a-review-landing-${width}.png`) });
+    expect(await snapshot()).toBe(before);
+    await open.focus();
+    await page.keyboard.press('Enter');
+    await expect(page).toHaveURL(/\/design\/foundations-31a$/);
+    await expect(page.locator('meta[name="robots"]')).toHaveAttribute('content', /noindex/);
+    await page.getByRole('button', { name: t.send, exact: true }).click();
+    await expect(page.getByRole('status')).toHaveText(t.trace);
+    await page.getByRole('navigation', { name: t.nav }).getByRole('button').nth(3).click();
+    await page.getByLabel(t.prediction, { exact: true }).fill('9');
+    await page.getByRole('button', { name: t.run, exact: true }).click();
+    await expect(page.getByText(t.correction, { exact: true })).toBeVisible();
+    expect(await snapshot()).toBe(before);
+    await page.getByRole('link', { name: t.exit, exact: true }).click();
+    await expect(page).toHaveURL(/\/learn$/);
+    await expect(page.getByRole('link', { name: t.reviewAction, exact: true })).toBeVisible();
+    expect(await snapshot()).toBe(before);
+    await page.reload();
+    await expect(page.getByRole('link', { name: t.reviewAction, exact: true })).toBeVisible();
+    expect(await snapshot()).toBe(before);
+  }
+});
 test('isolated beginner proof explains, predicts, calculates and compares without learner-state writes', async ({
   page,
 }, info) => {
@@ -15,7 +137,8 @@ test('isolated beginner proof explains, predicts, calculates and compares withou
   const external: string[] = [],
     errors: string[] = [];
   page.on('request', (r) => {
-    if (new URL(r.url()).origin !== 'http://127.0.0.1:3000') external.push(r.url());
+    if (new URL(r.url()).origin !== new URL(info.project.use.baseURL!).origin)
+      external.push(r.url());
   });
   page.on('pageerror', (e) => errors.push(e.message));
   const existing = freshLearning();
@@ -84,7 +207,7 @@ test('isolated beginner proof explains, predicts, calculates and compares withou
   expect(errors).toEqual([]);
 });
 
-test('proof supports keyboard, reduced motion, zoom and remains outside course navigation', async ({
+test('proof supports keyboard, reduced motion, zoom and returns to the reviewable course', async ({
   page,
 }, info) => {
   test.skip(info.project.name !== 'desktop-chromium', 'Desktop-first design scope.');
@@ -108,7 +231,7 @@ test('proof supports keyboard, reduced motion, zoom and remains outside course n
   await page.screenshot({ path: info.outputPath('31a-zoom.png'), fullPage: true });
   await page.getByRole('link', { name: t.exit, exact: true }).click();
   await expect(page).toHaveURL(/\/learn$/);
-  await expect(page.locator('a[href="/design/foundations-31a"]')).toHaveCount(0);
+  await expect(page.getByRole('link', { name: t.reviewAction, exact: true })).toBeVisible();
   await page.goto('/');
   await expect(page).toHaveURL(/\/learn$/);
 });

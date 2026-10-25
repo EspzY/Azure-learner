@@ -2,6 +2,8 @@
 
 ## 3.1A → 3.1B — review before production rewrite
 
+Review entry gate: the main feature-preview URL must expose the new work, not require a separately supplied hidden path. 3.1A now has a labelled landing entry and explicit return. Remove the branch-local `FoundationsReviewEntry` before any production release. This discoverability correction does not authorize 3.1B; all pedagogical review gates below remain.
+
 3.1A delivers an evidence-based audit, prerequisite/first-use graph, three evaluated visual approaches, complete candidate storyboard, isolated non-evidentiary proof and [implementation handoff](FOUNDATIONS_31B_HANDOFF.md). It does not change the production module or its coverage. Owner review and novice/IT/qualified SME/accessibility exercises remain gates, not automated successes.
 
 3.1B requires separate authorization: teach request/server/hardware/VM/provisioning, introduce numeric units before capacity prediction, then preserve the full six official outcomes and practical lab/naming bridge. Version new observations separately; preserve every v1 save/first attempt and legacy award. Gates: deterministic model counterexamples, first-use/content integrity, source review, production browser/Axe/resume regression and actual1920/1440/1366 desktop inspection plus human comprehension review. Explicit exclusions: Benefits implementation, additional Azure services, schema reinterpretation, new infrastructure, readiness/mastery claims and dedicated mobile redesign. [Storyboard](FOUNDATIONS_31A_STORYBOARD.md) specifies per-stage outcomes/actions/acceptance, not just a feature list.

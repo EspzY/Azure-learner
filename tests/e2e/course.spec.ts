@@ -46,7 +46,7 @@ test('course owns full theory, guided real controls, denial investigation, hosti
   page.on('pageerror', (e) => errors.push(e.message));
   page.on('request', (r) => {
     const u = new URL(r.url());
-    if (u.origin !== 'http://127.0.0.1:3000') external.push(r.url());
+    if (u.origin !== new URL(info.project.use.baseURL!).origin) external.push(r.url());
     if (/\.(glb|wav)(\?|$)|\/game\//.test(u.pathname)) game.push(r.url());
   });
   await page.goto('/');

@@ -2,7 +2,7 @@
 
 ## 3.1A design proof boundary
 
-`/design/foundations-31a` is unlinked and `noindex`, **not access controlled or secret**. Its fictional in-memory calculator accepts only bounded finite inputs, uses no remote content/runtime API, and cannot dispatch simulation, assessment, XP or storage events. Existing root provider restoration is unchanged. No new assets, credentials, environment settings or dependencies. References open explicitly by learner action. Prototype state resets on reload; it cannot be promoted into learning evidence. Production stores/schemas and invalid-storage safeguards remain unchanged.
+`/design/foundations-31a` is discoverable from the course landing and remains `noindex`, **not access controlled or secret**. Its fictional in-memory calculator accepts only bounded finite inputs, uses no remote content/runtime API, and cannot dispatch simulation, assessment, XP or storage events. Existing root provider restoration is unchanged. No new assets, credentials, environment settings or dependencies. References open explicitly by learner action. Prototype state resets on reload; it cannot be promoted into learning evidence. Production stores/schemas and invalid-storage safeguards remain unchanged.
 
 ## Course-first refinement — 2026-10-25
 

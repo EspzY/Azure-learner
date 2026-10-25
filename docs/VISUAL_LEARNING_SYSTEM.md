@@ -54,7 +54,7 @@ Desktop is the permanent product priority:1920×1080 primary,1440×900 secondary
 
 ## Implemented proof
 
-`/design/foundations-31a` is an unlinked, clearly labelled design-review route with `noindex` metadata. It is available in a feature preview but is not a completed course. No XP, localStorage writer, curriculum activity registration or simulator command. Root providers still restore their existing stores; the proof cannot dispatch to them. A full-page ordinary anchor returns to `/learn`; a fresh proof reload resets only its in-memory experiment.
+`/design/foundations-31a` is a clearly labelled design-review route, accessible through the prominent 3.1A entry on `/learn`, with `noindex` metadata. It is available in a feature preview but is not a completed course. No XP, localStorage writer, curriculum activity registration or simulator command. Root providers still restore their existing stores; the proof cannot dispatch to them. A full-page ordinary anchor returns to `/learn`; a fresh proof reload resets only its in-memory experiment.
 
 One composition carries the shop request, selectable physical/server software illustration, invented unit definition, simple worked period and changed campaign prediction/run/compare. Original inline SVG geometry is code-owned; no downloaded art. HTML controls drive a pure bounded calculator. It deliberately stops before virtualization, cloud provisioning, naming or module assessment: those are storyboard/handoff specifications, not fake playable widgets.
 
@@ -62,7 +62,7 @@ What it establishes: feasibility of a steady explanatory workspace, explicit uni
 
 ## Reproducible proof walkthrough
 
-Open `/design/foundations-31a` directly; it is deliberately absent from the course menu. No setup account or resource is required.
+Open the deployment root `/`, find the 3.1A review entry near the top of `/learn`, and select **Åpne designprøven**. The current course module remains available for comparison; the proof header returns to `/learn`. No setup account or resource is required.
 
 | Step | Action and observation                                                                                                                                                                                                    | Mental model to ask the learner to explain                                                                                  |
 | ---- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |

@@ -3,6 +3,11 @@ import type { CreationError, Region, ScopeKind } from '../domain/simulation';
 
 export const nb = {
   beginnerProof: {
+    reviewBadge: 'REVIEWKANDIDAT · IKKE EN FULLFØRT LÆRINGSMODUL',
+    reviewTitle: 'AzureLab 3.1A — Forhåndsvis nytt læringsdesign',
+    reviewDescription:
+      'Undersøk et kandidatdesign for Describe cloud computing. Dagens læringsmodul er uendret. Designprøven lagrer ikke læringsresultater, vurderinger eller XP. Du kan gå tilbake til kurset og sammenligne.',
+    reviewAction: 'Åpne designprøven',
     brand: 'AzureLab',
     badge: 'DESIGNPRØVE · 3.1A',
     exit: 'Tilbake til dagens kurs',

@@ -2,6 +2,8 @@
 
 ## 3.1A decisions — 2026-10-25
 
+Decision082 supersedes only the **unlinked** portion of081: every owner-reviewable delivery must have a visible path from the preview root. The course landing now exposes a labelled 3.1A review entry after its main heading, with direct proof access and existing course return. Prototype noindex, in-memory isolation and unchanged evidence rules remain. This branch-local review entry must be removed before any production release; no new environment variable/configuration dependency or protection change is introduced.
+
 | ID  | Decision                                                                | Reason and boundary                                                                                                                                                                                                           |
 | --- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 078 | Permanent desktop-first policy                                          | Owner prioritizes1920×1080,1440×900,1366×768. Preserve baseline accessibility and old mobile regressions; defer new mobile polish. Supersedes equal-priority historical visual requirements.                                  |
