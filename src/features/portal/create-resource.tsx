@@ -1,5 +1,6 @@
 'use client';
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import type { LabForm } from '@/domain/course/model';
 import { nb, regionLabels } from '@/content/nb';
 import { regions } from '@/domain/simulation';
 import { types, type Command, type Engine } from '@/domain/chapter01/model';
@@ -18,6 +19,7 @@ export function CreateResource({
   disabled,
   onCreate,
   navigate,
+  onObserve,
 }: {
   engine: Engine;
   location: PortalLocation;
@@ -25,20 +27,25 @@ export function CreateResource({
   disabled: boolean;
   onCreate: (command: Command) => void;
   navigate: Navigate;
+  onObserve?: (value: LabForm | null) => void;
 }) {
   const { world } = engine,
     kind = location.kind;
   const prior = engine.ledger.find((e) => e.request.commandId === location.edit)?.request.command;
   const context = creationContext(world, location.id, prior);
   const [name, setName] = useState(typeof prior?.name === 'string' ? prior.name : '');
-  const [subscription, setSubscription] = useState(context.subscription);
+  const [subscription, setSubscription] = useState(
+    location.lab && kind === 'group' ? '' : context.subscription,
+  );
   const [group, setGroup] = useState(context.group);
   const [region, setRegion] = useState(
     typeof prior?.region === 'string'
       ? prior.region
       : typeof prior?.metadataRegion === 'string'
         ? prior.metadataRegion
-        : 'norwayeast',
+        : location.lab
+          ? ''
+          : 'norwayeast',
   );
   const [plan, setPlan] = useState(context.plan);
   const [step, setStep] = useState<'basics' | 'tags' | 'review'>('basics');
@@ -49,6 +56,10 @@ export function CreateResource({
     preview?.outcome === 'accepted' || preview?.code === 'policy-location-denied';
   const chosenGroup = world.groups.find((g) => g.id === group),
     chosenPlan = world.resources.find((r) => r.id === plan && r.type === types.plan);
+  useEffect(() => {
+    onObserve?.({ step, subscription, name, region, group, plan, valid: !!preflightReady });
+  }, [onObserve, step, subscription, name, region, group, plan, preflightReady]);
+  useEffect(() => () => onObserve?.(null), [onObserve]);
   return (
     <div className="portal-create">
       <p>{p.createNote}</p>
@@ -90,6 +101,7 @@ export function CreateResource({
               <label>
                 {p.subscription}
                 <select
+                  data-guide="subscription"
                   value={
                     kind === 'group' ? subscription : (chosenGroup?.subscriptionId ?? subscription)
                   }
@@ -101,6 +113,7 @@ export function CreateResource({
                     }
                   }}
                 >
+                  {location.lab && <option value="">{p.challenge.required}</option>}
                   {world.scopes
                     .filter((s) => s.kind === 'subscription')
                     .map((s) => (
@@ -114,6 +127,7 @@ export function CreateResource({
                 <label>
                   {p.group}
                   <select
+                    data-guide="group"
                     value={group}
                     onChange={(e) => {
                       setGroup(e.target.value);
@@ -139,6 +153,7 @@ export function CreateResource({
               <label>
                 {kind === 'group' ? p.groupName : p.name}
                 <input
+                  data-guide="name"
                   autoComplete="off"
                   required
                   maxLength={90}
@@ -150,7 +165,12 @@ export function CreateResource({
               {kind !== 'app' ? (
                 <label>
                   {p.region}
-                  <select value={region} onChange={(e) => setRegion(e.target.value)}>
+                  <select
+                    data-guide="region"
+                    value={region}
+                    onChange={(e) => setRegion(e.target.value)}
+                  >
+                    {location.lab && <option value="">{p.challenge.required}</option>}
                     {regions.map((r) => (
                       <option value={r} key={r}>
                         {regionLabels[r]}
@@ -162,7 +182,11 @@ export function CreateResource({
                 <>
                   <label>
                     {p.plan}
-                    <select value={plan} onChange={(e) => setPlan(e.target.value)}>
+                    <select
+                      data-guide="plan"
+                      value={plan}
+                      onChange={(e) => setPlan(e.target.value)}
+                    >
                       <option value="">{p.noPlan}</option>
                       {world.resources
                         .filter((r) => r.type === types.plan)
@@ -203,6 +227,7 @@ export function CreateResource({
           <section className="portal-review">
             <h2>{p.review}</h2>
             <div
+              data-guide="validation"
               role="status"
               className={preflightReady ? 'portal-validation-valid' : 'portal-validation-error'}
             >
@@ -242,6 +267,7 @@ export function CreateResource({
             </button>
           )}
           <button
+            data-guide={step === 'review' ? 'commit' : undefined}
             type="submit"
             className="primary"
             disabled={disabled || (step === 'review' && !preflightReady)}
@@ -249,7 +275,7 @@ export function CreateResource({
             {step === 'review' ? p.create : step === 'tags' ? p.review : p.next}
           </button>
           {step !== 'review' && (
-            <button type="button" onClick={() => setStep('review')}>
+            <button type="button" data-guide="review" onClick={() => setStep('review')}>
               {p.review}
             </button>
           )}

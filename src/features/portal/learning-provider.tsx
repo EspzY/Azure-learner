@@ -29,6 +29,6 @@ export function PortalLearningProvider({ children }: { children: React.ReactNode
 export function usePortalLearning() {
   const store = useContext(Context);
   if (!store) throw Error('PortalLearningProvider required');
-  const view = useSyncExternalStore(store.subscribe, store.getSnapshot, store.getSnapshot);
+  const view = useSyncExternalStore(store.subscribe, store.getSnapshot, store.getServerSnapshot);
   return { ...view, store, facts: serviceFacts(view.save) };
 }

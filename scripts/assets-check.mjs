@@ -3,6 +3,17 @@ import { createHash } from 'node:crypto';
 import { resolve, dirname, sep } from 'node:path';
 
 const root = resolve('public/game');
+const mascot = JSON.parse(readFileSync(resolve('public/mascot/manifest.json'), 'utf8'));
+const mascotBytes = readFileSync(resolve('public/mascot/savvy-shark-default.png'));
+if (
+  mascot.schema !== 1 ||
+  mascot.file !== 'savvy-shark-default.png' ||
+  mascot.bytes !== mascotBytes.length ||
+  mascotBytes.readUInt32BE(0) !== 0x89504e47 ||
+  createHash('sha256').update(mascotBytes).digest('hex') !== mascot.sha256 ||
+  !mascot.authorization
+)
+  throw Error('Unreviewed SavvyShark asset');
 const manifest = JSON.parse(readFileSync(resolve(root, 'manifest.json'), 'utf8'));
 const clips = ['idle', 'walk', 'interact-right', 'emote-yes', 'emote-no', 'pick-up'];
 let bytes = 0;

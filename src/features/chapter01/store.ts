@@ -24,6 +24,8 @@ export class GuidedStore {
     attemptNumber: 1,
   };
   private base: string | null = null;
+  private readonly serverView = this.view;
+  getServerSnapshot = () => this.serverView;
   private listeners = new Set<() => void>();
   constructor(private storage: StoragePort) {}
   getSnapshot = () => this.view;

@@ -1,5 +1,9 @@
 # Source and credential register
 
+## Course-first refinement — 2026-10-25
+
+M02 first path and M05 service-types index were re-read 2026-10-25: official module order and four objectives/six units unchanged. P03/P04/S03/S12/S39 remain the bounded group/hosting/patching references for original guide copy; no new Azure behavior or prices. [Course manuscript delivery](PORTAL_LEARNING_EXPERIENCE.md) retains prior full explanations. Mascot provenance is owner permission plus pinned repository asset/README, separately in ASSET_REGISTER; no Microsoft lesson/assessment is copied.
+
 ## Portal reboot targeted review — 2026-10-24
 
 P01–P07 document Portal overview, preferences, group/plan/web-app creation, resource filters and keyboard conventions in [PORTAL_REFERENCE_FIDELITY](PORTAL_REFERENCE_FIDELITY.md), with exact dates and supported/excluded behavior. S01/S12/S39 were re-read for responsibility, hosting and built-in-runtime/custom-container nuance. The official service-types module was inspected beyond its title: current units 2–4 and use cases inform original ST01–ST04 writing. No Microsoft lessons, questions, screenshots or authentication UI were imported. Public sources are verification/additional depth, not a substitute for AzureLab's basic teaching.

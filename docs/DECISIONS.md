@@ -1,5 +1,14 @@
 # Decisions
 
+## Course-first decisions — 2026-10-25
+
+| ID  | Decision                                                     | Reason and boundary                                                                                                                                               |
+| --- | ------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 074 | Course-primary hierarchy, shared Portal lab                  | Supersedes canonical Portal-first entry only. Ordered official metadata, full local teaching, practical transition and exact return; no mock duplicate.           |
+| 075 | Read-only authored guide and measured DOM targets            | Observe actual controls, receipts and relationships. Navigation is not competence; no automatic commands, click counters or coordinate scripting.                 |
+| 076 | Ninth bounded course/session record and stable SSR snapshots | Preserve old schemas/resources/awards, validate replay and attempt, show unfinished/unverifiable truth; server snapshot is initial while client snapshot is live. |
+| 077 | Pinned original owner-authorized SavvyShark default          | No unrelated artwork or financial functionality. Missing moods explicitly absent, no live chatbot or new dependency.                                              |
+
 ## Portal reboot decisions — 2026-10-24
 
 | ID  | Decision                                                              | Reason and boundary                                                                                                                                                                                                     |

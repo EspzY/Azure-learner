@@ -1,5 +1,9 @@
 # Portal reference and fidelity checklist
 
+## Course-first training overlay — 2026-10-25
+
+The supported service workflows below are reused. Course entry, SavvyShark, measured control outlines and causal debrief are **E: original educational enhancements**, not claimed Azure Portal features. Guided fields may start unselected to make decisions explicit. Free/independent controls retain normal behavior. [Guide contract](GUIDED_SANDBOX_ENGINE.md) and [course flow](COURSE_FIRST_PRODUCT_EXPERIENCE.md) specify the difference; human/live-tenant transfer review remains outstanding.
+
 Reference review: 2026-10-24. Public readable Microsoft documentation only; no live tenant, login flow, copied portal source or embedded portal screenshot. A documented workflow can be reproduced without claiming pixel parity. Rolling UI details may change. Implementing-agent screenshots and final checklist disposition belong to PROJECT_STATUS.
 
 | ID  | Reference / observed version                                                                                                                  | Verified scope                                                                                                                                                             |

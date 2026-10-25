@@ -362,7 +362,7 @@ test('keyboard search, incomplete practice, reference assistance, first submissi
   await expect(page.locator('tbody tr')).toHaveCount(2);
   expect((await new AxeBuilder({ page }).analyze()).violations).toEqual([]);
 });
-test('Portal is canonical, history preserves the lesson and archived entry stays isolated', async ({
+test('direct Portal entry preserves history and archived entry stays isolated', async ({
   page,
 }) => {
   const compatibility = await page.request.get(
@@ -377,7 +377,7 @@ test('Portal is canonical, history preserves the lesson and archived entry stays
   );
   expect(unsafe.status()).toBe(307);
   expect(unsafe.headers().location).toBe('/legacy/rpg');
-  await page.goto('/');
+  await page.goto('/portal');
   await expect(page).toHaveURL(/\/portal$/);
   await expect(page.locator('.portal-nav nav')).not.toContainText('RPG');
   expect(await page.locator('a[href*="legacy"], a[href*="expedition-3d"]').count()).toBe(0);

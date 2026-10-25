@@ -18,6 +18,8 @@ export class LearningStore {
     issue: null,
   };
   private base: string | null = null;
+  private readonly serverView = this.view;
+  getServerSnapshot = () => this.serverView;
   private listeners = new Set<() => void>();
   constructor(private storage: LearningStorage) {}
   getSnapshot = () => this.view;

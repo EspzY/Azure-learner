@@ -1,5 +1,9 @@
 # AzureLab product blueprint
 
+## Course-first refinement — 2026-10-25
+
+The implemented primary experience is now structured original teaching and live concepts with context-aware SavvyShark guidance into the shared Portal laboratory and exact debrief return. [Course strategy](COURSE_FIRST_PRODUCT_EXPERIENCE.md) supersedes the Portal-first entry hierarchy only. The wider professional competency/evidence ambitions remain; no planned course or world becomes implemented through this presentation change.
+
 ## Owner-authorized strategic supersession — 2026-10-24
 
 AzureLab 2.0 abandons RPG-first presentation in favour of an independent, high-fidelity **Azure Portal-inspired simulator with integrated Learn/Practice/Understand**. The earlier product-model comparison below remains historical reasoning, not the current rendering/navigation mandate. Technical domain correctness, competency graph, original learning content and evidence distinctions survive. [PORTAL_PRODUCT_STRATEGY](PORTAL_PRODUCT_STRATEGY.md) owns current scope and rationale; [reference fidelity](PORTAL_REFERENCE_FIDELITY.md) discloses documented matches, approximations and unavailable features. No parity percentage, Microsoft affiliation or full curriculum claim.

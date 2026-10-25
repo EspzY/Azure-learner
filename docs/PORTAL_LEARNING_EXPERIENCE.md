@@ -1,5 +1,9 @@
 # Portal learning manuscript and vertical slice
 
+## Course-first refinement — 2026-10-25
+
+The complete manuscript below is reused in `/learn/services`, with explicit previous/next activities. Applied group/plan/app work follows theory and justified cases; SavvyShark guides actual controls and causal inspection. Exact return to `services/practice` provides a factual guided debrief and retained-responsibility reflection. Existing changed independent task/rubric remains separate. [Course flow](COURSE_FIRST_PRODUCT_EXPERIENCE.md) replaces manual coordination, not substantive content.
+
 Authored before portal presentation, 2026-10-24; original AzureLab service-types module v1.0.0, F01 with G01/C01/G03 application. This replaces the RPG as teaching presentation without deleting its source history. Exact English metadata remains distinct from our original Bokmål learning activities. Human Azure SME/learner review is not performed.
 
 ## Objectives, sources and activity contract

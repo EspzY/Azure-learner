@@ -1,5 +1,9 @@
 # Roadmap
 
+## Course-first refinement — 2026-10-25
+
+Delivered candidate scope: ordered course entry, full existing modules, original SavvyShark image, state-driven control guidance, real hosting/policy lab, exact debrief and existing independent handoff. Current verification/limitations are in PROJECT_STATUS. Next gate: novice completes the entire flow without outside help, Azure practitioner reviews scope/denial/dependency transfer, SME reviews explanations, and assistive-technology users review targets/focus. Resolve failures before authoring the benefits module (availability, scalability, reliability, governance/security/manageability). No new Azure service or full-course completion claim.
+
 ## Current Portal reboot and next gates — 2026-10-24
 
 - Outcome: explain and justify IaaS/PaaS/SaaS, configure lifecycle/hosting, diagnose the training location denial and transfer the process to a changed scope/region.

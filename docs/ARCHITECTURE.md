@@ -1,5 +1,9 @@
 # Architecture
 
+## Course-first refinement — 2026-10-25
+
+The primary course and shared Portal are connected by [course/lab orchestration](COURSE_LAB_ORCHESTRATION.md). One root ServiceStore serves both; a separate CourseStore tracks validated preference/session context. Four external stores expose stable initial server snapshots, avoiding late streamed hydration mismatch while retaining live client state. The coach observes forms and deterministic receipts; it cannot configure resources. No new dependency, backend or game renderer is introduced.
+
 ## Current Portal-first architecture — 2026-10-24
 
 The owner supersedes the historical RPG-first direction. `/portal` composes native operational controls, focused Learn content, a guided companion pane and XYFlow/semantic projections. The existing root ChapterProvider remains the only technical inventory/receipt owner; original progression, curriculum and archived game stores are retained. Pure portal adapters, URL allowlists, source/objective bindings and a separate versioned service-types evidence log live in `src/domain/portal`; presentation lives in `src/features/portal`. No rendering engine controls learning truth. Read [PORTAL_SANDBOX_ARCHITECTURE](PORTAL_SANDBOX_ARCHITECTURE.md) for implemented boundaries and [reference fidelity](PORTAL_REFERENCE_FIDELITY.md) for approximations. The sections below record the preserved historical architecture.

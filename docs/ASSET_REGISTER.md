@@ -1,5 +1,9 @@
 # G1 asset register
 
+## Course-first refinement — 2026-10-25
+
+Owner explicitly authorized mascot-only reuse from EspzY/Egen-konomi on 2026-10-25. Included unchanged: `public/mascot/savvy-shark-default.png`, PNG281×317, 76,509 bytes, SHA256 `74d95ee43f63f8835de757fcc65618cd0db048b157e27ef25c3c5e42e1d930cd`. [Pinned source](https://github.com/EspzY/Egen-konomi/blob/dad10d1751dff5ba7dc736e8398f1bd0c97257a2/public/mascot/savvy-shark-default.png); creator/publisher: owner's SavvyScore project, upstream image authorship not independently established. Owner authorization permits this reuse; no general redistribution license is inferred. Default and welcome exist; thinking/reading/encouraging/concerned/celebrating PNGs are absent. Only default was copied. No attribution obligation beyond that established permission was found; retain this provenance and do not relicense it as CC0. Local manifest pins hash/size and assets:check verifies it. No resizing/modification, finance data, auth/database code or additional asset was imported. Image failure preserves all semantic learning. [Integration](SAVVYSHARK_INTEGRATION.md) records limits. Historical assets below remain unchanged.
+
 ## G1.1 reuse
 
 G1.1 introduces no third-party asset or download. All 26 GLBs, texture, licenses and manifest hashes below are unchanged. Runtime sign textures are original Canvas text with fitted sizing and revised transparency; lighting/material presentation remains original application code. Current Mini Characters proportions/rigs still limit mature character art; cinematic framing is not an asset-fidelity upgrade.

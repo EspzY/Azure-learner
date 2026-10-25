@@ -50,7 +50,7 @@ export function useLearning() {
   const view = useSyncExternalStore(
     ctx.store.subscribe,
     ctx.store.getSnapshot,
-    ctx.store.getSnapshot,
+    ctx.store.getServerSnapshot,
   );
   return { ...ctx, ...view, facts: learningFacts(view.save) };
 }
