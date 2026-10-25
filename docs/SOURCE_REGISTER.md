@@ -166,3 +166,7 @@ Shared-responsibility S01/L03 and App Service plan S12 were re-read for original
 ## Portal resource taxonomy
 
 **P11**, Microsoft Learn, [Understanding the Azure Resource Graph query language](https://learn.microsoft.com/en-us/azure/governance/resource-graph/concepts/query-language), rolling page read **2026-10-24**, reference-only. Its table definitions distinguish management containers (groups/subscriptions) from service resources. This informs the local Portal projection: Resource groups has its own list; All resources shows supported Web instances. Global search, recents and hierarchy can still include containers. This is not an implementation of Resource Graph, its query language or a live-tenant observation.
+
+## 3.1B.1 focused source recheck — 2026-10-25
+
+Rechecked the existing [cloud deployment-model unit](https://learn.microsoft.com/en-us/training/modules/describe-cloud-compute/5-define-cloud-models) for multi-customer public cloud, exclusive private cloud including external hosting, and hybrid integration. Rechecked [shared responsibility](https://learn.microsoft.com/en-us/azure/security/fundamentals/shared-responsibility) (page updated 2026-08-24) for retained customer tasks and service-specific boundaries. Original visualization/explanation copy is local; no lesson body or practice question was reproduced. No matrix, objective or assessment criterion was changed. This is an engineering source review, not human SME approval.

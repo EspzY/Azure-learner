@@ -53,3 +53,7 @@ No acceptance uses minimum word/slide/question counts. Review whether each objec
 6. Version material semantic changes, invalidate incompatible observations explicitly and retain old award ledgers. Commit manuscript, local content, tests and affected continuity docs together.
 
 Future specialist units require the same layers with deeper configurations, diagnostic witnesses and architectural counterexamples. One F01 competency can contain several modules and many activities. Do not expand the catalogue to conceal an incomplete first module.
+
+## 3.1B.1 comparison and guidance acceptance
+
+Preserve essential authored explanations and source/assessment mappings while improving composition. A visual comparison must show the selected case, meaningful relationships and the consequence of a change; colors alone are insufficient. Original private-offsite and hybrid requirements must remain accurate and have a readable semantic equivalent. Static inspection cannot look like a button. Guided objective/reason/action/expected result stays visible; hints remain optional. Navigation and display-only comparison toggles cannot manufacture practice or independent evidence. Human educational/SME review is still required beyond structural/browser tests.

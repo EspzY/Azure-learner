@@ -164,3 +164,7 @@ Implement the remaining full-chapter requirements below against the guided found
 ## Cross-phase stop conditions
 
 Stop expansion when a technical rule lacks a defensible boundary/source, a required action is inaccessible, an unsupported operation appears successful, an independent result has hidden guidance, a persistence conflict loses work silently, or a source/mapping is stale but presented as current. Record and resolve the specific failure rather than filling the roadmap with more features. Preserve Git history, draft review and documentation continuity; no merge/production/new infrastructure without explicit owner authorization. Existing branch previews remain allowed.
+
+## 3.1B.1 refinement review gates
+
+Implemented scope is composition, persistent desktop navigation, relational deployment explanations and context-safe teaching guidance; no new module or simulation capability. Reproduce the normal course/lab loop at1920×1080,1440×900 and1366×768. A new learner should explain customer versus provider work, private exclusivity versus location, and required versus configured hybrid integration; locate Next without searching the document; inspect a denied operation without mistaking a title for a control; and distinguish laboratory revisit from continuing the course. Test novice and IT-experienced think-aloud sessions, Azure SME source accuracy and human accessibility before claiming educational/visual acceptance. Record failures and iterate before the Benefits module. Automated checks are engineering evidence only.

@@ -503,7 +503,12 @@ function PortalWorkspace() {
               })()}
             </span>
             <div>
-              <h1 ref={heading} tabIndex={-1} id="portal-page-title" data-guide="resource">
+              <h1
+                ref={heading}
+                tabIndex={-1}
+                id="portal-page-title"
+                data-guide={location.area === 'resource' ? 'resource' : undefined}
+              >
                 {title}
               </h1>
               <small>
@@ -705,9 +710,9 @@ function PortalWorkspace() {
                 />
               ) : location.area === 'policy' ? (
                 <>
-                  <h2 data-guide="policy">{nb.chapter.customPolicy}</h2>
+                  <h2>{nb.chapter.customPolicy}</h2>
                   {world.policies.map((policy) => (
-                    <section key={policy.id}>
+                    <section key={policy.id} data-guide="policy">
                       <PropertyList
                         items={[
                           [p.name, policy.id],

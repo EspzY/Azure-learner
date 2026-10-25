@@ -17,3 +17,7 @@ The metadata-only overview does not mark assistance. It prioritizes an active in
 Guided return and practice resume use allowlisted `activity=lab` / `activity=debrief` context according to actual findings. Once validated stores hydrate and route layout settles, the course scrolls/focuses its committed semantic section refs; this avoids returning above a long manuscript. Unknown activity values are ignored; requesting debrief without actual satisfaction cannot create success. Navigation context cannot mutate evidence or issue a command. Back/Forward/reload preserve the activity and lesson. Query context avoids accumulated fragments on repeated return. The debrief describes a permitted configuration without falsely claiming a post-denial correction when an already-correct plan was accepted first.
 
 Browser localStorage is origin-bound. Old records remain compatible on the same origin; a different Vercel preview hostname has its own browser records. No automatic cross-origin/account migration is claimed.
+
+## 3.1B.1 labels and navigation
+
+The existing replayed `labFacts.complete` now projects **Gå tilbake til laboratoriet** as a secondary action and **Fortsett undervisningen** in the course bar. Incomplete work still offers **Fortsett praktisk lab**. No predicate/session migration was added. Course heading focus excludes the existing valid lab/debrief activity anchors so exact return remains authoritative. Summary/next navigation never submits an assessment or promotes a checkpoint.

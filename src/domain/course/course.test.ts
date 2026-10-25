@@ -9,6 +9,7 @@ import {
   startLab,
   labFacts,
   guideStep,
+  guideContextMatches,
   guideDefinitions,
   stepIds,
   courseKey,
@@ -233,4 +234,52 @@ describe('course and guided sandbox boundary', () => {
     expect(denied.getSnapshot().issue).toBe('unsaved');
     expect(denied.getSnapshot().save.resume?.topic).toBe('pricing');
   });
+});
+
+it('guidance separates native actions from inspection and refuses unrelated portal contexts', () => {
+  for (const id of stepIds) {
+    const step = guideDefinitions[id];
+    expect(nb.refinement.expectations[id].length).toBeGreaterThan(30);
+    expect(step.targetKind).toBe(
+      step.action === 'inspect' || step.action === 'return' || id === 'fix-validation'
+        ? 'inspection'
+        : 'action',
+    );
+  }
+  expect(
+    guideContextMatches(
+      guideDefinitions['create-plan'],
+      parseLocation(new URLSearchParams('area=apps')),
+    ),
+  ).toBe(false);
+  expect(
+    guideContextMatches(
+      guideDefinitions['create-plan'],
+      parseLocation(new URLSearchParams('area=plans')),
+    ),
+  ).toBe(true);
+  expect(
+    guideContextMatches(
+      guideDefinitions['plan-name'],
+      parseLocation(new URLSearchParams('area=create&kind=app')),
+    ),
+  ).toBe(false);
+  expect(
+    guideContextMatches(
+      guideDefinitions['inspect-group'],
+      parseLocation(new URLSearchParams('area=home')),
+    ),
+  ).toBe(false);
+  expect(
+    guideContextMatches(
+      guideDefinitions['inspect-policy'],
+      parseLocation(new URLSearchParams('area=policy')),
+    ),
+  ).toBe(true);
+  expect(
+    guideContextMatches(
+      guideDefinitions['unverifiable'],
+      parseLocation(new URLSearchParams('area=resource')),
+    ),
+  ).toBe(false);
 });

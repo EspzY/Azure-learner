@@ -4,7 +4,7 @@ export default function LearningLayout({ children }: { children: React.ReactNode
   const branch = process.env.VERCEL_GIT_COMMIT_REF;
   const preview = process.env.VERCEL_ENV !== 'production';
   return (
-    <>
+    <div className="course-learning-surface">
       {children}
       {preview && (
         <details className="course-build">
@@ -25,6 +25,6 @@ export default function LearningLayout({ children }: { children: React.ReactNode
           )}
         </details>
       )}
-    </>
+    </div>
   );
 }

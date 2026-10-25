@@ -1,5 +1,41 @@
 # Project status
 
+## AzureLab 3.1B.1 — integrated desktop UX refinement, 2026-10-25
+
+`feat/31b1-ux-refinement` is stacked on `feat/31b-foundations-integration` at verified `fb27b026b100dd10f4d12ec53273463ca06f44fa`. The actual `/` → `/learn` → Describe cloud computing route is the review target; there is no new proof route, curriculum or shell.
+
+### Implemented behavior
+
+The nested responsibility comparison now uses the teaching workspace width, keeping the original nine-layer rules, selected service/layer, same-layer comparison, explicit changed-layer text and all service caveats/manuscripts. Public/private/hybrid is original interactive SVG plus native/text equivalents: separate public customer usage, private exclusivity unchanged by external hosting, and a labelled hybrid integration requirement that never claims configured networking.
+
+One persistent desktop Previous/Next bar shows module, activity position/title and both destinations. Its measured height reserves document space for content and the expandable preview build footer; committed heading focus respects the sticky header and browser history. Exact lab/debrief focus wins over generic activity focus. Draft/aid/first-submission behavior is retained. Finished lab revisit is secondary and accurately labelled; teaching continuation is distinct.
+
+Typed action/inspection guide metadata, context eligibility and scoped unambiguous live targets replace generic heading rings. Blue actionable controls differ from amber informational emphasis. Hidden/unmounted/duplicate targets have honest recovery, no substitute heading. Objective/reason/action/expected result remain visible, hints optional; actual replayed names, location and active-object counts explain the current operation. Policy inspection remains readable after the existing inspection predicate is recorded. No autonomous submit, independent solution highlight, new completion rule, XP, store/schema, dependency or asset.
+
+### Engineering verification and boundaries
+
+Windows/Node24, existing locked installation reused. `npm run check`: strict types, zero-warning lint, format,46 required Markdown/local-link files,43 curriculum cases (subset of171 Vitest tests),3 docs fixtures, registered assets and production build passed. `npm audit --json`: zero vulnerabilities/333 dependencies. Staged secret-pattern and external-request review is part of the delivery; this is a heuristic check, not a security certification.
+
+Production Chromium suite: `npx playwright test --config .artifacts/31a-discoverability.config.ts tests/e2e/ux-refinement.spec.ts tests/e2e/course.spec.ts tests/e2e/portal.spec.ts tests/e2e/foundations-v2.spec.ts tests/e2e/beginner-proof.spec.ts`. **23 passed /9 intentionally skipped**; exact-head recheck uses the same command after commit. The nine skips are desktop-first new/archived-proof compositions in the mobile project; existing course/Portal mobile and narrow regressions run. It covers all v2 teaching/practice/assessment stages, complete actual denied/corrected plan/app lab, live architecture, exact course return, reload/replay, old records, independent help/first/retry integrity, keyboard, reduced motion, missing/duplicate targets, scroll/resize, Back/Forward/draft preservation, Axe and no external/game requests.
+
+Eight archived-world browser files deliberately excluded locally: `chapter01.spec.ts`, `cinematic.spec.ts`, `expedition.spec.ts`, `foundations.spec.ts`, `learning.spec.ts`, `living-learning.spec.ts`, `orientation.spec.ts`, `rpg.spec.ts`. They remain in CI, unchanged; no local whole-WebGL regression is claimed. All pure domain/storage/assessment unit suites ran. Port3100 avoids an unrelated project's3000 server, which was left untouched. Traces/videos and full logs remain ignored under `.artifacts`; selected synthetic desktop images are versioned below. No clean reinstall, physical-device performance or human accessibility/learning validation is claimed.
+
+### Inspected desktop evidence
+
+Agent inspected actual pixels at1920×1080,1440×900 and1366×768, plus the real action/inspection/creation/rejection/policy/correction/debrief flow. Corrected a public-customer arrow crossing its caption during this review. Long teaching/inspection material remains scrollable at minimum desktop; it is not compressed into tiny text. The bar stays accessible and final controls/footer can scroll above it. Owner visual acceptance and human educational/SME review remain outstanding.
+
+| Review                   | Before / after or implemented evidence                                                                                                                                                                                                                                          |
+| ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Responsibility           | [Before1920](screenshots/31b1-before-v2-responsibility-1920.png), [after1920](screenshots/31b1-after-responsibility-1920.png), [1440](screenshots/31b1-after-responsibility-1440.png), [1366](screenshots/31b1-after-responsibility-1366.png)                                   |
+| Deployment relationships | [Before1920](screenshots/31b1-before-v2-models-1920.png), [public](screenshots/31b1-after-public-1920.png), [private](screenshots/31b1-after-private-1920.png), [hybrid1440](screenshots/31b1-after-hybrid-1440.png), [private1366](screenshots/31b1-after-private-1366.png)    |
+| Persistent navigation    | [1920](screenshots/31b1-after-navigation-1920.png), [1440](screenshots/31b1-after-navigation-1440.png), [1366](screenshots/31b1-after-navigation-1366.png)                                                                                                                      |
+| Action versus inspection | [Search control](screenshots/31b1-search-highlight.png), [resource information](screenshots/31b1-group-inspection.png), [policy properties](screenshots/31b1-policy-inspection.png)                                                                                             |
+| Actual technical work    | [Group configuration](screenshots/31b1-group-configuration.png), [denied request](screenshots/31b1-denial.png), [corrected plan](screenshots/31b1-corrected-plan.png), [live architecture](screenshots/31b1-architecture.png), [accurate debrief](screenshots/31b1-debrief.png) |
+
+Reproduce the normal application sequence using the [implemented handoff](FOUNDATIONS_31B_HANDOFF.md#31b1-implemented-refinement). Preview branch/SHA and its actual root walkthrough must be independently confirmed in the stacked Draft PR; local build success alone is not the Vercel acceptance gate. No merge, production/protection/configuration change or new infrastructure is authorized/performed.
+
+Human gates: novice and IT-experienced think-aloud review, Azure SME responsibility/deployment/receipt explanation review, assistive-technology and owner visual review. Check whether learners can explain model changes, distinguish information from actions, locate Next and continue teaching after lab work without outside coaching. Benefits/new services/mobile redesign and further product pivots are excluded. Resolve observed confusion before expanding content.
+
 ## AzureLab 3.1B — ordinary-course integration, 2026-10-25
 
 Branch `feat/31b-foundations-integration`, based exactly on verified3.1A `448f9655fab40ac6a8d39beae22944a1473a2943`. This is the actual course implementation, not another isolated proof. `/` → `/learn` → Describe cloud computing opens browser/client/request/server teaching for new learners. Current topics implement S01–S13: original request/cutaway, finite guest-host RAM, explicit provisioning/control versus workload, defined work/hour, separate worked/prediction fixtures, executed comparison and the five substantial retained official-objective investigations. The old review promotion/component is removed; its noindex proof remains an archive. Benefits remains planned.

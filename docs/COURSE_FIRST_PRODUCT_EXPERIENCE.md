@@ -31,3 +31,9 @@ Human novice review: ask a new learner to explain their track and current module
 9. Return to the course. The exact practice topic contains actual group/plan/app names, a causal debrief and retained-customer-responsibility reflection with wrong/correct feedback. Leave/reload/Back/Forward to verify the context and committed work persist. Exiting earlier shows unfinished/resume instead.
 10. Start the existing changed independent challenge. It presents different scope/location requirements and ordinary Portal controls without guidance highlights. First/help/retry/abandon/replay distinctions remain. Theory/journal use is assistance; no new XP, Microsoft completion or mastery claim is emitted.
 11. Revisit computing: all six substantial units, original experiments, journal and changed assessment remain available without WebGL. The free Portal does not force a lab; a URL lab hint without a validated session cannot create one.
+
+## 3.1B.1 desktop teaching composition
+
+The ordinary module uses full-width comparisons for responsibility and deployment models, with substantive prose at a readable measure. A single persistent desktop course bar shows module, current position/title, previous and next destination. It reserves its measured height in the document and restores focus to the committed activity heading below the course header, including browser history. Navigation neither completes objectives nor changes assessment answers. Existing lab/debrief return focus takes precedence.
+
+Complete guided practice now offers secondary **Gå tilbake til laboratoriet** and primary **Fortsett undervisningen**. Unfinished sessions keep **Fortsett praktisk lab**. These labels project the unchanged replayed `labFacts`; there is no second completion flag. [Implementation and walkthrough](FOUNDATIONS_31B_HANDOFF.md#31b1-implemented-refinement).
