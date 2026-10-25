@@ -1,5 +1,19 @@
 # Decisions
 
+## 3.2 decisions — 2026-10-25
+
+| ID  | Decision                                        | Reason/boundary                                                                                                      |
+| --- | ----------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
+| 091 | Cumulative module boundaries                    | M1 recap; M2 capability conditions; M3 operational service decisions. Preserve original prose and outcomes.          |
+| 092 | Explicit comparison context                     | Fix cross-module Service Types contamination without rewriting historical bytes or assigning unknown provenance.     |
+| 093 | Separate Benefits1/Service Types2 records       | New semantics need independent replayed evidence, version choice and first/help/retry/abandon classification. No XP. |
+| 094 | Finite conceptual models                        | Use the representation needed for each mechanism; no universal simulator, VM provider or SaaS API.                   |
+| 095 | Policy experiment on discarded engine           | Show real bounded receipts without modifying shared Portal inventory or claiming security/RBAC enforcement.          |
+| 096 | Opt-in technical reuse and exact version return | Replay existing accepted resources; require actual inspections; navigation origins cannot create learning evidence.  |
+| 097 | Current Learn sustainability coverage           | Teach the verified module objective separately from the narrower exam-outline heading.                               |
+
+Engineering verification and human educational acceptance remain separate. Earlier decisions and superseded planned-only scope remain below as history.
+
 ## 3.1B decisions — 2026-10-25
 
 | ID  | Decision                               | Reason and boundary                                                                                          |

@@ -1,5 +1,11 @@
 # Security and privacy
 
+## 3.2 conceptual and evidence isolation
+
+New learning stores accept only exact bounded events, finite configuration values and expected content/model/rubric/schema versions; replay rejects malformed/order-invalid data. A cross-tab base comparison stops stale writes; denied reads/writes expose memory-only status. Reset affects only the selected new record, never historical learning or simulator keys. Local records remain editable by the user and are not authoritative credentials.
+
+Conceptual VM, SaaS, reliability and utilization tasks create no Azure/network/Microsoft365 operations. Policy teaching executes on a fresh discarded engine, not the authoritative Portal store. No credentials, tenant IDs, prices, user data, new services, assets or runtime network integrations were added. Normal course/Portal still load no game renderer/assets. Reviewed source links are user-initiated external navigation, not live Learn ingestion.
+
 ## 3.1B boundaries
 
 The isolated v2 record validates exact schema/content/model/rubric, choice, finite events/order, count600 and size220000 before replay. Corrupt/unsupported state is quarantined; stale tabs stop writes; denied storage is visible/memory-only. Per-version reset cannot delete other records; explicit global deletion clears v2 through its provider. Choice/origin/resume are not evidence. V1 schema, simulation rules and awards remain.

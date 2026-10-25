@@ -1,5 +1,9 @@
 # Course/lab orchestration
 
+## 3.2 lab reuse and return
+
+LabSession retains schema/version and adds only allowlisted navigation origins services-v1/services-v2 alongside computing-v2. Restore accepts historical sessions without origin. Origins do not affect validated technical predicates. Current/archive entry explicitly sets its own origin, so one course cannot accidentally return to the other version. A user may opt into a boundary-null session for accepted prior resources in the same replayed attempt. Policy and hosting inspections still need actual matching receipt/resource IDs; resources and old observations are not recreated or migrated. New independent assessment contexts suppress coaching highlights. See [architecture](CONTENT_ARCHITECTURE.md).
+
 ## 3.1B computing origin
 
 The same lab starts at `/learn/computing?topic=resource-bridge`. Sessions may carry `origin: computing-v2`; old sessions keep their shape/service return. Guidance, inventory and receipt predicates are unchanged. Return selects the originating bridge with `activity=lab|debrief` and focuses the saved section. Origin cannot complete a module/assessment. Unfinished work remains resumable after reload. Unsubmitted form values are transient.

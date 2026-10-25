@@ -52,6 +52,7 @@ import { useCourse } from '@/features/course/provider';
 import { courseHref, courseLabHref, labFacts, type LabForm } from '@/domain/course/model';
 import { GuidedCoach } from '@/features/course/guided-coach';
 import Link from 'next/link';
+import { useExpansion, ExpansionAssistance } from '@/features/learning/expansion-provider';
 const p = nb.portal;
 const services = ['subscriptions', 'groups', 'resources', 'apps', 'plans', 'activity'] as const;
 const educational = ['learn', 'responsibility', 'hierarchy', 'architecture', 'challenge'] as const;
@@ -84,8 +85,20 @@ function PortalWorkspace() {
     learning = useLearning(),
     module = usePortalLearning();
   const course = useCourse();
+  const benefits = useExpansion('benefits'),
+    services2 = useExpansion('services');
+  const independentContext = module.facts.active || benefits.facts.active || services2.facts.active;
   const [labForm, setLabForm] = useState<LabForm | null>(null);
-  const guidedLab = !!location.lab && !!course.save.lab && !module.facts.active;
+  const guidedLab =
+    !!location.lab &&
+    course.ready &&
+    module.ready &&
+    benefits.ready &&
+    services2.ready &&
+    !!course.save.lab &&
+    !module.facts.active &&
+    !benefits.facts.active &&
+    !services2.facts.active;
   const courseReturn = guidedLab
     ? courseLabHref(
         labFacts(course.save.lab, chapter.attempt.engine, chapter.attemptNumber).complete,
@@ -292,6 +305,7 @@ function PortalWorkspace() {
       className={`portal ${collapsed ? 'portal-collapsed' : ''} ${guidedLab ? 'portal-guided-lab' : ''}`}
       style={{ '--teaching-width': `${width}px` } as React.CSSProperties}
     >
+      <ExpansionAssistance />
       <a className="portal-skip" href="#portal-main">
         {nb.shell.skip}
       </a>
@@ -518,8 +532,8 @@ function PortalWorkspace() {
           </div>
           {commands}
           <div className="portal-training-strip">
-            <span className={`mode-${module.facts.active ? 'independent' : location.mode}`}>
-              {module.facts.active
+            <span className={`mode-${independentContext ? 'independent' : location.mode}`}>
+              {independentContext
                 ? p.modes.independent
                 : guidedLab
                   ? nb.course.guided
@@ -544,7 +558,7 @@ function PortalWorkspace() {
                 {p.returnLearning}
               </button>
             )}
-            {location.mode === 'guided' && !guidedLab && !module.facts.active && (
+            {location.mode === 'guided' && !guidedLab && !independentContext && (
               <button type="button" onClick={() => setPane(!pane)}>
                 {pane ? p.hidePane : p.showPane}
               </button>
@@ -586,7 +600,7 @@ function PortalWorkspace() {
             </div>
           )}
           <div
-            className={`portal-content ${location.mode === 'guided' && !guidedLab && pane && !module.facts.active && !['learn', 'challenge', 'architecture', 'hierarchy'].includes(location.area) ? 'with-teaching' : ''}`}
+            className={`portal-content ${location.mode === 'guided' && !guidedLab && pane && !independentContext && !['learn', 'challenge', 'architecture', 'hierarchy'].includes(location.area) ? 'with-teaching' : ''}`}
           >
             <div className="portal-view">
               {location.area === 'home' ? (
@@ -755,7 +769,7 @@ function PortalWorkspace() {
             {location.mode === 'guided' &&
               !guidedLab &&
               pane &&
-              !module.facts.active &&
+              !independentContext &&
               !['learn', 'challenge', 'architecture', 'hierarchy'].includes(location.area) && (
                 <aside className="portal-teaching-pane" aria-label={p.guidedBrief}>
                   <span>{p.modes.guided}</span>

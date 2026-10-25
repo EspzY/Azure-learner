@@ -199,10 +199,14 @@ export function ServicesWorkspace({
   location,
   navigate,
   course = false,
+  operational = false,
+  extension,
 }: {
   location: PortalLocation;
   navigate: Navigate;
   course?: boolean;
+  operational?: boolean;
+  extension?: React.ReactNode;
 }) {
   const topic = topics.includes(location.topic as (typeof topics)[number])
     ? (location.topic as (typeof topics)[number])
@@ -248,8 +252,9 @@ export function ServicesWorkspace({
       <p>{c.mechanism}</p>
       <h3>{l.headings.example}</h3>
       <p>{c.example}</p>
-      {['overview', 'iaas', 'paas', 'saas'].includes(topic) && (
+      {!operational && ['overview', 'iaas', 'paas', 'saas'].includes(topic) && (
         <ResponsibilityExplorer
+          context="service-v1"
           key={topic}
           guide={course}
           initialModel={models.includes(topic as Model) ? (topic as Model) : 'paas'}
@@ -259,7 +264,8 @@ export function ServicesWorkspace({
       <p>{c.misconception}</p>
       <h3>{l.headings.limits}</h3>
       <p>{c.limits}</p>
-      {topic === 'selection' && (
+      {extension}
+      {!operational && topic === 'selection' && (
         <>
           <h3>{l.guided}</h3>
           {cases.map((id) => (
@@ -284,15 +290,17 @@ export function ServicesWorkspace({
           </button>
         </div>
       )}
-      <div className="portal-evidence-note">
-        <p>
-          {l.compared}: {facts.compared.size} / 3
-        </p>
-        <p>{facts.guidedComplete ? l.guidedComplete : l.guidedIncomplete}</p>
-        <button type="button" onClick={() => navigate('challenge', { mode: 'independent' })}>
-          {p.areas.challenge}
-        </button>
-      </div>
+      {!operational && (
+        <div className="portal-evidence-note">
+          <p>
+            {l.compared}: {facts.compared.size} / 3
+          </p>
+          <p>{facts.guidedComplete ? l.guidedComplete : l.guidedIncomplete}</p>
+          <button type="button" onClick={() => navigate('challenge', { mode: 'independent' })}>
+            {p.areas.challenge}
+          </button>
+        </div>
+      )}
       <h3>{p.source}</h3>
       <ul className="portal-references">
         {references.map(([id, url]) => (

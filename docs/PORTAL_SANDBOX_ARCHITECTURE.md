@@ -1,5 +1,9 @@
 # Portal sandbox architecture
 
+## 3.2 separation from conceptual exercises
+
+The Portal still has one ChapterProvider inventory and unchanged command validation. New curriculum models cannot insert VM, SaaS user or load-balancer resources. The policy teaching experiment executes a fresh discarded engine and labels its receipt accordingly. The actual PaaS lab continues to observe shared accepted resources, denial receipts and typed hosting relations. Explicit current-attempt reuse and allowlisted version return are [course orchestration](COURSE_LAB_ORCHESTRATION.md), not alternative resource state. No additional backend, dependency or Azure operation was added.
+
 ## Course-first refinement — 2026-10-25
 
 One root ServiceStore now serves course and Portal; ChapterProvider and LearningProvider remain shared. Fixed initial server snapshots and live client subscriptions prevent streamed-page hydration mismatches without changing commands or old schemas. [Course/lab orchestration](COURSE_LAB_ORCHESTRATION.md) owns a ninth navigation/session record. The real create UI exposes semantic targets and read-only form observations to [authored guidance](GUIDED_SANDBOX_ENGINE.md), which cannot submit technical commands. URL hints preserve context, never authorize completion.

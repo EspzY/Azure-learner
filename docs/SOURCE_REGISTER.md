@@ -1,5 +1,9 @@
 # Source and credential register
 
+## 3.2 reviewed source overlay — 2026-10-25
+
+[Supplementary reading register](FUNDAMENTALS_SUPPLEMENTARY_READING.md) is the canonical classified audit of the actual official path, Module2/3 teaching units, AZ-900 outline and additional Microsoft documentation. Source IDs B10–B14/T10–T23 are mirrored in `expansion-content.ts`, version rolling-page@2026-10-25. Original prose/diagrams/questions are locally authored; Microsoft images/video and protected assessment bodies are not reproduced. Learn objectives are distinguished from exam-outline bullets, notably sustainability. Agent source cross-check is performed; qualified human SME review is still pending. Inaccessible guessed pages were excluded rather than used as evidence.
+
 ## 3.1B source recheck — 2026-10-25
 
 Re-opened L01 and BL01–BL06 for actual implementation: module still lists six outcomes/eight units; VM overview distinguishes virtual flexibility from retained guest maintenance; Hyper-V supplies host/guest grounding; naming/convention/abbreviation/resource-group pages distinguish recommendations, per-type rules and metadata location. Articles with a sign-in notice still exposed readable article text; no tenant authentication or copied lesson body was used. Original new explanations/assessment and invented numerical fixtures are local. Register URLs below remain authoritative references, not a license to redistribute lesson content. No human SME/learning approval is claimed.

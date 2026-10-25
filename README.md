@@ -1,4 +1,12 @@
-# AzureLab 3.1B.1
+# AzureLab 3.2
+
+## 3.2 — progressive cloud concepts
+
+The normal `/` → `/learn` course now exposes the official three-module order. Foundations remains prerequisite-first. **Describe the benefits of using cloud services** adds five substantial investigations: failure/routing/capacity, incident/dependency diagnosis, an actual policy receipt on an unsaved engine fork, manual versus repeatable configuration, and hypothetical resource scheduling. **Describe cloud service types** retains its original manuscript and real Portal lab while adding operational VM, managed-platform, SaaS administration and justified-alternative exercises.
+
+These are bounded teaching models, not additional Azure resource providers. No VM, network, code deployment, monitoring, real pricing or environmental measurement is implemented. New Benefits v1 and Service Types v2 records replay their own events. Old Service Types v1 remains explicitly labelled at `version=1`; existing learners choose versions, with no evidence migration or additional XP. Module 1's responsibility recap does not write Service Types events. See [progression audit](docs/MODULE_01_02_03_PROGRESSION_AUDIT.md), [Benefits manuscript](docs/CLOUD_BENEFITS_CONTENT.md), [operational Service Types](docs/SERVICE_TYPES_DEEP_LEARNING.md), [source classification](docs/FUNDAMENTALS_SUPPLEMENTARY_READING.md) and [verification/status](docs/PROJECT_STATUS.md). Human SME, visual acceptance and learning-effectiveness review remain separate outstanding gates.
+
+Earlier phase sections below are history where superseded by this current scope.
 
 ## Desktop learning refinement
 

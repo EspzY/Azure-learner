@@ -1,5 +1,11 @@
 # Roadmap
 
+## 3.2 delivered scope and review gates
+
+This branch implements the authorized Benefits module and operative Service Types deepening, not another prototype. [Project status](PROJECT_STATUS.md) records actual checks. Before educational approval: a novice predicts fault/routing effects and explains sustainability limits; an IT learner diagnoses dependency versus capacity; an Azure SME reviews service/policy/runtime/SaaS qualifications; assistive-technology review checks visual/text equivalence. Record actual errors/confusion and iterate, without equating green tests to learning.
+
+Next content candidate: **Describe the core architectural components of Azure**, after these review gates. Outcome: distinguish identity, management, geography and resource relationships; reuse existing scope/metadata/dependency workbench. Gate: full original manuscript/objective/source audit before presentation, changed transfer scenario, no double evidence and preserved old stores. Exclusions: new Azure resources/services, full Azure Fundamentals readiness, production release, mobile redesign or professional-track expansion before this path is reviewed.
+
 ## 3.1B integration and next gates
 
 Implemented candidate: the real prerequisite-first course, separate observations, preserved v1, actual naming advice and computing→shared Portal→exact debrief. Executed checks belong to PROJECT_STATUS. Before educational acceptance, a true novice explains request→capacity without outside coaching; an Azure SME reviews provisioning, responsibility, naming and pricing caveats; an accessibility reviewer checks model/journal interpretation. Fix observed confusion before expansion. No production release/merge is authorized. Next content priority is **Describe the benefits of using cloud services**, after learner review.

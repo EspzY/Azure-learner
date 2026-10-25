@@ -2,6 +2,1038 @@ import type { QuestionId } from '../domain/assessment';
 import type { CreationError, Region, ScopeKind } from '../domain/simulation';
 
 export const nb = {
+  expansion: {
+    common: {
+      version: '3.2',
+      current: 'Ny undervisning',
+      legacy: 'Service Types v1 · historisk versjon',
+      choiceTitle: 'Behold historikken og velg undervisningsversjon',
+      choiceText:
+        'Du har Service Types v1-observasjoner. De bevares som historiske data. Noen gamle sammenligninger kan mangle kildekontekst. Versjon2 bruker egne aktiviteter og vurderinger; ingen gammel aktivitet oppgraderes.',
+      keepLegacy: 'Åpne historisk v1',
+      startCurrent: 'Start Service Types versjon 2',
+      viewLegacy: 'Se bevart Service Types v1',
+      viewCurrent: 'Tilbake til nåværende Service Types',
+      legacyWarning:
+        'Dette er den bevarte v1-undervisningen og dens opprinnelige vurderinger. Den er ikke den utvidede operative versjonen.',
+      nextBenefits:
+        'Du kjenner nå cloud-ressursene. Fortsett med hvilke driftsfordeler de kan gi, og hvilke betingelser som må være oppfylt.',
+      nextServices:
+        'Du har undersøkt kapasitet, recovery og styring. Neste modul gjør servicegrensene konkrete gjennom VM-, plattform- og SaaS-valg.',
+      beginnerRecap: 'Grunnlaget: hvem gjør hvilken oppgave?',
+      recapNote:
+        'Her fordeler vi grunnleggende fysisk arbeid, data og klientansvar. Full operativ service-sammenligning og nye konfigurasjonsvalg følger i modul 3.',
+      recapCases: [
+        ['physical', 'En fysisk vert må vedlikeholdes'],
+        ['data', 'Teamets kundedata deles for bredt'],
+        ['identity', 'En ansatt skal ikke lenger ha tilgang'],
+      ],
+      recapDeep: 'Undersøk den operative service-sammenligningen',
+      prerequisite: 'Før du undersøker',
+      mechanism: 'Mekanismen',
+      azure: 'I Azure og i drift',
+      worked: 'Gjennomarbeidet eksempel',
+      counterexample: 'Misforståelse og moteksempel',
+      limits: 'Forutsetninger og modellgrenser',
+      terms: 'Begreper i denne undersøkelsen',
+      goal: 'Mål',
+      why: 'Hvorfor dette er viktig',
+      action: 'Gjør dette',
+      expect: 'Forventet observasjon',
+      run: 'Kjør undersøkelsen',
+      prediction: 'Forutsi utførte jobber per minutt',
+      predictionHelp:
+        'Skriv et heltall før resultatet vises. Hypotesen lagres, også hvis den er feil.',
+      invalid: 'Kontroller de avgrensede verdiene og fyll inn en gyldig prediksjon.',
+      pending:
+        'Konfigurasjonen er endret. Kjør igjen for å se resultatet av akkurat disse valgene.',
+      compare: 'Prøver du har utført',
+      required: 'Observasjoner før veiledet godkjenning',
+      check: 'Begrunn observasjonen',
+      correct: 'Begrunnelsen passer',
+      wait: 'Utfør de angitte undersøkelsene først. Å åpne siden gir ingen øvingsgodkjenning.',
+      introduced: 'Introdusert',
+      practiced: 'Veiledet undersøkt',
+      notYet: 'Ikke bekreftet',
+      summary: 'Observasjoner og neste steg',
+      summaryNote:
+        'Dette er lokale observasjoner fra avgrensede oppgaver. Introduksjon, guided practice og første uavhengige svar er separate. Ingen XP, offisiell Learn-fullføring, mestringsprosent eller eksamensberedskap beregnes.',
+      assessment: 'Endret uavhengig oppgave',
+      begin: 'Start egen besvarelse',
+      submit: 'Lever hele besvarelsen',
+      cancel: 'Avslutt forsøket uten innlevering',
+      cancelled: 'Avsluttet uten innlevering',
+      cancelledNote:
+        'Avsluttede forsøk er bevart; et senere forsøk er ikke en ny førsteinnlevering.',
+      draft: 'Svarutkast lagres. Ingen fasit vises før en faktisk innlevering.',
+      assisted: 'Hjelp registrert i forsøket',
+      first: 'Første innlevering uten registrert hjelp',
+      retry: 'Nytt forsøk · øving etter tidligere forsøk',
+      firstAssisted: 'Første innlevering med registrert hjelp',
+      submitted:
+        'Innleveringen er registrert før tilbakemeldingen vises. Kontroller eventuelle lagringsvarsler.',
+      hint: 'Vis prinsippstøtte (registreres som hjelp)',
+      hintText:
+        'Følg den nødvendige funksjonen gjennom komponenter, avhengigheter og driftsansvar. Skill riktig konfigurasjon fra kapasitet, tilgjengelighet og sikkerhet.',
+      noAssessment: 'Ingen innlevering i denne versjonen',
+      newAttempt: 'Prøv en ny besvarelse',
+      choose: 'Velg selv',
+      sources: 'Kilder og valgfri fordypning',
+      review: 'Kilder kontrollert 25. oktober 2026 · menneskelig Azure-SME-review gjenstår',
+      storage:
+        'Denne modulens lagring trenger oppmerksomhet. Tidligere gyldig arbeid er ikke slettet.',
+      reload: 'Les lagret modul på nytt',
+      reset: 'Nullstill bare denne modulens observasjoner',
+      confirmReset: 'Bekreft sletting av denne modulens lokale observasjoner',
+      memory: 'Skriving ble avvist. Arbeidet finnes bare i minnet til denne fanen.',
+      legacyResults: 'Historiske v1-svar beholdes separat',
+      noNewEvidence:
+        'Å lese, navigere eller bruke en annen moduls visualisering gir ingen godskriving her.',
+      existingLab: 'Gjenbruk dokumentert teknisk arbeid',
+      existingLabNote:
+        'Du kan undersøke tidligere aksepterte ressurser og kvitteringer i denne tekniske økten. Ingen gamle læringsobservasjoner flyttes til den nye versjonen.',
+      technicalRequired:
+        'Den praktiske delen krever både den nye begrunnelsen og bekreftet faktisk labkonfigurasjon med inspeksjoner.',
+      technicalReady: 'Labkonfigurasjon og inspeksjoner bekreftet i gjeldende tekniske økt',
+      technicalMissing: 'Teknisk grunnlag er ikke fullstendig bekreftet i gjeldende økt.',
+      preview: 'Konfigurasjonsskisse · kjør undersøkelsen for validert tilbakemelding',
+      vm: {
+        host: 'Leverandørens fysiske vert',
+        boundary: 'Virtuell gjest · kundens programvarestakk',
+        os: 'Gjeste-OS',
+        resources: 'Tildelte ressurser',
+        runtime: 'Runtime og vedlikehold',
+        needs:
+          'Oppdrag: Windows, åtte GiB, varige appdata og avklart drift. vCPU er et eget valg; vi måler ikke ytelse.',
+        disk: 'Separat appdata',
+        nic: 'Kommunikasjon',
+      },
+      platform: {
+        input: 'Kundens leveranse',
+        gate: 'Plattformens kompatibilitetsgrense',
+        runtime: 'Støttet innebygd runtime',
+        retained: 'Kundevalg som fortsatt må avklares',
+        blocked: 'Denne leveransen passer ikke den valgte innebygde plattformen',
+        allowed: 'Leveransen passer denne modellens plattformkrav',
+      },
+      saasModel: {
+        provider: 'Ferdig samarbeidsfunksjon · leverandøren drifter appen',
+        person: 'Mina',
+        entry: 'Konto og tjenestelisens',
+        authority: 'Bruk eller administrasjon',
+        data: 'Delingsgrense',
+        departed: 'Konto avsluttet · vurder tidligere delinger separat',
+      },
+      choiceModel: {
+        requirements: 'Kravene kommer først',
+        legacy: 'Windows-agent med behov for gjeste-OS-kontroll',
+        custom: 'Egen støttet webkode uten ønske om gjeste-OS-drift',
+        ready: 'Ferdig samarbeid uten egen appkode',
+        open: 'Webkode og team som kan velge begge driftsmodeller',
+        boundary: 'Valgt tjenestegrense',
+        reason: 'Teamets begrunnelse',
+        evaluate: 'Undersøk om både tjenestegrensen og begrunnelsen svarer på kravene.',
+      },
+      resumeAssessment: 'Fortsett aktiv besvarelse',
+      guidedComplete: 'Alle nødvendige veiledede aktiviteter er bekreftet',
+      guidedIncomplete: 'Veiledet løp har fortsatt ubekreftede aktiviteter',
+      foundationRecord: 'Foundations-observasjoner beholdes i sine opprinnelige versjoner.',
+      labels: {
+        instances: 'Antall instanser',
+        size: 'Kapasitet per instans · jobber/min',
+        demand: 'Etterspørsel · jobber/min',
+        failed: 'Feil på første instans',
+        routing: 'Trafikkrute',
+        incident: 'Hva har endret seg?',
+        remedy: 'Tiltak som undersøkes',
+        subscription: 'Mål-subscription for forespørselen',
+        region: 'Ønsket Web-lokasjon',
+        method: 'Konfigurasjonsmetode',
+        a: 'Miljø A',
+        b: 'Miljø B',
+        c: 'Miljø C',
+        template: 'Malverdi',
+        profile: 'Funksjonens behov',
+        capacity: 'Kapasitet per kopi',
+        hours: 'Timer på per døgn',
+        copies: 'Antall kopier',
+        guest: 'Gjesteoperativsystem',
+        ram: 'Minne · GiB',
+        cpu: 'vCPU',
+        disk: 'Appdata',
+        network: 'Nettverkskrav',
+        runtime: 'Nødvendig runtime',
+        patch: 'Gjestevedlikehold',
+        package: 'Applikasjonsleveranse',
+        config: 'Appkonfigurasjon',
+        access: 'Apptilgang',
+        data: 'Datahåndtering',
+        user: 'Kontoens status',
+        role: 'Rolle for Mina',
+        sharing: 'Dokumentdeling',
+        license: 'Tjenestelisens',
+        scenario: 'Kravsituasjon',
+        model: 'Tjenestemodell',
+        reason: 'Faglig begrunnelse',
+      },
+      values: {
+        none: 'Ingen feil',
+        one: 'Første instans nede',
+        single: 'Fast til første instans',
+        balanced: 'Bruk friske kopier',
+        capacity: 'Økt etterspørsel',
+        instance: 'Instansfeil',
+        dependency: 'Felles avhengighet nede',
+        trend: 'Stigende belastning',
+        scale: 'Øk webkapasiteten',
+        reroute: 'Bruk en frisk alternativ instans',
+        restore: 'Gjenopprett avhengigheten',
+        observe: 'Overvåk trend og planlegg margin',
+        manual: 'Tre manuelle valg',
+        template: 'Én gjentatt malverdi',
+        dev: 'Dev · bare åtte arbeidstimer',
+        critical: 'Kritisk · hele døgnet',
+        linux: 'Linux',
+        windows: 'Windows',
+        persistent: 'Varig datalagring',
+        temporary: 'Midlertidige appdata',
+        configured: 'Nettverksbehov avklart',
+        missing: 'Mangler',
+        installed: 'Installert/avklart',
+        planned: 'Planlagt og eid av teamet',
+        ignored: 'Ikke planlagt',
+        supported: 'Støttet webkode',
+        unsupported: 'Runtime ikke støttet',
+        driver: 'Krever OS-driver',
+        set: 'Nødvendige innstillinger avklart',
+        restricted: 'Tilgangskrav avklart',
+        public: 'Tilgang ikke avgrenset for oppdraget',
+        active: 'Aktiv medarbeider',
+        departed: 'Avsluttet/blokkert konto',
+        user: 'Vanlig bruker',
+        admin: 'Hele tjenestens administrator',
+        team: 'Bare avtalt team',
+        everyone: 'Alle med lenken',
+        assigned: 'Tildelt',
+        unlicensed: 'Ingen',
+        legacy: 'OS-spesifikk agent',
+        custom: 'Egen webkode, ingen gjeste-OS-drift',
+        ready: 'Ferdig samarbeid',
+        open: 'Webkode med to driftsmuligheter',
+        iaas: 'IaaS',
+        paas: 'PaaS',
+        saas: 'SaaS',
+        'os-team': 'Teamet tar gjeste-OS og programvarestakken',
+        'platform-supported': 'Støttet plattform, kunden tar kode/data/tilgang',
+        'ready-service': 'Ferdig funksjon, kunden styrer bruk og data',
+      },
+      results: {
+        served: 'Utført arbeid',
+        unmet: 'Udekket behov',
+        available: 'Tilgjengelig kapasitet',
+        unused: 'Ubrukt allokering',
+        allocated: 'Kapasitetstimer',
+        utilization: 'Utnyttelse',
+        undefined: 'Ikke definert',
+        consistent: 'Like verdier',
+        violations: 'Avvik fra standard',
+        yes: 'Ja',
+        no: 'Nei',
+        requirements: 'Avklarte krav',
+        risks: 'Gjenværende forhold',
+        noGuarantee:
+          'Et passende undervisningsoppsett er ikke bevis på deployering, helse eller sikkerhet.',
+        provider: 'Leverandørens fysiske vert og virtualisering',
+        guest: 'Kundens gjest og arbeidslast',
+        instance: 'Applikasjonsinstans',
+        alternative: 'Alternativ instans',
+        storage: 'Appdata på disk',
+        network: 'NIC og nettverksvei',
+        platform: 'Administrert hosting-plan',
+        application: 'Kundens kode og konfigurasjon',
+        dependency: 'Kritisk avhengighet',
+        route: 'Trafikkvalg',
+        client: 'Brukerens arbeid',
+        observations: 'Frosne observasjoner · ingen levende telemetry',
+        role: 'Administrasjonsmyndighet',
+        sharing: 'Dataeksponering',
+        canUse: 'Kan bruke tjenesten i modellen',
+        consistentWrong: 'Oppsettet er likt, men standarden er brutt.',
+        drift: 'Manuelle verdier avviker fra hverandre og/eller standarden.',
+        aligned: 'Oppsettet passer de avgrensede oppdragskravene.',
+        failed: 'Dette valget retter ikke den aktuelle årsaken.',
+        capacityFixed:
+          'Økt kapasitet dekker denne etterspørselen. Det er ingen test av andre feil.',
+        capacityLimited: 'Etterspørselen er større enn tilgjengelig kapasitet.',
+        instanceFixed: 'En frisk alternativ instans er nå nåbar gjennom modellens rute.',
+        instanceDown: 'Den faste veien ender fortsatt i en sviktet instans.',
+        dependencyFixed:
+          'Den nødvendige avhengigheten er gjenopprettet i situasjonen; test hele flyten i en virkelig løsning.',
+        dependencyDown: 'Felles avhengighet holder flyten stengt selv om webkapasiteten er stor.',
+        trendPlanned:
+          'Observasjon og plan er forbedret. Kapasiteten er ikke automatisk økt; trenden har fortsatt ingen margin i siste prøve.',
+        trendUnplanned: 'Siste prøve bruker hele kapasiteten. Ingen planlagt oppfølging er valgt.',
+        resourceSaving:
+          'Modellert ressursbruk må sammenholdes med udekket behov. Resultatet er ikke energi eller utslipp.',
+        permission: 'Autorisasjon er forutsatt; RBAC er ikke evaluert.',
+        security: 'Ingen sikkerhets- eller compliance-konklusjon følger av kvitteringen.',
+        fork: 'Engangskopi av den eksisterende motoren · ikke Portal-inventar',
+        policyScope: 'Tildelt policy-scope',
+        applies: 'Forespørselen er innenfor scope',
+        outside: 'Forespørselen er utenfor scope',
+        physical: 'Fysiske lag finnes fortsatt; ingen gjest er provisionert her.',
+        vmMissing: {
+          os: 'Programmet trenger Windows i oppdraget.',
+          ram: 'Programmet trenger minst åtte GiB i oppdraget.',
+          disk: 'Appdata må ligge på varig lagring.',
+          network: 'Kommunikasjonsbehovet mangler avklart nettverksvei.',
+          runtime: 'Programmet trenger installert runtime.',
+          patch: 'Teamet mangler plan for gjestevedlikehold.',
+        },
+        paasCause: {
+          unsupported:
+            'Valgt innebygd plattform støtter ikke denne runtime-en. Mer compute retter ikke kompatibilitet.',
+          driver:
+            'Denne leveransen krever OS-kontroll som den valgte innebygde plattformen ikke tilbyr.',
+          configuration:
+            'Støttet kode alene er ikke nok; kundevalg for innstillinger, tilgang og data gjenstår.',
+          fit: 'Støtte og kundevalg passer de avgrensede kravene. Ingen kode er deployert eller kjørt.',
+        },
+        saasCause: {
+          inactive:
+            'Kontoen kan ikke bruke tjenesten i modellen. Tidligere deling og dataforpliktelser må likevel vurderes.',
+          unlicensed:
+            'En aktiv konto uten nødvendig tjenestelisens oppfyller ikke denne modellens bruksvilkår.',
+          admin: 'Samarbeidsoppgaven trenger ikke administrasjon av hele tjenesten.',
+          sharing: 'Alle-med-lenken er bredere enn det avtalte teambehovet.',
+          fit: 'Aktiv, lisensiert bruker med avgrenset rolle/deling passer samarbeidskravet. Det er ingen generell sikkerhetsgodkjenning.',
+        },
+      },
+      witnesses: {
+        baseline: 'Observer én frisk instans med kapasitet åtte',
+        singleFailure: 'Observer den samme enkeltinstansen etter feil',
+        redundant: 'Observer to instanser, balansert rute og én feil',
+        capacity: 'Undersøk et kapasitetstiltak',
+        instance: 'Undersøk en korrigert feilrute',
+        dependency: 'Undersøk en gjenopprettet avhengighet',
+        trend: 'Undersøk trend og oppfølging',
+        denied: 'Observer faktisk location-policyavslag',
+        allowed: 'Observer tillatt lokasjon under samme scope',
+        otherScope: 'Sammenlign det andre scope-et',
+        manual: 'Observer manuelle konfigurasjonsavvik',
+        rightTemplate: 'Observer riktig gjentatt mal',
+        wrongTemplate: 'Observer konsekvent feil mal',
+        devAlways: 'Undersøk stor døgnallokering for dev',
+        devScheduled: 'Undersøk mindre arbeidsdag-plan for dev',
+        critical: 'Test tidsplanen mot kritisk døgnbehov',
+        incomplete: 'Undersøk en ufullstendig VM-plan',
+        complete: 'Avklar alle støttede VM-forutsetninger',
+        incompatible: 'Undersøk en ikke-støttet plattformleveranse',
+        supported: 'Avklar støttet kode og retained kundevalg',
+        risky: 'Undersøk for brede SaaS-valg',
+        safe: 'Avklar avtalt bruker, lisens, rolle og deling',
+        departure: 'Undersøk avgang/blokkert konto',
+        legacy: 'Begrunn OS-spesifikt krav',
+        custom: 'Begrunn egen kode uten OS-drift',
+        ready: 'Begrunn ferdig tjeneste',
+        open: 'Begrunn en rimelig åpen løsning',
+        iaas: 'Sammenlign IaaS i modul 3',
+        paas: 'Sammenlign PaaS i modul 3',
+        saas: 'Sammenlign SaaS i modul 3',
+      },
+    },
+    benefits: {
+      intro:
+        'Du vet nå hvordan skyen tilbyr ressurser. Nettbutikken vår trenger også å tåle feil, håndtere endringer og styres forsvarlig. Vi undersøker hva skyegenskaper kan gi — og hvilke valg teamet må gjøre for å få nytte av dem. Ingen undersøkelse her lager eller overvåker virkelige ressurser.',
+      units: {
+        availability: {
+          title: 'Kapasitet er ikke det samme som tilgjengelighet',
+          objective: 'CB01 · skille vertikal/horizontal skalering, redundans og tilgjengelighet.',
+          prerequisite:
+            'Fra modul 1 kjenner du server, ressurskapasitet og etterspørsel. En instans er én kjørende kopi av en applikasjonskomponent. Redundans betyr at flere kopier kan overta arbeid.',
+          intuition:
+            'Butikken kan ha en kraftig server som håndterer hele kampanjen, men likevel stoppe hvis akkurat den serveren svikter. Tilgjengelighet handler om at den nødvendige funksjonen kan brukes når den trengs. High availability er bevisste tiltak for å redusere avbrudd. Det er et annet spørsmål enn hvor mange oppgaver maskinen rekker når alt virker.',
+          mechanism:
+            'Vertikal skalering endrer kapasiteten til en instans, for eksempel ved å velge mer CPU eller minne. Horisontal skalering endrer antallet instanser. Flere kopier hjelper først når trafikken faktisk kan nå dem og applikasjonen tillater parallell behandling. En fast rute til den første instansen blir fortsatt et enkelt feilpunkt. Redundans må også omfatte nødvendige data og andre avhengigheter; ekstra webservere retter ikke alle feil.',
+          azure:
+            'Azure gir tjenester og konfigurasjoner for skalering og redundans. Hvilke muligheter som finnes, avhenger av tjeneste, tier og arkitektur. Elasticity er å tilpasse kapasiteten opp og ned når behovet endres. Autoskalering trenger regler, grenser, signaler og tid til å gjøre kapasiteten klar; den lager ikke øyeblikkelig eller ubegrenset kapasitet. En SLA beskriver et bestemt tjenesteløfte med vilkår og eventuelle rettsmidler. Den er ikke en måling av din applikasjons tilgjengelighet eller et løfte om null nedetid.',
+          example:
+            'Anta én undervisningsinstans som kan behandle fire jobber per minutt, og etterspørsel på seks. Når vi øker instansstørrelsen til åtte, kan den håndtere alle seks så lenge den virker. Dette løser kapasitetsproblemet i denne modellen. Nå skal du selv forutsi hva som skjer når denne ene instansen svikter, og sammenligne med flere mindre kopier og en rute som bruker friske kopier.',
+          misconception:
+            'To instanser betyr ikke automatisk dobbel tilgjengelighet. Samme strømforsyning, dataavhengighet eller feil i trafikkstyringen kan ramme begge. Omvendt kan én større instans gi bedre kapasitet uten å tåle tap av instansen. Vi beregner derfor observerbar kapasitet etter feil, ikke en oppdiktet Azure-SLA.',
+          limits:
+            'En jobb er en oppdiktet arbeidsmengde. Hver instans kan behandle fire eller åtte slike jobber per minutt. Jobber deles perfekt mellom tilgjengelige instanser; kø, oppstartstid, tilstand, data, kostnad og latency er utelatt. Feilen rammer den første instansen. Fast rute bruker bare den første; balansert rute bruker de friske. Dette er en forklaringsmodell, ikke en lastbalanserer eller virkelig feiltest.',
+          terms: [
+            ['Instans', 'En kopi av en komponent som kan behandle arbeid.'],
+            ['Enkelt feilpunkt', 'En nødvendig del som alene kan stoppe hele funksjonen.'],
+            ['Headroom', 'Ledig kapasitet som kan absorbere mer arbeid eller tap av en kopi.'],
+          ],
+          goal: 'Undersøk forskjellen mellom kapasitet og feilmargin.',
+          why: 'En større maskin og en ekstra kopi løser forskjellige problemer.',
+          action:
+            'Kjør en frisk enkeltinstans. Forutsi deretter utført arbeid med feil, og sammenlign med to instanser og balansert rute.',
+          expect:
+            'Bare kapasitet som fortsatt kan nås etter feilen, bidrar. Resultatet viser utført og udekket arbeid.',
+          question:
+            'En kraftigere enkeltinstans dekker trafikken. Hva må undersøkes før teamet kan si at løsningen tåler instansfeil?',
+          choices: [
+            [
+              'recovery',
+              'Alternative kopier, trafikkrute og nødvendige avhengigheter',
+              'Ja. Nok kapasitet uten feil er ikke det samme som en fungerende vei etter feil.',
+            ],
+            [
+              'size',
+              'Bare mer minne på samme instans',
+              'Mer minne kan bedre kapasitet, men hjelper ikke når den eneste instansen er nede.',
+            ],
+            [
+              'cloud',
+              'At ressursen ligger i en offentlig sky',
+              'Skyleverandørens infrastruktur fjerner ikke behovet for å utforme og teste hele applikasjonsflyten.',
+            ],
+          ],
+        },
+        reliability: {
+          title: 'Finn årsaken før du velger tiltak',
+          objective: 'CB02 · forklare pålitelighet, recovery og forutsigbarhet.',
+          prerequisite:
+            'Du kjenner instans, kapasitet og trafikkrute. En avhengighet er en annen tjeneste som en nødvendig funksjon trenger, for eksempel lageroppslag før et kjøp.',
+          intuition:
+            'Et raskt produktbilde er ikke nok hvis kunden ikke kan fullføre kjøpet. Vi må følge den viktige brukerflyten. Reliability handler her om å tåle feil og gjenopprette funksjonen på en planlagt måte. Tilgjengelighet beskriver om funksjonen kan brukes; recovery beskriver hvordan vi får den tilbake etter avbrudd.',
+          mechanism:
+            'Den samme synlige feilen kan ha ulike årsaker. For mye arbeid kan overskride kapasitet. En instans kan ha sviktet. En felles datatjeneste kan være utilgjengelig selv om alle webkopiene virker. En stigende belastning kan varsle at kapasiteten snart blir for liten. Et tiltak må påvirke den delen som faktisk begrenser flyten. Mer webkapasitet reparerer ikke lagerdatatjenesten. En ekstra region krever også fungerende data, identitet, trafikkvalg og en testet bytteprosess.',
+          azure:
+            'Azure Monitor kan samle relevante signaler, og varsler kan gjøre avvik synlige når de er riktig konfigurert. Observasjoner, hypoteser, tiltak og kontroll av resultatet er en driftsprosess; et dashboard utfører ikke hele prosessen. Well-Architected Framework fremhever blant annet avhengigheter, redundans, recovery og testing. Test både tap og tilbakeføring, og kontroller at reservekapasitet faktisk er tilgjengelig. Vi oppretter ingen Monitor-ressurs her.',
+          example:
+            'I en rolig periode betjener butikken to jobber per minutt; senere fire og seks. Med kapasitet seks ser alt håndterbart ut i siste prøve, men det er ingen margin igjen. En trend er ikke i seg selv bevis på avbrudd. Teamet bør måle videre og planlegge tiltak før neste topp. I eksperimentet undersøker du også andre hendelser der samme kapasitetsøkning ikke hjelper.',
+          misconception:
+            'Forutsigbarhet betyr ikke garanti. Ytelsesplanlegging bygger på målinger og lasttester; endret kode eller avhengigheter kan endre behovet. Kostnadsplanlegging bygger på faktiske målere, priser, ressursnivå, dataoverføring og bruksmønster. Kalkulatorer og budsjetter hjelper, men et budsjett er ikke automatisk en av/på-bryter. Et estimat er ikke en faktura.',
+          limits:
+            'Hendelsene er frosne undervisningssituasjoner. Kapasitetsproblemet har etterspørsel ti og kapasitet seks; ekstra kapasitet øker den til tolv. De andre situasjonene har etterspørsel seks. En gjenopprettet avhengighet eller korrigert rute åpner den modellerte veien. Trenden er to/fire/seks uten feil. Ingen virkelige logger, tid til recovery, priser eller regional failover simuleres.',
+          terms: [
+            ['Kritisk flyt', 'En ende-til-ende-funksjon virksomheten trenger.'],
+            ['Recovery', 'Å gjenopprette en nødvendig funksjon etter feil.'],
+            ['Prognose', 'Et begrunnet anslag basert på forutsetninger og observasjoner.'],
+          ],
+          goal: 'Velg et tiltak som endrer riktig årsak.',
+          why: 'Mer kapasitet hjelper bare hvis det er kapasiteten som begrenser.',
+          action:
+            'Undersøk alle fire hendelsene. Sammenlign en feil behandling med tiltaket som påvirker den aktuelle årsaken.',
+          expect:
+            'En sviktende felles avhengighet kan holde flyten stengt selv med flere webressurser. Trend-planlegging endrer beredskapen, ikke allerede målt trafikk.',
+          question:
+            'Begge webinstansene virker, men felles lageroppslag er nede. Hva er den relevante undersøkelsen?',
+          choices: [
+            [
+              'dependency',
+              'Undersøk og gjenopprett avhengigheten og test hele kjøpsflyten',
+              'Ja. Flyten trenger lageroppslaget; flere friske webkopier erstatter det ikke.',
+            ],
+            [
+              'scale',
+              'Øk alltid webkapasiteten',
+              'Det endrer ikke den feilede lageravhengigheten i denne situasjonen.',
+            ],
+            [
+              'region',
+              'Anta at en ekstra region automatisk løser alt',
+              'Regional spredning alene konfigurerer ikke data, trafikk eller recovery.',
+            ],
+          ],
+        },
+        governance: {
+          title: 'Tillatelse, policy og sikkerhet er forskjellige spørsmål',
+          objective: 'CB03 · skille tilgang, organisasjonsregler og teknisk beskyttelse.',
+          prerequisite:
+            'En subscription og en resource group er management-scope. En identitet representerer en bruker eller arbeidslast. Autorisasjon bestemmer hva identiteten får gjøre.',
+          intuition:
+            'Teamet må både kunne utføre arbeid og følge virksomhetens regler. En bruker kan ha lov til å opprette en ressurs, men likevel be om en konfigurasjon som bryter en policy. Og en akseptert konfigurasjon kan fremdeles ha sårbar kode eller uforsvarlige tilgangsvalg. Ett grønt resultat kan ikke svare på alle tre spørsmålene.',
+          mechanism:
+            'Azure RBAC knytter en principal, en rolle og et scope sammen. Rollen beskriver handlinger; scopet avgrenser hvor de gjelder. Minste privilegium betyr å gi nødvendig tilgang fremfor unødvendig brede rettigheter. Azure Policy vurderer ressurs- eller handlingsegenskaper opp mot definerte regler ved aktuelle scope. Policy kan blant annet brukes til standardisering, revisjon og håndheving; hvilke effekter som gjelder avhenger av definisjonen. Vi viser bare én egendefinert location-deny-regel.',
+          azure:
+            'I den eksisterende AzureLab-motoren er App Sandbox tildelt en Web-lokasjonsregel som bare tillater West Europe for støttede plan/app-ressurser. Gruppens metadata i Norway East er en annen egenskap og omfattes ikke av denne regelen. Shared Sandbox har ikke samme assignment. Undersøk scope, type, forespurt lokasjon og begrunnelse før du endrer noe. En gyldig forespørsel i et annet scope kan få et annet resultat.',
+          example:
+            'En autorisert utvikler ønsker en Web-plan i North Europe under App Sandbox. En avgrenset kopi av den virkelige lokale motoren vurderer dette i undersøkelsen. Du sammenligner deretter en tillatt lokasjon og det andre scope-et. Kvitteringen forklarer resultatet. Kopien endrer ikke portalens inventar, og demonstrasjonen utfører ingen faktisk Azure-operasjon.',
+          misconception:
+            'At en ressurs følger en lokasjonsregel, beviser ikke at data behandles lovlig eller at hele løsningen er sikker. Compliance handler om dokumentert oppfyllelse av relevante krav; dette krever mer enn én teknisk innstilling. Leverandørens sikkerhetsmekanismer erstatter heller ikke kundens ansvar for data, kode og tilgang. Ikke gi større rolle bare for å omgå et policyavslag.',
+          limits:
+            'Undersøkelsen antar at aktøren er autorisert; RBAC, rettigheter, data-residency, personvern og compliance evalueres ikke. Den gjenbruker den registrerte custom Web-policyen på en engangskopi. Dette er ikke alle Azure Policy built-ins, effekter eller tillatelsesmodeller. Ressursene fra prøven blir ikke Portal-ressurser.',
+          terms: [
+            ['Principal', 'En bruker, gruppe eller arbeidsidentitet som kan gis tilgang.'],
+            ['Rolle og scope', 'Hva en identitet kan gjøre, og hvor tilgangen gjelder.'],
+            [
+              'Governance',
+              'Beslutninger, standarder og oppfølging som styrer ressursbruk og risiko.',
+            ],
+          ],
+          goal: 'Forklar hvorfor samme Web-forespørsel kan få ulikt resultat.',
+          why: 'Organisatorisk tillatelse til konfigurasjon er forskjellig fra brukerens rettigheter og appens sikkerhet.',
+          action:
+            'Prøv begge lokasjoner i App Sandbox, og sammenlign med Shared Sandbox. Les de faktiske modellkvitteringene.',
+          expect:
+            'Et avslag beholder aktive objekter uendret. Å bytte metadataregion er ikke en korreksjon av planens resource location.',
+          question: 'En plan blir tillatt av lokasjonsregelen. Hva vet vi da?',
+          choices: [
+            [
+              'policy',
+              'Denne forespørselen oppfyller akkurat den vurderte regelen',
+              'Riktig. Rolle, sikker kode og bredere krav trenger egne vurderinger.',
+            ],
+            [
+              'secure',
+              'Hele appen er sikker og compliant',
+              'Den ene policyen undersøker verken kode, brukertilgang eller alle relevante krav.',
+            ],
+            [
+              'role',
+              'Alle brukere har fått administratorrettigheter',
+              'En tillatt ressurskonfigurasjon tildeler ingen roller.',
+            ],
+          ],
+        },
+        management: {
+          title: 'Gjenta en konfigurasjon — også feil kan gjentas',
+          objective: 'CB04 · skille styring av ressurser fra metodene som styrer dem.',
+          prerequisite:
+            'En konfigurasjon er et sett med ønskede egenskaper. En standard er et krav teamet har bestemt, ikke en automatisk garanti fra skyen.',
+          intuition:
+            'Noor skal klargjøre tre undervisningsmiljøer som skal følge samme regionale standard. Hun kan sette hvert felt manuelt, eller bruke ett gjenbrukbart konfigurasjonsgrunnlag. Begge metodene krever gjennomgang. Et program kan gjenta en feil mer konsekvent enn et menneske.',
+          mechanism:
+            'Management of the cloud handler om hva vi styrer: ressurser, konfigurasjon, kapasitet, helse og avvik. Management in the cloud handler om hvordan vi styrer: Portal gir et grafisk arbeidsområde; CLI og PowerShell sender kommandoer; API-er er programmerbare grensesnitt. Infrastructure as code beskriver ønsket infrastruktur i filer som kan versjoneres og gjennomgås. Bicep og ARM templates er eksempler på deklarative beskrivelser i Azure. De er ikke det samme som en skjerm, et shell eller et overvåkingssignal.',
+          azure:
+            'Azure Resource Manager gir et felles management-lag for støttede ressursoperasjoner. Flere klienter kan be om samme slags endring, mens validering og styringsregler fortsatt gjelder. Azure Monitor og varsler kan vise tilstand eller utløse en konfigurert arbeidsflyt, men å samle et signal er ikke automatisk å forstå eller rette årsaken. Automatisering trenger avgrensninger, tilgang, feilbehandling og kontroll av konsekvensene.',
+          example:
+            'Standarden i vår øvelse er West Europe for alle tre miljøene. Ett manuelt avvik gjør resultatet inkonsistent. En mal kan sette samme region tre ganger. Velger du en feil malregion, blir alle tre konsekvent feil mot standarden. Sammenlign både likhet mellom miljøene og oppfyllelse av kravet; det er to forskjellige observasjoner.',
+          misconception:
+            'IaC betyr ikke at alt som står i filen er sikkert eller hensiktsmessig. Versjonskontroll gjør endringen sporbar, ikke automatisk korrekt. En parameter kan være feil. En plan må gjennomgås, valideres og testes før den brukes. Konsistens, policy-etterlevelse og driftstilstand er ulike dimensjoner.',
+          limits:
+            'Tre regionfelt og én malverdi er en oppdiktet konfigurasjonssammenligning. Vi kjører ingen CLI, PowerShell, Bicep, ARM eller deployering og endrer ikke Portal-ressurser. Samme verdi kopieres deterministisk; rekkefølge, avhengigheter, drift detection, nettverksfeil og rettighetsmotor er ikke modellert.',
+          terms: [
+            ['CLI', 'Et kommandolinjegrensesnitt til en tjeneste.'],
+            ['Deklarativ', 'Beskriver ønsket sluttkonfigurasjon fremfor alle håndgrep.'],
+            ['Konfigurasjonsavvik', 'En egenskap som avviker fra den bestemte standarden.'],
+          ],
+          goal: 'Skille repeterbarhet fra riktig konfigurasjon.',
+          why: 'Én dårlig parameter kan forplante seg til mange miljøer.',
+          action:
+            'Kjør et manuelt blandet oppsett, en riktig mal og en konsekvent feil mal. Sammenlign avvikene.',
+          expect:
+            'Resultatet viser både like verdier og antall brudd på standarden. En jevn rad er ikke alltid en riktig rad.',
+          question:
+            'Tre miljøer er like, men alle har feil region mot standarden. Hvilken konklusjon passer?',
+          choices: [
+            [
+              'review',
+              'Gjennomgå og korriger mal/parameter før ny bruk',
+              'Ja. Automatiseringen har vært konsekvent, men grunnlaget var feil.',
+            ],
+            [
+              'consistent',
+              'Likhet beviser at standarden er oppfylt',
+              'Likhet sier ingenting om hvilken verdi kravet faktisk krever.',
+            ],
+            [
+              'manual',
+              'Manuell konfigurering er alltid sikrere',
+              'Begge metoder kan gi feil. Repeterbarhet og review må kombineres.',
+            ],
+          ],
+        },
+        sustainability: {
+          title: 'Reduser unødvendig ressursbruk uten å fjerne funksjonen',
+          objective: 'CB05 · forklare ressursutnyttelse og avgrense bærekraftspåstander.',
+          prerequisite:
+            'Du kjenner allokert kapasitet, utført arbeid og udekket behov. En kapasitetstime er her én oppdiktet kapasitetenhet holdt tilgjengelig i én time.',
+          intuition:
+            'Et utviklingsmiljø trenger kanskje bare kapasitet i arbeidsdagen, mens butikkens kritiske funksjon trengs hele døgnet. Begge kan ha ledig kapasitet. Det er fornuftig å redusere unødvendig bruk, men å slå av feil miljø er ingen god optimalisering. Først må teamet forstå når funksjonen faktisk må være tilgjengelig.',
+          mechanism:
+            'Right-sizing tilpasser ressursnivået til et begrunnet behov med passende margin. Planlagt stans kan redusere unødvendig allokering i et miljø som ikke skal brukes om natten. Flere kopier kan være nødvendig for feilmargin, men øker også ressursfotavtrykket. Effektiv kode, passende lagring, mindre unødvendig dataflyt og velvalgt observabilitet påvirker også ressursbruk. CPU-utnyttelse alene beskriver ikke hele bildet.',
+          azure:
+            'Azure gir muligheter for ressursvalg, skaleringsregler og planlagt drift. Valg må passe tjenestens faktiske egenskaper: å stoppe en prosess er ikke nødvendigvis det samme som å frigjøre alle fakturerte ressurser. Vedlikehold, datalagring og nettverk kan fortsatt ha konsekvenser. Bruk målte behov og dokumenterte målere for å avgjøre hva som kan reduseres. Ingen Azure-pris, energi eller utslippsfaktor inngår i denne øvelsen.',
+          example:
+            'Et tenkt utviklingsmiljø brukes åtte timer daglig. Åtte enheter gjennom tjuefire timer gir 192 kapasitetstimer, før vi vurderer nyttig arbeid. Det tallet er et ressursbudsjett i en undervisningsmodell, ikke kWh. Undersøk selv en mindre plan som bare er på i arbeidsdagen. Bytt deretter til den kritiske døgnfunksjonen og se hvorfor samme tidsplan får en annen konsekvens.',
+          misconception:
+            'Lavere kostnad eller høyere utnyttelsesgrad er ikke i seg selv et verifisert miljøresultat. Energiforbruk, strømproduksjonens utslippsintensitet, maskinvare, datamengder, grenser og måleperiode må vurderes. En cloud-løsning kan fortsatt være overdimensjonert. Ikke fjern nødvendig redundans bare for å få et penere utnyttelsestall.',
+          limits:
+            'Utviklingsbehovet er to undervisningsjobber per time i åtte timer; kritisk behov er to i alle tjuefire. Kapasitet er fire eller åtte per kopi, én eller to kopier, på i åtte eller tjuefire timer. Avstengte timer gir ingen kapasitet. Resultatene er jobber og kapasitetstimer, ikke energi, penger eller CO₂. Endringer er ikke virkelige driftsplaner.',
+          terms: [
+            ['Right-sizing', 'Velge ressursnivå etter behov og begrunnet margin.'],
+            ['Kapasitetstime', 'Én hypotetisk kapasitetenhet allokert i én time.'],
+            [
+              'Miljøfotavtrykk',
+              'Konsekvenser som krever flere data enn denne ressursmodellen har.',
+            ],
+          ],
+          goal: 'Finn ressursbesparelse som fortsatt oppfyller funksjonskravet.',
+          why: 'En effektiv plan må både unngå unødvendig allokering og dekke riktig tilgjengelighetsvindu.',
+          action:
+            'Sammenlign døgnallokering og arbeidsdag for dev. Test også arbeidsdag-planen på den kritiske funksjonen.',
+          expect:
+            'Kapasitetstimer kan reduseres, men en kritisk funksjon mister arbeid når miljøet er av. Ingen utslippsverdi beregnes.',
+          question: 'Øvelsen viser færre kapasitetstimer. Hva kan du faglig konkludere?',
+          choices: [
+            [
+              'measure',
+              'Modellert allokering er redusert; miljøeffekt krever flere målinger',
+              'Ja. Vi har regnet ressursenheter under tydelige forutsetninger, ikke målt utslipp.',
+            ],
+            [
+              'carbon',
+              'CO₂-utslipp er redusert med samme prosent',
+              'Det finnes ingen utslippsfaktor, energimåling eller full systemgrense i modellen.',
+            ],
+            [
+              'off',
+              'Alle produksjonsmiljøer bør slås av om natten',
+              'En funksjon som trengs hele døgnet, mister tilgjengelighet med den tidsplanen.',
+            ],
+          ],
+        },
+      },
+      assessment: {
+        brief:
+          'En ny timebestillingstjeneste har tre instanser som hver kan utføre tre undervisningsjobber per minutt. Etterspørselen er sju. Én instans svikter; balansert ruting bruker de to friske. Senere stopper en felles godkjenningstjeneste. Teamet har også en konsekvent feil regional mal og et utviklingsmiljø som bare brukes på dagtid. Besvar hele situasjonen uten løsningsmarkeringer. Dette er én avgrenset oppgave, ikke profesjonell kompetanse eller eksamensberedskap.',
+        items: [
+          {
+            id: 'unmet',
+            question: 'Hvor mange jobber per minutt er udekket etter instansfeilen?',
+            choices: [],
+            explanation:
+              'To friske instanser × tre = seks tilgjengelige jobber per minutt. Etterspørsel sju gir ett udekket behov.',
+          },
+          {
+            id: 'dependency',
+            question:
+              'Mer webkapasitet hjelper ikke når den felles godkjenningstjenesten er nede. Hva må undersøkes?',
+            choices: [
+              ['restore', 'Avhengigheten og en testet gjenopprettingsvei'],
+              ['scale', 'Bare størrelsen på webinstansene'],
+            ],
+            explanation:
+              'Den kritiske flyten trenger godkjenning. Tiltaket må påvirke den feilede avhengigheten, ikke bare friske komponenter.',
+          },
+          {
+            id: 'policy',
+            question: 'En tillatt ressurskonfigurasjon dokumenterer …',
+            choices: [
+              ['one-rule', 'oppfyllelse av den vurderte regelen, ikke full sikkerhet/compliance'],
+              ['all', 'automatisk sikker kode, rettigheter og compliance'],
+            ],
+            explanation: 'Rolle, policy og teknisk sikkerhet er ulike vurderinger.',
+          },
+          {
+            id: 'template',
+            question: 'Alle miljøene bruker samme, men feil, malverdi. Hva endrer du?',
+            choices: [
+              ['review', 'Gjennomgå og korriger konfigurasjonsgrunnlaget'],
+              ['nothing', 'Ingenting, fordi miljøene er like'],
+            ],
+            explanation: 'Konsistens gjør en feil repeterbar; den gjør ikke verdien korrekt.',
+          },
+          {
+            id: 'sustainability',
+            question:
+              'Du kan redusere dev-allokering om natten. Hva mangler for et utslippsestimat?',
+            choices: [
+              ['data', 'Energi, utslippsfaktorer og definert systemgrense'],
+              ['none', 'Ingenting; kapasitetstimer er allerede CO₂'],
+            ],
+            explanation: 'Ressursenhetene kan sammenlignes i modellen, men er ikke en miljømåling.',
+          },
+          {
+            id: 'forecast',
+            question: 'Hvilken begrunnelse gir et bedre kostnadsestimat?',
+            choices: [
+              ['usage', 'Målt bruk, relevante målere/priser og usikre framtidsforutsetninger'],
+              ['sla', 'En tilgjengelighets-SLA gir en fast regning'],
+            ],
+            explanation:
+              'Tilgjengelighetsvilkår bestemmer ikke alle forbruksmålere eller fremtidig bruk.',
+          },
+        ],
+      },
+    },
+    services: {
+      intro:
+        'Fra modul 1 kjenner du ressursene og hvem som gjør deler av arbeidet. Modul 2 viste at kapasitet, recovery og styring må utformes. Nå skal du velge og begrunne konkrete servicegrenser: en VM du drifter, en støttet applikasjonsplattform eller et ferdig produkt. Den opprinnelige teorien og Portal-labben er beholdt; nye undersøkelser har egen versjon og egne observasjoner.',
+      units: {
+        overview: {
+          title: 'Fra ansvarsoversikt til operativt valg',
+          objective: 'ST01–ST04 · bruke grunnlaget til nye tekniske beslutninger.',
+          prerequisite:
+            'Repetisjon: et operativsystem forvalter maskinressurser; runtime kjører kode. Public/private/hybrid beskriver miljøer, mens IaaS/PaaS/SaaS beskriver leveransen og driftsgrensen.',
+          intuition:
+            'Et tjenestevalg bestemmer ikke bare hvor koden står. Det bestemmer hvilke konfigurasjoner teamet kan gjøre, hvilke driftsoppgaver det beholder og hvilke begrensninger det må akseptere. Vi bruker samme tekniske ansvarsmatrise som før, men går videre til komponenter og konkrete handlinger.',
+          mechanism:
+            'Når en oppgave overtas av leverandøren, finnes laget fortsatt. En administrert runtime trenger fortsatt en støttet versjon og riktig applikasjonskonfigurasjon. En ferdig app trenger fortsatt brukere og datatilgang. Se derfor alltid på både hva tjenesten leverer, hva kunden styrer og hvilke krav arbeidslasten stiller.',
+          azure:
+            'Azure Virtual Machines gir en gjest som kunden konfigurerer. App Service gir en støttet hostingplattform for webapplikasjoner. Microsoft 365 er et eksempel på ferdige samarbeidstjenester med egne administrasjons- og lisensgrenser. Den nøyaktige ansvarsgrensen må vurderes for den aktuelle tjenesten og konfigurasjonen.',
+          example:
+            'En leverandørvedlikeholdt OS-plattform hjelper teamet som vil slippe gjeste-OS. Det er likevel teamets oppgave å levere fungerende kode og egnede tilgangsvalg. En annen applikasjon krever en bestemt OS-driver; den kan trenge mer gjestekontroll. Ingen av kravene kan avgjøres ut fra et pent tjenesteikon.',
+          misconception:
+            'Service models er ikke en rangstige der SaaS alltid er best og IaaS alltid er gammeldags. Kontroll kan være nødvendig, og lavere driftsbyrde kan være verdifull. Det viktige er en dokumentert match mellom krav, tjenestestøtte og teamets evne til å drifte.',
+          limits:
+            'Sammenligningen konfigurerer ingen tjeneste. M1-observasjoner og historiske Service Types v1-svar blir ikke godskrevet som ny operativ læring. Eldre materiale er fremdeles tilgjengelig som merket arkiv.',
+          terms: [
+            ['Driftsgrense', 'Hvilke oppgaver leverandøren utfører og hvilke kunden må utføre.'],
+            [
+              'Tjenestestøtte',
+              'Konfigurasjoner og bruksmåter den valgte tjenesten faktisk tillater.',
+            ],
+          ],
+          goal: 'Bruk ansvarsoversikten som inngang til tekniske valg.',
+          why: 'Å kjenne eieren av OS er ikke nok til å velge en komplett løsning.',
+          action:
+            'Sammenlign de tre konkrete tjenestene. Les ett lag i hver og bruk deretter kontrollene i de tekniske undersøkelsene.',
+          expect:
+            'Ansvar flyttes, men krav til kundens kode, data, tilgang og kompatibilitet gjenstår.',
+          question: 'Hva må fortsatt avklares etter at du velger en plattform som drifter OS?',
+          choices: [
+            [
+              'fit',
+              'Krav, støttet runtime, kundekode, konfigurasjon og tilgang',
+              'Ja. Servicegrensen erstatter ikke den praktiske løsningsvurderingen.',
+            ],
+            [
+              'done',
+              'At alle tekniske valg allerede er riktige',
+              'En kategori eller ansvarsoversikt beviser ingen fungerende eller sikker konfigurasjon.',
+            ],
+          ],
+        },
+        iaas: {
+          title: 'Bygg en forståelig VM-konfigurasjon',
+          objective: 'ST01 · forklare komponenter og retained operations i IaaS.',
+          prerequisite:
+            'Du kjenner fysisk vert, gjeste-OS, CPU, RAM og lagring. vCPU er virtuell prosessorkapasitet; GiB er en minneenhet. NIC er et virtuelt nettverkskort som knytter VM-en til et nettverk.',
+          intuition:
+            'IaaS gir kontroll over en virtuell datamaskin uten at kunden må kjøpe vertsmaskinen. Denne kontrollen er nyttig når et program trenger bestemte OS-egenskaper. Men en VM-ressurs alene er ikke en ferdig applikasjonsplattform. Programmet trenger også passende gjest, runtime, data og nettverksvei.',
+          mechanism:
+            'VM-størrelsen beskriver blant annet vCPU og minne. Gjesteoperativsystemet kjører innenfor denne tildelingen. En OS-disk og eventuell ekstra datalagring har andre roller enn RAM. Applikasjonsdata som skal beholdes, må ha egnet varig lagring og en begrunnet backup-/gjenopprettingsplan. Et NIC og nettverksoppsett er nødvendig for ønsket kommunikasjon; en public IP er ikke et universelt krav. Nettverksfiltrering, ruter, navneoppløsning og identitet må fortsatt utformes i den reelle løsningen.',
+          azure:
+            'En Azure VM er en ARM-administrert ressurs med relaterte nettverks- og lagringsressurser. Microsoft driver verts- og virtualiseringslaget. Kunden velger gjeste-OS, installerer programvare og må planlegge patching, tilgang, backup og tilgjengelighet. Lift-and-shift kan bevare en eldre programvares OS-forutsetninger under flytting, men moderniserer ikke automatisk arkitektur eller drift. Dev/test kan bruke repeterbare gjestemiljøer, med samme behov for sikker konfigurasjon.',
+          example:
+            'Et eldre lagerprogram krever Windows og minst åtte GiB i vårt fiktive oppdrag. Det trenger installert runtime, varig applikasjonslagring og en avtalt nettverksvei. Sett sammen en plan og undersøk hvilke forutsetninger som mangler. Patching er et pågående driftsansvar, ikke en avkryssing som gjør maskinen permanent sikker.',
+          misconception:
+            'Mer vCPU løser ikke feil OS eller manglende runtime. RAM er ikke en erstatning for varig lagring. En konfigurasjon som passer disse forutsetningene, beviser heller ikke tilgjengelighet, korrekt backup eller at programmet kjører. Høy tilgjengelighet krever flere vurderinger enn størrelsen på gjesten.',
+          limits:
+            'Dette er en konseptuell konfigurasjonsmodell, ikke VM-provisionering i Portal. To/fire vCPU og fire/åtte GiB er undervisningsvalg, ikke SKU-er eller ytelsesmålinger. Appdata trenger varig lagring i oppdraget; dette er ikke et generelt forbud mot midlertidig lagring eller ephemeral OS-disker. Nettverksvalget uttrykker et krav som ikke implementeres som faktiske pakker, IP-er eller NSG-regler.',
+          terms: [
+            ['vCPU', 'Virtuell prosessorkapasitet tildelt en gjest.'],
+            ['NIC', 'Virtuelt nettverkskort som forbinder VM-en med et nettverk.'],
+            [
+              'Varig appdata',
+              'Data som skal beholdes utover en kort arbeidsøkt eller midlertidig disk.',
+            ],
+          ],
+          goal: 'Avklar VM-ens forutsetninger og kundens driftsarbeid.',
+          why: 'En VM er én del av en løsning; kapasitet kan ikke erstatte manglende komponenter.',
+          action:
+            'Prøv først en ufullstendig plan. Rett OS, minne, appdata, nettverk og runtime, og velg en patch-plan.',
+          expect:
+            'Modellen viser konkret hvilke krav som ikke passer. En passende plan vises som avklart, aldri som deployert eller frisk.',
+          question:
+            'Programmet trenger en bestemt Windows-driver. Hva er en faglig relevant IaaS-begrunnelse?',
+          choices: [
+            [
+              'control',
+              'Gjesten gir nødvendig OS-kontroll, med retained patch-/tilgangsarbeid',
+              'Riktig. Kontrollen kan passe kravet, men teamet må også kunne drifte gjesten.',
+            ],
+            [
+              'managed',
+              'VM fjerner kundens OS-vedlikehold',
+              'VM flytter verten til leverandøren, men ikke gjesteansvaret.',
+            ],
+            [
+              'cpu',
+              'Flere CPU-kjerner gjør Linux kompatibelt med alle Windows-drivere',
+              'Kapasitet endrer ikke programmets OS-forutsetning.',
+            ],
+          ],
+        },
+        paas: {
+          title: 'Kode, runtime og hosting er ulike deler',
+          objective: 'ST02 · undersøke støttet plattform og retained applikasjonsarbeid.',
+          prerequisite:
+            'En hosting-plan er compute-grunnlaget som en app bruker. Runtime er programmiljøet som utfører koden. En applikasjonsinnstilling er konfigurert input til programmet, ikke selve programkoden.',
+          intuition:
+            'Teamet vil levere egen webkode og slippe gjeste-OS-drift. En støttet PaaS-plattform kan gjøre dette mulig. Det betyr ikke at vilkårlig programvare passer, eller at plattformen kan vite hvilke data og tilgangsregler applikasjonen trenger.',
+          mechanism:
+            'Konseptuelt velger teamet en støttet plattform, tilrettelegger og tester en kodepakke, konfigurerer appen og gjør den tilgjengelig gjennom tjenestens støttede deployeringsmåter. Planen gir hostingressurser; appen er en egen ressurs som refererer planen. Flere apper kan dele en plan i Azure, slik at de også deler compute-egenskaper. Flytting, isolasjon, skalering og støttede plattformvalg må vurderes konkret. En ressurskvittering er ikke det samme som en ferdig kodeutrulling.',
+          azure:
+            'Med App Service innebygde runtimes drifter Microsoft den underliggende OS-plattformen og den leverte runtime-en. Kunden vedlikeholder egen kode, data, støttet konfigurasjon og tilgang. Runtime-versjoner kan endres eller slutte å støttes, så appkompatibilitet må følges opp. Et kundelevert containerimage eller en egen runtime gir kunden mer innholdsvedlikehold. En OS-driver som krever gjestekontroll passer ikke automatisk i innebygget App Service-runtime.',
+          example:
+            'Prøv tre typer leveranse: støttet webkode, en runtime som plattformen ikke støtter og en OS-driver. Endre deretter appkonfigurasjon, databehandling og tilgangskrav. En større hosting-plan gjør ikke en usupportert runtime støttet. Når du har begrunnet plattformvalget, bruker du den virkelige lokale Portal-flyten til group, plan og Web App.',
+          misconception:
+            'Resource Group gir management og livssyklus, ikke compute. Metadataregionen bestemmer ikke automatisk planens lokasjon. I den støttede motoren avledes appens OS og lokasjon fra planreferansen. En avvist plan kan ikke være host. At en appkonfigurasjon er registrert, betyr ikke at vi har lastet opp, startet eller verifisert kode, DNS, nettverk eller apphelse.',
+          limits:
+            'Kompatibilitetsbildet er konseptuelt, med tre avgrensede pakkevalg. Det kjører ingen kode. Den separate Portal-motoren støtter Linux learning profile, ikke ekte SKU/runtime deployment. Den bruker samme gruppe for app og plan som modellgrense. Eksisterende teknisk arbeid kan gjenbrukes eksplisitt når den nåværende replayede historikken kan bekrefte det; ingen gamle læringssvar oppgraderes.',
+          terms: [
+            [
+              'Kodeutrulling',
+              'Å levere programvare gjennom en valgt og støttet deployeringsprosess.',
+            ],
+            [
+              'App Service plan',
+              'Hosting-compute som apper refererer, med OS/lokasjon og andre tjenestespesifikke egenskaper.',
+            ],
+            [
+              'Applikasjonskonfigurasjon',
+              'Verdier og valg programmet trenger; må håndteres sikkert av kunden.',
+            ],
+          ],
+          goal: 'Skille plattformstøtte fra egen appkonfigurasjon.',
+          why: 'Administrert OS reduserer oppgaver, men fjerner ikke kompatibilitets- og applikasjonskrav.',
+          action:
+            'Sammenlign ikke-støttet pakke og støttet kode. Avklar konfigurasjon, data og tilgang før Portal-labben.',
+          expect:
+            'Modellen forklarer hvorfor en pakke ikke passer eller hvilke kundevalg som gjenstår. Den viser aldri falsk runtime-helse.',
+          question:
+            'En pakke trenger en runtime som valgt innebygd plattform ikke støtter. Hva bør teamet gjøre?',
+          choices: [
+            [
+              'verify',
+              'Undersøke støtte, tilpasse leveransen eller velge en annen egnet hostinggrense',
+              'Ja. Kompatibilitet må avklares før løsningen velges.',
+            ],
+            [
+              'bigger',
+              'Bare velge en større plan',
+              'Flere hostingressurser endrer ikke hvilke runtimes plattformen støtter.',
+            ],
+            [
+              'rg',
+              'Flytte Resource Group-metadata',
+              'Metadata-lokasjonen oppgraderer ikke runtime-støtte.',
+            ],
+          ],
+        },
+        saas: {
+          title: 'Administrer en ferdig tjeneste, ikke en gjesteplattform',
+          objective: 'ST03 · gjøre retained SaaS-kundeansvar konkret.',
+          prerequisite:
+            'En brukerkonto identifiserer noen i en tjeneste. En lisens eller tjenesteavtale gir bestemte bruksrettigheter. En administratorrolle gir administrasjonsmyndighet; den er ikke det samme som en lisens.',
+          intuition:
+            'Fjord-teamet tar i bruk en ferdig samarbeidstjeneste. Leverandøren vedlikeholder appplattformen. Teamet skal likevel velge hvem som skal bruke tjenesten, hvilke data som deles og hvem som får endre organisasjonens oppsett. Ingen av disse valgene avgjøres av at serverne er administrert.',
+          mechanism:
+            'Organisasjonsinnstillinger kan gjelde mange brukere, mens tilgang til bestemte arbeidsområder eller dokumenter kan ha et smalere scope. En konto, en produktlisens og en administrasjonsrolle løser forskjellige behov. Et nytt medlem trenger relevant brukstilgang; det betyr ikke at vedkommende trenger administratorrolle. Ved avgang må tilganger og relevante data-/eierskapsrutiner følges opp. Databevaring, sletting og kontroll av tidligere deling er tjeneste- og kravavhengig.',
+          azure:
+            'Microsoft 365 er et eksempel på en SaaS-familie, ikke en generell maskin der kunden installerer vilkårlig serverkode. Kunden forvalter blant annet brukere, rettigheter, deling, data og tjenesteinnstillinger. Faktiske administratorroller og lisenskrav varierer mellom produkter, abonnement og oppgaver. M365-organisasjon/tenant er heller ikke det samme som en Azure resource group eller vår produktorganisasjon.',
+          example:
+            'Mina trenger å samarbeide med teamet, ikke administrere hele organisasjonen. I den fiktive modellen krever bruk en aktiv konto og tildelt tjenestelisens. Teamdeling begrenser eksponeringen sammenlignet med alle-med-lenken. Undersøk for bred rolle og deling, korriger til det avtalte oppdraget, og se deretter hva modellens avgangsvalg gjør med bruken.',
+          misconception:
+            'En lisens gjør ikke brukeren til administrator. Leverandørpatching velger ikke riktige dokumentrettigheter. Å blokkere en konto er heller ikke dokumentasjon på at alle tidligere delinger og dataforpliktelser er håndtert. En tjeneste kan ha avanserte utvidelser uten å bli en generell PaaS for vilkårlig kode.',
+          limits:
+            'Fjord Samarbeid er en oppdiktet SaaS, ikke en kopi av Microsoft 365 admin center. Vi validerer bare aktiv/lisensiert bruker, en grov rolle og et delingsvalg. Ingen Entra-konto, ekte lisens, API, passord, datafil eller Microsoft tenant endres. Modellen gir ingen sikkerhets-/compliance-garanti.',
+          terms: [
+            ['Brukerlisens', 'Avtalte rettigheter til å bruke bestemte tjenestefunksjoner.'],
+            ['Administratorrolle', 'Myndighet til å administrere bestemte deler av en tjeneste.'],
+            [
+              'Delingsgrense',
+              'Hvem som kan få tilgang til bestemte data gjennom et valgt oppsett.',
+            ],
+          ],
+          goal: 'Gi akkurat det avtalte samarbeidsbehovet og vurder avgang.',
+          why: 'Et ferdig produkt fjerner plattformdrift, ikke kundens tilgangsbeslutninger.',
+          action:
+            'Prøv et risikabelt oppsett, et aktivt lisensiert teammedlem uten bred adminrolle, og en avsluttet brukerkonto.',
+          expect:
+            'Tilgang, overbrede rettigheter og deling vises som separate konsekvenser. Ingen faktisk konto blir endret.',
+          question: 'Mina skal bare samarbeide i et avtalt team. Hvilket resonnement passer?',
+          choices: [
+            [
+              'least',
+              'Relevant brukerlisens, begrenset rolle og riktig datadeling må vurderes hver for seg',
+              'Ja. Konto, bruksrett og administrasjonsmyndighet er forskjellige dimensjoner.',
+            ],
+            [
+              'admin',
+              'Alle lisensierte brukere bør være administratorer',
+              'En lisens begrunner ikke større rettigheter enn oppgaven trenger.',
+            ],
+            [
+              'provider',
+              'Leverandøren bestemmer automatisk hvem som bør se teamets data',
+              'Kunden må ta egnede data- og tilgangsvalg innen tjenestens funksjoner.',
+            ],
+          ],
+        },
+        selection: {
+          title: 'Velg en løsning ut fra krav og driftsarbeid',
+          objective: 'ST04 · begrunne tjenestevalg og vurdere alternativer.',
+          prerequisite:
+            'Du har undersøkt VM-komponenter, plattformkompatibilitet og retained SaaS-administrasjon. Et krav beskriver hva løsningen må gjøre; en preferanse kan avveies mot andre hensyn.',
+          intuition:
+            'Et servicevalg er et argument om egnethet, ikke en konkurranse mellom etiketter. Kartlegg ufravikelige krav, eksisterende investeringer og teamets driftskapasitet før du velger. Noen situasjoner har flere forsvarlige svar, dersom forutsetningene faktisk oppfylles.',
+          mechanism:
+            'En OS-avhengig agent kan trenge IaaS-kontroll. Egen webkode på en støttet runtime med ønske om mindre OS-drift kan passe PaaS. Behov for ferdig samarbeid kan passe SaaS, når produktfunksjoner, avtale og tilgangskrav støtter oppgaven. En virksomhet med et kompetent VM-driftsteam kan fortsatt ha et begrunnet IaaS-alternativ for egen kode. Valget må inkludere retained arbeid, ikke bare fordelen man ønsker.',
+          azure:
+            'Reell Azure-design vurderer blant annet tjenestestøtte, identitet, data, nettverk, drift, skalering, recovery og kostnader. En eksisterende lokal integrasjon kan begrense migrering eller kreve hybrid samspill. Det betyr ikke at ordet hybrid avgjør om applikasjonsdelen skal være IaaS eller PaaS. Senere arkitekturmoduler går dypere i disse avhengighetene.',
+          example:
+            'Undersøk tre tydelige situasjoner og én med flere muligheter. For et OS-krav må begrunnelsen forklare gjestekontrollen. For en ferdig tjeneste må funksjonsbehovet faktisk passe produktet. I den åpne webkodesituasjonen godtas både VM med et team som tar gjestedriften, og støttet PaaS med tydelig retained apparbeid. En riktig etikett med feil begrunnelse er ikke et godt løsningsforslag.',
+          misconception:
+            'PaaS er ikke alltid billigst eller egnet for alle programmer. SaaS er ikke automatisk et alternativ til egen forretningslogikk. Å velge IaaS fordi det gir kontroll, uten å planlegge vedlikeholdet, utelater en vesentlig konsekvens. Vi lærer derfor hvilke forutsetninger som gjør svaret rimelig, ikke én universell rangering.',
+          limits:
+            'Scenariene er fiktive beslutningsoppgaver, ikke komplette løsningsarkitekturer eller pristilbud. Noen alternativer aksepteres bare når modell og begrunnelse passer sammen. Den nye uavhengige oppgaven har endrede krav og egen versjon. Historiske v1-forsøk og den eksisterende Portal-byggeoppgaven beholdes separat.',
+          terms: [
+            ['Ufravikelig krav', 'Et behov løsningen må oppfylle, ikke bare en ønsket egenskap.'],
+            ['Avveining', 'Et begrunnet valg der gevinster og ulemper vurderes sammen.'],
+          ],
+          goal: 'Knytt servicegrense til det reelle kravet og retained arbeid.',
+          why: 'To løsninger kan være forsvarlige med forskjellige driftsforutsetninger.',
+          action:
+            'Prøv de tre tydelige kravene og den åpne situasjonen. Velg både modell og begrunnelse.',
+          expect:
+            'Rimelige alternativer godtas når begrunnelsen samsvarer. Upassende kapabilitet eller utelatt drift gir konkret moteksempel.',
+          question:
+            'Egen webkode støttes av PaaS, men teamet kan også drifte VM. Hvilket utsagn er faglig holdbart?',
+          choices: [
+            [
+              'tradeoff',
+              'Begge kan være egnet hvis kravet og retained driftsarbeid begrunnes',
+              'Ja. Vi må vurdere forutsetninger og arbeid, ikke kreve én kategori uten grunn.',
+            ],
+            [
+              'always',
+              'PaaS er alltid riktig uansett støtte og drift',
+              'En slik regel ignorerer konkrete begrensninger og krav.',
+            ],
+            [
+              'saas',
+              'Vilkårlig serverkode kan alltid lastes inn i et ferdig SaaS-produkt',
+              'Et ferdig produkt er ikke en generell hostingplattform for all kode.',
+            ],
+          ],
+        },
+        practice: {
+          title: 'Bruk og forklar den faktiske hostingkonfigurasjonen',
+          objective: 'ST02/ST04 med anvendt G01/C01 · undersøke group, plan, app og policy.',
+          prerequisite:
+            'Group organiserer management. Plan gir hosting. App refererer planen. Resource location og gruppemetadata er forskjellige egenskaper.',
+          intuition:
+            'Nå skal du gjøre arbeidsdelingen konkret i det fungerende lokale laboratoriet. Du oppretter eller gjenbruker dokumentert teknisk arbeid, leser en virkelig modellkvittering og undersøker appens hostingrelasjon. Dette er guided practice, ikke uavhengig mestring.',
+          mechanism:
+            'Den samme motoren håndterer de reelle støttede Portal-skjemaene. Et policyavslag lager ingen plan. En app krever en gyldig plan, og appens OS/lokasjon avledes fra den. Gruppemedlemskap og hosting er ulike relasjoner. Etter arbeidet må du forklare hvorfor det passer ønsket om egen kode uten gjeste-OS-drift.',
+          azure:
+            'App Service plan og Web App er separate Azure-ressurser med en hostingrelasjon. Den lokale Linux learning profile er en tydelig avgrensning. Ingen Azure-konto, SKU, runtime-deployering eller driftssignal opprettes.',
+          example:
+            'App Sandbox krever en ny eller eksisterende egnet lifecycle-gruppe med Norway East-metadata. Den custom Web-policyen avviser North Europe og tillater West Europe. Les scope og rule i kvitteringen og korriger ressurslokasjonen. Inspect app → plan separat fra app → group. En eksisterende replaybar lab kan fortsettes uten å lage nye like grupper.',
+          misconception:
+            'Tidligere guided teknisk konfigurasjon er ikke ny uavhengig læring. En ny versjon av kurset arver ikke gamle sammenligninger eller riktige svar. Når eksisterende ressurser brukes, beskriver debriefen dette som gjenbruk og etterkontroll, ikke som en ny deployering.',
+          limits:
+            'Bare den eksisterende bounded Portal-motoren utfører ressurskommandoer. Konseptuelle VM/SaaS-prøver bidrar ikke til inventaret. Historisk arbeid uten nødvendig replay/receipt kan ikke adopteres som ferdig. Du kan fortsette gyldig arbeid eller eksplisitt bruke teknisk restart i det eksisterende grensesnittet.',
+          terms: [
+            ['Kvittering', 'Deterministisk resultat av en støttet teknisk kommando.'],
+            ['Hostingrelasjon', 'Appens eksplisitte referanse til compute-planen som støtter den.'],
+          ],
+          goal: 'Forklar den samme konfigurasjonen som laboratoriet faktisk viser.',
+          why: 'Teknisk arbeid og ny faglig begrunnelse er ulike evidenskilder.',
+          action:
+            'Start eller fortsett labben, undersøk policy og hosting, og begrunn deretter retained kundeansvar.',
+          expect:
+            'Debrief viser faktiske ressursnavn. Versjon2 godkjenner ikke den anvendte delen uten både bekreftet lab og egen ny begrunnelse.',
+          question: 'Hva er fortsatt teamets ansvar i dette innebygde App Service-eksemplet?',
+          choices: [
+            [
+              'retained',
+              'Egen kode, data, tilgang og støttet appkonfigurasjon',
+              'Ja. Registrert hosting flytter OS-oppgaver, ikke disse kundeoppgavene.',
+            ],
+            [
+              'none',
+              'Ingenting etter at Create er akseptert',
+              'En akseptert konfigurasjon kjører eller sikrer ikke automatisk kundens applikasjon.',
+            ],
+          ],
+        },
+      },
+      assessment: {
+        brief:
+          'Nord-teamet har flere arbeidslaster: en agent med ufravikelig Windows-driver, en egenskrevet webtjeneste med en usupportert runtime, og en ferdig samarbeidstjeneste der en ansatt slutter. En annen webapp har både et kompetent VM-team og støttet PaaS som reelle alternativer. Begrunn de tekniske konsekvensene. Ingen arkitektur eller løsning er forhåndsvalgt.',
+        items: [
+          {
+            id: 'guest',
+            question: 'Hvilken leveranse gir gjestekontroll for Windows-driveren?',
+            choices: [
+              ['iaas', 'IaaS med nødvendig gjeste-OS'],
+              ['saas', 'En vilkårlig ferdig SaaS'],
+            ],
+            explanation:
+              'Gjestedriveren krever kontroll og kompatibelt OS; en ferdig produktfunksjon er ikke nok.',
+          },
+          {
+            id: 'patch',
+            question: 'Hvem planlegger og følger opp gjeste-OS-patching i VM-alternativet?',
+            choices: [
+              ['customer', 'Kunden'],
+              ['provider', 'Leverandøren overtar alt gjestearbeid'],
+            ],
+            explanation:
+              'Leverandørens fysiske drift fjerner ikke kundens retained gjestevedlikehold.',
+          },
+          {
+            id: 'runtime',
+            question:
+              'Webtjenestens runtime støttes ikke av den valgte innebygde PaaS-plattformen. Neste faglige valg?',
+            choices: [
+              ['adapt', 'Undersøk støtte og tilpasning eller en annen egnet hostinggrense'],
+              ['size', 'Kjøp større plan som automatisk støtter alt'],
+            ],
+            explanation: 'Kapasitet og runtime-støtte er forskjellige egenskaper.',
+          },
+          {
+            id: 'departure',
+            question: 'Hva må kunden vurdere når SaaS-medarbeideren slutter?',
+            choices: [
+              ['access', 'Tilgang, roller og relevante data-/delingsrutiner'],
+              ['patch', 'Bare leverandørens OS-patch'],
+            ],
+            explanation:
+              'Kunden styrer passende brukertilgang og oppfølging av egne data innen tjenestens funksjoner.',
+          },
+          {
+            id: 'architecture',
+            question:
+              'Velg et forsvarlig alternativ for den siste webappen, gitt begge driftsmulighetene.',
+            choices: [
+              ['iaas', 'VM med eget driftsteam'],
+              ['paas', 'Støttet PaaS-plattform'],
+              ['saas', 'Vilkårlig SaaS for all egen serverkode'],
+            ],
+            explanation:
+              'Både IaaS og PaaS kan godtas her, men bare med en samsvarende begrunnelse i neste felt.',
+          },
+          {
+            id: 'reason',
+            question: 'Begrunn den valgte arkitekturens retained arbeid.',
+            choices: [
+              ['os-team', 'Teamet tar gjeste-OS, runtime og appdrift'],
+              [
+                'platform-supported',
+                'Plattformen støtter koden; kunden tar kode/data/tilgang og konfigurasjon',
+              ],
+              ['no-work', 'Ingen kundeoppgaver gjenstår'],
+            ],
+            explanation:
+              'VM-alternativet krever os-team. PaaS-alternativet krever platform-supported. Et tilfeldig kryss mellom modell og begrunnelse godtas ikke.',
+          },
+          {
+            id: 'hosting',
+            question:
+              'Gruppen har Norway East-metadata; appen bruker en plan i West Europe. Hva begrunner appens lokasjon i denne modellen?',
+            choices: [
+              ['plan', 'Den eksplisitte hosting-planreferansen'],
+              ['group', 'Gruppens metadata flytter automatisk appen'],
+            ],
+            explanation:
+              'Medlemskap bestemmer management; appens hostinglokasjon avledes fra planen.',
+          },
+        ],
+      },
+    },
+  },
   refinement: {
     activity: 'Aktivitet',
     of: 'av',
@@ -261,7 +1293,7 @@ export const nb = {
         objective: 'Knytte provisioning og ansvar til scope og hosting.',
         text: 'I laboratoriet skal vi konfigurere ressurser, ikke bestille virkelige Azure-tjenester. En subscription er en administrasjons- og faktureringsgrense. En resource group samler relaterte ressurser for forvaltning. Den er ikke datamaskinen som kjører appen. Gruppens metadataregion er et annet valg enn hostingressursens sted.',
         detail:
-          'Appteamet har egen webkode og vil slippe gjesteoperativsystem. Den neste tilgjengelige modulen, Describe cloud service types, forklarer hvorfor en App Service-lignende plattform er relevant. Derfra bruker vi det samme Portal-laboratoriet: group, plan, Web App, policyavslag, retting og hostingrelasjon. Benefits er fortsatt planlagt; å gå videre gir ingen godskriving av den modulen.',
+          'Appteamet har egen webkode og vil slippe gjesteoperativsystem. Først undersøker neste modul hvilke fordeler kapasitet, recovery og styring kan gi. Deretter forklarer Describe cloud service types hvorfor en App Service-lignende plattform er relevant. Vi bruker det samme Portal-laboratoriet: group, plan, Web App, policyavslag, retting og hostingrelasjon. Navigasjon gir ingen godskriving av de neste modulene.',
       },
     },
     checkItems: {
@@ -607,7 +1639,7 @@ export const nb = {
   },
   course: {
     brand: 'AzureLab',
-    version: '3.1B.1',
+    version: '3.2',
     home: 'Læringsreisen',
     sandbox: 'Fri Portal-sandbox',
     learning: 'Kursinnhold',
@@ -627,7 +1659,7 @@ export const nb = {
     computing:
       'Forstå cloud computing, ansvar, public/private/hybrid cloud og forbruksmodeller gjennom seks fullstendige undersøkelser.',
     benefits:
-      'Tilgjengelighet, skalerbarhet, pålitelighet og andre gevinster. Denne modulen er ennå ikke skrevet og verifisert i AzureLab.',
+      'Undersøk tilgjengelighet, skalerbarhet, pålitelighet, forutsigbarhet, sikkerhet, governance, manageability og sustainability gjennom fem sammenhengende undersøkelser og en endret egenoppgave.',
     services:
       'Undersøk IaaS, PaaS og SaaS. Begrunn tjenestevalg, konfigurer en applikasjonsplattform og forklar resultatet.',
     open: 'Åpne modul',
@@ -1361,12 +2393,13 @@ export const nb = {
     implemented:
       'Tilgjengelig original undervisning · seks undersøkelser og separat endret oppgave',
     servicesImplemented:
-      'Original Portal-modul · fire mål, begrunnet øving og separat endret oppgave',
+      'Operativ Service Types-undervisning · fire mål, konfigurasjonsøving, Portal-lab og separat endret oppgave',
+    benefitsImplemented: 'Fem Benefits-undersøkelser og separat endret oppgave i kurset',
     planned: 'Planlagt · ikke tilgjengelig',
     partial: 'Delvis undervisning · ikke en komplett modul',
     boundary:
       'Resultatene er lokale AzureLab-observasjoner, ikke Microsoft Learn-fullføring, Microsoft XP eller en sertifisering. AzureLab er uavhengig og ikke godkjent av Microsoft.',
-    reviewed: 'Offisielle navn kontrollert 24. oktober 2026',
+    reviewed: 'Offisielle navn og modulstruktur kontrollert 25. oktober 2026',
   },
   teaching: {
     title: 'Ida underviser',

@@ -55,20 +55,23 @@ for (const [width, height] of [
       .click();
     const explorer = page.locator('.portal-responsibility');
     await explorer.scrollIntoViewIfNeeded();
-    const model = explorer.locator('.portal-model-choice');
-    await model.getByRole('button', { name: /IAAS/ }).click();
+    await explorer
+      .getByRole('button', { name: nb.expansion.common.recapCases[0]![1], exact: true })
+      .click();
+    await expect(explorer.getByRole('status')).toContainText(nb.portal.responsibility.microsoft);
+    await explorer
+      .getByRole('button', { name: nb.expansion.common.recapCases[1]![1], exact: true })
+      .click();
+    await expect(explorer.getByRole('status')).toContainText(nb.portal.responsibility.customer);
     await expect(
-      explorer
-        .locator('.portal-layer-stack button')
-        .filter({ hasText: nb.expedition.layers.os.label }),
-    ).toContainText(nb.portal.responsibility.customer);
-    await model.getByRole('button', { name: /PAAS/ }).click();
-    await expect(
-      explorer
-        .locator('.portal-layer-stack button')
-        .filter({ hasText: nb.expedition.layers.os.label }),
-    ).toContainText(nb.portal.responsibility.microsoft);
-    await expect(explorer.locator('.responsibility-changes')).toContainText('IAAS → PAAS');
+      explorer.getByRole('link', { name: nb.expansion.common.recapDeep, exact: true }),
+    ).toHaveAttribute('href', '/learn/services?topic=overview');
+    expect(
+      await page.evaluate(() => localStorage.getItem('azurelab.portal.learning.v1')),
+    ).toBeNull();
+    expect(
+      await page.evaluate(() => localStorage.getItem('azurelab.learning.service-types.v2')),
+    ).toBeNull();
     const rect = await explorer.boundingBox(),
       main = await page.locator('.course-main').boundingBox();
     expect(rect!.width).toBeGreaterThan(main!.width * 0.8);

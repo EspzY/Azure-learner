@@ -53,7 +53,11 @@ test('course owns full theory, guided real controls, denial investigation, hosti
   await expect(page).toHaveURL(/\/learn$/);
   await expect(page.getByRole('heading', { name: c.title, exact: true })).toBeVisible();
   await expect(page.locator('.course-syllabus li').nth(0)).toContainText(nb.official.computing);
-  await expect(page.locator('.course-syllabus li').nth(1)).toContainText(c.planned);
+  await expect(page.locator('.course-syllabus li').nth(1)).toContainText(c.available);
+  await expect(page.locator('.course-syllabus li').nth(1).getByRole('link')).toHaveAttribute(
+    'href',
+    '/learn/benefits?topic=availability',
+  );
   await expect(page.locator('.course-syllabus li').nth(2)).toContainText(nb.official.services);
   await capture(page, info, 'landing');
   await audit(page);
@@ -75,7 +79,8 @@ test('course owns full theory, guided real controls, denial investigation, hosti
   await model.getByRole('button', { name: /SAAS/ }).click();
   await capture(page, info, 'responsibility');
   await audit(page);
-  await page.goto('/learn/services?topic=selection');
+  await page.goto('/learn/services?topic=selection&version=1');
+  await expect(page.locator('.course-legacy-note')).toContainText(nb.expansion.common.legacy);
   const cases = page.locator('.portal-guided-case');
   await cases
     .first()
@@ -92,6 +97,8 @@ test('course owns full theory, guided real controls, denial investigation, hosti
     .getByRole('link', { name: new RegExp(c.next) })
     .click();
   await expect(page).toHaveURL(/topic=practice/);
+  await page.getByRole('button', { name: nb.expansion.common.viewCurrent, exact: true }).click();
+  await page.goto('/learn/services?topic=practice');
   await expect(page.getByText(c.labBridge, { exact: true })).toBeVisible();
   await page.getByRole('heading', { name: c.labTitle, exact: true }).scrollIntoViewIfNeeded();
   await capture(page, info, 'lab-introduction');
@@ -251,6 +258,12 @@ test('course owns full theory, guided real controls, denial investigation, hosti
   await page.getByRole('button', { name: c.checkReflection, exact: true }).click();
   await expect(page.getByText(c.reflectionCorrect, { exact: true })).toBeVisible();
   await capture(page, info, 'debrief');
+  await expect(page.locator('.expanded-technical')).toContainText(
+    nb.expansion.common.technicalReady,
+  );
+  await page.locator('.expanded-practice input[type=radio]').first().check();
+  await page.getByRole('button', { name: nb.expansion.common.check, exact: true }).click();
+  await expect(page.locator('.expanded-practice')).toContainText(nb.expansion.common.practiced);
   await expect(
     page.getByRole('button', { name: nb.refinement.revisitLab, exact: true }),
   ).toHaveCount(1);
@@ -392,7 +405,7 @@ test('original computing investigations, direct module access, tablet/narrow nav
   await page.setViewportSize({ width: 320, height: 740 });
   await capture(page, info, 'narrow-course');
   await audit(page);
-  expect((await request.get('/learn/benefits')).status()).toBe(404);
+  expect((await request.get('/learn/benefits')).status()).toBe(200);
   await page.goto('/portal?lab=web-platform');
   await expect(coach(page)).toHaveCount(0);
   await expect(page.locator('canvas')).toHaveCount(0);
