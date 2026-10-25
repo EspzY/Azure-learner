@@ -55,6 +55,10 @@ Technical consequences: [disks](screenshots/321-vm-disks.png), [network configur
 
 The boundary explanation now explicitly distinguishes the retained conceptual VM experiment from the new persistent Portal lab. This avoids carrying the baseline's “no VM is created” statement over to the whole current learning unit. The manuscript and old evidence semantics are otherwise preserved. Visual inspection is by the implementing agent, not professional human acceptance.
 
+The authenticated Vercel walkthrough found and corrected a presentation defect: VM dry-run Review used the saved-operation explanation. It now explicitly says that validation passed but nothing exists until Create. The browser regression checks the actual persisted command ledger remains free of VM creation before submission. This changes presentation, not domain behavior or evidence.
+
+The same review found that the reused prerequisite Web coach's own exit link still used its historical generic practice origin. In a current practical session, it now receives the validated session's exact course return. An added browser assertion leaves through that coach and resumes the same PaaS lab; historical entry still uses its existing return policy.
+
 ## Human review gates — not performed
 
 - Azure administrator/architect: challenge region/scope/topology rules, Web-only deny filter, disk roles, hosting/OS/configuration boundaries and no-execution claims.

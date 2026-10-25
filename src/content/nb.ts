@@ -4428,6 +4428,8 @@ export const labsNb = {
       'Nytt VNet: 10.42.0.0/16; subnet: 10.42.1.0/24. En NIC knytter VM til subnet. Gjenbruk støttes her bare i samme gruppe og region. Ingen Public IP, NSG, IP-tildeling, SSH/RDP eller trafikk testes.',
     review:
       'Hele ressurssettet valideres før én atomisk opprettelse. Avslag oppretter ingen delressurser. Gruppens metadataregion tvinger ikke VM-ens ressursregion.',
+    reviewValid:
+      'Validering bestått. Ingen ressurser er opprettet ennå. Velg Create for å lagre hele ressurssettet i den lokale simulatoren.',
     dependencies: 'Tilknyttede ressurser',
     cleanup: 'Fjern VM og eksklusive treningsavhengigheter',
     cleanupNote:

@@ -204,7 +204,14 @@ test('root course to persisted VM, app settings, separate SaaS, exact debrief an
     .locator('.portal-form-tabs')
     .getByRole('button', { name: 'Review + create', exact: true })
     .click();
-  await expect(page.locator('[data-guide="validation"]')).toContainText(nb.chapter.errors.created);
+  await expect(page.locator('[data-guide="validation"]')).toContainText(t.vm.reviewValid);
+  expect(
+    await page.evaluate(() =>
+      JSON.parse(localStorage.getItem('azurelab.sandbox.v2')!).commands.some(
+        (r: { command: { type: string } }) => r.command.type === 'CreateVmBundle',
+      ),
+    ),
+  ).toBe(false);
   await page.locator('[data-guide="commit"]').click();
   await expect(page.locator('.portal-title h1')).toHaveText('vm-first');
   await page.getByRole('button', { name: t.receipt, exact: true }).click();
@@ -255,6 +262,11 @@ test('root course to persisted VM, app settings, separate SaaS, exact debrief an
     .locator('.practical-entry')
     .getByRole('button', { name: t.launch, exact: true })
     .click();
+  const prerequisiteExit = page.getByRole('link', { name: nb.course.leaveLab, exact: true });
+  await expect(prerequisiteExit).toHaveAttribute('href', /topic=paas&activity=practical&version=2/);
+  await prerequisiteExit.click();
+  await expect(page).toHaveURL(/topic=paas&activity=practical&version=2/);
+  await page.locator('.practical-entry').getByRole('link', { name: t.resume, exact: true }).click();
   await area(page, 'plans');
   await page
     .locator('.portal-commandbar')

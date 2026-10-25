@@ -270,7 +270,10 @@ export function VmForm({
                 preview?.outcome === 'accepted' ? 'portal-validation-ok' : 'portal-validation-error'
               }
             >
-              {preview && operationExplanation(preview)}{' '}
+              {preview &&
+                (preview.outcome === 'accepted'
+                  ? t.vm.reviewValid
+                  : operationExplanation(preview))}{' '}
               {preview?.field && <strong>{preview.field}</strong>}
             </div>
           </>

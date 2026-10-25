@@ -20,6 +20,8 @@ Branch `feat/321-integrated-practical-labs`, based on verified `943d0d1954022c46
 
 Current local results:212Vitest across23files,67curriculum tests (subset),3docs fixtures,56Markdown/link checks, registered assets, strict TypeScript, lint, format and production build pass. Six relevant production browser files:33passed/15explicit desktop-duplicate skips, including five new practical scenarios. Exact final-commit recheck and archived semantic regression are reported with delivery. Dependency audit:0vulnerabilities/333dependencies; no reinstall/dependency change. [Before/after and three desktop sizes](PRACTICAL_LABS_QA.md#inspected-desktop-evidence) were actually inspected. Failed intermediate type/format runs are disclosed in QA, not counted as passes.
 
+Protected-preview root navigation confirmed the course entries and build metadata. That real review caught a VM Review wording defect; dry validation now explicitly states that nothing has been created, with a persisted-ledger browser assertion before Create. The final revision is rechecked and associated with the same stable branch alias in the owner delivery and Draft PR.
+
 ### Continuity
 
 [Architecture/alternatives](INTEGRATED_LABS_ARCHITECTURE.md), [VM](VM_LAB_TECHNICAL_DESIGN.md), [PaaS](PAAS_LAB_REFINEMENT.md), [SaaS](SAAS_ADMIN_LAB.md) and [15-objective qualitative audit](FUNDAMENTALS_LAB_COVERAGE.md) are current. Historical3.2 limits below are retained as history. Next: qualified Azure/fidelity and uncoached learner review, fix observed defects, then scope the first Architecture and Services module. Broader networking/identity/cloud execution remains unavailable.

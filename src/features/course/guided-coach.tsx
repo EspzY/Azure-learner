@@ -24,10 +24,12 @@ export function GuidedCoach({
   location,
   form,
   navigate,
+  returnHref,
 }: {
   location: PortalLocation;
   form: LabForm | null;
   navigate: Navigate;
+  returnHref?: string;
 }) {
   const { save, store, ready } = useCourse(),
     chapter = useChapter(),
@@ -216,7 +218,10 @@ export function GuidedCoach({
                 {step.targetKind === 'inspection' ? nb.refinement.missingInspection : c.missing}
               </p>
             )}
-            <Link href={courseLabHref(findings.complete, lab.origin)} className="coach-return">
+            <Link
+              href={returnHref ?? courseLabHref(findings.complete, lab.origin)}
+              className="coach-return"
+            >
               {step.id === 'complete' ? c.returnCourse : c.leaveLab}
             </Link>
           </>

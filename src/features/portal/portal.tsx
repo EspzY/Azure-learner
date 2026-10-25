@@ -932,7 +932,16 @@ function PortalWorkspace() {
         labFacts(course.save.lab, chapter.attempt.engine, chapter.attemptNumber).complete
       ) &&
         !practical.activeIndependent && (
-          <GuidedCoach location={location} form={labForm} navigate={navigate} />
+          <GuidedCoach
+            location={location}
+            form={labForm}
+            navigate={navigate}
+            returnHref={
+              location.practice && practical.current?.kind === location.practice
+                ? practicalReturn(practical.current)
+                : undefined
+            }
+          />
         )}
       <PracticalCoach
         location={location}
