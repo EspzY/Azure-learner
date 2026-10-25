@@ -28,6 +28,8 @@ export function SaasLab() {
   }, [original.facts.active, original.store]);
   const { findings } = usePracticalResult();
   const guideStep = saasGuideStep(findings.criteria, findings.inspected);
+  const replayNeedsRestart =
+    guideStep === 'capacity' && s.engine.state.accounts.some((u) => u.id === 'erin' && u.licensed);
   const user = s.engine.state.accounts.find((u) => u.id === selected)!;
   const session = p.current?.kind === 'saas' ? p.current : null;
   const disabled = !s.ready || (!!s.issue && s.issue !== 'unsaved');
@@ -246,7 +248,11 @@ export function SaasLab() {
         </article>
         <aside
           className="saas-learning"
-          data-step={session?.mode === 'guided' ? `saas-${guideStep}` : 'independent'}
+          data-step={
+            session?.mode === 'guided'
+              ? `saas-${replayNeedsRestart ? 'replay' : guideStep}`
+              : 'independent'
+          }
           aria-label={t.title}
         >
           {session && (
@@ -254,7 +260,11 @@ export function SaasLab() {
               <SavvyShark compact>
                 <h2>{t.lab.saas.title}</h2>
                 <p>
-                  {session.mode === 'independent' ? t.lab.saas.changed : t.saas.guidance[guideStep]}
+                  {session.mode === 'independent'
+                    ? t.lab.saas.changed
+                    : replayNeedsRestart
+                      ? t.saas.replay
+                      : t.saas.guidance[guideStep]}
                 </p>
               </SavvyShark>
               {session.mode === 'independent' || (findings.configured && findings.inspected) ? (

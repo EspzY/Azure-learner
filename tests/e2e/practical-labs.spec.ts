@@ -252,10 +252,13 @@ test('root course to persisted VM, app settings, separate SaaS, exact debrief an
     .getByRole('link', { name: t.return, exact: true })
     .click();
   await expect(page).toHaveURL(/topic=iaas&activity=practical/);
+  await expect(page.locator('.practical-entry')).toBeFocused();
+  await expect(page.locator('.practical-entry h3')).toBeInViewport();
   await expect(page.locator('.practical-entry')).toContainText(t.complete);
   await page.reload();
+  await expect(page.locator('.practical-entry')).toBeFocused();
+  await expect(page.locator('.practical-entry h3')).toBeInViewport();
   await expect(page.locator('.practical-entry')).toContainText(t.complete);
-  await page.locator('.practical-entry').scrollIntoViewIfNeeded();
   await shot(page, info, 'vm-debrief');
   await page.locator('.course-navigation a[href^="/learn/services?topic=paas"]').click();
   await page
@@ -359,6 +362,8 @@ test('root course to persisted VM, app settings, separate SaaS, exact debrief an
     .click();
   await expect(page).toHaveURL(/topic=saas&activity=practical/);
   await page.reload();
+  await expect(page.locator('.practical-entry')).toBeFocused();
+  await expect(page.locator('.practical-entry h3')).toBeInViewport();
   await expect(page.locator('.practical-entry')).toContainText(t.complete);
   for (const viewport of [
     { width: 1920, height: 1080 },
@@ -372,6 +377,30 @@ test('root course to persisted VM, app settings, separate SaaS, exact debrief an
       true,
     );
   }
+  const priorDeliveries = await page.evaluate(
+    () =>
+      JSON.parse(localStorage.getItem('azurelab.practical-labs.v1')!).events.filter(
+        (e: { type: string }) => e.type === 'submit',
+      ).length,
+  );
+  await page
+    .locator('.practical-entry')
+    .getByRole('button', { name: t.launch, exact: true })
+    .click();
+  await expect(page.locator('.saas-learning')).toHaveAttribute('data-step', 'saas-replay');
+  await expect(page.locator('.saas-learning')).toContainText(t.saas.replay);
+  await page.getByRole('button', { name: t.saas.reset, exact: true }).click();
+  await page.getByRole('button', { name: t.saas.confirmReset, exact: true }).click();
+  await expect(page.locator('.saas-learning')).toHaveAttribute('data-step', 'saas-capacity');
+  expect(
+    await page.evaluate(
+      () =>
+        JSON.parse(localStorage.getItem('azurelab.practical-labs.v1')!).events.filter(
+          (e: { type: string }) => e.type === 'submit',
+        ).length,
+    ),
+  ).toBe(priorDeliveries);
+  await page.locator('.saas-header').getByRole('link', { name: t.return, exact: true }).click();
   await page.goto('/learn/benefits?topic=governance');
   const bridge = page.locator('.benefits-lab-bridge');
   await bridge.getByRole('link', { name: t.bridge.open, exact: true }).click();

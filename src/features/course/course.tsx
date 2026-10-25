@@ -114,7 +114,7 @@ export function Course({ module }: { module?: CourseModule }) {
       !module ||
       !course.ready ||
       chooseVersion ||
-      ['lab', 'debrief'].includes(query.get('activity') ?? '')
+      ['lab', 'debrief', 'practical'].includes(query.get('activity') ?? '')
     )
       return;
     let settled = 0;

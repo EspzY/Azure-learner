@@ -22,6 +22,10 @@ Current local results:212Vitest across23files,67curriculum tests (subset),3docs 
 
 Protected-preview root navigation confirmed the course entries and build metadata. That real review caught a VM Review wording defect; dry validation now explicitly states that nothing has been created, with a persisted-ledger browser assertion before Create. The final revision is rechecked and associated with the same stable branch alias in the owner delivery and Draft PR.
 
+Protected replay inspection also corrected the SaaS guide for an already licensed Erin in a new session: it describes the actual saved state and requests explicit restart of the teaching fixture, preserving earlier submissions. The prerequisite Web coach now shares the practical session's exact course exit. These are presentation/navigation corrections, not altered domain or historical-evidence semantics.
+
+The actual practical return now owns settled focus after loading; the generic lesson-heading effect skips it. The browser requires focused/visible debrief context after return and reload before capturing screenshots. This corrects the product's focus race rather than merely repositioning test screenshots.
+
 ### Continuity
 
 [Architecture/alternatives](INTEGRATED_LABS_ARCHITECTURE.md), [VM](VM_LAB_TECHNICAL_DESIGN.md), [PaaS](PAAS_LAB_REFINEMENT.md), [SaaS](SAAS_ADMIN_LAB.md) and [15-objective qualitative audit](FUNDAMENTALS_LAB_COVERAGE.md) are current. Historical3.2 limits below are retained as history. Next: qualified Azure/fidelity and uncoached learner review, fix observed defects, then scope the first Architecture and Services module. Broader networking/identity/cloud execution remains unavailable.

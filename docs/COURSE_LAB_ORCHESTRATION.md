@@ -1,5 +1,7 @@
 # Course/lab orchestration
 
+For the current practical labs, `activity=practical` delegates focus to the actual practical activity after its stores are ready. The generic lesson-heading effect skips that activity. Cancellable settled-frame scrolling/focus preserves exact debrief/resume on navigation and reload without stealing focus during individual answers. Focus and route parameters are navigation only, never assessment evidence. See the [practical architecture](INTEGRATED_LABS_ARCHITECTURE.md) and [QA](PRACTICAL_LABS_QA.md).
+
 ## 3.2.1 practical sessions and evidence
 
 New `azurelab.practical-labs.v1` / practical-labs@1 events pin kind, mode, allowlisted lesson origin, technical attempt and command-ID boundary. Stable lab/rubric/model/source definitions are in `domain/sandbox/practical.ts` and `content.ts`. Inspection references, reason drafts, explicit help, submit-through IDs and abandonment replay separately from inventory. Earlier sessions can be selected/resumed without replacing their boundary. First deliveries remain immutable; retries are new sessions. Versioning the definition/rubric requires a new content version, never reinterpretation.

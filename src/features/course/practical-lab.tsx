@@ -97,11 +97,19 @@ export function LabEntry({ kind, origin }: { kind: LabKind; origin: Origin }) {
   const ref = useRef<HTMLElement>(null),
     query = useSearchParams();
   useEffect(() => {
-    if (query.get('activity') === 'practical' && p.ready) {
-      ref.current?.scrollIntoView({ block: 'start' });
-      ref.current?.focus();
-    }
-  }, [query, p.ready]);
+    if (query.get('activity') !== 'practical' || !allReady) return;
+    let settled = 0;
+    const frame = requestAnimationFrame(() => {
+      settled = requestAnimationFrame(() => {
+        ref.current?.scrollIntoView({ block: 'start', behavior: 'instant' });
+        ref.current?.focus({ preventScroll: true });
+      });
+    });
+    return () => {
+      cancelAnimationFrame(frame);
+      cancelAnimationFrame(settled);
+    };
+  }, [query, allReady]);
   const start = (mode: 'guided' | 'independent') => {
     if (otherActive) return;
     if (current?.status === 'active' && !currentFindings.verifiable) {

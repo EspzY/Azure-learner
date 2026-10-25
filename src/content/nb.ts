@@ -4497,6 +4497,8 @@ export const labsNb = {
   saas: {
     title: 'Samarbeidsrom · fiktiv SaaS-administrasjon',
     requested: 'Forespurt verdi',
+    replay:
+      'Erin har allerede lisens i det lagrede oppsettet. Dette nye forsøket trenger en ny observasjon av lisensgrensen. Velg «Start nytt SaaS-forsøk» for å undersøke startoppsettet igjen. Tidligere leveringer beholdes.',
     guidance: {
       capacity:
         'Erin mangler lisens. Velg Erin og forsøk å tildele en mens begge plassene er brukt. Kvitteringen forklarer grensen uten å endre roller eller kontoen.',

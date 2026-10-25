@@ -59,6 +59,10 @@ The authenticated Vercel walkthrough found and corrected a presentation defect: 
 
 The same review found that the reused prerequisite Web coach's own exit link still used its historical generic practice origin. In a current practical session, it now receives the validated session's exact course return. An added browser assertion leaves through that coach and resumes the same PaaS lab; historical entry still uses its existing return policy.
 
+Replay review also checks a new guided SaaS session against previously completed administrative state. If Erin is already licensed, the guide explains the saved state and explicit reset requirement rather than falsely saying she lacks a license. The production browser test repeats this case, confirms the capacity fixture after explicit reset and verifies that previous submissions remain in the event history. No additional reward is generated.
+
+Exact return is also a focus/viewport contract. The general lesson-heading focus no longer competes with `activity=practical`. The practical activity owns cancellable settled-frame focus after all required stores are ready; reload uses the same policy. Browser assertions require the practical section to be focused and its heading in the viewport before evidence capture. Manually scrolling a screenshot cannot substitute for this assertion. Navigation/focus still creates no learning evidence.
+
 ## Human review gates — not performed
 
 - Azure administrator/architect: challenge region/scope/topology rules, Web-only deny filter, disk roles, hosting/OS/configuration boundaries and no-execution claims.
