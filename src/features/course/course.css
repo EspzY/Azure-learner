@@ -679,6 +679,26 @@
 .course-learning-surface {
   --course-navigation-height: 108px;
 }
+.course-audit-review {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.35rem 1rem;
+  padding: 0.7rem 1.5rem;
+  border-bottom: 1px solid #b8cbdc;
+  background: #edf5fc;
+  color: #183a57;
+  font-size: 0.875rem;
+}
+.course-audit-review a {
+  color: #005a9e;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+.course-audit-review a:focus-visible {
+  outline: 2px solid #005a9e;
+  outline-offset: 3px;
+}
 .course-shell:has(.course-step-navigation) .course-main {
   padding-bottom: calc(var(--course-navigation-height) + 24px);
 }

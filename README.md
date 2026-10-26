@@ -1,5 +1,11 @@
 # AzureLab 3.2.1
 
+## AZ-900 curriculum audit — 2026-10-26
+
+This branch delivers an audit and implementation blueprint, not new curriculum or an exam. The current official July20,2026 objectives were checked against actual manuscripts, activities, independent tasks, feedback, sources and code/tests at PR18 `184b818a041919b9a6461310c3ba39074e020641`. Cloud concepts:6 COMPLETE/8 PARTIAL/1 MISSING; architecture/services:0/12/15; management/governance:0/8/7. These counts are not exam-pass probability; qualified human SME/learning review remains outstanding.
+
+Start with the [57-objective matrix](docs/AZ900_COVERAGE_MATRIX.md), [gap analysis and current Learn structure](docs/AZ900_GAP_ANALYSIS.md), [bounded PR sequence](docs/AZ900_EXPANSION_ROADMAP.md) and [future diagnostic blueprint](docs/AZ900_ASSESSMENT_BLUEPRINT.md). Recommendation: small serverless extension first, then core architecture in two reviewable parts. No new modules, resources, XP or assessment changes. `npm run az900:audit:check` validates offline audit references/structure, not educational truth. Existing `/` → `/learn` is unchanged; only this audit branch's Vercel preview shows a clearly labelled link to its exact-commit documentation. No hidden learning route.
+
 ## Exact-reference Portal correction — review branch
 
 The ordinary course → Free sandbox / practical lab uses one local Microsoft service-icon registry across Home, navigation, search, lists, resource inspection and Architecture Explorer. Reference-led corrections include a40px Portal header, original service colours, Resource groups columns/filtering, a280px resource menu with commands beside it, create grouping/Review and draft-only settings editing/reveal. AzureLab remains an independent local training simulator. No resource/evidence/store migration. [Per-icon provenance, comparison matrix and limits](docs/PORTAL_ICONOGRAPHY.md) supersede the earlier Lucide service-cue choice; uncertain variants remain labelled PARTIAL/UNVERIFIED. Human Azure fidelity and learning validation are outstanding.

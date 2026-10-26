@@ -1,5 +1,11 @@
 # Architecture
 
+## Offline AZ-900 audit boundary — 2026-10-26
+
+`docs/audits/az900-2026-07-20.json` pins the PR18 code baseline, official slots, stable audit IDs, facets, A–F findings, evidence/file/symbol/test pointers, dated official sources and proposed PR IDs. It is not imported by course, simulator, providers, progression or assessments. `scripts/az900-audit-check.mjs` validates structural completeness/references and generates/checks the Markdown matrix; its negative tests reject false COMPLETE claims and invented human approval. This dev-only checker is part of `npm run check`; no runtime dependency was added.
+
+`auditReviewHref` allows only existing Vercel preview metadata for the exact audit branch and a valid40-character SHA; the course layout shows an external exact-commit GitHub-document link in a new tab. No new route/store/configuration variable or learning event. Production/other branches are excluded. [Coverage and planned architecture](AZ900_COVERAGE_MATRIX.md), [future assessment contract](AZ900_ASSESSMENT_BLUEPRINT.md). Future diagnostic schemas are proposals, not current production contracts.
+
 ## Central Portal icon register — 2026-10-26
 
 `public/icons/manifest.json` is the single versioned source for canonical assets, aliases, source/archive paths, SHA256, byte counts, licenses and comparison status. `features/portal/service-icon.tsx` serves unchanged local Microsoft Azure SVGs as images and MIT Fluent system glyphs as monochrome masks. No service CSS recolour, hidden generic fallback, renderer dependency or runtime asset server. Unknown kinds are visibly unresolved; unit/assets/E2E checks cover supported kinds and local requests. [Register contract and rights boundary](PORTAL_ICONOGRAPHY.md).

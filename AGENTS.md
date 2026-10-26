@@ -1,5 +1,9 @@
 # AzureLab engineering contract
 
+## AZ-900 audit continuity — 2026-10-26
+
+Before AZ-900 expansion, read AZ900_COVERAGE_MATRIX, AZ900_GAP_ANALYSIS, AZ900_EXPANSION_ROADMAP and AZ900_ASSESSMENT_BLUEPRINT. The dated57-slot/126-facet audit distinguishes A–F coverage from learner evidence, test success and real human SME/learning review. Do not infer exam readiness from module/quest/XP totals. Audit IDs are not automatically registered runtime objectives. Preserve all prior stores/rubrics/first submissions. New teaching requires separately reviewed content/evidence versioning, original questions and official source recheck; no exam dumps or copied Practice Assessment bank. `npm run az900:audit:check` must pass after audit/mapping changes; update its JSON source then regenerate the matrix with `--write`. Structural validation cannot approve instructional adequacy. The preview-only audit documentation entry is restricted to `codex/az900-curriculum-audit`, uses existing Vercel metadata and is absent in production; remove it when that review branch is retired.
+
 For Portal icon/presentation changes read `docs/PORTAL_ICONOGRAPHY.md`. Use the single `public/icons/manifest.json` register for all service identities and actions; no duplicated Lucide service maps or silent generic fallback. Keep original Microsoft SVG bytes, geometry, colours and proportions, safe local delivery, source/notice hashes and explicit MATCH/PARTIAL/UNVERIFIED reference statuses. Training-material permission is bounded to independent Azure teaching surfaces, never AzureLab branding/marketing. Reference-driven composition changes require actual before/after desktop inspection; green tests do not prove Portal parity or human SME approval. Run `assets:check` and preserve all domain/store/evidence contracts.
 
 ## Reference-led Portal presentation contract — 2026-10-26

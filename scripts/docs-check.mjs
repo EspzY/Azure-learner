@@ -62,6 +62,10 @@ export const requiredFiles = [
   'docs/PRACTICAL_LABS_QA.md',
   'docs/GUIDED_LEARNING_REFINEMENT.md',
   'docs/LEGACY_AUDIT.md',
+  'docs/AZ900_COVERAGE_MATRIX.md',
+  'docs/AZ900_GAP_ANALYSIS.md',
+  'docs/AZ900_EXPANSION_ROADMAP.md',
+  'docs/AZ900_ASSESSMENT_BLUEPRINT.md',
 ];
 
 function markdownFiles(folder) {

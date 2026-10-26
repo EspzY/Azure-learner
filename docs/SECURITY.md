@@ -1,5 +1,9 @@
 # Security and privacy
 
+## Audit-only preview/documentation boundary — 2026-10-26
+
+The AZ-900 manifest/checker is offline developer documentation and is not shipped as learner state or interpreted as commands. No Azure/assessment/XP/storage migration or dependency is introduced. The ordinary course has only a review-document link gated by `VERCEL_ENV=preview`, the exact audit branch, and a validated40-character existing Vercel commit SHA. It opens a known GitHub repository/file in a new tab with `noreferrer`; no arbitrary destination, sensitive environment value, new config requirement or automatic external request. Production/other branches have no entry. Existing public build metadata remains unchanged. Vercel protection, domains, production tracking and aliases must not be changed. [Planned assessment limits](AZ900_ASSESSMENT_BLUEPRINT.md) explicitly preserve local-result/non-authority and no anti-cheat guarantee.
+
 ## Local official icon assets — 2026-10-26
 
 Selected Azure V24 SVGs and MIT Fluent source SVGs are local, hash/size pinned and unchanged. `assets:check` verifies safe local paths, explicit kind coverage, source/reference/status, original SVG/notice hashes and rejects scripts, event handlers, foreignObject and external references. No runtime download, remote font, private Portal bundle, new package or credential is introduced. [Bounded training-use interpretation](PORTAL_ICONOGRAPHY.md) does not authorize Microsoft branding/marketing or assert legal review. Settings value masking is a presentation convention over two harmless local teaching keys, not encryption or secret storage.
