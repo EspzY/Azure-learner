@@ -3,6 +3,14 @@ import type { CreationError, Region, ScopeKind } from '../domain/simulation';
 
 export const nb = {
   portalUi: {
+    missingIcon: 'Ikonreferanse mangler – rapporter dette avviket.',
+    allLocations: 'All locations',
+    resourceDetails: 'Resource details',
+    planDetails: 'App Service Plan details',
+    nextTags: 'Next : Tags >',
+    showValue: 'Show value',
+    hideValue: 'Hide value',
+    hideValues: 'Hide values',
     training: 'TRAINING SIMULATOR',
     services: 'Services',
     documentation: 'Documentation',
@@ -23,7 +31,7 @@ export const nb = {
     localId: 'Local resource ID',
     show: 'Show values',
     edit: 'Edit',
-    saveDraft: 'Save draft',
+    saveDraft: 'Apply',
     cancel: 'Cancel',
     editSetting: 'Edit application setting',
     settingsDraft:

@@ -10,6 +10,7 @@ import {
 } from '@/domain/sandbox/model';
 import { usePractical } from '@/features/course/practical-provider';
 import { PropertyList, type Navigate } from './shared';
+import { ServiceIcon } from './service-icon';
 export function InfrastructureDetails({
   world,
   view = 'all',
@@ -78,6 +79,7 @@ export function InfrastructureDetails({
                   typeof value === 'string' &&
                   inventory(world).some((r) => r.id === value) ? (
                   <button type="button" onClick={() => navigate('resource', { id: value })}>
+                    <ServiceIcon kind={inventory(world).find((r) => r.id === value)!.kind} />{' '}
                     {inventory(world).find((r) => r.id === value)?.name}
                   </button>
                 ) : (
@@ -90,6 +92,7 @@ export function InfrastructureDetails({
               <li key={`${e.kind}-${e.to}`}>
                 <strong>{nb.portal.graph.relations[e.kind]}</strong>{' '}
                 <button type="button" onClick={() => navigate('resource', { id: e.to })}>
+                  <ServiceIcon kind={infrastructure(world).find((r) => r.id === e.to)!.kind} />{' '}
                   {infrastructure(world).find((r) => r.id === e.to)?.name}
                 </button>
                 <p>{nb.portal.graph.explanations[e.kind]}</p>

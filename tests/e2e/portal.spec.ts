@@ -240,7 +240,7 @@ test('source-backed learning, real Portal creation, policy recovery, live graph 
   await inspector.scrollIntoViewIfNeeded();
   await capture(page, info, 'architecture-selected');
   await page
-    .locator('.portal-commandbar')
+    .locator('.portal-training-strip')
     .getByRole('button', { name: p.returnLearning, exact: true })
     .click();
   await expect(page).toHaveURL(/topic=paas/);
@@ -305,7 +305,16 @@ test('keyboard search, incomplete practice, reference assistance, first submissi
     page.locator('.portal-commandbar').getByRole('button', { name: p.create, exact: true }),
   ).toHaveCount(0);
   await area(page, 'groups');
-  await expect(page.getByRole('columnheader', { name: p.metadata, exact: true })).toBeVisible();
+  await expect(
+    page.getByRole('columnheader', { name: nb.portalUi.location, exact: true }),
+  ).toBeVisible();
+  // Azure labels this column Location; the actual value is still group metadata, not member placement.
+  await expect(
+    page.getByRole('row').filter({ hasText: 'rg-transfer' }).locator('span[title]'),
+  ).toHaveAttribute('title', p.locationNote);
+  await expect(page.getByRole('row').filter({ hasText: 'rg-transfer' })).toContainText(
+    'Norway East',
+  );
   await capture(page, info, 'group-list');
   await page.getByRole('button', { name: 'rg-transfer', exact: true }).click();
   await page
@@ -346,6 +355,7 @@ test('keyboard search, incomplete practice, reference assistance, first submissi
   await page.setViewportSize({ width: 320, height: 740 });
   // Exercise the declared non-Segoe fallback too; CI exposed a real header-width regression.
   await page.addStyleTag({ content: '.portal { font-family: Arial, sans-serif; }' });
+  await expect(page.locator('.portal-notifications [data-icon="notifications"]')).toBeVisible();
   await audit(page);
   await page.getByRole('button', { name: p.journal, exact: true }).click();
   await expect(page.getByRole('dialog')).toBeVisible();

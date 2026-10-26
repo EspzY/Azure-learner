@@ -1,5 +1,9 @@
 # AzureLab 3.2.1
 
+## Exact-reference Portal correction — review branch
+
+The ordinary course → Free sandbox / practical lab uses one local Microsoft service-icon registry across Home, navigation, search, lists, resource inspection and Architecture Explorer. Reference-led corrections include a40px Portal header, original service colours, Resource groups columns/filtering, a280px resource menu with commands beside it, create grouping/Review and draft-only settings editing/reveal. AzureLab remains an independent local training simulator. No resource/evidence/store migration. [Per-icon provenance, comparison matrix and limits](docs/PORTAL_ICONOGRAPHY.md) supersede the earlier Lucide service-cue choice; uncertain variants remain labelled PARTIAL/UNVERIFIED. Human Azure fidelity and learning validation are outstanding.
+
 ## Reference-led Portal workspace — 2026-10-26
 
 The ordinary course still owns `/` → `/learn`; its existing lab links and **Free sandbox** open the improved shared `/portal`, not a review route. Home has compact service discovery, real session recents and Navigate. The common shell now uses dense operational tokens, local grouped search, working docked/flyout presentation, resource-specific menus and linked Essentials. VM Basics/Disks/Networking/Review remain the existing bounded workflow. Web App **Environment variables → App settings** now uses Edit → Save draft → explicit Apply; drafts do not write technical state.

@@ -1,5 +1,9 @@
 # Security and privacy
 
+## Local official icon assets — 2026-10-26
+
+Selected Azure V24 SVGs and MIT Fluent source SVGs are local, hash/size pinned and unchanged. `assets:check` verifies safe local paths, explicit kind coverage, source/reference/status, original SVG/notice hashes and rejects scripts, event handlers, foreignObject and external references. No runtime download, remote font, private Portal bundle, new package or credential is introduced. [Bounded training-use interpretation](PORTAL_ICONOGRAPHY.md) does not authorize Microsoft branding/marketing or assert legal review. Settings value masking is a presentation convention over two harmless local teaching keys, not encryption or secret storage.
+
 ## Portal presentation refinement — 2026-10-26
 
 No dependency, runtime external request, environment variable, credential, Azure adapter or new storage key is added. Local raw IDs remain explicitly local. Transient menu preferences and app-setting drafts have no evidence or technical authority. Only existing validated explicit commands persist. Native dialogs retain inert/focus/Escape behavior. Public Microsoft screenshots and owner organizational references are internal design evidence only, excluded from tracked assets; committed captures contain original AzureLab UI and synthetic fixtures. New service cues use the existing Lucide dependency (ISC, with MIT-covered Feather-derived icons), not copied Microsoft graphics. Preview protection, production tracking and domains remain untouched.

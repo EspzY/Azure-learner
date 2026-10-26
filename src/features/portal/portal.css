@@ -20,7 +20,7 @@
   --portal-border: #edebe9;
   --portal-selected: #e6f2fb;
   --portal-control: 24px;
-  --portal-header: 48px;
+  --portal-header: 40px;
   --portal-nav: 225px;
   --portal-row: 32px;
 }
@@ -72,7 +72,7 @@
 .portal h1 {
   scroll-margin-top: calc(var(--portal-header) + 16px);
   width: fit-content;
-  font-size: 20px;
+  font-size: 24px;
   font-weight: 600;
   margin: 0 0 3px;
   line-height: 1.2;
@@ -156,7 +156,7 @@
   border: 0;
   color: #fff;
   background: transparent;
-  height: 48px;
+  height: var(--portal-header);
   min-width: 44px;
   padding: 8px;
   display: flex;
@@ -197,7 +197,7 @@
   color: #555;
   margin-inline: auto;
 }
-.portal-search > svg {
+.portal-search > [data-icon] {
   position: absolute;
   left: 10px;
   pointer-events: none;
@@ -256,7 +256,7 @@
 }
 .portal-body {
   display: flex;
-  min-height: calc(100dvh - 48px);
+  min-height: calc(100dvh - var(--portal-header));
 }
 .portal-nav {
   position: sticky;
@@ -440,7 +440,7 @@
   margin-bottom: 24px;
   border-bottom: 1px solid var(--portal-border);
 }
-.portal-home-training > svg {
+.portal-home-training > [data-icon] {
   color: #0078d4;
   flex-shrink: 0;
 }
@@ -478,7 +478,7 @@
   padding: 15px 8px;
   text-align: left;
 }
-.portal-services-index button > span {
+.portal-services-index button > span:not([data-icon]) {
   flex: 1;
 }
 .portal-list-filters {
@@ -642,7 +642,7 @@
 }
 .portal-resource-overview {
   display: grid;
-  grid-template-columns: 210px minmax(0, 1fr);
+  grid-template-columns: 280px minmax(0, 1fr);
   gap: 0;
   margin: -20px;
 }
@@ -668,6 +668,7 @@
   border: 0;
   margin-bottom: 0;
   align-items: center;
+  gap: 8px;
   min-height: 32px;
   padding: 5px 16px;
   border-radius: 0;
@@ -757,7 +758,7 @@
 }
 .portal-learning-workspace {
   display: grid;
-  grid-template-columns: 210px minmax(0, 1fr);
+  grid-template-columns: 280px minmax(0, 1fr);
   gap: 32px;
 }
 .portal-lesson-menu {
@@ -1534,7 +1535,7 @@
   .portal .portal-brand small {
     display: none;
   }
-  .portal .portal-notifications span {
+  .portal .portal-notifications span:not([data-icon]) {
     position: absolute;
     width: 1px;
     height: 1px;
@@ -1567,19 +1568,23 @@
 
 /* Shared operational composition. Measurements are reference-informed, not a pixel-parity claim. */
 .portal-service-icon {
-  color: #0078d4;
+  display: inline-block;
+  object-fit: contain;
   flex-shrink: 0;
+  vertical-align: middle;
 }
-.portal-service-icon.service-plan,
-.portal-service-icon.service-plans {
-  color: #7160ad;
+.portal-action-icon {
+  display: inline-block;
+  flex-shrink: 0;
+  background-color: currentColor;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: contain;
+  vertical-align: middle;
 }
-.portal-service-icon.service-vm,
-.portal-service-icon.service-vms {
-  color: #007f9c;
-}
-.portal-service-icon.service-disk {
-  color: #7160ad;
+.portal-icon-missing {
+  border: 1px dashed #a4262c;
+  color: #a4262c;
 }
 .portal-commandbar svg {
   color: #0078d4;
@@ -1594,7 +1599,7 @@
   align-items: center;
   gap: 7px;
 }
-.portal-nav-category svg {
+.portal-nav-category [data-icon] {
   color: #0078d4;
 }
 .portal-learning-tools {
@@ -1627,7 +1632,7 @@
 .portal-flyout .portal-nav.mobile-open {
   display: flex;
   position: fixed;
-  top: 48px;
+  top: var(--portal-header);
   bottom: 0;
   left: 0;
   z-index: 75;
@@ -1711,10 +1716,13 @@
   padding: 8px 0 14px;
   margin-bottom: 16px;
 }
-.portal-essentials .portal-properties {
+.portal-essentials {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 0 28px;
+}
+.portal-essentials .portal-properties {
+  display: block;
 }
 .portal-essentials .portal-properties > div {
   grid-template-columns: minmax(110px, 40%) minmax(0, 1fr);
@@ -1804,11 +1812,11 @@
 }
 .portal-side-panel {
   position: fixed;
-  inset: 48px 0 0 auto;
+  inset: var(--portal-header) 0 0 auto;
   margin: 0;
   width: min(440px, 100vw);
-  max-height: calc(100dvh - 48px);
-  height: calc(100dvh - 48px);
+  max-height: calc(100dvh - var(--portal-header));
+  height: calc(100dvh - var(--portal-header));
   border: 0;
   border-left: 1px solid #d2d0ce;
   box-shadow: -4px 0 18px #0002;
@@ -1995,7 +2003,7 @@
     display: flex;
     position: fixed;
     left: 0;
-    top: 48px;
+    top: var(--portal-header);
     bottom: 0;
     overflow: auto;
     z-index: 75;
@@ -2124,5 +2132,70 @@
     text-align: center;
     font-size: 8px;
     line-height: 1.2;
+  }
+}
+
+/* Reference: Microsoft portal-callouts.png and RG/plan create captures, reviewed 2026-10-26. */
+.portal-resource-main > .portal-commandbar {
+  margin: -20px -20px 20px;
+  padding-inline: 12px;
+}
+.portal-commandbar [data-icon] {
+  color: var(--portal-blue);
+}
+.portal-training-strip [data-guide='architecture'] {
+  margin-left: auto;
+}
+.portal[data-training='free'] .portal-working {
+  display: flex;
+  flex-direction: column;
+}
+.portal[data-training='free'] .portal-content {
+  flex: 1;
+}
+.portal[data-training='free'] .portal-training-strip {
+  order: 2;
+  border-top: 1px solid var(--portal-border);
+  border-bottom: 0;
+}
+.portal[data-training='free'] .portal-footer {
+  order: 3;
+}
+.portal .portal-app-settings th > button,
+.portal .portal-app-settings td > button {
+  border: 0;
+  background: transparent;
+  color: #0067b8;
+  padding: 0 8px 0 0;
+}
+.portal .portal-app-settings td > span {
+  display: inline-block;
+  min-width: 90px;
+}
+.portal .portal-fields > h2 {
+  margin-top: 16px;
+}
+
+@media (min-width: 801px) {
+  .portal-list-filters > label:first-child {
+    width: 230px;
+    flex-basis: 230px;
+  }
+  .portal-list-filters > label:not(:first-child) {
+    flex-direction: row;
+    align-items: center;
+    gap: 6px;
+  }
+  .portal-list-filters select {
+    border-color: #8abde3;
+    background: #f4faff;
+    border-radius: 14px;
+    color: #005a9e;
+    max-width: 220px;
+  }
+}
+@media (max-width: 800px) {
+  .portal-essentials {
+    grid-template-columns: minmax(0, 1fr);
   }
 }

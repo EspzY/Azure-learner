@@ -1,0 +1,369 @@
+{
+  "schema": 1,
+  "reviewed": "2026-10-26",
+  "azure": {
+    "version": "V24",
+    "url": "https://arch-center.azureedge.net/icons/Azure_Public_Service_Icons_V24.zip",
+    "sha256": "921594ccd1bf3d9c0a1bd7b6d924e050551a59342f2b353bb74bdcf761c35141",
+    "terms": "https://learn.microsoft.com/en-us/azure/architecture/icons/",
+    "scope": "Unmodified service identities in explicitly independent Azure training exercises and diagrams only; no AzureLab branding or marketing."
+  },
+  "fluent": {
+    "version": "1.1.344",
+    "url": "https://registry.npmjs.org/@fluentui/svg-icons/-/svg-icons-1.1.344.tgz",
+    "commit": "f1260014e8a4fcfa6777182fd6cf082fc5e952d8",
+    "license": "MIT"
+  },
+  "assets": {
+    "groups": {
+      "family": "azure",
+      "file": "azure/10007-icon-service-Resource-Groups.svg",
+      "bytes": 1746,
+      "sha256": "4d2b2eacb37735849d2e556074ac8564f92fada70672b40985c77ea666e82977",
+      "source": "Azure_Public_Service_Icons/Icons/general/10007-icon-service-Resource-Groups.svg",
+      "reference": "rg-manage-resource-groups-list-groups.png",
+      "result": "MATCH",
+      "name": "Resource groups"
+    },
+    "subscriptions": {
+      "family": "azure",
+      "file": "azure/10002-icon-service-Subscriptions.svg",
+      "bytes": 1505,
+      "sha256": "d69843a70bd38eefa5b70a4d0b803502f95cdf061c59aed48b435170a15919b4",
+      "source": "Azure_Public_Service_Icons/Icons/general/10002-icon-service-Subscriptions.svg",
+      "reference": "owner Home reference (private)",
+      "result": "MATCH",
+      "name": "Subscriptions"
+    },
+    "resources": {
+      "family": "azure",
+      "file": "azure/10001-icon-service-All-Resources.svg",
+      "bytes": 895,
+      "sha256": "c65bddf440688e81e641fa7094a603a3a2f98e8ab54aa6cd50cb949f04e49698",
+      "source": "Azure_Public_Service_Icons/Icons/general/10001-icon-service-All-Resources.svg",
+      "reference": "shell-azure-portal-menu.png",
+      "result": "MATCH",
+      "name": "All resources"
+    },
+    "vm": {
+      "family": "azure",
+      "file": "azure/10021-icon-service-Virtual-Machine.svg",
+      "bytes": 1330,
+      "sha256": "092d18ffadec9ec0e5af129186dc7bc2a80544011e55f965604ed4b13873e0fc",
+      "source": "Azure_Public_Service_Icons/Icons/compute/10021-icon-service-Virtual-Machine.svg",
+      "reference": "shell-portal-callouts.png",
+      "result": "MATCH",
+      "name": "Virtual machines"
+    },
+    "disk": {
+      "family": "azure",
+      "file": "azure/10032-icon-service-Disks.svg",
+      "bytes": 2036,
+      "sha256": "7ab5cc684d995ff898448b32424a55bbb5c6669a83a0bb7c547047fec21f292f",
+      "source": "Azure_Public_Service_Icons/Icons/compute/10032-icon-service-Disks.svg",
+      "reference": "official V24 asset; Portal variant not resolved",
+      "result": "UNVERIFIED",
+      "name": "Managed disks"
+    },
+    "nic": {
+      "family": "azure",
+      "file": "azure/10080-icon-service-Network-Interfaces.svg",
+      "bytes": 2022,
+      "sha256": "285737fc53f9df8d8e133f003163ffab77749b2802fa6decba4c8820d60ac496",
+      "source": "Azure_Public_Service_Icons/Icons/networking/10080-icon-service-Network-Interfaces.svg",
+      "reference": "nic-nic-overview.png",
+      "result": "MATCH",
+      "name": "Network interfaces"
+    },
+    "vnet": {
+      "family": "azure",
+      "file": "azure/10061-icon-service-Virtual-Networks.svg",
+      "bytes": 1860,
+      "sha256": "64a5e75ecef2f9f69067faa2eb131266cb8f2858706f8ab74bfea5ad0d98b14d",
+      "source": "Azure_Public_Service_Icons/Icons/networking/10061-icon-service-Virtual-Networks.svg",
+      "reference": "network-vnet-overview-inline.png",
+      "result": "MATCH",
+      "name": "Virtual networks"
+    },
+    "subnet": {
+      "family": "azure",
+      "file": "azure/02742-icon-service-Subnet.svg",
+      "bytes": 1471,
+      "sha256": "f36f20495639268f84b6ab101949b630fc89923ed7e1b4c6242dbcca933e0e15",
+      "source": "Azure_Public_Service_Icons/Icons/networking/02742-icon-service-Subnet.svg",
+      "reference": "network-vnet-overview-inline.png (small menu glyph)",
+      "result": "PARTIAL",
+      "name": "Subnets"
+    },
+    "app": {
+      "family": "azure",
+      "file": "azure/10035-icon-service-App-Services.svg",
+      "bytes": 3078,
+      "sha256": "529d83fc80637a96b6d27f6cfac7536e1c5f9b1b67f58aef4e2e3d6f47fd4925",
+      "source": "Azure_Public_Service_Icons/Icons/app services/10035-icon-service-App-Services.svg",
+      "reference": "shell-azure-portal-menu.png",
+      "result": "MATCH",
+      "name": "App Services / Web Apps"
+    },
+    "plan": {
+      "family": "azure",
+      "file": "azure/00046-icon-service-App-Service-Plans.svg",
+      "bytes": 1605,
+      "sha256": "76763e2d29dc7315305c578af6f7ca19310670805749ca3b332a1e8cfe45ddd3",
+      "source": "Azure_Public_Service_Icons/Icons/app services/00046-icon-service-App-Service-Plans.svg",
+      "reference": "plan-change-appserviceplan.png",
+      "result": "MATCH",
+      "name": "App Service plans"
+    },
+    "activity": {
+      "family": "azure",
+      "file": "azure/00007-icon-service-Activity-Log.svg",
+      "bytes": 906,
+      "sha256": "f287313f4d3061fdad47a8c0d539c6432d98874e720ed4228e16915f08c7d69a",
+      "source": "Azure_Public_Service_Icons/Icons/management + governance/00007-icon-service-Activity-Log.svg",
+      "reference": "settings-open-ui.png",
+      "result": "MATCH",
+      "name": "Activity log"
+    },
+    "policy": {
+      "family": "azure",
+      "file": "azure/10316-icon-service-Policy.svg",
+      "bytes": 1472,
+      "sha256": "c3dc70003e793bf73b497f8d8501cdc81f930ce1777fdbfe9b7450afe477771a",
+      "source": "Azure_Public_Service_Icons/Icons/management + governance/10316-icon-service-Policy.svg",
+      "reference": "policy-search-policy.png",
+      "result": "MATCH",
+      "name": "Policy"
+    },
+    "management": {
+      "family": "azure",
+      "file": "azure/10011-icon-service-Management-Groups.svg",
+      "bytes": 2690,
+      "sha256": "d8371735319fa4971c01e682810d0b67207c2c901f4fd19c2374a80c3e328829",
+      "source": "Azure_Public_Service_Icons/Icons/general/10011-icon-service-Management-Groups.svg",
+      "reference": "official V24 asset; Portal variant not resolved",
+      "result": "UNVERIFIED",
+      "name": "Management groups"
+    },
+    "search": {
+      "family": "fluent",
+      "file": "fluent/search_16_regular.svg",
+      "bytes": 203,
+      "sha256": "426dd52dd35b3eb2a885bec88d942bb459112ff8593274cf897a012486e07f51",
+      "source": "package/icons/search_16_regular.svg",
+      "reference": "Fluent 16 regular; Portal action variant not proven identical",
+      "result": "PARTIAL"
+    },
+    "notifications": {
+      "family": "fluent",
+      "file": "fluent/alert_16_regular.svg",
+      "bytes": 329,
+      "sha256": "d24dec83d0f6d54406aac16fade9b0af68b95fba3a72c1c9689ddc551c14aa65",
+      "source": "package/icons/alert_16_regular.svg",
+      "reference": "Fluent 16 regular; Portal action variant not proven identical",
+      "result": "PARTIAL"
+    },
+    "settings": {
+      "family": "fluent",
+      "file": "fluent/settings_16_regular.svg",
+      "bytes": 1040,
+      "sha256": "8e1f70228f570611ca91f2345564788b984ecd1dd85ae18e2d518f801f4c0402",
+      "source": "package/icons/settings_16_regular.svg",
+      "reference": "Fluent 16 regular; Portal action variant not proven identical",
+      "result": "PARTIAL"
+    },
+    "help": {
+      "family": "fluent",
+      "file": "fluent/question_circle_16_regular.svg",
+      "bytes": 422,
+      "sha256": "dfe053818c7bb763172be7917a06f31dc74e007b96d3e435de9d67b1f7097f65",
+      "source": "package/icons/question_circle_16_regular.svg",
+      "reference": "Fluent 16 regular; Portal action variant not proven identical",
+      "result": "PARTIAL"
+    },
+    "create": {
+      "family": "fluent",
+      "file": "fluent/add_16_regular.svg",
+      "bytes": 203,
+      "sha256": "b8b037be8992c6da600a47388aec7bc3df66b7d7748d12a6e50a7e8a1eee603e",
+      "source": "package/icons/add_16_regular.svg",
+      "reference": "Fluent 16 regular; Portal action variant not proven identical",
+      "result": "PARTIAL"
+    },
+    "refresh": {
+      "family": "fluent",
+      "file": "fluent/arrow_clockwise_16_regular.svg",
+      "bytes": 248,
+      "sha256": "9efc1479f97447216414c17a889f655e6a1bf4b958878cb229dfe54f35ea95aa",
+      "source": "package/icons/arrow_clockwise_16_regular.svg",
+      "reference": "Fluent 16 regular; Portal action variant not proven identical",
+      "result": "PARTIAL"
+    },
+    "menu": {
+      "family": "fluent",
+      "file": "fluent/line_horizontal_3_16_regular.svg",
+      "bytes": 283,
+      "sha256": "638603287b4635896718683919ed9848471ab3f0f17787984fe0944205043e6f",
+      "source": "package/icons/line_horizontal_3_16_regular.svg",
+      "reference": "Fluent 16 regular; Portal action variant not proven identical",
+      "result": "PARTIAL"
+    },
+    "home": {
+      "family": "fluent",
+      "file": "fluent/home_16_regular.svg",
+      "bytes": 500,
+      "sha256": "438bf028bc8db852726d71809ae18344662d2db64844a00d0c8c919d1c05a54b",
+      "source": "package/icons/home_16_regular.svg",
+      "reference": "Fluent 16 regular; Portal action variant not proven identical",
+      "result": "PARTIAL"
+    },
+    "next": {
+      "family": "fluent",
+      "file": "fluent/chevron_right_16_regular.svg",
+      "bytes": 210,
+      "sha256": "44acaeb0e0f9c84a14c7ad635e9d11424e524a4f1b140893281e2329e94767ab",
+      "source": "package/icons/chevron_right_16_regular.svg",
+      "reference": "Fluent 16 regular; Portal action variant not proven identical",
+      "result": "PARTIAL"
+    },
+    "close": {
+      "family": "fluent",
+      "file": "fluent/dismiss_16_regular.svg",
+      "bytes": 327,
+      "sha256": "16ad1ebc24e77252d69c5b2a8c036ce428621d4045cc3ac64599267c604dd0c6",
+      "source": "package/icons/dismiss_16_regular.svg",
+      "reference": "Fluent 16 regular; Portal action variant not proven identical",
+      "result": "PARTIAL"
+    },
+    "favorite": {
+      "family": "fluent",
+      "file": "fluent/star_16_regular.svg",
+      "bytes": 456,
+      "sha256": "6669c812cdec59e45228236e2527c12624c4ee2bc1cb81d11879885038b718ef",
+      "source": "package/icons/star_16_regular.svg",
+      "reference": "Fluent 16 regular; Portal action variant not proven identical",
+      "result": "PARTIAL"
+    },
+    "filter": {
+      "family": "fluent",
+      "file": "fluent/filter_16_regular.svg",
+      "bytes": 279,
+      "sha256": "7dcbe70567e14d23e82657c77d546c6fa802461195f9a000902032abb3a3b56f",
+      "source": "package/icons/filter_16_regular.svg",
+      "reference": "Fluent 16 regular; Portal action variant not proven identical",
+      "result": "PARTIAL"
+    },
+    "services": {
+      "family": "fluent",
+      "file": "fluent/text_bullet_list_square_16_regular.svg",
+      "bytes": 589,
+      "sha256": "bc0598afbfc57222447478597a95cf306393edb7f2cbf1c433713d0c3a0bb7ba",
+      "source": "package/icons/text_bullet_list_square_16_regular.svg",
+      "reference": "Fluent 16 regular; Portal action variant not proven identical",
+      "result": "PARTIAL"
+    },
+    "learn": {
+      "family": "fluent",
+      "file": "fluent/book_open_16_regular.svg",
+      "bytes": 463,
+      "sha256": "14a1299f3e2c1fd01ac0bde11322e1ca5ce1429ba4f23e1f2fd1ea7910035505",
+      "source": "package/icons/book_open_16_regular.svg",
+      "reference": "Fluent 16 regular; Portal action variant not proven identical",
+      "result": "UNVERIFIED"
+    },
+    "challenge": {
+      "family": "fluent",
+      "file": "fluent/compass_northwest_16_regular.svg",
+      "bytes": 377,
+      "sha256": "8996df2cfcc21050d37ea56df7c934296cd62e83f3b315384b9326f168719379",
+      "source": "package/icons/compass_northwest_16_regular.svg",
+      "reference": "Fluent 16 regular; Portal action variant not proven identical",
+      "result": "UNVERIFIED"
+    },
+    "architecture": {
+      "family": "fluent",
+      "file": "fluent/organization_16_regular.svg",
+      "bytes": 433,
+      "sha256": "3c2e7130f4a5064348278648e882c73d600fc213f911ca6cc824c1ce5c5149f5",
+      "source": "package/icons/organization_16_regular.svg",
+      "reference": "Fluent 16 regular; Portal action variant not proven identical",
+      "result": "UNVERIFIED"
+    },
+    "responsibility": {
+      "family": "fluent",
+      "file": "fluent/layer_diagonal_16_regular.svg",
+      "bytes": 656,
+      "sha256": "6c0787d636787aa6e747057598da54c306362a34a51779344734ca67cce7f882",
+      "source": "package/icons/layer_diagonal_16_regular.svg",
+      "reference": "Fluent 16 regular; Portal action variant not proven identical",
+      "result": "UNVERIFIED"
+    },
+    "properties": {
+      "family": "fluent",
+      "file": "fluent/text_bullet_list_square_16_regular.svg",
+      "bytes": 589,
+      "sha256": "bc0598afbfc57222447478597a95cf306393edb7f2cbf1c433713d0c3a0bb7ba",
+      "source": "package/icons/text_bullet_list_square_16_regular.svg",
+      "reference": "Fluent 16 regular; Portal action variant not proven identical",
+      "result": "PARTIAL"
+    },
+    "related": {
+      "family": "fluent",
+      "file": "fluent/link_16_regular.svg",
+      "bytes": 345,
+      "sha256": "942980c9c311e36e565f324170224072eaf42a157ab264770ff22a1350464aa2",
+      "source": "package/icons/link_16_regular.svg",
+      "reference": "Fluent 16 regular; Portal action variant not proven identical",
+      "result": "PARTIAL"
+    },
+    "edit": {
+      "family": "fluent",
+      "file": "fluent/edit_16_regular.svg",
+      "bytes": 366,
+      "sha256": "1898e80cd19caeb198555977b4631b8ff6b3e87e676b213b07539a1e10d08df6",
+      "source": "package/icons/edit_16_regular.svg",
+      "reference": "Fluent 16 regular; Portal action variant not proven identical",
+      "result": "PARTIAL"
+    },
+    "show": {
+      "family": "fluent",
+      "file": "fluent/eye_16_regular.svg",
+      "bytes": 463,
+      "sha256": "6d8ee27e1ffa1780aa7a662c06e0033f118cbd6106b7026aa58b68fbdf7a3312",
+      "source": "package/icons/eye_16_regular.svg",
+      "reference": "Fluent 16 regular; Portal action variant not proven identical",
+      "result": "PARTIAL"
+    },
+    "tenant": {
+      "family": "fluent",
+      "file": "fluent/organization_16_regular.svg",
+      "bytes": 433,
+      "sha256": "3c2e7130f4a5064348278648e882c73d600fc213f911ca6cc824c1ce5c5149f5",
+      "source": "package/icons/organization_16_regular.svg",
+      "reference": "Fluent 16 regular; Portal action variant not proven identical",
+      "result": "UNVERIFIED"
+    }
+  },
+  "aliases": {
+    "group": "groups",
+    "subscription": "subscriptions",
+    "resource": "resources",
+    "vms": "vm",
+    "plans": "plan",
+    "apps": "app",
+    "root": "management",
+    "hierarchy": "management"
+  },
+  "licenses": {
+    "licenses/Microsoft_Terms_of_Use.pdf": {
+      "sha256": "983e83cef1a8f85164760b076a96df54cb50af345861cb1d8344040037d0531c",
+      "bytes": 63859,
+      "source": "https://arch-center.azureedge.net/icons/Azure_Public_Service_Icons_V24.zip"
+    },
+    "licenses/Fluent-MIT.txt": {
+      "sha256": "69bc45dc42b9acb96a69823adbc6ae538374e3c0bde169b855b32c48eaaef52f",
+      "bytes": 1078,
+      "source": "https://raw.githubusercontent.com/microsoft/fluentui-system-icons/f1260014e8a4fcfa6777182fd6cf082fc5e952d8/LICENSE"
+    }
+  }
+}

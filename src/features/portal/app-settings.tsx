@@ -19,7 +19,8 @@ export function AppSettings({
   const [environment, setEnvironment] = useState(saved?.environment ?? 'development'),
     [mode, setMode] = useState(saved?.catalogMode ?? 'standard');
   const [editing, setEditing] = useState<'environment' | 'catalog' | null>(null),
-    [draft, setDraft] = useState('');
+    [draft, setDraft] = useState(''),
+    [revealed, setRevealed] = useState<string[]>([]);
   const entries = [
     {
       id: 'environment' as const,
@@ -49,6 +50,14 @@ export function AppSettings({
         }}
       >
         <div className="portal-settings-actions">
+          <button
+            type="button"
+            onClick={() =>
+              setRevealed(revealed.length === entries.length ? [] : entries.map((e) => e.id))
+            }
+          >
+            {revealed.length === entries.length ? nb.portalUi.hideValues : nb.portalUi.show}
+          </button>
           <button type="submit" className="primary" data-guide="commit" disabled={disabled}>
             {t.settings.apply}
           </button>
@@ -65,8 +74,32 @@ export function AppSettings({
           <tbody>
             {entries.map((entry) => (
               <tr key={entry.id}>
-                <th scope="row">{entry.label}</th>
-                <td>{entry.value}</td>
+                <th scope="row">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setDraft(entry.value);
+                      setEditing(entry.id);
+                    }}
+                  >
+                    {entry.label}
+                  </button>
+                </th>
+                <td>
+                  <span>{revealed.includes(entry.id) ? entry.value : '••••••••'}</span>{' '}
+                  <button
+                    type="button"
+                    onClick={() =>
+                      setRevealed((old) =>
+                        old.includes(entry.id)
+                          ? old.filter((id) => id !== entry.id)
+                          : [...old, entry.id],
+                      )
+                    }
+                  >
+                    {revealed.includes(entry.id) ? nb.portalUi.hideValue : nb.portalUi.showValue}
+                  </button>
+                </td>
                 <td>
                   <button
                     type="button"
@@ -90,7 +123,7 @@ export function AppSettings({
         <p>{t.settings.mechanism}</p>
       </details>
       {active && (
-        <PortalDialog title={nb.portalUi.editSetting} onClose={() => setEditing(null)}>
+        <PortalDialog panel title={nb.portalUi.editSetting} onClose={() => setEditing(null)}>
           <form
             className="portal-setting-editor"
             onSubmit={(e) => {

@@ -1,6 +1,6 @@
 'use client';
 import { useEffect, useId, useRef } from 'react';
-import { X } from 'lucide-react';
+import { ServiceIcon } from './service-icon';
 import { nb } from '@/content/nb';
 import type { Area, PortalLocation } from '@/domain/portal/model';
 export type Navigate = (area: Area, change?: Partial<PortalLocation>) => void;
@@ -39,7 +39,7 @@ export function PortalDialog({
       <header>
         <h2 id={id}>{title}</h2>
         <button type="button" aria-label={nb.portal.close} onClick={onClose}>
-          <X size={18} />
+          <ServiceIcon kind="close" size={18} />
         </button>
       </header>
       <div className="portal-dialog-body">{children}</div>

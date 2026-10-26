@@ -109,10 +109,52 @@ for (const [width, height] of [
     await page.getByRole('link', { name: nb.course.sandbox, exact: true }).click();
     await expect(page.locator('.portal-home-services')).toBeVisible();
     await expect(page.locator('.portal-home-training')).toHaveCount(0);
+    expect(
+      await page.locator('.portal-header').evaluate((el) => el.getBoundingClientRect().height),
+    ).toBe(40);
+    await expect(page.locator('[data-icon-missing]')).toHaveCount(0);
+    await expect(page.locator('.portal-home-services [data-icon="vms"]')).toHaveAttribute(
+      'src',
+      /10021-icon-service-Virtual-Machine.svg$/,
+    );
+    await expect(page.locator('.portal-home-services [data-icon="groups"]')).toHaveAttribute(
+      'src',
+      /10007-icon-service-Resource-Groups.svg$/,
+    );
+    expect(
+      await page
+        .locator('img[data-icon-source="azure"]')
+        .evaluateAll((images) =>
+          images.every(
+            (image) =>
+              (image as HTMLImageElement).complete &&
+              (image as HTMLImageElement).naturalWidth > 0 &&
+              getComputedStyle(image).filter === 'none',
+          ),
+        ),
+    ).toBe(true);
     await audit(page);
     await page.screenshot({ path: info.outputPath(`fidelity-${width}-home.png`), scale: 'css' });
+    await area(page, 'services');
+    await expect(page.locator('.portal-services-index [data-icon="vms"]')).toHaveAttribute(
+      'src',
+      /10021-icon-service-Virtual-Machine.svg$/,
+    );
+    expect(
+      await page
+        .locator('.portal-services-index [data-icon]')
+        .evaluateAll((icons) => icons.every((icon) => icon.getBoundingClientRect().width <= 22)),
+    ).toBe(true);
+    await page.screenshot({
+      path: info.outputPath(`fidelity-${width}-services.png`),
+      scale: 'css',
+    });
     const search = page.getByRole('searchbox', { name: p.search, exact: true });
     await search.fill('Resource groups');
+    await expect(page.locator('.portal-search-results [data-icon="groups"]')).toHaveAttribute(
+      'src',
+      /10007-icon-service-Resource-Groups.svg$/,
+    );
     await search.press('ArrowDown');
     await page.keyboard.press('Enter');
     await expect(page.locator('h1')).toHaveText(p.areas.groups);
@@ -123,13 +165,41 @@ for (const [width, height] of [
       'descending',
     );
     await page.screenshot({ path: info.outputPath(`fidelity-${width}-groups.png`), scale: 'css' });
+    const savedBeforeInspection = await page.evaluate(
+      (key) => localStorage.getItem(key),
+      sandboxKey,
+    );
+    await page.getByRole('combobox', { name: ui.location, exact: true }).selectOption('norwayeast');
+    await expect(page.locator('tbody tr')).toHaveCount(2);
+    await page
+      .locator('.portal-commandbar')
+      .getByRole('button', { name: p.create, exact: true })
+      .click();
+    await expect(
+      page.getByRole('heading', { name: ui.resourceDetails, exact: true }),
+    ).toBeVisible();
+    await expect(page.locator('.portal-commandbar')).toHaveCount(0);
+    await expect(page.locator('.portal-create-footer .primary')).toHaveText(p.review);
+    await page.screenshot({
+      path: info.outputPath(`fidelity-${width}-group-create.png`),
+      scale: 'css',
+    });
+    expect(await page.evaluate((key) => localStorage.getItem(key), sandboxKey)).toBe(
+      savedBeforeInspection,
+    );
     await area(page, 'vms');
+    await page.screenshot({ path: info.outputPath(`fidelity-${width}-vms.png`), scale: 'css' });
     await page.getByRole('button', { name: 'vm-fidelity', exact: true }).click();
     await expect(
       page.locator('.portal-commandbar').getByRole('button', { name: p.create, exact: true }),
     ).toHaveCount(0);
     const menu = page.locator('.portal-resource-menu');
     await expect(page.locator('.portal-essentials')).toContainText('rg-fidelity-dev');
+    await expect(page.locator('.portal-resource-main > .portal-commandbar')).toBeVisible();
+    await expect(page.locator('.portal-resource-menu [data-icon="vm"]').first()).toHaveAttribute(
+      'src',
+      /10021-icon-service-Virtual-Machine.svg$/,
+    );
     await audit(page);
     await page.screenshot({
       path: info.outputPath(`fidelity-${width}-vm-overview.png`),
@@ -156,13 +226,56 @@ for (const [width, height] of [
       scale: 'css',
     });
     await audit(page);
+    await area(page, 'plans');
+    await page
+      .locator('.portal-commandbar')
+      .getByRole('button', { name: p.create, exact: true })
+      .click();
+    await expect(page.getByRole('heading', { name: ui.planDetails, exact: true })).toBeVisible();
+    await expect(page.locator('.portal-title [data-icon="plan"]')).toHaveAttribute(
+      'src',
+      /00046-icon-service-App-Service-Plans.svg$/,
+    );
+    await page.screenshot({
+      path: info.outputPath(`fidelity-${width}-plan-create.png`),
+      scale: 'css',
+    });
+    await area(page, 'plans');
+    await page.getByRole('button', { name: 'plan-fidelity', exact: true }).click();
+    await expect(page.locator('h1')).toHaveText('plan-fidelity');
+    await page.screenshot({
+      path: info.outputPath(`fidelity-${width}-plan-overview.png`),
+      scale: 'css',
+    });
+    await page
+      .locator('.portal-commandbar')
+      .getByRole('button', { name: p.create, exact: true })
+      .click();
+    await expect(
+      page.getByRole('combobox', { name: p.plan, exact: true }).locator('option:checked'),
+    ).toHaveText('plan-fidelity · West Europe');
+    await page.screenshot({
+      path: info.outputPath(`fidelity-${width}-app-create.png`),
+      scale: 'css',
+    });
     await area(page, 'apps');
+    await page.screenshot({ path: info.outputPath(`fidelity-${width}-apps.png`), scale: 'css' });
     await page.getByRole('button', { name: 'app-fidelity', exact: true }).click();
+    await expect(page.locator('h1')).toHaveText('app-fidelity');
+    await page.screenshot({
+      path: info.outputPath(`fidelity-${width}-app-overview.png`),
+      scale: 'css',
+    });
     await page
       .locator('.portal-resource-menu')
       .getByRole('button', { name: labsNb.settings.title, exact: true })
       .click();
     const before = await page.evaluate(() => localStorage.getItem('azurelab.sandbox.v2'));
+    await expect(page.locator('.portal-app-settings tbody')).not.toContainText('development');
+    await page.getByRole('button', { name: ui.show, exact: true }).click();
+    await expect(page.locator('.portal-app-settings tbody')).toContainText('development');
+    await page.getByRole('button', { name: ui.hideValues, exact: true }).click();
+    expect(await page.evaluate((key) => localStorage.getItem(key), sandboxKey)).toBe(before);
     await editAppSetting(page, labsNb.settings.environment, 'staging');
     await editAppSetting(page, labsNb.settings.catalog, 'read-only');
     expect(await page.evaluate(() => localStorage.getItem('azurelab.sandbox.v2'))).toBe(before);
@@ -209,6 +322,7 @@ for (const [width, height] of [
     await page.getByRole('radio', { name: ui.flyout, exact: true }).check();
     await page.keyboard.press('Escape');
     await expect(page.locator('.portal-nav')).not.toBeVisible();
+    await expect(page.locator('[data-icon-missing]')).toHaveCount(0);
     await page.getByRole('button', { name: p.menu, exact: true }).click();
     await expect(page.locator('.portal-nav')).toBeVisible();
     await page.keyboard.press('Escape');

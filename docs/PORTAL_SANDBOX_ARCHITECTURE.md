@@ -1,5 +1,9 @@
 # Portal sandbox architecture
 
+## Presentation-only reference correction — 2026-10-26
+
+All supported resources still come from the original replayed inventory. The [central icon contract](PORTAL_ICONOGRAPHY.md) drives shell/search/table/Overview/menu/relationships/Architecture instead of independent Lucide maps. Resource-specific commands share the right pane; native controls and draft/apply semantics preserve original command execution. Filters, visual reveal and navigation cannot award progress. No schema, provider, dependency or persistence change.
+
 ## Presentation refinement without a new model — 2026-10-26
 
 The high-fidelity branch changes no command, replay, schema, capacity, policy, assessment or award rule. Home/search/tables/resource menus continue to project the same validated SandboxStore world and ledger. Service-specific breadcrumbs and linked Essentials preserve typed containment, metadata geography and hosting/dependency meanings. Properties identify local IDs honestly; no counterfeit ARM ID or runtime status is generated.
