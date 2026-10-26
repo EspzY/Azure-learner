@@ -60,6 +60,7 @@ export const requiredFiles = [
   'docs/FUNDAMENTALS_LAB_COVERAGE.md',
   'docs/PRACTICAL_LABS_QA.md',
   'docs/GUIDED_LEARNING_REFINEMENT.md',
+  'docs/LEGACY_AUDIT.md',
 ];
 
 function markdownFiles(folder) {

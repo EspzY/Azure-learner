@@ -1,5 +1,9 @@
 # Learning journey and competency universe
 
+## Retirement status — 2026-10-26
+
+Current delivery is the course, SavvyShark and shared Portal/SaaS labs. The RPG, timed Living Learning and SVG journey are retired; older sections describing their presentation are historical. No competency objective, original manuscript, assessment rule, source mapping or learning-data version is removed. SandboxStore still validates the frozen Chapter01 prefix; the old Chapter UI/provider does not run. See [audit and actual shared-code extraction](LEGACY_AUDIT.md) and [current architecture](ARCHITECTURE.md).
+
 ## Current practical bridge — 3.2.1
 
 Official order remains computing → benefits → service types. The third module now moves from its preserved conceptual models into persisted VM, existing Web platform/settings and separate SaaS administration. Benefits links to relevant configuration/relationships/history while retaining its explanatory failure/capacity/sustainability models. None becomes real telemetry, HA, failover or carbon measurement. The 30 professional competencies remain a progression proposal, not 30 implemented courses. [Coverage](FUNDAMENTALS_LAB_COVERAGE.md), [lab architecture](INTEGRATED_LABS_ARCHITECTURE.md).

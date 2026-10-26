@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { nb } from '@/content/nb';
-import { responsibility } from '@/domain/expedition';
+import { responsibility } from '@/domain/curriculum/responsibility';
 export function ResponsibilityRecap() {
   const [task, setTask] = useState<'physical' | 'data' | 'identity'>('physical');
   const c = nb.expansion.common,

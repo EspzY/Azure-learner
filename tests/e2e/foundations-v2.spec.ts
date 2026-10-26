@@ -69,7 +69,7 @@ test('ordinary root delivers the whole v2 course, preserved objectives, actual l
     await page.goto('/');
     await expect(page).toHaveURL(/\/learn$/);
     await expect(
-      page.getByRole('link', { name: nb.beginnerProof.reviewAction, exact: true }),
+      page.getByRole('link', { name: nb.foundationsVisuals.reviewAction, exact: true }),
     ).toHaveCount(0);
     await capture(page, info, `${width}-landing`);
     await page
@@ -86,7 +86,7 @@ test('ordinary root delivers the whole v2 course, preserved objectives, actual l
     await capture(page, info, `${width}-request`);
     await audit(page);
   }
-  await page.getByRole('button', { name: nb.beginnerProof.send, exact: true }).click();
+  await page.getByRole('button', { name: nb.foundationsVisuals.send, exact: true }).click();
   await answer(page, 'intro-request', 'browser');
   await expect(page.locator('.v2-check [role=status]')).toHaveText(
     t.checkItems['intro-request'].wrong,
@@ -94,7 +94,7 @@ test('ordinary root delivers the whole v2 course, preserved objectives, actual l
   await answer(page, 'intro-request', 'server');
   await step(page, 'physical-server');
   for (const id of ['ram', 'storage', 'os']) {
-    const part = nb.beginnerProof.parts.find((p) => p.id === id)!;
+    const part = nb.foundationsVisuals.parts.find((p) => p.id === id)!;
     await page.getByRole('button', { name: new RegExp(`^${part.name}`) }).click();
     await expect(page.locator('.proof-part-detail')).toContainText(part.explanation);
   }
@@ -122,15 +122,15 @@ test('ordinary root delivers the whole v2 course, preserved objectives, actual l
   await expect(page.getByText(t.topics['capacity-basics'].detail, { exact: true })).toBeVisible();
   await answer(page, 'capacity-basics', 'unused');
   await step(page, 'v2-capacity');
-  await expect(page.getByText(nb.beginnerProof.awaiting, { exact: true })).toBeVisible();
-  await page.getByLabel(nb.beginnerProof.prediction, { exact: true }).fill('9');
-  await page.getByRole('button', { name: nb.beginnerProof.run, exact: true }).click();
-  await expect(page.getByText(nb.beginnerProof.correction, { exact: true })).toBeVisible();
+  await expect(page.getByText(nb.foundationsVisuals.awaiting, { exact: true })).toBeVisible();
+  await page.getByLabel(nb.foundationsVisuals.prediction, { exact: true }).fill('9');
+  await page.getByRole('button', { name: nb.foundationsVisuals.run, exact: true }).click();
+  await expect(page.getByText(nb.foundationsVisuals.correction, { exact: true })).toBeVisible();
   await capture(page, info, 'prediction');
   await page.getByLabel('10 pakker/time', { exact: true }).check();
-  await expect(page.getByText(nb.beginnerProof.stale, { exact: true })).toBeVisible();
-  await page.getByLabel(nb.beginnerProof.prediction, { exact: true }).fill('0');
-  await page.getByRole('button', { name: nb.beginnerProof.run, exact: true }).click();
+  await expect(page.getByText(nb.foundationsVisuals.stale, { exact: true })).toBeVisible();
+  await page.getByLabel(nb.foundationsVisuals.prediction, { exact: true }).fill('0');
+  await page.getByRole('button', { name: nb.foundationsVisuals.run, exact: true }).click();
   await answer(page, 'v2-capacity', 'same-hour');
   await capture(page, info, 'comparison');
   for (const [width, height] of [

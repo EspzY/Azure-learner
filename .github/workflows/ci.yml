@@ -8,7 +8,7 @@ permissions:
 jobs:
   verify:
     runs-on: ubuntu-latest
-    timeout-minutes: 35 # Preserved software-WebGL archive regressions plus Portal/learning verification
+    timeout-minutes: 35 # Complete course, Portal and persistence verification
     env:
       NEXT_TELEMETRY_DISABLED: '1'
     steps:

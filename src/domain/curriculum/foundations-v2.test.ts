@@ -15,7 +15,7 @@ import {
 } from './foundations-v2';
 import { FoundationsV2Store } from './v2-store';
 import { freshLearning, learningKey, restoreLearning, initialProbe } from './foundations';
-import { capacityProof } from '../design-proof/capacity';
+import { capacityProof } from './capacity';
 import { nb } from '@/content/nb';
 const event = (s: FoundationsV2Save, e: unknown) => {
   const n = applyV2(s, e);

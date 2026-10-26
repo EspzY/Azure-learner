@@ -1,5 +1,15 @@
 # Project status
 
+## Controlled legacy retirement — 2026-10-26
+
+Branch `codex/legacy-cleanup`, based on PR15 head91f6cc4 (stacked on PR14). Retired runtime, dependencies and exclusive tests are removed after extraction of shared current content/controls/models. The active course/SavvyShark/Benefits/Service Types/Portal/SaaS and all evidence/replay remain. Historical raw storage is not migrated or discarded. [Audit and exact original CI failure evidence](LEGACY_AUDIT.md) separates confirmed assertions from unproven GPU/timing causes. Final complete verification and stable preview review are recorded below after execution; no human educational validation is claimed.
+
+### Final local verification
+
+`npm ci` and full `npm run check` pass:146Vitest/15files,61curriculum subset,3docs-validator fixtures,58Markdown/local links, mascot assets, new legacy boundary, TypeScript, lint, format and production build. Complete production Playwright on port3100: **43passed/17existing explicit duplicate skips/0failed**. No current test assertions were disabled.56game/SVG/proof-specific project cases were removed with their retired product;8new compatibility/history cases cover both browser projects. `npm audit --json`:0vulnerabilities;18renderer-related lockfile entries removed. Frozen technical/evidence stores have no diff; active copy values were compared with PR15.
+
+[Detailed commands, intermediate failures and inspected evidence](LEGACY_AUDIT.md#executed-local-verification--2026-10-26) distinguish local verification from remote deployment/CI and human learning review. Source/import audit found zero current consumers of the116deleted files after extraction. Small frozen compatibility types/rules and historical Markdown remain deliberately; no automatic cleanup of dormant browser data. Final protected stable-branch preview and exact reviewed SHA belong to the new Draft PR/delivery. No merge or production deployment.
+
 ## Guided practical learning and visual refinement — 2026-10-26
 
 Implemented in the ordinary `/` → `/learn` course and shared Portal on an isolated feature branch. Module2/3 guided launch now uses a purpose-built SavvyShark mission brief: task, reason, outcomes, stages and observations before explicit start. Benefits inspection has a shorter scope-specific brief; valid resume does not restart work. Existing PaaS work gets a configuration-specific mission. Cancel/recall writes no technical, session, award or assessment evidence.

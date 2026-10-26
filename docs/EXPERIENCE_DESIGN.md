@@ -1,5 +1,7 @@
 # Experience design — resource world and expedition
 
+> **Historical record — retired 2026-10-26.** Game/SVG journey/cinematic/playback implementations and exclusive tests are removed, not supported alternative products. Paths and measurements below record the earlier phase, recoverable from Git at91f6cc4. Current course/Portal teaching and frozen technical contracts are preserved; see [classification and compatibility](LEGACY_AUDIT.md) and [current architecture](ARCHITECTURE.md).
+
 ## Course-first refinement — 2026-10-25
 
 Primary orientation is the ordered course, not Portal Home. [Course experience](COURSE_FIRST_PRODUCT_EXPERIENCE.md) specifies full teaching → live concepts → authored lab introduction → real guided Portal controls → causal inspection → exact debrief → independent application. The shared Portal remains operationally familiar; the historical game stays archived. Rendering and guidance cannot become educational truth.

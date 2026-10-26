@@ -1,5 +1,9 @@
 # Portal learning manuscript and vertical slice
 
+## Retirement status — 2026-10-26
+
+Current delivery is the course, SavvyShark and shared Portal/SaaS labs. The RPG, timed Living Learning and SVG journey are retired; older sections describing their presentation are historical. No competency objective, original manuscript, assessment rule, source mapping or learning-data version is removed. SandboxStore still validates the frozen Chapter01 prefix; the old Chapter UI/provider does not run. See [audit and actual shared-code extraction](LEGACY_AUDIT.md) and [current architecture](ARCHITECTURE.md).
+
 ## 3.2.1 practical extension
 
 The complete existing manuscript and conceptual experiments remain. Service Types IaaS/PaaS/SaaS now each have a practical entry with purpose, supported actions and exact lesson return. VM creation persists its real local dependency set; PaaS adds App settings to existing Web flows; SaaS administration uses a separate fictional product. Inspection and changed-task reasoning are required alongside actual accepted commands. Independent criteria/feedback are withheld until delivery or explicit help; guided correction is not independent mastery. [Coverage and gaps](FUNDAMENTALS_LAB_COVERAGE.md), [implemented specifications](INTEGRATED_LABS_ARCHITECTURE.md).

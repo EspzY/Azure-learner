@@ -191,7 +191,9 @@ test('operational Service Types configurations, wrong causes, separate version a
       .getByRole('button', { name: new RegExp(m) })
       .click();
   await expect(
-    page.locator('.portal-layer-stack button').filter({ hasText: nb.expedition.layers.os.label }),
+    page
+      .locator('.portal-layer-stack button')
+      .filter({ hasText: nb.learningResponsibility.layers.os.label }),
   ).toContainText(nb.portal.responsibility.microsoft);
   for (const unit of ['iaas', 'paas', 'saas', 'selection'] as const) {
     if (unit === 'iaas') {

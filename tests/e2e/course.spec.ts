@@ -70,11 +70,15 @@ test('course owns full theory, guided real controls, denial investigation, hosti
   const model = page.locator('.portal-model-choice');
   await model.getByRole('button', { name: /IAAS/ }).click();
   await expect(
-    page.locator('.portal-layer-stack button').filter({ hasText: nb.expedition.layers.os.label }),
+    page
+      .locator('.portal-layer-stack button')
+      .filter({ hasText: nb.learningResponsibility.layers.os.label }),
   ).toContainText(p.responsibility.customer);
   await model.getByRole('button', { name: /PAAS/ }).click();
   await expect(
-    page.locator('.portal-layer-stack button').filter({ hasText: nb.expedition.layers.os.label }),
+    page
+      .locator('.portal-layer-stack button')
+      .filter({ hasText: nb.learningResponsibility.layers.os.label }),
   ).toContainText(p.responsibility.microsoft);
   await model.getByRole('button', { name: /SAAS/ }).click();
   await capture(page, info, 'responsibility');

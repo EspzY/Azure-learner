@@ -5,9 +5,6 @@ import type { Metadata } from 'next';
 import { AppShell } from '@/components/app-shell';
 import { ProgressProvider } from '@/components/progress-provider';
 import { nb } from '@/content/nb';
-import { ExpeditionProvider } from '@/features/journey/expedition-provider';
-import { ChapterProvider } from '@/features/chapter01/provider';
-import { GameProvider } from '@/features/rpg/game-provider';
 import { LearningProvider } from '@/features/learning/provider';
 import { PortalLearningProvider } from '@/features/portal/learning-provider';
 import { FoundationsV2Provider } from '@/features/learning/v2-provider';
@@ -25,29 +22,23 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="nb">
       <body>
         <ProgressProvider>
-          <ExpeditionProvider>
-            <ChapterProvider>
-              <GameProvider>
-                <LearningProvider>
-                  <PortalLearningProvider>
-                    <FoundationsV2Provider>
-                      <CourseProvider>
-                        <ExpansionProvider>
-                          <SandboxProvider>
-                            <SaasProvider>
-                              <PracticalProvider>
-                                <AppShell>{children}</AppShell>
-                              </PracticalProvider>
-                            </SaasProvider>
-                          </SandboxProvider>
-                        </ExpansionProvider>
-                      </CourseProvider>
-                    </FoundationsV2Provider>
-                  </PortalLearningProvider>
-                </LearningProvider>
-              </GameProvider>
-            </ChapterProvider>
-          </ExpeditionProvider>
+          <LearningProvider>
+            <PortalLearningProvider>
+              <FoundationsV2Provider>
+                <CourseProvider>
+                  <ExpansionProvider>
+                    <SandboxProvider>
+                      <SaasProvider>
+                        <PracticalProvider>
+                          <AppShell>{children}</AppShell>
+                        </PracticalProvider>
+                      </SaasProvider>
+                    </SandboxProvider>
+                  </ExpansionProvider>
+                </CourseProvider>
+              </FoundationsV2Provider>
+            </PortalLearningProvider>
+          </LearningProvider>
         </ProgressProvider>
       </body>
     </html>

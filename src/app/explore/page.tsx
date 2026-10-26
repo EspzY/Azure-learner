@@ -1,10 +1,6 @@
-import { OrganizationWorld } from '@/features/organization/world-entry';
-import { Suspense } from 'react';
-import LoadingWorld from './loading';
-export default function ExplorePage() {
-  return (
-    <Suspense fallback={<LoadingWorld />}>
-      <OrganizationWorld />
-    </Suspense>
-  );
+import { redirect } from 'next/navigation';
+
+/** Compatibility bookmark for a retired experience; no legacy runtime or state. */
+export default function RetiredEntry() {
+  redirect('/portal');
 }

@@ -1,5 +1,9 @@
 # Local curriculum and evidence architecture
 
+## Legacy retirement — 2026-10-26
+
+Current course content/evidence contracts are preserved. Only the unused RPG session/playback presentation is removed. Original investigations are learning-owned; responsibility/capacity models and official metadata remain pure curriculum modules. No content objective or assessment contract is removed. Historical G1.x sections below are superseded by [the retirement audit](LEGACY_AUDIT.md).
+
 ## Presentation-only refinement — 2026-10-26
 
 `learningPolishNb` contains original briefing, contextual guide and figure copy. It supports the existing CB01–CB05/ST01–ST04 bindings and source records, without introducing a new objective, rubric, completion category or evidence migration. Renderers consume current inputs and an optional previously validated result. [Specification](GUIDED_LEARNING_REFINEMENT.md).

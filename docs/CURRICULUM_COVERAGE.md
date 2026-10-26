@@ -1,5 +1,9 @@
 # Curriculum coverage audit
 
+## Retirement status — 2026-10-26
+
+Current delivery is the course, SavvyShark and shared Portal/SaaS labs. The RPG, timed Living Learning and SVG journey are retired; older sections describing their presentation are historical. No competency objective, original manuscript, assessment rule, source mapping or learning-data version is removed. SandboxStore still validates the frozen Chapter01 prefix; the old Chapter UI/provider does not run. See [audit and actual shared-code extraction](LEGACY_AUDIT.md) and [current architecture](ARCHITECTURE.md).
+
 ## 3.2.1 qualitative operational audit
 
 [All 15 selected path objectives](FUNDAMENTALS_LAB_COVERAGE.md) are mapped to actual teaching/practice/evidence and remaining boundaries. The existing M1/M2/M3 manuscripts and conceptual independent tasks are unchanged. New VM/PaaS/SaaS operational labs add separate changed-context evidence; they do not retrospectively upgrade conceptual answers or complete additional official modules. Wider AZ-900/architectural coverage and human SME review remain incomplete. Serverless remains an explicitly known wider exam gap.

@@ -144,7 +144,9 @@ test('source-backed learning, real Portal creation, policy recovery, live graph 
       .getByRole('button', { name: new RegExp(`^${model.toUpperCase()}`) })
       .click();
     await expect(
-      page.locator('.portal-layer-stack button').filter({ hasText: nb.expedition.layers.os.label }),
+      page
+        .locator('.portal-layer-stack button')
+        .filter({ hasText: nb.learningResponsibility.layers.os.label }),
     ).toContainText(model === 'iaas' ? p.responsibility.customer : p.responsibility.microsoft);
   }
   await page.locator('.portal-responsibility').scrollIntoViewIfNeeded();
@@ -371,13 +373,13 @@ test('direct Portal entry preserves history and archived entry stays isolated', 
     { maxRedirects: 0 },
   );
   expect(compatibility.status()).toBe(307);
-  expect(compatibility.headers().location).toBe('/legacy/rpg?goal=service&return=chapter01');
+  expect(compatibility.headers().location).toBe('/learn');
   const unsafe = await page.request.get(
     '/expedition-3d?goal=https://example.invalid&return=other',
     { maxRedirects: 0 },
   );
   expect(unsafe.status()).toBe(307);
-  expect(unsafe.headers().location).toBe('/legacy/rpg');
+  expect(unsafe.headers().location).toBe('/learn');
   await page.goto('/portal');
   await expect(page).toHaveURL(/\/portal$/);
   await expect(page.locator('.portal-nav nav')).not.toContainText('RPG');
