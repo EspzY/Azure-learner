@@ -35,7 +35,7 @@ Dette er antall auditerte krav, ikke en samlet deknings-/beståttprosent. Offisi
 
 ## Evidence-register
 
-Profilene under gir faktisk kilde/manuskript, mekanisme, tilgjengelig komponent, vurdering og regresjonstester. Hver kravrad presiserer relevant kriterium og hull; en test i en delt profil beviser ikke alle målene i profilen. `nb.ts` inneholder både aktive og historiske tekster: bare oppgitte nåværende v2-/Benefits-/lab-forløp teller. De 30 profesjonelle kompetansene er grove planområder, ikke 30 implementerte kurs.
+Profilene under gir faktisk kilde/manuskript, mekanisme, tilgjengelig komponent, vurdering og regresjonstester. Hver kravrad presiserer relevant kriterium og hull; en test i en delt profil beviser ikke alle målene i profilen. `nb.ts` inneholder aktive og historiske tekster. De oppgitte v2-/Benefits-/lab-forløpene og det fortsatt tilgjengelige Portal-kompatibilitetsoppdraget teller der de faktisk bidrar. Gamle resultater konverteres ikke til v2-evidens. De 30 profesjonelle kompetansene er grove planområder, ikke 30 implementerte kurs.
 
 ### Evidens F
 
@@ -135,6 +135,15 @@ Profilene under gir faktisk kilde/manuskript, mekanisme, tilgjengelig komponent,
 - Vurdering: [src/domain/sandbox/practical.ts](../src/domain/sandbox/practical.ts) → `evaluatePractical`.
 - Tester: [tests/e2e/portal.spec.ts](../tests/e2e/portal.spec.ts), [tests/e2e/portal-fidelity.spec.ts](../tests/e2e/portal-fidelity.spec.ts), [tests/e2e/practical-labs.spec.ts](../tests/e2e/practical-labs.spec.ts).
 - Grense: Authentic local workflows are application evidence, not by themselves complete instruction on management tools.
+
+### Evidens L
+
+- Manuskript: [src/content/nb.ts](../src/content/nb.ts) → `challenge:`.
+- Mekanisme: [src/domain/portal/learning.ts](../src/domain/portal/learning.ts) → `evaluateSubmission`.
+- Lærerflate: [src/features/portal/learning.tsx](../src/features/portal/learning.tsx) → `IndependentChallenge`; [src/features/portal/portal.tsx](../src/features/portal/portal.tsx) → `navigate('challenge'`.
+- Vurdering: [src/domain/portal/learning.ts](../src/domain/portal/learning.ts) → `ready: a.readyModel === 'saas'`; [src/domain/portal/learning.ts](../src/domain/portal/learning.ts) → `scope:`.
+- Tester: [src/domain/portal/portal.test.ts](../src/domain/portal/portal.test.ts), [tests/e2e/portal.spec.ts](../tests/e2e/portal.spec.ts).
+- Grense: Still reachable Portal independent compatibility task, not an inaccessible archive. Narrow fixed model-choice/scope predicates and per-criterion feedback; frozen v1 observations do not upgrade current v2 evidence.
 
 ## 1.1 Cloud computing
 
@@ -274,7 +283,7 @@ Profilene under gir faktisk kilde/manuskript, mekanisme, tilgjengelig komponent,
 | 1.3.01<br>`az900.services.iaas`      | IaaS og retained gjesteansvar          | COMPLETE | V V V V V V | ST01, C01, C02          | S, V    | P17, P18 |
 | 1.3.02<br>`az900.services.paas`      | PaaS og retained applikasjonsansvar    | COMPLETE | V V V V V V | ST02, C01               | S, P    | P17, P18 |
 | 1.3.03<br>`az900.services.saas`      | SaaS og retained produktadministrasjon | COMPLETE | V V V V V V | ST03, I01               | S       | P17, P18 |
-| 1.3.04<br>`az900.services.use-cases` | Velge IaaS, PaaS eller SaaS fra krav   | PARTIAL  | V V V P P V | ST04, F01, R01          | S       | P03      |
+| 1.3.04<br>`az900.services.use-cases` | Velge IaaS, PaaS eller SaaS fra krav   | PARTIAL  | V V V P P V | ST04, F01, R01          | S, L    | P03      |
 
 ### 1.3.01 — IaaS og retained gjesteansvar
 
@@ -310,9 +319,9 @@ Profilene under gir faktisk kilde/manuskript, mekanisme, tilgjengelig komponent,
 
 **Fasetter:** IaaS-valg: COMPLETE; PaaS-valg: COMPLETE; SaaS-valg: PARTIAL.
 
-**Faktisk funn:** Krav/tradeoff-modell; architecture+reason godtar både begrunnet IaaS og støttet PaaS.
+**Faktisk funn:** Krav/tradeoff-modell; architecture+reason godtar begrunnet IaaS eller støttet PaaS. Det fortsatt tilgjengelige Portal-kompatibilitetsoppdraget vurderer også readyModel=saas for ferdig samarbeid; dette er et eget v1-spor.
 
-**Rest / beslutning:** Nåværende v2 vurderer SaaS-ansvar ved avgang, men ikke et uavhengig nytt scenario hvor SaaS velges fremfor egenkode-hosting. Arkivert v1 readyModel teller ikke som ny v2-evidens.
+**Rest / beslutning:** Current v2 vurderer SaaS-avgang, ikke et nytt SaaS-valg. Portal v1 har et smalt modellvalg, men gir bare kort kriterieforklaring, uten full årsak for plausible IaaS/PaaS-alternativer. Bevar dette bidraget; integrer bedre transfer/feedback i v2 uten å konvertere gamle svar.
 
 **Kilder:** [EXAM](https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900), [M03](https://learn.microsoft.com/en-us/training/modules/describe-cloud-service-types/). Lokal mål-ID er et kartleggingspunkt, ikke automatisk tildelt evidens.
 
@@ -323,10 +332,10 @@ Profilene under gir faktisk kilde/manuskript, mekanisme, tilgjengelig komponent,
 | 2.1.01<br>`az900.architecture.regions`           | Regions, region pairs og sovereign regions | PARTIAL | P P P M P P | F02                     | H, P, V             | P01      |
 | 2.1.02<br>`az900.architecture.zones`             | Availability zones                         | MISSING | M M M M M N | F02                     | Ingen aktiv dekning | P01      |
 | 2.1.03<br>`az900.architecture.datacenters`       | Azure datacenters                          | MISSING | M M M M M N | F02                     | Ingen aktiv dekning | P01      |
-| 2.1.04<br>`az900.architecture.resources-groups`  | Resources og resource groups               | PARTIAL | V V V P P V | G01, G04                | H, P                | P02      |
-| 2.1.05<br>`az900.architecture.subscriptions`     | Subscriptions                              | PARTIAL | P P V M P V | G01, G04                | H                   | P02      |
+| 2.1.04<br>`az900.architecture.resources-groups`  | Resources og resource groups               | PARTIAL | V V V P P V | G01, G04                | H, P, L             | P02      |
+| 2.1.05<br>`az900.architecture.subscriptions`     | Subscriptions                              | PARTIAL | P P V P P V | G01, G04                | H, L                | P02      |
 | 2.1.06<br>`az900.architecture.management-groups` | Management groups                          | PARTIAL | P P P M P V | G01, G04                | H                   | P02      |
-| 2.1.07<br>`az900.architecture.hierarchy`         | Hierarki og relasjonstyper                 | PARTIAL | P V V P P V | G01, G02                | H                   | P02      |
+| 2.1.07<br>`az900.architecture.hierarchy`         | Hierarki og relasjonstyper                 | PARTIAL | P V V P P V | G01, G02                | H, L                | P02      |
 
 ### 2.1.01 — Regions, region pairs og sovereign regions
 
@@ -372,9 +381,9 @@ Profilene under gir faktisk kilde/manuskript, mekanisme, tilgjengelig komponent,
 
 **Fasetter:** Subscription boundary/billing: PARTIAL.
 
-**Faktisk funn:** Valg av abonnement, parent/ID og kort fakturerings-/styringsforklaring.
+**Faktisk funn:** Valg av abonnement, parent/ID og kort fakturerings-/styringsforklaring. Portalens separate kompatibilitetsoppdrag har et faktisk nytt-gruppe/subscription-predikat.
 
-**Rest / beslutning:** Ingen selvstendig valg av abonnementsgrense fra organisatoriske/billing-krav; feil abonnement kan være teknisk gyldig.
+**Rest / beslutning:** Det tekniske scope-predikatet er delvis anvendelse, men vurderer ikke selvstendig begrunnet valg av abonnementsgrense fra organisatoriske/billing-krav. Feil abonnement kan være teknisk gyldig.
 
 **Kilder:** [EXAM](https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900), [M04](https://learn.microsoft.com/en-us/training/modules/describe-core-architectural-components-of-azure/), [ARM](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/overview). Lokal mål-ID er et kartleggingspunkt, ikke automatisk tildelt evidens.
 

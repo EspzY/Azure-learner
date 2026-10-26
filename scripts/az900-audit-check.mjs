@@ -157,7 +157,7 @@ export function renderMatrix(audit) {
     '',
     '## Evidence-register',
     '',
-    'Profilene under gir faktisk kilde/manuskript, mekanisme, tilgjengelig komponent, vurdering og regresjonstester. Hver kravrad presiserer relevant kriterium og hull; en test i en delt profil beviser ikke alle målene i profilen. `nb.ts` inneholder både aktive og historiske tekster: bare oppgitte nåværende v2-/Benefits-/lab-forløp teller. De 30 profesjonelle kompetansene er grove planområder, ikke 30 implementerte kurs.',
+    'Profilene under gir faktisk kilde/manuskript, mekanisme, tilgjengelig komponent, vurdering og regresjonstester. Hver kravrad presiserer relevant kriterium og hull; en test i en delt profil beviser ikke alle målene i profilen. `nb.ts` inneholder aktive og historiske tekster. De oppgitte v2-/Benefits-/lab-forløpene og det fortsatt tilgjengelige Portal-kompatibilitetsoppdraget teller der de faktisk bidrar. Gamle resultater konverteres ikke til v2-evidens. De 30 profesjonelle kompetansene er grove planområder, ikke 30 implementerte kurs.',
     '',
   );
   const link = (path) => `[${path}](../${path})`;

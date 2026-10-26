@@ -26,7 +26,7 @@ Gjennomgangen fulgte aktiv `/` → `/learn` → current computing v2 / Benefits 
 - [Praktiske sesjoner, vurdering og post-boundary-betingelser](../src/domain/sandbox/practical.ts), [teknisk ressursmodell](../src/domain/sandbox/model.ts), replay og validert lagring. Modellert konfigurasjon er ikke et driftssignal, nettverkstrafikk, Azure-pris eller innlogging.
 - Offentlig module-/unit-struktur i de tre Learn-stiene og den ekstra guided-project-stien. Offentlig Practice Assessment-dokumentasjon ble lest, ikke den innloggede oppgavebanken. Ingen tredjepartsdumper ble brukt.
 
-Negativ gjennomgang søkte både tjenestenavn/synonymer og tilhørende bindings-/aktivitets-/vurderingsspor. Fravær er ikke konkludert fra ett tekstsøk alene. Det ble skilt mellom et navn i metadata/proposal, et faktisk manuskript, en tilgjengelig aktivitet, en vurdering og en kildegransket påstand. Historiske RPG/Living Learning-ruter, arkiverte v1-oppgaver og 30 navngitte profesjonelle kompetanser ble ikke godskrevet som nye leksjoner.
+Negativ gjennomgang søkte både tjenestenavn/synonymer og tilhørende bindings-/aktivitets-/vurderingsspor. Fravær er ikke konkludert fra ett tekstsøk alene. Det ble skilt mellom et navn i metadata/proposal, et faktisk manuskript, en tilgjengelig aktivitet, en vurdering og en kildegransket påstand. Historiske RPG/Living Learning-ruter, utilgjengelig arkivinnhold og 30 navngitte profesjonelle kompetanser ble ikke godskrevet som nye leksjoner. Portalens fortsatt tilgjengelige uavhengige kompatibilitetsoppdrag ble derimot kontrollert og registrert som evidensprofil L: readyModel/SaaS og nytt-gruppe/subscription er reelle, men smale bidrag. Dekning på plattformen og automatisk oppgradering av gamle v1-resultater til v2 er forskjellige spørsmål.
 
 ## Offisielle læringsstier og aktuell unit-struktur
 
@@ -67,7 +67,7 @@ COMPLETE er konservativt avgrenset: det gjelder for eksempel **beskrivelse av Sa
 - Pricing har god original teori om PAYG, forpliktelser og Spot. Den uavhengige oppgaven tester usikker etterspørsel og ubrukt commitment, men ikke et positivt commitment-valg eller en avbrytbar Spot-jobb.
 - Benefits sine seks kriterier dekker noen konsekvenser. Dependency-spørsmålet forklarer allerede at mer skalering ikke løser feilen; template-spørsmålet peker på feil verdi. Disse er læringsstøtte, men svake selvstendige diagnosebevis.
 - `ExpandedAssessment` viser en felles forklaring per spørsmål etter levering. Dette kan være nok for et enkelt toalternativspørsmål, men er ikke full spesifikk forklaring av alle plausible feil i brede sammenligninger. Nye oppgaver må ha rationale per alternativ.
-- Service Types har et godt togyldige-arkitekturer-kriterium og faktiske laber. SaaS-avgang tester kundens administrasjon; det tester ikke selvstendig om en ferdig tjeneste bør velges fremfor egenutvikling. Et eldre v1-valg kan ikke telles som current v2-evidens.
+- Service Types har et godt togyldige-arkitekturer-kriterium og faktiske laber. SaaS-avgang tester kundens administrasjon; det tester ikke selvstendig om en ferdig tjeneste bør velges fremfor egenutvikling. Portalens fortsatt tilgjengelige v1-oppdrag har et smalt SaaS-valg som bidrag til plattformdekningen. Det korte kriteriesvaret erstatter ikke full alternativbegrunnelse eller et integrert current v2-spor, og gamle svar kan ikke konverteres til v2-evidens.
 - Dagens oppgavesett er faste. Bytte av tall eller firmanavn alene gir ikke robust overføringsmåling. Ingen itemkalibrering, forsinket gjenhenting eller holdout-studie finnes.
 
 ## Tiltak etter læringsbehov

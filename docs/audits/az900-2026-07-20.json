@@ -683,6 +683,42 @@
         "tests/e2e/practical-labs.spec.ts"
       ],
       "limits": "Authentic local workflows are application evidence, not by themselves complete instruction on management tools."
+    },
+    "L": {
+      "teaching": [
+        {
+          "path": "src/content/nb.ts",
+          "marker": "challenge:"
+        }
+      ],
+      "mechanism": [
+        {
+          "path": "src/domain/portal/learning.ts",
+          "marker": "evaluateSubmission"
+        }
+      ],
+      "presentation": [
+        {
+          "path": "src/features/portal/learning.tsx",
+          "marker": "IndependentChallenge"
+        },
+        {
+          "path": "src/features/portal/portal.tsx",
+          "marker": "navigate('challenge'"
+        }
+      ],
+      "assessment": [
+        {
+          "path": "src/domain/portal/learning.ts",
+          "marker": "ready: a.readyModel === 'saas'"
+        },
+        {
+          "path": "src/domain/portal/learning.ts",
+          "marker": "scope:"
+        }
+      ],
+      "tests": ["src/domain/portal/portal.test.ts", "tests/e2e/portal.spec.ts"],
+      "limits": "Still reachable Portal independent compatibility task, not an inaccessible archive. Narrow fixed model-choice/scope predicates and per-criterion feedback; frozen v1 observations do not upgrade current v2 evidence."
     }
   },
   "plannedPRs": [
@@ -1147,9 +1183,9 @@
         }
       ],
       "localObjectives": ["ST04", "F01", "R01"],
-      "evidence": ["S"],
-      "observed": "Krav/tradeoff-modell; architecture+reason godtar både begrunnet IaaS og støttet PaaS.",
-      "gap": "Nåværende v2 vurderer SaaS-ansvar ved avgang, men ikke et uavhengig nytt scenario hvor SaaS velges fremfor egenkode-hosting. Arkivert v1 readyModel teller ikke som ny v2-evidens.",
+      "evidence": ["S", "L"],
+      "observed": "Krav/tradeoff-modell; architecture+reason godtar begrunnet IaaS eller støttet PaaS. Det fortsatt tilgjengelige Portal-kompatibilitetsoppdraget vurderer også readyModel=saas for ferdig samarbeid; dette er et eget v1-spor.",
+      "gap": "Current v2 vurderer SaaS-avgang, ikke et nytt SaaS-valg. Portal v1 har et smalt modellvalg, men gir bare kort kriterieforklaring, uten full årsak for plausible IaaS/PaaS-alternativer. Bevar dette bidraget; integrer bedre transfer/feedback i v2 uten å konvertere gamle svar.",
       "plannedPRs": ["P03"],
       "sources": ["EXAM", "M03"]
     },
@@ -1271,7 +1307,7 @@
         }
       ],
       "localObjectives": ["G01", "G04"],
-      "evidence": ["H", "P"],
+      "evidence": ["H", "P", "L"],
       "observed": "Reelle lokale grupper, medlemmer, metadata og hosting; naming convention skilles fra teknisk validering.",
       "gap": "Riktig gruppeskjema/teknisk lab alene vurderer ikke et nytt lifecycle-grupperingsscenario eller management-versus-hosting.",
       "plannedPRs": ["P02"],
@@ -1286,7 +1322,7 @@
         "A": "P",
         "B": "P",
         "C": "V",
-        "D": "M",
+        "D": "P",
         "E": "P",
         "F": "V"
       },
@@ -1297,9 +1333,9 @@
         }
       ],
       "localObjectives": ["G01", "G04"],
-      "evidence": ["H"],
-      "observed": "Valg av abonnement, parent/ID og kort fakturerings-/styringsforklaring.",
-      "gap": "Ingen selvstendig valg av abonnementsgrense fra organisatoriske/billing-krav; feil abonnement kan være teknisk gyldig.",
+      "evidence": ["H", "L"],
+      "observed": "Valg av abonnement, parent/ID og kort fakturerings-/styringsforklaring. Portalens separate kompatibilitetsoppdrag har et faktisk nytt-gruppe/subscription-predikat.",
+      "gap": "Det tekniske scope-predikatet er delvis anvendelse, men vurderer ikke selvstendig begrunnet valg av abonnementsgrense fra organisatoriske/billing-krav. Feil abonnement kan være teknisk gyldig.",
       "plannedPRs": ["P02"],
       "sources": ["EXAM", "M04", "ARM"]
     },
@@ -1353,7 +1389,7 @@
         }
       ],
       "localObjectives": ["G01", "G02"],
-      "evidence": ["H"],
+      "evidence": ["H", "L"],
       "observed": "Typed graf viser containment, identity association, hosting og geografi. Praktisk app→plan avviker fra app→group.",
       "gap": "Inspeksjon/hosting-kriterium dekker ikke uavhengig hele MG→subscription→RG og riktig policy-arv.",
       "plannedPRs": ["P02"],
