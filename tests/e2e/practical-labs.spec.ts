@@ -228,6 +228,16 @@ test('root course to persisted VM, app settings, separate SaaS, exact debrief an
   ).toBe(false);
   await page.locator('[data-guide="commit"]').click();
   await expect(page.locator('.portal-title h1')).toHaveText('vm-first');
+  await expect(page.locator('.portal-title h1')).toBeFocused();
+  expect(
+    await page
+      .locator('.portal-title h1')
+      .evaluate(
+        (el) =>
+          el.getBoundingClientRect().top >=
+          document.querySelector('.portal-header')!.getBoundingClientRect().bottom,
+      ),
+  ).toBe(true);
   await page.getByRole('button', { name: t.receipt, exact: true }).click();
   await expect(page.locator('.chapter-receipt')).toHaveAttribute('data-outcome', 'accepted');
   await expect(page.locator('.chapter-receipt')).toContainText('vm-profile@2');

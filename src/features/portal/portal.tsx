@@ -252,7 +252,8 @@ function PortalWorkspace() {
           (location.id === world.identity.id ? world.identity.name : p.noResource))
         : p.areas[location.area];
   useEffect(() => {
-    heading.current?.focus();
+    heading.current?.focus({ preventScroll: true });
+    heading.current?.scrollIntoView({ block: 'start', behavior: 'instant' });
   }, [location.area, location.id, location.kind, location.topic]);
   useEffect(() => {
     if (!menu) return;

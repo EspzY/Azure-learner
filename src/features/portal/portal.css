@@ -70,6 +70,7 @@
   text-decoration: underline;
 }
 .portal h1 {
+  scroll-margin-top: calc(var(--portal-header) + 16px);
   width: fit-content;
   font-size: 20px;
   font-weight: 600;
@@ -1226,6 +1227,9 @@
   }
 }
 @media (max-width: 800px) {
+  .portal {
+    --portal-header: 90px;
+  }
   .portal input,
   .portal select,
   .portal textarea {
