@@ -1,10 +1,8 @@
 'use client';
 
 import Link from 'next/link';
-import { usePathname, useRouter } from 'next/navigation';
-import { useState } from 'react';
-import { ExpeditionLog } from '@/features/rpg/expedition-log';
-import { ChevronRight, ShieldCheck, Sparkles, BookOpen, ScrollText } from 'lucide-react';
+import { usePathname } from 'next/navigation';
+import { ChevronRight, ShieldCheck, Sparkles, BookOpen } from 'lucide-react';
 import { nb } from '@/content/nb';
 import { totalXp } from '@/domain/progression';
 import { navIcons } from './icons';
@@ -13,12 +11,9 @@ import { useLearning } from '@/features/learning/provider';
 
 export function AppShell({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
-  const router = useRouter();
-  const [log, setLog] = useState(false);
   const { progress, ready } = useProgress();
   const { openJournal } = useLearning();
   const active = nb.nav.find((item) => item.href === pathname);
-  if (pathname === '/design/foundations-31a') return <>{children}</>;
   if (
     pathname.startsWith('/labs/') ||
     pathname === '/portal' ||
@@ -26,19 +21,8 @@ export function AppShell({ children }: { children: React.ReactNode }) {
     pathname.startsWith('/learn/')
   )
     return <>{children}</>;
-  if (pathname === '/legacy/rpg')
-    return (
-      <div className="game-shell">
-        <a href="#main" className="skip-link">
-          {nb.shell.skip}
-        </a>
-        <main id="main">{children}</main>
-      </div>
-    );
   return (
-    <div
-      className={`app-shell ${pathname === '/explore' || pathname === '/legacy-expedition' ? 'shell-universe' : ''}`}
-    >
+    <div className="app-shell">
       <a href="#main" className="skip-link">
         {nb.shell.skip}
       </a>
@@ -86,16 +70,6 @@ export function AppShell({ children }: { children: React.ReactNode }) {
             <button
               type="button"
               className="button button-secondary shell-action"
-              aria-label={nb.orientation.log}
-              title={nb.orientation.log}
-              onClick={() => setLog(true)}
-            >
-              <ScrollText size={18} />
-              <span className="shell-action-label">{nb.orientation.log}</span>
-            </button>
-            <button
-              type="button"
-              className="button button-secondary shell-action"
               aria-label={nb.foundations.journal}
               title={nb.foundations.journal}
               onClick={() => openJournal()}
@@ -116,26 +90,15 @@ export function AppShell({ children }: { children: React.ReactNode }) {
             </span>
           </div>
         </header>
-        {log && (
-          <ExpeditionLog
-            onClose={() => setLog(false)}
-            onGoal={(goal) => {
-              setLog(false);
-              router.push(`/legacy/rpg?goal=${goal}`);
-            }}
-          />
-        )}
         <main id="main" tabIndex={-1}>
           {children}
         </main>
-        {pathname !== '/explore' && pathname !== '/legacy-expedition' && (
-          <footer className="app-footer">
-            <span>{nb.shell.footer}</span>
-            <span>
-              {nb.shell.phase} · {nb.shell.safe}
-            </span>
-          </footer>
-        )}
+        <footer className="app-footer">
+          <span>{nb.shell.footer}</span>
+          <span>
+            {nb.shell.phase} · {nb.shell.safe}
+          </span>
+        </footer>
       </div>
     </div>
   );

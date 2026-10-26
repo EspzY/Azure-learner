@@ -1,5 +1,7 @@
 # G1 gameplay architecture
 
+> **Historical record — retired 2026-10-26.** Game/SVG journey/cinematic/playback implementations and exclusive tests are removed, not supported alternative products. Paths and measurements below record the earlier phase, recoverable from Git at91f6cc4. Current course/Portal teaching and frozen technical contracts are preserved; see [classification and compatibility](LEGACY_AUDIT.md) and [current architecture](ARCHITECTURE.md).
+
 Historical RPG subsystem: preserved at `/legacy/rpg` after the owner-authorized 2026-10-24 Portal pivot. Canonical entry and ordinary learning now follow [PORTAL_PRODUCT_STRATEGY](PORTAL_PRODUCT_STRATEGY.md). The implementation/history below remains valid for the archive; it does not mandate new game development.
 
 ## G1.3 sequence, cue and audio boundaries

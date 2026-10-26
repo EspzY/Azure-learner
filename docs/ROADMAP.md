@@ -1,5 +1,9 @@
 # Roadmap
 
+## Legacy retirement — 2026-10-26
+
+Retire the obsolete product implementations before further curriculum expansion. Current course/lab UX, human novice/IT/SME review and preserved evidence remain the next priorities. G1/RPG/SVG/Living Learning roadmap sections below are historical and are not scheduled active work. Further removal of frozen simulation/assessment compatibility needs separate data-contract proof; do not delete it by filename. See [audit](LEGACY_AUDIT.md).
+
 ## Current refinement — review gate
 
 Module2/3 briefing, explanatory figures and supported resource inspection are implemented for engineering review. Next: uncoached novice and experienced-IT walkthrough, then qualified Azure SME/Portal review. Ask the learner to explain why the lab follows the theory, distinguish action from inspection and justify a policy/dependency correction. Record confusion as defects before expanding services. No new curriculum, RPG or mobile redesign is included. [Review plan](GUIDED_LEARNING_REFINEMENT.md).

@@ -61,12 +61,7 @@ export function CommandDialog({
           <span className="command-indicator" />
           <h2 id={titleId}>{title}</h2>
         </div>
-        <button
-          type="button"
-          className="icon-button"
-          aria-label={nb.universe.close}
-          onClick={onClose}
-        >
+        <button type="button" className="icon-button" aria-label={nb.shell.close} onClick={onClose}>
           <X size={20} />
         </button>
       </header>

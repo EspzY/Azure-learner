@@ -2,14 +2,14 @@ import { nb } from '@/content/nb';
 import { officialLearning } from '@/domain/curriculum/official';
 import type { UnitId } from '@/domain/curriculum/manifest';
 import './learning.css';
-import '@/features/rpg/instruction.css';
+
 export function CurriculumTrail({
   overview = false,
   module = 'computing',
   unit,
 }: {
   overview?: boolean;
-  module?: 'computing' | 'services' | 'benefits' | 'technical';
+  module?: 'computing' | 'services' | 'benefits';
   unit?: UnitId;
 }) {
   const t = nb.official;
@@ -33,8 +33,8 @@ export function CurriculumTrail({
             {t.path}
           </a>
         </dd>
-        <dt>{module === 'technical' ? t.activityLabel : t.moduleLabel}</dt>
-        <dd>{module === 'technical' ? nb.orientation.steps.infrastructure.title : t[module]}</dd>
+        <dt>{t.moduleLabel}</dt>
+        <dd>{t[module]}</dd>
         {unit && module === 'computing' && (
           <>
             <dt>{t.learningUnitLabel}</dt>

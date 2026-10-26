@@ -1,5 +1,9 @@
 # AzureLab 2.0 portal reboot
 
+## Retirement status — 2026-10-26
+
+Current delivery is the course, SavvyShark and shared Portal/SaaS labs. The RPG, timed Living Learning and SVG journey are retired; older sections describing their presentation are historical. No competency objective, original manuscript, assessment rule, source mapping or learning-data version is removed. SandboxStore still validates the frozen Chapter01 prefix; the old Chapter UI/provider does not run. See [audit and actual shared-code extraction](LEGACY_AUDIT.md) and [current architecture](ARCHITECTURE.md).
+
 ## Course-first refinement — 2026-10-25
 
 AzureLab 3.0 supersedes the Portal-first entry hierarchy, not this operational laboratory. `/` → `/learn` introduces the official ordered path and original activities; an authored guided session enters the same `/portal`. Free/independent use remains. [Course strategy](COURSE_FIRST_PRODUCT_EXPERIENCE.md) owns the current primary experience; reboot rationale below remains historical and technically relevant.

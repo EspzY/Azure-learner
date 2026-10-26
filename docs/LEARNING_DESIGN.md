@@ -1,5 +1,9 @@
 # Learning design
 
+## Legacy retirement — 2026-10-26
+
+Current Foundations v1/v2, Benefits, Service Types, Journal, responsibility model and guided/independent practice remain intact. Timed NPC delivery and scenery no longer present them; explicit learner actions remain the only source of evidence. No rubric, award or learning observation changed. G1.x/journey sections below are historical. See [audit](LEGACY_AUDIT.md).
+
 ## Module2/3 practical bridge refinement — 2026-10-26
 
 The mission brief establishes purpose, conceptual outcomes, main actions and completion observations before navigation. Benefits bridges explicitly distinguish configuration inspection from operational proof. The revised figures explain a mechanism before controls and causal feedback; previous source-backed manuscript depth, guided reasoning and independent changed-context rubrics remain intact. No result is revealed before its explicit experiment run. Learner comprehension and expert technical review remain unperformed human gates. [Audit and specification](GUIDED_LEARNING_REFINEMENT.md).

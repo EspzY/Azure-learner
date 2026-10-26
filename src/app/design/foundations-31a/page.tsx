@@ -1,5 +1,6 @@
-import { BeginnerProof } from '@/features/design-proof/proof';
-export const metadata = { robots: { index: false, follow: false } };
-export default function DesignProofPage() {
-  return <BeginnerProof />;
+import { redirect } from 'next/navigation';
+
+/** Compatibility bookmark for a retired experience; no legacy runtime or state. */
+export default function RetiredEntry() {
+  redirect('/learn/computing?topic=intro-request');
 }

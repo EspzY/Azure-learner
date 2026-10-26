@@ -2,7 +2,7 @@ import { defineConfig, devices } from '@playwright/test';
 export default defineConfig({
   testDir: './tests/e2e',
   fullyParallel: true,
-  // Serialize software-WebGL/video contexts; concurrent contexts can stall GPU teardown on Windows.
+  // Keep a bounded single-worker baseline for complete course/lab regression runs.
   workers: 1,
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 2 : 0,

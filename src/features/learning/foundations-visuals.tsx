@@ -4,8 +4,8 @@ import {
   workedDemand,
   type Allocation,
   type ProofResult,
-} from '@/domain/design-proof/capacity';
-const t = nb.beginnerProof;
+} from '@/domain/curriculum/capacity';
+const t = nb.foundationsVisuals;
 type Part = (typeof t.parts)[number]['id'];
 
 /** Purpose-built code illustration; its native controls supply the accessible explanation. */

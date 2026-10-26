@@ -2,6 +2,56 @@ import type { QuestionId } from '../domain/assessment';
 import type { CreationError, Region, ScopeKind } from '../domain/simulation';
 
 export const nb = {
+  learningResponsibility: {
+    modelNotes: {
+      iaas: 'IaaS: Microsoft drifter fysisk infrastruktur. Kunden vedlikeholder blant annet gjeste-OS, runtime og egen kode.',
+      paas: 'PaaS: Microsoft drifter plattformens OS og innebygde runtime. Kunden har egen kode, data, tilgang og konfigurasjon. Nettverksoppgaver avhenger av tjenesten.',
+      saas: 'SaaS: Leverandøren drifter applikasjonen. Kunden må fortsatt styre brukere, data og egne innstillinger. Dette er ikke en vert for vilkårlig egen webkode.',
+    },
+    layers: {
+      physical: {
+        label: 'Fysisk infrastruktur',
+        detail:
+          'Datasenter, fysisk nettverk, verter og virtualiseringslag driftes av leverandøren i disse skymodellene.',
+      },
+      os: {
+        label: 'Operativsystem',
+        detail:
+          'I IaaS styrer du gjeste-OS. Med administrert PaaS og SaaS ligger plattformens OS-drift hos leverandøren.',
+      },
+      runtime: {
+        label: 'Runtime og middleware',
+        detail:
+          'Her viser PaaS en innebygd App Service-runtime. Egen container eller opplastet runtime har andre vedlikeholdsgrenser; ikke overfør dette bildet ukritisk.',
+      },
+      application: {
+        label: 'Applikasjon',
+        detail:
+          'Applikasjonsansvar er delt i PaaS og SaaS. Leverandøren drifter deler av løsningen; kunden har fortsatt ansvar for blant annet egen kode, tilgang eller konfigurasjon.',
+      },
+      network: {
+        label: 'Nettverkskontroller',
+        detail:
+          'IaaS krever egne nettverksvalg. PaaS deler kontrollene med plattformen. SaaS-leverandøren drifter tjenestens nettverk; klienttilgang må fortsatt vurderes.',
+      },
+      settings: {
+        label: 'Konfigurasjon',
+        detail:
+          'En standardinnstilling er et utgangspunkt. Kunden må velge passende innstillinger og kontrollere at de dekker virksomhetens behov.',
+      },
+      identity: {
+        label: 'Brukere og tilgang',
+        detail:
+          'Kunden bestemmer hvem som skal få tilgang. Administrert identitetsinfrastruktur opphever ikke behovet for å opprette, avgrense og fjerne brukertilgang.',
+      },
+      data: {
+        label: 'Kundedata',
+        detail:
+          'Kunden må klassifisere og beskytte informasjonen og vurdere lagring, tilgang og styringskrav i alle modellene.',
+      },
+    },
+  },
+
   expansion: {
     common: {
       version: '3.2',
@@ -1157,6 +1207,8 @@ export const nb = {
     },
   },
   foundationsV2: {
+    noAssessment: 'Ingen innsendt endret oppgave',
+
     traceNext: 'Følg neste del av forespørselen',
     traceSteps: [
       'Klienten sender forespørselen.',
@@ -1466,7 +1518,7 @@ export const nb = {
     limit:
       'Simulatoren bruker sin eksisterende validator. Dens Unicode-tallkategori er litt bredere enn den offisielle desimalsifferregelen; dette er ikke full Azure-paritet. Review viser faktiske ugyldige navn og duplikater. Navnekonvensjonen gir ingen ekstra valideringsregel.',
   },
-  beginnerProof: {
+  foundationsVisuals: {
     reviewBadge: 'REVIEWKANDIDAT · IKKE EN FULLFØRT LÆRINGSMODUL',
     reviewTitle: 'AzureLab 3.1A — Forhåndsvis nytt læringsdesign',
     reviewDescription:
@@ -2421,270 +2473,6 @@ export const nb = {
       'Resultatene er lokale AzureLab-observasjoner, ikke Microsoft Learn-fullføring, Microsoft XP eller en sertifisering. AzureLab er uavhengig og ikke godkjent av Microsoft.',
     reviewed: 'Offisielle navn og modulstruktur kontrollert 25. oktober 2026',
   },
-  teaching: {
-    title: 'Ida underviser',
-    chooseActivity:
-      'Vil du starte Describe cloud computing ved installasjonen, eller undersøke driftsansvaret direkte? Du kan også se hele læringsreisen i loggen.',
-    next: 'Neste forklaring',
-    previous: 'Forrige forklaring',
-    replay: 'Spill forklaringen på nytt',
-    pause: 'Pause undervisningen',
-    resume: 'Fortsett undervisningen',
-    skip: 'Hopp over undervisningssekvensen',
-    skipBeat: 'Hopp over denne forklaringen',
-    history: 'Samtalehistorikk',
-    back: 'Tilbake til aktiv forklaring',
-    speed: 'Lesetempo',
-    slow: 'Rolig',
-    normal: 'Vanlig',
-    fast: 'Raskt',
-    manual: 'Manuell lesing',
-    auto: 'Automatisk undervisning',
-    progress: 'Forklaring',
-    ended: 'Din undersøkelse',
-    controlHint:
-      'Du kan pause, lese manuelt eller gå tilbake. Observasjon er ikke praktisk gjennomføring.',
-    demonstration: 'Idas gjennomarbeidede eksempel · ikke ditt lagrede forsøk',
-    interaction: 'Nå undersøker du selv. Gjør en endring og begrunn resultatet.',
-    category: {
-      opening: 'Introduksjon',
-      explanation: 'Forklaring',
-      mechanism: 'Mekanisme',
-      demonstration: 'Demonstrasjon',
-      example: 'Eksempel',
-      misconception: 'Misforståelse',
-      clarification: 'Presisering',
-      reflection: 'Refleksjon',
-      decision: 'Ditt valg',
-      conclusion: 'Oppsummering',
-    },
-    flow: [
-      'Fysiske maskiner',
-      'Virtualisering og isolasjon',
-      'Bestilte tjenester',
-      'Applikasjon og brukere',
-    ],
-    flowCaption:
-      'Forenklet eksempel med virtualisering. Bestilling går gjennom en kontrollflate. Arbeidet kjører fortsatt på fysisk infrastruktur; nettverkstilgang alene gjør ikke en server til en skytjeneste.',
-    preferencesIssue: 'Lese- og lydvalg beholdes bare i denne økten; lagret læring er urørt.',
-    introduction: [
-      'Velkommen til Lysningen. Jeg er Ida, læringsguiden din.',
-      'Vi følger et lite applikasjonsteam som vil modernisere egne servere, og undersøker valgene før vi bygger noe. Du begynner med Azure Fundamentals. Den offisielle læringsstien heter Introduction to Cloud Infrastructure: Describe cloud concepts. Først arbeider vi med Describe cloud computing, gjennom våre egne eksempler og undersøkelser.',
-      'En applikasjon trenger prosessorkraft, minne, lagring og nettverk. I et eget maskinrom må teamet kjøpe og klargjøre kapasitet før behovet kommer. Hvis etterspørselen endrer seg, kan maskinene bli for små eller stå ledige.',
-      'Cloud computing tilbyr IT-ressurser som tjenester gjennom nettverk. En kontrollflate lar kunden bestille en støttet ressurs. Leverandøren driver den fysiske infrastrukturen; virtualisering kan avgrense kapasitet mellom miljøer. Maskinene forsvinner ikke.',
-      'Det gir en annen bestillings- og driftsmodell, ikke uendelig kapasitet. Kvoter, tjenestevalg og tilgjengelig kapasitet setter grenser. En internettilkoblet server er ikke automatisk en cloud-plattform, og en bestilt ressurs skalerer ikke automatisk.',
-      'Ved installasjonen forutsier du hva som skjer, endrer en avgrenset modell og sammenligner utfallet. Vi undersøker også public, private og hybrid cloud, delt ansvar og forbruk. Deretter blir Noors spørsmål konkret: hva skal teamet selv drifte?',
-    ],
-    service: [
-      'Tjenestemodellen handler om hvilket arbeid teamet ønsker å beholde. En applikasjon trenger maskinvare, virtualisering, operativsystem, runtime, kode og data. Å flytte et lag til leverandøren fjerner ikke lagets funksjon.',
-      'Se IaaS. Microsoft forvalter fysisk infrastruktur og virtualisering. Med Azure Virtual Machines velger og vedlikeholder kunden blant annet gjeste-OS, runtime og egen applikasjon. Mer kontroll betyr at teamet må planlegge oppdateringer og forsvarlig konfigurasjon.',
-      'Nå PaaS. I vårt eksempel med innebygget App Service-runtime forvalter Microsoft plattformens operativsystem og runtime. Teamet leverer sin egen webkode og velger støttet konfigurasjon. OS-laget flytter til leverandøren, mens kode, data og tilgang fortsatt krever kundens arbeid.',
-      'En webapp bruker compute fra en App Service plan. Planen angir blant annet OS og region. En resource group organiserer livssyklus og scope, men erstatter ikke hosting-planen. Å plassere gruppemetadata i én region bestemmer ikke hvor appen kjører.',
-      'SaaS gir en ferdig applikasjon, som Microsoft 365. Teamet konfigurerer bruk og tilgang fremfor å levere vilkårlig webkode til den. Leverandøren driver applikasjonen, men kunden har fremdeles ansvar for egne data, identiteter og innstillinger.',
-      'Ansvar er tjenestespesifikt. PaaS kan dele nettverks- og applikasjonsoppgaver. Med en kundelevert container må kunden vedlikeholde innholdet i imaget; innebygget runtime er et annet tilfelle. Ingen modell garanterer sikkerhet eller tilgjengelighet av seg selv.',
-      'Undersøk forskjellen selv nå. Følg OS-laget når du bytter modell, og sammenlign det med data og tilgang. Så begrunner du et plattformvalg for teamets egen kode uten gjeste-OS-drift.',
-    ],
-    noor: [
-      'Hei, jeg er Noor, plattformingeniøren her. Teamet vårt har en egen webapplikasjon. Vi vil beholde koden, men slippe å vedlikeholde gjesteoperativsystemet. Det gjør driftsansvaret du undersøker hos Ida relevant.',
-      'Vi prøver en avgrenset App Service-løsning. Bruk App Sandbox, og organiser ressursene i en resource group med felles livssyklus. Gruppens metadata skal ligge i Norway East. Hosting-regionen må du undersøke separat.',
-      'I arbeidsbenken lager du en Linux App Service plan og kobler en webapp til den. Du vil møte en lokal treningspolicy som kan avvise en Web-ressurslokasjon. Les kvitteringen: et avslag oppretter ingen ressurs. Korriger konfigurasjonen fremfor å gjette.',
-      'Dette er simulert arbeid, uten en ekte Azure-konto. Kom tilbake, også hvis du ikke er ferdig. Vi kan undersøke scope, lokasjoner og avhengigheter sammen. Vil du ta oppdraget, eller se nærmere på driftsansvaret først?',
-    ],
-    unfinished:
-      'Vi har fortsatt noe å undersøke. Åpne arbeidet ved portalen igjen; gyldige konfigurasjoner er bevart. Se etter forholdet mellom krav, ressurslokasjon, policy og hosting-plan i kvitteringene.',
-    built:
-      'Nå henger konfigurasjonen sammen: riktig scope, en støttet plan og en webapp som faktisk peker på planen. Undersøkelsen knytter avslaget til Web-ressursens lokasjon, ikke gruppens metadata. La oss gå gjennom det du fant.',
-    reported:
-      'Vi har gått gjennom det veiledede arbeidet. Et nytt problem med endrede krav vil være neste prøve på om du kan bruke ideene uten den samme støtten. Den oppgaven finnes ikke i denne arbeidsbenken ennå.',
-    audio: {
-      title: 'Lyd i Lysningen',
-      enable: 'Aktiver rolig bakgrunnsmusikk',
-      mute: 'Demp all lyd',
-      music: 'Musikkvolum',
-      effects: 'Effektvolum',
-      ready: 'Lyd aktivert',
-      off: 'Lyd er avslått',
-      failed: 'Lyden kunne ikke startes. Prøv Aktiver igjen; undervisningen fortsetter uten lyd.',
-      hint: 'Original lokal musikk · ingen stemmer. Lyd kreves aldri for læring.',
-    },
-  },
-  orientation: {
-    log: 'Ekspedisjonslogg',
-    logHint: 'Hvorfor du er her · hva du gjør · hvor du går videre',
-    chapter: 'Lysningen · Fra cloud computing til applikasjonsplattform',
-    premise:
-      'Et fiktivt applikasjonsteam skal modernisere en liten serverløsning. Her undersøker du valgene før du bygger en simulert plattform sammen med Noor.',
-    purpose:
-      'Lær å forstå, konfigurere og etter hvert feilsøke cloud-systemer. Lysningen er første stasjon. Det du gjør her er lokalt og simulert; ingen handling oppretter noe i Azure.',
-    intro: [
-      {
-        title: 'Velkommen til AzureLab',
-        text: 'Dette er Lysningen, første stasjon i en ekspedisjon gjennom cloud-teknologi. Du skal forstå, konfigurere og etter hvert feilsøke cloud-systemer. Her kan du prøve og ta feil uten å endre ekte infrastruktur.',
-      },
-      {
-        title: 'Møt menneskene. Undersøk systemene.',
-        text: 'Ida hjelper deg å forstå cloud computing. Ved installasjonen gjør du eksperimenter og forklarer resultatene. Noor knytter teorien til et applikasjonsteam. Loggen viser neste steg; journalen lar deg vende tilbake til teorien.',
-      },
-      {
-        title: 'Forstå først. Bygg og undersøk etterpå.',
-        text: 'Portalen åpner en teknisk arbeidsbenk med ressurser, policy-avslag og hosting-avhengigheter. Kom tilbake for en debrief. Foreløpig er denne stasjonen og én arbeidsbenk spillbare; resten av universet er planlagt.',
-      },
-    ],
-    nextView: 'Se neste del av Lysningen',
-    begin: 'Ta kontroll',
-    skip: 'Hopp over introduksjonen',
-    replay: 'Se ankomsten på nytt',
-    introHint: 'Kort orientering · ingen læringspoeng. Du styrer selv når du går videre.',
-    takeControl:
-      'Gå fritt med WASD eller piltastene. Gå nær en person og trykk E. På berøring bruker du retningsknappene. Kompasset tilbyr assistert gange; loggen hjelper når du er usikker.',
-    returning: 'Velkommen tilbake til Lysningen',
-    resume: 'Fortsett der det gir mening',
-    reorient: 'Finn tråden i ekspedisjonsloggen',
-    noHistory:
-      'Du har ikke registrert arbeid i RPG-oppdraget, Describe cloud computing eller den veiledede arbeidsbenken ennå. Start gjerne hos Ida, eller velg en erfaren inngang i loggen.',
-    remembered: 'Sist åpnet læringsenhet:',
-    remaining: 'Neste uferdige undersøkelse:',
-    technicalResume:
-      'Du har påbegynt teknisk arbeid. Arbeidsbenken beholder det gyldige forsøket; du kan gå tilbake og fortsette uten å starte på nytt.',
-    technicalBuilt:
-      'De seks veiledede funnene i arbeidsbenken er oppfylt. Se hva de viser, og snakk med Noor. Dette er ikke fullført Chapter 01 eller uavhengig kompetanse.',
-    foundationsResumeComplete:
-      'Alle seks Foundations-undersøkelser er veiledet gjennomført. Følg neste anbefalte mål i loggen, eller gjenbesøk teorien og den separate endrede oppgaven. Veiledet gjennomføring er ikke uavhengig kompetanse.',
-    modelsResume:
-      'Du har begynt å sammenligne service-modeller. Loggen skiller mellom modellvalg, veiledede svar og teknisk arbeid.',
-    metGuideResume:
-      'Du har møtt Ida. Du kan fortsette samtalen eller velge Describe cloud computing i loggen; møtet i seg selv fullfører ingen læringsmål.',
-    metEngineerResume:
-      'Du har møtt Noor. Les kravene sammen med ham, eller velg Describe cloud computing i loggen. Oppdraget er ikke automatisk mottatt eller utført.',
-    serviceResume:
-      'Du har mottatt Noor sitt oppdrag. Loggen viser hvilke veiledede deler som faktisk er gjort, og hva du kan undersøke videre.',
-    states: {
-      available: 'Tilgjengelig',
-      'in-progress': 'Påbegynt',
-      'guided-completed': 'Veiledet gjennomført',
-    },
-    steps: {
-      welcome: {
-        title: 'Møt Ida i Lysningen',
-        why: 'Få oversikt over stasjonen og hvorfor teamets valg trenger både teori og praksis.',
-        action: 'Snakk med Ida',
-        skills: 'Orientering. Samtale og ankomst gir ingen læringsbevis.',
-      },
-      foundations: {
-        title: 'Describe cloud computing — forstå cloud computing',
-        why: 'Undersøk eierskap, kapasitet, deployment-modeller og forbruk før du velger en plattform.',
-        action: 'Undersøk installasjonen med Ida',
-        skills:
-          'Seks enheter: kapasitet, delt ansvar, public/private/hybrid, plassering, forbruk og prismodeller.',
-      },
-      service: {
-        title: 'Velg driftsansvar — IaaS, PaaS og SaaS',
-        why: 'Når du forstår cloud computing, kan du vurdere hvem som drifter OS, runtime, kode og data.',
-        action: 'Sammenlign service-modeller ved verkstedet',
-        skills:
-          'Sammenlign minst to modeller og begrunn teamets valg i de to veiledede spørsmålene.',
-      },
-      assignment: {
-        title: 'Møt Noor og applikasjonsteamets behov',
-        why: 'Teamet har egen webkode og vil slippe gjeste-OS. Noor forklarer hva dere skal konfigurere og undersøke.',
-        action: 'Snakk med Noor',
-        skills:
-          'Knytt driftsansvar til et konkret teknisk oppdrag. Aksept er ikke gjennomført arbeid.',
-      },
-      infrastructure: {
-        title: 'Bygg, forutsi og rett i Infrastructure World',
-        why: 'Bruk teorien til scope, resource group, lokasjon, policy og App Service-avhengigheter.',
-        action: 'Gå til portalen og åpne arbeidsbenken',
-        skills:
-          'Veiledet simulering. Gyldige kommandoer, avslag og forklaringer lagres og kan gjenopptas.',
-      },
-      debrief: {
-        title: 'Tilbake til Noor — undersøk det du gjorde',
-        why: 'Skill mellom hva oppsettet viser, hva du forklarte med hjelp og hva som ennå ikke er vurdert uavhengig.',
-        action: 'Snakk med Noor om resultatene',
-        skills:
-          'Full Chapter 01-transfer og checkpoint er ikke implementert. Debrief gir ingen ny XP.',
-      },
-    },
-    wayfinding: 'Veivisning til målet',
-    directions: { forward: 'Fremover', back: 'Bakover', left: 'Mot venstre', right: 'Mot høyre' },
-    moduleBrief:
-      'Du skal forutsi, endre et avgrenset scenario, kjøre eksperimentet og begrunne resultatet. Hver av de seks enhetene krever bestemte eksperimenter og et veiledet svar. Til slutt viser oppsummeringen hvert læringsmål. Den endrede oppgaven er et separat forsøk, ikke en del av veiledet fullføring. Ingen nye XP gis for modulen.',
-    recommended: 'Anbefalt nå',
-    selected: 'Valgt mål',
-    changeGoal: 'Velg dette målet',
-    manual: 'Jeg går dit selv',
-    assisted: 'Vis meg veien',
-    travelTitle: 'Velg hvordan du går videre',
-    travelHint:
-      'Målet markeres. Du kan gå selv, eller la figuren følge en trygg gangrute. Piltaster/WASD, stoppknappen eller Escape avbryter assistert gange.',
-    routeActive: 'Assistert gange pågår',
-    stop: 'Stopp gange',
-    routeArrived: 'Fremme ved målet — samhandle når du er klar.',
-    goBack: 'Tilbake til utforsking',
-    startActivity: 'Åpne aktiviteten her',
-    world: 'Hvor er jeg i AzureLab?',
-    here: 'Spillbar region',
-    supported: 'Spillbar teknisk verden',
-    planned: 'Planlagt · ikke spillbart',
-    future: [
-      {
-        title: 'Nettverk og tilkobling',
-        ids: 'N01–N04',
-        text: 'IP, DNS, filtrering, private forbindelser og trafikkundersøkelser.',
-      },
-      {
-        title: 'Applikasjoner, compute og data',
-        ids: 'C01–C04 · D01–D03',
-        text: 'VM, containere, integrasjon og data. Bare den avgrensede App Service-arbeidsbenken finnes nå.',
-      },
-      {
-        title: 'Identitet, sikkerhet og governance',
-        ids: 'G01–G04 · I01–I03',
-        text: 'Tilgang, policy og sikkerhetsgrenser. Nå finnes bare Chapter 01 sitt avgrensede scope/policy-utvalg.',
-      },
-      {
-        title: 'Drift, automasjon og arkitektur',
-        ids: 'O01–O03 · A01–A03 · R01–R03',
-        text: 'Diagnose, IaC, pålitelighet og faglige arkitekturvalg.',
-      },
-    ],
-    overviewHint:
-      'F01–F03 er grunnlaget. De 30 kompetanseområdene kan romme flere moduler og spesialistløp. Ingen fremtidig region er låst opp av XP. Sertifisering er en separat kartlegging.',
-    evidence: 'Det som faktisk er registrert',
-    units: 'Describe cloud computing · undersøkelser',
-    objectiveDetail: 'Objektiver og forklaringer',
-    notStarted: 'Ikke startet',
-    introduced: 'Introdusert · ikke øvd ferdig',
-    practiced: 'Eksperimentvilkår prøvd · svar gjenstår',
-    independent: 'Første endrede oppgave levert uten registrert hjelp',
-    assistedSubmission: 'Endret oppgave levert med registrert hjelp',
-    noAssessment: 'Ingen innsendt endret oppgave',
-    assessmentActive: 'Uferdig endret oppgave · svarutkast beholdes',
-    assessmentLimit:
-      'Dette er lokale oppgaveobservasjoner, ikke generell mestring, identitetskontroll eller eksamensklarhet. Åpner du teori eller journal under et aktivt forsøk, registreres hjelp.',
-    technicalWorld: 'Infrastructure World',
-    technical: 'Chapter 01 · veiledede funn',
-    technicalNone: 'Ingen veiledet konfigurasjon er fullført ennå.',
-    optional: 'Valgfri fordypning og erfaren inngang',
-    journal: 'Les teorien uten å spille samtaler på nytt',
-    expert: 'Jeg vil direkte til teknisk arbeid',
-    expertHint:
-      'Velg portalen som mål. Du kan åpne den tilgjengelige arbeidsbenken uten grunnkurset; dette registrerer ingen forkunnskap eller fullført modul.',
-    directEntry: 'Åpne arbeidsbenken uten grunnkurs',
-    debriefUnfinished:
-      'Arbeidet er ikke ferdig. Fortsett ved portalen når du vil; gyldige kommandoer og observasjoner beholdes.',
-    handoff:
-      'Du er i Noor sitt veiledede praktiske oppdrag. Her undersøker du scope, lokasjon, policy og hosting. Returner til Lysningen for debrief; denne arbeidsbenken fullfører ikke hele læringsreisen.',
-    prefShort: 'Orienteringsvalg: bare i denne økten',
-    prefIssue:
-      'Orienteringsvalget kunne ikke lagres trygt. Læringslagrene er urørt; du kan fortsette i denne økten.',
-    welcomeIda:
-      'Velkommen til Lysningen. Jeg er Ida, læringsguiden din. Vi følger et applikasjonsteam fra egne servere til en begrunnet cloud-plattform. Start med Describe cloud computing ved installasjonen; så sammenligner vi driftsansvar før Noor gir deg et praktisk oppdrag.',
-    returnIda:
-      'Vi kan fortsette der du er i læringen. Ekspedisjonsloggen viser de faktiske undersøkelsene og neste anbefalte steg. Vil du fortsette Describe cloud computing, utforske driftsansvar eller spørre om mekanismen?',
-    bridge: 'Se læringsreisen sammen med Ida',
-  },
   foundations: {
     title: 'Fra maskinrom til skytjenester',
     module: 'Describe cloud computing',
@@ -3202,245 +2990,6 @@ export const nb = {
     ],
   },
   brand: 'AzureLab',
-  rpg: {
-    title: 'Lysningen',
-    subtitle: 'AZURELAB / EKSPEDISJON G1',
-    region: 'KYSTSTASJON 01',
-    returnToWorld: 'Tilbake til 3D-ekspedisjonen',
-    exit: 'Til sammenligningsreisen',
-    loading: 'Klargjør stasjonen og figurene …',
-    loadHint: 'Lokale, lisensierte modeller. Ingen Azure-tilkobling.',
-    welcome: 'Velkommen til Lysningen',
-    welcomeText:
-      'Følg stien. Møt Ida ved ankomstplassen, undersøk ansvarsverkstedet og finn ingeniør Noor ved porten.',
-    begin: 'Ta kontroll',
-    controls: 'WASD / piltaster · E for samhandling · Esc for å stoppe',
-    moveArea: 'Spillflate. Bruk WASD eller piltaster for å gå. E åpner nærmeste samhandling.',
-    move: 'Bevegelse',
-    forward: 'Gå fremover',
-    back: 'Gå bakover',
-    left: 'Gå mot venstre',
-    right: 'Gå mot høyre',
-    stop: 'Stopp bevegelsen',
-    interact: 'Samhandle',
-    approach: 'Gå nærmere en person eller installasjon',
-    places: {
-      guide: 'Ida · skyguide',
-      installation: 'Ansvarsverkstedet',
-      engineer: 'Noor · plattformingeniør',
-      portal: 'Infrastrukturporten',
-    },
-    speakers: { guide: 'Ida', engineer: 'Noor', system: 'Infrastrukturporten' },
-    roles: { guide: 'SKYGUIDE', engineer: 'PLATTFORMINGENIØR', system: 'TEKNISK TRENINGSVERDEN' },
-    talk: 'Snakk med',
-    use: 'Undersøk',
-    distance: 'm unna',
-    navigate: 'Orientering og tilgjengelig navigasjon',
-    navigateHint:
-      'Velg et sted for å gå dit langs stien. Du kan avbryte med en bevegelsestast eller Esc.',
-    walkTo: 'Gå til',
-    semantic: 'Bruk tekstbasert spillalternativ',
-    spatial: 'Tilbake til 3D-verdenen',
-    alternative: 'Samtaler og oppdrag uten 3D',
-    alternativeHint:
-      'Velg et sted, snakk med personene og bruk verkstedet. Dette er et likeverdig læringsalternativ; det registrerer ingen romlig ferdighet.',
-    focusPlace: 'Velg sted',
-    settings: 'Innstillinger og hjelp',
-    close: 'Lukk',
-    quality: 'Grafikkvalitet',
-    qualities: { auto: 'Automatisk', low: 'Lav · uten skygger', high: 'Høy · myke skygger' },
-    motion:
-      'Redusert bevegelse følger enhetens innstilling. Samtaler gir umiddelbart kameraskifte når dette er valgt.',
-    fallback: '3D-visningen kunne ikke åpnes',
-    fallbackText:
-      'WebGL eller en modell er utilgjengelig. Alle samtaler, verkstedvalg og det tekniske oppdraget er fortsatt tilgjengelige i tekstalternativet.',
-    retry: 'Prøv 3D på nytt',
-    lost: 'Grafikkonteksten ble avbrutt. Bruk alternativet eller prøv å laste 3D på nytt.',
-    retryStorage: 'Last lagret spill',
-    resetStorage: 'Nullstill bare G1-spilldata',
-    storage: {
-      corrupt:
-        'Spillagringen er skadet. Ingen quest blir godkjent fra disse dataene. Bruk tekstalternativet eller nullstill G1-data for et nytt forsøk.',
-      unsupported:
-        'Denne spillagringen har en ukjent versjon. Tidligere tekniske øvinger og XP er bevart.',
-      unsaved: 'Arbeidet er bare i minnet. Lagring er avvist; omlasting kan miste spillposisjonen.',
-      conflict:
-        'En annen fane har endret spillagringen. Nye lagrede endringer er stanset. Last lagret spill eksplisitt før du fortsetter.',
-      limit: 'Samtalehistorikken har nådd grensen. Tekniske resultater og tidligere XP beholdes.',
-    },
-    quest: 'ET GRUNNLAG FOR EGEN KODE',
-    questLabel: 'Veiledet oppdrag',
-    objectives: {
-      meet: 'Møt Ida eller Noor. Undersøk hvorfor teamet vil bruke en plattform.',
-      compare: 'Sammenlign minst to tjenestemodeller i ansvarsverkstedet.',
-      challenge: 'Bruk kravene og fordel ansvaret i samtalen med Ida.',
-      accept: 'Finn Noor og ta imot appteamets oppdrag.',
-      build: 'Gå gjennom porten. Bygg og undersøk den veiledede applikasjonsplattformen.',
-      report: 'Gå tilbake til Noor og forklar hva som endret konfigurasjonen.',
-      done: 'Veiledet oppdrag gjennomgått. Selvstendig vurdering av Chapter 01 gjenstår.',
-    },
-    guided: 'Veiledet øving · ingen nye XP eller uavhengig mestring',
-    portalActivating: 'Porten kobler til den lokale øvingsverdenen …',
-    installationTitle: 'Hvem drifter laget?',
-    compareHint:
-      'Bytt modell og se lagene flytte seg mellom leverandør- og kundesiden. Undersøk deretter begrunnelsen.',
-    owners: { customer: 'KUNDEN', microsoft: 'MICROSOFT', shared: 'DELT / TJENESTEAVHENGIG' },
-    modelNotes: {
-      iaas: 'IaaS: Microsoft drifter fysisk infrastruktur. Kunden vedlikeholder blant annet gjeste-OS, runtime og egen kode.',
-      paas: 'PaaS: Microsoft drifter plattformens OS og innebygde runtime. Kunden har egen kode, data, tilgang og konfigurasjon. Nettverksoppgaver avhenger av tjenesten.',
-      saas: 'SaaS: Leverandøren drifter applikasjonen. Kunden må fortsatt styre brukere, data og egne innstillinger. Dette er ikke en vert for vilkårlig egen webkode.',
-    },
-    detail: 'Teknisk fordypning og kilde',
-    cinematic: {
-      conversation: 'Samtale',
-      response: 'Ditt svar',
-      instruction: '↑ ↓ velg · Enter svar · Esc avslutt',
-      journal: 'Feltnotater',
-      back: 'Tilbake til samtalen',
-      inspect: 'Undersøk et ansvarslag',
-      textSize: 'Større samtaletekst',
-      system: 'Systemmelding · ikke en replikk',
-      demonstration: 'Ida veileder · ansvarsverkstedet',
-      layerHint:
-        'Laget lyser i modellen. Eierskapet følger valgt tjenestemodell; dette er ikke et Azure management-scope.',
-    },
-    spoken: {
-      'guide-welcome':
-        'Jeg heter Ida. Velkommen til Lysningen. Her undersøker vi hva som faktisk endres når et team velger en skytjeneste. Hvor vil du begynne?',
-      'guide-purpose':
-        'Teamet har egen webkode. Noen må drifte servere, OS, runtime og applikasjon. Tjenestemodellen fordeler dette arbeidet. Hvor mye vil teamet drifte selv?',
-      'guide-mechanism':
-        'Med en VM vedlikeholder kunden gjeste-OS og runtime. App Service lar teamet levere egen kode uten samme OS-drift. SaaS er en ferdig applikasjon. La oss se forskjellen.',
-      'guide-detail':
-        'Abstraksjon flytter oppgaver. Data, identiteter og forsvarlig konfigurasjon trenger fortsatt kundens arbeid. Feltnotatene forklarer tjenestegrensene og container-unntaket nærmere.',
-      'guide-expert':
-        'La oss undersøke mekanismen direkte. Du kan sammenligne modellene og prøve teamets beslutning. Å hoppe over introduksjonen registrerer ingen tidligere kompetanse.',
-      installation:
-        'Bytt modell og følg OS-laget. Hvem må drifte det nå? Data og tilgang trenger fortsatt kundens arbeid. Velg et lag hvis du vil undersøke grensen nærmere.',
-      'service-iaas':
-        'En VM kan kjøre koden, men kunden vedlikeholder fortsatt gjeste-OS og runtime. Det løser ikke ønsket om mindre OS-drift. Sammenlign OS-laget med PaaS.',
-      'service-saas':
-        'Her vil teamet kjøre egen webkode. SaaS leverer en ferdig applikasjon, ikke automatisk en generell hosting-plattform for den koden.',
-      'service-good':
-        'PaaS passer disse kravene, og App Service er et aktuelt eksempel. Teamet må fortsatt undersøke tjenestegrensene. Valget garanterer ikke sikkerhet eller tilgjengelighet.',
-      'ownership-os':
-        'Microsoft forvalter plattformens OS i dette eksemplet. Kunden vedlikeholder egen kode og tilgang. Med en egen container må kunden også vedlikeholde containerinnholdet.',
-      'ownership-all':
-        'En forvaltet plattform betyr ikke at Microsoft overtar alle sikkerhetsvalg. Data, identiteter, konfigurasjon og egen kode trenger fortsatt kundens arbeid.',
-      'ownership-good':
-        'Ja. Kode, data, tilgang og konfigurasjon er fortsatt kundens oppgaver. Du har begrunnet valget med veiledning. Noor kan knytte dette til faktisk konfigurasjon.',
-      'engineer-offer':
-        'Hei, jeg er Noor. Teamet beholder egen webkode, men vil slippe gjeste-OS-drift. Kan du hjelpe meg å organisere plattformen og undersøke en lokasjonsregel?',
-      'engineer-brief':
-        'Bruk App Sandbox og en resource group med felles livssyklus. Gruppemetadata skal være i Norway East. Bygg en Linux App Service plan og en webapp. Undersøk hva som bestemmer hosting-lokasjonen.',
-      'engineer-accepted':
-        'Oppdraget er ditt. Begrunn tjeneste- og ansvarsvalget ved verkstedet, og gå gjennom porten. Simulatoren oppretter bare lokale læringsressurser. Kom tilbake når du har undersøkt konfigurasjonen.',
-      'engineer-reminder':
-        'Alle de veiledede kravene er ennå ikke tilfredsstilt. Gyldig arbeid er bevart. Bruk kvitteringene og lokasjonsvisningen til å finne det som gjenstår.',
-      'engineer-progress':
-        'Jeg ser registrert arbeid, men ikke alle veiledede betingelser er tilfredsstilt. En gruppe alene bekrefter ikke hosting eller årsaksforståelse. Fortsett med det gyldige arbeidet.',
-      'engineer-built':
-        'Den validerte øvingen har riktig scope, plan, hosting-avhengighet og veiledede undersøkelser. Forklaringen knytter avslaget til ressurslokasjon. Skal vi gå gjennom funnene?',
-      'engineer-reported':
-        'Vi har gått gjennom det veiledede grunnlaget. Chapter 01 er fortsatt ikke selvstendig vurdert eller fullt fullført. Neste steg må prøve ideene med endrede krav, uten løsningen først.',
-      'portal-locked':
-        'Ta imot Noors oppdrag, sammenlign modellene og begrunn tjenestevalg og kundeansvar. Besøk og animasjoner alene åpner ikke porten.',
-      'portal-ready':
-        'Spillposisjonen lagres ved porten. Gå inn, bygg og undersøk. «Tilbake til 3D-ekspedisjonen» fører deg hit igjen. Gyldig uferdig arbeid beholdes.',
-    },
-    source: 'Microsoft Learn · referanse',
-    planSource: 'Microsoft Learn · App Service plan',
-    resetExplanation:
-      'Dette fjerner bare G1-posisjon, samtaleobservasjoner og spilloppdrag. Azure-simulering, den tidligere ekspedisjonen og opptjent XP beholdes.',
-    confirmReset: 'Nullstill G1-spilldata nå',
-    mechanism:
-      'Lagene er en ansvarsmodell, ikke Azure management-scopes eller fysisk geografi. App Service bygger på en plan med OS/region; en resource group erstatter ikke denne hosting-avhengigheten.',
-    caveat:
-      'Innebygget App Service-runtime og en kundelevert container har forskjellige vedlikeholdsoppgaver. Kunden vedlikeholder selv containerinnholdet. PaaS fjerner ikke kundens sikkerhetsansvar, og SaaS fjerner ikke behovet for tilgangsstyring.',
-    choices: {
-      why: 'Hvorfor trenger vi tjenestemodeller?',
-      experienced: 'Jeg kjenner grunnlaget. La meg undersøke.',
-      leave: 'Avslutt samtalen',
-      mechanism: 'Hva endres teknisk?',
-      demonstrate: 'Vis meg ansvarsverkstedet',
-      depth: 'La oss gå dypere',
-      challenge: 'Prøv teamets beslutning',
-      iaas: 'IaaS · Azure Virtual Machines',
-      paas: 'PaaS · Azure App Service',
-      saas: 'SaaS · en ferdig applikasjon',
-      retry: 'Vurder tjenestevalget på nytt',
-      inspect: 'Undersøk lagene igjen',
-      responsibilities: 'Hvilket ansvar beholder teamet?',
-      'customer-code': 'Egen kode, data, tilgang og konfigurasjon',
-      'patch-os': 'Patche plattformens gjeste-OS',
-      'all-provider': 'Microsoft overtar alt sikkerhetsansvar',
-      'retry-responsibility': 'Fordel ansvaret på nytt',
-      'meet-engineer': 'Jeg vil møte ingeniøren',
-      requirements: 'Hva trenger appteamet?',
-      accept: 'Jeg tar oppdraget',
-      'model-reason': 'La oss begrunne tjenestevalget først',
-      report: 'Gå gjennom mitt veiledede arbeid',
-      enter: 'Aktiver porten og gå inn',
-    },
-    dialogue: {
-      'guide-welcome':
-        'Jeg heter Ida. Dette er Lysningen: et sted for å undersøke skyteknologi før du bruker den i virkeligheten. Du styrer hvor du går. Jeg hjelper deg å se hva som faktisk endres når et team velger en skytjeneste.',
-      'guide-purpose':
-        'Tenk på et team med egen webkode. Noen må drifte fysiske servere, operativsystem, runtime og applikasjon. IaaS, PaaS og SaaS fordeler disse oppgavene forskjellig. Modellvalget handler om kontroll og arbeid – ikke om hvor mange serverikoner vi tegner.',
-      'guide-mechanism':
-        'Med en VM vedlikeholder kunden gjeste-OS og runtime. App Service tilbyr en forvaltet applikasjonsplattform, slik at teamet kan levere egen kode uten samme OS-drift. SaaS leverer en ferdig applikasjon. Den er ikke automatisk riktig sted å kjøre teamets egen kode.',
-      'guide-detail':
-        'Abstraksjon flytter oppgaver, men fjerner ikke ansvar. Kunden må beskytte data, styre identiteter og velge forsvarlig konfigurasjon i alle modellene. Se lagene i verkstedet. Delt-markeringen betyr at grensene må undersøkes for den konkrete tjenesten, ikke at begge parter gjør nøyaktig samme arbeid.',
-      'guide-expert':
-        'Da bruker vi tiden på mekanismen. Ved verkstedet kan du sammenligne modellene direkte og ta en kravbasert beslutning. Du hopper over forklaringen, ikke over beviskrav: ingen tidligere kompetanse blir registrert av dette valget.',
-      installation:
-        'Dette er ansvarsverkstedet. Teknikkens lag blir stående, men operatøren endres. Velg minst to modeller og følg spesielt OS, runtime, egen kode og data. Jeg kommenterer modellen du velger. Deretter undersøker vi appteamets behov.',
-      'service-question':
-        'Teamet har egen webkode og trenger en plattform for å kjøre den. De vil ikke vedlikeholde gjeste-OS. Hvilket alternativ passer dette avgrensede behovet best?',
-      'service-iaas':
-        'En VM kan kjøre koden, men kunden må fortsatt vedlikeholde gjeste-OS og runtime. Det løser ikke ønsket om mindre OS-drift. Se OS-laget når du bytter fra IaaS til PaaS, og vurder kravet på nytt.',
-      'service-saas':
-        'En ferdig SaaS-applikasjon kan være riktig hvis teamet vil erstatte løsningen. Her vil de kjøre egen webkode. SaaS-begrepet lover ikke en generell hosting-plattform for den. Undersøk forskjellen mellom applikasjonen og plattformen.',
-      'service-good':
-        'PaaS er et godt tjenestemodellvalg for disse kravene. App Service er et aktuelt eksempel. Det er ikke en automatisk garanti for sikkerhet, tilgjengelighet eller at alle applikasjoner støttes. Teamet må fortsatt undersøke plattformens grenser.',
-      'ownership-question':
-        'Teamet velger en App Service med innebygget runtime. Hvilken oppgavegruppe er fortsatt kundens ansvar?',
-      'ownership-os':
-        'I dette PaaS-eksemplet forvalter Microsoft plattformens OS. Kunden trenger fortsatt blant annet å vedlikeholde egen kode og konfigurere tilgang. For en kundelevert container kommer ansvar for innholdet i containeren i tillegg.',
-      'ownership-all':
-        'En forvaltet plattform betyr ikke at Microsoft overtar alle sikkerhetsvalg. Uforsvarlige tilgangsregler eller svak egen kode blir ikke riktige av å kjøre i PaaS. Data, identiteter og konfigurasjon trenger kundens arbeid.',
-      'ownership-good':
-        'Ja. Kunden beholder kode-, data-, tilgangs- og konfigurasjonsoppgaver. Du har begrunnet en beslutning med veiledning. Det registreres som øving, ikke uavhengig mestring. Noor kan nå knytte dette til en faktisk teknisk konfigurasjon.',
-      'engineer-offer':
-        'Hei, jeg er Noor. Appteamet har valgt å beholde egen webkode. Jeg trenger hjelp til å organisere et PaaS-grunnlag og forstå hva en lokasjonsregel gjør med konfigurasjonen. Vil du se kravene?',
-      'engineer-brief':
-        'Vi bruker App Sandbox og en resource group med felles livssyklus. Gruppemetadata skal være i Norway East. Undersøk selv hva som bestemmer hosting-lokasjonen. Bygg en støttet Linux App Service plan, koble en webapp til den og finn årsaken hvis en forespørsel blir avvist.',
-      'engineer-accepted':
-        'Oppdraget er ditt. Sammenlign modellene ved verkstedet og begrunn tjeneste- og ansvarsvalget. Deretter åpner porten vår eksisterende tekniske simulator. Den oppretter bare lokale læringsressurser. Kom tilbake til meg når du har undersøkt konfigurasjonen.',
-      'engineer-reminder':
-        'Jeg har fortsatt ikke en veiledet konfigurasjon som tilfredsstiller alle oppdragskravene. Porten beholder gyldig arbeid når du går ut. Bruk kvitteringer og lokasjonsvisning til å forklare hva som eventuelt gjenstår.',
-      'engineer-progress':
-        'Jeg ser faktisk registrert arbeid i den tekniske øvingen, men de veiledede betingelsene er ikke samlet tilfredsstilt. En opprettet gruppe alene bekrefter ikke riktig hosting eller årsaksforståelse. Fortsett i porten; du trenger ikke kaste gyldig arbeid.',
-      'engineer-built':
-        'Den validerte øvingen viser en gruppe i riktig scope, en støttet plan, en app som bruker planen og de veiledede undersøkelsene. Forklaringen knytter avslaget til ressurslokasjonen, ikke til gruppemetadata. Vi kan gå gjennom dette som veiledet arbeid.',
-      'engineer-reported':
-        'Vi har gått gjennom det veiledede grunnlaget. Du har undersøkt hvorfor korreksjonen virket. Ingen appkode kjører her, og Chapter 01 er fortsatt ikke selvstendig vurdert eller fullt fullført. Neste steg må prøve de samme ideene med endrede krav, uten å gi deg løsningen først.',
-      'portal-locked':
-        'Dette oppdraget starter med Noor og ansvarsverkstedet. Ta imot kravet, sammenlign minst to modeller og begrunn tjenestemodell og kundeansvar. Besøk og animasjoner alene åpner ikke oppdraget.',
-      'portal-ready':
-        'Porten åpner den eksisterende veiledede tekniske verdenen. Spillposisjonen lagres ved porten. Bygg, forutsi og undersøk konfigurasjonen; bruk deretter «Tilbake til 3D-ekspedisjonen». Uferdig gyldig arbeid beholdes.',
-    },
-    metrics: 'Renderingsmåling',
-    metricsHint:
-      'Lokale rammetider fra denne økten. Ikke en måling av representative mobiltelefoner eller læringseffekt.',
-    fps: 'Bilder/s',
-    calls: 'Tegnekall',
-    triangles: 'Trekanter',
-    samples: 'Måleprøver',
-    worldSign: 'LYSNINGEN',
-    workshopSign: 'ANSVARSVERKSTEDET',
-    portalSign: 'INFRASTRUKTUR',
-  },
   chapter: {
     title: 'Bygg, forutsi og rett opp',
     sector: 'INFRASTRUKTUR / CHAPTER 01 · VEILEDET',
@@ -3726,192 +3275,6 @@ export const nb = {
     saved: 'Lagret lokalt · uverifisert',
     attempt: 'Veiledet forsøk',
   },
-  expedition: {
-    title: 'Azure-ekspedisjonen',
-    sector: 'EKSPEDISJON 01 / FRA ABSTRAKSJON TIL INFRASTRUKTUR',
-    scene: 'Reise gjennom Azure-kunnskap',
-    local: 'Lokal læringsverden · ingen Azure-tilkobling',
-    map: 'Ruteoversikt',
-    mapClose: 'Tilbake til nærvisning',
-    orientation: 'Reis direkte til et stopp',
-    travel: 'Reiser mot',
-    back: 'Forrige stopp',
-    begin: 'Begynn ekspedisjonen',
-    continue: 'Fortsett reisen',
-    inspect: 'Undersøk ansvaret',
-    detour: 'Ta avstikkeren',
-    return: 'Tilbake til hovedruten',
-    leave: 'Tilbake uten å fullføre',
-    retry: 'Endre svaret',
-    validate: 'Test beslutningen',
-    allocate: 'Kontroller ansvarsfordelingen',
-    portal: 'Gå inn i infrastrukturverdenen',
-    portalEntering: 'Åpner infrastrukturverdenen',
-    worldReturn: 'Tilbake til ekspedisjonen',
-    quickEntry: 'Gå inn i universet',
-    experienced: 'Kjenner du grunnlaget? Gå direkte til praktisk arbeid.',
-    future: 'Ikke spillbar ennå',
-    guided: 'Veiledet øving · ingen mestringsvurdering',
-    reward: 'Ingen XP for avstikkere. Det praktiske oppdraget gir inntil 120 XP én gang.',
-    saved: 'Arbeidet lagres på denne enheten.',
-    storageFailure:
-      'Reisen er bare lagret i minnet. Nettleseren avviste lokal lagring; omlasting kan miste arbeidet.',
-    source: 'Microsoft-kilder · gjennomgått 22.10.2026',
-    sourceResponsibility: 'Shared responsibility',
-    sourceRuntime: 'App Service: OS & runtime',
-    journeyNotGeography:
-      'Landskapet viser læringsprogresjon, ikke Azure-regioner eller ressursplassering.',
-    controls:
-      'Bruk stoppkontrollene for å reise. Oversikten viser hele ruten. Alle handlinger kan utføres med tastatur.',
-    stops: {
-      arrival: {
-        label: 'Utgangspunkt',
-        title: 'Et nytt perspektiv på skyen.',
-        text: 'Hvem drifter hva når du flytter en applikasjon til skyen? Følg signalet til ansvarsverkstedet. Prøv et valg, se konsekvensen og ta kunnskapen med inn i en faktisk simulering.',
-      },
-      models: {
-        label: 'Ansvarsverkstedet',
-        title: 'Samme behov. Ulikt ansvar.',
-        text: 'Bytt mellom tjenestemodellene. Lagene skifter eierskap. Velg et lag for å undersøke hva teamet faktisk må gjøre.',
-      },
-      decision: {
-        label: 'Beslutningsutsikten',
-        title: 'Velg en plattform for teamet.',
-        text: 'Et team har egen webkode og trenger en administrert plattform. De vil konfigurere appen, men ikke patche gjeste-OS. Hvilken modell passer dette behovet best?',
-      },
-      crossing: {
-        label: 'Krysningspunktet',
-        title: 'Mindre drift. Fortsatt ansvar.',
-        text: 'En administrert plattform overtar driftsoppgaver. Det fritar ikke teamet fra å beskytte det de kontrollerer. Neste avstikker tester denne grensen i en ferdig SaaS-tjeneste.',
-      },
-      ownership: {
-        label: 'Ansvarsstasjonen',
-        title: 'Hva beholder kunden?',
-        text: 'En organisasjon tar i bruk en ferdig SaaS-applikasjon. Marker alle oppgavene kunden fortsatt har ansvar for blant de fire nedenfor. Se hvilke signaler som forblir hos kunden.',
-      },
-      gateway: {
-        label: 'Infrastrukturporten',
-        title: 'Fra forståelse til handling.',
-        text: 'Et appteam har egen webkode og vil slippe gjeste-OS-drift. Bygg et PaaS-grunnlag, undersøk et lokasjonsavslag og koble appen til en hosting-plan.',
-      },
-      horizon: {
-        label: 'Neste horisont',
-        title: 'Herfra forgrener verden seg.',
-        text: 'Du kan vende tilbake og eksperimentere. Nettverk, drift og arkitektur er kommende fagområder; de fjerne landemerkene er foreløpig ikke spillbare.',
-      },
-    },
-    models: {
-      iaas: {
-        label: 'IaaS',
-        example: 'Azure Virtual Machines',
-        summary: 'Du trenger kontroll over operativsystemet. Teamet får flere driftsoppgaver.',
-        application:
-          'Et eldre system krever en bestemt OS-konfigurasjon. En VM gir kontroll, men teamet må planlegge patching, hardening og appdrift.',
-      },
-      paas: {
-        label: 'PaaS',
-        example: 'Azure App Service',
-        summary:
-          'Plattformen driftes for deg. Egen kode og applikasjonsvalg er fortsatt ditt arbeid.',
-        application:
-          'Webteamet leverer kode til App Service med innebygd runtime. Plattformen håndterer OS; teamet tester avhengigheter og velger støttet runtime-versjon.',
-      },
-      saas: {
-        label: 'SaaS',
-        example: 'Microsoft 365',
-        summary:
-          'Du tar i bruk ferdig programvare. Tilgang, innstillinger og informasjon trenger fortsatt eiere.',
-        application:
-          'En ny medarbeider skal få riktig tilgang til samarbeidsverktøyet. At programvaren er ferdig, bestemmer ikke hvilke dokumenter personen bør se.',
-      },
-    },
-    owners: { customer: 'Kunden', microsoft: 'Microsoft', shared: 'Delt ansvar' },
-    layers: {
-      physical: {
-        label: 'Fysisk infrastruktur',
-        detail:
-          'Datasenter, fysisk nettverk, verter og virtualiseringslag driftes av leverandøren i disse skymodellene.',
-      },
-      os: {
-        label: 'Operativsystem',
-        detail:
-          'I IaaS styrer du gjeste-OS. Med administrert PaaS og SaaS ligger plattformens OS-drift hos leverandøren.',
-      },
-      runtime: {
-        label: 'Runtime og middleware',
-        detail:
-          'Her viser PaaS en innebygd App Service-runtime. Egen container eller opplastet runtime har andre vedlikeholdsgrenser; ikke overfør dette bildet ukritisk.',
-      },
-      application: {
-        label: 'Applikasjon',
-        detail:
-          'Applikasjonsansvar er delt i PaaS og SaaS. Leverandøren drifter deler av løsningen; kunden har fortsatt ansvar for blant annet egen kode, tilgang eller konfigurasjon.',
-      },
-      network: {
-        label: 'Nettverkskontroller',
-        detail:
-          'IaaS krever egne nettverksvalg. PaaS deler kontrollene med plattformen. SaaS-leverandøren drifter tjenestens nettverk; klienttilgang må fortsatt vurderes.',
-      },
-      settings: {
-        label: 'Konfigurasjon',
-        detail:
-          'En standardinnstilling er et utgangspunkt. Kunden må velge passende innstillinger og kontrollere at de dekker virksomhetens behov.',
-      },
-      identity: {
-        label: 'Brukere og tilgang',
-        detail:
-          'Kunden bestemmer hvem som skal få tilgang. Administrert identitetsinfrastruktur opphever ikke behovet for å opprette, avgrense og fjerne brukertilgang.',
-      },
-      data: {
-        label: 'Kundedata',
-        detail:
-          'Kunden må klassifisere og beskytte informasjonen og vurdere lagring, tilgang og styringskrav i alle modellene.',
-      },
-    },
-    levels: ['Intuisjon', 'Mekanisme', 'Teknisk dybde', 'Anvendelse'],
-    mechanism:
-      'Følg det valgte laget i stabelen. Endring av modell flytter driftsansvaret, mens data, tilgang og kundens innstillinger blir igjen hos kunden.',
-    nuance:
-      'Forenklet ansvarsmodell, ikke en kontrakt eller garanti. Tjeneste, driftsmodell og konfigurasjon avgjør detaljene. Høyere abstraksjon betyr ikke automatisk høyere sikkerhet.',
-    selection: 'Valgt ansvarslag',
-    checkTitles: {
-      'service-fit': 'Avstikker 01 / tjenestevalg',
-      'retained-control': 'Avstikker 02 / ansvarsfordeling',
-    },
-    choices: {
-      data: 'Klassifisere og beskytte kundedata',
-      identity: 'Administrere brukere og tilgang',
-      os: 'Patche SaaS-leverandørens OS',
-      physical: 'Vedlikeholde leverandørens fysiske verter',
-    },
-    decisionFeedback: {
-      iaas: 'En VM kan kjøre koden, men teamet beholder gjeste-OS-driften. Det bryter med kravet om å slippe OS-patching. Undersøk PaaS og prøv igjen.',
-      paas: 'PaaS passer det oppgitte behovet. App Service med innebygd runtime lar teamet levere egen kode mens plattformen drifter OS. Kode, avhengigheter, tilgang og konfigurasjon trenger fortsatt eiere.',
-      saas: 'SaaS gir en ferdig applikasjon. Her trenger teamet en plattform for egen webkode. Undersøk forskjellen mellom å bruke programvare og å levere en app.',
-    },
-    allocationGood:
-      'Riktig grense: data og brukertilgang krever kundens arbeid også i SaaS. Leverandøren vedlikeholder tjenestens OS og fysiske verter. Andre kundeoppgaver finnes, men inngår ikke i disse fire valgene.',
-    allocationBad:
-      'Fordelingen stemmer ikke ennå. Data og brukertilgang forblir hos kunden. Tjenestens OS og fysiske verter driftes av SaaS-leverandøren. Endre markeringene og se signalene oppdateres.',
-    correct: 'Beslutningen holder',
-    incorrect: 'Undersøk grensen på nytt',
-    recorded:
-      'Svaret er registrert som veiledet øving. Du kan prøve igjen; dette er ikke bevis på selvstendig kompetanse.',
-    checkDone: 'Øving gjennomført',
-    checkOpen: 'Øving gjenstår',
-    portalReady: 'Praktisk oppdrag tilgjengelig',
-    portalPartial: 'Resource group opprettet · refleksjon gjenstår',
-    portalComplete: 'Oppdrag og kunnskapssjekk gjennomført',
-    portalSkills: 'Scope · lokasjon · hosting · styringsregler',
-    portalActions: 'Forutsi → bygg → undersøk avslaget → rett opp',
-    portalBoundary: 'Lokal konfigurasjonssimulering. Ingen Azure-operasjoner utføres.',
-    resume: 'Fortsett lagret arbeid',
-    landmarks: { network: 'Nettverk', operations: 'Drift og innsikt', architecture: 'Arkitektur' },
-    milestone: 'Gjennomførte øvinger',
-    completionNote:
-      'Gjennomføring og XP viser deltakelse. Selvstendig vurdering og varig mestring er ikke implementert.',
-    worldLoading: 'Laster den lokale infrastrukturverdenen …',
-  },
   tagline: 'Fra nysgjerrighet til kompetanse.',
   universe: {
     title: 'Azure Universe',
@@ -3993,27 +3356,6 @@ export const nb = {
     backQuestion: 'Forrige spørsmål',
     checkAward: 'Kunnskapssjekk fullført. 40 XP tildeles én gang.',
   },
-  hub: {
-    eyebrow: 'KONTROLLROM / AZURE FUNDAMENTALS',
-    title: 'Et univers å forstå.',
-    subtitle: 'Din sandbox er klar. Neste steg er ditt.',
-    enter: 'Gå inn i universet',
-    mission: 'Klar for ditt første oppdrag?',
-    continue: 'Fortsett utforskningen',
-    missionText: 'Gi applikasjonsteamet et hjem i Azure. Finn riktig scope. Bygg. Forklar hvorfor.',
-    active: 'KLAR TIL Å STARTE',
-    complete: 'GJENNOMFØRT · KAN REPETERES',
-    journey: 'DIN LÆRINGSBANE',
-    current: 'Ressursorganisering',
-    future: 'Nettverk og forbindelser',
-    planned: 'Under planlegging',
-    pathHint: 'Et praktisk fundament. Ingen vurdert eksamensberedskap.',
-    milestone: 'Milepæler nådd',
-    next: 'NESTE HANDLING',
-    duration: 'Ca. 10–15 min',
-    sceneCaption: 'DIN LOKALE AZURE-SANDBOX',
-    regionNote: 'Identitet. Styring. Ressurser. Se hvordan alt henger sammen.',
-  },
   notFound: {
     title: 'Her var det ingen ressurser.',
     description: 'Siden finnes ikke. Du kan fortsette å utforske fra oversikten.',
@@ -4024,14 +3366,15 @@ export const nb = {
     description: 'Utforsk Azure gjennom interaktive arkitekturer og trygge, lokale simuleringer.',
   },
   nav: [
-    { href: '/', label: 'Portal', icon: 'dashboard' },
-    { href: '/explore', label: 'Utforsk', icon: 'explore' },
-    { href: '/missions', label: 'Oppdrag', icon: 'missions' },
+    { href: '/learn', label: 'Kurs', icon: 'dashboard' },
+    { href: '/portal', label: 'Portal', icon: 'explore' },
     { href: '/progress', label: 'Fremgang', icon: 'progress' },
   ],
   shell: {
+    close: 'Lukk',
+
     workspace: 'DITT LÆRINGSROM',
-    path: 'Azure-ekspedisjonen',
+    path: 'Azure-læring',
     pathTag: 'Læringssti · første steg',
     local: 'Lokal prototype',
     simulation: 'Simulert miljø',
@@ -4040,45 +3383,13 @@ export const nb = {
     account: 'Fremgang på denne enheten',
     skip: 'Hopp til innhold',
     footer: 'Et uavhengig læringsprosjekt. Ikke tilknyttet Microsoft.',
-    phase: 'PHASE 1B.1',
-    release: 'v1B.1',
+    phase: 'Kurs og Portal',
+    release: 'Lokal læring',
     storageError:
       'Nettleseren tillater ikke lokal lagring. Fremgangen beholdes bare mens denne siden er åpen.',
     loading: 'Laster lokal fremgang …',
     xp: 'XP',
     level: 'Nivå 1 · Utforsker',
-  },
-  dashboard: {
-    eyebrow: 'BYGG FORSTÅELSE. ETT LAG OM GANGEN.',
-    title: 'Din neste oppdagelse\nstarter her.',
-    intro:
-      'Bli kjent med Azure fra innsiden. Utforsk sammenhenger, ta valg og se hva som skjer — i et trygt, simulert miljø.',
-    cta: 'Åpne Azure-universet',
-    secondary: 'Se ditt første oppdrag',
-    heroLabel: 'ET LITE UNIVERS. STORE SAMMENHENGER.',
-    heroCaption: 'Identitet → styring → ressurser',
-    stat1: 'Praktisk oppdrag',
-    stat2: 'Interaktivt univers',
-    stat3: 'Mulige XP',
-    section: 'Lær ved å gjøre',
-    sectionSub: 'Et fundament du kan bygge videre på.',
-    module: '01 / AZURE FUNDAMENTALS',
-    moduleTitle: 'Hvordan henger Azure sammen?',
-    moduleText:
-      'Fra Entra tenant til den enkelte ressursen. Se strukturen, undersøk hvert nivå og bygg din første resource group.',
-    moduleTags: ['Grunnleggende', 'Ca. 10–15 min', 'Interaktivt'],
-    continue: 'Utforsk strukturen',
-    missionTitle: 'Et hjem for applikasjonen',
-    missionText: 'Et utviklingsteam trenger orden i Azure. Kan du plassere ressursene riktig?',
-    missionCta: 'Se oppdraget',
-    next: 'VIDERE PÅ REISEN',
-    future: 'Nettverk som gir mening',
-    futureText:
-      'Virtual networks, subnets og trafikkflyt. Neste del av universet er under planlegging.',
-    preview: 'Planlagt',
-    philosophy: 'Forstå hvorfor. Ikke bare hvordan.',
-    philosophyText:
-      'XP viser aktivitet. Ferdigheter bygges gjennom praktisk arbeid, refleksjon og øvelse over tid.',
   },
   explore: {
     eyebrow: 'INTERAKTIVT UNIVERS / 01',
@@ -4121,72 +3432,18 @@ export const nb = {
       interactive: 'Veksle kartinteraksjon',
     },
   },
-  mission: {
-    eyebrow: 'OPPDRAG 01',
-    title: 'Et hjem for applikasjonen',
-    intro:
-      'Et utviklingsteam skal samle ressursene til en ny applikasjon. Klargjør en resource group i teamets sandbox, og forklar hvordan organisering skiller seg fra geografi.',
-    time: '10–15 minutter',
-    reward: '80 XP + 40 XP',
-    level: 'Grunnleggende',
-    context: 'DITT OPPDRAG',
-    instructions:
-      'Opprett rg-azurelab-dev under Learning Sandbox. Velg Norway East som region for gruppens metadata.',
-    objective:
-      'Du øver på å skille identitet, styringsnivåer og regioner, og å plassere en resource group under riktig subscription.',
-    steps: [
-      'Undersøk hierarkiet i arkitekturkartet',
-      'Opprett resource group med riktig navn og region',
-      'Begrunn valgene dine i kunnskapssjekken',
-    ],
-    open: 'Åpne arbeidsbenken',
-    createTitle: 'Gi ressursene en sammenheng',
-    name: 'Navn på resource group',
-    nameHelp:
-      '1–90 tegn: bokstaver, tall, bindestrek, understrek, parenteser og punktum. Kan ikke slutte med punktum.',
-    subscription: 'Subscription',
-    region: 'Region for metadata',
-    submit: 'Opprett i simuleringen',
-    simulationNote: 'Kun lokal simulering. Ingen Azure-ressurser eller kostnader opprettes.',
-    hint: 'Vis et hint',
-    hintText:
-      'Resource groups opprettes under en subscription. Skriv rg-azurelab-dev og velg Norway East. Regionvalget bestemmer hvor gruppens metadata lagres.',
-    success:
-      'Oppdrag utført! Gruppen ligger under Learning Sandbox, med metadata i Norway East. 80 XP tildeles én gang.',
-    createdOther:
-      'Gruppen er opprettet i kartet. Sammenlign navn og region med oppdraget for å fullføre.',
-    already: 'Oppdraget er tidligere fullført. Du kan øve igjen; XP tildeles bare første gang.',
-    check: 'Neste steg: test forståelsen',
-    completed: 'Fullført lokalt',
-    active: 'Klar til å utforske',
-    futureTitle: 'Neste oppdrag bygges her',
-    futureText:
-      'Nettverk, tilgang og feilsøking kommer i senere faser. Denne prototypen har ett spillbart oppdrag.',
-  },
-  assessment: {
-    eyebrow: 'KUNNSKAPSSJEKK',
-    title: 'Kan du forklare sammenhengen?',
-    intro:
-      'Tre originale spørsmål om det du nettopp utforsket. Alle tre må være riktige for 40 XP. Du kan prøve igjen.',
-    submit: 'Sjekk svarene',
-    retry: 'Prøv på nytt',
-    correct: 'Riktig',
-    incorrect: 'Se nærmere på dette',
-    passed: '3 av 3 riktige. Godt første steg!',
-    failed: 'Du har mer å utforske.',
-    result: 'riktige svar',
-    evidence:
-      'Dette er en liten øvelse med umiddelbar tilbakemelding. Resultatet dokumenterer ikke selvstendig mestring eller eksamensberedskap.',
-    prerequisite: 'Fullfør oppgaven i simuleringen for å åpne kunnskapssjekken.',
-    reflection:
-      'Ta et øyeblikk: Hvorfor kan en resource group og ressursene i den ha forskjellige regioner?',
-  },
   progress: {
+    continue: 'Tilbake til kurset',
+    historical: 'Historisk aktivitet',
+    planned: 'Planlagt',
+
     eyebrow: 'DIN LÆRINGSREISE',
-    title: 'Små steg. Varig forståelse.',
-    intro: 'Fremgangen lagres i denne nettleseren. Du trenger ingen konto for å starte.',
+    title: 'Historisk aktivitet og lokale data',
+    intro:
+      'Her beholdes XP fra den tidligere ressursgruppeøvelsen. Dagens kurs viser egne læringsobservasjoner og vurderinger i modulene.',
     xp: 'Erfaringspoeng',
-    xpText: 'Aktivitet og gjennomføring. Maksimalt 120 XP i denne prototypen.',
+    xpText:
+      'Historisk deltakelse: inntil 80 + 40 XP. Dette er ikke en måling av mestring i dagens kurs.',
     mastery: 'Demonstrert mestring',
     masteryValue: 'Ikke vurdert',
     masteryText: 'Krever flere selvstendige oppgaver, variasjon og øvelse over tid.',
@@ -4195,12 +3452,12 @@ export const nb = {
     readinessText: 'Krever bred emnedekning, retensjon og uavhengige vurderinger.',
     history: 'Dine milepæler',
     empty: 'Reisen starter med én handling.',
-    emptyText: 'Utforsk hierarkiet og fullfør ditt første oppdrag. Milepælene dine vil vises her.',
+    emptyText: 'Ingen historiske XP-aktiviteter er registrert. Du kan fortsette i dagens kurs.',
     mission: 'Resource group opprettet riktig',
     assessment: 'Kunnskapssjekk: 3 av 3 riktige',
     certification: 'Et fundament for videre læring',
     certText:
-      'Første modul er knyttet til ressursorganisering i AZ-900. Læringsstier for AZ-104 og AZ-305 er planlagt. Ingen estimater eller løfter om bestått eksamen.',
+      'Dagens kurs dekker avgrensede Azure Fundamentals-emner. Historiske XP dokumenterer ikke dagens modulfullføring eller eksamensberedskap.',
     privacy: 'Dine data, på denne enheten',
     privacyText:
       'Reiseposisjon, øvingssvar, tekniske kommandoer, prediksjoner, undersøkelser og milepæler lagres på denne enheten. Ingen konto, sporing eller leaderboard. Nettleserdata kan endres eller slettes og er ikke et kompetansebevis.',

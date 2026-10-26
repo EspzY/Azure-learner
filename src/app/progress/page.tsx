@@ -67,8 +67,8 @@ export default function ProgressPage() {
             </span>
             <h3>{t.empty}</h3>
             <p>{t.emptyText}</p>
-            <Link href="/explore" className="button button-dark">
-              {nb.dashboard.continue}
+            <Link href="/learn" className="button button-dark">
+              {t.continue}
               <ArrowRight size={17} />
             </Link>
           </div>
@@ -78,7 +78,7 @@ export default function ProgressPage() {
               <div key={id}>
                 <CheckCircle2 size={24} />
                 <span>
-                  <small>{nb.mission.eyebrow}</small>
+                  <small>{t.historical}</small>
                   <strong>{id === 'organization-mission-v1' ? t.mission : t.assessment}</strong>
                 </span>
                 <span className="xp-pill">+{id === 'organization-mission-v1' ? 80 : 40} XP</span>
@@ -94,8 +94,8 @@ export default function ProgressPage() {
           <p>{t.certText}</p>
           <div className="tag-row">
             <span>AZ-900</span>
-            <span>AZ-104 · {nb.dashboard.preview}</span>
-            <span>AZ-305 · {nb.dashboard.preview}</span>
+            <span>AZ-104 · {t.planned}</span>
+            <span>AZ-305 · {t.planned}</span>
           </div>
         </div>
       </div>

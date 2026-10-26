@@ -1,12 +1,18 @@
 # Architecture
 
-## Guided learning presentation refinement — 2026-10-26
+## Current runtime after retirement — 2026-10-26
+
+`/` → `/learn`; the same Course owns computing v1/v2, Benefits and Service Types. `/portal` and `/labs/saas` retain their supported operations and exact lab return. The root provider order is Progress → Learning → PortalLearning → FoundationsV2 → Course → Expansion → Sandbox → Saas → Practical. No game/journey/Chapter UI provider is mounted.
+
+Shared learning controls moved from the game session wrapper to `features/learning/investigation.tsx`; responsibility rules live in `domain/curriculum/responsibility.ts`, unchanged. The current capacity model/tests and SVG styles moved from design-proof to curriculum/learning ownership. ReceiptPanel and its used styles live in Portal. Official metadata/Journal remain; their assertions moved out of the deleted playback suite. No current data model, rubric, reducer, event version, award or migration changed. [Retirement and compatibility](LEGACY_AUDIT.md) specify redirect/data boundaries. `legacy:check` rejects renderer imports/packages/game binaries.
+
+## Guided learning presentation refinement â€” 2026-10-26
 
 `MissionBriefing` is presentation-only, using native dialog/inert/focus semantics. The caller starts the existing practical session only after explicit confirmation; no new persistent onboarding flag is authoritative. `practicalGuidance` projects current context/form/findings into phase, target and target kind without side effects; unrelated resource inspection targets fail closed. `ModelVisual` receives current configuration plus an optional existing explicit-run result; it never dispatches domain or learning events. ResourceDetails contains actual InfrastructureDetails in a contextual Essentials/relations workspace, with real parent/dependency links. [Design and reference comparison](GUIDED_LEARNING_REFINEMENT.md).
 
 ## Current 3.2.1 technical continuation
 
-Ordinary course and Portal consumers now use SandboxProvider. Historical ChapterProvider remains unchanged for archived gameplay. SandboxStore owns one World containing existing groups/Web resources plus infrastructure and app-settings partitions. It captures the validated old event snapshot without writing the old key, replays that prefix with organization-web@1, then executes the new versioned tail with sandbox@2. Receipt verification is model-aware across the boundary. Only shared TypeScript receipt vocabulary adds `updated`; old reducer behavior/limits are unchanged. New capacity is explicitly eight groups/eight VMs/96 objects, not an Azure quota.
+Ordinary course and Portal consumers now use SandboxProvider. The legacy UI/provider is retired; its pure Chapter01 model/scenario/persistence remain frozen for import. SandboxStore owns one World containing existing groups/Web resources plus infrastructure and app-settings partitions. It captures the validated old event snapshot without writing the old key, replays that prefix with organization-web@1, then executes the new versioned tail with sandbox@2. Receipt verification is model-aware across the boundary. Only shared TypeScript receipt vocabulary adds `updated`; old reducer behavior/limits are unchanged. New capacity is explicitly eight groups/eight VMs/96 objects, not an Azure quota.
 
 SaasProvider owns an independent fictional product account ledger; PracticalProvider owns only context, observations and evidence references. Existing module stores and XP are untouched. Both operational stores validate/replay commands, detect stale tabs, warn on failed storage and retain one prior attempt on explicit reset. No dependencies were added. [Detailed contract](INTEGRATED_LABS_ARCHITECTURE.md) and [QA](PRACTICAL_LABS_QA.md) supersede historical normal-Portal ChapterProvider statements below.
 
@@ -16,25 +22,29 @@ The existing Course owns routing, navigation and course/lab session; no new shel
 
 `ExpandedModule` presents original localized content with distinct flow, incident, matrix, schedule, VM-component, platform-gate and SaaS access representations plus semantic controls. ServicesWorkspace retains the original manuscript; its operational extension replaces duplicated per-page responsibility matrices, not the original technical prose. ResponsibilityRecap uses the same pure responsibility rule in Module 1 without another module's evidence. `expansion-content.ts` binds sources, stable competency/objective IDs and independent criteria. See [content contracts](CONTENT_ARCHITECTURE.md) and [implemented models](CLOUD_BENEFITS_CONTENT.md).
 
-The Portal and architecture still share the Chapter01 inventory. Allowlisted lab origins now distinguish computing-v2, services-v1 and services-v2 for exact return. Explicit opt-in may reuse accepted prior resources in the same replayable attempt; inspection predicates remain required. Navigation origins never create evidence.
+The Portal and architecture share the current SandboxStore inventory. Allowlisted lab origins now distinguish computing-v2, services-v1 and services-v2 for exact return. Explicit opt-in may reuse accepted prior resources in the same replayable attempt; inspection predicates remain required. Navigation origins never create evidence.
 
-## 3.1B — actual course, isolated evidence
+## 3.1B â€” actual course, isolated evidence
 
-`Course` selects in-place `FoundationsV2` for current topics; `FoundationsWorkspace` remains labelled v1 compatibility. One root `FoundationsV2Provider` owns the separate record; no second shell or simulator. Stable SSR snapshots and explicit client restoration remain. A finite manifest binds S01–S13, V01–V06 and FC01–FC07.
+`Course` selects in-place `FoundationsV2` for current topics; `FoundationsWorkspace` remains labelled v1 compatibility. One root `FoundationsV2Provider` owns the separate record; no second shell or simulator. Stable SSR snapshots and explicit client restoration remain. A finite manifest binds S01â€“S13, V01â€“V06 and FC01â€“FC07.
 
-Original server/capacity graphics are shared with the archive. Pure RAM/provisioning/capacity rules and replay are independent of React. Later investigations reuse presentation through an explicit evidence port; events replay into a fresh v1 **rule evaluator inside v2**, never the v1 key. Its semantics stay pinned; changes require a new model version. Assessment2 preserves first/help/retry.
+Original server/capacity graphics are owned by current learning components. Pure RAM/provisioning/capacity rules and replay are independent of React. Later investigations reuse presentation through an explicit evidence port; events replay into a fresh v1 **rule evaluator inside v2**, never the v1 key. Its semantics stay pinned; changes require a new model version. Assessment2 preserves first/help/retry.
 
 Optional allowlisted `LabSession.origin: computing-v2` changes return context only. Old shapes/service returns remain accepted. All findings derive from the Chapter ledger. Portal returns to `resource-bridge&activity=lab|debrief`. Server-rendered build details expose only Vercel branch/SHA, absent in production; no configuration/protection change. [Handoff](FOUNDATIONS_31B_HANDOFF.md) owns exact contracts.
 
-## 3.1A isolated instructional proof — 2026-10-25
+## Historical architecture record (superseded)
+
+The sections below describe prior phases, not available runtime features. RPG/SVG/proof routes now redirect; removed paths are preserved in Git at base91f6cc4. Current contracts are above and in LEGACY_AUDIT.
+
+## 3.1A isolated instructional proof â€” 2026-10-25
 
 The isolated `noindex` route `/design/foundations-31a` has a visible branch-review entry on the course landing and its own lightweight shell. `FoundationsReviewEntry` is a stateless native link presentation, not a new provider or activity; remove it before any production release. A feature-local HTML/SVG presenter consumes a pure bounded calculator in `domain/design-proof`, localized through nb.ts. It does not import store hooks, duplicate the inventory or issue learning/technical commands. Existing root providers stay singular and unchanged. No new persistence, schema migration, dependencies, backend or renderer. Production course/Portal behavior is preserved. [Visual system](VISUAL_LEARNING_SYSTEM.md) and [3.1B handoff](FOUNDATIONS_31B_HANDOFF.md) separate implemented proof from future production design.
 
-## Course-first refinement — 2026-10-25
+## Course-first refinement â€” 2026-10-25
 
 The primary course and shared Portal are connected by [course/lab orchestration](COURSE_LAB_ORCHESTRATION.md). One root ServiceStore serves both; a separate CourseStore tracks validated preference/session context. Four external stores expose stable initial server snapshots, avoiding late streamed hydration mismatch while retaining live client state. The coach observes forms and deterministic receipts; it cannot configure resources. No new dependency, backend or game renderer is introduced.
 
-## Current Portal-first architecture — 2026-10-24
+## Current Portal-first architecture â€” 2026-10-24
 
 The owner supersedes the historical RPG-first direction. `/portal` composes native operational controls, focused Learn content, a guided companion pane and XYFlow/semantic projections. The existing root ChapterProvider remains the only technical inventory/receipt owner; original progression, curriculum and archived game stores are retained. Pure portal adapters, URL allowlists, source/objective bindings and a separate versioned service-types evidence log live in `src/domain/portal`; presentation lives in `src/features/portal`. No rendering engine controls learning truth. Read [PORTAL_SANDBOX_ARCHITECTURE](PORTAL_SANDBOX_ARCHITECTURE.md) for implemented boundaries and [reference fidelity](PORTAL_REFERENCE_FIDELITY.md) for approximations. The sections below record the preserved historical architecture.
 
@@ -54,7 +64,7 @@ The root LearningProvider owns an isolated validated module store and contextual
 
 A pure cinematic plan in features/rpg/cinematics.ts separates shot intent/composition from the existing imperative Director. CinematicDialogue owns speech, choices, transient field notes and native focus/inert semantics. CommandDialog continues handling settings/reset. The renderer consumes story/simulation facts; it still cannot mutate technical outcomes. No dependency, provider, persisted key, route or cloud integration is added. Detailed contracts live in [GAMEPLAY_ARCHITECTURE.md](GAMEPLAY_ARCHITECTURE.md).
 
-## G1 addition — separate game route
+## G1 addition â€” separate game route
 
 `/expedition-3d` adds a client-loaded Fiber/Three world, a bare game shell and a fourth root provider (`GameProvider`). Other routes and Azure rules remain intact. Pure player/proximity/dialogue/quest contracts live in `domain/rpg`; imperative rendering/control and semantic alternatives in `features/rpg`. [GAMEPLAY_ARCHITECTURE.md](GAMEPLAY_ARCHITECTURE.md) owns the detailed implemented interfaces, rendering versions, lifetime, persistence and portal return. `/explore?chapter=01&from=rpg-g1` selects a game return link; it does not change technical validation or legacy expedition state. Explicit all-data deletion now clears four local categories. The projected SVG workbenches described below retain their non-WebGL rendering.
 
@@ -75,7 +85,7 @@ flowchart LR
   Workbench --> Rules[Pure simulation + assessment rules]
   Workbench --> Awards[Progression awards]
   Awards --> Storage[Validated localStorage / memory fallback]
-  Copy[Bokmål content] --> Workbench
+  Copy[BokmÃ¥l content] --> Workbench
 ```
 
 - `domain/simulation.ts`: immutable scope records, stable IDs, bounded commands, error codes and mission predicate. No clock, randomness or network effects.
@@ -105,9 +115,9 @@ Only guided local observations are implemented. The broader assessment, immutabl
 
 ## Localization
 
-UI and learning copy live in `content/nb.ts`; `<html lang="nb">` identifies the locale. Domain/answer IDs are language neutral. A future English dictionary can share the Bokmål shape with locale selection at the routing boundary. No translation selector is advertised. Example names and service names remain technical identifiers.
+UI and learning copy live in `content/nb.ts`; `<html lang="nb">` identifies the locale. Domain/answer IDs are language neutral. A future English dictionary can share the BokmÃ¥l shape with locale selection at the routing boundary. No translation selector is advertised. Example names and service names remain technical identifiers.
 
-## Broader Phase 1A evolution — remaining proposal
+## Broader Phase 1A evolution â€” remaining proposal
 
 The [product blueprint](PRODUCT_BLUEPRINT.md) selects a competency journey, persistent reference world and isolated scenario workspaces. [SIMULATION_PLATFORM.md](SIMULATION_PLATFORM.md) is now the canonical proposed contract for domain models, scenario orchestration, content, rendering, assessment, progression and local-to-account migration. It supersedes the generic Phase 0 schema sketches previously here; Git history retains them. No engine, storage format or runtime behavior was changed in Phase 1A.
 

@@ -1,5 +1,9 @@
 # Security and privacy
 
+## Legacy retirement — 2026-10-26
+
+No game renderer, GLB/texture/audio pipeline or presentation preferences are loaded. Historical RPG/journey/preferences bytes remain dormant on ordinary load. Retired URLs redirect to fixed internal destinations, discarding arbitrary return/query input. Only the existing explicitly confirmed all-data reset removes retired keys; Chapter01 prefix remains validated/replayed by SandboxStore. No new network adapter, credential, service, schema migration or Azure request. Earlier game/audio security sections below are historical. See [audit](LEGACY_AUDIT.md).
+
 ## Guided presentation boundary — 2026-10-26
 
 Mission launch/recall uses authored local copy and native modal focus/inert behavior, never arbitrary scripts or command execution. Cancel/recall has no store authority. No dependency, asset, endpoint, secret, environment variable or external runtime request is introduced. Owner Portal reference captures were internal-only and must never be committed; generated AzureLab screenshots contain synthetic local fixtures only.

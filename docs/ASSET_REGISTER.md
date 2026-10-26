@@ -1,16 +1,22 @@
 # G1 asset register
 
+## Current delivered assets — retirement 2026-10-26
+
+Only the registered owner-authorized SavvyShark PNG is shipped as a local third-party raster asset; original current diagrams remain repo-native SVG/HTML. `assets:check` verifies PNG signature/hash/size/authorization and rejects unregistered mascot files. `legacy:check` rejects game binaries/dependencies. No replacement assets were downloaded.
+
+The 26 GLBs (804,656 bytes), character texture (8,706 bytes), 1,411,244-byte audio loop, deck, licenses/manifests and preparation/generation scripts are removed together with their retired renderer. The provenance entries below are historical, preserved without implying runtime availability. Full original files/licenses can be recovered at [base91f6cc4](https://github.com/EspzY/Azure-learner/tree/91f6cc4b04fbdc5dbcb5c25e3f0a71d2ac79b2b4/public/game); they are not rehosted/relicensed. The historical G1/L1 wording below is superseded by this status and [the audit](LEGACY_AUDIT.md).
+
 ## 3.1B reuse
 
 The original code-native drawing now lives in `src/features/learning/foundations-visuals.tsx`, shared by the real course and historical proof. No new external asset, texture, license or runtime source is added. The existing registered mascot remains unchanged.
 
-## 3.1A original technical illustration — 2026-10-25
+## 3.1A original technical illustration â€” 2026-10-25
 
 The server chassis/backplane/chip/RAM/storage/network and client-request drawing in `src/features/design-proof/proof.tsx` are original inline SVG code authored for the isolated design proof. No external model, raster image, texture or illustration was downloaded; no new third-party license/attribution is asserted. The existing registered SavvyShark default is reused unchanged. There is no separate asset binary or runtime source server; existing `assets:check` provenance/integrity gates remain.
 
-## Course-first refinement — 2026-10-25
+## Course-first refinement â€” 2026-10-25
 
-Owner explicitly authorized mascot-only reuse from EspzY/Egen-konomi on 2026-10-25. Included unchanged: `public/mascot/savvy-shark-default.png`, PNG281×317, 76,509 bytes, SHA256 `74d95ee43f63f8835de757fcc65618cd0db048b157e27ef25c3c5e42e1d930cd`. [Pinned source](https://github.com/EspzY/Egen-konomi/blob/dad10d1751dff5ba7dc736e8398f1bd0c97257a2/public/mascot/savvy-shark-default.png); creator/publisher: owner's SavvyScore project, upstream image authorship not independently established. Owner authorization permits this reuse; no general redistribution license is inferred. Default and welcome exist; thinking/reading/encouraging/concerned/celebrating PNGs are absent. Only default was copied. No attribution obligation beyond that established permission was found; retain this provenance and do not relicense it as CC0. Local manifest pins hash/size and assets:check verifies it. No resizing/modification, finance data, auth/database code or additional asset was imported. Image failure preserves all semantic learning. [Integration](SAVVYSHARK_INTEGRATION.md) records limits. Historical assets below remain unchanged.
+Owner explicitly authorized mascot-only reuse from EspzY/Egen-konomi on 2026-10-25. Included unchanged: `public/mascot/savvy-shark-default.png`, PNG281Ã—317, 76,509 bytes, SHA256 `74d95ee43f63f8835de757fcc65618cd0db048b157e27ef25c3c5e42e1d930cd`. [Pinned source](https://github.com/EspzY/Egen-konomi/blob/dad10d1751dff5ba7dc736e8398f1bd0c97257a2/public/mascot/savvy-shark-default.png); creator/publisher: owner's SavvyScore project, upstream image authorship not independently established. Owner authorization permits this reuse; no general redistribution license is inferred. Default and welcome exist; thinking/reading/encouraging/concerned/celebrating PNGs are absent. Only default was copied. No attribution obligation beyond that established permission was found; retain this provenance and do not relicense it as CC0. Local manifest pins hash/size and assets:check verifies it. No resizing/modification, finance data, auth/database code or additional asset was imported. Image failure preserves all semantic learning. [Integration](SAVVYSHARK_INTEGRATION.md) records limits. Historical assets below remain unchanged.
 
 ## G1.1 reuse
 
@@ -90,10 +96,10 @@ Runtime contact correction and walking-rate calibration are documented in [gamep
 
 No external asset or registered binary changes. Demand/allocation/shortfall bars, deployment-boundary shapes and journal diagrams are original repo-native code driven by the bounded teaching model; they reuse the existing installation and local fonts/materials. The 26-GLB hash/license budget remains unchanged.
 
-## G1.3 original audio and teaching media — 2026-10-24
+## G1.3 original audio and teaching media â€” 2026-10-24
 
-Original procedural score **Lysningen**, creator AzureLab project: Dm9/Bbmaj7/Fmaj9/Cadd9 pads with periodic envelopes, authored and reproducible in [generate-ambient.mjs](../scripts/generate-ambient.mjs). No human performance, third-party samples, commercial game music or Microsoft illustration. The generated recording is explicitly dedicated under CC0 1.0, permitting public educational/workplace/commercial use; attribution appreciated, not required. [Local license](../public/game/audio/license.txt) and [hash/format manifest](../public/game/audio/manifest.json) are versioned. Included 2026-10-24, no modifications after synthesis other than metadata formatting.
+Original procedural score **Lysningen**, creator AzureLab project: Dm9/Bbmaj7/Fmaj9/Cadd9 pads with periodic envelopes, authored and reproducible in `scripts/generate-ambient.mjs` (retired). No human performance, third-party samples, commercial game music or Microsoft illustration. The generated recording is explicitly dedicated under CC0 1.0, permitting public educational/workplace/commercial use; attribution appreciated, not required. `public/game/audio/license.txt` (historical license) and `public/game/audio/manifest.json` (historical manifest) are versioned. Included 2026-10-24, no modifications after synthesis other than metadata formatting.
 
-Runtime [lysningen.wav](../public/game/audio/lysningen.wav): 32 seconds, PCM16 mono 22,050 Hz, 1,411,244 bytes; decoded float buffer approximately 2.8 MB. Integer-cycle oscillators and periodic chord envelopes make the loop boundary continuous. Fetch/decode occurs only after explicit enable, not initial rendering. No decoder/streaming dependency; effects use a short original Web Audio tone. assets:check validates hash/RIFF/license/allowlist and <1.5 MB transfer. Native browser playback is tested; human listening/musical acceptance is outstanding.
+Runtime `public/game/audio/lysningen.wav` (retired): 32 seconds, PCM16 mono 22,050 Hz, 1,411,244 bytes; decoded float buffer approximately 2.8 MB. Integer-cycle oscillators and periodic chord envelopes make the loop boundary continuous. Fetch/decode occurs only after explicit enable, not initial rendering. No decoder/streaming dependency; effects use a short original Web Audio tone. assets:check validates hash/RIFF/license/allowlist and <1.5 MB transfer. Native browser playback is tested; human listening/musical acceptance is outstanding.
 
 Provisioning flow, responsibility matrix, deployment comparison and synthetic timelines are original HTML/SVG/scene projections of reviewed local rules. No external image is downloaded, traced or hotlinked. Existing 26 GLBs and character/texture licenses/hashes are unchanged.

@@ -1,5 +1,9 @@
 # Portal sandbox architecture
 
+## Retirement status — 2026-10-26
+
+Current delivery is the course, SavvyShark and shared Portal/SaaS labs. The RPG, timed Living Learning and SVG journey are retired; older sections describing their presentation are historical. No competency objective, original manuscript, assessment rule, source mapping or learning-data version is removed. SandboxStore still validates the frozen Chapter01 prefix; the old Chapter UI/provider does not run. See [audit and actual shared-code extraction](LEGACY_AUDIT.md) and [current architecture](ARCHITECTURE.md).
+
 ## 3.2.1 — one versioned operational inventory
 
 Current `/portal` reads SandboxProvider, not the archive's mutable ChapterProvider. Frozen v1 prefix receipts are replayed unchanged; sandbox@2 tail handlers add atomic VM dependencies, cleanup and allowlisted App settings. Inventory/list/detail/history/graph all project this same world. Four existing Web operations retain validation/policy/hosting behavior with explicitly versioned larger training limits. Unknown fields/operations remain rejected or unsupported. [Migration, commands and boundaries](INTEGRATED_LABS_ARCHITECTURE.md).

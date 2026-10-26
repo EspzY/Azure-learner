@@ -1,58 +1,15 @@
-.learning-content {
-  position: absolute;
-  inset: auto 5% max(4%, env(safe-area-inset-bottom));
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(360px, 1fr);
-  gap: 5%;
-  align-items: end;
-}
-.learning-narration {
-  max-width: 44ch;
-  text-shadow: 0 2px 8px #000;
-}
-.learning-narration h2 {
-  font-size: clamp(23px, 2.6vw, 38px);
-  line-height: 1.15;
-  font-weight: 500;
-  margin: 12px 0;
-}
-.learning-narration p {
-  font-size: 18px;
-  line-height: 1.6;
-  color: #edeafa;
-}
-.learning-dialogue .cinematic-topline button {
-  font-size: 25px;
-}
-.learning-console {
-  max-height: 69dvh;
-  overflow: auto;
-  overscroll-behavior: contain;
-  padding: 24px;
-  background: linear-gradient(135deg, #0c1639f5, #17152cf2);
-  border-top: 1px solid #8b70ff;
-  box-shadow: 0 15px 50px #0006;
-  scrollbar-gutter: stable;
-}
-.learning-console h3,
 .knowledge-journal h3 {
   font-size: 21px;
   line-height: 1.35;
   margin: 8px 0 14px;
   color: #f1edff;
 }
-.learning-console p,
 .knowledge-journal p {
   font-size: 16px;
   line-height: 1.75;
   color: #dfdef0;
   margin: 12px 0;
 }
-.learning-console small {
-  color: #bbb9d4;
-  line-height: 1.65;
-}
-.learning-console button,
 .knowledge-journal button {
   min-height: 44px;
   background: #29204c;
@@ -62,16 +19,10 @@
   margin: 8px 5px 8px 0;
   cursor: pointer;
 }
-.learning-console button:disabled {
-  opacity: 0.5;
-  cursor: default;
-}
-.learning-console :focus-visible,
 .knowledge-journal :focus-visible {
   outline: 3px solid #50d8e8;
   outline-offset: 3px;
 }
-.learning-console label,
 .knowledge-journal label {
   display: grid;
   gap: 7px;
@@ -80,8 +31,6 @@
   margin: 12px 0;
   color: #eceafa;
 }
-.learning-console select,
-.learning-console input[type='number'],
 .knowledge-journal select {
   background: #10182c;
   color: #f4f0ff;
@@ -93,49 +42,12 @@
   width: 100%;
   font: inherit;
 }
-.learning-console input[type='radio'],
-.learning-console input[type='checkbox'] {
-  width: 20px;
-  height: 20px;
-  accent-color: #bb9bff;
-  flex-shrink: 0;
-}
-.learning-console fieldset {
-  border: 0;
-  border-top: 1px solid #77708b60;
-  padding: 18px 0 4px;
-  margin: 22px 0 0;
-  min-width: 0;
-}
-.learning-console legend {
-  padding: 0 4px 0 0;
-  font-size: 17px;
-  line-height: 1.5;
-  color: #d8cdfb;
-}
 .learning-answers label,
-.learning-transfer label,
-.learning-console .learning-checkbox {
+.learning-transfer label {
   display: flex;
   align-items: center;
   gap: 12px;
   min-height: 44px;
-}
-.learning-console details {
-  margin: 14px 0;
-}
-.learning-console summary {
-  cursor: pointer;
-  line-height: 1.6;
-  min-height: 36px;
-  color: #c9b9ff;
-}
-.learning-navigation {
-  display: flex;
-  flex-wrap: wrap;
-  border-top: 1px solid #74658380;
-  margin-top: 22px;
-  padding-top: 10px;
 }
 .learning-feedback {
   border-left: 3px solid #f4b578;
@@ -283,67 +195,9 @@
   margin: 12px 0;
 }
 @media (max-width: 700px) {
-  .learning-content {
-    inset: auto 4% max(2%, env(safe-area-inset-bottom));
-    grid-template-columns: 1fr;
-    gap: 10px;
-  }
-  .learning-narration h2 {
-    font-size: 22px;
-    margin: 4px 0;
-  }
-  .learning-narration p {
-    font-size: 15px;
-    line-height: 1.55;
-    margin: 6px 0;
-  }
-  .learning-narration .eyebrow {
-    font-size: 9px;
-  }
-  .learning-console {
-    max-height: 48dvh;
-    padding: 14px;
-  }
-  .learning-console p {
-    font-size: 15px;
-  }
-  .learning-narration {
-    max-width: none;
-  }
-  .learning-narration .cinematic-reference {
-    margin: 0;
-    min-height: 36px;
-  }
   .knowledge-journal p {
     font-size: 16px;
   }
-}
-@media (min-width: 701px) and (max-height: 550px) {
-  .learning-content {
-    inset: auto 3% 2%;
-    grid-template-columns: 1fr 1fr;
-    gap: 4%;
-  }
-  .learning-narration p {
-    font-size: 15px;
-  }
-  .learning-console {
-    max-height: 76dvh;
-    padding: 14px;
-  }
-  .learning-narration h2 {
-    font-size: 24px;
-  }
-}
-@media (prefers-reduced-motion: reduce) {
-  .learning-dialogue * {
-    scroll-behavior: auto;
-  }
-}
-
-.rpg-world:has(.learning-dialogue) > .rpg-top {
-  visibility: hidden;
-  pointer-events: none;
 }
 @media (max-width: 700px) {
   .topbar-right > .button {
@@ -354,16 +208,36 @@
   }
 }
 
-.learning-narration > .cinematic-reference {
-  display: inline-flex;
-  align-items: center;
-  min-height: 44px;
-  margin-right: 18px;
-  font-size: 13px;
-  text-decoration: underline;
-  text-underline-offset: 5px;
+.curriculum-trail {
+  font-size: 12px;
+  line-height: 1.6;
+  color: #c4bfd7;
+  margin: 8px 0;
 }
-
-.rpg-world:has(.learning-dialogue) .rpg-alternative {
-  visibility: hidden;
+.curriculum-trail summary {
+  cursor: pointer;
+  min-height: 34px;
+}
+.curriculum-trail dl {
+  margin: 10px 0;
+}
+.curriculum-trail dt {
+  font: 10px var(--mono);
+  color: #a6ccdc;
+}
+.curriculum-trail dd {
+  margin: 0 0 8px;
+  overflow-wrap: anywhere;
+}
+.curriculum-trail a {
+  color: #c9b6ff;
+}
+.curriculum-modules {
+  display: grid;
+  gap: 8px;
+  padding-left: 20px;
+}
+.curriculum-modules small {
+  display: block;
+  color: #b6d2d9;
 }

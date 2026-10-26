@@ -1,7 +1,12 @@
 'use client';
 import { useState } from 'react';
 import { nb } from '@/content/nb';
-import { layers, responsibility, type Layer, type ServiceModel } from '@/domain/expedition';
+import {
+  layers,
+  responsibility,
+  type Layer,
+  type ServiceModel,
+} from '@/domain/curriculum/responsibility';
 import { usePortalLearning } from './learning-provider';
 import { SavvyShark } from '@/features/course/savvy-shark';
 const p = nb.portal,
@@ -35,7 +40,7 @@ export function ResponsibilityExplorer({
       ? r.virtualization
       : l === 'network'
         ? r.networkLabel
-        : nb.expedition.layers[l].label;
+        : nb.learningResponsibility.layers[l].label;
   const changed = all.filter((l) => owner(l, previous) !== owner(l));
   return (
     <section className="portal-responsibility" aria-label={r.title}>
@@ -75,7 +80,7 @@ export function ResponsibilityExplorer({
                   ? r.virtualization
                   : l === 'network'
                     ? r.networkLabel
-                    : nb.expedition.layers[l].label}
+                    : nb.learningResponsibility.layers[l].label}
               </span>
               <strong>{r[owner(l)]}</strong>
             </button>
@@ -90,7 +95,7 @@ export function ResponsibilityExplorer({
               ? r.virtualization
               : layer === 'network'
                 ? r.networkLabel
-                : nb.expedition.layers[layer].label}
+                : nb.learningResponsibility.layers[layer].label}
           </h3>
           <p className={`portal-owner owner-${owner(layer)}`}>{r[owner(layer)]}</p>
           <p>{layer === 'virtualization' ? r.virtualizationNote : r.notes[layer]}</p>
@@ -136,7 +141,7 @@ export function ResponsibilityExplorer({
           {nb.refinement.serviceNuance} · {r.examples[model]}
         </h4>
         <div>
-          <p>{nb.rpg.modelNotes[model]}</p>
+          <p>{nb.learningResponsibility.modelNotes[model]}</p>
           <p>{p.lesson.sections[model].limits}</p>
         </div>
       </section>

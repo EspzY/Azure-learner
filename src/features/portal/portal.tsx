@@ -35,7 +35,7 @@ import {
 import { labsNb, nb, regionLabels, learningPolishNb as polish } from '@/content/nb';
 import { useSandbox as useChapter } from '@/features/portal/sandbox-provider';
 import { useLearning } from '@/features/learning/provider';
-import { ReceiptPanel } from '@/features/chapter01/receipt-panel';
+import { ReceiptPanel } from './receipt-panel';
 import {
   inventory,
   parseLocation,

@@ -5,7 +5,7 @@ import {
   parseLearningEvent,
   type LearningSave,
 } from './foundations';
-import { capacityProof } from '../design-proof/capacity';
+import { capacityProof } from './capacity';
 
 export const foundationsV2Key = 'azurelab.learning.foundations.v2';
 export const beginnerSources = {

@@ -1,0 +1,60 @@
+.technical-properties {
+  margin: 18px 0;
+  font-size: 11px;
+}
+.technical-properties > div {
+  padding: 10px 0;
+  display: grid;
+  grid-template-columns: minmax(85px, 0.8fr) minmax(0, 1.2fr);
+  gap: 12px;
+  border-bottom: 1px solid #36384f;
+}
+.technical-properties dt {
+  color: #b3bed7;
+}
+.technical-properties dd {
+  margin: 0;
+  color: #e0def3;
+  overflow-wrap: anywhere;
+}
+.technical-properties dd code {
+  display: block;
+  font-size: 10px;
+  margin-top: 7px;
+  color: #c7b3e5;
+}
+.technical-properties button {
+  border: none;
+  background: transparent;
+  color: #ceb9f3;
+  padding: 0;
+  display: inline-flex;
+  gap: 6px;
+  align-items: center;
+  text-align: left;
+  min-height: 28px;
+}
+.receipt-rejected .receipt-cause {
+  border-left: 2px solid #e2ae74;
+  padding-left: 12px;
+}
+.receipt-accepted .receipt-cause {
+  border-left: 2px solid #6fd5cb;
+  padding-left: 12px;
+}
+.receipt-unsupported .receipt-cause {
+  border-left: 2px solid #bd9deb;
+  padding-left: 12px;
+}
+.policy-witness {
+  border-top: 1px solid #88673f;
+  padding-top: 17px;
+  margin-top: 19px;
+  color: #ead0a3;
+}
+.policy-witness strong {
+  font-size: 12px;
+}
+.policy-witness p {
+  overflow-wrap: anywhere;
+}

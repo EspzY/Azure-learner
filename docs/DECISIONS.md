@@ -1,5 +1,9 @@
 # Decisions
 
+## 2026-10-26 — Retire obsolete product runtimes, retain shared learning contracts
+
+Owner explicitly chooses course/SavvyShark/Portal and retires RPG. Remove actual game, timed Living Learning, SVG journey and superseded proof, including their exclusive tests, assets and Three/Fiber dependencies. A complete TypeScript import-boundary audit found zero retained consumers only after extracting current investigations, capacity rules/styles, responsibility rules/copy, official-metadata assertions and receipt UI. No current resource/evidence state is duplicated. Fixed redirects preserve bookmarks, not old behavior or query effects. Dormant stored bytes are not swept; explicit reset retains category cleanup. Keep frozen Chapter01/domain assessment/XP contracts and historical Markdown as compatibility/history. This supersedes instructions to maintain archived gameplay regressions. [Full audit and original CI evidence](LEGACY_AUDIT.md).
+
 ## 2026-10-26 — Mission regie and task-specific explanations
 
 Keep the proven simulator, persistence and evidence models. Add a presentation-only native mission briefing at the existing launch boundary, plus read-only phase projection and explicit recall. Prefer learner-controlled recall over automatic milestone popups to avoid interrupting inspection. Replace generic figures with task-specific SVG/HTML projections and native controls rather than adding assets/rendering libraries. Integrate actual related-resource inspection inside Essentials; do not reproduce unsupported Azure controls from reference images. [Alternatives, audit and boundaries](GUIDED_LEARNING_REFINEMENT.md).

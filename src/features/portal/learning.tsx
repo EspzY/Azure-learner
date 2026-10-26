@@ -16,7 +16,7 @@ import { topics, type PortalLocation } from '@/domain/portal/model';
 import { useSandbox as useChapter } from '@/features/portal/sandbox-provider';
 import { useLearning } from '@/features/learning/provider';
 import { unitIds, sourceUrl, units, type UnitId } from '@/domain/curriculum/manifest';
-import { UnitInvestigation } from '@/features/learning/session';
+import { UnitInvestigation } from '@/features/learning/investigation';
 import { LearningDiagram } from '@/features/learning/diagram';
 import { initialProbe } from '@/domain/curriculum/foundations';
 import { TransferAssessment } from '@/features/learning/transfer';

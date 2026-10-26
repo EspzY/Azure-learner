@@ -1,6 +1,5 @@
 'use client';
-import { orientationKey } from '@/domain/rpg/expedition';
-import { presentationKey } from '@/domain/instruction/preferences';
+import { retiredStorageKeys } from '@/domain/retired-storage';
 import { serviceLearningKey } from '@/domain/portal/learning';
 import { courseKey } from '@/domain/course/model';
 
@@ -80,8 +79,7 @@ export function ProgressProvider({ children }: { children: React.ReactNode }) {
   const clear = useCallback(() => {
     save(emptyProgress);
     try {
-      localStorage.removeItem(orientationKey);
-      localStorage.removeItem(presentationKey);
+      for (const key of retiredStorageKeys) localStorage.removeItem(key);
       localStorage.removeItem(serviceLearningKey);
       localStorage.removeItem(courseKey);
       for (const key of [

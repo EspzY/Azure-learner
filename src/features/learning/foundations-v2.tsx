@@ -19,18 +19,18 @@ import {
   campaignDemand,
   workedDemand,
   type Allocation,
-} from '@/domain/design-proof/capacity';
+} from '@/domain/curriculum/capacity';
 import { units, sourceUrl } from '@/domain/curriculum/manifest';
 import { useFoundationsV2 } from './v2-provider';
 import { Server, CapacityBoard } from './foundations-visuals';
-import { VersionedInvestigation } from './session';
+import { VersionedInvestigation } from './investigation';
 import { ResponsibilityRecap } from './responsibility-recap';
 import { CloudDeployment } from './cloud-deployment';
 import { SavvyShark } from '@/features/course/savvy-shark';
-import '@/features/design-proof/proof.css';
+import './foundations-visuals.css';
 import './foundations-v2.css';
 const t = nb.foundationsV2,
-  p = nb.beginnerProof;
+  p = nb.foundationsVisuals;
 export function FoundationsV2({ topic, journal = false }: { topic: string; journal?: boolean }) {
   const v2 = useFoundationsV2(),
     { store, facts } = v2;
@@ -280,7 +280,7 @@ function PrerequisiteCheck({ topic }: { topic: CheckId }) {
         <button disabled={!capacityReady} type="submit">
           {t.check}
         </button>
-        {!capacityReady && <p>{nb.beginnerProof.compareNote}</p>}
+        {!capacityReady && <p>{nb.foundationsVisuals.compareNote}</p>}
       </fieldset>
       {last?.kind === 'check' && (
         <p role="status" className="proof-causal">
@@ -643,7 +643,7 @@ function V2Summary() {
           ? facts.submissions[0].assisted
             ? t.assisted
             : t.first
-          : nb.orientation?.noAssessment}
+          : nb.foundationsV2.noAssessment}
       </p>
       <Link href="/learn/computing?topic=v2-assessment">{t.assessment}</Link>
     </article>
