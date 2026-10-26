@@ -12,12 +12,14 @@ import { usePractical } from '@/features/course/practical-provider';
 import { PropertyList, type Navigate } from './shared';
 export function InfrastructureDetails({
   world,
+  view = 'all',
   id,
   navigate,
   onCreate,
   receipt,
 }: {
   world: World;
+  view?: import('./inventory').ResourceView;
   id: string;
   navigate: Navigate;
   onCreate: (c: Command) => void;
@@ -26,8 +28,13 @@ export function InfrastructureDetails({
   const practical = usePractical(),
     r = infrastructure(world).find((r) => r.id === id),
     settings = appSettings(world).find((s) => s.appId === id);
-  const related = infrastructureRelations(world).filter(
+  const allRelated = infrastructureRelations(world).filter(
     (e) => e.from === id && e.kind !== 'resource-member',
+  );
+  const related = allRelated.filter(
+    (e) =>
+      view === 'all' ||
+      (view === 'disks' ? e.kind === 'disk-attachment' : e.kind === 'nic-attachment'),
   );
   return (
     <section className="portal-infrastructure" data-guide="vm-details">
@@ -59,7 +66,7 @@ export function InfrastructureDetails({
               .filter(
                 ([k, v]) =>
                   !['id', 'name', 'groupId', 'location', 'origin', 'kind'].includes(k) &&
-                  !related.some((e) => e.to === v),
+                  !allRelated.some((e) => e.to === v),
               )
               .map(([key, value]) => [
                 t.fields[key as keyof typeof t.fields] ?? key,

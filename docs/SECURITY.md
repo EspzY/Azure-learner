@@ -1,5 +1,9 @@
 # Security and privacy
 
+## Portal presentation refinement — 2026-10-26
+
+No dependency, runtime external request, environment variable, credential, Azure adapter or new storage key is added. Local raw IDs remain explicitly local. Transient menu preferences and app-setting drafts have no evidence or technical authority. Only existing validated explicit commands persist. Native dialogs retain inert/focus/Escape behavior. Public Microsoft screenshots and owner organizational references are internal design evidence only, excluded from tracked assets; committed captures contain original AzureLab UI and synthetic fixtures. New service cues use the existing Lucide dependency (ISC, with MIT-covered Feather-derived icons), not copied Microsoft graphics. Preview protection, production tracking and domains remain untouched.
+
 ## Legacy retirement — 2026-10-26
 
 No game renderer, GLB/texture/audio pipeline or presentation preferences are loaded. Historical RPG/journey/preferences bytes remain dormant on ordinary load. Retired URLs redirect to fixed internal destinations, discarding arbitrary return/query input. Only the existing explicitly confirmed all-data reset removes retired keys; Chapter01 prefix remains validated/replayed by SandboxStore. No new network adapter, credential, service, schema migration or Azure request. Earlier game/audio security sections below are historical. See [audit](LEGACY_AUDIT.md).

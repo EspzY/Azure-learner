@@ -1,5 +1,11 @@
 # AzureLab 3.2.1
 
+## Reference-led Portal workspace — 2026-10-26
+
+The ordinary course still owns `/` → `/learn`; its existing lab links and **Free sandbox** open the improved shared `/portal`, not a review route. Home has compact service discovery, real session recents and Navigate. The common shell now uses dense operational tokens, local grouped search, working docked/flyout presentation, resource-specific menus and linked Essentials. VM Basics/Disks/Networking/Review remain the existing bounded workflow. Web App **Environment variables → App settings** now uses Edit → Save draft → explicit Apply; drafts do not write technical state.
+
+Training tools are separated from normal service navigation. SavvyShark remains contextual and minimizable; minimizing actually returns its reserved width. Domain rules, inventory, policy, receipts, independent assessment, XP and saved records are unchanged. No dependency, Azure integration, authentication or Microsoft artwork was added. This is a referenced approximation, not measured Portal parity or human transfer approval. [Gap matrix, references, limitations and walkthrough](docs/PORTAL_REFERENCE_FIDELITY.md); [actual checks](docs/PROJECT_STATUS.md).
+
 ## Controlled legacy retirement — 2026-10-26
 
 One active course/Portal product remains. No Three/Fiber runtime, game assets, cinematic NPCs, SVG journey or timed Living Learning playback is shipped. Benefits/Service Types, SavvyShark briefs, all original teaching and current laboratories remain. Historical XP and frozen Chapter01 import are preserved. [Classification, CI evidence and compatibility](docs/LEGACY_AUDIT.md).

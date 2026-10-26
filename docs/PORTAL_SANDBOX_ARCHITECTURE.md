@@ -1,5 +1,11 @@
 # Portal sandbox architecture
 
+## Presentation refinement without a new model — 2026-10-26
+
+The high-fidelity branch changes no command, replay, schema, capacity, policy, assessment or award rule. Home/search/tables/resource menus continue to project the same validated SandboxStore world and ledger. Service-specific breadcrumbs and linked Essentials preserve typed containment, metadata geography and hosting/dependency meanings. Properties identify local IDs honestly; no counterfeit ARM ID or runtime status is generated.
+
+Settings now has an in-memory edit draft followed by the existing explicit Apply. Navigation away/reload discards unapplied drafts, with a visible explanation; only accepted Apply persists. Docked/flyout and resource-menu sections are not learning data. Training help stays governed by existing assistance recording and independent-mode rules. [Current UI contracts and limitations](PORTAL_REFERENCE_FIDELITY.md).
+
 ## Retirement status — 2026-10-26
 
 Current delivery is the course, SavvyShark and shared Portal/SaaS labs. The RPG, timed Living Learning and SVG journey are retired; older sections describing their presentation are historical. No competency objective, original manuscript, assessment rule, source mapping or learning-data version is removed. SandboxStore still validates the frozen Chapter01 prefix; the old Chapter UI/provider does not run. See [audit and actual shared-code extraction](LEGACY_AUDIT.md) and [current architecture](ARCHITECTURE.md).

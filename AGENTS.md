@@ -1,5 +1,9 @@
 # AzureLab engineering contract
 
+## Reference-led Portal presentation contract — 2026-10-26
+
+Before changing Portal UI, read PORTAL_REFERENCE_FIDELITY and compare current public Microsoft workflow/screenshots; record review date, screenshot/text version differences and a gap matrix. Match supported operational structure before adding decoration. English service/control terms belong in nb.ts; Bokmål teaching remains distinct. Never add fake operative controls, credentials, deployments or Azure calls for visual similarity. Keep navigation, draft settings and menu preference state presentation-only; explicit Apply uses the unchanged validated command. Do not store a second inventory or migrate evidence. Keep training tools distinct, guide targets real and independent assistance rules unchanged. Verify actual Home/list/resource/create/settings/receipt/guide at1920×1080,1440×900,1366×768,1024×768, preserve baseline narrow regressions, and inspect both ordinary preview root and exact deployed SHA. No visual parity or human SME/UX approval follows from automated checks. Existing legacy retirement overrides older archived-game maintenance requirements.
+
 ## 3.2.1 integrated lab continuity
 
 Read INTEGRATED_LABS_ARCHITECTURE, VM_LAB_TECHNICAL_DESIGN, PAAS_LAB_REFINEMENT, SAAS_ADMIN_LAB, FUNDAMENTALS_LAB_COVERAGE and PRACTICAL_LABS_QA before extending practical labs. The normal course/Portal uses SandboxProvider (`azurelab.sandbox.v2`), with a frozen validated Chapter v1 prefix and sandbox@2 continuation. Preserve the legacy reducer, its limits/receipt bytes and old storage keys; the retired ChapterProvider is removed; retain the frozen domain/persistence contract for current sandbox import. Never silently replay old commands under new capacity rules. Version new resource semantics and test both migration and mixed-prefix replay. Domain counts, fields, list/detail/graph projections and receipts must agree. Web-only policy is not a generic VM deny rule.

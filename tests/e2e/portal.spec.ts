@@ -1,3 +1,4 @@
+import { revealPortalLink } from './portal-actions';
 import { test, expect, type Page, type TestInfo } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { nb } from '../../src/content/nb';
@@ -24,8 +25,7 @@ async function audit(page: Page) {
 async function area(page: Page, id: keyof typeof p.areas) {
   const nav = page.getByRole('navigation', { name: p.navLabel, exact: true });
   const link = nav.getByRole('link', { name: p.areas[id], exact: true });
-  if (!(await link.isVisible()))
-    await page.getByRole('button', { name: p.menu, exact: true }).click();
+  await revealPortalLink(page, link);
   await link.click();
   await expect(page.locator('.portal-title h1')).toHaveText(p.areas[id]);
 }

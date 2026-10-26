@@ -1,5 +1,11 @@
 # Guided sandbox engine
 
+## Portal workspace separation — 2026-10-26
+
+Guide evaluators, target IDs and receipt predicates are unchanged. Portal CSS reserves width only for an expanded actual coach; minimized guidance exposes the full operational surface and can be reopened/brief recalled without resetting. Service navigation stays authentic while training tools use a separate disclosure. Field targets remain on the real controls. In Environment variables, the settings target is the actual Edit control, moving to the enum selector while its native editor is open; Save draft alone never satisfies persisted settings. Only the unchanged Apply result does. No auto-configuration, new flags, click counters or independent solution highlights.
+
+Verified by retained course/VM/PaaS independent regressions plus the new four-viewport Portal tests; exact executed results live in [project status](PROJECT_STATUS.md). The coach and native modal editor retain semantic keyboard alternatives. [Reference/UI boundary](PORTAL_REFERENCE_FIDELITY.md).
+
 ## Mission briefing and practical phases — 2026-10-26
 
 Module2/3 practical launch first opens the dedicated native SavvyShark brief. Closing leaves session/technical/evidence stores unchanged. Explicit Start invokes the existing start contract. Resume goes directly to valid work; the coach offers user-initiated mission recall. No automatic milestone interruption was added. VM guidance differentiates Basics, Disks, Networking, dry validation and actual dependency inspection. A validation region is informational; operation controls remain actionable. Real operation receipts and predicates still determine outcomes. Independent mode has no automatic briefing solution or highlights. [Current audit/specification](GUIDED_LEARNING_REFINEMENT.md).

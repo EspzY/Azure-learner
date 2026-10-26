@@ -1,5 +1,9 @@
 # Practical labs QA — 3.2.1
 
+## Portal presentation regression — 2026-10-26
+
+The current common shell/resource menus/form density/settings edit flow are covered by `portal-fidelity.spec.ts` at1920×1080,1440×900,1366×768,1024×768, while existing practical-labs/course/independent assertions remain. Settings tests now operate the real Edit/Save draft controls before the unchanged Apply/evidence checks. Navigation helpers reveal the new learning-tools disclosure rather than silently weakening assertions. [Actual full results](PROJECT_STATUS.md) and [reference comparison/screenshots/walkthrough](PORTAL_REFERENCE_FIDELITY.md). No new skip, resource semantics, rubric or XP. Human Azure-transfer/UX/educational approval remains pending.
+
 Base: 943d0d1954022c466cf0c41261e40b623df98440. Branch: feat/321-integrated-practical-labs, stacked on feat/32-cloud-benefits-service-types. The exact final commit, Draft PR and protected branch-preview verification are associated with the owner delivery; no merge or production deployment. Implemented review candidate; qualified human acceptance remains pending.
 
 ## Executed engineering checks
