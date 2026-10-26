@@ -361,6 +361,11 @@
       "command": "npm run quality:release (pending negative check)",
       "result": "expected rejection",
       "details": "Exit 1 before snapshot/review: absent final reviewer/report, timing, visual/test evidence and stale snapshot rejected."
+    },
+    {
+      "command": "late native-accessibility hardening",
+      "result": "passed",
+      "details": "Ordinary stable-root preview at47b5a7c verified actual policy denial/milestone, End scrolling, Escape, reload/no repeat, keyboard recall and exact unfinished-course return. Native browser AX omitted recall button name despite visible text and working keyboard/Chrome role/Axe checks; added explicit matching aria-label. Full check again passed;4 focused production E2E passed17.3s. Final remote exact-SHA/native-name verification remains post-push."
     }
   ],
   "visualEvidence": [
@@ -431,7 +436,7 @@
       "observation": "Actual cross-tab assessment/context conflict closes the milestone and all guidance, shows a readable safe reload explanation, and leaves the existing VM/attachments available. No auto aid or technical mutation."
     }
   ],
-  "implementationFinished": "2026-10-26T22:40:20.174Z",
+  "implementationFinished": "2026-10-26T22:53:42.117Z",
   "snapshot": {
     "files": {
       ".github/workflows/ci.yml": "67d953097b826c8ffc7e0ef7667d984b7c3a328b7401a4fc406b477fd22f9e41",
@@ -474,7 +479,7 @@
       "src/domain/guidance/milestones.test.ts": "aea02e9b44bc18ed90e71443302f2590bef805ae9352dc7f4a1d75aae4506fba",
       "src/domain/guidance/milestones.ts": "05ded9044f716ea6ca6e2078bdffa50fc99135e30e18a24bb3d9d532eecaa063",
       "src/features/course/guidance-milestones.css": "5fd6f8c4a1d94b8f4343a8f9962ce6e4364b74e069219c950df70cefdfc44614",
-      "src/features/course/guidance-milestones.tsx": "23aaee7248b73ad09f5dee73435f9ba0a453b46d417a58f33ae7affc20883a8b",
+      "src/features/course/guidance-milestones.tsx": "f6b69769489a806f48d53fa1099ce1af17d8e0eb6e26586bb7ae6d71768fc3cd",
       "src/features/course/guided-coach.tsx": "d5ada8cb94d64f45e02e53e92b5e51fe10c298c64828ba6a322b8252065e6253",
       "src/features/course/highlight.ts": "f606dd708491ceb9c84ff3310162fd57317bca2d41e38c5680a4c34b6db6d48f",
       "src/features/course/mission-briefing.css": "2c7fc08c95dfe9c6a1da6a998efa831c78e2f0a6dab6b4f0a64329d7a5afdeac",
@@ -492,12 +497,12 @@
   },
   "review": {
     "status": "complete",
-    "fingerprint": "ef9de282edaa5d08f4100252dd32605df62a8cb6702b6f54ea1274b4704f7e10",
+    "fingerprint": "6e3b828c787fc65c44767a2b0e326a37b5d9027416f6a37e064bc6d6bbbb000b",
     "reviewer": {
       "id": "/root/independent_final_audit",
       "kind": "agent"
     },
-    "started": "2026-10-26T22:40:42.083Z",
+    "started": "2026-10-26T22:54:00.887Z",
     "domains": {
       "content": {
         "finding": "Independent reviewer read original bounded Policy/VM explanations, existing assessment alternatives and official sources. No new module or coverage approval; paused-context copy accurately preserves work.",
@@ -549,7 +554,7 @@
         ]
       },
       "guidance": {
-        "finding": "Fresh-event/once-only/recall/native-dialog/target contracts retained; recovery baselines old receipts and fixes warning truth, with no old auto retry and unknown bytes preserved. Local deduplication is best effort.",
+        "finding": "Fresh-event/once-only/recall/native-dialog/target contracts retained; recovery baselines old receipts and fixes warning truth, with no old auto retry and unknown bytes preserved. Local deduplication is best effort. Final independent renewal confirmed both explicit recall aria-labels exactly match their visible localized text; handler/focus/native role unchanged.",
         "evidence": [
           {
             "path": "src/features/course/guidance-milestones.tsx",
@@ -562,7 +567,7 @@
         ]
       },
       "regression": {
-        "finding": "Independent follow-up reran6 Node quality fixtures,29 focused Vitest and quality:check successfully; inspected full corrected156 Vitest/13 Node/66 curriculum/69 docs/check/build and63 passed/17 inherited skips/0 failed production E2E. No weakened assertions/new skips.",
+        "finding": "Independent follow-up reran6 Node quality fixtures,29 focused Vitest and quality:check successfully; inspected full corrected156 Vitest/13 Node/66 curriculum/69 docs/check/build and63 passed/17 inherited skips/0 failed production E2E. No weakened assertions/new skips. Final one-line accessibility renewal independently passed6 Node fixtures and quality:check, and inspected a new full check plus4 focused production E2E passes17.3s. Latest full CI remains the external final-SHA gate.",
         "evidence": [
           {
             "path": "scripts/quality-check.test.mjs",

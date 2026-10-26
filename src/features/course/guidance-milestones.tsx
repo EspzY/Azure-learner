@@ -176,6 +176,7 @@ export function GuidanceMilestones({
           <button
             key={o.key}
             type="button"
+            aria-label={`${nb.milestones.open} · ${o.id === 'policy-denial' ? nb.milestones.policy.title : nb.milestones.vm.title}`}
             onClick={() => {
               if (document.querySelector('dialog[open]')) return;
               const result = claim(o.key);
