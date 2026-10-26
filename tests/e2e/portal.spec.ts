@@ -344,6 +344,8 @@ test('keyboard search, incomplete practice, reference assistance, first submissi
   await capture(page, info, 'short');
   await audit(page);
   await page.setViewportSize({ width: 320, height: 740 });
+  // Exercise the declared non-Segoe fallback too; CI exposed a real header-width regression.
+  await page.addStyleTag({ content: '.portal { font-family: Arial, sans-serif; }' });
   await audit(page);
   await page.getByRole('button', { name: p.journal, exact: true }).click();
   await expect(page.getByRole('dialog')).toBeVisible();

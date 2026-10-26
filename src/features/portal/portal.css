@@ -2113,3 +2113,16 @@
     padding-inline: 14px;
   }
 }
+
+/* Font fallbacks vary by OS; wrap the training label instead of shrinking or clipping controls. */
+@media (max-width: 400px) {
+  .portal-header .portal-simulation {
+    flex: 0 1 72px;
+    min-width: 0;
+    max-width: 72px;
+    white-space: normal;
+    text-align: center;
+    font-size: 8px;
+    line-height: 1.2;
+  }
+}

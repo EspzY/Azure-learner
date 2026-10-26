@@ -1,5 +1,7 @@
 # Project status
 
+CI run40329881016 initially found2 failures (the same retained320px overflow assertion in both projects),51 passes and17 inherited skips despite a passing Windows suite. Actual CI trace frames were inspected locally, never committed. Reproduction using the already declared Arial fallback measured document width324px and a header button edge at323.66px. The training badge now wraps within a bounded flex width rather than clipping or shrinking controls. The original assertion is preserved and extended with explicit Arial fallback coverage. All other CI cases passed; this is an actual platform-font defect, not flaky timing or a reason to skip the test. Final rerun/remote outcome is associated with the delivered head and Draft PR.
+
 The actual Portal walkthrough also exposed shared inspection copy asking PaaS learners to compare VM/disk/NIC. PaaS inspection now explains the actual app settings, hosting reference and derived location; the original VM explanation is retained for VM labs. This is authored presentation selection only, with explicit guided E2E assertions; no objective, completion predicate, assessment or source fact changes.
 
 ## Reference-led Portal refinement — 2026-10-26

@@ -1,5 +1,7 @@
 # Portal reference and fidelity checklist
 
+CI run40329881016 initially found2 failures (the same retained320px overflow assertion in both projects),51 passes and17 inherited skips despite a passing Windows suite. Actual CI trace frames were inspected locally, never committed. Reproduction using the already declared Arial fallback measured document width324px and a header button edge at323.66px. The training badge now wraps within a bounded flex width rather than clipping or shrinking controls. The original assertion is preserved and extended with explicit Arial fallback coverage. All other CI cases passed; this is an actual platform-font defect, not flaky timing or a reason to skip the test. Final rerun/remote outcome is associated with the delivered head and Draft PR.
+
 ## High-fidelity implementation audit — 2026-10-26
 
 Base verified locally and remotely: `codex/legacy-cleanup` at `4c377cb44b30e4a41a25015b7eeccdf0e6745602` (PR16). Work is isolated on `codex/azure-portal-high-fidelity`; PR14/15/16 are unchanged. This is a presentation/navigation refinement of the existing inventory, not a new simulator or assessment version.
