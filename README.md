@@ -1,5 +1,11 @@
 # AzureLab 3.2.1
 
+## Permanent quality and SavvyShark milestones — PR20
+
+The [permanent owner contract](docs/QUALITY_CONTRACT.md) integrates seven gates with the existing curriculum, audit, asset, simulation and browser checks. `quality:check` validates scoped sources/claims/activity pointers; `quality:stamp` leaves a final review pending; `quality:release` rejects stale or missing post-implementation review and unresolved blockers. These checks do not claim human SME, visual excellence or learning effectiveness. [Developer/release workflow](docs/RELEASE_ACCEPTANCE.md).
+
+The ordinary root → **PaaS practical lab** → actual location-policy rejection → **Policy** now offers a factual SavvyShark milestone. Root → **IaaS practical lab** → create a supported VM → **Undersøk ressurs** explains its actual OS-disk/NIC/subnet/VNet dependencies. A guided, versioned history prevents repeated auto-popups; the small **SavvyShark · Faglige milepæler** section reopens explanations. Mission briefing retains its blur and now states prerequisites/action consequences. No new Azure commands, assessments, learning/XP records or module expansion. Independent work suppresses solution guidance. [Guidance behavior and limits](docs/SAVVYSHARK_GUIDANCE_STANDARD.md); actual verification is recorded in [project status](docs/PROJECT_STATUS.md).
+
 ## AZ-900 curriculum audit — 2026-10-26
 
 This branch delivers an audit and implementation blueprint, not new curriculum or an exam. The current official July20,2026 objectives were checked against actual manuscripts, activities, independent tasks, feedback, sources and code/tests at PR18 `184b818a041919b9a6461310c3ba39074e020641`. Cloud concepts:6 COMPLETE/8 PARTIAL/1 MISSING; architecture/services:0/12/15; management/governance:0/8/7. These counts are not exam-pass probability; qualified human SME/learning review remains outstanding.

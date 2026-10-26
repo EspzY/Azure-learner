@@ -1,5 +1,11 @@
 # Architecture
 
+## Permanent quality and milestone boundary — PR20
+
+`quality/releases/current.json` is offline release engineering metadata, never runtime curriculum/evidence. `scripts/quality-check.mjs` validates seven-gate source/claim/activity/module/reference contracts and final review structure. `quality:stamp` records all relevant changed files from a full Git base, normalizing text CRLF for Linux/Windows; it leaves review pending. Strict CI after check/E2E compares actual PR base, files and authored contract fingerprint, independent reviewer/timing and closed blocking findings. The audit report/status fields are excluded from self-referential hashes; this is traceability, not signed human approval. [Workflow and limits](RELEASE_ACCEPTANCE.md).
+
+`domain/guidance/milestones.ts` reads replayed technical outcomes with attempt/boundary/scope and real attachments. `GuidanceMilestones` adapts current verified course/practical context and hard-suppresses active independent contexts and unloaded/conflicted/uncertain assessment, course or technical views. Existing stores retain their immutable stale view on conflict; the Portal exposes a visible safe reload of those same stores rather than pretending the old facts remain current. No resource/evidence copy or command dispatch. `azurelab.guidance.milestones.v1` stores only bounded UI seen-keys and is claimed before auto display; unsafe storage disables auto but retains manual explanation. Initial ledger baseline suppresses historical surprise interruptions; native dialog/focus and a small recall library are presentation. Existing models/stores/rubrics remain frozen. [F1–F5 behavior](SAVVYSHARK_GUIDANCE_STANDARD.md).
+
 ## Offline AZ-900 audit boundary — 2026-10-26
 
 `docs/audits/az900-2026-07-20.json` pins the PR18 code baseline, official slots, stable audit IDs, facets, A–F findings, evidence/file/symbol/test pointers, dated official sources and proposed PR IDs. It is not imported by course, simulator, providers, progression or assessments. `scripts/az900-audit-check.mjs` validates structural completeness/references and generates/checks the Markdown matrix; its negative tests reject false COMPLETE claims and invented human approval. This dev-only checker is part of `npm run check`; no runtime dependency was added.

@@ -3,6 +3,7 @@ import AxeBuilder from '@axe-core/playwright';
 import { nb } from '../../src/content/nb';
 import { v2Criteria, v2Topics, foundationsV2Key } from '../../src/domain/curriculum/foundations-v2';
 import { learningKey, freshLearning, applyLearning } from '../../src/domain/curriculum/foundations';
+import { acknowledgeMilestone } from './portal-actions';
 const t = nb.foundationsV2,
   p = nb.portal,
   c = nb.course,
@@ -241,6 +242,7 @@ test('ordinary root delivers the whole v2 course, preserved objectives, actual l
   await expect(coach).toHaveAttribute('data-step', 'inspect-denial');
   await capture(page, info, 'denial');
   await coach.getByRole('button', { name: c.goPolicy, exact: true }).click();
+  await acknowledgeMilestone(page, 'policy-denial');
   await area(page, 'plans');
   await expect(page.locator('h1')).not.toHaveText('plan-denied');
   await page.getByRole('combobox', { name: p.group, exact: true }).selectOption({ label: 'teamA' });

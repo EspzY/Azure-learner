@@ -1,5 +1,11 @@
 # Security and privacy
 
+## PR20 guidance/release metadata boundaries
+
+Milestone visibility uses isolated, runtime-validated, bounded `azurelab.guidance.milestones.v1` UI history. It never stores inventory, answers, XP, mastery or credentials and is not an authority for completion. Corrupt/unknown/denied/full preference storage is not overwritten into success; auto interruptions fail closed, manual guidance remains. Existing evidence/technical storage and commands are unchanged; explicit all-data deletion also clears this new UI preference. No runtime network dependency, new service/account, asset or package is introduced.
+
+Release source/review metadata stays offline. The strict gate uses a full validated Git base and execFile argument arrays, not arbitrary content execution. Changed file/contract hashes detect stale review; local Git records cannot certify reviewer identity or human expertise. Existing Vercel protection, domains, production tracking and aliases remain unchanged. [Limits and required external delivery inspection](RELEASE_ACCEPTANCE.md).
+
 ## Audit-only preview/documentation boundary — 2026-10-26
 
 The AZ-900 manifest/checker is offline developer documentation and is not shipped as learner state or interpreted as commands. No Azure/assessment/XP/storage migration or dependency is introduced. The ordinary course has only a review-document link gated by `VERCEL_ENV=preview`, the exact audit branch, and a validated40-character existing Vercel commit SHA. It opens a known GitHub repository/file in a new tab with `noreferrer`; no arbitrary destination, sensitive environment value, new config requirement or automatic external request. Production/other branches have no entry. Existing public build metadata remains unchanged. Vercel protection, domains, production tracking and aliases must not be changed. [Planned assessment limits](AZ900_ASSESSMENT_BLUEPRINT.md) explicitly preserve local-result/non-authority and no anti-cheat guarantee.

@@ -9,6 +9,8 @@ import { VmForm, type VmFormView } from './vm-form';
 import { AppSettings } from './app-settings';
 import { InfrastructureDetails } from './infrastructure-details';
 import { usePractical } from '@/features/course/practical-provider';
+import { GuidanceMilestones } from '@/features/course/guidance-milestones';
+import { useFoundationsV2 } from '@/features/learning/v2-provider';
 import { practicalReturn } from '@/domain/sandbox/practical';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
@@ -68,11 +70,28 @@ function PortalWorkspace() {
     practical = usePractical();
   const benefits = useExpansion('benefits'),
     services2 = useExpansion('services');
+  const foundationsV2 = useFoundationsV2();
   const independentContext =
+    location.mode === 'independent' ||
     practical.activeIndependent ||
+    learning.facts.active ||
+    foundationsV2.facts.active ||
     module.facts.active ||
     benefits.facts.active ||
     services2.facts.active;
+  const guidanceContexts = [
+    learning,
+    foundationsV2,
+    module,
+    benefits,
+    services2,
+    practical,
+    chapter,
+    course,
+  ];
+  const contextIssue = guidanceContexts.some((c) => c.ready && c.issue !== null);
+  const guidanceSuppressed =
+    independentContext || contextIssue || guidanceContexts.some((c) => !c.ready);
   const [vmForm, setVmForm] = useState<VmFormView | null>(null);
   const [labForm, setLabForm] = useState<LabForm | null>(null);
   const guidedLab =
@@ -717,23 +736,23 @@ function PortalWorkspace() {
             ) : (
               <span />
             )}
-            {location.mode === 'guided' && !guidedLab && !independentContext && (
+            {location.mode === 'guided' && !guidedLab && !guidanceSuppressed && (
               <button type="button" onClick={() => setPane(!pane)}>
                 {pane ? p.hidePane : p.showPane}
               </button>
             )}
           </div>
-          {(chapter.issue || module.issue || practical.issue) && (
-            <div role="status" className="portal-storage">
+          <GuidanceMilestones location={location} independent={guidanceSuppressed} />
+          {contextIssue && (
+            <div role="status" className="portal-storage" data-guidance-context="uncertain">
               <p>
-                {p.storage} {chapter.issue ?? module.issue ?? practical.issue}
+                {p.storage} {guidanceContexts.find((c) => c.issue)?.issue}
               </p>
+              <p>{nb.milestones.contextUnavailable}</p>
               <button
                 type="button"
                 onClick={() => {
-                  chapter.store.load();
-                  module.store.load();
-                  practical.store.load();
+                  guidanceContexts.forEach((c) => c.store.load());
                 }}
               >
                 {p.reload}
@@ -760,7 +779,7 @@ function PortalWorkspace() {
             </div>
           )}
           <div
-            className={`portal-content ${location.mode === 'guided' && !guidedLab && pane && !independentContext && !['learn', 'challenge', 'architecture', 'hierarchy'].includes(location.area) ? 'with-teaching' : ''}`}
+            className={`portal-content ${location.mode === 'guided' && !guidedLab && pane && !guidanceSuppressed && !['learn', 'challenge', 'architecture', 'hierarchy'].includes(location.area) ? 'with-teaching' : ''}`}
           >
             <div className="portal-view">
               {location.area === 'home' ? (
@@ -1050,7 +1069,7 @@ function PortalWorkspace() {
             {location.mode === 'guided' &&
               !guidedLab &&
               pane &&
-              !independentContext &&
+              !guidanceSuppressed &&
               !['learn', 'challenge', 'architecture', 'hierarchy'].includes(location.area) && (
                 <aside className="portal-teaching-pane" aria-label={p.guidedBrief}>
                   <span>{p.modes.guided}</span>
@@ -1086,7 +1105,7 @@ function PortalWorkspace() {
         practical.current?.kind === 'paas' &&
         labFacts(course.save.lab, chapter.attempt.engine, chapter.attemptNumber).complete
       ) &&
-        !practical.activeIndependent && (
+        !guidanceSuppressed && (
           <GuidedCoach
             location={location}
             form={labForm}
@@ -1101,7 +1120,7 @@ function PortalWorkspace() {
       <PracticalCoach
         location={location}
         navigate={navigate}
-        suppressed={independentContext}
+        suppressed={guidanceSuppressed}
         form={vmForm}
       />
       {location.practice && practical.current?.mode === 'independent' && (

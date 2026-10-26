@@ -1,4 +1,4 @@
-import { editAppSetting } from './portal-actions';
+import { editAppSetting, acknowledgeMilestone } from './portal-actions';
 import { test, expect, type Page, type TestInfo } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { nb, labsNb as t, learningPolishNb as polish } from '../../src/content/nb';
@@ -244,6 +244,7 @@ test('root course to persisted VM, app settings, separate SaaS, exact debrief an
   await shot(page, info, 'vm-receipt');
   await page.getByRole('button', { name: p.viewResource, exact: true }).click();
   await inspect(page);
+  await acknowledgeMilestone(page, 'vm-dependencies');
   await page
     .locator('.portal-infrastructure')
     .getByRole('button', { name: 'vm-first-os', exact: true })
@@ -315,6 +316,7 @@ test('root course to persisted VM, app settings, separate SaaS, exact debrief an
   await expect(page.locator('.chapter-receipt')).toHaveAttribute('data-outcome', 'rejected');
   await shot(page, info, 'paas-policy-rejected');
   await page.getByRole('button', { name: nb.chapter.showPolicy, exact: true }).click();
+  await acknowledgeMilestone(page, 'policy-denial');
   await expect(page.locator('.portal-view')).toContainText('policy-web-location');
   await shot(page, info, 'paas-policy-inspected');
   await create(page, 'plan', 'plan-operational');

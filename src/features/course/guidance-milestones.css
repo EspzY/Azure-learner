@@ -1,0 +1,72 @@
+.milestone-library {
+  padding: 8px 20px;
+  border-bottom: 1px solid #d4e2ec;
+  background: #f0f7fd;
+  color: #173b58;
+  font:
+    14px/1.6 'Segoe UI',
+    sans-serif;
+}
+.milestone-library summary {
+  cursor: pointer;
+  font-weight: 600;
+}
+.milestone-library details > button {
+  display: inline-block;
+  margin: 8px 12px 4px 0;
+  padding: 5px 10px;
+  border: 1px solid #6f96b3;
+  color: #005a9e;
+  background: white;
+}
+.milestone-library button:focus-visible,
+.milestone-library summary:focus-visible {
+  outline: 3px solid #ad4b00;
+  outline-offset: 3px;
+}
+dialog.milestone-dialog {
+  width: min(960px, calc(100vw - 32px));
+}
+@media (max-height: 500px) {
+  dialog.milestone-dialog .mission-heading,
+  dialog.milestone-dialog footer {
+    padding-block: 6px;
+  }
+  dialog.milestone-dialog footer > div {
+    margin-top: 6px;
+  }
+}
+.milestone-body {
+  padding: 20px 32px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+.milestone-body p {
+  line-height: 1.7;
+}
+.milestone-body h3:not(:first-child) {
+  margin-top: 18px;
+}
+.milestone-facts {
+  margin: 0 0 18px;
+}
+.milestone-facts > div {
+  padding: 5px 0;
+  border-bottom: 1px solid #d2e1ec;
+}
+.milestone-facts dt {
+  font-size: 12px;
+  color: #385970;
+}
+.milestone-facts dd {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+@media (max-width: 700px) {
+  .milestone-body {
+    grid-template-columns: 1fr;
+    padding: 18px;
+    gap: 22px;
+  }
+}

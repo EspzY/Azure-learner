@@ -1,5 +1,9 @@
 # Roadmap
 
+## PR20 — quality foundation before the next module
+
+Implement permanent seven-gate traceability and post-implementation Independent Final Audit, plus two existing-outcome SavvyShark milestones. No new AZ-900 analysis/module or serverless implementation belongs here. [Contract](QUALITY_CONTRACT.md), [release workflow](RELEASE_ACCEPTANCE.md). The PR19 staged content roadmap remains the next curriculum plan after this infrastructure is reviewed; its gaps are not reclassified as complete.
+
 ## AZ-900 expansion blueprint — proposed, 2026-10-26
 
 The [57-point audit](AZ900_COVERAGE_MATRIX.md) supersedes any reading of older module/title counts as complete AZ-900 coverage. [P00–P18](AZ900_EXPANSION_ROADMAP.md) are future bounded PR scopes, not current availability. Next recommended implementation is a complete, small serverless extension; the first new full module should be core architectural components, split into physical/geographic and management/lifecycle parts. Then close independent-feedback gaps, expand cost/compute/network/storage/identity/governance/tools/monitoring, and only later ship reviewed original diagnostics. No full mock exam or new Azure engine is implemented here. Human SME, novice/IT review and transfer studies remain required separate gates.

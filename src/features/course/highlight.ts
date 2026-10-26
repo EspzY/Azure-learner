@@ -24,12 +24,19 @@ export function resolveGuideTarget(
   const candidates = [
     ...(root?.querySelectorAll<HTMLElement>(`[data-guide="${target}"]`) ?? []),
   ].filter((el) => {
+    const modal = document.querySelector('dialog[open]');
+    if (modal && !modal.contains(el)) return false;
+    const rect = el.getBoundingClientRect();
     if (
       !el.getClientRects().length ||
+      rect.width <= 0 ||
+      rect.height <= 0 ||
       el.closest('[hidden],[inert],[aria-hidden="true"]') ||
       getComputedStyle(el).visibility === 'hidden'
     )
       return false;
+    for (let parent: HTMLElement | null = el; parent; parent = parent.parentElement)
+      if (Number(getComputedStyle(parent).opacity) === 0) return false;
     return (
       kind === 'inspection' ||
       (el.matches('button,input,select,a[href],textarea') && !el.matches(':disabled'))
@@ -62,6 +69,23 @@ export function useGuideBounds(
         if (element) resized.observe(element);
       }
       const r = element?.getBoundingClientRect();
+      // A long receipt may be partly in view: inspect the visible intersection rather
+      // than its off-screen centre. Every accepted sample must hit the actual target.
+      const left = r ? Math.max(0, r.left) : 0,
+        right = r ? Math.min(window.innerWidth, r.right) : 0,
+        top = r ? Math.max(target === 'search' ? 0 : 90, r.top) : 0,
+        bottom = r
+          ? Math.min(window.innerHeight - (window.innerWidth <= 800 ? 250 : 12), r.bottom)
+          : 0;
+      const unobscured =
+        right > left &&
+        bottom > top &&
+        [(left + right) / 2, left + Math.min(12, (right - left) / 2)].some((x) =>
+          [top + Math.min(2, (bottom - top) / 2), (top + bottom) / 2, bottom - 2].some((y) => {
+            const hit = document.elementFromPoint(x, y);
+            return !!hit && !!element?.contains(hit);
+          }),
+        );
       const bounds = r
         ? {
             left: r.left,
@@ -69,6 +93,7 @@ export function useGuideBounds(
             width: r.width,
             height: r.height,
             visible:
+              unobscured &&
               r.bottom > (target === 'search' ? 0 : 90) &&
               r.top < window.innerHeight - (window.innerWidth <= 800 ? 250 : 12) &&
               r.right > 0 &&

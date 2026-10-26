@@ -18,3 +18,13 @@ export async function editAppSetting(page: Page, label: string, value: string) {
   await dialog.getByRole('button', { name: nb.portalUi.saveDraft, exact: true }).click();
   await expect(dialog).toHaveCount(0);
 }
+export async function acknowledgeMilestone(page: Page, id: 'policy-denial' | 'vm-dependencies') {
+  const dialog = page.locator(`dialog[data-milestone="${id}"]`);
+  await expect(dialog).toBeVisible();
+  await expect(page.locator('dialog[open]')).toHaveCount(1);
+  await expect(dialog).toContainText(nb.milestones.cause);
+  await expect(dialog).toContainText(nb.milestones.consequence);
+  await expect(dialog).toContainText(nb.milestones.boundary);
+  await dialog.getByRole('button', { name: nb.milestones.close, exact: true }).click();
+  await expect(dialog).toHaveCount(0);
+}

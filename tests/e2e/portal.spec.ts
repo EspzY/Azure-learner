@@ -284,6 +284,7 @@ test('source-backed learning, real Portal creation, policy recovery, live graph 
   await page.getByRole('button', { name: p.limitations, exact: true }).click();
   await page.getByRole('button', { name: p.resetTechnical, exact: true }).click();
   await page.getByRole('button', { name: p.confirmReset, exact: true }).click();
+  await expect(page.locator('.portal-title h1')).toHaveText(p.areas.resources);
   await expect(page.locator('tbody tr')).toHaveCount(0);
   await area(page, 'challenge');
   await expect(first).toContainText(p.challenge.unverifiable);

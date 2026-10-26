@@ -66,6 +66,11 @@ export const requiredFiles = [
   'docs/AZ900_GAP_ANALYSIS.md',
   'docs/AZ900_EXPANSION_ROADMAP.md',
   'docs/AZ900_ASSESSMENT_BLUEPRINT.md',
+  'docs/QUALITY_CONTRACT.md',
+  'docs/CONTENT_QA_STANDARD.md',
+  'docs/SAVVYSHARK_GUIDANCE_STANDARD.md',
+  'docs/SOURCE_COVERAGE_PROTOCOL.md',
+  'docs/RELEASE_ACCEPTANCE.md',
 ];
 
 function markdownFiles(folder) {

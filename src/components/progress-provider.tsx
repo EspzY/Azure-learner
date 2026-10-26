@@ -86,6 +86,7 @@ export function ProgressProvider({ children }: { children: React.ReactNode }) {
         'azurelab.sandbox.v2',
         'azurelab.saas-admin.v1',
         'azurelab.practical-labs.v1',
+        'azurelab.guidance.milestones.v1',
       ])
         localStorage.removeItem(key);
     } catch {

@@ -177,6 +177,10 @@ export function GuidedCoach({
             </p>
             <dl className="coach-instruction">
               <div>
+                <dt>{nb.milestones.where}</dt>
+                <dd>{nb.milestones.targetLocations[step.target]}</dd>
+              </div>
+              <div>
                 <dt>{nb.refinement.why}</dt>
                 <dd>{copy[2]}</dd>
               </div>

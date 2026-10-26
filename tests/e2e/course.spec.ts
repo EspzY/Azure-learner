@@ -2,6 +2,7 @@ import { test, expect, type Page, type TestInfo } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { nb, learningPolishNb as polish } from '../../src/content/nb';
 import { unitIds } from '../../src/domain/curriculum/manifest';
+import { acknowledgeMilestone } from './portal-actions';
 const c = nb.course,
   p = nb.portal;
 test.use({ trace: 'on', video: 'on', actionTimeout: 15000 });
@@ -198,6 +199,7 @@ test('course owns full theory, guided real controls, denial investigation, hosti
   await capture(page, info, 'denial');
   await expect(page.locator('.guide-target-ring')).toHaveAttribute('data-kind', 'inspection');
   await coach(page).getByRole('button', { name: c.goPolicy, exact: true }).click();
+  await acknowledgeMilestone(page, 'policy-denial');
   await expect(page.locator('h1')).toHaveText(p.areas.policy);
   await expect(page.locator('.portal-view')).toContainText('West Europe');
   await expect(coach(page)).toHaveAttribute('data-step', 'inspect-policy');
