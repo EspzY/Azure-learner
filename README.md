@@ -1,5 +1,9 @@
 # AzureLab 3.2.1
 
+## Guided practical learning and visual explanations
+
+The ordinary course now introduces Module2/3 guided labs through an explicit SavvyShark mission brief. Cancel/review does not create a session or evidence; starting uses the existing validated practical lifecycle. Contextual action/reason/observation remains available during work. Benefits and Service Types investigations use original mechanism-specific figures, with results gated by the existing explicit Run action. Resource inspection groups Essentials, linked scope and actual dependencies. [Audit, Portal-reference comparison and implementation](docs/GUIDED_LEARNING_REFINEMENT.md); [verification](docs/PROJECT_STATUS.md). No new domain capabilities, awards, assets or dependencies.
+
 ## 3.2.1 — integrated practical laboratories
 
 The ordinary `/` → `/learn` entry now links directly to the actual Service Types units and their practical laboratories. IaaS opens **Virtual machines** in the existing Portal: a validated atomic transaction creates VM, OS/data disks, NIC, VNet and subnet in the shared persistent inventory. PaaS retains the existing policy/hosting lab and adds persisted allowlisted **App settings**. SaaS uses a separate fictional product-admin lab with users, two license seats, roles, sharing, departure and replayed operation history.

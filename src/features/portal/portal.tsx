@@ -32,7 +32,7 @@ import {
   Database,
   GitBranch,
 } from 'lucide-react';
-import { labsNb, nb, regionLabels } from '@/content/nb';
+import { labsNb, nb, regionLabels, learningPolishNb as polish } from '@/content/nb';
 import { useSandbox as useChapter } from '@/features/portal/sandbox-provider';
 import { useLearning } from '@/features/learning/provider';
 import { ReceiptPanel } from '@/features/chapter01/receipt-panel';
@@ -142,6 +142,8 @@ function PortalWorkspace() {
     location.bridge || location.practice || guidedLab || location.course
       ? router.push(courseReturn)
       : navigate('learn');
+  const practicalMission =
+    location.practice && practical.current ? labsNb.lab[practical.current.kind] : null;
   const { world } = chapter.attempt.engine;
   const rows = inventory(world),
     [menu, setMenu] = useState(false),
@@ -614,7 +616,8 @@ function PortalWorkspace() {
                         : p.modes[location.mode]}
             </span>
             <span>
-              {location.bridge
+              {location.bridge ||
+              (location.practice && practical.current?.origin.module === 'benefits')
                 ? nb.official.benefits
                 : location.module === 'computing' ||
                     (guidedLab && course.save.lab?.origin === 'computing-v2')
@@ -694,8 +697,14 @@ function PortalWorkspace() {
                   <section className="portal-home-training">
                     <BookOpen size={25} />
                     <div>
-                      <h2>{nb.official.services}</h2>
-                      <p>{p.homeIntro}</p>
+                      <h2>
+                        {practicalMission?.title ??
+                          (location.bridge ? nb.official.benefits : nb.official.services)}
+                      </h2>
+                      <p>
+                        {practicalMission?.purpose ??
+                          (location.bridge ? labsNb.bridge[location.bridge] : p.homeIntro)}
+                      </p>
                       <small>
                         {nb.official.certification} · {nb.official.path}
                       </small>
@@ -703,9 +712,17 @@ function PortalWorkspace() {
                     <button
                       type="button"
                       className="primary"
-                      onClick={() => navigate(module.facts.active ? 'challenge' : 'learn')}
+                      onClick={() =>
+                        practicalMission || location.bridge
+                          ? returnLearning()
+                          : navigate(module.facts.active ? 'challenge' : 'learn')
+                      }
                     >
-                      {module.facts.active ? p.continueChallenge : p.startLearning}
+                      {practicalMission || location.bridge
+                        ? nb.course.returnCourse
+                        : module.facts.active
+                          ? p.continueChallenge
+                          : p.startLearning}
                     </button>
                   </section>
                   <h2>{p.recent}</h2>
@@ -719,7 +736,12 @@ function PortalWorkspace() {
                         .sort((a, b) => recent.indexOf(a.id) - recent.indexOf(b.id))}
                     />
                   ) : (
-                    <p className="portal-empty">{p.noRecent}</p>
+                    <div className="portal-empty">
+                      <p>{polish.resource.empty}</p>
+                      <button type="button" onClick={() => navigate('resources')}>
+                        {p.areas.resources}
+                      </button>
+                    </div>
                   )}
                 </>
               ) : location.area === 'services' ? (
@@ -783,23 +805,29 @@ function PortalWorkspace() {
                 />
               ) : location.area === 'resource' ? (
                 <>
-                  <ResourceDetails world={world} id={location.id} navigate={navigate} />
-                  <InfrastructureDetails
+                  <ResourceDetails
+                    key={location.id}
                     world={world}
                     id={location.id}
                     navigate={navigate}
-                    onCreate={command}
-                    receipt={
-                      chapter.attempt.engine.ledger
-                        .filter(
-                          (e) =>
-                            e.receipt.outcome === 'accepted' &&
-                            (e.receipt.addedIds.includes(location.id) ||
-                              e.request.command.appId === location.id),
-                        )
-                        .at(-1)?.receipt
-                    }
-                  />
+                  >
+                    <InfrastructureDetails
+                      world={world}
+                      id={location.id}
+                      navigate={navigate}
+                      onCreate={command}
+                      receipt={
+                        chapter.attempt.engine.ledger
+                          .filter(
+                            (e) =>
+                              e.receipt.outcome === 'accepted' &&
+                              (e.receipt.addedIds.includes(location.id) ||
+                                e.request.command.appId === location.id),
+                          )
+                          .at(-1)?.receipt
+                      }
+                    />
+                  </ResourceDetails>
                 </>
               ) : location.area === 'learn' ? (
                 <LearningWorkspace location={location} navigate={navigate} />

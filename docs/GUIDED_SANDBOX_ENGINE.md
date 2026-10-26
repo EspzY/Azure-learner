@@ -1,5 +1,9 @@
 # Guided sandbox engine
 
+## Mission briefing and practical phases — 2026-10-26
+
+Module2/3 practical launch first opens the dedicated native SavvyShark brief. Closing leaves session/technical/evidence stores unchanged. Explicit Start invokes the existing start contract. Resume goes directly to valid work; the coach offers user-initiated mission recall. No automatic milestone interruption was added. VM guidance differentiates Basics, Disks, Networking, dry validation and actual dependency inspection. A validation region is informational; operation controls remain actionable. Real operation receipts and predicates still determine outcomes. Independent mode has no automatic briefing solution or highlights. [Current audit/specification](GUIDED_LEARNING_REFINEMENT.md).
+
 ## 3.2.1 guidance extension
 
 The existing DOM target resolver/ResizeObserver/scroll tracking is reused for actual VM image/profile/disk/network controls and App settings. Guidance observes form phase for presentation and replayed outcomes for technical progress. It never submits or configures on the learner's behalf. Action and inspection targets remain semantically different, missing targets fail closed, and independent contexts suppress all solution rings. VM/PaaS completion requires accepted state plus causal inspection/reasoning, not tab visits. SaaS uses its own visible product controls and causal history, never a fake Portal overlay. [Contracts](COURSE_LAB_ORCHESTRATION.md).

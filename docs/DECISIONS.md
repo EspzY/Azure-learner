@@ -1,5 +1,9 @@
 # Decisions
 
+## 2026-10-26 — Mission regie and task-specific explanations
+
+Keep the proven simulator, persistence and evidence models. Add a presentation-only native mission briefing at the existing launch boundary, plus read-only phase projection and explicit recall. Prefer learner-controlled recall over automatic milestone popups to avoid interrupting inspection. Replace generic figures with task-specific SVG/HTML projections and native controls rather than adding assets/rendering libraries. Integrate actual related-resource inspection inside Essentials; do not reproduce unsupported Azure controls from reference images. [Alternatives, audit and boundaries](GUIDED_LEARNING_REFINEMENT.md).
+
 ## 3.2.1 — versioned integrated labs (2026-10-25)
 
 - **D321-01**: select frozen v1 prefix plus sandbox@2 continuation over widening v1 semantics. Preserve the old reducer and raw key, exact old receipts/capacity, archived consumers and old assessment criteria. New normal consumers use one SandboxProvider. A versioned fork of four bounded handlers is intentionally small; parity/replay tests guard drift rather than introducing a universal plugin engine.

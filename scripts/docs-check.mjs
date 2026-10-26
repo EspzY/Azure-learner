@@ -59,6 +59,7 @@ export const requiredFiles = [
   'docs/SAAS_ADMIN_LAB.md',
   'docs/FUNDAMENTALS_LAB_COVERAGE.md',
   'docs/PRACTICAL_LABS_QA.md',
+  'docs/GUIDED_LEARNING_REFINEMENT.md',
 ];
 
 function markdownFiles(folder) {

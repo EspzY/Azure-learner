@@ -4667,3 +4667,237 @@ export function operationExplanation(receipt: {
     return labsNb.domainMessages.settings;
   return nb.chapter.errors[receipt.code];
 }
+export const learningPolishNb = {
+  briefing: {
+    eyebrow: 'SAVVYSHARK · OPPDRAGSBRIEF',
+    title: 'Fra teori til teknisk undersøkelse',
+    purpose: 'Hvorfor vi gjør dette',
+    outcomes: 'Dette skal du forstå',
+    route: 'Slik henger oppdraget sammen',
+    observe: 'Se etter dette i portalen',
+    start: 'Start oppdraget',
+    cancel: 'Tilbake til leksjonen',
+    recall: 'Se oppdraget',
+    continue: 'Fortsett undersøkelsen',
+    close: 'Lukk oppdragsbrief',
+    boundary:
+      'Lokal undervisningsmodell. Ingen handling når Azure. Veiledet arbeid er øvelse, ikke bevis på selvstendig kompetanse. Du kan gå tilbake til leksjonen uten å slette gyldig arbeid.',
+    vm: {
+      title: 'Bygg en VM — undersøk delene',
+      why: 'IaaS gir kontroll over gjesteoperativsystemet. Nå kobler vi dette ansvaret til ressursene en virtuell maskin faktisk trenger. Fra Benefits undersøker vi også hvorfor én stor VM ikke alene beviser tilgjengelighet.',
+      outcomes: [
+        'Skille VM, OS-disk og nettverkstilknytning.',
+        'Se at kapasitet og lokasjon er konfigurasjon, ikke målt ytelse eller driftssikkerhet.',
+        'Begrunne hvilke driftsoppgaver kunden beholder.',
+      ],
+      stages: [
+        'Finn Resource groups og velg et gyldig scope.',
+        'Åpne Virtual machines. Undersøk Basics, Disks og Networking før Review + create.',
+        'Opprett den støttede konfigurasjonen og undersøk VM, OS-disk og NIC.',
+        'Begrunn observasjonen og gå tilbake til leksjonen.',
+      ],
+      observation:
+        'Relaterte ressurser vises hver for seg. En vellykket lokal opprettelse sier ikke at et gjeste-OS kjører, at trafikk slipper gjennom eller at løsningen tåler feil.',
+    },
+    paas: {
+      title: 'Fra kode til en støttet plattform',
+      why: 'Applikasjonsteamet har egen webkode, men vil slippe å vedlikeholde gjeste-OS. Vi undersøker App Service-planen, webappen og konfigurasjonsarbeidet som fortsatt tilhører kunden.',
+      outcomes: [
+        'Skille resource group-medlemskap fra hostingavhengighet.',
+        'Undersøke et faktisk policyavslag uten å opprette den avviste ressursen.',
+        'Forklare hvorfor administrert OS ikke fjerner ansvar for kode, tilgang, data og konfigurasjon.',
+      ],
+      stages: [
+        'Finn Resource groups med globalt søk og organiser ressursene.',
+        'Forutsi lokasjon. Forsøk planopprettelse og undersøk kvitteringen ved avslag.',
+        'Undersøk policyens scope, korriger ressurslokasjonen og knytt webappen til planen.',
+        'Undersøk kundens konfigurasjon og relasjonene i Architecture Explorer. Begrunn og returner.',
+      ],
+      observation:
+        'Resource group har en metadata-lokasjon. Webressursenes lokasjon og planavhengighet er andre egenskaper. Endret metadata-lokasjon opphever ikke en Web-location-policy.',
+    },
+    saas: {
+      title: 'Administrer et ferdig produkt',
+      why: 'Et SaaS-produkt leverer ferdig funksjonalitet. Teamet må likevel forvalte personer, lisenser, roller og deling. Dette undersøker vi i en separat, tydelig fiktiv administrasjonssandbox.',
+      outcomes: [
+        'Skille lisenskapasitet, brukertilgang og administratorrolle.',
+        'Undersøke et avslag før en gyldig lisensfordeling.',
+        'Forklare hvorfor blokkert pålogging ikke automatisk henter tilbake delte data.',
+      ],
+      stages: [
+        'Undersøk brukerne og den avgrensede lisenskapasiteten.',
+        'Prøv tildelingen og les den faktiske kvitteringen.',
+        'Korriger lisens, rolle og deling. Håndter en som slutter.',
+        'Undersøk resultatet, begrunn ansvaret og returner til leksjonen.',
+      ],
+      observation:
+        'Lisens, rolle og datadeling løser forskjellige problemer. Modellen er ikke en kopi av Microsoft 365 Admin Center og utfører ingen identitets- eller databehandling hos en leverandør.',
+    },
+    paasSettings: {
+      title: 'Undersøk webappen du allerede har',
+      why: 'Det finnes allerede en webapp i den lagrede sandboxen. Du trenger ikke opprette alt på nytt. Nå undersøker vi hostingavhengigheten og konfigurasjonsarbeidet som kunden beholder i PaaS.',
+      outcomes: [
+        'Skille administrert plattform fra kundens appkonfigurasjon.',
+        'Følge webappens virkelige referanse til hosting-planen.',
+        'Begrunne hva lagret konfigurasjon beviser — og hva den ikke beviser.',
+      ],
+      stages: [
+        'Åpne App Services og undersøk den lagrede webappen.',
+        'Åpne Environment variables og velg den støttede kundekonfigurasjonen.',
+        'Lagre og les den validerte operasjonen. Undersøk appen og arkitekturen.',
+        'Begrunn driftsgrensen og returner til samme leksjon.',
+      ],
+      observation:
+        'Konfigurasjonen lagres i samme inventory som plan og app. Modellen kjører ikke kode, gjør ikke restart og bekrefter ikke fungerende innlogging eller trafikk. Tidligere policykvitteringer kan undersøkes i Activity log.',
+    },
+    inspection: 'Undersøk før du konkluderer',
+    inspectionWhy:
+      'Knytt forklaringsmodellen fra Benefits til faktiske, støttede egenskaper i laboratoriet. Dette er inspeksjon, ikke en test av virkelig tilgjengelighet, sikkerhet eller energiforbruk.',
+    inspectionStages: [
+      'Finn egenskapen eller kvitteringen det vises til.',
+      'Skille det som er konfigurert fra det som ikke er simulert.',
+      'Gå tilbake til den samme leksjonen og sammenlign med teorien.',
+    ],
+  },
+  guide: {
+    group: [
+      'Organiser først',
+      'En resource group gir et scope for relaterte ressurser, ikke en fysisk maskin eller en region.',
+      'Finn Resource groups, opprett eller velg en gyldig gruppe.',
+      'Den nye gruppen vises i valgt subscription. Ingen VM er opprettet ennå.',
+    ],
+    basics: [
+      'Velg gjestens forutsetninger',
+      'Image og størrelse beskriver ulike egenskaper; mer CPU retter ikke feil operativsystem.',
+      'Velg gruppe, navn, image og undervisningsprofil. Fortsett deretter til Disks.',
+      'Basics endrer bare skjemaet. Ressurser opprettes først etter Review + create og Create.',
+    ],
+    disks: [
+      'Skill minne fra varig lagring',
+      'OS-disken er en egen ressurs. RAM og disk har forskjellige roller.',
+      'Undersøk OS-disken og velg eventuell støttet datadisk. Gå videre til Networking.',
+      'Se hvilke disker den samlede kommandoen vil opprette. Ingen lagring er opprettet ennå.',
+    ],
+    network: [
+      'Undersøk tilknytningen',
+      'NIC knytter VM-en til et subnett. En slik kobling beviser ikke at trafikk er tillatt.',
+      'Undersøk nettverksvalg og gå til Review + create.',
+      'Modellen viser NIC, subnett og VNet; den simulerer ikke IP-trafikk, DNS eller NSG-regler.',
+    ],
+    review: [
+      'Kontroller før opprettelse',
+      'Validering undersøker forespørselen; den er ikke en utført deployment.',
+      'Les valideringen. Rett feil, eller velg Create når den er gyldig.',
+      'Bare en akseptert kvittering legger ressurser i samme autoritative inventory.',
+    ],
+    inspect: [
+      'Følg de faktiske relasjonene',
+      'Medlemskap, diskavhengighet og nettverkstilknytning betyr forskjellige ting.',
+      'Åpne ressursene nedenfor, les egenskapene og bekreft hver inspeksjon.',
+      'Sammenlign VM, OS-disk og NIC før du begrunner kundens driftsansvar.',
+    ],
+    settings: [
+      'Kunden konfigurerer fortsatt appen',
+      'PaaS overtar plattformarbeid, men vet ikke hvilke applikasjonsvalg teamet trenger.',
+      'Åpne webappens Environment variables og lagre den støttede konfigurasjonen.',
+      'Den validerte innstillingskommandoen endrer lagret appkonfigurasjon. Ingen kode kjøres eller restart simuleres.',
+    ],
+    explain: [
+      'Sett observasjonen i sammenheng',
+      'En riktig konfigurasjon forklarer ikke alene hvorfor servicegrensen passer.',
+      'Begrunn driftsansvaret og lever den veiledede øvelsen.',
+      'Debriefen viser faktiske funn og retur til samme læringsaktivitet.',
+    ],
+    search: [
+      'Finn riktig tjeneste',
+      'Globalt søk finner tjenesteflaten; det oppretter ikke en ressurs.',
+      'Søk etter Virtual machines og åpne tjenesten. Velg deretter Create.',
+      'Skjemaet viser støttede valg. Bruk gjerne «Se oppdraget» for hele sammenhengen.',
+    ],
+    web: [
+      'Bygg hostingavhengigheten',
+      'En webapp må referere til en støttet plan. Gruppen er bare management scope.',
+      'Følg App Service-labben, eller finn App Services for å undersøke eksisterende arbeid.',
+      'Plan, app og kvitteringer kommer fra samme simulator. Ingen egen skygge-inventory brukes.',
+    ],
+  },
+  visual: {
+    configuration: 'MODELLSKISSE · VALGENE DINE',
+    mechanism: 'ÅRSAK OG SAMMENHENG',
+    scopes: { 'sub-app': 'App Sandbox', 'sub-shared': 'Shared Sandbox' },
+    selectionNote:
+      'Kontroll og driftsarbeid følger tjenestegrensen. Kravene avgjør hva som passer — dette er ikke en rangering fra dårligst til best.',
+    retainedTasks: [
+      'Gjeste-OS og applikasjon',
+      'Kode og appkonfigurasjon',
+      'Brukere, tilgang og data',
+    ],
+    result: 'VALIDERT UNDERVISNINGSRESULTAT',
+    boundary: 'Forenklet forklaringsmodell · ingen virkelig drift, trafikk, pris eller måling',
+    before: 'Forutsi først. Kjør undersøkelsen for å se beregnet konsekvens.',
+    customer: 'KUNDENS ARBEID',
+    provider: 'LEVERANDØRENS PLATTFORM',
+    request: 'Arbeid inn',
+    route: 'Trafikkvalg',
+    copies: 'Applikasjonskopier',
+    unit: 'jobber/min',
+    copy: 'Kopi',
+    failed: 'Sviktet',
+    reachable: 'Valgt rute',
+    unusedRoute: 'Ingen valgt rute',
+    availability: 'Kapasitet hjelper bare når arbeidet kan nå en fungerende kopi.',
+    dependency: 'Lageroppslag',
+    application: 'Webapplikasjon',
+    function: 'Fullføre kjøpet',
+    incident: 'Hendelse',
+    remedy: 'Foreslått tiltak',
+    trend: 'Forfattet trend, ikke live målinger',
+    reliability: 'Følg den nødvendige funksjonen. Et tiltak må påvirke årsaken som stopper den.',
+    requestScope: 'Forespørselens scope',
+    policy: 'Fast policy assignment',
+    filter: 'Web-ressurser · lokasjonsregel',
+    policyNote:
+      'Scope avgjør om regelen gjelder. Ressurslokasjon avgjør om forespørselen passer regelen. Dette er ikke en tilgangs- eller nettverksregel.',
+    template: 'Én parameterkilde',
+    manual: 'Tre uavhengige valg',
+    intended: 'Avtalt standard: West Europe',
+    management: 'Gjentakelse gir konsistens — også når den samme feilaktige verdien gjentas.',
+    required: 'Nødvendig tjenesteperiode',
+    allocated: 'Valgt aktiv periode',
+    day: '0 → 24 timer',
+    efficiency:
+      'Kapasitet × kopier × timer = tildelte kapasitets-timer. Dette er ikke energi eller CO₂.',
+    guest: 'VIRTUELL GJEST',
+    hardware: 'Fysisk vert + virtualisering',
+    os: 'Gjeste-OS',
+    runtime: 'Runtime og patch-plan',
+    disk: 'Appdata på disk',
+    memory: 'Flyktig RAM',
+    nic: 'NIC → nettverk',
+    vmNote:
+      'VM-en bruker tildelt CPU og RAM. Disk og nettverk er separate avhengigheter; kunden må planlegge gjestens drift.',
+    artifact: 'Teamets kodepakke',
+    compatibility: 'Støttet runtime / plattformgrense',
+    hosting: 'Administrert hosting',
+    platformNote:
+      'Leverandøren driver plattformen. Kunden må fortsatt levere kompatibel kode og riktige konfigurasjons-, tilgangs- og datavalg.',
+    person: 'Person',
+    account: 'Konto + lisens',
+    product: 'Ferdig samarbeidsprodukt',
+    authority: 'Administrasjonsmyndighet',
+    sharing: 'Datadeling',
+    saasNote:
+      'Tilgang, myndighet og deling er tre ulike relasjoner. En lisens gjør ikke en bruker til administrator.',
+    departure:
+      'Avsluttet arbeidsforhold: undersøk tilgang OG tidligere deling. Delte kopier forsvinner ikke automatisk.',
+  },
+  resource: {
+    essentials: 'Essentials · støttet konfigurasjon',
+    relations: 'Relaterte ressurser',
+    scope: 'Management scope',
+    reference: 'Tekniske referanser',
+    limitations: 'Drift, tilkobling, monitoring og tilgangsstyring er ikke simulert her.',
+    discovery: 'Finn en støttet tjeneste',
+    empty: 'Ingen ressurser er åpnet i denne lokale økten ennå.',
+  },
+} as const;

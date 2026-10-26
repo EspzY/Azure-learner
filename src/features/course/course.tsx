@@ -30,6 +30,7 @@ import {
 import { PortalDialog } from '@/features/portal/shared';
 import { ArchitectureExplorer } from '@/features/portal/architecture';
 import { SavvyShark } from './savvy-shark';
+import { MissionBriefing } from './mission-briefing';
 import { useCourse } from './provider';
 import { CourseNavigation } from './course-navigation';
 import { ExpandedModule, ExpansionReference } from '@/features/learning/expanded-module';
@@ -104,6 +105,7 @@ export function Course({ module }: { module?: CourseModule }) {
   const labTopic =
     (module === 'services' && topic === 'practice') ||
     (module === 'computing' && topic === 'resource-bridge');
+  const [briefing, setBriefing] = useState(false);
   const [journal, setJournal] = useState(false),
     [menu, setMenu] = useState(false);
   const labRef = useRef<HTMLElement>(null),
@@ -791,7 +793,9 @@ export function Course({ module }: { module?: CourseModule }) {
                       benefits.facts.active ||
                       service2.facts.active
                     }
-                    onClick={begin}
+                    onClick={() =>
+                      module === 'services' && !course.save.lab ? setBriefing(true) : begin()
+                    }
                   >
                     {lab.complete
                       ? nb.refinement.revisitLab
@@ -800,6 +804,16 @@ export function Course({ module }: { module?: CourseModule }) {
                         : c.startLab}
                   </button>
                 </section>
+              )}
+              {briefing && (
+                <MissionBriefing
+                  kind="paas"
+                  onClose={() => setBriefing(false)}
+                  onStart={() => {
+                    setBriefing(false);
+                    begin();
+                  }}
+                />
               )}
               {module === 'services' && topic !== 'practice' && (
                 <details className="course-guide-note">
