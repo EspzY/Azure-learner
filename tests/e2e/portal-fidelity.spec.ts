@@ -136,6 +136,12 @@ for (const [width, height] of [
     await audit(page);
     await page.screenshot({ path: info.outputPath(`fidelity-${width}-home.png`), scale: 'css' });
     await area(page, 'services');
+    await expect(page.locator('.portal-services-index').first()).not.toContainText(
+      p.areas.architecture,
+    );
+    await expect(page.locator('.portal-view > .portal-learning-tools > summary')).toHaveText(
+      ui.learningTools,
+    );
     await expect(page.locator('.portal-services-index [data-icon="vms"]')).toHaveAttribute(
       'src',
       /10021-icon-service-Virtual-Machine.svg$/,

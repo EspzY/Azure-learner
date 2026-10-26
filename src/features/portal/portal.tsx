@@ -856,7 +856,7 @@ function PortalWorkspace() {
                 <>
                   <p>{p.serviceHint}</p>
                   <div className="portal-services-index">
-                    {[...services, ...educational, 'policy' as const].map((area) => {
+                    {[...services, 'policy' as const].map((area) => {
                       return (
                         <button key={area} type="button" onClick={() => navigate(area)}>
                           <ServiceIcon kind={area} size={22} />
@@ -866,6 +866,21 @@ function PortalWorkspace() {
                       );
                     })}
                   </div>
+                  <details className="portal-learning-tools">
+                    <summary>
+                      <ServiceIcon kind="learn" />
+                      {nb.portalUi.learningTools}
+                    </summary>
+                    <div className="portal-services-index">
+                      {educational.map((area) => (
+                        <button key={area} type="button" onClick={() => navigate(area)}>
+                          <ServiceIcon kind={area} size={22} />
+                          <span>{p.areas[area]}</span>
+                          <ServiceIcon kind="next" size={14} />
+                        </button>
+                      ))}
+                    </div>
+                  </details>
                   <h2>{p.unavailable}</h2>
                   <p>{p.unavailableServices}</p>
                 </>
