@@ -1,3 +1,4 @@
+import { editAppSetting } from './portal-actions';
 import { test, expect, type Page, type TestInfo } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { nb, labsNb as t, learningPolishNb as polish } from '../../src/content/nb';
@@ -227,6 +228,16 @@ test('root course to persisted VM, app settings, separate SaaS, exact debrief an
   ).toBe(false);
   await page.locator('[data-guide="commit"]').click();
   await expect(page.locator('.portal-title h1')).toHaveText('vm-first');
+  await expect(page.locator('.portal-title h1')).toBeFocused();
+  expect(
+    await page
+      .locator('.portal-title h1')
+      .evaluate(
+        (el) =>
+          el.getBoundingClientRect().top >=
+          document.querySelector('.portal-header')!.getBoundingClientRect().bottom,
+      ),
+  ).toBe(true);
   await page.getByRole('button', { name: t.receipt, exact: true }).click();
   await expect(page.locator('.chapter-receipt')).toHaveAttribute('data-outcome', 'accepted');
   await expect(page.locator('.chapter-receipt')).toContainText('vm-profile@2');
@@ -318,15 +329,13 @@ test('root course to persisted VM, app settings, separate SaaS, exact debrief an
   await area(page, 'apps');
   await page.getByRole('button', { name: 'app-operational', exact: true }).click();
   await page.getByRole('button', { name: t.settings.title, exact: true }).click();
-  await page
-    .getByRole('combobox', { name: t.settings.environment, exact: true })
-    .selectOption('staging');
-  await page
-    .getByRole('combobox', { name: t.settings.catalog, exact: true })
-    .selectOption('read-only');
+  await editAppSetting(page, t.settings.environment, 'staging');
+  await editAppSetting(page, t.settings.catalog, 'read-only');
   await desktopEvidence(page, info, 'app-settings');
   await page.getByRole('button', { name: t.settings.apply, exact: true }).click();
   await expect(page.locator('.portal-infrastructure')).toContainText('staging');
+  await expect(page.locator('.practical-coach')).toContainText(polish.guide.inspectPaas[3]);
+  await expect(page.locator('.practical-coach')).not.toContainText(polish.guide.inspect[3]);
   await inspect(page);
   await page.reload();
   await expect(page.locator('.portal-infrastructure')).toContainText('read-only');
@@ -583,12 +592,8 @@ test('changed PaaS and SaaS tasks assess actual new operations without coach hig
   await create(page, 'plan', 'plan-task');
   await create(page, 'app', 'app-task');
   await page.getByRole('button', { name: t.settings.title, exact: true }).click();
-  await page
-    .getByRole('combobox', { name: t.settings.environment, exact: true })
-    .selectOption('production');
-  await page
-    .getByRole('combobox', { name: t.settings.catalog, exact: true })
-    .selectOption('read-only');
+  await editAppSetting(page, t.settings.environment, 'production');
+  await editAppSetting(page, t.settings.catalog, 'read-only');
   await page.getByRole('button', { name: t.settings.apply, exact: true }).click();
   await inspect(page);
   await expect(page.locator('.guide-target-ring')).toHaveCount(0);

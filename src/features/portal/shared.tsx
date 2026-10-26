@@ -6,10 +6,12 @@ import type { Area, PortalLocation } from '@/domain/portal/model';
 export type Navigate = (area: Area, change?: Partial<PortalLocation>) => void;
 export function PortalDialog({
   title,
+  panel = false,
   children,
   onClose,
 }: {
   title: string;
+  panel?: boolean;
   children: React.ReactNode;
   onClose: () => void;
 }) {
@@ -27,7 +29,7 @@ export function PortalDialog({
   return (
     <dialog
       ref={ref}
-      className="portal-dialog"
+      className={`portal-dialog ${panel ? 'portal-side-panel' : ''}`}
       aria-labelledby={id}
       onCancel={(e) => {
         e.preventDefault();

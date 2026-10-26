@@ -1,5 +1,9 @@
 # G1 asset register
 
+## Portal service cues — reviewed 2026-10-26
+
+The shared `src/features/portal/service-icon.tsx` composes existing pinned `lucide-react@1.61.0` SVG components with original service-specific colours/size. Publisher: Lucide Icons and Contributors; some icons derive from Feather/Cole Bemis. Source: [official Lucide repository](https://github.com/lucide-icons/lucide), exact installed package LICENSE retained in [local notices](licenses/lucide-react-1.61.0.txt). License: ISC with the included MIT notice for Feather-derived icons, verified against the actual installed package; retain both copyright/permission notices. No new package, Microsoft artwork, raster, download or runtime asset server. Format: code-native SVG, tree-shaken through existing imports; presentation changes are stroke width, size and CSS colours. Registration is a provenance clarification for the existing dependency, not a new asset acquisition. Generated review screenshots are original AzureLab UI with synthetic fixtures; private Microsoft/owner references remain excluded.
+
 ## Current delivered assets — retirement 2026-10-26
 
 Only the registered owner-authorized SavvyShark PNG is shipped as a local third-party raster asset; original current diagrams remain repo-native SVG/HTML. `assets:check` verifies PNG signature/hash/size/authorization and rejects unregistered mascot files. `legacy:check` rejects game binaries/dependencies. No replacement assets were downloaded.

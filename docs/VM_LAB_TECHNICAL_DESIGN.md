@@ -1,5 +1,9 @@
 # VM laboratory technical specification
 
+## Reference-led form and resource inspection — 2026-10-26
+
+The existing four tabs, fields, bundle command and technical profiles are preserved. Project details/Instance details use compact label/control alignment, explicit region, required markers, dry Review + create and separate Create. The direct review action does not submit a resource. Resource Overview now has a searchable service-specific menu, linked Essentials and separate Disks/Networking projections from actual supported relations. No SSH credentials, public IP, NSG, pricing, image marketplace or runtime power actions appear. Resource creation still opens the actual local resource with a real receipt link; no counterfeit Azure deployment job is introduced. Public screenshot/text version differences are [registered](PORTAL_REFERENCE_FIDELITY.md).
+
 Reviewed sources 2026-10-25: [Windows Portal quickstart](https://learn.microsoft.com/en-us/azure/virtual-machines/windows/quick-create-portal), [Linux Portal quickstart](https://learn.microsoft.com/en-us/azure/virtual-machines/linux/quick-create-portal), [network relationships](https://learn.microsoft.com/en-us/azure/virtual-network/network-overview), [managed disk roles](https://learn.microsoft.com/en-us/azure/virtual-machines/managed-disks-overview), [naming](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules).
 
 ## Learning and supported state

@@ -1,5 +1,11 @@
 # Architecture
 
+## Reference-led Portal presentation — 2026-10-26
+
+`PortalWorkspace` keeps its existing allowlisted route contract and one SandboxProvider inventory. Shared `ServiceIcon`, `ResourceTable`, `ResourceDetails` and `PortalDialog` own compact operational presentation; scoped `portal.css` tokens do not restyle course theory. Resource menu sections/search, sorting, docked/flyout choice and app-setting drafts are transient React state. Reload safely returns menu presentation to defaults; authoritative resources and course/lab context restore through the original stores.
+
+Resource Overview and Environment variables share the same keyed resource workspace. Selecting Properties from settings restores the requested technical section. VM Disks/Networking project existing `disk-attachment` / `nic-attachment` relations, not inferred connectivity. Linked IDs still open actual inventory objects. Settings Edit/Save draft changes only local form state; page Apply dispatches the original SetAppSettings command with its original schema/receipt/evidence behavior. Navigation or menu animation cannot award learning. [Reference audit and boundaries](PORTAL_REFERENCE_FIDELITY.md).
+
 ## Current runtime after retirement — 2026-10-26
 
 `/` → `/learn`; the same Course owns computing v1/v2, Benefits and Service Types. `/portal` and `/labs/saas` retain their supported operations and exact lab return. The root provider order is Progress → Learning → PortalLearning → FoundationsV2 → Course → Expansion → Sandbox → Saas → Practical. No game/journey/Chapter UI provider is mounted.

@@ -1,5 +1,11 @@
 # Portal learning manuscript and vertical slice
 
+## Operational fidelity and learning layer — 2026-10-26
+
+The same visible course→brief→real Portal→validated configuration→inspection→exact debrief loop remains. English Portal controls and distinct Bokmål teaching avoid contradictory terminology. Normal Home prioritizes Services, real session history and Navigate rather than a course promotion. Training tools are a separate native disclosure; the current guided context opens them. Minimize/expand and mission recall preserve the existing session and evidence. Independent mode still suppresses solution guidance.
+
+App-setting inspection teaches the real distinction between editing a local draft and applying persisted configuration: Edit → Save draft → explicit Apply. The two harmless keys remain bounded, and no app restart or code execution is asserted. VM menu sections teach actual disk/NIC relationships rather than visual fake connectivity. Sources and remaining live-Portal differences: [reference matrix](PORTAL_REFERENCE_FIDELITY.md). Human Azure transfer and learning review remain outstanding.
+
 ## Retirement status — 2026-10-26
 
 Current delivery is the course, SavvyShark and shared Portal/SaaS labs. The RPG, timed Living Learning and SVG journey are retired; older sections describing their presentation are historical. No competency objective, original manuscript, assessment rule, source mapping or learning-data version is removed. SandboxStore still validates the frozen Chapter01 prefix; the old Chapter UI/provider does not run. See [audit and actual shared-code extraction](LEGACY_AUDIT.md) and [current architecture](ARCHITECTURE.md).

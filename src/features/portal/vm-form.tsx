@@ -93,7 +93,13 @@ export function VmForm({
           <>
             <h2>{nb.portal.projectDetails}</h2>
             <label>
-              {nb.portal.subscription}
+              <span>
+                {nb.portal.subscription}
+                <span className="portal-required" aria-hidden="true">
+                  {' '}
+                  *
+                </span>
+              </span>
               <select
                 data-guide="subscription"
                 value={subscription}
@@ -113,7 +119,13 @@ export function VmForm({
               </select>
             </label>
             <label>
-              {nb.portal.group}
+              <span>
+                {nb.portal.group}
+                <span className="portal-required" aria-hidden="true">
+                  {' '}
+                  *
+                </span>
+              </span>
               <select
                 data-guide="group"
                 value={group}
@@ -144,9 +156,16 @@ export function VmForm({
             )}
             <h2>{nb.portal.instanceDetails}</h2>
             <label>
-              {t.vm.name}
+              <span>
+                {t.vm.name}
+                <span className="portal-required" aria-hidden="true">
+                  {' '}
+                  *
+                </span>
+              </span>
               <input
                 data-guide="name"
+                aria-label={t.vm.name}
                 value={name}
                 required
                 maxLength={15}
@@ -155,7 +174,13 @@ export function VmForm({
             </label>
             <p className="portal-inline-info">{t.vm.naming}</p>
             <label>
-              {nb.portal.resourceLocation}
+              <span>
+                {nb.portal.region}
+                <span className="portal-required" aria-hidden="true">
+                  {' '}
+                  *
+                </span>
+              </span>
               <select
                 data-guide="region"
                 value={region}
@@ -172,7 +197,13 @@ export function VmForm({
               </select>
             </label>
             <label>
-              {t.vm.image}
+              <span>
+                {t.vm.image}
+                <span className="portal-required" aria-hidden="true">
+                  {' '}
+                  *
+                </span>
+              </span>
               <select
                 data-guide="vm-image"
                 value={image}
@@ -186,7 +217,13 @@ export function VmForm({
               </select>
             </label>
             <label>
-              {t.vm.profile}
+              <span>
+                {t.vm.profile}
+                <span className="portal-required" aria-hidden="true">
+                  {' '}
+                  *
+                </span>
+              </span>
               <select
                 data-guide="vm-profile"
                 value={profile}
@@ -279,11 +316,16 @@ export function VmForm({
           </>
         )}
         <footer className="portal-create-footer">
+          {tab < 3 && (
+            <button className="primary" data-guide="review" type="button" onClick={() => setTab(3)}>
+              {nb.portal.review}
+            </button>
+          )}
           <button type="button" onClick={() => setTab(Math.max(0, tab - 1))} disabled={tab === 0}>
             {nb.portal.previous}
           </button>
           <button
-            data-guide={tab === 3 ? 'commit' : 'review'}
+            data-guide={tab === 3 ? 'commit' : undefined}
             type="submit"
             disabled={disabled || (tab === 3 && preview?.outcome !== 'accepted')}
           >

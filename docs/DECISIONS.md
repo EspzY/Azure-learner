@@ -1,5 +1,9 @@
 # Decisions
 
+## 2026-10-26 — Reference-led Portal presentation, frozen technical truth
+
+Use the existing semantic controls, Lucide and scoped operational tokens instead of adding Fluent packages or copying Portal code/assets. Fluent2 informs interaction principles, not a claim that every Portal blade has migrated to it. Compact the shared shell before service forms; keep course/mentor tools a distinct layer. Native dialog panels provide working notifications/appearance without adding inert fake Azure commands. Use a common keyed resource menu/Essentials/properties view and existing typed dependencies. App settings follows real Edit→draft→Apply while preserving the exact command/replay/assessment contract. Docked/flyout and section state remain transient rather than expanding persistence. Local accepted configuration opens the actual resource/receipt; no fake cloud deployment progress. [Dated sources, gap matrix and remaining differences](PORTAL_REFERENCE_FIDELITY.md).
+
 ## 2026-10-26 — Retire obsolete product runtimes, retain shared learning contracts
 
 Owner explicitly chooses course/SavvyShark/Portal and retires RPG. Remove actual game, timed Living Learning, SVG journey and superseded proof, including their exclusive tests, assets and Three/Fiber dependencies. A complete TypeScript import-boundary audit found zero retained consumers only after extracting current investigations, capacity rules/styles, responsibility rules/copy, official-metadata assertions and receipt UI. No current resource/evidence state is duplicated. Fixed redirects preserve bookmarks, not old behavior or query effects. Dormant stored bytes are not swept; explicit reset retains category cleanup. Keep frozen Chapter01/domain assessment/XP contracts and historical Markdown as compatibility/history. This supersedes instructions to maintain archived gameplay regressions. [Full audit and original CI evidence](LEGACY_AUDIT.md).

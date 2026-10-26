@@ -1,5 +1,11 @@
 # Design system — immersive reset
 
+## Current operational Portal tokens — 2026-10-26
+
+Scoped Portal tokens use header/link `#0078d4`, ink `#323130`, secondary `#605e5c`, separators `#edebe9`, selected `#e6f2fb`, local Segoe UI/Arial13px with1.45 line height, desktop header48px, service rail225px, controls24px, table rows32px and resource menu210px. H1 is20px/600 and secondary hierarchy16/14px. These are reviewed implementation choices from public references, not measurements of every Azure release. Home keeps a semantic visually clipped H1. Original locally rendered Lucide service cues remain distinct from licensed Microsoft icons.
+
+Tables have native filter/search/sort controls and aria-sort; forms align labels/control columns and keep review actions in a consistent footer. Resource Essentials use two columns where space permits. Up to1100px the rail becomes a real menu flyout, retaining essential actions; existing narrow behavior is regression-preserved rather than redesigned. Native modal side panels implement appearance/notifications with Escape, inert background and focus restoration; they approximate Portal blades. Learning tools are a separate disclosure. Actual expanded coach width alone reserves workspace; minimizing reclaims it. [References, screenshots and deliberate differences](PORTAL_REFERENCE_FIDELITY.md).
+
 ## 3.1A educational visual candidate
 
 [VISUAL_LEARNING_SYSTEM](VISUAL_LEARNING_SYSTEM.md) specifies consistent physical/software/scope representations, labelled relationships, blue selection, teal served work, hatched amber unmet demand and dashed unused capacity. It extends the current light course identity inside an isolated proof, not a site reskin. Native labels/table/controls accompany SVG; numerical units and execution state stay explicit. Permanent desktop-first targets are1920×1080,1440×900 and1366×768; earlier mobile visual-pair requirements are historical. Existing small-screen functionality/accessibility remains.

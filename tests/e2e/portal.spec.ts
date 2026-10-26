@@ -1,3 +1,4 @@
+import { revealPortalLink } from './portal-actions';
 import { test, expect, type Page, type TestInfo } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { nb } from '../../src/content/nb';
@@ -24,8 +25,7 @@ async function audit(page: Page) {
 async function area(page: Page, id: keyof typeof p.areas) {
   const nav = page.getByRole('navigation', { name: p.navLabel, exact: true });
   const link = nav.getByRole('link', { name: p.areas[id], exact: true });
-  if (!(await link.isVisible()))
-    await page.getByRole('button', { name: p.menu, exact: true }).click();
+  await revealPortalLink(page, link);
   await link.click();
   await expect(page.locator('.portal-title h1')).toHaveText(p.areas[id]);
 }
@@ -344,6 +344,8 @@ test('keyboard search, incomplete practice, reference assistance, first submissi
   await capture(page, info, 'short');
   await audit(page);
   await page.setViewportSize({ width: 320, height: 740 });
+  // Exercise the declared non-Segoe fallback too; CI exposed a real header-width regression.
+  await page.addStyleTag({ content: '.portal { font-family: Arial, sans-serif; }' });
   await audit(page);
   await page.getByRole('button', { name: p.journal, exact: true }).click();
   await expect(page.getByRole('dialog')).toBeVisible();

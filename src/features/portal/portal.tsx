@@ -4,6 +4,7 @@ import {
   PracticalOutcome,
   PracticalAssistance,
 } from '@/features/course/practical-lab';
+import { ServiceIcon } from './service-icon';
 import { VmForm, type VmFormView } from './vm-form';
 import { AppSettings } from './app-settings';
 import { InfrastructureDetails } from './infrastructure-details';
@@ -12,6 +13,9 @@ import { practicalReturn } from '@/domain/sandbox/practical';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import {
+  Settings2,
+  ArrowRight,
+  Star,
   Menu,
   Search,
   Bell,
@@ -148,6 +152,8 @@ function PortalWorkspace() {
   const rows = inventory(world),
     [menu, setMenu] = useState(false),
     [collapsed, setCollapsed] = useState(false),
+    [flyout, setFlyout] = useState(false),
+    [appearance, setAppearance] = useState(false),
     [notification, setNotification] = useState(false),
     [help, setHelp] = useState(false),
     [resetConfirm, setResetConfirm] = useState(false),
@@ -161,7 +167,7 @@ function PortalWorkspace() {
     [search, setSearch] = useState('');
   const [narrow, setNarrow] = useState(false);
   useEffect(() => {
-    const media = matchMedia('(max-width:800px)');
+    const media = matchMedia('(max-width:1100px)');
     const update = () => setNarrow(media.matches);
     update();
     media.addEventListener('change', update);
@@ -225,6 +231,18 @@ function PortalWorkspace() {
   };
   const current = rows.find((r) => r.id === location.id),
     scope = world.scopes.find((s) => s.id === location.id);
+  const resourceArea =
+    current?.kind === 'vm'
+      ? 'vms'
+      : current?.kind === 'app'
+        ? 'apps'
+        : current?.kind === 'plan'
+          ? 'plans'
+          : current?.kind === 'subscription'
+            ? 'subscriptions'
+            : current?.kind === 'group'
+              ? 'groups'
+              : 'resources';
   const title =
     location.area === 'create'
       ? p.createTitles[location.kind]
@@ -234,7 +252,8 @@ function PortalWorkspace() {
           (location.id === world.identity.id ? world.identity.name : p.noResource))
         : p.areas[location.area];
   useEffect(() => {
-    heading.current?.focus();
+    heading.current?.focus({ preventScroll: true });
+    heading.current?.scrollIntoView({ block: 'start', behavior: 'instant' });
   }, [location.area, location.id, location.kind, location.topic]);
   useEffect(() => {
     if (!menu) return;
@@ -295,7 +314,7 @@ function PortalWorkspace() {
         ...(['home', 'services', ...services, ...educational, 'policy'] as const).map((area) => ({
           id: area,
           label: p.areas[area],
-          category: p.serviceHint,
+          category: nb.portalUi.services,
           area,
           idValue: '',
         })),
@@ -326,15 +345,14 @@ function PortalWorkspace() {
   const startCreate = (kind: CreateKind = createKind) =>
     navigate('create', {
       kind,
-      id:
-        current && ['group', 'subscription', 'plan', 'vm'].includes(current.kind) ? current.id : '',
+      id: current && ['group', 'subscription', 'plan'].includes(current.kind) ? current.id : '',
     });
   const commands = (
     <div className="portal-commandbar">
       {(['groups', 'plans', 'apps', 'vms', 'resources'].includes(location.area) ||
         (location.area === 'resource' &&
           current &&
-          ['group', 'subscription', 'plan', 'vm'].includes(current.kind))) && (
+          ['group', 'subscription', 'plan'].includes(current.kind))) && (
         <button type="button" data-guide="create" onClick={() => startCreate()}>
           <Plus size={16} />
           {p.create}
@@ -366,7 +384,8 @@ function PortalWorkspace() {
   );
   return (
     <div
-      className={`portal ${collapsed ? 'portal-collapsed' : ''} ${location.practice && practical.activeIndependent ? 'portal-practical-independent' : ''} ${guidedLab || (location.practice && practical.current?.mode === 'guided') ? 'portal-guided-lab' : ''}`}
+      data-area={location.area}
+      className={`portal ${flyout ? 'portal-flyout' : ''} ${collapsed ? 'portal-collapsed' : ''} ${location.practice && practical.activeIndependent ? 'portal-practical-independent' : ''} ${guidedLab || (location.practice && practical.current?.mode === 'guided') ? 'portal-guided-lab' : ''}`}
       style={{ '--teaching-width': `${width}px` } as React.CSSProperties}
     >
       <ExpansionAssistance />
@@ -378,9 +397,9 @@ function PortalWorkspace() {
         <button
           type="button"
           aria-label={p.menu}
-          aria-expanded={narrow ? menu : !collapsed}
+          aria-expanded={narrow || flyout ? menu : !collapsed}
           onClick={() => {
-            if (narrow) setMenu(!menu);
+            if (narrow || flyout) setMenu(!menu);
             else setCollapsed(!collapsed);
           }}
         >
@@ -396,7 +415,28 @@ function PortalWorkspace() {
         >
           {p.brand} <small>{p.version}</small>
         </a>
-        <div className="portal-search">
+        <div
+          className="portal-search"
+          onBlur={(e) => {
+            if (!e.currentTarget.contains(e.relatedTarget as Node | null)) setSearch('');
+          }}
+          onKeyDown={(e) => {
+            if (e.key === 'Escape') {
+              setSearch('');
+              searchRef.current?.focus();
+            }
+            if (e.target !== searchRef.current && ['ArrowDown', 'ArrowUp'].includes(e.key)) {
+              const links = Array.from(e.currentTarget.querySelectorAll<HTMLAnchorElement>('a'));
+              const index = links.indexOf(document.activeElement as HTMLAnchorElement);
+              if (index >= 0) {
+                e.preventDefault();
+                links[
+                  (index + (e.key === 'ArrowDown' ? 1 : -1) + links.length) % links.length
+                ]?.focus();
+              }
+            }
+          }}
+        >
           <Search size={17} />
           <input
             data-guide="search"
@@ -404,6 +444,7 @@ function PortalWorkspace() {
             type="search"
             aria-label={p.search}
             placeholder={p.searchPlaceholder}
+            aria-controls={search ? 'portal-search-results' : undefined}
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             onKeyDown={(e) => {
@@ -415,21 +456,39 @@ function PortalWorkspace() {
             }}
           />
           {search && (
-            <div className="portal-search-results" aria-label={p.searchResults}>
+            <div
+              id="portal-search-results"
+              className="portal-search-results"
+              aria-label={p.searchResults}
+            >
               <strong>{p.searchResults}</strong>
-              {searchItems.map((item) => (
-                <a
-                  key={item.id}
-                  href={portalHref(location, item.area, { id: item.idValue })}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    navigate(item.area, { id: item.idValue });
-                  }}
-                >
-                  <small>{item.category}</small>
-                  {item.label}
-                </a>
-              ))}
+              {[nb.portalUi.services, p.resources].map(
+                (category) =>
+                  searchItems.some((item) => item.category === category) && (
+                    <div className="portal-search-group" key={category}>
+                      <strong>{category}</strong>
+                      {searchItems
+                        .filter((item) => item.category === category)
+                        .map((item) => (
+                          <a
+                            key={item.id}
+                            href={portalHref(location, item.area, { id: item.idValue })}
+                            onClick={(e) => {
+                              e.preventDefault();
+                              navigate(item.area, { id: item.idValue });
+                            }}
+                          >
+                            {item.area === 'resource' && (
+                              <ServiceIcon
+                                kind={rows.find((r) => r.id === item.idValue)?.kind ?? 'resources'}
+                              />
+                            )}
+                            {item.label}
+                          </a>
+                        ))}
+                    </div>
+                  ),
+              )}
               {Object.entries(serviceSources)
                 .filter(([id]) =>
                   `${id} ${p.referenceTitles[id as keyof typeof p.referenceTitles]}`
@@ -444,7 +503,7 @@ function PortalWorkspace() {
                     rel="noreferrer"
                     onClick={helpLearning}
                   >
-                    <small>{p.source}</small>
+                    <small>{nb.portalUi.documentation}</small>
                     {p.referenceTitles[id as keyof typeof p.referenceTitles]} ↗
                   </a>
                 ))}
@@ -457,19 +516,31 @@ function PortalWorkspace() {
             </div>
           )}
         </div>
-        <span className="portal-simulation">{p.simulation}</span>
+        <span className="portal-simulation">{nb.portalUi.training}</span>
         <button
           type="button"
           className="portal-notifications"
           onClick={() => setNotification(true)}
         >
           <Bell size={19} />
-          <span>
+          <span className="sr-only">
             {p.notifications} ({chapter.attempt.engine.ledger.length})
           </span>
+          {chapter.attempt.engine.ledger.length > 0 && (
+            <i className="portal-notification-count" aria-hidden="true">
+              {chapter.attempt.engine.ledger.length}
+            </i>
+          )}
+        </button>
+        <button
+          type="button"
+          aria-label={nb.portalUi.appearance}
+          onClick={() => setAppearance(true)}
+        >
+          <Settings2 size={17} />
         </button>
         <button type="button" aria-label={p.limitations} onClick={() => setHelp(true)}>
-          <HelpCircle size={19} />
+          <HelpCircle size={17} />
         </button>
         <button
           type="button"
@@ -486,6 +557,16 @@ function PortalWorkspace() {
       <div className="portal-body">
         <aside className={`portal-nav ${menu ? 'mobile-open' : ''}`} aria-label={p.navLabel}>
           <nav aria-label={p.navLabel}>
+            <a
+              href={portalHref(location, 'services')}
+              onClick={(e) => {
+                e.preventDefault();
+                navigate('services');
+              }}
+            >
+              <Plus size={17} />
+              {nb.portalUi.create}
+            </a>
             {(['home', 'services'] as const).map((area) => {
               const Icon = icons[area];
               return (
@@ -503,43 +584,63 @@ function PortalWorkspace() {
                 </a>
               );
             })}
-            <span>{p.favourites}</span>
+            <span className="portal-nav-category">
+              <Star size={12} />
+              {nb.portalUi.favorites}
+            </span>
             {services.map((area) => {
-              const Icon = icons[area];
               return (
                 <a
                   key={area}
                   data-guide={area === 'groups' ? 'groups' : undefined}
                   href={portalHref(location, area)}
-                  aria-current={location.area === area ? 'page' : undefined}
+                  aria-current={
+                    location.area === area ||
+                    ((location.area === 'resource' || location.area === 'settings') &&
+                      resourceArea === area)
+                      ? 'page'
+                      : undefined
+                  }
                   onClick={(e) => {
                     e.preventDefault();
                     navigate(area);
                   }}
                 >
-                  <Icon size={17} />
+                  <ServiceIcon kind={area} size={17} />
                   {p.areas[area]}
                 </a>
               );
             })}
-            <span>{p.understand}</span>
-            {educational.map((area) => {
-              const Icon = icons[area];
-              return (
-                <a
-                  key={area}
-                  href={portalHref(location, area)}
-                  aria-current={location.area === area ? 'page' : undefined}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    navigate(area);
-                  }}
-                >
-                  <Icon size={17} />
-                  {p.areas[area]}
-                </a>
-              );
-            })}
+            <details
+              className="portal-learning-tools"
+              open={
+                !!location.practice ||
+                !!location.lab ||
+                educational.some((a) => a === location.area)
+              }
+            >
+              <summary>
+                <BookOpen size={14} />
+                {nb.portalUi.learningTools}
+              </summary>
+              {educational.map((area) => {
+                const Icon = icons[area];
+                return (
+                  <a
+                    key={area}
+                    href={portalHref(location, area)}
+                    aria-current={location.area === area ? 'page' : undefined}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      navigate(area);
+                    }}
+                  >
+                    <Icon size={17} />
+                    {p.areas[area]}
+                  </a>
+                );
+              })}
+            </details>
           </nav>
           <small>{p.environment}</small>
         </aside>
@@ -553,23 +654,27 @@ function PortalWorkspace() {
               type="button"
               onClick={() =>
                 navigate(
-                  location.area === 'resource'
-                    ? current?.kind === 'app'
-                      ? 'apps'
-                      : current?.kind === 'plan'
-                        ? 'plans'
-                        : current?.kind === 'subscription'
-                          ? 'subscriptions'
-                          : 'groups'
-                    : location.area,
+                  ['resource', 'settings'].includes(location.area) ? resourceArea : location.area,
                 )
               }
             >
-              {p.areas[location.area === 'resource' ? 'resources' : location.area]}
+              {
+                p.areas[
+                  ['resource', 'settings'].includes(location.area) ? resourceArea : location.area
+                ]
+              }
             </button>
-            {location.area === 'resource' && (
+            {['resource', 'settings'].includes(location.area) && (
               <>
                 <ChevronRight size={12} />
+                {location.area === 'settings' && (
+                  <>
+                    <button type="button" onClick={() => navigate('resource', { id: location.id })}>
+                      {current?.name}
+                    </button>
+                    <ChevronRight size={12} />
+                  </>
+                )}
                 <span>{title}</span>
               </>
             )}
@@ -577,6 +682,10 @@ function PortalWorkspace() {
           <div className="portal-title">
             <span className="portal-title-icon">
               {(() => {
+                if (location.area === 'resource' || location.area === 'settings')
+                  return <ServiceIcon kind={current?.kind ?? 'resources'} size={28} />;
+                if (location.area === 'create')
+                  return <ServiceIcon kind={location.kind} size={28} />;
                 const Icon = icons[location.area];
                 return <Icon size={26} />;
               })()}
@@ -615,7 +724,9 @@ function PortalWorkspace() {
                         ? nb.course.free
                         : p.modes[location.mode]}
             </span>
-            <span>
+            <span
+              hidden={!location.bridge && !location.practice && !guidedLab && !independentContext}
+            >
               {location.bridge ||
               (location.practice && practical.current?.origin.module === 'benefits')
                 ? nb.official.benefits
@@ -630,9 +741,7 @@ function PortalWorkspace() {
                 {p.continueChallenge}
               </button>
             ) : (
-              <button type="button" onClick={returnLearning}>
-                {p.returnLearning}
-              </button>
+              <span />
             )}
             {location.mode === 'guided' && !guidedLab && !independentContext && (
               <button type="button" onClick={() => setPane(!pane)}>
@@ -684,51 +793,65 @@ function PortalWorkspace() {
                 <>
                   <h2>{p.services}</h2>
                   <div className="portal-home-services">
+                    <button type="button" onClick={() => navigate('services')}>
+                      <Plus size={30} />
+                      <span>{nb.portalUi.create}</span>
+                    </button>
                     {services.map((area) => {
-                      const Icon = icons[area];
                       return (
                         <button key={area} type="button" onClick={() => navigate(area)}>
-                          <Icon size={31} />
+                          <ServiceIcon kind={area} size={30} />
                           <span>{p.areas[area]}</span>
                         </button>
                       );
                     })}
-                  </div>
-                  <section className="portal-home-training">
-                    <BookOpen size={25} />
-                    <div>
-                      <h2>
-                        {practicalMission?.title ??
-                          (location.bridge ? nb.official.benefits : nb.official.services)}
-                      </h2>
-                      <p>
-                        {practicalMission?.purpose ??
-                          (location.bridge ? labsNb.bridge[location.bridge] : p.homeIntro)}
-                      </p>
-                      <small>
-                        {nb.official.certification} · {nb.official.path}
-                      </small>
-                    </div>
-                    <button
-                      type="button"
-                      className="primary"
-                      onClick={() =>
-                        practicalMission || location.bridge
-                          ? returnLearning()
-                          : navigate(module.facts.active ? 'challenge' : 'learn')
-                      }
-                    >
-                      {practicalMission || location.bridge
-                        ? nb.course.returnCourse
-                        : module.facts.active
-                          ? p.continueChallenge
-                          : p.startLearning}
+                    <button type="button" onClick={() => navigate('services')}>
+                      <ArrowRight size={28} />
+                      <span>{nb.portalUi.moreServices}</span>
                     </button>
-                  </section>
+                  </div>
+                  {(practicalMission || guidedLab || location.bridge) && (
+                    <details className="portal-home-training">
+                      <summary>
+                        {nb.portalUi.learningLayer} ·{' '}
+                        {practicalMission?.title ?? nb.official.services}
+                      </summary>
+                      <BookOpen size={25} />
+                      <div>
+                        <h2>
+                          {practicalMission?.title ??
+                            (location.bridge ? nb.official.benefits : nb.official.services)}
+                        </h2>
+                        <p>
+                          {practicalMission?.purpose ??
+                            (location.bridge ? labsNb.bridge[location.bridge] : p.homeIntro)}
+                        </p>
+                        <small>
+                          {nb.official.certification} · {nb.official.path}
+                        </small>
+                      </div>
+                      <button
+                        type="button"
+                        className="primary"
+                        onClick={() =>
+                          practicalMission || location.bridge
+                            ? returnLearning()
+                            : navigate(module.facts.active ? 'challenge' : 'learn')
+                        }
+                      >
+                        {practicalMission || location.bridge
+                          ? nb.course.returnCourse
+                          : module.facts.active
+                            ? p.continueChallenge
+                            : p.startLearning}
+                      </button>
+                    </details>
+                  )}
                   <h2>{p.recent}</h2>
                   <p>{p.recentHint}</p>
                   {recent.length ? (
                     <ResourceTable
+                      compact
                       world={world}
                       navigate={navigate}
                       rows={rows
@@ -743,6 +866,17 @@ function PortalWorkspace() {
                       </button>
                     </div>
                   )}
+                  <section className="portal-home-navigate">
+                    <h2>{nb.portalUi.navigate}</h2>
+                    <div>
+                      {(['subscriptions', 'groups', 'resources'] as const).map((area) => (
+                        <button key={area} type="button" onClick={() => navigate(area)}>
+                          <ServiceIcon kind={area} size={22} />
+                          {p.areas[area]}
+                        </button>
+                      ))}
+                    </div>
+                  </section>
                 </>
               ) : location.area === 'services' ? (
                 <>
@@ -795,40 +929,44 @@ function PortalWorkspace() {
                     onObserve={guidedLab ? setLabForm : undefined}
                   />
                 )
-              ) : location.area === 'settings' ? (
-                <AppSettings
+              ) : location.area === 'settings' || location.area === 'resource' ? (
+                <ResourceDetails
                   key={location.id}
                   world={world}
                   id={location.id}
-                  disabled={disabled}
-                  onCreate={command}
-                />
-              ) : location.area === 'resource' ? (
-                <>
-                  <ResourceDetails
-                    key={location.id}
-                    world={world}
-                    id={location.id}
-                    navigate={navigate}
-                  >
-                    <InfrastructureDetails
-                      world={world}
-                      id={location.id}
-                      navigate={navigate}
-                      onCreate={command}
-                      receipt={
-                        chapter.attempt.engine.ledger
-                          .filter(
-                            (e) =>
-                              e.receipt.outcome === 'accepted' &&
-                              (e.receipt.addedIds.includes(location.id) ||
-                                e.request.command.appId === location.id),
-                          )
-                          .at(-1)?.receipt
-                      }
-                    />
-                  </ResourceDetails>
-                </>
+                  navigate={navigate}
+                  settings={location.area === 'settings'}
+                >
+                  {(view) =>
+                    location.area === 'settings' ? (
+                      <AppSettings
+                        key={location.id}
+                        world={world}
+                        id={location.id}
+                        disabled={disabled}
+                        onCreate={command}
+                      />
+                    ) : (
+                      <InfrastructureDetails
+                        view={view}
+                        world={world}
+                        id={location.id}
+                        navigate={navigate}
+                        onCreate={command}
+                        receipt={
+                          chapter.attempt.engine.ledger
+                            .filter(
+                              (e) =>
+                                e.receipt.outcome === 'accepted' &&
+                                (e.receipt.addedIds.includes(location.id) ||
+                                  e.request.command.appId === location.id),
+                            )
+                            .at(-1)?.receipt
+                        }
+                      />
+                    )
+                  }
+                </ResourceDetails>
               ) : location.area === 'learn' ? (
                 <LearningWorkspace location={location} navigate={navigate} />
               ) : location.area === 'challenge' ? (
@@ -984,8 +1122,31 @@ function PortalWorkspace() {
           <PracticalOutcome />
         </section>
       )}
+      {appearance && (
+        <PortalDialog panel title={nb.portalUi.appearance} onClose={() => setAppearance(false)}>
+          <fieldset>
+            <legend>{nb.portalUi.menuBehavior}</legend>
+            {(['docked', 'flyout'] as const).map((mode) => (
+              <label key={mode}>
+                <input
+                  type="radio"
+                  name="portal-menu-mode"
+                  checked={flyout === (mode === 'flyout')}
+                  onChange={() => {
+                    setFlyout(mode === 'flyout');
+                    setMenu(false);
+                    setCollapsed(false);
+                  }}
+                />
+                {nb.portalUi[mode]}
+              </label>
+            ))}
+          </fieldset>
+          <p>{nb.portalUi.preferenceScope}</p>
+        </PortalDialog>
+      )}
       {notification && (
-        <PortalDialog title={p.notifications} onClose={() => setNotification(false)}>
+        <PortalDialog panel title={p.notifications} onClose={() => setNotification(false)}>
           <p>{p.notificationCount}</p>
           <OperationTable
             receipts={chapter.attempt.engine.ledger

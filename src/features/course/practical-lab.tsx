@@ -437,7 +437,8 @@ export function PracticalCoach({
     `${location.area}:${location.id}:${location.kind}`,
   );
   if (!active || !s) return null;
-  const instruction = polish.guide[phase];
+  const instruction =
+    phase === 'inspect' && s.kind === 'paas' ? polish.guide.inspectPaas : polish.guide[phase];
   return (
     <>
       {bounds?.visible && (

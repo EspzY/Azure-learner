@@ -148,7 +148,7 @@ export function CreateResource({
                 </label>
               )}
             </div>
-            <h2>{p.instanceDetails}</h2>
+            {kind !== 'group' && <h2>{p.instanceDetails}</h2>}
             <div className="portal-fields">
               <label>
                 {kind === 'group' ? p.groupName : p.name}

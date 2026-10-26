@@ -1,5 +1,9 @@
 # PaaS practical refinement
 
+## Environment variables presentation — 2026-10-26
+
+The existing app resource menu now opens Environment variables → App settings as a compact Name/Value list. Edit opens a native accessible editor for one allowlisted key. Save draft changes in-memory form values only; Cancel discards that editor draft. The separate page Apply sends the unchanged SetAppSettings command. Leaving/reloading before Apply does not persist the draft. Values are harmless teaching enums, visibly shown rather than pretending to implement secret masking/security. No restart, arbitrary key, runtime behavior or new award. Existing persisted settings, receipt and independent predicates remain authoritative. [Source and fidelity comparison](PORTAL_REFERENCE_FIDELITY.md).
+
 Reviewed 2026-10-25: [configure App settings](https://learn.microsoft.com/en-us/azure/app-service/configure-common), [hosting plans](https://learn.microsoft.com/en-us/azure/app-service/overview-hosting-plans), [OS/runtime patch boundaries](https://learn.microsoft.com/en-us/azure/app-service/overview-patch-os-runtime).
 
 The previous plan/app creation is retained. New operation: SetAppSettings for an existing supported Web App with a valid hosting plan. Allowlisted fictional application settings APP_ENVIRONMENT (development/staging/production) and CATALOG_MODE (standard/read-only) are harmless training values. They are not built-in Azure configuration switches. Customer code would need to read them. No secrets, free-form scripts, connection strings or code execution.
