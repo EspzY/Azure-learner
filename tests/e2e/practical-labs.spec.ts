@@ -334,6 +334,8 @@ test('root course to persisted VM, app settings, separate SaaS, exact debrief an
   await desktopEvidence(page, info, 'app-settings');
   await page.getByRole('button', { name: t.settings.apply, exact: true }).click();
   await expect(page.locator('.portal-infrastructure')).toContainText('staging');
+  await expect(page.locator('.practical-coach')).toContainText(polish.guide.inspectPaas[3]);
+  await expect(page.locator('.practical-coach')).not.toContainText(polish.guide.inspect[3]);
   await inspect(page);
   await page.reload();
   await expect(page.locator('.portal-infrastructure')).toContainText('read-only');

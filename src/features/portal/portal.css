@@ -259,6 +259,11 @@
   min-height: calc(100dvh - 48px);
 }
 .portal-nav {
+  position: sticky;
+  top: var(--portal-header);
+  height: calc(100dvh - var(--portal-header));
+  align-self: flex-start;
+  overflow-y: auto;
   width: var(--portal-nav);
   flex: 0 0 var(--portal-nav);
   background: #fff;

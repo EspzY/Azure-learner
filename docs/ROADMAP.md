@@ -1,5 +1,11 @@
 # Roadmap
 
+## Reference-led Portal workspace — implemented review candidate, 2026-10-26
+
+Shared shell, Home/search/lists, service-specific resource inspection, RG/VM/plan/Web form presentation, settings Edit/draft/Apply and minimizable SavvyShark are implemented on the isolated PR16 stack. Actual preview review additionally corrected sticky-header title focus, docked menu scrolling and PaaS-specific inspection copy. Technical models, evidence and stored records remain unchanged. [References, comparison and deliberate limits](PORTAL_REFERENCE_FIDELITY.md); [executed verification](PROJECT_STATUS.md).
+
+Next gate is owner/Azure-administrator review of navigation and supported form/inspection transfer plus novice and assistive-technology exercises. Pixel parity, authenticated tenant testing and educational effectiveness remain unproven. Correct observed transfer defects before adding services; no merge or production release is implied by passing engineering checks.
+
 ## Legacy retirement — 2026-10-26
 
 Retire the obsolete product implementations before further curriculum expansion. Current course/lab UX, human novice/IT/SME review and preserved evidence remain the next priorities. G1/RPG/SVG/Living Learning roadmap sections below are historical and are not scheduled active work. Further removal of frozen simulation/assessment compatibility needs separate data-contract proof; do not delete it by filename. See [audit](LEGACY_AUDIT.md).

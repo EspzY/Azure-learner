@@ -185,6 +185,17 @@ for (const [width, height] of [
     await expect(page.locator('.portal-resource-main')).toContainText(ui.localId);
     await expect(page.locator('.portal-resource-main')).toContainText('app-fidelity');
     await expect(page.locator('.portal-app-settings')).toHaveCount(0);
+    if (width! > 1100) {
+      expect(
+        await page
+          .locator('.portal-nav')
+          .evaluate(
+            (el) =>
+              el.getBoundingClientRect().top >=
+              document.querySelector('.portal-header')!.getBoundingClientRect().bottom,
+          ),
+      ).toBe(true);
+    }
     await page.getByRole('button', { name: /Notifications/ }).click();
     await expect(page.locator('.portal-side-panel')).toBeVisible();
     await audit(page);

@@ -1,5 +1,7 @@
 # Guided sandbox engine
 
+The actual Portal walkthrough also exposed shared inspection copy asking PaaS learners to compare VM/disk/NIC. PaaS inspection now explains the actual app settings, hosting reference and derived location; the original VM explanation is retained for VM labs. This is authored presentation selection only, with explicit guided E2E assertions; no objective, completion predicate, assessment or source fact changes.
+
 ## Portal workspace separation — 2026-10-26
 
 Guide evaluators, target IDs and receipt predicates are unchanged. Portal CSS reserves width only for an expanded actual coach; minimized guidance exposes the full operational surface and can be reopened/brief recalled without resetting. Service navigation stays authentic while training tools use a separate disclosure. Field targets remain on the real controls. In Environment variables, the settings target is the actual Edit control, moving to the enum selector while its native editor is open; Save draft alone never satisfies persisted settings. Only the unchanged Apply result does. No auto-configuration, new flags, click counters or independent solution highlights.

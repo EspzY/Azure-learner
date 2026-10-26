@@ -4091,6 +4091,12 @@ export const learningPolishNb = {
       'Les valideringen. Rett feil, eller velg Create når den er gyldig.',
       'Bare en akseptert kvittering legger ressurser i samme autoritative inventory.',
     ],
+    inspectPaas: [
+      'Undersøk appkonfigurasjon og hosting',
+      'Appen er medlem av en resource group, men bruker planen som hosting-avhengighet. Innstillinger er et eget kundeansvar.',
+      'Åpne appen nedenfor, les de lagrede innstillingene og planreferansen, og bekreft inspeksjonen.',
+      'Sammenlign appens plan, avledede lokasjon og anvendte innstillinger med Architecture Explorer. Ingen kodekjøring eller restart er bekreftet.',
+    ],
     inspect: [
       'Følg de faktiske relasjonene',
       'Medlemskap, diskavhengighet og nettverkstilknytning betyr forskjellige ting.',
