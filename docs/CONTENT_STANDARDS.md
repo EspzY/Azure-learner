@@ -1,5 +1,9 @@
 # Content authoring and acceptance contract
 
+## Permanent owner quality contract — PR20
+
+[QUALITY_CONTRACT](QUALITY_CONTRACT.md) is the active A–I umbrella. This document remains the detailed manuscript standard; [CONTENT_QA_STANDARD](CONTENT_QA_STANDARD.md) specifies its traceable implementation/review evidence, and [SOURCE_COVERAGE_PROTOCOL](SOURCE_COVERAGE_PROTOCOL.md) requires scoped unit-page, linked/expandable/supplemental discovery and concrete claim checks. All new modules require independent new-context application and correct/plausible-wrong feedback, not a word-count threshold. [Independent Final Audit](RELEASE_ACCEPTANCE.md) is mandatory after implementation with blockers fixed/retested. Existing PR19 PARTIAL statuses remain; PR20 adds guidance infrastructure, not new module/assessment coverage or human approval.
+
 ## AZ-900 coverage acceptance — 2026-10-26
 
 Use [A–F per-objective acceptance](AZ900_COVERAGE_MATRIX.md): substantive theory, mechanism/limits, relevant application, changed unaided task, explanations for correct/plausible wrong answers, and current official factual source check. Every named facet of a composite skill must be audited; no average score hides missing technologies. A COMPLETE content finding is distinct from actual learner success and qualified human SME/learner validation. Fixed binary questions and leading diagnosis text require explicit critique, not automatic approval. New scenarios must change reasoning constraints, not merely names/numbers. Preserve versioned first/help/retry records; a new item or source revision never rewrites historical evidence. No exam-dump or copied Microsoft Practice Assessment material. [Original diagnostic design](AZ900_ASSESSMENT_BLUEPRINT.md) is proposed only.

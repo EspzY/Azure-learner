@@ -1,0 +1,209 @@
+{
+  "schema": 1,
+  "baseCommit": "cc9e145dcf5dc418af42b19fd569179a2272c61e",
+  "author": "fixture-author",
+  "scope": {
+    "kind": "infrastructure-guidance",
+    "description": "Structural test input only, not a new learning implementation or educational approval.",
+    "objectives": ["G03", "CB03", "C02", "ST01", "N01"],
+    "sourceDiscovery": {
+      "studyGuide": "Reused dated PR19 audit; no new curriculum expansion.",
+      "pathsModulesUnits": "Not applicable to new module authorship: no new module. Existing manuscript/rubric/source bindings are reused.",
+      "productReferences": "Scoped Policy, OS disk and NIC association claims checked before new copy.",
+      "supplemental": "Only explicitly listed linked references; no unrelated feature expansion."
+    }
+  },
+  "sources": [
+    {
+      "id": "Q-POLICY",
+      "url": "https://learn.microsoft.com/en-us/azure/governance/policy/overview",
+      "title": "What is Azure Policy?",
+      "kind": "product",
+      "reviewed": "2026-10-26",
+      "version": "rolling-page reviewed 2026-10-26",
+      "availability": "AVAILABLE",
+      "objectives": ["G03", "CB03"],
+      "claims": ["policy.deny-configuration"],
+      "limits": "Only resource-property deny in the authored local Web rule is used. New identity-aware Policy capabilities and generic remediation are not modelled; local receipts/replay prove local non-mutation, not this public page.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effect-deny",
+          "disposition": "reviewed-existing",
+          "reason": "Existing S38 and source-backed deny semantics; implementation reuses unchanged local rule."
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/governance/policy/how-to/remediate-resources",
+          "disposition": "outside-scope",
+          "reason": "No modify/deploy/remediation feature is introduced."
+        }
+      ]
+    }
+  ],
+  "activities": [
+    {
+      "id": "policy-denial",
+      "objectives": ["G03", "CB03"],
+      "claims": ["policy.deny-configuration"],
+      "theory": [
+        {
+          "path": "src/content/nb.ts",
+          "marker": "milestones:"
+        }
+      ],
+      "mechanism": [
+        {
+          "path": "src/domain/guidance/milestones.ts",
+          "marker": "policy-denial"
+        }
+      ],
+      "practice": [
+        {
+          "path": "src/features/course/guidance-milestones.tsx",
+          "marker": "GuidanceMilestones"
+        }
+      ],
+      "feedback": [
+        {
+          "path": "src/content/nb.ts",
+          "marker": "consequence:"
+        }
+      ],
+      "visual": [
+        {
+          "path": "src/features/course/guidance-milestones.tsx",
+          "marker": "milestone-facts"
+        }
+      ],
+      "accessible": [
+        {
+          "path": "src/features/course/guidance-milestones.tsx",
+          "marker": "onCancel"
+        }
+      ],
+      "assessment": [
+        {
+          "path": "src/domain/curriculum/expansion.ts",
+          "marker": "assess"
+        },
+        {
+          "path": "src/domain/sandbox/practical.ts",
+          "marker": "evaluatePractical"
+        }
+      ],
+      "assessmentStatus": "unchanged-existing",
+      "savvyshark": [
+        {
+          "path": "src/domain/guidance/milestones.test.ts",
+          "marker": "read-only registered learning milestones"
+        }
+      ],
+      "limits": "Presentation-only explanation of existing outcomes; no new independent task, completion, XP or upgrade of PR19 PARTIAL coverage."
+    }
+  ],
+  "modules": [],
+  "gates": {
+    "source": {
+      "checks": [
+        {
+          "path": "docs/SOURCE_COVERAGE_PROTOCOL.md",
+          "marker": "Source coverage protocol"
+        }
+      ],
+      "limits": "Reference/structure checks do not prove claim correctness or exhaustive discovery."
+    },
+    "curriculum": {
+      "checks": [
+        {
+          "path": "src/domain/curriculum/expansion-content.ts",
+          "marker": "validateExpansion"
+        },
+        {
+          "path": "src/domain/guidance/milestones.test.ts",
+          "marker": "binds existing competencies"
+        }
+      ],
+      "limits": "No new module. Existing PR19 assessment/content gaps remain."
+    },
+    "simulation": {
+      "checks": [
+        {
+          "path": "src/domain/sandbox/sandbox.test.ts",
+          "marker": "atomic"
+        },
+        {
+          "path": "src/domain/guidance/milestones.test.ts",
+          "marker": "unchanged state"
+        }
+      ],
+      "limits": "No live Azure; existing commands, models, receipts and rubric are unchanged."
+    },
+    "savvyshark": {
+      "checks": [
+        {
+          "path": "src/domain/guidance/milestones.test.ts",
+          "marker": "denied storage"
+        },
+        {
+          "path": "tests/e2e/quality-system.spec.ts",
+          "marker": "milestone"
+        }
+      ],
+      "limits": "Best-effort local UI history is not learning evidence or a distributed lock."
+    },
+    "visual-accessibility": {
+      "checks": [
+        {
+          "path": "tests/e2e/quality-system.spec.ts",
+          "marker": "visible guidance"
+        },
+        {
+          "path": "docs/SAVVYSHARK_GUIDANCE_STANDARD.md",
+          "marker": "F3/F4"
+        }
+      ],
+      "limits": "Axe/geometry cannot certify screen-reader, professional visual quality or learner comprehension."
+    },
+    "independent-final-audit": {
+      "checks": [
+        {
+          "path": "scripts/quality-check.mjs",
+          "marker": "validateSnapshot"
+        },
+        {
+          "path": "scripts/quality-check.test.mjs",
+          "marker": "stale"
+        }
+      ],
+      "limits": "Hash/report checks cannot establish human expertise or honesty; separate agent review is not qualified human SME."
+    },
+    "delivery": {
+      "checks": [
+        {
+          "path": "docs/RELEASE_ACCEPTANCE.md",
+          "marker": "preview"
+        }
+      ],
+      "limits": "Actual stable preview/SHA, CI and browser inspection recorded on the Draft PR after deployment, not assumed from local flags."
+    }
+  },
+  "preservedPaths": [
+    "src/domain/chapter01/",
+    "src/domain/sandbox/",
+    "src/domain/curriculum/",
+    "src/domain/course/",
+    "src/domain/progression",
+    "src/domain/portal/",
+    "package-lock.json"
+  ],
+  "humanReview": {
+    "sme": "unperformed",
+    "learning": "unperformed"
+  },
+  "id": "synthetic-validator-fixture@1",
+  "verification": [],
+  "visualEvidence": [],
+  "implementationFinished": null,
+  "review": {
+    "status": "pending"
+  }
+}

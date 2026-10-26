@@ -1,5 +1,11 @@
 # Source and credential register
 
+## PR20 scoped guidance and quality sources — 2026-10-26
+
+No repeat AZ-900 audit or new module source approval. [Source coverage protocol](SOURCE_COVERAGE_PROTOCOL.md) and [current release records](../quality/releases/current.json) record titles/URLs, concrete scoped claims, reviewdate/version, objective mappings, discovery dispositions and availability. Public Policy overview/deny, managed-disks OS role and VM network relationships were rechecked for the two original milestone explanations. Broader identity-aware Policy behavior, IP defaults, runtime, SLA/pricing and disk guarantees were not imported. No full lesson or practice question was copied.
+
+Official public exam-experience/prepare-exam descriptions informed future interaction formats only. Research access to the actual examdemo redirect and an older exam-duration URL failed; demo interaction is explicitly BLOCKED, with accessible official documentation as alternative. No Candidate Agreement, authentication or protection was bypassed. Qualified human SME/learning review remains unperformed.
+
 ## AZ-900 curriculum audit — 2026-10-26
 
 The [dated source catalog](AZ900_COVERAGE_MATRIX.md#daterte-offisielle-kilder) and [machine-readable records](audits/az900-2026-07-20.json) record official URLs, review date, observed exam version and page-updated dates where visible. Current Skills Measured remains July20,2026. All three current paths and their12 module/unit structures, plus the eight-project applied path, were inspected. Technical cross-checks include shared responsibility, Functions hosting, region/pair qualifications, ARM metadata/scopes, App Service plans, VM guest duties and pricing commitments. These are implementing-agent source checks, not qualified human SME approval; older runtime source timestamps remain unchanged.

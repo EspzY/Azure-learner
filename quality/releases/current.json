@@ -1,0 +1,633 @@
+{
+  "schema": 1,
+  "id": "permanent-quality-savvyshark@1",
+  "baseCommit": "cc9e145dcf5dc418af42b19fd569179a2272c61e",
+  "author": "codex/root",
+  "scope": {
+    "kind": "infrastructure-guidance",
+    "description": "Permanent seven-gate enforcement and two read-only guided milestones; preserve current curriculum/assessment/domain/store behavior.",
+    "objectives": ["G03", "CB03", "C02", "ST01", "N01"],
+    "sourceDiscovery": {
+      "studyGuide": "Reused dated PR19 audit; no new curriculum expansion.",
+      "pathsModulesUnits": "Not applicable to new module authorship: no new module. Existing manuscript/rubric/source bindings are reused.",
+      "productReferences": "Scoped Policy, OS disk and NIC association claims checked before new copy.",
+      "supplemental": "Only explicitly listed linked references; no unrelated feature expansion."
+    }
+  },
+  "sources": [
+    {
+      "id": "Q-POLICY",
+      "url": "https://learn.microsoft.com/en-us/azure/governance/policy/overview",
+      "title": "What is Azure Policy?",
+      "kind": "product",
+      "reviewed": "2026-10-26",
+      "version": "rolling-page reviewed 2026-10-26",
+      "availability": "AVAILABLE",
+      "objectives": ["G03", "CB03"],
+      "claims": ["policy.deny-configuration"],
+      "limits": "Only resource-property deny in the authored local Web rule is used. New identity-aware Policy capabilities and generic remediation are not modelled; local receipts/replay prove local non-mutation, not this public page.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effect-deny",
+          "disposition": "reviewed-existing",
+          "reason": "Existing S38 and source-backed deny semantics; implementation reuses unchanged local rule."
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/governance/policy/how-to/remediate-resources",
+          "disposition": "outside-scope",
+          "reason": "No modify/deploy/remediation feature is introduced."
+        }
+      ]
+    },
+    {
+      "id": "Q-DISK",
+      "url": "https://learn.microsoft.com/en-us/azure/virtual-machines/managed-disks-overview",
+      "title": "Azure managed disks overview",
+      "kind": "product",
+      "reviewed": "2026-10-26",
+      "version": "rolling-page reviewed 2026-10-26",
+      "availability": "AVAILABLE",
+      "objectives": ["C02", "ST01"],
+      "claims": ["vm.os-disk"],
+      "limits": "OS disk and data disk roles only. No availability, durability, pricing, backup or disk-performance claim is introduced.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/virtual-machines/disks-types",
+          "disposition": "outside-scope",
+          "reason": "No disk tier/SKU expansion; existing teaching profiles remain bounded."
+        }
+      ]
+    },
+    {
+      "id": "Q-NIC",
+      "url": "https://learn.microsoft.com/en-us/azure/virtual-network/network-overview",
+      "title": "Virtual networks and virtual machines in Azure",
+      "kind": "product",
+      "reviewed": "2026-10-26",
+      "version": "rolling-page reviewed 2026-10-26",
+      "availability": "AVAILABLE",
+      "objectives": ["C02", "N01", "ST01"],
+      "claims": ["vm.nic-subnet-vnet"],
+      "limits": "NIC/subnet/VNet association only. Public/default IP and outbound-network descriptions are not imported. No actual traffic or guest boot is inferred.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-network-interface",
+          "disposition": "optional",
+          "reason": "Linked deeper NIC operations are beyond the existing one-NIC model; relationship explanation only."
+        }
+      ]
+    },
+    {
+      "id": "Q-EXAM",
+      "url": "https://learn.microsoft.com/en-us/credentials/support/exam-duration-exam-experience",
+      "title": "Exam duration and exam experience",
+      "kind": "official-example",
+      "reviewed": "2026-10-26",
+      "version": "rolling-page reviewed 2026-10-26",
+      "availability": "AVAILABLE",
+      "objectives": ["quality.assessment-format"],
+      "claims": ["assessment.public-formats"],
+      "limits": "Public interaction descriptions only, not actual AZ-900 item composition, copied questions or an implemented engine.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/credentials/certifications/prepare-exam",
+          "disposition": "reviewed-applied",
+          "reason": "Official descriptions of build list, drag-and-drop and exam sandbox navigation."
+        },
+        {
+          "url": "https://aka.ms/examdemo",
+          "disposition": "blocked",
+          "reason": "Research redirect unavailable; interactive sandbox completion is not claimed."
+        }
+      ]
+    },
+    {
+      "id": "Q-DEMO",
+      "url": "https://aka.ms/examdemo",
+      "title": "Microsoft public exam sandbox",
+      "kind": "official-example",
+      "reviewed": "2026-10-26",
+      "version": "rolling-page reviewed 2026-10-26",
+      "availability": "BLOCKED",
+      "objectives": ["quality.assessment-format"],
+      "claims": ["assessment.public-formats"],
+      "limits": "The aka.ms redirect was unavailable to the research tool. The official English link from Microsoft Learn opened the demo introduction in browser, but further interaction required Candidate Agreement acceptance. Stopped without acceptance; no question content or interactive format review is claimed. Public Q-EXAM documentation is the alternative.",
+      "discovery": [
+        {
+          "url": "https://mscertdemo.starttest.com/",
+          "disposition": "blocked",
+          "reason": "Official English destination linked by Microsoft Learn; introduction available, further interaction stopped at Candidate Agreement without acceptance."
+        }
+      ],
+      "alternative": "Q-EXAM"
+    }
+  ],
+  "activities": [
+    {
+      "id": "policy-denial",
+      "objectives": ["G03", "CB03"],
+      "claims": ["policy.deny-configuration"],
+      "theory": [
+        {
+          "path": "src/content/nb.ts",
+          "marker": "milestones:"
+        }
+      ],
+      "mechanism": [
+        {
+          "path": "src/domain/guidance/milestones.ts",
+          "marker": "policy-denial"
+        }
+      ],
+      "practice": [
+        {
+          "path": "src/features/course/guidance-milestones.tsx",
+          "marker": "GuidanceMilestones"
+        }
+      ],
+      "feedback": [
+        {
+          "path": "src/content/nb.ts",
+          "marker": "consequence:"
+        }
+      ],
+      "visual": [
+        {
+          "path": "src/features/course/guidance-milestones.tsx",
+          "marker": "milestone-facts"
+        }
+      ],
+      "accessible": [
+        {
+          "path": "src/features/course/guidance-milestones.tsx",
+          "marker": "onCancel"
+        }
+      ],
+      "assessment": [
+        {
+          "path": "src/domain/curriculum/expansion.ts",
+          "marker": "assess"
+        },
+        {
+          "path": "src/domain/sandbox/practical.ts",
+          "marker": "evaluatePractical"
+        }
+      ],
+      "assessmentStatus": "unchanged-existing",
+      "savvyshark": [
+        {
+          "path": "src/domain/guidance/milestones.test.ts",
+          "marker": "read-only registered learning milestones"
+        }
+      ],
+      "limits": "Presentation-only explanation of existing outcomes; no new independent task, completion, XP or upgrade of PR19 PARTIAL coverage."
+    },
+    {
+      "id": "vm-dependencies",
+      "objectives": ["C02", "ST01", "N01"],
+      "claims": ["vm.nic-subnet-vnet", "vm.os-disk"],
+      "theory": [
+        {
+          "path": "src/content/nb.ts",
+          "marker": "milestones:"
+        }
+      ],
+      "mechanism": [
+        {
+          "path": "src/domain/guidance/milestones.ts",
+          "marker": "vm-dependencies"
+        }
+      ],
+      "practice": [
+        {
+          "path": "src/features/course/guidance-milestones.tsx",
+          "marker": "GuidanceMilestones"
+        }
+      ],
+      "feedback": [
+        {
+          "path": "src/content/nb.ts",
+          "marker": "consequence:"
+        }
+      ],
+      "visual": [
+        {
+          "path": "src/features/course/guidance-milestones.tsx",
+          "marker": "milestone-facts"
+        }
+      ],
+      "accessible": [
+        {
+          "path": "src/features/course/guidance-milestones.tsx",
+          "marker": "onCancel"
+        }
+      ],
+      "assessment": [
+        {
+          "path": "src/domain/curriculum/expansion.ts",
+          "marker": "assess"
+        },
+        {
+          "path": "src/domain/sandbox/practical.ts",
+          "marker": "evaluatePractical"
+        }
+      ],
+      "assessmentStatus": "unchanged-existing",
+      "savvyshark": [
+        {
+          "path": "src/domain/guidance/milestones.test.ts",
+          "marker": "read-only registered learning milestones"
+        }
+      ],
+      "limits": "Presentation-only explanation of existing outcomes; no new independent task, completion, XP or upgrade of PR19 PARTIAL coverage."
+    }
+  ],
+  "modules": [],
+  "gates": {
+    "source": {
+      "checks": [
+        {
+          "path": "docs/SOURCE_COVERAGE_PROTOCOL.md",
+          "marker": "Source coverage protocol"
+        }
+      ],
+      "limits": "Reference/structure checks do not prove claim correctness or exhaustive discovery."
+    },
+    "curriculum": {
+      "checks": [
+        {
+          "path": "src/domain/curriculum/expansion-content.ts",
+          "marker": "validateExpansion"
+        },
+        {
+          "path": "src/domain/guidance/milestones.test.ts",
+          "marker": "binds existing competencies"
+        }
+      ],
+      "limits": "No new module. Existing PR19 assessment/content gaps remain."
+    },
+    "simulation": {
+      "checks": [
+        {
+          "path": "src/domain/sandbox/sandbox.test.ts",
+          "marker": "atomic"
+        },
+        {
+          "path": "src/domain/guidance/milestones.test.ts",
+          "marker": "unchanged state"
+        }
+      ],
+      "limits": "No live Azure; existing commands, models, receipts and rubric are unchanged."
+    },
+    "savvyshark": {
+      "checks": [
+        {
+          "path": "src/domain/guidance/milestones.test.ts",
+          "marker": "denied storage"
+        },
+        {
+          "path": "tests/e2e/quality-system.spec.ts",
+          "marker": "milestone"
+        }
+      ],
+      "limits": "Best-effort local UI history is not learning evidence or a distributed lock."
+    },
+    "visual-accessibility": {
+      "checks": [
+        {
+          "path": "tests/e2e/quality-system.spec.ts",
+          "marker": "visible guidance"
+        },
+        {
+          "path": "docs/SAVVYSHARK_GUIDANCE_STANDARD.md",
+          "marker": "F3/F4"
+        }
+      ],
+      "limits": "Axe/geometry cannot certify screen-reader, professional visual quality or learner comprehension."
+    },
+    "independent-final-audit": {
+      "checks": [
+        {
+          "path": "scripts/quality-check.mjs",
+          "marker": "validateSnapshot"
+        },
+        {
+          "path": "scripts/quality-check.test.mjs",
+          "marker": "stale"
+        }
+      ],
+      "limits": "Hash/report checks cannot establish human expertise or honesty; separate agent review is not qualified human SME."
+    },
+    "delivery": {
+      "checks": [
+        {
+          "path": "docs/RELEASE_ACCEPTANCE.md",
+          "marker": "preview"
+        }
+      ],
+      "limits": "Actual stable preview/SHA, CI and browser inspection recorded on the Draft PR after deployment, not assumed from local flags."
+    }
+  },
+  "preservedPaths": [
+    "src/domain/chapter01/",
+    "src/domain/sandbox/",
+    "src/domain/curriculum/",
+    "src/domain/course/",
+    "src/domain/progression",
+    "src/domain/portal/",
+    "package-lock.json"
+  ],
+  "humanReview": {
+    "sme": "unperformed",
+    "learning": "unperformed"
+  },
+  "verification": [
+    {
+      "command": "npm run check",
+      "result": "passed",
+      "details": "After Q20-F1/F2/F3/F4 corrections: TypeScript, zero-warning ESLint, formatting,69 Markdown/local links, quality/AZ900/curriculum (66 tests), assets/legacy,156 Vitest +13 Node fixtures and production build all passed locally 2026-10-26. Current release positively validated; negative fixtures isolated."
+    },
+    {
+      "command": "npm run test:e2e",
+      "result": "passed",
+      "details": "After all four audit corrections: complete production-built Playwright on isolated port3100 via ignored port-only config adapter:63 passed,17 unchanged inherited duplicate-project skips,0 failed,4.8m. Includes real two-tab assessment start closing an open milestone, safe read-only context reload/no aid/no technical mutation, storage-warning recovery/no retry and explicit UI-history reset, plus all previous course/lab/XP/keyboard/Axe/compact regressions."
+    },
+    {
+      "command": "npm audit --json / npm audit --omit=dev --json",
+      "result": "passed",
+      "details": "Both report 0 vulnerabilities; dependency and lockfile unchanged."
+    },
+    {
+      "command": "npm run quality:release (pending negative check)",
+      "result": "expected rejection",
+      "details": "Exit 1 before snapshot/review: absent final reviewer/report, timing, visual/test evidence and stale snapshot rejected."
+    }
+  ],
+  "visualEvidence": [
+    {
+      "path": "docs/screenshots/quality/guided-briefing-1920.png",
+      "viewport": "1920x1080",
+      "inspected": true,
+      "observation": "Existing mission blur retained; explicit prerequisites and actual Start/cancel consequences. Footer remains visible."
+    },
+    {
+      "path": "docs/screenshots/quality/guided-briefing-1440.png",
+      "viewport": "1440x900",
+      "inspected": true,
+      "observation": "Two-column mission content and fixed controls; scroll region retains lower observation material."
+    },
+    {
+      "path": "docs/screenshots/quality/guided-briefing-1366.png",
+      "viewport": "1366x768",
+      "inspected": true,
+      "observation": "Minimum desktop preserves Start/cancel; complete content remains in named keyboard-scrollable region."
+    },
+    {
+      "path": "docs/screenshots/quality/quality-vm-milestone-1920.png",
+      "viewport": "1920x1080",
+      "inspected": true,
+      "observation": "Actual VM/OS-disk/NIC/subnet/VNet names, counts and non-runtime boundary; footer stays visible."
+    },
+    {
+      "path": "docs/screenshots/quality/quality-policy-1440x900.png",
+      "viewport": "1440x900",
+      "inspected": true,
+      "observation": "Actual denied region, allowed region and unchanged count; no denied plan represented as created."
+    },
+    {
+      "path": "docs/screenshots/quality/quality-policy-1366x768.png",
+      "viewport": "1366x768",
+      "inspected": true,
+      "observation": "Cause and receipt facts readable; next action scrolls within fixed header/footer."
+    },
+    {
+      "path": "docs/screenshots/quality/quality-policy-1024x768.png",
+      "viewport": "1024x768",
+      "inspected": true,
+      "observation": "Compact two-column facts retain labels; no horizontal overflow."
+    },
+    {
+      "path": "docs/screenshots/quality/quality-policy-800x360.png",
+      "viewport": "800x360",
+      "inspected": true,
+      "observation": "Short-height header/close controls stay visible; body intentionally scrolls, tested with End/Home."
+    },
+    {
+      "path": "docs/screenshots/quality/quality-policy-390x600.png",
+      "viewport": "390x600",
+      "inspected": true,
+      "observation": "Baseline narrow regression: single-column content and reachable controls; no new mobile redesign."
+    },
+    {
+      "path": "docs/screenshots/quality/quality-visible-guidance-1366.png",
+      "viewport": "1366x768",
+      "inspected": true,
+      "observation": "Visible current task, target location, why/action/observation and actual search ring; no collapsed mandatory instruction."
+    },
+    {
+      "path": "docs/screenshots/quality/quality-context-paused-1920.png",
+      "viewport": "1920x1080",
+      "inspected": true,
+      "observation": "Actual cross-tab assessment/context conflict closes the milestone and all guidance, shows a readable safe reload explanation, and leaves the existing VM/attachments available. No auto aid or technical mutation."
+    }
+  ],
+  "implementationFinished": "2026-10-26T22:40:20.174Z",
+  "snapshot": {
+    "files": {
+      ".github/workflows/ci.yml": "67d953097b826c8ffc7e0ef7667d984b7c3a328b7401a4fc406b477fd22f9e41",
+      "AGENTS.md": "bb3b74e2e80d0938109069813481b2363cc1e366e7b1e7d5cb626a607f97ec07",
+      "README.md": "7b308f32aab2a1a73d22384d32bb927de9287c33920663289e8e6ec3ab220f5b",
+      "docs/ARCHITECTURE.md": "c0f36844cec0a7baa2ecfed04ec26d8a9cc5c4c26a7b8750942b8287e5940604",
+      "docs/CONTENT_ARCHITECTURE.md": "3d6650f4bd84f1c0f8d78e30e2cc6674bb7146625a5a2f953b4137c31de4775e",
+      "docs/CONTENT_QA_STANDARD.md": "c8136e609e0876d4499041db7f0733d8be551a6e7ba6655fc3b17a5d2af6b5d9",
+      "docs/CONTENT_STANDARDS.md": "a5a7e24b88d3f647ff29b9abd34b901c36ecce309a68f69a90deb1ef3e706293",
+      "docs/DECISIONS.md": "9cefbab41da9bafd28bb093392066bae6f7eead23b613eb4b7b80866f145b6d5",
+      "docs/GUIDED_SANDBOX_ENGINE.md": "92fa96508f54a379e82ffb10915cc44ed80b9974902c229c9adb0b256144e07c",
+      "docs/LEARNING_DESIGN.md": "fdf543a4536716da07cbc340eba338a2081485419f4687293a71536f18320445",
+      "docs/QUALITY_CONTRACT.md": "a0870413d65b182d241734893fedfcb89b6d6bf5b790e76b67d713097851dcc2",
+      "docs/RELEASE_ACCEPTANCE.md": "e3cd8b2ed106435b42a94f8ca6fbc76f3e605ccd57665e0c74e124bc5a5cf6c2",
+      "docs/ROADMAP.md": "4d8c80f780bfc55664ea7471b9bec118ac6484b92d08bf678d717c337ce3a556",
+      "docs/SAVVYSHARK_GUIDANCE_STANDARD.md": "4cdd335e1631005b7eba8e881966d4ac22c6601245f2f059ff29bb4399347ea2",
+      "docs/SAVVYSHARK_INTEGRATION.md": "1f60cd6c38c61596a2126c83181848038f00b22cd3007710792a674e9db4b97d",
+      "docs/SECURITY.md": "fbdd11c49e3d272dc88cb7770f21fbb18499a096d281f9835cd12f1b3ec77c6f",
+      "docs/SOURCE_COVERAGE_PROTOCOL.md": "b3b23c312c24300c69e0c0bea738da8869bb2469d15372a44467b3368bb6ed8b",
+      "docs/SOURCE_REGISTER.md": "390717e55790ad31e836e902e97b02c52788c0201aff0b500f7b228d5ae3182e",
+      "docs/screenshots/quality/guided-briefing-1366.png": "2efdbb444d0c5645dda388388204310b6b60e63e5ec7c8f4c60622c71076bcf4",
+      "docs/screenshots/quality/guided-briefing-1440.png": "9a4e149e38fab63df98d136b665c3078a1dc7ed3368e6c1fbb66633dc96b813a",
+      "docs/screenshots/quality/guided-briefing-1920.png": "afa69e31ae50011230fd47d7e8cee8ab7a1209c47dd98fff00c46a1cbe57393a",
+      "docs/screenshots/quality/quality-context-paused-1920.png": "18c3a899f13fc998024856b91b8b7b3648de8cc89edfdccf67a8c73bc5bc5e29",
+      "docs/screenshots/quality/quality-policy-1024x768.png": "6408fff90953f7b4cab7950b6c82fa1856b2fe013219655d51a8e6ca7a8bcb0b",
+      "docs/screenshots/quality/quality-policy-1366x768.png": "ec9f1e8f56612b28c1267adcb972bd93d55a66139014672aead19c08aacef5ce",
+      "docs/screenshots/quality/quality-policy-1440x900.png": "c833309d1342063992b15ff19f7bc1ca7df5b8add6120a9a7ed47201d5814e0e",
+      "docs/screenshots/quality/quality-policy-390x600.png": "e1d6f4ee9e62a6f2e7e8e0cdf7c7314a2678cc052a30d4027713146845bfbcda",
+      "docs/screenshots/quality/quality-policy-800x360.png": "1f0db06325f538b9436e5d6162ce4d250b11fae78c0c048884c7e3be3a283ee0",
+      "docs/screenshots/quality/quality-visible-guidance-1366.png": "9f94f95d86e30700f9245d325d03baf9c3eb2a59ca22cb3c1275d24addbeb88c",
+      "docs/screenshots/quality/quality-vm-milestone-1920.png": "dc7683bffa8a5eef10e9f783717b24ac7bb15c9afea104a0689a1d9ab0a4f6b3",
+      "package.json": "7b3c9d7b42c24ed36d7c5ccdccd2a755571cbbbbe967c1cf017657ff835d95e5",
+      "quality/fixtures/valid-release.json": "3f0a11321cab5bd179d9bfb7744f23c23300119b519f194e3ba6898ee11cdf31",
+      "scripts/docs-check.mjs": "a6b6b60e31baf5135dd767906ed3095a1dfec32e874c4b0c301df5a9bc0ea62a",
+      "scripts/quality-check.mjs": "85b8e4b975d5243515dbacdd20c2149dd23416444530e59deca3e9b05c399b90",
+      "scripts/quality-check.test.mjs": "62e8b9e7fc1df6ef8d2ec1c588333d8f1e542aa1aaae6401ab842ff42f064326",
+      "src/components/progress-provider.tsx": "abc2cc0142cc75ceb48097af4552079d02c82476a8380cb65dc926a32b2cec4f",
+      "src/content/nb.ts": "c359eb27e3419857441104934c34610fc877686977ff5df0720776abdf53eeb8",
+      "src/domain/guidance/milestone-preferences.ts": "151d575171e33e6689cbf00188ffbecfdd3b5b767550657fc38ac02a327e1472",
+      "src/domain/guidance/milestones.test.ts": "aea02e9b44bc18ed90e71443302f2590bef805ae9352dc7f4a1d75aae4506fba",
+      "src/domain/guidance/milestones.ts": "05ded9044f716ea6ca6e2078bdffa50fc99135e30e18a24bb3d9d532eecaa063",
+      "src/features/course/guidance-milestones.css": "5fd6f8c4a1d94b8f4343a8f9962ce6e4364b74e069219c950df70cefdfc44614",
+      "src/features/course/guidance-milestones.tsx": "23aaee7248b73ad09f5dee73435f9ba0a453b46d417a58f33ae7affc20883a8b",
+      "src/features/course/guided-coach.tsx": "d5ada8cb94d64f45e02e53e92b5e51fe10c298c64828ba6a322b8252065e6253",
+      "src/features/course/highlight.ts": "f606dd708491ceb9c84ff3310162fd57317bca2d41e38c5680a4c34b6db6d48f",
+      "src/features/course/mission-briefing.css": "2c7fc08c95dfe9c6a1da6a998efa831c78e2f0a6dab6b4f0a64329d7a5afdeac",
+      "src/features/course/mission-briefing.tsx": "290ce4a721ad9ae90b332bec8b31a86b7570f2b528bd18ffc8c4dabd258293ca",
+      "src/features/course/practical-lab.tsx": "2391efd7161618037569ffd8a022d5b8c63d3fd5f2afd30f8ebe504dde9443c5",
+      "src/features/portal/portal.tsx": "3f35606c6598a553af6f7b08d14060c4aba8757fe7ed83442485e7cc7c9cc7c3",
+      "tests/e2e/course.spec.ts": "9c2c6c6922532ab7c81cf786dba48d2d6b401a98677b1c5ba50b47f0502eab17",
+      "tests/e2e/foundations-v2.spec.ts": "98701af4048eba98cdbcd59b3848b6891d64883fa009868586c790c2b79083c5",
+      "tests/e2e/legacy-retirement.spec.ts": "88b80e5a7c4bfc2dc04cb7b52bb7ddb741d65969c44b387317cb7623d17f8288",
+      "tests/e2e/portal-actions.ts": "c954b12d4a6c84896e476a65eebdeb2a90832ad1bc35a2436692d9ef39b5cd6b",
+      "tests/e2e/portal.spec.ts": "60a5533782513b063c84b5be1d0ecb725853a2004ac6ced4a8a9aaca494b0ac7",
+      "tests/e2e/practical-labs.spec.ts": "a5842e8b10874c718ee2d4737dc22c24d37080d76fae34883903c8499a15bcfd",
+      "tests/e2e/quality-system.spec.ts": "b9f402afb9c00b9448f114d54429ccf9a5d25bb4ee539393c46355fe27d6702c"
+    }
+  },
+  "review": {
+    "status": "complete",
+    "fingerprint": "ef9de282edaa5d08f4100252dd32605df62a8cb6702b6f54ea1274b4704f7e10",
+    "reviewer": {
+      "id": "/root/independent_final_audit",
+      "kind": "agent"
+    },
+    "started": "2026-10-26T22:40:42.083Z",
+    "domains": {
+      "content": {
+        "finding": "Independent reviewer read original bounded Policy/VM explanations, existing assessment alternatives and official sources. No new module or coverage approval; paused-context copy accurately preserves work.",
+        "evidence": [
+          {
+            "path": "src/content/nb.ts",
+            "marker": "contextUnavailable"
+          },
+          {
+            "path": "docs/SOURCE_COVERAGE_PROTOCOL.md"
+          }
+        ]
+      },
+      "technical": {
+        "finding": "Replay, boundary, non-mutation, real attachments and safe existing-store reload verified; frozen technical/evidence/XP domains and lockfile unchanged. Unknown executable configurations now require fresh base/snapshot review.",
+        "evidence": [
+          {
+            "path": "src/domain/guidance/milestones.ts",
+            "marker": "replayEngine"
+          },
+          {
+            "path": "scripts/quality-check.mjs",
+            "marker": "implementationPath"
+          }
+        ]
+      },
+      "visual": {
+        "finding": "Reviewer personally inspected committed desktop/short-window captures and corrected cross-tab warning. Readable fixed controls and keyboard-scrollable complete explanation; no additional visual blocker. Human UX/screen-reader/learning validation unperformed.",
+        "evidence": [
+          {
+            "path": "docs/screenshots/quality/quality-context-paused-1920.png"
+          },
+          {
+            "path": "docs/screenshots/quality/quality-policy-800x360.png"
+          }
+        ]
+      },
+      "assessment": {
+        "finding": "Cross-tab unknown/issue-bearing contexts fail closed; actual second-page assessment closes guidance, read-only reload emits no aid or technical mutation. Existing rubric/first-submission/help semantics unchanged.",
+        "evidence": [
+          {
+            "path": "src/features/portal/portal.tsx",
+            "marker": "guidanceContexts"
+          },
+          {
+            "path": "tests/e2e/quality-system.spec.ts",
+            "marker": "v2-assessment"
+          }
+        ]
+      },
+      "guidance": {
+        "finding": "Fresh-event/once-only/recall/native-dialog/target contracts retained; recovery baselines old receipts and fixes warning truth, with no old auto retry and unknown bytes preserved. Local deduplication is best effort.",
+        "evidence": [
+          {
+            "path": "src/features/course/guidance-milestones.tsx",
+            "marker": "Repair/clear"
+          },
+          {
+            "path": "tests/e2e/quality-system.spec.ts",
+            "marker": "milestonePreferenceKey"
+          }
+        ]
+      },
+      "regression": {
+        "finding": "Independent follow-up reran6 Node quality fixtures,29 focused Vitest and quality:check successfully; inspected full corrected156 Vitest/13 Node/66 curriculum/69 docs/check/build and63 passed/17 inherited skips/0 failed production E2E. No weakened assertions/new skips.",
+        "evidence": [
+          {
+            "path": "scripts/quality-check.test.mjs",
+            "marker": "postcss.config.mjs"
+          },
+          {
+            "path": "docs/quality/PR20_FINAL_AUDIT.md",
+            "marker": "final verification"
+          }
+        ]
+      }
+    },
+    "findings": [
+      {
+        "id": "Q20-F1",
+        "severity": "major",
+        "status": "fixed",
+        "description": "Root/unknown executable-only changes could bypass snapshot/base enforcement.",
+        "fix": "Default non-Markdown implementation detection and Markdown-only report exclusions; root config/stale/wrong-base regression fixture.",
+        "retests": [
+          "node --test scripts/quality-check.test.mjs:6 passed",
+          "npm run check:passed",
+          "independent follow-up confirmed no snapshot/preserved-path error"
+        ]
+      },
+      {
+        "id": "Q20-F2",
+        "severity": "major",
+        "status": "fixed",
+        "description": "Cross-tab assessment conflict preserved stale active=false facts and could expose guidance.",
+        "fix": "All8 relevant contexts fail closed while unloaded/issue-bearing, close milestone and suppress help; visible safe reload reads existing stores.",
+        "retests": [
+          "real two-page UI assessment and open-milestone closure/no aid/no technical mutation/read-only reload",
+          "full production Playwright:63 passed/17 inherited skips/0 failed",
+          "independent follow-up confirmed closure"
+        ]
+      },
+      {
+        "id": "Q20-F3",
+        "severity": "major",
+        "status": "fixed",
+        "description": "Negative fixtures inherited populated live verification/visual metadata and failed after report completion.",
+        "fix": "Stable structural fixture separate from evolving release; explicit missing-evidence setup; retain old negative assertions and positive validation of actual current release.",
+        "retests": [
+          "6 quality Node fixtures passed independently and in full check",
+          "full check:156 Vitest+13 Node passed",
+          "independent follow-up confirmed closure"
+        ]
+      },
+      {
+        "id": "Q20-F4",
+        "severity": "minor",
+        "status": "fixed",
+        "description": "Storage-warning state remained latched after recovery/reset.",
+        "fix": "Block auto while uncertain; valid external repair/successful manual claim/reset update warning and baseline historical receipts to avoid retry.",
+        "retests": [
+          "browser history corruption/repair/no auto retry/manual recall",
+          "explicit reset seeds/checks milestone preference",
+          "full production Playwright passed; independent follow-up confirmed closure"
+        ]
+      }
+    ],
+    "report": {
+      "path": "docs/quality/PR20_FINAL_AUDIT.md",
+      "marker": "Independent follow-up"
+    }
+  }
+}

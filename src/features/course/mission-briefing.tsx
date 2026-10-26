@@ -51,46 +51,51 @@ export function MissionBriefing({
           ×
         </button>
       </div>
-      <div className="mission-intro">
-        <SavvyShark>
-          <span>{inspection ? nb.refinement.inspectTarget : labsNb.guided}</span>
-        </SavvyShark>
-        <div>
-          <h2 id={title}>{inspection ? c.inspection : mission.title}</h2>
-          <h3>{c.purpose}</h3>
-          <p>{inspection ? c.inspectionWhy : mission.why}</p>
+      <div className="mission-scroll" tabIndex={0} role="region" aria-label={nb.milestones.reading}>
+        <div className="mission-intro">
+          <SavvyShark>
+            <span>{inspection ? nb.refinement.inspectTarget : labsNb.guided}</span>
+          </SavvyShark>
+          <div>
+            <h2 id={title}>{inspection ? c.inspection : mission.title}</h2>
+            <h3>{c.purpose}</h3>
+            <p>{inspection ? c.inspectionWhy : mission.why}</p>
+          </div>
+        </div>
+        <div className="mission-body">
+          <section>
+            <h3>{nb.milestones.prerequisiteTitle}</h3>
+            <p className="mission-prerequisite">{nb.milestones.prerequisites[kind]}</p>
+            <h3>{c.outcomes}</h3>
+            {inspection ? (
+              <p>{inspection}</p>
+            ) : (
+              <ul>
+                {mission.outcomes.map((x) => (
+                  <li key={x}>{x}</li>
+                ))}
+              </ul>
+            )}
+            <div className="mission-observation">
+              <h3>{c.observe}</h3>
+              <p>{inspection ?? mission.observation}</p>
+            </div>
+          </section>
+          <section className="mission-route">
+            <h3>{c.route}</h3>
+            <ol>
+              {(inspection ? c.inspectionStages : mission.stages).map((x, n) => (
+                <li key={x}>
+                  <span aria-hidden="true">{String(n + 1).padStart(2, '0')}</span>
+                  <p>{x}</p>
+                </li>
+              ))}
+            </ol>
+          </section>
         </div>
       </div>
-      <div className="mission-body">
-        <section>
-          <h3>{c.outcomes}</h3>
-          {inspection ? (
-            <p>{inspection}</p>
-          ) : (
-            <ul>
-              {mission.outcomes.map((x) => (
-                <li key={x}>{x}</li>
-              ))}
-            </ul>
-          )}
-          <div className="mission-observation">
-            <h3>{c.observe}</h3>
-            <p>{inspection ?? mission.observation}</p>
-          </div>
-        </section>
-        <section className="mission-route">
-          <h3>{c.route}</h3>
-          <ol>
-            {(inspection ? c.inspectionStages : mission.stages).map((x, n) => (
-              <li key={x}>
-                <span aria-hidden="true">{String(n + 1).padStart(2, '0')}</span>
-                <p>{x}</p>
-              </li>
-            ))}
-          </ol>
-        </section>
-      </div>
       <footer>
+        <p>{recall ? nb.milestones.briefRecallAction : nb.milestones.briefAction}</p>
         <p>{c.boundary}</p>
         <div>
           <button type="button" onClick={onClose}>

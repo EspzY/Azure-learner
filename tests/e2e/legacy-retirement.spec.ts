@@ -104,9 +104,12 @@ test('historical data deletion stays explicit after renderer providers are retir
   page,
 }) => {
   await page.goto('/progress');
-  await page.evaluate((entries) => {
-    for (const [key, raw] of Object.entries(entries)) localStorage.setItem(key, raw);
-  }, records);
+  await page.evaluate(
+    (entries) => {
+      for (const [key, raw] of Object.entries(entries)) localStorage.setItem(key, raw);
+    },
+    { ...records, 'azurelab.guidance.milestones.v1': '{"schema":1,"seen":["test@1:reset"]}' },
+  );
   await page.reload();
   await expect(page.locator('.topbar .xp-pill')).toHaveText('120 XP');
   await page.getByRole('button', { name: nb.progress.reset, exact: true }).click();
@@ -117,7 +120,7 @@ test('historical data deletion stays explicit after renderer providers are retir
   await page.getByRole('button', { name: nb.progress.confirm, exact: true }).click();
   await expect(page.getByRole('status')).toHaveText(nb.progress.resetDone);
   await expect(page.locator('.topbar .xp-pill')).toHaveText('0 XP');
-  for (const key of [...retiredStorageKeys, learningKey])
+  for (const key of [...retiredStorageKeys, learningKey, 'azurelab.guidance.milestones.v1'])
     expect(await page.evaluate((k) => localStorage.getItem(k), key)).toBeNull();
   await page.reload();
   await expect(page.locator('.topbar .xp-pill')).toHaveText('0 XP');

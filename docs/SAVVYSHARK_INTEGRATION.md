@@ -1,5 +1,9 @@
 # SavvyShark integration
 
+## Mission, milestone and context — PR20
+
+The [permanent F1–F5 standard](SAVVYSHARK_GUIDANCE_STANDARD.md) now governs future work. Mission briefing keeps native semantics/blur and adds explicit prerequisites/action consequences. Current guide displays the actual target location alongside reason/action/observation. Versioned policy-denial and VM-dependency explanations read actual replayed results, appear once after meaningful guided inspection and can be manually reopened. Historical reload never automatically replays them; unsafe UI storage disables auto. Every active independent assessment suppresses milestones/highlights. No commands, answers, XP, new assets or evidence migration. Human educational/SME/accessibility approval remains separate from structural/browser checks.
+
 ## Mission director and contextual coach — 2026-10-26
 
 The existing registered default mascot is reused; no new art is introduced. A mission brief explains why, outcomes, stages, observations and boundaries before guided start. The mascot then returns to the small contextual coach. Mission recall is explicit and repeatable, with no awards or completion effects. Native modal semantics and launcher focus restoration apply to both launch and recall. SaaS remains visibly separate from the Azure resource Portal. [Design/limits](GUIDED_LEARNING_REFINEMENT.md).

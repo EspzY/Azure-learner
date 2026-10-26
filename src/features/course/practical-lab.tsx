@@ -478,6 +478,10 @@ export function PracticalCoach({
             </p>
             <dl className="coach-instruction">
               <div>
+                <dt>{nb.milestones.where}</dt>
+                <dd>{nb.milestones.targetLocations[target]}</dd>
+              </div>
+              <div>
                 <dt>{nb.refinement.why}</dt>
                 <dd>{instruction[1]}</dd>
               </div>
@@ -490,6 +494,11 @@ export function PracticalCoach({
                 <dd>{instruction[3]}</dd>
               </div>
             </dl>
+            {!bounds && phase !== 'explain' && (
+              <p className="coach-missing">
+                {targetKind === 'inspection' ? nb.refinement.missingInspection : nb.course.missing}
+              </p>
+            )}
             <p className="coach-target-type" hidden={phase === 'explain'}>
               {targetKind === 'inspection'
                 ? nb.refinement.inspectTarget

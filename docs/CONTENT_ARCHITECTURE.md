@@ -1,5 +1,11 @@
 # Local curriculum and evidence architecture
 
+## Quality metadata versus learning truth — PR20
+
+The offline `quality/releases/current.json` binds source claims, current activity/manuscript/visual/accessible/assessment/SavvyShark pointers and seven gates. It is not imported by providers, curriculum progression or technical evaluators. Future new-module deliveries must map every manuscript/practice/independent/rationale layer into existing registered curriculum as well; a release title/pointer is insufficient. Certification overlays and prior evidence remain versioned separately. [Contract](QUALITY_CONTRACT.md), [review/hash boundary](RELEASE_ACCEPTANCE.md).
+
+New milestone definitions reference existing G03/CB03/C02/ST01/N01 and source IDs, and describe existing local consequences only. Their UI-history preference cannot become an observation, completion or XP event. No source timestamp, assessment rubric or old module record is migrated. [SavvyShark standard](SAVVYSHARK_GUIDANCE_STANDARD.md).
+
 ## AZ-900 audit layer — offline, 2026-10-26
 
 The [audit JSON](audits/az900-2026-07-20.json) maps dated official slots to stable `az900.*` planning IDs, local FC/CB/ST and professional competency IDs, A–F findings, named facets, source/code/test evidence and proposed PRs. These IDs are not registered runtime activities, and no assessment/completion data imports this manifest. Source+title+test presence cannot grant coverage. The checker rejects missing slots/references or false COMPLETE claims, but cannot establish factual or pedagogical validity. [Full contract and limits](AZ900_COVERAGE_MATRIX.md); [future assessment contract](AZ900_ASSESSMENT_BLUEPRINT.md) is still a proposal. New content versions must preserve old observed answers and not upgrade existing evidence automatically.

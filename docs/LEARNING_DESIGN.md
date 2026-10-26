@@ -1,5 +1,9 @@
 # Learning design
 
+## PR20 — quality foundation, not curriculum expansion
+
+Use the [permanent quality contract](QUALITY_CONTRACT.md), [content QA](CONTENT_QA_STANDARD.md) and [source protocol](SOURCE_COVERAGE_PROTOCOL.md) for future modules. Existing depth and PR19 gaps remain unchanged. New short causal milestones explain observed policy/VM relations in context; they do not replace theory, new-scenario assessment or module completion. Full mission prerequisites and action consequences precede practice; required guide text stays visible. Separate post-implementation review challenges technical, instructional, visual, assessment and guidance quality. Human SME/novice/IT/transfer validation remains unperformed unless explicitly documented.
+
 ## AZ-900 audit findings — 2026-10-26
 
 [Coverage audit](AZ900_COVERAGE_MATRIX.md) distinguishes real teaching from available UI and actual independent tasks. Existing cloud manuscripts/models are substantive, yet several Benefits prompts reveal the diagnosis and current Service Types v2 lacks an independent SaaS-selection case. Retain the teaching depth and lab rules; improve changed contexts and alternative-specific feedback in separate reviewed PRs. Core architecture should become the first new complete module, after a bounded serverless addition. [Pedagogical gap solutions](AZ900_GAP_ANALYSIS.md) deliberately prefer conceptual comparison/visualization where full operation adds little AZ-900 value. No current learning/assessment behavior is changed by the plan. Human novice, IT and qualified SME validation remains outstanding.

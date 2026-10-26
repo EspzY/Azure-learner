@@ -17,6 +17,20 @@ dialog.mission-briefing::backdrop {
   background: #082440a8;
   backdrop-filter: blur(3px);
 }
+dialog.mission-briefing[open] {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  overflow: hidden;
+}
+.mission-scroll {
+  min-height: 0;
+  overflow: auto;
+  overscroll-behavior: contain;
+}
+.mission-scroll:focus-visible {
+  outline: 3px solid #ad4b00;
+  outline-offset: -3px;
+}
 .mission-heading {
   display: flex;
   align-items: center;
@@ -89,6 +103,9 @@ dialog.mission-briefing p {
 .mission-body ul {
   margin: 0;
   padding-left: 20px;
+}
+.mission-prerequisite {
+  margin-bottom: 18px !important;
 }
 .mission-body li {
   margin-bottom: 10px;

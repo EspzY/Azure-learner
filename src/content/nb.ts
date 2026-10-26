@@ -2,6 +2,91 @@ import type { QuestionId } from '../domain/assessment';
 import type { CreationError, Region, ScopeKind } from '../domain/simulation';
 
 export const nb = {
+  milestones: {
+    where: 'Hvor finner du kontrollen?',
+    targetLocations: {
+      search: 'Global search øverst i Portal-headeren.',
+      'vm-image': 'Image i VM-skjemaets Basics-fane.',
+      'vm-profile': 'Size / learning profile i VM-skjemaets Basics-fane.',
+      'vm-disk': 'Data disk i VM-skjemaets Disks-fane.',
+      'vm-network': 'Subnet i VM-skjemaets Networking-fane.',
+      'vm-details': 'VM-ressursens Overview og tilknyttede ressurser.',
+      'inspect-practical': 'Undersøk ressurs i oversikten til labbens valgte ressurs.',
+      settings: 'Environment variables → App settings i den aktuelle Web App-en.',
+      groups: 'Resource groups i tjenestenavigasjonen.',
+      create: 'Create i den aktuelle tjenestens command bar.',
+      subscription: 'Subscription i opprettelsesskjemaets Project details.',
+      name: 'Name eller Resource group name i opprettelsesskjemaets Basics.',
+      region: 'Region i det aktuelle opprettelsesskjemaet.',
+      group: 'Resource group i opprettelsesskjemaets Project details.',
+      plan: 'App Service plan i Web App-skjemaet.',
+      review: 'Review + create i opprettelsesskjemaet.',
+      validation: 'Validation-resultatet i Review + create. Dette er inspeksjon, ikke Create.',
+      commit: 'Create etter vellykket Review + create.',
+      resource: 'Overview for ressursen som dette oppdraget undersøker.',
+      receipt:
+        'Operation receipt i arbeidsflaten for den aktuelle kommandoen. Tidligere operasjoner finnes i Activity log.',
+      policy: 'Policy-visningen og den aktuelle regelens scope.',
+      architecture: 'Architecture Explorer i AzureLab-verktøylinjen.',
+      relationship: 'App → plan-relasjonen i Architecture Explorer.',
+    },
+    prerequisiteTitle: 'Dette trenger du å forstå først',
+    prerequisites: {
+      vm: 'Kjenn forskjellen mellom fysisk vert og gjeste-OS, RAM og lagring, og Resource group og resource location. Labben lar deg undersøke støttede disk- og nettverksavhengigheter.',
+      paas: 'Kjenn PaaS og retained kundeansvar. En gruppe organiserer ressurser, en plan gir hosting, og appen refererer planen. Gruppemetadata og ressurslokasjon er ulike egenskaper.',
+      saas: 'Kjenn forskjellen mellom ferdig programvare og egen kode. Lisens, administrasjonsrolle og datadeling er separate forhold, også når leverandøren driver applikasjonen.',
+    },
+    briefAction:
+      'Start oppdraget åpner den beskrevne øvelsen og dens støttede kontroller. Tilbake til leksjonen lukker bare denne innledningen. Du oppretter ingen ressurs før du selv sender en gyldig teknisk handling.',
+    briefRecallAction:
+      'Fortsett undersøkelsen og Lukk oppdragsbrief tar deg tilbake til den pågående øvelsen. De utfører ingen ressursoperasjon og fullfører ingen læringsoppgave.',
+    reading: 'Forklaring og observasjoner — rull ved behov',
+    contextUnavailable:
+      'SavvyShark-veiledningen er satt på pause fordi lagret vurderings- eller labkontekst er utdatert eller ikke kan verifiseres. Ingen løsningshjelp vises før konteksten er lest på nytt. Last inn lagret tilstand med knappen nedenfor; gyldige svar og teknisk arbeid slettes ikke.',
+    library: 'SavvyShark · Faglige milepæler',
+    open: 'Åpne forklaring',
+    eyebrow: 'SAVVYSHARK · TEKNISK OBSERVASJON',
+    cause: 'Hvorfor skjedde dette?',
+    consequence: 'Hva betyr resultatet?',
+    next: 'Hva undersøker du nå?',
+    actual: 'Dette har simulatoren registrert',
+    receipt: 'Operation receipt',
+    scope: 'Resource group',
+    region: 'Requested resource location',
+    allowed: 'Tillatte lokasjoner i denne regelen',
+    inventory: 'Modellobjekter før → etter',
+    close: 'Tilbake til laboratoriet',
+    defer: 'Lukk foreløpig',
+    boundary:
+      'Forklaringen gir verken XP, fullføring eller uavhengig kompetanse. Ingen handling utføres for deg.',
+    storage:
+      'Automatiske milepælsvinduer er slått av fordi visningshistorikken ikke kan lagres sikkert. Forklaringene kan fortsatt åpnes her.',
+    policy: {
+      title: 'Policyen avviste konfigurasjonen',
+      main: 'Forespørselen er behandlet, men den ønskede App Service-planen ble ikke opprettet.',
+      cause:
+        'Den lokale custom Web-policyen sammenholder ressursens ønskede lokasjon med regelen på det aktuelle management-scopet. Avslaget skyldes den konfigurasjonen, ikke et oppfunnet innloggings- eller tillatelsesproblem.',
+      consequence:
+        'Kvitteringen viser samme ressursantall før og etter. Å endre Resource group-metadata flytter ikke planen og løser ikke denne Web-resource-regelen. Dette er en avgrenset treningspolicy, ikke alle Microsofts innebygde location policies.',
+      next: 'Sammenlign Requested resource location, assignment scope og tillatte lokasjoner. Velg selv en korrigering i planskjemaet og undersøk den nye kvitteringen.',
+    },
+    vm: {
+      title: 'En VM har faktiske avhengigheter',
+      main: 'Den aksepterte lokale transaksjonen inneholder en VM med koblet OS-disk og nettverksgrensesnitt.',
+      cause:
+        'OS-disken inneholder gjestens operativsystem. NIC knytter VM-en til et subnet i et VNet. Disk attachment og NIC attachment er avhengigheter; Resource group-medlemskap er management-organisering.',
+      consequence:
+        'De viste navnene og koblingene kommer fra den replayede ressursmodellen. NIC-konfigurasjon beviser ingen nettverkstrafikk. En akseptert lokal VM-konfigurasjon betyr heller ikke at et operativsystem er startet eller at programvare kjører.',
+      next: 'Åpne OS-disken og NIC fra ressursoversikten. Sammenlign avhengighetsreferanser, resource location og Resource group før du forklarer observasjonen i labben.',
+    },
+    roles: {
+      vm: 'Virtual machine',
+      osDisk: 'OS disk',
+      nic: 'Network interface',
+      subnet: 'Subnet',
+      vnet: 'Virtual network',
+    },
+  },
   auditReview: {
     title: 'AZ-900-dekningsaudit — til gjennomgang',
     description:

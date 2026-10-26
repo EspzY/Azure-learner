@@ -1,5 +1,9 @@
 # Guided sandbox engine
 
+## Permanent mission/milestone/context contract — PR20
+
+[SAVVYSHARK_GUIDANCE_STANDARD](SAVVYSHARK_GUIDANCE_STANDARD.md) adds a small versioned milestone observer to the existing engine. Policy needs a matching actual denial and Policy inspection; VM needs a post-boundary accepted bundle with actual attachments and explicit VM inspection. Initial receipt baseline, seen-key claim before display, native modal guards and manual recall prevent repeat interruptions. No guide event changes technical or learning truth. All active independent contexts, including Foundations v1/v2, suppress guidance. Actual controls reject transparent ancestors, ambiguity and modal occlusion; semantic instructions/target location and alternative navigation remain readable. Existing rules/returns/saves are unchanged.
+
 The actual Portal walkthrough also exposed shared inspection copy asking PaaS learners to compare VM/disk/NIC. PaaS inspection now explains the actual app settings, hosting reference and derived location; the original VM explanation is retained for VM labs. This is authored presentation selection only, with explicit guided E2E assertions; no objective, completion predicate, assessment or source fact changes.
 
 ## Portal workspace separation — 2026-10-26

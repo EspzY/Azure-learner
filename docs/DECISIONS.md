@@ -1,5 +1,11 @@
 # Decisions
 
+## PR20 — enforceable quality gates without a new learning engine
+
+Adopt QUALITY_CONTRACT A–I as active normative policy and link it from AGENTS/CI. Reuse existing validators and add scoped source/claim/activity contracts plus a post-implementation changed-file fingerprint review. Keep factual author review, independent agent review, qualified human SME and learning studies separate. The CI gate catches missing/stale records and open blockers; it does not assert subjective educational or artistic validity. [Acceptance process](RELEASE_ACCEPTANCE.md).
+
+Use two concrete versioned read-only milestone definitions, not a general event scripting engine. Technical replay and actual dependency references trigger eligible guidance; a separate UI preference controls once-only display and recall. Do not migrate evidence or issue awards. Historical reload is manual-only, unsafe storage disables auto, every independent assessment is shielded and native dialogs never intentionally stack. Existing mission briefing/blur and original explanation depth stay. [Guidance contract](SAVVYSHARK_GUIDANCE_STANDARD.md).
+
 ## 2026-10-26 — Audit coverage before expanding AZ-900
 
 Use the current2026-07-20 Skills Measured as the dated57-bullet baseline, splitting composite technologies into named facets and mapping them to actual source/manuscript/activity/assessment/test evidence. Six narrow Cloud concepts claims meet A–F; the rest are partial/missing. Existing three implemented module labels and15 selected lab-coverage rows are not full exam coverage. Human SME/learning approval remains null. [Decision basis](AZ900_GAP_ANALYSIS.md).
