@@ -1,5 +1,11 @@
 # Architecture
 
+## Central Portal icon register — 2026-10-26
+
+`public/icons/manifest.json` is the single versioned source for canonical assets, aliases, source/archive paths, SHA256, byte counts, licenses and comparison status. `features/portal/service-icon.tsx` serves unchanged local Microsoft Azure SVGs as images and MIT Fluent system glyphs as monochrome masks. No service CSS recolour, hidden generic fallback, renderer dependency or runtime asset server. Unknown kinds are visibly unresolved; unit/assets/E2E checks cover supported kinds and local requests. [Register contract and rights boundary](PORTAL_ICONOGRAPHY.md).
+
+Resource command bars now sit in the main pane beside the280px resource menu; creation forms omit unrelated command bars. Two-column Essentials and filtered tables project the same inventory. App-setting name/Edit opens a right-side native dialog: inner Apply only updates the memory draft; page Apply alone dispatches the unchanged command. Show value is presentation, not a security guarantee. Training utilities stay distinct from native operation commands. Navigation focuses the semantic title without scrolling it in isolation, then restores the full workspace top so breadcrumbs remain visible below the sticky40px header. No state-model/provider/persistence/assessment changes.
+
 ## Reference-led Portal presentation — 2026-10-26
 
 `PortalWorkspace` keeps its existing allowlisted route contract and one SandboxProvider inventory. Shared `ServiceIcon`, `ResourceTable`, `ResourceDetails` and `PortalDialog` own compact operational presentation; scoped `portal.css` tokens do not restyle course theory. Resource menu sections/search, sorting, docked/flyout choice and app-setting drafts are transient React state. Reload safely returns menu presentation to defaults; authoritative resources and course/lab context restore through the original stores.

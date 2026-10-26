@@ -11,17 +11,7 @@ import {
   type NodeProps,
   type Edge,
 } from '@xyflow/react';
-import {
-  Database,
-  Server,
-  HardDrive,
-  Cable,
-  Layers,
-  AppWindow,
-  ShieldCheck,
-  FolderTree,
-  Network,
-} from 'lucide-react';
+import { ServiceIcon } from './service-icon';
 import { labsNb, nb, regionLabels, scopeCopy } from '@/content/nb';
 import { projectArchitecture } from '@/domain/portal/model';
 import type { World } from '@/domain/chapter01/model';
@@ -33,32 +23,12 @@ const t = nb.portal,
   g = t.graph;
 type DiagramNode = Node<{ label: string; kind: string; location?: string }, 'resource'>;
 function ResourceNode({ data }: NodeProps<DiagramNode>) {
-  const Icon =
-    data.kind === 'vm'
-      ? Server
-      : data.kind === 'disk'
-        ? HardDrive
-        : data.kind === 'nic'
-          ? Cable
-          : data.kind === 'vnet' || data.kind === 'subnet'
-            ? Network
-            : data.kind === 'group'
-              ? FolderTree
-              : data.kind === 'plan'
-                ? Layers
-                : data.kind === 'app'
-                  ? AppWindow
-                  : data.kind === 'policy'
-                    ? ShieldCheck
-                    : data.kind === 'tenant'
-                      ? Network
-                      : Database;
   return (
     <>
       <Handle type="target" position={Position.Top} />
       <Handle type="target" position={Position.Right} id="side-in" />
       <div className={`portal-graph-node kind-${data.kind}`}>
-        <Icon size={21} />
+        <ServiceIcon kind={data.kind} size={21} />
         <div>
           <small>{g.types[data.kind as keyof typeof g.types]}</small>
           <strong>{data.label}</strong>
@@ -203,7 +173,7 @@ export function ArchitectureExplorer({
                   aria-pressed={selection === n.id}
                   onClick={() => select(n.id)}
                 >
-                  {g.types[n.kind as keyof typeof g.types]} · {n.name}
+                  <ServiceIcon kind={n.kind} /> {g.types[n.kind as keyof typeof g.types]} · {n.name}
                 </button>
               ))}
             </div>

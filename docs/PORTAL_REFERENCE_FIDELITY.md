@@ -1,5 +1,9 @@
 # Portal reference and fidelity checklist
 
+## Corrective icon/reference pass — 2026-10-26
+
+The [exact-reference matrix](PORTAL_ICONOGRAPHY.md) supersedes the earlier PR17 decision to use generic Lucide service metaphors. Original Microsoft Azure service identities now appear consistently across operational and explanatory surfaces, with explicit source/license/status per asset. Header, RG table/filter, create grouping/Review footer, right-pane resource commands, Essentials and settings draft/reveal follow inspected public captures. No domain rule, store, award or assessment change. Private owner/reference screenshots remain internal and uncommitted. Earlier screenshots/results below describe PR17, not this correction's final output.
+
 CI run40329881016 initially found2 failures (the same retained320px overflow assertion in both projects),51 passes and17 inherited skips despite a passing Windows suite. Actual CI trace frames were inspected locally, never committed. Reproduction using the already declared Arial fallback measured document width324px and a header button edge at323.66px. The training badge now wraps within a bounded flex width rather than clipping or shrinking controls. The original assertion is preserved and extended with explicit Arial fallback coverage. All other CI cases passed; this is an actual platform-font defect, not flaky timing or a reason to skip the test. Final rerun/remote outcome is associated with the delivered head and Draft PR.
 
 ## High-fidelity implementation audit — 2026-10-26

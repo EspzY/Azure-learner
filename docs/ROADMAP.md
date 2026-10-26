@@ -1,5 +1,9 @@
 # Roadmap
 
+## Exact-reference Portal correction — current scope
+
+Replace generic service icons and inconsistent maps with registered original Azure training-material assets + MIT Fluent actions, then validate shared Home/list/create/Overview/settings presentation against public Microsoft captures. The per-component [matrix](PORTAL_ICONOGRAPHY.md) records remaining PARTIAL/UNVERIFIED gaps. Next gate is owner/Azure practitioner review of the ordinary preview root and actual supported workflows, not more Azure services or an unmeasured parity claim. No merge/production release is authorized.
+
 ## Reference-led Portal workspace — implemented review candidate, 2026-10-26
 
 Shared shell, Home/search/lists, service-specific resource inspection, RG/VM/plan/Web form presentation, settings Edit/draft/Apply and minimizable SavvyShark are implemented on the isolated PR16 stack. Actual preview review additionally corrected sticky-header title focus, docked menu scrolling and PaaS-specific inspection copy. Technical models, evidence and stored records remain unchanged. [References, comparison and deliberate limits](PORTAL_REFERENCE_FIDELITY.md); [executed verification](PROJECT_STATUS.md).

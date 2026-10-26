@@ -1,47 +1,55 @@
-import {
-  Activity,
-  AppWindow,
-  Boxes,
-  Database,
-  Folder,
-  HardDrive,
-  Layers,
-  Monitor,
-  Network,
-  ShieldCheck,
-  Waypoints,
-} from 'lucide-react';
+import manifest from '../../../public/icons/manifest.json';
+import { nb } from '@/content/nb';
 
-/** Original Lucide-based service cues, not Microsoft logos or downloaded Portal artwork. */
+export const portalIconRegistry = manifest;
+
+/** Missing mappings stay explicit; never substitute a generic service metaphor. */
+export function resolvePortalIcon(kind: string) {
+  const key = Object.hasOwn(manifest.aliases, kind)
+    ? manifest.aliases[kind as keyof typeof manifest.aliases]
+    : kind;
+  return Object.hasOwn(manifest.assets, key)
+    ? manifest.assets[key as keyof typeof manifest.assets]
+    : undefined;
+}
+
 export function ServiceIcon({ kind, size = 16 }: { kind: string; size?: number }) {
-  const Icon =
-    kind === 'activity'
-      ? Activity
-      : kind === 'group' || kind === 'groups'
-        ? Folder
-        : kind === 'plan' || kind === 'plans'
-          ? Layers
-          : kind === 'app' || kind === 'apps'
-            ? AppWindow
-            : kind === 'vm' || kind === 'vms'
-              ? Monitor
-              : kind === 'disk'
-                ? HardDrive
-                : kind === 'nic' || kind === 'subnet'
-                  ? Waypoints
-                  : kind === 'vnet'
-                    ? Network
-                    : kind === 'subscription' || kind === 'subscriptions'
-                      ? Database
-                      : kind === 'policy'
-                        ? ShieldCheck
-                        : Boxes;
-  return (
-    <Icon
-      size={size}
+  const asset = resolvePortalIcon(kind);
+  if (!asset)
+    return (
+      <span
+        className="portal-icon-missing"
+        data-icon-missing={kind}
+        title={nb.portalUi.missingIcon}
+      >
+        ?
+      </span>
+    );
+  const src = `/icons/${asset.file}`;
+  return asset.family === 'azure' ? (
+    // Plain local SVG retains the source bytes, colours and viewBox.
+    <img
+      src={src}
+      alt=""
       aria-hidden="true"
-      className={`portal-service-icon service-${kind}`}
-      strokeWidth={1.7}
+      width={size}
+      height={size}
+      className="portal-service-icon"
+      data-icon={kind}
+      data-icon-source={asset.family}
+    />
+  ) : (
+    <span
+      aria-hidden="true"
+      className="portal-action-icon"
+      data-icon={kind}
+      data-icon-source={asset.family}
+      style={{
+        width: size,
+        height: size,
+        maskImage: `url("${src}")`,
+        WebkitMaskImage: `url("${src}")`,
+      }}
     />
   );
 }

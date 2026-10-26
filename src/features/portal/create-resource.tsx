@@ -148,7 +148,9 @@ export function CreateResource({
                 </label>
               )}
             </div>
-            {kind !== 'group' && <h2>{p.instanceDetails}</h2>}
+            {kind !== 'group' && (
+              <h2>{kind === 'plan' ? nb.portalUi.planDetails : p.instanceDetails}</h2>
+            )}
             <div className="portal-fields">
               <label>
                 {kind === 'group' ? p.groupName : p.name}
@@ -179,6 +181,7 @@ export function CreateResource({
                   <p>{nb.resourceNaming.limit}</p>
                 </details>
               )}
+              {kind === 'group' && <h2>{nb.portalUi.resourceDetails}</h2>}
               {kind !== 'app' ? (
                 <label>
                   {p.region}
@@ -278,24 +281,37 @@ export function CreateResource({
           </section>
         )}
         <footer className="portal-create-footer">
-          {step !== 'basics' && (
-            <button type="button" onClick={() => setStep('basics')}>
-              {p.previous}
-            </button>
-          )}
-          <button
-            data-guide={step === 'review' ? 'commit' : undefined}
-            type="submit"
-            className="primary"
-            disabled={disabled || (step === 'review' && !preflightReady)}
-          >
-            {step === 'review' ? p.create : step === 'tags' ? p.review : p.next}
-          </button>
           {step !== 'review' && (
-            <button type="button" data-guide="review" onClick={() => setStep('review')}>
+            <button
+              className="primary"
+              type="button"
+              data-guide="review"
+              onClick={() => setStep('review')}
+            >
               {p.review}
             </button>
           )}
+          <button
+            type="button"
+            disabled={step === 'basics'}
+            onClick={() => setStep(step === 'review' && kind === 'group' ? 'tags' : 'basics')}
+          >
+            {p.previous}
+          </button>
+          <button
+            data-guide={step === 'review' ? 'commit' : undefined}
+            type="submit"
+            className={step === 'review' ? 'primary' : undefined}
+            disabled={disabled || (step === 'review' && !preflightReady)}
+          >
+            {step === 'review'
+              ? p.create
+              : step === 'tags'
+                ? p.review
+                : kind === 'group'
+                  ? nb.portalUi.nextTags
+                  : p.next}
+          </button>
           <button
             type="button"
             onClick={() =>

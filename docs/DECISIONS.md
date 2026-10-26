@@ -1,5 +1,11 @@
 # Decisions
 
+## 2026-10-26 — Original service identities replace generic Lucide metaphors
+
+Owner's corrective brief supersedes PR17's generic service-cue decision. Include original Azure V24 service SVGs only inside explicitly identified Azure teaching exercises/diagrams under the documented training-material permission; this is not general product-branding/marketing authorization or external legal approval. Preserve bytes, palette, proportions and local provenance. Separate MIT Fluent system actions from service identities. One manifest replaces three conflicting maps, with visible missing mappings and explicit unverified variants. No new runtime library. [Detailed rights assessment and comparison](PORTAL_ICONOGRAPHY.md).
+
+Reference-backed40px header/24px title/280px resource menu and right-pane commands replace earlier approximation. Native controls, limited technical operations, independent branding and minimized teaching remain deliberate differences. No private Portal code/assets, authenticated tenant, unsupported controls or data migration.
+
 ## 2026-10-26 — Reference-led Portal presentation, frozen technical truth
 
 Use the existing semantic controls, Lucide and scoped operational tokens instead of adding Fluent packages or copying Portal code/assets. Fluent2 informs interaction principles, not a claim that every Portal blade has migrated to it. Compact the shared shell before service forms; keep course/mentor tools a distinct layer. Native dialog panels provide working notifications/appearance without adding inert fake Azure commands. Use a common keyed resource menu/Essentials/properties view and existing typed dependencies. App settings follows real Edit→draft→Apply while preserving the exact command/replay/assessment contract. Docked/flyout and section state remain transient rather than expanding persistence. Local accepted configuration opens the actual resource/receipt; no fake cloud deployment progress. [Dated sources, gap matrix and remaining differences](PORTAL_REFERENCE_FIDELITY.md).

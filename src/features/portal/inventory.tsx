@@ -29,6 +29,7 @@ export function ResourceTable({
   const [query, setQuery] = useState(''),
     [subscription, setSubscription] = useState(''),
     [kind, setKind] = useState(''),
+    [location, setLocation] = useState(''),
     [sort, setSort] = useState<'name' | 'kind' | 'location'>('name'),
     [descending, setDescending] = useState(false);
   const supported = inventory(world);
@@ -47,14 +48,16 @@ export function ResourceTable({
                 ? r.kind === 'vm'
                 : r.kind !== 'subscription' && r.kind !== 'group',
     );
-  const rows = filterInventory(base, query, subscription, kind).sort((a, b) => {
-    const order =
-      String(a[sort] ?? '').localeCompare(String(b[sort] ?? ''), 'en', {
-        numeric: true,
-        sensitivity: 'base',
-      }) || a.id.localeCompare(b.id);
-    return descending ? -order : order;
-  });
+  const rows = filterInventory(base, query, subscription, kind)
+    .filter((r) => !location || r.location === location)
+    .sort((a, b) => {
+      const order =
+        String(a[sort] ?? '').localeCompare(String(b[sort] ?? ''), 'en', {
+          numeric: true,
+          sensitivity: 'base',
+        }) || a.id.localeCompare(b.id);
+      return descending ? -order : order;
+    });
   const orderBy = (key: typeof sort) => {
     if (key === sort) setDescending(!descending);
     else {
@@ -83,7 +86,7 @@ export function ResourceTable({
                 ))}
             </select>
           </label>
-          {area !== 'subscriptions' && (
+          {!['subscriptions', 'groups', 'plans', 'apps', 'vms'].includes(area ?? '') && (
             <label>
               {p.type}
               <select value={kind} onChange={(e) => setKind(e.target.value)}>
@@ -95,6 +98,19 @@ export function ResourceTable({
                       {p.graph.types[k]}
                     </option>
                   ))}
+              </select>
+            </label>
+          )}
+          {area !== 'subscriptions' && (
+            <label>
+              {nb.portalUi.location}
+              <select value={location} onChange={(e) => setLocation(e.target.value)}>
+                <option value="">{nb.portalUi.allLocations}</option>
+                {[...new Set(base.map((r) => r.location).filter(Boolean))].map((region) => (
+                  <option key={region} value={region}>
+                    {regionLabels[region as keyof typeof regionLabels]}
+                  </option>
+                ))}
               </select>
             </label>
           )}
@@ -119,24 +135,27 @@ export function ResourceTable({
                   </span>
                 </button>
               </th>
-              <th
-                scope="col"
-                aria-sort={sort === 'kind' ? (descending ? 'descending' : 'ascending') : 'none'}
-              >
-                <button type="button" onClick={() => orderBy('kind')}>
-                  {p.type}
-                </button>
-              </th>
-              <th scope="col">{p.group}</th>
+              {area === 'groups' && <th scope="col">{p.subscription}</th>}
+              {area !== 'groups' && (
+                <th
+                  scope="col"
+                  aria-sort={sort === 'kind' ? (descending ? 'descending' : 'ascending') : 'none'}
+                >
+                  <button type="button" onClick={() => orderBy('kind')}>
+                    {p.type}
+                  </button>
+                </th>
+              )}
+              {area !== 'groups' && <th scope="col">{p.group}</th>}
               <th
                 scope="col"
                 aria-sort={sort === 'location' ? (descending ? 'descending' : 'ascending') : 'none'}
               >
                 <button type="button" onClick={() => orderBy('location')}>
-                  {area === 'groups' ? p.metadata : p.resourceLocation}
+                  {nb.portalUi.location}
                 </button>
               </th>
-              <th scope="col">{p.subscription}</th>
+              {area !== 'groups' && <th scope="col">{p.subscription}</th>}
             </tr>
           </thead>
           <tbody>
@@ -152,13 +171,22 @@ export function ResourceTable({
                     {r.name}
                   </button>
                 </td>
-                <td>{p.graph.types[r.kind]}</td>
-                <td>{world.groups.find((g) => g.id === r.groupId)?.name ?? '—'}</td>
+                {area === 'groups' && (
+                  <td>{world.scopes.find((s) => s.id === r.subscriptionId)?.name}</td>
+                )}
+                {area !== 'groups' && <td>{p.graph.types[r.kind]}</td>}
+                {area !== 'groups' && (
+                  <td>{world.groups.find((g) => g.id === r.groupId)?.name ?? '—'}</td>
+                )}
                 <td>
-                  {r.location ? regionLabels[r.location as keyof typeof regionLabels] : '—'}
-                  {r.kind === 'group' && <small>{p.metadata}</small>}
+                  <span title={r.kind === 'group' ? p.locationNote : undefined}>
+                    {r.location ? regionLabels[r.location as keyof typeof regionLabels] : '—'}
+                  </span>
+                  {r.kind === 'group' && area !== 'groups' && <small>{p.metadata}</small>}
                 </td>
-                <td>{world.scopes.find((s) => s.id === r.subscriptionId)?.name}</td>
+                {area !== 'groups' && (
+                  <td>{world.scopes.find((s) => s.id === r.subscriptionId)?.name}</td>
+                )}
               </tr>
             ))}
           </tbody>
@@ -175,12 +203,14 @@ export function ResourceDetails({
   navigate,
   children,
   settings = false,
+  commands,
 }: {
   world: World;
   id: string;
   navigate: Navigate;
   children?: (view: ResourceView) => React.ReactNode;
   settings?: boolean;
+  commands?: React.ReactNode;
 }) {
   const sectionId = useId(),
     content = useRef<HTMLDivElement>(null);
@@ -203,32 +233,39 @@ export function ResourceDetails({
     row?.kind === 'subscription' ? r.subscriptionId === id : r.groupId === id,
   );
   const items: (readonly [string, React.ReactNode])[] = [
-    [p.name, name],
-    [
-      p.type,
-      row ? p.graph.types[row.kind] : scope ? p.graph.types[scope.kind] : p.graph.types.tenant,
-    ],
+    ...(row?.groupId
+      ? [
+          [
+            p.group,
+            <button
+              key="group"
+              type="button"
+              onClick={() => navigate('resource', { id: row.groupId })}
+            >
+              {world.groups.find((g) => g.id === row.groupId)?.name}
+            </button>,
+          ] as const,
+        ]
+      : []),
     [p.status, p.resourceState],
-    [
-      p.subscription,
-      row?.subscriptionId ? (
-        <button type="button" onClick={() => navigate('resource', { id: row.subscriptionId })}>
-          {world.scopes.find((s) => s.id === row.subscriptionId)?.name}
-        </button>
-      ) : undefined,
-    ],
-    [
-      p.group,
-      row?.groupId ? (
-        <button type="button" onClick={() => navigate('resource', { id: row.groupId })}>
-          {world.groups.find((g) => g.id === row.groupId)?.name}
-        </button>
-      ) : undefined,
-    ],
     [
       row?.kind === 'group' ? p.metadata : p.resourceLocation,
       row?.location ? regionLabels[row.location as keyof typeof regionLabels] : '—',
     ],
+    ...(row?.subscriptionId
+      ? [
+          [
+            p.subscription,
+            <button
+              key="subscription"
+              type="button"
+              onClick={() => navigate('resource', { id: row.subscriptionId })}
+            >
+              {world.scopes.find((s) => s.id === row.subscriptionId)?.name}
+            </button>,
+          ] as const,
+        ]
+      : []),
     ...(row?.kind === 'app'
       ? [
           [
@@ -243,16 +280,20 @@ export function ResourceDetails({
           ] as const,
         ]
       : []),
-    [
-      p.parent,
-      parentId ? (
-        <button type="button" onClick={() => navigate('resource', { id: parentId })}>
-          {parentName}
-        </button>
-      ) : (
-        '—'
-      ),
-    ],
+    ...(!row?.groupId
+      ? [
+          [
+            p.parent,
+            parentId ? (
+              <button type="button" onClick={() => navigate('resource', { id: parentId })}>
+                {parentName}
+              </button>
+            ) : (
+              '—'
+            ),
+          ] as const,
+        ]
+      : []),
     ...(vm?.kind === 'vm'
       ? ([
           [labsNb.fields.image, labsNb.vm.images[vm.image]],
@@ -276,6 +317,19 @@ export function ResourceDetails({
           if (settings) navigate('resource', { id });
         }}
       >
+        <ServiceIcon
+          kind={
+            key === 'overview'
+              ? (row?.kind ?? scope?.kind ?? 'tenant')
+              : key === 'disks'
+                ? 'disk'
+                : key === 'network'
+                  ? 'vnet'
+                  : key === 'relations'
+                    ? 'related'
+                    : 'properties'
+          }
+        />
         {label}
       </button>
     );
@@ -289,7 +343,7 @@ export function ResourceDetails({
     <div className="portal-resource-overview">
       <nav className="portal-resource-menu" aria-label={`${name} · ${p.overview}`}>
         <strong>
-          <ServiceIcon kind={row?.kind ?? 'resources'} />
+          <ServiceIcon kind={row?.kind ?? scope?.kind ?? 'tenant'} />
           {name}
         </strong>
         <label className="portal-menu-search">
@@ -304,6 +358,7 @@ export function ResourceDetails({
         {menuButton('overview', p.overview)}
         {matches(p.areas.activity) && (
           <button type="button" onClick={() => navigate('activity', { id })}>
+            <ServiceIcon kind="activity" />
             {p.areas.activity}
           </button>
         )}
@@ -319,6 +374,7 @@ export function ResourceDetails({
               aria-current={settings ? 'page' : undefined}
               onClick={() => navigate('settings', { id })}
             >
+              <ServiceIcon kind="settings" />
               {labsNb.settings.title}
             </button>
           )}
@@ -335,6 +391,7 @@ export function ResourceDetails({
         <small>{polish.resource.limitations}</small>
       </nav>
       <div className="portal-resource-main" ref={content} tabIndex={-1}>
+        {commands}
         {settings ? (
           children?.('all')
         ) : section === 'properties' ? (
@@ -359,7 +416,8 @@ export function ResourceDetails({
               <>
                 <h2 id={`${sectionId}-essentials`}>{nb.portalUi.essentials}</h2>
                 <div className="portal-essentials">
-                  <PropertyList items={items} />
+                  <PropertyList items={items.slice(0, 4)} />
+                  <PropertyList items={items.slice(4)} />
                 </div>
                 {row?.kind === 'group' && <p className="portal-inline-info">{p.locationNote}</p>}
                 {row?.kind === 'app' && <p>{p.appNote}</p>}
