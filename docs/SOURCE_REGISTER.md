@@ -1,5 +1,11 @@
 # Source and credential register
 
+## AZ-900 curriculum audit — 2026-10-26
+
+The [dated source catalog](AZ900_COVERAGE_MATRIX.md#daterte-offisielle-kilder) and [machine-readable records](audits/az900-2026-07-20.json) record official URLs, review date, observed exam version and page-updated dates where visible. Current Skills Measured remains July20,2026. All three current paths and their12 module/unit structures, plus the eight-project applied path, were inspected. Technical cross-checks include shared responsibility, Functions hosting, region/pair qualifications, ARM metadata/scopes, App Service plans, VM guest duties and pricing commitments. These are implementing-agent source checks, not qualified human SME approval; older runtime source timestamps remain unchanged.
+
+Microsoft Learn is a fact/objective reference; no full lesson or protected practice question was copied. Only public Practice Assessment description/FAQ was reviewed, not its authenticated bank. ITExams/exam dumps were not used. Some documentation shells show authorization notices while article text remains publicly readable; no access control was bypassed. New module manuscripts require service-specific source review again at implementation. [Structure and source limitations](AZ900_GAP_ANALYSIS.md).
+
 ## Portal service identities / exact-reference correction — reviewed 2026-10-26
 
 [Azure architecture icons](https://learn.microsoft.com/en-us/azure/architecture/icons/) (page updated2026-10-09, V24 archive; latest published changeJuly2026), its bundled terms and actual source SVGs were inspected. [Fluent iconography](https://fluent2.microsoft.design/iconography) and [System Icons source/license](https://github.com/microsoft/fluentui-system-icons) back pinned1.1.344 system actions. Archive paths, source SHA, asset SHA/bytes, original notices and per-icon Portal image comparisons are in `public/icons/manifest.json` and the [reference matrix](PORTAL_ICONOGRAPHY.md). Review date does not imply that all public screenshots show the latest tenant UI; old VM SKU/image captures are labelled as such. No Microsoft Learn lesson/practice item or private Portal code is copied. Technical teaching/model/rubric versions remain unchanged.

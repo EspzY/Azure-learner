@@ -1,5 +1,9 @@
 # Roadmap
 
+## AZ-900 expansion blueprint — proposed, 2026-10-26
+
+The [57-point audit](AZ900_COVERAGE_MATRIX.md) supersedes any reading of older module/title counts as complete AZ-900 coverage. [P00–P18](AZ900_EXPANSION_ROADMAP.md) are future bounded PR scopes, not current availability. Next recommended implementation is a complete, small serverless extension; the first new full module should be core architectural components, split into physical/geographic and management/lifecycle parts. Then close independent-feedback gaps, expand cost/compute/network/storage/identity/governance/tools/monitoring, and only later ship reviewed original diagnostics. No full mock exam or new Azure engine is implemented here. Human SME, novice/IT review and transfer studies remain required separate gates.
+
 ## Exact-reference Portal correction — current scope
 
 Replace generic service icons and inconsistent maps with registered original Azure training-material assets + MIT Fluent actions, then validate shared Home/list/create/Overview/settings presentation against public Microsoft captures. The per-component [matrix](PORTAL_ICONOGRAPHY.md) records remaining PARTIAL/UNVERIFIED gaps. Next gate is owner/Azure practitioner review of the ordinary preview root and actual supported workflows, not more Azure services or an unmeasured parity claim. No merge/production release is authorized.

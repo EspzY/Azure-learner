@@ -1,5 +1,9 @@
 # Local curriculum and evidence architecture
 
+## AZ-900 audit layer — offline, 2026-10-26
+
+The [audit JSON](audits/az900-2026-07-20.json) maps dated official slots to stable `az900.*` planning IDs, local FC/CB/ST and professional competency IDs, A–F findings, named facets, source/code/test evidence and proposed PRs. These IDs are not registered runtime activities, and no assessment/completion data imports this manifest. Source+title+test presence cannot grant coverage. The checker rejects missing slots/references or false COMPLETE claims, but cannot establish factual or pedagogical validity. [Full contract and limits](AZ900_COVERAGE_MATRIX.md); [future assessment contract](AZ900_ASSESSMENT_BLUEPRINT.md) is still a proposal. New content versions must preserve old observed answers and not upgrade existing evidence automatically.
+
 ## Legacy retirement — 2026-10-26
 
 Current course content/evidence contracts are preserved. Only the unused RPG session/playback presentation is removed. Original investigations are learning-owned; responsibility/capacity models and official metadata remain pure curriculum modules. No content objective or assessment contract is removed. Historical G1.x sections below are superseded by [the retirement audit](LEGACY_AUDIT.md).

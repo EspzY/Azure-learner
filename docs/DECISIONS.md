@@ -1,5 +1,13 @@
 # Decisions
 
+## 2026-10-26 — Audit coverage before expanding AZ-900
+
+Use the current2026-07-20 Skills Measured as the dated57-bullet baseline, splitting composite technologies into named facets and mapping them to actual source/manuscript/activity/assessment/test evidence. Six narrow Cloud concepts claims meet A–F; the rest are partial/missing. Existing three implemented module labels and15 selected lab-coverage rows are not full exam coverage. Human SME/learning approval remains null. [Decision basis](AZ900_GAP_ANALYSIS.md).
+
+Keep the audit manifest offline and validate its references without treating structural success as educational proof. Do not change runtime objectives, rubrics, scores, stores or commands in the audit. Recommend serverless first, then core architecture A/B, and balance later architecture/services with management/governance. Prefer reviewed concept models and changed scenarios over unnecessary full Azure operational engines. A future diagnostic needs original family-versioned items and holdout, never copied dumps or a readiness percentage from quests. [Bounded PRs](AZ900_EXPANSION_ROADMAP.md), [assessment plan](AZ900_ASSESSMENT_BLUEPRINT.md).
+
+For owner discoverability, the existing ordinary course exposes an exact-SHA documentation link only on the audit preview branch. It identifies planning work and does not claim course expansion. No deployment-protection or production-alias change is authorized.
+
 ## 2026-10-26 — Original service identities replace generic Lucide metaphors
 
 Owner's corrective brief supersedes PR17's generic service-cue decision. Include original Azure V24 service SVGs only inside explicitly identified Azure teaching exercises/diagrams under the documented training-material permission; this is not general product-branding/marketing authorization or external legal approval. Preserve bytes, palette, proportions and local provenance. Separate MIT Fluent system actions from service identities. One manifest replaces three conflicting maps, with visible missing mappings and explicit unverified variants. No new runtime library. [Detailed rights assessment and comparison](PORTAL_ICONOGRAPHY.md).

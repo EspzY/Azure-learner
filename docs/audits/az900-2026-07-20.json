@@ -1,0 +1,2505 @@
+{
+  "schemaVersion": 1,
+  "auditVersion": "1.0.0",
+  "reviewed": "2026-10-26",
+  "examVersion": "2026-07-20",
+  "baselineCommit": "184b818a041919b9a6461310c3ba39074e020641",
+  "baselineBranch": "codex/azure-portal-exact-icons",
+  "humanSmeReview": null,
+  "humanLearnerValidation": null,
+  "domains": [
+    {
+      "id": 1,
+      "title": "Describe cloud concepts",
+      "weight": "25–30%",
+      "expected": 15
+    },
+    {
+      "id": 2,
+      "title": "Describe Azure architecture and services",
+      "weight": "35–40%",
+      "expected": 27
+    },
+    {
+      "id": 3,
+      "title": "Describe Azure management and governance",
+      "weight": "30–35%",
+      "expected": 15
+    }
+  ],
+  "groups": [
+    {
+      "id": "1.1",
+      "title": "Cloud computing",
+      "domain": 1,
+      "count": 7,
+      "source": "M01"
+    },
+    {
+      "id": "1.2",
+      "title": "Benefits",
+      "domain": 1,
+      "count": 4,
+      "source": "M02"
+    },
+    {
+      "id": "1.3",
+      "title": "Service types",
+      "domain": 1,
+      "count": 4,
+      "source": "M03"
+    },
+    {
+      "id": "2.1",
+      "title": "Core architectural components",
+      "domain": 2,
+      "count": 7,
+      "source": "M04"
+    },
+    {
+      "id": "2.2",
+      "title": "Compute and networking",
+      "domain": 2,
+      "count": 6,
+      "source": "M05"
+    },
+    {
+      "id": "2.3",
+      "title": "Storage",
+      "domain": 2,
+      "count": 6,
+      "source": "M07"
+    },
+    {
+      "id": "2.4",
+      "title": "Identity, access and security",
+      "domain": 2,
+      "count": 8,
+      "source": "M08"
+    },
+    {
+      "id": "3.1",
+      "title": "Cost management",
+      "domain": 3,
+      "count": 4,
+      "source": "M09"
+    },
+    {
+      "id": "3.2",
+      "title": "Governance and compliance",
+      "domain": 3,
+      "count": 3,
+      "source": "M10"
+    },
+    {
+      "id": "3.3",
+      "title": "Management and deployment",
+      "domain": 3,
+      "count": 5,
+      "source": "M11"
+    },
+    {
+      "id": "3.4",
+      "title": "Monitoring",
+      "domain": 3,
+      "count": 3,
+      "source": "M12"
+    }
+  ],
+  "sources": {
+    "EXAM": {
+      "url": "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900",
+      "reviewed": "2026-10-26",
+      "purpose": "Current 57 skill bullets, version and weights",
+      "kind": "exam",
+      "pageUpdated": "2026-06-22"
+    },
+    "PA": {
+      "url": "https://learn.microsoft.com/en-us/credentials/certifications/practice-assessments-for-microsoft-certifications",
+      "reviewed": "2026-10-26",
+      "purpose": "Public assessment scope and limitations; no question bank accessed",
+      "kind": "assessment",
+      "pageUpdated": "2026-10-16"
+    },
+    "FAQ": {
+      "url": "https://learn.microsoft.com/en-us/credentials/certifications/frequently-asked-questions",
+      "reviewed": "2026-10-26",
+      "purpose": "Practice assessment and third-party preparation boundaries",
+      "kind": "assessment"
+    },
+    "P1": {
+      "url": "https://learn.microsoft.com/en-us/training/paths/microsoft-azure-fundamentals-describe-cloud-concepts/",
+      "reviewed": "2026-10-26",
+      "purpose": "Three cloud-concept modules in official order",
+      "kind": "path"
+    },
+    "P2": {
+      "url": "https://learn.microsoft.com/en-us/training/paths/azure-fundamentals-describe-azure-architecture-services/",
+      "reviewed": "2026-10-26",
+      "purpose": "Five current architecture/service modules",
+      "kind": "path"
+    },
+    "P3": {
+      "url": "https://learn.microsoft.com/en-us/training/paths/describe-azure-management-governance/",
+      "reviewed": "2026-10-26",
+      "purpose": "Four management/governance modules",
+      "kind": "path"
+    },
+    "PX": {
+      "url": "https://learn.microsoft.com/en-us/training/paths/introduction-cloud-infrastructure-apply-azure-skills-guided-projects/",
+      "reviewed": "2026-10-26",
+      "purpose": "Eight additional guided projects, not an exam coverage definition",
+      "kind": "path"
+    },
+    "M01": {
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-cloud-compute/",
+      "reviewed": "2026-10-26",
+      "purpose": "Cloud definition, responsibility, models, consumption; exam serverless not enumerated here",
+      "kind": "module"
+    },
+    "M02": {
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-benefits-use-cloud-services/",
+      "reviewed": "2026-10-26",
+      "purpose": "Availability/scalability, reliability/predictability, security/governance, manageability; sustainability supplemental",
+      "kind": "module"
+    },
+    "M03": {
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-cloud-service-types/",
+      "reviewed": "2026-10-26",
+      "purpose": "IaaS/PaaS/SaaS and use cases",
+      "kind": "module"
+    },
+    "M04": {
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-core-architectural-components-of-azure/",
+      "reviewed": "2026-10-26",
+      "purpose": "Physical infrastructure and management infrastructure",
+      "kind": "module"
+    },
+    "M05": {
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-compute-networking-services/",
+      "reviewed": "2026-10-26",
+      "purpose": "Current title: Describe Azure compute services; VM, AVD, containers, Functions, hosting; AI/ML/IoT/Edge supplemental",
+      "kind": "module"
+    },
+    "M06": {
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-networking-services/",
+      "reviewed": "2026-10-26",
+      "purpose": "VNet, VPN, ExpressRoute, DNS; separate current networking module",
+      "kind": "module"
+    },
+    "M07": {
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-storage-services/",
+      "reviewed": "2026-10-26",
+      "purpose": "Accounts, redundancy, services, migration and file movement",
+      "kind": "module"
+    },
+    "M08": {
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-identity-access-security/",
+      "reviewed": "2026-10-26",
+      "purpose": "Directories, authentication, external access, CA, RBAC, trust, defense, Defender; encryption/key management supplemental",
+      "kind": "module"
+    },
+    "M09": {
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-cost-management-azure/",
+      "reviewed": "2026-10-26",
+      "purpose": "Cost factors, calculator, cost management, tags and optimization",
+      "kind": "module"
+    },
+    "M10": {
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-features-tools-azure-for-governance-compliance/",
+      "reviewed": "2026-10-26",
+      "purpose": "Purview, Policy, locks; Service Trust Portal supplemental",
+      "kind": "module"
+    },
+    "M11": {
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-features-tools-manage-deploy-azure-resources/",
+      "reviewed": "2026-10-26",
+      "purpose": "Portal, CLI/PowerShell, Arc, ARM; cross-check separate IaC exam bullet",
+      "kind": "module"
+    },
+    "M12": {
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-monitoring-tools-azure/",
+      "reviewed": "2026-10-26",
+      "purpose": "Advisor, Service Health, Monitor",
+      "kind": "module"
+    },
+    "SR": {
+      "url": "https://learn.microsoft.com/en-us/azure/security/fundamentals/shared-responsibility",
+      "reviewed": "2026-10-26",
+      "purpose": "Customer data, identities, access and service-specific shared tasks",
+      "kind": "technical",
+      "pageUpdated": "2026-08-24"
+    },
+    "ARM": {
+      "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/overview",
+      "reviewed": "2026-10-26",
+      "purpose": "Control plane, scopes, group lifecycle and metadata location",
+      "kind": "technical",
+      "pageUpdated": "2026-08-04"
+    },
+    "FUNC": {
+      "url": "https://learn.microsoft.com/en-us/azure/azure-functions/functions-overview",
+      "reviewed": "2026-10-26",
+      "purpose": "Triggers/bindings and hosting-plan-dependent serverless behavior",
+      "kind": "technical",
+      "pageUpdated": "2026-09-21"
+    },
+    "REG": {
+      "url": "https://learn.microsoft.com/en-us/azure/reliability/regions-overview",
+      "reviewed": "2026-10-26",
+      "purpose": "Regions, zone support and service-specific availability",
+      "kind": "technical"
+    },
+    "PAIR": {
+      "url": "https://learn.microsoft.com/en-us/azure/reliability/regions-paired",
+      "reviewed": "2026-10-26",
+      "purpose": "Nonpaired regions and no automatic application failover",
+      "kind": "technical"
+    },
+    "PLAN": {
+      "url": "https://learn.microsoft.com/en-us/azure/app-service/overview-hosting-plans",
+      "reviewed": "2026-10-26",
+      "purpose": "Plan compute/OS/region and app dependency",
+      "kind": "technical"
+    },
+    "VM": {
+      "url": "https://learn.microsoft.com/en-us/azure/virtual-machines/overview",
+      "reviewed": "2026-10-26",
+      "purpose": "Guest maintenance and associated resource configuration",
+      "kind": "technical"
+    },
+    "RES": {
+      "url": "https://learn.microsoft.com/en-us/azure/cost-management-billing/reservations/save-compute-costs-reservations",
+      "reviewed": "2026-10-26",
+      "purpose": "Commitment discount, matching and utilization limits",
+      "kind": "technical"
+    },
+    "SAV": {
+      "url": "https://learn.microsoft.com/en-us/azure/cost-management-billing/savings-plan/savings-plan-overview",
+      "reviewed": "2026-10-26",
+      "purpose": "Eligible compute spend commitment, not a capacity guarantee",
+      "kind": "technical"
+    },
+    "IAAS": {
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-cloud-service-types/2-describe-infrastructure-service",
+      "reviewed": "2026-10-26",
+      "purpose": "IaaS operational responsibility and use cases",
+      "kind": "technical"
+    },
+    "PAAS": {
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-cloud-service-types/3-describe-platform-service",
+      "reviewed": "2026-10-26",
+      "purpose": "PaaS retained code/data/access and service caveats",
+      "kind": "technical"
+    },
+    "SAAS": {
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-cloud-service-types/4-describe-software-service",
+      "reviewed": "2026-10-26",
+      "purpose": "SaaS application maintenance versus customer access/data",
+      "kind": "technical"
+    }
+  },
+  "evidenceProfiles": {
+    "F": {
+      "teaching": [
+        {
+          "path": "src/content/nb.ts",
+          "marker": "foundationsV2:"
+        },
+        {
+          "path": "src/content/nb.ts",
+          "marker": "foundations:"
+        }
+      ],
+      "mechanism": [
+        {
+          "path": "src/domain/curriculum/foundations-v2.ts",
+          "marker": "v2Bindings"
+        },
+        {
+          "path": "src/domain/curriculum/foundations.ts",
+          "marker": "transferCriteria"
+        }
+      ],
+      "presentation": [
+        {
+          "path": "src/features/learning/foundations-v2.tsx",
+          "marker": "FoundationsV2"
+        }
+      ],
+      "assessment": [
+        {
+          "path": "src/domain/curriculum/foundations-v2.ts",
+          "marker": "v2Criteria"
+        }
+      ],
+      "tests": ["src/domain/curriculum/foundations-v2.test.ts", "tests/e2e/foundations-v2.spec.ts"],
+      "limits": "Current v2; no inherited v1 evidence. Row names exact relevant criteria. Fixed task set, no unseen item families."
+    },
+    "R": {
+      "teaching": [
+        {
+          "path": "src/content/nb.ts",
+          "marker": "responsibility:"
+        }
+      ],
+      "mechanism": [
+        {
+          "path": "src/domain/curriculum/responsibility.ts",
+          "marker": "responsibility"
+        }
+      ],
+      "presentation": [
+        {
+          "path": "src/features/portal/responsibility.tsx",
+          "marker": "Responsibility"
+        }
+      ],
+      "assessment": [
+        {
+          "path": "src/domain/curriculum/expansion.ts",
+          "marker": "services:"
+        },
+        {
+          "path": "src/domain/sandbox/practical.ts",
+          "marker": "evaluatePractical"
+        }
+      ],
+      "tests": [
+        "src/domain/curriculum/responsibility.test.ts",
+        "src/domain/curriculum/expansion.test.ts",
+        "src/domain/sandbox/practical.test.ts"
+      ],
+      "limits": "Selected VM/App Service/fictional SaaS examples, not identical assignments for every cloud service."
+    },
+    "BA": {
+      "teaching": [
+        {
+          "path": "src/content/nb.ts",
+          "marker": "availability:"
+        }
+      ],
+      "mechanism": [
+        {
+          "path": "src/domain/curriculum/expansion-models.ts",
+          "marker": "availability:"
+        }
+      ],
+      "presentation": [
+        {
+          "path": "src/features/learning/expanded-module.tsx",
+          "marker": "Experiment"
+        }
+      ],
+      "assessment": [
+        {
+          "path": "src/domain/curriculum/expansion.ts",
+          "marker": "unmet:"
+        }
+      ],
+      "tests": [
+        "src/domain/curriculum/expansion.test.ts",
+        "tests/e2e/curriculum-expansion.spec.ts"
+      ],
+      "limits": "Synthetic capacity/fault/routing, not Azure SLA or deployed availability."
+    },
+    "BR": {
+      "teaching": [
+        {
+          "path": "src/content/nb.ts",
+          "marker": "reliability:"
+        }
+      ],
+      "mechanism": [
+        {
+          "path": "src/domain/curriculum/expansion-models.ts",
+          "marker": "reliability:"
+        }
+      ],
+      "presentation": [
+        {
+          "path": "src/features/learning/expanded-module.tsx",
+          "marker": "Experiment"
+        }
+      ],
+      "assessment": [
+        {
+          "path": "src/domain/curriculum/expansion.ts",
+          "marker": "dependency:"
+        }
+      ],
+      "tests": [
+        "src/domain/curriculum/expansion.test.ts",
+        "tests/e2e/curriculum-expansion.spec.ts"
+      ],
+      "limits": "Dependency and forecast demonstrations; independent prompt partly reveals diagnosis."
+    },
+    "BG": {
+      "teaching": [
+        {
+          "path": "src/content/nb.ts",
+          "marker": "governance:"
+        }
+      ],
+      "mechanism": [
+        {
+          "path": "src/domain/curriculum/expansion-models.ts",
+          "marker": "governance:"
+        }
+      ],
+      "presentation": [
+        {
+          "path": "src/features/learning/expanded-module.tsx",
+          "marker": "GuidedAnswer"
+        }
+      ],
+      "assessment": [
+        {
+          "path": "src/domain/curriculum/expansion.ts",
+          "marker": "policy:"
+        }
+      ],
+      "tests": [
+        "src/domain/curriculum/expansion.test.ts",
+        "tests/e2e/curriculum-expansion.spec.ts"
+      ],
+      "limits": "One custom configuration rule; assumed authorization, no full RBAC/security posture engine."
+    },
+    "BM": {
+      "teaching": [
+        {
+          "path": "src/content/nb.ts",
+          "marker": "management:"
+        }
+      ],
+      "mechanism": [
+        {
+          "path": "src/domain/curriculum/expansion-models.ts",
+          "marker": "management:"
+        }
+      ],
+      "presentation": [
+        {
+          "path": "src/features/learning/expanded-module.tsx",
+          "marker": "Experiment"
+        }
+      ],
+      "assessment": [
+        {
+          "path": "src/domain/curriculum/expansion.ts",
+          "marker": "template:"
+        }
+      ],
+      "tests": [
+        "src/domain/curriculum/expansion.test.ts",
+        "tests/e2e/curriculum-expansion.spec.ts"
+      ],
+      "limits": "Three-field declarative comparison; not a Bicep/ARM/CLI execution environment."
+    },
+    "S": {
+      "teaching": [
+        {
+          "path": "src/content/nb.ts",
+          "marker": "services:"
+        }
+      ],
+      "mechanism": [
+        {
+          "path": "src/domain/curriculum/expansion-models.ts",
+          "marker": "selection:"
+        }
+      ],
+      "presentation": [
+        {
+          "path": "src/features/learning/expanded-module.tsx",
+          "marker": "ExpandedAssessment"
+        }
+      ],
+      "assessment": [
+        {
+          "path": "src/domain/curriculum/expansion.ts",
+          "marker": "assess"
+        },
+        {
+          "path": "src/domain/sandbox/practical.ts",
+          "marker": "evaluatePractical"
+        }
+      ],
+      "tests": [
+        "src/domain/curriculum/expansion.test.ts",
+        "src/domain/sandbox/practical.test.ts",
+        "tests/e2e/practical-labs.spec.ts"
+      ],
+      "limits": "Current service-types v2; old v1 questions do not automatically satisfy its evidence."
+    },
+    "H": {
+      "teaching": [
+        {
+          "path": "src/content/nb.ts",
+          "marker": "scopeCopy"
+        },
+        {
+          "path": "src/content/nb.ts",
+          "marker": "graph:"
+        }
+      ],
+      "mechanism": [
+        {
+          "path": "src/domain/portal/model.ts",
+          "marker": "resource"
+        }
+      ],
+      "presentation": [
+        {
+          "path": "src/features/portal/architecture.tsx",
+          "marker": "Architecture"
+        },
+        {
+          "path": "src/features/portal/infrastructure-details.tsx",
+          "marker": "Resource"
+        }
+      ],
+      "assessment": [
+        {
+          "path": "src/domain/sandbox/practical.ts",
+          "marker": "evaluatePractical"
+        }
+      ],
+      "tests": [
+        "src/domain/portal/portal.test.ts",
+        "src/domain/sandbox/practical.test.ts",
+        "tests/e2e/portal-fidelity.spec.ts"
+      ],
+      "limits": "Live graph/inspection and valid operations; no independent hierarchy/lifecycle explanation rubric."
+    },
+    "V": {
+      "teaching": [
+        {
+          "path": "src/content/nb.ts",
+          "marker": "labsNb"
+        },
+        {
+          "path": "src/content/nb.ts",
+          "marker": "iaas:"
+        }
+      ],
+      "mechanism": [
+        {
+          "path": "src/domain/sandbox/model.ts",
+          "marker": "CreateVmBundle"
+        }
+      ],
+      "presentation": [
+        {
+          "path": "src/features/portal/vm-form.tsx",
+          "marker": "Vm"
+        },
+        {
+          "path": "src/features/portal/infrastructure-details.tsx",
+          "marker": "Resource"
+        }
+      ],
+      "assessment": [
+        {
+          "path": "src/domain/sandbox/practical.ts",
+          "marker": "evaluatePractical"
+        }
+      ],
+      "tests": [
+        "src/domain/sandbox/sandbox.test.ts",
+        "src/domain/sandbox/practical.test.ts",
+        "tests/e2e/practical-labs.spec.ts"
+      ],
+      "limits": "Atomic bounded bundle and disk/NIC/VNet/subnet relations, no VMSS/AVD/guest OS/traffic."
+    },
+    "P": {
+      "teaching": [
+        {
+          "path": "src/content/nb.ts",
+          "marker": "paas:"
+        },
+        {
+          "path": "src/content/nb.ts",
+          "marker": "practice:"
+        }
+      ],
+      "mechanism": [
+        {
+          "path": "src/domain/sandbox/model.ts",
+          "marker": "CreateWebApp"
+        }
+      ],
+      "presentation": [
+        {
+          "path": "src/features/portal/create-resource.tsx",
+          "marker": "Create"
+        },
+        {
+          "path": "src/features/portal/app-settings.tsx",
+          "marker": "App"
+        }
+      ],
+      "assessment": [
+        {
+          "path": "src/domain/sandbox/practical.ts",
+          "marker": "evaluatePractical"
+        }
+      ],
+      "tests": [
+        "src/domain/sandbox/sandbox.test.ts",
+        "src/domain/sandbox/practical.test.ts",
+        "tests/e2e/practical-labs.spec.ts"
+      ],
+      "limits": "Supported Linux plan/app and allowlisted settings; no real hosting/deploy/availability/cost."
+    },
+    "PORTAL": {
+      "teaching": [
+        {
+          "path": "src/content/nb.ts",
+          "marker": "portal:"
+        }
+      ],
+      "mechanism": [
+        {
+          "path": "src/domain/portal/model.ts",
+          "marker": "parse"
+        }
+      ],
+      "presentation": [
+        {
+          "path": "src/features/portal/portal.tsx",
+          "marker": "Portal"
+        }
+      ],
+      "assessment": [
+        {
+          "path": "src/domain/sandbox/practical.ts",
+          "marker": "evaluatePractical"
+        }
+      ],
+      "tests": [
+        "tests/e2e/portal.spec.ts",
+        "tests/e2e/portal-fidelity.spec.ts",
+        "tests/e2e/practical-labs.spec.ts"
+      ],
+      "limits": "Authentic local workflows are application evidence, not by themselves complete instruction on management tools."
+    },
+    "L": {
+      "teaching": [
+        {
+          "path": "src/content/nb.ts",
+          "marker": "challenge:"
+        }
+      ],
+      "mechanism": [
+        {
+          "path": "src/domain/portal/learning.ts",
+          "marker": "evaluateSubmission"
+        }
+      ],
+      "presentation": [
+        {
+          "path": "src/features/portal/learning.tsx",
+          "marker": "IndependentChallenge"
+        },
+        {
+          "path": "src/features/portal/portal.tsx",
+          "marker": "navigate('challenge'"
+        }
+      ],
+      "assessment": [
+        {
+          "path": "src/domain/portal/learning.ts",
+          "marker": "ready: a.readyModel === 'saas'"
+        },
+        {
+          "path": "src/domain/portal/learning.ts",
+          "marker": "scope:"
+        }
+      ],
+      "tests": ["src/domain/portal/portal.test.ts", "tests/e2e/portal.spec.ts"],
+      "limits": "Still reachable Portal independent compatibility task, not an inaccessible archive. Narrow fixed model-choice/scope predicates and per-criterion feedback; frozen v1 observations do not upgrade current v2 evidence."
+    }
+  },
+  "plannedPRs": [
+    "P00",
+    "P01",
+    "P02",
+    "P03",
+    "P04",
+    "P05",
+    "P06",
+    "P07",
+    "P08",
+    "P09",
+    "P10",
+    "P11",
+    "P12",
+    "P13",
+    "P14",
+    "P15",
+    "P16",
+    "P17",
+    "P18"
+  ],
+  "objectives": [
+    {
+      "slot": "1.1.01",
+      "id": "az900.cloud.definition",
+      "title": "Hva cloud computing innebærer",
+      "status": "COMPLETE",
+      "criteria": {
+        "A": "V",
+        "B": "V",
+        "C": "V",
+        "D": "V",
+        "E": "V",
+        "F": "V"
+      },
+      "facets": [
+        {
+          "topic": "Hva cloud computing innebærer",
+          "status": "COMPLETE"
+        }
+      ],
+      "localObjectives": ["FC01", "FC02", "F01"],
+      "evidence": ["F"],
+      "observed": "Browser/server, fysisk kapasitet, virtualisering og provisioning før cloud-begrepet; kontrollerte undersøkelser. V2 service-kriteriet skiller bestilt kapasitet fra bare internett eller fravær av maskinvare.",
+      "gap": "Ingen identifisert A–F-mangel på dette avgrensede AZ-900-nivået. Fast oppgavesett og menneskelig validering er fortsatt begrensninger.",
+      "plannedPRs": ["P17", "P18"],
+      "sources": ["EXAM", "M01", "M01"]
+    },
+    {
+      "slot": "1.1.02",
+      "id": "az900.cloud.responsibility",
+      "title": "Delt operasjonelt ansvar",
+      "status": "COMPLETE",
+      "criteria": {
+        "A": "V",
+        "B": "V",
+        "C": "V",
+        "D": "V",
+        "E": "V",
+        "F": "V"
+      },
+      "facets": [
+        {
+          "topic": "Delt operasjonelt ansvar",
+          "status": "COMPLETE"
+        }
+      ],
+      "localObjectives": ["FC03", "ST01", "ST02", "ST03", "F01"],
+      "evidence": ["F", "R", "S"],
+      "observed": "Ni inspiserbare lag og tjenestespesifikke forbehold; duties, patch, runtime og departure samt nye VM/PaaS/SaaS-oppgaver skiller kundeoppgaver fra plattformdrift. Riktig og feil begrunnes.",
+      "gap": "Ingen identifisert A–F-mangel på dette avgrensede AZ-900-nivået. Fast oppgavesett og menneskelig validering er fortsatt begrensninger.",
+      "plannedPRs": ["P17", "P18"],
+      "sources": ["EXAM", "M01", "SR", "IAAS", "PAAS", "SAAS"]
+    },
+    {
+      "slot": "1.1.03",
+      "id": "az900.cloud.models",
+      "title": "Public, private og hybrid cloud",
+      "status": "PARTIAL",
+      "criteria": {
+        "A": "V",
+        "B": "V",
+        "C": "V",
+        "D": "P",
+        "E": "V",
+        "F": "V"
+      },
+      "facets": [
+        {
+          "topic": "Public",
+          "status": "PARTIAL"
+        },
+        {
+          "topic": "Private",
+          "status": "COMPLETE"
+        },
+        {
+          "topic": "Hybrid",
+          "status": "COMPLETE"
+        }
+      ],
+      "localObjectives": ["FC04", "F01"],
+      "evidence": ["F"],
+      "observed": "Modell/manuskript, valg og sammenkobling; uavhengig exclusive og integration gjelder private/hybrid.",
+      "gap": "Ingen egen ny-kontekst public-avgrensning; fast toalternativtest gir begrenset bevisbredde.",
+      "plannedPRs": ["P03"],
+      "sources": ["EXAM", "M01"]
+    },
+    {
+      "slot": "1.1.04",
+      "id": "az900.cloud.model-use",
+      "title": "Bruksområder for hver deployment model",
+      "status": "PARTIAL",
+      "criteria": {
+        "A": "V",
+        "B": "V",
+        "C": "V",
+        "D": "P",
+        "E": "V",
+        "F": "V"
+      },
+      "facets": [
+        {
+          "topic": "Public-bruk",
+          "status": "PARTIAL"
+        },
+        {
+          "topic": "Private-bruk",
+          "status": "COMPLETE"
+        },
+        {
+          "topic": "Hybrid-bruk",
+          "status": "COMPLETE"
+        }
+      ],
+      "localObjectives": ["FC05", "F01"],
+      "evidence": ["F"],
+      "observed": "Tre guidede plasseringstilfeller; endret oppgave vurderer privat eksklusivitet og reell hybridintegrasjon.",
+      "gap": "Uavhengig valg som faktisk gjør public egnet mangler; ikke bare gjenkjenning av private/hybrid.",
+      "plannedPRs": ["P03"],
+      "sources": ["EXAM", "M01"]
+    },
+    {
+      "slot": "1.1.05",
+      "id": "az900.cloud.consumption",
+      "title": "Forbruk, allokering og måling",
+      "status": "COMPLETE",
+      "criteria": {
+        "A": "V",
+        "B": "V",
+        "C": "V",
+        "D": "V",
+        "E": "V",
+        "F": "V"
+      },
+      "facets": [
+        {
+          "topic": "Forbruk, allokering og måling",
+          "status": "COMPLETE"
+        }
+      ],
+      "localObjectives": ["FC06", "F03"],
+      "evidence": ["F"],
+      "observed": "Tids-/kapasitetsmodell viser allokert tomgang, frigjøring og gjenværende kostnadstyper. Endret idle-kriterium krever allokert forbruk også uten trafikk; avviser trafikk-only.",
+      "gap": "Ingen identifisert A–F-mangel på dette avgrensede AZ-900-nivået. Fast oppgavesett og menneskelig validering er fortsatt begrensninger.",
+      "plannedPRs": ["P17", "P18"],
+      "sources": ["EXAM", "M01", "RES", "SAV"]
+    },
+    {
+      "slot": "1.1.06",
+      "id": "az900.cloud.pricing",
+      "title": "PAYG, forpliktelser og avbrytbar kapasitet",
+      "status": "PARTIAL",
+      "criteria": {
+        "A": "V",
+        "B": "V",
+        "C": "V",
+        "D": "P",
+        "E": "V",
+        "F": "V"
+      },
+      "facets": [
+        {
+          "topic": "PAYG",
+          "status": "COMPLETE"
+        },
+        {
+          "topic": "Reservation/savings commitment",
+          "status": "PARTIAL"
+        },
+        {
+          "topic": "Spot",
+          "status": "PARTIAL"
+        }
+      ],
+      "localObjectives": ["FC07", "F03"],
+      "evidence": ["F"],
+      "observed": "Original prismodell med eksplisitte undervisningstall; uncertain og commitment vurderer variabel bruk og ubrukt forpliktelse.",
+      "gap": "Ingen selvstendig anbefaling av forpliktelse ved stabil bruk eller egnet avbrytbar jobb; Spot/kapasitetsforbehold må også vurderes.",
+      "plannedPRs": ["P03", "P04"],
+      "sources": ["EXAM", "M01", "RES", "SAV"]
+    },
+    {
+      "slot": "1.1.07",
+      "id": "az900.cloud.serverless",
+      "title": "Serverless",
+      "status": "MISSING",
+      "criteria": {
+        "A": "M",
+        "B": "M",
+        "C": "M",
+        "D": "M",
+        "E": "M",
+        "F": "N"
+      },
+      "facets": [
+        {
+          "topic": "Hendelser/utførelse",
+          "status": "MISSING"
+        },
+        {
+          "topic": "Operasjonelt ansvar",
+          "status": "MISSING"
+        },
+        {
+          "topic": "Hostingavhengig forbruk og skalering",
+          "status": "MISSING"
+        }
+      ],
+      "localObjectives": ["C04", "F01"],
+      "evidence": [],
+      "observed": "manifest.certificationOverlay.excluded nevner serverless eksplisitt; ingen aktiv undervisning, modell eller oppgave.",
+      "gap": "Mangler egen forklaring, relevant mekanisme/praksis, uavhengig scenario og begrunnet vurdering for de angitte emnene.",
+      "plannedPRs": ["P00", "P05"],
+      "sources": ["EXAM", "M01", "FUNC"]
+    },
+    {
+      "slot": "1.2.01",
+      "id": "az900.benefits.availability-scale",
+      "title": "Tilgjengelighet og skalering",
+      "status": "PARTIAL",
+      "criteria": {
+        "A": "V",
+        "B": "V",
+        "C": "V",
+        "D": "P",
+        "E": "V",
+        "F": "V"
+      },
+      "facets": [
+        {
+          "topic": "High availability",
+          "status": "PARTIAL"
+        },
+        {
+          "topic": "Vertical/horizontal scaling",
+          "status": "PARTIAL"
+        }
+      ],
+      "localObjectives": ["CB01", "F02", "F03"],
+      "evidence": ["BA"],
+      "observed": "Kapasitet, feil og ruting kan endres før observasjon; unmet vurderer et nytt numerisk bortfall.",
+      "gap": "Ny tallverdi alene vurderer ikke valg av HA-oppsett versus riktig skaleringstype; ingen variantfamilier.",
+      "plannedPRs": ["P03", "P01"],
+      "sources": ["EXAM", "M02"]
+    },
+    {
+      "slot": "1.2.02",
+      "id": "az900.benefits.reliability-predictability",
+      "title": "Pålitelighet og forutsigbarhet",
+      "status": "PARTIAL",
+      "criteria": {
+        "A": "V",
+        "B": "V",
+        "C": "V",
+        "D": "P",
+        "E": "P",
+        "F": "V"
+      },
+      "facets": [
+        {
+          "topic": "Reliability",
+          "status": "PARTIAL"
+        },
+        {
+          "topic": "Predictability",
+          "status": "PARTIAL"
+        }
+      ],
+      "localObjectives": ["CB02", "F02", "F03"],
+      "evidence": ["BR"],
+      "observed": "Avhengighetsfeil og målt trend forklares; dependency/forecast evalueres separat.",
+      "gap": "dependency-teksten røper at mer kapasitet ikke hjelper og peker mot restore. Mangler ny diagnose og begrunnelse av alle plausible alternativer.",
+      "plannedPRs": ["P03", "P14"],
+      "sources": ["EXAM", "M02"]
+    },
+    {
+      "slot": "1.2.03",
+      "id": "az900.benefits.security-governance",
+      "title": "Sikkerhet og styring som cloud-fordeler",
+      "status": "PARTIAL",
+      "criteria": {
+        "A": "V",
+        "B": "V",
+        "C": "V",
+        "D": "P",
+        "E": "P",
+        "F": "V"
+      },
+      "facets": [
+        {
+          "topic": "Security benefit",
+          "status": "PARTIAL"
+        },
+        {
+          "topic": "Governance benefit",
+          "status": "PARTIAL"
+        }
+      ],
+      "localObjectives": ["CB03", "G03", "I01"],
+      "evidence": ["BG"],
+      "observed": "Kundeansvar, least privilege, rolle/scope og custom location-deny; policy-spørsmålet avviser at én regel beviser alt.",
+      "gap": "Denne ene moteksempeltesten vurderer ikke selvstendig skillet mellom sikkerhetsgevinst, tilgang og styring.",
+      "plannedPRs": ["P03", "P11", "P12"],
+      "sources": ["EXAM", "M02"]
+    },
+    {
+      "slot": "1.2.04",
+      "id": "az900.benefits.manageability",
+      "title": "Administrasjon av og i cloud",
+      "status": "PARTIAL",
+      "criteria": {
+        "A": "V",
+        "B": "V",
+        "C": "V",
+        "D": "P",
+        "E": "P",
+        "F": "V"
+      },
+      "facets": [
+        {
+          "topic": "Management of cloud",
+          "status": "PARTIAL"
+        },
+        {
+          "topic": "Management in cloud",
+          "status": "PARTIAL"
+        }
+      ],
+      "localObjectives": ["CB04", "A01"],
+      "evidence": ["BM"],
+      "observed": "Manuell/repeterbar ønsket konfigurasjon; Portal/CLI/PowerShell/IaC beskrives.",
+      "gap": "Endret template-spørsmål peker allerede på feil verdi. Ingen selvstendig kanalvalg eller feildiagnose med full alternativforklaring.",
+      "plannedPRs": ["P03", "P13"],
+      "sources": ["EXAM", "M02"]
+    },
+    {
+      "slot": "1.3.01",
+      "id": "az900.services.iaas",
+      "title": "IaaS og retained gjesteansvar",
+      "status": "COMPLETE",
+      "criteria": {
+        "A": "V",
+        "B": "V",
+        "C": "V",
+        "D": "V",
+        "E": "V",
+        "F": "V"
+      },
+      "facets": [
+        {
+          "topic": "IaaS og retained gjesteansvar",
+          "status": "COMPLETE"
+        }
+      ],
+      "localObjectives": ["ST01", "C01", "C02"],
+      "evidence": ["S", "V"],
+      "observed": "Substantielt manuskript og gjestestakk; guest/patch i ny kontekst og Windows VM-bundle med inspektérbare disk/NIC-avhengigheter. Ingen ekte VM kjører.",
+      "gap": "Ingen identifisert A–F-mangel på dette avgrensede AZ-900-nivået. Fast oppgavesett og menneskelig validering er fortsatt begrensninger.",
+      "plannedPRs": ["P17", "P18"],
+      "sources": ["EXAM", "M03", "IAAS", "VM", "SR"]
+    },
+    {
+      "slot": "1.3.02",
+      "id": "az900.services.paas",
+      "title": "PaaS og retained applikasjonsansvar",
+      "status": "COMPLETE",
+      "criteria": {
+        "A": "V",
+        "B": "V",
+        "C": "V",
+        "D": "V",
+        "E": "V",
+        "F": "V"
+      },
+      "facets": [
+        {
+          "topic": "PaaS og retained applikasjonsansvar",
+          "status": "COMPLETE"
+        }
+      ],
+      "localObjectives": ["ST02", "C01"],
+      "evidence": ["S", "P"],
+      "observed": "Runtime-kompatibilitet og OS-ansvar, plan/app-relasjon og egen kode/data/access. runtime/hosting samt ny plan/app/settings etter uavhengig boundary.",
+      "gap": "Ingen identifisert A–F-mangel på dette avgrensede AZ-900-nivået. Fast oppgavesett og menneskelig validering er fortsatt begrensninger.",
+      "plannedPRs": ["P17", "P18"],
+      "sources": ["EXAM", "M03", "PAAS", "PLAN", "SR"]
+    },
+    {
+      "slot": "1.3.03",
+      "id": "az900.services.saas",
+      "title": "SaaS og retained produktadministrasjon",
+      "status": "COMPLETE",
+      "criteria": {
+        "A": "V",
+        "B": "V",
+        "C": "V",
+        "D": "V",
+        "E": "V",
+        "F": "V"
+      },
+      "facets": [
+        {
+          "topic": "SaaS og retained produktadministrasjon",
+          "status": "COMPLETE"
+        }
+      ],
+      "localObjectives": ["ST03", "I01"],
+      "evidence": ["S"],
+      "observed": "Ferdig produkt versus plattform; lisens, rolle, blokkering og data ved avgang er separate handlinger. departure og endret fiktiv admin-oppgave krever faktisk beslutning og begrunnelse.",
+      "gap": "Ingen identifisert A–F-mangel på dette avgrensede AZ-900-nivået. Fast oppgavesett og menneskelig validering er fortsatt begrensninger.",
+      "plannedPRs": ["P17", "P18"],
+      "sources": ["EXAM", "M03", "SAAS", "SR"]
+    },
+    {
+      "slot": "1.3.04",
+      "id": "az900.services.use-cases",
+      "title": "Velge IaaS, PaaS eller SaaS fra krav",
+      "status": "PARTIAL",
+      "criteria": {
+        "A": "V",
+        "B": "V",
+        "C": "V",
+        "D": "P",
+        "E": "P",
+        "F": "V"
+      },
+      "facets": [
+        {
+          "topic": "IaaS-valg",
+          "status": "COMPLETE"
+        },
+        {
+          "topic": "PaaS-valg",
+          "status": "COMPLETE"
+        },
+        {
+          "topic": "SaaS-valg",
+          "status": "PARTIAL"
+        }
+      ],
+      "localObjectives": ["ST04", "F01", "R01"],
+      "evidence": ["S", "L"],
+      "observed": "Krav/tradeoff-modell; architecture+reason godtar begrunnet IaaS eller støttet PaaS. Det fortsatt tilgjengelige Portal-kompatibilitetsoppdraget vurderer også readyModel=saas for ferdig samarbeid; dette er et eget v1-spor.",
+      "gap": "Current v2 vurderer SaaS-avgang, ikke et nytt SaaS-valg. Portal v1 har et smalt modellvalg, men gir bare kort kriterieforklaring, uten full årsak for plausible IaaS/PaaS-alternativer. Bevar dette bidraget; integrer bedre transfer/feedback i v2 uten å konvertere gamle svar.",
+      "plannedPRs": ["P03"],
+      "sources": ["EXAM", "M03"]
+    },
+    {
+      "slot": "2.1.01",
+      "id": "az900.architecture.regions",
+      "title": "Regions, region pairs og sovereign regions",
+      "status": "PARTIAL",
+      "criteria": {
+        "A": "P",
+        "B": "P",
+        "C": "P",
+        "D": "M",
+        "E": "P",
+        "F": "P"
+      },
+      "facets": [
+        {
+          "topic": "Regions/resource location",
+          "status": "PARTIAL"
+        },
+        {
+          "topic": "Region pairs",
+          "status": "MISSING"
+        },
+        {
+          "topic": "Sovereign regions",
+          "status": "MISSING"
+        }
+      ],
+      "localObjectives": ["F02"],
+      "evidence": ["H", "P", "V"],
+      "observed": "Portal og graf skiller ressursregion fra RG-metadata.",
+      "gap": "Ingen full regionsforklaring eller par/sovereignty-undervisning/ny-kontekst vurdering. Ikke alle regioner er paret; par er ikke automatisk app-failover.",
+      "plannedPRs": ["P01"],
+      "sources": ["EXAM", "M04", "REG", "PAIR"]
+    },
+    {
+      "slot": "2.1.02",
+      "id": "az900.architecture.zones",
+      "title": "Availability zones",
+      "status": "MISSING",
+      "criteria": {
+        "A": "M",
+        "B": "M",
+        "C": "M",
+        "D": "M",
+        "E": "M",
+        "F": "N"
+      },
+      "facets": [
+        {
+          "topic": "Fysisk feilgrense",
+          "status": "MISSING"
+        },
+        {
+          "topic": "Zone-støtte og ressursvalg",
+          "status": "MISSING"
+        }
+      ],
+      "localObjectives": ["F02"],
+      "evidence": [],
+      "observed": "Generisk nodefeil/ruting i Benefits er ikke Azure-zonemodellen.",
+      "gap": "Mangler egen forklaring, relevant mekanisme/praksis, uavhengig scenario og begrunnet vurdering for de angitte emnene.",
+      "plannedPRs": ["P01"],
+      "sources": ["EXAM", "M04", "REG"]
+    },
+    {
+      "slot": "2.1.03",
+      "id": "az900.architecture.datacenters",
+      "title": "Azure datacenters",
+      "status": "MISSING",
+      "criteria": {
+        "A": "M",
+        "B": "M",
+        "C": "M",
+        "D": "M",
+        "E": "M",
+        "F": "N"
+      },
+      "facets": [
+        {
+          "topic": "Fysisk datasenter",
+          "status": "MISSING"
+        },
+        {
+          "topic": "Relasjon til region og zone",
+          "status": "MISSING"
+        }
+      ],
+      "localObjectives": ["F02"],
+      "evidence": [],
+      "observed": "Modul1 forklarer en fysisk server, men underviser ikke Azure-datasenterets rolle i geografisk infrastruktur.",
+      "gap": "Mangler egen forklaring, relevant mekanisme/praksis, uavhengig scenario og begrunnet vurdering for de angitte emnene.",
+      "plannedPRs": ["P01"],
+      "sources": ["EXAM", "M04", "REG"]
+    },
+    {
+      "slot": "2.1.04",
+      "id": "az900.architecture.resources-groups",
+      "title": "Resources og resource groups",
+      "status": "PARTIAL",
+      "criteria": {
+        "A": "V",
+        "B": "V",
+        "C": "V",
+        "D": "P",
+        "E": "P",
+        "F": "V"
+      },
+      "facets": [
+        {
+          "topic": "Resources",
+          "status": "PARTIAL"
+        },
+        {
+          "topic": "Resource groups/lifecycle",
+          "status": "PARTIAL"
+        }
+      ],
+      "localObjectives": ["G01", "G04"],
+      "evidence": ["H", "P", "L"],
+      "observed": "Reelle lokale grupper, medlemmer, metadata og hosting; naming convention skilles fra teknisk validering.",
+      "gap": "Riktig gruppeskjema/teknisk lab alene vurderer ikke et nytt lifecycle-grupperingsscenario eller management-versus-hosting.",
+      "plannedPRs": ["P02"],
+      "sources": ["EXAM", "M04", "ARM"]
+    },
+    {
+      "slot": "2.1.05",
+      "id": "az900.architecture.subscriptions",
+      "title": "Subscriptions",
+      "status": "PARTIAL",
+      "criteria": {
+        "A": "P",
+        "B": "P",
+        "C": "V",
+        "D": "P",
+        "E": "P",
+        "F": "V"
+      },
+      "facets": [
+        {
+          "topic": "Subscription boundary/billing",
+          "status": "PARTIAL"
+        }
+      ],
+      "localObjectives": ["G01", "G04"],
+      "evidence": ["H", "L"],
+      "observed": "Valg av abonnement, parent/ID og kort fakturerings-/styringsforklaring. Portalens separate kompatibilitetsoppdrag har et faktisk nytt-gruppe/subscription-predikat.",
+      "gap": "Det tekniske scope-predikatet er delvis anvendelse, men vurderer ikke selvstendig begrunnet valg av abonnementsgrense fra organisatoriske/billing-krav. Feil abonnement kan være teknisk gyldig.",
+      "plannedPRs": ["P02"],
+      "sources": ["EXAM", "M04", "ARM"]
+    },
+    {
+      "slot": "2.1.06",
+      "id": "az900.architecture.management-groups",
+      "title": "Management groups",
+      "status": "PARTIAL",
+      "criteria": {
+        "A": "P",
+        "B": "P",
+        "C": "P",
+        "D": "M",
+        "E": "P",
+        "F": "V"
+      },
+      "facets": [
+        {
+          "topic": "Tenant root/management groups",
+          "status": "PARTIAL"
+        }
+      ],
+      "localObjectives": ["G01", "G04"],
+      "evidence": ["H"],
+      "observed": "Graf og scopeCopy viser root, management group og abonnement adskilt fra tenantidentitet.",
+      "gap": "Ingen full undervisningssekvens med arv/scope-konsekvenser og uavhengig oppgave; ingen operativ MG-motor behøves.",
+      "plannedPRs": ["P02"],
+      "sources": ["EXAM", "M04", "ARM"]
+    },
+    {
+      "slot": "2.1.07",
+      "id": "az900.architecture.hierarchy",
+      "title": "Hierarki og relasjonstyper",
+      "status": "PARTIAL",
+      "criteria": {
+        "A": "P",
+        "B": "V",
+        "C": "V",
+        "D": "P",
+        "E": "P",
+        "F": "V"
+      },
+      "facets": [
+        {
+          "topic": "MG/subscription/RG hierarchy",
+          "status": "PARTIAL"
+        },
+        {
+          "topic": "Membership versus hosting/location",
+          "status": "PARTIAL"
+        }
+      ],
+      "localObjectives": ["G01", "G02"],
+      "evidence": ["H", "L"],
+      "observed": "Typed graf viser containment, identity association, hosting og geografi. Praktisk app→plan avviker fra app→group.",
+      "gap": "Inspeksjon/hosting-kriterium dekker ikke uavhengig hele MG→subscription→RG og riktig policy-arv.",
+      "plannedPRs": ["P02"],
+      "sources": ["EXAM", "M04", "ARM"]
+    },
+    {
+      "slot": "2.2.01",
+      "id": "az900.compute.compare",
+      "title": "VMs, containers og functions",
+      "status": "PARTIAL",
+      "criteria": {
+        "A": "P",
+        "B": "P",
+        "C": "P",
+        "D": "P",
+        "E": "P",
+        "F": "P"
+      },
+      "facets": [
+        {
+          "topic": "VM",
+          "status": "COMPLETE"
+        },
+        {
+          "topic": "Containers",
+          "status": "MISSING"
+        },
+        {
+          "topic": "Functions",
+          "status": "MISSING"
+        }
+      ],
+      "localObjectives": ["C02", "C03", "C04"],
+      "evidence": ["S", "V"],
+      "observed": "VM/OS-kontroll er lært og anvendt.",
+      "gap": "Ingen aktiv containers/Functions-forklaring eller treveis compute-valg; generell PaaS er ikke Functions-dekning.",
+      "plannedPRs": ["P00", "P05"],
+      "sources": ["EXAM", "M05", "FUNC", "VM"]
+    },
+    {
+      "slot": "2.2.02",
+      "id": "az900.compute.vm-options",
+      "title": "VM, VM Scale Sets, availability sets og Virtual Desktop",
+      "status": "PARTIAL",
+      "criteria": {
+        "A": "P",
+        "B": "P",
+        "C": "P",
+        "D": "P",
+        "E": "P",
+        "F": "P"
+      },
+      "facets": [
+        {
+          "topic": "Azure VM",
+          "status": "COMPLETE"
+        },
+        {
+          "topic": "VM Scale Sets",
+          "status": "MISSING"
+        },
+        {
+          "topic": "Availability sets",
+          "status": "MISSING"
+        },
+        {
+          "topic": "Azure Virtual Desktop",
+          "status": "MISSING"
+        }
+      ],
+      "localObjectives": ["C02"],
+      "evidence": ["V"],
+      "observed": "VM-bundle/vedlikeholdsansvar er reelt modellert.",
+      "gap": "Tre andre alternativer mangler; ingen skala/fault-domain/desktop-sammenligning.",
+      "plannedPRs": ["P05"],
+      "sources": ["EXAM", "M05"]
+    },
+    {
+      "slot": "2.2.03",
+      "id": "az900.compute.vm-resources",
+      "title": "Ressurser som støtter en VM",
+      "status": "PARTIAL",
+      "criteria": {
+        "A": "V",
+        "B": "V",
+        "C": "V",
+        "D": "P",
+        "E": "P",
+        "F": "V"
+      },
+      "facets": [
+        {
+          "topic": "VM/disks/NIC/VNet/subnet",
+          "status": "PARTIAL"
+        }
+      ],
+      "localObjectives": ["C02", "N01", "G02"],
+      "evidence": ["V"],
+      "observed": "Atomisk opprettelse, avhengighetsfeil, valg av eksisterende VNet og inspeksjon av OS/data disk og NIC.",
+      "gap": "Uavhengig oppgave kontrollerer opprettelse og inspected-ID-er, ikke at studenten forklarer hvorfor hver avhengighet er nødvendig.",
+      "plannedPRs": ["P05", "P06"],
+      "sources": ["EXAM", "M05", "VM"]
+    },
+    {
+      "slot": "2.2.04",
+      "id": "az900.compute.hosting",
+      "title": "Web apps, containers og VM-hosting",
+      "status": "PARTIAL",
+      "criteria": {
+        "A": "P",
+        "B": "P",
+        "C": "P",
+        "D": "P",
+        "E": "P",
+        "F": "P"
+      },
+      "facets": [
+        {
+          "topic": "Web Apps",
+          "status": "COMPLETE"
+        },
+        {
+          "topic": "VM-hosting",
+          "status": "PARTIAL"
+        },
+        {
+          "topic": "Container-hosting",
+          "status": "MISSING"
+        }
+      ],
+      "localObjectives": ["C01", "C02", "C03"],
+      "evidence": ["S", "V", "P"],
+      "observed": "Customkode/runtime-planvalg og VM-gjestekontroll er forklart.",
+      "gap": "Container-alternativ og uavhengig sammenligning av alle hostingformene mangler.",
+      "plannedPRs": ["P05"],
+      "sources": ["EXAM", "M05", "PLAN"]
+    },
+    {
+      "slot": "2.2.05",
+      "id": "az900.networking.services",
+      "title": "VNet, subnet, peering, DNS, VPN Gateway og ExpressRoute",
+      "status": "PARTIAL",
+      "criteria": {
+        "A": "P",
+        "B": "P",
+        "C": "P",
+        "D": "M",
+        "E": "P",
+        "F": "P"
+      },
+      "facets": [
+        {
+          "topic": "VNet",
+          "status": "PARTIAL"
+        },
+        {
+          "topic": "Subnet",
+          "status": "PARTIAL"
+        },
+        {
+          "topic": "Peering",
+          "status": "MISSING"
+        },
+        {
+          "topic": "Azure DNS",
+          "status": "MISSING"
+        },
+        {
+          "topic": "VPN Gateway",
+          "status": "MISSING"
+        },
+        {
+          "topic": "ExpressRoute",
+          "status": "MISSING"
+        }
+      ],
+      "localObjectives": ["N01", "N02", "N03"],
+      "evidence": ["V", "H"],
+      "observed": "VNet/subnet/NIC-relasjoner og begrenset adressekonfigurasjon i VM-lab.",
+      "gap": "Ingen komplett nettverksmekanisme eller selvstendig koblings-/navneoppslags-/hybridbeslutning; grafkant er ikke trafikk.",
+      "plannedPRs": ["P06", "P07"],
+      "sources": ["EXAM", "M05", "M06"]
+    },
+    {
+      "slot": "2.2.06",
+      "id": "az900.networking.endpoints",
+      "title": "Public og private endpoints",
+      "status": "MISSING",
+      "criteria": {
+        "A": "M",
+        "B": "M",
+        "C": "M",
+        "D": "M",
+        "E": "M",
+        "F": "N"
+      },
+      "facets": [
+        {
+          "topic": "Public endpoint",
+          "status": "MISSING"
+        },
+        {
+          "topic": "Private endpoint",
+          "status": "MISSING"
+        }
+      ],
+      "localObjectives": ["N03"],
+      "evidence": [],
+      "observed": "Ingen authored endpoint-sammenligning eller vurdering. Fravær av en offentlig IP i VM-modellen er ikke undervisning om private endpoints.",
+      "gap": "Mangler egen forklaring, relevant mekanisme/praksis, uavhengig scenario og begrunnet vurdering for de angitte emnene.",
+      "plannedPRs": ["P07"],
+      "sources": ["EXAM", "M05", "M06"]
+    },
+    {
+      "slot": "2.3.01",
+      "id": "az900.storage.services",
+      "title": "Sammenligne Azure Storage services",
+      "status": "MISSING",
+      "criteria": {
+        "A": "M",
+        "B": "M",
+        "C": "M",
+        "D": "M",
+        "E": "M",
+        "F": "N"
+      },
+      "facets": [
+        {
+          "topic": "Blob",
+          "status": "MISSING"
+        },
+        {
+          "topic": "Files",
+          "status": "MISSING"
+        },
+        {
+          "topic": "Queues",
+          "status": "MISSING"
+        },
+        {
+          "topic": "Tables",
+          "status": "MISSING"
+        }
+      ],
+      "localObjectives": ["D01"],
+      "evidence": [],
+      "observed": "Managed disks i VM-lab er ikke undervisning om Storage-kontotjenestene.",
+      "gap": "Mangler egen forklaring, relevant mekanisme/praksis, uavhengig scenario og begrunnet vurdering for de angitte emnene.",
+      "plannedPRs": ["P08"],
+      "sources": ["EXAM", "M07"]
+    },
+    {
+      "slot": "2.3.02",
+      "id": "az900.storage.tiers",
+      "title": "Storage access tiers",
+      "status": "MISSING",
+      "criteria": {
+        "A": "M",
+        "B": "M",
+        "C": "M",
+        "D": "M",
+        "E": "M",
+        "F": "N"
+      },
+      "facets": [
+        {
+          "topic": "Hot",
+          "status": "MISSING"
+        },
+        {
+          "topic": "Cool",
+          "status": "MISSING"
+        },
+        {
+          "topic": "Cold",
+          "status": "MISSING"
+        },
+        {
+          "topic": "Archive",
+          "status": "MISSING"
+        }
+      ],
+      "localObjectives": ["D01"],
+      "evidence": [],
+      "observed": "Ingen aktiv tiermodell, tilgangsmønster eller gjenhentingsscenario.",
+      "gap": "Mangler egen forklaring, relevant mekanisme/praksis, uavhengig scenario og begrunnet vurdering for de angitte emnene.",
+      "plannedPRs": ["P09"],
+      "sources": ["EXAM", "M07"]
+    },
+    {
+      "slot": "2.3.03",
+      "id": "az900.storage.redundancy",
+      "title": "Storage redundancy",
+      "status": "MISSING",
+      "criteria": {
+        "A": "M",
+        "B": "M",
+        "C": "M",
+        "D": "M",
+        "E": "M",
+        "F": "N"
+      },
+      "facets": [
+        {
+          "topic": "LRS",
+          "status": "MISSING"
+        },
+        {
+          "topic": "ZRS",
+          "status": "MISSING"
+        },
+        {
+          "topic": "GRS/RA-GRS",
+          "status": "MISSING"
+        },
+        {
+          "topic": "GZRS/RA-GZRS",
+          "status": "MISSING"
+        }
+      ],
+      "localObjectives": ["D01", "O03"],
+      "evidence": [],
+      "observed": "Generisk replika-/kapasitetsmodell dokumenterer ikke Azure Storage-redundans, failover eller datatapgrenser.",
+      "gap": "Mangler egen forklaring, relevant mekanisme/praksis, uavhengig scenario og begrunnet vurdering for de angitte emnene.",
+      "plannedPRs": ["P09"],
+      "sources": ["EXAM", "M07"]
+    },
+    {
+      "slot": "2.3.04",
+      "id": "az900.storage.accounts",
+      "title": "Storage account options og storage types",
+      "status": "MISSING",
+      "criteria": {
+        "A": "M",
+        "B": "M",
+        "C": "M",
+        "D": "M",
+        "E": "M",
+        "F": "N"
+      },
+      "facets": [
+        {
+          "topic": "Account options",
+          "status": "MISSING"
+        },
+        {
+          "topic": "Storage types",
+          "status": "MISSING"
+        }
+      ],
+      "localObjectives": ["D01", "G02"],
+      "evidence": [],
+      "observed": "Ingen konto-/tjeneste-/ytelsesmodell. Diskprofile i VM er en annen kontekst.",
+      "gap": "Mangler egen forklaring, relevant mekanisme/praksis, uavhengig scenario og begrunnet vurdering for de angitte emnene.",
+      "plannedPRs": ["P08"],
+      "sources": ["EXAM", "M07"]
+    },
+    {
+      "slot": "2.3.05",
+      "id": "az900.storage.file-tools",
+      "title": "Verktøy for filflytting og synkronisering",
+      "status": "MISSING",
+      "criteria": {
+        "A": "M",
+        "B": "M",
+        "C": "M",
+        "D": "M",
+        "E": "M",
+        "F": "N"
+      },
+      "facets": [
+        {
+          "topic": "AzCopy",
+          "status": "MISSING"
+        },
+        {
+          "topic": "Storage Explorer",
+          "status": "MISSING"
+        },
+        {
+          "topic": "Azure File Sync",
+          "status": "MISSING"
+        }
+      ],
+      "localObjectives": ["D01", "R03"],
+      "evidence": [],
+      "observed": "Ingen undervisning eller anvendt sammenligning av de tre verktøyene.",
+      "gap": "Mangler egen forklaring, relevant mekanisme/praksis, uavhengig scenario og begrunnet vurdering for de angitte emnene.",
+      "plannedPRs": ["P16"],
+      "sources": ["EXAM", "M07"]
+    },
+    {
+      "slot": "2.3.06",
+      "id": "az900.storage.migration",
+      "title": "Migrering til Azure",
+      "status": "MISSING",
+      "criteria": {
+        "A": "M",
+        "B": "M",
+        "C": "M",
+        "D": "M",
+        "E": "M",
+        "F": "N"
+      },
+      "facets": [
+        {
+          "topic": "Azure Migrate",
+          "status": "MISSING"
+        },
+        {
+          "topic": "Azure Data Box",
+          "status": "MISSING"
+        }
+      ],
+      "localObjectives": ["R03", "D01"],
+      "evidence": [],
+      "observed": "Ingen tilgjengelig migreringssekvens eller beslutningsoppgave.",
+      "gap": "Mangler egen forklaring, relevant mekanisme/praksis, uavhengig scenario og begrunnet vurdering for de angitte emnene.",
+      "plannedPRs": ["P16"],
+      "sources": ["EXAM", "M07"]
+    },
+    {
+      "slot": "2.4.01",
+      "id": "az900.identity.directories",
+      "title": "Entra ID og Entra Domain Services",
+      "status": "PARTIAL",
+      "criteria": {
+        "A": "P",
+        "B": "P",
+        "C": "P",
+        "D": "M",
+        "E": "P",
+        "F": "P"
+      },
+      "facets": [
+        {
+          "topic": "Microsoft Entra ID",
+          "status": "PARTIAL"
+        },
+        {
+          "topic": "Microsoft Entra Domain Services",
+          "status": "MISSING"
+        }
+      ],
+      "localObjectives": ["I01", "G01"],
+      "evidence": ["H"],
+      "observed": "Tenant som identity boundary og skille fra management/geografi nevnes korrekt.",
+      "gap": "Tenant-node er ikke full directory-/auth-undervisning; Domain Services og selvstendig sammenligning mangler.",
+      "plannedPRs": ["P10"],
+      "sources": ["EXAM", "M08"]
+    },
+    {
+      "slot": "2.4.02",
+      "id": "az900.identity.authentication",
+      "title": "SSO, MFA og passwordless",
+      "status": "MISSING",
+      "criteria": {
+        "A": "M",
+        "B": "M",
+        "C": "M",
+        "D": "M",
+        "E": "M",
+        "F": "N"
+      },
+      "facets": [
+        {
+          "topic": "SSO",
+          "status": "MISSING"
+        },
+        {
+          "topic": "MFA",
+          "status": "MISSING"
+        },
+        {
+          "topic": "Passwordless",
+          "status": "MISSING"
+        }
+      ],
+      "localObjectives": ["I01"],
+      "evidence": [],
+      "observed": "Fiktiv SaaS-rolle/lisens er ikke autentiseringsmekanisme eller innlogging.",
+      "gap": "Mangler egen forklaring, relevant mekanisme/praksis, uavhengig scenario og begrunnet vurdering for de angitte emnene.",
+      "plannedPRs": ["P10"],
+      "sources": ["EXAM", "M08"]
+    },
+    {
+      "slot": "2.4.03",
+      "id": "az900.identity.external",
+      "title": "External identities",
+      "status": "MISSING",
+      "criteria": {
+        "A": "M",
+        "B": "M",
+        "C": "M",
+        "D": "M",
+        "E": "M",
+        "F": "N"
+      },
+      "facets": [
+        {
+          "topic": "Ekstern identitet og samarbeid",
+          "status": "MISSING"
+        }
+      ],
+      "localObjectives": ["I01"],
+      "evidence": [],
+      "observed": "Ingen forklaring eller ny-kontekst tilgangsbeslutning.",
+      "gap": "Mangler egen forklaring, relevant mekanisme/praksis, uavhengig scenario og begrunnet vurdering for de angitte emnene.",
+      "plannedPRs": ["P10"],
+      "sources": ["EXAM", "M08"]
+    },
+    {
+      "slot": "2.4.04",
+      "id": "az900.identity.conditional-access",
+      "title": "Conditional Access",
+      "status": "MISSING",
+      "criteria": {
+        "A": "M",
+        "B": "M",
+        "C": "M",
+        "D": "M",
+        "E": "M",
+        "F": "N"
+      },
+      "facets": [
+        {
+          "topic": "Signal",
+          "status": "MISSING"
+        },
+        {
+          "topic": "Policybeslutning",
+          "status": "MISSING"
+        },
+        {
+          "topic": "Access controls",
+          "status": "MISSING"
+        }
+      ],
+      "localObjectives": ["I03"],
+      "evidence": [],
+      "observed": "Custom resource-location Policy i Portal er ikke Entra Conditional Access.",
+      "gap": "Mangler egen forklaring, relevant mekanisme/praksis, uavhengig scenario og begrunnet vurdering for de angitte emnene.",
+      "plannedPRs": ["P11"],
+      "sources": ["EXAM", "M08"]
+    },
+    {
+      "slot": "2.4.05",
+      "id": "az900.identity.rbac",
+      "title": "Azure RBAC",
+      "status": "PARTIAL",
+      "criteria": {
+        "A": "P",
+        "B": "P",
+        "C": "P",
+        "D": "M",
+        "E": "P",
+        "F": "P"
+      },
+      "facets": [
+        {
+          "topic": "Principal/role/scope",
+          "status": "PARTIAL"
+        }
+      ],
+      "localObjectives": ["I01", "G01"],
+      "evidence": ["BG", "H"],
+      "observed": "CB03 forklarer hvem/hva/hvor og forskjellen fra konfigurasjonskrav.",
+      "gap": "Ingen uavhengig Azure-rolle/scope-beslutning; SaaS-produktroller og antatt autorisasjon i labben er ikke Azure RBAC-engine/evidens.",
+      "plannedPRs": ["P11"],
+      "sources": ["EXAM", "M08"]
+    },
+    {
+      "slot": "2.4.06",
+      "id": "az900.security.zero-trust",
+      "title": "Zero Trust",
+      "status": "MISSING",
+      "criteria": {
+        "A": "M",
+        "B": "M",
+        "C": "M",
+        "D": "M",
+        "E": "M",
+        "F": "N"
+      },
+      "facets": [
+        {
+          "topic": "Verify explicitly",
+          "status": "MISSING"
+        },
+        {
+          "topic": "Least privilege",
+          "status": "MISSING"
+        },
+        {
+          "topic": "Assume breach",
+          "status": "MISSING"
+        }
+      ],
+      "localObjectives": ["I03"],
+      "evidence": [],
+      "observed": "Least privilege alene er ikke full Zero Trust-modell eller vurdering.",
+      "gap": "Mangler egen forklaring, relevant mekanisme/praksis, uavhengig scenario og begrunnet vurdering for de angitte emnene.",
+      "plannedPRs": ["P15"],
+      "sources": ["EXAM", "M08"]
+    },
+    {
+      "slot": "2.4.07",
+      "id": "az900.security.defense",
+      "title": "Defense in depth",
+      "status": "MISSING",
+      "criteria": {
+        "A": "M",
+        "B": "M",
+        "C": "M",
+        "D": "M",
+        "E": "M",
+        "F": "N"
+      },
+      "facets": [
+        {
+          "topic": "Lagdelte kontroller",
+          "status": "MISSING"
+        },
+        {
+          "topic": "Feil i ett lag",
+          "status": "MISSING"
+        }
+      ],
+      "localObjectives": ["I03"],
+      "evidence": [],
+      "observed": "Ansvarsstakken er ikke en undervisningsmodell for lagdelt sikkerhetsforsvar.",
+      "gap": "Mangler egen forklaring, relevant mekanisme/praksis, uavhengig scenario og begrunnet vurdering for de angitte emnene.",
+      "plannedPRs": ["P15"],
+      "sources": ["EXAM", "M08"]
+    },
+    {
+      "slot": "2.4.08",
+      "id": "az900.security.defender",
+      "title": "Microsoft Defender for Cloud",
+      "status": "MISSING",
+      "criteria": {
+        "A": "M",
+        "B": "M",
+        "C": "M",
+        "D": "M",
+        "E": "M",
+        "F": "N"
+      },
+      "facets": [
+        {
+          "topic": "Posture",
+          "status": "MISSING"
+        },
+        {
+          "topic": "Workload protection",
+          "status": "MISSING"
+        }
+      ],
+      "localObjectives": ["I03", "O01"],
+      "evidence": [],
+      "observed": "Ingen egen leksjon, inspektérbar modell eller beslutningsoppgave.",
+      "gap": "Mangler egen forklaring, relevant mekanisme/praksis, uavhengig scenario og begrunnet vurdering for de angitte emnene.",
+      "plannedPRs": ["P15"],
+      "sources": ["EXAM", "M08"]
+    },
+    {
+      "slot": "3.1.01",
+      "id": "az900.cost.drivers",
+      "title": "Faktorer som påvirker cloud-kostnad",
+      "status": "PARTIAL",
+      "criteria": {
+        "A": "P",
+        "B": "P",
+        "C": "V",
+        "D": "P",
+        "E": "P",
+        "F": "V"
+      },
+      "facets": [
+        {
+          "topic": "Bruk/allokering/commitment",
+          "status": "COMPLETE"
+        },
+        {
+          "topic": "Andre Azure-kostnadsdrivere",
+          "status": "PARTIAL"
+        }
+      ],
+      "localObjectives": ["FC06", "FC07", "F03"],
+      "evidence": ["F"],
+      "observed": "Tomgang, tidsenhet, måling og binding er undervist; ressurs-/regionsvalg har forklaring, men ingen full Azure-driveroppgave.",
+      "gap": "Mangler samlet selvstendig sammenligning av resource type/tier/region/traffic/licensing/offer; syntetiske tall er ikke Azure-priser.",
+      "plannedPRs": ["P04"],
+      "sources": ["EXAM", "M09", "RES", "SAV"]
+    },
+    {
+      "slot": "3.1.02",
+      "id": "az900.cost.calculator",
+      "title": "Pricing Calculator",
+      "status": "MISSING",
+      "criteria": {
+        "A": "M",
+        "B": "M",
+        "C": "M",
+        "D": "M",
+        "E": "M",
+        "F": "N"
+      },
+      "facets": [
+        {
+          "topic": "Estimere og sammenligne antakelser",
+          "status": "MISSING"
+        }
+      ],
+      "localObjectives": ["F03"],
+      "evidence": [],
+      "observed": "Lokal hypotetisk prisberegning er ikke et besøk eller en undervisning om Pricing Calculator.",
+      "gap": "Mangler egen forklaring, relevant mekanisme/praksis, uavhengig scenario og begrunnet vurdering for de angitte emnene.",
+      "plannedPRs": ["P04"],
+      "sources": ["EXAM", "M09"]
+    },
+    {
+      "slot": "3.1.03",
+      "id": "az900.cost.management",
+      "title": "Cost Management capabilities",
+      "status": "MISSING",
+      "criteria": {
+        "A": "M",
+        "B": "M",
+        "C": "M",
+        "D": "M",
+        "E": "M",
+        "F": "N"
+      },
+      "facets": [
+        {
+          "topic": "Analyse",
+          "status": "MISSING"
+        },
+        {
+          "topic": "Budsjett",
+          "status": "MISSING"
+        },
+        {
+          "topic": "Varsling og scope",
+          "status": "MISSING"
+        }
+      ],
+      "localObjectives": ["F03", "G04"],
+      "evidence": [],
+      "observed": "Generisk budsjett-/trendomtale er ikke en Cost Management-modul eller operativ økonomioversikt.",
+      "gap": "Mangler egen forklaring, relevant mekanisme/praksis, uavhengig scenario og begrunnet vurdering for de angitte emnene.",
+      "plannedPRs": ["P04"],
+      "sources": ["EXAM", "M09"]
+    },
+    {
+      "slot": "3.1.04",
+      "id": "az900.cost.tags",
+      "title": "Tags",
+      "status": "MISSING",
+      "criteria": {
+        "A": "M",
+        "B": "M",
+        "C": "M",
+        "D": "M",
+        "E": "M",
+        "F": "N"
+      },
+      "facets": [
+        {
+          "topic": "Metadataformål",
+          "status": "MISSING"
+        },
+        {
+          "topic": "Kostnads-/eierskapsorganisering",
+          "status": "MISSING"
+        }
+      ],
+      "localObjectives": ["G04"],
+      "evidence": [],
+      "observed": "Tags finnes i roadmap/proposal, ikke et fullstendig aktivt fag- eller oppgavespor.",
+      "gap": "Mangler egen forklaring, relevant mekanisme/praksis, uavhengig scenario og begrunnet vurdering for de angitte emnene.",
+      "plannedPRs": ["P04"],
+      "sources": ["EXAM", "M09"]
+    },
+    {
+      "slot": "3.2.01",
+      "id": "az900.governance.purview",
+      "title": "Microsoft Purview",
+      "status": "MISSING",
+      "criteria": {
+        "A": "M",
+        "B": "M",
+        "C": "M",
+        "D": "M",
+        "E": "M",
+        "F": "N"
+      },
+      "facets": [
+        {
+          "topic": "Data governance purpose",
+          "status": "MISSING"
+        }
+      ],
+      "localObjectives": ["G03", "I03"],
+      "evidence": [],
+      "observed": "Ingen tilgjengelig undervisning om Purview; generell governance erstatter ikke produktformålet.",
+      "gap": "Mangler egen forklaring, relevant mekanisme/praksis, uavhengig scenario og begrunnet vurdering for de angitte emnene.",
+      "plannedPRs": ["P12"],
+      "sources": ["EXAM", "M10"]
+    },
+    {
+      "slot": "3.2.02",
+      "id": "az900.governance.policy",
+      "title": "Azure Policy",
+      "status": "PARTIAL",
+      "criteria": {
+        "A": "P",
+        "B": "V",
+        "C": "V",
+        "D": "P",
+        "E": "P",
+        "F": "P"
+      },
+      "facets": [
+        {
+          "topic": "Policyformål og virkninger",
+          "status": "PARTIAL"
+        }
+      ],
+      "localObjectives": ["G03", "CB03"],
+      "evidence": ["BG", "P"],
+      "observed": "Reell lokal custom Web-location-deny med scope/receipt og korrigering; avvisning oppretter ingen ressurs.",
+      "gap": "Én authored regel og one-rule-spørsmål dekker ikke selvstendig formål/effect/compliance-versus-access. Må ikke omtales som alle built-in location policies.",
+      "plannedPRs": ["P12"],
+      "sources": ["EXAM", "M10"]
+    },
+    {
+      "slot": "3.2.03",
+      "id": "az900.governance.locks",
+      "title": "Resource locks",
+      "status": "MISSING",
+      "criteria": {
+        "A": "M",
+        "B": "M",
+        "C": "M",
+        "D": "M",
+        "E": "M",
+        "F": "N"
+      },
+      "facets": [
+        {
+          "topic": "CanNotDelete",
+          "status": "MISSING"
+        },
+        {
+          "topic": "ReadOnly",
+          "status": "MISSING"
+        },
+        {
+          "topic": "Scope og begrensninger",
+          "status": "MISSING"
+        }
+      ],
+      "localObjectives": ["G04"],
+      "evidence": [],
+      "observed": "Ingen støttet lock-handling eller læringsscenario. Ikke foreslå en operativ låsemotor før den gir merverdi.",
+      "gap": "Mangler egen forklaring, relevant mekanisme/praksis, uavhengig scenario og begrunnet vurdering for de angitte emnene.",
+      "plannedPRs": ["P12"],
+      "sources": ["EXAM", "M10"]
+    },
+    {
+      "slot": "3.3.01",
+      "id": "az900.management.portal",
+      "title": "Azure Portal som administrasjonsverktøy",
+      "status": "PARTIAL",
+      "criteria": {
+        "A": "P",
+        "B": "V",
+        "C": "V",
+        "D": "V",
+        "E": "P",
+        "F": "P"
+      },
+      "facets": [
+        {
+          "topic": "Webbasert management",
+          "status": "PARTIAL"
+        }
+      ],
+      "localObjectives": ["CB04", "A01"],
+      "evidence": ["BM", "PORTAL"],
+      "observed": "Arbeidsflyt fra søk/liste til Review/Create/Overview, faktisk lokal command/evidence og kursretur.",
+      "gap": "UI-fidelity er sterk praksis, men mangler samlet forklaring/sammenligning av Portalens rolle versus andre management-klienter.",
+      "plannedPRs": ["P13"],
+      "sources": ["EXAM", "M11"]
+    },
+    {
+      "slot": "3.3.02",
+      "id": "az900.management.shells",
+      "title": "Cloud Shell, Azure CLI og Azure PowerShell",
+      "status": "PARTIAL",
+      "criteria": {
+        "A": "P",
+        "B": "P",
+        "C": "M",
+        "D": "M",
+        "E": "P",
+        "F": "P"
+      },
+      "facets": [
+        {
+          "topic": "Cloud Shell",
+          "status": "MISSING"
+        },
+        {
+          "topic": "Azure CLI",
+          "status": "PARTIAL"
+        },
+        {
+          "topic": "Azure PowerShell",
+          "status": "PARTIAL"
+        }
+      ],
+      "localObjectives": ["CB04", "A01"],
+      "evidence": ["BM"],
+      "observed": "CB04 gir korte originale definisjoner av CLI/PowerShell og felles API.",
+      "gap": "Ingen Cloud Shell-forklaring, gjennomarbeidet kommandoeksempel eller uavhengig verktøyvalg. Ikke kjør ekte shell/Azure.",
+      "plannedPRs": ["P13"],
+      "sources": ["EXAM", "M11"]
+    },
+    {
+      "slot": "3.3.03",
+      "id": "az900.management.arc",
+      "title": "Azure Arc",
+      "status": "PARTIAL",
+      "criteria": {
+        "A": "P",
+        "B": "P",
+        "C": "M",
+        "D": "M",
+        "E": "M",
+        "F": "P"
+      },
+      "facets": [
+        {
+          "topic": "Hybrid/cross-environment management",
+          "status": "PARTIAL"
+        }
+      ],
+      "localObjectives": ["FC04", "R02"],
+      "evidence": ["F"],
+      "observed": "models.azure nevner styring av miljøer gjennom Arc og avviser automatisk flytting av workload.",
+      "gap": "En kort korrekt kobling er ikke komplett Arc-undervisning; mekanisme, grenser og selvstendig scenario mangler.",
+      "plannedPRs": ["P13"],
+      "sources": ["EXAM", "M11"]
+    },
+    {
+      "slot": "3.3.04",
+      "id": "az900.management.iac",
+      "title": "Infrastructure as code",
+      "status": "PARTIAL",
+      "criteria": {
+        "A": "P",
+        "B": "P",
+        "C": "V",
+        "D": "P",
+        "E": "P",
+        "F": "P"
+      },
+      "facets": [
+        {
+          "topic": "Deklarativ ønsket tilstand og review",
+          "status": "PARTIAL"
+        }
+      ],
+      "localObjectives": ["CB04", "A01"],
+      "evidence": ["BM"],
+      "observed": "Original fil-/manuell-konfigurasjonsmodell med feil som må oppdages.",
+      "gap": "Mangler selvstendig deklarativ-versus-imperativ/repeterbarhet-beslutning og dybde; template-spørsmålet røper feilens art.",
+      "plannedPRs": ["P13"],
+      "sources": ["EXAM", "M11"]
+    },
+    {
+      "slot": "3.3.05",
+      "id": "az900.management.arm",
+      "title": "ARM og ARM templates",
+      "status": "PARTIAL",
+      "criteria": {
+        "A": "P",
+        "B": "P",
+        "C": "P",
+        "D": "M",
+        "E": "P",
+        "F": "V"
+      },
+      "facets": [
+        {
+          "topic": "ARM control plane",
+          "status": "PARTIAL"
+        },
+        {
+          "topic": "ARM templates",
+          "status": "PARTIAL"
+        }
+      ],
+      "localObjectives": ["G02", "A01"],
+      "evidence": ["BM", "H"],
+      "observed": "Kort felles management-layer og JSON/Bicep-kobling, ekte lokalt resource-ID-/dependency-system.",
+      "gap": "Lokal motor er ikke ARM; mangler gjennomarbeidet request/declarative-template-forklaring og ny-kontekst vurdering.",
+      "plannedPRs": ["P13"],
+      "sources": ["EXAM", "M11", "ARM"]
+    },
+    {
+      "slot": "3.4.01",
+      "id": "az900.monitoring.advisor",
+      "title": "Azure Advisor",
+      "status": "MISSING",
+      "criteria": {
+        "A": "M",
+        "B": "M",
+        "C": "M",
+        "D": "M",
+        "E": "M",
+        "F": "N"
+      },
+      "facets": [
+        {
+          "topic": "Personlige anbefalinger",
+          "status": "MISSING"
+        }
+      ],
+      "localObjectives": ["O01", "R01"],
+      "evidence": [],
+      "observed": "Ingen egen Advisor-undervisning, anbefalingsmodell eller avgrensningsoppgave.",
+      "gap": "Mangler egen forklaring, relevant mekanisme/praksis, uavhengig scenario og begrunnet vurdering for de angitte emnene.",
+      "plannedPRs": ["P14"],
+      "sources": ["EXAM", "M12"]
+    },
+    {
+      "slot": "3.4.02",
+      "id": "az900.monitoring.service-health",
+      "title": "Azure Service Health",
+      "status": "MISSING",
+      "criteria": {
+        "A": "M",
+        "B": "M",
+        "C": "M",
+        "D": "M",
+        "E": "M",
+        "F": "N"
+      },
+      "facets": [
+        {
+          "topic": "Azure status",
+          "status": "MISSING"
+        },
+        {
+          "topic": "Service Health",
+          "status": "MISSING"
+        },
+        {
+          "topic": "Resource Health",
+          "status": "MISSING"
+        }
+      ],
+      "localObjectives": ["O01", "O02"],
+      "evidence": [],
+      "observed": "Lokal Activity log/command receipt er ikke en Azure-tjenestehendelse eller Service Health.",
+      "gap": "Mangler egen forklaring, relevant mekanisme/praksis, uavhengig scenario og begrunnet vurdering for de angitte emnene.",
+      "plannedPRs": ["P14"],
+      "sources": ["EXAM", "M12"]
+    },
+    {
+      "slot": "3.4.03",
+      "id": "az900.monitoring.monitor",
+      "title": "Azure Monitor og tilknyttede verktøy",
+      "status": "PARTIAL",
+      "criteria": {
+        "A": "P",
+        "B": "P",
+        "C": "M",
+        "D": "M",
+        "E": "P",
+        "F": "P"
+      },
+      "facets": [
+        {
+          "topic": "Azure Monitor",
+          "status": "PARTIAL"
+        },
+        {
+          "topic": "Log Analytics",
+          "status": "MISSING"
+        },
+        {
+          "topic": "Alerts",
+          "status": "PARTIAL"
+        },
+        {
+          "topic": "Application Insights",
+          "status": "MISSING"
+        }
+      ],
+      "localObjectives": ["O01", "O02"],
+      "evidence": ["BR", "BM"],
+      "observed": "Reliability/manageability nevner målinger, Monitor og varsler som observasjonsgrunnlag.",
+      "gap": "Ingen metrics/logs/traces-modell, KQL-/logginspeksjon, alertbeslutning eller App Insights-forklaring. Ikke konverter simuleringskvitteringer til oppdiktet driftstelemetri.",
+      "plannedPRs": ["P14"],
+      "sources": ["EXAM", "M12"]
+    }
+  ]
+}

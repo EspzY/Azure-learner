@@ -1,5 +1,11 @@
 # Curriculum coverage audit
 
+## Full AZ-900 coverage audit — 2026-10-26
+
+This document's older implementation statuses describe available module/activity structures. They must not be read as COMPLETE exam coverage. The authoritative dated crosswalk is now [AZ900_COVERAGE_MATRIX](AZ900_COVERAGE_MATRIX.md): all57 official bullets,126 local facets and A–F theory/mechanism/application/independent task/feedback/source review. Cloud6 COMPLETE/8 PARTIAL/1 MISSING; architecture0/12/15; management0/8/7. COMPLETE is a narrow content audit conclusion, not proven learning, personal achievement or exam readiness. Qualified human SME/learner review is still absent. [Detailed limitations and Learn units](AZ900_GAP_ANALYSIS.md).
+
+Serverless remains explicitly excluded in the current runtime manifest. No new objective was registered or module marked complete in this audit. Public-cloud selection, Spot/steady-commitment transfer, Benefits diagnosis/rationales and independent SaaS selection are documented existing-content gaps. [Proposed fixes](AZ900_EXPANSION_ROADMAP.md) have not been implemented.
+
 ## Retirement status — 2026-10-26
 
 Current delivery is the course, SavvyShark and shared Portal/SaaS labs. The RPG, timed Living Learning and SVG journey are retired; older sections describing their presentation are historical. No competency objective, original manuscript, assessment rule, source mapping or learning-data version is removed. SandboxStore still validates the frozen Chapter01 prefix; the old Chapter UI/provider does not run. See [audit and actual shared-code extraction](LEGACY_AUDIT.md) and [current architecture](ARCHITECTURE.md).

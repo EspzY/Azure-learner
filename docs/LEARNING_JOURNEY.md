@@ -1,5 +1,9 @@
 # Learning journey and competency universe
 
+## Current AZ-900 mapping — 2026-10-26
+
+The30 professional competency IDs below remain a broad reusable foundation, not30 authored modules or certification completeness. The [dated AZ-900 crosswalk](AZ900_COVERAGE_MATRIX.md) maps all57 exam bullets to actual current FC/CB/ST material or future professional areas. Several professional competencies require multiple modules. [Prioritized expansion](AZ900_EXPANSION_ROADMAP.md) adds Fundamentals breadth while preserving later administration, development, networking, security, operations, data and architecture routes. Certification is a secondary mapping; quests/XP/module visits never imply exam readiness. This PR changes no student progression or default module availability.
+
 ## Retirement status — 2026-10-26
 
 Current delivery is the course, SavvyShark and shared Portal/SaaS labs. The RPG, timed Living Learning and SVG journey are retired; older sections describing their presentation are historical. No competency objective, original manuscript, assessment rule, source mapping or learning-data version is removed. SandboxStore still validates the frozen Chapter01 prefix; the old Chapter UI/provider does not run. See [audit and actual shared-code extraction](LEGACY_AUDIT.md) and [current architecture](ARCHITECTURE.md).

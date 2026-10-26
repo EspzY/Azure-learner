@@ -2,6 +2,12 @@ import type { QuestionId } from '../domain/assessment';
 import type { CreationError, Region, ScopeKind } from '../domain/simulation';
 
 export const nb = {
+  auditReview: {
+    title: 'AZ-900-dekningsaudit — til gjennomgang',
+    description:
+      'Denne previewen leverer kartlegging og utviklingsplan. Kurs, vurderinger og simulator er uendret.',
+    open: 'Les dekningsmatrisen og planen (GitHub, ny fane)',
+  },
   portalUi: {
     missingIcon: 'Ikonreferanse mangler – rapporter dette avviket.',
     allLocations: 'All locations',

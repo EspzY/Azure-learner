@@ -1,5 +1,9 @@
 # Learning design
 
+## AZ-900 audit findings — 2026-10-26
+
+[Coverage audit](AZ900_COVERAGE_MATRIX.md) distinguishes real teaching from available UI and actual independent tasks. Existing cloud manuscripts/models are substantive, yet several Benefits prompts reveal the diagnosis and current Service Types v2 lacks an independent SaaS-selection case. Retain the teaching depth and lab rules; improve changed contexts and alternative-specific feedback in separate reviewed PRs. Core architecture should become the first new complete module, after a bounded serverless addition. [Pedagogical gap solutions](AZ900_GAP_ANALYSIS.md) deliberately prefer conceptual comparison/visualization where full operation adds little AZ-900 value. No current learning/assessment behavior is changed by the plan. Human novice, IT and qualified SME validation remains outstanding.
+
 ## Legacy retirement — 2026-10-26
 
 Current Foundations v1/v2, Benefits, Service Types, Journal, responsibility model and guided/independent practice remain intact. Timed NPC delivery and scenery no longer present them; explicit learner actions remain the only source of evidence. No rubric, award or learning observation changed. G1.x/journey sections below are historical. See [audit](LEGACY_AUDIT.md).

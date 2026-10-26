@@ -1,5 +1,9 @@
 # Content authoring and acceptance contract
 
+## AZ-900 coverage acceptance — 2026-10-26
+
+Use [A–F per-objective acceptance](AZ900_COVERAGE_MATRIX.md): substantive theory, mechanism/limits, relevant application, changed unaided task, explanations for correct/plausible wrong answers, and current official factual source check. Every named facet of a composite skill must be audited; no average score hides missing technologies. A COMPLETE content finding is distinct from actual learner success and qualified human SME/learner validation. Fixed binary questions and leading diagnosis text require explicit critique, not automatic approval. New scenarios must change reasoning constraints, not merely names/numbers. Preserve versioned first/help/retry records; a new item or source revision never rewrites historical evidence. No exam-dump or copied Microsoft Practice Assessment material. [Original diagnostic design](AZ900_ASSESSMENT_BLUEPRINT.md) is proposed only.
+
 ## Operational lab acceptance addition — 3.2.1
 
 An operational activity must produce a validated persisted command outcome and inspectable causal relationships in its appropriate management interface. Conceptual model runs remain labelled as such. Reject partial bundle mutation, invented cloud behavior, diagram-only resources, licence=admin confusion, guest execution/health claims or silently changed old receipts. Require versioned objective/source/rubric bindings, exact return, negative examples, a changed task using post-boundary operations and separate first/help/retry classification. See [coverage review](FUNDAMENTALS_LAB_COVERAGE.md); human review remains mandatory and unperformed.

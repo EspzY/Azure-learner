@@ -1,5 +1,9 @@
 # Fundamentals qualitative coverage review
 
+## Scope of this matrix versus the exam audit
+
+The15 selected Learn-path objectives below are a qualitative lab/content crosswalk, not the full57-bullet AZ-900 syllabus or a claim of complete A–F assessment. The dated [full exam matrix](AZ900_COVERAGE_MATRIX.md) and [gap analysis](AZ900_GAP_ANALYSIS.md) record actual independent-evidence/feedback gaps, composite technologies and missing serverless. Sustainability remains useful Learn material without an extra exam bullet. A working VM/plan/app/SaaS lab does not establish VMSS/AVD/containers/Functions, Storage, identity or monitoring coverage. No lab predicate or stored result is changed by this audit.
+
 ## Instructional presentation review — 2026-10-26
 
 Guided VM/PaaS/SaaS entry now explains the learning bridge before session start; Benefits also has an inspection-specific brief. Existing coverage and limitations in the matrix below remain unchanged. Configuration and inspection are not availability, traffic, security, carbon or independent mastery evidence. No objective was added or declared complete by this presentation change. [Audit and Portal-reference comparison](GUIDED_LEARNING_REFINEMENT.md).
