@@ -66,6 +66,13 @@ test('ordinary root → Benefits → mission briefing → real Portal → exact 
     .getByRole('button', { name: c.briefing.start, exact: true })
     .click();
   await expect(page).toHaveURL(/portal\?area=home&practice=vm/);
+  await expect(page.locator('.portal-training-strip')).toContainText(nb.official.benefits);
+  await expect(page.locator('.portal-home-training')).toContainText(labs.lab.vm.purpose);
+  await expect(
+    page
+      .locator('.portal-home-training')
+      .getByRole('button', { name: nb.portal.startLearning, exact: true }),
+  ).toHaveCount(0);
   const coach = page.locator('.practical-coach');
   for (const title of [nb.refinement.why, nb.refinement.action, nb.refinement.expect])
     await expect(coach.getByText(title, { exact: true })).toBeVisible();

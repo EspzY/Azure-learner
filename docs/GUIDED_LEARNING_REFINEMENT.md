@@ -80,3 +80,9 @@ Implementing-agent inspection, not owner/learner visual acceptance. All nine fin
 - [Actual Essentials/dependencies](screenshots/guided-resource-inspection-1920.png), [actual policy denial](screenshots/guided-policy-rejection-1920.png), [exact debrief return1440](screenshots/guided-return-1440.png).
 
 The source Portal reference images are intentionally absent. New art/assets were not required. Dialogs and detailed content can scroll in shorter viewports; no dedicated mobile redesign or physical-device performance certification is claimed. Human novice/IT walkthrough, screen-reader usability and qualified Azure/Portal SME review remain outstanding. No independent mastery, Microsoft completion or full Portal parity is inferred from these tests.
+
+## Protected preview correction
+
+The actual stable Vercel root was opened with the existing authorized browser session. The implementing agent followed Benefits, ran wrong/corrected predictions, opened the mission and used real search/forms to create a local group and VM with dependencies. This exposed a presentation mismatch: a Benefits-origin practical session displayed the Service Types label and generic learning teaser. The Portal now derives that context from the actual practical origin and shows the current mission instead of directing the learner to an unrelated lesson. Exact return was already correct and remains unchanged.
+
+After this correction `npm run check` passed again, and the two affected production browser suites passed **7 tests /7 explicit desktop-duplicate skips**, including assertions for Benefits context and the actual mission purpose. The final stable alias and deployed SHA are rechecked and recorded in the Draft PR/owner delivery. No Vercel protection or production settings were changed.

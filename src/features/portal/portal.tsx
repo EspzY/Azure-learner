@@ -142,6 +142,8 @@ function PortalWorkspace() {
     location.bridge || location.practice || guidedLab || location.course
       ? router.push(courseReturn)
       : navigate('learn');
+  const practicalMission =
+    location.practice && practical.current ? labsNb.lab[practical.current.kind] : null;
   const { world } = chapter.attempt.engine;
   const rows = inventory(world),
     [menu, setMenu] = useState(false),
@@ -614,7 +616,8 @@ function PortalWorkspace() {
                         : p.modes[location.mode]}
             </span>
             <span>
-              {location.bridge
+              {location.bridge ||
+              (location.practice && practical.current?.origin.module === 'benefits')
                 ? nb.official.benefits
                 : location.module === 'computing' ||
                     (guidedLab && course.save.lab?.origin === 'computing-v2')
@@ -694,8 +697,14 @@ function PortalWorkspace() {
                   <section className="portal-home-training">
                     <BookOpen size={25} />
                     <div>
-                      <h2>{nb.official.services}</h2>
-                      <p>{p.homeIntro}</p>
+                      <h2>
+                        {practicalMission?.title ??
+                          (location.bridge ? nb.official.benefits : nb.official.services)}
+                      </h2>
+                      <p>
+                        {practicalMission?.purpose ??
+                          (location.bridge ? labsNb.bridge[location.bridge] : p.homeIntro)}
+                      </p>
                       <small>
                         {nb.official.certification} · {nb.official.path}
                       </small>
@@ -703,9 +712,17 @@ function PortalWorkspace() {
                     <button
                       type="button"
                       className="primary"
-                      onClick={() => navigate(module.facts.active ? 'challenge' : 'learn')}
+                      onClick={() =>
+                        practicalMission || location.bridge
+                          ? returnLearning()
+                          : navigate(module.facts.active ? 'challenge' : 'learn')
+                      }
                     >
-                      {module.facts.active ? p.continueChallenge : p.startLearning}
+                      {practicalMission || location.bridge
+                        ? nb.course.returnCourse
+                        : module.facts.active
+                          ? p.continueChallenge
+                          : p.startLearning}
                     </button>
                   </section>
                   <h2>{p.recent}</h2>

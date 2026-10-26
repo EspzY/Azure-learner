@@ -8,6 +8,8 @@ The coach projects actual context/form/findings into action, reason and observat
 
 [Audit, implementation, reference comparison, commands and inspected screenshots](GUIDED_LEARNING_REFINEMENT.md) are current. `npm run check` passes:216Vitest/24files,67curriculum subset,3documentation fixtures,57Markdown/local links, registered assets, strict TypeScript, lint, format and production build. Broad production browser regression35passed/17explicit duplicate skips; affected suites after final visual refinement15passed/11duplicate skips, including Axe, keyboard/reduced motion, real operations/receipts, replay, old data, exact return/reload and no unintended external requests. Dependency audit0vulnerabilities; no dependency/install change. Final protected Vercel root/branch/SHA review is separately recorded in the Draft PR and delivery.
 
+Actual protected-preview root interaction found and corrected a Benefits-origin label/mission-context mismatch. The last correction passed npm run check and7production-browser tests/7explicit desktop duplicate skips. Stable-alias final SHA and return/resume are rechecked in the final delivery.
+
 No domain commands, persistence schema, rubric, legacy data or XP rule changed. Owner reference captures remain outside Git. Human novice/experienced-IT usability, screen-reader and qualified SME/fidelity review remain open; passing tests do not prove comprehension or professional visual acceptance. Next: conduct those uncoached reviews and fix observed confusion before expanding curriculum or services. No RPG, production deployment or mobile redesign is included.
 
 ## AzureLab 3.2.1 — integrated practical laboratories, 2026-10-25
