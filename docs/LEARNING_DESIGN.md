@@ -1,5 +1,9 @@
 # Learning design
 
+## Module2/3 practical bridge refinement — 2026-10-26
+
+The mission brief establishes purpose, conceptual outcomes, main actions and completion observations before navigation. Benefits bridges explicitly distinguish configuration inspection from operational proof. The revised figures explain a mechanism before controls and causal feedback; previous source-backed manuscript depth, guided reasoning and independent changed-context rubrics remain intact. No result is revealed before its explicit experiment run. Learner comprehension and expert technical review remain unperformed human gates. [Audit and specification](GUIDED_LEARNING_REFINEMENT.md).
+
 ## 3.2.1 operational evidence boundary
 
 The preserved conceptual models explain mechanisms; their runs do not create infrastructure. New practical labs apply those concepts through accepted persistent commands, causal receipt/resource/relationship inspection and an original changed task. A VM profile does not prove a running guest, settings do not prove deployed code and account blocking does not prove recovery of shared data. Keep guided assistance and independent first submissions distinct. No new XP is awarded. [Qualitative coverage](FUNDAMENTALS_LAB_COVERAGE.md) records objective-specific limitations and unperformed human review.

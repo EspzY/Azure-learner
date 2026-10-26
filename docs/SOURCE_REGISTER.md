@@ -1,5 +1,13 @@
 # Source and credential register
 
+## Guided learning and visual review — 2026-10-26
+
+Implementing-agent technical/source review, not qualified human SME approval. Rechecked the current public [Benefits module](https://learn.microsoft.com/en-us/training/modules/describe-benefits-use-cloud-services/) (five objectives/eight units) and its availability, reliability, governance, manageability and sustainability explanations; [Service Types](https://learn.microsoft.com/en-us/training/modules/describe-cloud-service-types/) (four objectives/six units) and its IaaS/PaaS/SaaS explanations. Existing CB01–CB05/ST01–ST04/source bindings remain. New mission copy and figures are original projections of those existing manuscripts and local models, not copied Learn text, images or questions.
+
+The public [Portal overview](https://learn.microsoft.com/en-us/azure/azure-portal/azure-portal-overview) supports global shell/search, breadcrumb, contextual service menu and resource pane distinctions. [VM networking overview](https://learn.microsoft.com/en-us/azure/virtual-network/network-overview) supports NIC/VNet/subnet associations and location/subscription qualifications; runtime traffic/IP behavior remains outside our model. [VM Portal quickstart](https://learn.microsoft.com/en-us/azure/virtual-machines/windows/quick-create-portal) supports service discovery, native configuration, Review + create, explicit Create and resource inspection. These pages displayed an authorization notice in the documentation shell but their public article text was readable; no authenticated tenant or live Portal was accessed. No assessment body was copied.
+
+The owner's two real Portal captures were internal-only visual references. No screenshot, organizational name, infrastructure property or proprietary icon from them is included. [Reference comparison and implemented scope](GUIDED_LEARNING_REFINEMENT.md#internal-portal-reference-comparison). Broader operational references below remain applicable. Recheck on material upstream changes; human Portal-fidelity and uncoached learning validation remain outstanding.
+
 ## 3.2.1 practical lab source review — 2026-10-25
 
 Public Microsoft documentation was inspected for actual Portal create/configure flows, dependency constraints and administration principles. Some pages display an authorization notice while their article body remains publicly readable; no account, tenant or protection bypass was used. The Windows quickstart explicitly describes an educational example, not production guidance. Its RDP/password/port/deploy steps are deliberately excluded. Microsoft images, lessons and assessments are not copied. These are author cross-checks, not qualified human SME approval.

@@ -1,5 +1,15 @@
 # Project status
 
+## Guided practical learning and visual refinement — 2026-10-26
+
+Implemented in the ordinary `/` → `/learn` course and shared Portal on an isolated feature branch. Module2/3 guided launch now uses a purpose-built SavvyShark mission brief: task, reason, outcomes, stages and observations before explicit start. Benefits inspection has a shorter scope-specific brief; valid resume does not restart work. Existing PaaS work gets a configuration-specific mission. Cancel/recall writes no technical, session, award or assessment evidence.
+
+The coach projects actual context/form/findings into action, reason and observation; dry validation is informational and unrelated resource targets fail closed. Final reasoning does not highlight an already inspected control. Nine task-specific figures replace generic visual sketches while retaining all manuscripts, original deterministic evaluators, explicit-run prediction/results and guided/independent evidence. Resource inspection retains the existing contextual menu and integrates Essentials, readable linked scope and actual dependencies. No dummy VM power/monitoring/security controls were added.
+
+[Audit, implementation, reference comparison, commands and inspected screenshots](GUIDED_LEARNING_REFINEMENT.md) are current. `npm run check` passes:216Vitest/24files,67curriculum subset,3documentation fixtures,57Markdown/local links, registered assets, strict TypeScript, lint, format and production build. Broad production browser regression35passed/17explicit duplicate skips; affected suites after final visual refinement15passed/11duplicate skips, including Axe, keyboard/reduced motion, real operations/receipts, replay, old data, exact return/reload and no unintended external requests. Dependency audit0vulnerabilities; no dependency/install change. Final protected Vercel root/branch/SHA review is separately recorded in the Draft PR and delivery.
+
+No domain commands, persistence schema, rubric, legacy data or XP rule changed. Owner reference captures remain outside Git. Human novice/experienced-IT usability, screen-reader and qualified SME/fidelity review remain open; passing tests do not prove comprehension or professional visual acceptance. Next: conduct those uncoached reviews and fix observed confusion before expanding curriculum or services. No RPG, production deployment or mobile redesign is included.
+
 ## AzureLab 3.2.1 — integrated practical laboratories, 2026-10-25
 
 Branch `feat/321-integrated-practical-labs`, based on verified `943d0d1954022c466cf0c41261e40b623df98440`, stacked on `feat/32-cloud-benefits-service-types`. PR13 and its ancestors are unchanged. No merge, production deployment, hosting/protection/alias change, new credentials, infrastructure, dependency or asset.

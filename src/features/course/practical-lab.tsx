@@ -2,7 +2,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
-import { labsNb as t, nb, regionLabels } from '@/content/nb';
+import { labsNb as t, nb, regionLabels, learningPolishNb as polish } from '@/content/nb';
 import {
   evaluatePractical,
   practicalHref,
@@ -10,7 +10,7 @@ import {
   type LabKind,
   type Origin,
 } from '@/domain/sandbox/practical';
-import { startLab, labFacts, type GuideTarget } from '@/domain/course/model';
+import { startLab, labFacts } from '@/domain/course/model';
 import { useSandbox } from '@/features/portal/sandbox-provider';
 import { useSaas } from '@/features/portal/saas-provider';
 import { usePractical } from './practical-provider';
@@ -27,6 +27,8 @@ import { practicalSources, practicalReview } from '@/domain/sandbox/content';
 import { PropertyList, type Navigate } from '@/features/portal/shared';
 import type { VmFormView } from '@/features/portal/vm-form';
 import './practical.css';
+import { MissionBriefing, MissionRecall } from './mission-briefing';
+import { practicalGuidance } from './practical-guidance';
 function evaluatedSession(
   session: Parameters<typeof evaluatePractical>[0],
   technical: ReturnType<typeof useSandbox>,
@@ -80,6 +82,7 @@ export function LabEntry({ kind, origin }: { kind: LabKind; origin: Origin }) {
   const { p, technical, saas } = usePracticalResult(),
     course = useCourse(),
     router = useRouter();
+  const [briefing, setBriefing] = useState(false);
   const original = usePortalLearning(),
     benefits = useExpansion('benefits'),
     services = useExpansion('services');
@@ -172,7 +175,11 @@ export function LabEntry({ kind, origin }: { kind: LabKind; origin: Origin }) {
             {t.resume}
           </Link>
         ) : (
-          <button type="button" disabled={!allReady || otherActive} onClick={() => start('guided')}>
+          <button
+            type="button"
+            disabled={!allReady || otherActive}
+            onClick={() => setBriefing(true)}
+          >
             {current?.status === 'active' && !currentFindings.verifiable
               ? t.restartUnavailable
               : t.launch}
@@ -188,6 +195,19 @@ export function LabEntry({ kind, origin }: { kind: LabKind; origin: Origin }) {
           </button>
         )}
       </div>
+      {briefing && (
+        <MissionBriefing
+          kind={kind}
+          existingApp={technical.attempt.engine.world.resources.some(
+            (r) => r.type === 'Microsoft.Web/sites',
+          )}
+          onClose={() => setBriefing(false)}
+          onStart={() => {
+            setBriefing(false);
+            start('guided');
+          }}
+        />
+      )}
       {current && (
         <>
           <p role="status">
@@ -253,6 +273,8 @@ export function LabEntry({ kind, origin }: { kind: LabKind; origin: Origin }) {
   );
 }
 export function BenefitsLabBridge({ topic }: { topic: string }) {
+  const [briefing, setBriefing] = useState(false),
+    router = useRouter();
   const kind = topic === 'availability' || topic === 'sustainability' ? 'vm' : 'paas';
   const technical = useSandbox(),
     world = technical.attempt.engine.world;
@@ -281,7 +303,20 @@ export function BenefitsLabBridge({ topic }: { topic: string }) {
       <h3>{t.bridge.title}</h3>
       <p>{t.bridge[topic as 'availability']}</p>
       <p>{t.bridge.note}</p>
-      <Link href={`/portal?${target}&bridge=${topic}`}>{t.bridge.open}</Link>
+      <button type="button" onClick={() => setBriefing(true)}>
+        {t.bridge.open}
+      </button>
+      {briefing && (
+        <MissionBriefing
+          kind={kind}
+          inspection={t.bridge[topic as 'availability']}
+          onClose={() => setBriefing(false)}
+          onStart={() => {
+            setBriefing(false);
+            router.push(`/portal?${target}&bridge=${topic}`);
+          }}
+        />
+      )}
       <LabEntry kind={kind} origin={{ module: 'benefits', topic }} />
     </section>
   );
@@ -383,60 +418,26 @@ export function PracticalCoach({
   const app = technical.attempt.engine.world.resources.find(
     (r) => r.type === 'Microsoft.Web/sites',
   );
-  const target: GuideTarget = !technical.attempt.engine.world.groups.length
-    ? location.area === 'create'
-      ? 'name'
-      : location.area === 'groups'
-        ? 'create'
-        : 'search'
-    : s?.kind === 'vm'
-      ? !findings.configured
-        ? location.area === 'create' && location.kind === 'vm'
-          ? form?.tab === 1
-            ? 'vm-disk'
-            : form?.tab === 2
-              ? 'vm-network'
-              : form?.tab === 3
-                ? form.valid
-                  ? 'commit'
-                  : 'validation'
-                : !form?.group
-                  ? 'group'
-                  : !form.name
-                    ? 'name'
-                    : 'vm-profile'
-          : location.area === 'vms'
-            ? 'create'
-            : 'search'
-        : location.area === 'resource'
-          ? 'inspect-practical'
-          : 'architecture'
-      : !app
-        ? 'search'
-        : !findings.configured
-          ? location.area === 'settings'
-            ? 'settings'
-            : 'resource'
-          : 'inspect-practical';
-  const targetKind = target === 'validation' ? 'inspection' : 'action';
+  const direction = practicalGuidance({
+    kind: s?.kind ?? 'vm',
+    hasGroups: !!technical.attempt.engine.world.groups.length,
+    hasApp: !!app,
+    appId: app?.id,
+    configured: findings.configured,
+    inspected: findings.inspected,
+    ids: findings.ids,
+    location,
+    form,
+  });
+  const { target, targetKind, phase } = direction;
   const bounds = useGuideBounds(
     target,
-    active && !minimized,
+    active && !minimized && direction.matching,
     targetKind,
     `${location.area}:${location.id}:${location.kind}`,
   );
   if (!active || !s) return null;
-  const instruction = !technical.attempt.engine.world.groups.length
-    ? t.guide.group
-    : s.kind === 'vm'
-      ? findings.configured
-        ? t.guide.inspectVm
-        : t.guide.createVm
-      : !app
-        ? t.guide.web
-        : findings.configured
-          ? t.guide.explain
-          : t.guide.settings;
+  const instruction = polish.guide[phase];
   return (
     <>
       {bounds?.visible && (
@@ -456,6 +457,7 @@ export function PracticalCoach({
         className={`guided-coach practical-coach ${minimized ? 'coach-minimized' : ''}`}
         aria-label={t.guided}
         data-step={`practical-${s.kind}`}
+        data-phase={phase}
       >
         <header>
           <span>{t.guided}</span>
@@ -470,8 +472,30 @@ export function PracticalCoach({
                 <strong>{t.lab[s.kind].title}</strong>
               </p>
             </SavvyShark>
-            <p>{instruction}</p>
+            <p className="coach-step" role="status">
+              <strong>{instruction[0]}</strong>
+            </p>
+            <dl className="coach-instruction">
+              <div>
+                <dt>{nb.refinement.why}</dt>
+                <dd>{instruction[1]}</dd>
+              </div>
+              <div>
+                <dt>{nb.refinement.action}</dt>
+                <dd>{instruction[2]}</dd>
+              </div>
+              <div>
+                <dt>{nb.refinement.expect}</dt>
+                <dd>{instruction[3]}</dd>
+              </div>
+            </dl>
+            <p className="coach-target-type" hidden={phase === 'explain'}>
+              {targetKind === 'inspection'
+                ? nb.refinement.inspectTarget
+                : nb.refinement.actionTarget}
+            </p>
             <div className="coach-actions">
+              <MissionRecall kind={s.kind} existingApp={!!app} />
               {bounds && (
                 <button
                   type="button"

@@ -1,5 +1,6 @@
 'use client';
 import { labsNb as t, nb } from '@/content/nb';
+import { inventory } from '@/domain/portal/model';
 import type { World, Receipt } from '@/domain/chapter01/model';
 import {
   infrastructure,
@@ -55,14 +56,26 @@ export function InfrastructureDetails({
           </p>
           <PropertyList
             items={Object.entries(r)
-              .filter(([k]) => !['id', 'name', 'groupId', 'location', 'origin', 'kind'].includes(k))
+              .filter(
+                ([k, v]) =>
+                  !['id', 'name', 'groupId', 'location', 'origin', 'kind'].includes(k) &&
+                  !related.some((e) => e.to === v),
+              )
               .map(([key, value]) => [
                 t.fields[key as keyof typeof t.fields] ?? key,
-                key === 'profile'
-                  ? t.vm.profiles[value as keyof typeof t.vm.profiles]
-                  : key === 'image'
-                    ? t.vm.images[value as keyof typeof t.vm.images]
-                    : String(value ?? '—'),
+                key === 'profile' ? (
+                  t.vm.profiles[value as keyof typeof t.vm.profiles]
+                ) : key === 'image' ? (
+                  t.vm.images[value as keyof typeof t.vm.images]
+                ) : key.endsWith('Id') &&
+                  typeof value === 'string' &&
+                  inventory(world).some((r) => r.id === value) ? (
+                  <button type="button" onClick={() => navigate('resource', { id: value })}>
+                    {inventory(world).find((r) => r.id === value)?.name}
+                  </button>
+                ) : (
+                  String(value ?? '—')
+                ),
               ])}
           />
           <ul>

@@ -1,6 +1,6 @@
 import { test, expect, type Page, type TestInfo } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
-import { nb, labsNb as t } from '../../src/content/nb';
+import { nb, labsNb as t, learningPolishNb as polish } from '../../src/content/nb';
 import { freshServices, applyModuleEvent } from '../../src/domain/portal/learning';
 import { fresh as freshExpansion } from '../../src/domain/curriculum/expansion';
 import { applyEvent, freshAttempt } from '../../src/domain/chapter01/scenario';
@@ -54,6 +54,11 @@ test('current lab entry preserves genuine v1 records and imports the validated t
   await page
     .locator('.practical-entry')
     .getByRole('button', { name: t.launch, exact: true })
+    .click();
+  await expect(page.getByRole('dialog')).toContainText(polish.briefing.eyebrow);
+  await page
+    .getByRole('dialog')
+    .getByRole('button', { name: polish.briefing.start, exact: true })
     .click();
   await area(page, 'groups');
   await expect(page.locator('table')).toContainText('rg-preserved');
@@ -159,6 +164,12 @@ test('root course to persisted VM, app settings, separate SaaS, exact debrief an
     .locator('.practical-entry')
     .getByRole('button', { name: t.launch, exact: true })
     .click();
+  await expect(page.getByRole('dialog')).toContainText(polish.briefing.eyebrow);
+  await shot(page, info, 'mission-vm');
+  await page
+    .getByRole('dialog')
+    .getByRole('button', { name: polish.briefing.start, exact: true })
+    .click();
   await expect(page.locator('.practical-coach')).toBeVisible();
   await expect(page.locator('.practical-outcome')).toHaveCount(0);
   await page.getByRole('searchbox', { name: p.search, exact: true }).fill('Resource groups');
@@ -195,11 +206,13 @@ test('root course to persisted VM, app settings, separate SaaS, exact debrief an
     .click();
   await page.getByRole('combobox', { name: t.vm.dataDisk, exact: true }).selectOption('32');
   await shot(page, info, 'vm-disks');
+  await expect(page.locator('.practical-coach')).toHaveAttribute('data-phase', 'disks');
   await page
     .locator('.portal-form-tabs')
     .getByRole('button', { name: 'Networking', exact: true })
     .click();
   await shot(page, info, 'vm-network');
+  await expect(page.locator('.practical-coach')).toHaveAttribute('data-phase', 'network');
   await page
     .locator('.portal-form-tabs')
     .getByRole('button', { name: 'Review + create', exact: true })
@@ -264,6 +277,12 @@ test('root course to persisted VM, app settings, separate SaaS, exact debrief an
   await page
     .locator('.practical-entry')
     .getByRole('button', { name: t.launch, exact: true })
+    .click();
+  await expect(page.getByRole('dialog')).toContainText(polish.briefing.eyebrow);
+  await shot(page, info, 'mission-paas');
+  await page
+    .getByRole('dialog')
+    .getByRole('button', { name: polish.briefing.start, exact: true })
     .click();
   const prerequisiteExit = page.getByRole('link', { name: nb.course.leaveLab, exact: true });
   await expect(prerequisiteExit).toHaveAttribute('href', /topic=paas&activity=practical&version=2/);
@@ -330,6 +349,12 @@ test('root course to persisted VM, app settings, separate SaaS, exact debrief an
     .locator('.practical-entry')
     .getByRole('button', { name: t.launch, exact: true })
     .click();
+  await expect(page.getByRole('dialog')).toContainText(polish.briefing.eyebrow);
+  await shot(page, info, 'mission-saas');
+  await page
+    .getByRole('dialog')
+    .getByRole('button', { name: polish.briefing.start, exact: true })
+    .click();
   await expect(page.getByRole('heading', { name: 'Mina', exact: true })).toBeVisible();
   await page.locator('.saas-navigation').getByRole('button', { name: /Erin/ }).click();
   await page.getByRole('button', { name: t.saas.assign, exact: true }).click();
@@ -387,6 +412,11 @@ test('root course to persisted VM, app settings, separate SaaS, exact debrief an
     .locator('.practical-entry')
     .getByRole('button', { name: t.launch, exact: true })
     .click();
+  await expect(page.getByRole('dialog')).toContainText(polish.briefing.eyebrow);
+  await page
+    .getByRole('dialog')
+    .getByRole('button', { name: polish.briefing.start, exact: true })
+    .click();
   await expect(page.locator('.saas-learning')).toHaveAttribute('data-step', 'saas-replay');
   await expect(page.locator('.saas-learning')).toContainText(t.saas.replay);
   await page.getByRole('button', { name: t.saas.reset, exact: true }).click();
@@ -403,7 +433,11 @@ test('root course to persisted VM, app settings, separate SaaS, exact debrief an
   await page.locator('.saas-header').getByRole('link', { name: t.return, exact: true }).click();
   await page.goto('/learn/benefits?topic=governance');
   const bridge = page.locator('.benefits-lab-bridge');
-  await bridge.getByRole('link', { name: t.bridge.open, exact: true }).click();
+  await bridge.getByRole('button', { name: t.bridge.open, exact: true }).click();
+  await page
+    .getByRole('dialog')
+    .getByRole('button', { name: polish.briefing.start, exact: true })
+    .click();
   await expect(page.locator('.portal-view')).toContainText('policy-web-location');
   await expect(page).toHaveURL(/bridge=governance/);
   await shot(page, info, 'benefits-real-policy');
@@ -609,6 +643,11 @@ test('explicit SaaS and Portal reset rebind guided sessions and retain abandoned
     .locator('.practical-entry')
     .getByRole('button', { name: t.launch, exact: true })
     .click();
+  await expect(page.getByRole('dialog')).toContainText(polish.briefing.eyebrow);
+  await page
+    .getByRole('dialog')
+    .getByRole('button', { name: polish.briefing.start, exact: true })
+    .click();
   await expect(page.locator('.saas-learning')).toHaveAttribute('data-step', 'saas-capacity');
   await page.locator('.saas-navigation').getByRole('button', { name: /Erin/ }).click();
   await page.getByRole('button', { name: t.saas.assign, exact: true }).click();
@@ -627,6 +666,11 @@ test('explicit SaaS and Portal reset rebind guided sessions and retain abandoned
   await page
     .locator('.practical-entry')
     .getByRole('button', { name: t.launch, exact: true })
+    .click();
+  await expect(page.getByRole('dialog')).toContainText(polish.briefing.eyebrow);
+  await page
+    .getByRole('dialog')
+    .getByRole('button', { name: polish.briefing.start, exact: true })
     .click();
   await expect(page.locator('.practical-coach')).toBeVisible();
   await page.getByRole('button', { name: p.limitations, exact: true }).click();

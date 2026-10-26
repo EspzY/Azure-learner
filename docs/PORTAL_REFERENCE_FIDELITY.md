@@ -1,5 +1,9 @@
 # Portal reference and fidelity checklist
 
+## Owner-supplied Home/resource references — 2026-10-26
+
+Two private reference captures were inspected internally, not copied or committed. [The comparison matrix](GUIDED_LEARNING_REFINEMENT.md#internal-portal-reference-comparison) distinguishes existing search/service/history support, improved contextual Essentials and linked dependencies, and excluded runtime/IAM/monitoring actions. ResourceDetails now keeps related technical inspection inside the resource workspace. Home empty history offers a working All resources action. No unsupported Azure control or proprietary Microsoft artwork was added. No measured parity or human fidelity approval is claimed.
+
 ## 3.2.1 documented workflow delta — reviewed 2026-10-25
 
 | Workflow     | Matched/documented                                                                                                          | Approximation or original training behavior                                                                                                                                 | Unsupported                                                                                                             |

@@ -1,5 +1,9 @@
 # Architecture
 
+## Guided learning presentation refinement — 2026-10-26
+
+`MissionBriefing` is presentation-only, using native dialog/inert/focus semantics. The caller starts the existing practical session only after explicit confirmation; no new persistent onboarding flag is authoritative. `practicalGuidance` projects current context/form/findings into phase, target and target kind without side effects; unrelated resource inspection targets fail closed. `ModelVisual` receives current configuration plus an optional existing explicit-run result; it never dispatches domain or learning events. ResourceDetails contains actual InfrastructureDetails in a contextual Essentials/relations workspace, with real parent/dependency links. [Design and reference comparison](GUIDED_LEARNING_REFINEMENT.md).
+
 ## Current 3.2.1 technical continuation
 
 Ordinary course and Portal consumers now use SandboxProvider. Historical ChapterProvider remains unchanged for archived gameplay. SandboxStore owns one World containing existing groups/Web resources plus infrastructure and app-settings partitions. It captures the validated old event snapshot without writing the old key, replays that prefix with organization-web@1, then executes the new versioned tail with sandbox@2. Receipt verification is model-aware across the boundary. Only shared TypeScript receipt vocabulary adds `updated`; old reducer behavior/limits are unchanged. New capacity is explicitly eight groups/eight VMs/96 objects, not an Azure quota.

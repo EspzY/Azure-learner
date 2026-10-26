@@ -1,5 +1,9 @@
 # Local curriculum and evidence architecture
 
+## Presentation-only refinement — 2026-10-26
+
+`learningPolishNb` contains original briefing, contextual guide and figure copy. It supports the existing CB01–CB05/ST01–ST04 bindings and source records, without introducing a new objective, rubric, completion category or evidence migration. Renderers consume current inputs and an optional previously validated result. [Specification](GUIDED_LEARNING_REFINEMENT.md).
+
 ## 3.2.1 operational activity bindings
 
 Existing curricular manuscripts/manifests and conceptual evidence are retained. Added bounded `labDefinitions` map ST01–ST04 to versioned technical models, rubrics, source records, supported commands and explicit exclusions. Bokmål operational copy is `labsNb` in the canonical nb.ts. The [qualitative matrix](FUNDAMENTALS_LAB_COVERAGE.md) separates theory, conceptual experiments, operational practice and changed tasks. Structural validation does not promote human SME status. Existing completion rules remain unchanged; new lab evidence is a separate event record, without XP or Microsoft completion.

@@ -1,6 +1,7 @@
 'use client';
-import { useState } from 'react';
-import { labsNb, nb, regionLabels } from '@/content/nb';
+import { useId, useState } from 'react';
+import { labsNb, nb, regionLabels, learningPolishNb as polish } from '@/content/nb';
+import { infrastructure } from '@/domain/sandbox/model';
 import {
   filterInventory,
   inventory,
@@ -124,26 +125,45 @@ export function ResourceDetails({
   world,
   id,
   navigate,
+  children,
 }: {
   world: World;
   id: string;
   navigate: Navigate;
+  children?: React.ReactNode;
 }) {
+  const sectionId = useId();
   const row = inventory(world).find((r) => r.id === id),
     scope = world.scopes.find((s) => s.id === id),
     identity = world.identity.id === id ? world.identity : null;
   if (!row && !scope && !identity) return <p>{p.noResource}</p>;
   const name = row?.name ?? scope?.name ?? identity!.name;
+  const vm = infrastructure(world).find((r) => r.id === id && r.kind === 'vm');
+  const parentId = row?.parentId ?? scope?.parentId ?? row?.groupId ?? row?.subscriptionId;
+  const parentName =
+    inventory(world).find((r) => r.id === parentId)?.name ??
+    world.scopes.find((s) => s.id === parentId)?.name ??
+    (parentId === world.identity.id ? world.identity.name : parentId);
+  const goTo = (suffix: string) => {
+    const el = document.getElementById(`${sectionId}-${suffix}`);
+    el?.scrollIntoView({ block: 'start', behavior: 'instant' });
+    el?.focus({ preventScroll: true });
+  };
   const members = resourceInventory(world).filter((r) =>
     row?.kind === 'subscription' ? r.subscriptionId === id : r.groupId === id,
   );
   return (
     <div className="portal-resource-overview">
-      <div className="portal-resource-menu">
+      <nav className="portal-resource-menu" aria-label={`${name} · ${p.overview}`}>
         <strong>{name}</strong>
-        <button type="button" aria-current="page">
+        <button type="button" onClick={() => goTo('essentials')}>
           {p.overview}
         </button>
+        {children && (
+          <button type="button" onClick={() => goTo('relations')}>
+            {polish.resource.relations}
+          </button>
+        )}
         <button type="button" onClick={() => navigate('activity', { id })}>
           {p.areas.activity}
         </button>
@@ -158,10 +178,12 @@ export function ResourceDetails({
             {labsNb.settings.title}
           </button>
         )}
-        <small>{p.technicalLimits}</small>
-      </div>
+        <small>{polish.resource.limitations}</small>
+      </nav>
       <div className="portal-resource-main">
-        <h2>{p.properties}</h2>
+        <h2 id={`${sectionId}-essentials`} tabIndex={-1}>
+          {polish.resource.essentials}
+        </h2>
         <PropertyList
           items={[
             [p.name, name],
@@ -174,8 +196,25 @@ export function ResourceDetails({
                   : p.graph.types.tenant,
             ],
             [p.status, p.resourceState],
-            [p.subscription, world.scopes.find((s) => s.id === row?.subscriptionId)?.name],
-            [p.group, world.groups.find((g) => g.id === row?.groupId)?.name],
+            [
+              p.subscription,
+              row?.subscriptionId ? (
+                <button
+                  type="button"
+                  onClick={() => navigate('resource', { id: row.subscriptionId })}
+                >
+                  {world.scopes.find((s) => s.id === row.subscriptionId)?.name}
+                </button>
+              ) : undefined,
+            ],
+            [
+              p.group,
+              row?.groupId ? (
+                <button type="button" onClick={() => navigate('resource', { id: row.groupId })}>
+                  {world.groups.find((g) => g.id === row.groupId)?.name}
+                </button>
+              ) : undefined,
+            ],
             [
               row?.kind === 'group' ? p.metadata : p.resourceLocation,
               row?.location ? regionLabels[row.location as keyof typeof regionLabels] : '—',
@@ -199,8 +238,20 @@ export function ResourceDetails({
               : []),
             [
               p.parent,
-              row?.parentId ?? scope?.parentId ?? row?.groupId ?? row?.subscriptionId ?? '—',
+              parentId ? (
+                <button type="button" onClick={() => navigate('resource', { id: parentId })}>
+                  {parentName}
+                </button>
+              ) : (
+                '—'
+              ),
             ],
+            ...(vm?.kind === 'vm'
+              ? ([
+                  [labsNb.fields.image, labsNb.vm.images[vm.image]],
+                  [labsNb.fields.profile, labsNb.vm.profiles[vm.profile]],
+                ] as const)
+              : []),
           ]}
         />
         {row?.kind === 'group' && <p className="portal-inline-info">{p.locationNote}</p>}
@@ -211,6 +262,14 @@ export function ResourceDetails({
             <h2>{p.resources}</h2>
             <ResourceTable world={world} navigate={navigate} rows={members} />
           </>
+        )}
+        {children && (
+          <div className="portal-related-details">
+            <h2 id={`${sectionId}-relations`} tabIndex={-1}>
+              {polish.resource.relations}
+            </h2>
+            {children}
+          </div>
         )}
       </div>
     </div>

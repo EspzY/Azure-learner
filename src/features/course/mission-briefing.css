@@ -1,0 +1,190 @@
+dialog.mission-briefing {
+  color: #173b58;
+  background: #f8fcff;
+  border: 1px solid #73b4dd;
+  border-radius: 12px;
+  width: min(1040px, calc(100vw - 64px));
+  max-height: calc(100dvh - 48px);
+  padding: 0;
+  margin: auto;
+  overflow: auto;
+  box-shadow: 0 28px 100px #001e4580;
+  font:
+    16px/1.6 'Segoe UI',
+    sans-serif;
+}
+dialog.mission-briefing::backdrop {
+  background: #082440a8;
+  backdrop-filter: blur(3px);
+}
+.mission-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 30px;
+  background: #0868ac;
+  color: white;
+}
+dialog.mission-briefing .mission-heading small {
+  color: white;
+  letter-spacing: 0.13em;
+  font-weight: 650;
+}
+dialog.mission-briefing .mission-heading button {
+  border: 0;
+  color: white;
+  background: transparent;
+  font-size: 28px;
+  padding: 0 10px;
+}
+.mission-intro {
+  display: grid;
+  grid-template-columns: 190px minmax(0, 1fr);
+  gap: 26px;
+  padding: 26px 34px 18px;
+  background: linear-gradient(115deg, #def1fc, #f8fcff 70%);
+}
+.mission-intro .savvy {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  background: transparent;
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+.mission-intro .savvy img {
+  width: 115px;
+  height: auto;
+  margin: auto;
+}
+.mission-intro .savvy small {
+  display: none;
+}
+.mission-intro .savvy span {
+  display: block;
+  font-size: 13px;
+}
+dialog.mission-briefing h2 {
+  font-size: 30px;
+  line-height: 1.2;
+  color: #064e80;
+  margin: 0 0 18px;
+}
+dialog.mission-briefing h3 {
+  font-size: 15px;
+  margin: 0 0 8px;
+  font-weight: 700;
+  color: #075e99;
+}
+dialog.mission-briefing p {
+  margin: 0;
+}
+.mission-body {
+  padding: 20px 34px 26px;
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 40px;
+}
+.mission-body ul {
+  margin: 0;
+  padding-left: 20px;
+}
+.mission-body li {
+  margin-bottom: 10px;
+}
+.mission-observation {
+  border-left: 3px solid #2686ba;
+  padding-left: 16px;
+  margin-top: 24px;
+}
+.mission-route ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.mission-route li {
+  display: flex;
+  gap: 14px;
+  border-top: 1px solid #d3e5f1;
+  padding-top: 10px;
+}
+.mission-route li > span {
+  font-size: 23px;
+  color: #1676ae;
+  font-weight: 300;
+}
+dialog.mission-briefing footer {
+  border-top: 1px solid #c3dce9;
+  background: #eff7fc;
+  padding: 18px 34px;
+}
+dialog.mission-briefing footer p {
+  font-size: 13px;
+  color: #46637a;
+}
+dialog.mission-briefing footer > div {
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 16px;
+}
+dialog.mission-briefing button {
+  cursor: pointer;
+  font: inherit;
+  border: 1px solid #8caec6;
+  border-radius: 4px;
+  padding: 9px 18px;
+  background: white;
+  color: #07517f;
+}
+dialog.mission-briefing button.mission-start {
+  color: white;
+  background: #0768ac;
+  border-color: #0768ac;
+  font-weight: 650;
+}
+dialog.mission-briefing button:focus-visible {
+  outline: 3px solid #ad4b00;
+  outline-offset: 3px;
+}
+@media (max-height: 820px) {
+  dialog.mission-briefing {
+    font-size: 14px;
+  }
+  .mission-intro {
+    padding-block: 18px 8px;
+  }
+  .mission-body {
+    padding-block: 15px;
+  }
+  .mission-intro .savvy img {
+    width: 90px;
+  }
+  dialog.mission-briefing h2 {
+    font-size: 26px;
+    margin-bottom: 10px;
+  }
+}
+@media (max-width: 700px) {
+  dialog.mission-briefing {
+    width: calc(100vw - 24px);
+  }
+  .mission-intro {
+    grid-template-columns: 1fr;
+    padding: 20px;
+  }
+  .mission-intro .savvy {
+    display: none;
+  }
+  .mission-body {
+    grid-template-columns: 1fr;
+    gap: 22px;
+    padding: 20px;
+  }
+  .mission-heading,
+  dialog.mission-briefing footer {
+    padding: 16px 20px;
+  }
+}

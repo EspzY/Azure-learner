@@ -1,5 +1,9 @@
 # Roadmap
 
+## Current refinement — review gate
+
+Module2/3 briefing, explanatory figures and supported resource inspection are implemented for engineering review. Next: uncoached novice and experienced-IT walkthrough, then qualified Azure SME/Portal review. Ask the learner to explain why the lab follows the theory, distinguish action from inspection and justify a policy/dependency correction. Record confusion as defects before expanding services. No new curriculum, RPG or mobile redesign is included. [Review plan](GUIDED_LEARNING_REFINEMENT.md).
+
 ## 3.2.1 acceptance and next scope
 
 Current engineering target: one complete course→VM/PaaS/SaaS lab→causal inspection→exact debrief loop, with replay/migration/negative/independent tests and desktop captures. See [actual gates](PRACTICAL_LABS_QA.md); human SME, Portal expert and novice uncoached review remain pending. Do not infer professional competence from local task success.

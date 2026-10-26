@@ -1,5 +1,9 @@
 # Interactive technical visualizations
 
+## Module2/3 explanatory figures — 2026-10-26
+
+The current ordinary course uses distinct projections for routed copies/capacity, application/dependency diagnosis, scoped Web-policy applicability, template fan-out, service/active-hour lanes, VM host/guest/disk/NIC, code-to-managed-platform compatibility, SaaS identity/license/authority/sharing and justified service choice. Native controls and the full manuscript remain the readable equivalent. Figures show configuration before Run; calculated consequences appear only from the existing explicit-run result. No new Azure execution or numerical model is implied. The shared responsibility explorer is retained unchanged. [Visual contracts and review](GUIDED_LEARNING_REFINEMENT.md).
+
 ## 3.2.1 live operational projection
 
 Architecture Explorer now includes VM, OS/data disk, NIC, VNet and subnet from the shared inventory. Membership, disk attachment, NIC attachment, subnet membership and VNet parent have distinct typed edges/causal explanations. Location remains a property. Accepted changes update list, details and graph; rejected bundles add nothing. Existing Web hosting/policy and responsibility diagrams remain. No synthetic traffic, guest status, runtime health or deployment animation was added. Benefits visuals still explain authored assumptions rather than inspect running infrastructure. [VM contract](VM_LAB_TECHNICAL_DESIGN.md).

@@ -32,7 +32,7 @@ import {
   Database,
   GitBranch,
 } from 'lucide-react';
-import { labsNb, nb, regionLabels } from '@/content/nb';
+import { labsNb, nb, regionLabels, learningPolishNb as polish } from '@/content/nb';
 import { useSandbox as useChapter } from '@/features/portal/sandbox-provider';
 import { useLearning } from '@/features/learning/provider';
 import { ReceiptPanel } from '@/features/chapter01/receipt-panel';
@@ -719,7 +719,12 @@ function PortalWorkspace() {
                         .sort((a, b) => recent.indexOf(a.id) - recent.indexOf(b.id))}
                     />
                   ) : (
-                    <p className="portal-empty">{p.noRecent}</p>
+                    <div className="portal-empty">
+                      <p>{polish.resource.empty}</p>
+                      <button type="button" onClick={() => navigate('resources')}>
+                        {p.areas.resources}
+                      </button>
+                    </div>
                   )}
                 </>
               ) : location.area === 'services' ? (
@@ -783,23 +788,29 @@ function PortalWorkspace() {
                 />
               ) : location.area === 'resource' ? (
                 <>
-                  <ResourceDetails world={world} id={location.id} navigate={navigate} />
-                  <InfrastructureDetails
+                  <ResourceDetails
+                    key={location.id}
                     world={world}
                     id={location.id}
                     navigate={navigate}
-                    onCreate={command}
-                    receipt={
-                      chapter.attempt.engine.ledger
-                        .filter(
-                          (e) =>
-                            e.receipt.outcome === 'accepted' &&
-                            (e.receipt.addedIds.includes(location.id) ||
-                              e.request.command.appId === location.id),
-                        )
-                        .at(-1)?.receipt
-                    }
-                  />
+                  >
+                    <InfrastructureDetails
+                      world={world}
+                      id={location.id}
+                      navigate={navigate}
+                      onCreate={command}
+                      receipt={
+                        chapter.attempt.engine.ledger
+                          .filter(
+                            (e) =>
+                              e.receipt.outcome === 'accepted' &&
+                              (e.receipt.addedIds.includes(location.id) ||
+                                e.request.command.appId === location.id),
+                          )
+                          .at(-1)?.receipt
+                      }
+                    />
+                  </ResourceDetails>
                 </>
               ) : location.area === 'learn' ? (
                 <LearningWorkspace location={location} navigate={navigate} />

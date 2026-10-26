@@ -1,5 +1,9 @@
 # Fundamentals qualitative coverage review
 
+## Instructional presentation review — 2026-10-26
+
+Guided VM/PaaS/SaaS entry now explains the learning bridge before session start; Benefits also has an inspection-specific brief. Existing coverage and limitations in the matrix below remain unchanged. Configuration and inspection are not availability, traffic, security, carbon or independent mastery evidence. No objective was added or declared complete by this presentation change. [Audit and Portal-reference comparison](GUIDED_LEARNING_REFINEMENT.md).
+
 Review date 2026-10-25. Sources: [official path](https://learn.microsoft.com/en-us/training/paths/microsoft-azure-fundamentals-describe-cloud-concepts/), [cloud computing](https://learn.microsoft.com/en-us/training/modules/describe-cloud-compute/), [benefits](https://learn.microsoft.com/en-us/training/modules/describe-benefits-use-cloud-services/), [service types](https://learn.microsoft.com/en-us/training/modules/describe-cloud-service-types/), [AZ-900 objectives](https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900). Objective list is metadata, not copied lesson text. Technical facts are checked against sources; qualified human SME and novice review have not occurred.
 
 | Official objective         | Actual teaching/prerequisites                                    | Practice and observable result                                     | Assessment / counterexample / gap                                  |

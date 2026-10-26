@@ -1,5 +1,9 @@
 # Course/lab orchestration
 
+## Briefing boundary — 2026-10-26
+
+A guided practical launch is now two actions: open mission, then explicitly start the existing session. Cancel does not choose a content version, create a session or write a command. The Benefits inspection bridge has its own shorter brief and retains its allowlisted exact origin; it creates no practical session. Valid resume bypasses repeated briefing. The legacy Service Types Web prerequisite launcher also briefs on first start; its predicates and course return are unchanged. [Audit](GUIDED_LEARNING_REFINEMENT.md).
+
 For the current practical labs, `activity=practical` delegates focus to the actual practical activity after its stores are ready. The generic lesson-heading effect skips that activity. Cancellable settled-frame scrolling/focus preserves exact debrief/resume on navigation and reload without stealing focus during individual answers. Focus and route parameters are navigation only, never assessment evidence. See the [practical architecture](INTEGRATED_LABS_ARCHITECTURE.md) and [QA](PRACTICAL_LABS_QA.md).
 
 ## 3.2.1 practical sessions and evidence

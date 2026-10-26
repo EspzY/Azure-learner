@@ -19,6 +19,7 @@ import { SavvyShark } from './savvy-shark';
 import { resolveGuideTarget, useGuideBounds } from './highlight';
 import './course.css';
 import { useExpansion } from '@/features/learning/expansion-provider';
+import { MissionRecall } from './mission-briefing';
 const c = nb.course;
 export function GuidedCoach({
   location,
@@ -115,6 +116,7 @@ export function GuidedCoach({
               </p>
             </SavvyShark>
             <div className="coach-actions">
+              <MissionRecall kind="paas" />
               {bounds && !bounds.visible && (
                 <button
                   type="button"

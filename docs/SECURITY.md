@@ -1,5 +1,9 @@
 # Security and privacy
 
+## Guided presentation boundary — 2026-10-26
+
+Mission launch/recall uses authored local copy and native modal focus/inert behavior, never arbitrary scripts or command execution. Cancel/recall has no store authority. No dependency, asset, endpoint, secret, environment variable or external runtime request is introduced. Owner Portal reference captures were internal-only and must never be committed; generated AzureLab screenshots contain synthetic local fixtures only.
+
 ## 3.2.1 local administrative boundaries
 
 New snapshot keys are sandbox.v2, saas-admin.v1 and practical-labs.v1. Every shape/version/command is bounded and replayed; legacy Chapter bytes are only read as a frozen prefix. Compare-before-write blocks stale tabs; denied writes warn and remain memory-only. Explicit reset is attempt-scoped and keeps one prior technical/SaaS attempt in bounded local storage. Local evidence is not identity-attested or server-authoritative. No credentials or personal data are accepted by the new labs. App settings use harmless allowlists; no arbitrary code/scripts/secrets/remote commands. SaaS capabilities are fictional administrative exercises, not real authorization enforcement. No new environment variables, dependencies, services, runtime external requests or assets. [Persistence design](INTEGRATED_LABS_ARCHITECTURE.md).

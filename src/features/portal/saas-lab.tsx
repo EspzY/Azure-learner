@@ -16,6 +16,7 @@ import { SavvyShark } from '@/features/course/savvy-shark';
 import './saas.css';
 import { ExpansionAssistance } from '@/features/learning/expansion-provider';
 import { usePortalLearning } from './learning-provider';
+import { MissionRecall } from '@/features/course/mission-briefing';
 export function SaasLab() {
   const s = useSaas(),
     p = usePractical(),
@@ -267,6 +268,7 @@ export function SaasLab() {
                       : t.saas.guidance[guideStep]}
                 </p>
               </SavvyShark>
+              {session.mode === 'guided' && <MissionRecall kind="saas" />}
               {session.mode === 'independent' || (findings.configured && findings.inspected) ? (
                 <PracticalOutcome />
               ) : (

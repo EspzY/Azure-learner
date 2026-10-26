@@ -1,6 +1,6 @@
 import { test, expect, type Page, type TestInfo } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
-import { nb } from '../../src/content/nb';
+import { nb, learningPolishNb as polish } from '../../src/content/nb';
 import { unitIds } from '../../src/domain/curriculum/manifest';
 const c = nb.course,
   p = nb.portal;
@@ -103,6 +103,10 @@ test('course owns full theory, guided real controls, denial investigation, hosti
   await page.getByRole('heading', { name: c.labTitle, exact: true }).scrollIntoViewIfNeeded();
   await capture(page, info, 'lab-introduction');
   await page.getByRole('button', { name: c.startLab, exact: true }).click();
+  await page
+    .getByRole('dialog')
+    .getByRole('button', { name: polish.briefing.start, exact: true })
+    .click();
   await expect(coach(page)).toHaveAttribute('data-step', 'find-groups');
   await expect(page.locator('.guide-target-ring')).toBeVisible();
   await capture(page, info, 'search-highlight');
@@ -316,6 +320,10 @@ test('keyboard, reduced motion, target lifecycle, resize, journal focus and inva
   await expect(page.getByRole('button', { name: c.startLab, exact: true })).toBeEnabled();
   await page.getByRole('button', { name: c.startLab, exact: true }).focus();
   await page.keyboard.press('Enter');
+  await page
+    .getByRole('dialog')
+    .getByRole('button', { name: polish.briefing.start, exact: true })
+    .click();
   await expect(coach(page)).toHaveAttribute('data-step', 'find-groups');
   const search = page.locator('[data-guide="search"]');
   await expect(page.locator('.guide-target-ring')).toBeVisible();

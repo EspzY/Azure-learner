@@ -1,5 +1,9 @@
 # SavvyShark integration
 
+## Mission director and contextual coach — 2026-10-26
+
+The existing registered default mascot is reused; no new art is introduced. A mission brief explains why, outcomes, stages, observations and boundaries before guided start. The mascot then returns to the small contextual coach. Mission recall is explicit and repeatable, with no awards or completion effects. Native modal semantics and launcher focus restoration apply to both launch and recall. SaaS remains visibly separate from the Azure resource Portal. [Design/limits](GUIDED_LEARNING_REFINEMENT.md).
+
 ## 3.2.1 practical roles
 
 The registered owner mascot is reused unchanged. SavvyShark introduces the original VM/PaaS/SaaS tasks, explains supported boundaries and observes actual local results. VM form phase determines the relevant control; domain rejection does not create a resource. PaaS keeps the existing denial/investigation guide before configuration. SaaS explains actual seat rejection and retained account/data duties. No AI, remote calls, new image assets or automatic commands. Independent help is explicit and classified; first submissions remain intact. [QA](PRACTICAL_LABS_QA.md).
