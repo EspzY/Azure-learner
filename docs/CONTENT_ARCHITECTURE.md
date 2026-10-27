@@ -1,5 +1,9 @@
 # Local curriculum and evidence architecture
 
+## Core Architecture Part A1.0.0
+
+physicalManifest is exported through the established curriculum manifest, with stable CA01–03/F02 objectives, source review2026-10-27, explicit teaching/model/independent activity bindings and separate assessment criteria. Original nb.ts manuscript precedes UI. officialPhysical records the next path/core-module7 objectives and partial3-objective implementation; original cloud-concepts metadata stays unchanged. Journal reuses all five theory sections and sources. Part A events pin module/content/model/rubric and never upgrade old data; Part B can later compose objective projections from a separate versioned contract. [Manuscript and evidence boundaries](CORE_ARCHITECTURE_PHYSICAL.md).
+
 ## P00 compatible FC08 registration
 
 `serverlessManifest`, exported through the existing curriculum manifest, registers a separate1.0.0 supplement with prerequisites, source IDs, teaching/execution/application activities and dated AZ-900 mapping. The old manifest's serverless exclusion describes its frozen original1.0.0 module only. Current course navigation exposes the supplement after v2-pricing. Source/claim/module layers are also bound in the scoped quality record; no release JSON can award learning. [Complete manuscript](SERVERLESS_FOUNDATIONS.md). Old v1/v2 evidence is never upgraded to FC08. Corrupt/unsupported supplement input has explicit confirmed recovery from the course and Portal warning, using only the supplement store.clear; cancel/reload never deletes data. No old store or global reset is invoked.

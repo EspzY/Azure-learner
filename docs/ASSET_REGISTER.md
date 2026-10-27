@@ -1,5 +1,9 @@
 # G1 asset register
 
+## PR22 original infrastructure drawings
+
+No third-party/runtime asset is added. physical-visual.tsx contains original code-native SVG cutaway buildings/racks and HTML placement/relationship projections. They are fictional teaching diagrams, not copied Microsoft illustrations or actual facility maps. Existing authorized SavvyShark/icon assets and their licenses/hashes remain unchanged.
+
 ## Original Azure / Fluent identities — 2026-10-26
 
 This entry supersedes the earlier Lucide service-cue choice below. Publisher/creator: Microsoft. Included locally:13 original Azure V24 SVG identities and22 Fluent mappings (shared source files where explicit); source/source-path, review date, per-file SHA256/bytes, purpose and comparison status are in the [canonical manifest](../public/icons/manifest.json). No geometry/colour/viewBox modification, optimizer or rasterization is applied to runtime files. Display size only; Azure images retain aspect ratio. The register currently maps35 identities to33 original source SVGs /30,808 bytes on disk (shared files are counted once), with aliases for singular/plural/scopes. No new runtime dependency or third-party asset host.

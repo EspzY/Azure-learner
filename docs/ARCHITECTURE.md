@@ -1,5 +1,9 @@
 # Architecture
 
+## PR22: physical concept model and course module
+
+PhysicalLesson/InfrastructureScene project a pure bounded architecture-physical model; no Portal imports/inventory. Explicit component placements and requires-data/routes-to relations determine service results, including nonzonal uncertainty. Part A uses the existing Course/Journal/GuidanceWindow and its own versioned replay/store/provider, with native scoped invalid-record recovery. Course resume gains only an allowlisted module/topic. CA01–03 map to F02 at Fundamentals depth; Part B and higher-certification evidence are not implied. [Full authored contract](CORE_ARCHITECTURE_PHYSICAL.md).
+
 ## P00: isolated conceptual supplement
 
 The existing Course shell inserts `serverless-*` topics between pricing and the resource bridge. `domain/curriculum/serverless.ts` owns the FC08 manifest, bounded execution rules, event validation/replay and independent rubric; `serverless-store.ts` and provider own only the new key. Old curriculum sets/first submissions/completion/XP are unchanged. The existing manifest exports the supplement without modifying its frozen original objective array. `serverless.tsx` renders theory/trace/Journal/assessment and reuses native guidance styling and PR20 claim-before-auto UI history. No command or inventory path is shared with the conceptual model. Portal guidance pauses for active/uncertain supplement assessments. [Compatibility and source design](SERVERLESS_FOUNDATIONS.md).

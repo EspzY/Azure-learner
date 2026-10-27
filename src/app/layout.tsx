@@ -1,3 +1,4 @@
+import { PhysicalProvider } from '@/features/learning/physical-provider';
 import { SaasProvider } from '@/features/portal/saas-provider';
 import { PracticalProvider } from '@/features/course/practical-provider';
 import { SandboxProvider } from '@/features/portal/sandbox-provider';
@@ -32,7 +33,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                       <SaasProvider>
                         <PracticalProvider>
                           <ServerlessProvider>
-                            <AppShell>{children}</AppShell>
+                            <PhysicalProvider>
+                              <AppShell>{children}</AppShell>
+                            </PhysicalProvider>
                           </ServerlessProvider>
                         </PracticalProvider>
                       </SaasProvider>

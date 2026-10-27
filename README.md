@@ -1,5 +1,9 @@
 # AzureLab 3.2.1
 
+## Core Architecture Part A — ordinary course, PR22
+
+The next official architecture/services path now has a visible partially available core module at /learn/architecture, after Cloud Computing, Benefits and Service Types. It teaches datacenters, geography/region, zones, pairs and separate cloud environments with an original Infrastructure Explorer, explicit fault/dependency predictions, SavvyShark and changed independent decisions/matching. Only3 of7 core objectives are implemented; Part B remains unavailable. [Manuscript/source/model and safe compatibility](docs/CORE_ARCHITECTURE_PHYSICAL.md). No new operative Azure resource, old evidence/XP migration or human approval.
+
 ## Current P00 learning addition — serverless
 
 The ordinary course now includes **Serverless: fra hendelse til resultat** after Cloud Computing pricing. Enter from `/` → Describe cloud computing → the serverless units in the course menu. Original theory, hosting/retained-responsibility comparison, a prediction-based Execution Explorer, SavvyShark mission/milestone, two original independent scenarios and a full Journal reference use the existing shell. No Functions/Azure runtime or new Portal resource exists. Old learning/XP contracts are preserved; FC08 has an isolated versioned supplement. [Manuscript, sources, boundaries and walkthrough](docs/SERVERLESS_FOUNDATIONS.md). Human educational/SME acceptance is outstanding; technical validation is recorded in PROJECT_STATUS.

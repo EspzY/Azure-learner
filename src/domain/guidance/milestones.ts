@@ -4,6 +4,20 @@ import { replayEngine } from '../sandbox/replay';
 
 /** Conceptual observations are not Engine receipts and have their own source contract. */
 export const conceptMilestones = {
+  'physical-loss': {
+    version: '1.0.0',
+    objectives: ['CA03', 'CA02'],
+    sources: ['AR06', 'AR09'],
+    trigger: 'validated-single-placement-loss',
+    auto: 'first-new-guided-model-result',
+  },
+  'physical-resilience': {
+    version: '1.0.0',
+    objectives: ['CA02', 'CA01'],
+    sources: ['AR05', 'AR07'],
+    trigger: 'validated-affected-components-and-surviving-usable-path',
+    auto: 'first-new-guided-model-result',
+  },
   'serverless-execution': {
     version: '1.0.0',
     objectives: ['FC08'],

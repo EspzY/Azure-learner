@@ -1,3 +1,4 @@
+import { physicalTopics } from '../curriculum/architecture-physical';
 import { replayEngine } from '../sandbox/replay';
 import { types, type Engine } from '../chapter01/model';
 import { validResourceGroupName } from '../simulation';
@@ -8,7 +9,7 @@ import { serverlessTopics } from '../curriculum/serverless';
 import { routes } from '../curriculum/expansion';
 
 export const courseKey = 'azurelab.course.v1';
-export const moduleIds = ['computing', 'benefits', 'services'] as const;
+export const moduleIds = ['computing', 'benefits', 'services', 'architecture'] as const;
 export type CourseModule = (typeof moduleIds)[number];
 export const guideTargets = [
   'search',
@@ -87,6 +88,8 @@ const id = (v: unknown): v is string => typeof v === 'string' && /^[a-zA-Z0-9_-]
 const exact = (v: object, keys: string[]) =>
   Object.keys(v).sort().join(',') === keys.sort().join(',');
 export function courseTopic(module: CourseModule, topic: string | null) {
+  if (module === 'architecture')
+    return (physicalTopics as readonly string[]).includes(topic ?? '') ? topic! : 'datacenters';
   const allowed: readonly string[] =
     module === 'benefits'
       ? routes('benefits')

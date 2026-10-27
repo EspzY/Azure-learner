@@ -1,5 +1,9 @@
 # Interactive technical visualizations
 
+## Azure Infrastructure Explorer — Part A
+
+Original code-native cutaway datacenters, region/zone grouping, explicit app/data placements, affected-facility states and routing/dependency consequence strip project evaluateInfrastructure. All parameters/targets have native controls; a complete component table and level inspector provide nonvisual equivalence. Draft configuration is separate from committed prediction/result snapshots. Dated5-region examples and fictional buildings are marked; unknown nonzonal placement stays uncertain under smaller failures. No real autoscaling, SLA, failover time or Portal mutation. [Model/learning contract](CORE_ARCHITECTURE_PHYSICAL.md).
+
 ## Serverless Execution Explorer
 
 The new FC08 explorer is a separate conceptual projection: bounded event inbox → trigger → per-slot execution trace → output, with explicit failure/pending states and an equivalent semantic table. Work rounds are invented units; no Azure autoscaling/latency/cost claim. Parameters and prediction commit before computing output; old results retain their actual input snapshot. Cold preparation and code failure are distinct. Guided completion requires contrast and causal explanation, not animation. [Model/manuscript](SERVERLESS_FOUNDATIONS.md).

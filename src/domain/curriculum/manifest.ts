@@ -173,3 +173,6 @@ export const transferCriteria = [
 
 /** Separate FC08 version; the above original v1 objective/rubric set is frozen. */
 export { serverlessManifest } from './serverless';
+
+/** Independently versioned Part A; no old rubric/evidence upgrade. */
+export { physicalManifest } from './architecture-physical';

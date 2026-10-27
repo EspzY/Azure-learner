@@ -4706,3 +4706,688 @@ export const serverlessNb = {
   summaryLimit:
     'Resultatene er lokale oppgaveobservasjoner. De beviser ikke generell Azure-kompetanse, Microsoft Learn-fullføring eller eksamensberedskap. Hele compute-sammenligningen, inkludert containers, er fortsatt delvis dekket.',
 } as const;
+
+/** Original Part A manuscript, authored before the presenter; no official completion claim. */
+export const architectureNb = {
+  title: 'Describe the core architectural components of Azure',
+  path: 'Introduction to Cloud Infrastructure: Describe Azure architecture and services',
+  part: 'Part A · Fysisk infrastruktur og feilgrenser',
+  available: 'Delvis tilgjengelig · 3 av 7 læringsmål',
+  intro:
+    'Du kjenner servere, virtuelle maskiner, ansvar og tilgjengelighet. Nå følger vi applikasjonen ned til bygningene og ut til regionene. Undersøk hvilken feil en plassering faktisk tåler — og hvilke avhengigheter som fortsatt kan stoppe tjenesten.',
+  boundary:
+    'Part A har egne observasjoner. Hele Core Architecture-modulen er ikke fullført: resources, resource groups, subscriptions og management hierarchy kommer i Part B. Ingen tidligere resultater oppgraderes.',
+  nextPart: 'Part B · Management groups, subscriptions, resource groups og management hierarchy',
+  planned: 'Planlagt · ikke tilgjengelig ennå',
+  open: 'Åpne Core Architecture · Part A',
+  prerequisite:
+    'Bygger på fysisk server og virtualisering i Cloud Computing, ansvar i Service Types og forskjellen på kapasitet og tilgjengelighet i Benefits. Du kan gå tilbake i kursmenyen. Ingen Azure-konto er nødvendig.',
+  objective:
+    'Forklar fysisk plassering, skill feilgrenser og begrunn et arkitekturvalg. Dette er en konseptuell modell, adskilt fra Portalens lagrede ressurser.',
+  topics: {
+    datacenters: 'Maskinene trenger et sted å være',
+    regions: 'Geography og region',
+    zones: 'Soner er forskjellige feilgrenser',
+    pairs: 'Regionpar er ikke en beredskapsplan',
+    sovereign: 'Region eller separat skymiljø?',
+    explorer: 'Azure Infrastructure Explorer',
+    assessment: 'Selvstendig anvendelse · fysisk arkitektur',
+    summary: 'Dine observasjoner · Part A',
+  },
+  sections: {
+    datacenters: {
+      title: 'Fra virtuell ressurs til fysisk avhengighet',
+      paragraphs: [
+        'En VM er virtuell, men instruksjonene utføres fortsatt av fysiske prosessorer og minne. Et datacenter er anlegget som rommer servere i rack, lagringsutstyr og nettverk. Compute utfører arbeid, storage bevarer informasjon, og networking knytter komponentene sammen. En virtuell ressurs er ikke en ny fysisk bygning.',
+        'Fra tidligere vet du hvordan virtualisering deler og isolerer kapasitet. Under dette finnes vertsmaskinen og anlegget. Strøm holder utstyret i drift, kjøling fjerner varme, og nettverksforbindelser gjør tjenestene tilgjengelige. Fysisk sikring begrenser hvem som får tilgang til anlegget og utstyret. Microsoft håndterer disse fasilitetene; kundens ansvar for kode, data og tilgang består.',
+        'En feilgrense beskriver hvilke komponenter som kan bli rammet av samme hendelse. En feil i én vert er mindre omfattende enn en hendelse som rammer et helt anlegg. Redundant strøm og nettverk reduserer noen risikoer, men er ikke et løfte om at din applikasjon har uavhengige kopier. To ressursnavn eller resource groups skaper ingen fysisk separasjon.',
+        'Tenk på en rapporttjeneste med én API-kopi og én datakopi i samme fiktive anlegg. Hvis hele anlegget blir utilgjengelig, rammes begge. Flytter du bare en ny API-kopi til et annet anlegg, kan prosessen overleve mens tjenesten fortsatt mangler data. Tilgjengelighet må vurderes gjennom hele avhengighetskjeden.',
+      ],
+      terms: [
+        ['Datacenter', 'Et fysisk anlegg med databehandling og nødvendig støtteinfrastruktur.'],
+        [
+          'Feilgrense',
+          'Omfanget av en bestemt feil, for eksempel vert, anlegg, sone eller region.',
+        ],
+        ['Avhengighet', 'En komponent eller funksjon som en annen trenger for å virke.'],
+      ],
+      question:
+        'To VM-er ligger i samme bygning, men i ulike resource groups. Hva gir dette i seg selv?',
+      choices: [
+        [
+          'management',
+          'Forskjellig management-organisering, ikke dokumentert fysisk feilseparasjon.',
+          'Ja. Administrasjonsgrupperingen flytter ikke maskinene eller bygningen.',
+        ],
+        [
+          'isolated',
+          'Uavhengig strøm og kjøling for de to VM-ene.',
+          'Nei. Resource groups bestemmer ikke fysisk strøm- eller kjølegrense.',
+        ],
+        [
+          'safe',
+          'En garanti mot at en anleggsfeil rammer begge.',
+          'Nei. Begge kan være avhengige av det samme anlegget.',
+        ],
+      ],
+    },
+    regions: {
+      title: 'Velg sted etter krav, ikke etter kartfarge',
+      paragraphs: [
+        'En Azure region er et geografisk lokalisert sett av datasentre og nettverksinfrastruktur. En geography grupperer regioner som en datalagringsgrense. Dette er geografiske begreper, ikke management-hierarkiet. Regionen er ikke underordnet resource group som en fysisk underavdeling. Gruppens metadataregion bestemmer heller ikke hvor alle medlemmene kjører.',
+        'Azure har flere regioner for å tilby tjenester nær ulike brukere og gi muligheter for fysisk separasjon. Avstand kan påvirke nettverksforsinkelse, men nærhet alene avgjør ikke applikasjonens ytelse. Tjeneste, tier eller SKU, kapasitet, avhengigheter og konfigurasjon må også kontrolleres for den aktuelle regionen.',
+        'Et datert eksempelutvalg: West Europe og North Europe hører til geography Europe. Norway East og Norway West hører til Norway. Italy North hører til Italy. Disse geography-navnene er Azure-begreper; kontinentet Europa er ikke identisk med geography Europe. I den kontrollerte listen har Norway East soner, Norway West mangler oppført sonestøtte og har begrenset tilgang, mens Italy North har soner uten et regionpar.',
+        'Krav til data kan gjelde produksjonsdata, replikaer, sikkerhetskopier og andre behandlingsprosesser. Kontroller tjenestens faktiske vilkår og egenskaper; et regionsnavn gir ingen generell compliance-garanti. Noen tjenester er nonregional og velges ikke som én regional instans. Kartet vårt er et avgrenset undervisningsutvalg, ikke en sanntidskatalog eller oversikt over faktiske datasenteradresser.',
+      ],
+      terms: [
+        ['Region', 'En lokalisert samling fysisk Azure-infrastruktur.'],
+        ['Geography', 'En gruppering av regioner med en definert datalagringsgrense.'],
+        ['Latency', 'Forsinkelse ved kommunikasjon; må vurderes for den faktiske arbeidsmengden.'],
+      ],
+      question:
+        'Et team har valgt en region nær brukerne. Hva gjenstår før arkitekturvalget kan godtas?',
+      choices: [
+        [
+          'requirements',
+          'Kontroller tjenester, konfigurasjon, avhengigheter og relevante datakrav.',
+          'Ja. Nærhet er bare ett hensyn; den bekrefter verken tjenestestøtte eller hele databehandlingen.',
+        ],
+        [
+          'name',
+          'Ingenting; regionnavnet garanterer tjenestetilbud og compliance.',
+          'Nei. Regioner og tjenester har forskjellige egenskaper, og krav må undersøkes konkret.',
+        ],
+        [
+          'group',
+          'Velg samme metadataregion på resource group, så flyttes alle ressurser dit.',
+          'Nei. Metadataregionen er en annen egenskap enn ressursenes lokasjon.',
+        ],
+      ],
+    },
+    zones: {
+      title: 'En sone er en isolasjonsgrense, ikke en ekstra kopi',
+      paragraphs: [
+        'Availability Zones er fysisk adskilte grupper av ett eller flere datasentre i en region. Sonene har uavhengig strøm, kjøling og nettverk, slik at en avgrenset feil ikke behøver å ramme alle. Flere bygninger innenfor samme sone deler likevel den modellerte sonegrensen. En sone er ikke nødvendigvis én bygning.',
+        'En zonal ressurs er plassert i én valgt logisk sone. Den kan være isolert fra feil i andre soner, men er sårbar for feil i sin egen. Lager du selv kopier i ulike soner, må også ruting, data og gjenoppretting fungere. En ekstra webserver reparerer ikke en utilgjengelig database.',
+        'En zone-redundant tjeneste fordeler sine komponenter mellom soner og håndterer støttet sonegjenoppretting. Noen tjenester gjør dette automatisk, andre krever at du aktiverer en støttet konfigurasjon. Tilgjengelige regioner, SKU-er og tjenestenivåer kan begrense muligheten. En vanlig App Service plan i AzureLabs Portal konfigurerer ikke denne egenskapen.',
+        'Nonzonal eller regional deployment gir deg ingen bestemt sonetilordning eller garanti om soneresiliens. Hvis en sone feiler, kan en slik ressurs være rammet. Dette er noe annet enn en nonregional tjeneste som Microsoft leverer på tvers av regioner. Modellen viser usikkerhet når den ikke kjenner plasseringen, fremfor å gjette at ressursen er trygg.',
+        'Logiske sonenumre kan være mappet ulikt til fysiske soner mellom subscriptions. Zone 1 er derfor ikke en universell fysisk adresse. Antallet soner i regionen, soner brukt av tjenesten og antallet replikaer kan dessuten være forskjellig. Kontroller dokumentasjonen for den konkrete tjenesten, ikke bare om regionen viser sonestøtte.',
+      ],
+      terms: [
+        ['Zonal', 'Ressursen er knyttet til én valgt sone.'],
+        ['Zone-redundant', 'Tjenestens støttede komponenter er fordelt over soner.'],
+        ['Nonzonal / regional', 'Ingen valgt eller lovet sonetilordning.'],
+        ['Replica', 'En eksplisitt kopi; antallet er ikke det samme som antall soner.'],
+      ],
+      question:
+        'En region har Availability Zones. Én zonal app og dens eneste datakopi ligger i Zone 1. Hva følger?',
+      choices: [
+        [
+          'vulnerable',
+          'Løsningen er fortsatt sårbar når dens egen sone rammes.',
+          'Ja. Regionen tilbyr flere feilgrenser, men denne løsningen bruker bare én.',
+        ],
+        [
+          'automatic',
+          'Azure kopierer automatisk alle app- og datakomponenter til andre soner.',
+          'Nei. Sonestøtte alene konfigurerer ikke alle tjenesters redundans.',
+        ],
+        [
+          'labels',
+          'Zone 1 betyr alltid samme bygning i alle subscriptions.',
+          'Nei. Logiske sonenumre kan ha forskjellig fysisk mapping.',
+        ],
+      ],
+    },
+    pairs: {
+      title: 'Skill plattformrelasjonen fra din arbeidsmengde',
+      paragraphs: [
+        'Et regionpar er en kobling Microsoft har definert mellom noen regioner. Enkelte tjenester bruker parene til geo-replikering, geo-redundans eller deler av disaster recovery. Du velger ikke et nytt offisielt regionpar ved å opprette to ressurser. En slik kobling er heller ikke en rute eller en kopi av din applikasjon.',
+        'North Europe og West Europe er et dokumentert symmetrisk par. Italy North har ikke et regionpar. Noen par er asymmetriske: Brazil South peker mot South Central US, mens South Central US peker mot North Central US. Paret krysser da også Brazil-geography. Ikke lær at alle par er gjensidige eller alltid innen samme geography.',
+        'En regionhendelse kan ramme flere soner samtidig. Skal arbeidsmengden fortsette i en annen region, må egnede appressurser, data, avhengigheter og trafikkstyring finnes og fungere der. Tjenestene kan tilby innebygde mekanismer, men de har egne vilkår og konfigurasjoner. Et regionpar garanterer ikke generell automatisk replikering, failover eller null datatap.',
+        'Multiregion beskriver en arkitektur som bruker flere regioner. Den kan bruke parede, ikke-parede eller en kombinasjon av regioner når tjenestene og kravene tillater det. Geografiske krav, latency, tilgjengelig tjenestestøtte og driftskompleksitet må avveies. Denne øvelsen beregner ingen SLA, gjenopprettingstid eller replikeringstid.',
+      ],
+      terms: [
+        ['Region pair', 'En Microsoft-definert relasjon som noen tjenester benytter.'],
+        [
+          'Multiregion',
+          'En løsning som bruker flere regioner, med eksplisitte forbindelser og avhengigheter.',
+        ],
+        [
+          'Failover',
+          'Å flytte eller dirigere arbeid til en egnet alternativ løsning etter en feil.',
+        ],
+      ],
+      question:
+        'En applikasjon ligger i West Europe. Regionen har et par. Hva er allerede bekreftet?',
+      choices: [
+        [
+          'relationship',
+          'Bare parrelasjonen; appens replikering og failover må undersøkes separat.',
+          'Ja. Regionmetadata er ikke en konfigurasjon av hele arbeidsmengdens recovery.',
+        ],
+        [
+          'copy',
+          'At North Europe allerede inneholder en oppdatert kopi av applikasjonen.',
+          'Nei. En kopi må tilbys og konfigureres gjennom den aktuelle løsningen eller tjenesten.',
+        ],
+        [
+          'unpaired',
+          'At en ikke-paret region aldri kan inngå i en robust multiregion-løsning.',
+          'Nei. Ikke-parede regioner kan brukes når tjenester og krav støtter designet.',
+        ],
+      ],
+    },
+    sovereign: {
+      title: 'Et annet regionsnavn er ikke nødvendigvis et annet skymiljø',
+      paragraphs: [
+        'Azure public cloud tilbyr mange regioner. Azure Government og Azure operated by 21Vianet in China er separate, fysisk isolerte skymiljøer med egne operasjonelle grenser. En vanlig public-cloud-region blir ikke et slikt miljø fordi den ligger i et bestemt land.',
+        'Azure Government er rettet mot kvalifiserte amerikanske myndighetsorganisasjoner og partnere. Miljøet har isolert amerikansk infrastruktur og særskilte operative og kontraktuelle rammer. Berettigelse, faktisk tjenestetilbud og nødvendige konfigurasjoner må bekreftes; navnet er ikke en generell sikkerhetsgaranti for enhver applikasjon.',
+        'Azure i Kina er en fysisk separat instans som drives uavhengig av 21Vianet. Tjenester, funksjoner og endepunkter kan avvike fra global Azure. Å velge China som skymiljø er derfor mer enn å endre Region i en eksisterende public-cloud-konfigurasjon.',
+        'Sovereignty handler også om kontroll over data og tilgang, ikke bare fysisk isolasjon. Azure public cloud har funksjoner som kan støtte slike krav. Velg miljø og region etter de faktiske kravene, inkludert replikaer, gjenoppretting og operasjonell tilgang. Kontroller dokumentasjon, avtaler og kvalifisert vurdering. Kurset gir ingen universell compliance-garanti eller juridisk godkjenning.',
+      ],
+      terms: [
+        ['Sovereign environment', 'Et skymiljø med bestemte operative og jurisdiksjonelle rammer.'],
+        [
+          'Azure Government',
+          'Separat Azure-miljø for kvalifiserte amerikanske myndigheter og partnere.',
+        ],
+        ['Azure in China', 'Separat instans drevet av 21Vianet.'],
+      ],
+      question: 'Er Norway East og Azure Government to likeverdige valg i samme Region-liste?',
+      choices: [
+        [
+          'environment',
+          'Nei. Den ene er en public-cloud-region; den andre er et separat miljø med egne krav.',
+          'Riktig. Du må skille cloud environment fra region innenfor miljøet.',
+        ],
+        [
+          'same',
+          'Ja. Alle landregioner er egne sovereign clouds.',
+          'Nei. Geografisk plassering og separat skymiljø er forskjellige dimensjoner.',
+        ],
+        [
+          'guarantee',
+          'Ja, og begge garanterer automatisk at alle applikasjoner er compliant.',
+          'Nei. Kundens løsning og faktiske krav må fortsatt vurderes.',
+        ],
+      ],
+    },
+  },
+  journal: 'Core Architecture Part A i Kunnskapsjournalen',
+  backCourse: 'Tilbake til kursoversikten',
+  choose: 'Velg en vurdering',
+  asymmetricNote: 'Retningen er ikke en operativ replikeringsforbindelse',
+  inspect: 'Undersøk et fysisk nivå',
+  inspection: {
+    geography: [
+      'Geography',
+      'Grupperer regioner som datalagringsgrense. Dette er ikke et management-scope; kontroller de faktiske tjenestevilkårene.',
+    ],
+    region: [
+      'Region',
+      'Samler lokalisert fysisk infrastruktur. Et regionbortfall kan ramme alle sonene der. Parrelasjonen oppretter ingen appkopi.',
+    ],
+    zone: [
+      'Availability Zone',
+      'Ett eller flere datasentre med egen strøm, kjøling og nettverk. De fiktive A/B/C-etikettene er ikke universelle Zone 1/2/3.',
+    ],
+    datacenter: [
+      'Datacenter',
+      'En bygnings-/anleggsgrense i modellen. To anlegg i samme sone kan tåle én anleggsfeil, men deler en mulig sonefeil.',
+    ],
+    hardware: [
+      'Physical infrastructure',
+      'Compute, storage og networking trenger strøm, kjøling og fysisk sikring. Kopier må dekke nødvendige avhengigheter, ikke bare app-prosessen.',
+    ],
+  },
+  regionNames: {
+    norwayeast: 'Norway East',
+    norwaywest: 'Norway West',
+    westeurope: 'West Europe',
+    northeurope: 'North Europe',
+    italynorth: 'Italy North',
+  },
+  pairLimit: 'Parmetadata, ikke replikerings- eller failover-forbindelse',
+  dataAssumption: 'Klar ved observasjonen når valgt; ingen faktisk replikering målt',
+  allReasons: 'Begrunnelser for alle alternativene',
+  geography: 'Geography · eksempelutvalg',
+  region: 'Primærregion',
+  secondary: 'Sekundærregion',
+  geographyNames: { norway: 'Norway', europe: 'Europe', italy: 'Italy' },
+  reviewed: 'Eksempelmetadata kontrollert 27. oktober 2026 · ikke sanntid',
+  restricted: 'Begrenset tilgang i Azure · bare konseptuell utforskning her',
+  hasZones: 'Sonestøtte oppført',
+  noZones: 'Ingen sonestøtte oppført',
+  noPair: 'Ikke paret',
+  pair: 'Dokumentert par',
+  placement: 'Plassering av appkopier',
+  placements: {
+    single: 'Én plassering',
+    'same-zone': 'To anlegg i samme sone',
+    'multi-zone': 'Kopier i ulike soner',
+    'multi-region': 'Kopier i to regioner',
+    nonzonal: 'Nonzonal · ukjent fysisk plassering',
+  },
+  data: 'Datakopier',
+  dataModes: { single: 'Bare én datakopi', replicated: 'Eksplisitte kopier ved appplasseringene' },
+  routing: 'Ruting i undervisningsmodellen',
+  routes: { primary: 'Bare primær appkopi', healthy: 'Bruk overlevende appkopier' },
+  failure: 'Modellert hendelse',
+  failures: {
+    none: 'Ingen feil',
+    datacenter: 'Ett datasenter utilgjengelig',
+    zone: 'Én sone utilgjengelig',
+    region: 'Én region utilgjengelig',
+  },
+  target: 'Feilens mål',
+  prediction: 'Forutsi tjenestens resultat',
+  states: {
+    serving: 'En brukbar tjenestevei finnes',
+    unavailable: 'Ingen brukbar tjenestevei',
+    uncertain: 'Kan ikke avgjøres fra kjent plassering',
+  },
+  componentStates: { up: 'Ikke rammet', down: 'Rammet', unknown: 'Ukjent påvirkning' },
+  run: 'Kjør feilscenarioet',
+  draft: 'Forhåndsvisning av konfigurasjon · ingen kjøring registrert',
+  observed: 'Siste registrerte resultat · beholdt med sine inngangsvalg',
+  result: 'Modellens observasjon',
+  yourPrediction: 'Din prediksjon',
+  physical: 'Fysisk overlevende appkopier',
+  usable: 'Brukbare appkopier',
+  assumptions:
+    'Modellgrenser: Tegnede anlegg A/B er fiktive. Hver illustrert sone har to anlegg kun for å forklare feilgrenser. Kopier er klare og logisk like ved observasjonen når du velger dem; ingen replikeringstid, quorum, datakorrupsjon, trafikk eller faktisk Azure-helse modelleres. Appen trenger både ruting og en tilgjengelig datakopi. I denne modellen er hver appkobling til hver konfigurert datakopi eksplisitt deklarert og tilgjengelig når kopien ikke er rammet; kopiene er logisk like ved observasjonen. Modellen beregner ingen SLA eller failover-tid.',
+  crossGeo:
+    'Regionvalgene krysser geography-grensen. Modellen forbyr det ikke; du må kontrollere om den faktiske løsningen og datakravene tillater det.',
+  unknown:
+    'Nonzonal plassering avslører ingen bestemt sone eller bygning. Derfor er påvirkningen ved mindre feil usikker. Dette er ikke dokumentert redundans.',
+  locationLimit:
+    'Skjematisk fysisk struktur · ingen kartkoordinater, faktisk datasenterinventar eller Azure-ressurser',
+  table: 'Komponenter, fysisk plassering og faktisk modellpåvirkning',
+  columns: [
+    'Komponent',
+    'Region',
+    'Fysisk sone i modellen',
+    'Fiktivt anlegg',
+    'Påvirkning',
+    'Avhengighet / ruting',
+  ],
+  app: 'App',
+  dataCopy: 'Data',
+  depends: 'Trenger tilgjengelige data',
+  routed: 'Valgt av rutingen',
+  notRouted: 'Ikke valgt av rutingen',
+  facility: 'Fiktivt datasenter',
+  zone: 'Fysisk sone',
+  hardware: 'Compute · storage · networking',
+  support: 'Strøm · kjøling · fysisk sikring',
+  causes: {
+    serving:
+      'Minst én appkopi er både urammet, nådd av den valgte rutingen og koblet til en urammet datakopi i denne modellen.',
+    unavailable:
+      'Undersøk komponentradene: enten mangler appen, rutingen velger ingen overlevende kopi, eller den nødvendige datakopien er rammet. Et regionpar retter ingen av disse forholdene.',
+    uncertain:
+      'En eller flere nødvendige plasseringer er ukjente. En mindre feil kan ramme dem; modellen har ikke grunnlag for en garanti.',
+  },
+  controls: 'Valg før kjøring',
+  practice: 'Veiledet modellundersøkelse',
+  invalid:
+    'Kombinasjonen er ikke støttet. Velg soner bare i en region med sonestøtte, forskjellige regioner for multiregion og et gyldig feilmål.',
+  task: 'Sammenlign tre observasjoner: én plasserings feil, overlevende app med tapt data, og en brukbar vei med eksplisitte kopier og ruting. Prediker før hver kjøring. Avslutt med en årsaksforklaring.',
+  steps: [
+    'Én appplassering: undersøk en anleggsfeil.',
+    'Fordel appkopier mellom soner, behold én datakopi og undersøk en sonefeil.',
+    'Behold sonefeilen, konfigurer datakopier og ruting, og sammenlign resultatet.',
+  ],
+  reason: 'Feilseparasjon hjelper bare når alle nødvendige deler av tjenesteveien kan brukes.',
+  actualGuide:
+    'Endre plassering, datakopier og ruting i kontrollene over. Fargene i tegningen forklares også med tilstandstekst og komponenttabell. Resultatet nedenfor kommer alltid fra den sist registrerte kjøringen.',
+  explain: 'Hvorfor kan en appkopi overleve uten at tjenesten er tilgjengelig?',
+  explainChoices: [
+    ['dependencies', 'Tjenesten trenger også en tilgjengelig datakopi og fungerende valgt ruting.'],
+    ['pair', 'Regionparet kopierer automatisk resten av løsningen.'],
+    ['zones', 'Enhver region med soner gjør alle ressursene høyt tilgjengelige.'],
+  ],
+  explainFeedback: {
+    dependencies:
+      'Ja. Fysisk overlevelse, avhengigheter og en brukbar tjenestevei er forskjellige observasjoner.',
+    pair: 'Nei. Parrelasjonen oppretter verken kopier eller ruting for denne arbeidsmengden.',
+    zones: 'Nei. Sonestøtte er en mulighet; konfigurasjonen og hele avhengighetskjeden avgjør.',
+  },
+  witnesses: [
+    'Enkeltplassering rammet',
+    'App overlever, men datavhengighet bryter tjenesten',
+    'Eksplisitt redundant, brukbar tjenestevei',
+  ],
+  guidedDone:
+    'Tre forskjellige modellvitner og riktig årsaksforklaring er registrert som veiledet praksis.',
+  pending: 'Gjenstår',
+  registered: 'Registrert',
+  notYet: 'Ikke registrert',
+  briefOpen: 'SavvyShark · Les infrastruktur-oppdraget',
+  start: 'Start undersøkelsen',
+  cancel: 'Avbryt',
+  close: 'Lukk',
+  brief: {
+    title: 'Hvilken feil tåler arkitekturen din?',
+    why: 'Arkivteamet har forstått cloud computing. Nå må de undersøke hvor kopier ligger og hva de faktisk er avhengige av. Du skal skille mellom at én komponent overlever og at tjenesten fortsatt kan brukes.',
+    observe:
+      'Følg anlegg, soner og regioner i tegningen. Prediker, kjør og sammenlign de eksplisitte plasseringene, datakopiene og rutingen.',
+    consequence:
+      'Start viser kontrollene. Avbryt eller Escape lukker uten kjøring eller læringsresultat. Bare Kjør registrerer din prediksjon og modellresultat.',
+  },
+  milestones: {
+    loss: {
+      title: 'En felles fysisk grense rammet løsningen',
+      text: 'Den registrerte feilen rammet den valgte plasseringen. Flere navn eller management-grupper ville ikke skapt en uavhengig kopi. Se hvilke komponenter som deler feilmålet.',
+    },
+    resilience: {
+      title: 'En brukbar vei består — fordi den er konfigurert',
+      text: 'En komponent ble rammet, men modellen fant fortsatt en app med ruting og tilgjengelige data. Det skyldes de eksplisitte kopiene og forbindelsene, ikke regionens navn eller par.',
+    },
+  },
+  recall: 'SavvyShark · Gjenåpne observasjon',
+  milestoneLimit:
+    'En syntetisk observasjon, ikke målt Azure-tilgjengelighet, bekreftet failover eller fullført kompetanse.',
+  historyIssue:
+    'Visningshistorikken kan ikke lagres trygt. Ingen automatisk popup gjentas; relevante forklaringer kan åpnes manuelt.',
+  blocked:
+    'Veiledningen er satt på pause fordi en uavhengig vurdering er aktiv eller lagret kontekst er usikker. Svarutkast og tidligere arbeid beholdes. Gå tilbake til vurderingen eller last gyldig tilstand på nytt.',
+  storage:
+    'Part A-lagringen er usikker. Ingenting i gamle kurs eller Portal slettes. Ved nektet lagring er nye handlinger bare i minnet.',
+  reload: 'Les lagret Part A på nytt',
+  repair: 'Reparer bare Part A-lagringen',
+  repairTitle: 'Nullstille ugyldig Core Architecture Part A?',
+  repairText:
+    'Dette sletter bare den ugyldige eller ukjente Part A-registreringen. Foundations, Serverless, Benefits, Service Types, XP og Portal-ressurser beholdes. Avbryt/Escape beholder også Part A-dataene.',
+  repairConfirm: 'Slett bare ugyldige Part A-data',
+  limit:
+    'Part A-historikken er full og beholdes lesbar. Nye øvelser og forsøk kan ikke registreres her. Et aktivt forsøk kan fortsatt leveres med et komplett lagret utkast eller avbrytes. Åpnet undervisning registreres fortsatt som hjelp. Andre kurs og Portal fungerer videre; ingen gamle resultater slettes.',
+  limitReturn: 'Se aktiv vurdering eller tidligere resultat',
+  loading: 'Laster validert Part A-historikk …',
+  independent: 'Selvstendig anvendelse · nye krav',
+  assessmentIntro:
+    'Vurder tre nye situasjoner og begrunn beslutningene. Alle svar leveres samlet før feedback. Ingen trinnvise løsningshint vises. Å åpne Journal, undervisning, oppsummering eller eksplisitt hjelp under et aktivt forsøk registreres som assistanse; reload beholder utkastet.',
+  scenarios: [
+    {
+      title: '1 · Bestillinger gjennom en sonefeil',
+      text: 'En billettjeneste skal fortsatt ta imot bestillinger dersom én Availability Zone blir utilgjengelig. Den bruker API og nødvendige bookingdata. Regionen støtter relevante tjenester. Hele regionbortfall er ikke kravet i denne oppgaven. Velg en løsning og en begrunnelse.',
+    },
+    {
+      title: '2 · Geografiske og operative krav',
+      text: 'Et forskningsprosjekt har eksplisitt godkjent Italy North og West Europe for data og replikaer. De vil tåle regionbortfall når de aktuelle tjenestene og konfigurasjonene støtter det. Et separat amerikansk myndighetsprosjekt har fått et uttrykkelig krav om Azure Government og har bekreftet berettigelse. Vurder prosjektene ut fra hvert sitt krav.',
+    },
+    {
+      title: '3 · Feilutredning i fysisk infrastruktur',
+      text: 'To applikasjonskopier ligger i ulike datasentre innenfor samme Availability Zone. Et soneomfattende strøm-/nettverksproblem oppstår. Knytt komponentene til riktig fysisk nivå og forklar om kopiene er tilstrekkelig separert for denne feilen. De fysiske adressene er ikke offentliggjort.',
+    },
+  ],
+  begin: 'Start selvstendig Part A-forsøk',
+  submit: 'Lever alle Part A-svar',
+  retry: 'Prøv igjen som øving',
+  abandon: 'Avbryt forsøket',
+  aid: 'Be om hjelp · registrerer assistanse',
+  aidText:
+    'Hjelp registrert. Undersøk hele tjenesteveien, skill regionmetadata fra konfigurert recovery og les de relevante undervisningsenhetene. Dette forsøket er nå assistert.',
+  unaided: 'Uten registrert hjelp',
+  assisted: 'Med registrert hjelp',
+  retryLabel: 'Øving etter tidligere eksponering',
+  active: 'Aktivt forsøk · svarutkast lagres',
+  feedback: 'Feedback etter samlet innlevering',
+  correct: 'Kriteriet oppfylt',
+  wrong: 'Kriteriet ikke oppfylt',
+  questions: {
+    zoneDesign: {
+      objective: 'CA02',
+      scenario: 0,
+      label: 'Plassering og tjenestevei',
+      choices: [
+        [
+          'complete',
+          'Fordel app og data på støttede soner, med egnet ruting og tjenestespesifikk recovery.',
+        ],
+        ['apps', 'Fordel bare API-kopiene; behold eneste database i én sone.'],
+        ['same', 'Bruk to bygninger i samme sone og behold én rute.'],
+      ],
+      feedback: {
+        complete:
+          'Alle nødvendige deler må tåle den aktuelle sonefeilen. Tjenestenes faktiske støtte og konfigurasjoner må bekreftes.',
+        apps: 'En overlevende API-kopi kan ikke ta bestillinger hvis nødvendige bookingdata er utilgjengelige.',
+        same: 'Ulike bygninger i samme sone deler fortsatt den soneomfattende feilgrensen.',
+      },
+    },
+    zoneReason: {
+      objective: 'CA02',
+      scenario: 0,
+      label: 'Hvorfor dette omfanget?',
+      choices: [
+        [
+          'region',
+          'Kravet krever to regioner; sonene er bare kapasitetsgrupper uten egen feilseparasjon.',
+        ],
+        [
+          'provider',
+          'Regionens sonestøtte er tilstrekkelig; appens data og trafikk trenger ikke egne tiltak.',
+        ],
+        [
+          'boundary',
+          'En sonefeil krever uavhengige soner og hele avhengighetskjeden; regionfeil er et annet krav.',
+        ],
+      ],
+      feedback: {
+        boundary: 'Riktig feilgrense må motstås. Soneresiliens er ikke automatisk regionresiliens.',
+        region:
+          'Et regionpar erstatter ikke konfigurasjon. Støttet multizone-design kan møte det oppgitte sonekravet.',
+        provider:
+          'Ansvarsdelingen varierer med tjenesten; regionens soner alene konfigurerer ikke arbeidsmengden.',
+      },
+    },
+    mapping: {
+      objective: 'CA02',
+      scenario: 0,
+      label: 'To subscriptions bruker Zone 1. Hva kan konkluderes?',
+      choices: [
+        ['different', 'De ulike subscriptions dokumenterer at ressursene er fysisk separert.'],
+        [
+          'check',
+          'Den fysiske mappingen må undersøkes; likt logisk nummer beviser ikke samme eller ulik fysisk sone.',
+        ],
+        ['same', 'Siden regionen er lik, peker begge Zone 1 til samme fysiske sone.'],
+      ],
+      feedback: {
+        check:
+          'Logisk til fysisk mapping kan variere. Administrasjonsgrenser gir ingen slik fysisk konklusjon alene.',
+        same: 'Nummeret er logisk innen en subscription, ikke en universell adresse.',
+        different: 'Ulike subscriptions kan ikke brukes som bevis på fysisk feilseparasjon.',
+      },
+    },
+    regions: {
+      objective: 'CA01',
+      scenario: 1,
+      label: 'Forskningsprosjektets regionvalg',
+      choices: [
+        [
+          'configured',
+          'De godkjente regionene kan brukes dersom tjenester, datakopier, ruting og recovery støtter kravene.',
+        ],
+        [
+          'pair-only',
+          'Avvis den godkjente kombinasjonen: applikasjonens andre region må være Microsofts oppførte partner.',
+        ],
+        [
+          'pair-auto',
+          'Velg et dokumentert regionpar og stol på parrelasjonen fremfor å konfigurere appens recovery.',
+        ],
+      ],
+      feedback: {
+        configured:
+          'Et multiregion-design krever faktiske egenskaper og eksplisitt konfigurasjon. Et offisielt par er ikke et universelt krav.',
+        'pair-only':
+          'Ikke-parede regioner kan inngå i multiregion-design når tjenestene tillater det.',
+        'pair-auto':
+          'Parmetadata er ikke en automatisk kopi av arbeidsmengden eller dens routing/recovery.',
+      },
+    },
+    regionReason: {
+      objective: 'CA01',
+      scenario: 1,
+      label: 'Hva må godkjenningen av lokasjon omfatte?',
+      choices: [
+        [
+          'primary',
+          'Bare primærdataenes region; gjenopprettingskopier regnes utenfor lokasjonskravet.',
+        ],
+        [
+          'label',
+          'At begge regionene ligger i Europa, uten videre kontroll av tjenestenes behandling.',
+        ],
+        [
+          'all-data',
+          'Replikaer, backup, avhengigheter og faktisk tjenestebehandling må vurderes, ikke bare primærregionens navn.',
+        ],
+      ],
+      feedback: {
+        'all-data':
+          'Hele databehandlingen må vurderes mot de faktiske kravene; ingen generell compliance-garanti følger av navnet.',
+        primary: 'Dataflyt og gjenoppretting kan krysse grenser hvis de ikke inngår i designet.',
+        label:
+          'Et geografisk navn er ikke dokumentasjon for tjenestens eller kundens samlede forpliktelser.',
+      },
+    },
+    sovereign: {
+      objective: 'CA01',
+      scenario: 1,
+      label: 'Myndighetsprosjektets uttrykkelige miljøkrav',
+      choices: [
+        [
+          'china',
+          'Bruk Azure i Kina: en separat sky oppfyller samme operative miljøkrav som Azure Government.',
+        ],
+        [
+          'government',
+          'Undersøk og bruk det kvalifiserte Azure Government-miljøet med dets egne tjenester og operative rammer.',
+        ],
+        ['us-region', 'Velg en vanlig amerikansk public-cloud-region; det er samme miljø.'],
+      ],
+      feedback: {
+        government:
+          'Kravet navngir et separat miljø. Bekreftet berettigelse fritar ikke teamet fra å kontrollere tjenestene og konfigurasjonen.',
+        'us-region':
+          'Fysisk landplassering alene gjør ikke en public-cloud-region til Azure Government.',
+        china:
+          'Azure i Kina er et annet isolert miljø, drevet av 21Vianet, med andre operative grenser.',
+      },
+    },
+    asymmetric: {
+      objective: 'CA01',
+      scenario: 1,
+      label: 'En region peker til B, men B peker til C. Hva betyr det?',
+      choices: [
+        [
+          'asymmetric',
+          'Parrelasjonen kan være asymmetrisk; den definerer ikke i seg selv appkopier eller failover.',
+        ],
+        [
+          'invalid',
+          'B må behandles som en gjensidig partner til A selv om dokumentasjonen peker videre til C.',
+        ],
+        ['automatic', 'Parrelasjonene alene gir applikasjonen en tilgjengelig kopi i både B og C.'],
+      ],
+      feedback: {
+        asymmetric:
+          'Dette er en gyldig type regionpar. Undersøk tjenestens bruk av relasjonen separat.',
+        invalid:
+          'Azure dokumenterer asymmetriske par, blant annet Brazil South til South Central US.',
+        automatic: 'Forbindelsen er metadata om et par, ikke en opprettet applikasjonsarkitektur.',
+      },
+    },
+    facility: {
+      objective: 'CA03',
+      scenario: 2,
+      label: 'Rack, lagring, nettverk, strøm og kjøling beskriver …',
+      choices: [
+        ['subscription', 'En Availability Zone som alltid består av nøyaktig dette ene anlegget'],
+        ['pair', 'Hele regionen, uten skille mellom anlegg og regionale feilgrenser'],
+        ['datacenter', 'Fysisk infrastruktur i et datacenter'],
+      ],
+      feedback: {
+        datacenter: 'Et datacenter rommer både databehandlingsutstyr og støtteinfrastruktur.',
+        subscription:
+          'En Availability Zone kan omfatte flere slike anlegg. Utstyret og støttesystemene her beskriver et datacenter.',
+        pair: 'Regionen samler datacenter-infrastruktur; den beskrevne bygningen er en mindre fysisk feilgrense.',
+      },
+    },
+    grouping: {
+      objective: 'CA03',
+      scenario: 2,
+      label: 'En Availability Zone grupperer …',
+      choices: [
+        ['groups', 'Én enkelt serververt, isolert fra andre verter i samme bygg'],
+        ['facilities', 'Ett eller flere datasentre innenfor én region'],
+        ['regions', 'Datacentre fordelt mellom to regioner som deler et regionpar'],
+      ],
+      feedback: {
+        facilities:
+          'Sonen grupperer fysisk infrastruktur med en egen feilgrense innenfor regionen.',
+        regions: 'Flere regioner er et annet nivå enn soner i én region.',
+        groups:
+          'En vert er et lavere nivå. Sonen omfatter ett eller flere datasentre med uavhengig strøm, kjøling og nettverk.',
+      },
+    },
+    fault: {
+      objective: 'CA03',
+      scenario: 2,
+      label: 'Hvorfor er to bygninger ikke nok her?',
+      choices: [
+        [
+          'shared-zone',
+          'Begge ligger innenfor sonefeilens omfang; forskjellige bygninger beskytter ikke mot den beskrevne fellesfeilen.',
+        ],
+        [
+          'one-building',
+          'Fordi ulike bygningsnavn viser at begge må ligge i forskjellige regioner.',
+        ],
+        [
+          'metadata',
+          'Fordi en separat subscription må opprettes for at den andre bygningen skal tåle sonefeilen.',
+        ],
+      ],
+      feedback: {
+        'shared-zone':
+          'Feilens omfang bestemmer hva som rammes. En mindre anleggsfeil og en hel sonefeil er forskjellige hendelser.',
+        'one-building':
+          'Bygningsnavn bestemmer ikke regionen. Her ligger begge anlegg innenfor den samme beskrevne sonen.',
+        metadata:
+          'En subscription er en administrativ grense. Den flytter ikke en bygning ut av den berørte fysiske sonen.',
+      },
+    },
+  },
+  summary: 'Part A-resultater · hele Core Architecture-modulen er fortsatt delvis tilgjengelig',
+  objectives: {
+    CA01: 'Regioner, regionpar og sovereign environments',
+    CA02: 'Availability Zones og konfigurasjonsvalg',
+    CA03: 'Datasentre og fysisk feilgrense',
+  },
+  taught: 'Undervisningssjekker',
+  guided: 'Veiledet feilundersøkelse',
+  first: 'Første innlevering',
+  noSubmission: 'Ingen innlevering ennå',
+  criterionCount: 'Kriterier oppfylt',
+  firstOutcome: 'Første uassisterte observasjon for dette målet',
+  abandoned: 'Avbrutte forsøk',
+  summaryLimit:
+    'Dette er lokale, avgrensede oppgaveobservasjoner, ikke generell mestring, Microsoft Learn-fullføring, eksamensberedskap eller AZ-104/AZ-305-evidence. Retry overskriver ikke det første resultatet.',
+  sources: 'Offisielle kilder og modellgrenser',
+  sourceReview:
+    'Kildene ble kontrollert 27. oktober 2026. Kvalifisert menneskelig SME-, UX-, skjermleser- og læringsvalidering er utestående.',
+  mappingLabels: ['Subscription A · Zone 1', '→ B', 'Subscription B · Zone 1', '→ C'],
+  mappingTitle: 'Eksempel: logiske tall er ikke fysiske adresser',
+  mappingText:
+    'Fiktiv mapping: Subscription A sin Zone 1 peker til fysisk B, mens Subscription B sin Zone 1 peker til fysisk C. Dette er et undervisningseksempel, ikke din Azure-mapping.',
+  environmentNames: ['Azure public cloud', 'Azure Government', 'Azure in China · 21Vianet'],
+  environmentDetails: [
+    'Regionvalg og kontroller må møte faktiske krav. Public cloud kan støtte sovereignty-krav uten å være et separat isolert miljø.',
+    'Isolert amerikansk miljø for kvalifiserte myndigheter og partnere. Egne operative krav og tjenestevariasjoner.',
+    'Separat fysisk instans drevet av 21Vianet. Endepunkter og tjenestetilbud kan avvike.',
+  ],
+} as const;

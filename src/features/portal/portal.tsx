@@ -1,4 +1,7 @@
 'use client';
+import { usePhysical } from '@/features/learning/physical-provider';
+import { PhysicalRecovery } from '@/features/learning/physical-recovery';
+
 import { useServerless } from '@/features/learning/serverless-provider';
 import { ServerlessRecovery } from '@/features/learning/serverless-recovery';
 import {
@@ -73,7 +76,8 @@ function PortalWorkspace() {
   const benefits = useExpansion('benefits'),
     services2 = useExpansion('services');
   const foundationsV2 = useFoundationsV2(),
-    serverless = useServerless();
+    serverless = useServerless(),
+    physical = usePhysical();
   useEffect(() => {
     if (serverless.facts.active && ['learn', 'responsibility', 'hierarchy'].includes(location.area))
       serverless.store.event({ kind: 'aid' });
@@ -84,8 +88,13 @@ function PortalWorkspace() {
     serverless.store,
     location.area,
   ]);
+  useEffect(() => {
+    if (physical.facts.active && ['learn', 'responsibility', 'hierarchy'].includes(location.area))
+      physical.store.event({ kind: 'aid' });
+  }, [physical.facts.active, physical.ready, physical.issue, physical.store, location.area]);
   const independentContext =
     location.mode === 'independent' ||
+    physical.facts.active ||
     serverless.facts.active ||
     practical.activeIndependent ||
     learning.facts.active ||
@@ -94,6 +103,7 @@ function PortalWorkspace() {
     benefits.facts.active ||
     services2.facts.active;
   const guidanceContexts = [
+    physical,
     serverless,
     learning,
     foundationsV2,
@@ -535,6 +545,7 @@ function PortalWorkspace() {
             helpLearning();
             if (learning.facts.active) learning.store.event({ kind: 'aid' });
             if (serverless.facts.active) serverless.store.event({ kind: 'aid' });
+            if (physical.facts.active) physical.store.event({ kind: 'aid' });
             setReference(true);
           }}
         >
@@ -766,6 +777,7 @@ function PortalWorkspace() {
               </p>
               <p>{nb.milestones.contextUnavailable}</p>
               <ServerlessRecovery />
+              <PhysicalRecovery />
               <button
                 type="button"
                 onClick={() => {

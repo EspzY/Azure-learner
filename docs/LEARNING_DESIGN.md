@@ -1,5 +1,9 @@
 # Learning design
 
+## Part A: learn physical boundaries through consequences
+
+Build from known hardware/virtualization and Benefits dependencies. Explain datacenter, region/geography, zone deployment types, pair qualifications and sovereign environment before prediction. The guided model requires three distinct loss/dependency/resilience witnesses plus a causal answer, not navigation. Changed booking, approved-region/government and physical-failure cases commit decisions/reasons/matching before feedback. Per-objective first criteria, assistance, retries and abandonment remain visible; a partial first answer is retained rather than hidden or replaced. No broad transfer or full-core mastery claim. [Original teaching specification](CORE_ARCHITECTURE_PHYSICAL.md).
+
 ## P00 serverless application
 
 The learning progression now connects prior provisioning, shared responsibility and pricing to managed event execution. A synthetic trace distinguishes activation, code failure, remaining work and output. Predictions commit with bounded input; guided completion requires contrasting run witnesses plus causal explanation. A webhook task and guest-kernel-driver task change decision requirements; hosting AND reason, outcome, duty and plan-cost criteria commit before feedback. First/help/retry/abandon remain separate, with no XP. [Original manuscript and source qualification](SERVERLESS_FOUNDATIONS.md). This is not human educational validation.

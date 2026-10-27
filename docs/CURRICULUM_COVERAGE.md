@@ -1,5 +1,9 @@
 # Curriculum coverage audit
 
+## Scoped P01 update2026-10-27
+
+CA01–03 provide original theory, physical/dependency exploration, changed independent cases, alternative feedback and checked sources for2.1.01–03. The machine-readable audit and generated matrix carry A–F pointers; COMPLETE is content coverage, not actual human competence. The module remains partial3/7;2.1.04–07 and all other audit rows are unchanged. Human SME/UX/screen-reader/transfer review remains unperformed. [Part A source/manuscript](CORE_ARCHITECTURE_PHYSICAL.md).
+
 ## Scoped P00 update — 2026-10-27
 
 FC08 serverless is now authored and implemented in the actual Cloud Computing flow, with execution prediction, responsibility/hosting theory, two changed independent scenarios and alternative rationales. The [generated AZ-900 matrix](AZ900_COVERAGE_MATRIX.md) evaluates A–F for1.1.07;2.2.01 remains PARTIAL due to containers/three-way comparison. Existing original module arrays/rubrics retain their versions and meanings. New evidence is isolated, not inherited. No qualified human SME or measured learner-transfer approval.

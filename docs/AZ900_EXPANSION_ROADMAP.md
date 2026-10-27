@@ -1,5 +1,9 @@
 # AZ-900 — prioritert, avgrenset PR-plan
 
+## P01 implementation update2026-10-27
+
+Core Part A is implemented as the next ordinary course module with three separately versioned objectives and physical failure/dependency model. The complete core module remains partial until P02/PR23 supplies resources/resource groups, subscriptions, management groups and hierarchy. No future operational failover, AZ-104/AZ-305 functionality or full module evidence is implemented. [Scope and authored manuscript](CORE_ARCHITECTURE_PHYSICAL.md); actual tests/review/delivery belong to PROJECT_STATUS and the new Draft PR.
+
 ## P00 implementation update — 2026-10-27
 
 P00 is now implemented as a versioned FC08 supplement in the existing course, with no Functions operational engine or old evidence migration. See [manuscript and compatibility](SERVERLESS_FOUNDATIONS.md), [updated matrix](AZ900_COVERAGE_MATRIX.md) and PROJECT_STATUS for actual checks and outstanding human gates. The following plan remains historical prioritization; P01/P02 core architecture are next and are not implemented by P00.

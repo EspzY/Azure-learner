@@ -1,5 +1,9 @@
 # Roadmap
 
+## Next after physical Part A
+
+PR22 implements P01 physical/geographic core teaching and bounded original assessment, with no technical engine expansion or old evidence migration. Recommended PR23/P02 is management hierarchy, integrating the existing Portal only where justified. The full core module remains partial. Human educational/SME/UX/assistive review of Part A is still outstanding; technical gates alone do not close it. [Contract](CORE_ARCHITECTURE_PHYSICAL.md).
+
 ## P00 scoped delivery
 
 Serverless conceptual learning is implemented under the PR20 seven-gate contract. The next recommended content remains **Core Architectural Components A**, followed by management scopes B, rather than new Functions runtime/Portal commands. Existing P03 assessment-depth gaps and human SME/novice/IT/assistive/transfer review remain open. [P00 scope](SERVERLESS_FOUNDATIONS.md), [AZ900 sequence](AZ900_EXPANSION_ROADMAP.md).

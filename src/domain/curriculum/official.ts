@@ -45,3 +45,14 @@ export const officialLearning = {
     pricing: [5],
   },
 } as const;
+
+/** Reviewed Part A metadata; the original cloud-concepts path/order remains unchanged. */
+export const officialPhysical = {
+  reviewed: '2026-10-27',
+  path: 'https://learn.microsoft.com/en-us/training/paths/azure-fundamentals-describe-azure-architecture-services/',
+  module: 'describe-core-architectural-components-of-azure',
+  officialUnits: 7,
+  officialObjectives: 7,
+  implementedObjectives: ['2.1.01', '2.1.02', '2.1.03'],
+  status: 'partial',
+} as const;

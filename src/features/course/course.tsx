@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { BookOpen, ArrowRight, ChevronRight, FlaskConical, Check, Menu } from 'lucide-react';
-import { labsNb, nb, serverlessNb } from '@/content/nb';
+import { labsNb, nb, serverlessNb, architectureNb } from '@/content/nb';
 import { officialLearning } from '@/domain/curriculum/official';
 import { unitIds } from '@/domain/curriculum/manifest';
 import { topics, portalHref, parseLocation, type PortalLocation } from '@/domain/portal/model';
@@ -46,14 +46,20 @@ const c = nb.course;
 import { useServerless } from '@/features/learning/serverless-provider';
 import { ServerlessLesson } from '@/features/learning/serverless';
 import { isServerlessTopic, serverlessTopics } from '@/domain/curriculum/serverless';
+import { usePhysical } from '@/features/learning/physical-provider';
+import { PhysicalLesson } from '@/features/learning/physical';
+import { PhysicalCourseEntry } from '@/features/learning/physical-entry';
+import { physicalTopics, type PhysicalTopic } from '@/domain/curriculum/architecture-physical';
 const names = {
+  architecture: architectureNb.title,
   computing: nb.official.computing,
   services: nb.official.services,
   benefits: nb.official.benefits,
 };
 export function Course({ module }: { module?: CourseModule }) {
   const practical = usePractical(),
-    serverless = useServerless();
+    serverless = useServerless(),
+    physical = usePhysical();
   const query = useSearchParams(),
     router = useRouter(),
     course = useCourse(),
@@ -185,6 +191,21 @@ export function Course({ module }: { module?: CourseModule }) {
     module,
     topic,
   ]);
+  useEffect(() => {
+    if (
+      physical.facts.active &&
+      (journal || (module && !(module === 'architecture' && topic === 'assessment')))
+    )
+      physical.store.event({ kind: 'aid' });
+  }, [
+    physical.facts.active,
+    physical.ready,
+    physical.issue,
+    physical.store,
+    journal,
+    module,
+    topic,
+  ]);
   const lab = labFacts(course.save.lab, chapter.attempt.engine, chapter.attemptNumber);
   const existingSession = {
     ...startLab(chapter.attempt.engine, chapter.attemptNumber),
@@ -218,33 +239,38 @@ export function Course({ module }: { module?: CourseModule }) {
   const resumeHref =
     practical.current?.status === 'active'
       ? practicalHref(practical.current, chapter.attempt.engine)
-      : serverless.facts.active
-        ? courseHref('computing', 'serverless-assessment')
-        : v2.facts.active
-          ? courseHref('computing', 'v2-assessment')
-          : benefits.facts.active
-            ? courseHref('benefits', 'assessment')
-            : service2.facts.active
-              ? courseHref('services', 'assessment')
-              : services.facts.active
-                ? '/portal?area=challenge&course=1&module=services&topic=practice'
-                : learning.facts.active && v2.save.choice !== 'v2'
-                  ? courseHref('computing', 'assessment')
-                  : preferredResume
-                    ? (preferredResume.module === 'services' &&
-                        preferredResume.topic === 'practice') ||
-                      (preferredResume.module === 'computing' &&
-                        preferredResume.topic === 'resource-bridge')
-                      ? courseLabHref(lab.complete, course.save.lab?.origin)
-                      : courseHref(preferredResume.module, preferredResume.topic)
-                    : computingEntry;
+      : physical.facts.active
+        ? courseHref('architecture', 'assessment')
+        : serverless.facts.active
+          ? courseHref('computing', 'serverless-assessment')
+          : v2.facts.active
+            ? courseHref('computing', 'v2-assessment')
+            : benefits.facts.active
+              ? courseHref('benefits', 'assessment')
+              : service2.facts.active
+                ? courseHref('services', 'assessment')
+                : services.facts.active
+                  ? '/portal?area=challenge&course=1&module=services&topic=practice'
+                  : learning.facts.active && v2.save.choice !== 'v2'
+                    ? courseHref('computing', 'assessment')
+                    : preferredResume
+                      ? (preferredResume.module === 'services' &&
+                          preferredResume.topic === 'practice') ||
+                        (preferredResume.module === 'computing' &&
+                          preferredResume.topic === 'resource-bridge')
+                        ? courseLabHref(lab.complete, course.save.lab?.origin)
+                        : courseHref(preferredResume.module, preferredResume.topic)
+                      : computingEntry;
   const navigate = (area: PortalLocation['area'], change: Partial<PortalLocation> = {}) => {
     if (area === 'learn')
       router.push(courseHref(change.module ?? module ?? 'services', change.topic ?? topic));
     else
       router.push(
         portalHref(parseLocation(new URLSearchParams()), area, {
-          module: module === 'benefits' ? 'services' : (module ?? 'services'),
+          module:
+            module === 'benefits' || module === 'architecture'
+              ? 'services'
+              : (module ?? 'services'),
           topic,
           course: true,
           ...change,
@@ -252,31 +278,35 @@ export function Course({ module }: { module?: CourseModule }) {
       );
   };
   const pathTopics: readonly string[] =
-    module === 'benefits'
-      ? [...trackUnits.benefits, 'summary']
-      : module === 'computing'
-        ? currentV2
-          ? [...v2Topics.slice(0, -1), ...serverlessTopics, v2Topics.at(-1)!]
-          : unitIds
-        : legacyServices
-          ? topics
-          : [...trackUnits.services, 'summary'];
+    module === 'architecture'
+      ? physicalTopics
+      : module === 'benefits'
+        ? [...trackUnits.benefits, 'summary']
+        : module === 'computing'
+          ? currentV2
+            ? [...v2Topics.slice(0, -1), ...serverlessTopics, v2Topics.at(-1)!]
+            : unitIds
+          : legacyServices
+            ? topics
+            : [...trackUnits.services, 'summary'];
   const index = pathTopics.indexOf(topic);
   const location = parseLocation(
     new URLSearchParams({ area: 'learn', module: module ?? 'services', topic }),
   );
   const title = (m: CourseModule, t: string) =>
-    m === 'benefits'
-      ? (manuscript('benefits', t)?.title ??
-        (t === 'summary' ? nb.expansion.common.summary : nb.expansion.common.assessment))
-      : m === 'services'
-        ? legacyServices
-          ? nb.portal.lesson.sections[t as (typeof topics)[number]]?.title
-          : (manuscript('services', t)?.title ??
-            (t === 'summary' ? nb.expansion.common.summary : nb.expansion.common.assessment))
-        : (serverlessNb.topics[t as keyof typeof serverlessNb.topics] ??
-          nb.foundationsV2.topics[t as (typeof v2Topics)[number]]?.title ??
-          nb.foundations.units[t as (typeof unitIds)[number]]?.title);
+    m === 'architecture'
+      ? architectureNb.topics[t as PhysicalTopic]
+      : m === 'benefits'
+        ? (manuscript('benefits', t)?.title ??
+          (t === 'summary' ? nb.expansion.common.summary : nb.expansion.common.assessment))
+        : m === 'services'
+          ? legacyServices
+            ? nb.portal.lesson.sections[t as (typeof topics)[number]]?.title
+            : (manuscript('services', t)?.title ??
+              (t === 'summary' ? nb.expansion.common.summary : nb.expansion.common.assessment))
+          : (serverlessNb.topics[t as keyof typeof serverlessNb.topics] ??
+            nb.foundationsV2.topics[t as (typeof v2Topics)[number]]?.title ??
+            nb.foundations.units[t as (typeof unitIds)[number]]?.title);
   const begin = () => {
     if (services.facts.active) services.store.event({ kind: 'aid' });
     if (learning.facts.active) learning.store.event({ kind: 'aid' });
@@ -302,7 +332,7 @@ export function Course({ module }: { module?: CourseModule }) {
   };
   return (
     <div
-      className={`portal course-shell ${currentV2 || module === 'benefits' || (module === 'services' && !legacyServices) ? 'course-v2' : ''}`}
+      className={`portal course-shell ${module === 'architecture' || currentV2 || module === 'benefits' || (module === 'services' && !legacyServices) ? 'course-v2' : ''}`}
     >
       <ExpansionAssistance />
       <PracticalAssistance />
@@ -404,6 +434,12 @@ export function Course({ module }: { module?: CourseModule }) {
                 </li>
               ))}
             </ol>
+            <PhysicalCourseEntry
+              navigation
+              active={module === 'architecture'}
+              topic={topic}
+              onNavigate={() => setMenu(false)}
+            />
             <p className="course-navigation-note">{c.participation}</p>
           </div>
         </aside>
@@ -553,6 +589,7 @@ export function Course({ module }: { module?: CourseModule }) {
                   ))}
                 </ol>
               </section>
+              <PhysicalCourseEntry />
               <section className="course-future">
                 <h2>{c.broader}</h2>
                 <p>{c.broaderText}</p>
@@ -581,18 +618,27 @@ export function Course({ module }: { module?: CourseModule }) {
               </div>
               <header className="course-module-header">
                 <small>
-                  {c.module} {module === 'computing' ? '01' : module === 'benefits' ? '02' : '03'} ·{' '}
-                  {c.available}
+                  {c.module}{' '}
+                  {module === 'architecture'
+                    ? '04'
+                    : module === 'computing'
+                      ? '01'
+                      : module === 'benefits'
+                        ? '02'
+                        : '03'}{' '}
+                  · {module === 'architecture' ? architectureNb.available : c.available}
                 </small>
                 <h1>{names[module]}</h1>
                 <p>
-                  {module === 'benefits'
-                    ? nb.expansion.benefits.intro
-                    : module === 'services'
-                      ? c.services
-                      : currentV2
-                        ? nb.foundationsV2.intro
-                        : c.computing}
+                  {module === 'architecture'
+                    ? architectureNb.intro
+                    : module === 'benefits'
+                      ? nb.expansion.benefits.intro
+                      : module === 'services'
+                        ? c.services
+                        : currentV2
+                          ? nb.foundationsV2.intro
+                          : c.computing}
                 </p>
               </header>
               {services.facts.active && (
@@ -637,6 +683,32 @@ export function Course({ module }: { module?: CourseModule }) {
                       {nb.foundationsV2.startV2}
                     </button>
                   </section>
+                ) : module === 'architecture' ? (
+                  <PhysicalLesson
+                    key={topic}
+                    topic={topic as PhysicalTopic}
+                    guidanceBlocked={
+                      [
+                        learning,
+                        v2,
+                        services,
+                        benefits,
+                        service2,
+                        practical,
+                        chapter,
+                        course,
+                        serverless,
+                        physical,
+                      ].some((x) => !x.ready || !!x.issue) ||
+                      learning.facts.active ||
+                      v2.facts.active ||
+                      services.facts.active ||
+                      benefits.facts.active ||
+                      service2.facts.active ||
+                      serverless.facts.active ||
+                      practical.activeIndependent
+                    }
+                  />
                 ) : module === 'benefits' ? (
                   <ExpandedModule key={topic} track="benefits" topic={topic} />
                 ) : module === 'computing' && isServerlessTopic(topic) ? (
@@ -654,13 +726,15 @@ export function Course({ module }: { module?: CourseModule }) {
                         chapter,
                         course,
                         serverless,
+                        physical,
                       ].some((x) => !x.ready || !!x.issue) ||
                       learning.facts.active ||
                       v2.facts.active ||
                       services.facts.active ||
                       benefits.facts.active ||
                       service2.facts.active ||
-                      practical.activeIndependent
+                      practical.activeIndependent ||
+                      physical.facts.active
                     }
                   />
                 ) : module === 'computing' && currentV2 ? (
@@ -936,7 +1010,9 @@ export function Course({ module }: { module?: CourseModule }) {
                               href: courseHref(module, pathTopics.at(-1)!),
                               title: title(module, pathTopics.at(-1)!)!,
                             }
-                          : undefined
+                          : module === 'architecture'
+                            ? { href: courseHref('services', 'summary'), title: names.services }
+                            : undefined
                     }
                     next={
                       index >= 0 && index < pathTopics.length - 1
@@ -953,12 +1029,16 @@ export function Course({ module }: { module?: CourseModule }) {
                                 ? courseHref('benefits', 'availability')
                                 : module === 'benefits'
                                   ? courseHref('services', 'overview')
-                                  : '/learn',
+                                  : module === 'services' && !legacyServices
+                                    ? courseHref('architecture', 'datacenters')
+                                    : '/learn',
                               title: currentV2
                                 ? names.benefits
                                 : module === 'benefits'
                                   ? names.services
-                                  : c.overview,
+                                  : module === 'services' && !legacyServices
+                                    ? names.architecture
+                                    : c.overview,
                             }
                           : undefined
                     }
@@ -974,7 +1054,9 @@ export function Course({ module }: { module?: CourseModule }) {
       </div>
       {journal && (
         <PortalDialog title={c.journal} onClose={() => setJournal(false)}>
-          {module === 'benefits' ? (
+          {module === 'architecture' || (!module && preferredResume?.module === 'architecture') ? (
+            <PhysicalLesson topic="datacenters" journal />
+          ) : module === 'benefits' ? (
             <ExpansionReference track="benefits" topic={topic} />
           ) : module === 'services' && !legacyServices ? (
             <ExpansionReference track="services" topic={topic} />

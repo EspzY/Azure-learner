@@ -1,5 +1,9 @@
 # Source and credential register
 
+## P01 reviewed sources2026-10-27
+
+AR01–AR14 in [Part A source discovery](CORE_ARCHITECTURE_PHYSICAL.md#source-discovery-and-claims-checked2026-10-27) map current exam/module/public units/reliability/physical security/sovereign material to CA01–03. Public bodies were readable despite generic product-page authorization banners; no protection bypass. The physical Learn unit's broad automatic-pair-failover wording is qualified by current regions-paired documentation. Nonregional services and nonzonal deployments are distinct. Five example regions are a dated subset; no actual building mapping, SLA, service-capacity/prices or general compliance guarantee. Videos/maps are optional context, not claimed as fully exercised. Human SME unperformed.
+
 ## PR20 scoped guidance and quality sources — 2026-10-26
 
 No repeat AZ-900 audit or new module source approval. [Source coverage protocol](SOURCE_COVERAGE_PROTOCOL.md) and [current release records](../quality/releases/current.json) record titles/URLs, concrete scoped claims, reviewdate/version, objective mappings, discovery dispositions and availability. Public Policy overview/deny, managed-disks OS role and VM network relationships were rechecked for the two original milestone explanations. Broader identity-aware Policy behavior, IP defaults, runtime, SLA/pricing and disk guarantees were not imported. No full lesson or practice question was copied.
