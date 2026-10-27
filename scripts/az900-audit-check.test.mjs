@@ -8,7 +8,7 @@ const data = JSON.parse(
 );
 test('all 57 pinned official slots and code/evidence/source references resolve', () => {
   assert.deepEqual(validateAudit(data), []);
-  assert.equal(data.objectives.filter((r) => r.status === 'COMPLETE').length, 7);
+  assert.equal(data.objectives.filter((r) => r.status === 'COMPLETE').length, 10);
   assert.ok(renderMatrix(data).includes('35–40%'));
 });
 test('rejects omitted/duplicated official skills and stable IDs rather than increasing apparent coverage', () => {

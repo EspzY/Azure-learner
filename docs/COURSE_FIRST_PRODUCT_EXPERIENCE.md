@@ -1,5 +1,9 @@
 # Course-first experience — AzureLab 3.0
 
+## Current Part A course expansion
+
+The shared course overview/sidebar now exposes the verified second architecture/services learning path and partially available Core Architecture module. Service Types current summary continues to Part A; internal previous/next, resume and full contextual Journal remain in the same Course shell. Only the three physical objectives are available. Part B is clearly planned, not a working route or full-module award. Existing cloud modules, Portal and exact lab origins remain unchanged. [Part A specification](CORE_ARCHITECTURE_PHYSICAL.md).
+
 ## 3.2 current path expansion
 
 Benefits is now available in the ordinary course between computing and services. Current Service Types uses the operational v2 extension of the existing workspace. New users see that directly; existing v1 users choose historical or new content without upgrading old evidence. Shared navigation, SavvyShark, journal, Portal and exact return remain. See [coverage](CURRICULUM_COVERAGE.md) and [progression audit](MODULE_01_02_03_PROGRESSION_AUDIT.md); earlier Benefits-planned statements are historical.

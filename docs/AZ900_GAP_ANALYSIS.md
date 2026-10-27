@@ -1,5 +1,9 @@
 # AZ-900 — faktisk dekning og læringshull
 
+## Scoped P01 implementation update2026-10-27
+
+The three physical core requirements2.1.01–03 now have explicit A–F implementation pointers through profile PA. Region pairs do not imply app recovery; service-specific zones, nonpaired/asymmetric cases and sovereign environment boundaries are taught and tested. This closes only the scoped physical content gaps. Management Part B2.1.04–07 remains unchanged, and the full Core Architecture module is partial. Historical counts/findings below are dated; the generated matrix owns current counts. [Actual contract](CORE_ARCHITECTURE_PHYSICAL.md).
+
 ## Scoped implementation update — P00, 2026-10-27
 
 The historical PR19 findings below remain dated. P00 now provides original serverless theory/mechanism/practice/independent decisions/feedback/source checks for1.1.07. The generated matrix and its SL profile carry actual code/test pointers and explicit human-review limits. Functions is now taught and contrasted with VM control;2.2.01 remains PARTIAL because containers and a complete three-way comparison are not implemented. Other gaps were not re-audited or implicitly closed. [Actual manuscript](SERVERLESS_FOUNDATIONS.md).

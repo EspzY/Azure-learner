@@ -1,5 +1,9 @@
 # SavvyShark integration
 
+## Physical model missions and milestones
+
+Part A reuses the existing blue/blur native GuidanceWindow with a contextual footer, retaining default Serverless behavior. physical-loss/resilience@1.0.0 derive only from new validated model traces, use PR20 UI-only history, suppress active/unsafe independent contexts and support actual-history recall without reload repetition. Dynamic task/location/reason/expected/observed instructions remain visible. Explicit invalid Part A recovery clears only its key; uncertain-context Portal recovery prevents a new key from stranding old guides. No commands/XP or auto answers. [Detailed contract](CORE_ARCHITECTURE_PHYSICAL.md).
+
 ## FC08 conceptual milestone
 
 `conceptMilestones.serverless-execution@1.0.0` is separate from Portal Engine receipt observations. A newly validated guided run with started work can claim the PR20 UI-history key before showing the actual counts. Historical reload is recall-only, uncertain storage disables auto, active/uncertain assessment contexts withhold solution guidance. Mission cancel/reopen changes no evidence. Original mascot asset is unchanged. [P00 source and interaction contract](SERVERLESS_FOUNDATIONS.md).

@@ -391,8 +391,10 @@ test('original computing investigations, direct module access, tablet/narrow nav
   page.on('pageerror', (e) => errors.push(e.message));
   await page.route('**/mascot/savvy-shark-default.png', (r) => r.abort());
   await page.goto('/learn/services?topic=overview');
-  await expect(page.locator('.portal-manuscript')).toHaveCount(1);
-  await expect(page.locator('.portal-manuscript')).toContainText(
+  // React may temporarily retain an inert hidden S:0 streaming copy. Assert
+  // uniqueness and full theory in the actual displayed lesson, not transport DOM.
+  await expect(page.locator('.portal-manuscript:visible')).toHaveCount(1);
+  await expect(page.locator('.portal-manuscript:visible')).toContainText(
     nb.portal.lesson.sections.overview.mechanism,
   );
   await expect(page.locator('.savvy').first()).toContainText(c.assistant);

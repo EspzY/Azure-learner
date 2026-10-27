@@ -6,6 +6,8 @@ Kontrollert **2026-10-26**. Offisielt grunnlag: Skills measured **2026-07-20**, 
 
 Scoped update **P00**, 2026-10-27: 1.1.07, 2.2.01. Scoped serverless implementation. Other PR19 rows and their 2026-10-26 source review remain unchanged; no human approval.
 
+Scoped update **P01**, 2026-10-27: 2.1.01, 2.1.02, 2.1.03. Only physical Part A2.1.01-03 re-audited. Other54 objective rows, especially2.1.04-07, retain previous semantics. No learner evidence upgrade or human approval.
+
 ## Metode og terskel
 
 Alle **57 offisielle kulepunkter** er egne rader, fordelt på 11 underområder. Sammensatte krav er dessuten delt i 126 navngitte kontrollfasetter. Fasettene er en lokal auditinndeling, ikke Microsofts spørsmålstall eller en ekstra eksamensvekt. Slot angir rekkefølgen i den daterte studieguideversjonen; stabile `az900.*`-ID-er er audit-/plan-ID-er, foreløpig ikke nye runtime-kompetanser.
@@ -30,7 +32,7 @@ D=V betyr at en relevant selvstendig oppgave finnes, ikke at enhver elev har bes
 | Område                                      | Offisiell vekt | Kulepunkter | COMPLETE | PARTIAL | MISSING | UNVERIFIED |
 | ------------------------------------------- | -------------- | ----------: | -------: | ------: | ------: | ---------: |
 | 1. Describe cloud concepts                  | 25–30%         |          15 |        7 |       8 |       0 |          0 |
-| 2. Describe Azure architecture and services | 35–40%         |          27 |        0 |      12 |      15 |          0 |
+| 2. Describe Azure architecture and services | 35–40%         |          27 |        3 |      11 |      13 |          0 |
 | 3. Describe Azure management and governance | 30–35%         |          15 |        0 |       8 |       7 |          0 |
 
 Dette er antall auditerte krav, ikke en samlet deknings-/beståttprosent. Offisiell områdevekting kan ikke fordeles likt på kulepunktene eller brukes til å omregne disse tallene til exam readiness.
@@ -155,6 +157,15 @@ Profilene under gir faktisk kilde/manuskript, mekanisme, tilgjengelig komponent,
 - Vurdering: [src/domain/curriculum/serverless.ts](../src/domain/curriculum/serverless.ts) → `serverlessCriteria`.
 - Tester: [src/domain/curriculum/serverless.test.ts](../src/domain/curriculum/serverless.test.ts), [tests/e2e/serverless.spec.ts](../tests/e2e/serverless.spec.ts).
 - Grense: Concept model, no Functions runtime/resources/prices; two fixed original scenarios, no general mastery or human SME/transfer approval.
+
+### Evidens PA
+
+- Manuskript: [src/content/nb.ts](../src/content/nb.ts) → `architectureNb`; [docs/CORE_ARCHITECTURE_PHYSICAL.md](../docs/CORE_ARCHITECTURE_PHYSICAL.md) → `Original teaching manuscript`.
+- Mekanisme: [src/domain/curriculum/architecture-physical.ts](../src/domain/curriculum/architecture-physical.ts) → `evaluateInfrastructure`.
+- Lærerflate: [src/features/learning/physical.tsx](../src/features/learning/physical.tsx) → `PhysicalExplorer`; [src/features/learning/physical-visual.tsx](../src/features/learning/physical-visual.tsx) → `InfrastructureScene`.
+- Vurdering: [src/domain/curriculum/architecture-physical.ts](../src/domain/curriculum/architecture-physical.ts) → `physicalCriteria`.
+- Tester: [src/domain/curriculum/architecture-physical.test.ts](../src/domain/curriculum/architecture-physical.test.ts), [tests/e2e/architecture-physical.spec.ts](../tests/e2e/architecture-physical.spec.ts).
+- Grense: Concept model, dated5-region subset, fictional facilities, explicit copies/routing and unknown placement. No Portal/resource/runtime/failover/SLA claim. Fixed original cases, no human SME/UX/transfer approval. Full Core Architecture remains partial pending Part B.
 
 ## 1.1 Cloud computing
 
@@ -338,45 +349,45 @@ Profilene under gir faktisk kilde/manuskript, mekanisme, tilgjengelig komponent,
 
 ## 2.1 Core architectural components
 
-| Slot / stabil audit-ID                           | Krav (kort temaetikett)                    | Status  | A B C D E F | Eksisterende lokale mål | Evidens             | Neste PR |
-| ------------------------------------------------ | ------------------------------------------ | ------- | ----------- | ----------------------- | ------------------- | -------- |
-| 2.1.01<br>`az900.architecture.regions`           | Regions, region pairs og sovereign regions | PARTIAL | P P P M P P | F02                     | H, P, V             | P01      |
-| 2.1.02<br>`az900.architecture.zones`             | Availability zones                         | MISSING | M M M M M N | F02                     | Ingen aktiv dekning | P01      |
-| 2.1.03<br>`az900.architecture.datacenters`       | Azure datacenters                          | MISSING | M M M M M N | F02                     | Ingen aktiv dekning | P01      |
-| 2.1.04<br>`az900.architecture.resources-groups`  | Resources og resource groups               | PARTIAL | V V V P P V | G01, G04                | H, P, L             | P02      |
-| 2.1.05<br>`az900.architecture.subscriptions`     | Subscriptions                              | PARTIAL | P P V P P V | G01, G04                | H, L                | P02      |
-| 2.1.06<br>`az900.architecture.management-groups` | Management groups                          | PARTIAL | P P P M P V | G01, G04                | H                   | P02      |
-| 2.1.07<br>`az900.architecture.hierarchy`         | Hierarki og relasjonstyper                 | PARTIAL | P V V P P V | G01, G02                | H, L                | P02      |
+| Slot / stabil audit-ID                           | Krav (kort temaetikett)                    | Status   | A B C D E F | Eksisterende lokale mål | Evidens     | Neste PR |
+| ------------------------------------------------ | ------------------------------------------ | -------- | ----------- | ----------------------- | ----------- | -------- |
+| 2.1.01<br>`az900.architecture.regions`           | Regions, region pairs og sovereign regions | COMPLETE | V V V V V V | F02, CA01               | H, P, V, PA | P01      |
+| 2.1.02<br>`az900.architecture.zones`             | Availability zones                         | COMPLETE | V V V V V V | F02, CA02               | PA          | P01      |
+| 2.1.03<br>`az900.architecture.datacenters`       | Azure datacenters                          | COMPLETE | V V V V V V | F02, CA03               | PA          | P01      |
+| 2.1.04<br>`az900.architecture.resources-groups`  | Resources og resource groups               | PARTIAL  | V V V P P V | G01, G04                | H, P, L     | P02      |
+| 2.1.05<br>`az900.architecture.subscriptions`     | Subscriptions                              | PARTIAL  | P P V P P V | G01, G04                | H, L        | P02      |
+| 2.1.06<br>`az900.architecture.management-groups` | Management groups                          | PARTIAL  | P P P M P V | G01, G04                | H           | P02      |
+| 2.1.07<br>`az900.architecture.hierarchy`         | Hierarki og relasjonstyper                 | PARTIAL  | P V V P P V | G01, G02                | H, L        | P02      |
 
 ### 2.1.01 — Regions, region pairs og sovereign regions
 
-**Fasetter:** Regions/resource location: PARTIAL; Region pairs: MISSING; Sovereign regions: MISSING.
+**Fasetter:** Regions/resource location: COMPLETE; Region pairs: COMPLETE; Sovereign regions: COMPLETE.
 
-**Faktisk funn:** Portal og graf skiller ressursregion fra RG-metadata.
+**Faktisk funn:** P01 Part A: original complete teaching, causal physical/dependency explorer, original changed scenarios with reasons/matching, committed alternative feedback and current official source qualification.
 
-**Rest / beslutning:** Ingen full regionsforklaring eller par/sovereignty-undervisning/ny-kontekst vurdering. Ikke alle regioner er paret; par er ikke automatisk app-failover.
+**Rest / beslutning:** Scoped A-F content coverage implemented; qualified human SME/UX/learning validation and broad transfer remain unperformed. No full-core completion or higher-level evidence. Part B remains unavailable.
 
-**Kilder:** [EXAM](https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900), [M04](https://learn.microsoft.com/en-us/training/modules/describe-core-architectural-components-of-azure/), [REG](https://learn.microsoft.com/en-us/azure/reliability/regions-overview), [PAIR](https://learn.microsoft.com/en-us/azure/reliability/regions-paired). Lokal mål-ID er et kartleggingspunkt, ikke automatisk tildelt evidens.
+**Kilder:** [EXAM](https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900), [M04](https://learn.microsoft.com/en-us/training/modules/describe-core-architectural-components-of-azure/), [REG](https://learn.microsoft.com/en-us/azure/reliability/regions-overview), [PAIR](https://learn.microsoft.com/en-us/azure/reliability/regions-paired), [AR01](https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900), [AR02](https://learn.microsoft.com/en-us/training/modules/describe-core-architectural-components-of-azure/), [AR03](https://learn.microsoft.com/en-us/azure/reliability/regions-overview), [AR04](https://learn.microsoft.com/en-us/azure/reliability/regions-list), [AR05](https://learn.microsoft.com/en-us/azure/reliability/regions-paired), [AR06](https://learn.microsoft.com/en-us/azure/reliability/availability-zones-overview), [AR07](https://learn.microsoft.com/en-us/azure/reliability/availability-zones-zonal-resource-resiliency), [AR08](https://learn.microsoft.com/en-us/azure/reliability/availability-zones-service-support), [AR09](https://learn.microsoft.com/en-us/azure/security/fundamentals/physical-security), [AR10](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/azure-setup-guide/regions), [AR11](https://learn.microsoft.com/en-us/azure/azure-government/documentation-government-welcome), [AR12](https://learn.microsoft.com/en-us/azure/china/overview-operations), [AR13](https://learn.microsoft.com/en-us/azure/reliability/concept-reliability-sovereignty), [AR14](https://learn.microsoft.com/en-us/training/paths/azure-fundamentals-describe-azure-architecture-services/). Lokal mål-ID er et kartleggingspunkt, ikke automatisk tildelt evidens.
 
 ### 2.1.02 — Availability zones
 
-**Fasetter:** Fysisk feilgrense: MISSING; Zone-støtte og ressursvalg: MISSING.
+**Fasetter:** Fysisk feilgrense: COMPLETE; Zone-støtte og ressursvalg: COMPLETE.
 
-**Faktisk funn:** Generisk nodefeil/ruting i Benefits er ikke Azure-zonemodellen.
+**Faktisk funn:** P01 Part A: original complete teaching, causal physical/dependency explorer, original changed scenarios with reasons/matching, committed alternative feedback and current official source qualification.
 
-**Rest / beslutning:** Mangler egen forklaring, relevant mekanisme/praksis, uavhengig scenario og begrunnet vurdering for de angitte emnene.
+**Rest / beslutning:** Scoped A-F content coverage implemented; qualified human SME/UX/learning validation and broad transfer remain unperformed. No full-core completion or higher-level evidence. Part B remains unavailable.
 
-**Kilder:** [EXAM](https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900), [M04](https://learn.microsoft.com/en-us/training/modules/describe-core-architectural-components-of-azure/), [REG](https://learn.microsoft.com/en-us/azure/reliability/regions-overview). Lokal mål-ID er et kartleggingspunkt, ikke automatisk tildelt evidens.
+**Kilder:** [EXAM](https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900), [M04](https://learn.microsoft.com/en-us/training/modules/describe-core-architectural-components-of-azure/), [REG](https://learn.microsoft.com/en-us/azure/reliability/regions-overview), [AR01](https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900), [AR02](https://learn.microsoft.com/en-us/training/modules/describe-core-architectural-components-of-azure/), [AR03](https://learn.microsoft.com/en-us/azure/reliability/regions-overview), [AR04](https://learn.microsoft.com/en-us/azure/reliability/regions-list), [AR05](https://learn.microsoft.com/en-us/azure/reliability/regions-paired), [AR06](https://learn.microsoft.com/en-us/azure/reliability/availability-zones-overview), [AR07](https://learn.microsoft.com/en-us/azure/reliability/availability-zones-zonal-resource-resiliency), [AR08](https://learn.microsoft.com/en-us/azure/reliability/availability-zones-service-support), [AR09](https://learn.microsoft.com/en-us/azure/security/fundamentals/physical-security), [AR10](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/azure-setup-guide/regions), [AR11](https://learn.microsoft.com/en-us/azure/azure-government/documentation-government-welcome), [AR12](https://learn.microsoft.com/en-us/azure/china/overview-operations), [AR13](https://learn.microsoft.com/en-us/azure/reliability/concept-reliability-sovereignty), [AR14](https://learn.microsoft.com/en-us/training/paths/azure-fundamentals-describe-azure-architecture-services/). Lokal mål-ID er et kartleggingspunkt, ikke automatisk tildelt evidens.
 
 ### 2.1.03 — Azure datacenters
 
-**Fasetter:** Fysisk datasenter: MISSING; Relasjon til region og zone: MISSING.
+**Fasetter:** Fysisk datasenter: COMPLETE; Relasjon til region og zone: COMPLETE.
 
-**Faktisk funn:** Modul1 forklarer en fysisk server, men underviser ikke Azure-datasenterets rolle i geografisk infrastruktur.
+**Faktisk funn:** P01 Part A: original complete teaching, causal physical/dependency explorer, original changed scenarios with reasons/matching, committed alternative feedback and current official source qualification.
 
-**Rest / beslutning:** Mangler egen forklaring, relevant mekanisme/praksis, uavhengig scenario og begrunnet vurdering for de angitte emnene.
+**Rest / beslutning:** Scoped A-F content coverage implemented; qualified human SME/UX/learning validation and broad transfer remain unperformed. No full-core completion or higher-level evidence. Part B remains unavailable.
 
-**Kilder:** [EXAM](https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900), [M04](https://learn.microsoft.com/en-us/training/modules/describe-core-architectural-components-of-azure/), [REG](https://learn.microsoft.com/en-us/azure/reliability/regions-overview). Lokal mål-ID er et kartleggingspunkt, ikke automatisk tildelt evidens.
+**Kilder:** [EXAM](https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900), [M04](https://learn.microsoft.com/en-us/training/modules/describe-core-architectural-components-of-azure/), [REG](https://learn.microsoft.com/en-us/azure/reliability/regions-overview), [AR01](https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900), [AR02](https://learn.microsoft.com/en-us/training/modules/describe-core-architectural-components-of-azure/), [AR03](https://learn.microsoft.com/en-us/azure/reliability/regions-overview), [AR04](https://learn.microsoft.com/en-us/azure/reliability/regions-list), [AR05](https://learn.microsoft.com/en-us/azure/reliability/regions-paired), [AR06](https://learn.microsoft.com/en-us/azure/reliability/availability-zones-overview), [AR07](https://learn.microsoft.com/en-us/azure/reliability/availability-zones-zonal-resource-resiliency), [AR08](https://learn.microsoft.com/en-us/azure/reliability/availability-zones-service-support), [AR09](https://learn.microsoft.com/en-us/azure/security/fundamentals/physical-security), [AR10](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/azure-setup-guide/regions), [AR11](https://learn.microsoft.com/en-us/azure/azure-government/documentation-government-welcome), [AR12](https://learn.microsoft.com/en-us/azure/china/overview-operations), [AR13](https://learn.microsoft.com/en-us/azure/reliability/concept-reliability-sovereignty), [AR14](https://learn.microsoft.com/en-us/training/paths/azure-fundamentals-describe-azure-architecture-services/). Lokal mål-ID er et kartleggingspunkt, ikke automatisk tildelt evidens.
 
 ### 2.1.04 — Resources og resource groups
 
@@ -880,6 +891,20 @@ Alle lenker ble kontrollert 2026-10-26. «Page updated» er bare registrert der 
 | SL-BINDINGS       | [Microsoft: Exactly one trigger; optional bindings; invocation is not success](https://learn.microsoft.com/en-us/azure/azure-functions/functions-triggers-bindings)                                                                | Rolling page; reviewed 2026-10-26 |
 | SL-FLEX           | [Microsoft: On-demand and always-ready baseline, no universal free idle](https://learn.microsoft.com/en-us/azure/azure-functions/flex-consumption-plan)                                                                            | Rolling page; reviewed 2026-10-26 |
 | SL-RESPONSIBILITY | [Microsoft: Functions as PaaS and retained customer code/data/access](https://learn.microsoft.com/en-us/azure/security/fundamentals/shared-responsibility)                                                                         | Rolling page; reviewed 2026-10-26 |
+| AR01              | [Microsoft: AZ-900 Skills Measured](https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900)                                                                                                    | Rolling page; reviewed 2026-10-26 |
+| AR02              | [Microsoft: Core architectural components module/units](https://learn.microsoft.com/en-us/training/modules/describe-core-architectural-components-of-azure/)                                                                       | Rolling page; reviewed 2026-10-26 |
+| AR03              | [Microsoft: Regions and geographies](https://learn.microsoft.com/en-us/azure/reliability/regions-overview)                                                                                                                         | Rolling page; reviewed 2026-10-26 |
+| AR04              | [Microsoft: Region example metadata](https://learn.microsoft.com/en-us/azure/reliability/regions-list)                                                                                                                             | Rolling page; reviewed 2026-10-26 |
+| AR05              | [Microsoft: Paired and nonpaired regions](https://learn.microsoft.com/en-us/azure/reliability/regions-paired)                                                                                                                      | Rolling page; reviewed 2026-10-26 |
+| AR06              | [Microsoft: Availability Zones](https://learn.microsoft.com/en-us/azure/reliability/availability-zones-overview)                                                                                                                   | Rolling page; reviewed 2026-10-26 |
+| AR07              | [Microsoft: Zonal resource resiliency](https://learn.microsoft.com/en-us/azure/reliability/availability-zones-zonal-resource-resiliency)                                                                                           | Rolling page; reviewed 2026-10-26 |
+| AR08              | [Microsoft: Zone support by service](https://learn.microsoft.com/en-us/azure/reliability/availability-zones-service-support)                                                                                                       | Rolling page; reviewed 2026-10-26 |
+| AR09              | [Microsoft: Physical infrastructure and security](https://learn.microsoft.com/en-us/azure/security/fundamentals/physical-security)                                                                                                 | Rolling page; reviewed 2026-10-26 |
+| AR10              | [Microsoft: Region selection](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/azure-setup-guide/regions)                                                                                                    | Rolling page; reviewed 2026-10-26 |
+| AR11              | [Microsoft: Azure Government](https://learn.microsoft.com/en-us/azure/azure-government/documentation-government-welcome)                                                                                                           | Rolling page; reviewed 2026-10-26 |
+| AR12              | [Microsoft: Azure in China](https://learn.microsoft.com/en-us/azure/china/overview-operations)                                                                                                                                     | Rolling page; reviewed 2026-10-26 |
+| AR13              | [Microsoft: Reliability and sovereignty](https://learn.microsoft.com/en-us/azure/reliability/concept-reliability-sovereignty)                                                                                                      | Rolling page; reviewed 2026-10-26 |
+| AR14              | [Microsoft: Architecture/services path](https://learn.microsoft.com/en-us/training/paths/azure-fundamentals-describe-azure-architecture-services/)                                                                                 | Rolling page; reviewed 2026-10-26 |
 
 Den offentlige Learn-skallet viste enkelte steder en authorization-melding samtidig som artikkelteksten var lesbar. Ingen tenant, tilgangskontroll eller innlogging ble omgått. Nettkildene er referanser, ikke runtime-avhengigheter.
 

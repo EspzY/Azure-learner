@@ -8,11 +8,13 @@ export function GuidanceWindow({
   children,
   onClose,
   onStart,
+  notice,
 }: {
   title: string;
   children: React.ReactNode;
   onClose: () => void;
   onStart?: () => void;
+  notice?: string;
 }) {
   const ref = useRef<HTMLDialogElement>(null),
     id = useId();
@@ -46,7 +48,7 @@ export function GuidanceWindow({
         {children}
       </div>
       <footer>
-        <p>{onStart ? c.briefAction : c.boundary}</p>
+        <p>{notice ?? (onStart ? c.briefAction : c.boundary)}</p>
         <div>
           <button onClick={onClose}>{onStart ? c.cancel : c.close}</button>
           {onStart && (

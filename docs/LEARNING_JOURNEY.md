@@ -1,5 +1,9 @@
 # Learning journey and competency universe
 
+## Current core architecture Part A
+
+The ordinary course now continues Cloud Computing → Benefits → Service Types → Core Architecture Part A, on the second verified official path. F02 has scoped physical/geographic teaching and new CA01–03 observations, not complete management-hierarchy or professional competency evidence. Part B remains planned/unavailable; old module completion supplies none of these results. See [authored Part A](CORE_ARCHITECTURE_PHYSICAL.md), actual matrix and project status.
+
 ## Available P00 continuation
 
 Cloud Computing now continues from pricing into six serverless presentation states (concept, mechanism, hosting, guided explorer, independent application, summary) before the existing resource bridge. These are local supplement units, not a renamed official Learn module. Service Types/Benefits remain available; broader compute comparison, including containers, is still partial. [P00 specification](SERVERLESS_FOUNDATIONS.md).

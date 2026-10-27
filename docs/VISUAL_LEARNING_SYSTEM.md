@@ -1,5 +1,9 @@
 # Visual learning system — 3.1A
 
+## PR22 physical infrastructure representation
+
+The current course adds a nested geography/region/zone/facility cutaway with original server, cooling and network shapes; pair metadata is a separate annotation. Explicit app/data placement and routing feed the deterministic availability model, not the drawing. Native selectors, a committed prediction/run/result snapshot, component/dependency table and textual causal feedback have equal meaning. Unknown nonzonal placement stays uncertain. Three distinct guided observations precede the dependency explanation; an open diagram, animation or visit is never evidence. [The manuscript and model boundaries](CORE_ARCHITECTURE_PHYSICAL.md) own exact assumptions, sources and Part A scope. No actual datacenter map, SLA or operative Azure failover is represented.
+
 ## 3.2 context refinement
 
 V01–V05 remain unchanged. The default Module1 V06 treatment is now a focused physical/data/identity recap using the same responsibility rule, followed by the original Foundation investigation. The full nine-layer matrix is an explicitly contextual Module3 entrance to deeper component/platform/product exercises. Neither Module1 nor generic reference interaction writes Service Types comparisons. Original Service Types v1 remains labelled historical. [Boundary audit](MODULE_01_02_03_PROGRESSION_AUDIT.md) and [new visualization contracts](INTERACTIVE_VISUALIZATIONS.md) own the current distinction; earlier full-matrix-in-M1 statements describe the prior release.

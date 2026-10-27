@@ -21,7 +21,7 @@
     "quality:stamp": "node scripts/quality-check.mjs --stamp",
     "quality:release": "node scripts/quality-check.mjs --release",
     "az900:audit:check": "node scripts/az900-audit-check.mjs",
-    "curriculum:check": "vitest run src/domain/curriculum/integrity.test.ts src/domain/curriculum/official.test.ts src/domain/curriculum/responsibility.test.ts src/domain/portal/portal.test.ts src/domain/course/course.test.ts src/domain/curriculum/foundations-v2.test.ts src/domain/curriculum/expansion.test.ts src/domain/sandbox/practical.test.ts src/domain/guidance/milestones.test.ts src/domain/curriculum/serverless.test.ts",
+    "curriculum:check": "vitest run src/domain/curriculum/integrity.test.ts src/domain/curriculum/official.test.ts src/domain/curriculum/responsibility.test.ts src/domain/portal/portal.test.ts src/domain/course/course.test.ts src/domain/curriculum/foundations-v2.test.ts src/domain/curriculum/expansion.test.ts src/domain/sandbox/practical.test.ts src/domain/guidance/milestones.test.ts src/domain/curriculum/serverless.test.ts src/domain/curriculum/architecture-physical.test.ts",
     "legacy:check": "node scripts/legacy-check.mjs"
   },
   "dependencies": {

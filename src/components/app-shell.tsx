@@ -13,7 +13,8 @@ export function AppShell({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const { progress, ready } = useProgress();
   const { openJournal } = useLearning();
-  const serverless = useServerless();
+  const serverless = useServerless(),
+    physical = usePhysical();
   const active = nb.nav.find((item) => item.href === pathname);
   if (
     pathname.startsWith('/labs/') ||
@@ -75,6 +76,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
               title={nb.foundations.journal}
               onClick={() => {
                 if (serverless.facts.active) serverless.store.event({ kind: 'aid' });
+                if (physical.facts.active) physical.store.event({ kind: 'aid' });
                 openJournal();
               }}
             >
@@ -107,4 +109,5 @@ export function AppShell({ children }: { children: React.ReactNode }) {
     </div>
   );
 }
+import { usePhysical } from '@/features/learning/physical-provider';
 import { useServerless } from '@/features/learning/serverless-provider';

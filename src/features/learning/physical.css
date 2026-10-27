@@ -1,0 +1,699 @@
+.physical-lesson {
+  --pa-blue: #0067b8;
+  --pa-ink: #173750;
+  --pa-border: #cad9e4;
+  color: var(--pa-ink);
+}
+.physical-lesson header > small {
+  color: #32627f;
+  letter-spacing: 0.035em;
+}
+.physical-lesson > header p {
+  max-width: 90ch;
+}
+.physical-lesson h3 {
+  margin: 28px 0 16px;
+  font-size: 21px;
+  line-height: 1.35;
+}
+.physical-lesson h4 {
+  font-size: 16px;
+  line-height: 1.4;
+  margin: 10px 0;
+}
+.physical-lesson p {
+  line-height: 1.75;
+  margin: 12px 0 18px;
+}
+.physical-lesson .pa-prerequisite {
+  border-left: 3px solid #68a8cc;
+  padding: 12px 18px;
+  background: #edf5fb;
+}
+.pa-reading {
+  display: grid;
+  grid-template-columns: minmax(0, 1.55fr) minmax(260px, 0.9fr);
+  gap: 36px;
+  align-items: start;
+}
+.pa-reading > div {
+  max-width: 78ch;
+}
+.pa-reading aside {
+  min-width: 0;
+}
+.pa-terms {
+  margin: 20px 0;
+}
+.pa-terms > div {
+  padding: 13px 0;
+  border-top: 1px solid var(--pa-border);
+}
+.pa-terms dt {
+  font-weight: 650;
+  margin-bottom: 5px;
+}
+.pa-terms dd {
+  margin: 0;
+  line-height: 1.6;
+}
+.pa-cutaway {
+  background: #eaf3f8;
+  padding: 24px;
+  border-bottom: 3px solid #71accb;
+}
+.pa-cutaway .pa-building {
+  max-width: 300px;
+  margin: auto;
+}
+.pa-cutaway strong {
+  display: block;
+}
+.pa-building {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 145px;
+}
+.pa-shadow {
+  fill: #c7d7e1;
+}
+.pa-wall {
+  fill: #285778;
+}
+.pa-side {
+  fill: #123b58;
+}
+.pa-roof {
+  fill: #79aaca;
+}
+.pa-rack {
+  fill: #102d43;
+  stroke: #a7c6d9;
+  stroke-width: 0.7;
+}
+.pa-led {
+  stroke: #71e3d2;
+  stroke-width: 2;
+}
+.pa-trunk {
+  fill: none;
+  stroke: #9cc9df;
+  stroke-width: 2;
+}
+.pa-cooling {
+  fill: #c8e2ef;
+  stroke: #497894;
+}
+.pa-building.pa-down .pa-wall,
+.pa-building.pa-down .pa-side {
+  fill: #704749;
+}
+.pa-building.pa-down .pa-roof {
+  fill: #cda2a1;
+}
+.pa-building.pa-down .pa-led {
+  stroke: #e3b1a8;
+}
+.pa-fault-glyph circle {
+  fill: #a3272c;
+}
+.pa-fault-glyph path {
+  stroke: white;
+  stroke-width: 3;
+}
+.pa-question {
+  font-size: 35px;
+  font-weight: bold;
+  fill: #93611e;
+}
+.pa-geography-preview {
+  display: grid;
+  gap: 12px;
+}
+.pa-geography-preview > div {
+  padding: 16px 18px;
+  border-left: 3px solid #2b7faf;
+  background: #eef6fb;
+}
+.pa-geography-preview strong,
+.pa-geography-preview span {
+  display: block;
+  margin: 8px 0;
+}
+.pa-zone-preview {
+  display: grid;
+  gap: 12px;
+}
+.pa-zone-preview > div {
+  padding: 14px;
+  border: 1px solid var(--pa-border);
+  background: #f2f7fa;
+}
+.pa-zone-preview .pa-building {
+  width: 150px;
+  margin: 0 auto;
+}
+.pa-zone-preview small {
+  display: block;
+}
+.pa-mapping {
+  padding: 18px 24px;
+  background: #edf4fa;
+  margin: 24px 0;
+}
+.pa-mapping > div {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.pa-pair-preview {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 22px;
+  background: #edf4fa;
+  border-top: 3px dashed #658da8;
+}
+.pa-pair-preview strong:last-of-type {
+  font-size: 14px;
+}
+.pa-environment-glyph {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 24px;
+  background: #edf4fa;
+}
+.pa-environment-glyph span {
+  border: 1px solid #65859c;
+  padding: 15px;
+}
+.pa-environment-glyph i {
+  display: block;
+  width: 1px;
+  height: 15px;
+  margin: auto;
+  border-left: 1px dashed #65859c;
+}
+.pa-environments,
+.pa-objectives {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+  margin: 26px 0;
+}
+.pa-environments > section,
+.pa-objectives > section {
+  border-top: 3px solid #438ab4;
+  background: #eef5fa;
+  padding: 18px;
+  min-width: 0;
+}
+.physical-lesson .pa-question {
+  padding: 18px 0;
+  border: 0;
+  border-top: 1px solid var(--pa-border);
+  margin: 26px 0;
+  min-width: 0;
+}
+.physical-lesson .pa-question legend {
+  font-weight: 650;
+  padding: 0 12px 0 0;
+  max-width: 100%;
+  line-height: 1.6;
+}
+.physical-lesson .pa-question label {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  align-items: start;
+  margin: 12px 0;
+  line-height: 1.6;
+  font-weight: 400;
+}
+.physical-lesson .pa-question input[type='radio'] {
+  flex: 0 0 auto;
+  width: 17px;
+  height: 17px;
+  margin-top: 5px;
+}
+.physical-lesson .pa-question [role='status'] {
+  background: #e7f3fa;
+  padding: 15px;
+}
+.physical-lesson button {
+  min-height: 36px;
+}
+.physical-lesson .pa-primary {
+  background: var(--pa-blue);
+  color: white;
+  border: 1px solid var(--pa-blue);
+  padding: 10px 20px;
+  border-radius: 2px;
+  font-weight: 600;
+}
+.physical-lesson .pa-primary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.physical-lesson :is(button, select, input, a):focus-visible {
+  outline: 3px solid #ae6500;
+  outline-offset: 3px;
+}
+.physical-lesson .pa-task-steps {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 30px;
+  margin: 20px 0 24px;
+  padding-left: 24px;
+  line-height: 1.7;
+}
+.pa-task-steps li {
+  padding-left: 5px;
+}
+.pa-assumptions {
+  background: #f5f7f9;
+  padding: 16px 20px;
+  border-left: 3px solid #7e8c98;
+  font-size: 14px;
+}
+.physical-lesson .pa-controls {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  padding: 20px;
+  background: #eef5fa;
+  border: 0;
+  margin: 24px 0;
+  min-width: 0;
+}
+.pa-controls legend {
+  font-weight: 650;
+}
+.physical-lesson .pa-controls label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: stretch;
+  line-height: 1.5;
+  min-width: 0;
+}
+.physical-lesson :is(.pa-controls, .pa-inspection, .pa-matching) select {
+  width: 100%;
+  height: auto;
+  min-height: 39px;
+  max-width: 100%;
+  padding: 8px;
+  border: 1px solid #829baa;
+  background: white;
+  color: #173750;
+  border-radius: 2px;
+}
+.pa-controls button {
+  align-self: end;
+}
+.pa-caution {
+  padding: 12px 16px;
+  background: #fff4d6;
+  border-left: 3px solid #976c10;
+}
+.pa-input-snapshot {
+  font-size: 14px;
+  padding: 12px 0;
+}
+.pa-scene {
+  background: #eaf1f7;
+  padding: 20px;
+  border: 1px solid #b7cddd;
+  margin: 20px 0;
+  min-width: 0;
+}
+.pa-scene > header {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  line-height: 1.5;
+  padding-bottom: 16px;
+}
+.pa-scene > header small {
+  font-size: 12px;
+  color: #395d76;
+}
+.pa-region-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 24px;
+}
+.pa-two-regions {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.pa-region {
+  border: 1px solid #9cb6c9;
+  background: #fff;
+  min-width: 0;
+}
+.pa-region-title {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  padding: 16px 20px;
+  background: #dcecf6;
+}
+.pa-location-pin {
+  font-size: 35px;
+  color: #0067a1;
+}
+.pa-region-title h3 {
+  margin: 0;
+  font-size: 20px;
+}
+.physical-lesson .pa-region-title p {
+  font-size: 13px;
+  margin: 4px 0 0;
+  line-height: 1.5;
+}
+.pa-zones {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  padding: 16px;
+}
+.pa-zone {
+  background: #f6f9fb;
+  border-top: 3px solid #679fbe;
+  min-width: 0;
+  padding: 12px;
+}
+.pa-zone > h4 {
+  margin: 0 0 6px;
+}
+.pa-zone > small {
+  font-size: 11px;
+  line-height: 1.5;
+  display: block;
+  color: #49677e;
+}
+.pa-facilities {
+  display: grid;
+  gap: 8px;
+  padding-top: 10px;
+}
+.pa-facility {
+  text-align: center;
+  padding: 8px 2px;
+  min-width: 0;
+  border-bottom: 1px solid #d7e2e9;
+}
+.pa-facility > strong {
+  display: block;
+  font-size: 12px;
+}
+.pa-facility > span {
+  display: block;
+  font-size: 12px;
+  margin-top: 4px;
+}
+.pa-facility.pa-down {
+  background: #fff1ef;
+}
+.pa-facility.pa-unknown {
+  background: #fff8df;
+}
+.pa-unzoned {
+  grid-template-columns: 1fr;
+}
+.pa-unzoned .pa-facilities {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.pa-resource-chips {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 4px;
+  margin-top: 7px;
+}
+.pa-chip {
+  font-size: 11px;
+  line-height: 1.45;
+  padding: 5px 3px;
+  background: #dceaf5;
+  border: 1px solid #a0bed3;
+}
+.pa-chip.pa-down {
+  background: #ffe2df;
+  border-color: #d79591;
+}
+.pa-chip.pa-unknown {
+  background: #fff0bd;
+  border-color: #d9bd69;
+}
+.physical-lesson .pa-pair-note {
+  font-size: 12px;
+  margin: 0;
+  padding: 12px 16px;
+  border-top: 1px dashed #8aa9be;
+  color: #3c5e75;
+}
+.pa-dependency-path {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  background: #143a55;
+  color: #fff;
+  padding: 18px;
+  font-size: 13px;
+  line-height: 1.65;
+  margin-top: 16px;
+}
+.pa-dependency-path strong {
+  color: #9ce7df;
+}
+.physical-lesson .pa-caption {
+  margin: 14px 0 0;
+  font-size: 12px;
+}
+.pa-unknown {
+  padding: 16px;
+  background: #fff7dc;
+}
+.pa-inspection {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  align-items: center;
+  gap: 20px;
+  border-left: 3px solid #568bab;
+  padding: 15px 20px;
+  background: #edf4f9;
+}
+.pa-inspection label {
+  display: grid;
+  gap: 8px;
+}
+.physical-lesson .pa-inspection p {
+  margin: 0;
+}
+.pa-observation {
+  padding: 20px 24px;
+  margin: 24px 0;
+  border-left: 4px solid #386e95;
+  background: #eaf4fb;
+}
+.physical-lesson .pa-observation h3 {
+  margin-top: 0;
+}
+.pa-outcome-unavailable {
+  border-color: #aa3e3e;
+  background: #fff1ef;
+}
+.pa-outcome-uncertain {
+  border-color: #9a6b10;
+  background: #fff8df;
+}
+.pa-table-scroll {
+  max-width: 100%;
+  overflow: auto;
+  margin: 22px 0;
+}
+.pa-table-scroll table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 13px;
+}
+.pa-table-scroll caption {
+  font-weight: 600;
+  text-align: left;
+  margin-bottom: 12px;
+}
+.pa-table-scroll th,
+.pa-table-scroll td {
+  text-align: left;
+  padding: 12px;
+  border-bottom: 1px solid #cad9e4;
+  line-height: 1.6;
+}
+.pa-table-scroll th {
+  font-weight: 600;
+}
+.pa-status {
+  padding: 3px 6px;
+  background: #e1f2ed;
+}
+.pa-status.pa-down {
+  background: #ffe0db;
+  color: #87312a;
+}
+.pa-status.pa-unknown {
+  background: #fff0b9;
+  color: #78500a;
+}
+.pa-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  align-items: start;
+  margin: 20px 0;
+}
+.pa-actions button {
+  text-align: left;
+}
+.pa-witnesses {
+  line-height: 1.8;
+  padding-left: 22px;
+}
+.pa-assessment > section {
+  border-top: 1px solid var(--pa-border);
+  margin-top: 30px;
+}
+.physical-lesson .pa-matching {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  line-height: 1.6;
+  padding: 18px 0;
+}
+.pa-feedback article {
+  padding: 20px 0;
+  border-top: 1px solid var(--pa-border);
+}
+.pa-feedback details {
+  margin: 12px 0;
+}
+.pa-feedback summary {
+  color: #0067a1;
+  cursor: pointer;
+}
+.pa-feedback dt {
+  font-weight: 600;
+  line-height: 1.6;
+  margin: 16px 0 6px;
+}
+.pa-feedback dd {
+  margin: 0;
+  line-height: 1.7;
+}
+.pa-objectives dt {
+  font-weight: 600;
+  margin: 16px 0 6px;
+}
+.pa-objectives dd {
+  margin: 0;
+  line-height: 1.6;
+}
+.pa-next {
+  padding: 20px;
+  background: #edf4fa;
+  border-top: 3px solid #7d9cb1;
+  margin-top: 30px;
+}
+.pa-sources ul {
+  line-height: 1.8;
+  padding-left: 20px;
+  overflow-wrap: anywhere;
+}
+@media (min-width: 1600px) {
+  .pa-facilities {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .pa-two-regions .pa-facilities {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 1250px) {
+  .pa-reading {
+    grid-template-columns: minmax(0, 1.3fr) minmax(235px, 0.8fr);
+    gap: 24px;
+  }
+  .physical-lesson .pa-controls {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .pa-two-regions {
+    grid-template-columns: 1fr;
+  }
+  .pa-zones {
+    gap: 8px;
+    padding: 12px;
+  }
+  .pa-zone {
+    padding: 8px;
+  }
+  .pa-environments,
+  .pa-objectives {
+    grid-template-columns: 1fr;
+  }
+  .pa-scene > header {
+    flex-direction: column;
+  }
+}
+@media (max-width: 750px) {
+  .pa-reading {
+    grid-template-columns: 1fr;
+  }
+  .physical-lesson .pa-task-steps {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  .pa-zones {
+    grid-template-columns: 1fr;
+  }
+  .pa-facilities {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .pa-inspection {
+    grid-template-columns: 1fr;
+  }
+  .physical-lesson .pa-controls {
+    grid-template-columns: 1fr;
+    padding: 14px;
+  }
+  .pa-scene {
+    padding: 12px;
+  }
+  .pa-dependency-path {
+    align-items: stretch;
+    flex-direction: column;
+  }
+  .pa-dependency-path > b {
+    transform: rotate(90deg);
+    align-self: start;
+  }
+  .pa-mapping > div {
+    flex-direction: column;
+    align-items: start;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .physical-lesson * {
+    scroll-behavior: auto !important;
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+.physical-lesson button.pa-primary:hover:not(:disabled),
+.physical-lesson button.pa-primary:focus-visible {
+  background: #005a9e;
+  color: #fff;
+}

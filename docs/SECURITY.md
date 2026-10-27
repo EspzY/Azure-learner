@@ -1,5 +1,9 @@
 # Security and privacy
 
+## Physical Part A isolation
+
+No Azure/network requests, credentials, legal/compliance certification, remote maps/assets or Portal commands are added. The untrusted bounded Part A record validates exact module/schema/content/model/rubric/events and replays results; old keys are untouched. Denied/stale/unknown input is visible and fails closed for guidance. Explicit confirmed recovery discards only invalid Part A, with cancel preserving raw input. Cross-tab/independent contexts suppress automatic solution help. Local results are neither tamper-proof nor authoritative. [Contract](CORE_ARCHITECTURE_PHYSICAL.md).
+
 ## PR20 guidance/release metadata boundaries
 
 Milestone visibility uses isolated, runtime-validated, bounded `azurelab.guidance.milestones.v1` UI history. It never stores inventory, answers, XP, mastery or credentials and is not an authority for completion. Corrupt/unknown/denied/full preference storage is not overwritten into success; auto interruptions fail closed, manual guidance remains. Existing evidence/technical storage and commands are unchanged; explicit all-data deletion also clears this new UI preference. No runtime network dependency, new service/account, asset or package is introduced.

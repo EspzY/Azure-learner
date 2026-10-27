@@ -1,5 +1,9 @@
 # AzureLab engineering contract
 
+## P01 physical architecture — active PR22 contract
+
+Read [the original Part A manuscript/model/version contract](docs/CORE_ARCHITECTURE_PHYSICAL.md) before changes. /learn/architecture reuses the actual Course shell and registers CA01–03/F02 in an isolated replayed azurelab.learning.architecture-physical.v1. Three of seven core objectives are available; Part B2.1.04–07 remains planned. No historical completion is new evidence. Physical placement, explicit replicas/data/routing and uncertain nonzonal placement are separate from Portal inventory and management hierarchy. Region pairing never creates app replication/failover. Preserve old models/rubrics/XP and first records. Use real model-run milestones, independent shielding and confirmed scoped invalid-store recovery. Sources are dated examples, never live global metadata or actual datacenter locations.
+
 ## P00 serverless supplement — active PR21 contract
 
 FC08 is integrated after pricing in the ordinary Cloud Computing course, with separate `azurelab.learning.serverless.v1` content/model/rubric1.0.0 replay. Read [the original manuscript and compatibility decision](docs/SERVERLESS_FOUNDATIONS.md) before changes. Never append FC08 to old Foundations v1/v2 rubrics or infer it from their completion. Prediction/run snapshots, guided causal witnesses and immutable first/help/retry/abandon observations are distinct. The event explorer is conceptual, never a Functions resource/runtime/receipt. Hosting/idle cost/cold start claims are plan-dependent. Reuse PR20 UI-only milestone history; no automatic solutions in active/uncertain independent contexts. Human SME, assistive UX and learning-transfer validation remain separate and unperformed.

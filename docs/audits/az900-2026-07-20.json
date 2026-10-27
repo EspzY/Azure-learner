@@ -327,6 +327,90 @@
       "reviewed": "2026-10-27",
       "purpose": "Functions as PaaS and retained customer code/data/access",
       "kind": "technical"
+    },
+    "AR01": {
+      "url": "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900",
+      "reviewed": "2026-10-27",
+      "purpose": "AZ-900 Skills Measured",
+      "kind": "technical"
+    },
+    "AR02": {
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-core-architectural-components-of-azure/",
+      "reviewed": "2026-10-27",
+      "purpose": "Core architectural components module/units",
+      "kind": "technical"
+    },
+    "AR03": {
+      "url": "https://learn.microsoft.com/en-us/azure/reliability/regions-overview",
+      "reviewed": "2026-10-27",
+      "purpose": "Regions and geographies",
+      "kind": "technical"
+    },
+    "AR04": {
+      "url": "https://learn.microsoft.com/en-us/azure/reliability/regions-list",
+      "reviewed": "2026-10-27",
+      "purpose": "Region example metadata",
+      "kind": "technical"
+    },
+    "AR05": {
+      "url": "https://learn.microsoft.com/en-us/azure/reliability/regions-paired",
+      "reviewed": "2026-10-27",
+      "purpose": "Paired and nonpaired regions",
+      "kind": "technical"
+    },
+    "AR06": {
+      "url": "https://learn.microsoft.com/en-us/azure/reliability/availability-zones-overview",
+      "reviewed": "2026-10-27",
+      "purpose": "Availability Zones",
+      "kind": "technical"
+    },
+    "AR07": {
+      "url": "https://learn.microsoft.com/en-us/azure/reliability/availability-zones-zonal-resource-resiliency",
+      "reviewed": "2026-10-27",
+      "purpose": "Zonal resource resiliency",
+      "kind": "technical"
+    },
+    "AR08": {
+      "url": "https://learn.microsoft.com/en-us/azure/reliability/availability-zones-service-support",
+      "reviewed": "2026-10-27",
+      "purpose": "Zone support by service",
+      "kind": "technical"
+    },
+    "AR09": {
+      "url": "https://learn.microsoft.com/en-us/azure/security/fundamentals/physical-security",
+      "reviewed": "2026-10-27",
+      "purpose": "Physical infrastructure and security",
+      "kind": "technical"
+    },
+    "AR10": {
+      "url": "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/azure-setup-guide/regions",
+      "reviewed": "2026-10-27",
+      "purpose": "Region selection",
+      "kind": "technical"
+    },
+    "AR11": {
+      "url": "https://learn.microsoft.com/en-us/azure/azure-government/documentation-government-welcome",
+      "reviewed": "2026-10-27",
+      "purpose": "Azure Government",
+      "kind": "technical"
+    },
+    "AR12": {
+      "url": "https://learn.microsoft.com/en-us/azure/china/overview-operations",
+      "reviewed": "2026-10-27",
+      "purpose": "Azure in China",
+      "kind": "technical"
+    },
+    "AR13": {
+      "url": "https://learn.microsoft.com/en-us/azure/reliability/concept-reliability-sovereignty",
+      "reviewed": "2026-10-27",
+      "purpose": "Reliability and sovereignty",
+      "kind": "technical"
+    },
+    "AR14": {
+      "url": "https://learn.microsoft.com/en-us/training/paths/azure-fundamentals-describe-azure-architecture-services/",
+      "reviewed": "2026-10-27",
+      "purpose": "Architecture/services path",
+      "kind": "technical"
     }
   },
   "evidenceProfiles": {
@@ -781,6 +865,45 @@
       ],
       "tests": ["src/domain/curriculum/serverless.test.ts", "tests/e2e/serverless.spec.ts"],
       "limits": "Concept model, no Functions runtime/resources/prices; two fixed original scenarios, no general mastery or human SME/transfer approval."
+    },
+    "PA": {
+      "teaching": [
+        {
+          "path": "src/content/nb.ts",
+          "marker": "architectureNb"
+        },
+        {
+          "path": "docs/CORE_ARCHITECTURE_PHYSICAL.md",
+          "marker": "Original teaching manuscript"
+        }
+      ],
+      "mechanism": [
+        {
+          "path": "src/domain/curriculum/architecture-physical.ts",
+          "marker": "evaluateInfrastructure"
+        }
+      ],
+      "presentation": [
+        {
+          "path": "src/features/learning/physical.tsx",
+          "marker": "PhysicalExplorer"
+        },
+        {
+          "path": "src/features/learning/physical-visual.tsx",
+          "marker": "InfrastructureScene"
+        }
+      ],
+      "assessment": [
+        {
+          "path": "src/domain/curriculum/architecture-physical.ts",
+          "marker": "physicalCriteria"
+        }
+      ],
+      "tests": [
+        "src/domain/curriculum/architecture-physical.test.ts",
+        "tests/e2e/architecture-physical.spec.ts"
+      ],
+      "limits": "Concept model, dated5-region subset, fictional facilities, explicit copies/routing and unknown placement. No Portal/resource/runtime/failover/SLA claim. Fixed original cases, no human SME/UX/transfer approval. Full Core Architecture remains partial pending Part B."
     }
   },
   "plannedPRs": [
@@ -1265,95 +1388,150 @@
       "slot": "2.1.01",
       "id": "az900.architecture.regions",
       "title": "Regions, region pairs og sovereign regions",
-      "status": "PARTIAL",
+      "status": "COMPLETE",
       "criteria": {
-        "A": "P",
-        "B": "P",
-        "C": "P",
-        "D": "M",
-        "E": "P",
-        "F": "P"
+        "A": "V",
+        "B": "V",
+        "C": "V",
+        "D": "V",
+        "E": "V",
+        "F": "V"
       },
       "facets": [
         {
           "topic": "Regions/resource location",
-          "status": "PARTIAL"
+          "status": "COMPLETE"
         },
         {
           "topic": "Region pairs",
-          "status": "MISSING"
+          "status": "COMPLETE"
         },
         {
           "topic": "Sovereign regions",
-          "status": "MISSING"
+          "status": "COMPLETE"
         }
       ],
-      "localObjectives": ["F02"],
-      "evidence": ["H", "P", "V"],
-      "observed": "Portal og graf skiller ressursregion fra RG-metadata.",
-      "gap": "Ingen full regionsforklaring eller par/sovereignty-undervisning/ny-kontekst vurdering. Ikke alle regioner er paret; par er ikke automatisk app-failover.",
+      "localObjectives": ["F02", "CA01"],
+      "evidence": ["H", "P", "V", "PA"],
+      "observed": "P01 Part A: original complete teaching, causal physical/dependency explorer, original changed scenarios with reasons/matching, committed alternative feedback and current official source qualification.",
+      "gap": "Scoped A-F content coverage implemented; qualified human SME/UX/learning validation and broad transfer remain unperformed. No full-core completion or higher-level evidence. Part B remains unavailable.",
       "plannedPRs": ["P01"],
-      "sources": ["EXAM", "M04", "REG", "PAIR"]
+      "sources": [
+        "EXAM",
+        "M04",
+        "REG",
+        "PAIR",
+        "AR01",
+        "AR02",
+        "AR03",
+        "AR04",
+        "AR05",
+        "AR06",
+        "AR07",
+        "AR08",
+        "AR09",
+        "AR10",
+        "AR11",
+        "AR12",
+        "AR13",
+        "AR14"
+      ]
     },
     {
       "slot": "2.1.02",
       "id": "az900.architecture.zones",
       "title": "Availability zones",
-      "status": "MISSING",
+      "status": "COMPLETE",
       "criteria": {
-        "A": "M",
-        "B": "M",
-        "C": "M",
-        "D": "M",
-        "E": "M",
-        "F": "N"
+        "A": "V",
+        "B": "V",
+        "C": "V",
+        "D": "V",
+        "E": "V",
+        "F": "V"
       },
       "facets": [
         {
           "topic": "Fysisk feilgrense",
-          "status": "MISSING"
+          "status": "COMPLETE"
         },
         {
           "topic": "Zone-støtte og ressursvalg",
-          "status": "MISSING"
+          "status": "COMPLETE"
         }
       ],
-      "localObjectives": ["F02"],
-      "evidence": [],
-      "observed": "Generisk nodefeil/ruting i Benefits er ikke Azure-zonemodellen.",
-      "gap": "Mangler egen forklaring, relevant mekanisme/praksis, uavhengig scenario og begrunnet vurdering for de angitte emnene.",
+      "localObjectives": ["F02", "CA02"],
+      "evidence": ["PA"],
+      "observed": "P01 Part A: original complete teaching, causal physical/dependency explorer, original changed scenarios with reasons/matching, committed alternative feedback and current official source qualification.",
+      "gap": "Scoped A-F content coverage implemented; qualified human SME/UX/learning validation and broad transfer remain unperformed. No full-core completion or higher-level evidence. Part B remains unavailable.",
       "plannedPRs": ["P01"],
-      "sources": ["EXAM", "M04", "REG"]
+      "sources": [
+        "EXAM",
+        "M04",
+        "REG",
+        "AR01",
+        "AR02",
+        "AR03",
+        "AR04",
+        "AR05",
+        "AR06",
+        "AR07",
+        "AR08",
+        "AR09",
+        "AR10",
+        "AR11",
+        "AR12",
+        "AR13",
+        "AR14"
+      ]
     },
     {
       "slot": "2.1.03",
       "id": "az900.architecture.datacenters",
       "title": "Azure datacenters",
-      "status": "MISSING",
+      "status": "COMPLETE",
       "criteria": {
-        "A": "M",
-        "B": "M",
-        "C": "M",
-        "D": "M",
-        "E": "M",
-        "F": "N"
+        "A": "V",
+        "B": "V",
+        "C": "V",
+        "D": "V",
+        "E": "V",
+        "F": "V"
       },
       "facets": [
         {
           "topic": "Fysisk datasenter",
-          "status": "MISSING"
+          "status": "COMPLETE"
         },
         {
           "topic": "Relasjon til region og zone",
-          "status": "MISSING"
+          "status": "COMPLETE"
         }
       ],
-      "localObjectives": ["F02"],
-      "evidence": [],
-      "observed": "Modul1 forklarer en fysisk server, men underviser ikke Azure-datasenterets rolle i geografisk infrastruktur.",
-      "gap": "Mangler egen forklaring, relevant mekanisme/praksis, uavhengig scenario og begrunnet vurdering for de angitte emnene.",
+      "localObjectives": ["F02", "CA03"],
+      "evidence": ["PA"],
+      "observed": "P01 Part A: original complete teaching, causal physical/dependency explorer, original changed scenarios with reasons/matching, committed alternative feedback and current official source qualification.",
+      "gap": "Scoped A-F content coverage implemented; qualified human SME/UX/learning validation and broad transfer remain unperformed. No full-core completion or higher-level evidence. Part B remains unavailable.",
       "plannedPRs": ["P01"],
-      "sources": ["EXAM", "M04", "REG"]
+      "sources": [
+        "EXAM",
+        "M04",
+        "REG",
+        "AR01",
+        "AR02",
+        "AR03",
+        "AR04",
+        "AR05",
+        "AR06",
+        "AR07",
+        "AR08",
+        "AR09",
+        "AR10",
+        "AR11",
+        "AR12",
+        "AR13",
+        "AR14"
+      ]
     },
     {
       "slot": "2.1.04",
@@ -2592,6 +2770,28 @@
       "objectives": ["1.1.07", "2.2.01"],
       "sources": ["SL-FUNCTIONS", "SL-HOSTING", "SL-BINDINGS", "SL-FLEX", "SL-RESPONSIBILITY"],
       "note": "Scoped serverless implementation. Other PR19 rows and their 2026-10-26 source review remain unchanged; no human approval."
+    },
+    {
+      "id": "P01",
+      "reviewed": "2026-10-27",
+      "objectives": ["2.1.01", "2.1.02", "2.1.03"],
+      "sources": [
+        "AR01",
+        "AR02",
+        "AR03",
+        "AR04",
+        "AR05",
+        "AR06",
+        "AR07",
+        "AR08",
+        "AR09",
+        "AR10",
+        "AR11",
+        "AR12",
+        "AR13",
+        "AR14"
+      ],
+      "note": "Only physical Part A2.1.01-03 re-audited. Other54 objective rows, especially2.1.04-07, retain previous semantics. No learner evidence upgrade or human approval."
     }
   ]
 }

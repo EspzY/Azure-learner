@@ -1,5 +1,9 @@
 # Decisions
 
+## 2026-10-27: Part A is a versioned physical model, not Portal state
+
+Use the current Course shell under /learn/architecture, with a separate partial official-path entry and isolated Part A1.0.0 event record. Do not expand frozen old rubrics or create Azure resources. Compute fault effects from explicit placements/data/routing, keep nonzonal uncertainty, and keep region-pair metadata separate from application recovery edges. Follow current Reliability qualifications over general Learn-unit failover wording. Future Part B composes objective-level evidence without reinterpreting Part A. Reuse native dialogs/milestone ledger and add no dependencies/assets. [Rationale/model/manuscript](CORE_ARCHITECTURE_PHYSICAL.md).
+
 ## ADR — FC08 independent sidecar, 2026-10-27
 
 Decision: insert the serverless learning sequence into the current Cloud Computing navigation while storing new observations in a separate replayed1.0.0 supplement. Changing existing v2 criterion arrays would reinterpret old submissions/completion; rewriting all stores into a universal engine is unnecessary. Reuse their bounded event/store/provider pattern, course shell, Journal presentation, native briefing styles and PR20 milestone visibility ledger. Course resume allowlist grows only for navigation. No XP or Functions resource engine. Source review qualifies Flex/Premium/Dedicated rather than universal pricing/scale claims. [Detailed contract](SERVERLESS_FOUNDATIONS.md).
