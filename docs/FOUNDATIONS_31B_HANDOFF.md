@@ -1,5 +1,9 @@
 # Phase 3.1B implementation specification — review candidate
 
+## P00 compatibility addition — 2026-10-27
+
+The original v2 route set/rubric/store below is frozen. Current Course navigation now inserts a separate FC08 serverless supplement after v2-pricing and before resource-bridge. Old completion and11-criterion submissions remain unchanged. Exact new course routes and isolated evidence are specified in [SERVERLESS_FOUNDATIONS](SERVERLESS_FOUNDATIONS.md). Original old-topic archive policy and Portal return remain intact.
+
 ## 3.2 compatible refinement
 
 The prerequisite sequence, original complete prose, Foundation v1/v2 observations/rubrics and technical lab remain. Default responsibility visual is a focused three-incident physical/data/identity recap; the full operational matrix now belongs to Module3. This fixes cross-module comparison writes without migrating or reinterpreting historical records. The last course step now connects to available Benefits before Service Types; direct Portal entry from the existing resource bridge remains supported. Current content ownership is in [the progression audit](MODULE_01_02_03_PROGRESSION_AUDIT.md). Historical specifications below retain their original review record.

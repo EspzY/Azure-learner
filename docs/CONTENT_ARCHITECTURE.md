@@ -1,5 +1,9 @@
 # Local curriculum and evidence architecture
 
+## P00 compatible FC08 registration
+
+`serverlessManifest`, exported through the existing curriculum manifest, registers a separate1.0.0 supplement with prerequisites, source IDs, teaching/execution/application activities and dated AZ-900 mapping. The old manifest's serverless exclusion describes its frozen original1.0.0 module only. Current course navigation exposes the supplement after v2-pricing. Source/claim/module layers are also bound in the scoped quality record; no release JSON can award learning. [Complete manuscript](SERVERLESS_FOUNDATIONS.md). Old v1/v2 evidence is never upgraded to FC08. Corrupt/unsupported supplement input has explicit confirmed recovery from the course and Portal warning, using only the supplement store.clear; cancel/reload never deletes data. No old store or global reset is invoked.
+
 ## Quality metadata versus learning truth — PR20
 
 The offline `quality/releases/current.json` binds source claims, current activity/manuscript/visual/accessible/assessment/SavvyShark pointers and seven gates. It is not imported by providers, curriculum progression or technical evaluators. Future new-module deliveries must map every manuscript/practice/independent/rationale layer into existing registered curriculum as well; a release title/pointer is insufficient. Certification overlays and prior evidence remain versioned separately. [Contract](QUALITY_CONTRACT.md), [review/hash boundary](RELEASE_ACCEPTANCE.md).

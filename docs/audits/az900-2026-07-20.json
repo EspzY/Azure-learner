@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "auditVersion": "1.0.0",
+  "auditVersion": "1.1.0",
   "reviewed": "2026-10-26",
   "examVersion": "2026-07-20",
   "baselineCommit": "184b818a041919b9a6461310c3ba39074e020641",
@@ -296,6 +296,36 @@
       "url": "https://learn.microsoft.com/en-us/training/modules/describe-cloud-service-types/4-describe-software-service",
       "reviewed": "2026-10-26",
       "purpose": "SaaS application maintenance versus customer access/data",
+      "kind": "technical"
+    },
+    "SL-FUNCTIONS": {
+      "url": "https://learn.microsoft.com/en-us/azure/azure-functions/functions-overview",
+      "reviewed": "2026-10-27",
+      "purpose": "Managed event-based code, physical hosting and use cases",
+      "kind": "technical"
+    },
+    "SL-HOSTING": {
+      "url": "https://learn.microsoft.com/en-us/azure/azure-functions/functions-scale",
+      "reviewed": "2026-10-27",
+      "purpose": "Plan-dependent scale, cold starts, timeout and billing qualifications",
+      "kind": "technical"
+    },
+    "SL-BINDINGS": {
+      "url": "https://learn.microsoft.com/en-us/azure/azure-functions/functions-triggers-bindings",
+      "reviewed": "2026-10-27",
+      "purpose": "Exactly one trigger; optional bindings; invocation is not success",
+      "kind": "technical"
+    },
+    "SL-FLEX": {
+      "url": "https://learn.microsoft.com/en-us/azure/azure-functions/flex-consumption-plan",
+      "reviewed": "2026-10-27",
+      "purpose": "On-demand and always-ready baseline, no universal free idle",
+      "kind": "technical"
+    },
+    "SL-RESPONSIBILITY": {
+      "url": "https://learn.microsoft.com/en-us/azure/security/fundamentals/shared-responsibility",
+      "reviewed": "2026-10-27",
+      "purpose": "Functions as PaaS and retained customer code/data/access",
       "kind": "technical"
     }
   },
@@ -719,6 +749,38 @@
       ],
       "tests": ["src/domain/portal/portal.test.ts", "tests/e2e/portal.spec.ts"],
       "limits": "Still reachable Portal independent compatibility task, not an inaccessible archive. Narrow fixed model-choice/scope predicates and per-criterion feedback; frozen v1 observations do not upgrade current v2 evidence."
+    },
+    "SL": {
+      "teaching": [
+        {
+          "path": "src/content/nb.ts",
+          "marker": "serverlessNb"
+        },
+        {
+          "path": "docs/SERVERLESS_FOUNDATIONS.md",
+          "marker": "Complete original teaching manuscript"
+        }
+      ],
+      "mechanism": [
+        {
+          "path": "src/domain/curriculum/serverless.ts",
+          "marker": "executeEvents"
+        }
+      ],
+      "presentation": [
+        {
+          "path": "src/features/learning/serverless.tsx",
+          "marker": "ExecutionTrace"
+        }
+      ],
+      "assessment": [
+        {
+          "path": "src/domain/curriculum/serverless.ts",
+          "marker": "serverlessCriteria"
+        }
+      ],
+      "tests": ["src/domain/curriculum/serverless.test.ts", "tests/e2e/serverless.spec.ts"],
+      "limits": "Concept model, no Functions runtime/resources/prices; two fixed original scenarios, no general mastery or human SME/transfer approval."
     }
   },
   "plannedPRs": [
@@ -927,35 +989,45 @@
       "slot": "1.1.07",
       "id": "az900.cloud.serverless",
       "title": "Serverless",
-      "status": "MISSING",
+      "status": "COMPLETE",
       "criteria": {
-        "A": "M",
-        "B": "M",
-        "C": "M",
-        "D": "M",
-        "E": "M",
-        "F": "N"
+        "A": "V",
+        "B": "V",
+        "C": "V",
+        "D": "V",
+        "E": "V",
+        "F": "V"
       },
       "facets": [
         {
           "topic": "Hendelser/utførelse",
-          "status": "MISSING"
+          "status": "COMPLETE"
         },
         {
           "topic": "Operasjonelt ansvar",
-          "status": "MISSING"
+          "status": "COMPLETE"
         },
         {
           "topic": "Hostingavhengig forbruk og skalering",
-          "status": "MISSING"
+          "status": "COMPLETE"
         }
       ],
-      "localObjectives": ["C04", "F01"],
-      "evidence": [],
-      "observed": "manifest.certificationOverlay.excluded nevner serverless eksplisitt; ingen aktiv undervisning, modell eller oppgave.",
-      "gap": "Mangler egen forklaring, relevant mekanisme/praksis, uavhengig scenario og begrunnet vurdering for de angitte emnene.",
+      "localObjectives": ["FC08", "C04", "F01"],
+      "evidence": ["SL"],
+      "observed": "P00: original theory and hosting boundaries, event→trigger→execution→output model with prediction, responsibility and two new decision scenarios with reasons and alternative feedback. Isolated replayed supplement; first/help/retry/abandon preserved.",
+      "gap": "A–F documented for this scoped objective; qualified human SME, screen-reader, novice/IT usability and measured transfer remain unperformed. No claim that one learner or AZ-900 is mastered.",
       "plannedPRs": ["P00", "P05"],
-      "sources": ["EXAM", "M01", "FUNC"]
+      "sources": [
+        "EXAM",
+        "M01",
+        "FUNC",
+        "SL-FUNCTIONS",
+        "SL-HOSTING",
+        "SL-BINDINGS",
+        "SL-FLEX",
+        "SL-RESPONSIBILITY"
+      ],
+      "reviewed": "2026-10-27"
     },
     {
       "slot": "1.2.01",
@@ -1419,15 +1491,26 @@
         },
         {
           "topic": "Functions",
-          "status": "MISSING"
+          "status": "COMPLETE"
         }
       ],
       "localObjectives": ["C02", "C03", "C04"],
-      "evidence": ["S", "V"],
-      "observed": "VM/OS-kontroll er lært og anvendt.",
-      "gap": "Ingen aktiv containers/Functions-forklaring eller treveis compute-valg; generell PaaS er ikke Functions-dekning.",
+      "evidence": ["S", "V", "SL"],
+      "observed": "VM/OS-kontroll er lært og anvendt. P00 now teaches Functions, event execution and Functions/VM control tradeoffs.",
+      "gap": "Containers and complete three-way compute comparison remain missing. P00 does not complete this composite objective.",
       "plannedPRs": ["P00", "P05"],
-      "sources": ["EXAM", "M05", "FUNC", "VM"]
+      "sources": [
+        "EXAM",
+        "M05",
+        "FUNC",
+        "VM",
+        "SL-FUNCTIONS",
+        "SL-HOSTING",
+        "SL-BINDINGS",
+        "SL-FLEX",
+        "SL-RESPONSIBILITY"
+      ],
+      "reviewed": "2026-10-27"
     },
     {
       "slot": "2.2.02",
@@ -2500,6 +2583,15 @@
       "gap": "Ingen metrics/logs/traces-modell, KQL-/logginspeksjon, alertbeslutning eller App Insights-forklaring. Ikke konverter simuleringskvitteringer til oppdiktet driftstelemetri.",
       "plannedPRs": ["P14"],
       "sources": ["EXAM", "M12"]
+    }
+  ],
+  "updates": [
+    {
+      "id": "P00",
+      "reviewed": "2026-10-27",
+      "objectives": ["1.1.07", "2.2.01"],
+      "sources": ["SL-FUNCTIONS", "SL-HOSTING", "SL-BINDINGS", "SL-FLEX", "SL-RESPONSIBILITY"],
+      "note": "Scoped serverless implementation. Other PR19 rows and their 2026-10-26 source review remain unchanged; no human approval."
     }
   ]
 }

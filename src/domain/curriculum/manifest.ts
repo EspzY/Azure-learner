@@ -170,3 +170,6 @@ export const transferCriteria = [
   { id: 'uncertain', objective: 'FC07', answer: 'usage' },
   { id: 'commitment', objective: 'FC07', answer: 'paid' },
 ] as const;
+
+/** Separate FC08 version; the above original v1 objective/rubric set is frozen. */
+export { serverlessManifest } from './serverless';

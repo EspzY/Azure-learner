@@ -4,6 +4,8 @@
 
 Kontrollert **2026-10-26**. Offisielt grunnlag: Skills measured **2026-07-20**, fortsatt gjeldende på kontrolldato. Koderevisjon: PR18, `codex/azure-portal-exact-icons`, commit `184b818a041919b9a6461310c3ba39074e020641`. Denne PR-en endrer ingen mål, rubrikk, elevregistrering eller simulatorregel.
 
+Scoped update **P00**, 2026-10-27: 1.1.07, 2.2.01. Scoped serverless implementation. Other PR19 rows and their 2026-10-26 source review remain unchanged; no human approval.
+
 ## Metode og terskel
 
 Alle **57 offisielle kulepunkter** er egne rader, fordelt på 11 underområder. Sammensatte krav er dessuten delt i 126 navngitte kontrollfasetter. Fasettene er en lokal auditinndeling, ikke Microsofts spørsmålstall eller en ekstra eksamensvekt. Slot angir rekkefølgen i den daterte studieguideversjonen; stabile `az900.*`-ID-er er audit-/plan-ID-er, foreløpig ikke nye runtime-kompetanser.
@@ -27,7 +29,7 @@ D=V betyr at en relevant selvstendig oppgave finnes, ikke at enhver elev har bes
 
 | Område                                      | Offisiell vekt | Kulepunkter | COMPLETE | PARTIAL | MISSING | UNVERIFIED |
 | ------------------------------------------- | -------------- | ----------: | -------: | ------: | ------: | ---------: |
-| 1. Describe cloud concepts                  | 25–30%         |          15 |        6 |       8 |       1 |          0 |
+| 1. Describe cloud concepts                  | 25–30%         |          15 |        7 |       8 |       0 |          0 |
 | 2. Describe Azure architecture and services | 35–40%         |          27 |        0 |      12 |      15 |          0 |
 | 3. Describe Azure management and governance | 30–35%         |          15 |        0 |       8 |       7 |          0 |
 
@@ -145,17 +147,26 @@ Profilene under gir faktisk kilde/manuskript, mekanisme, tilgjengelig komponent,
 - Tester: [src/domain/portal/portal.test.ts](../src/domain/portal/portal.test.ts), [tests/e2e/portal.spec.ts](../tests/e2e/portal.spec.ts).
 - Grense: Still reachable Portal independent compatibility task, not an inaccessible archive. Narrow fixed model-choice/scope predicates and per-criterion feedback; frozen v1 observations do not upgrade current v2 evidence.
 
+### Evidens SL
+
+- Manuskript: [src/content/nb.ts](../src/content/nb.ts) → `serverlessNb`; [docs/SERVERLESS_FOUNDATIONS.md](../docs/SERVERLESS_FOUNDATIONS.md) → `Complete original teaching manuscript`.
+- Mekanisme: [src/domain/curriculum/serverless.ts](../src/domain/curriculum/serverless.ts) → `executeEvents`.
+- Lærerflate: [src/features/learning/serverless.tsx](../src/features/learning/serverless.tsx) → `ExecutionTrace`.
+- Vurdering: [src/domain/curriculum/serverless.ts](../src/domain/curriculum/serverless.ts) → `serverlessCriteria`.
+- Tester: [src/domain/curriculum/serverless.test.ts](../src/domain/curriculum/serverless.test.ts), [tests/e2e/serverless.spec.ts](../tests/e2e/serverless.spec.ts).
+- Grense: Concept model, no Functions runtime/resources/prices; two fixed original scenarios, no general mastery or human SME/transfer approval.
+
 ## 1.1 Cloud computing
 
-| Slot / stabil audit-ID                 | Krav (kort temaetikett)                    | Status   | A B C D E F | Eksisterende lokale mål     | Evidens             | Neste PR |
-| -------------------------------------- | ------------------------------------------ | -------- | ----------- | --------------------------- | ------------------- | -------- |
-| 1.1.01<br>`az900.cloud.definition`     | Hva cloud computing innebærer              | COMPLETE | V V V V V V | FC01, FC02, F01             | F                   | P17, P18 |
-| 1.1.02<br>`az900.cloud.responsibility` | Delt operasjonelt ansvar                   | COMPLETE | V V V V V V | FC03, ST01, ST02, ST03, F01 | F, R, S             | P17, P18 |
-| 1.1.03<br>`az900.cloud.models`         | Public, private og hybrid cloud            | PARTIAL  | V V V P V V | FC04, F01                   | F                   | P03      |
-| 1.1.04<br>`az900.cloud.model-use`      | Bruksområder for hver deployment model     | PARTIAL  | V V V P V V | FC05, F01                   | F                   | P03      |
-| 1.1.05<br>`az900.cloud.consumption`    | Forbruk, allokering og måling              | COMPLETE | V V V V V V | FC06, F03                   | F                   | P17, P18 |
-| 1.1.06<br>`az900.cloud.pricing`        | PAYG, forpliktelser og avbrytbar kapasitet | PARTIAL  | V V V P V V | FC07, F03                   | F                   | P03, P04 |
-| 1.1.07<br>`az900.cloud.serverless`     | Serverless                                 | MISSING  | M M M M M N | C04, F01                    | Ingen aktiv dekning | P00, P05 |
+| Slot / stabil audit-ID                 | Krav (kort temaetikett)                    | Status   | A B C D E F | Eksisterende lokale mål     | Evidens | Neste PR |
+| -------------------------------------- | ------------------------------------------ | -------- | ----------- | --------------------------- | ------- | -------- |
+| 1.1.01<br>`az900.cloud.definition`     | Hva cloud computing innebærer              | COMPLETE | V V V V V V | FC01, FC02, F01             | F       | P17, P18 |
+| 1.1.02<br>`az900.cloud.responsibility` | Delt operasjonelt ansvar                   | COMPLETE | V V V V V V | FC03, ST01, ST02, ST03, F01 | F, R, S | P17, P18 |
+| 1.1.03<br>`az900.cloud.models`         | Public, private og hybrid cloud            | PARTIAL  | V V V P V V | FC04, F01                   | F       | P03      |
+| 1.1.04<br>`az900.cloud.model-use`      | Bruksområder for hver deployment model     | PARTIAL  | V V V P V V | FC05, F01                   | F       | P03      |
+| 1.1.05<br>`az900.cloud.consumption`    | Forbruk, allokering og måling              | COMPLETE | V V V V V V | FC06, F03                   | F       | P17, P18 |
+| 1.1.06<br>`az900.cloud.pricing`        | PAYG, forpliktelser og avbrytbar kapasitet | PARTIAL  | V V V P V V | FC07, F03                   | F       | P03, P04 |
+| 1.1.07<br>`az900.cloud.serverless`     | Serverless                                 | COMPLETE | V V V V V V | FC08, C04, F01              | SL      | P00, P05 |
 
 ### 1.1.01 — Hva cloud computing innebærer
 
@@ -219,13 +230,13 @@ Profilene under gir faktisk kilde/manuskript, mekanisme, tilgjengelig komponent,
 
 ### 1.1.07 — Serverless
 
-**Fasetter:** Hendelser/utførelse: MISSING; Operasjonelt ansvar: MISSING; Hostingavhengig forbruk og skalering: MISSING.
+**Fasetter:** Hendelser/utførelse: COMPLETE; Operasjonelt ansvar: COMPLETE; Hostingavhengig forbruk og skalering: COMPLETE.
 
-**Faktisk funn:** manifest.certificationOverlay.excluded nevner serverless eksplisitt; ingen aktiv undervisning, modell eller oppgave.
+**Faktisk funn:** P00: original theory and hosting boundaries, event→trigger→execution→output model with prediction, responsibility and two new decision scenarios with reasons and alternative feedback. Isolated replayed supplement; first/help/retry/abandon preserved.
 
-**Rest / beslutning:** Mangler egen forklaring, relevant mekanisme/praksis, uavhengig scenario og begrunnet vurdering for de angitte emnene.
+**Rest / beslutning:** A–F documented for this scoped objective; qualified human SME, screen-reader, novice/IT usability and measured transfer remain unperformed. No claim that one learner or AZ-900 is mastered.
 
-**Kilder:** [EXAM](https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900), [M01](https://learn.microsoft.com/en-us/training/modules/describe-cloud-compute/), [FUNC](https://learn.microsoft.com/en-us/azure/azure-functions/functions-overview). Lokal mål-ID er et kartleggingspunkt, ikke automatisk tildelt evidens.
+**Kilder:** [EXAM](https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900), [M01](https://learn.microsoft.com/en-us/training/modules/describe-cloud-compute/), [FUNC](https://learn.microsoft.com/en-us/azure/azure-functions/functions-overview), [SL-FUNCTIONS](https://learn.microsoft.com/en-us/azure/azure-functions/functions-overview), [SL-HOSTING](https://learn.microsoft.com/en-us/azure/azure-functions/functions-scale), [SL-BINDINGS](https://learn.microsoft.com/en-us/azure/azure-functions/functions-triggers-bindings), [SL-FLEX](https://learn.microsoft.com/en-us/azure/azure-functions/flex-consumption-plan), [SL-RESPONSIBILITY](https://learn.microsoft.com/en-us/azure/security/fundamentals/shared-responsibility). Lokal mål-ID er et kartleggingspunkt, ikke automatisk tildelt evidens.
 
 ## 1.2 Benefits
 
@@ -411,7 +422,7 @@ Profilene under gir faktisk kilde/manuskript, mekanisme, tilgjengelig komponent,
 
 | Slot / stabil audit-ID                 | Krav (kort temaetikett)                                 | Status  | A B C D E F | Eksisterende lokale mål | Evidens             | Neste PR |
 | -------------------------------------- | ------------------------------------------------------- | ------- | ----------- | ----------------------- | ------------------- | -------- |
-| 2.2.01<br>`az900.compute.compare`      | VMs, containers og functions                            | PARTIAL | P P P P P P | C02, C03, C04           | S, V                | P00, P05 |
+| 2.2.01<br>`az900.compute.compare`      | VMs, containers og functions                            | PARTIAL | P P P P P P | C02, C03, C04           | S, V, SL            | P00, P05 |
 | 2.2.02<br>`az900.compute.vm-options`   | VM, VM Scale Sets, availability sets og Virtual Desktop | PARTIAL | P P P P P P | C02                     | V                   | P05      |
 | 2.2.03<br>`az900.compute.vm-resources` | Ressurser som støtter en VM                             | PARTIAL | V V V P P V | C02, N01, G02           | V                   | P05, P06 |
 | 2.2.04<br>`az900.compute.hosting`      | Web apps, containers og VM-hosting                      | PARTIAL | P P P P P P | C01, C02, C03           | S, V, P             | P05      |
@@ -420,13 +431,13 @@ Profilene under gir faktisk kilde/manuskript, mekanisme, tilgjengelig komponent,
 
 ### 2.2.01 — VMs, containers og functions
 
-**Fasetter:** VM: COMPLETE; Containers: MISSING; Functions: MISSING.
+**Fasetter:** VM: COMPLETE; Containers: MISSING; Functions: COMPLETE.
 
-**Faktisk funn:** VM/OS-kontroll er lært og anvendt.
+**Faktisk funn:** VM/OS-kontroll er lært og anvendt. P00 now teaches Functions, event execution and Functions/VM control tradeoffs.
 
-**Rest / beslutning:** Ingen aktiv containers/Functions-forklaring eller treveis compute-valg; generell PaaS er ikke Functions-dekning.
+**Rest / beslutning:** Containers and complete three-way compute comparison remain missing. P00 does not complete this composite objective.
 
-**Kilder:** [EXAM](https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900), [M05](https://learn.microsoft.com/en-us/training/modules/describe-azure-compute-networking-services/), [FUNC](https://learn.microsoft.com/en-us/azure/azure-functions/functions-overview), [VM](https://learn.microsoft.com/en-us/azure/virtual-machines/overview). Lokal mål-ID er et kartleggingspunkt, ikke automatisk tildelt evidens.
+**Kilder:** [EXAM](https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900), [M05](https://learn.microsoft.com/en-us/training/modules/describe-azure-compute-networking-services/), [FUNC](https://learn.microsoft.com/en-us/azure/azure-functions/functions-overview), [VM](https://learn.microsoft.com/en-us/azure/virtual-machines/overview), [SL-FUNCTIONS](https://learn.microsoft.com/en-us/azure/azure-functions/functions-overview), [SL-HOSTING](https://learn.microsoft.com/en-us/azure/azure-functions/functions-scale), [SL-BINDINGS](https://learn.microsoft.com/en-us/azure/azure-functions/functions-triggers-bindings), [SL-FLEX](https://learn.microsoft.com/en-us/azure/azure-functions/flex-consumption-plan), [SL-RESPONSIBILITY](https://learn.microsoft.com/en-us/azure/security/fundamentals/shared-responsibility). Lokal mål-ID er et kartleggingspunkt, ikke automatisk tildelt evidens.
 
 ### 2.2.02 — VM, VM Scale Sets, availability sets og Virtual Desktop
 
@@ -831,39 +842,44 @@ Profilene under gir faktisk kilde/manuskript, mekanisme, tilgjengelig komponent,
 
 Alle lenker ble kontrollert 2026-10-26. «Page updated» er bare registrert der siden oppgav dette; det er ikke automatisk reviewdato. Module/unit-struktur og relevante tekniske forklaringer er lest; ingen komplette Learn-leksjoner eller beskyttede spørsmål er kopiert. Microsofts offentlige Practice Assessment-beskrivelse ble lest; selve innloggede oppgavebanken ble ikke åpnet.
 
-| ID   | Kilde og anvendelse                                                                                                                                                                                                                | Synlig versjon/dato               |
-| ---- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------- |
-| EXAM | [Microsoft: Current 57 skill bullets, version and weights](https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900)                                                                             | 2026-06-22                        |
-| PA   | [Microsoft: Public assessment scope and limitations; no question bank accessed](https://learn.microsoft.com/en-us/credentials/certifications/practice-assessments-for-microsoft-certifications)                                    | 2026-10-16                        |
-| FAQ  | [Microsoft: Practice assessment and third-party preparation boundaries](https://learn.microsoft.com/en-us/credentials/certifications/frequently-asked-questions)                                                                   | Rolling page; reviewed 2026-10-26 |
-| P1   | [Microsoft: Three cloud-concept modules in official order](https://learn.microsoft.com/en-us/training/paths/microsoft-azure-fundamentals-describe-cloud-concepts/)                                                                 | Rolling page; reviewed 2026-10-26 |
-| P2   | [Microsoft: Five current architecture/service modules](https://learn.microsoft.com/en-us/training/paths/azure-fundamentals-describe-azure-architecture-services/)                                                                  | Rolling page; reviewed 2026-10-26 |
-| P3   | [Microsoft: Four management/governance modules](https://learn.microsoft.com/en-us/training/paths/describe-azure-management-governance/)                                                                                            | Rolling page; reviewed 2026-10-26 |
-| PX   | [Microsoft: Eight additional guided projects, not an exam coverage definition](https://learn.microsoft.com/en-us/training/paths/introduction-cloud-infrastructure-apply-azure-skills-guided-projects/)                             | Rolling page; reviewed 2026-10-26 |
-| M01  | [Microsoft: Cloud definition, responsibility, models, consumption; exam serverless not enumerated here](https://learn.microsoft.com/en-us/training/modules/describe-cloud-compute/)                                                | Rolling page; reviewed 2026-10-26 |
-| M02  | [Microsoft: Availability/scalability, reliability/predictability, security/governance, manageability; sustainability supplemental](https://learn.microsoft.com/en-us/training/modules/describe-benefits-use-cloud-services/)       | Rolling page; reviewed 2026-10-26 |
-| M03  | [Microsoft: IaaS/PaaS/SaaS and use cases](https://learn.microsoft.com/en-us/training/modules/describe-cloud-service-types/)                                                                                                        | Rolling page; reviewed 2026-10-26 |
-| M04  | [Microsoft: Physical infrastructure and management infrastructure](https://learn.microsoft.com/en-us/training/modules/describe-core-architectural-components-of-azure/)                                                            | Rolling page; reviewed 2026-10-26 |
-| M05  | [Microsoft: Current title: Describe Azure compute services; VM, AVD, containers, Functions, hosting; AI/ML/IoT/Edge supplemental](https://learn.microsoft.com/en-us/training/modules/describe-azure-compute-networking-services/)  | Rolling page; reviewed 2026-10-26 |
-| M06  | [Microsoft: VNet, VPN, ExpressRoute, DNS; separate current networking module](https://learn.microsoft.com/en-us/training/modules/describe-azure-networking-services/)                                                              | Rolling page; reviewed 2026-10-26 |
-| M07  | [Microsoft: Accounts, redundancy, services, migration and file movement](https://learn.microsoft.com/en-us/training/modules/describe-azure-storage-services/)                                                                      | Rolling page; reviewed 2026-10-26 |
-| M08  | [Microsoft: Directories, authentication, external access, CA, RBAC, trust, defense, Defender; encryption/key management supplemental](https://learn.microsoft.com/en-us/training/modules/describe-azure-identity-access-security/) | Rolling page; reviewed 2026-10-26 |
-| M09  | [Microsoft: Cost factors, calculator, cost management, tags and optimization](https://learn.microsoft.com/en-us/training/modules/describe-cost-management-azure/)                                                                  | Rolling page; reviewed 2026-10-26 |
-| M10  | [Microsoft: Purview, Policy, locks; Service Trust Portal supplemental](https://learn.microsoft.com/en-us/training/modules/describe-features-tools-azure-for-governance-compliance/)                                                | Rolling page; reviewed 2026-10-26 |
-| M11  | [Microsoft: Portal, CLI/PowerShell, Arc, ARM; cross-check separate IaC exam bullet](https://learn.microsoft.com/en-us/training/modules/describe-features-tools-manage-deploy-azure-resources/)                                     | Rolling page; reviewed 2026-10-26 |
-| M12  | [Microsoft: Advisor, Service Health, Monitor](https://learn.microsoft.com/en-us/training/modules/describe-monitoring-tools-azure/)                                                                                                 | Rolling page; reviewed 2026-10-26 |
-| SR   | [Microsoft: Customer data, identities, access and service-specific shared tasks](https://learn.microsoft.com/en-us/azure/security/fundamentals/shared-responsibility)                                                              | 2026-08-24                        |
-| ARM  | [Microsoft: Control plane, scopes, group lifecycle and metadata location](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/overview)                                                                      | 2026-08-04                        |
-| FUNC | [Microsoft: Triggers/bindings and hosting-plan-dependent serverless behavior](https://learn.microsoft.com/en-us/azure/azure-functions/functions-overview)                                                                          | 2026-09-21                        |
-| REG  | [Microsoft: Regions, zone support and service-specific availability](https://learn.microsoft.com/en-us/azure/reliability/regions-overview)                                                                                         | Rolling page; reviewed 2026-10-26 |
-| PAIR | [Microsoft: Nonpaired regions and no automatic application failover](https://learn.microsoft.com/en-us/azure/reliability/regions-paired)                                                                                           | Rolling page; reviewed 2026-10-26 |
-| PLAN | [Microsoft: Plan compute/OS/region and app dependency](https://learn.microsoft.com/en-us/azure/app-service/overview-hosting-plans)                                                                                                 | Rolling page; reviewed 2026-10-26 |
-| VM   | [Microsoft: Guest maintenance and associated resource configuration](https://learn.microsoft.com/en-us/azure/virtual-machines/overview)                                                                                            | Rolling page; reviewed 2026-10-26 |
-| RES  | [Microsoft: Commitment discount, matching and utilization limits](https://learn.microsoft.com/en-us/azure/cost-management-billing/reservations/save-compute-costs-reservations)                                                    | Rolling page; reviewed 2026-10-26 |
-| SAV  | [Microsoft: Eligible compute spend commitment, not a capacity guarantee](https://learn.microsoft.com/en-us/azure/cost-management-billing/savings-plan/savings-plan-overview)                                                       | Rolling page; reviewed 2026-10-26 |
-| IAAS | [Microsoft: IaaS operational responsibility and use cases](https://learn.microsoft.com/en-us/training/modules/describe-cloud-service-types/2-describe-infrastructure-service)                                                      | Rolling page; reviewed 2026-10-26 |
-| PAAS | [Microsoft: PaaS retained code/data/access and service caveats](https://learn.microsoft.com/en-us/training/modules/describe-cloud-service-types/3-describe-platform-service)                                                       | Rolling page; reviewed 2026-10-26 |
-| SAAS | [Microsoft: SaaS application maintenance versus customer access/data](https://learn.microsoft.com/en-us/training/modules/describe-cloud-service-types/4-describe-software-service)                                                 | Rolling page; reviewed 2026-10-26 |
+| ID                | Kilde og anvendelse                                                                                                                                                                                                                | Synlig versjon/dato               |
+| ----------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------- |
+| EXAM              | [Microsoft: Current 57 skill bullets, version and weights](https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900)                                                                             | 2026-06-22                        |
+| PA                | [Microsoft: Public assessment scope and limitations; no question bank accessed](https://learn.microsoft.com/en-us/credentials/certifications/practice-assessments-for-microsoft-certifications)                                    | 2026-10-16                        |
+| FAQ               | [Microsoft: Practice assessment and third-party preparation boundaries](https://learn.microsoft.com/en-us/credentials/certifications/frequently-asked-questions)                                                                   | Rolling page; reviewed 2026-10-26 |
+| P1                | [Microsoft: Three cloud-concept modules in official order](https://learn.microsoft.com/en-us/training/paths/microsoft-azure-fundamentals-describe-cloud-concepts/)                                                                 | Rolling page; reviewed 2026-10-26 |
+| P2                | [Microsoft: Five current architecture/service modules](https://learn.microsoft.com/en-us/training/paths/azure-fundamentals-describe-azure-architecture-services/)                                                                  | Rolling page; reviewed 2026-10-26 |
+| P3                | [Microsoft: Four management/governance modules](https://learn.microsoft.com/en-us/training/paths/describe-azure-management-governance/)                                                                                            | Rolling page; reviewed 2026-10-26 |
+| PX                | [Microsoft: Eight additional guided projects, not an exam coverage definition](https://learn.microsoft.com/en-us/training/paths/introduction-cloud-infrastructure-apply-azure-skills-guided-projects/)                             | Rolling page; reviewed 2026-10-26 |
+| M01               | [Microsoft: Cloud definition, responsibility, models, consumption; exam serverless not enumerated here](https://learn.microsoft.com/en-us/training/modules/describe-cloud-compute/)                                                | Rolling page; reviewed 2026-10-26 |
+| M02               | [Microsoft: Availability/scalability, reliability/predictability, security/governance, manageability; sustainability supplemental](https://learn.microsoft.com/en-us/training/modules/describe-benefits-use-cloud-services/)       | Rolling page; reviewed 2026-10-26 |
+| M03               | [Microsoft: IaaS/PaaS/SaaS and use cases](https://learn.microsoft.com/en-us/training/modules/describe-cloud-service-types/)                                                                                                        | Rolling page; reviewed 2026-10-26 |
+| M04               | [Microsoft: Physical infrastructure and management infrastructure](https://learn.microsoft.com/en-us/training/modules/describe-core-architectural-components-of-azure/)                                                            | Rolling page; reviewed 2026-10-26 |
+| M05               | [Microsoft: Current title: Describe Azure compute services; VM, AVD, containers, Functions, hosting; AI/ML/IoT/Edge supplemental](https://learn.microsoft.com/en-us/training/modules/describe-azure-compute-networking-services/)  | Rolling page; reviewed 2026-10-26 |
+| M06               | [Microsoft: VNet, VPN, ExpressRoute, DNS; separate current networking module](https://learn.microsoft.com/en-us/training/modules/describe-azure-networking-services/)                                                              | Rolling page; reviewed 2026-10-26 |
+| M07               | [Microsoft: Accounts, redundancy, services, migration and file movement](https://learn.microsoft.com/en-us/training/modules/describe-azure-storage-services/)                                                                      | Rolling page; reviewed 2026-10-26 |
+| M08               | [Microsoft: Directories, authentication, external access, CA, RBAC, trust, defense, Defender; encryption/key management supplemental](https://learn.microsoft.com/en-us/training/modules/describe-azure-identity-access-security/) | Rolling page; reviewed 2026-10-26 |
+| M09               | [Microsoft: Cost factors, calculator, cost management, tags and optimization](https://learn.microsoft.com/en-us/training/modules/describe-cost-management-azure/)                                                                  | Rolling page; reviewed 2026-10-26 |
+| M10               | [Microsoft: Purview, Policy, locks; Service Trust Portal supplemental](https://learn.microsoft.com/en-us/training/modules/describe-features-tools-azure-for-governance-compliance/)                                                | Rolling page; reviewed 2026-10-26 |
+| M11               | [Microsoft: Portal, CLI/PowerShell, Arc, ARM; cross-check separate IaC exam bullet](https://learn.microsoft.com/en-us/training/modules/describe-features-tools-manage-deploy-azure-resources/)                                     | Rolling page; reviewed 2026-10-26 |
+| M12               | [Microsoft: Advisor, Service Health, Monitor](https://learn.microsoft.com/en-us/training/modules/describe-monitoring-tools-azure/)                                                                                                 | Rolling page; reviewed 2026-10-26 |
+| SR                | [Microsoft: Customer data, identities, access and service-specific shared tasks](https://learn.microsoft.com/en-us/azure/security/fundamentals/shared-responsibility)                                                              | 2026-08-24                        |
+| ARM               | [Microsoft: Control plane, scopes, group lifecycle and metadata location](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/overview)                                                                      | 2026-08-04                        |
+| FUNC              | [Microsoft: Triggers/bindings and hosting-plan-dependent serverless behavior](https://learn.microsoft.com/en-us/azure/azure-functions/functions-overview)                                                                          | 2026-09-21                        |
+| REG               | [Microsoft: Regions, zone support and service-specific availability](https://learn.microsoft.com/en-us/azure/reliability/regions-overview)                                                                                         | Rolling page; reviewed 2026-10-26 |
+| PAIR              | [Microsoft: Nonpaired regions and no automatic application failover](https://learn.microsoft.com/en-us/azure/reliability/regions-paired)                                                                                           | Rolling page; reviewed 2026-10-26 |
+| PLAN              | [Microsoft: Plan compute/OS/region and app dependency](https://learn.microsoft.com/en-us/azure/app-service/overview-hosting-plans)                                                                                                 | Rolling page; reviewed 2026-10-26 |
+| VM                | [Microsoft: Guest maintenance and associated resource configuration](https://learn.microsoft.com/en-us/azure/virtual-machines/overview)                                                                                            | Rolling page; reviewed 2026-10-26 |
+| RES               | [Microsoft: Commitment discount, matching and utilization limits](https://learn.microsoft.com/en-us/azure/cost-management-billing/reservations/save-compute-costs-reservations)                                                    | Rolling page; reviewed 2026-10-26 |
+| SAV               | [Microsoft: Eligible compute spend commitment, not a capacity guarantee](https://learn.microsoft.com/en-us/azure/cost-management-billing/savings-plan/savings-plan-overview)                                                       | Rolling page; reviewed 2026-10-26 |
+| IAAS              | [Microsoft: IaaS operational responsibility and use cases](https://learn.microsoft.com/en-us/training/modules/describe-cloud-service-types/2-describe-infrastructure-service)                                                      | Rolling page; reviewed 2026-10-26 |
+| PAAS              | [Microsoft: PaaS retained code/data/access and service caveats](https://learn.microsoft.com/en-us/training/modules/describe-cloud-service-types/3-describe-platform-service)                                                       | Rolling page; reviewed 2026-10-26 |
+| SAAS              | [Microsoft: SaaS application maintenance versus customer access/data](https://learn.microsoft.com/en-us/training/modules/describe-cloud-service-types/4-describe-software-service)                                                 | Rolling page; reviewed 2026-10-26 |
+| SL-FUNCTIONS      | [Microsoft: Managed event-based code, physical hosting and use cases](https://learn.microsoft.com/en-us/azure/azure-functions/functions-overview)                                                                                  | Rolling page; reviewed 2026-10-26 |
+| SL-HOSTING        | [Microsoft: Plan-dependent scale, cold starts, timeout and billing qualifications](https://learn.microsoft.com/en-us/azure/azure-functions/functions-scale)                                                                        | Rolling page; reviewed 2026-10-26 |
+| SL-BINDINGS       | [Microsoft: Exactly one trigger; optional bindings; invocation is not success](https://learn.microsoft.com/en-us/azure/azure-functions/functions-triggers-bindings)                                                                | Rolling page; reviewed 2026-10-26 |
+| SL-FLEX           | [Microsoft: On-demand and always-ready baseline, no universal free idle](https://learn.microsoft.com/en-us/azure/azure-functions/flex-consumption-plan)                                                                            | Rolling page; reviewed 2026-10-26 |
+| SL-RESPONSIBILITY | [Microsoft: Functions as PaaS and retained customer code/data/access](https://learn.microsoft.com/en-us/azure/security/fundamentals/shared-responsibility)                                                                         | Rolling page; reviewed 2026-10-26 |
 
 Den offentlige Learn-skallet viste enkelte steder en authorization-melding samtidig som artikkelteksten var lesbar. Ingen tenant, tilgangskontroll eller innlogging ble omgått. Nettkildene er referanser, ikke runtime-avhengigheter.
 

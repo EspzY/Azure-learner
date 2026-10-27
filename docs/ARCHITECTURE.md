@@ -1,5 +1,9 @@
 # Architecture
 
+## P00: isolated conceptual supplement
+
+The existing Course shell inserts `serverless-*` topics between pricing and the resource bridge. `domain/curriculum/serverless.ts` owns the FC08 manifest, bounded execution rules, event validation/replay and independent rubric; `serverless-store.ts` and provider own only the new key. Old curriculum sets/first submissions/completion/XP are unchanged. The existing manifest exports the supplement without modifying its frozen original objective array. `serverless.tsx` renders theory/trace/Journal/assessment and reuses native guidance styling and PR20 claim-before-auto UI history. No command or inventory path is shared with the conceptual model. Portal guidance pauses for active/uncertain supplement assessments. [Compatibility and source design](SERVERLESS_FOUNDATIONS.md).
+
 ## Permanent quality and milestone boundary — PR20
 
 `quality/releases/current.json` is offline release engineering metadata, never runtime curriculum/evidence. `scripts/quality-check.mjs` validates seven-gate source/claim/activity/module/reference contracts and final review structure. `quality:stamp` records all relevant changed files from a full Git base, normalizing text CRLF for Linux/Windows; it leaves review pending. Strict CI after check/E2E compares actual PR base, files and authored contract fingerprint, independent reviewer/timing and closed blocking findings. The audit report/status fields are excluded from self-referential hashes; this is traceability, not signed human approval. [Workflow and limits](RELEASE_ACCEPTANCE.md).

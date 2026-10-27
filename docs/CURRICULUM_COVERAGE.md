@@ -1,5 +1,9 @@
 # Curriculum coverage audit
 
+## Scoped P00 update — 2026-10-27
+
+FC08 serverless is now authored and implemented in the actual Cloud Computing flow, with execution prediction, responsibility/hosting theory, two changed independent scenarios and alternative rationales. The [generated AZ-900 matrix](AZ900_COVERAGE_MATRIX.md) evaluates A–F for1.1.07;2.2.01 remains PARTIAL due to containers/three-way comparison. Existing original module arrays/rubrics retain their versions and meanings. New evidence is isolated, not inherited. No qualified human SME or measured learner-transfer approval.
+
 ## Full AZ-900 coverage audit — 2026-10-26
 
 This document's older implementation statuses describe available module/activity structures. They must not be read as COMPLETE exam coverage. The authoritative dated crosswalk is now [AZ900_COVERAGE_MATRIX](AZ900_COVERAGE_MATRIX.md): all57 official bullets,126 local facets and A–F theory/mechanism/application/independent task/feedback/source review. Cloud6 COMPLETE/8 PARTIAL/1 MISSING; architecture0/12/15; management0/8/7. COMPLETE is a narrow content audit conclusion, not proven learning, personal achievement or exam readiness. Qualified human SME/learner review is still absent. [Detailed limitations and Learn units](AZ900_GAP_ANALYSIS.md).

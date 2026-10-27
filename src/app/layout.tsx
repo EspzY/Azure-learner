@@ -10,6 +10,7 @@ import { PortalLearningProvider } from '@/features/portal/learning-provider';
 import { FoundationsV2Provider } from '@/features/learning/v2-provider';
 import { CourseProvider } from '@/features/course/provider';
 import { ExpansionProvider } from '@/features/learning/expansion-provider';
+import { ServerlessProvider } from '@/features/learning/serverless-provider';
 import '@xyflow/react/dist/style.css';
 import './globals.css';
 
@@ -30,7 +31,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                     <SandboxProvider>
                       <SaasProvider>
                         <PracticalProvider>
-                          <AppShell>{children}</AppShell>
+                          <ServerlessProvider>
+                            <AppShell>{children}</AppShell>
+                          </ServerlessProvider>
                         </PracticalProvider>
                       </SaasProvider>
                     </SandboxProvider>

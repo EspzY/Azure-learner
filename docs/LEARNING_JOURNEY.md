@@ -1,5 +1,9 @@
 # Learning journey and competency universe
 
+## Available P00 continuation
+
+Cloud Computing now continues from pricing into six serverless presentation states (concept, mechanism, hosting, guided explorer, independent application, summary) before the existing resource bridge. These are local supplement units, not a renamed official Learn module. Service Types/Benefits remain available; broader compute comparison, including containers, is still partial. [P00 specification](SERVERLESS_FOUNDATIONS.md).
+
 ## Current AZ-900 mapping — 2026-10-26
 
 The30 professional competency IDs below remain a broad reusable foundation, not30 authored modules or certification completeness. The [dated AZ-900 crosswalk](AZ900_COVERAGE_MATRIX.md) maps all57 exam bullets to actual current FC/CB/ST material or future professional areas. Several professional competencies require multiple modules. [Prioritized expansion](AZ900_EXPANSION_ROADMAP.md) adds Fundamentals breadth while preserving later administration, development, networking, security, operations, data and architecture routes. Certification is a secondary mapping; quests/XP/module visits never imply exam readiness. This PR changes no student progression or default module availability.

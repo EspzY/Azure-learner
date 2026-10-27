@@ -49,7 +49,8 @@ export function validateAudit(audit, folder = root) {
   for (const [id, source] of Object.entries(audit.sources ?? {})) {
     if (
       !source.url.startsWith('https://learn.microsoft.com/en-us/') ||
-      source.reviewed !== audit.reviewed ||
+      (source.reviewed !== audit.reviewed &&
+        !audit.updates?.some((u) => u.reviewed === source.reviewed && u.sources?.includes(id))) ||
       !source.purpose
     )
       errors.push(`${id}: missing official source/review`);
@@ -121,6 +122,10 @@ export function renderMatrix(audit) {
     '',
     `Kontrollert **${audit.reviewed}**. Offisielt grunnlag: Skills measured **${audit.examVersion}**, fortsatt gjeldende på kontrolldato. Koderevisjon: PR18, \`${audit.baselineBranch}\`, commit \`${audit.baselineCommit}\`. Denne PR-en endrer ingen mål, rubrikk, elevregistrering eller simulatorregel.`,
     '',
+    ...(audit.updates ?? []).flatMap((u) => [
+      `Scoped update **${u.id}**, ${u.reviewed}: ${u.objectives.join(', ')}. ${u.note}`,
+      '',
+    ]),
     '## Metode og terskel',
     '',
     'Alle **57 offisielle kulepunkter** er egne rader, fordelt på 11 underområder. Sammensatte krav er dessuten delt i 126 navngitte kontrollfasetter. Fasettene er en lokal auditinndeling, ikke Microsofts spørsmålstall eller en ekstra eksamensvekt. Slot angir rekkefølgen i den daterte studieguideversjonen; stabile `az900.*`-ID-er er audit-/plan-ID-er, foreløpig ikke nye runtime-kompetanser.',

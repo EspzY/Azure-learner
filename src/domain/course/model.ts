@@ -4,6 +4,7 @@ import { validResourceGroupName } from '../simulation';
 import { topics, type PortalLocation } from '../portal/model';
 import { unitIds } from '../curriculum/manifest';
 import { v2Routes } from '../curriculum/foundations-v2';
+import { serverlessTopics } from '../curriculum/serverless';
 import { routes } from '../curriculum/expansion';
 
 export const courseKey = 'azurelab.course.v1';
@@ -91,7 +92,7 @@ export function courseTopic(module: CourseModule, topic: string | null) {
       ? routes('benefits')
       : module === 'services'
         ? [...topics, 'assessment', 'summary']
-        : [...unitIds, 'assessment', 'summary', ...v2Routes];
+        : [...unitIds, 'assessment', 'summary', ...v2Routes, ...serverlessTopics];
   return allowed.includes(topic ?? '')
     ? topic!
     : module === 'benefits'

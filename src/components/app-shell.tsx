@@ -13,6 +13,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const { progress, ready } = useProgress();
   const { openJournal } = useLearning();
+  const serverless = useServerless();
   const active = nb.nav.find((item) => item.href === pathname);
   if (
     pathname.startsWith('/labs/') ||
@@ -72,7 +73,10 @@ export function AppShell({ children }: { children: React.ReactNode }) {
               className="button button-secondary shell-action"
               aria-label={nb.foundations.journal}
               title={nb.foundations.journal}
-              onClick={() => openJournal()}
+              onClick={() => {
+                if (serverless.facts.active) serverless.store.event({ kind: 'aid' });
+                openJournal();
+              }}
             >
               <BookOpen size={18} />
               <span className="shell-action-label">{nb.foundations.journal}</span>
@@ -103,3 +107,4 @@ export function AppShell({ children }: { children: React.ReactNode }) {
     </div>
   );
 }
+import { useServerless } from '@/features/learning/serverless-provider';

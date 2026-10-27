@@ -1,341 +1,520 @@
 {
   "schema": 1,
-  "id": "permanent-quality-savvyshark@1",
-  "baseCommit": "cc9e145dcf5dc418af42b19fd569179a2272c61e",
-  "author": "codex/root",
+  "id": "PR21-serverless-foundations",
+  "baseCommit": "0f9cacad116a1d236a2edf6dcaa5ee0ab5fe4bda",
+  "author": "codex-pr21-author",
   "scope": {
-    "kind": "infrastructure-guidance",
-    "description": "Permanent seven-gate enforcement and two read-only guided milestones; preserve current curriculum/assessment/domain/store behavior.",
-    "objectives": ["G03", "CB03", "C02", "ST01", "N01"],
-    "sourceDiscovery": {
-      "studyGuide": "Reused dated PR19 audit; no new curriculum expansion.",
-      "pathsModulesUnits": "Not applicable to new module authorship: no new module. Existing manuscript/rubric/source bindings are reused.",
-      "productReferences": "Scoped Policy, OS disk and NIC association claims checked before new copy.",
-      "supplemental": "Only explicitly listed linked references; no unrelated feature expansion."
-    }
+    "kind": "new-module",
+    "description": "P00: FC08 isolated conceptual supplement integrated after pricing in current Cloud Computing. No Functions resource engine, old evidence/XP changes, broader compute or new modules.",
+    "objectives": ["FC08"]
   },
   "sources": [
     {
-      "id": "Q-POLICY",
-      "url": "https://learn.microsoft.com/en-us/azure/governance/policy/overview",
-      "title": "What is Azure Policy?",
-      "kind": "product",
-      "reviewed": "2026-10-26",
-      "version": "rolling-page reviewed 2026-10-26",
+      "id": "SL01",
+      "url": "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900",
+      "title": "AZ-900 study guide",
+      "kind": "exam",
+      "reviewed": "2026-10-27",
+      "version": "July20,2026 Skills Measured",
       "availability": "AVAILABLE",
-      "objectives": ["G03", "CB03"],
-      "claims": ["policy.deny-configuration"],
-      "limits": "Only resource-property deny in the authored local Web rule is used. New identity-aware Policy capabilities and generic remediation are not modelled; local receipts/replay prove local non-mutation, not this public page.",
+      "objectives": ["FC08"],
+      "claims": ["sl.scope"],
+      "limits": "Conceptual P00 scope; no live deployment, pricing/latency/quotas/retirement promises. Generic authorization banner did not prevent reading public body. Human SME unperformed. Detailed scope/discovery in SERVERLESS_FOUNDATIONS.",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effect-deny",
-          "disposition": "reviewed-existing",
-          "reason": "Existing S38 and source-backed deny semantics; implementation reuses unchanged local rule."
+          "url": "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900",
+          "disposition": "reviewed-essential",
+          "reason": "Public body, relevant expanded plan/footnote sections and listed prerequisites reviewed; source-specific claims only."
+        }
+      ]
+    },
+    {
+      "id": "SL02",
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-cloud-compute/",
+      "title": "Describe cloud computing, public index and relevant units",
+      "kind": "module",
+      "reviewed": "2026-10-27",
+      "version": "rolling public page reviewed2026-10-27",
+      "availability": "AVAILABLE",
+      "objectives": ["FC08"],
+      "claims": ["sl.prerequisite"],
+      "limits": "Conceptual P00 scope; no live deployment, pricing/latency/quotas/retirement promises. Generic authorization banner did not prevent reading public body. Human SME unperformed. Detailed scope/discovery in SERVERLESS_FOUNDATIONS.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/training/modules/describe-cloud-compute/",
+          "disposition": "reviewed-essential",
+          "reason": "Public body, relevant expanded plan/footnote sections and listed prerequisites reviewed; source-specific claims only."
         },
         {
-          "url": "https://learn.microsoft.com/en-us/azure/governance/policy/how-to/remediate-resources",
+          "url": "https://learn.microsoft.com/en-us/training/modules/describe-cloud-compute/3-what-cloud-compute",
+          "disposition": "reviewed-essential",
+          "reason": "Cloud prerequisite boundary, not enough serverless teaching."
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/training/modules/describe-cloud-compute/6-describe-consumption-based-model",
+          "disposition": "reviewed-essential",
+          "reason": "Consumption does not erase all plan-dependent costs."
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/training/modules/describe-cloud-compute/7-module-assessment",
           "disposition": "outside-scope",
-          "reason": "No modify/deploy/remediation feature is introduced."
+          "reason": "Protected questions excluded; all new scenarios are original."
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/training/paths/microsoft-azure-fundamentals-describe-cloud-concepts/",
+          "disposition": "reviewed-essential",
+          "reason": "Three official modules/order and basic IT prerequisite unchanged; local serverless is not a fourth official module."
         }
       ]
     },
     {
-      "id": "Q-DISK",
-      "url": "https://learn.microsoft.com/en-us/azure/virtual-machines/managed-disks-overview",
-      "title": "Azure managed disks overview",
+      "id": "SL03",
+      "url": "https://learn.microsoft.com/en-us/azure/azure-functions/functions-overview",
+      "title": "What is Azure Functions?",
       "kind": "product",
-      "reviewed": "2026-10-26",
-      "version": "rolling-page reviewed 2026-10-26",
+      "reviewed": "2026-10-27",
+      "version": "rolling public page reviewed2026-10-27",
       "availability": "AVAILABLE",
-      "objectives": ["C02", "ST01"],
-      "claims": ["vm.os-disk"],
-      "limits": "OS disk and data disk roles only. No availability, durability, pricing, backup or disk-performance claim is introduced.",
+      "objectives": ["FC08"],
+      "claims": ["sl.concept", "sl.events"],
+      "limits": "Conceptual P00 scope; no live deployment, pricing/latency/quotas/retirement promises. Generic authorization banner did not prevent reading public body. Human SME unperformed. Detailed scope/discovery in SERVERLESS_FOUNDATIONS.",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/virtual-machines/disks-types",
-          "disposition": "outside-scope",
-          "reason": "No disk tier/SKU expansion; existing teaching profiles remain bounded."
-        }
-      ]
-    },
-    {
-      "id": "Q-NIC",
-      "url": "https://learn.microsoft.com/en-us/azure/virtual-network/network-overview",
-      "title": "Virtual networks and virtual machines in Azure",
-      "kind": "product",
-      "reviewed": "2026-10-26",
-      "version": "rolling-page reviewed 2026-10-26",
-      "availability": "AVAILABLE",
-      "objectives": ["C02", "N01", "ST01"],
-      "claims": ["vm.nic-subnet-vnet"],
-      "limits": "NIC/subnet/VNet association only. Public/default IP and outbound-network descriptions are not imported. No actual traffic or guest boot is inferred.",
-      "discovery": [
+          "url": "https://learn.microsoft.com/en-us/azure/azure-functions/functions-overview",
+          "disposition": "reviewed-essential",
+          "reason": "Public body, relevant expanded plan/footnote sections and listed prerequisites reviewed; source-specific claims only."
+        },
         {
-          "url": "https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-network-interface",
-          "disposition": "optional",
-          "reason": "Linked deeper NIC operations are beyond the existing one-NIC model; relationship explanation only."
-        }
-      ]
-    },
-    {
-      "id": "Q-EXAM",
-      "url": "https://learn.microsoft.com/en-us/credentials/support/exam-duration-exam-experience",
-      "title": "Exam duration and exam experience",
-      "kind": "official-example",
-      "reviewed": "2026-10-26",
-      "version": "rolling-page reviewed 2026-10-26",
-      "availability": "AVAILABLE",
-      "objectives": ["quality.assessment-format"],
-      "claims": ["assessment.public-formats"],
-      "limits": "Public interaction descriptions only, not actual AZ-900 item composition, copied questions or an implemented engine.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/credentials/certifications/prepare-exam",
+          "url": "https://learn.microsoft.com/en-us/azure/azure-functions/functions-scenarios",
           "disposition": "reviewed-applied",
-          "reason": "Official descriptions of build list, drag-and-drop and exam sandbox navigation."
-        },
-        {
-          "url": "https://aka.ms/examdemo",
-          "disposition": "blocked",
-          "reason": "Research redirect unavailable; interactive sandbox completion is not claimed."
+          "reason": "File/HTTP/queue/timer examples, no example code copied or run."
         }
       ]
     },
     {
-      "id": "Q-DEMO",
-      "url": "https://aka.ms/examdemo",
-      "title": "Microsoft public exam sandbox",
-      "kind": "official-example",
-      "reviewed": "2026-10-26",
-      "version": "rolling-page reviewed 2026-10-26",
-      "availability": "BLOCKED",
-      "objectives": ["quality.assessment-format"],
-      "claims": ["assessment.public-formats"],
-      "limits": "The aka.ms redirect was unavailable to the research tool. The official English link from Microsoft Learn opened the demo introduction in browser, but further interaction required Candidate Agreement acceptance. Stopped without acceptance; no question content or interactive format review is claimed. Public Q-EXAM documentation is the alternative.",
+      "id": "SL04",
+      "url": "https://learn.microsoft.com/en-us/azure/azure-functions/functions-triggers-bindings",
+      "title": "Triggers and bindings",
+      "kind": "product",
+      "reviewed": "2026-10-27",
+      "version": "rolling public page reviewed2026-10-27",
+      "availability": "AVAILABLE",
+      "objectives": ["FC08"],
+      "claims": ["sl.trigger", "sl.bindings"],
+      "limits": "Conceptual P00 scope; no live deployment, pricing/latency/quotas/retirement promises. Generic authorization banner did not prevent reading public body. Human SME unperformed. Detailed scope/discovery in SERVERLESS_FOUNDATIONS.",
       "discovery": [
         {
-          "url": "https://mscertdemo.starttest.com/",
-          "disposition": "blocked",
-          "reason": "Official English destination linked by Microsoft Learn; introduction available, further interaction stopped at Candidate Agreement without acceptance."
+          "url": "https://learn.microsoft.com/en-us/azure/azure-functions/functions-triggers-bindings",
+          "disposition": "reviewed-essential",
+          "reason": "Public body, relevant expanded plan/footnote sections and listed prerequisites reviewed; source-specific claims only."
         }
-      ],
-      "alternative": "Q-EXAM"
+      ]
+    },
+    {
+      "id": "SL05",
+      "url": "https://learn.microsoft.com/en-us/azure/azure-functions/functions-scale",
+      "title": "Functions hosting options",
+      "kind": "product",
+      "reviewed": "2026-10-27",
+      "version": "rolling public page reviewed2026-10-27",
+      "availability": "AVAILABLE",
+      "objectives": ["FC08"],
+      "claims": ["sl.hosting", "sl.limits"],
+      "limits": "Conceptual P00 scope; no live deployment, pricing/latency/quotas/retirement promises. Generic authorization banner did not prevent reading public body. Human SME unperformed. Detailed scope/discovery in SERVERLESS_FOUNDATIONS.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/azure-functions/functions-scale",
+          "disposition": "reviewed-essential",
+          "reason": "Public body, relevant expanded plan/footnote sections and listed prerequisites reviewed; source-specific claims only."
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/azure-functions/functions-best-practices",
+          "disposition": "reviewed-essential",
+          "reason": "Plan, dependencies and configuration impact; future operational/deployment links outside P00."
+        }
+      ]
+    },
+    {
+      "id": "SL06",
+      "url": "https://learn.microsoft.com/en-us/azure/azure-functions/flex-consumption-plan",
+      "title": "Flex Consumption plan",
+      "kind": "product",
+      "reviewed": "2026-10-27",
+      "version": "rolling public page reviewed2026-10-27",
+      "availability": "AVAILABLE",
+      "objectives": ["FC08"],
+      "claims": ["sl.hosting", "sl.cost"],
+      "limits": "Conceptual P00 scope; no live deployment, pricing/latency/quotas/retirement promises. Generic authorization banner did not prevent reading public body. Human SME unperformed. Detailed scope/discovery in SERVERLESS_FOUNDATIONS.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/azure-functions/flex-consumption-plan",
+          "disposition": "reviewed-essential",
+          "reason": "Public body, relevant expanded plan/footnote sections and listed prerequisites reviewed; source-specific claims only."
+        }
+      ]
+    },
+    {
+      "id": "SL07",
+      "url": "https://learn.microsoft.com/en-us/azure/azure-functions/functions-premium-plan",
+      "title": "Functions Premium plan",
+      "kind": "product",
+      "reviewed": "2026-10-27",
+      "version": "rolling public page reviewed2026-10-27",
+      "availability": "AVAILABLE",
+      "objectives": ["FC08"],
+      "claims": ["sl.hosting", "sl.cost"],
+      "limits": "Conceptual P00 scope; no live deployment, pricing/latency/quotas/retirement promises. Generic authorization banner did not prevent reading public body. Human SME unperformed. Detailed scope/discovery in SERVERLESS_FOUNDATIONS.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/azure-functions/functions-premium-plan",
+          "disposition": "reviewed-essential",
+          "reason": "Public body, relevant expanded plan/footnote sections and listed prerequisites reviewed; source-specific claims only."
+        }
+      ]
+    },
+    {
+      "id": "SL08",
+      "url": "https://learn.microsoft.com/en-us/azure/azure-functions/dedicated-plan",
+      "title": "Functions Dedicated hosting",
+      "kind": "product",
+      "reviewed": "2026-10-27",
+      "version": "rolling public page reviewed2026-10-27",
+      "availability": "AVAILABLE",
+      "objectives": ["FC08"],
+      "claims": ["sl.hosting", "sl.cost"],
+      "limits": "Conceptual P00 scope; no live deployment, pricing/latency/quotas/retirement promises. Generic authorization banner did not prevent reading public body. Human SME unperformed. Detailed scope/discovery in SERVERLESS_FOUNDATIONS.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/azure-functions/dedicated-plan",
+          "disposition": "reviewed-essential",
+          "reason": "Public body, relevant expanded plan/footnote sections and listed prerequisites reviewed; source-specific claims only."
+        }
+      ]
+    },
+    {
+      "id": "SL09",
+      "url": "https://learn.microsoft.com/en-us/azure/azure-functions/performance-reliability",
+      "title": "Functions performance and reliability",
+      "kind": "technical",
+      "reviewed": "2026-10-27",
+      "version": "rolling public page reviewed2026-10-27",
+      "availability": "AVAILABLE",
+      "objectives": ["FC08"],
+      "claims": ["sl.state", "sl.limits"],
+      "limits": "Conceptual P00 scope; no live deployment, pricing/latency/quotas/retirement promises. Generic authorization banner did not prevent reading public body. Human SME unperformed. Detailed scope/discovery in SERVERLESS_FOUNDATIONS.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/azure-functions/performance-reliability",
+          "disposition": "reviewed-essential",
+          "reason": "Public body, relevant expanded plan/footnote sections and listed prerequisites reviewed; source-specific claims only."
+        }
+      ]
+    },
+    {
+      "id": "SL10",
+      "url": "https://learn.microsoft.com/en-us/azure/security/fundamentals/shared-responsibility",
+      "title": "Shared responsibility",
+      "kind": "technical",
+      "reviewed": "2026-10-27",
+      "version": "rolling public page reviewed2026-10-27",
+      "availability": "AVAILABLE",
+      "objectives": ["FC08"],
+      "claims": ["sl.responsibility"],
+      "limits": "Conceptual P00 scope; no live deployment, pricing/latency/quotas/retirement promises. Generic authorization banner did not prevent reading public body. Human SME unperformed. Detailed scope/discovery in SERVERLESS_FOUNDATIONS.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/security/fundamentals/shared-responsibility",
+          "disposition": "reviewed-essential",
+          "reason": "Public body, relevant expanded plan/footnote sections and listed prerequisites reviewed; source-specific claims only."
+        }
+      ]
+    },
+    {
+      "id": "SL11",
+      "url": "https://learn.microsoft.com/en-us/azure/architecture/guide/technology-choices/compute-decision-tree",
+      "title": "Choose Azure compute",
+      "kind": "architecture",
+      "reviewed": "2026-10-27",
+      "version": "rolling public page reviewed2026-10-27",
+      "availability": "AVAILABLE",
+      "objectives": ["FC08"],
+      "claims": ["sl.choice", "sl.concept"],
+      "limits": "Conceptual P00 scope; no live deployment, pricing/latency/quotas/retirement promises. Generic authorization banner did not prevent reading public body. Human SME unperformed. Detailed scope/discovery in SERVERLESS_FOUNDATIONS.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/architecture/guide/technology-choices/compute-decision-tree",
+          "disposition": "reviewed-essential",
+          "reason": "Public body, relevant expanded plan/footnote sections and listed prerequisites reviewed; source-specific claims only."
+        }
+      ]
+    },
+    {
+      "id": "SL12",
+      "url": "https://learn.microsoft.com/en-us/azure/logic-apps/logic-apps-overview",
+      "title": "Azure Logic Apps overview",
+      "kind": "architecture",
+      "reviewed": "2026-10-27",
+      "version": "rolling public page reviewed2026-10-27",
+      "availability": "AVAILABLE",
+      "objectives": ["FC08"],
+      "claims": ["sl.concept"],
+      "limits": "Conceptual P00 scope; no live deployment, pricing/latency/quotas/retirement promises. Generic authorization banner did not prevent reading public body. Human SME unperformed. Detailed scope/discovery in SERVERLESS_FOUNDATIONS.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/logic-apps/logic-apps-overview",
+          "disposition": "reviewed-applied",
+          "reason": "Other serverless workflows, not all hosting variations; no new service teaching or implementation."
+        }
+      ]
     }
   ],
   "activities": [
     {
-      "id": "policy-denial",
-      "objectives": ["G03", "CB03"],
-      "claims": ["policy.deny-configuration"],
+      "id": "serverless-FC08",
+      "objectives": ["FC08"],
+      "claims": [
+        "sl.concept",
+        "sl.events",
+        "sl.trigger",
+        "sl.bindings",
+        "sl.hosting",
+        "sl.limits",
+        "sl.cost",
+        "sl.state",
+        "sl.responsibility",
+        "sl.choice"
+      ],
+      "limits": "Deterministic synthetic trace; no Azure scale/performance or resources; fixed two scenarios, no human transfer validation.",
+      "assessmentStatus": "new-independent",
       "theory": [
         {
           "path": "src/content/nb.ts",
-          "marker": "milestones:"
+          "marker": "serverlessNb"
         }
       ],
       "mechanism": [
         {
-          "path": "src/domain/guidance/milestones.ts",
-          "marker": "policy-denial"
+          "path": "src/domain/curriculum/serverless.ts",
+          "marker": "executeEvents"
         }
       ],
       "practice": [
         {
-          "path": "src/features/course/guidance-milestones.tsx",
-          "marker": "GuidanceMilestones"
+          "path": "src/features/learning/serverless.tsx",
+          "marker": "function Explorer"
         }
       ],
       "feedback": [
         {
           "path": "src/content/nb.ts",
-          "marker": "consequence:"
+          "marker": "guidedFeedback"
         }
       ],
       "visual": [
         {
-          "path": "src/features/course/guidance-milestones.tsx",
-          "marker": "milestone-facts"
+          "path": "src/features/learning/serverless.tsx",
+          "marker": "function ExecutionTrace"
         }
       ],
       "accessible": [
         {
-          "path": "src/features/course/guidance-milestones.tsx",
-          "marker": "onCancel"
+          "path": "src/features/learning/serverless.tsx",
+          "marker": "<table>"
         }
       ],
       "assessment": [
         {
-          "path": "src/domain/curriculum/expansion.ts",
-          "marker": "assess"
-        },
-        {
-          "path": "src/domain/sandbox/practical.ts",
-          "marker": "evaluatePractical"
+          "path": "src/domain/curriculum/serverless.ts",
+          "marker": "serverlessCriteria"
         }
       ],
-      "assessmentStatus": "unchanged-existing",
       "savvyshark": [
         {
-          "path": "src/domain/guidance/milestones.test.ts",
-          "marker": "read-only registered learning milestones"
+          "path": "src/features/learning/serverless.tsx",
+          "marker": "claimMilestone"
         }
-      ],
-      "limits": "Presentation-only explanation of existing outcomes; no new independent task, completion, XP or upgrade of PR19 PARTIAL coverage."
-    },
-    {
-      "id": "vm-dependencies",
-      "objectives": ["C02", "ST01", "N01"],
-      "claims": ["vm.nic-subnet-vnet", "vm.os-disk"],
-      "theory": [
-        {
-          "path": "src/content/nb.ts",
-          "marker": "milestones:"
-        }
-      ],
-      "mechanism": [
-        {
-          "path": "src/domain/guidance/milestones.ts",
-          "marker": "vm-dependencies"
-        }
-      ],
-      "practice": [
-        {
-          "path": "src/features/course/guidance-milestones.tsx",
-          "marker": "GuidanceMilestones"
-        }
-      ],
-      "feedback": [
-        {
-          "path": "src/content/nb.ts",
-          "marker": "consequence:"
-        }
-      ],
-      "visual": [
-        {
-          "path": "src/features/course/guidance-milestones.tsx",
-          "marker": "milestone-facts"
-        }
-      ],
-      "accessible": [
-        {
-          "path": "src/features/course/guidance-milestones.tsx",
-          "marker": "onCancel"
-        }
-      ],
-      "assessment": [
-        {
-          "path": "src/domain/curriculum/expansion.ts",
-          "marker": "assess"
-        },
-        {
-          "path": "src/domain/sandbox/practical.ts",
-          "marker": "evaluatePractical"
-        }
-      ],
-      "assessmentStatus": "unchanged-existing",
-      "savvyshark": [
-        {
-          "path": "src/domain/guidance/milestones.test.ts",
-          "marker": "read-only registered learning milestones"
-        }
-      ],
-      "limits": "Presentation-only explanation of existing outcomes; no new independent task, completion, XP or upgrade of PR19 PARTIAL coverage."
+      ]
     }
   ],
-  "modules": [],
+  "modules": [
+    {
+      "id": "serverless-foundations",
+      "prerequisites": [
+        {
+          "path": "src/content/nb.ts",
+          "marker": "prerequisite:"
+        }
+      ],
+      "terminology": [
+        {
+          "path": "src/content/nb.ts",
+          "marker": "Concurrency"
+        }
+      ],
+      "concept": [
+        {
+          "path": "src/content/nb.ts",
+          "marker": "Serverless lar teamet"
+        }
+      ],
+      "mechanism": [
+        {
+          "path": "src/domain/curriculum/serverless.ts",
+          "marker": "executeEvents"
+        }
+      ],
+      "azureExample": [
+        {
+          "path": "src/content/nb.ts",
+          "marker": "Blob Storage"
+        }
+      ],
+      "workedExample": [
+        {
+          "path": "src/content/nb.ts",
+          "marker": "To kømeldinger"
+        }
+      ],
+      "misconception": [
+        {
+          "path": "src/content/nb.ts",
+          "marker": "no-servers"
+        }
+      ],
+      "limits": [
+        {
+          "path": "src/content/nb.ts",
+          "marker": "Cold start"
+        }
+      ],
+      "visual": [
+        {
+          "path": "src/features/learning/serverless.tsx",
+          "marker": "function ExecutionTrace"
+        }
+      ],
+      "practice": [
+        {
+          "path": "src/features/learning/serverless.tsx",
+          "marker": "function Explorer"
+        }
+      ],
+      "independentScenario": [
+        {
+          "path": "src/content/nb.ts",
+          "marker": "Ujevne webhook-varsler"
+        }
+      ],
+      "correctAndWrongRationales": [
+        {
+          "path": "src/content/nb.ts",
+          "marker": "webhookReason:"
+        }
+      ],
+      "sources": [
+        {
+          "path": "docs/SERVERLESS_FOUNDATIONS.md",
+          "marker": "Source discovery"
+        }
+      ]
+    }
+  ],
   "gates": {
     "source": {
       "checks": [
         {
-          "path": "docs/SOURCE_COVERAGE_PROTOCOL.md",
-          "marker": "Source coverage protocol"
+          "path": "docs/SERVERLESS_FOUNDATIONS.md",
+          "marker": "Source discovery"
         }
       ],
-      "limits": "Reference/structure checks do not prove claim correctness or exhaustive discovery."
+      "limits": "Author cross-check is not qualified human SME review. Public examples not executed."
     },
     "curriculum": {
       "checks": [
         {
-          "path": "src/domain/curriculum/expansion-content.ts",
-          "marker": "validateExpansion"
-        },
-        {
-          "path": "src/domain/guidance/milestones.test.ts",
-          "marker": "binds existing competencies"
+          "path": "src/domain/curriculum/serverless.ts",
+          "marker": "serverlessManifest"
         }
       ],
-      "limits": "No new module. Existing PR19 assessment/content gaps remain."
+      "limits": "Structure and first-task outcomes are not learning effectiveness or general mastery."
     },
     "simulation": {
       "checks": [
         {
-          "path": "src/domain/sandbox/sandbox.test.ts",
-          "marker": "atomic"
-        },
-        {
-          "path": "src/domain/guidance/milestones.test.ts",
-          "marker": "unchanged state"
+          "path": "src/domain/curriculum/serverless.test.ts",
+          "marker": "conserves every event"
         }
       ],
-      "limits": "No live Azure; existing commands, models, receipts and rubric are unchanged."
+      "limits": "Synthetic work rounds, no actual Functions/Azure execution, retry or autoscaling engine."
     },
     "savvyshark": {
       "checks": [
         {
-          "path": "src/domain/guidance/milestones.test.ts",
-          "marker": "denied storage"
+          "path": "src/features/learning/serverless.tsx",
+          "marker": "claimMilestone"
         },
         {
-          "path": "tests/e2e/quality-system.spec.ts",
-          "marker": "milestone"
+          "path": "src/features/learning/serverless-recovery.tsx",
+          "marker": "ServerlessRecovery"
         }
       ],
-      "limits": "Best-effort local UI history is not learning evidence or a distributed lock."
+      "limits": "UI-only dedup best effort; denied history suppresses automatic explanation."
     },
     "visual-accessibility": {
       "checks": [
         {
-          "path": "tests/e2e/quality-system.spec.ts",
-          "marker": "visible guidance"
-        },
-        {
-          "path": "docs/SAVVYSHARK_GUIDANCE_STANDARD.md",
-          "marker": "F3/F4"
+          "path": "tests/e2e/serverless.spec.ts",
+          "marker": "async function audit"
         }
       ],
-      "limits": "Axe/geometry cannot certify screen-reader, professional visual quality or learner comprehension."
+      "limits": "Actual images, Axe/keyboard and geometry are not human screen-reader/UX acceptance."
     },
     "independent-final-audit": {
       "checks": [
         {
-          "path": "scripts/quality-check.mjs",
-          "marker": "validateSnapshot"
-        },
-        {
-          "path": "scripts/quality-check.test.mjs",
-          "marker": "stale"
+          "path": "docs/RELEASE_ACCEPTANCE.md",
+          "marker": "Independent Final Audit"
         }
       ],
-      "limits": "Hash/report checks cannot establish human expertise or honesty; separate agent review is not qualified human SME."
+      "limits": "Fresh reviewer required after implementation; cannot self approve."
     },
     "delivery": {
       "checks": [
         {
-          "path": "docs/RELEASE_ACCEPTANCE.md",
-          "marker": "preview"
+          "path": "AGENTS.md",
+          "marker": "primary Vercel preview URL"
         }
       ],
-      "limits": "Actual stable preview/SHA, CI and browser inspection recorded on the Draft PR after deployment, not assumed from local flags."
+      "limits": "CI/stable preview exact SHA and root walkthrough must be checked externally after push."
     }
   },
   "preservedPaths": [
     "src/domain/chapter01/",
     "src/domain/sandbox/",
-    "src/domain/curriculum/",
-    "src/domain/course/",
-    "src/domain/progression",
     "src/domain/portal/",
-    "package-lock.json"
+    "src/domain/progression.ts",
+    "package-lock.json",
+    "src/domain/course/course.test.ts",
+    "src/domain/course/store.ts",
+    "src/domain/curriculum/capacity.test.ts",
+    "src/domain/curriculum/capacity.ts",
+    "src/domain/curriculum/expansion-content.ts",
+    "src/domain/curriculum/expansion-models.ts",
+    "src/domain/curriculum/expansion-store.ts",
+    "src/domain/curriculum/expansion.test.ts",
+    "src/domain/curriculum/expansion.ts",
+    "src/domain/curriculum/foundations-v2.test.ts",
+    "src/domain/curriculum/foundations-v2.ts",
+    "src/domain/curriculum/foundations.test.ts",
+    "src/domain/curriculum/foundations.ts",
+    "src/domain/curriculum/integrity.test.ts",
+    "src/domain/curriculum/integrity.ts",
+    "src/domain/curriculum/official.test.ts",
+    "src/domain/curriculum/official.ts",
+    "src/domain/curriculum/responsibility.test.ts",
+    "src/domain/curriculum/responsibility.ts",
+    "src/domain/curriculum/store.ts",
+    "src/domain/curriculum/v2-store.ts"
   ],
   "humanReview": {
     "sme": "unperformed",
@@ -345,294 +524,238 @@
     {
       "command": "npm run check",
       "result": "passed",
-      "details": "After Q20-F1/F2/F3/F4 corrections: TypeScript, zero-warning ESLint, formatting,69 Markdown/local links, quality/AZ900/curriculum (66 tests), assets/legacy,156 Vitest +13 Node fixtures and production build all passed locally 2026-10-26. Current release positively validated; negative fixtures isolated."
+      "details": "After M1/M2 and scoped M3 recovery correction: full check passed2026-10-27 with169 Vitest,13 Node fixtures,79 curriculum,71 Markdown/local links, type/lint/format/quality/audit/assets/legacy and production build."
+    },
+    {
+      "command": "npm audit --audit-level=high",
+      "result": "passed",
+      "details": "0 vulnerabilities; production-only audit also0. No dependency/lockfile change."
     },
     {
       "command": "npm run test:e2e",
       "result": "passed",
-      "details": "After all four audit corrections: complete production-built Playwright on isolated port3100 via ignored port-only config adapter:63 passed,17 unchanged inherited duplicate-project skips,0 failed,4.8m. Includes real two-tab assessment start closing an open milestone, safe read-only context reload/no aid/no technical mutation, storage-warning recovery/no retry and explicit UI-history reset, plus all previous course/lab/XP/keyboard/Axe/compact regressions."
+      "details": "After M1/M2/M3 corrections: complete production suite71 passed,17 unchanged inherited duplicate-project skips,0 failed5.3m, isolated3100 port-only adapter. Final8 serverless cases passed again29.2s including recovery Axe/overflow/cancel/confirm and old-byte preservation. Negative cold/error run cannot satisfy guided comparison; warm plus separate contrast succeeds. Existing tests/assertions/skips unchanged."
     },
     {
-      "command": "npm audit --json / npm audit --omit=dev --json",
+      "command": "security/preservation review",
       "result": "passed",
-      "details": "Both report 0 vulnerabilities; dependency and lockfile unchanged."
-    },
-    {
-      "command": "npm run quality:release (pending negative check)",
-      "result": "expected rejection",
-      "details": "Exit 1 before snapshot/review: absent final reviewer/report, timing, visual/test evidence and stale snapshot rejected."
-    },
-    {
-      "command": "late native-accessibility hardening",
-      "result": "passed",
-      "details": "Ordinary stable-root preview at47b5a7c verified actual policy denial/milestone, End scrolling, Escape, reload/no repeat, keyboard recall and exact unfinished-course return. Native browser AX omitted recall button name despite visible text and working keyboard/Chrome role/Axe checks; added explicit matching aria-label. Full check again passed;4 focused production E2E passed17.3s. Final remote exact-SHA/native-name verification remains post-push."
+      "details": "No new runtime fetch/Azure API, dependency or runtime assets. Frozen chapter/sandbox/Foundations/rubric/progression/lockfile diff empty; only course navigation allowlist and manifest supplement export extend old domain entry points. Other55 audit rows and existing source records retain exact semantics. Actual protected learner bytes asserted by complete E2E."
     }
   ],
   "visualEvidence": [
     {
-      "path": "docs/screenshots/quality/guided-briefing-1920.png",
-      "viewport": "1920x1080",
+      "path": "docs/screenshots/serverless/serverless-explorer-1024x500.png",
+      "viewport": "1024x500",
       "inspected": true,
-      "observation": "Existing mission blur retained; explicit prerequisites and actual Start/cancel consequences. Footer remains visible."
+      "observation": "Actual production screenshot inspected: distinct pending/failed/completed trace, controls and scrolling; no horizontal overflow or motion dependency."
     },
     {
-      "path": "docs/screenshots/quality/guided-briefing-1440.png",
-      "viewport": "1440x900",
-      "inspected": true,
-      "observation": "Two-column mission content and fixed controls; scroll region retains lower observation material."
-    },
-    {
-      "path": "docs/screenshots/quality/guided-briefing-1366.png",
-      "viewport": "1366x768",
-      "inspected": true,
-      "observation": "Minimum desktop preserves Start/cancel; complete content remains in named keyboard-scrollable region."
-    },
-    {
-      "path": "docs/screenshots/quality/quality-vm-milestone-1920.png",
-      "viewport": "1920x1080",
-      "inspected": true,
-      "observation": "Actual VM/OS-disk/NIC/subnet/VNet names, counts and non-runtime boundary; footer stays visible."
-    },
-    {
-      "path": "docs/screenshots/quality/quality-policy-1440x900.png",
-      "viewport": "1440x900",
-      "inspected": true,
-      "observation": "Actual denied region, allowed region and unchanged count; no denied plan represented as created."
-    },
-    {
-      "path": "docs/screenshots/quality/quality-policy-1366x768.png",
-      "viewport": "1366x768",
-      "inspected": true,
-      "observation": "Cause and receipt facts readable; next action scrolls within fixed header/footer."
-    },
-    {
-      "path": "docs/screenshots/quality/quality-policy-1024x768.png",
+      "path": "docs/screenshots/serverless/serverless-explorer-1024x768.png",
       "viewport": "1024x768",
       "inspected": true,
-      "observation": "Compact two-column facts retain labels; no horizontal overflow."
+      "observation": "Actual production screenshot inspected: distinct pending/failed/completed trace, controls and scrolling; no horizontal overflow or motion dependency."
     },
     {
-      "path": "docs/screenshots/quality/quality-policy-800x360.png",
-      "viewport": "800x360",
-      "inspected": true,
-      "observation": "Short-height header/close controls stay visible; body intentionally scrolls, tested with End/Home."
-    },
-    {
-      "path": "docs/screenshots/quality/quality-policy-390x600.png",
-      "viewport": "390x600",
-      "inspected": true,
-      "observation": "Baseline narrow regression: single-column content and reachable controls; no new mobile redesign."
-    },
-    {
-      "path": "docs/screenshots/quality/quality-visible-guidance-1366.png",
+      "path": "docs/screenshots/serverless/serverless-explorer-1366x768.png",
       "viewport": "1366x768",
       "inspected": true,
-      "observation": "Visible current task, target location, why/action/observation and actual search ring; no collapsed mandatory instruction."
+      "observation": "Actual production screenshot inspected: distinct pending/failed/completed trace, controls and scrolling; no horizontal overflow or motion dependency."
     },
     {
-      "path": "docs/screenshots/quality/quality-context-paused-1920.png",
+      "path": "docs/screenshots/serverless/serverless-explorer-1440x900.png",
+      "viewport": "1440x900",
+      "inspected": true,
+      "observation": "Actual production screenshot inspected: distinct pending/failed/completed trace, controls and scrolling; no horizontal overflow or motion dependency."
+    },
+    {
+      "path": "docs/screenshots/serverless/serverless-explorer-1920x1080.png",
       "viewport": "1920x1080",
       "inspected": true,
-      "observation": "Actual cross-tab assessment/context conflict closes the milestone and all guidance, shows a readable safe reload explanation, and leaves the existing VM/attachments available. No auto aid or technical mutation."
+      "observation": "Actual production screenshot inspected: distinct pending/failed/completed trace, controls and scrolling; no horizontal overflow or motion dependency."
+    },
+    {
+      "path": "docs/screenshots/serverless/serverless-hosting.png",
+      "viewport": "1440x960",
+      "inspected": true,
+      "observation": "Full-page production content capture inspected for theory/plan qualifications or post-submit alternative feedback; sticky elements are captured at current scroll position, not a pixel comparison. Representative viewport/keyboard checks supplement it."
+    },
+    {
+      "path": "docs/screenshots/serverless/serverless-independent-feedback.png",
+      "viewport": "1024x768",
+      "inspected": true,
+      "observation": "Full-page production content capture inspected for theory/plan qualifications or post-submit alternative feedback; sticky elements are captured at current scroll position, not a pixel comparison. Representative viewport/keyboard checks supplement it."
+    },
+    {
+      "path": "docs/screenshots/serverless/serverless-milestone-short.png",
+      "viewport": "1024x500",
+      "inspected": true,
+      "observation": "Native blurred SavvyShark observation dialog inspected, factual model counts and no-runtime boundary; short view has scrollable body and reachable fixed Close."
+    },
+    {
+      "path": "docs/screenshots/serverless/serverless-milestone.png",
+      "viewport": "1440x960",
+      "inspected": true,
+      "observation": "Native blurred SavvyShark observation dialog inspected, factual model counts and no-runtime boundary; short view has scrollable body and reachable fixed Close."
+    },
+    {
+      "path": "docs/screenshots/serverless/serverless-recovery.png",
+      "viewport": "1440x960",
+      "inspected": true,
+      "observation": "Actual production confirmation inspected: explicit scoped loss and old-data preservation, visible Cancel/confirm and native focus/Escape. Portal context remains behind modal; no broad reset."
     }
   ],
-  "implementationFinished": "2026-10-26T22:53:42.117Z",
-  "snapshot": {
-    "files": {
-      ".github/workflows/ci.yml": "67d953097b826c8ffc7e0ef7667d984b7c3a328b7401a4fc406b477fd22f9e41",
-      "AGENTS.md": "bb3b74e2e80d0938109069813481b2363cc1e366e7b1e7d5cb626a607f97ec07",
-      "README.md": "7b308f32aab2a1a73d22384d32bb927de9287c33920663289e8e6ec3ab220f5b",
-      "docs/ARCHITECTURE.md": "c0f36844cec0a7baa2ecfed04ec26d8a9cc5c4c26a7b8750942b8287e5940604",
-      "docs/CONTENT_ARCHITECTURE.md": "3d6650f4bd84f1c0f8d78e30e2cc6674bb7146625a5a2f953b4137c31de4775e",
-      "docs/CONTENT_QA_STANDARD.md": "c8136e609e0876d4499041db7f0733d8be551a6e7ba6655fc3b17a5d2af6b5d9",
-      "docs/CONTENT_STANDARDS.md": "a5a7e24b88d3f647ff29b9abd34b901c36ecce309a68f69a90deb1ef3e706293",
-      "docs/DECISIONS.md": "9cefbab41da9bafd28bb093392066bae6f7eead23b613eb4b7b80866f145b6d5",
-      "docs/GUIDED_SANDBOX_ENGINE.md": "92fa96508f54a379e82ffb10915cc44ed80b9974902c229c9adb0b256144e07c",
-      "docs/LEARNING_DESIGN.md": "fdf543a4536716da07cbc340eba338a2081485419f4687293a71536f18320445",
-      "docs/QUALITY_CONTRACT.md": "a0870413d65b182d241734893fedfcb89b6d6bf5b790e76b67d713097851dcc2",
-      "docs/RELEASE_ACCEPTANCE.md": "e3cd8b2ed106435b42a94f8ca6fbc76f3e605ccd57665e0c74e124bc5a5cf6c2",
-      "docs/ROADMAP.md": "4d8c80f780bfc55664ea7471b9bec118ac6484b92d08bf678d717c337ce3a556",
-      "docs/SAVVYSHARK_GUIDANCE_STANDARD.md": "4cdd335e1631005b7eba8e881966d4ac22c6601245f2f059ff29bb4399347ea2",
-      "docs/SAVVYSHARK_INTEGRATION.md": "1f60cd6c38c61596a2126c83181848038f00b22cd3007710792a674e9db4b97d",
-      "docs/SECURITY.md": "fbdd11c49e3d272dc88cb7770f21fbb18499a096d281f9835cd12f1b3ec77c6f",
-      "docs/SOURCE_COVERAGE_PROTOCOL.md": "b3b23c312c24300c69e0c0bea738da8869bb2469d15372a44467b3368bb6ed8b",
-      "docs/SOURCE_REGISTER.md": "390717e55790ad31e836e902e97b02c52788c0201aff0b500f7b228d5ae3182e",
-      "docs/screenshots/quality/guided-briefing-1366.png": "2efdbb444d0c5645dda388388204310b6b60e63e5ec7c8f4c60622c71076bcf4",
-      "docs/screenshots/quality/guided-briefing-1440.png": "9a4e149e38fab63df98d136b665c3078a1dc7ed3368e6c1fbb66633dc96b813a",
-      "docs/screenshots/quality/guided-briefing-1920.png": "afa69e31ae50011230fd47d7e8cee8ab7a1209c47dd98fff00c46a1cbe57393a",
-      "docs/screenshots/quality/quality-context-paused-1920.png": "18c3a899f13fc998024856b91b8b7b3648de8cc89edfdccf67a8c73bc5bc5e29",
-      "docs/screenshots/quality/quality-policy-1024x768.png": "6408fff90953f7b4cab7950b6c82fa1856b2fe013219655d51a8e6ca7a8bcb0b",
-      "docs/screenshots/quality/quality-policy-1366x768.png": "ec9f1e8f56612b28c1267adcb972bd93d55a66139014672aead19c08aacef5ce",
-      "docs/screenshots/quality/quality-policy-1440x900.png": "c833309d1342063992b15ff19f7bc1ca7df5b8add6120a9a7ed47201d5814e0e",
-      "docs/screenshots/quality/quality-policy-390x600.png": "e1d6f4ee9e62a6f2e7e8e0cdf7c7314a2678cc052a30d4027713146845bfbcda",
-      "docs/screenshots/quality/quality-policy-800x360.png": "1f0db06325f538b9436e5d6162ce4d250b11fae78c0c048884c7e3be3a283ee0",
-      "docs/screenshots/quality/quality-visible-guidance-1366.png": "9f94f95d86e30700f9245d325d03baf9c3eb2a59ca22cb3c1275d24addbeb88c",
-      "docs/screenshots/quality/quality-vm-milestone-1920.png": "dc7683bffa8a5eef10e9f783717b24ac7bb15c9afea104a0689a1d9ab0a4f6b3",
-      "package.json": "7b3c9d7b42c24ed36d7c5ccdccd2a755571cbbbbe967c1cf017657ff835d95e5",
-      "quality/fixtures/valid-release.json": "3f0a11321cab5bd179d9bfb7744f23c23300119b519f194e3ba6898ee11cdf31",
-      "scripts/docs-check.mjs": "a6b6b60e31baf5135dd767906ed3095a1dfec32e874c4b0c301df5a9bc0ea62a",
-      "scripts/quality-check.mjs": "85b8e4b975d5243515dbacdd20c2149dd23416444530e59deca3e9b05c399b90",
-      "scripts/quality-check.test.mjs": "62e8b9e7fc1df6ef8d2ec1c588333d8f1e542aa1aaae6401ab842ff42f064326",
-      "src/components/progress-provider.tsx": "abc2cc0142cc75ceb48097af4552079d02c82476a8380cb65dc926a32b2cec4f",
-      "src/content/nb.ts": "c359eb27e3419857441104934c34610fc877686977ff5df0720776abdf53eeb8",
-      "src/domain/guidance/milestone-preferences.ts": "151d575171e33e6689cbf00188ffbecfdd3b5b767550657fc38ac02a327e1472",
-      "src/domain/guidance/milestones.test.ts": "aea02e9b44bc18ed90e71443302f2590bef805ae9352dc7f4a1d75aae4506fba",
-      "src/domain/guidance/milestones.ts": "05ded9044f716ea6ca6e2078bdffa50fc99135e30e18a24bb3d9d532eecaa063",
-      "src/features/course/guidance-milestones.css": "5fd6f8c4a1d94b8f4343a8f9962ce6e4364b74e069219c950df70cefdfc44614",
-      "src/features/course/guidance-milestones.tsx": "f6b69769489a806f48d53fa1099ce1af17d8e0eb6e26586bb7ae6d71768fc3cd",
-      "src/features/course/guided-coach.tsx": "d5ada8cb94d64f45e02e53e92b5e51fe10c298c64828ba6a322b8252065e6253",
-      "src/features/course/highlight.ts": "f606dd708491ceb9c84ff3310162fd57317bca2d41e38c5680a4c34b6db6d48f",
-      "src/features/course/mission-briefing.css": "2c7fc08c95dfe9c6a1da6a998efa831c78e2f0a6dab6b4f0a64329d7a5afdeac",
-      "src/features/course/mission-briefing.tsx": "290ce4a721ad9ae90b332bec8b31a86b7570f2b528bd18ffc8c4dabd258293ca",
-      "src/features/course/practical-lab.tsx": "2391efd7161618037569ffd8a022d5b8c63d3fd5f2afd30f8ebe504dde9443c5",
-      "src/features/portal/portal.tsx": "3f35606c6598a553af6f7b08d14060c4aba8757fe7ed83442485e7cc7c9cc7c3",
-      "tests/e2e/course.spec.ts": "9c2c6c6922532ab7c81cf786dba48d2d6b401a98677b1c5ba50b47f0502eab17",
-      "tests/e2e/foundations-v2.spec.ts": "98701af4048eba98cdbcd59b3848b6891d64883fa009868586c790c2b79083c5",
-      "tests/e2e/legacy-retirement.spec.ts": "88b80e5a7c4bfc2dc04cb7b52bb7ddb741d65969c44b387317cb7623d17f8288",
-      "tests/e2e/portal-actions.ts": "c954b12d4a6c84896e476a65eebdeb2a90832ad1bc35a2436692d9ef39b5cd6b",
-      "tests/e2e/portal.spec.ts": "60a5533782513b063c84b5be1d0ecb725853a2004ac6ced4a8a9aaca494b0ac7",
-      "tests/e2e/practical-labs.spec.ts": "a5842e8b10874c718ee2d4737dc22c24d37080d76fae34883903c8499a15bcfd",
-      "tests/e2e/quality-system.spec.ts": "b9f402afb9c00b9448f114d54429ccf9a5d25bb4ee539393c46355fe27d6702c"
-    }
-  },
   "review": {
     "status": "complete",
-    "fingerprint": "6e3b828c787fc65c44767a2b0e326a37b5d9027416f6a37e064bc6d6bbbb000b",
+    "fingerprint": "eb511613f2a637cf0c045e214b9c745fd363d17e3de1df5f13803ae99d6f8948",
     "reviewer": {
-      "id": "/root/independent_final_audit",
+      "id": "/root/pr21_final_audit",
       "kind": "agent"
     },
-    "started": "2026-10-26T22:54:00.887Z",
+    "started": "2026-10-27T06:00:38Z",
     "domains": {
       "content": {
-        "finding": "Independent reviewer read original bounded Policy/VM explanations, existing assessment alternatives and official sources. No new module or coverage approval; paused-context copy accurately preserves work.",
+        "finding": "Substantive bounded FC08 theory, manuscript/source IDs and limits independently reviewed; human SME/transfer unperformed.",
         "evidence": [
           {
-            "path": "src/content/nb.ts",
-            "marker": "contextUnavailable"
-          },
-          {
-            "path": "docs/SOURCE_COVERAGE_PROTOCOL.md"
+            "path": "docs/quality/PR21_FINAL_AUDIT.md",
+            "marker": "Content"
           }
         ]
       },
       "technical": {
-        "finding": "Replay, boundary, non-mutation, real attachments and safe existing-store reload verified; frozen technical/evidence/XP domains and lockfile unchanged. Unknown executable configurations now require fresh base/snapshot review.",
+        "finding": "M1 disjoint witnesses and M3 isolated recovery corrected; deterministic model and frozen contracts inspected,13 independent tests passed.",
         "evidence": [
           {
-            "path": "src/domain/guidance/milestones.ts",
-            "marker": "replayEngine"
-          },
-          {
-            "path": "scripts/quality-check.mjs",
-            "marker": "implementationPath"
+            "path": "docs/quality/PR21_FINAL_AUDIT.md",
+            "marker": "Technical"
           }
         ]
       },
       "visual": {
-        "finding": "Reviewer personally inspected committed desktop/short-window captures and corrected cross-tab warning. Readable fixed controls and keyboard-scrollable complete explanation; no additional visual blocker. Human UX/screen-reader/learning validation unperformed.",
+        "finding": "Actual final production screenshots and browser geometry/Axe scope inspected; no open blocker/major. No human UX/screen-reader approval.",
         "evidence": [
           {
-            "path": "docs/screenshots/quality/quality-context-paused-1920.png"
-          },
-          {
-            "path": "docs/screenshots/quality/quality-policy-800x360.png"
+            "path": "docs/quality/PR21_FINAL_AUDIT.md",
+            "marker": "Visual"
           }
         ]
       },
       "assessment": {
-        "finding": "Cross-tab unknown/issue-bearing contexts fail closed; actual second-page assessment closes guidance, read-only reload emits no aid or technical mutation. Existing rubric/first-submission/help semantics unchanged.",
+        "finding": "Committed first/help/retry/abandon and original changed decisions remain distinct; no broad mastery claim.",
         "evidence": [
           {
-            "path": "src/features/portal/portal.tsx",
-            "marker": "guidanceContexts"
-          },
-          {
-            "path": "tests/e2e/quality-system.spec.ts",
-            "marker": "v2-assessment"
+            "path": "docs/quality/PR21_FINAL_AUDIT.md",
+            "marker": "Assessment"
           }
         ]
       },
       "guidance": {
-        "finding": "Fresh-event/once-only/recall/native-dialog/target contracts retained; recovery baselines old receipts and fixes warning truth, with no old auto retry and unknown bytes preserved. Local deduplication is best effort. Final independent renewal confirmed both explicit recall aria-labels exactly match their visible localized text; handler/focus/native role unchanged.",
+        "finding": "Actual-run milestone, independent/uncertain shielding, no-repeat and scoped recovery verified in8 observed browser outcomes; teardown interruption documented.",
         "evidence": [
           {
-            "path": "src/features/course/guidance-milestones.tsx",
-            "marker": "Repair/clear"
-          },
-          {
-            "path": "tests/e2e/quality-system.spec.ts",
-            "marker": "milestonePreferenceKey"
+            "path": "docs/quality/PR21_FINAL_AUDIT.md",
+            "marker": "Guidance"
           }
         ]
       },
       "regression": {
-        "finding": "Independent follow-up reran6 Node quality fixtures,29 focused Vitest and quality:check successfully; inspected full corrected156 Vitest/13 Node/66 curriculum/69 docs/check/build and63 passed/17 inherited skips/0 failed production E2E. No weakened assertions/new skips. Final one-line accessibility renewal independently passed6 Node fixtures and quality:check, and inspected a new full check plus4 focused production E2E passes17.3s. Latest full CI remains the external final-SHA gate.",
+        "finding": "Final49-file hash and protected old paths/content verified; no old assertions or data upgrade. External CI/preview are separate gates.",
         "evidence": [
           {
-            "path": "scripts/quality-check.test.mjs",
-            "marker": "postcss.config.mjs"
-          },
-          {
-            "path": "docs/quality/PR20_FINAL_AUDIT.md",
-            "marker": "final verification"
+            "path": "docs/quality/PR21_FINAL_AUDIT.md",
+            "marker": "Regression"
           }
         ]
       }
     },
     "findings": [
       {
-        "id": "Q20-F1",
+        "id": "M1",
         "severity": "major",
         "status": "fixed",
-        "description": "Root/unknown executable-only changes could bypass snapshot/base enforcement.",
-        "fix": "Default non-Markdown implementation detection and Markdown-only report exclusions; root config/stale/wrong-base regression fixture.",
+        "description": "One cold/error run could satisfy both guided comparison witnesses.",
+        "fix": "Require a separate warm capacity-limited reference and nonwarm started trace; clarify instructions and add negative tests.",
         "retests": [
-          "node --test scripts/quality-check.test.mjs:6 passed",
-          "npm run check:passed",
-          "independent follow-up confirmed no snapshot/preserved-path error"
+          "Independent13/13 domain tests and pure single-run negatives; final8 actual browser ok outcomes with interrupted reviewer teardown; author full71/17 and scoped8 clean exit0."
         ]
       },
       {
-        "id": "Q20-F2",
-        "severity": "major",
-        "status": "fixed",
-        "description": "Cross-tab assessment conflict preserved stale active=false facts and could expose guidance.",
-        "fix": "All8 relevant contexts fail closed while unloaded/issue-bearing, close milestone and suppress help; visible safe reload reads existing stores.",
-        "retests": [
-          "real two-page UI assessment and open-milestone closure/no aid/no technical mutation/read-only reload",
-          "full production Playwright:63 passed/17 inherited skips/0 failed",
-          "independent follow-up confirmed closure"
-        ]
-      },
-      {
-        "id": "Q20-F3",
-        "severity": "major",
-        "status": "fixed",
-        "description": "Negative fixtures inherited populated live verification/visual metadata and failed after report completion.",
-        "fix": "Stable structural fixture separate from evolving release; explicit missing-evidence setup; retain old negative assertions and positive validation of actual current release.",
-        "retests": [
-          "6 quality Node fixtures passed independently and in full check",
-          "full check:156 Vitest+13 Node passed",
-          "independent follow-up confirmed closure"
-        ]
-      },
-      {
-        "id": "Q20-F4",
+        "id": "M2",
         "severity": "minor",
         "status": "fixed",
-        "description": "Storage-warning state remained latched after recovery/reset.",
-        "fix": "Block auto while uncertain; valid external repair/successful manual claim/reset update warning and baseline historical receipts to avoid retry.",
+        "description": "Manuscript source IDs did not match executable SL07-SL12 records.",
+        "fix": "Split and align exact source IDs/URLs with manifest and release record; encoding-only arrows corrected.",
         "retests": [
-          "browser history corruption/repair/no auto retry/manual recall",
-          "explicit reset seeds/checks milestone preference",
-          "full production Playwright passed; independent follow-up confirmed closure"
+          "Independent source-table/manuscript and final49-file fingerprint inspection; docs71 passed."
+        ]
+      },
+      {
+        "id": "M3",
+        "severity": "major",
+        "status": "fixed",
+        "description": "Corrupt/unsupported new supplement could indefinitely suppress existing Portal guidance without scoped UI recovery.",
+        "fix": "Explicit native confirmation in course/Portal clears only the corrupt/unsupported supplement; cancel/Escape preserves bytes; no Journal nested dialog.",
+        "retests": [
+          "Independent corrupt/unsupported pure store reproduction and actual desktop/mobile browser recovery ok; preserved old bytes, cancel/Escape/confirm/reload/Axe assertions; author final8 exited0."
         ]
       }
     ],
     "report": {
-      "path": "docs/quality/PR20_FINAL_AUDIT.md",
-      "marker": "Independent follow-up"
+      "path": "docs/quality/PR21_FINAL_AUDIT.md"
     }
-  }
+  },
+  "snapshot": {
+    "files": {
+      "AGENTS.md": "b2218cfa588413aaf8553876a13d2a5b094d0c421450b1e3156f26357f77b8c3",
+      "README.md": "b88bc4248f02fc1c98737a317a0cb85ef478884bef3672f0593ce97a7dca8654",
+      "docs/ARCHITECTURE.md": "6582599023cdca72bcba4455956a6a10ae7d161e76ef137cdaed645efa8224d6",
+      "docs/AZ900_COVERAGE_MATRIX.md": "17fe2708eaa1f5ac15a89d58573b67fe188396b18b9386b9ea6956fe24cdb7f0",
+      "docs/AZ900_EXPANSION_ROADMAP.md": "98cb1b7f1da3325320137394e42cf5156aeff4e242e4b28b7403dc5270689a7f",
+      "docs/AZ900_GAP_ANALYSIS.md": "a459f6e399491245e3f0882decc051527a3cc4046165e32619f38ec1ac1c31de",
+      "docs/CONTENT_ARCHITECTURE.md": "5cc4b3c1a78f7a4e3f3bb4968d548197ae1135dda06120323cc1b12d9695597f",
+      "docs/CURRICULUM_COVERAGE.md": "15bb9128ee7caa5c9c4da3c5c94afa62c0085d295b803635bc620a31fb811f57",
+      "docs/DECISIONS.md": "c330d05dfc61e5e27f3e07921b09e7d013597a8fabe9ee69eb29c86fe14f9d09",
+      "docs/FOUNDATIONS_31B_HANDOFF.md": "f0f041b41c27d6c8801bdad1a123759ceb5fbe77ca06443aa9ea9e6f33391679",
+      "docs/INTERACTIVE_VISUALIZATIONS.md": "5f2d96b18112dd89b52008b8adf5c7b85ca757810ab59afaf76177eb8b5f672d",
+      "docs/LEARNING_DESIGN.md": "dd407377c8996b981563797e8861c4d2605d4b95cef019cf3637ac6c720d32ac",
+      "docs/LEARNING_JOURNEY.md": "e4ca394f8a49dfe2d6df0c6a5c64bdd38876164c7ee89ca9aa031d426e38189f",
+      "docs/ROADMAP.md": "9aba04183ecf335dc64f3f7ddf8779e43af3d10bdadb2bca3558929668bb7015",
+      "docs/SAVVYSHARK_INTEGRATION.md": "67facb4b1ae80c7a2e3a61dfbb5b6966ee1ced91d2cff4897d23bda9b6e88efa",
+      "docs/SERVERLESS_FOUNDATIONS.md": "b72a20cb4220bbbb50128b234272fd8371814a854332443665622a1da18de423",
+      "docs/SOURCE_REGISTER.md": "a848ea5df6d82051e39fadbddf099a33834974e9599dd66c8c5111bd23d163a8",
+      "docs/audits/az900-2026-07-20.json": "601c4984e3274d41d030ee4d9022bd021a9236ab55f18d6900e2e053b2cc3a0c",
+      "docs/screenshots/serverless/serverless-explorer-1024x500.png": "366d4a66a4c7f1c9bd55e23694ec5532b60564094885d8f4a2fedc09832eb9d7",
+      "docs/screenshots/serverless/serverless-explorer-1024x768.png": "53b5e998031f3864ec72a5f5e6f55710cecb1638a9ba6e386e4a23eb7579bef5",
+      "docs/screenshots/serverless/serverless-explorer-1366x768.png": "32087e9859d1442468a3f019bc4417c32693093b3a1e71dffcaf4996a4465d91",
+      "docs/screenshots/serverless/serverless-explorer-1440x900.png": "63c281b59bce26fcd21d3d3e11fb4cc1470c3dd74b2badf9443dcf3392b94238",
+      "docs/screenshots/serverless/serverless-explorer-1920x1080.png": "00114f5d8b00158dbfca3a6951ce41238f9fba8e2dea16f440cc3eced9762138",
+      "docs/screenshots/serverless/serverless-hosting.png": "ce0fa6bf8f09184dcc9bac4e7ee94456b02734915223dcd72fca4b7de4c3e27d",
+      "docs/screenshots/serverless/serverless-independent-feedback.png": "3457a6e38934757c56cfa3a19ae968bb01002d80810faca218930b0fc1f4d007",
+      "docs/screenshots/serverless/serverless-milestone-short.png": "ea0cf76cb017260148db578c330bc04f0e42adfe16f2f18ba6e38ad07c389559",
+      "docs/screenshots/serverless/serverless-milestone.png": "bafef25b34e418bc0ceb8bdb77b89018b71df5afdee4540e70e8e04a2d72d5f2",
+      "docs/screenshots/serverless/serverless-recovery.png": "baa8bc9ec491c2a1b30d03ae49511696f7a4699cb4d7cb8887f66e1e94cdb786",
+      "package.json": "e41eb78e03c3635dae53078fa5f79d0bbab1982d44f431ff564fd07bc0c09a26",
+      "scripts/az900-audit-check.mjs": "ffe259c656e58b9732130cf349d5e14b38b41e0f3413ca50c8b289ac3c5ebb13",
+      "scripts/az900-audit-check.test.mjs": "16a3518b333489f47f84fac69fe7c2ed26553d318f8016684c09915dd84f7696",
+      "src/app/layout.tsx": "25ff9fb068249fd702c7a69aa7fb45746ed6f3a0299993f6978883562f8bf58d",
+      "src/components/app-shell.tsx": "273bae3fee5f5ef955d4cf6bcf11844fb8cfb579bc3d3ca9054f79d978866097",
+      "src/components/progress-provider.tsx": "6812f103a0cfe93bdf510678de192a33aafa8a943fc5c118400bfe0ffdc12263",
+      "src/content/nb.ts": "f24fef3908909c212af42c64773bd18b60fe92a0175e95b1c6b7537624f235fe",
+      "src/domain/course/model.ts": "34ec3155a2f6edd0576e80a845f4773119f216148b6b92241421ed8f37b69801",
+      "src/domain/curriculum/manifest.ts": "93c4c1f8119345f9515f192bb7330c97eb3aecd6210fc557869e8dd91867929c",
+      "src/domain/curriculum/serverless-store.ts": "ab4346b0a31089d94974e67d4086376ea367a384bd4849f56d5a3a151b047f8c",
+      "src/domain/curriculum/serverless.test.ts": "363ac4fc2ba79c72f90b1df694b591d5887187b1d22177aedafc7a4bfe867964",
+      "src/domain/curriculum/serverless.ts": "57aba2b8f72b0c713d8ec214a4032b2a5154c0c09ce574d22d4a767cf8995c30",
+      "src/domain/guidance/milestones.ts": "49ed46b2bbcd7d19f379451759da6b2f2945c5f8d67d6130466c41f6f9b708b2",
+      "src/features/course/course.tsx": "efb5a402d29577cce5f5e903c4fcebd90f6b6d34eeaf6314b1e41573b06fbdfe",
+      "src/features/course/guidance-window.tsx": "352483b7dc89dbf954db7effe77e5d3c58c826fbd87df73de2cd944f487b9d24",
+      "src/features/learning/serverless-provider.tsx": "a7bd46a9ce6290eccfe7f4570519416e60416b34df399e85086d7ea0df0b4ca0",
+      "src/features/learning/serverless-recovery.tsx": "75b56c0e8a4125a31f9e6f01cde142074f2815c75251e35240c42b355528d54a",
+      "src/features/learning/serverless.css": "0947d443c936585555eb3c9e06e3785522e5f5f997ad32a62978a00b284c8284",
+      "src/features/learning/serverless.tsx": "dc97b964be06bcbf930273d8908615275c970c92f846148997e0aeeba6240565",
+      "src/features/portal/portal.tsx": "ff0c9b50358044ce59890e4246a4ea9f3482e6e2d5189ee7e73f7eb8b53433fc",
+      "tests/e2e/serverless.spec.ts": "82054c601e6b38da87e01f24183272b9a815f2d5efeceb7a649edd59dd6d79e4"
+    }
+  },
+  "implementationFinished": "2026-10-27T06:00:01.691Z"
 }
