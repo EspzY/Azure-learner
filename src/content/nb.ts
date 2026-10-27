@@ -4307,3 +4307,402 @@ export const learningPolishNb = {
     empty: 'Ingen ressurser er åpnet i denne lokale økten ennå.',
   },
 } as const;
+export const serverlessNb = {
+  repair: 'Reparer bare serverless-lagringen',
+  repairTitle: 'Nullstille serverless-tillegget?',
+  repairText:
+    'Den ugyldige eller ukjente serverless-registreringen kan ikke gjenopprettes ved vanlig innlasting. Bekreft bare hvis du vil slette de lokale serverless-svarene og modellkjøringene. Cloud Computing v1/v2, andre moduler, XP og Portal-ressurser beholdes. Avbryt beholder også serverless-dataene.',
+  repairConfirm: 'Slett bare serverless-registreringen',
+  blocked:
+    'Veiledningen er satt på pause mens et selvstendig forsøk er aktivt eller læringskonteksten er usikker. Fortsett forsøket via kursoversikten, eller bruk Last inn igjen ved et lagringsvarsel. Ingen løsning vises automatisk.',
+  invalid:
+    'Bruk hele tall: 0–12 hendelser, 1–4 plasser og 1–3 runder. Prediksjonen må være et helt tall fra 0 til 12.',
+  burstCaption: 'Illustrert aktivitetsmønster: stille perioder og korte topper. Ingen målt skala.',
+  outcomesHeading: 'Dette skal du forstå',
+  stagesHeading: 'Slik undersøker du modellen',
+  loading: 'Laster serverless-registreringer …',
+  badge: 'Cloud Computing · FC08 · Serverless-tillegg 1.0.0',
+  title: 'Serverless: fra hendelse til resultat',
+  topics: {
+    'serverless-concept': 'Kode som venter på en hendelse',
+    'serverless-mechanism': 'Event → Trigger → Execution → Result',
+    'serverless-hosting': 'Ansvar, hosting og begrensninger',
+    'serverless-explorer': 'Undersøk en hendelseskjede',
+    'serverless-assessment': 'Selvstendig anvendelse · Serverless',
+    'serverless-summary': 'Ditt serverless-grunnlag',
+  },
+  prerequisite:
+    'Bygger på servere og VM-er, provisioning, delt ansvar, forbruk og prising. Du kan gå tilbake til disse temaene i kursmenyen. Ingen Azure-konto eller programmering er nødvendig.',
+  objective:
+    'Forklar mekanismen, undersøk en avgrenset modell og velg hosting ut fra nye krav. Dette tillegget har egne registreringer; tidligere Cloud Computing-resultater og XP endres ikke.',
+  journal: 'Serverless i Kunnskapsjournalen',
+  read: 'Les hele serverless-forklaringen',
+  sections: {
+    concept: {
+      title: 'Når rapportene kommer i rykk og napp',
+      paragraphs: [
+        'Et dokumentarkiv mottar skannede rapporter. Hver ny fil må kontrolleres og få et miniatyrbilde. Mellom opplastingene finnes det ingen slike jobber. På en VM kan et program vente på arbeid, men teamet må velge maskinkapasitet, vedlikeholde gjesteoperativsystemet og drifte programprosessen.',
+        'Serverless lar teamet levere kode og beskrive hva som skal utløse den, mens leverandøren håndterer serverne og den administrerte kjøreplattformen. Koden kjører fortsatt på fysiske prosessorer, i minne og på operativsystemer i datasentre. «Serverless» beskriver at du slipper å administrere disse serverne direkte, ikke at de forsvinner.',
+        'Ved ujevn, hendelsesstyrt etterspørsel kan en slik tjeneste tildele utførelseskapasitet etter behov. Det er noe annet enn selv å holde en VM-prosess og gjeste-OS i drift. Du må fortsatt velge tjeneste og hostingplan, konfigurere løsningen og følge med på feil og bruk. Automatisk skalering betyr heller ikke ubegrenset kapasitet.',
+        'PaaS og serverless er ikke konkurrerende bokser. PaaS beskriver hvilke driftsoppgaver plattformen overtar. Serverless beskriver en måte å tilby administrert kjøring og ofte hendelsesstyrt skalering på. Azure Functions er både et PaaS-eksempel og en sentral serverless-tjeneste. Andre eksempler finnes i Logic Apps og serverless-konfigurasjoner av Azure Container Apps; detaljene deres er ulike.',
+        'En VM, App Service og Functions kan alle kjøre kundekode, men de tilbyr forskjellige kontrollflater. En VM gir kontroll over gjeste-OS. App Service administrerer plattformen for en webapplikasjon. Functions organiserer kode som funksjoner aktivert av triggers. Det riktige valget følger kravene, ikke hvilket produkt som er nyest.',
+      ],
+      check: 'Hva endres først og fremst når arkivet velger en serverless-tjeneste?',
+      choices: [
+        [
+          'managed-servers',
+          'Leverandøren håndterer serverdriften; kundens kode og konfigurasjon består.',
+        ],
+        ['no-servers', 'Det trengs ikke lenger fysiske servere.'],
+        ['no-duties', 'Kunden slipper ansvar for data og applikasjon.'],
+      ],
+      feedback: {
+        'managed-servers':
+          'Ja. Driftsgrensen flyttes; fysisk databehandling og kundens applikasjonsansvar består.',
+        'no-servers':
+          'Koden trenger fortsatt CPU, minne og operativsystem. Forskjellen er hvem som administrerer serverne.',
+        'no-duties':
+          'Plattformdrift flyttes, men data, tilgang, kundekode og konfigurasjon må fortsatt forvaltes av kunden.',
+      },
+    },
+    mechanism: {
+      title: 'En trigger starter kode. Den garanterer ikke resultatet.',
+      paragraphs: [
+        'En hendelse (event) er noe som har skjedd: en fil ble lastet opp, en HTTP request kom inn, en melding kom i en kø eller et planlagt tidspunkt ble nådd. En trigger definerer hvordan funksjonen skal kalles. I Azure Functions har hver funksjon nøyaktig én trigger.',
+        'Funksjonen er koden du har skrevet. En execution er én konkret kjøring av denne koden. Ved filopplasting kan en Blob-trigger sende filinformasjon til koden, som sjekker formatet og lager et miniatyrbilde. Resultatet kan lagres eller sendes videre. En konfigurert trigger beviser verken at koden har kjørt eller at et gyldig resultat finnes.',
+        'Bindings kan koble inn- og utdata deklarativt til tjenester. Et output binding kan for eksempel skrive en melding til en kø. Slike bindings er valgfrie; koden kan i stedet bruke et SDK, et programbibliotek for tjenestetilgang. Begge tilnærminger trenger riktig identitet, tilgang og feilhåndtering. En trigger er ikke det samme som selve forretningslogikken.',
+        'Azure Functions kan håndtere HTTP-forespørsler, nye filer i Blob Storage, kømeldinger og timer-utløste jobber. En kort skjemavalidering, bildebehandling eller planlagt opprydding er ulike eksempler. Et helt nettsted trenger ofte en annen applikasjonsstruktur, selv om HTTP-triggers også kan brukes til API-er.',
+        'Samtidighet betyr hvor mange kjøringer som pågår samtidig. Hvis flere hendelser kommer enn tilgjengelig kapasitet kan behandle innen observasjonsvinduet, kan arbeid gjenstå. Virkelige triggers har ulike regler for buffering, gjentatt levering og retry. Design kode som tåler relevante gjentakelser; en lokal variabel er ikke et varig register over ferdige jobber.',
+        'Et lite regneeksempel: To kømeldinger, én utførelsesplass og én jobb per runde trenger to runder i en varm, feilfri modell. En runde er her en oppdiktet arbeidsenhet, ikke et sekund. Utforskeren bruker andre inngangsverdier og beregner ikke Azure-ytelse.',
+      ],
+      check: 'Hva dokumenterer det at en trigger aktiveres?',
+      choices: [
+        ['invocation', 'At en kodekjøring utløses, ikke at koden lykkes.'],
+        ['success', 'At et korrekt resultat allerede er lagret.'],
+        ['binding-required', 'At et output binding må være konfigurert.'],
+      ],
+      feedback: {
+        invocation:
+          'Riktig skille. Koden og avhengighetene må lykkes før et gyldig resultat foreligger.',
+        success:
+          'Triggeren er starten på årsakskjeden. Kodefeil, avhengigheter og tilgang kan fortsatt hindre resultatet.',
+        'binding-required':
+          'Bindings er valgfrie. Koden kan bruke et SDK, og aktivering beviser ikke noen av disse utdataene.',
+      },
+    },
+    hosting: {
+      title: 'Administrert kjøring har fortsatt krav og kostnader',
+      paragraphs: [
+        'Microsoft håndterer fysisk infrastruktur, vertens operativsystem og den administrerte plattformen. Kunden skriver og tester funksjonskoden, beskytter applikasjonen og dens avhengigheter, forvalter data og identiteter og konfigurerer tilgang, triggers og hosting. Plattformoppdateringer retter ikke feil i din forretningslogikk.',
+        'Tilstand er informasjon som skal huskes mellom kjøringer. Ikke stol på at lokale variabler eller midlertidige filer overlever en omstart eller blir delt mellom instanser. Bruk egnet varig lagring når informasjonen må bestå. Durable Functions tilbyr mønstre for tilstandsfulle arbeidsflyter; det betyr ikke at enhver vanlig funksjon automatisk bevarer tilstand.',
+        'Cold start er forberedelse før en ny kjøreinstans kan behandle kode. Hostingplan, klargjort kapasitet, programkode og avhengigheter påvirker oppstarten. Det finnes ikke én universell oppstartstid for serverless. Ressursgrenser, samtidighet, kvoter og avhengigheter begrenser også skalering.',
+        'Kjøretidsinnstillinger og plan påvirker hvor lenge arbeid kan utføres. En høy eller ubegrenset konfigurert timeout er ingen garanti mot omstart, plattformoppdatering eller nettverksgrenser. Lange jobber kan trenge asynkron oppdeling, varig tilstand og en plan som passer livssyklusen.',
+        'Serverless er ikke alltid billigst. Ved vedvarende høy bruk kan dedikert kapasitet være relevant. Ved lange tomrom kan en forbruksmodell passe, men always-ready kapasitet, lagring og andre tjenester kan ha kostnader også når funksjonskoden er inaktiv. Kontroller den faktiske hosting- og prismodellen; her viser vi ingen Azure-priser.',
+        'En arbeidsmengde som trenger en egen kjernedriver eller OS-verktøy med administratorrettigheter, kan kreve VM-kontroll. Kontinuerlig arbeid alene utelukker ikke Functions: noen løsninger passer Premium, Dedicated eller en annen struktur. For vanlige webapplikasjoner kan App Service være hensiktsmessig. Vurder kontroll, livssyklus, latency og drift samlet.',
+      ],
+      check: 'Hvilken kostnadspåstand tåler forskjellige Functions-hostingplaner?',
+      choices: [
+        [
+          'plan-dependent',
+          'Kostnader og tomgang avhenger av hostingvalg, klargjort kapasitet og tilknyttede tjenester.',
+        ],
+        ['all-free', 'Alle Functions-planer er gratis når ingen kode kjører.'],
+        ['all-zero', 'Alle Functions-planer skalerer alltid til null.'],
+      ],
+      feedback: {
+        'plan-dependent':
+          'Ja. Utførelsesbasert forbruk er bare én modell; varm eller dedikert kapasitet og andre tjenester må også vurderes.',
+        'all-free':
+          'Premium har minimumskapasitet, Dedicated har allokert plan, og Flex always-ready har baseline. Lagring kan også koste.',
+        'all-zero':
+          'Flex on-demand kan skalere til null. Premium og Dedicated har andre kapasitetsmodeller; ikke generaliser.',
+      },
+    },
+  },
+  terms: [
+    ['Event', 'En hendelse som kan aktivere en funksjon.'],
+    ['Trigger', 'Regelen som starter en kodekjøring.'],
+    ['Execution', 'Én kjøring av kundens funksjonskode.'],
+    ['Concurrency', 'Antall samtidige kjøringer.'],
+    ['Cold start', 'Forberedelse av kjøreinstans før kode kan behandles.'],
+    ['State', 'Informasjon som må bevares mellom kjøringer.'],
+  ],
+  plans: [
+    {
+      name: 'Flex Consumption',
+      scale: 'Hendelsesstyrt; on-demand kan skalere til null.',
+      cost: 'Utførelse og minnebruk. Valgfritt always-ready gir baseline-kostnad.',
+      limit:
+        'Always-ready reduserer oppstartsventing; kvoter og arbeidsmengde begrenser faktisk skalering.',
+    },
+    {
+      name: 'Premium',
+      scale: 'Hendelsesstyrt med varm kapasitet.',
+      cost: 'Minimum klargjort kapasitet faktureres også uten aktiv funksjonskode.',
+      limit:
+        'Varm kapasitet reduserer cold starts; det er ingen garanti for korrekt kode eller uavbrutt drift.',
+    },
+    {
+      name: 'Dedicated',
+      scale: 'Kapasitet i App Service plan; manuell skalering eller autoscale.',
+      cost: 'Allokert plan, ikke universell betaling bare per execution.',
+      limit:
+        'Always On og egnet konfigurasjon er viktig for kontinuerlig Functions-host. Ingen universell scale-to-zero.',
+    },
+  ],
+  planHeading: 'Samme Functions-kode, ulike hostingegenskaper',
+  provider: 'Microsoft · plattformdrift',
+  customer: 'Kunden · applikasjonsansvar',
+  providerTasks: 'Fysiske verter, vertens OS og administrert kjøreplattform.',
+  customerTasks: 'Kode, applikasjonssikkerhet, data, identitet, tilgang og konfigurasjon.',
+  exampleLabel: 'Azure-eksempler, ikke operative funksjoner',
+  brief: {
+    title: 'Undersøk hva en trigger faktisk setter i gang',
+    why: 'Arkivet vil behandle arbeid når hendelser kommer. Du skal skille aktivering, kapasitet og vellykket kode.',
+    outcomes: [
+      'Følg en hendelse gjennom trigger, kodekjøring og resultat.',
+      'Sammenlign begrenset kapasitet med oppstart eller kodefeil.',
+      'Forklar kundens ansvar selv når plattformen drifter serverne.',
+    ],
+    stages: [
+      'Velg hendelser, plasser og observasjonsrunder.',
+      'Forutsi fullført arbeid før du kjører modellen.',
+      'Endre situasjonen, sammenlign og forklar årsaken.',
+    ],
+    observation:
+      'En trigger kan starte en kjøring som feiler. Gjenstående arbeid er noe annet enn mislykket arbeid.',
+  },
+  start: 'Start undersøkelsen',
+  briefOpen: 'SavvyShark · Les oppdraget',
+  close: 'Lukk',
+  cancel: 'Avbryt',
+  briefAction:
+    'Start åpner modellen. Avbryt eller Escape lukker uten å registrere læring. Modellen kjører bare når du velger Kjør.',
+  boundary:
+    'Pedagogisk modell · ingen Azure Function, Portal-ressurs, virkelig kodekjøring, pris eller ytelsesmåling.',
+  explorerIntro:
+    'Du skal sammenligne en varm referansekjøring med både fullført og ventende arbeid med en annen kjøring med oppstart eller kodefeil. Forklar deretter hvorfor triggeren ikke garanterer et resultat.',
+  assumptions:
+    'Antakelser: Alle hendelser ankommer før runde 1. Én plass behandler én jobb per runde. En runde er en oppdiktet arbeidsenhet, ikke tid i Azure. Kald oppstart bruker første runde; kodefeil rammer første startede jobb én gang. Ingen retry eller ny automatisk kapasitet. Felles innboks er en abstraksjon, ikke faktisk buffering for alle trigger-typer.',
+  eventLabel: 'Hendelsestype',
+  events: {
+    upload: 'Fil lastes opp',
+    http: 'HTTP request',
+    queue: 'Kømelding',
+    timer: 'Planlagt tidspunkt',
+  },
+  count: 'Antall hendelser',
+  slots: 'Samtidige utførelsesplasser',
+  rounds: 'Observasjonsrunder',
+  situation: 'Utførelsessituasjon',
+  situations: {
+    warm: 'Varm, feilfri kode',
+    cold: 'Ny instans · første runde klargjøres',
+    'code-error': 'Kodefeil i første jobb',
+  },
+  prediction: 'Forutsi antall fullførte jobber',
+  run: 'Kjør modellen',
+  previous: 'Sist registrerte kjøring · inngangsverdiene er låst til dette resultatet',
+  empty: 'Ingen kjøring ennå. Velg en prediksjon før resultatet beregnes.',
+  event: 'Hendelse',
+  trigger: 'Trigger',
+  execution: 'Kodekjøring',
+  output: 'Resultat',
+  round: 'Runde',
+  pending: 'Venter',
+  completed: 'Fullført',
+  failed: 'Feilet',
+  started: 'Startet',
+  prepared: 'Klargjøring',
+  trace: 'Spor hver modellert hendelse',
+  outputSaved: 'Modellert utdata',
+  noOutput: 'Ingen utdata',
+  notStarted: 'Ikke aktivert i vinduet',
+  causal:
+    'Fullført arbeid begrenses av plasser × tilgjengelige behandlingsrunder. Oppstart bruker en runde; feil gir ingen utdata for den berørte jobben. Ventende hendelser har ennå ikke startet. Dette er ikke Azure Functions sin skaleringsalgoritme.',
+  compare: 'Sammenlign prediksjon og observasjon',
+  predicted: 'Din prediksjon',
+  observed: 'Modellen fullførte',
+  guidedCheck: 'Hvorfor er en aktivert trigger utilstrekkelig som bevis på et vellykket resultat?',
+  guidedChoices: [
+    [
+      'code-result',
+      'Koden og avhengighetene må lykkes; kapasitet kan også gjøre at annet arbeid venter.',
+    ],
+    ['trigger-guarantee', 'Triggeren garanterer et korrekt resultat.'],
+    ['no-servers', 'Det finnes ikke servere som kan feile.'],
+  ],
+  guidedFeedback: {
+    'code-result':
+      'Ja. Aktivering, faktisk kjøring og gyldige utdata er forskjellige trinn. Koden forblir kundens ansvar.',
+    'trigger-guarantee':
+      'En trigger starter arbeid. Se etter kodefeilen og manglende utdata i sporet; aktivering alene er ikke suksess.',
+    'no-servers':
+      'Koden kjører på fysisk infrastruktur. Administrert drift fjerner verken kodefeil eller avhengigheter.',
+  },
+  practice: 'Veiledet anvendelse',
+  practiceDone: 'Begge kjøringsvitner og riktig årsaksforklaring er registrert.',
+  practiceRemaining:
+    'Gjenstår: sammenlign en varm, kapasitetsbegrenset referansekjøring med en annen oppstarts-/feilsituasjon, og svar på årsaksspørsmålet.',
+  milestone: {
+    title: 'Triggeren startet kundens kode',
+    message:
+      'Dette sporet viser modellert aktivering og utførelse uten at du konfigurerte en VM. Leverandøren håndterer kjøreplattformen; du har fortsatt ansvar for kode, data og tilgang.',
+    limit:
+      'Dette er et beregnet undervisningsresultat, ikke en Azure-receipt eller bekreftet drift. Undersøk nå forskjellen mellom ventende arbeid og kodefeil.',
+    recall: 'SavvyShark · Gjenåpne serverless-milepælen',
+  },
+  storage:
+    'Serverless-lagringen er usikker. Gamle registreringer overskrives ikke. Ulagret arbeid kan gå tapt ved reload. Last inn igjen for å kontrollere lagret innhold.',
+  milestoneStorage:
+    'Milepælhistorikken kunne ikke lagres eller leses sikkert. Ingen automatisk popup; forklaringen kan åpnes manuelt.',
+  reload: 'Last inn serverless-data igjen',
+  verify: 'Kontroller forståelsen',
+  reviewed:
+    'Kilder kontrollert 27. oktober 2026. Kvalifisert menneskelig SME- og læringsvalidering er utestående.',
+  sources: 'Offisielle kilder og grenser',
+  assessIntro:
+    'Nye krav, uten trinnvis veiledning. Velg løsning OG begrunnelse i begge situasjoner, og vurder resultat, ansvar og prising. Alle svar leveres samlet før feedback. Ingen XP eller sertifiseringsstatus. Journal, undervisning eller eksplisitt hjelp under forsøket registreres som assistanse.',
+  begin: 'Start selvstendig forsøk',
+  submit: 'Lever alle svar',
+  aid: 'Be om hjelp · registrerer assistanse',
+  aidText:
+    'Se etter arbeidsmengdens utløsning, behovet for gjeste-OS-kontroll og hostingplanens kapasitetsmodell. Hjelp er nå registrert; dette forsøket blir ikke unaided.',
+  abandon: 'Avbryt forsøket',
+  retry: 'Prøv igjen som øving',
+  active: 'Aktivt forsøk · svarutkast lagres',
+  assisted: 'Assistanse registrert',
+  unaided: 'Uten registrert hjelp',
+  retryLabel: 'Nytt forsøk er øving etter tidligere eksponering',
+  abandoned: 'Avbrutte forsøk',
+  feedback: 'Tilbakemelding etter innlevering',
+  correct: 'Riktig',
+  wrong: 'Undersøk begrunnelsen',
+  cases: [
+    {
+      title: 'A · Ujevne webhook-varsler',
+      text: 'Et team mottar uforutsigbare webhook-varsler fra en partner. Hvert varsel trenger en kort validering i egen kode og lagrer resultatet eksternt. Teamet vil slippe vedlikehold av gjesteoperativsystemet og trenger ikke OS-kontroll. De vil vurdere hostingplan og latency. Velg et hensiktsmessig utgangspunkt.',
+    },
+    {
+      title: 'B · Agent med kjernedriver',
+      text: 'Et industrielt analyseprogram skal drives kontinuerlig med en bestemt leverandørdriver i gjesteoperativsystemets kjerne og egne OS-diagnoseverktøy. Teamet kan vedlikeholde dette OS-et. Velg hosting som ivaretar disse kontrollkravene.',
+    },
+  ],
+  questions: {
+    webhook: {
+      label: 'A · Hosting',
+      choices: [
+        ['functions', 'Azure Functions'],
+        ['vm', 'Azure Virtual Machines'],
+        ['saas', 'Ferdig SaaS'],
+      ],
+      feedback: {
+        functions:
+          'Functions passer korte hendelsesutløste kjøringer med egen kode; plan, tilgang og tilstand må fortsatt velges.',
+        vm: 'VM kan kjøre kode, men gir gjeste-OS-drift teamet ikke trenger for denne avgrensede hendelsesjobben.',
+        saas: 'Ferdig SaaS gir ikke i seg selv hosting for teamets egen valideringskode.',
+      },
+    },
+    webhookReason: {
+      label: 'A · Avgjørende begrunnelse',
+      choices: [
+        ['events', 'Kort kundekode aktiveres av hendelser uten behov for gjeste-OS-kontroll.'],
+        ['free', 'Alle Functions-planer er gratis uten hendelser.'],
+        ['no-security', 'Leverandøren overtar all applikasjonssikkerhet.'],
+      ],
+      feedback: {
+        events:
+          'Riktig begrunnelse knytter valg til arbeidsform og kontrollbehov, ikke et universelt prisløfte.',
+        free: 'Always-ready, Premium og Dedicated kan ha baselinekostnad. Dette er ingen universell sparegaranti.',
+        'no-security':
+          'Kode, data og tilgang forblir kundens oppgaver også på en administrert plattform.',
+      },
+    },
+    agent: {
+      label: 'B · Hosting',
+      choices: [
+        ['functions', 'Azure Functions'],
+        ['vm', 'Azure Virtual Machines'],
+        ['app-service', 'Azure App Service'],
+      ],
+      feedback: {
+        functions:
+          'Functions gir ikke kontroll til å installere denne kjernedriveren i plattformens OS.',
+        vm: 'VM gir nødvendig gjeste-OS-kontroll. Teamet overtar også vedlikehold og operasjonelt ansvar.',
+        'app-service':
+          'Administrert webhosting gir ikke den etterspurte administratorstyringen av gjeste-OS og kjernedriver.',
+      },
+    },
+    agentReason: {
+      label: 'B · Avgjørende begrunnelse',
+      choices: [
+        ['guest-control', 'Kravet om driver og OS-diagnostikk krever gjeste-OS-kontroll.'],
+        ['continuous-impossible', 'Functions kan aldri brukes til langvarig arbeid.'],
+        ['cheapest', 'VM er alltid billigst.'],
+      ],
+      feedback: {
+        'guest-control':
+          'Det spesifikke kontrollbehovet begrunner VM. Kontinuerlig drift alene avgjør ikke alle hostingvalg.',
+        'continuous-impossible':
+          'Noen lange jobber kan bruke egnet plan eller asynkron utforming. Kjernedriveren er det avgjørende moteksempelet her.',
+        cheapest:
+          'Kostnad avhenger av bruk, plan og drift. Ingen universell VM-prisfordel er vist.',
+      },
+    },
+    result: {
+      label: 'En trigger er konfigurert. Hva støtter påstanden om vellykket behandling?',
+      choices: [
+        ['trigger', 'Triggerkonfigurasjonen alene'],
+        ['successful-output', 'Undersøkt vellykket kjøring med forventede utdata'],
+        ['configured', 'At en hostingplan er valgt'],
+      ],
+      feedback: {
+        trigger:
+          'Konfigurasjon er bare en forutsetning, ikke bevis for kjøring eller korrekt kode.',
+        'successful-output':
+          'Et undersøkt resultat fra faktisk kjøring er sterkere enn konfigurasjon. Explorer-resultatet er likevel bare syntetisk.',
+        configured: 'Hostingvalg gjør ikke programkoden korrekt og beviser ingen kjøring.',
+      },
+    },
+    duties: {
+      label: 'Hvem må beskytte kundens kode, data og tilgang i Functions?',
+      choices: [
+        ['customer', 'Kunden, innen plattformens ansvarsdeling'],
+        ['provider', 'Bare Microsoft'],
+        ['none', 'Ingen når triggeren virker'],
+      ],
+      feedback: {
+        customer:
+          'Microsoft drifter plattformen. Kunden forvalter fortsatt disse applikasjonsoppgavene.',
+        provider:
+          'Administrert OS er ikke det samme som overtatt ansvar for kundens kode og tilgang.',
+        none: 'En fungerende trigger er ingen sikkerhets- eller databeskyttelsesgaranti.',
+      },
+    },
+    bill: {
+      label: 'En funksjon er inaktiv. Hva trenger du for å vurdere kostnaden?',
+      choices: [
+        ['zero', 'Ingen flere opplysninger; serverless er gratis'],
+        ['plan', 'Hostingplan, varm/allokert kapasitet og tilknyttede tjenester'],
+        ['executions-only', 'Bare antall executions, uansett plan'],
+      ],
+      feedback: {
+        zero: 'Det kan finnes baseline- og lagringskostnader uten aktiv funksjonskode.',
+        plan: 'Flex on-demand, always-ready, Premium og Dedicated har ulike kostnadsgrunnlag. Ingen faktisk pris beregnes her.',
+        'executions-only':
+          'Det overser blant annet klargjort eller dedikert kapasitet og relaterte tjenester.',
+      },
+    },
+  },
+  summary: 'Tilleggets observasjoner, ikke en ny fullføring av gamle Foundations-rubrikker',
+  taught: 'Forklart og kontrollert',
+  guided: 'Veiledet modell og årsaksforklaring',
+  independent: 'Første selvstendige scenarioinnlevering',
+  yes: 'Registrert',
+  no: 'Ikke dokumentert ennå',
+  independentYes:
+    'Alle kriterier riktige i første innlevering uten registrert assistanse eller tidligere avbrudd',
+  independentNo: 'Ingen slik observasjon. Se innleveringens konkrete kriterier; retry er øving.',
+  summaryLimit:
+    'Resultatene er lokale oppgaveobservasjoner. De beviser ikke generell Azure-kompetanse, Microsoft Learn-fullføring eller eksamensberedskap. Hele compute-sammenligningen, inkludert containers, er fortsatt delvis dekket.',
+} as const;

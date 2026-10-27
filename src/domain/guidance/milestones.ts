@@ -2,6 +2,17 @@ import type { Engine } from '../chapter01/model';
 import { infrastructure, types } from '../sandbox/model';
 import { replayEngine } from '../sandbox/replay';
 
+/** Conceptual observations are not Engine receipts and have their own source contract. */
+export const conceptMilestones = {
+  'serverless-execution': {
+    version: '1.0.0',
+    objectives: ['FC08'],
+    sources: ['SL03', 'SL04', 'SL10'],
+    trigger: 'validated-execution-trace-with-started-work',
+    auto: 'first-new-guided-model-result',
+  },
+} as const;
+
 /** Read-only presentation contracts; never emits commands, answers, awards or learning events. */
 export const milestoneDefinitions = {
   'policy-denial': {

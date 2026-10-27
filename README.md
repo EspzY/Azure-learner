@@ -1,5 +1,9 @@
 # AzureLab 3.2.1
 
+## Current P00 learning addition — serverless
+
+The ordinary course now includes **Serverless: fra hendelse til resultat** after Cloud Computing pricing. Enter from `/` → Describe cloud computing → the serverless units in the course menu. Original theory, hosting/retained-responsibility comparison, a prediction-based Execution Explorer, SavvyShark mission/milestone, two original independent scenarios and a full Journal reference use the existing shell. No Functions/Azure runtime or new Portal resource exists. Old learning/XP contracts are preserved; FC08 has an isolated versioned supplement. [Manuscript, sources, boundaries and walkthrough](docs/SERVERLESS_FOUNDATIONS.md). Human educational/SME acceptance is outstanding; technical validation is recorded in PROJECT_STATUS.
+
 ## Permanent quality and SavvyShark milestones — PR20
 
 The [permanent owner contract](docs/QUALITY_CONTRACT.md) integrates seven gates with the existing curriculum, audit, asset, simulation and browser checks. `quality:check` validates scoped sources/claims/activity pointers; `quality:stamp` leaves a final review pending; `quality:release` rejects stale or missing post-implementation review and unresolved blockers. These checks do not claim human SME, visual excellence or learning effectiveness. [Developer/release workflow](docs/RELEASE_ACCEPTANCE.md).

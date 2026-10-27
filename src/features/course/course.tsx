@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { BookOpen, ArrowRight, ChevronRight, FlaskConical, Check, Menu } from 'lucide-react';
-import { labsNb, nb } from '@/content/nb';
+import { labsNb, nb, serverlessNb } from '@/content/nb';
 import { officialLearning } from '@/domain/curriculum/official';
 import { unitIds } from '@/domain/curriculum/manifest';
 import { topics, portalHref, parseLocation, type PortalLocation } from '@/domain/portal/model';
@@ -43,13 +43,17 @@ import { isV2Topic, v2Topics } from '@/domain/curriculum/foundations-v2';
 import '@/features/portal/portal.css';
 import './course.css';
 const c = nb.course;
+import { useServerless } from '@/features/learning/serverless-provider';
+import { ServerlessLesson } from '@/features/learning/serverless';
+import { isServerlessTopic, serverlessTopics } from '@/domain/curriculum/serverless';
 const names = {
   computing: nb.official.computing,
   services: nb.official.services,
   benefits: nb.official.benefits,
 };
 export function Course({ module }: { module?: CourseModule }) {
-  const practical = usePractical();
+  const practical = usePractical(),
+    serverless = useServerless();
   const query = useSearchParams(),
     router = useRouter(),
     course = useCourse(),
@@ -95,7 +99,7 @@ export function Course({ module }: { module?: CourseModule }) {
     service2.facts.choice,
     service2.store,
   ]);
-  const currentV2 = module === 'computing' && isV2Topic(topic);
+  const currentV2 = module === 'computing' && (isV2Topic(topic) || isServerlessTopic(topic));
   const hasV1 = learning.save.events.length > 0;
   const chooseVersion = currentV2 && hasV1 && v2.save.choice === null;
   const computingEntry =
@@ -166,6 +170,21 @@ export function Course({ module }: { module?: CourseModule }) {
     )
       v2.store.event({ kind: 'aid' });
   }, [v2.facts.active, v2.store, module, topic, journal]);
+  useEffect(() => {
+    if (
+      serverless.facts.active &&
+      (journal || (module && topic !== 'serverless-assessment' && topic !== 'serverless-summary'))
+    )
+      serverless.store.event({ kind: 'aid' });
+  }, [
+    serverless.facts.active,
+    serverless.ready,
+    serverless.issue,
+    serverless.store,
+    journal,
+    module,
+    topic,
+  ]);
   const lab = labFacts(course.save.lab, chapter.attempt.engine, chapter.attemptNumber);
   const existingSession = {
     ...startLab(chapter.attempt.engine, chapter.attemptNumber),
@@ -199,24 +218,26 @@ export function Course({ module }: { module?: CourseModule }) {
   const resumeHref =
     practical.current?.status === 'active'
       ? practicalHref(practical.current, chapter.attempt.engine)
-      : v2.facts.active
-        ? courseHref('computing', 'v2-assessment')
-        : benefits.facts.active
-          ? courseHref('benefits', 'assessment')
-          : service2.facts.active
-            ? courseHref('services', 'assessment')
-            : services.facts.active
-              ? '/portal?area=challenge&course=1&module=services&topic=practice'
-              : learning.facts.active && v2.save.choice !== 'v2'
-                ? courseHref('computing', 'assessment')
-                : preferredResume
-                  ? (preferredResume.module === 'services' &&
-                      preferredResume.topic === 'practice') ||
-                    (preferredResume.module === 'computing' &&
-                      preferredResume.topic === 'resource-bridge')
-                    ? courseLabHref(lab.complete, course.save.lab?.origin)
-                    : courseHref(preferredResume.module, preferredResume.topic)
-                  : computingEntry;
+      : serverless.facts.active
+        ? courseHref('computing', 'serverless-assessment')
+        : v2.facts.active
+          ? courseHref('computing', 'v2-assessment')
+          : benefits.facts.active
+            ? courseHref('benefits', 'assessment')
+            : service2.facts.active
+              ? courseHref('services', 'assessment')
+              : services.facts.active
+                ? '/portal?area=challenge&course=1&module=services&topic=practice'
+                : learning.facts.active && v2.save.choice !== 'v2'
+                  ? courseHref('computing', 'assessment')
+                  : preferredResume
+                    ? (preferredResume.module === 'services' &&
+                        preferredResume.topic === 'practice') ||
+                      (preferredResume.module === 'computing' &&
+                        preferredResume.topic === 'resource-bridge')
+                      ? courseLabHref(lab.complete, course.save.lab?.origin)
+                      : courseHref(preferredResume.module, preferredResume.topic)
+                    : computingEntry;
   const navigate = (area: PortalLocation['area'], change: Partial<PortalLocation> = {}) => {
     if (area === 'learn')
       router.push(courseHref(change.module ?? module ?? 'services', change.topic ?? topic));
@@ -235,7 +256,7 @@ export function Course({ module }: { module?: CourseModule }) {
       ? [...trackUnits.benefits, 'summary']
       : module === 'computing'
         ? currentV2
-          ? v2Topics
+          ? [...v2Topics.slice(0, -1), ...serverlessTopics, v2Topics.at(-1)!]
           : unitIds
         : legacyServices
           ? topics
@@ -253,7 +274,8 @@ export function Course({ module }: { module?: CourseModule }) {
           ? nb.portal.lesson.sections[t as (typeof topics)[number]]?.title
           : (manuscript('services', t)?.title ??
             (t === 'summary' ? nb.expansion.common.summary : nb.expansion.common.assessment))
-        : (nb.foundationsV2.topics[t as (typeof v2Topics)[number]]?.title ??
+        : (serverlessNb.topics[t as keyof typeof serverlessNb.topics] ??
+          nb.foundationsV2.topics[t as (typeof v2Topics)[number]]?.title ??
           nb.foundations.units[t as (typeof unitIds)[number]]?.title);
   const begin = () => {
     if (services.facts.active) services.store.event({ kind: 'aid' });
@@ -467,6 +489,15 @@ export function Course({ module }: { module?: CourseModule }) {
                               {v2Topics.filter((id) => v2.facts.guided(id)).length} / 11 ·{' '}
                               {nb.foundationsV2.badge}
                             </p>
+                            <p>
+                              <Link href={courseHref('computing', 'serverless-concept')}>
+                                {serverlessNb.title}
+                              </Link>{' '}
+                              ·{' '}
+                              {serverless.facts.guided
+                                ? serverlessNb.practiceDone
+                                : serverlessNb.no}
+                            </p>
                             {hasV1 && (
                               <p>
                                 {nb.foundationsV2.legacy} · {c.computingProgress}:{' '}
@@ -608,6 +639,30 @@ export function Course({ module }: { module?: CourseModule }) {
                   </section>
                 ) : module === 'benefits' ? (
                   <ExpandedModule key={topic} track="benefits" topic={topic} />
+                ) : module === 'computing' && isServerlessTopic(topic) ? (
+                  <ServerlessLesson
+                    key={topic}
+                    topic={topic}
+                    guidanceBlocked={
+                      [
+                        learning,
+                        v2,
+                        services,
+                        benefits,
+                        service2,
+                        practical,
+                        chapter,
+                        course,
+                        serverless,
+                      ].some((x) => !x.ready || !!x.issue) ||
+                      learning.facts.active ||
+                      v2.facts.active ||
+                      services.facts.active ||
+                      benefits.facts.active ||
+                      service2.facts.active ||
+                      practical.activeIndependent
+                    }
+                  />
                 ) : module === 'computing' && currentV2 ? (
                   <FoundationsV2 key={topic} topic={topic} />
                 ) : module === 'services' ? (
@@ -923,6 +978,8 @@ export function Course({ module }: { module?: CourseModule }) {
             <ExpansionReference track="benefits" topic={topic} />
           ) : module === 'services' && !legacyServices ? (
             <ExpansionReference track="services" topic={topic} />
+          ) : isServerlessTopic(topic) ? (
+            <ServerlessLesson topic={topic} journal />
           ) : currentV2 ? (
             <FoundationsV2
               topic={['v2-assessment', 'v2-summary'].includes(topic) ? 'intro-request' : topic}

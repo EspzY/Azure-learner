@@ -1,5 +1,9 @@
 # Learning design
 
+## P00 serverless application
+
+The learning progression now connects prior provisioning, shared responsibility and pricing to managed event execution. A synthetic trace distinguishes activation, code failure, remaining work and output. Predictions commit with bounded input; guided completion requires contrasting run witnesses plus causal explanation. A webhook task and guest-kernel-driver task change decision requirements; hosting AND reason, outcome, duty and plan-cost criteria commit before feedback. First/help/retry/abandon remain separate, with no XP. [Original manuscript and source qualification](SERVERLESS_FOUNDATIONS.md). This is not human educational validation.
+
 ## PR20 — quality foundation, not curriculum expansion
 
 Use the [permanent quality contract](QUALITY_CONTRACT.md), [content QA](CONTENT_QA_STANDARD.md) and [source protocol](SOURCE_COVERAGE_PROTOCOL.md) for future modules. Existing depth and PR19 gaps remain unchanged. New short causal milestones explain observed policy/VM relations in context; they do not replace theory, new-scenario assessment or module completion. Full mission prerequisites and action consequences precede practice; required guide text stays visible. Separate post-implementation review challenges technical, instructional, visual, assessment and guidance quality. Human SME/novice/IT/transfer validation remains unperformed unless explicitly documented.

@@ -1,5 +1,9 @@
 # Interactive technical visualizations
 
+## Serverless Execution Explorer
+
+The new FC08 explorer is a separate conceptual projection: bounded event inbox → trigger → per-slot execution trace → output, with explicit failure/pending states and an equivalent semantic table. Work rounds are invented units; no Azure autoscaling/latency/cost claim. Parameters and prediction commit before computing output; old results retain their actual input snapshot. Cold preparation and code failure are distinct. Guided completion requires contrast and causal explanation, not animation. [Model/manuscript](SERVERLESS_FOUNDATIONS.md).
+
 ## Module2/3 explanatory figures — 2026-10-26
 
 The current ordinary course uses distinct projections for routed copies/capacity, application/dependency diagnosis, scoped Web-policy applicability, template fan-out, service/active-hour lanes, VM host/guest/disk/NIC, code-to-managed-platform compatibility, SaaS identity/license/authority/sharing and justified service choice. Native controls and the full manuscript remain the readable equivalent. Figures show configuration before Run; calculated consequences appear only from the existing explicit-run result. No new Azure execution or numerical model is implied. The shared responsibility explorer is retained unchanged. [Visual contracts and review](GUIDED_LEARNING_REFINEMENT.md).

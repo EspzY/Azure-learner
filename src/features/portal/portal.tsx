@@ -1,4 +1,6 @@
 'use client';
+import { useServerless } from '@/features/learning/serverless-provider';
+import { ServerlessRecovery } from '@/features/learning/serverless-recovery';
 import {
   PracticalCoach,
   PracticalOutcome,
@@ -70,9 +72,21 @@ function PortalWorkspace() {
     practical = usePractical();
   const benefits = useExpansion('benefits'),
     services2 = useExpansion('services');
-  const foundationsV2 = useFoundationsV2();
+  const foundationsV2 = useFoundationsV2(),
+    serverless = useServerless();
+  useEffect(() => {
+    if (serverless.facts.active && ['learn', 'responsibility', 'hierarchy'].includes(location.area))
+      serverless.store.event({ kind: 'aid' });
+  }, [
+    serverless.facts.active,
+    serverless.ready,
+    serverless.issue,
+    serverless.store,
+    location.area,
+  ]);
   const independentContext =
     location.mode === 'independent' ||
+    serverless.facts.active ||
     practical.activeIndependent ||
     learning.facts.active ||
     foundationsV2.facts.active ||
@@ -80,6 +94,7 @@ function PortalWorkspace() {
     benefits.facts.active ||
     services2.facts.active;
   const guidanceContexts = [
+    serverless,
     learning,
     foundationsV2,
     module,
@@ -519,6 +534,7 @@ function PortalWorkspace() {
           onClick={() => {
             helpLearning();
             if (learning.facts.active) learning.store.event({ kind: 'aid' });
+            if (serverless.facts.active) serverless.store.event({ kind: 'aid' });
             setReference(true);
           }}
         >
@@ -749,6 +765,7 @@ function PortalWorkspace() {
                 {p.storage} {guidanceContexts.find((c) => c.issue)?.issue}
               </p>
               <p>{nb.milestones.contextUnavailable}</p>
+              <ServerlessRecovery />
               <button
                 type="button"
                 onClick={() => {

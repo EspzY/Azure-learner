@@ -1,5 +1,9 @@
 # SavvyShark integration
 
+## FC08 conceptual milestone
+
+`conceptMilestones.serverless-execution@1.0.0` is separate from Portal Engine receipt observations. A newly validated guided run with started work can claim the PR20 UI-history key before showing the actual counts. Historical reload is recall-only, uncertain storage disables auto, active/uncertain assessment contexts withhold solution guidance. Mission cancel/reopen changes no evidence. Original mascot asset is unchanged. [P00 source and interaction contract](SERVERLESS_FOUNDATIONS.md).
+
 ## Mission, milestone and context — PR20
 
 The [permanent F1–F5 standard](SAVVYSHARK_GUIDANCE_STANDARD.md) now governs future work. Mission briefing keeps native semantics/blur and adds explicit prerequisites/action consequences. Current guide displays the actual target location alongside reason/action/observation. Versioned policy-denial and VM-dependency explanations read actual replayed results, appear once after meaningful guided inspection and can be manually reopened. Historical reload never automatically replays them; unsafe UI storage disables auto. Every active independent assessment suppresses milestones/highlights. No commands, answers, XP, new assets or evidence migration. Human educational/SME/accessibility approval remains separate from structural/browser checks.

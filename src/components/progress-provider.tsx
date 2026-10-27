@@ -87,6 +87,7 @@ export function ProgressProvider({ children }: { children: React.ReactNode }) {
         'azurelab.saas-admin.v1',
         'azurelab.practical-labs.v1',
         'azurelab.guidance.milestones.v1',
+        'azurelab.learning.serverless.v1',
       ])
         localStorage.removeItem(key);
     } catch {

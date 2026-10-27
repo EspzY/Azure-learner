@@ -1,5 +1,9 @@
 # AzureLab engineering contract
 
+## P00 serverless supplement — active PR21 contract
+
+FC08 is integrated after pricing in the ordinary Cloud Computing course, with separate `azurelab.learning.serverless.v1` content/model/rubric1.0.0 replay. Read [the original manuscript and compatibility decision](docs/SERVERLESS_FOUNDATIONS.md) before changes. Never append FC08 to old Foundations v1/v2 rubrics or infer it from their completion. Prediction/run snapshots, guided causal witnesses and immutable first/help/retry/abandon observations are distinct. The event explorer is conceptual, never a Functions resource/runtime/receipt. Hosting/idle cost/cold start claims are plan-dependent. Reuse PR20 UI-only milestone history; no automatic solutions in active/uncertain independent contexts. Human SME, assistive UX and learning-transfer validation remain separate and unperformed.
+
 ## Permanent quality and learning engineering — mandatory from PR20
 
 Before every implementation read [QUALITY_CONTRACT](docs/QUALITY_CONTRACT.md), [CONTENT_QA_STANDARD](docs/CONTENT_QA_STANDARD.md), [SOURCE_COVERAGE_PROTOCOL](docs/SOURCE_COVERAGE_PROTOCOL.md), [SAVVYSHARK_GUIDANCE_STANDARD](docs/SAVVYSHARK_GUIDANCE_STANDARD.md) and [RELEASE_ACCEPTANCE](docs/RELEASE_ACCEPTANCE.md), plus the applicable existing subsystem docs. These are the active owner contract A–I and seven gates, not optional checklists. Reuse current content/audit/model rules; do not infer adequate teaching from a source/title/green test. Preserve all existing evidence, rubrics, XP and technical stores. New higher-level certification mappings need versioned depth and independent requirements, never automatic evidence upgrades.

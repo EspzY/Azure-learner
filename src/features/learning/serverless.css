@@ -1,0 +1,478 @@
+.serverless-lesson {
+  --sl-ink: #142f4a;
+  --sl-blue: #0674bd;
+  --sl-line: #c9dce9;
+  color: var(--sl-ink);
+  max-width: 1360px;
+  margin: auto;
+  font-size: 16px;
+  line-height: 1.65;
+}
+.serverless-lesson h2 {
+  font-size: 30px;
+  line-height: 1.2;
+  max-width: 36ch;
+  margin: 10px 0 16px;
+}
+.serverless-lesson h3 {
+  font-size: 22px;
+  line-height: 1.35;
+  margin: 24px 0 14px;
+}
+.serverless-lesson h4 {
+  font-size: 17px;
+  margin: 8px 0;
+}
+.serverless-lesson header > small {
+  color: #345b7b;
+  letter-spacing: 0.05em;
+}
+.serverless-lesson p {
+  max-width: 82ch;
+  margin: 0 0 18px;
+}
+.sl-prerequisite,
+.sl-assumptions {
+  background: #eff6fa;
+  border-left: 3px solid #5498c0;
+  padding: 16px 20px;
+  font-size: 14px;
+}
+.sl-reading {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.8fr);
+  gap: 36px;
+}
+.sl-reading > div p {
+  margin-bottom: 24px;
+}
+.sl-reading aside {
+  border-left: 1px solid var(--sl-line);
+  padding-left: 28px;
+}
+.sl-reading aside p {
+  font-size: 14px;
+}
+.sl-problem {
+  background: #f0f7fc;
+  padding: 22px;
+}
+.sl-problem > span {
+  font-size: 38px;
+  color: var(--sl-blue);
+}
+.sl-burst {
+  display: flex;
+  align-items: end;
+  gap: 8px;
+  height: 90px;
+  border-bottom: 1px solid #83a8c1;
+  margin: 20px 0;
+}
+.sl-burst i {
+  flex: 1;
+  background: #357caf;
+  border-radius: 3px 3px 0 0;
+}
+.sl-terms {
+  font-size: 14px;
+}
+.sl-terms > div {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--sl-line);
+}
+.sl-terms dt {
+  font-weight: 650;
+}
+.sl-terms dd {
+  margin: 4px 0;
+}
+.sl-chain {
+  list-style: none;
+  margin: 10px 0;
+  padding: 0;
+}
+.sl-chain li {
+  display: grid;
+  grid-template-columns: 60px 1fr;
+  align-items: center;
+  gap: 12px;
+}
+.sl-chain li > span {
+  font:
+    32px Georgia,
+    serif;
+  background: #e6f2fa;
+  border: 1px solid #b0cfe2;
+  border-radius: 50%;
+  width: 56px;
+  height: 56px;
+  text-align: center;
+}
+.sl-chain li b {
+  grid-column: 1;
+  text-align: center;
+  color: #5684a3;
+}
+.sl-ownership {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin: 24px 0;
+}
+.sl-ownership section {
+  border-top: 3px solid #5587b6;
+  padding: 12px;
+  background: #edf4fa;
+}
+.sl-ownership section + section {
+  border-color: #9b760f;
+  background: #fcf7e8;
+}
+.sl-ownership p {
+  font-size: 14px;
+  margin: 0;
+}
+.sl-reading .sl-ownership {
+  grid-template-columns: 1fr;
+}
+.sl-plans > div {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border: 1px solid var(--sl-line);
+}
+.sl-plans article {
+  padding: 20px;
+}
+.sl-plans article + article {
+  border-left: 1px solid var(--sl-line);
+}
+.sl-plans small {
+  display: block;
+  font-size: 14px;
+  color: #425c70;
+}
+.sl-check,
+.sl-assessment fieldset {
+  margin: 28px 0;
+  padding: 20px;
+  border: 1px solid #a7c4d7;
+}
+.sl-check legend,
+.sl-assessment legend {
+  font-weight: 650;
+  max-width: 100%;
+  padding: 0 8px;
+}
+.sl-check label,
+.sl-assessment label {
+  display: flex;
+  flex-direction: row;
+  align-items: start;
+  gap: 12px;
+  margin: 12px 0;
+  cursor: pointer;
+}
+.sl-check input,
+.sl-assessment input {
+  margin-top: 7px;
+  flex-shrink: 0;
+}
+.sl-check p {
+  padding: 12px;
+  background: #eaf4fb;
+  margin: 12px 0 0;
+}
+.serverless-lesson button {
+  border: 1px solid #8aaabe;
+  padding: 8px 16px;
+  background: white;
+  color: var(--sl-ink);
+  cursor: pointer;
+  margin: 4px 8px 4px 0;
+}
+.serverless-lesson .sl-primary {
+  background: #056baf;
+  color: white;
+  border-color: #056baf;
+}
+.serverless-lesson button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+.serverless-lesson :focus-visible {
+  outline: 3px solid #a36700;
+  outline-offset: 3px;
+}
+.sl-controls {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  padding: 22px;
+  margin: 24px 0;
+  border: 1px solid #9cbed4;
+  background: #f4f9fc;
+}
+.sl-controls label {
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  font-weight: 600;
+}
+.sl-controls input,
+.sl-controls select {
+  height: 40px;
+  background: white;
+  border: 1px solid #718da1;
+  padding: 6px 10px;
+  max-width: 100%;
+  color: #183b56;
+}
+.sl-controls button {
+  align-self: end;
+}
+.sl-pipeline {
+  display: grid;
+  grid-template-columns: 1fr 30px 0.7fr 30px 1.3fr 30px 0.7fr;
+  align-items: center;
+  padding: 28px 18px;
+  background: #0e2d48;
+  color: white;
+  gap: 8px;
+  border-radius: 4px;
+}
+.sl-pipeline small {
+  display: block;
+  color: #cee6f5;
+  margin-bottom: 14px;
+}
+.sl-inbox > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.sl-token {
+  display: inline-grid;
+  place-items: center;
+  min-width: 28px;
+  height: 28px;
+  border: 1px solid currentColor;
+  font-size: 12px;
+  border-radius: 3px;
+}
+.sl-token.completed {
+  background: #c9f0e2;
+  color: #14503e;
+}
+.sl-token.pending {
+  background: #fff0be;
+  color: #654300;
+}
+.sl-token.failed {
+  background: #ffe0df;
+  color: #8b2221;
+}
+.sl-trigger {
+  text-align: center;
+}
+.sl-trigger b {
+  display: block;
+  font-size: 52px;
+  line-height: 1.2;
+  color: #78d5f5;
+}
+.sl-trigger strong {
+  font-size: 15px;
+}
+.sl-arrow {
+  font-size: 28px;
+  color: #6abadd;
+}
+.sl-workers > div {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  min-height: 40px;
+  border-bottom: 1px solid #4b6d87;
+  padding: 6px;
+}
+.sl-workers b {
+  font:
+    26px Georgia,
+    serif;
+  color: #9bd7ef;
+  margin-right: 6px;
+}
+.sl-output {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+.sl-output > b {
+  font-size: 48px;
+  color: #a0ead5;
+}
+.sl-output > strong {
+  color: #ffb9b9;
+  font-size: 14px;
+}
+.sl-execution table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+.sl-execution caption {
+  text-align: left;
+  font-weight: 650;
+  padding: 10px 0;
+}
+.sl-execution th,
+.sl-execution td {
+  padding: 10px 12px;
+  text-align: left;
+  border-bottom: 1px solid #d3e2ec;
+}
+.sl-execution thead {
+  background: #eef4f8;
+}
+.sl-status {
+  font-size: 13px;
+  padding: 3px 8px;
+  border-radius: 3px;
+}
+.sl-status.completed {
+  color: #15583e;
+  background: #d9f2e5;
+}
+.sl-status.pending {
+  color: #6c4a00;
+  background: #fff1c7;
+}
+.sl-status.failed {
+  color: #8e2121;
+  background: #ffe4e4;
+}
+.sl-observation {
+  padding: 22px;
+  background: #eaf4fb;
+  margin: 24px 0;
+}
+.sl-observation h3 {
+  margin-top: 0;
+}
+.sl-feedback article {
+  padding: 18px 0;
+  border-bottom: 1px solid #ccdce8;
+}
+.sl-summary {
+  display: grid;
+  grid-template-columns: minmax(160px, 1fr) 2fr;
+  gap: 18px;
+}
+.sl-summary dt {
+  font-weight: 650;
+}
+.sl-summary dd {
+  margin: 0;
+}
+.sl-sources {
+  margin-top: 28px;
+  border-top: 1px solid #cbdce9;
+  padding-top: 16px;
+}
+.sl-sources ul {
+  font-size: 14px;
+  overflow-wrap: anywhere;
+}
+.sl-actions {
+  display: flex;
+  flex-wrap: wrap;
+}
+.sl-explorer > .savvy-shark {
+  margin: 20px 0;
+}
+@media (max-width: 1150px) {
+  .sl-reading {
+    grid-template-columns: minmax(0, 1.3fr) minmax(230px, 0.8fr);
+    gap: 24px;
+  }
+  .sl-pipeline {
+    padding: 18px 10px;
+    gap: 4px;
+  }
+  .sl-controls {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 760px) {
+  .sl-reading {
+    display: block;
+  }
+  .sl-reading aside {
+    padding: 16px 0;
+    border: 0;
+  }
+  .sl-controls,
+  .sl-plans > div {
+    grid-template-columns: 1fr;
+  }
+  .sl-plans article + article {
+    border-left: 0;
+    border-top: 1px solid var(--sl-line);
+  }
+  .sl-pipeline {
+    grid-template-columns: 1fr;
+  }
+  .sl-arrow {
+    transform: rotate(90deg);
+    text-align: center;
+  }
+  .sl-execution table {
+    font-size: 12px;
+  }
+  .sl-execution th,
+  .sl-execution td {
+    padding: 7px 4px;
+  }
+  .sl-summary {
+    grid-template-columns: 1fr;
+  }
+  .sl-ownership {
+    grid-template-columns: 1fr;
+  }
+}
+.sl-guidance .mission-scroll {
+  padding: 26px 32px;
+  line-height: 1.65;
+}
+.sl-guidance .mission-scroll h2 {
+  margin: 0 0 20px;
+  line-height: 1.25;
+}
+.sl-guidance .mission-scroll p {
+  margin: 14px 0;
+  max-width: 85ch;
+}
+.sl-guidance .mission-scroll li {
+  margin: 10px 0;
+}
+.sl-execution caption {
+  font-family: inherit;
+}
+.serverless-lesson [data-activity-heading] {
+  scroll-margin-top: 96px;
+}
+.sl-guidance ul {
+  list-style: disc;
+  padding-left: 24px;
+}
+.sl-guidance ol {
+  list-style: decimal;
+  padding-left: 24px;
+}
+.sl-summary > div {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: minmax(160px, 1fr) 2fr;
+  gap: 18px;
+}

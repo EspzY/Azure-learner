@@ -1,5 +1,9 @@
 # AZ-900 — faktisk dekning og læringshull
 
+## Scoped implementation update — P00, 2026-10-27
+
+The historical PR19 findings below remain dated. P00 now provides original serverless theory/mechanism/practice/independent decisions/feedback/source checks for1.1.07. The generated matrix and its SL profile carry actual code/test pointers and explicit human-review limits. Functions is now taught and contrasted with VM control;2.2.01 remains PARTIAL because containers and a complete three-way comparison are not implemented. Other gaps were not re-audited or implicitly closed. [Actual manuscript](SERVERLESS_FOUNDATIONS.md).
+
 Dato: **2026-10-26**. Audit av PR18 `184b818a041919b9a6461310c3ba39074e020641`, faktisk branch `codex/azure-portal-exact-icons`. Eierens navn `codex/azure-portal-exact-fidelity` var ikke PR-ens head. Ny auditbranch er `codex/az900-curriculum-audit`, stablet på faktisk PR18; tidligere PR-er endres ikke.
 
 ## Konklusjon og avgrensning

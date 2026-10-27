@@ -1,5 +1,9 @@
 # Roadmap
 
+## P00 scoped delivery
+
+Serverless conceptual learning is implemented under the PR20 seven-gate contract. The next recommended content remains **Core Architectural Components A**, followed by management scopes B, rather than new Functions runtime/Portal commands. Existing P03 assessment-depth gaps and human SME/novice/IT/assistive/transfer review remain open. [P00 scope](SERVERLESS_FOUNDATIONS.md), [AZ900 sequence](AZ900_EXPANSION_ROADMAP.md).
+
 ## PR20 — quality foundation before the next module
 
 Implement permanent seven-gate traceability and post-implementation Independent Final Audit, plus two existing-outcome SavvyShark milestones. No new AZ-900 analysis/module or serverless implementation belongs here. [Contract](QUALITY_CONTRACT.md), [release workflow](RELEASE_ACCEPTANCE.md). The PR19 staged content roadmap remains the next curriculum plan after this infrastructure is reviewed; its gaps are not reclassified as complete.

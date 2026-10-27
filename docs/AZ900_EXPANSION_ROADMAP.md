@@ -1,5 +1,9 @@
 # AZ-900 — prioritert, avgrenset PR-plan
 
+## P00 implementation update — 2026-10-27
+
+P00 is now implemented as a versioned FC08 supplement in the existing course, with no Functions operational engine or old evidence migration. See [manuscript and compatibility](SERVERLESS_FOUNDATIONS.md), [updated matrix](AZ900_COVERAGE_MATRIX.md) and PROJECT_STATUS for actual checks and outstanding human gates. The following plan remains historical prioritization; P01/P02 core architecture are next and are not implemented by P00.
+
 Planversjon 1.0.0, 2026-10-26. Grunnlag er [den faktiske dekningsmatrisen](AZ900_COVERAGE_MATRIX.md) og [gap-analysen](AZ900_GAP_ANALYSIS.md), ikke antall eksisterende kort eller modultitler. **Ingen PR nedenfor er implementert eller automatisk autorisert av denne planen.** Nye stablede implementeringsgrener avtales separat; ingen merge eller produksjonsdeploy.
 
 ## Prioriteringslogikk og avhengigheter
