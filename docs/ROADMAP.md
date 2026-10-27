@@ -1,5 +1,9 @@
 # Roadmap
 
+## P03 implementation scope — PR25
+
+Cloud Concepts transfer adds unfamiliar original cases, matching reasons, selected-specific feedback and exact repetition links inside the existing course. The isolated versioned assessment preserves all earlier first submissions and guided evidence. P04 / PR26 remains the next planned Cost Management & Pricing delivery; no new resource engines or general exam diagnostics are included. [P03 contract](CLOUD_CONCEPTS_TRANSFER.md).
+
 ## Next after physical Part A
 
 PR22 implements P01 physical/geographic core teaching and bounded original assessment, with no technical engine expansion or old evidence migration. Recommended PR23/P02 is management hierarchy, integrating the existing Portal only where justified. The full core module remains partial. Human educational/SME/UX/assistive review of Part A is still outstanding; technical gates alone do not close it. [Contract](CORE_ARCHITECTURE_PHYSICAL.md).

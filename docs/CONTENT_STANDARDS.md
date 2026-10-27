@@ -1,5 +1,9 @@
 # Content authoring and acceptance contract
 
+## P03 assessment application
+
+For structured independent transfer, validate the relationship between the method and its technical reason, not the method alone. Preserve valid alternative architectures when requirements allow them. Review original cases for cueing, implausible distractors and superficial renaming of guided tasks; syntactic item counts are not proof of educational quality. Every option needs selected-specific feedback, a misconception and a condition under which it could work. Family exposure, aid and retry remain separate from first unaided evidence. [Applied baseline/manuscript](CLOUD_CONCEPTS_TRANSFER.md).
+
 ## P02 concrete application — PR23
 
 [Management manuscript](CORE_ARCHITECTURE_MANAGEMENT.md) precedes presentation, separates identity/scope/membership/hosting/geography, and qualifies source conflicts rather than repeating universal simplifications. Guided model/real Portal work and four changed independent contexts are distinct. Summary and the common Journal count as help during an active independent task. A/B content completeness is separate from learner outcomes and human validation.

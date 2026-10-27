@@ -1,5 +1,9 @@
 # AzureLab 3.2.1
 
+## Cloud Concepts independent transfer — PR25
+
+The ordinary course overview and all three Cloud Concepts modules expose an isolated independent transfer track with19 original scenarios across deployment, pricing, availability, reliability, governance, manageability and service choice. Decisions require matching technical reasons; specific feedback links to the exact lesson. Previous module/mission results remain historical and unchanged; no XP or exam-readiness score. [Content/evidence contract](docs/CLOUD_CONCEPTS_TRANSFER.md).
+
 ## Core Architecture Part A+B — current course, PR23
 
 The ordinary root → Core Architecture now continues from the preserved physical Part A into management organization, resources/groups, subscriptions, management groups, live inventory hierarchy and a separate conceptual Scope & Policy Explorer. The existing real PaaS lab returns to the scope lesson; four changed independent cases, shared Journal and combined summary preserve separate versioned results. [Manuscript, source qualifications and compatibility](docs/CORE_ARCHITECTURE_MANAGEMENT.md). No generic policy/IAM/MG operation, old evidence/XP conversion or human approval. Verification remains recorded in PROJECT_STATUS and the scoped final audit.

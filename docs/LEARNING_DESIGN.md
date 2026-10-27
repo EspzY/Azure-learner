@@ -1,5 +1,9 @@
 # Learning design
 
+## P03 transfer after practical experience
+
+Each Cloud Concepts module now links teaching and guided missions to a separate independent decision/reason workspace. Prerequisites are instructional, not rigid mission-completion gates. New contexts change the causal or operational requirement; one service scenario accepts either supported architecture with its matching responsibility. Feedback explains every alternative only after submission and recommends the precise original activity. Human difficulty, cueing and transfer validation remain outstanding. [P03](CLOUD_CONCEPTS_TRANSFER.md).
+
 ## Management learning task — PR23
 
 Start with a team's ownership/lifecycle problem before terminology. Compare actual administrative ancestry with hosting dependencies and Part A geography. Commit a prediction before pure counterfactual evaluation; compare scope/type/condition/effect and explain consequences. Apply this through the real existing Portal lab. Four different unassisted contexts require choices and reasons with committed alternative feedback; guided success never upgrades independent evidence. [Manuscript](CORE_ARCHITECTURE_MANAGEMENT.md).

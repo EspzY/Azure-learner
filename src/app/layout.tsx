@@ -1,4 +1,5 @@
 import { ManagementProvider } from '@/features/learning/management-provider';
+import { TransferProvider } from '@/features/learning/transfer-provider';
 import { MissionProvider } from '@/features/course/mission-provider';
 import { PhysicalProvider } from '@/features/learning/physical-provider';
 import { SaasProvider } from '@/features/portal/saas-provider';
@@ -26,31 +27,33 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="nb">
       <body>
         <ProgressProvider>
-          <MissionProvider>
-            <ManagementProvider>
-              <PortalLearningProvider>
-                <FoundationsV2Provider>
-                  <CourseProvider>
-                    <ExpansionProvider>
-                      <SandboxProvider>
-                        <SaasProvider>
-                          <PracticalProvider>
-                            <ServerlessProvider>
-                              <PhysicalProvider>
-                                <LearningProvider>
-                                  <AppShell>{children}</AppShell>
-                                </LearningProvider>
-                              </PhysicalProvider>
-                            </ServerlessProvider>
-                          </PracticalProvider>
-                        </SaasProvider>
-                      </SandboxProvider>
-                    </ExpansionProvider>
-                  </CourseProvider>
-                </FoundationsV2Provider>
-              </PortalLearningProvider>
-            </ManagementProvider>
-          </MissionProvider>
+          <TransferProvider>
+            <MissionProvider>
+              <ManagementProvider>
+                <PortalLearningProvider>
+                  <FoundationsV2Provider>
+                    <CourseProvider>
+                      <ExpansionProvider>
+                        <SandboxProvider>
+                          <SaasProvider>
+                            <PracticalProvider>
+                              <ServerlessProvider>
+                                <PhysicalProvider>
+                                  <LearningProvider>
+                                    <AppShell>{children}</AppShell>
+                                  </LearningProvider>
+                                </PhysicalProvider>
+                              </ServerlessProvider>
+                            </PracticalProvider>
+                          </SaasProvider>
+                        </SandboxProvider>
+                      </ExpansionProvider>
+                    </CourseProvider>
+                  </FoundationsV2Provider>
+                </PortalLearningProvider>
+              </ManagementProvider>
+            </MissionProvider>
+          </TransferProvider>
         </ProgressProvider>
       </body>
     </html>

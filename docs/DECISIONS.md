@@ -1,5 +1,9 @@
 # Decisions
 
+## 2026-10-27 — Preserve historical assessment meaning in P03
+
+Add a standalone content/model/rubric1.0.0 transfer supplement rather than extending old fixed criteria. Replay pins item/family/variant and rubric version. Family exposure survives another variant and abandonment; only durable writes commit new evidence. Expand the existing all-context teaching boundary and guidance suppression rather than creating another assistance engine. The one course-topic allowlist extension changes navigation only; Sandbox/receipts/XP and historical learning schemas remain byte-compatible. [Rationale](CLOUD_CONCEPTS_TRANSFER.md).
+
 ##2026-10-27 — Preserve paused exploration without leaking explanations
 
 Whole-content withholding initially removed the old physical model's paused-message/disabled-action contract and lost its local prediction on remount. Reuse the real Run action presentation in an explicitly disabled paused surface, with the original A reload. Restore only the learner's recorded prediction paired with its recorded input when the actual explorer returns; parameter changes still require a new prediction. No correct answer is generated, no event is replayed as new evidence and no frozen physical-domain rule changes. Existing shielding tests are retained.

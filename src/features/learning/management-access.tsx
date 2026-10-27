@@ -42,6 +42,14 @@ import { MissionRecovery } from '@/features/course/missions';
 import { ManagementRecovery } from './management-recovery';
 import { PhysicalRecovery } from './physical-recovery';
 import { PhysicalRunControl } from './physical';
+import { useTransfer } from './transfer-provider';
+import {
+  transferKey,
+  restoreTransfer,
+  transferFacts,
+  transferHref,
+} from '@/domain/curriculum/transfer';
+import { TransferRecovery } from './cloud-transfer';
 export type TeachingContextId = keyof typeof c.accessContexts;
 const read = (key: string) => localStorage.getItem(key);
 function check<S>(
@@ -94,8 +102,20 @@ export function ManagementTeachingBoundary({
     benefits = useExpansion('benefits'),
     services = useExpansion('services'),
     practical = usePractical(),
-    missions = useMissions();
+    missions = useMissions(),
+    transfer = useTransfer();
   const checks = [
+    check(
+      'transfer',
+      transfer,
+      transferKey,
+      restoreTransfer,
+      transferFacts,
+      () => transfer.store.event({ kind: 'aid' }),
+      transfer.facts.current
+        ? transferHref(transfer.facts.current.item)
+        : '/learn/computing?topic=transfer',
+    ),
     check(
       'missions',
       missions,
@@ -198,6 +218,7 @@ export function ManagementTeachingBoundary({
       item.id !== assessment &&
       (!only ||
         item.id === 'missions' ||
+        item.id === 'transfer' ||
         (only === 'core' ? ['management', 'physical'].includes(item.id) : item.id === only)),
   );
   const token = JSON.stringify([
@@ -211,6 +232,7 @@ export function ManagementTeachingBoundary({
     ]),
   ]);
   const [approved, setApproved] = useState<string | null>(null);
+  const RecoveryHeading = identity.startsWith('course:') ? 'h1' : 'h2';
   const authorize = useEffectEvent(
     () =>
       checks.every((item) => item.state.ready && !item.state.issue) &&
@@ -229,9 +251,9 @@ export function ManagementTeachingBoundary({
   )
     return children;
   return (
-    <section className="management-lesson" aria-label={c.accessTitle}>
+    <section className="management-lesson">
       <div className="course-storage" role="status">
-        <h2>{c.accessTitle}</h2>
+        <RecoveryHeading>{c.accessTitle}</RecoveryHeading>
         <p>{c.accessText}</p>
         {checks
           .filter((item) => item.state.issue)
@@ -249,6 +271,7 @@ export function ManagementTeachingBoundary({
               {item.id === 'management' && <ManagementRecovery />}
               {item.id === 'physical' && <PhysicalRecovery />}
               {item.id === 'missions' && <MissionRecovery />}
+              {item.id === 'transfer' && <TransferRecovery />}
             </div>
           ))}
       </div>

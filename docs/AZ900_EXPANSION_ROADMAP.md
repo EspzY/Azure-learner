@@ -1,5 +1,9 @@
 # AZ-900 — prioritert, avgrenset PR-plan
 
+## Gjeldende P03-avgrensning — PR25
+
+P03s åtte vurderingshull er implementert som et separat versjonert transfer-spor med19 nye beslutningssituasjoner i eksisterende Cloud Computing, Benefits og Service Types. Full historisk teori og tidligere evidence beholdes. A–F-innholdsklassifiseringen i den genererte matrisen er revurdert; human SME/UX/screen-reader/learning er fortsatt egne utestående kontroller. PR26/P04 Cost Management & Pricing er neste faglige fase. Ingen generell eksamensmotor eller ny ressursmotor er del av P03. [Baseline og avgrensning](CLOUD_CONCEPTS_TRANSFER.md).
+
 ## P02 current disposition —2026-10-27
 
 Core Architecture Part B is implemented in the ordinary module, completing the seven-objective authored/implemented sequence with separately versioned A/B evidence. No advanced MG CRUD, Policy/RBAC engine or new resource service is introduced. Historical P00–P02 planning below remains for traceability. Next recommendation is P03: strengthen changed independent Cloud Computing transfer evidence before broad new operational services. Qualified human review is still outstanding. [Implementation contract](CORE_ARCHITECTURE_MANAGEMENT.md).

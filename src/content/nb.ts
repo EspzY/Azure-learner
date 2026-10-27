@@ -5400,6 +5400,7 @@ export const managementNb = {
   accessReload: 'Les lagret vurderingskontekst på nytt',
   accessReview: 'Åpne egen vurdering og lagringskontroll',
   accessContexts: {
+    transfer: 'Selvstendig Cloud Concepts-transfer',
     missions: 'Praktiske oppdrag',
     management: 'Core Architecture Part B',
     physical: 'Core Architecture Part A',
@@ -5947,6 +5948,7 @@ export const missionsNb = {
   reloadContext: 'Last inn bare denne konteksten',
   reviewContext: 'Åpne kontekstens eksisterende recovery eller vurdering',
   recoveryContexts: {
+    transfer: 'Cloud Concepts-transfer',
     management: 'Core Architecture Part B',
     physical: 'Core Architecture Part A',
     serverless: 'Serverless',
@@ -6382,6 +6384,917 @@ export const missionsNb = {
       },
       feedback:
         'To aksepterte receipts beviser en ordnet konfigurasjonsendring og restaurering, ikke at kundekoden utførte vedlikehold. Dialogens Apply til utkastet alene gjorde ingen av disse tekniske endringene.',
+    },
+  },
+} as const;
+export const transferNb = {
+  selectSubmission: 'Velg en tidligere innlevering',
+  noHistory: 'Ingen innleveringer er registrert i denne modulen ennå.',
+  activeElsewhere:
+    'Du har et aktivt transfer-forsøk. Fortsett der eller avbryt det før du åpner et annet tilfelle. Utkastet flyttes ikke til en annen modul.',
+  modules: {
+    computing: 'Cloud Computing',
+    benefits: 'Cloud Benefits',
+    services: 'Cloud Service Types',
+  },
+  criteria: 'Vurderte kriterier',
+  decisionResult: 'Beslutningen møter kravene',
+  relationResult: 'Begrunnelsen passer til beslutningen og kravene',
+  yes: 'Ja',
+  no: 'Nei',
+  observations: 'Oppgitte observasjoner · konseptuell analyse, ikke målt Azure-runtime',
+  diagrams: {
+    routing: {
+      source: 'Inngangspunkt',
+      a: 'Instans A · feilet',
+      b: 'Instans B · frisk',
+      route: 'Konfigurert trafikkvei',
+      unused: 'Ingen trafikkvei til B',
+      data: 'Datatjeneste · tilgjengelig',
+    },
+    payment: {
+      a: 'Web 1 · frisk',
+      b: 'Web 2 · frisk',
+      c: 'Web 3 · frisk',
+      shared: 'Felles betalingstjeneste · svarer ikke',
+      required: 'Ordrebekreftelse krever betalingsresultat',
+    },
+    drift: {
+      desired: 'Ønsket verdi: 30 sekunder',
+      past: 'Mandag: pipeline akseptert',
+      change: 'Fredag: Portal-endring til 120 sekunder',
+      now: 'Nå: pipeline viser fortsatt mandagens resultat',
+    },
+    memory: {
+      available: 'Tilgjengelig RAM: 8 GB',
+      required: 'Prosessens krav: 12 GB',
+      note: 'Én udelelig prosess · CPU og disk har ledig kapasitet',
+    },
+  },
+  preparationTitle: 'Før selvstendig anvendelse',
+  preparation: {
+    governance:
+      'Authentication bekrefter identiteten: hvem eller hva logger inn? Authorization avgjør hvilke handlinger identiteten får utføre på et bestemt scope. En vellykket pålogging gir derfor ikke i seg selv endringsrettighet. Azure RBAC kan tildele en egnet rolle på et avgrenset scope. Azure Policy vurderer relevante konfigurasjons- eller handlingsbetingelser og er et annet kontrollspørsmål. Disse kontrollene erstatter ikke undersøkelse av sikker kode, datahåndtering eller samlet compliance.',
+    management:
+      'En mal beskriver ønsket konfigurasjon når den brukes. Hvis noen senere endrer en ressurs direkte i Portal, blir ikke nødvendigvis filen oppdatert eller den gamle verdien kontinuerlig håndhevet. Sammenlign faktisk tilstand med godkjent kilde, undersøk hvorfor avviket oppsto og rett kontrollert. En grønn historisk kjøring er en observasjon fra det tidspunktet; den beviser ikke dagens tilstand.',
+  },
+  title: 'Selvstendig anvendelse — Cloud Concepts',
+  entry: 'Prøv kunnskapen i nye situasjoner',
+  intro:
+    'Velg en beslutning og en begrunnelse ut fra kravene i hvert tilfelle. Dette er et eget vurderingsspor; tidligere modulresultater og guidede oppdrag beholdes uendret.',
+  scope: 'Ingen XP, Microsoft Learn-fullføring eller samlet eksamensberedskap utledes her.',
+  briefingTitle: 'SavvyShark · Fra øvelse til egen beslutning',
+  briefing:
+    'Du møter nye krav, ikke en gjentakelse av oppdragene. Bruk det du vet om drift, ansvar og konsekvenser. Du kan starte uten å ha fullført alle praktiske oppdrag.',
+  rules:
+    'Begge valg må passe sammen. Tilbakemelding kommer etter innlevering. Å åpne forklaringer eller teori under et aktivt forsøk registrerer hjelp først. Et nytt forsøk i samme familie merkes retry, også etter avbrudd. Utkast lagres lokalt når lagringen fungerer.',
+  start: 'Start selvstendig forsøk',
+  resume: 'Fortsett utkast',
+  cancel: 'Lukk introduksjonen',
+  briefingOpen: 'Om selvstendig vurdering',
+  decision: 'Din beslutning',
+  reason: 'Din tekniske begrunnelse',
+  submit: 'Lever beslutning og begrunnelse',
+  abandon: 'Avbryt dette forsøket',
+  help: 'Åpne teori og registrer hjelp',
+  load: 'Last lagret vurdering på nytt',
+  recovery: 'Nullstill bare den ugyldige transfer-registreringen',
+  confirm: 'Bekreft isolert recovery',
+  issue:
+    'Vurderingen holdes tilbake fordi lagringen ikke er avklart. Last på nytt før du fortsetter. Ugyldige data kan bare nullstilles eksplisitt for dette vurderingssporet.',
+  pending: 'Velg et tilfelle. Ingen vurdering starter ved sidebesøk.',
+  draft: 'Aktivt utkast · lagret lokalt',
+  aided: 'Forsøk med registrert hjelp',
+  retry: 'Retry · familien er tidligere åpnet',
+  unaided: 'Første uassisterte forsøk i familien',
+  submitted: 'Innlevert resultat',
+  passed: 'Beslutning og begrunnelse tilfredsstiller kravene',
+  failed: 'Minst ett av valgene tilfredsstiller ikke kravene',
+  feedback: 'Hvorfor dette resultatet?',
+  decisive: 'Kravet som avgjør',
+  alternatives: 'Vurdering av alternativene',
+  selected: 'Ditt innleverte valg',
+  when: 'Kunne vært gyldig dersom',
+  misconception: 'Misforståelsen som må undersøkes',
+  repeat: 'Repeter den relevante undervisningen',
+  history: 'Tidligere innleveringer',
+  currentFeedback: 'Aktuell innlevering',
+  historyNote:
+    'Bare innleverte svar vises. Første innlevering overskrives aldri. Senere familieeksponering er ikke et nytt usett førsteforsøk.',
+  capacity:
+    'Loggen nærmer seg grensen. Flere utkastendringer kan bli avvist; lever de lagrede valgene eller avbryt trygt. Andre modulers data berøres ikke.',
+  capacityStart:
+    'Grensen for nye forsøk er nådd. Tidligere innleveringer er bevart og kan leses. Ingen nye forsøk starter; du kan fortsatt fortsette undervisningen.',
+  blockedDraft:
+    'Endringen ble ikke lagret. Kontroller lagringsstatus og de synlige lagrede valgene før innlevering.',
+  resultNote:
+    'Dette gjelder bare dette scenarioet, ikke generell sertifiseringsmestring. Sammenlign begrunnelsene og repeter ved behov.',
+  coachActive:
+    'Les alle premissene. Velg selv; jeg viser ingen løsningshint mens du vurderer. Lagrede valg er et utkast fram til du leverer.',
+  facts: 'Scenarioets premisser',
+  choose: 'Velg et scenario',
+  previous: 'Tilbake til undervisningen',
+  families: {
+    deployment: 'Plassering og kontroll',
+    pricing: 'Prisvalg og risiko',
+    availability: 'Kapasitet og tilgjengelighet',
+    reliability: 'Gjenoppretting og forutsigbarhet',
+    governance: 'Sikkerhet og styring',
+    manageability: 'Styrbarhet og konfigurasjon',
+    services: 'Tjenestevalg og driftsansvar',
+  },
+  items: {
+    'public-information': {
+      title: 'En ny publikasjonstjeneste',
+      situation:
+        'Et forlag skal publisere åpent lesestoff. Redaksjonen har lokale arkivservere, men den nye tjenesten verken leser eller skriver disse. En juridisk vurdering tillater de valgte dataene hos en ekstern skyleverandør i avtalt region. Teamet trenger rask etablering uten eksklusiv fysisk infrastruktur.',
+      facts: [
+        'Ingen integrasjon med arkivserverne i denne leveransen.',
+        'Regionkravet er verifisert for den aktuelle tjenesten.',
+        'Egen applikasjonskode er nødvendig, men gjeste-OS-kontroll er ikke et krav.',
+      ],
+      decisions: [
+        'Koble privat og offentlig sky for denne arbeidslasten',
+        'Bruk offentlig sky for denne arbeidslasten',
+        'Bygg en skyplattform dedikert bare til forlaget',
+      ],
+      reasons: [
+        'Dataene er regionale; derfor må selve skyplattformen være dedikert til denne organisasjonen.',
+        'Teamet skal levere egen kode; det er dette som skiller privat fra offentlig deployment model.',
+        'Arbeidslasten kan bruke leverandørens tilbud uten krav om eksklusivt miljø eller løpende lokal integrasjon.',
+      ],
+      decisive:
+        'Kravene tillater public cloud; de lokale arkivserverne har ingen rolle i arbeidslasten. Valg av PaaS/IaaS er en separat tjenestemodellbeslutning.',
+      decisionFeedback: [
+        'En hybridkobling løser ikke et oppgitt integrasjonsbehov her.',
+        'Public cloud tilfredsstiller disse premissene; sikker konfigurasjon og datakrav må fortsatt ivaretas.',
+        'Et privat miljø tilfører et kontroll- og driftsbehov som ikke er etterspurt.',
+      ],
+      decisionWhen: [
+        'Tjenesten måtte utveksle data kontinuerlig med privat sky.',
+        'De samme eksplisitte premissene gjelder.',
+        'Eksklusivitet eller særskilt infrastrukturkontroll var et faktisk krav.',
+      ],
+      reasonFeedback: [
+        'Geografiske krav må kontrolleres per tjeneste; de bestemmer ikke alene deployment model.',
+        'Egen kode kan kjøres i både offentlig og privat sky.',
+        'Dette knytter beslutningen til de konkrete kravene, uten å gjøre gamle servere til et hybridpåbud.',
+      ],
+      reasonWhen: [
+        'Den konkrete tjenesten ikke kunne oppfylle datakravet i public cloud.',
+        'Et separat krav til eksklusivt miljø også var oppgitt.',
+        'Ingen uoppgitt lokal avhengighet finnes.',
+      ],
+    },
+    'exclusive-research': {
+      title: 'Et nytt forskningsmiljø',
+      situation:
+        'Et forskningsinstitutt krever at skyplattformens infrastruktur er dedikert til bare instituttet og at teamet styrer plattformoppsettet. En kontraktspartner kan drifte datasenteret. Nettbasert selvbetjening og ressursdeling mellom instituttets egne prosjekter er planlagt; ingen offentlig sky skal kobles inn.',
+      facts: [
+        'Eksklusivitet gjelder én organisasjon.',
+        'Lokasjonen kan være hos en ekstern driftsleverandør.',
+        'Dette er en skyplattform, ikke bare én kjøpt server.',
+      ],
+      decisions: ['Private cloud', 'Public cloud', 'Hybrid cloud'],
+      reasons: [
+        'En dedikert sky for én organisasjon kan driftes utenfor egne lokaler uten å bli en offentlig sky.',
+        'En ekstern driftsleverandør eier bygget; derfor må skyplattformen klassifiseres som offentlig.',
+        'Flere interne prosjektmiljøer bruker infrastrukturen; derfor er dette en hybridmodell.',
+      ],
+      decisive:
+        'Eksklusiviteten og plattformkontrollen peker mot private cloud. Eierskap til bygget er ikke definisjonen.',
+      decisionFeedback: [
+        'Private cloud samsvarer med den dedikerte skyplattformen.',
+        'Det generelt tilgjengelige public-tilbudet er ikke det beskrevne eksklusive miljøet.',
+        'Det er ikke beskrevet en sammenkobling av privat og offentlig sky.',
+      ],
+      decisionWhen: [
+        'Eksklusiviteten og driftsansvaret er tilsiktet.',
+        'Kravet om dedikert skyplattform ble fjernet.',
+        'En offentlig sky ble koblet inn i en samlet løsning.',
+      ],
+      reasonFeedback: [
+        'Dette skiller deployment model fra hvem som eier bygget.',
+        'En tredjepart kan også drifte private cloud.',
+        'Prosjekter eller tenants internt er ikke automatisk en hybridarkitektur.',
+      ],
+      reasonWhen: [
+        'Det dedikerte miljøet tilbyr de beskrevne skyegenskapene.',
+        'Leverandøren faktisk tilbød sin allment tilgjengelige offentlige sky.',
+        'Prosjektene også brukte integrert public cloud.',
+      ],
+    },
+    'integrated-production': {
+      title: 'Produksjon og bestillinger',
+      situation:
+        'En fabrikk beholder en privat sky for produksjonsstyring. En ny offentlig skytjeneste skal ta imot bestillinger. Begge miljøer skal være i bruk og utveksle bestillingsstatus løpende gjennom en planlagt sikret forbindelse. Godkjente datatyper kan overføres; produksjonsstyringen skal bli i det private miljøet.',
+      facts: [
+        'Begge miljøene beholdes, ikke bare under en engangsflytting.',
+        'Forbindelsen er et faktisk krav.',
+        'Ingen antakelse om at forbindelsen automatisk er sikker.',
+      ],
+      decisions: [
+        'Bare public cloud for hele systemet',
+        'Bare private cloud for hele systemet',
+        'En sammenkoblet hybridløsning',
+      ],
+      reasons: [
+        'Miljøene har hver sitt abonnement; det administrative skillet er det som gjør løsningen hybrid.',
+        'Privat og offentlig sky må inngå i ett samvirkende miljø med løpende integrasjon etter kravene.',
+        'Forbindelsen inngår i en hybridmodell; dette erstatter egne kontroller av hvilke data som overføres.',
+      ],
+      decisive:
+        'Den løpende koblingen mellom private cloud og public cloud er avgjørende, ikke at bedriften tilfeldigvis har servere fra før.',
+      decisionFeedback: [
+        'Dette bryter kravet om å beholde produksjonsstyringen privat.',
+        'Dette utelater det uttrykkelig valgte offentlige mottaket.',
+        'Hybrid beskriver den nødvendige kombinasjonen, men krever arbeid med identitet, nettverk og drift.',
+      ],
+      decisionWhen: [
+        'Produksjonsstyringen også kunne flyttes.',
+        'Mottaket også skulle ligge privat.',
+        'Begge miljøene og integrasjonsbehovet beholdes.',
+      ],
+      reasonFeedback: [
+        'Subscriptions er management-grenser, ikke hver sin deployment model.',
+        'Begrunnelsen peker på den faktiske integrasjonen.',
+        'En kobling er ingen sikkerhetsgaranti.',
+      ],
+      reasonWhen: [
+        'Abonnementene representerte miljøer med ulike skymodeller som faktisk var koblet sammen.',
+        'Den løpende samhandlingen er nødvendig.',
+        'Tilgang fortsatt ble vurdert separat; den er ikke overflødig.',
+      ],
+    },
+    'campaign-pricing': {
+      title: 'Et kort arrangement',
+      situation:
+        'En ny billettjeneste skal drives i seks uker. Bruken er svært usikker og tjenesten kan bli avviklet etter arrangementet. Avbrudd midt i en bestilling aksepteres ikke. Det finnes ingen stabil grunnlast som kan forsvares utover perioden.',
+      facts: [
+        'Ingen reelle Azure-priser brukes i oppgaven.',
+        'Sammenlign fleksibilitet og risiko, ikke bare rabatt.',
+        'Lagring og andre tjenester kan fortsatt gi egne kostnader.',
+      ],
+      decisions: [
+        'Langvarig kapasitets-/forbruksforpliktelse',
+        'Pay-as-you-go for det usikre behovet',
+        'Spot som eneste kapasitet for bestillinger',
+      ],
+      reasons: [
+        'Lavere compute-pris veier opp for avbruddsrisiko selv når bestillingsflyten trenger kontinuitet.',
+        'Bindingen bør dimensjoneres etter forventet topp; den ubrukte delen gir fortsatt tilsvarende verdi.',
+        'Fleksibelt forbruk unngår den ubegrunnede langsiktige bindingen; avbruddsrisiko må vurderes separat.',
+      ],
+      decisive:
+        'Kort og usikkert behov uten toleranse for avbrytbar kapasitet gir grunnlag for et fleksibelt tilbud, ikke automatisk en langsiktig rabattbinding.',
+      decisionFeedback: [
+        'En forpliktelse kan bli betalt selv om tjenesten opphører.',
+        'Pay-as-you-go er egnet under disse premissene; budsjettering og oppfølging er fortsatt nødvendig.',
+        'Eviction-risikoen passer ikke som eneste løsning for dette kravet.',
+      ],
+      decisionWhen: [
+        'En dokumentert stabil grunnlast over avtaleperioden fantes.',
+        'Den usikre varigheten og bruken gjelder.',
+        'Arbeidet kunne avbrytes og gjenopptas uten å bryte kravet.',
+      ],
+      reasonFeedback: [
+        'Rabatt endrer ikke konsekvensen av et avbrudd.',
+        'Tilbudenes vilkår må kontrolleres; ubrukt binding kan koste.',
+        'Dette vurderer både binding og avbruddsrisiko.',
+      ],
+      reasonWhen: [
+        'Arbeidslasten faktisk tålte avbrudd.',
+        'Et bestemt verifisert tilbud ga en slik rett; det kan ikke antas generelt.',
+        'Forbruket virkelig er usikkert uten stabil grunnlast.',
+      ],
+    },
+    'baseline-pricing': {
+      title: 'En dokumentert grunnlast',
+      situation:
+        'En virksomhet har målt en stabil, kvalifisert compute-grunnlast og skal beholde den i hele den vurderte avtaleperioden. En kontrollert commitment gir lavere kostnad for denne delen enn pay-as-you-go etter de oppgitte vilkårene. Topper varierer. Tjenesten tåler ikke kapasitetsutkastelse.',
+      facts: [
+        'Tilbud, scope og kvalifisert bruk er kontrollert.',
+        'Rabatten er en oppgaveforutsetning, ikke en Azure-prisliste.',
+        'Ingen rabattordning konfigurerer høy tilgjengelighet.',
+      ],
+      decisions: [
+        'Vurder commitment for grunnlasten og fleksibel betaling for toppene',
+        'Betal bare pay-as-you-go uten å undersøke grunnlasten',
+        'Flytt hele tjenesten til avbrytbar kapasitet',
+      ],
+      reasons: [
+        'En reservation gir nødvendig kapasitet og dermed den redundansen denne tjenesten trenger.',
+        'Forutsigbart kvalifisert forbruk kan utnytte bindingen; toppene trenger ikke bindes på samme måte.',
+        'En savings plan kan bindes etter toppene fordi ubrukt timeforpliktelse kan flyttes til travlere timer.',
+      ],
+      decisive:
+        'Forpliktelsen er relevant fordi den dokumenterte grunnlasten og vilkårene er kjent. Overbinding og runtime-tilgjengelighet er egne problemstillinger.',
+      decisionFeedback: [
+        'Dette avgrenser bindingen til den kjente lasten.',
+        'Fleksibilitet er mulig, men overser den eksplisitt verifiserte besparelsen for stabil last.',
+        'Kravet om å tåle eviction er ikke oppfylt.',
+      ],
+      decisionWhen: [
+        'Premissene og tilbudets vilkår holder.',
+        'Lasten eller varigheten ble for usikker til å forsvare binding.',
+        'Arbeidet kunne håndtere avbrudd.',
+      ],
+      reasonFeedback: [
+        'En billing-rabatt er ikke en redundansmekanisme.',
+        'Begrunnelsen knytter bindingen til utnyttelse og risiko.',
+        'Ubrukt timeforpliktelse i savings plan ruller ikke videre.',
+      ],
+      reasonWhen: [
+        'Redundans også var eksplisitt konfigurert; rabatten gjør det ikke.',
+        'Den stabile kvalifiserte bruken er dokumentert.',
+        'Et separat tilbud faktisk hadde slike vilkår; dette kan ikke antas.',
+      ],
+    },
+    'batch-pricing': {
+      title: 'Et analyseprosjekt',
+      situation:
+        'Et analysearbeid deler jobben i små uavhengige deler og lagrer checkpoints. Det har romslig tidsfrist og kan vente på kapasitet. Teamet har testet gjenopptakelse etter avbrudd. Målet er å vurdere rimelig avbrytbar compute uten å love levering på et bestemt minutt.',
+      facts: [
+        'Resultater og checkpoints lagres separat.',
+        'Kapasitet og pris kan variere.',
+        'Ingen garanti for at frigitt kapasitet blir tilgjengelig igjen straks.',
+      ],
+      decisions: [
+        'Bind maksimal kapasitet for flere år uten bruksdata',
+        'Krev uavbrutt kapasitet for hver deljobb',
+        'Vurder Spot for de avbrytbare deljobbene',
+      ],
+      reasons: [
+        'Spot kan passe arbeid som faktisk håndterer eviction, variasjon i kapasitet og ventetid før gjenopptakelse.',
+        'Spot passer fordi Azure opprettholder den nødvendige kapasiteten mens hele batchen kjøres ferdig.',
+        'Checkpoints erstatter ekstern lagring; dermed er det bare den avbrytbare compute-prisen som betyr noe.',
+      ],
+      decisive:
+        'Det er den testede avbruddstoleransen og tidsfleksibiliteten som gjør Spot relevant, ikke bare ønsket om lav pris.',
+      decisionFeedback: [
+        'Det finnes ikke grunnlag for en flerårig maksimal binding.',
+        'Dette kan fungere teknisk, men utnytter ikke den beskrevne avbruddstoleransen når avbrytbar kapasitet skal vurderes.',
+        'Spot er et relevant alternativ med eksplisitt eviction- og kapasitetsrisiko.',
+      ],
+      decisionWhen: [
+        'En stabil flerårig last og riktig binding var dokumentert.',
+        'Tidsfristen krevde uavbrutt kapasitet.',
+        'De beskrevne checkpoints og toleransene faktisk fungerer.',
+      ],
+      reasonFeedback: [
+        'Dette begrunner Spot med riktig arbeidslastmekanisme.',
+        'Spot VMs har ingen slik HA-garanti.',
+        'Checkpoint-lagring er fortsatt en ressurs med kostnader og beskyttelsesbehov.',
+      ],
+      reasonWhen: [
+        'Risikoen passer arbeidslastens frist.',
+        'Tilgjengelighet var ivaretatt med separat egnet design; Spot alene gir ikke garantien.',
+        'Et konkret lagringstilbud ga null kostnad under bestemte vilkår, ikke som følge av checkpoints alene.',
+      ],
+    },
+    'memory-capacity': {
+      title: 'Analyse av en stor fil',
+      situation:
+        'En analyseprosess på én VM krever 12 GB arbeidsminne. Den har 8 GB tilgjengelig og kan ikke fordeles mellom prosesser uten omskriving. CPU og lagring har ledig kapasitet. Kravet nå er å få denne prosessen til å kjøre; feilredundans er et separat senere krav.',
+      facts: [
+        'GB betyr gigabyte arbeidsminne i denne oppgaven.',
+        'Tallene er pedagogiske premisser, ikke en måling av Azure.',
+        'Den oppgitte programutgaven er den eneste som kan brukes i denne leveransen.',
+      ],
+      decisions: [
+        'Opprett to identiske 8 GB-instanser uten kodeendring',
+        'Velg en egnet større minneprofil for den ene instansen',
+        'Øk datadiskens størrelse uten å endre minneprofil',
+      ],
+      reasons: [
+        'To instanser har samlet mer minne, så prosessen kan bruke summen uten at programmet endres.',
+        'Mer diskplass kan brukes som samme type kapasitet som det uttrykkelige kravet til arbeidsminne.',
+        'Vertikal skalering kan møte prosessens minnebehov, men skaper ikke alene feilredundans.',
+      ],
+      decisive: 'Bottleneck er minne i én udelelig prosess. Valget må møte dette konkrete behovet.',
+      decisionFeedback: [
+        'Flere små instanser løser ikke dette prosesskravet uten ny programdesign.',
+        'En større egnet profil kan dekke behovet; tilgjengelig profil og endringskonsekvenser må kontrolleres.',
+        'En større datadisk oppfyller ikke i seg selv det oppgitte kravet til fysisk arbeidsminne.',
+      ],
+      decisionWhen: [
+        'Arbeidet kunne partisjoneres mellom instanser.',
+        'Større egnet profil finnes og endringen er akseptabel.',
+        'Begrensningen var diskplass og ikke arbeidsminne.',
+      ],
+      reasonFeedback: [
+        'Horisontal skalering forutsetter at arbeidet faktisk kan fordeles.',
+        'Lagringsplass er ikke det samme som tilgjengelig RAM for den udelelige prosessen.',
+        'Dette skiller kapasitetsøkning fra høy tilgjengelighet.',
+      ],
+      reasonWhen: [
+        'Applikasjonen var skrevet for distribuert behandling.',
+        'Arbeidslastens krav gjaldt lagringsplass fremfor arbeidsminne.',
+        'Minnebehovet og profilvalget stemmer.',
+      ],
+    },
+    'route-replica': {
+      title: 'Bestillinger etter et avbrudd',
+      situation:
+        'To stateless webinstanser har nok kapasitet og kan begge behandle forespørsler. Instans A feiler. B er frisk, men inngangspunktet sender fortsatt alle forespørsler til A. Datatjenesten er tilgjengelig. Begge instansene er allerede konfigurert.',
+      facts: [
+        'Klient → inngangspunkt → A eller B → datatjeneste.',
+        'Observasjon: A feilet, B frisk, ruting peker bare på A.',
+        'Dette er en konseptuell feilanalyse, ikke Portal-runtime.',
+      ],
+      decisions: [
+        'Kontroller og rett helsesjekk/ruting til frisk instans',
+        'Legg til mer minne på B uten å endre trafikkveien',
+        'Opprett en tredje instans uten å koble den inn',
+      ],
+      reasons: [
+        'En frisk replika er tilstrekkelig dokumentasjon; inngangspunktets konfigurasjon er et eget tema.',
+        'Trafikken må faktisk nå en frisk instans for at redundansen skal gi den ønskede tilgjengeligheten.',
+        'Større samlet compute-kapasitet vil avlaste A selv om inngangspunktet fortsatt velger bare A.',
+      ],
+      decisive: 'Tilgjengelig kapasitet er ikke nok når forespørslene ikke når den.',
+      decisionFeedback: [
+        'Dette retter den observerte svikten i trafikkveien.',
+        'B har allerede nok kapasitet, men får ikke forespørsler.',
+        'En ubenyttet ekstra instans endrer ikke rutingen.',
+      ],
+      decisionWhen: [
+        'Det finnes en frisk, kompatibel mottaker som her.',
+        'B faktisk var minnebegrenset etter korrekt ruting.',
+        'Den nye instansen også fikk riktig trafikk og møtte et kapasitetsbehov.',
+      ],
+      reasonFeedback: [
+        'En replika uten tilgjengelig trafikkvei gir ikke det forventede resultatet.',
+        'Begrunnelsen knytter redundans til hele forespørselsforløpet.',
+        'Et routingproblem er ikke et compute-kapasitetsproblem.',
+      ],
+      reasonWhen: [
+        'Ruting og nødvendig tilstand også var verifisert.',
+        'Helse og trafikkvei er undersøkt som her.',
+        'Feilen faktisk skyldtes kapasitet i compute-leddet.',
+      ],
+    },
+    'shared-payment': {
+      title: 'Betaling i nettbutikken',
+      situation:
+        'En bestillingsløsning har tre friske webinstanser med god kapasitet. Alle må bruke én betalingstjeneste før ordren kan bekreftes. Betalingstjenesten svarer ikke. Teamet foreslår flere webinstanser som eneste tiltak.',
+      facts: [
+        'Alle webinstanser → samme nødvendige betalingstjeneste.',
+        'Ingen alternativ betalingsvei er konfigurert.',
+        'Ordrebekreftelse kan ikke rapporteres uten betalingsresultatet.',
+      ],
+      decisions: [
+        'Skaler webdelen ut og rapporter full tilgjengelighet',
+        'Del webinstansene mellom separate Resource groups og behold samme betalingsendepunkt',
+        'Undersøk gjenoppretting eller en eksplisitt alternativ flyt for betaling',
+      ],
+      reasons: [
+        'Flere webinstanser fordeler belastningen og gir dermed en ny uavhengig betalingsvei for hver kopi.',
+        'En felles nødvendig avhengighet kan stoppe hele ordreflyten selv med ledig compute på alle instansene.',
+        'Separate ressursgrupper isolerer betalingsavhengigheten, selv når alle instansene bruker samme endepunkt.',
+      ],
+      decisive:
+        'Den delte sterke avhengigheten, ikke antall webinstanser, stopper den kritiske flyten.',
+      decisionFeedback: [
+        'Mer webkapasitet gir ikke et manglende betalingsresultat.',
+        'Management-organisering endrer ikke den tekniske avhengigheten.',
+        'Dette undersøker den faktiske feilkilden uten å late som automatisk failover finnes.',
+      ],
+      decisionWhen: [
+        'Webkapasitet faktisk var flaskehalsen.',
+        'Oppgaven gjaldt lifecycle-organisering.',
+        'Gjenoppretting eller en godkjent alternativ prosess kan møte forretningskravet.',
+      ],
+      reasonFeedback: [
+        'Skalering lager ingen ny betalingsavhengighet av seg selv.',
+        'Dette forklarer forskjellen mellom redundante frontender og tilgjengelig ende-til-ende-flyt.',
+        'Resource group membership velger ikke en annen tjeneste.',
+      ],
+      reasonWhen: [
+        'Betalingsløsningen også ble endret med verifisert redundans.',
+        'Alle bekreftelser faktisk trenger denne tjenesten.',
+        'En separat konfigurert teknisk relasjon også ble endret.',
+      ],
+    },
+    'parallel-demand': {
+      title: 'Flere samtidige forespørsler',
+      situation:
+        'En tjeneste behandler uavhengige, stateless forespørsler. Etterspørselen har økt. Én instans er CPU-begrenset og bruker allerede den største godkjente profilen. Teamet har kontrollert at datatjeneste og nettverk har rom for den økte lasten. Inngangspunktet støtter fordeling til flere friske instanser. Målet er mer behandlingskapasitet innenfor disse rammene.',
+      facts: [
+        'Arbeidet kan fordeles mellom flere instanser uten delt prosessminne.',
+        'En større profil er ikke et godkjent alternativ i dette scenarioet.',
+        'Dette er en analyse av oppgitte forhold, ikke en ytelsesgaranti eller kjørt autoskalering.',
+      ],
+      decisions: [
+        'Legg til like instanser og fordel forespørslene mellom dem',
+        'Øk bare den eksisterende instansens profil utover godkjent grense',
+        'Gi den eksisterende instansen større datadisk',
+      ],
+      reasons: [
+        'Vertikal skalering fordeler forespørsler mellom flere instanser med samme profil.',
+        'Horisontal skalering kan øke kapasiteten når arbeidet lar seg fordele og resten av kjeden tåler lasten.',
+        'Mer lagringsplass øker kapasiteten for CPU-arbeidet som er oppgitt som flaskehals.',
+      ],
+      decisive:
+        'Uavhengig arbeid, støttet trafikkfordeling og undersøkte avhengigheter gjør scale-out relevant. Dette er en annen situasjon enn én udelelig minnebegrenset prosess.',
+      decisionFeedback: [
+        'Dette adresserer CPU-kapasiteten ved å fordele arbeid til flere instanser. Resultatet må fortsatt testes.',
+        'En større instans kan være en gyldig skaleringsform, men bryter den oppgitte profilgrensen her.',
+        'Større disk løser ikke den observerte CPU-flaskehalsen.',
+      ],
+      decisionWhen: [
+        'Arbeidet faktisk kan fordeles og avhengighetene fortsatt har tilstrekkelig kapasitet.',
+        'En større egnet profil var godkjent og endringen oppfylte kravene.',
+        'Den faktiske begrensningen gjaldt lagringsplass.',
+      ],
+      reasonFeedback: [
+        'Flere instanser beskriver horisontal, ikke vertikal skalering.',
+        'Dette begrunner valget med både arbeidsfordeling og hele den nødvendige kjeden.',
+        'Lagringskapasitet og kapasitet til å utføre CPU-arbeid er ulike egenskaper.',
+      ],
+      reasonWhen: [
+        'Du i stedet endret ressursprofilen til én instans; da var skaleringen vertikal.',
+        'De eksplisitte forutsetningene er kontrollert som her.',
+        'Observasjonen viste utilstrekkelig lagringsplass fremfor CPU-begrensning.',
+      ],
+    },
+    'recovery-evidence': {
+      title: 'Kan ordresystemet gjenopprettes?',
+      situation:
+        'Et team har backup og en applikasjonskopi i en annen region. Ingen har testet gjenoppretting, tilgang til hemmeligheter eller trafikkbytte. Ledelsen ønsker dokumentasjon på at ordreflyten kan gjenopptas med akseptabelt datatap etter en feil.',
+      facts: [
+        'Backup finnes, men siste gjenoppretting er ikke verifisert.',
+        'Identitet, data og trafikk er nødvendige avhengigheter.',
+        'Ingen gjenopprettingstid eller datatap er garantert i premissene.',
+      ],
+      decisions: [
+        'Bruk regionnavnene som eneste dokumentasjon',
+        'Test gjenopprettingsforløpet, data og avhengigheter mot avtalte mål',
+        'Øk bare frontendenes størrelse',
+      ],
+      reasons: [
+        'Reliability krever et fungerende gjenopprettingsforløp med data og avhengigheter, ikke bare at kopien finnes.',
+        'Regionparet prioriterer gjenoppretting; derfor er applikasjonens trafikk og hemmeligheter allerede ivaretatt.',
+        'Tjenestens SLA gir dokumentasjonen ledelsen trenger for organisasjonens datatap og gjenopprettingstid.',
+      ],
+      decisive:
+        'Behovet er bevis for gjenoppretting av en hel flyt med definerte mål og testede avhengigheter.',
+      decisionFeedback: [
+        'Geografi alene viser ikke om løsningen kan startes og brukes.',
+        'Dette kan avdekke manglende data, tilgang og trafikkvei før en reell feil.',
+        'Compute-størrelse verifiserer ikke backup eller recovery.',
+      ],
+      decisionWhen: [
+        'Spørsmålet bare var geografisk plassering.',
+        'Testene gjøres sikkert med avtalte kriterier.',
+        'Ytelse etter verifisert gjenoppretting var problemet.',
+      ],
+      reasonFeedback: [
+        'Begrunnelsen krever observasjon av faktisk planlagt recovery.',
+        'Applikasjonsfailover krever tjeneste- og løsningsspesifikt oppsett.',
+        'En SLA er ikke en restore-test eller garanti for ønsket datatap.',
+      ],
+      reasonWhen: [
+        'Gjenopprettingsmål og avhengigheter er eksplisitte.',
+        'Den konkrete tjenesten og konfigurasjonen dokumenterte relevant automatikk, ikke bare regionparet.',
+        'En egen test også beviste gjenoppretting; SLA alene gjør ikke det.',
+      ],
+    },
+    'forecast-change': {
+      title: 'Et budsjett etter en produktendring',
+      situation:
+        'Siste måneds bruk er kjent. Neste måned får produktet større filer og en ny brukergruppe. Økonomiansvarlig ønsker et kostnadsanslag og utviklerne ønsker jevn svartid. Ingen har målt den nye filbehandlingen.',
+      facts: [
+        'Historiske målinger gjelder den gamle arbeidslasten.',
+        'Et estimat er ikke en garanti.',
+        'Ytelse og kostnad må vurderes hver for seg.',
+      ],
+      decisions: [
+        'Anta uendret kostnad og ytelse fordi forrige måned var stabil',
+        'Bruk bare tjenestens SLA som budsjett',
+        'Oppdater bruksantakelser, angi usikkerhet og test den nye belastningen',
+      ],
+      reasons: [
+        'Usikker etterspørsel og endret ressursbruk påvirker prognosen; belastningstest kan undersøke ytelse.',
+        'Autoskalering tilpasser kapasiteten; derfor kan det gamle totalbudsjettet beholdes uten nye bruksantakelser.',
+        'En SLA beskriver avtalt tilgjengelighet og kan derfor brukes direkte som estimat for forbrukskostnaden.',
+      ],
+      decisive:
+        'Endret arbeidsmengde gjør gamle observasjoner utilstrekkelige som eneste prognosegrunnlag.',
+      decisionFeedback: [
+        'Stabile historiske tall må suppleres med de nye kravene.',
+        'Tilgjengelighetsvilkår er ikke en kostnadsprognose.',
+        'Dette skiller prognose, usikkerhet og empirisk ytelsesundersøkelse.',
+      ],
+      decisionWhen: [
+        'Arbeidslast og ressursbruk faktisk var uendret og usikkerheten fortsatt ble oppgitt.',
+        'Behovet gjaldt tilgjengelighetsvilkår.',
+        'Antakelser oppdateres når nye observasjoner foreligger.',
+      ],
+      reasonFeedback: [
+        'Dette forklarer begge typer predictability uten å love et bestemt utfall.',
+        'Mer kapasitet kan øke kostnaden; skalering er ingen fastprisgaranti.',
+        'SLA og forbruksmåling har forskjellige formål.',
+      ],
+      reasonWhen: [
+        'Forutsetninger og testgrenser er tydelige.',
+        'Et særskilt verifisert fastpristilbud faktisk gjaldt, ikke på grunn av autoskalering.',
+        'En separat prisliste og bruksmodell også var vurdert.',
+      ],
+    },
+    'accepted-configuration': {
+      title: 'En publisert kundetjeneste',
+      situation:
+        'En organisasjonsregel kontrollerer bare location for Web Apps i et bestemt abonnement. En ny app blir akseptert i en tillatt region. En gjennomgang finner at appens egen kode lar uvedkommende lese kundedata. Teamet hevder at policygodkjenningen beviser compliance.',
+      facts: [
+        'Regelen evaluerer location og aktuell ressurstype.',
+        'Applikasjonstilgangen er ikke kontrollert av denne regelen.',
+        'Ingen full compliance-revisjon er gjennomført.',
+      ],
+      decisions: [
+        'Undersøk og rett datatilgangen; behold regionregelen som én av flere kontroller',
+        'Avslutt sikkerhetsgjennomgangen siden opprettelsen ble godkjent',
+        'Flytt appen til en annen tillatt region som eneste tiltak',
+      ],
+      reasons: [
+        'Appen ble tillatt i riktig region; det samme resultatet viser at kundedataene har forsvarlig applikasjonstilgang.',
+        'En avgrenset governance-kontroll kan være oppfylt samtidig som andre sikkerhetskrav brytes.',
+        'Policyen er et compliance-verktøy; godkjent opprettelse dokumenterer derfor hele organisasjonens etterlevelse.',
+      ],
+      decisive:
+        'Aksept viser bare at den relevante regelbetingelsen ikke avviste konfigurasjonen. Datatilgang krever andre tiltak.',
+      decisionFeedback: [
+        'Dette håndterer den faktiske sikkerhetsfeilen uten å forkaste governance.',
+        'Akseptert ressurs er ikke bevis for sikker kode eller samlet compliance.',
+        'Geografiflytting retter ikke den beskrevne tilgangsfeilen.',
+      ],
+      decisionWhen: [
+        'Datatilgang undersøkes og resultatet verifiseres.',
+        'Alle relevante sikkerhets- og compliancekrav også var uavhengig kontrollert.',
+        'Problemet faktisk var en ikke-tillatt geografisk plassering.',
+      ],
+      reasonFeedback: [
+        'Location og applikasjonsautorisasjon er ulike egenskaper.',
+        'Dette avgrenser hva policyresultatet faktisk dokumenterer.',
+        'Policy kan støtte governance, men én regel dekker ikke enhver plikt.',
+      ],
+      reasonWhen: [
+        'En separat verifisert kodekontroll også var oppfylt; location alene er utilstrekkelig.',
+        'Regelens scope, type og effekt er undersøkt.',
+        'En full revisjon faktisk var utført mot alle krav; ikke fra én policy alene.',
+      ],
+    },
+    'signed-in-operator': {
+      title: 'Innlogget, men kan ikke endre',
+      situation:
+        'En driftsmedarbeider logger inn med godkjent identitet. Hun skal lese status i én testressursgruppe, men skal ikke endre produksjon. Pålogging lykkes. Et forslag er å gi Owner på hele abonnementet for å gjøre arbeidet enklere.',
+      facts: [
+        'Identiteten er bekreftet.',
+        'Oppgaven krever bare lesing i test.',
+        'Ingen ressursopprettelse eller policyendring er nødvendig.',
+      ],
+      decisions: [
+        'Gi Owner på hele abonnementet',
+        'Bruk en egnet leserolle på det nødvendige test-scope',
+        'Endre bare den tillatte ressursregionen',
+      ],
+      reasons: [
+        'Påloggingen bekrefter hvem medarbeideren er; den kan brukes som grunnlag for å gi bredere rettigheter enn lesing.',
+        'Regionregelen avgrenser ressursbruken; dermed gir den også medarbeideren nødvendig tilgang til ressursgruppen.',
+        'Autorisasjon bestemmer tillatte handlinger og scope; den bør tilpasses den konkrete leseoppgaven.',
+      ],
+      decisive:
+        'Bekreftet identitet og tillatte handlinger er ulike spørsmål. Oppgaven trenger begrenset lesetilgang.',
+      decisionFeedback: [
+        'Owner gir langt bredere myndighet enn oppgaven trenger.',
+        'Et tilpasset read-scope møter oppgaven med mindre tilgang.',
+        'Location-regelen løser ikke behovet for leserettighet.',
+      ],
+      decisionWhen: [
+        'Et særskilt godkjent administrativt behov krevde disse rettighetene.',
+        'Rollen og scope faktisk gir nødvendig lesing.',
+        'Problemet gjaldt ressursens location.',
+      ],
+      reasonFeedback: [
+        'Pålogging bekrefter identitet, ikke alle tillatelser.',
+        'Regler for ressurskonfigurasjon er ikke en RBAC-rolletildeling.',
+        'Dette skiller authentication fra authorization.',
+      ],
+      reasonWhen: [
+        'En separat rolletildeling også ga den aktuelle operasjonen.',
+        'En separat rolletildeling faktisk ga lesetilgangen.',
+        'Oppgaven og omfanget er kjent som her.',
+      ],
+    },
+    'manual-drift': {
+      title: 'Tre testmiljøer med ulike verdier',
+      situation:
+        'Mandag setter en gjennomgått mal timeout til 30 sekunder i tre miljøer. Fredag endrer en operatør ett miljø til 120 sekunder i Portal utenfor pipeline. Pipeline viser fortsatt grønt fra mandag. Teamet skal identifisere dagens avvik og undersøke endringen før noe overskrives.',
+      facts: [
+        'Ønsket verdi er 30 sekunder; siste pipeline-resultat er fra før endringen.',
+        'Den versjonerte parameterfilen viser fortsatt 30 sekunder etter fredagens endring.',
+        'Teamet har lesetilgang til både ressursverdiene og versjonshistorikken.',
+      ],
+      decisions: [
+        'Bruk siste vellykkede pipeline-status som eneste tilstandskontroll',
+        'Anta at Portal-endringen oppdaterte den versjonerte malen',
+        'Sammenlign nåværende ressursverdier med kilden og undersøk endringen før kontrollert retting',
+      ],
+      reasons: [
+        'Ønsket konfigurasjon og faktisk tilstand må sammenlignes; en tidligere mal-kjøring håndhever ikke senere endringer.',
+        'Siste vellykkede pipeline-kjøring dokumenterer fortsatt dagens verdier selv etter en separat Portal-endring.',
+        'Samme malfil for alle miljøer betyr at manuelle etterfølgende endringer allerede blir regnet som godkjente.',
+      ],
+      decisive:
+        'Problemet er drift etter en tidligere korrekt kjøring. Et historisk grønt resultat beviser ikke dagens konfigurasjon.',
+      decisionFeedback: [
+        'Siste kjøring er eldre enn den observerte endringen og viser ikke dagens verdi.',
+        'En direkte Portal-endring skriver ikke automatisk tilbake til den versjonerte malen.',
+        'Dette bruker management of the cloud; Portal/CLI/API beskriver hvordan operasjonen utføres.',
+      ],
+      decisionWhen: [
+        'Du bare skulle undersøke det historiske deploy-resultatet, ikke dagens tilstand.',
+        'En eksplisitt kontrollert prosess faktisk hadde oppdatert og gjennomgått kilden.',
+        'Malen og parameterne er godkjent, og resultatet kontrolleres.',
+      ],
+      reasonFeedback: [
+        'Dette skiller en repeterbar opprettelse fra senere observasjon og kontroll av drift.',
+        'En gammel status er historisk evidens og kan ikke utelukke en senere endring.',
+        'Lik kilde utelukker ikke at faktisk tilstand er endret utenfor den kilden.',
+      ],
+      reasonWhen: [
+        'Det finnes en definert ønsket tilstand og nye observasjoner som kan sammenlignes.',
+        'Ingen senere endring kunne forekomme og formålet bare var historisk dokumentasjon.',
+        'En godkjent prosess eksplisitt registrerte endringen i kilden.',
+      ],
+    },
+    'repeatable-error': {
+      title: 'Tre miljøer etter en pipeline-kjøring',
+      situation:
+        'En pipeline bruker samme mal og samme parameterfil i alle miljøer. En parameter peker på feil applikasjonsmiljø. Alle kjøringer lykkes teknisk og gjentar den uønskede verdien. Teamet vil øke antall automatiske kjøringer for å gjøre løsningen riktig.',
+      facts: [
+        'Alle tre inspeksjoner viser miljøverdien test.',
+        'Endringsbestillingen krever produksjonsmiljøet; parameterfilen velger test.',
+        'Dette er en analyse av konfigurasjon, ikke en faktisk ny pipeline-motor.',
+      ],
+      decisions: [
+        'Rett og valider ønsket parameter, kjør kontrollert og inspiser resultatet',
+        'Kjør samme feilaktige kilde oftere',
+        'Bytt til API uten å endre parametere',
+      ],
+      reasons: [
+        'Alle kjøringene er teknisk vellykkede; flere repetisjoner er derfor tilstrekkelig verifikasjon av miljøvalget.',
+        'Automatisering gjentar kilden; konsistens og faglig korrekthet må vurderes separat.',
+        'API-grensesnittet validerer ressurskommandoen og kjenner derfor også organisasjonens tilsiktede miljø.',
+      ],
+      decisive:
+        'En repeterbar feil krever retting av ønsket tilstand, ikke bare en ny betjeningsmåte eller flere repetisjoner.',
+      decisionFeedback: [
+        'Dette retter årsaken og undersøker konsekvensen.',
+        'Flere gjentakelser sprer samme feil.',
+        'Transport-/betjeningsmåten endrer ikke den gale verdien.',
+      ],
+      decisionWhen: [
+        'Korrekt miljøvalg er bekreftet og endringen testes.',
+        'Kilden allerede var riktig og bare en midlertidig kjøringsfeil gjensto.',
+        'API-kallet også brukte rettet konfigurasjon.',
+      ],
+      reasonFeedback: [
+        'Teknisk suksess er ikke det samme som et riktig kravvalg.',
+        'Dette forklarer hvorfor konsistens alene ikke er nok.',
+        'API-validering kjenner ikke nødvendigvis organisasjonens intensjon.',
+      ],
+      reasonWhen: [
+        'Verdien først ble korrigert og kontrollert.',
+        'Kilden er den beskrevne feilårsaken.',
+        'Et eksplisitt implementert krav faktisk ble validert; det kan ikke antas.',
+      ],
+    },
+    'kernel-workload': {
+      title: 'Et spesialisert beregningsverktøy',
+      situation:
+        'Et lisensiert verktøy krever en bestemt gjeste-OS-utgave og en støttet kernel-driver. Leverandøren støtter installasjon på en passende VM, men ikke på den vurderte administrerte webplattformen. Virksomheten har et team som kan sikre, oppdatere og drifte gjesteoperativsystemet.',
+      facts: [
+        'Kravenes OS- og driverstøtte er kontrollert i dette scenarioet.',
+        'Verktøyet kan ikke erstattes av en ferdig tjeneste.',
+        'Ingen påstand om at alle VM-er støtter alle drivere.',
+      ],
+      decisions: [
+        'Velg ferdig samarbeids-SaaS',
+        'Velg en støttet IaaS VM-konfigurasjon',
+        'Velg den vurderte PaaS-webplattformen uten støtteendring',
+      ],
+      reasons: [
+        'PaaS har en administrert runtime; dette gir teamet de samme kernel-endringsmulighetene som i en VM.',
+        'Leverandøren vedlikeholder SaaS-stakken; kundens driver kan derfor plasseres der uten eget OS-arbeid.',
+        'IaaS kan gi nødvendig gjeste-OS-kontroll, med beholdt ansvar for patching og sikker konfigurasjon.',
+      ],
+      decisive:
+        'Det verifiserte OS-/driverbehovet og tilgjengelig driftskompetanse gjør IaaS egnet her.',
+      decisionFeedback: [
+        'Et ferdig samarbeidsprodukt leverer ikke den nødvendige spesialprogramvaren.',
+        'En støttet VM møter kontrollbehovet; drift og tilgang forblir kundens oppgaver.',
+        'Den oppgitte plattformen støtter ikke det nødvendige inngrepet.',
+      ],
+      decisionWhen: [
+        'Den ferdige tjenesten faktisk løste forretningsbehovet uten spesialverktøyet.',
+        'Image, driver, lisens og profil er støttet.',
+        'Programmet ble tilpasset en støttet plattform uten driverkravet.',
+      ],
+      reasonFeedback: [
+        'Managed plattform gir ikke generelt gjeste-kernel-kontroll.',
+        'SaaS er en ferdig applikasjon, ikke generell OS-administrasjon.',
+        'Dette kobler kontrollkravet til det operative ansvaret.',
+      ],
+      reasonWhen: [
+        'En annen tjeneste eksplisitt tilbød slik kontroll; ikke som generell PaaS-egenskap.',
+        'Et separat IaaS-miljø faktisk ble brukt, ikke SaaS alene.',
+        'De oppgitte støttekravene er kontrollert.',
+      ],
+    },
+    'ready-collaboration': {
+      title: 'Samarbeid uten egen applikasjon',
+      situation:
+        'En liten forening trenger kalender, dokumentdeling og møter. Et vurdert abonnementprodukt dekker behovene og kan integreres med den støttede identitetsløsningen. Ingen særskilt egen kode kreves. Foreningen har ikke kapasitet til å vedlikeholde en egen applikasjon eller et gjeste-OS.',
+      facts: [
+        'Produktets funksjonalitet og integrasjon er allerede undersøkt.',
+        'Foreningen må fortsatt styre medlemmer, tilgang og data.',
+        'Dette er et tjenestevalg, ikke opprettelse av en ARM-ressurs.',
+      ],
+      decisions: [
+        'Bruk den vurderte ferdige SaaS-tjenesten',
+        'Bygg en ny applikasjon på en VM',
+        'Bygg tilsvarende funksjonalitet på PaaS',
+      ],
+      reasons: [
+        'Leverandøren vedlikeholder SaaS-applikasjonen og har derfor også ansvaret for å avgjøre foreningens medlemskap og datadeling.',
+        'Ferdig funksjonalitet møter behovet uten egen programdrift; tilgang og data er fortsatt kundens ansvar.',
+        'PaaS gir et komplett utviklingsmiljø; derfor er den ferdige møte- og kalenderfunksjonaliteten allerede levert.',
+      ],
+      decisive:
+        'Kravet gjelder ferdig funksjonalitet og lite operativ kapasitet, ikke kontroll over egen kode eller OS.',
+      decisionFeedback: [
+        'Den kontrollerte SaaS-tjenesten passer behovet.',
+        'Dette innfører applikasjons- og OS-drift som foreningen ikke kan bære.',
+        'PaaS reduserer plattformdrift, men bygger ikke automatisk den ferdige applikasjonen.',
+      ],
+      decisionWhen: [
+        'Funksjoner, datavilkår og identitetsintegrasjon fortsatt er egnet.',
+        'Egen programvare og OS-kontroll faktisk var nødvendig, med driftskapasitet.',
+        'Egen kode var nødvendig og utviklingskapasitet fantes.',
+      ],
+      reasonFeedback: [
+        'Kundens medlemskap, deling og databruk må fortsatt styres.',
+        'Dette knytter tjenestevalg til både funksjonalitet og gjenværende ansvar.',
+        'En plattform er ikke det samme som en ferdig forretningsapplikasjon.',
+      ],
+      reasonWhen: [
+        'En særskilt tjenesteavtale dekket en oppgave; kunden må likevel undersøke ansvaret.',
+        'De undersøkte kravene er oppfylt.',
+        'En separat ferdig applikasjon også ble levert som tjeneste.',
+      ],
+    },
+    'two-valid-hosts': {
+      title: 'Hosting for en ny webtjeneste',
+      situation:
+        'Et team har egen webkode som er støttet både på en VM og på den vurderte App Service-plattformen. Det er ikke behov for kernel-endringer. Teamet har kapasitet til begge driftsmodeller. Det finnes verken krav om minst mulig OS-drift eller full OS-kontroll; ønsket er et teknisk forsvarlig valg med ærlig ansvarsvurdering.',
+      facts: [
+        'Begge hostingalternativene oppfyller de oppgitte kodekravene.',
+        'Ingen skjult kostnadsrangering skal antas.',
+        'Et ferdig SaaS-produkt dekker ikke den egne koden.',
+      ],
+      decisions: [
+        'Bruk SaaS som ikke støtter den egne koden',
+        'Bruk App Service med støttet runtime',
+        'Bruk en støttet VM-konfigurasjon',
+      ],
+      reasons: [
+        'PaaS passer støttet kode og lar leverandøren håndtere plattform-OS; kunden beholder kode, data og tilgang.',
+        'IaaS er gyldig med teamets driftskapasitet; kunden må drifte og oppdatere gjeste-OS.',
+        'Begge hostingtjenestene validerer opprettelsen; dette resultatet dekker også kundens kode- og tilgangsansvar.',
+      ],
+      decisive:
+        'To ulike beslutninger er gyldige, men bare med begrunnelsen som passer den valgte driftsmodellen.',
+      decisionFeedback: [
+        'Det foreslåtte produktet kan ikke levere den egne koden.',
+        'App Service er faglig gyldig med riktig plattformbegrunnelse.',
+        'VM er også faglig gyldig her med riktig vurdering av gjeste-OS-ansvaret.',
+      ],
+      decisionWhen: [
+        'Et ferdig produkt faktisk kunne erstatte kodekravet.',
+        'Støttet runtime og kundens applikasjonsansvar ivaretas.',
+        'Støttet VM og kundens OS-drift ivaretas.',
+      ],
+      reasonFeedback: [
+        'Dette er en korrekt begrunnelse for PaaS, men ikke for VM.',
+        'Dette er en korrekt begrunnelse for IaaS, men ikke for PaaS.',
+        'Teknisk aksept fjerner ikke kode-, data- og tilgangsansvar.',
+      ],
+      reasonWhen: [
+        'Beslutningen er den støttede App Service-plattformen.',
+        'Beslutningen er den støttede VM-en.',
+        'Ingen av de beskrevne modellene gjør kunden ansvarsfri.',
+      ],
     },
   },
 } as const;

@@ -1,5 +1,9 @@
 # AZ-900 — fremtidig diagnostikk og læringsoverføring
 
+## Implementert P03-avgrensning — PR25
+
+P03 er et isolert selvstendig transfer-spor i det eksisterende kurset, ikke den generelle diagnostiske prøveeksamenen nedenfor.19 originale tilfeller i sju familier bruker eksplisitt koblede beslutninger og begrunnelser; ett tilfelle godtar to faglig gyldige arkitekturer med hver sin ansvarsbegrunnelse. Førstesvar, familieeksponering, hjelp, retry og avbrudd replays separat fra historiske rubrics. Historisk feedback og presis repetisjon bruker durable teaching-preflight på tvers av alle vurderingskontekster. Ingen fordeling som etterligner full eksamen eller readiness-score er implementert. [P03-kontrakt](CLOUD_CONCEPTS_TRANSFER.md).
+
 Designversjon 1.0.0, 2026-10-26. **Plan, ikke implementert prøveeksamen.** Dagens faste oppgaver, rubrikker, first/help/retry, XP og lagring endres ikke av denne PR-en. [Matrisen](AZ900_COVERAGE_MATRIX.md) viser hvilke ferdigheter som allerede har relevante oppgaver og hvilke som ikke har det.
 
 ## Formål og etiske kildegrenser

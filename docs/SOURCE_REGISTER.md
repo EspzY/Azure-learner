@@ -1,5 +1,9 @@
 # Source and credential register
 
+## P03 scoped source review — 2026-10-27
+
+`transfer-sources.ts` and the current quality record map T01–T18 to dated claims and original items; the audit uses TR01–TR18 to avoid colliding with earlier source namespaces. Read the current July20,2026 study guide, three public module indexes and their scoped public units, then linked technical qualifications for Reservations, Spot, savings plans, failure-mode analysis, Policy, RBAC, identity and ARM templates. [Claim/discovery dispositions](CLOUD_CONCEPTS_TRANSFER.md). No assessment bank, Portal bundle, protected source or new third-party asset is copied.
+
 ## P02 reviewed original management material —2026-10-27
 
 AM01–19 in [source/claim map](CORE_ARCHITECTURE_MANAGEMENT.md#scoped-source-map-and-qualifications) and scoped release record cover official objectives/public units, ARM/provider/higher-scope exceptions, RG metadata/lifecycle/deletion, subscriptions/tenant/billing distinctions, management groups/root and policy assignment/type/condition/effects. AM18 explicitly supports new-app hosting on a shared plan in another group; AM19 distinguishes existing-app plan changes/webspace constraints. No local cross-group operation is added. Current precise product documentation qualifies simplified Learn wording. Public bodies were read; protected assessment, signup/payment/agreements and live sandbox excluded. No copied questions, diagrams or new assets; human SME review unperformed.
