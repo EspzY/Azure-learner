@@ -4,6 +4,20 @@ import { replayEngine } from '../sandbox/replay';
 
 /** Conceptual observations are not Engine receipts and have their own source contract. */
 export const conceptMilestones = {
+  'cost-time': {
+    version: '1.0.0',
+    objectives: ['CM01', 'CM02'],
+    sources: ['CS03', 'CS10'],
+    trigger: 'two-saved-estimates-lower-compute-time-retained-storage-and-egress',
+    auto: 'first-new-guided-model-result',
+  },
+  'cost-budget': {
+    version: '1.0.0',
+    objectives: ['CM03'],
+    sources: ['CS13', 'CS14'],
+    trigger: 'saved-actual-and-forecast-same-scope-budget-contrast',
+    auto: 'first-new-guided-model-result',
+  },
   'mission-diagnosis': {
     version: '1.0.0',
     objectives: ['CB02'],

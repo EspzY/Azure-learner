@@ -82,7 +82,9 @@ function validateRecord(record, folder, strict) {
       const u = new URL(s.url);
       official =
         u.protocol === 'https:' &&
-        ['learn.microsoft.com', 'aka.ms', 'go.microsoft.com'].includes(u.hostname);
+        ['learn.microsoft.com', 'azure.microsoft.com', 'aka.ms', 'go.microsoft.com'].includes(
+          u.hostname,
+        );
     } catch {
       /* invalid source is reported below */
     }

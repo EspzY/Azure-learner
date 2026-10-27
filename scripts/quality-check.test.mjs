@@ -25,6 +25,20 @@ test('seven gates bind real source, manuscript, model, assessment and test files
   assert.equal(implementationPath('docs/QUALITY_CONTRACT.md'), true);
   assert.equal(implementationPath('docs/PROJECT_STATUS.md'), false);
 });
+
+test('official public Azure calculator sources are allowed by exact HTTPS host, not lookalike hosts', () => {
+  const r = read();
+  r.sources[0].url = 'https://azure.microsoft.com/pricing/calculator/';
+  assert.deepEqual(validateQuality(r), []);
+  for (const url of [
+    'https://azure.microsoft.com.attacker.invalid/pricing',
+    'http://azure.microsoft.com/pricing',
+    'https://example.com/pricing',
+  ]) {
+    r.sources[0].url = url;
+    assert.ok(validateQuality(r).some((e) => e.includes('official source')));
+  }
+});
 test('a missing manuscript layer, hidden missing file or blocked-only source cannot pass', () => {
   const r = read();
   r.scope.kind = 'new-module';

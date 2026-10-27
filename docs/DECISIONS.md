@@ -1,5 +1,9 @@
 # Decisions
 
+## 2026-10-27 — Economic models separate from technical inventory
+
+P04 uses a new isolated content/model/rubric1.0.0 cost key rather than adding billing to Sandbox or changing frozen modules. Current resources expose configuration, not real usage/rates; therefore four fictional workbenches own their explicit economic inputs and never issue commands or receipts. Actual inventory may be read as clearly separate context. Existing authored GuidanceWindow/Journal/assessment and durable access patterns are reused. Two official source validators now allow exact HTTPS azure.microsoft.com for public calculator/bandwidth sources; their negative fixtures still reject nonofficial/lookalike/insecure URLs. No dependency, live API or production configuration is added.
+
 ## 2026-10-27 — Preserve historical assessment meaning in P03
 
 Add a standalone content/model/rubric1.0.0 transfer supplement rather than extending old fixed criteria. Replay pins item/family/variant and rubric version. Family exposure survives another variant and abandonment; only durable writes commit new evidence. Expand the existing all-context teaching boundary and guidance suppression rather than creating another assistance engine. The one course-topic allowlist extension changes navigation only; Sandbox/receipts/XP and historical learning schemas remain byte-compatible. [Rationale](CLOUD_CONCEPTS_TRANSFER.md).

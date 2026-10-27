@@ -1,5 +1,9 @@
 # Curriculum coverage audit
 
+## P04 Cost Management
+
+CM01–04 implement the four3.1.01–04 requirements through full theory, explicit mechanisms, four guided workbenches, two original independent contexts per principal goal, all-alternative feedback and reviewed official sources. CM05 adds conditional optimization choices from the current Learn module. The generated [matrix](AZ900_COVERAGE_MATRIX.md) and CO profile bind actual files/symbols/tests; COMPLETE describes A–F content coverage, not student competence or human approval. Other governance modules remain unavailable. [Source/assessment qualifications](COST_MANAGEMENT.md).
+
 ## P03 transfer scope
 
 The19 original independent cases map to exactly1.1.03–04,1.1.06,1.2.01–04 and1.3.04. `transferManifest` is a separately versioned supplement; it does not change earlier Foundations, Benefits or Service Types completion. Mechanism/source/feedback links and current A–F findings are tracked in the generated [AZ-900 matrix](AZ900_COVERAGE_MATRIX.md). Counted content coverage is neither observed learner competence nor exam readiness. [Baseline](CLOUD_CONCEPTS_TRANSFER.md).

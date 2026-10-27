@@ -1,4 +1,5 @@
 import { managementTopics } from '../curriculum/architecture-management';
+import { costTopics } from '../curriculum/cost';
 import { physicalTopics } from '../curriculum/architecture-physical';
 import { replayEngine } from '../sandbox/replay';
 import { types, type Engine } from '../chapter01/model';
@@ -10,7 +11,7 @@ import { serverlessTopics } from '../curriculum/serverless';
 import { routes } from '../curriculum/expansion';
 
 export const courseKey = 'azurelab.course.v1';
-export const moduleIds = ['computing', 'benefits', 'services', 'architecture'] as const;
+export const moduleIds = ['computing', 'benefits', 'services', 'architecture', 'cost'] as const;
 export type CourseModule = (typeof moduleIds)[number];
 export const guideTargets = [
   'search',
@@ -89,6 +90,8 @@ const id = (v: unknown): v is string => typeof v === 'string' && /^[a-zA-Z0-9_-]
 const exact = (v: object, keys: string[]) =>
   Object.keys(v).sort().join(',') === keys.sort().join(',');
 export function courseTopic(module: CourseModule, topic: string | null) {
+  if (module === 'cost')
+    return (costTopics as readonly string[]).includes(topic ?? '') ? topic! : 'introduction';
   if (module !== 'architecture' && topic === 'transfer') return 'transfer';
   if (module === 'architecture')
     return ([...physicalTopics, ...managementTopics] as readonly string[]).includes(topic ?? '')

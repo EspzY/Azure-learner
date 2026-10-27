@@ -1,5 +1,9 @@
 # AZ-900 — faktisk dekning og læringshull
 
+## P04 scoped content update — PR26
+
+Four cost rows3.1.01–04 now carry CO evidence: full original theory and mechanism, four synthetic investigations, ten independent decision/reason cases, specific alternative feedback and dated CS01–29 source review. Only these four rows change; all other53 are preserved. Overall content counts become26 COMPLETE, while Cloud Concepts remains15/15 and Core Architecture7/7. Optimization is the fifth Learn objective, not an extra exam row. No actual learner mastery, billing accuracy, human validation or exam readiness follows from these counts. [Implemented qualifications](COST_MANAGEMENT.md). Historical PR19 tables below remain dated.
+
 ## P03 innholdsrevurdering — PR25
 
 De åtte tidligere PARTIAL-målene1.1.03–04,1.1.06,1.2.01–04 og1.3.04 er nå vurdert COMPLETE etter A–F på innholdsnivå: full eksisterende teori/modeller pluss19 originale transfer-tilfeller, strukturerte beslutning/begrunnelse-par, alternative gyldige arkitekturer, egen feedback og aktuelle kilder. Baseline-tabellene under beholdes som historikk fra auditen; den genererte matrisen er gjeldende status. Ingen gammel first submission oppgraderes. Cloud Concepts15/15 er innholdsdekning, ikke målt studentmestring, eksamensberedskap eller menneskelig SME-godkjenning. [Konkrete gamle svakheter og nye kontraster](CLOUD_CONCEPTS_TRANSFER.md).

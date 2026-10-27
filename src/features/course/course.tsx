@@ -1,5 +1,9 @@
 'use client';
 import { useManagement } from '@/features/learning/management-provider';
+import { useCost } from '@/features/learning/cost-provider';
+import { CostEntry, CostLesson } from '@/features/learning/cost';
+import { costHref, costTopics, type CostTopic } from '@/domain/curriculum/cost';
+import { costNb } from '@/content/nb';
 import { useMissions } from './mission-provider';
 import { MissionActivity, MissionOverview } from './missions';
 import { ManagementTeachingBoundary } from '@/features/learning/management-access';
@@ -61,6 +65,7 @@ import { PhysicalLesson } from '@/features/learning/physical';
 import { PhysicalCourseEntry } from '@/features/learning/physical-entry';
 import { physicalTopics, type PhysicalTopic } from '@/domain/curriculum/architecture-physical';
 const names = {
+  cost: costNb.title,
   architecture: architectureNb.title,
   computing: nb.official.computing,
   services: nb.official.services,
@@ -72,7 +77,8 @@ export function Course({ module }: { module?: CourseModule }) {
     serverless = useServerless(),
     physical = usePhysical(),
     management = useManagement(),
-    transfer = useTransfer();
+    transfer = useTransfer(),
+    cost = useCost();
   const query = useSearchParams(),
     router = useRouter(),
     course = useCourse(),
@@ -268,36 +274,42 @@ export function Course({ module }: { module?: CourseModule }) {
       ? { module: 'computing' as const, topic: learning.save.unit }
       : null);
   const resumeHref =
-    transfer.facts.active && transfer.facts.current
-      ? transferHref(transfer.facts.current.item)
-      : practical.current?.status === 'active'
-        ? practicalHref(practical.current, chapter.attempt.engine)
-        : management.facts.active
-          ? courseHref('architecture', 'management-assessment')
-          : physical.facts.active
-            ? courseHref('architecture', 'assessment')
-            : serverless.facts.active
-              ? courseHref('computing', 'serverless-assessment')
-              : v2.facts.active
-                ? courseHref('computing', 'v2-assessment')
-                : benefits.facts.active
-                  ? courseHref('benefits', 'assessment')
-                  : service2.facts.active
-                    ? courseHref('services', 'assessment')
-                    : services.facts.active
-                      ? '/portal?area=challenge&course=1&module=services&topic=practice'
-                      : learning.facts.active && v2.save.choice !== 'v2'
-                        ? courseHref('computing', 'assessment')
-                        : preferredResume
-                          ? preferredResume.topic === 'transfer' && transfer.facts.current
-                            ? transferHref(transfer.facts.current.item)
-                            : (preferredResume.module === 'services' &&
-                                  preferredResume.topic === 'practice') ||
-                                (preferredResume.module === 'computing' &&
-                                  preferredResume.topic === 'resource-bridge')
-                              ? courseLabHref(lab.complete, course.save.lab?.origin)
-                              : courseHref(preferredResume.module, preferredResume.topic)
-                          : computingEntry;
+    cost.facts.active && cost.facts.current
+      ? costHref('assessment', cost.facts.current.item)
+      : transfer.facts.active && transfer.facts.current
+        ? transferHref(transfer.facts.current.item)
+        : practical.current?.status === 'active'
+          ? practicalHref(practical.current, chapter.attempt.engine)
+          : management.facts.active
+            ? courseHref('architecture', 'management-assessment')
+            : physical.facts.active
+              ? courseHref('architecture', 'assessment')
+              : serverless.facts.active
+                ? courseHref('computing', 'serverless-assessment')
+                : v2.facts.active
+                  ? courseHref('computing', 'v2-assessment')
+                  : benefits.facts.active
+                    ? courseHref('benefits', 'assessment')
+                    : service2.facts.active
+                      ? courseHref('services', 'assessment')
+                      : services.facts.active
+                        ? '/portal?area=challenge&course=1&module=services&topic=practice'
+                        : learning.facts.active && v2.save.choice !== 'v2'
+                          ? courseHref('computing', 'assessment')
+                          : preferredResume
+                            ? preferredResume.topic === 'transfer' && transfer.facts.current
+                              ? transferHref(transfer.facts.current.item)
+                              : preferredResume.module === 'cost' &&
+                                  preferredResume.topic === 'assessment' &&
+                                  cost.facts.current
+                                ? costHref('assessment', cost.facts.current.item)
+                                : (preferredResume.module === 'services' &&
+                                      preferredResume.topic === 'practice') ||
+                                    (preferredResume.module === 'computing' &&
+                                      preferredResume.topic === 'resource-bridge')
+                                  ? courseLabHref(lab.complete, course.save.lab?.origin)
+                                  : courseHref(preferredResume.module, preferredResume.topic)
+                            : computingEntry;
   const navigate = (area: PortalLocation['area'], change: Partial<PortalLocation> = {}) => {
     if (area === 'learn')
       router.push(courseHref(change.module ?? module ?? 'services', change.topic ?? topic));
@@ -305,7 +317,7 @@ export function Course({ module }: { module?: CourseModule }) {
       router.push(
         portalHref(parseLocation(new URLSearchParams()), area, {
           module:
-            module === 'benefits' || module === 'architecture'
+            module === 'benefits' || module === 'architecture' || module === 'cost'
               ? 'services'
               : (module ?? 'services'),
           topic,
@@ -315,40 +327,44 @@ export function Course({ module }: { module?: CourseModule }) {
       );
   };
   const pathTopics: readonly string[] =
-    module === 'architecture'
-      ? [...physicalTopics, ...managementTopics]
-      : module === 'benefits'
-        ? [...trackUnits.benefits, 'summary', 'transfer']
-        : module === 'computing'
-          ? currentV2
-            ? [...v2Topics.slice(0, -1), ...serverlessTopics, v2Topics.at(-1)!, 'transfer']
-            : [...unitIds, 'transfer']
-          : legacyServices
-            ? topics
-            : [...trackUnits.services, 'summary', 'transfer'];
+    module === 'cost'
+      ? costTopics
+      : module === 'architecture'
+        ? [...physicalTopics, ...managementTopics]
+        : module === 'benefits'
+          ? [...trackUnits.benefits, 'summary', 'transfer']
+          : module === 'computing'
+            ? currentV2
+              ? [...v2Topics.slice(0, -1), ...serverlessTopics, v2Topics.at(-1)!, 'transfer']
+              : [...unitIds, 'transfer']
+            : legacyServices
+              ? topics
+              : [...trackUnits.services, 'summary', 'transfer'];
   const index = pathTopics.indexOf(topic);
   const historicalReturn = pathTopics.filter((t) => t !== 'transfer').at(-1)!;
   const location = parseLocation(
     new URLSearchParams({ area: 'learn', module: module ?? 'services', topic }),
   );
   const title = (m: CourseModule, t: string) =>
-    t === 'transfer'
-      ? transferNb.entry
-      : m === 'architecture'
-        ? isManagementTopic(t)
-          ? managementNb.topics[t]
-          : architectureNb.topics[t as PhysicalTopic]
-        : m === 'benefits'
-          ? (manuscript('benefits', t)?.title ??
-            (t === 'summary' ? nb.expansion.common.summary : nb.expansion.common.assessment))
-          : m === 'services'
-            ? legacyServices
-              ? nb.portal.lesson.sections[t as (typeof topics)[number]]?.title
-              : (manuscript('services', t)?.title ??
-                (t === 'summary' ? nb.expansion.common.summary : nb.expansion.common.assessment))
-            : (serverlessNb.topics[t as keyof typeof serverlessNb.topics] ??
-              nb.foundationsV2.topics[t as (typeof v2Topics)[number]]?.title ??
-              nb.foundations.units[t as (typeof unitIds)[number]]?.title);
+    m === 'cost'
+      ? costNb.topics[t as CostTopic]
+      : t === 'transfer'
+        ? transferNb.entry
+        : m === 'architecture'
+          ? isManagementTopic(t)
+            ? managementNb.topics[t]
+            : architectureNb.topics[t as PhysicalTopic]
+          : m === 'benefits'
+            ? (manuscript('benefits', t)?.title ??
+              (t === 'summary' ? nb.expansion.common.summary : nb.expansion.common.assessment))
+            : m === 'services'
+              ? legacyServices
+                ? nb.portal.lesson.sections[t as (typeof topics)[number]]?.title
+                : (manuscript('services', t)?.title ??
+                  (t === 'summary' ? nb.expansion.common.summary : nb.expansion.common.assessment))
+              : (serverlessNb.topics[t as keyof typeof serverlessNb.topics] ??
+                nb.foundationsV2.topics[t as (typeof v2Topics)[number]]?.title ??
+                nb.foundations.units[t as (typeof unitIds)[number]]?.title);
   const begin = () => {
     if (missions.active) return;
     if (services.facts.active) services.store.event({ kind: 'aid' });
@@ -377,7 +393,7 @@ export function Course({ module }: { module?: CourseModule }) {
   };
   return (
     <div
-      className={`portal course-shell ${module === 'architecture' || currentV2 || module === 'benefits' || (module === 'services' && !legacyServices) ? 'course-v2' : ''}`}
+      className={`portal course-shell ${module === 'cost' || module === 'architecture' || currentV2 || module === 'benefits' || (module === 'services' && !legacyServices) ? 'course-v2' : ''}`}
     >
       <ExpansionAssistance />
       <PracticalAssistance />
@@ -486,6 +502,11 @@ export function Course({ module }: { module?: CourseModule }) {
               topic={topic}
               onNavigate={() => setMenu(false)}
             />
+            <CostEntry
+              navigation
+              topic={module === 'cost' ? topic : undefined}
+              onNavigate={() => setMenu(false)}
+            />
             <p className="course-navigation-note">{c.participation}</p>
           </div>
         </aside>
@@ -521,17 +542,23 @@ export function Course({ module }: { module?: CourseModule }) {
           <ManagementTeachingBoundary
             identity={`course:${module}:${topic}`}
             orientation={!module}
-            only={topic !== 'transfer' && module && module !== 'architecture' ? 'core' : undefined}
+            only={
+              topic !== 'transfer' && module && module !== 'architecture' && module !== 'cost'
+                ? 'core'
+                : undefined
+            }
             assessment={
-              topic === 'transfer'
-                ? 'transfer'
-                : module && missions.active && !missions.assisted
-                  ? 'missions'
-                  : module === 'architecture' && topic === 'management-assessment'
-                    ? 'management'
-                    : module === 'architecture' && topic === 'assessment'
-                      ? 'physical'
-                      : undefined
+              module === 'cost' && topic === 'assessment'
+                ? 'cost'
+                : topic === 'transfer'
+                  ? 'transfer'
+                  : module && missions.active && !missions.assisted
+                    ? 'missions'
+                    : module === 'architecture' && topic === 'management-assessment'
+                      ? 'management'
+                      : module === 'architecture' && topic === 'assessment'
+                        ? 'physical'
+                        : undefined
             }
           >
             {!module ? (
@@ -553,6 +580,7 @@ export function Course({ module }: { module?: CourseModule }) {
                     <ArrowRight size={18} />
                   </Link>
                 </div>
+                <CostEntry />
                 <TransferEntry />
                 <MissionOverview />
                 <section className="course-lab-discovery" aria-label={labsNb.discover}>
@@ -691,26 +719,30 @@ export function Course({ module }: { module?: CourseModule }) {
                 <header className="course-module-header">
                   <small>
                     {c.module}{' '}
-                    {module === 'architecture'
-                      ? '04'
-                      : module === 'computing'
-                        ? '01'
-                        : module === 'benefits'
-                          ? '02'
-                          : '03'}{' '}
+                    {module === 'cost'
+                      ? '05'
+                      : module === 'architecture'
+                        ? '04'
+                        : module === 'computing'
+                          ? '01'
+                          : module === 'benefits'
+                            ? '02'
+                            : '03'}{' '}
                     · {module === 'architecture' ? managementNb.available : c.available}
                   </small>
                   <h1>{names[module]}</h1>
                   <p>
-                    {module === 'architecture'
-                      ? managementNb.intro
-                      : module === 'benefits'
-                        ? nb.expansion.benefits.intro
-                        : module === 'services'
-                          ? c.services
-                          : currentV2
-                            ? nb.foundationsV2.intro
-                            : c.computing}
+                    {module === 'cost'
+                      ? costNb.overview
+                      : module === 'architecture'
+                        ? managementNb.intro
+                        : module === 'benefits'
+                          ? nb.expansion.benefits.intro
+                          : module === 'services'
+                            ? c.services
+                            : currentV2
+                              ? nb.foundationsV2.intro
+                              : c.computing}
                   </p>
                 </header>
                 {services.facts.active && (
@@ -725,7 +757,9 @@ export function Course({ module }: { module?: CourseModule }) {
                   </p>
                 )}
                 <div ref={activityRef} className="course-activity">
-                  {topic === 'transfer' && module !== 'architecture' ? (
+                  {module === 'cost' ? (
+                    <CostLesson topic={topic as CostTopic} selected={query.get('case')} />
+                  ) : topic === 'transfer' && module !== 'architecture' ? (
                     <TransferAssessment module={module} selected={query.get('case')} />
                   ) : chooseVersion ? (
                     <section className="course-version-choice">
@@ -777,6 +811,7 @@ export function Course({ module }: { module?: CourseModule }) {
                           management,
                           missions,
                           transfer,
+                          cost,
                         ].some((x) => !x.ready || !!x.issue) ||
                         learning.facts.active ||
                         v2.facts.active ||
@@ -787,6 +822,7 @@ export function Course({ module }: { module?: CourseModule }) {
                         serverless.facts.active ||
                         physical.facts.active ||
                         transfer.facts.active ||
+                        cost.facts.active ||
                         missions.active
                       }
                     />
@@ -809,6 +845,7 @@ export function Course({ module }: { module?: CourseModule }) {
                           management,
                           missions,
                           transfer,
+                          cost,
                         ].some((x) => !x.ready || !!x.issue) ||
                         learning.facts.active ||
                         v2.facts.active ||
@@ -819,6 +856,7 @@ export function Course({ module }: { module?: CourseModule }) {
                         practical.activeIndependent ||
                         management.facts.active ||
                         transfer.facts.active ||
+                        cost.facts.active ||
                         missions.active
                       }
                     />
@@ -843,6 +881,7 @@ export function Course({ module }: { module?: CourseModule }) {
                           management,
                           missions,
                           transfer,
+                          cost,
                         ].some((x) => !x.ready || !!x.issue) ||
                         learning.facts.active ||
                         v2.facts.active ||
@@ -853,6 +892,7 @@ export function Course({ module }: { module?: CourseModule }) {
                         physical.facts.active ||
                         management.facts.active ||
                         transfer.facts.active ||
+                        cost.facts.active ||
                         missions.active
                       }
                     />
@@ -944,7 +984,7 @@ export function Course({ module }: { module?: CourseModule }) {
                     </>
                   )}
                 </div>
-                {module !== 'architecture' && topic !== 'transfer' && (
+                {module !== 'cost' && module !== 'architecture' && topic !== 'transfer' && (
                   <TransferEntry module={module} />
                 )}
                 {labTopic && !chooseVersion && !serviceChoice && (
@@ -1178,8 +1218,10 @@ export function Course({ module }: { module?: CourseModule }) {
       {journal && (
         <PortalDialog title={c.journal} onClose={() => setJournal(false)}>
           <ManagementTeachingBoundary identity="course-journal">
-            {module === 'architecture' ||
-            (!module && preferredResume?.module === 'architecture') ? (
+            {module === 'cost' || (!module && preferredResume?.module === 'cost') ? (
+              <CostLesson topic="introduction" journal />
+            ) : module === 'architecture' ||
+              (!module && preferredResume?.module === 'architecture') ? (
               <CoreArchitectureJournal />
             ) : module === 'benefits' ? (
               <ExpansionReference track="benefits" topic={topic} />

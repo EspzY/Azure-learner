@@ -3,6 +3,7 @@ import { retiredStorageKeys } from '@/domain/retired-storage';
 import { serviceLearningKey } from '@/domain/portal/learning';
 import { courseKey } from '@/domain/course/model';
 import { transferKey } from '@/domain/curriculum/transfer';
+import { costKey } from '@/domain/curriculum/cost';
 
 import { createContext, useCallback, useContext, useEffect, useRef, useState } from 'react';
 import {
@@ -92,6 +93,7 @@ export function ProgressProvider({ children }: { children: React.ReactNode }) {
         'azurelab.learning.architecture-physical.v1',
         'azurelab.learning.architecture-management.v1',
         transferKey,
+        costKey,
       ])
         localStorage.removeItem(key);
     } catch {

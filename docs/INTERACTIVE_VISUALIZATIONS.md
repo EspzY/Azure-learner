@@ -1,5 +1,9 @@
 # Interactive technical visualizations
 
+## P04 Azure Cost Explorer
+
+Four work-specific views reuse native controls and original HTML/SVG: six-component estimate and A/B contrast; dated grouped quantity/rate/mix investigation; common-zero cumulative recorded/forecast/budget chart with different line patterns; direct-tag versus report-allocation comparison with visible unassigned values. Every visualization has readable units, assumptions, result text and tables; predictions precede explicit saved model runs. The fixed120-row fixture is independent of Portal inventory and is not a live Cost Management reproduction. No animation-only learning or new graphics dependency. [Model, dataset and source boundaries](COST_MANAGEMENT.md).
+
 ## Management Hierarchy and Scope Explorer — PR23
 
 An expandable semantic tree and inspector read actual World/inventory, retain empty scopes, central service icons and live resource links. The alternate relationships lens reuses Architecture Explorer rather than mixing hosting with management. A separate labelled scope fixture illustrates two subscriptions, groups and resource types; proposed controls reveal no result before Run. Its snapshot table separates scope reach, type, noncompliant location and audit/deny/disabled consequence. No inventory mutation, fictitious receipt or physical-placement inference. [Model](CORE_ARCHITECTURE_MANAGEMENT.md).

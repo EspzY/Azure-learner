@@ -1,5 +1,9 @@
 # Source and credential register
 
+## PR26 — CS01–29 Cost Management sources
+
+[Runtime-free source register](../src/domain/curriculum/cost-sources.ts) and [claim/discovery record](../quality/releases/current.json) document current study guide, all public Cost Management units, Calculator, Cost Analysis, budgets/data/scope, tag support/inheritance/Policy, reservations, compute savings plan, Spot, Advisor and transfer pricing. Checked2026-10-27. The anonymous public calculator was actually configured without login; its displayed prices were not imported. Incorrect legacy Cost Analysis and supplementary-path URLs were resolved through official links, not treated as verified. Learn simplifications are qualified by current product articles. [Claim-level limits](COST_MANAGEMENT.md). No Microsoft illustrations/questions copied and no new third-party visual assets or runtime services.
+
 ## P03 scoped source review — 2026-10-27
 
 `transfer-sources.ts` and the current quality record map T01–T18 to dated claims and original items; the audit uses TR01–TR18 to avoid colliding with earlier source namespaces. Read the current July20,2026 study guide, three public module indexes and their scoped public units, then linked technical qualifications for Reservations, Spot, savings plans, failure-mode analysis, Policy, RBAC, identity and ARM templates. [Claim/discovery dispositions](CLOUD_CONCEPTS_TRANSFER.md). No assessment bank, Portal bundle, protected source or new third-party asset is copied.

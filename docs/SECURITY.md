@@ -1,5 +1,9 @@
 # Security and privacy
 
+## P04 economic teaching boundary
+
+Cost Management adds only the isolated, untrusted and runtime-validated `azurelab.learning.cost-management.v1` record. Bounded input/event replay, compare/write/read-back, stale/cross-tab withholding and scoped recovery preserve prior records. All-context teaching preflight includes this independent context before Journal, Summary or historical feedback. Economic inputs are fictional: no billing account, financial/customer data, Azure pricing API, payment, credentials or external runtime request. Optional official calculator links open separately; local work needs no account. Actual inventory is read-only reference and never supplies fabricated costs or receipts. No dependency or operational rule change. [Exact boundary](COST_MANAGEMENT.md).
+
 ## Part B input/persistence boundary — PR23
 
 New learning data has exact1.0.0 schema/content/model/rubric, bounded replay, reserved assistance/terminal capacity and compare-before-write storage. Invalid recovery rechecks the same quarantined bytes before deletion and touches only its own key; newer/different data survives. Unknown/corrupt/stale/unsaved contexts suppress automatic guidance. Pure scope inputs are allowlisted; no IAM, credentials, live Azure, database or external runtime requests are added. [Contract](CORE_ARCHITECTURE_MANAGEMENT.md).

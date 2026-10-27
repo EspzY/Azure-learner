@@ -633,6 +633,180 @@
       "reviewed": "2026-10-27",
       "purpose": "P03 SaaS responsibility and scenarios; claim/qualification mapping in CLOUD_CONCEPTS_TRANSFER",
       "kind": "technical"
+    },
+    "CS01": {
+      "url": "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900",
+      "reviewed": "2026-10-27",
+      "purpose": "Four pinned cost skills, no separate optimization exam slot; current Skills measured 2026-07-20. Claim map: COST_MANAGEMENT.",
+      "kind": "exam"
+    },
+    "CS02": {
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-cost-management-azure/",
+      "reviewed": "2026-10-27",
+      "purpose": "Eight units, five learning goals including optimization; no protected assessment copied. Claim map: COST_MANAGEMENT.",
+      "kind": "module"
+    },
+    "CS03": {
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-cost-management-azure/2-describe-factors-affect-costs-azure",
+      "reviewed": "2026-10-27",
+      "purpose": "Service/type/tier, location, usage and offer affect cost; billing meters differ. Claim map: COST_MANAGEMENT.",
+      "kind": "unit"
+    },
+    "CS04": {
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-cost-management-azure/3-compare-pricing-total-cost-of-ownership-calculators",
+      "reviewed": "2026-10-27",
+      "purpose": "Select products and assumptions, aggregate estimated services; estimate is not invoice. Historical TCO slug retained by Learn. Claim map: COST_MANAGEMENT.",
+      "kind": "unit"
+    },
+    "CS05": {
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-cost-management-azure/6-describe-azure-tool",
+      "reviewed": "2026-10-27",
+      "purpose": "Cost visibility, analysis, budgets and optimization; budget alerts alone do not stop resources. Claim map: COST_MANAGEMENT.",
+      "kind": "unit"
+    },
+    "CS06": {
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-cost-management-azure/7-describe-purpose-of-tags",
+      "reviewed": "2026-10-27",
+      "purpose": "Key-value classification for grouping and reporting, not authorization or automatic ARM inheritance. Claim map: COST_MANAGEMENT.",
+      "kind": "unit"
+    },
+    "CS07": {
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-cost-management-azure/7a-describe-cost-optimization-options",
+      "reviewed": "2026-10-27",
+      "purpose": "Rightsizing, reservations, savings plans and Spot are conditional options, not universal savings. Claim map: COST_MANAGEMENT.",
+      "kind": "unit"
+    },
+    "CS08": {
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-cost-management-azure/1-introduction",
+      "reviewed": "2026-10-27",
+      "purpose": "Prior cloud knowledge and cost learning objectives/prerequisites. Claim map: COST_MANAGEMENT.",
+      "kind": "unit"
+    },
+    "CS09": {
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-cost-management-azure/9-summary",
+      "reviewed": "2026-10-27",
+      "purpose": "Summary and additional path; broken /learn/paths link resolved through /training/paths. Claim map: COST_MANAGEMENT.",
+      "kind": "unit"
+    },
+    "CS10": {
+      "url": "https://learn.microsoft.com/en-us/azure/cost-management-billing/costs/pricing-calculator",
+      "reviewed": "2026-10-27",
+      "purpose": "Calculator product/region/tier/usage configuration and estimate assumptions, optional login operations. Claim map: COST_MANAGEMENT.",
+      "kind": "technical"
+    },
+    "CS11": {
+      "url": "https://learn.microsoft.com/en-us/azure/cost-management-billing/costs/overview-cost-management",
+      "reviewed": "2026-10-27",
+      "purpose": "Analyze, monitor and optimize costs; billing roles/offer types affect availability and scope. Claim map: COST_MANAGEMENT.",
+      "kind": "technical"
+    },
+    "CS12": {
+      "url": "https://learn.microsoft.com/en-us/azure/cost-management-billing/costs/quick-acm-cost-analysis",
+      "reviewed": "2026-10-27",
+      "purpose": "Scope, grouping and filtering of recorded cost data; corrected URL via official overview. Claim map: COST_MANAGEMENT.",
+      "kind": "technical"
+    },
+    "CS13": {
+      "url": "https://learn.microsoft.com/en-us/azure/cost-management-billing/costs/tutorial-acm-create-budgets",
+      "reviewed": "2026-10-27",
+      "purpose": "Actual/forecast thresholds, periods and notifications; separately configured action groups/automation, not default stop. Claim map: COST_MANAGEMENT.",
+      "kind": "technical"
+    },
+    "CS14": {
+      "url": "https://learn.microsoft.com/en-us/azure/cost-management-billing/costs/understand-cost-mgt-data",
+      "reviewed": "2026-10-27",
+      "purpose": "Recorded data can be delayed and revised; actual/amortized/invoice concepts are distinct. Claim map: COST_MANAGEMENT.",
+      "kind": "technical"
+    },
+    "CS15": {
+      "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/tag-resources",
+      "reviewed": "2026-10-27",
+      "purpose": "Resource tags do not automatically inherit; not all types support tags, avoid sensitive values. Claim map: COST_MANAGEMENT.",
+      "kind": "technical"
+    },
+    "CS16": {
+      "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/tag-support",
+      "reviewed": "2026-10-27",
+      "purpose": "Service-dependent tag and cost-report support; no universal tagging or cost-record guarantee. Claim map: COST_MANAGEMENT.",
+      "kind": "technical"
+    },
+    "CS17": {
+      "url": "https://learn.microsoft.com/en-us/azure/cost-management-billing/costs/enable-tag-inheritance",
+      "reviewed": "2026-10-27",
+      "purpose": "Reporting inheritance enriches cost records without mutating resource tags; supported EA/MCA/MPA and conflict preferences. Claim map: COST_MANAGEMENT.",
+      "kind": "technical"
+    },
+    "CS18": {
+      "url": "https://learn.microsoft.com/en-us/azure/cost-management-billing/reservations/save-compute-costs-reservations",
+      "reviewed": "2026-10-27",
+      "purpose": "Reservations are conditional billing discounts for eligible configuration, not runtime/capacity guarantees. Claim map: COST_MANAGEMENT.",
+      "kind": "technical"
+    },
+    "CS19": {
+      "url": "https://learn.microsoft.com/en-us/azure/cost-management-billing/savings-plan/savings-plan-overview",
+      "reviewed": "2026-10-27",
+      "purpose": "Savings plan scope varies; this module explicitly teaches compute hourly monetary commitment, no claim it is only plan. Claim map: COST_MANAGEMENT.",
+      "kind": "technical"
+    },
+    "CS20": {
+      "url": "https://learn.microsoft.com/en-us/azure/virtual-machines/spot-vms",
+      "reviewed": "2026-10-27",
+      "purpose": "Spot capacity is interruptible; eviction/availability constraints and retained disks matter. Claim map: COST_MANAGEMENT.",
+      "kind": "technical"
+    },
+    "CS21": {
+      "url": "https://learn.microsoft.com/en-us/azure/cost-management-billing/savings-plan/discount-application",
+      "reviewed": "2026-10-27",
+      "purpose": "Eligible compute discount application, unused hourly commitment does not roll forward, ancillary costs separate. Claim map: COST_MANAGEMENT.",
+      "kind": "technical"
+    },
+    "CS22": {
+      "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-cost-recommendations",
+      "reviewed": "2026-10-27",
+      "purpose": "Advisor recommendations need utilization/workload/reliability validation; smaller is not automatically correct. Claim map: COST_MANAGEMENT.",
+      "kind": "technical"
+    },
+    "CS23": {
+      "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/tag-policies",
+      "reviewed": "2026-10-27",
+      "purpose": "Policy can modify tagging with appropriate remediation; not automatic resource-group tag inheritance. Claim map: COST_MANAGEMENT.",
+      "kind": "technical"
+    },
+    "CS24": {
+      "url": "https://learn.microsoft.com/en-us/azure/cost-management-billing/costs/group-filter",
+      "reviewed": "2026-10-27",
+      "purpose": "Grouping/filter capabilities and billing scopes are offer-dependent; synthetic scope is a bounded analogue. Claim map: COST_MANAGEMENT.",
+      "kind": "technical"
+    },
+    "CS25": {
+      "url": "https://learn.microsoft.com/en-us/azure/cost-management-billing/savings-plan/decide-between-savings-plan-reservation",
+      "reviewed": "2026-10-27",
+      "purpose": "Right-size first, reservation configuration commitment versus flexible eligible compute spend; no purchase in product. Claim map: COST_MANAGEMENT.",
+      "kind": "technical"
+    },
+    "CS26": {
+      "url": "https://learn.microsoft.com/en-us/training/paths/control-spending-manage-bills/",
+      "reviewed": "2026-10-27",
+      "purpose": "Supplementary spending path reviewed; advanced Power BI, payment, partner billing and purchasing deferred. Claim map: COST_MANAGEMENT.",
+      "kind": "technical"
+    },
+    "CS27": {
+      "url": "https://azure.microsoft.com/en-us/pricing/details/bandwidth/",
+      "reviewed": "2026-10-27",
+      "purpose": "Transfer path/direction and billing geography affect rates; billing zones are not Availability Zones, no live prices imported. Claim map: COST_MANAGEMENT.",
+      "kind": "technical"
+    },
+    "CS28": {
+      "url": "https://azure.microsoft.com/pricing/calculator/",
+      "reviewed": "2026-10-27",
+      "purpose": "Actual anonymous product→VM→region/Linux/200hours and separate disk/traffic workflow inspected; Save/Share unavailable unsigned. Claim map: COST_MANAGEMENT.",
+      "kind": "technical"
+    },
+    "CS29": {
+      "url": "https://learn.microsoft.com/en-us/training/paths/describe-azure-management-governance/",
+      "reviewed": "2026-10-27",
+      "purpose": "Third official path has four modules; cost module alone implemented, remaining modules planned. Claim map: COST_MANAGEMENT.",
+      "kind": "technical"
     }
   },
   "evidenceProfiles": {
@@ -1193,6 +1367,46 @@
       ],
       "tests": ["src/domain/curriculum/transfer.test.ts", "tests/e2e/cloud-transfer.spec.ts"],
       "limits": "Independent original decision/reason pairs; versioned new evidence. Human validation unperformed. Old teaching/theory profiles retained."
+    },
+    "CO": {
+      "teaching": [
+        {
+          "path": "src/content/nb.ts",
+          "marker": "costNb"
+        }
+      ],
+      "mechanism": [
+        {
+          "path": "src/domain/curriculum/cost-model.ts",
+          "marker": "estimateCost"
+        },
+        {
+          "path": "src/domain/curriculum/cost.ts",
+          "marker": "guidedCostFacts"
+        }
+      ],
+      "presentation": [
+        {
+          "path": "src/features/learning/cost-workbench.tsx",
+          "marker": "CostWorkbench"
+        },
+        {
+          "path": "src/features/learning/cost.tsx",
+          "marker": "CostLesson"
+        }
+      ],
+      "assessment": [
+        {
+          "path": "src/domain/curriculum/cost.ts",
+          "marker": "evaluateCostAttempt"
+        },
+        {
+          "path": "src/features/learning/cost-assessment.tsx",
+          "marker": "CostAssessment"
+        }
+      ],
+      "tests": ["src/domain/curriculum/cost.test.ts", "tests/e2e/cost-management.spec.ts"],
+      "limits": "Original synthetic economic model, four guided investigations and ten independent structured decision/reason cases. No real costs/invoices, operative budgets/tags, XP, prior evidence upgrade, exam readiness or human approval."
     }
   },
   "plannedPRs": [
@@ -2695,13 +2909,13 @@
       "slot": "3.1.01",
       "id": "az900.cost.drivers",
       "title": "Faktorer som påvirker cloud-kostnad",
-      "status": "PARTIAL",
+      "status": "COMPLETE",
       "criteria": {
-        "A": "P",
-        "B": "P",
+        "A": "V",
+        "B": "V",
         "C": "V",
-        "D": "P",
-        "E": "P",
+        "D": "V",
+        "E": "V",
         "F": "V"
       },
       "facets": [
@@ -2711,105 +2925,147 @@
         },
         {
           "topic": "Andre Azure-kostnadsdrivere",
-          "status": "PARTIAL"
+          "status": "COMPLETE"
         }
       ],
-      "localObjectives": ["FC06", "FC07", "F03"],
-      "evidence": ["F"],
-      "observed": "Tomgang, tidsenhet, måling og binding er undervist; ressurs-/regionsvalg har forklaring, men ingen full Azure-driveroppgave.",
-      "gap": "Mangler samlet selvstendig sammenligning av resource type/tier/region/traffic/licensing/offer; syntetiske tall er ikke Azure-priser.",
+      "localObjectives": ["CM01"],
+      "evidence": ["F", "CO"],
+      "observed": "Full driver mechanism and two independent contexts (cm01–02), six separate cost components and qualified optimization.",
+      "gap": "A–F content coverage documented; finite original item bank and synthetic exercises. Qualified human SME, UX, screen-reader and learning transfer remain unperformed.",
       "plannedPRs": ["P04"],
-      "sources": ["EXAM", "M09", "RES", "SAV"]
+      "sources": [
+        "EXAM",
+        "M09",
+        "RES",
+        "SAV",
+        "CS01",
+        "CS02",
+        "CS03",
+        "CS08",
+        "CS09",
+        "CS14",
+        "CS27",
+        "CS29"
+      ]
     },
     {
       "slot": "3.1.02",
       "id": "az900.cost.calculator",
       "title": "Pricing Calculator",
-      "status": "MISSING",
+      "status": "COMPLETE",
       "criteria": {
-        "A": "M",
-        "B": "M",
-        "C": "M",
-        "D": "M",
-        "E": "M",
-        "F": "N"
+        "A": "V",
+        "B": "V",
+        "C": "V",
+        "D": "V",
+        "E": "V",
+        "F": "V"
       },
       "facets": [
         {
           "topic": "Estimere og sammenligne antakelser",
-          "status": "MISSING"
+          "status": "COMPLETE"
         }
       ],
-      "localObjectives": ["F03"],
-      "evidence": [],
-      "observed": "Lokal hypotetisk prisberegning er ikke et besøk eller en undervisning om Pricing Calculator.",
-      "gap": "Mangler egen forklaring, relevant mekanisme/praksis, uavhengig scenario og begrunnet vurdering for de angitte emnene.",
+      "localObjectives": ["CM02"],
+      "evidence": ["CO"],
+      "observed": "Original calculator teaching plus anonymous public calculator workflow observed, bounded local estimate and independent assumption cases cm03–04.",
+      "gap": "A–F content coverage documented; finite original item bank and synthetic exercises. Qualified human SME, UX, screen-reader and learning transfer remain unperformed.",
       "plannedPRs": ["P04"],
-      "sources": ["EXAM", "M09"]
+      "sources": ["EXAM", "M09", "CS01", "CS02", "CS04", "CS08", "CS09", "CS10", "CS28", "CS29"]
     },
     {
       "slot": "3.1.03",
       "id": "az900.cost.management",
       "title": "Cost Management capabilities",
-      "status": "MISSING",
+      "status": "COMPLETE",
       "criteria": {
-        "A": "M",
-        "B": "M",
-        "C": "M",
-        "D": "M",
-        "E": "M",
-        "F": "N"
+        "A": "V",
+        "B": "V",
+        "C": "V",
+        "D": "V",
+        "E": "V",
+        "F": "V"
       },
       "facets": [
         {
           "topic": "Analyse",
-          "status": "MISSING"
+          "status": "COMPLETE"
         },
         {
           "topic": "Budsjett",
-          "status": "MISSING"
+          "status": "COMPLETE"
         },
         {
           "topic": "Varsling og scope",
-          "status": "MISSING"
+          "status": "COMPLETE"
         }
       ],
-      "localObjectives": ["F03", "G04"],
-      "evidence": [],
-      "observed": "Generisk budsjett-/trendomtale er ikke en Cost Management-modul eller operativ økonomioversikt.",
-      "gap": "Mangler egen forklaring, relevant mekanisme/praksis, uavhengig scenario og begrunnet vurdering for de angitte emnene.",
+      "localObjectives": ["CM03"],
+      "evidence": ["CO"],
+      "observed": "Dated actual synthetic records, grouped increase, explicit forecast/threshold contrast, scope and independent cases cm05–06.",
+      "gap": "A–F content coverage documented; finite original item bank and synthetic exercises. Qualified human SME, UX, screen-reader and learning transfer remain unperformed.",
       "plannedPRs": ["P04"],
-      "sources": ["EXAM", "M09"]
+      "sources": [
+        "EXAM",
+        "M09",
+        "CS01",
+        "CS02",
+        "CS05",
+        "CS08",
+        "CS09",
+        "CS11",
+        "CS12",
+        "CS13",
+        "CS14",
+        "CS24",
+        "CS26",
+        "CS29"
+      ]
     },
     {
       "slot": "3.1.04",
       "id": "az900.cost.tags",
       "title": "Tags",
-      "status": "MISSING",
+      "status": "COMPLETE",
       "criteria": {
-        "A": "M",
-        "B": "M",
-        "C": "M",
-        "D": "M",
-        "E": "M",
-        "F": "N"
+        "A": "V",
+        "B": "V",
+        "C": "V",
+        "D": "V",
+        "E": "V",
+        "F": "V"
       },
       "facets": [
         {
           "topic": "Metadataformål",
-          "status": "MISSING"
+          "status": "COMPLETE"
         },
         {
           "topic": "Kostnads-/eierskapsorganisering",
-          "status": "MISSING"
+          "status": "COMPLETE"
         }
       ],
-      "localObjectives": ["G04"],
-      "evidence": [],
-      "observed": "Tags finnes i roadmap/proposal, ikke et fullstendig aktivt fag- eller oppgavespor.",
-      "gap": "Mangler egen forklaring, relevant mekanisme/praksis, uavhengig scenario og begrunnet vurdering for de angitte emnene.",
+      "localObjectives": ["CM04"],
+      "evidence": ["CO"],
+      "observed": "Direct resource metadata, Policy modification and reporting inheritance taught separately; classify dataset and independent cases cm07–08.",
+      "gap": "A–F content coverage documented; finite original item bank and synthetic exercises. Qualified human SME, UX, screen-reader and learning transfer remain unperformed.",
       "plannedPRs": ["P04"],
-      "sources": ["EXAM", "M09"]
+      "sources": [
+        "EXAM",
+        "M09",
+        "CS01",
+        "CS02",
+        "CS06",
+        "CS08",
+        "CS09",
+        "CS15",
+        "CS16",
+        "CS17",
+        "CS23",
+        "CS24",
+        "CS29"
+      ]
     },
     {
       "slot": "3.2.01",
@@ -3229,6 +3485,43 @@
         "1.3.04"
       ],
       "note": "Scoped A–F content re-review: eight former PARTIAL rows now COMPLETE through retained substantive teaching/models and19 new versioned independent cases with specific feedback and official source checks. Cloud concepts15/15 content coverage; no old evidence upgrade, learner competence, exam readiness or human approval is inferred."
+    },
+    {
+      "id": "PR26-P04",
+      "reviewed": "2026-10-27",
+      "sources": [
+        "CS01",
+        "CS02",
+        "CS03",
+        "CS04",
+        "CS05",
+        "CS06",
+        "CS07",
+        "CS08",
+        "CS09",
+        "CS10",
+        "CS11",
+        "CS12",
+        "CS13",
+        "CS14",
+        "CS15",
+        "CS16",
+        "CS17",
+        "CS18",
+        "CS19",
+        "CS20",
+        "CS21",
+        "CS22",
+        "CS23",
+        "CS24",
+        "CS25",
+        "CS26",
+        "CS27",
+        "CS28",
+        "CS29"
+      ],
+      "objectives": ["3.1.01", "3.1.02", "3.1.03", "3.1.04"],
+      "note": "Four cost objectives re-reviewed A–F with original full teaching, four workbenches, ten independent cases and official claims. Optimization taught as extra Learn objective, not a new exam slot. No learner mastery or readiness inferred."
     }
   ]
 }

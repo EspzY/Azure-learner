@@ -1,5 +1,9 @@
 # AZ-900 — fremtidig diagnostikk og læringsoverføring
 
+## P04 implemented independent application
+
+Cost Management uses ten original versioned item/rubric cases in five families, two distinct contexts each for drivers, calculator, cost management, tags and Learn optimization. Each requires a compatible decision and structured reason; a correct decision with a wrong cause fails. Feedback follows submission and explains all six alternatives, misconceptions, changed assumptions and exact lesson links. An already exposed family is a retry. Durable teaching preflight includes every active cost/older independent context before Journal, Summary or historical feedback. This finite bank is not the proposed diagnostic exam, does not award XP and supplies no readiness percentage. [Actual contract](COST_MANAGEMENT.md).
+
 ## Implementert P03-avgrensning — PR25
 
 P03 er et isolert selvstendig transfer-spor i det eksisterende kurset, ikke den generelle diagnostiske prøveeksamenen nedenfor.19 originale tilfeller i sju familier bruker eksplisitt koblede beslutninger og begrunnelser; ett tilfelle godtar to faglig gyldige arkitekturer med hver sin ansvarsbegrunnelse. Førstesvar, familieeksponering, hjelp, retry og avbrudd replays separat fra historiske rubrics. Historisk feedback og presis repetisjon bruker durable teaching-preflight på tvers av alle vurderingskontekster. Ingen fordeling som etterligner full eksamen eller readiness-score er implementert. [P03-kontrakt](CLOUD_CONCEPTS_TRANSFER.md).

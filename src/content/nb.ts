@@ -5400,6 +5400,7 @@ export const managementNb = {
   accessReload: 'Les lagret vurderingskontekst på nytt',
   accessReview: 'Åpne egen vurdering og lagringskontroll',
   accessContexts: {
+    cost: 'Cost Management · selvstendig anvendelse',
     transfer: 'Selvstendig Cloud Concepts-transfer',
     missions: 'Praktiske oppdrag',
     management: 'Core Architecture Part B',
@@ -5949,6 +5950,7 @@ export const missionsNb = {
   reviewContext: 'Åpne kontekstens eksisterende recovery eller vurdering',
   recoveryContexts: {
     transfer: 'Cloud Concepts-transfer',
+    cost: 'Cost Management',
     management: 'Core Architecture Part B',
     physical: 'Core Architecture Part A',
     serverless: 'Serverless',
@@ -7296,5 +7298,881 @@ export const transferNb = {
         'Ingen av de beskrevne modellene gjør kunden ansvarsfri.',
       ],
     },
+  },
+} as const;
+// P04 original teaching manuscript, authored before its presenter. No live prices/data.
+export const costNb = {
+  hierarchyPrerequisite: 'Subscription / Resource group',
+  title: 'Describe cost management in Azure',
+  path: 'Introduction to Cloud Infrastructure: Describe Azure management and governance',
+  intro: 'Fra ressursvalg til økonomisk beslutning',
+  overview:
+    'Forstå kostnadsdrivere, bygg et begrunnet estimat, undersøk et avvik og fordel kostnader. Fire guidede undersøkelser og nye selvstendige situasjoner bruker tydelig fiktive data.',
+  available: 'Første modul tilgjengelig · resten av læringsstien er planlagt',
+  planned: ['Governance og compliance', 'Deployment og administrasjonsverktøy', 'Monitoring'],
+  synthetic: 'Fiktive undervisningsdata – ikke faktiske Azure-priser eller registrerte kostnader.',
+  currency: 'ØK',
+  units:
+    'ØK betyr øvelseskroner. Alle satser er oppdiktet. Denne modellen bruker 30 døgn × 24 timer = 720 timer per periode. En GB er en datamengde; GB-døgn er lagret mengde multiplisert med antall døgn. 1 000 operasjoner er én priset operasjonsenhet. Dette er ikke et universelt Azure-faktureringsintervall.',
+  prerequisite:
+    'Bygger på måling og prising i Cloud Computing, tjenestevalgene i Service Types og skillet mellom subscription, resource group og fysisk lokasjon. Gjenta de konkrete begrepene nedenfor ved behov.',
+  topics: {
+    introduction: 'Hvorfor koster løsningen penger?',
+    drivers: 'Kostnadsdrivere og fakturerbart forbruk',
+    estimate: 'Pricing Calculator · bygg og sammenlign',
+    analysis: 'Cost Analysis · undersøk et avvik',
+    budgets: 'Budgets · kostnad og prognose',
+    tags: 'Tags · organisering og kostnadsfordeling',
+    optimization: 'Optimalisering med driftskrav',
+    assessment: 'Selvstendig økonomisk anvendelse',
+    summary: 'Hva har du dokumentert?',
+  },
+  sections: {
+    introduction: {
+      title: 'Én applikasjon, flere økonomiske mekanismer',
+      paragraphs: [
+        'Et lite katalogteam skal tilby en nettapplikasjon. De vurderer en Virtual Machine eller egen kode i App Service, med lagring og trafikk. To løsninger kan ha like mange ressurser og likevel gi svært ulik kostnad. En ressurs er en administrativ enhet, ikke en universell faktureringsenhet.',
+        'Begynn med behovet: når skal tjenesten være tilgjengelig, hvor mye arbeid skal utføres, hvilke data skal beholdes, og hva må teamet selv drifte? Deretter identifiseres tjenestene og deres målbare kostnadsdrivere. Et tall uten disse forutsetningene er vanskelig å etterprøve.',
+        'Økonomiarbeidet har en krets: estimer før valget, observer kostnadsdata etter forbruk, undersøk avvik, gjør et begrunnet tiltak og kontroller konsekvensene. Et budsjett uttrykker organisasjonens plan. En prognose forsøker å si hvor trenden kan ende. Ingen av dem er en faktura.',
+        'Du skal bruke fire lokale workbencher. De oppretter verken ressurser, budsjetter, tagger eller betaling i Azure. Egne Portal-ressurser kan gi kjent teknisk kontekst, men ikke oppdiktede driftstimer eller historiske regninger. Selvstendige scenarioer har andre krav enn de guidede undersøkelsene.',
+      ],
+      terms: [
+        [
+          'FinOps',
+          'Samarbeid om økonomisk ansvar og verdi i skybruk, med tekniske og organisatoriske beslutninger.',
+        ],
+        ['Scope', 'Avgrensningen av hvilke kostnader eller ressurser en undersøkelse gjelder.'],
+      ],
+      example:
+        'Et team estimerer en løsning før lansering. Senere øker trafikken. Et nytt estimat kan forklare en mulig endring, men registrerte kostnadsposter må undersøkes for å finne hva som faktisk bidro til avviket.',
+      limit:
+        'Kurset gir lokale, avgrensede læringsobservasjoner. Det gir ingen Microsoft Learn-fullføring, betalingsråd for en virkelig organisasjon eller garanti om eksamensberedskap.',
+    },
+    drivers: {
+      title: 'Kapasitet, nyttig arbeid og fakturerbar mengde er forskjellige',
+      paragraphs: [
+        'Kapasitet er det løsningen kan levere. Nyttig arbeid er det applikasjonen faktisk får gjort. Fakturerbar mengde er det tjenestens prisregel måler. En allokert VM kan ha lav CPU-belastning, men fortsatt gi compute-kostnad. Å stoppe et program inne i operativsystemet er ikke nødvendigvis det samme som å deallokere compute gjennom Azure.',
+        'Tjeneste og ressurstype avgjør hvilke målere som er relevante. En VM kan ha compute-tid, programvarelisens, disker og nettverk. En App Service plan representerer hostingkapasitet; en Web App-referanse til en plan betyr ikke at all lagring og alle tilleggstjenester er gratis. Storage kan prises etter kapasitet, operasjoner, tilgangsnivå og redundans. Ulike tjenester må derfor ikke gis samme prisformel.',
+        'SKU og tier beskriver et tjenestetilbud, for eksempel kapasitet og egenskaper. Større profiler og andre tjenestenivåer kan endre kostnaden. Region påvirker tjenestetilbud og pris. Velg først en løsning som oppfyller krav til kapasitet, forsinkelse, databehandling og tilgjengelighet; en lavere regionspris opphever ikke disse kravene.',
+        'Lagring kan bestå selv om compute ikke lenger er allokert. Disker, beholdte data, backup og andre tilknyttede tjenester må undersøkes separat. Antall operasjoner kan være en egen måler. Nettverkskostnad avhenger blant annet av retning, tjeneste, mengde og overføringsvei. En billing zone for båndbredde er ikke en Availability Zone. Ikke anta at all trafikk inn, ut eller mellom regioner har samme pris.',
+        'Lisensiering, Marketplace-tilbud, support og avtale påvirker totalen. Et bilde med kommersiell programvare kan ha andre kostnader enn et alternativ uten den lisensen. Gyldige lisensfordeler krever egne vilkår. Tilbud kan gi inkluderte mengder eller rabatter. Kostnadsestimatet bør angi hva det inkluderer, og hva som må undersøkes videre.',
+      ],
+      terms: [
+        ['Meter', 'En definert måler som knytter en bruksmengde til en prisregel.'],
+        [
+          'SKU / tier',
+          'En bestemt ressursprofil eller et tjenestenivå med egne egenskaper og prisvilkår.',
+        ],
+      ],
+      example:
+        'Et annet, rent regneeksempel: 3 instanser × 100 allokerte timer × 2 ØK per instanstime = 600 ØK i compute. 40 GB lagring × 0,50 ØK per GB-periode = 20 ØK i tillegg. Halvert compute-tid endrer ikke automatisk den beholdte lagringsmengden.',
+      limit:
+        'Dette er oppdiktede satser. Modellen måler verken CPU, reelt arbeid, Azure-timer, lisensrettigheter eller energi. Den beviser ikke at en billigere profil kan utføre samme arbeid.',
+    },
+    estimate: {
+      title: 'Et estimat er en etterprøvbar samling antakelser',
+      paragraphs: [
+        'Azure Pricing Calculator brukes til å undersøke forventet kostnad før man velger og oppretter tjenester. Legg til et produkt, velg relevant region, OS, størrelse eller tier, og oppgi forventede mengder. Standardverdier er utgangspunkt, ikke observasjoner av din applikasjon. Flere produkter må inngå når løsningen trenger flere tjenester.',
+        'Kalkulatoren kobler produktets prisdata til de angitte konfigurasjonene og mengdene. Tidsbasert compute kan beregnes fra antall instanser og timer. Andre poster bruker andre enheter. Prisplaner og eventuelle forskuddsbeløp må vurderes sammen med løpende kostnad. Å legge et produkt til et estimat oppretter ingen ressurs.',
+        'Bygg et lavt og et høyt forbrukstilfelle med samme driftskrav. Undersøk hva som faktisk endres i hver linje. Mangler databasen, diskene, utgående trafikk, lisens eller support, er ikke summen et komplett løsningsestimat. En mulig rabatt bør undersøkes etter at forbruk og støttevilkår er avklart.',
+        'Den offentlige kalkulatoren kan brukes uten Azure-konto til produktvalg og estimat. Innlogging kan være nødvendig for lagring, deling eller avtalespesifikke priser. Ikke oppgi konto eller betalingsinformasjon for denne øvelsen. Faktisk pris kan avhenge av avtale, dato, valuta og bruk; et estimat er ingen faktura eller garantert pristilbud.',
+      ],
+      terms: [
+        [
+          'Estimated cost',
+          'Beregnet fremtidig kostnad basert på valgte konfigurasjoner, satser og antakelser.',
+        ],
+        [
+          'Forutsetning',
+          'En eksplisitt antakelse som kan kontrolleres og endres, for eksempel antall allokerte timer.',
+        ],
+      ],
+      example:
+        'Legg compute, beholdt lagring og trafikk inn som egne poster. Endre én antakelse om gangen og behold begge alternativene. Da kan du forklare forskjellen uten å tilskrive hele endringen til antall ressurser.',
+      limit:
+        'Azure Cost Explorer nedenfor er vår egen undervisningsmodell. Den henter ikke Azure-priser og erstatter ikke Microsofts kalkulator eller avtalevilkår.',
+    },
+    analysis: {
+      title: 'Fra forventning til registrerte kostnadsposter',
+      paragraphs: [
+        'Microsoft Cost Management hjelper en organisasjon å synliggjøre, analysere, følge opp og optimalisere kostnader. Cost Analysis brukes når spørsmålet er hva kostnadsdataene viser: velg scope og periode, grupper etter for eksempel tjeneste eller ressursgruppe, og filtrer for å undersøke en mulig årsak. En ny beregning i Pricing Calculator sier ikke hva som allerede har skjedd.',
+        'Scope bestemmer hvilken del av organisasjonens kostnader du ser. Tilgjengelige scopes, datatyper og funksjoner avhenger av avtale og rettigheter. Billing account og management subscription er ikke samme begrep. En filtrert lav sum betyr ikke at kostnader utenfor filteret er borte. Sammenlign like lange og relevante perioder.',
+        'Et avvik kan skyldes pris, mengde eller sammensetning. Flere instanstimer øker mengden. En endret sats kan gi mer kostnad uten mer arbeid. En større andel av en dyrere ressursklasse endrer miksen. Undersøk linjene og enhetene før du konkluderer. En stor nåværende post trenger ikke være posten med størst økning.',
+        'Registrert actual cost i Cost Analysis betyr kostnadsdata som er kommet inn i perioden, i motsetning til en framtidsprognose. Data publiseres og bearbeides med forsinkelse som kan variere med tjeneste og tilbud. Åpen periodes beløp kan revideres. Ikke likestill disse postene med endelig faktura; blant annet kreditter, avgifter og enkelte kjøp kan behandles annerledes.',
+        'Forecasting bruker tilgjengelig historikk og antakelser til å anslå framtidig utvikling. Endrede bruksmønstre og sent ankomne data gir usikkerhet. En prognose er verken en SLA, en betalingsforpliktelse eller en bekreftelse på hva neste faktura blir. Cost alerts og Azure Advisor kan gi oppfølgingssignaler; organisasjonen må undersøke og vurdere tiltakene.',
+      ],
+      terms: [
+        [
+          'Actual cost',
+          'Registrerte kostnadsposter for en periode; åpen periodes data er ikke nødvendigvis endelig faktura.',
+        ],
+        [
+          'Forecast',
+          'En framskriving med usikkerhet, basert på historikk og en valgt beregningsmåte.',
+        ],
+      ],
+      example:
+        'Sammenlign dag 1–10 med dag 11–20 i vårt faste septemberdatasett. Filtrer på App Sandbox. Sammenlign compute-mengde, kapasitetsmiks og trafikkens sats hver for seg. Hver modellpost viser dato, mengde, enhet og sats.',
+      limit:
+        'Dataposter i benken er syntetiske observasjoner med en fast dato, ikke Azure-telemetri. Prognosen bruker vårt enkle siste 10 døgns gjennomsnitt, ikke Microsofts interne beregningsalgoritme.',
+    },
+    budgets: {
+      title: 'Et budsjett synliggjør avvik; det stanser ikke forbruket',
+      paragraphs: [
+        'Et Azure-budget følger kostnader innen et valgt scope, eventuelt med filtre, i en definert periode. Velg først hvem og hva budsjettet gjelder. Deretter velges periode, beløp og terskler. Et månedsbudsjett og en årsprognose kan ikke sammenlignes direkte uten å avklare tidsvinduet.',
+        'Et actual-varsel sammenligner akkumulert registrert kostnad med en prosent av budsjettet. Et forecast-varsel vurderer fremskrevet kostnad mot den valgte terskelen. Dermed kan en prognose varsle et kommende avvik selv om den registrerte kostnaden fortsatt er under grensen. Et lavt actual-beløp er heller ikke bevis på at alle nye kostnader har kommet inn.',
+        'Varsler forutsetter at data er behandlet og budsjettet evaluert. De er ikke en sanntidsbryter. En organisasjon må ha mottakere, ansvar og en handlingsrutine. Den kan kontrollere endret bruk, vurdere kapasitet og ta en konkret beslutning som fortsatt ivaretar drift.',
+        'Vanlige budsjettvarsler stopper ikke ressurser eller forbruk. Separat konfigurert automatisering kan knyttes til varsler, blant annet gjennom action groups ved støttede subscription- og resource group-scopes. Da er det den ekstra automatiseringen som gjør handlingen. Den må utvikles, testes og avgrenses; den følger ikke automatisk av budsjettbeløpet.',
+      ],
+      terms: [
+        ['Budsjett', 'En planlagt økonomisk grense for et bestemt scope og tidsvindu.'],
+        ['Terskel', 'Nivået som skal undersøkes, for eksempel 80 prosent av et månedsbudsjett.'],
+      ],
+      example:
+        'I et separat regneeksempel er budsjettet 1 000 ØK og actual-terskelen 80 prosent: terskelbeløpet er 800 ØK. Registrert 700 ØK er under denne terskelen, mens en prognose 1 100 ØK kan begrunne et forecast-varsel på 100 prosent.',
+      limit:
+        'Benken oppretter ingen Azure-budget, sender ingen e-post og stanser ingen VM. Resultatet er bare en lokal demonstrasjon av sammenligning og riktig oppfølging.',
+    },
+    tags: {
+      title: 'Metadata gir en rapportdimensjon, ikke en sikkerhetsgrense',
+      paragraphs: [
+        'En Azure-tag er et key-value-par. Environment=Production, Department=Finance, CostCenter=IT og Owner=Operations kan beskrive miljø, avdeling, kostnadsansvar og driftsansvar. Avtal hvilke nøkkelnavn og verdier som brukes, hvem som vedlikeholder dem og hvordan manglende verdier skal håndteres. Bruk organisatoriske roller framfor personopplysninger.',
+        'Tags kan brukes til søk, filtrering, rapportering og automatiseringsutvalg. De kan klassifisere at en ressurs håndterer konfidensielle data, men håndhever ikke i seg selv tilgang, kryptering eller compliance. Sensitive opplysninger og hemmeligheter hører ikke hjemme i tags; metadata kan være synlig i rapporter, verktøy og eksport.',
+        'Ressurser arver ikke automatisk Resource group- eller subscription-tags i ARM-ressursmodellen. Azure Policy kan kreve eller modifisere tags under bestemte regler; eksisterende ressurser kan kreve eksplisitt remediation. En slik policy er en annen mekanisme enn vanlig foreldre-/barn-organisering.',
+        'Cost Management tag inheritance er en separat rapportfunksjon ved støttede avtaler og scopes. Den kan legge foreldre-metadata til underliggende usage records uten å endre selve ressursens tags. Konfliktvalg kan beholde ressursverdien eller foretrekke den arvede verdien. Se alltid hvilken dimensjon og datakilde du undersøker.',
+        'Ikke alle ressurstyper støtter tags eller sender dem med til kostnadsrapporten. Vanlige ressurs-tags fyller heller ikke automatisk all tidligere forbrukshistorikk. Manglende metadata bør vises som ufordelt kostnad. Å skjule denne kategorien gir en misvisende lav avdelingssum, ikke lavere total kostnad.',
+      ],
+      terms: [
+        ['Resource tag', 'Metadata på selve ressursen, adskilt fra dens tilgangsregler.'],
+        [
+          'Rapportarv',
+          'Her: eksplisitt anvendelse av foreldre-tags på syntetiske kostnadsposter, uten ressursendring.',
+        ],
+      ],
+      example:
+        'Gruppen har Department=Product. Disken mangler Department. Før rapportarv blir diskens kostnad ufordelt. Etter eksplisitt rapportarv kan rapporten klassifisere posten som Product, mens diskens direkte tag fortsatt mangler.',
+      limit:
+        'Du redigerer et merket undervisningsdatasett, aldri faktiske Portal-tags. Case-sensitive verdier som Finance og finance kan splitte rapportering; taggnavn behandles annerledes av Azure-operasjoner. Bruk en konsekvent, dokumentert konvensjon.',
+    },
+    optimization: {
+      title: 'Fjern sløsing før du binder deg til den',
+      paragraphs: [
+        'Optimalisering begynner med bruk og krav: hvilke ressurser er nødvendige, når trengs de, og hvilken kapasitet og tilgjengelighet kreves? Rightsizing er å velge en passende profil etter måling og testing. En lavere pris som gir utilstrekkelig minne, lengre svartid eller brudd på driftskrav er ikke en god økonomisk løsning.',
+        'Undersøk ubrukt kapasitet og beholdte avhengigheter. Planlagt deallokering av egnet test-compute kan redusere compute-tid, mens disk, data og andre kostnader består. Ikke slett en tilsynelatende ubrukt ressurs uten å kontrollere eierskap, gjenoppretting og avhengigheter. Azure Advisor kan anbefale resize eller shutdown fra analyserte signaler; anbefalinger må vurderes i løsningens kontekst.',
+        'Reservations er betalingsfordeler for matching bruk etter produktets vilkår, typisk over ett eller tre år. Ressurstype, region og andre egenskaper kan begrense bruken. En compute-reservasjon er ikke det samme som en kapasitetsreservasjon eller automatisk failover. Rabatt gir ingen garanti for utnyttelse; feil dimensjonert binding kan bli dyr selv med lav enhetspris.',
+        'Azure savings plan for compute bygger på et fast timebeløp over ett eller tre år. Fordelen brukes på kvalifisert compute innen relevant scope, med større fleksibilitet på tvers av støttede tjenester og regioner. Ubrukt timeforpliktelse flyttes ikke til neste time. Bruk utover fordelen prises etter relevante vilkår. Programvare, nettverk og lagring er ikke automatisk dekket av denne compute-planen.',
+        'Spot Virtual Machines bruker ledig kapasitet som kan trekkes tilbake. En jobb med checkpoints, testet restart og fleksibel ferdigstillelse kan passe; en eneste uavbrutt produksjonsinstans gjør det ikke. Ventetid, omkjøring, disker og databevaring må med i vurderingen. Ingen universell rabatt, tilgjengelighet eller sluttkostnad garanteres.',
+        'Behold fleksibilitet når etterspørselen er usikker, og vurder en dokumentert, kvalifisert grunnlast før forpliktelse. Bruk kan endre seg etter kjøp. Følg derfor opp faktisk utnyttelse, prognoser, nye krav og kostnadsfordeling som en regelmessig arbeidsprosess, ikke et engangsvalg i kalkulatoren.',
+      ],
+      terms: [
+        ['Rightsizing', 'Å tilpasse ressursprofil og antall til dokumenterte krav og belastning.'],
+        [
+          'Timeforpliktelse',
+          'Beløp som må betales per time i planperioden, også når kvalifisert bruk er lavere.',
+        ],
+      ],
+      example:
+        'Et team fjerner en overdimensjonert profil før det vurderer forpliktelse. Deretter undersøker det en stabil, kvalifisert grunnlast og lar usikre topper være fleksible. Dette er en beslutningsrekkefølge, ikke en garantert spareprosent.',
+      limit:
+        'P04 kjøper ingen reservation eller savings plan, endrer ingen VM og implementerer ingen Advisor-motor. Flere tilbud finnes; sammenligningen gjelder de uttrykkelig beskrevne compute-alternativene.',
+    },
+  },
+  theoryLabels: ['Begreper', 'Gjennomarbeidet eksempel', 'Grenser og moteksempel'],
+  publicCalculator: {
+    title: 'Valgfri overføring til Microsofts offentlige Pricing Calculator',
+    steps: [
+      'Åpne Products/Produkter og finn Virtual Machines. Legg produktet til et estimat uten å logge inn.',
+      'Velg region, OS og egnet størrelse. Finn antall og timer; erstatt standardmengden med en uttrykkelig antakelse.',
+      'Undersøk egne seksjoner for disker, operasjoner og Bandwidth. Legg til andre tjenester som løsningen trenger.',
+      'Sammenlign totalsum og komponentposter når én antakelse endres. Finn hva som fortsatt mangler. Ikke opprett konto, lagre avtale eller kjøp noe.',
+    ],
+    note: 'Flyten ble kontrollert 27. oktober 2026. Språk og felter kan variere. Offentlig konfigurasjon fungerte uten innlogging; lagring/deling og avtalepriser kan kreve innlogging. Den lokale øvelsen er fullstendig uten ekstern aktivitet.',
+    open: 'Åpne offentlig Pricing Calculator ↗',
+  },
+  controls: {
+    service: 'Compute-tjeneste',
+    count: 'Antall instanser',
+    hours: 'Allokerte timer per instans',
+    size: 'Kapasitetsklasse',
+    region: 'Eksempelregion',
+    pricing: 'Prismodell',
+    storage: 'Beholdt lagring · GB per periode',
+    operations: 'Lagringsoperasjoner · tusen',
+    egress: 'Dataoverføring · GB per periode',
+    license: 'Programvarelisens',
+    support: 'Supporttillegg',
+    scope: 'Kostnadsscope',
+    group: 'Ressursgruppe i datasettet',
+    prediction: 'Din prediksjon før kjøring',
+    run: 'Beregn og observer',
+    compare: 'Behold som sammenligning A',
+    clear: 'Nullstill bare de usendte modellvalgene',
+    options: {
+      service: ['Virtual Machines', 'App Service plan'],
+      size: ['Standard undervisningsprofil', 'Stor undervisningsprofil'],
+      region: ['West Europe', 'North Europe'],
+      pricing: [
+        'Pay-as-you-go',
+        'Reservation · kapasitetsforpliktelse',
+        'Savings plan · timebeløp',
+        'Spot · avbrytbar VM',
+      ],
+      license: ['Ingen ekstra lisens i modellen', 'Kommersiell tilleggslisens'],
+      support: ['Ingen ekstra supportpost', 'Fast supportpost'],
+      scope: ['Begge scopes', 'App Sandbox', 'Shared Sandbox'],
+      group: ['Alle grupper', 'rg-catalog', 'rg-shared'],
+      prediction: ['Velg en prediksjon', 'Lavere total', 'Uendret total', 'Høyere total'],
+    },
+    line: 'Kostnadselement',
+    driver: 'Driver / enhet',
+    quantity: 'Mengde',
+    rate: 'Fiktiv sats',
+    total: 'Beregnet ØK',
+    fixed: 'Fast ØK',
+    period: 'Periode',
+    breakdown: 'Komponentbidrag · samme nullpunkt',
+    subtotal: 'Samlet estimat',
+    a: 'Sammenligning A',
+    b: 'Gjeldende beregning B',
+    change: 'Endring B − A',
+    stale: 'Valgene er endret. Kjør igjen før du tolker resultatet.',
+    noResult:
+      'Forutsi først og kjør modellen. Parameterendringer alene er ikke en observert undersøkelse.',
+  },
+  components: {
+    compute: 'Compute',
+    license: 'Lisens',
+    storage: 'Beholdt lagring',
+    operations: 'Lagringsoperasjoner',
+    egress: 'Dataoverføring',
+    support: 'Support',
+  },
+  unitLabels: {
+    'instance-hour': 'instanstime',
+    'GB-period': 'GB-periode',
+    'thousand-operations': '1 000 operasjoner',
+    GB: 'GB',
+    'GB-day': 'GB-døgn',
+    period: 'periode',
+  },
+  serviceLabels: {
+    vm: 'Virtual Machines',
+    paas: 'App Service plan',
+    storage: 'Storage',
+    network: 'Bandwidth',
+    support: 'Support',
+  },
+  workbench: {
+    comparison:
+      'Endre ett relevant vilkår. Første beregning sammenlignes med neste kjøring; du kan velge ny A fra en lagret beregning.',
+    delta: 'Forskjell fra forrige sammenligningsgrunnlag',
+    predicted: 'Prediksjon',
+    observed: 'Beregnet observasjon',
+    valid: 'Gyldig modellkjøring lagret',
+    invalid: 'En modellverdi er utenfor de dokumenterte grensene.',
+    incomplete: 'Følg undersøkelsene som er beskrevet over før du lagrer forklaringen.',
+    copyDraft: 'Parameterutkast lagret · ingen ny observasjon før kjøring',
+    selectResource: 'Valgfri teknisk referanse',
+    noSelection: 'Bruk det fiktive caset',
+    summary:
+      'Sammenligningen forklarer de angitte antakelsene. Den beviser ikke runtime, faktisk Azure-forbruk eller fakturakostnad.',
+    budgetBoth:
+      'Undersøk actual 80 prosent og forecast 100 prosent med App Sandbox /600 ØK. Begge må kjøres eksplisitt.',
+    tagsBoth:
+      'Kjør først uten rapportarv. Klassifiser de to beskrevne postene, og undersøk så både behold ressursverdi og foretrekk gruppeverdi.',
+    readRows: 'Vis datatabellen',
+    allRows: 'Alle daterte poster i valgt scope',
+    estimateNotes: 'Faste satser og regneregler · les før beregning',
+    subheading: 'Undersøk, forutsi, beregn og forklar',
+    recallUnsafe:
+      'Automatisk forklaring er pauset fordi en annen vurdering eller lagring er aktiv/usikker. Bevar arbeidet og gå til riktig kontekst.',
+    parent: 'Foreldre',
+    location: 'Resource location',
+    type: 'Type',
+    name: 'Name',
+  },
+  modelNotes: [
+    'Compute: instanser × allokerte timer × valgt fiktiv sats. Region påvirker bare compute-satsen i denne forenklingen.',
+    'Storage: GB × 0,10 ØK per hel periode. Operasjoner: tusen × 0,05 ØK. Trafikk: GB × 0,20 ØK. Eventuell lisens: instanstimer × 0,20 ØK. Support: fast 120 ØK.',
+    'Standard VM: 1 ØK/time, stor VM: 2. Standard plan: 1,50, stor plan: 3. North Europe-faktoren er her 1,20; dette er et oppdiktet prisforhold.',
+    'Reservation: 70 prosent av valgt compute-sats for alle 720 timer per instans, uavhengig av valgt brukstid. Savings: 0,50 ØK per time per instans for alle 720 timer, med 75 prosent av valgt compute-sats brukt mot denne fordelen i hver av de modellerte aktive timene. Overskytende bruk beregnes til PAYG. Dette er regneeksempler, ikke Azure-tilbud.',
+    'Spot: 35 prosent av VM-satsen i regneeksemplet. Kjøretid er en antakelse, ikke garantert kapasitet eller faktisk fremdrift. Spot er ikke et planvalg i denne benken.',
+  ],
+  scopeLabels: {
+    app: 'App Sandbox',
+    shared: 'Shared Sandbox',
+    all: 'Begge scopes',
+  },
+  analysis: {
+    title: 'Undersøk økningen før du foreslår tiltak',
+    period: 'Fast datasett · 1.–20. september 2026',
+    earlier: 'Dag 1–10',
+    later: 'Dag 11–20',
+    delta: 'Endring mellom like perioder',
+    groupBy: 'Fordel etter',
+    dimensions: ['Komponent', 'Tjenestetype', 'Subscription', 'Ressursgruppe'],
+    detail: 'Dataposter · syntetisk registrert bruk',
+    date: 'Dato',
+    observed: 'Registrert i det syntetiske datasettet',
+    forecast: 'Prognose til dag 30',
+    budget: 'Budsjett',
+    chart: 'Akkumulert kostnad, prognose og budsjett · ØK fra null',
+    day: 'Dag',
+    explanation:
+      'Mengde: flere standard-VM-timer og mer lagring. Miks: stor VM brukes bare i siste periode. Pris og mengde: trafikken øker samtidig som den fiktive GB-satsen endres. Filtrering fjerner bare poster fra utvalget; den endrer ikke datasettet.',
+    forecastRule:
+      'Prognose = registrert dag 1–20 +10 × gjennomsnittet av dag 11–20. Den stiplede delen er beregnet framtid, ikke nye registrerte poster. Ingen skatt, kreditt eller faktura modelleres.',
+    budgetAssumption:
+      'Figurens budsjettlinje er en oppgitt, fiktiv sammenligningsgrense for valgt utvalg. Den er ikke et hentet Azure-budget.',
+  },
+  budget: {
+    amount: 'Budsjett for 30-døgnsperioden · ØK',
+    type: 'Varseltype',
+    types: ['Actual · akkumulert', 'Forecast · prognose'],
+    threshold: 'Terskel · prosent av budsjettet',
+    evaluate: 'Undersøk terskelen',
+    yes: 'Terskelen er nådd i modellen',
+    no: 'Terskelen er ikke nådd i modellen',
+    consequence:
+      'Dette er et lokalt sammenligningsresultat. Ingen e-post, action group eller ressursstans utføres. Undersøk årsak og driftskrav før tiltak.',
+  },
+  tags: {
+    resource: 'Syntetisk ressurs / kostnadspost',
+    direct: 'Direkte Department',
+    environment: 'Environment',
+    parent: 'Gruppens Department',
+    reporting: 'Rapportens Department',
+    inheritance: 'Rapportarv i denne demonstrasjonen',
+    modes: [
+      'Av · bare direkte emitterte tags',
+      'På · behold ressursverdi ved konflikt',
+      'På · foretrekk gruppeverdi ved konflikt',
+    ],
+    department: 'Department',
+    departments: ['Ufordelt', 'Product', 'Finance', 'Shared'],
+    environments: ['Uavklart', 'Development', 'Production'],
+    groupBy: 'Fordel kostnader etter',
+    apply: 'Undersøk fordelingen',
+    unassigned: 'Ufordelt',
+    total: 'Samlet kostnad er uendret',
+    unsupported:
+      'Posten emitterer ikke direkte ressurs-tags i denne fixturen. Rapportarv kan likevel klassifisere rapportposten.',
+    boundary:
+      'Endringene gjelder bare dette datasettet. Ressurs-tags i Portal, tilgang og historiske Azure-usage records blir ikke endret.',
+  },
+  missions: {
+    estimate: {
+      title: 'Oppdrag A · begrunn et løsningsestimat',
+      situation:
+        'Katalogteamets testmiljø trenger én standard compute-enhet, 100 GB beholdt lagring og 50 GB trafikk. Første forslag bruker 720 allokerte timer. Teamet vurderer 240 timer når et testvindu er ferdig.',
+      goal: 'Sammenlign minst to beregnede oppsett. Undersøk hvilken post som endres når compute-tiden reduseres, og hva som fortsatt består.',
+      observe:
+        'Beregn først én standard enhet med 720 timer, 100 GB beholdt lagring og 50 GB trafikk. Behold de andre valgene og beregn deretter 240 timer. Forutsi forskjellen og sammenlign linjene. Etter tidskontrasten kan du fritt sammenligne tjenester og prisalternativer.',
+      question:
+        'Hva kan du konkludere når compute-tiden reduseres, mens beholdt lagring og trafikk er like?',
+      answers: [
+        'Bare de tidsavhengige postene og eventuell forpliktelsesbruk kan endres; resten må vurderes separat.',
+        'Alle kostnadsposter faller i samme forhold som compute-tiden.',
+        'Den nye summen er en garantert Azure-faktura.',
+      ],
+      correct: 0,
+      reason:
+        'Sammenlign linjene: compute og eventuell timelisens følger tids-/prisregelen. Lagringsmengde og faste poster endres ikke av seg selv. Estimatet trenger fortsatt driftsmessige forutsetninger.',
+    },
+    analysis: {
+      title: 'Oppdrag B · finn kostnadsavvikets årsak',
+      situation:
+        'Katalogteamet ser høyere syntetisk kostnad i dag 11–20 enn i dag 1–10. Shared Sandbox har et annet team. Analyseoppdraget gjelder App Sandbox, ikke hele organisasjonen.',
+      goal: 'Velg riktig scope, sammenlign to like perioder og identifiser komponenten med størst økning. Undersøk mengde, sats og miks i de underliggende postene.',
+      observe:
+        'Filtrer App Sandbox og beregn en observasjon. Bruk komponentfordelingen og datatabellen. Velg tiltak ut fra faktisk forskjell, ikke bare høyeste total.',
+      question: 'Hvilken undersøkelse begrunner et relevant første tiltak i dette datasettet?',
+      answers: [
+        'Flytt gruppemetadata; da slettes tidligere kostnader.',
+        'Undersøk økte VM-timer og den nye store profilen mot arbeidskravene før tidsplan eller profil endres.',
+        'Kjøp binding for hele økningen uten å undersøke bruken.',
+      ],
+      correct: 1,
+      reason:
+        'Den største endringen ligger i compute-mengde og miks. Trafikkens pris og mengde bidrar også. Rightsizing eller tidsplan krever at samme nødvendige arbeid fortsatt kan gjennomføres.',
+    },
+    budgets: {
+      title: 'Oppdrag C · undersøk et kommende budsjettavvik',
+      situation:
+        'App Sandbox har et månedsbudsjett på 600 ØK. Teamet vurderer et actual-varsel på 80 prosent og et forecast-varsel på 100 prosent. Datasettet er oppdatert til dag 20.',
+      goal: 'Velg App Sandbox og riktig periode. Sammenlign registrert kostnad, terskel og prognose. Undersøk begge varseltypene med samme budsjett.',
+      observe:
+        'Kjør begge vurderinger. Se hvilke beløp som sammenlignes, og hvorfor en fremtidig risiko kan være synlig før actual-terskelen er nådd.',
+      question: 'Hva innebærer dette forecast-resultatet?',
+      answers: [
+        'Forbruket stanser automatisk ved 600 ØK.',
+        'Hele månedsfakturaen er nå endelig beregnet.',
+        'Trenden bør undersøkes og et tiltak vurderes; standardvarselet stanser ingen ressurs.',
+      ],
+      correct: 2,
+      reason:
+        'Actual og forecast bruker forskjellige beløp. Prognosen er en antakelse om resten av perioden. Et varsel gir grunnlag for oppfølging, ikke automatisk stans eller fakturafasit.',
+    },
+    tags: {
+      title: 'Oppdrag D · gjør kostnadsfordelingen etterprøvbar',
+      situation:
+        'Rapporten skal vise Department og Environment. Katalogteamets store VM og disk mangler Department. Gruppemetadata sier Product; en delt plans direkte tag sier Finance, mens gruppen sier Shared.',
+      goal: 'Klassifiser store VM og disk som Product/Development i det syntetiske datasettet. Sammenlign direkte tags med rapportarv og konfliktvalg. Behold synlig ufordelt kostnad.',
+      observe:
+        'Undersøk en fordeling før og etter klassifisering. Sammenlign de to arvevalgene og se at ressursverdien og rapportverdien kan være forskjellige. Summen skal fortsatt stemme.',
+      question:
+        'Hva viser det når gruppeverdien brukes i rapporten, men ressursens direkte tag er uendret?',
+      answers: [
+        'Kostnadsposten kan få rapportmetadata uten at ressursen arver ARM-tags eller får nye tilgangsregler.',
+        'Azure har automatisk flyttet ressursen til gruppens region.',
+        'Department gir avdelingen administratortilgang.',
+      ],
+      correct: 0,
+      reason:
+        'Rapportprojeksjon, ressursmetadata og autorisasjon er forskjellige mekanismer. Ufordelte poster må undersøkes, ikke skjules. Ingen tag endrer kostnadens størrelse i denne benken.',
+    },
+  },
+  guided: {
+    previous:
+      'Du har et tidligere oppdrag av denne typen. Det lagrede arbeidet beholdes. En ny Start begynner likevel med standardoppsettet; den gjenopptar ikke den tidligere undersøkelsen.',
+    switch:
+      'Du har ett nåværende guidet oppdrag. Du kan fortsette det nedenfor. Starter du denne undersøkelsen, blir den det nye oppdraget. Tidligere arbeid beholdes. Du kan foreløpig bare gjenoppta det nåværende guidede oppdraget.',
+    current: 'Nåværende guidet oppdrag:',
+    continue: 'Fortsett nåværende guidede oppdrag',
+    brief: 'Les SavvySharks oppdragsbrief',
+    reviewNotice:
+      'Dette er en gjenåpnet oppdragsforklaring. Lukk går tilbake til det lagrede arbeidet uten ny start, modellkjøring eller læringsgodskriving.',
+    start: 'Start undersøkelsen',
+    cancel: 'Tilbake uten å starte',
+    recall: 'Les oppdraget igjen',
+    prerequisite: 'Forkunnskaper',
+    steps: 'Dette skal du undersøke',
+    witness: 'Faktisk modellobservasjon',
+    noWitness: 'Ingen gyldig kjøring er registrert ennå.',
+    answer: 'Begrunn den guidede observasjonen',
+    submit: 'Lagre veiledet forklaring',
+    done: 'Veiledet undersøkelse bekreftet · ikke selvstendig mestring',
+    missing: 'Undersøk de nødvendige kontrastene og velg en begrunnelse først.',
+    notice:
+      'Start åpner denne lokale undervisningsøvelsen. Avbryt lukker bare innledningen. Ingen Azure-ressurs, betaling, XP eller faglig fullføring opprettes av å åpne eller lukke briefingen.',
+  },
+  milestone: {
+    title: 'Det samme estimatet har flere uavhengige kostnadsdrivere',
+    text: 'To validerte beregninger viser lavere allokert compute-tid med uendret lagring og trafikk. De sistnevnte postene består. Prisforpliktelser kan også holde compute-betalingen oppe selv når aktiv tid reduseres.',
+    budgetTitle: 'Prognosen krysser grensen før registrert kostnad',
+    budgetText:
+      'Begge terskelundersøkelsene gjelder samme scope og budsjett. Actual er under 80 prosent, mens beregnet sluttkostnad er over 100 prosent. Dette er et signal for undersøkelse; ingen ressurs stanses.',
+    recall: 'SavvyShark · faglige observasjoner',
+    notice:
+      'Forklaringen kommer fra lagrede modellkjøringer, ikke Azure-drift. Åpning gir ingen læringsgodskriving.',
+  },
+  reference: {
+    title: 'Faktisk Portal-konfigurasjon · separat referanse',
+    text: 'Dette kommer fra ditt virkelige lokale simulator-inventory. Ingen kostnad er utledet fra det. Velg eventuelt en ressurs som case og oppgi egne hypotetiske mengder i benken.',
+    empty:
+      'Ingen relevant ressurs er opprettet. Bruk det komplette fiktive caset, eller opprett en ressurs senere i vanlig Portal.',
+    open: 'Undersøk i Portal · ny fane',
+    unsupported:
+      'Teknisk lagring er usikker. Ingen tidligere konfigurasjon presenteres som bekreftet.',
+    known: 'Kjent konfigurasjon',
+    unknown: 'Ukjent: allokerte timer, faktisk trafikk, målt bruk, priser og faktura.',
+  },
+  assessment: {
+    title: 'Nye økonomiske beslutningssituasjoner',
+    intro:
+      'Velg løsning og teknisk begrunnelse ut fra kravene. Tilfellet vises først etter lagret Start. Tidligere guided work eller gamle kursresultater gir ingen ny godkjenning.',
+    case: 'Tilfelle',
+    start: 'Start selvstendig tilfelle',
+    decision: 'Din beslutning',
+    reason: 'Din begrunnelse',
+    submit: 'Lever beslutning og begrunnelse',
+    abandon: 'Avslutt uten innlevering',
+    help: 'Åpne teori og registrer hjelp',
+    retry: 'Start nytt forsøk',
+    rules:
+      'Første innlevering beholdes. Forklaringer vises etter levering. Teori, Journal og historisk feedback under et aktivt forsøk registrerer hjelp før innholdet åpnes. Kjente familier merkes retry. Ingen XP eller eksamensscore.',
+    result: 'Innlevert resultat',
+    first: 'Første innlevering',
+    assisted: 'Forsøk med registrert hjelp',
+    unaided: 'Første uassisterte eksponering',
+    retried: 'Retry · tidligere eksponering',
+    draft: 'Lagret utkast',
+    pass: 'Beslutning og begrunnelse passer sammen',
+    fail: 'Undersøk det avgjørende kravet',
+    alternatives: 'Hvorfor alternativene passer eller ikke passer',
+    repeat: 'Gjenta denne undervisningsaktiviteten',
+    history: 'Tidligere innleveringer',
+    noFirst: 'Ingen innlevering registrert for dette tilfellet.',
+    neutral:
+      'Arbeid ut fra scenarioets krav. SavvyShark gir ingen løsning under denne vurderingen.',
+  },
+  summary: {
+    title: 'Separate observasjoner, ikke en ny sertifisering',
+    guided: 'Veiledede undersøkelser',
+    submitted: 'Innleverte selvstendige tilfeller',
+    firsts: 'Første innleveringer',
+    visited: 'Undervisning åpnet · orientering',
+    none: 'Ikke dokumentert ennå',
+    boundary:
+      'Disse lokale resultatene sier hvilke versjonerte aktiviteter du har utført. Assisted og retry erstatter aldri første innlevering. Ingen Microsoft-fullføring, ny XP eller exam readiness utledes.',
+    next: 'Neste planlagte fagområde er Compute & Hosting. Øvrig Management & Governance er fortsatt planlagt.',
+  },
+  storage: {
+    issue: 'Kostnadsmodulens læringslagring kan ikke bekreftes.',
+    load: 'Last dette sporet på nytt',
+    recover: 'Vurder isolert recovery',
+    confirm: 'Bekreft: fjern bare ugyldig kostnadsrecord',
+    capacity:
+      'Historikken er full eller har reservert terminalkapasitet. Aktiv vurdering kan fullføres eller avbrytes; en allerede observert guidet øvelse kan lagre avsluttende forklaring mens det er plass. Tidligere svar beholdes. Ingen ny Start eller modellkjøring kan lagres her.',
+    blocked:
+      'Undervisning holdes tilbake til hjelp kan registreres trygt i alle aktive vurderinger.',
+    failed: 'Handlingen kunne ikke lagres. Kontroller lagringsstatus; ingen ny progresjon påstås.',
+    loading: 'Laster versjonert kostnadshistorikk …',
+  },
+  sources: 'Offisielle kilder · kontrollert 27. oktober 2026',
+  human: 'Menneskelig Azure-SME-, UX-, skjermleser- og læringsoverføringsvalidering gjenstår.',
+  assessmentActive: 'Et tilfelle er aktivt. Lever eller avslutt det før du starter et annet.',
+  comparisonReference: 'Planlagt sammenligningsgrunnlag A',
+  predictionContexts: {
+    estimate:
+      'Forutsi totalen i B sammenlignet med referanse A. Første referanse er det oppgitte standardcaset; ingen beregnet fasit vises før kjøring.',
+    analysis: 'Forutsi totalen for dag 11–20 sammenlignet med dag 1–10 i valgt scope.',
+    budgets:
+      'Forutsi om beløpet for valgt varseltype blir lavere enn, likt eller høyere enn terskelbeløpet.',
+    tags: 'Forutsi samlet kostnad etter metadataendringen sammenlignet med samme datasett før klassifisering.',
+  },
+  currentFeedback: 'Aktuell innlevering',
+  historyFeedback: 'Valgt historisk innlevering',
+  submissionClassification: 'Forsøkets klassifisering',
+  tableHelp: 'Tabellen kan rulles sideveis ved behov. Fokuser tabellområdet og bruk piltastene.',
+} as const;
+export const costItemsNb = {
+  cm01: {
+    title: 'Arkivtjenestens beslutningsgrunnlag',
+    problem:
+      'Et arkivteam sammenligner to verifisert funksjonelle løsninger i samme periode. Begge har fire ARM-ressurser. Hvilket grunnlag trenger teamet for et økonomisk valg?',
+    premises: [
+      'Alternativ A har én liten compute-profil og stor, beholdt lagringsmengde. B har større compute-profil og mindre lagring.',
+      'Region, trafikkvei, lisensvilkår og support er ennå ikke sammenstilt. Begge oppfyller de oppgitte lagrings- og svartidskravene.',
+    ],
+    decisions: [
+      'Sammenlign compute-timer og compute-satser som samlet løsningskostnad.',
+      'Sammenstill tjenestenes målere, satser og mengder, inkludert de ukjente tilleggspostene.',
+      'Normaliser totalsummen etter antall ARM-ressurser før de to tilbudene sammenlignes.',
+    ],
+    reasons: [
+      'Lik ressursstruktur gir et tilstrekkelig prisgrunnlag, selv om ressursenes størrelser er forskjellige.',
+      'Mindre compute reduserer også kostnaden for beholdt lagring i samme forhold.',
+      'Tjenestemiks og vilkår kan gi ulik sum selv når antall ressurser er likt.',
+    ],
+    decisive:
+      'Samme ressursantall beskriver ikke mengde eller prisgrunnlag. Begge løsningenes relevante målere og antakelser må vurderes.',
+    feedback: [
+      [
+        'Compute er én relevant post, men A har mer lagring. En compute-sammenligning er tilstrekkelig bare dersom øvrige relevante poster allerede er dokumentert like eller inkludert.',
+        'Dette samler sammenlignbare antakelser for hele løsningen. Krav til drift og vilkår må fortsatt være oppfylt.',
+        'Ressursantall normaliserer ikke forskjellige prisede mengder. Antall kan være en driver for en bestemt tjeneste, men er ingen felles løsningsenhet.',
+      ],
+      [
+        'Samme administrasjonsstruktur sier ikke at lagringsmengde, målere og lisensvilkår er like. Den ville vært tilstrekkelig først dersom relevante prisforutsetninger også var like.',
+        'Beholdt lagring kan prises separat fra compute. Samvariasjon måtte vært begrunnet i et konkret tilbud eller faktisk endret datamengde.',
+        'Dette forklarer hvorfor hele tjenestesammensetningen må vurderes før økonomisk valg.',
+      ],
+    ],
+  },
+  cm02: {
+    title: 'Et nytt testvindu',
+    problem:
+      'En testjobb har 2 instanser med PAYG i en oppdiktet modell. Allokert tid går fra 100 til 40 timer per instans. Disk beholdes hele perioden. Hva er det nye estimatet?',
+    premises: [
+      'Compute: 3 ØK per instanstime. Lagring: 50 GB ×0,40 ØK per GB-periode.',
+      'Ingen annen kostnad, rabatt eller kapasitetsendring inngår. Jobben kan fortsatt gjennomføres i det nye testvinduet.',
+    ],
+    decisions: [
+      '260 ØK: 240 compute og 20 beholdt lagring.',
+      '140 ØK: 120 compute og 20 beholdt lagring.',
+      '248 ØK: 240 compute og 8 beholdt lagring.',
+    ],
+    reasons: [
+      'De 40 timene er løsningens totale instanstimer, og lagringsmengden er uendret.',
+      'Begge instansenes timer må summeres, mens uendret GB-periode fortsatt prises.',
+      'Alle opprinnelige kostnadsposter skaleres med det nye tidsforholdet 40/100.',
+    ],
+    decisive: '2 ×40 ×3 =240 ØK. Beholdt lagring gir 50 ×0,40 =20 ØK. Totalen er 260 ØK.',
+    feedback: [
+      [
+        'Riktig under de fiktive forutsetningene: 2 × 40 × 3 + 50 × 0,40. Det er ikke en virkelig Azure-pris.',
+        'Dette bruker 40 som samlet instanstid. Premisset er 40 per instans, så to instanser gir 80 instanstimer. Alternativet kunne passet én instans i 40 timer.',
+        'Compute er riktig, men beholdt lagring er skalert ned uten endret mengde eller lagringsperiode. Det kunne passet dersom også priset lagringsmengde ble redusert til 40 prosent.',
+      ],
+      [
+        'Antall instanser og tid per instans er separate størrelser. Timer for hele løsningen kunne vært 40, men det er ikke angitt her.',
+        'Denne relasjonen bruker riktige enheter og skiller tidsbasert compute fra beholdt kapasitet.',
+        'Tidsforholdet gjelder compute. En separat lagringspost følger sin egen mengde og periode, ikke automatisk compute-jobbens tidsvindu.',
+      ],
+    ],
+  },
+  cm03: {
+    title: 'Lanseringsforslaget',
+    problem:
+      'En nettjeneste har en fullstendig dimensjonert hosting-plan i kalkulatoren. Den trenger også database, backup og forventet utgående trafikk. Hvordan bør budsjettforslaget utformes?',
+    premises: [
+      'Hosting-estimatet omfatter ikke databasen eller backup-tjenesten. Trafikkposten står med standardmengde, som avviker fra teamets prognose.',
+      'Løsningen skal presenteres før opprettelse. Ingen registrerte forbrukskostnader finnes ennå.',
+    ],
+    decisions: [
+      'Bruk hosting-estimatet med en udokumentert 20 prosent reserve for database, backup og trafikk.',
+      'Bruk kostnaden fra en annen applikasjons siste faktura uten å justere tjenestemiks og bruk.',
+      'Legg til nødvendige produkter og begrunnede bruksmengder; oppgi gjenværende usikkerhet.',
+    ],
+    reasons: [
+      'Et estimat kombinerer valgte produkter og mengder; utelatte behov er ikke automatisk priset.',
+      'En generell reservemargin erstatter egne antakelser for utelatte tjenester og trafikk.',
+      'Historisk sum fra en annen løsning er et direkte estimat for denne løsningen selv når belastningen avviker.',
+    ],
+    decisive:
+      'En korrekt compute-linje er ikke et fullstendig løsningsestimat. De øvrige behovene og usikkerheten må med.',
+    feedback: [
+      [
+        'En begrunnet usikkerhetsreserve kan være nyttig etter at løsningen er modellert. En udokumentert prosent erstatter ikke de uttrykkelig manglende tjenestene.',
+        'Historiske data kan kalibrere antakelser når scope, periode, vilkår og mengder er sammenlignbare. Her mangler denne tilpasningen.',
+        'Dette gir et etterprøvbart løsningsestimat før opprettelse. Det er fortsatt ingen faktura eller garanti.',
+      ],
+      [
+        'Dette er kalkulatorens rolle: relevante produkter og egne forutsetninger må inngå når de ikke er inkludert i hosting-produktet.',
+        'En margin beskriver usikkerhet, men dokumenterer ikke hvilke målere eller mengder som mangler. En faglig dimensjonert reserve kan komme i tillegg.',
+        'Historikk er nyttig grunnlag, men en annen tjenestemiks og trafikkmengde krever tilpasning. Faktura og framtidig estimat er forskjellige data.',
+      ],
+    ],
+  },
+  cm04: {
+    title: 'Det regionale prosjektet',
+    problem:
+      'To estimater for et seksukersprosjekt viser ulike priser. Ett bruker feil region, en annen OS-lisens og 730 timer hver måned. Hva er en forsvarlig sammenligning?',
+    premises: [
+      'Det dokumenterte estimatgrunnlaget for begge compute-alternativene er 160 fakturerbare timer per måned og oppgitte regionkrav. Beholdt lagring beregnes separat. Ingen lisensfordel er bekreftet.',
+      'Den laveste nominelle prisen gjelder regionen som ikke tilfredsstiller prosjektets krav.',
+    ],
+    decisions: [
+      'Korriger region og lisens, men behold 730 timer som prosjektets antatte bruk uten å vurdere testvinduet.',
+      'Bruk godkjent region, relevante lisensvilkår og begrunnede mengder i begge estimater.',
+      'Korriger region og brukstid, men aktiver lisensfordelen før rettighetene er avklart.',
+    ],
+    reasons: [
+      'En månedlig kalkulatorvisning betyr at alle tjenester må antas aktive hele måneden.',
+      'Den eksisterende programvareinstallasjonen er tilstrekkelig dokumentasjon for rabattvalget i estimatet.',
+      'Estimatets region, tidsmengde og lisensforutsetninger må beskrive en gjennomførbar løsning.',
+    ],
+    decisive:
+      'Prisene gjelder forskjellige løsninger. Krav, timer og lisensvilkår må være riktige før differansen gir beslutningsverdi.',
+    feedback: [
+      [
+        'Kontinuerlig allokering kunne begrunnet rundt en hel måned. Her angis 160 timer, så beholdt standardverdi må i det minste begrunnes og skilles fra forventet bruk.',
+        'Dette sammenligner relevante løsninger og gyldige vilkår. Ukjente avtalerabatter må fortsatt merkes usikre.',
+        'Lisensfordeler kan være relevante etter rettighetskontroll. Å redusere estimatet med en ubekreftet fordel gjør grunnlaget misvisende.',
+      ],
+      [
+        'Kalenderperioden og priset allokeringstid er forskjellige størrelser. Kontinuerlig bruk er en mulig antakelse, ikke en konsekvens av visningen.',
+        'Eksisterende installasjon dokumenterer ikke nødvendigvis rettighetene til det aktuelle tilbudet; vilkårene må undersøkes.',
+        'Dette knytter hver parameter til krav og dokumenterte forutsetninger fremfor bare å velge lav sum.',
+      ],
+    ],
+  },
+  cm05: {
+    title: 'En ny ukesrapport',
+    problem:
+      'En virksomhet vil forklare en kostnadsøkning i siste avsluttede uke. Hva er første relevante analysehandling?',
+    premises: [
+      'Det daterte syntetiske grunnlaget viser 80 ØK compute +20 ØK storage i første uke og 80 ØK compute +90 ØK storage i andre uke.',
+      'Postene gjelder samme scope og like lange perioder. Storage-detaljene viser flere GB-døgn til uendret sats.',
+    ],
+    decisions: [
+      'Undersøk storage-mengde, bevaringsbehov og postdetaljer i riktig Cost Analysis-scope.',
+      'Bruk et nytt kalkulatorestimat som hovedforklaring på den siste registrerte ukens kostnadsøkning.',
+      'Start med å redusere compute-profilen før lagringsforbrukets årsak og bevaringskrav undersøkes.',
+    ],
+    reasons: [
+      'En lavere framtidig compute-pris forklarer hvordan den registrerte storage-økningen oppstod.',
+      'Storage-mengden forklarer forskjellen; et mulig tiltak må samtidig ivareta bevaringskrav.',
+      'Økt storage-kostnad viser alene at de nye dataene er unødvendige og kan slettes.',
+    ],
+    decisive:
+      'Storage øker 70 ØK mens compute er uendret. Underliggende mengde og bevaringskrav må undersøkes før tiltak.',
+    feedback: [
+      [
+        'Riktig analysegrunnlag og mekanisme. Større datamengde er ikke alene tillatelse til å slette nødvendige data.',
+        'Kalkulatoren kan sammenligne framtidige løsninger. Den dokumenterer ikke årsaken til allerede registrerte poster i dette scopet.',
+        'Compute er uendret i datasettet. Rightsizing kan være relevant etter en kapasitetsanalyse, men er ikke den identifiserte historiske årsaken.',
+      ],
+      [
+        'Et framtidig prisvalg er en annen beslutning. Den daterte forskjellen gjelder flere GB-døgn til uendret sats.',
+        'Dette forbinder faktisk datasett, enhet og driftsbehov, uten å anta at økt forbruk er feil.',
+        'Forbruket kan være nødvendig. Sletting krever kontroll av formål, bevaringskrav og konsekvenser, ikke bare en prisøkning.',
+      ],
+    ],
+  },
+  cm06: {
+    title: 'To varseltyper',
+    problem:
+      'Et månedsbudsjett for utviklingssubscription er 1 000 ØK. Registrert syntetisk kostnad er 600 ØK; prognosen er 1 250 ØK. Hva innebærer et forecast-varsel på 100 prosent?',
+    premises: [
+      'Et actual-varsel er satt til 80 prosent. Ingen action group eller annen automatisk handling er konfigurert.',
+      'Prognosen forutsetter at det nye bruksmønsteret fortsetter. Data for enkelte tjenester kan komme med forsinkelse.',
+    ],
+    decisions: [
+      'Rapporter at både actual 80 prosent og forecast 100 prosent er passert, og følg opp begge varslene.',
+      'Rapporter at ingen terskel er passert fordi bare registrerte 600 ØK kan sammenlignes med begge varseltypene.',
+      'Rapporter forecast 100 prosent som passert, actual 80 prosent som ikke passert, og undersøk utviklingen.',
+    ],
+    reasons: [
+      'Forecast-beløpet brukes som registrert forbruk også ved evaluering av actual-terskelen.',
+      'Hver varseltype bruker sitt eget grunnlag; prognose er usikker framtid og varsel er ikke en ressursstans.',
+      'Forecast-terskelen bruker samme registrerte beløp som actual; framskrivingen er bare et diagram.',
+    ],
+    decisive: '1 250 er over 1 000; 600 er under 800. Varsel og tiltak er forskjellige mekanismer.',
+    feedback: [
+      [
+        'Forecast-grensen er passert, men actual krever 800 ØK registrert kostnad. Prognosen skal ikke brukes som actual. Begge kunne vært passert ved minst 800 ØK actual og tilstrekkelig forecast.',
+        'Dette bruker actual-grunnlaget også for forecast og mister det tidlige signalet. Prognosen kan passere sin terskel før registrerte kostnader gjør det.',
+        'Dette skiller varseltypene. Teamet må undersøke antakelser og forsinkede data, ikke love en faktura eller automatisk handling.',
+      ],
+      [
+        'De to typene er ulike sammenligninger. En prognose over 800 ØK betyr ikke at actual-terskelen er passert.',
+        'Dette forklarer både resultatet og grensen: separat konfigurert automatisering kunne utført handlinger, men standardvarslet stopper ingenting.',
+        'Framskrivingen er faktisk grunnlaget i dette forecast-varselet. Actual-varslet bruker registrerte kostnader.',
+      ],
+    ],
+  },
+  cm07: {
+    title: 'Avdelingsrapportens datagrunnlag',
+    problem:
+      'En ressursgruppe har Department=Finance. En disk har ingen direkte Department-tag, og kostnadsrapporten har en ufordelt post. Rapportarv er ikke aktivert. Hva kan gjøres?',
+    premises: [
+      'Ressurstypen støtter direkte tags og kan sende dem til kostnadsdata. Posten gjelder en allerede behandlet periode.',
+      'Teamet skal få riktig løpende kostnadsfordeling, uten å gi nye tilgangsrettigheter.',
+    ],
+    decisions: [
+      'Tagg disken nå og behandle den allerede avsluttede periodens ufordelte beløp som umiddelbart korrigert.',
+      'Undersøk direkte tagging og støttet rapportarv separat; behold uavklart historisk fordeling synlig.',
+      'Tilordne en deny-regel for manglende Department og behandle den som utført tagging av den eksisterende disken.',
+    ],
+    reasons: [
+      'Nye ressursmetadata gir i seg selv full og umiddelbar omklassifisering av tidligere kostnadsposter.',
+      'Et policykrav om metadata er det samme som en allerede utført modify/remediation-handling.',
+      'Direkte tags, policyeffekt og rapportmetadata må vurderes hver for seg; historisk støtte må undersøkes.',
+    ],
+    decisive:
+      'Manglende direkte metadata og deaktivert rapportarv forklarer hvorfor gruppetagg alene ikke gir full fordeling.',
+    feedback: [
+      [
+        'Direkte tagging kan forbedre framtidig klassifisering. Den dokumenterer ikke alene umiddelbar og full endring av en avsluttet rapportperiode.',
+        'Dette gir en etterprøvbar strategi og en ærlig historisk rapport. Kontroller støttet scope, ressurs-/datastøtte og arvevalg før omfordeling loves.',
+        'En deny-regel kan påvirke relevante framtidige operasjoner. Den er ikke i seg selv en utført modifikasjon av den eksisterende disken; modify/remediation er andre mekanismer.',
+      ],
+      [
+        'Metadataoppdatering og behandling av kostnadsdata har ulike regler/tidspunkt. Historisk dekning krever en konkret kontroll.',
+        'Effekten og en eventuell remediation må faktisk vurderes. Kravet alene dokumenterer ingen ressursendring.',
+        'Dette skiller mekanismene og begrunner hvorfor ufordelt ikke bare skal skjules. Tags gir heller ingen ny RBAC-rolle.',
+      ],
+    ],
+  },
+  cm08: {
+    title: 'To Department-verdier',
+    problem:
+      'En app har direkte Department=Research. Gruppen har Department=Shared. Rapporten viser Shared etter en eksplisitt Cost Management-arveinnstilling som foretrekker gruppeverdi. Hva kan teamet slutte?',
+    premises: [
+      'Ressursens faktiske Properties viser fortsatt Research. Brukerens tidligere tilgang er uendret.',
+      'Rapportens sum er den samme, men beløpet ligger i en annen Department-kategori.',
+    ],
+    decisions: [
+      'Behandle forskjellen som en flytting av ressursen til en ny resource group, og oppdater dependency-tegningen.',
+      'Behandle Shared som ny direkte ressursverdi og legg RBAC-gruppens medlemskap til grunn for endringen.',
+      'Avstem rapportens arveinnstilling mot uendrede ressursmetadata; undersøk klassifisering og tilgang separat.',
+    ],
+    reasons: [
+      'Rapportarv kan endre kostnadspostens metadata uten en ARM-tag- eller RBAC-kommando.',
+      'En annen Department-kategori dokumenterer at selve kostnadsbeløpet er redusert.',
+      'Gruppens rapportverdi viser at en tagging-policy har skrevet om ressursens Properties.',
+    ],
+    decisive:
+      'Observerte Properties og uendret totalsum viser en rapportklassifisering, ikke ny ressurskonfigurasjon eller beskyttelse.',
+    feedback: [
+      [
+        'Resource group-medlemskap er en administrativ relasjon. En rapportverdi alene dokumenterer ingen flytting eller dependency-endring.',
+        'Den faktiske Properties-verdien er fortsatt Research. Rapportmetadata gir heller ikke en RBAC-rolle; eventuell tilgangsendring måtte undersøkes separat.',
+        'Dette forklarer forskjellen fra de observerte datalagene uten å tilskrive rapportarv en ressurskommando.',
+      ],
+      [
+        'Dette er det korrekte skillet mellom ressursens direkte tags, rapportens berikelse og autorisasjon.',
+        'Fordelingen endres, mens premisset sier at totalsummen er uendret. Kostnadsreduksjon krever en annen årsak.',
+        'Policy kan påvirke tags gjennom egne effekter, men det er ingen slik observert endring her. Properties og den eksplisitte rapportinnstillingen støtter rapportarv.',
+      ],
+    ],
+  },
+  cm09: {
+    title: 'Endret compute-miks',
+    problem:
+      'Et team har først fjernet ubrukt kapasitet. Kvalifisert compute-bruk er deretter stabil hver time, men flytter mellom støttede tjenester og regioner. Hvilket betalingsvalg er relevant å undersøke?',
+    premises: [
+      'Måling og tilbudsvilkår bekrefter en grunnlast som kan utnytte et moderat timebeløp gjennom planperioden.',
+      'En fast reservasjon med smal produkt-/regionsmatching dekker ikke den planlagte blandingen. Lagring og nettverk er separate behov.',
+    ],
+    decisions: [
+      'Sammenlign en moderat compute-savings-plan mot den bekreftede kvalifiserte timegrunnlasten.',
+      'Dimensjoner én smalt matchet reservasjon fra toppbruken i den opprinnelige regionen.',
+      'Dimensjoner compute-planens timebeløp etter compute, nettverk og lagring samlet.',
+    ],
+    reasons: [
+      'En måneds gjennomsnittskostnad er tilstrekkelig for å utnytte hver timeforpliktelse, også når bruksmønsteret endres.',
+      'Kvalifisert timebasert compute-forpliktelse kan passe den støttede miksen; øvrige poster og utnyttelsesrisiko består.',
+      'De øvrige kostnadene kan regnes som compute-forbruk når ressursene deler samme resource group.',
+    ],
+    decisive:
+      'Oppgaven gir stabil kvalifisert timebruk, men varierende støttet compute-miks. Det gjør en forsiktig spend-forpliktelse relevant å sammenligne.',
+    feedback: [
+      [
+        'Relevant å undersøke under de dokumenterte premissene. Avtalens størrelser og vilkår må fortsatt kontrolleres; dette er ingen kjøpsanbefaling.',
+        'En matching reservasjon kan passe stabil produktbruk. Her dekker ikke den smale produkt-/regionsmatchingen den oppgitte blandingen, og toppbruk er ikke automatisk en stabil grunnlast.',
+        'Compute-planens kvalifiserte forbruk er ikke det samme som hele løsningen. Programvare, lagring og nettverk kan måtte prises separat.',
+      ],
+      [
+        'Commitment brukes timevis uten overføring av ubrukt beløp. Samme månedssum kan ha svært ulik timeutnyttelse.',
+        'Dette kobler stabil kvalifisert bruk og fleksibel støttet miks til betalingsmekanismen, med riktig avgrensning.',
+        'Resource group-medlemskap endrer ikke hvilke forbruksmål som er kvalifisert for betalingsfordelen.',
+      ],
+    ],
+  },
+  cm10: {
+    title: 'Prisvalg for tidskritisk behandling',
+    problem:
+      'En tjeneste skal behandle tidskritiske forespørsler uten støtte for gjenopptakelse etter avbrudd. Et rimelig Spot-tilbud foreslås som eneste compute. Hva bør teamet gjøre?',
+    premises: [
+      'Teamet har ikke en annen fungerende tjenestebane. Kapasitetsbehovet varierer, og ingen stabil forpliktelsesgrunnlast er dokumentert.',
+      'En PAYG-profil er verifisert tilstrekkelig for det aktuelle arbeidet. Ingen av alternativene i oppgaven dokumenterer en full HA-arkitektur.',
+    ],
+    decisions: [
+      'Bruk Spot som eneste compute og håndter en eventuell eviction med manuell gjenoppretting.',
+      'Bruk dokumentert egnet PAYG-kapasitet nå, og undersøk bruk og rightsizing før nye bindinger.',
+      'Reserver hele den målte toppkapasiteten for flere år før grunnlasten er dokumentert.',
+    ],
+    reasons: [
+      'Lavere nominell timepris er tilstrekkelig beslutningsgrunnlag selv om avbrudd bryter arbeidskravet.',
+      'Et observert kapasitetsmaksimum kan uten videre brukes som den vedvarende utnyttelsen i en betalingsforpliktelse.',
+      'Prisvalg må møte avbruddskrav og dokumentert bruk; betalingsvalg alene beviser ikke høy tilgjengelighet.',
+    ],
+    decisive:
+      'Spot-eviction og manglende restart/alternativ bane passer ikke de oppgitte kravene. Usikker bruk gir heller ikke grunnlag for full toppbinding.',
+    feedback: [
+      [
+        'Spot kan passe avbrytbart eller gjenopptakbart arbeid. Her finnes verken tilstrekkelig restartstøtte eller en annen tjenestebane for tidskritiske forespørsler.',
+        'Dette beholder dokumentert egnethet og fleksibilitet mens forbruket undersøkes. En robust HA-arkitektur krever fortsatt egne tiltak.',
+        'En dokumentert stabil grunnlast kunne begrunnet en forpliktelse. Toppen i en varierende arbeidslast er ikke tilstrekkelig grunnlag for full flerårig binding.',
+      ],
+      [
+        'Driftskrav må vurderes sammen med pris. Eviction-risikoen blir ikke borte fordi satsen er lav.',
+        'Maksimum og vedvarende timebruk er forskjellige. Ubrukt forpliktelse kan koste penger uten tilsvarende nytte.',
+        'Dette bevarer arbeidets faktiske krav og skiller betalingsmodell fra feiltoleranse.',
+      ],
+    ],
   },
 } as const;

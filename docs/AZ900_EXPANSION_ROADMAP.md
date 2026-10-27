@@ -1,5 +1,9 @@
 # AZ-900 — prioritert, avgrenset PR-plan
 
+## P04 implementation — PR26
+
+P04 now has the course-integrated Cost Management module: nine activities, four explicitly synthetic workbenches, ten changed-context decision/reason cases, full Journal and isolated evidence. Detailed source/claim/data limits and actual validation belong in [COST_MANAGEMENT](COST_MANAGEMENT.md) and PROJECT_STATUS. Remaining management/governance modules are planned. Next bounded implementation is **P05 — Azure Compute & Hosting**, preserving the established course/evidence/simulator boundaries. No new general billing or exam engine is included.
+
 ## Gjeldende P03-avgrensning — PR25
 
 P03s åtte vurderingshull er implementert som et separat versjonert transfer-spor med19 nye beslutningssituasjoner i eksisterende Cloud Computing, Benefits og Service Types. Full historisk teori og tidligere evidence beholdes. A–F-innholdsklassifiseringen i den genererte matrisen er revurdert; human SME/UX/screen-reader/learning er fortsatt egne utestående kontroller. PR26/P04 Cost Management & Pricing er neste faglige fase. Ingen generell eksamensmotor eller ny ressursmotor er del av P03. [Baseline og avgrensning](CLOUD_CONCEPTS_TRANSFER.md).

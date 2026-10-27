@@ -1,5 +1,9 @@
 # Course/lab orchestration
 
+## P04 conceptual economic workbenches
+
+The existing course shell hosts `/learn/cost`; its four investigations are explicitly synthetic economic models, not new practical Portal sessions. CostStore owns versioned run/response history separately from Sandbox/receipts and existing labs. An optional real inventory reference opens its supported ordinary Portal resource in a new tab, leaving the exact cost activity/draft intact. No consumption, rates or old guided result is inferred from that resource. Current cost assessments join shared teaching preflight and guidance shielding; previous lab origins and return contracts remain unchanged. [Detailed design](COST_MANAGEMENT.md).
+
 ## Part B origin — PR23
 
 The existing web-platform session allows architecture-management as a navigation-only origin. courseLabHref returns architecture/scope with activity=lab or debrief; existing receipt/boundary/hosting predicates remain unchanged. First launch reuses MissionBriefing; resume preserves supported work. Part B focuses the actual debrief section and reads real inventory. No new operational session/evidence model or changed legacy origins. [Scope](CORE_ARCHITECTURE_MANAGEMENT.md).
