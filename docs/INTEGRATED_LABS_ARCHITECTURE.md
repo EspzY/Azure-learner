@@ -34,3 +34,11 @@ Benefits inspection bridges are allowlisted navigation context only. They open a
 Guided reasoning choices are disclosed after actual configuration and required inspection. Independent requirements remain fixed after requesting help. The source/persistence logic cannot be advanced by a tab visit, animation, navigation URL or mascot action.
 
 An explicit in-lab reset abandons an active practical session and starts a new session against the new technical attempt. Earlier submissions and assistance remain in history. A guided PaaS reset reactivates the existing prerequisite Web guide. An externally invalidated context is visibly unverifiable and offers an explicit fresh attempt; it never silently becomes successful. SaaS guidance derives its current action from validated outcomes (capacity rejection, seat release/assignment, departure, sharing, data review and history inspection). Submitted debriefs project the actual replayed configuration; they store no second resource inventory.
+
+# PR24 supplement — distinct applied missions
+
+The three historical lab kinds below remain frozen. [Four new applied missions](PRACTICAL_MISSION_EXPANSION.md) use an isolated compatible supplement rather than widening practical-labs@1. No technical command, Sandbox replay, SaaS model, XP or old rubric changes. Existing resources can support inspection; new VM, Web correction and settings requirements use their own recorded command boundary. Submitted through-IDs freeze replay. A pure failure/routing hypothesis reads actual chain references without adding a World or receipt. Ordinary lesson entries and Portal mission navigation share the same providers and exact return.
+
+# PR24 independent correction boundaries
+
+The PaaS independent mission compares two actual apps on one real plan: a new production/standard target Apply after a changed target draft and a new staging/read-only sibling Apply, both receipts and app-specific scope reasoning. It does not repeat the guided one-app maintenance sequence. A per-context read-only safety projection now supplies named existing reload/recovery destinations, including technical state and pinned-attempt uncertainty. Architecture operational inspection is separate from its explicit, durably assisted Related learning explanation. No old resource, rubric or store is migrated.

@@ -4,6 +4,20 @@ import { replayEngine } from '../sandbox/replay';
 
 /** Conceptual observations are not Engine receipts and have their own source contract. */
 export const conceptMilestones = {
+  'mission-diagnosis': {
+    version: '1.0.0',
+    objectives: ['CB02'],
+    sources: ['PM09', 'PM10'],
+    trigger: 'validated-dependency-topology-model-contrast',
+    auto: 'first-new-guided-validated-observation',
+  },
+  'mission-settings': {
+    version: '1.0.0',
+    objectives: ['ST02', 'ST04'],
+    sources: ['PM17', 'PM18'],
+    trigger: 'two-ordered-accepted-settings-receipts-and-inspection',
+    auto: 'first-new-guided-validated-observation',
+  },
   'management-relations': {
     version: '1.0.0',
     objectives: ['CA04', 'CA07'],

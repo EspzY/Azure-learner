@@ -259,3 +259,7 @@ Example candidate relation: `chapter-01@1.0.0` → G01/F02 → CR02's architectu
 ## Transition to real practice
 
 After an independently solved simulation, offer an optional source-linked real-practice brief: what was modeled, omitted, and what an authorized lab would need to verify. Preparation may include an inert reviewed IaC artifact, cleanup/cost plan and a comparison checklist. No credential entry, shell execution, Azure resource creation, paid lab enrollment or live integration is authorized by this blueprint. A future real-lab feature needs explicit owner/user authorization, cost/security boundaries and separate verification. Microsoft Learn/Applied Skills links supplement the original curriculum; their lessons/labs are not reproduced.
+
+# PR24: praktiske oppdrag i den aktive kursreisen
+
+Vanlig `/learn` viser fire oppdrag med synlig inngang til Benefits reliability/governance og Service Types IaaS/PaaS. Hver inngang går til eksisterende undervisning, eksplisitt SavvyShark-brief, delt Portal eller avgrenset modell, eksakt kursretur og egen debrief. Én aktiv oppdragsøkt gjenopptas uten global reset. Eksisterende grunnlaber og all teori beholdes og merkes separat; antall innganger er ikke antall læringsresultater. [Detaljer og versjonering](PRACTICAL_MISSION_EXPANSION.md).

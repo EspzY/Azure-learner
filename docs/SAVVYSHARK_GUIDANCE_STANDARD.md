@@ -42,3 +42,7 @@ Alle aktive uavhengige kontekster (Foundations v1/v2, Benefits, current/compatib
 ## Utvidelse og testing
 
 Nytt milestone-innhold trenger source-/objectivebinding, negative fixture, replay-/scope-/attempt-test, kopi med årsak/konsekvens/grenser og keyboard-/no-repeat-/independent-/modal-test. Revider versjonen ved vesentlig fagendring. Å legge til navnet i registeret er ikke implementert undervisning eller dokumentert læring. [Release-gater](RELEASE_ACCEPTANCE.md) og separat sluttgjennomgang er obligatoriske.
+
+# PR24 applied missions
+
+New mission briefings reuse the same native blur design and explicit Start/Cancel. Factual VM/policy milestones now also accept validated mission context; two small conceptual register entries cover a validated dependency contrast and ordered inspected settings receipts. MissionPortalLayer derives its current phase from actual mission/ledger facts, distinguishes reuse from new work and exposes real navigation/inspection controls. It submits no technical command. Unknown/conflicted context shows recovery without solution instructions. All ten active independent contexts suppress automatic help, including when a guided URL is forged. Milestone UI history remains separate from learning evidence; historical mount/reload is recall only. [Version/trigger details](PRACTICAL_MISSION_EXPANSION.md).

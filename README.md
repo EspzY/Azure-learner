@@ -134,3 +134,7 @@ Read [AGENTS.md](AGENTS.md), [experience design](docs/EXPERIENCE_DESIGN.md), [ar
 ## License
 
 No general distribution license has been selected; public visibility does not grant a general reuse license. Microsoft materials/trademarks and dependencies retain their respective terms. Our teaching copy and questions are original; external sources are referenced, not imported. Current mascot authorization and retired asset provenance are recorded in the [asset register](docs/ASSET_REGISTER.md); no general license for the application is inferred.
+
+# PR24 practical mission expansion
+
+The ordinary course overview now exposes four distinct applied missions in Benefits and Service Types: inspect real VM dependencies then test a declared failure hypothesis; compare a real policy denial/correction and scope; build a VM for a new guest/profile/storage requirement; and distinguish an app-settings draft from two ordered Apply operations. They reuse the same Portal/inventory and retain the existing foundational labs. Isolated mission evidence preserves all prior learning/XP and technical contracts. [Audit, original manuscript, sources and lifecycle](docs/PRACTICAL_MISSION_EXPANSION.md); [actual verification](docs/PROJECT_STATUS.md). Qualified human SME/UX/accessibility/learning approval remains outstanding.

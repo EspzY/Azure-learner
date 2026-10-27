@@ -43,3 +43,7 @@ Browser localStorage is origin-bound. Old records remain compatible on the same 
 ## 3.1B.1 labels and navigation
 
 The existing replayed `labFacts.complete` now projects **Gå tilbake til laboratoriet** as a secondary action and **Fortsett undervisningen** in the course bar. Incomplete work still offers **Fortsett praktisk lab**. No predicate/session migration was added. Course heading focus excludes the existing valid lab/debrief activity anchors so exact return remains authoritative. Summary/next navigation never submits an assessment or promotes a checkpoint.
+
+# PR24 mission lifecycle
+
+The four visible root entries open existing Benefits reliability/governance and Service Types iaas/paas with activity=mission (Service Types explicitly version2). Native brief cancel writes nothing; explicit Start pins mission/mode/technical attempt/ledger boundary in a separate1.0.0 record. Portal navigation carries an allowlisted mission ID and returns to the exact definition origin. Resume retains the boundary; abandonment retains valid resources; retry is a new session. Existing practical and course lab records are untouched. Independent mission work presents its changed requirements and neutral inspection controls without instructional coach/highlights. Journal/other teaching is help through the common durable preflight; unknown/conflicted stores withhold answer-bearing content. [Full specification and walkthrough](PRACTICAL_MISSION_EXPANSION.md).

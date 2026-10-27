@@ -2199,3 +2199,7 @@
     grid-template-columns: minmax(0, 1fr);
   }
 }
+.portal .portal-nav.mobile-open,
+.portal.portal-flyout .portal-nav.mobile-open {
+  z-index: 90;
+}

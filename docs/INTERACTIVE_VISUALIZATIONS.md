@@ -58,3 +58,7 @@ The live operational lens focuses on subscriptions/groups/plans/apps/policy, wit
 `v2-responsibility` uses the unchanged matrix in a full-width stack plus selected-layer inspector, service comparison and textual change list. Complete service caveats remain accessible; the original unit manuscript and evaluation follow it. `v2-models` uses original SVG usage relationships/boundaries rather than three text cards: two public customers, one private user independent of physical host location, and an explicitly illustrative hybrid integration requirement. Native controls plus text relations are the accessible equivalent. No control configures networks or awards evidence.
 
 Primary desktop captures and review: [status](PROJECT_STATUS.md). Rendering is standard HTML/SVG; no new dependency or RPG payload.
+
+# PR24 Dependency Failure Investigation
+
+A selected real VM's OS-disk/NIC/subnet chain anchors a separate conceptual two-path hypothesis. Explicit copies, subnet sharing and routing determine propagation of an assumed OS-disk/NIC/subnet loss. Prediction precedes Run; the saved result labels its exact input and warns when controls change. A semantic result table complements the path graphic. No traffic, health, real failover, Azure SLA or new Portal resource is asserted. Real inventory and receipt comparisons in other missions use the existing Architecture Explorer and central service icons. [Learning and model assumptions](PRACTICAL_MISSION_EXPANSION.md).

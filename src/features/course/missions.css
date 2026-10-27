@@ -1,0 +1,252 @@
+.mission-discovery,
+.mission-entry {
+  margin: 28px 0;
+  border-top: 3px solid #0078d4;
+  padding: 24px;
+  background: #f3f9fd;
+  scroll-margin-top: 88px;
+}
+.mission-discovery ol {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 32px;
+}
+.mission-discovery li {
+  padding: 14px 0;
+  border-bottom: 1px solid #d4e2eb;
+}
+.mission-discovery li small {
+  display: block;
+  color: #43576a;
+  margin-top: 6px;
+}
+.mission-entry > p,
+.mission-activity > p,
+.mission-debrief > p {
+  max-width: 82ch;
+  line-height: 1.75;
+}
+.mission-bridge {
+  font-size: 1.08rem;
+  color: #134767;
+}
+.mission-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 18px 0;
+}
+.mission-primary {
+  display: inline-flex;
+  padding: 9px 16px;
+  background: #0067b8;
+  color: white !important;
+  text-decoration: none;
+  margin: 8px 0;
+}
+.mission-subject {
+  padding: 16px 0;
+}
+.mission-entry label,
+.mission-activity label,
+.mission-model-controls label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.mission-activity fieldset {
+  border: 1px solid #ccd8e0;
+  margin: 20px 0;
+  padding: 18px;
+}
+.mission-activity fieldset label {
+  flex-direction: row;
+  gap: 12px;
+  align-items: flex-start;
+  margin: 14px 0;
+  line-height: 1.65;
+}
+.mission-activity fieldset input {
+  flex: 0 0 auto;
+  width: 16px;
+  height: 16px;
+  margin-top: 7px;
+}
+.mission-activity :is(input, select, button, a) {
+  scroll-margin-block: 100px 180px;
+}
+.mission-requirements {
+  border-left: 3px solid #0078d4;
+  padding-left: 12px;
+}
+.mission-activity select {
+  min-width: 0;
+  max-width: 100%;
+  padding: 8px;
+  border: 1px solid #73889b;
+  background: white;
+  color: #172b3d;
+}
+.mission-criteria {
+  list-style: none;
+  padding: 0;
+}
+.mission-criteria li {
+  padding: 9px 0;
+  border-bottom: 1px solid #d8e3ec;
+  line-height: 1.6;
+}
+.mission-criteria strong {
+  display: inline-block;
+  min-width: 85px;
+}
+.mission-actual {
+  padding: 18px;
+  border-left: 3px solid #62a4ca;
+  background: #f6fafc;
+  margin: 20px 0;
+  overflow-wrap: anywhere;
+}
+.mission-actual ul {
+  padding-left: 20px;
+}
+.mission-actual li,
+.mission-receipts p {
+  margin: 10px 0;
+  line-height: 1.6;
+}
+.mission-technical-boundary {
+  font-size: 0.88rem;
+  color: #4d5f70;
+  overflow-wrap: anywhere;
+}
+.mission-debrief {
+  margin-top: 24px;
+  border-top: 1px solid #b8d4e7;
+  padding-top: 20px;
+}
+.mission-debrief dl div {
+  padding: 10px 0;
+}
+.mission-debrief dt {
+  font-weight: 600;
+}
+.mission-debrief dd {
+  margin: 6px 0;
+  line-height: 1.65;
+}
+.mission-diagnosis {
+  margin: 28px 0;
+  padding: 22px;
+  border: 1px solid #b7ccdc;
+  background: #fff;
+}
+.mission-model-controls {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  padding: 18px 0;
+}
+.mission-model-controls button {
+  align-self: end;
+}
+.mission-model-result {
+  padding: 20px 0;
+}
+.mission-model-result table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.mission-model-result th,
+.mission-model-result td {
+  padding: 12px;
+  border-bottom: 1px solid #ccdbe5;
+  text-align: left;
+}
+.mission-paths {
+  display: flex;
+  gap: 28px;
+  margin: 20px 0;
+}
+.mission-paths > div {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 22px;
+  background: #f0f7fc;
+  border-left: 4px solid #22638e;
+}
+.mission-paths .path-lost {
+  border-left-color: #96551b;
+  background: #fdf7ef;
+}
+.mission-paths .path-usable {
+  border-left-color: #27623e;
+  background: #f0f8f2;
+}
+.mission-dependency-tree {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px;
+}
+.mission-vm-node {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-bottom: 1px solid #b6cbd9;
+  padding-bottom: 10px;
+}
+.mission-disk-node,
+.mission-network-node {
+  padding-left: 20px;
+  font-size: 14px;
+}
+.mission-coach h2 {
+  font-size: 17px;
+  line-height: 1.5;
+}
+.mission-coach .mission-actual {
+  margin: 12px 0;
+  padding: 10px;
+}
+.mission-coach .mission-actual h3 {
+  font-size: 14px;
+}
+.mission-coach .mission-actual ul {
+  list-style: none;
+  padding: 0;
+}
+.mission-coach {
+  overflow-wrap: anywhere;
+}
+.mission-portal-notice {
+  margin: 16px;
+  padding: 16px;
+  background: #fff5da;
+}
+.mission-observation {
+  padding: 14px 0;
+}
+.mission-observation .sl-guidance .mission-scroll {
+  padding: 28px 32px;
+}
+@media (max-width: 800px) {
+  .mission-discovery ol,
+  .mission-model-controls {
+    grid-template-columns: 1fr;
+  }
+  .mission-discovery,
+  .mission-entry,
+  .mission-diagnosis {
+    padding: 16px;
+  }
+  .mission-paths {
+    gap: 12px;
+  }
+  .mission-model-result {
+    overflow-x: auto;
+  }
+}

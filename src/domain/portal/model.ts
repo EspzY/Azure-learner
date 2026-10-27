@@ -5,6 +5,7 @@ import {
   type Command as SandboxCommand,
 } from '../sandbox/model';
 import { executeCurrent } from '../sandbox/replay';
+import { isMission, type MissionId } from '../sandbox/missions';
 import { relations, types, type Engine, type World, type Command } from '../chapter01/model';
 export const areas = [
   'home',
@@ -49,11 +50,13 @@ export interface PortalLocation {
   course?: true;
   practice?: 'vm' | 'paas';
   bridge?: (typeof benefitBridgeTopics)[number];
+  mission?: MissionId;
 }
 export function parseLocation(query: URLSearchParams): PortalLocation {
   const area = query.get('area') ?? 'home',
     mode = query.get('mode') ?? 'learn';
   return {
+    ...(isMission(query.get('mission')) ? { mission: query.get('mission') as MissionId } : {}),
     ...(benefitBridgeTopics.includes(query.get('bridge') as (typeof benefitBridgeTopics)[number])
       ? { bridge: query.get('bridge') as (typeof benefitBridgeTopics)[number] }
       : {}),
@@ -114,6 +117,7 @@ export function portalHref(
   if (next.practice) query.set('practice', next.practice);
   if (next.bridge) query.set('bridge', next.bridge);
   if (next.course) query.set('course', '1');
+  if (next.mission) query.set('mission', next.mission);
   return `/portal?${query}`;
 }
 export type InventoryKind =

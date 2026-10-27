@@ -5400,6 +5400,7 @@ export const managementNb = {
   accessReload: 'Les lagret vurderingskontekst på nytt',
   accessReview: 'Åpne egen vurdering og lagringskontroll',
   accessContexts: {
+    missions: 'Praktiske oppdrag',
     management: 'Core Architecture Part B',
     physical: 'Core Architecture Part A',
     serverless: 'Serverless',
@@ -5904,4 +5905,483 @@ export const managementNb = {
     'Dette viser lokale, versjonerte og avgrensede observasjoner. Guided, første uassisterte resultat og retry er forskjellige. Ingen Microsoft Learn-fullføring, eksamensberedskap eller ny XP utledes.',
   sourceReview:
     'Offisielle kilder kontrollert 27. oktober 2026. Menneskelig SME-, UX-, skjermleser- og læringsvalidering er utestående.',
+} as const;
+export const missionsNb = {
+  title: 'Praktiske oppdrag · fra forklaring til undersøkelse',
+  intro:
+    'Fire ulike oppdrag bygger på Benefits og Service Types. Undersøk reell lokal konfigurasjon, forklar konsekvensene og skill veiledet arbeid fra et nytt selvstendig forsøk.',
+  start: 'Les SavvySharks oppdragsbrief',
+  launch: 'Start oppdraget',
+  cancel: 'Avbryt',
+  recall: 'Se oppdraget igjen',
+  resume: 'Fortsett oppdraget',
+  independent: 'Start endret selvstendig oppdrag',
+  independentMode: 'Selvstendig oppdrag',
+  guided: 'Veiledet oppdrag',
+  unaided: 'Uten registrert hjelp',
+  aided: 'Assistert forsøk',
+  retry: 'Start et nytt øvingsforsøk',
+  return: 'Tilbake til oppdraget i kurset',
+  portal: 'Arbeid i den ordinære Portalen',
+  open: 'Åpne oppdraget',
+  prerequisite: 'Før du begynner',
+  purpose: 'Hvorfor dette følger etter teorien',
+  objectives: 'Dette skal du utvikle',
+  steps: 'Slik undersøker du problemet',
+  observe: 'Hva teller som en observasjon?',
+  briefingNotice:
+    'Start oppretter bare en avgrenset lokal oppdragsøkt. Du sender selv alle tekniske kommandoer. Avbryt eller lukking starter ingenting og gir ingen progresjon, XP eller ressurser.',
+  boundary:
+    'AzureLab registrerer lokal konfigurasjon og avgrensede modellobservasjoner. Ingen handling når Azure; konfigurasjon beviser ikke drift, sikkerhet, compliance eller eksamensberedskap.',
+  legacy: 'Eksisterende grunnlab · separat tidligere læringskontrakt',
+  activeElsewhere:
+    'Du har et aktivt oppdrag. Fortsett det, eller avbryt det eksplisitt før du starter et annet. Gyldige ressurser og tidligere innleveringer beholdes.',
+  blocked:
+    'En lærings- eller teknisk kontekst er aktiv eller usikker. Fullfør/avbryt vurderingen, eller last inn den aktuelle konteksten på nytt. Ingen reset av hele miljøet er nødvendig.',
+  loading: 'Kontrollerer oppdrag og teknisk kontekst …',
+  storage:
+    'Oppdragslagringen er usikker. Svar og observasjoner er ikke nødvendigvis lagret. Ikke lukk siden før du har avklart dette.',
+  memory:
+    'Endringer finnes bare i denne fanens minne. De er ikke varig lagret og kan ikke brukes til å godkjenne uassistert undervisningshjelp.',
+  reload: 'Last inn oppdragsdata på nytt',
+  reloadContext: 'Last inn bare denne konteksten',
+  reviewContext: 'Åpne kontekstens eksisterende recovery eller vurdering',
+  recoveryContexts: {
+    management: 'Core Architecture Part B',
+    physical: 'Core Architecture Part A',
+    serverless: 'Serverless',
+    foundations: 'Foundations v1',
+    v2: 'Foundations v2',
+    portal: 'Tidligere Portal-vurdering',
+    benefits: 'Benefits',
+    services: 'Service Types',
+    practical: 'Tidligere praktisk lab',
+    course: 'Kurskontekst',
+    technical: 'Portal-ressurser og kvitteringer',
+  },
+  recover: 'Gjenopprett bare ugyldige oppdragsdata',
+  confirm: 'Bekreft isolert gjenoppretting',
+  recovery:
+    'Dette fjerner bare den samme ugyldige oppdragsregistreringen. Nyere gyldige data, Portal, andre kurs og XP skal beholdes.',
+  unverified:
+    'Det tekniske forsøket eller referansene kan ikke verifiseres. Tidligere svar beholdes. Last inn riktig kontekst eller avbryt dette forsøket før et nytt; ikke tilskriv det fullføring.',
+  selected: 'Valgt faktisk ressurs',
+  choose: 'Velg en ressurs fra gjeldende inventory',
+  select: 'Bruk denne ressursen i oppdraget',
+  noSubject:
+    'Ingen egnet ressurs finnes ennå. Opprett den selv gjennom støttede Portal-kontroller. Ingen eksempelressurs legges til automatisk.',
+  createPlatform:
+    'Begynn med Resource groups → Create, deretter App Service plans → Create og App Services → Create. Velg samme gruppe for plan/app i denne modellen og en planlokasjon tillatt av den faktiske Web-policyen. Velg deretter appen som oppdragets ressurs.',
+  createVm:
+    'Begynn med Resource groups → Create ved behov, deretter Virtual machines → Create. Følg oppdragets gjeste-, disk- og subscription-krav før Review + create. Velg den opprettede VM-en som oppdragets ressurs.',
+  reused: 'Gjenbrukt konfigurasjon · ikke nyopprettet av dette oppdraget',
+  fresh: 'Opprettet etter oppdragets tekniske startgrense',
+  inspected: 'Observasjon registrert',
+  inspect: 'Bekreft observasjonen i denne visningen',
+  inspectResource: 'Undersøk faktisk ressurs',
+  inspectReceipt: 'Undersøk faktisk kvittering',
+  inspectPolicy: 'Undersøk faktisk policy',
+  actual: 'Faktiske tekniske observasjoner',
+  receipt: 'Operation receipt',
+  commandBoundary: 'Teknisk startgrense',
+  emptyBoundary: 'Før første kommando',
+  attempt: 'Teknisk forsøk',
+  noReceipts: 'Ingen kvitteringer er ennå knyttet til valgt oppdragsressurs.',
+  now: 'Gjør dette nå',
+  where: 'Hvor finner du kontrollen?',
+  why: 'Hvorfor er dette relevant?',
+  expect: 'Dette skal du observere',
+  observed: 'Dette har simulatoren registrert',
+  minimize: 'Minimer oppdragsveiledningen',
+  expand: 'Åpne oppdragsveiledningen',
+  help: 'Åpne undervisningshjelp · registrerer assistanse',
+  abandon: 'Avbryt oppdragsforsøket · behold ressurser',
+  reflect: 'Forklar beslutningen og konsekvensen',
+  submit: 'Lever oppdragsrefleksjonen',
+  draftSaved:
+    'Svarutkastet følger dette forsøket. Innlevering fryser resultatets tekniske gjennom-ID; retry overskriver ikke første besvarelse.',
+  capacity:
+    'Oppdragsloggen har nådd grensen for vanlig arbeid. Manglende sluttsvar kan fortsatt fylles inn én gang; du kan levere eller avbryte trygt. Ingen eldre registreringer fjernes for å gi plass.',
+  result: 'Oppdragsdebrief · verifiserbare observasjoner',
+  complete: 'Kriteriene for dette avgrensede oppdraget er oppfylt',
+  incomplete: 'Oppdraget har gjenstående kriterier',
+  abandoned: 'Forsøket er avbrutt; gyldig teknisk arbeid beholdes',
+  yes: 'Registrert',
+  no: 'Gjenstår',
+  history: 'Tidligere innleveringer og avbrudd',
+  first: 'Første innlevering beholdes uendret. Veiledet resultat er ikke selvstendig kompetanse.',
+  initial: 'Første innleveringsforsøk i denne modusen',
+  attemptRetry: 'Nytt forsøk etter tidligere innlevering · erstatter ikke den første',
+  rationale: 'Begrunnelser for alternativene · vises etter innlevering',
+  next: 'Neste steg: bruk modulens selvstendige vurdering, eller prøv den endrede oppdragsvarianten. Oppdraget gir ingen ny XP og endrer ikke tidligere modulkriterier.',
+  criteria: {
+    subject: 'Faktisk egnet ressurs valgt',
+    attachments: 'Relevante faktiske ressurser inspisert',
+    newBuild: 'Ny VM opprettet etter startgrensen',
+    receipt: 'VM-opprettelsens kvittering undersøkt',
+    requirements: 'Image, profil, datadisk og subscription følger oppdraget',
+    contrast: 'To påkrevde årsakskontraster kjørt i den eksplisitte konseptmodellen',
+    denied: 'Nytt faktisk Web-policyavslag',
+    corrected: 'Senere korrigert plan i samme gruppe og riktig subscription',
+    newApp: 'Ny app på den korrigerte planen',
+    scopeInspection: 'Subscription, gruppe, hosting og faktisk policy undersøkt',
+    receipts: 'Begge relevante kvitteringer undersøkt',
+    maintenance: 'Ny read-only-konfigurasjon lagret',
+    restoration: 'Senere standard-konfigurasjon lagret på samme app',
+    production: 'Ny production/standard Apply på valgt app',
+    staging: 'Ny staging/read-only Apply på en annen faktisk app',
+    isolation: 'To forskjellige apper på samme faktiske plan med ulike appinnstillinger',
+    draft: 'Et faktisk endret, ikke anvendt vedlikeholdsutkast observert',
+    decision: 'Faglig beslutning begrunnet',
+    reason: 'Konsekvens og grenser forklart',
+    metadata: 'Gruppemetadata og Web-lokasjon skilt',
+    typeCounterexample: 'Ny VM utenfor West Europe demonstrerer Web-regelens typeavgrensning',
+  },
+  model: {
+    title: 'Dependency Failure Investigation',
+    vm: 'VM',
+    disk: '↳ OS disk',
+    network: '↳ NIC → subnet',
+    limit:
+      'Dette forsøket har 24 lagrede modellkjøringer. Du kan fortsatt inspisere, forklare og levere eller avbryte; et nytt forsøk overskriver ikke disse observasjonene.',
+    note: 'Separat konseptmodell med referanser til din VM. Ingen ressurs feiler i Portalen. Vi antar at hvert erklært spor har fungerende kode og egne OS-disker/NIC-er; bare den valgte avhengigheten og rutingsregelen undersøkes. Ingen målt trafikk, failover, SLA eller sannsynlighet.',
+    failure: 'Hypotetisk feil på spor 1',
+    copies: 'Antall erklærte spor',
+    isolation: 'Subnet-avhengighet for spor 2',
+    routing: 'Erklært ruting',
+    prediction: 'Forutsi brukbare spor etter feilen',
+    choose: 'Velg 0, 1 eller 2 før kjøring',
+    run: 'Kjør den konseptuelle feilmodellen',
+    result: 'Sist lagrede modellobservasjon',
+    path: 'Erklært spor',
+    affected: 'Rammet av valgt feil',
+    routed: 'Kan motta arbeid etter erklært ruting',
+    usable: 'Brukbare spor',
+    available: 'Teknisk upåvirkede spor',
+    predicted: 'Din prediksjon',
+    actual: 'Beregnet under disse antakelsene',
+    stale:
+      'Kontrollene er endret. Tabellen under gjelder fortsatt det lagrede input-snapshotet; gjør en ny prediksjon før kjøring.',
+    failures: {
+      os: 'OS-disk på spor 1 utilgjengelig',
+      nic: 'NIC på spor 1 utilgjengelig',
+      subnet: 'Subnet-avhengigheten på spor 1 utilgjengelig',
+    },
+    isolations: {
+      shared: 'Samme subnet-avhengighet som spor 1',
+      independent: 'Separat erklært subnet-avhengighet',
+    },
+    routings: { single: 'Bare spor 1 mottar arbeid', balanced: 'Begge spor kan motta arbeid' },
+    yes: 'Ja',
+    no: 'Nei',
+    unused: 'Upåvirket, men ikke tilkoblet rutingen',
+    explain:
+      'Resultatet følger hele den erklærte kjeden. Et upåvirket spor hjelper ikke når rutingen fortsatt peker bare mot det tapte sporet. Ved delt subnet kan begge spor miste samme nødvendige avhengighet. Disse antakelsene oppretter ingen replika eller ruting i AzureLab.',
+  },
+  milestone: {
+    title: 'En teknisk observasjon har en grense',
+    settings:
+      'To aksepterte SetAppSettings-kvitteringer viser vedlikeholdsverdi og senere gjenopprettet verdi på samme app. Dialogens Apply lagret bare et utkast. Verken kvitteringene eller de lagrede verdiene beviser at applikasjonen leste dem eller kjører.',
+    diagnosis:
+      'Den erklærte modellen ga ulike resultater da avhengighet eller ruting ble endret. En ekstra compute-kopi alene fjernet ikke hele feilbanen. Portalressursene er uendret; dette er en konseptuell undersøkelse, ikke målt tilgjengelighet.',
+    recall: 'SavvyShark · gjenåpne oppdragsobservasjonen',
+  },
+  guidance: {
+    choose: [
+      'Velg en faktisk ressurs',
+      'Åpne Virtual machines eller App Services; velg ressursen og bruk oppdragsknappen i veiledningen.',
+      'Oppdraget må knyttes til en faktisk ressurs-ID. Gjenbruk merkes som gjenbruk, ikke nyopprettelse.',
+    ],
+    build: [
+      'Bygg konfigurasjonen som kravene beskriver',
+      'Bruk Resource groups ved behov og deretter tjenestens Create → Basics/Disks/Networking → Review + create → Create.',
+      'Review validerer uten opprettelse. Bare din Create sender en kommando; bundle-kvitteringen må vise aksepterte avhengigheter.',
+    ],
+    inspect: [
+      'Følg de faktiske referansene',
+      'Åpne ressursene og de aktuelle Activity log-kvitteringene via oppdragslenkene. Bekreft observasjonen i den faktiske visningen.',
+      'En relation viser tilknytning. Se OS-/datadisk, NIC/subnet eller app/plan og skill dette fra drift.',
+    ],
+    deny: [
+      'Undersøk den avgrensede Web-regelen',
+      'Åpne App Sandbox og Resource group; send selv planforespørselen utenfor West Europe og les Activity log → den avviste operasjonen → Policy.',
+      'Avslag må ha korrekt måltype og scope, uendret revision og ingen ny ressurs. Gruppemetadata er en annen egenskap.',
+    ],
+    correct: [
+      'Korriger ressurslokasjonen, og bekreft resultatet',
+      'App Service plans → Create i samme gruppe; velg en location som den faktiske policyen tillater. Opprett så Web App på den aksepterte planen.',
+      'Akseptert plan og app må følge det nye avslaget. En historisk ressurs eller annen akseptert kommando er ingen ny korreksjon.',
+    ],
+    settings: [
+      'Skill utkast fra Apply',
+      'Valgt Web App → Environment variables → App settings → Edit → Apply i dialogen (bare utkast). Velg deretter Apply på hovedsiden selv for å sende kommandoen.',
+      'Oppdragsobservasjonen registrerer et endret utkast; den faktiske lagrede verdien nedenfor endres først når SetAppSettings aksepteres.',
+    ],
+    restore: [
+      'Gjenopprett standard og sammenlign kvitteringene',
+      'Samme apps Environment variables: endre CATALOG_MODE til standard, behold oppdragets environment og velg Apply. Undersøk begge Activity log-operasjoner.',
+      'To ordnede aksepterte oppdateringer viser read-only → standard. Verken dette eller en draft beviser kjørende kode.',
+    ],
+    model: [
+      'Returner og undersøk den erklærte feilmodellen',
+      'Tilbake til oppdraget i kurset → Dependency Failure Investigation. Velg antakelser, forutsi og kjør to relevante kontraster.',
+      'Modellen leser den valgte VM-kjeden, men feilen, kopien og rutingen er uttrykkelige antakelser. Portal-inventory endres ikke.',
+    ],
+    reflect: [
+      'Knytt observasjon til årsak og grense',
+      'Tilbake til oppdraget i kurset → Forklar beslutningen og konsekvensen → Lever oppdragsrefleksjonen.',
+      'Ressurs-/receipt-krav og faglige begrunnelser vurderes sammen. Besøk, maskot og knapper gir ikke fullføring.',
+    ],
+  },
+  missions: {
+    diagnose: {
+      title: 'Diagnose · følg den svake avhengigheten',
+      bridge:
+        'Reliability-teorien forklarer hvorfor hele avhengighetskjeden betyr noe. Nå skal du følge en faktisk VM-kjede og undersøke hvorfor mer compute alene ikke løser et delt avhengighetsproblem.',
+      scenario:
+        'En intern ekspedisjonstjeneste er rapportert utilgjengelig. Overleveringen inneholder en VM-konfigurasjon, men ingen helsetest. Finn hva konfigurasjonen faktisk viser før du foreslår tiltak.',
+      prerequisites:
+        'VM, OS-disk, NIC, subnet og forskjellen på konfigurasjon og kjøring. Repeter reliability-forklaringen over ved behov.',
+      goals: [
+        'Følg faktisk VM → OS-disk og VM → NIC → subnet.',
+        'Forutsi hvordan en delt avhengighet påvirker erklærte kopier.',
+        'Begrunn et tiltak uten å påstå målt tilgjengelighet.',
+      ],
+      stages: [
+        'Velg eller opprett en faktisk VM og undersøk VM, OS-disk, NIC og subnet.',
+        'Returner hit. Kjør to spor med delt subnet, balanced-ruting og hypotetisk subnet-feil.',
+        'Sammenlign med separat erklært subnet. Forutsi før begge kjøringene.',
+        'Forklar årsaken, lever refleksjonen og vurder modellens begrensninger.',
+      ],
+      observation:
+        'Reelle ressursreferanser, eksplisitte inspeksjoner og to lagrede input/resultat-snapshots. Et nodebesøk eller en animasjon fullfører ikke oppdraget.',
+      independent:
+        'Ny situasjon: to erklærte spor har separate OS-disker. OS-disken på spor 1 blir utilgjengelig. Undersøk hvorfor en frisk kopi likevel kan være ubrukbar når bare spor 1 får arbeid. Sammenlign single og balanced-ruting med en prediksjon før hver kjøring. Inspiser den faktiske kjeden; ingen instruksjonsguide eller automatisk løsning vises.',
+      decision: 'Hvilket tiltak adresserer en dokumentert felles avhengighet?',
+      independentDecision:
+        'Hvilket tiltak adresserer den observerte feilbanen når spor 2 har egen OS-disk, men bare spor 1 får arbeid?',
+      reason: 'Hva kan undersøkelsen faktisk underbygge?',
+      choices: {
+        dependency: [
+          'Vurder uavhengighet gjennom hele nødvendige kjeden og test ruting/avhengigheter.',
+          'Tiltaket møter feilårsaken; flere kopier må også ha en brukbar end-to-end-bane.',
+        ],
+        'more-compute': [
+          'Opprett alltid én ekstra VM; avhengighetene trenger ikke vurderes.',
+          'En ekstra VM kan ha samme nødvendige avhengighet eller mangle ruting.',
+        ],
+        'new-group': [
+          'Flytt bare ressursene til to Resource groups.',
+          'Management-medlemskap skaper ingen fysisk eller operasjonell uavhengighet.',
+        ],
+        'declared-path': [
+          'Konfigurasjonsreferanser og konsekvenser under erklærte antakelser; ikke faktisk oppetid.',
+          'Portalen har ikke kjørt kode eller målt tilgjengelighet, og modellen har ingen ekte failover.',
+        ],
+        'azure-measured': [
+          'At Azure-tjenesten faktisk opprettholdt all trafikk.',
+          'Ingen trafikk eller helsedata ble målt.',
+        ],
+        guaranteed: [
+          'En generell SLA-garanti for enhver app med to kopier.',
+          'SLA og applikasjonsrobusthet avhenger av konkret tjeneste, design og konfigurasjon.',
+        ],
+      },
+      feedback:
+        'Faktiske konfigurasjonsreferanser og en separat feilmodell gir forskjellige typer observasjon. Bruk årsaken, ikke antallet ressursikoner, når du foreslår neste undersøkelse. Se kriteriene over for hva dette forsøket faktisk dokumenterer.',
+    },
+    governance: {
+      title: 'Governance · undersøk avslag og korreksjon',
+      bridge:
+        'Et policybegrep blir nyttig når du kan følge regelen fra assignment-scope til forespørsel og faktisk kvittering. Nå sammenligner du et avslag med en målrettet korreksjon.',
+      scenario:
+        'Publiseringsteamet skal ha en Web App i App Sandbox. En kollega hevder at gruppens metadata-region kan brukes til å omgå Web-location-regelen. Undersøk påstanden gjennom støttede operasjoner.',
+      prerequisites:
+        'Subscription, gruppemetadata, planens resource location, hosting og den avgrensede Web-policyen. Acceptance er ikke sikkerhets- eller compliance-godkjenning.',
+      goals: [
+        'Les faktisk scope og typefilter.',
+        'Sammenlign nytt avslag med senere korrigert plan og app i samme gruppe.',
+        'Forklar hvilke krav aksepten kontrollerte og hvilke den ikke undersøkte.',
+      ],
+      stages: [
+        'Bruk en gruppe i App Sandbox med metadata utenfor West Europe; opprett en om nødvendig.',
+        'Send selv en ny planforespørsel utenfor West Europe. Undersøk kvittering og gjeldende policy.',
+        'Korriger planens ressurslokasjon i samme gruppe. Opprett appen på denne aksepterte planen.',
+        'Undersøk subscription, gruppe, plan, app og begge kvitteringer. Returner og begrunn resultatet.',
+      ],
+      observation:
+        'Nye post-boundary kvitteringer må vise avslag uten added resource, deretter akseptert plan og app. Historiske avslag eller en annen akseptert operasjon teller ikke som ny korreksjon.',
+      independent:
+        'Ny revisjon: et team hevder at Web-regelen forbyr enhver ressurs utenfor West Europe. Undersøk en ny avvist plan, en senere korrigert plan/app og en ny støttet VM utenfor West Europe i App Sandbox. Inspiser også VM-kvitteringen som moteksempel til universalpåstanden. Bruk gruppemetadata utenfor West Europe. Begrunn hva aksepten sier om generell sikkerhet og compliance.',
+      decision: 'Hva må korrigeres for denne Web-location-avvisningen?',
+      reason: 'Hva demonstrerer den senere aksepterte operasjonen?',
+      choices: {
+        'resource-location': [
+          'Den relevante Web-ressursens lokasjon, innenfor riktig subscription og typefilter.',
+          'Den faktiske regelen sammenholder Web-ressursens location med assignmenten i App Sandbox.',
+        ],
+        'metadata-location': [
+          'Bare gruppens metadata-region; planen trenger ingen endring.',
+          'Gruppemetadata er ikke planens resource location og er ikke denne regelens target.',
+        ],
+        'other-subscription': [
+          'Flytt arbeidet til Shared Sandbox, uansett teamets krav.',
+          'Et scope utenfor assignmenten oppfyller ikke kravet om App Sandbox.',
+        ],
+        'bounded-check': [
+          'At støttede tekniske krav og denne regelen ble tilfredsstilt; flere sikkerhetskontroller gjenstår.',
+          'Kode, IAM, faktisk helse og alle compliance-krav er ikke evaluert av den lokale Web-regelen.',
+        ],
+        'secure-app': [
+          'At applikasjonen nå er sårbarhetsfri og kjører sikkert.',
+          'Ingen kodeanalyse eller kjøretid ble undersøkt.',
+        ],
+        'full-compliance': [
+          'At alle regulatoriske krav er godkjent.',
+          'En avgrenset policykontroll er ikke en generell compliance-revisjon.',
+        ],
+      },
+      feedback:
+        'Knytt requested location, ressurstype og assignment-scope til samme kvittering. Uendret revision ved avslag betyr at den avviste planen ikke ble lagt til.',
+    },
+    infrastructure: {
+      title: 'IaaS · bygg for et konkret gjestekrav',
+      bridge:
+        'IaaS gir kontroll over gjesten. Nå må du begrunne hvorfor kontrollen trengs og velge en modellert konfigurasjon som følger et konkret arbeidsbehov.',
+      scenario:
+        'Et dokumentteam vedlikeholder en Linux-native konverterer og egne gjestepakker. Teamet trenger standard treningsprofil (4 vCPU / 8 GiB RAM), en separat 32 GiB datadisk og Shared Sandbox som administrativt ansvar.',
+      prerequisites:
+        'Image, vCPU/RAM som allokeringsenheter, OS-disk versus datadisk og NIC/subnet. Profilene er undervisningsantakelser, ikke ekte Azure-SKU-er eller ytelsesmålinger.',
+      goals: [
+        'Velg IaaS ut fra gjestekontroll, ikke bare tjenestenavn.',
+        'Opprett en ny støttet VM med riktig image, profil, datadisk og scope.',
+        'Inspiser avhengighetene og forklar beholdt operativt ansvar.',
+      ],
+      stages: [
+        'Velg eller opprett gruppe i Shared Sandbox.',
+        'Opprett en ny Ubuntu-VM med standard-profil og data32. Velg et gyldig nytt eller gjenbrukt subnet.',
+        'Velg den nye VM-en for oppdraget og undersøk opprettelseskvitteringen.',
+        'Inspiser VM, OS-disk, datadisk, NIC og subnet. Returner og forklar hva som fortsatt må driftes og testes.',
+      ],
+      observation:
+        'En akseptert post-boundary bundle med faktiske dependencies. Gamle VM-er, eller ufullstendige avviste bundles, kan ikke tilfredsstille nybyggkravet.',
+      independent:
+        'Ny situasjon: en Windows-only, planlagt kontrollprosess trenger small treningsprofil (2 vCPU / 4 GiB), en separat 32 GiB datadisk og App Sandbox. Opprett ny konfigurasjon etter dette forsøks startgrense. Inspiser VM, OS-/datadisk, NIC, subnet og opprettelseskvittering. Velg tjenestemodell og begrunn drifts-/verifikasjonsgrensene selv.',
+      decision: 'Hvorfor er IaaS relevant for dette arbeidsbehovet?',
+      reason: 'Hva følger av den faktiske VM-konfigurasjonen?',
+      choices: {
+        'guest-control': [
+          'Teamet trenger kontroll over gjeste-OS og egne pakker.',
+          'IaaS tilbyr den nødvendige gjestekontrollen, med tilsvarende driftsansvar.',
+        ],
+        'managed-guest': [
+          'Teamet vil overlate all gjestepatching til App Service.',
+          'Det beskriver et administrert plattformvalg og dekker ikke det oppgitte gjestekravet.',
+        ],
+        'ready-app': [
+          'Teamet trenger bare å kjøpe tilgang til en ferdig sluttbrukerapp.',
+          'Det ville pekt mot SaaS, ikke den beskrevne egenstyrte prosessen.',
+        ],
+        'retained-operations': [
+          'Kunden må fortsatt håndtere gjest, programvare, data og tilgang; NIC viser ikke bevist trafikk.',
+          'Allokering og relasjoner er konfigurert; ingen gjesteprosess eller nettverksforbindelse er testet.',
+        ],
+        'provider-patches': [
+          'Microsoft tar automatisk alt ansvar for denne VM-ens gjest og applikasjon.',
+          'VM-gjest og egen programvare inngår fortsatt i kundens ansvar.',
+        ],
+        'network-proven': [
+          'En NIC-referanse viser at konvertereren faktisk kan nå alle tjenester.',
+          'En konfigurasjonsrelasjon er ikke en gjennomført trafikktest.',
+        ],
+      },
+      feedback:
+        'OS-disk og datadisk har ulike roller. Valgt RAM og vCPU er allokering; det finnes ingen måling av konvertererens throughput, boot eller tilgjengelighet her.',
+    },
+    platform: {
+      title: 'PaaS · vedlikehold og gjenopprett konfigurasjon',
+      bridge:
+        'Å overlate gjeste-OS til en plattform fjerner ikke applikasjonsarbeidet. Nå skal du undersøke to virkelige konfigurasjonsendringer og forskjellen på utkast, Apply og faktisk drift.',
+      scenario:
+        'Katalogteamet har egen Web-kode og ønsker administrert gjeste-OS. Under et staging-vedlikehold skal CATALOG_MODE først være read-only, og deretter standard igjen. APP_ENVIRONMENT skal være staging i begge lagrede tilstander.',
+      prerequisites:
+        'PaaS, app → plan-hosting og Environment variables. APP_ENVIRONMENT og CATALOG_MODE er harmløse, fiktive appkonvensjoner; koden måtte selv lese dem.',
+      goals: [
+        'Begrunn App Service fremfor VM når gjeste-OS ikke skal administreres.',
+        'Sammenlign faktisk lagret verdi med et endret utkast fra dialogens Apply.',
+        'Apply vedlikehold og senere gjenoppretting på samme app; kontroller begge kvitteringene.',
+      ],
+      stages: [
+        'Velg en faktisk app med gyldig plan. Opprett støttede avhengigheter selv om ingen finnes.',
+        'Undersøk app, plan og gruppe. Hvis appen allerede er read-only, lagre standard først.',
+        'Edit innstillingene til staging/read-only og velg dialogens Apply for å legge dem i utkastet. Dette endrer ikke simulatorens lagrede tilstand.',
+        'Velg Apply selv og undersøk kvitteringen. Endre så til staging/standard, Apply og undersøk den andre kvitteringen.',
+        'Returner og begrunn hvorfor lagret konfigurasjon ikke beviser kjørende applikasjonsatferd.',
+      ],
+      observation:
+        'Et faktisk endret utkast etterfulgt av to ordnede, aksepterte SetAppSettings på samme app: read-only og standard. Tidligere verdier eller et uanvendt utkast fullfører ikke oppdraget.',
+      independent:
+        'Ny situasjon: en publiseringsapp og en intern staging-app skal dele hosting-plan, men ha ulike appinnstillinger. Velg publiseringsappen som oppdragsressurs. Lagre en ny APP_ENVIRONMENT=production / CATALOG_MODE=standard på den, og en ny staging/read-only på en annen app som refererer samme plan. Opprett den andre appen selv ved behov. Undersøk begge appene, felles plan, gruppe og begge nye kvitteringer. Et faktisk endret utkast på publiseringsappen må komme før dens Apply. Avgjør hvilket konfigurasjonsscope som gir forskjellige verdier uten å endre felles hosting.',
+      independentQuestions: {
+        decision: 'Hvor bør teamet konfigurere forskjellene mellom disse to appene?',
+        reason: 'Hva underbygger de forskjellige lagrede verdiene på samme hosting-plan?',
+      },
+      independentFeedback:
+        'App settings tilhører den enkelte appen. En felles plan representerer delte hostingressurser, ikke automatisk felles miljøvariabler. De faktiske app-ID-ene og nye kvitteringene viser separate konfigurasjoner; de beviser ikke runtime-isolasjon, trafikk eller korrekt kjørende kode.',
+      decision: 'Hvorfor passer en App Service-type plattform her?',
+      reason: 'Hva betyr de to aksepterte konfigurasjonsendringene?',
+      choices: {
+        'app-scope': [
+          'På hver Web App, med egne verdier og en Apply på riktig app-ID.',
+          'Innstillingene tilordnes hver app. Felles plan kan beholdes uten at appkonfigurasjon blir den samme.',
+        ],
+        'plan-scope': [
+          'Bytt planens lokasjon for å skille miljøvariablene.',
+          'Planlokasjon er hosting, ikke lagring av disse appspesifikke verdiene.',
+        ],
+        'group-scope': [
+          'Endre gruppens metadata-region, så får appene ulike innstillinger.',
+          'Gruppemetadata styrer verken appens konfigurasjonsverdier eller dens hosting-plan.',
+        ],
+        'isolated-config': [
+          'Appene har forskjellig lagret konfigurasjon; kundekoden må fortsatt testes.',
+          'To app-ID-er og Apply-kvitteringer viser konfigurasjon per app, ikke observert runtime-atferd.',
+        ],
+        'shared-values': [
+          'Alle apper på samme plan arver automatisk identiske appinnstillinger.',
+          'Hosting-relasjonen deler ikke disse appspesifikke innstillingene. Den observerte konfigurasjonen viser ulike verdier.',
+        ],
+        'live-isolation': [
+          'At produksjons- og staging-trafikken er målt og fysisk isolert.',
+          'AzureLab kjører ikke trafikk eller kode. En delt plan er heller ikke bevis for fysisk feilseparasjon.',
+        ],
+        'managed-os': [
+          'Egen støttet appkode, mens leverandøren administrerer gjeste-OS.',
+          'Dette er en relevant PaaS-begrunnelse; teamet beholder app- og databeslutninger.',
+        ],
+        'custom-kernel': [
+          'Arbeidsbehovet krever at teamet bytter plattformens kernel selv.',
+          'Det ville pekt mot større gjestekontroll, ikke denne administrerte plattformen.',
+        ],
+        'license-only': [
+          'En lisens til en ferdig app erstatter teamets egen kode.',
+          'En ferdig SaaS-app svarer ikke på behovet for å hoste denne koden.',
+        ],
+        'config-only': [
+          'Lagrede verdier på riktig app; koden, data, tilgang og faktisk atferd må fortsatt valideres.',
+          'AzureLab utfører ikke koden eller en restart. Kundens konfigurasjon og programvare er fortsatt kundens ansvar.',
+        ],
+        'running-proven': [
+          'At katalogen faktisk blokkerte og senere godtok alle brukerhandlinger.',
+          'Det finnes ingen kjørende katalog eller trafikkobservasjon i simulatoren.',
+        ],
+        'provider-code': [
+          'At leverandøren nå også eier og kvalitetssikrer kundens kode.',
+          'PaaS overfører ikke dette ansvaret for egen applikasjonskode.',
+        ],
+      },
+      feedback:
+        'To aksepterte receipts beviser en ordnet konfigurasjonsendring og restaurering, ikke at kundekoden utførte vedlikehold. Dialogens Apply til utkastet alene gjorde ingen av disse tekniske endringene.',
+    },
+  },
 } as const;

@@ -4,6 +4,8 @@ import { nb, regionLabels } from '@/content/nb';
 import { useSandbox } from '@/features/portal/sandbox-provider';
 import { useCourse } from './provider';
 import { usePractical } from './practical-provider';
+import { useMissions } from './mission-provider';
+import { types } from '@/domain/sandbox/model';
 import { labFacts } from '@/domain/course/model';
 import {
   milestoneAutoContext,
@@ -38,7 +40,8 @@ export function GuidanceMilestones({
 }) {
   const technical = useSandbox(),
     course = useCourse(),
-    practical = usePractical();
+    practical = usePractical(),
+    missions = useMissions();
   const engine = technical.attempt.engine;
   const session = practical.current;
   const findings = useMemo(
@@ -47,32 +50,68 @@ export function GuidanceMilestones({
   );
   const context = useMemo<GuidedMilestoneContext | null>(
     () =>
-      independent || !technical.ready || !course.ready || !practical.ready
+      independent ||
+      !technical.ready ||
+      !course.ready ||
+      !practical.ready ||
+      !missions.ready ||
+      !!missions.issue
         ? null
-        : session &&
-            session.status === 'active' &&
-            session.mode === 'guided' &&
-            location.practice === session.kind
+        : location.mission &&
+            missions.current?.mission === location.mission &&
+            missions.current.status === 'active' &&
+            missions.current.mode === 'guided'
           ? {
-              scope: `practical-${session.id}`,
-              attempt: session.attempt,
-              boundary: session.boundary,
-              kind: session.kind,
-              inspected: session.inspected,
-              groupId: findings.group?.id,
+              scope: `mission-${missions.current.id}`,
+              attempt: missions.current.attempt,
+              boundary: missions.current.boundary,
+              kind: ['diagnose', 'infrastructure'].includes(missions.current.mission)
+                ? 'vm'
+                : 'paas',
+              inspected: missions.current.inspected
+                .filter((ref) => ref.startsWith('resource:'))
+                .map((ref) => ref.slice(9)),
+              groupId:
+                engine.world.resources.find(
+                  (r) => r.id === missions.current?.target && r.type === types.app,
+                )?.groupId ??
+                engine.ledger
+                  .slice(
+                    missions.current.boundary === null
+                      ? 0
+                      : engine.ledger.findIndex(
+                          (e) => e.receipt.commandId === missions.current?.boundary,
+                        ) + 1,
+                  )
+                  .findLast((e) => e.receipt.code === 'policy-location-denied')?.receipt.scopeId,
             }
-          : location.lab && course.save.lab && findings.verifiable
+          : session &&
+              session.status === 'active' &&
+              session.mode === 'guided' &&
+              location.practice === session.kind
             ? {
-                scope: `web-${course.save.lab.boundary ?? 'origin'}`,
-                attempt: course.save.lab.attempt,
-                boundary: course.save.lab.boundary,
-                kind: 'paas',
-                inspected: [],
+                scope: `practical-${session.id}`,
+                attempt: session.attempt,
+                boundary: session.boundary,
+                kind: session.kind,
+                inspected: session.inspected,
                 groupId: findings.group?.id,
               }
-            : null,
+            : location.lab && course.save.lab && findings.verifiable
+              ? {
+                  scope: `web-${course.save.lab.boundary ?? 'origin'}`,
+                  attempt: course.save.lab.attempt,
+                  boundary: course.save.lab.boundary,
+                  kind: 'paas',
+                  inspected: [],
+                  groupId: findings.group?.id,
+                }
+              : null,
     [
       independent,
+      missions,
+      location.mission,
+      engine,
       technical.ready,
       course.ready,
       practical.ready,

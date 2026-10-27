@@ -105,3 +105,7 @@ New reviewed units can reuse manuscript/journal/evidence contracts and register 
 The renderer shows a neutral installation while the changed task or summary is active; an earlier guided plot must not imply the new task's state or reveal its prediction. Returning to study restores the current unit's actual recorded probe. Draft answer events are bounded, validated and non-evidentiary.
 
 Browser storage is origin-scoped. Different Vercel preview domains do not automatically share saves; no cross-origin import, account synchronization or learner identity is introduced.
+
+# PR24 applied activity supplement
+
+`missionDefinitions` binds four activities to existing stable CB/ST objectives, official PM source records and separate rubrics. The original [manuscript and claim review](PRACTICAL_MISSION_EXPANSION.md) preceded UI. `missionsNb` is the single learner-copy source. New `practical-missions.v1` never changes old practical sessions, curriculum observations, first submissions or XP. Model runs retain own predictions/input/through references, submitted sessions freeze later technical replay, and help/retry/abandon stay distinct. Parent module completion is not inferred from these records. Existing10-context teaching preflight guards new mission references/Journal access; own assessment controls are an explicit exclusion.

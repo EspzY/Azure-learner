@@ -1,5 +1,7 @@
 'use client';
 import { useManagement } from '@/features/learning/management-provider';
+import { useMissions } from './mission-provider';
+import { MissionActivity, MissionOverview } from './missions';
 import { ManagementTeachingBoundary } from '@/features/learning/management-access';
 import { ManagementLesson, CoreArchitectureJournal } from '@/features/learning/management';
 import { managementTopics, isManagementTopic } from '@/domain/curriculum/architecture-management';
@@ -61,7 +63,8 @@ const names = {
   benefits: nb.official.benefits,
 };
 export function Course({ module }: { module?: CourseModule }) {
-  const practical = usePractical(),
+  const missions = useMissions(),
+    practical = usePractical(),
     serverless = useServerless(),
     physical = usePhysical(),
     management = useManagement();
@@ -131,7 +134,7 @@ export function Course({ module }: { module?: CourseModule }) {
       !module ||
       !course.ready ||
       chooseVersion ||
-      ['lab', 'debrief', 'practical'].includes(query.get('activity') ?? '')
+      ['lab', 'debrief', 'practical', 'mission'].includes(query.get('activity') ?? '')
     )
       return;
     let settled = 0;
@@ -332,6 +335,7 @@ export function Course({ module }: { module?: CourseModule }) {
             nb.foundationsV2.topics[t as (typeof v2Topics)[number]]?.title ??
             nb.foundations.units[t as (typeof unitIds)[number]]?.title);
   const begin = () => {
+    if (missions.active) return;
     if (services.facts.active) services.store.event({ kind: 'aid' });
     if (learning.facts.active) learning.store.event({ kind: 'aid' });
     const session =
@@ -504,11 +508,13 @@ export function Course({ module }: { module?: CourseModule }) {
             orientation={!module}
             only={module && module !== 'architecture' ? 'core' : undefined}
             assessment={
-              module === 'architecture' && topic === 'management-assessment'
-                ? 'management'
-                : module === 'architecture' && topic === 'assessment'
-                  ? 'physical'
-                  : undefined
+              module && missions.active && !missions.assisted
+                ? 'missions'
+                : module === 'architecture' && topic === 'management-assessment'
+                  ? 'management'
+                  : module === 'architecture' && topic === 'assessment'
+                    ? 'physical'
+                    : undefined
             }
           >
             {!module ? (
@@ -530,6 +536,7 @@ export function Course({ module }: { module?: CourseModule }) {
                     <ArrowRight size={18} />
                   </Link>
                 </div>
+                <MissionOverview />
                 <section className="course-lab-discovery" aria-label={labsNb.discover}>
                   <strong>{labsNb.discover}</strong>
                   <p>{labsNb.discoverNote}</p>
@@ -638,6 +645,8 @@ export function Course({ module }: { module?: CourseModule }) {
                   <p>{c.participation}</p>
                 </section>
               </>
+            ) : missions.active && !missions.assisted ? (
+              <MissionActivity />
             ) : practical.activeIndependent && practical.current && !practical.current.aided ? (
               <section className="practical-entry">
                 <small>{labsNb.independent}</small>
@@ -743,6 +752,7 @@ export function Course({ module }: { module?: CourseModule }) {
                           serverless,
                           physical,
                           management,
+                          missions,
                         ].some((x) => !x.ready || !!x.issue) ||
                         learning.facts.active ||
                         v2.facts.active ||
@@ -751,7 +761,8 @@ export function Course({ module }: { module?: CourseModule }) {
                         service2.facts.active ||
                         practical.activeIndependent ||
                         serverless.facts.active ||
-                        physical.facts.active
+                        physical.facts.active ||
+                        missions.active
                       }
                     />
                   ) : module === 'architecture' ? (
@@ -771,6 +782,7 @@ export function Course({ module }: { module?: CourseModule }) {
                           serverless,
                           physical,
                           management,
+                          missions,
                         ].some((x) => !x.ready || !!x.issue) ||
                         learning.facts.active ||
                         v2.facts.active ||
@@ -779,7 +791,8 @@ export function Course({ module }: { module?: CourseModule }) {
                         service2.facts.active ||
                         serverless.facts.active ||
                         practical.activeIndependent ||
-                        management.facts.active
+                        management.facts.active ||
+                        missions.active
                       }
                     />
                   ) : module === 'benefits' ? (
@@ -801,6 +814,7 @@ export function Course({ module }: { module?: CourseModule }) {
                           serverless,
                           physical,
                           management,
+                          missions,
                         ].some((x) => !x.ready || !!x.issue) ||
                         learning.facts.active ||
                         v2.facts.active ||
@@ -809,7 +823,8 @@ export function Course({ module }: { module?: CourseModule }) {
                         service2.facts.active ||
                         practical.activeIndependent ||
                         physical.facts.active ||
-                        management.facts.active
+                        management.facts.active ||
+                        missions.active
                       }
                     />
                   ) : module === 'computing' && currentV2 ? (

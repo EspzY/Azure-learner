@@ -168,3 +168,7 @@ Competencies and evidence have stable IDs/revisions; credential mappings are a s
 ## 3.1B.1 presentation boundaries
 
 No store/schema or domain rule changes. The course navigation observer manages viewport clearance and heading focus. The coach adds typed action/inspection semantics and route eligibility before resolving DOM bounds; target selection remains read-only. `CloudDeployment` is a bounded explanatory SVG, not an additional simulator inventory. It retains classification on offsite private-cloud moves and labels hybrid lines as requirements, never configured connectivity. Detailed contracts live in [guided engine](GUIDED_SANDBOX_ENGINE.md) and [handoff](FOUNDATIONS_31B_HANDOFF.md#31b1-implemented-refinement).
+
+# PR24 practical missions
+
+The existing Course shell mounts mission entries in actual Benefits/Service Types lessons. A small isolated MissionProvider replays `azurelab.practical-missions.v1`; it stores references/observations/answers rather than resources. Pure evaluators read the current or retained Sandbox attempt at the submitted ledger through-ID, so later commands cannot rewrite a previous result. PortalLocation preserves an allowlisted mission identifier for navigation only. No URL creates a session or evidence. MissionPortalLayer observes actual resource/receipt/policy contexts; native MissionBriefing, registered icons and Architecture Explorer are reused. Dependency failure is a separate declared hypothesis. [Detailed domain/persistence contract](PRACTICAL_MISSION_EXPANSION.md).

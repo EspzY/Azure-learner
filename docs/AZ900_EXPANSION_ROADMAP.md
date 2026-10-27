@@ -212,3 +212,7 @@ P13/P14 kan trekkes frem når forutsetningene er dekket, for å balansere archit
 ## Klar anbefaling for neste implementeringsoppdrag
 
 Bestill **P00 alene** som neste avgrensede implementering. Be om manuskript, kilde-/scope-review, hendelsesmodell, to nye scenarioer og eksplisitt lagrings-/evidensversjon før kode. Bestill deretter core architecture som **P01 og P02**, med full modulstatus først etter begge. Ikke utvid den operative simulatoren for å dekke ord i eksamenslisten når en bedre konseptmodell gir læringsmålet med lavere vedlikeholdskostnad.
+
+# PR24 owner-prioritized practical integration
+
+The owner inserted four distinct practical missions after P02, before broader assessment expansion. They reinforce existing Benefits/Service Types through actual configuration/receipt investigation plus a declared dependency hypothesis, without new Azure engines or A–F COMPLETE upgrades. [Bounded implementation](PRACTICAL_MISSION_EXPANSION.md). Next authorized planning target is PR25 Cloud Concepts Assessment & Transfer Refinement for the eight PARTIAL objectives, then Cost Management. Earlier P03 priority remains the assessment work, not superseded evidence.

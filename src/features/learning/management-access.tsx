@@ -31,6 +31,14 @@ import { useServerless } from './serverless-provider';
 import { useExpansion } from './expansion-provider';
 import { usePortalLearning } from '@/features/portal/learning-provider';
 import { usePractical } from '@/features/course/practical-provider';
+import { useMissions } from '@/features/course/mission-provider';
+import {
+  missionKey,
+  missionFacts,
+  restoreMissions,
+  missionOrigin,
+} from '@/domain/sandbox/missions';
+import { MissionRecovery } from '@/features/course/missions';
 import { ManagementRecovery } from './management-recovery';
 import { PhysicalRecovery } from './physical-recovery';
 import { PhysicalRunControl } from './physical';
@@ -85,8 +93,18 @@ export function ManagementTeachingBoundary({
     old = usePortalLearning(),
     benefits = useExpansion('benefits'),
     services = useExpansion('services'),
-    practical = usePractical();
+    practical = usePractical(),
+    missions = useMissions();
   const checks = [
+    check(
+      'missions',
+      missions,
+      missionKey,
+      restoreMissions,
+      missionFacts,
+      () => missions.store.event({ type: 'aid' }),
+      missionOrigin(missions.activeSession?.mission ?? 'diagnose'),
+    ),
     check(
       'management',
       b,
@@ -179,6 +197,7 @@ export function ManagementTeachingBoundary({
     (item) =>
       item.id !== assessment &&
       (!only ||
+        item.id === 'missions' ||
         (only === 'core' ? ['management', 'physical'].includes(item.id) : item.id === only)),
   );
   const token = JSON.stringify([
@@ -229,6 +248,7 @@ export function ManagementTeachingBoundary({
               </Link>
               {item.id === 'management' && <ManagementRecovery />}
               {item.id === 'physical' && <PhysicalRecovery />}
+              {item.id === 'missions' && <MissionRecovery />}
             </div>
           ))}
       </div>

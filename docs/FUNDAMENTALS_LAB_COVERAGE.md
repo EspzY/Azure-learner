@@ -31,3 +31,9 @@ Review date 2026-10-25. Sources: [official path](https://learn.microsoft.com/en-
 The current official three-module order is unchanged. Existing conceptual first attempts are not upgraded by the new labs. Serverless is an AZ-900 study-guide bullet beyond the selected path's current module objective list: wider coverage remains incomplete. Governance/networking/storage/operations depth remains in the professional 30-unit proposal; one competency can require many modules. Full exam coverage/readiness is not claimed.
 
 Each implemented lab must satisfy the learner decision → validated command → persisted consequence → causal inspection → changed-task evidence contract. See [technical plans](INTEGRATED_LABS_ARCHITECTURE.md) and [executed versus pending gates](PRACTICAL_LABS_QA.md).
+
+# PR24 applied mission delta
+
+[The implemented-start audit and new missions](PRACTICAL_MISSION_EXPANSION.md) distinguish five conceptual Benefits experiments, inspection-only bridges and the three existing operational labs. New A/CB01–02 connects real VM attachments to a declared failure/routing comparison. New B/CB03–04 requires a fresh denied/corrected Web sequence, actual scope/metadata inspection and acceptance qualification. New C/ST01/ST04 builds to a changed guest/profile/disk/scope requirement. New D/ST02/ST04 observes a real changed draft and ordered maintenance/restoration Apply receipts on the same app. These are different learning tasks, not four entries to one lab. Existing SaaS already covers seats/least privilege/sharing/offboarding and is preserved; no superficial duplicate added.
+
+The57-objective A–F audit statuses remain unchanged. New bounded applied evidence does not resolve the eight broader PARTIAL Cloud Concepts transfer/feedback findings or imply Microsoft completion. PR25 is the next separate assessment refinement. Human review is outstanding.
