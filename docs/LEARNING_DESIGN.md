@@ -1,5 +1,9 @@
 # Learning design
 
+## P04 economic reasoning
+
+The course moves from a workload requirement through cost drivers, estimate assumptions, dated analysis, budget/projection contrast, metadata allocation and operationally constrained optimization. Predictions are compared with saved model inputs/results; explicit causal explanations distinguish guided investigation from ten unseen decision/reason situations. SavvyShark introduces each investigation, reports only validated runs and reopens two significant observed milestones. No arbitrary interaction completes learning. [Detailed sequence](COST_MANAGEMENT.md).
+
 ## P03 transfer after practical experience
 
 Each Cloud Concepts module now links teaching and guided missions to a separate independent decision/reason workspace. Prerequisites are instructional, not rigid mission-completion gates. New contexts change the causal or operational requirement; one service scenario accepts either supported architecture with its matching responsibility. Feedback explains every alternative only after submission and recommends the precise original activity. Human difficulty, cueing and transfer validation remain outstanding. [P03](CLOUD_CONCEPTS_TRANSFER.md).

@@ -1,5 +1,9 @@
 # Architecture
 
+## P04 isolated economic teaching
+
+`cost-model.ts` computes six fictional estimate components, dated120-row resource/scope records, grouped deltas, a last10-day projection, threshold comparison and tag allocation without importing World/commands. `cost.ts` owns CM01–05, item families/versions, strict bounded replay and reserved terminal capacity. CostStore/provider reuse existing durable compare/write/read-back patterns in a separate key. Course navigation alone gains the allowlisted cost module/topics; read-only optional inventory references remain in presentation. The shared all-context teaching boundary, mission safety and Portal guidance shielding include active/uncertain cost assessments, including historical feedback. No resource/price/billing engine or generic exam engine is added. [Detailed boundaries](COST_MANAGEMENT.md).
+
 ## P03 isolated assessment extension
 
 `transferManifest`, `transferItems`, pure evaluate/replay and TransferStore separate original item content, deterministic relationships, durable evidence and presentation. One outer TransferProvider makes its active/uncertain state visible to existing Journals, mission safety and Portal guidance suppression. The existing Course shell adds one allowlisted transfer topic; case IDs only choose navigation and never award evidence. No command, resource or old rubric changes. [Detailed contract](CLOUD_CONCEPTS_TRANSFER.md).

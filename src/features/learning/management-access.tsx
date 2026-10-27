@@ -50,6 +50,9 @@ import {
   transferHref,
 } from '@/domain/curriculum/transfer';
 import { TransferRecovery } from './cloud-transfer';
+import { useCost } from './cost-provider';
+import { costFacts, costKey, restoreCost, costHref } from '@/domain/curriculum/cost';
+import { CostRecovery } from './cost';
 export type TeachingContextId = keyof typeof c.accessContexts;
 const read = (key: string) => localStorage.getItem(key);
 function check<S>(
@@ -103,8 +106,18 @@ export function ManagementTeachingBoundary({
     services = useExpansion('services'),
     practical = usePractical(),
     missions = useMissions(),
-    transfer = useTransfer();
+    transfer = useTransfer(),
+    cost = useCost();
   const checks = [
+    check(
+      'cost',
+      cost,
+      costKey,
+      restoreCost,
+      costFacts,
+      () => cost.store.event({ kind: 'aid' }),
+      costHref('assessment', cost.facts.current?.item),
+    ),
     check(
       'transfer',
       transfer,
@@ -219,6 +232,7 @@ export function ManagementTeachingBoundary({
       (!only ||
         item.id === 'missions' ||
         item.id === 'transfer' ||
+        item.id === 'cost' ||
         (only === 'core' ? ['management', 'physical'].includes(item.id) : item.id === only)),
   );
   const token = JSON.stringify([
@@ -272,6 +286,7 @@ export function ManagementTeachingBoundary({
               {item.id === 'physical' && <PhysicalRecovery />}
               {item.id === 'missions' && <MissionRecovery />}
               {item.id === 'transfer' && <TransferRecovery />}
+              {item.id === 'cost' && <CostRecovery />}
             </div>
           ))}
       </div>

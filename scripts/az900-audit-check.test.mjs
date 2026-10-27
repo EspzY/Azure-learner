@@ -8,7 +8,7 @@ const data = JSON.parse(
 );
 test('all 57 pinned official slots and code/evidence/source references resolve', () => {
   assert.deepEqual(validateAudit(data), []);
-  assert.equal(data.objectives.filter((r) => r.status === 'COMPLETE').length, 22);
+  assert.equal(data.objectives.filter((r) => r.status === 'COMPLETE').length, 26);
   assert.equal(
     data.objectives.filter((r) => r.slot.startsWith('1.') && r.status === 'COMPLETE').length,
     15,
@@ -35,6 +35,13 @@ test('all 57 pinned official slots and code/evidence/source references resolve',
     assert.ok(row.evidence.includes('PB'));
     assert.deepEqual(Object.values(row.criteria), ['V', 'V', 'V', 'V', 'V', 'V']);
   }
+  for (const slot of ['3.1.01', '3.1.02', '3.1.03', '3.1.04']) {
+    const row = data.objectives.find((r) => r.slot === slot);
+    assert.equal(row.status, 'COMPLETE');
+    assert.ok(row.evidence.includes('CO'));
+    assert.deepEqual(Object.values(row.criteria), ['V', 'V', 'V', 'V', 'V', 'V']);
+    assert.ok(row.sources.some((id) => id.startsWith('CS')));
+  }
   assert.ok(renderMatrix(data).includes('35–40%'));
 });
 test('rejects omitted/duplicated official skills and stable IDs rather than increasing apparent coverage', () => {
@@ -59,4 +66,16 @@ test('rejects missing files/symbols, nonofficial sources and unmapped next PRs',
   assert.ok(errors.some((e) => e.includes('unresolved teaching')));
   assert.ok(errors.some((e) => e.includes('official source')));
   assert.ok(errors.some((e) => e.includes('next PR')));
+});
+test('public calculator is an exact official HTTPS source, not a lookalike or insecure URL', () => {
+  for (const url of [
+    'http://azure.microsoft.com/pricing/calculator/',
+    'https://azure.microsoft.com.example.org/pricing/calculator/',
+    'not a URL',
+  ]) {
+    const invalid = structuredClone(data);
+    invalid.sources.CS28.url = url;
+    assert.ok(validateAudit(invalid).some((e) => e.includes('CS28: missing official source')));
+  }
+  assert.deepEqual(validateAudit(data), []);
 });

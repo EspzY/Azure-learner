@@ -1,5 +1,9 @@
 # Roadmap
 
+## PR26 — P04 Cost Management
+
+Implemented in the ordinary course: full cost theory, four synthetic economic investigations and ten independent scenarios with separate versioned records. [Actual contract](COST_MANAGEMENT.md). Delivery gates and human limitations are tracked in PROJECT_STATUS; remaining governance modules are planned. Next: P05 Azure Compute & Hosting; no operational billing/FinOps expansion in P04.
+
 ## P03 implementation scope — PR25
 
 Cloud Concepts transfer adds unfamiliar original cases, matching reasons, selected-specific feedback and exact repetition links inside the existing course. The isolated versioned assessment preserves all earlier first submissions and guided evidence. P04 / PR26 remains the next planned Cost Management & Pricing delivery; no new resource engines or general exam diagnostics are included. [P03 contract](CLOUD_CONCEPTS_TRANSFER.md).

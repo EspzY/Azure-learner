@@ -1,5 +1,9 @@
 # Local curriculum and evidence architecture
 
+## Cost Management manuscript and activity boundary
+
+`costNb.sections` holds complete prerequisite, terminology, mechanism, worked example and qualification text; `costItemsNb` holds ten original decisions, structured reasons, all-alternative rationale and counterfactual conditions. Sources CS01–29 are dated metadata, not runtime requests. Four native-control workbenches require explicit model runs and causal explanations; visits/configuration alone are not mastery. One shared manuscript powers lesson and Journal. CM01–04 map four pinned cost objectives; CM05 maps the extra Learn optimization goal, not a fabricated exam slot. [Contract](COST_MANAGEMENT.md).
+
 ## P03 new transfer evidence
 
 The existing manuscripts remain the theory authority. `transferNb.items` adds19 original unfamiliar scenarios, every alternative rationale and counterfactual validity. `transferManifest` registers local objective/competency IDs separately from the dated exam overlay. `azurelab.learning.cloud-transfer.v1` records only new attempts; old guided missions and old module results cannot complete it. Historical rationales use the same durable all-context teaching boundary as Journal/summary. [Content, baseline and storage](CLOUD_CONCEPTS_TRANSFER.md).

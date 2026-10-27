@@ -1,5 +1,9 @@
 # Learning journey and competency universe
 
+## P04 current management/governance entry
+
+After the available Cloud Concepts and Core Architecture areas, the ordinary course exposes the first module of **Introduction to Cloud Infrastructure: Describe Azure management and governance**: Cost Management. Its nine activities connect drivers, estimates, recorded synthetic analysis, forecasts/budgets, tags and optimization to four guided investigations and new independent decisions. Journal, exact topic resume and explicit separate result status use the established shell; no old completion upgrades or new XP. Other management/governance modules remain planned. [Implemented sequence](COST_MANAGEMENT.md).
+
 ## Current available Core Architecture sequence — PR23
 
 Cloud Computing → Benefits → Service Types → Core Architecture Part A physical teaching/explorer/assessment → Part A results → Part B organization/resources/groups/subscriptions/management → live hierarchy → scope model and actual existing lab → Part B assessment → shared summary/Journal. Parts keep separate versions and results; neither visit nor historical A completion satisfies B. Advanced policy/RBAC and future modules remain unavailable. [Authored sequence](CORE_ARCHITECTURE_MANAGEMENT.md).

@@ -1,5 +1,9 @@
 # Content authoring and acceptance contract
 
+## P04 economic modeling application
+
+Economic teaching must distinguish estimates, recorded synthetic observations, projections, budgets and invoices. Explain units before input, use explicit fictional rates, a common zero baseline and equivalent tables. A Portal receipt contains no authoritative price, traffic, billing hours or invoice. Commitment discounts apply only to declared eligible compute in this bounded model; retain storage/network/license/support costs and runtime constraints. Resource tags, Policy modification and report inheritance are separate mechanisms. New first/help/retry evidence remains separate from guided investigations and historical data. [Implemented example](COST_MANAGEMENT.md).
+
 ## P03 assessment application
 
 For structured independent transfer, validate the relationship between the method and its technical reason, not the method alone. Preserve valid alternative architectures when requirements allow them. Review original cases for cueing, implausible distractors and superficial renaming of guided tasks; syntactic item counts are not proof of educational quality. Every option needs selected-specific feedback, a misconception and a condition under which it could work. Family exposure, aid and retry remain separate from first unaided evidence. [Applied baseline/manuscript](CLOUD_CONCEPTS_TRANSFER.md).

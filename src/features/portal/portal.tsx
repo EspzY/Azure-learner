@@ -7,6 +7,7 @@ import { MissionPortalLayer } from '@/features/course/mission-portal';
 import { missionOrigin } from '@/domain/sandbox/missions';
 import { useManagement } from '@/features/learning/management-provider';
 import { useTransfer } from '@/features/learning/transfer-provider';
+import { useCost } from '@/features/learning/cost-provider';
 import { usePhysical } from '@/features/learning/physical-provider';
 import { ManagementRecovery } from '@/features/learning/management-recovery';
 import { ManagementTeachingBoundary } from '@/features/learning/management-access';
@@ -90,7 +91,8 @@ function PortalWorkspace() {
     serverless = useServerless(),
     physical = usePhysical(),
     management = useManagement(),
-    transfer = useTransfer();
+    transfer = useTransfer(),
+    cost = useCost();
   useEffect(() => {
     if (serverless.facts.active && ['learn', 'responsibility', 'hierarchy'].includes(location.area))
       serverless.store.event({ kind: 'aid' });
@@ -119,6 +121,7 @@ function PortalWorkspace() {
     location.area,
   ]);
   const otherIndependentContext =
+    cost.facts.active ||
     transfer.facts.active ||
     location.mode === 'independent' ||
     management.facts.active ||
@@ -132,6 +135,7 @@ function PortalWorkspace() {
     services2.facts.active;
   const independentContext = otherIndependentContext || missions.active;
   const guidanceContexts = [
+    cost,
     transfer,
     missions,
     physical,

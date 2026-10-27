@@ -1,5 +1,9 @@
 # AzureLab 3.2.1
 
+## Cost Management — PR26
+
+The normal root now exposes **Describe cost management in Azure** as the first module in **Introduction to Cloud Infrastructure: Describe Azure management and governance**. Nine course activities combine full original theory, four SavvyShark investigations, component-level estimates, dated cost analysis, forecast/budget contrast, tag reporting and ten new independent decision/reason cases. All economic values are fictional ØK assumptions, separate from real local Portal resources; no Azure account, billing, prices or new XP. [Actual content, source review and evidence boundary](docs/COST_MANAGEMENT.md). Remaining governance modules stay planned; human validation is outstanding.
+
 ## Cloud Concepts independent transfer — PR25
 
 The ordinary course overview and all three Cloud Concepts modules expose an isolated independent transfer track with19 original scenarios across deployment, pricing, availability, reliability, governance, manageability and service choice. Decisions require matching technical reasons; specific feedback links to the exact lesson. Previous module/mission results remain historical and unchanged; no XP or exam-readiness score. [Content/evidence contract](docs/CLOUD_CONCEPTS_TRANSFER.md).

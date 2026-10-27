@@ -20,6 +20,18 @@ const counts = {
   3.4: 3,
 };
 const states = ['COMPLETE', 'PARTIAL', 'MISSING', 'UNVERIFIED'];
+function officialSource(url) {
+  try {
+    const parsed = new URL(url);
+    return (
+      parsed.protocol === 'https:' &&
+      ((parsed.hostname === 'learn.microsoft.com' && parsed.pathname.startsWith('/en-us/')) ||
+        parsed.hostname === 'azure.microsoft.com')
+    );
+  } catch {
+    return false;
+  }
+}
 export function validateAudit(audit, folder = root) {
   const errors = [];
   if (audit.schemaVersion !== 1 || audit.examVersion !== '2026-07-20')
@@ -48,7 +60,7 @@ export function validateAudit(audit, folder = root) {
   };
   for (const [id, source] of Object.entries(audit.sources ?? {})) {
     if (
-      !source.url.startsWith('https://learn.microsoft.com/en-us/') ||
+      !officialSource(source.url) ||
       (source.reviewed !== audit.reviewed &&
         !audit.updates?.some((u) => u.reviewed === source.reviewed && u.sources?.includes(id))) ||
       !source.purpose

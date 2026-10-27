@@ -63,3 +63,14 @@ export const officialCore = {
   status: 'implemented',
   humanReview: null,
 } as const;
+
+export const officialCost = {
+  reviewed: '2026-10-27',
+  path: 'https://learn.microsoft.com/en-us/training/paths/describe-azure-management-governance/',
+  module: 'describe-cost-management-azure',
+  officialUnits: 8,
+  officialObjectives: 5,
+  implementedObjectives: ['3.1.01', '3.1.02', '3.1.03', '3.1.04'],
+  status: 'implemented',
+  humanReview: null,
+} as const;

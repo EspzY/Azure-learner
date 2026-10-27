@@ -14,6 +14,8 @@ import { usePractical } from './practical-provider';
 import { useCourse } from './provider';
 import { useTransfer } from '@/features/learning/transfer-provider';
 import { transferHref } from '@/domain/curriculum/transfer';
+import { useCost } from '@/features/learning/cost-provider';
+import { costHref } from '@/domain/curriculum/cost';
 export function useMissionResult(session?: MissionSession | null) {
   const m = useMissions(),
     technical = useSandbox(),
@@ -40,8 +42,15 @@ export function useMissionSafetyContexts() {
     practical = usePractical(),
     course = useCourse(),
     technical = useSandbox(),
-    transfer = useTransfer();
+    transfer = useTransfer(),
+    cost = useCost();
   return [
+    {
+      id: 'cost',
+      state: cost,
+      active: cost.facts.active,
+      href: costHref('assessment', cost.facts.current?.item),
+    },
     {
       id: 'transfer',
       state: transfer,

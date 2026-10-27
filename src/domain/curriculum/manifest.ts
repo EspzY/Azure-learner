@@ -180,3 +180,4 @@ export { physicalManifest } from './architecture-physical';
 export { managementManifest } from './architecture-management';
 
 export { transferManifest } from './transfer';
+export { costManifest } from './cost';
