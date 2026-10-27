@@ -22,6 +22,7 @@ import { ResponsibilityExplorer } from '@/features/portal/responsibility';
 import './expansion.css';
 import { ModelVisual } from './expansion-visuals';
 import { LabEntry, BenefitsLabBridge } from '@/features/course/practical-lab';
+import { MissionEntry } from '@/features/course/missions';
 const t = nb.expansion.common;
 export function ExpandedModule({
   track,
@@ -156,6 +157,10 @@ export function ExpandedModule({
               ))}
             </dl>
           </details>
+          {track === 'benefits' && unit === 'reliability' && <MissionEntry id="diagnose" />}
+          {track === 'benefits' && unit === 'governance' && <MissionEntry id="governance" />}
+          {track === 'services' && unit === 'iaas' && <MissionEntry id="infrastructure" />}
+          {track === 'services' && unit === 'paas' && <MissionEntry id="platform" />}
           {track === 'services' && ['iaas', 'paas', 'saas'].includes(unit) && (
             <LabEntry
               kind={unit === 'iaas' ? 'vm' : (unit as 'paas' | 'saas')}

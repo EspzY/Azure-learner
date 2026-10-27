@@ -1,6 +1,7 @@
 'use client';
 import { useEffect, useId, useRef, useState } from 'react';
-import { learningPolishNb as copy, labsNb, nb } from '@/content/nb';
+import { learningPolishNb as copy, labsNb, nb, missionsNb } from '@/content/nb';
+import type { MissionId } from '@/domain/sandbox/missions';
 import type { LabKind } from '@/domain/sandbox/practical';
 import { SavvyShark } from './savvy-shark';
 import './mission-briefing.css';
@@ -13,6 +14,7 @@ export function MissionBriefing({
   onClose,
   recall = false,
   existingApp = false,
+  mission: missionId,
 }: {
   kind: LabKind;
   inspection?: string;
@@ -20,6 +22,7 @@ export function MissionBriefing({
   onClose: () => void;
   recall?: boolean;
   existingApp?: boolean;
+  mission?: MissionId;
 }) {
   const dialog = useRef<HTMLDialogElement>(null),
     title = useId();
@@ -52,50 +55,101 @@ export function MissionBriefing({
         </button>
       </div>
       <div className="mission-scroll" tabIndex={0} role="region" aria-label={nb.milestones.reading}>
-        <div className="mission-intro">
-          <SavvyShark>
-            <span>{inspection ? nb.refinement.inspectTarget : labsNb.guided}</span>
-          </SavvyShark>
-          <div>
-            <h2 id={title}>{inspection ? c.inspection : mission.title}</h2>
-            <h3>{c.purpose}</h3>
-            <p>{inspection ? c.inspectionWhy : mission.why}</p>
-          </div>
-        </div>
-        <div className="mission-body">
-          <section>
-            <h3>{nb.milestones.prerequisiteTitle}</h3>
-            <p className="mission-prerequisite">{nb.milestones.prerequisites[kind]}</p>
-            <h3>{c.outcomes}</h3>
-            {inspection ? (
-              <p>{inspection}</p>
-            ) : (
-              <ul>
-                {mission.outcomes.map((x) => (
-                  <li key={x}>{x}</li>
-                ))}
-              </ul>
-            )}
-            <div className="mission-observation">
-              <h3>{c.observe}</h3>
-              <p>{inspection ?? mission.observation}</p>
+        {missionId ? (
+          <>
+            <div className="mission-intro">
+              <SavvyShark>
+                <span>{missionsNb.guided}</span>
+              </SavvyShark>
+              <div>
+                <h2 id={title}>{missionsNb.missions[missionId].title}</h2>
+                <p>{missionsNb.missions[missionId].scenario}</p>
+              </div>
             </div>
-          </section>
-          <section className="mission-route">
-            <h3>{c.route}</h3>
-            <ol>
-              {(inspection ? c.inspectionStages : mission.stages).map((x, n) => (
-                <li key={x}>
-                  <span aria-hidden="true">{String(n + 1).padStart(2, '0')}</span>
-                  <p>{x}</p>
-                </li>
-              ))}
-            </ol>
-          </section>
-        </div>
+            <div className="mission-body">
+              <section>
+                <h3>{missionsNb.prerequisite}</h3>
+                <p>{missionsNb.missions[missionId].prerequisites}</p>
+                <h3>{missionsNb.purpose}</h3>
+                <p>{missionsNb.missions[missionId].bridge}</p>
+                <h3>{missionsNb.objectives}</h3>
+                <ul>
+                  {missionsNb.missions[missionId].goals.map((x) => (
+                    <li key={x}>{x}</li>
+                  ))}
+                </ul>
+                <h3>{missionsNb.observe}</h3>
+                <p>{missionsNb.missions[missionId].observation}</p>
+              </section>
+              <section className="mission-route">
+                <h3>{missionsNb.steps}</h3>
+                <ol>
+                  {missionsNb.missions[missionId].stages.map((x, n) => (
+                    <li key={x}>
+                      <span aria-hidden="true">{String(n + 1).padStart(2, '0')}</span>
+                      <p>{x}</p>
+                    </li>
+                  ))}
+                </ol>
+              </section>
+            </div>
+          </>
+        ) : (
+          <>
+            <div className="mission-intro">
+              <SavvyShark>
+                <span>{inspection ? nb.refinement.inspectTarget : labsNb.guided}</span>
+              </SavvyShark>
+              <div>
+                <h2 id={title}>{inspection ? c.inspection : mission.title}</h2>
+                <h3>{c.purpose}</h3>
+                <p>{inspection ? c.inspectionWhy : mission.why}</p>
+              </div>
+            </div>
+            <div className="mission-body">
+              <section>
+                <h3>{nb.milestones.prerequisiteTitle}</h3>
+                <p className="mission-prerequisite">{nb.milestones.prerequisites[kind]}</p>
+                <h3>{c.outcomes}</h3>
+                {inspection ? (
+                  <p>{inspection}</p>
+                ) : (
+                  <ul>
+                    {mission.outcomes.map((x) => (
+                      <li key={x}>{x}</li>
+                    ))}
+                  </ul>
+                )}
+                <div className="mission-observation">
+                  <h3>{c.observe}</h3>
+                  <p>{inspection ?? mission.observation}</p>
+                </div>
+              </section>
+              <section className="mission-route">
+                <h3>{c.route}</h3>
+                <ol>
+                  {(inspection ? c.inspectionStages : mission.stages).map((x, n) => (
+                    <li key={x}>
+                      <span aria-hidden="true">{String(n + 1).padStart(2, '0')}</span>
+                      <p>{x}</p>
+                    </li>
+                  ))}
+                </ol>
+              </section>
+            </div>
+          </>
+        )}
       </div>
       <footer>
-        <p>{recall ? nb.milestones.briefRecallAction : nb.milestones.briefAction}</p>
+        <p>
+          {missionId
+            ? recall
+              ? nb.milestones.briefRecallAction
+              : missionsNb.briefingNotice
+            : recall
+              ? nb.milestones.briefRecallAction
+              : nb.milestones.briefAction}
+        </p>
         <p>{c.boundary}</p>
         <div>
           <button type="button" onClick={onClose}>

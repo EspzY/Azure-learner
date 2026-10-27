@@ -136,3 +136,7 @@ Technical registry, reviewed **2026-10-22**, Microsoft documentation, reference-
 All teaching text/questions are original. No practice assessment was copied, scraped or embedded. Future sources record attribution, licensing disposition, source version, review date and competency mapping. Re-review relevant sources when changing content and before certification-aligned releases; mark stale mappings until reconciled.
 
 The [source register](SOURCE_REGISTER.md) rechecks these dates and adds current retired/new credentials, Applied Skills and specialist references for Phase 1A. Its versioned overlay policy supersedes using these three exam codes as the product's curriculum boundary. The existing immediate check remains assisted evidence only; no historical completion is upgraded into independent performance.
+
+# PR24: fire forskjellige praktiske overføringer
+
+Benefits reliability bygger fra faktisk VM-inspeksjon til en tydelig separat feil-/rutingshypotese. Governance sammenligner nytt policyavslag, scope, korrigert Web-lokasjon og gruppemetadata. Service Types gir et nytt gjeste-/disk-/subscription-krav og et eget vedlikeholdsforløp med endret draft, to Apply og kvitteringer. Nye selvstendige varianter endrer beslutningsgrunnlaget; tidligere guidet arbeid blir ikke oppgradert. [Manuskript, kriterier og kilder](PRACTICAL_MISSION_EXPANSION.md).

@@ -1,904 +1,712 @@
 {
   "schema": 1,
-  "id": "PR23-core-architecture-management",
-  "baseCommit": "89438f8aec31f456e72cc8b611caf184ee4816b3",
-  "author": "codex-pr23-author",
+  "id": "PR24-practical-mission-expansion",
+  "baseCommit": "feff37a79dea28e740ead138d92439cf65a398da",
+  "author": "codex-pr24-author",
   "scope": {
-    "kind": "new-module",
-    "description": "P02 Core Architecture Part B CA04–07 with live inventory projection, pure hypothetical scope investigation and separate1.0.0 evidence; compose A+B without migration, XP or operative policy changes.",
-    "objectives": ["CA04", "CA05", "CA06", "CA07"]
+    "kind": "learning-activities",
+    "description": "Four distinct versioned practical missions inside existing Benefits and Service Types, reusing frozen Sandbox commands/inventory with explicit receipt boundaries, pure dependency hypotheses and isolated evidence. No XP or old assessment migration.",
+    "objectives": ["CB01", "CB02", "CB03", "CB04", "ST01", "ST04", "ST02"]
   },
   "sources": [
     {
-      "id": "AM01",
+      "id": "PM01",
       "url": "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900",
-      "title": "Current AZ-900 Skills Measured",
+      "title": "AZ-900 Skills Measured",
       "kind": "exam",
       "reviewed": "2026-10-27",
       "version": "Skills measured2026-07-20",
       "availability": "AVAILABLE",
-      "objectives": ["CA04", "CA05", "CA06", "CA07"],
-      "claims": ["management.organization", "management.scope", "management.relationships"],
-      "limits": "Public body read; no account/billing/IAM/MG CRUD/live Azure operation. ARM higher-scope exceptions and billing/effect qualifications recorded in manuscript. No human approval.",
+      "objectives": ["CB01", "CB02", "CB03", "CB04", "ST01", "ST04", "ST02"],
+      "claims": ["mission.dependency", "mission.policy", "mission.guest", "mission.settings"],
+      "limits": "Reviewed public body; no authenticated Portal/sandbox execution, copied assessment or human approval. Exact scoped claims/disposition and linked exclusions in PRACTICAL_MISSION_EXPANSION. Configuration is not runtime/availability/compliance.",
       "discovery": [
         {
           "url": "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900",
           "disposition": "reviewed-essential",
-          "reason": "Public body and technical qualifications reviewed before original manuscript; supported claims and limits in source map."
+          "reason": "Scoped body/linked qualifications read before original manuscript. Unsupported operational areas explicitly excluded."
         }
       ]
     },
     {
-      "id": "AM02",
-      "url": "https://learn.microsoft.com/en-us/training/modules/describe-core-architectural-components-of-azure/",
-      "title": "Core architectural components public module/units",
+      "id": "PM02",
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-benefits-use-cloud-services/",
+      "title": "Benefits module",
       "kind": "module",
       "reviewed": "2026-10-27",
       "version": "Rolling public page reviewed2026-10-27",
       "availability": "AVAILABLE",
-      "objectives": ["CA04", "CA05", "CA06", "CA07"],
-      "claims": ["management.organization", "management.scope", "management.relationships"],
-      "limits": "Public body read; no account/billing/IAM/MG CRUD/live Azure operation. ARM higher-scope exceptions and billing/effect qualifications recorded in manuscript. No human approval.",
+      "objectives": ["CB01", "CB02", "CB03", "CB04"],
+      "claims": ["mission.dependency", "mission.policy"],
+      "limits": "Reviewed public body; no authenticated Portal/sandbox execution, copied assessment or human approval. Exact scoped claims/disposition and linked exclusions in PRACTICAL_MISSION_EXPANSION. Configuration is not runtime/availability/compliance.",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/training/modules/describe-core-architectural-components-of-azure/",
+          "url": "https://learn.microsoft.com/en-us/training/modules/describe-benefits-use-cloud-services/",
           "disposition": "reviewed-essential",
-          "reason": "Public body and technical qualifications reviewed before original manuscript; supported claims and limits in source map."
-        },
-        {
-          "url": "https://learn.microsoft.com/en-us/training/modules/describe-core-architectural-components-of-azure/1-introduction",
-          "disposition": "reviewed-essential",
-          "reason": "Public prerequisite/management/summary checked. Protected assessment, signup/payment/video outside scope; nothing copied."
-        },
-        {
-          "url": "https://learn.microsoft.com/en-us/training/modules/describe-core-architectural-components-of-azure/2-what-microsoft-azure",
-          "disposition": "reviewed-essential",
-          "reason": "Public prerequisite/management/summary checked. Protected assessment, signup/payment/video outside scope; nothing copied."
-        },
-        {
-          "url": "https://learn.microsoft.com/en-us/training/modules/describe-core-architectural-components-of-azure/3-get-started-azure-accounts",
-          "disposition": "reviewed-essential",
-          "reason": "Public prerequisite/management/summary checked. Protected assessment, signup/payment/video outside scope; nothing copied."
-        },
-        {
-          "url": "https://learn.microsoft.com/en-us/training/modules/describe-core-architectural-components-of-azure/6-describe-azure-management-infrastructure",
-          "disposition": "reviewed-essential",
-          "reason": "Public prerequisite/management/summary checked. Protected assessment, signup/payment/video outside scope; nothing copied."
-        },
-        {
-          "url": "https://learn.microsoft.com/en-us/training/modules/describe-core-architectural-components-of-azure/9-summary",
-          "disposition": "reviewed-essential",
-          "reason": "Public prerequisite/management/summary checked. Protected assessment, signup/payment/video outside scope; nothing copied."
+          "reason": "Scoped body/linked qualifications read before original manuscript. Unsupported operational areas explicitly excluded."
         }
       ]
     },
     {
-      "id": "AM03",
-      "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/overview",
-      "title": "Azure Resource Manager overview",
+      "id": "PM03",
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-benefits-use-cloud-services/2-high-availability-scalability-cloud",
+      "title": "Availability and scalability unit",
+      "kind": "unit",
+      "reviewed": "2026-10-27",
+      "version": "Rolling public page reviewed2026-10-27",
+      "availability": "AVAILABLE",
+      "objectives": ["CB01", "CB02"],
+      "claims": ["mission.dependency"],
+      "limits": "Reviewed public body; no authenticated Portal/sandbox execution, copied assessment or human approval. Exact scoped claims/disposition and linked exclusions in PRACTICAL_MISSION_EXPANSION. Configuration is not runtime/availability/compliance.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/training/modules/describe-benefits-use-cloud-services/2-high-availability-scalability-cloud",
+          "disposition": "reviewed-essential",
+          "reason": "Scoped body/linked qualifications read before original manuscript. Unsupported operational areas explicitly excluded."
+        }
+      ]
+    },
+    {
+      "id": "PM04",
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-benefits-use-cloud-services/3-reliability-predictability-cloud",
+      "title": "Reliability and predictability unit",
+      "kind": "unit",
+      "reviewed": "2026-10-27",
+      "version": "Rolling public page reviewed2026-10-27",
+      "availability": "AVAILABLE",
+      "objectives": ["CB01", "CB02"],
+      "claims": ["mission.dependency"],
+      "limits": "Reviewed public body; no authenticated Portal/sandbox execution, copied assessment or human approval. Exact scoped claims/disposition and linked exclusions in PRACTICAL_MISSION_EXPANSION. Configuration is not runtime/availability/compliance.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/training/modules/describe-benefits-use-cloud-services/3-reliability-predictability-cloud",
+          "disposition": "reviewed-essential",
+          "reason": "Scoped body/linked qualifications read before original manuscript. Unsupported operational areas explicitly excluded."
+        }
+      ]
+    },
+    {
+      "id": "PM05",
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-benefits-use-cloud-services/4-security-governance-cloud",
+      "title": "Security and governance unit",
+      "kind": "unit",
+      "reviewed": "2026-10-27",
+      "version": "Rolling public page reviewed2026-10-27",
+      "availability": "AVAILABLE",
+      "objectives": ["CB03", "CB04"],
+      "claims": ["mission.policy"],
+      "limits": "Reviewed public body; no authenticated Portal/sandbox execution, copied assessment or human approval. Exact scoped claims/disposition and linked exclusions in PRACTICAL_MISSION_EXPANSION. Configuration is not runtime/availability/compliance.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/training/modules/describe-benefits-use-cloud-services/4-security-governance-cloud",
+          "disposition": "reviewed-essential",
+          "reason": "Scoped body/linked qualifications read before original manuscript. Unsupported operational areas explicitly excluded."
+        }
+      ]
+    },
+    {
+      "id": "PM06",
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-benefits-use-cloud-services/5-manageability-cloud",
+      "title": "Manageability unit",
+      "kind": "unit",
+      "reviewed": "2026-10-27",
+      "version": "Rolling public page reviewed2026-10-27",
+      "availability": "AVAILABLE",
+      "objectives": ["CB03", "CB04", "ST04", "ST02"],
+      "claims": ["mission.policy", "mission.settings"],
+      "limits": "Reviewed public body; no authenticated Portal/sandbox execution, copied assessment or human approval. Exact scoped claims/disposition and linked exclusions in PRACTICAL_MISSION_EXPANSION. Configuration is not runtime/availability/compliance.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/training/modules/describe-benefits-use-cloud-services/5-manageability-cloud",
+          "disposition": "reviewed-essential",
+          "reason": "Scoped body/linked qualifications read before original manuscript. Unsupported operational areas explicitly excluded."
+        }
+      ]
+    },
+    {
+      "id": "PM07",
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-cloud-service-types/",
+      "title": "Service types module and public IaaS/PaaS/SaaS units",
+      "kind": "module",
+      "reviewed": "2026-10-27",
+      "version": "Rolling public page reviewed2026-10-27",
+      "availability": "AVAILABLE",
+      "objectives": ["ST01", "ST04", "ST02"],
+      "claims": ["mission.guest", "mission.settings"],
+      "limits": "Reviewed public body; no authenticated Portal/sandbox execution, copied assessment or human approval. Exact scoped claims/disposition and linked exclusions in PRACTICAL_MISSION_EXPANSION. Configuration is not runtime/availability/compliance.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/training/modules/describe-cloud-service-types/",
+          "disposition": "reviewed-essential",
+          "reason": "Scoped body/linked qualifications read before original manuscript. Unsupported operational areas explicitly excluded."
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/training/modules/describe-cloud-service-types/2-describe-infrastructure-service",
+          "disposition": "reviewed-essential",
+          "reason": "All three public service-type units read; no protected module assessment copied."
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/training/modules/describe-cloud-service-types/3-describe-platform-service",
+          "disposition": "reviewed-essential",
+          "reason": "All three public service-type units read; no protected module assessment copied."
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/training/modules/describe-cloud-service-types/4-describe-software-service",
+          "disposition": "reviewed-essential",
+          "reason": "All three public service-type units read; no protected module assessment copied."
+        }
+      ]
+    },
+    {
+      "id": "PM08",
+      "url": "https://learn.microsoft.com/en-us/azure/security/fundamentals/shared-responsibility",
+      "title": "Shared responsibility in the cloud",
       "kind": "technical",
       "reviewed": "2026-10-27",
       "version": "Rolling public page reviewed2026-10-27",
       "availability": "AVAILABLE",
-      "objectives": ["CA04", "CA07"],
-      "claims": ["management.relationships"],
-      "limits": "Public body read; no account/billing/IAM/MG CRUD/live Azure operation. ARM higher-scope exceptions and billing/effect qualifications recorded in manuscript. No human approval.",
+      "objectives": ["ST01", "ST04", "ST02"],
+      "claims": ["mission.guest", "mission.settings"],
+      "limits": "Reviewed public body; no authenticated Portal/sandbox execution, copied assessment or human approval. Exact scoped claims/disposition and linked exclusions in PRACTICAL_MISSION_EXPANSION. Configuration is not runtime/availability/compliance.",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/overview",
+          "url": "https://learn.microsoft.com/en-us/azure/security/fundamentals/shared-responsibility",
           "disposition": "reviewed-essential",
-          "reason": "Public body and technical qualifications reviewed before original manuscript; supported claims and limits in source map."
+          "reason": "Scoped body/linked qualifications read before original manuscript. Unsupported operational areas explicitly excluded."
         }
       ]
     },
     {
-      "id": "AM04",
-      "url": "https://learn.microsoft.com/en-us/azure/governance/management-groups/overview",
-      "title": "Management groups overview",
+      "id": "PM09",
+      "url": "https://learn.microsoft.com/en-us/azure/reliability/overview",
+      "title": "Reliability in Azure",
       "kind": "technical",
       "reviewed": "2026-10-27",
       "version": "Rolling public page reviewed2026-10-27",
       "availability": "AVAILABLE",
-      "objectives": ["CA06", "CA07"],
-      "claims": ["management.scope"],
-      "limits": "Public body read; no account/billing/IAM/MG CRUD/live Azure operation. ARM higher-scope exceptions and billing/effect qualifications recorded in manuscript. No human approval.",
+      "objectives": ["CB01", "CB02"],
+      "claims": ["mission.dependency"],
+      "limits": "Reviewed public body; no authenticated Portal/sandbox execution, copied assessment or human approval. Exact scoped claims/disposition and linked exclusions in PRACTICAL_MISSION_EXPANSION. Configuration is not runtime/availability/compliance.",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/governance/management-groups/overview",
+          "url": "https://learn.microsoft.com/en-us/azure/reliability/overview",
           "disposition": "reviewed-essential",
-          "reason": "Public body and technical qualifications reviewed before original manuscript; supported claims and limits in source map."
+          "reason": "Scoped body/linked qualifications read before original manuscript. Unsupported operational areas explicitly excluded."
         }
       ]
     },
     {
-      "id": "AM05",
-      "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/manage-resource-groups-portal",
-      "title": "Manage resource groups Portal",
+      "id": "PM10",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/reliability/failure-mode-analysis",
+      "title": "Failure mode analysis",
+      "kind": "architecture",
+      "reviewed": "2026-10-27",
+      "version": "Rolling public page reviewed2026-10-27",
+      "availability": "AVAILABLE",
+      "objectives": ["CB01", "CB02"],
+      "claims": ["mission.dependency"],
+      "limits": "Reviewed public body; no authenticated Portal/sandbox execution, copied assessment or human approval. Exact scoped claims/disposition and linked exclusions in PRACTICAL_MISSION_EXPANSION. Configuration is not runtime/availability/compliance.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/well-architected/reliability/failure-mode-analysis",
+          "disposition": "reviewed-essential",
+          "reason": "Scoped body/linked qualifications read before original manuscript. Unsupported operational areas explicitly excluded."
+        }
+      ]
+    },
+    {
+      "id": "PM11",
+      "url": "https://learn.microsoft.com/en-us/azure/virtual-machines/managed-disks-overview",
+      "title": "Managed disks",
       "kind": "technical",
       "reviewed": "2026-10-27",
       "version": "Rolling public page reviewed2026-10-27",
       "availability": "AVAILABLE",
-      "objectives": ["CA04", "CA05"],
-      "claims": ["management.relationships"],
-      "limits": "Public body read; no account/billing/IAM/MG CRUD/live Azure operation. ARM higher-scope exceptions and billing/effect qualifications recorded in manuscript. No human approval.",
+      "objectives": ["CB01", "CB02", "ST01", "ST04"],
+      "claims": ["mission.dependency", "mission.guest"],
+      "limits": "Reviewed public body; no authenticated Portal/sandbox execution, copied assessment or human approval. Exact scoped claims/disposition and linked exclusions in PRACTICAL_MISSION_EXPANSION. Configuration is not runtime/availability/compliance.",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/manage-resource-groups-portal",
+          "url": "https://learn.microsoft.com/en-us/azure/virtual-machines/managed-disks-overview",
           "disposition": "reviewed-essential",
-          "reason": "Public body and technical qualifications reviewed before original manuscript; supported claims and limits in source map."
+          "reason": "Scoped body/linked qualifications read before original manuscript. Unsupported operational areas explicitly excluded."
         }
       ]
     },
     {
-      "id": "AM06",
+      "id": "PM12",
+      "url": "https://learn.microsoft.com/en-us/azure/virtual-network/network-overview",
+      "title": "VM network relationships",
+      "kind": "technical",
+      "reviewed": "2026-10-27",
+      "version": "Rolling public page reviewed2026-10-27",
+      "availability": "AVAILABLE",
+      "objectives": ["CB01", "CB02", "ST01", "ST04"],
+      "claims": ["mission.dependency", "mission.guest"],
+      "limits": "Reviewed public body; no authenticated Portal/sandbox execution, copied assessment or human approval. Exact scoped claims/disposition and linked exclusions in PRACTICAL_MISSION_EXPANSION. Configuration is not runtime/availability/compliance.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/virtual-network/network-overview",
+          "disposition": "reviewed-essential",
+          "reason": "Scoped body/linked qualifications read before original manuscript. Unsupported operational areas explicitly excluded."
+        }
+      ]
+    },
+    {
+      "id": "PM13",
+      "url": "https://learn.microsoft.com/en-us/azure/virtual-machines/linux/quick-create-portal",
+      "title": "Linux VM Portal quickstart",
+      "kind": "technical",
+      "reviewed": "2026-10-27",
+      "version": "Rolling public page reviewed2026-10-27",
+      "availability": "AVAILABLE",
+      "objectives": ["ST01", "ST04"],
+      "claims": ["mission.guest"],
+      "limits": "Reviewed public body; no authenticated Portal/sandbox execution, copied assessment or human approval. Exact scoped claims/disposition and linked exclusions in PRACTICAL_MISSION_EXPANSION. Configuration is not runtime/availability/compliance.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/virtual-machines/linux/quick-create-portal",
+          "disposition": "reviewed-essential",
+          "reason": "Scoped body/linked qualifications read before original manuscript. Unsupported operational areas explicitly excluded."
+        }
+      ]
+    },
+    {
+      "id": "PM14",
       "url": "https://learn.microsoft.com/en-us/azure/governance/policy/overview",
       "title": "Azure Policy overview",
       "kind": "technical",
       "reviewed": "2026-10-27",
       "version": "Rolling public page reviewed2026-10-27",
       "availability": "AVAILABLE",
-      "objectives": ["CA06", "CA07"],
-      "claims": ["management.scope"],
-      "limits": "Public body read; no account/billing/IAM/MG CRUD/live Azure operation. ARM higher-scope exceptions and billing/effect qualifications recorded in manuscript. No human approval.",
+      "objectives": ["CB03", "CB04"],
+      "claims": ["mission.policy"],
+      "limits": "Reviewed public body; no authenticated Portal/sandbox execution, copied assessment or human approval. Exact scoped claims/disposition and linked exclusions in PRACTICAL_MISSION_EXPANSION. Configuration is not runtime/availability/compliance.",
       "discovery": [
         {
           "url": "https://learn.microsoft.com/en-us/azure/governance/policy/overview",
           "disposition": "reviewed-essential",
-          "reason": "Public body and technical qualifications reviewed before original manuscript; supported claims and limits in source map."
+          "reason": "Scoped body/linked qualifications read before original manuscript. Unsupported operational areas explicitly excluded."
         }
       ]
     },
     {
-      "id": "AM07",
-      "url": "https://learn.microsoft.com/en-us/azure/role-based-access-control/scope-overview",
-      "title": "RBAC scope overview",
-      "kind": "technical",
-      "reviewed": "2026-10-27",
-      "version": "Rolling public page reviewed2026-10-27",
-      "availability": "AVAILABLE",
-      "objectives": ["CA06", "CA07"],
-      "claims": ["management.scope"],
-      "limits": "Public body read; no account/billing/IAM/MG CRUD/live Azure operation. ARM higher-scope exceptions and billing/effect qualifications recorded in manuscript. No human approval.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/role-based-access-control/scope-overview",
-          "disposition": "reviewed-essential",
-          "reason": "Public body and technical qualifications reviewed before original manuscript; supported claims and limits in source map."
-        }
-      ]
-    },
-    {
-      "id": "AM08",
-      "url": "https://learn.microsoft.com/en-us/entra/fundamentals/how-subscriptions-associated-directory",
-      "title": "Entra tenant and subscription association",
-      "kind": "technical",
-      "reviewed": "2026-10-27",
-      "version": "Rolling public page reviewed2026-10-27",
-      "availability": "AVAILABLE",
-      "objectives": ["CA05"],
-      "claims": ["management.organization"],
-      "limits": "Public body read; no account/billing/IAM/MG CRUD/live Azure operation. ARM higher-scope exceptions and billing/effect qualifications recorded in manuscript. No human approval.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/entra/fundamentals/how-subscriptions-associated-directory",
-          "disposition": "reviewed-essential",
-          "reason": "Public body and technical qualifications reviewed before original manuscript; supported claims and limits in source map."
-        }
-      ]
-    },
-    {
-      "id": "AM09",
-      "url": "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/design-area/resource-org",
-      "title": "CAF resource organization",
-      "kind": "technical",
-      "reviewed": "2026-10-27",
-      "version": "Rolling public page reviewed2026-10-27",
-      "availability": "AVAILABLE",
-      "objectives": ["CA04", "CA05", "CA06", "CA07"],
-      "claims": ["management.scope"],
-      "limits": "Public body read; no account/billing/IAM/MG CRUD/live Azure operation. ARM higher-scope exceptions and billing/effect qualifications recorded in manuscript. No human approval.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/design-area/resource-org",
-          "disposition": "reviewed-essential",
-          "reason": "Public body and technical qualifications reviewed before original manuscript; supported claims and limits in source map."
-        }
-      ]
-    },
-    {
-      "id": "AM10",
+      "id": "PM15",
       "url": "https://learn.microsoft.com/en-us/azure/governance/policy/concepts/scope",
       "title": "Azure Policy scope",
       "kind": "technical",
       "reviewed": "2026-10-27",
       "version": "Rolling public page reviewed2026-10-27",
       "availability": "AVAILABLE",
-      "objectives": ["CA06", "CA07"],
-      "claims": ["management.scope"],
-      "limits": "Public body read; no account/billing/IAM/MG CRUD/live Azure operation. ARM higher-scope exceptions and billing/effect qualifications recorded in manuscript. No human approval.",
+      "objectives": ["CB03", "CB04"],
+      "claims": ["mission.policy"],
+      "limits": "Reviewed public body; no authenticated Portal/sandbox execution, copied assessment or human approval. Exact scoped claims/disposition and linked exclusions in PRACTICAL_MISSION_EXPANSION. Configuration is not runtime/availability/compliance.",
       "discovery": [
         {
           "url": "https://learn.microsoft.com/en-us/azure/governance/policy/concepts/scope",
           "disposition": "reviewed-essential",
-          "reason": "Public body and technical qualifications reviewed before original manuscript; supported claims and limits in source map."
+          "reason": "Scoped body/linked qualifications read before original manuscript. Unsupported operational areas explicitly excluded."
         }
       ]
     },
     {
-      "id": "AM11",
-      "url": "https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effect-basics",
-      "title": "Policy effect basics",
+      "id": "PM16",
+      "url": "https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effect-deny",
+      "title": "Deny effect",
       "kind": "technical",
       "reviewed": "2026-10-27",
       "version": "Rolling public page reviewed2026-10-27",
       "availability": "AVAILABLE",
-      "objectives": ["CA06", "CA07"],
-      "claims": ["management.scope"],
-      "limits": "Public body read; no account/billing/IAM/MG CRUD/live Azure operation. ARM higher-scope exceptions and billing/effect qualifications recorded in manuscript. No human approval.",
+      "objectives": ["CB03", "CB04"],
+      "claims": ["mission.policy"],
+      "limits": "Reviewed public body; no authenticated Portal/sandbox execution, copied assessment or human approval. Exact scoped claims/disposition and linked exclusions in PRACTICAL_MISSION_EXPANSION. Configuration is not runtime/availability/compliance.",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effect-basics",
+          "url": "https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effect-deny",
           "disposition": "reviewed-essential",
-          "reason": "Public body and technical qualifications reviewed before original manuscript; supported claims and limits in source map."
+          "reason": "Scoped body/linked qualifications read before original manuscript. Unsupported operational areas explicitly excluded."
         }
       ]
     },
     {
-      "id": "AM12",
-      "url": "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/design-area/resource-org-management-groups",
-      "title": "CAF management group design",
+      "id": "PM17",
+      "url": "https://learn.microsoft.com/en-us/azure/app-service/overview-hosting-plans",
+      "title": "App Service plans",
       "kind": "technical",
       "reviewed": "2026-10-27",
       "version": "Rolling public page reviewed2026-10-27",
       "availability": "AVAILABLE",
-      "objectives": ["CA06", "CA07"],
-      "claims": ["management.scope"],
-      "limits": "Public body read; no account/billing/IAM/MG CRUD/live Azure operation. ARM higher-scope exceptions and billing/effect qualifications recorded in manuscript. No human approval.",
+      "objectives": ["ST04", "ST02"],
+      "claims": ["mission.settings"],
+      "limits": "Reviewed public body; no authenticated Portal/sandbox execution, copied assessment or human approval. Exact scoped claims/disposition and linked exclusions in PRACTICAL_MISSION_EXPANSION. Configuration is not runtime/availability/compliance.",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/design-area/resource-org-management-groups",
+          "url": "https://learn.microsoft.com/en-us/azure/app-service/overview-hosting-plans",
           "disposition": "reviewed-essential",
-          "reason": "Public body and technical qualifications reviewed before original manuscript; supported claims and limits in source map."
+          "reason": "Scoped body/linked qualifications read before original manuscript. Unsupported operational areas explicitly excluded."
         }
       ]
     },
     {
-      "id": "AM13",
-      "url": "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/design-area/resource-org-subscriptions",
-      "title": "CAF subscription design",
+      "id": "PM18",
+      "url": "https://learn.microsoft.com/en-us/azure/app-service/configure-common",
+      "title": "App settings and Environment variables",
       "kind": "technical",
       "reviewed": "2026-10-27",
       "version": "Rolling public page reviewed2026-10-27",
       "availability": "AVAILABLE",
-      "objectives": ["CA05"],
-      "claims": ["management.organization"],
-      "limits": "Public body read; no account/billing/IAM/MG CRUD/live Azure operation. ARM higher-scope exceptions and billing/effect qualifications recorded in manuscript. No human approval.",
+      "objectives": ["ST04", "ST02"],
+      "claims": ["mission.settings"],
+      "limits": "Reviewed public body; no authenticated Portal/sandbox execution, copied assessment or human approval. Exact scoped claims/disposition and linked exclusions in PRACTICAL_MISSION_EXPANSION. Configuration is not runtime/availability/compliance.",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/design-area/resource-org-subscriptions",
+          "url": "https://learn.microsoft.com/en-us/azure/app-service/configure-common",
           "disposition": "reviewed-essential",
-          "reason": "Public body and technical qualifications reviewed before original manuscript; supported claims and limits in source map."
+          "reason": "Scoped body/linked qualifications read before original manuscript. Unsupported operational areas explicitly excluded."
         }
       ]
     },
     {
-      "id": "AM14",
-      "url": "https://learn.microsoft.com/en-us/azure/cost-management-billing/manage/view-all-accounts",
-      "title": "Billing accounts and scopes",
+      "id": "PM19",
+      "url": "https://learn.microsoft.com/en-us/azure/app-service/overview-patch-os-runtime",
+      "title": "App Service OS/runtime patching",
       "kind": "technical",
       "reviewed": "2026-10-27",
       "version": "Rolling public page reviewed2026-10-27",
       "availability": "AVAILABLE",
-      "objectives": ["CA05"],
-      "claims": ["management.organization"],
-      "limits": "Public body read; no account/billing/IAM/MG CRUD/live Azure operation. ARM higher-scope exceptions and billing/effect qualifications recorded in manuscript. No human approval.",
+      "objectives": ["ST04", "ST02"],
+      "claims": ["mission.settings"],
+      "limits": "Reviewed public body; no authenticated Portal/sandbox execution, copied assessment or human approval. Exact scoped claims/disposition and linked exclusions in PRACTICAL_MISSION_EXPANSION. Configuration is not runtime/availability/compliance.",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/cost-management-billing/manage/view-all-accounts",
+          "url": "https://learn.microsoft.com/en-us/azure/app-service/overview-patch-os-runtime",
           "disposition": "reviewed-essential",
-          "reason": "Public body and technical qualifications reviewed before original manuscript; supported claims and limits in source map."
-        }
-      ]
-    },
-    {
-      "id": "AM15",
-      "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/resource-providers-and-types",
-      "title": "Resource providers and types",
-      "kind": "technical",
-      "reviewed": "2026-10-27",
-      "version": "Rolling public page reviewed2026-10-27",
-      "availability": "AVAILABLE",
-      "objectives": ["CA04"],
-      "claims": ["management.relationships"],
-      "limits": "Public body read; no account/billing/IAM/MG CRUD/live Azure operation. ARM higher-scope exceptions and billing/effect qualifications recorded in manuscript. No human approval.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/resource-providers-and-types",
-          "disposition": "reviewed-essential",
-          "reason": "Public body and technical qualifications reviewed before original manuscript; supported claims and limits in source map."
-        }
-      ]
-    },
-    {
-      "id": "AM16",
-      "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/delete-resource-group",
-      "title": "Resource group deletion",
-      "kind": "technical",
-      "reviewed": "2026-10-27",
-      "version": "Rolling public page reviewed2026-10-27",
-      "availability": "AVAILABLE",
-      "objectives": ["CA04"],
-      "claims": ["management.relationships"],
-      "limits": "Public body read; no account/billing/IAM/MG CRUD/live Azure operation. ARM higher-scope exceptions and billing/effect qualifications recorded in manuscript. No human approval.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/delete-resource-group",
-          "disposition": "reviewed-essential",
-          "reason": "Public body and technical qualifications reviewed before original manuscript; supported claims and limits in source map."
-        }
-      ]
-    },
-    {
-      "id": "AM17",
-      "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/control-plane-and-data-plane",
-      "title": "Control plane and data plane",
-      "kind": "technical",
-      "reviewed": "2026-10-27",
-      "version": "Rolling public page reviewed2026-10-27",
-      "availability": "AVAILABLE",
-      "objectives": ["CA04"],
-      "claims": ["management.relationships"],
-      "limits": "Public body read; no account/billing/IAM/MG CRUD/live Azure operation. ARM higher-scope exceptions and billing/effect qualifications recorded in manuscript. No human approval.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/control-plane-and-data-plane",
-          "disposition": "reviewed-essential",
-          "reason": "Public body and technical qualifications reviewed before original manuscript; supported claims and limits in source map."
-        }
-      ]
-    },
-    {
-      "id": "AM18",
-      "url": "https://learn.microsoft.com/en-us/cli/azure/webapp?view=azure-cli-latest#az-webapp-create",
-      "title": "Azure CLI webapp create shared-plan example",
-      "kind": "technical",
-      "reviewed": "2026-10-27",
-      "version": "Rolling public body reviewed2026-10-27",
-      "availability": "AVAILABLE",
-      "objectives": ["CA04"],
-      "claims": ["management.relationships"],
-      "limits": "Public new-app example explicitly accepts a shared plan in another resource group by resource ID. No CLI/Azure command executed; local lab remains same-group only.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/cli/azure/webapp?view=azure-cli-latest#az-webapp-create",
-          "disposition": "reviewed-essential",
-          "reason": "Public new-app example explicitly accepts a shared plan in another resource group by resource ID. No CLI/Azure command executed; local lab remains same-group only."
-        }
-      ]
-    },
-    {
-      "id": "AM19",
-      "url": "https://learn.microsoft.com/en-us/azure/app-service/app-service-plan-manage",
-      "title": "Manage App Service plan",
-      "kind": "technical",
-      "reviewed": "2026-10-27",
-      "version": "Rolling public body reviewed2026-10-27",
-      "availability": "AVAILABLE",
-      "objectives": ["CA04"],
-      "claims": ["management.relationships"],
-      "limits": "Changing existing hosting plans has webspace/region/OS/source-target constraints; not a promise of arbitrary cross-group moves. New case B assumes already valid hosting.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/app-service/app-service-plan-manage",
-          "disposition": "reviewed-essential",
-          "reason": "Changing existing hosting plans has webspace/region/OS/source-target constraints; not a promise of arbitrary cross-group moves. New case B assumes already valid hosting."
+          "reason": "Scoped body/linked qualifications read before original manuscript. Unsupported operational areas explicitly excluded."
         }
       ]
     }
   ],
   "activities": [
     {
-      "id": "management-PartB",
-      "objectives": ["CA04", "CA05", "CA06", "CA07"],
-      "claims": ["management.organization", "management.scope", "management.relationships"],
-      "limits": "Conceptual counterfactual create model separated from live World; bounded first/assisted observations not broad mastery.",
+      "id": "mission-diagnose",
+      "objectives": ["CB01", "CB02"],
+      "claims": ["mission.dependency"],
       "assessmentStatus": "new-independent",
+      "limits": "Version1 bounded local task; guided versus immutable first/help/retry/abandon. No claim of broad exam readiness, Azure execution or human transfer.",
       "theory": [
-        {
-          "path": "src/content/nb.ts",
-          "marker": "managementNb"
-        }
+        { "path": "docs/PRACTICAL_MISSION_EXPANSION.md" },
+        { "path": "src/content/nb.ts", "marker": "missionsNb" }
       ],
-      "mechanism": [
-        {
-          "path": "src/domain/curriculum/architecture-management.ts",
-          "marker": "evaluateScope"
-        }
-      ],
-      "practice": [
-        {
-          "path": "src/features/learning/management.tsx",
-          "marker": "ScopeExplorer"
-        }
-      ],
+      "mechanism": [{ "path": "src/domain/sandbox/missions.ts", "marker": "missionEvaluation" }],
+      "practice": [{ "path": "src/features/course/missions.tsx", "marker": "MissionEntry" }],
       "feedback": [
-        {
-          "path": "src/content/nb.ts",
-          "marker": "subscriptionReason:"
-        }
+        { "path": "src/features/course/missions.tsx", "marker": "MissionDebrief" },
+        { "path": "src/content/nb.ts", "marker": "choices:" }
       ],
-      "visual": [
-        {
-          "path": "src/features/learning/management.tsx",
-          "marker": "HierarchyExplorer"
-        }
-      ],
-      "accessible": [
-        {
-          "path": "src/features/learning/management.tsx",
-          "marker": "ma-tree"
-        }
-      ],
+      "visual": [{ "path": "src/features/course/missions.tsx", "marker": "MissionActual" }],
+      "accessible": [{ "path": "src/features/course/missions.tsx", "marker": "fieldset" }],
       "assessment": [
-        {
-          "path": "src/domain/curriculum/architecture-management.ts",
-          "marker": "managementCriteria"
-        }
+        { "path": "src/domain/sandbox/missions.ts", "marker": "answerIds" },
+        { "path": "src/domain/sandbox/missions.test.ts" }
       ],
       "savvyshark": [
-        {
-          "path": "src/features/learning/management.tsx",
-          "marker": "claimMilestone"
-        }
+        { "path": "src/features/course/mission-briefing.tsx", "marker": "missionId" },
+        { "path": "src/features/course/mission-portal.tsx", "marker": "MissionPortalLayer" }
+      ]
+    },
+    {
+      "id": "mission-governance",
+      "objectives": ["CB03", "CB04"],
+      "claims": ["mission.policy"],
+      "assessmentStatus": "new-independent",
+      "limits": "Version1 bounded local task; guided versus immutable first/help/retry/abandon. No claim of broad exam readiness, Azure execution or human transfer.",
+      "theory": [
+        { "path": "docs/PRACTICAL_MISSION_EXPANSION.md" },
+        { "path": "src/content/nb.ts", "marker": "missionsNb" }
+      ],
+      "mechanism": [{ "path": "src/domain/sandbox/missions.ts", "marker": "missionEvaluation" }],
+      "practice": [{ "path": "src/features/course/missions.tsx", "marker": "MissionEntry" }],
+      "feedback": [
+        { "path": "src/features/course/missions.tsx", "marker": "MissionDebrief" },
+        { "path": "src/content/nb.ts", "marker": "choices:" }
+      ],
+      "visual": [{ "path": "src/features/course/missions.tsx", "marker": "MissionActual" }],
+      "accessible": [{ "path": "src/features/course/missions.tsx", "marker": "fieldset" }],
+      "assessment": [
+        { "path": "src/domain/sandbox/missions.ts", "marker": "answerIds" },
+        { "path": "src/domain/sandbox/missions.test.ts" }
+      ],
+      "savvyshark": [
+        { "path": "src/features/course/mission-briefing.tsx", "marker": "missionId" },
+        { "path": "src/features/course/mission-portal.tsx", "marker": "MissionPortalLayer" }
+      ]
+    },
+    {
+      "id": "mission-infrastructure",
+      "objectives": ["ST01", "ST04"],
+      "claims": ["mission.guest"],
+      "assessmentStatus": "new-independent",
+      "limits": "Version1 bounded local task; guided versus immutable first/help/retry/abandon. No claim of broad exam readiness, Azure execution or human transfer.",
+      "theory": [
+        { "path": "docs/PRACTICAL_MISSION_EXPANSION.md" },
+        { "path": "src/content/nb.ts", "marker": "missionsNb" }
+      ],
+      "mechanism": [{ "path": "src/domain/sandbox/missions.ts", "marker": "missionEvaluation" }],
+      "practice": [{ "path": "src/features/course/missions.tsx", "marker": "MissionEntry" }],
+      "feedback": [
+        { "path": "src/features/course/missions.tsx", "marker": "MissionDebrief" },
+        { "path": "src/content/nb.ts", "marker": "choices:" }
+      ],
+      "visual": [{ "path": "src/features/course/missions.tsx", "marker": "MissionActual" }],
+      "accessible": [{ "path": "src/features/course/missions.tsx", "marker": "fieldset" }],
+      "assessment": [
+        { "path": "src/domain/sandbox/missions.ts", "marker": "answerIds" },
+        { "path": "src/domain/sandbox/missions.test.ts" }
+      ],
+      "savvyshark": [
+        { "path": "src/features/course/mission-briefing.tsx", "marker": "missionId" },
+        { "path": "src/features/course/mission-portal.tsx", "marker": "MissionPortalLayer" }
+      ]
+    },
+    {
+      "id": "mission-platform",
+      "objectives": ["ST02", "ST04"],
+      "claims": ["mission.settings"],
+      "assessmentStatus": "new-independent",
+      "limits": "Version1 bounded local task; guided versus immutable first/help/retry/abandon. No claim of broad exam readiness, Azure execution or human transfer.",
+      "theory": [
+        { "path": "docs/PRACTICAL_MISSION_EXPANSION.md" },
+        { "path": "src/content/nb.ts", "marker": "missionsNb" }
+      ],
+      "mechanism": [{ "path": "src/domain/sandbox/missions.ts", "marker": "missionEvaluation" }],
+      "practice": [{ "path": "src/features/course/missions.tsx", "marker": "MissionEntry" }],
+      "feedback": [
+        { "path": "src/features/course/missions.tsx", "marker": "MissionDebrief" },
+        { "path": "src/content/nb.ts", "marker": "choices:" }
+      ],
+      "visual": [{ "path": "src/features/course/missions.tsx", "marker": "MissionActual" }],
+      "accessible": [{ "path": "src/features/course/missions.tsx", "marker": "fieldset" }],
+      "assessment": [
+        { "path": "src/domain/sandbox/missions.ts", "marker": "answerIds" },
+        { "path": "src/domain/sandbox/missions.test.ts" }
+      ],
+      "savvyshark": [
+        { "path": "src/features/course/mission-briefing.tsx", "marker": "missionId" },
+        { "path": "src/features/course/mission-portal.tsx", "marker": "MissionPortalLayer" }
       ]
     }
   ],
-  "modules": [
-    {
-      "id": "core-management",
-      "prerequisites": [
-        {
-          "path": "docs/CORE_ARCHITECTURE_MANAGEMENT.md",
-          "marker": "Audit and design decision"
-        }
-      ],
-      "terminology": [
-        {
-          "path": "src/content/nb.ts",
-          "marker": "managementNb"
-        }
-      ],
-      "concept": [
-        {
-          "path": "src/content/nb.ts",
-          "marker": "managementNb"
-        }
-      ],
-      "mechanism": [
-        {
-          "path": "src/domain/curriculum/architecture-management.ts",
-          "marker": "ancestry"
-        }
-      ],
-      "azureExample": [
-        {
-          "path": "src/content/nb.ts",
-          "marker": "App Sandbox"
-        }
-      ],
-      "workedExample": [
-        {
-          "path": "src/content/nb.ts",
-          "marker": "Nordlys Drift"
-        }
-      ],
-      "misconception": [
-        {
-          "path": "src/content/nb.ts",
-          "marker": "Metadata-location"
-        }
-      ],
-      "limits": [
-        {
-          "path": "src/content/nb.ts",
-          "marker": "scopeTheory"
-        }
-      ],
-      "visual": [
-        {
-          "path": "src/features/learning/management.tsx",
-          "marker": "HierarchyExplorer"
-        }
-      ],
-      "practice": [
-        {
-          "path": "src/features/learning/management.tsx",
-          "marker": "ScopeExplorer"
-        }
-      ],
-      "independentScenario": [
-        {
-          "path": "src/content/nb.ts",
-          "marker": "Produksjonsansvar"
-        }
-      ],
-      "correctAndWrongRationales": [
-        {
-          "path": "src/content/nb.ts",
-          "marker": "subscriptionReason:"
-        }
-      ],
-      "sources": [
-        {
-          "path": "docs/CORE_ARCHITECTURE_MANAGEMENT.md",
-          "marker": "Scoped source map"
-        }
-      ]
-    }
+  "modules": [],
+  "preservedPaths": [
+    "src/domain/chapter01/",
+    "src/domain/curriculum/",
+    "src/domain/course/",
+    "src/domain/progression.ts",
+    "src/domain/sandbox/model.ts",
+    "src/domain/sandbox/store.ts",
+    "src/domain/sandbox/replay.ts",
+    "src/domain/sandbox/practical.ts",
+    "src/domain/sandbox/practical-store.ts",
+    "src/domain/sandbox/saas.ts",
+    "src/domain/sandbox/saas-store.ts",
+    "src/domain/portal/learning.ts",
+    "src/domain/portal/store.ts",
+    "package-lock.json"
   ],
   "gates": {
     "source": {
       "checks": [
         {
-          "path": "docs/CORE_ARCHITECTURE_MANAGEMENT.md",
-          "marker": "Scoped source map"
+          "path": "docs/PRACTICAL_MISSION_EXPANSION.md",
+          "marker": "Sources and scoped claim checks"
         }
       ],
-      "limits": "Author official-source cross-check, not qualified human SME."
+      "limits": "Author official-source review, not qualified human SME or authenticated Azure comparison."
     },
     "curriculum": {
       "checks": [
-        {
-          "path": "src/domain/curriculum/architecture-management.ts",
-          "marker": "managementManifest"
-        },
-        {
-          "path": "src/domain/curriculum/architecture-management-store.ts",
-          "marker": "prepareTeaching"
-        },
-        {
-          "path": "src/features/learning/management-access.tsx",
-          "marker": "ManagementTeachingBoundary"
-        },
-        {
-          "path": "src/domain/curriculum/teaching-access.ts",
-          "marker": "prepareExistingTeaching"
-        }
+        { "path": "src/domain/sandbox/missions.ts", "marker": "missionDefinitions" },
+        { "path": "src/domain/sandbox/missions.test.ts", "marker": "binds four distinct" }
       ],
-      "limits": "All seven objectives available across separately versioned A/B; learner results and human approval remain distinct."
+      "limits": "Existing coverage/rubrics unchanged. New distinct mission application; broader eight PARTIAL goals remain for PR25."
     },
     "simulation": {
       "checks": [
-        {
-          "path": "src/domain/curriculum/architecture-management.test.ts",
-          "marker": "separates descendants"
-        }
+        { "path": "src/domain/sandbox/missions.test.ts", "marker": "technical references" },
+        { "path": "src/domain/sandbox/mission-store.ts", "marker": "recoverInvalid" }
       ],
-      "limits": "Pure conceptual policy scope/effects, not a full Azure Policy evaluator; live projection never writes World."
+      "limits": "Concept failure/routing declared separately from inventory; old commands/receipts/stores frozen."
     },
     "savvyshark": {
       "checks": [
-        {
-          "path": "src/features/learning/management.tsx",
-          "marker": "ManagementMilestones"
-        }
+        { "path": "src/features/course/mission-observations.tsx", "marker": "MissionMilestones" },
+        { "path": "src/features/course/guidance-milestones.tsx", "marker": "missions" },
+        { "path": "src/features/learning/management-access.tsx", "marker": "missionFacts" }
       ],
-      "limits": "UI-only history best effort; uncertain/independent contexts suppress auto; no technical effects."
+      "limits": "Read-only authored guide; no commands, timer evidence, repeats or independent automatic solutions."
     },
     "visual-accessibility": {
-      "checks": [
-        {
-          "path": "tests/e2e/architecture-management.spec.ts",
-          "marker": "async function audit"
-        }
-      ],
-      "limits": "Actual image/keyboard/Axe review cannot prove human UX/screen-reader/learning quality."
+      "checks": [{ "path": "tests/e2e/practical-missions.spec.ts", "marker": "compositions" }],
+      "limits": "Actual production browser/screenshots/Axe required; human UX/screen-reader/transfer still unperformed."
     },
     "independent-final-audit": {
-      "checks": [
-        {
-          "path": "docs/RELEASE_ACCEPTANCE.md",
-          "marker": "Independent Final Audit"
-        }
-      ],
-      "limits": "Fresh separate reviewer required after final source/build/test snapshot."
+      "checks": [{ "path": "docs/RELEASE_ACCEPTANCE.md", "marker": "Independent Final Audit" }],
+      "limits": "Separate fresh reviewer after final implementation/tests; no self-certification."
     },
     "delivery": {
-      "checks": [
-        {
-          "path": "AGENTS.md",
-          "marker": "primary Vercel preview URL"
-        }
-      ],
-      "limits": "Final CI/stable preview/SHA/root browser gates are external, recorded after execution."
+      "checks": [{ "path": "AGENTS.md", "marker": "primary Vercel preview URL" }],
+      "limits": "Green actual CI/stable-preview exact-SHA root walkthrough externally verified and recorded on Draft PR after execution."
     }
-  },
-  "preservedPaths": [
-    "src/domain/chapter01/",
-    "src/domain/sandbox/",
-    "src/domain/portal/",
-    "src/domain/progression.ts",
-    "package-lock.json",
-    "src/domain/course/course.test.ts",
-    "src/domain/course/store.ts",
-    "src/domain/curriculum/capacity.test.ts",
-    "src/domain/curriculum/capacity.ts",
-    "src/domain/curriculum/expansion-content.ts",
-    "src/domain/curriculum/expansion-models.ts",
-    "src/domain/curriculum/expansion-store.ts",
-    "src/domain/curriculum/expansion.test.ts",
-    "src/domain/curriculum/expansion.ts",
-    "src/domain/curriculum/foundations-v2.test.ts",
-    "src/domain/curriculum/foundations-v2.ts",
-    "src/domain/curriculum/foundations.test.ts",
-    "src/domain/curriculum/foundations.ts",
-    "src/domain/curriculum/integrity.test.ts",
-    "src/domain/curriculum/integrity.ts",
-    "src/domain/curriculum/official.test.ts",
-    "src/domain/curriculum/responsibility.test.ts",
-    "src/domain/curriculum/responsibility.ts",
-    "src/domain/curriculum/store.ts",
-    "src/domain/curriculum/v2-store.ts",
-    "src/domain/curriculum/serverless.ts",
-    "src/domain/curriculum/serverless-store.ts",
-    "src/domain/curriculum/serverless.test.ts",
-    "src/domain/curriculum/architecture-physical.ts",
-    "src/domain/curriculum/architecture-physical-store.ts",
-    "src/domain/curriculum/architecture-physical.test.ts"
-  ],
-  "humanReview": {
-    "sme": "unperformed",
-    "learning": "unperformed"
   },
   "verification": [
     {
       "command": "npm run check",
       "result": "passed",
-      "details": "Final complete check after shared-reference and pause/resume corrections:210 Vitest/22 files,13 Node validator fixtures,120 curriculum,75 Markdown/local links,types/zero-warning lint/format/quality/AZ-900/assets/legacy and production build."
+      "details": "Post-R4 final complete check passed:222 Vitest/23 files,13 Node validator fixtures,132 curriculum,76 Markdown/local links, type/lint/format/quality/AZ900/assets/legacy and production build. Additional final audit report checked by final docs gate. Executed .artifacts/pr24-check-r4.log."
     },
     {
       "command": "npm run test:e2e",
       "result": "passed",
-      "details": "Executed exact command: npm run test:e2e -- --config=.artifacts/31a-discoverability.config.ts --workers=2. Final complete118 production cases:101 passed,17 unchanged inherited duplicate-project skips,0 failed,4.5m;exit0. All20 management cases run in both projects, including all9 independent contexts, real A/B conflicts and new stale-own-feedback/retry proofs. No new skips or weakened assertions. All prior Portal/course/physical shielding regressions pass. Earlier full97/17/2 prompted paused-action/own-prediction restoration; last full99/17/0 preceded the final two UI uncertainty conditions and new A/B feedback regression."
+      "details": "Final post-R4 complete138-case production run:121 passed/17 unchanged inherited duplicate-project skips/0 failures,9.1m,workers1. All20 new mission cases passed incl denied old-context help and already-open debrief conflict. Ignored adapter changes only local port to3100 to preserve owner3000 service; normal CI config unchanged. No new skips/weakened assertions. Executed .artifacts/pr24-e2e-r4-full.log."
     },
     {
-      "command": "scoped real production browser and teaching adapter checks",
+      "command": "npm audit --audit-level=high",
       "result": "passed",
-      "details": "18 management browser cases57.8s plus21 B-domain and4 shared-preflight tests passed. All9 valid old/new contexts are exercised through real provider/Journal behavior. Invalid/latest/different/closed attempts, denied read/write, newer drafts, immutable first, full event capacity and already-open references are guarded. An initial new test wrongly assumed A matching fields were radios; it now uses actual matching selects and existing compact menu without skipping assertions. Final full suite also runs the new own A/B stale-feedback case in both projects: prior feedback is absent on conflict, own forms/recovery remain valid, explicit Journal marks the actual retry aided, reload preserves aid and the first submission prefix is unchanged."
+      "details": "Executed full dependency audit:0 vulnerabilities; no dependency or lockfile change."
     },
     {
-      "command": "npm audit --audit-level=high; npm audit --omit=dev --audit-level=high",
+      "command": "npm audit --omit=dev --audit-level=high",
       "result": "passed",
-      "details": "Both0 vulnerabilities; no dependency or lockfile change."
+      "details": "Executed production dependency audit:0 vulnerabilities."
     },
     {
-      "command": "actual IAB/screenshots/source/preservation",
+      "command": "Actual browser walkthrough",
       "result": "passed",
-      "details": "Actual root→B theory/scope mission→predict/observe deny/audit→real Portal creation→exact return/live hierarchy→common Journal/summary. Final IAB resumed its real B draft from ordinary root, read the common Journal and retained Med registrert hjelp after reload.38 actual images inspected represent1920/1440/1366/1024,dense/short, revised independent scenarios and blocked A/B help. All old technical domains/stores/rubrics/XP remain unchanged; only four scoped audit rows changed and19 official sources reviewed. No human SME/UX/screen-reader/transfer approval."
-    },
-    {
-      "command": "final minor correction and exact full retest",
-      "result": "passed",
-      "details": "Only post-submit feedback rendering additionally requires !s.issue in existing physical/management UI. No old store/model/rubric/answer/XP change. Actual A and B first submissions, second-tab retry, withheld stale feedback, explicit Journal help and immutable prefixes are verified in the final101/17/0 production suite. Separate renewed acceptance still required."
+      "details": "Ordinary root visible four entries; course bridge/blur briefing, actual plan/two apps/settings draft and Apply/receipts/inspection, exact return, changed independent debrief and reload operated. Manually incomplete guided first retained as incomplete. Engineering QA, not human learning validation."
     }
   ],
   "visualEvidence": [
     {
-      "path": "docs/screenshots/management/management-root.png",
+      "viewport": "1265x713 actual review browser",
+      "inspected": true,
+      "observation": "Four mission entries in ordinary course landing; visible context and destinations.",
+      "path": "docs/screenshots/missions/pr24-local-root.png"
+    },
+    {
       "viewport": "1920x1080",
-      "observation": "Ordinary current course A+B entry.",
-      "inspected": true
+      "inspected": true,
+      "observation": "Explicit two-path dependency diagram and actual modeled failure/result; no Portal runtime claim.",
+      "path": "docs/screenshots/missions/pr24-diagnosis-result-1920x1080.png"
     },
     {
-      "path": "docs/screenshots/management/management-theory.png",
-      "viewport": "1920x1080",
-      "observation": "Full original theory with terms and hierarchy context.",
-      "inspected": true
-    },
-    {
-      "path": "docs/screenshots/management/management-mission.png",
-      "viewport": "1920x1080",
-      "observation": "Native explicit start/cancel/blur and readable scroll.",
-      "inspected": true
-    },
-    {
-      "path": "docs/screenshots/management/management-hierarchy.png",
-      "viewport": "1920x1080",
-      "observation": "Actual app/group/plan and App Sandbox assignment ancestry.",
-      "inspected": true
-    },
-    {
-      "path": "docs/screenshots/management/management-scope-deny-model.png",
-      "viewport": "cropped1920",
-      "observation": "Hypothetical Development deny, other type/sibling differ.",
-      "inspected": true
-    },
-    {
-      "path": "docs/screenshots/management/management-scope-audit-model.png",
-      "viewport": "cropped1920",
-      "observation": "Parent audit reaches both subscriptions without denying.",
-      "inspected": true
-    },
-    {
-      "path": "docs/screenshots/management/management-relation-milestone.png",
-      "viewport": "1920x1080",
-      "observation": "Actual resource names; no physical/runtime claim.",
-      "inspected": true
-    },
-    {
-      "path": "docs/screenshots/management/management-assessment.png",
-      "viewport": "1920x1080",
-      "observation": "Four changed scenarios, reasons and correctly named Part B submit.",
-      "inspected": true
-    },
-    {
-      "path": "docs/screenshots/management/management-feedback.png",
-      "viewport": "1920x1080",
-      "observation": "Committed feedback with first/help/retry distinction.",
-      "inspected": true
-    },
-    {
-      "path": "docs/screenshots/management/pr23-summary-b.png",
-      "viewport": "IAB1264x720",
-      "observation": "Separate A/B pending results; no guided-only upgrade.",
-      "inspected": true
-    },
-    {
-      "path": "docs/screenshots/management/pr23-journal-b.png",
-      "viewport": "IAB1264x720",
-      "observation": "Full B manuscript in same Journal as A.",
-      "inspected": true
-    },
-    {
-      "path": "docs/screenshots/management/hierarchy-1024x500.png",
-      "viewport": "1024x500",
-      "observation": "Short-height baseline remains scrollable.",
-      "inspected": true
-    },
-    {
-      "path": "docs/screenshots/management/management-dense-1920x1080.png",
-      "viewport": "1920x1080",
-      "observation": "Eight validated groups, real Web/VM bundle and nested subnet; scroll/selection/inspector.",
-      "inspected": true
-    },
-    {
-      "path": "docs/screenshots/management/management-dense-1440x900.png",
       "viewport": "1440x900",
-      "observation": "Eight validated groups, real Web/VM bundle and nested subnet; scroll/selection/inspector.",
-      "inspected": true
+      "inspected": true,
+      "observation": "Prediction/result and controls remain legible; result centered below header and above footer.",
+      "path": "docs/screenshots/missions/pr24-diagnosis-result-1440x900.png"
     },
     {
-      "path": "docs/screenshots/management/management-dense-1366x768.png",
       "viewport": "1366x768",
-      "observation": "Eight validated groups, real Web/VM bundle and nested subnet; scroll/selection/inspector.",
-      "inspected": true
+      "inspected": true,
+      "observation": "Minimum-desktop model/table composition remains readable without horizontal clipping.",
+      "path": "docs/screenshots/missions/pr24-diagnosis-result-1366x768.png"
     },
     {
-      "path": "docs/screenshots/management/management-dense-1024x768.png",
       "viewport": "1024x768",
-      "observation": "Eight validated groups, real Web/VM bundle and nested subnet; scroll/selection/inspector.",
-      "inspected": true
+      "inspected": true,
+      "observation": "Compact graph and semantic result controls remain accessible; scrolling preserves instructions.",
+      "path": "docs/screenshots/missions/pr24-diagnosis-result-1024x768.png"
     },
     {
-      "path": "docs/screenshots/management/management-conflict-held-core-summary.png",
-      "viewport": "1440x960",
-      "observation": "Actual conflict holds explanations until explicit safe reconcile; no help leakage.",
-      "inspected": true
+      "viewport": "1024x500",
+      "inspected": true,
+      "observation": "Corrected native milestone body padding and scroll preserve full text and reachable footer; keyboard tested.",
+      "path": "docs/screenshots/missions/pr24-paas-milestone-1024x500.png"
     },
     {
-      "path": "docs/screenshots/management/management-conflict-held-journal.png",
-      "viewport": "1440x960",
-      "observation": "Actual conflict holds explanations until explicit safe reconcile; no help leakage.",
-      "inspected": true
+      "viewport": "1920x1080",
+      "inspected": true,
+      "observation": "Actual rejected operation receipt/scope, no created denied resource; contextual guide and inspection remain separate.",
+      "path": "docs/screenshots/missions/pr24-governance-denial.png"
     },
     {
-      "path": "docs/screenshots/management/management-conflict-held-management.png",
-      "viewport": "1440x960",
-      "observation": "Actual conflict holds explanations until explicit safe reconcile; no help leakage.",
-      "inspected": true
+      "viewport": "1920x1080",
+      "inspected": true,
+      "observation": "Actual new VM overview/attachments and bounded simulated configuration; no running VM claim.",
+      "path": "docs/screenshots/missions/pr24-iaas-new-vm.png"
     },
     {
-      "path": "docs/screenshots/management/pr23-revised-case-b.png",
-      "viewport": "65536x4292542531",
-      "observation": "Actual revised independent scenario; changed constraints and varied answer positions, no pre-submit feedback.",
-      "inspected": true
-    },
-    {
-      "path": "docs/screenshots/management/pr23-revised-case-c.png",
-      "viewport": "65536x4292542531",
-      "observation": "Actual revised independent scenario; changed constraints and varied answer positions, no pre-submit feedback.",
-      "inspected": true
-    },
-    {
-      "path": "docs/screenshots/management/management-part-a-conflict-held-journal.png",
-      "viewport": "1440x960",
-      "observation": "Actual Part A conflict cannot expose common Journal theory; own reload and no rewritten first.",
-      "inspected": true
+      "viewport": "1265x713 actual review browser",
+      "inspected": true,
+      "observation": "Real two-app same-plan new settings writes, all criteria fulfilled unaided and persisted after reload; distinct independent requirements/feedback.",
+      "path": "docs/screenshots/missions/pr24-two-app-independent-debrief.png"
     }
   ],
+  "humanReview": {
+    "sme": "unperformed",
+    "learning": "unperformed",
+    "ux": "unperformed",
+    "screenReader": "unperformed"
+  },
   "review": {
     "status": "complete",
-    "fingerprint": "f3c36c595cc9fe43556d53ec2d8c1fde6b7f7586f31a81d86726d8ddee6635f4",
+    "fingerprint": "2bd65d115addf06f8e85f521f66d988516a9eb99b5457be23930c675527656e9",
     "reviewer": {
-      "id": "codex-pr23-independent-final-audit-agent",
+      "id": "codex-pr24-independent-reviewer",
       "kind": "agent"
     },
-    "started": "2026-10-27T11:49:42Z",
+    "started": "2026-10-27T16:11:13.904Z",
     "domains": {
       "content": {
-        "finding": "No new learner content/answer change. R2/source qualifications and N1 positions retain accepted independent review; manuscript records N2 boundary. No human SME/transfer approval.",
+        "finding": "R1/N1/N2 remain fixed: original source-supported tasks and substantive two-app independent configuration/questions unchanged; no readiness/human-transfer inference.",
         "evidence": [
           {
-            "path": "docs/quality/PR23_FINAL_AUDIT.md",
-            "marker": "### Final six-domain refresh"
-          },
-          {
-            "path": "docs/CORE_ARCHITECTURE_MANAGEMENT.md",
-            "marker": "Final minor correction"
+            "path": "docs/quality/PR24_FINAL_AUDIT.md",
+            "marker": "Renewed six-domain assessment"
           }
         ]
       },
       "technical": {
-        "finding": "All87 normalized hashes and fingerprint recomputed. Exact implementation delta is !s.issue on both feedback conditions plus one test; prior source/test hashes recovered by reversal. Frozen stores/domains/rubrics/XP/inventory/guidance unchanged.",
+        "finding": "All79 normalized hashes and aggregate match. Exact presenter delta is two safety guards; frozen technical/evidence/rubric/store/XP boundaries unchanged.",
         "evidence": [
           {
-            "path": "docs/quality/PR23_FINAL_AUDIT.md",
-            "marker": "### Final six-domain refresh"
-          },
-          {
-            "path": "src/features/learning/management.tsx",
-            "marker": "!s.issue && !f.active && last"
+            "path": "docs/quality/PR24_FINAL_AUDIT.md",
+            "marker": "Renewed six-domain assessment"
           }
         ]
       },
       "visual": {
-        "finding": "Own actual A/B stale-feedback-held screenshots inspected at1366x768; own recovery visible and reloaded form enabled. Prior four-desktop/dense/short/paused evidence remains applicable; no new visual major.",
+        "finding": "Actual four-desktop/short images retained identical hashes; own denied/healthy/conflicted1366x768 debrief screenshots inspected, with readable named recovery and answer-bearing content removed.",
         "evidence": [
           {
-            "path": "docs/quality/PR23_FINAL_AUDIT.md",
-            "marker": "### Final six-domain refresh"
-          },
-          {
-            "path": "docs/screenshots/management/management-part-a-conflict-held-journal.png"
+            "path": "docs/quality/PR24_FINAL_AUDIT.md",
+            "marker": "Renewed six-domain assessment"
           }
         ]
       },
       "assessment": {
-        "finding": "N2 fixed: independent actual A/B firsts unaided, remote retry hides stale feedback, reload alone adds no help, explicit Journal persists retry aid across reload, both original first prefixes exact. R1/R2/N1 remain fixed.",
+        "finding": "R4 fixed by independent denied-old-Benefits-aid and already-open-remote-assessment proof. Latest Benefits bytes, immutable mission prefix and technical bytes preserved; no open findings.",
         "evidence": [
           {
-            "path": "docs/quality/PR23_FINAL_AUDIT.md",
-            "marker": "### Final six-domain refresh"
-          },
-          {
-            "path": "docs/quality/PR23_FINAL_AUDIT.md",
-            "marker": "## Final scoped N2 renewal"
+            "path": "docs/quality/PR24_FINAL_AUDIT.md",
+            "marker": "Renewed six-domain assessment"
           }
         ]
       },
       "guidance": {
-        "finding": "Exact delta does not change adapter/Portal/milestone/paused controls. Accepted all9-context and own operational/model proofs retained; no new aid/highlight/completion behavior introduced.",
+        "finding": "R2/R3 remain fixed. Active guidance, Journal and graph durable-help protections passed renewed cases. New entry/debrief safety adds no automatic aid, operation or completion.",
         "evidence": [
           {
-            "path": "docs/quality/PR23_FINAL_AUDIT.md",
-            "marker": "### Final six-domain refresh"
-          },
-          {
-            "path": "src/domain/curriculum/teaching-access.ts",
-            "marker": "prepareExistingTeaching"
+            "path": "docs/quality/PR24_FINAL_AUDIT.md",
+            "marker": "Renewed six-domain assessment"
           }
         ]
       },
       "regression": {
-        "finding": "Independent actual A/B proof exited0 with no page errors. Targeted2 production cases CLI0 after disclosed stuck owned-server teardown termination; prior tests/assertions/skips unchanged. Earlier57 unit/18 production review retained, author118-case run is separate evidence.",
+        "finding": "Renewed20 production mission cases and own R4 proof exited0. Earlier32 pure tests passed against unchanged domain/adapter source. Author full138-case121-pass/17-old-skip suite remains separately recorded.",
         "evidence": [
           {
-            "path": "docs/quality/PR23_FINAL_AUDIT.md",
-            "marker": "### Final six-domain refresh"
-          },
-          {
-            "path": "tests/e2e/architecture-management.spec.ts",
-            "marker": "stale own A/B feedback is withheld"
+            "path": "docs/quality/PR24_FINAL_AUDIT.md",
+            "marker": "Renewed six-domain assessment"
           }
         ]
       }
@@ -908,146 +716,146 @@
         "id": "R1",
         "severity": "major",
         "status": "fixed",
-        "description": "Conflicted active assessments could expose shared teaching while aid writes were rejected, permitting false first-unaided evidence.",
-        "fix": "All9 context preflight compares current validated records and confirms persisted assistance before mounting new shared teaching; uncertain/stale/denied contexts hold teaching and expose exact reload/recovery without answer merges or old-store changes.",
-        "retests": [
-          "57 scoped domain tests exit0",
-          "18 scoped production browser cases passed",
-          "Independent exact A/B draft-conflict Journal/reload/first proof exited0",
-          "Independent operational/no-aid and paused-model proof exited0"
-        ]
+        "description": "Original PaaS independent task repeated guided configuration/diagnosis with only an environment change.",
+        "fix": "Distinct two-app same-plan settings and app-scope decisions with new write/draft/inspection predicates.",
+        "retests": ["Independent mission domain negatives and18 production mission cases passed."]
       },
       {
         "id": "R2",
         "severity": "major",
         "status": "fixed",
-        "description": "Independent B/C originally repeated worked/guided decision structures.",
-        "fix": "Revised shared-plan lifecycle and sibling-MG VM deny introduce changed decisions; original alternatives/rationales and AM18/19 technical qualifications independently reviewed.",
+        "description": "Active mission lacked named older-context recovery and could show stale/futile guidance under technical uncertainty or attempt mismatch.",
+        "fix": "Named existing scoped loads/destinations plus technical/pinned-attempt withholding and explicit abandon; technical debrief safety added.",
         "retests": [
-          "Independent full learner-copy/source recheck in10:44renewal",
-          "57 scoped tests exit0",
-          "18 production cases passed"
+          "Independent production non-Core/technical conflict and new-attempt case passed in both projects."
+        ]
+      },
+      {
+        "id": "R3",
+        "severity": "major",
+        "status": "fixed",
+        "description": "Architecture Related learning exposed explanations without durable mission aid.",
+        "fix": "Explicit node/relation explanations use full common teaching boundary and withhold already-open content on conflict.",
+        "retests": [
+          "Independent failed-write, successful durable help and cross-tab explanation-withholding browser case passed in both projects."
+        ]
+      },
+      {
+        "id": "R4",
+        "severity": "major",
+        "status": "fixed",
+        "description": "Historical mission entry/debrief still exposes answer-bearing material while a non-Core first independent context cannot persist assistance; actual denied-Benefits production proof confirmed unchanged begin-only durable record.",
+        "fix": "MissionEntry withholds answer-bearing entry/debrief on unsafe or active other contexts; MissionDebrief independently guards the full safety state and removes already-open rationale on conflict.",
+        "retests": [
+          "Independent original denied-Benefits proof, valid abandonment/scoped reload and remote new-begin withholding all passed; mission/technical bytes unchanged and no page errors.",
+          "All20 final production mission cases passed in both projects,1.2m,exit0."
         ]
       },
       {
         "id": "N1",
         "severity": "minor",
         "status": "fixed",
-        "description": "All8 correct independent choices were first.",
-        "fix": "Answer positions now2,3,2,1,3,2,3,1.",
-        "retests": [
-          "Independent learner-copy/domain choice-order inspection",
-          "57 scoped tests exit0"
-        ]
+        "description": "Independent diagnosis question described the guided shared dependency rather than its changed routing failure.",
+        "fix": "Mode-specific failure-path/routing question.",
+        "retests": ["Read final copy and independent production diagnosis task."]
       },
       {
         "id": "N2",
         "severity": "minor",
         "status": "fixed",
-        "description": "Own A/B stale closed-attempt feedback remains visible after another tab begins retry. First prefix is preserved and retry records prior exposure, but current retry assistance remains0 while historical rationales can be read. Author elected to hide feedback on own issue and add A/B cross-tab regression.",
-        "fix": "Both A/B post-submit feedback conditions now require !s.issue, holding stale historical rationales while own conflict/recovery/form remain available. No evidence or first/retry state changes.",
+        "description": "Independent debrief showed guided scenario requirements.",
+        "fix": "Session mode selects independent requirements, questions and feedback.",
         "retests": [
-          "Independent actual A/B first-submit/remote-retry/held-feedback/reload/explicit-Journal proof exited0",
-          "Targeted production regression2 browser projects passed CLI0",
-          "Exact previous source/test hashes recovered by reversing only the two guards/new test"
+          "Read corrected presenter and inspected actual two-app independent debrief/reload."
         ]
       }
     ],
     "report": {
-      "path": "docs/quality/PR23_FINAL_AUDIT.md",
-      "marker": "N2 is fixed; R1/R2/N1 remain fixed"
+      "path": "docs/quality/PR24_FINAL_AUDIT.md"
     }
   },
   "snapshot": {
     "files": {
-      "AGENTS.md": "f4902c2456b54c53308bfc1e82dbda7b554a5e8759356e04c8b84374e7c18cd3",
-      "README.md": "037427f5304a57dc3ebe1e1d4b070f1dae8943a8a3fd97c04a516215501525f6",
-      "docs/ARCHITECTURE.md": "41dcb7b6883698873bef1994a5ebfb4583cbcd0d7c6fe031657da10c22b7964d",
-      "docs/AZ900_COVERAGE_MATRIX.md": "d38464e2f0d2b002fa165e0704f501461267845dc124c6c1e7ea337ccc9a5fae",
-      "docs/AZ900_EXPANSION_ROADMAP.md": "33401e1af3d22f383481f1b20536725f44e7697ca9ad1ac922e2eee7aa21d6fc",
-      "docs/AZ900_GAP_ANALYSIS.md": "ddbda2d80e5eb7c91f95a53198b180d5eb35f4a3600ba0944acc7f365f1ac861",
-      "docs/CONTENT_ARCHITECTURE.md": "5e7b5eec7d00b7ba3bd53f60dd58d80ffffce62e60477bf29b7f5c0c2a29a89a",
-      "docs/CONTENT_STANDARDS.md": "fd2bce4d9705f208675922c50f8cca75a51078dba20cda06002a66da8bb65bf8",
-      "docs/CORE_ARCHITECTURE_MANAGEMENT.md": "513163277e455f1884aeaac86bcf9fc4d39669f803e613e71a79fb1d428a3d7c",
-      "docs/CORE_ARCHITECTURE_PHYSICAL.md": "e2ec7d640dc284e191afa00ee2c62307b98d7fbab8f55d9be4bd8d120503836b",
-      "docs/COURSE_LAB_ORCHESTRATION.md": "27ab33339a5db886996ddd88ab4ff868cb409d3712cb911d269d407bfacf3f25",
-      "docs/CURRICULUM_COVERAGE.md": "6643cc2a980df0ea16eab9fd6f04d3249be9a9c265edf26797303e4034f80f3c",
-      "docs/DECISIONS.md": "0a96e3ac0bfa7ca50231a3f4d77f82fc11578a8d9fe023ee01f7fba18f13123a",
-      "docs/INTERACTIVE_VISUALIZATIONS.md": "995eaeb03581b4e5c3a974fb29c453c9b704f0b664db574f01e8267e72f61e94",
-      "docs/LEARNING_DESIGN.md": "0a079ecec7f9799109aac90c8be3985a74f14466243fae202063ca2684cd6a6a",
-      "docs/LEARNING_JOURNEY.md": "4698811765c1103819a671c65f0d2ed160a960e89779afafcd4cf1c8183cd043",
-      "docs/SAVVYSHARK_GUIDANCE_STANDARD.md": "d27b32cb3b467939bbc3370a0792ef874e924b2c13b2338728a2daa6c1896742",
-      "docs/SECURITY.md": "d1b208f2dc7687f136f2e6d638232e8902454b66f6e4623838e9088a8dc1f67e",
-      "docs/SOURCE_REGISTER.md": "a7317b9a6971f9bc4e1b9af7dfd22982544062d4cb7eace5ff1f7899d667aec2",
-      "docs/audits/az900-2026-07-20.json": "c7fdd8fdfe89ffabc3412895e0437dd944ff8573ba5b88c62cb83a942b50dfd2",
-      "docs/screenshots/management/hierarchy-1024x500.png": "ceb9fadbbf2ca526dc9cd3aea8158b685204c09444c0c0b824b5d6c6ada08b6d",
-      "docs/screenshots/management/hierarchy-1024x768.png": "1ef29317dfa8717ff2612cf87c467ebbddae88cf6ab458e6c2ebf498b55f5bd2",
-      "docs/screenshots/management/hierarchy-1366x768.png": "cfce7733a46f229eeda1a3709c67d88c7705ff2c12a4a433b786268964024a48",
-      "docs/screenshots/management/hierarchy-1440x900.png": "edcb0c68e6e791ccafabceace10390b5ff35e583d3ae077c97f361eecef8ed81",
-      "docs/screenshots/management/hierarchy-1920x1080.png": "d88fed5b1530c5c3ab9e38f90e399d28e01de59c524d75b35dee85393c41395c",
-      "docs/screenshots/management/management-app-hosting.png": "1b8d3c29e457aec89edd370aa241349a9ad6edcd475aaab60d063f02b9fde99d",
-      "docs/screenshots/management/management-architecture-live.png": "c117704780662bf1b06364c00ab67d1e6ff4ce66753bb3e965103ba0d7fdea77",
-      "docs/screenshots/management/management-architecture.png": "22eee0f80f1631765b4d6901605612f9bea92b3a72c1520beaaadfd9d59e8098",
-      "docs/screenshots/management/management-assessment.png": "69346df5e9ce979113d8671444dc8808d2ebff0d0c94ccfa7b2c8d9cb02f422d",
-      "docs/screenshots/management/management-conflict-held-core-summary.png": "cf6856c86f4c33beb49e844124f15825c5b8650bfa00819b63c3f29710e991ae",
-      "docs/screenshots/management/management-conflict-held-journal.png": "d2616c7e6162a4e52122cec95d0099c7c9bd6b7dadf400c3759a2fad1f6a9001",
-      "docs/screenshots/management/management-conflict-held-management.png": "45ee3e9581e3d9aefa33c14bf4689e07ad557371101c72b3474c2cfc2c064524",
-      "docs/screenshots/management/management-corrected-plan.png": "327b4d8a7581a316cea4555071944b27265492626a40bde8bf5c336b9478a152",
-      "docs/screenshots/management/management-denial.png": "4a6cef0f05992ccfb6f4aa7708f01d576bbc73f81a4e0cdbf0052931de4a349b",
-      "docs/screenshots/management/management-dense-1024x768.png": "e85319d5b023df27155726d92aa171865216e522949754cad7731c26d0c7731e",
-      "docs/screenshots/management/management-dense-1366x768.png": "ca7acd2d5c76246c4e0e4c8d144e9c6562fb7e063132ab60dfcaf17b46a75495",
-      "docs/screenshots/management/management-dense-1440x900.png": "e7652f89cd0111332b57a038b95c3b762ee21df886bb19a37771b31f79a70857",
-      "docs/screenshots/management/management-dense-1920x1080.png": "745a097cab34a57abbee5fab3f1e8197e1a3babf31c6de2e3a40a87a6c9c4ef2",
-      "docs/screenshots/management/management-feedback.png": "6b13fb4390f82bcd9df194340a47f164d7f62c3d33e80fab500ac0e02fdf91d1",
-      "docs/screenshots/management/management-group-configuration.png": "8e040e691ffeb244e3188ba2a145f8ca8e6ab1fce02024a9c284c2b4ff43f5b6",
-      "docs/screenshots/management/management-group-inspection.png": "c00e35ef02e3a1b621e30247670c1ce4e2f1fe42f7572a0c0e6f27bb9aedfe48",
-      "docs/screenshots/management/management-hierarchy.png": "2ca3c42d43015ee3c0be5161df5d063df79e003df466de45873123d794a619ea",
-      "docs/screenshots/management/management-mission.png": "f84f12dd7afb294be7818e4455c3ff057c762afe5d0a229f7d5e7e2568b159ff",
-      "docs/screenshots/management/management-part-a-conflict-held-journal.png": "df4c9ebc5402606769ece51495cef36135775079ac4a4ab562be192507ad69e5",
-      "docs/screenshots/management/management-plan-configuration.png": "a6a0a5e462cdeaca34f292a27ff72f3e47396f2fa2f5e03c59e18461dc3de3b6",
-      "docs/screenshots/management/management-policy-inspection.png": "9539dd510c9cf7ea12469b1015349a6fabe77eee864150afc49c7886ad8b1cf6",
-      "docs/screenshots/management/management-relation-milestone.png": "d24c5edc9671cf4e426c87119657110ae3eacf08b05a27f7028934ce5a407a3d",
-      "docs/screenshots/management/management-root.png": "5e23334dbd6ecfdad62978a28894579c53599f19db63d835a6ada08f0ec75059",
-      "docs/screenshots/management/management-scope-audit-model.png": "e91dc84e0fd2ac51c9df11fbac962b9d65d8248d54dd42040033a5acfc3644ab",
-      "docs/screenshots/management/management-scope-deny-model.png": "5b0e5af88137728d316193a356c8a6d6cd32c6b31832b156e832ca562d398129",
-      "docs/screenshots/management/management-scope-result.png": "93183be11880bedcfb00f3bb61c6db5d1ecb9457b8547fb023ec350fc2051099",
-      "docs/screenshots/management/management-theory.png": "53ba322058ac8a1e0afe3e7a39cf1d9fa4b2a9f190044a350ff94adb2dbb2a84",
-      "docs/screenshots/management/pr23-journal-b.png": "3287b6d83c59a145d66ff9170b85ddeae43543227d0d19a89f2f504bdeb8fe8c",
-      "docs/screenshots/management/pr23-journal.png": "0da5b58487bbb5b9c1df3069030bd3e372daa93c8a7b3f36e8b4f2b56f21a314",
-      "docs/screenshots/management/pr23-revised-case-b.png": "1b95ca163ba50b7c374cc1810d8769a39452cc727c69c9b9ef2c9f856256a489",
-      "docs/screenshots/management/pr23-revised-case-c.png": "ac61ab70ca0cede903091df89c3b93796e6bb0a755e415933fe95674f033c201",
-      "docs/screenshots/management/pr23-summary-b.png": "8e9040c88f859353f95b34a8889b50eab6657a8ed5d5230cb99a1edf626f0dd3",
-      "docs/screenshots/management/pr23-summary.png": "b53b06c4aac58c8364b04a757ef1512091ca0a4684801a0170f0f143f488f82c",
-      "package.json": "7778f8a07dfec52a2cfeab55c8181b3eb71fd2030b7c78fea0e9e1c76390f297",
-      "scripts/az900-audit-check.test.mjs": "c824c85e09fb279e3d9706515e878218a194d53339e9221b9d0604ae079473b9",
-      "scripts/docs-check.mjs": "26dd1de9b6dff4b566952b4e8063b7c94790639d3b2f040cfc6371efb72a5b68",
-      "src/app/layout.tsx": "70357ac5391e7e74d11b00ea2af3e7121730fdb8a0e6cbfc0bd4f7dfd77464f6",
-      "src/components/app-shell.tsx": "035cf93a5db8e2e2a194ed91a5638e135db6447fcd31c422a0107e0403809967",
-      "src/components/progress-provider.tsx": "aa55f0275d3139f1e74b05f9805201ba9769d8ca057dcd18ef4c8beedf495df3",
-      "src/content/nb.ts": "455f63645536f8b88cfdc61d00d1ae527ddcdf673ec76a4fbb185e1c48389093",
-      "src/domain/course/model.ts": "b533fb552f3e977c7e4a8d2ba14ae7043cb724719e7625fd855bc81da4dd9811",
-      "src/domain/curriculum/architecture-management-store.ts": "cea4755341752ae364fa8521e9d83d0adb8d1121ea8196b69c1df49b9302c980",
-      "src/domain/curriculum/architecture-management.test.ts": "296f1f3dc087a261369aff93b8f91f95686ba5fd6a3eb0aae2576b3039cebfda",
-      "src/domain/curriculum/architecture-management.ts": "2be38255a3ab3780b5ca1bbca254de0a6f0e77d97976132b66fd3505bc79c625",
-      "src/domain/curriculum/manifest.ts": "3e43f9bc47fb276478dfa1d16ea53e6b33d2515d1a08904278bc9c1ca65d61f8",
-      "src/domain/curriculum/official.ts": "12597ba38757efffeadd9311644267980a53bb15c00710f1e5e8c4fcb6cca096",
-      "src/domain/curriculum/teaching-access.test.ts": "a965addbfa717113987b49e98a9a28e26eef6741be80a42fd5d26335c666ee44",
-      "src/domain/curriculum/teaching-access.ts": "88c363a7f5f6fb07e01bca39db4111027557f525b460ffe6307c7b498e4d91c5",
-      "src/domain/guidance/milestones.ts": "4baae031addd042109d77107309d20fc19b2da94aa3047ce7957e56150db2738",
-      "src/features/course/course.tsx": "cbffa8ed9b83d194947ab5bb52b9cf7913d4a763ea9339dabec7cfa50b8f2c5a",
-      "src/features/learning/journal.tsx": "6944d15f5650ef15e8b199b0c12535e1eaca855ed0d29f14d1297124e668839a",
-      "src/features/learning/management-access.tsx": "47b76d5b706c3308929f2f544ed2f8be6ccdba07d07ece7bd7faf6a28e3b894a",
-      "src/features/learning/management-provider.tsx": "d65d8e6eade7dcd19a664a7c344afba93697c628a39907a76086191c44aa309a",
-      "src/features/learning/management-recovery.tsx": "d38a492fb828ae481971565a7a58b34b7d00efb41be6aa4474f0b7c884f53ec0",
-      "src/features/learning/management.css": "8e9c92acff76ace4a6995ef37edb861a2a9debaea97b2bb8ed69c9f119f9560d",
-      "src/features/learning/management.tsx": "9a8fc74eafedf9e958a8b6dca92afb89040c4e60f2ebc524a02ff110f06246b1",
-      "src/features/learning/physical-entry.tsx": "df8cb8bfafe15c8232ada34935b29b53286b44399811f672d30112c5cdefefad",
-      "src/features/learning/physical.tsx": "a0d04225d0644f9eff5e397da6f28b97eee2e1eeebd7e6c2016aafb39a585c41",
-      "src/features/portal/portal.tsx": "10c749daf84971d774445d17290e78a0450f5d8c4948d9186df4b86fb5a19bf8",
-      "tests/e2e/architecture-management.spec.ts": "78f001af78291f7c726ccbb9560089e1ceb8e94124dffdd554c741ea7447fe85",
-      "tests/e2e/architecture-physical.spec.ts": "faefeac2576184cbd58a15335fc5dfe186be54940efc6e19018a7067adc9c14e",
-      "tests/fixtures/active-teaching-contexts.ts": "c83cefe7bbec48fe84167fc94dd511c775a9c00a9268af09676e10965e8f75fb"
+      "AGENTS.md": "2f1a9e6b16094107e77e12848b7aae0259f57a4bcecd90d50e94de0b3c6ac27f",
+      "README.md": "84d4124447cb380b185f81e9f018ad92a81213644911b2f07f2aad671df1a840",
+      "docs/ARCHITECTURE.md": "53c3b237e4efa3eafd7574183cafa49c33fc780fc82d97aec38bd2fb53a7ce97",
+      "docs/AZ900_EXPANSION_ROADMAP.md": "1f153cfb3a5cea34c30f37e4bbecbf409e1ac06ce18c70d0533b983f4a3fc73e",
+      "docs/CONTENT_ARCHITECTURE.md": "564a2c48d75dd4b355db2608611ed76ad941c600886bfb3c541bfb9e16e8eb96",
+      "docs/COURSE_LAB_ORCHESTRATION.md": "44573f83df0e82f74f1ea6177541e7460c7ba7798f2613c553a78b0eb401d0fc",
+      "docs/CURRICULUM_COVERAGE.md": "cc605e5bec3ff98a587a7a3e75d6b4a273e6c9185bceb42efaef43f09c785e60",
+      "docs/DECISIONS.md": "b99316528178609f02aa8a68c924c982758a01cf482e19d55c7e6a6c6cad8d01",
+      "docs/FUNDAMENTALS_LAB_COVERAGE.md": "0d3ed9b5e1c2e9603d6878dc36fe430847701404c8a03df67f2cff2f02d723e6",
+      "docs/INTEGRATED_LABS_ARCHITECTURE.md": "6aaddbb5169462ec95fe10df83d93d9188e426e1d100ffb16e9e0a44308a03da",
+      "docs/INTERACTIVE_VISUALIZATIONS.md": "7818b1d9e7d01b7dfde8a67662729526cdbdd4c0ed9d321973d3787624e447bb",
+      "docs/LEARNING_DESIGN.md": "27cdc78209e1afa5a7a01190d750f2b26b562bfd1d7e4552852be82cb0ccbcb9",
+      "docs/LEARNING_JOURNEY.md": "9ebc641447f8ee02745ba9591cc5889d712149424764dc343c82b8980d57ea69",
+      "docs/PORTAL_REFERENCE_FIDELITY.md": "361c908a38b2b2c940ee45e635c99725e1ba15c4935b89ceee439d6039b2cebd",
+      "docs/PRACTICAL_MISSION_EXPANSION.md": "ce9933ae154155491872e0ad789ab8751309fc93d77cf72e847abedeea32acdb",
+      "docs/ROADMAP.md": "48e60b2a760a1ef16a413ebb06764d11a9cce2246b52f4f0263d866db42afa68",
+      "docs/SAVVYSHARK_GUIDANCE_STANDARD.md": "87d27c26a551099d128a3f28231ab01b61a98848ce402357e171d0e3c1e041d1",
+      "docs/SECURITY.md": "e5ce0ce22651ace4f845c3b4bcf7528feb88b1e3a9efab1faa73cf8cfa0c1f34",
+      "docs/SOURCE_REGISTER.md": "dd491ad9577f293a5c3589702fa5c8b113f582089eb59197210a46f8852d947d",
+      "docs/screenshots/missions/pr24-diagnosis-milestone.png": "5492e9ad64f921c4f3a311fc693daa6c79fe9ad19432596ec0d616347c517fe3",
+      "docs/screenshots/missions/pr24-diagnosis-model-1024x500.png": "8ca8a25cc35a8b6bbdb7cbe2ca4448c52f05d3619cb3aed6ec98262822053b63",
+      "docs/screenshots/missions/pr24-diagnosis-model-1024x768.png": "b10802cade7ddd470502b51935ad2d159735d3425122954d98df8fb6cb10fd54",
+      "docs/screenshots/missions/pr24-diagnosis-model-1366x768.png": "10878a97bb417b5f2fa0577eac3f6ca23edf8f7d04cc4f13f3deaad1af79730c",
+      "docs/screenshots/missions/pr24-diagnosis-model-1440x900.png": "9d2685e6cb8a194f953f9e67783dc818e1a6df07102057d4ec6aaa3ad490936f",
+      "docs/screenshots/missions/pr24-diagnosis-model-1920x1080.png": "b1083595e9d25f979565b673e15865d5d068d6a9426711dfeeba1e175a937505",
+      "docs/screenshots/missions/pr24-diagnosis-result-1024x500.png": "250534bb64cc6aec31378d0a8b276dc5b4996feb312861c32029dd33fa5c4257",
+      "docs/screenshots/missions/pr24-diagnosis-result-1024x768.png": "e21c2717210cd82884f3429f5d234d40c55a51df84d0574378f55bab0c70f895",
+      "docs/screenshots/missions/pr24-diagnosis-result-1366x768.png": "4441d2bb28f53c25936bd9289c1d2d8cfd5359b34adc9d07fb91603ac41c5166",
+      "docs/screenshots/missions/pr24-diagnosis-result-1440x900.png": "328530bad0dd0b2f87b29f11b72efcf1c717f645702ccb4601cdf534cf160a64",
+      "docs/screenshots/missions/pr24-diagnosis-result-1920x1080.png": "3cbf392b73e6ad7599a0cf1d46b505be9703be0f564bff628cee854d88a3c57b",
+      "docs/screenshots/missions/pr24-governance-debrief-1024x500.png": "2a3a46f7ccb31760dbbe628417093339c9bc1fe014789a8ce89ee8d631464a08",
+      "docs/screenshots/missions/pr24-governance-debrief-1024x768.png": "c7b53def9ec1c1764c40161a827f027e0fe0d83d965b19af0288a42c1774dede",
+      "docs/screenshots/missions/pr24-governance-debrief-1366x768.png": "37f9c57d0650132e614071810cd5d707f016be77f7922c1bdb9465d340ab2047",
+      "docs/screenshots/missions/pr24-governance-debrief-1440x900.png": "32bd8deaeec8e54375e0be43b2ee4aa0060c85b262267ba5451603e6a48c5d2d",
+      "docs/screenshots/missions/pr24-governance-debrief-1920x1080.png": "33171b5a58367e50f0d2d317e368ef52682c0ddd3958ae639ac5aeb0e0651c9b",
+      "docs/screenshots/missions/pr24-governance-denial.png": "21c43f29cb57437e3f5120878caac3f6892603280961c6b4181540a7a43c86f0",
+      "docs/screenshots/missions/pr24-iaas-independent.png": "316192cd179d38f334f291e343517ee685a99352317a0a949c82910d383d7286",
+      "docs/screenshots/missions/pr24-iaas-new-vm.png": "2c73f1ca4e96924521e321443d7fa747e17a5eba9d0f624a58b1bc9790c294d4",
+      "docs/screenshots/missions/pr24-local-briefing.png": "335b79b0be19354fc054a06467ea37f221474f8400f9a0f33b9dabd0d3961d7d",
+      "docs/screenshots/missions/pr24-local-root.png": "a0b92964b22ee638742216f410ca79fe088bbb4737a92ea8ce1bd6ab846baced",
+      "docs/screenshots/missions/pr24-local-settings-milestone.png": "53774b754476baa7d424862865c1210690c17966eaf71c534c3bf6219464e32c",
+      "docs/screenshots/missions/pr24-local-unapplied.png": "c31d30cd33ccee3dc18ac07eace1c39e0c6b4ea3fa9b41fceff8c6ea524fe31d",
+      "docs/screenshots/missions/pr24-paas-debrief.png": "8efb640b79a8f0bed03d83ba17023a62cd8384293bd622996730ee8613d3e3ff",
+      "docs/screenshots/missions/pr24-paas-milestone-1024x500.png": "ca1c2c64de6c9a896e3eb40f0659b0b1a9183b1f59e246f7b4f9ef88dab8c19b",
+      "docs/screenshots/missions/pr24-paas-milestone-1024x768.png": "d28e47f5930900e181ee7e59cc192ad3fc6221200a9d353e8208f216c0a5c1ff",
+      "docs/screenshots/missions/pr24-paas-milestone-1366x768.png": "53ff3519fbb4271ad733f28b7e09aa81389bb575f93d89d37210c6eed7203109",
+      "docs/screenshots/missions/pr24-paas-milestone-1440x900.png": "fa6b564da7e93e295d2f9af1dbfb062f3bd3f0584fd85acc30d37c9dec854597",
+      "docs/screenshots/missions/pr24-paas-milestone-1920x1080.png": "fb5d4e126d0e342a4d54f728f317d4956cbe51d6498f1fe6b5068baadb6eef3c",
+      "docs/screenshots/missions/pr24-paas-unapplied-draft.png": "1b5c16f2beee8a829138cfeef20a12416de07a184822f3e07092fedbae5419fb",
+      "docs/screenshots/missions/pr24-short-keyboard-briefing.png": "8a483018cee864fb404411dde329f7f47d9d3fee4e72e3929447ffb16da30d2d",
+      "docs/screenshots/missions/pr24-two-app-independent-debrief.png": "ab9b3ffe7d0c565d91653582aa07b5770ec3c160eb8c698d1b5694f8d1d95c60",
+      "package.json": "24374760ad2298738e2a9c8ff3535ba343cef0fbe1ca84c27a9030384cf3736a",
+      "scripts/docs-check.mjs": "2e7db9d4793c435bbeed17b2a3c426a2ba34367af933acc895faf119aa88ef9a",
+      "src/app/layout.tsx": "e3c1da6df52fd7c61c0886d04e049910f68912ba5b6d4c9a04f285b3edaf611b",
+      "src/content/nb.ts": "50accdbdede648728c6c6b16854ceb69d77f0642108f27721b55b515792d2b9e",
+      "src/domain/guidance/milestones.ts": "893c44389757bfac61aa3d9721f68d264764b75fd62d435f2eef01623862f28e",
+      "src/domain/portal/model.ts": "5933315bfb67ed9b842414c09dc47e7118a32fe491777a8d01f41bebf7a24ebb",
+      "src/domain/sandbox/mission-sources.ts": "379885230bd18f3d6c7a575ae238bf5b5e2d33c47abcad4874f927f89ce681ab",
+      "src/domain/sandbox/mission-store.ts": "7513041ceac24517dede9c4f9964b80ed4407efeeafaf910d8522c1020808ff0",
+      "src/domain/sandbox/missions.test.ts": "bd17ae4f82e6acab84b07a728baaf9ab023676d3483c431fa3b2a58862dab868",
+      "src/domain/sandbox/missions.ts": "979bbb672201100b96db45f89c001a8c6d0fe276a6f626017e52a9db8a0adc55",
+      "src/features/course/course.tsx": "ddbc94aec456355bffda594df0cb6b20519e7aeeffa38c00648061d1f7325de1",
+      "src/features/course/guidance-milestones.tsx": "90e43cf153169ec452b54cfc8be4f33d46baff5cbc0d622eca24db3f7cd3be9d",
+      "src/features/course/mission-briefing.tsx": "e4767d28933ca9aaaaddb4f4574521512cb3a7b2f108e0554ea4a67574c17848",
+      "src/features/course/mission-context.ts": "183c7e091219ffe13f9feb60f0153c8125857e337c195d5a1cd76993916f3b14",
+      "src/features/course/mission-diagnosis.tsx": "8ac7c7fc9b3730b58b4d59c60b8933eebc747aa98fca3defea9b3b78f418396b",
+      "src/features/course/mission-observations.tsx": "6eb3dfd89662e213f23332b765cfae5f1d97297710f275dac60e3ab9dd004c5f",
+      "src/features/course/mission-portal.tsx": "5cacf7f3678136a1b81b43659d46784a9f888016019efd0c86a3282e9a4763d9",
+      "src/features/course/mission-provider.tsx": "46ed2ef118a00724c5ab261fb842ba9b25097c024928580b9eabd5508df5c16c",
+      "src/features/course/missions.css": "3ce911c3dc3885837f78c97441dd5d1b665ab89860f487c6690f62173ce9dc79",
+      "src/features/course/missions.tsx": "7fd17b55d0eb25980227b2ba7f9ec250030d167cca7144feec6649a9fce80060",
+      "src/features/course/practical-lab.tsx": "16de96bf73831abac6244f533fe044ef41684fa23e1e96e5852248c2e3c1cc33",
+      "src/features/learning/expanded-module.tsx": "f7984d958799fcc70f9bd0a6323b6c0c30ee8cb138e59f0bb203887f238e4827",
+      "src/features/learning/management-access.tsx": "ec4e93aa583eb3aaa1d5a4c8f932d982dd90cdd4960bac955220960c2d9b0497",
+      "src/features/portal/app-settings.tsx": "e7b81ab023532e377390d8ea2fc5e86bacc63e9e8c69d8df26ea3c3378b38c73",
+      "src/features/portal/architecture.tsx": "a311ce567d888c2d615e8e606182d47f96336a993f0b86f7d03bd5b988ee7a9a",
+      "src/features/portal/portal.css": "7aba6156cba88f1266ed0d80201f2dc031bb19d8b3236024ed8f8d08faf688a2",
+      "src/features/portal/portal.tsx": "24ae441149aa33140ccb5478be8c1c46bf594cdcd3d52d3dd6f5682826070fb0",
+      "tests/e2e/practical-missions.spec.ts": "a26de36e8722c49bef32a884ed4be007f8a9f48c5cf1d7dae3b2e3b069550e82"
     }
   },
-  "implementationFinished": "2026-10-27T11:49:08.163Z"
+  "implementationFinished": "2026-10-27T16:10:32.302Z"
 }

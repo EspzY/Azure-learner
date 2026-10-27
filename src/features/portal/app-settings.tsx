@@ -9,11 +9,13 @@ export function AppSettings({
   id,
   disabled,
   onCreate,
+  onDraft,
 }: {
   world: World;
   id: string;
   disabled: boolean;
   onCreate: (c: Command) => void;
+  onDraft?: (values: { environment: string; catalogMode: string }) => void;
 }) {
   const saved = appSettings(world).find((s) => s.appId === id);
   const [environment, setEnvironment] = useState(saved?.environment ?? 'development'),
@@ -130,6 +132,10 @@ export function AppSettings({
               e.preventDefault();
               if (editing === 'environment') setEnvironment(draft as typeof environment);
               else setMode(draft as typeof mode);
+              onDraft?.({
+                environment: editing === 'environment' ? draft : environment,
+                catalogMode: editing === 'catalog' ? draft : mode,
+              });
               setEditing(null);
             }}
           >

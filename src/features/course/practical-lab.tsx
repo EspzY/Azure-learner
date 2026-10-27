@@ -1,8 +1,15 @@
 'use client';
+import { useMissions } from './mission-provider';
 import { useEffect, useRef, useState } from 'react';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
-import { labsNb as t, nb, regionLabels, learningPolishNb as polish } from '@/content/nb';
+import {
+  labsNb as t,
+  nb,
+  regionLabels,
+  learningPolishNb as polish,
+  missionsNb,
+} from '@/content/nb';
 import {
   evaluatePractical,
   practicalHref,
@@ -79,6 +86,7 @@ export function PracticalAssistance() {
   return null;
 }
 export function LabEntry({ kind, origin }: { kind: LabKind; origin: Origin }) {
+  const missions = useMissions();
   const { p, technical, saas } = usePracticalResult(),
     course = useCourse(),
     router = useRouter();
@@ -94,7 +102,8 @@ export function LabEntry({ kind, origin }: { kind: LabKind; origin: Origin }) {
     original.ready &&
     benefits.ready &&
     services.ready;
-  const otherActive = original.facts.active || benefits.facts.active || services.facts.active;
+  const otherActive =
+    original.facts.active || benefits.facts.active || services.facts.active || missions.active;
   const current = p.sessions.filter((s) => s.kind === kind).at(-1) ?? null;
   const currentFindings = evaluatedSession(current, technical, saas);
   const ref = useRef<HTMLElement>(null),
@@ -156,6 +165,7 @@ export function LabEntry({ kind, origin }: { kind: LabKind; origin: Origin }) {
       <small>
         {t.title} · {kind.toUpperCase()}
       </small>
+      <p>{missionsNb.legacy}</p>
       <h3>{t.lab[kind].title}</h3>
       <p>{t.lab[kind].purpose}</p>
       <p>{t.lab[kind].task}</p>

@@ -19,6 +19,7 @@ import type { Navigate } from './shared';
 import { PropertyList } from './shared';
 import { usePractical } from '@/features/course/practical-provider';
 import { usePortalLearning } from './learning-provider';
+import { ManagementTeachingBoundary } from '@/features/learning/management-access';
 const t = nb.portal,
   g = t.graph;
 type DiagramNode = Node<{ label: string; kind: string; location?: string }, 'resource'>;
@@ -226,23 +227,26 @@ export function ArchitectureExplorer({
               >
                 {t.relatedLearning}
               </button>
-              {explaining &&
-                (Object.hasOwn(scopeCopy, node.kind) ? (
-                  <>
-                    <p>{scopeCopy[node.kind as keyof typeof scopeCopy].role}</p>
-                    <p>{scopeCopy[node.kind as keyof typeof scopeCopy].nuance}</p>
-                  </>
-                ) : (
-                  <p>
-                    {node.kind === 'plan'
-                      ? t.planNote
-                      : node.kind === 'app'
-                        ? t.appNote
-                        : ['vm', 'disk', 'nic', 'vnet', 'subnet'].includes(node.kind)
-                          ? labsNb.vm.note
-                          : g.explanations['policy-scope']}
-                  </p>
-                ))}
+              {explaining && (
+                <ManagementTeachingBoundary identity={`architecture-explanation:${node.id}`}>
+                  {Object.hasOwn(scopeCopy, node.kind) ? (
+                    <>
+                      <p>{scopeCopy[node.kind as keyof typeof scopeCopy].role}</p>
+                      <p>{scopeCopy[node.kind as keyof typeof scopeCopy].nuance}</p>
+                    </>
+                  ) : (
+                    <p>
+                      {node.kind === 'plan'
+                        ? t.planNote
+                        : node.kind === 'app'
+                          ? t.appNote
+                          : ['vm', 'disk', 'nic', 'vnet', 'subnet'].includes(node.kind)
+                            ? labsNb.vm.note
+                            : g.explanations['policy-scope']}
+                    </p>
+                  )}
+                </ManagementTeachingBoundary>
+              )}
             </>
           ) : relation ? (
             <>
@@ -261,7 +265,11 @@ export function ArchitectureExplorer({
               >
                 {t.relatedLearning}
               </button>
-              {explaining && <p>{g.explanations[relation.kind]}</p>}
+              {explaining && (
+                <ManagementTeachingBoundary identity={`architecture-relation:${relation.id}`}>
+                  <p>{g.explanations[relation.kind]}</p>
+                </ManagementTeachingBoundary>
+              )}
             </>
           ) : (
             <p>{g.select}</p>

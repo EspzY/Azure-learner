@@ -214,3 +214,7 @@ Stop expansion when a technical rule lacks a defensible boundary/source, a requi
 ## 3.1B.1 refinement review gates
 
 Implemented scope is composition, persistent desktop navigation, relational deployment explanations and context-safe teaching guidance; no new module or simulation capability. Reproduce the normal course/lab loop at1920×1080,1440×900 and1366×768. A new learner should explain customer versus provider work, private exclusivity versus location, and required versus configured hybrid integration; locate Next without searching the document; inspect a denied operation without mistaking a title for a control; and distinguish laboratory revisit from continuing the course. Test novice and IT-experienced think-aloud sessions, Azure SME source accuracy and human accessibility before claiming educational/visual acceptance. Record failures and iterate before the Benefits module. Automated checks are engineering evidence only.
+
+# PR24 → PR25 continuity
+
+PR24 expands four applied missions in existing Benefits and Service Types, preserving full theory and frozen simulation/assessment stores. [Scope and boundaries](PRACTICAL_MISSION_EXPANSION.md). The next separate phase is PR25 Cloud Concepts Assessment & Transfer Refinement for the eight documented PARTIAL objectives. Mission observations may inform that design but guided evidence must never be upgraded. Cost Management and remaining AZ-900 domains follow. No additional service engine is implemented here.
