@@ -525,6 +525,114 @@
       "reviewed": "2026-10-27",
       "purpose": "Existing-app plan changes have additional webspace/region/OS constraints, not arbitrary move support",
       "kind": "technical"
+    },
+    "TR01": {
+      "url": "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900",
+      "reviewed": "2026-10-27",
+      "purpose": "P03 AZ-900 Study Guide · Skills measured 2026-07-20; claim/qualification mapping in CLOUD_CONCEPTS_TRANSFER",
+      "kind": "exam"
+    },
+    "TR02": {
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-cloud-compute/5-define-cloud-models",
+      "reviewed": "2026-10-27",
+      "purpose": "P03 Define cloud models; claim/qualification mapping in CLOUD_CONCEPTS_TRANSFER",
+      "kind": "technical"
+    },
+    "TR03": {
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-cloud-compute/6-describe-consumption-based-model",
+      "reviewed": "2026-10-27",
+      "purpose": "P03 Describe the consumption-based model; claim/qualification mapping in CLOUD_CONCEPTS_TRANSFER",
+      "kind": "technical"
+    },
+    "TR04": {
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-benefits-use-cloud-services/2-high-availability-scalability-cloud",
+      "reviewed": "2026-10-27",
+      "purpose": "P03 High availability and scalability; claim/qualification mapping in CLOUD_CONCEPTS_TRANSFER",
+      "kind": "technical"
+    },
+    "TR05": {
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-benefits-use-cloud-services/3-reliability-predictability-cloud",
+      "reviewed": "2026-10-27",
+      "purpose": "P03 Reliability and predictability; claim/qualification mapping in CLOUD_CONCEPTS_TRANSFER",
+      "kind": "technical"
+    },
+    "TR06": {
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-benefits-use-cloud-services/4-security-governance-cloud",
+      "reviewed": "2026-10-27",
+      "purpose": "P03 Security and governance; claim/qualification mapping in CLOUD_CONCEPTS_TRANSFER",
+      "kind": "technical"
+    },
+    "TR07": {
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-benefits-use-cloud-services/5-manageability-cloud",
+      "reviewed": "2026-10-27",
+      "purpose": "P03 Manageability; claim/qualification mapping in CLOUD_CONCEPTS_TRANSFER",
+      "kind": "technical"
+    },
+    "TR08": {
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-cloud-service-types/2-describe-infrastructure-service",
+      "reviewed": "2026-10-27",
+      "purpose": "P03 IaaS responsibility and scenarios; claim/qualification mapping in CLOUD_CONCEPTS_TRANSFER",
+      "kind": "technical"
+    },
+    "TR09": {
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-cloud-service-types/3-describe-platform-service",
+      "reviewed": "2026-10-27",
+      "purpose": "P03 PaaS responsibility and scenarios; claim/qualification mapping in CLOUD_CONCEPTS_TRANSFER",
+      "kind": "technical"
+    },
+    "TR10": {
+      "url": "https://learn.microsoft.com/en-us/azure/cost-management-billing/reservations/save-compute-costs-reservations",
+      "reviewed": "2026-10-27",
+      "purpose": "P03 Azure Reservations; claim/qualification mapping in CLOUD_CONCEPTS_TRANSFER",
+      "kind": "technical"
+    },
+    "TR11": {
+      "url": "https://learn.microsoft.com/en-us/azure/virtual-machines/spot-vms",
+      "reviewed": "2026-10-27",
+      "purpose": "P03 Azure Spot Virtual Machines; claim/qualification mapping in CLOUD_CONCEPTS_TRANSFER",
+      "kind": "technical"
+    },
+    "TR12": {
+      "url": "https://learn.microsoft.com/en-us/azure/cost-management-billing/savings-plan/savings-plan-overview",
+      "reviewed": "2026-10-27",
+      "purpose": "P03 Savings plans overview; claim/qualification mapping in CLOUD_CONCEPTS_TRANSFER",
+      "kind": "technical"
+    },
+    "TR13": {
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/reliability/failure-mode-analysis",
+      "reviewed": "2026-10-27",
+      "purpose": "P03 Failure mode analysis; claim/qualification mapping in CLOUD_CONCEPTS_TRANSFER",
+      "kind": "technical"
+    },
+    "TR14": {
+      "url": "https://learn.microsoft.com/en-us/azure/governance/policy/overview",
+      "reviewed": "2026-10-27",
+      "purpose": "P03 Azure Policy overview; claim/qualification mapping in CLOUD_CONCEPTS_TRANSFER",
+      "kind": "technical"
+    },
+    "TR15": {
+      "url": "https://learn.microsoft.com/en-us/azure/role-based-access-control/overview",
+      "reviewed": "2026-10-27",
+      "purpose": "P03 Azure RBAC overview; claim/qualification mapping in CLOUD_CONCEPTS_TRANSFER",
+      "kind": "technical"
+    },
+    "TR16": {
+      "url": "https://learn.microsoft.com/en-us/entra/fundamentals/identity-fundamental-concepts",
+      "reviewed": "2026-10-27",
+      "purpose": "P03 Identity and access management concepts; claim/qualification mapping in CLOUD_CONCEPTS_TRANSFER",
+      "kind": "technical"
+    },
+    "TR17": {
+      "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/overview",
+      "reviewed": "2026-10-27",
+      "purpose": "P03 ARM template overview; claim/qualification mapping in CLOUD_CONCEPTS_TRANSFER",
+      "kind": "technical"
+    },
+    "TR18": {
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-cloud-service-types/4-describe-software-service",
+      "reviewed": "2026-10-27",
+      "purpose": "P03 SaaS responsibility and scenarios; claim/qualification mapping in CLOUD_CONCEPTS_TRANSFER",
+      "kind": "technical"
     }
   },
   "evidenceProfiles": {
@@ -1057,6 +1165,34 @@
         "tests/e2e/architecture-management.spec.ts"
       ],
       "limits": "Actual replayed inventory read-only, pure separate counterfactual rules, fixed original changed-context tasks and reason feedback. No generic policy/RBAC/MG operation, human SME/UX/learning approval or historical evidence conversion."
+    },
+    "TR": {
+      "teaching": [
+        {
+          "path": "src/content/nb.ts",
+          "marker": "transferNb"
+        }
+      ],
+      "mechanism": [
+        {
+          "path": "src/domain/curriculum/transfer.ts",
+          "marker": "transferItems"
+        }
+      ],
+      "presentation": [
+        {
+          "path": "src/features/learning/cloud-transfer.tsx",
+          "marker": "TransferAssessment"
+        }
+      ],
+      "assessment": [
+        {
+          "path": "src/domain/curriculum/transfer.ts",
+          "marker": "evaluateTransfer"
+        }
+      ],
+      "tests": ["src/domain/curriculum/transfer.test.ts", "tests/e2e/cloud-transfer.spec.ts"],
+      "limits": "Independent original decision/reason pairs; versioned new evidence. Human validation unperformed. Old teaching/theory profiles retained."
     }
   },
   "plannedPRs": [
@@ -1137,19 +1273,19 @@
       "slot": "1.1.03",
       "id": "az900.cloud.models",
       "title": "Public, private og hybrid cloud",
-      "status": "PARTIAL",
+      "status": "COMPLETE",
       "criteria": {
         "A": "V",
         "B": "V",
         "C": "V",
-        "D": "P",
+        "D": "V",
         "E": "V",
         "F": "V"
       },
       "facets": [
         {
           "topic": "Public",
-          "status": "PARTIAL"
+          "status": "COMPLETE"
         },
         {
           "topic": "Private",
@@ -1161,29 +1297,29 @@
         }
       ],
       "localObjectives": ["FC04", "F01"],
-      "evidence": ["F"],
-      "observed": "Modell/manuskript, valg og sammenkobling; uavhengig exclusive og integration gjelder private/hybrid.",
-      "gap": "Ingen egen ny-kontekst public-avgrensning; fast toalternativtest gir begrenset bevisbredde.",
+      "evidence": ["F", "TR"],
+      "observed": "Modell/manuskript, valg og sammenkobling; uavhengig exclusive og integration gjelder private/hybrid. P03: nye strukturelt forskjellige beslutning/begrunnelse-scenarioer, spesifikk feedback for alle alternativer, presis repetisjon og isolert v1-evidence.",
+      "gap": "Ingen dokumentert scoped A–F-innholdsmangel etter P03: tidligere teori/modeller beholdt, nye beslutning/begrunnelse-familier med minst to ulike kontekster, feedback og kilder. Menneskelig SME, vanskelighetsgrad og læringsoverføring er fortsatt utestående og er ikke eksamensberedskap.",
       "plannedPRs": ["P03"],
-      "sources": ["EXAM", "M01"]
+      "sources": ["EXAM", "M01", "TR01", "TR02"]
     },
     {
       "slot": "1.1.04",
       "id": "az900.cloud.model-use",
       "title": "Bruksområder for hver deployment model",
-      "status": "PARTIAL",
+      "status": "COMPLETE",
       "criteria": {
         "A": "V",
         "B": "V",
         "C": "V",
-        "D": "P",
+        "D": "V",
         "E": "V",
         "F": "V"
       },
       "facets": [
         {
           "topic": "Public-bruk",
-          "status": "PARTIAL"
+          "status": "COMPLETE"
         },
         {
           "topic": "Private-bruk",
@@ -1195,11 +1331,11 @@
         }
       ],
       "localObjectives": ["FC05", "F01"],
-      "evidence": ["F"],
-      "observed": "Tre guidede plasseringstilfeller; endret oppgave vurderer privat eksklusivitet og reell hybridintegrasjon.",
-      "gap": "Uavhengig valg som faktisk gjør public egnet mangler; ikke bare gjenkjenning av private/hybrid.",
+      "evidence": ["F", "TR"],
+      "observed": "Tre guidede plasseringstilfeller; endret oppgave vurderer privat eksklusivitet og reell hybridintegrasjon. P03: nye strukturelt forskjellige beslutning/begrunnelse-scenarioer, spesifikk feedback for alle alternativer, presis repetisjon og isolert v1-evidence.",
+      "gap": "Ingen dokumentert scoped A–F-innholdsmangel etter P03: tidligere teori/modeller beholdt, nye beslutning/begrunnelse-familier med minst to ulike kontekster, feedback og kilder. Menneskelig SME, vanskelighetsgrad og læringsoverføring er fortsatt utestående og er ikke eksamensberedskap.",
       "plannedPRs": ["P03"],
-      "sources": ["EXAM", "M01"]
+      "sources": ["EXAM", "M01", "TR01", "TR02"]
     },
     {
       "slot": "1.1.05",
@@ -1231,12 +1367,12 @@
       "slot": "1.1.06",
       "id": "az900.cloud.pricing",
       "title": "PAYG, forpliktelser og avbrytbar kapasitet",
-      "status": "PARTIAL",
+      "status": "COMPLETE",
       "criteria": {
         "A": "V",
         "B": "V",
         "C": "V",
-        "D": "P",
+        "D": "V",
         "E": "V",
         "F": "V"
       },
@@ -1247,19 +1383,19 @@
         },
         {
           "topic": "Reservation/savings commitment",
-          "status": "PARTIAL"
+          "status": "COMPLETE"
         },
         {
           "topic": "Spot",
-          "status": "PARTIAL"
+          "status": "COMPLETE"
         }
       ],
       "localObjectives": ["FC07", "F03"],
-      "evidence": ["F"],
-      "observed": "Original prismodell med eksplisitte undervisningstall; uncertain og commitment vurderer variabel bruk og ubrukt forpliktelse.",
-      "gap": "Ingen selvstendig anbefaling av forpliktelse ved stabil bruk eller egnet avbrytbar jobb; Spot/kapasitetsforbehold må også vurderes.",
+      "evidence": ["F", "TR"],
+      "observed": "Original prismodell med eksplisitte undervisningstall; uncertain og commitment vurderer variabel bruk og ubrukt forpliktelse. P03: nye strukturelt forskjellige beslutning/begrunnelse-scenarioer, spesifikk feedback for alle alternativer, presis repetisjon og isolert v1-evidence.",
+      "gap": "Ingen dokumentert scoped A–F-innholdsmangel etter P03: tidligere teori/modeller beholdt, nye beslutning/begrunnelse-familier med minst to ulike kontekster, feedback og kilder. Menneskelig SME, vanskelighetsgrad og læringsoverføring er fortsatt utestående og er ikke eksamensberedskap.",
       "plannedPRs": ["P03", "P04"],
-      "sources": ["EXAM", "M01", "RES", "SAV"]
+      "sources": ["EXAM", "M01", "RES", "SAV", "TR03", "TR10", "TR11", "TR12"]
     },
     {
       "slot": "1.1.07",
@@ -1309,121 +1445,121 @@
       "slot": "1.2.01",
       "id": "az900.benefits.availability-scale",
       "title": "Tilgjengelighet og skalering",
-      "status": "PARTIAL",
+      "status": "COMPLETE",
       "criteria": {
         "A": "V",
         "B": "V",
         "C": "V",
-        "D": "P",
+        "D": "V",
         "E": "V",
         "F": "V"
       },
       "facets": [
         {
           "topic": "High availability",
-          "status": "PARTIAL"
+          "status": "COMPLETE"
         },
         {
           "topic": "Vertical/horizontal scaling",
-          "status": "PARTIAL"
+          "status": "COMPLETE"
         }
       ],
       "localObjectives": ["CB01", "F02", "F03"],
-      "evidence": ["BA"],
-      "observed": "Kapasitet, feil og ruting kan endres før observasjon; unmet vurderer et nytt numerisk bortfall.",
-      "gap": "Ny tallverdi alene vurderer ikke valg av HA-oppsett versus riktig skaleringstype; ingen variantfamilier.",
+      "evidence": ["BA", "TR"],
+      "observed": "Kapasitet, feil og ruting kan endres før observasjon; unmet vurderer et nytt numerisk bortfall. P03: nye strukturelt forskjellige beslutning/begrunnelse-scenarioer, spesifikk feedback for alle alternativer, presis repetisjon og isolert v1-evidence.",
+      "gap": "Ingen dokumentert scoped A–F-innholdsmangel etter P03: tidligere teori/modeller beholdt, nye beslutning/begrunnelse-familier med minst to ulike kontekster, feedback og kilder. Menneskelig SME, vanskelighetsgrad og læringsoverføring er fortsatt utestående og er ikke eksamensberedskap.",
       "plannedPRs": ["P03", "P01"],
-      "sources": ["EXAM", "M02"]
+      "sources": ["EXAM", "M02", "TR04", "TR13"]
     },
     {
       "slot": "1.2.02",
       "id": "az900.benefits.reliability-predictability",
       "title": "Pålitelighet og forutsigbarhet",
-      "status": "PARTIAL",
+      "status": "COMPLETE",
       "criteria": {
         "A": "V",
         "B": "V",
         "C": "V",
-        "D": "P",
-        "E": "P",
+        "D": "V",
+        "E": "V",
         "F": "V"
       },
       "facets": [
         {
           "topic": "Reliability",
-          "status": "PARTIAL"
+          "status": "COMPLETE"
         },
         {
           "topic": "Predictability",
-          "status": "PARTIAL"
+          "status": "COMPLETE"
         }
       ],
       "localObjectives": ["CB02", "F02", "F03"],
-      "evidence": ["BR"],
-      "observed": "Avhengighetsfeil og målt trend forklares; dependency/forecast evalueres separat.",
-      "gap": "dependency-teksten røper at mer kapasitet ikke hjelper og peker mot restore. Mangler ny diagnose og begrunnelse av alle plausible alternativer.",
+      "evidence": ["BR", "TR"],
+      "observed": "Avhengighetsfeil og målt trend forklares; dependency/forecast evalueres separat. P03: nye strukturelt forskjellige beslutning/begrunnelse-scenarioer, spesifikk feedback for alle alternativer, presis repetisjon og isolert v1-evidence.",
+      "gap": "Ingen dokumentert scoped A–F-innholdsmangel etter P03: tidligere teori/modeller beholdt, nye beslutning/begrunnelse-familier med minst to ulike kontekster, feedback og kilder. Menneskelig SME, vanskelighetsgrad og læringsoverføring er fortsatt utestående og er ikke eksamensberedskap.",
       "plannedPRs": ["P03", "P14"],
-      "sources": ["EXAM", "M02"]
+      "sources": ["EXAM", "M02", "TR05", "TR13"]
     },
     {
       "slot": "1.2.03",
       "id": "az900.benefits.security-governance",
       "title": "Sikkerhet og styring som cloud-fordeler",
-      "status": "PARTIAL",
+      "status": "COMPLETE",
       "criteria": {
         "A": "V",
         "B": "V",
         "C": "V",
-        "D": "P",
-        "E": "P",
+        "D": "V",
+        "E": "V",
         "F": "V"
       },
       "facets": [
         {
           "topic": "Security benefit",
-          "status": "PARTIAL"
+          "status": "COMPLETE"
         },
         {
           "topic": "Governance benefit",
-          "status": "PARTIAL"
+          "status": "COMPLETE"
         }
       ],
       "localObjectives": ["CB03", "G03", "I01"],
-      "evidence": ["BG"],
-      "observed": "Kundeansvar, least privilege, rolle/scope og custom location-deny; policy-spørsmålet avviser at én regel beviser alt.",
-      "gap": "Denne ene moteksempeltesten vurderer ikke selvstendig skillet mellom sikkerhetsgevinst, tilgang og styring.",
+      "evidence": ["BG", "TR"],
+      "observed": "Kundeansvar, least privilege, rolle/scope og custom location-deny; policy-spørsmålet avviser at én regel beviser alt. P03: nye strukturelt forskjellige beslutning/begrunnelse-scenarioer, spesifikk feedback for alle alternativer, presis repetisjon og isolert v1-evidence.",
+      "gap": "Ingen dokumentert scoped A–F-innholdsmangel etter P03: tidligere teori/modeller beholdt, nye beslutning/begrunnelse-familier med minst to ulike kontekster, feedback og kilder. Menneskelig SME, vanskelighetsgrad og læringsoverføring er fortsatt utestående og er ikke eksamensberedskap.",
       "plannedPRs": ["P03", "P11", "P12"],
-      "sources": ["EXAM", "M02"]
+      "sources": ["EXAM", "M02", "TR06", "TR14", "TR15", "TR16"]
     },
     {
       "slot": "1.2.04",
       "id": "az900.benefits.manageability",
       "title": "Administrasjon av og i cloud",
-      "status": "PARTIAL",
+      "status": "COMPLETE",
       "criteria": {
         "A": "V",
         "B": "V",
         "C": "V",
-        "D": "P",
-        "E": "P",
+        "D": "V",
+        "E": "V",
         "F": "V"
       },
       "facets": [
         {
           "topic": "Management of cloud",
-          "status": "PARTIAL"
+          "status": "COMPLETE"
         },
         {
           "topic": "Management in cloud",
-          "status": "PARTIAL"
+          "status": "COMPLETE"
         }
       ],
       "localObjectives": ["CB04", "A01"],
-      "evidence": ["BM"],
-      "observed": "Manuell/repeterbar ønsket konfigurasjon; Portal/CLI/PowerShell/IaC beskrives.",
-      "gap": "Endret template-spørsmål peker allerede på feil verdi. Ingen selvstendig kanalvalg eller feildiagnose med full alternativforklaring.",
+      "evidence": ["BM", "TR"],
+      "observed": "Manuell/repeterbar ønsket konfigurasjon; Portal/CLI/PowerShell/IaC beskrives. P03: nye strukturelt forskjellige beslutning/begrunnelse-scenarioer, spesifikk feedback for alle alternativer, presis repetisjon og isolert v1-evidence.",
+      "gap": "Ingen dokumentert scoped A–F-innholdsmangel etter P03: tidligere teori/modeller beholdt, nye beslutning/begrunnelse-familier med minst to ulike kontekster, feedback og kilder. Menneskelig SME, vanskelighetsgrad og læringsoverføring er fortsatt utestående og er ikke eksamensberedskap.",
       "plannedPRs": ["P03", "P13"],
-      "sources": ["EXAM", "M02"]
+      "sources": ["EXAM", "M02", "TR07", "TR17"]
     },
     {
       "slot": "1.3.01",
@@ -1507,13 +1643,13 @@
       "slot": "1.3.04",
       "id": "az900.services.use-cases",
       "title": "Velge IaaS, PaaS eller SaaS fra krav",
-      "status": "PARTIAL",
+      "status": "COMPLETE",
       "criteria": {
         "A": "V",
         "B": "V",
         "C": "V",
-        "D": "P",
-        "E": "P",
+        "D": "V",
+        "E": "V",
         "F": "V"
       },
       "facets": [
@@ -1527,15 +1663,15 @@
         },
         {
           "topic": "SaaS-valg",
-          "status": "PARTIAL"
+          "status": "COMPLETE"
         }
       ],
       "localObjectives": ["ST04", "F01", "R01"],
-      "evidence": ["S", "L"],
-      "observed": "Krav/tradeoff-modell; architecture+reason godtar begrunnet IaaS eller støttet PaaS. Det fortsatt tilgjengelige Portal-kompatibilitetsoppdraget vurderer også readyModel=saas for ferdig samarbeid; dette er et eget v1-spor.",
-      "gap": "Current v2 vurderer SaaS-avgang, ikke et nytt SaaS-valg. Portal v1 har et smalt modellvalg, men gir bare kort kriterieforklaring, uten full årsak for plausible IaaS/PaaS-alternativer. Bevar dette bidraget; integrer bedre transfer/feedback i v2 uten å konvertere gamle svar.",
+      "evidence": ["S", "L", "TR"],
+      "observed": "Krav/tradeoff-modell; architecture+reason godtar begrunnet IaaS eller støttet PaaS. Det fortsatt tilgjengelige Portal-kompatibilitetsoppdraget vurderer også readyModel=saas for ferdig samarbeid; dette er et eget v1-spor. P03: nye strukturelt forskjellige beslutning/begrunnelse-scenarioer, spesifikk feedback for alle alternativer, presis repetisjon og isolert v1-evidence.",
+      "gap": "Ingen dokumentert scoped A–F-innholdsmangel etter P03: tidligere teori/modeller beholdt, nye beslutning/begrunnelse-familier med minst to ulike kontekster, feedback og kilder. Menneskelig SME, vanskelighetsgrad og læringsoverføring er fortsatt utestående og er ikke eksamensberedskap.",
       "plannedPRs": ["P03"],
-      "sources": ["EXAM", "M03"]
+      "sources": ["EXAM", "M03", "TR08", "TR09", "TR18"]
     },
     {
       "slot": "2.1.01",
@@ -3058,6 +3194,41 @@
         "AM19"
       ],
       "note": "Only four scoped management rows re-audited. Part A historical source/evidence semantics unchanged; combined module projects seven implemented objectives without learner upgrades. Human approval unperformed."
+    },
+    {
+      "id": "PR25-P03",
+      "reviewed": "2026-10-27",
+      "sources": [
+        "TR01",
+        "TR02",
+        "TR03",
+        "TR04",
+        "TR05",
+        "TR06",
+        "TR07",
+        "TR08",
+        "TR09",
+        "TR10",
+        "TR11",
+        "TR12",
+        "TR13",
+        "TR14",
+        "TR15",
+        "TR16",
+        "TR17",
+        "TR18"
+      ],
+      "objectives": [
+        "1.1.03",
+        "1.1.04",
+        "1.1.06",
+        "1.2.01",
+        "1.2.02",
+        "1.2.03",
+        "1.2.04",
+        "1.3.04"
+      ],
+      "note": "Scoped A–F content re-review: eight former PARTIAL rows now COMPLETE through retained substantive teaching/models and19 new versioned independent cases with specific feedback and official source checks. Cloud concepts15/15 content coverage; no old evidence upgrade, learner competence, exam readiness or human approval is inferred."
     }
   ]
 }

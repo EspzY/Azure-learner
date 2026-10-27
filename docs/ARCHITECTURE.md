@@ -1,5 +1,9 @@
 # Architecture
 
+## P03 isolated assessment extension
+
+`transferManifest`, `transferItems`, pure evaluate/replay and TransferStore separate original item content, deterministic relationships, durable evidence and presentation. One outer TransferProvider makes its active/uncertain state visible to existing Journals, mission safety and Portal guidance suppression. The existing Course shell adds one allowlisted transfer topic; case IDs only choose navigation and never award evidence. No command, resource or old rubric changes. [Detailed contract](CLOUD_CONCEPTS_TRANSFER.md).
+
 ## Part B read-only projection and evidence — PR23
 
 Management hierarchy projects the current SandboxProvider World with inventory(); directory is an identity annotation, not an extra ARM parent. Scope/Policy Explorer uses a separate deterministic fixture for hypothetical create decisions. No new operational policy/management commands or duplicate inventory. B learning uses an isolated replayed1.0.0 key/store and the corrected A persistence pattern; A remains byte/semantic compatible. Shared course/Journal/summary and existing allowlisted lab origin compose these read-only boundaries. [Full design](CORE_ARCHITECTURE_MANAGEMENT.md).

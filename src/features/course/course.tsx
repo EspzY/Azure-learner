@@ -3,6 +3,10 @@ import { useManagement } from '@/features/learning/management-provider';
 import { useMissions } from './mission-provider';
 import { MissionActivity, MissionOverview } from './missions';
 import { ManagementTeachingBoundary } from '@/features/learning/management-access';
+import { TransferAssessment, TransferEntry } from '@/features/learning/cloud-transfer';
+import { useTransfer } from '@/features/learning/transfer-provider';
+import { transferHref } from '@/domain/curriculum/transfer';
+import { transferNb } from '@/content/nb';
 import { ManagementLesson, CoreArchitectureJournal } from '@/features/learning/management';
 import { managementTopics, isManagementTopic } from '@/domain/curriculum/architecture-management';
 import { usePractical } from './practical-provider';
@@ -67,7 +71,8 @@ export function Course({ module }: { module?: CourseModule }) {
     practical = usePractical(),
     serverless = useServerless(),
     physical = usePhysical(),
-    management = useManagement();
+    management = useManagement(),
+    transfer = useTransfer();
   const query = useSearchParams(),
     router = useRouter(),
     course = useCourse(),
@@ -79,6 +84,7 @@ export function Course({ module }: { module?: CourseModule }) {
     service2 = useExpansion('services');
   const legacyServices =
     module === 'services' &&
+    query.get('topic') !== 'transfer' &&
     (query.get('version') === '1' ||
       (query.get('version') === null && service2.facts.choice === 'v1'));
   const serviceChoice =
@@ -113,9 +119,11 @@ export function Course({ module }: { module?: CourseModule }) {
     service2.facts.choice,
     service2.store,
   ]);
-  const currentV2 = module === 'computing' && (isV2Topic(topic) || isServerlessTopic(topic));
+  const currentV2 =
+    module === 'computing' &&
+    (isV2Topic(topic) || isServerlessTopic(topic) || topic === 'transfer');
   const hasV1 = learning.save.events.length > 0;
-  const chooseVersion = currentV2 && hasV1 && v2.save.choice === null;
+  const chooseVersion = topic !== 'transfer' && currentV2 && hasV1 && v2.save.choice === null;
   const computingEntry =
     hasV1 && v2.save.choice === 'v1'
       ? courseHref('computing', learning.facts.active ? 'assessment' : learning.save.unit)
@@ -260,32 +268,36 @@ export function Course({ module }: { module?: CourseModule }) {
       ? { module: 'computing' as const, topic: learning.save.unit }
       : null);
   const resumeHref =
-    practical.current?.status === 'active'
-      ? practicalHref(practical.current, chapter.attempt.engine)
-      : management.facts.active
-        ? courseHref('architecture', 'management-assessment')
-        : physical.facts.active
-          ? courseHref('architecture', 'assessment')
-          : serverless.facts.active
-            ? courseHref('computing', 'serverless-assessment')
-            : v2.facts.active
-              ? courseHref('computing', 'v2-assessment')
-              : benefits.facts.active
-                ? courseHref('benefits', 'assessment')
-                : service2.facts.active
-                  ? courseHref('services', 'assessment')
-                  : services.facts.active
-                    ? '/portal?area=challenge&course=1&module=services&topic=practice'
-                    : learning.facts.active && v2.save.choice !== 'v2'
-                      ? courseHref('computing', 'assessment')
-                      : preferredResume
-                        ? (preferredResume.module === 'services' &&
-                            preferredResume.topic === 'practice') ||
-                          (preferredResume.module === 'computing' &&
-                            preferredResume.topic === 'resource-bridge')
-                          ? courseLabHref(lab.complete, course.save.lab?.origin)
-                          : courseHref(preferredResume.module, preferredResume.topic)
-                        : computingEntry;
+    transfer.facts.active && transfer.facts.current
+      ? transferHref(transfer.facts.current.item)
+      : practical.current?.status === 'active'
+        ? practicalHref(practical.current, chapter.attempt.engine)
+        : management.facts.active
+          ? courseHref('architecture', 'management-assessment')
+          : physical.facts.active
+            ? courseHref('architecture', 'assessment')
+            : serverless.facts.active
+              ? courseHref('computing', 'serverless-assessment')
+              : v2.facts.active
+                ? courseHref('computing', 'v2-assessment')
+                : benefits.facts.active
+                  ? courseHref('benefits', 'assessment')
+                  : service2.facts.active
+                    ? courseHref('services', 'assessment')
+                    : services.facts.active
+                      ? '/portal?area=challenge&course=1&module=services&topic=practice'
+                      : learning.facts.active && v2.save.choice !== 'v2'
+                        ? courseHref('computing', 'assessment')
+                        : preferredResume
+                          ? preferredResume.topic === 'transfer' && transfer.facts.current
+                            ? transferHref(transfer.facts.current.item)
+                            : (preferredResume.module === 'services' &&
+                                  preferredResume.topic === 'practice') ||
+                                (preferredResume.module === 'computing' &&
+                                  preferredResume.topic === 'resource-bridge')
+                              ? courseLabHref(lab.complete, course.save.lab?.origin)
+                              : courseHref(preferredResume.module, preferredResume.topic)
+                          : computingEntry;
   const navigate = (area: PortalLocation['area'], change: Partial<PortalLocation> = {}) => {
     if (area === 'learn')
       router.push(courseHref(change.module ?? module ?? 'services', change.topic ?? topic));
@@ -306,34 +318,37 @@ export function Course({ module }: { module?: CourseModule }) {
     module === 'architecture'
       ? [...physicalTopics, ...managementTopics]
       : module === 'benefits'
-        ? [...trackUnits.benefits, 'summary']
+        ? [...trackUnits.benefits, 'summary', 'transfer']
         : module === 'computing'
           ? currentV2
-            ? [...v2Topics.slice(0, -1), ...serverlessTopics, v2Topics.at(-1)!]
-            : unitIds
+            ? [...v2Topics.slice(0, -1), ...serverlessTopics, v2Topics.at(-1)!, 'transfer']
+            : [...unitIds, 'transfer']
           : legacyServices
             ? topics
-            : [...trackUnits.services, 'summary'];
+            : [...trackUnits.services, 'summary', 'transfer'];
   const index = pathTopics.indexOf(topic);
+  const historicalReturn = pathTopics.filter((t) => t !== 'transfer').at(-1)!;
   const location = parseLocation(
     new URLSearchParams({ area: 'learn', module: module ?? 'services', topic }),
   );
   const title = (m: CourseModule, t: string) =>
-    m === 'architecture'
-      ? isManagementTopic(t)
-        ? managementNb.topics[t]
-        : architectureNb.topics[t as PhysicalTopic]
-      : m === 'benefits'
-        ? (manuscript('benefits', t)?.title ??
-          (t === 'summary' ? nb.expansion.common.summary : nb.expansion.common.assessment))
-        : m === 'services'
-          ? legacyServices
-            ? nb.portal.lesson.sections[t as (typeof topics)[number]]?.title
-            : (manuscript('services', t)?.title ??
-              (t === 'summary' ? nb.expansion.common.summary : nb.expansion.common.assessment))
-          : (serverlessNb.topics[t as keyof typeof serverlessNb.topics] ??
-            nb.foundationsV2.topics[t as (typeof v2Topics)[number]]?.title ??
-            nb.foundations.units[t as (typeof unitIds)[number]]?.title);
+    t === 'transfer'
+      ? transferNb.entry
+      : m === 'architecture'
+        ? isManagementTopic(t)
+          ? managementNb.topics[t]
+          : architectureNb.topics[t as PhysicalTopic]
+        : m === 'benefits'
+          ? (manuscript('benefits', t)?.title ??
+            (t === 'summary' ? nb.expansion.common.summary : nb.expansion.common.assessment))
+          : m === 'services'
+            ? legacyServices
+              ? nb.portal.lesson.sections[t as (typeof topics)[number]]?.title
+              : (manuscript('services', t)?.title ??
+                (t === 'summary' ? nb.expansion.common.summary : nb.expansion.common.assessment))
+            : (serverlessNb.topics[t as keyof typeof serverlessNb.topics] ??
+              nb.foundationsV2.topics[t as (typeof v2Topics)[number]]?.title ??
+              nb.foundations.units[t as (typeof unitIds)[number]]?.title);
   const begin = () => {
     if (missions.active) return;
     if (services.facts.active) services.store.event({ kind: 'aid' });
@@ -506,15 +521,17 @@ export function Course({ module }: { module?: CourseModule }) {
           <ManagementTeachingBoundary
             identity={`course:${module}:${topic}`}
             orientation={!module}
-            only={module && module !== 'architecture' ? 'core' : undefined}
+            only={topic !== 'transfer' && module && module !== 'architecture' ? 'core' : undefined}
             assessment={
-              module && missions.active && !missions.assisted
-                ? 'missions'
-                : module === 'architecture' && topic === 'management-assessment'
-                  ? 'management'
-                  : module === 'architecture' && topic === 'assessment'
-                    ? 'physical'
-                    : undefined
+              topic === 'transfer'
+                ? 'transfer'
+                : module && missions.active && !missions.assisted
+                  ? 'missions'
+                  : module === 'architecture' && topic === 'management-assessment'
+                    ? 'management'
+                    : module === 'architecture' && topic === 'assessment'
+                      ? 'physical'
+                      : undefined
             }
           >
             {!module ? (
@@ -536,6 +553,7 @@ export function Course({ module }: { module?: CourseModule }) {
                     <ArrowRight size={18} />
                   </Link>
                 </div>
+                <TransferEntry />
                 <MissionOverview />
                 <section className="course-lab-discovery" aria-label={labsNb.discover}>
                   <strong>{labsNb.discover}</strong>
@@ -645,9 +663,12 @@ export function Course({ module }: { module?: CourseModule }) {
                   <p>{c.participation}</p>
                 </section>
               </>
-            ) : missions.active && !missions.assisted ? (
+            ) : topic !== 'transfer' && missions.active && !missions.assisted ? (
               <MissionActivity />
-            ) : practical.activeIndependent && practical.current && !practical.current.aided ? (
+            ) : topic !== 'transfer' &&
+              practical.activeIndependent &&
+              practical.current &&
+              !practical.current.aided ? (
               <section className="practical-entry">
                 <small>{labsNb.independent}</small>
                 <h1>{labsNb.lab[practical.current.kind].title}</h1>
@@ -704,7 +725,9 @@ export function Course({ module }: { module?: CourseModule }) {
                   </p>
                 )}
                 <div ref={activityRef} className="course-activity">
-                  {chooseVersion ? (
+                  {topic === 'transfer' && module !== 'architecture' ? (
+                    <TransferAssessment module={module} selected={query.get('case')} />
+                  ) : chooseVersion ? (
                     <section className="course-version-choice">
                       <h2>{nb.foundationsV2.chooseTitle}</h2>
                       <p>{nb.foundationsV2.chooseText}</p>
@@ -753,6 +776,7 @@ export function Course({ module }: { module?: CourseModule }) {
                           physical,
                           management,
                           missions,
+                          transfer,
                         ].some((x) => !x.ready || !!x.issue) ||
                         learning.facts.active ||
                         v2.facts.active ||
@@ -762,6 +786,7 @@ export function Course({ module }: { module?: CourseModule }) {
                         practical.activeIndependent ||
                         serverless.facts.active ||
                         physical.facts.active ||
+                        transfer.facts.active ||
                         missions.active
                       }
                     />
@@ -783,6 +808,7 @@ export function Course({ module }: { module?: CourseModule }) {
                           physical,
                           management,
                           missions,
+                          transfer,
                         ].some((x) => !x.ready || !!x.issue) ||
                         learning.facts.active ||
                         v2.facts.active ||
@@ -792,6 +818,7 @@ export function Course({ module }: { module?: CourseModule }) {
                         serverless.facts.active ||
                         practical.activeIndependent ||
                         management.facts.active ||
+                        transfer.facts.active ||
                         missions.active
                       }
                     />
@@ -815,6 +842,7 @@ export function Course({ module }: { module?: CourseModule }) {
                           physical,
                           management,
                           missions,
+                          transfer,
                         ].some((x) => !x.ready || !!x.issue) ||
                         learning.facts.active ||
                         v2.facts.active ||
@@ -824,6 +852,7 @@ export function Course({ module }: { module?: CourseModule }) {
                         practical.activeIndependent ||
                         physical.facts.active ||
                         management.facts.active ||
+                        transfer.facts.active ||
                         missions.active
                       }
                     />
@@ -915,6 +944,9 @@ export function Course({ module }: { module?: CourseModule }) {
                     </>
                   )}
                 </div>
+                {module !== 'architecture' && topic !== 'transfer' && (
+                  <TransferEntry module={module} />
+                )}
                 {labTopic && !chooseVersion && !serviceChoice && (
                   <section
                     className="course-lab"
@@ -1034,7 +1066,7 @@ export function Course({ module }: { module?: CourseModule }) {
                     }}
                   />
                 )}
-                {module === 'services' && topic !== 'practice' && (
+                {module === 'services' && topic !== 'practice' && topic !== 'transfer' && (
                   <details className="course-guide-note">
                     <summary>
                       {c.assistant} · {c.assistantRole}
@@ -1097,8 +1129,8 @@ export function Course({ module }: { module?: CourseModule }) {
                             }
                           : index < 0
                             ? {
-                                href: courseHref(module, pathTopics.at(-1)!),
-                                title: title(module, pathTopics.at(-1)!)!,
+                                href: courseHref(module, historicalReturn),
+                                title: title(module, historicalReturn)!,
                               }
                             : module === 'architecture'
                               ? { href: courseHref('services', 'summary'), title: names.services }

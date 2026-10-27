@@ -1,5 +1,9 @@
 # Curriculum coverage audit
 
+## P03 transfer scope
+
+The19 original independent cases map to exactly1.1.03–04,1.1.06,1.2.01–04 and1.3.04. `transferManifest` is a separately versioned supplement; it does not change earlier Foundations, Benefits or Service Types completion. Mechanism/source/feedback links and current A–F findings are tracked in the generated [AZ-900 matrix](AZ900_COVERAGE_MATRIX.md). Counted content coverage is neither observed learner competence nor exam readiness. [Baseline](CLOUD_CONCEPTS_TRANSFER.md).
+
 ## Current P02 coverage —2026-10-27
 
 CA04–07/F02 map to2.1.04–07 with original theory, actual resource hierarchy, pure policy applicability model and four changed independent scenarios with specific reasons. All seven core objectives are available across Part A/B; per-learner taught/practiced/first results remain separate, not automatic full-module mastery. No new XP or old-result conversion. [Generated A–F matrix](AZ900_COVERAGE_MATRIX.md), [manuscript/source limits](CORE_ARCHITECTURE_MANAGEMENT.md).

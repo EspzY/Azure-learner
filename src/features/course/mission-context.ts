@@ -12,6 +12,8 @@ import { usePortalLearning } from '@/features/portal/learning-provider';
 import { useExpansion } from '@/features/learning/expansion-provider';
 import { usePractical } from './practical-provider';
 import { useCourse } from './provider';
+import { useTransfer } from '@/features/learning/transfer-provider';
+import { transferHref } from '@/domain/curriculum/transfer';
 export function useMissionResult(session?: MissionSession | null) {
   const m = useMissions(),
     technical = useSandbox(),
@@ -37,8 +39,17 @@ export function useMissionSafetyContexts() {
     services = useExpansion('services'),
     practical = usePractical(),
     course = useCourse(),
-    technical = useSandbox();
+    technical = useSandbox(),
+    transfer = useTransfer();
   return [
+    {
+      id: 'transfer',
+      state: transfer,
+      active: transfer.facts.active,
+      href: transfer.facts.current
+        ? transferHref(transfer.facts.current.item)
+        : '/learn/computing?topic=transfer',
+    },
     {
       id: 'management',
       state: management,

@@ -1,5 +1,9 @@
 # AzureLab engineering contract
 
+## P03 transfer assessment — active PR25 contract
+
+Read [CLOUD_CONCEPTS_TRANSFER](docs/CLOUD_CONCEPTS_TRANSFER.md) before changing transfer items/evidence. The new `azurelab.learning.cloud-transfer.v1` is an isolated durable-only supplement; old firsts/rubrics/XP and all technical stores remain unchanged. Authored family/variant decision+reason pairs, counterfactual feedback, family exposure and first/help/retry/abandon are explicit. A correct method with the wrong reason does not pass. No keyword scoring or readiness percentage. Register the new independent context in every shared teaching/mission/automatic-guidance guard. Historical feedback and precise theory/Journal/summary links require durable teaching-access preflight; uncertain active contexts must withhold answers, including already-open material on storage conflict. Keep terminal help/submit/abandon capacity and compare-before-delete recovery. All seven gates and a fresh stamped final reviewer remain required.
+
 ## PR24 practical mission continuity (active)
 
 Read [PRACTICAL_MISSION_EXPANSION](docs/PRACTICAL_MISSION_EXPANSION.md) before extending missions. Four current activities extend Benefits reliability/governance and Service Types iaas/paas inside the existing course. `azurelab.practical-missions.v1` pins schema/content/model/rubric1.0.0, technical attempt/start boundary, selected actual references, inspections, explicit model snapshots, decisions and immutable submitted results. Never widen old practical-labs.v1 rubrics, migrate old evidence, duplicate inventory or award XP. New-build/correction/Apply predicates require post-boundary actual receipts; inspection reuse is labelled as reuse. The dependency hypothesis never modifies World, measures traffic or configures failover. Draft is an observation, never an accepted command.

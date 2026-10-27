@@ -8,7 +8,27 @@ const data = JSON.parse(
 );
 test('all 57 pinned official slots and code/evidence/source references resolve', () => {
   assert.deepEqual(validateAudit(data), []);
-  assert.equal(data.objectives.filter((r) => r.status === 'COMPLETE').length, 14);
+  assert.equal(data.objectives.filter((r) => r.status === 'COMPLETE').length, 22);
+  assert.equal(
+    data.objectives.filter((r) => r.slot.startsWith('1.') && r.status === 'COMPLETE').length,
+    15,
+  );
+  for (const slot of [
+    '1.1.03',
+    '1.1.04',
+    '1.1.06',
+    '1.2.01',
+    '1.2.02',
+    '1.2.03',
+    '1.2.04',
+    '1.3.04',
+  ]) {
+    const row = data.objectives.find((r) => r.slot === slot);
+    assert.equal(row.status, 'COMPLETE');
+    assert.ok(row.evidence.includes('TR'));
+    assert.deepEqual(Object.values(row.criteria), ['V', 'V', 'V', 'V', 'V', 'V']);
+    assert.ok(row.sources.some((id) => id.startsWith('TR')));
+  }
   for (const slot of ['2.1.04', '2.1.05', '2.1.06', '2.1.07']) {
     const row = data.objectives.find((r) => r.slot === slot);
     assert.equal(row.status, 'COMPLETE');

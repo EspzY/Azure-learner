@@ -23,6 +23,7 @@ import './expansion.css';
 import { ModelVisual } from './expansion-visuals';
 import { LabEntry, BenefitsLabBridge } from '@/features/course/practical-lab';
 import { MissionEntry } from '@/features/course/missions';
+import { TransferPreparation } from './cloud-transfer';
 const t = nb.expansion.common;
 export function ExpandedModule({
   track,
@@ -146,6 +147,7 @@ export function ExpandedModule({
             content={c}
             technicalReady={technicalReady}
           />
+          {track === 'benefits' && <TransferPreparation topic={topic} />}
           <details>
             <summary>{t.terms}</summary>
             <dl>

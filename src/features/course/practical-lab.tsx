@@ -36,6 +36,7 @@ import type { VmFormView } from '@/features/portal/vm-form';
 import './practical.css';
 import { MissionBriefing, MissionRecall } from './mission-briefing';
 import { practicalGuidance } from './practical-guidance';
+import { ManagementTeachingBoundary } from '@/features/learning/management-access';
 function evaluatedSession(
   session: Parameters<typeof evaluatePractical>[0],
   technical: ReturnType<typeof useSandbox>,
@@ -342,15 +343,21 @@ export function PracticalOutcome() {
     <section className="practical-outcome">
       <h3>{t.reason}</h3>
       {(s.mode === 'guided' || s.aided || !active) && (
-        <ul className="practical-criteria">
-          {Object.entries(findings.criteria).map(([key, value]) => (
-            <li key={key}>
-              <span>{value ? t.yes : t.no}</span> {t.criteria[key as keyof typeof t.criteria]}
-            </li>
-          ))}
-        </ul>
+        <ManagementTeachingBoundary identity={`practical:feedback:${s.id}`}>
+          <ul className="practical-criteria">
+            {Object.entries(findings.criteria).map(([key, value]) => (
+              <li key={key}>
+                <span>{value ? t.yes : t.no}</span> {t.criteria[key as keyof typeof t.criteria]}
+              </li>
+            ))}
+          </ul>
+          {s.reason && <p>{t.feedback[s.kind]}</p>}
+          {active && <p>{s.mode === 'guided' ? t.lab[s.kind].task : t.feedback[s.kind]}</p>}
+          {s.status === 'submitted' && findings.complete && (
+            <ResultDetails details={findings.details} />
+          )}
+        </ManagementTeachingBoundary>
       )}
-      {(s.mode === 'guided' || s.aided || !active) && s.reason && <p>{t.feedback[s.kind]}</p>}
       {active ? (
         <>
           <fieldset>
@@ -379,9 +386,6 @@ export function PracticalOutcome() {
               {t.hint}
             </button>
           )}
-          {(s.mode === 'guided' || s.aided) && (
-            <p>{s.mode === 'guided' ? t.lab[s.kind].task : t.feedback[s.kind]}</p>
-          )}
           <button type="button" onClick={() => p.store.event({ type: 'abandon' })}>
             {t.abandon}
           </button>
@@ -397,9 +401,6 @@ export function PracticalOutcome() {
               : t.wrong}{' '}
           {t.first}
         </p>
-      )}
-      {s.status === 'submitted' && findings.complete && (
-        <ResultDetails details={findings.details} />
       )}
       <Link href={practicalReturn(s)}>{t.return}</Link>
     </section>
@@ -576,13 +577,15 @@ export function PracticalCoach({
 export function PracticalProgress() {
   const { findings } = usePracticalResult();
   return (
-    <ul className="practical-criteria">
-      {Object.entries(findings.criteria).map(([key, value]) => (
-        <li key={key}>
-          <span>{value ? t.yes : t.no}</span> {t.criteria[key as keyof typeof t.criteria]}
-        </li>
-      ))}
-    </ul>
+    <ManagementTeachingBoundary identity="practical:progress">
+      <ul className="practical-criteria">
+        {Object.entries(findings.criteria).map(([key, value]) => (
+          <li key={key}>
+            <span>{value ? t.yes : t.no}</span> {t.criteria[key as keyof typeof t.criteria]}
+          </li>
+        ))}
+      </ul>
+    </ManagementTeachingBoundary>
   );
 }
 

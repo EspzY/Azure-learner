@@ -1,0 +1,301 @@
+.transfer-entry {
+  padding: 22px 28px;
+  border-left: 4px solid #0875b9;
+  background: #edf7fd;
+  margin: 24px 0;
+}
+.transfer-entry nav,
+.transfer-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+}
+.course-shell .transfer-entry h2 {
+  font-size: 22px;
+  margin: 0 0 8px;
+}
+.transfer-workspace {
+  max-width: 1180px;
+  line-height: 1.65;
+  color: #193a50;
+}
+.transfer-workspace > header p {
+  max-width: 88ch;
+}
+.transfer-workspace > header > h2 {
+  font-size: 28px;
+  line-height: 1.3;
+  margin: 10px 0 18px;
+}
+.transfer-workspace button {
+  min-height: 38px;
+  padding: 7px 14px;
+  border: 1px solid #6d8ca0;
+  border-radius: 4px;
+  background: white;
+  color: #173b58;
+  cursor: pointer;
+}
+.transfer-workspace .transfer-actions button:disabled {
+  opacity: 1;
+  background: #edf1f4;
+  color: #40596b;
+  border-color: #a9bac7;
+  cursor: default;
+}
+.transfer-cases {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin: 22px 0;
+}
+.transfer-cases a {
+  padding: 7px 12px;
+  border: 1px solid #b9cdd9;
+  border-radius: 4px;
+  text-decoration: none;
+}
+.transfer-cases a[aria-current] {
+  background: #124d77;
+  color: white;
+}
+.transfer-scenario {
+  margin: 24px 0;
+  padding: 24px 30px;
+  border-top: 3px solid #167eb7;
+  background: #f4f9fc;
+}
+.transfer-workspace .transfer-scenario h3 {
+  font-size: 26px;
+  margin: 6px 0 14px;
+}
+.transfer-scenario > p {
+  font-size: 18px;
+  max-width: 86ch;
+}
+.transfer-scenario aside {
+  border-top: 1px solid #c3d7e4;
+  padding-top: 12px;
+}
+.transfer-scenario h4 {
+  margin: 0;
+}
+.transfer-response,
+.transfer-feedback-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  margin: 24px 0;
+}
+.transfer-response fieldset {
+  min-width: 0;
+  border: 1px solid #afc4d3;
+  padding: 18px;
+}
+.transfer-workspace .transfer-response legend {
+  font-size: 19px;
+  font-weight: 650;
+  padding: 0 8px;
+}
+.course-shell .transfer-response label {
+  display: flex;
+  flex-direction: row;
+  font-size: 16px;
+  line-height: 1.55;
+  gap: 12px;
+  padding: 14px 10px;
+  border-bottom: 1px solid #d7e2ea;
+  align-items: flex-start;
+  cursor: pointer;
+}
+.transfer-response label span {
+  flex: 1;
+  min-width: 0;
+}
+.transfer-response input {
+  margin-top: 6px;
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  accent-color: #086fae;
+}
+.transfer-response label:has(:checked) {
+  background: #deeff9;
+}
+.transfer-actions button[type='submit'],
+.transfer-workspace button.course-primary,
+.transfer-brief button:last-child {
+  background: #086cab;
+  color: white;
+  border-color: #086cab;
+}
+.transfer-feedback {
+  margin: 30px 0;
+  border-top: 3px solid #456f8c;
+  padding: 22px 0;
+}
+.transfer-workspace .transfer-feedback h3 {
+  font-size: 24px;
+}
+.transfer-feedback h5 {
+  font-size: 16px;
+  margin: 0 0 8px;
+}
+.transfer-feedback-columns > section > div {
+  padding: 18px;
+  border-bottom: 1px solid #c9d7e1;
+}
+.transfer-selected {
+  border-left: 4px solid #0b71ad;
+  background: #f0f7fc;
+}
+.transfer-pass {
+  color: #165c36;
+  font-weight: 650;
+}
+.transfer-fail {
+  color: #8a301b;
+  font-weight: 650;
+}
+.transfer-history {
+  padding: 20px 0;
+  border-top: 1px solid #c7d7e3;
+  margin-top: 24px;
+}
+.transfer-preparation {
+  padding: 20px 24px;
+  border-left: 3px solid #527c9a;
+  background: #f0f6fa;
+  margin: 24px 0;
+}
+.transfer-feedback dl {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.transfer-feedback dt {
+  font-weight: 600;
+}
+.transfer-feedback dd {
+  margin: 0;
+}
+.transfer-topology {
+  margin: 24px 0;
+  padding: 22px;
+  border: 1px solid #abc7d8;
+  background: white;
+}
+.transfer-topology figcaption {
+  color: #3f5f73;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+.transfer-routing {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  align-items: center;
+  gap: 18px;
+}
+.transfer-routing > span {
+  border-bottom: 3px solid #458ab5;
+  padding: 16px 8px;
+}
+.transfer-routing strong {
+  display: block;
+}
+.transfer-error {
+  color: #8b3029;
+  border-bottom: 2px dashed #b95443;
+}
+.transfer-dependency {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+.transfer-dependency ul {
+  list-style: none;
+  padding: 0;
+  flex: 1;
+}
+.transfer-dependency li {
+  padding: 8px;
+  border-bottom: 1px solid #b8cedd;
+}
+.transfer-dependency strong {
+  flex: 1;
+  padding: 20px;
+}
+.transfer-timeline {
+  display: flex;
+  gap: 32px;
+  padding-left: 22px;
+}
+.transfer-timeline li {
+  flex: 1;
+  padding: 16px 8px;
+  border-bottom: 3px solid #4d86ae;
+}
+.transfer-memory p {
+  margin: 12px 0;
+}
+.transfer-memory span {
+  display: block;
+  height: 14px;
+  background: #3a82b3;
+  margin-top: 4px;
+}
+@media (max-width: 1100px) {
+  .transfer-routing {
+    grid-template-columns: 1fr;
+  }
+  .transfer-timeline {
+    display: block;
+  }
+}
+.transfer-recovery {
+  padding: 20px;
+  background: #fff6e4;
+  border: 1px solid #b87929;
+}
+.transfer-recovery button {
+  margin: 8px;
+}
+.portal-dialog:has(.transfer-brief) {
+  margin: auto;
+  width: min(880px, calc(100vw - 48px));
+  color: #193a50;
+  border-color: #70b2da;
+}
+.portal-dialog:has(.transfer-brief) > header {
+  background: #0868ac;
+  color: white;
+}
+.portal-dialog:has(.transfer-brief) > header button {
+  color: white;
+}
+.portal-dialog:has(.transfer-brief)::backdrop {
+  background: #082440a8;
+  backdrop-filter: blur(3px);
+}
+.transfer-brief {
+  line-height: 1.65;
+  font-size: 17px;
+}
+@media (max-width: 1100px) {
+  .transfer-response,
+  .transfer-feedback-columns {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+  .transfer-scenario {
+    padding: 20px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .transfer-workspace * {
+    scroll-behavior: auto;
+    animation: none;
+    transition: none;
+  }
+}

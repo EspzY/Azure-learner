@@ -6,6 +6,7 @@ import { MissionRecovery } from '@/features/course/missions';
 import { MissionPortalLayer } from '@/features/course/mission-portal';
 import { missionOrigin } from '@/domain/sandbox/missions';
 import { useManagement } from '@/features/learning/management-provider';
+import { useTransfer } from '@/features/learning/transfer-provider';
 import { usePhysical } from '@/features/learning/physical-provider';
 import { ManagementRecovery } from '@/features/learning/management-recovery';
 import { ManagementTeachingBoundary } from '@/features/learning/management-access';
@@ -88,7 +89,8 @@ function PortalWorkspace() {
   const foundationsV2 = useFoundationsV2(),
     serverless = useServerless(),
     physical = usePhysical(),
-    management = useManagement();
+    management = useManagement(),
+    transfer = useTransfer();
   useEffect(() => {
     if (serverless.facts.active && ['learn', 'responsibility', 'hierarchy'].includes(location.area))
       serverless.store.event({ kind: 'aid' });
@@ -117,6 +119,7 @@ function PortalWorkspace() {
     location.area,
   ]);
   const otherIndependentContext =
+    transfer.facts.active ||
     location.mode === 'independent' ||
     management.facts.active ||
     physical.facts.active ||
@@ -129,6 +132,7 @@ function PortalWorkspace() {
     services2.facts.active;
   const independentContext = otherIndependentContext || missions.active;
   const guidanceContexts = [
+    transfer,
     missions,
     physical,
     management,
@@ -1256,7 +1260,7 @@ function PortalWorkspace() {
         }
       />
       {location.practice && practical.current?.mode === 'independent' && (
-        <section className="portal-independent-practical">
+        <section className="portal-independent-practical" aria-label={labsNb.independent}>
           <h2>{labsNb.independent}</h2>
           <p>{labsNb.lab[practical.current.kind].changed}</p>
           <PracticalOutcome />

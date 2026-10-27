@@ -89,6 +89,7 @@ const id = (v: unknown): v is string => typeof v === 'string' && /^[a-zA-Z0-9_-]
 const exact = (v: object, keys: string[]) =>
   Object.keys(v).sort().join(',') === keys.sort().join(',');
 export function courseTopic(module: CourseModule, topic: string | null) {
+  if (module !== 'architecture' && topic === 'transfer') return 'transfer';
   if (module === 'architecture')
     return ([...physicalTopics, ...managementTopics] as readonly string[]).includes(topic ?? '')
       ? topic!

@@ -1,644 +1,1121 @@
 {
   "schema": 1,
-  "id": "PR24-practical-mission-expansion",
-  "baseCommit": "feff37a79dea28e740ead138d92439cf65a398da",
-  "author": "codex-pr24-author",
+  "id": "PR25-cloud-concepts-transfer",
+  "baseCommit": "75f073d093be09d166f9e4fbf969535cee28557d",
+  "author": "codex-pr25-author",
   "scope": {
     "kind": "learning-activities",
-    "description": "Four distinct versioned practical missions inside existing Benefits and Service Types, reusing frozen Sandbox commands/inventory with explicit receipt boundaries, pure dependency hypotheses and isolated evidence. No XP or old assessment migration.",
-    "objectives": ["CB01", "CB02", "CB03", "CB04", "ST01", "ST04", "ST02"]
+    "description": "P03 original independent transfer across eight Cloud Concepts objectives; isolated versioned durable evidence, specific feedback/remediation and all-context answer exposure protection. No old rubric/XP/simulator changes.",
+    "objectives": [
+      "az900.cloud.models",
+      "az900.cloud.model-use",
+      "az900.cloud.pricing",
+      "az900.benefits.availability-scale",
+      "az900.benefits.reliability-predictability",
+      "az900.benefits.security-governance",
+      "az900.benefits.manageability",
+      "az900.services.use-cases"
+    ]
   },
   "sources": [
     {
-      "id": "PM01",
+      "id": "T01",
+      "title": "AZ-900 Study Guide · Skills measured 2026-07-20",
       "url": "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900",
-      "title": "AZ-900 Skills Measured",
       "kind": "exam",
       "reviewed": "2026-10-27",
       "version": "Skills measured2026-07-20",
       "availability": "AVAILABLE",
-      "objectives": ["CB01", "CB02", "CB03", "CB04", "ST01", "ST04", "ST02"],
-      "claims": ["mission.dependency", "mission.policy", "mission.guest", "mission.settings"],
-      "limits": "Reviewed public body; no authenticated Portal/sandbox execution, copied assessment or human approval. Exact scoped claims/disposition and linked exclusions in PRACTICAL_MISSION_EXPANSION. Configuration is not runtime/availability/compliance.",
+      "objectives": [
+        "az900.cloud.models",
+        "az900.cloud.model-use",
+        "az900.cloud.pricing",
+        "az900.benefits.availability-scale",
+        "az900.benefits.reliability-predictability",
+        "az900.benefits.security-governance",
+        "az900.benefits.manageability",
+        "az900.services.use-cases"
+      ],
+      "claims": ["transfer.T01"],
+      "limits": "Original items; public technical body read, no protected assessment, authenticated Azure testing, pricing guarantees or human approval. Scope/discovery in CLOUD_CONCEPTS_TRANSFER.",
       "discovery": [
         {
           "url": "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900",
           "disposition": "reviewed-essential",
-          "reason": "Scoped body/linked qualifications read before original manuscript. Unsupported operational areas explicitly excluded."
+          "reason": "Scoped public body and relevant qualifications checked before item manuscript/UI; no assessment copying."
         }
       ]
     },
     {
-      "id": "PM02",
-      "url": "https://learn.microsoft.com/en-us/training/modules/describe-benefits-use-cloud-services/",
-      "title": "Benefits module",
-      "kind": "module",
-      "reviewed": "2026-10-27",
-      "version": "Rolling public page reviewed2026-10-27",
-      "availability": "AVAILABLE",
-      "objectives": ["CB01", "CB02", "CB03", "CB04"],
-      "claims": ["mission.dependency", "mission.policy"],
-      "limits": "Reviewed public body; no authenticated Portal/sandbox execution, copied assessment or human approval. Exact scoped claims/disposition and linked exclusions in PRACTICAL_MISSION_EXPANSION. Configuration is not runtime/availability/compliance.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/training/modules/describe-benefits-use-cloud-services/",
-          "disposition": "reviewed-essential",
-          "reason": "Scoped body/linked qualifications read before original manuscript. Unsupported operational areas explicitly excluded."
-        }
-      ]
-    },
-    {
-      "id": "PM03",
-      "url": "https://learn.microsoft.com/en-us/training/modules/describe-benefits-use-cloud-services/2-high-availability-scalability-cloud",
-      "title": "Availability and scalability unit",
+      "id": "T02",
+      "title": "Define cloud models",
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-cloud-compute/5-define-cloud-models",
       "kind": "unit",
       "reviewed": "2026-10-27",
-      "version": "Rolling public page reviewed2026-10-27",
+      "version": "Public body checked2026-10-27",
       "availability": "AVAILABLE",
-      "objectives": ["CB01", "CB02"],
-      "claims": ["mission.dependency"],
-      "limits": "Reviewed public body; no authenticated Portal/sandbox execution, copied assessment or human approval. Exact scoped claims/disposition and linked exclusions in PRACTICAL_MISSION_EXPANSION. Configuration is not runtime/availability/compliance.",
+      "objectives": ["az900.cloud.models", "az900.cloud.model-use"],
+      "claims": ["transfer.T02"],
+      "limits": "Original items; public technical body read, no protected assessment, authenticated Azure testing, pricing guarantees or human approval. Scope/discovery in CLOUD_CONCEPTS_TRANSFER.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/training/modules/describe-cloud-compute/5-define-cloud-models",
+          "disposition": "reviewed-essential",
+          "reason": "Scoped public body and relevant qualifications checked before item manuscript/UI; no assessment copying."
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/training/modules/describe-cloud-compute/",
+          "disposition": "reviewed-essential",
+          "reason": "Public module index, scoped units, prerequisites and supplementary topic boundaries reviewed; no protected assessment questions."
+        }
+      ]
+    },
+    {
+      "id": "T03",
+      "title": "Describe the consumption-based model",
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-cloud-compute/6-describe-consumption-based-model",
+      "kind": "unit",
+      "reviewed": "2026-10-27",
+      "version": "Public body checked2026-10-27",
+      "availability": "AVAILABLE",
+      "objectives": ["az900.cloud.pricing"],
+      "claims": ["transfer.T03"],
+      "limits": "Original items; public technical body read, no protected assessment, authenticated Azure testing, pricing guarantees or human approval. Scope/discovery in CLOUD_CONCEPTS_TRANSFER.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/training/modules/describe-cloud-compute/6-describe-consumption-based-model",
+          "disposition": "reviewed-essential",
+          "reason": "Scoped public body and relevant qualifications checked before item manuscript/UI; no assessment copying."
+        }
+      ]
+    },
+    {
+      "id": "T04",
+      "title": "High availability and scalability",
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-benefits-use-cloud-services/2-high-availability-scalability-cloud",
+      "kind": "unit",
+      "reviewed": "2026-10-27",
+      "version": "Public body checked2026-10-27",
+      "availability": "AVAILABLE",
+      "objectives": ["az900.benefits.availability-scale"],
+      "claims": ["transfer.T04"],
+      "limits": "Original items; public technical body read, no protected assessment, authenticated Azure testing, pricing guarantees or human approval. Scope/discovery in CLOUD_CONCEPTS_TRANSFER.",
       "discovery": [
         {
           "url": "https://learn.microsoft.com/en-us/training/modules/describe-benefits-use-cloud-services/2-high-availability-scalability-cloud",
           "disposition": "reviewed-essential",
-          "reason": "Scoped body/linked qualifications read before original manuscript. Unsupported operational areas explicitly excluded."
+          "reason": "Scoped public body and relevant qualifications checked before item manuscript/UI; no assessment copying."
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/training/modules/describe-benefits-use-cloud-services/",
+          "disposition": "reviewed-essential",
+          "reason": "Public module index, scoped units, prerequisites and supplementary topic boundaries reviewed; no protected assessment questions."
         }
       ]
     },
     {
-      "id": "PM04",
+      "id": "T05",
+      "title": "Reliability and predictability",
       "url": "https://learn.microsoft.com/en-us/training/modules/describe-benefits-use-cloud-services/3-reliability-predictability-cloud",
-      "title": "Reliability and predictability unit",
       "kind": "unit",
       "reviewed": "2026-10-27",
-      "version": "Rolling public page reviewed2026-10-27",
+      "version": "Public body checked2026-10-27",
       "availability": "AVAILABLE",
-      "objectives": ["CB01", "CB02"],
-      "claims": ["mission.dependency"],
-      "limits": "Reviewed public body; no authenticated Portal/sandbox execution, copied assessment or human approval. Exact scoped claims/disposition and linked exclusions in PRACTICAL_MISSION_EXPANSION. Configuration is not runtime/availability/compliance.",
+      "objectives": ["az900.benefits.reliability-predictability"],
+      "claims": ["transfer.T05"],
+      "limits": "Original items; public technical body read, no protected assessment, authenticated Azure testing, pricing guarantees or human approval. Scope/discovery in CLOUD_CONCEPTS_TRANSFER.",
       "discovery": [
         {
           "url": "https://learn.microsoft.com/en-us/training/modules/describe-benefits-use-cloud-services/3-reliability-predictability-cloud",
           "disposition": "reviewed-essential",
-          "reason": "Scoped body/linked qualifications read before original manuscript. Unsupported operational areas explicitly excluded."
+          "reason": "Scoped public body and relevant qualifications checked before item manuscript/UI; no assessment copying."
         }
       ]
     },
     {
-      "id": "PM05",
+      "id": "T06",
+      "title": "Security and governance",
       "url": "https://learn.microsoft.com/en-us/training/modules/describe-benefits-use-cloud-services/4-security-governance-cloud",
-      "title": "Security and governance unit",
       "kind": "unit",
       "reviewed": "2026-10-27",
-      "version": "Rolling public page reviewed2026-10-27",
+      "version": "Public body checked2026-10-27",
       "availability": "AVAILABLE",
-      "objectives": ["CB03", "CB04"],
-      "claims": ["mission.policy"],
-      "limits": "Reviewed public body; no authenticated Portal/sandbox execution, copied assessment or human approval. Exact scoped claims/disposition and linked exclusions in PRACTICAL_MISSION_EXPANSION. Configuration is not runtime/availability/compliance.",
+      "objectives": ["az900.benefits.security-governance"],
+      "claims": ["transfer.T06"],
+      "limits": "Original items; public technical body read, no protected assessment, authenticated Azure testing, pricing guarantees or human approval. Scope/discovery in CLOUD_CONCEPTS_TRANSFER.",
       "discovery": [
         {
           "url": "https://learn.microsoft.com/en-us/training/modules/describe-benefits-use-cloud-services/4-security-governance-cloud",
           "disposition": "reviewed-essential",
-          "reason": "Scoped body/linked qualifications read before original manuscript. Unsupported operational areas explicitly excluded."
+          "reason": "Scoped public body and relevant qualifications checked before item manuscript/UI; no assessment copying."
         }
       ]
     },
     {
-      "id": "PM06",
+      "id": "T07",
+      "title": "Manageability",
       "url": "https://learn.microsoft.com/en-us/training/modules/describe-benefits-use-cloud-services/5-manageability-cloud",
-      "title": "Manageability unit",
       "kind": "unit",
       "reviewed": "2026-10-27",
-      "version": "Rolling public page reviewed2026-10-27",
+      "version": "Public body checked2026-10-27",
       "availability": "AVAILABLE",
-      "objectives": ["CB03", "CB04", "ST04", "ST02"],
-      "claims": ["mission.policy", "mission.settings"],
-      "limits": "Reviewed public body; no authenticated Portal/sandbox execution, copied assessment or human approval. Exact scoped claims/disposition and linked exclusions in PRACTICAL_MISSION_EXPANSION. Configuration is not runtime/availability/compliance.",
+      "objectives": ["az900.benefits.manageability"],
+      "claims": ["transfer.T07"],
+      "limits": "Original items; public technical body read, no protected assessment, authenticated Azure testing, pricing guarantees or human approval. Scope/discovery in CLOUD_CONCEPTS_TRANSFER.",
       "discovery": [
         {
           "url": "https://learn.microsoft.com/en-us/training/modules/describe-benefits-use-cloud-services/5-manageability-cloud",
           "disposition": "reviewed-essential",
-          "reason": "Scoped body/linked qualifications read before original manuscript. Unsupported operational areas explicitly excluded."
+          "reason": "Scoped public body and relevant qualifications checked before item manuscript/UI; no assessment copying."
         }
       ]
     },
     {
-      "id": "PM07",
-      "url": "https://learn.microsoft.com/en-us/training/modules/describe-cloud-service-types/",
-      "title": "Service types module and public IaaS/PaaS/SaaS units",
-      "kind": "module",
+      "id": "T08",
+      "title": "IaaS responsibility and scenarios",
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-cloud-service-types/2-describe-infrastructure-service",
+      "kind": "unit",
       "reviewed": "2026-10-27",
-      "version": "Rolling public page reviewed2026-10-27",
+      "version": "Public body checked2026-10-27",
       "availability": "AVAILABLE",
-      "objectives": ["ST01", "ST04", "ST02"],
-      "claims": ["mission.guest", "mission.settings"],
-      "limits": "Reviewed public body; no authenticated Portal/sandbox execution, copied assessment or human approval. Exact scoped claims/disposition and linked exclusions in PRACTICAL_MISSION_EXPANSION. Configuration is not runtime/availability/compliance.",
+      "objectives": ["az900.services.use-cases"],
+      "claims": ["transfer.T08"],
+      "limits": "Original items; public technical body read, no protected assessment, authenticated Azure testing, pricing guarantees or human approval. Scope/discovery in CLOUD_CONCEPTS_TRANSFER.",
       "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/training/modules/describe-cloud-service-types/",
-          "disposition": "reviewed-essential",
-          "reason": "Scoped body/linked qualifications read before original manuscript. Unsupported operational areas explicitly excluded."
-        },
         {
           "url": "https://learn.microsoft.com/en-us/training/modules/describe-cloud-service-types/2-describe-infrastructure-service",
           "disposition": "reviewed-essential",
-          "reason": "All three public service-type units read; no protected module assessment copied."
+          "reason": "Scoped public body and relevant qualifications checked before item manuscript/UI; no assessment copying."
         },
+        {
+          "url": "https://learn.microsoft.com/en-us/training/modules/describe-cloud-service-types/",
+          "disposition": "reviewed-essential",
+          "reason": "Public module index, scoped units, prerequisites and supplementary topic boundaries reviewed; no protected assessment questions."
+        }
+      ]
+    },
+    {
+      "id": "T09",
+      "title": "PaaS responsibility and scenarios",
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-cloud-service-types/3-describe-platform-service",
+      "kind": "unit",
+      "reviewed": "2026-10-27",
+      "version": "Public body checked2026-10-27",
+      "availability": "AVAILABLE",
+      "objectives": ["az900.services.use-cases"],
+      "claims": ["transfer.T09"],
+      "limits": "Original items; public technical body read, no protected assessment, authenticated Azure testing, pricing guarantees or human approval. Scope/discovery in CLOUD_CONCEPTS_TRANSFER.",
+      "discovery": [
         {
           "url": "https://learn.microsoft.com/en-us/training/modules/describe-cloud-service-types/3-describe-platform-service",
           "disposition": "reviewed-essential",
-          "reason": "All three public service-type units read; no protected module assessment copied."
+          "reason": "Scoped public body and relevant qualifications checked before item manuscript/UI; no assessment copying."
+        }
+      ]
+    },
+    {
+      "id": "T10",
+      "title": "Azure Reservations",
+      "url": "https://learn.microsoft.com/en-us/azure/cost-management-billing/reservations/save-compute-costs-reservations",
+      "kind": "technical",
+      "reviewed": "2026-10-27",
+      "version": "Public body checked2026-10-27",
+      "availability": "AVAILABLE",
+      "objectives": ["az900.cloud.pricing"],
+      "claims": ["transfer.T10"],
+      "limits": "Original items; public technical body read, no protected assessment, authenticated Azure testing, pricing guarantees or human approval. Scope/discovery in CLOUD_CONCEPTS_TRANSFER.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/cost-management-billing/reservations/save-compute-costs-reservations",
+          "disposition": "reviewed-essential",
+          "reason": "Scoped public body and relevant qualifications checked before item manuscript/UI; no assessment copying."
         },
         {
-          "url": "https://learn.microsoft.com/en-us/training/modules/describe-cloud-service-types/4-describe-software-service",
+          "url": "https://learn.microsoft.com/en-us/azure/cost-management-billing/reservations/determine-reservation-purchase",
           "disposition": "reviewed-essential",
-          "reason": "All three public service-type units read; no protected module assessment copied."
+          "reason": "Read public baseline/underutilization guidance; live recommendations and billing access excluded."
         }
       ]
     },
     {
-      "id": "PM08",
-      "url": "https://learn.microsoft.com/en-us/azure/security/fundamentals/shared-responsibility",
-      "title": "Shared responsibility in the cloud",
+      "id": "T11",
+      "title": "Azure Spot Virtual Machines",
+      "url": "https://learn.microsoft.com/en-us/azure/virtual-machines/spot-vms",
       "kind": "technical",
       "reviewed": "2026-10-27",
-      "version": "Rolling public page reviewed2026-10-27",
+      "version": "Public body checked2026-10-27",
       "availability": "AVAILABLE",
-      "objectives": ["ST01", "ST04", "ST02"],
-      "claims": ["mission.guest", "mission.settings"],
-      "limits": "Reviewed public body; no authenticated Portal/sandbox execution, copied assessment or human approval. Exact scoped claims/disposition and linked exclusions in PRACTICAL_MISSION_EXPANSION. Configuration is not runtime/availability/compliance.",
+      "objectives": ["az900.cloud.pricing"],
+      "claims": ["transfer.T11"],
+      "limits": "Original items; public technical body read, no protected assessment, authenticated Azure testing, pricing guarantees or human approval. Scope/discovery in CLOUD_CONCEPTS_TRANSFER.",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/security/fundamentals/shared-responsibility",
+          "url": "https://learn.microsoft.com/en-us/azure/virtual-machines/spot-vms",
           "disposition": "reviewed-essential",
-          "reason": "Scoped body/linked qualifications read before original manuscript. Unsupported operational areas explicitly excluded."
+          "reason": "Scoped public body and relevant qualifications checked before item manuscript/UI; no assessment copying."
         }
       ]
     },
     {
-      "id": "PM09",
-      "url": "https://learn.microsoft.com/en-us/azure/reliability/overview",
-      "title": "Reliability in Azure",
+      "id": "T12",
+      "title": "Savings plans overview",
+      "url": "https://learn.microsoft.com/en-us/azure/cost-management-billing/savings-plan/savings-plan-overview",
       "kind": "technical",
       "reviewed": "2026-10-27",
-      "version": "Rolling public page reviewed2026-10-27",
+      "version": "Public body checked2026-10-27",
       "availability": "AVAILABLE",
-      "objectives": ["CB01", "CB02"],
-      "claims": ["mission.dependency"],
-      "limits": "Reviewed public body; no authenticated Portal/sandbox execution, copied assessment or human approval. Exact scoped claims/disposition and linked exclusions in PRACTICAL_MISSION_EXPANSION. Configuration is not runtime/availability/compliance.",
+      "objectives": ["az900.cloud.pricing"],
+      "claims": ["transfer.T12"],
+      "limits": "Original items; public technical body read, no protected assessment, authenticated Azure testing, pricing guarantees or human approval. Scope/discovery in CLOUD_CONCEPTS_TRANSFER.",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/reliability/overview",
+          "url": "https://learn.microsoft.com/en-us/azure/cost-management-billing/savings-plan/savings-plan-overview",
           "disposition": "reviewed-essential",
-          "reason": "Scoped body/linked qualifications read before original manuscript. Unsupported operational areas explicitly excluded."
+          "reason": "Scoped public body and relevant qualifications checked before item manuscript/UI; no assessment copying."
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/cost-management-billing/savings-plan/discount-application",
+          "disposition": "reviewed-essential",
+          "reason": "Read public hourly use-it-or-lose-it and eligible-use qualifications; no price copied."
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/cost-management-billing/savings-plan/decide-between-savings-plan-reservation",
+          "disposition": "reviewed-essential",
+          "reason": "Read stable versus changing workload comparison; detailed purchasing/P04 excluded."
         }
       ]
     },
     {
-      "id": "PM10",
-      "url": "https://learn.microsoft.com/en-us/azure/well-architected/reliability/failure-mode-analysis",
+      "id": "T13",
       "title": "Failure mode analysis",
-      "kind": "architecture",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/reliability/failure-mode-analysis",
+      "kind": "technical",
       "reviewed": "2026-10-27",
-      "version": "Rolling public page reviewed2026-10-27",
+      "version": "Public body checked2026-10-27",
       "availability": "AVAILABLE",
-      "objectives": ["CB01", "CB02"],
-      "claims": ["mission.dependency"],
-      "limits": "Reviewed public body; no authenticated Portal/sandbox execution, copied assessment or human approval. Exact scoped claims/disposition and linked exclusions in PRACTICAL_MISSION_EXPANSION. Configuration is not runtime/availability/compliance.",
+      "objectives": [
+        "az900.benefits.availability-scale",
+        "az900.benefits.reliability-predictability"
+      ],
+      "claims": ["transfer.T13"],
+      "limits": "Original items; public technical body read, no protected assessment, authenticated Azure testing, pricing guarantees or human approval. Scope/discovery in CLOUD_CONCEPTS_TRANSFER.",
       "discovery": [
         {
           "url": "https://learn.microsoft.com/en-us/azure/well-architected/reliability/failure-mode-analysis",
           "disposition": "reviewed-essential",
-          "reason": "Scoped body/linked qualifications read before original manuscript. Unsupported operational areas explicitly excluded."
-        }
-      ]
-    },
-    {
-      "id": "PM11",
-      "url": "https://learn.microsoft.com/en-us/azure/virtual-machines/managed-disks-overview",
-      "title": "Managed disks",
-      "kind": "technical",
-      "reviewed": "2026-10-27",
-      "version": "Rolling public page reviewed2026-10-27",
-      "availability": "AVAILABLE",
-      "objectives": ["CB01", "CB02", "ST01", "ST04"],
-      "claims": ["mission.dependency", "mission.guest"],
-      "limits": "Reviewed public body; no authenticated Portal/sandbox execution, copied assessment or human approval. Exact scoped claims/disposition and linked exclusions in PRACTICAL_MISSION_EXPANSION. Configuration is not runtime/availability/compliance.",
-      "discovery": [
+          "reason": "Scoped public body and relevant qualifications checked before item manuscript/UI; no assessment copying."
+        },
         {
-          "url": "https://learn.microsoft.com/en-us/azure/virtual-machines/managed-disks-overview",
+          "url": "https://learn.microsoft.com/en-us/azure/well-architected/reliability/identify-flows",
           "disposition": "reviewed-essential",
-          "reason": "Scoped body/linked qualifications read before original manuscript. Unsupported operational areas explicitly excluded."
+          "reason": "Read RE:02 public body: critical flow/dependency/observation versus configuration; no runtime claim."
         }
       ]
     },
     {
-      "id": "PM12",
-      "url": "https://learn.microsoft.com/en-us/azure/virtual-network/network-overview",
-      "title": "VM network relationships",
-      "kind": "technical",
-      "reviewed": "2026-10-27",
-      "version": "Rolling public page reviewed2026-10-27",
-      "availability": "AVAILABLE",
-      "objectives": ["CB01", "CB02", "ST01", "ST04"],
-      "claims": ["mission.dependency", "mission.guest"],
-      "limits": "Reviewed public body; no authenticated Portal/sandbox execution, copied assessment or human approval. Exact scoped claims/disposition and linked exclusions in PRACTICAL_MISSION_EXPANSION. Configuration is not runtime/availability/compliance.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/virtual-network/network-overview",
-          "disposition": "reviewed-essential",
-          "reason": "Scoped body/linked qualifications read before original manuscript. Unsupported operational areas explicitly excluded."
-        }
-      ]
-    },
-    {
-      "id": "PM13",
-      "url": "https://learn.microsoft.com/en-us/azure/virtual-machines/linux/quick-create-portal",
-      "title": "Linux VM Portal quickstart",
-      "kind": "technical",
-      "reviewed": "2026-10-27",
-      "version": "Rolling public page reviewed2026-10-27",
-      "availability": "AVAILABLE",
-      "objectives": ["ST01", "ST04"],
-      "claims": ["mission.guest"],
-      "limits": "Reviewed public body; no authenticated Portal/sandbox execution, copied assessment or human approval. Exact scoped claims/disposition and linked exclusions in PRACTICAL_MISSION_EXPANSION. Configuration is not runtime/availability/compliance.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/virtual-machines/linux/quick-create-portal",
-          "disposition": "reviewed-essential",
-          "reason": "Scoped body/linked qualifications read before original manuscript. Unsupported operational areas explicitly excluded."
-        }
-      ]
-    },
-    {
-      "id": "PM14",
-      "url": "https://learn.microsoft.com/en-us/azure/governance/policy/overview",
+      "id": "T14",
       "title": "Azure Policy overview",
+      "url": "https://learn.microsoft.com/en-us/azure/governance/policy/overview",
       "kind": "technical",
       "reviewed": "2026-10-27",
-      "version": "Rolling public page reviewed2026-10-27",
+      "version": "Public body checked2026-10-27",
       "availability": "AVAILABLE",
-      "objectives": ["CB03", "CB04"],
-      "claims": ["mission.policy"],
-      "limits": "Reviewed public body; no authenticated Portal/sandbox execution, copied assessment or human approval. Exact scoped claims/disposition and linked exclusions in PRACTICAL_MISSION_EXPANSION. Configuration is not runtime/availability/compliance.",
+      "objectives": ["az900.benefits.security-governance"],
+      "claims": ["transfer.T14"],
+      "limits": "Original items; public technical body read, no protected assessment, authenticated Azure testing, pricing guarantees or human approval. Scope/discovery in CLOUD_CONCEPTS_TRANSFER.",
       "discovery": [
         {
           "url": "https://learn.microsoft.com/en-us/azure/governance/policy/overview",
           "disposition": "reviewed-essential",
-          "reason": "Scoped body/linked qualifications read before original manuscript. Unsupported operational areas explicitly excluded."
+          "reason": "Scoped public body and relevant qualifications checked before item manuscript/UI; no assessment copying."
         }
       ]
     },
     {
-      "id": "PM15",
-      "url": "https://learn.microsoft.com/en-us/azure/governance/policy/concepts/scope",
-      "title": "Azure Policy scope",
+      "id": "T15",
+      "title": "Azure RBAC overview",
+      "url": "https://learn.microsoft.com/en-us/azure/role-based-access-control/overview",
       "kind": "technical",
       "reviewed": "2026-10-27",
-      "version": "Rolling public page reviewed2026-10-27",
+      "version": "Public body checked2026-10-27",
       "availability": "AVAILABLE",
-      "objectives": ["CB03", "CB04"],
-      "claims": ["mission.policy"],
-      "limits": "Reviewed public body; no authenticated Portal/sandbox execution, copied assessment or human approval. Exact scoped claims/disposition and linked exclusions in PRACTICAL_MISSION_EXPANSION. Configuration is not runtime/availability/compliance.",
+      "objectives": ["az900.benefits.security-governance"],
+      "claims": ["transfer.T15"],
+      "limits": "Original items; public technical body read, no protected assessment, authenticated Azure testing, pricing guarantees or human approval. Scope/discovery in CLOUD_CONCEPTS_TRANSFER.",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/governance/policy/concepts/scope",
+          "url": "https://learn.microsoft.com/en-us/azure/role-based-access-control/overview",
           "disposition": "reviewed-essential",
-          "reason": "Scoped body/linked qualifications read before original manuscript. Unsupported operational areas explicitly excluded."
+          "reason": "Scoped public body and relevant qualifications checked before item manuscript/UI; no assessment copying."
         }
       ]
     },
     {
-      "id": "PM16",
-      "url": "https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effect-deny",
-      "title": "Deny effect",
+      "id": "T16",
+      "title": "Identity and access management concepts",
+      "url": "https://learn.microsoft.com/en-us/entra/fundamentals/identity-fundamental-concepts",
       "kind": "technical",
       "reviewed": "2026-10-27",
-      "version": "Rolling public page reviewed2026-10-27",
+      "version": "Public body checked2026-10-27",
       "availability": "AVAILABLE",
-      "objectives": ["CB03", "CB04"],
-      "claims": ["mission.policy"],
-      "limits": "Reviewed public body; no authenticated Portal/sandbox execution, copied assessment or human approval. Exact scoped claims/disposition and linked exclusions in PRACTICAL_MISSION_EXPANSION. Configuration is not runtime/availability/compliance.",
+      "objectives": ["az900.benefits.security-governance"],
+      "claims": ["transfer.T16"],
+      "limits": "Original items; public technical body read, no protected assessment, authenticated Azure testing, pricing guarantees or human approval. Scope/discovery in CLOUD_CONCEPTS_TRANSFER.",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effect-deny",
+          "url": "https://learn.microsoft.com/en-us/entra/fundamentals/identity-fundamental-concepts",
           "disposition": "reviewed-essential",
-          "reason": "Scoped body/linked qualifications read before original manuscript. Unsupported operational areas explicitly excluded."
+          "reason": "Scoped public body and relevant qualifications checked before item manuscript/UI; no assessment copying."
         }
       ]
     },
     {
-      "id": "PM17",
-      "url": "https://learn.microsoft.com/en-us/azure/app-service/overview-hosting-plans",
-      "title": "App Service plans",
+      "id": "T17",
+      "title": "ARM template overview",
+      "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/overview",
       "kind": "technical",
       "reviewed": "2026-10-27",
-      "version": "Rolling public page reviewed2026-10-27",
+      "version": "Public body checked2026-10-27",
       "availability": "AVAILABLE",
-      "objectives": ["ST04", "ST02"],
-      "claims": ["mission.settings"],
-      "limits": "Reviewed public body; no authenticated Portal/sandbox execution, copied assessment or human approval. Exact scoped claims/disposition and linked exclusions in PRACTICAL_MISSION_EXPANSION. Configuration is not runtime/availability/compliance.",
+      "objectives": ["az900.benefits.manageability"],
+      "claims": ["transfer.T17"],
+      "limits": "Original items; public technical body read, no protected assessment, authenticated Azure testing, pricing guarantees or human approval. Scope/discovery in CLOUD_CONCEPTS_TRANSFER.",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/app-service/overview-hosting-plans",
+          "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/overview",
           "disposition": "reviewed-essential",
-          "reason": "Scoped body/linked qualifications read before original manuscript. Unsupported operational areas explicitly excluded."
+          "reason": "Scoped public body and relevant qualifications checked before item manuscript/UI; no assessment copying."
         }
       ]
     },
     {
-      "id": "PM18",
-      "url": "https://learn.microsoft.com/en-us/azure/app-service/configure-common",
-      "title": "App settings and Environment variables",
-      "kind": "technical",
+      "id": "T18",
+      "title": "SaaS responsibility and scenarios",
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-cloud-service-types/4-describe-software-service",
+      "kind": "unit",
       "reviewed": "2026-10-27",
-      "version": "Rolling public page reviewed2026-10-27",
+      "version": "Public body checked2026-10-27",
       "availability": "AVAILABLE",
-      "objectives": ["ST04", "ST02"],
-      "claims": ["mission.settings"],
-      "limits": "Reviewed public body; no authenticated Portal/sandbox execution, copied assessment or human approval. Exact scoped claims/disposition and linked exclusions in PRACTICAL_MISSION_EXPANSION. Configuration is not runtime/availability/compliance.",
+      "objectives": ["az900.services.use-cases"],
+      "claims": ["transfer.T18"],
+      "limits": "Original items; public technical body read, no protected assessment, authenticated Azure testing, pricing guarantees or human approval. Scope/discovery in CLOUD_CONCEPTS_TRANSFER.",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/app-service/configure-common",
+          "url": "https://learn.microsoft.com/en-us/training/modules/describe-cloud-service-types/4-describe-software-service",
           "disposition": "reviewed-essential",
-          "reason": "Scoped body/linked qualifications read before original manuscript. Unsupported operational areas explicitly excluded."
-        }
-      ]
-    },
-    {
-      "id": "PM19",
-      "url": "https://learn.microsoft.com/en-us/azure/app-service/overview-patch-os-runtime",
-      "title": "App Service OS/runtime patching",
-      "kind": "technical",
-      "reviewed": "2026-10-27",
-      "version": "Rolling public page reviewed2026-10-27",
-      "availability": "AVAILABLE",
-      "objectives": ["ST04", "ST02"],
-      "claims": ["mission.settings"],
-      "limits": "Reviewed public body; no authenticated Portal/sandbox execution, copied assessment or human approval. Exact scoped claims/disposition and linked exclusions in PRACTICAL_MISSION_EXPANSION. Configuration is not runtime/availability/compliance.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/app-service/overview-patch-os-runtime",
-          "disposition": "reviewed-essential",
-          "reason": "Scoped body/linked qualifications read before original manuscript. Unsupported operational areas explicitly excluded."
+          "reason": "Scoped public body and relevant qualifications checked before item manuscript/UI; no assessment copying."
         }
       ]
     }
   ],
   "activities": [
     {
-      "id": "mission-diagnose",
-      "objectives": ["CB01", "CB02"],
-      "claims": ["mission.dependency"],
+      "id": "transfer-public-information",
+      "objectives": ["az900.cloud.models", "az900.cloud.model-use"],
+      "claims": ["transfer.T01", "transfer.T02"],
       "assessmentStatus": "new-independent",
-      "limits": "Version1 bounded local task; guided versus immutable first/help/retry/abandon. No claim of broad exam readiness, Azure execution or human transfer.",
+      "limits": "Bounded P03 independent structured decision/reason; exposure/help/retry separate. Historical module and guided evidence do not satisfy this task. No XP or exam readiness.",
       "theory": [
-        { "path": "docs/PRACTICAL_MISSION_EXPANSION.md" },
-        { "path": "src/content/nb.ts", "marker": "missionsNb" }
+        { "path": "src/content/nb.ts", "marker": "transferNb" },
+        { "path": "docs/CLOUD_CONCEPTS_TRANSFER.md" }
       ],
-      "mechanism": [{ "path": "src/domain/sandbox/missions.ts", "marker": "missionEvaluation" }],
-      "practice": [{ "path": "src/features/course/missions.tsx", "marker": "MissionEntry" }],
+      "mechanism": [
+        { "path": "src/domain/curriculum/transfer.ts", "marker": "public-information" }
+      ],
+      "practice": [
+        { "path": "src/features/learning/cloud-transfer.tsx", "marker": "TransferAssessment" }
+      ],
       "feedback": [
-        { "path": "src/features/course/missions.tsx", "marker": "MissionDebrief" },
-        { "path": "src/content/nb.ts", "marker": "choices:" }
+        { "path": "src/content/nb.ts", "marker": "decisionFeedback" },
+        { "path": "src/features/learning/cloud-transfer.tsx", "marker": "TransferFeedback" }
       ],
-      "visual": [{ "path": "src/features/course/missions.tsx", "marker": "MissionActual" }],
-      "accessible": [{ "path": "src/features/course/missions.tsx", "marker": "fieldset" }],
+      "visual": [{ "path": "src/features/learning/transfer.css" }],
+      "accessible": [{ "path": "src/features/learning/cloud-transfer.tsx", "marker": "fieldset" }],
       "assessment": [
-        { "path": "src/domain/sandbox/missions.ts", "marker": "answerIds" },
-        { "path": "src/domain/sandbox/missions.test.ts" }
+        { "path": "src/domain/curriculum/transfer.ts", "marker": "evaluateTransfer" },
+        { "path": "src/domain/curriculum/transfer.test.ts" }
       ],
-      "savvyshark": [
-        { "path": "src/features/course/mission-briefing.tsx", "marker": "missionId" },
-        { "path": "src/features/course/mission-portal.tsx", "marker": "MissionPortalLayer" }
-      ]
+      "savvyshark": [{ "path": "src/features/learning/cloud-transfer.tsx", "marker": "SavvyShark" }]
     },
     {
-      "id": "mission-governance",
-      "objectives": ["CB03", "CB04"],
-      "claims": ["mission.policy"],
+      "id": "transfer-exclusive-research",
+      "objectives": ["az900.cloud.models", "az900.cloud.model-use"],
+      "claims": ["transfer.T01", "transfer.T02"],
       "assessmentStatus": "new-independent",
-      "limits": "Version1 bounded local task; guided versus immutable first/help/retry/abandon. No claim of broad exam readiness, Azure execution or human transfer.",
+      "limits": "Bounded P03 independent structured decision/reason; exposure/help/retry separate. Historical module and guided evidence do not satisfy this task. No XP or exam readiness.",
       "theory": [
-        { "path": "docs/PRACTICAL_MISSION_EXPANSION.md" },
-        { "path": "src/content/nb.ts", "marker": "missionsNb" }
+        { "path": "src/content/nb.ts", "marker": "transferNb" },
+        { "path": "docs/CLOUD_CONCEPTS_TRANSFER.md" }
       ],
-      "mechanism": [{ "path": "src/domain/sandbox/missions.ts", "marker": "missionEvaluation" }],
-      "practice": [{ "path": "src/features/course/missions.tsx", "marker": "MissionEntry" }],
+      "mechanism": [
+        { "path": "src/domain/curriculum/transfer.ts", "marker": "exclusive-research" }
+      ],
+      "practice": [
+        { "path": "src/features/learning/cloud-transfer.tsx", "marker": "TransferAssessment" }
+      ],
       "feedback": [
-        { "path": "src/features/course/missions.tsx", "marker": "MissionDebrief" },
-        { "path": "src/content/nb.ts", "marker": "choices:" }
+        { "path": "src/content/nb.ts", "marker": "decisionFeedback" },
+        { "path": "src/features/learning/cloud-transfer.tsx", "marker": "TransferFeedback" }
       ],
-      "visual": [{ "path": "src/features/course/missions.tsx", "marker": "MissionActual" }],
-      "accessible": [{ "path": "src/features/course/missions.tsx", "marker": "fieldset" }],
+      "visual": [{ "path": "src/features/learning/transfer.css" }],
+      "accessible": [{ "path": "src/features/learning/cloud-transfer.tsx", "marker": "fieldset" }],
       "assessment": [
-        { "path": "src/domain/sandbox/missions.ts", "marker": "answerIds" },
-        { "path": "src/domain/sandbox/missions.test.ts" }
+        { "path": "src/domain/curriculum/transfer.ts", "marker": "evaluateTransfer" },
+        { "path": "src/domain/curriculum/transfer.test.ts" }
       ],
-      "savvyshark": [
-        { "path": "src/features/course/mission-briefing.tsx", "marker": "missionId" },
-        { "path": "src/features/course/mission-portal.tsx", "marker": "MissionPortalLayer" }
-      ]
+      "savvyshark": [{ "path": "src/features/learning/cloud-transfer.tsx", "marker": "SavvyShark" }]
     },
     {
-      "id": "mission-infrastructure",
-      "objectives": ["ST01", "ST04"],
-      "claims": ["mission.guest"],
+      "id": "transfer-integrated-production",
+      "objectives": ["az900.cloud.models", "az900.cloud.model-use"],
+      "claims": ["transfer.T01", "transfer.T02"],
       "assessmentStatus": "new-independent",
-      "limits": "Version1 bounded local task; guided versus immutable first/help/retry/abandon. No claim of broad exam readiness, Azure execution or human transfer.",
+      "limits": "Bounded P03 independent structured decision/reason; exposure/help/retry separate. Historical module and guided evidence do not satisfy this task. No XP or exam readiness.",
       "theory": [
-        { "path": "docs/PRACTICAL_MISSION_EXPANSION.md" },
-        { "path": "src/content/nb.ts", "marker": "missionsNb" }
+        { "path": "src/content/nb.ts", "marker": "transferNb" },
+        { "path": "docs/CLOUD_CONCEPTS_TRANSFER.md" }
       ],
-      "mechanism": [{ "path": "src/domain/sandbox/missions.ts", "marker": "missionEvaluation" }],
-      "practice": [{ "path": "src/features/course/missions.tsx", "marker": "MissionEntry" }],
+      "mechanism": [
+        { "path": "src/domain/curriculum/transfer.ts", "marker": "integrated-production" }
+      ],
+      "practice": [
+        { "path": "src/features/learning/cloud-transfer.tsx", "marker": "TransferAssessment" }
+      ],
       "feedback": [
-        { "path": "src/features/course/missions.tsx", "marker": "MissionDebrief" },
-        { "path": "src/content/nb.ts", "marker": "choices:" }
+        { "path": "src/content/nb.ts", "marker": "decisionFeedback" },
+        { "path": "src/features/learning/cloud-transfer.tsx", "marker": "TransferFeedback" }
       ],
-      "visual": [{ "path": "src/features/course/missions.tsx", "marker": "MissionActual" }],
-      "accessible": [{ "path": "src/features/course/missions.tsx", "marker": "fieldset" }],
+      "visual": [{ "path": "src/features/learning/transfer.css" }],
+      "accessible": [{ "path": "src/features/learning/cloud-transfer.tsx", "marker": "fieldset" }],
       "assessment": [
-        { "path": "src/domain/sandbox/missions.ts", "marker": "answerIds" },
-        { "path": "src/domain/sandbox/missions.test.ts" }
+        { "path": "src/domain/curriculum/transfer.ts", "marker": "evaluateTransfer" },
+        { "path": "src/domain/curriculum/transfer.test.ts" }
       ],
-      "savvyshark": [
-        { "path": "src/features/course/mission-briefing.tsx", "marker": "missionId" },
-        { "path": "src/features/course/mission-portal.tsx", "marker": "MissionPortalLayer" }
-      ]
+      "savvyshark": [{ "path": "src/features/learning/cloud-transfer.tsx", "marker": "SavvyShark" }]
     },
     {
-      "id": "mission-platform",
-      "objectives": ["ST02", "ST04"],
-      "claims": ["mission.settings"],
+      "id": "transfer-campaign-pricing",
+      "objectives": ["az900.cloud.pricing"],
+      "claims": ["transfer.T03", "transfer.T10", "transfer.T11", "transfer.T12"],
       "assessmentStatus": "new-independent",
-      "limits": "Version1 bounded local task; guided versus immutable first/help/retry/abandon. No claim of broad exam readiness, Azure execution or human transfer.",
+      "limits": "Bounded P03 independent structured decision/reason; exposure/help/retry separate. Historical module and guided evidence do not satisfy this task. No XP or exam readiness.",
       "theory": [
-        { "path": "docs/PRACTICAL_MISSION_EXPANSION.md" },
-        { "path": "src/content/nb.ts", "marker": "missionsNb" }
+        { "path": "src/content/nb.ts", "marker": "transferNb" },
+        { "path": "docs/CLOUD_CONCEPTS_TRANSFER.md" }
       ],
-      "mechanism": [{ "path": "src/domain/sandbox/missions.ts", "marker": "missionEvaluation" }],
-      "practice": [{ "path": "src/features/course/missions.tsx", "marker": "MissionEntry" }],
+      "mechanism": [{ "path": "src/domain/curriculum/transfer.ts", "marker": "campaign-pricing" }],
+      "practice": [
+        { "path": "src/features/learning/cloud-transfer.tsx", "marker": "TransferAssessment" }
+      ],
       "feedback": [
-        { "path": "src/features/course/missions.tsx", "marker": "MissionDebrief" },
-        { "path": "src/content/nb.ts", "marker": "choices:" }
+        { "path": "src/content/nb.ts", "marker": "decisionFeedback" },
+        { "path": "src/features/learning/cloud-transfer.tsx", "marker": "TransferFeedback" }
       ],
-      "visual": [{ "path": "src/features/course/missions.tsx", "marker": "MissionActual" }],
-      "accessible": [{ "path": "src/features/course/missions.tsx", "marker": "fieldset" }],
+      "visual": [{ "path": "src/features/learning/transfer.css" }],
+      "accessible": [{ "path": "src/features/learning/cloud-transfer.tsx", "marker": "fieldset" }],
       "assessment": [
-        { "path": "src/domain/sandbox/missions.ts", "marker": "answerIds" },
-        { "path": "src/domain/sandbox/missions.test.ts" }
+        { "path": "src/domain/curriculum/transfer.ts", "marker": "evaluateTransfer" },
+        { "path": "src/domain/curriculum/transfer.test.ts" }
       ],
-      "savvyshark": [
-        { "path": "src/features/course/mission-briefing.tsx", "marker": "missionId" },
-        { "path": "src/features/course/mission-portal.tsx", "marker": "MissionPortalLayer" }
-      ]
+      "savvyshark": [{ "path": "src/features/learning/cloud-transfer.tsx", "marker": "SavvyShark" }]
+    },
+    {
+      "id": "transfer-baseline-pricing",
+      "objectives": ["az900.cloud.pricing"],
+      "claims": ["transfer.T03", "transfer.T10", "transfer.T12"],
+      "assessmentStatus": "new-independent",
+      "limits": "Bounded P03 independent structured decision/reason; exposure/help/retry separate. Historical module and guided evidence do not satisfy this task. No XP or exam readiness.",
+      "theory": [
+        { "path": "src/content/nb.ts", "marker": "transferNb" },
+        { "path": "docs/CLOUD_CONCEPTS_TRANSFER.md" }
+      ],
+      "mechanism": [{ "path": "src/domain/curriculum/transfer.ts", "marker": "baseline-pricing" }],
+      "practice": [
+        { "path": "src/features/learning/cloud-transfer.tsx", "marker": "TransferAssessment" }
+      ],
+      "feedback": [
+        { "path": "src/content/nb.ts", "marker": "decisionFeedback" },
+        { "path": "src/features/learning/cloud-transfer.tsx", "marker": "TransferFeedback" }
+      ],
+      "visual": [{ "path": "src/features/learning/transfer.css" }],
+      "accessible": [{ "path": "src/features/learning/cloud-transfer.tsx", "marker": "fieldset" }],
+      "assessment": [
+        { "path": "src/domain/curriculum/transfer.ts", "marker": "evaluateTransfer" },
+        { "path": "src/domain/curriculum/transfer.test.ts" }
+      ],
+      "savvyshark": [{ "path": "src/features/learning/cloud-transfer.tsx", "marker": "SavvyShark" }]
+    },
+    {
+      "id": "transfer-batch-pricing",
+      "objectives": ["az900.cloud.pricing"],
+      "claims": ["transfer.T03", "transfer.T11"],
+      "assessmentStatus": "new-independent",
+      "limits": "Bounded P03 independent structured decision/reason; exposure/help/retry separate. Historical module and guided evidence do not satisfy this task. No XP or exam readiness.",
+      "theory": [
+        { "path": "src/content/nb.ts", "marker": "transferNb" },
+        { "path": "docs/CLOUD_CONCEPTS_TRANSFER.md" }
+      ],
+      "mechanism": [{ "path": "src/domain/curriculum/transfer.ts", "marker": "batch-pricing" }],
+      "practice": [
+        { "path": "src/features/learning/cloud-transfer.tsx", "marker": "TransferAssessment" }
+      ],
+      "feedback": [
+        { "path": "src/content/nb.ts", "marker": "decisionFeedback" },
+        { "path": "src/features/learning/cloud-transfer.tsx", "marker": "TransferFeedback" }
+      ],
+      "visual": [{ "path": "src/features/learning/transfer.css" }],
+      "accessible": [{ "path": "src/features/learning/cloud-transfer.tsx", "marker": "fieldset" }],
+      "assessment": [
+        { "path": "src/domain/curriculum/transfer.ts", "marker": "evaluateTransfer" },
+        { "path": "src/domain/curriculum/transfer.test.ts" }
+      ],
+      "savvyshark": [{ "path": "src/features/learning/cloud-transfer.tsx", "marker": "SavvyShark" }]
+    },
+    {
+      "id": "transfer-memory-capacity",
+      "objectives": ["az900.benefits.availability-scale"],
+      "claims": ["transfer.T04"],
+      "assessmentStatus": "new-independent",
+      "limits": "Bounded P03 independent structured decision/reason; exposure/help/retry separate. Historical module and guided evidence do not satisfy this task. No XP or exam readiness.",
+      "theory": [
+        { "path": "src/content/nb.ts", "marker": "transferNb" },
+        { "path": "docs/CLOUD_CONCEPTS_TRANSFER.md" }
+      ],
+      "mechanism": [{ "path": "src/domain/curriculum/transfer.ts", "marker": "memory-capacity" }],
+      "practice": [
+        { "path": "src/features/learning/cloud-transfer.tsx", "marker": "TransferAssessment" }
+      ],
+      "feedback": [
+        { "path": "src/content/nb.ts", "marker": "decisionFeedback" },
+        { "path": "src/features/learning/cloud-transfer.tsx", "marker": "TransferFeedback" }
+      ],
+      "visual": [{ "path": "src/features/learning/transfer.css" }],
+      "accessible": [{ "path": "src/features/learning/cloud-transfer.tsx", "marker": "fieldset" }],
+      "assessment": [
+        { "path": "src/domain/curriculum/transfer.ts", "marker": "evaluateTransfer" },
+        { "path": "src/domain/curriculum/transfer.test.ts" }
+      ],
+      "savvyshark": [{ "path": "src/features/learning/cloud-transfer.tsx", "marker": "SavvyShark" }]
+    },
+    {
+      "id": "transfer-route-replica",
+      "objectives": ["az900.benefits.availability-scale"],
+      "claims": ["transfer.T04", "transfer.T13"],
+      "assessmentStatus": "new-independent",
+      "limits": "Bounded P03 independent structured decision/reason; exposure/help/retry separate. Historical module and guided evidence do not satisfy this task. No XP or exam readiness.",
+      "theory": [
+        { "path": "src/content/nb.ts", "marker": "transferNb" },
+        { "path": "docs/CLOUD_CONCEPTS_TRANSFER.md" }
+      ],
+      "mechanism": [{ "path": "src/domain/curriculum/transfer.ts", "marker": "route-replica" }],
+      "practice": [
+        { "path": "src/features/learning/cloud-transfer.tsx", "marker": "TransferAssessment" }
+      ],
+      "feedback": [
+        { "path": "src/content/nb.ts", "marker": "decisionFeedback" },
+        { "path": "src/features/learning/cloud-transfer.tsx", "marker": "TransferFeedback" }
+      ],
+      "visual": [{ "path": "src/features/learning/transfer.css" }],
+      "accessible": [{ "path": "src/features/learning/cloud-transfer.tsx", "marker": "fieldset" }],
+      "assessment": [
+        { "path": "src/domain/curriculum/transfer.ts", "marker": "evaluateTransfer" },
+        { "path": "src/domain/curriculum/transfer.test.ts" }
+      ],
+      "savvyshark": [{ "path": "src/features/learning/cloud-transfer.tsx", "marker": "SavvyShark" }]
+    },
+    {
+      "id": "transfer-shared-payment",
+      "objectives": ["az900.benefits.availability-scale"],
+      "claims": ["transfer.T04", "transfer.T13"],
+      "assessmentStatus": "new-independent",
+      "limits": "Bounded P03 independent structured decision/reason; exposure/help/retry separate. Historical module and guided evidence do not satisfy this task. No XP or exam readiness.",
+      "theory": [
+        { "path": "src/content/nb.ts", "marker": "transferNb" },
+        { "path": "docs/CLOUD_CONCEPTS_TRANSFER.md" }
+      ],
+      "mechanism": [{ "path": "src/domain/curriculum/transfer.ts", "marker": "shared-payment" }],
+      "practice": [
+        { "path": "src/features/learning/cloud-transfer.tsx", "marker": "TransferAssessment" }
+      ],
+      "feedback": [
+        { "path": "src/content/nb.ts", "marker": "decisionFeedback" },
+        { "path": "src/features/learning/cloud-transfer.tsx", "marker": "TransferFeedback" }
+      ],
+      "visual": [{ "path": "src/features/learning/transfer.css" }],
+      "accessible": [{ "path": "src/features/learning/cloud-transfer.tsx", "marker": "fieldset" }],
+      "assessment": [
+        { "path": "src/domain/curriculum/transfer.ts", "marker": "evaluateTransfer" },
+        { "path": "src/domain/curriculum/transfer.test.ts" }
+      ],
+      "savvyshark": [{ "path": "src/features/learning/cloud-transfer.tsx", "marker": "SavvyShark" }]
+    },
+    {
+      "id": "transfer-recovery-evidence",
+      "objectives": ["az900.benefits.reliability-predictability"],
+      "claims": ["transfer.T05", "transfer.T13"],
+      "assessmentStatus": "new-independent",
+      "limits": "Bounded P03 independent structured decision/reason; exposure/help/retry separate. Historical module and guided evidence do not satisfy this task. No XP or exam readiness.",
+      "theory": [
+        { "path": "src/content/nb.ts", "marker": "transferNb" },
+        { "path": "docs/CLOUD_CONCEPTS_TRANSFER.md" }
+      ],
+      "mechanism": [{ "path": "src/domain/curriculum/transfer.ts", "marker": "recovery-evidence" }],
+      "practice": [
+        { "path": "src/features/learning/cloud-transfer.tsx", "marker": "TransferAssessment" }
+      ],
+      "feedback": [
+        { "path": "src/content/nb.ts", "marker": "decisionFeedback" },
+        { "path": "src/features/learning/cloud-transfer.tsx", "marker": "TransferFeedback" }
+      ],
+      "visual": [{ "path": "src/features/learning/transfer.css" }],
+      "accessible": [{ "path": "src/features/learning/cloud-transfer.tsx", "marker": "fieldset" }],
+      "assessment": [
+        { "path": "src/domain/curriculum/transfer.ts", "marker": "evaluateTransfer" },
+        { "path": "src/domain/curriculum/transfer.test.ts" }
+      ],
+      "savvyshark": [{ "path": "src/features/learning/cloud-transfer.tsx", "marker": "SavvyShark" }]
+    },
+    {
+      "id": "transfer-forecast-change",
+      "objectives": ["az900.benefits.reliability-predictability"],
+      "claims": ["transfer.T05"],
+      "assessmentStatus": "new-independent",
+      "limits": "Bounded P03 independent structured decision/reason; exposure/help/retry separate. Historical module and guided evidence do not satisfy this task. No XP or exam readiness.",
+      "theory": [
+        { "path": "src/content/nb.ts", "marker": "transferNb" },
+        { "path": "docs/CLOUD_CONCEPTS_TRANSFER.md" }
+      ],
+      "mechanism": [{ "path": "src/domain/curriculum/transfer.ts", "marker": "forecast-change" }],
+      "practice": [
+        { "path": "src/features/learning/cloud-transfer.tsx", "marker": "TransferAssessment" }
+      ],
+      "feedback": [
+        { "path": "src/content/nb.ts", "marker": "decisionFeedback" },
+        { "path": "src/features/learning/cloud-transfer.tsx", "marker": "TransferFeedback" }
+      ],
+      "visual": [{ "path": "src/features/learning/transfer.css" }],
+      "accessible": [{ "path": "src/features/learning/cloud-transfer.tsx", "marker": "fieldset" }],
+      "assessment": [
+        { "path": "src/domain/curriculum/transfer.ts", "marker": "evaluateTransfer" },
+        { "path": "src/domain/curriculum/transfer.test.ts" }
+      ],
+      "savvyshark": [{ "path": "src/features/learning/cloud-transfer.tsx", "marker": "SavvyShark" }]
+    },
+    {
+      "id": "transfer-accepted-configuration",
+      "objectives": ["az900.benefits.security-governance"],
+      "claims": ["transfer.T06", "transfer.T14"],
+      "assessmentStatus": "new-independent",
+      "limits": "Bounded P03 independent structured decision/reason; exposure/help/retry separate. Historical module and guided evidence do not satisfy this task. No XP or exam readiness.",
+      "theory": [
+        { "path": "src/content/nb.ts", "marker": "transferNb" },
+        { "path": "docs/CLOUD_CONCEPTS_TRANSFER.md" }
+      ],
+      "mechanism": [
+        { "path": "src/domain/curriculum/transfer.ts", "marker": "accepted-configuration" }
+      ],
+      "practice": [
+        { "path": "src/features/learning/cloud-transfer.tsx", "marker": "TransferAssessment" }
+      ],
+      "feedback": [
+        { "path": "src/content/nb.ts", "marker": "decisionFeedback" },
+        { "path": "src/features/learning/cloud-transfer.tsx", "marker": "TransferFeedback" }
+      ],
+      "visual": [{ "path": "src/features/learning/transfer.css" }],
+      "accessible": [{ "path": "src/features/learning/cloud-transfer.tsx", "marker": "fieldset" }],
+      "assessment": [
+        { "path": "src/domain/curriculum/transfer.ts", "marker": "evaluateTransfer" },
+        { "path": "src/domain/curriculum/transfer.test.ts" }
+      ],
+      "savvyshark": [{ "path": "src/features/learning/cloud-transfer.tsx", "marker": "SavvyShark" }]
+    },
+    {
+      "id": "transfer-signed-in-operator",
+      "objectives": ["az900.benefits.security-governance"],
+      "claims": ["transfer.T06", "transfer.T15", "transfer.T16"],
+      "assessmentStatus": "new-independent",
+      "limits": "Bounded P03 independent structured decision/reason; exposure/help/retry separate. Historical module and guided evidence do not satisfy this task. No XP or exam readiness.",
+      "theory": [
+        { "path": "src/content/nb.ts", "marker": "transferNb" },
+        { "path": "docs/CLOUD_CONCEPTS_TRANSFER.md" }
+      ],
+      "mechanism": [
+        { "path": "src/domain/curriculum/transfer.ts", "marker": "signed-in-operator" }
+      ],
+      "practice": [
+        { "path": "src/features/learning/cloud-transfer.tsx", "marker": "TransferAssessment" }
+      ],
+      "feedback": [
+        { "path": "src/content/nb.ts", "marker": "decisionFeedback" },
+        { "path": "src/features/learning/cloud-transfer.tsx", "marker": "TransferFeedback" }
+      ],
+      "visual": [{ "path": "src/features/learning/transfer.css" }],
+      "accessible": [{ "path": "src/features/learning/cloud-transfer.tsx", "marker": "fieldset" }],
+      "assessment": [
+        { "path": "src/domain/curriculum/transfer.ts", "marker": "evaluateTransfer" },
+        { "path": "src/domain/curriculum/transfer.test.ts" }
+      ],
+      "savvyshark": [{ "path": "src/features/learning/cloud-transfer.tsx", "marker": "SavvyShark" }]
+    },
+    {
+      "id": "transfer-manual-drift",
+      "objectives": ["az900.benefits.manageability"],
+      "claims": ["transfer.T07", "transfer.T17"],
+      "assessmentStatus": "new-independent",
+      "limits": "Bounded P03 independent structured decision/reason; exposure/help/retry separate. Historical module and guided evidence do not satisfy this task. No XP or exam readiness.",
+      "theory": [
+        { "path": "src/content/nb.ts", "marker": "transferNb" },
+        { "path": "docs/CLOUD_CONCEPTS_TRANSFER.md" }
+      ],
+      "mechanism": [{ "path": "src/domain/curriculum/transfer.ts", "marker": "manual-drift" }],
+      "practice": [
+        { "path": "src/features/learning/cloud-transfer.tsx", "marker": "TransferAssessment" }
+      ],
+      "feedback": [
+        { "path": "src/content/nb.ts", "marker": "decisionFeedback" },
+        { "path": "src/features/learning/cloud-transfer.tsx", "marker": "TransferFeedback" }
+      ],
+      "visual": [{ "path": "src/features/learning/transfer.css" }],
+      "accessible": [{ "path": "src/features/learning/cloud-transfer.tsx", "marker": "fieldset" }],
+      "assessment": [
+        { "path": "src/domain/curriculum/transfer.ts", "marker": "evaluateTransfer" },
+        { "path": "src/domain/curriculum/transfer.test.ts" }
+      ],
+      "savvyshark": [{ "path": "src/features/learning/cloud-transfer.tsx", "marker": "SavvyShark" }]
+    },
+    {
+      "id": "transfer-repeatable-error",
+      "objectives": ["az900.benefits.manageability"],
+      "claims": ["transfer.T07", "transfer.T17"],
+      "assessmentStatus": "new-independent",
+      "limits": "Bounded P03 independent structured decision/reason; exposure/help/retry separate. Historical module and guided evidence do not satisfy this task. No XP or exam readiness.",
+      "theory": [
+        { "path": "src/content/nb.ts", "marker": "transferNb" },
+        { "path": "docs/CLOUD_CONCEPTS_TRANSFER.md" }
+      ],
+      "mechanism": [{ "path": "src/domain/curriculum/transfer.ts", "marker": "repeatable-error" }],
+      "practice": [
+        { "path": "src/features/learning/cloud-transfer.tsx", "marker": "TransferAssessment" }
+      ],
+      "feedback": [
+        { "path": "src/content/nb.ts", "marker": "decisionFeedback" },
+        { "path": "src/features/learning/cloud-transfer.tsx", "marker": "TransferFeedback" }
+      ],
+      "visual": [{ "path": "src/features/learning/transfer.css" }],
+      "accessible": [{ "path": "src/features/learning/cloud-transfer.tsx", "marker": "fieldset" }],
+      "assessment": [
+        { "path": "src/domain/curriculum/transfer.ts", "marker": "evaluateTransfer" },
+        { "path": "src/domain/curriculum/transfer.test.ts" }
+      ],
+      "savvyshark": [{ "path": "src/features/learning/cloud-transfer.tsx", "marker": "SavvyShark" }]
+    },
+    {
+      "id": "transfer-kernel-workload",
+      "objectives": ["az900.services.use-cases"],
+      "claims": ["transfer.T08", "transfer.T09"],
+      "assessmentStatus": "new-independent",
+      "limits": "Bounded P03 independent structured decision/reason; exposure/help/retry separate. Historical module and guided evidence do not satisfy this task. No XP or exam readiness.",
+      "theory": [
+        { "path": "src/content/nb.ts", "marker": "transferNb" },
+        { "path": "docs/CLOUD_CONCEPTS_TRANSFER.md" }
+      ],
+      "mechanism": [{ "path": "src/domain/curriculum/transfer.ts", "marker": "kernel-workload" }],
+      "practice": [
+        { "path": "src/features/learning/cloud-transfer.tsx", "marker": "TransferAssessment" }
+      ],
+      "feedback": [
+        { "path": "src/content/nb.ts", "marker": "decisionFeedback" },
+        { "path": "src/features/learning/cloud-transfer.tsx", "marker": "TransferFeedback" }
+      ],
+      "visual": [{ "path": "src/features/learning/transfer.css" }],
+      "accessible": [{ "path": "src/features/learning/cloud-transfer.tsx", "marker": "fieldset" }],
+      "assessment": [
+        { "path": "src/domain/curriculum/transfer.ts", "marker": "evaluateTransfer" },
+        { "path": "src/domain/curriculum/transfer.test.ts" }
+      ],
+      "savvyshark": [{ "path": "src/features/learning/cloud-transfer.tsx", "marker": "SavvyShark" }]
+    },
+    {
+      "id": "transfer-ready-collaboration",
+      "objectives": ["az900.services.use-cases"],
+      "claims": ["transfer.T18", "transfer.T09"],
+      "assessmentStatus": "new-independent",
+      "limits": "Bounded P03 independent structured decision/reason; exposure/help/retry separate. Historical module and guided evidence do not satisfy this task. No XP or exam readiness.",
+      "theory": [
+        { "path": "src/content/nb.ts", "marker": "transferNb" },
+        { "path": "docs/CLOUD_CONCEPTS_TRANSFER.md" }
+      ],
+      "mechanism": [
+        { "path": "src/domain/curriculum/transfer.ts", "marker": "ready-collaboration" }
+      ],
+      "practice": [
+        { "path": "src/features/learning/cloud-transfer.tsx", "marker": "TransferAssessment" }
+      ],
+      "feedback": [
+        { "path": "src/content/nb.ts", "marker": "decisionFeedback" },
+        { "path": "src/features/learning/cloud-transfer.tsx", "marker": "TransferFeedback" }
+      ],
+      "visual": [{ "path": "src/features/learning/transfer.css" }],
+      "accessible": [{ "path": "src/features/learning/cloud-transfer.tsx", "marker": "fieldset" }],
+      "assessment": [
+        { "path": "src/domain/curriculum/transfer.ts", "marker": "evaluateTransfer" },
+        { "path": "src/domain/curriculum/transfer.test.ts" }
+      ],
+      "savvyshark": [{ "path": "src/features/learning/cloud-transfer.tsx", "marker": "SavvyShark" }]
+    },
+    {
+      "id": "transfer-two-valid-hosts",
+      "objectives": ["az900.services.use-cases"],
+      "claims": ["transfer.T08", "transfer.T09"],
+      "assessmentStatus": "new-independent",
+      "limits": "Bounded P03 independent structured decision/reason; exposure/help/retry separate. Historical module and guided evidence do not satisfy this task. No XP or exam readiness.",
+      "theory": [
+        { "path": "src/content/nb.ts", "marker": "transferNb" },
+        { "path": "docs/CLOUD_CONCEPTS_TRANSFER.md" }
+      ],
+      "mechanism": [{ "path": "src/domain/curriculum/transfer.ts", "marker": "two-valid-hosts" }],
+      "practice": [
+        { "path": "src/features/learning/cloud-transfer.tsx", "marker": "TransferAssessment" }
+      ],
+      "feedback": [
+        { "path": "src/content/nb.ts", "marker": "decisionFeedback" },
+        { "path": "src/features/learning/cloud-transfer.tsx", "marker": "TransferFeedback" }
+      ],
+      "visual": [{ "path": "src/features/learning/transfer.css" }],
+      "accessible": [{ "path": "src/features/learning/cloud-transfer.tsx", "marker": "fieldset" }],
+      "assessment": [
+        { "path": "src/domain/curriculum/transfer.ts", "marker": "evaluateTransfer" },
+        { "path": "src/domain/curriculum/transfer.test.ts" }
+      ],
+      "savvyshark": [{ "path": "src/features/learning/cloud-transfer.tsx", "marker": "SavvyShark" }]
+    },
+    {
+      "id": "transfer-parallel-demand",
+      "objectives": ["az900.benefits.availability-scale"],
+      "claims": ["transfer.T04"],
+      "assessmentStatus": "new-independent",
+      "limits": "Bounded P03 independent structured decision/reason; exposure/help/retry separate. Historical module and guided evidence do not satisfy this task. No XP or exam readiness.",
+      "theory": [
+        { "path": "src/content/nb.ts", "marker": "transferNb" },
+        { "path": "docs/CLOUD_CONCEPTS_TRANSFER.md" }
+      ],
+      "mechanism": [{ "path": "src/domain/curriculum/transfer.ts", "marker": "parallel-demand" }],
+      "practice": [
+        { "path": "src/features/learning/cloud-transfer.tsx", "marker": "TransferAssessment" }
+      ],
+      "feedback": [
+        { "path": "src/content/nb.ts", "marker": "decisionFeedback" },
+        { "path": "src/features/learning/cloud-transfer.tsx", "marker": "TransferFeedback" }
+      ],
+      "visual": [{ "path": "src/features/learning/transfer.css" }],
+      "accessible": [{ "path": "src/features/learning/cloud-transfer.tsx", "marker": "fieldset" }],
+      "assessment": [
+        { "path": "src/domain/curriculum/transfer.ts", "marker": "evaluateTransfer" },
+        { "path": "src/domain/curriculum/transfer.test.ts" }
+      ],
+      "savvyshark": [{ "path": "src/features/learning/cloud-transfer.tsx", "marker": "SavvyShark" }]
     }
   ],
   "modules": [],
   "preservedPaths": [
     "src/domain/chapter01/",
-    "src/domain/curriculum/",
-    "src/domain/course/",
+    "src/domain/curriculum/foundations.ts",
+    "src/domain/curriculum/foundations-v2.ts",
+    "src/domain/curriculum/expansion.ts",
+    "src/domain/curriculum/expansion-store.ts",
+    "src/domain/curriculum/serverless.ts",
+    "src/domain/curriculum/serverless-store.ts",
+    "src/domain/curriculum/architecture-physical.ts",
+    "src/domain/curriculum/architecture-physical-store.ts",
+    "src/domain/curriculum/architecture-management.ts",
+    "src/domain/curriculum/architecture-management-store.ts",
+    "src/domain/curriculum/teaching-access.ts",
     "src/domain/progression.ts",
-    "src/domain/sandbox/model.ts",
-    "src/domain/sandbox/store.ts",
-    "src/domain/sandbox/replay.ts",
-    "src/domain/sandbox/practical.ts",
-    "src/domain/sandbox/practical-store.ts",
-    "src/domain/sandbox/saas.ts",
-    "src/domain/sandbox/saas-store.ts",
+    "src/domain/sandbox/",
     "src/domain/portal/learning.ts",
     "src/domain/portal/store.ts",
+    "src/features/learning/transfer.tsx",
     "package-lock.json"
   ],
   "gates": {
     "source": {
-      "checks": [
-        {
-          "path": "docs/PRACTICAL_MISSION_EXPANSION.md",
-          "marker": "Sources and scoped claim checks"
-        }
-      ],
-      "limits": "Author official-source review, not qualified human SME or authenticated Azure comparison."
+      "checks": [{ "path": "docs/CLOUD_CONCEPTS_TRANSFER.md" }],
+      "limits": "Author scoped official source review, not qualified human SME."
     },
     "curriculum": {
-      "checks": [
-        { "path": "src/domain/sandbox/missions.ts", "marker": "missionDefinitions" },
-        { "path": "src/domain/sandbox/missions.test.ts", "marker": "binds four distinct" }
-      ],
-      "limits": "Existing coverage/rubrics unchanged. New distinct mission application; broader eight PARTIAL goals remain for PR25."
+      "checks": [{ "path": "src/domain/curriculum/transfer.test.ts" }],
+      "limits": "Deterministic engineering evidence; no human learning/UX approval inferred."
     },
     "simulation": {
-      "checks": [
-        { "path": "src/domain/sandbox/missions.test.ts", "marker": "technical references" },
-        { "path": "src/domain/sandbox/mission-store.ts", "marker": "recoverInvalid" }
-      ],
-      "limits": "Concept failure/routing declared separately from inventory; old commands/receipts/stores frozen."
+      "checks": [{ "path": "src/domain/curriculum/transfer.test.ts" }],
+      "limits": "Deterministic engineering evidence; no human learning/UX approval inferred."
     },
     "savvyshark": {
       "checks": [
-        { "path": "src/features/course/mission-observations.tsx", "marker": "MissionMilestones" },
-        { "path": "src/features/course/guidance-milestones.tsx", "marker": "missions" },
-        { "path": "src/features/learning/management-access.tsx", "marker": "missionFacts" }
+        { "path": "src/domain/curriculum/transfer.test.ts" },
+        { "path": "src/features/portal/saas-lab.tsx" },
+        { "path": "src/features/course/practical-lab.tsx" }
       ],
-      "limits": "Read-only authored guide; no commands, timer evidence, repeats or independent automatic solutions."
+      "limits": "Deterministic engineering evidence; no human learning/UX approval inferred."
     },
     "visual-accessibility": {
-      "checks": [{ "path": "tests/e2e/practical-missions.spec.ts", "marker": "compositions" }],
-      "limits": "Actual production browser/screenshots/Axe required; human UX/screen-reader/transfer still unperformed."
+      "checks": [{ "path": "tests/e2e/cloud-transfer.spec.ts" }],
+      "limits": "Deterministic engineering evidence; no human learning/UX approval inferred."
     },
     "independent-final-audit": {
-      "checks": [{ "path": "docs/RELEASE_ACCEPTANCE.md", "marker": "Independent Final Audit" }],
-      "limits": "Separate fresh reviewer after final implementation/tests; no self-certification."
+      "checks": [{ "path": "docs/RELEASE_ACCEPTANCE.md" }],
+      "limits": "Separate fresh reviewer after stamp; no self-certification."
     },
     "delivery": {
-      "checks": [{ "path": "AGENTS.md", "marker": "primary Vercel preview URL" }],
-      "limits": "Green actual CI/stable-preview exact-SHA root walkthrough externally verified and recorded on Draft PR after execution."
+      "checks": [{ "path": "AGENTS.md" }],
+      "limits": "Full actual CI and exact-SHA stable preview root navigation required externally."
     }
   },
   "verification": [
     {
       "command": "npm run check",
       "result": "passed",
-      "details": "Final test-only origin correction complete check passed:222 Vitest/23files,13 Node fixtures,132 curriculum,77 Markdown/local links,type/lint/format/quality/AZ900/assets/legacy/build. Executed .artifacts/pr24-check-origin.log."
+      "details": "Final focus candidate: full type/lint/format/docs79/quality/AZ90057 objectives126 facets/curriculum159/assets/legacy,249 Vitest24files,13 Node fixtures and production build passed,exit0. Log .artifacts/pr25-check-focus-candidate.log."
+    },
+    {
+      "command": "npm audit --json",
+      "result": "passed",
+      "details": "0 vulnerabilities on unchanged lockfile; .artifacts/pr25-audit-frozen.json."
+    },
+    {
+      "command": "npm audit --omit=dev --json",
+      "result": "passed",
+      "details": "0 production vulnerabilities; .artifacts/pr25-audit-prod-frozen.json."
+    },
+    {
+      "command": "node --experimental-strip-types .artifacts/pr25-visual.mjs http://127.0.0.1:3100",
+      "result": "passed",
+      "details": "Actual production root entries, all three modules, four viewports, wrong/correct submissions, precise repetition/reload; no page errors. Thirteen selected captures individually inspected."
     },
     {
       "command": "npm run test:e2e",
       "result": "passed",
-      "details": "Production product full138-case regression passed121/17 unchanged inherited skips/0fail9.1m before the test-only origin portability fix. First pushed CI passed119 and failed2 solely because the new request test hardcoded3100 while CI uses3000. Fixed to configured baseURL exact URL.origin, retaining externalRequests===[]; no application/config/skip changes. All20 mission cases passed again1.3m on final test. Full exact-commit CI rerun is required externally. Logs .artifacts/pr24-e2e-r4-full.log and pr24-e2e-origin.log."
+      "details": "Final exact-source production full178-case suite:161 passed,17 unchanged inherited duplicate-project skips,0 failed,exit0 (10.8m). All40 new transfer cases run in both projects. Local port-only adapter .artifacts/31a-discoverability.config.ts leaves owner3000 untouched; CI normal config is unchanged. Log .artifacts/pr25-e2e-certified-candidate.log."
     },
     {
-      "command": "npm audit --audit-level=high",
+      "command": "npm run test:e2e -- --config .artifacts/pr25-final-browser.config.ts tests/e2e/cloud-transfer.spec.ts tests/e2e/practical-labs.spec.ts",
       "result": "passed",
-      "details": "Executed full dependency audit:0 vulnerabilities; no dependency or lockfile change."
+      "details": "Post-resume correction targeted50cases:45 passed,5 unchanged inherited skips,0 failed,exit0 (1.5m). Actual root href/click and unchanged older records plus all practical flows. Subsequent heading-key-only focus correction is covered by the final full suite."
     },
     {
-      "command": "npm audit --omit=dev --audit-level=high",
+      "command": "npm run test:e2e -- --config .artifacts/pr25-final-browser.config.ts tests/e2e/cloud-transfer.spec.ts --grep 'Service Types accepts both valid hosts'",
       "result": "passed",
-      "details": "Executed production dependency audit:0 vulnerabilities."
-    },
-    {
-      "command": "Actual browser walkthrough",
-      "result": "passed",
-      "details": "Ordinary root visible four entries; course bridge/blur briefing, actual plan/two apps/settings draft and Apply/receipts/inspection, exact return, changed independent debrief and reload operated. Manually incomplete guided first retained as incomplete. Engineering QA, not human learning validation."
+      "details": "Both browser projects passed after heading-key correction; initial/retry scenario focus, valid/crossed pairs, selected history and Axe retained. Separate reviewer also proved radio focus, result focus and exact first prefix."
     }
   ],
   "visualEvidence": [
     {
-      "viewport": "1265x713 actual review browser",
-      "inspected": true,
-      "observation": "Four mission entries in ordinary course landing; visible context and destinations.",
-      "path": "docs/screenshots/missions/pr24-local-root.png"
-    },
-    {
+      "path": "docs/screenshots/cloud-transfer/root-1920.png",
       "viewport": "1920x1080",
-      "inspected": true,
-      "observation": "Explicit two-path dependency diagram and actual modeled failure/result; no Portal runtime claim.",
-      "path": "docs/screenshots/missions/pr24-diagnosis-result-1920x1080.png"
+      "observation": "Ordinary root: named entries to all three transfer modules visible above extensive scrolling.",
+      "inspected": true
     },
     {
+      "path": "docs/screenshots/cloud-transfer/root-1440.png",
       "viewport": "1440x900",
-      "inspected": true,
-      "observation": "Prediction/result and controls remain legible; result centered below header and above footer.",
-      "path": "docs/screenshots/missions/pr24-diagnosis-result-1440x900.png"
+      "observation": "Same visible course entry with existing missions/course navigation.",
+      "inspected": true
     },
     {
+      "path": "docs/screenshots/cloud-transfer/scenario-1920.png",
+      "viewport": "1920x1080",
+      "observation": "Neutral case title, stated routing observations and clearly conceptual mechanism figure.",
+      "inspected": true
+    },
+    {
+      "path": "docs/screenshots/cloud-transfer/scenario-1366.png",
       "viewport": "1366x768",
-      "inspected": true,
-      "observation": "Minimum-desktop model/table composition remains readable without horizontal clipping.",
-      "path": "docs/screenshots/missions/pr24-diagnosis-result-1366x768.png"
+      "observation": "Readable scenario and body scrolling to its complete figure; fixed navigation does not permanently hide content.",
+      "inspected": true
     },
     {
+      "path": "docs/screenshots/cloud-transfer/response-1440.png",
+      "viewport": "1440x900",
+      "observation": "Two-column semantic decisions/reasons, horizontal radio labels at16px, visible assistance and terminal actions.",
+      "inspected": true
+    },
+    {
+      "path": "docs/screenshots/cloud-transfer/response-1024.png",
       "viewport": "1024x768",
-      "inspected": true,
-      "observation": "Compact graph and semantic result controls remain accessible; scrolling preserves instructions.",
-      "path": "docs/screenshots/missions/pr24-diagnosis-result-1024x768.png"
+      "observation": "Single-column controls, clear disabled-submit label and reachable abandon/help above reserved footer.",
+      "inspected": true
     },
     {
-      "viewport": "1024x500",
-      "inspected": true,
-      "observation": "Corrected native milestone body padding and scroll preserve full text and reachable footer; keyboard tested.",
-      "path": "docs/screenshots/missions/pr24-paas-milestone-1024x500.png"
+      "path": "docs/screenshots/cloud-transfer/briefing-1440.png",
+      "viewport": "1440x900",
+      "observation": "Centered native SavvyShark briefing with blur, readable rules and explicit close/start.",
+      "inspected": true
     },
     {
-      "viewport": "1920x1080",
-      "inspected": true,
-      "observation": "Actual rejected operation receipt/scope, no created denied resource; contextual guide and inspection remain separate.",
-      "path": "docs/screenshots/missions/pr24-governance-denial.png"
+      "path": "docs/screenshots/cloud-transfer/feedback-1440.png",
+      "viewport": "1440x900",
+      "observation": "Actual incorrect first: both criteria false and specific decisive requirement, without readiness claim.",
+      "inspected": true
     },
     {
-      "viewport": "1920x1080",
-      "inspected": true,
-      "observation": "Actual new VM overview/attachments and bounded simulated configuration; no running VM claim.",
-      "path": "docs/screenshots/missions/pr24-iaas-new-vm.png"
+      "path": "docs/screenshots/cloud-transfer/alternatives-1440.png",
+      "viewport": "1440x900",
+      "observation": "Selected alternatives marked; explanatory and counterfactual feedback remains readable by scrolling.",
+      "inspected": true
     },
     {
-      "viewport": "1265x713 actual review browser",
-      "inspected": true,
-      "observation": "Real two-app same-plan new settings writes, all criteria fulfilled unaided and persisted after reload; distinct independent requirements/feedback.",
-      "path": "docs/screenshots/missions/pr24-two-app-independent-debrief.png"
+      "path": "docs/screenshots/cloud-transfer/computing-response-1440.png",
+      "viewport": "1440x900",
+      "observation": "Actual Computing commitment case: separate decision/reason controls and visible draft/help/abandon.",
+      "inspected": true
+    },
+    {
+      "path": "docs/screenshots/cloud-transfer/computing-feedback-1440.png",
+      "viewport": "1440x900",
+      "observation": "Actual correct first in the pricing family: matching pair and qualified baseline explanation.",
+      "inspected": true
+    },
+    {
+      "path": "docs/screenshots/cloud-transfer/services-response-1366.png",
+      "viewport": "1366x768",
+      "observation": "Actual Service Types two-valid-hosts case: supported choices and explicit retained responsibilities.",
+      "inspected": true
+    },
+    {
+      "path": "docs/screenshots/cloud-transfer/services-feedback-1366.png",
+      "viewport": "1366x768",
+      "observation": "Actual submitted valid PaaS pair: both criteria true; other valid pair is explained only after submission.",
+      "inspected": true
+    },
+    {
+      "path": "docs/screenshots/cloud-transfer/capacity-1366.png",
+      "viewport": "1366x768",
+      "observation": "Full valid1197-event history: explicit bound explanation, disabled new Start and retained submissions.",
+      "inspected": true
+    },
+    {
+      "path": "docs/screenshots/cloud-transfer/history-1366.png",
+      "viewport": "1366x768",
+      "observation": "Latest historical selection399 retains native select focus and uniquely named current/history regions; independent Axe0.",
+      "inspected": true
+    },
+    {
+      "path": "docs/screenshots/cloud-transfer/saas-held-1366.png",
+      "viewport": "1366x768",
+      "observation": "Denied transfer aid withholds authored SaaS guide/criteria/explanation while actual account controls remain available.",
+      "inspected": true
+    },
+    {
+      "path": "docs/screenshots/cloud-transfer/saas-corrupt-1366.png",
+      "viewport": "1366x768",
+      "observation": "Corrupt transfer is isolated with named recovery; fictional SaaS inventory remains intact.",
+      "inspected": true
+    },
+    {
+      "path": "docs/screenshots/cloud-transfer/practical-held-1366.png",
+      "viewport": "1366x768",
+      "observation": "Old aided practical rationale withheld by durable transfer preflight; own response/terminal controls stay reachable in the scrolling pane.",
+      "inspected": true
     }
   ],
   "humanReview": {
@@ -649,65 +1126,57 @@
   },
   "review": {
     "status": "complete",
-    "fingerprint": "6b109bad1a8e75e71cad726f2e8ad3263fdf6a88ef9172a7259d6b990f97b655",
-    "reviewer": {
-      "id": "codex-pr24-independent-reviewer",
-      "kind": "agent"
-    },
-    "started": "2026-10-27T16:31:23.926Z",
+    "fingerprint": "f39893598b3a86e1699d1ea852b7b593e07941327199385b310fd202107d70c0",
+    "reviewer": { "id": "codex-pr25-independent-reviewer", "kind": "agent" },
+    "started": "2026-10-27T20:06:56.697Z",
     "domains": {
       "content": {
-        "finding": "All content/source/scenario hashes identical to accepted2bd65d; prior content findings remain fixed.",
+        "finding": "Read all nineteen authored items, feedback/counterfactuals and retained teaching; separate blinded solutions matched all twenty accepted pairs. Pre-answer rule cues and local ambiguity were corrected. Current official primary-source qualifications support the scoped content claims; human SME/learning validation remains unperformed.",
         "evidence": [
-          {
-            "path": "docs/quality/PR24_FINAL_AUDIT.md",
-            "marker": "Test-only six-domain refresh"
-          }
+          { "path": "docs/quality/PR25_FINAL_AUDIT.md" },
+          { "path": "src/content/nb.ts" },
+          { "path": "src/domain/curriculum/transfer-sources.ts" }
         ]
       },
       "technical": {
-        "finding": "All product/domain/store/evidence/XP hashes identical. Only test origin observer honors configured baseURL and exact URL.origin equality.",
+        "finding": "Independently recomputed final normalized hashes and fingerprint, checked the frozen reviewed source/test hashes and preserved paths. New replay, durable writes/readback, stale comparison, terminal reserve and isolated recovery preserve old evidence, XP and technical stores.",
         "evidence": [
-          {
-            "path": "docs/quality/PR24_FINAL_AUDIT.md",
-            "marker": "Test-only six-domain refresh"
-          }
+          { "path": "docs/quality/PR25_FINAL_AUDIT.md" },
+          { "path": "src/domain/curriculum/transfer.ts" },
+          { "path": "src/domain/curriculum/transfer-store.ts" }
         ]
       },
       "visual": {
-        "finding": "All UI/CSS/asset/screenshot hashes identical. Actual short-window accessibility case passed both projects; no new human UX inference.",
+        "finding": "Representative actual production images and all corrected held/history/recovery views were inspected. Ten held views passed Axe and sixty viewport containment checks; controls remained usable, neutral recovery headings/landmarks are correct, and initial/retry/draft/result focus is verified. No visual major; human UX/screen-reader approval is unperformed.",
         "evidence": [
-          {
-            "path": "docs/quality/PR24_FINAL_AUDIT.md",
-            "marker": "Test-only six-domain refresh"
-          }
+          { "path": "docs/quality/PR25_FINAL_AUDIT.md" },
+          { "path": "docs/screenshots/cloud-transfer/response-1024.png" },
+          { "path": "src/features/learning/transfer.css" }
         ]
       },
       "assessment": {
-        "finding": "All question/rubric/assistance/immutable-result hashes identical; R1–R4/N1–N2 remain fixed.",
+        "finding": "Matching decision and structured reason are required, including both valid-host pairs and rejected crossed reasons. Initial/help/retry/abandon and immutable submitted prefixes remain separate. Direct pre-answer rules were removed; the finite bank is not measured evidence of broad transfer or exam readiness.",
         "evidence": [
-          {
-            "path": "docs/quality/PR24_FINAL_AUDIT.md",
-            "marker": "Test-only six-domain refresh"
-          }
+          { "path": "docs/quality/PR25_FINAL_AUDIT.md" },
+          { "path": "src/domain/curriculum/transfer.test.ts" },
+          { "path": "src/features/learning/cloud-transfer.tsx" }
         ]
       },
       "guidance": {
-        "finding": "All guidance/Journal/recovery/shielding hashes identical; actual denied-persistence/withheld-guidance assertions passed in corrected cases.",
+        "finding": "The confirmed standalone SaaS/old-practical bypass is fixed with all-context automatic suppression and durable common teaching preflight. Denied/corrupt/conflicted contexts withhold answers, already-open guidance disappears on conflict, and own independent inputs/terminal controls remain available without implicit aid.",
         "evidence": [
-          {
-            "path": "docs/quality/PR24_FINAL_AUDIT.md",
-            "marker": "Test-only six-domain refresh"
-          }
+          { "path": "docs/quality/PR25_FINAL_AUDIT.md" },
+          { "path": "src/features/learning/management-access.tsx" },
+          { "path": "src/features/portal/saas-lab.tsx" },
+          { "path": "src/features/course/practical-lab.tsx" }
         ]
       },
       "regression": {
-        "finding": "N3 fixed: exact reverse-patch hash,24 origin cases and2 actual production cases passed. Empty requests assertion retained; no skip/retry/configuration change. New remote CI remains pending.",
+        "finding": "Reviewer pure tests and actual bounded closure probes passed; the complete held-state sweep passed without page errors or overflow. Author final full check and full production E2E are recorded separately from reviewer executions. Interrupted intermediate suites are not full passes; no new skip or weakened assertion was introduced.",
         "evidence": [
-          {
-            "path": "docs/quality/PR24_FINAL_AUDIT.md",
-            "marker": "Test-only six-domain refresh"
-          }
+          { "path": "docs/quality/PR25_FINAL_AUDIT.md" },
+          { "path": "tests/e2e/cloud-transfer.spec.ts" },
+          { "path": "src/features/course/course.tsx" }
         ]
       }
     },
@@ -716,157 +1185,180 @@
         "id": "R1",
         "severity": "major",
         "status": "fixed",
-        "description": "Original PaaS independent task repeated guided configuration/diagnosis with only an environment change.",
-        "fix": "Distinct two-app same-plan settings and app-scope decisions with new write/draft/inspection predicates.",
-        "retests": ["Independent mission domain negatives and18 production mission cases passed."]
+        "description": "Standalone SaaS guidance and old practical answer-bearing outcomes bypassed transfer assistance/uncertainty guards.",
+        "fix": "SaaS automatic guidance now requires the complete safe context, while retained explanation, practical progress and eligible outcomes use durable teaching preflight. Own operations and unaided controls remain separate; denied/corrupt/already-open conflict probes pass.",
+        "retests": [
+          { "path": "docs/quality/PR25_FINAL_AUDIT.md" },
+          { "path": "tests/e2e/cloud-transfer.spec.ts" }
+        ]
       },
       {
         "id": "R2",
         "severity": "major",
         "status": "fixed",
-        "description": "Active mission lacked named older-context recovery and could show stale/futile guidance under technical uncertainty or attempt mismatch.",
-        "fix": "Named existing scoped loads/destinations plus technical/pinned-attempt withholding and explicit abandon; technical debrief safety added.",
+        "description": "Two independent prompts supplied the conceptual reason rule before reason selection.",
+        "fix": "Manual drift and repeated error now supply neutral observed source/state/chronology facts; conceptual principles remain in post-submit/help feedback. Separate blind solution review and scoped correction verification found no extra valid pair.",
         "retests": [
-          "Independent production non-Core/technical conflict and new-attempt case passed in both projects."
-        ]
-      },
-      {
-        "id": "R3",
-        "severity": "major",
-        "status": "fixed",
-        "description": "Architecture Related learning exposed explanations without durable mission aid.",
-        "fix": "Explicit node/relation explanations use full common teaching boundary and withhold already-open content on conflict.",
-        "retests": [
-          "Independent failed-write, successful durable help and cross-tab explanation-withholding browser case passed in both projects."
-        ]
-      },
-      {
-        "id": "R4",
-        "severity": "major",
-        "status": "fixed",
-        "description": "Historical mission entry/debrief still exposes answer-bearing material while a non-Core first independent context cannot persist assistance; actual denied-Benefits production proof confirmed unchanged begin-only durable record.",
-        "fix": "MissionEntry withholds answer-bearing entry/debrief on unsafe or active other contexts; MissionDebrief independently guards the full safety state and removes already-open rationale on conflict.",
-        "retests": [
-          "Independent original denied-Benefits proof, valid abandonment/scoped reload and remote new-begin withholding all passed; mission/technical bytes unchanged and no page errors.",
-          "All20 final production mission cases passed in both projects,1.2m,exit0."
+          { "path": "docs/quality/PR25_FINAL_AUDIT.md" },
+          { "path": "tests/e2e/cloud-transfer.spec.ts" }
         ]
       },
       {
         "id": "N1",
         "severity": "minor",
         "status": "fixed",
-        "description": "Independent diagnosis question described the guided shared dependency rather than its changed routing failure.",
-        "fix": "Mode-specific failure-path/routing question.",
-        "retests": ["Read final copy and independent production diagnosis task."]
+        "description": "An exhausted valid completed log left Start enabled without an explanation.",
+        "fix": "Start follows the domain reservation threshold, shows a neutral capacity explanation and remains disabled while historical results and lesson return stay available.",
+        "retests": [
+          { "path": "docs/quality/PR25_FINAL_AUDIT.md" },
+          { "path": "tests/e2e/cloud-transfer.spec.ts" }
+        ]
       },
       {
         "id": "N2",
         "severity": "minor",
         "status": "fixed",
-        "description": "Independent debrief showed guided scenario requirements.",
-        "fix": "Session mode selects independent requirements, questions and feedback.",
+        "description": "Current and selected historical feedback could have identical accessible region names.",
+        "fix": "Localized current/history labels distinguish the two regions even for the same latest attempt; history-open Axe passes.",
         "retests": [
-          "Read corrected presenter and inspected actual two-app independent debrief/reload."
+          { "path": "docs/quality/PR25_FINAL_AUDIT.md" },
+          { "path": "tests/e2e/cloud-transfer.spec.ts" }
         ]
       },
       {
         "id": "N3",
         "severity": "minor",
         "status": "fixed",
-        "description": "No-external-request test hardcoded review port3100 and misclassified normal CI port3000 application requests.",
-        "fix": "Use configured Playwright baseURL fixture, assert presence and compare exact URL origins for HTTP(S), retaining requests===[] and all existing assertions/skips/configuration.",
+        "description": "Memory premise cueing, an implausible grouping distractor and an unclear SaaS actor weakened local items.",
+        "fix": "Memory uses a delivery constraint, payment uses distinct Resource groups with the same endpoint, and the SaaS wrong reason names the supplier actor explicitly. Corrected content retains the accepted pairs.",
         "retests": [
-          "Independent exact reverse-patch hash and24 URL cases passed for3000/3100, including host/port/protocol/user-info/suffix/query lookalikes.",
-          "Actual corrected accessibility test passed in both existing projects:2 passed,5.1s,exit0."
+          { "path": "docs/quality/PR25_FINAL_AUDIT.md" },
+          { "path": "tests/e2e/cloud-transfer.spec.ts" }
         ]
+      },
+      {
+        "id": "N4",
+        "severity": "minor",
+        "status": "fixed",
+        "description": "Multiple held teaching surfaces created duplicate named recovery landmarks.",
+        "fix": "The common fallback remains ordinary section content with visible heading/status and scoped controls, without a redundant shared region name; denied/corrupt SaaS Axe passes.",
+        "retests": [
+          { "path": "docs/quality/PR25_FINAL_AUDIT.md" },
+          { "path": "tests/e2e/cloud-transfer.spec.ts" }
+        ]
+      },
+      {
+        "id": "N5",
+        "severity": "minor",
+        "status": "fixed",
+        "description": "A held outer course boundary also removed the page H1.",
+        "fix": "Only outer course recovery uses the existing neutral H1; nested and Journal recovery stays H2. Blocked Summary/history Axe and viewport checks pass.",
+        "retests": [
+          { "path": "docs/quality/PR25_FINAL_AUDIT.md" },
+          { "path": "tests/e2e/cloud-transfer.spec.ts" }
+        ]
+      },
+      {
+        "id": "N6",
+        "severity": "minor",
+        "status": "fixed",
+        "description": "Independent practical controls outside main lacked a landmark.",
+        "fix": "The existing independent practical section is a named region using its existing learner-facing label; actual held-form Axe and abandonment hit testing pass.",
+        "retests": [
+          { "path": "docs/quality/PR25_FINAL_AUDIT.md" },
+          { "path": "tests/e2e/cloud-transfer.spec.ts" }
+        ]
+      },
+      {
+        "id": "N7",
+        "severity": "minor",
+        "status": "fixed",
+        "description": "An inactive saved transfer preference overrode an older active root Resume destination.",
+        "fix": "Only active transfer has top priority; inactive exact-case fallback follows all existing active contexts. Actual older Benefits/lab/no-active root clicks preserve learner and XP bytes.",
+        "retests": [
+          { "path": "docs/quality/PR25_FINAL_AUDIT.md" },
+          { "path": "tests/e2e/cloud-transfer.spec.ts" }
+        ]
+      },
+      {
+        "id": "N8",
+        "severity": "minor",
+        "status": "fixed",
+        "description": "Starting a same-case retry could leave focus on BODY because its scenario heading remained mounted.",
+        "fix": "Only the scenario heading is keyed by attempt identity. Actual initial/retry scenario focus, stable radio focus during drafts, result focus and immutable old event prefixes pass.",
+        "retests": [
+          { "path": "docs/quality/PR25_FINAL_AUDIT.md" },
+          { "path": "tests/e2e/cloud-transfer.spec.ts" }
+        ]
+      },
+      {
+        "id": "L1",
+        "severity": "note",
+        "status": "accepted-limitation",
+        "description": "The finite bank includes easy careful-process alternatives. Difficulty, discrimination, novice resistance to cues, broad unseen transfer and human SME/UX/screen-reader approval remain unperformed; no readiness or learner-mastery inference is accepted."
       }
     ],
-    "report": {
-      "path": "docs/quality/PR24_FINAL_AUDIT.md"
-    }
+    "report": { "path": "docs/quality/PR25_FINAL_AUDIT.md", "marker": "Current accepted snapshot" }
   },
   "snapshot": {
     "files": {
-      "AGENTS.md": "2f1a9e6b16094107e77e12848b7aae0259f57a4bcecd90d50e94de0b3c6ac27f",
-      "README.md": "84d4124447cb380b185f81e9f018ad92a81213644911b2f07f2aad671df1a840",
-      "docs/ARCHITECTURE.md": "53c3b237e4efa3eafd7574183cafa49c33fc780fc82d97aec38bd2fb53a7ce97",
-      "docs/AZ900_EXPANSION_ROADMAP.md": "1f153cfb3a5cea34c30f37e4bbecbf409e1ac06ce18c70d0533b983f4a3fc73e",
-      "docs/CONTENT_ARCHITECTURE.md": "564a2c48d75dd4b355db2608611ed76ad941c600886bfb3c541bfb9e16e8eb96",
-      "docs/COURSE_LAB_ORCHESTRATION.md": "44573f83df0e82f74f1ea6177541e7460c7ba7798f2613c553a78b0eb401d0fc",
-      "docs/CURRICULUM_COVERAGE.md": "cc605e5bec3ff98a587a7a3e75d6b4a273e6c9185bceb42efaef43f09c785e60",
-      "docs/DECISIONS.md": "b99316528178609f02aa8a68c924c982758a01cf482e19d55c7e6a6c6cad8d01",
-      "docs/FUNDAMENTALS_LAB_COVERAGE.md": "0d3ed9b5e1c2e9603d6878dc36fe430847701404c8a03df67f2cff2f02d723e6",
-      "docs/INTEGRATED_LABS_ARCHITECTURE.md": "6aaddbb5169462ec95fe10df83d93d9188e426e1d100ffb16e9e0a44308a03da",
-      "docs/INTERACTIVE_VISUALIZATIONS.md": "7818b1d9e7d01b7dfde8a67662729526cdbdd4c0ed9d321973d3787624e447bb",
-      "docs/LEARNING_DESIGN.md": "27cdc78209e1afa5a7a01190d750f2b26b562bfd1d7e4552852be82cb0ccbcb9",
-      "docs/LEARNING_JOURNEY.md": "9ebc641447f8ee02745ba9591cc5889d712149424764dc343c82b8980d57ea69",
-      "docs/PORTAL_REFERENCE_FIDELITY.md": "361c908a38b2b2c940ee45e635c99725e1ba15c4935b89ceee439d6039b2cebd",
-      "docs/PRACTICAL_MISSION_EXPANSION.md": "ce9933ae154155491872e0ad789ab8751309fc93d77cf72e847abedeea32acdb",
-      "docs/ROADMAP.md": "48e60b2a760a1ef16a413ebb06764d11a9cce2246b52f4f0263d866db42afa68",
-      "docs/SAVVYSHARK_GUIDANCE_STANDARD.md": "87d27c26a551099d128a3f28231ab01b61a98848ce402357e171d0e3c1e041d1",
-      "docs/SECURITY.md": "e5ce0ce22651ace4f845c3b4bcf7528feb88b1e3a9efab1faa73cf8cfa0c1f34",
-      "docs/SOURCE_REGISTER.md": "dd491ad9577f293a5c3589702fa5c8b113f582089eb59197210a46f8852d947d",
-      "docs/screenshots/missions/pr24-diagnosis-milestone.png": "5492e9ad64f921c4f3a311fc693daa6c79fe9ad19432596ec0d616347c517fe3",
-      "docs/screenshots/missions/pr24-diagnosis-model-1024x500.png": "8ca8a25cc35a8b6bbdb7cbe2ca4448c52f05d3619cb3aed6ec98262822053b63",
-      "docs/screenshots/missions/pr24-diagnosis-model-1024x768.png": "b10802cade7ddd470502b51935ad2d159735d3425122954d98df8fb6cb10fd54",
-      "docs/screenshots/missions/pr24-diagnosis-model-1366x768.png": "10878a97bb417b5f2fa0577eac3f6ca23edf8f7d04cc4f13f3deaad1af79730c",
-      "docs/screenshots/missions/pr24-diagnosis-model-1440x900.png": "9d2685e6cb8a194f953f9e67783dc818e1a6df07102057d4ec6aaa3ad490936f",
-      "docs/screenshots/missions/pr24-diagnosis-model-1920x1080.png": "b1083595e9d25f979565b673e15865d5d068d6a9426711dfeeba1e175a937505",
-      "docs/screenshots/missions/pr24-diagnosis-result-1024x500.png": "250534bb64cc6aec31378d0a8b276dc5b4996feb312861c32029dd33fa5c4257",
-      "docs/screenshots/missions/pr24-diagnosis-result-1024x768.png": "e21c2717210cd82884f3429f5d234d40c55a51df84d0574378f55bab0c70f895",
-      "docs/screenshots/missions/pr24-diagnosis-result-1366x768.png": "4441d2bb28f53c25936bd9289c1d2d8cfd5359b34adc9d07fb91603ac41c5166",
-      "docs/screenshots/missions/pr24-diagnosis-result-1440x900.png": "328530bad0dd0b2f87b29f11b72efcf1c717f645702ccb4601cdf534cf160a64",
-      "docs/screenshots/missions/pr24-diagnosis-result-1920x1080.png": "3cbf392b73e6ad7599a0cf1d46b505be9703be0f564bff628cee854d88a3c57b",
-      "docs/screenshots/missions/pr24-governance-debrief-1024x500.png": "2a3a46f7ccb31760dbbe628417093339c9bc1fe014789a8ce89ee8d631464a08",
-      "docs/screenshots/missions/pr24-governance-debrief-1024x768.png": "c7b53def9ec1c1764c40161a827f027e0fe0d83d965b19af0288a42c1774dede",
-      "docs/screenshots/missions/pr24-governance-debrief-1366x768.png": "37f9c57d0650132e614071810cd5d707f016be77f7922c1bdb9465d340ab2047",
-      "docs/screenshots/missions/pr24-governance-debrief-1440x900.png": "32bd8deaeec8e54375e0be43b2ee4aa0060c85b262267ba5451603e6a48c5d2d",
-      "docs/screenshots/missions/pr24-governance-debrief-1920x1080.png": "33171b5a58367e50f0d2d317e368ef52682c0ddd3958ae639ac5aeb0e0651c9b",
-      "docs/screenshots/missions/pr24-governance-denial.png": "21c43f29cb57437e3f5120878caac3f6892603280961c6b4181540a7a43c86f0",
-      "docs/screenshots/missions/pr24-iaas-independent.png": "316192cd179d38f334f291e343517ee685a99352317a0a949c82910d383d7286",
-      "docs/screenshots/missions/pr24-iaas-new-vm.png": "2c73f1ca4e96924521e321443d7fa747e17a5eba9d0f624a58b1bc9790c294d4",
-      "docs/screenshots/missions/pr24-local-briefing.png": "335b79b0be19354fc054a06467ea37f221474f8400f9a0f33b9dabd0d3961d7d",
-      "docs/screenshots/missions/pr24-local-root.png": "a0b92964b22ee638742216f410ca79fe088bbb4737a92ea8ce1bd6ab846baced",
-      "docs/screenshots/missions/pr24-local-settings-milestone.png": "53774b754476baa7d424862865c1210690c17966eaf71c534c3bf6219464e32c",
-      "docs/screenshots/missions/pr24-local-unapplied.png": "c31d30cd33ccee3dc18ac07eace1c39e0c6b4ea3fa9b41fceff8c6ea524fe31d",
-      "docs/screenshots/missions/pr24-paas-debrief.png": "8efb640b79a8f0bed03d83ba17023a62cd8384293bd622996730ee8613d3e3ff",
-      "docs/screenshots/missions/pr24-paas-milestone-1024x500.png": "ca1c2c64de6c9a896e3eb40f0659b0b1a9183b1f59e246f7b4f9ef88dab8c19b",
-      "docs/screenshots/missions/pr24-paas-milestone-1024x768.png": "d28e47f5930900e181ee7e59cc192ad3fc6221200a9d353e8208f216c0a5c1ff",
-      "docs/screenshots/missions/pr24-paas-milestone-1366x768.png": "53ff3519fbb4271ad733f28b7e09aa81389bb575f93d89d37210c6eed7203109",
-      "docs/screenshots/missions/pr24-paas-milestone-1440x900.png": "fa6b564da7e93e295d2f9af1dbfb062f3bd3f0584fd85acc30d37c9dec854597",
-      "docs/screenshots/missions/pr24-paas-milestone-1920x1080.png": "fb5d4e126d0e342a4d54f728f317d4956cbe51d6498f1fe6b5068baadb6eef3c",
-      "docs/screenshots/missions/pr24-paas-unapplied-draft.png": "1b5c16f2beee8a829138cfeef20a12416de07a184822f3e07092fedbae5419fb",
-      "docs/screenshots/missions/pr24-short-keyboard-briefing.png": "8a483018cee864fb404411dde329f7f47d9d3fee4e72e3929447ffb16da30d2d",
-      "docs/screenshots/missions/pr24-two-app-independent-debrief.png": "ab9b3ffe7d0c565d91653582aa07b5770ec3c160eb8c698d1b5694f8d1d95c60",
-      "package.json": "24374760ad2298738e2a9c8ff3535ba343cef0fbe1ca84c27a9030384cf3736a",
-      "scripts/docs-check.mjs": "2e7db9d4793c435bbeed17b2a3c426a2ba34367af933acc895faf119aa88ef9a",
-      "src/app/layout.tsx": "e3c1da6df52fd7c61c0886d04e049910f68912ba5b6d4c9a04f285b3edaf611b",
-      "src/content/nb.ts": "50accdbdede648728c6c6b16854ceb69d77f0642108f27721b55b515792d2b9e",
-      "src/domain/guidance/milestones.ts": "893c44389757bfac61aa3d9721f68d264764b75fd62d435f2eef01623862f28e",
-      "src/domain/portal/model.ts": "5933315bfb67ed9b842414c09dc47e7118a32fe491777a8d01f41bebf7a24ebb",
-      "src/domain/sandbox/mission-sources.ts": "379885230bd18f3d6c7a575ae238bf5b5e2d33c47abcad4874f927f89ce681ab",
-      "src/domain/sandbox/mission-store.ts": "7513041ceac24517dede9c4f9964b80ed4407efeeafaf910d8522c1020808ff0",
-      "src/domain/sandbox/missions.test.ts": "bd17ae4f82e6acab84b07a728baaf9ab023676d3483c431fa3b2a58862dab868",
-      "src/domain/sandbox/missions.ts": "979bbb672201100b96db45f89c001a8c6d0fe276a6f626017e52a9db8a0adc55",
-      "src/features/course/course.tsx": "ddbc94aec456355bffda594df0cb6b20519e7aeeffa38c00648061d1f7325de1",
-      "src/features/course/guidance-milestones.tsx": "90e43cf153169ec452b54cfc8be4f33d46baff5cbc0d622eca24db3f7cd3be9d",
-      "src/features/course/mission-briefing.tsx": "e4767d28933ca9aaaaddb4f4574521512cb3a7b2f108e0554ea4a67574c17848",
-      "src/features/course/mission-context.ts": "183c7e091219ffe13f9feb60f0153c8125857e337c195d5a1cd76993916f3b14",
-      "src/features/course/mission-diagnosis.tsx": "8ac7c7fc9b3730b58b4d59c60b8933eebc747aa98fca3defea9b3b78f418396b",
-      "src/features/course/mission-observations.tsx": "6eb3dfd89662e213f23332b765cfae5f1d97297710f275dac60e3ab9dd004c5f",
-      "src/features/course/mission-portal.tsx": "5cacf7f3678136a1b81b43659d46784a9f888016019efd0c86a3282e9a4763d9",
-      "src/features/course/mission-provider.tsx": "46ed2ef118a00724c5ab261fb842ba9b25097c024928580b9eabd5508df5c16c",
-      "src/features/course/missions.css": "3ce911c3dc3885837f78c97441dd5d1b665ab89860f487c6690f62173ce9dc79",
-      "src/features/course/missions.tsx": "7fd17b55d0eb25980227b2ba7f9ec250030d167cca7144feec6649a9fce80060",
-      "src/features/course/practical-lab.tsx": "16de96bf73831abac6244f533fe044ef41684fa23e1e96e5852248c2e3c1cc33",
-      "src/features/learning/expanded-module.tsx": "f7984d958799fcc70f9bd0a6323b6c0c30ee8cb138e59f0bb203887f238e4827",
-      "src/features/learning/management-access.tsx": "ec4e93aa583eb3aaa1d5a4c8f932d982dd90cdd4960bac955220960c2d9b0497",
-      "src/features/portal/app-settings.tsx": "e7b81ab023532e377390d8ea2fc5e86bacc63e9e8c69d8df26ea3c3378b38c73",
-      "src/features/portal/architecture.tsx": "a311ce567d888c2d615e8e606182d47f96336a993f0b86f7d03bd5b988ee7a9a",
-      "src/features/portal/portal.css": "7aba6156cba88f1266ed0d80201f2dc031bb19d8b3236024ed8f8d08faf688a2",
-      "src/features/portal/portal.tsx": "24ae441149aa33140ccb5478be8c1c46bf594cdcd3d52d3dd6f5682826070fb0",
-      "tests/e2e/practical-missions.spec.ts": "4c00b5ea57857b34922e5934a1bef9356af62f4560670733836d04e746082527"
+      "AGENTS.md": "08b29960182bfd06b7c33848a272cba6682fde0f6c6086a3d315a35273de52e4",
+      "README.md": "5ce2a199c7c23d2b06db4664a4997b5dae14dd60961541aa1238e053724ff46a",
+      "docs/ARCHITECTURE.md": "492b0a5a64b56b29cea9bc3051ac2517a0252cb9bafeac11f220f5db31e9d93c",
+      "docs/AZ900_ASSESSMENT_BLUEPRINT.md": "791a720b881bb34ad351818ffed10fcaaca626d9eebdd29e7e5e413ea17502aa",
+      "docs/AZ900_COVERAGE_MATRIX.md": "67f8cbf935d23d97193fdd6bb652aee8132d0881a82fdf5f0a8713f37d116f74",
+      "docs/AZ900_EXPANSION_ROADMAP.md": "4c5b8cfe0a111f50be80da9ff58cb5fff66a7f84b37836f7ec5c5f4720509aea",
+      "docs/AZ900_GAP_ANALYSIS.md": "94aea9f8766c6216706ec948a1409a46ad996f585b152459cbb568877f3ce9f9",
+      "docs/CLOUD_CONCEPTS_TRANSFER.md": "954e375195c94bd44929618e3fca4768b92ae641148fe3892fb8629088e6868c",
+      "docs/CONTENT_ARCHITECTURE.md": "496a6cad5250ea015609387f5454c32972762f7cfd5bab6aea44b296d0f8ea4b",
+      "docs/CONTENT_STANDARDS.md": "b158ddb8b1df1a50c15e1efc7a7bbdfc687a645f12aed2c64426e98b2e15ef47",
+      "docs/CURRICULUM_COVERAGE.md": "04f19c3515d4a77453670c08b72d9edcb5b7f7978b67b8a59d477e874017b07d",
+      "docs/DECISIONS.md": "3f74c98a3eced9f746e0320947a4080040b86bbb6703ad981fc079c9199e4393",
+      "docs/LEARNING_DESIGN.md": "86c58a4591ee14d50c44a6a98eeb61e4dbae9984e65649872fdc7792ccd494f0",
+      "docs/ROADMAP.md": "c0aedb30f1b539f455ac191516139f5346f9574cf19a95a789b7497e49fa86c0",
+      "docs/SOURCE_REGISTER.md": "9f3d8582f38d40822ec1a19c1d41736f384470c36b45fd851f3466f743098ffc",
+      "docs/audits/az900-2026-07-20.json": "139157276ba980af6c09619d5d9c5f91dbccc724abb0660b1bbc4b16874810db",
+      "docs/screenshots/cloud-transfer/alternatives-1440.png": "3cf1048e783a3b621869f0cb69b83fe2b5bcb90187552f88cb33e14bc35ae97f",
+      "docs/screenshots/cloud-transfer/briefing-1440.png": "5d3ada3389416b6cef18cae8213e6a1ebc41efcbb5bc3b7b8fdd4b514b2d6b5d",
+      "docs/screenshots/cloud-transfer/capacity-1366.png": "2ccf896032e056c74627cec663903457f1ebbe31e523d717b503265b5981ad11",
+      "docs/screenshots/cloud-transfer/computing-feedback-1440.png": "f418f89b822df9b57ef6dda12c97955ad641b7b345553e88b2045fc3df64b64b",
+      "docs/screenshots/cloud-transfer/computing-response-1440.png": "babd6ae9baa594b926e0955e70a428d27d471bc242a813bb986ec762d1d639de",
+      "docs/screenshots/cloud-transfer/feedback-1440.png": "6ca9f71b6c622e8d334605a30643a095267899f7e2214b092192b09bf221ad89",
+      "docs/screenshots/cloud-transfer/history-1366.png": "367a9b469bc085771d290c242440520f28b2b7283bd8274dcce7ca1631e6e7ff",
+      "docs/screenshots/cloud-transfer/practical-held-1366.png": "88efe949a7c4d67ac7528e50882af61e7d28cce205eaa7cb11b7fe2ee22d9623",
+      "docs/screenshots/cloud-transfer/response-1024.png": "39f17027fca5a05a72952384579332ab32e428ab9ddbc9fb069e7215fb5629a5",
+      "docs/screenshots/cloud-transfer/response-1440.png": "6e02c959dd4fe35e8e54174f8662a3c701806961a60ba77dade4398493c8746d",
+      "docs/screenshots/cloud-transfer/root-1440.png": "761912a07623dc64c31e6b780a02bad85702fdf960fd867f51013f6db73f303b",
+      "docs/screenshots/cloud-transfer/root-1920.png": "f2b5049ba6817dce2ac1c9b1f7cf86202c888ac9d36b3fdc20c34f01bbe4e9c9",
+      "docs/screenshots/cloud-transfer/saas-corrupt-1366.png": "1331c96d360d337856fbd72bd3787f5b95d5144976cd05a6ad0b88e4a6509d28",
+      "docs/screenshots/cloud-transfer/saas-held-1366.png": "29bfa25298611aaf4e85fe2a424b4e1169076e3203e8478da7378aca064273f8",
+      "docs/screenshots/cloud-transfer/scenario-1366.png": "282eb7b85c3533d0f12b689061f5accdbd1061678f222a75fb8da493ab9f5a8f",
+      "docs/screenshots/cloud-transfer/scenario-1920.png": "291479de23e354a5c3dddaf2709feaa543b59a761ce899ef96ac1a41742d8941",
+      "docs/screenshots/cloud-transfer/services-feedback-1366.png": "9e3036713a074be90f31f57739701cf8a803c27cda4d2e4fcd422da8722d9103",
+      "docs/screenshots/cloud-transfer/services-response-1366.png": "582bc1d5a1c7f24d0b14cde31cd9475d0198a5cb16acf3cd634d6505097fcc7f",
+      "package.json": "331ee5bb0eb190583b783f306a7d924acfa215e873da648f5856da58021c2baa",
+      "scripts/az900-audit-check.test.mjs": "07959970f07def2f4b916169ce570c8a026a48bbcd33cd42c41d0af1444c88b9",
+      "src/app/layout.tsx": "4cd3e5c2a1c23ed3d47102f304dc12f9840c05b073eee9cd37627cb18a314ff7",
+      "src/components/progress-provider.tsx": "1868856fbb3a521f5234e4468818002ca23bf8d3ab13d9f2161c89fb17dfa1e9",
+      "src/content/nb.ts": "554c195f9488d8ea7b2500e0ee585ffb887e53a3cc3a46fac78507b517a939ec",
+      "src/domain/course/model.ts": "7e515623a63363628dceae596ce69a3d280cdf526ec96cc17affc0ab2c7b76b6",
+      "src/domain/curriculum/manifest.ts": "a9f1fe8a259936918995f5b3eeccacddbab6ae660ecc9c1788795b123df95fa1",
+      "src/domain/curriculum/transfer-sources.ts": "4df431c04314153a3b0552bf341c9c9e6ef6d9c4a2cb04215455426f95d7ef95",
+      "src/domain/curriculum/transfer-store.ts": "83dd4a9b7983c3d915e974318a9e32bec37f0624a79a325e6d1135c13b5ab7a4",
+      "src/domain/curriculum/transfer.test.ts": "8bb03001796a2841751c3fab40cc70e7ca9f51431a4917d1be1003796a79d825",
+      "src/domain/curriculum/transfer.ts": "7b5db05cf11bf1a1ec3445193b422cbeb6d20285bd01f60a0c20a371f8a1ad5a",
+      "src/features/course/course.tsx": "9c8486d777d63cc2b4845f89ea5d6d5f0adf181495d073f181e0170f3ae0e0b6",
+      "src/features/course/mission-context.ts": "32d2444939dee625129284d7bb7bd6634d7575772259c2d1127ea38879da3b67",
+      "src/features/course/practical-lab.tsx": "3a9220f231102a0b89693c2da9d83cb1ef0af8a0d516651b125bca60f86ef021",
+      "src/features/learning/cloud-transfer.tsx": "a4761894260ace516d6002a0bf8ff0caf32fc3c6998950f686be6d40bee9119e",
+      "src/features/learning/expanded-module.tsx": "2dfb700fdfe0a42ad189d24e97af41d2bc0f005dbcdd3e7fc06114167f95ee2f",
+      "src/features/learning/management-access.tsx": "f6aca0b81ca0b6bab782c2ec542ede1ded323100157763efefb2d60b6e393e12",
+      "src/features/learning/transfer-provider.tsx": "60841f32d0b69f69259c865e0529a8b3a77e07fe708b0c5a5cdba2ddd5706337",
+      "src/features/learning/transfer.css": "3fbb7c1b55a9116d6b0a2d81d8426cd524a2889f62f742b3fc142698df334850",
+      "src/features/portal/portal.tsx": "128998b501b128beae060ea15b2d56a96bdd8cae5a8e1bef3abe727c412080a4",
+      "src/features/portal/saas-lab.tsx": "4367054fcfd1e16ba3687e7c0a9c3652b560226125d77f2c67aa7f13157d3f94",
+      "tests/e2e/cloud-transfer.spec.ts": "83ad932daa854eea19ec4093d83458f5af3250356e5f9a9afcac65d3783be00c"
     }
   },
-  "implementationFinished": "2026-10-27T16:30:33.406Z"
+  "implementationFinished": "2026-10-27T20:06:30.675Z"
 }

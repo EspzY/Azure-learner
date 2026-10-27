@@ -1,5 +1,9 @@
 # Local curriculum and evidence architecture
 
+## P03 new transfer evidence
+
+The existing manuscripts remain the theory authority. `transferNb.items` adds19 original unfamiliar scenarios, every alternative rationale and counterfactual validity. `transferManifest` registers local objective/competency IDs separately from the dated exam overlay. `azurelab.learning.cloud-transfer.v1` records only new attempts; old guided missions and old module results cannot complete it. Historical rationales use the same durable all-context teaching boundary as Journal/summary. [Content, baseline and storage](CLOUD_CONCEPTS_TRANSFER.md).
+
 ## Current Core Architecture composition — PR23
 
 Renewal supersedes the initial B-only guard: shared Core/Journal/reference presentation checks nine existing assessment contexts through the read-only prepareExistingTeaching adapter and frozen parsers/facts/aid commands. Latest valid replay must match the mounted snapshot; even event=true is insufficient if the event remains unsaved. No old store/rubric changes or answer merges. A single LearningProvider is inside the existing data providers, enabling its old Journal to observe all contexts. Own assessment forms and operational independent Portal work are deliberately excluded according to existing rules; old course teaching still observes the new Core A/B contexts. Failed access presents the relevant store's reload/own recovery route, never a global reset.

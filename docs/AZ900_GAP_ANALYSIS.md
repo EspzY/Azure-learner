@@ -1,5 +1,9 @@
 # AZ-900 — faktisk dekning og læringshull
 
+## P03 innholdsrevurdering — PR25
+
+De åtte tidligere PARTIAL-målene1.1.03–04,1.1.06,1.2.01–04 og1.3.04 er nå vurdert COMPLETE etter A–F på innholdsnivå: full eksisterende teori/modeller pluss19 originale transfer-tilfeller, strukturerte beslutning/begrunnelse-par, alternative gyldige arkitekturer, egen feedback og aktuelle kilder. Baseline-tabellene under beholdes som historikk fra auditen; den genererte matrisen er gjeldende status. Ingen gammel first submission oppgraderes. Cloud Concepts15/15 er innholdsdekning, ikke målt studentmestring, eksamensberedskap eller menneskelig SME-godkjenning. [Konkrete gamle svakheter og nye kontraster](CLOUD_CONCEPTS_TRANSFER.md).
+
 ## P02 scoped implementation update —2026-10-27
 
 The four management objectives2.1.04–07 now have profile PB: full original theory/qualifications, actual inventory and separate scope model, four new independent contexts/reasons/alternative feedback and reviewed official sources. Together with unchanged Part A pointers, all seven core objectives have implemented A–F content coverage. This does not upgrade any historical learner or satisfy human review. Other53 objective rows are unchanged. [Current generated matrix](AZ900_COVERAGE_MATRIX.md); [boundaries](CORE_ARCHITECTURE_MANAGEMENT.md).

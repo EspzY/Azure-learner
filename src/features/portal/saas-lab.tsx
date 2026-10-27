@@ -17,6 +17,9 @@ import './saas.css';
 import { ExpansionAssistance } from '@/features/learning/expansion-provider';
 import { usePortalLearning } from './learning-provider';
 import { MissionRecall } from '@/features/course/mission-briefing';
+import { ManagementTeachingBoundary } from '@/features/learning/management-access';
+import { useMissionSafety } from '@/features/course/mission-context';
+import { useMissions } from '@/features/course/mission-provider';
 export function SaasLab() {
   const s = useSaas(),
     p = usePractical(),
@@ -24,6 +27,9 @@ export function SaasLab() {
     [history, setHistory] = useState(false),
     [confirm, setConfirm] = useState(false);
   const original = usePortalLearning();
+  const safe = useMissionSafety(),
+    missions = useMissions(),
+    guidanceSafe = safe && !missions.active && s.ready && !s.issue;
   useEffect(() => {
     if (original.facts.active) original.store.event({ kind: 'aid' });
   }, [original.facts.active, original.store]);
@@ -234,7 +240,16 @@ export function SaasLab() {
               />
               <div className="saas-admin-section">
                 <h2>{t.saas.data}</h2>
-                <p>{t.saas.retained}</p>
+                <ManagementTeachingBoundary
+                  identity="saas:retained-data"
+                  assessment={
+                    session?.mode === 'independent' && session.status === 'active'
+                      ? 'practical'
+                      : undefined
+                  }
+                >
+                  <p>{t.saas.retained}</p>
+                </ManagementTeachingBoundary>
                 <p>{user.dataReviewed ? t.boolean.yes : t.boolean.no}</p>
                 <button
                   type="button"
@@ -250,7 +265,7 @@ export function SaasLab() {
         <aside
           className="saas-learning"
           data-step={
-            session?.mode === 'guided'
+            session?.mode === 'guided' && guidanceSafe
               ? `saas-${replayNeedsRestart ? 'replay' : guideStep}`
               : 'independent'
           }
@@ -258,17 +273,24 @@ export function SaasLab() {
         >
           {session && (
             <>
-              <SavvyShark compact>
-                <h2>{t.lab.saas.title}</h2>
-                <p>
-                  {session.mode === 'independent'
-                    ? t.lab.saas.changed
-                    : replayNeedsRestart
-                      ? t.saas.replay
-                      : t.saas.guidance[guideStep]}
-                </p>
-              </SavvyShark>
-              {session.mode === 'guided' && <MissionRecall kind="saas" />}
+              {(session.mode === 'independent' || guidanceSafe) && (
+                <ManagementTeachingBoundary
+                  identity={`saas:guide:${session.id}`}
+                  assessment={session.mode === 'independent' ? 'practical' : undefined}
+                >
+                  <SavvyShark compact>
+                    <h2>{t.lab.saas.title}</h2>
+                    <p>
+                      {session.mode === 'independent'
+                        ? t.lab.saas.changed
+                        : replayNeedsRestart
+                          ? t.saas.replay
+                          : t.saas.guidance[guideStep]}
+                    </p>
+                  </SavvyShark>
+                  {session.mode === 'guided' && <MissionRecall kind="saas" />}
+                </ManagementTeachingBoundary>
+              )}
               {session.mode === 'independent' || (findings.configured && findings.inspected) ? (
                 <PracticalOutcome />
               ) : (
