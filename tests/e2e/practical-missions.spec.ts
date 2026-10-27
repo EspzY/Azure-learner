@@ -573,12 +573,15 @@ test('mission persistence: stale tabs withhold guidance, reload resumes, abandon
 
 test('mission accessibility: keyboard briefing/cancel, short window, reduced motion and denied persistence withhold critical guidance', async ({
   page,
+  baseURL,
 }, info) => {
   await page.emulateMedia({ reducedMotion: 'reduce' });
   await page.setViewportSize({ width: 1024, height: 500 });
   const requests: string[] = [];
+  expect(baseURL).toBeTruthy();
+  const applicationOrigin = new URL(baseURL!).origin;
   page.on('request', (request) => {
-    if (/https?:\/\//.test(request.url()) && !request.url().includes('127.0.0.1:3100'))
+    if (/^https?:\/\//.test(request.url()) && new URL(request.url()).origin !== applicationOrigin)
       requests.push(request.url());
   });
   await page.goto('/');

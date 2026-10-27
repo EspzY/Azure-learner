@@ -562,12 +562,12 @@
     {
       "command": "npm run check",
       "result": "passed",
-      "details": "Post-R4 final complete check passed:222 Vitest/23 files,13 Node validator fixtures,132 curriculum,76 Markdown/local links, type/lint/format/quality/AZ900/assets/legacy and production build. Additional final audit report checked by final docs gate. Executed .artifacts/pr24-check-r4.log."
+      "details": "Final test-only origin correction complete check passed:222 Vitest/23files,13 Node fixtures,132 curriculum,77 Markdown/local links,type/lint/format/quality/AZ900/assets/legacy/build. Executed .artifacts/pr24-check-origin.log."
     },
     {
       "command": "npm run test:e2e",
       "result": "passed",
-      "details": "Final post-R4 complete138-case production run:121 passed/17 unchanged inherited duplicate-project skips/0 failures,9.1m,workers1. All20 new mission cases passed incl denied old-context help and already-open debrief conflict. Ignored adapter changes only local port to3100 to preserve owner3000 service; normal CI config unchanged. No new skips/weakened assertions. Executed .artifacts/pr24-e2e-r4-full.log."
+      "details": "Production product full138-case regression passed121/17 unchanged inherited skips/0fail9.1m before the test-only origin portability fix. First pushed CI passed119 and failed2 solely because the new request test hardcoded3100 while CI uses3000. Fixed to configured baseURL exact URL.origin, retaining externalRequests===[]; no application/config/skip changes. All20 mission cases passed again1.3m on final test. Full exact-commit CI rerun is required externally. Logs .artifacts/pr24-e2e-r4-full.log and pr24-e2e-origin.log."
     },
     {
       "command": "npm audit --audit-level=high",
@@ -649,64 +649,64 @@
   },
   "review": {
     "status": "complete",
-    "fingerprint": "2bd65d115addf06f8e85f521f66d988516a9eb99b5457be23930c675527656e9",
+    "fingerprint": "6b109bad1a8e75e71cad726f2e8ad3263fdf6a88ef9172a7259d6b990f97b655",
     "reviewer": {
       "id": "codex-pr24-independent-reviewer",
       "kind": "agent"
     },
-    "started": "2026-10-27T16:11:13.904Z",
+    "started": "2026-10-27T16:31:23.926Z",
     "domains": {
       "content": {
-        "finding": "R1/N1/N2 remain fixed: original source-supported tasks and substantive two-app independent configuration/questions unchanged; no readiness/human-transfer inference.",
+        "finding": "All content/source/scenario hashes identical to accepted2bd65d; prior content findings remain fixed.",
         "evidence": [
           {
             "path": "docs/quality/PR24_FINAL_AUDIT.md",
-            "marker": "Renewed six-domain assessment"
+            "marker": "Test-only six-domain refresh"
           }
         ]
       },
       "technical": {
-        "finding": "All79 normalized hashes and aggregate match. Exact presenter delta is two safety guards; frozen technical/evidence/rubric/store/XP boundaries unchanged.",
+        "finding": "All product/domain/store/evidence/XP hashes identical. Only test origin observer honors configured baseURL and exact URL.origin equality.",
         "evidence": [
           {
             "path": "docs/quality/PR24_FINAL_AUDIT.md",
-            "marker": "Renewed six-domain assessment"
+            "marker": "Test-only six-domain refresh"
           }
         ]
       },
       "visual": {
-        "finding": "Actual four-desktop/short images retained identical hashes; own denied/healthy/conflicted1366x768 debrief screenshots inspected, with readable named recovery and answer-bearing content removed.",
+        "finding": "All UI/CSS/asset/screenshot hashes identical. Actual short-window accessibility case passed both projects; no new human UX inference.",
         "evidence": [
           {
             "path": "docs/quality/PR24_FINAL_AUDIT.md",
-            "marker": "Renewed six-domain assessment"
+            "marker": "Test-only six-domain refresh"
           }
         ]
       },
       "assessment": {
-        "finding": "R4 fixed by independent denied-old-Benefits-aid and already-open-remote-assessment proof. Latest Benefits bytes, immutable mission prefix and technical bytes preserved; no open findings.",
+        "finding": "All question/rubric/assistance/immutable-result hashes identical; R1–R4/N1–N2 remain fixed.",
         "evidence": [
           {
             "path": "docs/quality/PR24_FINAL_AUDIT.md",
-            "marker": "Renewed six-domain assessment"
+            "marker": "Test-only six-domain refresh"
           }
         ]
       },
       "guidance": {
-        "finding": "R2/R3 remain fixed. Active guidance, Journal and graph durable-help protections passed renewed cases. New entry/debrief safety adds no automatic aid, operation or completion.",
+        "finding": "All guidance/Journal/recovery/shielding hashes identical; actual denied-persistence/withheld-guidance assertions passed in corrected cases.",
         "evidence": [
           {
             "path": "docs/quality/PR24_FINAL_AUDIT.md",
-            "marker": "Renewed six-domain assessment"
+            "marker": "Test-only six-domain refresh"
           }
         ]
       },
       "regression": {
-        "finding": "Renewed20 production mission cases and own R4 proof exited0. Earlier32 pure tests passed against unchanged domain/adapter source. Author full138-case121-pass/17-old-skip suite remains separately recorded.",
+        "finding": "N3 fixed: exact reverse-patch hash,24 origin cases and2 actual production cases passed. Empty requests assertion retained; no skip/retry/configuration change. New remote CI remains pending.",
         "evidence": [
           {
             "path": "docs/quality/PR24_FINAL_AUDIT.md",
-            "marker": "Renewed six-domain assessment"
+            "marker": "Test-only six-domain refresh"
           }
         ]
       }
@@ -767,6 +767,17 @@
         "fix": "Session mode selects independent requirements, questions and feedback.",
         "retests": [
           "Read corrected presenter and inspected actual two-app independent debrief/reload."
+        ]
+      },
+      {
+        "id": "N3",
+        "severity": "minor",
+        "status": "fixed",
+        "description": "No-external-request test hardcoded review port3100 and misclassified normal CI port3000 application requests.",
+        "fix": "Use configured Playwright baseURL fixture, assert presence and compare exact URL origins for HTTP(S), retaining requests===[] and all existing assertions/skips/configuration.",
+        "retests": [
+          "Independent exact reverse-patch hash and24 URL cases passed for3000/3100, including host/port/protocol/user-info/suffix/query lookalikes.",
+          "Actual corrected accessibility test passed in both existing projects:2 passed,5.1s,exit0."
         ]
       }
     ],
@@ -854,8 +865,8 @@
       "src/features/portal/architecture.tsx": "a311ce567d888c2d615e8e606182d47f96336a993f0b86f7d03bd5b988ee7a9a",
       "src/features/portal/portal.css": "7aba6156cba88f1266ed0d80201f2dc031bb19d8b3236024ed8f8d08faf688a2",
       "src/features/portal/portal.tsx": "24ae441149aa33140ccb5478be8c1c46bf594cdcd3d52d3dd6f5682826070fb0",
-      "tests/e2e/practical-missions.spec.ts": "a26de36e8722c49bef32a884ed4be007f8a9f48c5cf1d7dae3b2e3b069550e82"
+      "tests/e2e/practical-missions.spec.ts": "4c00b5ea57857b34922e5934a1bef9356af62f4560670733836d04e746082527"
     }
   },
-  "implementationFinished": "2026-10-27T16:10:32.302Z"
+  "implementationFinished": "2026-10-27T16:30:33.406Z"
 }
