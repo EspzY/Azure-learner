@@ -1,4 +1,5 @@
 'use client';
+import { useManagement } from '@/features/learning/management-provider';
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -14,7 +15,8 @@ export function AppShell({ children }: { children: React.ReactNode }) {
   const { progress, ready } = useProgress();
   const { openJournal } = useLearning();
   const serverless = useServerless(),
-    physical = usePhysical();
+    physical = usePhysical(),
+    management = useManagement();
   const active = nb.nav.find((item) => item.href === pathname);
   if (
     pathname.startsWith('/labs/') ||
@@ -75,8 +77,10 @@ export function AppShell({ children }: { children: React.ReactNode }) {
               aria-label={nb.foundations.journal}
               title={nb.foundations.journal}
               onClick={() => {
+                if (!management.store.prepareTeaching()) return;
                 if (serverless.facts.active) serverless.store.event({ kind: 'aid' });
                 if (physical.facts.active) physical.store.event({ kind: 'aid' });
+                if (management.facts.active) management.store.event({ kind: 'aid' });
                 openJournal();
               }}
             >

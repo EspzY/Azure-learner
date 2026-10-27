@@ -1,6 +1,16 @@
 # AzureLab engineering contract
 
+## PR23 management continuity (active)
+
+Renewed final-audit requirement: the new shared Core teaching/Journal/reference surface checks all nine existing independent contexts, not only B. prepareExistingTeaching uses each frozen parser/facts/aid contract, fresh semantic replay comparison and durable aid; it never merges answers or edits old stores. One LearningProvider sits inside the other existing data providers so its already-open Journal can enforce the same rule. Old course teaching also checks Core A/B; own assessment forms and supported independent Portal operations retain their original assistance rules. Unknown/conflicted context offers its own reload/recovery destination. Root metadata remains available without storage.
+
+Answer-bearing teaching must not mount when B context is conflicted/unknown or required aid cannot be durably recorded. Use the shared fail-closed boundary and synchronous prepareTeaching check; explicit reload/re-entry preserves newer drafts without event/answer merging. Already-open Journals must also withhold content on a new conflict. Non-instructional course discovery stays available without storage. Independent cases must change constraints/decision structure, not only names/numbers, and avoid fixed answer-position cues.
+
+Read docs/CORE_ARCHITECTURE_MANAGEMENT.md for CA04–07/F02. /learn/architecture composes existing Part A and separately replayed azurelab.learning.architecture-management.v1 (schema/content/model/rubric1.0.0). Never migrate Part A/old learning or infer B from historical completion. Shared Journal and Summary expose teaching and must record assistance during any active independent assessment. Preserve400-event normal bound plus aid/terminal reserve, compare-before-delete invalid recovery and stale-writer protections. Hierarchy reads Sandbox World/inventory; directory identity, management ancestry, membership, dependency and geography remain distinct. Hypothetical policy examples are pure and never create commands/receipts. Actual Web deny stays on App Sandbox. architecture-management is an allowlisted navigation-only existing-lab origin returning to architecture/scope, not a new completion flag.
+
 ## P01 physical architecture — active PR22 contract
+
+Historical PR22 availability below was3/7; current A+B availability is superseded by the active PR23 contract above. Physical storage/model/rubric obligations remain unchanged.
 
 Read [the original Part A manuscript/model/version contract](docs/CORE_ARCHITECTURE_PHYSICAL.md) before changes. /learn/architecture reuses the actual Course shell and registers CA01–03/F02 in an isolated replayed azurelab.learning.architecture-physical.v1. Three of seven core objectives are available; Part B2.1.04–07 remains planned. No historical completion is new evidence. Physical placement, explicit replicas/data/routing and uncertain nonzonal placement are separate from Portal inventory and management hierarchy. Region pairing never creates app replication/failover. Preserve old models/rubrics/XP and first records. Use real model-run milestones, independent shielding and confirmed scoped invalid-store recovery. Sources are dated examples, never live global metadata or actual datacenter locations.
 

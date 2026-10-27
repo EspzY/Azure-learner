@@ -8,6 +8,8 @@ Scoped update **P00**, 2026-10-27: 1.1.07, 2.2.01. Scoped serverless implementat
 
 Scoped update **P01**, 2026-10-27: 2.1.01, 2.1.02, 2.1.03. Only physical Part A2.1.01-03 re-audited. Other54 objective rows, especially2.1.04-07, retain previous semantics. No learner evidence upgrade or human approval.
 
+Scoped update **P02**, 2026-10-27: 2.1.04, 2.1.05, 2.1.06, 2.1.07. Only four scoped management rows re-audited. Part A historical source/evidence semantics unchanged; combined module projects seven implemented objectives without learner upgrades. Human approval unperformed.
+
 ## Metode og terskel
 
 Alle **57 offisielle kulepunkter** er egne rader, fordelt på 11 underområder. Sammensatte krav er dessuten delt i 126 navngitte kontrollfasetter. Fasettene er en lokal auditinndeling, ikke Microsofts spørsmålstall eller en ekstra eksamensvekt. Slot angir rekkefølgen i den daterte studieguideversjonen; stabile `az900.*`-ID-er er audit-/plan-ID-er, foreløpig ikke nye runtime-kompetanser.
@@ -32,7 +34,7 @@ D=V betyr at en relevant selvstendig oppgave finnes, ikke at enhver elev har bes
 | Område                                      | Offisiell vekt | Kulepunkter | COMPLETE | PARTIAL | MISSING | UNVERIFIED |
 | ------------------------------------------- | -------------- | ----------: | -------: | ------: | ------: | ---------: |
 | 1. Describe cloud concepts                  | 25–30%         |          15 |        7 |       8 |       0 |          0 |
-| 2. Describe Azure architecture and services | 35–40%         |          27 |        3 |      11 |      13 |          0 |
+| 2. Describe Azure architecture and services | 35–40%         |          27 |        7 |       7 |      13 |          0 |
 | 3. Describe Azure management and governance | 30–35%         |          15 |        0 |       8 |       7 |          0 |
 
 Dette er antall auditerte krav, ikke en samlet deknings-/beståttprosent. Offisiell områdevekting kan ikke fordeles likt på kulepunktene eller brukes til å omregne disse tallene til exam readiness.
@@ -166,6 +168,15 @@ Profilene under gir faktisk kilde/manuskript, mekanisme, tilgjengelig komponent,
 - Vurdering: [src/domain/curriculum/architecture-physical.ts](../src/domain/curriculum/architecture-physical.ts) → `physicalCriteria`.
 - Tester: [src/domain/curriculum/architecture-physical.test.ts](../src/domain/curriculum/architecture-physical.test.ts), [tests/e2e/architecture-physical.spec.ts](../tests/e2e/architecture-physical.spec.ts).
 - Grense: Concept model, dated5-region subset, fictional facilities, explicit copies/routing and unknown placement. No Portal/resource/runtime/failover/SLA claim. Fixed original cases, no human SME/UX/transfer approval. Full Core Architecture remains partial pending Part B.
+
+### Evidens PB
+
+- Manuskript: [src/content/nb.ts](../src/content/nb.ts) → `managementNb`; [docs/CORE_ARCHITECTURE_MANAGEMENT.md](../docs/CORE_ARCHITECTURE_MANAGEMENT.md) → `Original teaching manuscript`.
+- Mekanisme: [src/domain/curriculum/architecture-management.ts](../src/domain/curriculum/architecture-management.ts) → `evaluateScope`; [src/domain/curriculum/architecture-management.ts](../src/domain/curriculum/architecture-management.ts) → `managementHierarchy`.
+- Lærerflate: [src/features/learning/management.tsx](../src/features/learning/management.tsx) → `HierarchyExplorer`.
+- Vurdering: [src/domain/curriculum/architecture-management.ts](../src/domain/curriculum/architecture-management.ts) → `managementCriteria`.
+- Tester: [src/domain/curriculum/architecture-management.test.ts](../src/domain/curriculum/architecture-management.test.ts), [tests/e2e/architecture-management.spec.ts](../tests/e2e/architecture-management.spec.ts).
+- Grense: Actual replayed inventory read-only, pure separate counterfactual rules, fixed original changed-context tasks and reason feedback. No generic policy/RBAC/MG operation, human SME/UX/learning approval or historical evidence conversion.
 
 ## 1.1 Cloud computing
 
@@ -354,10 +365,10 @@ Profilene under gir faktisk kilde/manuskript, mekanisme, tilgjengelig komponent,
 | 2.1.01<br>`az900.architecture.regions`           | Regions, region pairs og sovereign regions | COMPLETE | V V V V V V | F02, CA01               | H, P, V, PA | P01      |
 | 2.1.02<br>`az900.architecture.zones`             | Availability zones                         | COMPLETE | V V V V V V | F02, CA02               | PA          | P01      |
 | 2.1.03<br>`az900.architecture.datacenters`       | Azure datacenters                          | COMPLETE | V V V V V V | F02, CA03               | PA          | P01      |
-| 2.1.04<br>`az900.architecture.resources-groups`  | Resources og resource groups               | PARTIAL  | V V V P P V | G01, G04                | H, P, L     | P02      |
-| 2.1.05<br>`az900.architecture.subscriptions`     | Subscriptions                              | PARTIAL  | P P V P P V | G01, G04                | H, L        | P02      |
-| 2.1.06<br>`az900.architecture.management-groups` | Management groups                          | PARTIAL  | P P P M P V | G01, G04                | H           | P02      |
-| 2.1.07<br>`az900.architecture.hierarchy`         | Hierarki og relasjonstyper                 | PARTIAL  | P V V P P V | G01, G02                | H, L        | P02      |
+| 2.1.04<br>`az900.architecture.resources-groups`  | Resources og resource groups               | COMPLETE | V V V V V V | G01, G04, CA04          | H, P, L, PB | P02      |
+| 2.1.05<br>`az900.architecture.subscriptions`     | Subscriptions                              | COMPLETE | V V V V V V | G01, G04, CA05          | H, L, PB    | P02      |
+| 2.1.06<br>`az900.architecture.management-groups` | Management groups                          | COMPLETE | V V V V V V | G01, G04, CA06          | H, PB       | P02      |
+| 2.1.07<br>`az900.architecture.hierarchy`         | Hierarki og relasjonstyper                 | COMPLETE | V V V V V V | G01, G02, CA07          | H, L, PB    | P02      |
 
 ### 2.1.01 — Regions, region pairs og sovereign regions
 
@@ -391,43 +402,43 @@ Profilene under gir faktisk kilde/manuskript, mekanisme, tilgjengelig komponent,
 
 ### 2.1.04 — Resources og resource groups
 
-**Fasetter:** Resources: PARTIAL; Resource groups/lifecycle: PARTIAL.
+**Fasetter:** Resources: COMPLETE; Resource groups/lifecycle: COMPLETE.
 
-**Faktisk funn:** Reelle lokale grupper, medlemmer, metadata og hosting; naming convention skilles fra teknisk validering.
+**Faktisk funn:** P02 original full theory, actual inventory hierarchy/membership/dependency investigation, explicit scope/type/condition/effect model, four changed independent contexts with reasons and specific alternative feedback; reviewed official qualifications.
 
-**Rest / beslutning:** Riktig gruppeskjema/teknisk lab alene vurderer ikke et nytt lifecycle-grupperingsscenario eller management-versus-hosting.
+**Rest / beslutning:** Scoped A–F implementation pointers; qualified human SME/UX/screen-reader/learning transfer remain unperformed. Fixed tasks are bounded evidence, not exam readiness.
 
-**Kilder:** [EXAM](https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900), [M04](https://learn.microsoft.com/en-us/training/modules/describe-core-architectural-components-of-azure/), [ARM](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/overview). Lokal mål-ID er et kartleggingspunkt, ikke automatisk tildelt evidens.
+**Kilder:** [EXAM](https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900), [M04](https://learn.microsoft.com/en-us/training/modules/describe-core-architectural-components-of-azure/), [ARM](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/overview), [AM01](https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900), [AM02](https://learn.microsoft.com/en-us/training/modules/describe-core-architectural-components-of-azure/), [AM03](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/overview), [AM04](https://learn.microsoft.com/en-us/azure/governance/management-groups/overview), [AM05](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/manage-resource-groups-portal), [AM06](https://learn.microsoft.com/en-us/azure/governance/policy/overview), [AM07](https://learn.microsoft.com/en-us/azure/role-based-access-control/scope-overview), [AM08](https://learn.microsoft.com/en-us/entra/fundamentals/how-subscriptions-associated-directory), [AM09](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/design-area/resource-org), [AM10](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/scope), [AM11](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effect-basics), [AM12](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/design-area/resource-org-management-groups), [AM13](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/design-area/resource-org-subscriptions), [AM14](https://learn.microsoft.com/en-us/azure/cost-management-billing/manage/view-all-accounts), [AM15](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/resource-providers-and-types), [AM16](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/delete-resource-group), [AM17](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/control-plane-and-data-plane), [AM18](https://learn.microsoft.com/en-us/cli/azure/webapp?view=azure-cli-latest#az-webapp-create), [AM19](https://learn.microsoft.com/en-us/azure/app-service/app-service-plan-manage). Lokal mål-ID er et kartleggingspunkt, ikke automatisk tildelt evidens.
 
 ### 2.1.05 — Subscriptions
 
-**Fasetter:** Subscription boundary/billing: PARTIAL.
+**Fasetter:** Subscription boundary/billing: COMPLETE.
 
-**Faktisk funn:** Valg av abonnement, parent/ID og kort fakturerings-/styringsforklaring. Portalens separate kompatibilitetsoppdrag har et faktisk nytt-gruppe/subscription-predikat.
+**Faktisk funn:** P02 original full theory, actual inventory hierarchy/membership/dependency investigation, explicit scope/type/condition/effect model, four changed independent contexts with reasons and specific alternative feedback; reviewed official qualifications.
 
-**Rest / beslutning:** Det tekniske scope-predikatet er delvis anvendelse, men vurderer ikke selvstendig begrunnet valg av abonnementsgrense fra organisatoriske/billing-krav. Feil abonnement kan være teknisk gyldig.
+**Rest / beslutning:** Scoped A–F implementation pointers; qualified human SME/UX/screen-reader/learning transfer remain unperformed. Fixed tasks are bounded evidence, not exam readiness.
 
-**Kilder:** [EXAM](https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900), [M04](https://learn.microsoft.com/en-us/training/modules/describe-core-architectural-components-of-azure/), [ARM](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/overview). Lokal mål-ID er et kartleggingspunkt, ikke automatisk tildelt evidens.
+**Kilder:** [EXAM](https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900), [M04](https://learn.microsoft.com/en-us/training/modules/describe-core-architectural-components-of-azure/), [ARM](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/overview), [AM01](https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900), [AM02](https://learn.microsoft.com/en-us/training/modules/describe-core-architectural-components-of-azure/), [AM03](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/overview), [AM04](https://learn.microsoft.com/en-us/azure/governance/management-groups/overview), [AM05](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/manage-resource-groups-portal), [AM06](https://learn.microsoft.com/en-us/azure/governance/policy/overview), [AM07](https://learn.microsoft.com/en-us/azure/role-based-access-control/scope-overview), [AM08](https://learn.microsoft.com/en-us/entra/fundamentals/how-subscriptions-associated-directory), [AM09](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/design-area/resource-org), [AM10](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/scope), [AM11](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effect-basics), [AM12](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/design-area/resource-org-management-groups), [AM13](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/design-area/resource-org-subscriptions), [AM14](https://learn.microsoft.com/en-us/azure/cost-management-billing/manage/view-all-accounts), [AM15](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/resource-providers-and-types), [AM16](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/delete-resource-group), [AM17](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/control-plane-and-data-plane). Lokal mål-ID er et kartleggingspunkt, ikke automatisk tildelt evidens.
 
 ### 2.1.06 — Management groups
 
-**Fasetter:** Tenant root/management groups: PARTIAL.
+**Fasetter:** Tenant root/management groups: COMPLETE.
 
-**Faktisk funn:** Graf og scopeCopy viser root, management group og abonnement adskilt fra tenantidentitet.
+**Faktisk funn:** P02 original full theory, actual inventory hierarchy/membership/dependency investigation, explicit scope/type/condition/effect model, four changed independent contexts with reasons and specific alternative feedback; reviewed official qualifications.
 
-**Rest / beslutning:** Ingen full undervisningssekvens med arv/scope-konsekvenser og uavhengig oppgave; ingen operativ MG-motor behøves.
+**Rest / beslutning:** Scoped A–F implementation pointers; qualified human SME/UX/screen-reader/learning transfer remain unperformed. Fixed tasks are bounded evidence, not exam readiness.
 
-**Kilder:** [EXAM](https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900), [M04](https://learn.microsoft.com/en-us/training/modules/describe-core-architectural-components-of-azure/), [ARM](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/overview). Lokal mål-ID er et kartleggingspunkt, ikke automatisk tildelt evidens.
+**Kilder:** [EXAM](https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900), [M04](https://learn.microsoft.com/en-us/training/modules/describe-core-architectural-components-of-azure/), [ARM](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/overview), [AM01](https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900), [AM02](https://learn.microsoft.com/en-us/training/modules/describe-core-architectural-components-of-azure/), [AM03](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/overview), [AM04](https://learn.microsoft.com/en-us/azure/governance/management-groups/overview), [AM05](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/manage-resource-groups-portal), [AM06](https://learn.microsoft.com/en-us/azure/governance/policy/overview), [AM07](https://learn.microsoft.com/en-us/azure/role-based-access-control/scope-overview), [AM08](https://learn.microsoft.com/en-us/entra/fundamentals/how-subscriptions-associated-directory), [AM09](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/design-area/resource-org), [AM10](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/scope), [AM11](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effect-basics), [AM12](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/design-area/resource-org-management-groups), [AM13](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/design-area/resource-org-subscriptions), [AM14](https://learn.microsoft.com/en-us/azure/cost-management-billing/manage/view-all-accounts), [AM15](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/resource-providers-and-types), [AM16](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/delete-resource-group), [AM17](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/control-plane-and-data-plane). Lokal mål-ID er et kartleggingspunkt, ikke automatisk tildelt evidens.
 
 ### 2.1.07 — Hierarki og relasjonstyper
 
-**Fasetter:** MG/subscription/RG hierarchy: PARTIAL; Membership versus hosting/location: PARTIAL.
+**Fasetter:** MG/subscription/RG hierarchy: COMPLETE; Membership versus hosting/location: COMPLETE.
 
-**Faktisk funn:** Typed graf viser containment, identity association, hosting og geografi. Praktisk app→plan avviker fra app→group.
+**Faktisk funn:** P02 original full theory, actual inventory hierarchy/membership/dependency investigation, explicit scope/type/condition/effect model, four changed independent contexts with reasons and specific alternative feedback; reviewed official qualifications.
 
-**Rest / beslutning:** Inspeksjon/hosting-kriterium dekker ikke uavhengig hele MG→subscription→RG og riktig policy-arv.
+**Rest / beslutning:** Scoped A–F implementation pointers; qualified human SME/UX/screen-reader/learning transfer remain unperformed. Fixed tasks are bounded evidence, not exam readiness.
 
-**Kilder:** [EXAM](https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900), [M04](https://learn.microsoft.com/en-us/training/modules/describe-core-architectural-components-of-azure/), [ARM](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/overview). Lokal mål-ID er et kartleggingspunkt, ikke automatisk tildelt evidens.
+**Kilder:** [EXAM](https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900), [M04](https://learn.microsoft.com/en-us/training/modules/describe-core-architectural-components-of-azure/), [ARM](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/overview), [AM01](https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900), [AM02](https://learn.microsoft.com/en-us/training/modules/describe-core-architectural-components-of-azure/), [AM03](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/overview), [AM04](https://learn.microsoft.com/en-us/azure/governance/management-groups/overview), [AM05](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/manage-resource-groups-portal), [AM06](https://learn.microsoft.com/en-us/azure/governance/policy/overview), [AM07](https://learn.microsoft.com/en-us/azure/role-based-access-control/scope-overview), [AM08](https://learn.microsoft.com/en-us/entra/fundamentals/how-subscriptions-associated-directory), [AM09](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/design-area/resource-org), [AM10](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/scope), [AM11](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effect-basics), [AM12](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/design-area/resource-org-management-groups), [AM13](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/design-area/resource-org-subscriptions), [AM14](https://learn.microsoft.com/en-us/azure/cost-management-billing/manage/view-all-accounts), [AM15](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/resource-providers-and-types), [AM16](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/delete-resource-group), [AM17](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/control-plane-and-data-plane). Lokal mål-ID er et kartleggingspunkt, ikke automatisk tildelt evidens.
 
 ## 2.2 Compute and networking
 
@@ -905,6 +916,25 @@ Alle lenker ble kontrollert 2026-10-26. «Page updated» er bare registrert der 
 | AR12              | [Microsoft: Azure in China](https://learn.microsoft.com/en-us/azure/china/overview-operations)                                                                                                                                     | Rolling page; reviewed 2026-10-26 |
 | AR13              | [Microsoft: Reliability and sovereignty](https://learn.microsoft.com/en-us/azure/reliability/concept-reliability-sovereignty)                                                                                                      | Rolling page; reviewed 2026-10-26 |
 | AR14              | [Microsoft: Architecture/services path](https://learn.microsoft.com/en-us/training/paths/azure-fundamentals-describe-azure-architecture-services/)                                                                                 | Rolling page; reviewed 2026-10-26 |
+| AM01              | [Microsoft: Current AZ-900 Skills Measured; scoped qualifications in CORE_ARCHITECTURE_MANAGEMENT](https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900)                                     | Rolling page; reviewed 2026-10-26 |
+| AM02              | [Microsoft: Core architectural components public module/units; scoped qualifications in CORE_ARCHITECTURE_MANAGEMENT](https://learn.microsoft.com/en-us/training/modules/describe-core-architectural-components-of-azure/)         | Rolling page; reviewed 2026-10-26 |
+| AM03              | [Microsoft: Azure Resource Manager overview; scoped qualifications in CORE_ARCHITECTURE_MANAGEMENT](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/overview)                                            | Rolling page; reviewed 2026-10-26 |
+| AM04              | [Microsoft: Management groups overview; scoped qualifications in CORE_ARCHITECTURE_MANAGEMENT](https://learn.microsoft.com/en-us/azure/governance/management-groups/overview)                                                      | Rolling page; reviewed 2026-10-26 |
+| AM05              | [Microsoft: Manage resource groups Portal; scoped qualifications in CORE_ARCHITECTURE_MANAGEMENT](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/manage-resource-groups-portal)                         | Rolling page; reviewed 2026-10-26 |
+| AM06              | [Microsoft: Azure Policy overview; scoped qualifications in CORE_ARCHITECTURE_MANAGEMENT](https://learn.microsoft.com/en-us/azure/governance/policy/overview)                                                                      | Rolling page; reviewed 2026-10-26 |
+| AM07              | [Microsoft: RBAC scope overview; scoped qualifications in CORE_ARCHITECTURE_MANAGEMENT](https://learn.microsoft.com/en-us/azure/role-based-access-control/scope-overview)                                                          | Rolling page; reviewed 2026-10-26 |
+| AM08              | [Microsoft: Entra tenant and subscription association; scoped qualifications in CORE_ARCHITECTURE_MANAGEMENT](https://learn.microsoft.com/en-us/entra/fundamentals/how-subscriptions-associated-directory)                         | Rolling page; reviewed 2026-10-26 |
+| AM09              | [Microsoft: CAF resource organization; scoped qualifications in CORE_ARCHITECTURE_MANAGEMENT](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/design-area/resource-org)                        | Rolling page; reviewed 2026-10-26 |
+| AM10              | [Microsoft: Azure Policy scope; scoped qualifications in CORE_ARCHITECTURE_MANAGEMENT](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/scope)                                                                   | Rolling page; reviewed 2026-10-26 |
+| AM11              | [Microsoft: Policy effect basics; scoped qualifications in CORE_ARCHITECTURE_MANAGEMENT](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effect-basics)                                                         | Rolling page; reviewed 2026-10-26 |
+| AM12              | [Microsoft: CAF management group design; scoped qualifications in CORE_ARCHITECTURE_MANAGEMENT](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/design-area/resource-org-management-groups)    | Rolling page; reviewed 2026-10-26 |
+| AM13              | [Microsoft: CAF subscription design; scoped qualifications in CORE_ARCHITECTURE_MANAGEMENT](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/design-area/resource-org-subscriptions)            | Rolling page; reviewed 2026-10-26 |
+| AM14              | [Microsoft: Billing accounts and scopes; scoped qualifications in CORE_ARCHITECTURE_MANAGEMENT](https://learn.microsoft.com/en-us/azure/cost-management-billing/manage/view-all-accounts)                                          | Rolling page; reviewed 2026-10-26 |
+| AM15              | [Microsoft: Resource providers and types; scoped qualifications in CORE_ARCHITECTURE_MANAGEMENT](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/resource-providers-and-types)                           | Rolling page; reviewed 2026-10-26 |
+| AM16              | [Microsoft: Resource group deletion; scoped qualifications in CORE_ARCHITECTURE_MANAGEMENT](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/delete-resource-group)                                       | Rolling page; reviewed 2026-10-26 |
+| AM17              | [Microsoft: Control plane and data plane; scoped qualifications in CORE_ARCHITECTURE_MANAGEMENT](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/control-plane-and-data-plane)                           | Rolling page; reviewed 2026-10-26 |
+| AM18              | [Microsoft: Explicit new-app shared plan in another group by resource ID; scoped Case B teaching](https://learn.microsoft.com/en-us/cli/azure/webapp?view=azure-cli-latest#az-webapp-create)                                       | Rolling page; reviewed 2026-10-26 |
+| AM19              | [Microsoft: Existing-app plan changes have additional webspace/region/OS constraints, not arbitrary move support](https://learn.microsoft.com/en-us/azure/app-service/app-service-plan-manage)                                     | Rolling page; reviewed 2026-10-26 |
 
 Den offentlige Learn-skallet viste enkelte steder en authorization-melding samtidig som artikkelteksten var lesbar. Ingen tenant, tilgangskontroll eller innlogging ble omgått. Nettkildene er referanser, ikke runtime-avhengigheter.
 

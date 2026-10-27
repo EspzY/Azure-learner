@@ -1,5 +1,9 @@
 # Learning journey and competency universe
 
+## Current available Core Architecture sequence — PR23
+
+Cloud Computing → Benefits → Service Types → Core Architecture Part A physical teaching/explorer/assessment → Part A results → Part B organization/resources/groups/subscriptions/management → live hierarchy → scope model and actual existing lab → Part B assessment → shared summary/Journal. Parts keep separate versions and results; neither visit nor historical A completion satisfies B. Advanced policy/RBAC and future modules remain unavailable. [Authored sequence](CORE_ARCHITECTURE_MANAGEMENT.md).
+
 ## Current core architecture Part A
 
 The ordinary course now continues Cloud Computing → Benefits → Service Types → Core Architecture Part A, on the second verified official path. F02 has scoped physical/geographic teaching and new CA01–03 observations, not complete management-hierarchy or professional competency evidence. Part B remains planned/unavailable; old module completion supplies none of these results. See [authored Part A](CORE_ARCHITECTURE_PHYSICAL.md), actual matrix and project status.

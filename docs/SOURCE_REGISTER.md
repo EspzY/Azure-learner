@@ -1,5 +1,9 @@
 # Source and credential register
 
+## P02 reviewed original management material —2026-10-27
+
+AM01–19 in [source/claim map](CORE_ARCHITECTURE_MANAGEMENT.md#scoped-source-map-and-qualifications) and scoped release record cover official objectives/public units, ARM/provider/higher-scope exceptions, RG metadata/lifecycle/deletion, subscriptions/tenant/billing distinctions, management groups/root and policy assignment/type/condition/effects. AM18 explicitly supports new-app hosting on a shared plan in another group; AM19 distinguishes existing-app plan changes/webspace constraints. No local cross-group operation is added. Current precise product documentation qualifies simplified Learn wording. Public bodies were read; protected assessment, signup/payment/agreements and live sandbox excluded. No copied questions, diagrams or new assets; human SME review unperformed.
+
 ## P01 reviewed sources2026-10-27
 
 AR01–AR14 in [Part A source discovery](CORE_ARCHITECTURE_PHYSICAL.md#source-discovery-and-claims-checked2026-10-27) map current exam/module/public units/reliability/physical security/sovereign material to CA01–03. Public bodies were readable despite generic product-page authorization banners; no protection bypass. The physical Learn unit's broad automatic-pair-failover wording is qualified by current regions-paired documentation. Nonregional services and nonzonal deployments are distinct. Five example regions are a dated subset; no actual building mapping, SLA, service-capacity/prices or general compliance guarantee. Videos/maps are optional context, not claimed as fully exercised. Human SME unperformed.

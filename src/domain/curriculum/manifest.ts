@@ -176,3 +176,5 @@ export { serverlessManifest } from './serverless';
 
 /** Independently versioned Part A; no old rubric/evidence upgrade. */
 export { physicalManifest } from './architecture-physical';
+
+export { managementManifest } from './architecture-management';

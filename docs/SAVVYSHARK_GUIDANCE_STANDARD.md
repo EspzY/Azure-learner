@@ -1,5 +1,9 @@
 # SavvyShark guidance standard
 
+## Part B observed insights — PR23
+
+management-relations and management-policy are1.0.0 conceptual guidance definitions. Automatic claims require a new saved causal explanation against actual app/group/plan references or inspection of an actual replayed App Sandbox deny with no added resource. Live qualification is rechecked for recall. Guided safe contexts only; native mission/blur, dedup, reopen, storage uncertainty and independent shielding remain. Explicit start/cancel changes no technical/evidence truth. Critical instructions remain expanded. [Boundaries](CORE_ARCHITECTURE_MANAGEMENT.md).
+
 Versjon1.0.0. Aktiv F1–F5/Gate4-kontrakt; [GUIDED_SANDBOX_ENGINE](GUIDED_SANDBOX_ENGINE.md) og [SAVVYSHARK_INTEGRATION](SAVVYSHARK_INTEGRATION.md) beholder eksisterende guide-/assetdetaljer. Ingen chatbot, kommandoagent, ny maskot eller ny læringsautoritet.
 
 ## F1 — Mission

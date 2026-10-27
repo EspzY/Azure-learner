@@ -411,6 +411,120 @@
       "reviewed": "2026-10-27",
       "purpose": "Architecture/services path",
       "kind": "technical"
+    },
+    "AM01": {
+      "url": "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900",
+      "reviewed": "2026-10-27",
+      "purpose": "Current AZ-900 Skills Measured; scoped qualifications in CORE_ARCHITECTURE_MANAGEMENT",
+      "kind": "exam"
+    },
+    "AM02": {
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-core-architectural-components-of-azure/",
+      "reviewed": "2026-10-27",
+      "purpose": "Core architectural components public module/units; scoped qualifications in CORE_ARCHITECTURE_MANAGEMENT",
+      "kind": "module"
+    },
+    "AM03": {
+      "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/overview",
+      "reviewed": "2026-10-27",
+      "purpose": "Azure Resource Manager overview; scoped qualifications in CORE_ARCHITECTURE_MANAGEMENT",
+      "kind": "technical"
+    },
+    "AM04": {
+      "url": "https://learn.microsoft.com/en-us/azure/governance/management-groups/overview",
+      "reviewed": "2026-10-27",
+      "purpose": "Management groups overview; scoped qualifications in CORE_ARCHITECTURE_MANAGEMENT",
+      "kind": "technical"
+    },
+    "AM05": {
+      "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/manage-resource-groups-portal",
+      "reviewed": "2026-10-27",
+      "purpose": "Manage resource groups Portal; scoped qualifications in CORE_ARCHITECTURE_MANAGEMENT",
+      "kind": "technical"
+    },
+    "AM06": {
+      "url": "https://learn.microsoft.com/en-us/azure/governance/policy/overview",
+      "reviewed": "2026-10-27",
+      "purpose": "Azure Policy overview; scoped qualifications in CORE_ARCHITECTURE_MANAGEMENT",
+      "kind": "technical"
+    },
+    "AM07": {
+      "url": "https://learn.microsoft.com/en-us/azure/role-based-access-control/scope-overview",
+      "reviewed": "2026-10-27",
+      "purpose": "RBAC scope overview; scoped qualifications in CORE_ARCHITECTURE_MANAGEMENT",
+      "kind": "technical"
+    },
+    "AM08": {
+      "url": "https://learn.microsoft.com/en-us/entra/fundamentals/how-subscriptions-associated-directory",
+      "reviewed": "2026-10-27",
+      "purpose": "Entra tenant and subscription association; scoped qualifications in CORE_ARCHITECTURE_MANAGEMENT",
+      "kind": "technical"
+    },
+    "AM09": {
+      "url": "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/design-area/resource-org",
+      "reviewed": "2026-10-27",
+      "purpose": "CAF resource organization; scoped qualifications in CORE_ARCHITECTURE_MANAGEMENT",
+      "kind": "technical"
+    },
+    "AM10": {
+      "url": "https://learn.microsoft.com/en-us/azure/governance/policy/concepts/scope",
+      "reviewed": "2026-10-27",
+      "purpose": "Azure Policy scope; scoped qualifications in CORE_ARCHITECTURE_MANAGEMENT",
+      "kind": "technical"
+    },
+    "AM11": {
+      "url": "https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effect-basics",
+      "reviewed": "2026-10-27",
+      "purpose": "Policy effect basics; scoped qualifications in CORE_ARCHITECTURE_MANAGEMENT",
+      "kind": "technical"
+    },
+    "AM12": {
+      "url": "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/design-area/resource-org-management-groups",
+      "reviewed": "2026-10-27",
+      "purpose": "CAF management group design; scoped qualifications in CORE_ARCHITECTURE_MANAGEMENT",
+      "kind": "technical"
+    },
+    "AM13": {
+      "url": "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/design-area/resource-org-subscriptions",
+      "reviewed": "2026-10-27",
+      "purpose": "CAF subscription design; scoped qualifications in CORE_ARCHITECTURE_MANAGEMENT",
+      "kind": "technical"
+    },
+    "AM14": {
+      "url": "https://learn.microsoft.com/en-us/azure/cost-management-billing/manage/view-all-accounts",
+      "reviewed": "2026-10-27",
+      "purpose": "Billing accounts and scopes; scoped qualifications in CORE_ARCHITECTURE_MANAGEMENT",
+      "kind": "technical"
+    },
+    "AM15": {
+      "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/resource-providers-and-types",
+      "reviewed": "2026-10-27",
+      "purpose": "Resource providers and types; scoped qualifications in CORE_ARCHITECTURE_MANAGEMENT",
+      "kind": "technical"
+    },
+    "AM16": {
+      "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/delete-resource-group",
+      "reviewed": "2026-10-27",
+      "purpose": "Resource group deletion; scoped qualifications in CORE_ARCHITECTURE_MANAGEMENT",
+      "kind": "technical"
+    },
+    "AM17": {
+      "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/control-plane-and-data-plane",
+      "reviewed": "2026-10-27",
+      "purpose": "Control plane and data plane; scoped qualifications in CORE_ARCHITECTURE_MANAGEMENT",
+      "kind": "technical"
+    },
+    "AM18": {
+      "url": "https://learn.microsoft.com/en-us/cli/azure/webapp?view=azure-cli-latest#az-webapp-create",
+      "reviewed": "2026-10-27",
+      "purpose": "Explicit new-app shared plan in another group by resource ID; scoped Case B teaching",
+      "kind": "technical"
+    },
+    "AM19": {
+      "url": "https://learn.microsoft.com/en-us/azure/app-service/app-service-plan-manage",
+      "reviewed": "2026-10-27",
+      "purpose": "Existing-app plan changes have additional webspace/region/OS constraints, not arbitrary move support",
+      "kind": "technical"
     }
   },
   "evidenceProfiles": {
@@ -904,6 +1018,45 @@
         "tests/e2e/architecture-physical.spec.ts"
       ],
       "limits": "Concept model, dated5-region subset, fictional facilities, explicit copies/routing and unknown placement. No Portal/resource/runtime/failover/SLA claim. Fixed original cases, no human SME/UX/transfer approval. Full Core Architecture remains partial pending Part B."
+    },
+    "PB": {
+      "teaching": [
+        {
+          "path": "src/content/nb.ts",
+          "marker": "managementNb"
+        },
+        {
+          "path": "docs/CORE_ARCHITECTURE_MANAGEMENT.md",
+          "marker": "Original teaching manuscript"
+        }
+      ],
+      "mechanism": [
+        {
+          "path": "src/domain/curriculum/architecture-management.ts",
+          "marker": "evaluateScope"
+        },
+        {
+          "path": "src/domain/curriculum/architecture-management.ts",
+          "marker": "managementHierarchy"
+        }
+      ],
+      "presentation": [
+        {
+          "path": "src/features/learning/management.tsx",
+          "marker": "HierarchyExplorer"
+        }
+      ],
+      "assessment": [
+        {
+          "path": "src/domain/curriculum/architecture-management.ts",
+          "marker": "managementCriteria"
+        }
+      ],
+      "tests": [
+        "src/domain/curriculum/architecture-management.test.ts",
+        "tests/e2e/architecture-management.spec.ts"
+      ],
+      "limits": "Actual replayed inventory read-only, pure separate counterfactual rules, fixed original changed-context tasks and reason feedback. No generic policy/RBAC/MG operation, human SME/UX/learning approval or historical evidence conversion."
     }
   },
   "plannedPRs": [
@@ -1537,113 +1690,199 @@
       "slot": "2.1.04",
       "id": "az900.architecture.resources-groups",
       "title": "Resources og resource groups",
-      "status": "PARTIAL",
+      "status": "COMPLETE",
       "criteria": {
         "A": "V",
         "B": "V",
         "C": "V",
-        "D": "P",
-        "E": "P",
+        "D": "V",
+        "E": "V",
         "F": "V"
       },
       "facets": [
         {
           "topic": "Resources",
-          "status": "PARTIAL"
+          "status": "COMPLETE"
         },
         {
           "topic": "Resource groups/lifecycle",
-          "status": "PARTIAL"
+          "status": "COMPLETE"
         }
       ],
-      "localObjectives": ["G01", "G04"],
-      "evidence": ["H", "P", "L"],
-      "observed": "Reelle lokale grupper, medlemmer, metadata og hosting; naming convention skilles fra teknisk validering.",
-      "gap": "Riktig gruppeskjema/teknisk lab alene vurderer ikke et nytt lifecycle-grupperingsscenario eller management-versus-hosting.",
+      "localObjectives": ["G01", "G04", "CA04"],
+      "evidence": ["H", "P", "L", "PB"],
+      "observed": "P02 original full theory, actual inventory hierarchy/membership/dependency investigation, explicit scope/type/condition/effect model, four changed independent contexts with reasons and specific alternative feedback; reviewed official qualifications.",
+      "gap": "Scoped A–F implementation pointers; qualified human SME/UX/screen-reader/learning transfer remain unperformed. Fixed tasks are bounded evidence, not exam readiness.",
       "plannedPRs": ["P02"],
-      "sources": ["EXAM", "M04", "ARM"]
+      "sources": [
+        "EXAM",
+        "M04",
+        "ARM",
+        "AM01",
+        "AM02",
+        "AM03",
+        "AM04",
+        "AM05",
+        "AM06",
+        "AM07",
+        "AM08",
+        "AM09",
+        "AM10",
+        "AM11",
+        "AM12",
+        "AM13",
+        "AM14",
+        "AM15",
+        "AM16",
+        "AM17",
+        "AM18",
+        "AM19"
+      ]
     },
     {
       "slot": "2.1.05",
       "id": "az900.architecture.subscriptions",
       "title": "Subscriptions",
-      "status": "PARTIAL",
+      "status": "COMPLETE",
       "criteria": {
-        "A": "P",
-        "B": "P",
+        "A": "V",
+        "B": "V",
         "C": "V",
-        "D": "P",
-        "E": "P",
+        "D": "V",
+        "E": "V",
         "F": "V"
       },
       "facets": [
         {
           "topic": "Subscription boundary/billing",
-          "status": "PARTIAL"
+          "status": "COMPLETE"
         }
       ],
-      "localObjectives": ["G01", "G04"],
-      "evidence": ["H", "L"],
-      "observed": "Valg av abonnement, parent/ID og kort fakturerings-/styringsforklaring. Portalens separate kompatibilitetsoppdrag har et faktisk nytt-gruppe/subscription-predikat.",
-      "gap": "Det tekniske scope-predikatet er delvis anvendelse, men vurderer ikke selvstendig begrunnet valg av abonnementsgrense fra organisatoriske/billing-krav. Feil abonnement kan være teknisk gyldig.",
+      "localObjectives": ["G01", "G04", "CA05"],
+      "evidence": ["H", "L", "PB"],
+      "observed": "P02 original full theory, actual inventory hierarchy/membership/dependency investigation, explicit scope/type/condition/effect model, four changed independent contexts with reasons and specific alternative feedback; reviewed official qualifications.",
+      "gap": "Scoped A–F implementation pointers; qualified human SME/UX/screen-reader/learning transfer remain unperformed. Fixed tasks are bounded evidence, not exam readiness.",
       "plannedPRs": ["P02"],
-      "sources": ["EXAM", "M04", "ARM"]
+      "sources": [
+        "EXAM",
+        "M04",
+        "ARM",
+        "AM01",
+        "AM02",
+        "AM03",
+        "AM04",
+        "AM05",
+        "AM06",
+        "AM07",
+        "AM08",
+        "AM09",
+        "AM10",
+        "AM11",
+        "AM12",
+        "AM13",
+        "AM14",
+        "AM15",
+        "AM16",
+        "AM17"
+      ]
     },
     {
       "slot": "2.1.06",
       "id": "az900.architecture.management-groups",
       "title": "Management groups",
-      "status": "PARTIAL",
+      "status": "COMPLETE",
       "criteria": {
-        "A": "P",
-        "B": "P",
-        "C": "P",
-        "D": "M",
-        "E": "P",
+        "A": "V",
+        "B": "V",
+        "C": "V",
+        "D": "V",
+        "E": "V",
         "F": "V"
       },
       "facets": [
         {
           "topic": "Tenant root/management groups",
-          "status": "PARTIAL"
+          "status": "COMPLETE"
         }
       ],
-      "localObjectives": ["G01", "G04"],
-      "evidence": ["H"],
-      "observed": "Graf og scopeCopy viser root, management group og abonnement adskilt fra tenantidentitet.",
-      "gap": "Ingen full undervisningssekvens med arv/scope-konsekvenser og uavhengig oppgave; ingen operativ MG-motor behøves.",
+      "localObjectives": ["G01", "G04", "CA06"],
+      "evidence": ["H", "PB"],
+      "observed": "P02 original full theory, actual inventory hierarchy/membership/dependency investigation, explicit scope/type/condition/effect model, four changed independent contexts with reasons and specific alternative feedback; reviewed official qualifications.",
+      "gap": "Scoped A–F implementation pointers; qualified human SME/UX/screen-reader/learning transfer remain unperformed. Fixed tasks are bounded evidence, not exam readiness.",
       "plannedPRs": ["P02"],
-      "sources": ["EXAM", "M04", "ARM"]
+      "sources": [
+        "EXAM",
+        "M04",
+        "ARM",
+        "AM01",
+        "AM02",
+        "AM03",
+        "AM04",
+        "AM05",
+        "AM06",
+        "AM07",
+        "AM08",
+        "AM09",
+        "AM10",
+        "AM11",
+        "AM12",
+        "AM13",
+        "AM14",
+        "AM15",
+        "AM16",
+        "AM17"
+      ]
     },
     {
       "slot": "2.1.07",
       "id": "az900.architecture.hierarchy",
       "title": "Hierarki og relasjonstyper",
-      "status": "PARTIAL",
+      "status": "COMPLETE",
       "criteria": {
-        "A": "P",
+        "A": "V",
         "B": "V",
         "C": "V",
-        "D": "P",
-        "E": "P",
+        "D": "V",
+        "E": "V",
         "F": "V"
       },
       "facets": [
         {
           "topic": "MG/subscription/RG hierarchy",
-          "status": "PARTIAL"
+          "status": "COMPLETE"
         },
         {
           "topic": "Membership versus hosting/location",
-          "status": "PARTIAL"
+          "status": "COMPLETE"
         }
       ],
-      "localObjectives": ["G01", "G02"],
-      "evidence": ["H", "L"],
-      "observed": "Typed graf viser containment, identity association, hosting og geografi. Praktisk app→plan avviker fra app→group.",
-      "gap": "Inspeksjon/hosting-kriterium dekker ikke uavhengig hele MG→subscription→RG og riktig policy-arv.",
+      "localObjectives": ["G01", "G02", "CA07"],
+      "evidence": ["H", "L", "PB"],
+      "observed": "P02 original full theory, actual inventory hierarchy/membership/dependency investigation, explicit scope/type/condition/effect model, four changed independent contexts with reasons and specific alternative feedback; reviewed official qualifications.",
+      "gap": "Scoped A–F implementation pointers; qualified human SME/UX/screen-reader/learning transfer remain unperformed. Fixed tasks are bounded evidence, not exam readiness.",
       "plannedPRs": ["P02"],
-      "sources": ["EXAM", "M04", "ARM"]
+      "sources": [
+        "EXAM",
+        "M04",
+        "ARM",
+        "AM01",
+        "AM02",
+        "AM03",
+        "AM04",
+        "AM05",
+        "AM06",
+        "AM07",
+        "AM08",
+        "AM09",
+        "AM10",
+        "AM11",
+        "AM12",
+        "AM13",
+        "AM14",
+        "AM15",
+        "AM16",
+        "AM17"
+      ]
     },
     {
       "slot": "2.2.01",
@@ -2792,6 +3031,33 @@
         "AR14"
       ],
       "note": "Only physical Part A2.1.01-03 re-audited. Other54 objective rows, especially2.1.04-07, retain previous semantics. No learner evidence upgrade or human approval."
+    },
+    {
+      "id": "P02",
+      "reviewed": "2026-10-27",
+      "objectives": ["2.1.04", "2.1.05", "2.1.06", "2.1.07"],
+      "sources": [
+        "AM01",
+        "AM02",
+        "AM03",
+        "AM04",
+        "AM05",
+        "AM06",
+        "AM07",
+        "AM08",
+        "AM09",
+        "AM10",
+        "AM11",
+        "AM12",
+        "AM13",
+        "AM14",
+        "AM15",
+        "AM16",
+        "AM17",
+        "AM18",
+        "AM19"
+      ],
+      "note": "Only four scoped management rows re-audited. Part A historical source/evidence semantics unchanged; combined module projects seven implemented objectives without learner upgrades. Human approval unperformed."
     }
   ]
 }

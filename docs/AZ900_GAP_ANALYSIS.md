@@ -1,5 +1,9 @@
 # AZ-900 — faktisk dekning og læringshull
 
+## P02 scoped implementation update —2026-10-27
+
+The four management objectives2.1.04–07 now have profile PB: full original theory/qualifications, actual inventory and separate scope model, four new independent contexts/reasons/alternative feedback and reviewed official sources. Together with unchanged Part A pointers, all seven core objectives have implemented A–F content coverage. This does not upgrade any historical learner or satisfy human review. Other53 objective rows are unchanged. [Current generated matrix](AZ900_COVERAGE_MATRIX.md); [boundaries](CORE_ARCHITECTURE_MANAGEMENT.md).
+
 ## Scoped P01 implementation update2026-10-27
 
 The three physical core requirements2.1.01–03 now have explicit A–F implementation pointers through profile PA. Region pairs do not imply app recovery; service-specific zones, nonpaired/asymmetric cases and sovereign environment boundaries are taught and tested. This closes only the scoped physical content gaps. Management Part B2.1.04–07 remains unchanged, and the full Core Architecture module is partial. Historical counts/findings below are dated; the generated matrix owns current counts. [Actual contract](CORE_ARCHITECTURE_PHYSICAL.md).

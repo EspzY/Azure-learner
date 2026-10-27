@@ -1,5 +1,13 @@
 # Local curriculum and evidence architecture
 
+## Current Core Architecture composition — PR23
+
+Renewal supersedes the initial B-only guard: shared Core/Journal/reference presentation checks nine existing assessment contexts through the read-only prepareExistingTeaching adapter and frozen parsers/facts/aid commands. Latest valid replay must match the mounted snapshot; even event=true is insufficient if the event remains unsaved. No old store/rubric changes or answer merges. A single LearningProvider is inside the existing data providers, enabling its old Journal to observe all contexts. Own assessment forms and operational independent Portal work are deliberately excluded according to existing rules; old course teaching still observes the new Core A/B contexts. Failed access presents the relevant store's reload/own recovery route, never a global reset.
+
+Answer-bearing course/Journal/Portal presentation uses ManagementTeachingBoundary and the store's prepareTeaching preflight: compare current bytes and confirm required durable aid before mounting. Uncertain context holds explanations until explicit reconciliation; it never merges drafts or rewrites a first submission. Already-open Journal content is withheld on conflict. Non-instructional discovery stays available with denied storage. One ManagementProvider wraps the shared older Journal as well; all prior data providers remain single instances.
+
+managementManifest/CA04–07 register explicit teaching, actual-inventory/pure-scope practice and changed independent decisions. Its isolated1.0.0 record never rewrites Part A. officialCore projects seven implemented content objectives; officialPhysical remains the historical Part A3/7 descriptor. CoreArchitectureJournal renders both original manuscripts; CoreArchitectureSummary derives both stores' taught/guided/first outcomes separately, with no XP/Microsoft completion. [Contract](CORE_ARCHITECTURE_MANAGEMENT.md).
+
 ## Core Architecture Part A1.0.0
 
 physicalManifest is exported through the established curriculum manifest, with stable CA01–03/F02 objectives, source review2026-10-27, explicit teaching/model/independent activity bindings and separate assessment criteria. Original nb.ts manuscript precedes UI. officialPhysical records the next path/core-module7 objectives and partial3-objective implementation; original cloud-concepts metadata stays unchanged. Journal reuses all five theory sections and sources. Part A events pin module/content/model/rubric and never upgrade old data; Part B can later compose objective projections from a separate versioned contract. [Manuscript and evidence boundaries](CORE_ARCHITECTURE_PHYSICAL.md).

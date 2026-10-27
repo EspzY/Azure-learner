@@ -1,6 +1,6 @@
 import { test, expect, type Page } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
-import { architectureNb as c, nb, serverlessNb } from '../../src/content/nb';
+import { architectureNb as c, nb, serverlessNb, managementNb } from '../../src/content/nb';
 import {
   physicalKey,
   freshPhysical,
@@ -77,7 +77,7 @@ test('ordinary root → full Part A teaching, three causal witnesses, first part
   await page.getByRole('link', { name: c.open, exact: true }).click();
   await expect(page.locator('.physical-lesson h2').first()).toHaveText(c.topics.datacenters);
   await expect(
-    page.getByRole('main').getByText(c.available, { exact: false }).first(),
+    page.getByRole('main').getByText(managementNb.available, { exact: false }).first(),
   ).toBeVisible();
   await page.screenshot({ path: info.outputPath('physical-current-lesson.png') });
   for (const section of Object.keys(physicalStudy) as (keyof typeof physicalStudy)[]) {

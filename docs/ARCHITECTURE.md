@@ -1,5 +1,9 @@
 # Architecture
 
+## Part B read-only projection and evidence — PR23
+
+Management hierarchy projects the current SandboxProvider World with inventory(); directory is an identity annotation, not an extra ARM parent. Scope/Policy Explorer uses a separate deterministic fixture for hypothetical create decisions. No new operational policy/management commands or duplicate inventory. B learning uses an isolated replayed1.0.0 key/store and the corrected A persistence pattern; A remains byte/semantic compatible. Shared course/Journal/summary and existing allowlisted lab origin compose these read-only boundaries. [Full design](CORE_ARCHITECTURE_MANAGEMENT.md).
+
 ## PR22: physical concept model and course module
 
 PhysicalLesson/InfrastructureScene project a pure bounded architecture-physical model; no Portal imports/inventory. Explicit component placements and requires-data/routes-to relations determine service results, including nonzonal uncertainty. Part A uses the existing Course/Journal/GuidanceWindow and its own versioned replay/store/provider, with native scoped invalid-record recovery. Course resume gains only an allowlisted module/topic. CA01–03 map to F02 at Fundamentals depth; Part B and higher-certification evidence are not implied. [Full authored contract](CORE_ARCHITECTURE_PHYSICAL.md).

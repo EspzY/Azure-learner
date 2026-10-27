@@ -1,3 +1,4 @@
+import { ManagementProvider } from '@/features/learning/management-provider';
 import { PhysicalProvider } from '@/features/learning/physical-provider';
 import { SaasProvider } from '@/features/portal/saas-provider';
 import { PracticalProvider } from '@/features/course/practical-provider';
@@ -24,7 +25,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="nb">
       <body>
         <ProgressProvider>
-          <LearningProvider>
+          <ManagementProvider>
             <PortalLearningProvider>
               <FoundationsV2Provider>
                 <CourseProvider>
@@ -34,7 +35,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                         <PracticalProvider>
                           <ServerlessProvider>
                             <PhysicalProvider>
-                              <AppShell>{children}</AppShell>
+                              <LearningProvider>
+                                <AppShell>{children}</AppShell>
+                              </LearningProvider>
                             </PhysicalProvider>
                           </ServerlessProvider>
                         </PracticalProvider>
@@ -44,7 +47,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 </CourseProvider>
               </FoundationsV2Provider>
             </PortalLearningProvider>
-          </LearningProvider>
+          </ManagementProvider>
         </ProgressProvider>
       </body>
     </html>

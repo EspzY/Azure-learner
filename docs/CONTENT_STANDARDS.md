@@ -1,5 +1,9 @@
 # Content authoring and acceptance contract
 
+## P02 concrete application — PR23
+
+[Management manuscript](CORE_ARCHITECTURE_MANAGEMENT.md) precedes presentation, separates identity/scope/membership/hosting/geography, and qualifies source conflicts rather than repeating universal simplifications. Guided model/real Portal work and four changed independent contexts are distinct. Summary and the common Journal count as help during an active independent task. A/B content completeness is separate from learner outcomes and human validation.
+
 ## Permanent owner quality contract — PR20
 
 [QUALITY_CONTRACT](QUALITY_CONTRACT.md) is the active A–I umbrella. This document remains the detailed manuscript standard; [CONTENT_QA_STANDARD](CONTENT_QA_STANDARD.md) specifies its traceable implementation/review evidence, and [SOURCE_COVERAGE_PROTOCOL](SOURCE_COVERAGE_PROTOCOL.md) requires scoped unit-page, linked/expandable/supplemental discovery and concrete claim checks. All new modules require independent new-context application and correct/plausible-wrong feedback, not a word-count threshold. [Independent Final Audit](RELEASE_ACCEPTANCE.md) is mandatory after implementation with blockers fixed/retested. Existing PR19 PARTIAL statuses remain; PR20 adds guidance infrastructure, not new module/assessment coverage or human approval.

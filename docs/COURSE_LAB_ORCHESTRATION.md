@@ -1,5 +1,9 @@
 # Course/lab orchestration
 
+## Part B origin — PR23
+
+The existing web-platform session allows architecture-management as a navigation-only origin. courseLabHref returns architecture/scope with activity=lab or debrief; existing receipt/boundary/hosting predicates remain unchanged. First launch reuses MissionBriefing; resume preserves supported work. Part B focuses the actual debrief section and reads real inventory. No new operational session/evidence model or changed legacy origins. [Scope](CORE_ARCHITECTURE_MANAGEMENT.md).
+
 ## Briefing boundary — 2026-10-26
 
 A guided practical launch is now two actions: open mission, then explicitly start the existing session. Cancel does not choose a content version, create a session or write a command. The Benefits inspection bridge has its own shorter brief and retains its allowlisted exact origin; it creates no practical session. Valid resume bypasses repeated briefing. The legacy Service Types Web prerequisite launcher also briefs on first start; its predicates and course return are unchanged. [Audit](GUIDED_LEARNING_REFINEMENT.md).
