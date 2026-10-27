@@ -1,7 +1,7 @@
 'use client';
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { architectureNb as c } from '@/content/nb';
+import { architectureNb as c, managementNb } from '@/content/nb';
 import {
   evaluateInfrastructure,
   failureTargets,
@@ -240,11 +240,19 @@ function TheoryFigure({ section }: { section: PhysicalSection }) {
     </div>
   );
 }
+/** Same action identity in the working explorer and its clearly paused surface. */
+export function PhysicalRunControl({ disabled, onRun }: { disabled: boolean; onRun?: () => void }) {
+  return (
+    <button type="button" className="pa-primary" disabled={disabled} onClick={onRun}>
+      {c.run}
+    </button>
+  );
+}
 function PhysicalExplorer({ blocked }: { blocked: boolean }) {
   const s = usePhysical(),
     last = s.facts.runs.at(-1);
   const [input, setInput] = useState<InfrastructureInput>(last?.input ?? initialInfrastructure),
-    [prediction, setPrediction] = useState(''),
+    [prediction, setPrediction] = useState<string>(last?.prediction ?? ''),
     [started, setStarted] = useState(!!last),
     [dialog, setDialog] = useState<'brief' | 'loss' | 'resilience' | null>(null),
     [warning, setWarning] = useState(false),
@@ -498,13 +506,7 @@ function PhysicalExplorer({ blocked }: { blocked: boolean }) {
                 ))}
               </select>
             </label>
-            <button
-              className="pa-primary"
-              disabled={!validInfrastructure(input) || !prediction}
-              onClick={run}
-            >
-              {c.run}
-            </button>
+            <PhysicalRunControl disabled={!validInfrastructure(input) || !prediction} onRun={run} />
           </fieldset>
           {!validInfrastructure(input) && <p role="status">{c.invalid}</p>}
           {input.placement === 'multi-region' &&
@@ -761,7 +763,7 @@ function PhysicalAssessment({ blocked }: { blocked: boolean }) {
           {f.assisted && <p>{c.aidText}</p>}
         </>
       )}
-      {!f.active && last && (
+      {!s.issue && !f.active && last && (
         <section className="pa-feedback">
           <h3>{c.feedback}</h3>
           <p>
@@ -846,7 +848,7 @@ function PhysicalSummary() {
       <section className="pa-next">
         <h4>{c.nextPart}</h4>
         <p>{c.planned}</p>
-        <Link href="/learn">{c.backCourse}</Link>
+        <Link href="/learn/architecture?topic=organization">{managementNb.resumeB}</Link>
       </section>
     </section>
   );

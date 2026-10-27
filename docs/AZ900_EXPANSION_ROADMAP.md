@@ -1,5 +1,9 @@
 # AZ-900 — prioritert, avgrenset PR-plan
 
+## P02 current disposition —2026-10-27
+
+Core Architecture Part B is implemented in the ordinary module, completing the seven-objective authored/implemented sequence with separately versioned A/B evidence. No advanced MG CRUD, Policy/RBAC engine or new resource service is introduced. Historical P00–P02 planning below remains for traceability. Next recommendation is P03: strengthen changed independent Cloud Computing transfer evidence before broad new operational services. Qualified human review is still outstanding. [Implementation contract](CORE_ARCHITECTURE_MANAGEMENT.md).
+
 ## P01 implementation update2026-10-27
 
 Core Part A is implemented as the next ordinary course module with three separately versioned objectives and physical failure/dependency model. The complete core module remains partial until P02/PR23 supplies resources/resource groups, subscriptions, management groups and hierarchy. No future operational failover, AZ-104/AZ-305 functionality or full module evidence is implemented. [Scope and authored manuscript](CORE_ARCHITECTURE_PHYSICAL.md); actual tests/review/delivery belong to PROJECT_STATUS and the new Draft PR.

@@ -1,5 +1,9 @@
 # Security and privacy
 
+## Part B input/persistence boundary — PR23
+
+New learning data has exact1.0.0 schema/content/model/rubric, bounded replay, reserved assistance/terminal capacity and compare-before-write storage. Invalid recovery rechecks the same quarantined bytes before deletion and touches only its own key; newer/different data survives. Unknown/corrupt/stale/unsaved contexts suppress automatic guidance. Pure scope inputs are allowlisted; no IAM, credentials, live Azure, database or external runtime requests are added. [Contract](CORE_ARCHITECTURE_MANAGEMENT.md).
+
 ## Physical Part A isolation
 
 No Azure/network requests, credentials, legal/compliance certification, remote maps/assets or Portal commands are added. The untrusted bounded Part A record validates exact module/schema/content/model/rubric/events and replays results; old keys are untouched. Denied/stale/unknown input is visible and fails closed for guidance. Explicit confirmed recovery discards only invalid Part A, with cancel preserving raw input. Cross-tab/independent contexts suppress automatic solution help. Local results are neither tamper-proof nor authoritative. [Contract](CORE_ARCHITECTURE_PHYSICAL.md).

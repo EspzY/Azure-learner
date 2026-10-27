@@ -1,4 +1,7 @@
 'use client';
+import { managementNb } from '@/content/nb';
+import { managementTopics, isManagementTopic } from '@/domain/curriculum/architecture-management';
+import { useManagement } from './management-provider';
 import Link from 'next/link';
 import { architectureNb as c } from '@/content/nb';
 import { physicalTopics, type PhysicalTopic } from '@/domain/curriculum/architecture-physical';
@@ -14,7 +17,8 @@ export function PhysicalCourseEntry({
   topic?: string;
   onNavigate?: () => void;
 }) {
-  const s = usePhysical();
+  const s = usePhysical(),
+    b = useManagement();
   return navigation ? (
     <section className="course-architecture-nav">
       <h2>{c.path}</h2>
@@ -23,19 +27,19 @@ export function PhysicalCourseEntry({
         aria-current={active ? 'page' : undefined}
         onClick={onNavigate}
       >
-        {c.title} · {c.part}
+        {c.title}
       </Link>
-      <p>{c.available}</p>
+      <p>{managementNb.available}</p>
       {active && (
         <ol className="course-units">
-          {physicalTopics.map((t) => (
+          {[...physicalTopics, ...managementTopics].map((t) => (
             <li key={t}>
               <Link
                 href={`/learn/architecture?topic=${t}`}
                 aria-current={topic === t ? 'step' : undefined}
                 onClick={onNavigate}
               >
-                {c.topics[t]}
+                {isManagementTopic(t) ? managementNb.topics[t] : c.topics[t]}
               </Link>
             </li>
           ))}
@@ -47,24 +51,23 @@ export function PhysicalCourseEntry({
       <small>{c.path}</small>
       <h2>{c.title}</h2>
       <p>
-        <strong>
-          {c.part} · {c.available}
-        </strong>
+        <strong>{managementNb.available}</strong>
       </p>
-      <p>{c.intro}</p>
-      <p>{c.boundary}</p>
+      <p>{managementNb.intro}</p>
+      <p>{managementNb.summaryLimit}</p>
       <p>
         {c.guided}: {s.facts.guided ? c.registered : c.notYet}
       </p>
+      <p>
+        {managementNb.guided}: {b.facts.guided ? c.registered : c.notYet}
+      </p>
       <Link
         className="course-primary"
-        href={`/learn/architecture?topic=${s.facts.lastTopic ?? ('datacenters' satisfies PhysicalTopic)}`}
+        href={`/learn/architecture?topic=${b.facts.active ? 'management-assessment' : s.facts.active ? 'assessment' : (b.facts.lastTopic ?? s.facts.lastTopic ?? ('datacenters' satisfies PhysicalTopic))}`}
       >
         {c.open}
       </Link>
-      <p>
-        {c.nextPart} · {c.planned}
-      </p>
+      <Link href="/learn/architecture?topic=organization">{managementNb.resumeB}</Link>
     </section>
   );
 }

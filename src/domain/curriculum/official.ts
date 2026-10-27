@@ -56,3 +56,10 @@ export const officialPhysical = {
   implementedObjectives: ['2.1.01', '2.1.02', '2.1.03'],
   status: 'partial',
 } as const;
+
+export const officialCore = {
+  ...officialPhysical,
+  implementedObjectives: ['2.1.01', '2.1.02', '2.1.03', '2.1.04', '2.1.05', '2.1.06', '2.1.07'],
+  status: 'implemented',
+  humanReview: null,
+} as const;

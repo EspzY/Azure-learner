@@ -1,3 +1,4 @@
+import { managementTopics } from '../curriculum/architecture-management';
 import { physicalTopics } from '../curriculum/architecture-physical';
 import { replayEngine } from '../sandbox/replay';
 import { types, type Engine } from '../chapter01/model';
@@ -70,7 +71,7 @@ export const stepIds = [
 ] as const;
 export type StepId = (typeof stepIds)[number];
 export interface LabSession {
-  origin?: 'computing-v2' | 'services-v1' | 'services-v2';
+  origin?: 'computing-v2' | 'services-v1' | 'services-v2' | 'architecture-management';
   version: 'web-platform@1';
   attempt: number;
   boundary: string | null;
@@ -89,7 +90,9 @@ const exact = (v: object, keys: string[]) =>
   Object.keys(v).sort().join(',') === keys.sort().join(',');
 export function courseTopic(module: CourseModule, topic: string | null) {
   if (module === 'architecture')
-    return (physicalTopics as readonly string[]).includes(topic ?? '') ? topic! : 'datacenters';
+    return ([...physicalTopics, ...managementTopics] as readonly string[]).includes(topic ?? '')
+      ? topic!
+      : 'datacenters';
   const allowed: readonly string[] =
     module === 'benefits'
       ? routes('benefits')
@@ -107,7 +110,7 @@ export function courseTopic(module: CourseModule, topic: string | null) {
 export const courseHref = (module: CourseModule, topic: string) =>
   `/learn/${module}?topic=${courseTopic(module, topic)}`;
 export const courseLabHref = (complete: boolean, origin?: LabSession['origin']) =>
-  `${origin === 'computing-v2' ? courseHref('computing', 'resource-bridge') : courseHref('services', 'practice')}${origin === 'services-v1' ? '&version=1' : ''}&activity=${complete ? 'debrief' : 'lab'}`;
+  `${origin === 'architecture-management' ? courseHref('architecture', 'scope') : origin === 'computing-v2' ? courseHref('computing', 'resource-bridge') : courseHref('services', 'practice')}${origin === 'services-v1' ? '&version=1' : ''}&activity=${complete ? 'debrief' : 'lab'}`;
 export function restoreCourse(raw: string | null): {
   save: CourseSave;
   issue: 'corrupt' | 'unsupported' | null;
@@ -141,7 +144,9 @@ export function restoreCourse(raw: string | null): {
           ...(l.origin === undefined ? [] : ['origin']),
         ]) ||
         (l.origin !== undefined &&
-          !['computing-v2', 'services-v1', 'services-v2'].includes(l.origin)) ||
+          !['computing-v2', 'services-v1', 'services-v2', 'architecture-management'].includes(
+            l.origin,
+          )) ||
         l.version !== 'web-platform@1' ||
         !Number.isSafeInteger(l.attempt) ||
         l.attempt < 1 ||

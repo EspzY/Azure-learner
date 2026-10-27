@@ -1,5 +1,7 @@
 # P01 — Core Architecture Part A
 
+Current availability note: PR23 adds [Part B](CORE_ARCHITECTURE_MANAGEMENT.md) and a combined course/Journal projection. The authored PR22 scope and frozen Part A evidence contract below remain historical and unchanged; statements about planned B describe that release, not current availability.
+
 Original manuscript and pre-implementation design, 2026-10-27. Content/model/rubric **1.0.0**. Competency **F02**, local objectives **CA01** (regions/pairs/environments), **CA02** (zones/deployment/fault separation), **CA03** (datacenters/physical dependencies). AZ-900 overlay2026-07-20:2.1.01–03. This is three of seven core-module objectives, not a complete Core Architecture module, F02 competency, AZ-104 or AZ-305 qualification. Part B2.1.04–07 remains planned.
 
 ## Audit and compatibility decision, before implementation

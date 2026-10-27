@@ -1,5 +1,9 @@
 'use client';
+import { architectureNb, managementNb } from '@/content/nb';
+import { useManagement } from '@/features/learning/management-provider';
 import { usePhysical } from '@/features/learning/physical-provider';
+import { ManagementRecovery } from '@/features/learning/management-recovery';
+import { ManagementTeachingBoundary } from '@/features/learning/management-access';
 import { PhysicalRecovery } from '@/features/learning/physical-recovery';
 
 import { useServerless } from '@/features/learning/serverless-provider';
@@ -77,7 +81,8 @@ function PortalWorkspace() {
     services2 = useExpansion('services');
   const foundationsV2 = useFoundationsV2(),
     serverless = useServerless(),
-    physical = usePhysical();
+    physical = usePhysical(),
+    management = useManagement();
   useEffect(() => {
     if (serverless.facts.active && ['learn', 'responsibility', 'hierarchy'].includes(location.area))
       serverless.store.event({ kind: 'aid' });
@@ -92,8 +97,22 @@ function PortalWorkspace() {
     if (physical.facts.active && ['learn', 'responsibility', 'hierarchy'].includes(location.area))
       physical.store.event({ kind: 'aid' });
   }, [physical.facts.active, physical.ready, physical.issue, physical.store, location.area]);
+  useEffect(() => {
+    if (
+      management.facts.active &&
+      ['learn', 'responsibility', 'hierarchy', 'architecture', 'policy'].includes(location.area)
+    )
+      management.store.event({ kind: 'aid' });
+  }, [
+    management.facts.active,
+    management.ready,
+    management.issue,
+    management.store,
+    location.area,
+  ]);
   const independentContext =
     location.mode === 'independent' ||
+    management.facts.active ||
     physical.facts.active ||
     serverless.facts.active ||
     practical.activeIndependent ||
@@ -104,6 +123,7 @@ function PortalWorkspace() {
     services2.facts.active;
   const guidanceContexts = [
     physical,
+    management,
     serverless,
     learning,
     foundationsV2,
@@ -130,6 +150,7 @@ function PortalWorkspace() {
     !module.facts.active &&
     !benefits.facts.active &&
     !services2.facts.active;
+  const managementLab = guidedLab && course.save.lab?.origin === 'architecture-management';
   const courseReturn = location.bridge
     ? `/learn/benefits?topic=${location.bridge}&activity=practical`
     : location.practice && practical.current
@@ -542,10 +563,12 @@ function PortalWorkspace() {
           type="button"
           aria-label={p.journal}
           onClick={() => {
+            if (!management.store.prepareTeaching()) return;
             helpLearning();
             if (learning.facts.active) learning.store.event({ kind: 'aid' });
             if (serverless.facts.active) serverless.store.event({ kind: 'aid' });
             if (physical.facts.active) physical.store.event({ kind: 'aid' });
+            if (management.facts.active) management.store.event({ kind: 'aid' });
             setReference(true);
           }}
         >
@@ -734,13 +757,15 @@ function PortalWorkspace() {
             <span
               hidden={!location.bridge && !location.practice && !guidedLab && !independentContext}
             >
-              {location.bridge ||
-              (location.practice && practical.current?.origin.module === 'benefits')
-                ? nb.official.benefits
-                : location.module === 'computing' ||
-                    (guidedLab && course.save.lab?.origin === 'computing-v2')
-                  ? nb.official.computing
-                  : nb.official.services}
+              {managementLab
+                ? architectureNb.title
+                : location.bridge ||
+                    (location.practice && practical.current?.origin.module === 'benefits')
+                  ? nb.official.benefits
+                  : location.module === 'computing' ||
+                      (guidedLab && course.save.lab?.origin === 'computing-v2')
+                    ? nb.official.computing
+                    : nb.official.services}
             </span>
             <Link href={courseReturn}>{nb.course.returnCourse}</Link>
             <button
@@ -778,6 +803,7 @@ function PortalWorkspace() {
               <p>{nb.milestones.contextUnavailable}</p>
               <ServerlessRecovery />
               <PhysicalRecovery />
+              <ManagementRecovery />
               <button
                 type="button"
                 onClick={() => {
@@ -810,291 +836,316 @@ function PortalWorkspace() {
           <div
             className={`portal-content ${location.mode === 'guided' && !guidedLab && pane && !guidanceSuppressed && !['learn', 'challenge', 'architecture', 'hierarchy'].includes(location.area) ? 'with-teaching' : ''}`}
           >
-            <div className="portal-view">
-              {location.area === 'home' ? (
-                <>
-                  <h2>{p.services}</h2>
-                  <div className="portal-home-services">
-                    <button type="button" onClick={() => navigate('services')}>
-                      <ServiceIcon kind="create" size={30} />
-                      <span>{nb.portalUi.create}</span>
-                    </button>
-                    {services.map((area) => {
-                      return (
-                        <button key={area} type="button" onClick={() => navigate(area)}>
-                          <ServiceIcon kind={area} size={30} />
-                          <span>{p.areas[area]}</span>
-                        </button>
-                      );
-                    })}
-                    <button type="button" onClick={() => navigate('services')}>
-                      <ServiceIcon kind="next" size={28} />
-                      <span>{nb.portalUi.moreServices}</span>
-                    </button>
-                  </div>
-                  {(practicalMission || guidedLab || location.bridge) && (
-                    <details className="portal-home-training">
-                      <summary>
-                        {nb.portalUi.learningLayer} ·{' '}
-                        {practicalMission?.title ?? nb.official.services}
-                      </summary>
-                      <ServiceIcon kind="learn" size={25} />
-                      <div>
-                        <h2>
-                          {practicalMission?.title ??
-                            (location.bridge ? nb.official.benefits : nb.official.services)}
-                        </h2>
-                        <p>
-                          {practicalMission?.purpose ??
-                            (location.bridge ? labsNb.bridge[location.bridge] : p.homeIntro)}
-                        </p>
-                        <small>
-                          {nb.official.certification} · {nb.official.path}
-                        </small>
-                      </div>
-                      <button
-                        type="button"
-                        className="primary"
-                        onClick={() =>
-                          practicalMission || location.bridge
-                            ? returnLearning()
-                            : navigate(module.facts.active ? 'challenge' : 'learn')
-                        }
-                      >
-                        {practicalMission || location.bridge
-                          ? nb.course.returnCourse
-                          : module.facts.active
-                            ? p.continueChallenge
-                            : p.startLearning}
-                      </button>
-                    </details>
-                  )}
-                  <h2>{p.recent}</h2>
-                  <p>{p.recentHint}</p>
-                  {recent.length ? (
-                    <ResourceTable
-                      compact
-                      world={world}
-                      navigate={navigate}
-                      rows={rows
-                        .filter((r) => recent.includes(r.id))
-                        .sort((a, b) => recent.indexOf(a.id) - recent.indexOf(b.id))}
-                    />
-                  ) : (
-                    <div className="portal-empty">
-                      <p>{polish.resource.empty}</p>
-                      <button type="button" onClick={() => navigate('resources')}>
-                        {p.areas.resources}
-                      </button>
-                    </div>
-                  )}
-                  <section className="portal-home-navigate">
-                    <h2>{nb.portalUi.navigate}</h2>
-                    <div>
-                      {(['subscriptions', 'groups', 'resources'] as const).map((area) => (
-                        <button key={area} type="button" onClick={() => navigate(area)}>
-                          <ServiceIcon kind={area} size={22} />
-                          {p.areas[area]}
-                        </button>
-                      ))}
-                    </div>
-                  </section>
-                </>
-              ) : location.area === 'services' ? (
-                <>
-                  <p>{p.serviceHint}</p>
-                  <div className="portal-services-index">
-                    {[...services, 'policy' as const].map((area) => {
-                      return (
-                        <button key={area} type="button" onClick={() => navigate(area)}>
-                          <ServiceIcon kind={area} size={22} />
-                          <span>{p.areas[area]}</span>
-                          <ServiceIcon kind="next" size={14} />
-                        </button>
-                      );
-                    })}
-                  </div>
-                  <details className="portal-learning-tools">
-                    <summary>
-                      <ServiceIcon kind="learn" />
-                      {nb.portalUi.learningTools}
-                    </summary>
-                    <div className="portal-services-index">
-                      {educational.map((area) => (
-                        <button key={area} type="button" onClick={() => navigate(area)}>
-                          <ServiceIcon kind={area} size={22} />
-                          <span>{p.areas[area]}</span>
-                          <ServiceIcon kind="next" size={14} />
-                        </button>
-                      ))}
-                    </div>
-                  </details>
-                  <h2>{p.unavailable}</h2>
-                  <p>{p.unavailableServices}</p>
-                </>
-              ) : ['subscriptions', 'groups', 'resources', 'apps', 'plans', 'vms'].includes(
+            <ManagementTeachingBoundary
+              identity="portal-teaching"
+              assessment={
+                location.area === 'learn' &&
+                location.module === 'computing' &&
+                ['assessment', 'summary'].includes(location.topic)
+                  ? 'foundations'
+                  : undefined
+              }
+              orientation={
+                !['learn', 'responsibility', 'hierarchy', 'policy', 'architecture'].includes(
                   location.area,
-                ) ? (
-                <ResourceTable
-                  key={location.area}
-                  world={world}
-                  navigate={navigate}
-                  area={location.area}
-                />
-              ) : location.area === 'create' ? (
-                location.kind === 'vm' ? (
-                  <VmForm
-                    onObserve={setVmForm}
-                    key={`${location.kind}-${location.edit}-${location.id}`}
-                    engine={chapter.attempt.engine}
-                    location={location}
-                    sequence={chapter.attempt.events.length + 1}
-                    disabled={disabled}
-                    onCreate={command}
-                    navigate={navigate}
-                  />
-                ) : (
-                  <CreateResource
-                    key={`${location.kind}-${location.edit}-${location.id}`}
-                    engine={chapter.attempt.engine}
-                    location={location}
-                    sequence={chapter.attempt.events.length + 1}
-                    disabled={disabled}
-                    onCreate={command}
-                    navigate={navigate}
-                    onObserve={guidedLab ? setLabForm : undefined}
-                  />
                 )
-              ) : location.area === 'settings' || location.area === 'resource' ? (
-                <ResourceDetails
-                  key={location.id}
-                  world={world}
-                  id={location.id}
-                  navigate={navigate}
-                  settings={location.area === 'settings'}
-                  commands={commands}
-                >
-                  {(view) =>
-                    location.area === 'settings' ? (
-                      <AppSettings
-                        key={location.id}
-                        world={world}
-                        id={location.id}
-                        disabled={disabled}
-                        onCreate={command}
-                      />
-                    ) : (
-                      <InfrastructureDetails
-                        view={view}
-                        world={world}
-                        id={location.id}
-                        navigate={navigate}
-                        onCreate={command}
-                        receipt={
-                          chapter.attempt.engine.ledger
-                            .filter(
-                              (e) =>
-                                e.receipt.outcome === 'accepted' &&
-                                (e.receipt.addedIds.includes(location.id) ||
-                                  e.request.command.appId === location.id),
-                            )
-                            .at(-1)?.receipt
-                        }
-                      />
-                    )
-                  }
-                </ResourceDetails>
-              ) : location.area === 'learn' ? (
-                <LearningWorkspace location={location} navigate={navigate} />
-              ) : location.area === 'challenge' ? (
-                <IndependentChallenge navigate={navigate} />
-              ) : location.area === 'responsibility' ? (
-                <>
-                  <h2>{p.responsibility.title}</h2>
-                  <ResponsibilityExplorer />
-                </>
-              ) : location.area === 'architecture' || location.area === 'hierarchy' ? (
-                <ArchitectureExplorer
-                  key={location.area}
-                  world={world}
-                  initialSelection={location.id}
-                  lens={location.area === 'hierarchy' ? 'hierarchy' : 'architecture'}
-                  navigate={navigate}
-                  onSelectRelation={
-                    guidedLab
-                      ? (appId) => {
-                          const snapshot = course.store.getSnapshot().save;
-                          const f = labFacts(
-                            snapshot.lab,
-                            chapter.attempt.engine,
-                            chapter.attemptNumber,
-                          );
-                          if (snapshot.lab && f.app?.id === appId)
-                            course.store.update({
-                              ...snapshot,
-                              lab: { ...snapshot.lab, relationship: appId },
-                            });
-                        }
-                      : undefined
-                  }
-                />
-              ) : location.area === 'policy' ? (
-                <>
-                  <h2>{nb.chapter.customPolicy}</h2>
-                  {world.policies.map((policy) => (
-                    <section key={policy.id} data-guide="policy">
-                      <PropertyList
-                        items={[
-                          [p.name, policy.id],
-                          [p.scope, world.scopes.find((s) => s.id === policy.scopeId)?.name],
-                          [p.type, policy.targetTypes.join(', ')],
-                          [
-                            p.resourceLocation,
-                            policy.allowedLocations.map((r) => regionLabels[r]).join(', '),
-                          ],
-                        ]}
-                      />
-                      <p>{p.graph.explanations['policy-scope']}</p>
-                      <button
-                        type="button"
-                        onClick={() => navigate('architecture', { id: policy.id })}
-                      >
-                        {p.viewArchitecture}
+              }
+              only={['policy', 'architecture'].includes(location.area) ? 'management' : undefined}
+            >
+              <div className="portal-view">
+                {location.area === 'home' ? (
+                  <>
+                    <h2>{p.services}</h2>
+                    <div className="portal-home-services">
+                      <button type="button" onClick={() => navigate('services')}>
+                        <ServiceIcon kind="create" size={30} />
+                        <span>{nb.portalUi.create}</span>
                       </button>
-                    </section>
-                  ))}
-                </>
-              ) : (
-                <>
-                  <OperationTable
-                    receipts={chapter.attempt.engine.ledger.map((e) => e.receipt)}
-                    onSelect={(r) => navigate('activity', { id: r.commandId })}
-                  />
-                  {receipt && (
-                    <div data-guide="receipt">
-                      <ReceiptPanel
-                        receipt={receipt}
-                        onPolicy={() => navigate('policy')}
-                        onEdit={
-                          receipt.code === 'deleted' ||
-                          (receipt.operation === 'CreateVmBundle' && receipt.outcome === 'accepted')
-                            ? undefined
-                            : () => edit(receipt)
-                        }
-                      />
-                      {receiptResourceId && (
+                      {services.map((area) => {
+                        return (
+                          <button key={area} type="button" onClick={() => navigate(area)}>
+                            <ServiceIcon kind={area} size={30} />
+                            <span>{p.areas[area]}</span>
+                          </button>
+                        );
+                      })}
+                      <button type="button" onClick={() => navigate('services')}>
+                        <ServiceIcon kind="next" size={28} />
+                        <span>{nb.portalUi.moreServices}</span>
+                      </button>
+                    </div>
+                    {(practicalMission || guidedLab || location.bridge) && (
+                      <details className="portal-home-training">
+                        <summary>
+                          {nb.portalUi.learningLayer} ·{' '}
+                          {managementLab
+                            ? architectureNb.title
+                            : (practicalMission?.title ?? nb.official.services)}
+                        </summary>
+                        <ServiceIcon kind="learn" size={25} />
+                        <div>
+                          <h2>
+                            {managementLab
+                              ? architectureNb.title
+                              : (practicalMission?.title ??
+                                (location.bridge ? nb.official.benefits : nb.official.services))}
+                          </h2>
+                          <p>
+                            {managementLab
+                              ? managementNb.portalWhy
+                              : (practicalMission?.purpose ??
+                                (location.bridge ? labsNb.bridge[location.bridge] : p.homeIntro))}
+                          </p>
+                          <small>
+                            {nb.official.certification} ·{' '}
+                            {managementLab ? architectureNb.path : nb.official.path}
+                          </small>
+                        </div>
                         <button
                           type="button"
-                          onClick={() => navigate('resource', { id: receiptResourceId })}
+                          className="primary"
+                          onClick={() =>
+                            managementLab || practicalMission || location.bridge
+                              ? returnLearning()
+                              : navigate(module.facts.active ? 'challenge' : 'learn')
+                          }
                         >
-                          {p.viewResource}
+                          {managementLab || practicalMission || location.bridge
+                            ? nb.course.returnCourse
+                            : module.facts.active
+                              ? p.continueChallenge
+                              : p.startLearning}
                         </button>
-                      )}
+                      </details>
+                    )}
+                    <h2>{p.recent}</h2>
+                    <p>{p.recentHint}</p>
+                    {recent.length ? (
+                      <ResourceTable
+                        compact
+                        world={world}
+                        navigate={navigate}
+                        rows={rows
+                          .filter((r) => recent.includes(r.id))
+                          .sort((a, b) => recent.indexOf(a.id) - recent.indexOf(b.id))}
+                      />
+                    ) : (
+                      <div className="portal-empty">
+                        <p>{polish.resource.empty}</p>
+                        <button type="button" onClick={() => navigate('resources')}>
+                          {p.areas.resources}
+                        </button>
+                      </div>
+                    )}
+                    <section className="portal-home-navigate">
+                      <h2>{nb.portalUi.navigate}</h2>
+                      <div>
+                        {(['subscriptions', 'groups', 'resources'] as const).map((area) => (
+                          <button key={area} type="button" onClick={() => navigate(area)}>
+                            <ServiceIcon kind={area} size={22} />
+                            {p.areas[area]}
+                          </button>
+                        ))}
+                      </div>
+                    </section>
+                  </>
+                ) : location.area === 'services' ? (
+                  <>
+                    <p>{p.serviceHint}</p>
+                    <div className="portal-services-index">
+                      {[...services, 'policy' as const].map((area) => {
+                        return (
+                          <button key={area} type="button" onClick={() => navigate(area)}>
+                            <ServiceIcon kind={area} size={22} />
+                            <span>{p.areas[area]}</span>
+                            <ServiceIcon kind="next" size={14} />
+                          </button>
+                        );
+                      })}
                     </div>
-                  )}
-                </>
-              )}
-            </div>
+                    <details className="portal-learning-tools">
+                      <summary>
+                        <ServiceIcon kind="learn" />
+                        {nb.portalUi.learningTools}
+                      </summary>
+                      <div className="portal-services-index">
+                        {educational.map((area) => (
+                          <button key={area} type="button" onClick={() => navigate(area)}>
+                            <ServiceIcon kind={area} size={22} />
+                            <span>{p.areas[area]}</span>
+                            <ServiceIcon kind="next" size={14} />
+                          </button>
+                        ))}
+                      </div>
+                    </details>
+                    <h2>{p.unavailable}</h2>
+                    <p>{p.unavailableServices}</p>
+                  </>
+                ) : ['subscriptions', 'groups', 'resources', 'apps', 'plans', 'vms'].includes(
+                    location.area,
+                  ) ? (
+                  <ResourceTable
+                    key={location.area}
+                    world={world}
+                    navigate={navigate}
+                    area={location.area}
+                  />
+                ) : location.area === 'create' ? (
+                  location.kind === 'vm' ? (
+                    <VmForm
+                      onObserve={setVmForm}
+                      key={`${location.kind}-${location.edit}-${location.id}`}
+                      engine={chapter.attempt.engine}
+                      location={location}
+                      sequence={chapter.attempt.events.length + 1}
+                      disabled={disabled}
+                      onCreate={command}
+                      navigate={navigate}
+                    />
+                  ) : (
+                    <CreateResource
+                      key={`${location.kind}-${location.edit}-${location.id}`}
+                      engine={chapter.attempt.engine}
+                      location={location}
+                      sequence={chapter.attempt.events.length + 1}
+                      disabled={disabled}
+                      onCreate={command}
+                      navigate={navigate}
+                      onObserve={guidedLab ? setLabForm : undefined}
+                    />
+                  )
+                ) : location.area === 'settings' || location.area === 'resource' ? (
+                  <ResourceDetails
+                    key={location.id}
+                    world={world}
+                    id={location.id}
+                    navigate={navigate}
+                    settings={location.area === 'settings'}
+                    commands={commands}
+                  >
+                    {(view) =>
+                      location.area === 'settings' ? (
+                        <AppSettings
+                          key={location.id}
+                          world={world}
+                          id={location.id}
+                          disabled={disabled}
+                          onCreate={command}
+                        />
+                      ) : (
+                        <InfrastructureDetails
+                          view={view}
+                          world={world}
+                          id={location.id}
+                          navigate={navigate}
+                          onCreate={command}
+                          receipt={
+                            chapter.attempt.engine.ledger
+                              .filter(
+                                (e) =>
+                                  e.receipt.outcome === 'accepted' &&
+                                  (e.receipt.addedIds.includes(location.id) ||
+                                    e.request.command.appId === location.id),
+                              )
+                              .at(-1)?.receipt
+                          }
+                        />
+                      )
+                    }
+                  </ResourceDetails>
+                ) : location.area === 'learn' ? (
+                  <LearningWorkspace location={location} navigate={navigate} />
+                ) : location.area === 'challenge' ? (
+                  <IndependentChallenge navigate={navigate} />
+                ) : location.area === 'responsibility' ? (
+                  <>
+                    <h2>{p.responsibility.title}</h2>
+                    <ResponsibilityExplorer />
+                  </>
+                ) : location.area === 'architecture' || location.area === 'hierarchy' ? (
+                  <ArchitectureExplorer
+                    key={location.area}
+                    world={world}
+                    initialSelection={location.id}
+                    lens={location.area === 'hierarchy' ? 'hierarchy' : 'architecture'}
+                    navigate={navigate}
+                    onSelectRelation={
+                      guidedLab
+                        ? (appId) => {
+                            const snapshot = course.store.getSnapshot().save;
+                            const f = labFacts(
+                              snapshot.lab,
+                              chapter.attempt.engine,
+                              chapter.attemptNumber,
+                            );
+                            if (snapshot.lab && f.app?.id === appId)
+                              course.store.update({
+                                ...snapshot,
+                                lab: { ...snapshot.lab, relationship: appId },
+                              });
+                          }
+                        : undefined
+                    }
+                  />
+                ) : location.area === 'policy' ? (
+                  <>
+                    <h2>{nb.chapter.customPolicy}</h2>
+                    {world.policies.map((policy) => (
+                      <section key={policy.id} data-guide="policy">
+                        <PropertyList
+                          items={[
+                            [p.name, policy.id],
+                            [p.scope, world.scopes.find((s) => s.id === policy.scopeId)?.name],
+                            [p.type, policy.targetTypes.join(', ')],
+                            [
+                              p.resourceLocation,
+                              policy.allowedLocations.map((r) => regionLabels[r]).join(', '),
+                            ],
+                          ]}
+                        />
+                        <p>{p.graph.explanations['policy-scope']}</p>
+                        <button
+                          type="button"
+                          onClick={() => navigate('architecture', { id: policy.id })}
+                        >
+                          {p.viewArchitecture}
+                        </button>
+                      </section>
+                    ))}
+                  </>
+                ) : (
+                  <>
+                    <OperationTable
+                      receipts={chapter.attempt.engine.ledger.map((e) => e.receipt)}
+                      onSelect={(r) => navigate('activity', { id: r.commandId })}
+                    />
+                    {receipt && (
+                      <div data-guide="receipt">
+                        <ReceiptPanel
+                          receipt={receipt}
+                          onPolicy={() => navigate('policy')}
+                          onEdit={
+                            receipt.code === 'deleted' ||
+                            (receipt.operation === 'CreateVmBundle' &&
+                              receipt.outcome === 'accepted')
+                              ? undefined
+                              : () => edit(receipt)
+                          }
+                        />
+                        {receiptResourceId && (
+                          <button
+                            type="button"
+                            onClick={() => navigate('resource', { id: receiptResourceId })}
+                          >
+                            {p.viewResource}
+                          </button>
+                        )}
+                      </div>
+                    )}
+                  </>
+                )}
+              </div>
+            </ManagementTeachingBoundary>
             {location.mode === 'guided' &&
               !guidedLab &&
               pane &&
@@ -1199,11 +1250,13 @@ function PortalWorkspace() {
       )}
       {reference && (
         <PortalDialog title={p.journal} onClose={() => setReference(false)}>
-          {location.module === 'computing' ? (
-            <FoundationsReference topic={location.topic} />
-          ) : (
-            <ServiceReference topic={location.topic} />
-          )}
+          <ManagementTeachingBoundary identity="portal-reference">
+            {location.module === 'computing' ? (
+              <FoundationsReference topic={location.topic} />
+            ) : (
+              <ServiceReference topic={location.topic} />
+            )}
+          </ManagementTeachingBoundary>
         </PortalDialog>
       )}
       {help && (

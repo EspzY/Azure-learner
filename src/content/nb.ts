@@ -4712,14 +4712,15 @@ export const architectureNb = {
   title: 'Describe the core architectural components of Azure',
   path: 'Introduction to Cloud Infrastructure: Describe Azure architecture and services',
   part: 'Part A · Fysisk infrastruktur og feilgrenser',
-  available: 'Delvis tilgjengelig · 3 av 7 læringsmål',
+  available: 'Part A · 3 av 7 delmål i Core Architecture',
   intro:
     'Du kjenner servere, virtuelle maskiner, ansvar og tilgjengelighet. Nå følger vi applikasjonen ned til bygningene og ut til regionene. Undersøk hvilken feil en plassering faktisk tåler — og hvilke avhengigheter som fortsatt kan stoppe tjenesten.',
   boundary:
-    'Part A har egne observasjoner. Hele Core Architecture-modulen er ikke fullført: resources, resource groups, subscriptions og management hierarchy kommer i Part B. Ingen tidligere resultater oppgraderes.',
+    'Part A har egne observasjoner for fysisk arkitektur. Part B er tilgjengelig i samme kurs og har egne vurderinger av administrativ arkitektur. Resultater fra begge deler kreves i det samlede statusbildet; tidligere resultater oppgraderes ikke.',
   nextPart: 'Part B · Management groups, subscriptions, resource groups og management hierarchy',
-  planned: 'Planlagt · ikke tilgjengelig ennå',
-  open: 'Åpne Core Architecture · Part A',
+  planned:
+    'Part B er tilgjengelig i samme kurs. Fortsett med ressursorganisering, scopes og egne selvstendige oppgaver.',
+  open: 'Åpne Core Architecture',
   prerequisite:
     'Bygger på fysisk server og virtualisering i Cloud Computing, ansvar i Service Types og forskjellen på kapasitet og tilgjengelighet i Benefits. Du kan gå tilbake i kursmenyen. Ingen Azure-konto er nødvendig.',
   objective:
@@ -5362,7 +5363,7 @@ export const architectureNb = {
       },
     },
   },
-  summary: 'Part A-resultater · hele Core Architecture-modulen er fortsatt delvis tilgjengelig',
+  summary: 'Part A-resultater · fysisk arkitektur, separat fra Part B',
   objectives: {
     CA01: 'Regioner, regionpar og sovereign environments',
     CA02: 'Availability Zones og konfigurasjonsvalg',
@@ -5390,4 +5391,517 @@ export const architectureNb = {
     'Isolert amerikansk miljø for kvalifiserte myndigheter og partnere. Egne operative krav og tjenestevariasjoner.',
     'Separat fysisk instans drevet av 21Vianet. Endepunkter og tjenestetilbud kan avvike.',
   ],
+} as const;
+
+export const managementNb = {
+  accessTitle: 'Avklar lagret vurderingskontekst før undervisningen åpnes',
+  accessText:
+    'Forklarende innhold holdes tilbake mens en relevant vurderingskontekst kontrolleres eller er usikker. Les den aktuelle lagringen på nytt ved konflikt og åpne deretter undervisningen eller Journal igjen. Hjelp må være bekreftet lagret før et aktivt forsøk får se forklaringene. Ingen svarutkast eller tidligere innlevering slås sammen eller overskrives.',
+  accessReload: 'Les lagret vurderingskontekst på nytt',
+  accessReview: 'Åpne egen vurdering og lagringskontroll',
+  accessContexts: {
+    management: 'Core Architecture Part B',
+    physical: 'Core Architecture Part A',
+    serverless: 'Serverless',
+    foundations: 'Foundations v1 (arkiv)',
+    v2: 'Cloud Computing v2',
+    legacyServices: 'Service Types v1 (arkiv)',
+    benefits: 'Benefits',
+    services: 'Service Types v2',
+    practical: 'Praktisk independent lab',
+  },
+  ...architectureNb,
+  storage:
+    'Part B-lagringen er usikker. Part A og tidligere kurs-/Portal-data beholdes. Ved nektet lagring finnes nye handlinger bare i minnet.',
+  reload: 'Les lagret Part B på nytt',
+  repair: 'Reparer bare Part B-lagringen',
+  repairTitle: 'Nullstille ugyldig Core Architecture Part B?',
+  repairText:
+    'Dette sletter bare den ugyldige eller ukjente Part B-registreringen. Part A, Foundations, Serverless, Benefits, Service Types, XP og Portal-ressurser beholdes. Avbryt/Escape beholder også Part B-dataene.',
+  repairConfirm: 'Slett bare ugyldige Part B-data',
+  limit:
+    'Part B-historikken er full og beholdes lesbar. Nye øvelser og forsøk kan ikke registreres her. Et aktivt forsøk kan leveres med et komplett lagret utkast eller avbrytes. Åpnet undervisning registreres fortsatt som hjelp. Andre kurs og Portal fungerer videre; ingen tidligere resultater slettes.',
+  loading: 'Laster validert Part B-historikk …',
+  begin: 'Start selvstendig Part B-forsøk',
+  submit: 'Lever alle Part B-svar',
+  aidText:
+    'Hjelp registrert. Undersøk ancestry, medlemskap og hosting, og skill administrativt scope fra fysisk plassering. Les de relevante Part B-enhetene. Dette forsøket er nå assistert.',
+
+  hierarchyLimit:
+    'AzureLabs undervisningsvisning av faktisk lokalt inventory. Dette er ikke en operativ Microsoft Portal-funksjon.',
+  scopeNames: {
+    root: 'Tenant root group',
+    parent: 'Organisation',
+    development: 'Development',
+    production: 'Production',
+    'dev-group': 'Development workload',
+    'prod-group': 'Production workload',
+    'dev-plan': 'Development plan',
+    'prod-plan': 'Production plan',
+    'dev-vm': 'Development VM',
+    'prod-app': 'Production app',
+  },
+  targetNames: { plan: 'App Service plan', app: 'Web App', vm: 'Virtual machine' },
+  directoryLabel: 'Microsoft Entra directory',
+  relationLabels: {
+    app: 'Web App',
+    plan: 'App Service plan',
+    group: 'Resource group',
+    subscription: 'Subscription',
+  },
+
+  hierarchyTheory: [
+    'Les strukturen fra identitetskontekst til scopes: Microsoft Entra directory → Tenant root management group → management groups → subscriptions → Resource groups → resources. Den første koblingen uttrykker directory-tilknytning; de administrative koblingene uttrykker ancestry eller medlemskap. Provider/type og location er egenskaper, ikke alternative management-parents.',
+    'I Management Hierarchy velger du en faktisk node og følger dens direkte scope og ancestors. I Resource Relationships undersøker du hva en Web App eller VM teknisk trenger. En hostingpil gir ikke policy-inheritance. Geografi fra Part A er et tredje perspektiv: en region er verken subscriptionets parent eller child.',
+    'Tom gruppe er fortsatt en gyldig administrativ beholder. En avvist operasjon legger ikke til en ressurs. Modellen leses på nytt fra replayet inventory etter opprettelse og reload; valg av node er navigasjon og gir ingen kompetanseregistrering.',
+  ],
+  scopeTheory: [
+    'En policy definition beskriver en betingelse og effekt. En assignment tilordner den til et scope. Descendants kan ligge innenfor rekkevidden, men unntak og exemptions kan kvalifisere dette i ekte Azure. Type, mode og andre vilkår avgjør fortsatt om en ressurs er relevant. En regel for Microsoft.Web/serverfarms gjelder ikke automatisk en VM i samme gruppe.',
+    'I vår avgrensede konseptmodell for nye create-forespørsler gir audit et funn uten blokkering, deny ville avvise et relevant brudd, og disabled evaluerer ikke regelen. Virkelig Azure Policy har flere effekter, moduser og evalueringsfaser. En deny sletter ikke automatisk eksisterende ressurser. Overlappende assignments vurderes etter sine betingelser; en child-regel erstatter ikke uten videre parent-regelen.',
+    'Den faktiske AzureLab-policyen er en egendefinert deny på App Sandbox. Den gjelder støttede Web plan/app-typer utenfor West Europe. Gruppen kan ha metadata et annet sted. Den avviste kvitteringen viser assignment-scope og uendret inventory. Shared Sandbox ligger utenfor denne assignmenten. Konseptmodellen kan sammenligne en større scope eller annen effekt, men kan ikke skrive noen av valgene til Portalen.',
+  ],
+  assignmentDirect: 'Direkte assignment på denne noden',
+  assignmentInherited: 'Assignment finnes i ancestry',
+  assignmentOutside: 'Utenfor assignment-scope',
+
+  part: 'Part B · Management infrastructure',
+  available: 'Part A og B er tilgjengelige · resultater registreres separat',
+  intro:
+    'Forstå både fysisk Azure-infrastruktur og hvordan ressurser organiseres og styres. Part A og B danner ett kursområde med separate, versjonerte vurderinger.',
+  prerequisite:
+    'Forkunnskaper: Cloud Concepts, tjenestemodeller og Part A. Skill en konfigurert ressurs fra faktisk drift, og region fra administrativt scope.',
+  objective:
+    'CA04–07 · Resources, Resource groups, subscriptions, management groups og hierarchy. Ingen ny XP eller automatisk kompetanseoppgradering.',
+  topics: {
+    organization: 'Hvorfor et management-hierarki?',
+    resources: 'Azure resources og providers',
+    groups: 'Resource groups og livssyklus',
+    subscriptions: 'Subscriptions og identitet',
+    management: 'Management groups og root',
+    hierarchy: 'Management Hierarchy Explorer',
+    scope: 'Scope, policy og praktisk undersøkelse',
+    'management-assessment': 'Part B · selvstendig anvendelse',
+    'core-summary': 'Core Architecture · samlet resultat',
+  },
+  sections: {
+    organization: {
+      title: 'Først problemet: hvem eier hva?',
+      paragraphs: [
+        'Nordlys Drift har et utviklingsteam som eksperimenterer daglig, et produksjonsteam som drifter en bestillingstjeneste, og et plattformteam med felles infrastruktur. Uten bevisst organisering kan en teknisk gyldig ressurs havne under feil budsjett, eller en felles komponent bli forsøkt fjernet sammen med et midlertidig eksperiment. Flere regionsnavn løser ikke dette administrative problemet.',
+        'Azure skiller mellom administrativt scope, identitet og fysisk plassering. Scope sier hvilke ressurser en administrativ tildeling kan nå. Identitet sier hvem som ber om tilgang. Region og Availability Zone beskriver geografisk plassering og feilgrenser. Strukturene kan beskrive samme ressurs uten å være samme relasjon.',
+        'Vi skal følge faktiske ressurser i AzureLab, sammenligne medlemskap og avhengigheter, undersøke en avgrenset regel og bruke den ordinære Portalen. Et kortlivet demonstrasjonsmiljø kan ha felles livssyklus. En produksjonsdatabase bør ikke grupperes med demonstrasjonen bare fordi begge ligger i West Europe. Denne forskjellen er utgangspunktet for resten av Part B.',
+      ],
+      terms: [
+        ['Scope', 'Omfanget en administrativ tildeling kan gjelde innenfor.'],
+        ['Livssyklus', 'Når en ressurs opprettes, endres og avvikles.'],
+      ],
+      question: 'Hva trenger teamet å skille før ressursene organiseres?',
+      choices: [
+        ['separate', 'Identitet, administrativt ansvar og fysisk plassering.'],
+        ['geography', 'Bare regionnavn; resten følger automatisk.'],
+        ['automatic', 'Bare ressursnavn; navn konfigurerer styringen.'],
+      ],
+      feedback: {
+        separate: 'Disse strukturene besvarer ulike spørsmål og må vurderes hver for seg.',
+        geography: 'Regionvalg bestemmer ikke administrativt ansvar eller kostnadskontekst.',
+        automatic: 'Et navn er nyttig for mennesker, men oppretter ikke policy eller tilgang.',
+      },
+      sources: ['AM02', 'AM09'],
+    },
+    resources: {
+      title: 'Fra tjenestetype til faktisk ressurs',
+      paragraphs: [
+        'En Azure resource er en individuelt administrert instans representert gjennom Azure Resource Manager. En Virtual machine, dens Managed disk, et Virtual network, et App Service plan og en Web App er ulike ressurstyper. Resource Manager er administrasjonslaget. En resource provider implementerer operasjoner for en tjeneste. Microsoft.Compute/virtualMachines er provider-namespace og type, mens resource ID identifiserer en bestemt instans i dens scope.',
+        'Konfigurasjon er ikke bevis på operativ drift. En akseptert VM-operasjon i AzureLab registrerer en modellert konfigurasjon og avhengigheter; den starter ikke et operativsystem eller måler trafikk. En Web App koblet til et plan beviser ikke at applikasjonskode er distribuert eller frisk. I ekte Azure er management/control-plane-operasjoner og faktisk bruk av tjenesten gjennom data plane forskjellige ting. AzureLab gjør ingen av delene mot Azure.',
+        'De støttede arbeidslastressursene her tilhører Resource groups. Dette er ikke en universell regel for alle ARM-typer: også Resource groups, subscriptions og management groups er administrerbare ressursobjekter, og enkelte typer finnes på høyere scopes. En subnet er dessuten en underressurs av et Virtual network; dette betyr ikke at Resource groups kan nestes.',
+        'En Web App trenger et App Service plan som hostingavhengighet. Gruppen inneholder ressursene for administrasjon. Medlemskap forklarer hvor noe administreres; hosting forklarer hva det trenger. Ekte Azure tillater enkelte avhengigheter på tvers av grupper når tjenesten støtter det. AzureLabs avgrensede Web-modell krever samme gruppe. Dette er en simulatorbegrensning, ikke en universell Azure-regel.',
+      ],
+      terms: [
+        [
+          'Resource provider',
+          'Tjenestens navneområde og implementasjon av management-operasjoner.',
+        ],
+        ['Resource type', 'Typen objekt, for eksempel Microsoft.Web/sites.'],
+        ['Resource ID', 'Identifikator for én ressurs med administrativ kontekst.'],
+      ],
+      question: 'Hva forteller Microsoft.Web/sites?',
+      choices: [
+        ['type', 'Provider og ressurstype, ikke om applikasjonen kjører.'],
+        ['running', 'At applikasjonen kjører og er frisk.'],
+        ['same', 'At alle Web Apps deler fysisk server.'],
+      ],
+      feedback: {
+        type: 'Namespace/type beskriver hva som kan administreres. Drift må observeres separat.',
+        running: 'En type eller vellykket lokal konfigurasjon beviser ikke kjørende kode.',
+        same: 'Ressurstypen oppgir ikke fysisk plassering eller delt vert.',
+      },
+      sources: ['AM03', 'AM15', 'AM17'],
+    },
+    groups: {
+      title: 'Resource groups: organiser etter livssyklus',
+      paragraphs: [
+        'En Resource group er en administrativ beholder for relaterte ressurser innenfor ett subscription. Hver av arbeidslastressursene som støttes her, tilhører én gruppe om gangen. Grupper kan ikke inneholde andre Resource groups. De gir et nyttig scope for administrasjon, relevante policy assignments og tilgangstildelinger. Medlemskap gir ikke automatisk alle brukere tilgang, arver ikke tags og oppretter ingen hostingavhengighet.',
+        'Felles livssyklus betyr at ressursene forventes opprettet, endret og avviklet sammen. En midlertidig demonstrasjons Web App og dens dedikerte plan kan passe i samme gruppe. Et felles nettverk som flere varige tjenester trenger, kan ha en annen livssyklus. Gruppevalg krever derfor både oversikt over ansvar og eksplisitte tekniske avhengigheter.',
+        'I ekte Azure vil sletting av en gruppe be om sletting av innholdet. Locks, backup-data, tillatelser og avhengigheter på tvers av grupper kan hindre eller komplisere resultatet. Det er ikke en ufarlig mappeoperasjon. AzureLab støtter bare den erklærte operasjonen for å slette tomme grupper, ikke en generell cascade-delete-øvelse.',
+        'Gruppens Region brukes for metadata om gruppen. Den flytter ikke medlemmene. En gruppe med metadata i Norway East kan inneholde et App Service plan og en Web App i West Europe. Tjenestens egne lokasjonsregler gjelder fortsatt. ARM dokumenterer omruting av metadataforespørsler ved regional forstyrrelse; dette gir ingen generell garanti om applikasjonens tilgjengelighet, gjenopprettingstid eller datalagring.',
+        'At to ressurser ligger i samme region, er derfor ikke alene et godt grupperingsprinsipp. Og at en Web App ligger i en gruppe, betyr ikke at den har et hostingplan. Det må finnes en reell, støttet planreferanse.',
+      ],
+      terms: [
+        ['Membership', 'Ressursens administrative tilhørighet.'],
+        [
+          'Metadata-location',
+          'Hvor metadata om gruppen lagres; ikke plasseringen til alle medlemmer.',
+        ],
+      ],
+      question: 'Hva er et godt utgangspunkt for å gruppere et kortlivet eksperiment?',
+      choices: [
+        ['lifecycle', 'Beslektede ressurser som skal endres og avvikles sammen.'],
+        ['region', 'Alle ressurser i samme region må dele gruppe.'],
+        ['nested', 'Lag en Resource group inne i produksjonsgruppen.'],
+      ],
+      feedback: {
+        lifecycle: 'Felles livssyklus og ansvar gir et begrunnet administrativt scope.',
+        region: 'Én gruppe kan ha medlemmer i flere regioner; region er et annet begrep.',
+        nested: 'Resource groups kan ikke nestes i hverandre.',
+      },
+      sources: ['AM03', 'AM05', 'AM16'],
+    },
+    subscriptions: {
+      title: 'Subscription: riktig administrativ kontekst',
+      paragraphs: [
+        'Et subscription er en grense for ressursorganisering, governance, registrering av forbruk og tjenestegrenser. Resource groups tilhører subscriptions. Flere subscriptions kan skille arbeidslaster, miljøer, ansvar eller skaleringsbehov. Et gyldig navn og en tillatt region kompenserer ikke for feil subscription: ressursen vil tilhøre en annen administrativ og kostnadsmessig kontekst.',
+        'Ett subscription har en tillitsrelasjon til én Microsoft Entra tenant for identitet. Én tenant kan være tilknyttet flere subscriptions. Directory inneholder identiteter; det er ikke en fakturakonto, en Resource group eller et fysisk datasenter. Azure-roller og Entra-roller har ulike ansvarsområder.',
+        'Billing accounts, billing profiles og invoice sections avhenger av den kommersielle avtalen. Subscription er en enhet for forbruksregistrering, men innebærer ikke alltid én separat faktura. Å endre directory-tilknytning er heller ikke det samme som å endre fakturaeierskap. Her modelleres verken innlogging, fakturering, directory-overføring eller tilgangsadministrasjon.',
+        'To subscriptions kan ha ressurser i samme region. Ett subscription kan inneholde ressurser i flere regioner. Administrativ oppdeling konfigurerer ikke fysisk feilseparasjon, replikering eller ruting. Velg riktig subscription først, deretter gruppe og støttet ressurskonfigurasjon. App Sandbox og Shared Sandbox er AzureLabs faktiske treningsscopes, ikke produksjonsabonnementer.',
+      ],
+      terms: [
+        ['Subscription', 'Administrativt scope for ressurser, forbruk og styring.'],
+        ['Microsoft Entra tenant', 'Identitetskontekst som et subscription er tilknyttet.'],
+        ['Billing account', 'Kommersiell fakturakontekst, ikke et fysisk eller vanlig ARM-scope.'],
+      ],
+      question: 'Hvorfor må subscription velges selv når ressursen er teknisk gyldig?',
+      choices: [
+        ['context', 'Valget bestemmer administrativ og kostnadsmessig tilhørighet.'],
+        ['physical', 'Hvert subscription er et separat datasenter.'],
+        ['invoice', 'Hvert subscription gir alltid nøyaktig én separat faktura.'],
+      ],
+      feedback: {
+        context: 'Teknisk validering og korrekt organisatorisk kontekst er forskjellige krav.',
+        physical: 'Subscriptions er logiske administrative grenser, ikke datasentre.',
+        invoice: 'Fakturagruppering avhenger av avtale og billing-struktur.',
+      },
+      sources: ['AM08', 'AM13', 'AM14'],
+    },
+    management: {
+      title: 'Management groups: styr flere subscriptions',
+      paragraphs: [
+        'Management groups samler subscriptions under felles governance-scopes. De kan inneholde andre management groups og subscriptions. Hvert management group og subscription har én parent i dette hierarkiet, mens et management group kan ha flere children. Ressursene nås gjennom sine subscriptions og grupper; de plasseres ikke fysisk i et management group.',
+        'En tenant har én Tenant root management group over sine management groups og subscriptions. Directory vises sammen med root for orientering, men Directory er identitetskontekst og root er et management group. I ekte Azure tilsvarer root-gruppens ID tenant-ID-en. AzureLabs root-lab er en lokal forenkling. En Entra-administrator har ikke dermed automatisk alle Azure-ressursrettigheter; Azure-roller og Entra-roller er forskjellige.',
+        'Tildelinger på et management group kan rekke ned til underliggende scopes. Dette forenkler felles styring, men gir større konsekvenser ved feil. En regel for én utviklings-subscription bør ikke uten videre legges på root. En grunn, gjennomtenkt struktur er enklere å forstå enn en direkte kopi av hele organisasjonskartet. Regioner er heller ikke automatisk riktig management-struktur.',
+        'Learning har både App Sandbox og Shared Sandbox under seg i AzureLab. Det oppretter ikke et felles nettverk eller en Availability Zone. Den faktiske, avgrensede Web-location-policyen er tilordnet App Sandbox, ikke Learning eller Tenant root group. Shared Sandbox er derfor utenfor akkurat denne tildelingen. Hypotetisk større scope kan undersøkes uten å endre den reelle policyen.',
+      ],
+      terms: [
+        ['Tenant root group', 'Øverste management group innenfor tenantens hierarki.'],
+        [
+          'Inheritance',
+          'En overordnet tildeling kan være relevant for underliggende scopes; vilkår og effekt må fortsatt vurderes.',
+        ],
+      ],
+      question: 'Hvilken struktur beskriver management-hierarkiet riktig?',
+      choices: [
+        [
+          'parent',
+          'Én parent per subscription/management group; et management group kan ha flere children.',
+        ],
+        ['network', 'Felles management group oppretter nettverk mellom alle ressursene.'],
+        ['automatic', 'En regel på parent avviser automatisk alle ressurstyper.'],
+      ],
+      feedback: {
+        parent: 'Dette gir en entydig administrativ ancestry. Root er øverst.',
+        network: 'Administrativ ancestry er ikke nettverkstilkobling.',
+        automatic: 'Scope gir rekkevidde, men type, betingelse og effekt avgjør konsekvensen.',
+      },
+      sources: ['AM04', 'AM07', 'AM12'],
+    },
+  },
+  questions: {
+    subscription: {
+      scenario: 0,
+      label: 'Hvilket subscription oppfyller oppdraget?',
+      choices: [
+        ['development', 'Utviklings-subscriptionet; det godtar samme ressurs.'],
+        ['production', 'Det utpekte produksjons-subscriptionet.'],
+        ['region', 'Et hvilket som helst subscription i riktig region.'],
+      ],
+      feedback: {
+        production: 'Ressursen må ligge innenfor det eksplisitt avtalte produksjonsansvaret.',
+        development: 'Teknisk validering oppfyller ikke kravet til organisatorisk scope.',
+        region: 'Region og subscription besvarer ulike krav.',
+      },
+    },
+    subscriptionReason: {
+      scenario: 0,
+      label: 'Hvorfor er valget nødvendig?',
+      choices: [
+        ['invoice', 'Fordi ett subscription alltid gir én egen faktura.'],
+        ['physical', 'Fordi subscriptions alltid ligger på ulike fysiske steder.'],
+        ['boundary', 'For å følge styrings-, ressurs- og kostnadskonteksten.'],
+      ],
+      feedback: {
+        boundary: 'Administrativ korrekthet er en egen dimensjon ved siden av teknisk gyldighet.',
+        invoice: 'Billing-avtaler kan samle eller dele fakturering på andre måter.',
+        physical: 'Fysisk feilseparasjon krever egne plassering-/arkitekturvalg.',
+      },
+    },
+    lifecycle: {
+      scenario: 1,
+      label: 'Hvilken gruppering passer best?',
+      choices: [
+        ['all', 'Flytt den delte planen til appens gruppe og avvikle begge ved kampanjeslutt.'],
+        ['separate-app', 'Egen gruppe for kampanjeappen; behold delt plan i plattformgruppen.'],
+        ['location', 'Samle alle komponentene i én gruppe fordi de ligger i West Europe.'],
+      ],
+      feedback: {
+        'separate-app':
+          'Appen kan avvikles uten at planen som fortsatt hoster to andre apper følger dens livssyklus. Teknisk hosting er ikke krav om felles Resource group. Dette er et konseptvalg; AzureLabs avgrensede create-lab krever app og plan i samme gruppe.',
+        all: 'Planen skal fortsatt hoste to andre apper. Appens avviklingsbehov kan ikke brukes som planens livssyklus.',
+        location: 'Felles region krever ikke felles administrativ gruppe eller felles avvikling.',
+      },
+    },
+    lifecycleReason: {
+      scenario: 1,
+      label: 'Hvorfor følger ikke planen kampanjeappens avvikling?',
+      choices: [
+        [
+          'shared-lifetime',
+          'Planen har fortsatt andre forbrukere; gruppemetadata flytter ikke deres hosting.',
+        ],
+        ['relocate', 'Alle medlemmer blir fysisk flyttet dit.'],
+        ['hosting', 'Den oppretter automatisk hosting mellom app og plan.'],
+      ],
+      feedback: {
+        'shared-lifetime':
+          'Vurder faktisk deling og livssyklus, ikke bare en tegnet avhengighet. Gruppens metadata-region bestemmer verken planens plassering eller når andre apper skal avvikles.',
+        relocate: 'Metadata-location flytter ikke ressurser.',
+        hosting: 'Hosting krever en eksplisitt gyldig planreferanse.',
+      },
+    },
+    assignment: {
+      scenario: 2,
+      label: 'Hvilke subscriptions ligger innenfor assignmentets rekkevidde?',
+      choices: [
+        ['both', 'Både Production og Research fordi de deler Tenant root group.'],
+        ['none', 'Ingen, siden policy bare kan tilordnes Resource groups.'],
+        ['platform', 'Production under Platform; ikke Research under søstergruppen.'],
+      ],
+      feedback: {
+        both: 'En assignment på Platform arves nedover den grenen, ikke opp til root og videre ned i en søstergren.',
+        none: 'Policy kan blant annet tilordnes management group- og subscription-scopes.',
+        platform:
+          'Production har Platform i sin ancestry; Research har bare den felles rooten, ikke Platform.',
+      },
+    },
+    effect: {
+      scenario: 2,
+      label: 'Hvordan vurderes de tre beskrevne create-forespørslene av akkurat denne regelen?',
+      choices: [
+        ['deny-all', 'Alle avvises; deny på et management group gjelder hele directoryet.'],
+        [
+          'conditions',
+          'Ingen av de tre avvises av denne regelen: location, type og ancestry gir ulike avgrensninger.',
+        ],
+        ['web', 'Bare Web-planen i Production avvises fordi West Europe ikke er tillatt.'],
+      ],
+      feedback: {
+        conditions:
+          'Production-VM-en er i tillatt North Europe; Web-planen der matcher ikke VM-typen; Research-VM-en er utenfor Platform-grenen. Andre regler kan fortsatt gjelde. Dette er ikke AzureLabs faktiske Web-deny.',
+        'deny-all':
+          'Deny gjelder først når assignmentets ancestry og alle vilkårene matcher. Søsken-grener omfattes ikke automatisk.',
+        web: 'Location alene er utilstrekkelig: denne regelen retter seg mot Microsoft.Compute/virtualMachines, ikke Microsoft.Web/serverfarms.',
+      },
+    },
+    physical: {
+      scenario: 3,
+      label: 'Hvilket prinsipp adresserer den beskrevne fysiske feilen?',
+      choices: [
+        ['subscriptions', 'To subscriptions alene, uten å endre plassering.'],
+        ['groups', 'To Resource groups med samme ressurser i én sone.'],
+        [
+          'zones',
+          'Adskilte soner med riktig konfigurert redundans og alle nødvendige avhengigheter.',
+        ],
+      ],
+      feedback: {
+        zones:
+          'Fysisk feilgrense må møtes av en faktisk egnet arkitektur. Et enkelt navn eller scope er ikke nok.',
+        subscriptions: 'Administrativ oppdeling flytter ikke komponentene.',
+        groups: 'Grupper er ikke fysiske feilgrenser.',
+      },
+    },
+    relation: {
+      scenario: 3,
+      label: 'Hvordan leser du identitet, styring og hosting korrekt?',
+      choices: [
+        [
+          'distinct',
+          'Directory gir identitetskontekst; grupper gir medlemskap; appens planreferanse gir hosting.',
+        ],
+        ['same', 'Alle pilene betyr samme fysiske plassering.'],
+        ['identity', 'Directory er en ekstra region over subscriptions.'],
+      ],
+      feedback: {
+        distinct: 'Dette skiller de ulike relasjonenes mening og konsekvenser.',
+        same: 'Administrative og tekniske piler beskriver ikke automatisk geografi.',
+        identity: 'Directory er ikke en fysisk region.',
+      },
+    },
+  },
+  scenarios: [
+    {
+      title: 'A · Produksjonsansvar',
+      text: 'Et logistikkteam skal opprette en støttet ressurs for produksjon. Organisasjonen har utpekt Production som riktig subscription med egne budsjetter og styringskrav. Development ville også akseptert samme tekniske konfigurasjon.',
+    },
+    {
+      title: 'B · Kampanje på delt hosting',
+      text: 'En kampanjeapp skal avvikles etter en måned. Den bruker en eksisterende App Service plan som også hoster to varige apper og fortsatt må drives av plattformteamet. Alle ligger i samme subscription og West Europe; de støttede hostingvilkårene er oppfylt. Planen ligger allerede i en plattformgruppe. Den nye appgruppens metadata-location foreslås satt til North Europe. Vurder virkelig Azure-organisering; lokal create-lab støtter bare app og plan i samme gruppe.',
+    },
+    {
+      title: 'C · Les en hypotetisk regel',
+      text: 'Tenant root group har to søstergrupper: Platform med subscription Production, og Laboratory med subscription Research. Bare Platform har en hypotetisk deny-assignment: Microsoft.Compute/virtualMachines må ha location North Europe. Tre create-forespørsler undersøkes: en VM i Production/North Europe, et Web-plan i Production/West Europe, og en VM i Research/West Europe. Ingen andre regler inngår i oppgaven. Dette endrer ikke AzureLabs faktiske policy.',
+    },
+    {
+      title: 'D · Sykehusets feilgrense',
+      text: 'Et sykehus vil at en tjeneste skal tåle en hendelse som rammer én hel Availability Zone. Et forslag er bare å dele ressursene mellom to subscriptions og grupper, uten å endre fysisk plassering eller avhengigheter.',
+    },
+  ],
+  journal: 'Core Architecture · felles Knowledge Journal',
+  summary: 'Samlede, versjonerte observasjoner fra Part A og B',
+  objectives: {
+    CA04: 'Resources og Resource groups',
+    CA05: 'Subscriptions',
+    CA06: 'Management groups',
+    CA07: 'Hierarchy og relasjonstyper',
+  },
+  guided: 'Veiledet scope- og ressursundersøkelse',
+  assessmentIntro:
+    'Fire nye situasjoner. Velg både en handling og dens begrunnelse. Første besvarelse beholdes. Journal, Summary og annen undervisning under et aktivt forsøk registreres som hjelp. Ingen automatisk løsningsveiledning vises.',
+  hierarchyTitle: 'Azure Management Hierarchy Explorer',
+  identity: 'Identitetskontekst · ingen ekstra ARM-parent',
+  live: 'Faktisk replayet simulatorinventory',
+  empty:
+    'Ingen ressurser her ennå. Opprett dem i den ordinære Portalen; vi legger ikke til eksempelressurser i inventory.',
+  selected: 'Valgt node',
+  ancestors: 'Direkte scope → overordnede scopes',
+  membership: 'Management Hierarchy',
+  relationships: 'Resource Relationships',
+  location: 'Location / gruppemetadata',
+  policyTitle: 'Faktiske policy assignments',
+  policyLimit:
+    'Den faktiske egendefinerte deny gjelder App Sandbox og støttede Web-typer utenfor West Europe. Den er ikke tilordnet Learning. Her endres ingen policies.',
+  portal: 'Åpne i ordinær Portal',
+  expand: 'Åpne/lukk',
+  noSelection: 'Velg en node for å undersøke type og ancestry.',
+  relationsLimit:
+    'Hosting og andre avhengigheter er separate fra group membership. En subnet er en underressurs av et Virtual network, men dens gruppe er fortsatt et administrativt scope. Ingen pil beviser nettverkstrafikk eller kjørende kode.',
+  relationQuestion: 'Du har undersøkt faktisk Web App, gruppe og plan. Hva beskriver relasjonene?',
+  relationChoices: [
+    ['distinct', 'Gruppen gir administrativt medlemskap; appens referanse til plan gir hosting.'],
+    ['same', 'Begge relasjonene betyr at ressursene er på samme fysiske server.'],
+  ],
+  relationFeedback:
+    'Sammenlign app → group med app → plan. Ressurs-ID-ene kommer fra faktisk inventory; dette er veiledet praksis, ikke selvstendig vurdering.',
+  scopeTitle: 'Scope & Policy Explorer',
+  concept:
+    'Ren konseptmodell · hypotetiske create-forespørsler · ingen Portal-endring eller kvittering',
+  task: 'Forutsi konsekvensen før du kjører. Undersøk først Development + deny for et Web plan. Sammenlign deretter Organisation + audit, og forklar hvorfor scope alene ikke avgjør utfallet.',
+  steps: [
+    'Les faktisk hierarki og skill medlemskap fra hosting.',
+    'Forutsi og kjør en avgrenset deny i Development.',
+    'Sammenlign et overordnet audit-scope og les typevilkårene.',
+    'Bruk faktisk Portal-lab og undersøk ressursrelasjoner før selvstendig vurdering.',
+  ],
+  scopeLabel: 'Assignment scope',
+  targetLabel: 'Target resource type',
+  effectLabel: 'Effect',
+  allowedLabel: 'Tillatt location i modellen',
+  prediction: 'Forutsig antall avviste forespørsler',
+  run: 'Kjør scope-modellen',
+  pendingPrediction: 'Velg 0–4. Resultatet vises først etter kjøring.',
+  result: 'Sist lagrede modellobservasjon',
+  unchanged: 'Kontrollene er endret. Tabellen gjelder den lagrede kjøringen, ikke de nye valgene.',
+  row: 'Ressurs',
+  inScope: 'Innenfor scope',
+  typeMatch: 'Type matcher',
+  condition: 'Utenfor tillatt location',
+  outcome: 'Konsekvens',
+  yes: 'Ja',
+  no: 'Nei',
+  statuses: {
+    outside: 'Utenfor scope',
+    'other-type': 'Annen type',
+    disabled: 'Ikke evaluert',
+    compliant: 'Vilkår ikke oppfylt',
+    finding: 'Audit-funn · ikke blokkert',
+    denied: 'Ville blitt avvist',
+  },
+  explain: 'Hvorfor kan to ressurser innenfor samme scope få ulikt resultat?',
+  explainChoices: [
+    ['conditions', 'Type, regelbetingelse og effekt vurderes i tillegg til ancestry.'],
+    ['all', 'Alle descendants avvises uansett regel.'],
+    ['physical', 'Scope bestemmer fysisk region.'],
+  ],
+  explainFeedback: {
+    conditions: 'Riktig årsak: rekkevidde er nødvendig, men ikke tilstrekkelig for en deny.',
+    all: 'Deny krever en relevant regel og oppfylt betingelse. Audit blokkerer ikke.',
+    physical: 'Administrativ ancestry er ikke geografi.',
+  },
+  witnesses: [
+    'Subscription-avgrenset deny undersøkt',
+    'Overordnet audit sammenlignet',
+    'Faktisk medlemskap og hosting forklart',
+  ],
+  guidedDone: 'Veiledet Part B-undersøkelse registrert. Dette er ikke selvstendig mestring.',
+  brief: {
+    title: 'SavvyShark · Hvem administrerer hva?',
+    why: 'Du skal følge ressurser fra Directory til workload og skille administrativ styring fra fysisk plassering og hosting. Vi sammenligner en ren scope-modell med faktisk AzureLab-inventory.',
+    observe:
+      'Se på ancestry, typevilkår og effekt. En hypotetisk audit endrer ikke simulatorens faktiske App Sandbox-deny. Start åpner kontrollene; Avbryt lukker uten registrering.',
+    consequence: 'Start/Avbryt oppretter ingen ressurser, vurderinger eller XP.',
+  },
+  start: 'Start veiledet undersøkelse',
+  briefOpen: 'Åpne oppdraget igjen',
+  actualGuide:
+    'Velg scope og type, gjør en prediksjon og kjør. Les per-ressurs-resultatet før du sammenligner. Faktisk inventory undersøkes i Hierarchy Explorer.',
+  milestones: {
+    relation: {
+      title: 'Medlemskap er ikke hosting',
+      text: 'Den faktiske Web App har både en administrativ gruppe og en eksplisitt planreferanse. Dette er to ulike relasjoner. Ingen av dem beviser fysisk samlokalisering eller kjørende kode.',
+    },
+    policy: {
+      title: 'Et avslag har et faktisk scope',
+      text: 'Den replayede kvitteringen viser policy-web-location på App Sandbox. Den avviste konfigurasjonen opprettet ingen ressurs. Gruppens metadata-location endrer ikke Web-regelens ressursbetingelse.',
+    },
+  },
+  milestoneLimit:
+    'Historiske observasjoner er ikke nye tekniske kvitteringer eller uavhengig kompetanse.',
+  portalBridge: 'Praktisk bro · bruk den eksisterende PaaS-labben',
+  portalWhy:
+    'Opprett eller gjenbruk en riktig gruppe i App Sandbox, undersøk et faktisk policyavslag og hostingrelasjonen etter korrigering. Dette øver scope i en støttet operasjon; det utvider ikke policy-motoren.',
+  portalStart: 'Start eller fortsett faktisk Portal-lab',
+  debrief: 'Tilbake fra Portal · undersøk faktisk resultat',
+  debriefLimit:
+    'Bare gyldig inventory og replayede kvitteringer gir tekniske observasjoner. Et tidligere gjennomført labforløp er fortsatt veiledet arbeid, ikke ny Part B-vurdering.',
+  noPolicy: 'Ingen faktisk policy-deny er registrert i gjeldende simulatorforsøk.',
+  observePolicy: 'Undersøk faktisk policykvittering',
+  fullModule:
+    'Hele Core Architecture: undervisning og praksis må vurderes sammen med hvert dels separate selvstendige resultat.',
+  partA: 'Part A · fysisk infrastruktur',
+  partB: 'Part B · administrativ struktur',
+  notComplete: 'Ikke tilstrekkelig dokumentert ennå',
+  boundedComplete: 'Alle avgrensede kriterier dokumentert i begge deler',
+  resumeB: 'Fortsett Part B',
+  summaryLimit:
+    'Dette viser lokale, versjonerte og avgrensede observasjoner. Guided, første uassisterte resultat og retry er forskjellige. Ingen Microsoft Learn-fullføring, eksamensberedskap eller ny XP utledes.',
+  sourceReview:
+    'Offisielle kilder kontrollert 27. oktober 2026. Menneskelig SME-, UX-, skjermleser- og læringsvalidering er utestående.',
 } as const;

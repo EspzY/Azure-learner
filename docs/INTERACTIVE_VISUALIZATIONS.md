@@ -1,5 +1,9 @@
 # Interactive technical visualizations
 
+## Management Hierarchy and Scope Explorer — PR23
+
+An expandable semantic tree and inspector read actual World/inventory, retain empty scopes, central service icons and live resource links. The alternate relationships lens reuses Architecture Explorer rather than mixing hosting with management. A separate labelled scope fixture illustrates two subscriptions, groups and resource types; proposed controls reveal no result before Run. Its snapshot table separates scope reach, type, noncompliant location and audit/deny/disabled consequence. No inventory mutation, fictitious receipt or physical-placement inference. [Model](CORE_ARCHITECTURE_MANAGEMENT.md).
+
 ## Azure Infrastructure Explorer — Part A
 
 Original code-native cutaway datacenters, region/zone grouping, explicit app/data placements, affected-facility states and routing/dependency consequence strip project evaluateInfrastructure. All parameters/targets have native controls; a complete component table and level inspector provide nonvisual equivalence. Draft configuration is separate from committed prediction/result snapshots. Dated5-region examples and fictional buildings are marked; unknown nonzonal placement stays uncertain under smaller failures. No real autoscaling, SLA, failover time or Portal mutation. [Model/learning contract](CORE_ARCHITECTURE_PHYSICAL.md).

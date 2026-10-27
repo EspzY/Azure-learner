@@ -1,5 +1,9 @@
 # AzureLab 3.2.1
 
+## Core Architecture Part A+B — current course, PR23
+
+The ordinary root → Core Architecture now continues from the preserved physical Part A into management organization, resources/groups, subscriptions, management groups, live inventory hierarchy and a separate conceptual Scope & Policy Explorer. The existing real PaaS lab returns to the scope lesson; four changed independent cases, shared Journal and combined summary preserve separate versioned results. [Manuscript, source qualifications and compatibility](docs/CORE_ARCHITECTURE_MANAGEMENT.md). No generic policy/IAM/MG operation, old evidence/XP conversion or human approval. Verification remains recorded in PROJECT_STATUS and the scoped final audit.
+
 ## Core Architecture Part A — ordinary course, PR22
 
 The next official architecture/services path now has a visible partially available core module at /learn/architecture, after Cloud Computing, Benefits and Service Types. It teaches datacenters, geography/region, zones, pairs and separate cloud environments with an original Infrastructure Explorer, explicit fault/dependency predictions, SavvyShark and changed independent decisions/matching. Only3 of7 core objectives are implemented; Part B remains unavailable. [Manuscript/source/model and safe compatibility](docs/CORE_ARCHITECTURE_PHYSICAL.md). No new operative Azure resource, old evidence/XP migration or human approval.

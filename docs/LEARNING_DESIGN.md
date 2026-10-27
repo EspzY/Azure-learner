@@ -1,5 +1,9 @@
 # Learning design
 
+## Management learning task — PR23
+
+Start with a team's ownership/lifecycle problem before terminology. Compare actual administrative ancestry with hosting dependencies and Part A geography. Commit a prediction before pure counterfactual evaluation; compare scope/type/condition/effect and explain consequences. Apply this through the real existing Portal lab. Four different unassisted contexts require choices and reasons with committed alternative feedback; guided success never upgrades independent evidence. [Manuscript](CORE_ARCHITECTURE_MANAGEMENT.md).
+
 ## Part A: learn physical boundaries through consequences
 
 Build from known hardware/virtualization and Benefits dependencies. Explain datacenter, region/geography, zone deployment types, pair qualifications and sovereign environment before prediction. The guided model requires three distinct loss/dependency/resilience witnesses plus a causal answer, not navigation. Changed booking, approved-region/government and physical-failure cases commit decisions/reasons/matching before feedback. Per-objective first criteria, assistance, retries and abandonment remain visible; a partial first answer is retained rather than hidden or replaced. No broad transfer or full-core mastery claim. [Original teaching specification](CORE_ARCHITECTURE_PHYSICAL.md).

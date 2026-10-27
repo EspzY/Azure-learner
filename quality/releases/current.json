@@ -1,423 +1,615 @@
 {
   "schema": 1,
-  "id": "PR22-core-architecture-physical",
-  "baseCommit": "afe9692148fe277885e5625a15048a04e32a13d6",
-  "author": "codex-pr22-author",
+  "id": "PR23-core-architecture-management",
+  "baseCommit": "89438f8aec31f456e72cc8b611caf184ee4816b3",
+  "author": "codex-pr23-author",
   "scope": {
     "kind": "new-module",
-    "description": "P01 Core Architecture Part A physical3/7 objectives; no management Part B, operative failover/Portal resource changes, old evidence/XP migration or higher-level qualification.",
-    "objectives": ["CA01", "CA02", "CA03"]
+    "description": "P02 Core Architecture Part B CA04–07 with live inventory projection, pure hypothetical scope investigation and separate1.0.0 evidence; compose A+B without migration, XP or operative policy changes.",
+    "objectives": ["CA04", "CA05", "CA06", "CA07"]
   },
   "sources": [
     {
-      "id": "AR01",
+      "id": "AM01",
       "url": "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900",
-      "title": "AZ-900 Skills Measured",
+      "title": "Current AZ-900 Skills Measured",
       "kind": "exam",
       "reviewed": "2026-10-27",
       "version": "Skills measured2026-07-20",
       "availability": "AVAILABLE",
-      "objectives": ["CA01", "CA02", "CA03"],
-      "claims": ["physical.structure", "physical.boundaries", "physical.choice"],
-      "limits": "Scoped physical teaching; generic authorization banners did not prevent public body. No facility coordinates, global live catalogue, SLA/timing/compliance guarantee. Source-specific qualifications/conflicts in manuscript; human SME unperformed.",
+      "objectives": ["CA04", "CA05", "CA06", "CA07"],
+      "claims": ["management.organization", "management.scope", "management.relationships"],
+      "limits": "Public body read; no account/billing/IAM/MG CRUD/live Azure operation. ARM higher-scope exceptions and billing/effect qualifications recorded in manuscript. No human approval.",
       "discovery": [
         {
           "url": "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900",
           "disposition": "reviewed-essential",
-          "reason": "Actual public body/scope/qualifications reviewed before original manuscript."
+          "reason": "Public body and technical qualifications reviewed before original manuscript; supported claims and limits in source map."
         }
       ]
     },
     {
-      "id": "AR02",
+      "id": "AM02",
       "url": "https://learn.microsoft.com/en-us/training/modules/describe-core-architectural-components-of-azure/",
-      "title": "Core architectural components module/units",
+      "title": "Core architectural components public module/units",
       "kind": "module",
       "reviewed": "2026-10-27",
       "version": "Rolling public page reviewed2026-10-27",
       "availability": "AVAILABLE",
-      "objectives": ["CA01", "CA02", "CA03"],
-      "claims": ["physical.structure", "physical.boundaries", "physical.choice"],
-      "limits": "Scoped physical teaching; generic authorization banners did not prevent public body. No facility coordinates, global live catalogue, SLA/timing/compliance guarantee. Source-specific qualifications/conflicts in manuscript; human SME unperformed.",
+      "objectives": ["CA04", "CA05", "CA06", "CA07"],
+      "claims": ["management.organization", "management.scope", "management.relationships"],
+      "limits": "Public body read; no account/billing/IAM/MG CRUD/live Azure operation. ARM higher-scope exceptions and billing/effect qualifications recorded in manuscript. No human approval.",
       "discovery": [
         {
           "url": "https://learn.microsoft.com/en-us/training/modules/describe-core-architectural-components-of-azure/",
           "disposition": "reviewed-essential",
-          "reason": "Actual public body/scope/qualifications reviewed before original manuscript."
+          "reason": "Public body and technical qualifications reviewed before original manuscript; supported claims and limits in source map."
         },
         {
           "url": "https://learn.microsoft.com/en-us/training/modules/describe-core-architectural-components-of-azure/1-introduction",
           "disposition": "reviewed-essential",
-          "reason": "Public unit read for physical scope and prerequisites; management/paid accounts excluded from implementation. Protected assessment excluded; no copied teaching/questions/illustrations."
+          "reason": "Public prerequisite/management/summary checked. Protected assessment, signup/payment/video outside scope; nothing copied."
         },
         {
           "url": "https://learn.microsoft.com/en-us/training/modules/describe-core-architectural-components-of-azure/2-what-microsoft-azure",
           "disposition": "reviewed-essential",
-          "reason": "Public unit read for physical scope and prerequisites; management/paid accounts excluded from implementation. Protected assessment excluded; no copied teaching/questions/illustrations."
+          "reason": "Public prerequisite/management/summary checked. Protected assessment, signup/payment/video outside scope; nothing copied."
         },
         {
           "url": "https://learn.microsoft.com/en-us/training/modules/describe-core-architectural-components-of-azure/3-get-started-azure-accounts",
-          "disposition": "outside-scope",
-          "reason": "Public unit read for physical scope and prerequisites; management/paid accounts excluded from implementation. Protected assessment excluded; no copied teaching/questions/illustrations."
-        },
-        {
-          "url": "https://learn.microsoft.com/en-us/training/modules/describe-core-architectural-components-of-azure/5-describe-azure-physical-infrastructure",
           "disposition": "reviewed-essential",
-          "reason": "Public unit read for physical scope and prerequisites; management/paid accounts excluded from implementation. Protected assessment excluded; no copied teaching/questions/illustrations."
+          "reason": "Public prerequisite/management/summary checked. Protected assessment, signup/payment/video outside scope; nothing copied."
         },
         {
           "url": "https://learn.microsoft.com/en-us/training/modules/describe-core-architectural-components-of-azure/6-describe-azure-management-infrastructure",
-          "disposition": "outside-scope",
-          "reason": "Public unit read for physical scope and prerequisites; management/paid accounts excluded from implementation. Protected assessment excluded; no copied teaching/questions/illustrations."
+          "disposition": "reviewed-essential",
+          "reason": "Public prerequisite/management/summary checked. Protected assessment, signup/payment/video outside scope; nothing copied."
         },
         {
           "url": "https://learn.microsoft.com/en-us/training/modules/describe-core-architectural-components-of-azure/9-summary",
           "disposition": "reviewed-essential",
-          "reason": "Public unit read for physical scope and prerequisites; management/paid accounts excluded from implementation. Protected assessment excluded; no copied teaching/questions/illustrations."
+          "reason": "Public prerequisite/management/summary checked. Protected assessment, signup/payment/video outside scope; nothing copied."
         }
       ]
     },
     {
-      "id": "AR03",
-      "url": "https://learn.microsoft.com/en-us/azure/reliability/regions-overview",
-      "title": "Regions and geographies",
+      "id": "AM03",
+      "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/overview",
+      "title": "Azure Resource Manager overview",
       "kind": "technical",
       "reviewed": "2026-10-27",
       "version": "Rolling public page reviewed2026-10-27",
       "availability": "AVAILABLE",
-      "objectives": ["CA01", "CA02", "CA03"],
-      "claims": ["physical.structure", "physical.boundaries", "physical.choice"],
-      "limits": "Scoped physical teaching; generic authorization banners did not prevent public body. No facility coordinates, global live catalogue, SLA/timing/compliance guarantee. Source-specific qualifications/conflicts in manuscript; human SME unperformed.",
+      "objectives": ["CA04", "CA07"],
+      "claims": ["management.relationships"],
+      "limits": "Public body read; no account/billing/IAM/MG CRUD/live Azure operation. ARM higher-scope exceptions and billing/effect qualifications recorded in manuscript. No human approval.",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/reliability/regions-overview",
+          "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/overview",
           "disposition": "reviewed-essential",
-          "reason": "Actual public body/scope/qualifications reviewed before original manuscript."
+          "reason": "Public body and technical qualifications reviewed before original manuscript; supported claims and limits in source map."
         }
       ]
     },
     {
-      "id": "AR04",
-      "url": "https://learn.microsoft.com/en-us/azure/reliability/regions-list",
-      "title": "Region example metadata",
+      "id": "AM04",
+      "url": "https://learn.microsoft.com/en-us/azure/governance/management-groups/overview",
+      "title": "Management groups overview",
       "kind": "technical",
       "reviewed": "2026-10-27",
       "version": "Rolling public page reviewed2026-10-27",
       "availability": "AVAILABLE",
-      "objectives": ["CA01", "CA02", "CA03"],
-      "claims": ["physical.structure", "physical.boundaries", "physical.choice"],
-      "limits": "Scoped physical teaching; generic authorization banners did not prevent public body. No facility coordinates, global live catalogue, SLA/timing/compliance guarantee. Source-specific qualifications/conflicts in manuscript; human SME unperformed.",
+      "objectives": ["CA06", "CA07"],
+      "claims": ["management.scope"],
+      "limits": "Public body read; no account/billing/IAM/MG CRUD/live Azure operation. ARM higher-scope exceptions and billing/effect qualifications recorded in manuscript. No human approval.",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/reliability/regions-list",
+          "url": "https://learn.microsoft.com/en-us/azure/governance/management-groups/overview",
           "disposition": "reviewed-essential",
-          "reason": "Actual public body/scope/qualifications reviewed before original manuscript."
+          "reason": "Public body and technical qualifications reviewed before original manuscript; supported claims and limits in source map."
         }
       ]
     },
     {
-      "id": "AR05",
-      "url": "https://learn.microsoft.com/en-us/azure/reliability/regions-paired",
-      "title": "Paired and nonpaired regions",
+      "id": "AM05",
+      "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/manage-resource-groups-portal",
+      "title": "Manage resource groups Portal",
       "kind": "technical",
       "reviewed": "2026-10-27",
       "version": "Rolling public page reviewed2026-10-27",
       "availability": "AVAILABLE",
-      "objectives": ["CA01", "CA02", "CA03"],
-      "claims": ["physical.structure", "physical.boundaries", "physical.choice"],
-      "limits": "Scoped physical teaching; generic authorization banners did not prevent public body. No facility coordinates, global live catalogue, SLA/timing/compliance guarantee. Source-specific qualifications/conflicts in manuscript; human SME unperformed.",
+      "objectives": ["CA04", "CA05"],
+      "claims": ["management.relationships"],
+      "limits": "Public body read; no account/billing/IAM/MG CRUD/live Azure operation. ARM higher-scope exceptions and billing/effect qualifications recorded in manuscript. No human approval.",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/reliability/regions-paired",
+          "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/manage-resource-groups-portal",
           "disposition": "reviewed-essential",
-          "reason": "Actual public body/scope/qualifications reviewed before original manuscript."
+          "reason": "Public body and technical qualifications reviewed before original manuscript; supported claims and limits in source map."
         }
       ]
     },
     {
-      "id": "AR06",
-      "url": "https://learn.microsoft.com/en-us/azure/reliability/availability-zones-overview",
-      "title": "Availability Zones",
+      "id": "AM06",
+      "url": "https://learn.microsoft.com/en-us/azure/governance/policy/overview",
+      "title": "Azure Policy overview",
       "kind": "technical",
       "reviewed": "2026-10-27",
       "version": "Rolling public page reviewed2026-10-27",
       "availability": "AVAILABLE",
-      "objectives": ["CA01", "CA02", "CA03"],
-      "claims": ["physical.structure", "physical.boundaries", "physical.choice"],
-      "limits": "Scoped physical teaching; generic authorization banners did not prevent public body. No facility coordinates, global live catalogue, SLA/timing/compliance guarantee. Source-specific qualifications/conflicts in manuscript; human SME unperformed.",
+      "objectives": ["CA06", "CA07"],
+      "claims": ["management.scope"],
+      "limits": "Public body read; no account/billing/IAM/MG CRUD/live Azure operation. ARM higher-scope exceptions and billing/effect qualifications recorded in manuscript. No human approval.",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/reliability/availability-zones-overview",
+          "url": "https://learn.microsoft.com/en-us/azure/governance/policy/overview",
           "disposition": "reviewed-essential",
-          "reason": "Actual public body/scope/qualifications reviewed before original manuscript."
+          "reason": "Public body and technical qualifications reviewed before original manuscript; supported claims and limits in source map."
         }
       ]
     },
     {
-      "id": "AR07",
-      "url": "https://learn.microsoft.com/en-us/azure/reliability/availability-zones-zonal-resource-resiliency",
-      "title": "Zonal resource resiliency",
+      "id": "AM07",
+      "url": "https://learn.microsoft.com/en-us/azure/role-based-access-control/scope-overview",
+      "title": "RBAC scope overview",
       "kind": "technical",
       "reviewed": "2026-10-27",
       "version": "Rolling public page reviewed2026-10-27",
       "availability": "AVAILABLE",
-      "objectives": ["CA01", "CA02", "CA03"],
-      "claims": ["physical.structure", "physical.boundaries", "physical.choice"],
-      "limits": "Scoped physical teaching; generic authorization banners did not prevent public body. No facility coordinates, global live catalogue, SLA/timing/compliance guarantee. Source-specific qualifications/conflicts in manuscript; human SME unperformed.",
+      "objectives": ["CA06", "CA07"],
+      "claims": ["management.scope"],
+      "limits": "Public body read; no account/billing/IAM/MG CRUD/live Azure operation. ARM higher-scope exceptions and billing/effect qualifications recorded in manuscript. No human approval.",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/reliability/availability-zones-zonal-resource-resiliency",
+          "url": "https://learn.microsoft.com/en-us/azure/role-based-access-control/scope-overview",
           "disposition": "reviewed-essential",
-          "reason": "Actual public body/scope/qualifications reviewed before original manuscript."
+          "reason": "Public body and technical qualifications reviewed before original manuscript; supported claims and limits in source map."
         }
       ]
     },
     {
-      "id": "AR08",
-      "url": "https://learn.microsoft.com/en-us/azure/reliability/availability-zones-service-support",
-      "title": "Zone support by service",
+      "id": "AM08",
+      "url": "https://learn.microsoft.com/en-us/entra/fundamentals/how-subscriptions-associated-directory",
+      "title": "Entra tenant and subscription association",
       "kind": "technical",
       "reviewed": "2026-10-27",
       "version": "Rolling public page reviewed2026-10-27",
       "availability": "AVAILABLE",
-      "objectives": ["CA01", "CA02", "CA03"],
-      "claims": ["physical.structure", "physical.boundaries", "physical.choice"],
-      "limits": "Scoped physical teaching; generic authorization banners did not prevent public body. No facility coordinates, global live catalogue, SLA/timing/compliance guarantee. Source-specific qualifications/conflicts in manuscript; human SME unperformed.",
+      "objectives": ["CA05"],
+      "claims": ["management.organization"],
+      "limits": "Public body read; no account/billing/IAM/MG CRUD/live Azure operation. ARM higher-scope exceptions and billing/effect qualifications recorded in manuscript. No human approval.",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/reliability/availability-zones-service-support",
+          "url": "https://learn.microsoft.com/en-us/entra/fundamentals/how-subscriptions-associated-directory",
           "disposition": "reviewed-essential",
-          "reason": "Actual public body/scope/qualifications reviewed before original manuscript."
-        },
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/reliability/reliability-app-service",
-          "disposition": "reviewed-applied",
-          "reason": "Applied service-specific zone configuration bridge; existing Portal plan does not implement zone redundancy."
+          "reason": "Public body and technical qualifications reviewed before original manuscript; supported claims and limits in source map."
         }
       ]
     },
     {
-      "id": "AR09",
-      "url": "https://learn.microsoft.com/en-us/azure/security/fundamentals/physical-security",
-      "title": "Physical infrastructure and security",
+      "id": "AM09",
+      "url": "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/design-area/resource-org",
+      "title": "CAF resource organization",
       "kind": "technical",
       "reviewed": "2026-10-27",
       "version": "Rolling public page reviewed2026-10-27",
       "availability": "AVAILABLE",
-      "objectives": ["CA01", "CA02", "CA03"],
-      "claims": ["physical.structure", "physical.boundaries", "physical.choice"],
-      "limits": "Scoped physical teaching; generic authorization banners did not prevent public body. No facility coordinates, global live catalogue, SLA/timing/compliance guarantee. Source-specific qualifications/conflicts in manuscript; human SME unperformed.",
+      "objectives": ["CA04", "CA05", "CA06", "CA07"],
+      "claims": ["management.scope"],
+      "limits": "Public body read; no account/billing/IAM/MG CRUD/live Azure operation. ARM higher-scope exceptions and billing/effect qualifications recorded in manuscript. No human approval.",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/security/fundamentals/physical-security",
+          "url": "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/design-area/resource-org",
           "disposition": "reviewed-essential",
-          "reason": "Actual public body/scope/qualifications reviewed before original manuscript."
+          "reason": "Public body and technical qualifications reviewed before original manuscript; supported claims and limits in source map."
         }
       ]
     },
     {
-      "id": "AR10",
-      "url": "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/azure-setup-guide/regions",
-      "title": "Region selection",
+      "id": "AM10",
+      "url": "https://learn.microsoft.com/en-us/azure/governance/policy/concepts/scope",
+      "title": "Azure Policy scope",
       "kind": "technical",
       "reviewed": "2026-10-27",
       "version": "Rolling public page reviewed2026-10-27",
       "availability": "AVAILABLE",
-      "objectives": ["CA01", "CA02", "CA03"],
-      "claims": ["physical.structure", "physical.boundaries", "physical.choice"],
-      "limits": "Scoped physical teaching; generic authorization banners did not prevent public body. No facility coordinates, global live catalogue, SLA/timing/compliance guarantee. Source-specific qualifications/conflicts in manuscript; human SME unperformed.",
+      "objectives": ["CA06", "CA07"],
+      "claims": ["management.scope"],
+      "limits": "Public body read; no account/billing/IAM/MG CRUD/live Azure operation. ARM higher-scope exceptions and billing/effect qualifications recorded in manuscript. No human approval.",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/azure-setup-guide/regions",
+          "url": "https://learn.microsoft.com/en-us/azure/governance/policy/concepts/scope",
           "disposition": "reviewed-essential",
-          "reason": "Actual public body/scope/qualifications reviewed before original manuscript."
+          "reason": "Public body and technical qualifications reviewed before original manuscript; supported claims and limits in source map."
         }
       ]
     },
     {
-      "id": "AR11",
-      "url": "https://learn.microsoft.com/en-us/azure/azure-government/documentation-government-welcome",
-      "title": "Azure Government",
+      "id": "AM11",
+      "url": "https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effect-basics",
+      "title": "Policy effect basics",
       "kind": "technical",
       "reviewed": "2026-10-27",
       "version": "Rolling public page reviewed2026-10-27",
       "availability": "AVAILABLE",
-      "objectives": ["CA01", "CA02", "CA03"],
-      "claims": ["physical.structure", "physical.boundaries", "physical.choice"],
-      "limits": "Scoped physical teaching; generic authorization banners did not prevent public body. No facility coordinates, global live catalogue, SLA/timing/compliance guarantee. Source-specific qualifications/conflicts in manuscript; human SME unperformed.",
+      "objectives": ["CA06", "CA07"],
+      "claims": ["management.scope"],
+      "limits": "Public body read; no account/billing/IAM/MG CRUD/live Azure operation. ARM higher-scope exceptions and billing/effect qualifications recorded in manuscript. No human approval.",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/azure-government/documentation-government-welcome",
+          "url": "https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effect-basics",
           "disposition": "reviewed-essential",
-          "reason": "Actual public body/scope/qualifications reviewed before original manuscript."
-        },
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/azure-government/compare-azure-government-global-azure",
-          "disposition": "reviewed-applied",
-          "reason": "Eligibility and differing endpoints/features reviewed; outdated PowerShell note excluded."
+          "reason": "Public body and technical qualifications reviewed before original manuscript; supported claims and limits in source map."
         }
       ]
     },
     {
-      "id": "AR12",
-      "url": "https://learn.microsoft.com/en-us/azure/china/overview-operations",
-      "title": "Azure in China",
+      "id": "AM12",
+      "url": "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/design-area/resource-org-management-groups",
+      "title": "CAF management group design",
       "kind": "technical",
       "reviewed": "2026-10-27",
       "version": "Rolling public page reviewed2026-10-27",
       "availability": "AVAILABLE",
-      "objectives": ["CA01", "CA02", "CA03"],
-      "claims": ["physical.structure", "physical.boundaries", "physical.choice"],
-      "limits": "Scoped physical teaching; generic authorization banners did not prevent public body. No facility coordinates, global live catalogue, SLA/timing/compliance guarantee. Source-specific qualifications/conflicts in manuscript; human SME unperformed.",
+      "objectives": ["CA06", "CA07"],
+      "claims": ["management.scope"],
+      "limits": "Public body read; no account/billing/IAM/MG CRUD/live Azure operation. ARM higher-scope exceptions and billing/effect qualifications recorded in manuscript. No human approval.",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/china/overview-operations",
+          "url": "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/design-area/resource-org-management-groups",
           "disposition": "reviewed-essential",
-          "reason": "Actual public body/scope/qualifications reviewed before original manuscript."
-        },
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/china/concepts-service-availability",
-          "disposition": "reviewed-applied",
-          "reason": "21Vianet and feature variation cross-check; no agreement/pricing/infrastructure operations."
+          "reason": "Public body and technical qualifications reviewed before original manuscript; supported claims and limits in source map."
         }
       ]
     },
     {
-      "id": "AR13",
-      "url": "https://learn.microsoft.com/en-us/azure/reliability/concept-reliability-sovereignty",
-      "title": "Reliability and sovereignty",
+      "id": "AM13",
+      "url": "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/design-area/resource-org-subscriptions",
+      "title": "CAF subscription design",
       "kind": "technical",
       "reviewed": "2026-10-27",
       "version": "Rolling public page reviewed2026-10-27",
       "availability": "AVAILABLE",
-      "objectives": ["CA01", "CA02", "CA03"],
-      "claims": ["physical.structure", "physical.boundaries", "physical.choice"],
-      "limits": "Scoped physical teaching; generic authorization banners did not prevent public body. No facility coordinates, global live catalogue, SLA/timing/compliance guarantee. Source-specific qualifications/conflicts in manuscript; human SME unperformed.",
+      "objectives": ["CA05"],
+      "claims": ["management.organization"],
+      "limits": "Public body read; no account/billing/IAM/MG CRUD/live Azure operation. ARM higher-scope exceptions and billing/effect qualifications recorded in manuscript. No human approval.",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/reliability/concept-reliability-sovereignty",
+          "url": "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/design-area/resource-org-subscriptions",
           "disposition": "reviewed-essential",
-          "reason": "Actual public body/scope/qualifications reviewed before original manuscript."
+          "reason": "Public body and technical qualifications reviewed before original manuscript; supported claims and limits in source map."
         }
       ]
     },
     {
-      "id": "AR14",
-      "url": "https://learn.microsoft.com/en-us/training/paths/azure-fundamentals-describe-azure-architecture-services/",
-      "title": "Architecture/services path",
+      "id": "AM14",
+      "url": "https://learn.microsoft.com/en-us/azure/cost-management-billing/manage/view-all-accounts",
+      "title": "Billing accounts and scopes",
       "kind": "technical",
       "reviewed": "2026-10-27",
       "version": "Rolling public page reviewed2026-10-27",
       "availability": "AVAILABLE",
-      "objectives": ["CA01", "CA02", "CA03"],
-      "claims": ["physical.structure", "physical.boundaries", "physical.choice"],
-      "limits": "Scoped physical teaching; generic authorization banners did not prevent public body. No facility coordinates, global live catalogue, SLA/timing/compliance guarantee. Source-specific qualifications/conflicts in manuscript; human SME unperformed.",
+      "objectives": ["CA05"],
+      "claims": ["management.organization"],
+      "limits": "Public body read; no account/billing/IAM/MG CRUD/live Azure operation. ARM higher-scope exceptions and billing/effect qualifications recorded in manuscript. No human approval.",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/training/paths/azure-fundamentals-describe-azure-architecture-services/",
+          "url": "https://learn.microsoft.com/en-us/azure/cost-management-billing/manage/view-all-accounts",
           "disposition": "reviewed-essential",
-          "reason": "Actual public body/scope/qualifications reviewed before original manuscript."
+          "reason": "Public body and technical qualifications reviewed before original manuscript; supported claims and limits in source map."
+        }
+      ]
+    },
+    {
+      "id": "AM15",
+      "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/resource-providers-and-types",
+      "title": "Resource providers and types",
+      "kind": "technical",
+      "reviewed": "2026-10-27",
+      "version": "Rolling public page reviewed2026-10-27",
+      "availability": "AVAILABLE",
+      "objectives": ["CA04"],
+      "claims": ["management.relationships"],
+      "limits": "Public body read; no account/billing/IAM/MG CRUD/live Azure operation. ARM higher-scope exceptions and billing/effect qualifications recorded in manuscript. No human approval.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/resource-providers-and-types",
+          "disposition": "reviewed-essential",
+          "reason": "Public body and technical qualifications reviewed before original manuscript; supported claims and limits in source map."
+        }
+      ]
+    },
+    {
+      "id": "AM16",
+      "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/delete-resource-group",
+      "title": "Resource group deletion",
+      "kind": "technical",
+      "reviewed": "2026-10-27",
+      "version": "Rolling public page reviewed2026-10-27",
+      "availability": "AVAILABLE",
+      "objectives": ["CA04"],
+      "claims": ["management.relationships"],
+      "limits": "Public body read; no account/billing/IAM/MG CRUD/live Azure operation. ARM higher-scope exceptions and billing/effect qualifications recorded in manuscript. No human approval.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/delete-resource-group",
+          "disposition": "reviewed-essential",
+          "reason": "Public body and technical qualifications reviewed before original manuscript; supported claims and limits in source map."
+        }
+      ]
+    },
+    {
+      "id": "AM17",
+      "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/control-plane-and-data-plane",
+      "title": "Control plane and data plane",
+      "kind": "technical",
+      "reviewed": "2026-10-27",
+      "version": "Rolling public page reviewed2026-10-27",
+      "availability": "AVAILABLE",
+      "objectives": ["CA04"],
+      "claims": ["management.relationships"],
+      "limits": "Public body read; no account/billing/IAM/MG CRUD/live Azure operation. ARM higher-scope exceptions and billing/effect qualifications recorded in manuscript. No human approval.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/control-plane-and-data-plane",
+          "disposition": "reviewed-essential",
+          "reason": "Public body and technical qualifications reviewed before original manuscript; supported claims and limits in source map."
+        }
+      ]
+    },
+    {
+      "id": "AM18",
+      "url": "https://learn.microsoft.com/en-us/cli/azure/webapp?view=azure-cli-latest#az-webapp-create",
+      "title": "Azure CLI webapp create shared-plan example",
+      "kind": "technical",
+      "reviewed": "2026-10-27",
+      "version": "Rolling public body reviewed2026-10-27",
+      "availability": "AVAILABLE",
+      "objectives": ["CA04"],
+      "claims": ["management.relationships"],
+      "limits": "Public new-app example explicitly accepts a shared plan in another resource group by resource ID. No CLI/Azure command executed; local lab remains same-group only.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/cli/azure/webapp?view=azure-cli-latest#az-webapp-create",
+          "disposition": "reviewed-essential",
+          "reason": "Public new-app example explicitly accepts a shared plan in another resource group by resource ID. No CLI/Azure command executed; local lab remains same-group only."
+        }
+      ]
+    },
+    {
+      "id": "AM19",
+      "url": "https://learn.microsoft.com/en-us/azure/app-service/app-service-plan-manage",
+      "title": "Manage App Service plan",
+      "kind": "technical",
+      "reviewed": "2026-10-27",
+      "version": "Rolling public body reviewed2026-10-27",
+      "availability": "AVAILABLE",
+      "objectives": ["CA04"],
+      "claims": ["management.relationships"],
+      "limits": "Changing existing hosting plans has webspace/region/OS/source-target constraints; not a promise of arbitrary cross-group moves. New case B assumes already valid hosting.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/app-service/app-service-plan-manage",
+          "disposition": "reviewed-essential",
+          "reason": "Changing existing hosting plans has webspace/region/OS/source-target constraints; not a promise of arbitrary cross-group moves. New case B assumes already valid hosting."
         }
       ]
     }
   ],
   "activities": [
     {
-      "id": "physical-PartA",
-      "objectives": ["CA01", "CA02", "CA03"],
-      "claims": ["physical.structure", "physical.boundaries", "physical.choice"],
-      "limits": "Only three physical objectives. Synthetic placement/dependency model, not Azure inventory or measured resilience. Fixed assessment set; no broad mastery/human approval.",
+      "id": "management-PartB",
+      "objectives": ["CA04", "CA05", "CA06", "CA07"],
+      "claims": ["management.organization", "management.scope", "management.relationships"],
+      "limits": "Conceptual counterfactual create model separated from live World; bounded first/assisted observations not broad mastery.",
       "assessmentStatus": "new-independent",
-      "theory": [{ "path": "src/content/nb.ts", "marker": "architectureNb" }],
+      "theory": [
+        {
+          "path": "src/content/nb.ts",
+          "marker": "managementNb"
+        }
+      ],
       "mechanism": [
         {
-          "path": "src/domain/curriculum/architecture-physical.ts",
-          "marker": "evaluateInfrastructure"
+          "path": "src/domain/curriculum/architecture-management.ts",
+          "marker": "evaluateScope"
         }
       ],
       "practice": [
-        { "path": "src/features/learning/physical.tsx", "marker": "function PhysicalExplorer" }
+        {
+          "path": "src/features/learning/management.tsx",
+          "marker": "ScopeExplorer"
+        }
       ],
-      "feedback": [{ "path": "src/content/nb.ts", "marker": "explainFeedback:" }],
+      "feedback": [
+        {
+          "path": "src/content/nb.ts",
+          "marker": "subscriptionReason:"
+        }
+      ],
       "visual": [
-        { "path": "src/features/learning/physical-visual.tsx", "marker": "InfrastructureScene" }
+        {
+          "path": "src/features/learning/management.tsx",
+          "marker": "HierarchyExplorer"
+        }
       ],
       "accessible": [
-        { "path": "src/features/learning/physical-visual.tsx", "marker": "ComponentTable" }
+        {
+          "path": "src/features/learning/management.tsx",
+          "marker": "ma-tree"
+        }
       ],
       "assessment": [
-        { "path": "src/domain/curriculum/architecture-physical.ts", "marker": "physicalCriteria" }
+        {
+          "path": "src/domain/curriculum/architecture-management.ts",
+          "marker": "managementCriteria"
+        }
       ],
-      "savvyshark": [{ "path": "src/features/learning/physical.tsx", "marker": "claimMilestone" }]
+      "savvyshark": [
+        {
+          "path": "src/features/learning/management.tsx",
+          "marker": "claimMilestone"
+        }
+      ]
     }
   ],
   "modules": [
     {
-      "id": "core-physical",
+      "id": "core-management",
       "prerequisites": [
-        { "path": "docs/CORE_ARCHITECTURE_PHYSICAL.md", "marker": "Audit and compatibility" }
-      ],
-      "terminology": [{ "path": "src/content/nb.ts", "marker": "Feilgrense" }],
-      "concept": [{ "path": "src/content/nb.ts", "marker": "En Azure region" }],
-      "mechanism": [
         {
-          "path": "src/domain/curriculum/architecture-physical.ts",
-          "marker": "evaluateInfrastructure"
+          "path": "docs/CORE_ARCHITECTURE_MANAGEMENT.md",
+          "marker": "Audit and design decision"
         }
       ],
-      "azureExample": [{ "path": "src/content/nb.ts", "marker": "Norway East og Norway West" }],
-      "workedExample": [{ "path": "src/content/nb.ts", "marker": "rapporttjeneste" }],
-      "misconception": [{ "path": "src/content/nb.ts", "marker": "nonregional tjeneste" }],
-      "limits": [{ "path": "src/content/nb.ts", "marker": "Modellgrenser:" }],
+      "terminology": [
+        {
+          "path": "src/content/nb.ts",
+          "marker": "managementNb"
+        }
+      ],
+      "concept": [
+        {
+          "path": "src/content/nb.ts",
+          "marker": "managementNb"
+        }
+      ],
+      "mechanism": [
+        {
+          "path": "src/domain/curriculum/architecture-management.ts",
+          "marker": "ancestry"
+        }
+      ],
+      "azureExample": [
+        {
+          "path": "src/content/nb.ts",
+          "marker": "App Sandbox"
+        }
+      ],
+      "workedExample": [
+        {
+          "path": "src/content/nb.ts",
+          "marker": "Nordlys Drift"
+        }
+      ],
+      "misconception": [
+        {
+          "path": "src/content/nb.ts",
+          "marker": "Metadata-location"
+        }
+      ],
+      "limits": [
+        {
+          "path": "src/content/nb.ts",
+          "marker": "scopeTheory"
+        }
+      ],
       "visual": [
-        { "path": "src/features/learning/physical-visual.tsx", "marker": "InfrastructureScene" }
+        {
+          "path": "src/features/learning/management.tsx",
+          "marker": "HierarchyExplorer"
+        }
       ],
       "practice": [
-        { "path": "src/features/learning/physical.tsx", "marker": "function PhysicalExplorer" }
+        {
+          "path": "src/features/learning/management.tsx",
+          "marker": "ScopeExplorer"
+        }
       ],
       "independentScenario": [
-        { "path": "src/content/nb.ts", "marker": "Bestillinger gjennom en sonefeil" }
+        {
+          "path": "src/content/nb.ts",
+          "marker": "Produksjonsansvar"
+        }
       ],
-      "correctAndWrongRationales": [{ "path": "src/content/nb.ts", "marker": "zoneDesign:" }],
-      "sources": [{ "path": "docs/CORE_ARCHITECTURE_PHYSICAL.md", "marker": "Source discovery" }]
+      "correctAndWrongRationales": [
+        {
+          "path": "src/content/nb.ts",
+          "marker": "subscriptionReason:"
+        }
+      ],
+      "sources": [
+        {
+          "path": "docs/CORE_ARCHITECTURE_MANAGEMENT.md",
+          "marker": "Scoped source map"
+        }
+      ]
     }
   ],
   "gates": {
     "source": {
-      "checks": [{ "path": "docs/CORE_ARCHITECTURE_PHYSICAL.md", "marker": "Source discovery" }],
+      "checks": [
+        {
+          "path": "docs/CORE_ARCHITECTURE_MANAGEMENT.md",
+          "marker": "Scoped source map"
+        }
+      ],
       "limits": "Author official-source cross-check, not qualified human SME."
     },
     "curriculum": {
       "checks": [
-        { "path": "src/domain/curriculum/architecture-physical.ts", "marker": "physicalManifest" }
+        {
+          "path": "src/domain/curriculum/architecture-management.ts",
+          "marker": "managementManifest"
+        },
+        {
+          "path": "src/domain/curriculum/architecture-management-store.ts",
+          "marker": "prepareTeaching"
+        },
+        {
+          "path": "src/features/learning/management-access.tsx",
+          "marker": "ManagementTeachingBoundary"
+        },
+        {
+          "path": "src/domain/curriculum/teaching-access.ts",
+          "marker": "prepareExistingTeaching"
+        }
       ],
-      "limits": "Content coverage distinct from learner results; full Core module partial."
+      "limits": "All seven objectives available across separately versioned A/B; learner results and human approval remain distinct."
     },
     "simulation": {
       "checks": [
         {
-          "path": "src/domain/curriculum/architecture-physical.test.ts",
-          "marker": "narrows failure propagation"
+          "path": "src/domain/curriculum/architecture-management.test.ts",
+          "marker": "separates descendants"
         }
       ],
-      "limits": "Fictional facilities/copies/ready boundary, no real latency/SLA/failover engine."
+      "limits": "Pure conceptual policy scope/effects, not a full Azure Policy evaluator; live projection never writes World."
     },
     "savvyshark": {
-      "checks": [{ "path": "src/features/learning/physical.tsx", "marker": "claimMilestone" }],
+      "checks": [
+        {
+          "path": "src/features/learning/management.tsx",
+          "marker": "ManagementMilestones"
+        }
+      ],
       "limits": "UI-only history best effort; uncertain/independent contexts suppress auto; no technical effects."
     },
     "visual-accessibility": {
       "checks": [
-        { "path": "tests/e2e/architecture-physical.spec.ts", "marker": "async function audit" }
+        {
+          "path": "tests/e2e/architecture-management.spec.ts",
+          "marker": "async function audit"
+        }
       ],
       "limits": "Actual image/keyboard/Axe review cannot prove human UX/screen-reader/learning quality."
     },
     "independent-final-audit": {
-      "checks": [{ "path": "docs/RELEASE_ACCEPTANCE.md", "marker": "Independent Final Audit" }],
+      "checks": [
+        {
+          "path": "docs/RELEASE_ACCEPTANCE.md",
+          "marker": "Independent Final Audit"
+        }
+      ],
       "limits": "Fresh separate reviewer required after final source/build/test snapshot."
     },
     "delivery": {
-      "checks": [{ "path": "AGENTS.md", "marker": "primary Vercel preview URL" }],
+      "checks": [
+        {
+          "path": "AGENTS.md",
+          "marker": "primary Vercel preview URL"
+        }
+      ],
       "limits": "Final CI/stable preview/SHA/root browser gates are external, recorded after execution."
     }
   },
@@ -449,180 +641,265 @@
     "src/domain/curriculum/v2-store.ts",
     "src/domain/curriculum/serverless.ts",
     "src/domain/curriculum/serverless-store.ts",
-    "src/domain/curriculum/serverless.test.ts"
+    "src/domain/curriculum/serverless.test.ts",
+    "src/domain/curriculum/architecture-physical.ts",
+    "src/domain/curriculum/architecture-physical-store.ts",
+    "src/domain/curriculum/architecture-physical.test.ts"
   ],
-  "humanReview": { "sme": "unperformed", "learning": "unperformed" },
+  "humanReview": {
+    "sme": "unperformed",
+    "learning": "unperformed"
+  },
   "verification": [
     {
       "command": "npm run check",
       "result": "passed",
-      "details": "Final post-audit full check passed: production build, strict types/lint/format,73 Markdown/local links,quality/audit,95 curriculum,assets/legacy,185 Vitest/20 files and13 Node fixtures. Last test-selector-only synchronization then passed lint/format and full browser suite."
-    },
-    {
-      "command": "npm audit --json; npm audit --omit=dev --json",
-      "result": "passed",
-      "details": "Both report zero vulnerabilities; package-lock and runtime dependencies unchanged."
-    },
-    {
-      "command": "preservation/source diff review",
-      "result": "passed",
-      "details": "Only2.1.01–03 audit rows changed. All old sources and other54 rows unchanged; official.ts old content exact prefix; Portal/Chapter/Sandbox domain and lockfile unchanged. No new runtime external calls or secrets."
+      "details": "Final complete check after shared-reference and pause/resume corrections:210 Vitest/22 files,13 Node validator fixtures,120 curriculum,75 Markdown/local links,types/zero-warning lint/format/quality/AZ-900/assets/legacy and production build."
     },
     {
       "command": "npm run test:e2e",
       "result": "passed",
-      "details": "Final full production suite on3100 with ignored port-only adapter:81 passed,17 unchanged inherited duplicate-project skips,0 failed,6.1m (98total). All10 new cases passed; original tests retain count/content requirements with only documented visible-scope React streaming synchronization. Separate6 repeated missing-mascot cases passed30.2s. Axe/keyboard/reduced motion/short/compact/zoom, actual labs/returns/receipts/resume and no external requests included."
+      "details": "Executed exact command: npm run test:e2e -- --config=.artifacts/31a-discoverability.config.ts --workers=2. Final complete118 production cases:101 passed,17 unchanged inherited duplicate-project skips,0 failed,4.5m;exit0. All20 management cases run in both projects, including all9 independent contexts, real A/B conflicts and new stale-own-feedback/retry proofs. No new skips or weakened assertions. All prior Portal/course/physical shielding regressions pass. Earlier full97/17/2 prompted paused-action/own-prediction restoration; last full99/17/0 preceded the final two UI uncertainty conditions and new A/B feedback regression."
     },
     {
-      "command": "post-audit targeted checks",
+      "command": "scoped real production browser and teaching adapter checks",
       "result": "passed",
-      "details": "16 physical domain tests including capacity/terminal+aid, stale invalid recovery and Summary-assistance negatives; full check185Vitest/13Node/95curriculum/73docs/build;10 targeted production E2E48s. Trace-confirmed hidden React S:0 test targeting corrected without changing count/content requirements;6 repeated desktop/mobile missing-mascot course tests passed30.2s. Latest full-suite result recorded after completion."
+      "details": "18 management browser cases57.8s plus21 B-domain and4 shared-preflight tests passed. All9 valid old/new contexts are exercised through real provider/Journal behavior. Invalid/latest/different/closed attempts, denied read/write, newer drafts, immutable first, full event capacity and already-open references are guarded. An initial new test wrongly assumed A matching fields were radios; it now uses actual matching selects and existing compact menu without skipping assertions. Final full suite also runs the new own A/B stale-feedback case in both projects: prior feedback is absent on conflict, own forms/recovery remain valid, explicit Journal marks the actual retry aided, reload preserves aid and the first submission prefix is unchanged."
+    },
+    {
+      "command": "npm audit --audit-level=high; npm audit --omit=dev --audit-level=high",
+      "result": "passed",
+      "details": "Both0 vulnerabilities; no dependency or lockfile change."
+    },
+    {
+      "command": "actual IAB/screenshots/source/preservation",
+      "result": "passed",
+      "details": "Actual root→B theory/scope mission→predict/observe deny/audit→real Portal creation→exact return/live hierarchy→common Journal/summary. Final IAB resumed its real B draft from ordinary root, read the common Journal and retained Med registrert hjelp after reload.38 actual images inspected represent1920/1440/1366/1024,dense/short, revised independent scenarios and blocked A/B help. All old technical domains/stores/rubrics/XP remain unchanged; only four scoped audit rows changed and19 official sources reviewed. No human SME/UX/screen-reader/transfer approval."
+    },
+    {
+      "command": "final minor correction and exact full retest",
+      "result": "passed",
+      "details": "Only post-submit feedback rendering additionally requires !s.issue in existing physical/management UI. No old store/model/rubric/answer/XP change. Actual A and B first submissions, second-tab retry, withheld stale feedback, explicit Journal help and immutable prefixes are verified in the final101/17/0 production suite. Separate renewed acceptance still required."
     }
   ],
   "visualEvidence": [
     {
-      "path": "docs/screenshots/physical/physical-course-entry.png",
+      "path": "docs/screenshots/management/management-root.png",
       "viewport": "1920x1080",
-      "observation": "Ordinary root exposes Part A through the actual course navigation; three Cloud Concepts modules remain unchanged.",
+      "observation": "Ordinary current course A+B entry.",
       "inspected": true
     },
     {
-      "path": "docs/screenshots/physical/physical-current-lesson.png",
-      "viewport": "1440x900",
-      "observation": "Readable full original theory beside the physical facility cutaway; contextual previous/next stays reachable.",
-      "inspected": true
-    },
-    {
-      "path": "docs/screenshots/physical/physical-explorer-1920x1080.png",
+      "path": "docs/screenshots/management/management-theory.png",
       "viewport": "1920x1080",
-      "observation": "Actual failed A-zone and explicitly configured B app/data copy; distinct state glyph/text, no pair-implied copy.",
+      "observation": "Full original theory with terms and hierarchy context.",
       "inspected": true
     },
     {
-      "path": "docs/screenshots/physical/physical-explorer-1440x900.png",
-      "viewport": "1440x900",
-      "observation": "Three zones remain legible; facilities stack vertically with scroll at this viewport.",
+      "path": "docs/screenshots/management/management-mission.png",
+      "viewport": "1920x1080",
+      "observation": "Native explicit start/cancel/blur and readable scroll.",
       "inspected": true
     },
     {
-      "path": "docs/screenshots/physical/physical-explorer-1366x768.png",
-      "viewport": "1366x768",
-      "observation": "Minimum-desktop topology preserved; content below viewport is reachable by normal scrolling.",
+      "path": "docs/screenshots/management/management-hierarchy.png",
+      "viewport": "1920x1080",
+      "observation": "Actual app/group/plan and App Sandbox assignment ancestry.",
       "inspected": true
     },
     {
-      "path": "docs/screenshots/physical/physical-explorer-1024x768.png",
-      "viewport": "1024x768",
-      "observation": "Compact topology and course navigation do not horizontally overflow; semantic component table complements the drawing.",
+      "path": "docs/screenshots/management/management-scope-deny-model.png",
+      "viewport": "cropped1920",
+      "observation": "Hypothetical Development deny, other type/sibling differ.",
       "inspected": true
     },
     {
-      "path": "docs/screenshots/physical/physical-milestone-short.png",
+      "path": "docs/screenshots/management/management-scope-audit-model.png",
+      "viewport": "cropped1920",
+      "observation": "Parent audit reaches both subscriptions without denying.",
+      "inspected": true
+    },
+    {
+      "path": "docs/screenshots/management/management-relation-milestone.png",
+      "viewport": "1920x1080",
+      "observation": "Actual resource names; no physical/runtime claim.",
+      "inspected": true
+    },
+    {
+      "path": "docs/screenshots/management/management-assessment.png",
+      "viewport": "1920x1080",
+      "observation": "Four changed scenarios, reasons and correctly named Part B submit.",
+      "inspected": true
+    },
+    {
+      "path": "docs/screenshots/management/management-feedback.png",
+      "viewport": "1920x1080",
+      "observation": "Committed feedback with first/help/retry distinction.",
+      "inspected": true
+    },
+    {
+      "path": "docs/screenshots/management/pr23-summary-b.png",
+      "viewport": "IAB1264x720",
+      "observation": "Separate A/B pending results; no guided-only upgrade.",
+      "inspected": true
+    },
+    {
+      "path": "docs/screenshots/management/pr23-journal-b.png",
+      "viewport": "IAB1264x720",
+      "observation": "Full B manuscript in same Journal as A.",
+      "inspected": true
+    },
+    {
+      "path": "docs/screenshots/management/hierarchy-1024x500.png",
       "viewport": "1024x500",
-      "observation": "Long actual-observation body scrolls separately while header close and footer stay accessible.",
+      "observation": "Short-height baseline remains scrollable.",
       "inspected": true
     },
     {
-      "path": "docs/screenshots/physical/physical-dependency-trap.png",
-      "viewport": "1440x900 full page",
-      "observation": "Surviving app2 with lost data1 yields no usable path, with explicit relationship and causal text. Sticky elements appear at capture scroll position.",
+      "path": "docs/screenshots/management/management-dense-1920x1080.png",
+      "viewport": "1920x1080",
+      "observation": "Eight validated groups, real Web/VM bundle and nested subnet; scroll/selection/inspector.",
       "inspected": true
     },
     {
-      "path": "docs/screenshots/physical/physical-multiregion.png",
-      "viewport": "1440x900 full page",
-      "observation": "Nonpaired Italy North fault only serves through explicit healthy route and surviving West Europe data/app; cross-geography warning visible.",
+      "path": "docs/screenshots/management/management-dense-1440x900.png",
+      "viewport": "1440x900",
+      "observation": "Eight validated groups, real Web/VM bundle and nested subnet; scroll/selection/inspector.",
       "inspected": true
     },
     {
-      "path": "docs/screenshots/physical/physical-unknown.png",
-      "viewport": "1440x900 full page",
-      "observation": "Nonzonal placement yields unknown state under a smaller fault, not invented success.",
+      "path": "docs/screenshots/management/management-dense-1366x768.png",
+      "viewport": "1366x768",
+      "observation": "Eight validated groups, real Web/VM bundle and nested subnet; scroll/selection/inspector.",
       "inspected": true
     },
     {
-      "path": "docs/screenshots/physical/physical-assessment-feedback.png",
-      "viewport": "1024x768 full page",
-      "observation": "Wrong placement criterion with correct other criteria remains partial; feedback is after committed submission.",
+      "path": "docs/screenshots/management/management-dense-1024x768.png",
+      "viewport": "1024x768",
+      "observation": "Eight validated groups, real Web/VM bundle and nested subnet; scroll/selection/inspector.",
       "inspected": true
     },
     {
-      "path": "docs/screenshots/physical/physical-mission.png",
-      "viewport": "1265x713 actual IAB",
-      "observation": "Actual mission blur, prerequisites and explicit Start/Cancel consequences inspected and operated.",
+      "path": "docs/screenshots/management/management-conflict-held-core-summary.png",
+      "viewport": "1440x960",
+      "observation": "Actual conflict holds explanations until explicit safe reconcile; no help leakage.",
+      "inspected": true
+    },
+    {
+      "path": "docs/screenshots/management/management-conflict-held-journal.png",
+      "viewport": "1440x960",
+      "observation": "Actual conflict holds explanations until explicit safe reconcile; no help leakage.",
+      "inspected": true
+    },
+    {
+      "path": "docs/screenshots/management/management-conflict-held-management.png",
+      "viewport": "1440x960",
+      "observation": "Actual conflict holds explanations until explicit safe reconcile; no help leakage.",
+      "inspected": true
+    },
+    {
+      "path": "docs/screenshots/management/pr23-revised-case-b.png",
+      "viewport": "65536x4292542531",
+      "observation": "Actual revised independent scenario; changed constraints and varied answer positions, no pre-submit feedback.",
+      "inspected": true
+    },
+    {
+      "path": "docs/screenshots/management/pr23-revised-case-c.png",
+      "viewport": "65536x4292542531",
+      "observation": "Actual revised independent scenario; changed constraints and varied answer positions, no pre-submit feedback.",
+      "inspected": true
+    },
+    {
+      "path": "docs/screenshots/management/management-part-a-conflict-held-journal.png",
+      "viewport": "1440x960",
+      "observation": "Actual Part A conflict cannot expose common Journal theory; own reload and no rewritten first.",
       "inspected": true
     }
   ],
   "review": {
     "status": "complete",
-    "fingerprint": "c64c953f71883d20ec48081e1d7bca3d2d40c593481bcd84b6d5c1bdd5ce08b0",
-    "reviewer": { "id": "/root/pr22_final_audit", "kind": "agent" },
-    "started": "2026-10-27T07:51:11Z",
+    "fingerprint": "f3c36c595cc9fe43556d53ec2d8c1fde6b7f7586f31a81d86726d8ddee6635f4",
+    "reviewer": {
+      "id": "codex-pr23-independent-final-audit-agent",
+      "kind": "agent"
+    },
+    "started": "2026-10-27T11:49:42Z",
     "domains": {
       "content": {
-        "finding": "No open blocker/major in scoped physical content; dated primary-source qualifications retained and full Core remains partial3/7. Human SME and transfer validation unperformed.",
+        "finding": "No new learner content/answer change. R2/source qualifications and N1 positions retain accepted independent review; manuscript records N2 boundary. No human SME/transfer approval.",
         "evidence": [
-          { "path": "docs/CORE_ARCHITECTURE_PHYSICAL.md", "marker": "Source conflict resolution" },
-          { "path": "src/content/nb.ts", "marker": "architectureNb" },
-          { "path": "docs/quality/PR22_FINAL_AUDIT.md", "marker": "Content and source challenge" }
+          {
+            "path": "docs/quality/PR23_FINAL_AUDIT.md",
+            "marker": "### Final six-domain refresh"
+          },
+          {
+            "path": "docs/CORE_ARCHITECTURE_MANAGEMENT.md",
+            "marker": "Final minor correction"
+          }
         ]
       },
       "technical": {
-        "finding": "R1/R2 fixed: full valid histories reserve truthful aid and terminal events without rewriting prefixes; recovery revalidates and preserves newer valid/changed records. Independent negative/replay/denied-storage proofs pass.",
+        "finding": "All87 normalized hashes and fingerprint recomputed. Exact implementation delta is !s.issue on both feedback conditions plus one test; prior source/test hashes recovered by reversal. Frozen stores/domains/rubrics/XP/inventory/guidance unchanged.",
         "evidence": [
           {
-            "path": "src/domain/curriculum/architecture-physical.ts",
-            "marker": "Reserve one truthful assistance observation"
+            "path": "docs/quality/PR23_FINAL_AUDIT.md",
+            "marker": "### Final six-domain refresh"
           },
           {
-            "path": "src/domain/curriculum/architecture-physical-store.ts",
-            "marker": "recoverInvalid"
-          },
-          { "path": "docs/quality/PR22_FINAL_AUDIT.md", "marker": "Renewal R1" }
+            "path": "src/features/learning/management.tsx",
+            "marker": "!s.issue && !f.active && last"
+          }
         ]
       },
       "visual": {
-        "finding": "No open blocker/major in inspected production desktop/compact/short/capacity output. Semantic tables and scroll remain available; no human UX/screen-reader approval inferred.",
+        "finding": "Own actual A/B stale-feedback-held screenshots inspected at1366x768; own recovery visible and reloaded form enabled. Prior four-desktop/dense/short/paused evidence remains applicable; no new visual major.",
         "evidence": [
-          { "path": "docs/quality/PR22_FINAL_AUDIT.md", "marker": "Renewed visual inspection" },
-          { "path": "docs/screenshots/physical/physical-explorer-1920x1080.png" },
-          { "path": "src/features/learning/physical-visual.tsx", "marker": "ComponentTable" }
+          {
+            "path": "docs/quality/PR23_FINAL_AUDIT.md",
+            "marker": "### Final six-domain refresh"
+          },
+          {
+            "path": "docs/screenshots/management/management-part-a-conflict-held-journal.png"
+          }
         ]
       },
       "assessment": {
-        "finding": "R3 fixed: active Summary exposure records assistance before first submission, preserves draft and immutable first outcomes, including reserved capacity; independent production regression passes in both projects.",
+        "finding": "N2 fixed: independent actual A/B firsts unaided, remote retry hides stale feedback, reload alone adds no help, explicit Journal persists retry aid across reload, both original first prefixes exact. R1/R2/N1 remain fixed.",
         "evidence": [
           {
-            "path": "src/domain/curriculum/architecture-physical.test.ts",
-            "marker": "classifies solution-bearing summary exposure"
+            "path": "docs/quality/PR23_FINAL_AUDIT.md",
+            "marker": "### Final six-domain refresh"
           },
           {
-            "path": "tests/e2e/architecture-physical.spec.ts",
-            "marker": "final-audit regressions"
-          },
-          { "path": "docs/quality/PR22_FINAL_AUDIT.md", "marker": "Renewal R3" }
+            "path": "docs/quality/PR23_FINAL_AUDIT.md",
+            "marker": "## Final scoped N2 renewal"
+          }
         ]
       },
       "guidance": {
-        "finding": "Actual-run milestones retain conservative independent/uncertain shielding, no-repeat and history semantics. A safely ended full record no longer blocks other guidance. No guide-submitted command/evidence found.",
+        "finding": "Exact delta does not change adapter/Portal/milestone/paused controls. Accepted all9-context and own operational/model proofs retained; no new aid/highlight/completion behavior introduced.",
         "evidence": [
-          { "path": "src/features/learning/physical.tsx", "marker": "claimMilestone" },
           {
-            "path": "tests/e2e/architecture-physical.spec.ts",
-            "marker": "real cross-tab independent shielding"
+            "path": "docs/quality/PR23_FINAL_AUDIT.md",
+            "marker": "### Final six-domain refresh"
           },
-          { "path": "docs/quality/PR22_FINAL_AUDIT.md", "marker": "Final six-domain disposition" }
+          {
+            "path": "src/domain/curriculum/teaching-access.ts",
+            "marker": "prepareExistingTeaching"
+          }
         ]
       },
       "regression": {
-        "finding": "No open blocker/major. Exact65-file snapshot matches; protected domain/store/XP/lockfile paths preserved. Original visible-manuscript test change is justified by actual hidden S:0 trace and retains uniqueness/exact content.",
+        "finding": "Independent actual A/B proof exited0 with no page errors. Targeted2 production cases CLI0 after disclosed stuck owned-server teardown termination; prior tests/assertions/skips unchanged. Earlier57 unit/18 production review retained, author118-case run is separate evidence.",
         "evidence": [
-          { "path": "tests/e2e/course.spec.ts", "marker": "portal-manuscript:visible" },
           {
-            "path": "docs/quality/PR22_FINAL_AUDIT.md",
-            "marker": "Existing visible-manuscript test correction"
+            "path": "docs/quality/PR23_FINAL_AUDIT.md",
+            "marker": "### Final six-domain refresh"
           },
-          { "path": "docs/quality/PR22_FINAL_AUDIT.md", "marker": "Renewed commands and results" }
+          {
+            "path": "tests/e2e/architecture-management.spec.ts",
+            "marker": "stale own A/B feedback is withheld"
+          }
         ]
       }
     },
@@ -631,106 +908,146 @@
         "id": "R1",
         "severity": "major",
         "status": "fixed",
-        "description": "A400-event history could trap an active independent assessment and indefinitely block guidance.",
-        "fix": "Known full read-only state plus bounded aid/terminal reserve through402; no prior-event rewriting or global unsafe issue.",
+        "description": "Conflicted active assessments could expose shared teaching while aid writes were rejected, permitting false first-unaided evidence.",
+        "fix": "All9 context preflight compares current validated records and confirms persisted assistance before mounting new shared teaching; uncertain/stale/denied contexts hold teaching and expose exact reload/recovery without answer merges or old-store changes.",
         "retests": [
-          "21 scoped model/guidance tests passed; independent full/incomplete and aided/unaided terminal proofs with unchanged400-event prefix and valid replay.",
-          "12 reviewer production cases passed52.7s, including capacity Journal/abandon/reload/Portal regression in both projects."
+          "57 scoped domain tests exit0",
+          "18 scoped production browser cases passed",
+          "Independent exact A/B draft-conflict Journal/reload/first proof exited0",
+          "Independent operational/no-aid and paused-model proof exited0"
         ]
       },
       {
         "id": "R2",
         "severity": "major",
         "status": "fixed",
-        "description": "Confirmed invalid-store clear could delete newer valid Part A evidence from a stale snapshot.",
-        "fix": "Distinct recoverInvalid re-reads/replays/compares quarantined bytes; changed/valid values are preserved/reloaded, denied reads/removals preserve raw bytes.",
+        "description": "Independent B/C originally repeated worked/guided decision structures.",
+        "fix": "Revised shared-plan lifecycle and sibling-MG VM deny introduce changed decisions; original alternatives/rationales and AM18/19 technical qualifications independently reviewed.",
         "retests": [
-          "Independent valid-repair/changed-invalid/denied-read/denied-remove proofs passed.",
-          "Actual same-document valid repair before confirmation preserved newer raw value in desktop and mobile production regressions; prior corrupt/future/cancel cases passed."
+          "Independent full learner-copy/source recheck in10:44renewal",
+          "57 scoped tests exit0",
+          "18 production cases passed"
         ]
       },
       {
-        "id": "R3",
-        "severity": "major",
+        "id": "N1",
+        "severity": "minor",
         "status": "fixed",
-        "description": "Solution-bearing Summary help was exempt from assistance and could retain first-unaided credit.",
-        "fix": "Domain and Course effects record active Summary access as aid, including full-history reserve; assessment copy states this boundary.",
+        "description": "All8 correct independent choices were first.",
+        "fix": "Answer positions now2,3,2,1,3,2,3,1.",
         "retests": [
-          "Independent draft/summary/submit/retry replay preserved immutable first classification and rejected assisted first-unaided credit.",
-          "Actual fresh attempt through Summary, preserved draft, all-correct assisted submission and three unregistered first-unaided outcomes passed in both browser projects."
+          "Independent learner-copy/domain choice-order inspection",
+          "57 scoped tests exit0"
+        ]
+      },
+      {
+        "id": "N2",
+        "severity": "minor",
+        "status": "fixed",
+        "description": "Own A/B stale closed-attempt feedback remains visible after another tab begins retry. First prefix is preserved and retry records prior exposure, but current retry assistance remains0 while historical rationales can be read. Author elected to hide feedback on own issue and add A/B cross-tab regression.",
+        "fix": "Both A/B post-submit feedback conditions now require !s.issue, holding stale historical rationales while own conflict/recovery/form remain available. No evidence or first/retry state changes.",
+        "retests": [
+          "Independent actual A/B first-submit/remote-retry/held-feedback/reload/explicit-Journal proof exited0",
+          "Targeted production regression2 browser projects passed CLI0",
+          "Exact previous source/test hashes recovered by reversing only the two guards/new test"
         ]
       }
     ],
-    "report": { "path": "docs/quality/PR22_FINAL_AUDIT.md", "marker": "## Renewed final review" }
+    "report": {
+      "path": "docs/quality/PR23_FINAL_AUDIT.md",
+      "marker": "N2 is fixed; R1/R2/N1 remain fixed"
+    }
   },
   "snapshot": {
     "files": {
-      "AGENTS.md": "5684d4953456690a76ee2167daef52e3d2dc959030194f63907d5c681b722f85",
-      "README.md": "7476aa2dcfefde1ba30c62dd24fee641831aebcc72f158caaa3c1387f04a43d5",
-      "docs/ARCHITECTURE.md": "748eabb907d4ac7b9c39040b7f15a6b3f199d62e4c0d216663461ddb5396a7e2",
-      "docs/ASSET_REGISTER.md": "83b1098ffb7187d6ddb2bdc500dbba7a23d8e04025e0ceca37ae9dd91959df1d",
-      "docs/AZ900_COVERAGE_MATRIX.md": "3134ba63983633f6c72ef86de3e915982cee91abf0c096daf1df8aa489143260",
-      "docs/AZ900_EXPANSION_ROADMAP.md": "0877478495891c85448327cdce91dfc5292dd8560b001ae3f42e10e9123c4b87",
-      "docs/AZ900_GAP_ANALYSIS.md": "c054d78fb2d15809e571cd02e60e4aadbe2c99496d637aa09290501dc6a204dd",
-      "docs/CONTENT_ARCHITECTURE.md": "cfc530f0c6783dd7a4a73f18f9f353cab15fd14b4a5b3226e1414a038afd0b59",
-      "docs/CORE_ARCHITECTURE_PHYSICAL.md": "7c26c2e65539681bb4de1c5a6496e7bc8ec9d50bc78912e8fc9abd1991e1976c",
-      "docs/COURSE_FIRST_PRODUCT_EXPERIENCE.md": "8a798eb7c73f33a54e1a3abad6b6dbf2b78421350136a4a74fee3f4197fd2994",
-      "docs/CURRICULUM_COVERAGE.md": "29889390fca54333c64dcf5ed27eaf4022172d77e431dfec3cdfa06f021683d6",
-      "docs/DECISIONS.md": "e367f7e117bb35300c2e3c418929d9a7f45b9a32aeb7a99c9d68a0dc0aef6c32",
-      "docs/INTERACTIVE_VISUALIZATIONS.md": "a76bc3596274a744f1cbc3de264e1fa091f9a261e62489624d9b47af972c2eb3",
-      "docs/LEARNING_DESIGN.md": "ac8eacba882747b08bc184ed31b677ba314124771296c1bb9185eab31b35d135",
-      "docs/LEARNING_JOURNEY.md": "67e36144f905f36a23bfa5d1ceffa088aecae220765bb0599cb20a74b86394dd",
-      "docs/ROADMAP.md": "018dcb2d9704bb579707f01fcf9d048c89af9f8e89c6580e7f1d53abc0986cd3",
-      "docs/SAVVYSHARK_INTEGRATION.md": "e016cb3498223bff180439e55a3419c86f2868d85bc0144ebcecf3ff667ec6e5",
-      "docs/SECURITY.md": "9dd94f99c45bba2ebb8ec65cc3b54e194ec5236c54cdf58e0bb0d699d142f4dd",
-      "docs/SOURCE_REGISTER.md": "5b77e63bedc7fb08fe8686c491693f28d0f239dc298b5874592a14473e696b25",
-      "docs/VISUAL_LEARNING_SYSTEM.md": "0deaaace94bf0e67630df2401a6017492abdfd76736028711e28efd5272528dc",
-      "docs/audits/az900-2026-07-20.json": "9d99ac3ff47476e1670f9dbafa9756820e7a823e9cf6f7bd6d90c512b8afd44c",
-      "docs/screenshots/physical/physical-assessment-feedback.png": "07014a95d0ab854d2a2e44f24984ce9d2cd9a6f77d263fd95f512e5d6c2cf39b",
-      "docs/screenshots/physical/physical-course-entry.png": "cbd303e4e491aa298164d837cf08384f5c94a46c8b009c54dd2a8ea674f8878c",
-      "docs/screenshots/physical/physical-current-lesson.png": "01cca2cf8a4677d01bd4c30ce0df69a3b9e6a56936cb9fafdfb3db3a7da21c36",
-      "docs/screenshots/physical/physical-dependency-trap.png": "7e9d28ba5059365785042150217be7571050bdbf7de269f9872f963c7054f36e",
-      "docs/screenshots/physical/physical-explorer-1024x500.png": "01427046b5260eb70cbf17c40ea49602bfeb13c7fa2f44de5ecf7b24f4ed08a7",
-      "docs/screenshots/physical/physical-explorer-1024x768.png": "5cbce4c8cbd9b4fed150e4ae3c6d85ac8c0297a359bd9c3f0f8e6218fc4cd480",
-      "docs/screenshots/physical/physical-explorer-1366x768.png": "30e3667112d063a386cf6a65a125657728a6c6f05543b38badd8df3630999918",
-      "docs/screenshots/physical/physical-explorer-1440x900.png": "adf208e4af28a1a347fcd556fe85f6d2ad87580318111a83a7316a8e8619ac79",
-      "docs/screenshots/physical/physical-explorer-1920x1080.png": "827f16e72a796b656cf6cf1505ea03ae8c1f7c73d223830f6e84885b632a4165",
-      "docs/screenshots/physical/physical-loss-milestone.png": "ca5df35474ad39befa825676a06fab81fc843c500c3e004e7720b13e72cd0658",
-      "docs/screenshots/physical/physical-milestone-short.png": "c0dabaac84e41a74f899bd2c6579748bcd2de2eaf7c5ba033fe89b147190b707",
-      "docs/screenshots/physical/physical-mission.png": "2038d4e7e2ea141ab7fedf09bb8b4907446e8f55ad5dd64b41f45102452ff4e1",
-      "docs/screenshots/physical/physical-multiregion.png": "46a185e602c7ef4c670d675c1098beb9f93227dcad97863e09034e64d2896877",
-      "docs/screenshots/physical/physical-normal.png": "c1d3261088a2799c16c78316b29ad44f34dc1d52b424731104bac0508f00cfce",
-      "docs/screenshots/physical/physical-resilience-milestone.png": "ebe8dad08bce8e91387ed5b7549cdebf24910e5605442430c90ee1a649ebbee6",
-      "docs/screenshots/physical/physical-single-loss.png": "52e25d778553b2b2476e4752b57328fe6efbe0a0dd8598526bcfa1e5e72acdc1",
-      "docs/screenshots/physical/physical-sovereign.png": "2567d901e1546630ff486099267cde7b32d3da9ad8459598a81378d21ea9a0d6",
-      "docs/screenshots/physical/physical-theory.png": "23663238308b7240025e642496816a1a57d6c715bd139a429067973489e7942d",
-      "docs/screenshots/physical/physical-unknown.png": "a89473ff4b9b76a2f8f4f9f96207549af1181325983d6a3da946243fceea15a6",
-      "package.json": "42ea6410e5c4f0dc6b704197bbc60cca8d0093542b9bdb34543aeddf7c94224a",
-      "scripts/az900-audit-check.test.mjs": "68913bfa3ed234c3364cab628ee727f8a0e40ef9b8e39f5da9bb9c6fbd0f933b",
-      "src/app/layout.tsx": "503454cee53d4907759b2e917bee6c987ec4abdb97c35d443e10dc6c0dcee43d",
-      "src/app/learn/[module]/page.tsx": "0fd99d0a1a962c1cd3e1c3af60a002daab1d9e5a311a77b7721dc62e17f65e22",
-      "src/components/app-shell.tsx": "49c0762b260843f069d84a7616e278d26aed528dba98ca5d53dd101172563184",
-      "src/components/progress-provider.tsx": "df3ba0e0d6463f225d8c6e1b208669c6dffc9ee4526b5290ec385ea93dc64d9e",
-      "src/content/nb.ts": "301b311170a37dd64e883e6e89fc97f86027a3c339086e19511f094630784ef2",
-      "src/domain/course/model.ts": "5ed86696a31b33bae56e1f0d87900c1c201472a0fb8a568f6da3340b68ef7947",
-      "src/domain/curriculum/architecture-physical-store.ts": "b916b2173e9252bea5c3475d96021649a3ccc6657784e37effdf1136257c674b",
-      "src/domain/curriculum/architecture-physical.test.ts": "c89ee10bcbe0e2d978ea5109a1bc93cc7e80e48a1e6ddd883dd8ee68dcc34f63",
-      "src/domain/curriculum/architecture-physical.ts": "826925fa026fadb0d11f22eec931c541d4b33614764fbb34d6b1e4023b36e13c",
-      "src/domain/curriculum/manifest.ts": "95425e93049ec690ee3c3e48d5e67d5f992f0acd1e3d35e798bdd26a2f06625f",
-      "src/domain/curriculum/official.ts": "6d23da2e2e51deaa9e8f080b8099fa7e6c036696b525cbfde0fd1f03e45085ab",
-      "src/domain/guidance/milestones.ts": "bfe8b72210563e317849d7ce68a3dba580ab93dc17cbbfb3f5a97756b0741d8a",
-      "src/features/course/course.tsx": "d4c98267b02556b263a5612872ab36753022ea566c81e0e540af33a3bafa0573",
-      "src/features/course/guidance-window.tsx": "5d02a2c3cb41aa1e49c60fc195385b3900abdc2a422b90987fc73c22465514c0",
-      "src/features/learning/physical-entry.tsx": "5f5dbf37063112913887e841b6995878c8c2eb104f2c770a2fe14beab37100ac",
-      "src/features/learning/physical-provider.tsx": "446a231172575455751c305a0a5f4e783bb4c20b339b5b1748164c071bc052a2",
-      "src/features/learning/physical-recovery.tsx": "54bf03c7a6d8777dca99accd42de65c2aded1fda67fd55fff11b945e07dda9ab",
-      "src/features/learning/physical-visual.tsx": "3294a7f95fbfd82771840e242ca8eebcd431fa1e0bd3527bc514f44e685b9759",
-      "src/features/learning/physical.css": "a1abe3060f828ac9b1931a92ce700f2290d84d2db350a40f296c99644866fb41",
-      "src/features/learning/physical.tsx": "ce28549485fd60aaf89705c8e719b5cc81825e8cf23c938b12bb2668f342f752",
-      "src/features/portal/portal.tsx": "3826796a9cc14061eb669afd454c514496937fea0240c600c2bc1e64b7b0025b",
-      "tests/e2e/architecture-physical.spec.ts": "303957d6b28743f6e46a9a05b300c25440189def72213979bef93eed25fb92a1",
-      "tests/e2e/course.spec.ts": "7e2b3b39cdf56e5ae82e18b067f7c81c306483b8f96cb4c22cc20ccf80717fa9"
+      "AGENTS.md": "f4902c2456b54c53308bfc1e82dbda7b554a5e8759356e04c8b84374e7c18cd3",
+      "README.md": "037427f5304a57dc3ebe1e1d4b070f1dae8943a8a3fd97c04a516215501525f6",
+      "docs/ARCHITECTURE.md": "41dcb7b6883698873bef1994a5ebfb4583cbcd0d7c6fe031657da10c22b7964d",
+      "docs/AZ900_COVERAGE_MATRIX.md": "d38464e2f0d2b002fa165e0704f501461267845dc124c6c1e7ea337ccc9a5fae",
+      "docs/AZ900_EXPANSION_ROADMAP.md": "33401e1af3d22f383481f1b20536725f44e7697ca9ad1ac922e2eee7aa21d6fc",
+      "docs/AZ900_GAP_ANALYSIS.md": "ddbda2d80e5eb7c91f95a53198b180d5eb35f4a3600ba0944acc7f365f1ac861",
+      "docs/CONTENT_ARCHITECTURE.md": "5e7b5eec7d00b7ba3bd53f60dd58d80ffffce62e60477bf29b7f5c0c2a29a89a",
+      "docs/CONTENT_STANDARDS.md": "fd2bce4d9705f208675922c50f8cca75a51078dba20cda06002a66da8bb65bf8",
+      "docs/CORE_ARCHITECTURE_MANAGEMENT.md": "513163277e455f1884aeaac86bcf9fc4d39669f803e613e71a79fb1d428a3d7c",
+      "docs/CORE_ARCHITECTURE_PHYSICAL.md": "e2ec7d640dc284e191afa00ee2c62307b98d7fbab8f55d9be4bd8d120503836b",
+      "docs/COURSE_LAB_ORCHESTRATION.md": "27ab33339a5db886996ddd88ab4ff868cb409d3712cb911d269d407bfacf3f25",
+      "docs/CURRICULUM_COVERAGE.md": "6643cc2a980df0ea16eab9fd6f04d3249be9a9c265edf26797303e4034f80f3c",
+      "docs/DECISIONS.md": "0a96e3ac0bfa7ca50231a3f4d77f82fc11578a8d9fe023ee01f7fba18f13123a",
+      "docs/INTERACTIVE_VISUALIZATIONS.md": "995eaeb03581b4e5c3a974fb29c453c9b704f0b664db574f01e8267e72f61e94",
+      "docs/LEARNING_DESIGN.md": "0a079ecec7f9799109aac90c8be3985a74f14466243fae202063ca2684cd6a6a",
+      "docs/LEARNING_JOURNEY.md": "4698811765c1103819a671c65f0d2ed160a960e89779afafcd4cf1c8183cd043",
+      "docs/SAVVYSHARK_GUIDANCE_STANDARD.md": "d27b32cb3b467939bbc3370a0792ef874e924b2c13b2338728a2daa6c1896742",
+      "docs/SECURITY.md": "d1b208f2dc7687f136f2e6d638232e8902454b66f6e4623838e9088a8dc1f67e",
+      "docs/SOURCE_REGISTER.md": "a7317b9a6971f9bc4e1b9af7dfd22982544062d4cb7eace5ff1f7899d667aec2",
+      "docs/audits/az900-2026-07-20.json": "c7fdd8fdfe89ffabc3412895e0437dd944ff8573ba5b88c62cb83a942b50dfd2",
+      "docs/screenshots/management/hierarchy-1024x500.png": "ceb9fadbbf2ca526dc9cd3aea8158b685204c09444c0c0b824b5d6c6ada08b6d",
+      "docs/screenshots/management/hierarchy-1024x768.png": "1ef29317dfa8717ff2612cf87c467ebbddae88cf6ab458e6c2ebf498b55f5bd2",
+      "docs/screenshots/management/hierarchy-1366x768.png": "cfce7733a46f229eeda1a3709c67d88c7705ff2c12a4a433b786268964024a48",
+      "docs/screenshots/management/hierarchy-1440x900.png": "edcb0c68e6e791ccafabceace10390b5ff35e583d3ae077c97f361eecef8ed81",
+      "docs/screenshots/management/hierarchy-1920x1080.png": "d88fed5b1530c5c3ab9e38f90e399d28e01de59c524d75b35dee85393c41395c",
+      "docs/screenshots/management/management-app-hosting.png": "1b8d3c29e457aec89edd370aa241349a9ad6edcd475aaab60d063f02b9fde99d",
+      "docs/screenshots/management/management-architecture-live.png": "c117704780662bf1b06364c00ab67d1e6ff4ce66753bb3e965103ba0d7fdea77",
+      "docs/screenshots/management/management-architecture.png": "22eee0f80f1631765b4d6901605612f9bea92b3a72c1520beaaadfd9d59e8098",
+      "docs/screenshots/management/management-assessment.png": "69346df5e9ce979113d8671444dc8808d2ebff0d0c94ccfa7b2c8d9cb02f422d",
+      "docs/screenshots/management/management-conflict-held-core-summary.png": "cf6856c86f4c33beb49e844124f15825c5b8650bfa00819b63c3f29710e991ae",
+      "docs/screenshots/management/management-conflict-held-journal.png": "d2616c7e6162a4e52122cec95d0099c7c9bd6b7dadf400c3759a2fad1f6a9001",
+      "docs/screenshots/management/management-conflict-held-management.png": "45ee3e9581e3d9aefa33c14bf4689e07ad557371101c72b3474c2cfc2c064524",
+      "docs/screenshots/management/management-corrected-plan.png": "327b4d8a7581a316cea4555071944b27265492626a40bde8bf5c336b9478a152",
+      "docs/screenshots/management/management-denial.png": "4a6cef0f05992ccfb6f4aa7708f01d576bbc73f81a4e0cdbf0052931de4a349b",
+      "docs/screenshots/management/management-dense-1024x768.png": "e85319d5b023df27155726d92aa171865216e522949754cad7731c26d0c7731e",
+      "docs/screenshots/management/management-dense-1366x768.png": "ca7acd2d5c76246c4e0e4c8d144e9c6562fb7e063132ab60dfcaf17b46a75495",
+      "docs/screenshots/management/management-dense-1440x900.png": "e7652f89cd0111332b57a038b95c3b762ee21df886bb19a37771b31f79a70857",
+      "docs/screenshots/management/management-dense-1920x1080.png": "745a097cab34a57abbee5fab3f1e8197e1a3babf31c6de2e3a40a87a6c9c4ef2",
+      "docs/screenshots/management/management-feedback.png": "6b13fb4390f82bcd9df194340a47f164d7f62c3d33e80fab500ac0e02fdf91d1",
+      "docs/screenshots/management/management-group-configuration.png": "8e040e691ffeb244e3188ba2a145f8ca8e6ab1fce02024a9c284c2b4ff43f5b6",
+      "docs/screenshots/management/management-group-inspection.png": "c00e35ef02e3a1b621e30247670c1ce4e2f1fe42f7572a0c0e6f27bb9aedfe48",
+      "docs/screenshots/management/management-hierarchy.png": "2ca3c42d43015ee3c0be5161df5d063df79e003df466de45873123d794a619ea",
+      "docs/screenshots/management/management-mission.png": "f84f12dd7afb294be7818e4455c3ff057c762afe5d0a229f7d5e7e2568b159ff",
+      "docs/screenshots/management/management-part-a-conflict-held-journal.png": "df4c9ebc5402606769ece51495cef36135775079ac4a4ab562be192507ad69e5",
+      "docs/screenshots/management/management-plan-configuration.png": "a6a0a5e462cdeaca34f292a27ff72f3e47396f2fa2f5e03c59e18461dc3de3b6",
+      "docs/screenshots/management/management-policy-inspection.png": "9539dd510c9cf7ea12469b1015349a6fabe77eee864150afc49c7886ad8b1cf6",
+      "docs/screenshots/management/management-relation-milestone.png": "d24c5edc9671cf4e426c87119657110ae3eacf08b05a27f7028934ce5a407a3d",
+      "docs/screenshots/management/management-root.png": "5e23334dbd6ecfdad62978a28894579c53599f19db63d835a6ada08f0ec75059",
+      "docs/screenshots/management/management-scope-audit-model.png": "e91dc84e0fd2ac51c9df11fbac962b9d65d8248d54dd42040033a5acfc3644ab",
+      "docs/screenshots/management/management-scope-deny-model.png": "5b0e5af88137728d316193a356c8a6d6cd32c6b31832b156e832ca562d398129",
+      "docs/screenshots/management/management-scope-result.png": "93183be11880bedcfb00f3bb61c6db5d1ecb9457b8547fb023ec350fc2051099",
+      "docs/screenshots/management/management-theory.png": "53ba322058ac8a1e0afe3e7a39cf1d9fa4b2a9f190044a350ff94adb2dbb2a84",
+      "docs/screenshots/management/pr23-journal-b.png": "3287b6d83c59a145d66ff9170b85ddeae43543227d0d19a89f2f504bdeb8fe8c",
+      "docs/screenshots/management/pr23-journal.png": "0da5b58487bbb5b9c1df3069030bd3e372daa93c8a7b3f36e8b4f2b56f21a314",
+      "docs/screenshots/management/pr23-revised-case-b.png": "1b95ca163ba50b7c374cc1810d8769a39452cc727c69c9b9ef2c9f856256a489",
+      "docs/screenshots/management/pr23-revised-case-c.png": "ac61ab70ca0cede903091df89c3b93796e6bb0a755e415933fe95674f033c201",
+      "docs/screenshots/management/pr23-summary-b.png": "8e9040c88f859353f95b34a8889b50eab6657a8ed5d5230cb99a1edf626f0dd3",
+      "docs/screenshots/management/pr23-summary.png": "b53b06c4aac58c8364b04a757ef1512091ca0a4684801a0170f0f143f488f82c",
+      "package.json": "7778f8a07dfec52a2cfeab55c8181b3eb71fd2030b7c78fea0e9e1c76390f297",
+      "scripts/az900-audit-check.test.mjs": "c824c85e09fb279e3d9706515e878218a194d53339e9221b9d0604ae079473b9",
+      "scripts/docs-check.mjs": "26dd1de9b6dff4b566952b4e8063b7c94790639d3b2f040cfc6371efb72a5b68",
+      "src/app/layout.tsx": "70357ac5391e7e74d11b00ea2af3e7121730fdb8a0e6cbfc0bd4f7dfd77464f6",
+      "src/components/app-shell.tsx": "035cf93a5db8e2e2a194ed91a5638e135db6447fcd31c422a0107e0403809967",
+      "src/components/progress-provider.tsx": "aa55f0275d3139f1e74b05f9805201ba9769d8ca057dcd18ef4c8beedf495df3",
+      "src/content/nb.ts": "455f63645536f8b88cfdc61d00d1ae527ddcdf673ec76a4fbb185e1c48389093",
+      "src/domain/course/model.ts": "b533fb552f3e977c7e4a8d2ba14ae7043cb724719e7625fd855bc81da4dd9811",
+      "src/domain/curriculum/architecture-management-store.ts": "cea4755341752ae364fa8521e9d83d0adb8d1121ea8196b69c1df49b9302c980",
+      "src/domain/curriculum/architecture-management.test.ts": "296f1f3dc087a261369aff93b8f91f95686ba5fd6a3eb0aae2576b3039cebfda",
+      "src/domain/curriculum/architecture-management.ts": "2be38255a3ab3780b5ca1bbca254de0a6f0e77d97976132b66fd3505bc79c625",
+      "src/domain/curriculum/manifest.ts": "3e43f9bc47fb276478dfa1d16ea53e6b33d2515d1a08904278bc9c1ca65d61f8",
+      "src/domain/curriculum/official.ts": "12597ba38757efffeadd9311644267980a53bb15c00710f1e5e8c4fcb6cca096",
+      "src/domain/curriculum/teaching-access.test.ts": "a965addbfa717113987b49e98a9a28e26eef6741be80a42fd5d26335c666ee44",
+      "src/domain/curriculum/teaching-access.ts": "88c363a7f5f6fb07e01bca39db4111027557f525b460ffe6307c7b498e4d91c5",
+      "src/domain/guidance/milestones.ts": "4baae031addd042109d77107309d20fc19b2da94aa3047ce7957e56150db2738",
+      "src/features/course/course.tsx": "cbffa8ed9b83d194947ab5bb52b9cf7913d4a763ea9339dabec7cfa50b8f2c5a",
+      "src/features/learning/journal.tsx": "6944d15f5650ef15e8b199b0c12535e1eaca855ed0d29f14d1297124e668839a",
+      "src/features/learning/management-access.tsx": "47b76d5b706c3308929f2f544ed2f8be6ccdba07d07ece7bd7faf6a28e3b894a",
+      "src/features/learning/management-provider.tsx": "d65d8e6eade7dcd19a664a7c344afba93697c628a39907a76086191c44aa309a",
+      "src/features/learning/management-recovery.tsx": "d38a492fb828ae481971565a7a58b34b7d00efb41be6aa4474f0b7c884f53ec0",
+      "src/features/learning/management.css": "8e9c92acff76ace4a6995ef37edb861a2a9debaea97b2bb8ed69c9f119f9560d",
+      "src/features/learning/management.tsx": "9a8fc74eafedf9e958a8b6dca92afb89040c4e60f2ebc524a02ff110f06246b1",
+      "src/features/learning/physical-entry.tsx": "df8cb8bfafe15c8232ada34935b29b53286b44399811f672d30112c5cdefefad",
+      "src/features/learning/physical.tsx": "a0d04225d0644f9eff5e397da6f28b97eee2e1eeebd7e6c2016aafb39a585c41",
+      "src/features/portal/portal.tsx": "10c749daf84971d774445d17290e78a0450f5d8c4948d9186df4b86fb5a19bf8",
+      "tests/e2e/architecture-management.spec.ts": "78f001af78291f7c726ccbb9560089e1ceb8e94124dffdd554c741ea7447fe85",
+      "tests/e2e/architecture-physical.spec.ts": "faefeac2576184cbd58a15335fc5dfe186be54940efc6e19018a7067adc9c14e",
+      "tests/fixtures/active-teaching-contexts.ts": "c83cefe7bbec48fe84167fc94dd511c775a9c00a9268af09676e10965e8f75fb"
     }
   },
-  "implementationFinished": "2026-10-27T07:50:47.999Z"
+  "implementationFinished": "2026-10-27T11:49:08.163Z"
 }

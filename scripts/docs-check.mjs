@@ -3,6 +3,7 @@ import { dirname, extname, isAbsolute, relative, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 export const requiredFiles = [
+  'docs/CORE_ARCHITECTURE_MANAGEMENT.md',
   'README.md',
   'AGENTS.md',
   'docs/PROJECT_STATUS.md',

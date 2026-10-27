@@ -1,5 +1,9 @@
 # Curriculum coverage audit
 
+## Current P02 coverage —2026-10-27
+
+CA04–07/F02 map to2.1.04–07 with original theory, actual resource hierarchy, pure policy applicability model and four changed independent scenarios with specific reasons. All seven core objectives are available across Part A/B; per-learner taught/practiced/first results remain separate, not automatic full-module mastery. No new XP or old-result conversion. [Generated A–F matrix](AZ900_COVERAGE_MATRIX.md), [manuscript/source limits](CORE_ARCHITECTURE_MANAGEMENT.md).
+
 ## Scoped P01 update2026-10-27
 
 CA01–03 provide original theory, physical/dependency exploration, changed independent cases, alternative feedback and checked sources for2.1.01–03. The machine-readable audit and generated matrix carry A–F pointers; COMPLETE is content coverage, not actual human competence. The module remains partial3/7;2.1.04–07 and all other audit rows are unchanged. Human SME/UX/screen-reader/transfer review remains unperformed. [Part A source/manuscript](CORE_ARCHITECTURE_PHYSICAL.md).

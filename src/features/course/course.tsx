@@ -1,11 +1,15 @@
 'use client';
+import { useManagement } from '@/features/learning/management-provider';
+import { ManagementTeachingBoundary } from '@/features/learning/management-access';
+import { ManagementLesson, CoreArchitectureJournal } from '@/features/learning/management';
+import { managementTopics, isManagementTopic } from '@/domain/curriculum/architecture-management';
 import { usePractical } from './practical-provider';
 import { practicalHref } from '@/domain/sandbox/practical';
 import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { BookOpen, ArrowRight, ChevronRight, FlaskConical, Check, Menu } from 'lucide-react';
-import { labsNb, nb, serverlessNb, architectureNb } from '@/content/nb';
+import { labsNb, nb, serverlessNb, architectureNb, managementNb } from '@/content/nb';
 import { officialLearning } from '@/domain/curriculum/official';
 import { unitIds } from '@/domain/curriculum/manifest';
 import { topics, portalHref, parseLocation, type PortalLocation } from '@/domain/portal/model';
@@ -59,7 +63,8 @@ const names = {
 export function Course({ module }: { module?: CourseModule }) {
   const practical = usePractical(),
     serverless = useServerless(),
-    physical = usePhysical();
+    physical = usePhysical(),
+    management = useManagement();
   const query = useSearchParams(),
     router = useRouter(),
     course = useCourse(),
@@ -206,6 +211,21 @@ export function Course({ module }: { module?: CourseModule }) {
     module,
     topic,
   ]);
+  useEffect(() => {
+    if (
+      management.facts.active &&
+      (journal || (module && !(module === 'architecture' && topic === 'management-assessment')))
+    )
+      management.store.event({ kind: 'aid' });
+  }, [
+    management.facts.active,
+    management.ready,
+    management.issue,
+    management.store,
+    journal,
+    module,
+    topic,
+  ]);
   const lab = labFacts(course.save.lab, chapter.attempt.engine, chapter.attemptNumber);
   const existingSession = {
     ...startLab(chapter.attempt.engine, chapter.attemptNumber),
@@ -239,28 +259,30 @@ export function Course({ module }: { module?: CourseModule }) {
   const resumeHref =
     practical.current?.status === 'active'
       ? practicalHref(practical.current, chapter.attempt.engine)
-      : physical.facts.active
-        ? courseHref('architecture', 'assessment')
-        : serverless.facts.active
-          ? courseHref('computing', 'serverless-assessment')
-          : v2.facts.active
-            ? courseHref('computing', 'v2-assessment')
-            : benefits.facts.active
-              ? courseHref('benefits', 'assessment')
-              : service2.facts.active
-                ? courseHref('services', 'assessment')
-                : services.facts.active
-                  ? '/portal?area=challenge&course=1&module=services&topic=practice'
-                  : learning.facts.active && v2.save.choice !== 'v2'
-                    ? courseHref('computing', 'assessment')
-                    : preferredResume
-                      ? (preferredResume.module === 'services' &&
-                          preferredResume.topic === 'practice') ||
-                        (preferredResume.module === 'computing' &&
-                          preferredResume.topic === 'resource-bridge')
-                        ? courseLabHref(lab.complete, course.save.lab?.origin)
-                        : courseHref(preferredResume.module, preferredResume.topic)
-                      : computingEntry;
+      : management.facts.active
+        ? courseHref('architecture', 'management-assessment')
+        : physical.facts.active
+          ? courseHref('architecture', 'assessment')
+          : serverless.facts.active
+            ? courseHref('computing', 'serverless-assessment')
+            : v2.facts.active
+              ? courseHref('computing', 'v2-assessment')
+              : benefits.facts.active
+                ? courseHref('benefits', 'assessment')
+                : service2.facts.active
+                  ? courseHref('services', 'assessment')
+                  : services.facts.active
+                    ? '/portal?area=challenge&course=1&module=services&topic=practice'
+                    : learning.facts.active && v2.save.choice !== 'v2'
+                      ? courseHref('computing', 'assessment')
+                      : preferredResume
+                        ? (preferredResume.module === 'services' &&
+                            preferredResume.topic === 'practice') ||
+                          (preferredResume.module === 'computing' &&
+                            preferredResume.topic === 'resource-bridge')
+                          ? courseLabHref(lab.complete, course.save.lab?.origin)
+                          : courseHref(preferredResume.module, preferredResume.topic)
+                        : computingEntry;
   const navigate = (area: PortalLocation['area'], change: Partial<PortalLocation> = {}) => {
     if (area === 'learn')
       router.push(courseHref(change.module ?? module ?? 'services', change.topic ?? topic));
@@ -279,7 +301,7 @@ export function Course({ module }: { module?: CourseModule }) {
   };
   const pathTopics: readonly string[] =
     module === 'architecture'
-      ? physicalTopics
+      ? [...physicalTopics, ...managementTopics]
       : module === 'benefits'
         ? [...trackUnits.benefits, 'summary']
         : module === 'computing'
@@ -295,7 +317,9 @@ export function Course({ module }: { module?: CourseModule }) {
   );
   const title = (m: CourseModule, t: string) =>
     m === 'architecture'
-      ? architectureNb.topics[t as PhysicalTopic]
+      ? isManagementTopic(t)
+        ? managementNb.topics[t]
+        : architectureNb.topics[t as PhysicalTopic]
       : m === 'benefits'
         ? (manuscript('benefits', t)?.title ??
           (t === 'summary' ? nb.expansion.common.summary : nb.expansion.common.assessment))
@@ -320,11 +344,13 @@ export function Course({ module }: { module?: CourseModule }) {
         lab: {
           ...session,
           origin:
-            module === 'computing'
-              ? 'computing-v2'
-              : legacyServices
-                ? 'services-v1'
-                : 'services-v2',
+            module === 'architecture'
+              ? 'architecture-management'
+              : module === 'computing'
+                ? 'computing-v2'
+                : legacyServices
+                  ? 'services-v1'
+                  : 'services-v2',
         },
       })
     )
@@ -355,6 +381,7 @@ export function Course({ module }: { module?: CourseModule }) {
         <button
           type="button"
           onClick={() => {
+            if (!management.store.prepareTeaching()) return;
             if (services.facts.active) services.store.event({ kind: 'aid' });
             if (practical.activeIndependent) practical.store.event({ type: 'aid' });
             setJournal(true);
@@ -472,606 +499,658 @@ export function Course({ module }: { module?: CourseModule }) {
               </button>
             </div>
           )}
-          {!module ? (
-            <>
-              <div className="course-intro">
-                <small>{c.eyebrow}</small>
-                <h1>{c.title}</h1>
-                <p>{c.intro}</p>
-                <div className="course-track">
-                  <strong>{nb.official.certification}</strong>
-                  <span>{nb.official.exam}</span>
+          <ManagementTeachingBoundary
+            identity={`course:${module}:${topic}`}
+            orientation={!module}
+            only={module && module !== 'architecture' ? 'core' : undefined}
+            assessment={
+              module === 'architecture' && topic === 'management-assessment'
+                ? 'management'
+                : module === 'architecture' && topic === 'assessment'
+                  ? 'physical'
+                  : undefined
+            }
+          >
+            {!module ? (
+              <>
+                <div className="course-intro">
+                  <small>{c.eyebrow}</small>
+                  <h1>{c.title}</h1>
+                  <p>{c.intro}</p>
+                  <div className="course-track">
+                    <strong>{nb.official.certification}</strong>
+                    <span>{nb.official.exam}</span>
+                  </div>
+                  <Link className="course-primary" href={resumeHref}>
+                    {services.facts.active || learning.facts.active || v2.facts.active
+                      ? nb.portal.continueChallenge
+                      : preferredResume
+                        ? c.resume
+                        : c.begin}
+                    <ArrowRight size={18} />
+                  </Link>
                 </div>
-                <Link className="course-primary" href={resumeHref}>
-                  {services.facts.active || learning.facts.active || v2.facts.active
-                    ? nb.portal.continueChallenge
-                    : preferredResume
-                      ? c.resume
-                      : c.begin}
-                  <ArrowRight size={18} />
-                </Link>
-              </div>
-              <section className="course-lab-discovery" aria-label={labsNb.discover}>
-                <strong>{labsNb.discover}</strong>
-                <p>{labsNb.discoverNote}</p>
-                <nav>
-                  {(['iaas', 'paas', 'saas'] as const).map((topic) => (
-                    <Link
-                      key={topic}
-                      href={`/learn/services?topic=${topic}&activity=practical&version=2`}
-                      onClick={() => service2.store.event({ kind: 'choose', version: 'v2' })}
-                    >
-                      {labsNb.models[topic]} · {labsNb.title}
-                    </Link>
-                  ))}
-                </nav>
-              </section>
-              <section className="course-syllabus">
-                <small>{c.path}</small>
-                <h2>{nb.official.path}</h2>
-                <p>{c.sequenceNote}</p>
-                <ol>
-                  {officialLearning.modules.map((m, i) => (
-                    <li key={m.id} className={m.status === 'planned' ? 'syllabus-planned' : ''}>
-                      <span className="syllabus-number">0{i + 1}</span>
-                      <div>
-                        <small>{m.status === 'planned' ? c.planned : c.available}</small>
-                        <h3>{names[m.id]}</h3>
-                        <p>{c[m.id]}</p>
-                        {m.id === 'computing' && (
-                          <>
-                            <p>
-                              {c.computingProgress}:{' '}
-                              {v2Topics.filter((id) => v2.facts.guided(id)).length} / 11 ·{' '}
-                              {nb.foundationsV2.badge}
-                            </p>
-                            <p>
-                              <Link href={courseHref('computing', 'serverless-concept')}>
-                                {serverlessNb.title}
-                              </Link>{' '}
-                              ·{' '}
-                              {serverless.facts.guided
-                                ? serverlessNb.practiceDone
-                                : serverlessNb.no}
-                            </p>
-                            {hasV1 && (
-                              <p>
-                                {nb.foundationsV2.legacy} · {c.computingProgress}:{' '}
-                                {
-                                  unitIds.filter((id) => learning.facts.observations[id].guided)
-                                    .length
-                                }{' '}
-                                / 6
-                              </p>
-                            )}
-                          </>
-                        )}
-                        {m.id === 'services' && (
-                          <p>
-                            {nb.expansion.common.practiced}:{' '}
-                            {
-                              trackUnits.services.filter(
-                                (unit) => unit !== 'practice' && service2.facts.guided(unit),
-                              ).length
-                            }{' '}
-                            / 5 ·{' '}
-                            {lab.complete
-                              ? c.satisfied
-                              : course.save.lab
-                                ? c.unfinished
-                                : c.available}
-                          </p>
-                        )}
-                        {m.id === 'benefits' && (
-                          <p>
-                            {nb.expansion.common.practiced}:{' '}
-                            {
-                              trackUnits.benefits.filter((unit) => benefits.facts.guided(unit))
-                                .length
-                            }{' '}
-                            / 5 · {nb.expansion.common.noNewEvidence}
-                          </p>
-                        )}
-                      </div>
-                      {m.status === 'implemented' && (
-                        <Link
-                          href={
-                            m.id === 'computing'
-                              ? computingEntry
-                              : courseHref(m.id, m.id === 'benefits' ? 'availability' : 'overview')
-                          }
-                          aria-label={`${c.open}: ${names[m.id]}`}
-                        >
-                          <ArrowRight size={24} />
-                        </Link>
-                      )}
-                    </li>
-                  ))}
-                </ol>
-              </section>
-              <PhysicalCourseEntry />
-              <section className="course-future">
-                <h2>{c.broader}</h2>
-                <p>{c.broaderText}</p>
-                <p>{c.participation}</p>
-              </section>
-            </>
-          ) : practical.activeIndependent && practical.current && !practical.current.aided ? (
-            <section className="practical-entry">
-              <small>{labsNb.independent}</small>
-              <h1>{labsNb.lab[practical.current.kind].title}</h1>
-              <p>{labsNb.lab[practical.current.kind].changed}</p>
-              <Link
-                className="course-primary"
-                href={practicalHref(practical.current, chapter.attempt.engine)}
-              >
-                {labsNb.resume}
-              </Link>
-              <PracticalOutcome />
-            </section>
-          ) : (
-            <>
-              <div className="course-breadcrumb">
-                <Link href="/learn">{c.overview}</Link>
-                <ChevronRight size={14} />
-                <span>{names[module]}</span>
-              </div>
-              <header className="course-module-header">
-                <small>
-                  {c.module}{' '}
-                  {module === 'architecture'
-                    ? '04'
-                    : module === 'computing'
-                      ? '01'
-                      : module === 'benefits'
-                        ? '02'
-                        : '03'}{' '}
-                  · {module === 'architecture' ? architectureNb.available : c.available}
-                </small>
-                <h1>{names[module]}</h1>
-                <p>
-                  {module === 'architecture'
-                    ? architectureNb.intro
-                    : module === 'benefits'
-                      ? nb.expansion.benefits.intro
-                      : module === 'services'
-                        ? c.services
-                        : currentV2
-                          ? nb.foundationsV2.intro
-                          : c.computing}
-                </p>
-              </header>
-              {services.facts.active && (
-                <p className="course-assessment-warning">
-                  {c.activeAssessment}{' '}
-                  <button
-                    type="button"
-                    onClick={() => navigate('challenge', { mode: 'independent', lab: undefined })}
-                  >
-                    {nb.portal.continueChallenge}
-                  </button>
-                </p>
-              )}
-              <div ref={activityRef} className="course-activity">
-                {chooseVersion ? (
-                  <section className="course-version-choice">
-                    <h2>{nb.foundationsV2.chooseTitle}</h2>
-                    <p>{nb.foundationsV2.chooseText}</p>
-                    {learning.facts.active && <p>{nb.foundationsV2.activeWarning}</p>}
-                    <button
-                      type="button"
-                      onClick={() => {
-                        v2.store.choose('v1');
-                        router.push(
-                          courseHref(
-                            'computing',
-                            learning.facts.active ? 'assessment' : learning.save.unit,
-                          ),
-                        );
-                      }}
-                    >
-                      {nb.foundationsV2.keepV1}
-                    </button>
-                    <button
-                      type="button"
-                      onClick={() => {
-                        if (learning.facts.active) learning.store.event({ kind: 'aid' });
-                        v2.store.choose('v2');
-                        router.push(courseHref('computing', 'intro-request'));
-                      }}
-                    >
-                      {nb.foundationsV2.startV2}
-                    </button>
-                  </section>
-                ) : module === 'architecture' ? (
-                  <PhysicalLesson
-                    key={topic}
-                    topic={topic as PhysicalTopic}
-                    guidanceBlocked={
-                      [
-                        learning,
-                        v2,
-                        services,
-                        benefits,
-                        service2,
-                        practical,
-                        chapter,
-                        course,
-                        serverless,
-                        physical,
-                      ].some((x) => !x.ready || !!x.issue) ||
-                      learning.facts.active ||
-                      v2.facts.active ||
-                      services.facts.active ||
-                      benefits.facts.active ||
-                      service2.facts.active ||
-                      serverless.facts.active ||
-                      practical.activeIndependent
-                    }
-                  />
-                ) : module === 'benefits' ? (
-                  <ExpandedModule key={topic} track="benefits" topic={topic} />
-                ) : module === 'computing' && isServerlessTopic(topic) ? (
-                  <ServerlessLesson
-                    key={topic}
-                    topic={topic}
-                    guidanceBlocked={
-                      [
-                        learning,
-                        v2,
-                        services,
-                        benefits,
-                        service2,
-                        practical,
-                        chapter,
-                        course,
-                        serverless,
-                        physical,
-                      ].some((x) => !x.ready || !!x.issue) ||
-                      learning.facts.active ||
-                      v2.facts.active ||
-                      services.facts.active ||
-                      benefits.facts.active ||
-                      service2.facts.active ||
-                      practical.activeIndependent ||
-                      physical.facts.active
-                    }
-                  />
-                ) : module === 'computing' && currentV2 ? (
-                  <FoundationsV2 key={topic} topic={topic} />
-                ) : module === 'services' ? (
-                  serviceChoice ? (
-                    <section className="course-version-choice">
-                      <h2>{nb.expansion.common.choiceTitle}</h2>
-                      <p>{nb.expansion.common.choiceText}</p>
-                      <button
-                        onClick={() => {
-                          service2.store.event({ kind: 'choose', version: 'v1' });
-                          router.push(`${courseHref('services', 'overview')}&version=1`);
-                        }}
-                      >
-                        {nb.expansion.common.keepLegacy}
-                      </button>
-                      <button
+                <section className="course-lab-discovery" aria-label={labsNb.discover}>
+                  <strong>{labsNb.discover}</strong>
+                  <p>{labsNb.discoverNote}</p>
+                  <nav>
+                    {(['iaas', 'paas', 'saas'] as const).map((topic) => (
+                      <Link
+                        key={topic}
+                        href={`/learn/services?topic=${topic}&activity=practical&version=2`}
                         onClick={() => service2.store.event({ kind: 'choose', version: 'v2' })}
                       >
-                        {nb.expansion.common.startCurrent}
-                      </button>
-                    </section>
-                  ) : (
-                    <>
-                      {legacyServices ? (
-                        <section className="course-legacy-note">
-                          <strong>{nb.expansion.common.legacy}</strong>
-                          <p>{nb.expansion.common.legacyWarning}</p>
-                          <button
-                            onClick={() => {
-                              service2.store.event({ kind: 'choose', version: 'v2' });
-                              router.push(courseHref('services', 'overview'));
-                            }}
+                        {labsNb.models[topic]} · {labsNb.title}
+                      </Link>
+                    ))}
+                  </nav>
+                </section>
+                <section className="course-syllabus">
+                  <small>{c.path}</small>
+                  <h2>{nb.official.path}</h2>
+                  <p>{c.sequenceNote}</p>
+                  <ol>
+                    {officialLearning.modules.map((m, i) => (
+                      <li key={m.id} className={m.status === 'planned' ? 'syllabus-planned' : ''}>
+                        <span className="syllabus-number">0{i + 1}</span>
+                        <div>
+                          <small>{m.status === 'planned' ? c.planned : c.available}</small>
+                          <h3>{names[m.id]}</h3>
+                          <p>{c[m.id]}</p>
+                          {m.id === 'computing' && (
+                            <>
+                              <p>
+                                {c.computingProgress}:{' '}
+                                {v2Topics.filter((id) => v2.facts.guided(id)).length} / 11 ·{' '}
+                                {nb.foundationsV2.badge}
+                              </p>
+                              <p>
+                                <Link href={courseHref('computing', 'serverless-concept')}>
+                                  {serverlessNb.title}
+                                </Link>{' '}
+                                ·{' '}
+                                {serverless.facts.guided
+                                  ? serverlessNb.practiceDone
+                                  : serverlessNb.no}
+                              </p>
+                              {hasV1 && (
+                                <p>
+                                  {nb.foundationsV2.legacy} · {c.computingProgress}:{' '}
+                                  {
+                                    unitIds.filter((id) => learning.facts.observations[id].guided)
+                                      .length
+                                  }{' '}
+                                  / 6
+                                </p>
+                              )}
+                            </>
+                          )}
+                          {m.id === 'services' && (
+                            <p>
+                              {nb.expansion.common.practiced}:{' '}
+                              {
+                                trackUnits.services.filter(
+                                  (unit) => unit !== 'practice' && service2.facts.guided(unit),
+                                ).length
+                              }{' '}
+                              / 5 ·{' '}
+                              {lab.complete
+                                ? c.satisfied
+                                : course.save.lab
+                                  ? c.unfinished
+                                  : c.available}
+                            </p>
+                          )}
+                          {m.id === 'benefits' && (
+                            <p>
+                              {nb.expansion.common.practiced}:{' '}
+                              {
+                                trackUnits.benefits.filter((unit) => benefits.facts.guided(unit))
+                                  .length
+                              }{' '}
+                              / 5 · {nb.expansion.common.noNewEvidence}
+                            </p>
+                          )}
+                        </div>
+                        {m.status === 'implemented' && (
+                          <Link
+                            href={
+                              m.id === 'computing'
+                                ? computingEntry
+                                : courseHref(
+                                    m.id,
+                                    m.id === 'benefits' ? 'availability' : 'overview',
+                                  )
+                            }
+                            aria-label={`${c.open}: ${names[m.id]}`}
                           >
-                            {nb.expansion.common.viewCurrent}
-                          </button>
-                        </section>
-                      ) : (
-                        <Link href={`${courseHref('services', 'overview')}&version=1`}>
-                          {nb.expansion.common.viewLegacy}
-                        </Link>
-                      )}
-                      {['assessment', 'summary'].includes(topic) ? (
-                        <ExpandedModule
-                          key={topic}
-                          track="services"
-                          topic={topic}
-                          technicalReady={lab.complete}
-                        />
-                      ) : (
-                        <ServicesWorkspace
-                          key={topic}
-                          location={location}
-                          navigate={navigate}
-                          course
-                          operational={!legacyServices}
-                          extension={
-                            !legacyServices ? (
-                              <ExpandedModule
-                                track="services"
-                                topic={topic}
-                                embedded
-                                technicalReady={lab.complete}
-                              />
-                            ) : undefined
-                          }
-                        />
-                      )}
-                    </>
-                  )
-                ) : (
-                  <>
-                    <section className="course-legacy-note">
-                      <strong>{nb.foundationsV2.legacy}</strong>
-                      <p>{nb.foundationsV2.legacyNote}</p>
+                            <ArrowRight size={24} />
+                          </Link>
+                        )}
+                      </li>
+                    ))}
+                  </ol>
+                </section>
+                <PhysicalCourseEntry />
+                <section className="course-future">
+                  <h2>{c.broader}</h2>
+                  <p>{c.broaderText}</p>
+                  <p>{c.participation}</p>
+                </section>
+              </>
+            ) : practical.activeIndependent && practical.current && !practical.current.aided ? (
+              <section className="practical-entry">
+                <small>{labsNb.independent}</small>
+                <h1>{labsNb.lab[practical.current.kind].title}</h1>
+                <p>{labsNb.lab[practical.current.kind].changed}</p>
+                <Link
+                  className="course-primary"
+                  href={practicalHref(practical.current, chapter.attempt.engine)}
+                >
+                  {labsNb.resume}
+                </Link>
+                <PracticalOutcome />
+              </section>
+            ) : (
+              <>
+                <div className="course-breadcrumb">
+                  <Link href="/learn">{c.overview}</Link>
+                  <ChevronRight size={14} />
+                  <span>{names[module]}</span>
+                </div>
+                <header className="course-module-header">
+                  <small>
+                    {c.module}{' '}
+                    {module === 'architecture'
+                      ? '04'
+                      : module === 'computing'
+                        ? '01'
+                        : module === 'benefits'
+                          ? '02'
+                          : '03'}{' '}
+                    · {module === 'architecture' ? managementNb.available : c.available}
+                  </small>
+                  <h1>{names[module]}</h1>
+                  <p>
+                    {module === 'architecture'
+                      ? managementNb.intro
+                      : module === 'benefits'
+                        ? nb.expansion.benefits.intro
+                        : module === 'services'
+                          ? c.services
+                          : currentV2
+                            ? nb.foundationsV2.intro
+                            : c.computing}
+                  </p>
+                </header>
+                {services.facts.active && (
+                  <p className="course-assessment-warning">
+                    {c.activeAssessment}{' '}
+                    <button
+                      type="button"
+                      onClick={() => navigate('challenge', { mode: 'independent', lab: undefined })}
+                    >
+                      {nb.portal.continueChallenge}
+                    </button>
+                  </p>
+                )}
+                <div ref={activityRef} className="course-activity">
+                  {chooseVersion ? (
+                    <section className="course-version-choice">
+                      <h2>{nb.foundationsV2.chooseTitle}</h2>
+                      <p>{nb.foundationsV2.chooseText}</p>
                       {learning.facts.active && <p>{nb.foundationsV2.activeWarning}</p>}
                       <button
+                        type="button"
                         onClick={() => {
+                          v2.store.choose('v1');
+                          router.push(
+                            courseHref(
+                              'computing',
+                              learning.facts.active ? 'assessment' : learning.save.unit,
+                            ),
+                          );
+                        }}
+                      >
+                        {nb.foundationsV2.keepV1}
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => {
+                          if (learning.facts.active) learning.store.event({ kind: 'aid' });
                           v2.store.choose('v2');
                           router.push(courseHref('computing', 'intro-request'));
                         }}
                       >
-                        {nb.foundationsV2.switchV2}
+                        {nb.foundationsV2.startV2}
                       </button>
                     </section>
-                    <FoundationsWorkspace location={location} navigate={navigate} />
+                  ) : module === 'architecture' && isManagementTopic(topic) ? (
+                    <ManagementLesson
+                      key={topic}
+                      topic={topic}
+                      onLab={() => (course.save.lab ? begin() : setBriefing(true))}
+                      guidanceBlocked={
+                        [
+                          learning,
+                          v2,
+                          services,
+                          benefits,
+                          service2,
+                          practical,
+                          chapter,
+                          course,
+                          serverless,
+                          physical,
+                          management,
+                        ].some((x) => !x.ready || !!x.issue) ||
+                        learning.facts.active ||
+                        v2.facts.active ||
+                        services.facts.active ||
+                        benefits.facts.active ||
+                        service2.facts.active ||
+                        practical.activeIndependent ||
+                        serverless.facts.active ||
+                        physical.facts.active
+                      }
+                    />
+                  ) : module === 'architecture' ? (
+                    <PhysicalLesson
+                      key={topic}
+                      topic={topic as PhysicalTopic}
+                      guidanceBlocked={
+                        [
+                          learning,
+                          v2,
+                          services,
+                          benefits,
+                          service2,
+                          practical,
+                          chapter,
+                          course,
+                          serverless,
+                          physical,
+                          management,
+                        ].some((x) => !x.ready || !!x.issue) ||
+                        learning.facts.active ||
+                        v2.facts.active ||
+                        services.facts.active ||
+                        benefits.facts.active ||
+                        service2.facts.active ||
+                        serverless.facts.active ||
+                        practical.activeIndependent ||
+                        management.facts.active
+                      }
+                    />
+                  ) : module === 'benefits' ? (
+                    <ExpandedModule key={topic} track="benefits" topic={topic} />
+                  ) : module === 'computing' && isServerlessTopic(topic) ? (
+                    <ServerlessLesson
+                      key={topic}
+                      topic={topic}
+                      guidanceBlocked={
+                        [
+                          learning,
+                          v2,
+                          services,
+                          benefits,
+                          service2,
+                          practical,
+                          chapter,
+                          course,
+                          serverless,
+                          physical,
+                          management,
+                        ].some((x) => !x.ready || !!x.issue) ||
+                        learning.facts.active ||
+                        v2.facts.active ||
+                        services.facts.active ||
+                        benefits.facts.active ||
+                        service2.facts.active ||
+                        practical.activeIndependent ||
+                        physical.facts.active ||
+                        management.facts.active
+                      }
+                    />
+                  ) : module === 'computing' && currentV2 ? (
+                    <FoundationsV2 key={topic} topic={topic} />
+                  ) : module === 'services' ? (
+                    serviceChoice ? (
+                      <section className="course-version-choice">
+                        <h2>{nb.expansion.common.choiceTitle}</h2>
+                        <p>{nb.expansion.common.choiceText}</p>
+                        <button
+                          onClick={() => {
+                            service2.store.event({ kind: 'choose', version: 'v1' });
+                            router.push(`${courseHref('services', 'overview')}&version=1`);
+                          }}
+                        >
+                          {nb.expansion.common.keepLegacy}
+                        </button>
+                        <button
+                          onClick={() => service2.store.event({ kind: 'choose', version: 'v2' })}
+                        >
+                          {nb.expansion.common.startCurrent}
+                        </button>
+                      </section>
+                    ) : (
+                      <>
+                        {legacyServices ? (
+                          <section className="course-legacy-note">
+                            <strong>{nb.expansion.common.legacy}</strong>
+                            <p>{nb.expansion.common.legacyWarning}</p>
+                            <button
+                              onClick={() => {
+                                service2.store.event({ kind: 'choose', version: 'v2' });
+                                router.push(courseHref('services', 'overview'));
+                              }}
+                            >
+                              {nb.expansion.common.viewCurrent}
+                            </button>
+                          </section>
+                        ) : (
+                          <Link href={`${courseHref('services', 'overview')}&version=1`}>
+                            {nb.expansion.common.viewLegacy}
+                          </Link>
+                        )}
+                        {['assessment', 'summary'].includes(topic) ? (
+                          <ExpandedModule
+                            key={topic}
+                            track="services"
+                            topic={topic}
+                            technicalReady={lab.complete}
+                          />
+                        ) : (
+                          <ServicesWorkspace
+                            key={topic}
+                            location={location}
+                            navigate={navigate}
+                            course
+                            operational={!legacyServices}
+                            extension={
+                              !legacyServices ? (
+                                <ExpandedModule
+                                  track="services"
+                                  topic={topic}
+                                  embedded
+                                  technicalReady={lab.complete}
+                                />
+                              ) : undefined
+                            }
+                          />
+                        )}
+                      </>
+                    )
+                  ) : (
+                    <>
+                      <section className="course-legacy-note">
+                        <strong>{nb.foundationsV2.legacy}</strong>
+                        <p>{nb.foundationsV2.legacyNote}</p>
+                        {learning.facts.active && <p>{nb.foundationsV2.activeWarning}</p>}
+                        <button
+                          onClick={() => {
+                            v2.store.choose('v2');
+                            router.push(courseHref('computing', 'intro-request'));
+                          }}
+                        >
+                          {nb.foundationsV2.switchV2}
+                        </button>
+                      </section>
+                      <FoundationsWorkspace location={location} navigate={navigate} />
+                    </>
+                  )}
+                </div>
+                {labTopic && !chooseVersion && !serviceChoice && (
+                  <section
+                    className="course-lab"
+                    id="practical-lab"
+                    ref={labRef}
+                    tabIndex={-1}
+                    aria-labelledby="course-lab-title"
+                  >
+                    <span>{c.guided}</span>
+                    <h2 id="course-lab-title">{c.labTitle}</h2>
+                    <p>{c.labIntro}</p>
+                    <p>{c.labBridge}</p>
+                    <SavvyShark>
+                      <p>{c.labExpect}</p>
+                    </SavvyShark>
+                    {!course.save.lab && existing.group && (
+                      <div>
+                        <p>{nb.expansion.common.existingLabNote}</p>
+                        <button
+                          onClick={() =>
+                            course.store.update({
+                              ...course.save,
+                              lab: {
+                                ...existingSession,
+                                origin:
+                                  module === 'computing'
+                                    ? 'computing-v2'
+                                    : legacyServices
+                                      ? 'services-v1'
+                                      : 'services-v2',
+                              },
+                            })
+                          }
+                        >
+                          {nb.expansion.common.existingLab}
+                        </button>
+                      </div>
+                    )}
+                    {course.save.lab && (
+                      <p role="status">
+                        {lab.complete
+                          ? c.satisfied
+                          : !lab.verifiable
+                            ? c.guidance.unverifiable[1]
+                            : c.unfinished}
+                      </p>
+                    )}
+                    {lab.complete ? (
+                      <section
+                        className="course-debrief"
+                        id="lab-debrief"
+                        ref={debriefRef}
+                        tabIndex={-1}
+                        aria-label={c.debrief}
+                      >
+                        <h3>{c.debrief}</h3>
+                        <p>{c.debriefText}</p>
+                        <dl className="portal-properties">
+                          <div>
+                            <dt>{nb.portal.group}</dt>
+                            <dd>{lab.group?.name}</dd>
+                          </div>
+                          <div>
+                            <dt>{nb.portal.plan}</dt>
+                            <dd>{lab.plan?.name}</dd>
+                          </div>
+                          <div>
+                            <dt>{nb.portal.areas.apps}</dt>
+                            <dd>{lab.app?.name}</dd>
+                          </div>
+                        </dl>
+                        <Reflection />
+                        <p>{c.notMastery}</p>
+                        <button
+                          type="button"
+                          onClick={() =>
+                            navigate('challenge', { mode: 'independent', lab: undefined })
+                          }
+                        >
+                          {c.startIndependent}
+                        </button>
+                      </section>
+                    ) : null}
+                    <button
+                      type="button"
+                      className={lab.complete ? undefined : 'primary'}
+                      data-course-ready={course.ready}
+                      data-world-ready={chapter.ready}
+                      data-course-issue={course.issue ?? ''}
+                      disabled={
+                        !course.ready ||
+                        !chapter.ready ||
+                        ['corrupt', 'unsupported', 'conflict'].includes(course.issue ?? '') ||
+                        services.facts.active ||
+                        benefits.facts.active ||
+                        service2.facts.active
+                      }
+                      onClick={() =>
+                        module === 'services' && !course.save.lab ? setBriefing(true) : begin()
+                      }
+                    >
+                      {lab.complete
+                        ? nb.refinement.revisitLab
+                        : course.save.lab && lab.verifiable
+                          ? c.resumeLab
+                          : c.startLab}
+                    </button>
+                  </section>
+                )}
+                {briefing && (
+                  <MissionBriefing
+                    kind="paas"
+                    onClose={() => setBriefing(false)}
+                    onStart={() => {
+                      setBriefing(false);
+                      begin();
+                    }}
+                  />
+                )}
+                {module === 'services' && topic !== 'practice' && (
+                  <details className="course-guide-note">
+                    <summary>
+                      {c.assistant} · {c.assistantRole}
+                    </summary>
+                    <SavvyShark compact>
+                      <p>{c.theoryGuide}</p>
+                    </SavvyShark>
+                  </details>
+                )}
+                {module === 'services' && topic === 'practice' && (
+                  <details>
+                    <summary>{nb.portal.areas.hierarchy}</summary>
+                    <ArchitectureExplorer
+                      world={chapter.attempt.engine.world}
+                      lens="hierarchy"
+                      navigate={navigate}
+                    />
+                  </details>
+                )}
+                {module === 'computing' && currentV2 && hasV1 && !chooseVersion && (
+                  <Link
+                    href={courseHref(
+                      'computing',
+                      learning.facts.active ? 'assessment' : learning.save.unit,
+                    )}
+                  >
+                    {nb.foundationsV2.viewV1}
+                  </Link>
+                )}
+                {!chooseVersion && !serviceChoice && (
+                  <>
+                    {((currentV2 && index === pathTopics.length - 1) ||
+                      (module === 'benefits' && topic === 'summary')) && (
+                      <SavvyShark compact>
+                        <p>
+                          {currentV2
+                            ? nb.expansion.common.nextBenefits
+                            : nb.expansion.common.nextServices}
+                        </p>
+                      </SavvyShark>
+                    )}
+                    <CourseNavigation
+                      moduleName={names[module]}
+                      current={
+                        title(module, topic) ??
+                        (topic.includes('summary')
+                          ? nb.foundationsV2.summary
+                          : nb.foundationsV2.assessment)
+                      }
+                      index={index}
+                      count={pathTopics.length}
+                      previous={
+                        index > 0
+                          ? {
+                              href:
+                                module === 'services'
+                                  ? serviceHref(pathTopics[index - 1]!)
+                                  : courseHref(module, pathTopics[index - 1]!),
+                              title: title(module, pathTopics[index - 1]!)!,
+                            }
+                          : index < 0
+                            ? {
+                                href: courseHref(module, pathTopics.at(-1)!),
+                                title: title(module, pathTopics.at(-1)!)!,
+                              }
+                            : module === 'architecture'
+                              ? { href: courseHref('services', 'summary'), title: names.services }
+                              : undefined
+                      }
+                      next={
+                        index >= 0 && index < pathTopics.length - 1
+                          ? {
+                              href:
+                                module === 'services'
+                                  ? serviceHref(pathTopics[index + 1]!)
+                                  : courseHref(module, pathTopics[index + 1]!),
+                              title: title(module, pathTopics[index + 1]!)!,
+                            }
+                          : index === pathTopics.length - 1
+                            ? {
+                                href: currentV2
+                                  ? courseHref('benefits', 'availability')
+                                  : module === 'benefits'
+                                    ? courseHref('services', 'overview')
+                                    : module === 'services' && !legacyServices
+                                      ? courseHref('architecture', 'datacenters')
+                                      : '/learn',
+                                title: currentV2
+                                  ? names.benefits
+                                  : module === 'benefits'
+                                    ? names.services
+                                    : module === 'services' && !legacyServices
+                                      ? names.architecture
+                                      : c.overview,
+                              }
+                            : undefined
+                      }
+                      continueTeaching={labTopic && lab.complete}
+                      summary={topic.includes('summary')}
+                    />
                   </>
                 )}
-              </div>
-              {labTopic && !chooseVersion && !serviceChoice && (
-                <section
-                  className="course-lab"
-                  id="practical-lab"
-                  ref={labRef}
-                  tabIndex={-1}
-                  aria-labelledby="course-lab-title"
-                >
-                  <span>{c.guided}</span>
-                  <h2 id="course-lab-title">{c.labTitle}</h2>
-                  <p>{c.labIntro}</p>
-                  <p>{c.labBridge}</p>
-                  <SavvyShark>
-                    <p>{c.labExpect}</p>
-                  </SavvyShark>
-                  {!course.save.lab && existing.group && (
-                    <div>
-                      <p>{nb.expansion.common.existingLabNote}</p>
-                      <button
-                        onClick={() =>
-                          course.store.update({
-                            ...course.save,
-                            lab: {
-                              ...existingSession,
-                              origin:
-                                module === 'computing'
-                                  ? 'computing-v2'
-                                  : legacyServices
-                                    ? 'services-v1'
-                                    : 'services-v2',
-                            },
-                          })
-                        }
-                      >
-                        {nb.expansion.common.existingLab}
-                      </button>
-                    </div>
-                  )}
-                  {course.save.lab && (
-                    <p role="status">
-                      {lab.complete
-                        ? c.satisfied
-                        : !lab.verifiable
-                          ? c.guidance.unverifiable[1]
-                          : c.unfinished}
-                    </p>
-                  )}
-                  {lab.complete ? (
-                    <section
-                      className="course-debrief"
-                      id="lab-debrief"
-                      ref={debriefRef}
-                      tabIndex={-1}
-                      aria-label={c.debrief}
-                    >
-                      <h3>{c.debrief}</h3>
-                      <p>{c.debriefText}</p>
-                      <dl className="portal-properties">
-                        <div>
-                          <dt>{nb.portal.group}</dt>
-                          <dd>{lab.group?.name}</dd>
-                        </div>
-                        <div>
-                          <dt>{nb.portal.plan}</dt>
-                          <dd>{lab.plan?.name}</dd>
-                        </div>
-                        <div>
-                          <dt>{nb.portal.areas.apps}</dt>
-                          <dd>{lab.app?.name}</dd>
-                        </div>
-                      </dl>
-                      <Reflection />
-                      <p>{c.notMastery}</p>
-                      <button
-                        type="button"
-                        onClick={() =>
-                          navigate('challenge', { mode: 'independent', lab: undefined })
-                        }
-                      >
-                        {c.startIndependent}
-                      </button>
-                    </section>
-                  ) : null}
-                  <button
-                    type="button"
-                    className={lab.complete ? undefined : 'primary'}
-                    data-course-ready={course.ready}
-                    data-world-ready={chapter.ready}
-                    data-course-issue={course.issue ?? ''}
-                    disabled={
-                      !course.ready ||
-                      !chapter.ready ||
-                      ['corrupt', 'unsupported', 'conflict'].includes(course.issue ?? '') ||
-                      services.facts.active ||
-                      benefits.facts.active ||
-                      service2.facts.active
-                    }
-                    onClick={() =>
-                      module === 'services' && !course.save.lab ? setBriefing(true) : begin()
-                    }
-                  >
-                    {lab.complete
-                      ? nb.refinement.revisitLab
-                      : course.save.lab && lab.verifiable
-                        ? c.resumeLab
-                        : c.startLab}
-                  </button>
-                </section>
-              )}
-              {briefing && (
-                <MissionBriefing
-                  kind="paas"
-                  onClose={() => setBriefing(false)}
-                  onStart={() => {
-                    setBriefing(false);
-                    begin();
-                  }}
-                />
-              )}
-              {module === 'services' && topic !== 'practice' && (
-                <details className="course-guide-note">
-                  <summary>
-                    {c.assistant} · {c.assistantRole}
-                  </summary>
-                  <SavvyShark compact>
-                    <p>{c.theoryGuide}</p>
-                  </SavvyShark>
-                </details>
-              )}
-              {module === 'services' && topic === 'practice' && (
-                <details>
-                  <summary>{nb.portal.areas.hierarchy}</summary>
-                  <ArchitectureExplorer
-                    world={chapter.attempt.engine.world}
-                    lens="hierarchy"
-                    navigate={navigate}
-                  />
-                </details>
-              )}
-              {module === 'computing' && currentV2 && hasV1 && !chooseVersion && (
-                <Link
-                  href={courseHref(
-                    'computing',
-                    learning.facts.active ? 'assessment' : learning.save.unit,
-                  )}
-                >
-                  {nb.foundationsV2.viewV1}
-                </Link>
-              )}
-              {!chooseVersion && !serviceChoice && (
-                <>
-                  {((currentV2 && index === pathTopics.length - 1) ||
-                    (module === 'benefits' && topic === 'summary')) && (
-                    <SavvyShark compact>
-                      <p>
-                        {currentV2
-                          ? nb.expansion.common.nextBenefits
-                          : nb.expansion.common.nextServices}
-                      </p>
-                    </SavvyShark>
-                  )}
-                  <CourseNavigation
-                    moduleName={names[module]}
-                    current={
-                      title(module, topic) ??
-                      (topic.includes('summary')
-                        ? nb.foundationsV2.summary
-                        : nb.foundationsV2.assessment)
-                    }
-                    index={index}
-                    count={pathTopics.length}
-                    previous={
-                      index > 0
-                        ? {
-                            href:
-                              module === 'services'
-                                ? serviceHref(pathTopics[index - 1]!)
-                                : courseHref(module, pathTopics[index - 1]!),
-                            title: title(module, pathTopics[index - 1]!)!,
-                          }
-                        : index < 0
-                          ? {
-                              href: courseHref(module, pathTopics.at(-1)!),
-                              title: title(module, pathTopics.at(-1)!)!,
-                            }
-                          : module === 'architecture'
-                            ? { href: courseHref('services', 'summary'), title: names.services }
-                            : undefined
-                    }
-                    next={
-                      index >= 0 && index < pathTopics.length - 1
-                        ? {
-                            href:
-                              module === 'services'
-                                ? serviceHref(pathTopics[index + 1]!)
-                                : courseHref(module, pathTopics[index + 1]!),
-                            title: title(module, pathTopics[index + 1]!)!,
-                          }
-                        : index === pathTopics.length - 1
-                          ? {
-                              href: currentV2
-                                ? courseHref('benefits', 'availability')
-                                : module === 'benefits'
-                                  ? courseHref('services', 'overview')
-                                  : module === 'services' && !legacyServices
-                                    ? courseHref('architecture', 'datacenters')
-                                    : '/learn',
-                              title: currentV2
-                                ? names.benefits
-                                : module === 'benefits'
-                                  ? names.services
-                                  : module === 'services' && !legacyServices
-                                    ? names.architecture
-                                    : c.overview,
-                            }
-                          : undefined
-                    }
-                    continueTeaching={labTopic && lab.complete}
-                    summary={topic.includes('summary')}
-                  />
-                </>
-              )}
-            </>
-          )}
+              </>
+            )}
+          </ManagementTeachingBoundary>
           <footer className="course-footer">{nb.portal.boundary}</footer>
         </main>
       </div>
       {journal && (
         <PortalDialog title={c.journal} onClose={() => setJournal(false)}>
-          {module === 'architecture' || (!module && preferredResume?.module === 'architecture') ? (
-            <PhysicalLesson topic="datacenters" journal />
-          ) : module === 'benefits' ? (
-            <ExpansionReference track="benefits" topic={topic} />
-          ) : module === 'services' && !legacyServices ? (
-            <ExpansionReference track="services" topic={topic} />
-          ) : isServerlessTopic(topic) ? (
-            <ServerlessLesson topic={topic} journal />
-          ) : currentV2 ? (
-            <FoundationsV2
-              topic={['v2-assessment', 'v2-summary'].includes(topic) ? 'intro-request' : topic}
-              journal
-            />
-          ) : module === 'computing' || (!module && preferredResume?.module === 'computing') ? (
-            <FoundationsReference topic={topic} />
-          ) : (
-            <ServiceReference topic={topic} />
-          )}
+          <ManagementTeachingBoundary identity="course-journal">
+            {module === 'architecture' ||
+            (!module && preferredResume?.module === 'architecture') ? (
+              <CoreArchitectureJournal />
+            ) : module === 'benefits' ? (
+              <ExpansionReference track="benefits" topic={topic} />
+            ) : module === 'services' && !legacyServices ? (
+              <ExpansionReference track="services" topic={topic} />
+            ) : isServerlessTopic(topic) ? (
+              <ServerlessLesson topic={topic} journal />
+            ) : currentV2 ? (
+              <FoundationsV2
+                topic={['v2-assessment', 'v2-summary'].includes(topic) ? 'intro-request' : topic}
+                journal
+              />
+            ) : module === 'computing' || (!module && preferredResume?.module === 'computing') ? (
+              <FoundationsReference topic={topic} />
+            ) : (
+              <ServiceReference topic={topic} />
+            )}
+          </ManagementTeachingBoundary>
         </PortalDialog>
       )}
     </div>

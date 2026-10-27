@@ -1,5 +1,21 @@
 # Decisions
 
+##2026-10-27 — Preserve paused exploration without leaking explanations
+
+Whole-content withholding initially removed the old physical model's paused-message/disabled-action contract and lost its local prediction on remount. Reuse the real Run action presentation in an explicitly disabled paused surface, with the original A reload. Restore only the learner's recorded prediction paired with its recorded input when the actual explorer returns; parameter changes still require a new prediction. No correct answer is generated, no event is replayed as new evidence and no frozen physical-domain rule changes. Existing shielding tests are retained.
+
+##2026-10-27 — Apply shared-reference safety to every existing independent context
+
+Renewed independent review proved the initial B-only guard still allowed A-conflicted Journal exposure. The final design reuses all nine existing parsers/facts/aid commands in a small presentation preflight. It compares validated latest replay, requires durable aid, and withholds content on conflict/unknown/denied storage without changing frozen stores or first submissions. LearningProvider moves inside the other existing providers once, so its older Journal has the same protection. Own assessment forms and allowed operational Portal inspections keep their original rules; no automatic independent-lab help is introduced. Common Core and all Journal/reference surfaces enforce all relevant contexts. This supersedes the earlier B-only access decision below, retaining its history.
+
+##2026-10-27 — Fail closed before assessment-relevant teaching
+
+The separate PR23 reviewer reproduced Journal/Summary/theory exposure after a stale-tab aid write was rejected. Require latest-byte reconciliation and durable aid before mounting explanations; keep uncertainty visible and require explicit reload/re-entry. Never merge answers or rewrite an immutable first submission to repair a presentation defect. A single ManagementProvider also wraps the older shared Journal so already-open content can be withheld on conflict. Portal uses one stable presentation boundary across normal service navigation to preserve existing observed-event milestone lifetimes. Course discovery remains available when storage is blocked. Independent B/C now change shared-consumer lifecycle and sibling-branch policy decisions, with official App Service qualifications and varied answer positions.
+
+##2026-10-27 — Compose Core Architecture without reinterpreting A
+
+Keep physical1.0.0 immutable and add management1.0.0 rather than changing old rubrics/completion. Read actual World through inventory for organization; use a pure fixture for hypothetical policies so teaching cannot alter technical rules. Reuse the existing PaaS session with a new allowlisted return origin. Shared Journal renders original materials; combined results project separate facts, never XP or certification readiness. [Reasoning](CORE_ARCHITECTURE_MANAGEMENT.md).
+
 ## 2026-10-27: Part A is a versioned physical model, not Portal state
 
 Use the current Course shell under /learn/architecture, with a separate partial official-path entry and isolated Part A1.0.0 event record. Do not expand frozen old rubrics or create Azure resources. Compute fault effects from explicit placements/data/routing, keep nonzonal uncertainty, and keep region-pair metadata separate from application recovery edges. Follow current Reliability qualifications over general Learn-unit failover wording. Future Part B composes objective-level evidence without reinterpreting Part A. Reuse native dialogs/milestone ledger and add no dependencies/assets. [Rationale/model/manuscript](CORE_ARCHITECTURE_PHYSICAL.md).
