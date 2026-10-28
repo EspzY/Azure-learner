@@ -52,13 +52,18 @@ export interface PortalLocation {
   bridge?: (typeof benefitBridgeTopics)[number];
   mission?: MissionId;
   compute?: true;
+  networking?: true;
 }
 export function parseLocation(query: URLSearchParams): PortalLocation {
   const area = query.get('area') ?? 'home',
     mode = query.get('mode') ?? 'learn';
   return {
+    ...(query.get('networking') === 'inspect' &&
+    !['compute', 'mission', 'practice', 'bridge', 'lab', 'course'].some((k) => query.has(k))
+      ? { networking: true as const }
+      : {}),
     ...(query.get('compute') === 'vm' &&
-    !['mission', 'practice', 'bridge', 'lab', 'course'].some((k) => query.has(k))
+    !['networking', 'mission', 'practice', 'bridge', 'lab', 'course'].some((k) => query.has(k))
       ? { compute: true as const }
       : {}),
     ...(isMission(query.get('mission')) ? { mission: query.get('mission') as MissionId } : {}),
@@ -123,6 +128,7 @@ export function portalHref(
   if (next.bridge) query.set('bridge', next.bridge);
   if (next.course) query.set('course', '1');
   if (next.mission) query.set('mission', next.mission);
+  if (next.networking) query.set('networking', 'inspect');
   if (next.compute) query.set('compute', 'vm');
   return `/portal?${query}`;
 }

@@ -1,5 +1,9 @@
 # Learning design
 
+## P06 address-to-path reasoning
+
+Networking develops source/name/address concepts before VNet, CIDR and real NIC relationships. Four distinct investigations inspect actual configuration, repair an address plan, diagnose topology and separate DNS from path/access. Predictions and saved runs precede mission-specific causal debriefs. Independent cases change decision structure (scope versus zonal/regional structure, boundary arithmetic, global peering, delegation/alias/custom resolver/app roles). [Sequence and traceability](NETWORKING_FOUNDATIONS.md).
+
 ## P05 workload-to-mechanism reasoning
 
 Compute starts with five distinct workloads, then develops execution/control, VM dependencies, container lifecycle, event hosting, fleet/resilience, desktop publication and platform selection. Four applications alternate real operations and explicit conceptual investigation. Independent situations change requirements and decision structure; feedback includes counterfactuals and exact repetition links. Saved draft/run/causal explanation are distinct from navigation and first independent results. [Sequence](COMPUTE_HOSTING.md).

@@ -1,4 +1,13 @@
 'use client';
+import { useNetworking } from './networking-provider';
+import {
+  networkingFacts,
+  networkingKey,
+  restoreNetworking,
+  networkingHref,
+} from '@/domain/curriculum/networking';
+import { NetworkingRecovery } from './networking';
+
 import { useEffect, useEffectEvent, useState } from 'react';
 import Link from 'next/link';
 import { managementNb as c, architectureNb } from '@/content/nb';
@@ -111,8 +120,18 @@ export function ManagementTeachingBoundary({
     missions = useMissions(),
     transfer = useTransfer(),
     cost = useCost(),
-    compute = useCompute();
+    compute = useCompute(),
+    networking = useNetworking();
   const checks = [
+    check(
+      'networking',
+      networking,
+      networkingKey,
+      restoreNetworking,
+      networkingFacts,
+      () => networking.store.event({ kind: 'aid' }),
+      networkingHref('assessment', networking.facts.current?.item),
+    ),
     check(
       'compute',
       compute,
@@ -247,6 +266,7 @@ export function ManagementTeachingBoundary({
         item.id === 'transfer' ||
         item.id === 'cost' ||
         item.id === 'compute' ||
+        item.id === 'networking' ||
         (only === 'core' ? ['management', 'physical'].includes(item.id) : item.id === only)),
   );
   const token = JSON.stringify([
@@ -302,6 +322,7 @@ export function ManagementTeachingBoundary({
               {item.id === 'transfer' && <TransferRecovery />}
               {item.id === 'cost' && <CostRecovery />}
               {item.id === 'compute' && <ComputeRecovery />}
+              {item.id === 'networking' && <NetworkingRecovery />}
             </div>
           ))}
       </div>

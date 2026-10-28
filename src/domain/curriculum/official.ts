@@ -85,3 +85,15 @@ export const officialCompute = {
   status: 'implemented',
   humanReview: null,
 } as const;
+
+/** P06 is a facet-level delivery; the composite virtual-networking objective stays partial. */
+export const officialNetworking = {
+  reviewed: '2026-10-28',
+  path: 'https://learn.microsoft.com/en-us/training/paths/azure-fundamentals-describe-azure-architecture-services/',
+  module: 'describe-azure-networking-services',
+  officialUnits: 7,
+  implementedFacets: ['VNet', 'Subnet', 'Peering', 'Azure DNS'],
+  deferred: ['Azure VPN Gateway', 'ExpressRoute', 'Public and private endpoints'],
+  status: 'partial',
+  humanReview: null,
+} as const;

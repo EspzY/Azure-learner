@@ -85,8 +85,8 @@ export function MissionRecovery() {
     </div>
   );
 }
-export function MissionSafetyRecovery() {
-  const contexts = useMissionSafetyContexts();
+export function MissionSafetyRecovery({ owner }: { owner?: 'missions' }) {
+  const contexts = useMissionSafetyContexts(owner);
   return (
     <div className="mission-safety-recovery">
       {contexts
@@ -110,7 +110,7 @@ export function MissionEntry({ id }: { id: MissionId }) {
   const m = useMissions(),
     technical = useSandbox(),
     router = useRouter(),
-    safe = useMissionSafety(),
+    safe = useMissionSafety('missions'),
     query = useSearchParams();
   const [brief, setBrief] = useState(false),
     ref = useRef<HTMLElement>(null);
@@ -157,7 +157,7 @@ export function MissionEntry({ id }: { id: MissionId }) {
         {session?.status === 'active' && m.activeSession?.mission === id ? (
           <MissionActivity />
         ) : (
-          <MissionSafetyRecovery />
+          <MissionSafetyRecovery owner="missions" />
         )}
       </section>
     );
@@ -169,7 +169,7 @@ export function MissionEntry({ id }: { id: MissionId }) {
       <p>{session?.mode === 'independent' ? data.independent : data.scenario}</p>
       <p>{data.prerequisites}</p>
       <MissionRecovery />
-      {!safe && session?.status !== 'active' && <MissionSafetyRecovery />}
+      {!safe && session?.status !== 'active' && <MissionSafetyRecovery owner="missions" />}
       {m.save.events.length >= 600 && <p role="status">{c.capacity}</p>}
       {m.activeSession && m.activeSession.mission !== id ? (
         <>
@@ -269,7 +269,7 @@ export function MissionEntry({ id }: { id: MissionId }) {
 }
 export function MissionActivity() {
   const { m, s, result, technical } = useMissionResult(),
-    safe = useMissionSafety();
+    safe = useMissionSafety('missions');
   if (!s) return null;
   const data = c.missions[s.mission];
   if (!safe || m.issue || !result.verifiable)
@@ -278,7 +278,7 @@ export function MissionActivity() {
         <p role="status">{c.blocked}</p>
         {!result.verifiable && <p>{c.unverified}</p>}
         <MissionRecovery />
-        <MissionSafetyRecovery />
+        <MissionSafetyRecovery owner="missions" />
         <button
           type="button"
           disabled={!!m.issue}
@@ -290,7 +290,10 @@ export function MissionActivity() {
     );
   if (s.status !== 'active') return <MissionDebrief session={s} />;
   return (
-    <section className="mission-activity" aria-label={data.title}>
+    <section
+      className="mission-activity"
+      aria-label={`${s.mode === 'guided' ? c.guided : c.independentMode} · ${data.title}`}
+    >
       <h2 data-activity-heading tabIndex={-1}>
         {data.title}
       </h2>
@@ -443,7 +446,7 @@ export function MissionActual() {
 }
 function MissionReflection() {
   const { m, s, engine, technical } = useMissionResult(),
-    safe = useMissionSafety();
+    safe = useMissionSafety('missions');
   if (!s || s.status !== 'active') return null;
   const data = assessmentCopy(s);
   const options = data.choices as Record<string, readonly [string, string]>;
@@ -532,13 +535,13 @@ function MissionAttemptLabel({ session }: { session: MissionSession }) {
 }
 function MissionDebrief({ session }: { session: MissionSession }) {
   const { m, result, technical } = useMissionResult(session),
-    safe = useMissionSafety();
+    safe = useMissionSafety('missions');
   if (!safe || m.issue || !technical.ready || technical.issue)
     return (
       <>
         <p role="status">{c.unverified}</p>
         <MissionRecovery />
-        <MissionSafetyRecovery />
+        <MissionSafetyRecovery owner="missions" />
       </>
     );
   const data = assessmentCopy(session),

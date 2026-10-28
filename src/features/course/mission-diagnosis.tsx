@@ -7,7 +7,7 @@ import { ServiceIcon } from '@/features/portal/service-icon';
 import { useMissionResult, useMissionSafety } from './mission-context';
 export function DiagnosisExplorer() {
   const { m, s, engine, technical } = useMissionResult(),
-    safe = useMissionSafety();
+    safe = useMissionSafety('missions');
   const [input, setInput] = useState<DiagnosisInput>({
       failure: 'subnet',
       copies: 2,

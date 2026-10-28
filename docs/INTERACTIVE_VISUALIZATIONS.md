@@ -1,5 +1,9 @@
 # Interactive technical visualizations
 
+## P06 Network Path Explorer
+
+The shared Explorer switches between an actual read-only network-chain projection and three explicitly conceptual perspectives. Dynamic prefix-bit roles/exact interval tables, configured-half peering topology and a five-stage DNS/address/path/access pipeline represent different mechanisms. Native controls, semantic tables and text retain all facts without colour/animation. No network operation is implied. [Model boundaries](NETWORKING_FOUNDATIONS.md).
+
 ## P05 compute mechanisms
 
 Compute uses different representations for different mechanisms: stack comparison for VM/container/Functions, image/runtime/process/data lifecycle, explicit VM instance placement with fault/update/zone failure and exact capacity table, AVD object-publication chain, and hosting requirements/candidate consequences. The actual VM chain reads authoritative inventory and receipt replay. All are semantically operable; conceptual runs emit no resource command or measured Azure result. [Model limits](COMPUTE_HOSTING.md).

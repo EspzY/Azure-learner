@@ -1,5 +1,9 @@
 # AZ-900 — prioritert, avgrenset PR-plan
 
+## P06 implementation — PR28
+
+Networking Part A is implemented as eleven ordinary-course activities after Compute, four distinct saved applications and twelve independent cases. VNet/subnet/peering/DNS facets have explicit A–F pointers; composite2.2.05 remains PARTIAL,2.2.06 unchanged. [Actual scope/gates](NETWORKING_FOUNDATIONS.md). Next bounded delivery is **P07 / PR29 — VPN Gateway, ExpressRoute and public/private endpoints**, then Storage. Planning below remains historical.
+
 ## P05 implementation — PR27
 
 Compute & Hosting is implemented in the ordinary second learning path after Core Architecture. Four distinct guided applications,14 changed independent cases and the existing operational VM engine preserve earlier evidence. Full details and actual gate status: [COMPUTE_HOSTING](COMPUTE_HOSTING.md), PROJECT_STATUS and scoped release evidence. Next bounded implementation is **P06 — Networking Part A: VNets, subnets, peering and Azure DNS**; P07 follows for hybrid connectivity/endpoints. Historical P00–P05 planning below remains a dated baseline, not current unavailability.

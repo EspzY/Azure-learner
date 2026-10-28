@@ -1,5 +1,9 @@
 # Local curriculum and evidence architecture
 
+## P06 content ownership
+
+`networkingNb`/`networkingItemsNb` own the original eight-section manuscript, missions, full Journal and twelve paired cases. `networking-model/items/sources/inspection` separate pure arithmetic, deterministic rubrics, dated claims and actual Sandbox projection. One new isolated replay/store/provider extends Course without changing earlier data. [Version and facet map](NETWORKING_FOUNDATIONS.md).
+
 ## P05 content ownership
 
 `computeNb` and `computeItemsNb` in nb.ts own the original11-part teaching and14 paired independent cases; model/item/source/manifest definitions live in `domain/curriculum/compute*`. CP01–04 map to four pinned compute slots without registering networking completion. Course and Knowledge Journal render the same manuscript. Item/family/variant IDs, accepted relationships and all-option feedback are separately traceable; no copied assessment bank. [Full manuscript map](COMPUTE_HOSTING.md).

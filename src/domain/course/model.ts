@@ -1,3 +1,4 @@
+import { networkingTopics } from '../curriculum/networking';
 import { managementTopics } from '../curriculum/architecture-management';
 import { computeTopics } from '../curriculum/compute';
 import { costTopics } from '../curriculum/cost';
@@ -19,6 +20,7 @@ export const moduleIds = [
   'architecture',
   'cost',
   'compute',
+  'networking',
 ] as const;
 export type CourseModule = (typeof moduleIds)[number];
 export const guideTargets = [
@@ -98,6 +100,8 @@ const id = (v: unknown): v is string => typeof v === 'string' && /^[a-zA-Z0-9_-]
 const exact = (v: object, keys: string[]) =>
   Object.keys(v).sort().join(',') === keys.sort().join(',');
 export function courseTopic(module: CourseModule, topic: string | null) {
+  if (module === 'networking')
+    return (networkingTopics as readonly string[]).includes(topic ?? '') ? topic! : 'introduction';
   if (module === 'compute')
     return (computeTopics as readonly string[]).includes(topic ?? '') ? topic! : 'introduction';
   if (module === 'cost')

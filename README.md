@@ -1,8 +1,12 @@
 # AzureLab 3.2.1
 
+## Azure Networking Part A — PR28
+
+The ordinary root now exposes **Describe Azure networking services · Part A** after Compute. Eleven activities combine eight original theory sections, read-only actual VM/NIC/subnet/VNet inspection, address design, standard peering topology and staged DNS/path reasoning. Four distinct saved missions and twelve independent decision/reason cases reuse Course, SavvyShark and Journal with isolated evidence. No actual IP allocation, peering, DNS query or packet engine is added. [Implemented scope and current gate status](docs/NETWORKING_FOUNDATIONS.md). Composite2.2.05 remains PARTIAL for VPN Gateway/ExpressRoute; endpoints remain P07. Human review is outstanding.
+
 ## Azure Compute & Hosting — PR27
 
-The ordinary root exposes **Describe Azure compute services** after Core Architecture in the architecture/services path. Fourteen activities combine full original teaching, VM/container/Functions comparison, container lifecycle, declared capacity/failure boundaries, ARM-based AVD relationships and requirement-led hosting. Four guided applications include an actual bounded VM build/inspection;14 new independent decision/reason situations and the full Knowledge Journal use isolated versioned evidence. Pure models create no Azure resources, traffic, sessions or runtime. [Implemented scope, claims and compatibility](docs/COMPUTE_HOSTING.md). Networking remains planned; human learning/SME/UX validation is outstanding.
+The ordinary root exposes **Describe Azure compute services** after Core Architecture in the architecture/services path. Fourteen activities combine full original teaching, VM/container/Functions comparison, container lifecycle, declared capacity/failure boundaries, ARM-based AVD relationships and requirement-led hosting. Four guided applications include an actual bounded VM build/inspection;14 new independent decision/reason situations and the full Knowledge Journal use isolated versioned evidence. Pure models create no Azure resources, traffic, sessions or runtime. [Implemented scope, claims and compatibility](docs/COMPUTE_HOSTING.md). Networking Part A follows in PR28; Part B remains planned. Human learning/SME/UX validation is outstanding.
 
 ## Cost Management — PR26
 

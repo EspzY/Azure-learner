@@ -1,5 +1,9 @@
 # AZ-900 — faktisk dekning og læringshull
 
+## P06 scoped re-review —2026-10-28
+
+Only VNet, Subnet, Peering and Azure DNS facets of2.2.05 gain original theory, mechanisms, actual/pure applications, new independent contexts and alternative-specific feedback. VPN Gateway/ExpressRoute remain missing;2.2.06 is unchanged. The composite remains PARTIAL. [Facet A–F/claim map](NETWORKING_FOUNDATIONS.md); no traffic, readiness or human learning claim.
+
 ## P05 scoped re-review —2026-10-28
 
 The four Compute slots2.2.01–04 now have actual teaching, mechanisms, four applications and14 new paired independent cases with precise feedback and official claim mapping. VMSS orchestration, set/zone boundaries, ARM AVD publication and container isolation/lifecycle qualifications are explicit. ACI overview was unavailable to the research tool; bounded claims use available official Learn/Architecture Center alternatives. No networking slot changes, readiness score or human approval. [Detailed audit/evidence](COMPUTE_HOSTING.md); generated matrix is authoritative for current counts.
