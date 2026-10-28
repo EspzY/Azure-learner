@@ -4,6 +4,27 @@ import { replayEngine } from '../sandbox/replay';
 
 /** Conceptual observations are not Engine receipts and have their own source contract. */
 export const conceptMilestones = {
+  'networking-inspect': {
+    version: '1.0.0',
+    objectives: ['NW01'],
+    sources: ['NS07', 'NS08'],
+    trigger: 'seven-current-actual-references-inspected-in-pinned-technical-attempt',
+    auto: 'first-new-guided-inspection',
+  },
+  'networking-peering': {
+    version: '1.0.0',
+    objectives: ['NW03'],
+    sources: ['NS09', 'NS10', 'NS11'],
+    trigger: 'saved-standard-peering-address-overlap-rejection',
+    auto: 'first-new-guided-model-result',
+  },
+  'networking-dns': {
+    version: '1.0.0',
+    objectives: ['NW04'],
+    sources: ['NS13', 'NS14'],
+    trigger: 'saved-correct-name-resolution-without-documented-network-path',
+    auto: 'first-new-guided-model-result',
+  },
   'compute-container': {
     version: '1.0.0',
     objectives: ['CP01'],

@@ -1,4 +1,9 @@
 'use client';
+import { networkingNb } from '@/content/nb';
+import { networkingHref } from '@/domain/curriculum/networking';
+import { useNetworking } from '@/features/learning/networking-provider';
+import { NetworkingPortalMission } from '@/features/learning/networking-inspection';
+
 import { architectureNb, managementNb, computeNb } from '@/content/nb';
 import { computeHref } from '@/domain/curriculum/compute';
 import { missionsNb } from '@/content/nb';
@@ -96,7 +101,8 @@ function PortalWorkspace() {
     management = useManagement(),
     transfer = useTransfer(),
     cost = useCost(),
-    compute = useCompute();
+    compute = useCompute(),
+    networking = useNetworking();
   useEffect(() => {
     if (serverless.facts.active && ['learn', 'responsibility', 'hierarchy'].includes(location.area))
       serverless.store.event({ kind: 'aid' });
@@ -125,6 +131,7 @@ function PortalWorkspace() {
     location.area,
   ]);
   const otherIndependentContext =
+    networking.facts.active ||
     compute.facts.active ||
     cost.facts.active ||
     transfer.facts.active ||
@@ -141,6 +148,7 @@ function PortalWorkspace() {
   const independentContext = otherIndependentContext || missions.active;
   const guidanceContexts = [
     compute,
+    networking,
     cost,
     transfer,
     missions,
@@ -173,23 +181,26 @@ function PortalWorkspace() {
     !benefits.facts.active &&
     !services2.facts.active;
   const managementLab = guidedLab && course.save.lab?.origin === 'architecture-management';
-  const courseReturn = location.compute
-    ? computeHref('dependencies')
-    : location.mission
-      ? missionOrigin(location.mission)
-      : location.bridge
-        ? `/learn/benefits?topic=${location.bridge}&activity=practical`
-        : location.practice && practical.current
-          ? practicalReturn(practical.current)
-          : guidedLab
-            ? courseLabHref(
-                labFacts(course.save.lab, chapter.attempt.engine, chapter.attemptNumber).complete,
-                course.save.lab?.origin,
-              )
-            : location.course
-              ? courseHref(location.module, location.topic)
-              : '/learn';
+  const courseReturn = location.networking
+    ? networkingHref('dependencies')
+    : location.compute
+      ? computeHref('dependencies')
+      : location.mission
+        ? missionOrigin(location.mission)
+        : location.bridge
+          ? `/learn/benefits?topic=${location.bridge}&activity=practical`
+          : location.practice && practical.current
+            ? practicalReturn(practical.current)
+            : guidedLab
+              ? courseLabHref(
+                  labFacts(course.save.lab, chapter.attempt.engine, chapter.attemptNumber).complete,
+                  course.save.lab?.origin,
+                )
+              : location.course
+                ? courseHref(location.module, location.topic)
+                : '/learn';
   const returnLearning = () =>
+    location.networking ||
     location.compute ||
     location.mission ||
     location.bridge ||
@@ -770,29 +781,32 @@ function PortalWorkspace() {
             <span className={`mode-${independentContext ? 'independent' : location.mode}`}>
               {independentContext
                 ? p.modes.independent
-                : location.compute && compute.facts.guide?.mission === 'vm'
+                : location.networking && networking.facts.guide?.mission === 'inspect'
                   ? nb.course.guided
-                  : location.mission && missions.current
-                    ? missions.current.mode === 'guided'
-                      ? missionsNb.guided
-                      : missionsNb.independent
-                    : location.bridge
-                      ? labsNb.bridge.mode
-                      : location.practice && practical.current
-                        ? practical.current.mode === 'guided'
-                          ? labsNb.guided
-                          : labsNb.independent
-                        : guidedLab
-                          ? nb.course.guided
-                          : location.mode === 'learn' &&
-                              !['learn', 'responsibility', 'hierarchy', 'challenge'].includes(
-                                location.area,
-                              )
-                            ? nb.course.free
-                            : p.modes[location.mode]}
+                  : location.compute && compute.facts.guide?.mission === 'vm'
+                    ? nb.course.guided
+                    : location.mission && missions.current
+                      ? missions.current.mode === 'guided'
+                        ? missionsNb.guided
+                        : missionsNb.independent
+                      : location.bridge
+                        ? labsNb.bridge.mode
+                        : location.practice && practical.current
+                          ? practical.current.mode === 'guided'
+                            ? labsNb.guided
+                            : labsNb.independent
+                          : guidedLab
+                            ? nb.course.guided
+                            : location.mode === 'learn' &&
+                                !['learn', 'responsibility', 'hierarchy', 'challenge'].includes(
+                                  location.area,
+                                )
+                              ? nb.course.free
+                              : p.modes[location.mode]}
             </span>
             <span
               hidden={
+                !location.networking &&
                 !location.compute &&
                 !location.mission &&
                 !location.bridge &&
@@ -801,19 +815,21 @@ function PortalWorkspace() {
                 !independentContext
               }
             >
-              {location.compute
-                ? computeNb.title
-                : location.mission
-                  ? missionsNb.missions[location.mission].title
-                  : managementLab
-                    ? architectureNb.title
-                    : location.bridge ||
-                        (location.practice && practical.current?.origin.module === 'benefits')
-                      ? nb.official.benefits
-                      : location.module === 'computing' ||
-                          (guidedLab && course.save.lab?.origin === 'computing-v2')
-                        ? nb.official.computing
-                        : nb.official.services}
+              {location.networking
+                ? networkingNb.title
+                : location.compute
+                  ? computeNb.title
+                  : location.mission
+                    ? missionsNb.missions[location.mission].title
+                    : managementLab
+                      ? architectureNb.title
+                      : location.bridge ||
+                          (location.practice && practical.current?.origin.module === 'benefits')
+                        ? nb.official.benefits
+                        : location.module === 'computing' ||
+                            (guidedLab && course.save.lab?.origin === 'computing-v2')
+                          ? nb.official.computing
+                          : nb.official.services}
             </span>
             <Link href={courseReturn}>{nb.course.returnCourse}</Link>
             <button
@@ -1275,6 +1291,13 @@ function PortalWorkspace() {
         suppressed={guidanceSuppressed}
         form={vmForm}
       />
+      {location.networking && (
+        <NetworkingPortalMission
+          location={location}
+          navigate={navigate}
+          independent={independentContext}
+        />
+      )}
       {location.compute && (
         <ComputePortalMission
           location={location}

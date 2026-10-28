@@ -1,5 +1,9 @@
 # Architecture
 
+## P06 Networking Part A extension
+
+NetworkingProvider wraps the existing data providers, adding one isolated replayed1.0.0 store. Course/Journal render original `networkingNb`; structured `networkingItems` require decision/reason relationships. The pure IPv4/address/standard-peering/DNS/path model has no World imports or I/O. NetworkingInspection projects the actual pinned Sandbox attempt and current VM/NIC/subnet/VNet/group/subscription/receipt references; historical resources are explicitly reused inspections. Navigation-only `networking=inspect` preserves exact course return and refuses competing lab origins. The shared all-context preflight and automatic-guidance guards include the fourteenth context. Generic Course/assessment presentation styles are reused; the purpose-specific address/topology/DNS figures are original HTML/SVG with semantic tables. [Versions, claims and limits](NETWORKING_FOUNDATIONS.md).
+
 ## P05 Compute extension
 
 `ComputeProvider` wraps the existing data providers without replacing them. The existing Course/Journal routes render `ComputeLesson`; `ComputeWorkbench` presents pure container/capacity/AVD/hosting models. `ComputeStore` owns only its own versioned observations and structured answers. `compute-vm` derives real chain/boundary/receipt witnesses from Sandbox replay; navigation-only `compute=vm` preserves exact course return. No inventory copy or changed command semantics. Teaching-access and all-data clear include the new context. [Detailed data contract](COMPUTE_HOSTING.md).

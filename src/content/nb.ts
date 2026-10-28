@@ -5400,6 +5400,7 @@ export const managementNb = {
   accessReload: 'Les lagret vurderingskontekst på nytt',
   accessReview: 'Åpne egen vurdering og lagringskontroll',
   accessContexts: {
+    networking: 'Networking Part A · selvstendig anvendelse',
     compute: 'Compute & Hosting · selvstendig anvendelse',
     cost: 'Cost Management · selvstendig anvendelse',
     transfer: 'Selvstendig Cloud Concepts-transfer',
@@ -5950,6 +5951,8 @@ export const missionsNb = {
   reloadContext: 'Last inn bare denne konteksten',
   reviewContext: 'Åpne kontekstens eksisterende recovery eller vurdering',
   recoveryContexts: {
+    networking: 'Networking Part A',
+    missions: 'Practical Missions v1',
     transfer: 'Cloud Concepts-transfer',
     cost: 'Cost Management',
     compute: 'Compute & Hosting',
@@ -8641,7 +8644,7 @@ export const computeNb = {
   overview:
     'Fra arbeidslast til kjørende kode: undersøk VM-er, containere, Functions, virtuelle skrivebord og hosting. Bygg én faktisk lokal VM-konfigurasjon og test avgrensede arkitekturmodeller før nye selvstendige situasjoner.',
   available:
-    'Fire Compute-mål er tilgjengelige. Networking og Storage kommer senere. Lokal trening, ingen Azure-konto eller reelle ressurser.',
+    'Fire Compute-mål og Networking Part A er tilgjengelige. Networking Part B og Storage kommer senere. Lokal trening, ingen Azure-konto eller reelle ressurser.',
   prerequisites:
     'Forkunnskaper: fysiske servere og virtualisering, IaaS/PaaS, regioner og soner, management-hierarki og forbruksmodeller. Vi bygger videre på disse uten å endre tidligere resultater.',
   topics: {
@@ -9481,6 +9484,958 @@ export const computeItemsNb = {
         'Felles gruppe er administrativ sammenheng, ikke bevis på at to kommandoer har samme subjekt eller resultat.',
         'Teknisk rolle er ikke identitet. Uten riktige referanser og accepted utfall skaper dette falsk nybygg-evidence.',
         'Dette begrunner den korrekte overleveringen og bevarer forskjellen mellom historisk konfigurasjon, avvist nytt arbeid og faktisk drift.',
+      ],
+    ],
+  },
+} as const;
+
+export const networkingNb = {
+  perspectives: [
+    'Network Structure · faktisk Sandbox',
+    'Address Design · konsept',
+    'Peering Topology · konsept',
+    'DNS & Connectivity · konsept',
+  ],
+  perspective: 'Velg perspektiv i Network Path Explorer',
+  partA: 'Part A · VNet, Subnets, Peering & DNS',
+  recallGuided: 'Gjenoppta lagret nettverksoppdrag',
+  summaryBoundary:
+    'Dette er Part A-resultater. VPN Gateway, ExpressRoute og public/private endpoints kommer i Part B. En åpnet aktivitet eller et guidet resultat gir ingen ny uavhengig innlevering, hel Networking-fullføring eller eksamensberedskap.',
+  pauseGuided: computeNb.pauseGuided,
+  milestoneNotice: computeNb.milestoneNotice,
+  labels: {
+    ...computeNb.labels,
+    model: 'Pedagogisk IPv4-/topologi-/DNS-modell · ingen pakker eller eksterne oppslag',
+    return: 'Tilbake til Networking-oppdraget',
+    predictionOptions: [
+      'Velg prediksjon',
+      'Ingen gyldig plan / intet navnesvar eller direkte grunnlag',
+      'Delvis grunnlag; vei eller tilgang mangler',
+      'Alle deklarerte modellkrav dekkes',
+    ],
+  },
+  storage: {
+    ...computeNb.storage,
+    text: 'Forklaringer og faglige resultater holdes tilbake når lagringen er usikker. Ditt sist leste oppgaveutkast kan undersøkes uten endringer; last inn gjeldende registrering før videre arbeid. Svar fra ulike faner flettes aldri.',
+    ownDraft: 'Sist leste oppgaveutkast · endring og innlevering sperret til trygg reload',
+    loading: 'Laster versjonert Networking-arbeid …',
+    title: 'Networking-lagring må avklares',
+    reload: 'Last inn Networking på nytt',
+    recover: 'Gjenopprett bare ugyldige Networking-data',
+  },
+  guided: { ...computeNb.guided },
+  assessment: {
+    ...computeNb.assessment,
+    title: 'Selvstendig Networking-anvendelse',
+    intro:
+      'Undersøk nye nettverkskrav. Velg både beslutning og den tekniske begrunnelsen. Tidligere guidet arbeid gir ingen ny selvstendig vurderingskreditt.',
+  },
+  assessmentActive:
+    'Et annet Networking-forsøk er aktivt. Fortsett det låste scenarioet før du velger et nytt.',
+  currentFeedback: computeNb.currentFeedback,
+  historyFeedback: computeNb.historyFeedback,
+  missions: {
+    inspect: {
+      title: 'A · Investigate a Real AzureLab Network',
+      situation:
+        'Driftsteamet skal overta en eksisterende VM. Finn dens faktiske nettverksmedlemskap og skill dette fra administrativ organisering. Hvis miljøet er tomt, bygg en støttet bundle gjennom vanlig Portal først.',
+      goal: 'NW01: følg VM → NIC → subnet → VNet og gruppens subscription uten å oppfinne IP-allokering eller trafikk.',
+      steps: [
+        'Start inspeksjonsforsøket eksplisitt.',
+        'Velg en faktisk VM, eller opprett Resource group og VM med nytt nettverk i Portal.',
+        'Undersøk VM, NIC, subnet, VNet, Resource group, subscription og kildens accepted receipt.',
+        'Sammenlign medlemskap og faktiske prefixer.',
+        'Returner og begrunn hva dette ikke dokumenterer.',
+      ],
+      why: 'En kvittering dokumenterer en konfigurasjon, ikke at en nettverkspakke eller et program virker.',
+      where:
+        'Faktisk Portal → Virtual machines → ressurs → relaterte ressurser. Inspeksjonspanelet viser hver eksakte referanse.',
+      observe:
+        'Sju eksplisitte inspeksjoner i samme tekniske forsøk. Eldre ressurser merkes gjenbrukt inspeksjon, aldri ny opprettelse.',
+      debrief:
+        'NIC-referansen knytter VM til subnet og VNet. Resource group og subscription er administrative scopes. Prefixene er faktiske; NIC-IP, DNS, routing og apphelse er ukjent.',
+    },
+    address: {
+      title: 'B · Design a Valid Address Space',
+      situation:
+        'Nordverk trenger to separate subnet med minst 40 ordinært tilgjengelige IPv4-adresser hver innenfor 10.84.0.0/16. Første utkast overlapper.',
+      goal: 'NW02: beregn containment, overlap og kapasitet med fem ordinært reserverte Azure-adresser.',
+      steps: [
+        'Undersøk første utkast og forutsi utfallet.',
+        'Kjør det overlappende designet og les de beregnede intervallene.',
+        'Rett data-subnettet slik at begge ligger innenfor VNet uten overlap og med nok adresser.',
+        'Forutsi og kjør den rettede planen.',
+        'Forklar hvorfor flere IP-adresser alene ikke løser overlap.',
+      ],
+      why: 'Et gyldig prefix må både ligge riktig og gi et entydig adresseområde.',
+      where:
+        'Address Design: VNet-prefix, App-subnet, Data-subnet og antall nødvendige adresser står over adressebåndet.',
+      observe:
+        'Et lagret ugyldig overlap og deretter et gyldig design med to tilstrekkelige subnet. Ingen VNet-kommando sendes.',
+      debrief:
+        'Containment, overlap og kapasitet er separate kontroller. De fem reserverte adressene gjelder det ordinære IPv4-subnettet i denne øvelsen, ikke alle tjenesters ekstra behov.',
+    },
+    peering: {
+      title: 'C · Diagnose a Peering Problem',
+      situation:
+        'Utvikling A og analyse C har hver sin Connected-peering til plattform B. Teamet forventer at dette automatisk gir A en direkte vei til C.',
+      goal: 'NW03: skille tosidig peering, ikke-overlappende adresser og direkte topologi fra transitivitet.',
+      steps: [
+        'Behold A↔B og B↔C, velg C som mål og forutsi resultatet.',
+        'Kjør og undersøk hvorfor A↔C mangler.',
+        'Konfigurer begge konseptuelle A/C-sider med deklarert vei og tillatelse; kjør på nytt.',
+        'Bytt B til overlappende adresseområde og undersøk avvisningen for A/B.',
+        'Forklar hvilke andre forutsetninger peering ikke løser.',
+      ],
+      why: 'Standardpeering er en eksplisitt relasjon mellom to VNet, ikke en automatisk transitiv nettverksruter.',
+      where:
+        'Peering Topology: seks navngitte sider, målnettverk og adresse-/scope-forutsetninger.',
+      observe:
+        'Lagret ikke-transitivt moteksempel, eksplisitt direkte vei og et overlap-avslag. Ingen ekte peering eller kvittering opprettes.',
+      debrief:
+        'Begge sider og riktig adresse-/subnet-omfang er nødvendig. DNS, ruting og applikasjonstilgang må fortsatt undersøkes særskilt.',
+    },
+    dns: {
+      title: 'D · Resolve the Name, Then Diagnose the Path',
+      situation:
+        'En klient i A bruker archive.training.example for en intern tjeneste i B. Den private zonen har en A-record, men klientens VNet mangler link. Senere mangler dokumentert nettverksvei.',
+      goal: 'NW04: skille zone-synlighet, record, adresse, logisk vei og deklarert tilgang.',
+      steps: [
+        'Bruk Private DNS og Azure-provided resolver uten link; forutsi og kjør.',
+        'Legg til den konseptuelle resolution-linken og kjør med riktig record.',
+        'Ta bort peering eller sett vei til ukjent; behold DNS-linken og kjør.',
+        'Sammenlign et navnesvar med en udokumentert nettverksvei.',
+        'Forklar hvorfor DNS-endringer ikke reparerer en manglende vei.',
+      ],
+      why: 'Navn blir til adresser før applikasjonen forsøker å bruke nettverket.',
+      where:
+        'DNS & Connectivity: zone, record og resolver står før separat topologi, vei og tillatelse.',
+      observe:
+        'Lagret mislykket oppslag og deretter korrekt adresse mens vei fortsatt ikke er dokumentert. Ingen faktisk DNS-query utføres.',
+      debrief:
+        'Private DNS-linker gir navneoppløsning under riktige resolverforutsetninger. De gir ingen peering, ruting eller applikasjonsautorisasjon.',
+    },
+  },
+  causal: {
+    inspect: [
+      'Gruppen beviser at alle ressurser har samme nettverksvei.',
+      'Referansene dokumenterer nettverkstilknytning og management-scope, men ingen NIC-IP, DNS eller trafikk.',
+      'Accepted receipt betyr at applikasjonen har svart.',
+    ],
+    address: [
+      'Containment og fravær av overlap må kontrolleres separat fra tilgjengelig adressekapasitet.',
+      'En større VM gjør overlappende subnet gyldige.',
+      'Alle adresser i CIDR-blokken kan alltid tildeles VM-er.',
+    ],
+    peering: [
+      'DNS-records oppretter automatisk manglende A/C-peering.',
+      'En Connected-side gir alltid begge retninger.',
+      'Standardpeering er ikke transitiv; direkte tosidig relasjon og passende ikke-overlappende områder må finnes.',
+    ],
+    dns: [
+      'Riktig DNS-svar garanterer en fungerende applikasjon.',
+      'Zone-synlighet og record kan gi riktig adresse selv om topologi, vei eller tilgang fortsatt mangler.',
+      'En Private DNS-link erstatter subnet og NIC.',
+    ],
+  },
+  model: {
+    address: 'Address Design · ordinære private IPv4-eksempler',
+    bitTitle: 'IPv4 ·32 bitposisjoner',
+    hostBits: 'Hostbiter i App-subnet',
+    bitExplain:
+      'De 32 posisjonene viser først VNet-prefixet, deretter eventuelle ekstra nettverksbiter i App-subnettet og til slutt dets hostbiter. Dette er bitroller, ikke de binære adresseverdiene. Intervalltabellen viser de eksakte adressene og begge subnettene.',
+    peering: 'Peering Topology · standard VNet-peering',
+    dns: 'DNS & Connectivity · deklarerte forutsetninger',
+    vnet: 'VNet CIDR',
+    app: 'App-subnet CIDR',
+    data: 'Data-subnet CIDR',
+    required: 'Nødvendige ordinært tilgjengelige adresser per subnet',
+    syntax: 'Kanoniske IPv4-prefixer',
+    privateRanges: 'Innenfor modellens private eksempelområder',
+    contained: 'Begge subnet innenfor VNet',
+    overlap: 'Overlappende subnet',
+    subnetSize: 'Subnet minst /29',
+    capacity: 'Nok ordinært tilgjengelige adresser',
+    yes: 'Ja',
+    no: 'Nei',
+    unknown: 'Ukjent / ikke dokumentert',
+    total: 'Totalt',
+    available: 'Ordinært tilgjengelig',
+    interval: 'Adresseintervall',
+    reservation:
+      'Første fire og siste adresse er reservert i ordinære Azure IPv4-subnet. /24 gir 256 totalt og 251 ordinært tilgjengelige. Ingen ekstra tjenestespesifikke allokeringer modelleres.',
+    invalid: 'Planen oppfyller ikke alle deklarerte adressekrav. Se hver beregnet kontroll.',
+    valid: 'Adresseplanen oppfyller de avgrensede kravene. Ingen ressurser er opprettet.',
+    overlapToggle: 'B overlapper med A (10.84.0.0/17)',
+    destination: 'Mål fra A',
+    scope: 'Peering-omfang',
+    scopes: ['Hele VNet (hovedeksempel)', 'Utvalgte subnet (kvalifikasjon)'],
+    participating: 'Øvelsens kilde-/målsubnet deltar i valgt omfang',
+    qualification:
+      'Subnet peering har egne krav: registrert subscription, deltakende subnet i unike adresseområder på tvers av peering-lenker og dokumenterte begrensninger ved ruteannonsering/delegerte subnet/SKU-er. Enkelte øvrige adresseområder kan være gjenbrukt når de ikke deltar. Denne modellen bruker bare ikke-overlappende enkeltområder og evaluerer ikke full produktberettigelse. Konfigurasjon er dokumentert via CLI/PowerShell/API/ARM/Terraform, ikke som en operativ Portal-knapp her.',
+    route: 'Logisk rutingforutsetning',
+    routes: ['Eksplisitt deklarert', 'Ukjent'],
+    access: 'Tilgangsforutsetning',
+    accesses: ['Erklært tillatt', 'Erklært avvist', 'Ukjent'],
+    sides: 'Konseptuelt konfigurerte peering-sider',
+    statuses: {
+      connected: 'Connected · begge sider',
+      initiated: 'Initiated · én side',
+      missing: 'Ingen direkte peering',
+      overlap: 'Avvist adresseoverlap i standardeksemplet',
+    },
+    direct: 'Direkte tosidig relasjon',
+    participatingResult: 'Riktig subnet-omfang',
+    path: 'Dokumentert logisk modellvei',
+    permitted: 'Alle deklarerte vei-/tilgangsforutsetninger oppfylt',
+    peeringMissing:
+      'Modellen finner ikke et direkte Connected-grunnlag for valgt mål. A↔B↔C gir ikke automatisk A↔C.',
+    partial:
+      'Noe grunnlag finnes, men modellkrav til adresse, vei eller tilgang er ikke dokumentert.',
+    logical:
+      'Modellen finner en tillatt logisk vei under de oppgitte forutsetningene. Ingen pakke, tjenestesvar eller autorisasjon er testet.',
+    zone: 'DNS-tjenesteperspektiv',
+    zones: ['Azure Private DNS', 'Azure Public DNS', 'Azure-provided intern DNS'],
+    providedNote:
+      'Azure-provided-perspektivet bruker et automatisk internt VM-navn i samme VNet og direkte Azure-provided resolver. Du undersøker tilstedeværelse av standardrecorden, ikke opprettelse av egne records i dette navnerommet. Custom forwarding og CNAME-øvelsene bruker egne private/offentlige zoner.',
+    providedHostname: 'vm-b.[Azure-provided navnerom]',
+    record: 'Lokal record-forutsetning',
+    records: [
+      'A → riktig IPv4',
+      'CNAME → A → riktig IPv4',
+      'Mangler record',
+      'A → feil mål-IP',
+      'CNAME-løkke (ugyldig kjede)',
+    ],
+    linked: 'Kilde-VNet har Private DNS resolution-link',
+    resolver: 'Klientens resolvervalg',
+    resolvers: ['Azure-provided DNS', 'Egendefinert DNS'],
+    forwarding: 'Komplett fungerende forwarding/oppløsningsvei er eksplisitt forutsatt',
+    sameVnet: 'Kilde og mål i samme VNet',
+    peered: 'Direkte tosidig peering er eksplisitt forutsatt',
+    publicNote:
+      'Offentlig zone forutsetter korrekt delegasjon; 203.0.113.20 er en dokumentasjonsadresse. Privat eksempeladresse er 10.85.1.20. Ingen adresse er en virkelig AzureLab-NIC.',
+    visible: 'Zonen er synlig for valgt resolver',
+    resolved: 'Navneoppslag gir en adresse',
+    correctDestination: 'Adressen peker til ment mål',
+    topology: 'Deklarert topologigrunnlag',
+    resolutionFail:
+      'Modellen gir ikke et gyldig navnesvar. Undersøk zone-synlighet, resolver og record-kjede før nettverksveien.',
+    dnsOnly:
+      'Navneoppslaget gir en adresse, men nettverkstilgang til riktig mål er ikke dokumentert.',
+    stages: [
+      'Klient / hostname',
+      'Zone og record',
+      'Adresse',
+      'Logisk nettverksvei',
+      'Deklarert tilgang',
+    ],
+    noRun:
+      'Ingen lagret modellkjøring ennå. Velg forutsetninger, forutsi og kjør. Figuren blir en observasjon først etter eksplisitt kjøring.',
+    draftChanged:
+      'Utkastet er endret siden sist lagrede kjøring. Resultatet nedenfor gjelder fortsatt den lagrede observasjonen.',
+    snapshot: 'Lagrede kjøringer i dette oppdraget',
+    outcome: ['Ikke oppfylt', 'Delvis dokumentert', 'Deklarerte krav oppfylt'],
+  },
+  inspection: {
+    show: 'Vis nettverksoppdrag',
+    hide: 'Minimer veiledning',
+    title: 'Faktisk Network Structure · read-only Sandbox',
+    choose: 'Velg faktisk VM',
+    empty:
+      'Ingen faktisk VM finnes. Opprett Resource group og en støttet VM med nytt nettverk i vanlig Portal; behold eksisterende arbeid.',
+    reuse: 'Gjenbrukt ressurs: ny inspeksjon, ingen ny opprettelseskreditt.',
+    newBuild: 'Ny lokal accepted bundle etter oppdragsstart. Ingen boot eller trafikk er testet.',
+    missing:
+      'Kjeden eller den festede tekniske grensen kan ikke bekreftes. Last inn samme Sandbox-forsøk; ingen observasjon godskrives.',
+    unverified: 'Teknisk Sandbox må avklares før observasjoner og forklaringer kan vises.',
+    fields: [
+      'Virtual machine',
+      'Network interface',
+      'Subnet',
+      'Virtual network',
+      'Resource group',
+      'Subscription',
+      'Accepted receipt',
+    ],
+    prefix: 'Faktisk lagret prefix',
+    noIp: 'NIC-IP er ikke allokert i den støttede modellen.',
+    noTraffic: 'Ingen routing, DNS, NSG, pakke eller applikasjonstilgang er evaluert.',
+    observed: 'Bekreft at du har undersøkt den viste faktiske referansen',
+    counted: 'Eksplisitt undersøkte referanser',
+    selected: 'Valgt oppdragsressurs',
+    network: 'Nettverksmedlemskap',
+    management: 'Administrativt medlemskap',
+    receipt: 'Åpne faktisk kvittering',
+    guide: {
+      group:
+        'Du er i Create resource group. Velg ønsket subscription, gruppenavn og metadata-region. Opprett gruppen før du går til Virtual machines → Create.',
+      vm: 'Du er i Create a virtual machine. Velg en støttet konfigurasjon og riktig Resource group/region. Bruk et passende eksisterende subnet eller opprett nytt nettverk gjennom skjemaets Networking-valg.',
+      otherCreate:
+        'Dette skjemaet oppretter en annen ressurstype. Gå til Virtual machines → Create for oppdragets VM, eller returner uten å endre ressurser.',
+      list: 'Åpne en faktisk VM fra Virtual machines eller opprett en støttet bundle hvis listen er tom.',
+      resource:
+        'Undersøk den faktiske ressursidentiteten og følg NIC → subnet → VNet. Bruk inspeksjonspanelets konkrete referanser.',
+      receipt:
+        'Les den valgte VM-ens faktiske accepted-kvittering. Kontroller command-ID, konfigurasjonsresultat og ressursreferanser før du bekrefter inspeksjonen.',
+      activity:
+        'Åpne den valgte VM-ens kildekvittering fra inspeksjonspanelet. Andre operasjoner i Activity log dokumenterer ikke denne VM-ens nettverksbundle.',
+      done: 'Sju faktiske referanser er undersøkt. Returner til kurset og forklar skillet mellom konfigurasjon og trafikk.',
+    },
+    locations: {
+      group: 'Create a resource group → Basics → Project details / Resource details.',
+      vm: 'Create a virtual machine → Basics, Disks, Networking og Review + create.',
+      otherCreate:
+        'Dette er et annet opprettelsesskjema. Bruk Virtual machines → Create, eller returner til Networking uten å sende kommando.',
+      activity:
+        'Activity log → valgt kommandokvittering. Kontroller command-ID, outcome og faktiske ressursreferanser.',
+      resource:
+        'Valgt ressurs → Overview / Related resources. Inspeksjonspanelet lenker til hver eksakte referanse.',
+      groups: 'Resource groups → Create, deretter Virtual machines → Create når gruppen finnes.',
+      vms: 'Virtual machines → velg ressurs, eller Create hvis du trenger en støttet bundle.',
+    },
+    createReasons: {
+      group:
+        'Resource group gir administrativ subscription-/metadata-kontekst. Den oppretter ingen NIC, subnet eller nettverksvei.',
+      vm: 'Den eksplisitte VM-kommandoen oppretter en atomisk bundle med faktiske NIC-/subnet-/VNet-avhengigheter.',
+      other:
+        'App Service-hosting og VM-nettverk er forskjellige relasjoner. Dette skjemaet dokumenterer ikke oppdragets NIC-kjede.',
+    },
+    openReference:
+      'Åpne en av oppdragets konkrete ressurs- eller kvitteringsreferanser nedenfor før du bekrefter inspeksjon.',
+  },
+  milestone: {
+    inspect: {
+      title: 'En faktisk nettverkskjede, ingen oppdiktet trafikk',
+      text: 'Den lagrede inspeksjonen følger VM, NIC, subnet, VNet, gruppe, subscription og accepted receipt i samme tekniske forsøk. Dette viser nettverkstilknytning og scope. Ingen NIC-IP, DNS, routing eller applikasjonssvar er dokumentert.',
+    },
+    peering: {
+      title: 'Overlap er et adresseproblem før en logisk vei',
+      text: 'Den lagrede standardpeering-undersøkelsen har overlappende A/B-prefixer. Modellen avviser den relasjonen. Flere peering-sider eller en DNS-record retter ikke adressekonflikten. Subnet peering har egne dokumenterte vilkår; modellen godkjenner ikke unntak automatisk.',
+    },
+    dns: {
+      title: 'Riktig navn er ikke en dokumentert nettverksvei',
+      text: 'Den lagrede DNS-kjøringen gir riktig adresse, men ikke tilstrekkelig erklært vei eller tilgang. Zone-link og record løser navnet; nettverkstopologi, ruting og tilgang er egne forutsetninger. Ingen virkelig query eller pakke er sendt.',
+    },
+  },
+  title: 'Describe Azure networking services',
+  path: 'Introduction to Cloud Infrastructure: Describe Azure architecture and services',
+  overview:
+    'Følg en faktisk VM til nettverket. Design adresseområder, undersøk peering og skill et DNS-svar fra en dokumentert nettverksvei.',
+  available:
+    'Networking Part A · VNet, subnet, adresser, peering og DNS er tilgjengelige. Part B med VPN Gateway, ExpressRoute og endpoints er planlagt. Hele Networking er ikke fullført av Part A.',
+  prerequisites:
+    'Bygger på nettleser/server fra Cloud Computing, fysisk og administrativ arkitektur fra Core og VM/NIC-relasjoner fra Compute. IP, CIDR og DNS forklares her før de brukes. Ingen Azure-konto eller nettverksverktøy kreves.',
+  topics: {
+    introduction: 'Én applikasjon, flere nettverksbehov',
+    fundamentals: 'Fra navn og adresse til kommunikasjon',
+    vnet: 'Virtual Networks og logiske grenser',
+    addressing: 'IP Addressing & CIDR Explorer',
+    dependencies: 'Undersøk en faktisk VM-nettverkskjede',
+    peering: 'VNet Peering · direkte forbindelser',
+    dns: 'Azure DNS · navn før nettverksvei',
+    explorer: 'Azure Network Path Explorer',
+    missions: 'Guidede nettverksoppdrag',
+    assessment: 'Selvstendig Networking-anvendelse',
+    summary: 'Part A · oppsummering og dokumenterte resultater',
+  },
+  sections: {
+    introduction: {
+      title: 'Hva må være på plass før katalogen kan svare?',
+      paragraphs: [
+        'Nordverk har en webflate, en applikasjonsarbeider og en intern katalogtjeneste. Utviklerne har også et eget testmiljø. Et API-kall må finne riktig mottaker og en mulig vei dit; mottakeren må dessuten tillate handlingen og faktisk svare. At komponentene finnes i Azure er ikke nok.',
+        'Fra Compute kjenner du en VM, et operativsystem og en applikasjonsprosess. Nå undersøker vi forbindelsen utover maskinen: VM-en bruker et nettverkskort, kortet er knyttet til et subnet, og subnettet er del av et virtuelt nettverk. Denne strukturen er en annen enn Resource group → subscription, og en annen enn region → Availability Zone.',
+        'Et nettverksdesign svarer på hvilke adresser og forbindelser som skal finnes. Et sikkerhetsdesign svarer blant annet på hvilken trafikk og hvilke brukere som skal få tilgang. De henger sammen, men en tegnet forbindelse eller et vellykket navneoppslag beviser ingen av delene alene. Drift, ruting, sikkerhetsregler og applikasjonens egen autorisasjon kan fortsatt gi andre resultater.',
+        'Du skal først lese faktisk lokal konfigurasjon, deretter undersøke eksplisitte eksempelnettverk. De faktiske AzureLab-nettverkene beholder sine opprinnelige prefixer. Ingen peering, DNS-record eller ny IP legges til dem. Eksempelmodellen lar deg sammenligne utfall uten å utgi seg for å sende en pakke i Azure.',
+      ],
+      terms: [
+        ['Arbeidslast', 'Programmet, dataene og avhengighetene som utfører en oppgave.'],
+        [
+          'Nettverksvei',
+          'Forbindelsene og rutingsforutsetningene som kan føre trafikk fra en kilde til en mottaker.',
+        ],
+        [
+          'Konfigurasjon versus observasjon',
+          'En lagret ressursrelasjon er kjent konfigurasjon. En faktisk respons ville krevd en separat driftsobservasjon.',
+        ],
+      ],
+      example:
+        'Webflaten finner katalogens navn, men katalogen svarer ikke. Undersøk først hvilket trinn som er kjent: riktig adresse, nettverksvei, tilgang og tjeneste er separate hypoteser. Ikke opprett mer compute bare fordi et oppslag returnerte et navn.',
+      limit:
+        'Portal-delen viser lokal, replayet konfigurasjon. Nettverksmodellen bruker syntetiske adresser og erklærte forutsetninger; den måler ingen trafikk, DNS-tid eller applikasjonshelse.',
+    },
+    fundamentals: {
+      title: 'En adresse forteller hvor trafikken skal forsøkes sendt',
+      paragraphs: [
+        'Nettverkskommunikasjon flytter informasjon mellom endepunkter gjennom nettverksinfrastruktur. En IP-adresse brukes som kilde- eller destinasjonsadresse på nettverkslaget. Den er ikke et brukernavn, et passord eller en garanti for at et program lytter. Et forståelig navn, som archive.training.example, må ofte oversettes til en adresse før programmet forsøker forbindelsen.',
+        'IPv4 skriver 32 biter som fire tall mellom0 og 255, atskilt med punktum. Hvert tall representerer åtte biter. Adressen10.84.2.10 er et eksempel fra det private10.0.0.0/8-området. Andre vanlige private områder er 172.16.0.0/12 og 192.168.0.0/16. Private adresser brukes innen private nettverk og rutes ikke direkte over det offentlige internettet.',
+        'En privat adresse er ikke et sikkerhetsstempel. Trafikk kan komme fra andre sammenkoblede nettverk, og en feilkonfigurert tjeneste kan fortsatt være utsatt. Omvendt er et adresseområde skrevet med offentlige tall inne i et VNet ikke automatisk en offentlig eksponering. Her bruker vi bevisst bare avgrensede private eksempler; offentlig tilgang og endpoints behandles i Part B.',
+        'DNS finner en adresse til et navn. Ruting bestemmer hvor trafikk mot adressen skal gå. Tilgangsregler kan tillate eller blokkere den, og applikasjonen kan kreve egen innlogging eller rettighet. Skill derfor «et navn ble oppløst» fra «en logisk vei er mulig» og fra «tjenesten svarte på en autorisert forespørsel». Ingen av de tre siste driftsforholdene måles av denne modellen.',
+      ],
+      terms: [
+        ['IPv4', 'Et adresseformat med 32 biter og fire åttebits tall.'],
+        [
+          'Privat IP-adresse',
+          'En adresse fra et privat område, beregnet for intern bruk og sammenkoblede private nettverk.',
+        ],
+        ['Kilde og destinasjon', 'Avsender og tiltenkt mottaker i den undersøkte forbindelsen.'],
+        [
+          'DNS',
+          'Domain Name System: et navnesystem med blant annet koblinger mellom navn og IP-adresser.',
+        ],
+      ],
+      example:
+        'Et internt navn kan gi10.72.4.12 selv når klienten mangler en rute til 10.72.0.0/16. Oppslaget besvarer navnespørsmålet; det dokumenterer ikke veien.',
+      limit:
+        'Eksempeladresser tilhører undervisningsmodellen. En faktisk AzureLab-NIC har en subnetId, men ingen modellert privat IP-allokering.',
+    },
+    vnet: {
+      title: 'En regional nettverksstruktur, ikke en Resource group',
+      paragraphs: [
+        'Azure Virtual Network, ofte kalt VNet, er et logisk isolert nettverk for Azure-ressurser. Du bestemmer adresseområder og subnett, og kan konfigurere forbindelser til andre nettverk. VNet er en regional ressurs: det hører til en region, men kan støtte ressurser fordelt mellom Availability Zones innen regionen. En sone er en fysisk feilgrense; et subnet er ikke en sone.',
+        'Som andre ARM-ressurser er et VNet organisert i en Resource group og et subscription. Den administrative plasseringen gir management-kontekst. Subnett er underressurser i VNet. En VM bruker en NIC som er knyttet til et subnet i samme region som nettverkskortet. Vårt operative treningsutvalg krever i tillegg samme gruppe ved subnet-gjenbruk; det er en lokal avgrensning, ikke en universell regel om alle Azure-nettverksressurser.',
+        'Standard nettverksmekanismer kan gi kommunikasjon mellom subnett i samme VNet, men dette er ikke en påstand om at alle tjenester godtar alle forespørsler. NSG-er, egendefinerte ruter, en nettverksappliance og applikasjonssikkerhet kan påvirke utfallet. Et subnet skaper ikke automatisk en sikkerhetsgrense bare ved å få et navn som «database».',
+        'En vanlig Web App er heller ikke automatisk medlem av VM-ens subnet fordi de deler Resource group. Tjenester har egne integrasjons- og nettverksfunksjoner. I AzureLab modelleres Web App → App Service plan som hosting, og VM → NIC → subnet som nettverk. Ingen VNet-integrasjon for Web App utledes av den første relasjonen.',
+        'Bruk Network Structure-perspektivet til å lese den faktiske VM-en og dens konkrete referanser. Vis Resource group og subscription ved siden av kjeden, ikke som om de var nettverkshopp. En avvist kommando legger ikke til manglende nettverksobjekter.',
+      ],
+      terms: [
+        ['VNet', 'En regional logisk nettverksressurs med adresseområder og subnett.'],
+        ['NIC', 'Network Interface: ressursen som knytter en VM til et subnet.'],
+        ['Resource group', 'Administrativ gruppering og livssyklus, ikke en nettverksforbindelse.'],
+        [
+          'NSG',
+          'Network Security Group: regler som kan filtrere trafikk. Ingen slik regelevaluering utføres her.',
+        ],
+      ],
+      example:
+        'En gruppe med metadata-location Norway East kan inneholde en North Europe-VM og dens North Europe-nettverk. Gruppens metadata-region flytter ikke VM eller VNet. Samme gruppemedlemskap oppretter heller ingen peering til et annet VNet.',
+      limit:
+        'Den faktiske sandboxen støtter én NIC-kjede per VM og faste treningsprefixer. Ingen trafikk, dynamisk IP-tildeling, NSG eller route table er implementert.',
+    },
+    addressing: {
+      title: 'Et prefix avgrenser et sammenhengende adresseintervall',
+      paragraphs: [
+        'CIDR, Classless Inter-Domain Routing, skriver et nettverk som en nettverksadresse og en prefix-lengde, for eksempel 10.42.0.0/16. Tallet etter skråstreken forteller hvor mange av de 32 IPv4-bitene som identifiserer nettverket. Resten av bitene gir adresser innen intervallet. Flere prefix-biter gir et mindre adresseområde; et /25 er mindre enn et /24.',
+        'Antall adresser i en IPv4-blokk er 2 opphøyd i antall gjenværende biter. /16 gir 2^16 = 65536 adresser, og /24 gir 2^8 = 256. 10.42.0.0/16 går fra 10.42.0.0 til 10.42.255.255. Subnettet 10.42.1.0/24 går fra 10.42.1.0 til 10.42.1.255 og ligger derfor helt innenfor VNet-området.',
+        'Containment betyr at hele subnettintervallet ligger innenfor et av VNet-områdene. 10.43.1.0/24 ligger utenfor 10.42.0.0/16 selv om navnene ligner. Overlap betyr at to intervaller deler minst én adresse. 10.42.1.128/25 er en del av 10.42.1.0/24; de kan ikke brukes som to separate overlappende subnett i samme VNet.',
+        'I vanlige Azure IPv4-subnett reserveres de første fire adressene og den siste. I 10.42.1.0/24 er det .0, .1, .2, .3 og .255. Det gir 251 adresser før andre tildelinger og eventuelle tjenestespesifikke behov. Den siste adressen reserveres selv om Azure ikke tilbyr vanlig broadcast-trafikk. Støttede subnettstørrelser og særskilte tjenester må fortsatt kontrolleres.',
+        'Designøvelsen bruker kanoniske private nettverksprefixer med null i host-bitene og Azure-subnett fra /29 til de eksplisitte større eksemplene. Parseren forklarer feil fremfor å gjette hvilken blokk du mente. Å ha mange ledige adresser i et annet subnet hjelper ikke en NIC som skal tildeles i et fullt subnet. Planlegg begge fordeling og kapasitet.',
+      ],
+      terms: [
+        ['Prefix-lengde', 'Antall nettverksbiter foran de frie adressebitene.'],
+        ['Nettverksadresse', 'Første adresse i den kanoniske CIDR-blokken.'],
+        ['Containment', 'Hele det mindre intervallet ligger inne i det større.'],
+        ['Overlap', 'To adresseintervaller deler én eller flere adresser.'],
+      ],
+      example:
+        'Et separat worked example: 192.168.40.0/26 har 64 adresser, fra .0 til .63. Med de fem vanlige Azure-reservasjonene gjenstår 59 før øvrige tildelinger. Dette eksemplet er ikke løsningen på subnettdesignet i oppdraget.',
+      limit:
+        'Dette er adresseplanlegging, ikke en IP-allokator. Beregnet antall ledige eksemplaradresser skrives aldri til faktiske AzureLab-NIC-er.',
+    },
+    dependencies: {
+      title: 'Følg referansene som faktisk finnes',
+      paragraphs: [
+        'En VM-konfigurasjon refererer sin NIC. NIC-en har et subnetId; subnettet har et vnetId og et adresseprefix; VNet har et adresseområde. Du skal følge identitetene, ikke bare like navn. En ressurs i en annen gruppe kan ha et lignende navn uten å være denne VM-ens nettverksavhengighet.',
+        'Inspeksjonen viser også gruppen og dens subscription som administrativt scope, samt den aksepterte kvitteringen som opprettet VM-bundlen. En eldre VM kan brukes som undersøkelsesgrunnlag. Det er gjenbruk av kjent konfigurasjon, ikke en ny opprettelse eller et nytt selvstendig resultat. Oppdraget krever nye eksplisitte inspeksjoner og en årsaksforklaring.',
+        'Hvis inventaret er tomt, oppretter du selv en Resource group og en støttet VM gjennom den eksisterende Portal-flyten. VM-formens Networking kan opprette et nytt treningsnettverk. Ingen adresse- eller peeringkommando legges til i dette oppdraget. SavvyShark forklarer det faktiske skjemaet, og sender aldri en kommando for deg.',
+        'To separate nye treningsnettverk kan begge ha10.42.0.0/16. De er fortsatt forskjellige ressurser med forskjellige identiteter. Lik adresseplan er ikke en peeringforbindelse, og overlappet er et problem for vanlig peering. Bruk det separate designscenarioet for å undersøke ikke-overlappende alternativer; ikke endre historiske prefixer for å få en penere figur.',
+      ],
+      terms: [
+        ['Ressursreferanse', 'En konkret ID som knytter én modellert ressurs til en annen.'],
+        [
+          'Kvittering',
+          'Resultatet fra en faktisk lokal støttet kommando, med scope, utfall og endring i inventory.',
+        ],
+        [
+          'Gjenbrukt inspeksjon',
+          'Ny læringsaktivitet som undersøker en eksisterende ressurs uten å påstå en ny teknisk opprettelse.',
+        ],
+      ],
+      example:
+        'En NIC refererer subnet-6, som igjen refererer vnet-5. En annen ressursgruppe med navnet «network» er ingen erstatning for disse ID-ene. Kontroller kjede og administrative scopes hver for seg.',
+      limit:
+        'At kjeden finnes dokumenterer ingen privat IP, rute, DNS-record, NSG-tillatelse eller respons fra applikasjonen. Teknisk lagringsusikkerhet skal holde også oppsummering av denne kjeden tilbake.',
+    },
+    peering: {
+      title: 'Koble nettverk direkte uten å finne på videre transit',
+      paragraphs: [
+        'VNet Peering knytter Azure-nettverk sammen over Microsofts backbone. Peering i samme region og Global VNet Peering mellom regioner bruker det samme grunnprinsippet: de to nettverkene får en direkte nettverkskobling under tjenestens vilkår. De kan ligge i forskjellige subscriptions og, med nødvendige tillatelser, forskjellige tenants. Peering på tvers av separate Azure cloud-miljøer er ikke et generelt tillatt valg.',
+        'I vanlig Resource Manager-peering konfigureres en peering på hver side. Bare første side gir Initiated; begge må være Connected før koblingen er etablert. De komplette adresseområdene må være ikke-overlappende. En likegyldig status eller en pil i en tegning er ikke bevis på en gyldig kobling.',
+        'Vanlig peering er ikke automatisk transitiv. Har A peering med B og B med C, oppstår ingen A–C-forbindelse gjennom B av dette alene. En eksplisitt A–C-peering eller en separat riktig konfigurert rutingsløsning med for eksempel en NVA kan løse andre design. En innstilling for forwarded traffic skaper ikke selv en NVA eller en route table.',
+        'En Connected-kobling fritar deg ikke fra ruting og tilgangskontroll. NSG-er og andre mekanismer kan fortsatt blokkere en flyt. Peering oppretter heller ikke appbrukere, tillatelser, en databaseavhengighet eller DNS-records. VPN Gateway er en annen forbindelsesmekanisme; gateway transit krever egne ressurser og innstillinger og behandles videre i Part B.',
+        'Nyere subnet peering gir mulighet til å velge bestemte subnett fremfor alle subnett i hele VNet. Ved kildekontrollen krever den dokumenterte funksjonen subscription-allowlisting og konfigurasjon gjennom støttede API-/kodeverktøy, ikke en vanlig Portal-knapp. Derfor må du kontrollere hvilket omfang en konkret peering faktisk har. Vår hovedøvelse viser standard peering; et separat merket subnet-utvalg viser hvorfor et nytt subnet ikke alltid arver forbindelsen.',
+      ],
+      terms: [
+        [
+          'VNet Peering',
+          'Direkte kobling mellom to Azure VNet, under adresse-, status- og tilgangsvilkår.',
+        ],
+        ['Global VNet Peering', 'Peering mellom Azure-regioner innen støttede cloud-miljøer.'],
+        [
+          'Ikke-transitiv',
+          'To separate koblinger gjennom en tredje node lager ikke automatisk en direkte eller videresendt forbindelse.',
+        ],
+        [
+          'NVA',
+          'Network Virtual Appliance: en særskilt konfigurert nettverksfunksjon; den oppstår ikke av en peeringpil.',
+        ],
+      ],
+      example:
+        'I et worked example har et analyse-VNet og et lager-VNet egne ikke-overlappende områder og begge peering-sider Connected. Det dokumenterer koblingen. Om en bestemt SQL-forespørsel fungerer avhenger fortsatt av ruting, trafikkregler og applikasjonens rettigheter.',
+      limit:
+        'Modellen konfigurerer ingen faktisk peering, gateway eller NVA. Deklarert logisk vei er ingen sendt pakke, og en valgt tilgangsforutsetning er ingen reell NSG-evaluering.',
+    },
+    dns: {
+      title: 'Navn, adresse, vei og tilgang er fire forskjellige spørsmål',
+      paragraphs: [
+        'Et domenenavn gir mennesker og programmer et stabilt navn å bruke. En DNS-zone forvalter records for et navneområde. En A-record kobler et navn til en IPv4-adresse. En CNAME-record peker i stedet til et annet navn, som deretter må løses videre. Et alias er ikke en kopi av en server, og et CNAME kan ikke bare erstatte alle andre record-typer på samme navn.',
+        'Azure Public DNS hoster autoritative offentlige DNS-zoner og records. For at den offentlige navnehierarkiet skal bruke zonen, må delegasjonen peke til de riktige navneserverne. Å opprette en zone med et domenenavn kjøper ikke domenet og gjør deg ikke automatisk til eier. Azure DNS er ikke en generell domeneregistrar.',
+        'Azure-provided DNS gir grunnleggende Azure-styrt navneoppløsning, blant annet mellom VM-er i samme VNet. Kunden velger ikke fritt de interne zone-navnene og record-livssyklusen i denne standardtjenesten. Den skal ikke forveksles med din egen private zone eller forventes å løse alle hostnavn på tvers av peering.',
+        'Azure Private DNS lar deg forvalte egne private navneområder. Med Azure-provided DNS må et VNet være knyttet til den relevante private zonen for å bruke dens records. Et resolution-link er ikke det samme som automatisk registrering av VM-records: autoregistration er en egen innstilling. Flere VNet kan være knyttet til samme private zone uten at det i seg selv gir en applikasjonsrute mellom dem.',
+        'Peering arver ikke automatisk en annen VNet sin Private DNS-link. Egendefinerte DNS-servere trenger også en passende oppløsningsstrategi. Azure DNS Private Resolver kan bruke inbound endpoints, outbound endpoints og forwarding rulesets til relevante Azure-/hybridoppslag uten VM-baserte DNS-servere. Den krever korrekt VNet-, subnet-, regel- og nettverkstilknytning; navnet på tjenesten er ingen automatisk forbindelse.',
+        'I DNS-øvelsen velger du lokale eksempelrecords og en eksplisitt resolver-/zone-link-forutsetning. Se først om riktig navn blir til riktig adresse. Undersøk deretter om modellen kjenner en logisk nettverksvei og en erklært tillatelse. Et gyldig oppslag kan etterfølges av en ukjent vei eller avvist tilgang. Applikasjonens svar er fortsatt ikke testet.',
+      ],
+      terms: [
+        ['DNS-zone', 'Et navneområde med administrerte DNS-records.'],
+        ['A-record', 'Kobler et navn til en IPv4-adresse.'],
+        ['CNAME', 'Et alias fra ett navn til et annet navn, ikke direkte til en IP.'],
+        [
+          'Private DNS zone link',
+          'Knytter et VNet til en privat zone for navneoppløsning; registrering er et separat valg.',
+        ],
+        [
+          'Private Resolver',
+          'Administrert DNS-videresending/oppløsning med eksplisitte endpoints og regler; ikke en erstatning for nettverkstilkobling.',
+        ],
+      ],
+      example:
+        'I et separat worked example peker bill.training.example via CNAME til ledger.training.example, som har en A-record. Oppslaget må fullføre begge trinn. Selv et korrekt svar sier ingenting om klientens applikasjonsrolle eller en tjenestes helsetilstand.',
+      limit:
+        'Ingen eksterne navn spørres. Ingen DNS-zone, resolver, endpoint eller apprettighet opprettes i AzureLab Portal. Eksempel-IP-er er aldri faktiske NIC-data.',
+    },
+    explorer: {
+      title: 'Finn det første trinnet som ikke er dokumentert',
+      paragraphs: [
+        'En feilsøking trenger mer enn ett grønt signal. Begynn med hvilken mottaker programmet mente å kontakte. Kontroller navneoppløsningen og om den returnerte adressen faktisk peker til denne mottakeren. En feil A-record kan gi et gyldig DNS-svar som peker til feil nettverk; ny peering ville ikke rettet den feilaktige navnekoblingen.',
+        'Deretter undersøker du topologien. Samme VNet, en direkte Connected-peering og en ikke-transitiv toleddet figur er ulike situasjoner. Kontroller om nettverks- og subnet-omfanget omfatter kilden og målet. Hvis ruten eller tilgangsforutsetningen er ukjent, skal modellen si nettopp det i stedet for å feire en vellykket tilkobling.',
+        'Endre én vesentlig forutsetning om gangen, forutsi utfallet og kjør den rene modellen. Sammenlign det lagrede resultatet med prediksjonen og forklar årsaken. Parameterendringer er utkast til neste undersøkelse; figuren over sist lagrede observasjon endres først ved eksplisitt kjøring.',
+        'Les den faktiske VM-kjeden i et annet perspektiv. Den gir konkrete ressurs-ID-er, prefixer og scopes fra Sandbox, men ingen DNS- eller trafikksvar. Når de faste treningsprefixene overlapper, er dette et kontrollert moteksempel. Det separate konseptdesignet gir alternativer uten å omskrive faktiske ressurser eller historiske kvitteringer.',
+      ],
+      terms: [
+        ['Prediksjon', 'Ditt forventede utfall før en lagret modellkjøring.'],
+        ['Utkast', 'Valgte forutsetninger som ennå ikke er kjørt.'],
+        [
+          'Deklarert vei',
+          'En logisk modellkonklusjon under oppgitte antakelser; ikke en nettverkstest.',
+        ],
+      ],
+      example:
+        'Hvis riktig navn gir riktig IP mens tilgang er «ukjent», er riktig konklusjon at navnet er løst og tilgangen ikke dokumentert. Endre ikke DNS bare for å få alle trinn til å se grønne ut.',
+      limit:
+        'Modellen evaluerer bare de viste IPv4-/topologi-/DNS-forutsetningene. Den er ikke en full Azure-rutetabell, DNS-cache, NSG-, IPv6-, VPN- eller endpoints-motor.',
+    },
+  },
+} as const;
+
+/** Original P06 transfer cases. Decision and causal reason are independently submitted. */
+export const networkingItemsNb = {
+  nw01: {
+    title: 'Ny teamstruktur',
+    problem:
+      'En organisasjon samler to VM-er i én Resource group for felles kostnadsansvar. VM-ene har NIC-er i forskjellige VNet. Teamet ønsker en intern nettverksvei mellom dem uten å anta nye tekniske forbindelser.',
+    premises: [
+      'Kun management-organiseringen er endret.',
+      'Ingen peering eller annen nettverksforbindelse er konfigurert.',
+      'Program- og tilgangskrav må fortsatt undersøkes.',
+    ],
+    decisions: [
+      'Samle VM-ene i App Sandbox og bruk det felles subscription-scope som grunnlag for intern kommunikasjon.',
+      'Følg NIC → subnet → VNet, og planlegg den nødvendige nettverksforbindelsen.',
+      'Samordne gruppens metadata-region med VM-ene og bruk denne regionale organiseringen som løsning på kommunikasjonsbehovet.',
+    ],
+    reasons: [
+      'Et felles subscription samler ressurser under én management-grense, der organisasjonen kan fordele ansvar og følge opp ressursenes kostnader.',
+      'Resource group-location angir hvor gruppens metadata lagres; ressursenes egne lokasjoner inngår i en annen del av organisasjonens ressursplan.',
+      'Gruppe og subscription endrer ikke NIC-ens VNet eller forbindelsene mellom VNet.',
+    ],
+    decisive:
+      'Kravet gjelder en nettverksvei. Den administrative endringen har ikke endret de to NIC-enes faktiske nettverkstilknytning.',
+    feedback: [
+      [
+        'Samme subscription kan være et riktig administrativt valg, men oppretter ingen nettverksforbindelse. Det ville vært relevant hvis problemet gjaldt kostnads- eller management-grense.',
+        'Riktig undersøkelse: følg faktiske referanser før en passende eksplisitt forbindelse og tilgang vurderes. Dette hevder ikke at forbindelsen allerede virker.',
+        'Metadata-location kan være relevant for gruppens metadata, men endrer ikke VM-enes VNet. Et krav om metadatahåndtering ville gitt dette valget en annen rolle.',
+      ],
+      [
+        'Faktisk egenskap, men ikke årsaken til en nettverksvei. Et subscription-scope svarer på et administrativt spørsmål.',
+        'Faktisk metadata-egenskap, men ingen pakkerute. VM-er i gruppen kan ligge andre steder.',
+        'Riktig årsak: NIC/subnet/VNet beskriver nettverkstilknytning, mens gruppe/subscription beskriver management-scope.',
+      ],
+    ],
+  },
+  nw02: {
+    title: 'Fordel arbeidslasten mellom soner',
+    problem:
+      'Et team vil plassere to VM-er i forskjellige Availability Zones i samme region. Begge NIC-ene skal bruke det eksisterende regionale VNet-et. En kollega mener at hver sone trenger sitt eget VNet fordi datasentrene er fysisk adskilt.',
+    premises: [
+      'Regionen og de aktuelle VM-valgene støtter soner.',
+      'NIC/subnet og VNet har riktig regional tilknytning.',
+      'Applikasjonsredundans, ruting og faktisk tilgjengelighet må fortsatt konfigureres og vurderes separat.',
+    ],
+    decisions: [
+      'Opprett ett VNet per sone for å la den logiske nettverksinndelingen følge den fysiske feilseparasjonen.',
+      'Plasser VM-ene i forskjellige regioner, men behold de eksisterende regionale nettverksreferansene.',
+      'Behold det regionale VNet-et, og bruk passende subnet/NIC-tilknytninger for begge soneplasserte VM-er.',
+    ],
+    reasons: [
+      'VNet og subnet er regionale nettverksressurser som kan omfatte flere Availability Zones; VM-ens fysiske soneplassering krever derfor ikke et separat VNet.',
+      'Availability Zones skiller fysisk adskilte grupper av datasentre med egne forutsetninger for strøm, kjøling og nettverk innenfor én Azure-region.',
+      'Resource groups gir relaterte Azure-ressurser et felles administrativt scope.',
+    ],
+    decisive:
+      'Et VNet er regionalt og strekker seg over sonene i regionen. Fysisk feilseparasjon krever ikke at hvert zonalt kjøregrunnlag får et eget VNet.',
+    feedback: [
+      [
+        'Et VNet per sone er ikke et generelt teknisk krav. Separate VNet kan ha andre administrative/nettverksmessige formål, men soneskillet alene krever dem ikke.',
+        'Et VNet er regionalt, så du kan ikke bare beholde samme regionale NIC/subnet-tilknytning når VM-en flyttes til en annen region. Et multiregion-design trenger egen nettverksplan.',
+        'Riktig under premissene. Dette dokumenterer en gyldig nettverksorganisering, ikke automatisk redundans, trafikkruting eller apphelse.',
+      ],
+      [
+        'Riktig årsak: regional nettverksstruktur og zonal fysisk plassering kan sameksistere uten ett VNet per sone.',
+        'Fysisk adskillelse er riktig, men den alene beviser ikke at virtuelle nettverk skal deles etter samme grenser.',
+        'Riktig management-egenskap, men den avgjør ikke hvilke soner et regionalt VNet kan omfatte.',
+      ],
+    ],
+  },
+  nw03: {
+    title: 'Avdelingsutvidelsen',
+    problem:
+      'Et VNet har 10.64.0.0/20. Teamet vil legge til ett subnet på /24. Det eksisterende subnettet er 10.64.2.0/24. Hvilket utkast holder seg innenfor VNet uten å overlappe?',
+    premises: [
+      'Kanoniske nettverksprefixer brukes.',
+      'Ingen andre subnet finnes.',
+      'Kapasitetsbehovet passer i /24.',
+    ],
+    decisions: ['10.64.15.0/24', '10.64.16.0/24', '10.64.2.128/25'],
+    reasons: [
+      'Et /16 ville samlet flere /24-blokker i et større VNet-område, med mer plass til senere subnet og vekst i organisasjonens adresseplan.',
+      'Et /20 slutter ved 10.64.15.255. Valgt /24 må ligge innenfor og ikke overlappe eksisterende subnet.',
+      'Ved å øke prefix-lengden fra /24 til /25 deles en adresseblokk i mindre blokker, hver med færre hostbiter og færre tildelbare adresser.',
+    ],
+    decisive: '10.64.15.0/24 ligger helt innenfor /20 og deler ingen adresser med 10.64.2.0/24.',
+    feedback: [
+      [
+        'Riktig. Siste adresse er 10.64.15.255, innenfor VNet. Et annet ledig /24 i intervallet ville også vært mulig dersom det var et tilbudt alternativ.',
+        '10.64.16.0 er første adresse utenfor dette /20. Det kunne vært gyldig etter en eksplisitt adresseutvidelse og nye overlap-kontroller.',
+        'Dette /25 er en del av eksisterende 10.64.2.0/24 og overlapper. Det kunne erstattet et design etter omlegging, ikke sameksistert slik premisset står.',
+      ],
+      [
+        'Et større /16 ville gitt et annet intervall, men det er ikke den oppgitte konfigurasjonen. To like oktetter opphever ikke /20-grensen.',
+        'Riktig intervall- og overlap-begrunnelse. Begge vilkår må holde.',
+        'Mindre blokker er en reell størrelsesendring, men den tilbudte /25-blokken ligger fortsatt inne i et eksisterende subnet. Prefix-lengden alene gjør ikke dette parallelle subnettet gyldig.',
+      ],
+    ],
+  },
+  nw04: {
+    title: 'Planlegg adressekapasitet',
+    problem:
+      'Et ledig privat VNet-område skal romme ett ordinært Azure IPv4-subnet for 28 NIC-adresser. Velg det minste av de tilbudte subnettene som gir nok ordinært tilgjengelige adresser.',
+    premises: [
+      'Ingen ekstra tjenestespesifikke allokeringer kreves.',
+      'Fem adresser reserveres i dette ordinære subnettet.',
+      'Alle tilbudte prefixer ligger riktig og overlapper ingen andre subnet.',
+    ],
+    decisions: ['/27', '/28', '/26'],
+    reasons: [
+      'Et /27 rommer 32 adresser. De fire som er til overs etter 28 NIC-er kan beholdes som felles reserve utenfor NIC-tildelingen.',
+      'Et /28 bruker flere prefix-biter enn /27; den mer detaljerte inndelingen bør derfor gi plass til flere NIC-er i subnettet.',
+      '64−5=59, mens 32−5=27. Dermed kreves /26 blant de tilbudte subnettene.',
+    ],
+    decisive:
+      'Totalt antall er ikke det tildelbare antallet.28 overstiger de 27 ordinært tilgjengelige adressene i et /27.',
+    feedback: [
+      [
+        '/27 gir 32−5=27, én for lite. Det ville passet ved høyst 27 nødvendige adresser under samme premisser.',
+        '/28 gir 16−5=11. Det kunne vært et mindre behovsdesign, men dekker ikke 28.',
+        '/26 gir 59 og er det minste tilstrekkelige blant disse tilbudene. Ekstra tjenestebehov ville krevd en ny vurdering.',
+      ],
+      [
+        'Det ordinære /27-subnettet trenger fem reserverte adresser, ikke fire. 32−5=27 er mindre enn behovet på 28; reservasjonene kan ikke flyttes ut av subnettet i dette eksemplet.',
+        'Lengre prefix gir færre hostbiter og dermed færre adresser, ikke flere.',
+        'Riktig beregning og sammenligning. Dette er et ordinært undervisningssubnet, ikke en universell grense for alle Azure-tjenester.',
+      ],
+    ],
+  },
+  nw05: {
+    title: 'Gjennomgå et prefixutkast',
+    problem:
+      'En plan sier at subnettet er 10.91.4.17/24. Verktøyet krever kanonisk nettverksadresse. Ingen andre subnet bruker 10.91.4.0/24.',
+    premises: [
+      'VNet er 10.91.0.0/16.',
+      'Oppgaven gjelder subnet-prefixet, ikke valg av en NIC-adresse.',
+      'Behold et /24 med samme adresseintervall.',
+    ],
+    decisions: [
+      'Skriv 10.91.4.17/32 slik at den angitte adressen beholdes som hele subnettbeskrivelsen.',
+      'Skriv 10.91.4.0/24 som nettverksadresse for det samme adresseintervallet.',
+      'Behold 10.91.4.17/24; bruk adressens plassering i det private området som grunnlag for å godta prefixet.',
+    ],
+    reasons: [
+      'Et /24 har åtte hostbiter. De nullstilles for å skrive blokkens nettverksadresse, mens /24-intervallet beholdes.',
+      'En /24-blokk har 256 IPv4-adresser før Azure-reservasjoner og andre tildelinger regnes fra.',
+      'Et /32 identifiserer én IPv4-adresse og brukes når en beskrivelse skal gjelde én bestemt host.',
+    ],
+    decisive:
+      'Nettverksadressen og en mulig hostadresse har forskjellige roller. /24-grensen er .0 i dette tilfellet.',
+    feedback: [
+      [
+        '/32 beskriver én adresse og oppfyller ikke samme subnetstørrelse eller det ordinære Azure-subnetkravet. Det har andre roller i nettverksbeskrivelser.',
+        'Riktig kanonisk nettverksadresse. Dette tildeler ingen faktisk NIC en adresse.',
+        'Privat adresseklasse gjør ikke hostbitene til en gyldig nettverksgrense. Et verktøy kan normalisere inndata, men dette krever kanonisk form.',
+      ],
+      [
+        'Riktig mekanisme:8 hostbiter gir 256 adresser og en nettverksgrense ved .0.',
+        'Riktig adressetall, men det avgjør ikke hvilken adresse som er den kanoniske nettverksgrensen. Hostbitene må fortsatt nullstilles.',
+        'Riktig egenskap ved /32, men en enkeltadresse beholder ikke det etterspurte /24-intervallet. Dette kunne vært relevant for en hostspesifikk referanse, ikke dette subnettdesignet.',
+      ],
+    ],
+  },
+  nw06: {
+    title: 'Ny partnerforbindelse',
+    problem:
+      'To VNet med ikke-overlappende adresseområder ligger i forskjellige subscriptions og regioner i samme Azure-sky. Tillatelser er avklart. Første side av en standardpeering er opprettet og viser Initiated.',
+    premises: [
+      'Det finnes ingen annen forbindelse mellom nettverkene.',
+      'Begge parter ønsker direkte peering.',
+      'DNS og applikasjonstilgang undersøkes senere.',
+    ],
+    decisions: [
+      'Konfigurer den motsatte siden og bekreft Connected på begge.',
+      'Opprett en A-record for partnerens app før den andre siden konfigureres.',
+      'Flytt VNet til samme Resource group før statusen kan endres.',
+    ],
+    reasons: [
+      'Global peering kan knytte VNet i forskjellige Azure-regioner sammen over Azure-nettverket når de nødvendige produktkravene er oppfylt.',
+      'Resource groups organiserer relaterte ressursers administrative livssyklus.',
+      'Initiated dekker første side. Connected krever den motsatte peering-siden i tillegg.',
+    ],
+    decisive:
+      'Initiated etter første side er ikke det tosidige Connected-grunnlaget oppgaven krever.',
+    feedback: [
+      [
+        'Riktig neste peeringhandling under premissene. Connected er fortsatt ikke en app-helsetest.',
+        'En A-record kan løse et navn senere, men etablerer ikke manglende peering-side.',
+        'Management-medlemskap er ikke peering. Samme gruppe ville ikke erstatte andre side og er ikke et generelt krav.',
+      ],
+      [
+        'Riktig definisjon av global peering, men regionforskjellen forklarer ikke hvorfor statusen fortsatt er Initiated. Den manglende motsatte siden er avgjørende.',
+        'Riktig administrativ egenskap, men gruppeplassering etablerer ingen peering-side. Et livssyklusproblem ville gjort dette relevant.',
+        'Riktig: avklar begge sider og dokumenterte cross-scope-krav uten å anta DNS eller appautorisasjon.',
+      ],
+    ],
+  },
+  nw07: {
+    title: 'Sammenkoble utvalgte miljøer',
+    problem:
+      'VNet A har 10.18.0.0/16 og 10.19.0.0/16. VNet B har 10.19.0.0/16 og 10.20.0.0/16. Bare app-subnettene i A sitt 10.18-område og B sitt 10.20-område trenger forbindelse. Teamet kan enten planlegge adresseendringer eller undersøke kvalifisert subnet peering.',
+    premises: [
+      'Ingen andre peering-lenker finnes i dette planeksemplet.',
+      'De deltakende app-subnettene ligger i unike adresseområder; de overlappende 10.19-områdene deltar ikke i subnet-alternativet.',
+      'Funksjonstilgang, tillatelser, ruteannonserings-/SKU-begrensninger og sikkerhetsforutsetninger må kontrolleres før virkelig bruk.',
+      'Oppgaven gjelder forsvarlig planlegging, ingen operativ peering-godkjenning.',
+    ],
+    decisions: [
+      'Planlegg ikke-overlappende hele VNet-områder og vurder standardpeering etter endringen.',
+      'Godkjenn standard whole-VNet-peering som nettverkene står fordi app-subnettene er forskjellige.',
+      'Undersøk subnet peering for de unike deltakende områdene med full kontroll av produktvilkårene.',
+    ],
+    reasons: [
+      'Standardpeering omfatter hele VNet-områder. En kontrollert adresseomlegging kan fjerne overlappet.',
+      'Subnet peering kan avgrense deltakelse til unike app-områder etter kontroll av funksjonens særvilkår.',
+      'Global peering kan knytte VNet på tvers av Azure-regioner og subscriptions når tillatelser og tjenestens øvrige krav er avklart.',
+    ],
+    decisive:
+      'To planretninger er forsvarlige med hver sin begrunnelse. Standardpeering kan ikke godkjennes som det står; nyere subnet peering må vurderes etter egne vilkår, ikke standardmodellens fulle omfang.',
+    feedback: [
+      [
+        'Forsvarlig plan med standardpeering-begrunnelsen. Reell adresseomlegging krever kontrollert migrering og nye overlap-/avhengighetskontroller; ingen eksisterende data slettes her.',
+        'Standardpeering omfatter hele adresseområdene, inkludert det felles 10.19-området. At bare app-subnettene er ulike gjør ikke dette whole-VNet-utkastet gyldig.',
+        'Forsvarlig undersøkelse med subnet-scope-begrunnelsen. Dette er ikke en automatisk produksjonsgodkjenning: alle funksjons-, deltakelses-, rutings- og SKU-vilkår må avklares.',
+      ],
+      [
+        'Riktig for den planlagte whole-VNet-omleggingen. Den forklarer ikke alene hvorfor de nåværende adressene kan beholdes i et selektivt subnet-alternativ.',
+        'Riktig for selektiv subnet peering under premissene. Dette er et kvalifisert produkttilfelle utenfor den rene modellens konservative enkeltområdefixture.',
+        'Riktig egenskap ved global peering, men en regionforskjell løser verken adresseoverlap eller valg av deltakende scope.',
+      ],
+    ],
+  },
+  nw08: {
+    title: 'Et ekstra subnet',
+    problem:
+      'Et dokumentert subnet-peering-oppsett har eksplisitte lokale og eksterne deltakende subnet. Et nytt subnet er opprettet, men ikke med i listene. Teamet viser en synlig rute som bevis for fungerende peering.',
+    premises: [
+      'Gjeldende dokumentasjon beskriver særskilte krav og ruteannonseringsbegrensninger.',
+      'Dette er ikke standard whole-VNet-peering.',
+      'Oppgaven gir ingen faktiske pakke- eller tilgangsobservasjoner.',
+    ],
+    decisions: [
+      'Bruk den viste effective route som godkjenning av tilgangen, og behold subnettet utenfor deltakelseslistene.',
+      'Kontroller deltakelseslistene og funksjonens gjeldende begrensninger før en støttet endring.',
+      'Legg standard whole-VNet-omfang til grunn fordi det nye subnettet tilhører et av VNet-ene som allerede er peert.',
+    ],
+    reasons: [
+      'Deltakelseslistene avgrenser dette peering-oppsettet; en overannonsert rute beviser ikke trafikk fra subnettet.',
+      'Standard whole-VNet-peering vurderer de tilknyttede nettverkenes adresseområder, også ved global peering.',
+      'Effective routes samler rutene Azure beregner for et nettverksgrensesnitt, inkludert relevante systemruter og konfigurerte tilpasninger i nettverkstopologien.',
+    ],
+    decisive:
+      'Gjeldende subnet-peering-dokumentasjon kvalifiserer både deltakelse og ruteannonsering. Ikke anta trafikk fra et rutefunn alene.',
+    feedback: [
+      [
+        'Synlig rute er utilstrekkelig. Den dokumenterte funksjonen har kvalifikasjoner der ruter kan overannonseres uten fungerende trafikk.',
+        'Riktig undersøkelse uten falsk operasjonell godkjenning. Reell konfigurasjon krever funksjonstilgang og dagens støttede verktøy/SKU-forbehold.',
+        'Dette ignorerer nyere selektiv subnet-peering. Whole-VNet er hovedmodellen i AZ-900-undervisningen, men ikke en universell produktregel.',
+      ],
+      [
+        'Riktig: deltakende scope, unikhet og aktuelle begrensninger må undersøkes, og en rute er ikke en trafikkmåling.',
+        'Riktig om standardpeering, men scenarioet bruker eksplisitt subnet peering. Deltakelseslistene kan derfor ikke utledes av whole-VNet-regelen.',
+        'Riktig rolle for rutetabellen, men den dokumenterte overannonseringsbegrensningen betyr at rutevisning alene ikke beviser levert trafikk fra dette subnettet.',
+      ],
+    ],
+  },
+  nw09: {
+    title: 'Et offentlig tjenestenavn',
+    problem:
+      'En virksomhet eier et domene gjennom en registrar. Den oppretter en Azure Public DNS-zone og riktige records, men den offentlige delegasjonen peker fortsatt til gamle navneservere.',
+    premises: [
+      'Den gamle DNS-leverandøren returnerer fortsatt sine records.',
+      'Oppgaven gjelder hvilken autoritativ zone offentlige klienter bruker.',
+      'Nettverksvei og webserver er ikke endret.',
+    ],
+    decisions: [
+      'Opprett en Private DNS-zone med de samme records og knytt den til webserverens VNet for å flytte de offentlige klientenes oppslag.',
+      'Bestill en ny registrering av samme domene hos Azure DNS, slik at registrering og hosting samles hos den nye DNS-leverandøren.',
+      'Flytt delegasjonen hos registratoren/foreldresonen til den kontrollerte Azure-zonens navneservere.',
+    ],
+    reasons: [
+      'Private DNS-links gjør et privat navneområde tilgjengelig for oppløsning fra relevante VNet når resolverforutsetningene er på plass.',
+      'Offentlig DNS følger NS-delegasjon til autoritative navneservere. En ny zone flytter ikke domenets delegasjon når records opprettes.',
+      'Azure Public DNS lagrer og hoster records i autoritative zoner for domenenavn som virksomheten forvalter.',
+    ],
+    decisive:
+      'Riktige records i en zone som ikke er delegert er ikke nok til å gjøre den til offentlig autoritet.',
+    feedback: [
+      [
+        'En Private DNS-link gjelder privat oppløsning i relevante VNet, ikke delegasjon for offentlige klienter.',
+        'Azure DNS er ikke en domeneregistrar. Det eksisterende eierskapet og registratorprosessen må brukes.',
+        'Riktig type endring under premissene. TTL/cache og kontrollert overgang bør vurderes i virkelig drift; ingen live DNS endres her.',
+      ],
+      [
+        'Riktig privat mekanisme, men oppgaven gjelder offentlige klienter og NS-delegasjon. En intern navneoppgave ville hatt andre krav.',
+        'Riktig årsak. Navnet i en opprettet zone er ikke et bevis på eierskap eller aktiv delegasjon.',
+        'Riktig hostingegenskap, men en opprettet zone er ikke automatisk delegert. Eierskap og delegasjon må håndteres separat.',
+      ],
+    ],
+  },
+  nw10: {
+    title: 'Behold et klientnavn',
+    problem:
+      'Klientene bruker reports.training.example. Tjenesten flytter mellom verter, men det forvaltede kanoniske navnet service.training.example skal være stabilt. Teamet ønsker at klientnavnet følger dette navnets A-record.',
+    premises: [
+      'Dette er et ikke-apex-navn uten andre records på samme navn.',
+      'Den kanoniske A-recorden forvaltes separat og er korrekt.',
+      'Oppgaven gjelder aliasrelasjonen, ikke endring av nettverkstilgang.',
+    ],
+    decisions: [
+      'Bruk CNAME fra reports til service; la oppslaget fortsette mot navnets forvaltede A-record.',
+      'Bruk CNAME fra reports direkte til serverens nåværende IPv4-adresse.',
+      'Opprett peering mellom klientens og tjenerens VNet, og bruk reports som navn på peering-forbindelsen.',
+    ],
+    reasons: [
+      'TTL avgjør hvor lenge en DNS-record kan caches før en resolver må be om den på nytt; dette påvirker synligheten av senere oppdateringer.',
+      'Peering kan gi privat kommunikasjon mellom to virtuelle nettverk.',
+      'CNAME peker til et DNS-navn; en videre record må løses før klienten kjenner IP-adressen.',
+    ],
+    decisive:
+      'Kravet er et navnealias som følger et annet navns adresse. Det er forskjellig fra en direkte A-record og fra en nettverksforbindelse.',
+    feedback: [
+      [
+        'Riktig aliasretning og videre oppslag. Ved zone-apex eller samtidige andre recordtyper må et annet dokumentert design vurderes.',
+        'CNAME-målet er et navn, ikke en IPv4-literal. En direkte IPv4-mapping ville vært en A-record med annet vedlikeholdsansvar.',
+        'Peering kobler nettverk; den oppretter ikke dette DNS-aliaset.',
+      ],
+      [
+        'TTL er relevant for oppdateringsforsinkelse/cache, men forklarer ikke hvorfor aliaset følger et annet navns A-record. Modellens DNS-cache er ikke simulert.',
+        'Riktig nettverksegenskap, men den oppretter ikke navnealiaset. Den ville vært relevant dersom nettverksveien manglet.',
+        'Riktig årsakskjede. Et ugyldig mål eller en løkke ville hindret et fullført navnesvar.',
+      ],
+    ],
+  },
+  nw11: {
+    title: 'Egendefinert oppløsning',
+    problem:
+      'En VM bruker organisasjonens egne DNS-servere. Dens VNet er linked til en Azure Private DNS-zone, men de egne serverne har ingen passende videresending til en resolver som kan løse zonen.',
+    premises: [
+      'Recorden finnes i den private zonen.',
+      'Teamet skal beholde egendefinert DNS.',
+      'En faktisk fungerende forwarding-/resolverstrategi er ikke konfigurert.',
+    ],
+    decisions: [
+      'Behold klientenes DNS-oppsett, og bruk VNet-linken som grunnlag for at de egne DNS-serverne nå kan løse zonen.',
+      'Etabler og verifiser videresending fra egne DNS-servere til en resolver som kan løse zonen.',
+      'Flytt VM-en og Private DNS-zonen til samme Resource group slik at navneoppslaget administreres fra ett felles scope.',
+    ],
+    reasons: [
+      'Klienten spør de konfigurerte DNS-serverne. En VNet-link lager ingen manglende videresendingsregel hos disse serverne.',
+      'Resource groups gir relaterte ressurser et felles scope for administrasjon, livssyklus og anvendelse av relevante styringsregler.',
+      'Autoregistration kan vedlikeholde VM-records i en privat zone for et linked registration-VNet.',
+    ],
+    decisive:
+      'Resolvervalget er et reelt trinn. En korrekt zone og VNet-link kan ikke erstatte manglende forwarding hos egendefinert DNS.',
+    feedback: [
+      [
+        'En link overstyrer ikke klientens custom DNS-oppsett. Med Azure-provided resolver ville linkens rolle vært annerledes.',
+        'Riktig undersøkelse og teknisk tiltak, for eksempel kvalifisert Private Resolver/forwarding med nødvendige nettverksforutsetninger. Ingen resolver opprettes i simulatoren.',
+        'Resource group-medlemskap bestemmer ikke klientens DNS-spørsmål eller servernes videresending. En management group er dessuten et annet, overordnet administrativt scope.',
+      ],
+      [
+        'Riktig årsak: følg faktisk spørringsvei og kvalifiser hver resolverforutsetning.',
+        'Riktig management-egenskap, men den bestemmer ikke klientens resolvervalg eller forwarding.',
+        'Autoregistration er relevant for record-livssyklus, men recorden finnes allerede. Den manglende oppløsningsveien hos custom DNS består.',
+      ],
+    ],
+  },
+  nw12: {
+    title: 'Et korrekt svar fra navnetjenesten',
+    problem:
+      'Et kontrollert konseptscenario har riktig DNS-svar og deklarert nettverksvei til riktig server. Serveren returnerer avslag fordi klientens applikasjonsrolle mangler.',
+    premises: [
+      'IP-adressen er kontrollert mot ment mål.',
+      'Ingen navne- eller topologifeil er oppgitt.',
+      'Dette er en oppgitt scenarioobservasjon, ikke en målt AzureLab-pakke.',
+    ],
+    decisions: [
+      'Undersøk og korriger applikasjonens autorisasjon etter behov.',
+      'Opprett en ny CNAME til samme server og behold rettighetene.',
+      'Utvid subnettet og behold applikasjonsrollene.',
+    ],
+    reasons: [
+      'Et utvidet, gyldig subnet kan gi flere NIC-adresser og kapasitet for nye grensesnitt når den eksisterende adresseblokken er full.',
+      'DNS-svar og vei er oppgitt gyldige; det observerte avslaget gjelder klientens applikasjonsrolle.',
+      'CNAME kan beholde et stabilt klientnavn ved vertsbytte ved å la en annen, separat forvaltet DNS-record angi målets aktuelle IP-adresse.',
+    ],
+    decisive:
+      'Problemet er et oppgitt autorisasjonsavslag. Ikke endre fungerende DNS eller adressering uten en relatert årsak.',
+    feedback: [
+      [
+        'Riktig problemområde. Least privilege og reelle tilgangskrav må fortsatt styre endringen; det er ikke en anbefaling om å gi alle full tilgang.',
+        'Aliaset peker til samme mål og endrer ikke klientens approlle. Det ville vært relevant hvis navnerelasjonen var problemet.',
+        'Flere adresser retter ikke manglende approlle. Det ville vært relevant ved reell adressekapasitetsmangel.',
+      ],
+      [
+        'Riktig ved adressekapasitetsmangel, men scenarioet dokumenterer allerede mål og vei. Flere adresser endrer ikke den manglende approllen.',
+        'Riktig: lokaliser årsaken til den delen av kjeden som faktisk feiler.',
+        'Riktig aliasbruk ved navneendring, men her er navnet korrekt og autorisasjonen avvist. DNS overfører ingen rettigheter.',
       ],
     ],
   },

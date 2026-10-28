@@ -1,5 +1,9 @@
 # Decisions
 
+## PR28 — separate network concepts from frozen operational configuration
+
+Add a versioned Networking Part A supplement, rather than adding IP allocation, peering, DNS, traffic or new prefix semantics to Sandbox. Ordinary actual resources retain their frozen10.42 prefixes and can be read as overlap counterexamples. Pure canonical unsigned IPv4 intervals, explicitly configured peering sides and staged name/address/path/access predicates produce educational observations only. Updated subnet-peering documentation requires qualifications; the bounded model does not implement its full eligibility/routing behavior. Separate fresh inspection boundaries and original independent cases preserve earlier learning meaning. Reuse durable store/preflight/course/guidance patterns; no parallel authoritative inventory or general network/assessment engine. Part B later composes separately versioned evidence without upgrading Part A. [Detailed decision](NETWORKING_FOUNDATIONS.md).
+
 ## PR27 — separate Compute evidence, existing operational engine
 
 Decision: use an isolated1.0.0 Compute supplement and the established durable store/assessment patterns, not altered historical rubrics or a generic exam engine. Four pure concept models remain outside World; only explicit existing Portal commands create resources. Guided VM completion is derived from actual accepted post-boundary receipts and real references. Saved guided attempts can be explicitly paused/resumed without replacing their boundaries. Multiple valid hosting pairs are accepted when requirements allow. AVD publication is not a session; scale-rule arithmetic is not Azure autoscale; resource creation is not application health. [Rationale and scope](COMPUTE_HOSTING.md).

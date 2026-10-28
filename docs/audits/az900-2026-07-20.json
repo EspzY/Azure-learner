@@ -1035,6 +1035,101 @@
       "reviewed": "2026-10-28",
       "purpose": "Run-to-completion and explicit restart policies differ from a reusable ACA Job/execution. Never qualifies successful exit, not a universal no-retry guarantee; no task is executed locally.",
       "kind": "technical"
+    },
+    "NS01": {
+      "url": "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900",
+      "reviewed": "2026-10-28",
+      "purpose": "Four named facets of composite2.2.05; VPN Gateway/ExpressRoute and2.2.06 remain deferred, no readiness claim."
+    },
+    "NS02": {
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-networking-services/",
+      "reviewed": "2026-10-28",
+      "purpose": "Seven-unit module, six public framing/teaching/summary units read; protected assessment excluded."
+    },
+    "NS03": {
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-networking-services/1-introduction",
+      "reviewed": "2026-10-28",
+      "purpose": "Resource communication and prerequisite networking concepts; basic access control is context, no NSG engine."
+    },
+    "NS04": {
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-networking-services/2-virtual-network",
+      "reviewed": "2026-10-28",
+      "purpose": "Virtual networks, subnets, routing/filtering distinction and peering at Fundamentals depth."
+    },
+    "NS05": {
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-networking-services/5-domain-name-system",
+      "reviewed": "2026-10-28",
+      "purpose": "DNS name/record resolution, Azure-provided/public/private distinction with product qualifications."
+    },
+    "NS06": {
+      "url": "https://learn.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview",
+      "reviewed": "2026-10-28",
+      "purpose": "VNet/subnets are regional and span Availability Zones; management scope is separate. Older default-outbound assertions are excluded."
+    },
+    "NS07": {
+      "url": "https://learn.microsoft.com/en-us/azure/virtual-network/network-overview",
+      "reviewed": "2026-10-28",
+      "purpose": "Actual VM/NIC/subnet/VNet references and region constraints; no local allocated IP or runtime. Older public-IP defaults excluded."
+    },
+    "NS08": {
+      "url": "https://learn.microsoft.com/en-us/azure/virtual-network/virtual-networks-faq",
+      "reviewed": "2026-10-28",
+      "purpose": "IPv4 intervals, canonical network prefix, containment/overlap, ordinary first-four/last reservations and minimum /29 subnet; extra allocations/IPv6 excluded."
+    },
+    "NS09": {
+      "url": "https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-peering-overview",
+      "reviewed": "2026-10-28",
+      "purpose": "Standard/global/cross-subscription peering, private backbone and topology; no implicit DNS/authorization."
+    },
+    "NS10": {
+      "url": "https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-manage-peering",
+      "reviewed": "2026-10-28",
+      "purpose": "Both sides Connected, nonoverlapping standard ranges, nontransitivity, explicit service chaining rather than automatic NVA/UDR."
+    },
+    "NS11": {
+      "url": "https://learn.microsoft.com/en-us/azure/virtual-network/how-to-configure-subnet-peering",
+      "reviewed": "2026-10-28",
+      "purpose": "Selected subnet peering, allowlisting/tool prerequisites, participating address-space uniqueness, reuse of nonparticipating ranges, route over-advertisement/delegation/AVNM/SKU qualifications. Bounded fixture is not full feature eligibility."
+    },
+    "NS12": {
+      "url": "https://learn.microsoft.com/en-us/azure/dns/dns-overview",
+      "reviewed": "2026-10-28",
+      "purpose": "Public/private/managed resolution products have distinct purposes; no copied Traffic Manager/Policy service promises."
+    },
+    "NS13": {
+      "url": "https://learn.microsoft.com/en-us/azure/dns/private-dns-overview",
+      "reviewed": "2026-10-28",
+      "purpose": "Private zone visibility via explicit links or qualified resolver path; forward resolution does not require application peering."
+    },
+    "NS14": {
+      "url": "https://learn.microsoft.com/en-us/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances",
+      "reviewed": "2026-10-28",
+      "purpose": "Azure-provided same-VNet host resolution versus cross-VNet/private/custom resolver strategy; chosen resolver matters."
+    },
+    "NS15": {
+      "url": "https://learn.microsoft.com/en-us/azure/dns/dns-private-resolver-overview",
+      "reviewed": "2026-10-28",
+      "purpose": "Managed DNS Private Resolver inbound/outbound endpoints and forwarding rulesets need explicit network/configuration prerequisites."
+    },
+    "NS16": {
+      "url": "https://learn.microsoft.com/en-us/azure/dns/dns-zones-records",
+      "reviewed": "2026-10-28",
+      "purpose": "Zone/domain/delegation, A versus CNAME continuation/limitations, no domain purchase or live query; TTL not simulated."
+    },
+    "NS17": {
+      "url": "https://learn.microsoft.com/en-us/azure/dns/private-dns-virtual-network-links",
+      "reviewed": "2026-10-28",
+      "purpose": "Resolution links versus registration/autoregistration; no policy or routing effect from a DNS link."
+    },
+    "NS18": {
+      "url": "https://learn.microsoft.com/en-us/azure/dns/private-dns-scenarios",
+      "reviewed": "2026-10-28",
+      "purpose": "Single/cross-VNet/split-horizon examples; article warns example .1/.2 are not ordinary assignable VM addresses. Original fixtures use .20."
+    },
+    "NS19": {
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-networking-services/7-summary",
+      "reviewed": "2026-10-28",
+      "purpose": "P06 summary, Network Foundations supplementary discovery; implementation-depth deployment material is deferred, not new objective credit."
     }
   },
   "evidenceProfiles": {
@@ -1675,6 +1770,49 @@
       ],
       "tests": ["src/domain/curriculum/compute.test.ts", "tests/e2e/compute-hosting.spec.ts"],
       "limits": "Original scoped theory, four guides and14 separate-context cases; no runtime, XP/evidence migration, psychometric readiness or human approval. ACI source-access limitation documented with available official alternatives."
+    },
+    "NP": {
+      "teaching": [
+        {
+          "path": "src/content/nb.ts",
+          "marker": "networkingNb"
+        }
+      ],
+      "mechanism": [
+        {
+          "path": "src/domain/curriculum/networking-model.ts",
+          "marker": "runPeering"
+        },
+        {
+          "path": "src/domain/curriculum/networking-inspection.ts",
+          "marker": "networkingInspection"
+        }
+      ],
+      "presentation": [
+        {
+          "path": "src/features/learning/networking.tsx",
+          "marker": "NetworkingLesson"
+        },
+        {
+          "path": "src/features/learning/networking-visuals.tsx",
+          "marker": "NetworkingModelResult"
+        }
+      ],
+      "assessment": [
+        {
+          "path": "src/domain/curriculum/networking-items.ts",
+          "marker": "evaluateNetworking"
+        },
+        {
+          "path": "src/features/learning/networking-assessment.tsx",
+          "marker": "NetworkingAssessment"
+        }
+      ],
+      "tests": [
+        "src/domain/curriculum/networking.test.ts",
+        "tests/e2e/networking-foundations.spec.ts"
+      ],
+      "limits": "P06 four named facets only. Separate guided/first/help/retry/abandon, frozen operational inventory and own durable store. No networking traffic, full composite completion/readiness or human approval."
     }
   },
   "plannedPRs": [
@@ -2752,26 +2890,26 @@
         "A": "P",
         "B": "P",
         "C": "P",
-        "D": "M",
+        "D": "P",
         "E": "P",
         "F": "P"
       },
       "facets": [
         {
           "topic": "VNet",
-          "status": "PARTIAL"
+          "status": "COMPLETE"
         },
         {
           "topic": "Subnet",
-          "status": "PARTIAL"
+          "status": "COMPLETE"
         },
         {
           "topic": "Peering",
-          "status": "MISSING"
+          "status": "COMPLETE"
         },
         {
           "topic": "Azure DNS",
-          "status": "MISSING"
+          "status": "COMPLETE"
         },
         {
           "topic": "VPN Gateway",
@@ -2782,12 +2920,35 @@
           "status": "MISSING"
         }
       ],
-      "localObjectives": ["N01", "N02", "N03"],
-      "evidence": ["V", "H"],
-      "observed": "VNet/subnet/NIC-relasjoner og begrenset adressekonfigurasjon i VM-lab.",
-      "gap": "Ingen komplett nettverksmekanisme eller selvstendig koblings-/navneoppslags-/hybridbeslutning; grafkant er ikke trafikk.",
+      "localObjectives": ["N01", "N02", "N03", "NW01", "NW02", "NW03", "NW04"],
+      "evidence": ["V", "H", "NP"],
+      "observed": "P06 original VNet/subnet/CIDR/peering/DNS theory, read-only actual network chain, four guided applications and12 new structured independent cases with specific counterfactual feedback and dated official sources. Facet A–F mapping in NETWORKING_FOUNDATIONS.",
+      "gap": "Composite remains PARTIAL: Azure VPN Gateway and ExpressRoute are still missing and planned for P07. No live IP allocation, routing, DNS query or traffic; content coverage is not human learning validation.",
       "plannedPRs": ["P06", "P07"],
-      "sources": ["EXAM", "M05", "M06"]
+      "sources": [
+        "EXAM",
+        "M05",
+        "M06",
+        "NS01",
+        "NS02",
+        "NS03",
+        "NS04",
+        "NS05",
+        "NS06",
+        "NS07",
+        "NS08",
+        "NS09",
+        "NS10",
+        "NS11",
+        "NS12",
+        "NS13",
+        "NS14",
+        "NS15",
+        "NS16",
+        "NS17",
+        "NS18",
+        "NS19"
+      ]
     },
     {
       "slot": "2.2.06",
@@ -3934,6 +4095,33 @@
       ],
       "objectives": ["2.2.01", "2.2.02", "2.2.03", "2.2.04"],
       "note": "Four Compute rows re-reviewed against actual original manuscript, four distinct applications,14 new decision/reason cases, specific counterfactual feedback and official source qualifications. Networking2.2.05–06 unchanged; no readiness or human validation inferred."
+    },
+    {
+      "id": "PR28-P06",
+      "reviewed": "2026-10-28",
+      "sources": [
+        "NS01",
+        "NS02",
+        "NS03",
+        "NS04",
+        "NS05",
+        "NS06",
+        "NS07",
+        "NS08",
+        "NS09",
+        "NS10",
+        "NS11",
+        "NS12",
+        "NS13",
+        "NS14",
+        "NS15",
+        "NS16",
+        "NS17",
+        "NS18",
+        "NS19"
+      ],
+      "objectives": ["2.2.05"],
+      "note": "Only VNet, Subnet, Peering and Azure DNS facets have implemented scoped A–F coverage.2.2.05 remains PARTIAL for VPN Gateway/ExpressRoute;2.2.06 unchanged. No exam-readiness or human learning approval."
     }
   ]
 }

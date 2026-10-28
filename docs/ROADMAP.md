@@ -1,5 +1,9 @@
 # Roadmap
 
+## PR28 — P06 Networking Part A
+
+Implemented original Networking teaching, actual configuration inspection, three pure conceptual workbenches, four distinct guided missions and twelve independent cases. [Actual gates and limitations](NETWORKING_FOUNDATIONS.md). Next: P07 Networking Part B, then Storage. No network resource engine, IP allocator, resolver, VPN or endpoint operation is introduced.
+
 ## PR27 — P05 Compute & Hosting
 
 Implemented ordinary Compute teaching/models, four guided applications and14 independent cases with isolated records. [Actual scope](COMPUTE_HOSTING.md); final delivery gates belong to PROJECT_STATUS. Next: P06 Networking Part A, then P07 hybrid connectivity/endpoints. No VMSS/AVD/container/Functions operational engine or advanced certification scope introduced.

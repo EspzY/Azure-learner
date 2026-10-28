@@ -1,5 +1,9 @@
 # G1 asset register
 
+## PR28 original network figures
+
+`networking-visuals.tsx` contains original code-native SVG/HTML network-chain, prefix-bit-role, configured-peering and staged DNS figures. No external illustration, font, runtime asset, service logo or library is added. Actual service identities reuse the unchanged approved central icon manifest. No Microsoft diagram is copied; current asset provenance/license/status remains unchanged.
+
 ## PR22 original infrastructure drawings
 
 No third-party/runtime asset is added. physical-visual.tsx contains original code-native SVG cutaway buildings/racks and HTML placement/relationship projections. They are fictional teaching diagrams, not copied Microsoft illustrations or actual facility maps. Existing authorized SavvyShark/icon assets and their licenses/hashes remain unchanged.

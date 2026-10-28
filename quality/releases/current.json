@@ -1,976 +1,583 @@
 {
   "schema": 1,
-  "id": "PR27-compute-hosting",
-  "baseCommit": "7e35e1d38e956573e2004fc891c1ef1e4b643625",
-  "author": "codex-pr27-author",
+  "id": "PR28-networking-foundations",
+  "baseCommit": "4013919a6e677910dcb7af79269e55ee3fc13ff1",
+  "author": "codex-pr28-author",
   "scope": {
     "kind": "new-module",
-    "description": "P05 original Compute teaching, four distinct guided missions, pure container/capacity/AVD/hosting models, real bounded VM practice,14 independent decision/reason cases and isolated durable evidence.",
-    "objectives": [
-      "az900.compute.compare",
-      "az900.compute.vm-options",
-      "az900.compute.vm-resources",
-      "az900.compute.hosting"
-    ]
+    "description": "P06 original Networking Part A, actual read-only network inspection, pure address/peering/DNS/path models, four guided missions and twelve independent structured cases; P07 excluded. Independent audit corrections remove universal answer-length cues and include all14 automatic-guidance contexts by default, with an explicit owner exception only for existing PR24 task controls; no old evidence/domain changes.",
+    "objectives": ["az900.networking.services"]
   },
   "sources": [
     {
-      "id": "PS01",
-      "title": "Study guide: Skills measured 20 July 2026",
+      "id": "NS01",
+      "title": "AZ-900 Study guide · Skills measured20 July2026",
       "url": "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900",
       "kind": "exam",
       "reviewed": "2026-10-28",
-      "version": "Skills measured 2026-07-20",
+      "version": "Skills measured2026-07-20",
       "availability": "AVAILABLE",
-      "objectives": [
-        "az900.compute.compare",
-        "az900.compute.vm-options",
-        "az900.compute.vm-resources",
-        "az900.compute.hosting"
-      ],
-      "claims": ["compute.PS01"],
-      "limits": "Four pinned compute skills; networking remains separate. July20 2026 Skills measured, not a readiness measure. Independent original educational model; no measured Azure runtime or human approval.",
+      "objectives": ["az900.networking.services"],
+      "claims": ["networking.NS01"],
+      "limits": "Four named facets of composite2.2.05; VPN Gateway/ExpressRoute and2.2.06 remain deferred, no readiness claim.",
       "discovery": [
         {
           "url": "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900",
           "disposition": "reviewed-essential",
-          "reason": "Four pinned compute skills; networking remains separate. July20 2026 Skills measured, not a readiness measure."
+          "reason": "Four named facets of composite2.2.05; VPN Gateway/ExpressRoute and2.2.06 remain deferred, no readiness claim."
         }
       ]
     },
     {
-      "id": "PS02",
-      "title": "Describe Azure compute services: nine units",
-      "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-compute-networking-services/",
+      "id": "NS02",
+      "title": "Describe Azure networking services · seven units",
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-networking-services/",
       "kind": "module",
       "reviewed": "2026-10-28",
-      "version": "Public body checked 2026-10-28",
+      "version": "Public body checked2026-10-28",
       "availability": "AVAILABLE",
-      "objectives": [
-        "az900.compute.compare",
-        "az900.compute.vm-options",
-        "az900.compute.vm-resources",
-        "az900.compute.hosting"
-      ],
-      "claims": ["compute.PS02"],
-      "limits": "Nine current units and five Learn learning goals. Public teaching/summary read; protected assessment not accessed or copied. Independent original educational model; no measured Azure runtime or human approval.",
+      "objectives": ["az900.networking.services"],
+      "claims": ["networking.NS02"],
+      "limits": "Seven-unit module, six public framing/teaching/summary units read; protected assessment excluded.",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-compute-networking-services/",
+          "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-networking-services/",
           "disposition": "reviewed-essential",
-          "reason": "Nine current units and five Learn learning goals. Public teaching/summary read; protected assessment not accessed or copied."
+          "reason": "Seven-unit module, six public framing/teaching/summary units read; protected assessment excluded."
         },
         {
-          "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-compute-networking-services/",
+          "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-networking-services/3-virtual-private-networks",
+          "disposition": "reviewed-context-deferred-P07",
+          "reason": "Public unit read for boundary discovery only; VPN teaching/assessment not credited."
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-networking-services/4-expressroute",
+          "disposition": "reviewed-context-deferred-P07",
+          "reason": "Public unit read for boundary discovery only; ExpressRoute/endpoints not credited."
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-networking-services/",
           "disposition": "protected-assessment-excluded",
-          "reason": "All eight public framing/teaching/summary units read; sign-in assessment not needed and no questions copied."
+          "reason": "No sign-in or copied assessment bank."
         }
       ]
     },
     {
-      "id": "PS03",
-      "title": "Introduction",
-      "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-compute-networking-services/1-introduction",
+      "id": "NS03",
+      "title": "Introduction · networking",
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-networking-services/1-introduction",
       "kind": "unit",
       "reviewed": "2026-10-28",
-      "version": "Public body checked 2026-10-28",
+      "version": "Public body checked2026-10-28",
       "availability": "AVAILABLE",
-      "objectives": [
-        "az900.compute.compare",
-        "az900.compute.vm-options",
-        "az900.compute.vm-resources",
-        "az900.compute.hosting"
-      ],
-      "claims": ["compute.PS03"],
-      "limits": "Different organizations require different code, OS and operational-control boundaries. Prerequisites link to existing Cloud Concepts. Independent original educational model; no measured Azure runtime or human approval.",
+      "objectives": ["az900.networking.services"],
+      "claims": ["networking.NS03"],
+      "limits": "Resource communication and prerequisite networking concepts; basic access control is context, no NSG engine.",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-compute-networking-services/1-introduction",
+          "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-networking-services/1-introduction",
           "disposition": "reviewed-essential",
-          "reason": "Different organizations require different code, OS and operational-control boundaries. Prerequisites link to existing Cloud Concepts."
+          "reason": "Resource communication and prerequisite networking concepts; basic access control is context, no NSG engine."
         }
       ]
     },
     {
-      "id": "PS04",
-      "title": "Describe Azure virtual machines",
-      "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-compute-networking-services/2-virtual-machines",
+      "id": "NS04",
+      "title": "Describe Azure virtual networking",
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-networking-services/2-virtual-network",
       "kind": "unit",
       "reviewed": "2026-10-28",
-      "version": "Public body checked 2026-10-28",
+      "version": "Public body checked2026-10-28",
       "availability": "AVAILABLE",
-      "objectives": [
-        "az900.compute.compare",
-        "az900.compute.vm-options",
-        "az900.compute.vm-resources",
-        "az900.compute.hosting"
-      ],
-      "claims": ["compute.PS04"],
-      "limits": "VM guest OS, size and disks; VMSS and availability sets are distinct options; no automatic application availability. Independent original educational model; no measured Azure runtime or human approval.",
+      "objectives": ["az900.networking.services"],
+      "claims": ["networking.NS04"],
+      "limits": "Virtual networks, subnets, routing/filtering distinction and peering at Fundamentals depth.",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-compute-networking-services/2-virtual-machines",
+          "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-networking-services/2-virtual-network",
           "disposition": "reviewed-essential",
-          "reason": "VM guest OS, size and disks; VMSS and availability sets are distinct options; no automatic application availability."
+          "reason": "Virtual networks, subnets, routing/filtering distinction and peering at Fundamentals depth."
         }
       ]
     },
     {
-      "id": "PS05",
-      "title": "Describe Azure virtual desktop",
-      "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-compute-networking-services/4-virtual-desktop",
+      "id": "NS05",
+      "title": "Describe Azure DNS",
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-networking-services/5-domain-name-system",
       "kind": "unit",
       "reviewed": "2026-10-28",
-      "version": "Public body checked 2026-10-28",
+      "version": "Public body checked2026-10-28",
       "availability": "AVAILABLE",
-      "objectives": [
-        "az900.compute.compare",
-        "az900.compute.vm-options",
-        "az900.compute.vm-resources",
-        "az900.compute.hosting"
-      ],
-      "claims": ["compute.PS05"],
-      "limits": "AVD desktop/application delivery; personal and pooled host pools differ from single/multi-session. Independent original educational model; no measured Azure runtime or human approval.",
+      "objectives": ["az900.networking.services"],
+      "claims": ["networking.NS05"],
+      "limits": "DNS name/record resolution, Azure-provided/public/private distinction with product qualifications.",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-compute-networking-services/4-virtual-desktop",
+          "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-networking-services/5-domain-name-system",
           "disposition": "reviewed-essential",
-          "reason": "AVD desktop/application delivery; personal and pooled host pools differ from single/multi-session."
+          "reason": "DNS name/record resolution, Azure-provided/public/private distinction with product qualifications."
         }
       ]
     },
     {
-      "id": "PS06",
-      "title": "Describe Azure containers",
-      "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-compute-networking-services/5-containers",
-      "kind": "unit",
+      "id": "NS06",
+      "title": "What is Azure Virtual Network?",
+      "url": "https://learn.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview",
+      "kind": "product",
       "reviewed": "2026-10-28",
-      "version": "Public body checked 2026-10-28",
+      "version": "Public body checked2026-10-28",
       "availability": "AVAILABLE",
-      "objectives": [
-        "az900.compute.compare",
-        "az900.compute.vm-options",
-        "az900.compute.vm-resources",
-        "az900.compute.hosting"
-      ],
-      "claims": ["compute.PS06"],
-      "limits": "Image versus container instance/runtime; ACI/ACA/AKS identify different hosting and orchestration scopes. Independent original educational model; no measured Azure runtime or human approval.",
+      "objectives": ["az900.networking.services"],
+      "claims": ["networking.NS06"],
+      "limits": "VNet/subnets are regional and span Availability Zones; management scope is separate. Older default-outbound assertions are excluded.",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-compute-networking-services/5-containers",
+          "url": "https://learn.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview",
           "disposition": "reviewed-essential",
-          "reason": "Image versus container instance/runtime; ACI/ACA/AKS identify different hosting and orchestration scopes."
+          "reason": "VNet/subnets are regional and span Availability Zones; management scope is separate. Older default-outbound assertions are excluded."
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/virtual-network/network-overview",
+          "disposition": "reviewed-supplement",
+          "reason": "VM relationships reviewed; no legacy default-outbound/public-IP claim adopted."
         }
       ]
     },
     {
-      "id": "PS07",
-      "title": "Describe Azure functions",
-      "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-compute-networking-services/6-functions",
-      "kind": "unit",
-      "reviewed": "2026-10-28",
-      "version": "Public body checked 2026-10-28",
-      "availability": "AVAILABLE",
-      "objectives": [
-        "az900.compute.compare",
-        "az900.compute.vm-options",
-        "az900.compute.vm-resources",
-        "az900.compute.hosting"
-      ],
-      "claims": ["compute.PS07"],
-      "limits": "Functions event/trigger/code; billing, scale and cold-start depend on selected hosting plan. Independent original educational model; no measured Azure runtime or human approval.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-compute-networking-services/6-functions",
-          "disposition": "reviewed-essential",
-          "reason": "Functions event/trigger/code; billing, scale and cold-start depend on selected hosting plan."
-        }
-      ]
-    },
-    {
-      "id": "PS08",
-      "title": "Describe AI, machine learning, and IoT/Edge services",
-      "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-compute-networking-services/12a-describe-ai-ml-iot-edge-services",
-      "kind": "unit",
-      "reviewed": "2026-10-28",
-      "version": "Public body checked 2026-10-28",
-      "availability": "AVAILABLE",
-      "objectives": [
-        "az900.compute.compare",
-        "az900.compute.vm-options",
-        "az900.compute.vm-resources",
-        "az900.compute.hosting"
-      ],
-      "claims": ["compute.PS08"],
-      "limits": "AI, machine learning and IoT/Edge are contextual Learn categories, not additional scoped AZ900 skill slots. Independent original educational model; no measured Azure runtime or human approval.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-compute-networking-services/12a-describe-ai-ml-iot-edge-services",
-          "disposition": "reviewed-essential",
-          "reason": "AI, machine learning and IoT/Edge are contextual Learn categories, not additional scoped AZ900 skill slots."
-        }
-      ]
-    },
-    {
-      "id": "PS09",
-      "title": "Describe application hosting options",
-      "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-compute-networking-services/7-describe-application-hosting-options",
-      "kind": "unit",
-      "reviewed": "2026-10-28",
-      "version": "Public body checked 2026-10-28",
-      "availability": "AVAILABLE",
-      "objectives": [
-        "az900.compute.compare",
-        "az900.compute.vm-options",
-        "az900.compute.vm-resources",
-        "az900.compute.hosting"
-      ],
-      "claims": ["compute.PS09"],
-      "limits": "Web Apps, containers and VMs meet different hosting requirements; managed hosting retains customer responsibilities. Independent original educational model; no measured Azure runtime or human approval.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-compute-networking-services/7-describe-application-hosting-options",
-          "disposition": "reviewed-essential",
-          "reason": "Web Apps, containers and VMs meet different hosting requirements; managed hosting retains customer responsibilities."
-        }
-      ]
-    },
-    {
-      "id": "PS10",
-      "title": "Summary and supplementary App Service module",
-      "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-compute-networking-services/14-summary",
-      "kind": "unit",
-      "reviewed": "2026-10-28",
-      "version": "Public body checked 2026-10-28",
-      "availability": "AVAILABLE",
-      "objectives": [
-        "az900.compute.compare",
-        "az900.compute.vm-options",
-        "az900.compute.vm-resources",
-        "az900.compute.hosting"
-      ],
-      "claims": ["compute.PS10"],
-      "limits": "Current module learning-goal summary and linked supplemental App Service module; no assessment question reused. Independent original educational model; no measured Azure runtime or human approval.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-compute-networking-services/14-summary",
-          "disposition": "reviewed-essential",
-          "reason": "Current module learning-goal summary and linked supplemental App Service module; no assessment question reused."
-        }
-      ]
-    },
-    {
-      "id": "PS11",
-      "title": "Azure virtual machines overview",
-      "url": "https://learn.microsoft.com/en-us/azure/virtual-machines/overview",
-      "kind": "technical",
-      "reviewed": "2026-10-28",
-      "version": "Public body checked 2026-10-28",
-      "availability": "AVAILABLE",
-      "objectives": [
-        "az900.compute.compare",
-        "az900.compute.vm-options",
-        "az900.compute.vm-resources",
-        "az900.compute.hosting"
-      ],
-      "claims": ["compute.PS11"],
-      "limits": "VMs provide guest-level control, images and declared compute profiles; configuration does not prove app execution. Independent original educational model; no measured Azure runtime or human approval.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/virtual-machines/overview",
-          "disposition": "reviewed-essential",
-          "reason": "VMs provide guest-level control, images and declared compute profiles; configuration does not prove app execution."
-        }
-      ]
-    },
-    {
-      "id": "PS12",
-      "title": "Availability options for virtual machines",
-      "url": "https://learn.microsoft.com/en-us/azure/virtual-machines/availability",
-      "kind": "technical",
-      "reviewed": "2026-10-28",
-      "version": "Public body checked 2026-10-28",
-      "availability": "AVAILABLE",
-      "objectives": ["az900.compute.vm-options"],
-      "claims": ["compute.PS12"],
-      "limits": "Availability choices have different fault boundaries; zones, sets and scale sets do not guarantee end-to-end uptime. Independent original educational model; no measured Azure runtime or human approval.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/virtual-machines/availability",
-          "disposition": "reviewed-essential",
-          "reason": "Availability choices have different fault boundaries; zones, sets and scale sets do not guarantee end-to-end uptime."
-        }
-      ]
-    },
-    {
-      "id": "PS13",
-      "title": "Availability sets overview",
-      "url": "https://learn.microsoft.com/en-us/azure/virtual-machines/availability-set-overview",
-      "kind": "technical",
-      "reviewed": "2026-10-28",
-      "version": "Public body checked 2026-10-28",
-      "availability": "AVAILABLE",
-      "objectives": ["az900.compute.vm-options"],
-      "claims": ["compute.PS13"],
-      "limits": "Availability sets distribute VMs across fault/update domains; not zones or autoscale. Current recommendation qualifies Flexible/zonal alternatives. Independent original educational model; no measured Azure runtime or human approval.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/virtual-machines/availability-set-overview",
-          "disposition": "reviewed-essential",
-          "reason": "Availability sets distribute VMs across fault/update domains; not zones or autoscale. Current recommendation qualifies Flexible/zonal alternatives."
-        }
-      ]
-    },
-    {
-      "id": "PS14",
-      "title": "Virtual Machine Scale Sets overview",
-      "url": "https://learn.microsoft.com/en-us/azure/virtual-machine-scale-sets/overview",
-      "kind": "technical",
-      "reviewed": "2026-10-28",
-      "version": "Public body checked 2026-10-28",
-      "availability": "AVAILABLE",
-      "objectives": ["az900.compute.vm-options"],
-      "claims": ["compute.PS14"],
-      "limits": "VMSS manages VM instances; explicit capacity/scaling configuration is necessary. More instances do not repair shared dependencies. Independent original educational model; no measured Azure runtime or human approval.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/virtual-machine-scale-sets/overview",
-          "disposition": "reviewed-essential",
-          "reason": "VMSS manages VM instances; explicit capacity/scaling configuration is necessary. More instances do not repair shared dependencies."
-        }
-      ]
-    },
-    {
-      "id": "PS15",
-      "title": "Flexible and Uniform orchestration",
-      "url": "https://learn.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes",
-      "kind": "technical",
-      "reviewed": "2026-10-28",
-      "version": "Public body checked 2026-10-28",
-      "availability": "AVAILABLE",
-      "objectives": ["az900.compute.vm-options"],
-      "claims": ["compute.PS15"],
-      "limits": "Flexible and Uniform orchestration differ; Flexible supports standard VM flexibility and has no availability-set update domains. Independent original educational model; no measured Azure runtime or human approval.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes",
-          "disposition": "reviewed-essential",
-          "reason": "Flexible and Uniform orchestration differ; Flexible supports standard VM flexibility and has no availability-set update domains."
-        }
-      ]
-    },
-    {
-      "id": "PS16",
-      "title": "Autoscale with Virtual Machine Scale Sets",
-      "url": "https://learn.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview",
-      "kind": "technical",
-      "reviewed": "2026-10-28",
-      "version": "Public body checked 2026-10-28",
-      "availability": "AVAILABLE",
-      "objectives": ["az900.compute.vm-options"],
-      "claims": ["compute.PS16"],
-      "limits": "Autoscale uses configured metric/rule/schedule assumptions. Our bounded pre-failure arithmetic is not the Azure algorithm. Independent original educational model; no measured Azure runtime or human approval.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview",
-          "disposition": "reviewed-essential",
-          "reason": "Autoscale uses configured metric/rule/schedule assumptions. Our bounded pre-failure arithmetic is not the Azure algorithm."
-        }
-      ]
-    },
-    {
-      "id": "PS17",
-      "title": "Azure Virtual Desktop overview",
-      "url": "https://learn.microsoft.com/en-us/azure/virtual-desktop/overview",
-      "kind": "technical",
-      "reviewed": "2026-10-28",
-      "version": "Public body checked 2026-10-28",
-      "availability": "AVAILABLE",
-      "objectives": ["az900.compute.vm-options"],
-      "claims": ["compute.PS17"],
-      "limits": "AVD uses ARM objects and customer-configured host/application/access responsibilities; no classic workflow or actual login. Independent original educational model; no measured Azure runtime or human approval.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/virtual-desktop/overview",
-          "disposition": "reviewed-essential",
-          "reason": "AVD uses ARM objects and customer-configured host/application/access responsibilities; no classic workflow or actual login."
-        }
-      ]
-    },
-    {
-      "id": "PS18",
-      "title": "Azure Virtual Desktop terminology",
-      "url": "https://learn.microsoft.com/en-us/azure/virtual-desktop/terminology",
-      "kind": "technical",
-      "reviewed": "2026-10-28",
-      "version": "Public body checked 2026-10-28",
-      "availability": "AVAILABLE",
-      "objectives": ["az900.compute.vm-options"],
-      "claims": ["compute.PS18"],
-      "limits": "Workspace, application group, host pool, session host, personal/pooled and RemoteApp/full-desktop relationships. Independent original educational model; no measured Azure runtime or human approval.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/virtual-desktop/terminology",
-          "disposition": "reviewed-essential",
-          "reason": "Workspace, application group, host pool, session host, personal/pooled and RemoteApp/full-desktop relationships."
-        }
-      ]
-    },
-    {
-      "id": "PS19",
-      "title": "Azure Virtual Desktop service architecture",
-      "url": "https://learn.microsoft.com/en-us/azure/virtual-desktop/service-architecture-resilience",
-      "kind": "technical",
-      "reviewed": "2026-10-28",
-      "version": "Public body checked 2026-10-28",
-      "availability": "AVAILABLE",
-      "objectives": ["az900.compute.vm-options"],
-      "claims": ["compute.PS19"],
-      "limits": "AVD control-plane services differ from session hosts; publication/assignment is not evidence of a user session or host health. Independent original educational model; no measured Azure runtime or human approval.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/virtual-desktop/service-architecture-resilience",
-          "disposition": "reviewed-essential",
-          "reason": "AVD control-plane services differ from session hosts; publication/assignment is not evidence of a user session or host health."
-        }
-      ]
-    },
-    {
-      "id": "PS20",
-      "title": "Container Apps overview",
-      "url": "https://learn.microsoft.com/en-us/azure/container-apps/overview",
-      "kind": "technical",
-      "reviewed": "2026-10-28",
-      "version": "Public body checked 2026-10-28",
-      "availability": "AVAILABLE",
-      "objectives": ["az900.compute.compare", "az900.compute.hosting"],
-      "claims": ["compute.PS20"],
-      "limits": "ACA offers managed container apps, revisions and configurable scaling; not every rule scales to zero and no direct Kubernetes API. Independent original educational model; no measured Azure runtime or human approval.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/container-apps/overview",
-          "disposition": "reviewed-essential",
-          "reason": "ACA offers managed container apps, revisions and configurable scaling; not every rule scales to zero and no direct Kubernetes API."
-        }
-      ]
-    },
-    {
-      "id": "PS21",
-      "title": "Introduction to containers on Azure",
-      "url": "https://learn.microsoft.com/en-us/azure/container-apps/start-containers",
-      "kind": "technical",
-      "reviewed": "2026-10-28",
-      "version": "Public body checked 2026-10-28",
-      "availability": "AVAILABLE",
-      "objectives": ["az900.compute.compare", "az900.compute.hosting"],
-      "claims": ["compute.PS21"],
-      "limits": "Container images package user-space dependencies; persistent data and platform compatibility need explicit design. Independent original educational model; no measured Azure runtime or human approval.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/container-apps/start-containers",
-          "disposition": "reviewed-essential",
-          "reason": "Container images package user-space dependencies; persistent data and platform compatibility need explicit design."
-        }
-      ]
-    },
-    {
-      "id": "PS22",
-      "title": "Azure Kubernetes Service: Automatic and Standard",
-      "url": "https://learn.microsoft.com/en-us/azure/aks/what-is-aks",
-      "kind": "technical",
-      "reviewed": "2026-10-28",
-      "version": "Public body checked 2026-10-28",
-      "availability": "AVAILABLE",
-      "objectives": ["az900.compute.compare", "az900.compute.hosting"],
-      "claims": ["compute.PS22"],
-      "limits": "AKS provides Kubernetes capabilities. Automatic and Standard shift different node/infrastructure operational duties. Independent original educational model; no measured Azure runtime or human approval.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/aks/what-is-aks",
-          "disposition": "reviewed-essential",
-          "reason": "AKS provides Kubernetes capabilities. Automatic and Standard shift different node/infrastructure operational duties."
-        }
-      ]
-    },
-    {
-      "id": "PS23",
-      "title": "Choose an Azure compute service",
-      "url": "https://learn.microsoft.com/en-us/azure/architecture/guide/technology-choices/compute-decision-tree",
-      "kind": "technical",
-      "reviewed": "2026-10-28",
-      "version": "Public body checked 2026-10-28",
-      "availability": "AVAILABLE",
-      "objectives": ["az900.compute.compare", "az900.compute.hosting"],
-      "claims": ["compute.PS23"],
-      "limits": "Compute selection is requirement-driven, including orchestration, guest control, continuous hosting and events; no universal ranking. Independent original educational model; no measured Azure runtime or human approval.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/architecture/guide/technology-choices/compute-decision-tree",
-          "disposition": "reviewed-essential",
-          "reason": "Compute selection is requirement-driven, including orchestration, guest control, continuous hosting and events; no universal ranking."
-        }
-      ]
-    },
-    {
-      "id": "PS24",
-      "title": "Containers versus virtual machines",
-      "url": "https://learn.microsoft.com/en-us/virtualization/windowscontainers/about/containers-vs-vm",
-      "kind": "technical",
-      "reviewed": "2026-10-28",
-      "version": "Public body checked 2026-10-28",
-      "availability": "AVAILABLE",
-      "objectives": ["az900.compute.compare", "az900.compute.hosting"],
-      "claims": ["compute.PS24"],
-      "limits": "Process-isolated containers commonly share a host kernel; image is not a running process and not the same isolation boundary as a VM. Independent original educational model; no measured Azure runtime or human approval.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/virtualization/windowscontainers/about/containers-vs-vm",
-          "disposition": "reviewed-essential",
-          "reason": "Process-isolated containers commonly share a host kernel; image is not a running process and not the same isolation boundary as a VM."
-        }
-      ]
-    },
-    {
-      "id": "PS25",
-      "title": "Process and Hyper-V isolation",
-      "url": "https://learn.microsoft.com/en-us/virtualization/windowscontainers/manage-containers/hyperv-container",
-      "kind": "technical",
-      "reviewed": "2026-10-28",
-      "version": "Public body checked 2026-10-28",
-      "availability": "AVAILABLE",
-      "objectives": ["az900.compute.compare", "az900.compute.hosting"],
-      "claims": ["compute.PS25"],
-      "limits": "Windows Hyper-V container isolation has a lightweight VM/kernel boundary; this is a qualified counterexample, not a universal Azure switch. Independent original educational model; no measured Azure runtime or human approval.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/virtualization/windowscontainers/manage-containers/hyperv-container",
-          "disposition": "reviewed-essential",
-          "reason": "Windows Hyper-V container isolation has a lightweight VM/kernel boundary; this is a qualified counterexample, not a universal Azure switch."
-        }
-      ]
-    },
-    {
-      "id": "PS26",
-      "title": "Azure Container Registry",
-      "url": "https://learn.microsoft.com/en-us/azure/container-registry/container-registry-intro",
-      "kind": "technical",
-      "reviewed": "2026-10-28",
-      "version": "Public body checked 2026-10-28",
-      "availability": "AVAILABLE",
-      "objectives": ["az900.compute.compare", "az900.compute.hosting"],
-      "claims": ["compute.PS26"],
-      "limits": "ACR stores/distributes container artifacts; registry alone does not execute the application or provide persistent app data. Independent original educational model; no measured Azure runtime or human approval.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/container-registry/container-registry-intro",
-          "disposition": "reviewed-essential",
-          "reason": "ACR stores/distributes container artifacts; registry alone does not execute the application or provide persistent app data."
-        }
-      ]
-    },
-    {
-      "id": "PS27",
-      "title": "Azure Functions overview",
-      "url": "https://learn.microsoft.com/en-us/azure/azure-functions/functions-overview",
-      "kind": "technical",
-      "reviewed": "2026-10-28",
-      "version": "Public body checked 2026-10-28",
-      "availability": "AVAILABLE",
-      "objectives": ["az900.compute.compare", "az900.compute.hosting"],
-      "claims": ["compute.PS27"],
-      "limits": "Functions runs event-triggered code; it does not universally replace long-lived workloads requiring guest control. Independent original educational model; no measured Azure runtime or human approval.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/azure-functions/functions-overview",
-          "disposition": "reviewed-essential",
-          "reason": "Functions runs event-triggered code; it does not universally replace long-lived workloads requiring guest control."
-        }
-      ]
-    },
-    {
-      "id": "PS28",
-      "title": "Functions hosting and scale",
-      "url": "https://learn.microsoft.com/en-us/azure/azure-functions/functions-scale",
-      "kind": "technical",
-      "reviewed": "2026-10-28",
-      "version": "Public body checked 2026-10-28",
-      "availability": "AVAILABLE",
-      "objectives": ["az900.compute.compare", "az900.compute.hosting"],
-      "claims": ["compute.PS28"],
-      "limits": "Flex Consumption, Premium and Dedicated have different scaling/idle/cost/start properties. Contradictory retirement text not used for questions. Independent original educational model; no measured Azure runtime or human approval.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/azure-functions/functions-scale",
-          "disposition": "reviewed-essential",
-          "reason": "Flex Consumption, Premium and Dedicated have different scaling/idle/cost/start properties. Contradictory retirement text not used for questions."
-        }
-      ]
-    },
-    {
-      "id": "PS29",
-      "title": "App Service overview",
-      "url": "https://learn.microsoft.com/en-us/azure/app-service/overview",
-      "kind": "technical",
-      "reviewed": "2026-10-28",
-      "version": "Public body checked 2026-10-28",
-      "availability": "AVAILABLE",
-      "objectives": ["az900.compute.hosting"],
-      "claims": ["compute.PS29"],
-      "limits": "Standard App Service supports managed web/API hosting and supported code/custom container options; not a general guest-OS replacement. Independent original educational model; no measured Azure runtime or human approval.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/app-service/overview",
-          "disposition": "reviewed-essential",
-          "reason": "Standard App Service supports managed web/API hosting and supported code/custom container options; not a general guest-OS replacement."
-        }
-      ]
-    },
-    {
-      "id": "PS30",
-      "title": "App Service plans",
-      "url": "https://learn.microsoft.com/en-us/azure/app-service/overview-hosting-plans",
-      "kind": "technical",
-      "reviewed": "2026-10-28",
-      "version": "Public body checked 2026-10-28",
-      "availability": "AVAILABLE",
-      "objectives": ["az900.compute.hosting"],
-      "claims": ["compute.PS30"],
-      "limits": "App Service plan defines compute/location/OS/tier context; multiple apps may share plan compute, with tier-specific limitations. Independent original educational model; no measured Azure runtime or human approval.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/app-service/overview-hosting-plans",
-          "disposition": "reviewed-essential",
-          "reason": "App Service plan defines compute/location/OS/tier context; multiple apps may share plan compute, with tier-specific limitations."
-        }
-      ]
-    },
-    {
-      "id": "PS31",
-      "title": "Custom containers and persistent storage",
-      "url": "https://learn.microsoft.com/en-us/azure/app-service/configure-custom-container",
-      "kind": "technical",
-      "reviewed": "2026-10-28",
-      "version": "Public body checked 2026-10-28",
-      "availability": "AVAILABLE",
-      "objectives": ["az900.compute.hosting", "az900.compute.compare"],
-      "claims": ["compute.PS31"],
-      "limits": "App Service custom-container persistence is explicitly configured; arbitrary writable instance-layer data is not durable after recreate. Independent original educational model; no measured Azure runtime or human approval.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/app-service/configure-custom-container",
-          "disposition": "reviewed-essential",
-          "reason": "App Service custom-container persistence is explicitly configured; arbitrary writable instance-layer data is not durable after recreate."
-        }
-      ]
-    },
-    {
-      "id": "PS32",
-      "title": "Managed disks and disk roles",
-      "url": "https://learn.microsoft.com/en-us/azure/virtual-machines/managed-disks-overview",
-      "kind": "technical",
-      "reviewed": "2026-10-28",
-      "version": "Public body checked 2026-10-28",
-      "availability": "AVAILABLE",
-      "objectives": ["az900.compute.vm-resources"],
-      "claims": ["compute.PS32"],
-      "limits": "Managed OS and data disks serve different roles; additional storage does not substitute for RAM or an appropriate OS image. Independent original educational model; no measured Azure runtime or human approval.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/virtual-machines/managed-disks-overview",
-          "disposition": "reviewed-essential",
-          "reason": "Managed OS and data disks serve different roles; additional storage does not substitute for RAM or an appropriate OS image."
-        }
-      ]
-    },
-    {
-      "id": "PS33",
-      "title": "VM network dependencies",
+      "id": "NS07",
+      "title": "Virtual networks and virtual machines",
       "url": "https://learn.microsoft.com/en-us/azure/virtual-network/network-overview",
-      "kind": "technical",
+      "kind": "product",
       "reviewed": "2026-10-28",
-      "version": "Public body checked 2026-10-28",
+      "version": "Public body checked2026-10-28",
       "availability": "AVAILABLE",
-      "objectives": ["az900.compute.vm-resources"],
-      "claims": ["compute.PS33"],
-      "limits": "VM/NIC/subnet/VNet relationships have location/subscription constraints. Older IP-default details are not taught as current universal defaults. Independent original educational model; no measured Azure runtime or human approval.",
+      "objectives": ["az900.networking.services"],
+      "claims": ["networking.NS07"],
+      "limits": "Actual VM/NIC/subnet/VNet references and region constraints; no local allocated IP or runtime. Older public-IP defaults excluded.",
       "discovery": [
         {
           "url": "https://learn.microsoft.com/en-us/azure/virtual-network/network-overview",
           "disposition": "reviewed-essential",
-          "reason": "VM/NIC/subnet/VNet relationships have location/subscription constraints. Older IP-default details are not taught as current universal defaults."
+          "reason": "Actual VM/NIC/subnet/VNet references and region constraints; no local allocated IP or runtime. Older public-IP defaults excluded."
         }
       ]
     },
     {
-      "id": "PS34",
-      "title": "Shared responsibility",
-      "url": "https://learn.microsoft.com/en-us/azure/security/fundamentals/shared-responsibility",
-      "kind": "technical",
+      "id": "NS08",
+      "title": "Virtual Network frequently asked questions",
+      "url": "https://learn.microsoft.com/en-us/azure/virtual-network/virtual-networks-faq",
+      "kind": "product",
       "reviewed": "2026-10-28",
-      "version": "Public body checked 2026-10-28",
+      "version": "Public body checked2026-10-28",
       "availability": "AVAILABLE",
-      "objectives": [
-        "az900.compute.compare",
-        "az900.compute.vm-options",
-        "az900.compute.vm-resources",
-        "az900.compute.hosting"
-      ],
-      "claims": ["compute.PS34"],
-      "limits": "Customer retains application/code/image/data/access/security configuration; provider-host management does not secure customer content automatically. Independent original educational model; no measured Azure runtime or human approval.",
+      "objectives": ["az900.networking.services"],
+      "claims": ["networking.NS08"],
+      "limits": "IPv4 intervals, canonical network prefix, containment/overlap, ordinary first-four/last reservations and minimum /29 subnet; extra allocations/IPv6 excluded.",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/security/fundamentals/shared-responsibility",
+          "url": "https://learn.microsoft.com/en-us/azure/virtual-network/virtual-networks-faq",
           "disposition": "reviewed-essential",
-          "reason": "Customer retains application/code/image/data/access/security configuration; provider-host management does not secure customer content automatically."
+          "reason": "IPv4 intervals, canonical network prefix, containment/overlap, ordinary first-four/last reservations and minimum /29 subnet; extra allocations/IPv6 excluded."
         }
       ]
     },
     {
-      "id": "PS35",
-      "title": "Create a VM in the real Portal",
-      "url": "https://learn.microsoft.com/en-us/azure/virtual-machines/linux/quick-create-portal",
-      "kind": "technical",
+      "id": "NS09",
+      "title": "Virtual network peering overview",
+      "url": "https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-peering-overview",
+      "kind": "product",
       "reviewed": "2026-10-28",
-      "version": "Public body checked 2026-10-28",
+      "version": "Public body checked2026-10-28",
       "availability": "AVAILABLE",
-      "objectives": ["az900.compute.vm-resources"],
-      "claims": ["compute.PS35"],
-      "limits": "Actual Azure Portal VM Basics/Disks/Networking/Review-create workflow. Local form is bounded, with no credentials/IP/guest execution. Independent original educational model; no measured Azure runtime or human approval.",
+      "objectives": ["az900.networking.services"],
+      "claims": ["networking.NS09"],
+      "limits": "Standard/global/cross-subscription peering, private backbone and topology; no implicit DNS/authorization.",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/virtual-machines/linux/quick-create-portal",
+          "url": "https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-peering-overview",
           "disposition": "reviewed-essential",
-          "reason": "Actual Azure Portal VM Basics/Disks/Networking/Review-create workflow. Local form is bounded, with no credentials/IP/guest execution."
+          "reason": "Standard/global/cross-subscription peering, private backbone and topology; no implicit DNS/authorization."
         }
       ]
     },
     {
-      "id": "PS36",
-      "title": "Host a web application: supplementary learning",
-      "url": "https://learn.microsoft.com/en-us/training/modules/host-a-web-app-with-azure-app-service/",
-      "kind": "technical",
+      "id": "NS10",
+      "title": "Create, change or delete virtual network peering",
+      "url": "https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-manage-peering",
+      "kind": "product",
       "reviewed": "2026-10-28",
-      "version": "Public body checked 2026-10-28",
+      "version": "Public body checked2026-10-28",
       "availability": "AVAILABLE",
-      "objectives": ["az900.compute.hosting"],
-      "claims": ["compute.PS36"],
-      "limits": "Supplemental App Service prerequisite/create/review/summary inspected; live coding/deployment and account exercises excluded from local operative scope. Independent original educational model; no measured Azure runtime or human approval.",
+      "objectives": ["az900.networking.services"],
+      "claims": ["networking.NS10"],
+      "limits": "Both sides Connected, nonoverlapping standard ranges, nontransitivity, explicit service chaining rather than automatic NVA/UDR.",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/training/modules/host-a-web-app-with-azure-app-service/",
+          "url": "https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-manage-peering",
           "disposition": "reviewed-essential",
-          "reason": "Supplemental App Service prerequisite/create/review/summary inspected; live coding/deployment and account exercises excluded from local operative scope."
+          "reason": "Both sides Connected, nonoverlapping standard ranges, nontransitivity, explicit service chaining rather than automatic NVA/UDR."
+        }
+      ]
+    },
+    {
+      "id": "NS11",
+      "title": "Configure subnet peering · requirements and current limitations",
+      "url": "https://learn.microsoft.com/en-us/azure/virtual-network/how-to-configure-subnet-peering",
+      "kind": "product",
+      "reviewed": "2026-10-28",
+      "version": "Public body checked2026-10-28",
+      "availability": "AVAILABLE",
+      "objectives": ["az900.networking.services"],
+      "claims": ["networking.NS11"],
+      "limits": "Selected subnet peering, allowlisting/tool prerequisites, participating address-space uniqueness, reuse of nonparticipating ranges, route over-advertisement/delegation/AVNM/SKU qualifications. Bounded fixture is not full feature eligibility.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/virtual-network/how-to-configure-subnet-peering",
+          "disposition": "reviewed-essential",
+          "reason": "Selected subnet peering, allowlisting/tool prerequisites, participating address-space uniqueness, reuse of nonparticipating ranges, route over-advertisement/delegation/AVNM/SKU qualifications. Bounded fixture is not full feature eligibility."
+        }
+      ]
+    },
+    {
+      "id": "NS12",
+      "title": "Azure DNS overview",
+      "url": "https://learn.microsoft.com/en-us/azure/dns/dns-overview",
+      "kind": "product",
+      "reviewed": "2026-10-28",
+      "version": "Public body checked2026-10-28",
+      "availability": "AVAILABLE",
+      "objectives": ["az900.networking.services"],
+      "claims": ["networking.NS12"],
+      "limits": "Public/private/managed resolution products have distinct purposes; no copied Traffic Manager/Policy service promises.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/dns/dns-overview",
+          "disposition": "reviewed-essential",
+          "reason": "Public/private/managed resolution products have distinct purposes; no copied Traffic Manager/Policy service promises."
         },
         {
-          "url": "https://learn.microsoft.com/en-us/training/modules/host-a-web-app-with-azure-app-service/",
-          "disposition": "supplementary-reviewed-with-exclusions",
-          "reason": "Create-web-app explanation/exercise and summary inspected as workflow reference. Linked code preparation, code writing and deployment exercises catalogued but outside this conceptual/previously supported local hosting scope; no Azure account or deployment performed."
+          "url": "https://learn.microsoft.com/en-us/azure/dns/dns-zones-records",
+          "disposition": "reviewed-linked-material",
+          "reason": "A/CNAME/domain/delegation qualifications."
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/dns/dns-private-resolver-overview",
+          "disposition": "reviewed-linked-material",
+          "reason": "Resolver prerequisites and no automatic hybrid network path."
         }
       ]
     },
     {
-      "id": "PS37",
-      "title": "Jobs in Azure Container Apps",
-      "url": "https://learn.microsoft.com/en-us/azure/container-apps/jobs",
-      "kind": "technical",
+      "id": "NS13",
+      "title": "Azure Private DNS overview",
+      "url": "https://learn.microsoft.com/en-us/azure/dns/private-dns-overview",
+      "kind": "product",
       "reviewed": "2026-10-28",
-      "version": "Public body checked 2026-10-28",
+      "version": "Public body checked2026-10-28",
       "availability": "AVAILABLE",
-      "objectives": ["az900.compute.hosting"],
-      "claims": ["compute.PS37"],
-      "limits": "ACA Jobs have finite manual/scheduled/event-triggered executions. Creating job configuration differs from starting an execution; access/data/retry remain explicit. Independent original educational model; no measured Azure runtime or human approval.",
+      "objectives": ["az900.networking.services"],
+      "claims": ["networking.NS13"],
+      "limits": "Private zone visibility via explicit links or qualified resolver path; forward resolution does not require application peering.",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/container-apps/jobs",
+          "url": "https://learn.microsoft.com/en-us/azure/dns/private-dns-overview",
           "disposition": "reviewed-essential",
-          "reason": "ACA Jobs have finite manual/scheduled/event-triggered executions. Creating job configuration differs from starting an execution; access/data/retry remain explicit."
+          "reason": "Private zone visibility via explicit links or qualified resolver path; forward resolution does not require application peering."
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/dns/private-dns-virtual-network-links",
+          "disposition": "reviewed-linked-material",
+          "reason": "Resolution versus registration links and exact visibility qualifiers."
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/dns/private-dns-scenarios",
+          "disposition": "reviewed-linked-material",
+          "reason": "Cross-VNet DNS without implicit application path; original illustrations only."
         }
       ]
     },
     {
-      "id": "PS-ACI-BLOCKED",
-      "title": "ACI overview access limitation",
-      "url": "https://learn.microsoft.com/en-us/azure/container-instances/container-instances-overview",
-      "kind": "technical",
+      "id": "NS14",
+      "title": "Name resolution for resources in Azure virtual networks",
+      "url": "https://learn.microsoft.com/en-us/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances",
+      "kind": "product",
       "reviewed": "2026-10-28",
-      "version": "Repeated503 in public research tool",
+      "version": "Public body checked2026-10-28",
+      "availability": "AVAILABLE",
+      "objectives": ["az900.networking.services"],
+      "claims": ["networking.NS14"],
+      "limits": "Azure-provided same-VNet host resolution versus cross-VNet/private/custom resolver strategy; chosen resolver matters.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances",
+          "disposition": "reviewed-essential",
+          "reason": "Azure-provided same-VNet host resolution versus cross-VNet/private/custom resolver strategy; chosen resolver matters."
+        }
+      ]
+    },
+    {
+      "id": "NS15",
+      "title": "Azure DNS Private Resolver overview",
+      "url": "https://learn.microsoft.com/en-us/azure/dns/dns-private-resolver-overview",
+      "kind": "product",
+      "reviewed": "2026-10-28",
+      "version": "Public body checked2026-10-28",
+      "availability": "AVAILABLE",
+      "objectives": ["az900.networking.services"],
+      "claims": ["networking.NS15"],
+      "limits": "Managed DNS Private Resolver inbound/outbound endpoints and forwarding rulesets need explicit network/configuration prerequisites.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/dns/dns-private-resolver-overview",
+          "disposition": "reviewed-essential",
+          "reason": "Managed DNS Private Resolver inbound/outbound endpoints and forwarding rulesets need explicit network/configuration prerequisites."
+        }
+      ]
+    },
+    {
+      "id": "NS16",
+      "title": "Azure DNS zones and records",
+      "url": "https://learn.microsoft.com/en-us/azure/dns/dns-zones-records",
+      "kind": "product",
+      "reviewed": "2026-10-28",
+      "version": "Public body checked2026-10-28",
+      "availability": "AVAILABLE",
+      "objectives": ["az900.networking.services"],
+      "claims": ["networking.NS16"],
+      "limits": "Zone/domain/delegation, A versus CNAME continuation/limitations, no domain purchase or live query; TTL not simulated.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/dns/dns-zones-records",
+          "disposition": "reviewed-essential",
+          "reason": "Zone/domain/delegation, A versus CNAME continuation/limitations, no domain purchase or live query; TTL not simulated."
+        }
+      ]
+    },
+    {
+      "id": "NS17",
+      "title": "Private DNS virtual network links",
+      "url": "https://learn.microsoft.com/en-us/azure/dns/private-dns-virtual-network-links",
+      "kind": "product",
+      "reviewed": "2026-10-28",
+      "version": "Public body checked2026-10-28",
+      "availability": "AVAILABLE",
+      "objectives": ["az900.networking.services"],
+      "claims": ["networking.NS17"],
+      "limits": "Resolution links versus registration/autoregistration; no policy or routing effect from a DNS link.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/dns/private-dns-virtual-network-links",
+          "disposition": "reviewed-essential",
+          "reason": "Resolution links versus registration/autoregistration; no policy or routing effect from a DNS link."
+        }
+      ]
+    },
+    {
+      "id": "NS18",
+      "title": "Scenarios for Azure Private DNS zones",
+      "url": "https://learn.microsoft.com/en-us/azure/dns/private-dns-scenarios",
+      "kind": "product",
+      "reviewed": "2026-10-28",
+      "version": "Public body checked2026-10-28",
+      "availability": "AVAILABLE",
+      "objectives": ["az900.networking.services"],
+      "claims": ["networking.NS18"],
+      "limits": "Single/cross-VNet/split-horizon examples; article warns example .1/.2 are not ordinary assignable VM addresses. Original fixtures use .20.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/dns/private-dns-scenarios",
+          "disposition": "reviewed-essential",
+          "reason": "Single/cross-VNet/split-horizon examples; article warns example .1/.2 are not ordinary assignable VM addresses. Original fixtures use .20."
+        }
+      ]
+    },
+    {
+      "id": "NS19",
+      "title": "Summary · networking and further reading",
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-networking-services/7-summary",
+      "kind": "unit",
+      "reviewed": "2026-10-28",
+      "version": "Public body checked2026-10-28",
+      "availability": "AVAILABLE",
+      "objectives": ["az900.networking.services"],
+      "claims": ["networking.NS19"],
+      "limits": "P06 summary, Network Foundations supplementary discovery; implementation-depth deployment material is deferred, not new objective credit.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-networking-services/7-summary",
+          "disposition": "reviewed-essential",
+          "reason": "P06 summary, Network Foundations supplementary discovery; implementation-depth deployment material is deferred, not new objective credit."
+        }
+      ]
+    },
+    {
+      "id": "NS20",
+      "title": "Default outbound access — excluded unresolved detail",
+      "url": "https://learn.microsoft.com/en-us/azure/virtual-network/default-outbound-access",
+      "kind": "product",
+      "reviewed": "2026-10-28",
+      "version": "Access attempt2026-10-28",
       "availability": "BLOCKED",
-      "objectives": ["az900.compute.compare", "az900.compute.hosting"],
-      "claims": ["compute.aci-access"],
-      "limits": "No claim of full page review; bounded ACI content confirmed through available official alternatives.",
-      "alternative": "PS06 and PS23 support simple container-group versus managed/orchestrated platform comparison.",
+      "objectives": ["az900.networking.services"],
+      "claims": ["networking.excluded-outbound-default"],
+      "limits": "Web reader could not return page. Current default-outbound behavior is not taught, simulated or assessed in P06.",
+      "alternative": "Unresolved/excluded: no default-outbound claim. NS06/NS07 general defaults are explicitly not adopted; no outbound field or traffic exists locally.",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/container-instances/container-instances-overview",
-          "disposition": "blocked-official-alternative",
-          "reason": "Repeated503; no login/access control bypass. Public Learn and Architecture Center alternatives inspected."
-        }
-      ]
-    },
-    {
-      "id": "PS38",
-      "title": "ACI run-once tasks and restart policies",
-      "url": "https://learn.microsoft.com/en-us/azure/container-instances/container-instances-restart-policy",
-      "kind": "technical",
-      "reviewed": "2026-10-28",
-      "version": "Public body2026-07-26; checked2026-10-28",
-      "availability": "AVAILABLE",
-      "objectives": ["az900.compute.hosting"],
-      "claims": ["compute.PS38"],
-      "limits": "Run-to-completion and explicit restart policies differ from a reusable ACA Job/execution. Never qualifies successful exit, not a universal no-retry guarantee; no task is executed locally.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/container-instances/container-instances-restart-policy",
-          "disposition": "reviewed-essential",
-          "reason": "Run-to-completion and explicit restart policies differ from a reusable ACA Job/execution. Never qualifies successful exit, not a universal no-retry guarantee; no task is executed locally."
+          "url": "https://learn.microsoft.com/en-us/azure/virtual-network/default-outbound-access",
+          "disposition": "blocked-excluded",
+          "reason": "No bypass attempted; this optional default behavior is outside P06."
         }
       ]
     }
   ],
   "activities": [
     {
-      "id": "compute-vm",
-      "objectives": ["az900.compute.vm-resources"],
-      "claims": ["compute.PS11", "compute.PS32", "compute.PS33", "compute.PS35"],
+      "id": "networking-inspect",
+      "objectives": ["az900.networking.services"],
+      "claims": ["networking.NS06", "networking.NS07", "networking.NS08"],
       "assessmentStatus": "new-independent",
-      "limits": "Actual post-boundary local VM command and seven real referenced inspections; no guest execution/health.",
-      "theory": [{ "path": "src/content/nb.ts", "marker": "computeNb" }],
-      "mechanism": [{ "path": "src/domain/curriculum/compute-vm.ts" }],
-      "practice": [{ "path": "src/features/learning/compute-vm.tsx" }],
-      "feedback": [
-        { "path": "src/content/nb.ts", "marker": "computeItemsNb" },
-        { "path": "src/domain/curriculum/compute-items.ts", "marker": "evaluateCompute" },
-        { "path": "src/features/learning/compute-assessment.tsx" }
-      ],
-      "visual": [
-        { "path": "src/features/learning/compute-visuals.tsx" },
-        { "path": "src/features/learning/compute.css" }
-      ],
-      "accessible": [{ "path": "tests/e2e/compute-hosting.spec.ts" }],
-      "assessment": [
-        { "path": "src/domain/curriculum/compute-items.ts", "marker": "evaluateCompute" },
-        { "path": "src/features/learning/compute-assessment.tsx" }
-      ],
-      "savvyshark": [{ "path": "src/features/learning/compute-vm.tsx" }]
-    },
-    {
-      "id": "compute-container",
-      "objectives": ["az900.compute.compare"],
-      "claims": ["compute.PS24", "compute.PS25", "compute.PS31", "compute.PS34"],
-      "assessmentStatus": "new-independent",
-      "limits": "Explicit pure conceptual model; no operative resource, traffic, autoscale, session or deployment. Guided results never satisfy independent evidence.",
-      "theory": [{ "path": "src/content/nb.ts", "marker": "computeNb" }],
+      "limits": "Actual read-only source receipt/seven references; reused inspection is not a new build; no NIC IP/runtime/traffic.",
+      "theory": [{ "path": "src/content/nb.ts", "marker": "networkingNb" }],
       "mechanism": [
-        { "path": "src/domain/curriculum/compute-model.ts" },
-        { "path": "src/domain/curriculum/compute.ts" }
+        { "path": "src/domain/curriculum/networking-inspection.ts" },
+        { "path": "src/domain/curriculum/networking.ts" }
       ],
-      "practice": [{ "path": "src/features/learning/compute-workbench.tsx" }],
+      "practice": [{ "path": "src/features/learning/networking-inspection.tsx" }],
       "feedback": [
-        { "path": "src/content/nb.ts", "marker": "computeItemsNb" },
-        { "path": "src/domain/curriculum/compute-items.ts", "marker": "evaluateCompute" },
-        { "path": "src/features/learning/compute-assessment.tsx" }
+        { "path": "src/content/nb.ts", "marker": "networkingItemsNb" },
+        { "path": "src/domain/curriculum/networking-items.ts", "marker": "evaluateNetworking" },
+        { "path": "src/features/learning/networking-assessment.tsx" }
       ],
       "visual": [
-        { "path": "src/features/learning/compute-visuals.tsx" },
-        { "path": "src/features/learning/compute.css" }
+        { "path": "src/features/learning/networking-visuals.tsx" },
+        { "path": "src/features/learning/networking.css" }
       ],
-      "accessible": [{ "path": "tests/e2e/compute-hosting.spec.ts" }],
+      "accessible": [{ "path": "tests/e2e/networking-foundations.spec.ts" }],
       "assessment": [
-        { "path": "src/domain/curriculum/compute-items.ts", "marker": "evaluateCompute" },
-        { "path": "src/features/learning/compute-assessment.tsx" }
+        { "path": "src/domain/curriculum/networking-items.ts", "marker": "evaluateNetworking" },
+        { "path": "src/features/learning/networking-assessment.tsx" }
       ],
-      "savvyshark": [{ "path": "src/features/learning/compute-workbench.tsx" }]
+      "savvyshark": [{ "path": "src/features/learning/networking-inspection.tsx" }]
     },
     {
-      "id": "compute-capacity",
-      "objectives": ["az900.compute.vm-options"],
-      "claims": ["compute.PS12", "compute.PS13", "compute.PS15", "compute.PS16"],
+      "id": "networking-address",
+      "objectives": ["az900.networking.services"],
+      "claims": ["networking.NS08"],
       "assessmentStatus": "new-independent",
-      "limits": "Explicit pure conceptual model; no operative resource, traffic, autoscale, session or deployment. Guided results never satisfy independent evidence.",
-      "theory": [{ "path": "src/content/nb.ts", "marker": "computeNb" }],
+      "limits": "Pure model, explicit prediction/run/cause; never a Portal command, receipt, DNS query, packet, complete peering implementation or learner mastery.",
+      "theory": [{ "path": "src/content/nb.ts", "marker": "networkingNb" }],
       "mechanism": [
-        { "path": "src/domain/curriculum/compute-model.ts" },
-        { "path": "src/domain/curriculum/compute.ts" }
+        { "path": "src/domain/curriculum/networking-model.ts" },
+        { "path": "src/domain/curriculum/networking.ts" }
       ],
-      "practice": [{ "path": "src/features/learning/compute-workbench.tsx" }],
+      "practice": [{ "path": "src/features/learning/networking-workbench.tsx" }],
       "feedback": [
-        { "path": "src/content/nb.ts", "marker": "computeItemsNb" },
-        { "path": "src/domain/curriculum/compute-items.ts", "marker": "evaluateCompute" },
-        { "path": "src/features/learning/compute-assessment.tsx" }
+        { "path": "src/content/nb.ts", "marker": "networkingItemsNb" },
+        { "path": "src/domain/curriculum/networking-items.ts", "marker": "evaluateNetworking" },
+        { "path": "src/features/learning/networking-assessment.tsx" }
       ],
       "visual": [
-        { "path": "src/features/learning/compute-visuals.tsx" },
-        { "path": "src/features/learning/compute.css" }
+        { "path": "src/features/learning/networking-visuals.tsx" },
+        { "path": "src/features/learning/networking.css" }
       ],
-      "accessible": [{ "path": "tests/e2e/compute-hosting.spec.ts" }],
+      "accessible": [{ "path": "tests/e2e/networking-foundations.spec.ts" }],
       "assessment": [
-        { "path": "src/domain/curriculum/compute-items.ts", "marker": "evaluateCompute" },
-        { "path": "src/features/learning/compute-assessment.tsx" }
+        { "path": "src/domain/curriculum/networking-items.ts", "marker": "evaluateNetworking" },
+        { "path": "src/features/learning/networking-assessment.tsx" }
       ],
-      "savvyshark": [{ "path": "src/features/learning/compute-workbench.tsx" }]
+      "savvyshark": [{ "path": "src/features/learning/networking-workbench.tsx" }]
     },
     {
-      "id": "compute-hosting",
-      "objectives": ["az900.compute.hosting"],
+      "id": "networking-peering",
+      "objectives": ["az900.networking.services"],
+      "claims": ["networking.NS09", "networking.NS10", "networking.NS11"],
+      "assessmentStatus": "new-independent",
+      "limits": "Pure model, explicit prediction/run/cause; never a Portal command, receipt, DNS query, packet, complete peering implementation or learner mastery.",
+      "theory": [{ "path": "src/content/nb.ts", "marker": "networkingNb" }],
+      "mechanism": [
+        { "path": "src/domain/curriculum/networking-model.ts" },
+        { "path": "src/domain/curriculum/networking.ts" }
+      ],
+      "practice": [{ "path": "src/features/learning/networking-workbench.tsx" }],
+      "feedback": [
+        { "path": "src/content/nb.ts", "marker": "networkingItemsNb" },
+        { "path": "src/domain/curriculum/networking-items.ts", "marker": "evaluateNetworking" },
+        { "path": "src/features/learning/networking-assessment.tsx" }
+      ],
+      "visual": [
+        { "path": "src/features/learning/networking-visuals.tsx" },
+        { "path": "src/features/learning/networking.css" }
+      ],
+      "accessible": [{ "path": "tests/e2e/networking-foundations.spec.ts" }],
+      "assessment": [
+        { "path": "src/domain/curriculum/networking-items.ts", "marker": "evaluateNetworking" },
+        { "path": "src/features/learning/networking-assessment.tsx" }
+      ],
+      "savvyshark": [{ "path": "src/features/learning/networking-workbench.tsx" }]
+    },
+    {
+      "id": "networking-dns",
+      "objectives": ["az900.networking.services"],
       "claims": [
-        "compute.PS20",
-        "compute.PS22",
-        "compute.PS23",
-        "compute.PS29",
-        "compute.PS37",
-        "compute.PS38"
+        "networking.NS12",
+        "networking.NS13",
+        "networking.NS14",
+        "networking.NS15",
+        "networking.NS16",
+        "networking.NS17",
+        "networking.NS18"
       ],
       "assessmentStatus": "new-independent",
-      "limits": "Explicit pure conceptual model; no operative resource, traffic, autoscale, session or deployment. Guided results never satisfy independent evidence.",
-      "theory": [{ "path": "src/content/nb.ts", "marker": "computeNb" }],
+      "limits": "Pure model, explicit prediction/run/cause; never a Portal command, receipt, DNS query, packet, complete peering implementation or learner mastery.",
+      "theory": [{ "path": "src/content/nb.ts", "marker": "networkingNb" }],
       "mechanism": [
-        { "path": "src/domain/curriculum/compute-model.ts" },
-        { "path": "src/domain/curriculum/compute.ts" }
+        { "path": "src/domain/curriculum/networking-model.ts" },
+        { "path": "src/domain/curriculum/networking.ts" }
       ],
-      "practice": [{ "path": "src/features/learning/compute-workbench.tsx" }],
+      "practice": [{ "path": "src/features/learning/networking-workbench.tsx" }],
       "feedback": [
-        { "path": "src/content/nb.ts", "marker": "computeItemsNb" },
-        { "path": "src/domain/curriculum/compute-items.ts", "marker": "evaluateCompute" },
-        { "path": "src/features/learning/compute-assessment.tsx" }
+        { "path": "src/content/nb.ts", "marker": "networkingItemsNb" },
+        { "path": "src/domain/curriculum/networking-items.ts", "marker": "evaluateNetworking" },
+        { "path": "src/features/learning/networking-assessment.tsx" }
       ],
       "visual": [
-        { "path": "src/features/learning/compute-visuals.tsx" },
-        { "path": "src/features/learning/compute.css" }
+        { "path": "src/features/learning/networking-visuals.tsx" },
+        { "path": "src/features/learning/networking.css" }
       ],
-      "accessible": [{ "path": "tests/e2e/compute-hosting.spec.ts" }],
+      "accessible": [{ "path": "tests/e2e/networking-foundations.spec.ts" }],
       "assessment": [
-        { "path": "src/domain/curriculum/compute-items.ts", "marker": "evaluateCompute" },
-        { "path": "src/features/learning/compute-assessment.tsx" }
+        { "path": "src/domain/curriculum/networking-items.ts", "marker": "evaluateNetworking" },
+        { "path": "src/features/learning/networking-assessment.tsx" }
       ],
-      "savvyshark": [{ "path": "src/features/learning/compute-workbench.tsx" }]
+      "savvyshark": [{ "path": "src/features/learning/networking-workbench.tsx" }]
     }
   ],
   "modules": [
     {
-      "id": "compute-hosting-v1",
-      "prerequisites": [{ "path": "src/content/nb.ts", "marker": "computeNb" }],
-      "terminology": [{ "path": "src/content/nb.ts", "marker": "computeNb" }],
-      "concept": [{ "path": "src/content/nb.ts", "marker": "computeNb" }],
-      "azureExample": [{ "path": "src/content/nb.ts", "marker": "computeNb" }],
-      "workedExample": [{ "path": "src/content/nb.ts", "marker": "computeNb" }],
-      "misconception": [{ "path": "src/content/nb.ts", "marker": "computeNb" }],
-      "limits": [{ "path": "src/content/nb.ts", "marker": "computeNb" }],
+      "id": "networking-foundations-v1",
+      "prerequisites": [{ "path": "src/content/nb.ts", "marker": "networkingNb" }],
+      "terminology": [{ "path": "src/content/nb.ts", "marker": "networkingNb" }],
+      "concept": [{ "path": "src/content/nb.ts", "marker": "networkingNb" }],
+      "azureExample": [{ "path": "src/content/nb.ts", "marker": "networkingNb" }],
+      "workedExample": [{ "path": "src/content/nb.ts", "marker": "networkingNb" }],
+      "misconception": [{ "path": "src/content/nb.ts", "marker": "networkingNb" }],
+      "limits": [{ "path": "src/content/nb.ts", "marker": "networkingNb" }],
       "mechanism": [
-        { "path": "src/domain/curriculum/compute-model.ts" },
-        { "path": "src/domain/curriculum/compute.ts" }
+        { "path": "src/domain/curriculum/networking-model.ts" },
+        { "path": "src/domain/curriculum/networking-inspection.ts" }
       ],
-      "visual": [{ "path": "src/features/learning/compute-visuals.tsx" }],
+      "visual": [{ "path": "src/features/learning/networking-visuals.tsx" }],
       "practice": [
-        { "path": "src/features/learning/compute-workbench.tsx" },
-        { "path": "src/features/learning/compute-vm.tsx" }
+        { "path": "src/features/learning/networking-workbench.tsx" },
+        { "path": "src/features/learning/networking-inspection.tsx" }
       ],
       "independentScenario": [
-        { "path": "src/content/nb.ts", "marker": "computeItemsNb" },
-        { "path": "src/domain/curriculum/compute-items.ts", "marker": "evaluateCompute" },
-        { "path": "src/features/learning/compute-assessment.tsx" }
+        { "path": "src/content/nb.ts", "marker": "networkingItemsNb" },
+        { "path": "src/domain/curriculum/networking-items.ts", "marker": "evaluateNetworking" }
       ],
-      "correctAndWrongRationales": [{ "path": "src/content/nb.ts", "marker": "computeItemsNb" }],
-      "sources": [{ "path": "src/domain/curriculum/compute-sources.ts" }]
+      "correctAndWrongRationales": [{ "path": "src/content/nb.ts", "marker": "networkingItemsNb" }],
+      "sources": [{ "path": "src/domain/curriculum/networking-sources.ts" }]
     }
   ],
   "preservedPaths": [
@@ -997,330 +604,342 @@
     "src/features/learning/transfer-provider.tsx",
     "src/domain/curriculum/cost-model.ts",
     "src/domain/curriculum/cost.ts",
-    "src/domain/curriculum/cost-store.ts"
+    "src/domain/curriculum/cost-store.ts",
+    "src/domain/curriculum/compute.ts",
+    "src/domain/curriculum/compute-model.ts",
+    "src/domain/curriculum/compute-store.ts",
+    "src/domain/curriculum/compute-items.ts",
+    "src/domain/curriculum/compute-vm.ts"
   ],
   "gates": {
     "source": {
-      "checks": [{ "path": "docs/COMPUTE_HOSTING.md" }],
-      "limits": "Author deterministic/source/browser checks are separate from fresh final agent audit, actual external delivery and unperformed qualified human reviews."
+      "checks": [{ "path": "docs/NETWORKING_FOUNDATIONS.md" }],
+      "limits": "Engineering/source checks are not human SME/UX/screen-reader/learning acceptance. Final separate review, full suite and actual latest CI/stable-root/full-SHA preview verification are required."
     },
     "curriculum": {
-      "checks": [{ "path": "src/domain/curriculum/compute.test.ts" }],
-      "limits": "Author deterministic/source/browser checks are separate from fresh final agent audit, actual external delivery and unperformed qualified human reviews."
+      "checks": [{ "path": "src/domain/curriculum/networking.test.ts" }],
+      "limits": "Engineering/source checks are not human SME/UX/screen-reader/learning acceptance. Final separate review, full suite and actual latest CI/stable-root/full-SHA preview verification are required."
     },
     "simulation": {
-      "checks": [{ "path": "src/domain/curriculum/compute.test.ts" }],
-      "limits": "Author deterministic/source/browser checks are separate from fresh final agent audit, actual external delivery and unperformed qualified human reviews."
+      "checks": [{ "path": "src/domain/curriculum/networking.test.ts" }],
+      "limits": "Engineering/source checks are not human SME/UX/screen-reader/learning acceptance. Final separate review, full suite and actual latest CI/stable-root/full-SHA preview verification are required."
     },
     "savvyshark": {
       "checks": [
-        { "path": "src/domain/curriculum/compute.test.ts" },
-        { "path": "tests/e2e/compute-hosting.spec.ts" }
+        { "path": "tests/e2e/networking-foundations.spec.ts" },
+        { "path": "src/features/course/mission-context.ts" },
+        { "path": "src/features/course/missions.tsx" }
       ],
-      "limits": "Author deterministic/source/browser checks are separate from fresh final agent audit, actual external delivery and unperformed qualified human reviews."
+      "limits": "Engineering/source checks are not human SME/UX/screen-reader/learning acceptance. Final separate review, full suite and actual latest CI/stable-root/full-SHA preview verification are required."
     },
     "visual-accessibility": {
-      "checks": [{ "path": "tests/e2e/compute-hosting.spec.ts" }],
-      "limits": "Author deterministic/source/browser checks are separate from fresh final agent audit, actual external delivery and unperformed qualified human reviews."
+      "checks": [{ "path": "tests/e2e/networking-foundations.spec.ts" }],
+      "limits": "Engineering/source checks are not human SME/UX/screen-reader/learning acceptance. Final separate review, full suite and actual latest CI/stable-root/full-SHA preview verification are required."
     },
     "independent-final-audit": {
       "checks": [{ "path": "docs/RELEASE_ACCEPTANCE.md" }],
-      "limits": "Author deterministic/source/browser checks are separate from fresh final agent audit, actual external delivery and unperformed qualified human reviews."
+      "limits": "Engineering/source checks are not human SME/UX/screen-reader/learning acceptance. Final separate review, full suite and actual latest CI/stable-root/full-SHA preview verification are required."
     },
     "delivery": {
-      "checks": [{ "path": "src/domain/curriculum/compute.test.ts" }],
-      "limits": "Author deterministic/source/browser checks are separate from fresh final agent audit, actual external delivery and unperformed qualified human reviews."
+      "checks": [{ "path": "src/domain/curriculum/networking.test.ts" }],
+      "limits": "Engineering/source checks are not human SME/UX/screen-reader/learning acceptance. Final separate review, full suite and actual latest CI/stable-root/full-SHA preview verification are required."
     }
   },
   "verification": [
     {
-      "command": "npm audit --json",
-      "result": "passed",
-      "details": "Exit0 .artifacts/pr27-audit-context-final.json,0 vulnerabilities; dependency/lockfile bytes unchanged."
-    },
-    {
-      "command": "npm audit --omit=dev --json",
-      "result": "passed",
-      "details": "Exit0 .artifacts/pr27-audit-production.json,0 production vulnerabilities."
-    },
-    {
-      "command": "CUA ordinary Portal return at four desktop viewports",
-      "result": "passed",
-      "details": "Actual expanded-guide return button clicked at1920x1080,1440x900,1366x768,1024x768; each returned exactly to /learn/compute?topic=dependencies and re-entered ordinary Portal. No force click or domain mutation."
-    },
-    {
       "command": "npm run check",
       "result": "passed",
-      "details": "Exit0 .artifacts/pr27-check-context-final.log:294Vitest/26files,204curriculum/17files,15Nodefixtures,85Markdown; full type/lint/format/docs/quality/AZ900/assets/legacy and production build after actual CreateKind/prerequisite guidance and classification-header correction. Earlier review acceptance is historical."
-    },
-    {
-      "command": "node --input-type=module < .artifacts/pr27-visual.txt",
-      "result": "passed",
-      "details": "Exit0 .artifacts/pr27-visual-context-final.log:35 actual corrected production captures,0 page errors/0 external runtime requests/6Axe0. Six changed canonical images personally reinspected;29 match earlier inspected bytes. Separate final context capture adds6 inspected images at four desktop widths and short/alternative forms,0 errors/0 external/1Axe0. Reflow frame unchanged;42 final images in registry."
-    },
-    {
-      "command": "node --input-type=module < .artifacts/pr27-reflow.txt",
-      "result": "passed",
-      "details": "Exit0 .artifacts/pr27-reflow.log:960x540CSS/DPR2,scrollWidth960,all3 complete causal radio texts,native ArrowUp/Down,explicit correct explain,no firsts,Axe0/pageErrors0.36th actual image inspected. Reflow-equivalent to200% at1920x1080; not native zoom or human screen-reader validation."
+      "details": "Renewed finished candidate:317 Vitest/27 files,227 curriculum/18 files,15 Node fixtures,87 Markdown/local links, type/lint/format/quality/AZ900/assets/legacy and production build, exit0. Later independent report Markdown is separately checked."
     },
     {
       "command": "npm run test:e2e",
       "result": "passed",
-      "details": "Exit0 .artifacts/pr27-e2e-context-final.log:221passed/17unchanged inherited skips/0failures across238cases. All26Compute runs pass both original projects, including unseeded actual RG Review/Create, all four true form contexts, exact return/boundary/reload/no false completion, actual VM/seven references, first/help/retry, cross-context assistance and technical peer conflict. No old assertion removed, skip added or domain/rubric/store change. QA adapter uses3100 only; normal CI unchanged."
+      "details": "Full gate executed as npx playwright test --config .artifacts/pr28-client.config.ts against the existing production server3100, all unchanged projects/tests:241 passed,17 unchanged inherited skips,0 failures/258 cases. All20 Networking runs pass, including active assisted PR24 shielding, retained own controls+Axe0, real CreateKind/receipt/7 references, short-modal End, durable help/history/cross-tab/denied-aid recovery. No assertion weakened or skip added."
+    },
+    {
+      "command": "npm audit --json",
+      "result": "passed",
+      "details": "Fresh dependency audit0 vulnerabilities;315 dependencies, no dependency or lockfile change."
+    },
+    {
+      "command": "Actual production browser walkthrough, correction regressions and inspected captures",
+      "result": "passed",
+      "details": "39 personally inspected captures. Last assessment correction changed5 of the36 baseline images (re-inspected),31 remained byte-identical;3 new actual ordinary-root mission/help/shield/own-control and denied-Journal recovery captures inspected. Six main Axe0 scans,3 correction Axe0 and1 radio/reflow Axe0;0 runtime errors/external requests. CSS reflow equivalence is not native zoom or human assistive review."
     }
   ],
   "visualEvidence": [
     {
-      "path": "docs/screenshots/compute-hosting/root-1920.png",
+      "path": "docs/screenshots/networking-foundations/root-1920.png",
       "viewport": "1920x1080",
-      "observation": "Ordinary root exposes the actual Compute course directly after the hero, with current path/scope and prior courses preserved.",
-      "inspected": true
+      "observation": "Ordinary root visibly exposes Networking Part A; Compute, previous learning and planned Part B remain distinct.",
+      "inspected": true,
+      "sha256": "09c5f79c76b5c39a75066d1bf3afbe4c5b40af447ec53e0eab72f00ea219cdfe"
     },
     {
-      "path": "docs/screenshots/compute-hosting/root-1440.png",
+      "path": "docs/screenshots/networking-foundations/root-1440.png",
       "viewport": "1440x900",
-      "observation": "Ordinary root exposes the actual Compute course directly after the hero, with current path/scope and prior courses preserved.",
-      "inspected": true
+      "observation": "Ordinary root visibly exposes Networking Part A; Compute, previous learning and planned Part B remain distinct.",
+      "inspected": true,
+      "sha256": "64d600d1ccafed33430a933954ad4e542d4f5ce391d2e5b80dae2e25c983a454"
     },
     {
-      "path": "docs/screenshots/compute-hosting/root-1366.png",
+      "path": "docs/screenshots/networking-foundations/root-1366.png",
       "viewport": "1366x768",
-      "observation": "Ordinary root exposes the actual Compute course directly after the hero, with current path/scope and prior courses preserved.",
-      "inspected": true
+      "observation": "Ordinary root visibly exposes Networking Part A; Compute, previous learning and planned Part B remain distinct.",
+      "inspected": true,
+      "sha256": "b8c71fb179787daf1d56f57c5b82821186b0e88cd9413ad371293bfb44c8d693"
     },
     {
-      "path": "docs/screenshots/compute-hosting/root-1024.png",
+      "path": "docs/screenshots/networking-foundations/root-1024.png",
       "viewport": "1024x768",
-      "observation": "Ordinary root exposes the actual Compute course directly after the hero, with current path/scope and prior courses preserved.",
-      "inspected": true
+      "observation": "Ordinary root visibly exposes Networking Part A; Compute, previous learning and planned Part B remain distinct.",
+      "inspected": true,
+      "sha256": "567f3120e2c048e0ea6a15d9fd1280b95b8f23d5c065e159ca831176870f6ebf"
     },
     {
-      "path": "docs/screenshots/compute-hosting/introduction-1920.png",
+      "path": "docs/screenshots/networking-foundations/introduction-1920.png",
       "viewport": "1920x1080",
-      "observation": "Five workload problem, full prerequisite-based teaching and explicit supported boundaries in the existing course shell.",
-      "inspected": true
+      "observation": "Original problem, prerequisites and staged name/address/path/access distinctions in the existing course shell.",
+      "inspected": true,
+      "sha256": "fcfdb6ddeda5ff7ae13f6d8dc44145761dd93d28c2c7c5c01e3c4724ed7da287"
     },
     {
-      "path": "docs/screenshots/compute-hosting/comparison-1440.png",
+      "path": "docs/screenshots/networking-foundations/network-structure-1440.png",
       "viewport": "1440x900",
-      "observation": "VM, process-isolated container and event hosting use distinct execution stacks with full text equivalents.",
-      "inspected": true
+      "observation": "Original NIC/subnet/VNet drawing has separate administrative context, exact frozen prefix examples and no allocated NIC IP.",
+      "inspected": true,
+      "sha256": "d3540e616612ecae708b8e5e18da727a637a9f09c39a1355622943a04f496917"
     },
     {
-      "path": "docs/screenshots/compute-hosting/container-theory-1920.png",
-      "viewport": "1920x1080",
-      "observation": "Original image/runtime/instance/kernel figure accompanies full teaching; Hyper-V/persistence qualifications remain readable.",
-      "inspected": true
-    },
-    {
-      "path": "docs/screenshots/compute-hosting/briefing-1440.png",
+      "path": "docs/screenshots/networking-foundations/briefing-1440.png",
       "viewport": "1440x900",
-      "observation": "SavvyShark briefing retains blur, explicit Start/Cancel and complete objective, prerequisites, observations and limits.",
-      "inspected": true
+      "observation": "Blurred SavvyShark briefing: explicit Start/Cancel, prerequisites, causal observations and conceptual boundary.",
+      "inspected": true,
+      "sha256": "8c81d253f711ed05ca65579086a47ba12a6c9e7beb4cea4560b53af4c1590b27"
     },
     {
-      "path": "docs/screenshots/compute-hosting/briefing-short.png",
+      "path": "docs/screenshots/networking-foundations/briefing-short-top.png",
       "viewport": "1024x500",
-      "observation": "Short-window mission uses a keyboard-scrollable reading region with persistent explicit controls.",
-      "inspected": true
+      "observation": "Short-height briefing retains readable scroll region and persistent controls.",
+      "inspected": true,
+      "sha256": "806eb3b5e6089950db0349977c1f04bcce09cf56c21287d9390d6d24185c1b20"
     },
     {
-      "path": "docs/screenshots/compute-hosting/container-ephemeral-1920.png",
-      "viewport": "1920x1080",
-      "observation": "Saved prediction/run reveals recreated instance B and absent prior writable-layer report; image, runtime and process are distinct.",
-      "inspected": true
-    },
-    {
-      "path": "docs/screenshots/compute-hosting/container-anatomy-1440.png",
-      "viewport": "1440x900",
-      "observation": "Concrete image layers and report lifecycle are visible together; package contents are distinct from runtime-created data.",
-      "inspected": true
-    },
-    {
-      "path": "docs/screenshots/compute-hosting/container-milestone-1366.png",
-      "viewport": "1366x768",
-      "observation": "A genuine saved ephemeral/external contrast triggers the once-only causal milestone, with explicit conceptual limit.",
-      "inspected": true
-    },
-    {
-      "path": "docs/screenshots/compute-hosting/container-persistent-1440.png",
-      "viewport": "1440x900",
-      "observation": "Explicit external-data assumption changes retained report result without creating a resource/runtime.",
-      "inspected": true
-    },
-    {
-      "path": "docs/screenshots/compute-hosting/container-host-responsibility-1920.png",
-      "viewport": "1920x1080",
-      "observation": "Process isolation does not remove customer VM-host OS responsibility; inspecting existing A needs no new image fetch.",
-      "inspected": true
-    },
-    {
-      "path": "docs/screenshots/compute-hosting/container-data-without-process-1366.png",
-      "viewport": "1366x768",
-      "observation": "Failed B creation does not delete the explicitly retained external report; process availability and data lifetime remain separate.",
-      "inspected": true
-    },
-    {
-      "path": "docs/screenshots/compute-hosting/set-zone-failure-1366.png",
-      "viewport": "1366x768",
-      "observation": "Declared common physical failure site, explicitly unknown Azure zone; set FD/UD does not establish Azure zonal placement.",
-      "inspected": true
-    },
-    {
-      "path": "docs/screenshots/compute-hosting/zones-surviving-1440.png",
-      "viewport": "1440x900",
-      "observation": "Explicit zonal distribution leaves two instances with20 units; actual configured routing/data assumptions are shown.",
-      "inspected": true
-    },
-    {
-      "path": "docs/screenshots/compute-hosting/capacity-milestone-short.png",
+      "path": "docs/screenshots/networking-foundations/briefing-short-end.png",
       "viewport": "1024x500",
-      "observation": "Saved set/zones/explicit-rule contrast is a validated teaching moment, never actual autoscale/failover.",
-      "inspected": true
+      "observation": "End of the briefing is reachable through keyboard scrolling without obscuring Start/Cancel.",
+      "inspected": true,
+      "sha256": "ce756fb34381e0393894996bd4faf9730fefa7436a24042f580432f9c1133245"
     },
     {
-      "path": "docs/screenshots/compute-hosting/dependency-failure-1024.png",
-      "viewport": "1024x768",
-      "observation": "Surviving compute still delivers zero when the explicitly shared data dependency is unavailable; full table remains reachable.",
-      "inspected": true
-    },
-    {
-      "path": "docs/screenshots/compute-hosting/avd-1440.png",
-      "viewport": "1440x900",
-      "observation": "ARM workspace/application group/host-pool/session-host chain is a semantic interactive model, not a remote desktop session.",
-      "inspected": true
-    },
-    {
-      "path": "docs/screenshots/compute-hosting/avd-no-host-1024.png",
-      "viewport": "1024x768",
-      "observation": "Publication and a selected workspace observation remain separate from the missing host substrate; no user session claimed.",
-      "inspected": true
-    },
-    {
-      "path": "docs/screenshots/compute-hosting/hosting-alternatives-1920.png",
+      "path": "docs/screenshots/networking-foundations/address-overlap-1920.png",
       "viewport": "1920x1080",
-      "observation": "Explicit HTTP image requirements admit both App Service and Container Apps; customer duties and counterfactual changes are visible.",
-      "inspected": true
+      "observation": "Saved invalid overlap shows dynamic prefix-bit roles and exact inclusive ranges/capacity; no addresses allocated.",
+      "inspected": true,
+      "sha256": "aa9e09bddd11d3b5485cbefd48c2e81fa83a59e47963d602507921d01eedbc60"
     },
     {
-      "path": "docs/screenshots/compute-hosting/hosting-debrief-1366.png",
+      "path": "docs/screenshots/networking-foundations/address-overlap-1366.png",
       "viewport": "1366x768",
-      "observation": "Changed Kubernetes API/controller requirements produce a different defensible candidate; guided debrief records observations, not independent mastery.",
-      "inspected": true
+      "observation": "Exact intervals show overlapping /24 and /25 even though both have sufficient ordinary address capacity.",
+      "inspected": true,
+      "sha256": "dfc98e036acf570331e78248fe1e732ee9f6cf24a8adbfc16b314875cc920671"
     },
     {
-      "path": "docs/screenshots/compute-hosting/vm-basics-1440.png",
+      "path": "docs/screenshots/networking-foundations/address-corrected-1440.png",
       "viewport": "1440x900",
-      "observation": "Actual VM form: explicit same-group/region subnet prerequisite, small foundation VM if missing, then Windows/standard64 target reuses subnet; minifiable read-only training layer.",
-      "inspected": true
+      "observation": "Corrected nonoverlapping contained subnet design passes only the declared planning checks.",
+      "inspected": true,
+      "sha256": "a2819d5a4d2925f0afbe0e184556d3bde97513693a4d917606a6ebab1d3ff57c"
     },
     {
-      "path": "docs/screenshots/compute-hosting/vm-review-1366.png",
-      "viewport": "1366x768",
-      "observation": "Actual technical review of Windows/standard64 with explicitly reused subnet; Create remains a deliberate supported local command.",
-      "inspected": true
-    },
-    {
-      "path": "docs/screenshots/compute-hosting/vm-result-1366.png",
-      "viewport": "1366x768",
-      "observation": "Actual created VM inventory and selected guide subject after accepted local command; no cloud deployment or boot assertion.",
-      "inspected": true
-    },
-    {
-      "path": "docs/screenshots/compute-hosting/vm-overview-1440.png",
-      "viewport": "1440x900",
-      "observation": "Real VM overview and minimizable guide refer to actual configuration and remaining uninspected dependencies.",
-      "inspected": true
-    },
-    {
-      "path": "docs/screenshots/compute-hosting/vm-minimized-1024.png",
+      "path": "docs/screenshots/networking-foundations/address-debrief-1024.png",
       "viewport": "1024x768",
-      "observation": "Minimized guide frees the compact operational resource surface while exact course return stays available.",
-      "inspected": true
+      "observation": "Explicit causal explanation follows two saved observations and is separate from independent evidence.",
+      "inspected": true,
+      "sha256": "2f1c2bba6ddbd95380126f215cbd397ba3d634844a8c43f75f61e294a3cfe63a"
     },
     {
-      "path": "docs/screenshots/compute-hosting/vm-receipt-1366.png",
-      "viewport": "1366x768",
-      "observation": "The actual accepted local command receipt is inspected through Activity log, separately from resource Overview.",
-      "inspected": true
-    },
-    {
-      "path": "docs/screenshots/compute-hosting/vm-debrief-1440.png",
-      "viewport": "1440x900",
-      "observation": "Seven actual references/post-boundary accepted build plus a fully visible VM-specific causal choice; no guest/backup/health inference.",
-      "inspected": true
-    },
-    {
-      "path": "docs/screenshots/compute-hosting/assessment-1366.png",
-      "viewport": "1366x768",
-      "observation": "Independent authorized-plan reuse scenario has changed constraints, native decision/reason controls and no answer-bearing automatic guidance.",
-      "inspected": true
-    },
-    {
-      "path": "docs/screenshots/compute-hosting/feedback-1440.png",
-      "viewport": "1440x900",
-      "observation": "Actual submitted App Service decision with an insufficient new-environment rationale fails; selected-specific explanation, alternatives/counterfactuals and exact repetition follow submission.",
-      "inspected": true
-    },
-    {
-      "path": "docs/screenshots/compute-hosting/feedback-short.png",
-      "viewport": "1024x500",
-      "observation": "Actual submitted App Service decision with an insufficient new-environment rationale fails; selected-specific explanation, alternatives/counterfactuals and exact repetition follow submission.",
-      "inspected": true
-    },
-    {
-      "path": "docs/screenshots/compute-hosting/summary-1440.png",
-      "viewport": "1440x900",
-      "observation": "Actual four guided witnesses and separate immutable first classification. Third column explicitly says Forsøkstype og hjelp, not draft; no XP/readiness claim.",
-      "inspected": true
-    },
-    {
-      "path": "docs/screenshots/compute-hosting/journal-1024.png",
-      "viewport": "1024x768",
-      "observation": "Same full original manuscript in the existing Knowledge Journal, after durable all-context teaching preflight.",
-      "inspected": true
-    },
-    {
-      "path": "docs/screenshots/compute-hosting/causal-reflow-200-equivalent.png",
-      "viewport": "960x540CSS /DPR2 /1920x1080pixels",
-      "observation": "Actual fully visible causal radio text, native ArrowUp/Down and explicit submit at200%-reflow-equivalent layout; not native browser zoom or human assistive approval.",
-      "inspected": true
-    },
-    {
-      "path": "docs/screenshots/compute-hosting/group-create-1920.png",
+      "path": "docs/screenshots/networking-foundations/peering-nontransitive-1920.png",
       "viewport": "1920x1080",
-      "observation": "Unseeded actual Resource group form and matching App Sandbox/metadata/Review/Create instructions. No VM-only field instructions. Guide and actual controls remain separate and reachable.",
-      "inspected": true
+      "observation": "Three distinct network nodes show configured AB/BC sides and missing AC; the semantic table gives exact statuses.",
+      "inspected": true,
+      "sha256": "7b6758839ca11382014996de3502216843fc573d1702067c2af948d26354a82c"
     },
     {
-      "path": "docs/screenshots/compute-hosting/group-create-1440.png",
+      "path": "docs/screenshots/networking-foundations/peering-direct-1440.png",
       "viewport": "1440x900",
-      "observation": "Unseeded actual Resource group form and matching App Sandbox/metadata/Review/Create instructions. No VM-only field instructions. Guide and actual controls remain separate and reachable.",
-      "inspected": true
+      "observation": "Explicit two-sided AC now supplies a direct declared path; DNS/app response remain outside the claim.",
+      "inspected": true,
+      "sha256": "861ba6556771556c5e25b4e19b01e3acb0b7b698773744115bcad1f6637b566f"
     },
     {
-      "path": "docs/screenshots/compute-hosting/group-create-1366.png",
-      "viewport": "1366x768",
-      "observation": "Unseeded actual Resource group form and matching App Sandbox/metadata/Review/Create instructions. No VM-only field instructions. Guide and actual controls remain separate and reachable.",
-      "inspected": true
-    },
-    {
-      "path": "docs/screenshots/compute-hosting/group-create-1024.png",
-      "viewport": "1024x768",
-      "observation": "Unseeded actual Resource group form and matching App Sandbox/metadata/Review/Create instructions. No VM-only field instructions. Guide and actual controls remain separate and reachable.",
-      "inspected": true
-    },
-    {
-      "path": "docs/screenshots/compute-hosting/plan-create-context-1024.png",
-      "viewport": "1024x768",
-      "observation": "The actual App Service plan form is honestly identified as outside the VM new-build requirement, with concrete Virtual machines/Create resumption and no automatic command.",
-      "inspected": true
-    },
-    {
-      "path": "docs/screenshots/compute-hosting/app-create-context-short.png",
+      "path": "docs/screenshots/networking-foundations/peering-milestone-short.png",
       "viewport": "1024x500",
-      "observation": "Short-window Web App form identifies its actual hosting context. The guidance panel has an ordinary scrollable region; the Portal form and explicit course return remain accessible.",
-      "inspected": true
+      "observation": "Real saved standard-peering overlap rejection triggers a once-only explanation with current subnet-peering limits.",
+      "inspected": true,
+      "sha256": "67b2ad15b287e4d1275f80c73409a653f2be24737b8ad9ac8f37b80da64882f8"
+    },
+    {
+      "path": "docs/screenshots/networking-foundations/dns-missing-link-1366.png",
+      "viewport": "1366x768",
+      "observation": "Name/zone/record/address/path/access are separate stages; absent private-zone visibility prevents a valid name result.",
+      "inspected": true,
+      "sha256": "7ffe35461390847c62c3050c88c672364165c01d0c580794bf8857d886e1c9dd"
+    },
+    {
+      "path": "docs/screenshots/networking-foundations/dns-milestone-1024.png",
+      "viewport": "1024x768",
+      "observation": "Correct saved resolution without a declared network path triggers a real observation-based milestone.",
+      "inspected": true,
+      "sha256": "3cea04322e29a6aa01d44d16ee8b4de91d5f880c5061a71b9dabda927bc1112b"
+    },
+    {
+      "path": "docs/screenshots/networking-foundations/dns-resolved-no-path-1920.png",
+      "viewport": "1920x1080",
+      "observation": "10.85.1.20 is an explicit example answer, not an actual NIC field; missing topology still withholds path/access.",
+      "inspected": true,
+      "sha256": "e33b09f01846e6700aa3851db7b2d7c4d3d43be282220ae2d7607a8b568e014c"
+    },
+    {
+      "path": "docs/screenshots/networking-foundations/dns-resolved-no-path-1024.png",
+      "viewport": "1024x768",
+      "observation": "Compact pipeline reflows without obscuring stage labels, statuses or text result.",
+      "inspected": true,
+      "sha256": "a47c8ac02d2b725baed60d72fe9c8421e92e42edab566ee50c704c21fab87466"
+    },
+    {
+      "path": "docs/screenshots/networking-foundations/explorer-perspectives-1440.png",
+      "viewport": "1440x900",
+      "observation": "One ordinary Explorer switches read-only actual configuration versus three pure concept perspectives; saved mission boundaries remain separate.",
+      "inspected": true,
+      "sha256": "39194cf452c57168f42393004f6d7a092a097fb457cb9ba2184ba9beae3cb2d4"
+    },
+    {
+      "path": "docs/screenshots/networking-foundations/actual-group-create-1366.png",
+      "viewport": "1366x768",
+      "observation": "Actual RG Create uses group-specific instructions, never VM/DNS/peering instructions.",
+      "inspected": true,
+      "sha256": "25cbc7503038383f02c57901f6f07af729c0db11a7678e678db587b5e852c29f"
+    },
+    {
+      "path": "docs/screenshots/networking-foundations/actual-vm-create-1440.png",
+      "viewport": "1440x900",
+      "observation": "Supported VM configuration and minimizable read-only guide retain real controls and boundaries.",
+      "inspected": true,
+      "sha256": "ecf0756355a547f59b5bd247bcd583213acfdbda67b97a247191b348b75bf139"
+    },
+    {
+      "path": "docs/screenshots/networking-foundations/actual-vm-overview-1440.png",
+      "viewport": "1440x900",
+      "observation": "Actual selected VM configuration is inspected without guest boot, IP or traffic claims.",
+      "inspected": true,
+      "sha256": "2e9a9ff65a9bc455d7a96f2b4ff01e215d0dedaaa79904a0b63f91b44f78ca4d"
+    },
+    {
+      "path": "docs/screenshots/networking-foundations/actual-subnet-1024.png",
+      "viewport": "1024x768",
+      "observation": "Actual subnet points to its VNet and fixed prefix; visible semantic references preserve management distinction.",
+      "inspected": true,
+      "sha256": "83eb2625cc0c0365701557b0258225f67c4f737c140849448969606445406956"
+    },
+    {
+      "path": "docs/screenshots/networking-foundations/actual-vnet-1920.png",
+      "viewport": "1920x1080",
+      "observation": "Actual10.42.0.0/16 VNet is read from inventory, not overwritten by conceptual design.",
+      "inspected": true,
+      "sha256": "053c2c0d2710c4bfa4120ae17c6c47b3d14ec151a6792df41c2fc33c51849092"
+    },
+    {
+      "path": "docs/screenshots/networking-foundations/actual-receipt-1366.png",
+      "viewport": "1366x768",
+      "observation": "Actual accepted local VM command receipt is inspected separately from resource properties.",
+      "inspected": true,
+      "sha256": "078d2a97d76684dba6f105ec284a7795aaf805fbb4a1290af0fd24e90a04237c"
+    },
+    {
+      "path": "docs/screenshots/networking-foundations/actual-network-milestone-short.png",
+      "viewport": "1024x500",
+      "observation": "Seven fresh real-reference observations trigger a once-only factual chain explanation.",
+      "inspected": true,
+      "sha256": "9adbd270a5361c24f308029daa8a89a04765077713753fce53cc7b8cfed11b06"
+    },
+    {
+      "path": "docs/screenshots/networking-foundations/actual-debrief-1440.png",
+      "viewport": "1440x900",
+      "observation": "Actual same-attempt references and source receipt precede causal debrief; new inspection does not create independent evidence.",
+      "inspected": true,
+      "sha256": "b4a98008ef7360bed5c756b041009b7aa8001074585cc005d5a9a094a58e82c0"
+    },
+    {
+      "path": "docs/screenshots/networking-foundations/assessment-1920.png",
+      "viewport": "1920x1080",
+      "observation": "New participating-range decision requires a separate structured reason; no solution markers or automatic guide.",
+      "inspected": true,
+      "sha256": "c5d51687e3050d1953257344a11b88132d2077c9ebcac3783d920c5db88d5b4a"
+    },
+    {
+      "path": "docs/screenshots/networking-foundations/assessment-1024.png",
+      "viewport": "1024x768",
+      "observation": "Native choices reflow and remain individually labelled without hidden requirements.",
+      "inspected": true,
+      "sha256": "96863f781254397343a9ad2062e5340864ba0872cabdb1e812681bc715bd2096"
+    },
+    {
+      "path": "docs/screenshots/networking-foundations/feedback-1440.png",
+      "viewport": "1440x900",
+      "observation": "Specific selected-result explanation, decisive constraint and original alternatives appear after committed submission.",
+      "inspected": true,
+      "sha256": "ef28ad9fa03b46d32346666d6a2c5d538987266339c23c7acf43f7d042400bce"
+    },
+    {
+      "path": "docs/screenshots/networking-foundations/feedback-short.png",
+      "viewport": "1024x500",
+      "observation": "Long technical feedback remains reachable by ordinary scrolling and exact repetition links.",
+      "inspected": true,
+      "sha256": "1a2ecef93768192cd0656bbb91e23f6b99f2978482482e1939124f4fa105a3d5"
+    },
+    {
+      "path": "docs/screenshots/networking-foundations/summary-1366.png",
+      "viewport": "1366x768",
+      "observation": "Part A visits/guided results/immutable firsts remain separate; whole Networking, P07 and readiness are not inferred.",
+      "inspected": true,
+      "sha256": "07f30e0b75287a927013727cde73f4ddbde1a306a63e24af9f7d19ddca9c4cff"
+    },
+    {
+      "path": "docs/screenshots/networking-foundations/journal-1024.png",
+      "viewport": "1024x768",
+      "observation": "Full original manuscript in existing Journal after all-context durable teaching access.",
+      "inspected": true,
+      "sha256": "71e6e691dee97d37248cbcd4a4b36cf4feb1ceaf50b6ae933e0695d2e7c7d920"
+    },
+    {
+      "path": "docs/screenshots/networking-foundations/causal-reflow-200-equivalent.png",
+      "viewport": "960x540 CSS / DPR2 (1920x1080 pixels)",
+      "observation": "Native radio arrows and explicit causal save at CSS200%-equivalent reflow, no independent firsts; not native browser zoom or human screen-reader approval.",
+      "inspected": true,
+      "sha256": "0bfe9129daf247726ad3346afe5d070d4dd3e8cb83b450f47ddc1744897604d8"
+    },
+    {
+      "path": "docs/screenshots/networking-foundations/active-assisted-mission-shield-1366.png",
+      "viewport": "1366x768",
+      "observation": "Actual ordinary-root PR24 independent Start and explicit durable help leave the mission active; Networking offers its exact own-task destination and suppresses external guided controls and automatic milestones.",
+      "inspected": true,
+      "sha256": "63cc97587283b310b8d905f9ad51a05c0ecb72853bca1ef85329827aca436970"
+    },
+    {
+      "path": "docs/screenshots/networking-foundations/own-independent-mission-controls-1024.png",
+      "viewport": "1024x768",
+      "observation": "The explicit PR24 owner exception retains its native independent task controls while external instruction is suppressed; no result or independent completion is inferred.",
+      "inspected": true,
+      "sha256": "e4ee1d17d03fe34e8d58ddf5cc08893df7497de2079d1a690445cbf59e8185bb"
+    },
+    {
+      "path": "docs/screenshots/networking-foundations/denied-aid-journal-1024.png",
+      "viewport": "1024x768",
+      "observation": "The actual Journal waits for durable aid; denied Networking storage shows scoped unsaved recovery and withholds answer-bearing manuscript while the saved unaided draft remains unchanged.",
+      "inspected": true,
+      "sha256": "3ea141b5a56f52bb83505c9d16998a844a08a8a7aef673fc288d2a2a0d02f823"
     }
   ],
   "humanReview": {
@@ -1331,287 +950,240 @@
   },
   "review": {
     "status": "complete",
-    "fingerprint": "a94125b9904eb902e33c71cb8d77f8ce94470722f6e91c7051fe33d1afa36aca",
-    "reviewer": { "id": "codex-pr27-independent-reviewer", "kind": "agent" },
-    "started": "2026-10-28T12:46:03Z",
+    "fingerprint": "7f4acabb476190ae9a068d9fdef9ab5d1b05e471111f58f90fbaabd6d003324a",
+    "reviewer": { "id": "pr28-independent-review-agent-20261028-renewal", "kind": "agent" },
+    "started": "2026-10-28T16:38:36Z",
     "domains": {
       "content": {
-        "finding": "Earlier substantive container/VMSS/AVD/hosting/source review carries forward. Latest copy correctly distinguishes group metadata, VM/network prerequisite and plan/app hosting; the entire independent item initializer and key file remain identical to the reviewed2292 bank. No new runtime or human-learning claim was introduced.",
+        "finding": "Original eight-section manuscript, scoped current official claims and all revised feedback reviewed. Nonoverlap/Resource group terminology/docs continuity corrected. No open blocker/major; human SME/learning review remains unperformed.",
         "evidence": [
-          { "path": "src/content/nb.ts", "marker": "computeNb" },
-          { "path": "src/domain/curriculum/compute-sources.ts", "marker": "PS38" },
-          { "path": "docs/quality/PR27_FINAL_AUDIT.md", "marker": "Content:" },
-          { "path": "docs/quality/PR27_BLIND_RENEWAL.md", "marker": "Primary checks and limits" }
+          { "path": "docs/quality/PR28_FINAL_AUDIT.md", "marker": "Renewed final audit" },
+          { "path": "docs/quality/PR28_BLIND_RENEWAL.md" },
+          { "path": "src/content/nb.ts", "marker": "networkingItemsNb" }
         ]
       },
       "technical": {
-        "finding": "All domain files and lockfile are unchanged versus2292. Fresh actual unseeded root flow sent exactly three explicit accepted commands: group, foundation VM/new network and correct Windows/standard/64GiB target using its subnet. Foundation did not qualify as target; seven real inspections, explicit reason and reload completed guided work with unchanged attempt/boundary and zero independent firsts. Earlier replay/terminal/conflict protections remain unchanged.",
+        "finding": "All90 actual normalized file hashes and reconstructed fingerprint match the corrected stamp/base. Declared preserved paths/lockfile unchanged.27 reviewer unit tests and198 independent BigInt cases pass; actual seven-reference/receipt inspection and no concept World mutation reconfirmed.",
         "evidence": [
-          { "path": "src/domain/curriculum/compute-model.ts", "marker": "runCapacity" },
-          { "path": "src/domain/curriculum/compute-vm.ts", "marker": "computeVmFacts" },
-          {
-            "path": "src/domain/curriculum/compute.test.ts",
-            "marker": "preserves terminal capacity"
-          },
-          { "path": "src/features/learning/compute.tsx", "marker": "technicalSafe" },
-          { "path": "docs/quality/PR27_FINAL_AUDIT.md", "marker": "P27-IFA-02" }
+          { "path": "src/domain/curriculum/networking-model.ts" },
+          { "path": "src/domain/curriculum/networking-store.ts" },
+          { "path": "src/domain/curriculum/networking-inspection.ts" },
+          { "path": "docs/quality/PR28_FINAL_AUDIT.md", "marker": "All90" }
         ]
       },
       "visual": {
-        "finding": "Current42-image register compared to2292: six changed canonical images,29 canonical identical, six new Create-context images and unchanged reflow-equivalent capture. All12 changed/new canonical images and seven fresh reviewer captures inspected. Four Create forms, corrected header,1024x768/1024x500 current-kind/normal-return checks and three fresh Axe0 scans passed. Human UX/screen-reader/native-zoom approval not claimed.",
+        "finding": "All39 current captures individually inspected across the initial and renewed phases, with every changed/new image reopened; actual four desktop widths, short/reflow/modal/assessment/receipt/guide/recovery states readable. Own current browser Summary Axe0, no visual blocker/major; human UX/screen-reader/native-zoom acceptance unperformed.",
         "evidence": [
-          { "path": "docs/screenshots/compute-hosting/group-create-1920.png" },
-          { "path": "docs/screenshots/compute-hosting/group-create-1440.png" },
-          { "path": "docs/screenshots/compute-hosting/group-create-1366.png" },
-          { "path": "docs/screenshots/compute-hosting/group-create-1024.png" },
-          { "path": "docs/screenshots/compute-hosting/plan-create-context-1024.png" },
-          { "path": "docs/screenshots/compute-hosting/app-create-context-short.png" },
-          { "path": "docs/screenshots/compute-hosting/summary-1440.png" },
-          { "path": "docs/quality/PR27_FINAL_AUDIT.md", "marker": "Visual/accessibility:" }
+          { "path": "docs/NETWORKING_FOUNDATIONS.md" },
+          { "path": "docs/screenshots/networking-foundations/assessment-1024.png" },
+          {
+            "path": "docs/screenshots/networking-foundations/active-assisted-mission-shield-1366.png"
+          },
+          {
+            "path": "docs/screenshots/networking-foundations/own-independent-mission-controls-1024.png"
+          },
+          { "path": "docs/screenshots/networking-foundations/denied-aid-journal-1024.png" }
         ]
       },
       "assessment": {
-        "finding": "The complete normalized computeItemsNb initializer hasha4501370eebc6b78ba0ee41b6ab853d8c054774bb102036746ff3ec8065ac642 and entire key file are unchanged versus2292. Therefore the fresh blinded15-pair/224-combination/30-wrong-reason review carries forward for identical items; a new blind solve is not invented. Latest full manuscript hash changed only because unrelated guidance/header copy changed. Bounded near-transfer and human-study limits remain.",
+        "finding": "Fresh independent post-stamp extraction/lock before keys; all12 blind judgments including both nw07 plans match, all108 combinations/72 feedback entries reviewed. Own rendered-label/12-case production probe confirms universal length cue removed and immutable first/family classification retained. BR03 remains open MINOR near-transfer/stated-cause measurement limitation.",
         "evidence": [
-          { "path": "src/domain/curriculum/compute-items.ts", "marker": "evaluateCompute" },
-          {
-            "path": "src/features/learning/compute-assessment.tsx",
-            "marker": "ManagementTeachingBoundary"
-          },
-          { "path": "docs/quality/PR27_BLIND_CONTENT_REVIEW.md", "marker": "BC-01" },
-          { "path": "docs/quality/PR27_BLIND_RENEWAL.md", "marker": "All 15" },
-          { "path": "docs/quality/PR27_FINAL_AUDIT.md", "marker": "BC-03 closed" }
+          { "path": "docs/quality/PR28_BLIND_RENEWAL.md", "marker": "BR03" },
+          { "path": "src/domain/curriculum/networking-items.ts" },
+          { "path": "src/features/learning/networking-assessment.tsx" },
+          { "path": "docs/quality/PR28_FINAL_AUDIT.md", "marker": "Correction disposition" }
         ]
       },
       "guidance": {
-        "finding": "New MAJOR IFA-03 is fixed: actual CreateKind selects group/VM/plan/app action and reason inside unchanged safety guards. Actual root-to-group/foundation/target loop, all four forms/reloads, two compact sizes, exact normal return and no automatic operation/credit passed. VM copy explicitly covers missing-subnet prerequisite. All13 teaching contexts and prior conflict/independent shielding remain unchanged.",
+        "finding": "All14 contexts default to fail-closed shared safety including active assisted PR24. Explicit missions owner is confined to actual owning controls with issue/technical checks. Production10-case reviewer set and independent peer-mutation probe verify suppression, already-open milestone/Journal withdrawal, denied aid, exact CreateKind/selected receipt instructions and retained own radios.",
         "evidence": [
+          { "path": "src/features/course/mission-context.ts", "marker": "owner" },
+          { "path": "src/features/course/missions.tsx" },
+          { "path": "src/features/learning/management-access.tsx" },
           {
-            "path": "src/features/learning/compute-vm.tsx",
-            "marker": "c.vmCopy.forms[location.kind]"
-          },
-          { "path": "src/content/nb.ts", "marker": "createWhy" },
-          {
-            "path": "src/features/learning/management-access.tsx",
-            "marker": "ManagementTeachingBoundary"
-          },
-          { "path": "tests/e2e/compute-hosting.spec.ts", "marker": "unseeded VM mission" },
-          { "path": "docs/quality/PR27_FINAL_AUDIT.md", "marker": "P27-IFA-03" }
+            "path": "tests/e2e/networking-foundations.spec.ts",
+            "marker": "active assisted Practical Missions"
+          }
         ]
       },
       "regression": {
-        "finding": "All94 normalized file hashes, fingerprint and preserved-path checks independently match. Latest domain/lockfile diff is empty; bank and keys identical. Fresh unseeded/compact/browser proofs passed. Inspected author294-test check/build,204 curriculum/15 fixtures/85 docs and complete221/17/0 E2E across238 cases,26Compute runs. Old2292 is not accepted as final delivery; new external CI/exact-SHA preview still pending.",
+        "finding": "Renewed author logs317 Vitest/227 curriculum/15Node/87docs/build and full241 passed/17 inherited skips/0 failures read. Reviewer27-unit/198-oracle/all10 desktop Networking production tests plus custom current actual/adversarial flow pass. Denied-aid race now waits visible denial; no weakened assertion, new skip, dependency or preserved-contract change. External CI/preview/SHA remains delivery work. Post-acceptance strict quality:release against the full verified base passed; docs88, both report/release-record formatting and diff checks passed.",
         "evidence": [
+          { "path": "tests/e2e/networking-foundations.spec.ts" },
+          { "path": "src/domain/curriculum/networking.test.ts" },
           {
-            "path": "docs/quality/PR27_FINAL_AUDIT.md",
-            "marker": "Latest12:46 post-stamp correction checks"
-          },
-          {
-            "path": "docs/COMPUTE_HOSTING.md",
-            "marker": "Retest etter ekstern skjemakontekst-feil"
-          },
-          { "path": "tests/e2e/compute-hosting.spec.ts", "marker": "unseeded VM mission" }
+            "path": "docs/quality/PR28_FINAL_AUDIT.md",
+            "marker": "Actual renewed reviewer execution"
+          }
         ]
       }
     },
     "findings": [
       {
-        "id": "P27-IFA-01",
+        "id": "PR28-A01",
         "severity": "major",
         "status": "fixed",
-        "description": "All four guided missions originally accepted one generic noncausal explanation.",
-        "fix": "Four authored mission-specific causal prompts/alternatives/feedback, mission-dependent completion keys and fully visible native radio controls replace the shared generic gate.",
+        "description": "All12 original correct reasons were longest, revealing the causal answer without domain understanding.",
+        "fix": "Substantively revised alternatives/feedback; fresh blind report and rendered-label checks remove universal length/position heuristic.",
         "retests": [
-          "Reviewer post-stamp all12 mission/cause combinations passed against real witnessed records.",
-          "Reviewer production native radio keyboard wrong/correct explicit save, reload, no independent firsts, Axe0 and inspected images passed.",
-          "Final author full check294 Vitest and complete219/17/0 E2E passed."
+          "Fresh blind lock2026-10-28T16:39:48.806Z and108 independent combinations",
+          "Current independent12-case production submission/label-length probe; all10 Networking desktop E2Es passed"
         ]
       },
       {
-        "id": "P27-IFA-02",
+        "id": "PR28-G01",
         "severity": "major",
         "status": "fixed",
-        "description": "Already-open Summary continued to assert completed VM evidence after peer technical-store corruption.",
-        "fix": "Technical ready/issue guard withholds VM-derived status and aggregate guided count, preserves conceptual/independent data and exposes existing scoped Portal recovery.",
+        "description": "Automatic Networking guidance opened during an active already-assisted PR24 independent mission.",
+        "fix": "Central default safety includes the fourteenth mission context; only actual PR24 owning controls use explicit missions owner exception.",
         "retests": [
-          "Reviewer actual peer corruption changed VM Summary to unverified and retained exact Compute bytes.",
-          "Restored technical record plus explicit reload restored original VM result with identical Compute bytes; corrupt technical reload withheld VM controls.",
-          "Final author actual peer-Sandbox recovery regression passed in both browser projects."
+          "Current10-case Networking production E2E set passed including external Networking/Compute/Cost suppression and own radios+Axe0",
+          "Independent real peer update withdrew an already-open Networking milestone; reload retained external shielding and enabled own controls"
         ]
       },
       {
-        "id": "BC-01",
-        "severity": "major",
-        "status": "fixed",
-        "description": "cp12 rejected a technically defensible generic run-to-completion reason for ACI.",
-        "fix": "Candidate-specific ACI group/restart-policy versus reusable ACA Job/separate execution explanations replace the ambiguous reason; PS38 directly maps the qualified ACI source.",
-        "retests": [
-          "Fresh blinded renewal independently locked both cp12 pairs; all224 combinations matched and30 right-decision/wrong-reason pairs rejected.",
-          "Reviewer independently reopened current official ACI restart-policy and ACA Jobs documentation; final manuscript/key raw hashes match renewal.",
-          "Final complete production E2E covers all independent cases."
-        ]
-      },
-      {
-        "id": "BC-02",
-        "severity": "major",
-        "status": "fixed",
-        "description": "Six independent items repeated guided decision structures.",
-        "fix": "New compatibility, dual publication graph, component decomposition, mandatory compatible-plan reuse, routing-capacity diagnosis and historical accepted/current rejected provenance decisions replace the guided twins.",
-        "retests": [
-          "Fresh no-key14-item solve and explicit guided-versus-independent comparison in PR27_BLIND_RENEWAL.md passed.",
-          "Main reviewer read actual final prompts, premises, feedback and keyed relationships; final raw hashes match the renewal.",
-          "Final full curriculum204 and production219/17/0 E2E passed."
-        ]
-      },
-      {
-        "id": "BC-03",
-        "severity": "major",
-        "status": "fixed",
-        "description": "Bank-wide magical guarantees and self-disqualifying distractor clauses cued the correct reasons.",
-        "fix": "Positive competing properties and hypotheses replace systematic cues, including further clauses caught by the fresh renewal. Rejections now rely on actual technical or operating constraints and post-submit feedback.",
-        "retests": [
-          "Fresh blinded reviewer corrected and re-reviewed remaining B2 clauses before reporting no open content blocker/major.",
-          "Main reviewer final-copy and raw-hash comparison passed; longest/longest heuristic solves only4/14 and is not treated as psychometric validation.",
-          "All224 evaluator combinations agree with the independently locked pair table."
-        ]
-      },
-      {
-        "id": "BC-04",
-        "severity": "major",
-        "status": "fixed",
-        "description": "Availability-set teaching/item shorthand treated nonzonal placement as a known Availability Zone.",
-        "fix": "Nonzonal zone=null is distinct from the explicitly hypothetical site failure fixture; only explicit zonal options show AZ1–3. cp05 uses observed FD/UD app placement without manual UD or actual AZ claims.",
-        "retests": [
-          "Reviewer fresh pure nonzonal-null versus explicit zonal projection assertions passed.",
-          "Actual set/zone/dependency/milestone images individually inspected after correction.",
-          "Fresh blind cp05 constraint/relationship check and final41 scoped tests passed."
-        ]
-      },
-      {
-        "id": "P27-IFA-M1",
+        "id": "PR28-A02",
         "severity": "minor",
         "status": "fixed",
-        "description": "Summary first-submission classification column previously said draft; its actual immutable submission/help data was always correct.",
-        "fix": "Dedicated nb.ts classification label Forsøkstype og hjelp replaces the draft header.",
+        "description": "nw06 different address spaces did not explicitly exclude overlap.",
+        "fix": "Premise now states nonoverlapping address spaces.",
         "retests": [
-          "Fresh post-stamp actual Summary finds the new column header and confirms the old draft column header is absent.",
-          "Fresh reviewer header screenshot and renewed canonical Summary/Journal images inspected.",
-          "Bank, keys and all domain files unchanged; no evidence reinterpretation."
+          "Fresh blind nw06 solution/key/source comparison",
+          "Reviewer current nb.ts statement read"
         ]
       },
       {
-        "id": "P27-IFA-03",
-        "severity": "major",
+        "id": "PR28-C01",
+        "severity": "minor",
         "status": "fixed",
-        "description": "External Gate7 on2292 and independent source review found VM-only instructions on the supported unseeded RG Create path and other CreateKinds.",
-        "fix": "Actual CreateKind now selects explicit group/VM/plan/app action and reason inside unchanged guards. VM copy includes the conditional foundation-network prerequisite. Group metadata and honest unrelated hosting alternatives are distinguished.",
+        "description": "nw11 feedback confused Resource group with Management group terminology.",
+        "fix": "Feedback explicitly uses Resource group and distinguishes the higher management-group scope.",
         "retests": [
-          "Post-stamp true ordinary-root unseeded RG Review/Create, accepted small foundation VM/new network, nonqualifying foundation selection, correct new Windows/standard/64GiB target reusing subnet, seven real inspections, explicit cause and reload passed.",
-          "Exactly three explicit accepted commands; original guide ID/attempt1/boundarynull retained; zero independent firsts, page errors or external runtime requests.",
-          "All four real Create forms/reloads and1024x768/1024x500 guide/normal returns passed; three fresh Axe0 scans and all12 changed/new canonical plus seven reviewer images inspected.",
-          "Final author full294-test check/build and complete221/17/0 E2E across238 cases passed."
+          "All72 revised feedback entries reviewed by fresh blind reviewer",
+          "Current technical reviewer wording check"
         ]
+      },
+      {
+        "id": "PR28-D01",
+        "severity": "minor",
+        "status": "fixed",
+        "description": "README PR27 section still described Networking as planned without qualification.",
+        "fix": "README now identifies Part A in PR28 and Part B still planned.",
+        "retests": ["Current README continuity read against normal root and Part A boundary"]
+      },
+      {
+        "id": "PR28-R01",
+        "severity": "minor",
+        "status": "fixed",
+        "description": "Denied-aid browser test could cancel the queued preflight before actual denial.",
+        "fix": "Waits for actual visible Networking storage recovery before closing Journal; original assertions retained.",
+        "retests": [
+          "Reviewer reran all10 Networking production E2Es:10 passed, including denied-aid test",
+          "Independent actual denied-write recovery probe passed in first audit and correction timing inspected"
+        ]
+      },
+      {
+        "id": "BR03",
+        "severity": "minor",
+        "status": "open",
+        "description": "Measurement limitation remains open: nw10 is near transfer from the taught CNAME mechanism and nw12 supplies its application-role cause; some reasons permit relevance elimination. Introductory causal/layer distinction only, not advanced diagnosis, far transfer, psychometric quality or exam readiness."
       }
     ],
-    "report": { "path": "docs/quality/PR27_FINAL_AUDIT.md" }
+    "report": { "path": "docs/quality/PR28_FINAL_AUDIT.md" }
   },
   "snapshot": {
     "files": {
-      "AGENTS.md": "ebc4d7eff9a8502645ed38ef722f54bfe984ff8ad9feaa25cfebe792b8f57401",
-      "README.md": "36460b5ece332fd1eb17adeca997a8bbabc87f65390fd846e8fd94b2abae7dfa",
-      "docs/ARCHITECTURE.md": "fa6de63f4755db5fd1452516b9aa24c857a60ed66a182d73807b7566f86903fb",
-      "docs/ASSET_REGISTER.md": "d0037c464f6b7e301bf777ec28c093c0193065a6f7de868e3e01c60cb3e7ee84",
-      "docs/AZ900_ASSESSMENT_BLUEPRINT.md": "8f85b23cadf9ce740cbdb553d45d53a32447855760ab67609d56d3cd3246c9e5",
-      "docs/AZ900_COVERAGE_MATRIX.md": "07c332abf888dc5549c8b217ec752bac3efa32f0a02c403604cf59704efaa1a3",
-      "docs/AZ900_EXPANSION_ROADMAP.md": "81ff771412669106bc30f1c3137a21f93df73165a5c13a6766ffffd26b9d73ce",
-      "docs/AZ900_GAP_ANALYSIS.md": "37ea7de39362ecd8e5b3c69c0f4225eaae4b7911a8e1498b6beea788301b58f7",
-      "docs/COMPUTE_HOSTING.md": "ce454be0310234c28bf271aceabe77a8c29581edd0b9d92f0efde434aac0894f",
-      "docs/CONTENT_ARCHITECTURE.md": "7a94ca55b36bef38867ff90732314890f928697b09fe5a7e9dee40726b1b5ac2",
-      "docs/CONTENT_STANDARDS.md": "5ab846c2d8a3cc07130d0d3033d9d1076e2177b9aa0cde57c0941a78823f8a79",
-      "docs/COURSE_LAB_ORCHESTRATION.md": "f990328332d1192557b265b0690c8d73c2e5a16400183ea90068614632e0b6dd",
-      "docs/CURRICULUM_COVERAGE.md": "010b04d6100124e34560d2c88014b1b62368091cd4666e6fe40d95fce5c64b0a",
-      "docs/DECISIONS.md": "14754914519487468b3920af23ad8cd49db7885d5b7123021c9b1fa191a281ad",
-      "docs/INTERACTIVE_VISUALIZATIONS.md": "e4e336a9a51783f4cbb3293c558277168835663ecc3a1df9c856b9f487eb961a",
-      "docs/LEARNING_DESIGN.md": "678a161802e4116ecb1d821c846c41082fc2371ceb6d0f6770ad81ad88e292a1",
-      "docs/LEARNING_JOURNEY.md": "5ec99ab7df4100e06e53bd5d6e2c5db68228e40af786fc096eccb45c373f6063",
-      "docs/ROADMAP.md": "b64a48a965507ff30503dad5ff3911441bcde3490ea4f31dab2b0da992166368",
-      "docs/SECURITY.md": "bb877ebca32844afb10066bcdc09b9fab420038fb625cef582d35f746f7d6a81",
-      "docs/SOURCE_REGISTER.md": "7edcf9ef9aead22f21997dc4c185335ac3a33938e2d3edcc59860763a8154405",
-      "docs/audits/az900-2026-07-20.json": "4076ff6e7cdd0ac8eff830fc1e6945a3b9dbbb6a56c8acf53da883fcde837647",
-      "docs/screenshots/compute-hosting/app-create-context-short.png": "b192ce308ed492527a8abeca4207d2a573c2fc7addd782e45e17f93e0ae8f829",
-      "docs/screenshots/compute-hosting/assessment-1366.png": "b2b9dbe45d5baa12d8fe99c91f3d7f77b7f1741de55afd1301cc817ed6812600",
-      "docs/screenshots/compute-hosting/avd-1440.png": "0f630c61d8397fb264c6fba98bd5154aec66c51aeb77a44452e474819db4dfc2",
-      "docs/screenshots/compute-hosting/avd-no-host-1024.png": "60cc063b8a24fb00845de28e77a1f43c1e094c144411e532517599ee6152e0b5",
-      "docs/screenshots/compute-hosting/briefing-1440.png": "3766c46853c67b1d1d0e4530319ce8ab4e4e2ccb1c819ebaa3e4991434d504d7",
-      "docs/screenshots/compute-hosting/briefing-short.png": "cc069f523cf55ed8b601e089e4181bb4209029d210c5fb66f9f00d7877233e6b",
-      "docs/screenshots/compute-hosting/capacity-milestone-short.png": "7f53a92d8d14f9000391e92b382fa1a496df28a42b6ac2f098d1593b2533554d",
-      "docs/screenshots/compute-hosting/causal-reflow-200-equivalent.png": "b3e9bd2daef72fe5738b3b9563d32beaa55af17af4adab350fa91c4ea805d5ef",
-      "docs/screenshots/compute-hosting/comparison-1440.png": "3dfb2a5dbd779556c6e9a05c5472e7770466fab6a01c46cb9f7ded5a06aa10f9",
-      "docs/screenshots/compute-hosting/container-anatomy-1440.png": "aa8cc64cefaadf62dbf20be7b40d97590f507f2c8e9efcf01ef8d09156427af5",
-      "docs/screenshots/compute-hosting/container-data-without-process-1366.png": "fc1bba2d69937816882fb97b0c089224a1b276ec317799afd3c2fae0ecbb8738",
-      "docs/screenshots/compute-hosting/container-ephemeral-1920.png": "c1a2063da46ab83fc8d142a87be8148f1653de70bbbba9df77650540f7d93ee7",
-      "docs/screenshots/compute-hosting/container-host-responsibility-1920.png": "14bbeed650fa71744c39b05bdd0479866bd3aef937a1e1f58aa1bd564b860e80",
-      "docs/screenshots/compute-hosting/container-milestone-1366.png": "945874f4a92ba7a2b604a8a946035bd5737a1b4540de3d38d7fef183893d53a3",
-      "docs/screenshots/compute-hosting/container-persistent-1440.png": "b4ff65914a733fce5d76764d4c6a79ac2fda9c3db9f6fe5bfa7d7b0a1565bc67",
-      "docs/screenshots/compute-hosting/container-theory-1920.png": "c435603230b74f1281acbb4f23b5a536607fa82782b3e1d6a51adc6e2b9e3f25",
-      "docs/screenshots/compute-hosting/dependency-failure-1024.png": "2afec439fac652f1b4c70898d06d7a5fbbbbdd9a5e1797fd14df2bfd29ac4fea",
-      "docs/screenshots/compute-hosting/feedback-1440.png": "adc831edc35119a22184ab1afa05638b51d4bc344578ca65cdde82a04660df49",
-      "docs/screenshots/compute-hosting/feedback-short.png": "d504390c9c1fc697e054d531e809cf838bf0eeb5b8ee4e2695800f6f8dbb1e37",
-      "docs/screenshots/compute-hosting/group-create-1024.png": "54af447425ee27d1ce137e3b85dcfd5b4be0afc263c46fc9a3a277077ae44f7e",
-      "docs/screenshots/compute-hosting/group-create-1366.png": "7d89f0fde12bde1f648d74473841ad01363ea29700f5d462c43e410004597768",
-      "docs/screenshots/compute-hosting/group-create-1440.png": "ca8b6977a3e9fece536e4e6deede6b9efefb4fed9d20ce97d886be143d8fb82a",
-      "docs/screenshots/compute-hosting/group-create-1920.png": "5d312bf808c287ffa7abb7f0372bc8ebf3d0fdd9817fb6180d8b52baccb69aa5",
-      "docs/screenshots/compute-hosting/hosting-alternatives-1920.png": "60a4d8aeca77f2e5737c4dc21ea67cfc0d1ffa1038eee410632abbf76c8287f4",
-      "docs/screenshots/compute-hosting/hosting-debrief-1366.png": "bd6895f3085c5b03d53f19da24fb418514f49621479b89227eda41dcbddcbb2f",
-      "docs/screenshots/compute-hosting/introduction-1920.png": "109cb30bd7755d81195f8a8a7367f2b030a5d26cd6b6c19ff2d7368835123286",
-      "docs/screenshots/compute-hosting/journal-1024.png": "955dfc94fb2ba47809cdf5c099a71702fe2be9150549fa43cb4a5ca95586b453",
-      "docs/screenshots/compute-hosting/plan-create-context-1024.png": "786a92148b002bd92cdc02c8ab5449d2281920b1fc4de23e1e8b7325d2f378a2",
-      "docs/screenshots/compute-hosting/root-1024.png": "92657dd71f40aed88fdb9afb5b43231f76432d9010b0a53de6f73d57e413b2bb",
-      "docs/screenshots/compute-hosting/root-1366.png": "e9bafbd5fff809133ad945d85f28595a157cf6aabb1277e2b9c0f823343a7a9d",
-      "docs/screenshots/compute-hosting/root-1440.png": "e95afce6fa3dde47b17561b900916842046dd4b4e468b9ead4368e82d52848f5",
-      "docs/screenshots/compute-hosting/root-1920.png": "8bb6b0f233c239e9cf4e0b874cab70c1ad1df1a4e6b6791c0444aaeaa0047888",
-      "docs/screenshots/compute-hosting/set-zone-failure-1366.png": "d7bbbdefc80d049fdfbabddb85aebff253c29d55a49646cc2dd35667659576f3",
-      "docs/screenshots/compute-hosting/summary-1440.png": "a21f3ce675c195e115a048b8dbd0efbdbf8180ae0d732d81e9824fdde9e8da94",
-      "docs/screenshots/compute-hosting/vm-basics-1440.png": "a2b3861f8aff0bb52df8b05368e3c5ea832c3bfe43aa6ca96161f859ab489c2c",
-      "docs/screenshots/compute-hosting/vm-debrief-1440.png": "21a3b22dafaf7f302694626498e727af1785543127c64fda3a652ccd542acb19",
-      "docs/screenshots/compute-hosting/vm-minimized-1024.png": "dc627a56f7db7055d21551d3c0acca82b3e4ffcd3c2e0d9aa516613b42bf3c44",
-      "docs/screenshots/compute-hosting/vm-overview-1440.png": "79a8c4448cbdc960c177fab23b7b1ef038fb62e74448003efa56018d8c8c1604",
-      "docs/screenshots/compute-hosting/vm-receipt-1366.png": "2d1f72d8c895d30c3b2c3fcc8a6c24925816388f5d460e9d9c00c8fd5ad0bde1",
-      "docs/screenshots/compute-hosting/vm-result-1366.png": "d282e50f49712a12b487820df592a89508a87b92e54858f70b123eb70a9c4c4b",
-      "docs/screenshots/compute-hosting/vm-review-1366.png": "1b9bdaa564cfbbf86211b68c2a7f962d74d9b19376192a93a7424425ec580240",
-      "docs/screenshots/compute-hosting/zones-surviving-1440.png": "c08db3928f4707e443bfb5deb1971bd3ef4c8a377a19a4b5485e650a2bd9055a",
-      "package.json": "112580d3249745b410eb1c33c23d865a7db68d5ecf5f524d57933fb9f1e99b1b",
-      "scripts/az900-audit-check.mjs": "234331054f0437d67f41795f81649ac983dcbe05a63d67b8fdfec7cae0f4c3f1",
-      "scripts/az900-audit-check.test.mjs": "b252944f4743c2e6856ff5afe05d352f68ddf26ea80c6410780f5d0639e023e1",
-      "src/app/layout.tsx": "f84063eedf632675826c97876724d531ec5fc32a2e9b63a27fd777e77ec20cd7",
-      "src/app/learn/[module]/page.tsx": "025b8d79c7a831d933ad2062e148ac43bc0309d46f28bac7ea341fdc310f3a5a",
-      "src/components/progress-provider.tsx": "67d64d6f8445233e70b2d4c82ebe181271857fa3982cff447a6510b29e25868d",
-      "src/content/nb.ts": "e1745be96490aa62c3cb478d359bc060bc2c33459726c4ee6ee6692ea4fe65a2",
-      "src/domain/course/model.ts": "fcfdca4930ce6593e2d11076cb59f0c4151a833bed5b44e275ffc63faeff5921",
-      "src/domain/curriculum/compute-items.ts": "dee0b98d76722ac3c673007686568db346a83070783797deb1013c73afdaf49e",
-      "src/domain/curriculum/compute-model.ts": "153938ed0d505fb17dbb1d115e6b4e7690d2f7057b2e86b35415c60220dac268",
-      "src/domain/curriculum/compute-sources.ts": "b5b6d0a6329e98eb40ef4de73b8ef302753f51c8301c716589765baf0815daeb",
-      "src/domain/curriculum/compute-store.ts": "a765316a8478db9f2a3a339f01bbefed51887dd464d4a5d6ef4eccb3779ba506",
-      "src/domain/curriculum/compute-vm.ts": "68437fdc71b1729c7b61e2f8209d33b2f2eab1b0618d9735f01ec1ef8ef0679e",
-      "src/domain/curriculum/compute.test.ts": "805c36893140f0fb45a0ed93f49fccef9258b5f224ede02f6364fbafaaeb8d4f",
-      "src/domain/curriculum/compute.ts": "ac4d2da55c0e940595fe0f9c817ae26cea13b228baee3c69c2f2019dd42bc151",
-      "src/domain/curriculum/manifest.ts": "eb8a0bc536392b97844e948e19bd6e777db9e010fc0c5b56b529bd4c9b1e6d2c",
-      "src/domain/curriculum/official.ts": "dfeb58559996d205971ada2ce3280480a2f9813c5b5f61c84fb6a51b35cc0153",
-      "src/domain/guidance/milestones.ts": "517b3717a74713ffa400fe6ff1105b8faacb6519b9c2cb632759e64eb10d0651",
-      "src/domain/portal/model.ts": "61a19fd39308f60c2a13eecc07bce18a17765bd86cd9ed80b5a3d91c8d3597d4",
-      "src/features/course/course.tsx": "1eedec4386a8936d11ed339e52675efd6c8539f966731f6c1108f03ad521a48a",
-      "src/features/course/mission-context.ts": "9bbc17a33b80e0c8ce6a70580bc410fa1f2661b986a6f43e9c9163056bcda8d3",
-      "src/features/learning/compute-assessment.tsx": "4062f9d8c319175af92a6e0e64efa40796e6e5139785796060a1b94a9ba35cb3",
-      "src/features/learning/compute-provider.tsx": "1ea32e5a6458dc3fd607cb93217e2bca1b55dd47da0ec7ea546ef8891f6d0d7d",
-      "src/features/learning/compute-visuals.tsx": "bb74a0aff2c5f5652a505454fb1089114a90e98b47f0f6b16e9d6f1d4ea3a427",
-      "src/features/learning/compute-vm.tsx": "7f5b1ea1892aab4f095d3d220efb3335d9a8240833eaf7b8f33c981556804c79",
-      "src/features/learning/compute-workbench.tsx": "dcd64a02bc389648c612af9c758732b1df8fe30507a508f4b01f85d74368495e",
-      "src/features/learning/compute.css": "6439e8211272ed9cce09fe6b3ac183910ae6156fe5c7979e82c32a38e271bc40",
-      "src/features/learning/compute.tsx": "3d8712fc44be8b70aba81787b269aca45d7734c877074fdd20ee1b918a3ef527",
-      "src/features/learning/management-access.tsx": "7bddd9e9e1815bce2049b2812d786d3993e674c8e86e0c6029f7ee9387eb41b3",
-      "src/features/portal/portal.tsx": "6cffed320d98a4f07ecc3f0a355262ad083754cfc09d2e946362ccf36db2044b",
-      "tests/e2e/compute-hosting.spec.ts": "65065bffbeea23ab60136a3681254bc47e4c40c6fd22cfc8d29cb63ab4d7456d"
+      "AGENTS.md": "f29f24d0f5301f2d08e59562ddd0845270b4b953891aa9217a7ca7e75c125245",
+      "README.md": "4c5c7c1ef92e66c94885589446cdabaffe1b992ddbf2ea086734f1a95e145703",
+      "docs/ARCHITECTURE.md": "e5a04c21722a5dce0a6025ffdb039ff0880bcfc221b9d780b3ef94f4f13e4f9b",
+      "docs/ASSET_REGISTER.md": "2407516ed52e236e72e18c4bd27f7670cd664ec674386c18b99689ca2e87654b",
+      "docs/AZ900_ASSESSMENT_BLUEPRINT.md": "dc285023de76e7276d6e96cc623e25e0e20fc78d35b13b15b365b301b499c485",
+      "docs/AZ900_COVERAGE_MATRIX.md": "8bda20c85016f4bd39a8bd19a9f6e8f8641ba4fcc5b5fa3be4c13671b0fb7a76",
+      "docs/AZ900_EXPANSION_ROADMAP.md": "4301415176438b0591fdde6c15a2839c7007807eb7eed6dcb54e2f89577a3984",
+      "docs/AZ900_GAP_ANALYSIS.md": "8d24ae806eeec34110b342d8c57d9888422e0baf7b9bd88c94511ac226d27570",
+      "docs/CONTENT_ARCHITECTURE.md": "692158878e9d15cc9c89a66fc51a4635bba39f385bf27bc44e6b0464a01c891a",
+      "docs/COURSE_LAB_ORCHESTRATION.md": "65ec20f1103966a8325d709ffb2cfde9d6e6838190df984359b98581817300d3",
+      "docs/CURRICULUM_COVERAGE.md": "e4a69ab46f5310b3dcb80e9e868c221d4d07b44127003f1d00484d34c24f71cf",
+      "docs/DECISIONS.md": "3c8254f2e503645c9588272d06ee6429e372e9e8158a8bd9a29b596a8d9324c0",
+      "docs/INTERACTIVE_VISUALIZATIONS.md": "ea9ad664de71a84025fafc03f7944fcbfacd6b221c63c88216df5e16473501c4",
+      "docs/LEARNING_DESIGN.md": "96ee5772f78b95589de9d6ae84580cf94ca1de9d38316f4b4f41fd5a3744682d",
+      "docs/NETWORKING_FOUNDATIONS.md": "b2292e03168a857f78d3da08c9db803829e62c63cd830d9c539568510b7ead47",
+      "docs/ROADMAP.md": "c55a01f5b7ca46dc2614e25b120e61cd5ef46f2342ef1390a5c16f4ebba7fbfd",
+      "docs/SOURCE_REGISTER.md": "08a25318af14b0561688507653d2f2064c644102b3af2ae932564db77e5f3c6d",
+      "docs/audits/az900-2026-07-20.json": "e3b2a3a3252acb41e22ad62d1cd1599797982e315fb8d02d74b92dc52127b8e8",
+      "docs/screenshots/networking-foundations/active-assisted-mission-shield-1366.png": "63cc97587283b310b8d905f9ad51a05c0ecb72853bca1ef85329827aca436970",
+      "docs/screenshots/networking-foundations/actual-debrief-1440.png": "b4a98008ef7360bed5c756b041009b7aa8001074585cc005d5a9a094a58e82c0",
+      "docs/screenshots/networking-foundations/actual-group-create-1366.png": "25cbc7503038383f02c57901f6f07af729c0db11a7678e678db587b5e852c29f",
+      "docs/screenshots/networking-foundations/actual-network-milestone-short.png": "9adbd270a5361c24f308029daa8a89a04765077713753fce53cc7b8cfed11b06",
+      "docs/screenshots/networking-foundations/actual-receipt-1366.png": "078d2a97d76684dba6f105ec284a7795aaf805fbb4a1290af0fd24e90a04237c",
+      "docs/screenshots/networking-foundations/actual-subnet-1024.png": "83eb2625cc0c0365701557b0258225f67c4f737c140849448969606445406956",
+      "docs/screenshots/networking-foundations/actual-vm-create-1440.png": "ecf0756355a547f59b5bd247bcd583213acfdbda67b97a247191b348b75bf139",
+      "docs/screenshots/networking-foundations/actual-vm-overview-1440.png": "2e9a9ff65a9bc455d7a96f2b4ff01e215d0dedaaa79904a0b63f91b44f78ca4d",
+      "docs/screenshots/networking-foundations/actual-vnet-1920.png": "053c2c0d2710c4bfa4120ae17c6c47b3d14ec151a6792df41c2fc33c51849092",
+      "docs/screenshots/networking-foundations/address-corrected-1440.png": "a2819d5a4d2925f0afbe0e184556d3bde97513693a4d917606a6ebab1d3ff57c",
+      "docs/screenshots/networking-foundations/address-debrief-1024.png": "2f1c2bba6ddbd95380126f215cbd397ba3d634844a8c43f75f61e294a3cfe63a",
+      "docs/screenshots/networking-foundations/address-overlap-1366.png": "dfc98e036acf570331e78248fe1e732ee9f6cf24a8adbfc16b314875cc920671",
+      "docs/screenshots/networking-foundations/address-overlap-1920.png": "aa9e09bddd11d3b5485cbefd48c2e81fa83a59e47963d602507921d01eedbc60",
+      "docs/screenshots/networking-foundations/assessment-1024.png": "96863f781254397343a9ad2062e5340864ba0872cabdb1e812681bc715bd2096",
+      "docs/screenshots/networking-foundations/assessment-1920.png": "c5d51687e3050d1953257344a11b88132d2077c9ebcac3783d920c5db88d5b4a",
+      "docs/screenshots/networking-foundations/briefing-1440.png": "8c81d253f711ed05ca65579086a47ba12a6c9e7beb4cea4560b53af4c1590b27",
+      "docs/screenshots/networking-foundations/briefing-short-end.png": "ce756fb34381e0393894996bd4faf9730fefa7436a24042f580432f9c1133245",
+      "docs/screenshots/networking-foundations/briefing-short-top.png": "806eb3b5e6089950db0349977c1f04bcce09cf56c21287d9390d6d24185c1b20",
+      "docs/screenshots/networking-foundations/causal-reflow-200-equivalent.png": "0bfe9129daf247726ad3346afe5d070d4dd3e8cb83b450f47ddc1744897604d8",
+      "docs/screenshots/networking-foundations/denied-aid-journal-1024.png": "3ea141b5a56f52bb83505c9d16998a844a08a8a7aef673fc288d2a2a0d02f823",
+      "docs/screenshots/networking-foundations/dns-milestone-1024.png": "3cea04322e29a6aa01d44d16ee8b4de91d5f880c5061a71b9dabda927bc1112b",
+      "docs/screenshots/networking-foundations/dns-missing-link-1366.png": "7ffe35461390847c62c3050c88c672364165c01d0c580794bf8857d886e1c9dd",
+      "docs/screenshots/networking-foundations/dns-resolved-no-path-1024.png": "a47c8ac02d2b725baed60d72fe9c8421e92e42edab566ee50c704c21fab87466",
+      "docs/screenshots/networking-foundations/dns-resolved-no-path-1920.png": "e33b09f01846e6700aa3851db7b2d7c4d3d43be282220ae2d7607a8b568e014c",
+      "docs/screenshots/networking-foundations/explorer-perspectives-1440.png": "39194cf452c57168f42393004f6d7a092a097fb457cb9ba2184ba9beae3cb2d4",
+      "docs/screenshots/networking-foundations/feedback-1440.png": "ef28ad9fa03b46d32346666d6a2c5d538987266339c23c7acf43f7d042400bce",
+      "docs/screenshots/networking-foundations/feedback-short.png": "1a2ecef93768192cd0656bbb91e23f6b99f2978482482e1939124f4fa105a3d5",
+      "docs/screenshots/networking-foundations/introduction-1920.png": "fcfdb6ddeda5ff7ae13f6d8dc44145761dd93d28c2c7c5c01e3c4724ed7da287",
+      "docs/screenshots/networking-foundations/journal-1024.png": "71e6e691dee97d37248cbcd4a4b36cf4feb1ceaf50b6ae933e0695d2e7c7d920",
+      "docs/screenshots/networking-foundations/network-structure-1440.png": "d3540e616612ecae708b8e5e18da727a637a9f09c39a1355622943a04f496917",
+      "docs/screenshots/networking-foundations/own-independent-mission-controls-1024.png": "e4ee1d17d03fe34e8d58ddf5cc08893df7497de2079d1a690445cbf59e8185bb",
+      "docs/screenshots/networking-foundations/peering-direct-1440.png": "861ba6556771556c5e25b4e19b01e3acb0b7b698773744115bcad1f6637b566f",
+      "docs/screenshots/networking-foundations/peering-milestone-short.png": "67b2ad15b287e4d1275f80c73409a653f2be24737b8ad9ac8f37b80da64882f8",
+      "docs/screenshots/networking-foundations/peering-nontransitive-1920.png": "7b6758839ca11382014996de3502216843fc573d1702067c2af948d26354a82c",
+      "docs/screenshots/networking-foundations/root-1024.png": "567f3120e2c048e0ea6a15d9fd1280b95b8f23d5c065e159ca831176870f6ebf",
+      "docs/screenshots/networking-foundations/root-1366.png": "b8c71fb179787daf1d56f57c5b82821186b0e88cd9413ad371293bfb44c8d693",
+      "docs/screenshots/networking-foundations/root-1440.png": "64d600d1ccafed33430a933954ad4e542d4f5ce391d2e5b80dae2e25c983a454",
+      "docs/screenshots/networking-foundations/root-1920.png": "09c5f79c76b5c39a75066d1bf3afbe4c5b40af447ec53e0eab72f00ea219cdfe",
+      "docs/screenshots/networking-foundations/summary-1366.png": "07f30e0b75287a927013727cde73f4ddbde1a306a63e24af9f7d19ddca9c4cff",
+      "package.json": "4d9ab4d4e8ea7186539ab04a095f757a30f3b4d8e56e0a9837e49a15c918e6ff",
+      "src/app/layout.tsx": "258aa947684747dee0a27015b6fbf3408e2c62b4cd155b7f15f3e2c36088752a",
+      "src/app/learn/[module]/page.tsx": "0ae4d27570be712688f1562cee81d41c2c9c55d84dcb41a82e21aabbc2f902e9",
+      "src/components/progress-provider.tsx": "81ea0a21e085aa76edca19c704aa460898233a7bd2c2b683bbefe9f62da21042",
+      "src/content/nb.ts": "402cb48e2c04e821a00f6aa6ae709bb7b7f9b09528bf4032f5b6284f22786c54",
+      "src/domain/course/model.ts": "663f34057e617aee51f9186f83bd70d6ba0a59c7c63d272304bd72a5c512b2d4",
+      "src/domain/curriculum/manifest.ts": "e9c8803d22b62a991cec003436adef6d18bd756ded8b7a086911dda67f9260d0",
+      "src/domain/curriculum/networking-inspection.ts": "192c761a2540d5b31066357184895dc090cded83618f8790100eda0cd853ba6b",
+      "src/domain/curriculum/networking-items.ts": "1312be2b989e16f1d925f8bc02e44971db348a8205e182581b73b92424b585ae",
+      "src/domain/curriculum/networking-model.ts": "2759ce230453c0c12be01c6f9de6920747d7491d297ff316fcc735a83e37ff0f",
+      "src/domain/curriculum/networking-sources.ts": "a5782cd730bef480a515e3db860ab7590a51a2e06dc74f0310d15b68fd2c9930",
+      "src/domain/curriculum/networking-store.ts": "42875477938e20a4c0e4076227b73d452d460aedf81035e5ed0b6364bf65912c",
+      "src/domain/curriculum/networking.test.ts": "520f211242bb30e404c7750e6822f00d0933d67bc053f42f8fd540b9a662317c",
+      "src/domain/curriculum/networking.ts": "6089e7a40d85909e604072a8155dd9765ffbfdda0d052e7b4228fe6418a6b253",
+      "src/domain/curriculum/official.ts": "868dab81f5fbfc9eb3e9aea9fdfcf4b896f1db1e739a2c731becf23a99b794eb",
+      "src/domain/guidance/milestones.ts": "f63b002f53947112d9ac9c963e9ed5d7ac46c6b6a82e1f32f2bd8d9195739f9a",
+      "src/domain/portal/model.ts": "4f17a8a9ab85348ea24f9d2ac98623320bea79e2199e48725827c748cdf84f17",
+      "src/features/course/course.tsx": "72e54b02cd8a8aabf7f0b4531b95b29a83ff06e7d75d493c092cd4f46c7e07c9",
+      "src/features/course/mission-context.ts": "67a60a042a0428b184ae72e84494655d66160b6ceabbf93b01b1e8d0f408ccfe",
+      "src/features/course/mission-diagnosis.tsx": "c8a71441453866a132a9e638e995fa0919251fe0ba8107f17c6c232b618ae49b",
+      "src/features/course/missions.tsx": "4c45d75e2588db9bf9c531fd2d8a8e0122d36aa18c03e9f5095b468d8d6f2e25",
+      "src/features/learning/compute.css": "f79b4041153db5817a4eba1347ecd9d6246818a37266e1ca3b1fdeb6259789ae",
+      "src/features/learning/management-access.tsx": "b947e47ae5ced2172787ca7620bfaa42a50de564bd653e215f4ca59bb1d200a2",
+      "src/features/learning/networking-assessment.tsx": "ea09a41838bcbc15f4ee0f5c0028aeda30b6f4bf23fb494015f72f3eb2da2e39",
+      "src/features/learning/networking-inspection.tsx": "fc6d3a3dbf0496aac9d8f83007b5cbeb9314abd29c2bdca8601c342c7ab96734",
+      "src/features/learning/networking-provider.tsx": "2f30903e6958c1b55ef5a10503f3bc5bebf28a3f3929ea5e27acfbbe8cd603ec",
+      "src/features/learning/networking-visuals.tsx": "ea3e24cb942c171977daf266541fa4693f178f3acbabb04c4fc45fccfb73463f",
+      "src/features/learning/networking-workbench.tsx": "114cdfd434afae549675b942aa8b5208fa32dc8176bb05e32f47f293de0987e4",
+      "src/features/learning/networking.css": "a636e3c669bf5f083eae62ebd31213fbd3c6a493b05f36940e9e8346bbf7da42",
+      "src/features/learning/networking.tsx": "a7fc47d9ae2fb6854138471b927f9cfb559317340608e130b572d484dbccc85a",
+      "src/features/portal/portal.tsx": "a5bd589052ea5e24f0006fa823da37c343661590a2860ec386c66497fd63625a",
+      "tests/e2e/compute-hosting.spec.ts": "b0e087175f3493536b006f7f087a5d95843b138fe82d673c31a3723037a50fb3",
+      "tests/e2e/networking-foundations.spec.ts": "f0fddffe1b5f8fb7aeb8ec415a80fa0dac165b87cc45709faec3822e324f0b2f"
     }
   },
-  "implementationFinished": "2026-10-28T12:45:32.571Z"
+  "implementationFinished": "2026-10-28T16:37:55.054Z"
 }

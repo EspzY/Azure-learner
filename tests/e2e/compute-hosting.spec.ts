@@ -14,6 +14,11 @@ import {
 } from '../../src/domain/curriculum/compute';
 import { applyCost, freshCost, costKey, costFacts } from '../../src/domain/curriculum/cost';
 import { SandboxStore, sandboxKey } from '../../src/domain/sandbox/store';
+import {
+  networkingKey,
+  applyNetworking,
+  freshNetworking,
+} from '../../src/domain/curriculum/networking';
 import { courseKey } from '../../src/domain/course/model';
 import { freshLearning, applyLearning, learningKey } from '../../src/domain/curriculum/foundations';
 import { freshV2, applyV2, foundationsV2Key } from '../../src/domain/curriculum/foundations-v2';
@@ -672,11 +677,12 @@ test('keyboard, Axe, reduced motion and constrained desktop views expose all req
   await expect(page.getByRole('button', { name: c.labels.recall, exact: true })).toBeFocused();
 });
 
-test('all twelve older independent contexts durably shield Compute teaching and Journal on denied assistance', async ({
+test('all other independent contexts durably shield Compute teaching and Journal on denied assistance', async ({
   browser,
   baseURL,
 }) => {
   const fixtures = [
+    [networkingKey, applyNetworking(freshNetworking(), { kind: 'begin', item: 'nw01' })],
     [learningKey, applyLearning(freshLearning(), { kind: 'begin-transfer' })],
     [foundationsV2Key, applyV2(freshV2(), { kind: 'begin' })],
     [serverlessKey, applyServerless(freshServerless(), { kind: 'begin' })],

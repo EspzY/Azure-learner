@@ -1,5 +1,9 @@
 # AZ-900 — fremtidig diagnostikk og læringsoverføring
 
+## P06 original Networking application
+
+Twelve original cases in four versioned families test management/network structure, CIDR boundary/capacity/canonical form, global/whole-VNet-versus-subnet-scope planning/selected-subnet peering and DNS delegation/alias/custom resolver/authorization. Decision and reason must form the documented causal pair. First submissions, aid, retry/family exposure and abandon are separate; all-context durable access precedes historical feedback/Journal/teaching. Exact repetition links and every alternative are explained after submission. This is a bounded module supplement, not a general exam engine. [Case map](NETWORKING_FOUNDATIONS.md).
+
 ## P05 implemented Compute application
 
 Fourteen original cases span guest control/event/lifecycle, fleet/FD-UD/AVD/dependency failure, VM storage/network/configuration and orchestration/HTTP/batch hosting. Each pairs a decision with its reason and candidate-specific feedback; multiple defensible HTTP and batch pairs are supported. Scenario family, item/rubric version, first/help/retry/abandon and exact lesson links remain separate from prior evidence. Guided models never supply independent credit. No general diagnostic engine, psychometric validation or readiness claim. [Actual case map](COMPUTE_HOSTING.md).

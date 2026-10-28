@@ -1,4 +1,6 @@
 'use client';
+import { networkingKey } from '@/domain/curriculum/networking';
+
 import { retiredStorageKeys } from '@/domain/retired-storage';
 import { serviceLearningKey } from '@/domain/portal/learning';
 import { courseKey } from '@/domain/course/model';
@@ -96,6 +98,7 @@ export function ProgressProvider({ children }: { children: React.ReactNode }) {
         transferKey,
         costKey,
         computeKey,
+        networkingKey,
       ])
         localStorage.removeItem(key);
     } catch {

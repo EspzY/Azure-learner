@@ -1,5 +1,9 @@
 # Curriculum coverage audit
 
+## P06 facet coverage
+
+NW01–04 bind VNet, addressing/subnets, peering and DNS to the named2.2.05 facets. Eight original teaching sections, four guided applications, twelve new independent cases and selected/counterfactual feedback have exact source/code/test pointers. Aggregate2.2.05 remains PARTIAL until P07;2.2.06 unchanged. [Traceability](NETWORKING_FOUNDATIONS.md). Structural/source coverage is distinct from learner evidence and unperformed human validation.
+
 ## P05 scoped Compute coverage
 
 CP01–04 connect official2.2.01–04 to full original teaching, pure model/actual VM applications and14 independently versioned changed situations. All named VM/container/Functions, VMSS/set/AVD, VM dependency and application-hosting facets have documented A–F content coverage in the generated matrix. Networking2.2.05–06 is unchanged. This is agent-reviewed structural/content coverage, not demonstrated learner mastery or human approval. [Traceability](COMPUTE_HOSTING.md).

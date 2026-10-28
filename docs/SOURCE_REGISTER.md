@@ -1,5 +1,9 @@
 # Source and credential register
 
+## P06 official source review —2026-10-28
+
+NS01–19 in `networking-sources.ts` and the scoped release map all public Networking Learn framing/teaching/summary units and necessary product supplements. Subnet-peering participating-space/route/SKU qualifications and Private DNS link/resolver prerequisites are explicit. Protected assessment is excluded; VPN/ExpressRoute units are deferred context. NS20 default-outbound page was unavailable; no default-outbound claim is adopted. [Discovery/claims/limitations](NETWORKING_FOUNDATIONS.md). No third-party question or illustration copied.
+
 ## P05 official source review —2026-10-28
 
 PS01–38 in `compute-sources.ts` and the scoped release record map current AZ900, all public Compute Learn units, linked supplementary App Service material and product references to actual claims. Qualifications include Flexible/Uniform VMSS, current availability recommendations, ARM AVD, Automatic/Standard AKS, Hyper-V isolation and plan-dependent Functions. PS38 separately confirms ACI run-to-completion/restart-policy qualifications. Protected assessment is excluded. Repeated ACI overview503 is BLOCKED, with available official alternatives. [Source/discovery and claim table](COMPUTE_HOSTING.md). No proprietary illustration or question copied; original SVGs use no new assets.

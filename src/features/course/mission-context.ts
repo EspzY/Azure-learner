@@ -1,6 +1,8 @@
 'use client';
+import { useNetworking } from '@/features/learning/networking-provider';
+import { networkingHref } from '@/domain/curriculum/networking';
 import type { MissionSession } from '@/domain/sandbox/missions';
-import { missionEvaluation } from '@/domain/sandbox/missions';
+import { missionEvaluation, missionOrigin } from '@/domain/sandbox/missions';
 import { useSandbox } from '@/features/portal/sandbox-provider';
 import { useMissions } from './mission-provider';
 import { useManagement } from '@/features/learning/management-provider';
@@ -32,8 +34,10 @@ export function useMissionResult(session?: MissionSession | null) {
     result: missionEvaluation(s, engine, archived && s ? s.attempt : technical.attemptNumber),
   };
 }
-export function useMissionSafetyContexts() {
-  const management = useManagement(),
+/** Default: every independent context. Only PR24's own task controls omit their own store. */
+export function useMissionSafetyContexts(owner?: 'missions') {
+  const missions = useMissions(),
+    management = useManagement(),
     physical = usePhysical(),
     sl = useServerless(),
     f = useLearning(),
@@ -46,83 +50,103 @@ export function useMissionSafetyContexts() {
     technical = useSandbox(),
     transfer = useTransfer(),
     cost = useCost(),
-    compute = useCompute();
-  return [
-    {
-      id: 'compute',
-      state: compute,
-      active: compute.facts.active,
-      href: computeHref('assessment', compute.facts.current?.item),
-    },
-    {
-      id: 'cost',
-      state: cost,
-      active: cost.facts.active,
-      href: costHref('assessment', cost.facts.current?.item),
-    },
-    {
-      id: 'transfer',
-      state: transfer,
-      active: transfer.facts.active,
-      href: transfer.facts.current
-        ? transferHref(transfer.facts.current.item)
-        : '/learn/computing?topic=transfer',
-    },
-    {
-      id: 'management',
-      state: management,
-      active: management.facts.active,
-      href: '/learn/architecture?topic=management-assessment',
-    },
-    {
-      id: 'physical',
-      state: physical,
-      active: physical.facts.active,
-      href: '/learn/architecture?topic=assessment',
-    },
-    {
-      id: 'serverless',
-      state: sl,
-      active: sl.facts.active,
-      href: '/learn/computing?topic=serverless-assessment',
-    },
-    {
-      id: 'foundations',
-      state: f,
-      active: f.facts.active,
-      href: '/learn/computing?topic=assessment&version=1',
-    },
-    { id: 'v2', state: v2, active: v2.facts.active, href: '/learn/computing?topic=v2-assessment' },
-    {
-      id: 'portal',
-      state: old,
-      active: old.facts.active,
-      href: '/portal?area=challenge&mode=independent',
-    },
-    {
-      id: 'benefits',
-      state: benefits,
-      active: benefits.facts.active,
-      href: '/learn/benefits?topic=assessment',
-    },
-    {
-      id: 'services',
-      state: services,
-      active: services.facts.active,
-      href: '/learn/services?topic=assessment&version=2',
-    },
-    {
-      id: 'practical',
-      state: practical,
-      active: practical.activeIndependent,
-      href: '/learn/services?topic=practice',
-    },
-    { id: 'course', state: course, active: false, href: '/learn' },
-    { id: 'technical', state: technical, active: false, href: '/portal' },
-  ] as const;
+    compute = useCompute(),
+    networking = useNetworking();
+  return (
+    [
+      {
+        id: 'missions',
+        state: missions,
+        active: missions.active,
+        href: missionOrigin(missions.activeSession?.mission ?? 'diagnose'),
+      },
+      {
+        id: 'networking',
+        state: networking,
+        active: networking.facts.active,
+        href: networkingHref('assessment', networking.facts.current?.item),
+      },
+      {
+        id: 'compute',
+        state: compute,
+        active: compute.facts.active,
+        href: computeHref('assessment', compute.facts.current?.item),
+      },
+      {
+        id: 'cost',
+        state: cost,
+        active: cost.facts.active,
+        href: costHref('assessment', cost.facts.current?.item),
+      },
+      {
+        id: 'transfer',
+        state: transfer,
+        active: transfer.facts.active,
+        href: transfer.facts.current
+          ? transferHref(transfer.facts.current.item)
+          : '/learn/computing?topic=transfer',
+      },
+      {
+        id: 'management',
+        state: management,
+        active: management.facts.active,
+        href: '/learn/architecture?topic=management-assessment',
+      },
+      {
+        id: 'physical',
+        state: physical,
+        active: physical.facts.active,
+        href: '/learn/architecture?topic=assessment',
+      },
+      {
+        id: 'serverless',
+        state: sl,
+        active: sl.facts.active,
+        href: '/learn/computing?topic=serverless-assessment',
+      },
+      {
+        id: 'foundations',
+        state: f,
+        active: f.facts.active,
+        href: '/learn/computing?topic=assessment&version=1',
+      },
+      {
+        id: 'v2',
+        state: v2,
+        active: v2.facts.active,
+        href: '/learn/computing?topic=v2-assessment',
+      },
+      {
+        id: 'portal',
+        state: old,
+        active: old.facts.active,
+        href: '/portal?area=challenge&mode=independent',
+      },
+      {
+        id: 'benefits',
+        state: benefits,
+        active: benefits.facts.active,
+        href: '/learn/benefits?topic=assessment',
+      },
+      {
+        id: 'services',
+        state: services,
+        active: services.facts.active,
+        href: '/learn/services?topic=assessment&version=2',
+      },
+      {
+        id: 'practical',
+        state: practical,
+        active: practical.activeIndependent,
+        href: '/learn/services?topic=practice',
+      },
+      { id: 'course', state: course, active: false, href: '/learn' },
+      { id: 'technical', state: technical, active: false, href: '/portal' },
+    ] as const
+  ).filter(({ id }) => owner !== 'missions' || id !== 'missions');
 }
-export function useMissionSafety() {
-  return useMissionSafetyContexts().every(
+export function useMissionSafety(owner?: 'missions') {
+  return useMissionSafetyContexts(owner).every(
     ({ state, active }) => state.ready && !state.issue && !active,
   );
 }

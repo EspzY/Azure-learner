@@ -1,5 +1,9 @@
 # Course/lab orchestration
 
+## P06 read-only network investigation
+
+`networking=inspect` is a navigation-only origin, mutually exclusive with previous lab origins. Mission A pins Sandbox attempt/start boundary, lets existing or newly created supported VMs be selected, and requires seven fresh inspected references. Exact return is `/learn/networking?topic=dependencies`. Guide instructions check actual page/CreateKind/resource identity; no DNS/peering action appears on unsupported forms. Prior-resource reuse is not new-build or independent credit. [Contract](NETWORKING_FOUNDATIONS.md).
+
 ## P05 real VM mission and conceptual workbenches
 
 `compute=vm` is allowlisted navigation state, not an old practical session or completion flag. The current Compute guide pins actual Sandbox attempt/start boundary; ordinary CreateVmBundle commands/receipts remain authoritative. Its exact return is `/learn/compute?topic=dependencies`; new build and seven references precede explicit debrief. Existing groups/networks are reusable, no global reset required. Other Compute guides use pure educational models and never issue Portal operations. [Orchestration/compatibility](COMPUTE_HOSTING.md).
