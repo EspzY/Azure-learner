@@ -1,5 +1,9 @@
 # Roadmap
 
+## PR27 — P05 Compute & Hosting
+
+Implemented ordinary Compute teaching/models, four guided applications and14 independent cases with isolated records. [Actual scope](COMPUTE_HOSTING.md); final delivery gates belong to PROJECT_STATUS. Next: P06 Networking Part A, then P07 hybrid connectivity/endpoints. No VMSS/AVD/container/Functions operational engine or advanced certification scope introduced.
+
 ## PR26 — P04 Cost Management
 
 Implemented in the ordinary course: full cost theory, four synthetic economic investigations and ten independent scenarios with separate versioned records. [Actual contract](COST_MANAGEMENT.md). Delivery gates and human limitations are tracked in PROJECT_STATUS; remaining governance modules are planned. Next: P05 Azure Compute & Hosting; no operational billing/FinOps expansion in P04.

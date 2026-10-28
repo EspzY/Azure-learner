@@ -1,5 +1,9 @@
 # Learning journey and competency universe
 
+## P05 ordinary learning sequence
+
+Root → Core Architecture → Compute introduction/fundamentals → VM/resources → containers → Functions bridge → VM options/resilience → AVD → hosting → guided applications → independent assessment → Summary/Knowledge Journal. Cost Management remains the first separate management/governance module. Navigation/resume does not award completion or XP. Networking/Storage remain planned. [Implemented sequence](COMPUTE_HOSTING.md).
+
 ## P04 current management/governance entry
 
 After the available Cloud Concepts and Core Architecture areas, the ordinary course exposes the first module of **Introduction to Cloud Infrastructure: Describe Azure management and governance**: Cost Management. Its nine activities connect drivers, estimates, recorded synthetic analysis, forecasts/budgets, tags and optimization to four guided investigations and new independent decisions. Journal, exact topic resume and explicit separate result status use the established shell; no old completion upgrades or new XP. Other management/governance modules remain planned. [Implemented sequence](COST_MANAGEMENT.md).

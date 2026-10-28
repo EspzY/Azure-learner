@@ -1,5 +1,9 @@
 # Curriculum coverage audit
 
+## P05 scoped Compute coverage
+
+CP01–04 connect official2.2.01–04 to full original teaching, pure model/actual VM applications and14 independently versioned changed situations. All named VM/container/Functions, VMSS/set/AVD, VM dependency and application-hosting facets have documented A–F content coverage in the generated matrix. Networking2.2.05–06 is unchanged. This is agent-reviewed structural/content coverage, not demonstrated learner mastery or human approval. [Traceability](COMPUTE_HOSTING.md).
+
 ## P04 Cost Management
 
 CM01–04 implement the four3.1.01–04 requirements through full theory, explicit mechanisms, four guided workbenches, two original independent contexts per principal goal, all-alternative feedback and reviewed official sources. CM05 adds conditional optimization choices from the current Learn module. The generated [matrix](AZ900_COVERAGE_MATRIX.md) and CO profile bind actual files/symbols/tests; COMPLETE describes A–F content coverage, not student competence or human approval. Other governance modules remain unavailable. [Source/assessment qualifications](COST_MANAGEMENT.md).

@@ -119,3 +119,7 @@ Original procedural score **Lysningen**, creator AzureLab project: Dm9/Bbmaj7/Fm
 Runtime `public/game/audio/lysningen.wav` (retired): 32 seconds, PCM16 mono 22,050 Hz, 1,411,244 bytes; decoded float buffer approximately 2.8 MB. Integer-cycle oscillators and periodic chord envelopes make the loop boundary continuous. Fetch/decode occurs only after explicit enable, not initial rendering. No decoder/streaming dependency; effects use a short original Web Audio tone. assets:check validates hash/RIFF/license/allowlist and <1.5 MB transfer. Native browser playback is tested; human listening/musical acceptance is outstanding.
 
 Provisioning flow, responsibility matrix, deployment comparison and synthetic timelines are original HTML/SVG/scene projections of reviewed local rules. No external image is downloaded, traced or hotlinked. Existing 26 GLBs and character/texture licenses/hashes are unchanged.
+
+## PR27 original Compute figures and captures
+
+Compute teaching diagrams are original code-native SVG/HTML/CSS, with no external bitmap or new icon package. Actual AzureLab screenshots use only synthetic training data. Existing Portal resource identities reuse the centrally registered licensed assets. Private owner reference captures are not committed. [Scope and source limits](COMPUTE_HOSTING.md).

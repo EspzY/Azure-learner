@@ -1,5 +1,9 @@
 # Content authoring and acceptance contract
 
+## P05 mechanism and interpretation application
+
+Compute teaching distinguishes package from process, process-kernel sharing from Hyper-V isolation, FD from UD from zone, fleet management from autoscale, publication from an AVD user session and configuration from application health. Every model declares its assumptions before prediction. The four guides require saved technical/model witnesses and a causal explanation; opening a page never completes them. Structured independent decision/reason relations permit multiple valid architectures when warranted. [Applied manuscript and limitations](COMPUTE_HOSTING.md).
+
 ## P04 economic modeling application
 
 Economic teaching must distinguish estimates, recorded synthetic observations, projections, budgets and invoices. Explain units before input, use explicit fictional rates, a common zero baseline and equivalent tables. A Portal receipt contains no authoritative price, traffic, billing hours or invoice. Commitment discounts apply only to declared eligible compute in this bounded model; retain storage/network/license/support costs and runtime constraints. Resource tags, Policy modification and report inheritance are separate mechanisms. New first/help/retry evidence remains separate from guided investigations and historical data. [Implemented example](COST_MANAGEMENT.md).

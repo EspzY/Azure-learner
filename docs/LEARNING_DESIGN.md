@@ -1,5 +1,9 @@
 # Learning design
 
+## P05 workload-to-mechanism reasoning
+
+Compute starts with five distinct workloads, then develops execution/control, VM dependencies, container lifecycle, event hosting, fleet/resilience, desktop publication and platform selection. Four applications alternate real operations and explicit conceptual investigation. Independent situations change requirements and decision structure; feedback includes counterfactuals and exact repetition links. Saved draft/run/causal explanation are distinct from navigation and first independent results. [Sequence](COMPUTE_HOSTING.md).
+
 ## P04 economic reasoning
 
 The course moves from a workload requirement through cost drivers, estimate assumptions, dated analysis, budget/projection contrast, metadata allocation and operationally constrained optimization. Predictions are compared with saved model inputs/results; explicit causal explanations distinguish guided investigation from ten unseen decision/reason situations. SavvyShark introduces each investigation, reports only validated runs and reopens two significant observed milestones. No arbitrary interaction completes learning. [Detailed sequence](COST_MANAGEMENT.md).

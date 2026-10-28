@@ -1,5 +1,9 @@
 # AzureLab 3.2.1
 
+## Azure Compute & Hosting — PR27
+
+The ordinary root exposes **Describe Azure compute services** after Core Architecture in the architecture/services path. Fourteen activities combine full original teaching, VM/container/Functions comparison, container lifecycle, declared capacity/failure boundaries, ARM-based AVD relationships and requirement-led hosting. Four guided applications include an actual bounded VM build/inspection;14 new independent decision/reason situations and the full Knowledge Journal use isolated versioned evidence. Pure models create no Azure resources, traffic, sessions or runtime. [Implemented scope, claims and compatibility](docs/COMPUTE_HOSTING.md). Networking remains planned; human learning/SME/UX validation is outstanding.
+
 ## Cost Management — PR26
 
 The normal root now exposes **Describe cost management in Azure** as the first module in **Introduction to Cloud Infrastructure: Describe Azure management and governance**. Nine course activities combine full original theory, four SavvyShark investigations, component-level estimates, dated cost analysis, forecast/budget contrast, tag reporting and ten new independent decision/reason cases. All economic values are fictional ØK assumptions, separate from real local Portal resources; no Azure account, billing, prices or new XP. [Actual content, source review and evidence boundary](docs/COST_MANAGEMENT.md). Remaining governance modules stay planned; human validation is outstanding.
@@ -28,9 +32,9 @@ The ordinary root → **PaaS practical lab** → actual location-policy rejectio
 
 ## AZ-900 curriculum audit — 2026-10-26
 
-This branch delivers an audit and implementation blueprint, not new curriculum or an exam. The current official July20,2026 objectives were checked against actual manuscripts, activities, independent tasks, feedback, sources and code/tests at PR18 `184b818a041919b9a6461310c3ba39074e020641`. Cloud concepts:6 COMPLETE/8 PARTIAL/1 MISSING; architecture/services:0/12/15; management/governance:0/8/7. These counts are not exam-pass probability; qualified human SME/learning review remains outstanding.
+PR19 delivered the original read-only audit and implementation blueprint against PR18 `184b818a041919b9a6461310c3ba39074e020641` and the official July20,2026 objectives. Its historical counts were Cloud concepts:6 COMPLETE/8 PARTIAL/1 MISSING; architecture/services:0/12/15; management/governance:0/8/7. Later scoped implementations update the [current coverage matrix](docs/AZ900_COVERAGE_MATRIX.md). Coverage is not exam-pass probability; qualified human SME/learning review remains outstanding.
 
-Start with the [57-objective matrix](docs/AZ900_COVERAGE_MATRIX.md), [gap analysis and current Learn structure](docs/AZ900_GAP_ANALYSIS.md), [bounded PR sequence](docs/AZ900_EXPANSION_ROADMAP.md) and [future diagnostic blueprint](docs/AZ900_ASSESSMENT_BLUEPRINT.md). Recommendation: small serverless extension first, then core architecture in two reviewable parts. No new modules, resources, XP or assessment changes. `npm run az900:audit:check` validates offline audit references/structure, not educational truth. Existing `/` → `/learn` is unchanged; only this audit branch's Vercel preview shows a clearly labelled link to its exact-commit documentation. No hidden learning route.
+Start with the [57-objective matrix](docs/AZ900_COVERAGE_MATRIX.md), [gap analysis and current Learn structure](docs/AZ900_GAP_ANALYSIS.md), [bounded PR sequence](docs/AZ900_EXPANSION_ROADMAP.md) and [future diagnostic blueprint](docs/AZ900_ASSESSMENT_BLUEPRINT.md). PR19 recommended serverless first and core architecture in two parts; those implementations and later expansions are described above. `npm run az900:audit:check` validates references/structure, not educational truth. The historical audit-only preview entry is restricted to its original branch; current learning additions are accessible through the ordinary course.
 
 ## Exact-reference Portal correction — review branch
 

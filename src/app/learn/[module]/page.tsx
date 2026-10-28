@@ -8,7 +8,8 @@ export default async function ModulePage({ params }: { params: Promise<{ module:
     module !== 'computing' &&
     module !== 'benefits' &&
     module !== 'architecture' &&
-    module !== 'cost'
+    module !== 'cost' &&
+    module !== 'compute'
   )
     notFound();
   return (

@@ -132,7 +132,7 @@ export function renderMatrix(audit) {
     '',
     '> Generert fra [auditdata](audits/az900-2026-07-20.json) med `npm run az900:audit:check -- --write`. Rediger funnene i JSON; kontrollen avviser en utdatert matrise. Datafilen importeres aldri av læringsplattformen.',
     '',
-    `Kontrollert **${audit.reviewed}**. Offisielt grunnlag: Skills measured **${audit.examVersion}**, fortsatt gjeldende på kontrolldato. Koderevisjon: PR18, \`${audit.baselineBranch}\`, commit \`${audit.baselineCommit}\`. Denne PR-en endrer ingen mål, rubrikk, elevregistrering eller simulatorregel.`,
+    `Opprinnelig audit kontrollert **${audit.reviewed}**. Offisielt grunnlag: Skills measured **${audit.examVersion}**. Koderevisjon: PR18, \`${audit.baselineBranch}\`, commit \`${audit.baselineCommit}\`. Den opprinnelige PR19-auditen var read-only. Senere implementerte tillegg er dokumentert som daterte scoped updates nedenfor; historiske rubrics og læringsregistreringer beholdes med sin opprinnelige betydning.`,
     '',
     ...(audit.updates ?? []).flatMap((u) => [
       `Scoped update **${u.id}**, ${u.reviewed}: ${u.objectives.join(', ')}. ${u.note}`,

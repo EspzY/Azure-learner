@@ -1,5 +1,9 @@
 # Interactive technical visualizations
 
+## P05 compute mechanisms
+
+Compute uses different representations for different mechanisms: stack comparison for VM/container/Functions, image/runtime/process/data lifecycle, explicit VM instance placement with fault/update/zone failure and exact capacity table, AVD object-publication chain, and hosting requirements/candidate consequences. The actual VM chain reads authoritative inventory and receipt replay. All are semantically operable; conceptual runs emit no resource command or measured Azure result. [Model limits](COMPUTE_HOSTING.md).
+
 ## P04 Azure Cost Explorer
 
 Four work-specific views reuse native controls and original HTML/SVG: six-component estimate and A/B contrast; dated grouped quantity/rate/mix investigation; common-zero cumulative recorded/forecast/budget chart with different line patterns; direct-tag versus report-allocation comparison with visible unassigned values. Every visualization has readable units, assumptions, result text and tables; predictions precede explicit saved model runs. The fixed120-row fixture is independent of Portal inventory and is not a live Cost Management reproduction. No animation-only learning or new graphics dependency. [Model, dataset and source boundaries](COST_MANAGEMENT.md).

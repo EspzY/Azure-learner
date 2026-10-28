@@ -1,5 +1,9 @@
 # AZ-900 — faktisk dekning og læringshull
 
+## P05 scoped re-review —2026-10-28
+
+The four Compute slots2.2.01–04 now have actual teaching, mechanisms, four applications and14 new paired independent cases with precise feedback and official claim mapping. VMSS orchestration, set/zone boundaries, ARM AVD publication and container isolation/lifecycle qualifications are explicit. ACI overview was unavailable to the research tool; bounded claims use available official Learn/Architecture Center alternatives. No networking slot changes, readiness score or human approval. [Detailed audit/evidence](COMPUTE_HOSTING.md); generated matrix is authoritative for current counts.
+
 ## P04 scoped content update — PR26
 
 Four cost rows3.1.01–04 now carry CO evidence: full original theory and mechanism, four synthetic investigations, ten independent decision/reason cases, specific alternative feedback and dated CS01–29 source review. Only these four rows change; all other53 are preserved. Overall content counts become26 COMPLETE, while Cloud Concepts remains15/15 and Core Architecture7/7. Optimization is the fifth Learn objective, not an extra exam row. No actual learner mastery, billing accuracy, human validation or exam readiness follows from these counts. [Implemented qualifications](COST_MANAGEMENT.md). Historical PR19 tables below remain dated.

@@ -1,5 +1,9 @@
 # Decisions
 
+## PR27 — separate Compute evidence, existing operational engine
+
+Decision: use an isolated1.0.0 Compute supplement and the established durable store/assessment patterns, not altered historical rubrics or a generic exam engine. Four pure concept models remain outside World; only explicit existing Portal commands create resources. Guided VM completion is derived from actual accepted post-boundary receipts and real references. Saved guided attempts can be explicitly paused/resumed without replacing their boundaries. Multiple valid hosting pairs are accepted when requirements allow. AVD publication is not a session; scale-rule arithmetic is not Azure autoscale; resource creation is not application health. [Rationale and scope](COMPUTE_HOSTING.md).
+
 ## 2026-10-27 — Economic models separate from technical inventory
 
 P04 uses a new isolated content/model/rubric1.0.0 cost key rather than adding billing to Sandbox or changing frozen modules. Current resources expose configuration, not real usage/rates; therefore four fictional workbenches own their explicit economic inputs and never issue commands or receipts. Actual inventory may be read as clearly separate context. Existing authored GuidanceWindow/Journal/assessment and durable access patterns are reused. Two official source validators now allow exact HTTPS azure.microsoft.com for public calculator/bandwidth sources; their negative fixtures still reject nonofficial/lookalike/insecure URLs. No dependency, live API or production configuration is added.

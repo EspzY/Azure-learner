@@ -1,5 +1,9 @@
 # Security and privacy
 
+## P05 evidence and execution boundary
+
+Only isolated untrusted Compute learning input is added. Exact-schema replay, bounded models/events, reserved terminal capacity, compare-before-write/read-back, cross-tab withholding and compare-before-delete recovery preserve other records. Shared teaching/mission/automatic-guidance guards include Compute. No runtime, cloud account, credential, paid dependency or external API is introduced. Original code-native figures use existing approved service icons only for real resource identity. [Detailed contract](COMPUTE_HOSTING.md).
+
 ## P04 economic teaching boundary
 
 Cost Management adds only the isolated, untrusted and runtime-validated `azurelab.learning.cost-management.v1` record. Bounded input/event replay, compare/write/read-back, stale/cross-tab withholding and scoped recovery preserve prior records. All-context teaching preflight includes this independent context before Journal, Summary or historical feedback. Economic inputs are fictional: no billing account, financial/customer data, Azure pricing API, payment, credentials or external runtime request. Optional official calculator links open separately; local work needs no account. Actual inventory is read-only reference and never supplies fabricated costs or receipts. No dependency or operational rule change. [Exact boundary](COST_MANAGEMENT.md).

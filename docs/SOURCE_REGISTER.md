@@ -1,5 +1,9 @@
 # Source and credential register
 
+## P05 official source review —2026-10-28
+
+PS01–38 in `compute-sources.ts` and the scoped release record map current AZ900, all public Compute Learn units, linked supplementary App Service material and product references to actual claims. Qualifications include Flexible/Uniform VMSS, current availability recommendations, ARM AVD, Automatic/Standard AKS, Hyper-V isolation and plan-dependent Functions. PS38 separately confirms ACI run-to-completion/restart-policy qualifications. Protected assessment is excluded. Repeated ACI overview503 is BLOCKED, with available official alternatives. [Source/discovery and claim table](COMPUTE_HOSTING.md). No proprietary illustration or question copied; original SVGs use no new assets.
+
 ## PR26 — CS01–29 Cost Management sources
 
 [Runtime-free source register](../src/domain/curriculum/cost-sources.ts) and [claim/discovery record](../quality/releases/current.json) document current study guide, all public Cost Management units, Calculator, Cost Analysis, budgets/data/scope, tag support/inheritance/Policy, reservations, compute savings plan, Spot, Advisor and transfer pricing. Checked2026-10-27. The anonymous public calculator was actually configured without login; its displayed prices were not imported. Incorrect legacy Cost Analysis and supplementary-path URLs were resolved through official links, not treated as verified. Learn simplifications are qualified by current product articles. [Claim-level limits](COST_MANAGEMENT.md). No Microsoft illustrations/questions copied and no new third-party visual assets or runtime services.

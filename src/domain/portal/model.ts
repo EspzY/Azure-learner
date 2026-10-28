@@ -51,11 +51,16 @@ export interface PortalLocation {
   practice?: 'vm' | 'paas';
   bridge?: (typeof benefitBridgeTopics)[number];
   mission?: MissionId;
+  compute?: true;
 }
 export function parseLocation(query: URLSearchParams): PortalLocation {
   const area = query.get('area') ?? 'home',
     mode = query.get('mode') ?? 'learn';
   return {
+    ...(query.get('compute') === 'vm' &&
+    !['mission', 'practice', 'bridge', 'lab', 'course'].some((k) => query.has(k))
+      ? { compute: true as const }
+      : {}),
     ...(isMission(query.get('mission')) ? { mission: query.get('mission') as MissionId } : {}),
     ...(benefitBridgeTopics.includes(query.get('bridge') as (typeof benefitBridgeTopics)[number])
       ? { bridge: query.get('bridge') as (typeof benefitBridgeTopics)[number] }
@@ -118,6 +123,7 @@ export function portalHref(
   if (next.bridge) query.set('bridge', next.bridge);
   if (next.course) query.set('course', '1');
   if (next.mission) query.set('mission', next.mission);
+  if (next.compute) query.set('compute', 'vm');
   return `/portal?${query}`;
 }
 export type InventoryKind =

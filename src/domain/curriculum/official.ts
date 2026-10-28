@@ -74,3 +74,14 @@ export const officialCost = {
   status: 'implemented',
   humanReview: null,
 } as const;
+
+export const officialCompute = {
+  reviewed: '2026-10-28',
+  path: 'https://learn.microsoft.com/en-us/training/paths/azure-fundamentals-describe-azure-architecture-services/',
+  module: 'describe-azure-compute-networking-services',
+  officialUnits: 9,
+  officialObjectives: 5,
+  implementedObjectives: ['2.2.01', '2.2.02', '2.2.03', '2.2.04'],
+  status: 'implemented',
+  humanReview: null,
+} as const;

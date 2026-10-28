@@ -1,5 +1,9 @@
 # AZ-900 — fremtidig diagnostikk og læringsoverføring
 
+## P05 implemented Compute application
+
+Fourteen original cases span guest control/event/lifecycle, fleet/FD-UD/AVD/dependency failure, VM storage/network/configuration and orchestration/HTTP/batch hosting. Each pairs a decision with its reason and candidate-specific feedback; multiple defensible HTTP and batch pairs are supported. Scenario family, item/rubric version, first/help/retry/abandon and exact lesson links remain separate from prior evidence. Guided models never supply independent credit. No general diagnostic engine, psychometric validation or readiness claim. [Actual case map](COMPUTE_HOSTING.md).
+
 ## P04 implemented independent application
 
 Cost Management uses ten original versioned item/rubric cases in five families, two distinct contexts each for drivers, calculator, cost management, tags and Learn optimization. Each requires a compatible decision and structured reason; a correct decision with a wrong cause fails. Feedback follows submission and explains all six alternatives, misconceptions, changed assumptions and exact lesson links. An already exposed family is a retry. Durable teaching preflight includes every active cost/older independent context before Journal, Summary or historical feedback. This finite bank is not the proposed diagnostic exam, does not award XP and supplies no readiness percentage. [Actual contract](COST_MANAGEMENT.md).
