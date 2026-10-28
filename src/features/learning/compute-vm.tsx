@@ -275,10 +275,11 @@ export function ComputePortalMission({
           <p>{f.complete ? c.missions.vm.debrief : c.missions.vm.observe}</p>
           <p>
             <strong>{c.labels.where}</strong> ·{' '}
-            {location.area === 'create' ? c.vmCopy.form : c.missions.vm.where}
+            {location.area === 'create' ? c.vmCopy.forms[location.kind] : c.missions.vm.where}
           </p>
           <p>
-            <strong>{c.labels.why}</strong> · {c.missions.vm.why}
+            <strong>{c.labels.why}</strong> ·{' '}
+            {location.area === 'create' ? c.vmCopy.createWhy[location.kind] : c.missions.vm.why}
           </p>
           <ActualVmSelection />
           {reference ? (

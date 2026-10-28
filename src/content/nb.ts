@@ -8275,7 +8275,20 @@ export const computeNb = {
       'Denne VM-en eller kvitteringen oppfyller ikke alle nye oppdragskrav. Eldre ressurser er bare inspeksjonsgrunnlag.',
     show: 'Vis veiledning',
     hide: 'Minimer veiledning',
-    form: 'Basics: velg App Sandbox, gruppe, Windows og standard. Disks:64GiB data. Networking: velg eksisterende egnet subnet. Review + create validerer; Create sender faktisk lokal kommando.',
+    forms: {
+      group:
+        'Resource group · Basics: velg App Sandbox og et eget Resource group name. Region angir hvor gruppens metadata lagres. Review + create kontrollerer utkastet; Create oppretter den lokale gruppen. Fortsett deretter til Virtual machines.',
+      vm: 'Virtual machine · Kontroller først om gruppen har et egnet subnet i valgt region. Hvis ingen finnes: opprett en liten grunnlags-VM med nytt nettverk gjennom dette skjemaet, som forklart i briefingen. Den er en forutsetning, ikke indeksarbeideren. Opprett deretter indeksarbeideren: Basics: App Sandbox, samme gruppe/region, Windows og standard. Disks:64GiB data. Networking: velg det eksisterende subnettet. Review + create validerer; Create sender faktisk lokal kommando.',
+      plan: 'Du oppretter et App Service plan. Dette er støttet Portal-arbeid, men inngår ikke i dette VM-oppdragets nybyggkrav. For å fortsette oppdraget: lukk skjemaet og åpne Virtual machines → Create.',
+      app: 'Du oppretter en Web App. Dette er støttet Portal-arbeid, men inngår ikke i dette VM-oppdragets nybyggkrav. For å fortsette oppdraget: lukk skjemaet og åpne Virtual machines → Create.',
+    },
+    createWhy: {
+      group:
+        'VM-en trenger en ressursgruppe i riktig subscription. Gruppen gir administrativ tilhørighet; metadata-regionen plasserer ikke VM, disk eller nettverk fysisk. Gruppens opprettelse fullfører ikke VM-oppdraget.',
+      vm: 'Dette skjemaet oppretter VM-konfigurasjonen og dens støttede avhengigheter atomisk. Oppdraget krever en ny accepted kvittering, gjenbrukt subnet og eksplisitt inspeksjon; opprettelse beviser ingen guest-boot eller applikasjonshelse.',
+      plan: 'Et App Service plan er hostingkapasitet for Web Apps og erstatter ikke en VM med gjeste-OS. Veiledningen utfører ingen kommando eller feltendring for deg.',
+      app: 'En Web App bruker et App Service plan. Denne hostingrelasjonen er en annen teknisk konfigurasjon enn oppdragets VM-/disk-/NIC-kjede. Veiledningen utfører ingen kommando eller feltendring for deg.',
+    },
     openReference:
       'Åpne en faktisk referanse fra den valgte VM-kjeden eller dens accepted Activity log-kvittering før du bekrefter inspeksjon.',
     receipt: 'Åpne accepted receipt',
@@ -8683,6 +8696,7 @@ export const computeNb = {
     guided: 'Guidede oppdrag',
     visited: 'Undervisningsaktiviteter åpnet',
     independent: 'Uavhengige innleveringer',
+    classification: 'Forsøkstype og hjelp',
     noXp: 'Ingen XP, Microsoft Learn-fullføring eller exam readiness utledes.',
     human:
       'Kvalifisert menneskelig Azure-SME-, novice/IT-, UX-, skjermleser- og målt transfer-validering er ikke gjennomført.',

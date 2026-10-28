@@ -14,6 +14,7 @@ import {
 } from '../../src/domain/curriculum/compute';
 import { applyCost, freshCost, costKey, costFacts } from '../../src/domain/curriculum/cost';
 import { SandboxStore, sandboxKey } from '../../src/domain/sandbox/store';
+import { courseKey } from '../../src/domain/course/model';
 import { freshLearning, applyLearning, learningKey } from '../../src/domain/curriculum/foundations';
 import { freshV2, applyV2, foundationsV2Key } from '../../src/domain/curriculum/foundations-v2';
 import {
@@ -363,6 +364,124 @@ test('new Compute assessment shields Portal/SavvyShark and already-open teaching
   await expect(page.getByRole('button', { name: c.storage.reload, exact: true })).toBeVisible();
   await peer.close();
 });
+test('unseeded VM mission guides the actual group, VM, plan and Web App forms without false completion', async ({
+  page,
+}) => {
+  await root(page);
+  await lesson(page, 'dependencies');
+  const oldStores = await page.evaluate(
+    (own) =>
+      Object.fromEntries(
+        Object.keys(localStorage)
+          .filter((key) => key !== own && key !== 'azurelab.portal.preferences.v1')
+          .map((key) => [key, localStorage.getItem(key)]),
+      ),
+    computeKey,
+  );
+  await begin(page);
+  const boundary = computeFacts(await read(page)).guide;
+  await page
+    .getByRole('link', { name: c.labels.portal + ' · Virtual machines', exact: true })
+    .click();
+  const p = nb.portal,
+    guide = page.locator('.compute-portal-guide');
+  await expect(guide).toBeVisible();
+  async function service(area: 'groups' | 'vms' | 'plans' | 'apps') {
+    const link = page
+      .locator('.portal-nav')
+      .getByRole('link', { name: p.areas[area], exact: true });
+    if (!(await link.isVisible()))
+      await page.getByRole('button', { name: p.menu, exact: true }).click();
+    await link.click();
+    await page
+      .locator('.portal-commandbar')
+      .getByRole('button', { name: p.create, exact: true })
+      .click();
+  }
+  await service('groups');
+  await expect(
+    page.getByRole('heading', { name: p.createTitles.group, exact: true }),
+  ).toBeVisible();
+  await expect(guide).toContainText(c.vmCopy.forms.group);
+  await expect(guide).toContainText(c.vmCopy.createWhy.group);
+  await expect(guide).not.toContainText(c.vmCopy.forms.vm);
+  await page.getByRole('combobox', { name: p.subscription, exact: true }).selectOption('sub-app');
+  await page.getByRole('textbox', { name: p.groupName, exact: true }).fill('rg-compute-first');
+  await page.getByRole('combobox', { name: p.region, exact: true }).selectOption('norwayeast');
+  await page
+    .locator('.portal-create-footer')
+    .getByRole('button', { name: p.review, exact: true })
+    .click();
+  // Review is presentation only: the actual command is sent by the explicit Create.
+  expect(
+    await page.evaluate(
+      (k) => JSON.parse(localStorage.getItem(k) ?? '{"commands":[]}').commands.length,
+      sandboxKey,
+    ),
+  ).toBe(0);
+  await page
+    .locator('.portal-create-footer')
+    .getByRole('button', { name: p.create, exact: true })
+    .click();
+  await expect
+    .poll(() =>
+      page.evaluate(
+        (k) => JSON.parse(localStorage.getItem(k) ?? '{"commands":[]}').commands.length,
+        sandboxKey,
+      ),
+    )
+    .toBe(1);
+  await service('vms');
+  await expect(guide).toContainText(c.vmCopy.forms.vm);
+  await expect(guide).toContainText(c.vmCopy.createWhy.vm);
+  await expect(guide).not.toContainText(c.vmCopy.forms.group);
+  await expect(page.getByLabel(labsNb.vm.name, { exact: true })).toBeVisible();
+  await service('plans');
+  await expect(page.getByRole('heading', { name: p.createTitles.plan, exact: true })).toBeVisible();
+  await expect(guide).toContainText(c.vmCopy.forms.plan);
+  await expect(guide).toContainText(c.vmCopy.createWhy.plan);
+  await expect(guide).not.toContainText(c.vmCopy.forms.vm);
+  await service('apps');
+  await expect(page.getByRole('heading', { name: p.createTitles.app, exact: true })).toBeVisible();
+  await expect(guide).toContainText(c.vmCopy.forms.app);
+  await expect(guide).toContainText(c.vmCopy.createWhy.app);
+  await expect(guide).not.toContainText(c.vmCopy.forms.vm);
+  await page.reload();
+  await expect(guide).toContainText(c.vmCopy.forms.app);
+  await guide.getByRole('link', { name: c.labels.return, exact: true }).click();
+  await expect(page).toHaveURL(/learn\/compute\?topic=dependencies/);
+  expect(computeFacts(await read(page)).guide).toEqual(boundary);
+  expect(computeFacts(await read(page)).firsts).toEqual([]);
+  const savedTechnical = await page.evaluate((k) => localStorage.getItem(k), sandboxKey);
+  const technical = new SandboxStore({
+    getItem: (key) => (key === sandboxKey ? savedTechnical : null),
+    setItem: () => {
+      throw Error('read-only inspection');
+    },
+    removeItem: () => {
+      throw Error('read-only inspection');
+    },
+  });
+  technical.load();
+  const view = technical.getSnapshot();
+  expect(view.issue).toBeNull();
+  expect(view.attempt.engine.ledger).toHaveLength(1);
+  expect(view.attempt.engine.ledger[0]!.receipt.outcome).toBe('accepted');
+  expect(view.attempt.engine.world.groups[0]).toMatchObject({
+    name: 'rg-compute-first',
+    subscriptionId: 'sub-app',
+    metadataLocation: 'norwayeast',
+  });
+  expect(view.attempt.engine.world.resources).toEqual([]);
+  expect(view.attempt.engine.world.infrastructure).toEqual([]);
+  for (const [key, bytes] of Object.entries(oldStores))
+    if (key !== sandboxKey && key !== courseKey)
+      expect(await page.evaluate((k) => localStorage.getItem(k), key)).toBe(bytes);
+  expect(
+    await page.evaluate((k) => JSON.parse(localStorage.getItem(k) ?? '{}').resume, courseKey),
+  ).toEqual({ module: 'compute', topic: 'dependencies' });
+});
+
 test('actual VM mission uses real Portal create/accepted receipt and all live dependencies without automatic commands', async ({
   page,
 }) => {

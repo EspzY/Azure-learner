@@ -309,7 +309,7 @@ function ComputeSummary() {
             <tr>
               <th>{c.assessment.case}</th>
               <th>{c.assessment.result}</th>
-              <th>{c.assessment.draft}</th>
+              <th>{c.labels.classification}</th>
             </tr>
           </thead>
           <tbody>
