@@ -50,6 +50,9 @@ import {
   transferHref,
 } from '@/domain/curriculum/transfer';
 import { TransferRecovery } from './cloud-transfer';
+import { useCompute } from './compute-provider';
+import { computeFacts, computeKey, restoreCompute, computeHref } from '@/domain/curriculum/compute';
+import { ComputeRecovery } from './compute';
 import { useCost } from './cost-provider';
 import { costFacts, costKey, restoreCost, costHref } from '@/domain/curriculum/cost';
 import { CostRecovery } from './cost';
@@ -107,8 +110,18 @@ export function ManagementTeachingBoundary({
     practical = usePractical(),
     missions = useMissions(),
     transfer = useTransfer(),
-    cost = useCost();
+    cost = useCost(),
+    compute = useCompute();
   const checks = [
+    check(
+      'compute',
+      compute,
+      computeKey,
+      restoreCompute,
+      computeFacts,
+      () => compute.store.event({ kind: 'aid' }),
+      computeHref('assessment', compute.facts.current?.item),
+    ),
     check(
       'cost',
       cost,
@@ -233,6 +246,7 @@ export function ManagementTeachingBoundary({
         item.id === 'missions' ||
         item.id === 'transfer' ||
         item.id === 'cost' ||
+        item.id === 'compute' ||
         (only === 'core' ? ['management', 'physical'].includes(item.id) : item.id === only)),
   );
   const token = JSON.stringify([
@@ -287,6 +301,7 @@ export function ManagementTeachingBoundary({
               {item.id === 'missions' && <MissionRecovery />}
               {item.id === 'transfer' && <TransferRecovery />}
               {item.id === 'cost' && <CostRecovery />}
+              {item.id === 'compute' && <ComputeRecovery />}
             </div>
           ))}
       </div>

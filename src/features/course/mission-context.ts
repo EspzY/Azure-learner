@@ -14,6 +14,8 @@ import { usePractical } from './practical-provider';
 import { useCourse } from './provider';
 import { useTransfer } from '@/features/learning/transfer-provider';
 import { transferHref } from '@/domain/curriculum/transfer';
+import { useCompute } from '@/features/learning/compute-provider';
+import { computeHref } from '@/domain/curriculum/compute';
 import { useCost } from '@/features/learning/cost-provider';
 import { costHref } from '@/domain/curriculum/cost';
 export function useMissionResult(session?: MissionSession | null) {
@@ -43,8 +45,15 @@ export function useMissionSafetyContexts() {
     course = useCourse(),
     technical = useSandbox(),
     transfer = useTransfer(),
-    cost = useCost();
+    cost = useCost(),
+    compute = useCompute();
   return [
+    {
+      id: 'compute',
+      state: compute,
+      active: compute.facts.active,
+      href: computeHref('assessment', compute.facts.current?.item),
+    },
     {
       id: 'cost',
       state: cost,

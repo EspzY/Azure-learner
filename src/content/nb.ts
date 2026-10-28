@@ -5400,6 +5400,7 @@ export const managementNb = {
   accessReload: 'Les lagret vurderingskontekst på nytt',
   accessReview: 'Åpne egen vurdering og lagringskontroll',
   accessContexts: {
+    compute: 'Compute & Hosting · selvstendig anvendelse',
     cost: 'Cost Management · selvstendig anvendelse',
     transfer: 'Selvstendig Cloud Concepts-transfer',
     missions: 'Praktiske oppdrag',
@@ -5951,6 +5952,7 @@ export const missionsNb = {
   recoveryContexts: {
     transfer: 'Cloud Concepts-transfer',
     cost: 'Cost Management',
+    compute: 'Compute & Hosting',
     management: 'Core Architecture Part B',
     physical: 'Core Architecture Part A',
     serverless: 'Serverless',
@@ -8172,6 +8174,1299 @@ export const costItemsNb = {
         'Driftskrav må vurderes sammen med pris. Eviction-risikoen blir ikke borte fordi satsen er lav.',
         'Maksimum og vedvarende timebruk er forskjellige. Ubrukt forpliktelse kan koste penger uten tilsvarende nytte.',
         'Dette bevarer arbeidets faktiske krav og skiller betalingsmodell fra feiltoleranse.',
+      ],
+    ],
+  },
+} as const;
+/** Original P05 manuscript, authored before the Compute presenters. */
+export const computeNb = {
+  courseOverview: 'Kursoversikt',
+  milestoneNotice:
+    'Forklaringen bygger på lagrede modellobservasjoner. Lukking eller gjenåpning endrer ingen ressurs, svar, XP eller fullføring.',
+  avdInvestigation: {
+    title: 'Undersøk publisering og kjøregrunnlag i AVD',
+    situation:
+      'Saksbehandlerne trenger en publisert Windows-applikasjon fra forskjellige enheter. Undersøk hvordan en workspace, application group, host pool og session hosts må henge sammen før et skrivebord eller en app kan tilbys.',
+    goal: 'CP02: skille publiseringsobjekter, brukertilordning og deklarerte session hosts fra faktisk brukertilgang.',
+    steps: [
+      'Velg pooled/RemoteApp og undersøk de seks serviceobjektene.',
+      'Forutsi og kjør med korrekt registrering, tilordning og minst én host.',
+      'Sett antall hosts til null og sammenlign publisering med kjøregrunnlag.',
+      'Fjern workspace-registrering eller prøv personal med RemoteApp, og forklar forskjellen.',
+      'Sammenlign personal/full desktop med pooled/multi-session.',
+    ],
+    observe:
+      'Kontroller resultatet for publisering, host-grunnlag og kombinasjon. En gyldig feed er ikke en testet Windows-sesjon.',
+    why: 'En vanlig VM eller et workspace-navn alene oppretter ingen ferdig desktop-tjeneste.',
+    where:
+      'Bruk AVD-kontrollene nedenfor. Velg deretter de nummererte objektene for forklaring av hver relasjon.',
+    debrief:
+      'Sammenlign den sist lagrede publiseringskjeden med valgt host-antall. Undersøkelsen lagres i Hosting-forløpets modellhistorikk; den fullfører ikke Hosting-beslutningene eller en selvstendig vurdering.',
+  },
+  recallGuided: 'Gjenoppta lagret oppdragsforsøk',
+  pauseGuided: 'Sett oppdraget på pause · behold arbeidet',
+  diagram: {
+    title: 'Undersøk mekanismen',
+    original: 'Original forklaringsmodell · ikke en faktisk Azure-topologi',
+    container: [
+      'Registry / image',
+      'Runtime',
+      'Instans A',
+      'Instans B',
+      'Applikasjon + biblioteker',
+      'Host-kernel · prosessisolasjon',
+      'Eksplisitt datatjeneste',
+    ],
+    containerText:
+      'Én distribuerbar imagepakke kan brukes til flere instanser. Prosessene deler kernel i dette vanlige oppsettet. Data kan ha en egen livssyklus utenfor instansene. Hyper-V-isolasjon er et dokumentert annet oppsett.',
+    capacity: ['Én deklarert sone', 'FD0', 'FD1', 'FD2', 'UD0', 'UD1', 'VM'],
+    capacityText:
+      'Kolonnene viser fault domains; radene viser update domains. En fysisk feilgrense og en vedlikeholdsgruppe er forskjellige relasjoner. Flere soner gir en ytterligere fysisk grense; ingen av disse kantene er trafikk.',
+    desktop: [
+      'Workspace',
+      'Application group',
+      'Host pool',
+      'Session hosts',
+      'Desktop / RemoteApp',
+    ],
+    desktopText:
+      'Workspace registrerer publiseringsgruppen. Gruppen peker til én host pool, som har session hosts. Brukerens tilordning og gyldig publisering er egne forutsetninger.',
+    dependencies: [
+      'Virtual Machine',
+      'OS disk',
+      'Data disk',
+      'Network Interface',
+      'Subnet',
+      'Virtual Network',
+    ],
+    dependenciesText:
+      'Disk- og NIC-tilknytning, subnettilhørighet og VNet-parent er tekniske relasjoner. Resource group og subscription er en separat administrativ kontekst.',
+    layers: [
+      [
+        'Virtual Machine',
+        'Fysisk host',
+        'Hypervisor',
+        'Guest OS + kernel',
+        'Runtime + applikasjon',
+      ],
+      [
+        'Container',
+        'Fysisk / virtuell host',
+        'Host-kernel + runtime',
+        'Image → instans',
+        'Applikasjonsprosess',
+      ],
+      [
+        'Azure Functions',
+        'Fysisk infrastruktur',
+        'Administrert hostingplan',
+        'Hendelse → trigger',
+        'Funksjonskjøring',
+      ],
+    ],
+  },
+  vmCopy: {
+    select: 'Velg faktisk VM som oppdragets subjekt',
+    references: 'Faktiske ressurser og kvittering',
+    inspected: 'Eksplisitt undersøkt',
+    uninspected: 'Åpne i Portal og bekreft inspeksjon',
+    newBuild: 'Ny korrekt VM etter oppdragsgrensen med gjenbrukt subnet er bekreftet.',
+    notNew:
+      'Denne VM-en eller kvitteringen oppfyller ikke alle nye oppdragskrav. Eldre ressurser er bare inspeksjonsgrunnlag.',
+    show: 'Vis veiledning',
+    hide: 'Minimer veiledning',
+    form: 'Basics: velg App Sandbox, gruppe, Windows og standard. Disks:64GiB data. Networking: velg eksisterende egnet subnet. Review + create validerer; Create sender faktisk lokal kommando.',
+    openReference:
+      'Åpne en faktisk referanse fra den valgte VM-kjeden eller dens accepted Activity log-kvittering før du bekrefter inspeksjon.',
+    receipt: 'Åpne accepted receipt',
+    noCommands: 'SavvyShark navigerer bare. Du velger felter og sender hver støttet kommando selv.',
+    unverified: 'VM-resultat kan ikke verifiseres nå',
+    uncertain:
+      'Teknisk lagring er ikke klar eller har en konflikt. Historiske Compute-svar er beholdt, men VM-avledet status og samlet guidet antall holdes tilbake. Åpne Portal for dens avgrensede reload/recovery; ingen ressurser slettes her.',
+  },
+  assessmentActive:
+    'Et annet Compute-forsøk er aktivt. Fortsett det låste scenarioet før du velger et nytt.',
+  currentFeedback: 'Tilbakemelding på innlevert forsøk',
+  historyFeedback: 'Tidligere innlevering · forklaringer',
+  guided: {
+    notice:
+      'Start oppretter bare læringskontekst. Lukking gir ingen vurdering, XP eller teknisk ressurs.',
+    cancel: 'Avbryt',
+  },
+  assessment: {
+    title: 'Selvstendig Compute-anvendelse',
+    intro:
+      'Analyser en ny organisasjonssituasjon. Velg både beslutning og en faglig begrunnelse som passer valget.',
+    rules:
+      'Første besvarelse låses ved innlevering. Ingen fasit eller løsningsguide vises under arbeidet. Åpning av teori, Journal, Summary eller tidligere feedback krever varig registrert hjelp i alle aktive kontekster. Samme familie senere er retry, også etter avbrudd.',
+    case: 'Velg scenario',
+    result: 'Resultat for dette paret',
+    decision: 'Din beslutning',
+    reason: 'Din tekniske begrunnelse',
+    draft: 'Varig lagret utkast',
+    unaided: 'Første uassisterte forsøk',
+    assisted: 'Med registrert hjelp',
+    retried: 'Gjeneksponert familie / retry',
+    first: 'Første innlevering',
+    pass: 'Faglig forsvarlig beslutning og begrunnelse i denne situasjonen',
+    fail: 'Beslutning og begrunnelse tilfredsstiller ikke kravene sammen',
+    start: 'Start selvstendig forsøk',
+    retry: 'Start nytt forsøk',
+    submit: 'Lever beslutning og begrunnelse',
+    abandon: 'Avbryt forsøket',
+    help: 'Be om hjelp i relevant undervisning',
+    neutral:
+      'Vurder kravene, ikke plasseringen av svarene. Ingen teknisk ressurs opprettes når du leverer.',
+    history: 'Undersøk tidligere innleveringer',
+    alternatives: 'Alle alternativer og endrede forutsetninger',
+    repeat: 'Repeter presis undervisningsaktivitet',
+  },
+  models: {
+    container: {
+      title: 'Container Execution Explorer',
+      predictions: [
+        'Velg prediksjon',
+        'Ingen gyldig applikasjonsprosess etableres',
+        'Prosessgrunnlag finnes, men den tidligere rapporten er tapt',
+        'Prosessgrunnlag finnes, og den tidligere rapporten er beholdt',
+      ],
+      platform: 'Kjøremodell',
+      platforms: ['Virtual Machine', 'Prosess-/Hyper-V-container', 'Azure Functions · konsept'],
+      image: 'Egnet image kan hentes ved ny opprettelse',
+      runtime: 'Kjøremiljøet er etablert',
+      guestRequired: 'Egen administrerbar guest-kernel per instans er et krav',
+      isolation: 'Deklarert containerisolasjon',
+      host: 'Hvem driver containerens vertsplattform?',
+      hosts: ['Administrert Azure-containerplattform', 'Container runtime på kundens egen VM'],
+      responsibility: 'Ansvar for host-/guest-OS i valgt oppsett',
+      customerHost: 'Kunden · containerformatet fjerner ikke VM-vertens OS-arbeid.',
+      providerHost:
+        'Leverandøren i dette administrerte oppsettet · kunden beholder image, kode, data og tilgang.',
+      imageAnatomy: 'Innholdet i rapportgeneratorens image',
+      imageLayers: [
+        'report.py · applikasjonskode',
+        'Python + nødvendige biblioteker · user-space',
+        'Nødvendige basefiler · ingen egen guest-kernel',
+        'Entrypoint · ønsket prosess ved instansstart',
+      ],
+      imageBoundary:
+        'Denne pakken er et konkret Python-eksempel, ikke en universell oppskrift. Et lagret image kjører ingen prosess og inneholder ikke rapportfiler som oppstår senere.',
+      lifecycle: 'Rapportens plassering og livssyklus',
+      localLayer: 'A sitt skrivbare arbeidslag',
+      reportFile: 'report.csv · opprettet etter image-bygging',
+      currentInstance: 'A · samme deklarerte instans',
+      currentData: 'Rapporten er beholdt på sitt erklærte lagringssted, uten instansbytte.',
+      storedWithoutExecution:
+        'Rapporten er beholdt; dette beviser ingen tilgjengelig applikasjonsprosess.',
+      reportProducer: 'A · instansen som laget rapporten',
+      reportWritten: 'Rapporten er skrevet til datatjenesten',
+      replacement: 'B · ny instans fra samme image',
+      externalData: 'Separat persistent datatjeneste',
+      lostData: 'A sin rapport følger ikke med til B',
+      retainedData: 'B kan bruke den eksplisitt beholdte rapporten',
+      hostBoundary:
+        'Isolasjon og driftsansvar er forskjellige valg. Figuren modellerer ingen faktisk kernel, prosess eller Azure-datatjeneste.',
+      isolations: ['Process · delt host-kernel', 'Hyper-V · lett VM, egen kernel'],
+      storage: 'Rapportens lagringssted',
+      storages: ['Instansens skrivbare arbeidslag', 'Eksplisitt eksternt persistent lager'],
+      action: 'Livssyklushendelse',
+      actions: ['Undersøk eksisterende instans', 'Recreate · slett A og opprett B'],
+      pipeline: ['Image / kode', 'Runtime / host', 'Instans', 'Applikasjonsprosess', 'Rapportdata'],
+      ownGuest: 'Guest-OS administreres av kunden',
+      kernel: 'Separat kernel i modellen',
+      shared: 'Delt host-kernel i modellen',
+      providerKernel:
+        'Functions: kernel og host-isolasjon er ikke modellert; leverandøren håndterer kjøregrunnlaget.',
+      functionCode:
+        'Funksjonskode er forutsatt tilgjengelig; image-valget brukes ikke for denne kodebaserte Functions-modellen.',
+      noProcess: 'Ingen modellert prosess: undersøk image, runtime og kontrollkrav.',
+      lost: 'Ny instans er etablert, men rapporten i A sitt arbeidslag følger ikke med.',
+      kept: 'Modellen har kjøregrunnlag og rapporten beholdes etter den erklærte hendelsen.',
+      yes: 'Ja',
+      no: 'Nei',
+      data: 'Rapport beholdt',
+      instance: 'Deklarert instans',
+      note: 'A har allerede laget rapporten før undersøkelsen. Undersøk beholder A og krever ingen ny image-henting. Recreate sletter A før B forsøkes etablert; data i ekstern lagring slettes ikke dersom B mangler runtime eller image. Image og kode kjører ikke her. Ekstern lagring er en eksplisitt modellforutsetning, ikke konfigurert Azure Storage.',
+    },
+    capacity: {
+      title: 'VM Capacity & Resilience Lab',
+      mode: 'Plasserings-/administrasjonsmodell',
+      modes: [
+        'Én VM',
+        'Availability set · FD/UD, ingen oppgitt sone',
+        'VMSS Flexible · ingen oppgitt sone',
+        'VM-er fordelt på tre soner',
+      ],
+      count: 'Deklarert instansantall · 1–6',
+      demand: 'Behov · arbeidsenheter per intervall',
+      auto: 'Aktiver oppgitt VMSS-regel før feil',
+      rule: 'Regel: behov /10, rund opp, minst1 og maksimalt6 instanser. Den beregnes før feilen og reparerer ingenting etterpå.',
+      failure: 'Modellert hendelse',
+      failures: [
+        'Ingen feil',
+        'Én instans',
+        'Fault domain',
+        'Update domain · planlagt',
+        'Deklarert fysisk feilgrense',
+        'Hele regionen',
+        'Felles datatjeneste',
+      ],
+      target: 'Hendelsens mål · nullbasert indeks',
+      routing: 'Deklarert routing',
+      routings: ['Bare første instans', 'Alle overlevende instanser'],
+      data: 'Nødvendig data er tilgjengelig',
+      units:
+        'Én instans har10 fiktive arbeidsenheter per intervall. Dette er ikke vCPU, requests/second, Azure-autoscale eller en ytelsesmåling.',
+      columns: ['Instans', 'Sone', 'FD', 'UD', 'Påvirket', 'Routet', 'Leverbar kapasitet'],
+      metrics: [
+        'Deklarerte instanser',
+        'Overlevende instanser',
+        'Leverbar kapasitet',
+        'Udekket behov',
+      ],
+      none: 'Ingen UD i denne modellen',
+      affected: 'Påvirket',
+      survived: 'Overlever',
+      note: 'Hver frisk, rutet instans gir10 pedagogiske arbeidsenheter per intervall. Bare zonal-alternativet oppgir Azure-soner1–3. Set/single/VMSS har ukjent Azure-sone; øvelsen antar eksplisitt én felles fysisk feilgrense med indeks0 for disse, uten å utlede dette fra tjenesten. Sone-/lokalitetsfeil bruker den deklarerte grensen. Ingen faktisk plassering, autoskalering, failover, trafikk, SLA eller helse er målt.',
+      zonalLabel: 'Availability Zone',
+      fixtureSite: 'Felles modellert lokalitet · ikke en oppgitt Azure-sone',
+      unknownZone: 'Ikke oppgitt',
+    },
+    desktop: {
+      title: 'Azure Virtual Desktop Explorer',
+      pool: 'Host pool-type',
+      pools: ['Personal', 'Pooled'],
+      publication: 'Application group publiserer',
+      publications: ['Full desktop', 'RemoteApp'],
+      session: 'Valgt session-host-OS',
+      sessions: ['Single-session', 'Multi-session'],
+      linked: 'Application group er knyttet til workspace',
+      assigned: 'Brukeren er tilordnet application group',
+      hosts: 'Deklarerte session hosts · 0–4',
+      nodes: [
+        'Bruker',
+        'Workspace',
+        'Application group',
+        'Host pool',
+        'Session hosts',
+        'Desktop / RemoteApp',
+      ],
+      details: [
+        'Brukerens tilordning er en antakelse, ikke utført autentisering.',
+        'Workspace grupperer application groups, ikke VM-kjerner eller applikasjonsfiler.',
+        'Gruppen publiserer desktop eller apper fra én host pool.',
+        'Pool samler session hosts med valgt tilordning.',
+        'Disse VM-ene er kjøregrunnlaget; app/image og tilgang må være riktige.',
+        'Feed og teknisk kjøregrunnlag er forskjellige kontrollpunkter.',
+      ],
+      relations: [
+        'Tilordnes publiserte ressurser',
+        'Registrerer application group',
+        'Publiserer fra én host pool',
+        'Samler session hosts',
+        'Kjører app/skrivebord',
+        'Leveranseform · ingen ekte sesjon',
+      ],
+      statuses: ['Tilordnet', 'Ikke tilordnet', 'Registrert', 'Mangler registrering'],
+      invalid:
+        'Den valgte personal/RemoteApp- eller personal/multi-session-kombinasjonen støttes ikke av denne modellen.',
+      missing: 'Ressursen kan ikke publiseres med de deklarerte tilknytningene.',
+      noHost: 'Publiseringen finnes, men ingen deklarert session host gir kjøregrunnlag.',
+      ready:
+        'Publisering og erklært host-grunnlag henger sammen. Ingen sesjon eller brukerrespons er testet.',
+      inspect: 'Undersøk serviceobjekt',
+      note: 'Original ARM-basert konseptmodell. Ingen AVD classic, innlogging, lisenssjekk, RDP eller sesjonsmåling.',
+    },
+    hosting: {
+      title: 'Hosting Decision Studio',
+      workload: 'Undersøk arbeidskravet',
+      workloads: [
+        'HTTP-kode, administrert webflate',
+        'HTTP-image, administrert ingress og livssyklus',
+        'Containerworkload med eget Kubernetes-API/controllerkrav',
+        'Program med nødvendig guest-kernel-driver',
+        'Omskrevet hendelsesfunksjon med ujevne ankomster',
+      ],
+      service: 'Velg hostingkandidat',
+      services: [
+        'Azure Virtual Machines',
+        'Azure App Service',
+        'Azure Functions',
+        'Azure Container Instances',
+        'Azure Container Apps',
+        'Azure Kubernetes Service',
+      ],
+      reason: 'Begrunn kandidatens egenskap',
+      reasons: [
+        'Guest-OS og kernelkontroll er nødvendig.',
+        'App Service hoster støttet webkode direkte; custom container er et alternativ i samme plattform.',
+        'Funksjonskode aktiveres av relevante hendelser på egnet plan.',
+        'En enkel containergruppe trenger ikke full orkestrering.',
+        'Container Apps gir revisjonsbasert containerlivssyklus og ingress uten direkte Kubernetes-API.',
+        'Direkte Kubernetes-API og orkestreringskontroll er et krav.',
+      ],
+      valid: 'Både kandidat og begrunnelse passer de oppgitte kravene.',
+      wrongReason:
+        'Kandidaten kan passe, men begrunnelsen beskriver ikke hvorfor dette valget virker.',
+      wrongService:
+        'Kandidaten oppfyller ikke alle erklærte krav. Undersøk kontroll, pakkeform og operasjonelt ansvar.',
+      alternatives: 'Andre kandidater som oppfyller de samme avgrensede kravene',
+      retained:
+        'Kunden beholder kode/image, data, tilgang, applikasjonssikkerhet og korrekt konfigurasjon. Plan/tier/mode må kontrolleres før virkelig bruk.',
+      counter:
+        'Endre ett vesentlig krav og forutsi hvorfor kandidatsettet endres. Det er et nytt modelløyeblikk, ikke en omklassifisering av tidligere svar.',
+      comparison: 'Kravfilter: hvorfor en kandidat beholdes eller faller bort',
+      columns: ['Kandidat', 'Forutsetning som må endres', 'I dette eksempelet'],
+      included: 'Oppfyller deklarerte krav',
+      excluded: 'Utenfor oppgitt kravsett',
+      qualified:
+        'Tabellen vurderer bare de erklærte pedagogiske kravene. Den er ikke en full produktkatalog eller garanti for produksjonsegnethet.',
+      mismatch: {
+        format: 'Pakke-/kodeformatet passer ikke den avgrensede kandidaten.',
+        guest: 'Kravet til egen guest-kernel/driver mangler.',
+        kubernetes: 'Direkte Kubernetes-API og egne controllers er ikke tilgjengelig.',
+        event: 'Arbeidsmåten krever den deklarerte Functions-modellen.',
+        operations: 'Det oppgitte teamet vil unngå guest-/Kubernetes-drift.',
+        ingress: 'En bar containergruppe er ikke den etterspurte integrerte HTTP-hostingflaten.',
+      },
+    },
+  },
+  missions: {
+    vm: {
+      title: 'A · Configure & Inspect an Indexing VM',
+      situation:
+        'Fjordarkiv trenger en ny Windows-basert indeksarbeider i App Sandbox. Den skal bruke standard undervisningsprofil, separat64GiB datadisk og et eksisterende egnet subnet. Teamet trenger en teknisk overlevering, ikke en påstand om at indekseringen kjører.',
+      goal: 'CP03: begrunn konfigurasjonen og følg faktiske disk-/NIC-/subnet-/VNet-referanser etter en ny akseptert kommando.',
+      steps: [
+        'Undersøk krav og riktig App Sandbox Resource group.',
+        'Finn et egnet subnet i samme gruppe/region. Hvis ingen finnes: opprett først en liten grunnlags-VM med nytt nettverk gjennom den vanlige Portal-formen. Den er en forutsetning, ikke indeksarbeideren.',
+        'Opprett deretter ny Windows/standard/64GiB-VM og velg det eksisterende subnettet.',
+        'Undersøk accepted receipt og hver faktisk ressursreferanse.',
+        'Returner og forklar konfigurert versus kjørende/helseverifisert program.',
+      ],
+      observe:
+        'Ny accepted bundle etter oppdragsstart, valgt gjenbrukt subnet og sju eksplisitt undersøkte referanser. Ingen bakgrunnsopprettelse eller global reset.',
+      why: 'En VM er en sammensatt konfigurasjon; riktig navn og et grønt ikon er ikke nok.',
+      where:
+        'Bruk faktisk Portal → Resource groups / Virtual machines → Create, deretter Overview og relaterte ressurser.',
+      debrief:
+        'Den lokale kvitteringen og referansene dokumenterer støttet Windows-/disk-/nettverkskonfigurasjon. De dokumenterer ikke boot, programinstallasjon, backup, sikkerhet eller trafikk.',
+    },
+    container: {
+      title: 'B · Container or Virtual Machine?',
+      situation:
+        'Et team kan distribuere en rapportgenerator som image. Rapporten må være tilgjengelig også etter at instansen erstattes. Ingen egen guest-kernel kreves i denne varianten.',
+      goal: 'CP01: skille pakke, runtime, instans, prosess og persistent data, og begrunne når VM-kontroll ville endret valget.',
+      steps: [
+        'Undersøk container med recreate og rapport i instansens arbeidslag.',
+        'Forutsi og kjør før du endrer lagringsforutsetningen.',
+        'Velg eksternt persistent lager, forutsi og kjør på nytt.',
+        'Undersøk image/runtime og guest-krav som alternative årsaker.',
+        'Forklar hva som faktisk endret rapportens livssyklus.',
+      ],
+      observe:
+        'To lagrede recreate-øyeblikk med gyldig containergrunnlag: først ephemeral tap, deretter eksplisitt beholdt data.',
+      why: 'Et image er ingen backup av filer som oppstår etter oppstart.',
+      where:
+        'Kontrollene står rett over den koblede livssyklusfiguren og tilsvarende egenskapstabell.',
+      debrief:
+        'Du har sammenlignet to eksplisitte datalivssykluser, ikke kjørt eller lagret en ekte container. Kernel-/plattformansvar må fortsatt kvalifiseres.',
+    },
+    capacity: {
+      title: 'C · Scale & Survive',
+      situation:
+        'En registreringstjeneste trenger kapasitet under etterspørsel og en avgrenset sonefeil. Teamet forveksler availability set, flere instanser og automatisk skalering.',
+      goal: 'CP02: skille instansantall, FD/UD, soner og data/routing fra hverandre.',
+      steps: [
+        'Kjør availability set under den deklarerte felles fysiske feilen (målindeks0), og skill denne øvelsesforutsetningen fra kjent Azure-soneplassering.',
+        'Sammenlign minst tre VM-er eksplisitt fordelt over soner ved feil i Zone1 (målindeks0), med nok kapasitet, data og balanced routing.',
+        'Kjør VMSS-regelen med minst30 arbeidsenheter og ingen feil.',
+        'Undersøk deretter felles datafeil eller primary-only routing.',
+        'Forklar forskjellen mellom de observerte mekanismene.',
+      ],
+      observe:
+        'Tre forskjellige lagrede årsaksøyeblikk: sonegrense, eksplisitt soneseparasjon og deklarert kapasitetsregel.',
+      why: 'Mer compute kan løse behov uten å løse feilplassering eller avhengigheter.',
+      where:
+        'Velg modell, behov og hendelse før prediksjon; alle instansers sone/FD/UD står i tabellen.',
+      debrief:
+        'Resultatene følger den oppgitte modellen. Ingen ekte VMSS, SLA, automatisk failover eller apphelse er dokumentert.',
+    },
+    hosting: {
+      title: 'D · Select Application Hosting',
+      situation:
+        'Et API-team skal først velge administrert hosting for et HTTP-image. Deretter tilkommer et ufravikelig krav om egne Kubernetes controllers. Undersøk hvorfor kandidatene endres.',
+      goal: 'CP04: begrunn et hostingvalg, forstå retained responsibilities og sammenlign et reelt alternativ.',
+      steps: [
+        'Kjør HTTP-image-kravet med et faglig gyldig kandidat/begrunnelse-par.',
+        'Undersøk minst én annen kandidat og dens ansvar.',
+        'Bytt til Kubernetes-API/controllerkravet, begrunn og kjør.',
+        'Undersøk AVD-publiseringskjeden i desktop-aktiviteten som et annet leveransebehov.',
+        'Åpne eventuelt en faktisk VM eller Web App i Portal og skill inventory fra modellkandidater.',
+      ],
+      observe:
+        'To lagrede gyldige beslutningspar med forskjellige kontrollkrav. AVD har egne semantiske observasjoner, uten falsk sesjon.',
+      why: 'Pakkeform og ønsket kontrollflate er forskjellige krav.',
+      where:
+        'Krav, kandidat og begrunnelse velges over sammenligningen. AVD og faktisk Portal har synlige lenker.',
+      debrief:
+        'Flere kandidater kan være riktige når kravene tillater det. Endret kontrollbehov gir et nytt kandidatsett; kode, data, tilgang og konfigurasjon forblir kundeansvar.',
+    },
+  },
+  milestone: {
+    container: {
+      title: 'Rapporten følger lagringsvalget, ikke image-navnet',
+      text: 'De lagrede containerkjøringene viser recreate med og uten eksplisitt persistent lagring. Runtime-grunnlaget var gyldig i begge. Forskjellen i beholdt rapport skyldes datalivssyklus, ikke at et image automatisk arkiverer runtime-filer.',
+    },
+    capacity: {
+      title: 'Flere instanser og feilseparasjon er forskjellige mekanismer',
+      text: 'Du har lagrede undersøkelser av en deklarert felles fysisk feilgrense for set-eksemplet, eksplisitt soneseparert kapasitet og en VMSS-regel. Setets Azure-sone er ikke oppgitt. Resultatet følger øvelsens forutsetninger, avhengigheter og regelvalg; ingen tjenestenavn garanterer applikasjonstilgjengelighet.',
+    },
+  },
+  title: 'Describe Azure compute services',
+  path: 'Introduction to Cloud Infrastructure: Describe Azure architecture and services',
+  overview:
+    'Fra arbeidslast til kjørende kode: undersøk VM-er, containere, Functions, virtuelle skrivebord og hosting. Bygg én faktisk lokal VM-konfigurasjon og test avgrensede arkitekturmodeller før nye selvstendige situasjoner.',
+  available:
+    'Fire Compute-mål er tilgjengelige. Networking og Storage kommer senere. Lokal trening, ingen Azure-konto eller reelle ressurser.',
+  prerequisites:
+    'Forkunnskaper: fysiske servere og virtualisering, IaaS/PaaS, regioner og soner, management-hierarki og forbruksmodeller. Vi bygger videre på disse uten å endre tidligere resultater.',
+  topics: {
+    introduction: 'Oppdraget: fem ulike arbeidslaster',
+    fundamentals: 'Hva kjører koden?',
+    vm: 'Virtual Machines: guest og ressursprofil',
+    dependencies: 'VM Resources & Dependencies',
+    containers: 'Container Execution Explorer',
+    functions: 'Functions i compute-landskapet',
+    options: 'Velg VM-alternativ',
+    resilience: 'VM Capacity & Resilience Lab',
+    desktop: 'Azure Virtual Desktop Explorer',
+    hosting: 'Hosting Decision Studio',
+    context: 'AI, machine learning og IoT/Edge',
+    missions: 'Guidede anvendelser',
+    assessment: 'Selvstendig Compute-anvendelse',
+    summary: 'Oppsummering og dokumenterte resultater',
+  },
+  labels: {
+    terms: 'Begreper i denne forklaringen',
+    example: 'Gjennomarbeidet eksempel',
+    limits: 'Avgrensning og moteksempel',
+    sources: 'Offisielle kilder · kontrollert 28. oktober 2026',
+    model: 'Pedagogisk konseptmodell · ingen Azure-runtime',
+    configured: 'Utkast til forutsetninger',
+    observed: 'Sist lagrede observasjon',
+    predicted: 'Din prediksjon',
+    result: 'Modellens resultat',
+    run: 'Kjør modellen',
+    predict: 'Forutsi før kjøring',
+    cause: 'Forklar årsaken',
+    explain: 'Lagre årsaksforklaring',
+    done: 'Guidet anvendelse dokumentert',
+    pending: 'Ikke dokumentert ennå',
+    begin: 'Åpne SavvyShark-briefing',
+    start: 'Start dette oppdraget',
+    cancel: 'Avbryt',
+    recall: 'Gjenåpne briefing',
+    next: 'Neste handling',
+    where: 'Hvor finner du kontrollen?',
+    why: 'Hvorfor gjør du dette?',
+    expected: 'Hva skal du observere?',
+    actual: 'Faktisk registrert',
+    inspect: 'Bekreft undersøkt referanse',
+    portal: 'Åpne faktisk Portal',
+    return: 'Tilbake til Compute-oppdraget',
+    all: 'Alle detaljer kan leses i tabellen',
+    first: 'Første innlevering',
+    aided: 'Med registrert hjelp',
+    retry: 'Gjeneksponert familie / retry',
+    unaided: 'Første uassisterte forsøk',
+    guided: 'Guidede oppdrag',
+    visited: 'Undervisningsaktiviteter åpnet',
+    independent: 'Uavhengige innleveringer',
+    noXp: 'Ingen XP, Microsoft Learn-fullføring eller exam readiness utledes.',
+    human:
+      'Kvalifisert menneskelig Azure-SME-, novice/IT-, UX-, skjermleser- og målt transfer-validering er ikke gjennomført.',
+    switch:
+      'Ett guidet oppdrag er nåværende. Gjenoppta et lagret oppdrag for å beholde dets forutsetninger og observasjoner, eller start et nytt forsøk. Pause og vanlig navigasjon sletter ikke arbeidet.',
+    current: 'Fortsett nåværende oppdrag',
+    notice:
+      'Start oppretter bare en lokal læringskontekst. Avbryt og lukking endrer ingen ressurs eller vurdering. Modellkjøring og tekniske Portal-kommandoer krever egne eksplisitte handlinger.',
+    predictionOptions: [
+      'Velg prediksjon',
+      'Ingen leverbar kapasitet / arbeid',
+      'Noe arbeid eller kapasitet gjenstår',
+      'Alle deklarerte krav dekkes',
+    ],
+    chooseCause: 'Velg årsaksforklaring',
+  },
+  storage: {
+    loading: 'Laster versjonert Compute-arbeid …',
+    title: 'Compute-lagring må avklares',
+    text: 'Svar og forklaringer holdes tilbake når lagringen er usikker. Last inn gjeldende registrering; svarutkast fra ulike faner flettes aldri.',
+    reload: 'Last inn Compute på nytt',
+    recover: 'Gjenopprett bare ugyldige Compute-data',
+    confirm: 'Bekreft isolert gjenoppretting',
+    cancel: 'Behold data',
+    capacity:
+      'Ny aktivitet er stanset ved hendelsesgrensen. Et aktivt forsøk kan fortsatt lagre siste svar, registrere hjelp og levere eller avbryte. En allerede undersøkt guidet aktivitet kan avsluttes.',
+    failed: 'Handlingen ble ikke varig lagret. Ingen faglig fullføring er registrert.',
+    milestones:
+      'Automatiske forklaringer er satt på pause fordi visningshistorikken ikke kan bekreftes. Arbeidet kan fortsette; forklaringen kan åpnes manuelt når konteksten er trygg.',
+    unsafe:
+      'Automatisk veiledning er skjermet under aktiv selvstendig vurdering eller usikker lagring. Åpne vurderings-/recovery-konteksten nedenfor.',
+  },
+  sections: {
+    introduction: {
+      title: 'Samme organisasjon, forskjellige kjørebehov',
+      paragraphs: [
+        'Fjordarkiv skal flytte flere arbeidslaster. En eldre indeksmotor trenger et bestemt Windows-miljø og en separat datadisk. Et publikumsteam eier en web-API. En analysegruppe leverer programmet som et container-image. Filopplastinger skal utløse korte valideringsjobber, mens saksbehandlere trenger en Windows-applikasjon fra flere enheter. Å kalle alt «en server» skjuler valgene som avgjør drift, sikkerhet og vedlikehold.',
+        'Compute er kapasiteten som utfører instruksjonene i programmet. Koden trenger en prosessor, minne og et kjøremiljø, også når kunden ikke ser en VM. Hostingvalget bestemmer hvilke deler du selv konfigurerer og hvilke deler plattformen administrerer. Det påvirker hvordan programmet pakkes, starter, oppdateres og får kapasitet. Valget av region eller subscription svarer på andre spørsmål enn valg av kjøreplattform.',
+        'I denne modulen følger vi kode gjennom flere tekniske lag. Du undersøker først VM og avhengigheter, deretter containerens livssyklus og Functions som hendelsesdrevet alternativ. Så skiller vi instansantall, fysisk feilseparasjon og applikasjonstilgjengelighet. Azure Virtual Desktop viser hvorfor levering av et skrivebord krever mer enn at én VM eksisterer. Til slutt velger du hosting ut fra konkrete krav, og begrunner nye beslutninger uten trinnvis hjelp.',
+      ],
+      terms: [
+        ['Compute', 'Ressurser og tjenester som utfører programkode.'],
+        ['Arbeidslast', 'Programmet, dataene, avhengighetene og driftskravene som skal løses.'],
+        ['Hosting', 'Miljøet som tar imot og kjører programmet.'],
+      ],
+      example:
+        'Et krav om egen Windows-driver kan peke mot VM. Et ferdig container-image uten guest-krav åpner flere alternativer. Et krav om å publisere én skrivebordsapp til ansatte handler om AVD, ikke bare om mer vCPU.',
+      limit:
+        'Vi oppretter bare støttede lokale VM-/Web-konfigurasjoner. Containers, VMSS, availability sets og AVD undersøkes som tydelig merkede modeller. Ingen programvare bootes eller kjøres i Azure.',
+    },
+    fundamentals: {
+      title: 'Fra instruksjoner til et administrert kjøremiljø',
+      paragraphs: [
+        'En fysisk prosessor utfører instruksjoner, og RAM holder data tilgjengelig mens programmet arbeider. Operativsystemets kernel fordeler maskinressurser, håndterer prosesser og gir programmet tilgang til blant annet minne, filer og enheter. Et språk-runtime, for eksempel .NET eller en Java Virtual Machine, er et annet lag enn maskinvirtualisering. En Java Virtual Machine er derfor ikke det samme som en Azure Virtual Machine.',
+        'I en Azure VM abstraherer virtualiseringslaget maskinvaren, og et guest-operativsystem gir programmet sitt miljø. I et vanlig prosessisolert containeroppsett får prosessen en isolert visning av utvalgte host-ressurser og deler hostens kernel. Functions tar imot funksjonskode i et administrert hendelsesmiljø. Alle trenger fysisk compute; forskjellen er hvilke enheter du distribuerer og hvilke driftsoppgaver du beholder.',
+        'Se på livssyklusen før du velger. En kontinuerlig tjeneste må ha egnet tilgjengelig kjøreflate. En hendelsesjobb kan aktiveres av en trigger, men trenger fortsatt korrekt kode, datahåndtering og feilhåndtering. Et image eller en konfigurasjon beskriver ønsket utgangspunkt. Det er ikke en observasjon av en fungerende prosess. Opprettet infrastruktur, installert applikasjon og verifisert brukerrespons er tre forskjellige bevis.',
+        'Mer allokert kapasitet koster normalt mer og hjelper bare når riktig ressurs er flaskehalsen. Et minnekrav løses ikke automatisk med flere små instanser, og en delt databasefeil forsvinner ikke ved å legge til compute. Repetisjon av et image forbedrer konsistens, men kan også gjenta samme feil. Teamets evne til å oppdatere, overvåke og validere løsningen er derfor et faktisk valgkriterium.',
+      ],
+      terms: [
+        ['Kernel', 'Kjernen i operativsystemet, med kontroll over grunnleggende systemressurser.'],
+        ['Runtime', 'Programmiljøet som laster eller utfører applikasjonskode.'],
+        ['Livssyklus', 'Hvordan en enhet opprettes, oppdateres, erstattes og avsluttes.'],
+      ],
+      example:
+        'Et .NET-program kan kjøre i en VM, i et container-image, i App Service eller som funksjonskode. Programmodell, nødvendige systemfunksjoner, triggerbehov og driftskrav avgjør hvilke av dem som passer.',
+      limit:
+        'IaaS/PaaS/serverless er ikke en rangstige der «mer administrert» alltid er bedre. Nettverk, data, sikkerhet, kompatibilitet og tjenesteplan må fortsatt vurderes.',
+    },
+    vm: {
+      title: 'Virtual Machines: kontrollen følger ansvaret',
+      paragraphs: [
+        'En hypervisor gir flere VM-er virtuelle maskinressurser på fysisk infrastruktur. Hver VM har sitt guest-operativsystem med egen kernel. Microsoft håndterer fysisk host og virtualiseringsplattform. Kunden velger og vedlikeholder guest-miljø, installert programvare, data, tilgang og sikker konfigurasjon. VM er relevant når du trenger slike systemvalg, eller flytter et eksisterende program uten å endre hele programmodellen.',
+        'Et VM image er utgangspunktet for operativsystem og eventuelt forhåndsinstallert programvare. Det er ikke en kjørende VM, og et gammelt image blir ikke sikkert bare fordi det kom fra en mal. Imageoppdateringer, patching og riktig softwaretilstand må inngå i driften. En VM size angir en ressursprofil med blant annet vCPU, RAM og begrensninger for disk/nettverk. En vCPU er en virtuell prosessorressurs; GiB beskriver datamengde, mens RAM og disk har forskjellige roller.',
+        'Azure har størrelsesfamilier for ulike behov. CPU-tung behandling, stort minnebehov, lagringsintensiv behandling og GPU-arbeid kan kreve forskjellige profiler. Du velger en støttet SKU med bestemte kombinasjoner; du kan ikke anta at ethvert fritt vCPU/RAM-par kan bestilles. Region, kvoter, tilgjengelig kapasitet og kompatibilitet må vurderes separat. AzureLabs small og standard er egne undervisningsprofiler, ikke løfter om nåværende Azure-SKU, pris eller ytelse.',
+        'Indekseringsoppdraget bruker Windows, standardprofilen og en separat64GiB datadisk i App Sandbox. Du må undersøke hvorfor disse kravene gjelder og bruke et eksisterende egnet subnet i samme gruppe og region etter simulatorens regler. Et annet tidligere oppdrag kan ha brukt Linux eller Shared Sandbox; det er ikke tilstrekkelig nytt bevis. En ny akseptert bundle etter oppdragsstart er nødvendig.',
+      ],
+      terms: [
+        ['Hypervisor', 'Laget som virtualiserer fysisk maskinvare for VM-er.'],
+        ['Guest OS', 'Operativsystemet inne i VM-en.'],
+        [
+          'vCPU og RAM',
+          'Virtuell prosessorkapasitet og arbeidsminne; ikke diskvolum eller målt gjennomstrømning.',
+        ],
+      ],
+      example:
+        'En Windows-komponent som må installeres og vedlikeholdes på guest-nivå kan passe i en VM. Kunden må fortsatt planlegge oppdatering og gjenoppretting; et accepted Create-resultat bekrefter bare støttet konfigurasjon i AzureLab.',
+      limit:
+        'Ingen credentials, RDP, SSH, boot, guest-agent, indeksering eller helsemåling er støttet lokalt. Ingen offentlig IP er nødvendig for oppgaven eller modellert av simulatoren.',
+    },
+    dependencies: {
+      title: 'VM-en er ett ledd i en faktisk ressurskjede',
+      paragraphs: [
+        'OS disk inneholder guest-operativsystemets lagrede filer. En data disk kan gi et separat blokkvolum for applikasjonsdata. En disk er ikke RAM, og en ekstra disk er ikke automatisk en sikkerhetskopi. Temporary/local lagring på relevante virkelige VM-størrelser har andre varighetsgrenser; ikke legg eneste kopi av viktige data der. Den lokale simulatoren modellerer OS-/datadiskreferanser, ikke filsystem, backup eller disk-I/O.',
+        'En Network Interface, NIC, kobler VM-konfigurasjonen til et subnet i et Virtual Network. Følg kjeden VM→NIC→subnet→VNet og kontroller at referansene finnes. Dette viser konfigurerte relasjoner. Det er ikke en pakkeobservasjon, en åpen brannmur eller bevis på at tjenesten kan nås. Ekte Azure har blant annet IP-, sikkerhets- og rutingsforhold som ikke er operative i denne øvelsen. Public IP er valgfritt, ikke et universelt krav for enhver VM.',
+        'Resource group og subscription gir den administrative konteksten. Region er en ressursplassering. Felles gruppemedlemskap gjør ikke en NIC til vert for en VM, og gruppens metadata-location flytter ikke diskene. I denne avgrensede motoren må valgt subnet være i samme gruppe og region som den nye VM-en. Det er en lokal støtteregel; ekte Azure kan støtte andre grupper for relaterte ressurser når de dokumenterte vilkårene er oppfylt.',
+        'Når du sender CreateVmBundle, validerer motoren hele forespørselen før den legger til VM, nødvendige disker, NIC og eventuelt nettverksressurser. Avslag gir ingen delvis bundle. Bruk den aksepterte kvitteringen til å identifisere hva som faktisk ble opprettet. Åpne deretter hver referanse. Et historisk inventory kan brukes til undersøkelse, men kan ikke alene oppfylle kravet om en ny VM etter dette oppdragets tekniske startgrense.',
+      ],
+      terms: [
+        [
+          'OS disk / data disk',
+          'Lagring for guest-system og separat lagring for applikasjonsdata.',
+        ],
+        ['NIC', 'Nettverksgrensesnitt med referanse til et subnet.'],
+        [
+          'Kvittering',
+          'Replayed lokalt kommandoresultat, ikke en Azure-deployment eller driftstest.',
+        ],
+      ],
+      example:
+        'En akseptert VM kan peke til disk-7 og nic-9, mens nic-9 peker til subnet-4 og videre til vnet-3. Disse ID-ene må finnes i samme autoritative inventory; et diagram med oppdiktede noder er ikke inspeksjon.',
+      limit:
+        'Compute-modulen forklarer nødvendig nettverksrelasjon, men dekker ikke peering, DNS, VPN, ExpressRoute eller public/private endpoints. Disse forblir senere P06/P07-mål.',
+    },
+    containers: {
+      title: 'Image er oppskriften; instansen er det som kjører',
+      paragraphs: [
+        'Et container-image pakker applikasjonen med nødvendige user-space-biblioteker, runtime og filinnhold. En språkruntime, som Python-tolken i vårt eksempel, kan være en del av pakken. Container runtime er en annen komponent: den etablerer containeren på hosten. Et registry lagrer og distribuerer images; Azure Container Registry er ett alternativ. Registryet utfører ikke applikasjonen. Container runtime bruker et egnet image for å etablere en instans som kan starte applikasjonsprosessen. Ett image kan derfor gi flere separate instanser, mens et image som bare er lagret ikke betyr at noen prosess kjører.',
+        'Vanlige prosessisolerte containere deler kernel med host-operativsystemet. De får avgrensede visninger av for eksempel filer, prosesser og nettverk, samt ressursgrenser. De inneholder normalt ikke en egen guest-kernel slik en VM gjør. Dette betyr ikke at enhver container har samme sikkerhetsgrense. Windows Hyper-V-isolasjon bruker en lett VM og egen kernel; andre plattformer kan ha ytterligere grenser. Kompatibilitet, privilegier, imageinnhold og tjenestens modell må vurderes.',
+        'En instans har eget skrivbart arbeidslag. Dersom den slettes og erstattes fra samme image, følger ikke tilfeldige nye filer i dette laget automatisk med. Data som skal overleve må ligge i eksplisitt egnet persistent lagring eller en separat datatjeneste. Restart av samme instans og recreate av en ny er ikke alltid samme operasjon. Explorer bruker bevisst recreate for å vise denne forskjellen, uten å generalisere alle tjenesters lagringsoppsett.',
+        'Azure Container Instances passer til avgrenset container-/containergruppekjøring uten å bygge full orkestrering. Azure Container Apps gir en administrert applikasjonsplattform med blant annet revisjoner, ingress og konfigurerbar hendelses-/HTTP-skalering. Ikke alle scalere kan gå til null. AKS gir Kubernetes-objekter og kontrollmuligheter; Automatic og Standard flytter forskjellige driftsoppgaver. App Service kan også hoste custom containers for web-behov. Et container-image er dermed en pakkeform, ikke ett bestemt Azure-tjenestenavn.',
+        'Kunden må holde applikasjon og egne imageavhengigheter oppdatert, gi minst nødvendige rettigheter og konfigurere data/tilgang riktig. En administrert plattform kan vedlikeholde hosten uten å rette sårbarheter i ditt image. Kjører kunden selv container runtime på sin egen VM, beholder kunden også VM-vertens OS-arbeid. Containerisolasjon og hvem som drifter hosten er forskjellige spørsmål. Samme image kan gjøre leveransen mer konsistent, men ulike secrets, lagring, kernelkrav og eksterne tjenester kan fortsatt gi forskjellig resultat. I modellen sammenligner du derfor både hostingansvar, kjørebehov og datalivssyklus.',
+      ],
+      terms: [
+        ['Image', 'Distribuerbar, versjonert pakke; ikke en aktiv prosess.'],
+        [
+          'Runtime og instans',
+          'Miljøet som etablerer containeren, og en konkret opprettet container.',
+        ],
+        [
+          'Persistent lagring',
+          'Eksplisitt datalagring med livssyklus som kan overleve instansbytte.',
+        ],
+      ],
+      example:
+        'En bildekonverterer kommer som image v3. To instanser kan utføre jobber fra samme pakke. Skriver de resultatet bare i sitt eget midlertidige arbeidslag, er ikke resultatet garantert beholdt når instansene erstattes. Et eksplisitt eksternt lager endrer den forutsetningen.',
+      limit:
+        'Explorer kjører ingen image, container, Docker-daemon eller Kubernetes. Valgt Hyper-V-modell illustrerer et dokumentert isolasjonsmoteksempel, ikke en valgbryter som alle Azure-containertjenester tilbyr.',
+    },
+    functions: {
+      title: 'Functions flytter starten til en hendelse, ikke ansvaret bort',
+      paragraphs: [
+        'En melding, HTTP-forespørsel, filhendelse eller tidsplan kan aktivere en trigger i Azure Functions. Triggeren kobler hendelsen til funksjonskoden; koden utfører arbeidet og kan lagre eller sende et resultat. Dette bygger på Serverless Execution Explorer. Compute-valget gjelder nå om denne programmodellen faktisk passer arbeidslasten, sammenlignet med en kontinuerlig serverprosess eller en containerisert jobb.',
+        'En jobb som validerer nye dokumenter kan egne seg for Functions når hendelser og tilstand håndteres bevisst. Et krav om egen kernel-driver eller et uendret OS-avhengig program kan kreve VM. En containerpakke kan være relevant når flere native biblioteker eller en bestemt programoppstart må leveres samlet. Functions kan også hostes i containere på støttede planer; «Functions versus container» er derfor ikke alltid gjensidig utelukkende kategorier.',
+        'Hostingplanen bestemmer kapasitet, skalering, nettverksfunksjoner, oppstart og kostnadsmodell. Flex Consumption har hendelsesdrevet skalering og mulighet for always-ready. Premium holder varm kapasitet, mens Dedicated bruker kapasitet i App Service plan. Container Apps er et annet hostingspor for containeriserte funksjoner. Ikke overfør en påstand om tomgang eller kjørevarighet fra én plan til alle. Kundens kode må fortsatt tåle feil, eventuelle gjentatte leveranser og eksterne avhengigheter.',
+        'Microsoft administrerer mye av kjøreplattformen, mens kunden eier riktig kode, data, rettigheter, konfigurasjon og applikasjonssikkerhet. Bruk eksisterende Serverless-modul for full prediksjon/kjøring/årsaksforklaring. Å følge en repetisjonslenke gir ingen ny Compute-vurdering og registreres som hjelp dersom et selvstendig forsøk er aktivt.',
+      ],
+      terms: [
+        ['Trigger', 'Mekanismen som aktiverer en funksjon for en relevant hendelse.'],
+        [
+          'Hendelsesdrevet',
+          'Arbeidet starter som følge av en hendelse, ikke bare fordi en server står på.',
+        ],
+        ['Hostingplan', 'Tjenestevalg som påvirker kjøring, kapasitet, kostnad og egenskaper.'],
+      ],
+      example:
+        'En kømelding om ny fil kan starte validering og lagre resultat uten at studenten administrerer en egen VM. En vellykket modellkjøring beviser bare at den deklarerte undervisningskjeden er konsistent.',
+      limit:
+        'Det finnes ingen ny Functions-ressurs eller runtime i Portal. Ingen universell nullkost-, scale-to-zero-, cold-start- eller tidsgrense påstås.',
+    },
+    options: {
+      title: 'Fire VM-behov som må holdes fra hverandre',
+      paragraphs: [
+        'En enkelt VM er en konkret compute-enhet med guest-ansvar. Virtual Machine Scale Sets, VMSS, samler administrasjonen av flere VM-instanser og kan bruke skaleringsprofiler, regler eller tidsplaner. Et availability set organiserer flere VM-er i fault/update domains. Azure Virtual Desktop publiserer skrivebord og applikasjoner til brukere gjennom egne serviceobjekter. Disse løser forskjellige problemer; de er ikke fire størrelser av samme VM.',
+        'VMSS kan øke eller redusere instansantallet. Det er scale out/in, mens endring av én VMs størrelse er scale up/down. Flexible orchestration bruker standard Azure-VM-er og gir fleksibilitet i instanssammensetning innenfor dokumenterte vilkår. Uniform bruker en mer felles instansprofil og scale-set-spesifikke instansobjekter. Orchestration mode velges ved opprettelse og byttes ikke bare som en runtime-bryter. Ikke anta at «alle VMSS-instanser er identiske» beskriver alle Flexible-oppsett.',
+        'Automatisk skalering må ha hensiktsmessige signaler, grenser og innstillinger. Flere instanser hjelper bare hvis applikasjonen kan bruke dem, data er tilgjengelige og trafikken kommer frem. Et scale set uten riktig regel er ikke automatisk et svar på enhver topp. Et scale set kan være regionalt, i én sone eller fordelt over soner; scale-set-medlemskap alene er ikke sonebeskyttelse.',
+        'Microsofts tilgjengelige produktdokumentasjon anbefaler Flexible når behovet er bred VM-funksjonalitet og skalerbar administrasjon. Availability Zones gir større fysisk feilseparasjon enn et availability set. Det betyr ikke at en universell ny konfigurasjon passer alle regioner, SKU-er eller eldre applikasjoner. Vurder arbeidslast, plassering, støtte, data, routing og driftsbehov sammen.',
+      ],
+      terms: [
+        ['VMSS', 'En administrert gruppe VM-instanser med relevante profil-/skaleringsmuligheter.'],
+        ['Flexible / Uniform', 'Ulike orkestreringsmodeller, ikke en skala for programkvalitet.'],
+        [
+          'Availability set',
+          'Logisk plassering over fault og update domains, uten automatisk kapasitetsøkning.',
+        ],
+      ],
+      example:
+        'En batchtjeneste som trenger flere like jobbarbeidere kan bruke VMSS med en valgt kapasitetsregel. Et stabilt par VM-er som må tåle én vedlikeholdsgruppe kan analyseres med availability-set-begrepene. Ansattes skrivebord krever AVD-publisering og tilgang i tillegg til session-host-VM-er.',
+      limit:
+        'Modulen konfigurerer ingen operative VMSS-, availability-set- eller AVD-ressurser. Den sammenligner virkemåter på AZ-900-nivå.',
+    },
+    resilience: {
+      title: 'Kapasitet, plassering og en fungerende tjeneste er ulike ting',
+      paragraphs: [
+        'Fault domain, FD, betegner en gruppe som kan dele et fysisk feilpunkt som strøm eller nettverkssvitsj. Update domain, UD, grupperer enheter som kan restartes sammen ved planlagt vedlikehold. En maskinfeil i FD0 og et planlagt vedlikehold i UD0 er to forskjellige hendelser. Availability sets sprer VM-er for å begrense slike samtidige påvirkninger; de beskytter ikke i seg selv mot alle programfeil eller en hel regionshendelse.',
+        'Availability Zones er fysisk adskilte grupper av datasentre innen en region, med egne sentrale forsyninger. To VM-er i forskjellige FD-er innen samme sone kan fortsatt rammes av en sonehendelse. VM-er over flere soner kan gi gjenværende kapasitet hvis de relevante data- og routingforutsetningene også er oppfylt. En hel regionshendelse rammer fortsatt alle de deklarerte sonene i den regionen. Dette bygger på Part A, uten å utlede failover fra et regionsnavn.',
+        'I Capacity & Resilience Lab er én modellenhet arbeid en oppgitt mengde per undersøkelsesintervall. Den er verken requests/second, vCPU, en SLA eller en Azure-måling. Hver modellinstans har ti slike kapasitetsenheter. Du velger instansantall, behov, plassering, feil, routing og datatilgjengelighet. VMSS-regelen er vår enkle deklarerte regel: tilpass antallet til behovet innen én til seks instanser når regelen er aktivert. Azure har mer komplekse og konfigurerbare signaler, tidsvinduer og begrensninger.',
+        'Etter kjøring teller modellen hvilke deklarerte instanser feilen treffer, og hvor mye kapasitet som kan leveres gjennom valgt routing og data. En levende compute-instans med utilgjengelig felles data gir ingen fungerende applikasjonssti i denne modellen. Et availability set kan bevare en VM uten å skape mer kapasitet. En skaleringsregel kan tilføre instanser uten å rette dårlig plassering. Sammenlign derfor prediksjonen med det konkrete øyeblikksbildet, ikke med et generelt grønt tjenesteikon.',
+      ],
+      terms: [
+        ['Fault domain', 'En deklarert felles feilgrense.'],
+        ['Update domain', 'En gruppe som kan påvirkes samtidig ved planlagt plattformvedlikehold.'],
+        [
+          'Leverbar kapasitet',
+          'Gjenværende kapasitet som også har modellert nødvendig data og routing.',
+        ],
+      ],
+      example:
+        'Tre instanser gir tretti enheter før feil. Hvilke som gjenstår etter feil avhenger av deres plassering. Et fungerende svar krever dessuten at de overlevende kan nås og har nødvendige avhengigheter. Det neste forsøket bruker andre forutsetninger; regn på dem før kjøring.',
+      limit:
+        'Ingen faktisk autoscaling, load balancer, failover, SLA, responstid, maskinhelse eller gjenopprettingstid beregnes. Bare eksplisitt erklært undervisningstopologi og årsaksregler inngår.',
+    },
+    desktop: {
+      title: 'Azure Virtual Desktop: publiser et arbeidsmiljø',
+      paragraphs: [
+        'Azure Virtual Desktop, AVD, leverer virtualiserte skrivebord og applikasjoner. Tenk på et saksbehandlerteam som må bruke samme Windows-program fra forskjellige enheter. Appen kjører på en session host; brukerens enhet presenterer den fjerne opplevelsen. Dette er en annen leveranse enn å gi administratorer tilgang til en vanlig VM. En VM alene oppretter ingen publisert AVD-tjeneste.',
+        'En host pool samler registrerte session-host-VM-er. En application group bestemmer hvilke skrivebord eller applikasjoner som publiseres fra én host pool. En workspace grupperer og gjør disse application groups tilgjengelige i brukerens feed. Tilordning av riktig bruker og gyldig publisering er nødvendig før tjenesten kan tilby riktig ressurs. Workspace er ikke en fysisk VM eller en kopi av applikasjonen.',
+        'Pooled desktops kan fordele brukere mellom session hosts, og egnede Windows multi-session-oppsett kan ha flere brukersesjoner på samme host. Personal knytter et skrivebord til en bestemt bruker. Single-session versus multi-session beskriver sesjonsegenskap, mens personal versus pooled beskriver host-pool-tilordning. En RemoteApp application group publiserer utvalgte applikasjoner og støttes med pooled host pools; full desktop kan brukes med personal eller pooled. Ikke anta at alle kombinasjoner er gyldige.',
+        'Microsoft driver blant annet broker-/gateway-deler i tjenesten. Kunden må fortsatt ha egnede images, applikasjoner, session hosts, data/profiler, nettverk og tilgangskonfigurasjon. Nyere management-tilnærminger kan automatisere mer av host-livssyklusen; det gjør ikke kundens applikasjons- og sikkerhetsvalg irrelevante. Nettverks- og plasseringsdesign må passe organisasjonens krav. Classic-arbeidsflyter brukes ikke i denne modulen.',
+        'Explorer lar deg undersøke workspace, application group, pool og hosts som en semantisk publiseringskjede. Fjern en tilordning eller en host-forutsetning og undersøk forskjellen mellom at en ressurs finnes i feeden og at den har et deklarert kjøregrunnlag. Alle tilganger og hosts her er antakelser. Modellen utfører ingen innlogging, Windows-sesjon, lisenssjekk eller måling av samtidige brukere.',
+      ],
+      terms: [
+        ['Session host', 'VM-en der brukerens virtuelle desktop eller app kjøres.'],
+        ['Host pool', 'Samling session hosts med valgt tilordningsmodell.'],
+        [
+          'Application group / workspace',
+          'Publisering fra pool og gruppering av publiserte ressurser i feeden.',
+        ],
+      ],
+      example:
+        'En regnskapsapp skal leveres alene, ikke som full desktop. Undersøk pooled/RemoteApp, workspace-tilknytning og brukertilordning. Bytt deretter til personal/full desktop og forklar hvorfor objektvalget og brukeropplevelsen endres.',
+      limit:
+        'AVD er en administrert virtualiseringstjeneste med kundeadministrerte deler. Ingen AVD-ressurser legges i Portal-inventory, og et gyldig modellvalg beviser ingen faktisk brukertilgang.',
+    },
+    hosting: {
+      title: 'Hosting velges fra krav, ikke fra en rangstige',
+      paragraphs: [
+        'Start med det arbeidslasten faktisk trenger. Må teamet styre guest-OS eller kernel? Leveres programmet som kode eller image? Er arbeidsformen HTTP, en kontinuerlig prosess eller separate hendelser? Trengs direkte Kubernetes-API? Hvem kan vedlikeholde løsningen? Disse kravene avgjør hvilke kandidater som skal undersøkes. Flere compute-tjenester kan inngå i samme løsning.',
+        'Azure Virtual Machines gir guest-kontroll og tilsvarende driftsansvar. App Service gir en administrert web-/API-flate med støttede runtimes eller custom container. App Service plan beskriver blant annet OS, region og compute-kapasitet; flere apper kan dele planens instanser. Appinnstillinger er appkonfigurasjon, ikke endring av planens eier eller bevis på kjørende kode. Egenskaper som skalering, isolasjon og tilgjengelighet varierer med tier og oppsett.',
+        'Functions passer til funksjonskode aktivert av relevante hendelser på en egnet plan. ACI gir enkel containerkjøring uten full flåteorkestrering. Container Apps tilbyr administrerte containerapplikasjoner og jobber, revisjoner og konfigurerbar skalering uten å gi direkte kontroll over Kubernetes-API. En Container Apps Job utfører en avgrenset oppgave og avslutter kjøringen. Den kan utløses manuelt, etter en tidsplan eller av hendelser; en opprettet jobbdefinisjon er ikke i seg selv en utført jobb. AKS er relevant når Kubernetes-objekter og kontroll er et faktisk krav; Automatic og Standard har ulike operasjonelle vilkår. Ikke velg AKS bare fordi et program kan pakkes som container.',
+        'Kunden beholder kode/image, data, tilgang, avhengigheter og korrekt konfigurasjon på tvers av tjenestene. Plattformvalg erstatter ikke test av gjenoppretting eller sikkerhet. Kostnadsdrivere kan omfatte instanser, plan/tier, allokert tid, lagring, lisens og trafikk. Bruk Cost Management-forutsetningene til å sammenligne, uten å finne på en pris fra et tjenestenavn. Et billigere compute-lag er ikke nødvendigvis en lavere total driftskostnad.',
+        'Hosting Decision Studio viser krav, beslutning og teknisk begrunnelse hver for seg. En riktig tjeneste med feil begrunnelse er ikke en faglig forsvarlig løsning. Når to kandidater oppfyller alle oppgitte krav, kan begge par godkjennes. Undersøk alternativet ved å endre ett avgjørende krav, for eksempel fra HTTP-kode til containerpakke eller fra administrert ingress til Kubernetes-API-kontroll. Den uavhengige vurderingen bruker andre beslutningsstrukturer enn den guidede undersøkelsen.',
+      ],
+      terms: [
+        [
+          'Retained responsibility',
+          'Operative og sikkerhetsmessige oppgaver kunden fortsatt eier.',
+        ],
+        ['App Service plan', 'Compute-/hostingkontekst for en eller flere apper.'],
+        [
+          'Orkestrering',
+          'Samordnet livssyklus og plassering av flere instanser; mer enn image-lagring.',
+        ],
+      ],
+      example:
+        'En containerisert HTTP-API uten Kubernetes-API-krav kan ha flere gyldige administrerte kandidater. Dersom egne Kubernetes controllers blir et ufravikelig krav, må kandidatene vurderes på nytt. Navnet på organisasjonen er uvesentlig; det endrede kravet er selve årsaken.',
+      limit:
+        'Hosting Studio velger ingen tjeneste for studenten og oppretter ingen ressurs. Eksisterende VM og Web App kan åpnes i den faktiske Portal for eksplisitt inspeksjon; andre alternativer er konseptuelle.',
+    },
+    context: {
+      title: 'Learn-tillegg: hva slags løsning bruker compute?',
+      paragraphs: [
+        'Den offisielle Learn-modulen har også kategori-orientering om AI, machine learning og IoT/Edge. Dette er relevant kontekst, men ikke fire ekstra eksamensmål i P05. Forhåndsbygde AI-tjenester kan gi språk-, tale- eller dokumentfunksjoner gjennom API-er. Azure Machine Learning støtter arbeid med egne modeller, eksperimenter og modellivssyklus. Slike løsninger trenger fortsatt et bevisst compute- og datadesign.',
+        'IoT-løsninger handler om enheter, telemetri og kommunikasjon. IoT Hub er et eksempel på tjeneste for kommunikasjon med enheter, mens Edge flytter noe behandling nær datakilden. En agentisk applikasjon er et mønster som kombinerer modell, kontekst og verktøy med applikasjonslogikk; det er ikke en egen grunnleggende compute-type ved siden av VM/container/Functions. Ingen slike tjenester eller autonome agenter opprettes i AzureLab.',
+        'Når et tillegg eller en video foreslår en bestemt tjeneste, må tilgjengelighet, livssyklus og tekniske forutsetninger fortsatt kontrolleres. Denne modulen gir en avgrenset orientering, ikke AI-/IoT-kompetansebevis, konto eller operativ simulering. Vi kopierer ingen Learn-vurderingsspørsmål.',
+      ],
+      terms: [
+        ['AI-tjeneste', 'En tjeneste som tilbyr bestemte modell-/analysefunksjoner.'],
+        ['Machine learning', 'Arbeid med data, trening, evaluering og modellivssyklus.'],
+        ['Edge', 'Behandling nær enheten eller datakilden, med egne driftskrav.'],
+      ],
+      example:
+        'Et dokumentmottak kan kombinere en HTTP-flate, hendelsesbehandling og en dokumentanalyse-API. Det gjør ikke API, compute og datalagring til samme komponent.',
+      limit:
+        'Ingen nye eksamensslots, AI-/IoT-ressursmotorer eller løfter om gjeldende produktkatalog følger av orienteringen.',
+    },
+  },
+  causes: {
+    vm: {
+      prompt:
+        'Hva dokumenterer kombinasjonen av den nye kvitteringen og de sju undersøkte referansene?',
+      choices: [
+        'De to diskene viser at indeksprogrammet har både arbeidslag og en verifisert gjenopprettingskopi.',
+        'Bundle-kvitteringen dokumenterer Windows/standard/64GiB-konfigurasjonen; disk/NIC/subnet-kjeden viser lagring og nettverkstilknytning. Dette verifiserer ikke installert indeksprogram eller restore.',
+        'Det gjenbrukte subnettet viser at Windows-guestens indeksendepunkt kan nås fra resten av VNet.',
+      ],
+      feedback: [
+        'En separat datadisk er fortsatt konfigurasjon, ikke en utført backup eller restore. Riktig for en annen situasjon ville krevd en dokumentert kopi og gjenopprettingsprøve.',
+        'Dette skiller faktisk accepted konfigurasjon og tekniske referanser fra guest- og applikasjonstilstand som simulatoren ikke kjører.',
+        'Subnet-referansen viser tilknytningen. Tilgjengelig endepunkt krever blant annet kjørende program og passende sikkerhet/ruting, som ikke er observert her.',
+      ],
+    },
+    container: {
+      prompt:
+        'Begge kjøringer hadde gyldig image/runtime. Hvorfor endret rapportresultatet seg ved recreate?',
+      choices: [
+        'Den andre kjøringen etablerte et annet runtime-grunnlag, slik at rapporten kunne bygges inn i imagepakken før instansbyttet.',
+        'Den administrerte hostens delte kernel bevarte det gamle arbeidslaget og monterte det i B.',
+        'A sitt skrivbare lag ble fjernet i begge recreate-forsøk. Bare det eksplisitt eksterne lageret hadde en datalivssyklus uavhengig av A og kunne beholde rapporten for B.',
+      ],
+      feedback: [
+        'De lagrede forutsetningene viser samme gyldige kjøregrunnlag. Ingen ny image-bygging eller arkivering av runtime-filer skjedde.',
+        'Kernel-isolasjon er et annet forhold enn rapportens lagringssted. Modellen konfigurerte ingen gjenbruk av A sitt arbeidslag.',
+        'Forskjellen følger datalagringen, ikke image-navnet, hostens vedlikehold eller at en prosess kunne etableres.',
+      ],
+    },
+    capacity: {
+      prompt:
+        'Hvordan forklarer du de tre lagrede kontrastene uten å forveksle skalering med feilseparasjon?',
+      choices: [
+        'VMSS-regelen tok over når den modellerte lokaliteten feilet, og erstattet de berørte instansene før resultatet ble beregnet.',
+        'Set-eksemplet manglet deklarert soneseparasjon og delte øvelsens fysiske feilgrense. Zonal plassering beholdt andre instanser med tilstrekkelig rutet kapasitet/data. VMSS-regelen endret antall før feilen; den reparerte ikke en felles avhengighet.',
+        'Fault domains i set-eksemplet representerte ulike Availability Zones; det var bare instansantallet som gjorde det svakere.',
+      ],
+      feedback: [
+        'Regelen er eksplisitt beregnet før feilen og modellerer ingen erstatning eller failover etterpå. Se den lagrede hendelsen og antallet.',
+        'Dette kobler hvert utfall til sin deklarerte årsak. Setets Azure-sone er ukjent; den felles lokaliteten er en pedagogisk feilforutsetning, ikke en Azure-plasseringsgaranti.',
+        'FD, UD og Availability Zones er forskjellige grenser. Flere instanser i samme antatte feilgrense er ikke eksplisitt soneseparasjon.',
+      ],
+    },
+    hosting: {
+      prompt: 'Hvorfor endret kandidatsettet seg da det andre kontrollkravet ble innført?',
+      choices: [
+        'HTTP-image kunne passe administrert web-/containerhosting. Egne Kubernetes controllers krever Kubernetes-kontrollflaten i AKS. Imageformatet var ikke tilstrekkelig beslutningsgrunnlag; kunden beholder kode, data og tilgang i begge tilfeller.',
+        'Et HTTP-image må oversettes til en VM-image når det flyttes til en tjeneste med flere instanser.',
+        'Valget mellom App Service og AKS avgjøres her av hvilken region ressursgruppen bruker til metadata.',
+      ],
+      feedback: [
+        'Dette følger den faktiske kravendringen i de to lagrede beslutningsparene. Endret API-/kontrollbehov, ikke et tjenestenavn, avgrenser alternativene.',
+        'Ingen VM-image-konvertering ble krevd. Det nye kravet gjelder controllers og Kubernetes API, ikke bare flere instanser eller pakkeformat.',
+        'Metadata-location er administrativ informasjon. Den gir ingen Kubernetes API/controller-egenskap; relevante region-/tjenestebegrensninger måtte vært et eget krav.',
+      ],
+    },
+  },
+} as const;
+
+export const computeItemsNb = {
+  cp01: {
+    title: 'Vedlikeholdsvinduet i verkstedet',
+    problem:
+      'En signert Linux-modul i kernel må beholdes under feilsøking av et måleprogram. Teamet må kunne velge kernelversjon og starte guest-operativsystemet på nytt. Hvilken kjøreflate oppfyller kontrollkravet?',
+    premises: [
+      'Programmet kan pakkes på nytt, men driverkravet kan ikke fjernes.',
+      'Teamet har ansvar og kompetanse til guest-vedlikehold.',
+    ],
+    decisions: [
+      'Prosessisolert container på en administrert plattform.',
+      'Azure Functions på en egnet hendelsesplan.',
+      'Azure Virtual Machine med kontroll over guest-miljøet.',
+    ],
+    reasons: [
+      'En separat guest-kernel kan velges og vedlikeholdes av teamet, mens fysisk host fortsatt administreres av leverandøren.',
+      'Driverens user-space-klient kan pakkes i et image og kobles til en administrert host med plattformens eksisterende kernel.',
+      'En Hyper-V-isolert Windows-container har egen kernel og kan derfor brukes som erstatning for det oppgitte Linux-guest-miljøet.',
+    ],
+    decisive:
+      'Det avgjørende kravet er kontroll over guest-kernel, ikke bare pakking av programfiler.',
+    feedback: [
+      [
+        'En prosessisolert container deler normalt host-kernel. Den kan passe dersom driver-/kernelkravet fjernes eller plattformen uttrykkelig støtter nødvendig isolasjon og kompatibilitet.',
+        'Functions er relevant for funksjonskode og hendelser; valgt plan gir ikke generell guest-administrasjon. Et endret hendelsesprogram uten kernelkravet ville være en annen situasjon.',
+        'VM gir det nødvendige guest-kontrollnivået. Kunden beholder oppdatering, driver, applikasjon, tilgang og data.',
+      ],
+      [
+        'Dette oppfyller den nødvendige guest-kontrollen. Kunden må fortsatt vedlikeholde program, driver og guest.',
+        'Klientbiblioteket erstatter ikke den signerte kernel-modulen eller retten til å velge og restarte gjestens kernel. Uten kernelkravet kunne en støttet administrert container passe.',
+        'Hyper-V-isolasjon er et reelt moteksempel til delt kernel, men gir ikke den etterspurte Linux-guest-administrasjonen eller valgfri kernel som en VM. Kontroller OS-/isolasjonsstøtte separat.',
+      ],
+    ],
+  },
+  cp02: {
+    title: 'Varslet etter hver avsluttede ordre',
+    problem:
+      'Et system sender en melding for hver ferdig ordre. En liten, omskrevet kodefunksjon validerer meldingen og lagrer et varig resultat. Trafikken kommer i ujevne puljer. Ingen OS- eller containerkrav gjelder. Teamet ønsker en hendelsesmodell med lite infrastrukturarbeid.',
+    premises: [
+      'Idempotens og feilbehandling planlegges i koden.',
+      'Planvalg og eventuell varm kapasitet må vurderes separat.',
+    ],
+    decisions: [
+      'Azure Functions med relevant meldingstrigger og valgt hostingplan.',
+      'En VM-flåte med en kontinuerlig køleserprosess og konfigurerte skaleringsregler.',
+      'En ordinær kontinuerlig App Service-webprosess med en egen pollingløkke.',
+    ],
+    reasons: [
+      'En kontinuerlig webprosess kan holde kjøregrunnlaget varmt og redusere oppstartspåvirkning ved neste meldingspulje.',
+      'Et fast antall VM-er gjør kapasitetsplanleggingen enkel, men teamet må beholde guest- og prosessvedlikehold.',
+      'Meldingen kan aktivere kode gjennom en trigger; korrekt behandling, data, tilgang og planvalg forblir eksplisitte kundeoppgaver.',
+    ],
+    decisive:
+      'Kravene tillater en funksjonsmodell, men gir ingen universell kostnads- eller oppstartsgaranti.',
+    feedback: [
+      [
+        'Dette møter ønsket om en hendelsesmodell uten egen kontinuerlig pollingprosess. Planens oppstart, kapasitet og kostnad må fortsatt velges.',
+        'Dette kan behandle meldinger, men tilfører guest-/køleserdrift som ikke etterspørres. Et særlig OS- eller prosesskontrollkrav kunne begrunnet det.',
+        'App Service kan hoste kontinuerlig kode, men en egen pollingløkke svarer dårligere på ønsket funksjons-/triggerarbeidsmåte. Et kontinuerlig webbehov kunne endret valget.',
+      ],
+      [
+        'Varm kapasitet kan være relevant ved et eksplisitt latencykrav. Det er ikke et slikt krav her, og begrunner ikke i seg selv mer kontinuerlig drift.',
+        'Dette beskriver en forsvarlig VM-avveining, men ikke hvorfor den oppfyller ønsket om lite infrastruktur- og prosessarbeid.',
+        'Dette beskriver både aktiveringsmekanismen og ansvaret. Det lover ikke nullkost, identisk cold start eller feilfri behandling.',
+      ],
+    ],
+  },
+  cp03: {
+    title: 'Arkivet er intakt, men den nye arbeideren mangler',
+    problem:
+      'En revisjonsjobb har lagret ferdige resultater i en separat datatjeneste. Etter et planlagt instansbytte bekrefter arkivkontrollen at resultatene fortsatt finnes. Den nye containerarbeideren kommer ikke opp: miljøloggen sier at imagets Linux-format ikke støttes av den valgte Windows-baserte prosessisolerte hosten. Hva bør endres først?',
+    premises: [
+      'Ingen egen guest-administrasjon kreves. Godkjent image er uforandret, og et kompatibelt Linux-containeroppsett er tilgjengelig.',
+      'Arkivtilgang og bevarte resultater er allerede kontrollert. Oppgaven gjelder nytt kjøregrunnlag, ikke gjenoppretting av tapt data.',
+    ],
+    decisions: [
+      'Bygg samme applikasjon på nytt med flere user-space-biblioteker, men behold hostens OS-/isolasjonsoppsett.',
+      'Velg det støttede kompatible Linux-containeroppsettet og kontroller at runtime kan etablere instansen.',
+      'Kopier de bevarte resultatene fra datatjenesten inn i en ny imageversjon før samme host forsøkes igjen.',
+    ],
+    reasons: [
+      'Bevarte data og gyldig pakke er ikke nok for kjøring; hostens kernel-/isolasjonskompatibilitet må også passe imaget.',
+      'Instansens arbeidslag kan brukes til å omgå en forskjell mellom imagets og hostens OS-grunnlag.',
+      'En ny imageversjon med resultatfiler vil også gi det eksisterende runtime-oppsettet den manglende kernel-kompatibiliteten.',
+    ],
+    decisive:
+      'De konkrete observasjonene utelukker tapt rapport som hovedproblem. Feilen gjelder kompatibelt kjøregrunnlag.',
+    feedback: [
+      [
+        'Ekstra biblioteker kan løse manglende user-space-avhengigheter, men ikke den oppgitte OS-/kernel-kompatibiliteten. Det ville vært relevant ved en annen feilrapport.',
+        'Dette adresserer feilen uten å flytte eller late som arkivet er tapt. Ingen faktisk containerkjøring utføres i denne vurderingen.',
+        'Resultatene finnes allerede varig. Å bygge dem inn i et nytt image løser ikke den deklarerte host-kompatibiliteten og blander to livssykluser.',
+      ],
+      [
+        'Dette kobler valget til de to ulike observasjonene: bevart data og manglende kompatibel execution-plattform.',
+        'Arbeidslaget er instansens filområde, ikke en annen OS-kernel. Det kan være nyttig for midlertidige filer etter at instansen kan etableres.',
+        'Pakkeversjonering endrer innholdet, men innebærer ikke at en inkompatibel host får den riktige kernel-/isolasjonsmodellen.',
+      ],
+    ],
+  },
+  cp04: {
+    title: 'Arbeiderflåten gjennom døgnets topper',
+    problem:
+      'En tjeneste har fire VM-baserte jobbarbeidere. Jobbene kan fordeles mellom dem, og data ligger i en egnet ekstern tjeneste. Teamet trenger sentral instansadministrasjon og endret antall etter konfigurerte målinger, uten å kreve én fast identisk instanstype.',
+    premises: [
+      'Koden og køhåndteringen støtter flere samtidige arbeidere.',
+      'Teamet må fremdeles velge min/maks og en hensiktsmessig skaleringsprofil/regler.',
+    ],
+    decisions: [
+      'Et availability set med de fire VM-ene.',
+      'Virtual Machine Scale Sets med Flexible orchestration og relevant skalering.',
+      'Én større VM med samme samlede vCPU som de fire.',
+    ],
+    reasons: [
+      'Fault/update domains kan redusere samtidig påvirkning fra enkelte hostfeil og vedlikehold uten å endre flåtens instansantall.',
+      'En større size kan gi mer kapasitet per guest og redusere antall operativsystemer som må vedlikeholdes.',
+      'VMSS gir flåteadministrasjon; Flexible bruker standard VM-er, og konfigurerte min/maks/regler avgjør endring i antall.',
+    ],
+    decisive: 'Kravet er både flåteadministrasjon og instansantall etter konfigurerte signaler.',
+    feedback: [
+      [
+        'Availability sets adresserer fault/update-placement, men har ikke dette autoscale-/flåteoppsettet. Stabilt antall med vedlikeholdsseparasjon ville vært et annet krav.',
+        'Dette er en relevant kandidat. Flexible er ikke et løfte om automatisk korrekt appskalering, og begrensninger må fortsatt kontrolleres.',
+        'En større enkeltinstans kan hjelpe et ikke-distribuerbart minnebehov, men oppfyller ikke kravet til administrert instansantall her.',
+      ],
+      [
+        'Dette begrunner availability-set-plassering, men dekker ikke kravet om endret antall etter målinger. Det kunne vært nok for et fast flåtebehov.',
+        'Dette er en vertikal skaleringsavveining, men erstatter ikke den beskrevne flåtens samtidige arbeidere og sentrale antallsstyring.',
+        'Dette kobler Flexible og skaleringsoppsett uten å love at tjenestenavn alene gir riktig tilgjengelighet eller kapasitet.',
+      ],
+    ],
+  },
+  cp05: {
+    title: 'To appkopier under et vedlikeholdsvindu',
+    problem:
+      'Et availability set har seks VM-er. Appkopiene ligger på VM1 (FD0/UD0) og VM6 (FD2/UD0). VM2 (FD1/UD1) har ledig kapasitet og samme programgrunnlag. En planlagt oppdatering berører UD0. Én appkopi er nok til det oppgitte behovet. Hvilket tiltak retter den observerte felles vedlikeholdspåvirkningen?',
+    premises: [
+      'Begge kopier har tilgang til fungerende data og trafikkruting. Ingen Azure-soneplassering er oppgitt.',
+      'Oppgaven gjelder hvor appkopier legges på eksisterende VM-er, ikke at studenten kan velge en VM sin UD manuelt.',
+    ],
+    decisions: [
+      'Behold appkopiene fordi de eksisterende FD-verdiene allerede er forskjellige.',
+      'Øk kapasiteten på VM1 og VM6, men behold begge appkopier på de samme VM-ene.',
+      'Legg den ene appkopien på den tilgjengelige VM2 og valider at én kopi tåler den deklarerte belastningen.',
+    ],
+    reasons: [
+      'Ulike fault domains skiller visse fysiske hostfeil, så eksisterende FD-fordeling er hovedkriteriet også for dette planlagte vinduet.',
+      'De to opprinnelige kopiene deler update domain. Den oppgitte VM2 gir en annen UD for appkopien uten å hevde soneredundans.',
+      'Mer kapasitet per guest kan gi rom for høyere belastning og er derfor det mest direkte tiltaket mot samtidig planlagt vedlikehold.',
+    ],
+    decisive:
+      'Den aktuelle hendelsen følger UD, mens de to opprinnelige kopiene bare var fordelt mellom FD.',
+    feedback: [
+      [
+        'FD-fordelingen er verdifull ved visse hostfeil, men begge appkopier ligger fortsatt i UD0 under dette vinduet. Ved en ren FD0-feil ville situasjonen vært annerledes.',
+        'Større size kan hjelpe ved kapasitetsmangel, men begge valgte guests berøres fortsatt av UD0-hendelsen.',
+        'Dette endrer appens fordeling til en faktisk oppgitt annen UD. Tilgjengelige data, ruting og tilstrekkelig kapasitet er eksplisitte forutsetninger.',
+      ],
+      [
+        'FD og UD beskriver ulike påvirkninger. FD-forskjellen utelukker ikke det oppgitte samtidige UD-vinduet.',
+        'Dette begrunner tiltaket. Plattformen tilordner UD; oppgaven gjenbruker en allerede observert VM og lover ingen regional/sonebeskyttelse.',
+        'Kapasitet og vedlikeholdsgrense er ulike mekanismer. Mer kapasitet på to berørte guests holder ikke en kopi utenfor UD0.',
+      ],
+    ],
+  },
+  cp06: {
+    title: 'Én feed virker, den andre gjør ikke det',
+    problem:
+      'To pooled host pools bruker samme kompatible image, men har hver sin RemoteApp application group: Regnskap og Innkjøp. Begge har fungerende session hosts. Regnskap er registrert i arbeidsflaten Kontor; Innkjøp er registrert i Pilot. Kari er tilordnet Innkjøp og bruker bare Kontor-feeden. Kollegene med Regnskap ser sin app der. Hvilken endring passer dersom Innkjøp skal leveres via den eksisterende Kontor-feeden?',
+    premises: [
+      'Karis tilordning og installert Innkjøp-program er kontrollert. Hun skal ikke få Regnskap-tilgang eller en ny host pool. Gruppene og workspace har kompatibelt deployment-scope/location.',
+      'Organisasjonen tillater at Innkjøp-gruppen registreres i Kontor i stedet for Pilot. Dette er et gitt objektscenario, ikke innlogging eller en målt AVD-sesjon.',
+    ],
+    decisions: [
+      'Registrer Innkjøp application group i Kontor-workspace og behold dens målrettede brukertilordning.',
+      'Tilordne Kari til Regnskap application group fordi den har den fungerende Kontor-feeden.',
+      'Legg til en session host i Innkjøp sin eksisterende pool uten å endre gruppens registrering.',
+    ],
+    reasons: [
+      'Samme image i begge host pools gir en felles publiseringsgrense som gjør den fungerende appgruppen til feed for den andre.',
+      'Flere session hosts er det relevante tiltaket når en allerede tilordnet app ikke finnes i den brukte feeden.',
+      'Application groups har egne registrerings- og tilordningsrelasjoner; samme image i to host pools erstatter ikke gruppens workspace-registrering.',
+    ],
+    decisive:
+      'Fungerende hosts og likt image er ikke den manglende publiseringsrelasjonen. Hver application group må være registrert i riktig workspace og ha korrekt tilordning.',
+    feedback: [
+      [
+        'Dette adresserer forskjellen i de oppgitte objektrelasjonene uten å utvide Karis tilgang. En annen ønsket feed ville gitt et annet registreringsvalg.',
+        'Dette utvider til feil appgruppe og løser ikke Innkjøp-publiseringen. Det kunne vært relevant bare dersom Kari faktisk skulle bruke Regnskap.',
+        'Hosts er allerede tilgjengelige. Flere kunne løst deklarert kapasitetsmangel, men endrer ikke hvilken gruppe som publiseres i Kontor.',
+      ],
+      [
+        'Et image bestemmer programgrunnlaget. Det deler ikke appgruppers registrering eller brukertilgang mellom host pools.',
+        'Kapasitet kunne påvirket oppstart av en synlig app, men de oppgitte funnene gjelder hvilken feed gruppen er registrert i.',
+        'Dette forklarer hvorfor riktig gruppe og riktig workspace må kobles, uten å love reell sesjon eller autentisering.',
+      ],
+    ],
+  },
+  cp07: {
+    title: 'Spesialisten og skiftarbeiderne',
+    problem:
+      'En konstruktør trenger et fast personlig Windows-skrivebord med egne tilpasninger. Et annet team trenger et standardisert RemoteApp-verktøy for skiftarbeid. Hvilken plan skiller behovene riktig?',
+    premises: [
+      'Konstruktøren krever en fast tilordnet session host; en flyttbar brukerprofil på en tilfeldig vert er ikke tilstrekkelig.',
+      'Skiftteamet trenger bare appvinduet og skal dele et standardisert host-grunnlag. Tilgang, profiler og apper må konfigureres separat.',
+    ],
+    decisions: [
+      'Bruk pooled full desktop for begge grupper og la brukerprofiler håndtere konstruktørens tilpasninger.',
+      'Bruk personal/full desktop for konstruktørens faste tildeling og pooled/RemoteApp for skiftteamets standardverktøy.',
+      'Bruk personal/full desktop for alle, med en dedikert session host per skiftbruker.',
+    ],
+    reasons: [
+      'Fast personlig host-tilordning, publisering av en app og antall samtidige sesjoner er forskjellige designvalg som må samsvare med hver gruppes krav.',
+      'Et standardisert image og brukerprofiler gir samme faste vertstilknytning som en personal host pool.',
+      'Dedikerte hosts holder brukermiljøene adskilt og gir forutsigbar vertstilknytning for en brukerspesifikk applikasjon.',
+    ],
+    decisive:
+      'De to kravene gjelder forskjellige bruker- og publiseringsmodeller, ikke bare antall VM-er.',
+    feedback: [
+      [
+        'Pooled/profiler kan passe et standardisert fleksibelt desktopbehov, men gir ikke konstruktørens krevde faste vertstilknytning og leverer mer enn skiftteamets appbehov.',
+        'Dette møter de to ulike tildelings-/publiseringskravene. Pooled og multi-session er ikke synonymer; OS og profiler må fortsatt velges.',
+        'Dette kunne passe dersom alle trengte dedikerte desktopmiljøer, men bryter skiftteamets oppgitte delings- og appkrav.',
+      ],
+      [
+        'Dette begrunner inndelingen uten å slutte fra antall brukere til én universell AVD-modell.',
+        'Profiler kan bevare brukerdata/innstillinger, men er ikke en garanti om en fast session host. Det eksplisitte kravet er derfor fortsatt ubesvart.',
+        'Dedikerte hosts er et gyldig alternativ ved andre krav; begrunnelsen må også ta hensyn til den avtalte leveranseformen og delingen her.',
+      ],
+    ],
+  },
+  cp08: {
+    title: 'Importjobben stopper før neste del er ferdig',
+    problem:
+      'En syntetisk undersøkelse av en VM viser en arbeidsmengde som trenger10GiB samtidig arbeidsminne. Valgt profil har8GiB RAM. Diskvolumene har80GiB ledig plass, og feilen er at prosessen ikke kan allokere mer minne. Hva er det mest relevante neste planleggingstiltaket?',
+    premises: [
+      'Programmet kan undersøkes for mindre samtidighet; diskplass og lagringsytelse er ikke den oppgitte flaskehalsen.',
+      'Tallene er scenarioforutsetninger, ikke målt Azure-ytelse, priser eller en anbefaling av en virkelig SKU.',
+    ],
+    decisions: [
+      'Utvid datadisken og behold programmet, samtidigheten og VM-profilen uendret.',
+      'Velg et nyere OS-image og behold programmet, samtidigheten og VM-profilen uendret.',
+      'Vurder lavere minnebehov/samtidighet eller en profil med nok RAM, og valider arbeidslasten etter endringen.',
+    ],
+    reasons: [
+      'Et nyere OS-image kan inneholde minnehåndteringsrettelser, så imageoppdatering er det mest målrettede tiltaket mot den observerte feilen.',
+      'Prosessens arbeidsminnebehov må sammenholdes med RAM; ledig diskplass og imagevalg er andre dimensjoner.',
+      'Mer varig lagringsplass gir rom for flere importfiler og bør prioriteres før man undersøker den oppgitte allokeringsfeilen.',
+    ],
+    decisive:
+      'Den observerte flaskehalsen er RAM. Velg tiltak for den relevante ressursen og valider programmet etterpå.',
+    feedback: [
+      [
+        'Dette kan hjelpe ved fulle lagringsvolumer, men adresserer ikke den oppgitte10/8GiB-allokeringen når resten beholdes.',
+        'Et nytt image kan løse dokumenterte OS-/kompatibilitetsfeil. Ingen slik årsak er oppgitt, og samme RAM/samtidighet gjenstår.',
+        'Dette undersøker både programmet og riktig ressursdimensjon. Endringen må etterprøves; mer RAM beviser ikke at alle andre problemer er løst.',
+      ],
+      [
+        'Softwarefeil kan forekomme, men uten et slikt funn er dette en annen hypotese enn den oppgitte minneallokeringen.',
+        'Dette kobler den observerte begrensningen til et relevant tiltak uten å blande RAM, image og disk.',
+        'Lagringsplanlegging er nyttig når volumet er begrensningen. Her er ledig plass allerede oppgitt og prosessen mangler arbeidsminne.',
+      ],
+    ],
+  },
+  cp09: {
+    title: 'Gjenbruk av nettverk i en ny VM-bestilling',
+    problem:
+      'En bestilling må plassere VM-en i region B. Den refererer til en eksisterende NIC i region A. Teamet kan opprette nytt nettverksgrunnlag i B, men skal ikke flytte den gamle løsningen i A. Hvilket referansevalg bør undersøkes for den nye bestillingen?',
+    premises: [
+      'Begge miljøene har samme subscription. Valg av region B er et fast krav for denne arbeidslasten.',
+      'Ingen offentlig IP, trafikkmåling eller programhelse er et premiss. AzureLabs smalere samme-gruppe-regel er en egen lokal støtteregel.',
+    ],
+    decisions: [
+      'Bruk et egnet NIC/VNet/subnet-grunnlag i region B og kontroller de faktiske referansene og subscription.',
+      'Flytt den eksisterende NIC-en til en Resource group med metadata-location B og behold referansen i bestillingen.',
+      'Bruk region A og den eksisterende NIC-en som nettverksgrunnlag for VM-bestillingen.',
+    ],
+    reasons: [
+      'Resource group-metadata er den relevante plasseringen for tilknyttede nettverksressurser, slik at administrativ regrouping er tilstrekkelig.',
+      'Samme subscription og den eksisterende NIC-referansen gir et ferdig nettverksgrunnlag for den nye VM-bestillingen.',
+      'VM/NIC har dokumenterte regionale og abonnementsrelasjoner; felles management-kontekst opphever ikke det faste plasseringskravet.',
+    ],
+    decisive:
+      'NIC/VM har konkrete regionale og abonnementsrelasjoner. Navn og group metadata flytter ikke ressurser.',
+    feedback: [
+      [
+        'Dette følger VM-kravet og undersøker hele den relevante kjeden. Det er konfigurasjon, ikke en bekreftet nettverksforbindelse.',
+        'Administrativ flytting av gruppetilhørighet/metadata flytter ikke NIC-ens region. Ved bare en organisasjonsendring kunne regrouping vært relevant.',
+        'Dette kunne vært teknisk relevant dersom region A var tillatt, men bryter det eksplisitte B-kravet i oppgaven.',
+      ],
+      [
+        'Metadata-location beskriver gruppemetadata og endrer ikke ressursenes fysiske location.',
+        'Gjenbruk kan være nyttig, men ikke når de konkrete VM/NIC-relasjonene eller arbeidslastens krav brytes.',
+        'Dette begrunner valget med både tekniske relasjoner og det faste kravet, uten å hevde at konfigurasjonen beviser trafikk.',
+      ],
+    ],
+  },
+  cp10: {
+    title: 'To komponenter, ett containerformat',
+    problem:
+      'En løsning har et HTTP-grensesnitt og en separat komponent som leverer egne Kubernetes controllers. HTTP-teamet har allerede en egnet App Service-containerplattform og har ikke ansvar for Kubernetes-objekter. Plattformteamet har en godkjent AKS-flate og ansvar for controller-komponenten. Begge komponenter leveres som images. Må containerformatet føre til én felles hostingplattform?',
+    premises: [
+      'Organisasjonen tillater separate plattformer og har avtalt grensesnitt mellom komponentene.',
+      'HTTP-komponenten krever ikke Kubernetes API. Controller-komponenten kan ikke omskrives til en vanlig webprosess.',
+    ],
+    decisions: [
+      'Flytt begge komponentene til HTTP-teamets App Service-plattform for å samle imageleveransen.',
+      'Behold HTTP-komponenten på egnet App Service og controller-komponenten på AKS med hver sin ansvarlige eier.',
+      'Flytt begge komponentene til AKS og legg Kubernetes-konfigurasjonen for HTTP-komponenten til HTTP-teamet.',
+    ],
+    reasons: [
+      'Krav til kontrollflate og driftsansvar må vurderes per komponent; et felles imageformat krever ikke felles orkestreringsplattform.',
+      'Samme distribusjonsformat gjør webhosting og controller-kjøring utbyttbare for de oppgitte komponentene.',
+      'En felles Kubernetes-plattform samler rollout og nettverksmekanismer, slik at imageleveransen kan håndteres gjennom én samlet driftsmodell.',
+    ],
+    decisive:
+      'Pakkeformat, kontrollflate og eierskap er separate forhold; det nye problemet gjelder komponentinndeling, ikke bare et enkelt tjenestenavn.',
+    feedback: [
+      [
+        'Dette samler pakkeformat, men App Service gir ikke den oppgitte controller-kontrollflaten. Ved to vanlige webkomponenter kunne samling vært riktig.',
+        'Dette møter de tekniske og organisatoriske kravene. Kommunikasjon, tilgang og data må fortsatt designes eksplisitt; bildet er ingen reell driftstest.',
+        'Begge kunne teknisk hostes i Kubernetes, men dette forslaget bryter den faste ansvarsgrensen for HTTP-teamet. En ny plattformavtale kunne gjort det forsvarlig.',
+      ],
+      [
+        'Dette begrunner inndelingen med de oppgitte kravene fremfor å anta at alle images trenger samme tjeneste.',
+        'Image er en leveransepakke; det gir ikke enhver hostingplattform alle nødvendige API-er og kontrollmuligheter.',
+        'Felles plattform er en reell avveining, men kan ikke uten videre erstatte den eksplisitte driftsavtalen i dette scenarioet.',
+      ],
+    ],
+  },
+  cp11: {
+    title: 'Gjenbruk innenfor den godkjente hostinggrensen',
+    problem:
+      'Et nytt HTTP-image skal inn i en eksisterende godkjent App Service plan. Linux-/image-/region-/planstøtte og ledig kapasitet er kontrollert. Mandatet krever gjenbruk av denne planen; ny containerplattform eller guest-VM er ikke autorisert. Hvilket valg og hvilken begrunnelse følger det nye mandatet?',
+    premises: [
+      'Arbeidslasten trenger ingen Kubernetes API eller guest-OS-administrasjon.',
+      'Denne vurderingen gjelder både teknisk egnethet og den eksplisitte driftsgrensen; et nytt miljø kan ikke forutsettes godkjent.',
+    ],
+    decisions: [
+      'App Service med støttet custom container på den eksisterende planen.',
+      'En ny VM som containerhost under det samme subscription.',
+      'Azure Container Apps i et nytt administrert miljø.',
+    ],
+    reasons: [
+      'Samme subscription er tilstrekkelig gjenbruk av administrativt scope, selv om en annen hostingressurs må opprettes.',
+      'Den valgte plattformen støtter det kontrollerte imageoppsettet og lar appen knyttes til den konkrete eksisterende planen.',
+      'Et nytt administrert containermiljø kan samle apprevisjoner og ingress, mens applikasjonen fortsatt leveres som image.',
+    ],
+    decisive:
+      'Et generelt gyldig hostingalternativ er ikke tilstrekkelig når et konkret kompatibelt hostingobjekt og en operasjonell grense er bindende.',
+    feedback: [
+      [
+        'Dette møter både teknisk støtte og det spesifikke gjenbrukskravet. Kapasitet, tilgang og appinnhold må fortsatt vedlikeholdes.',
+        'VM kan kjøre containere, men gjenbruker ikke App Service-planen og introduserer guest-ansvar uten mandat. OS-kontroll og ny autorisasjon kunne endret valget.',
+        'Dette kunne vært forsvarlig uten gjenbrukskravet og med godkjent nytt miljø. Det er ingen påstand om at Container Apps er generelt svakere.',
+      ],
+      [
+        'Subscription er management-kontekst, ikke den konkrete hostingrelasjonen til en App Service plan.',
+        'Dette begrunner riktig ressursrelasjon for valgt løsning og det kontrollerte kravet.',
+        'Dette beskriver et reelt teknisk alternativ, men etablerer ikke relasjonen til den eksisterende App Service-planen som skal gjenbrukes. Uten dette mandatet kunne egenskapen begrunnet et annet valg.',
+      ],
+    ],
+  },
+  cp12: {
+    title: 'Den avgrensede eksportjobben',
+    problem:
+      'Et team vil starte en containerisert eksport ved behov, skrive resultatet til et eksternt lager og avslutte kjøringen. De trenger ikke HTTP-ingress eller Kubernetes-API og har ikke kapasitet til å administrere en Kubernetes-plattform. Både en avgrenset containergruppe og en administrert jobb er tillatt. Velg en forsvarlig kandidat med en begrunnelse som passer akkurat den kandidaten.',
+    premises: [
+      'Teamet leverer et egnet image og kjenner ressurskravene.',
+      'Tilgang og varig resultatlagring må fortsatt konfigureres.',
+    ],
+    decisions: [
+      'Azure Container Apps Job med manuell utløsing.',
+      'Etabler en egen AKS Standard-plattform for eksporten.',
+      'Azure Container Instances.',
+    ],
+    reasons: [
+      'En enkel containergruppe kan starte den avgrensede oppgaven og avsluttes med egnet restart policy; kunden må håndtere resultatlagring, tilgang og nødvendig oppfølging.',
+      'Kubernetes Jobs beskriver fullføring og retry-policy gjennom deklarative objekter, og kan styre avslutning av batchkjøringen.',
+      'En gjenbrukbar jobbdefinisjon kan starte en separat execution manuelt; execution avsluttes etter arbeidet, uten å bygge en egen Kubernetes-driftsflate.',
+    ],
+    decisive:
+      'Det finnes et begrenset containerkjørebehov uten de ekstra kontroll-/skaleringskravene som kan begrunne større plattformer.',
+    feedback: [
+      [
+        'Container Apps Job er et forsvarlig alternativ: en manuell jobb kjører en avgrenset oppgave. Image, tilgang, ressursgrenser og ekstern lagring må fortsatt konfigureres.',
+        'AKS kan kjøre batcharbeid, men en egen Standard-plattform tilfører Kubernetes-ansvar uten et slikt krav og bryter den oppgitte driftsgrensen. Ved behov for egne Kubernetes-objekter og kompetanse til å drifte dem kunne dette vært relevant.',
+        'ACI er en relevant kandidat for denne enkle gruppen. Det er ikke et løfte om alle egenskaper i en orkestrert applikasjonsplattform.',
+      ],
+      [
+        'Dette beskriver det avgrensede ACI-valget, med eksplisitte ansvar. Det er ikke en påstand om samme objekt-/execution-modell som Container Apps Jobs.',
+        'Kubernetes kan kjøre batchjobber, men dette begrunner en større driftsflate som bryter den oppgitte kapasiteten/autorisasjonen. Ved behov for egne Kubernetes-objekter og et ansvarlig plattformteam kunne det passe.',
+        'Dette beskriver spesifikt ACA Job-konfigurasjon og dens separate execution. ACI kan også kjøre til avslutning, men det gir ikke den samme gjenbrukbare Job-objektmodellen.',
+      ],
+    ],
+  },
+  cp13: {
+    title: 'Frisk kapasitet som ikke får arbeid',
+    problem:
+      'Et deklarert konseptscenario har tre friske app-VM-er fordelt over to soner. Hver kan håndtere10 arbeidsenheter per intervall. Etterspørselen er25. Data er tilgjengelig for alle, men den oppgitte rutingen sender alt arbeid til VM1; VM2 og VM3 mottar ingenting. Hvilket tiltak adresserer den dokumenterte begrensningen først?',
+    premises: [
+      'Applikasjonen kan fordele uavhengig arbeid mellom de tre. Ingen ny feil eller annen kapasitetsbegrensning er oppgitt.',
+      'Tall og routing er eksplisitte modellforutsetninger, ikke Azure-trafikk, lastbalansering eller målt helse.',
+    ],
+    decisions: [
+      'Endre den deklarerte rutingen til å fordele arbeidet over de tre eksisterende instansene, og undersøk deretter resultatet.',
+      'Legg til en fjerde instans, men behold rutingen bare til VM1.',
+      'Flytt VM2 og VM3 til VM1 sin sone, men behold samme ruting.',
+    ],
+    reasons: [
+      'Samlet instanskapasitet over etterspørselen er tilstrekkelig grunnlag for levering i intervallet; flere instanser øker dette tilbudet.',
+      'De30 deklarerte enhetene er bare leverbare dersom friske instanser faktisk får arbeid; her er den brukte stien begrenset til10.',
+      'Samlokalisering i én sone kan redusere kommunikasjonsoverhead og er derfor det mest aktuelle kapasitetstiltaket her.',
+    ],
+    decisive:
+      'Arbeidsfordelingen, ikke total frisk compute eller datatilgang, er den gitte begrensningen.',
+    feedback: [
+      [
+        'Dette bruker kapasiteten som allerede finnes. Med balansert arbeid er30 større enn25 i den oppgitte modellen; det er ingen virkelig Azure-garanti.',
+        'Dette kunne hjelpe hvis alle aktuelle instanser fikk arbeid og total kapasitet var for liten. Med bare VM1-ruting forblir leverbar modellkapasitet10.',
+        'Dette endrer feilseparasjon uten å endre den oppgitte arbeidsfordelingen. Et eget latencykrav kunne gjort geografi relevant, men er ikke gitt.',
+      ],
+      [
+        'Instansantallet er relevant, men overser den konkrete ruteobservasjonen. Kapasitet må kunne brukes før flere instanser er riktig forklaring.',
+        'Dette knytter den strukturerte beregningen til rutingen og skiller tilbudt fra leverbar kapasitet.',
+        'Ingen slik sone-/latencybegrensning er modellert. Samlokalisering kan dessuten redusere fysisk feilseparasjon.',
+      ],
+    ],
+  },
+  cp14: {
+    title: 'To bestillinger, én eksisterende ressurs',
+    problem:
+      'Activity log viser accepted kommando A som opprettet vm-old med disk-old og nic-old. Senere kommando B for vm-new blir rejected, med tom addedIds og uendret world revision. Inventory inneholder bare vm-old-kjeden. Hvilken overlevering stemmer med disse samlede observasjonene?',
+    premises: [
+      'A og B gjelder samme Resource group, men forskjellige kommando-ID-er og VM-ID-er. Ingen ny kommando er akseptert etter B.',
+      'Dette er AzureLabs deterministiske lokale kvitteringer, ikke asynkron Azure-deployment, guest-boot eller en driftstest.',
+    ],
+    decisions: [
+      'Beskriv vm-new som under oppstart fordi en tidligere VM-bestilling i samme gruppe var accepted.',
+      'Knytt den eksisterende kjeden til A, og rapporter at B ikke opprettet vm-new eller nye delressurser.',
+      'Knytt disk-old og nic-old til B ved overlevering fordi de dekker de samme ressursrollene som B bestilte.',
+    ],
+    reasons: [
+      'Gruppens siste bestillingshensikt er et tilstrekkelig subjekt for eldre kvitteringer når ressurstypene samsvarer.',
+      'Ressursrollene kan gjenbrukes som bevis for en ny bestilling selv uten accepted referanser fra den bestillingen.',
+      'Evidence må knyttes til kommando, utfall, ressurs-ID-er og startgrense; tidligere aksept dokumenterer ikke et senere avvist nybygg.',
+    ],
+    decisive:
+      'Den nye slutningen krever korrekt provenance og avslag uten delvis opprettelse, ikke bare gjenkjenning av ordet receipt.',
+    feedback: [
+      [
+        'Det finnes ingen slik pending/boot-tilstand i de oppgitte observasjonene. En senere faktisk accepted opprettelse kunne gitt nytt konfigurasjonsbevis.',
+        'Dette samsvarer med begge kvitteringer og inventory. Det sier fremdeles ingenting om at programmet på vm-old kjører eller er sikkert.',
+        'Eksisterende ressurser kan inspiseres som gamle ressurser, men kan ikke ommerkes som resultat av B. Faktisk støttet gjenbruk må fremgå av en gyldig kommando/referanse.',
+      ],
+      [
+        'Felles gruppe er administrativ sammenheng, ikke bevis på at to kommandoer har samme subjekt eller resultat.',
+        'Teknisk rolle er ikke identitet. Uten riktige referanser og accepted utfall skaper dette falsk nybygg-evidence.',
+        'Dette begrunner den korrekte overleveringen og bevarer forskjellen mellom historisk konfigurasjon, avvist nytt arbeid og faktisk drift.',
       ],
     ],
   },

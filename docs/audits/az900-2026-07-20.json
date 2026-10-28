@@ -807,6 +807,234 @@
       "reviewed": "2026-10-27",
       "purpose": "Third official path has four modules; cost module alone implemented, remaining modules planned. Claim map: COST_MANAGEMENT.",
       "kind": "technical"
+    },
+    "PS01": {
+      "url": "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900",
+      "reviewed": "2026-10-28",
+      "purpose": "Four pinned compute skills; networking remains separate. July20 2026 Skills measured, not a readiness measure. Independent original educational model; no measured Azure runtime or human approval.",
+      "kind": "exam"
+    },
+    "PS02": {
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-compute-networking-services/",
+      "reviewed": "2026-10-28",
+      "purpose": "Nine current units and five Learn learning goals. Public teaching/summary read; protected assessment not accessed or copied. Independent original educational model; no measured Azure runtime or human approval.",
+      "kind": "module"
+    },
+    "PS03": {
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-compute-networking-services/1-introduction",
+      "reviewed": "2026-10-28",
+      "purpose": "Different organizations require different code, OS and operational-control boundaries. Prerequisites link to existing Cloud Concepts. Independent original educational model; no measured Azure runtime or human approval.",
+      "kind": "unit"
+    },
+    "PS04": {
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-compute-networking-services/2-virtual-machines",
+      "reviewed": "2026-10-28",
+      "purpose": "VM guest OS, size and disks; VMSS and availability sets are distinct options; no automatic application availability. Independent original educational model; no measured Azure runtime or human approval.",
+      "kind": "unit"
+    },
+    "PS05": {
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-compute-networking-services/4-virtual-desktop",
+      "reviewed": "2026-10-28",
+      "purpose": "AVD desktop/application delivery; personal and pooled host pools differ from single/multi-session. Independent original educational model; no measured Azure runtime or human approval.",
+      "kind": "unit"
+    },
+    "PS06": {
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-compute-networking-services/5-containers",
+      "reviewed": "2026-10-28",
+      "purpose": "Image versus container instance/runtime; ACI/ACA/AKS identify different hosting and orchestration scopes. Independent original educational model; no measured Azure runtime or human approval.",
+      "kind": "unit"
+    },
+    "PS07": {
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-compute-networking-services/6-functions",
+      "reviewed": "2026-10-28",
+      "purpose": "Functions event/trigger/code; billing, scale and cold-start depend on selected hosting plan. Independent original educational model; no measured Azure runtime or human approval.",
+      "kind": "unit"
+    },
+    "PS08": {
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-compute-networking-services/12a-describe-ai-ml-iot-edge-services",
+      "reviewed": "2026-10-28",
+      "purpose": "AI, machine learning and IoT/Edge are contextual Learn categories, not additional scoped AZ900 skill slots. Independent original educational model; no measured Azure runtime or human approval.",
+      "kind": "unit"
+    },
+    "PS09": {
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-compute-networking-services/7-describe-application-hosting-options",
+      "reviewed": "2026-10-28",
+      "purpose": "Web Apps, containers and VMs meet different hosting requirements; managed hosting retains customer responsibilities. Independent original educational model; no measured Azure runtime or human approval.",
+      "kind": "unit"
+    },
+    "PS10": {
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-compute-networking-services/14-summary",
+      "reviewed": "2026-10-28",
+      "purpose": "Current module learning-goal summary and linked supplemental App Service module; no assessment question reused. Independent original educational model; no measured Azure runtime or human approval.",
+      "kind": "unit"
+    },
+    "PS11": {
+      "url": "https://learn.microsoft.com/en-us/azure/virtual-machines/overview",
+      "reviewed": "2026-10-28",
+      "purpose": "VMs provide guest-level control, images and declared compute profiles; configuration does not prove app execution. Independent original educational model; no measured Azure runtime or human approval.",
+      "kind": "technical"
+    },
+    "PS12": {
+      "url": "https://learn.microsoft.com/en-us/azure/virtual-machines/availability",
+      "reviewed": "2026-10-28",
+      "purpose": "Availability choices have different fault boundaries; zones, sets and scale sets do not guarantee end-to-end uptime. Independent original educational model; no measured Azure runtime or human approval.",
+      "kind": "technical"
+    },
+    "PS13": {
+      "url": "https://learn.microsoft.com/en-us/azure/virtual-machines/availability-set-overview",
+      "reviewed": "2026-10-28",
+      "purpose": "Availability sets distribute VMs across fault/update domains; not zones or autoscale. Current recommendation qualifies Flexible/zonal alternatives. Independent original educational model; no measured Azure runtime or human approval.",
+      "kind": "technical"
+    },
+    "PS14": {
+      "url": "https://learn.microsoft.com/en-us/azure/virtual-machine-scale-sets/overview",
+      "reviewed": "2026-10-28",
+      "purpose": "VMSS manages VM instances; explicit capacity/scaling configuration is necessary. More instances do not repair shared dependencies. Independent original educational model; no measured Azure runtime or human approval.",
+      "kind": "technical"
+    },
+    "PS15": {
+      "url": "https://learn.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes",
+      "reviewed": "2026-10-28",
+      "purpose": "Flexible and Uniform orchestration differ; Flexible supports standard VM flexibility and has no availability-set update domains. Independent original educational model; no measured Azure runtime or human approval.",
+      "kind": "technical"
+    },
+    "PS16": {
+      "url": "https://learn.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview",
+      "reviewed": "2026-10-28",
+      "purpose": "Autoscale uses configured metric/rule/schedule assumptions. Our bounded pre-failure arithmetic is not the Azure algorithm. Independent original educational model; no measured Azure runtime or human approval.",
+      "kind": "technical"
+    },
+    "PS17": {
+      "url": "https://learn.microsoft.com/en-us/azure/virtual-desktop/overview",
+      "reviewed": "2026-10-28",
+      "purpose": "AVD uses ARM objects and customer-configured host/application/access responsibilities; no classic workflow or actual login. Independent original educational model; no measured Azure runtime or human approval.",
+      "kind": "technical"
+    },
+    "PS18": {
+      "url": "https://learn.microsoft.com/en-us/azure/virtual-desktop/terminology",
+      "reviewed": "2026-10-28",
+      "purpose": "Workspace, application group, host pool, session host, personal/pooled and RemoteApp/full-desktop relationships. Independent original educational model; no measured Azure runtime or human approval.",
+      "kind": "technical"
+    },
+    "PS19": {
+      "url": "https://learn.microsoft.com/en-us/azure/virtual-desktop/service-architecture-resilience",
+      "reviewed": "2026-10-28",
+      "purpose": "AVD control-plane services differ from session hosts; publication/assignment is not evidence of a user session or host health. Independent original educational model; no measured Azure runtime or human approval.",
+      "kind": "technical"
+    },
+    "PS20": {
+      "url": "https://learn.microsoft.com/en-us/azure/container-apps/overview",
+      "reviewed": "2026-10-28",
+      "purpose": "ACA offers managed container apps, revisions and configurable scaling; not every rule scales to zero and no direct Kubernetes API. Independent original educational model; no measured Azure runtime or human approval.",
+      "kind": "technical"
+    },
+    "PS21": {
+      "url": "https://learn.microsoft.com/en-us/azure/container-apps/start-containers",
+      "reviewed": "2026-10-28",
+      "purpose": "Container images package user-space dependencies; persistent data and platform compatibility need explicit design. Independent original educational model; no measured Azure runtime or human approval.",
+      "kind": "technical"
+    },
+    "PS22": {
+      "url": "https://learn.microsoft.com/en-us/azure/aks/what-is-aks",
+      "reviewed": "2026-10-28",
+      "purpose": "AKS provides Kubernetes capabilities. Automatic and Standard shift different node/infrastructure operational duties. Independent original educational model; no measured Azure runtime or human approval.",
+      "kind": "technical"
+    },
+    "PS23": {
+      "url": "https://learn.microsoft.com/en-us/azure/architecture/guide/technology-choices/compute-decision-tree",
+      "reviewed": "2026-10-28",
+      "purpose": "Compute selection is requirement-driven, including orchestration, guest control, continuous hosting and events; no universal ranking. Independent original educational model; no measured Azure runtime or human approval.",
+      "kind": "technical"
+    },
+    "PS24": {
+      "url": "https://learn.microsoft.com/en-us/virtualization/windowscontainers/about/containers-vs-vm",
+      "reviewed": "2026-10-28",
+      "purpose": "Process-isolated containers commonly share a host kernel; image is not a running process and not the same isolation boundary as a VM. Independent original educational model; no measured Azure runtime or human approval.",
+      "kind": "technical"
+    },
+    "PS25": {
+      "url": "https://learn.microsoft.com/en-us/virtualization/windowscontainers/manage-containers/hyperv-container",
+      "reviewed": "2026-10-28",
+      "purpose": "Windows Hyper-V container isolation has a lightweight VM/kernel boundary; this is a qualified counterexample, not a universal Azure switch. Independent original educational model; no measured Azure runtime or human approval.",
+      "kind": "technical"
+    },
+    "PS26": {
+      "url": "https://learn.microsoft.com/en-us/azure/container-registry/container-registry-intro",
+      "reviewed": "2026-10-28",
+      "purpose": "ACR stores/distributes container artifacts; registry alone does not execute the application or provide persistent app data. Independent original educational model; no measured Azure runtime or human approval.",
+      "kind": "technical"
+    },
+    "PS27": {
+      "url": "https://learn.microsoft.com/en-us/azure/azure-functions/functions-overview",
+      "reviewed": "2026-10-28",
+      "purpose": "Functions runs event-triggered code; it does not universally replace long-lived workloads requiring guest control. Independent original educational model; no measured Azure runtime or human approval.",
+      "kind": "technical"
+    },
+    "PS28": {
+      "url": "https://learn.microsoft.com/en-us/azure/azure-functions/functions-scale",
+      "reviewed": "2026-10-28",
+      "purpose": "Flex Consumption, Premium and Dedicated have different scaling/idle/cost/start properties. Contradictory retirement text not used for questions. Independent original educational model; no measured Azure runtime or human approval.",
+      "kind": "technical"
+    },
+    "PS29": {
+      "url": "https://learn.microsoft.com/en-us/azure/app-service/overview",
+      "reviewed": "2026-10-28",
+      "purpose": "Standard App Service supports managed web/API hosting and supported code/custom container options; not a general guest-OS replacement. Independent original educational model; no measured Azure runtime or human approval.",
+      "kind": "technical"
+    },
+    "PS30": {
+      "url": "https://learn.microsoft.com/en-us/azure/app-service/overview-hosting-plans",
+      "reviewed": "2026-10-28",
+      "purpose": "App Service plan defines compute/location/OS/tier context; multiple apps may share plan compute, with tier-specific limitations. Independent original educational model; no measured Azure runtime or human approval.",
+      "kind": "technical"
+    },
+    "PS31": {
+      "url": "https://learn.microsoft.com/en-us/azure/app-service/configure-custom-container",
+      "reviewed": "2026-10-28",
+      "purpose": "App Service custom-container persistence is explicitly configured; arbitrary writable instance-layer data is not durable after recreate. Independent original educational model; no measured Azure runtime or human approval.",
+      "kind": "technical"
+    },
+    "PS32": {
+      "url": "https://learn.microsoft.com/en-us/azure/virtual-machines/managed-disks-overview",
+      "reviewed": "2026-10-28",
+      "purpose": "Managed OS and data disks serve different roles; additional storage does not substitute for RAM or an appropriate OS image. Independent original educational model; no measured Azure runtime or human approval.",
+      "kind": "technical"
+    },
+    "PS33": {
+      "url": "https://learn.microsoft.com/en-us/azure/virtual-network/network-overview",
+      "reviewed": "2026-10-28",
+      "purpose": "VM/NIC/subnet/VNet relationships have location/subscription constraints. Older IP-default details are not taught as current universal defaults. Independent original educational model; no measured Azure runtime or human approval.",
+      "kind": "technical"
+    },
+    "PS34": {
+      "url": "https://learn.microsoft.com/en-us/azure/security/fundamentals/shared-responsibility",
+      "reviewed": "2026-10-28",
+      "purpose": "Customer retains application/code/image/data/access/security configuration; provider-host management does not secure customer content automatically. Independent original educational model; no measured Azure runtime or human approval.",
+      "kind": "technical"
+    },
+    "PS35": {
+      "url": "https://learn.microsoft.com/en-us/azure/virtual-machines/linux/quick-create-portal",
+      "reviewed": "2026-10-28",
+      "purpose": "Actual Azure Portal VM Basics/Disks/Networking/Review-create workflow. Local form is bounded, with no credentials/IP/guest execution. Independent original educational model; no measured Azure runtime or human approval.",
+      "kind": "technical"
+    },
+    "PS36": {
+      "url": "https://learn.microsoft.com/en-us/training/modules/host-a-web-app-with-azure-app-service/",
+      "reviewed": "2026-10-28",
+      "purpose": "Supplemental App Service prerequisite/create/review/summary inspected; live coding/deployment and account exercises excluded from local operative scope. Independent original educational model; no measured Azure runtime or human approval.",
+      "kind": "technical"
+    },
+    "PS37": {
+      "url": "https://learn.microsoft.com/en-us/azure/container-apps/jobs",
+      "reviewed": "2026-10-28",
+      "purpose": "ACA Jobs have finite manual/scheduled/event-triggered executions. Creating job configuration differs from starting an execution; access/data/retry remain explicit. Independent original educational model; no measured Azure runtime or human approval.",
+      "kind": "technical"
+    },
+    "PS38": {
+      "url": "https://learn.microsoft.com/en-us/azure/container-instances/container-instances-restart-policy",
+      "reviewed": "2026-10-28",
+      "purpose": "Run-to-completion and explicit restart policies differ from a reusable ACA Job/execution. Never qualifies successful exit, not a universal no-retry guarantee; no task is executed locally.",
+      "kind": "technical"
     }
   },
   "evidenceProfiles": {
@@ -1407,6 +1635,46 @@
       ],
       "tests": ["src/domain/curriculum/cost.test.ts", "tests/e2e/cost-management.spec.ts"],
       "limits": "Original synthetic economic model, four guided investigations and ten independent structured decision/reason cases. No real costs/invoices, operative budgets/tags, XP, prior evidence upgrade, exam readiness or human approval."
+    },
+    "CP": {
+      "teaching": [
+        {
+          "path": "src/content/nb.ts",
+          "marker": "computeNb"
+        }
+      ],
+      "mechanism": [
+        {
+          "path": "src/domain/curriculum/compute-model.ts",
+          "marker": "runCapacity"
+        },
+        {
+          "path": "src/domain/curriculum/compute-vm.ts",
+          "marker": "computeVmFacts"
+        }
+      ],
+      "presentation": [
+        {
+          "path": "src/features/learning/compute.tsx",
+          "marker": "ComputeLesson"
+        },
+        {
+          "path": "src/features/learning/compute-visuals.tsx",
+          "marker": "ComputeModelResult"
+        }
+      ],
+      "assessment": [
+        {
+          "path": "src/domain/curriculum/compute-items.ts",
+          "marker": "evaluateCompute"
+        },
+        {
+          "path": "src/features/learning/compute-assessment.tsx",
+          "marker": "ComputeAssessment"
+        }
+      ],
+      "tests": ["src/domain/curriculum/compute.test.ts", "tests/e2e/compute-hosting.spec.ts"],
+      "limits": "Original scoped theory, four guides and14 separate-context cases; no runtime, XP/evidence migration, psychometric readiness or human approval. ACI source-access limitation documented with available official alternatives."
     }
   },
   "plannedPRs": [
@@ -2238,14 +2506,14 @@
       "slot": "2.2.01",
       "id": "az900.compute.compare",
       "title": "VMs, containers og functions",
-      "status": "PARTIAL",
+      "status": "COMPLETE",
       "criteria": {
-        "A": "P",
-        "B": "P",
-        "C": "P",
-        "D": "P",
-        "E": "P",
-        "F": "P"
+        "A": "V",
+        "B": "V",
+        "C": "V",
+        "D": "V",
+        "E": "V",
+        "F": "V"
       },
       "facets": [
         {
@@ -2254,17 +2522,17 @@
         },
         {
           "topic": "Containers",
-          "status": "MISSING"
+          "status": "COMPLETE"
         },
         {
           "topic": "Functions",
           "status": "COMPLETE"
         }
       ],
-      "localObjectives": ["C02", "C03", "C04"],
-      "evidence": ["S", "V", "SL"],
-      "observed": "VM/OS-kontroll er lært og anvendt. P00 now teaches Functions, event execution and Functions/VM control tradeoffs.",
-      "gap": "Containers and complete three-way compute comparison remain missing. P00 does not complete this composite objective.",
+      "localObjectives": ["C02", "C03", "C04", "CP01"],
+      "evidence": ["S", "V", "SL", "CP"],
+      "observed": "CP01: Full VM/container/Functions mechanism and isolation/lifecycle qualifications; guided container recreate/external-data contrast. Independent cp01–03 change guest-kernel, event and lifecycle requirements, with decision/reason feedback.",
+      "gap": "No scoped A–F content gap identified by author review. Finite recognition-based cases and conceptual simplifications remain; qualified human SME/novice/UX/screen-reader and measured transfer validation unperformed. Structural coverage is not exam readiness.",
       "plannedPRs": ["P00", "P05"],
       "sources": [
         "EXAM",
@@ -2275,22 +2543,44 @@
         "SL-HOSTING",
         "SL-BINDINGS",
         "SL-FLEX",
-        "SL-RESPONSIBILITY"
+        "SL-RESPONSIBILITY",
+        "PS01",
+        "PS02",
+        "PS03",
+        "PS04",
+        "PS05",
+        "PS06",
+        "PS07",
+        "PS08",
+        "PS09",
+        "PS10",
+        "PS11",
+        "PS20",
+        "PS21",
+        "PS22",
+        "PS23",
+        "PS24",
+        "PS25",
+        "PS26",
+        "PS27",
+        "PS28",
+        "PS34",
+        "PS31"
       ],
-      "reviewed": "2026-10-27"
+      "reviewed": "2026-10-28"
     },
     {
       "slot": "2.2.02",
       "id": "az900.compute.vm-options",
       "title": "VM, VM Scale Sets, availability sets og Virtual Desktop",
-      "status": "PARTIAL",
+      "status": "COMPLETE",
       "criteria": {
-        "A": "P",
-        "B": "P",
-        "C": "P",
-        "D": "P",
-        "E": "P",
-        "F": "P"
+        "A": "V",
+        "B": "V",
+        "C": "V",
+        "D": "V",
+        "E": "V",
+        "F": "V"
       },
       "facets": [
         {
@@ -2299,62 +2589,106 @@
         },
         {
           "topic": "VM Scale Sets",
-          "status": "MISSING"
+          "status": "COMPLETE"
         },
         {
           "topic": "Availability sets",
-          "status": "MISSING"
+          "status": "COMPLETE"
         },
         {
           "topic": "Azure Virtual Desktop",
-          "status": "MISSING"
+          "status": "COMPLETE"
         }
       ],
-      "localObjectives": ["C02"],
-      "evidence": ["V"],
-      "observed": "VM-bundle/vedlikeholdsansvar er reelt modellert.",
-      "gap": "Tre andre alternativer mangler; ingen skala/fault-domain/desktop-sammenligning.",
+      "localObjectives": ["C02", "CP02"],
+      "evidence": ["V", "CP"],
+      "observed": "CP02: VM/VMSS Flexible versus Uniform/availability sets FD-UD versus zones/ARM AVD fully taught. Deterministic capacity/failure/routing/data and substantial AVD publication exploration. Independent cp04–07 and cp13 test fleet, fault/update boundaries, desktop publication/assignment and dependency counterexample.",
+      "gap": "No scoped A–F content gap identified by author review. Finite recognition-based cases and conceptual simplifications remain; qualified human SME/novice/UX/screen-reader and measured transfer validation unperformed. Structural coverage is not exam readiness.",
       "plannedPRs": ["P05"],
-      "sources": ["EXAM", "M05"]
+      "sources": [
+        "EXAM",
+        "M05",
+        "PS01",
+        "PS02",
+        "PS03",
+        "PS04",
+        "PS05",
+        "PS06",
+        "PS07",
+        "PS08",
+        "PS09",
+        "PS10",
+        "PS11",
+        "PS12",
+        "PS13",
+        "PS14",
+        "PS15",
+        "PS16",
+        "PS17",
+        "PS18",
+        "PS19",
+        "PS34"
+      ],
+      "reviewed": "2026-10-28"
     },
     {
       "slot": "2.2.03",
       "id": "az900.compute.vm-resources",
       "title": "Ressurser som støtter en VM",
-      "status": "PARTIAL",
+      "status": "COMPLETE",
       "criteria": {
         "A": "V",
         "B": "V",
         "C": "V",
-        "D": "P",
-        "E": "P",
+        "D": "V",
+        "E": "V",
         "F": "V"
       },
       "facets": [
         {
           "topic": "VM/disks/NIC/VNet/subnet",
-          "status": "PARTIAL"
+          "status": "COMPLETE"
         }
       ],
-      "localObjectives": ["C02", "N01", "G02"],
-      "evidence": ["V"],
-      "observed": "Atomisk opprettelse, avhengighetsfeil, valg av eksisterende VNet og inspeksjon av OS/data disk og NIC.",
-      "gap": "Uavhengig oppgave kontrollerer opprettelse og inspected-ID-er, ikke at studenten forklarer hvorfor hver avhengighet er nødvendig.",
+      "localObjectives": ["C02", "N01", "G02", "CP03"],
+      "evidence": ["V", "CP"],
+      "observed": "CP03: OS image/profile, vCPU/RAM, OS/data disks and NIC/subnet/VNet/management relations taught. New Windows/standard64App build requires explicit reused subnet, accepted post-boundary receipt and seven real inspections. Independent cp08/cp09/cp14 change memory/storage, regional attachment and configuration-versus-runtime conditions.",
+      "gap": "No scoped A–F content gap identified by author review. Finite recognition-based cases and conceptual simplifications remain; qualified human SME/novice/UX/screen-reader and measured transfer validation unperformed. Structural coverage is not exam readiness.",
       "plannedPRs": ["P05", "P06"],
-      "sources": ["EXAM", "M05", "VM"]
+      "sources": [
+        "EXAM",
+        "M05",
+        "VM",
+        "PS01",
+        "PS02",
+        "PS03",
+        "PS04",
+        "PS05",
+        "PS06",
+        "PS07",
+        "PS08",
+        "PS09",
+        "PS10",
+        "PS11",
+        "PS32",
+        "PS33",
+        "PS34",
+        "PS35"
+      ],
+      "reviewed": "2026-10-28"
     },
     {
       "slot": "2.2.04",
       "id": "az900.compute.hosting",
       "title": "Web apps, containers og VM-hosting",
-      "status": "PARTIAL",
+      "status": "COMPLETE",
       "criteria": {
-        "A": "P",
-        "B": "P",
-        "C": "P",
-        "D": "P",
-        "E": "P",
-        "F": "P"
+        "A": "V",
+        "B": "V",
+        "C": "V",
+        "D": "V",
+        "E": "V",
+        "F": "V"
       },
       "facets": [
         {
@@ -2363,19 +2697,51 @@
         },
         {
           "topic": "VM-hosting",
-          "status": "PARTIAL"
+          "status": "COMPLETE"
         },
         {
           "topic": "Container-hosting",
-          "status": "MISSING"
+          "status": "COMPLETE"
         }
       ],
-      "localObjectives": ["C01", "C02", "C03"],
-      "evidence": ["S", "V", "P"],
-      "observed": "Customkode/runtime-planvalg og VM-gjestekontroll er forklart.",
-      "gap": "Container-alternativ og uavhengig sammenligning av alle hostingformene mangler.",
+      "localObjectives": ["C01", "C02", "C03", "CP04"],
+      "evidence": ["S", "V", "P", "CP"],
+      "observed": "CP04: Requirement-led VM/App Service/Functions/ACI/ACA/AKS hosting and retained responsibilities. Guided two-constraint Studio, optional actual Portal inspection. Independent cp10–12 include orchestration requirement, multiple valid HTTP and batch choices with candidate-specific rationale and counterfactuals.",
+      "gap": "No scoped A–F content gap identified by author review. Finite recognition-based cases and conceptual simplifications remain; qualified human SME/novice/UX/screen-reader and measured transfer validation unperformed. Structural coverage is not exam readiness.",
       "plannedPRs": ["P05"],
-      "sources": ["EXAM", "M05", "PLAN"]
+      "sources": [
+        "EXAM",
+        "M05",
+        "PLAN",
+        "PS01",
+        "PS02",
+        "PS03",
+        "PS04",
+        "PS05",
+        "PS06",
+        "PS07",
+        "PS08",
+        "PS09",
+        "PS10",
+        "PS11",
+        "PS20",
+        "PS21",
+        "PS22",
+        "PS23",
+        "PS24",
+        "PS25",
+        "PS26",
+        "PS27",
+        "PS28",
+        "PS29",
+        "PS30",
+        "PS31",
+        "PS34",
+        "PS36",
+        "PS37",
+        "PS38"
+      ],
+      "reviewed": "2026-10-28"
     },
     {
       "slot": "2.2.05",
@@ -3522,6 +3888,52 @@
       ],
       "objectives": ["3.1.01", "3.1.02", "3.1.03", "3.1.04"],
       "note": "Four cost objectives re-reviewed A–F with original full teaching, four workbenches, ten independent cases and official claims. Optimization taught as extra Learn objective, not a new exam slot. No learner mastery or readiness inferred."
+    },
+    {
+      "id": "PR27-P05",
+      "reviewed": "2026-10-28",
+      "sources": [
+        "PS01",
+        "PS02",
+        "PS03",
+        "PS04",
+        "PS05",
+        "PS06",
+        "PS07",
+        "PS08",
+        "PS09",
+        "PS10",
+        "PS11",
+        "PS12",
+        "PS13",
+        "PS14",
+        "PS15",
+        "PS16",
+        "PS17",
+        "PS18",
+        "PS19",
+        "PS20",
+        "PS21",
+        "PS22",
+        "PS23",
+        "PS24",
+        "PS25",
+        "PS26",
+        "PS27",
+        "PS28",
+        "PS29",
+        "PS30",
+        "PS31",
+        "PS32",
+        "PS33",
+        "PS34",
+        "PS35",
+        "PS36",
+        "PS37",
+        "PS38"
+      ],
+      "objectives": ["2.2.01", "2.2.02", "2.2.03", "2.2.04"],
+      "note": "Four Compute rows re-reviewed against actual original manuscript, four distinct applications,14 new decision/reason cases, specific counterfactual feedback and official source qualifications. Networking2.2.05–06 unchanged; no readiness or human validation inferred."
     }
   ]
 }

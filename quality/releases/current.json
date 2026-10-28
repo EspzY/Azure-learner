@@ -1,1102 +1,976 @@
 {
   "schema": 1,
-  "id": "PR26-cost-management",
-  "baseCommit": "8eaaf13b3c3d54d78dd7802ce1bd9ba060eefa90",
-  "author": "codex-pr26-author",
+  "id": "PR27-compute-hosting",
+  "baseCommit": "7e35e1d38e956573e2004fc891c1ef1e4b643625",
+  "author": "codex-pr27-author",
   "scope": {
     "kind": "new-module",
-    "description": "P04 cost management: full original teaching, four deterministic synthetic economic workbenches, ten independent structured decision/reason cases and isolated durable evidence. Existing resources, receipts, rubrics and XP unchanged.",
+    "description": "P05 original Compute teaching, four distinct guided missions, pure container/capacity/AVD/hosting models, real bounded VM practice,14 independent decision/reason cases and isolated durable evidence.",
     "objectives": [
-      "az900.cost.drivers",
-      "az900.cost.calculator",
-      "az900.cost.management",
-      "az900.cost.tags",
-      "cost.optimization"
+      "az900.compute.compare",
+      "az900.compute.vm-options",
+      "az900.compute.vm-resources",
+      "az900.compute.hosting"
     ]
   },
   "sources": [
     {
-      "id": "CS01",
-      "title": "Study guide for Exam AZ-900",
+      "id": "PS01",
+      "title": "Study guide: Skills measured 20 July 2026",
       "url": "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900",
       "kind": "exam",
-      "reviewed": "2026-10-27",
+      "reviewed": "2026-10-28",
       "version": "Skills measured 2026-07-20",
       "availability": "AVAILABLE",
       "objectives": [
-        "az900.cost.drivers",
-        "az900.cost.calculator",
-        "az900.cost.management",
-        "az900.cost.tags",
-        "cost.optimization"
+        "az900.compute.compare",
+        "az900.compute.vm-options",
+        "az900.compute.vm-resources",
+        "az900.compute.hosting"
       ],
-      "claims": ["cost.CS01"],
-      "limits": "Four pinned cost skills, no separate optimization exam slot; current Skills measured 2026-07-20. Original local teaching/model, no live Azure data or human approval.",
+      "claims": ["compute.PS01"],
+      "limits": "Four pinned compute skills; networking remains separate. July20 2026 Skills measured, not a readiness measure. Independent original educational model; no measured Azure runtime or human approval.",
       "discovery": [
         {
           "url": "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900",
           "disposition": "reviewed-essential",
-          "reason": "Four pinned cost skills, no separate optimization exam slot; current Skills measured 2026-07-20."
+          "reason": "Four pinned compute skills; networking remains separate. July20 2026 Skills measured, not a readiness measure."
         }
       ]
     },
     {
-      "id": "CS02",
-      "title": "Describe cost management in Azure",
-      "url": "https://learn.microsoft.com/en-us/training/modules/describe-cost-management-azure/",
+      "id": "PS02",
+      "title": "Describe Azure compute services: nine units",
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-compute-networking-services/",
       "kind": "module",
-      "reviewed": "2026-10-27",
-      "version": "Public body checked 2026-10-27",
+      "reviewed": "2026-10-28",
+      "version": "Public body checked 2026-10-28",
       "availability": "AVAILABLE",
       "objectives": [
-        "az900.cost.drivers",
-        "az900.cost.calculator",
-        "az900.cost.management",
-        "az900.cost.tags",
-        "cost.optimization"
+        "az900.compute.compare",
+        "az900.compute.vm-options",
+        "az900.compute.vm-resources",
+        "az900.compute.hosting"
       ],
-      "claims": ["cost.CS02"],
-      "limits": "Eight units, five learning goals including optimization; no protected assessment copied. Original local teaching/model, no live Azure data or human approval.",
+      "claims": ["compute.PS02"],
+      "limits": "Nine current units and five Learn learning goals. Public teaching/summary read; protected assessment not accessed or copied. Independent original educational model; no measured Azure runtime or human approval.",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/training/modules/describe-cost-management-azure/",
+          "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-compute-networking-services/",
           "disposition": "reviewed-essential",
-          "reason": "Eight units, five learning goals including optimization; no protected assessment copied."
+          "reason": "Nine current units and five Learn learning goals. Public teaching/summary read; protected assessment not accessed or copied."
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-compute-networking-services/",
+          "disposition": "protected-assessment-excluded",
+          "reason": "All eight public framing/teaching/summary units read; sign-in assessment not needed and no questions copied."
         }
       ]
     },
     {
-      "id": "CS03",
-      "title": "Describe factors that can affect costs in Azure",
-      "url": "https://learn.microsoft.com/en-us/training/modules/describe-cost-management-azure/2-describe-factors-affect-costs-azure",
+      "id": "PS03",
+      "title": "Introduction",
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-compute-networking-services/1-introduction",
       "kind": "unit",
-      "reviewed": "2026-10-27",
-      "version": "Public body checked 2026-10-27",
-      "availability": "AVAILABLE",
-      "objectives": ["az900.cost.drivers"],
-      "claims": ["cost.CS03"],
-      "limits": "Service/type/tier, location, usage and offer affect cost; billing meters differ. Original local teaching/model, no live Azure data or human approval.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/training/modules/describe-cost-management-azure/2-describe-factors-affect-costs-azure",
-          "disposition": "reviewed-essential",
-          "reason": "Service/type/tier, location, usage and offer affect cost; billing meters differ."
-        }
-      ]
-    },
-    {
-      "id": "CS04",
-      "title": "Explore the pricing calculator",
-      "url": "https://learn.microsoft.com/en-us/training/modules/describe-cost-management-azure/3-compare-pricing-total-cost-of-ownership-calculators",
-      "kind": "unit",
-      "reviewed": "2026-10-27",
-      "version": "Public body checked 2026-10-27",
-      "availability": "AVAILABLE",
-      "objectives": ["az900.cost.calculator"],
-      "claims": ["cost.CS04"],
-      "limits": "Select products and assumptions, aggregate estimated services; estimate is not invoice. Historical TCO slug retained by Learn. Original local teaching/model, no live Azure data or human approval.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/training/modules/describe-cost-management-azure/3-compare-pricing-total-cost-of-ownership-calculators",
-          "disposition": "reviewed-essential",
-          "reason": "Select products and assumptions, aggregate estimated services; estimate is not invoice. Historical TCO slug retained by Learn."
-        }
-      ]
-    },
-    {
-      "id": "CS05",
-      "title": "Describe the Microsoft Cost Management tool",
-      "url": "https://learn.microsoft.com/en-us/training/modules/describe-cost-management-azure/6-describe-azure-tool",
-      "kind": "unit",
-      "reviewed": "2026-10-27",
-      "version": "Public body checked 2026-10-27",
-      "availability": "AVAILABLE",
-      "objectives": ["az900.cost.management"],
-      "claims": ["cost.CS05"],
-      "limits": "Cost visibility, analysis, budgets and optimization; budget alerts alone do not stop resources. Original local teaching/model, no live Azure data or human approval.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/training/modules/describe-cost-management-azure/6-describe-azure-tool",
-          "disposition": "reviewed-essential",
-          "reason": "Cost visibility, analysis, budgets and optimization; budget alerts alone do not stop resources."
-        }
-      ]
-    },
-    {
-      "id": "CS06",
-      "title": "Describe the purpose of tags",
-      "url": "https://learn.microsoft.com/en-us/training/modules/describe-cost-management-azure/7-describe-purpose-of-tags",
-      "kind": "unit",
-      "reviewed": "2026-10-27",
-      "version": "Public body checked 2026-10-27",
-      "availability": "AVAILABLE",
-      "objectives": ["az900.cost.tags"],
-      "claims": ["cost.CS06"],
-      "limits": "Key-value classification for grouping and reporting, not authorization or automatic ARM inheritance. Original local teaching/model, no live Azure data or human approval.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/training/modules/describe-cost-management-azure/7-describe-purpose-of-tags",
-          "disposition": "reviewed-essential",
-          "reason": "Key-value classification for grouping and reporting, not authorization or automatic ARM inheritance."
-        }
-      ]
-    },
-    {
-      "id": "CS07",
-      "title": "Describe cost optimization options in Azure",
-      "url": "https://learn.microsoft.com/en-us/training/modules/describe-cost-management-azure/7a-describe-cost-optimization-options",
-      "kind": "unit",
-      "reviewed": "2026-10-27",
-      "version": "Public body checked 2026-10-27",
-      "availability": "AVAILABLE",
-      "objectives": ["cost.optimization"],
-      "claims": ["cost.CS07"],
-      "limits": "Rightsizing, reservations, savings plans and Spot are conditional options, not universal savings. Original local teaching/model, no live Azure data or human approval.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/training/modules/describe-cost-management-azure/7a-describe-cost-optimization-options",
-          "disposition": "reviewed-essential",
-          "reason": "Rightsizing, reservations, savings plans and Spot are conditional options, not universal savings."
-        }
-      ]
-    },
-    {
-      "id": "CS08",
-      "title": "Introduction and prerequisites",
-      "url": "https://learn.microsoft.com/en-us/training/modules/describe-cost-management-azure/1-introduction",
-      "kind": "unit",
-      "reviewed": "2026-10-27",
-      "version": "Public body checked 2026-10-27",
+      "reviewed": "2026-10-28",
+      "version": "Public body checked 2026-10-28",
       "availability": "AVAILABLE",
       "objectives": [
-        "az900.cost.drivers",
-        "az900.cost.calculator",
-        "az900.cost.management",
-        "az900.cost.tags",
-        "cost.optimization"
+        "az900.compute.compare",
+        "az900.compute.vm-options",
+        "az900.compute.vm-resources",
+        "az900.compute.hosting"
       ],
-      "claims": ["cost.CS08"],
-      "limits": "Prior cloud knowledge and cost learning objectives/prerequisites. Original local teaching/model, no live Azure data or human approval.",
+      "claims": ["compute.PS03"],
+      "limits": "Different organizations require different code, OS and operational-control boundaries. Prerequisites link to existing Cloud Concepts. Independent original educational model; no measured Azure runtime or human approval.",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/training/modules/describe-cost-management-azure/1-introduction",
+          "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-compute-networking-services/1-introduction",
           "disposition": "reviewed-essential",
-          "reason": "Prior cloud knowledge and cost learning objectives/prerequisites."
+          "reason": "Different organizations require different code, OS and operational-control boundaries. Prerequisites link to existing Cloud Concepts."
         }
       ]
     },
     {
-      "id": "CS09",
-      "title": "Summary and additional resources",
-      "url": "https://learn.microsoft.com/en-us/training/modules/describe-cost-management-azure/9-summary",
+      "id": "PS04",
+      "title": "Describe Azure virtual machines",
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-compute-networking-services/2-virtual-machines",
       "kind": "unit",
-      "reviewed": "2026-10-27",
-      "version": "Public body checked 2026-10-27",
+      "reviewed": "2026-10-28",
+      "version": "Public body checked 2026-10-28",
       "availability": "AVAILABLE",
       "objectives": [
-        "az900.cost.drivers",
-        "az900.cost.calculator",
-        "az900.cost.management",
-        "az900.cost.tags",
-        "cost.optimization"
+        "az900.compute.compare",
+        "az900.compute.vm-options",
+        "az900.compute.vm-resources",
+        "az900.compute.hosting"
       ],
-      "claims": ["cost.CS09"],
-      "limits": "Summary and additional path; broken /learn/paths link resolved through /training/paths. Original local teaching/model, no live Azure data or human approval.",
+      "claims": ["compute.PS04"],
+      "limits": "VM guest OS, size and disks; VMSS and availability sets are distinct options; no automatic application availability. Independent original educational model; no measured Azure runtime or human approval.",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/training/modules/describe-cost-management-azure/9-summary",
+          "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-compute-networking-services/2-virtual-machines",
           "disposition": "reviewed-essential",
-          "reason": "Summary and additional path; broken /learn/paths link resolved through /training/paths."
+          "reason": "VM guest OS, size and disks; VMSS and availability sets are distinct options; no automatic application availability."
         }
       ]
     },
     {
-      "id": "CS10",
-      "title": "Estimate costs with the Azure pricing calculator",
-      "url": "https://learn.microsoft.com/en-us/azure/cost-management-billing/costs/pricing-calculator",
-      "kind": "technical",
-      "reviewed": "2026-10-27",
-      "version": "Public body checked 2026-10-27",
-      "availability": "AVAILABLE",
-      "objectives": ["az900.cost.calculator"],
-      "claims": ["cost.CS10"],
-      "limits": "Calculator product/region/tier/usage configuration and estimate assumptions, optional login operations. Original local teaching/model, no live Azure data or human approval.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/cost-management-billing/costs/pricing-calculator",
-          "disposition": "reviewed-essential",
-          "reason": "Calculator product/region/tier/usage configuration and estimate assumptions, optional login operations."
-        }
-      ]
-    },
-    {
-      "id": "CS11",
-      "title": "What is Microsoft Cost Management",
-      "url": "https://learn.microsoft.com/en-us/azure/cost-management-billing/costs/overview-cost-management",
-      "kind": "technical",
-      "reviewed": "2026-10-27",
-      "version": "Public body checked 2026-10-27",
-      "availability": "AVAILABLE",
-      "objectives": ["az900.cost.management"],
-      "claims": ["cost.CS11"],
-      "limits": "Analyze, monitor and optimize costs; billing roles/offer types affect availability and scope. Original local teaching/model, no live Azure data or human approval.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/cost-management-billing/costs/overview-cost-management",
-          "disposition": "reviewed-essential",
-          "reason": "Analyze, monitor and optimize costs; billing roles/offer types affect availability and scope."
-        }
-      ]
-    },
-    {
-      "id": "CS12",
-      "title": "Start using Cost Analysis",
-      "url": "https://learn.microsoft.com/en-us/azure/cost-management-billing/costs/quick-acm-cost-analysis",
-      "kind": "technical",
-      "reviewed": "2026-10-27",
-      "version": "Public body checked 2026-10-27",
-      "availability": "AVAILABLE",
-      "objectives": ["az900.cost.management"],
-      "claims": ["cost.CS12"],
-      "limits": "Scope, grouping and filtering of recorded cost data; corrected URL via official overview. Original local teaching/model, no live Azure data or human approval.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/cost-management-billing/costs/quick-acm-cost-analysis",
-          "disposition": "reviewed-essential",
-          "reason": "Scope, grouping and filtering of recorded cost data; corrected URL via official overview."
-        }
-      ]
-    },
-    {
-      "id": "CS13",
-      "title": "Create and manage budgets",
-      "url": "https://learn.microsoft.com/en-us/azure/cost-management-billing/costs/tutorial-acm-create-budgets",
-      "kind": "technical",
-      "reviewed": "2026-10-27",
-      "version": "Public body checked 2026-10-27",
-      "availability": "AVAILABLE",
-      "objectives": ["az900.cost.management"],
-      "claims": ["cost.CS13"],
-      "limits": "Actual/forecast thresholds, periods and notifications; separately configured action groups/automation, not default stop. Original local teaching/model, no live Azure data or human approval.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/cost-management-billing/costs/tutorial-acm-create-budgets",
-          "disposition": "reviewed-essential",
-          "reason": "Actual/forecast thresholds, periods and notifications; separately configured action groups/automation, not default stop."
-        }
-      ]
-    },
-    {
-      "id": "CS14",
-      "title": "Understand Cost Management data",
-      "url": "https://learn.microsoft.com/en-us/azure/cost-management-billing/costs/understand-cost-mgt-data",
-      "kind": "technical",
-      "reviewed": "2026-10-27",
-      "version": "Public body checked 2026-10-27",
-      "availability": "AVAILABLE",
-      "objectives": ["az900.cost.drivers", "az900.cost.management"],
-      "claims": ["cost.CS14"],
-      "limits": "Recorded data can be delayed and revised; actual/amortized/invoice concepts are distinct. Original local teaching/model, no live Azure data or human approval.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/cost-management-billing/costs/understand-cost-mgt-data",
-          "disposition": "reviewed-essential",
-          "reason": "Recorded data can be delayed and revised; actual/amortized/invoice concepts are distinct."
-        }
-      ]
-    },
-    {
-      "id": "CS15",
-      "title": "Use tags to organize resources",
-      "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/tag-resources",
-      "kind": "technical",
-      "reviewed": "2026-10-27",
-      "version": "Public body checked 2026-10-27",
-      "availability": "AVAILABLE",
-      "objectives": ["az900.cost.tags"],
-      "claims": ["cost.CS15"],
-      "limits": "Resource tags do not automatically inherit; not all types support tags, avoid sensitive values. Original local teaching/model, no live Azure data or human approval.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/tag-resources",
-          "disposition": "reviewed-essential",
-          "reason": "Resource tags do not automatically inherit; not all types support tags, avoid sensitive values."
-        }
-      ]
-    },
-    {
-      "id": "CS16",
-      "title": "Tag support for Azure resources",
-      "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/tag-support",
-      "kind": "technical",
-      "reviewed": "2026-10-27",
-      "version": "Public body checked 2026-10-27",
-      "availability": "AVAILABLE",
-      "objectives": ["az900.cost.tags"],
-      "claims": ["cost.CS16"],
-      "limits": "Service-dependent tag and cost-report support; no universal tagging or cost-record guarantee. Original local teaching/model, no live Azure data or human approval.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/tag-support",
-          "disposition": "reviewed-essential",
-          "reason": "Service-dependent tag and cost-report support; no universal tagging or cost-record guarantee."
-        }
-      ]
-    },
-    {
-      "id": "CS17",
-      "title": "Group and allocate costs using tag inheritance",
-      "url": "https://learn.microsoft.com/en-us/azure/cost-management-billing/costs/enable-tag-inheritance",
-      "kind": "technical",
-      "reviewed": "2026-10-27",
-      "version": "Public body checked 2026-10-27",
-      "availability": "AVAILABLE",
-      "objectives": ["az900.cost.tags"],
-      "claims": ["cost.CS17"],
-      "limits": "Reporting inheritance enriches cost records without mutating resource tags; supported EA/MCA/MPA and conflict preferences. Original local teaching/model, no live Azure data or human approval.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/cost-management-billing/costs/enable-tag-inheritance",
-          "disposition": "reviewed-essential",
-          "reason": "Reporting inheritance enriches cost records without mutating resource tags; supported EA/MCA/MPA and conflict preferences."
-        }
-      ]
-    },
-    {
-      "id": "CS18",
-      "title": "What are Azure Reservations?",
-      "url": "https://learn.microsoft.com/en-us/azure/cost-management-billing/reservations/save-compute-costs-reservations",
-      "kind": "technical",
-      "reviewed": "2026-10-27",
-      "version": "Public body checked 2026-10-27",
-      "availability": "AVAILABLE",
-      "objectives": ["cost.optimization"],
-      "claims": ["cost.CS18"],
-      "limits": "Reservations are conditional billing discounts for eligible configuration, not runtime/capacity guarantees. Original local teaching/model, no live Azure data or human approval.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/cost-management-billing/reservations/save-compute-costs-reservations",
-          "disposition": "reviewed-essential",
-          "reason": "Reservations are conditional billing discounts for eligible configuration, not runtime/capacity guarantees."
-        }
-      ]
-    },
-    {
-      "id": "CS19",
-      "title": "What are savings plans?",
-      "url": "https://learn.microsoft.com/en-us/azure/cost-management-billing/savings-plan/savings-plan-overview",
-      "kind": "technical",
-      "reviewed": "2026-10-27",
-      "version": "Public body checked 2026-10-27",
-      "availability": "AVAILABLE",
-      "objectives": ["cost.optimization"],
-      "claims": ["cost.CS19"],
-      "limits": "Savings plan scope varies; this module explicitly teaches compute hourly monetary commitment, no claim it is only plan. Original local teaching/model, no live Azure data or human approval.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/cost-management-billing/savings-plan/savings-plan-overview",
-          "disposition": "reviewed-essential",
-          "reason": "Savings plan scope varies; this module explicitly teaches compute hourly monetary commitment, no claim it is only plan."
-        }
-      ]
-    },
-    {
-      "id": "CS20",
-      "title": "Azure Spot Virtual Machines",
-      "url": "https://learn.microsoft.com/en-us/azure/virtual-machines/spot-vms",
-      "kind": "technical",
-      "reviewed": "2026-10-27",
-      "version": "Public body checked 2026-10-27",
-      "availability": "AVAILABLE",
-      "objectives": ["cost.optimization"],
-      "claims": ["cost.CS20"],
-      "limits": "Spot capacity is interruptible; eviction/availability constraints and retained disks matter. Original local teaching/model, no live Azure data or human approval.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/virtual-machines/spot-vms",
-          "disposition": "reviewed-essential",
-          "reason": "Spot capacity is interruptible; eviction/availability constraints and retained disks matter."
-        }
-      ]
-    },
-    {
-      "id": "CS21",
-      "title": "Savings-plan discount application",
-      "url": "https://learn.microsoft.com/en-us/azure/cost-management-billing/savings-plan/discount-application",
-      "kind": "technical",
-      "reviewed": "2026-10-27",
-      "version": "Public body checked 2026-10-27",
-      "availability": "AVAILABLE",
-      "objectives": ["cost.optimization"],
-      "claims": ["cost.CS21"],
-      "limits": "Eligible compute discount application, unused hourly commitment does not roll forward, ancillary costs separate. Original local teaching/model, no live Azure data or human approval.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/cost-management-billing/savings-plan/discount-application",
-          "disposition": "reviewed-essential",
-          "reason": "Eligible compute discount application, unused hourly commitment does not roll forward, ancillary costs separate."
-        }
-      ]
-    },
-    {
-      "id": "CS22",
-      "title": "Azure Advisor: resizing or shutting down underutilized instances",
-      "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-cost-recommendations",
-      "kind": "technical",
-      "reviewed": "2026-10-27",
-      "version": "Public body checked 2026-10-27",
-      "availability": "AVAILABLE",
-      "objectives": ["cost.optimization"],
-      "claims": ["cost.CS22"],
-      "limits": "Advisor recommendations need utilization/workload/reliability validation; smaller is not automatically correct. Original local teaching/model, no live Azure data or human approval.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-cost-recommendations",
-          "disposition": "reviewed-essential",
-          "reason": "Advisor recommendations need utilization/workload/reliability validation; smaller is not automatically correct."
-        }
-      ]
-    },
-    {
-      "id": "CS23",
-      "title": "Policy definitions for tag compliance",
-      "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/tag-policies",
-      "kind": "technical",
-      "reviewed": "2026-10-27",
-      "version": "Public body checked 2026-10-27",
-      "availability": "AVAILABLE",
-      "objectives": ["az900.cost.tags"],
-      "claims": ["cost.CS23"],
-      "limits": "Policy can modify tagging with appropriate remediation; not automatic resource-group tag inheritance. Original local teaching/model, no live Azure data or human approval.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/tag-policies",
-          "disposition": "reviewed-essential",
-          "reason": "Policy can modify tagging with appropriate remediation; not automatic resource-group tag inheritance."
-        }
-      ]
-    },
-    {
-      "id": "CS24",
-      "title": "Group and filter options in Cost Analysis and Budgets",
-      "url": "https://learn.microsoft.com/en-us/azure/cost-management-billing/costs/group-filter",
-      "kind": "technical",
-      "reviewed": "2026-10-27",
-      "version": "Public body checked 2026-10-27",
-      "availability": "AVAILABLE",
-      "objectives": ["az900.cost.management", "az900.cost.tags"],
-      "claims": ["cost.CS24"],
-      "limits": "Grouping/filter capabilities and billing scopes are offer-dependent; synthetic scope is a bounded analogue. Original local teaching/model, no live Azure data or human approval.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/cost-management-billing/costs/group-filter",
-          "disposition": "reviewed-essential",
-          "reason": "Grouping/filter capabilities and billing scopes are offer-dependent; synthetic scope is a bounded analogue."
-        }
-      ]
-    },
-    {
-      "id": "CS25",
-      "title": "Decide between a savings plan and a reservation",
-      "url": "https://learn.microsoft.com/en-us/azure/cost-management-billing/savings-plan/decide-between-savings-plan-reservation",
-      "kind": "technical",
-      "reviewed": "2026-10-27",
-      "version": "Public body checked 2026-10-27",
-      "availability": "AVAILABLE",
-      "objectives": ["cost.optimization"],
-      "claims": ["cost.CS25"],
-      "limits": "Right-size first, reservation configuration commitment versus flexible eligible compute spend; no purchase in product. Original local teaching/model, no live Azure data or human approval.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/cost-management-billing/savings-plan/decide-between-savings-plan-reservation",
-          "disposition": "reviewed-essential",
-          "reason": "Right-size first, reservation configuration commitment versus flexible eligible compute spend; no purchase in product."
-        }
-      ]
-    },
-    {
-      "id": "CS26",
-      "title": "Control Azure spending: supplementary path",
-      "url": "https://learn.microsoft.com/en-us/training/paths/control-spending-manage-bills/",
-      "kind": "technical",
-      "reviewed": "2026-10-27",
-      "version": "Public body checked 2026-10-27",
-      "availability": "AVAILABLE",
-      "objectives": ["az900.cost.management", "cost.optimization"],
-      "claims": ["cost.CS26"],
-      "limits": "Supplementary spending path reviewed; advanced Power BI, payment, partner billing and purchasing deferred. Original local teaching/model, no live Azure data or human approval.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/training/paths/control-spending-manage-bills/",
-          "disposition": "reviewed-essential",
-          "reason": "Supplementary spending path reviewed; advanced Power BI, payment, partner billing and purchasing deferred."
-        }
-      ]
-    },
-    {
-      "id": "CS27",
-      "title": "Bandwidth pricing: transfer paths and billing zones",
-      "url": "https://azure.microsoft.com/en-us/pricing/details/bandwidth/",
-      "kind": "technical",
-      "reviewed": "2026-10-27",
-      "version": "Public body checked 2026-10-27",
-      "availability": "AVAILABLE",
-      "objectives": ["az900.cost.drivers"],
-      "claims": ["cost.CS27"],
-      "limits": "Transfer path/direction and billing geography affect rates; billing zones are not Availability Zones, no live prices imported. Original local teaching/model, no live Azure data or human approval.",
-      "discovery": [
-        {
-          "url": "https://azure.microsoft.com/en-us/pricing/details/bandwidth/",
-          "disposition": "reviewed-essential",
-          "reason": "Transfer path/direction and billing geography affect rates; billing zones are not Availability Zones, no live prices imported."
-        }
-      ]
-    },
-    {
-      "id": "CS28",
-      "title": "Public Pricing Calculator",
-      "url": "https://azure.microsoft.com/pricing/calculator/",
-      "kind": "technical",
-      "reviewed": "2026-10-27",
-      "version": "Public body checked 2026-10-27",
-      "availability": "AVAILABLE",
-      "objectives": ["az900.cost.calculator"],
-      "claims": ["cost.CS28"],
-      "limits": "Actual anonymous product→VM→region/Linux/200hours and separate disk/traffic workflow inspected; Save/Share unavailable unsigned. Original local teaching/model, no live Azure data or human approval.",
-      "discovery": [
-        {
-          "url": "https://azure.microsoft.com/pricing/calculator/",
-          "disposition": "reviewed-essential",
-          "reason": "Actual anonymous product→VM→region/Linux/200hours and separate disk/traffic workflow inspected; Save/Share unavailable unsigned."
-        }
-      ]
-    },
-    {
-      "id": "CS29",
-      "title": "Management and governance learning path",
-      "url": "https://learn.microsoft.com/en-us/training/paths/describe-azure-management-governance/",
-      "kind": "technical",
-      "reviewed": "2026-10-27",
-      "version": "Public body checked 2026-10-27",
+      "id": "PS05",
+      "title": "Describe Azure virtual desktop",
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-compute-networking-services/4-virtual-desktop",
+      "kind": "unit",
+      "reviewed": "2026-10-28",
+      "version": "Public body checked 2026-10-28",
       "availability": "AVAILABLE",
       "objectives": [
-        "az900.cost.drivers",
-        "az900.cost.calculator",
-        "az900.cost.management",
-        "az900.cost.tags",
-        "cost.optimization"
+        "az900.compute.compare",
+        "az900.compute.vm-options",
+        "az900.compute.vm-resources",
+        "az900.compute.hosting"
       ],
-      "claims": ["cost.CS29"],
-      "limits": "Third official path has four modules; cost module alone implemented, remaining modules planned. Original local teaching/model, no live Azure data or human approval.",
+      "claims": ["compute.PS05"],
+      "limits": "AVD desktop/application delivery; personal and pooled host pools differ from single/multi-session. Independent original educational model; no measured Azure runtime or human approval.",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/training/paths/describe-azure-management-governance/",
+          "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-compute-networking-services/4-virtual-desktop",
           "disposition": "reviewed-essential",
-          "reason": "Third official path has four modules; cost module alone implemented, remaining modules planned."
+          "reason": "AVD desktop/application delivery; personal and pooled host pools differ from single/multi-session."
+        }
+      ]
+    },
+    {
+      "id": "PS06",
+      "title": "Describe Azure containers",
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-compute-networking-services/5-containers",
+      "kind": "unit",
+      "reviewed": "2026-10-28",
+      "version": "Public body checked 2026-10-28",
+      "availability": "AVAILABLE",
+      "objectives": [
+        "az900.compute.compare",
+        "az900.compute.vm-options",
+        "az900.compute.vm-resources",
+        "az900.compute.hosting"
+      ],
+      "claims": ["compute.PS06"],
+      "limits": "Image versus container instance/runtime; ACI/ACA/AKS identify different hosting and orchestration scopes. Independent original educational model; no measured Azure runtime or human approval.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-compute-networking-services/5-containers",
+          "disposition": "reviewed-essential",
+          "reason": "Image versus container instance/runtime; ACI/ACA/AKS identify different hosting and orchestration scopes."
+        }
+      ]
+    },
+    {
+      "id": "PS07",
+      "title": "Describe Azure functions",
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-compute-networking-services/6-functions",
+      "kind": "unit",
+      "reviewed": "2026-10-28",
+      "version": "Public body checked 2026-10-28",
+      "availability": "AVAILABLE",
+      "objectives": [
+        "az900.compute.compare",
+        "az900.compute.vm-options",
+        "az900.compute.vm-resources",
+        "az900.compute.hosting"
+      ],
+      "claims": ["compute.PS07"],
+      "limits": "Functions event/trigger/code; billing, scale and cold-start depend on selected hosting plan. Independent original educational model; no measured Azure runtime or human approval.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-compute-networking-services/6-functions",
+          "disposition": "reviewed-essential",
+          "reason": "Functions event/trigger/code; billing, scale and cold-start depend on selected hosting plan."
+        }
+      ]
+    },
+    {
+      "id": "PS08",
+      "title": "Describe AI, machine learning, and IoT/Edge services",
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-compute-networking-services/12a-describe-ai-ml-iot-edge-services",
+      "kind": "unit",
+      "reviewed": "2026-10-28",
+      "version": "Public body checked 2026-10-28",
+      "availability": "AVAILABLE",
+      "objectives": [
+        "az900.compute.compare",
+        "az900.compute.vm-options",
+        "az900.compute.vm-resources",
+        "az900.compute.hosting"
+      ],
+      "claims": ["compute.PS08"],
+      "limits": "AI, machine learning and IoT/Edge are contextual Learn categories, not additional scoped AZ900 skill slots. Independent original educational model; no measured Azure runtime or human approval.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-compute-networking-services/12a-describe-ai-ml-iot-edge-services",
+          "disposition": "reviewed-essential",
+          "reason": "AI, machine learning and IoT/Edge are contextual Learn categories, not additional scoped AZ900 skill slots."
+        }
+      ]
+    },
+    {
+      "id": "PS09",
+      "title": "Describe application hosting options",
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-compute-networking-services/7-describe-application-hosting-options",
+      "kind": "unit",
+      "reviewed": "2026-10-28",
+      "version": "Public body checked 2026-10-28",
+      "availability": "AVAILABLE",
+      "objectives": [
+        "az900.compute.compare",
+        "az900.compute.vm-options",
+        "az900.compute.vm-resources",
+        "az900.compute.hosting"
+      ],
+      "claims": ["compute.PS09"],
+      "limits": "Web Apps, containers and VMs meet different hosting requirements; managed hosting retains customer responsibilities. Independent original educational model; no measured Azure runtime or human approval.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-compute-networking-services/7-describe-application-hosting-options",
+          "disposition": "reviewed-essential",
+          "reason": "Web Apps, containers and VMs meet different hosting requirements; managed hosting retains customer responsibilities."
+        }
+      ]
+    },
+    {
+      "id": "PS10",
+      "title": "Summary and supplementary App Service module",
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-compute-networking-services/14-summary",
+      "kind": "unit",
+      "reviewed": "2026-10-28",
+      "version": "Public body checked 2026-10-28",
+      "availability": "AVAILABLE",
+      "objectives": [
+        "az900.compute.compare",
+        "az900.compute.vm-options",
+        "az900.compute.vm-resources",
+        "az900.compute.hosting"
+      ],
+      "claims": ["compute.PS10"],
+      "limits": "Current module learning-goal summary and linked supplemental App Service module; no assessment question reused. Independent original educational model; no measured Azure runtime or human approval.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-compute-networking-services/14-summary",
+          "disposition": "reviewed-essential",
+          "reason": "Current module learning-goal summary and linked supplemental App Service module; no assessment question reused."
+        }
+      ]
+    },
+    {
+      "id": "PS11",
+      "title": "Azure virtual machines overview",
+      "url": "https://learn.microsoft.com/en-us/azure/virtual-machines/overview",
+      "kind": "technical",
+      "reviewed": "2026-10-28",
+      "version": "Public body checked 2026-10-28",
+      "availability": "AVAILABLE",
+      "objectives": [
+        "az900.compute.compare",
+        "az900.compute.vm-options",
+        "az900.compute.vm-resources",
+        "az900.compute.hosting"
+      ],
+      "claims": ["compute.PS11"],
+      "limits": "VMs provide guest-level control, images and declared compute profiles; configuration does not prove app execution. Independent original educational model; no measured Azure runtime or human approval.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/virtual-machines/overview",
+          "disposition": "reviewed-essential",
+          "reason": "VMs provide guest-level control, images and declared compute profiles; configuration does not prove app execution."
+        }
+      ]
+    },
+    {
+      "id": "PS12",
+      "title": "Availability options for virtual machines",
+      "url": "https://learn.microsoft.com/en-us/azure/virtual-machines/availability",
+      "kind": "technical",
+      "reviewed": "2026-10-28",
+      "version": "Public body checked 2026-10-28",
+      "availability": "AVAILABLE",
+      "objectives": ["az900.compute.vm-options"],
+      "claims": ["compute.PS12"],
+      "limits": "Availability choices have different fault boundaries; zones, sets and scale sets do not guarantee end-to-end uptime. Independent original educational model; no measured Azure runtime or human approval.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/virtual-machines/availability",
+          "disposition": "reviewed-essential",
+          "reason": "Availability choices have different fault boundaries; zones, sets and scale sets do not guarantee end-to-end uptime."
+        }
+      ]
+    },
+    {
+      "id": "PS13",
+      "title": "Availability sets overview",
+      "url": "https://learn.microsoft.com/en-us/azure/virtual-machines/availability-set-overview",
+      "kind": "technical",
+      "reviewed": "2026-10-28",
+      "version": "Public body checked 2026-10-28",
+      "availability": "AVAILABLE",
+      "objectives": ["az900.compute.vm-options"],
+      "claims": ["compute.PS13"],
+      "limits": "Availability sets distribute VMs across fault/update domains; not zones or autoscale. Current recommendation qualifies Flexible/zonal alternatives. Independent original educational model; no measured Azure runtime or human approval.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/virtual-machines/availability-set-overview",
+          "disposition": "reviewed-essential",
+          "reason": "Availability sets distribute VMs across fault/update domains; not zones or autoscale. Current recommendation qualifies Flexible/zonal alternatives."
+        }
+      ]
+    },
+    {
+      "id": "PS14",
+      "title": "Virtual Machine Scale Sets overview",
+      "url": "https://learn.microsoft.com/en-us/azure/virtual-machine-scale-sets/overview",
+      "kind": "technical",
+      "reviewed": "2026-10-28",
+      "version": "Public body checked 2026-10-28",
+      "availability": "AVAILABLE",
+      "objectives": ["az900.compute.vm-options"],
+      "claims": ["compute.PS14"],
+      "limits": "VMSS manages VM instances; explicit capacity/scaling configuration is necessary. More instances do not repair shared dependencies. Independent original educational model; no measured Azure runtime or human approval.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/virtual-machine-scale-sets/overview",
+          "disposition": "reviewed-essential",
+          "reason": "VMSS manages VM instances; explicit capacity/scaling configuration is necessary. More instances do not repair shared dependencies."
+        }
+      ]
+    },
+    {
+      "id": "PS15",
+      "title": "Flexible and Uniform orchestration",
+      "url": "https://learn.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes",
+      "kind": "technical",
+      "reviewed": "2026-10-28",
+      "version": "Public body checked 2026-10-28",
+      "availability": "AVAILABLE",
+      "objectives": ["az900.compute.vm-options"],
+      "claims": ["compute.PS15"],
+      "limits": "Flexible and Uniform orchestration differ; Flexible supports standard VM flexibility and has no availability-set update domains. Independent original educational model; no measured Azure runtime or human approval.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes",
+          "disposition": "reviewed-essential",
+          "reason": "Flexible and Uniform orchestration differ; Flexible supports standard VM flexibility and has no availability-set update domains."
+        }
+      ]
+    },
+    {
+      "id": "PS16",
+      "title": "Autoscale with Virtual Machine Scale Sets",
+      "url": "https://learn.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview",
+      "kind": "technical",
+      "reviewed": "2026-10-28",
+      "version": "Public body checked 2026-10-28",
+      "availability": "AVAILABLE",
+      "objectives": ["az900.compute.vm-options"],
+      "claims": ["compute.PS16"],
+      "limits": "Autoscale uses configured metric/rule/schedule assumptions. Our bounded pre-failure arithmetic is not the Azure algorithm. Independent original educational model; no measured Azure runtime or human approval.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview",
+          "disposition": "reviewed-essential",
+          "reason": "Autoscale uses configured metric/rule/schedule assumptions. Our bounded pre-failure arithmetic is not the Azure algorithm."
+        }
+      ]
+    },
+    {
+      "id": "PS17",
+      "title": "Azure Virtual Desktop overview",
+      "url": "https://learn.microsoft.com/en-us/azure/virtual-desktop/overview",
+      "kind": "technical",
+      "reviewed": "2026-10-28",
+      "version": "Public body checked 2026-10-28",
+      "availability": "AVAILABLE",
+      "objectives": ["az900.compute.vm-options"],
+      "claims": ["compute.PS17"],
+      "limits": "AVD uses ARM objects and customer-configured host/application/access responsibilities; no classic workflow or actual login. Independent original educational model; no measured Azure runtime or human approval.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/virtual-desktop/overview",
+          "disposition": "reviewed-essential",
+          "reason": "AVD uses ARM objects and customer-configured host/application/access responsibilities; no classic workflow or actual login."
+        }
+      ]
+    },
+    {
+      "id": "PS18",
+      "title": "Azure Virtual Desktop terminology",
+      "url": "https://learn.microsoft.com/en-us/azure/virtual-desktop/terminology",
+      "kind": "technical",
+      "reviewed": "2026-10-28",
+      "version": "Public body checked 2026-10-28",
+      "availability": "AVAILABLE",
+      "objectives": ["az900.compute.vm-options"],
+      "claims": ["compute.PS18"],
+      "limits": "Workspace, application group, host pool, session host, personal/pooled and RemoteApp/full-desktop relationships. Independent original educational model; no measured Azure runtime or human approval.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/virtual-desktop/terminology",
+          "disposition": "reviewed-essential",
+          "reason": "Workspace, application group, host pool, session host, personal/pooled and RemoteApp/full-desktop relationships."
+        }
+      ]
+    },
+    {
+      "id": "PS19",
+      "title": "Azure Virtual Desktop service architecture",
+      "url": "https://learn.microsoft.com/en-us/azure/virtual-desktop/service-architecture-resilience",
+      "kind": "technical",
+      "reviewed": "2026-10-28",
+      "version": "Public body checked 2026-10-28",
+      "availability": "AVAILABLE",
+      "objectives": ["az900.compute.vm-options"],
+      "claims": ["compute.PS19"],
+      "limits": "AVD control-plane services differ from session hosts; publication/assignment is not evidence of a user session or host health. Independent original educational model; no measured Azure runtime or human approval.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/virtual-desktop/service-architecture-resilience",
+          "disposition": "reviewed-essential",
+          "reason": "AVD control-plane services differ from session hosts; publication/assignment is not evidence of a user session or host health."
+        }
+      ]
+    },
+    {
+      "id": "PS20",
+      "title": "Container Apps overview",
+      "url": "https://learn.microsoft.com/en-us/azure/container-apps/overview",
+      "kind": "technical",
+      "reviewed": "2026-10-28",
+      "version": "Public body checked 2026-10-28",
+      "availability": "AVAILABLE",
+      "objectives": ["az900.compute.compare", "az900.compute.hosting"],
+      "claims": ["compute.PS20"],
+      "limits": "ACA offers managed container apps, revisions and configurable scaling; not every rule scales to zero and no direct Kubernetes API. Independent original educational model; no measured Azure runtime or human approval.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/container-apps/overview",
+          "disposition": "reviewed-essential",
+          "reason": "ACA offers managed container apps, revisions and configurable scaling; not every rule scales to zero and no direct Kubernetes API."
+        }
+      ]
+    },
+    {
+      "id": "PS21",
+      "title": "Introduction to containers on Azure",
+      "url": "https://learn.microsoft.com/en-us/azure/container-apps/start-containers",
+      "kind": "technical",
+      "reviewed": "2026-10-28",
+      "version": "Public body checked 2026-10-28",
+      "availability": "AVAILABLE",
+      "objectives": ["az900.compute.compare", "az900.compute.hosting"],
+      "claims": ["compute.PS21"],
+      "limits": "Container images package user-space dependencies; persistent data and platform compatibility need explicit design. Independent original educational model; no measured Azure runtime or human approval.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/container-apps/start-containers",
+          "disposition": "reviewed-essential",
+          "reason": "Container images package user-space dependencies; persistent data and platform compatibility need explicit design."
+        }
+      ]
+    },
+    {
+      "id": "PS22",
+      "title": "Azure Kubernetes Service: Automatic and Standard",
+      "url": "https://learn.microsoft.com/en-us/azure/aks/what-is-aks",
+      "kind": "technical",
+      "reviewed": "2026-10-28",
+      "version": "Public body checked 2026-10-28",
+      "availability": "AVAILABLE",
+      "objectives": ["az900.compute.compare", "az900.compute.hosting"],
+      "claims": ["compute.PS22"],
+      "limits": "AKS provides Kubernetes capabilities. Automatic and Standard shift different node/infrastructure operational duties. Independent original educational model; no measured Azure runtime or human approval.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/aks/what-is-aks",
+          "disposition": "reviewed-essential",
+          "reason": "AKS provides Kubernetes capabilities. Automatic and Standard shift different node/infrastructure operational duties."
+        }
+      ]
+    },
+    {
+      "id": "PS23",
+      "title": "Choose an Azure compute service",
+      "url": "https://learn.microsoft.com/en-us/azure/architecture/guide/technology-choices/compute-decision-tree",
+      "kind": "technical",
+      "reviewed": "2026-10-28",
+      "version": "Public body checked 2026-10-28",
+      "availability": "AVAILABLE",
+      "objectives": ["az900.compute.compare", "az900.compute.hosting"],
+      "claims": ["compute.PS23"],
+      "limits": "Compute selection is requirement-driven, including orchestration, guest control, continuous hosting and events; no universal ranking. Independent original educational model; no measured Azure runtime or human approval.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/architecture/guide/technology-choices/compute-decision-tree",
+          "disposition": "reviewed-essential",
+          "reason": "Compute selection is requirement-driven, including orchestration, guest control, continuous hosting and events; no universal ranking."
+        }
+      ]
+    },
+    {
+      "id": "PS24",
+      "title": "Containers versus virtual machines",
+      "url": "https://learn.microsoft.com/en-us/virtualization/windowscontainers/about/containers-vs-vm",
+      "kind": "technical",
+      "reviewed": "2026-10-28",
+      "version": "Public body checked 2026-10-28",
+      "availability": "AVAILABLE",
+      "objectives": ["az900.compute.compare", "az900.compute.hosting"],
+      "claims": ["compute.PS24"],
+      "limits": "Process-isolated containers commonly share a host kernel; image is not a running process and not the same isolation boundary as a VM. Independent original educational model; no measured Azure runtime or human approval.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/virtualization/windowscontainers/about/containers-vs-vm",
+          "disposition": "reviewed-essential",
+          "reason": "Process-isolated containers commonly share a host kernel; image is not a running process and not the same isolation boundary as a VM."
+        }
+      ]
+    },
+    {
+      "id": "PS25",
+      "title": "Process and Hyper-V isolation",
+      "url": "https://learn.microsoft.com/en-us/virtualization/windowscontainers/manage-containers/hyperv-container",
+      "kind": "technical",
+      "reviewed": "2026-10-28",
+      "version": "Public body checked 2026-10-28",
+      "availability": "AVAILABLE",
+      "objectives": ["az900.compute.compare", "az900.compute.hosting"],
+      "claims": ["compute.PS25"],
+      "limits": "Windows Hyper-V container isolation has a lightweight VM/kernel boundary; this is a qualified counterexample, not a universal Azure switch. Independent original educational model; no measured Azure runtime or human approval.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/virtualization/windowscontainers/manage-containers/hyperv-container",
+          "disposition": "reviewed-essential",
+          "reason": "Windows Hyper-V container isolation has a lightweight VM/kernel boundary; this is a qualified counterexample, not a universal Azure switch."
+        }
+      ]
+    },
+    {
+      "id": "PS26",
+      "title": "Azure Container Registry",
+      "url": "https://learn.microsoft.com/en-us/azure/container-registry/container-registry-intro",
+      "kind": "technical",
+      "reviewed": "2026-10-28",
+      "version": "Public body checked 2026-10-28",
+      "availability": "AVAILABLE",
+      "objectives": ["az900.compute.compare", "az900.compute.hosting"],
+      "claims": ["compute.PS26"],
+      "limits": "ACR stores/distributes container artifacts; registry alone does not execute the application or provide persistent app data. Independent original educational model; no measured Azure runtime or human approval.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/container-registry/container-registry-intro",
+          "disposition": "reviewed-essential",
+          "reason": "ACR stores/distributes container artifacts; registry alone does not execute the application or provide persistent app data."
+        }
+      ]
+    },
+    {
+      "id": "PS27",
+      "title": "Azure Functions overview",
+      "url": "https://learn.microsoft.com/en-us/azure/azure-functions/functions-overview",
+      "kind": "technical",
+      "reviewed": "2026-10-28",
+      "version": "Public body checked 2026-10-28",
+      "availability": "AVAILABLE",
+      "objectives": ["az900.compute.compare", "az900.compute.hosting"],
+      "claims": ["compute.PS27"],
+      "limits": "Functions runs event-triggered code; it does not universally replace long-lived workloads requiring guest control. Independent original educational model; no measured Azure runtime or human approval.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/azure-functions/functions-overview",
+          "disposition": "reviewed-essential",
+          "reason": "Functions runs event-triggered code; it does not universally replace long-lived workloads requiring guest control."
+        }
+      ]
+    },
+    {
+      "id": "PS28",
+      "title": "Functions hosting and scale",
+      "url": "https://learn.microsoft.com/en-us/azure/azure-functions/functions-scale",
+      "kind": "technical",
+      "reviewed": "2026-10-28",
+      "version": "Public body checked 2026-10-28",
+      "availability": "AVAILABLE",
+      "objectives": ["az900.compute.compare", "az900.compute.hosting"],
+      "claims": ["compute.PS28"],
+      "limits": "Flex Consumption, Premium and Dedicated have different scaling/idle/cost/start properties. Contradictory retirement text not used for questions. Independent original educational model; no measured Azure runtime or human approval.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/azure-functions/functions-scale",
+          "disposition": "reviewed-essential",
+          "reason": "Flex Consumption, Premium and Dedicated have different scaling/idle/cost/start properties. Contradictory retirement text not used for questions."
+        }
+      ]
+    },
+    {
+      "id": "PS29",
+      "title": "App Service overview",
+      "url": "https://learn.microsoft.com/en-us/azure/app-service/overview",
+      "kind": "technical",
+      "reviewed": "2026-10-28",
+      "version": "Public body checked 2026-10-28",
+      "availability": "AVAILABLE",
+      "objectives": ["az900.compute.hosting"],
+      "claims": ["compute.PS29"],
+      "limits": "Standard App Service supports managed web/API hosting and supported code/custom container options; not a general guest-OS replacement. Independent original educational model; no measured Azure runtime or human approval.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/app-service/overview",
+          "disposition": "reviewed-essential",
+          "reason": "Standard App Service supports managed web/API hosting and supported code/custom container options; not a general guest-OS replacement."
+        }
+      ]
+    },
+    {
+      "id": "PS30",
+      "title": "App Service plans",
+      "url": "https://learn.microsoft.com/en-us/azure/app-service/overview-hosting-plans",
+      "kind": "technical",
+      "reviewed": "2026-10-28",
+      "version": "Public body checked 2026-10-28",
+      "availability": "AVAILABLE",
+      "objectives": ["az900.compute.hosting"],
+      "claims": ["compute.PS30"],
+      "limits": "App Service plan defines compute/location/OS/tier context; multiple apps may share plan compute, with tier-specific limitations. Independent original educational model; no measured Azure runtime or human approval.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/app-service/overview-hosting-plans",
+          "disposition": "reviewed-essential",
+          "reason": "App Service plan defines compute/location/OS/tier context; multiple apps may share plan compute, with tier-specific limitations."
+        }
+      ]
+    },
+    {
+      "id": "PS31",
+      "title": "Custom containers and persistent storage",
+      "url": "https://learn.microsoft.com/en-us/azure/app-service/configure-custom-container",
+      "kind": "technical",
+      "reviewed": "2026-10-28",
+      "version": "Public body checked 2026-10-28",
+      "availability": "AVAILABLE",
+      "objectives": ["az900.compute.hosting", "az900.compute.compare"],
+      "claims": ["compute.PS31"],
+      "limits": "App Service custom-container persistence is explicitly configured; arbitrary writable instance-layer data is not durable after recreate. Independent original educational model; no measured Azure runtime or human approval.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/app-service/configure-custom-container",
+          "disposition": "reviewed-essential",
+          "reason": "App Service custom-container persistence is explicitly configured; arbitrary writable instance-layer data is not durable after recreate."
+        }
+      ]
+    },
+    {
+      "id": "PS32",
+      "title": "Managed disks and disk roles",
+      "url": "https://learn.microsoft.com/en-us/azure/virtual-machines/managed-disks-overview",
+      "kind": "technical",
+      "reviewed": "2026-10-28",
+      "version": "Public body checked 2026-10-28",
+      "availability": "AVAILABLE",
+      "objectives": ["az900.compute.vm-resources"],
+      "claims": ["compute.PS32"],
+      "limits": "Managed OS and data disks serve different roles; additional storage does not substitute for RAM or an appropriate OS image. Independent original educational model; no measured Azure runtime or human approval.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/virtual-machines/managed-disks-overview",
+          "disposition": "reviewed-essential",
+          "reason": "Managed OS and data disks serve different roles; additional storage does not substitute for RAM or an appropriate OS image."
+        }
+      ]
+    },
+    {
+      "id": "PS33",
+      "title": "VM network dependencies",
+      "url": "https://learn.microsoft.com/en-us/azure/virtual-network/network-overview",
+      "kind": "technical",
+      "reviewed": "2026-10-28",
+      "version": "Public body checked 2026-10-28",
+      "availability": "AVAILABLE",
+      "objectives": ["az900.compute.vm-resources"],
+      "claims": ["compute.PS33"],
+      "limits": "VM/NIC/subnet/VNet relationships have location/subscription constraints. Older IP-default details are not taught as current universal defaults. Independent original educational model; no measured Azure runtime or human approval.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/virtual-network/network-overview",
+          "disposition": "reviewed-essential",
+          "reason": "VM/NIC/subnet/VNet relationships have location/subscription constraints. Older IP-default details are not taught as current universal defaults."
+        }
+      ]
+    },
+    {
+      "id": "PS34",
+      "title": "Shared responsibility",
+      "url": "https://learn.microsoft.com/en-us/azure/security/fundamentals/shared-responsibility",
+      "kind": "technical",
+      "reviewed": "2026-10-28",
+      "version": "Public body checked 2026-10-28",
+      "availability": "AVAILABLE",
+      "objectives": [
+        "az900.compute.compare",
+        "az900.compute.vm-options",
+        "az900.compute.vm-resources",
+        "az900.compute.hosting"
+      ],
+      "claims": ["compute.PS34"],
+      "limits": "Customer retains application/code/image/data/access/security configuration; provider-host management does not secure customer content automatically. Independent original educational model; no measured Azure runtime or human approval.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/security/fundamentals/shared-responsibility",
+          "disposition": "reviewed-essential",
+          "reason": "Customer retains application/code/image/data/access/security configuration; provider-host management does not secure customer content automatically."
+        }
+      ]
+    },
+    {
+      "id": "PS35",
+      "title": "Create a VM in the real Portal",
+      "url": "https://learn.microsoft.com/en-us/azure/virtual-machines/linux/quick-create-portal",
+      "kind": "technical",
+      "reviewed": "2026-10-28",
+      "version": "Public body checked 2026-10-28",
+      "availability": "AVAILABLE",
+      "objectives": ["az900.compute.vm-resources"],
+      "claims": ["compute.PS35"],
+      "limits": "Actual Azure Portal VM Basics/Disks/Networking/Review-create workflow. Local form is bounded, with no credentials/IP/guest execution. Independent original educational model; no measured Azure runtime or human approval.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/virtual-machines/linux/quick-create-portal",
+          "disposition": "reviewed-essential",
+          "reason": "Actual Azure Portal VM Basics/Disks/Networking/Review-create workflow. Local form is bounded, with no credentials/IP/guest execution."
+        }
+      ]
+    },
+    {
+      "id": "PS36",
+      "title": "Host a web application: supplementary learning",
+      "url": "https://learn.microsoft.com/en-us/training/modules/host-a-web-app-with-azure-app-service/",
+      "kind": "technical",
+      "reviewed": "2026-10-28",
+      "version": "Public body checked 2026-10-28",
+      "availability": "AVAILABLE",
+      "objectives": ["az900.compute.hosting"],
+      "claims": ["compute.PS36"],
+      "limits": "Supplemental App Service prerequisite/create/review/summary inspected; live coding/deployment and account exercises excluded from local operative scope. Independent original educational model; no measured Azure runtime or human approval.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/training/modules/host-a-web-app-with-azure-app-service/",
+          "disposition": "reviewed-essential",
+          "reason": "Supplemental App Service prerequisite/create/review/summary inspected; live coding/deployment and account exercises excluded from local operative scope."
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/training/modules/host-a-web-app-with-azure-app-service/",
+          "disposition": "supplementary-reviewed-with-exclusions",
+          "reason": "Create-web-app explanation/exercise and summary inspected as workflow reference. Linked code preparation, code writing and deployment exercises catalogued but outside this conceptual/previously supported local hosting scope; no Azure account or deployment performed."
+        }
+      ]
+    },
+    {
+      "id": "PS37",
+      "title": "Jobs in Azure Container Apps",
+      "url": "https://learn.microsoft.com/en-us/azure/container-apps/jobs",
+      "kind": "technical",
+      "reviewed": "2026-10-28",
+      "version": "Public body checked 2026-10-28",
+      "availability": "AVAILABLE",
+      "objectives": ["az900.compute.hosting"],
+      "claims": ["compute.PS37"],
+      "limits": "ACA Jobs have finite manual/scheduled/event-triggered executions. Creating job configuration differs from starting an execution; access/data/retry remain explicit. Independent original educational model; no measured Azure runtime or human approval.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/container-apps/jobs",
+          "disposition": "reviewed-essential",
+          "reason": "ACA Jobs have finite manual/scheduled/event-triggered executions. Creating job configuration differs from starting an execution; access/data/retry remain explicit."
+        }
+      ]
+    },
+    {
+      "id": "PS-ACI-BLOCKED",
+      "title": "ACI overview access limitation",
+      "url": "https://learn.microsoft.com/en-us/azure/container-instances/container-instances-overview",
+      "kind": "technical",
+      "reviewed": "2026-10-28",
+      "version": "Repeated503 in public research tool",
+      "availability": "BLOCKED",
+      "objectives": ["az900.compute.compare", "az900.compute.hosting"],
+      "claims": ["compute.aci-access"],
+      "limits": "No claim of full page review; bounded ACI content confirmed through available official alternatives.",
+      "alternative": "PS06 and PS23 support simple container-group versus managed/orchestrated platform comparison.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/container-instances/container-instances-overview",
+          "disposition": "blocked-official-alternative",
+          "reason": "Repeated503; no login/access control bypass. Public Learn and Architecture Center alternatives inspected."
+        }
+      ]
+    },
+    {
+      "id": "PS38",
+      "title": "ACI run-once tasks and restart policies",
+      "url": "https://learn.microsoft.com/en-us/azure/container-instances/container-instances-restart-policy",
+      "kind": "technical",
+      "reviewed": "2026-10-28",
+      "version": "Public body2026-07-26; checked2026-10-28",
+      "availability": "AVAILABLE",
+      "objectives": ["az900.compute.hosting"],
+      "claims": ["compute.PS38"],
+      "limits": "Run-to-completion and explicit restart policies differ from a reusable ACA Job/execution. Never qualifies successful exit, not a universal no-retry guarantee; no task is executed locally.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/container-instances/container-instances-restart-policy",
+          "disposition": "reviewed-essential",
+          "reason": "Run-to-completion and explicit restart policies differ from a reusable ACA Job/execution. Never qualifies successful exit, not a universal no-retry guarantee; no task is executed locally."
         }
       ]
     }
   ],
   "activities": [
     {
-      "id": "cost-estimate",
-      "objectives": ["az900.cost.drivers", "az900.cost.calculator"],
-      "claims": ["cost.CS03", "cost.CS04", "cost.CS10"],
+      "id": "compute-vm",
+      "objectives": ["az900.compute.vm-resources"],
+      "claims": ["compute.PS11", "compute.PS32", "compute.PS33", "compute.PS35"],
       "assessmentStatus": "new-independent",
-      "limits": "Four guided workbenches and ten separately versioned independent decision/reason cases. Guided runs never satisfy independent results; finite original bank, no XP, no exam readiness or human validation.",
-      "theory": [{ "path": "src/content/nb.ts", "marker": "costNb" }],
-      "mechanism": [
-        { "path": "src/domain/curriculum/cost-model.ts" },
-        { "path": "src/domain/curriculum/cost.ts" }
-      ],
-      "practice": [{ "path": "src/features/learning/cost-workbench.tsx" }],
+      "limits": "Actual post-boundary local VM command and seven real referenced inspections; no guest execution/health.",
+      "theory": [{ "path": "src/content/nb.ts", "marker": "computeNb" }],
+      "mechanism": [{ "path": "src/domain/curriculum/compute-vm.ts" }],
+      "practice": [{ "path": "src/features/learning/compute-vm.tsx" }],
       "feedback": [
-        { "path": "src/content/nb.ts", "marker": "costItemsNb" },
-        { "path": "src/features/learning/cost-assessment.tsx" }
+        { "path": "src/content/nb.ts", "marker": "computeItemsNb" },
+        { "path": "src/domain/curriculum/compute-items.ts", "marker": "evaluateCompute" },
+        { "path": "src/features/learning/compute-assessment.tsx" }
       ],
       "visual": [
-        { "path": "src/features/learning/cost-visuals.tsx" },
-        { "path": "src/features/learning/cost.css" }
+        { "path": "src/features/learning/compute-visuals.tsx" },
+        { "path": "src/features/learning/compute.css" }
       ],
-      "accessible": [
-        { "path": "src/features/learning/cost-workbench.tsx" },
-        { "path": "src/features/learning/cost-assessment.tsx" },
-        { "path": "tests/e2e/cost-management.spec.ts" }
-      ],
+      "accessible": [{ "path": "tests/e2e/compute-hosting.spec.ts" }],
       "assessment": [
-        { "path": "src/domain/curriculum/cost.ts", "marker": "evaluateCostAttempt" },
-        { "path": "src/domain/curriculum/cost.test.ts" }
+        { "path": "src/domain/curriculum/compute-items.ts", "marker": "evaluateCompute" },
+        { "path": "src/features/learning/compute-assessment.tsx" }
       ],
-      "savvyshark": [
-        { "path": "src/features/learning/cost-workbench.tsx" },
-        { "path": "src/features/learning/cost-assessment.tsx" }
-      ]
+      "savvyshark": [{ "path": "src/features/learning/compute-vm.tsx" }]
     },
     {
-      "id": "cost-analysis",
-      "objectives": ["az900.cost.management", "az900.cost.drivers", "az900.cost.tags"],
-      "claims": ["cost.CS12", "cost.CS14", "cost.CS24"],
+      "id": "compute-container",
+      "objectives": ["az900.compute.compare"],
+      "claims": ["compute.PS24", "compute.PS25", "compute.PS31", "compute.PS34"],
       "assessmentStatus": "new-independent",
-      "limits": "Four guided workbenches and ten separately versioned independent decision/reason cases. Guided runs never satisfy independent results; finite original bank, no XP, no exam readiness or human validation.",
-      "theory": [{ "path": "src/content/nb.ts", "marker": "costNb" }],
+      "limits": "Explicit pure conceptual model; no operative resource, traffic, autoscale, session or deployment. Guided results never satisfy independent evidence.",
+      "theory": [{ "path": "src/content/nb.ts", "marker": "computeNb" }],
       "mechanism": [
-        { "path": "src/domain/curriculum/cost-model.ts" },
-        { "path": "src/domain/curriculum/cost.ts" }
+        { "path": "src/domain/curriculum/compute-model.ts" },
+        { "path": "src/domain/curriculum/compute.ts" }
       ],
-      "practice": [{ "path": "src/features/learning/cost-workbench.tsx" }],
+      "practice": [{ "path": "src/features/learning/compute-workbench.tsx" }],
       "feedback": [
-        { "path": "src/content/nb.ts", "marker": "costItemsNb" },
-        { "path": "src/features/learning/cost-assessment.tsx" }
+        { "path": "src/content/nb.ts", "marker": "computeItemsNb" },
+        { "path": "src/domain/curriculum/compute-items.ts", "marker": "evaluateCompute" },
+        { "path": "src/features/learning/compute-assessment.tsx" }
       ],
       "visual": [
-        { "path": "src/features/learning/cost-visuals.tsx" },
-        { "path": "src/features/learning/cost.css" }
+        { "path": "src/features/learning/compute-visuals.tsx" },
+        { "path": "src/features/learning/compute.css" }
       ],
-      "accessible": [
-        { "path": "src/features/learning/cost-workbench.tsx" },
-        { "path": "src/features/learning/cost-assessment.tsx" },
-        { "path": "tests/e2e/cost-management.spec.ts" }
-      ],
+      "accessible": [{ "path": "tests/e2e/compute-hosting.spec.ts" }],
       "assessment": [
-        { "path": "src/domain/curriculum/cost.ts", "marker": "evaluateCostAttempt" },
-        { "path": "src/domain/curriculum/cost.test.ts" }
+        { "path": "src/domain/curriculum/compute-items.ts", "marker": "evaluateCompute" },
+        { "path": "src/features/learning/compute-assessment.tsx" }
       ],
-      "savvyshark": [
-        { "path": "src/features/learning/cost-workbench.tsx" },
-        { "path": "src/features/learning/cost-assessment.tsx" }
-      ]
+      "savvyshark": [{ "path": "src/features/learning/compute-workbench.tsx" }]
     },
     {
-      "id": "cost-budgets",
-      "objectives": ["az900.cost.management", "az900.cost.drivers"],
-      "claims": ["cost.CS13", "cost.CS14"],
+      "id": "compute-capacity",
+      "objectives": ["az900.compute.vm-options"],
+      "claims": ["compute.PS12", "compute.PS13", "compute.PS15", "compute.PS16"],
       "assessmentStatus": "new-independent",
-      "limits": "Four guided workbenches and ten separately versioned independent decision/reason cases. Guided runs never satisfy independent results; finite original bank, no XP, no exam readiness or human validation.",
-      "theory": [{ "path": "src/content/nb.ts", "marker": "costNb" }],
+      "limits": "Explicit pure conceptual model; no operative resource, traffic, autoscale, session or deployment. Guided results never satisfy independent evidence.",
+      "theory": [{ "path": "src/content/nb.ts", "marker": "computeNb" }],
       "mechanism": [
-        { "path": "src/domain/curriculum/cost-model.ts" },
-        { "path": "src/domain/curriculum/cost.ts" }
+        { "path": "src/domain/curriculum/compute-model.ts" },
+        { "path": "src/domain/curriculum/compute.ts" }
       ],
-      "practice": [{ "path": "src/features/learning/cost-workbench.tsx" }],
+      "practice": [{ "path": "src/features/learning/compute-workbench.tsx" }],
       "feedback": [
-        { "path": "src/content/nb.ts", "marker": "costItemsNb" },
-        { "path": "src/features/learning/cost-assessment.tsx" }
+        { "path": "src/content/nb.ts", "marker": "computeItemsNb" },
+        { "path": "src/domain/curriculum/compute-items.ts", "marker": "evaluateCompute" },
+        { "path": "src/features/learning/compute-assessment.tsx" }
       ],
       "visual": [
-        { "path": "src/features/learning/cost-visuals.tsx" },
-        { "path": "src/features/learning/cost.css" }
+        { "path": "src/features/learning/compute-visuals.tsx" },
+        { "path": "src/features/learning/compute.css" }
       ],
-      "accessible": [
-        { "path": "src/features/learning/cost-workbench.tsx" },
-        { "path": "src/features/learning/cost-assessment.tsx" },
-        { "path": "tests/e2e/cost-management.spec.ts" }
-      ],
+      "accessible": [{ "path": "tests/e2e/compute-hosting.spec.ts" }],
       "assessment": [
-        { "path": "src/domain/curriculum/cost.ts", "marker": "evaluateCostAttempt" },
-        { "path": "src/domain/curriculum/cost.test.ts" }
+        { "path": "src/domain/curriculum/compute-items.ts", "marker": "evaluateCompute" },
+        { "path": "src/features/learning/compute-assessment.tsx" }
       ],
-      "savvyshark": [
-        { "path": "src/features/learning/cost-workbench.tsx" },
-        { "path": "src/features/learning/cost-assessment.tsx" }
-      ]
+      "savvyshark": [{ "path": "src/features/learning/compute-workbench.tsx" }]
     },
     {
-      "id": "cost-tags",
-      "objectives": ["az900.cost.tags"],
-      "claims": ["cost.CS15", "cost.CS17", "cost.CS23"],
-      "assessmentStatus": "new-independent",
-      "limits": "Four guided workbenches and ten separately versioned independent decision/reason cases. Guided runs never satisfy independent results; finite original bank, no XP, no exam readiness or human validation.",
-      "theory": [{ "path": "src/content/nb.ts", "marker": "costNb" }],
-      "mechanism": [
-        { "path": "src/domain/curriculum/cost-model.ts" },
-        { "path": "src/domain/curriculum/cost.ts" }
+      "id": "compute-hosting",
+      "objectives": ["az900.compute.hosting"],
+      "claims": [
+        "compute.PS20",
+        "compute.PS22",
+        "compute.PS23",
+        "compute.PS29",
+        "compute.PS37",
+        "compute.PS38"
       ],
-      "practice": [{ "path": "src/features/learning/cost-workbench.tsx" }],
+      "assessmentStatus": "new-independent",
+      "limits": "Explicit pure conceptual model; no operative resource, traffic, autoscale, session or deployment. Guided results never satisfy independent evidence.",
+      "theory": [{ "path": "src/content/nb.ts", "marker": "computeNb" }],
+      "mechanism": [
+        { "path": "src/domain/curriculum/compute-model.ts" },
+        { "path": "src/domain/curriculum/compute.ts" }
+      ],
+      "practice": [{ "path": "src/features/learning/compute-workbench.tsx" }],
       "feedback": [
-        { "path": "src/content/nb.ts", "marker": "costItemsNb" },
-        { "path": "src/features/learning/cost-assessment.tsx" }
+        { "path": "src/content/nb.ts", "marker": "computeItemsNb" },
+        { "path": "src/domain/curriculum/compute-items.ts", "marker": "evaluateCompute" },
+        { "path": "src/features/learning/compute-assessment.tsx" }
       ],
       "visual": [
-        { "path": "src/features/learning/cost-visuals.tsx" },
-        { "path": "src/features/learning/cost.css" }
+        { "path": "src/features/learning/compute-visuals.tsx" },
+        { "path": "src/features/learning/compute.css" }
       ],
-      "accessible": [
-        { "path": "src/features/learning/cost-workbench.tsx" },
-        { "path": "src/features/learning/cost-assessment.tsx" },
-        { "path": "tests/e2e/cost-management.spec.ts" }
-      ],
+      "accessible": [{ "path": "tests/e2e/compute-hosting.spec.ts" }],
       "assessment": [
-        { "path": "src/domain/curriculum/cost.ts", "marker": "evaluateCostAttempt" },
-        { "path": "src/domain/curriculum/cost.test.ts" }
+        { "path": "src/domain/curriculum/compute-items.ts", "marker": "evaluateCompute" },
+        { "path": "src/features/learning/compute-assessment.tsx" }
       ],
-      "savvyshark": [
-        { "path": "src/features/learning/cost-workbench.tsx" },
-        { "path": "src/features/learning/cost-assessment.tsx" }
-      ]
-    },
-    {
-      "id": "cost-cm01",
-      "objectives": ["az900.cost.drivers"],
-      "claims": ["cost.CS03", "cost.CS27"],
-      "assessmentStatus": "new-independent",
-      "limits": "Four guided workbenches and ten separately versioned independent decision/reason cases. Guided runs never satisfy independent results; finite original bank, no XP, no exam readiness or human validation.",
-      "theory": [{ "path": "src/content/nb.ts", "marker": "costNb" }],
-      "mechanism": [
-        { "path": "src/domain/curriculum/cost-model.ts" },
-        { "path": "src/domain/curriculum/cost.ts" }
-      ],
-      "practice": [{ "path": "src/features/learning/cost-workbench.tsx" }],
-      "feedback": [
-        { "path": "src/content/nb.ts", "marker": "costItemsNb" },
-        { "path": "src/features/learning/cost-assessment.tsx" }
-      ],
-      "visual": [
-        { "path": "src/features/learning/cost-visuals.tsx" },
-        { "path": "src/features/learning/cost.css" }
-      ],
-      "accessible": [
-        { "path": "src/features/learning/cost-workbench.tsx" },
-        { "path": "src/features/learning/cost-assessment.tsx" },
-        { "path": "tests/e2e/cost-management.spec.ts" }
-      ],
-      "assessment": [
-        { "path": "src/domain/curriculum/cost.ts", "marker": "evaluateCostAttempt" },
-        { "path": "src/domain/curriculum/cost.test.ts" }
-      ],
-      "savvyshark": [
-        { "path": "src/features/learning/cost-workbench.tsx" },
-        { "path": "src/features/learning/cost-assessment.tsx" }
-      ]
-    },
-    {
-      "id": "cost-cm02",
-      "objectives": ["az900.cost.drivers"],
-      "claims": ["cost.CS03", "cost.CS27"],
-      "assessmentStatus": "new-independent",
-      "limits": "Four guided workbenches and ten separately versioned independent decision/reason cases. Guided runs never satisfy independent results; finite original bank, no XP, no exam readiness or human validation.",
-      "theory": [{ "path": "src/content/nb.ts", "marker": "costNb" }],
-      "mechanism": [
-        { "path": "src/domain/curriculum/cost-model.ts" },
-        { "path": "src/domain/curriculum/cost.ts" }
-      ],
-      "practice": [{ "path": "src/features/learning/cost-workbench.tsx" }],
-      "feedback": [
-        { "path": "src/content/nb.ts", "marker": "costItemsNb" },
-        { "path": "src/features/learning/cost-assessment.tsx" }
-      ],
-      "visual": [
-        { "path": "src/features/learning/cost-visuals.tsx" },
-        { "path": "src/features/learning/cost.css" }
-      ],
-      "accessible": [
-        { "path": "src/features/learning/cost-workbench.tsx" },
-        { "path": "src/features/learning/cost-assessment.tsx" },
-        { "path": "tests/e2e/cost-management.spec.ts" }
-      ],
-      "assessment": [
-        { "path": "src/domain/curriculum/cost.ts", "marker": "evaluateCostAttempt" },
-        { "path": "src/domain/curriculum/cost.test.ts" }
-      ],
-      "savvyshark": [
-        { "path": "src/features/learning/cost-workbench.tsx" },
-        { "path": "src/features/learning/cost-assessment.tsx" }
-      ]
-    },
-    {
-      "id": "cost-cm03",
-      "objectives": ["az900.cost.calculator"],
-      "claims": ["cost.CS04", "cost.CS10"],
-      "assessmentStatus": "new-independent",
-      "limits": "Four guided workbenches and ten separately versioned independent decision/reason cases. Guided runs never satisfy independent results; finite original bank, no XP, no exam readiness or human validation.",
-      "theory": [{ "path": "src/content/nb.ts", "marker": "costNb" }],
-      "mechanism": [
-        { "path": "src/domain/curriculum/cost-model.ts" },
-        { "path": "src/domain/curriculum/cost.ts" }
-      ],
-      "practice": [{ "path": "src/features/learning/cost-workbench.tsx" }],
-      "feedback": [
-        { "path": "src/content/nb.ts", "marker": "costItemsNb" },
-        { "path": "src/features/learning/cost-assessment.tsx" }
-      ],
-      "visual": [
-        { "path": "src/features/learning/cost-visuals.tsx" },
-        { "path": "src/features/learning/cost.css" }
-      ],
-      "accessible": [
-        { "path": "src/features/learning/cost-workbench.tsx" },
-        { "path": "src/features/learning/cost-assessment.tsx" },
-        { "path": "tests/e2e/cost-management.spec.ts" }
-      ],
-      "assessment": [
-        { "path": "src/domain/curriculum/cost.ts", "marker": "evaluateCostAttempt" },
-        { "path": "src/domain/curriculum/cost.test.ts" }
-      ],
-      "savvyshark": [
-        { "path": "src/features/learning/cost-workbench.tsx" },
-        { "path": "src/features/learning/cost-assessment.tsx" }
-      ]
-    },
-    {
-      "id": "cost-cm04",
-      "objectives": ["az900.cost.calculator"],
-      "claims": ["cost.CS04", "cost.CS10"],
-      "assessmentStatus": "new-independent",
-      "limits": "Four guided workbenches and ten separately versioned independent decision/reason cases. Guided runs never satisfy independent results; finite original bank, no XP, no exam readiness or human validation.",
-      "theory": [{ "path": "src/content/nb.ts", "marker": "costNb" }],
-      "mechanism": [
-        { "path": "src/domain/curriculum/cost-model.ts" },
-        { "path": "src/domain/curriculum/cost.ts" }
-      ],
-      "practice": [{ "path": "src/features/learning/cost-workbench.tsx" }],
-      "feedback": [
-        { "path": "src/content/nb.ts", "marker": "costItemsNb" },
-        { "path": "src/features/learning/cost-assessment.tsx" }
-      ],
-      "visual": [
-        { "path": "src/features/learning/cost-visuals.tsx" },
-        { "path": "src/features/learning/cost.css" }
-      ],
-      "accessible": [
-        { "path": "src/features/learning/cost-workbench.tsx" },
-        { "path": "src/features/learning/cost-assessment.tsx" },
-        { "path": "tests/e2e/cost-management.spec.ts" }
-      ],
-      "assessment": [
-        { "path": "src/domain/curriculum/cost.ts", "marker": "evaluateCostAttempt" },
-        { "path": "src/domain/curriculum/cost.test.ts" }
-      ],
-      "savvyshark": [
-        { "path": "src/features/learning/cost-workbench.tsx" },
-        { "path": "src/features/learning/cost-assessment.tsx" }
-      ]
-    },
-    {
-      "id": "cost-cm05",
-      "objectives": ["az900.cost.management"],
-      "claims": ["cost.CS12", "cost.CS13"],
-      "assessmentStatus": "new-independent",
-      "limits": "Four guided workbenches and ten separately versioned independent decision/reason cases. Guided runs never satisfy independent results; finite original bank, no XP, no exam readiness or human validation.",
-      "theory": [{ "path": "src/content/nb.ts", "marker": "costNb" }],
-      "mechanism": [
-        { "path": "src/domain/curriculum/cost-model.ts" },
-        { "path": "src/domain/curriculum/cost.ts" }
-      ],
-      "practice": [{ "path": "src/features/learning/cost-workbench.tsx" }],
-      "feedback": [
-        { "path": "src/content/nb.ts", "marker": "costItemsNb" },
-        { "path": "src/features/learning/cost-assessment.tsx" }
-      ],
-      "visual": [
-        { "path": "src/features/learning/cost-visuals.tsx" },
-        { "path": "src/features/learning/cost.css" }
-      ],
-      "accessible": [
-        { "path": "src/features/learning/cost-workbench.tsx" },
-        { "path": "src/features/learning/cost-assessment.tsx" },
-        { "path": "tests/e2e/cost-management.spec.ts" }
-      ],
-      "assessment": [
-        { "path": "src/domain/curriculum/cost.ts", "marker": "evaluateCostAttempt" },
-        { "path": "src/domain/curriculum/cost.test.ts" }
-      ],
-      "savvyshark": [
-        { "path": "src/features/learning/cost-workbench.tsx" },
-        { "path": "src/features/learning/cost-assessment.tsx" }
-      ]
-    },
-    {
-      "id": "cost-cm06",
-      "objectives": ["az900.cost.management"],
-      "claims": ["cost.CS12", "cost.CS13"],
-      "assessmentStatus": "new-independent",
-      "limits": "Four guided workbenches and ten separately versioned independent decision/reason cases. Guided runs never satisfy independent results; finite original bank, no XP, no exam readiness or human validation.",
-      "theory": [{ "path": "src/content/nb.ts", "marker": "costNb" }],
-      "mechanism": [
-        { "path": "src/domain/curriculum/cost-model.ts" },
-        { "path": "src/domain/curriculum/cost.ts" }
-      ],
-      "practice": [{ "path": "src/features/learning/cost-workbench.tsx" }],
-      "feedback": [
-        { "path": "src/content/nb.ts", "marker": "costItemsNb" },
-        { "path": "src/features/learning/cost-assessment.tsx" }
-      ],
-      "visual": [
-        { "path": "src/features/learning/cost-visuals.tsx" },
-        { "path": "src/features/learning/cost.css" }
-      ],
-      "accessible": [
-        { "path": "src/features/learning/cost-workbench.tsx" },
-        { "path": "src/features/learning/cost-assessment.tsx" },
-        { "path": "tests/e2e/cost-management.spec.ts" }
-      ],
-      "assessment": [
-        { "path": "src/domain/curriculum/cost.ts", "marker": "evaluateCostAttempt" },
-        { "path": "src/domain/curriculum/cost.test.ts" }
-      ],
-      "savvyshark": [
-        { "path": "src/features/learning/cost-workbench.tsx" },
-        { "path": "src/features/learning/cost-assessment.tsx" }
-      ]
-    },
-    {
-      "id": "cost-cm07",
-      "objectives": ["az900.cost.tags"],
-      "claims": ["cost.CS15", "cost.CS17"],
-      "assessmentStatus": "new-independent",
-      "limits": "Four guided workbenches and ten separately versioned independent decision/reason cases. Guided runs never satisfy independent results; finite original bank, no XP, no exam readiness or human validation.",
-      "theory": [{ "path": "src/content/nb.ts", "marker": "costNb" }],
-      "mechanism": [
-        { "path": "src/domain/curriculum/cost-model.ts" },
-        { "path": "src/domain/curriculum/cost.ts" }
-      ],
-      "practice": [{ "path": "src/features/learning/cost-workbench.tsx" }],
-      "feedback": [
-        { "path": "src/content/nb.ts", "marker": "costItemsNb" },
-        { "path": "src/features/learning/cost-assessment.tsx" }
-      ],
-      "visual": [
-        { "path": "src/features/learning/cost-visuals.tsx" },
-        { "path": "src/features/learning/cost.css" }
-      ],
-      "accessible": [
-        { "path": "src/features/learning/cost-workbench.tsx" },
-        { "path": "src/features/learning/cost-assessment.tsx" },
-        { "path": "tests/e2e/cost-management.spec.ts" }
-      ],
-      "assessment": [
-        { "path": "src/domain/curriculum/cost.ts", "marker": "evaluateCostAttempt" },
-        { "path": "src/domain/curriculum/cost.test.ts" }
-      ],
-      "savvyshark": [
-        { "path": "src/features/learning/cost-workbench.tsx" },
-        { "path": "src/features/learning/cost-assessment.tsx" }
-      ]
-    },
-    {
-      "id": "cost-cm08",
-      "objectives": ["az900.cost.tags"],
-      "claims": ["cost.CS15", "cost.CS17"],
-      "assessmentStatus": "new-independent",
-      "limits": "Four guided workbenches and ten separately versioned independent decision/reason cases. Guided runs never satisfy independent results; finite original bank, no XP, no exam readiness or human validation.",
-      "theory": [{ "path": "src/content/nb.ts", "marker": "costNb" }],
-      "mechanism": [
-        { "path": "src/domain/curriculum/cost-model.ts" },
-        { "path": "src/domain/curriculum/cost.ts" }
-      ],
-      "practice": [{ "path": "src/features/learning/cost-workbench.tsx" }],
-      "feedback": [
-        { "path": "src/content/nb.ts", "marker": "costItemsNb" },
-        { "path": "src/features/learning/cost-assessment.tsx" }
-      ],
-      "visual": [
-        { "path": "src/features/learning/cost-visuals.tsx" },
-        { "path": "src/features/learning/cost.css" }
-      ],
-      "accessible": [
-        { "path": "src/features/learning/cost-workbench.tsx" },
-        { "path": "src/features/learning/cost-assessment.tsx" },
-        { "path": "tests/e2e/cost-management.spec.ts" }
-      ],
-      "assessment": [
-        { "path": "src/domain/curriculum/cost.ts", "marker": "evaluateCostAttempt" },
-        { "path": "src/domain/curriculum/cost.test.ts" }
-      ],
-      "savvyshark": [
-        { "path": "src/features/learning/cost-workbench.tsx" },
-        { "path": "src/features/learning/cost-assessment.tsx" }
-      ]
-    },
-    {
-      "id": "cost-cm09",
-      "objectives": ["cost.optimization"],
-      "claims": ["cost.CS18", "cost.CS19", "cost.CS20", "cost.CS21"],
-      "assessmentStatus": "new-independent",
-      "limits": "Four guided workbenches and ten separately versioned independent decision/reason cases. Guided runs never satisfy independent results; finite original bank, no XP, no exam readiness or human validation.",
-      "theory": [{ "path": "src/content/nb.ts", "marker": "costNb" }],
-      "mechanism": [
-        { "path": "src/domain/curriculum/cost-model.ts" },
-        { "path": "src/domain/curriculum/cost.ts" }
-      ],
-      "practice": [{ "path": "src/features/learning/cost-workbench.tsx" }],
-      "feedback": [
-        { "path": "src/content/nb.ts", "marker": "costItemsNb" },
-        { "path": "src/features/learning/cost-assessment.tsx" }
-      ],
-      "visual": [
-        { "path": "src/features/learning/cost-visuals.tsx" },
-        { "path": "src/features/learning/cost.css" }
-      ],
-      "accessible": [
-        { "path": "src/features/learning/cost-workbench.tsx" },
-        { "path": "src/features/learning/cost-assessment.tsx" },
-        { "path": "tests/e2e/cost-management.spec.ts" }
-      ],
-      "assessment": [
-        { "path": "src/domain/curriculum/cost.ts", "marker": "evaluateCostAttempt" },
-        { "path": "src/domain/curriculum/cost.test.ts" }
-      ],
-      "savvyshark": [
-        { "path": "src/features/learning/cost-workbench.tsx" },
-        { "path": "src/features/learning/cost-assessment.tsx" }
-      ]
-    },
-    {
-      "id": "cost-cm10",
-      "objectives": ["cost.optimization"],
-      "claims": ["cost.CS18", "cost.CS19", "cost.CS20", "cost.CS21"],
-      "assessmentStatus": "new-independent",
-      "limits": "Four guided workbenches and ten separately versioned independent decision/reason cases. Guided runs never satisfy independent results; finite original bank, no XP, no exam readiness or human validation.",
-      "theory": [{ "path": "src/content/nb.ts", "marker": "costNb" }],
-      "mechanism": [
-        { "path": "src/domain/curriculum/cost-model.ts" },
-        { "path": "src/domain/curriculum/cost.ts" }
-      ],
-      "practice": [{ "path": "src/features/learning/cost-workbench.tsx" }],
-      "feedback": [
-        { "path": "src/content/nb.ts", "marker": "costItemsNb" },
-        { "path": "src/features/learning/cost-assessment.tsx" }
-      ],
-      "visual": [
-        { "path": "src/features/learning/cost-visuals.tsx" },
-        { "path": "src/features/learning/cost.css" }
-      ],
-      "accessible": [
-        { "path": "src/features/learning/cost-workbench.tsx" },
-        { "path": "src/features/learning/cost-assessment.tsx" },
-        { "path": "tests/e2e/cost-management.spec.ts" }
-      ],
-      "assessment": [
-        { "path": "src/domain/curriculum/cost.ts", "marker": "evaluateCostAttempt" },
-        { "path": "src/domain/curriculum/cost.test.ts" }
-      ],
-      "savvyshark": [
-        { "path": "src/features/learning/cost-workbench.tsx" },
-        { "path": "src/features/learning/cost-assessment.tsx" }
-      ]
+      "savvyshark": [{ "path": "src/features/learning/compute-workbench.tsx" }]
     }
   ],
   "modules": [
     {
-      "id": "cost-management-v1",
-      "prerequisites": [{ "path": "src/content/nb.ts", "marker": "costNb" }],
-      "terminology": [{ "path": "src/content/nb.ts", "marker": "costNb" }],
-      "concept": [{ "path": "src/content/nb.ts", "marker": "costNb" }],
-      "azureExample": [{ "path": "src/content/nb.ts", "marker": "costNb" }],
-      "workedExample": [{ "path": "src/content/nb.ts", "marker": "costNb" }],
-      "misconception": [{ "path": "src/content/nb.ts", "marker": "costNb" }],
-      "limits": [{ "path": "src/content/nb.ts", "marker": "costNb" }],
-      "mechanism": [{ "path": "src/domain/curriculum/cost-model.ts" }],
-      "visual": [{ "path": "src/features/learning/cost-visuals.tsx" }],
-      "practice": [{ "path": "src/features/learning/cost-workbench.tsx" }],
+      "id": "compute-hosting-v1",
+      "prerequisites": [{ "path": "src/content/nb.ts", "marker": "computeNb" }],
+      "terminology": [{ "path": "src/content/nb.ts", "marker": "computeNb" }],
+      "concept": [{ "path": "src/content/nb.ts", "marker": "computeNb" }],
+      "azureExample": [{ "path": "src/content/nb.ts", "marker": "computeNb" }],
+      "workedExample": [{ "path": "src/content/nb.ts", "marker": "computeNb" }],
+      "misconception": [{ "path": "src/content/nb.ts", "marker": "computeNb" }],
+      "limits": [{ "path": "src/content/nb.ts", "marker": "computeNb" }],
+      "mechanism": [
+        { "path": "src/domain/curriculum/compute-model.ts" },
+        { "path": "src/domain/curriculum/compute.ts" }
+      ],
+      "visual": [{ "path": "src/features/learning/compute-visuals.tsx" }],
+      "practice": [
+        { "path": "src/features/learning/compute-workbench.tsx" },
+        { "path": "src/features/learning/compute-vm.tsx" }
+      ],
       "independentScenario": [
-        { "path": "src/content/nb.ts", "marker": "costItemsNb" },
-        { "path": "src/features/learning/cost-assessment.tsx" }
+        { "path": "src/content/nb.ts", "marker": "computeItemsNb" },
+        { "path": "src/domain/curriculum/compute-items.ts", "marker": "evaluateCompute" },
+        { "path": "src/features/learning/compute-assessment.tsx" }
       ],
-      "correctAndWrongRationales": [
-        { "path": "src/content/nb.ts", "marker": "costItemsNb" },
-        { "path": "src/features/learning/cost-assessment.tsx" }
-      ],
-      "sources": [{ "path": "src/domain/curriculum/cost-sources.ts" }]
+      "correctAndWrongRationales": [{ "path": "src/content/nb.ts", "marker": "computeItemsNb" }],
+      "sources": [{ "path": "src/domain/curriculum/compute-sources.ts" }]
     }
   ],
   "preservedPaths": [
@@ -1120,223 +994,293 @@
     "package-lock.json",
     "src/domain/curriculum/transfer.ts",
     "src/domain/curriculum/transfer-store.ts",
-    "src/features/learning/transfer-provider.tsx"
+    "src/features/learning/transfer-provider.tsx",
+    "src/domain/curriculum/cost-model.ts",
+    "src/domain/curriculum/cost.ts",
+    "src/domain/curriculum/cost-store.ts"
   ],
   "gates": {
     "source": {
-      "checks": [{ "path": "docs/COST_MANAGEMENT.md" }],
-      "limits": "Deterministic engineering checks and scoped official source review. Separate fresh final audit and real exact-SHA preview required; no human SME/UX/learning validation inferred."
+      "checks": [{ "path": "docs/COMPUTE_HOSTING.md" }],
+      "limits": "Author deterministic/source/browser checks are separate from fresh final agent audit, actual external delivery and unperformed qualified human reviews."
     },
     "curriculum": {
-      "checks": [{ "path": "src/domain/curriculum/cost.test.ts" }],
-      "limits": "Deterministic engineering checks and scoped official source review. Separate fresh final audit and real exact-SHA preview required; no human SME/UX/learning validation inferred."
+      "checks": [{ "path": "src/domain/curriculum/compute.test.ts" }],
+      "limits": "Author deterministic/source/browser checks are separate from fresh final agent audit, actual external delivery and unperformed qualified human reviews."
     },
     "simulation": {
-      "checks": [{ "path": "src/domain/curriculum/cost.test.ts" }],
-      "limits": "Deterministic engineering checks and scoped official source review. Separate fresh final audit and real exact-SHA preview required; no human SME/UX/learning validation inferred."
+      "checks": [{ "path": "src/domain/curriculum/compute.test.ts" }],
+      "limits": "Author deterministic/source/browser checks are separate from fresh final agent audit, actual external delivery and unperformed qualified human reviews."
     },
     "savvyshark": {
-      "checks": [{ "path": "src/domain/curriculum/cost.test.ts" }],
-      "limits": "Deterministic engineering checks and scoped official source review. Separate fresh final audit and real exact-SHA preview required; no human SME/UX/learning validation inferred."
+      "checks": [{ "path": "src/domain/curriculum/compute.test.ts" }],
+      "limits": "Author deterministic/source/browser checks are separate from fresh final agent audit, actual external delivery and unperformed qualified human reviews."
     },
     "visual-accessibility": {
-      "checks": [{ "path": "tests/e2e/cost-management.spec.ts" }],
-      "limits": "Deterministic engineering checks and scoped official source review. Separate fresh final audit and real exact-SHA preview required; no human SME/UX/learning validation inferred."
+      "checks": [{ "path": "tests/e2e/compute-hosting.spec.ts" }],
+      "limits": "Author deterministic/source/browser checks are separate from fresh final agent audit, actual external delivery and unperformed qualified human reviews."
     },
     "independent-final-audit": {
       "checks": [{ "path": "docs/RELEASE_ACCEPTANCE.md" }],
-      "limits": "Deterministic engineering checks and scoped official source review. Separate fresh final audit and real exact-SHA preview required; no human SME/UX/learning validation inferred."
+      "limits": "Author deterministic/source/browser checks are separate from fresh final agent audit, actual external delivery and unperformed qualified human reviews."
     },
     "delivery": {
-      "checks": [{ "path": "src/domain/curriculum/cost.test.ts" }],
-      "limits": "Deterministic engineering checks and scoped official source review. Separate fresh final audit and real exact-SHA preview required; no human SME/UX/learning validation inferred."
+      "checks": [{ "path": "src/domain/curriculum/compute.test.ts" }],
+      "limits": "Author deterministic/source/browser checks are separate from fresh final agent audit, actual external delivery and unperformed qualified human reviews."
     }
   },
   "verification": [
     {
-      "command": "npm run check",
-      "result": "passed",
-      "details": "Exit0 .artifacts/pr26-check-final-source.log:274 Vitest in25files,15 Node fixtures,184 curriculum tests,81 Markdown/local links; type/lint/format/docs/quality/AZ900/assets/legacy and production build. Protected historical contracts and lockfile unchanged. Final copy and N1/N2/N3 corrections included."
-    },
-    {
-      "command": "npm run test:e2e",
-      "result": "passed",
-      "details": "Complete final-source production suite:195 passed,17 unchanged inherited skips,0 failed across212 cases,exit0 .artifacts/pr26-e2e-final-source.log. All34 new Cost cases run in both existing projects. Existing four missions, Portal, Cloud Concepts/transfer, Serverless and Core Architecture preserved. Local port-only3100 adapter leaves owner3000 untouched; CI retains normal configuration. Intermediate launch/synchronization failures are not counted as passes."
-    },
-    {
       "command": "npm audit --json",
       "result": "passed",
-      "details": "Exit0,0 vulnerabilities .artifacts/pr26-audit.json; no dependency/lockfile change."
+      "details": "Exit0 .artifacts/pr27-audit.json,0 vulnerabilities; dependencies and lockfile unchanged."
     },
     {
       "command": "npm audit --omit=dev --json",
       "result": "passed",
-      "details": "Exit0,0 production vulnerabilities .artifacts/pr26-audit-production.json."
+      "details": "Exit0 .artifacts/pr27-audit-production.json,0 production vulnerabilities."
     },
     {
-      "command": "node --experimental-strip-types --input-type=module < .artifacts/pr26-visual.txt",
+      "command": "CUA ordinary Portal return at four desktop viewports",
       "result": "passed",
-      "details": "Actual production root, four guided workbenches, both observed milestones, wrong independent submission/feedback, Summary/Journal and reload. Original22 captures individually inspected,0 page errors; .artifacts/pr26-visual-certified.log. Same normal-state presentation preserved after boundary/lifecycle corrections; two additional final corrected captures inspected for24 total. Actual compact probe confirms true412 client/layout/visual width and native dialog hits."
+      "details": "Actual expanded-guide return button clicked at1920x1080,1440x900,1366x768,1024x768; each returned exactly to /learn/compute?topic=dependencies and re-entered ordinary Portal. No force click or domain mutation."
     },
     {
-      "command": "node --input-type=module < .artifacts/pr26-review-renewal.txt",
+      "command": "npm run check",
       "result": "passed",
-      "details": "Author execution of prepared N1 probe: actual795→explain796, correction at800, exact prior prefix, replay/reload, no old-store/first mutation, rejected new work, honest disabled completed control, Axe0/pageErrors0. .artifacts/pr26-author-capacity-closure.log; actual fixed screenshot personally inspected before stamp. Independent reviewer reruns separately afterward."
+      "details": "Exit0 .artifacts/pr27-check-final-renewal.log:294Vitest/26files,204curriculum/17files,15Nodefixtures,84Markdown at run time; type/lint/format/docs/quality/AZ900/assets/legacy and production build. Current frozen nb.ts a9b8fd7c.../items dee0b98d... match blinded renewed content. Later report-only Markdown verified separately with docs:check85."
     },
     {
-      "command": "node --input-type=module < .artifacts/pr26-review-history-renewal.txt",
+      "command": "node --input-type=module < .artifacts/pr27-visual.txt",
       "result": "passed",
-      "details": "Author actual new contrast with corrupt UI history, true peer repair→warning cleared without run, corrupt/full warning retained, valid empty repair and later repeated run never replay old popup, manual recall and exact Cost bytes, Axe0. .artifacts/pr26-author-history-closure.log. Does not claim independent renewal."
+      "details": "Exit0 .artifacts/pr27-visual-reviewed-final.log:35 actual final production captures,0 errors/0 external runtime requests/6Axe0. All12 changed PNGs personally reinspected;23 unchanged bytes match previous personally inspected snapshots. Guiding causes are now mission-specific fully readable radios; unknown Azure zone and separate fixture site explicit. A second disposable trace confirmed truly unaided cp11 first; no aid event was inferred from prior guided work."
     },
     {
-      "command": "node --input-type=module < .artifacts/pr26-review-switch-renewal.txt",
+      "command": "node --input-type=module < .artifacts/pr27-reflow.txt",
       "result": "passed",
-      "details": "Author final-source execution: ordinary A/B navigation retains240-hour current draft; explicit new Start changes guide, current exact continue link and earlier-work/fresh-default notices are visible, fresh A720, prior prefix retained and no first/completion inferred. .artifacts/pr26-author-switch-final-source.log; final screenshot personally inspected. Initial detached-scroll probe was corrected with actual target-heading synchronization."
+      "details": "Exit0 .artifacts/pr27-reflow.log:960x540CSS/DPR2,scrollWidth960,all3 complete causal radio texts,native ArrowUp/Down,explicit correct explain,no firsts,Axe0/pageErrors0.36th actual image inspected. Reflow-equivalent to200% at1920x1080; not native zoom or human screen-reader validation."
+    },
+    {
+      "command": "npm run test:e2e",
+      "result": "passed",
+      "details": "Final corrected frozen production source:exit0 .artifacts/pr27-e2e-reviewed-final.log,219 passed/17 unchanged inherited skips/0 failures across236cases,11.6m. All24 new Compute cases pass both projects, including mission-specific cause controls, immutable unaided first, actual VM creation/seven references/normal return and actual peer Sandbox corruption withholding an already-open Summary with byte preservation and reload restoration. Full old courses/Portal/four missions remain covered. No old assertion removed or skip added; local3100-only adapter leaves owner3000/normalCI unchanged. Earlier21911.8m pre-review and218+1failure are not current-source acceptance."
     }
   ],
   "visualEvidence": [
     {
-      "path": "docs/screenshots/cost-management/analysis-1440.png",
-      "viewport": "1440x900",
-      "observation": "Actual saved App-scope synthetic result and equal-period component delta; quantity, mix and rate explanation before separately bounded forecast.",
+      "path": "docs/screenshots/compute-hosting/root-1920.png",
+      "viewport": "1920x1080",
+      "observation": "Ordinary root exposes the actual Compute course directly after the hero, with current path/scope and prior courses preserved.",
       "inspected": true
     },
     {
-      "path": "docs/screenshots/cost-management/assessment-1366.png",
+      "path": "docs/screenshots/compute-hosting/root-1440.png",
+      "viewport": "1440x900",
+      "observation": "Ordinary root exposes the actual Compute course directly after the hero, with current path/scope and prior courses preserved.",
+      "inspected": true
+    },
+    {
+      "path": "docs/screenshots/compute-hosting/root-1366.png",
       "viewport": "1366x768",
-      "observation": "Neutral case title, explicit new requirements and independent draft status; structured decision/reason controls, no correct-answer metadata.",
+      "observation": "Ordinary root exposes the actual Compute course directly after the hero, with current path/scope and prior courses preserved.",
       "inspected": true
     },
     {
-      "path": "docs/screenshots/cost-management/briefing-1440.png",
+      "path": "docs/screenshots/compute-hosting/root-1024.png",
+      "viewport": "1024x768",
+      "observation": "Ordinary root exposes the actual Compute course directly after the hero, with current path/scope and prior courses preserved.",
+      "inspected": true
+    },
+    {
+      "path": "docs/screenshots/compute-hosting/introduction-1920.png",
+      "viewport": "1920x1080",
+      "observation": "Five workload problem, full prerequisite-based teaching and explicit supported boundaries in the existing course shell.",
+      "inspected": true
+    },
+    {
+      "path": "docs/screenshots/compute-hosting/comparison-1440.png",
       "viewport": "1440x900",
-      "observation": "Native blurred SavvyShark briefing: concrete situation, prerequisites, investigation/observations, synthetic-data boundary and explicit actions.",
+      "observation": "VM, process-isolated container and event hosting use distinct execution stacks with full text equivalents.",
       "inspected": true
     },
     {
-      "path": "docs/screenshots/cost-management/budget-1440.png",
+      "path": "docs/screenshots/compute-hosting/container-theory-1920.png",
+      "viewport": "1920x1080",
+      "observation": "Original image/runtime/instance/kernel figure accompanies full teaching; Hyper-V/persistence qualifications remain readable.",
+      "inspected": true
+    },
+    {
+      "path": "docs/screenshots/compute-hosting/briefing-1440.png",
       "viewport": "1440x900",
-      "observation": "Recorded437 versus projected782 and threshold600 have distinct labels/styles; no resource stop or actual Azure alert claimed.",
+      "observation": "SavvyShark briefing retains blur, explicit Start/Cancel and complete objective, prerequisites, observations and limits.",
       "inspected": true
     },
     {
-      "path": "docs/screenshots/cost-management/budget-milestone-short.png",
+      "path": "docs/screenshots/compute-hosting/briefing-short.png",
       "viewport": "1024x500",
-      "observation": "Genuine saved actual/forecast contrast; important explanation and close remain readable/reachable in short named scrolling region.",
+      "observation": "Short-window mission uses a keyboard-scrollable reading region with persistent explicit controls.",
       "inspected": true
     },
     {
-      "path": "docs/screenshots/cost-management/estimate-controls-1440.png",
-      "viewport": "1440x900",
-      "observation": "Purpose-specific parameters with declared fictional rates/rules; predict/run remains reachable through ordinary page scrolling.",
-      "inspected": true
-    },
-    {
-      "path": "docs/screenshots/cost-management/estimate-result-1366.png",
-      "viewport": "1366x768",
-      "observation": "Saved prediction/A/B values, common-zero six-component breakdown, units and exact line table; independent evidence is not awarded.",
-      "inspected": true
-    },
-    {
-      "path": "docs/screenshots/cost-management/estimate-result-1920.png",
+      "path": "docs/screenshots/compute-hosting/container-ephemeral-1920.png",
       "viewport": "1920x1080",
-      "observation": "Saved prediction/A/B values, common-zero six-component breakdown, units and exact line table; independent evidence is not awarded.",
+      "observation": "Saved prediction/run reveals recreated instance B and absent prior writable-layer report; image, runtime and process are distinct.",
       "inspected": true
     },
     {
-      "path": "docs/screenshots/cost-management/feedback-1440.png",
+      "path": "docs/screenshots/compute-hosting/container-anatomy-1440.png",
       "viewport": "1440x900",
-      "observation": "Actual incorrect first: selected-answer-specific rationale, counterfactual alternatives and all-context teaching preflight; no readiness claim.",
+      "observation": "Concrete image layers and report lifecycle are visible together; package contents are distinct from runtime-created data.",
       "inspected": true
     },
     {
-      "path": "docs/screenshots/cost-management/feedback-short.png",
+      "path": "docs/screenshots/compute-hosting/container-milestone-1366.png",
+      "viewport": "1366x768",
+      "observation": "A genuine saved ephemeral/external contrast triggers the once-only causal milestone, with explicit conceptual limit.",
+      "inspected": true
+    },
+    {
+      "path": "docs/screenshots/compute-hosting/container-persistent-1440.png",
+      "viewport": "1440x900",
+      "observation": "Explicit external-data assumption changes retained report result without creating a resource/runtime.",
+      "inspected": true
+    },
+    {
+      "path": "docs/screenshots/compute-hosting/container-host-responsibility-1920.png",
+      "viewport": "1920x1080",
+      "observation": "Process isolation does not remove customer VM-host OS responsibility; inspecting existing A needs no new image fetch.",
+      "inspected": true
+    },
+    {
+      "path": "docs/screenshots/compute-hosting/container-data-without-process-1366.png",
+      "viewport": "1366x768",
+      "observation": "Failed B creation does not delete the explicitly retained external report; process availability and data lifetime remain separate.",
+      "inspected": true
+    },
+    {
+      "path": "docs/screenshots/compute-hosting/set-zone-failure-1366.png",
+      "viewport": "1366x768",
+      "observation": "Declared common physical failure site, explicitly unknown Azure zone; set FD/UD does not establish Azure zonal placement.",
+      "inspected": true
+    },
+    {
+      "path": "docs/screenshots/compute-hosting/zones-surviving-1440.png",
+      "viewport": "1440x900",
+      "observation": "Explicit zonal distribution leaves two instances with20 units; actual configured routing/data assumptions are shown.",
+      "inspected": true
+    },
+    {
+      "path": "docs/screenshots/compute-hosting/capacity-milestone-short.png",
       "viewport": "1024x500",
-      "observation": "Actual incorrect first: selected-answer-specific rationale, counterfactual alternatives and all-context teaching preflight; no readiness claim.",
+      "observation": "Saved set/zones/explicit-rule contrast is a validated teaching moment, never actual autoscale/failover.",
       "inspected": true
     },
     {
-      "path": "docs/screenshots/cost-management/journal-1024.png",
+      "path": "docs/screenshots/compute-hosting/dependency-failure-1024.png",
       "viewport": "1024x768",
-      "observation": "Existing semantic Journal shows full same manuscript with safe teaching preflight; native close/focus and scrolling preserved.",
+      "observation": "Surviving compute still delivers zero when the explicitly shared data dependency is unavailable; full table remains reachable.",
       "inspected": true
     },
     {
-      "path": "docs/screenshots/cost-management/response-1024.png",
-      "viewport": "1024x768",
-      "observation": "Readable native radio choices and structured reasons; remaining controls accessible by normal scrolling/keyboard.",
-      "inspected": true
-    },
-    {
-      "path": "docs/screenshots/cost-management/root-1024.png",
-      "viewport": "1024x768",
-      "observation": "Ordinary root: visible current Cost Management entry in third official path; other modules remain planned, no hidden review route.",
-      "inspected": true
-    },
-    {
-      "path": "docs/screenshots/cost-management/root-1366.png",
-      "viewport": "1366x768",
-      "observation": "Ordinary root: visible current Cost Management entry in third official path; other modules remain planned, no hidden review route.",
-      "inspected": true
-    },
-    {
-      "path": "docs/screenshots/cost-management/root-1440.png",
+      "path": "docs/screenshots/compute-hosting/avd-1440.png",
       "viewport": "1440x900",
-      "observation": "Ordinary root: visible current Cost Management entry in third official path; other modules remain planned, no hidden review route.",
+      "observation": "ARM workspace/application group/host-pool/session-host chain is a semantic interactive model, not a remote desktop session.",
       "inspected": true
     },
     {
-      "path": "docs/screenshots/cost-management/root-1920.png",
+      "path": "docs/screenshots/compute-hosting/avd-no-host-1024.png",
+      "viewport": "1024x768",
+      "observation": "Publication and a selected workspace observation remain separate from the missing host substrate; no user session claimed.",
+      "inspected": true
+    },
+    {
+      "path": "docs/screenshots/compute-hosting/hosting-alternatives-1920.png",
       "viewport": "1920x1080",
-      "observation": "Ordinary root: visible current Cost Management entry in third official path; other modules remain planned, no hidden review route.",
+      "observation": "Explicit HTTP image requirements admit both App Service and Container Apps; customer duties and counterfactual changes are visible.",
       "inspected": true
     },
     {
-      "path": "docs/screenshots/cost-management/summary-1440.png",
-      "viewport": "1440x900",
-      "observation": "Separate orientation5/7, guided4/4 and actual first1/10, classification and future-content/human-review boundaries.",
-      "inspected": true
-    },
-    {
-      "path": "docs/screenshots/cost-management/tag-controls-1440.png",
-      "viewport": "1440x900",
-      "observation": "Direct Department/Environment and reporting-inheritance preferences are separate controls; unsupported direct emitter explained.",
-      "inspected": true
-    },
-    {
-      "path": "docs/screenshots/cost-management/tag-report-1440.png",
-      "viewport": "1440x900",
-      "observation": "Invariant627 total and classified shares; direct Finance versus reported Shared, full membership table and explicit resource/authorization boundary.",
-      "inspected": true
-    },
-    {
-      "path": "docs/screenshots/cost-management/theory-1920.png",
-      "viewport": "1920x1080",
-      "observation": "Full original theory, worked example, prerequisites and terminology together in existing shell; ordinary scrolling retains all content.",
-      "inspected": true
-    },
-    {
-      "path": "docs/screenshots/cost-management/time-milestone-1366.png",
+      "path": "docs/screenshots/compute-hosting/hosting-debrief-1366.png",
       "viewport": "1366x768",
-      "observation": "Validated same-assumptions time contrast; retained noncompute posts and commitment qualification, no Azure-runtime claim.",
+      "observation": "Changed Kubernetes API/controller requirements produce a different defensible candidate; guided debrief records observations, not independent mastery.",
       "inspected": true
     },
     {
-      "path": "docs/screenshots/cost-management/trend-1024.png",
+      "path": "docs/screenshots/compute-hosting/vm-basics-1440.png",
+      "viewport": "1440x900",
+      "observation": "Supported authentic Portal Basics, existing App Sandbox/group and explicit indexing workload; minifiable training layer sends no command.",
+      "inspected": true
+    },
+    {
+      "path": "docs/screenshots/compute-hosting/vm-review-1366.png",
+      "viewport": "1366x768",
+      "observation": "Actual technical review of Windows/standard64 with explicitly reused subnet; Create remains a deliberate supported local command.",
+      "inspected": true
+    },
+    {
+      "path": "docs/screenshots/compute-hosting/vm-result-1366.png",
+      "viewport": "1366x768",
+      "observation": "Actual created VM inventory and selected guide subject after accepted local command; no cloud deployment or boot assertion.",
+      "inspected": true
+    },
+    {
+      "path": "docs/screenshots/compute-hosting/vm-overview-1440.png",
+      "viewport": "1440x900",
+      "observation": "Real VM overview and minimizable guide refer to actual configuration and remaining uninspected dependencies.",
+      "inspected": true
+    },
+    {
+      "path": "docs/screenshots/compute-hosting/vm-minimized-1024.png",
       "viewport": "1024x768",
-      "observation": "Labeled common-zero/day/ØK axes, solid recorded versus dashed forecast and separate budget; exact totals/formula/table equivalent.",
+      "observation": "Minimized guide frees the compact operational resource surface while exact course return stays available.",
       "inspected": true
     },
     {
-      "path": "docs/screenshots/cost-management/guided-capacity-1366.png",
+      "path": "docs/screenshots/compute-hosting/vm-receipt-1366.png",
       "viewport": "1366x768",
-      "observation": "Actual witnessed guided terminal at reserved bound succeeds; correct explanation and retained responsibilities readable, completed control disabled, no false independent result or sticky-footer overlap. Author and separate reviewer inspected.",
+      "observation": "The actual accepted local command receipt is inspected through Activity log, separately from resource Overview.",
       "inspected": true
     },
     {
-      "path": "docs/screenshots/cost-management/guided-switch-1366.png",
+      "path": "docs/screenshots/compute-hosting/vm-debrief-1440.png",
+      "viewport": "1440x900",
+      "observation": "Seven actual references/post-boundary accepted build plus a fully visible VM-specific causal choice; no guest/backup/health inference.",
+      "inspected": true
+    },
+    {
+      "path": "docs/screenshots/compute-hosting/assessment-1366.png",
       "viewport": "1366x768",
-      "observation": "Final copy identifies one current guided task, retained earlier work, fresh-default consequence and exact continuation link before explicit Start. All notice text and link readable above footer; older sessions remain stored but are not presented as actively resumable.",
+      "observation": "Independent authorized-plan reuse scenario has changed constraints, native decision/reason controls and no answer-bearing automatic guidance.",
+      "inspected": true
+    },
+    {
+      "path": "docs/screenshots/compute-hosting/feedback-1440.png",
+      "viewport": "1440x900",
+      "observation": "Actual submitted App Service decision with an insufficient new-environment rationale fails; selected-specific explanation, alternatives/counterfactuals and exact repetition follow submission.",
+      "inspected": true
+    },
+    {
+      "path": "docs/screenshots/compute-hosting/feedback-short.png",
+      "viewport": "1024x500",
+      "observation": "Actual submitted App Service decision with an insufficient new-environment rationale fails; selected-specific explanation, alternatives/counterfactuals and exact repetition follow submission.",
+      "inspected": true
+    },
+    {
+      "path": "docs/screenshots/compute-hosting/summary-1440.png",
+      "viewport": "1440x900",
+      "observation": "Separate11 teaching visits, four guided witness results and actual independent first/help/retry records; no XP/readiness measure.",
+      "inspected": true
+    },
+    {
+      "path": "docs/screenshots/compute-hosting/journal-1024.png",
+      "viewport": "1024x768",
+      "observation": "Same full original manuscript in the existing Knowledge Journal, after durable all-context teaching preflight.",
+      "inspected": true
+    },
+    {
+      "path": "docs/screenshots/compute-hosting/causal-reflow-200-equivalent.png",
+      "viewport": "960x540CSS /DPR2 /1920x1080pixels",
+      "observation": "Actual fully visible causal radio text, native ArrowUp/Down and explicit submit at200%-reflow-equivalent layout; not native browser zoom or human assistive approval.",
       "inspected": true
     }
   ],
@@ -1346,246 +1290,263 @@
     "ux": "unperformed",
     "screenReader": "unperformed"
   },
-  "snapshot": {
-    "files": {
-      "AGENTS.md": "aa50747ae15d22d6e2a74cb864931a6b6a2583f7959204afb12e4c1f3680a674",
-      "README.md": "215b01202cc022ebfae0f1155d1d73d633bbf9918cd387946ae4d14e4148e848",
-      "docs/ARCHITECTURE.md": "0f498adadbc6d98743817f10222cd2d3f77c1c641ff4fac779449cc5fc3e6f0f",
-      "docs/AZ900_ASSESSMENT_BLUEPRINT.md": "ec00bfbda83e0429b3e9e121a58654476654793b3ff5d1c1e1401af646e285fc",
-      "docs/AZ900_COVERAGE_MATRIX.md": "e31cd2479ae38b6b512309d84427fd026a7a57ae0a7d303e462b7957cceeb5b5",
-      "docs/AZ900_EXPANSION_ROADMAP.md": "ab623f43f44744d1da20d849922483f5fe07f294a1036c1e03087d6bc313472c",
-      "docs/AZ900_GAP_ANALYSIS.md": "a78bde5b10e52c6fe045bd58407e2f883b25afddac7a8618f9394ec6972d90d1",
-      "docs/CONTENT_ARCHITECTURE.md": "0270379dab0a597382257d788fa936a90c14b3f1b1f3172331d6e21028cd2ec6",
-      "docs/CONTENT_STANDARDS.md": "2e0546519349fd4dacdfeea1a6dc3533f037fd0d59a9af6ac5c206c4069210b0",
-      "docs/COST_MANAGEMENT.md": "07e12efe3ced3dbd8cf48a95eeba1b883bd8e9e8a2f134fd85631c1cbe30757f",
-      "docs/COURSE_LAB_ORCHESTRATION.md": "8318ee4827f1c37187d3c456a14ef20435817682f71095fc80498799376b345e",
-      "docs/CURRICULUM_COVERAGE.md": "26a7939452e8ab688e0afea3e878f1926cd2e6ec8f82eef0c8e9044a6d0aa977",
-      "docs/DECISIONS.md": "69449bafa976bcdbc3d45ed636c8b5ac97a1ca05222c9b1efe99bd0a992d6729",
-      "docs/INTERACTIVE_VISUALIZATIONS.md": "bc38ff8e88d685b2b26ed336d365e65fbe460ca85a089f891abc1c1cc67e7a81",
-      "docs/LEARNING_DESIGN.md": "844d00e5837b8036dd87400cffb37e4bc387fbdd6b90791bf0d33ea63613b38f",
-      "docs/LEARNING_JOURNEY.md": "edebf1fe2d6b1bc6fef73b8132fb7b79343aaa73f0fcd7591ebbe8a398fe6398",
-      "docs/ROADMAP.md": "baf001232da75819d56e937e98f519d3d3658f6d3ea3b5977a78dca278b0c520",
-      "docs/SECURITY.md": "fbd0bff89e5887d1437811c7d6042da06185918043425c96c3c5474b8b84be28",
-      "docs/SOURCE_REGISTER.md": "adde4745ed615413849fa360faf39007227a3e96c628e0d449fc1b18fe9dbc50",
-      "docs/audits/az900-2026-07-20.json": "0107f8ddecc626e7acc06557fc060413518330bcc512dfa8a43ba0d196a65217",
-      "docs/screenshots/cost-management/analysis-1440.png": "0970d5c91d15e49b46ec9a36fd569bcc78c15fd871242c902e8d239fa2ae512d",
-      "docs/screenshots/cost-management/assessment-1366.png": "bef8e40bdd877d3700c5085824794c3080313f61700783b91b981e1c81b84687",
-      "docs/screenshots/cost-management/briefing-1440.png": "f74b0089ee94e4b54fb56b530bad977f77866b9e210feb514b80b6a8e8724856",
-      "docs/screenshots/cost-management/budget-1440.png": "8d81b4f52ce5541f1dc5348a750af9169283d67274db0c4fd772d1d0d2ddf40a",
-      "docs/screenshots/cost-management/budget-milestone-short.png": "4ef5a24423b4b1ac10e05a27ea0f994dd93168b8a8eed4ff4e3e6f4a86f728c8",
-      "docs/screenshots/cost-management/estimate-controls-1440.png": "ae7f9093f80f79d40dff9517e2c58610b5cfe412e9e3bf13c6efffd7d7d49dd3",
-      "docs/screenshots/cost-management/estimate-result-1366.png": "30b9dfdedcd6a49cab327188cccd026ce2d43833a9e2fb7a38cefccb088705e8",
-      "docs/screenshots/cost-management/estimate-result-1920.png": "4a7371e28c5e93d1dd9271a8ba8bb12cc81839c586e1eac80d5bd1ce7379fdce",
-      "docs/screenshots/cost-management/feedback-1440.png": "38f5e60f5dd96e6cd305167f9bf48ed436d2bf175b54f6385fe7f5c3205cb0a9",
-      "docs/screenshots/cost-management/feedback-short.png": "60b665fb0eb8c978b6d3e3bb1d67773ec76adea8ba592dee9e0107b8024225d3",
-      "docs/screenshots/cost-management/guided-capacity-1366.png": "8f7279df585f6cd9d40c7e9886f37960975e27ad5f4ff3176bc2b6eb2c9331ab",
-      "docs/screenshots/cost-management/guided-switch-1366.png": "426b1b31adc45224d825c403485bafe5038d488d907780e7aed8842769db9815",
-      "docs/screenshots/cost-management/journal-1024.png": "5b1cc051cd40fc0854a9e98049bda9b631e3699badc6694afdb0006fbe9322ac",
-      "docs/screenshots/cost-management/response-1024.png": "7252b198566ae94c6f8eea540426a804d4fac1ff971d005f243fd4f3a5cb0541",
-      "docs/screenshots/cost-management/root-1024.png": "a73292d2dfe74889723d37fc00dfa9b6afa8df464e006ee3a4728395b8b52205",
-      "docs/screenshots/cost-management/root-1366.png": "b5c36a697ffe59d0e8f309c9d7930cae4b9930b2b962c211c598bd9a84aca0a6",
-      "docs/screenshots/cost-management/root-1440.png": "a28b95f2f645ce067bed52c76ce632f26ff8d1d31cf371093a077107f9c969b6",
-      "docs/screenshots/cost-management/root-1920.png": "70a74d4394b9bee55ac06a91a495261c1fbd24ad751ced4b04d9519437d075c2",
-      "docs/screenshots/cost-management/summary-1440.png": "a9e41174b3c2141c94d364cf7cc46a7a4bae0dc2a9ea6ec35d8be83af99f45f9",
-      "docs/screenshots/cost-management/tag-controls-1440.png": "53d3ccbfc9cfb29a77bdc7d0fb25998939b0873ac438318585bd34335d88d908",
-      "docs/screenshots/cost-management/tag-report-1440.png": "5265c5558b53da934ee4b2d2abf1906ae595f83ccf48a0c159ee89794422f442",
-      "docs/screenshots/cost-management/theory-1920.png": "7b5faae3f496d5bf1678e271ae06e63b70480510554aaa02b83ef22338c9cf9b",
-      "docs/screenshots/cost-management/time-milestone-1366.png": "913fe06bad6bf3f29bddc22a6b3f4ac1929583c37fd5b6896d22665642e00a4e",
-      "docs/screenshots/cost-management/trend-1024.png": "ca440a8c173c75bb065276f0502798aa9e117f3737280cd41b8e281d30c48662",
-      "package.json": "26244fcddbebc7b3b9e766d110e00d24ebd17b080b7762322e5b926fb3daa0f0",
-      "scripts/az900-audit-check.mjs": "43466add11c46be66bbdbce1d36a0974a0b5dc8585b30ca56b45b0c1414de3ae",
-      "scripts/az900-audit-check.test.mjs": "d63eab61e4934c876960ba128b4968a6ff79950f22d348fca686ec1a00cf731c",
-      "scripts/quality-check.mjs": "5c6338a93ab386ab9a6c18f80e9d4b2564a4360940af0f178bf81acc89716849",
-      "scripts/quality-check.test.mjs": "4a7717e2c838dcb8f8bfd5b17830d402968a96642caeb8af85295af1e4a05b4a",
-      "src/app/layout.tsx": "2e7fd1812a4a655f5a3cacfb074db9d88371ec56f4f12549bd305899e2e08bcc",
-      "src/app/learn/[module]/page.tsx": "767a2c6a943391dbf45c7627b00f25905a1306dd868d18b9026477b09ca13c99",
-      "src/components/progress-provider.tsx": "bd13c594519e87311e3a60005527037a31ef1d86faf327e5a12aeca7f0b9a2e2",
-      "src/content/nb.ts": "842bbe9c0b3a9d2499aa99205f1cb91536e14a35d68231300b54aa747c573905",
-      "src/domain/course/model.ts": "a4b1277a4876ff68b3add98c96040d38843e71e2079390352e105cb9672c046f",
-      "src/domain/curriculum/cost-model.ts": "451ba69cc6f24ddfcdd54e3449d35e3de7584221571f310050931e7a600f18d4",
-      "src/domain/curriculum/cost-sources.ts": "2bd22027534ac9c5939f47ba0e922e95bbca564deef3f979af0e60895c2ee827",
-      "src/domain/curriculum/cost-store.ts": "61337806ee29636debcbac9e225c184faf0dc2b790cf65b6e8702886991d8c6b",
-      "src/domain/curriculum/cost.test.ts": "c66a6062d9a7ee2860c9b1e7da2b07b816c9d36fd3b628a977bc9a558310185c",
-      "src/domain/curriculum/cost.ts": "5a9610cbaa8b267fb393b54bac373b65644585847a291682d1b01ddba72a84af",
-      "src/domain/curriculum/manifest.ts": "6b49197b384c42db97e0549fa2bf28b5b8ab8a204961c5287f285734eb79ce48",
-      "src/domain/curriculum/official.ts": "1dffe13a356cb289f4a83c319a3fa693edf94640f7f4ce0ce2de03a821ceecf0",
-      "src/domain/guidance/milestones.ts": "21fa5d0bd481356866e5bde602e44a628c562f96d6d7651fc39ec6a00fa2be31",
-      "src/features/course/course.tsx": "431139daf6a23bb36a3e75350ffbed0d584fdfb0deb335b462ac10101d3deb12",
-      "src/features/course/mission-context.ts": "a71a81bfa0a1db546a71a3ddbef21b0767ab9044fc52ac141d49cc4a79895c5f",
-      "src/features/learning/cost-assessment.tsx": "f27df47afa73cba1eda6c903e3b739f03f6b393b7096179f16aa6cb3920fcd29",
-      "src/features/learning/cost-provider.tsx": "0c8776db8a3abd4fbe4f199a87e7a2bbfd946ce7a1c95972f4f187a9f53443e3",
-      "src/features/learning/cost-visuals.tsx": "19ec1e029a1eb23f570e130563557a4d261638afd4fb2fa9da1c6ead4b3c5f8a",
-      "src/features/learning/cost-workbench.tsx": "990fb8ccbf2c0165cdbc6ca02a3767baba0f591e5ce4cc92dcd29bba193aabea",
-      "src/features/learning/cost.css": "6c60ba8cf9edc22517cb1fd001d758c6622471bf4a7bac68edcc0965e0e7a7ee",
-      "src/features/learning/cost.tsx": "34c752efb855f7dfe930d813f27e671d77db8dd05c03d78878e3f18dc7727e55",
-      "src/features/learning/management-access.tsx": "ef48e9f5249c5c697a54ea9741ca790f88a7634a41048bf48361fd44183d9034",
-      "src/features/portal/portal.tsx": "e2b133ff2b149967d1585765724d4f52f9911d2372b61729c23fbbd5241c6bf2",
-      "tests/e2e/cost-management.spec.ts": "22e6d2d3e7d580ad957cfcfe4f52fa0409d8e37e8b7a67651754d254ac30e992"
-    }
-  },
-  "implementationFinished": "2026-10-27T23:05:19.884Z",
   "review": {
     "status": "complete",
-    "fingerprint": "aa87b87726ad2c9a9f1bae317c14082aa1d950832eed91063aa3e54fef727770",
-    "reviewer": {
-      "id": "codex-pr26-independent-reviewer",
-      "kind": "agent"
-    },
-    "started": "2026-10-27T23:05:49.889Z",
+    "fingerprint": "a2f1d9f69aff912367ab617c7cc18a72555858eb145d93af6e674a9ba9068564",
+    "reviewer": { "id": "codex-pr27-independent-reviewer", "kind": "agent" },
+    "started": "2026-10-28T12:02:07Z",
     "domains": {
       "content": {
-        "finding": "Read all scoped manuscript/cases/rationales and four A–F mappings against independently rechecked current official units/product qualifications. No material false claim or missing scoped mechanism found; human adequacy remains unperformed.",
+        "finding": "Full original Compute teaching is substantive about language/container runtimes, image/instance/kernel/data/host responsibility and qualified VMSS/AVD/hosting choices. Current primary claims were independently checked. Mission-specific causes and all content majors are corrected; human learning/SME review remains unperformed.",
         "evidence": [
-          {
-            "path": "src/content/nb.ts",
-            "marker": "costNb"
-          },
-          {
-            "path": "src/content/nb.ts",
-            "marker": "costItemsNb"
-          },
-          {
-            "path": "docs/COST_MANAGEMENT.md"
-          },
-          {
-            "path": "docs/quality/PR26_FINAL_AUDIT.md"
-          }
+          { "path": "src/content/nb.ts", "marker": "computeNb" },
+          { "path": "src/domain/curriculum/compute-sources.ts", "marker": "PS38" },
+          { "path": "docs/quality/PR27_FINAL_AUDIT.md", "marker": "Content:" },
+          { "path": "docs/quality/PR27_BLIND_RENEWAL.md", "marker": "Primary checks and limits" }
         ]
       },
       "technical": {
-        "finding": "All73 normalized hashes and aggregate match; preserved technical/rubric/XP/lockfile paths unchanged. Fresh2016-model oracle,90 answer pairs,800-event independent terminal, guided-tail correction, replay/stale/denied/newer-record probes passed. No Azure operation, billing or inventory mutation.",
+        "finding": "Pure bounded models dispatch no commands. VM proof uses actual accepted post-boundary Windows/standard/64GiB/App Sandbox bundle, reused subnet and seven references. Replay, terminal bounds, immutable firsts and stale/corrupt recovery pass. Fresh live peer conflict now withholds VM Summary evidence and explicit reload restores exact unchanged Compute bytes.",
         "evidence": [
+          { "path": "src/domain/curriculum/compute-model.ts", "marker": "runCapacity" },
+          { "path": "src/domain/curriculum/compute-vm.ts", "marker": "computeVmFacts" },
           {
-            "path": "src/domain/curriculum/cost-model.ts"
+            "path": "src/domain/curriculum/compute.test.ts",
+            "marker": "preserves terminal capacity"
           },
-          {
-            "path": "src/domain/curriculum/cost.ts"
-          },
-          {
-            "path": "src/domain/curriculum/cost-store.ts"
-          },
-          {
-            "path": "src/domain/curriculum/cost.test.ts"
-          }
+          { "path": "src/features/learning/compute.tsx", "marker": "technicalSafe" },
+          { "path": "docs/quality/PR27_FINAL_AUDIT.md", "marker": "P27-IFA-02" }
         ]
       },
       "visual": {
-        "finding": "Personally inspected all24 committed captures and fresh corrected/short frames at required desktop widths.1024x500 N3 region scroll, exact link and all3 dialog controls are hit-tested/keyboard reachable. Fresh Axe scans0; human UX/screen-reader approval unperformed.",
+        "finding": "Actual initial and all12 changed canonical captures plus the reflow-equivalent image were inspected. Fresh reviewer causal/withholding images, native keyboard radio wrong/correct/reload, short layout and Axe0 passed. Long cause options are readable; Summary classification header is an accepted unfixed minor. No native-zoom or human UX/screen-reader approval is claimed.",
         "evidence": [
-          {
-            "path": "docs/screenshots/cost-management/guided-capacity-1366.png"
-          },
-          {
-            "path": "docs/screenshots/cost-management/guided-switch-1366.png"
-          },
-          {
-            "path": "docs/screenshots/cost-management/root-1920.png"
-          },
-          {
-            "path": "tests/e2e/cost-management.spec.ts"
-          },
-          {
-            "path": "docs/quality/PR26_FINAL_AUDIT.md"
-          }
+          { "path": "docs/screenshots/compute-hosting/vm-debrief-1440.png" },
+          { "path": "docs/screenshots/compute-hosting/hosting-debrief-1366.png" },
+          { "path": "docs/screenshots/compute-hosting/set-zone-failure-1366.png" },
+          { "path": "docs/screenshots/compute-hosting/causal-reflow-200-equivalent.png" },
+          { "path": "docs/screenshots/compute-hosting/summary-1440.png" },
+          { "path": "docs/quality/PR27_FINAL_AUDIT.md", "marker": "Visual/accessibility:" }
         ]
       },
       "assessment": {
-        "finding": "Fresh blind item-only reviewer locked all10 defensible pairs before key access;90 paired combinations and an actual wrong-reason submission confirm relational evaluation. Immutable first/help/retry/abandon and family exposure preserved. Finite recognition-oriented bank is not validated broad transfer/readiness.",
+        "finding": "Fresh no-key review locked15 defensible pairs across14 revised contexts before keys. All224 decision/reason/null combinations match and30 correct-decision/wrong-reason combinations reject. Guided twins, false ACI pairing and systematic self-disqualifying cues were corrected. Actual final raw manuscript/key hashes match the renewal. Bounded near transfer and finite-bank limits remain.",
         "evidence": [
+          { "path": "src/domain/curriculum/compute-items.ts", "marker": "evaluateCompute" },
           {
-            "path": "src/content/nb.ts",
-            "marker": "costItemsNb"
+            "path": "src/features/learning/compute-assessment.tsx",
+            "marker": "ManagementTeachingBoundary"
           },
-          {
-            "path": "src/features/learning/cost-assessment.tsx"
-          },
-          {
-            "path": "src/domain/curriculum/cost.ts",
-            "marker": "evaluateCostAttempt"
-          },
-          {
-            "path": "docs/quality/PR26_FINAL_AUDIT.md"
-          }
+          { "path": "docs/quality/PR27_BLIND_CONTENT_REVIEW.md", "marker": "BC-01" },
+          { "path": "docs/quality/PR27_BLIND_RENEWAL.md", "marker": "All 15" },
+          { "path": "docs/quality/PR27_FINAL_AUDIT.md", "marker": "BC-03 closed" }
         ]
       },
       "guidance": {
-        "finding": "All11 older-context denied-aid checks held Cost teaching/Journal. Fresh Cost history, already-open Journal and mandatory PR24 rationale conflict regressions fail closed. N2 repair/no-retro-popup/manual-recall and N3 explicit-current continuation fixes verified; no mascot operation or evidence award.",
+        "finding": "Compute participates in all13 shared teaching contexts, historical feedback, Journal/Summary, Portal suppression and mission safety. Durable assistance precedes answer-bearing teaching; uncertain contexts withhold already-open material. Saved model contrasts drive deduplicated presentation-only milestones. Fresh technical conflict/recovery proof passed with no evidence merge or automatic completion.",
         "evidence": [
           {
-            "path": "src/features/learning/cost-workbench.tsx"
+            "path": "src/features/learning/management-access.tsx",
+            "marker": "ManagementTeachingBoundary"
           },
           {
-            "path": "src/features/learning/management-access.tsx"
+            "path": "src/features/course/mission-context.ts",
+            "marker": "useMissionSafetyContexts"
           },
           {
-            "path": "src/features/course/mission-context.ts"
+            "path": "src/features/learning/compute-workbench.tsx",
+            "marker": "ComputeCausalChoice"
           },
           {
-            "path": "src/features/portal/portal.tsx"
+            "path": "tests/e2e/compute-hosting.spec.ts",
+            "marker": "all twelve older independent contexts"
           },
-          {
-            "path": "docs/quality/PR26_FINAL_AUDIT.md"
-          }
+          { "path": "docs/quality/PR27_FINAL_AUDIT.md", "marker": "Guidance:" }
         ]
       },
       "regression": {
-        "finding": "Fresh reviewer40 pure tests/3files plus repeated production/model/storage safety probes passed. Author final check274 Vitest and complete212-case production suite195passed/17unchanged inherited skips/0failures; all34 Cost pass. No modified old assertion/new skip. External CI/preview/SHA remain delivery gates.",
+        "finding": "Independently recomputed all88 normalized hashes and fingerprint with zero mismatches; protected old technical/evidence/XP/lockfile paths remain unchanged. Fresh41 scoped tests/4 files and production probes passed. Author final full294-test check/build and219/17/0 E2E were inspected. No dependency, runtime/API, duplicate inventory, old-rubric migration or new XP was introduced. External final-SHA delivery gates remain pending.",
         "evidence": [
-          {
-            "path": "tests/e2e/cost-management.spec.ts"
-          },
-          {
-            "path": "src/domain/curriculum/cost.test.ts"
-          },
-          {
-            "path": "docs/quality/PR26_FINAL_AUDIT.md"
-          }
+          { "path": "docs/quality/PR27_FINAL_AUDIT.md", "marker": "Fresh executed checks" },
+          { "path": "src/components/progress-provider.tsx", "marker": "computeKey" },
+          { "path": "src/domain/portal/model.ts", "marker": "compute" },
+          { "path": "docs/COMPUTE_HOSTING.md", "marker": "Korrigert produksjonsverifikasjon" }
         ]
       }
     },
     "findings": [
       {
-        "id": "N1",
-        "severity": "minor",
+        "id": "P27-IFA-01",
+        "severity": "major",
         "status": "fixed",
-        "description": "At795 normal events a genuinely witnessed guided result could not save its explanation, despite an enabled control.",
-        "fix": "Permit witnessed guided explanation within bounded tail, deduplicate completed explanations, reject new work and expose truthful terminal controls.",
+        "description": "All four guided missions originally accepted one generic noncausal explanation.",
+        "fix": "Four authored mission-specific causal prompts/alternatives/feedback, mission-dependent completion keys and fully visible native radio controls replace the shared generic gate.",
         "retests": [
-          "Fresh pr26-review-renewal.txt:795→796, correction800, replay/prefix/reload/old-store preservation, no firsts and Axe0.",
-          "Fresh domain probe retained independent798→aid799→submit800 guarantee;40 pure tests passed."
+          "Reviewer post-stamp all12 mission/cause combinations passed against real witnessed records.",
+          "Reviewer production native radio keyboard wrong/correct explicit save, reload, no independent firsts, Axe0 and inspected images passed.",
+          "Final author full check294 Vitest and complete219/17/0 E2E passed."
         ]
       },
       {
-        "id": "N2",
-        "severity": "minor",
+        "id": "P27-IFA-02",
+        "severity": "major",
         "status": "fixed",
-        "description": "A real peer repair of milestone UI history left the stale unsafe-storage warning until another model run.",
-        "fix": "Reuse shared preference parser in scoped storage/reset lifecycle and require a new saved milestone-fact transition before automatic claim, so repair clears warning without replaying old interruption.",
+        "description": "Already-open Summary continued to assert completed VM evidence after peer technical-store corruption.",
+        "fix": "Technical ready/issue guard withholds VM-derived status and aggregate guided count, preserves conceptual/independent data and exposes existing scoped Portal recovery.",
         "retests": [
-          "Fresh pr26-review-history-renewal.txt:peer seen/full/corrupt/empty repairs, unchanged Cost bytes, no retroactive popup on repair/repeat, manual recall and Axe0.",
-          "Repeated broad production sweep:0 page errors,0 external runtime requests and7 Axe0 scans."
+          "Reviewer actual peer corruption changed VM Summary to unverified and retained exact Compute bytes.",
+          "Restored technical record plus explicit reload restored original VM result with identical Compute bytes; corrupt technical reload withheld VM controls.",
+          "Final author actual peer-Sandbox recovery regression passed in both browser projects."
         ]
       },
       {
-        "id": "N3",
-        "severity": "minor",
+        "id": "BC-01",
+        "severity": "major",
         "status": "fixed",
-        "description": "Explicitly starting another guided exercise left returning earlier work behind a fresh-start button without explaining the current-exercise resume boundary.",
-        "fix": "Page and briefing now identify the current exercise, provide its exact continuation and explain retained earlier work versus a fresh default Start. Earlier guided-session reopening remains an explicit product limit.",
+        "description": "cp12 rejected a technically defensible generic run-to-completion reason for ACI.",
+        "fix": "Candidate-specific ACI group/restart-policy versus reusable ACA Job/separate execution explanations replace the ambiguous reason; PS38 directly maps the qualified ACI source.",
         "retests": [
-          "Fresh pr26-review-switch-renewal.txt:ordinary navigation preserves240 draft, currentB link, explicit default freshA and retained exact prefix.",
-          "Fresh pr26-review-short-switch.txt:1024x500 keyboard scrolling, visible/hit-tested current link/all3 buttons, unchanged cancel bytes and Axe0."
+          "Fresh blinded renewal independently locked both cp12 pairs; all224 combinations matched and30 right-decision/wrong-reason pairs rejected.",
+          "Reviewer independently reopened current official ACI restart-policy and ACA Jobs documentation; final manuscript/key raw hashes match renewal.",
+          "Final complete production E2E covers all independent cases."
         ]
       },
       {
-        "id": "L1",
-        "severity": "note",
+        "id": "BC-02",
+        "severity": "major",
+        "status": "fixed",
+        "description": "Six independent items repeated guided decision structures.",
+        "fix": "New compatibility, dual publication graph, component decomposition, mandatory compatible-plan reuse, routing-capacity diagnosis and historical accepted/current rejected provenance decisions replace the guided twins.",
+        "retests": [
+          "Fresh no-key14-item solve and explicit guided-versus-independent comparison in PR27_BLIND_RENEWAL.md passed.",
+          "Main reviewer read actual final prompts, premises, feedback and keyed relationships; final raw hashes match the renewal.",
+          "Final full curriculum204 and production219/17/0 E2E passed."
+        ]
+      },
+      {
+        "id": "BC-03",
+        "severity": "major",
+        "status": "fixed",
+        "description": "Bank-wide magical guarantees and self-disqualifying distractor clauses cued the correct reasons.",
+        "fix": "Positive competing properties and hypotheses replace systematic cues, including further clauses caught by the fresh renewal. Rejections now rely on actual technical or operating constraints and post-submit feedback.",
+        "retests": [
+          "Fresh blinded reviewer corrected and re-reviewed remaining B2 clauses before reporting no open content blocker/major.",
+          "Main reviewer final-copy and raw-hash comparison passed; longest/longest heuristic solves only4/14 and is not treated as psychometric validation.",
+          "All224 evaluator combinations agree with the independently locked pair table."
+        ]
+      },
+      {
+        "id": "BC-04",
+        "severity": "major",
+        "status": "fixed",
+        "description": "Availability-set teaching/item shorthand treated nonzonal placement as a known Availability Zone.",
+        "fix": "Nonzonal zone=null is distinct from the explicitly hypothetical site failure fixture; only explicit zonal options show AZ1–3. cp05 uses observed FD/UD app placement without manual UD or actual AZ claims.",
+        "retests": [
+          "Reviewer fresh pure nonzonal-null versus explicit zonal projection assertions passed.",
+          "Actual set/zone/dependency/milestone images individually inspected after correction.",
+          "Fresh blind cp05 constraint/relationship check and final41 scoped tests passed."
+        ]
+      },
+      {
+        "id": "P27-IFA-M1",
+        "severity": "minor",
         "status": "accepted-limitation",
-        "description": "Ten original recognition-oriented cases do not validate difficulty/discrimination, broad unseen transfer or exam readiness. Only the current guided exercise can actively resume; earlier records remain durable. Qualified human SME/UX/screen-reader/learning reviews are unperformed."
+        "description": "Summary first-submission classification column says Varig lagret utkast while its cells correctly classify unaided/help/retry. Actual immutable submission/help data is correct; this is an unfixed wording limitation explicitly retained for later presentation polish."
       }
     ],
-    "report": {
-      "path": "docs/quality/PR26_FINAL_AUDIT.md"
+    "report": { "path": "docs/quality/PR27_FINAL_AUDIT.md" }
+  },
+  "snapshot": {
+    "files": {
+      "AGENTS.md": "ebc4d7eff9a8502645ed38ef722f54bfe984ff8ad9feaa25cfebe792b8f57401",
+      "README.md": "36460b5ece332fd1eb17adeca997a8bbabc87f65390fd846e8fd94b2abae7dfa",
+      "docs/ARCHITECTURE.md": "fa6de63f4755db5fd1452516b9aa24c857a60ed66a182d73807b7566f86903fb",
+      "docs/ASSET_REGISTER.md": "d0037c464f6b7e301bf777ec28c093c0193065a6f7de868e3e01c60cb3e7ee84",
+      "docs/AZ900_ASSESSMENT_BLUEPRINT.md": "8f85b23cadf9ce740cbdb553d45d53a32447855760ab67609d56d3cd3246c9e5",
+      "docs/AZ900_COVERAGE_MATRIX.md": "07c332abf888dc5549c8b217ec752bac3efa32f0a02c403604cf59704efaa1a3",
+      "docs/AZ900_EXPANSION_ROADMAP.md": "81ff771412669106bc30f1c3137a21f93df73165a5c13a6766ffffd26b9d73ce",
+      "docs/AZ900_GAP_ANALYSIS.md": "37ea7de39362ecd8e5b3c69c0f4225eaae4b7911a8e1498b6beea788301b58f7",
+      "docs/COMPUTE_HOSTING.md": "7fa32ec453da0902fadb35c454476ecb031ee35da9564a2609869893c1effedd",
+      "docs/CONTENT_ARCHITECTURE.md": "7a94ca55b36bef38867ff90732314890f928697b09fe5a7e9dee40726b1b5ac2",
+      "docs/CONTENT_STANDARDS.md": "5ab846c2d8a3cc07130d0d3033d9d1076e2177b9aa0cde57c0941a78823f8a79",
+      "docs/COURSE_LAB_ORCHESTRATION.md": "f990328332d1192557b265b0690c8d73c2e5a16400183ea90068614632e0b6dd",
+      "docs/CURRICULUM_COVERAGE.md": "010b04d6100124e34560d2c88014b1b62368091cd4666e6fe40d95fce5c64b0a",
+      "docs/DECISIONS.md": "14754914519487468b3920af23ad8cd49db7885d5b7123021c9b1fa191a281ad",
+      "docs/INTERACTIVE_VISUALIZATIONS.md": "e4e336a9a51783f4cbb3293c558277168835663ecc3a1df9c856b9f487eb961a",
+      "docs/LEARNING_DESIGN.md": "678a161802e4116ecb1d821c846c41082fc2371ceb6d0f6770ad81ad88e292a1",
+      "docs/LEARNING_JOURNEY.md": "5ec99ab7df4100e06e53bd5d6e2c5db68228e40af786fc096eccb45c373f6063",
+      "docs/ROADMAP.md": "b64a48a965507ff30503dad5ff3911441bcde3490ea4f31dab2b0da992166368",
+      "docs/SECURITY.md": "bb877ebca32844afb10066bcdc09b9fab420038fb625cef582d35f746f7d6a81",
+      "docs/SOURCE_REGISTER.md": "7edcf9ef9aead22f21997dc4c185335ac3a33938e2d3edcc59860763a8154405",
+      "docs/audits/az900-2026-07-20.json": "4076ff6e7cdd0ac8eff830fc1e6945a3b9dbbb6a56c8acf53da883fcde837647",
+      "docs/screenshots/compute-hosting/assessment-1366.png": "b2b9dbe45d5baa12d8fe99c91f3d7f77b7f1741de55afd1301cc817ed6812600",
+      "docs/screenshots/compute-hosting/avd-1440.png": "0f630c61d8397fb264c6fba98bd5154aec66c51aeb77a44452e474819db4dfc2",
+      "docs/screenshots/compute-hosting/avd-no-host-1024.png": "60cc063b8a24fb00845de28e77a1f43c1e094c144411e532517599ee6152e0b5",
+      "docs/screenshots/compute-hosting/briefing-1440.png": "3766c46853c67b1d1d0e4530319ce8ab4e4e2ccb1c819ebaa3e4991434d504d7",
+      "docs/screenshots/compute-hosting/briefing-short.png": "cc069f523cf55ed8b601e089e4181bb4209029d210c5fb66f9f00d7877233e6b",
+      "docs/screenshots/compute-hosting/capacity-milestone-short.png": "7f53a92d8d14f9000391e92b382fa1a496df28a42b6ac2f098d1593b2533554d",
+      "docs/screenshots/compute-hosting/causal-reflow-200-equivalent.png": "b3e9bd2daef72fe5738b3b9563d32beaa55af17af4adab350fa91c4ea805d5ef",
+      "docs/screenshots/compute-hosting/comparison-1440.png": "3dfb2a5dbd779556c6e9a05c5472e7770466fab6a01c46cb9f7ded5a06aa10f9",
+      "docs/screenshots/compute-hosting/container-anatomy-1440.png": "aa8cc64cefaadf62dbf20be7b40d97590f507f2c8e9efcf01ef8d09156427af5",
+      "docs/screenshots/compute-hosting/container-data-without-process-1366.png": "fc1bba2d69937816882fb97b0c089224a1b276ec317799afd3c2fae0ecbb8738",
+      "docs/screenshots/compute-hosting/container-ephemeral-1920.png": "c1a2063da46ab83fc8d142a87be8148f1653de70bbbba9df77650540f7d93ee7",
+      "docs/screenshots/compute-hosting/container-host-responsibility-1920.png": "14bbeed650fa71744c39b05bdd0479866bd3aef937a1e1f58aa1bd564b860e80",
+      "docs/screenshots/compute-hosting/container-milestone-1366.png": "5e723366c6ce01f4373e390783b1bcdcf02e5ec2ad6ccba89a6b1bb92832292e",
+      "docs/screenshots/compute-hosting/container-persistent-1440.png": "b4ff65914a733fce5d76764d4c6a79ac2fda9c3db9f6fe5bfa7d7b0a1565bc67",
+      "docs/screenshots/compute-hosting/container-theory-1920.png": "c435603230b74f1281acbb4f23b5a536607fa82782b3e1d6a51adc6e2b9e3f25",
+      "docs/screenshots/compute-hosting/dependency-failure-1024.png": "2afec439fac652f1b4c70898d06d7a5fbbbbdd9a5e1797fd14df2bfd29ac4fea",
+      "docs/screenshots/compute-hosting/feedback-1440.png": "adc831edc35119a22184ab1afa05638b51d4bc344578ca65cdde82a04660df49",
+      "docs/screenshots/compute-hosting/feedback-short.png": "d504390c9c1fc697e054d531e809cf838bf0eeb5b8ee4e2695800f6f8dbb1e37",
+      "docs/screenshots/compute-hosting/hosting-alternatives-1920.png": "60a4d8aeca77f2e5737c4dc21ea67cfc0d1ffa1038eee410632abbf76c8287f4",
+      "docs/screenshots/compute-hosting/hosting-debrief-1366.png": "bd6895f3085c5b03d53f19da24fb418514f49621479b89227eda41dcbddcbb2f",
+      "docs/screenshots/compute-hosting/introduction-1920.png": "109cb30bd7755d81195f8a8a7367f2b030a5d26cd6b6c19ff2d7368835123286",
+      "docs/screenshots/compute-hosting/journal-1024.png": "7e4c37aca901dbdf22f9a92aed83541ed29cea5a0cbd979d43c93aee9041e7fe",
+      "docs/screenshots/compute-hosting/root-1024.png": "92657dd71f40aed88fdb9afb5b43231f76432d9010b0a53de6f73d57e413b2bb",
+      "docs/screenshots/compute-hosting/root-1366.png": "e9bafbd5fff809133ad945d85f28595a157cf6aabb1277e2b9c0f823343a7a9d",
+      "docs/screenshots/compute-hosting/root-1440.png": "e95afce6fa3dde47b17561b900916842046dd4b4e468b9ead4368e82d52848f5",
+      "docs/screenshots/compute-hosting/root-1920.png": "8bb6b0f233c239e9cf4e0b874cab70c1ad1df1a4e6b6791c0444aaeaa0047888",
+      "docs/screenshots/compute-hosting/set-zone-failure-1366.png": "d7bbbdefc80d049fdfbabddb85aebff253c29d55a49646cc2dd35667659576f3",
+      "docs/screenshots/compute-hosting/summary-1440.png": "3166c173f9b31e4c2e08ac1b04ad236101c68028f0a73b55f2b0b285add27040",
+      "docs/screenshots/compute-hosting/vm-basics-1440.png": "119a766193c6cab86a529eca869db2f5285843abfd9bae5bae4a35555ed86300",
+      "docs/screenshots/compute-hosting/vm-debrief-1440.png": "21a3b22dafaf7f302694626498e727af1785543127c64fda3a652ccd542acb19",
+      "docs/screenshots/compute-hosting/vm-minimized-1024.png": "dc627a56f7db7055d21551d3c0acca82b3e4ffcd3c2e0d9aa516613b42bf3c44",
+      "docs/screenshots/compute-hosting/vm-overview-1440.png": "4150bef3b70e8c5cfe8bc369564e17ef8df290b526820e02a044bb9fda563b83",
+      "docs/screenshots/compute-hosting/vm-receipt-1366.png": "2d1f72d8c895d30c3b2c3fcc8a6c24925816388f5d460e9d9c00c8fd5ad0bde1",
+      "docs/screenshots/compute-hosting/vm-result-1366.png": "d282e50f49712a12b487820df592a89508a87b92e54858f70b123eb70a9c4c4b",
+      "docs/screenshots/compute-hosting/vm-review-1366.png": "3522ab9b08c5462db25caa63ac1a961267908fd17ca37a6c4e92cdc0ed4757b3",
+      "docs/screenshots/compute-hosting/zones-surviving-1440.png": "c08db3928f4707e443bfb5deb1971bd3ef4c8a377a19a4b5485e650a2bd9055a",
+      "package.json": "112580d3249745b410eb1c33c23d865a7db68d5ecf5f524d57933fb9f1e99b1b",
+      "scripts/az900-audit-check.mjs": "234331054f0437d67f41795f81649ac983dcbe05a63d67b8fdfec7cae0f4c3f1",
+      "scripts/az900-audit-check.test.mjs": "b252944f4743c2e6856ff5afe05d352f68ddf26ea80c6410780f5d0639e023e1",
+      "src/app/layout.tsx": "f84063eedf632675826c97876724d531ec5fc32a2e9b63a27fd777e77ec20cd7",
+      "src/app/learn/[module]/page.tsx": "025b8d79c7a831d933ad2062e148ac43bc0309d46f28bac7ea341fdc310f3a5a",
+      "src/components/progress-provider.tsx": "67d64d6f8445233e70b2d4c82ebe181271857fa3982cff447a6510b29e25868d",
+      "src/content/nb.ts": "a9b8fd7cae31c8aa72c42980b5c8fdbcc2f65bdfee10d8ea3b964d3a43e57d3b",
+      "src/domain/course/model.ts": "fcfdca4930ce6593e2d11076cb59f0c4151a833bed5b44e275ffc63faeff5921",
+      "src/domain/curriculum/compute-items.ts": "dee0b98d76722ac3c673007686568db346a83070783797deb1013c73afdaf49e",
+      "src/domain/curriculum/compute-model.ts": "153938ed0d505fb17dbb1d115e6b4e7690d2f7057b2e86b35415c60220dac268",
+      "src/domain/curriculum/compute-sources.ts": "b5b6d0a6329e98eb40ef4de73b8ef302753f51c8301c716589765baf0815daeb",
+      "src/domain/curriculum/compute-store.ts": "a765316a8478db9f2a3a339f01bbefed51887dd464d4a5d6ef4eccb3779ba506",
+      "src/domain/curriculum/compute-vm.ts": "68437fdc71b1729c7b61e2f8209d33b2f2eab1b0618d9735f01ec1ef8ef0679e",
+      "src/domain/curriculum/compute.test.ts": "805c36893140f0fb45a0ed93f49fccef9258b5f224ede02f6364fbafaaeb8d4f",
+      "src/domain/curriculum/compute.ts": "ac4d2da55c0e940595fe0f9c817ae26cea13b228baee3c69c2f2019dd42bc151",
+      "src/domain/curriculum/manifest.ts": "eb8a0bc536392b97844e948e19bd6e777db9e010fc0c5b56b529bd4c9b1e6d2c",
+      "src/domain/curriculum/official.ts": "dfeb58559996d205971ada2ce3280480a2f9813c5b5f61c84fb6a51b35cc0153",
+      "src/domain/guidance/milestones.ts": "517b3717a74713ffa400fe6ff1105b8faacb6519b9c2cb632759e64eb10d0651",
+      "src/domain/portal/model.ts": "61a19fd39308f60c2a13eecc07bce18a17765bd86cd9ed80b5a3d91c8d3597d4",
+      "src/features/course/course.tsx": "1eedec4386a8936d11ed339e52675efd6c8539f966731f6c1108f03ad521a48a",
+      "src/features/course/mission-context.ts": "9bbc17a33b80e0c8ce6a70580bc410fa1f2661b986a6f43e9c9163056bcda8d3",
+      "src/features/learning/compute-assessment.tsx": "4062f9d8c319175af92a6e0e64efa40796e6e5139785796060a1b94a9ba35cb3",
+      "src/features/learning/compute-provider.tsx": "1ea32e5a6458dc3fd607cb93217e2bca1b55dd47da0ec7ea546ef8891f6d0d7d",
+      "src/features/learning/compute-visuals.tsx": "bb74a0aff2c5f5652a505454fb1089114a90e98b47f0f6b16e9d6f1d4ea3a427",
+      "src/features/learning/compute-vm.tsx": "23eb6f3c7c6c15a3fed408f1be55fbeb49f01c4df9f2a01d939cdf23a2165658",
+      "src/features/learning/compute-workbench.tsx": "dcd64a02bc389648c612af9c758732b1df8fe30507a508f4b01f85d74368495e",
+      "src/features/learning/compute.css": "6439e8211272ed9cce09fe6b3ac183910ae6156fe5c7979e82c32a38e271bc40",
+      "src/features/learning/compute.tsx": "df190b99f9cc197080532ed0c8d70a694f44c59caf91a3f7a261803e5650cef1",
+      "src/features/learning/management-access.tsx": "7bddd9e9e1815bce2049b2812d786d3993e674c8e86e0c6029f7ee9387eb41b3",
+      "src/features/portal/portal.tsx": "6cffed320d98a4f07ecc3f0a355262ad083754cfc09d2e946362ccf36db2044b",
+      "tests/e2e/compute-hosting.spec.ts": "05095832660c3b439b04afd069644f697ae1ff74c823ddb03e1b7fcda0945985"
     }
-  }
+  },
+  "implementationFinished": "2026-10-28T12:01:38.108Z"
 }

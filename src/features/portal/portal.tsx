@@ -1,5 +1,6 @@
 'use client';
-import { architectureNb, managementNb } from '@/content/nb';
+import { architectureNb, managementNb, computeNb } from '@/content/nb';
+import { computeHref } from '@/domain/curriculum/compute';
 import { missionsNb } from '@/content/nb';
 import { useMissions } from '@/features/course/mission-provider';
 import { MissionRecovery } from '@/features/course/missions';
@@ -7,6 +8,8 @@ import { MissionPortalLayer } from '@/features/course/mission-portal';
 import { missionOrigin } from '@/domain/sandbox/missions';
 import { useManagement } from '@/features/learning/management-provider';
 import { useTransfer } from '@/features/learning/transfer-provider';
+import { useCompute } from '@/features/learning/compute-provider';
+import { ComputePortalMission } from '@/features/learning/compute-vm';
 import { useCost } from '@/features/learning/cost-provider';
 import { usePhysical } from '@/features/learning/physical-provider';
 import { ManagementRecovery } from '@/features/learning/management-recovery';
@@ -92,7 +95,8 @@ function PortalWorkspace() {
     physical = usePhysical(),
     management = useManagement(),
     transfer = useTransfer(),
-    cost = useCost();
+    cost = useCost(),
+    compute = useCompute();
   useEffect(() => {
     if (serverless.facts.active && ['learn', 'responsibility', 'hierarchy'].includes(location.area))
       serverless.store.event({ kind: 'aid' });
@@ -121,6 +125,7 @@ function PortalWorkspace() {
     location.area,
   ]);
   const otherIndependentContext =
+    compute.facts.active ||
     cost.facts.active ||
     transfer.facts.active ||
     location.mode === 'independent' ||
@@ -135,6 +140,7 @@ function PortalWorkspace() {
     services2.facts.active;
   const independentContext = otherIndependentContext || missions.active;
   const guidanceContexts = [
+    compute,
     cost,
     transfer,
     missions,
@@ -167,22 +173,29 @@ function PortalWorkspace() {
     !benefits.facts.active &&
     !services2.facts.active;
   const managementLab = guidedLab && course.save.lab?.origin === 'architecture-management';
-  const courseReturn = location.mission
-    ? missionOrigin(location.mission)
-    : location.bridge
-      ? `/learn/benefits?topic=${location.bridge}&activity=practical`
-      : location.practice && practical.current
-        ? practicalReturn(practical.current)
-        : guidedLab
-          ? courseLabHref(
-              labFacts(course.save.lab, chapter.attempt.engine, chapter.attemptNumber).complete,
-              course.save.lab?.origin,
-            )
-          : location.course
-            ? courseHref(location.module, location.topic)
-            : '/learn';
+  const courseReturn = location.compute
+    ? computeHref('dependencies')
+    : location.mission
+      ? missionOrigin(location.mission)
+      : location.bridge
+        ? `/learn/benefits?topic=${location.bridge}&activity=practical`
+        : location.practice && practical.current
+          ? practicalReturn(practical.current)
+          : guidedLab
+            ? courseLabHref(
+                labFacts(course.save.lab, chapter.attempt.engine, chapter.attemptNumber).complete,
+                course.save.lab?.origin,
+              )
+            : location.course
+              ? courseHref(location.module, location.topic)
+              : '/learn';
   const returnLearning = () =>
-    location.mission || location.bridge || location.practice || guidedLab || location.course
+    location.compute ||
+    location.mission ||
+    location.bridge ||
+    location.practice ||
+    guidedLab ||
+    location.course
       ? router.push(courseReturn)
       : navigate('learn');
   const practicalMission =
@@ -757,27 +770,30 @@ function PortalWorkspace() {
             <span className={`mode-${independentContext ? 'independent' : location.mode}`}>
               {independentContext
                 ? p.modes.independent
-                : location.mission && missions.current
-                  ? missions.current.mode === 'guided'
-                    ? missionsNb.guided
-                    : missionsNb.independent
-                  : location.bridge
-                    ? labsNb.bridge.mode
-                    : location.practice && practical.current
-                      ? practical.current.mode === 'guided'
-                        ? labsNb.guided
-                        : labsNb.independent
-                      : guidedLab
-                        ? nb.course.guided
-                        : location.mode === 'learn' &&
-                            !['learn', 'responsibility', 'hierarchy', 'challenge'].includes(
-                              location.area,
-                            )
-                          ? nb.course.free
-                          : p.modes[location.mode]}
+                : location.compute && compute.facts.guide?.mission === 'vm'
+                  ? nb.course.guided
+                  : location.mission && missions.current
+                    ? missions.current.mode === 'guided'
+                      ? missionsNb.guided
+                      : missionsNb.independent
+                    : location.bridge
+                      ? labsNb.bridge.mode
+                      : location.practice && practical.current
+                        ? practical.current.mode === 'guided'
+                          ? labsNb.guided
+                          : labsNb.independent
+                        : guidedLab
+                          ? nb.course.guided
+                          : location.mode === 'learn' &&
+                              !['learn', 'responsibility', 'hierarchy', 'challenge'].includes(
+                                location.area,
+                              )
+                            ? nb.course.free
+                            : p.modes[location.mode]}
             </span>
             <span
               hidden={
+                !location.compute &&
                 !location.mission &&
                 !location.bridge &&
                 !location.practice &&
@@ -785,17 +801,19 @@ function PortalWorkspace() {
                 !independentContext
               }
             >
-              {location.mission
-                ? missionsNb.missions[location.mission].title
-                : managementLab
-                  ? architectureNb.title
-                  : location.bridge ||
-                      (location.practice && practical.current?.origin.module === 'benefits')
-                    ? nb.official.benefits
-                    : location.module === 'computing' ||
-                        (guidedLab && course.save.lab?.origin === 'computing-v2')
-                      ? nb.official.computing
-                      : nb.official.services}
+              {location.compute
+                ? computeNb.title
+                : location.mission
+                  ? missionsNb.missions[location.mission].title
+                  : managementLab
+                    ? architectureNb.title
+                    : location.bridge ||
+                        (location.practice && practical.current?.origin.module === 'benefits')
+                      ? nb.official.benefits
+                      : location.module === 'computing' ||
+                          (guidedLab && course.save.lab?.origin === 'computing-v2')
+                        ? nb.official.computing
+                        : nb.official.services}
             </span>
             <Link href={courseReturn}>{nb.course.returnCourse}</Link>
             <button
@@ -1257,6 +1275,13 @@ function PortalWorkspace() {
         suppressed={guidanceSuppressed}
         form={vmForm}
       />
+      {location.compute && (
+        <ComputePortalMission
+          location={location}
+          navigate={navigate}
+          independent={independentContext}
+        />
+      )}
       <MissionPortalLayer
         location={location}
         blocked={

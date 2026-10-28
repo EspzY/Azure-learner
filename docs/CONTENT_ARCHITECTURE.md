@@ -1,5 +1,9 @@
 # Local curriculum and evidence architecture
 
+## P05 content ownership
+
+`computeNb` and `computeItemsNb` in nb.ts own the original11-part teaching and14 paired independent cases; model/item/source/manifest definitions live in `domain/curriculum/compute*`. CP01–04 map to four pinned compute slots without registering networking completion. Course and Knowledge Journal render the same manuscript. Item/family/variant IDs, accepted relationships and all-option feedback are separately traceable; no copied assessment bank. [Full manuscript map](COMPUTE_HOSTING.md).
+
 ## Cost Management manuscript and activity boundary
 
 `costNb.sections` holds complete prerequisite, terminology, mechanism, worked example and qualification text; `costItemsNb` holds ten original decisions, structured reasons, all-alternative rationale and counterfactual conditions. Sources CS01–29 are dated metadata, not runtime requests. Four native-control workbenches require explicit model runs and causal explanations; visits/configuration alone are not mastery. One shared manuscript powers lesson and Journal. CM01–04 map four pinned cost objectives; CM05 maps the extra Learn optimization goal, not a fabricated exam slot. [Contract](COST_MANAGEMENT.md).

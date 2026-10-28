@@ -1,5 +1,9 @@
 # AZ-900 — prioritert, avgrenset PR-plan
 
+## P05 implementation — PR27
+
+Compute & Hosting is implemented in the ordinary second learning path after Core Architecture. Four distinct guided applications,14 changed independent cases and the existing operational VM engine preserve earlier evidence. Full details and actual gate status: [COMPUTE_HOSTING](COMPUTE_HOSTING.md), PROJECT_STATUS and scoped release evidence. Next bounded implementation is **P06 — Networking Part A: VNets, subnets, peering and Azure DNS**; P07 follows for hybrid connectivity/endpoints. Historical P00–P05 planning below remains a dated baseline, not current unavailability.
+
 ## P04 implementation — PR26
 
 P04 now has the course-integrated Cost Management module: nine activities, four explicitly synthetic workbenches, ten changed-context decision/reason cases, full Journal and isolated evidence. Detailed source/claim/data limits and actual validation belong in [COST_MANAGEMENT](COST_MANAGEMENT.md) and PROJECT_STATUS. Remaining management/governance modules are planned. Next bounded implementation is **P05 — Azure Compute & Hosting**, preserving the established course/evidence/simulator boundaries. No new general billing or exam engine is included.
