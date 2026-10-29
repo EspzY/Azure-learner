@@ -1,4 +1,11 @@
 import {
+  freshConnectivity,
+  applyConnectivity,
+  connectivityKey,
+  restoreConnectivity,
+  connectivityFacts,
+} from '../../src/domain/curriculum/connectivity';
+import {
   freshLearning,
   applyLearning,
   learningKey,
@@ -71,6 +78,12 @@ function fixture<S>(
 /** Valid records from frozen reducers, never new runtime curriculum. */
 export function activeTeachingContexts() {
   return [
+    fixture(
+      connectivityKey,
+      applyConnectivity(freshConnectivity(), { kind: 'begin', item: 'nc03' }),
+      restoreConnectivity,
+      connectivityFacts,
+    ),
     fixture(
       managementKey,
       applyManagement(freshManagement(), { kind: 'begin' }),

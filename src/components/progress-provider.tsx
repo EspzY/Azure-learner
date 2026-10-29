@@ -1,4 +1,5 @@
 'use client';
+import { connectivityKey } from '@/domain/curriculum/connectivity';
 import { networkingKey } from '@/domain/curriculum/networking';
 
 import { retiredStorageKeys } from '@/domain/retired-storage';
@@ -99,6 +100,7 @@ export function ProgressProvider({ children }: { children: React.ReactNode }) {
         costKey,
         computeKey,
         networkingKey,
+        connectivityKey,
       ])
         localStorage.removeItem(key);
     } catch {

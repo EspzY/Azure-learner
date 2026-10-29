@@ -4,6 +4,20 @@ import { replayEngine } from '../sandbox/replay';
 
 /** Conceptual observations are not Engine receipts and have their own source contract. */
 export const conceptMilestones = {
+  'connectivity-diagnose': {
+    version: '1.0.0',
+    objectives: ['CN01', 'CN02'],
+    sources: ['CS09', 'CS12', 'CS13', 'CS15'],
+    trigger: 'saved-hybrid-failure-and-declared-independent-backup-contrast',
+    auto: 'first-new-guided-model-result',
+  },
+  'connectivity-dns': {
+    version: '1.0.0',
+    objectives: ['CN03', 'CN04'],
+    sources: ['CS16', 'CS17', 'CS19', 'CS20'],
+    trigger: 'saved-private-address-resolution-without-declared-network-path',
+    auto: 'first-new-guided-model-result',
+  },
   'networking-inspect': {
     version: '1.0.0',
     objectives: ['NW01'],

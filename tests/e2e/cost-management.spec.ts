@@ -613,30 +613,32 @@ test('capacity explanation disables new begin while reserved help and terminal s
   await expect(page.getByRole('button', { name: c.assessment.retry, exact: true })).toBeDisabled();
   await expect(page.getByText(c.storage.capacity, { exact: true })).toBeVisible();
 });
-test('desktop/compact assessment, long feedback, keyboard and reduced motion remain readable with no external runtime requests', async ({
-  page,
-  baseURL,
-}) => {
-  const outside: string[] = [];
-  page.on('request', (r) => {
-    if (new URL(r.url()).origin !== new URL(baseURL!).origin) outside.push(r.url());
-  });
-  await page.emulateMedia({ reducedMotion: 'reduce' });
-  await root(page);
-  await lesson(page, 'assessment');
-  await startCase(page, 'cm06');
-  await page.getByRole('radio', { name: costItemsNb.cm06.decisions[2], exact: true }).focus();
-  await page.keyboard.press('Space');
-  await page.getByRole('radio', { name: costItemsNb.cm06.reasons[1], exact: true }).check();
-  await page.getByRole('button', { name: c.assessment.submit, exact: true }).click();
-  for (const [width, height] of [
-    [1920, 1080],
-    [1440, 900],
-    [1366, 768],
-    [1024, 768],
-    [1024, 500],
-    [390, 844],
-  ] as const) {
+// Each full-page Axe scan gets its own normal test budget; keep every viewport,
+// interaction and assertion rather than sharing 30s across six complete scans.
+for (const [width, height] of [
+  [1920, 1080],
+  [1440, 900],
+  [1366, 768],
+  [1024, 768],
+  [1024, 500],
+  [390, 844],
+] as const) {
+  test(`desktop/compact assessment ${width}x${height}, long feedback, keyboard and reduced motion remain readable with no external runtime requests`, async ({
+    page,
+    baseURL,
+  }) => {
+    const outside: string[] = [];
+    page.on('request', (r) => {
+      if (new URL(r.url()).origin !== new URL(baseURL!).origin) outside.push(r.url());
+    });
+    await page.emulateMedia({ reducedMotion: 'reduce' });
+    await root(page);
+    await lesson(page, 'assessment');
+    await startCase(page, 'cm06');
+    await page.getByRole('radio', { name: costItemsNb.cm06.decisions[2], exact: true }).focus();
+    await page.keyboard.press('Space');
+    await page.getByRole('radio', { name: costItemsNb.cm06.reasons[1], exact: true }).check();
+    await page.getByRole('button', { name: c.assessment.submit, exact: true }).click();
     await page.setViewportSize({ width, height });
     expect(
       await page.evaluate(
@@ -645,15 +647,17 @@ test('desktop/compact assessment, long feedback, keyboard and reduced motion rem
     ).toBe(true);
     await expect(page.getByRole('region', { name: c.currentFeedback, exact: true })).toBeVisible();
     expect((await new AxeBuilder({ page }).analyze()).violations).toEqual([]);
-  }
-  expect(outside).toEqual([]);
-});
-test('all four workbenches preserve readable semantic controls in short and existing compact layouts', async ({
-  page,
-}) => {
-  await page.emulateMedia({ reducedMotion: 'reduce' });
-  await root(page);
-  for (const topic of ['estimate', 'analysis', 'budgets', 'tags'] as const) {
+    expect(outside).toEqual([]);
+  });
+}
+// Preserve both complete scans for each workbench with independently bounded
+// setup. Guided switching/history has its own explicit regression above.
+for (const topic of ['estimate', 'analysis', 'budgets', 'tags'] as const) {
+  test(`${topic} workbench preserves readable semantic controls in short and existing compact layouts`, async ({
+    page,
+  }) => {
+    await page.emulateMedia({ reducedMotion: 'reduce' });
+    await root(page);
     await lesson(page, topic);
     await beginMission(page);
     await predict(page, topic === 'analysis' ? 'higher' : topic === 'budgets' ? 'lower' : 'same');
@@ -675,5 +679,5 @@ test('all four workbenches preserve readable semantic controls in short and exis
       await expect(button).toBeInViewport();
       expect((await new AxeBuilder({ page }).analyze()).violations).toEqual([]);
     }
-  }
-});
+  });
+}

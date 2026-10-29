@@ -1,5 +1,9 @@
 # Decisions
 
+## PR29 — compose hybrid and endpoint evidence without changing Part A
+
+Use a separately versioned Networking connectivity supplement in the existing shell. Hybrid connections and service endpoints require different explanatory diagrams and causal models, but share explicit prediction/run/cause and first/help/retry/abandon boundaries. No VPN, circuit or Private Endpoint resource provider is added. Private transport and encryption scope are separate; DNS selects an entry but does not prove network or application permission. A+B navigation and summary references compose the module without upgrading historical Part A submissions. Service-specific Storage endpoint examples support networking teaching only; P08 Storage remains deferred. PR28's inaccessible protected preview is a delivery dependency, not a reason to invent external acceptance. [Scope](NETWORKING_CONNECTIVITY.md).
+
 ## PR28 — separate network concepts from frozen operational configuration
 
 Add a versioned Networking Part A supplement, rather than adding IP allocation, peering, DNS, traffic or new prefix semantics to Sandbox. Ordinary actual resources retain their frozen10.42 prefixes and can be read as overlap counterexamples. Pure canonical unsigned IPv4 intervals, explicitly configured peering sides and staged name/address/path/access predicates produce educational observations only. Updated subnet-peering documentation requires qualifications; the bounded model does not implement its full eligibility/routing behavior. Separate fresh inspection boundaries and original independent cases preserve earlier learning meaning. Reuse durable store/preflight/course/guidance patterns; no parallel authoritative inventory or general network/assessment engine. Part B later composes separately versioned evidence without upgrading Part A. [Detailed decision](NETWORKING_FOUNDATIONS.md).

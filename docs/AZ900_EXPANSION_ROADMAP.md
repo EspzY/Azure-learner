@@ -1,5 +1,9 @@
 # AZ-900 — prioritert, avgrenset PR-plan
 
+## P07 implementation — PR29
+
+Networking Part B composes VPN Gateway, ExpressRoute and public/private endpoints with Part A in the existing course. Separate1.0.0 evidence preserves prior answers and rubrics. The two scoped rows may describe complete authored A–F content without implying learner mastery, human acceptance or actual cloud networking. [Scope and actual verification](NETWORKING_CONNECTIVITY.md). PR28's protected external preview remains a documented SSO-blocked dependency. P08 Storage A and P09 tiers/redundancy are next planned phases and are not implemented here.
+
 ## P06 implementation — PR28
 
 Networking Part A is implemented as eleven ordinary-course activities after Compute, four distinct saved applications and twelve independent cases. VNet/subnet/peering/DNS facets have explicit A–F pointers; composite2.2.05 remains PARTIAL,2.2.06 unchanged. [Actual scope/gates](NETWORKING_FOUNDATIONS.md). Next bounded delivery is **P07 / PR29 — VPN Gateway, ExpressRoute and public/private endpoints**, then Storage. Planning below remains historical.

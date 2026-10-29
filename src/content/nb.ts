@@ -5400,6 +5400,7 @@ export const managementNb = {
   accessReload: 'Les lagret vurderingskontekst på nytt',
   accessReview: 'Åpne egen vurdering og lagringskontroll',
   accessContexts: {
+    connectivity: 'Networking Part B',
     networking: 'Networking Part A · selvstendig anvendelse',
     compute: 'Compute & Hosting · selvstendig anvendelse',
     cost: 'Cost Management · selvstendig anvendelse',
@@ -5951,6 +5952,7 @@ export const missionsNb = {
   reloadContext: 'Last inn bare denne konteksten',
   reviewContext: 'Åpne kontekstens eksisterende recovery eller vurdering',
   recoveryContexts: {
+    connectivity: 'Networking Part B',
     networking: 'Networking Part A',
     missions: 'Practical Missions v1',
     transfer: 'Cloud Concepts-transfer',
@@ -8644,7 +8646,7 @@ export const computeNb = {
   overview:
     'Fra arbeidslast til kjørende kode: undersøk VM-er, containere, Functions, virtuelle skrivebord og hosting. Bygg én faktisk lokal VM-konfigurasjon og test avgrensede arkitekturmodeller før nye selvstendige situasjoner.',
   available:
-    'Fire Compute-mål og Networking Part A er tilgjengelige. Networking Part B og Storage kommer senere. Lokal trening, ingen Azure-konto eller reelle ressurser.',
+    'Fire Compute-mål og Networking Part A og B er tilgjengelige med separate versjonerte resultater. Storage kommer senere. Lokal trening, ingen Azure-konto eller reelle ressurser.',
   prerequisites:
     'Forkunnskaper: fysiske servere og virtualisering, IaaS/PaaS, regioner og soner, management-hierarki og forbruksmodeller. Vi bygger videre på disse uten å endre tidligere resultater.',
   topics: {
@@ -9500,7 +9502,7 @@ export const networkingNb = {
   partA: 'Part A · VNet, Subnets, Peering & DNS',
   recallGuided: 'Gjenoppta lagret nettverksoppdrag',
   summaryBoundary:
-    'Dette er Part A-resultater. VPN Gateway, ExpressRoute og public/private endpoints kommer i Part B. En åpnet aktivitet eller et guidet resultat gir ingen ny uavhengig innlevering, hel Networking-fullføring eller eksamensberedskap.',
+    'Dette er Part A-resultater. VPN Gateway, ExpressRoute og public/private endpoints har egne resultater i Part B. En åpnet aktivitet eller et guidet resultat gir ingen ny uavhengig innlevering, hel Networking-fullføring eller eksamensberedskap.',
   pauseGuided: computeNb.pauseGuided,
   milestoneNotice: computeNb.milestoneNotice,
   labels: {
@@ -9823,7 +9825,7 @@ export const networkingNb = {
   overview:
     'Følg en faktisk VM til nettverket. Design adresseområder, undersøk peering og skill et DNS-svar fra en dokumentert nettverksvei.',
   available:
-    'Networking Part A · VNet, subnet, adresser, peering og DNS er tilgjengelige. Part B med VPN Gateway, ExpressRoute og endpoints er planlagt. Hele Networking er ikke fullført av Part A.',
+    'Networking Part A · VNet, subnet, adresser, peering og DNS er tilgjengelige. Part B med VPN Gateway, ExpressRoute og endpoints er også tilgjengelig med egne versjonerte resultater. Part A alene fullfører ikke hele Networking.',
   prerequisites:
     'Bygger på nettleser/server fra Cloud Computing, fysisk og administrativ arkitektur fra Core og VM/NIC-relasjoner fra Compute. IP, CIDR og DNS forklares her før de brukes. Ingen Azure-konto eller nettverksverktøy kreves.',
   topics: {
@@ -10436,6 +10438,891 @@ export const networkingItemsNb = {
         'Riktig ved adressekapasitetsmangel, men scenarioet dokumenterer allerede mål og vei. Flere adresser endrer ikke den manglende approllen.',
         'Riktig: lokaliser årsaken til den delen av kjeden som faktisk feiler.',
         'Riktig aliasbruk ved navneendring, men her er navnet korrekt og autorisasjonen avvist. DNS overfører ingen rettigheter.',
+      ],
+    ],
+  },
+} as const;
+
+/** P07 original manuscript, authored after official source review 2026-10-29. */
+export const connectivityNb = {
+  partALink: 'Networking Part A · VNet, subnet, peering og DNS',
+  partASummary: 'Se uendrede Part A-resultater',
+  partAContext:
+    'Part A-forkunnskaper og tidligere resultater beholdes separat. Å åpne denne delen oppretter ingen ny Part B-evidence.',
+  actualContext: 'Lesbar faktisk Sandbox-kontekst',
+  actualBoundary:
+    'Dette er eksisterende VM-/NIC-konfigurasjon fra den autoritative Sandbox. Ingen faktisk VPN, ExpressRoute, Private Endpoint, privat IP-allokering eller Part B-fullføring utledes fra den.',
+  actualEmpty:
+    'Ingen faktisk VM finnes ennå. Konseptmodellene trenger ingen ressursopprettelse; Part A tilbyr den eksisterende støttede inspeksjonsflyten hvis du vil undersøke en faktisk kjede.',
+  actualOpen: 'Undersøk den faktiske kjeden i Part A',
+  actualUnverified: 'Sandbox må avklares før faktisk kontekst kan vises.',
+  title: 'Azure Networking Part B · Hybrid Connectivity & Endpoints',
+  path: networkingNb.path,
+  partB: 'Part B · VPN Gateway, ExpressRoute & Public/Private Endpoints',
+  overview:
+    'Velg en hybrid forbindelse, undersøk transport og kryptering, og følg et tjenestenavn gjennom endpoint, nettverksvei og applikasjonstilgang.',
+  available:
+    'Part A og Part B danner én Networking-modul. Delene beholder egne versjonerte resultater. VNet, subnet, peering og DNS fra Part A er forkunnskaper; Part B legger til VPN Gateway, ExpressRoute og public/private endpoints. Innholdsdekning er ikke eksamensberedskap.',
+  prerequisites:
+    'Bygger på Part A: VNet, subnet, peering, DNS og forskjellen mellom navn, nettverksvei og tilgang. Core forklarer scope og region; Compute forklarer VM/NIC. Ingen Azure-konto, VPN-klient, provideravtale eller credentials kreves i denne lokale undervisningen.',
+  perspective: 'Velg forbindelses- eller endpoint-perspektiv',
+  perspectives: ['Hybrid Connectivity · konsept', 'Endpoint & DNS · konsept'],
+  recallGuided: 'Gjenoppta lagret Part B-oppdrag',
+  pauseGuided: computeNb.pauseGuided,
+  milestoneNotice: computeNb.milestoneNotice,
+  summaryBoundary:
+    'Part B-observasjoner er adskilt fra tidligere Part A-svar. Et modellresultat dokumenterer bare den avgrensede konfigureringen og begrunnelsen. Ingen virkelig tunnel, providerforbindelse, DNS-query, tjenestehelse eller ny XP er produsert.',
+  labels: {
+    ...networkingNb.labels,
+    model: 'Deterministisk konseptmodell · ingen Azure-forbindelse, query eller receipt',
+    return: 'Tilbake til Networking Part B',
+  },
+  storage: {
+    ...networkingNb.storage,
+    title: 'Part B-lagring må avklares',
+    loading: 'Laster versjonert Networking Part B-arbeid …',
+    reload: 'Last inn Part B på nytt',
+    recover: 'Gjenopprett bare ugyldige Part B-data',
+  },
+  guided: { ...networkingNb.guided },
+  assessment: {
+    ...networkingNb.assessment,
+    title: 'Selvstendig Connectivity-anvendelse',
+    neutral:
+      'Velg begrunnelsen som forklarer beslutningen under akkurat disse premissene. En sann generell egenskap er ikke alene nok til å forklare det observerte problemet.',
+    intro:
+      'Undersøk nye transport-, endpoint- og tilgangskrav. Velg både beslutning og teknisk begrunnelse. Tidligere Part A-resultater eller guidet Part B-arbeid blir ikke en ny selvstendig førstegangsinnlevering.',
+  },
+  assessmentActive:
+    'Et annet Part B-forsøk er aktivt. Fortsett det låste scenarioet før du velger et nytt.',
+  currentFeedback: networkingNb.currentFeedback,
+  historyFeedback: networkingNb.historyFeedback,
+  topics: {
+    introduction: 'Fra tilkoblet nettverk til brukbar tjeneste',
+    vpn: 'VPN Gateway · site, klient og VNet',
+    expressroute: 'ExpressRoute · privat transport og kryptering',
+    endpoints: 'Public & Private Endpoints · separate innganger',
+    'private-dns': 'Private Link DNS · klientens oppslagsvei',
+    hybrid: 'Hybrid Connectivity Explorer',
+    explorer: 'Endpoint & DNS Explorer',
+    missions: 'Guidede Connectivity-oppdrag',
+    assessment: 'Selvstendig Connectivity-anvendelse',
+    summary: 'Networking Part B · dokumenterte resultater',
+  },
+  missions: {
+    choose: {
+      title: 'A · Velg en hybrid forbindelsesplan',
+      situation:
+        'Fjordverk skal knytte fabrikknettet til et Azure VNet. Transportkravet utelukker offentlig internett, og dataene skal også være kryptert ende til ende. Leverandørtilkobling kan etableres; begge krav må behandles.',
+      goal: 'CN01–02: skille riktig tilkoblingsomfang, privat transport og ende-til-ende-kryptering.',
+      steps: [
+        'Start eksplisitt og les de deklarerte kravene.',
+        'Forutsi og kjør en site-to-site VPN med krav om privat transport.',
+        'Velg ExpressRoute med provider/gateway/ruting klare, men uten tilleggskryptering; forutsi og kjør.',
+        'Velg IPsec for den deklarerte ende-til-ende-beskyttelsen og kjør igjen.',
+        'Forklar hvorfor én egenskap ikke oppfyller det andre kravet.',
+      ],
+      why: 'En kryptert internettunnel og en privat providerforbindelse løser forskjellige transport- og beskyttelseskrav.',
+      where:
+        'Hybrid Connectivity Explorer → transport, site/klient-omfang, krav og krypteringsvalg.',
+      observe:
+        'Lagret kontrast mellom VPN, ukryptert ExpressRoute og ExpressRoute med eksplisitt IPsec. Ingen tunnel eller circuit opprettes.',
+      debrief:
+        'VPN beskytter en tunnel over sin underliggende vei; ExpressRoute velger privat providertransport. ExpressRoute alene er ikke kryptert. Den deklarerte IPsec-beskyttelsen er et eget planvalg, ikke en faktisk konfigurasjon.',
+    },
+    diagnose: {
+      title: 'B · Finn den manglende hybridforutsetningen',
+      situation:
+        'En organisasjon har planlagt ExpressRoute og en kompatibel site-to-site reserve. Nettverksteamet vil vite om manglende rute eller bortfall av providerforbindelsen fortsatt gir en dokumentert vei.',
+      goal: 'CN01–02: skille circuit, rute, VPN-underlag og eksplisitt reserve fra en tegnet forbindelse.',
+      steps: [
+        'Start og undersøk de enkelte avhengighetene.',
+        'Sett ruting til ikke klar; forutsi og kjør.',
+        'Gjenopprett den deklarerte ruten og sammenlign utfallet.',
+        'Undersøk et circuit-bortfall med og uten en erklært klar VPN-reserve.',
+        'Forklar hvilke krav en reservevei kan oppfylle, og hvilke den ikke arver.',
+      ],
+      why: 'Et circuit-navn eller en krypteringsinnstilling reparerer ikke en manglende rute; en internettreserve beholder ikke et krav om ingen offentlig transport.',
+      where:
+        'Hybrid Connectivity Explorer → circuit, rute, tunnel, reserve og tilgangsforutsetninger.',
+      observe:
+        'Et lagret manglende-grunnlag-utfall etterfølges av en dokumentert vei under rettede forutsetninger. Modellen lover ingen automatisk Azure-failover eller tid.',
+      debrief:
+        'Provider, gateway, routing og tunnelunderlag er forskjellige avhengigheter. En korrekt deklarert VPN-reserve kan bære kryptert trafikk når circuit svikter, men oppfyller ikke samtidig et absolutt krav om privat providertransport.',
+    },
+    endpoint: {
+      title: 'C · Undersøk to innganger til samme tjeneste',
+      situation:
+        'En katalog har en Approved private endpoint. Teamet antar at dette alene stenger tjenestens offentlige inngang. Samtidig må de skille nettverkstilgang fra katalogens brukerrettigheter.',
+      goal: 'CN03: sammenligne public/private endpoint og tjenestens separate public network access.',
+      steps: [
+        'Start og undersøk den private inngangen under deklarerte forutsetninger.',
+        'Behold public network access aktivert og undersøk et offentlig oppslag/endpoint.',
+        'Deaktiver den offentlige inngangen i konseptmodellen og kjør det offentlige forsøket igjen.',
+        'Velg riktig privat oppslag/vei og bekreft at denne inngangen vurderes separat.',
+        'Forklar hvorfor en privat inngang verken er et globalt offentlig avslag eller en applikasjonsrolle.',
+      ],
+      why: 'Private Endpoint er en separat tjenestetilknytning; offentlig nettverkstilgang og dataautorisasjon har egne kontroller.',
+      where:
+        'Endpoint & DNS Explorer → valgt inngang, DNS, Private Endpoint-status og public network access.',
+      observe:
+        'Lagrede private/offentlige utfall viser at public access er et separat valg. Ingen tjenesteinnstilling eller Sandbox-NIC endres.',
+      debrief:
+        'Approved Private Endpoint kan brukes med en dokumentert privat vei, men stenger ikke automatisk public endpoint. Nettverksgodkjenning gir heller ikke rett til å lese tjenestens data.',
+    },
+    dns: {
+      title: 'D · Finn riktig adresse, så riktig vei',
+      situation:
+        'En klient skal bruke en privat tjenesteinngang. DNS-perspektivet velger først offentlig adresse. Etter retting må klienten fortsatt ha privat vei og nødvendige applikasjonsrettigheter.',
+      goal: 'CN04: skille resolver-synlighet, adressevalg, endpoint, nettverksvei og autorisasjon.',
+      steps: [
+        'Start og undersøk det offentlige eller manglende DNS-svaret for privat hensikt.',
+        'Rett den deklarerte private zone-/resolver-synligheten og kjør med manglende privat vei.',
+        'Les at riktig privat adresse nå er kjent, mens forbindelsesgrunnlaget fortsatt mangler.',
+        'Deklarer veien, men avvis applikasjonsrettigheten; kjør og sammenlign.',
+        'Forklar hvilket lag som må korrigeres i hvert tilfelle.',
+      ],
+      why: 'DNS velger hvor forsøket sendes. Oppslaget kan ikke etablere en rute, godkjenne en Private Endpoint eller gi en bruker datarettighet.',
+      where:
+        'Endpoint & DNS Explorer → DNS-perspektiv, resolver, zone-link/forwarding, vei og appautorisasjon.',
+      observe:
+        'Lagret feil eller manglende adresse etterfølges av riktig privat adresse uten tilstrekkelig vei. Senere tilgangsutfall holdes adskilt.',
+      debrief:
+        'Et privat DNS-svar er navnebevis i modellen. Tilkoblingen trenger fortsatt riktig endpoint-status, privat nettverksvei og applikasjonsautorisasjon. Ingen faktisk resolver eller tjeneste er kontaktet.',
+    },
+  },
+  causal: {
+    choose: [
+      'Privat providertransport og ende-til-ende-kryptering er separate krav; ExpressRoute trenger et eget passende krypteringslag.',
+      'En internettunnel er privat providertransport fordi nyttelasten er kryptert.',
+      'ExpressRoute krypterer automatisk alle data gjennom tjenestens navn.',
+    ],
+    diagnose: [
+      'En circuit-registrering beviser at alle ruter og tjenester virker.',
+      'En VPN-reserve arver automatisk providerforbindelsens private transportkrav.',
+      'Underlag, rute og tilgang må være dokumentert; en deklarert reserve har sitt eget transport- og kravgrunnlag.',
+    ],
+    endpoint: [
+      'Approved Private Endpoint gir alle brukere en applikasjonsrolle.',
+      'Private Endpoint, public network access og applikasjonsautorisasjon er separate kontroller.',
+      'En privat DNS-record deaktiverer automatisk public network access.',
+    ],
+    dns: [
+      'Riktig DNS-adresse, endpoint-status, nettverksvei og applikasjonsrettighet må undersøkes som separate lag.',
+      'Et privat DNS-svar viser at brukeren er autorisert og tjenesten har svart.',
+      'En offentlig adresse kan alltid brukes som privat endpoint hvis vertsnavnet er riktig.',
+    ],
+  },
+  milestone: {
+    choose: {
+      title: 'Privat transport er ikke automatisk kryptering',
+      text: 'Den lagrede sammenligningen skiller en privat providervei fra ende-til-ende-kryptering. ExpressRoute uten et eget beskyttelseslag oppfyller ikke et eksplisitt krypteringskrav. Ingen virkelig circuit eller nøkkel er konfigurert.',
+    },
+    diagnose: {
+      title: 'En reserve har sine egne forutsetninger',
+      text: 'Det lagrede utfallet bygger på erklært tunnelunderlag, gateway, routing og reserve. En VPN-reserve er kryptert, men er ikke den samme private providertransporten. Modellen verifiserer ingen Azure-failover eller tjenestehelse.',
+    },
+    endpoint: {
+      title: 'Den private inngangen stenger ikke den offentlige',
+      text: 'Den lagrede kontrasten vurderer public network access separat fra Approved Private Endpoint. Ingen av inngangene gir automatisk datarettighet. Alle endringer er konseptuelle.',
+    },
+    dns: {
+      title: 'Privat adresse funnet; veien må fortsatt finnes',
+      text: 'Det lagrede oppslaget gir en privat eksempeladresse mens nettverksveien fortsatt mangler. DNS har valgt destinasjon, men oppretter ingen rute og gir ingen applikasjonsrolle.',
+    },
+  },
+  model: {
+    hybrid: 'Hybrid Connectivity Explorer · deklarerte forutsetninger',
+    endpoint: 'Endpoint & DNS Explorer · navn, inngang og tilgang',
+    labels: {
+      transport: 'Transportvalg',
+      vpnMode: 'VPN-omfang',
+      demand: 'Hvem skal kobles til?',
+      providerReady: 'Providerforbindelse er klar',
+      gatewayReady: 'Riktig Azure-gateway er klar',
+      tunnelReady: 'VPN-underlag og tunnel er klare',
+      routeReady: 'Hybridrute er erklært klar',
+      circuitUp: 'ExpressRoute circuit er oppe',
+      backupReady: 'Kompatibel S2S VPN-reserve er erklært klar',
+      requirePrivate: 'Krav: unngå offentlig internetttransport',
+      requireEncryption: 'Krav: kryptering mellom erklærte tunnelendepunkter',
+      direct: 'ExpressRoute Direct med MACsec-støtte er forutsatt',
+      encryption: 'Ekstra beskyttelse på ExpressRoute',
+      access: 'Deklarert hybridtilgang',
+      endpoint: 'Tilsiktet tjenesteinngang',
+      dns: 'Klientens DNS-resultat',
+      resolver: 'Resolverperspektiv',
+      linked: 'Klientens VNet har riktig private zone-link',
+      forwarding: 'Fungerende resolver-/forwardingkjede er erklært',
+      privateState: 'Private Endpoint-tilstand',
+      path: 'Deklarert vei til valgt inngang',
+      publicAccess: 'Tjenestens public network access',
+      networkRule: 'Nettverkspolicy for den valgte inngangen',
+      appAuth: 'Applikasjonsautorisasjon',
+      response: 'Tjenestens responsforutsetning',
+    },
+    options: {
+      transport: ['VPN Gateway', 'ExpressRoute'],
+      vpnMode: ['Site-to-site', 'Point-to-site', 'VNet-to-VNet'],
+      demand: ['Et helt lokalt nettverk', 'Én individuell klient', 'Et annet Azure VNet'],
+      encryption: ['Ingen tilleggskryptering', 'IPsec ende til ende', 'MACsec på Direct-link'],
+      access: ['Erklært tillatt', 'Erklært avvist', 'Ukjent'],
+      endpoint: ['Public endpoint', 'Private Endpoint'],
+      dns: ['Offentlig adresse', 'Privat adresse', 'Intet DNS-svar', 'Feil adresse'],
+      resolver: ['Azure-provided DNS', 'Egendefinert / on-premises DNS'],
+      privateState: ['Fraværende', 'Pending', 'Approved'],
+      path: ['Deklarert vei finnes', 'Ingen vei', 'Ukjent'],
+      networkRule: ['Erklært tillatt', 'Erklært avvist', 'Ukjent'],
+      appAuth: ['Erklært autorisert', 'Erklært avvist', 'Ukjent'],
+      publicAccess: ['Aktivert for alle nettverk', 'Deaktivert', 'Utvalgte nettverk'],
+      response: ['Respons antas', 'Ukjent'],
+    },
+    resultLabel: {
+      transportReady: 'Transportavhengigheter klare',
+      modeFits: 'Omfang passer klientbehov',
+      privateTransport: 'Transport uten offentlig internett',
+      encrypted: 'Kryptering mellom erklærte tunnelendepunkter',
+      linkEncrypted: 'Kun fysisk link kryptert',
+      usedBackup: 'Deklarert VPN-reserve brukes',
+      knownPath: 'Logisk vei dokumentert',
+      permitted: 'Deklarert tilgang tillatt',
+      requirementsMet: 'Alle eksplisitte modellkrav dekkes',
+      resolved: 'DNS gir en adresse',
+      endpointMatch: 'Adresse velger tilsiktet inngang',
+      endpointReady: 'Endpoint klar for valgt subressurs',
+      endpointControls: 'Inngangens deklarerte nettverkskontroller',
+      applicationAllowed: 'Deklarert applikasjonsrettighet',
+      networkAllowed: 'Samlet deklarert nettverksgrunnlag',
+      authorized: 'Samlet deklarert tilgang',
+      responseAssumed: 'Tjenestesvar er uttrykkelig antatt',
+    },
+    yes: 'Ja',
+    no: 'Nei',
+    unknown: 'Ukjent / ikke dokumentert',
+    noRun: 'Ingen lagret modellkjøring ennå. Undersøk forutsetningene, forutsi og kjør eksplisitt.',
+    draftChanged:
+      'Utkastet er endret. Resultatet nedenfor gjelder fortsatt den sist lagrede kjøringen.',
+    snapshot: 'Lagrede kjøringer i dette oppdraget',
+    outcome: ['Ikke oppfylt', 'Delvis dokumentert', 'Alle deklarerte krav dekket'],
+    stageLabels: [
+      'Klient',
+      'DNS-oppslag',
+      'Adresse / endpoint',
+      'Nettverksvei',
+      'Nettverkstilgang',
+      'Applikasjonsrettighet',
+      'Antatt respons',
+    ],
+    actualEndpoint: 'DNS-valgt faktisk inngang i modellen',
+    tunnelEncryption: 'Kryptert tunnel',
+    transportMedium: 'Transportunderlag',
+    microsoftTransport: 'Microsofts nettverk · VNet-to-VNet',
+    onPrem: 'Lokalt nettverk / klient',
+    provider: 'Connectivity provider',
+    gateway: 'Azure gateway',
+    vnet: 'Azure VNet',
+    client: 'Klient / vertsnavn',
+    service: 'Støttet tjeneste',
+    ipsec: 'IPsec-tunnel',
+    privateTransport: 'Privat providertransport',
+    publicTransport: 'Offentlig internettunderlag',
+    linkOnly: 'MACsec beskytter Direct-linken',
+    noRuntime:
+      'Dette er erklært logikk. Tunnelkryptering gjelder de erklærte klient-/gatewayendepunktene, ikke automatisk TLS helt til tjenesteprosessen. Ingen pakke, DNS-query, autentisering eller tjenestesvar er målt.',
+  },
+  sections: {
+    introduction: {
+      title: 'Fire forskjellige spørsmål før et program kan bruke tjenesten',
+      paragraphs: [
+        'Fjordverk har et fabrikknett, ingeniører på reise og en katalogtjeneste i Azure. Fabrikken trenger en nettverkstilknytning, den reisende trenger en klientforbindelse, og begge må velge riktig inngang til katalogen. Disse behovene er beslektet, men løses ikke av én nettverksknapp.',
+        'Fra Part A kjenner du VM → NIC → subnet → VNet og DNS-navn som blir til en adresse. Et VNet kobler ikke automatisk fabrikken til Azure. Peering mellom Azure-nettverk gir heller ikke en VPN-klient til en bærbar PC. Vi legger derfor til transport, tunnel og tjenesteinngang uten å endre betydningen av tidligere observasjoner.',
+        'Undersøk fire spørsmål i rekkefølge: Hvordan kommer klienten til Azure? Hvilken adresse velger DNS? Hvilket endpoint mottar forsøket? Hvilke nettverks- og applikasjonskontroller tillater handlingen? En feil på det siste trinnet blir ikke reparert ved å endre navnet som allerede ga riktig adresse.',
+        'De nye utforskerne bruker navngitte eksempelnettverk, private dokumentasjonsforutsetninger og deterministiske regler. En grønn modellstatus betyr at disse erklærte kravene samsvarer. Den betyr ikke at Azure har opprettet en forbindelse, at en bruker er logget inn eller at en tjeneste faktisk svarte.',
+      ],
+      terms: [
+        ['Hybrid tilkobling', 'En forbindelse mellom lokale nettverk eller klienter og Azure.'],
+        ['Underlag', 'Nettverket forbindelsen bruker for å frakte trafikken.'],
+        ['Endpoint', 'Tjenestens inngang der et klientforsøk kan mottas.'],
+      ],
+      example:
+        'En klient får en privat katalogadresse, men kontoret mangler en rute til VNet-et. Adressevalget kan være riktig selv om forbindelsen ikke kan gjennomføres. Undersøk transporten fremfor å opprette en ny DNS-record.',
+      limit:
+        'Ingen modellkonfigurasjon blir en Sandbox-ressurs, teknisk receipt eller ny XP. Tidligere Part A-resultater blir ikke automatisk Part B-førsteinnleveringer.',
+    },
+    vpn: {
+      title: 'VPN Gateway knytter et bestemt omfang til et VNet',
+      paragraphs: [
+        'Et Virtual Private Network bruker en kryptert tunnel over et underliggende nettverk. Krypteringen beskytter trafikken mellom tunnelens ender; underlaget må fortsatt kunne frakte den. Azure VPN Gateway er en type virtual network gateway som terminerer støttede VPN-forbindelser ved et Azure VNet.',
+        'Site-to-site kobler et lokalt VPN-apparat til Azure-gatewayen med IPsec/IKE over offentlig internett. Det passer når et kontor eller datasenter trenger nettverkstilknytning. Point-to-site starter på én støttet klientmaskin, for eksempel en reisende ingeniørs bærbare PC. Den trenger ikke et VPN-apparat i hjemmenettverket; klientprofil, protokoll og autentisering må likevel være kompatible.',
+        'Point-to-site støtter forskjellige protokoll- og klientkombinasjoner som OpenVPN, IKEv2 og SSTP. OpenVPN og SSTP er TLS-baserte, mens IKEv2 bruker IPsec; støttet klient og autentisering må passe den valgte protokollen. Autentisering kan omfatte sertifikat, Microsoft Entra ID eller RADIUS under dokumenterte kompatibilitetskrav. Ikke bruk den forenklede regelen at enhver VPN alltid bruker en delt nøkkel. Dette kurset konfigurerer ingen bruker, nøkkel eller klient.',
+        'VNet-to-VNet kan bruke VPN-gatewayer og en IPsec/IKE-tunnel mellom Azure-nettverk. Produktdokumentasjonen beskriver denne trafikken over Microsofts nettverk. Det skiller seg fra det lokale nettverkets internettransport, og fra VNet Peering, som ikke krever en VPN-gateway for den direkte forbindelsen. Et krav om en bestemt kryptert gateway-tunnel kan derfor gi et annet valg enn vanlig peering.',
+        'Gatewayen trenger en dedikert GatewaySubnet og riktige adresse-, rute- og enhetsforutsetninger. Ikke plasser den i det ordinære VM-subnettet bare fordi det allerede finnes. Flere tunneler deler gatewaykapasiteten; SKU, region, features og kompatibilitet må kontrolleres ved virkelig design. Den daterte produktoversikten anbefaler AZ-SKU-er og omtaler migrering av eldre VpnGw1–5; vi velger ingen live SKU eller måler ytelse.',
+      ],
+      terms: [
+        ['Site-to-site', 'Tunnel mellom et lokalt nettverks VPN-enhet og Azure VPN Gateway.'],
+        ['Point-to-site', 'Klientinitiert VPN fra én maskin til VNet-et.'],
+        ['IPsec/IKE', 'Protokoller for beskyttet IP-trafikk og oppsett av sikkerhetsforbindelsen.'],
+        [
+          'GatewaySubnet',
+          'Dedikert subnet for VNet-gatewayens ressurser, adskilt fra ordinære VM-subnett.',
+        ],
+      ],
+      example:
+        'Et lite servicekontor har flere arbeidsstasjoner som skal bruke et privat Azure-nett. Site-to-site kan knytte nettverket til Azure. En enkelt rådgiver på reise kan i stedet bruke point-to-site; å installere én klient kobler ikke automatisk hele servicekontorets nettverk.',
+      limit:
+        'Kryptering reparerer ikke et dødt internetunderlag, manglende ruting eller avvist applikasjonsrolle. Ingen virkelig tunnel, klientautentisering eller gateway opprettes her.',
+    },
+    expressroute: {
+      title: 'Velg privat transport og beskyttelse hver for seg',
+      paragraphs: [
+        'ExpressRoute utvider et lokalt nettverk mot Microsofts cloud gjennom privat tilkobling, vanligvis med en connectivity provider. Trafikken på denne forbindelsen går ikke over offentlig internett. ExpressRoute Direct er en egen tilkoblingsmulighet for passende organisasjoner; den betyr ikke at providerrollen kan ignoreres i et vanlig providerbasert design.',
+        'Et circuit er en logisk forbindelse. Providerens leveranse, riktig peering, ruting og tilknytning til Azure VNet er egne avhengigheter. Azure private peering brukes for VNet-ressurser og deres adresser. Microsoft peering brukes mot kvalifiserte Microsoft-tjenester med offentlig adressering og separate krav. Disse ExpressRoute-peerings er ikke det samme som Part A VNet Peering.',
+        'Privat transport kan være riktig ved krav om å unngå internett og ved behov for mer forutsigbar forbindelse. Det er ingen garanti for en bestemt hastighet, latenstid eller tilgjengelig applikasjon. Sammenlign providerens kapasitet, leveransetid, circuit-/gateway- og datakostnader, geografisk rekkevidde og driftsansvar. Global Reach forbinder lokale steder via circuits; det er ikke et annet navn på alle Premium- eller globale tjenestetilganger.',
+        'ExpressRoute-trafikk er ikke kryptert som standard. Et krav om privat transport er derfor forskjellig fra et krav om kryptert nyttelast. MACsec kan beskytte den fysiske linken ved ExpressRoute Direct, men er ikke universell ende-til-ende-beskyttelse for et provider-circuit. IPsec kan brukes som et eget ende-til-ende-lag; applikasjonens TLS er også et separat beskyttelseslag.',
+        'Et circuit har redundant tilkobling ved peeringstedet, men organisasjonens lokale edge, last mile og provider kan fortsatt være felles feilgrenser. En kompatibel site-to-site VPN kan planlegges som reserve for private-peering/VNet-forbindelsen. Den må ha fungerende underlag, riktige ruter og preferanser. Den er ikke en universell automatisk reserve for alle tjenester gjennom Microsoft peering.',
+      ],
+      terms: [
+        [
+          'Connectivity provider',
+          'Leverandøren som bidrar med den private forbindelsen mellom organisasjonen og Microsoft.',
+        ],
+        [
+          'Circuit',
+          'Logisk ExpressRoute-forbindelse med sitt eget kapasitets- og peeringgrunnlag.',
+        ],
+        ['Private peering', 'ExpressRoute-rutingsdomene mot VNet-ressurser.'],
+        [
+          'MACsec og IPsec',
+          'Beskyttelse med forskjellig scope: fysisk link kontra en IP-tunnel mellom endepunkter.',
+        ],
+      ],
+      example:
+        'En organisasjon har allerede privat providertransport, men må beskytte data helt fra lokal gateway til Azure VNet. Å peke på ExpressRoute-navnet eller kun en fysisk MACsec-link dekker ikke alene det uttrykkelige ende-til-ende-kravet; et passende krypteringslag må inngå i planen.',
+      limit:
+        'Modellen evaluerer erklærte avhengigheter, ikke providerprovisjonering, BGP, live priser eller failovertid. Privat vei gir ingen automatisk brukerautorisasjon eller garanti om applikasjonssvar.',
+    },
+    endpoints: {
+      title: 'En offentlig adresse er ikke en offentlig datatillatelse',
+      paragraphs: [
+        'Et public endpoint er en tjenesteinngang med offentlig adressering. Det gjør inngangen mulig å nå fra relevante nettverk under dens innstillinger; det betyr ikke at alle anonymt kan bruke dataene. En nettverksregel kan begrense kildene, og tjenesten kan kreve innlogging og en separat datarettighet.',
+        'Et Private Endpoint er en nettverksgrensesnittressurs i et VNet med en privat IP fra subnettet, tilknyttet en støttet tjeneste eller subressurs gjennom Azure Private Link. Tjenesten har fortsatt sitt eget managed driftsmiljø. Den er ikke blitt en VM inne i subnettet, og ett endpoint betyr ikke automatisk privat tilgang til alle tjenestens underfunksjoner.',
+        'Private Endpoint-forbindelsen må blant annet peke mot riktig støttet subressurs og ha Approved status. Pending betyr at godkjenningen mangler; DNS som viser en adresse gjør ikke Pending til Approved. Konsumerende klienter kan komme fra VNet-et, passende sammenkoblede VNet eller korrekt tilknyttede lokale nettverk, men må ha de nødvendige rutings- og tilgangsforutsetningene.',
+        'Tjenestens public network access er et separat innstillingsområde. Å opprette Private Endpoint stenger ikke automatisk den offentlige inngangen. Azure Storage dokumenterer dette eksplisitt: kontroller public endpoint separat hvis kravet er bare privat tilgang. Dets offentlige firewall er heller ikke en universell regelmotor for alle private forbindelser eller alle Azure-tjenester.',
+        'Nettverksgodkjenning og applikasjonsautorisasjon svarer på forskjellige spørsmål. Et Approved endpoint kan fortsatt avvise en bruker uten riktig rolle. Omvendt kan en gyldig bruker bli stoppet før applikasjonen fordi den offentlige inngangen er deaktivert eller en valgt nettverkspolicy avviser kilden. Identitetskontroll overstyrer ikke uten videre nettverkskontrollen.',
+      ],
+      terms: [
+        [
+          'Public endpoint',
+          'Tjenesteinngang med offentlig IP-adressering og sine egne tilgangsforutsetninger.',
+        ],
+        [
+          'Private Endpoint',
+          'Privat NIC-tilknytning fra et konsumerende VNet til en støttet Private Link-tjeneste/subressurs.',
+        ],
+        [
+          'Approved',
+          'Tjenestetilknytningen er godkjent; dette gir ikke automatisk datarettighet til alle brukere.',
+        ],
+        ['Public network access', 'Tjenestens separate styring av den offentlige inngangen.'],
+      ],
+      example:
+        'Et offentlig support-API krever en innlogget bruker med leserolle og en tillatt kilde. Offentlig adresse og navneoppslag kan være riktige selv når API-et avviser anonym bruk. Et privat endpoint til en annen tjeneste ville ikke løst det manglende brukersamtykket.',
+      limit:
+        'Tjenestestøtte, SKU, region, subressurs og policyfunksjoner varierer. Eksempel-NIC og endpoint-adresser finnes bare i konseptmodellen. Ingen Private Link-ressurs eller falsk Portal-knapp legges til.',
+    },
+    'private-dns': {
+      title: 'Klientens DNS-perspektiv avgjør hvilken inngang den forsøker',
+      paragraphs: [
+        'En tjeneste kan beholde sitt vanlige hostname selv om klienten skal bruke en privat inngang. DNS-oppslaget kan følge en CNAME-kjede til en private-link-sone og få en privat A-record. Recorden må vise riktig endpoint-adresse for klientens perspektiv; en offentlig CNAME eller et vertsnavn alene beviser ingen privat tilkobling.',
+        'Med Azure-provided DNS kan en riktig private DNS zone og relevant VNet-link gi klienten privat oppløsning. En sone som bare er linket til ett annet VNet blir ikke automatisk synlig i alle peered nettverk. Bruk samme relevante sone og riktige klientlinker i et slikt design, fremfor å skape konkurrerende navnerom uten forklaring.',
+        'En lokal klient eller et VNet med egen DNS trenger en komplett, fungerende oppslagsvei. En Azure DNS Private Resolver eller en riktig plassert DNS-forwarder kan inngå. Den lokale serveren må kunne nå løsningen, og videresendingen må følge tjenestens anbefalte navnestruktur. Å skrive Azure sin interne resolveradresse på en klient uten denne veien gir ikke magisk navneoppløsning.',
+        'Bruk tjenestens normale hostname og støttede forbindelsesinnstillinger. Ikke erstatt alle connection strings med privatelink-alias eller en rå privat IP: tjenestens forventede vertsnavn, sertifikat og tjenestespesifikke oppsett kan kreve at det vanlige navnet beholdes. Private DNS-konfigurasjon og subressursnavn må kontrolleres mot den aktuelle tjenesten.',
+        'Når DNS nå gir riktig privat adresse, begynner et annet spørsmål: finnes en rute og en godkjent riktig endpoint-forbindelse, tillater nettverkskontrollene kilden, og har applikasjonen lov til å utføre handlingen? DNS reparerer ingen av disse lagene. Feilsøk det første trinnet som ikke har tilstrekkelig grunnlag, og behold tidligere korrekte observasjoner.',
+      ],
+      terms: [
+        ['DNS-perspektiv', 'De navnesvarene klientens faktiske resolverkonfigurasjon kan gi.'],
+        [
+          'Private zone-link',
+          'Knytter en privat DNS-zone til et VNet for den støttede oppløsningsveien.',
+        ],
+        [
+          'Forwarding',
+          'Videresending av navnespørsmål til en resolver som kan svare for riktig navnerom.',
+        ],
+        [
+          'Subressurs',
+          'Den konkrete tjenestedelen endpoint-et gjelder, for eksempel en støttet datainngang.',
+        ],
+      ],
+      example:
+        'Et kontor får offentlig adresse til en tjeneste som bare tillater den private inngangen. Etter riktig forwarding får samme normale hostname privat adresse. Hvis hybridruten fortsatt mangler, er DNS-rettingen reell, men forbindelsen er fortsatt ikke dokumentert.',
+      limit:
+        'Ingen reell resolver, cache, TTL, DNS-pakke eller hostname-kall kjøres. Offentlige og private eksempeladresser er modellerte, ikke allokeringer fra den faktiske Sandbox.',
+    },
+    hybrid: {
+      title: 'Les transportens avhengigheter og feilgrenser',
+      paragraphs: [
+        'Hybrid Connectivity Explorer viser et lokalt nettverk eller en klient, et internetunderlag eller en providervei, gateway og VNet. VPN-omfanget må passe behovet: site, bruker eller annet VNet. Et ExpressRoute-circuit trenger ikke den samme tunnelen som en internet-VPN, men har egne provider-, peering- og rutingsforutsetninger.',
+        'Før kjøring velger du hvilke krav organisasjonen faktisk stiller. «Ingen offentlig internetttransport» og «kryptering ende til ende» vises separat. VPN kan være kryptert og samtidig feile det første kravet. ExpressRoute kan være privat og samtidig feile det andre. MACsec vises som linkbeskyttelse i et Direct-scenario, ikke som et løfte om ende-til-ende-kryptering.',
+        'Undersøk deretter et avbrudd. Et circuit-bortfall med en erklært kompatibel VPN-reserve kan gi en annen logisk vei under modellens regler. Hvis routing ikke er klar, eller en felles lokal avhengighet mangler, er det ikke nok at reservens navn er valgt. Hvilket krav som fortsatt dekkes må vurderes etter veiendringen.',
+        'Forutsi før du kjører. Resultatet er bundet til de lagrede forutsetningene; hvis du senere endrer utkastet, tilhører det gamle resultatet fortsatt den gamle konfigurasjonen. En årsaksforklaring er nødvendig for guidet fullføring. Å se en animasjon, åpne en side eller klikke en transport gir ingen uavhengig vurderingskreditt.',
+      ],
+      terms: [
+        [
+          'Feilgrense',
+          'En avhengighet eller et område der ett problem kan påvirke flere ellers separate forbindelser.',
+        ],
+        [
+          'Deklarert reserve',
+          'En uttrykkelig forutsatt kompatibel og klar alternativ vei, ikke en automatisk opprettet forbindelse.',
+        ],
+        [
+          'Modellkrav',
+          'De eksplisitte begrensningene og målene akkurat den lagrede kjøringen vurderer.',
+        ],
+      ],
+      example:
+        'To forbindelser deler samme kontorrouter. En feil i routeren kan ramme begge, selv om én vei er ExpressRoute og den andre er VPN. Vurder ende-til-ende-uavhengighet fremfor bare antall linjer i figuren.',
+      limit:
+        'Dette er en avgrenset regelmodell. Den regner ikke ekte BGP-valg, gateway-SKU-ytelse, rutekonvergens, kapasitet eller Azure-SLA.',
+    },
+    explorer: {
+      title: 'Følg navnet gjennom adressen til en tillatelse',
+      paragraphs: [
+        'Endpoint & DNS Explorer lar deg undersøke hvert trinn: klientens hensikt, navnesvar, faktisk valgt inngang, deklarert nettverksvei, endpoint-status og nettverkskontroll, applikasjonsautorisasjon og antatt tjenesterespons. En korrekt adresse betyr bare at navnet har gitt et relevant mål.',
+        'Velger DNS en offentlig adresse mens hensikten er privat tilkobling, skal modellen vise begge fakta. Oppslaget kan ha lykkes selv om det valgte endpoint-et ikke samsvarer med kravet. Public network access og nettverkspolicy kan deretter stoppe forsøket, uavhengig av at et Private Endpoint eksisterer.',
+        'Velger DNS riktig privat adresse, undersøker modellen Approved-forutsetningen og den erklærte veien. En Pending-forbindelse, manglende vei og avvist applikasjonsrolle er forskjellige årsaker. Ikke vis alle som «DNS-feil», og ikke kall alle vellykkede navnesvar en vellykket applikasjonsforbindelse.',
+        'Også tjenesteresponsen er en separat antakelse. Med riktige adresser, nettverkskontroller og rettigheter kan en faktisk tjeneste fortsatt være utilgjengelig. Modellen kan bare vise den responsen du uttrykkelig har forutsatt. Tabellen gjør kjeden lesbar uten farger eller grafiske piler.',
+      ],
+      terms: [
+        [
+          'Tilsiktet inngang',
+          'Det public/private endpoint-et organisasjonens krav faktisk peker mot.',
+        ],
+        [
+          'Valgt inngang',
+          'Endpoint-et klientens modellerte navnesvar faktisk retter forsøket mot.',
+        ],
+        [
+          'Autorisering',
+          'Tjenestens avgjørelse om denne identiteten kan utføre den ønskede datahandlingen.',
+        ],
+      ],
+      example:
+        'En klient har korrekt privat adresse og tillatt nettverksvei, men rollen gir ikke skriverettighet. Å rette en DNS-record igjen løser ikke skriveretten. Behold det dokumenterte navnegrunnlaget og undersøk applikasjonsautorisasjonen.',
+      limit:
+        'DNS, policy og tjenesterespons er deklarerte fixtures. Ingen operativ nettverkshelse, identitet, faktisk tilgang eller produksjonsendring er validert.',
+    },
+  },
+} as const;
+
+/** Original P07 cases. Stable IDs and authored decision/reason relations; not an exam bank. */
+export const connectivityItemsNb = {
+  nc01: {
+    title: 'Rådgiver på et skiftende nettverk',
+    problem:
+      'En rådgiver arbeider fra hotell og hjemmekontor. Bare den bærbare klienten skal bruke et privat Azure VNet. Organisasjonen kan installere en støttet klientprofil, men kontrollerer ikke en VPN-enhet på hvert lokalt nett.',
+    premises: [
+      'Klientens operativsystem og autentiseringsmetode kan matches med en støttet Azure-konfigurasjon.',
+      'Internettforbindelse er tilgjengelig.',
+      'Det er ikke et krav å koble hotellnettets øvrige enheter til Azure.',
+    ],
+    decisions: [
+      'Bestill en ExpressRoute-circuit for hvert av hotellnettene brukeren besøker.',
+      'Bruk site-to-site fra en sentral kontorrouter og anta at rådgiverens eksterne klient følger denne forbindelsen.',
+      'Planlegg point-to-site fra den støttede klienten til Azure VPN Gateway.',
+    ],
+    reasons: [
+      'En providerbasert forbindelse kan utvide et kontrollert organisasjonsnettverk mot Microsoft under leverandørens leveransekrav.',
+      'Klientinitiert VPN passer én ekstern maskin uten krav om et lokalt VPN-apparat.',
+      'En gateway kan dele kapasitet mellom flere kompatible tunneler til forskjellige steder eller klienter.',
+    ],
+    decisive:
+      'Det er én flyttbar klient som skal kobles til. Point-to-site kan starte fra denne klienten; et kontors tunnel kobler ikke automatisk inn en ekstern hotellklient.',
+    feedback: [
+      [
+        'Dette kan passe et kontrollert, fast lokalt nett med provideravtale. Her flytter én klient seg mellom nett organisasjonen ikke eier; circuit per hotell løser ikke klientkravet hensiktsmessig.',
+        'Site-to-site kan knytte kontornettet til Azure, men rådgiveren befinner seg ikke på det nettet i premisset. En egen dokumentert klientvei måtte fortsatt etableres.',
+        'Riktig under de oppgitte kompatibilitetsforutsetningene. P2S starter på klienten og krever ikke et VPN-apparat på hvert hotell.',
+      ],
+      [
+        'Dette er en egenskap ved providertransport, men det gjør ikke skiftende hotellnett til kontrollerte lokale steder med circuit-leveranse.',
+        'Riktig mekanisme: klientomfanget passer oppgaven. Protokoll, operativsystem og autentisering må fortsatt være kompatible.',
+        'Kapasitetsdeling er relevant ved dimensjonering, men avgjør ikke hvordan en ekstern enkeltklient blir tilknyttet i dette tilfellet.',
+      ],
+    ],
+  },
+  nc02: {
+    title: 'Kontoret skal kobles til som nettverk',
+    problem:
+      'En filial har tretti arbeidsstasjoner og en kompatibel VPN-enhet. Det lokale nettverket skal nå et Azure VNet gjennom en kryptert forbindelse. Internett kan brukes, og kravet gjelder hele filialnettet fremfor personlige klientprofiler.',
+    premises: [
+      'Riktige, ikke-overlappende adresseområder og nødvendige ruter kan planlegges.',
+      'Filialen har et tilgjengelig internetunderlag.',
+      'Ingen policy krever privat providertransport.',
+    ],
+    decisions: [
+      'Planlegg en site-to-site-forbindelse mellom filialens VPN-enhet og Azure VPN Gateway.',
+      'Installer én point-to-site-profil på en arbeidsstasjon og bruk den som dokumentasjon for hele filialens tilknytning.',
+      'Opprett VNet Peering mellom filialens fysiske router og Azure VNet-et.',
+    ],
+    reasons: [
+      'En individuell klient kan starte sin egen VPN-forbindelse med en kompatibel profil.',
+      'Azure VNet Peering etablerer en direkte relasjon mellom virtuelle Azure-nettverk uten en VPN-gateway for selve peeringforbindelsen.',
+      'Site-to-site kobler filialens VPN-enhet til Azure med IPsec/IKE og lar denne enheten være tunnelmotpart for nettverket.',
+    ],
+    decisive:
+      'Kravet gjelder et helt lokalt nettverk med en VPN-enhet. S2S har riktig omfang; en enkelt P2S-profil eller en VNet-peering er ikke filialens nettverkstilknytning.',
+    feedback: [
+      [
+        'Riktig under premissene. S2S knytter det lokale nettverkets enhet til Azure, mens routing og tilgang fortsatt må planlegges.',
+        'P2S kan være riktig for enkelte fjernarbeidere. Én klients profil dokumenterer ikke en ferdig tilknytning for filialens øvrige arbeidsstasjoner.',
+        'VNet Peering gjelder Azure VNet, ikke en vanlig fysisk filialrouter. Et annet Azure VNet kunne vært en relevant peeringmotpart.',
+      ],
+      [
+        'Dette beskriver P2S, men forklarer ikke hvorfor hele filialens VPN-enhet skal være tunnelmotpart.',
+        'Dette beskriver Azure-peering. Filialens fysiske router blir ikke et Azure VNet av å få en peeringbetegnelse.',
+        'Riktig omfang og mekanisme. Internetunderlaget må fortsatt fungere, og gateway-/enhetsinnstillingene må være kompatible.',
+      ],
+    ],
+  },
+  nc03: {
+    title: 'To Azure-nettverk med et tunnelkrav',
+    problem:
+      'To Azure VNet har ikke-overlappende områder. En revidert sikkerhetsstandard krever IPsec/IKE-beskyttelse på nettverkslaget mellom dem. Teamet sammenligner en applikasjonsbasert løsning med en gatewaybasert løsning.',
+    premises: [
+      'Begge VNet kan ha riktig konfigurerte kompatible gatewayer.',
+      'Kravet gjelder nettverkslaget; applikasjonens TLS er et annet lag.',
+      'Ingen lokal filial er med i denne forbindelsen.',
+    ],
+    decisions: [
+      'Bruk VNet Peering og TLS i applikasjonene som organisasjonens eneste beskyttelseslag for denne forbindelsen.',
+      'Planlegg en VNet-to-VNet VPN-forbindelse mellom gatewayene.',
+      'Bruk en point-to-site-profil på én VM som erstatning for gatewayenes nettverk-til-nettverk-forbindelse.',
+    ],
+    reasons: [
+      'VNet-to-VNet VPN gir en IPsec/IKE-tunnel mellom Azure VPN-gatewayer.',
+      'En klientprofil gir en enkelt maskin mulighet til å starte en støttet VPN-forbindelse mot et VNet.',
+      'Microsofts backbone brukes av flere Azure-forbindelser, og kan bære trafikk mellom regioner etter tjenestenes vilkår.',
+    ],
+    decisive:
+      'VNet-to-VNet VPN følger kravet om IPsec/IKE-beskyttelse på nettverkslaget under de oppgitte gatewayforutsetningene. Peering med applikasjonens TLS beskytter et annet lag.',
+    feedback: [
+      [
+        'Peering kombinert med TLS kan være en legitim arkitektur ved et krav om applikasjonskryptering. Her kreves IPsec/IKE på nettverkslaget; den tilbudte TLS-planen dekker et annet lag.',
+        'Riktig. Gatewayene kan terminere VNet-to-VNet-tunnelen; dette hevder ingen faktisk opprettet eller målt tunnel.',
+        'En enkeltklienttilkobling har et annet omfang og andre endepunkter. Den er ikke de to gatewayenes nettverk-til-nettverk-forbindelse.',
+      ],
+      [
+        'Riktig mekanisme og termineringspunkt. Produktdokumentasjonen beskriver VNet-to-VNet-trafikk over Microsofts nettverk; ikke alle VPN-scenarier har offentlig internettunderlag.',
+        'Dette er riktig om klientinitiert VPN, men klientprofilen er ikke de to gatewayenes tunnelkontrakt.',
+        'Riktig som transportkontekst, men transportnettets navn alene beviser verken IPsec eller hvilken gateway som terminerer tunnelen.',
+      ],
+    ],
+  },
+  nc04: {
+    title: 'Et fungerende circuit med en ny tjenestetype',
+    problem:
+      'Et eksisterende ExpressRoute-circuit bruker Azure private peering til VM-er i et VNet. Organisasjonen vil også nå en støttet Microsoft-tjeneste med offentlig adressering over circuit-et. VM-forbindelsen fungerer; den nye tjenestens tilgangskrav må vurderes separat.',
+    premises: [
+      'Den aktuelle tjenesten er kvalifisert for Microsoft peering.',
+      'Nødvendig offentlig adresseeierskap og andre peeringkrav kan oppfylles.',
+      'Det eksisterende circuit-et skal gjenbrukes der tjeneste- og providerkrav tillater det.',
+    ],
+    decisions: [
+      'Opprett VNet Peering fra VM-nettet til tjenestens offentlige DNS-navn.',
+      'Bruk den eksisterende private peering som bevis for at enhver offentlig Microsoft-tjeneste allerede er tilkoblet.',
+      'Undersøk og planlegg Microsoft peering på circuit-et for den nye tjenesten.',
+    ],
+    reasons: [
+      'Microsoft peering har et eget rutingsdomene for kvalifiserte offentlige Microsoft-tjenester; fungerende VNet private peering erstatter ikke den nye tjenestens peeringkrav.',
+      'En circuit har delt kapasitet på tvers av peerings og en bestemt provider- og peeringtilknytning som inngår i kapasitetsplanleggingen.',
+      'Private VNet-adresser beskriver et annet adresserings- og rutingsområde enn en klients vanlige offentlige tjenesteoppslag.',
+    ],
+    decisive:
+      'Et circuit kan ha private peering og Microsoft peering med forskjellige rutingsdomener. At private peering når en VM betyr ikke at den nye offentlige tjenesten er dekket.',
+    feedback: [
+      [
+        'VNet Peering knytter to Azure VNet, ikke et VNet til et offentlig tjenestenavn. Det kunne vært relevant for et annet Azure-nettverk i en endret oppgave.',
+        'Private peering dekker ikke automatisk alle offentlige tjenester. Den fungerende VM-veien skal beholdes som et eget korrekt observasjonsgrunnlag.',
+        'Riktig under tjenestens og providerens krav. Microsoft peering vurderes separat; dette er en planbeslutning, ikke en utført BGP-konfigurasjon.',
+      ],
+      [
+        'Riktig begrunnelse for peeringvalget. Offentlig adressering er ikke det samme som offentlig internetttransport på en egnet ExpressRoute-vei.',
+        'Dette er en faktisk circuit-egenskap, men kapasitetens deling velger ikke riktig rutingsdomene for den nye tjenesten.',
+        'Adresseskillet er relevant kontekst, men alene sier det ikke hvilken støttet ExpressRoute-peering som skal planlegges.',
+      ],
+    ],
+  },
+  nc05: {
+    title: 'Hva dekker den aktiverte MACsec-linken?',
+    problem:
+      'En organisasjon bruker ExpressRoute Direct med MACsec på linken til Microsoft. Et nytt krav gjelder kryptering fra lokal gateway helt til en gateway i Azure VNet. Revisjonen må sammenligne det nye kravet med beskyttelsens faktiske scope.',
+    premises: [
+      'Det eksisterende Direct-/MACsec-oppsettet er kompatibelt og fungerer.',
+      'Kravet kan oppfylles med et passende IPsec-oppsett.',
+      'Ruting og tilgangsregler må vurderes separat fra krypteringen.',
+    ],
+    decisions: [
+      'Behold relevant linkbeskyttelse og planlegg et egnet ende-til-ende-IPsec-lag for det nye kravet.',
+      'Registrer MACsec som tilstrekkelig ende-til-ende-beskyttelse fordi trafikken er kryptert på én fysisk link.',
+      'Bruk bare applikasjonens TLS-forbindelser og avslutt undersøkelsen av gateway-til-gateway-beskyttelse.',
+    ],
+    reasons: [
+      'ExpressRoute Direct gir et fysisk tilkoblingsalternativ med andre leveranseforutsetninger enn et vanlig provider-circuit.',
+      'MACsec beskytter en link; IPsec kan beskytte den påkrevde ende-til-ende-tunnelen.',
+      'Et hostname kan beholdes når DNS velger en annen tjenesteinngang, slik at klientens applikasjonskonfigurasjon vurderes separat.',
+    ],
+    decisive:
+      'Det eksisterende MACsec-oppsettet har et linkscope. Kravet om beskyttelse helt mellom gatewayene trenger et passende ende-til-ende-lag; IPsec er ett slikt planlagt alternativ i premissene.',
+    feedback: [
+      [
+        'Riktig under de eksplisitte premissene. MACsec og IPsec kan ha forskjellige og supplerende beskyttelsesområder.',
+        'Linkkryptering er en reell beskyttelse, men dekker ikke automatisk hele den oppgitte ende-til-ende-strekningen. Dette valget ville passet et rent linkkrav.',
+        'TLS kan beskytte applikasjonsforbindelser, men dokumenterer ikke automatisk beskyttelse mellom de to gatewayene. Et rent applikasjonskrav ville gitt dette valget en annen rolle.',
+      ],
+      [
+        'Dette beskriver et tilkoblingsalternativ, men forklarer ikke hvorfor den nye gateway-til-gateway-strekningen trenger et eget beskyttelseslag.',
+        'Riktig scopesammenligning. Hver beskyttelse må vurderes mot de faktiske endepunktene kravet angir.',
+        'Dette er navne-/endpointkontekst, men DNS-egenskapen forklarer ingen MACsec- eller IPsec-beskyttelse.',
+      ],
+    ],
+  },
+  nc06: {
+    title: 'Reserveplanen omfatter forskjellige peerings',
+    problem:
+      'En organisasjon bruker private peering til VNet-arbeidslaster og Microsoft peering til en kvalifisert offentlig tjeneste. Beredskapsplanen foreslår én site-to-site VPN som dokumentert universell reserve for begge trafikktypene ved circuit-bortfall.',
+    premises: [
+      'VPN-reserven er kompatibelt planlagt for VNet-rutene og har et uavhengig fungerende underlag.',
+      'Den offentlige tjenesten nås gjennom Microsoft peering i normaldrift.',
+      'Ingen annen reserve for den offentlige tjenesten er dokumentert.',
+    ],
+    decisions: [
+      'Godkjenn reserveplanen for begge trafikktypene fordi de deler samme ExpressRoute-circuit.',
+      'Avgrens den beskrevne VPN-reserven til private-peering/VNet-trafikken og planlegg den offentlige tjenestens alternativ separat.',
+      'Deaktiver private peering, slik at Microsoft peering og VPN får samme destinasjonsomfang.',
+    ],
+    reasons: [
+      'Redundante BGP-forbindelser ved et peeringsted kan bedre motstandskraft mot enkelte feil i det normale circuit-oppsettet.',
+      'En site-to-site-tunnel bruker internettunderlaget selv om den beskytter trafikken med kryptering mellom tunnelendene.',
+      'Den dokumenterte S2S-failovermekanismen for VNet private peering er ikke en generell reserve for Microsoft-peering-tjenester.',
+    ],
+    decisive:
+      'Reserveomfanget må følge det dokumenterte rutings- og tjenestegrunnlaget. En korrekt VNet-reserve dokumenterer ikke samtidig en reserve for den offentlige Microsoft-peering-tjenesten.',
+    feedback: [
+      [
+        'Felles circuit gir ikke felles automatisk failoveromfang. En universell godkjenning mangler tjenestens særskilte alternative vei.',
+        'Riktig. Behold den dokumenterte VNet-reserven, og gjør den offentlige tjenestens beredskap til en eksplisitt separat designoppgave.',
+        'Å fjerne den fungerende ExpressRoute private peering-forbindelsen endrer ikke hva en VPN-reserve støtter. Det ville i stedet fjerne deler av dagens forbindelsesgrunnlag.',
+      ],
+      [
+        'Dette er en faktisk redundansegenskap ved circuit-et, men besvarer ikke hvilke tjenester den separate VPN-reserven dekker.',
+        'Internettransporten er viktig ved policyvurdering av reserveveien, men den alene forklarer ikke skillet mellom de to peering-destinasjonene.',
+        'Riktig tjeneste- og rutingsavgrensning. Den offentlige tjenesten trenger sin egen dokumenterte alternative tilgjengelighetsplan.',
+      ],
+    ],
+  },
+  nc07: {
+    title: 'Gyldig bruker fra en ny kildeadresse',
+    problem:
+      'Et offentlig tjenesteendpoint krever en gyldig brukerrolle og tillatt nettverkskilde. Brukerrollen er kontrollert som gyldig, DNS gir forventet offentlig adresse, og nettverkspolicyen avviser klientens nye kildeadresse.',
+    premises: [
+      'Det er fortsatt et godkjent krav å bruke public endpoint.',
+      'Klientens nye adresse kan vurderes etter organisasjonens nettverkspolicy.',
+      'Tjenestens innlogging og rolle skal beholdes.',
+    ],
+    decisions: [
+      'Fjern brukerautentiseringen, slik at den offentlige adressen kan brukes uten identitet.',
+      'Undersøk den avviste kildeadressen og korriger nettverkstillatelsen dersom policyen godkjenner kilden.',
+      'Bytt DNS til en vilkårlig privat IP uten å etablere en privat tjenestetilknytning.',
+    ],
+    reasons: [
+      'Nettverkskilde og rolle er separate kontroller; den gyldige brukerrollen opphever ikke kildepolicyens nettverksavslag.',
+      'Public endpoint bruker offentlig adressering og kan fremdeles kreve en applikasjonsidentitet med bestemte datarettigheter.',
+      'En private DNS-zone kan gi interne klienter et eget navneperspektiv når riktig sone, record og resolvervei finnes.',
+    ],
+    decisive:
+      'Det eksplisitt observerte avslaget gjelder nettverkskilden. Det krever kilde-/policyundersøkelse; å fjerne en allerede riktig identitetskontroll er ingen reparasjon.',
+    feedback: [
+      [
+        'Autentiseringen er et eget oppfylt krav og skal ikke fjernes. Dette ville svekke tilgangsmodellen uten å rette nettverkspolicyens avslag.',
+        'Riktig. Kilden må vurderes, ikke automatisk tillates. Et legitimt policyavslag kan også ende med at klienten må bruke en annen godkjent kilde.',
+        'En privat adresse uten riktig endpoint og vei løser ikke det dokumenterte offentlige nettverkskravet. Privat design ville krevd en separat plan.',
+      ],
+      [
+        'Riktig kausal forklaring på hvorfor den gyldige brukerrollen ikke løser den avviste kilden.',
+        'Dette er sant om offentlig adressering og identitet, men sier alene ikke hvorfor nettopp kildepolicyen må undersøkes i dette hendelsesbildet.',
+        'Dette er et annet navneperspektiv. Oppgaven har allerede et riktig offentlig DNS-svar og en spesifikk nettverksavvisning.',
+      ],
+    ],
+  },
+  nc08: {
+    title: 'Privat drift og en ekstern samarbeidspartner',
+    problem:
+      'En tjeneste har en Approved private endpoint for interne arbeidslaster. En ekstern samarbeidspartner skal fortsatt bruke den autentiserte offentlige inngangen fra et avgrenset godkjent nett. Partneren har ingen privat nettverksvei. Teamet foreslår å deaktivere all offentlig tilgang straks.',
+    premises: [
+      'Tjenesten støtter den nødvendige kontrollen av offentlige kilder.',
+      'Partnerens identitet og datarettigheter skal fortsatt kontrolleres.',
+      'Kravet om ekstern offentlig tilgang er uttrykkelig beholdt.',
+    ],
+    decisions: [
+      'Deaktiver public network access og anta at partneren får privat rute gjennom sin brukerrolle.',
+      'Fjern Private Endpoint slik at begge klientgrupper må ha samme offentlige inngang.',
+      'Behold den private inngangen og planlegg separat avgrenset offentlig nettverkstilgang med fortsatt partnerautorisasjon.',
+    ],
+    reasons: [
+      'En godkjent Private Endpoint har en privat adresse fra konsumentens subnet og knytter denne inngangen til en støttet tjenestedel.',
+      'Et offentlig DNS-oppslag kan gi en adresse selv om tjenestens nettverkskontroller senere avviser forbindelsen fra klienten.',
+      'Separate private og offentlige innganger kan støtte forskjellige klientkrav; den interne private forbindelsen skaper ingen privat partnervei eller automatisk offentlig avslag.',
+    ],
+    decisive:
+      'Kravene omfatter to forskjellige klientveier. Den private inngangen trenger ikke fjernes, og den offentlige kan ikke stenges uten å håndtere partnerens fortsatt gyldige krav.',
+    feedback: [
+      [
+        'En brukerrolle skaper ingen privat rute. Å deaktivere offentlig tilgang kunne alene vært riktig ved et nytt krav om bare privat tilgang og en etablert partnervei. Rollens påståtte ruteeffekt ville fortsatt vært feil.',
+        'Det offentlige partnerkravet krever ikke at den interne private inngangen fjernes. De to klientgruppenes innganger kan være forskjellige.',
+        'Riktig under tjenestens støttede policyfunksjoner. Nettverksavgrensning og brukerautorisasjon må begge planlegges for den offentlige inngangen.',
+      ],
+      [
+        'Dette beskriver den private ressursens egenskap, men besvarer ikke hvordan den eksterne partnerens offentlige behov skal ivaretas.',
+        'Dette forklarer at DNS ikke er tilgang. Det alene velger ikke en plan som bevarer begge klientgruppenes ulike inngangskrav.',
+        'Riktig kravbasert skille. En Private Endpoint gjør ikke public network access til et automatisk av/på-resultat.',
+      ],
+    ],
+  },
+  nc09: {
+    title: 'En privat adresse med ventende samtykke',
+    problem:
+      'En klient får forventet privat IP, og nettverksteamets ruteundersøkelse har ikke funnet et avvik. I tjenesteeierens visning står Private Endpoint-forbindelsen som Pending, og klienten får ennå ikke brukt tjenesten.',
+    premises: [
+      'Den valgte tjenesten og subressursen støtter Private Endpoint.',
+      'Tjenesteeieren kan vurdere forespørselen etter gjeldende policy.',
+      'Ingen ny DNS-feil eller rutefeil er observert.',
+    ],
+    decisions: [
+      'La riktig tjenesteeier vurdere og eventuelt godkjenne den ventende forbindelsen.',
+      'Opprett et nytt Private Endpoint til samme tjenesteeier og bruk den nye forespørselen som om den allerede var aktiv.',
+      'Flytt klientens Resource group slik at godkjenningen arves fra det nye management-scope.',
+    ],
+    reasons: [
+      'Et hostname kan gi en privat adresse når klientens resolver ser den relevante sonen eller forwardingkjeden.',
+      'Private Endpoint må være Approved før forbindelsen kan brukes; et korrekt navnesvar er ikke tjenesteeierens godkjenning.',
+      'Resource groups gir administrative grenser for ressursenes organisering og livssyklus, adskilt fra deres fysiske plassering.',
+    ],
+    decisive:
+      'Pending er en egen tjenestetilknytningsstatus. Den riktige eieren må vurdere samtykket; DNS- eller management-endringer kan ikke erstatte dette.',
+    feedback: [
+      [
+        'Riktig neste undersøkelse. Godkjenning skal vurderes etter policy, ikke automatisk gis fordi klienten ønsker tilgang. Applikasjonsrettigheter må fortsatt ivaretas.',
+        'En ny privat forespørsel kan være relevant når feil mål er valgt, men den er ikke automatisk aktiv. Den samme tjenesteeierens godkjenningsprosess må fortsatt håndteres.',
+        'Management-organisering er ikke endpoint-godkjenning. En flytting må ha egne administrative grunner og gir ikke denne tjenestetilknytningen Approved status.',
+      ],
+      [
+        'Dette forklarer det allerede riktige navnegrunnlaget, men ikke den fortsatt ventende tilknytningen.',
+        'Riktig kausal forklaring: tilknytningssamtykke og DNS er separate lag.',
+        'Dette er riktig om scope, men et administrativt scope er ikke samtykke fra den private-link-tjenestens eier.',
+      ],
+    ],
+  },
+  nc10: {
+    title: 'Kontorets egen DNS skal finne den private inngangen',
+    problem:
+      'En lokal klient bruker organisasjonens DNS-server. Hybridforbindelsen til Azure er dokumentert, og tjenestens private zone er linket til et Azure VNet. Kontorets DNS har ingen forwarding mot en resolver som kan se denne sonen.',
+    premises: [
+      'Den private tjenesteinngangen er riktig støttet og Approved.',
+      'En passende Azure-resolver eller forwarder kan etableres og nås.',
+      'Tjenestens normale hostname skal beholdes.',
+    ],
+    decisions: [
+      'Pek alle lokale klienter direkte på Azure sin interne DNS-IP uten å etablere en støttet oppslagsvei.',
+      'Endre alle connection strings til rå privat IP og behandle dette som generell DNS-integrasjon.',
+      'Planlegg en fungerende, tjenestetilpasset forwarding-/resolvervei fra lokal DNS til den linkede private sonen.',
+    ],
+    reasons: [
+      'En VNet-link angir hvilken privat sone et Azure VNet kan bruke i den aktuelle oppløsningsmodellen.',
+      'On-premises DNS trenger en nåbar resolverkjede som kan svare fra den private sonen.',
+      'Et Approved endpoint bruker en privat subnet-adresse og kan nås fra riktig sammenkoblede nettverk under deres rutingsforutsetninger.',
+    ],
+    decisive:
+      'Det lokale resolverperspektivet mangler en vei til sonen. En korrekt hybrid datapath eller Azure VNet-link alene etablerer ikke forwarding fra kontorets DNS.',
+    feedback: [
+      [
+        'Azure sin interne resolveradresse er ikke en generell ekstern DNS-tjeneste for vilkårlige lokale nett. Det trengs en støttet, nåbar oppslagsarkitektur.',
+        'En rå IP er ingen generell reparasjon og kan bryte tjenestens forventede hostname-/sertifikatoppsett. En kontrollert test ville ikke erstatte korrekt DNS-design.',
+        'Riktig. Konfigurer både nåbarhet og riktig navnevidereføring etter tjenestens anbefalinger, fremfor å anta at den lokale DNS-serveren allerede ser Azure-sonen.',
+      ],
+      [
+        'Dette er sant om Azure VNet-synlighet, men kontorets egen DNS får ikke automatisk denne sonens svar.',
+        'Riktig mekanisme for klientens faktiske resolverplassering. Datavei, DNS-vei og tjenesteautorisering må fortsatt holdes adskilt.',
+        'Dette beskriver endpointets dataforbindelse, men en dataforbindelse er ikke konfigurasjon av den lokale navneserverens forwarding.',
+      ],
+    ],
+  },
+  nc11: {
+    title: 'Connection string under privat migrering',
+    problem:
+      'Et program flyttes til en støttet privat Storage-inngang. Migreringsutkastet erstatter kontoens vanlige tjenestehostname med endpointets private IP i connection string. Klientens DNS kan allerede gi riktig privat adresse til det vanlige tjenestenavnet.',
+    premises: [
+      'Private Endpoint er Approved; privat nettverksvei og brukerens datarettigheter er kontrollert.',
+      'Tjenestens støttede oppsett bruker det normale tjenestehostname; dette navnet inngår i serveridentiteten som klienten validerer.',
+      'Forbindelsen skal fortsatt bruke den private inngangen og beholde serveridentitetsvalideringen.',
+    ],
+    decisions: [
+      'Bruk privatelink-aliaset som et nytt generelt tjenestehostname i alle connection strings.',
+      'Behold det normale tjenestehostname i connection string og la den riktige private DNS-konfigurasjonen velge privat adresse.',
+      'Behold den private IP-en som tjenestenavn og utelat kontrollen av forventet serveridentitet.',
+    ],
+    reasons: [
+      'En privat DNS-zone kan inneholde A-records som peker på endpointets private adresse for klienter med riktig resolverperspektiv.',
+      'En private endpoint-NIC hører til konsumentens subnet, og dens adresse identifiserer den private tjenestetilknytningen i dette nettverket.',
+      'En privat adresse erstatter ikke tjenestens hostname-kontrakt; normalt tjenestenavn og privat DNS kan bevare både privat vei og forventet serveridentitet.',
+    ],
+    decisive:
+      'Klientens adressevalg er allerede riktig gjennom det normale navnet. Behold tjenestens støttede hostname og identitetsvalidering; ikke gjør en rå IP eller privatelink-alias til universell erstatning for connection string.',
+    feedback: [
+      [
+        'Et privatelink-navn kan inngå i DNS-kjeden, men er ikke derfor en generell ny connection string. Her krever det støttede tjenesteoppsettet at det normale hostname beholdes.',
+        'Riktig. Den normale connection string kan beholdes mens korrekt DNS velger den private inngangen. Ingen offentlig datavei innføres av å beholde det vanlige tjenestenavnet.',
+        'En rå privat IP er ikke en erstatning for den uttrykkelige hostname-kontrakten. Å fjerne serveridentitetskontrollen bryter dessuten oppgavens beskyttelseskrav.',
+      ],
+      [
+        'Dette beskriver adresseoppslag, men forklarer ikke hvorfor applikasjonens støttede tjenestenavn og identitetsvalidering skal bevares.',
+        'Dette er riktig om den private NIC-en, men dens adresse alene etablerer ikke hvilket servernavn applikasjonen forventer i forbindelsen.',
+        'Riktig skille mellom adresse, tjenestenavn og serveridentitet. Private Endpoint endrer ikke automatisk applikasjonens støttede navnekontrakt.',
+      ],
+    ],
+  },
+  nc12: {
+    title: 'En godkjent inngang til feil tjenestedel',
+    problem:
+      'En organisasjon har et Approved Private Endpoint for Blob-delen av en Storage-konto. Et nytt filbasert program skal bruke File-delen av samme konto. Teamet vil bruke det eksisterende endpointets godkjenning som dokumentasjon for den nye tjenestedelen.',
+    premises: [
+      'Den aktuelle kontotypen og File-tjenesten støtter det planlagte Private Endpoint-designet.',
+      'Programmet trenger privat File-tilgang med tjenestens normale hostname.',
+      'Korrekte DNS-, rute- og autorisasjonskrav må behandles for den nye inngangen.',
+    ],
+    decisions: [
+      'Planlegg riktig File-subressurs med sin støttede private endpoint- og DNS-konfigurasjon.',
+      'Bruk Blob-endpointets private IP som generell inngang til enhver tjeneste på kontoen.',
+      'Flytt kontoen til samme Resource group som klienten for å gi Blob-endpointet File-omfang.',
+    ],
+    reasons: [
+      'Et Private Endpoint gjelder den støttede målsubressursen; andre kontotjenester trenger sitt eget riktige forbindelsesgrunnlag.',
+      'Et privat endpoint har et privat nettverksgrensesnitt i konsumentens subnet og et eget livsløp sammen med endpoint-ressursen.',
+      'En felles Storage-konto samler relaterte tjenester og innstillinger som må vurderes mot kontoens dokumenterte type og funksjoner.',
+    ],
+    decisive:
+      'Blob og File er forskjellige målsubressurser. Et godkjent endpoint for én av dem er ikke en universell privat inngang til alle kontotjenester.',
+    feedback: [
+      [
+        'Riktig under konto- og tjenestestøtten i premissene. File trenger sin riktige private inngang og navnekonfigurasjon; Blob-konfigurasjonen blir ikke feil av at en ny tjenestedel kommer til.',
+        'Dette forveksler kontoidentitet med endpointets konkrete subressurs. Det kunne vært relevant å gjenbruke den eksisterende Blob-inngangen for en ny Blob-klient, ikke generelt for File.',
+        'Resource group påvirker administrativ organisering. Det endrer ikke endpointets målsubressurs fra Blob til File.',
+      ],
+      [
+        'Riktig avgrensning av hva endpointets godkjenning og adresse faktisk gjelder.',
+        'Dette beskriver konsumentressursen, men forklarer ikke hvorfor en annen tjenestedel trenger riktig separat målkonfigurasjon.',
+        'Kontosammenhengen er reell, men samling i én konto opphever ikke de forskjellige endpoint-subressursene og DNS-kravene.',
       ],
     ],
   },

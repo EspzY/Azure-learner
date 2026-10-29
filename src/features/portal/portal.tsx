@@ -1,4 +1,5 @@
 'use client';
+import { useConnectivity } from '@/features/learning/connectivity-provider';
 import { networkingNb } from '@/content/nb';
 import { networkingHref } from '@/domain/curriculum/networking';
 import { useNetworking } from '@/features/learning/networking-provider';
@@ -102,7 +103,8 @@ function PortalWorkspace() {
     transfer = useTransfer(),
     cost = useCost(),
     compute = useCompute(),
-    networking = useNetworking();
+    networking = useNetworking(),
+    connectivity = useConnectivity();
   useEffect(() => {
     if (serverless.facts.active && ['learn', 'responsibility', 'hierarchy'].includes(location.area))
       serverless.store.event({ kind: 'aid' });
@@ -131,6 +133,7 @@ function PortalWorkspace() {
     location.area,
   ]);
   const otherIndependentContext =
+    connectivity.facts.active ||
     networking.facts.active ||
     compute.facts.active ||
     cost.facts.active ||
@@ -147,6 +150,7 @@ function PortalWorkspace() {
     services2.facts.active;
   const independentContext = otherIndependentContext || missions.active;
   const guidanceContexts = [
+    connectivity,
     compute,
     networking,
     cost,

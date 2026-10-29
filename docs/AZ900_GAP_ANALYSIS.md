@@ -134,3 +134,7 @@ Microsofts [Practice Assessment-beskrivelse](https://learn.microsoft.com/en-us/c
 Godkjenn først **P00: et avgrenset serverless-tillegg**, så **P01/P02: første nye fulle undervisningsmodul, core architectural components**. Serverless har høy relevans, et eksplisitt hull og lav ekstra motorkostnad. Arkitekturmodulen gir forutsetninger til nettverk, storage, identity og governance og gjenbruker faktisk graf/Portal. Etter disse følger målrettet forbedring av eksisterende vurderinger og balansert utbygging av begge store eksamensområder, ikke bare mer compute.
 
 Se [PR-plan med scope, aktivitet, risiko, tester og aksept](AZ900_EXPANSION_ROADMAP.md). Denne auditen autoriserer ingen ny funksjonsimplementering. Menneskelig ekspert-/nybegynnerreview bør skje på de første nye delene før samme mønster skaleres.
+
+## P07 scoped implementation update — 29 October 2026
+
+VPN Gateway/ExpressRoute and public/private endpoint content is implemented through the Networking Part B supplement, with original teaching, deterministic hybrid/endpoint models, guided causal investigations and new independent contexts. The generated matrix reflects scoped A–F pointers for2.2.05–06; it does not upgrade historical learner evidence or certify transfer. [Part B scope](NETWORKING_CONNECTIVITY.md) and PROJECT_STATUS record actual gates, unperformed human review and the unresolved PR28 SSO-protected external preview. Earlier gap findings below remain historical where superseded. Storage remains P08/P09.

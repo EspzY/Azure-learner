@@ -1,4 +1,12 @@
 'use client';
+import { useConnectivity } from './connectivity-provider';
+import {
+  connectivityFacts,
+  connectivityKey,
+  restoreConnectivity,
+  connectivityHref,
+} from '@/domain/curriculum/connectivity';
+import { ConnectivityRecovery } from './connectivity';
 import { useNetworking } from './networking-provider';
 import {
   networkingFacts,
@@ -121,8 +129,18 @@ export function ManagementTeachingBoundary({
     transfer = useTransfer(),
     cost = useCost(),
     compute = useCompute(),
-    networking = useNetworking();
+    networking = useNetworking(),
+    connectivity = useConnectivity();
   const checks = [
+    check(
+      'connectivity',
+      connectivity,
+      connectivityKey,
+      restoreConnectivity,
+      connectivityFacts,
+      () => connectivity.store.event({ kind: 'aid' }),
+      connectivityHref('assessment', connectivity.facts.current?.item),
+    ),
     check(
       'networking',
       networking,
@@ -267,6 +285,7 @@ export function ManagementTeachingBoundary({
         item.id === 'cost' ||
         item.id === 'compute' ||
         item.id === 'networking' ||
+        item.id === 'connectivity' ||
         (only === 'core' ? ['management', 'physical'].includes(item.id) : item.id === only)),
   );
   const token = JSON.stringify([
@@ -323,6 +342,7 @@ export function ManagementTeachingBoundary({
               {item.id === 'cost' && <CostRecovery />}
               {item.id === 'compute' && <ComputeRecovery />}
               {item.id === 'networking' && <NetworkingRecovery />}
+              {item.id === 'connectivity' && <ConnectivityRecovery />}
             </div>
           ))}
       </div>

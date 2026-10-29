@@ -8,7 +8,7 @@ const data = JSON.parse(
 );
 test('all 57 pinned official slots and code/evidence/source references resolve', () => {
   assert.deepEqual(validateAudit(data), []);
-  assert.equal(data.objectives.filter((r) => r.status === 'COMPLETE').length, 30);
+  assert.equal(data.objectives.filter((r) => r.status === 'COMPLETE').length, 32);
   assert.equal(
     data.objectives.filter((r) => r.slot.startsWith('1.') && r.status === 'COMPLETE').length,
     15,
@@ -51,9 +51,20 @@ test('all 57 pinned official slots and code/evidence/source references resolve',
   }
   for (const slot of ['2.2.05', '2.2.06']) {
     const row = data.objectives.find((r) => r.slot === slot);
-    assert.notEqual(row.status, 'COMPLETE');
+    assert.equal(row.status, 'COMPLETE');
+    assert.ok(row.evidence.includes('NC'));
+    assert.deepEqual(Object.values(row.criteria), ['V', 'V', 'V', 'V', 'V', 'V']);
+    assert.ok(row.facets.every((facet) => facet.status === 'COMPLETE'));
+    assert.ok(row.sources.some((id) => id.startsWith('NCS')));
     assert.ok(!row.evidence.includes('CP'));
   }
+  // A new runtime source register may reuse local IDs; the shared audit must
+  // retain the old Cost provenance and namespace the new connectivity sources.
+  assert.match(
+    data.sources.CS13.url,
+    /cost-management-billing\/costs\/tutorial-acm-create-budgets$/,
+  );
+  assert.match(data.sources.NCS13.url, /expressroute\/expressroute-about-encryption$/);
   assert.ok(renderMatrix(data).includes('35–40%'));
 });
 test('rejects omitted/duplicated official skills and stable IDs rather than increasing apparent coverage', () => {
