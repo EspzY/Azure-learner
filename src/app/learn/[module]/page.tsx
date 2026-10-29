@@ -10,7 +10,8 @@ export default async function ModulePage({ params }: { params: Promise<{ module:
     module !== 'architecture' &&
     module !== 'cost' &&
     module !== 'compute' &&
-    module !== 'networking'
+    module !== 'networking' &&
+    module !== 'connectivity'
   )
     notFound();
   return (

@@ -10,6 +10,7 @@ import {
   applyPhysical,
 } from './architecture-physical';
 import { activeTeachingContexts } from '../../../tests/fixtures/active-teaching-contexts';
+import { connectivityKey } from './connectivity';
 const io = () => {
   const data = new Map<string, string>();
   return {
@@ -24,9 +25,11 @@ const io = () => {
   };
 };
 describe('shared teaching preflight for frozen assessment contracts', () => {
-  it('validates fresh unaided fixtures for all nine independent contexts', () => {
+  it('validates fresh unaided fixtures for all ten registered independent contexts', () => {
     const fixtures = activeTeachingContexts();
-    expect(fixtures).toHaveLength(9);
+    expect(fixtures).toHaveLength(10);
+    expect(new Set(fixtures.map((f) => f.key)).size).toBe(10);
+    expect(fixtures.map((f) => f.key)).toContain(connectivityKey);
     for (const f of fixtures)
       expect(f.state(f.raw)).toMatchObject({ active: true, assisted: false });
   });

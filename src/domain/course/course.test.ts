@@ -81,6 +81,32 @@ describe('course and guided sandbox boundary', () => {
     expect(portalHref(l, 'create', { kind: 'group' })).toContain('lab=web-platform');
     expect(parseLocation(new URLSearchParams('lab=unknown')).lab).toBeUndefined();
   });
+  it('adds isolated Part B navigation while preserving existing resume and lab records', () => {
+    const prior = {
+      ...freshCourse(),
+      resume: { module: 'networking' as const, topic: 'assessment' },
+    };
+    const bytes = JSON.stringify(prior);
+    expect(restoreCourse(bytes)).toEqual({ save: prior, issue: null });
+    expect(JSON.stringify(restoreCourse(bytes).save)).toBe(bytes);
+    expect(courseHref('connectivity', 'private-dns')).toBe('/learn/connectivity?topic=private-dns');
+    expect(courseTopic('connectivity', 'https://outside.invalid')).toBe('introduction');
+    expect(courseTopic('networking', 'private-dns')).toBe('introduction');
+    const next = {
+      ...freshCourse(),
+      resume: { module: 'connectivity' as const, topic: 'assessment' },
+    };
+    expect(restoreCourse(JSON.stringify(next))).toEqual({ save: next, issue: null });
+    expect(next.lab).toBeNull();
+    expect(
+      restoreCourse(
+        JSON.stringify({
+          ...next,
+          resume: { module: 'connectivity', topic: 'fake-gateway-create' },
+        }),
+      ).issue,
+    ).toBe('corrupt');
+  });
   it('has authored bounded definitions for each guide step, not scripts or counters', () => {
     expect(Object.keys(guideDefinitions)).toEqual([...stepIds]);
     for (const s of Object.values(guideDefinitions)) {

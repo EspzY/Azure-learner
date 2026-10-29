@@ -1130,6 +1130,106 @@
       "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-networking-services/7-summary",
       "reviewed": "2026-10-28",
       "purpose": "P06 summary, Network Foundations supplementary discovery; implementation-depth deployment material is deferred, not new objective credit."
+    },
+    "NCS01": {
+      "url": "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900",
+      "reviewed": "2026-10-29",
+      "purpose": "Current AZ-900 scope 2.2.05 and 2.2.06; content coverage is separate from learner achievement."
+    },
+    "NCS02": {
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-networking-services/",
+      "reviewed": "2026-10-29",
+      "purpose": "Seven-unit module structure, all six public units reviewed; protected assessment excluded."
+    },
+    "NCS03": {
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-networking-services/1-introduction",
+      "reviewed": "2026-10-29",
+      "purpose": "Networking purpose and prerequisite context; not a full routing/security engine."
+    },
+    "NCS04": {
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-networking-services/2-virtual-network",
+      "reviewed": "2026-10-29",
+      "purpose": "Public/private endpoint distinction and VNet prerequisites, with product qualifications."
+    },
+    "NCS05": {
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-networking-services/3-virtual-private-networks",
+      "reviewed": "2026-10-29",
+      "purpose": "S2S/P2S/VNet-to-VNet distinctions, qualified by current product transport/authentication documentation."
+    },
+    "NCS06": {
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-networking-services/4-expressroute",
+      "reviewed": "2026-10-29",
+      "purpose": "Private provider connectivity and service purpose; global scope requires SKU/geography qualifications."
+    },
+    "NCS07": {
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-networking-services/5-domain-name-system",
+      "reviewed": "2026-10-29",
+      "purpose": "Name resolution is distinct from network path and authorization."
+    },
+    "NCS08": {
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-networking-services/7-summary",
+      "reviewed": "2026-10-29",
+      "purpose": "Module framing and further reading, not copied assessment material."
+    },
+    "NCS09": {
+      "url": "https://learn.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-about-vpngateways",
+      "reviewed": "2026-10-29",
+      "purpose": "VPN gateway encrypted tunnel types, gateway requirements and dated SKU constraints; no live throughput promise."
+    },
+    "NCS10": {
+      "url": "https://learn.microsoft.com/en-us/azure/vpn-gateway/design",
+      "reviewed": "2026-10-29",
+      "purpose": "Gateway topology, S2S public internet versus VNet-VNet Microsoft-network transport, compatible devices/routes."
+    },
+    "NCS11": {
+      "url": "https://learn.microsoft.com/en-us/azure/vpn-gateway/point-to-site-about",
+      "reviewed": "2026-10-29",
+      "purpose": "P2S individual client, supported protocols/authentication and compatibility, not universal preshared-key use."
+    },
+    "NCS12": {
+      "url": "https://learn.microsoft.com/en-us/azure/expressroute/expressroute-introduction",
+      "reviewed": "2026-10-29",
+      "purpose": "ER private transport, provider role, circuit redundancy, independent end-to-end failure boundaries and costs without invented rates."
+    },
+    "NCS13": {
+      "url": "https://learn.microsoft.com/en-us/azure/expressroute/expressroute-about-encryption",
+      "reviewed": "2026-10-29",
+      "purpose": "ER is not encrypted by default; MACsec Direct link scope differs from end-to-end IPsec."
+    },
+    "NCS14": {
+      "url": "https://learn.microsoft.com/en-us/azure/expressroute/expressroute-circuit-peerings",
+      "reviewed": "2026-10-29",
+      "purpose": "ER private peering versus Microsoft peering and VNet Peering; service/geography prerequisites."
+    },
+    "NCS15": {
+      "url": "https://learn.microsoft.com/en-us/azure/expressroute/expressroute-howto-coexist-resource-manager",
+      "reviewed": "2026-10-29",
+      "purpose": "S2S coexistence/backup requires configured compatible private-peering routes; no universal automatic backup."
+    },
+    "NCS16": {
+      "url": "https://learn.microsoft.com/en-us/azure/private-link/private-endpoint-overview",
+      "reviewed": "2026-10-29",
+      "purpose": "PE private NIC/service subresource/approval and service-specific limits, no automatic application authorization."
+    },
+    "NCS17": {
+      "url": "https://learn.microsoft.com/en-us/azure/private-link/private-endpoint-dns-integration",
+      "reviewed": "2026-10-29",
+      "purpose": "Client-visible DNS and reachable resolver/forwarding path; no automatic on-premises Azure internal DNS access."
+    },
+    "NCS18": {
+      "url": "https://learn.microsoft.com/en-us/azure/private-link/private-endpoint-dns",
+      "reviewed": "2026-10-29",
+      "purpose": "Service-specific private DNS zones and subresource requirements; fixture is not universal deployment configuration."
+    },
+    "NCS19": {
+      "url": "https://learn.microsoft.com/en-us/azure/storage/common/storage-private-endpoints",
+      "reviewed": "2026-10-29",
+      "purpose": "Storage concrete example: PE creation does not disable public endpoint; approval/DNS/subresource/auth remain separate."
+    },
+    "NCS20": {
+      "url": "https://learn.microsoft.com/en-us/azure/storage/common/storage-network-security",
+      "reviewed": "2026-10-29",
+      "purpose": "Storage firewall controls public endpoint; identity/data roles remain independent, no generic private firewall claim."
     }
   },
   "evidenceProfiles": {
@@ -1813,6 +1913,49 @@
         "tests/e2e/networking-foundations.spec.ts"
       ],
       "limits": "P06 four named facets only. Separate guided/first/help/retry/abandon, frozen operational inventory and own durable store. No networking traffic, full composite completion/readiness or human approval."
+    },
+    "NC": {
+      "teaching": [
+        {
+          "path": "src/content/nb.ts",
+          "marker": "connectivityNb"
+        }
+      ],
+      "mechanism": [
+        {
+          "path": "src/domain/curriculum/connectivity-model.ts",
+          "marker": "runHybrid"
+        },
+        {
+          "path": "src/domain/curriculum/connectivity.ts",
+          "marker": "connectivityManifest"
+        }
+      ],
+      "presentation": [
+        {
+          "path": "src/features/learning/connectivity.tsx",
+          "marker": "ConnectivityLesson"
+        },
+        {
+          "path": "src/features/learning/connectivity-visuals.tsx",
+          "marker": "ConnectivityModelResult"
+        }
+      ],
+      "assessment": [
+        {
+          "path": "src/domain/curriculum/connectivity-items.ts",
+          "marker": "evaluateConnectivity"
+        },
+        {
+          "path": "src/features/learning/connectivity-assessment.tsx",
+          "marker": "ConnectivityAssessment"
+        }
+      ],
+      "tests": [
+        "src/domain/curriculum/connectivity.test.ts",
+        "tests/e2e/networking-connectivity.spec.ts"
+      ],
+      "limits": "P07 scoped authored coverage only. Separate first/help/retry/abandon and private transport/encryption/DNS/path/auth layers. No old evidence upgrade, actual cloud execution, readiness or human learning approval."
     }
   },
   "plannedPRs": [
@@ -2885,14 +3028,14 @@
       "slot": "2.2.05",
       "id": "az900.networking.services",
       "title": "VNet, subnet, peering, DNS, VPN Gateway og ExpressRoute",
-      "status": "PARTIAL",
+      "status": "COMPLETE",
       "criteria": {
-        "A": "P",
-        "B": "P",
-        "C": "P",
-        "D": "P",
-        "E": "P",
-        "F": "P"
+        "A": "V",
+        "B": "V",
+        "C": "V",
+        "D": "V",
+        "E": "V",
+        "F": "V"
       },
       "facets": [
         {
@@ -2913,17 +3056,17 @@
         },
         {
           "topic": "VPN Gateway",
-          "status": "MISSING"
+          "status": "COMPLETE"
         },
         {
           "topic": "ExpressRoute",
-          "status": "MISSING"
+          "status": "COMPLETE"
         }
       ],
-      "localObjectives": ["N01", "N02", "N03", "NW01", "NW02", "NW03", "NW04"],
-      "evidence": ["V", "H", "NP"],
-      "observed": "P06 original VNet/subnet/CIDR/peering/DNS theory, read-only actual network chain, four guided applications and12 new structured independent cases with specific counterfactual feedback and dated official sources. Facet A–F mapping in NETWORKING_FOUNDATIONS.",
-      "gap": "Composite remains PARTIAL: Azure VPN Gateway and ExpressRoute are still missing and planned for P07. No live IP allocation, routing, DNS query or traffic; content coverage is not human learning validation.",
+      "localObjectives": ["N01", "N02", "N03", "NW01", "NW02", "NW03", "NW04", "CN01", "CN02"],
+      "evidence": ["V", "H", "NP", "NC"],
+      "observed": "P06 prerequisite facets plus P07 original VPN/ExpressRoute and endpoint/DNS teaching, deterministic causal models, four guided investigations, changed independent contexts and all-alternative feedback. Scoped A–F mapping in NETWORKING_CONNECTIVITY; separate versioned evidence.",
+      "gap": "Content coverage only; no actual Azure tunnels/circuits/endpoints/traffic or certification-readiness claim. Human SME/UX/screen-reader/learning transfer remains unperformed. PR28 external preview gate remains SSO-blocked.",
       "plannedPRs": ["P06", "P07"],
       "sources": [
         "EXAM",
@@ -2947,38 +3090,82 @@
         "NS16",
         "NS17",
         "NS18",
-        "NS19"
+        "NS19",
+        "NCS01",
+        "NCS02",
+        "NCS03",
+        "NCS04",
+        "NCS05",
+        "NCS06",
+        "NCS07",
+        "NCS08",
+        "NCS09",
+        "NCS10",
+        "NCS11",
+        "NCS12",
+        "NCS13",
+        "NCS14",
+        "NCS15",
+        "NCS16",
+        "NCS17",
+        "NCS18",
+        "NCS19",
+        "NCS20"
       ]
     },
     {
       "slot": "2.2.06",
       "id": "az900.networking.endpoints",
       "title": "Public og private endpoints",
-      "status": "MISSING",
+      "status": "COMPLETE",
       "criteria": {
-        "A": "M",
-        "B": "M",
-        "C": "M",
-        "D": "M",
-        "E": "M",
-        "F": "N"
+        "A": "V",
+        "B": "V",
+        "C": "V",
+        "D": "V",
+        "E": "V",
+        "F": "V"
       },
       "facets": [
         {
           "topic": "Public endpoint",
-          "status": "MISSING"
+          "status": "COMPLETE"
         },
         {
           "topic": "Private endpoint",
-          "status": "MISSING"
+          "status": "COMPLETE"
         }
       ],
-      "localObjectives": ["N03"],
-      "evidence": [],
-      "observed": "Ingen authored endpoint-sammenligning eller vurdering. Fravær av en offentlig IP i VM-modellen er ikke undervisning om private endpoints.",
-      "gap": "Mangler egen forklaring, relevant mekanisme/praksis, uavhengig scenario og begrunnet vurdering for de angitte emnene.",
+      "localObjectives": ["N03", "CN03", "CN04"],
+      "evidence": ["NC"],
+      "observed": "P06 prerequisite facets plus P07 original VPN/ExpressRoute and endpoint/DNS teaching, deterministic causal models, four guided investigations, changed independent contexts and all-alternative feedback. Scoped A–F mapping in NETWORKING_CONNECTIVITY; separate versioned evidence.",
+      "gap": "Content coverage only; no actual Azure tunnels/circuits/endpoints/traffic or certification-readiness claim. Human SME/UX/screen-reader/learning transfer remains unperformed. PR28 external preview gate remains SSO-blocked.",
       "plannedPRs": ["P07"],
-      "sources": ["EXAM", "M05", "M06"]
+      "sources": [
+        "EXAM",
+        "M05",
+        "M06",
+        "NCS01",
+        "NCS02",
+        "NCS03",
+        "NCS04",
+        "NCS05",
+        "NCS06",
+        "NCS07",
+        "NCS08",
+        "NCS09",
+        "NCS10",
+        "NCS11",
+        "NCS12",
+        "NCS13",
+        "NCS14",
+        "NCS15",
+        "NCS16",
+        "NCS17",
+        "NCS18",
+        "NCS19",
+        "NCS20"
+      ]
     },
     {
       "slot": "2.3.01",
@@ -4122,6 +4309,34 @@
       ],
       "objectives": ["2.2.05"],
       "note": "Only VNet, Subnet, Peering and Azure DNS facets have implemented scoped A–F coverage.2.2.05 remains PARTIAL for VPN Gateway/ExpressRoute;2.2.06 unchanged. No exam-readiness or human learning approval."
+    },
+    {
+      "id": "PR29-P07",
+      "reviewed": "2026-10-29",
+      "sources": [
+        "NCS01",
+        "NCS02",
+        "NCS03",
+        "NCS04",
+        "NCS05",
+        "NCS06",
+        "NCS07",
+        "NCS08",
+        "NCS09",
+        "NCS10",
+        "NCS11",
+        "NCS12",
+        "NCS13",
+        "NCS14",
+        "NCS15",
+        "NCS16",
+        "NCS17",
+        "NCS18",
+        "NCS19",
+        "NCS20"
+      ],
+      "objectives": ["2.2.05", "2.2.06"],
+      "note": "P07 scoped A–F content coverage for VPN Gateway/ExpressRoute and public/private endpoints composes with P06. Historical PartA evidence/rubrics unchanged; content COMPLETE is not learner mastery, human validation or external Gate7 approval."
     }
   ]
 }

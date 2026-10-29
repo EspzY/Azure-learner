@@ -1,8 +1,12 @@
 # AzureLab 3.2.1
 
+## Networking Part B — PR29
+
+The ordinary course now links Networking Part A to **VPN Gateway, ExpressRoute & Public/Private Endpoints** at `/learn/connectivity`. Hybrid transport/encryption and staged endpoint/DNS models, four guided investigations, new independent decision/reason scenarios and a full Journal use separately versioned learning history. No real tunnel, circuit, endpoint or DNS query is created. Part A resources, rubrics and historical answers remain unchanged. [Original manuscript, source reconciliation and scope](docs/NETWORKING_CONNECTIVITY.md); verification and unperformed human reviews remain recorded in project status. Protected Vercel previews require authorized access; Ready alone does not verify a deployed application journey.
+
 ## Azure Networking Part A — PR28
 
-The ordinary root now exposes **Describe Azure networking services · Part A** after Compute. Eleven activities combine eight original theory sections, read-only actual VM/NIC/subnet/VNet inspection, address design, standard peering topology and staged DNS/path reasoning. Four distinct saved missions and twelve independent decision/reason cases reuse Course, SavvyShark and Journal with isolated evidence. No actual IP allocation, peering, DNS query or packet engine is added. [Implemented scope and current gate status](docs/NETWORKING_FOUNDATIONS.md). Composite2.2.05 remains PARTIAL for VPN Gateway/ExpressRoute; endpoints remain P07. Human review is outstanding.
+The ordinary root now exposes **Describe Azure networking services · Part A** after Compute. Eleven activities combine eight original theory sections, read-only actual VM/NIC/subnet/VNet inspection, address design, standard peering topology and staged DNS/path reasoning. Four distinct saved missions and twelve independent decision/reason cases reuse Course, SavvyShark and Journal with isolated evidence. No actual IP allocation, peering, DNS query or packet engine is added. [Implemented scope and current gate status](docs/NETWORKING_FOUNDATIONS.md). Part A alone does not cover VPN Gateway/ExpressRoute/endpoints; those are supplied by the separately versioned Part B above. Human review is outstanding.
 
 ## Azure Compute & Hosting — PR27
 

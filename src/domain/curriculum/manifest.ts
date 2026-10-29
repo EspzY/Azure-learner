@@ -183,3 +183,4 @@ export { transferManifest } from './transfer';
 export { costManifest } from './cost';
 export { computeManifest } from './compute';
 export { networkingManifest } from './networking';
+export { connectivityManifest } from './connectivity';

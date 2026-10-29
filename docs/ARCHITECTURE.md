@@ -1,5 +1,9 @@
 # Architecture
 
+## P07 isolated hybrid connectivity and endpoint learning
+
+Part B composes with Part A through `/learn/connectivity` in the existing Course and Journal. ConnectivityProvider adds a separately replayed 1.0.0 record without migrating prior evidence. The pure hybrid model distinguishes VPN kind, provider/gateway/underlay/routes, private transport, encryption scope and declared access; the endpoint model separates DNS visibility, selected public/private entry, approval, path, public-network settings, network policy, application authorization and assumed response. Neither imports World or issues commands. Shared teaching and automatic-guidance guards include the fifteenth independent context. Actual Part A network inspection remains the authoritative read-only Sandbox bridge. [Manuscript, source reconciliation and limitations](NETWORKING_CONNECTIVITY.md).
+
 ## P06 Networking Part A extension
 
 NetworkingProvider wraps the existing data providers, adding one isolated replayed1.0.0 store. Course/Journal render original `networkingNb`; structured `networkingItems` require decision/reason relationships. The pure IPv4/address/standard-peering/DNS/path model has no World imports or I/O. NetworkingInspection projects the actual pinned Sandbox attempt and current VM/NIC/subnet/VNet/group/subscription/receipt references; historical resources are explicitly reused inspections. Navigation-only `networking=inspect` preserves exact course return and refuses competing lab origins. The shared all-context preflight and automatic-guidance guards include the fourteenth context. Generic Course/assessment presentation styles are reused; the purpose-specific address/topology/DNS figures are original HTML/SVG with semantic tables. [Versions, claims and limits](NETWORKING_FOUNDATIONS.md).

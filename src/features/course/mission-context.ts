@@ -1,4 +1,6 @@
 'use client';
+import { useConnectivity } from '@/features/learning/connectivity-provider';
+import { connectivityHref } from '@/domain/curriculum/connectivity';
 import { useNetworking } from '@/features/learning/networking-provider';
 import { networkingHref } from '@/domain/curriculum/networking';
 import type { MissionSession } from '@/domain/sandbox/missions';
@@ -51,7 +53,8 @@ export function useMissionSafetyContexts(owner?: 'missions') {
     transfer = useTransfer(),
     cost = useCost(),
     compute = useCompute(),
-    networking = useNetworking();
+    networking = useNetworking(),
+    connectivity = useConnectivity();
   return (
     [
       {
@@ -59,6 +62,12 @@ export function useMissionSafetyContexts(owner?: 'missions') {
         state: missions,
         active: missions.active,
         href: missionOrigin(missions.activeSession?.mission ?? 'diagnose'),
+      },
+      {
+        id: 'connectivity',
+        state: connectivity,
+        active: connectivity.facts.active,
+        href: connectivityHref('assessment', connectivity.facts.current?.item),
       },
       {
         id: 'networking',

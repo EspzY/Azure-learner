@@ -330,7 +330,10 @@ test('root course to persisted VM, app settings, separate SaaS, exact debrief an
   await expect(page.locator('.practical-coach')).toBeVisible();
   await area(page, 'apps');
   await page.getByRole('button', { name: 'app-operational', exact: true }).click();
-  await page.getByRole('button', { name: t.settings.title, exact: true }).click();
+  await page
+    .locator('.portal-resource-menu')
+    .getByRole('button', { name: t.settings.title, exact: true })
+    .click();
   await editAppSetting(page, t.settings.environment, 'staging');
   await editAppSetting(page, t.settings.catalog, 'read-only');
   await desktopEvidence(page, info, 'app-settings');
@@ -593,7 +596,10 @@ test('changed PaaS and SaaS tasks assess actual new operations without coach hig
   await create(page, 'group', 'rg-paas-task');
   await create(page, 'plan', 'plan-task');
   await create(page, 'app', 'app-task');
-  await page.getByRole('button', { name: t.settings.title, exact: true }).click();
+  await page
+    .locator('.portal-resource-menu')
+    .getByRole('button', { name: t.settings.title, exact: true })
+    .click();
   await editAppSetting(page, t.settings.environment, 'production');
   await editAppSetting(page, t.settings.catalog, 'read-only');
   await page.getByRole('button', { name: t.settings.apply, exact: true }).click();
