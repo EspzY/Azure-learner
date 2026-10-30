@@ -1,5 +1,11 @@
 # AZ-900 — prioritert, avgrenset PR-plan
 
+## Aktiv eierprioritering —29 oktober2026
+
+PR29 er levert som Draft med grønn komplett CI; ekstern Gate7 står SSO-blokkert. Ingen ny revisjon av godkjente deler uten konkret funn. [Arbeidsmodellen](DEVELOPMENT_WORKFLOW.md) bevarer permanent kvalitet, dataintegritet og alle gater, med målrettet lokal testing og risikobasert audit. Opt-in desktop/kompakt-fordeling er et avgrenset forslag; eksisterende CI gjelder inntil eiergodkjenning.
+
+Rekkefølgen foran den videre fagutbyggingen er nå: **avgrenset prosessforslag → offentlig ordinær AzureLab med sikkerhets-/preview-kontroll → profesjonell Course Hub-redesign → P08 og videre innhold gjennom P16 → helhetlig pedagogisk gjennomgang → endelig sertifiseringsdiagnostikk**. Course Hub skal gi tydelig start/fortsett, stier/modulhierarki, sammenleggbar sidemeny, ærlig progresjon og integrerte oppdrag med færre konkurrerende innganger. Bevar alt faginnhold, lagring og operativ funksjonalitet. Dette er egen UX-leveranse, ikke del av prosessendringen. Ingen merge/produksjonsdeploy er autorisert. [Offentlig tilgang og faktisk blokkering](PUBLIC_ACCESS_REVIEW.md).
+
 ## P07 implementation — PR29
 
 Networking Part B composes VPN Gateway, ExpressRoute and public/private endpoints with Part A in the existing course. Separate1.0.0 evidence preserves prior answers and rubrics. The two scoped rows may describe complete authored A–F content without implying learner mastery, human acceptance or actual cloud networking. [Scope and actual verification](NETWORKING_CONNECTIVITY.md). PR28's protected external preview remains a documented SSO-blocked dependency. P08 Storage A and P09 tiers/redundancy are next planned phases and are not implemented here.
@@ -210,6 +216,10 @@ P13/P14 kan trekkes frem når forutsetningene er dekket, for å balansere archit
 - **Grenser / kostnad:** Ingen opplasting, nedlastet CLI, ordre eller migreringsløfte. Lav motorkostnad, moderat originalt innhold.
 - **Tester:** Flytting versus sync, discovery versus datatransport, offline betyr ikke null planlegging/sikkerhet, eksempler uten ekte fil-/kundedata.
 - **Aksept:** Alle fem verktøy har tydelig rolle/avgrensning og uavhengig valg.
+
+## Etter P16 — helhetlig pedagogisk gjennomgang
+
+Før endelig sertifiseringsdiagnostikk skal hele Fundamentals fra første til siste modul vurderes for forkunnskaper, progresjon, repetisjon, oppgavevariasjon, Sandbox-/SavvyShark-integrasjon, navigasjon og samlet læringsbelastning. Faktiske funn og menneskelige begrensninger dokumenteres. P17 kan fortsatt bruke isolerte testfixtures; ingen endelig diagnostikk/beredskap følger før denne gjennomgangen og øvrige bank-/human-review-gater.
 
 ## P17 — Diagnostikkmotor med gjennomgått kontrakt
 

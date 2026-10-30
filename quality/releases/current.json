@@ -1,11 +1,11 @@
 {
   "schema": 1,
-  "id": "PR29-networking-connectivity",
-  "baseCommit": "de87475829ce3aa59c52e2c89584c2517cc44c74",
-  "author": "codex-pr29-author",
+  "id": "PR30-desktop-quality-workflow",
+  "baseCommit": "0d9b96ed73780ec881bf3dac20ccc71cba97a9cf",
+  "author": "codex-workflow-author",
   "scope": {
-    "kind": "new-module",
-    "description": "P07 Networking Part B: original VPN/ExpressRoute/public-private-endpoint teaching, hybrid and endpoint/DNS deterministic Explorers, four guided investigations and separately versioned independent evidence. PartA and all historical technical/evidence contracts preserved. PR28 external Gate7 remains BLOCKED by Vercel SSO; no bypass or production change.",
+    "kind": "process-and-test-strategy",
+    "description": "Bounded owner-directed workflow/roadmap and opt-in desktop/compact distribution. Default CI remains unchanged until owner approval. No course/runtime changes; objectives below identify the unchanged concrete preservation witness only. Public availability and Course Hub are ordered follow-ups, not claimed implemented.",
     "objectives": ["az900.networking.services", "az900.networking.endpoints"]
   },
   "sources": [
@@ -27,757 +27,185 @@
           "reason": "Current AZ-900 scope 2.2.05 and 2.2.06; content coverage is separate from learner achievement."
         }
       ]
-    },
-    {
-      "id": "CS02",
-      "title": "Describe Azure networking services · seven-unit structure",
-      "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-networking-services/",
-      "kind": "module",
-      "reviewed": "2026-10-29",
-      "version": "Public body checked2026-10-29",
-      "availability": "AVAILABLE",
-      "objectives": ["az900.networking.services", "az900.networking.endpoints"],
-      "claims": ["connectivity.CS02"],
-      "limits": "Seven-unit module structure, all six public units reviewed; protected assessment excluded.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-networking-services/",
-          "disposition": "reviewed-essential",
-          "reason": "Seven-unit module structure, all six public units reviewed; protected assessment excluded."
-        },
-        {
-          "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-networking-services/",
-          "disposition": "protected-assessment-excluded",
-          "reason": "All public teaching/framing units reviewed; no protected assessment, copied illustrations or deployment credentials."
-        }
-      ]
-    },
-    {
-      "id": "CS03",
-      "title": "Introduction · Networking",
-      "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-networking-services/1-introduction",
-      "kind": "unit",
-      "reviewed": "2026-10-29",
-      "version": "Public body checked2026-10-29",
-      "availability": "AVAILABLE",
-      "objectives": ["az900.networking.services", "az900.networking.endpoints"],
-      "claims": ["connectivity.CS03"],
-      "limits": "Networking purpose and prerequisite context; not a full routing/security engine.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-networking-services/1-introduction",
-          "disposition": "reviewed-prerequisite-context",
-          "reason": "Networking purpose and prerequisite context; not a full routing/security engine."
-        }
-      ]
-    },
-    {
-      "id": "CS04",
-      "title": "Describe Azure virtual networking · endpoints and prerequisites",
-      "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-networking-services/2-virtual-network",
-      "kind": "unit",
-      "reviewed": "2026-10-29",
-      "version": "Public body checked2026-10-29",
-      "availability": "AVAILABLE",
-      "objectives": ["az900.networking.services", "az900.networking.endpoints"],
-      "claims": ["connectivity.CS04"],
-      "limits": "Public/private endpoint distinction and VNet prerequisites, with product qualifications.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-networking-services/2-virtual-network",
-          "disposition": "reviewed-essential",
-          "reason": "Public/private endpoint distinction and VNet prerequisites, with product qualifications."
-        }
-      ]
-    },
-    {
-      "id": "CS05",
-      "title": "Describe Azure virtual private networks",
-      "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-networking-services/3-virtual-private-networks",
-      "kind": "unit",
-      "reviewed": "2026-10-29",
-      "version": "Public body checked2026-10-29",
-      "availability": "AVAILABLE",
-      "objectives": ["az900.networking.services", "az900.networking.endpoints"],
-      "claims": ["connectivity.CS05"],
-      "limits": "S2S/P2S/VNet-to-VNet distinctions, qualified by current product transport/authentication documentation.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-networking-services/3-virtual-private-networks",
-          "disposition": "reviewed-essential",
-          "reason": "S2S/P2S/VNet-to-VNet distinctions, qualified by current product transport/authentication documentation."
-        }
-      ]
-    },
-    {
-      "id": "CS06",
-      "title": "Describe Azure ExpressRoute",
-      "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-networking-services/4-expressroute",
-      "kind": "unit",
-      "reviewed": "2026-10-29",
-      "version": "Public body checked2026-10-29",
-      "availability": "AVAILABLE",
-      "objectives": ["az900.networking.services", "az900.networking.endpoints"],
-      "claims": ["connectivity.CS06"],
-      "limits": "Private provider connectivity and service purpose; global scope requires SKU/geography qualifications.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-networking-services/4-expressroute",
-          "disposition": "reviewed-essential",
-          "reason": "Private provider connectivity and service purpose; global scope requires SKU/geography qualifications."
-        }
-      ]
-    },
-    {
-      "id": "CS07",
-      "title": "Describe Azure DNS · prerequisite",
-      "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-networking-services/5-domain-name-system",
-      "kind": "unit",
-      "reviewed": "2026-10-29",
-      "version": "Public body checked2026-10-29",
-      "availability": "AVAILABLE",
-      "objectives": ["az900.networking.services", "az900.networking.endpoints"],
-      "claims": ["connectivity.CS07"],
-      "limits": "Name resolution is distinct from network path and authorization.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-networking-services/5-domain-name-system",
-          "disposition": "reviewed-prerequisite-context",
-          "reason": "Name resolution is distinct from network path and authorization."
-        }
-      ]
-    },
-    {
-      "id": "CS08",
-      "title": "Networking summary · public framing and further reading",
-      "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-networking-services/7-summary",
-      "kind": "unit",
-      "reviewed": "2026-10-29",
-      "version": "Public body checked2026-10-29",
-      "availability": "AVAILABLE",
-      "objectives": ["az900.networking.services", "az900.networking.endpoints"],
-      "claims": ["connectivity.CS08"],
-      "limits": "Module framing and further reading, not copied assessment material.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-networking-services/7-summary",
-          "disposition": "reviewed-prerequisite-context",
-          "reason": "Module framing and further reading, not copied assessment material."
-        }
-      ]
-    },
-    {
-      "id": "CS09",
-      "title": "About Azure VPN Gateway",
-      "url": "https://learn.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-about-vpngateways",
-      "kind": "product",
-      "reviewed": "2026-10-29",
-      "version": "Public body checked2026-10-29",
-      "availability": "AVAILABLE",
-      "objectives": ["az900.networking.services", "az900.networking.endpoints"],
-      "claims": ["connectivity.CS09"],
-      "limits": "VPN gateway encrypted tunnel types, gateway requirements and dated SKU constraints; no live throughput promise.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-about-vpngateways",
-          "disposition": "reviewed-essential",
-          "reason": "VPN gateway encrypted tunnel types, gateway requirements and dated SKU constraints; no live throughput promise."
-        }
-      ]
-    },
-    {
-      "id": "CS10",
-      "title": "VPN Gateway topology and design",
-      "url": "https://learn.microsoft.com/en-us/azure/vpn-gateway/design",
-      "kind": "product",
-      "reviewed": "2026-10-29",
-      "version": "Public body checked2026-10-29",
-      "availability": "AVAILABLE",
-      "objectives": ["az900.networking.services", "az900.networking.endpoints"],
-      "claims": ["connectivity.CS10"],
-      "limits": "Gateway topology, S2S public internet versus VNet-VNet Microsoft-network transport, compatible devices/routes.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/vpn-gateway/design",
-          "disposition": "reviewed-essential",
-          "reason": "Gateway topology, S2S public internet versus VNet-VNet Microsoft-network transport, compatible devices/routes."
-        }
-      ]
-    },
-    {
-      "id": "CS11",
-      "title": "About Point-to-Site VPN",
-      "url": "https://learn.microsoft.com/en-us/azure/vpn-gateway/point-to-site-about",
-      "kind": "product",
-      "reviewed": "2026-10-29",
-      "version": "Public body checked2026-10-29",
-      "availability": "AVAILABLE",
-      "objectives": ["az900.networking.services", "az900.networking.endpoints"],
-      "claims": ["connectivity.CS11"],
-      "limits": "P2S individual client, supported protocols/authentication and compatibility, not universal preshared-key use.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/vpn-gateway/point-to-site-about",
-          "disposition": "reviewed-essential",
-          "reason": "P2S individual client, supported protocols/authentication and compatibility, not universal preshared-key use."
-        }
-      ]
-    },
-    {
-      "id": "CS12",
-      "title": "Azure ExpressRoute overview",
-      "url": "https://learn.microsoft.com/en-us/azure/expressroute/expressroute-introduction",
-      "kind": "product",
-      "reviewed": "2026-10-29",
-      "version": "Public body checked2026-10-29",
-      "availability": "AVAILABLE",
-      "objectives": ["az900.networking.services", "az900.networking.endpoints"],
-      "claims": ["connectivity.CS12"],
-      "limits": "ER private transport, provider role, circuit redundancy, independent end-to-end failure boundaries and costs without invented rates.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/expressroute/expressroute-introduction",
-          "disposition": "reviewed-essential",
-          "reason": "ER private transport, provider role, circuit redundancy, independent end-to-end failure boundaries and costs without invented rates."
-        }
-      ]
-    },
-    {
-      "id": "CS13",
-      "title": "About encryption for Azure ExpressRoute",
-      "url": "https://learn.microsoft.com/en-us/azure/expressroute/expressroute-about-encryption",
-      "kind": "product",
-      "reviewed": "2026-10-29",
-      "version": "Public body checked2026-10-29",
-      "availability": "AVAILABLE",
-      "objectives": ["az900.networking.services", "az900.networking.endpoints"],
-      "claims": ["connectivity.CS13"],
-      "limits": "ER is not encrypted by default; MACsec Direct link scope differs from end-to-end IPsec.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/expressroute/expressroute-about-encryption",
-          "disposition": "reviewed-essential",
-          "reason": "ER is not encrypted by default; MACsec Direct link scope differs from end-to-end IPsec."
-        }
-      ]
-    },
-    {
-      "id": "CS14",
-      "title": "ExpressRoute circuits and peering",
-      "url": "https://learn.microsoft.com/en-us/azure/expressroute/expressroute-circuit-peerings",
-      "kind": "product",
-      "reviewed": "2026-10-29",
-      "version": "Public body checked2026-10-29",
-      "availability": "AVAILABLE",
-      "objectives": ["az900.networking.services", "az900.networking.endpoints"],
-      "claims": ["connectivity.CS14"],
-      "limits": "ER private peering versus Microsoft peering and VNet Peering; service/geography prerequisites.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/expressroute/expressroute-circuit-peerings",
-          "disposition": "reviewed-essential",
-          "reason": "ER private peering versus Microsoft peering and VNet Peering; service/geography prerequisites."
-        }
-      ]
-    },
-    {
-      "id": "CS15",
-      "title": "ExpressRoute and S2S VPN coexistence · limits and failover scope",
-      "url": "https://learn.microsoft.com/en-us/azure/expressroute/expressroute-howto-coexist-resource-manager",
-      "kind": "product",
-      "reviewed": "2026-10-29",
-      "version": "Public body checked2026-10-29",
-      "availability": "AVAILABLE",
-      "objectives": ["az900.networking.services", "az900.networking.endpoints"],
-      "claims": ["connectivity.CS15"],
-      "limits": "S2S coexistence/backup requires configured compatible private-peering routes; no universal automatic backup.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/expressroute/expressroute-howto-coexist-resource-manager",
-          "disposition": "reviewed-essential",
-          "reason": "S2S coexistence/backup requires configured compatible private-peering routes; no universal automatic backup."
-        }
-      ]
-    },
-    {
-      "id": "CS16",
-      "title": "What is a private endpoint?",
-      "url": "https://learn.microsoft.com/en-us/azure/private-link/private-endpoint-overview",
-      "kind": "product",
-      "reviewed": "2026-10-29",
-      "version": "Public body checked2026-10-29",
-      "availability": "AVAILABLE",
-      "objectives": ["az900.networking.services", "az900.networking.endpoints"],
-      "claims": ["connectivity.CS16"],
-      "limits": "PE private NIC/service subresource/approval and service-specific limits, no automatic application authorization.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/private-link/private-endpoint-overview",
-          "disposition": "reviewed-essential",
-          "reason": "PE private NIC/service subresource/approval and service-specific limits, no automatic application authorization."
-        }
-      ]
-    },
-    {
-      "id": "CS17",
-      "title": "Private Endpoint DNS integration scenarios",
-      "url": "https://learn.microsoft.com/en-us/azure/private-link/private-endpoint-dns-integration",
-      "kind": "product",
-      "reviewed": "2026-10-29",
-      "version": "Public body checked2026-10-29",
-      "availability": "AVAILABLE",
-      "objectives": ["az900.networking.services", "az900.networking.endpoints"],
-      "claims": ["connectivity.CS17"],
-      "limits": "Client-visible DNS and reachable resolver/forwarding path; no automatic on-premises Azure internal DNS access.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/private-link/private-endpoint-dns-integration",
-          "disposition": "reviewed-essential",
-          "reason": "Client-visible DNS and reachable resolver/forwarding path; no automatic on-premises Azure internal DNS access."
-        }
-      ]
-    },
-    {
-      "id": "CS18",
-      "title": "Private Endpoint private DNS zone values · service-specific scope",
-      "url": "https://learn.microsoft.com/en-us/azure/private-link/private-endpoint-dns",
-      "kind": "product",
-      "reviewed": "2026-10-29",
-      "version": "Public body checked2026-10-29",
-      "availability": "AVAILABLE",
-      "objectives": ["az900.networking.services", "az900.networking.endpoints"],
-      "claims": ["connectivity.CS18"],
-      "limits": "Service-specific private DNS zones and subresource requirements; fixture is not universal deployment configuration.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/private-link/private-endpoint-dns",
-          "disposition": "reviewed-essential",
-          "reason": "Service-specific private DNS zones and subresource requirements; fixture is not universal deployment configuration."
-        }
-      ]
-    },
-    {
-      "id": "CS19",
-      "title": "Use private endpoints for Azure Storage",
-      "url": "https://learn.microsoft.com/en-us/azure/storage/common/storage-private-endpoints",
-      "kind": "product",
-      "reviewed": "2026-10-29",
-      "version": "Public body checked2026-10-29",
-      "availability": "AVAILABLE",
-      "objectives": ["az900.networking.services", "az900.networking.endpoints"],
-      "claims": ["connectivity.CS19"],
-      "limits": "Storage concrete example: PE creation does not disable public endpoint; approval/DNS/subresource/auth remain separate.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/storage/common/storage-private-endpoints",
-          "disposition": "reviewed-essential",
-          "reason": "Storage concrete example: PE creation does not disable public endpoint; approval/DNS/subresource/auth remain separate."
-        }
-      ]
-    },
-    {
-      "id": "CS20",
-      "title": "Storage public-endpoint firewall and authorization boundaries",
-      "url": "https://learn.microsoft.com/en-us/azure/storage/common/storage-network-security",
-      "kind": "product",
-      "reviewed": "2026-10-29",
-      "version": "Public body checked2026-10-29",
-      "availability": "AVAILABLE",
-      "objectives": ["az900.networking.services", "az900.networking.endpoints"],
-      "claims": ["connectivity.CS20"],
-      "limits": "Storage firewall controls public endpoint; identity/data roles remain independent, no generic private firewall claim.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/storage/common/storage-network-security",
-          "disposition": "reviewed-essential",
-          "reason": "Storage firewall controls public endpoint; identity/data roles remain independent, no generic private firewall claim."
-        }
-      ]
-    },
-    {
-      "id": "CS21-BLOCKED",
-      "title": "Optional ExpressRoute HA article",
-      "url": "https://learn.microsoft.com/en-us/azure/expressroute/expressroute-designing-for-high-availability-with-expressroute",
-      "kind": "product",
-      "reviewed": "2026-10-29",
-      "version": "Access attempted2026-10-29",
-      "availability": "BLOCKED",
-      "objectives": ["az900.networking.services", "az900.networking.endpoints"],
-      "claims": ["connectivity.optional-ha"],
-      "limits": "Not sole support for any teaching claim; bounded redundancy teaching uses available CS12.",
-      "alternative": "CS12 ExpressRoute overview redundancy/resiliency sections; no failover SLA claimed.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/expressroute/expressroute-designing-for-high-availability-with-expressroute",
-          "disposition": "blocked",
-          "reason": "Research tool reported inaccessible; no access bypass."
-        }
-      ]
     }
   ],
   "activities": [
     {
-      "id": "connectivity-choose",
+      "id": "existing-course-preservation",
       "objectives": ["az900.networking.services", "az900.networking.endpoints"],
-      "claims": [
-        "connectivity.CS09",
-        "connectivity.CS10",
-        "connectivity.CS11",
-        "connectivity.CS12",
-        "connectivity.CS13",
-        "connectivity.CS14"
+      "claims": ["connectivity.CS01"],
+      "limits": "Unchanged existing course is a concrete preservation witness, not new teaching, assessment, XP or coverage. Only engineering process/configuration changes.",
+      "assessmentStatus": "unchanged-existing",
+      "theory": [
+        {
+          "path": "src/content/nb.ts"
+        }
       ],
-      "assessmentStatus": "new-independent",
-      "limits": "Declared deterministic conceptual model only: no actual tunnel/circuit/PE/DNS query/runtime/receipt or authorization enforcement. Guided observations never imply independent evidence.",
-      "theory": [{ "path": "src/content/nb.ts", "marker": "connectivityNb" }],
       "mechanism": [
-        { "path": "src/domain/curriculum/connectivity-model.ts" },
-        { "path": "src/domain/curriculum/connectivity.ts" }
+        {
+          "path": "src/domain/curriculum/connectivity-model.ts"
+        }
       ],
-      "practice": [{ "path": "src/features/learning/connectivity-workbench.tsx" }],
+      "practice": [
+        {
+          "path": "src/features/learning/connectivity-workbench.tsx"
+        }
+      ],
       "feedback": [
-        { "path": "src/content/nb.ts", "marker": "connectivityItemsNb" },
-        { "path": "src/domain/curriculum/connectivity-items.ts", "marker": "evaluateConnectivity" },
-        { "path": "src/features/learning/connectivity-assessment.tsx" }
+        {
+          "path": "src/domain/curriculum/connectivity-items.ts"
+        }
       ],
       "visual": [
-        { "path": "src/features/learning/connectivity-visuals.tsx" },
-        { "path": "src/features/learning/connectivity.css" }
+        {
+          "path": "src/features/learning/connectivity-visuals.tsx"
+        }
       ],
-      "accessible": [{ "path": "tests/e2e/networking-connectivity.spec.ts" }],
+      "accessible": [
+        {
+          "path": "src/features/learning/connectivity.css"
+        }
+      ],
       "assessment": [
-        { "path": "src/domain/curriculum/connectivity-items.ts", "marker": "evaluateConnectivity" },
-        { "path": "src/features/learning/connectivity-assessment.tsx" }
+        {
+          "path": "src/features/learning/connectivity-assessment.tsx"
+        }
       ],
-      "savvyshark": [{ "path": "src/features/learning/connectivity-workbench.tsx" }]
-    },
-    {
-      "id": "connectivity-diagnose",
-      "objectives": ["az900.networking.services", "az900.networking.endpoints"],
-      "claims": [
-        "connectivity.CS09",
-        "connectivity.CS12",
-        "connectivity.CS13",
-        "connectivity.CS15"
-      ],
-      "assessmentStatus": "new-independent",
-      "limits": "Declared deterministic conceptual model only: no actual tunnel/circuit/PE/DNS query/runtime/receipt or authorization enforcement. Guided observations never imply independent evidence.",
-      "theory": [{ "path": "src/content/nb.ts", "marker": "connectivityNb" }],
-      "mechanism": [
-        { "path": "src/domain/curriculum/connectivity-model.ts" },
-        { "path": "src/domain/curriculum/connectivity.ts" }
-      ],
-      "practice": [{ "path": "src/features/learning/connectivity-workbench.tsx" }],
-      "feedback": [
-        { "path": "src/content/nb.ts", "marker": "connectivityItemsNb" },
-        { "path": "src/domain/curriculum/connectivity-items.ts", "marker": "evaluateConnectivity" },
-        { "path": "src/features/learning/connectivity-assessment.tsx" }
-      ],
-      "visual": [
-        { "path": "src/features/learning/connectivity-visuals.tsx" },
-        { "path": "src/features/learning/connectivity.css" }
-      ],
-      "accessible": [{ "path": "tests/e2e/networking-connectivity.spec.ts" }],
-      "assessment": [
-        { "path": "src/domain/curriculum/connectivity-items.ts", "marker": "evaluateConnectivity" },
-        { "path": "src/features/learning/connectivity-assessment.tsx" }
-      ],
-      "savvyshark": [{ "path": "src/features/learning/connectivity-workbench.tsx" }]
-    },
-    {
-      "id": "connectivity-endpoint",
-      "objectives": ["az900.networking.services", "az900.networking.endpoints"],
-      "claims": [
-        "connectivity.CS04",
-        "connectivity.CS16",
-        "connectivity.CS19",
-        "connectivity.CS20"
-      ],
-      "assessmentStatus": "new-independent",
-      "limits": "Declared deterministic conceptual model only: no actual tunnel/circuit/PE/DNS query/runtime/receipt or authorization enforcement. Guided observations never imply independent evidence.",
-      "theory": [{ "path": "src/content/nb.ts", "marker": "connectivityNb" }],
-      "mechanism": [
-        { "path": "src/domain/curriculum/connectivity-model.ts" },
-        { "path": "src/domain/curriculum/connectivity.ts" }
-      ],
-      "practice": [{ "path": "src/features/learning/connectivity-workbench.tsx" }],
-      "feedback": [
-        { "path": "src/content/nb.ts", "marker": "connectivityItemsNb" },
-        { "path": "src/domain/curriculum/connectivity-items.ts", "marker": "evaluateConnectivity" },
-        { "path": "src/features/learning/connectivity-assessment.tsx" }
-      ],
-      "visual": [
-        { "path": "src/features/learning/connectivity-visuals.tsx" },
-        { "path": "src/features/learning/connectivity.css" }
-      ],
-      "accessible": [{ "path": "tests/e2e/networking-connectivity.spec.ts" }],
-      "assessment": [
-        { "path": "src/domain/curriculum/connectivity-items.ts", "marker": "evaluateConnectivity" },
-        { "path": "src/features/learning/connectivity-assessment.tsx" }
-      ],
-      "savvyshark": [{ "path": "src/features/learning/connectivity-workbench.tsx" }]
-    },
-    {
-      "id": "connectivity-dns",
-      "objectives": ["az900.networking.services", "az900.networking.endpoints"],
-      "claims": [
-        "connectivity.CS16",
-        "connectivity.CS17",
-        "connectivity.CS18",
-        "connectivity.CS19"
-      ],
-      "assessmentStatus": "new-independent",
-      "limits": "Declared deterministic conceptual model only: no actual tunnel/circuit/PE/DNS query/runtime/receipt or authorization enforcement. Guided observations never imply independent evidence.",
-      "theory": [{ "path": "src/content/nb.ts", "marker": "connectivityNb" }],
-      "mechanism": [
-        { "path": "src/domain/curriculum/connectivity-model.ts" },
-        { "path": "src/domain/curriculum/connectivity.ts" }
-      ],
-      "practice": [{ "path": "src/features/learning/connectivity-workbench.tsx" }],
-      "feedback": [
-        { "path": "src/content/nb.ts", "marker": "connectivityItemsNb" },
-        { "path": "src/domain/curriculum/connectivity-items.ts", "marker": "evaluateConnectivity" },
-        { "path": "src/features/learning/connectivity-assessment.tsx" }
-      ],
-      "visual": [
-        { "path": "src/features/learning/connectivity-visuals.tsx" },
-        { "path": "src/features/learning/connectivity.css" }
-      ],
-      "accessible": [{ "path": "tests/e2e/networking-connectivity.spec.ts" }],
-      "assessment": [
-        { "path": "src/domain/curriculum/connectivity-items.ts", "marker": "evaluateConnectivity" },
-        { "path": "src/features/learning/connectivity-assessment.tsx" }
-      ],
-      "savvyshark": [{ "path": "src/features/learning/connectivity-workbench.tsx" }]
+      "savvyshark": [
+        {
+          "path": "src/features/learning/connectivity-workbench.tsx"
+        }
+      ]
     }
   ],
-  "modules": [
-    {
-      "id": "networking-connectivity-v1",
-      "prerequisites": [{ "path": "src/content/nb.ts", "marker": "connectivityNb" }],
-      "terminology": [{ "path": "src/content/nb.ts", "marker": "connectivityNb" }],
-      "concept": [{ "path": "src/content/nb.ts", "marker": "connectivityNb" }],
-      "azureExample": [{ "path": "src/content/nb.ts", "marker": "connectivityNb" }],
-      "workedExample": [{ "path": "src/content/nb.ts", "marker": "connectivityNb" }],
-      "misconception": [{ "path": "src/content/nb.ts", "marker": "connectivityNb" }],
-      "limits": [{ "path": "src/content/nb.ts", "marker": "connectivityNb" }],
-      "mechanism": [
-        { "path": "src/domain/curriculum/connectivity-model.ts" },
-        { "path": "src/domain/curriculum/connectivity.ts" }
-      ],
-      "visual": [
-        { "path": "src/features/learning/connectivity-visuals.tsx" },
-        { "path": "src/features/learning/connectivity.css" }
-      ],
-      "practice": [{ "path": "src/features/learning/connectivity-workbench.tsx" }],
-      "independentScenario": [
-        { "path": "src/content/nb.ts", "marker": "connectivityItemsNb" },
-        { "path": "src/domain/curriculum/connectivity-items.ts", "marker": "evaluateConnectivity" }
-      ],
-      "correctAndWrongRationales": [
-        { "path": "src/content/nb.ts", "marker": "connectivityItemsNb" }
-      ],
-      "sources": [{ "path": "src/domain/curriculum/connectivity-sources.ts" }]
-    }
-  ],
+  "modules": [],
   "preservedPaths": [
-    "src/domain/chapter01/",
-    "src/domain/curriculum/foundations.ts",
-    "src/domain/curriculum/foundations-v2.ts",
-    "src/domain/curriculum/expansion.ts",
-    "src/domain/curriculum/expansion-store.ts",
-    "src/domain/curriculum/serverless.ts",
-    "src/domain/curriculum/serverless-store.ts",
-    "src/domain/curriculum/architecture-physical.ts",
-    "src/domain/curriculum/architecture-physical-store.ts",
-    "src/domain/curriculum/architecture-management.ts",
-    "src/domain/curriculum/architecture-management-store.ts",
-    "src/domain/curriculum/teaching-access.ts",
-    "src/domain/progression.ts",
-    "src/domain/sandbox/",
-    "src/domain/portal/learning.ts",
-    "src/domain/portal/store.ts",
-    "src/features/learning/transfer.tsx",
+    "src/",
+    "tests/e2e/",
+    "tests/fixtures/",
+    "public/",
     "package-lock.json",
-    "src/domain/curriculum/transfer.ts",
-    "src/domain/curriculum/transfer-store.ts",
-    "src/features/learning/transfer-provider.tsx",
-    "src/domain/curriculum/cost-model.ts",
-    "src/domain/curriculum/cost.ts",
-    "src/domain/curriculum/cost-store.ts",
-    "src/domain/curriculum/compute.ts",
-    "src/domain/curriculum/compute-model.ts",
-    "src/domain/curriculum/compute-store.ts",
-    "src/domain/curriculum/compute-items.ts",
-    "src/domain/curriculum/compute-vm.ts",
-    "src/domain/curriculum/networking.ts",
-    "src/domain/curriculum/networking-model.ts",
-    "src/domain/curriculum/networking-items.ts",
-    "src/domain/curriculum/networking-store.ts",
-    "src/domain/curriculum/networking-inspection.ts",
-    "src/domain/curriculum/networking-sources.ts"
+    ".github/",
+    "playwright.config.ts",
+    "docs/audits/"
   ],
   "gates": {
     "source": {
-      "checks": [{ "path": "docs/NETWORKING_CONNECTIVITY.md" }],
-      "limits": "Engineering checks do not establish human SME/UX/screen-reader/learning acceptance. External preview/SHA requires authorized access; PR28 dependency remains BLOCKED by SSO. No merge/production deployment."
+      "checks": [
+        {
+          "path": "docs/DEVELOPMENT_WORKFLOW.md"
+        },
+        {
+          "path": "docs/PUBLIC_ACCESS_REVIEW.md"
+        }
+      ],
+      "limits": "Process-only candidate. No changed teaching, scoring, data or runtime. Default legacy300-case CI remains mandatory until owner approval. Opt-in plan needs actual collection/compact execution; no new parallel workers. Public access awaits confirmed Vercel settings inventory. External Ready/CI are not browser/SHA evidence; no merge/production deploy."
     },
     "curriculum": {
-      "checks": [{ "path": "src/domain/curriculum/connectivity.test.ts" }],
-      "limits": "Engineering checks do not establish human SME/UX/screen-reader/learning acceptance. External preview/SHA requires authorized access; PR28 dependency remains BLOCKED by SSO. No merge/production deployment."
+      "checks": [
+        {
+          "path": "src/content/nb.ts"
+        },
+        {
+          "path": "docs/AZ900_EXPANSION_ROADMAP.md"
+        }
+      ],
+      "limits": "Process-only candidate. No changed teaching, scoring, data or runtime. Default legacy300-case CI remains mandatory until owner approval. Opt-in plan needs actual collection/compact execution; no new parallel workers. Public access awaits confirmed Vercel settings inventory. External Ready/CI are not browser/SHA evidence; no merge/production deploy."
     },
     "simulation": {
-      "checks": [{ "path": "src/domain/curriculum/connectivity.test.ts" }],
-      "limits": "Engineering checks do not establish human SME/UX/screen-reader/learning acceptance. External preview/SHA requires authorized access; PR28 dependency remains BLOCKED by SSO. No merge/production deployment."
+      "checks": [
+        {
+          "path": "src/domain/curriculum/connectivity.test.ts"
+        },
+        {
+          "path": "docs/DEVELOPMENT_WORKFLOW.md"
+        }
+      ],
+      "limits": "Process-only candidate. No changed teaching, scoring, data or runtime. Default legacy300-case CI remains mandatory until owner approval. Opt-in plan needs actual collection/compact execution; no new parallel workers. Public access awaits confirmed Vercel settings inventory. External Ready/CI are not browser/SHA evidence; no merge/production deploy."
     },
     "savvyshark": {
-      "checks": [{ "path": "tests/e2e/networking-connectivity.spec.ts" }],
-      "limits": "Engineering checks do not establish human SME/UX/screen-reader/learning acceptance. External preview/SHA requires authorized access; PR28 dependency remains BLOCKED by SSO. No merge/production deployment."
+      "checks": [
+        {
+          "path": "tests/e2e/course.spec.ts"
+        },
+        {
+          "path": "tests/e2e/networking-connectivity.spec.ts"
+        }
+      ],
+      "limits": "Process-only candidate. No changed teaching, scoring, data or runtime. Default legacy300-case CI remains mandatory until owner approval. Opt-in plan needs actual collection/compact execution; no new parallel workers. Public access awaits confirmed Vercel settings inventory. External Ready/CI are not browser/SHA evidence; no merge/production deploy."
     },
     "visual-accessibility": {
-      "checks": [{ "path": "tests/e2e/networking-connectivity.spec.ts" }],
-      "limits": "Engineering checks do not establish human SME/UX/screen-reader/learning acceptance. External preview/SHA requires authorized access; PR28 dependency remains BLOCKED by SSO. No merge/production deployment."
+      "checks": [
+        {
+          "path": "playwright.desktop.config.ts"
+        },
+        {
+          "path": "tests/e2e/course.spec.ts"
+        }
+      ],
+      "limits": "Process-only candidate. No changed teaching, scoring, data or runtime. Default legacy300-case CI remains mandatory until owner approval. Opt-in plan needs actual collection/compact execution; no new parallel workers. Public access awaits confirmed Vercel settings inventory. External Ready/CI are not browser/SHA evidence; no merge/production deploy."
     },
     "independent-final-audit": {
-      "checks": [{ "path": "docs/RELEASE_ACCEPTANCE.md" }],
-      "limits": "Engineering checks do not establish human SME/UX/screen-reader/learning acceptance. External preview/SHA requires authorized access; PR28 dependency remains BLOCKED by SSO. No merge/production deployment."
+      "checks": [
+        {
+          "path": "docs/RELEASE_ACCEPTANCE.md"
+        },
+        {
+          "path": "docs/quality/PR30_FINAL_AUDIT.md"
+        }
+      ],
+      "limits": "Process-only candidate. No changed teaching, scoring, data or runtime. Default legacy300-case CI remains mandatory until owner approval. Opt-in plan needs actual collection/compact execution; no new parallel workers. Public access awaits confirmed Vercel settings inventory. External Ready/CI are not browser/SHA evidence; no merge/production deploy."
     },
     "delivery": {
-      "checks": [{ "path": "src/domain/curriculum/connectivity.test.ts" }],
-      "limits": "Engineering checks do not establish human SME/UX/screen-reader/learning acceptance. External preview/SHA requires authorized access; PR28 dependency remains BLOCKED by SSO. No merge/production deployment."
+      "checks": [
+        {
+          "path": ".github/workflows/ci.yml"
+        },
+        {
+          "path": "scripts/quality-check.mjs"
+        },
+        {
+          "path": "scripts/e2e-plan-check.mjs"
+        }
+      ],
+      "limits": "Process-only candidate. No changed teaching, scoring, data or runtime. Default legacy300-case CI remains mandatory until owner approval. Opt-in plan needs actual collection/compact execution; no new parallel workers. Public access awaits confirmed Vercel settings inventory. External Ready/CI are not browser/SHA evidence; no merge/production deploy."
     }
   },
   "verification": [
     {
       "command": "npm run check",
       "result": "passed",
-      "details": "Final complete candidate:346 Vitest tests/28 files,256 curriculum tests/19 files,91 Markdown/local links, Node validator fixtures, type/lint/format/quality/AZ900/assets/legacy and production build; npm run check exit0. Shared active-fixture exact count10, uniqueness and PartB membership validated."
+      "details": "Complete configured check finished exit0 on the candidate: type/lint/format/docs/quality/AZ900/curriculum/assets/legacy,346 Vitest tests/28files,256 curriculum/19files, Node validator fixtures and production build. Runtime/test/CI sources preserved. Local targeted compact and plan collection evidence are separate; complete current legacy CI remains required post-Draft. This full local check preceded the tiny F1 orchestration fix; final package preflight+160-case collection,11 independent negative controls, formatting and targeted ESLint passed afterwards. The unchanged complete CI must rerun check on the final commit before delivery."
     },
     {
-      "command": "npm audit --audit-level=high",
+      "command": "npm run test:e2e:plan",
       "result": "passed",
-      "details": "0 vulnerabilities; package-lock and runtime dependencies unchanged."
-    },
-    {
-      "command": "Actual local production browser walkthrough",
-      "result": "passed",
-      "details": "Normal root4desktop sizes, all4missions/15savedruns, wrong first/reload, durable help/retry, Summary and full Journal.37actual captures;18representative captures personally inspected and committed.5Axe0 scans,0page errors,0externalruntime requests. Not native zoom, deployedSHA or human validation. Separate normal Portal creation and existing VM/NIC context readback preserved Sandbox bytes; no Part B mission or assessment event."
+      "details": "Actual Playwright collections:legacy300, candidate150 identical desktop+10 exact compact witnesses=160; worker1. Default CI unchanged; no source/test-body/timeout/skip change."
     },
     {
       "command": "npm run test:e2e",
       "result": "passed",
-      "scope": "Completed local desktop project only; complete suite pending GitHub CI",
-      "details": "All150 desktop cases passed, including13 PartB cases, in the unchanged single-worker/no-retry project-pinned Chromium run using an ignored3100 server adapter (npx playwright test equivalent runner). Following the owner explicit PC priority, remaining local mobile work was interrupted:165 total passes/1 interrupted/134 not run, NOT a passed complete suite or exit0. The existing complete300-case GitHub Quality suite remains required before final owner delivery. No tracked project, skip, assertion or timeout relaxed. Targeted Cost20runs passed exit0 after per-viewport/workbench decomposition; all14Axe scans/project retained."
+      "scope": "Targeted candidate compact validation only; authoritative complete legacy CI required after Draft",
+      "details": "Repository-pinned Chromium, production build, ignored3100 origin adapter:10 compact-chromium cases passed/0fail/0skip/0retry in1.2m, exit0. Actual invocation:npx playwright test --config .artifacts/pivot/local.config.ts --project compact-chromium --retries=0. Source and every existing test file unchanged from verified PR29; no claim of new full local suite or default-CI activation."
+    },
+    {
+      "command": "npm run test:e2e:desktop -- --list",
+      "result": "passed",
+      "details": "F1 correction: candidate command now requires successful plancheck before Playwright. Guarded command exit0; lists160 cases, no browser/server started. Discovery subprocess timeout30s. Independent probe using actual production predicates/actual collections exit0 and rejects11 missing/renamed/ambiguous/extra/wrong-file/skipped/worker/legacy/manifest/surface negatives. Targeted final ESLint and formatting exit0. No source/testbody/CI/runtime change."
     }
   ],
   "visualEvidence": [
     {
-      "path": "docs/screenshots/networking-connectivity/root-1920.png",
-      "viewport": "1920x1080",
+      "path": "docs/screenshots/workflow/portal-compact.png",
+      "viewport": "800x700",
       "inspected": true,
-      "observation": "Scrolled ordinary root exposes Part A and Part B in sequence; no hidden proof route."
+      "observation": "Actual compact PC resource menu/search/list/footer readable; supported local simulator context retained."
     },
     {
-      "path": "docs/screenshots/networking-connectivity/root-1440.png",
-      "viewport": "1440x900",
-      "inspected": true,
-      "observation": "Ordinary root has visible Part B entry and separate evidence wording."
-    },
-    {
-      "path": "docs/screenshots/networking-connectivity/root-1366.png",
-      "viewport": "1366x768",
-      "inspected": true,
-      "observation": "Ordinary root entry remains readable at constrained desktop width."
-    },
-    {
-      "path": "docs/screenshots/networking-connectivity/root-1024.png",
-      "viewport": "1024x768",
-      "inspected": true,
-      "observation": "Normal vertical scrolling exposes the complete Part B entry and action."
-    },
-    {
-      "path": "docs/screenshots/networking-connectivity/brief-short-end.png",
+      "path": "docs/screenshots/workflow/endpoint-short.png",
       "viewport": "1024x500",
       "inspected": true,
-      "observation": "Native short-height briefing scroll reaches all essential instructions; Start/Cancel remain visible."
-    },
-    {
-      "path": "docs/screenshots/networking-connectivity/expressroute-not-encrypted.png",
-      "viewport": "1440x900",
-      "inspected": true,
-      "observation": "Selected provider route differs from VPN; declared encryption requirement remains unmet."
-    },
-    {
-      "path": "docs/screenshots/networking-connectivity/expressroute-ipsec.png",
-      "viewport": "1440x900",
-      "inspected": true,
-      "observation": "Same transport with additional declared IPsec reaches the planned requirement; no packet claim."
-    },
-    {
-      "path": "docs/screenshots/networking-connectivity/macsec-link-only.png",
-      "viewport": "1440x900",
-      "inspected": true,
-      "observation": "Link encryption is Yes while declared tunnel-end encryption and combined requirement remain No."
-    },
-    {
-      "path": "docs/screenshots/networking-connectivity/hybrid-milestone.png",
-      "viewport": "1440x900",
-      "inspected": true,
-      "observation": "Validated backup observation opens one factual, dismissible SavvyShark explanation."
-    },
-    {
-      "path": "docs/screenshots/networking-connectivity/private-entry-public-still-enabled.png",
-      "viewport": "1440x900",
-      "inspected": true,
-      "observation": "Approved private entry coexists with enabled public entry; selected entrance is explicit."
-    },
-    {
-      "path": "docs/screenshots/networking-connectivity/public-actual-access-private-intent.png",
-      "viewport": "1440x900",
-      "inspected": true,
-      "observation": "Actual public entry may pass declared controls while the intended private plan remains unmet."
-    },
-    {
-      "path": "docs/screenshots/networking-connectivity/dns-correct-route-missing.png",
-      "viewport": "1440x900",
-      "inspected": true,
-      "observation": "Correct private DNS with independent controls Yes, route and combined access No; response unknown."
-    },
-    {
-      "path": "docs/screenshots/networking-connectivity/endpoint-stages-1024x500.png",
-      "viewport": "1024x500",
-      "inspected": true,
-      "observation": "Short-height native reflow retains labelled independent path/policy/app stages and normal scroll."
-    },
-    {
-      "path": "docs/screenshots/networking-connectivity/independent-wrong-reason.png",
-      "viewport": "1440x900",
-      "inspected": true,
-      "observation": "Correct decision with incompatible reason fails and receives specific causal feedback."
-    },
-    {
-      "path": "docs/screenshots/networking-connectivity/independent-assisted-retry.png",
-      "viewport": "1440x900",
-      "inspected": true,
-      "observation": "Correct assisted retry displays the actual submitted case after help-return."
-    },
-    {
-      "path": "docs/screenshots/networking-connectivity/summary-retains-first.png",
-      "viewport": "1440x900",
-      "inspected": true,
-      "observation": "Four guided results and failed unaided first remain distinct from the later assisted pass."
-    },
-    {
-      "path": "docs/screenshots/networking-connectivity/journal-private-dns.png",
-      "viewport": "1440x900",
-      "inspected": true,
-      "observation": "Full original DNS explanation, example and limits remain readable in the shared Journal."
-    },
-    {
-      "path": "docs/screenshots/networking-connectivity/actual-context.png",
-      "viewport": "1440x900",
-      "inspected": true,
-      "observation": "Normal supported Portal group/VM creation supplies actual VM/NIC references; Part B reads the same Sandbox bytes without commands or new mission/assessment credit."
+      "observation": "Actual short PC pipeline stages remain labelled; normal vertical scrolling and persistent course navigation remain. No UI source change."
     }
   ],
   "humanReview": {
@@ -788,154 +216,148 @@
   },
   "review": {
     "status": "complete",
-    "fingerprint": "0187af3fffb1d77d99a553638641e2c34d9d557e2021848056530d4aa80b7499",
-    "reviewer": { "id": "agent:/root/p07_final_audit", "kind": "agent" },
-    "started": "2026-10-29T14:21:38.032790Z",
+    "fingerprint": "0da7bc7ea7ddd58420ae6e55eef8d447d082c5fd5c4c4254d5a7e301ba1b374d",
+    "reviewer": {
+      "id": "codex-independent-final-auditor-pr30",
+      "kind": "agent"
+    },
+    "started": "2026-10-30T08:09:37.960Z",
     "domains": {
       "content": {
-        "finding": "No blocker/major: actual manuscript, four guided witness contracts, all12 cases/72feedback and current official P2S/ER encryption+coexistence/Storage PE public bodies support scoped causal teaching; full Journal retained. Public source qualifications and blocked optional HA alternative are explicit; no human SME acceptance.",
+        "finding": "Retained initial review: course/source/audit bytes preserved; no new teaching or coverage. Normative A-I protections remain. Unchanged Microsoft sources were not re-audited.",
         "evidence": [
-          { "path": "src/content/nb.ts", "marker": "connectivityNb" },
-          { "path": "src/domain/curriculum/connectivity-sources.ts" },
-          { "path": "docs/NETWORKING_CONNECTIVITY.md" },
-          { "path": "docs/quality/PR29_FINAL_AUDIT.md" }
+          {
+            "path": "src/content/nb.ts"
+          },
+          {
+            "path": "docs/QUALITY_CONTRACT.md"
+          },
+          {
+            "path": "docs/DEVELOPMENT_WORKFLOW.md"
+          }
         ]
       },
       "technical": {
-        "finding": "No blocker/major: pure models keep transport, crypto scope, DNS-selected entry versus intent, independent endpoint/app declarations, cumulative path/network/authorization and assumed response separate. Independent negative controls, strict replay/versions, immutable first/family/aid/retry/abandon,799-event terminal sequence, denied writes and compare-delete recovery passed. No World/resource/receipt/runtime/XP extension.",
+        "finding": "Retained initial review: Sandbox/model/persistence/assistance/CI/default config preserved. Candidate is Desktop Chrome800x700,worker1. Public access stays BLOCKED on actual authenticated settings/domain/older-preview inventory; no changes claimed.",
         "evidence": [
-          { "path": "src/domain/curriculum/connectivity-model.ts" },
-          { "path": "src/domain/curriculum/connectivity.ts" },
-          { "path": "src/domain/curriculum/connectivity-store.ts" },
-          { "path": "src/domain/curriculum/connectivity.test.ts" },
-          { "path": "docs/quality/PR29_FINAL_AUDIT.md" }
+          {
+            "path": "playwright.config.ts"
+          },
+          {
+            "path": "playwright.desktop.config.ts"
+          },
+          {
+            "path": "docs/PUBLIC_ACCESS_REVIEW.md"
+          },
+          {
+            "path": "src/domain/curriculum/connectivity-model.ts"
+          }
         ]
       },
       "visual": {
-        "finding": "All18 committed actual images inspected; independent actual production probe captured16 more with meaningful pixels inspected, root widths1920/1440/1366/1024 and1024x500 keyboard/native-scroll briefing/stages;2Axe0,0page errors. Labels/tables preserve layer explanation. No critical desktop clipping/overflow found; native zoom/human UX/screen-reader remain unperformed.",
+        "finding": "Retained personal inspection of two committed raw-identical PNGs and four actual desktop transfer frames. Labels/controls wrap readably; short endpoint image is a scrolled slice, not proof the whole pipeline fits at once. No UX/screen-reader human pass inferred. No image changed during F1 correction.",
         "evidence": [
-          { "path": "docs/screenshots/networking-connectivity/root-1920.png" },
-          { "path": "docs/screenshots/networking-connectivity/root-1024.png" },
-          { "path": "docs/screenshots/networking-connectivity/brief-short-end.png" },
-          { "path": "docs/screenshots/networking-connectivity/endpoint-stages-1024x500.png" },
-          { "path": "docs/screenshots/networking-connectivity/actual-context.png" },
-          { "path": "docs/quality/PR29_FINAL_AUDIT.md" }
+          {
+            "path": "docs/screenshots/workflow/portal-compact.png"
+          },
+          {
+            "path": "docs/screenshots/workflow/endpoint-short.png"
+          },
+          {
+            "path": "tests/e2e/cloud-transfer.spec.ts"
+          }
         ]
       },
       "assessment": {
-        "finding": "Fresh pre-key blind lock at14:21:38Z,inputSHA e2f3bfea04d6f72bce8372997fb7ea7f1f9fd1dc51fafc9246d095d6c49d1129. All108 actual evaluator pairs independently checked:12accepted/96rejected;72feedback read; guided transfer structure challenged including corrected hostname nc11. Position and reason-length ranks4/4/4. No offered equally defensible causal pair found. Introductory easy distractors remain a minor measurement limitation, not evidence of far transfer.",
+        "finding": "Retained initial review: answers/rubrics/first/help/retry/family/XP and test assertions unchanged. Entire desktop collection preserved; compact selection remains limited witness evidence awaiting owner adoption. F1 safe-orchestration correction is verified and closed.",
         "evidence": [
-          { "path": "src/domain/curriculum/connectivity-items.ts" },
-          { "path": "src/content/nb.ts", "marker": "connectivityItemsNb" },
-          { "path": "src/features/learning/connectivity-assessment.tsx" },
-          { "path": "docs/quality/PR29_FINAL_AUDIT.md" }
+          {
+            "path": "tests/e2e/cloud-transfer.spec.ts"
+          },
+          {
+            "path": "tests/e2e/cost-management.spec.ts"
+          },
+          {
+            "path": "playwright.desktop.config.ts"
+          }
         ]
       },
       "guidance": {
-        "finding": "All15 contexts inspected in durable teaching/Journal/Summary/history boundaries and automatic-guidance guards. Actual browser passed short Start/Cancel, milestone once-only reload, durable help before visible teaching, assisted-active PartA suppression, exact root case resume, wrong first/retry/Summary preservation and already-open cross-tab Journal withholding/reload. Own drafts/recovery remain available; no mascot command or implicit completion.",
+        "finding": "Retained initial review: guidance, durable aid, independent shielding, Journal return and recovery byte-preserved. Existing actual guide/focus/short-window test bodies inspected; no automatic solutions or awards introduced.",
         "evidence": [
-          { "path": "src/features/learning/management-access.tsx" },
-          { "path": "src/features/course/mission-context.ts" },
-          { "path": "src/features/learning/connectivity-workbench.tsx" },
-          { "path": "src/features/portal/portal.tsx" },
-          { "path": "tests/e2e/networking-connectivity.spec.ts" },
-          { "path": "docs/quality/PR29_FINAL_AUDIT.md" }
+          {
+            "path": "tests/e2e/course.spec.ts"
+          },
+          {
+            "path": "tests/e2e/portal.spec.ts"
+          },
+          {
+            "path": "tests/e2e/networking-connectivity.spec.ts"
+          },
+          {
+            "path": "docs/QUALITY_CONTRACT.md"
+          }
         ]
       },
       "regression": {
-        "finding": "Independently recomputed all58 normalized hashes and fingerprint:exact match; all35preserved paths intact;173old audit sources and55other objective objects identical. Only2.2.05/06 authored coverage changes; old nb teaching/items preserved except3availability statements. Corrected full check346Vitest/256curriculum/build confirmed; Cost decomposition retains14scans/project and downstream lab assertions. All150local desktop passed;165passed/1interrupted/134notrun is NOT full-suite success. Complete300-case CI and actual previewSHA remain mandatory post-Draft external gates.",
+        "finding": "F1 MAJOR FIXED: candidate entry requires successful plancheck before Playwright; discovery children bounded30s. Inspected actual guarded160-case list and production-predicate probe rejecting all11 independent negatives, each executed exit0 after correction. All14 renewed hashes/fingerprint exact; only preflight/timeout/matching workflow sentence changed since initial audit. Default300/CI/test bodies unchanged. Strict release still needs mechanical execution; complete current legacy CI and actual externalGate7 remain pending.",
         "evidence": [
-          { "path": "docs/audits/az900-2026-07-20.json" },
-          { "path": "tests/e2e/cost-management.spec.ts" },
-          { "path": "tests/e2e/practical-labs.spec.ts" },
-          { "path": "src/domain/curriculum/teaching-access.test.ts" },
-          { "path": "docs/quality/PR29_FINAL_AUDIT.md" }
+          {
+            "path": "package.json"
+          },
+          {
+            "path": "scripts/e2e-plan-check.mjs"
+          },
+          {
+            "path": ".github/workflows/ci.yml"
+          },
+          {
+            "path": "scripts/quality-check.mjs"
+          },
+          {
+            "path": "docs/RELEASE_ACCEPTANCE.md"
+          },
+          {
+            "path": "docs/quality/PR30_FINAL_AUDIT.md"
+          }
         ]
       }
     },
     "findings": [
       {
-        "id": "FA29-01",
-        "severity": "minor",
-        "status": "accepted-limitation",
-        "description": "Easy categorical distractors and explicit diagnostic premises limit fixed-bank evidence to introductory constrained causal discrimination; no unprompted troubleshooting, far transfer, psychometric or exam-readiness claim is accepted."
-      },
-      {
-        "id": "FA29-02",
-        "severity": "note",
-        "status": "accepted-limitation",
-        "description": "External delivery remains pending: unchanged complete300-case GitHub Quality suite, stable-root preview and actual deployedSHA/action-return verification are not established by local desktop acceptance. PR28 Gate7 remains SSO-blocked; no bypass or protection/production change."
-      },
-      {
-        "id": "FA29-03",
-        "severity": "note",
-        "status": "accepted-limitation",
-        "description": "Qualified human SME, novice/IT usability, screen-reader-user, native browser zoom and measured learner-transfer acceptance remain unperformed. Human review fields are unchanged."
+        "id": "F1",
+        "severity": "major",
+        "status": "fixed",
+        "description": "Initial candidate entry invoked Playwright directly and bypassed the fail-closed manifest check; a renamed compact witness could silently disappear. Initial audit rejected acceptance with F1 OPEN. This correction preserves that finding history.",
+        "fix": "Candidate command now requires npm run test:e2e:plan && before Playwright; discovery subprocesses have timeout30000 and matching workflow documentation. Legacy/defaultCI/test bodies remain unchanged. Affected fix reviewed after renewed stamp2026-10-30T08:09:23.529Z.",
+        "retests": [
+          "npm run test:e2e:desktop -- --list: actual required preflight300legacy/150desktop+10compact followed Total160 tests/20files, exit0; inspected /tmp/pivot-audit-guarded-list.log.",
+          "node /tmp/pivot-independent-plan.mjs: actual fresh300/150/10/160/worker1 collection and all11 negative fixtures rejected using unchanged production predicates, exit0; inspected /tmp/pivot-audit-plan.log.",
+          "Targeted ESLint and formatting exit0 reported by executing parent. Independent Git/Python checks verify all14 current hashes/fingerprint, precise three-file F1 diff and unchanged preserved trees."
+        ]
       }
     ],
-    "report": { "path": "docs/quality/PR29_FINAL_AUDIT.md" }
+    "report": {
+      "path": "docs/quality/PR30_FINAL_AUDIT.md"
+    }
   },
   "snapshot": {
     "files": {
-      "AGENTS.md": "7bfc30c38603a8849a5cc43c75bba63ffbb9f8942753c815d83e401b1262a76b",
-      "README.md": "0c5f9d39d89e2b3748ce37669b0283581e61eac5c4f53c5358df59137bf8d0e0",
-      "docs/ARCHITECTURE.md": "b6e7945a50165d5ae4929c99015131df8079a4069e80c5213a55447ab19fbb92",
-      "docs/AZ900_COVERAGE_MATRIX.md": "a532694de8608ce44fd549b07b10a70e499dd73a003c96d6b9a10525096d9795",
-      "docs/AZ900_EXPANSION_ROADMAP.md": "65c366fa53409e67537b318b82d397c8ad7fb45ba17b8284dfe1a9cf587bda02",
-      "docs/AZ900_GAP_ANALYSIS.md": "c8a2ee7d941e1defe3643443a802ef0a11b1804913653c6eaf5a47bfec310737",
-      "docs/DECISIONS.md": "34a457f0024adadbab27382a96cd0b574c3f93661f7a118497b146e32180c721",
-      "docs/NETWORKING_CONNECTIVITY.md": "446924415cbbec9b5c135dcbaf3983c165c0f799a96b5a474432ad9a68b21e33",
-      "docs/audits/az900-2026-07-20.json": "c4d7fab6e0c47880842f410c5377a05a27c3c8b37cbf0033b3593d2d756fc364",
-      "docs/screenshots/networking-connectivity/actual-context.png": "588215159e91c50423c2a8c28f0117036023172987a1fc2a15ecbd79b010910e",
-      "docs/screenshots/networking-connectivity/brief-short-end.png": "a2cecc139a9c556277bebb69f8cd043efd1c39e4cad69f9c9865eef06b9f0005",
-      "docs/screenshots/networking-connectivity/dns-correct-route-missing.png": "cee204509fd0c4a406693122c9cd8bc53f363d8102055bfbb11f3fb37b6a981e",
-      "docs/screenshots/networking-connectivity/endpoint-stages-1024x500.png": "71a918b064b1b1882b1078829f2bf103412a57e6327213bf3a11e4f106ad4c9c",
-      "docs/screenshots/networking-connectivity/expressroute-ipsec.png": "8c8f3650c6e66a82e1598f8538d898b24e368fd5c5bc3e7870b326850ad2b080",
-      "docs/screenshots/networking-connectivity/expressroute-not-encrypted.png": "65d9f473d53ea2a7607bf6023a9867dec5eb28c26cf618f8839aa2279d10b01e",
-      "docs/screenshots/networking-connectivity/hybrid-milestone.png": "1f52505332e48d4fdac44ea1ec349e01aee86f7246aa18086c93d0c8da6defe3",
-      "docs/screenshots/networking-connectivity/independent-assisted-retry.png": "c41a2580758290d098af99ddfd415efe16f8a2c51d900b3eff5b93e7228d94fb",
-      "docs/screenshots/networking-connectivity/independent-wrong-reason.png": "06789f1fe5b13eb765ba5851c83ec1dbdd2dc01127a8ca40a10837952c0d54f9",
-      "docs/screenshots/networking-connectivity/journal-private-dns.png": "f94da25edcdcfa37461f86da8567c1ef373300e751b97aa0897d42baa1fda549",
-      "docs/screenshots/networking-connectivity/macsec-link-only.png": "60efdabc014d50c1fed69d39c54142efe2ee921073d12ed99b5e49d278869190",
-      "docs/screenshots/networking-connectivity/private-entry-public-still-enabled.png": "438fe325f39462543095919aea9d50bdbbf4226adae61396ba57b971367b89de",
-      "docs/screenshots/networking-connectivity/public-actual-access-private-intent.png": "0a2019e01f087ed2bf51d39bde37db93f6e13f59a09e923635beab621015b71d",
-      "docs/screenshots/networking-connectivity/root-1024.png": "efea8df0813c8cb04232a4ab21d091dbbfdc33ef6da7e26a7796cdbf03a66c97",
-      "docs/screenshots/networking-connectivity/root-1366.png": "7852f85b30718326602e651b6461db4d84ea5b0a3be997ee12fe50418c90586c",
-      "docs/screenshots/networking-connectivity/root-1440.png": "8f1afa4757fa2020c3688f7281f89d705037c2bc74572fac4b79d4a7fa620cbb",
-      "docs/screenshots/networking-connectivity/root-1920.png": "53c473eb3f35c2ccacbbcc1543a0f2b258a86f9a14d7f529f612bfc61db3f79e",
-      "docs/screenshots/networking-connectivity/summary-retains-first.png": "79c243dd078152b9471c5489226c0185edef6388680130c3cab5d8371afae8f1",
-      "package.json": "51835ff8e73689b8a1f43ef0c536808a2932ebfc46664eb09331f8d363f0a0bb",
-      "scripts/az900-audit-check.test.mjs": "e4c98d9b1be819147edae50238f171b798a083c439e0473198dc638f0c3813a9",
-      "src/app/layout.tsx": "cdaefa5b151d41fbe68500030a9d3d5629ad43e389937f9d96cff35833bd9943",
-      "src/app/learn/[module]/page.tsx": "5b438da1155692e76617c0be4c038b342ee161138c386420f9eab5113614a3dd",
-      "src/components/progress-provider.tsx": "a1174f8c4a27230c5c9cfc5dcaa66a12a4f1ca16433e020fadd413276431e282",
-      "src/content/nb.ts": "9d6669fa6df2b920de9d4513bdb30fca9b372acbfe4d9f324d2786f75058268a",
-      "src/domain/course/course.test.ts": "9bef0bb9dda5c32825b47e98cbe09db482d4abfd7c37aa1fbd8560e2678a382f",
-      "src/domain/course/model.ts": "f52b9e532872c947416af6ef62154c94fc47b825b6d76bfe01d858fd0c7b90be",
-      "src/domain/curriculum/connectivity-items.ts": "ac73821d71362d5d37630686c56927ea4edeb199a4e4fbb7e309fbddda4c3bec",
-      "src/domain/curriculum/connectivity-model.ts": "2d725f4f5e7ba0164b0cdae1ad2d07b36ccebf39e7e2b3fa946da8e0be712b8e",
-      "src/domain/curriculum/connectivity-sources.ts": "76e1f9246321d2d2229c3622f0c5f8030b581b4ada5b8e8816628a388abd05aa",
-      "src/domain/curriculum/connectivity-store.ts": "f64c53b98b50467c0009e5131e06479695ab0bd45364b9d347ab295703ffd300",
-      "src/domain/curriculum/connectivity.test.ts": "e6170fe39649e1ee560c67b268985f93a9c3c8952e53229d979f3e14c7041bde",
-      "src/domain/curriculum/connectivity.ts": "562c17f32150ac2345fb385b0c3b337000bd27560054a4e334c93fc09a16d13b",
-      "src/domain/curriculum/manifest.ts": "e5e3dc499b9e19a9f0a299b2bfe53032ccd4a62172045ca962b3cd58dcd04651",
-      "src/domain/curriculum/teaching-access.test.ts": "6a801683e69e644d75ec9c5835592d26e743369f1cd6094669cd392b7c893e1a",
-      "src/domain/guidance/milestones.ts": "b910d79c4f201ef54654615cc256f7b7de5bf4cfad353226c3e25afc6ed8c44e",
-      "src/features/course/course.tsx": "20da0ae85f17208907aef208343686104066fd2d37cce1ae1cdbd41c848c12cb",
-      "src/features/course/mission-context.ts": "7526a3feb10b7ab9070f19e2e17fbfeb4e137f69445337b85ff6b250dd04a4fb",
-      "src/features/learning/connectivity-assessment.tsx": "9d987fb4faff51f322578341dcf300bd1664838b816e98263de5168fef9356ac",
-      "src/features/learning/connectivity-provider.tsx": "1da2abcdde7dfa6766abd002a7119b02b38ccf62456147db265a15ea491833ee",
-      "src/features/learning/connectivity-visuals.tsx": "15a47a9ec6b00bae6b7332818f21e7ee8e8df06e5b38305bb231775e322c9023",
-      "src/features/learning/connectivity-workbench.tsx": "12fda548cfe8268c076cf573d700d673333986f333ccacc89c8ef7a3fcd8ee66",
-      "src/features/learning/connectivity.css": "36a940d6868bc4ff32b4c2f9a995e956aea6aae270bd1f069f9f485fb166d7d1",
-      "src/features/learning/connectivity.tsx": "574b0c7256a7e877b52d1d778aa6237ce1749b02b763a687ab181b47c381e4f5",
-      "src/features/learning/management-access.tsx": "21cd11c7fb185b680c8417be3afb335e16321ac9f80ac330deca4f579f3baec6",
-      "src/features/portal/portal.tsx": "311edfe3779eec385ab78b02302344f0ff10e8f2fabccec9ab2f5e50f18b66d9",
-      "tests/e2e/cost-management.spec.ts": "3d3fe5d22ee02257063f166622fccdee78d370361d9bfc41bcfdea84689b9b65",
-      "tests/e2e/networking-connectivity.spec.ts": "6a23f2d9b589f7f2afbacc27c640570b28bc729a7a86bcf83c212be81dfc17d0",
-      "tests/e2e/practical-labs.spec.ts": "d0bc3b8826bc09c4d75926c50e514a29bf81ad561f333b2afd18c1f6ce0ff6a6",
-      "tests/fixtures/active-teaching-contexts.ts": "d197f9465b2b73a565cd6599e0d300641cd8aef5c8728cf4bf7c7d8d4783ae42"
+      "AGENTS.md": "b43035f115dee0904da579ba51a1ead69643d7cd3926125216466d51c097126b",
+      "README.md": "c409b728799d25bc1fd11133345d92390ee499a5cc301161b5fa069a483addc0",
+      "docs/AZ900_EXPANSION_ROADMAP.md": "045b6d9f3b5a37d22f7d849858ca0d29ee61d51a1f73de7197684a4d7150b0ca",
+      "docs/DEVELOPMENT_WORKFLOW.md": "31237b7c5be893fcedb1653baef6514f0e6777bd2ae45b1ad4943d8ea275d3b0",
+      "docs/PUBLIC_ACCESS_REVIEW.md": "65806c41131e23e793b520bbb624d218f4975504e86b415c023949bae470814f",
+      "docs/QUALITY_CONTRACT.md": "c7043f9cff22284309a85a83779a359b29dc0bb19d9654c2db041b8c176bd230",
+      "docs/RELEASE_ACCEPTANCE.md": "8d5691d6052605be759baf486c0ae764eab7ac3da059288bf1724bc0d9316cb9",
+      "docs/screenshots/workflow/endpoint-short.png": "aedae4a2ac7b4d3e194d1a9649f297930ba5019dadb765d329757384e83cff27",
+      "docs/screenshots/workflow/portal-compact.png": "7b6279e491aa267163135327491e35724417c98a54e262e3d578c2185759368d",
+      "package.json": "5228a71cb9c41ad77757c2826dbb0a11cb944b0c6fb4467bde5e6297bd4efe6a",
+      "playwright.desktop.config.ts": "8a7847148be41a8acf13a9ee9fd5f8e5912c765744378529a477b906356c3e1d",
+      "scripts/e2e-plan-check.mjs": "adea2730a355d7738eeb6fd839d77dd19c39efcdf3a5236699086b8b68111f43",
+      "scripts/quality-check.mjs": "216a1b662bff15dbc6c2a5ee20edb389819e2cf68d5cd52ef3e33de95a50f974",
+      "scripts/quality-check.test.mjs": "84333ed1353084dda55db66f6853375c716ab28a3f05ebeac5ddfecbf68650b8"
     }
   },
-  "implementationFinished": "2026-10-29T14:20:17.994Z"
+  "implementationFinished": "2026-10-30T08:09:23.529Z"
 }

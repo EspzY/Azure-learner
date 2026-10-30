@@ -23,7 +23,7 @@ const validDate = (value) => typeof value === 'string' && Number.isFinite(Date.p
 export const implementationPath = (path) => {
   if (path === 'docs/PROJECT_STATUS.md' || /^docs\/quality\/.*\.md$/.test(path)) return false;
   if (
-    /^(src\/|scripts\/|tests\/|public\/|\.github\/|quality\/|AGENTS\.md$|docs\/(?:QUALITY_CONTRACT|CONTENT_QA_STANDARD|SOURCE_COVERAGE_PROTOCOL|SAVVYSHARK_GUIDANCE_STANDARD|RELEASE_ACCEPTANCE)\.md$)/.test(
+    /^(src\/|scripts\/|tests\/|public\/|\.github\/|quality\/|AGENTS\.md$|docs\/(?:QUALITY_CONTRACT|CONTENT_QA_STANDARD|SOURCE_COVERAGE_PROTOCOL|SAVVYSHARK_GUIDANCE_STANDARD|RELEASE_ACCEPTANCE|DEVELOPMENT_WORKFLOW|PUBLIC_ACCESS_REVIEW)\.md$)/.test(
       path,
     )
   )

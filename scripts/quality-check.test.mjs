@@ -23,6 +23,8 @@ test('seven gates bind real source, manuscript, model, assessment and test files
   );
   assert.equal(implementationPath('src/content/nb.ts'), true);
   assert.equal(implementationPath('docs/QUALITY_CONTRACT.md'), true);
+  assert.equal(implementationPath('docs/DEVELOPMENT_WORKFLOW.md'), true);
+  assert.equal(implementationPath('docs/PUBLIC_ACCESS_REVIEW.md'), true);
   assert.equal(implementationPath('docs/PROJECT_STATUS.md'), false);
 });
 

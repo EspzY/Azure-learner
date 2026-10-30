@@ -4,6 +4,10 @@ Normgivende eierkontrakt, versjon **1.0.0**, innført med PR20. Gjelder alle fre
 
 AzureLab skal utvikle forståelse gjennom original teori, presise fagvisualiseringer, autentisk avgrenset Portal-praksis og uavhengig anvendelse. En modul blir ikke ferdig av en tittel, kildehenvisning, skjerm eller grønn test. Det kreves en separat sluttgjennomgang etter implementering. Å øke antall moduler er aldri et mål som kan erstatte kvalitet.
 
+## Arbeidsmetode og proporsjonalt kontrollomfang — eierinstruks29 oktober2026
+
+[DEVELOPMENT_WORKFLOW](DEVELOPMENT_WORKFLOW.md) skiller permanente kvalitetskrav fra testfordeling, risikobasert review og effektiv arbeidsflyt. Bruk tidlige målrettede domene-/browser-/visuelle kontroller, full check før leveranse og komplett godkjent CI på riktig commit som autoritativ regresjon. Gjenta ikke full lokal suite eller nær identisk review etter små rettelser uten konkret risiko/funn. Alle seks reviewdomener behandles; dybden følger faktisk endring, og uendrede domener dokumenteres med bevaringsbevis. Blokkere/MAJOR, dataintegritet, assistance, teknisk sannhet og faktiske visuelle/eksterne bevis kan aldri fravikes. Desktop er primærplattform; kompakt, tastatur og tilgjengelighet skal bevares uten automatisk duplisering av alle lange brukerreiser. Ny testfordeling er foreløpig en eksplisitt opt-in-kandidat; gjeldende CI gjelder inntil eiergodkjenning. Dette reduserer ikke kravene A–I.
+
 ## A — Faglig dybde
 
 Hver ny modul må ha forkunnskaper og stabile mål; definert terminologi; grundig konseptforklaring; mekanisme/relasjoner; hvorfor/når-bruk; Azure-eksempler og worked example; begrensninger/misforståelser/moteksempler; relevant interaktiv visualisering, simulering eller fagøvelse; nytt selvstendig scenario; begrunnelse av riktige og plausible gale svar; verifiserbare kilder. Substans vurderes mot målet, aldri etter ord-, kort- eller spørsmålsantall.
