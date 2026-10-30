@@ -47,8 +47,8 @@ const compactCases = [
 ] as const;
 const escape = (s: string) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 
-// Opt-in candidate only. The release CI still uses playwright.config.ts until
-// the owner approves this distribution; all desktop cases remain mandatory.
+// Owner-approved distribution. Activation requires an actual complete CI pass;
+// the legacy profile remains available and every desktop case is mandatory.
 export default defineConfig({
   ...baseline,
   metadata: { ...baseline.metadata, compactCases },

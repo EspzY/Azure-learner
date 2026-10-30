@@ -2,7 +2,7 @@
 
 ## Aktiv eierprioritering —29 oktober2026
 
-PR29 er levert som Draft med grønn komplett CI; ekstern Gate7 står SSO-blokkert. Ingen ny revisjon av godkjente deler uten konkret funn. [Arbeidsmodellen](DEVELOPMENT_WORKFLOW.md) bevarer permanent kvalitet, dataintegritet og alle gater, med målrettet lokal testing og risikobasert audit. Opt-in desktop/kompakt-fordeling er et avgrenset forslag; eksisterende CI gjelder inntil eiergodkjenning.
+PR29 er levert som Draft med grønn komplett CI; ekstern Gate7 står SSO-blokkert. Ingen ny revisjon av godkjente deler uten konkret funn. [Arbeidsmodellen](DEVELOPMENT_WORKFLOW.md) bevarer permanent kvalitet, dataintegritet og alle gater, med målrettet lokal testing og risikobasert audit. Desktop/kompakt-fordelingen er eiergodkjent30 oktober2026 og aktiveres gjennom egen avgrenset endring etter faktisk160-test-CI med planvalidering og streng release. Legacy300 beholdes for risikobegrunnet bruk; kompakt/tastatur/tilgjengelighet skal videreføres og utvides ved nye funksjoner.
 
 Rekkefølgen foran den videre fagutbyggingen er nå: **avgrenset prosessforslag → offentlig ordinær AzureLab med sikkerhets-/preview-kontroll → profesjonell Course Hub-redesign → P08 og videre innhold gjennom P16 → helhetlig pedagogisk gjennomgang → endelig sertifiseringsdiagnostikk**. Course Hub skal gi tydelig start/fortsett, stier/modulhierarki, sammenleggbar sidemeny, ærlig progresjon og integrerte oppdrag med færre konkurrerende innganger. Bevar alt faginnhold, lagring og operativ funksjonalitet. Dette er egen UX-leveranse, ikke del av prosessendringen. Ingen merge/produksjonsdeploy er autorisert. [Offentlig tilgang og faktisk blokkering](PUBLIC_ACCESS_REVIEW.md).
 

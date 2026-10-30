@@ -1,11 +1,11 @@
 {
   "schema": 1,
-  "id": "PR30-desktop-quality-workflow",
-  "baseCommit": "0d9b96ed73780ec881bf3dac20ccc71cba97a9cf",
-  "author": "codex-workflow-author",
+  "id": "PR31-activate-desktop-ci",
+  "baseCommit": "152a606beb55dfc56f426c5bf8c56359b5acd4a1",
+  "author": "codex-ci-activation-author",
   "scope": {
-    "kind": "process-and-test-strategy",
-    "description": "Bounded owner-directed workflow/roadmap and opt-in desktop/compact distribution. Default CI remains unchanged until owner approval. No course/runtime changes; objectives below identify the unchanged concrete preservation witness only. Public availability and Course Hub are ordered follow-ups, not claimed implemented.",
+    "kind": "ci-profile-activation",
+    "description": "Owner-approved activation of guarded full desktop/compact CI: identical150 desktop and10 justified compact cases. Actual complete160 GitHub CI with pinned Chromium, mandatory plan validation and strict release is required before active status. Legacy300 remains available for specifically justified regressions/debugging. No runtime/test-body/data/assessment change; objectives identify unchanged preservation witness only.",
     "objectives": ["az900.networking.services", "az900.networking.endpoints"]
   },
   "sources": [
@@ -81,13 +81,15 @@
   "modules": [],
   "preservedPaths": [
     "src/",
-    "tests/e2e/",
-    "tests/fixtures/",
+    "tests/",
     "public/",
     "package-lock.json",
-    ".github/",
+    "package.json",
     "playwright.config.ts",
-    "docs/audits/"
+    "docs/audits/",
+    "docs/screenshots/",
+    "scripts/quality-check.mjs",
+    "scripts/quality-check.test.mjs"
   ],
   "gates": {
     "source": {
@@ -99,7 +101,7 @@
           "path": "docs/PUBLIC_ACCESS_REVIEW.md"
         }
       ],
-      "limits": "Process-only candidate. No changed teaching, scoring, data or runtime. Default legacy300-case CI remains mandatory until owner approval. Opt-in plan needs actual collection/compact execution; no new parallel workers. Public access awaits confirmed Vercel settings inventory. External Ready/CI are not browser/SHA evidence; no merge/production deploy."
+      "limits": "Owner approval recorded30 October2026. CI activation proof is pending actual complete160-case GitHub execution with pinned Chromium, mandatory plancheck and strict release on exact head; listing is not execution. Legacy300 remains accessible, not mandatory per PR absent concrete risk. No source/test/timeout/skip/data or worker expansion. External app Gate7 remains separately blocked; no merge/production deployment."
     },
     "curriculum": {
       "checks": [
@@ -110,7 +112,7 @@
           "path": "docs/AZ900_EXPANSION_ROADMAP.md"
         }
       ],
-      "limits": "Process-only candidate. No changed teaching, scoring, data or runtime. Default legacy300-case CI remains mandatory until owner approval. Opt-in plan needs actual collection/compact execution; no new parallel workers. Public access awaits confirmed Vercel settings inventory. External Ready/CI are not browser/SHA evidence; no merge/production deploy."
+      "limits": "Owner approval recorded30 October2026. CI activation proof is pending actual complete160-case GitHub execution with pinned Chromium, mandatory plancheck and strict release on exact head; listing is not execution. Legacy300 remains accessible, not mandatory per PR absent concrete risk. No source/test/timeout/skip/data or worker expansion. External app Gate7 remains separately blocked; no merge/production deployment."
     },
     "simulation": {
       "checks": [
@@ -121,7 +123,7 @@
           "path": "docs/DEVELOPMENT_WORKFLOW.md"
         }
       ],
-      "limits": "Process-only candidate. No changed teaching, scoring, data or runtime. Default legacy300-case CI remains mandatory until owner approval. Opt-in plan needs actual collection/compact execution; no new parallel workers. Public access awaits confirmed Vercel settings inventory. External Ready/CI are not browser/SHA evidence; no merge/production deploy."
+      "limits": "Owner approval recorded30 October2026. CI activation proof is pending actual complete160-case GitHub execution with pinned Chromium, mandatory plancheck and strict release on exact head; listing is not execution. Legacy300 remains accessible, not mandatory per PR absent concrete risk. No source/test/timeout/skip/data or worker expansion. External app Gate7 remains separately blocked; no merge/production deployment."
     },
     "savvyshark": {
       "checks": [
@@ -132,7 +134,7 @@
           "path": "tests/e2e/networking-connectivity.spec.ts"
         }
       ],
-      "limits": "Process-only candidate. No changed teaching, scoring, data or runtime. Default legacy300-case CI remains mandatory until owner approval. Opt-in plan needs actual collection/compact execution; no new parallel workers. Public access awaits confirmed Vercel settings inventory. External Ready/CI are not browser/SHA evidence; no merge/production deploy."
+      "limits": "Owner approval recorded30 October2026. CI activation proof is pending actual complete160-case GitHub execution with pinned Chromium, mandatory plancheck and strict release on exact head; listing is not execution. Legacy300 remains accessible, not mandatory per PR absent concrete risk. No source/test/timeout/skip/data or worker expansion. External app Gate7 remains separately blocked; no merge/production deployment."
     },
     "visual-accessibility": {
       "checks": [
@@ -143,7 +145,7 @@
           "path": "tests/e2e/course.spec.ts"
         }
       ],
-      "limits": "Process-only candidate. No changed teaching, scoring, data or runtime. Default legacy300-case CI remains mandatory until owner approval. Opt-in plan needs actual collection/compact execution; no new parallel workers. Public access awaits confirmed Vercel settings inventory. External Ready/CI are not browser/SHA evidence; no merge/production deploy."
+      "limits": "Owner approval recorded30 October2026. CI activation proof is pending actual complete160-case GitHub execution with pinned Chromium, mandatory plancheck and strict release on exact head; listing is not execution. Legacy300 remains accessible, not mandatory per PR absent concrete risk. No source/test/timeout/skip/data or worker expansion. External app Gate7 remains separately blocked; no merge/production deployment."
     },
     "independent-final-audit": {
       "checks": [
@@ -151,10 +153,10 @@
           "path": "docs/RELEASE_ACCEPTANCE.md"
         },
         {
-          "path": "docs/quality/PR30_FINAL_AUDIT.md"
+          "path": "docs/quality/PR31_FINAL_AUDIT.md"
         }
       ],
-      "limits": "Process-only candidate. No changed teaching, scoring, data or runtime. Default legacy300-case CI remains mandatory until owner approval. Opt-in plan needs actual collection/compact execution; no new parallel workers. Public access awaits confirmed Vercel settings inventory. External Ready/CI are not browser/SHA evidence; no merge/production deploy."
+      "limits": "Owner approval recorded30 October2026. CI activation proof is pending actual complete160-case GitHub execution with pinned Chromium, mandatory plancheck and strict release on exact head; listing is not execution. Legacy300 remains accessible, not mandatory per PR absent concrete risk. No source/test/timeout/skip/data or worker expansion. External app Gate7 remains separately blocked; no merge/production deployment."
     },
     "delivery": {
       "checks": [
@@ -168,30 +170,32 @@
           "path": "scripts/e2e-plan-check.mjs"
         }
       ],
-      "limits": "Process-only candidate. No changed teaching, scoring, data or runtime. Default legacy300-case CI remains mandatory until owner approval. Opt-in plan needs actual collection/compact execution; no new parallel workers. Public access awaits confirmed Vercel settings inventory. External Ready/CI are not browser/SHA evidence; no merge/production deploy."
+      "limits": "Owner approval recorded30 October2026. CI activation proof is pending actual complete160-case GitHub execution with pinned Chromium, mandatory plancheck and strict release on exact head; listing is not execution. Legacy300 remains accessible, not mandatory per PR absent concrete risk. No source/test/timeout/skip/data or worker expansion. External app Gate7 remains separately blocked; no merge/production deployment."
     }
   },
   "verification": [
     {
-      "command": "npm run check",
-      "result": "passed",
-      "details": "Complete configured check finished exit0 on the candidate: type/lint/format/docs/quality/AZ900/curriculum/assets/legacy,346 Vitest tests/28files,256 curriculum/19files, Node validator fixtures and production build. Runtime/test/CI sources preserved. Local targeted compact and plan collection evidence are separate; complete current legacy CI remains required post-Draft. This full local check preceded the tiny F1 orchestration fix; final package preflight+160-case collection,11 independent negative controls, formatting and targeted ESLint passed afterwards. The unchanged complete CI must rerun check on the final commit before delivery."
-    },
-    {
-      "command": "npm run test:e2e:plan",
-      "result": "passed",
-      "details": "Actual Playwright collections:legacy300, candidate150 identical desktop+10 exact compact witnesses=160; worker1. Default CI unchanged; no source/test-body/timeout/skip change."
-    },
-    {
       "command": "npm run test:e2e",
       "result": "passed",
-      "scope": "Targeted candidate compact validation only; authoritative complete legacy CI required after Draft",
-      "details": "Repository-pinned Chromium, production build, ignored3100 origin adapter:10 compact-chromium cases passed/0fail/0skip/0retry in1.2m, exit0. Actual invocation:npx playwright test --config .artifacts/pivot/local.config.ts --project compact-chromium --retries=0. Source and every existing test file unchanged from verified PR29; no claim of new full local suite or default-CI activation."
+      "commit": "152a606beb55dfc56f426c5bf8c56359b5acd4a1",
+      "scope": "Preserved actual base regression evidence only; no new local browser run claimed",
+      "details": "PR30 exact base Quality run41027487824 passed full check,283 browser cases/17 inherited skips/0fail/no retry across legacy300 and strict release. Its10 proposed compact cases also passed locally in1.2m. Runtime, every test file and both project selections are unchanged here; activation changes CI wiring/status/docs only. Actual full160 on THIS activation head in GitHub CI remains mandatory before active status. No result is inferred from a list or reused as new learner evidence."
+    },
+    {
+      "command": "npm run check",
+      "result": "passed",
+      "details": "Current activation code passed complete local check exit0:346 Vitest/28files,256 curriculum/19files,15 Node fixtures, type/lint/format/docs/quality/AZ900/assets/legacy and production build. Final approval-wording synchronization in Markdown is separately format/docs-checked. Final CI reruns all checks on delivered head."
     },
     {
       "command": "npm run test:e2e:desktop -- --list",
       "result": "passed",
-      "details": "F1 correction: candidate command now requires successful plancheck before Playwright. Guarded command exit0; lists160 cases, no browser/server started. Discovery subprocess timeout30s. Independent probe using actual production predicates/actual collections exit0 and rejects11 missing/renamed/ambiguous/extra/wrong-file/skipped/worker/legacy/manifest/surface negatives. Targeted final ESLint and formatting exit0. No source/testbody/CI/runtime change."
+      "scope": "Mandatory plan preflight and collection only; no case execution claimed",
+      "details": "Guarded entry exit0: unchanged legacy300, identical150 desktop+10 declared compact=160,worker1; Total160tests/20files. CI workflow now invokes exactly this guarded script without --list. Browser installation and strict release remain in original order. Actual full160 GitHub execution is pending and required before active status."
+    },
+    {
+      "command": "Approved160 profile in actual GitHub CI",
+      "result": "pending",
+      "details": "Mandatory activation condition. No active-status or new full local execution claimed before the delivered head passes all160 with pinned browser, plancheck and strict release."
     }
   ],
   "visualEvidence": [
@@ -199,13 +203,13 @@
       "path": "docs/screenshots/workflow/portal-compact.png",
       "viewport": "800x700",
       "inspected": true,
-      "observation": "Actual compact PC resource menu/search/list/footer readable; supported local simulator context retained."
+      "observation": "Preserved PR30 actual screenshot, previously personally inspected. Runtime/UI/test source and image bytes unchanged; no new visual work or fresh screenshot claimed. Actual compact PC resource menu/search/list/footer readable; supported local simulator context retained."
     },
     {
       "path": "docs/screenshots/workflow/endpoint-short.png",
       "viewport": "1024x500",
       "inspected": true,
-      "observation": "Actual short PC pipeline stages remain labelled; normal vertical scrolling and persistent course navigation remain. No UI source change."
+      "observation": "Preserved PR30 actual screenshot, previously personally inspected. Runtime/UI/test source and image bytes unchanged; no new visual work or fresh screenshot claimed. Actual short PC pipeline stages remain labelled; normal vertical scrolling and persistent course navigation remain. No UI source change."
     }
   ],
   "humanReview": {
@@ -216,15 +220,15 @@
   },
   "review": {
     "status": "complete",
-    "fingerprint": "0da7bc7ea7ddd58420ae6e55eef8d447d082c5fd5c4c4254d5a7e301ba1b374d",
+    "fingerprint": "588ce4c1b3ff5bba44df9b92d01acb10c21b4b7397aef0444efe4bb62280ae2a",
     "reviewer": {
-      "id": "codex-independent-final-auditor-pr30",
+      "id": "codex-independent-final-auditor-pr31",
       "kind": "agent"
     },
-    "started": "2026-10-30T08:09:37.960Z",
+    "started": "2026-10-30T09:59:30.336Z",
     "domains": {
       "content": {
-        "finding": "Retained initial review: course/source/audit bytes preserved; no new teaching or coverage. Normative A-I protections remain. Unchanged Microsoft sources were not re-audited.",
+        "finding": "Source/course/test/audit bytes and concrete source/activity witness records equal base. No new content/coverage or old-source re-audit. QUALITY_CONTRACT A-I remains exact; workflow approval introduction does not weaken permanent requirements.",
         "evidence": [
           {
             "path": "src/content/nb.ts"
@@ -238,16 +242,16 @@
         ]
       },
       "technical": {
-        "finding": "Retained initial review: Sandbox/model/persistence/assistance/CI/default config preserved. Candidate is Desktop Chrome800x700,worker1. Public access stays BLOCKED on actual authenticated settings/domain/older-preview inventory; no changes claimed.",
+        "finding": "Runtime/model/persistence/assistance/history unchanged. Single executable change wires CI to preserved guarded E2E command after pinned Chromium install and before unchanged strict release. All other CI bytes, Node24,permissions,job timeout and workers1 preserved.",
         "evidence": [
           {
-            "path": "playwright.config.ts"
+            "path": ".github/workflows/ci.yml"
+          },
+          {
+            "path": "package.json"
           },
           {
             "path": "playwright.desktop.config.ts"
-          },
-          {
-            "path": "docs/PUBLIC_ACCESS_REVIEW.md"
           },
           {
             "path": "src/domain/curriculum/connectivity-model.ts"
@@ -255,7 +259,7 @@
         ]
       },
       "visual": {
-        "finding": "Retained personal inspection of two committed raw-identical PNGs and four actual desktop transfer frames. Labels/controls wrap readably; short endpoint image is a scrolled slice, not proof the whole pipeline fits at once. No UX/screen-reader human pass inferred. No image changed during F1 correction.",
+        "finding": "No UI/style/test/screenshot changes. Prior personally inspected PR30 actual Portal800x700,endpoint1024x500 and desktop transfer pixels reused honestly; no fresh screenshots or human UX/screen-reader approval claimed. Full desktop and compact/keyboard/accessibility coverage preserved.",
         "evidence": [
           {
             "path": "docs/screenshots/workflow/portal-compact.png"
@@ -265,11 +269,14 @@
           },
           {
             "path": "tests/e2e/cloud-transfer.spec.ts"
+          },
+          {
+            "path": "playwright.desktop.config.ts"
           }
         ]
       },
       "assessment": {
-        "finding": "Retained initial review: answers/rubrics/first/help/retry/family/XP and test assertions unchanged. Entire desktop collection preserved; compact selection remains limited witness evidence awaiting owner adoption. F1 safe-orchestration correction is verified and closed.",
+        "finding": "All answer/rubric/first/help/retry/family/XP and test logic preserved. Complete150desktop+10compact selections unchanged, no assertions/timeouts/skips altered. Inherited actual browser regression attributed to base commit; collection not credited as execution.",
         "evidence": [
           {
             "path": "tests/e2e/cloud-transfer.spec.ts"
@@ -279,11 +286,14 @@
           },
           {
             "path": "playwright.desktop.config.ts"
+          },
+          {
+            "path": "docs/quality/PR31_FINAL_AUDIT.md"
           }
         ]
       },
       "guidance": {
-        "finding": "Retained initial review: guidance, durable aid, independent shielding, Journal return and recovery byte-preserved. Existing actual guide/focus/short-window test bodies inspected; no automatic solutions or awards introduced.",
+        "finding": "Guidance, durable aid, independent shielding, briefing, Journal return, recovery and their tests unchanged. No new automatic solutions or awards; retained PR30 domain evidence is sufficient without repetitive review.",
         "evidence": [
           {
             "path": "tests/e2e/course.spec.ts"
@@ -300,16 +310,16 @@
         ]
       },
       "regression": {
-        "finding": "F1 MAJOR FIXED: candidate entry requires successful plancheck before Playwright; discovery children bounded30s. Inspected actual guarded160-case list and production-predicate probe rejecting all11 independent negatives, each executed exit0 after correction. All14 renewed hashes/fingerprint exact; only preflight/timeout/matching workflow sentence changed since initial audit. Default300/CI/test bodies unchanged. Strict release still needs mechanical execution; complete current legacy CI and actual externalGate7 remain pending.",
+        "finding": "All9 snapshot hashes/fingerprint exact and preserved trees match base152a606beb55dfc56f426c5bf8c56359b5acd4a1. CI one-line switch; config comment-only; plan checker two diagnostics only, predicates exact. Guarded actual collection160/20files and complete local check logs inspected, executor exit0. No serious finding. Actual complete160 GitHub CI with pinned browser/plancheck/strict release is still required before active status; Reviewer-executed strict release against exact base and docs check passed exit0 after review binding; separate external productGate7 remains BLOCKED. Legacy300 retained for risk-driven use, no routine mobile duplication.",
         "evidence": [
+          {
+            "path": ".github/workflows/ci.yml"
+          },
           {
             "path": "package.json"
           },
           {
             "path": "scripts/e2e-plan-check.mjs"
-          },
-          {
-            "path": ".github/workflows/ci.yml"
           },
           {
             "path": "scripts/quality-check.mjs"
@@ -318,46 +328,31 @@
             "path": "docs/RELEASE_ACCEPTANCE.md"
           },
           {
-            "path": "docs/quality/PR30_FINAL_AUDIT.md"
+            "path": "docs/PUBLIC_ACCESS_REVIEW.md"
+          },
+          {
+            "path": "docs/quality/PR31_FINAL_AUDIT.md"
           }
         ]
       }
     },
-    "findings": [
-      {
-        "id": "F1",
-        "severity": "major",
-        "status": "fixed",
-        "description": "Initial candidate entry invoked Playwright directly and bypassed the fail-closed manifest check; a renamed compact witness could silently disappear. Initial audit rejected acceptance with F1 OPEN. This correction preserves that finding history.",
-        "fix": "Candidate command now requires npm run test:e2e:plan && before Playwright; discovery subprocesses have timeout30000 and matching workflow documentation. Legacy/defaultCI/test bodies remain unchanged. Affected fix reviewed after renewed stamp2026-10-30T08:09:23.529Z.",
-        "retests": [
-          "npm run test:e2e:desktop -- --list: actual required preflight300legacy/150desktop+10compact followed Total160 tests/20files, exit0; inspected /tmp/pivot-audit-guarded-list.log.",
-          "node /tmp/pivot-independent-plan.mjs: actual fresh300/150/10/160/worker1 collection and all11 negative fixtures rejected using unchanged production predicates, exit0; inspected /tmp/pivot-audit-plan.log.",
-          "Targeted ESLint and formatting exit0 reported by executing parent. Independent Git/Python checks verify all14 current hashes/fingerprint, precise three-file F1 diff and unchanged preserved trees."
-        ]
-      }
-    ],
+    "findings": [],
     "report": {
-      "path": "docs/quality/PR30_FINAL_AUDIT.md"
+      "path": "docs/quality/PR31_FINAL_AUDIT.md"
     }
   },
   "snapshot": {
     "files": {
-      "AGENTS.md": "b43035f115dee0904da579ba51a1ead69643d7cd3926125216466d51c097126b",
-      "README.md": "c409b728799d25bc1fd11133345d92390ee499a5cc301161b5fa069a483addc0",
-      "docs/AZ900_EXPANSION_ROADMAP.md": "045b6d9f3b5a37d22f7d849858ca0d29ee61d51a1f73de7197684a4d7150b0ca",
-      "docs/DEVELOPMENT_WORKFLOW.md": "31237b7c5be893fcedb1653baef6514f0e6777bd2ae45b1ad4943d8ea275d3b0",
-      "docs/PUBLIC_ACCESS_REVIEW.md": "65806c41131e23e793b520bbb624d218f4975504e86b415c023949bae470814f",
-      "docs/QUALITY_CONTRACT.md": "c7043f9cff22284309a85a83779a359b29dc0bb19d9654c2db041b8c176bd230",
-      "docs/RELEASE_ACCEPTANCE.md": "8d5691d6052605be759baf486c0ae764eab7ac3da059288bf1724bc0d9316cb9",
-      "docs/screenshots/workflow/endpoint-short.png": "aedae4a2ac7b4d3e194d1a9649f297930ba5019dadb765d329757384e83cff27",
-      "docs/screenshots/workflow/portal-compact.png": "7b6279e491aa267163135327491e35724417c98a54e262e3d578c2185759368d",
-      "package.json": "5228a71cb9c41ad77757c2826dbb0a11cb944b0c6fb4467bde5e6297bd4efe6a",
-      "playwright.desktop.config.ts": "8a7847148be41a8acf13a9ee9fd5f8e5912c765744378529a477b906356c3e1d",
-      "scripts/e2e-plan-check.mjs": "adea2730a355d7738eeb6fd839d77dd19c39efcdf3a5236699086b8b68111f43",
-      "scripts/quality-check.mjs": "216a1b662bff15dbc6c2a5ee20edb389819e2cf68d5cd52ef3e33de95a50f974",
-      "scripts/quality-check.test.mjs": "84333ed1353084dda55db66f6853375c716ab28a3f05ebeac5ddfecbf68650b8"
+      ".github/workflows/ci.yml": "9fd42b2a16a908aad0af133432b8fe44cc573c9d00b404b7e88814456515af80",
+      "AGENTS.md": "596a3ca45076aac2dd940794c518bd747a6a5016b54bea11255fbc73f60e78da",
+      "README.md": "611fb2b0db3079c43355ba045581399189ccb96a3349e9b4c4db0016ecaa1bfb",
+      "docs/AZ900_EXPANSION_ROADMAP.md": "e9b6d8c82eedbf8652b51668d4a3b4703940a2742cdd683adc0ca995e47f3b07",
+      "docs/DEVELOPMENT_WORKFLOW.md": "b6e19559fe5a5b2489e175d43c3d87be02196b9fc692a0380c5f3877c60b6b85",
+      "docs/QUALITY_CONTRACT.md": "dea6a84a8b95a60bae8bd04e202f2452dcd9732abebebf1a482d6585aa861ae5",
+      "docs/RELEASE_ACCEPTANCE.md": "41bcfcf768d202da52be0be063c162e3d4a1d41d7c7d0cb539ed255621aa38e0",
+      "playwright.desktop.config.ts": "edece1e542b4af6cef174e8666821a06560d6d571ec12866a2230e576fa38f59",
+      "scripts/e2e-plan-check.mjs": "066ab341c71ae659e9d3c0a810b4e7461343deb0cb8a22a4451cb3d7ac2a7ebb"
     }
   },
-  "implementationFinished": "2026-10-30T08:09:23.529Z"
+  "implementationFinished": "2026-10-30T09:58:44.756Z"
 }

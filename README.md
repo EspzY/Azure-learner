@@ -2,7 +2,7 @@
 
 ## Current owner direction — 29 October 2026
 
-Desktop-first product quality, targeted development checks and a risk-based independent audit follow [the bounded workflow](docs/DEVELOPMENT_WORKFLOW.md). Complete existing CI remains authoritative; the opt-in desktop/compact test candidate awaits owner approval and does not change default CI. Next product order: scoped anonymous public access, professional Course Hub/navigation redesign, then the remaining AZ-900 content roadmap. All teaching, technical rules and historical evidence are preserved.
+Desktop-first product quality, targeted development checks and a risk-based independent audit follow [the bounded workflow](docs/DEVELOPMENT_WORKFLOW.md). The owner-approved CI standard is guarded `npm run test:e2e:desktop` (all150 existing desktop tests plus10 justified compact witnesses), subject to a complete160-case actual-CI activation pass. Legacy `npm run test:e2e` remains available for specifically justified broader regression/debugging; no routine full mobile duplication. Next product order: scoped anonymous public access, professional Course Hub/navigation redesign, then the remaining AZ-900 content roadmap. All teaching, technical rules and historical evidence are preserved.
 
 ## Networking Part B — PR29
 
@@ -121,12 +121,12 @@ Open [AzureLab locally](http://127.0.0.1:3000). The server binds to loopback. Fo
 ```sh
 npm run check
 npx playwright install chromium
-npm run test:e2e
+npm run test:e2e:desktop
 ```
 
-`check` runs route generation/type checking, ESLint, Prettier, documentation validation, asset integrity, retired-runtime boundary validation, unit tests and the production build. `npm run docs:check` verifies required Markdown, local links/images and heading targets without fetching external URLs; it is included in `check` and CI. Playwright starts its own production server on port 3000; stop any existing server first. Linux CI installs dependencies with `npx playwright install --with-deps chromium`. Raw reports/screenshots are ignored under `test-results/` and `playwright-report/`; reviewed evidence is kept in `docs/screenshots/`.
+`check` runs route generation/type checking, ESLint, Prettier, documentation validation, asset integrity, retired-runtime boundary validation, unit tests and the production build. `npm run docs:check` verifies required Markdown, local links/images and heading targets without fetching external URLs; it is included in `check` and CI. `test:e2e:desktop` automatically validates the complete plan before execution; `test:e2e:plan` can inspect it separately. Legacy `npm run test:e2e` remains available for larger/risk-driven regression. Playwright starts its own production server on port 3000; stop any existing server first. Linux CI installs dependencies with `npx playwright install --with-deps chromium`. Raw reports/screenshots are ignored under `test-results/` and `playwright-report/`; reviewed evidence is kept in `docs/screenshots/`.
 
-Unit tests cover unchanged domain rules, corruption recovery, XP deduplication, projection/relationship invariants and documentation failures. Chromium E2E covers the integrated mission, invalid/duplicate commands, visible creation, assessment retries, reload/replay, course navigation, keyboard/dialog behavior, mobile, reduced motion, accessibility and external-request boundaries. See [project status](docs/PROJECT_STATUS.md) for actual results and screenshots. CI repeats checks on PRs; local passes do not imply remote passes.
+Unit tests cover unchanged domain rules, corruption recovery, XP deduplication, projection/relationship invariants and documentation failures. Chromium E2E covers the integrated mission, invalid/duplicate commands, visible creation, assessment retries, reload/replay, course navigation, keyboard/dialog behavior, desktop/compact windows, reduced motion, accessibility and external-request boundaries. See [project status](docs/PROJECT_STATUS.md) for actual results and screenshots. CI repeats checks on PRs; local passes do not imply remote passes.
 
 ## Structure
 
