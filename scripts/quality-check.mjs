@@ -234,13 +234,23 @@ function validateRecord(record, folder, strict) {
       errors.push('Inspected actual visual evidence required');
     for (const image of record.visualEvidence ?? [])
       pointer({ path: image.path }, 'visual evidence');
-    for (const command of ['npm run check', 'npm run test:e2e'])
-      if (
-        !record.verification?.some(
-          (v) => v.command === command && v.result === 'passed' && v.details,
-        )
-      )
-        errors.push(`Missing executed ${command}`);
+    const executed = (command) =>
+      record.verification?.some((v) => v.command === command && v.result === 'passed' && v.details);
+    if (!executed('npm run check')) errors.push('Missing executed npm run check');
+    const desktopExecuted = record.verification?.some(
+      (v) =>
+        v.command === 'npm run test:e2e:desktop' &&
+        v.result === 'passed' &&
+        v.details &&
+        v.scope === 'candidate-full-profile' &&
+        validSha(v.commit) &&
+        /^[a-f0-9]{64}$/.test(v.fingerprint ?? '') &&
+        v.fingerprint === record.review?.fingerprint,
+    );
+    if (!executed('npm run test:e2e') && !desktopExecuted)
+      errors.push(
+        'Missing executed full browser profile (npm run test:e2e or candidate-bound npm run test:e2e:desktop)',
+      );
   }
   return errors;
 }

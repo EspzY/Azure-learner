@@ -1,3 +1,4 @@
+import { openCoursePath } from './course-hub-actions';
 import { test, expect, type Page, type TestInfo } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import {
@@ -570,9 +571,10 @@ test('shared Core teaching and Journal shield every active or uncertain independ
       key: fixture.key,
       raw: newer,
     });
+    await openCoursePath(first, 'architecture');
     const entry = first
       .locator('.course-navigation')
-      .getByRole('link', { name: a.title, exact: true });
+      .getByRole('link', { name: 'Core Architecture', exact: true });
     if (!(await entry.isVisible()))
       await first.getByRole('button', { name: c.learning, exact: true }).click();
     await entry.click();

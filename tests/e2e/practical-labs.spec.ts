@@ -158,7 +158,7 @@ test('root course to persisted VM, app settings, separate SaaS, exact debrief an
   await page.goto('/');
   await desktopEvidence(page, info, 'course-root');
   await page
-    .getByRole('link', { name: `${nb.course.open}: ${nb.official.services}`, exact: true })
+    .getByRole('link', { name: `${nb.course.open}: Cloud service types`, exact: true })
     .click();
   await page.locator('.course-navigation a[href="/learn/services?topic=iaas"]').click();
   await page

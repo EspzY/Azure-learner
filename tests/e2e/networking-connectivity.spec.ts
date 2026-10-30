@@ -45,7 +45,7 @@ const read = async (page: Page) =>
 const facts = async (page: Page) => connectivityFacts(await read(page));
 async function root(page: Page) {
   await page.goto('/');
-  await page.locator('.connectivity-entry').getByRole('link').click();
+  await page.locator('.learn-hub-module[data-module="connectivity"]').getByRole('link').click();
   await expect(page).toHaveURL(/learn\/connectivity/);
   await expect(page.locator('.connectivity-lesson [data-activity-heading]')).toBeVisible();
 }
@@ -549,7 +549,7 @@ test('active assisted Part B continues to shield earlier automatic teaching with
   await expect(page.getByText(computeNb.storage.unsafe, { exact: true })).toBeVisible();
   await expect(page.getByRole('dialog')).toHaveCount(0);
   await page.goto('/');
-  await page.locator('.connectivity-entry').getByRole('link').click();
+  await page.locator('.learn-hub-module[data-module="connectivity"]').getByRole('link').click();
   await expect(page).toHaveURL(/topic=assessment.*case=nc08/);
   await answer(page, 'nc08', 2, 2);
   await page.getByRole('button', { name: c.assessment.submit, exact: true }).click();

@@ -1,3 +1,9 @@
+## PR32 — Course Hub and contextual navigation
+
+Course Hub replaces repeated module promotions with one start/resume action and three AZ-900 path cards. Available modules are direct links; Storage/Identity/Governance/Tools/Monitoring remain explicitly planned. Existing lessons, URLs, stores, rubrics, commands, receipts and XP are preserved. Collapsible navigation opens the active path/module; Core and Networking parts keep distinct activity/history contracts. Hub metadata cannot mark mastery; unknown/conflicted history withholds resume/progress claims and exposes scoped recovery. Practical missions and assessments are integrated under their learning path. See [design rationale and before/after evidence](COURSE_HUB_REDESIGN.md).
+
+Base is verified remote `db09932a6105cbfa75bcfbb0dfa12a8a0bd813a6`. The approved CI baseline grows from160 to166 with six new UX regressions, preserving all150 desktop cases and ten compact witnesses; optional legacy two-project collection grows from300 to312. Exact-head CI, final independent audit and delivery verification are required before acceptance. External product Gate7 remains separately SSO blocked. No merge or production deployment. P08 Storage remains next after Course Hub, then P09 and the existing roadmap; whole-course pedagogy review stays after P16.
+
 # Project status
 
 ## PR31 — owner-approved desktop/compact CI activation

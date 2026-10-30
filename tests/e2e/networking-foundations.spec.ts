@@ -43,7 +43,7 @@ const read = async (page: Page) =>
   ) as NetworkingSave;
 async function root(page: Page) {
   await page.goto('/');
-  await page.locator('.networking-entry').getByRole('link').click();
+  await page.locator('.learn-hub-module[data-module="networking"]').getByRole('link').click();
   await expect(page).toHaveURL(/learn\/networking/);
   await expect(page.locator('.networking-lesson [data-activity-heading]')).toBeVisible();
 }

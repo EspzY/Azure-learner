@@ -23,7 +23,7 @@ jobs:
       - run: npm run check # Includes required documentation/local-link validation
       - run: npm audit --audit-level=high
       - run: npx playwright install --with-deps chromium
-      - run: npm run test:e2e:desktop # Mandatory plan validation, full desktop + compact profile
+      - run: node scripts/verify-desktop-ci.mjs # Runs the fixed guarded profile; records candidate evidence only after exit0
       - run: npm run quality:release -- --base "${{ github.event.pull_request.base.sha || github.event.before }}"
       - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         if: failure()

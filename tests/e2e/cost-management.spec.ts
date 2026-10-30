@@ -104,7 +104,7 @@ test('actual Portal configuration is read-only context, never fabricated economi
     ),
   );
   await page.goto('/learn');
-  await page.locator('.cost-entry').getByRole('link').click();
+  await page.locator('.learn-hub-module[data-module="cost"]').getByRole('link').click();
   await lesson(page, 'estimate');
   await beginMission(page);
   await page

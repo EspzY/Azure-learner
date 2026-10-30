@@ -19,9 +19,7 @@ for (const [width, height] of [
     );
     await page.setViewportSize({ width: width!, height: height! });
     await page.goto('/');
-    await page
-      .getByRole('link', { name: `${c.open}: ${nb.official.computing}`, exact: true })
-      .click();
+    await page.getByRole('link', { name: `${c.open}: Cloud computing`, exact: true }).click();
     await expect(page.locator('[data-activity-heading]')).toBeFocused();
     const nav = page.getByRole('navigation', { name: c.next, exact: true });
     await expect(nav).toHaveCount(1);

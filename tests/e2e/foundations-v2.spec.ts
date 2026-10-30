@@ -73,9 +73,7 @@ test('ordinary root delivers the whole v2 course, preserved objectives, actual l
       page.getByRole('link', { name: nb.foundationsVisuals.reviewAction, exact: true }),
     ).toHaveCount(0);
     await capture(page, info, `${width}-landing`);
-    await page
-      .getByRole('link', { name: `${c.open}: ${nb.official.computing}`, exact: true })
-      .click();
+    await page.getByRole('link', { name: `${c.open}: Cloud computing`, exact: true }).click();
     await expect(page).toHaveURL(/topic=intro-request/);
     await expect(
       page.getByRole('heading', { name: t.topics['intro-request'].title, exact: true }),
