@@ -75,7 +75,7 @@ for (const file of [
 if (legacy.report.config.workers !== 1 || candidate.report.config.workers !== 1)
   throw Error('Parallel worker expansion has not been approved');
 if (legacy.report.config.projects.map((x) => x.name).join() !== 'desktop-chromium,mobile-chromium')
-  throw Error('The existing authoritative CI distribution changed before approval');
+  throw Error('The legacy regression profile must remain available');
 console.log(
   JSON.stringify(
     {
@@ -84,7 +84,7 @@ console.log(
       compactCases: compact.length,
       candidateCases: candidate.cases.length,
       workers: 1,
-      status: 'candidate validated; default CI unchanged; owner approval required for activation',
+      status: 'desktop/compact plan validated; legacy regression remains available',
     },
     null,
     2,
