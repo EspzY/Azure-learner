@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
+import { verifyDesktop } from './verify-desktop-ci.mjs';
 import {
   validateQuality,
   validateSnapshot,
@@ -121,4 +122,106 @@ test('self-review, pre-implementation audit, unresolved blockers and fake human 
       errors.some((e) => e.includes(text)),
       text,
     );
+});
+
+test('approved full desktop evidence is candidate-bound; plans, selectors, pending and historical results cannot replace execution', () => {
+  const record = read();
+  record.review = { ...record.review, fingerprint: '1'.repeat(64) };
+  const complete = {
+    command: 'npm run test:e2e:desktop',
+    result: 'passed',
+    details: 'Executed full fixed command',
+    scope: 'candidate-full-profile',
+    commit: '2'.repeat(40),
+    fingerprint: record.review.fingerprint,
+  };
+  const browserErrors = (entry) => {
+    record.verification = [
+      { command: 'npm run check', result: 'passed', details: 'Executed' },
+      entry,
+    ];
+    return validateQuality(record, undefined, true).filter((error) =>
+      error.includes('full browser profile'),
+    );
+  };
+  assert.deepEqual(browserErrors(complete), []);
+  assert.deepEqual(
+    browserErrors({
+      command: 'npm run test:e2e',
+      result: 'passed',
+      details: 'Executed full legacy profile',
+    }),
+    [],
+  );
+  for (const entry of [
+    { ...complete, command: 'npm run test:e2e:plan' },
+    { ...complete, command: 'npm run test:e2e:desktop -- --list' },
+    { ...complete, command: 'npm run test:e2e:desktop -- --grep=one' },
+    { ...complete, command: 'playwright test --project=desktop-chromium' },
+    { ...complete, result: 'pending' },
+    { ...complete, result: 'failed' },
+    { ...complete, scope: 'historical-baseline' },
+    { ...complete, fingerprint: '3'.repeat(64) },
+    { ...complete, fingerprint: undefined },
+    { ...complete, commit: 'unknown' },
+    { ...complete, details: '' },
+  ])
+    assert.ok(browserErrors(entry).length, JSON.stringify(entry));
+});
+
+test('CI receipt owns the fixed full command, preserves child failure/signal and writes only a newly executed candidate success', () => {
+  const writes = [],
+    fingerprint = '4'.repeat(64),
+    commit = '5'.repeat(40);
+  const record = {
+    review: { fingerprint },
+    verification: [
+      { command: 'npm run test:e2e:desktop', result: 'passed', scope: 'historical-baseline' },
+    ],
+  };
+  const run = (result) => (command, args) => {
+    assert.equal(command, 'npm');
+    assert.deepEqual(args, ['run', 'test:e2e:desktop']);
+    return result;
+  };
+  for (const child of [
+    { status: 1 },
+    { status: 23 },
+    { status: null, signal: 'SIGTERM' },
+    { status: null, error: Error('spawn denied') },
+  ]) {
+    const outcome = verifyDesktop({
+      run: run(child),
+      read: () => {
+        throw Error('must not read/credit old evidence after failure');
+      },
+      write: (value) => writes.push(value),
+    });
+    assert.equal(outcome.exitCode, child.status || 1);
+    assert.equal(outcome.signal, child.signal ?? null);
+    assert.equal(outcome.receipt, null);
+    assert.equal(writes.length, 0);
+  }
+  const outcome = verifyDesktop({
+    run: run({ status: 0 }),
+    read: () => record,
+    write: (value) => writes.push(value),
+    revision: () => commit,
+  });
+  assert.equal(outcome.exitCode, 0);
+  assert.equal(writes.length, 1);
+  assert.deepEqual(writes[0].verification, [outcome.receipt]);
+  assert.equal(outcome.receipt.commit, commit);
+  assert.equal(outcome.receipt.fingerprint, fingerprint);
+  assert.equal(outcome.receipt.scope, 'candidate-full-profile');
+  assert.throws(
+    () =>
+      verifyDesktop({
+        run: run({ status: 0 }),
+        read: () => record,
+        write: () => assert.fail('unbound receipt'),
+        revision: () => 'unknown',
+      }),
+    /Cannot bind/,
+  );
 });

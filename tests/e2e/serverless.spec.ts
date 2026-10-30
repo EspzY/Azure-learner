@@ -92,9 +92,7 @@ test('root course → complete serverless teaching, prediction, milestone, indep
   });
   await page.goto('/');
   await expect(page).toHaveURL(/\/learn$/);
-  await page
-    .getByRole('link', { name: `${nb.course.open}: ${nb.official.computing}`, exact: true })
-    .click();
+  await page.getByRole('link', { name: `${nb.course.open}: Cloud computing`, exact: true }).click();
   await expect(
     page.getByRole('heading', {
       name: nb.foundationsV2.topics['intro-request'].title,

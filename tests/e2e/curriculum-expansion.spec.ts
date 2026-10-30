@@ -55,7 +55,7 @@ test('root → complete Benefits investigations → independent changed context 
     ),
   );
   await page
-    .getByRole('link', { name: `${nb.course.open}: ${nb.official.benefits}`, exact: true })
+    .getByRole('link', { name: `${nb.course.open}: Benefits of cloud services`, exact: true })
     .click();
   await expect(page).toHaveURL(/\/learn\/benefits\?topic=availability/);
   await expect(
@@ -183,7 +183,7 @@ test('operational Service Types configurations, wrong causes, separate version a
 }, info) => {
   await page.goto('/');
   await page
-    .getByRole('link', { name: `${nb.course.open}: ${nb.official.services}`, exact: true })
+    .getByRole('link', { name: `${nb.course.open}: Cloud service types`, exact: true })
     .click();
   for (const m of ['IAAS', 'PAAS', 'SAAS'])
     await page
@@ -373,7 +373,7 @@ for (const [width, height] of [
     await page.goto('/');
     await page.screenshot({ path: info.outputPath(`32-landing-${width}.png`) });
     await page
-      .getByRole('link', { name: `${nb.course.open}: ${nb.official.benefits}`, exact: true })
+      .getByRole('link', { name: `${nb.course.open}: Benefits of cloud services`, exact: true })
       .focus();
     await page.keyboard.press('Enter');
     await expect(page).toHaveURL(/\/learn\/benefits/);

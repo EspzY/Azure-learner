@@ -35,7 +35,7 @@ test('ordinary root → Benefits → mission briefing → real Portal → exact 
   await page.setViewportSize({ width: 1920, height: 1080 });
   await page.goto('/');
   await page
-    .getByRole('link', { name: `${nb.course.open}: ${nb.official.benefits}`, exact: true })
+    .getByRole('link', { name: `${nb.course.open}: Benefits of cloud services`, exact: true })
     .click();
   await expect(page).toHaveURL(/learn\/benefits\?topic=availability/);
   const start = page

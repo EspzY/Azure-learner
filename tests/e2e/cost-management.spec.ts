@@ -20,7 +20,7 @@ const read = async (page: Page) =>
   ) as CostSave;
 const root = async (page: Page) => {
   await page.goto('/');
-  await page.getByRole('link', { name: c.intro + ' →', exact: true }).click();
+  await page.locator('.learn-hub-module[data-module="cost"]').getByRole('link').click();
   await expect(page).toHaveURL(/\/learn\/cost/);
 };
 const lesson = async (page: Page, topic: keyof typeof c.topics) => {
@@ -104,7 +104,7 @@ test('actual Portal configuration is read-only context, never fabricated economi
     ),
   );
   await page.goto('/learn');
-  await page.locator('.cost-entry').getByRole('link').click();
+  await page.locator('.learn-hub-module[data-module="cost"]').getByRole('link').click();
   await lesson(page, 'estimate');
   await beginMission(page);
   await page

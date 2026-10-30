@@ -1,3 +1,4 @@
+import { openPathActivities } from './course-hub-actions';
 import { test, expect, type Page } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { transferNb as c, managementNb, nb, labsNb } from '../../src/content/nb';
@@ -35,6 +36,7 @@ async function state(page: Page) {
 }
 async function start(page: Page, id: TransferItemId) {
   await page.goto('/');
+  await openPathActivities(page, 'cloud');
   await page
     .locator('.transfer-entry')
     .getByRole('link', {
@@ -451,6 +453,7 @@ for (const older of ['benefits', 'practical', 'none'] as const) {
       },
     );
     await page.goto('/');
+    await openPathActivities(page, 'cloud');
     const href =
       older === 'benefits'
         ? '/learn/benefits?topic=assessment'
@@ -632,6 +635,7 @@ test('full valid history explains its bound, preserves firsts and keeps submitte
     raw,
   });
   await page.goto('/');
+  await openPathActivities(page, 'cloud');
   await page
     .locator('.transfer-entry')
     .getByRole('link', { name: / · 01$/ })

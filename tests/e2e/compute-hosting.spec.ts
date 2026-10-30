@@ -59,7 +59,7 @@ const read = async (page: Page) =>
   ) as ComputeSave;
 const root = async (page: Page) => {
   await page.goto('/');
-  await page.locator('.compute-entry').getByRole('link').click();
+  await page.locator('.learn-hub-module[data-module="compute"]').getByRole('link').click();
   await expect(page).toHaveURL(/learn\/compute/);
 };
 async function lesson(page: Page, topic: keyof typeof c.topics) {

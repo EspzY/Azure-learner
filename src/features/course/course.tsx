@@ -1,6 +1,6 @@
 'use client';
 import { useConnectivity } from '@/features/learning/connectivity-provider';
-import { ConnectivityEntry, ConnectivityLesson } from '@/features/learning/connectivity';
+import { ConnectivityLesson } from '@/features/learning/connectivity';
 import {
   connectivityHref,
   connectivityTopics,
@@ -8,7 +8,7 @@ import {
 } from '@/domain/curriculum/connectivity';
 import { connectivityNb } from '@/content/nb';
 import { useNetworking } from '@/features/learning/networking-provider';
-import { NetworkingEntry, NetworkingLesson } from '@/features/learning/networking';
+import { NetworkingLesson } from '@/features/learning/networking';
 import {
   networkingHref,
   networkingTopics,
@@ -18,15 +18,16 @@ import { networkingNb } from '@/content/nb';
 
 import { useManagement } from '@/features/learning/management-provider';
 import { useCompute } from '@/features/learning/compute-provider';
-import { ComputeEntry, ComputeLesson } from '@/features/learning/compute';
+import { ComputeLesson } from '@/features/learning/compute';
 import { computeHref, computeTopics, type ComputeTopic } from '@/domain/curriculum/compute';
 import { computeNb } from '@/content/nb';
 import { useCost } from '@/features/learning/cost-provider';
-import { CostEntry, CostLesson } from '@/features/learning/cost';
+import { CostLesson } from '@/features/learning/cost';
 import { costHref, costTopics, type CostTopic } from '@/domain/curriculum/cost';
 import { costNb } from '@/content/nb';
 import { useMissions } from './mission-provider';
-import { MissionActivity, MissionOverview } from './missions';
+import { MissionActivity } from './missions';
+import { missionOrigin } from '@/domain/sandbox/missions';
 import { ManagementTeachingBoundary } from '@/features/learning/management-access';
 import { TransferAssessment, TransferEntry } from '@/features/learning/cloud-transfer';
 import { useTransfer } from '@/features/learning/transfer-provider';
@@ -39,9 +40,8 @@ import { practicalHref } from '@/domain/sandbox/practical';
 import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
-import { BookOpen, ArrowRight, ChevronRight, FlaskConical, Check, Menu } from 'lucide-react';
+import { BookOpen, ChevronRight, FlaskConical, Menu } from 'lucide-react';
 import { labsNb, nb, serverlessNb, architectureNb, managementNb } from '@/content/nb';
-import { officialLearning } from '@/domain/curriculum/official';
 import { unitIds } from '@/domain/curriculum/manifest';
 import { topics, portalHref, parseLocation, type PortalLocation } from '@/domain/portal/model';
 import {
@@ -83,7 +83,9 @@ import { ServerlessLesson } from '@/features/learning/serverless';
 import { isServerlessTopic, serverlessTopics } from '@/domain/curriculum/serverless';
 import { usePhysical } from '@/features/learning/physical-provider';
 import { PhysicalLesson } from '@/features/learning/physical';
-import { PhysicalCourseEntry } from '@/features/learning/physical-entry';
+import { CourseHub, type HubRecord } from './course-hub';
+import { CourseSidebar, type CourseActivities, type CourseDestinations } from './course-sidebar';
+import { courseHubNb as hubCopy, missionsNb } from '@/content/nb';
 import { physicalTopics, type PhysicalTopic } from '@/domain/curriculum/architecture-physical';
 const names = {
   compute: computeNb.title,
@@ -186,7 +188,11 @@ export function Course({ module }: { module?: CourseModule }) {
         );
         if (heading) {
           heading.tabIndex = -1;
-          heading.scrollIntoView({ block: 'start', behavior: 'instant' });
+          const bounds = heading.getBoundingClientRect();
+          // Keep visible context in short lessons; forced scrolling to an already
+          // visible heading can push a sticky sidebar past its parent boundary.
+          if (bounds.top < 84 || bounds.bottom > window.innerHeight - 120)
+            heading.scrollIntoView({ block: 'start', behavior: 'instant' });
           heading.focus({ preventScroll: true });
         }
       });
@@ -311,38 +317,48 @@ export function Course({ module }: { module?: CourseModule }) {
             ? costHref('assessment', cost.facts.current.item)
             : transfer.facts.active && transfer.facts.current
               ? transferHref(transfer.facts.current.item)
-              : practical.current?.status === 'active'
-                ? practicalHref(practical.current, chapter.attempt.engine)
-                : management.facts.active
-                  ? courseHref('architecture', 'management-assessment')
-                  : physical.facts.active
-                    ? courseHref('architecture', 'assessment')
-                    : serverless.facts.active
-                      ? courseHref('computing', 'serverless-assessment')
-                      : v2.facts.active
-                        ? courseHref('computing', 'v2-assessment')
-                        : benefits.facts.active
-                          ? courseHref('benefits', 'assessment')
-                          : service2.facts.active
-                            ? courseHref('services', 'assessment')
-                            : services.facts.active
-                              ? '/portal?area=challenge&course=1&module=services&topic=practice'
-                              : learning.facts.active && v2.save.choice !== 'v2'
-                                ? courseHref('computing', 'assessment')
-                                : preferredResume
-                                  ? preferredResume.topic === 'transfer' && transfer.facts.current
-                                    ? transferHref(transfer.facts.current.item)
-                                    : preferredResume.module === 'cost' &&
-                                        preferredResume.topic === 'assessment' &&
-                                        cost.facts.current
-                                      ? costHref('assessment', cost.facts.current.item)
-                                      : (preferredResume.module === 'services' &&
-                                            preferredResume.topic === 'practice') ||
-                                          (preferredResume.module === 'computing' &&
-                                            preferredResume.topic === 'resource-bridge')
-                                        ? courseLabHref(lab.complete, course.save.lab?.origin)
-                                        : courseHref(preferredResume.module, preferredResume.topic)
-                                  : computingEntry;
+              : missions.active && missions.activeSession
+                ? missionOrigin(missions.activeSession.mission)
+                : practical.activeIndependent && practical.current?.status === 'active'
+                  ? practicalHref(practical.current, chapter.attempt.engine)
+                  : management.facts.active
+                    ? courseHref('architecture', 'management-assessment')
+                    : physical.facts.active
+                      ? courseHref('architecture', 'assessment')
+                      : serverless.facts.active
+                        ? courseHref('computing', 'serverless-assessment')
+                        : v2.facts.active
+                          ? courseHref('computing', 'v2-assessment')
+                          : benefits.facts.active
+                            ? courseHref('benefits', 'assessment')
+                            : service2.facts.active
+                              ? courseHref('services', 'assessment')
+                              : services.facts.active
+                                ? '/portal?area=challenge&course=1&module=services&topic=practice'
+                                : learning.facts.active
+                                  ? courseHref('computing', 'assessment')
+                                  : practical.current?.status === 'active'
+                                    ? practicalHref(practical.current, chapter.attempt.engine)
+                                    : missions.activeSession
+                                      ? missionOrigin(missions.activeSession.mission)
+                                      : preferredResume
+                                        ? preferredResume.topic === 'transfer' &&
+                                          transfer.facts.current
+                                          ? transferHref(transfer.facts.current.item)
+                                          : preferredResume.module === 'cost' &&
+                                              preferredResume.topic === 'assessment' &&
+                                              cost.facts.current
+                                            ? costHref('assessment', cost.facts.current.item)
+                                            : (preferredResume.module === 'services' &&
+                                                  preferredResume.topic === 'practice') ||
+                                                (preferredResume.module === 'computing' &&
+                                                  preferredResume.topic === 'resource-bridge')
+                                              ? courseLabHref(lab.complete, course.save.lab?.origin)
+                                              : courseHref(
+                                                  preferredResume.module,
+                                                  preferredResume.topic,
+                                                )
+                                        : computingEntry;
   const navigate = (area: PortalLocation['area'], change: Partial<PortalLocation> = {}) => {
     if (area === 'learn')
       router.push(courseHref(change.module ?? module ?? 'services', change.topic ?? topic));
@@ -419,6 +435,184 @@ export function Course({ module }: { module?: CourseModule }) {
                     : (serverlessNb.topics[t as keyof typeof serverlessNb.topics] ??
                       nb.foundationsV2.topics[t as (typeof v2Topics)[number]]?.title ??
                       nb.foundations.units[t as (typeof unitIds)[number]]?.title);
+  const navigationDestinations: CourseDestinations = {
+    computing: computingEntry,
+    benefits: courseHref('benefits', 'availability'),
+    services: serviceHref('overview'),
+    architecture: courseHref('architecture', 'datacenters'),
+    compute: computeHref('introduction'),
+    networking: networkingHref('introduction'),
+    connectivity: connectivityHref('introduction'),
+    cost: costHref('introduction'),
+  };
+  const navigationTopics: Record<CourseModule, readonly string[]> = {
+    computing:
+      module === 'computing'
+        ? pathTopics
+        : hasV1 && v2.save.choice === 'v1'
+          ? [...unitIds, 'transfer']
+          : [...v2Topics.slice(0, -1), ...serverlessTopics, v2Topics.at(-1)!, 'transfer'],
+    benefits: [...trackUnits.benefits, 'summary', 'transfer'],
+    services: legacyServices ? topics : [...trackUnits.services, 'summary', 'transfer'],
+    architecture: [...physicalTopics, ...managementTopics],
+    compute: computeTopics,
+    networking: networkingTopics,
+    connectivity: connectivityTopics,
+    cost: costTopics,
+  };
+  const hubRecords: HubRecord[] = [
+    ['course', hubCopy.recordLabels.course, course, '/learn'],
+    ['chapter', hubCopy.recordLabels.chapter, chapter, '/portal'],
+    ['learning', hubCopy.recordLabels.learning, learning, courseHref('computing', 'assessment')],
+    ['v2', hubCopy.recordLabels.v2, v2, courseHref('computing', 'v2-assessment')],
+    ['services', hubCopy.recordLabels.services, services, '/portal?area=challenge'],
+    ['benefits', hubCopy.recordLabels.benefits, benefits, courseHref('benefits', 'assessment')],
+    ['service2', hubCopy.recordLabels.service2, service2, courseHref('services', 'assessment')],
+    [
+      'serverless',
+      hubCopy.recordLabels.serverless,
+      serverless,
+      courseHref('computing', 'serverless-assessment'),
+    ],
+    ['physical', hubCopy.recordLabels.physical, physical, courseHref('architecture', 'assessment')],
+    [
+      'management',
+      hubCopy.recordLabels.management,
+      management,
+      courseHref('architecture', 'management-assessment'),
+    ],
+    [
+      'transfer',
+      hubCopy.recordLabels.transfer,
+      transfer,
+      transferHref(transfer.facts.current?.item ?? 'public-information'),
+    ],
+    ['practical', hubCopy.recordLabels.practical, practical, '/learn/services?topic=practice'],
+    [
+      'missions',
+      hubCopy.recordLabels.missions,
+      missions,
+      missions.activeSession
+        ? missionOrigin(missions.activeSession.mission)
+        : '/learn/services?topic=iaas&activity=mission&version=2',
+    ],
+    [
+      'compute',
+      hubCopy.recordLabels.compute,
+      compute,
+      computeHref('assessment', compute.facts.current?.item),
+    ],
+    [
+      'networking',
+      hubCopy.recordLabels.networking,
+      networking,
+      networkingHref('assessment', networking.facts.current?.item),
+    ],
+    [
+      'connectivity',
+      hubCopy.recordLabels.connectivity,
+      connectivity,
+      connectivityHref('assessment', connectivity.facts.current?.item),
+    ],
+    ['cost', hubCopy.recordLabels.cost, cost, costHref('assessment', cost.facts.current?.item)],
+  ].map(([id, label, state, href]) => {
+    const record = state as { ready: boolean; issue: string | null; store: { load: () => void } };
+    return {
+      id: id as string,
+      label: label as string,
+      href: href as string,
+      ready: record.ready,
+      issue: record.issue,
+      reload: record.store.load,
+    };
+  });
+  const reliableHistory = hubRecords.every((record) => record.ready && !record.issue);
+  const navigationActivities = Object.fromEntries(
+    (Object.keys(navigationTopics) as CourseModule[]).map((part) => [
+      part,
+      navigationTopics[part].map((activity) => ({
+        topic: activity,
+        section:
+          part === 'architecture'
+            ? activity === physicalTopics[0]
+              ? hubCopy.partA
+              : activity === managementTopics[0]
+                ? hubCopy.partB
+                : undefined
+            : undefined,
+        title: title(part, activity) ?? activity,
+        href: part === 'services' ? serviceHref(activity) : courseHref(part, activity),
+        observed:
+          reliableHistory &&
+          part === 'computing' &&
+          (isV2Topic(activity)
+            ? v2.facts.guided(activity as (typeof v2Topics)[number])
+            : !!learning.facts.observations[activity as (typeof unitIds)[number]]?.guided),
+      })),
+    ]),
+  ) as unknown as CourseActivities;
+  const activeIndependent =
+    connectivity.facts.active ||
+    networking.facts.active ||
+    compute.facts.active ||
+    cost.facts.active ||
+    transfer.facts.active ||
+    missions.active ||
+    practical.activeIndependent ||
+    management.facts.active ||
+    physical.facts.active ||
+    serverless.facts.active ||
+    v2.facts.active ||
+    benefits.facts.active ||
+    service2.facts.active ||
+    services.facts.active ||
+    learning.facts.active;
+  const hasResume =
+    activeIndependent ||
+    !!preferredResume ||
+    !!missions.activeSession ||
+    practical.current?.status === 'active';
+  const entryDestinations: CourseDestinations = {
+    ...navigationDestinations,
+    architecture: courseHref(
+      'architecture',
+      management.facts.active
+        ? 'management-assessment'
+        : physical.facts.active
+          ? 'assessment'
+          : (management.facts.lastTopic ?? physical.facts.lastTopic ?? 'datacenters'),
+    ),
+    compute: computeHref(
+      compute.facts.active ? 'assessment' : compute.facts.topic,
+      compute.facts.current?.item,
+    ),
+    networking: networkingHref(
+      networking.facts.active ? 'assessment' : networking.facts.topic,
+      networking.facts.current?.item,
+    ),
+    connectivity: connectivityHref(
+      connectivity.facts.active ? 'assessment' : connectivity.facts.topic,
+      connectivity.facts.current?.item,
+    ),
+    cost: costHref(cost.facts.active ? 'assessment' : cost.facts.topic, cost.facts.current?.item),
+  };
+  const guidedCount = (count: number) => `${hubCopy.guided}: ${count}`;
+  const hubObservations: Record<CourseModule, string> = {
+    computing: guidedCount(
+      hasV1 && v2.save.choice !== 'v2'
+        ? unitIds.filter((id) => learning.facts.observations[id].guided).length
+        : v2Topics.filter((id) => v2.facts.guided(id)).length,
+    ),
+    benefits: guidedCount(trackUnits.benefits.filter((id) => benefits.facts.guided(id)).length),
+    services: guidedCount(
+      trackUnits.services.filter((id) => id !== 'practice' && service2.facts.guided(id)).length,
+    ),
+    architecture: `${hubCopy.coreObservation}: ${Number(physical.facts.guided)} · ${hubCopy.coreObservationB}: ${Number(management.facts.guided)}`,
+    compute: guidedCount(compute.facts.completed.length),
+    networking: guidedCount(networking.facts.completed.length),
+    connectivity: guidedCount(connectivity.facts.completed.length),
+    cost: guidedCount(cost.facts.completed.length),
+  };
   const begin = () => {
     if (missions.active) return;
     if (services.facts.active) services.store.event({ kind: 'aid' });
@@ -458,7 +652,7 @@ export function Course({ module }: { module?: CourseModule }) {
         <Link className="course-brand" href="/learn">
           <BookOpen size={23} />
           {c.brand}
-          <small>{c.version}</small>
+          <small>AZ-900</small>
         </Link>
         <nav aria-label={c.home}>
           <Link href="/learn">{c.home}</Link>
@@ -490,94 +684,14 @@ export function Course({ module }: { module?: CourseModule }) {
             <Menu size={18} />
             {c.learning}
           </button>
-          <div className="course-navigation-content">
-            <small>{c.track}</small>
-            <strong>{nb.official.certification}</strong>
-            <p>{nb.official.exam}</p>
-            <Link href="/learn">{c.overview}</Link>
-            <h2>{nb.official.path}</h2>
-            <ol>
-              {officialLearning.modules.map((m, i) => (
-                <li key={m.id}>
-                  <span className="course-order">{i + 1}</span>
-                  <div>
-                    {m.status === 'implemented' ? (
-                      <Link
-                        aria-current={module === m.id ? 'page' : undefined}
-                        href={
-                          m.id === 'computing'
-                            ? computingEntry
-                            : courseHref(m.id, m.id === 'benefits' ? 'availability' : 'overview')
-                        }
-                        onClick={() => setMenu(false)}
-                      >
-                        {names[m.id]}
-                      </Link>
-                    ) : (
-                      <>
-                        <span>{names[m.id]}</span>
-                        <small>{c.planned}</small>
-                      </>
-                    )}
-                    {module === m.id && (
-                      <ol className="course-units">
-                        {pathTopics.map((t) => (
-                          <li key={t}>
-                            <Link
-                              aria-current={topic === t ? 'step' : undefined}
-                              href={module === 'services' ? serviceHref(t) : courseHref(module, t)}
-                              onClick={() => setMenu(false)}
-                            >
-                              {title(module, t)}
-                              {module === 'computing' &&
-                                (currentV2
-                                  ? v2.facts.guided(t as (typeof v2Topics)[number])
-                                  : learning.facts.observations[t as (typeof unitIds)[number]]
-                                      ?.guided) && (
-                                  <Check
-                                    size={14}
-                                    aria-label={
-                                      currentV2 ? nb.foundationsV2.practiced : c.satisfied
-                                    }
-                                  />
-                                )}
-                            </Link>
-                          </li>
-                        ))}
-                      </ol>
-                    )}
-                  </div>
-                </li>
-              ))}
-            </ol>
-            <PhysicalCourseEntry
-              navigation
-              active={module === 'architecture'}
-              topic={topic}
-              onNavigate={() => setMenu(false)}
-            />
-            <ComputeEntry
-              navigation
-              topic={module === 'compute' ? topic : undefined}
-              onNavigate={() => setMenu(false)}
-            />
-            <NetworkingEntry
-              navigation
-              topic={module === 'networking' ? topic : undefined}
-              onNavigate={() => setMenu(false)}
-            />
-            <ConnectivityEntry
-              navigation
-              topic={module === 'connectivity' ? topic : undefined}
-              onNavigate={() => setMenu(false)}
-            />
-            <CostEntry
-              navigation
-              topic={module === 'cost' ? topic : undefined}
-              onNavigate={() => setMenu(false)}
-            />
-            <p className="course-navigation-note">{c.participation}</p>
-          </div>
+          <CourseSidebar
+            key={module ?? 'hub'}
+            module={module}
+            topic={topic}
+            destinations={navigationDestinations}
+            activities={navigationActivities}
+            onNavigate={() => setMenu(false)}
+          />
         </aside>
         <main id="course-main" className="course-main">
           {course.issue && (
@@ -643,141 +757,26 @@ export function Course({ module }: { module?: CourseModule }) {
             }
           >
             {!module ? (
-              <>
-                <div className="course-intro">
-                  <small>{c.eyebrow}</small>
-                  <h1>{c.title}</h1>
-                  <p>{c.intro}</p>
-                  <div className="course-track">
-                    <strong>{nb.official.certification}</strong>
-                    <span>{nb.official.exam}</span>
-                  </div>
-                  <Link className="course-primary" href={resumeHref}>
-                    {services.facts.active ||
-                    learning.facts.active ||
-                    v2.facts.active ||
-                    connectivity.facts.active
-                      ? nb.portal.continueChallenge
-                      : preferredResume
-                        ? c.resume
-                        : c.begin}
-                    <ArrowRight size={18} />
-                  </Link>
-                </div>
-                <ComputeEntry />
-                <NetworkingEntry />
-                <ConnectivityEntry />
-                <CostEntry />
-                <TransferEntry />
-                <MissionOverview />
-                <section className="course-lab-discovery" aria-label={labsNb.discover}>
-                  <strong>{labsNb.discover}</strong>
-                  <p>{labsNb.discoverNote}</p>
-                  <nav>
-                    {(['iaas', 'paas', 'saas'] as const).map((topic) => (
-                      <Link
-                        key={topic}
-                        href={`/learn/services?topic=${topic}&activity=practical&version=2`}
-                        onClick={() => service2.store.event({ kind: 'choose', version: 'v2' })}
-                      >
-                        {labsNb.models[topic]} · {labsNb.title}
-                      </Link>
-                    ))}
-                  </nav>
-                </section>
-                <section className="course-syllabus">
-                  <small>{c.path}</small>
-                  <h2>{nb.official.path}</h2>
-                  <p>{c.sequenceNote}</p>
-                  <ol>
-                    {officialLearning.modules.map((m, i) => (
-                      <li key={m.id} className={m.status === 'planned' ? 'syllabus-planned' : ''}>
-                        <span className="syllabus-number">0{i + 1}</span>
-                        <div>
-                          <small>{m.status === 'planned' ? c.planned : c.available}</small>
-                          <h3>{names[m.id]}</h3>
-                          <p>{c[m.id]}</p>
-                          {m.id === 'computing' && (
-                            <>
-                              <p>
-                                {c.computingProgress}:{' '}
-                                {v2Topics.filter((id) => v2.facts.guided(id)).length} / 11 ·{' '}
-                                {nb.foundationsV2.badge}
-                              </p>
-                              <p>
-                                <Link href={courseHref('computing', 'serverless-concept')}>
-                                  {serverlessNb.title}
-                                </Link>{' '}
-                                ·{' '}
-                                {serverless.facts.guided
-                                  ? serverlessNb.practiceDone
-                                  : serverlessNb.no}
-                              </p>
-                              {hasV1 && (
-                                <p>
-                                  {nb.foundationsV2.legacy} · {c.computingProgress}:{' '}
-                                  {
-                                    unitIds.filter((id) => learning.facts.observations[id].guided)
-                                      .length
-                                  }{' '}
-                                  / 6
-                                </p>
-                              )}
-                            </>
-                          )}
-                          {m.id === 'services' && (
-                            <p>
-                              {nb.expansion.common.practiced}:{' '}
-                              {
-                                trackUnits.services.filter(
-                                  (unit) => unit !== 'practice' && service2.facts.guided(unit),
-                                ).length
-                              }{' '}
-                              / 5 ·{' '}
-                              {lab.complete
-                                ? c.satisfied
-                                : course.save.lab
-                                  ? c.unfinished
-                                  : c.available}
-                            </p>
-                          )}
-                          {m.id === 'benefits' && (
-                            <p>
-                              {nb.expansion.common.practiced}:{' '}
-                              {
-                                trackUnits.benefits.filter((unit) => benefits.facts.guided(unit))
-                                  .length
-                              }{' '}
-                              / 5 · {nb.expansion.common.noNewEvidence}
-                            </p>
-                          )}
-                        </div>
-                        {m.status === 'implemented' && (
-                          <Link
-                            href={
-                              m.id === 'computing'
-                                ? computingEntry
-                                : courseHref(
-                                    m.id,
-                                    m.id === 'benefits' ? 'availability' : 'overview',
-                                  )
-                            }
-                            aria-label={`${c.open}: ${names[m.id]}`}
-                          >
-                            <ArrowRight size={24} />
-                          </Link>
-                        )}
-                      </li>
-                    ))}
-                  </ol>
-                </section>
-                <PhysicalCourseEntry />
-                <section className="course-future">
-                  <h2>{c.broader}</h2>
-                  <p>{c.broaderText}</p>
-                  <p>{c.participation}</p>
-                </section>
-              </>
+              <CourseHub
+                resumeHref={resumeHref}
+                resumeLabel={
+                  activeIndependent ? nb.portal.continueChallenge : hasResume ? c.resume : c.begin
+                }
+                activeIndependent={activeIndependent}
+                hasResume={hasResume}
+                destinations={entryDestinations}
+                observations={hubObservations}
+                records={hubRecords}
+                onServiceLab={() => service2.store.event({ kind: 'choose', version: 'v2' })}
+                missionResume={
+                  missions.ready && !missions.issue && missions.activeSession
+                    ? {
+                        href: missionOrigin(missions.activeSession.mission),
+                        title: missionsNb.missions[missions.activeSession.mission].title,
+                      }
+                    : undefined
+                }
+              />
             ) : topic !== 'transfer' && missions.active && !missions.assisted ? (
               <MissionActivity />
             ) : topic !== 'transfer' &&

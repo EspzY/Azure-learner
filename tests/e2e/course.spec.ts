@@ -53,16 +53,21 @@ test('course owns full theory, guided real controls, denial investigation, hosti
   await page.goto('/');
   await expect(page).toHaveURL(/\/learn$/);
   await expect(page.getByRole('heading', { name: c.title, exact: true })).toBeVisible();
-  await expect(page.locator('.course-syllabus li').nth(0)).toContainText(nb.official.computing);
-  await expect(page.locator('.course-syllabus li').nth(1)).toContainText(c.available);
-  await expect(page.locator('.course-syllabus li').nth(1).getByRole('link')).toHaveAttribute(
-    'href',
-    '/learn/benefits?topic=availability',
+  await expect(page.locator('.learn-hub-module[data-module="computing"]')).toContainText(
+    'Cloud computing',
   );
-  await expect(page.locator('.course-syllabus li').nth(2)).toContainText(nb.official.services);
+  await expect(page.locator('.learn-hub-module[data-module="benefits"]')).toContainText(
+    'Veiledede observasjoner: 0',
+  );
+  await expect(
+    page.locator('.learn-hub-module[data-module="benefits"]').getByRole('link'),
+  ).toHaveAttribute('href', '/learn/benefits?topic=availability');
+  await expect(page.locator('.learn-hub-module[data-module="services"]')).toContainText(
+    'Cloud service types',
+  );
   await capture(page, info, 'landing');
   await audit(page);
-  await page.getByRole('link', { name: `${c.open}: ${nb.official.services}`, exact: true }).click();
+  await page.getByRole('link', { name: `${c.open}: Cloud service types`, exact: true }).click();
   await expect(page).toHaveURL(/\/learn\/services\?topic=overview/);
   await expect(
     page.getByText(nb.portal.lesson.sections.overview.mechanism, { exact: true }),
@@ -411,8 +416,8 @@ test('original computing investigations, direct module access, tablet/narrow nav
   await capture(page, info, 'tablet-computing');
   await audit(page);
   await page.goto('/learn');
-  await expect(page.locator('.course-syllabus li').first()).toContainText(
-    `${c.computingProgress}: 0 / 6`,
+  await expect(page.locator('.learn-hub-module[data-module="computing"]')).toContainText(
+    'Veiledede observasjoner: 0',
   );
   await expect(page.getByRole('link', { name: c.resume, exact: true })).toHaveAttribute(
     'href',

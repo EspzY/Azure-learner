@@ -1,3 +1,4 @@
+import { openPathActivities } from './course-hub-actions';
 import { test, expect, type Page, type TestInfo } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { missionsNb as c, nb, labsNb as lab, learningPolishNb } from '../../src/content/nb';
@@ -78,6 +79,7 @@ async function seed(page: Page, kind: 'vm' | 'app') {
 }
 async function start(page: Page, id: MissionId, mode = 'guided') {
   await page.goto('/');
+  await openPathActivities(page, 'cloud');
   await page
     .locator('.mission-discovery')
     .getByRole('link', { name: c.missions[id].title, exact: true })
@@ -585,6 +587,7 @@ test('mission accessibility: keyboard briefing/cancel, short window, reduced mot
       requests.push(request.url());
   });
   await page.goto('/');
+  await openPathActivities(page, 'cloud');
   await page
     .locator('.mission-discovery')
     .getByRole('link', { name: c.missions.infrastructure.title, exact: true })
@@ -650,6 +653,7 @@ test('mission recovery names non-Core and technical conflicts, preserves latest 
   await start(page, 'platform');
   await returnCourse(page, 'platform');
   await page.goto('/');
+  await openPathActivities(page, 'cloud');
   await page
     .locator('.mission-discovery')
     .getByRole('link', { name: `${c.resume} · ${c.missions.platform.title}`, exact: true })

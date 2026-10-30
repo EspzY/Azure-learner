@@ -31,3 +31,11 @@ Kildekontroll av author, separat agent-review, kvalifisert Azure-SME, novice/IT-
 ## Gate6-spørsmål
 
 Reviewer må utfordre: overfladisk/manglende teori; utdatert eller feil faktapåstand; motstridende forklaringer; oppdiktet runtime/visualisering; spørsmål som røper svaret eller bare tester ord; feil guide/mål; utilgjengelig kritisk tekst; misvisende completion/XP; manglende sammenheng med lab; faktisk svekkede regresjoner. Se både feil- og normalflyt, kildegrenser og faktiske browserbilder. En rapport alene uten kode-/test-/browserbevis er ikke nok.
+
+## PR32: truthful candidate browser receipt
+
+The older literal-command requirement recognized only the optional legacy E2E command. The approved guarded desktop command is now also recognized with a valid tested SHA, candidate-full-profile scope and matching stamped fingerprint. Negative fixtures reject list/grep/plan/pending/historical/wrong-fingerprint entries. All other strict source/base/snapshot/reviewer/finding/visual gates remain.
+
+CI invokes `scripts/verify-desktop-ci.mjs` after pinned Chromium install. The wrapper itself runs exactly `npm run test:e2e:desktop`; only child exit0 writes the mutable candidate verification receipt in runner `current.json`. Failure/signal propagates without a receipt. Existing strict release then validates the same reviewed payload against the actual PR base. GitHub may check out a synthetic merge revision; the receipt records that actual tested revision, while run head_sha associates the delivered PR head.
+
+Before CI, the repository record stays pending. Local strict preflight may therefore report only missing executed candidate full-browser evidence after all implementation/review errors are resolved. This is a pending delivery, not a passed release. No old baseline or targeted run may be relabelled as complete candidate regression. Draft publication enables actual CI; owner-review delivery requires its complete approved profile and strict release to finish successfully. No merge/production deploy is authorized.

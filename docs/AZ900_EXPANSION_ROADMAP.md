@@ -6,6 +6,8 @@ PR29 er levert som Draft med grønn komplett CI; ekstern Gate7 står SSO-blokker
 
 Rekkefølgen foran den videre fagutbyggingen er nå: **avgrenset prosessforslag → offentlig ordinær AzureLab med sikkerhets-/preview-kontroll → profesjonell Course Hub-redesign → P08 og videre innhold gjennom P16 → helhetlig pedagogisk gjennomgang → endelig sertifiseringsdiagnostikk**. Course Hub skal gi tydelig start/fortsett, stier/modulhierarki, sammenleggbar sidemeny, ærlig progresjon og integrerte oppdrag med færre konkurrerende innganger. Bevar alt faginnhold, lagring og operativ funksjonalitet. Dette er egen UX-leveranse, ikke del av prosessendringen. Ingen merge/produksjonsdeploy er autorisert. [Offentlig tilgang og faktisk blokkering](PUBLIC_ACCESS_REVIEW.md).
 
+PR32 implements the separate [Course Hub/navigation UX scope](COURSE_HUB_REDESIGN.md) while public access remains legitimately SSO blocked. This owner-authorized UX work proceeds without waiting for Vercel settings access. No P08/P09 or later teaching is implemented; they remain next after Course Hub acceptance. Existing blueprint and post-P16 pedagogy review order remain.
+
 ## P07 implementation — PR29
 
 Networking Part B composes VPN Gateway, ExpressRoute and public/private endpoints with Part A in the existing course. Separate1.0.0 evidence preserves prior answers and rubrics. The two scoped rows may describe complete authored A–F content without implying learner mastery, human acceptance or actual cloud networking. [Scope and actual verification](NETWORKING_CONNECTIVITY.md). PR28's protected external preview remains a documented SSO-blocked dependency. P08 Storage A and P09 tiers/redundancy are next planned phases and are not implemented here.

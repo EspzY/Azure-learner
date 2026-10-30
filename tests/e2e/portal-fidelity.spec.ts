@@ -1,3 +1,4 @@
+import { openServiceLab } from './course-hub-actions';
 import { test, expect, type Page } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { nb, labsNb, learningPolishNb } from '../../src/content/nb';
@@ -342,9 +343,7 @@ test('guided coach minimization restores the actual operational workspace withou
 }) => {
   await page.setViewportSize({ width: 1440, height: 900 });
   await page.goto('/');
-  await page
-    .getByRole('link', { name: labsNb.models.iaas + ' · ' + labsNb.title, exact: true })
-    .click();
+  await openServiceLab(page, 'iaas');
   await page
     .locator('.practical-entry')
     .getByRole('button', { name: labsNb.launch, exact: true })
