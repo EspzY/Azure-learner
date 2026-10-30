@@ -1,5 +1,9 @@
 # AzureLab 3.2.1
 
+## Current owner direction — 29 October 2026
+
+Desktop-first product quality, targeted development checks and a risk-based independent audit follow [the bounded workflow](docs/DEVELOPMENT_WORKFLOW.md). Complete existing CI remains authoritative; the opt-in desktop/compact test candidate awaits owner approval and does not change default CI. Next product order: scoped anonymous public access, professional Course Hub/navigation redesign, then the remaining AZ-900 content roadmap. All teaching, technical rules and historical evidence are preserved.
+
 ## Networking Part B — PR29
 
 The ordinary course now links Networking Part A to **VPN Gateway, ExpressRoute & Public/Private Endpoints** at `/learn/connectivity`. Hybrid transport/encryption and staged endpoint/DNS models, four guided investigations, new independent decision/reason scenarios and a full Journal use separately versioned learning history. No real tunnel, circuit, endpoint or DNS query is created. Part A resources, rubrics and historical answers remain unchanged. [Original manuscript, source reconciliation and scope](docs/NETWORKING_CONNECTIVITY.md); verification and unperformed human reviews remain recorded in project status. Protected Vercel previews require authorized access; Ready alone does not verify a deployed application journey.
