@@ -767,6 +767,7 @@ export function Course({ module }: { module?: CourseModule }) {
                 destinations={entryDestinations}
                 observations={hubObservations}
                 records={hubRecords}
+                onServiceLab={() => service2.store.event({ kind: 'choose', version: 'v2' })}
                 missionResume={
                   missions.ready && !missions.issue && missions.activeSession
                     ? {

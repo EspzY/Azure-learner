@@ -1,3 +1,4 @@
+import { openServiceLab } from './course-hub-actions';
 import { test, expect, type Page, type TestInfo } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { nb, labsNb as labs, learningPolishNb as polish } from '../../src/content/nb';
@@ -53,11 +54,7 @@ async function area(page: Page, name: keyof typeof p.areas) {
 }
 async function launch(page: Page, kind: 'vm' | 'paas') {
   await page.goto('/');
-  await page
-    .locator(
-      `a[href="/learn/services?topic=${kind === 'vm' ? 'iaas' : 'paas'}&activity=practical&version=2"]`,
-    )
-    .click();
+  await openServiceLab(page, kind === 'vm' ? 'iaas' : 'paas');
   const entry = page.locator('.practical-entry');
   await expect
     .poll(() =>

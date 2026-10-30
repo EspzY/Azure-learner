@@ -5,7 +5,7 @@
   "author": "codex-course-hub-author",
   "scope": {
     "kind": "course-navigation-ux",
-    "description": "Ordinary Course Hub and contextual collapsible navigation redesign. Three existing AZ900 learning areas, one start/resume action, honest guided observations and scoped history recovery; preserve teaching, assessment, simulator and learning contracts. No new module/mastery/XP, merge or production deployment. Existing source/activity records identify preserved teaching only, not a new factual review. Concrete audit corrections: withhold stale sidebar observations on uncertain history; align the legacy release command predicate with the owner-approved guarded profile and record freshly executed candidate browser evidence in CI only after its fixed child exits0. No historical baseline result stands in for this candidate.",
+    "description": "Ordinary Course Hub and contextual collapsible navigation redesign. Three existing AZ900 learning areas, one start/resume action, honest guided observations and scoped history recovery; preserve teaching, assessment, simulator and learning contracts. No new module/mastery/XP, merge or production deployment. Existing source/activity records identify preserved teaching only, not a new factual review. Concrete audit corrections: withhold stale sidebar observations on uncertain history; align the legacy release command predicate with the owner-approved guarded profile and record freshly executed candidate browser evidence in CI only after its fixed child exits0. No historical baseline result stands in for this candidate. Post-CI correction restores original current lab href/labels and explicit user-click v2-choice action in its new path location. Expanded metadata remains read-only; old root Cost/lab test discovery now follows the new UI without losing technical/history assertions.",
     "objectives": ["az900.networking.services", "az900.networking.endpoints"]
   },
   "sources": [
@@ -203,7 +203,7 @@
     {
       "command": "npm run check",
       "result": "passed",
-      "details": "Final corrected local check completed exit0:346 Vitest/28files,256 curriculum/19files,17 Node fixtures (including both new release/receipt negatives),97 Markdown files/local links, type/lint/format/quality/AZ900/assets/legacy and production build. This includes stale-marker, resume-priority and CI receipt corrections. Complete candidate browser CI remains pending; no historical/targeted run is credited as candidate full regression."
+      "details": "Post-CI-correction full local check completed exit0:346 Vitest/28files,256 curriculum/19files,17 Node fixtures,97 Markdown files/local links, type/lint/format/quality/AZ900/assets/legacy and production build. Includes restored explicit current-lab choice action and all root discovery helpers. Full corrected candidate166 CI is still pending; first timed-out attempt and targeted checks are not credited as full regression."
     },
     {
       "command": "npm run test:e2e:plan",
@@ -229,6 +229,17 @@
       "command": "Direct production root-module accessible-name/route probe",
       "result": "passed",
       "details": "Actual process exit0 for Cloud computing, Benefits of cloud services and Cloud service types short Hub accessible names, exact original routes and visible original lesson headers. Final reference scan updated only old root link-name expectations in six existing tests (foundations-v2, serverless, curriculum-expansion, practical-labs, ux-refinement, guided-learning-polish); all original theory/model/technical/state assertions and test IDs remain. No application change or full local journey duplication."
+    },
+    {
+      "command": "GitHub Quality run41057739758",
+      "result": "failed",
+      "commit": "7b901da559d9d35952daafd8f21622d479379a02",
+      "details": "Initial full166 attempt was cancelled at unchanged35min job deadline after repeated old-root Cost promotion/lab discovery timeouts. No complete candidate browser pass, runtime success receipt or strict release occurred. Actual completed logs were inspected; local exact repro confirmed both stale entry families. This superseded attempt is not credited as current full regression."
+    },
+    {
+      "command": "Targeted original Cost/Portal/practical/quality root families",
+      "result": "passed",
+      "details": "Actual21 cases passed2.5m process exit0, no retries, after corrections. Covers all previously failing families: Cost theory/analysis/budget/tags/first-help-retry/scenarios/history and6 widths; Portal coach minimization; genuine-v1/current lab; changed VM/PaaS/SaaS tasks and reset; factual/once-only policy/VM guidance and invisible/duplicate/covered targets. Original substantive assertions remain; shared helper opens real path disclosure and asserts original lab href. Genuine-v1 test proves expansion preserves current-choice/old-learning/chapter bytes, actual lab click selects v2, and old historical bytes remain exact."
     }
   ],
   "visualEvidence": [
@@ -313,12 +324,12 @@
   },
   "review": {
     "status": "complete",
-    "fingerprint": "23cbb42a9fb5e8ce9f3e6d9f40feedbddf06b09e4cc8c16d67218ed097090ffb",
+    "fingerprint": "5674a20725a62b3d4e229a27715e13c7454d710e1311d93df7a4031908729098",
     "reviewer": {
       "id": "codex-course-hub-independent-final-auditor",
       "kind": "agent"
     },
-    "started": "2026-10-30T12:42:25.166Z",
+    "started": "2026-10-30T14:01:34.888Z",
     "domains": {
       "content": {
         "finding": "Availability/planned modules and guided observations do not imply mastery. Exact original748314-byte nb.ts teaching/assessment prefix and all source/item/rubric/domain bytes preserved; appended interface copy only. No new full source/answer audit or human acceptance claimed.",
@@ -335,7 +346,7 @@
         ]
       },
       "technical": {
-        "finding": "Navigation adds no technical/evidence authority. All domain/learning/Portal/receipt/World/XP contracts preserved. Independent browser probes verify metadata neutrality, exact mixed-state resume origins, denied/corrupt/conflicted storage recovery and newer-byte preservation. Stale sidebar progress MAJOR fixed and independently retested on final build.",
+        "finding": "Navigation adds no technical/evidence authority. All domain/learning/Portal/receipt/World/XP contracts preserved. Independent browser probes verify metadata neutrality, exact mixed-state resume origins, denied/corrupt/conflicted storage recovery and newer-byte preservation. Stale sidebar progress MAJOR fixed and independently retested on final build. CI-exposed current-lab regression corrected: exact original explicit choose-v2 callback/labels/hrefs restored only on actual lab click; independently verified chosen-v1 disclosure is metadata and old learning/chapter bytes stay exact.",
         "evidence": [
           {
             "path": "src/features/course/course.tsx"
@@ -401,7 +412,7 @@
         ]
       },
       "guidance": {
-        "finding": "Frozen SavvyShark/briefing/providers and shared teaching boundary preserved. Root metadata writes no help. Independent v2 Journal probes verify durable aid, denied-write withholding, already-open conflict withholding and Escape focus restore; existing Networking and all-context shielding witnesses retained.",
+        "finding": "Frozen SavvyShark/briefing/providers and shared teaching boundary preserved. Root metadata writes no help. Independent v2 Journal probes verify durable aid, denied-write withholding, already-open conflict withholding and Escape focus restore; existing Networking and all-context shielding witnesses retained. Restored lab-entry version choice occurs only on explicit lab action; the full original assistance/guidance assertions passed in the21 affected cases.",
         "evidence": [
           {
             "path": "src/features/learning/management-access.tsx"
@@ -421,7 +432,7 @@
         ]
       },
       "regression": {
-        "finding": "Reviewed all existing E2E diffs: semantic selectors/explicit expansion preserve substantive assertions. Six Hub cases retain original150 desktop+10compact witnesses, total166; legacy312 retained. Final full local check exit0 and affected retests confirmed. Bounded fixed-command CI receipt/alias correction reviewed with9 negative tests; candidate full166 CI honestly pending, no inherited historical success. Final compact openCoursePath assertions passed800x700. Final renewal reviewed all8 exact root-name references across6 additional tests: only short Hub selector labels/formatting changed; every original theory/model/state assertion and test identity remains. Author direct production probe confirmed all3 new names, original hrefs and first-lesson headings, exit0. Application/scripts remain frozen; no broad retest claimed.",
+        "finding": "Reviewed all existing E2E diffs: semantic selectors/explicit expansion preserve substantive assertions. Six Hub cases retain original150 desktop+10compact witnesses, total166; legacy312 retained. Final full local check exit0 and affected retests confirmed. Bounded fixed-command CI receipt/alias correction reviewed with9 negative tests; candidate full166 CI honestly pending, no inherited historical success. Final compact openCoursePath assertions passed800x700. Final renewal reviewed all8 exact root-name references across6 additional tests: only short Hub selector labels/formatting changed; every original theory/model/state assertion and test identity remains. Author direct production probe confirmed all3 new names, original hrefs and first-lesson headings, exit0. Application/scripts remain frozen; no broad retest claimed. First actual CI41057739758 on7b901da timed out/cancelled at unchanged35min after real stale-entry failures; no candidate receipt/strict release. Corrected Cost/lab helpers preserve substantive assertions and add original-href checks. All21 affected Cost/Portal/practical/quality cases passed2.5m exit0 without retry, and full post-correction check exited0. Corrected full166 GitHub CI still required.",
         "evidence": [
           {
             "path": "tests/e2e/course-hub.spec.ts"
@@ -461,6 +472,15 @@
           },
           {
             "path": "tests/e2e/guided-learning-polish.spec.ts"
+          },
+          {
+            "path": "tests/e2e/portal-fidelity.spec.ts"
+          },
+          {
+            "path": "tests/e2e/quality-system.spec.ts"
+          },
+          {
+            "path": "tests/e2e/cost-management.spec.ts"
           }
         ]
       }
@@ -518,10 +538,34 @@
         ]
       },
       {
+        "id": "PR32-04",
+        "severity": "major",
+        "status": "fixed",
+        "description": "First full CI exposed stale Cost/lab root helpers and an omitted explicit current-lab choose-v2 callback, breaking genuine-v1/current-lab entry.",
+        "fix": "Restore original lab labels/hrefs and the original choose-v2 callback only on actual lab clicks; Cost helper follows its visible module row and shared lab helper deliberately expands the path and asserts exact original href. Disclosure expansion remains metadata; no historical evidence migration.",
+        "retests": [
+          {
+            "path": "tests/e2e/practical-labs.spec.ts"
+          },
+          {
+            "path": "tests/e2e/cost-management.spec.ts"
+          },
+          {
+            "path": "tests/e2e/portal-fidelity.spec.ts"
+          },
+          {
+            "path": "tests/e2e/quality-system.spec.ts"
+          },
+          {
+            "path": "docs/quality/PR32_FINAL_AUDIT.md"
+          }
+        ]
+      },
+      {
         "id": "PR32-N1",
         "severity": "note",
         "status": "open",
-        "description": "Full candidate166 GitHub CI and subsequent strict release remain mandatory and pending at audit binding. Targeted/plan/historical evidence is not candidate full regression."
+        "description": "First candidate CI41057739758 on7b901da failed/cancelled at35min without completing166, emitting a receipt or executing strict release. The corrected complete exact-head166 GitHub run and strict release remain mandatory after publication; targeted21 and full local check are not candidate full-browser CI."
       },
       {
         "id": "PR32-N2",
@@ -540,7 +584,7 @@
       "AGENTS.md": "e8b114a59dd357b79e046f5b46a31c92ada3f3c1f2fcb5ae57525f274f28e325",
       "README.md": "59a8ac815a76708bb4fea59e61e53a6c612e7d8dad357b4113d4588f7afe47e4",
       "docs/AZ900_EXPANSION_ROADMAP.md": "80604c2545aa347181e507e97dfc1bb54929ff9885057bff9e9ecfa315f9bd4e",
-      "docs/COURSE_HUB_REDESIGN.md": "39733389bd64eddd9986376ee82683ef5d93e0c9ac95816283651c67532a5ff7",
+      "docs/COURSE_HUB_REDESIGN.md": "f225eec60949daaea03b56238970dc6909cb9e422fa33c7742ffee87122e73a7",
       "docs/DEVELOPMENT_WORKFLOW.md": "358e960fce005ab12bffff878f466893391fedbb23ae142f9377857fec542507",
       "docs/RELEASE_ACCEPTANCE.md": "80cff67e1b5478007020044bac5c29ba2e50f52ec640d04181a6b5e4dbb00da4",
       "docs/screenshots/course-hub/before-1024.png": "c14e1d7351aa273f13c659d120b2b8f395219cf6552e262b2aa401e8841f0fc0",
@@ -559,16 +603,16 @@
       "scripts/quality-check.test.mjs": "cc98909cf19ed5bf38cc534f81bd340aa4a519bc9cccc0f7cd52460c5c892e3b",
       "scripts/verify-desktop-ci.mjs": "a3ad649dda3a51fb796bbbbeaa8b6d2636d8da3c51c7acf3bc4c6af527a4cfc1",
       "src/content/nb.ts": "9bdf4915e7be993c0c25c081958d19af43bbce69f995219875f74535193b23ef",
-      "src/features/course/course-hub.tsx": "3313dfb78e964620aae2a6081747306a0898cf562688f484b93d1ac01e4321d9",
+      "src/features/course/course-hub.tsx": "7c773fb0a1be0da7877a1a1fa59195624730ee6ad55b0a0b99e4ce20a86a9a46",
       "src/features/course/course-outline.ts": "4d2662906cf1a29fb5bfa492af377b61218b36210ac3521892debde9e430bc78",
       "src/features/course/course-sidebar.tsx": "651be72f462b64f1caf0a7ba35750bde07e6fe3612b2ca6e0dc73a9f5ed039d4",
       "src/features/course/course.css": "a13749a2cc0c91e7d62546a55b064bd188ac77c89ccd582bb97bbd5f43c52416",
-      "src/features/course/course.tsx": "75ae46e51cda000f5d6d1d0584a997c14550efa9aa65a7492be48c75d5ab2a43",
+      "src/features/course/course.tsx": "9032704160cc735b690936fb94315cb592df1e0aeb141911b29cda13fc5cd57c",
       "tests/e2e/architecture-management.spec.ts": "29a6fbca360d0d4ce6c6a845e961a114a9a491fac95533d4f1bbbc4b28c9c782",
       "tests/e2e/cloud-transfer.spec.ts": "534b71da66b9ba66eaaad30a8c85734d07732481bebf85088b361bd3d06cf6be",
       "tests/e2e/compute-hosting.spec.ts": "b91a4c4bbe11efb5a7d2cc504de57c28d608ce545db82939f169947c1df17caa",
-      "tests/e2e/cost-management.spec.ts": "83f0e035ecd4ed5721e3426a32b09e748fa15efd9081092443a81f0a1196b0e7",
-      "tests/e2e/course-hub-actions.ts": "c50b76c92e4e8ce82d62f47b7cef42de04de379159ea5f42bab6cfa71285200f",
+      "tests/e2e/cost-management.spec.ts": "6e76b6f0cca8ac3e42c8f07d88e8b8b5d82ea5d552f1c2094897b8a670ff6901",
+      "tests/e2e/course-hub-actions.ts": "5456a53f4808de5a3de46379f497ad9886d7c3539f14cb7c4507c83c31ae374e",
       "tests/e2e/course-hub.spec.ts": "404618e0668ef3d0ec32e7b1d4019481c26ab3604cd476c87091fec954d6919f",
       "tests/e2e/course.spec.ts": "9363072b83eefe08b477fdc007739fc7b8b4e2c636384dd6c7b5c10aa48bbc15",
       "tests/e2e/curriculum-expansion.spec.ts": "16738ef3d3fa0cbde87a25e43d629f8051f844dfb08b69f0f163f29ba0a35bc5",
@@ -576,11 +620,13 @@
       "tests/e2e/guided-learning-polish.spec.ts": "8d66f2abcc0791fb0ce8efbb8c24aff996b4ddb83a63ee6e3a802fa63b08cd2d",
       "tests/e2e/networking-connectivity.spec.ts": "1414a9d70c7e0dffd6eee04020256ddbdab605e90acc3f4645b03454ea2fe788",
       "tests/e2e/networking-foundations.spec.ts": "7d966d2399962f32d0d500e898fb41bfb439a5ce567a8144cc9c1d43bd2b191c",
-      "tests/e2e/practical-labs.spec.ts": "c4d5a346820c79be990c27c937670fa2dece9a02e3b52da87a7e662588e80a18",
+      "tests/e2e/portal-fidelity.spec.ts": "79bbfd3748b587747e61e0e9ce67e9615524295d82df42e375f1d12b8ea1cb8c",
+      "tests/e2e/practical-labs.spec.ts": "fda11f0062049c821a192b8ec37c38108ec2f80c67d478f00144949f7a7efe3a",
       "tests/e2e/practical-missions.spec.ts": "f254d292b33079788134c5a0f0468d2e997b890d1b89bc0408c0e6ca0d9b7dcf",
+      "tests/e2e/quality-system.spec.ts": "b9531421aa21204383d757bc7499c72f1305dc00452d9e0f49f9b4b80bd1ea4c",
       "tests/e2e/serverless.spec.ts": "dbb3d1728ee6df941ea461f09dd76c308b85c62764784baf1811c75c656f51e6",
       "tests/e2e/ux-refinement.spec.ts": "a0491114b9a5d695f309cfb31413555997f5c23298765cd9a2e9116103b627d5"
     }
   },
-  "implementationFinished": "2026-10-30T12:38:26.509Z"
+  "implementationFinished": "2026-10-30T13:54:27.057Z"
 }

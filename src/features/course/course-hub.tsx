@@ -1,7 +1,7 @@
 'use client';
 import Link from 'next/link';
 import { ArrowRight, BookOpen, FlaskConical, ShieldCheck } from 'lucide-react';
-import { architectureNb, nb, courseHubNb as h, missionsNb, transferNb } from '@/content/nb';
+import { architectureNb, nb, courseHubNb as h, missionsNb, transferNb, labsNb } from '@/content/nb';
 import { courseHref, type CourseModule } from '@/domain/course/model';
 import { missionIds, missionOrigin } from '@/domain/sandbox/missions';
 import { coursePaths, moduleLabels } from './course-outline';
@@ -25,6 +25,7 @@ export function CourseHub({
   observations,
   records,
   missionResume,
+  onServiceLab,
 }: {
   resumeHref: string;
   resumeLabel: string;
@@ -34,6 +35,7 @@ export function CourseHub({
   observations: Record<CourseModule, string>;
   records: HubRecord[];
   missionResume?: { href: string; title: string };
+  onServiceLab: () => void;
 }) {
   const ready = records.every((record) => record.ready);
   const uncertain = records.filter((record) => record.issue);
@@ -183,8 +185,9 @@ export function CourseHub({
                           <Link
                             key={part}
                             href={`/learn/services?topic=${part}&activity=practical&version=2`}
+                            onClick={onServiceLab}
                           >
-                            {part.toUpperCase()}
+                            {labsNb.models[part]} · {labsNb.title}
                           </Link>
                         ))}
                       </nav>

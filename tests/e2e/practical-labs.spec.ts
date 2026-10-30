@@ -1,3 +1,4 @@
+import { openServiceLab, openPathActivities } from './course-hub-actions';
 import { editAppSetting, acknowledgeMilestone } from './portal-actions';
 import { test, expect, type Page, type TestInfo } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
@@ -50,7 +51,27 @@ test('current lab entry preserves genuine v1 records and imports the validated t
     { oldLearning, oldChapter, selected: JSON.stringify(selected) },
   );
   await page.goto('/');
-  await page.getByRole('link', { name: t.models.iaas + ' · ' + t.title, exact: true }).click();
+  await openPathActivities(page, 'cloud');
+  expect(
+    await page.evaluate(() => localStorage.getItem('azurelab.learning.service-types.v2')),
+  ).toBe(JSON.stringify(selected));
+  expect(await page.evaluate(() => localStorage.getItem('azurelab.portal.learning.v1'))).toBe(
+    oldLearning,
+  );
+  expect(await page.evaluate(() => localStorage.getItem('azurelab.chapter01.guided.v1'))).toBe(
+    oldChapter,
+  );
+  await openServiceLab(page, 'iaas');
+  await expect
+    .poll(() =>
+      page.evaluate(
+        () =>
+          JSON.parse(localStorage.getItem('azurelab.learning.service-types.v2')!)
+            .events.filter((event: { kind: string }) => event.kind === 'choose')
+            .at(-1)?.version,
+      ),
+    )
+    .toBe('v2');
   await expect(page.locator('.practical-entry')).toBeVisible();
   await page
     .locator('.practical-entry')
@@ -470,7 +491,7 @@ test('independent VM uses changed requirements, preserves first delivery and cla
   test.skip(info.project.name !== 'desktop-chromium', 'New interaction is desktop-first.');
   await page.emulateMedia({ reducedMotion: 'reduce' });
   await page.goto('/');
-  await page.getByRole('link', { name: t.models.iaas + ' · ' + t.title, exact: true }).click();
+  await openServiceLab(page, 'iaas');
   await page
     .locator('.practical-entry')
     .getByRole('button', { name: t.challenge, exact: true })
@@ -587,7 +608,7 @@ test('changed PaaS and SaaS tasks assess actual new operations without coach hig
 }, info) => {
   test.skip(info.project.name !== 'desktop-chromium', 'Desktop-first operational tasks.');
   await page.goto('/');
-  await page.getByRole('link', { name: t.models.paas + ' · ' + t.title, exact: true }).click();
+  await openServiceLab(page, 'paas');
   await page
     .locator('.practical-entry')
     .getByRole('button', { name: t.challenge, exact: true })
@@ -651,7 +672,7 @@ test('explicit SaaS and Portal reset rebind guided sessions and retain abandoned
 }, info) => {
   test.skip(info.project.name !== 'desktop-chromium', 'Desktop reset and resume contract.');
   await page.goto('/');
-  await page.getByRole('link', { name: t.models.saas + ' · ' + t.title, exact: true }).click();
+  await openServiceLab(page, 'saas');
   await page
     .locator('.practical-entry')
     .getByRole('button', { name: t.launch, exact: true })
@@ -675,7 +696,7 @@ test('explicit SaaS and Portal reset rebind guided sessions and retain abandoned
   await page.locator('.practical-entry').getByText(t.attempts, { exact: true }).click();
   await expect(page.locator('.practical-entry')).toContainText(t.cancelled);
   await page.getByRole('link', { name: nb.course.overview, exact: true }).first().click();
-  await page.getByRole('link', { name: t.models.iaas + ' · ' + t.title, exact: true }).click();
+  await openServiceLab(page, 'iaas');
   await page
     .locator('.practical-entry')
     .getByRole('button', { name: t.launch, exact: true })
