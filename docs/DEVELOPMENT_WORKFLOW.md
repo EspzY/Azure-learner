@@ -82,3 +82,7 @@ Repository candidate verification remains pending before actual execution. An im
 ## P09 / PR34 scoped profile extension
 
 Storage Part B retains all175 inherited cases and adds six desktop investigations/assessment/navigation/storage/accessibility cases plus one justified initial compact witness. Collection validates170 desktop+12 compact=182; legacy340 remains. This is not executed candidate proof until actual exact-head CI and strict release succeed. No worker/retry/timeout increase, test deletion, assertion weakening or new skip. Local regression is targeted; corrections receive affected retests rather than repeated complete profiles.
+
+## P10 / PR35 scoped profile extension
+
+Retain all182 inherited desktop/compact cases. Seven focused Identity journeys plus one justified initial compact witness give190 (177 desktop/13 compact), optional legacy354. The new witness covers a distinct three-perspective flow, semantic details, factor distinctions, keyboard/Axe/reduced motion and short native briefing; existing full desktop sweeps remain. No new skips, assertion weakening, worker/retry/timeout increase or dependency. Early targeted work and affected correction retests precede one complete authoritative exact-head GitHub CI/strict run. Blind scenario decisions are locked before keys; a fresh post-stamp six-domain audit remains mandatory. [Bounded implementation](IDENTITY_FOUNDATIONS.md).

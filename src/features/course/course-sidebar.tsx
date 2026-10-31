@@ -86,7 +86,7 @@ export function CourseSidebar({
                 <ul className="course-tree-modules">
                   {path.modules.map((group) => (
                     <li key={group.title}>
-                      {group.parts.length > 1 && (
+                      {(group.parts.length > 1 || group.title !== moduleLabels[group.parts[0]]) && (
                         <span className="course-tree-group">{group.title}</span>
                       )}
                       {group.parts.map((part) => {

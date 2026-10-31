@@ -1,5 +1,9 @@
 # AzureLab 3.2.1
 
+## Identity Foundations — PR35
+
+[Original P10 teaching and limitations](docs/IDENTITY_FOUNDATIONS.md) extend the existing second-path journey after Storage into Identity, Access & Security. Directory/legacy requirements, sign-in evidence versus app authorization and external collaboration have three causal Studio perspectives, three guided investigations, ten paired independent situations and isolated versioned history. Existing Storage A/B, course results, technical resources and XP remain. Only2.4.01–03 are reviewed; Conditional Access/RBAC and later security remain planned. The inherited182 browser cases extend to190 (177 desktop/13 compact), with the optional legacy354 profile retained. Full exact-head CI/strict, actual images and independent final audit govern delivery; deployed preview verification remains separate. No live identity operation or production deployment.
+
 ## Current owner direction — 29 October 2026
 
 Desktop-first product quality, targeted development checks and a risk-based independent audit follow [the bounded workflow](docs/DEVELOPMENT_WORKFLOW.md). The owner-approved CI standard is guarded `npm run test:e2e:desktop` (all150 existing desktop tests plus10 justified compact witnesses), subject to a complete160-case actual-CI activation pass. Legacy `npm run test:e2e` remains available for specifically justified broader regression/debugging; no routine full mobile duplication. Next product order: scoped anonymous public access, professional Course Hub/navigation redesign, then the remaining AZ-900 content roadmap. All teaching, technical rules and historical evidence are preserved.

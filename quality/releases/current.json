@@ -1,601 +1,776 @@
 {
   "schema": 1,
-  "id": "PR34-P09-storage-resilience",
-  "baseCommit": "593e7a63a1adec54a986cf8609b8191e9fcff9ad",
-  "author": "codex-storage-resilience-author",
+  "id": "PR35-P10-identity-foundations",
+  "baseCommit": "713d52851712a92a58de124815414c78ffb7fc1b",
+  "author": "codex-identity-foundations-author",
   "scope": {
     "kind": "new-module",
-    "description": "P09 Storage Part B integrated under existing Storage group. Only2.3.02/03; original theory, two causal models/missions, ten independent pairs and isolated1.0.0 history. Part A/P16 preserved. No resources, real prices/RPO, runtime/failover/XP, merge or production deploy.",
-    "objectives": ["az900.storage.tiers", "az900.storage.redundancy"]
+    "description": "P10 original directory/AuthN/AuthZ/SSO/MFA/passwordless/external identity teaching in existing Course Hub. Three conceptual perspectives/guides, ten original paired situations, isolated1.0.0 history. Only2.4.01–03; P11/P15/P16 and all old results/World/receipts/XP preserved. No login/tenant/token/credential/Graph or role/policy engine, merge or production deploy.",
+    "objectives": [
+      "az900.identity.directories",
+      "az900.identity.authentication",
+      "az900.identity.external"
+    ]
   },
   "sources": [
     {
-      "id": "SB01",
+      "id": "IF01",
       "title": "Study guide for Exam AZ-900: Microsoft Azure Fundamentals | Microsoft Learn",
       "url": "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900",
       "kind": "exam",
       "reviewed": "2026-10-31",
-      "version": "Skills measured2026-07-20",
+      "version": "Skills measured 2026-07-20",
       "availability": "AVAILABLE",
-      "objectives": ["az900.storage.tiers", "az900.storage.redundancy"],
-      "claims": ["resilience.SB01"],
-      "limits": "Current dated AZ-900 scoped storage tier/redundancy bullets. No actual Azure interaction, protected items, copied figures or human approval.",
+      "objectives": [
+        "az900.identity.directories",
+        "az900.identity.authentication",
+        "az900.identity.external"
+      ],
+      "claims": ["identity.IF01"],
+      "limits": "Current 20 July 2026 scoped three identity/auth/external objectives; no readiness claim. Original conceptual application only; no operational sign-in, protected assessment, copied illustration or human validation.",
       "discovery": [
         {
           "url": "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900",
           "disposition": "reviewed-essential",
-          "reason": "Current dated AZ-900 scoped storage tier/redundancy bullets."
+          "reason": "Current 20 July 2026 scoped three identity/auth/external objectives; no readiness claim."
         }
       ]
     },
     {
-      "id": "SB02",
-      "title": "Describe Azure storage services - Training | Microsoft Learn",
-      "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-storage-services/",
+      "id": "IF02",
+      "title": "Describe Azure identity, access, and security - Training | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-identity-access-security/",
       "kind": "module",
       "reviewed": "2026-10-31",
-      "version": "2026-10-28T17:12:00.0000000Z / actually checked2026-10-31",
+      "version": "Rolling page updated 2026-10-28T17:12:00.0000000Z",
       "availability": "AVAILABLE",
-      "objectives": ["az900.storage.tiers", "az900.storage.redundancy"],
-      "claims": ["resilience.SB02"],
-      "limits": "Official Storage module has8 units; only scoped public teaching units used. No actual Azure interaction, protected items, copied figures or human approval.",
+      "objectives": [
+        "az900.identity.directories",
+        "az900.identity.authentication",
+        "az900.identity.external"
+      ],
+      "claims": ["identity.IF02"],
+      "limits": "Twelve-unit module and actual scoped unit structure; later access/security units deferred. Original conceptual application only; no operational sign-in, protected assessment, copied illustration or human validation.",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-storage-services/",
+          "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-identity-access-security/",
           "disposition": "reviewed-essential",
-          "reason": "Official Storage module has8 units; only scoped public teaching units used."
-        },
-        {
-          "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-storage-services/6-identify-azure-data-migration-options",
-          "disposition": "outside-scope",
-          "reason": "P16, not implemented or re-assessed."
-        },
-        {
-          "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-storage-services/7-identify-azure-file-movement-options",
-          "disposition": "outside-scope",
-          "reason": "P16, not implemented or re-assessed."
-        },
-        {
-          "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-storage-services/8-knowledge-check",
-          "disposition": "outside-scope",
-          "reason": "Protected Microsoft assessment excluded; all items original."
+          "reason": "Twelve-unit module and actual scoped unit structure; later access/security units deferred."
         }
       ]
     },
     {
-      "id": "SB03",
-      "title": "Access tiers for blob data - Azure Storage | Microsoft Learn",
-      "url": "https://learn.microsoft.com/en-us/azure/storage/blobs/access-tiers-overview",
+      "id": "IF03",
+      "title": "Identity and Access Management (IAM): Core Concepts and Benefits - Microsoft Entra | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/entra/fundamentals/identity-fundamental-concepts",
       "kind": "product",
       "reviewed": "2026-10-31",
-      "version": "2026-06-15T17:26:00.0000000Z / actually checked2026-10-31",
+      "version": "Rolling page updated 2026-06-26T22:37:00.0000000Z",
       "availability": "AVAILABLE",
-      "objectives": ["az900.storage.tiers"],
-      "claims": ["resilience.SB03"],
-      "limits": "Online/manual standard GPv2 tiers, minimum periods, inherited/default assignment and Archive eligibility. No actual Azure interaction, protected items, copied figures or human approval.",
+      "objectives": ["az900.identity.directories"],
+      "claims": ["identity.IF03"],
+      "limits": "Identity objects, IdP, AuthN/AuthZ and directory boundary. Original conceptual application only; no operational sign-in, protected assessment, copied illustration or human validation.",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/storage/blobs/access-tiers-overview",
-          "disposition": "reviewed-essential",
-          "reason": "Online/manual standard GPv2 tiers, minimum periods, inherited/default assignment and Archive eligibility."
+          "url": "https://learn.microsoft.com/en-us/entra/fundamentals/identity-fundamental-concepts",
+          "disposition": "reviewed-applied",
+          "reason": "Identity objects, IdP, AuthN/AuthZ and directory boundary."
         }
       ]
     },
     {
-      "id": "SB04",
-      "title": "Data redundancy - Azure Storage | Microsoft Learn",
-      "url": "https://learn.microsoft.com/en-us/azure/storage/common/storage-redundancy",
+      "id": "IF04",
+      "title": "Overview of Microsoft Entra Domain Services - Microsoft Entra ID | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/entra/identity/domain-services/overview",
       "kind": "product",
       "reviewed": "2026-10-31",
-      "version": "2026-08-15T05:12:00.0000000Z / actually checked2026-10-31",
+      "version": "Rolling page updated 2026-03-03T23:42:00.0000000Z",
       "availability": "AVAILABLE",
-      "objectives": ["az900.storage.redundancy"],
-      "claims": ["resilience.SB04"],
-      "limits": "Primary LRS/ZRS, geo/RA boundaries, service/account support and Archive exclusion. No actual Azure interaction, protected items, copied figures or human approval.",
+      "objectives": ["az900.identity.directories"],
+      "claims": ["identity.IF04"],
+      "limits": "Managed domain protocols and responsibility split; one-way sync and scoped legacy use. Original conceptual application only; no operational sign-in, protected assessment, copied illustration or human validation.",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/storage/common/storage-redundancy",
-          "disposition": "reviewed-essential",
-          "reason": "Primary LRS/ZRS, geo/RA boundaries, service/account support and Archive exclusion."
+          "url": "https://learn.microsoft.com/en-us/entra/identity/domain-services/overview",
+          "disposition": "reviewed-applied",
+          "reason": "Managed domain protocols and responsibility split; one-way sync and scoped legacy use."
         }
       ]
     },
     {
-      "id": "SB05",
-      "title": "Blob rehydration from the archive tier | Microsoft Learn",
-      "url": "https://learn.microsoft.com/en-us/azure/storage/blobs/archive-rehydrate-overview",
+      "id": "IF05",
+      "title": "What is single sign-on in Microsoft Entra ID? - Microsoft Entra ID | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/entra/identity/enterprise-apps/what-is-single-sign-on",
       "kind": "product",
       "reviewed": "2026-10-31",
-      "version": "2026-09-01T05:17:00.0000000Z / actually checked2026-10-31",
+      "version": "Rolling page updated 2026-10-06T17:42:00.0000000Z",
       "availability": "AVAILABLE",
-      "objectives": ["az900.storage.tiers"],
-      "claims": ["resilience.SB05"],
-      "limits": "Archive pending/completion, copy versus Set Tier, source retention, cost and rearchiving. No actual Azure interaction, protected items, copied figures or human approval.",
+      "objectives": ["az900.identity.authentication"],
+      "claims": ["identity.IF05"],
+      "limits": "Trusted-app SSO, session versus new method, integration prerequisites. Original conceptual application only; no operational sign-in, protected assessment, copied illustration or human validation.",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/storage/blobs/archive-rehydrate-overview",
-          "disposition": "reviewed-essential",
-          "reason": "Archive pending/completion, copy versus Set Tier, source retention, cost and rearchiving."
+          "url": "https://learn.microsoft.com/en-us/entra/identity/enterprise-apps/what-is-single-sign-on",
+          "disposition": "reviewed-applied",
+          "reason": "Trusted-app SSO, session versus new method, integration prerequisites."
         }
       ]
     },
     {
-      "id": "SB06",
-      "title": "Azure Blob Storage lifecycle management overview - Azure Blob Storage | Microsoft Learn",
-      "url": "https://learn.microsoft.com/en-us/azure/storage/blobs/lifecycle-management-overview",
+      "id": "IF06",
+      "title": "Passwordless authentication with Microsoft Entra ID - Microsoft Entra | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/entra/architecture/auth-passwordless",
       "kind": "product",
       "reviewed": "2026-10-31",
-      "version": "2026-08-25T02:03:00.0000000Z / actually checked2026-10-31",
+      "version": "Rolling page updated 2026-02-26T06:11:00.0000000Z",
       "availability": "AVAILABLE",
-      "objectives": ["az900.storage.tiers"],
-      "claims": ["resilience.SB06"],
-      "limits": "Policy conditions, periodic execution, no Archive rehydration and premium/feature limits. No actual Azure interaction, protected items, copied figures or human approval.",
+      "objectives": ["az900.identity.authentication"],
+      "claims": ["identity.IF06"],
+      "limits": "Passwordless method/deployment context, not universal equivalence. Original conceptual application only; no operational sign-in, protected assessment, copied illustration or human validation.",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/storage/blobs/lifecycle-management-overview",
-          "disposition": "reviewed-essential",
-          "reason": "Policy conditions, periodic execution, no Archive rehydration and premium/feature limits."
+          "url": "https://learn.microsoft.com/en-us/entra/architecture/auth-passwordless",
+          "disposition": "reviewed-applied",
+          "reason": "Passwordless method/deployment context, not universal equivalence."
         }
       ]
     },
     {
-      "id": "SB07",
-      "title": "Optimize Azure Blob Storage costs with smart tier - Azure Storage | Microsoft Learn",
-      "url": "https://learn.microsoft.com/en-us/azure/storage/blobs/access-tiers-smart",
+      "id": "IF07",
+      "title": "Microsoft Entra multifactor authentication overview - Microsoft Entra ID | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/entra/identity/authentication/concept-mfa-howitworks",
       "kind": "product",
       "reviewed": "2026-10-31",
-      "version": "2026-08-12T22:14:00.0000000Z / actually checked2026-10-31",
+      "version": "Rolling page updated 2026-04-01T17:23:00.0000000Z",
       "availability": "AVAILABLE",
-      "objectives": ["az900.storage.tiers"],
-      "claims": ["resilience.SB07"],
-      "limits": "Current eligible Smart GPv2/zonal block blobs, online-only, explicit tiers, cloud and billing exceptions. No actual Azure interaction, protected items, copied figures or human approval.",
+      "objectives": ["az900.identity.authentication"],
+      "claims": ["identity.IF07"],
+      "limits": "Knowledge/possession/inherence and relevant MFA methods; no security guarantee. Original conceptual application only; no operational sign-in, protected assessment, copied illustration or human validation.",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/storage/blobs/access-tiers-smart",
-          "disposition": "reviewed-essential",
-          "reason": "Current eligible Smart GPv2/zonal block blobs, online-only, explicit tiers, cloud and billing exceptions."
-        },
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/storage/common/storage-redundancy-priority-replication",
-          "disposition": "optional",
-          "reason": "Discovered in current redundancy product body, not used to infer universal RPO or implemented as another model."
+          "url": "https://learn.microsoft.com/en-us/entra/identity/authentication/concept-mfa-howitworks",
+          "disposition": "reviewed-applied",
+          "reason": "Knowledge/possession/inherence and relevant MFA methods; no security guarantee."
         }
       ]
     },
     {
-      "id": "SB08",
-      "title": "Azure storage disaster recovery planning and failover - Azure Storage | Microsoft Learn",
-      "url": "https://learn.microsoft.com/en-us/azure/storage/common/storage-disaster-recovery-guidance",
+      "id": "IF08",
+      "title": "Microsoft Entra External ID Overview - Microsoft Entra External ID | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/entra/external-id/external-identities-overview",
       "kind": "product",
       "reviewed": "2026-10-31",
-      "version": "2026-07-17T17:52:00.0000000Z / actually checked2026-10-31",
+      "version": "Rolling page updated 2026-06-15T17:40:00.0000000Z",
       "availability": "AVAILABLE",
-      "objectives": ["az900.storage.redundancy"],
-      "claims": ["resilience.SB08"],
-      "limits": "Planned/unplanned failover, endpoint/DNS, last-sync uncertainty and remaining application work. No actual Azure interaction, protected items, copied figures or human approval.",
+      "objectives": ["az900.identity.external"],
+      "claims": ["identity.IF08"],
+      "limits": "External ID workforce/external purpose and product boundaries. Original conceptual application only; no operational sign-in, protected assessment, copied illustration or human validation.",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/storage/common/storage-disaster-recovery-guidance",
-          "disposition": "reviewed-essential",
-          "reason": "Planned/unplanned failover, endpoint/DNS, last-sync uncertainty and remaining application work."
+          "url": "https://learn.microsoft.com/en-us/entra/external-id/external-identities-overview",
+          "disposition": "reviewed-applied",
+          "reason": "External ID workforce/external purpose and product boundaries."
         }
       ]
     },
     {
-      "id": "SB09",
+      "id": "IF09",
+      "title": "What is Microsoft Entra B2B collaboration? - Microsoft Entra External ID | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/entra/external-id/what-is-b2b",
+      "kind": "product",
+      "reviewed": "2026-10-31",
+      "version": "Rolling page updated 2026-04-25T05:05:00.0000000Z",
+      "availability": "AVAILABLE",
+      "objectives": ["az900.identity.external"],
+      "claims": ["identity.IF09"],
+      "limits": "Home provider/resource guest, separate permissions, invitation versus cross-tenant control. Original conceptual application only; no operational sign-in, protected assessment, copied illustration or human validation.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/entra/external-id/what-is-b2b",
+          "disposition": "reviewed-applied",
+          "reason": "Home provider/resource guest, separate permissions, invitation versus cross-tenant control."
+        }
+      ]
+    },
+    {
+      "id": "IF10",
+      "title": "B2B direct connect Microsoft Entra overview - Microsoft Entra External ID | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/entra/external-id/b2b-direct-connect-overview",
+      "kind": "product",
+      "reviewed": "2026-10-31",
+      "version": "Rolling page updated 2026-04-25T05:05:00.0000000Z",
+      "availability": "AVAILABLE",
+      "objectives": ["az900.identity.external"],
+      "claims": ["identity.IF10"],
+      "limits": "Current Entra shared-channel direct-connect scope, mutual directions and no ordinary guest. Original conceptual application only; no operational sign-in, protected assessment, copied illustration or human validation.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/entra/external-id/b2b-direct-connect-overview",
+          "disposition": "reviewed-applied",
+          "reason": "Current Entra shared-channel direct-connect scope, mutual directions and no ordinary guest."
+        }
+      ]
+    },
+    {
+      "id": "IF11",
       "title": "Introduction - Training | Microsoft Learn",
-      "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-storage-services/1-introduction",
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-identity-access-security/1-introduction",
       "kind": "unit",
       "reviewed": "2026-10-31",
-      "version": "2025-09-09T17:13:00.0000000Z / actually checked2026-10-31",
+      "version": "Rolling page updated 2025-03-28T23:01:00.0000000Z",
       "availability": "AVAILABLE",
-      "objectives": ["az900.storage.tiers", "az900.storage.redundancy"],
-      "claims": ["resilience.SB09"],
-      "limits": "Scoped introduction and IT prerequisite; other Storage objectives deferred. No actual Azure interaction, protected items, copied figures or human approval.",
+      "objectives": [
+        "az900.identity.directories",
+        "az900.identity.authentication",
+        "az900.identity.external"
+      ],
+      "claims": ["identity.IF11"],
+      "limits": "Intro scope and basic terminology prerequisite; no protected questions. Original conceptual application only; no operational sign-in, protected assessment, copied illustration or human validation.",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-storage-services/1-introduction",
+          "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-identity-access-security/1-introduction",
           "disposition": "reviewed-essential",
-          "reason": "Scoped introduction and IT prerequisite; other Storage objectives deferred."
+          "reason": "Intro scope and basic terminology prerequisite; no protected questions."
         }
       ]
     },
     {
-      "id": "SB10",
-      "title": "Describe Azure storage accounts - Training | Microsoft Learn",
-      "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-storage-services/2-accounts",
+      "id": "IF12",
+      "title": "Describe Azure directory services - Training | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-identity-access-security/2-directory-services",
       "kind": "unit",
       "reviewed": "2026-10-31",
-      "version": "2025-09-09T17:13:00.0000000Z / actually checked2026-10-31",
+      "version": "Rolling page updated 2025-03-28T23:01:00.0000000Z",
       "availability": "AVAILABLE",
-      "objectives": ["az900.storage.tiers", "az900.storage.redundancy"],
-      "claims": ["resilience.SB10"],
-      "limits": "Account/type/redundancy context qualified by current Files product source. No actual Azure interaction, protected items, copied figures or human approval.",
+      "objectives": ["az900.identity.directories"],
+      "claims": ["identity.IF12"],
+      "limits": "Directory Learn unit versus actual managed-domain/product limits. Original conceptual application only; no operational sign-in, protected assessment, copied illustration or human validation.",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-storage-services/2-accounts",
+          "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-identity-access-security/2-directory-services",
           "disposition": "reviewed-essential",
-          "reason": "Account/type/redundancy context qualified by current Files product source."
+          "reason": "Directory Learn unit versus actual managed-domain/product limits."
         }
       ]
     },
     {
-      "id": "SB11",
-      "title": "Describe Azure storage redundancy - Training | Microsoft Learn",
-      "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-storage-services/3-redundancy",
+      "id": "IF13",
+      "title": "Describe Azure authentication methods - Training | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-identity-access-security/3-authentication-methods",
       "kind": "unit",
       "reviewed": "2026-10-31",
-      "version": "2025-09-09T17:13:00.0000000Z / actually checked2026-10-31",
+      "version": "Rolling page updated 2025-03-28T23:01:00.0000000Z",
       "availability": "AVAILABLE",
-      "objectives": ["az900.storage.redundancy"],
-      "claims": ["resilience.SB11"],
-      "limits": "Six variants and asynchronous/secondary-access introduction; no generic15-minute promise credited. No actual Azure interaction, protected items, copied figures or human approval.",
+      "objectives": ["az900.identity.authentication"],
+      "claims": ["identity.IF13"],
+      "limits": "SSO/MFA/passwordless Learn unit qualified by method-specific current docs. Original conceptual application only; no operational sign-in, protected assessment, copied illustration or human validation.",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-storage-services/3-redundancy",
+          "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-identity-access-security/3-authentication-methods",
           "disposition": "reviewed-essential",
-          "reason": "Six variants and asynchronous/secondary-access introduction; no generic15-minute promise credited."
+          "reason": "SSO/MFA/passwordless Learn unit qualified by method-specific current docs."
         }
       ]
     },
     {
-      "id": "SB12",
-      "title": "Describe Azure storage services - Training | Microsoft Learn",
-      "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-storage-services/4-describe-azure-storage-services",
+      "id": "IF14",
+      "title": "Describe Azure external identities - Training | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-identity-access-security/4-external-identities",
       "kind": "unit",
       "reviewed": "2026-10-31",
-      "version": "2025-09-09T17:13:00.0000000Z / actually checked2026-10-31",
+      "version": "Rolling page updated 2025-03-28T23:01:00.0000000Z",
       "availability": "AVAILABLE",
-      "objectives": ["az900.storage.tiers"],
-      "claims": ["resilience.SB12"],
-      "limits": "Four access tiers in Learn; other service content remains Part A. No actual Azure interaction, protected items, copied figures or human approval.",
+      "objectives": ["az900.identity.external"],
+      "claims": ["identity.IF14"],
+      "limits": "External Learn unit, qualified B2C/product wording and current scopes. Original conceptual application only; no operational sign-in, protected assessment, copied illustration or human validation.",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-storage-services/4-describe-azure-storage-services",
+          "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-identity-access-security/4-external-identities",
           "disposition": "reviewed-essential",
-          "reason": "Four access tiers in Learn; other service content remains Part A."
+          "reason": "External Learn unit, qualified B2C/product wording and current scopes."
         }
       ]
     },
     {
-      "id": "SB13",
+      "id": "IF15",
       "title": "Summary - Training | Microsoft Learn",
-      "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-storage-services/9-summary",
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-identity-access-security/11-summary",
       "kind": "unit",
       "reviewed": "2026-10-31",
-      "version": "2025-09-09T17:13:00.0000000Z / actually checked2026-10-31",
+      "version": "Rolling page updated 2025-03-28T23:01:00.0000000Z",
       "availability": "AVAILABLE",
-      "objectives": ["az900.storage.tiers", "az900.storage.redundancy"],
-      "claims": ["resilience.SB13"],
-      "limits": "Module scope/summary; assessment and P16 content not credited. No actual Azure interaction, protected items, copied figures or human approval.",
+      "objectives": [
+        "az900.identity.directories",
+        "az900.identity.authentication",
+        "az900.identity.external"
+      ],
+      "claims": ["identity.IF15"],
+      "limits": "Official summary scope; only P10 units credited. Original conceptual application only; no operational sign-in, protected assessment, copied illustration or human validation.",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-storage-services/9-summary",
+          "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-identity-access-security/11-summary",
           "disposition": "reviewed-essential",
-          "reason": "Module scope/summary; assessment and P16 content not credited."
+          "reason": "Official summary scope; only P10 units credited."
         }
       ]
     },
     {
-      "id": "SB14",
-      "title": "Redundancy options for Azure managed disks - Azure Virtual Machines | Microsoft Learn",
-      "url": "https://learn.microsoft.com/en-us/azure/virtual-machines/disks-redundancy",
+      "id": "IF16",
+      "title": "How synchronization works in Microsoft Entra Domain Services - Microsoft Entra ID | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/entra/identity/domain-services/synchronization",
       "kind": "product",
       "reviewed": "2026-10-31",
-      "version": "2026-09-19T06:05:00.0000000Z / actually checked2026-10-31",
+      "version": "Rolling page updated 2026-08-18T12:37:00.0000000Z",
       "availability": "AVAILABLE",
-      "objectives": ["az900.storage.redundancy"],
-      "claims": ["resilience.SB14"],
-      "limits": "Managed disk LRS/ZRS, supported SSD types, force-detach data disk and separate VM recovery. No actual Azure interaction, protected items, copied figures or human approval.",
+      "objectives": ["az900.identity.directories"],
+      "claims": ["identity.IF16"],
+      "limits": "One-way automatic sync, password-hash prerequisites, read-only synced versus local OU objects, no reverse sync. Original conceptual application only; no operational sign-in, protected assessment, copied illustration or human validation.",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/virtual-machines/disks-redundancy",
-          "disposition": "reviewed-essential",
-          "reason": "Managed disk LRS/ZRS, supported SSD types, force-detach data disk and separate VM recovery."
+          "url": "https://learn.microsoft.com/en-us/entra/identity/domain-services/synchronization",
+          "disposition": "reviewed-applied",
+          "reason": "One-way automatic sync, password-hash prerequisites, read-only synced versus local OU objects, no reverse sync."
         }
       ]
     },
     {
-      "id": "SB15",
-      "title": "Data Redundancy in Azure Files | Microsoft Learn",
-      "url": "https://learn.microsoft.com/en-us/azure/storage/files/files-redundancy",
+      "id": "IF17",
+      "title": "Compare Microsoft directory-based services - Microsoft Entra ID | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/entra/identity/domain-services/compare-identity-solutions",
       "kind": "product",
       "reviewed": "2026-10-31",
-      "version": "2026-07-17T17:52:00.0000000Z / actually checked2026-10-31",
+      "version": "Rolling page updated 2026-02-19T06:03:00.0000000Z",
       "availability": "AVAILABLE",
-      "objectives": ["az900.storage.redundancy"],
-      "claims": ["resilience.SB15"],
-      "limits": "Files HDD SMB geo versus SSD LRS/ZRS, no Files RA before failover. No actual Azure interaction, protected items, copied figures or human approval.",
+      "objectives": ["az900.identity.directories"],
+      "claims": ["identity.IF17"],
+      "limits": "AD DS versus managed domain versus Entra ID; no managed schema/Domain Admin equivalence. Original conceptual application only; no operational sign-in, protected assessment, copied illustration or human validation.",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/storage/files/files-redundancy",
-          "disposition": "reviewed-essential",
-          "reason": "Files HDD SMB geo versus SSD LRS/ZRS, no Files RA before failover."
+          "url": "https://learn.microsoft.com/en-us/entra/identity/domain-services/compare-identity-solutions",
+          "disposition": "reviewed-applied",
+          "reason": "AD DS versus managed domain versus Entra ID; no managed schema/Domain Admin equivalence."
         }
       ]
     },
     {
-      "id": "SB16",
-      "title": "Blob Storage feature support in Azure storage accounts | Microsoft Learn",
-      "url": "https://learn.microsoft.com/en-us/azure/storage/blobs/storage-feature-support-in-storage-accounts",
+      "id": "IF18",
+      "title": "Microsoft Entra authentication overview - Microsoft Entra ID | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/entra/identity/authentication/concept-authentication-methods",
       "kind": "product",
       "reviewed": "2026-10-31",
-      "version": "2026-10-12T17:20:00.0000000Z / actually checked2026-10-31",
+      "version": "Rolling page updated 2026-09-16T17:38:00.0000000Z",
       "availability": "AVAILABLE",
-      "objectives": ["az900.storage.tiers"],
-      "claims": ["resilience.SB16"],
-      "limits": "Premium block tier restriction and function-specific support qualifications. No actual Azure interaction, protected items, copied figures or human approval.",
+      "objectives": ["az900.identity.authentication"],
+      "claims": ["identity.IF18"],
+      "limits": "Current method matrix, phishing resistance and Hello step-up qualification. Original conceptual application only; no operational sign-in, protected assessment, copied illustration or human validation.",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/storage/blobs/storage-feature-support-in-storage-accounts",
-          "disposition": "reviewed-essential",
-          "reason": "Premium block tier restriction and function-specific support qualifications."
+          "url": "https://learn.microsoft.com/en-us/entra/identity/authentication/concept-authentication-methods",
+          "disposition": "reviewed-applied",
+          "reason": "Current method matrix, phishing resistance and Hello step-up qualification."
         }
       ]
     },
     {
-      "id": "SB17",
-      "title": "Data protection overview - Azure Storage | Microsoft Learn",
-      "url": "https://learn.microsoft.com/en-us/azure/storage/blobs/data-protection-overview",
+      "id": "IF19",
+      "title": "Passkeys (FIDO2) authentication method in Microsoft Entra ID - Microsoft Entra ID | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/entra/identity/authentication/concept-authentication-passwordless",
       "kind": "product",
       "reviewed": "2026-10-31",
-      "version": "2026-10-05T22:13:00.0000000Z / actually checked2026-10-31",
+      "version": "Rolling page updated 2026-06-15T17:40:00.0000000Z",
       "availability": "AVAILABLE",
-      "objectives": ["az900.storage.redundancy"],
-      "claims": ["resilience.SB17"],
-      "limits": "Replication versus logical history, protected backup/selective restore under declared support. No actual Azure interaction, protected items, copied figures or human approval.",
+      "objectives": ["az900.identity.authentication"],
+      "claims": ["identity.IF19"],
+      "limits": "FIDO2 origin-bound credentials, local UV and device-bound/synced distinction; no crypto emulation. Original conceptual application only; no operational sign-in, protected assessment, copied illustration or human validation.",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/storage/blobs/data-protection-overview",
-          "disposition": "reviewed-essential",
-          "reason": "Replication versus logical history, protected backup/selective restore under declared support."
+          "url": "https://learn.microsoft.com/en-us/entra/identity/authentication/concept-authentication-passwordless",
+          "disposition": "reviewed-applied",
+          "reason": "FIDO2 origin-bound credentials, local UV and device-bound/synced distinction; no crypto emulation."
         }
       ]
     },
     {
-      "id": "SB18",
-      "title": "Azure Files management concepts | Microsoft Learn",
-      "url": "https://learn.microsoft.com/en-us/azure/storage/files/files-management-concepts",
+      "id": "IF20",
+      "title": "Tenant Configurations - Microsoft Entra External ID | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/entra/external-id/tenant-configurations",
       "kind": "product",
       "reviewed": "2026-10-31",
-      "version": "2026-10-28T22:31:00.0000000Z / actually checked2026-10-31",
+      "version": "Rolling page updated 2026-06-26T22:37:00.0000000Z",
       "availability": "AVAILABLE",
-      "objectives": ["az900.storage.redundancy"],
-      "claims": ["resilience.SB18"],
-      "limits": "Current classic FileStorage HDD/SSD/account and top-level Files/protocol distinctions preserved. No actual Azure interaction, protected items, copied figures or human approval.",
+      "objectives": ["az900.identity.external"],
+      "claims": ["identity.IF20"],
+      "limits": "Distinct workforce and external configurations; existing B2C versus current CIAM. Original conceptual application only; no operational sign-in, protected assessment, copied illustration or human validation.",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/storage/files/files-management-concepts",
-          "disposition": "reviewed-essential",
-          "reason": "Current classic FileStorage HDD/SSD/account and top-level Files/protocol distinctions preserved."
-        },
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/storage/files/storage-files-management-concepts",
-          "disposition": "blocked",
-          "reason": "Guessed URL returned404; exact existing files-management-concepts linked URL supplies reviewed alternative."
+          "url": "https://learn.microsoft.com/en-us/entra/external-id/tenant-configurations",
+          "disposition": "reviewed-applied",
+          "reason": "Distinct workforce and external configurations; existing B2C versus current CIAM."
         }
       ]
     },
     {
-      "id": "SB19",
+      "id": "IF21",
+      "title": "Cross-tenant access overview - Microsoft Entra External ID | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/entra/external-id/cross-tenant-access-overview",
+      "kind": "product",
+      "reviewed": "2026-10-31",
+      "version": "Rolling page updated 2026-10-13T17:41:00.0000000Z",
+      "availability": "AVAILABLE",
+      "objectives": ["az900.identity.external"],
+      "claims": ["identity.IF21"],
+      "limits": "Inbound/outbound and relevant trust conditions with other Entra organizations. Original conceptual application only; no operational sign-in, protected assessment, copied illustration or human validation.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/entra/external-id/cross-tenant-access-overview",
+          "disposition": "reviewed-applied",
+          "reason": "Inbound/outbound and relevant trust conditions with other Entra organizations."
+        }
+      ]
+    },
+    {
+      "id": "IF22",
+      "title": "Configure external collaboration - Microsoft Entra External ID | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/entra/external-id/external-collaboration-settings-configure",
+      "kind": "product",
+      "reviewed": "2026-10-31",
+      "version": "Rolling page updated 2026-04-25T05:05:00.0000000Z",
+      "availability": "AVAILABLE",
+      "objectives": ["az900.identity.external"],
+      "claims": ["identity.IF22"],
+      "limits": "Who may invite, domain restrictions and guest directory visibility; not an app grant. Original conceptual application only; no operational sign-in, protected assessment, copied illustration or human validation.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/entra/external-id/external-collaboration-settings-configure",
+          "disposition": "reviewed-applied",
+          "reason": "Who may invite, domain restrictions and guest directory visibility; not an app grant."
+        }
+      ]
+    },
+    {
+      "id": "IF23",
+      "title": "Add an existing Azure subscription to your tenant - Microsoft Entra | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/entra/fundamentals/how-subscriptions-associated-directory",
+      "kind": "product",
+      "reviewed": "2026-10-31",
+      "version": "Rolling page updated 2026-06-19T22:42:00.0000000Z",
+      "availability": "AVAILABLE",
+      "objectives": ["az900.identity.directories"],
+      "claims": ["identity.IF23"],
+      "limits": "One directory per subscription, many subscriptions per tenant, directory/resource role distinction. Original conceptual application only; no operational sign-in, protected assessment, copied illustration or human validation.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/entra/fundamentals/how-subscriptions-associated-directory",
+          "disposition": "reviewed-applied",
+          "reason": "One directory per subscription, many subscriptions per tenant, directory/resource role distinction."
+        }
+      ]
+    },
+    {
+      "id": "IF24",
+      "title": "Passwordless sign-in with Authenticator - Microsoft Entra ID | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/entra/identity/authentication/howto-authentication-passwordless-phone",
+      "kind": "product",
+      "reviewed": "2026-10-31",
+      "version": "Rolling page updated 2026-03-27T05:06:00.0000000Z",
+      "availability": "AVAILABLE",
+      "objectives": ["az900.identity.authentication"],
+      "claims": ["identity.IF24"],
+      "limits": "Authenticator phone sign-in with device credential/local confirmation; distinct from passkey and push. Original conceptual application only; no operational sign-in, protected assessment, copied illustration or human validation.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/entra/identity/authentication/howto-authentication-passwordless-phone",
+          "disposition": "reviewed-applied",
+          "reason": "Authenticator phone sign-in with device credential/local confirmation; distinct from passkey and push."
+        }
+      ]
+    },
+    {
+      "id": "IF25",
+      "title": "External Tenant Overview - Microsoft Entra External ID | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/entra/external-id/customers/overview-customers-ciam",
+      "kind": "product",
+      "reviewed": "2026-10-31",
+      "version": "Rolling page updated 2026-05-29T12:39:00.0000000Z",
+      "availability": "AVAILABLE",
+      "objectives": ["az900.identity.external"],
+      "claims": ["identity.IF25"],
+      "limits": "Separate external tenant CIAM, customer lifecycle, app/user flows. Original conceptual application only; no operational sign-in, protected assessment, copied illustration or human validation.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/entra/external-id/customers/overview-customers-ciam",
+          "disposition": "reviewed-applied",
+          "reason": "Separate external tenant CIAM, customer lifecycle, app/user flows."
+        }
+      ]
+    },
+    {
+      "id": "IF26",
+      "title": "Windows Hello for Business overview | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/windows/security/identity-protection/hello-for-business/hello-overview",
+      "kind": "product",
+      "reviewed": "2026-10-31",
+      "version": "Rolling page updated 2026-10-08T11:38:00.0000000Z",
+      "availability": "AVAILABLE",
+      "objectives": ["az900.identity.authentication"],
+      "claims": ["identity.IF26"],
+      "limits": "Hello device-bound credential plus PIN/biometric, phishing-resistant properties; not any arbitrary PIN. Original conceptual application only; no operational sign-in, protected assessment, copied illustration or human validation.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/windows/security/identity-protection/hello-for-business/hello-overview",
+          "disposition": "reviewed-applied",
+          "reason": "Hello device-bound credential plus PIN/biometric, phishing-resistant properties; not any arbitrary PIN."
+        }
+      ]
+    },
+    {
+      "id": "IF27",
+      "title": "SMS-based user sign-in for Microsoft Entra ID - Microsoft Entra ID | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/entra/identity/authentication/howto-authentication-sms-signin",
+      "kind": "product",
+      "reviewed": "2026-10-31",
+      "version": "Rolling page updated 2026-10-30T22:39:00.0000000Z",
+      "availability": "AVAILABLE",
+      "objectives": ["az900.identity.authentication"],
+      "claims": ["identity.IF27"],
+      "limits": "Supported SMS first-factor users/apps; not B2B or Entra MFA-compatible. Microsoft-provided SMS/voice, including this flow, retires2027-02-01. Dated conceptual comparison, not rollout advice; no operational sign-in or human validation.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/entra/identity/authentication/howto-authentication-sms-signin",
+          "disposition": "reviewed-applied",
+          "reason": "Current source explicitly announces Microsoft-provided SMS/voice retirement2027-02-01, including SMS first-factor. Teaching includes the date and scopes the historical comparison."
+        }
+      ]
+    },
+    {
+      "id": "IF28",
+      "title": "Authentication vs. authorization - Microsoft identity platform | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/entra/identity-platform/authentication-vs-authorization",
+      "kind": "product",
+      "reviewed": "2026-10-31",
+      "version": "Rolling page updated 2026-06-15T17:40:00.0000000Z",
+      "availability": "AVAILABLE",
+      "objectives": ["az900.identity.authentication"],
+      "claims": ["identity.IF28"],
+      "limits": "AuthN versus AuthZ, OIDC/SAML app integration and separate authorization. Original conceptual application only; no operational sign-in, protected assessment, copied illustration or human validation.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/entra/identity-platform/authentication-vs-authorization",
+          "disposition": "reviewed-applied",
+          "reason": "AuthN versus AuthZ, OIDC/SAML app integration and separate authorization."
+        }
+      ]
+    },
+    {
+      "id": "IF29",
       "title": "Introduction to Cloud Infrastructure: Describe Azure Architecture and Services - Training | Microsoft Learn",
       "url": "https://learn.microsoft.com/en-us/training/paths/azure-fundamentals-describe-azure-architecture-services/",
       "kind": "path",
       "reviewed": "2026-10-31",
-      "version": "2026-10-28T17:12:00.0000000Z / actually checked2026-10-31",
+      "version": "Rolling page updated 2026-10-28T17:12:00.0000000Z",
       "availability": "AVAILABLE",
-      "objectives": ["az900.storage.tiers", "az900.storage.redundancy"],
-      "claims": ["resilience.SB19"],
-      "limits": "Second official path and Storage module relationship; no other module credited. No actual Azure interaction, protected items, copied figures or human approval.",
+      "objectives": [
+        "az900.identity.directories",
+        "az900.identity.authentication",
+        "az900.identity.external"
+      ],
+      "claims": ["identity.IF29"],
+      "limits": "Actual official path/module discovery, prerequisite and later-unit scope. Original conceptual application only; no operational sign-in, protected assessment, copied illustration or human validation.",
       "discovery": [
         {
           "url": "https://learn.microsoft.com/en-us/training/paths/azure-fundamentals-describe-azure-architecture-services/",
           "disposition": "reviewed-essential",
-          "reason": "Second official path and Storage module relationship; no other module credited."
-        }
-      ]
-    },
-    {
-      "id": "SB20",
-      "title": "Azure Blob Storage lifecycle management policy structure - Azure Blob Storage | Microsoft Learn",
-      "url": "https://learn.microsoft.com/en-us/azure/storage/blobs/lifecycle-management-policy-structure",
-      "kind": "product",
-      "reviewed": "2026-10-31",
-      "version": "2026-04-14T22:21:00.0000000Z / actually checked2026-10-31",
-      "availability": "AVAILABLE",
-      "objectives": ["az900.storage.tiers"],
-      "claims": ["resilience.SB20"],
-      "limits": "TierToArchive conditions and last-tier-change guard; no Archive rehydration via lifecycle. No actual Azure interaction, protected items, copied figures or human approval.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/storage/blobs/lifecycle-management-policy-structure",
-          "disposition": "reviewed-essential",
-          "reason": "TierToArchive conditions and last-tier-change guard; no Archive rehydration via lifecycle."
-        }
-      ]
-    },
-    {
-      "id": "SB21",
-      "title": "Check the Last Sync Time property for a storage account - Azure Storage | Microsoft Learn",
-      "url": "https://learn.microsoft.com/en-us/azure/storage/common/last-sync-time-get",
-      "kind": "product",
-      "reviewed": "2026-10-31",
-      "version": "2025-07-02T22:09:00.0000000Z / actually checked2026-10-31",
-      "availability": "AVAILABLE",
-      "objectives": ["az900.storage.redundancy"],
-      "claims": ["resilience.SB21"],
-      "limits": "Last Sync Time covers earlier writes; later writes may be absent, no fixed RPO. No actual Azure interaction, protected items, copied figures or human approval.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/storage/common/last-sync-time-get",
-          "disposition": "reviewed-essential",
-          "reason": "Last Sync Time covers earlier writes; later writes may be absent, no fixed RPO."
-        }
-      ]
-    },
-    {
-      "id": "SB22",
-      "title": "How Azure Storage account customer-managed unplanned failover works - Azure Storage | Microsoft Learn",
-      "url": "https://learn.microsoft.com/en-us/azure/storage/common/storage-failover-customer-managed-unplanned",
-      "kind": "product",
-      "reviewed": "2026-10-31",
-      "version": "2025-12-17T06:10:00.0000000Z / actually checked2026-10-31",
-      "availability": "AVAILABLE",
-      "objectives": ["az900.storage.redundancy"],
-      "claims": ["resilience.SB22"],
-      "limits": "Separate unplanned promotion, asynchronous data loss and post-failover protection changes. No actual Azure interaction, protected items, copied figures or human approval.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/storage/common/storage-failover-customer-managed-unplanned",
-          "disposition": "reviewed-essential",
-          "reason": "Separate unplanned promotion, asynchronous data loss and post-failover protection changes."
-        }
-      ]
-    },
-    {
-      "id": "SB23",
-      "title": "What are Azure Availability Zones? | Microsoft Learn",
-      "url": "https://learn.microsoft.com/en-us/azure/reliability/availability-zones-overview",
-      "kind": "product",
-      "reviewed": "2026-10-31",
-      "version": "2026-10-30T11:03:00.0000000Z / actually checked2026-10-31",
-      "availability": "AVAILABLE",
-      "objectives": ["az900.storage.redundancy"],
-      "claims": ["resilience.SB23"],
-      "limits": "Availability Zones are logical groups of physical sites; do not infer actual buildings or app resilience. No actual Azure interaction, protected items, copied figures or human approval.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/reliability/availability-zones-overview",
-          "disposition": "reviewed-essential",
-          "reason": "Availability Zones are logical groups of physical sites; do not infer actual buildings or app resilience."
+          "reason": "Actual official path/module discovery, prerequisite and later-unit scope."
         }
       ]
     }
   ],
   "activities": [
     {
-      "id": "storage-resilience-tiers",
-      "objectives": ["az900.storage.tiers"],
+      "id": "identity-directory",
+      "objectives": ["az900.identity.directories"],
       "claims": [
-        "resilience.SB03",
-        "resilience.SB05",
-        "resilience.SB06",
-        "resilience.SB07",
-        "resilience.SB12",
-        "resilience.SB16",
-        "resilience.SB20"
+        "identity.IF03",
+        "identity.IF04",
+        "identity.IF12",
+        "identity.IF16",
+        "identity.IF17",
+        "identity.IF23"
       ],
-      "limits": "Declared deterministic mechanism only; immutable independent observations separate from guided completion. No operation, cloud price, timing, RPO, inventory, receipt or XP.",
+      "limits": "Declared deterministic education only. No credential, key, token, account, identity provider, role, policy, World mutation, app runtime or XP. Historical firsts remain immutable.",
       "assessmentStatus": "new-independent",
       "theory": [
         {
           "path": "src/content/nb.ts",
-          "marker": "storageResilienceNb"
+          "marker": "identityNb"
         }
       ],
       "mechanism": [
         {
-          "path": "src/domain/curriculum/storage-resilience-model.ts",
-          "marker": "runTiers"
+          "path": "src/domain/curriculum/identity-foundations-model.ts",
+          "marker": "runDirectory"
         }
       ],
       "practice": [
         {
-          "path": "src/features/learning/storage-resilience-workbench.tsx",
-          "marker": "ResilienceWorkbench"
+          "path": "src/features/learning/identity-foundations-workbench.tsx",
+          "marker": "IdentityWorkbench"
         }
       ],
       "feedback": [
         {
           "path": "src/content/nb.ts",
-          "marker": "resilienceItemsNb"
+          "marker": "identityItemsNb"
         }
       ],
       "visual": [
         {
-          "path": "src/features/learning/storage-resilience-visuals.tsx",
-          "marker": "ResilienceModelResult"
+          "path": "src/features/learning/identity-foundations-visuals.tsx",
+          "marker": "IdentityModelResult"
         }
       ],
       "accessible": [
         {
-          "path": "src/features/learning/storage-resilience.css"
+          "path": "src/features/learning/identity-foundations.css"
         }
       ],
       "assessment": [
         {
-          "path": "src/features/learning/storage-resilience-assessment.tsx",
-          "marker": "ResilienceAssessment"
+          "path": "src/features/learning/identity-foundations-assessment.tsx",
+          "marker": "IdentityAssessment"
         }
       ],
       "savvyshark": [
         {
-          "path": "src/features/learning/storage-resilience-workbench.tsx",
+          "path": "src/features/learning/identity-foundations-workbench.tsx",
           "marker": "SavvyShark"
         }
       ]
     },
     {
-      "id": "storage-resilience-replication",
-      "objectives": ["az900.storage.redundancy"],
+      "id": "identity-journey",
+      "objectives": ["az900.identity.authentication"],
       "claims": [
-        "resilience.SB04",
-        "resilience.SB08",
-        "resilience.SB11",
-        "resilience.SB14",
-        "resilience.SB15",
-        "resilience.SB17",
-        "resilience.SB18",
-        "resilience.SB21",
-        "resilience.SB22",
-        "resilience.SB23"
+        "identity.IF05",
+        "identity.IF06",
+        "identity.IF07",
+        "identity.IF13",
+        "identity.IF18",
+        "identity.IF19",
+        "identity.IF24",
+        "identity.IF26",
+        "identity.IF27",
+        "identity.IF28"
       ],
-      "limits": "Declared deterministic mechanism only; immutable independent observations separate from guided completion. No operation, cloud price, timing, RPO, inventory, receipt or XP.",
+      "limits": "Declared deterministic education only. No credential, key, token, account, identity provider, role, policy, World mutation, app runtime or XP. Historical firsts remain immutable.",
       "assessmentStatus": "new-independent",
       "theory": [
         {
           "path": "src/content/nb.ts",
-          "marker": "storageResilienceNb"
+          "marker": "identityNb"
         }
       ],
       "mechanism": [
         {
-          "path": "src/domain/curriculum/storage-resilience-model.ts",
-          "marker": "runReplication"
+          "path": "src/domain/curriculum/identity-foundations-model.ts",
+          "marker": "runJourney"
         }
       ],
       "practice": [
         {
-          "path": "src/features/learning/storage-resilience-workbench.tsx",
-          "marker": "ResilienceWorkbench"
+          "path": "src/features/learning/identity-foundations-workbench.tsx",
+          "marker": "IdentityWorkbench"
         }
       ],
       "feedback": [
         {
           "path": "src/content/nb.ts",
-          "marker": "resilienceItemsNb"
+          "marker": "identityItemsNb"
         }
       ],
       "visual": [
         {
-          "path": "src/features/learning/storage-resilience-visuals.tsx",
-          "marker": "ResilienceModelResult"
+          "path": "src/features/learning/identity-foundations-visuals.tsx",
+          "marker": "IdentityModelResult"
         }
       ],
       "accessible": [
         {
-          "path": "src/features/learning/storage-resilience.css"
+          "path": "src/features/learning/identity-foundations.css"
         }
       ],
       "assessment": [
         {
-          "path": "src/features/learning/storage-resilience-assessment.tsx",
-          "marker": "ResilienceAssessment"
+          "path": "src/features/learning/identity-foundations-assessment.tsx",
+          "marker": "IdentityAssessment"
         }
       ],
       "savvyshark": [
         {
-          "path": "src/features/learning/storage-resilience-workbench.tsx",
+          "path": "src/features/learning/identity-foundations-workbench.tsx",
+          "marker": "SavvyShark"
+        }
+      ]
+    },
+    {
+      "id": "identity-external",
+      "objectives": ["az900.identity.external"],
+      "claims": [
+        "identity.IF08",
+        "identity.IF09",
+        "identity.IF10",
+        "identity.IF14",
+        "identity.IF20",
+        "identity.IF21",
+        "identity.IF22",
+        "identity.IF25"
+      ],
+      "limits": "Declared deterministic education only. No credential, key, token, account, identity provider, role, policy, World mutation, app runtime or XP. Historical firsts remain immutable.",
+      "assessmentStatus": "new-independent",
+      "theory": [
+        {
+          "path": "src/content/nb.ts",
+          "marker": "identityNb"
+        }
+      ],
+      "mechanism": [
+        {
+          "path": "src/domain/curriculum/identity-foundations-model.ts",
+          "marker": "runExternal"
+        }
+      ],
+      "practice": [
+        {
+          "path": "src/features/learning/identity-foundations-workbench.tsx",
+          "marker": "IdentityWorkbench"
+        }
+      ],
+      "feedback": [
+        {
+          "path": "src/content/nb.ts",
+          "marker": "identityItemsNb"
+        }
+      ],
+      "visual": [
+        {
+          "path": "src/features/learning/identity-foundations-visuals.tsx",
+          "marker": "IdentityModelResult"
+        }
+      ],
+      "accessible": [
+        {
+          "path": "src/features/learning/identity-foundations.css"
+        }
+      ],
+      "assessment": [
+        {
+          "path": "src/features/learning/identity-foundations-assessment.tsx",
+          "marker": "IdentityAssessment"
+        }
+      ],
+      "savvyshark": [
+        {
+          "path": "src/features/learning/identity-foundations-workbench.tsx",
           "marker": "SavvyShark"
         }
       ]
@@ -603,197 +778,210 @@
   ],
   "modules": [
     {
-      "id": "storage-resilience",
+      "id": "identity-foundations",
       "prerequisites": [
         {
           "path": "src/content/nb.ts",
-          "marker": "storageResilienceNb"
+          "marker": "identityNb"
         }
       ],
       "terminology": [
         {
           "path": "src/content/nb.ts",
-          "marker": "storageResilienceNb"
+          "marker": "identityNb"
         }
       ],
       "concept": [
         {
           "path": "src/content/nb.ts",
-          "marker": "storageResilienceNb"
+          "marker": "identityNb"
         }
       ],
       "azureExample": [
         {
           "path": "src/content/nb.ts",
-          "marker": "storageResilienceNb"
+          "marker": "identityNb"
         }
       ],
       "workedExample": [
         {
           "path": "src/content/nb.ts",
-          "marker": "storageResilienceNb"
+          "marker": "identityNb"
         }
       ],
       "misconception": [
         {
           "path": "src/content/nb.ts",
-          "marker": "storageResilienceNb"
+          "marker": "identityNb"
         }
       ],
       "limits": [
         {
           "path": "src/content/nb.ts",
-          "marker": "storageResilienceNb"
+          "marker": "identityNb"
         }
       ],
       "mechanism": [
         {
-          "path": "src/domain/curriculum/storage-resilience-model.ts",
-          "marker": "runReplication"
+          "path": "src/domain/curriculum/identity-foundations-model.ts",
+          "marker": "runJourney"
         }
       ],
       "visual": [
         {
-          "path": "src/features/learning/storage-resilience-visuals.tsx",
-          "marker": "ResilienceModelResult"
+          "path": "src/features/learning/identity-foundations-visuals.tsx",
+          "marker": "IdentityModelResult"
         }
       ],
       "practice": [
         {
-          "path": "src/features/learning/storage-resilience-workbench.tsx",
-          "marker": "ResilienceWorkbench"
+          "path": "src/features/learning/identity-foundations-workbench.tsx",
+          "marker": "IdentityWorkbench"
         }
       ],
       "independentScenario": [
         {
           "path": "src/content/nb.ts",
-          "marker": "resilienceItemsNb"
+          "marker": "identityItemsNb"
         }
       ],
       "correctAndWrongRationales": [
         {
           "path": "src/content/nb.ts",
-          "marker": "resilienceItemsNb"
+          "marker": "identityItemsNb"
         }
       ],
       "sources": [
         {
-          "path": "src/domain/curriculum/storage-resilience-sources.ts",
-          "marker": "resilienceSourceReview"
+          "path": "src/domain/curriculum/identity-foundations-sources.ts",
+          "marker": "identitySourceReview"
         }
       ]
     }
   ],
   "preservedPaths": [
-    "src/domain/sandbox/",
-    "src/domain/chapter01/",
-    "src/domain/portal/",
-    "src/domain/progression.ts",
-    "src/features/course/savvy-shark.tsx",
-    "src/features/course/mission-briefing.tsx",
-    "src/features/course/provider.tsx",
-    "src/features/course/practical-provider.tsx",
-    "src/features/course/mission-provider.tsx",
-    "public/",
+    ".github/workflows/ci.yml",
     "package-lock.json",
     "playwright.config.ts",
+    "public/",
     "scripts/quality-check.mjs",
     "scripts/verify-desktop-ci.mjs",
-    ".github/workflows/ci.yml",
-    "src/domain/curriculum/connectivity.ts",
-    "src/domain/curriculum/connectivity-model.ts",
-    "src/domain/curriculum/connectivity-store.ts",
-    "src/domain/curriculum/connectivity-items.ts",
-    "src/domain/curriculum/connectivity-sources.ts",
-    "src/domain/curriculum/networking.ts",
-    "src/domain/curriculum/networking-model.ts",
-    "src/domain/curriculum/networking-store.ts",
-    "src/domain/curriculum/networking-items.ts",
-    "src/domain/curriculum/networking-sources.ts",
-    "src/domain/curriculum/compute.ts",
-    "src/domain/curriculum/compute-model.ts",
-    "src/domain/curriculum/compute-store.ts",
+    "src/domain/chapter01/",
     "src/domain/curriculum/compute-items.ts",
+    "src/domain/curriculum/compute-model.ts",
     "src/domain/curriculum/compute-sources.ts",
-    "src/domain/curriculum/cost.ts",
+    "src/domain/curriculum/compute-store.ts",
+    "src/domain/curriculum/compute.ts",
+    "src/domain/curriculum/connectivity-items.ts",
+    "src/domain/curriculum/connectivity-model.ts",
+    "src/domain/curriculum/connectivity-sources.ts",
+    "src/domain/curriculum/connectivity-store.ts",
+    "src/domain/curriculum/connectivity.ts",
     "src/domain/curriculum/cost-model.ts",
-    "src/domain/curriculum/cost-store.ts",
     "src/domain/curriculum/cost-sources.ts",
-    "src/domain/curriculum/storage.ts",
-    "src/domain/curriculum/storage-model.ts",
+    "src/domain/curriculum/cost-store.ts",
+    "src/domain/curriculum/cost.ts",
+    "src/domain/curriculum/networking-items.ts",
+    "src/domain/curriculum/networking-model.ts",
+    "src/domain/curriculum/networking-sources.ts",
+    "src/domain/curriculum/networking-store.ts",
+    "src/domain/curriculum/networking.ts",
     "src/domain/curriculum/storage-items.ts",
+    "src/domain/curriculum/storage-model.ts",
+    "src/domain/curriculum/storage-resilience-items.ts",
+    "src/domain/curriculum/storage-resilience-model.ts",
+    "src/domain/curriculum/storage-resilience-sources.ts",
+    "src/domain/curriculum/storage-resilience-store.ts",
+    "src/domain/curriculum/storage-resilience.test.ts",
+    "src/domain/curriculum/storage-resilience.ts",
     "src/domain/curriculum/storage-sources.ts",
     "src/domain/curriculum/storage-store.ts",
     "src/domain/curriculum/storage.test.ts",
-    "src/features/learning/storage.tsx",
-    "src/features/learning/storage-provider.tsx",
+    "src/domain/curriculum/storage.ts",
+    "src/domain/portal/",
+    "src/domain/progression.ts",
+    "src/domain/sandbox/",
+    "src/features/course/mission-briefing.tsx",
+    "src/features/course/mission-provider.tsx",
+    "src/features/course/practical-provider.tsx",
+    "src/features/course/provider.tsx",
+    "src/features/course/savvy-shark.tsx",
     "src/features/learning/storage-assessment.tsx",
-    "src/features/learning/storage-workbench.tsx",
+    "src/features/learning/storage-provider.tsx",
+    "src/features/learning/storage-resilience-assessment.tsx",
+    "src/features/learning/storage-resilience-provider.tsx",
+    "src/features/learning/storage-resilience-visuals.tsx",
+    "src/features/learning/storage-resilience-workbench.tsx",
+    "src/features/learning/storage-resilience.css",
+    "src/features/learning/storage-resilience.tsx",
     "src/features/learning/storage-visuals.tsx",
+    "src/features/learning/storage-workbench.tsx",
     "src/features/learning/storage.css",
+    "src/features/learning/storage.tsx",
+    "tests/e2e/storage-resilience.spec.ts",
     "tests/e2e/storage-services.spec.ts"
   ],
   "gates": {
     "source": {
       "checks": [
         {
-          "path": "docs/STORAGE_RESILIENCE.md"
+          "path": "docs/IDENTITY_FOUNDATIONS.md"
         },
         {
-          "path": "src/domain/curriculum/storage-resilience-sources.ts"
+          "path": "src/domain/curriculum/identity-foundations-sources.ts"
         }
       ],
-      "limits": "P09 candidate. Complete actual new/affected checks, full check/build, inspected images, fresh final audit and exact-head182 CI/strict release required. External deployed-root/SHA remains separately SSO blocked without legitimate access. Human SME/UX/screen-reader/learning validation unperformed. No merge/prod."
+      "limits": "P10 candidate. Full check/build, actual inspected desktop/compact images, separate post-stamp audit and complete exact-head190 CI/strict release required. Source author review is not human validation. External Gate7 remains BLOCKED on actual SSO unless legitimate access becomes available. No merge/production deploy."
     },
     "curriculum": {
       "checks": [
         {
-          "path": "src/domain/curriculum/storage-resilience.ts"
+          "path": "src/domain/curriculum/identity-foundations.ts"
         },
         {
           "path": "src/content/nb.ts"
         }
       ],
-      "limits": "P09 candidate. Complete actual new/affected checks, full check/build, inspected images, fresh final audit and exact-head182 CI/strict release required. External deployed-root/SHA remains separately SSO blocked without legitimate access. Human SME/UX/screen-reader/learning validation unperformed. No merge/prod."
+      "limits": "P10 candidate. Full check/build, actual inspected desktop/compact images, separate post-stamp audit and complete exact-head190 CI/strict release required. Source author review is not human validation. External Gate7 remains BLOCKED on actual SSO unless legitimate access becomes available. No merge/production deploy."
     },
     "simulation": {
       "checks": [
         {
-          "path": "src/domain/curriculum/storage-resilience-model.ts"
+          "path": "src/domain/curriculum/identity-foundations-model.ts"
         },
         {
-          "path": "src/domain/curriculum/storage-resilience.test.ts"
+          "path": "src/domain/curriculum/identity-foundations.test.ts"
         }
       ],
-      "limits": "P09 candidate. Complete actual new/affected checks, full check/build, inspected images, fresh final audit and exact-head182 CI/strict release required. External deployed-root/SHA remains separately SSO blocked without legitimate access. Human SME/UX/screen-reader/learning validation unperformed. No merge/prod."
+      "limits": "P10 candidate. Full check/build, actual inspected desktop/compact images, separate post-stamp audit and complete exact-head190 CI/strict release required. Source author review is not human validation. External Gate7 remains BLOCKED on actual SSO unless legitimate access becomes available. No merge/production deploy."
     },
     "savvyshark": {
       "checks": [
         {
-          "path": "src/features/learning/storage-resilience-workbench.tsx"
+          "path": "src/features/learning/identity-foundations-workbench.tsx"
         },
         {
           "path": "src/features/learning/management-access.tsx"
         },
         {
-          "path": "tests/e2e/storage-resilience.spec.ts"
+          "path": "tests/e2e/identity-foundations.spec.ts"
         }
       ],
-      "limits": "P09 candidate. Complete actual new/affected checks, full check/build, inspected images, fresh final audit and exact-head182 CI/strict release required. External deployed-root/SHA remains separately SSO blocked without legitimate access. Human SME/UX/screen-reader/learning validation unperformed. No merge/prod."
+      "limits": "P10 candidate. Full check/build, actual inspected desktop/compact images, separate post-stamp audit and complete exact-head190 CI/strict release required. Source author review is not human validation. External Gate7 remains BLOCKED on actual SSO unless legitimate access becomes available. No merge/production deploy."
     },
     "visual-accessibility": {
       "checks": [
         {
-          "path": "src/features/learning/storage-resilience-visuals.tsx"
+          "path": "src/features/learning/identity-foundations-visuals.tsx"
         },
         {
-          "path": "src/features/learning/storage-resilience.css"
+          "path": "src/features/learning/identity-foundations.css"
         },
         {
-          "path": "tests/e2e/storage-resilience.spec.ts"
+          "path": "tests/e2e/identity-foundations.spec.ts"
         }
       ],
-      "limits": "P09 candidate. Complete actual new/affected checks, full check/build, inspected images, fresh final audit and exact-head182 CI/strict release required. External deployed-root/SHA remains separately SSO blocked without legitimate access. Human SME/UX/screen-reader/learning validation unperformed. No merge/prod."
+      "limits": "P10 candidate. Full check/build, actual inspected desktop/compact images, separate post-stamp audit and complete exact-head190 CI/strict release required. Source author review is not human validation. External Gate7 remains BLOCKED on actual SSO unless legitimate access becomes available. No merge/production deploy."
     },
     "independent-final-audit": {
       "checks": [
@@ -801,10 +989,10 @@
           "path": "docs/RELEASE_ACCEPTANCE.md"
         },
         {
-          "path": "docs/quality/PR34_FINAL_AUDIT.md"
+          "path": "docs/quality/PR35_FINAL_AUDIT.md"
         }
       ],
-      "limits": "P09 candidate. Complete actual new/affected checks, full check/build, inspected images, fresh final audit and exact-head182 CI/strict release required. External deployed-root/SHA remains separately SSO blocked without legitimate access. Human SME/UX/screen-reader/learning validation unperformed. No merge/prod."
+      "limits": "P10 candidate. Full check/build, actual inspected desktop/compact images, separate post-stamp audit and complete exact-head190 CI/strict release required. Source author review is not human validation. External Gate7 remains BLOCKED on actual SSO unless legitimate access becomes available. No merge/production deploy."
     },
     "delivery": {
       "checks": [
@@ -815,134 +1003,149 @@
           "path": "scripts/e2e-plan-check.mjs"
         },
         {
-          "path": "docs/STORAGE_RESILIENCE.md"
+          "path": "docs/IDENTITY_FOUNDATIONS.md"
         }
       ],
-      "limits": "P09 candidate. Complete actual new/affected checks, full check/build, inspected images, fresh final audit and exact-head182 CI/strict release required. External deployed-root/SHA remains separately SSO blocked without legitimate access. Human SME/UX/screen-reader/learning validation unperformed. No merge/prod."
+      "limits": "P10 candidate. Full check/build, actual inspected desktop/compact images, separate post-stamp audit and complete exact-head190 CI/strict release required. Source author review is not human validation. External Gate7 remains BLOCKED on actual SSO unless legitimate access becomes available. No merge/production deploy."
     }
   },
   "verification": [
     {
       "command": "npm run check",
       "result": "passed",
-      "details": "Actual full local command exit0:405 Vitest/30files,315 curriculum/21files,17 Node fixtures,101 docs/links,type/lint/format/quality/audit/assets/legacy/build. Earlier type/lint integration attempts stopped, not passed. Later bounded causal-message/word-spacing fixes received315 curriculum,production rebuild,3 affected browser cases21.4s and2 strengthened negatives7.4s, all exit0; final lint/global format exit0. Full exact-head check remains in CI."
+      "details": "Actual second complete local process exit0 after final model/visual/context-label corrections:433 Vitest/31files,343 curriculum/22files,17 Node fixtures,103 docs/local links,type/lint/format/quality/AZ900/assets/legacy and production build. Last if02 transfer refinement (conflicting app/schema and permitted-domain-operations requirements) then passed28 domain and a production rebuild, exit0. Final exact-head full check/browser/strict remain in CI. Intermediate failed processes were corrected, not credited. Final-audit three-scenario transfer/SMS-date correction then received targeted32 domain/shared,343 curriculum, production build and affected browser checks; no third complete local regression is claimed."
     },
     {
       "command": "New and affected production browser",
       "result": "passed",
-      "details": "Initial6 process exit1:4pass/2 test selector/navigation failures. Updated20 process exit1:19pass/1 client-history synchronization assertion. Corrected navigation1passed3.1s exit0. All17 context resume/all8 existing Part A cases were among unaffected passes. Final bounded model/visual/control3passed21.4s exit0 and2 strengthened negatives7.4s exit0. No complete20-case exit0 or local182 claimed."
+      "details": "Initial7 process exit1:five passes, broad planned-text selector and an old own-item feedback navigation issue. Fixed selector and own-item withholding; next complete13(new7+Hub6) passed3.0m exit0 including all18 exact independent resumes. Subsequent affected visual4 passed26.3s; strengthened new7+existing all-context Core protection8 passed1.3m; home-proof/keyboard2 passed15.8s; own-context/first-history/denied-aid/keyboard4 passed18.9s; final external false-home-proof negative1 passed7.3s. All exit0, pinned Chromium, no retries. No complete local190 claimed. Strengthened persisted native Sandbox accepted-group receipt and prior XP/Storage firsts byte-preservation1 passed4.2s exit0. Final false-home-proof/collaboration readiness1 passed7.3s exit0."
+    },
+    {
+      "command": "Targeted Identity and shared domain",
+      "result": "passed",
+      "details": "New28 domain passed; shared final32 passed after corrected explicit home-proof/resource fields, replay, bounds/reserve, immutable first/help/retry/family/abandon, durable denial/stale/scoped recovery and source/content checks. Source labels have a specific wrong-module regression. Final production rebuild after last label negative passed. Earlier shared fixture count12→13 and intermediate namespace/duplicate test-key errors were corrected rather than weakening assertions."
     },
     {
       "command": "npm run test:e2e:plan",
       "result": "passed",
-      "details": "Actual mandatory plan182=170desktop+12compact, retains all175 inherited cases; optional legacy340. No new skips or increased workers/retries/timeouts. Collection is not full execution."
+      "details": "Actual serial guarded collection190=177desktop+13compact, preserves182 inherited cases; optional legacy354. One earlier collection hit its unchanged30-second bound while other browser/capture processes were running; serial run succeeded without changing any limit/worker/retry/skip. Collection is not browser execution."
     },
     {
       "command": "Preservation proof",
       "result": "passed",
-      "details": "All23 previous copy exports exact after six declared metadata differences; only2.3.02/03 audit rows change,55 including P08/P16 exact. Frozen Part A domain/store/UI/test, technical World/commands/receipts/XP and native guidance preserved."
+      "details": "All25 old data exports and one function export match after exactly seven declared navigation/context metadata extensions. Only2.4.01–03 objective rows change;54 including P08/P09/P11/P15/P16 preserved. All60 declared old path patterns are unchanged. Older actual Storage A/B submitted firsts, Sandbox and XP bytes remain unchanged through Identity work/reload."
     },
     {
       "command": "Actual production capture and inspection",
       "result": "passed",
-      "details": "Final capture exit0; all15 current images personally viewed across1920,1440,1366,1024,800 and1024x500. Native briefing, Archive phases, fictional cost bars, replica flow/map/table, service matrix and independent/feedback. No runtime page errors/automatic external requests. Local only, not deployed-SHA evidence."
+      "details": "Capture exit0; all15 final PNGs personally viewed at1920/1440/1366/1024/800 and1024x500 after actual UI runs and independent submission. Zero page errors or automatic external requests. Normal vertical scrolling is intentional; no human/native-browser-zoom/deployed-SHA claim."
     },
     {
       "command": "Full exact-head GitHub CI",
       "result": "pending",
-      "details": "After Draft publication require complete182 with pinned Chromium, mandatory plan and existing success-only receipt wrapper, then strict release against593e7a63a1adec54a986cf8609b8191e9fcff9ad. Historical/targeted/plan results cannot substitute."
+      "details": "Draft publication must enable complete190 with pinned Chromium, mandatory plan and unchanged success-only candidate receipt wrapper, followed by strict release against713d52851712a92a58de124815414c78ffb7fc1b. Historical/local/targeted/collection proof cannot substitute."
+    },
+    {
+      "command": "Final if02 transfer refinement",
+      "result": "passed",
+      "details": "Only new unpublished if02 adds a conflicting permitted-operations requirement, so guided AD DS selection cannot simply be repeated. New variant1.0.0, same accepted pair;28 domain and production build exit0. Fresh final blind packet extracted from actual source SHA256 ba6f5eeb6562504bece4babc20dd2e48639ac1a756556060d0a648d5ae0f20ae. Early blind lock is not claimed for this changed text."
+    },
+    {
+      "command": "Final-audit transfer correction",
+      "result": "passed",
+      "details": "MAJOR-01 changed if04/if07/if09 decision structures rather than accepting guided copies. Separate blind packet17e0e2798666246e14ae0b35530820c3276a32abd674e962e768ebb41657dcae, lock91901bc529b5ba5438f3c8628c2c469f6105f6b0b5b0e17e1a3150759aebfa93 before keys; reviewer confirmed unique pairs and real transfer delta, with minor discrimination limits. Actual32 domain/shared,343 curriculum, production build and paired first/help/retry/history browser1 in4.8s exit0. Three revised1024px question captures personally inspected, no overflow/page errors. IF27 dated retirement qualification added from current body. New stamp and independent final delta binding follow; complete190 exact-head CI remains required."
     }
   ],
   "visualEvidence": [
     {
-      "path": "docs/screenshots/storage-resilience/hub-1440.png",
+      "path": "docs/screenshots/identity/hub-1440.png",
       "viewport": "1440x900",
       "inspected": true,
-      "observation": "Three paths/one primary start; no new promotion."
+      "observation": "Three paths and one start; no competing Identity promotion."
     },
     {
-      "path": "docs/screenshots/storage-resilience/storage-group-1440.png",
+      "path": "docs/screenshots/identity/identity-group-1440.png",
       "viewport": "1440x900",
       "inspected": true,
-      "observation": "One Storage group, separate A/B links; P16 planned."
+      "observation": "Identity, Access & Security follows both unchanged Storage parts; later content remains planned."
     },
     {
-      "path": "docs/screenshots/storage-resilience/introduction-1440.png",
+      "path": "docs/screenshots/identity/introduction-1440.png",
       "viewport": "1440x900",
       "inspected": true,
-      "observation": "Readable theory/terms, active sidebar and Part A return."
+      "observation": "Substantive beginner manuscript, terms and exact contextual sidebar."
     },
     {
-      "path": "docs/screenshots/storage-resilience/briefing-tiers-1024x500.png",
+      "path": "docs/screenshots/identity/briefing-journey-1024x500.png",
       "viewport": "1024x500",
       "inspected": true,
-      "observation": "Native blur and explicit Start/Cancel; long body scrolls."
+      "observation": "Native blur briefing with visible Start/Cancel and keyboard-scrollable body."
     },
     {
-      "path": "docs/screenshots/storage-resilience/cold-online-1920.png",
-      "viewport": "1920x1080",
-      "inspected": true,
-      "observation": "Cold online and fictional cost drivers/bars remain separate."
-    },
-    {
-      "path": "docs/screenshots/storage-resilience/archive-pending-1440.png",
-      "viewport": "1440x900",
-      "inspected": true,
-      "observation": "Declared requested Archive phase remains offline."
-    },
-    {
-      "path": "docs/screenshots/storage-resilience/archive-rehydrated-1440.png",
-      "viewport": "1440x900",
-      "inspected": true,
-      "observation": "Only declared completion is online; remaining minimum costs separate."
-    },
-    {
-      "path": "docs/screenshots/storage-resilience/archive-zrs-rejected-1024.png",
-      "viewport": "1024x768",
-      "inspected": true,
-      "observation": "Precise Archive/zonal rejection, no false datatype reason."
-    },
-    {
-      "path": "docs/screenshots/storage-resilience/replica-map-1440.png",
-      "viewport": "1440x900",
-      "inspected": true,
-      "observation": "Numbered causal chain and primary/secondary different versions."
-    },
-    {
-      "path": "docs/screenshots/storage-resilience/replica-map-1024.png",
-      "viewport": "1024x768",
-      "inspected": true,
-      "observation": "Readable compact causal sequence and physical replica state."
-    },
-    {
-      "path": "docs/screenshots/storage-resilience/replica-map-800.png",
-      "viewport": "800x700",
-      "inspected": true,
-      "observation": "Stacked flow and ordinary scrolling; no mobile product redesign."
-    },
-    {
-      "path": "docs/screenshots/storage-resilience/replica-decisions-1024x500.png",
-      "viewport": "1024x500",
-      "inspected": true,
-      "observation": "Primary/secondary read and no secondary write remain distinct."
-    },
-    {
-      "path": "docs/screenshots/storage-resilience/service-matrix-1366.png",
+      "path": "docs/screenshots/identity/managed-domain-1366.png",
       "viewport": "1366x768",
       "inspected": true,
-      "observation": "All six redundancy columns, Files RA and disk/premium limits."
+      "observation": "Declared legacy requirements, selected service, capability and causal consequence; no deployment."
     },
     {
-      "path": "docs/screenshots/storage-resilience/independent-rb09-1024.png",
+      "path": "docs/screenshots/identity/directory-matrix-1024.png",
       "viewport": "1024x768",
       "inspected": true,
-      "observation": "Unselected decision/reason; selective restore requirements without feedback."
+      "observation": "All four semantic capability columns remain readable; no hidden schema result."
     },
     {
-      "path": "docs/screenshots/storage-resilience/feedback-rb09-1024x500.png",
+      "path": "docs/screenshots/identity/sso-reused-1440.png",
+      "viewport": "1440x900",
+      "inspected": true,
+      "observation": "Explicit App A context, reused proof and unknown separate app action."
+    },
+    {
+      "path": "docs/screenshots/identity/authenticated-denied-1920.png",
+      "viewport": "1920x1080",
+      "inspected": true,
+      "observation": "Trusted app, suitable new proof and separate amber denied action."
+    },
+    {
+      "path": "docs/screenshots/identity/access-decisions-1024x500.png",
       "viewport": "1024x500",
       "inspected": true,
-      "observation": "Post-submit first classification and causal feedback; scroll continues."
+      "observation": "Short-window verified proof/requirement and distinct method/session fields with normal scrolling."
+    },
+    {
+      "path": "docs/screenshots/identity/method-matrix-1366.png",
+      "viewport": "1366x768",
+      "inspected": true,
+      "observation": "Qualified method/factor/passwordless/MFA/phishing properties, equivalent semantic table."
+    },
+    {
+      "path": "docs/screenshots/identity/partner-resource-1440.png",
+      "viewport": "1440x900",
+      "inspected": true,
+      "observation": "Home proof, representation, collaboration readiness, resource acceptance and denied action remain distinct."
+    },
+    {
+      "path": "docs/screenshots/identity/customer-tenant-1024.png",
+      "viewport": "1024x768",
+      "inspected": true,
+      "observation": "Separate external tenant/customer representation; cross-tenant collaboration marked not applicable."
+    },
+    {
+      "path": "docs/screenshots/identity/direct-connect-boundary-800.png",
+      "viewport": "800x700",
+      "inspected": true,
+      "observation": "No ordinary guest, missing mutual access, resource acceptance false and app action not evaluated."
+    },
+    {
+      "path": "docs/screenshots/identity/independent-if10-1024.png",
+      "viewport": "1024x768",
+      "inspected": true,
+      "observation": "Neutral original question and unselected decision/rationale pairs, ordinary vertical scroll."
+    },
+    {
+      "path": "docs/screenshots/identity/feedback-if10-1024x500.png",
+      "viewport": "1024x500",
+      "inspected": true,
+      "observation": "Only after explicit submission, own Identity label/classification and causal feedback; longer explanations scroll."
     }
   ],
   "humanReview": {
@@ -953,86 +1156,87 @@
   },
   "review": {
     "status": "complete",
-    "fingerprint": "20fcfb502719e7da2176e084296f748f2c44583b9dd8b2ba27787555960e3060",
+    "fingerprint": "96dbd296e9ed3adab3f9b2208b64c02dd820da45f2be9e5ad260f5508c8c851f",
     "reviewer": {
-      "id": "codex-storage-resilience-final-auditor",
+      "id": "independent-final-auditor-identity-20261031",
       "kind": "agent"
     },
-    "started": "2026-10-31T19:21:42Z",
+    "started": "2026-10-31T21:23:33Z",
+    "finished": "2026-10-31T21:26:28.226899Z",
     "domains": {
       "content": {
-        "finding": "Accepted: current scoped sources, substantive manuscript, worked counterexamples and product qualifications verified; no human efficacy claim.",
+        "finding": "Accepted. Scoped substantive original manuscript and current official claims checked against actual public sources;15 fresh normal-TLS200 bodies match authored hashes. Managed sync/schema, SSO/MFA, qualified passwordless, configured customer IdP and tenant boundaries are correct. SMS retirement qualification fixed. Human SME remains unperformed.",
         "evidence": [
           {
             "path": "src/content/nb.ts"
           },
           {
-            "path": "src/domain/curriculum/storage-resilience-sources.ts"
+            "path": "src/domain/curriculum/identity-foundations-sources.ts"
           },
           {
-            "path": "docs/quality/PR34_FINAL_AUDIT.md"
+            "path": "docs/IDENTITY_FOUNDATIONS.md"
           }
         ]
       },
       "technical": {
-        "finding": "Accepted: separate support/region/physical/access/version/app fields; strict replay, durable denial/conflict, immutable firsts and terminal reserve passed targeted tests.",
+        "finding": "Accepted. Pure declared models never create identity/credential/token/runtime/World/receipt/XP. Registration, evidence, context, collaboration readiness, resource acceptance and app action are separate. Fresh32 domain/shared tests plus explicit failed-proof browser probe pass; durable replay/reserve/CAS/first/recovery invariants preserved.",
         "evidence": [
           {
-            "path": "src/domain/curriculum/storage-resilience-model.ts"
+            "path": "src/domain/curriculum/identity-foundations-model.ts"
           },
           {
-            "path": "src/domain/curriculum/storage-resilience.ts"
+            "path": "src/domain/curriculum/identity-foundations.ts"
           },
           {
-            "path": "src/domain/curriculum/storage-resilience-store.ts"
+            "path": "src/domain/curriculum/identity-foundations-store.ts"
           },
           {
-            "path": "src/domain/curriculum/storage-resilience.test.ts"
+            "path": "src/domain/curriculum/identity-foundations.test.ts"
           }
         ]
       },
       "visual": {
-        "finding": "Accepted: personally inspected all15 actual PNGs plus independent short hover/focus captures; six-size Axe/keyboard/overflow sweep and1024x500 native End/Escape/focus passed. Ordinary scrolling; no human or zoom claim.",
+        "finding": "Accepted for local production. All15 committed Identity PNGs personally viewed, plus3 revised question captures. Fresh viewport/keyboard/Axe/reduced-motion/hover/focus/semantic/short-briefing checks pass; normal vertical scroll. No native zoom, human UX, screen-reader or deployed-SHA approval.",
         "evidence": [
           {
-            "path": "docs/screenshots/storage-resilience/briefing-tiers-1024x500.png"
+            "path": "docs/screenshots/identity/introduction-1440.png"
           },
           {
-            "path": "docs/screenshots/storage-resilience/cold-online-1920.png"
+            "path": "docs/screenshots/identity/authenticated-denied-1920.png"
           },
           {
-            "path": "docs/screenshots/storage-resilience/replica-map-1440.png"
+            "path": "docs/screenshots/identity/briefing-journey-1024x500.png"
           },
           {
-            "path": "docs/screenshots/storage-resilience/service-matrix-1366.png"
+            "path": "docs/screenshots/identity/direct-connect-boundary-800.png"
           },
           {
-            "path": "tests/e2e/storage-resilience.spec.ts"
+            "path": "tests/e2e/identity-foundations.spec.ts"
           }
         ]
       },
       "assessment": {
-        "finding": "Accepted with minor cue limitation: fresh blind packet/hash lock before keys; exact actual-source field equality;10of10 pairs independently agree;all alternatives/feedback read;correct decision plus wrong reason fails; firsts survive helped retry.",
+        "finding": "Accepted after MAJOR-01. Original all10 blind lock followed by separate fresh revised3 blind lock; final source/packet equality and all90 pairs independently checked. Changed if04/07/09 now require different decisions from actual guides. Actual wrong-reason/correct-retry/immutable first probes pass. Residual cue/difficulty limits remain MINOR; measured transfer unperformed.",
         "evidence": [
           {
-            "path": "src/domain/curriculum/storage-resilience-items.ts"
+            "path": "src/domain/curriculum/identity-foundations-items.ts"
+          },
+          {
+            "path": "src/domain/curriculum/identity-foundations.test.ts"
           },
           {
             "path": "src/content/nb.ts"
           },
           {
-            "path": "src/features/learning/storage-resilience-assessment.tsx"
-          },
-          {
-            "path": "docs/quality/PR34_FINAL_AUDIT.md"
+            "path": "docs/quality/PR35_FINAL_AUDIT.md"
           }
         ]
       },
       "guidance": {
-        "finding": "Accepted: native brief/start/cancel/milestone/recall and17-context durable teaching/Journal/Summary/history/mission/automatic/Portal protection; denial/cross-tab and assisted-active mission probes passed.",
+        "finding": "Accepted. Native explicit start/cancel, saved causal contrasts and once-only milestone history remain separate from evidence. All18 contexts registered; fresh exact-resume/Core-Journal shielding and Identity denial/conflict tests pass. Summary records durable aid; assisted-active still shields guides/Portal. No guide submits work or XP.",
         "evidence": [
           {
-            "path": "src/features/learning/storage-resilience-workbench.tsx"
+            "path": "src/features/learning/identity-foundations-workbench.tsx"
           },
           {
             "path": "src/features/learning/management-access.tsx"
@@ -1044,112 +1248,140 @@
             "path": "src/features/portal/portal.tsx"
           },
           {
-            "path": "tests/fixtures/active-teaching-contexts.ts"
+            "path": "tests/e2e/course-hub.spec.ts"
           }
         ]
       },
       "regression": {
-        "finding": "Accepted conditionally: independently recomputed57 hashes/fingerprint,47 preserved paths,23 old content-data exports plus function and55 objective rows; fresh targeted tests/17-context resume and182-plan passed. Full exact-head CI/strict and external deployed verification pending.",
+        "finding": "Accepted within bounded local scope. Independently recomputed59 final hashes/fingerprint;13 critical model/UI/guard/browser files unchanged from initial audit. Preservation25 old data exports+1function after7metadata paths,54 other objective rows and60 protected patterns exact. Existing182 cases retained in190=177/13;legacy354. No assertion weakening/skips/worker/retry/timeout increase. Exact-head full CI and strict remain pending.",
         "evidence": [
           {
-            "path": "docs/quality/PR34_FINAL_AUDIT.md"
+            "path": "tests/e2e/identity-foundations.spec.ts"
           },
           {
             "path": "tests/e2e/course-hub.spec.ts"
           },
           {
+            "path": "src/domain/curriculum/teaching-access.test.ts"
+          },
+          {
             "path": "playwright.desktop.config.ts"
           },
           {
-            "path": "scripts/e2e-plan-check.mjs"
+            "path": "docs/quality/PR35_FINAL_AUDIT.md"
           }
         ]
       }
     },
     "findings": [
       {
-        "id": "MINOR-01",
+        "id": "MAJOR-01",
+        "severity": "major",
+        "status": "fixed",
+        "description": "Original if04/if07/if09 repeated actual guided decision structures, so unique blind answers did not establish robust transfer.",
+        "fix": "Changed if04 to separately successful MFA with missing SSO trust, if07 to replacement device without its Hello credential, and if09 to one person retaining separate private-customer/work-partner identities. Updated variants/feedback/changed keys, separately blinded revised3 and renewed stamp.",
+        "retests": [
+          "Separate fresh revised3 blind lock91901bc529b5ba5438f3c8628c2c469f6105f6b0b5b0e17e1a3150759aebfa93;actual guide comparison",
+          "Post-stamp32 Identity/shared domain tests exit0;actual packet/90-pair independent probe exit0",
+          "Affected two browser cases16.3s exit0;independent actual-browser if07/if09 wrong-reason/correct-retry/immutable first probes exit0"
+        ]
+      },
+      {
+        "id": "MINOR-02",
         "severity": "minor",
         "status": "accepted-limitation",
-        "description": "Some categorical distractor claims and the unique differentiated rb04 outcome provide elimination cues. Blind choices remain unambiguous and supported by substantive paired feedback. No psychometric inference from option length."
+        "description": "Explicit premises and some categorical distractors allow elimination; several correct options, especially if04, are more detailed/longer. Blind uniqueness/position balance is not measured discrimination or transfer. Human learning/psychometric validation unperformed."
       },
       {
-        "id": "NOTE-02",
-        "severity": "note",
-        "status": "accepted-limitation",
-        "description": "Conditional implementation acceptance only. Unpublished candidate still needs complete182 exact-head GitHub CI, success-only receipt and strict release; targeted/local/collection evidence cannot substitute."
+        "id": "MINOR-03",
+        "severity": "minor",
+        "status": "fixed",
+        "description": "The dated SMS first-factor counterexample omitted the currently announced Microsoft-provided SMS/voice retirement.",
+        "fix": "Manuscript and IF27 claim now state retirement1February2027 including SMS first-factor, checked31October2026, and expressly avoid new-rollout advice.",
+        "retests": [
+          "Fresh normal-TLS IF27 body200/exact hash and factual reading",
+          "Post-stamp32 domain/shared tests and affected keyboard/browser exit0;author343curriculum/build exit0"
+        ]
       },
       {
-        "id": "NOTE-03",
+        "id": "NOTE-04",
         "severity": "note",
         "status": "accepted-limitation",
-        "description": "New feature preview unverified; older external Gate7 SSO block remains separate. No anonymous deployed-root/in-app-SHA or human SME/UX/screen-reader/learning approval claimed."
+        "description": "Delivery pending:exact-head complete190 GitHub CI, success-only candidate receipt and strict release remain required. Local targeted/plan/historical checks cannot substitute."
+      },
+      {
+        "id": "NOTE-05",
+        "severity": "note",
+        "status": "accepted-limitation",
+        "description": "New Vercel feature preview and deployed-root/SHA journey unverified;older external Gate7 SSO block separate. Human SME,UX,screen-reader and measured learning remain unperformed. No merge/production deploy authorized."
       }
     ],
     "report": {
-      "path": "docs/quality/PR34_FINAL_AUDIT.md"
+      "path": "docs/quality/PR35_FINAL_AUDIT.md"
     }
   },
   "snapshot": {
     "files": {
-      "AGENTS.md": "dbb6d12ae91da495326065b8fcc72a27cb1dde6a02143db3707f89bd26d31f1b",
-      "README.md": "7a1ed6f92f259849e0f7073c1f5d00e4ec1d532e0955e9b715c6dd1125690e0a",
-      "docs/ARCHITECTURE.md": "0f4524b260217dc71d5cb1a7779697f07961ca3225c2c6c4f307872054e44f4f",
-      "docs/AZ900_COVERAGE_MATRIX.md": "a50112518cbe07d4e38282dd878d36d38bc772385f45fdfc32725ac1886cd68e",
-      "docs/AZ900_EXPANSION_ROADMAP.md": "c92cf3e168191529c67bf514ccae998eb238f7a12551a91c24944340a5d0b171",
-      "docs/DECISIONS.md": "3ea5bc5d7590c7b5df41445372244e3a3d0c88f38087db0cd520387e9e231bc6",
-      "docs/DEVELOPMENT_WORKFLOW.md": "247baac0a173fed8e849352cb062286809ec4241b5bc4bdd3d8101898047bfc9",
-      "docs/STORAGE_RESILIENCE.md": "382ce44a1d8c54da301e984309622d891de9d2c47afee2672aaf7c6d491b5df7",
-      "docs/STORAGE_SERVICES.md": "7ad16df2cfb91874aba40b6d3387e0c89484f3bab8b4e2ae6587b4327fede3ac",
-      "docs/audits/az900-2026-07-20.json": "308c6c1d8dfbcda3ada1abaa22af76b40d869ac061085c4058df70422098e4c9",
-      "docs/screenshots/storage-resilience/archive-pending-1440.png": "9b2b499532edef57e2b2b3bb923ee9cb2a14d2e91b3fcf7dce1e0274202f555c",
-      "docs/screenshots/storage-resilience/archive-rehydrated-1440.png": "ec26f684f8823320d0bfa3e98949057041aac12e02d15a1c0d9627ce5976a9b0",
-      "docs/screenshots/storage-resilience/archive-zrs-rejected-1024.png": "aca6cdc859e17b7b37fea59aa252cd8bc8f644dd0100da29cecffb57d351d210",
-      "docs/screenshots/storage-resilience/briefing-tiers-1024x500.png": "617a48c14e0bbd11403b9171621462a913d7a5c1172bf22ffc701bea28b14db5",
-      "docs/screenshots/storage-resilience/cold-online-1920.png": "bee2690ff0316f76296b64551ad621ece7f258efb4910d016f87c2301c9f0c67",
-      "docs/screenshots/storage-resilience/feedback-rb09-1024x500.png": "9ad648272c10d08e54019244c504cccaf2123e3c4a665098ea0eb0ddcbe62e8f",
-      "docs/screenshots/storage-resilience/hub-1440.png": "ab38de4aca98e1343b08d3d67e8d3cada7bc52845efd24faaa3b058e4e237eb6",
-      "docs/screenshots/storage-resilience/independent-rb09-1024.png": "b85d7b71a1a2e9ccccdebfbd49e85bd001c17b61652a41227ffab53b544e4768",
-      "docs/screenshots/storage-resilience/introduction-1440.png": "f4e47323e3035c1ffdbc8e9f48dadd20468c9cada7accc86c783f3b2b6b26332",
-      "docs/screenshots/storage-resilience/replica-decisions-1024x500.png": "abb3789f717e596b59bdd2677adadc4579571718ac1531196c5d7459ed6fc7ef",
-      "docs/screenshots/storage-resilience/replica-map-1024.png": "8f8fd876cb16ec49ed0de1fa48449180a45b3e7edee14bb03d7bf49be4811ea8",
-      "docs/screenshots/storage-resilience/replica-map-1440.png": "7c2ebaf5c06f105509b0cdf42525f8b13c2deb3212f4e8a0bb89db6b3a2680a2",
-      "docs/screenshots/storage-resilience/replica-map-800.png": "935447557b26c2b57ae1f6c6eaf82dee5a2dfca50d207750c713f4cf75166d01",
-      "docs/screenshots/storage-resilience/service-matrix-1366.png": "d534c154bf443b44d46ab5754677e5130d72c732ea2d7b4d28e7ffaf7dc68fd6",
-      "docs/screenshots/storage-resilience/storage-group-1440.png": "771784deaa4c1136a3ba1589d7ebfa5d22f075fbce0ea9a029b546d0a925fd18",
-      "package.json": "c3638d2c22cad708d1b73e60c3d0ddfc0d3cda2720d9b9b579e3d45dd87891aa",
-      "playwright.desktop.config.ts": "7580f4a2a6074a1ee2ced5589eb17552a38bc38922e4b4b68c5001e9b556d327",
-      "scripts/az900-audit-check.test.mjs": "61b1e3731847b8c3418f9150fd61d4c9dedf03812c14731962aefe684f32803b",
-      "scripts/e2e-plan-check.mjs": "ac6de65a05a2c4907afdaabafeb3baea84f8ead3bf179a7616969b17f54065f7",
-      "src/app/layout.tsx": "805035a8096c94134a5f2a128889413f3d4c752fc7a47a3a32cfb5f772893f94",
-      "src/app/learn/[module]/page.tsx": "6acc26821c68de630d6370e3aa3280b48a618ae17db92a2b3acd313f770f8b9c",
-      "src/components/progress-provider.tsx": "5c3969a7e8d1196b910fd8fe291fce60c9a409ae6f75fda734df3ea4a5b1a64a",
-      "src/content/nb.ts": "b2ad132a4bae9213070e773dd0a1058a570b1d0d1c3abe85720b7975b7bf485d",
-      "src/domain/course/model.ts": "9ad8266c783c58781b073b8082c7faf2a32a7a4c5fa91459f406ce6e7a13d273",
-      "src/domain/curriculum/official.ts": "675cd552e24b15fd2966f6f7f2ff2308c3a69d0c5941c9c0785df5ae135f030f",
-      "src/domain/curriculum/storage-resilience-items.ts": "549dea3c5ac516f0a4ad35dc72445120fbaa0177e4a7c94f986a32fdd3e9e17a",
-      "src/domain/curriculum/storage-resilience-model.ts": "44d3bfb730b9d140d4f4c434bc346d46ecc7280105ec8f8720a2595fd1c9bb4e",
-      "src/domain/curriculum/storage-resilience-sources.ts": "0344e75ade0d8108ee9cb104592c70f305dc35449bc53b6b3dc378e2cb4b4263",
-      "src/domain/curriculum/storage-resilience-store.ts": "6b53a0f5a6d1bb79469b9b0ffa711d3ed455ea4f1c85860d9d349d4cbe71276b",
-      "src/domain/curriculum/storage-resilience.test.ts": "751f63e84974f045b8e1e73c9a283f71a2de1f271f69d132d35c3b841cf40c36",
-      "src/domain/curriculum/storage-resilience.ts": "0caa90a736d2896557ffafca519a9c2ae6e85ad46db543c220a8d57cf0f4b2b8",
-      "src/domain/curriculum/teaching-access.test.ts": "7c6066aece17bc946b952900d9cec973bc6d4d926d6e5f74e7ab920e978e25a3",
-      "src/domain/guidance/milestones.ts": "2e79bcf9aff6540ac7f625d7febd04ea6eb5ba28de1511c807d18460f0a0da32",
-      "src/features/course/course-outline.ts": "5e9fa1ef0fd05090ef549aa8aac739bf49d82be533efc16288638b47eff6033b",
-      "src/features/course/course.tsx": "06b9a99f604e2276c78a87a48b169102ca2dc1b8fa98ccbe273b73b6243fcfbd",
-      "src/features/course/mission-context.ts": "58b52998e2a6bec2e9cb6773f522005f21f9aa7383c155d01e65ff9124ff3dce",
-      "src/features/learning/management-access.tsx": "4906311818b5c0a52c5e559dbb93c8607091a1f57c4ad206bc5a21ee75fb9a18",
-      "src/features/learning/storage-resilience-assessment.tsx": "9f62074de780da88a835a1b82195a409e3fd491a98e8c77d0c18a7659b477380",
-      "src/features/learning/storage-resilience-provider.tsx": "d89830b93dc9d1e9d7683a1e6b405fdabc1090d5a8c7dfd732592666ec9c0bd7",
-      "src/features/learning/storage-resilience-visuals.tsx": "b4672656b8e4ac15fc7803e7e6cba2461232199a1019ff18de0c9d0e5f4fa0d7",
-      "src/features/learning/storage-resilience-workbench.tsx": "ba1365842972823be87f1c7ee7919f983abc3b9fe9afc655940f6cc0fa1915e0",
-      "src/features/learning/storage-resilience.css": "f8e850362964e7501e659a66a90dba982559e9b66633c8c04ccc7b8e05c3f1dc",
-      "src/features/learning/storage-resilience.tsx": "8b7e49aa7365d172d52ddeb296007dc62e5d01f3b51103cb853de40b8f4dd6cd",
-      "src/features/portal/portal.tsx": "fcf8aefb4ea4f781f8046edca85cea643f234e04728667a76e571989bebd5989",
-      "tests/e2e/course-hub.spec.ts": "7fb583c6e504e94a751505291e8ba072e0ed1dd6bf88588e9ef4af880e7067ec",
-      "tests/e2e/storage-resilience.spec.ts": "4a5c09b0cdf628fe1ea07eeb4371e7539295114e8373ee20c714f6cfa346ce96",
-      "tests/fixtures/active-teaching-contexts.ts": "4aed3276f5eaaa4aa4fc1c8f69246d69a845f92cb02fac543a281b578e051162"
+      "AGENTS.md": "4d56d9b54549881e135a80c2553b55652e11c500cf975c4632a958ea5c8c12bb",
+      "README.md": "9f6e036d93094937aae79baa820731d6b9a4079c975cd6f0dbca9293d2584e05",
+      "docs/ARCHITECTURE.md": "d0b245fe8c60cda6eb3776bc01eb764729fe0cea9ce5622e67107f7da939ed10",
+      "docs/AZ900_COVERAGE_MATRIX.md": "5fabfe3d814674564a165753822c4ec38b13456e5a10ba4fc137c9c7f8b73122",
+      "docs/AZ900_EXPANSION_ROADMAP.md": "24e9e8532d1055eeda193cb51b2f1073b6550ee923279c76ad833effbe61b84c",
+      "docs/DECISIONS.md": "f1e8f5e1a29f9e6b2225198e1a936a05e2960be40a4b721a99352a5816731985",
+      "docs/DEVELOPMENT_WORKFLOW.md": "b358960ad2dc6161335c0e962afa40ccf9d19627f50c73e5b89cf73ad35ec428",
+      "docs/IDENTITY_FOUNDATIONS.md": "ff79a09764b12ab756fd8638105a2e3e4c53febb8061d6f03d3771e529045314",
+      "docs/audits/az900-2026-07-20.json": "0f546d463abbc7fc03a240378bbcf816260ac193bc851333324577f279a37159",
+      "docs/screenshots/identity/access-decisions-1024x500.png": "3969e6f0631bad19f3823f7aae995dbd3b9f4119fa6d2aa9c7f7f5645a2fd1ae",
+      "docs/screenshots/identity/authenticated-denied-1920.png": "18ed942651947c69fa999ff9aa7fe36fe2e82655aabc56e38134c81d82c812db",
+      "docs/screenshots/identity/briefing-journey-1024x500.png": "4772641c956ca2dd29b39879eb55e1f4bfe7e2a504b31e590889b9d9c82de192",
+      "docs/screenshots/identity/customer-tenant-1024.png": "b4085425ba779de1367bee5d385ad641b89d39c4afb63e6911557b282c7a1dd5",
+      "docs/screenshots/identity/direct-connect-boundary-800.png": "3f4b322cc46f878462223ad45e85d265b1aa18bcc66de626d748ab7a50ada35d",
+      "docs/screenshots/identity/directory-matrix-1024.png": "d59c374be3ad8c1b1e71eb56473860223aec103edfe445811bfc5537aed3ed88",
+      "docs/screenshots/identity/feedback-if10-1024x500.png": "33ebe57a6fbc1f0febbde74b4da84c08fc5af623d2af770f876a2f8ef95caf3d",
+      "docs/screenshots/identity/hub-1440.png": "ecd686f3ecaf14c83135320541b43c94fbe27cc9a11e93841cdf98aa2b5d3a8c",
+      "docs/screenshots/identity/identity-group-1440.png": "93902accb7a9b78d209901041ecd1127a7b010a163d7404d368c62556774d9c3",
+      "docs/screenshots/identity/independent-if10-1024.png": "1ff5f0a8239c26102aa76e7b79d4b73f131048caac07977a5fd774f092e51c8a",
+      "docs/screenshots/identity/introduction-1440.png": "a66a9e33ee796530980370eba09fb599412613a1facff172e9e834b25b7cb68a",
+      "docs/screenshots/identity/managed-domain-1366.png": "abd052df97719a36db95e5e18f00b4711192cf84ea2d6ae49ffffcd9ce1ee222",
+      "docs/screenshots/identity/method-matrix-1366.png": "1b59bae1b8ccef53139a1e046417937cea9ac6f716c8a6990c07073c77c07992",
+      "docs/screenshots/identity/partner-resource-1440.png": "fb4425c478b39aba780f099f9792c397c98d8f7ac17546f56a89069b2965b4d8",
+      "docs/screenshots/identity/sso-reused-1440.png": "3a80cc27d631001bb6f389c9b7510add5f734caca47d7c80cb0c65795be3d2f4",
+      "package.json": "9d8dd0286d901b7ea4fbd59e8d1d2eb1bed0466f7c6b9bed3806cb01ea3e1cf1",
+      "playwright.desktop.config.ts": "7c9447bb2c644cb17de2a7523c4ccd52c32b4930696791ce1385a994b850951d",
+      "scripts/az900-audit-check.test.mjs": "ecd07327c4cb07435409a07f10cb1ed8173181fcaa2d11774dd9c10cae9424bb",
+      "scripts/e2e-plan-check.mjs": "b45b6aa221b14ce1af9a0c99d4bd78366da6bcab00a5e54931f7ef5369087f21",
+      "src/app/layout.tsx": "67b8465ff2662729c882f6e9a6f9d22a1aea71fb33fc1c78e8f540a3fce134bf",
+      "src/app/learn/[module]/page.tsx": "fa130b3efd610a3981bad8b99fa4dabb1bbec3e9771b75e1e09ef0b32cc40dd8",
+      "src/components/progress-provider.tsx": "1d510d5f6e83b6b7c2e2d8bd3a2860bdb545e53a5e3f16000f1a08222c4e64b0",
+      "src/content/nb.ts": "04fdb2c37ab80e691e940f6dcef0f5f5a41052047d4e30f9703d270c9e503d53",
+      "src/domain/course/model.ts": "3b1cb476509a9c1e0fc97c31783df50a8cac7142c6da2aeb640c3df69449fee2",
+      "src/domain/curriculum/identity-foundations-items.ts": "586a1dd0b16e592a4a3962b5bc038ab109b41b8eff0fa9b3985ae01d383ad2da",
+      "src/domain/curriculum/identity-foundations-model.ts": "48e2ce025c5ab4a35cd8203aa63e714edc90b3636482b1cfde52fa310eafc58c",
+      "src/domain/curriculum/identity-foundations-sources.ts": "4cbc22b3d8b64c31bad11c6fe3fc4d5bc512d910718475c0621001577337b265",
+      "src/domain/curriculum/identity-foundations-store.ts": "6f675af7c59f3bd76f1f38e9a3593ca40fd58b76361dd15b28679348311a2aff",
+      "src/domain/curriculum/identity-foundations.test.ts": "1b7e4ab1cf1bafbc32b0b4ce3436d25ef6043482af58a0323986a9181fcaddd2",
+      "src/domain/curriculum/identity-foundations.ts": "7b8d536e367c1994cf651e382e6f3916a464c8746798f24b84ebd423590abcde",
+      "src/domain/curriculum/official.ts": "20f26142e64b8994036288fccac7e0e5c31cc381aee22f58f85b5e3221f991e1",
+      "src/domain/curriculum/teaching-access.test.ts": "5758c19184ee35191107b731a6f857a962f74d2322c83c27b2821d182420b14e",
+      "src/domain/guidance/milestones.ts": "428152615a15a7fcca14cb086592c99229f4644d30af2b50c27c738713c07aca",
+      "src/features/course/course-hub.tsx": "79e3ab3244dca0581983f7a00319d1b3c74b87fdf91e21e844772164552d11fc",
+      "src/features/course/course-outline.ts": "229f6c62f501d3187fa340081995ea8dc8e4137ea2468c67a364648da426d4d6",
+      "src/features/course/course-sidebar.tsx": "3d45b684640e6c43b9d8e6fbd9c8c31d16c361d117a81c6836e68a9621e4c3e7",
+      "src/features/course/course.tsx": "1848c24f4ff59aee77209bc942027fc74e2164c0ee2cc9277a744b143847d58d",
+      "src/features/course/mission-context.ts": "95bf48e26f63ff3e33499272e601908650b172524fdba8520eb795ee402e5c07",
+      "src/features/learning/identity-foundations-assessment.tsx": "f2ead1e8e09a7024e4e4145b6d3a40dac940e9408fc675407bab6e0fda889ffc",
+      "src/features/learning/identity-foundations-provider.tsx": "7baa976d835d4e70553b25c19dbe1c600f83c573052fa4fbb762f9915f69aa70",
+      "src/features/learning/identity-foundations-visuals.tsx": "f96fb4341f7f43cbfbc88ce77e2d5506dca79e8abb7a64df89e6cf8bec798038",
+      "src/features/learning/identity-foundations-workbench.tsx": "1f6e74139f74a04e3a95dbc5b5223d446f0f9246d8918f2d5985a6e626c7d16c",
+      "src/features/learning/identity-foundations.css": "5f5e3a4603837a72cd243649da30bbcfdba1a72d8811ba95ed45350b0fa0cea3",
+      "src/features/learning/identity-foundations.tsx": "eb42136b72029ace3208a7ca4766f829560db93f3cfd0248b2aa52834428bf13",
+      "src/features/learning/management-access.tsx": "45268bdf102950c79a08554120e7e0f7b6fc0b540be4e71c4d48ed2c90c00710",
+      "src/features/portal/portal.tsx": "f68aa75fff72cf716ff2befd97004ead5cfd78bb9a7c3177bacd347fc0bed597",
+      "tests/e2e/course-hub.spec.ts": "f256315ae16e7b985702052000bb01e61bcc00f67575746118cd8a515345210d",
+      "tests/e2e/identity-foundations.spec.ts": "ec5509f01a08043c6cbf72726d0a88f5d2645c2df5e9b0a24e3293c9ba6e4860",
+      "tests/fixtures/active-teaching-contexts.ts": "4a7913fa944003d979debd29975b83c764af4849a956061c2a27f13875bfd0f6",
+      "tests/fixtures/identity.ts": "e7e4a1b5009b14b50f7f0205b3765e6275a3fe114790cb2d8a76ea2848083ce8"
     }
   },
-  "implementationFinished": "2026-10-31T19:20:49.601Z"
+  "implementationFinished": "2026-10-31T21:22:59.325Z"
 }

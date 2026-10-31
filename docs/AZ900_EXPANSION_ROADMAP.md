@@ -169,6 +169,8 @@ PR34 extends the existing Storage group with [Part B](STORAGE_RESILIENCE.md): or
 - **Tester:** SSO er ikke MFA; passwordless er ikke automatisk ingen faktor; Domain Services er ikke synonym for Entra ID; ekstern gjest er ikke automatisk admin.
 - **Aksept:** Alle navngitte autentiserings-/directoryfasetter forklares og vurderes i ny kontekst uten credentials.
 
+PR35 supplies [Identity Foundations](IDENTITY_FOUNDATIONS.md) as the first Identity, Access & Security part after Storage: original Norwegian directory/legacy, AuthN/AuthZ/SSO/MFA/passwordless and external-identity teaching; three declared Studio perspectives and causal guides; ten original paired independent situations and isolated1.0.0 history. Only2.4.01–03 are re-reviewed. P11/P15/P16 and all older results remain unchanged. Full exact-head190-case CI/strict and fresh final audit govern delivery; actual Vercel verification remains distinct. No merge or production deploy. Next P11, not started here.
+
 ## P11 — RBAC og Conditional Access
 
 - **Mål:** `2.4.04–05` og støtte til security/governance.

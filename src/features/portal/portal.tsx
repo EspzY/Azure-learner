@@ -1,4 +1,5 @@
 'use client';
+import { useIdentity } from '@/features/learning/identity-foundations-provider';
 import { useResilience } from '@/features/learning/storage-resilience-provider';
 
 import { useStorage } from '@/features/learning/storage-provider';
@@ -109,7 +110,8 @@ function PortalWorkspace() {
     networking = useNetworking(),
     connectivity = useConnectivity(),
     storage = useStorage(),
-    resilience = useResilience();
+    resilience = useResilience(),
+    identityState = useIdentity();
   useEffect(() => {
     if (serverless.facts.active && ['learn', 'responsibility', 'hierarchy'].includes(location.area))
       serverless.store.event({ kind: 'aid' });
@@ -138,6 +140,7 @@ function PortalWorkspace() {
     location.area,
   ]);
   const otherIndependentContext =
+    identityState.facts.active ||
     resilience.facts.active ||
     storage.facts.active ||
     connectivity.facts.active ||
@@ -158,6 +161,7 @@ function PortalWorkspace() {
   const independentContext = otherIndependentContext || missions.active;
   const guidanceContexts = [
     storage,
+    identityState,
     resilience,
     connectivity,
     compute,
