@@ -68,6 +68,7 @@ for (const file of [
   'networking-connectivity',
   'serverless',
   'cost-management',
+  'storage-services',
 ]) {
   if (!compact.some((x) => x.file.endsWith(`${file}.spec.ts`)))
     throw Error(`Missing justified compact surface: ${file}`);

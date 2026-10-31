@@ -67,7 +67,7 @@ test('first visit exposes one start, three honest paths and direct modules befor
     'Azure Management & Governance',
   ])
     await expect(page.getByRole('heading', { name: title, exact: true })).toBeVisible();
-  await expect(page.locator('.learn-hub-planned')).toContainText(['Storage', 'Governance']);
+  await expect(page.locator('.learn-hub-planned')).toContainText(['Storage Part B', 'Governance']);
   await expect(
     page
       .locator('.course-hub a')
@@ -206,11 +206,12 @@ test('saved deep link resumes the exact Core B activity and preserves separate h
   await expect(page).toHaveURL(missionOrigin('platform'));
 });
 
-test('all fifteen independent contexts resume their own exact route without metadata help or evidence rewriting', async ({
+test('all sixteen independent contexts resume their own exact route without metadata help or evidence rewriting', async ({
   browser,
   baseURL,
 }) => {
   const expected: Record<string, string> = {
+    'azurelab.learning.storage-services.v1': '/learn/storage?topic=assessment&case=sa01',
     'azurelab.learning.networking-connectivity.v1':
       '/learn/connectivity?topic=assessment&case=nc03',
     'azurelab.learning.architecture-management.v1':
@@ -264,7 +265,7 @@ test('all fifteen independent contexts resume their own exact route without meta
       href: missionOrigin('platform'),
     },
   ];
-  expect(fixtures).toHaveLength(15);
+  expect(fixtures).toHaveLength(16);
   for (const fixture of fixtures) {
     expect(fixture.href, fixture.key).toBeTruthy();
     expect(fixture.raw).not.toBe('null');

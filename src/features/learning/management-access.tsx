@@ -1,4 +1,8 @@
 'use client';
+import { useStorage } from './storage-provider';
+import { storageFacts, storageKey, restoreStorage, storageHref } from '@/domain/curriculum/storage';
+import { StorageRecovery } from './storage';
+
 import { useConnectivity } from './connectivity-provider';
 import {
   connectivityFacts,
@@ -130,8 +134,18 @@ export function ManagementTeachingBoundary({
     cost = useCost(),
     compute = useCompute(),
     networking = useNetworking(),
-    connectivity = useConnectivity();
+    connectivity = useConnectivity(),
+    storage = useStorage();
   const checks = [
+    check(
+      'storage',
+      storage,
+      storageKey,
+      restoreStorage,
+      storageFacts,
+      () => storage.store.event({ kind: 'aid' }),
+      storageHref('assessment', storage.facts.current?.item),
+    ),
     check(
       'connectivity',
       connectivity,
@@ -286,6 +300,7 @@ export function ManagementTeachingBoundary({
         item.id === 'compute' ||
         item.id === 'networking' ||
         item.id === 'connectivity' ||
+        item.id === 'storage' ||
         (only === 'core' ? ['management', 'physical'].includes(item.id) : item.id === only)),
   );
   const token = JSON.stringify([
@@ -343,6 +358,7 @@ export function ManagementTeachingBoundary({
               {item.id === 'compute' && <ComputeRecovery />}
               {item.id === 'networking' && <NetworkingRecovery />}
               {item.id === 'connectivity' && <ConnectivityRecovery />}
+              {item.id === 'storage' && <StorageRecovery />}
             </div>
           ))}
       </div>

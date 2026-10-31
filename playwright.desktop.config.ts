@@ -5,6 +5,10 @@ import baseline from './playwright.config';
 // names. No test body, assertion, title, timeout or skip is modified.
 const compactCases = [
   [
+    'storage-services.spec.ts',
+    'Storage compact briefing, keyboard, reduced motion and semantic controls stay readable across desktop and short views',
+  ],
+  [
     'course.spec.ts',
     'keyboard, reduced motion, target lifecycle, resize, journal focus and invalid context stay honest',
   ],

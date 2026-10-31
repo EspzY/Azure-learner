@@ -4,6 +4,20 @@ import { replayEngine } from '../sandbox/replay';
 
 /** Conceptual observations are not Engine receipts and have their own source contract. */
 export const conceptMilestones = {
+  'storage-accounts': {
+    version: '1.0.0',
+    objectives: ['SG03'],
+    sources: ['SS08', 'SS20', 'SS21'],
+    trigger: 'saved-unsupported-premium-queue-and-supported-gpv2-contrast',
+    auto: 'first-new-guided-model-result',
+  },
+  'storage-delivery': {
+    version: '1.0.0',
+    objectives: ['SG02'],
+    sources: ['SS13', 'SS14', 'SS15'],
+    trigger: 'saved-redelivery-with-two-versus-one-application-effects',
+    auto: 'first-new-guided-model-result',
+  },
   'connectivity-diagnose': {
     version: '1.0.0',
     objectives: ['CN01', 'CN02'],

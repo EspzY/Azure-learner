@@ -6,6 +6,10 @@ Desktop-first product quality, targeted development checks and a risk-based inde
 
 The [Course Hub redesign](docs/COURSE_HUB_REDESIGN.md) brings the ordinary `/learn` entry into three clear AZ-900 paths, one exact start/resume action and a contextual collapsible sidebar. Existing teaching and learning history stay intact; unavailable modules are explicitly planned. Six new UX cases extend the approved desktop/compact CI baseline to166 (optional full legacy312), preserving every original desktop/compact test. Before/after production browser images are linked in the design record.
 
+## Storage Part A — PR33
+
+Storage is an ordinary module after Networking under the second learning path. Original [Storage teaching and source qualifications](docs/STORAGE_SERVICES.md), one Workload Studio, three causal guided investigations and twelve original decision/reason situations distinguish objects, shared files, messages, keyed entities and VM block disks. The isolated1.0.0 history never upgrades older results or XP. No Storage account/API/upload/database/queue runtime is created. P09 tiers/redundancy and P16 movement/migration remain planned. Candidate delivery requires the complete175-case desktop/compact CI profile and strict release; optional legacy328 is retained.
+
 ## Networking Part B — PR29
 
 The ordinary course now links Networking Part A to **VPN Gateway, ExpressRoute & Public/Private Endpoints** at `/learn/connectivity`. Hybrid transport/encryption and staged endpoint/DNS models, four guided investigations, new independent decision/reason scenarios and a full Journal use separately versioned learning history. No real tunnel, circuit, endpoint or DNS query is created. Part A resources, rubrics and historical answers remain unchanged. [Original manuscript, source reconciliation and scope](docs/NETWORKING_CONNECTIVITY.md); verification and unperformed human reviews remain recorded in project status. Protected Vercel previews require authorized access; Ready alone does not verify a deployed application journey.

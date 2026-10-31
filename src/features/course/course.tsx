@@ -1,4 +1,9 @@
 'use client';
+import { useStorage } from '@/features/learning/storage-provider';
+import { StorageLesson } from '@/features/learning/storage';
+import { storageHref, storageTopics, type StorageTopic } from '@/domain/curriculum/storage';
+import { storageNb } from '@/content/nb';
+
 import { useConnectivity } from '@/features/learning/connectivity-provider';
 import { ConnectivityLesson } from '@/features/learning/connectivity';
 import {
@@ -91,6 +96,7 @@ const names = {
   compute: computeNb.title,
   networking: networkingNb.title,
   connectivity: connectivityNb.title,
+  storage: storageNb.title,
   cost: costNb.title,
   architecture: architectureNb.title,
   computing: nb.official.computing,
@@ -107,7 +113,8 @@ export function Course({ module }: { module?: CourseModule }) {
     cost = useCost(),
     compute = useCompute(),
     networking = useNetworking(),
-    connectivity = useConnectivity();
+    connectivity = useConnectivity(),
+    storage = useStorage();
   const query = useSearchParams(),
     router = useRouter(),
     course = useCourse(),
@@ -307,58 +314,67 @@ export function Course({ module }: { module?: CourseModule }) {
       ? { module: 'computing' as const, topic: learning.save.unit }
       : null);
   const resumeHref =
-    connectivity.facts.active && connectivity.facts.current
-      ? connectivityHref('assessment', connectivity.facts.current.item)
-      : networking.facts.active && networking.facts.current
-        ? networkingHref('assessment', networking.facts.current.item)
-        : compute.facts.active && compute.facts.current
-          ? computeHref('assessment', compute.facts.current.item)
-          : cost.facts.active && cost.facts.current
-            ? costHref('assessment', cost.facts.current.item)
-            : transfer.facts.active && transfer.facts.current
-              ? transferHref(transfer.facts.current.item)
-              : missions.active && missions.activeSession
-                ? missionOrigin(missions.activeSession.mission)
-                : practical.activeIndependent && practical.current?.status === 'active'
-                  ? practicalHref(practical.current, chapter.attempt.engine)
-                  : management.facts.active
-                    ? courseHref('architecture', 'management-assessment')
-                    : physical.facts.active
-                      ? courseHref('architecture', 'assessment')
-                      : serverless.facts.active
-                        ? courseHref('computing', 'serverless-assessment')
-                        : v2.facts.active
-                          ? courseHref('computing', 'v2-assessment')
-                          : benefits.facts.active
-                            ? courseHref('benefits', 'assessment')
-                            : service2.facts.active
-                              ? courseHref('services', 'assessment')
-                              : services.facts.active
-                                ? '/portal?area=challenge&course=1&module=services&topic=practice'
-                                : learning.facts.active
-                                  ? courseHref('computing', 'assessment')
-                                  : practical.current?.status === 'active'
-                                    ? practicalHref(practical.current, chapter.attempt.engine)
-                                    : missions.activeSession
-                                      ? missionOrigin(missions.activeSession.mission)
-                                      : preferredResume
-                                        ? preferredResume.topic === 'transfer' &&
-                                          transfer.facts.current
-                                          ? transferHref(transfer.facts.current.item)
-                                          : preferredResume.module === 'cost' &&
-                                              preferredResume.topic === 'assessment' &&
-                                              cost.facts.current
-                                            ? costHref('assessment', cost.facts.current.item)
-                                            : (preferredResume.module === 'services' &&
-                                                  preferredResume.topic === 'practice') ||
-                                                (preferredResume.module === 'computing' &&
-                                                  preferredResume.topic === 'resource-bridge')
-                                              ? courseLabHref(lab.complete, course.save.lab?.origin)
-                                              : courseHref(
-                                                  preferredResume.module,
-                                                  preferredResume.topic,
-                                                )
-                                        : computingEntry;
+    storage.facts.active && storage.facts.current
+      ? storageHref('assessment', storage.facts.current.item)
+      : connectivity.facts.active && connectivity.facts.current
+        ? connectivityHref('assessment', connectivity.facts.current.item)
+        : networking.facts.active && networking.facts.current
+          ? networkingHref('assessment', networking.facts.current.item)
+          : compute.facts.active && compute.facts.current
+            ? computeHref('assessment', compute.facts.current.item)
+            : cost.facts.active && cost.facts.current
+              ? costHref('assessment', cost.facts.current.item)
+              : transfer.facts.active && transfer.facts.current
+                ? transferHref(transfer.facts.current.item)
+                : missions.active && missions.activeSession
+                  ? missionOrigin(missions.activeSession.mission)
+                  : practical.activeIndependent && practical.current?.status === 'active'
+                    ? practicalHref(practical.current, chapter.attempt.engine)
+                    : management.facts.active
+                      ? courseHref('architecture', 'management-assessment')
+                      : physical.facts.active
+                        ? courseHref('architecture', 'assessment')
+                        : serverless.facts.active
+                          ? courseHref('computing', 'serverless-assessment')
+                          : v2.facts.active
+                            ? courseHref('computing', 'v2-assessment')
+                            : benefits.facts.active
+                              ? courseHref('benefits', 'assessment')
+                              : service2.facts.active
+                                ? courseHref('services', 'assessment')
+                                : services.facts.active
+                                  ? '/portal?area=challenge&course=1&module=services&topic=practice'
+                                  : learning.facts.active
+                                    ? courseHref('computing', 'assessment')
+                                    : practical.current?.status === 'active'
+                                      ? practicalHref(practical.current, chapter.attempt.engine)
+                                      : missions.activeSession
+                                        ? missionOrigin(missions.activeSession.mission)
+                                        : storage.facts.guide
+                                          ? storageHref('studio') +
+                                            '&perspective=' +
+                                            storage.facts.guide.mission
+                                          : preferredResume
+                                            ? preferredResume.topic === 'transfer' &&
+                                              transfer.facts.current
+                                              ? transferHref(transfer.facts.current.item)
+                                              : preferredResume.module === 'cost' &&
+                                                  preferredResume.topic === 'assessment' &&
+                                                  cost.facts.current
+                                                ? costHref('assessment', cost.facts.current.item)
+                                                : (preferredResume.module === 'services' &&
+                                                      preferredResume.topic === 'practice') ||
+                                                    (preferredResume.module === 'computing' &&
+                                                      preferredResume.topic === 'resource-bridge')
+                                                  ? courseLabHref(
+                                                      lab.complete,
+                                                      course.save.lab?.origin,
+                                                    )
+                                                  : courseHref(
+                                                      preferredResume.module,
+                                                      preferredResume.topic,
+                                                    )
+                                            : computingEntry;
   const navigate = (area: PortalLocation['area'], change: Partial<PortalLocation> = {}) => {
     if (area === 'learn')
       router.push(courseHref(change.module ?? module ?? 'services', change.topic ?? topic));
@@ -371,6 +387,7 @@ export function Course({ module }: { module?: CourseModule }) {
             module === 'cost' ||
             module === 'compute' ||
             module === 'networking' ||
+            module === 'storage' ||
             module === 'connectivity'
               ? 'services'
               : (module ?? 'services'),
@@ -381,60 +398,69 @@ export function Course({ module }: { module?: CourseModule }) {
       );
   };
   const pathTopics: readonly string[] =
-    module === 'connectivity'
-      ? connectivityTopics
-      : module === 'networking'
-        ? networkingTopics
-        : module === 'compute'
-          ? computeTopics
-          : module === 'cost'
-            ? costTopics
-            : module === 'architecture'
-              ? [...physicalTopics, ...managementTopics]
-              : module === 'benefits'
-                ? [...trackUnits.benefits, 'summary', 'transfer']
-                : module === 'computing'
-                  ? currentV2
-                    ? [...v2Topics.slice(0, -1), ...serverlessTopics, v2Topics.at(-1)!, 'transfer']
-                    : [...unitIds, 'transfer']
-                  : legacyServices
-                    ? topics
-                    : [...trackUnits.services, 'summary', 'transfer'];
+    module === 'storage'
+      ? storageTopics
+      : module === 'connectivity'
+        ? connectivityTopics
+        : module === 'networking'
+          ? networkingTopics
+          : module === 'compute'
+            ? computeTopics
+            : module === 'cost'
+              ? costTopics
+              : module === 'architecture'
+                ? [...physicalTopics, ...managementTopics]
+                : module === 'benefits'
+                  ? [...trackUnits.benefits, 'summary', 'transfer']
+                  : module === 'computing'
+                    ? currentV2
+                      ? [
+                          ...v2Topics.slice(0, -1),
+                          ...serverlessTopics,
+                          v2Topics.at(-1)!,
+                          'transfer',
+                        ]
+                      : [...unitIds, 'transfer']
+                    : legacyServices
+                      ? topics
+                      : [...trackUnits.services, 'summary', 'transfer'];
   const index = pathTopics.indexOf(topic);
   const historicalReturn = pathTopics.filter((t) => t !== 'transfer').at(-1)!;
   const location = parseLocation(
     new URLSearchParams({ area: 'learn', module: module ?? 'services', topic }),
   );
   const title = (m: CourseModule, t: string) =>
-    m === 'connectivity'
-      ? connectivityNb.topics[t as ConnectivityTopic]
-      : m === 'networking'
-        ? networkingNb.topics[t as NetworkingTopic]
-        : m === 'compute'
-          ? computeNb.topics[t as ComputeTopic]
-          : m === 'cost'
-            ? costNb.topics[t as CostTopic]
-            : t === 'transfer'
-              ? transferNb.entry
-              : m === 'architecture'
-                ? isManagementTopic(t)
-                  ? managementNb.topics[t]
-                  : architectureNb.topics[t as PhysicalTopic]
-                : m === 'benefits'
-                  ? (manuscript('benefits', t)?.title ??
-                    (t === 'summary'
-                      ? nb.expansion.common.summary
-                      : nb.expansion.common.assessment))
-                  : m === 'services'
-                    ? legacyServices
-                      ? nb.portal.lesson.sections[t as (typeof topics)[number]]?.title
-                      : (manuscript('services', t)?.title ??
-                        (t === 'summary'
-                          ? nb.expansion.common.summary
-                          : nb.expansion.common.assessment))
-                    : (serverlessNb.topics[t as keyof typeof serverlessNb.topics] ??
-                      nb.foundationsV2.topics[t as (typeof v2Topics)[number]]?.title ??
-                      nb.foundations.units[t as (typeof unitIds)[number]]?.title);
+    m === 'storage'
+      ? storageNb.topics[t as StorageTopic]
+      : m === 'connectivity'
+        ? connectivityNb.topics[t as ConnectivityTopic]
+        : m === 'networking'
+          ? networkingNb.topics[t as NetworkingTopic]
+          : m === 'compute'
+            ? computeNb.topics[t as ComputeTopic]
+            : m === 'cost'
+              ? costNb.topics[t as CostTopic]
+              : t === 'transfer'
+                ? transferNb.entry
+                : m === 'architecture'
+                  ? isManagementTopic(t)
+                    ? managementNb.topics[t]
+                    : architectureNb.topics[t as PhysicalTopic]
+                  : m === 'benefits'
+                    ? (manuscript('benefits', t)?.title ??
+                      (t === 'summary'
+                        ? nb.expansion.common.summary
+                        : nb.expansion.common.assessment))
+                    : m === 'services'
+                      ? legacyServices
+                        ? nb.portal.lesson.sections[t as (typeof topics)[number]]?.title
+                        : (manuscript('services', t)?.title ??
+                          (t === 'summary'
+                            ? nb.expansion.common.summary
+                            : nb.expansion.common.assessment))
+                      : (serverlessNb.topics[t as keyof typeof serverlessNb.topics] ??
+                        nb.foundationsV2.topics[t as (typeof v2Topics)[number]]?.title ??
+                        nb.foundations.units[t as (typeof unitIds)[number]]?.title);
   const navigationDestinations: CourseDestinations = {
     computing: computingEntry,
     benefits: courseHref('benefits', 'availability'),
@@ -443,6 +469,7 @@ export function Course({ module }: { module?: CourseModule }) {
     compute: computeHref('introduction'),
     networking: networkingHref('introduction'),
     connectivity: connectivityHref('introduction'),
+    storage: storageHref('introduction'),
     cost: costHref('introduction'),
   };
   const navigationTopics: Record<CourseModule, readonly string[]> = {
@@ -458,9 +485,16 @@ export function Course({ module }: { module?: CourseModule }) {
     compute: computeTopics,
     networking: networkingTopics,
     connectivity: connectivityTopics,
+    storage: storageTopics,
     cost: costTopics,
   };
   const hubRecords: HubRecord[] = [
+    [
+      'storage',
+      hubCopy.recordLabels.storage,
+      storage,
+      storageHref('assessment', storage.facts.current?.item),
+    ],
     ['course', hubCopy.recordLabels.course, course, '/learn'],
     ['chapter', hubCopy.recordLabels.chapter, chapter, '/portal'],
     ['learning', hubCopy.recordLabels.learning, learning, courseHref('computing', 'assessment')],
@@ -552,6 +586,7 @@ export function Course({ module }: { module?: CourseModule }) {
     ]),
   ) as unknown as CourseActivities;
   const activeIndependent =
+    storage.facts.active ||
     connectivity.facts.active ||
     networking.facts.active ||
     compute.facts.active ||
@@ -570,10 +605,15 @@ export function Course({ module }: { module?: CourseModule }) {
   const hasResume =
     activeIndependent ||
     !!preferredResume ||
+    !!storage.facts.guide ||
     !!missions.activeSession ||
     practical.current?.status === 'active';
   const entryDestinations: CourseDestinations = {
     ...navigationDestinations,
+    storage: storageHref(
+      storage.facts.active ? 'assessment' : storage.facts.topic,
+      storage.facts.current?.item,
+    ),
     architecture: courseHref(
       'architecture',
       management.facts.active
@@ -611,6 +651,7 @@ export function Course({ module }: { module?: CourseModule }) {
     compute: guidedCount(compute.facts.completed.length),
     networking: guidedCount(networking.facts.completed.length),
     connectivity: guidedCount(connectivity.facts.completed.length),
+    storage: guidedCount(storage.facts.completed.length),
     cost: guidedCount(cost.facts.completed.length),
   };
   const begin = () => {
@@ -641,7 +682,7 @@ export function Course({ module }: { module?: CourseModule }) {
   };
   return (
     <div
-      className={`portal course-shell ${module === 'connectivity' || module === 'networking' || module === 'compute' || module === 'cost' || module === 'architecture' || currentV2 || module === 'benefits' || (module === 'services' && !legacyServices) ? 'course-v2' : ''}`}
+      className={`portal course-shell ${module === 'storage' || module === 'connectivity' || module === 'networking' || module === 'compute' || module === 'cost' || module === 'architecture' || currentV2 || module === 'benefits' || (module === 'services' && !legacyServices) ? 'course-v2' : ''}`}
     >
       <ExpansionAssistance />
       <PracticalAssistance />
@@ -732,28 +773,31 @@ export function Course({ module }: { module?: CourseModule }) {
               module !== 'cost' &&
               module !== 'compute' &&
               module !== 'networking' &&
+              module !== 'storage' &&
               module !== 'connectivity'
                 ? 'core'
                 : undefined
             }
             assessment={
-              module === 'connectivity' && topic === 'assessment'
-                ? 'connectivity'
-                : module === 'networking' && topic === 'assessment'
-                  ? 'networking'
-                  : module === 'compute' && topic === 'assessment'
-                    ? 'compute'
-                    : module === 'cost' && topic === 'assessment'
-                      ? 'cost'
-                      : topic === 'transfer'
-                        ? 'transfer'
-                        : module && missions.active && !missions.assisted
-                          ? 'missions'
-                          : module === 'architecture' && topic === 'management-assessment'
-                            ? 'management'
-                            : module === 'architecture' && topic === 'assessment'
-                              ? 'physical'
-                              : undefined
+              module === 'storage' && topic === 'assessment'
+                ? 'storage'
+                : module === 'connectivity' && topic === 'assessment'
+                  ? 'connectivity'
+                  : module === 'networking' && topic === 'assessment'
+                    ? 'networking'
+                    : module === 'compute' && topic === 'assessment'
+                      ? 'compute'
+                      : module === 'cost' && topic === 'assessment'
+                        ? 'cost'
+                        : topic === 'transfer'
+                          ? 'transfer'
+                          : module && missions.active && !missions.assisted
+                            ? 'missions'
+                            : module === 'architecture' && topic === 'management-assessment'
+                              ? 'management'
+                              : module === 'architecture' && topic === 'assessment'
+                                ? 'physical'
+                                : undefined
             }
           >
             {!module ? (
@@ -805,42 +849,46 @@ export function Course({ module }: { module?: CourseModule }) {
                 <header className="course-module-header">
                   <small>
                     {c.module}{' '}
-                    {module === 'connectivity'
-                      ? '07'
-                      : module === 'networking'
-                        ? '06'
-                        : module === 'compute'
-                          ? '05'
-                          : module === 'cost'
-                            ? '06'
-                            : module === 'architecture'
-                              ? '04'
-                              : module === 'computing'
-                                ? '01'
-                                : module === 'benefits'
-                                  ? '02'
-                                  : '03'}{' '}
+                    {module === 'storage'
+                      ? '08'
+                      : module === 'connectivity'
+                        ? '07'
+                        : module === 'networking'
+                          ? '06'
+                          : module === 'compute'
+                            ? '05'
+                            : module === 'cost'
+                              ? '06'
+                              : module === 'architecture'
+                                ? '04'
+                                : module === 'computing'
+                                  ? '01'
+                                  : module === 'benefits'
+                                    ? '02'
+                                    : '03'}{' '}
                     · {module === 'architecture' ? managementNb.available : c.available}
                   </small>
                   <h1>{names[module]}</h1>
                   <p>
-                    {module === 'connectivity'
-                      ? connectivityNb.overview
-                      : module === 'networking'
-                        ? networkingNb.overview
-                        : module === 'compute'
-                          ? computeNb.overview
-                          : module === 'cost'
-                            ? costNb.overview
-                            : module === 'architecture'
-                              ? managementNb.intro
-                              : module === 'benefits'
-                                ? nb.expansion.benefits.intro
-                                : module === 'services'
-                                  ? c.services
-                                  : currentV2
-                                    ? nb.foundationsV2.intro
-                                    : c.computing}
+                    {module === 'storage'
+                      ? storageNb.overview
+                      : module === 'connectivity'
+                        ? connectivityNb.overview
+                        : module === 'networking'
+                          ? networkingNb.overview
+                          : module === 'compute'
+                            ? computeNb.overview
+                            : module === 'cost'
+                              ? costNb.overview
+                              : module === 'architecture'
+                                ? managementNb.intro
+                                : module === 'benefits'
+                                  ? nb.expansion.benefits.intro
+                                  : module === 'services'
+                                    ? c.services
+                                    : currentV2
+                                      ? nb.foundationsV2.intro
+                                      : c.computing}
                   </p>
                 </header>
                 {services.facts.active && (
@@ -855,7 +903,13 @@ export function Course({ module }: { module?: CourseModule }) {
                   </p>
                 )}
                 <div ref={activityRef} className="course-activity">
-                  {module === 'connectivity' ? (
+                  {module === 'storage' ? (
+                    <StorageLesson
+                      topic={topic as StorageTopic}
+                      selected={query.get('case')}
+                      perspective={query.get('perspective')}
+                    />
+                  ) : module === 'connectivity' ? (
                     <ConnectivityLesson
                       topic={topic as ConnectivityTopic}
                       selected={query.get('case')}
@@ -925,6 +979,7 @@ export function Course({ module }: { module?: CourseModule }) {
                           compute,
                           networking,
                           connectivity,
+                          storage,
                         ].some((x) => !x.ready || !!x.issue) ||
                         learning.facts.active ||
                         v2.facts.active ||
@@ -937,6 +992,7 @@ export function Course({ module }: { module?: CourseModule }) {
                         transfer.facts.active ||
                         networking.facts.active ||
                         connectivity.facts.active ||
+                        storage.facts.active ||
                         compute.facts.active ||
                         cost.facts.active ||
                         missions.active
@@ -965,6 +1021,7 @@ export function Course({ module }: { module?: CourseModule }) {
                           compute,
                           networking,
                           connectivity,
+                          storage,
                         ].some((x) => !x.ready || !!x.issue) ||
                         learning.facts.active ||
                         v2.facts.active ||
@@ -977,6 +1034,7 @@ export function Course({ module }: { module?: CourseModule }) {
                         transfer.facts.active ||
                         networking.facts.active ||
                         connectivity.facts.active ||
+                        storage.facts.active ||
                         compute.facts.active ||
                         cost.facts.active ||
                         missions.active
@@ -1007,6 +1065,7 @@ export function Course({ module }: { module?: CourseModule }) {
                           compute,
                           networking,
                           connectivity,
+                          storage,
                         ].some((x) => !x.ready || !!x.issue) ||
                         learning.facts.active ||
                         v2.facts.active ||
@@ -1019,6 +1078,7 @@ export function Course({ module }: { module?: CourseModule }) {
                         transfer.facts.active ||
                         networking.facts.active ||
                         connectivity.facts.active ||
+                        storage.facts.active ||
                         compute.facts.active ||
                         cost.facts.active ||
                         missions.active
@@ -1126,6 +1186,7 @@ export function Course({ module }: { module?: CourseModule }) {
                 )}
                 {module !== 'compute' &&
                   module !== 'networking' &&
+                  module !== 'storage' &&
                   module !== 'connectivity' &&
                   module !== 'cost' &&
                   module !== 'architecture' &&
@@ -1315,21 +1376,23 @@ export function Course({ module }: { module?: CourseModule }) {
                                 href: courseHref(module, historicalReturn),
                                 title: title(module, historicalReturn)!,
                               }
-                            : module === 'connectivity'
-                              ? { href: networkingHref('summary'), title: names.networking }
-                              : module === 'networking'
-                                ? { href: computeHref('summary'), title: names.compute }
-                                : module === 'compute'
-                                  ? {
-                                      href: courseHref('architecture', 'core-summary'),
-                                      title: names.architecture,
-                                    }
-                                  : module === 'architecture'
+                            : module === 'storage'
+                              ? { href: connectivityHref('summary'), title: names.connectivity }
+                              : module === 'connectivity'
+                                ? { href: networkingHref('summary'), title: names.networking }
+                                : module === 'networking'
+                                  ? { href: computeHref('summary'), title: names.compute }
+                                  : module === 'compute'
                                     ? {
-                                        href: courseHref('services', 'summary'),
-                                        title: names.services,
+                                        href: courseHref('architecture', 'core-summary'),
+                                        title: names.architecture,
                                       }
-                                    : undefined
+                                    : module === 'architecture'
+                                      ? {
+                                          href: courseHref('services', 'summary'),
+                                          title: names.services,
+                                        }
+                                      : undefined
                       }
                       next={
                         index >= 0 && index < pathTopics.length - 1
@@ -1343,33 +1406,37 @@ export function Course({ module }: { module?: CourseModule }) {
                           : index === pathTopics.length - 1
                             ? {
                                 href:
-                                  module === 'networking'
-                                    ? connectivityHref('introduction')
-                                    : module === 'compute'
-                                      ? networkingHref('introduction')
-                                      : module === 'architecture'
-                                        ? computeHref('introduction')
-                                        : currentV2
-                                          ? courseHref('benefits', 'availability')
-                                          : module === 'benefits'
-                                            ? courseHref('services', 'overview')
-                                            : module === 'services' && !legacyServices
-                                              ? courseHref('architecture', 'datacenters')
-                                              : '/learn',
+                                  module === 'connectivity'
+                                    ? storageHref('introduction')
+                                    : module === 'networking'
+                                      ? connectivityHref('introduction')
+                                      : module === 'compute'
+                                        ? networkingHref('introduction')
+                                        : module === 'architecture'
+                                          ? computeHref('introduction')
+                                          : currentV2
+                                            ? courseHref('benefits', 'availability')
+                                            : module === 'benefits'
+                                              ? courseHref('services', 'overview')
+                                              : module === 'services' && !legacyServices
+                                                ? courseHref('architecture', 'datacenters')
+                                                : '/learn',
                                 title:
-                                  module === 'networking'
-                                    ? connectivityNb.title
-                                    : module === 'compute'
-                                      ? networkingNb.title
-                                      : module === 'architecture'
-                                        ? computeNb.title
-                                        : currentV2
-                                          ? names.benefits
-                                          : module === 'benefits'
-                                            ? names.services
-                                            : module === 'services' && !legacyServices
-                                              ? names.architecture
-                                              : c.overview,
+                                  module === 'connectivity'
+                                    ? storageNb.title
+                                    : module === 'networking'
+                                      ? connectivityNb.title
+                                      : module === 'compute'
+                                        ? networkingNb.title
+                                        : module === 'architecture'
+                                          ? computeNb.title
+                                          : currentV2
+                                            ? names.benefits
+                                            : module === 'benefits'
+                                              ? names.services
+                                              : module === 'services' && !legacyServices
+                                                ? names.architecture
+                                                : c.overview,
                               }
                             : undefined
                       }
@@ -1387,8 +1454,10 @@ export function Course({ module }: { module?: CourseModule }) {
       {journal && (
         <PortalDialog title={c.journal} onClose={() => setJournal(false)}>
           <ManagementTeachingBoundary identity="course-journal">
-            {module === 'connectivity' ||
-            (!module && preferredResume?.module === 'connectivity') ? (
+            {module === 'storage' || (!module && preferredResume?.module === 'storage') ? (
+              <StorageLesson topic="introduction" journal />
+            ) : module === 'connectivity' ||
+              (!module && preferredResume?.module === 'connectivity') ? (
               <ConnectivityLesson topic="introduction" journal />
             ) : module === 'networking' || (!module && preferredResume?.module === 'networking') ? (
               <NetworkingLesson topic="introduction" journal />

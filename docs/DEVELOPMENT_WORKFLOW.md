@@ -73,6 +73,8 @@ No parallel worker increase is proposed. A future increase needs evidence of sto
 
 ## Candidate browser evidence in CI — PR32 compatibility correction
 
+P08/PR33 extends that inherited166-case profile to175: eight relevant Storage desktop cases and one initial compact Storage briefing/semantic-controls witness. All previous cases and settings remain; legacy expands to328. The Storage witness adds a distinct new interaction surface with its own actual desktop/short-window sweep. It is not a mobile-product expansion or a new permission to change workers/retries/timeouts. Actual exact-head execution remains the delivery condition.
+
 The approved command remains `npm run test:e2e:desktop`. CI runs it through `node scripts/verify-desktop-ci.mjs`, which owns the fixed complete command and accepts no selectors. Only its own exit0 writes a candidate SHA/fingerprint-bound passed entry to runner `current.json`; failure/signal cannot create or inherit success. The unchanged strict release follows immediately. Profile selection, mandatory plancheck, browser installation, retries/timeouts, worker1 and failure artifacts remain.
 
 Repository candidate verification remains pending before actual execution. An implementation audit may accept pending delivery; local strict preflight then honestly exits nonzero for missing candidate full-browser evidence, with all other errors resolved. Do not fill a passed flag from collection, a targeted run or a historical base run. Final acceptance still requires exact-head complete approved GitHub CI and its strict release. Six Hub cases extend the original160 baseline to166; legacy300 remains available and grows to312 with the same new cases on both projects.

@@ -24,6 +24,7 @@ export const coursePaths = [
       { title: h.moduleLabels.architecture, parts: ['architecture'] },
       { title: h.moduleLabels.compute, parts: ['compute'] },
       { title: h.networking, parts: ['networking', 'connectivity'] },
+      { title: h.moduleLabels.storage, parts: ['storage'] },
     ],
     planned: h.plannedModules.architecture,
   },

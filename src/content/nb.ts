@@ -5400,6 +5400,7 @@ export const managementNb = {
   accessReload: 'Les lagret vurderingskontekst på nytt',
   accessReview: 'Åpne egen vurdering og lagringskontroll',
   accessContexts: {
+    storage: 'Azure Storage Part A',
     connectivity: 'Networking Part B',
     networking: 'Networking Part A · selvstendig anvendelse',
     compute: 'Compute & Hosting · selvstendig anvendelse',
@@ -5952,6 +5953,7 @@ export const missionsNb = {
   reloadContext: 'Last inn bare denne konteksten',
   reviewContext: 'Åpne kontekstens eksisterende recovery eller vurdering',
   recoveryContexts: {
+    storage: 'Azure Storage Part A',
     connectivity: 'Networking Part B',
     networking: 'Networking Part A',
     missions: 'Practical Missions v1',
@@ -11338,7 +11340,7 @@ export const courseHubNb = {
     },
     architecture: {
       title: 'Azure Architecture & Services',
-      description: 'Utforsk Azure fra fysisk infrastruktur til compute og nettverk.',
+      description: 'Utforsk Azure fra fysisk infrastruktur til compute, nettverk og lagring.',
     },
     management: {
       title: 'Azure Management & Governance',
@@ -11353,11 +11355,12 @@ export const courseHubNb = {
     compute: 'Compute & Hosting',
     networking: 'Del A · Nettverksgrunnlag',
     connectivity: 'Del B · Hybrid og endpoints',
+    storage: 'Storage Accounts & Services · Part A',
     cost: 'Cost Management',
   },
   networking: 'Networking',
   plannedModules: {
-    architecture: ['Storage', 'Identity & Security'],
+    architecture: ['Storage Part B · tiers og redundans', 'Identity & Security'],
     management: ['Governance', 'Management Tools', 'Monitoring'],
   },
   recordLabels: {
@@ -11377,6 +11380,7 @@ export const courseHubNb = {
     compute: 'Compute & Hosting',
     networking: 'Networking · del A',
     connectivity: 'Networking · del B',
+    storage: 'Azure Storage Part A',
     cost: 'Cost Management',
   },
   partA: 'Del A · Fysisk infrastruktur',
@@ -11420,4 +11424,976 @@ export const courseHubNb = {
   sandbox: 'Utforsk Sandbox fritt',
   noObservations: 'Ingen veiledede observasjoner ennå',
   guided: 'Veiledede observasjoner',
+} as const;
+
+/** Original P08 manuscript · isolated Storage1.0.0 · sources checked2026-10-31. */
+export const storageNb = {
+  actualContext: 'Faktiske VM- og diskreferanser i din Sandbox',
+  actualBoundary:
+    'Listen leser eksisterende autoritativ inventory. Ingen disk leses, monteres eller opprettes. Den konseptuelle konto-/datamodellen nedenfor er separat; en VM eller disk gir ikke Storage-kompetanse.',
+  actualEmpty:
+    'Ingen VM finnes i den gjeldende Sandboxen. Du kan lære diskforskjellen uten å opprette en. Eventuelt eksisterende arbeid er kun lesbar kontekst.',
+  actualOpen: 'Åpne eksisterende Virtual machines',
+  actualUnverified: 'Teknisk inventory kan ikke bekreftes før Sandbox-lagringen er avklart.',
+  title: 'Azure Storage Part A · Accounts & Services',
+  path: 'Azure Architecture & Services',
+  overview:
+    'Velg lagring etter data og tilgangsmønster. Undersøk fire tjenestemekanismer, støttede kontoalternativer og forskjellen fra VM-disker.',
+  available:
+    'Part A er tilgjengelig med egen versjonert historikk. Part B om access tiers og redundans kommer senere. Lokal konseptundervisning; ingen Storage Account eller data opprettes i Azure.',
+  prerequisites:
+    'Forkunnskaper: cloud-tjenester, VM-er og forskjellen mellom nettverksvei og autorisasjon fra Networking. Du trenger ingen Azure-konto. Vi definerer objekt, filshare, melding, entity og account før du bruker dem.',
+  perspective: 'Perspektiver i Storage Workload Studio',
+  recallGuided: 'Gjenoppta lagret Storage-oppdrag',
+  pauseGuided: 'Sett oppdraget på pause',
+  milestoneNotice:
+    'Forklaringen bygger på lagrede, validerte modellresultater. Den er veiledning, ikke en selvstendig besvarelse eller en Azure-kvittering.',
+  summaryBoundary:
+    'Åpnet undervisning, dokumentert guidet arbeid og uavhengige innleveringer er forskjellige observasjoner. En korrigert retry endrer aldri første innlevering. Et godt svar her dokumenterer bare denne oppgaven, ikke generell Storage-mestring.',
+  labels: {
+    terms: 'Begreper i denne forklaringen',
+    example: 'Gjennomarbeidet eksempel',
+    limits: 'Avgrensning og moteksempel',
+    sources: 'Offisielle kilder · kontrollert31 oktober2026',
+    model:
+      'Deterministisk konseptmodell · ingen API, opplasting, database, køarbeider, token, deployment eller receipt',
+    configured: 'Utkast til forutsetninger',
+    observed: 'Sist lagrede observasjon',
+    predicted: 'Din prediksjon',
+    result: 'Modellens resultat',
+    run: 'Kjør modellen',
+    predict: 'Forutsi før kjøring',
+    cause: 'Forklar årsaken',
+    explain: 'Lagre årsaksforklaring',
+    done: 'Guidet anvendelse dokumentert',
+    pending: 'Ikke dokumentert ennå',
+    begin: 'Åpne SavvyShark-briefing',
+    start: 'Start dette oppdraget',
+    cancel: 'Avbryt',
+    recall: 'Gjenåpne briefing',
+    next: 'Neste handling',
+    where: 'Hvor finner du kontrollen?',
+    why: 'Hvorfor gjør du dette?',
+    expected: 'Hva skal du observere?',
+    actual: 'Faktisk registrert',
+    inspect: 'Bekreft undersøkt referanse',
+    portal: 'Åpne faktisk Portal',
+    return: 'Tilbake til Storage Part A',
+    all: 'Alle detaljer kan leses i tabellen',
+    first: 'Første innlevering',
+    aided: 'Med registrert hjelp',
+    retry: 'Gjeneksponert familie / retry',
+    unaided: 'Første uassisterte forsøk',
+    guided: 'Guidede oppdrag',
+    visited: 'Undervisningsaktiviteter åpnet',
+    independent: 'Uavhengige innleveringer',
+    classification: 'Forsøkstype og hjelp',
+    noXp: 'Ingen XP, Microsoft Learn-fullføring eller exam readiness utledes.',
+    human:
+      'Kvalifisert menneskelig Azure-SME-, novice/IT-, UX-, skjermleser- og målt transfer-validering er ikke gjennomført.',
+    switch:
+      'Ett guidet oppdrag er nåværende. Gjenoppta et lagret oppdrag for å beholde dets forutsetninger og observasjoner, eller start et nytt forsøk. Pause og vanlig navigasjon sletter ikke arbeidet.',
+    current: 'Fortsett nåværende oppdrag',
+    notice:
+      'Start lager bare en lokal guidet kontekst. Lukk og Avbryt starter ingenting. Forutsi og kjør eksplisitt; ingen ressurs eller fil opprettes.',
+    predictionOptions: [
+      'Velg prediksjon',
+      'Kravene støttes ikke / demonstrasjonen avvises',
+      'Delvis grunnlag eller gjentatt applikasjonseffekt',
+      'Dekker de deklarerte modellkravene',
+    ],
+    chooseCause: 'Velg årsaksforklaring',
+    relationships: 'Data- og tjenesterelasjoner',
+    service: 'Velg lagringstjeneste',
+    workload: 'Arbeidslastens krav',
+    accounts: 'Kontotype og kompatibilitet',
+    delivery: 'Asynkron arbeidstildeling',
+    structure: 'Undersøk datastruktur',
+    region: 'Region-/funksjonsstøtte er eksplisitt forutsatt i dette eksemplet',
+    assumptions: 'Modellforutsetninger',
+    account: 'Storage account-type',
+    requested: 'Ønsket tjeneste / protokoll',
+    imageAccess: 'Produktbildenes nye tilgangskrav',
+    causalPending: 'Modellkontrastene må undersøkes før årsaksforklaring kan lagres.',
+  },
+  storage: {
+    loading: 'Laster versjonert Storage-arbeid …',
+    title: 'Storage-lagringen må avklares',
+    text: 'Forklaringer og faglige resultater holdes tilbake når lagringen er usikker. Ditt sist leste oppgaveutkast kan undersøkes uten endringer; last inn gjeldende registrering før videre arbeid. Svar fra ulike faner flettes aldri.',
+    reload: 'Last inn Storage på nytt',
+    recover: 'Gjenopprett bare ugyldige Storage-data',
+    confirm: 'Bekreft isolert gjenoppretting',
+    cancel: 'Behold data',
+    capacity:
+      'Ny aktivitet er stanset ved hendelsesgrensen. Et aktivt forsøk kan fortsatt lagre siste svar, registrere hjelp og levere eller avbryte. En allerede undersøkt guidet aktivitet kan avsluttes.',
+    failed: 'Handlingen ble ikke varig lagret. Ingen faglig fullføring er registrert.',
+    milestones:
+      'Automatiske forklaringer er satt på pause fordi visningshistorikken ikke kan bekreftes. Arbeidet kan fortsette; forklaringen kan åpnes manuelt når konteksten er trygg.',
+    unsafe:
+      'Automatisk veiledning er skjermet under aktiv selvstendig vurdering eller usikker lagring. Åpne vurderings-/recovery-konteksten nedenfor.',
+    ownDraft: 'Sist leste oppgaveutkast · endring og innlevering sperret til trygg reload',
+  },
+  assessment: {
+    title: 'Selvstendig Storage-anvendelse',
+    intro:
+      'Ta stilling til nye data-, klient-, konto- og applikasjonskrav. Lever både en beslutning og begrunnelsen for den. Tidligere VM-, Networking- eller guidede Storage-resultater gir ingen ny uavhengig førstegangsinnlevering.',
+    rules:
+      'Første besvarelse låses ved innlevering. Ingen fasit eller løsningsguide vises under arbeidet. Åpning av teori, Journal, Summary eller tidligere feedback krever varig registrert hjelp i alle aktive kontekster. Samme familie senere er retry, også etter avbrudd.',
+    case: 'Velg scenario',
+    result: 'Resultat for dette paret',
+    decision: 'Din beslutning',
+    reason: 'Din tekniske begrunnelse',
+    draft: 'Varig lagret utkast',
+    unaided: 'Første uassisterte forsøk',
+    assisted: 'Med registrert hjelp',
+    retried: 'Gjeneksponert familie / retry',
+    first: 'Første innlevering',
+    pass: 'Faglig forsvarlig beslutning og begrunnelse i denne situasjonen',
+    fail: 'Beslutning og begrunnelse tilfredsstiller ikke kravene sammen',
+    start: 'Start selvstendig forsøk',
+    retry: 'Start nytt forsøk',
+    submit: 'Lever beslutning og begrunnelse',
+    abandon: 'Avbryt forsøket',
+    help: 'Be om hjelp i relevant undervisning',
+    neutral:
+      'Vurder begge valgene under de oppgitte premissene. Ingen av valgene er forhåndsvalgt; riktig tjenestenavn med feil årsak godkjennes ikke.',
+    history: 'Undersøk tidligere innleveringer',
+    alternatives: 'Alle alternativer og endrede forutsetninger',
+    repeat: 'Repeter presis undervisningsaktivitet',
+  },
+  assessmentActive:
+    'Et annet Storage-scenario er aktivt. Gå tilbake til ditt eget varig lagrede utkast.',
+  currentFeedback: 'Tilbakemelding på innlevert Storage-svar',
+  historyFeedback: 'Historisk Storage-besvarelse',
+  topics: {
+    introduction: 'Lagring, data og kontoer',
+    blob: 'Azure Blob Storage · objekter',
+    files: 'Azure Files · delte filer',
+    queues: 'Azure Queue Storage · asynkront arbeid',
+    tables: 'Azure Table Storage · nøkkelbaserte entities',
+    accounts: 'Storage account options · støttede kombinasjoner',
+    disks: 'Managed disks · VM-volum og datatjenester',
+    studio: 'Storage Workload Studio',
+    missions: 'Guidede Storage-oppdrag',
+    assessment: 'Selvstendig Storage-anvendelse',
+    summary: 'Storage Part A · dokumenterte resultater',
+  },
+  missions: {
+    design: {
+      title: 'Design the Data Storage',
+      situation:
+        'Fjordverk har produktbilder for en HTTP-klient, et produksjonsprogram med SMB-filer, utsatt bildebehandling og metadata som finnes med kjente nøkler.',
+      goal: 'Skill fire datakontrakter, og forklar et endret klientkrav.',
+      steps: [
+        'Velg tjenester for alle fire behovene. Forutsi og kjør til alle grunnkrav er undersøkt.',
+        'Behold Blob for bildene, endre bildekravet til SMB og kjør kontrasten.',
+        'Velg en tjeneste som støtter det nye bildekravet, forutsi og kjør igjen.',
+        'Forklar hvorfor samme bildeinnhold kan kreve et annet tjenestevalg.',
+      ],
+      observe:
+        'Se hver datatype, organisering, klientmekanisme og oppfylt/ikke oppfylt krav i resultatet. Riktig grunnsituasjon alene avslutter ikke oppdraget.',
+      debrief:
+        'Du har dokumentert at innholdstype alene ikke bestemmer tjenesten: tilgangsmønsteret endret et faglig riktig valg. Konto, tillatelser og faktisk dataflyt må fortsatt planlegges.',
+      why: 'Et konsistent applikasjonsdesign må tilfredsstille hver datakontrakt og endrede krav, ikke bare samle alt på én konto.',
+      where: 'I perspektivet Tjenestevalg: de fire tjenestevalgene, bildekravet og prediksjonen.',
+    },
+    accounts: {
+      title: 'Investigate Account Compatibility',
+      situation:
+        'Teamet antar at en premium block blob-konto også kan gi køer og NFS-filshares. Region-/funksjonsstøtten er ikke undersøkt.',
+      goal: 'Diagnostiser kontogrensen, finn støttede typer og skill støtte fra forutsetning.',
+      steps: [
+        'Undersøk Queue i premium block blobs og deretter i Standard GPv2.',
+        'Undersøk NFS i GPv2 og deretter i en SSD-file-konto.',
+        'Kjør den typekompatible NFS-kombinasjonen uten deklarert region-/funksjonsstøtte.',
+        'Forklar hvorfor riktig type ikke alene beviser en fungerende deployment.',
+      ],
+      observe:
+        'Matrix, støttede tjenestemekanismer og årsak følger samme lagrede input. Et uavklart regionalt grunnlag skal ikke bli et ubetinget grønt resultat.',
+      debrief:
+        'Du har skilt tjenestetype, kontofamilie, protokoll/media og regional forutsetning. Dette er en støttekontroll i en modell, ikke en opprettet ressurs eller en målt SLA.',
+      why: 'Premium spesialiserer funksjoner; navnet gir ikke en superset av alle Storage-tjenester.',
+      where:
+        'I perspektivet Kontokompatibilitet: velg type, ønsket tjeneste/protokoll og den eksplisitte forutsetningen.',
+    },
+    delivery: {
+      title: 'Når samme jobb leveres igjen',
+      situation:
+        'Bildeworkeren gjør jobb-42 ferdig og krasjer før den sletter meldingen. En ny worker kan motta samme jobb.',
+      goal: 'Skill to leveringer fra antall applikasjonseffekter.',
+      steps: [
+        'Kjør den deklarerte krasjsekvensen uten idempotent applikasjonsbehandling.',
+        'Kjør samme sekvens med den forutsatte varige idempotensmekanismen.',
+        'Undersøk avvisning av en stor bildefil som kømelding; bruk en liten jobbreferanse.',
+        'Forklar hvilken komponent som hindrer gjentatt sideeffekt.',
+      ],
+      observe:
+        'Den eksplisitte hendelseslinjen viser usynlighet, krasj før sletting og ny levering. En applikasjonsmekanisme kan endre effekter mens antall leveringer er det samme.',
+      debrief:
+        'Du har observert en kømekanisme og en applikasjonsmekanisme hver for seg. I en virkelig løsning må idempotens og dataoppdateringer utformes sammen; køen lover ikke at en vilkårlig jobb skjer nøyaktig én gang.',
+      why: 'Mottak, sideeffekt og sletting er ulike hendelser. Et krasj mellom dem er en viktig feilgrense.',
+      where: 'I perspektivet Meldingslivsløp: meldingsinnhold, idempotens og prediksjon.',
+    },
+  },
+  causal: {
+    design: [
+      'En container gir automatisk delte filoperasjoner når et objekt får filendelse.',
+      'Datakontrakten styrer valget: HTTP-objekt, SMB-share, jobbkø og nøkkelbaserte entities løser ulike behov.',
+      'Alle datatjenester blir like når de legges i samme account.',
+    ],
+    accounts: [
+      'En typekompatibel kombinasjon må fortsatt kvalifiseres av protokoll, media, region og tilgang; premium er ikke universell støtte.',
+      'Et premium-valg gir alle tjenester i GPv2 og alle regionale funksjoner.',
+      'En vellykket støttekontroll beviser at en klient er autentisert og autorisert.',
+    ],
+    delivery: [
+      'Queue Storage slutter å levere meldingen på nytt fordi programmet bruker en jobb-ID.',
+      'En melding som er mottatt, er allerede slettet selv om workeren krasjer.',
+      'Visibility og sletting styrer levering; den deklarerte idempotente applikasjonslogikken hindrer gjentatt effekt.',
+    ],
+  },
+  milestone: {
+    accounts: {
+      title: 'SavvyShark · riktig tjeneste, feil kontotype',
+      text: 'De lagrede kjøringene viser Queue avvist i premium block blobs og støttet i GPv2 under samme deklarerte forutsetninger. Kontofamilien endret funksjonsstøtten. Dette beviser ikke regional tilgjengelighet eller klienttilgang.',
+    },
+    delivery: {
+      title: 'SavvyShark · to leveringer, én effekt',
+      text: 'Begge lagrede krasjsekvenser leverte samme jobbreferanse to ganger. Bare applikasjonens deklarerte idempotensmekanisme endret effektene fra to til én. Køen har ikke fått en nøyaktig-én-gang-garanti.',
+    },
+  },
+  model: {
+    outcome: [
+      'Oppfyller ikke kravene',
+      'Delvis / uavklart / gjentatt effekt',
+      'Oppfyller deklarerte modellkrav',
+    ],
+    snapshot: 'lagret modellkjøring',
+    draftChanged:
+      'Utkastet er endret. Resultatet nedenfor gjelder fortsatt sist lagrede input; forutsi og kjør på nytt for å undersøke endringen.',
+    noRun:
+      'Ingen modellkjøring er lagret i dette oppdraget. Velg en prediksjon og kjør eksplisitt.',
+    boundary:
+      'Konseptuelle eksempeldata · ingen teknisk inventory, kvittering eller faktisk Storage-runtime.',
+    imageOptions: ['HTTPS-objekter', 'Montert SMB-filområde'],
+    accountNames: {
+      gpv2: 'Standard general-purpose v2',
+      block: 'Premium block blobs',
+      fileSsd: 'Provisioned SSD file shares · premium',
+      fileHdd: 'Provisioned HDD file shares',
+      page: 'Premium page blobs',
+    },
+    requestNames: {
+      block: 'Block blobs',
+      append: 'Append blobs',
+      page: 'Page blobs',
+      smb: 'Azure Files · SMB',
+      nfs: 'Azure Files · NFS',
+      queue: 'Azure Queue Storage',
+      table: 'Azure Table Storage',
+      disk: 'Managed disk',
+    },
+    services: {
+      blob: 'Azure Blob Storage',
+      files: 'Azure Files',
+      queue: 'Azure Queue Storage',
+      table: 'Azure Table Storage',
+      disk: 'Managed disks',
+      other: 'En annen datatjeneste',
+    },
+    workloads: {
+      images: 'Produktbilder · binære objekter til en webklient',
+      documents: 'Produksjonsdokumenter · delt filområde',
+      jobs: 'Jobbreferanser · utsatt bildebehandling',
+      metadata: 'Produktmetadata · oppslag med kjente nøkler',
+    },
+    supported: 'Støttes i den avgrensede account-modellen',
+    unsupported: 'Støttes ikke av denne kontotypen',
+    unverified: 'Type støtter forespørselen; region-/funksjonsgrunnlaget er ikke deklarert',
+    declared: 'Region-/funksjonsstøtte er forutsatt, ikke kontrollert mot Azure',
+    noAccess: 'Tjenestestøtte er ikke autorisasjon eller faktisk respons.',
+    queueLabels: {
+      payload: 'Innhold i den konseptuelle meldingen',
+      pointer: 'Liten jobb-ID og Blob-referanse',
+      large: 'Stor bildefil · overskrider meldingsgrensen',
+      idempotent: 'Applikasjonen har en deklarert varig idempotensmekanisme',
+      deliveries: 'Meldingsleveringer',
+      effects: 'Applikasjonseffekter',
+      rejected:
+        'Meldingen avvises før levering i dette eksemplet. Et lite referansebudskap kan peke til bildefilen i Blob.',
+      steps: [
+        'Produsent legger inn jobb-42',
+        'Worker A mottar; meldingen er midlertidig usynlig',
+        'Worker A gjør sideeffekten, men krasjer før sletting',
+        'Visibility-perioden utløper i den deklarerte sekvensen',
+        'Worker B mottar samme jobb-ID',
+        'Applikasjonen gjentar eller gjenkjenner effekten',
+        'Worker B sletter meldingen etter behandling',
+      ],
+      deduplicated: 'Den deklarerte appmekanismen gjenkjenner jobb-42; ingen ny effekt.',
+      repeated: 'Ingen idempotens er forutsatt; samme jobb gir en ny effekt.',
+      assumption:
+        'Eksplisitt modellforutsetning: krasj etter første sideeffekt og før sletting, deretter vellykket andre behandling/sletting. Idempotens antas varig og riktig koordinert med sideeffekten; AzureLab implementerer ingen virkelig applikasjonstransaksjon.',
+    },
+    structures: {
+      blob: ['Storage Account', 'Blob Container · katalog', 'Block blob · ventil-07.jpg'],
+      files: [
+        'Storage Account · classic share',
+        'File Share · produksjon',
+        'Katalog og fil · tegninger/V07.dwg',
+      ],
+      queue: ['Storage Account', 'Queue · bildejobber', 'Message · jobb-42 med Blob-referanse'],
+      table: ['Storage Account', 'Table · produkter', 'Entity · PartitionKey + RowKey'],
+    },
+    structureText: {
+      blob: 'Container og objektnavn organiserer Blob-data. Et navn med skråstrek er ikke alene en montert filshare; et Data Lake-hierarki har egne vilkår.',
+      files:
+        'Classic account-basert File Share har fil- og katalogsemantikk. Microsoft.FileShares er en separat nyere management-modell, foreløpig NFS, uten konto som forelder.',
+      queue:
+        'Meldingen instruerer en worker og kan bli levert igjen. Bildet ligger ikke automatisk i køen; meldingen kan peke til det.',
+      table:
+        'Entities har forskjellige egenskaper, men et entydig par PartitionKey/RowKey. To like RowKey er lov i forskjellige partisjoner; dette er ikke en SQL-join.',
+    },
+    entities: [
+      {
+        PartitionKey: 'ventiler',
+        RowKey: 'V07',
+        egenskaper: 'Trykklasse=PN16',
+      },
+      {
+        PartitionKey: 'motorer',
+        RowKey: 'V07',
+        egenskaper: 'Spenning=230V',
+      },
+    ],
+    designColumns: [
+      'Behov og datatype',
+      'Valgt tjeneste',
+      'Nødvendig mekanisme',
+      'Observert samsvar',
+    ],
+    met: 'Kravet dekkes i modellen',
+    notMet: 'Kravet dekkes ikke',
+    yes: 'Ja',
+    no: 'Nei',
+    matrixRequests: ['block', 'append', 'page', 'smb', 'nfs', 'queue', 'table'],
+    matrixCaption: 'Støtte i deklarerte moderne account-familier · classic account-baserte Files',
+    matrixBoundary:
+      'SS08/SS12/SS20/SS21 · media, protokoll og region kvalifiserer støtten. Microsoft.FileShares er en egen management-modell utenfor denne account-matrisen. Ingen av radene gjør en managed disk til et barn i din Storage Account.',
+    relationshipLevels: ['Navnerom', 'Tjenestens samling', 'Lagret data'],
+    entityCaption: 'Konseptuelle entities · samme RowKey, forskjellige partisjoner',
+    properties: 'Eksempelegenskaper',
+    noDisk: 'Ingen datadisk registrert',
+    mechanisms: {
+      blob: 'Navngitte objekter i containere, lest eller skrevet gjennom objektoperasjoner. Vanlig HTTPS-objekttilgang oppfyller ikke i seg selv et montert SMB-filkrav.',
+      files:
+        'Administrert share med filer, kataloger og valgt filprotokoll. Ikke en Queue-worker, SQL-motor eller automatisk objektpublisering.',
+      queue:
+        'Små arbeidsmeldinger som en konsument må behandle. Kan leveres igjen; erstatter ikke bildelager eller varig registerdatabase.',
+      table:
+        'Ikke-relasjonelle entities med PartitionKey/RowKey og egenskaper. Ingen generell SQL-join eller automatisk indeks på alle egenskaper.',
+      disk: 'Blokkvolum for en VM-klient, ikke en account-basert objekt-/share-/kø-/tabellmekanisme.',
+      other:
+        'En annen tjeneste kan være riktig ved andre krav, eksempelvis relasjonelle SQL-behov. Ingen av grunnbehovene her krever det.',
+    },
+    designChanged: {
+      http: 'Grunnkravet for bildene er navngitte HTTPS-objekter. Delte produksjonsfiler, arbeidsmeldinger og keyed metadata har egne mekanismer.',
+      smb: 'Bildekravet er endret til et montert SMB-filområde. Samme bildebytes gjør ikke det gamle objektvalget til et riktig filshare-valg.',
+    },
+    accountReasons: {
+      gpv2: 'Standard GPv2 tilbyr Blob-typene, Queue, Table og passende HDD/SMB Files i denne modellen. Classic Files NFS krever et annet egnet SSD-alternativ.',
+      block:
+        'Premium block blob-accounten tilbyr block/append blobs. Den har ikke Queue, Table, Files eller page blobs.',
+      fileSsd:
+        'En egnet provisioned SSD-file-account gir classic SMB- eller NFS-shares. Den tilbyr ikke Blob, Queue eller Table. Én share velger én protokoll.',
+      fileHdd:
+        'Provisioned HDD FileStorage er et aktuelt classic Files-alternativ, men gir ikke NFS i denne modellen. FileStorage er dermed ikke i seg selv synonymt med premium SSD.',
+      page: 'Premium page blob-accounten er for page blobs. Navnet premium eller Blob gjør ikke block/append, Files, Queue eller Table støttet.',
+    },
+  },
+  sections: {
+    introduction: {
+      title: 'Ett system trenger flere typer lagring',
+      paragraphs: [
+        'Fjordverk selger reservedeler og lager monteringsveiledninger. Produktbildene må kunne hentes av en nettapplikasjon. Ansatte og et eldre produksjonsprogram trenger felles dokumentfiler. Nye bilder skal behandles i bakgrunnen, og hvert produkt har egenskaper som varierer med produktfamilien. Dette er fire forskjellige krav til hvordan data brukes. Filendelsen alene avgjør ikke hvilken tjeneste som passer.',
+        'Lagring bevarer data mellom operasjoner. Compute kjører programkoden som leser eller endrer data; nettverk gir en kommunikasjonsvei mellom komponenter. En kø utfører ikke bildebehandling, og et lagret bilde publiserer ikke seg selv. Vi må velge både datalagring, programlogikk og tilgang. Å plassere alt på VM-ens disk kan være mulig, men gjør ikke disken til en administrert objekt-, fil-, kø- eller tabelltjeneste.',
+        'Et Storage Account gir en navne- og konfigurasjonsramme for støttede Azure Storage-tjenester. I en Standard general-purpose v2-konto kan Blob, Files, Queues og Tables eksistere med forskjellige tjenesteendepunkter. Kontoen er ikke selve filen eller meldingen. Under kontoens Blob-tjeneste finnes containere og blobs; andre tjenester har andre datastrukturer. Kontoens type, tjenestens funksjoner og arbeidslastens krav må passe sammen.',
+        'Et offentlig adresserbart endepunkt er ikke det samme som anonym lesetilgang. Autorisasjon og nettverksinnstillinger må tillate forespørselen. Blob-data er ikke anonymt lesbare som følge av at en konto finnes. Å tillate anonym tilgang på kontonivå er heller ikke nok alene: en container må eksplisitt tillate slik lesing. Kontoens innstilling kan stenge dette. Kryptering av lagrede data erstatter ikke adgangskontroll.',
+      ],
+      terms: [
+        [
+          'Storage Account',
+          'Navnerom og ramme for støttede datatjenester; ikke et universelt filsystem.',
+        ],
+        ['Tilgangsmønster', 'Hvordan klienten identifiserer, leser, deler og endrer data.'],
+        ['Persistens', 'Data bevares uavhengig av en bestemt programkjøring.'],
+      ],
+      example:
+        'Fjordverk kan starte med én standardkonto for bilder, SMB-dokumenter, jobbreferanser og produkt-entities. De trenger fremdeles separate datastrukturer og tillatelser. Et nytt NFS-krav kan føre til en egen filkonto; kontoantallet er et designvalg, ikke et mål på læring.',
+      limit:
+        'Dette er en deklarert læringsarkitektur. Ingen konto, fil, nettverksvei eller tilgang testes mot Azure. Tier-, redundans- og migreringsvalg hører til senere deler.',
+    },
+    blob: {
+      title: 'Et objekt har innhold, navn og metadata',
+      paragraphs: [
+        'Azure Blob Storage lagrer objekter, kalt blobs. Et objekt kan være binære data som et bilde, en lydfil eller en eksport, eller tekst som en logg. «Ustrukturert» betyr at Blob-tjenesten ikke krever at innholdet følger et databaseskjema. Et JSON-dokument er fortsatt et objekt her; tjenesten gjør det ikke automatisk søkbart som relasjonelle rader.',
+        'I account-modellen går relasjonen Storage Account → Blob Container → Blob. Containeren organiserer et sett objekter og er et relevant tilgangsområde. Klienten kan identifisere et objekt ved konto, container og objektnavn og bruke et API, vanligvis over HTTPS. Navnet katalog/bilde.jpg kan ligne en filsti. I et vanlig flatt navnerom er slike skillelinjer en del av navnet, ikke bevis for et montert filsystem.',
+        'Block blobs passer for eksempel til bilder og dokumentobjekter. Append blobs er tilrettelagt for tilføying, mens page blobs støtter sidebaserte tilfeldige oppdateringer. Blob-type og account-type er forskjellige valg: en premium page blob-konto er ikke en premiumkonto for alle Blob-typer. Ikke velg en disk eller page blob bare fordi begge bruker blokker eller sider.',
+        'Blob har også dokumenterte ekstra muligheter, blant annet Data Lake-hierarki, NFS3 og SFTP under bestemte vilkår. Det gjør ikke en vilkårlig Blob-konto til en SMB-share eller et ferdig datavarehus. I denne delen sammenligner vi et vanlig API-basert objektbehov med et eksisterende programs krav til delte filoperasjoner. En senere endring i klientkrav kan endre tjenestevalget.',
+      ],
+      terms: [
+        ['Blob', 'Ett navngitt objekt med innhold og metadata.'],
+        ['Container', 'En samling blobs i en konto; forskjellig fra en compute-container.'],
+        ['Block / append / page', 'Forskjellige Blob-typer med ulike oppdateringsmekanismer.'],
+      ],
+      example:
+        'Fjordverks nettsted henter produkter/ventil-07.jpg fra containeren katalog. Bildet kan skiftes ut ved å skrive et nytt objekt. Når produksjonsprogrammet senere krever en SMB-sti og filoperasjoner uten kodeendring, oppfyller ikke dette HTTPS-objektoppsettet kravet.',
+      limit:
+        'En URL beviser verken autorisasjon eller en offentlig publisert fil. Ingen opplasting, NFS-/SFTP-konfigurasjon, tier eller ytelsesgaranti simuleres.',
+    },
+    files: {
+      title: 'En share gir en filorientert kontrakt',
+      paragraphs: [
+        'Azure Files tilbyr administrerte filshares. En klient monterer en share og arbeider med kataloger og filer gjennom en støttet filprotokoll. Det passer når et eksisterende program forventer filstier og fildelingssemantikk, eller flere klienter må bruke et felles filområde. Azure administrerer tjenesteinfrastrukturen; applikasjonens filbruk og tilgang må fortsatt utformes.',
+        'SMB og NFS er protokoller, ikke forskjellige navn på Blob. SMB brukes blant annet av Windows-klienter og støttes også av relevante Linux-/macOS-klienter. NFS har andre filsystem- og tilgangsforutsetninger; her brukes en deklarert Linux-klient. En share velger SMB eller NFS. Begge kan finnes som forskjellige shares i en egnet konto, men én share tilbyr ikke begge protokollene samtidig.',
+        'For classic file shares organiserer en Storage Account en File Share med filer og kataloger. Standard StorageV2 kan gi HDD-baserte pay-as-you-go SMB-shares. Nyere provisioned FileStorage-kontoer kan ha HDD eller SSD, men er bare for Files. NFS krever SSD i den account-baserte modellen vi undersøker. Derfor er «FileStorage» ikke alene det samme som «premium SSD» eller en garanti for NFS.',
+        'Gjeldende produktdokumentasjon beskriver også Microsoft.FileShares: en share kan være en egen Azure-ressurs uten et Storage Account, foreløpig for NFS. Dette er en separat management-modell, ikke en feil i account-hierarkiet eller et sjette generisk datalager. Studioet avgrenser seg eksplisitt til classic account-baserte shares; i et faktisk design må modell, region, protokoll og funksjoner kontrolleres.',
+        'En montert share krever riktig nettverk, autentisering og tillatelser. For SMB kan klientens nettverk for eksempel blokkere nødvendig protokolltrafikk. En share som finnes, er derfor ikke bevis for at alle ansatte kan åpne alle filer. Å dele et filområde er heller ikke i seg selv konfliktløsning for applikasjonens samtidige endringer.',
+      ],
+      terms: [
+        ['File Share', 'Et administrert felles filområde med kataloger og filer.'],
+        ['SMB / NFS', 'Filprotokoller med forskjellige klient- og tilgangsforutsetninger.'],
+        [
+          'Classic file share',
+          'Account-basert Files-modell, forskjellig fra top-level Microsoft.FileShares.',
+        ],
+      ],
+      example:
+        'Fjordverks produksjonsprogram åpner og låser filer på en eksisterende SMB-sti. En Azure Files SMB-share passer klientkontrakten. En Blob Container med navn som ligner mapper er ikke en direkte erstatning uten å endre programmet. Med et nytt Linux/NFS-krav må teamet revurdere account, media og nettverk.',
+      limit:
+        'Tjenesten garanterer ikke at hvert eldre filprogram eller enhver region støtter ønsket kombinasjon. Vi monterer ingen share og implementerer ikke Azure File Sync eller migrering.',
+    },
+    queues: {
+      title: 'Meldingen ber om arbeid; køen gjør ikke jobben',
+      paragraphs: [
+        'Azure Queue Storage lagrer meldinger mellom applikasjonskomponenter. En produsent legger inn en arbeidsbeskrivelse; en konsument henter meldingen og utfører kode som behandler arbeidet. Dette lar nettstedet gi respons før en bakgrunnsjobb er ferdig. Køen jevner ikke automatisk ut all kapasitet og starter ingen worker av seg selv; en applikasjon eller integrasjon må gjøre behandlingen.',
+        'Relasjonen er Storage Account → Queue → Messages. En melding kan for eksempel inneholde jobb-ID og referansen til et bilde i Blob. Bildet behøver ikke flyttes inn i meldingen. Tjenestens meldingsgrense er64KB; encoding og nyttelast må vurderes. En stor bildefil er derfor ikke en passende kømelding. Selve bildedataene og status-/metadataregisteret kan ligge i andre tjenester.',
+        'Når en worker mottar en melding, blir den normalt midlertidig usynlig for andre mottak. Den er ikke nødvendigvis slettet. Etter vellykket behandling må applikasjonen slette meldingen med riktig mottaksreferanse. Hvis workeren krasjer før slettingen, kan meldingen bli synlig og levert igjen etter visibility-perioden. Vi demonstrerer hendelsesrekkefølgen eksplisitt uten ekte klokke. Visibility kan også utløpe mens den første workeren fortsatt lever og arbeider. En langvarig jobb må håndtere denne risikoen; en passende fornyelse av usynlighetsperioden kan redusere samtidig mottak, men er ikke en varig nøyaktig-én-gang-garanti.',
+        'En jobb kan allerede ha endret data før et krasj. En ny levering kan da gi en ekstra sideeffekt. Applikasjonen kan bruke en stabil jobb-ID og en varig idempotensstrategi slik at gjentatt arbeid ikke gjentar forretningseffekten. Dette må designes sammen med dataoppdateringene; et avkrysningsfelt i en ekte kø gir ikke en universell nøyaktig-én-gang-garanti. Studioets idempotens er en uttrykkelig forutsatt applikasjonsmekanisme.',
+        'Storage queues gir ikke en generell FIFO-garanti og er ikke en SQL-/metadata-database. Azure Service Bus er en annen messaging-tjeneste med for eksempel sessions, duplicate detection og andre broker-funksjoner under relevante vilkår. Et krav til slike funksjoner må vurderes særskilt; heller ikke navnet på en broker beviser at en vilkårlig ekstern applikasjonseffekt skjer nøyaktig én gang.',
+      ],
+      terms: [
+        [
+          'Produsent / konsument',
+          'Programdelen som legger inn arbeid, og programdelen som mottar og behandler det.',
+        ],
+        [
+          'Visibility',
+          'Midlertidig synlighet for mottak, forskjellig fra utført jobb og sletting.',
+        ],
+        [
+          'Idempotent behandling',
+          'En applikasjonsstrategi der gjentatt behandling av samme jobb ikke gjentar den ønskede sideeffekten.',
+        ],
+      ],
+      example:
+        'Fjordverk lagrer et bilde som Blob og legger en liten jobbreferanse i en Queue. I dette gjennomarbeidede eksemplet stopper worker A før den har gjort noen sideeffekt. Etter ny levering lager worker B miniatyrbildet og sletter meldingen: to leveringer, én effekt. Studioet undersøker en annen feilgrense, der første worker allerede har gjort sideeffekten. Forutsi selv hva som endres.',
+      limit:
+        'Køen utfører ikke bildebehandling, oppbevarer ikke automatisk en full jobbstatusdatabase og lover ikke FIFO eller nøyaktig-én-gang-applikasjonsutførelse. Ingen levende kø, worker, timer eller Functions-trigger kjører.',
+    },
+    tables: {
+      title: 'Entities organiseres etter hvordan du finner dem igjen',
+      paragraphs: [
+        'Azure Table Storage er et nøkkel-/attributtlager for strukturerte, ikke-relasjonelle data. En table inneholder entities med navngitte egenskaper. Entities i samme table kan ha forskjellige egenskaper: en ventil kan ha trykklasse, mens en motor har spenning. Fleksibelt skjema fjerner ikke behovet for datavalidering og et gjennomtenkt tilgangsmønster i applikasjonen.',
+        'Relasjonen er Storage Account → Table → Entities. Hver entity identifiseres entydig av kombinasjonen PartitionKey og RowKey innen tabellen. PartitionKey grupperer relaterte entities; RowKey identifiserer en entity innen denne partisjonen. Samme RowKey kan derfor finnes i forskjellige partisjoner. En stabil nøkkel som samsvarer med hvordan klienten finner produktet, kan gjøre direkte oppslag effektivt.',
+        'Dersom klienten kjenner produktfamilie og produkt-ID, kan de brukes som et deklarert nøkkelpar. Dersom kravene i stedet er vilkårlige filtreringer og komplekse sammenkoblinger mellom flere datasett, må designet vurderes på nytt. Ikke anta at enhver egenskap automatisk får en sekundær indeks eller at et fleksibelt skjema gjør alle spørringer like effektive.',
+        'En Table Storage-table er ikke en vanlig relasjonell SQL-tabell. Tjenesten tilbyr ikke SQL-motor med joins, foreign keys og stored procedures bare fordi den heter Table. Relasjonelle krav kan kreve en annen databasetjeneste. Azure Cosmos DB for Table er også et annet produkt med egne egenskaper; en kompatibel klientflate gjør ikke produktene eller ytelses-/indeksløftene like.',
+      ],
+      terms: [
+        ['Entity', 'En samling typede egenskaper i en table.'],
+        ['PartitionKey', 'Første del av nøkkelen og logisk gruppering av entities.'],
+        ['RowKey', 'Unik innen en partisjon; sammen med PartitionKey identifiserer den entityen.'],
+      ],
+      example:
+        'Fjordverk velger PartitionKey=ventiler og RowKey=V07. En annen entity kan være PartitionKey=motorer, RowKey=V07. De har samme RowKey, men forskjellige fullstendige nøkler. Trykklasse behøver ikke finnes på motoren. Et senere krav om SQL-joins mellom ordrelinjer, kunder og betalinger kan ikke dekkes ved bare å gi denne tabellen flere kolonner.',
+      limit:
+        'Modellen er en forklarende tabell med fiktive entities, ikke en kjørende database, målt partisjonering eller en SQL-/Cosmos-emulator. Kvoter og detaljerte transaksjonsgrenser er ikke en vurdert del her.',
+    },
+    accounts: {
+      title: 'Kontotype er en funksjonsgrense, ikke et kvalitetsstempel',
+      paragraphs: [
+        'Begynn med tjenesten og arbeidslastens protokoll, datamekanisme og ytelsesbehov. Kontotypen bestemmer hvilke datatjenester som kan brukes sammen. Standard general-purpose v2 er et moderne allround-alternativ for Blob, Queue, Table og passende Azure Files-shares. Det betyr ikke at kontoen uten videre støtter alle protokoller, media, regioner og funksjoner i disse tjenestene.',
+        'Premium block blobs er for block/append blobs og kan passe erklærte krav om SSD og lavere lagringslatens. Det er ikke en premiumkonto for Files, Queues og Tables. Premium page blobs er begrenset til page blobs. Et program som trenger block blobs, blir ikke kompatibelt ved å velge premium page blobs. Storage-typen beskriver dermed teknisk funksjon, ikke en universell rangering der dyrere alltid løser mer.',
+        'For classic Files skiller vi provisioned SSD-file accounts, ofte presentert som premium file shares, fra provisioned HDD-file accounts. Begge er FileStorage-kontoer for bare file shares. SSD kan støtte passende SMB- eller NFS-shares; HDD er ikke NFS-alternativet i denne avgrensede modellen. Standard StorageV2 er et annet, pay-as-you-go HDD/SMB-alternativ. Dette kvalifiserer den forenklede firetype-tabellen i grunnleggende Learn-materiale. Gjeldende Files-dokumentasjon anbefaler provisioned accounts for nye classic file shares. GPv2-raden viser en støttet kombinasjon, ikke en generell anbefaling om dette som standard for nye Files-utrullinger.',
+        'En account gir et eget navnerom, og hver støttet tjeneste har sitt endepunkt. Navne-, ytelses-, kostnads- og tilgangerfaring kan derfor begrunne flere kontoer, men én konto per fil er ikke nødvendig. Kryptering ved lagring opphever ikke autorisasjon, og en kjent endpoint-adresse gjør ikke data anonyme. På samme måte er «type støtter tjenesten» bare én del av en virkelig kompatibilitetskontroll.',
+        'Kontotype, media, region, funksjoner, protokoll og valgt management-modell må kontrolleres mot aktuell dokumentasjon. Studioet viser «støttet under deklarerte forutsetninger» når region-/funksjonsstøtte uttrykkelig antas. Uten denne antakelsen viser det uavklart grunnlag. Det spør aldri Azure og gir ingen deploy-garanti. Legacy GPv1, Blob-only og classic ASM er historiske/migreringsrelaterte valg; nye eksempler bruker de moderne familiene. Enkelte legacy-upgrades har egne regler, ikke en universell fri konvertering mellom premiumtyper.',
+      ],
+      terms: [
+        ['Account type', 'En støttet tjeneste-/funksjonskombinasjon; ikke synonymt med Blob-type.'],
+        [
+          'Media / performance',
+          'For eksempel HDD eller SSD med egne begrensninger, ikke et målt SLA-løfte.',
+        ],
+        [
+          'Deklarert forutsetning',
+          'Noe modellen antar, ikke noe AzureLab har kontrollert i en region.',
+        ],
+      ],
+      example:
+        'Et team ønsker Table-entities i en provisioned HDD-file-account. Kontofamilien er bare for Files, så dette er ikke støttet selv om den bruker administrert lagring. Teamet beholder filkontoen til dokumentene og legger det nøkkelbaserte registeret i en egnet GPv2-konto. Studioet lar deg anvende samme kontrollmåte på andre tjeneste- og protokollkombinasjoner.',
+      limit:
+        'Ingen pris, SLA, regional katalog, redundansplan eller kontoendring simuleres. Faktiske tilgjengelige kombinasjoner kan endres. Access tiers og redundans undervises i Part B; flytting og migrering kommer senere.',
+    },
+    disks: {
+      title: 'Et VM-volum og et objektlager har forskjellige klienter',
+      paragraphs: [
+        'Azure managed disks gir blokklagringsvolumer til Azure Virtual Machines. Operativsystemet bruker blokkenheten og oppretter et filsystem der det er relevant. En OS-disk støtter operativsystemet; datadisker kan brukes til applikasjonsdata. Applikasjonen som kjører i VM-en er compute, mens disken er lagring. Å konfigurere en disk er ikke bevis for at operativsystemet har startet eller skrevet data.',
+        'Azure håndterer underliggende lagringskontoer for managed disks. Du velger ikke din egen Storage Account → Blob Container → Blob-kjede som forelder til den eksisterende managed disken. Det er fortsatt Azure-lagring, men en annen ressurs- og klientrelasjon. Ikke bland dette med historiske unmanaged VHD-er som kunne ligge som page blobs i en kundeadministrert konto.',
+        'En databaseprosess i en VM kan trenge et blokknivåvolum for egne datafiler. En nettapplikasjon som skal hente eksportobjekter over HTTPS, kan i stedet bruke Blob. Å ha lagret en eksportfil inne i VM-filsystemet publiserer den ikke automatisk som Blob. Det krever en egen dataflyt som vi ikke utfører her. En vanlig tilkoblet managed disk blir heller ikke automatisk et administrert felles SMB-filområde for flere klienter.',
+        'Sandbox-listen nedenfor viser kun faktisk eksisterende VM → OS-disk og VM → datadisk-referanser. Hvis ingen VM finnes, er det en ærlig tomtilstand. Ingen ressurs opprettes for å fylle diagrammet. Eksemplene i Studioet er fiktive data uten kobling til World. Midlertidig VM-lagring og særlige delte/ephemeral diskoppsett har egne vilkår; de er ikke en erstatning for den normale sammenligningen eller en skjult universell diskgaranti.',
+      ],
+      terms: [
+        [
+          'Block storage',
+          'Lagring som eksponerer et blokknivåvolum til en klient som VM-ens operativsystem.',
+        ],
+        ['OS-disk / datadisk', 'Roller i VM-ens faktiske ressursrelasjoner.'],
+        [
+          'Managed disk',
+          'Azure-administrert diskressurs; ikke en Blob Container i din egen konto.',
+        ],
+      ],
+      example:
+        'En VM behandler produksjonsdata på en managed datadisk. Ferdige bilder som eksterne klienter skal hente som navngitte objekter, hører til et annet tilgangsmønster. Studenten undersøker eksisterende diskreferanser og kan deretter begrunne et nytt Blob-valg uten at disken gir noen automatisk Storage-fullføring.',
+      limit:
+        'Vi leser kun inventory-referanser, ikke diskinnhold, gjestehelse, ytelse eller en faktisk filoverføring. Det finnes ingen ny diskkommando, receipt, XP eller migrering.',
+    },
+    studio: {
+      title: 'Endre kravet og undersøk årsaken',
+      paragraphs: [
+        'Storage Workload Studio samler tjenestevalg, account-kompatibilitet og datarelasjoner i én undervisningsflate. Du forutsier et resultat, kjører et eksplisitt deterministisk eksempel og sammenligner den lagrede observasjonen med nåværende utkast. Å endre en kontroll uten ny kjøring endrer ikke det observerte resultatet.',
+        'Fjordverks fire behov har forskjellige datakontrakter. Undersøk først grunnsituasjonen, deretter et endret krav om SMB-tilgang til produktbildene. Account-perspektivet viser hvorfor en riktig tjeneste kan være umulig i feil kontotype. Meldingsperspektivet skiller leveringer fra utførte forretningseffekter med en eksplisitt krasjsekvens. Relasjonsvisningen bruker forskjellige strukturer for hver tjeneste og holdes utenfor teknisk inventory.',
+      ],
+      terms: [
+        ['Prediksjon', 'Din forventning før en eksplisitt kjøring.'],
+        ['Observasjon', 'Resultatet av sist lagrede modellkjøring med dens egne forutsetninger.'],
+      ],
+      example:
+        'Forutsi hva som skjer når premium block blobs kombineres med Queue. Kjør først den kombinasjonen og deretter samme tjeneste i GPv2. Hold tjenesten fast mens du endrer kontotypen, slik at forklaringen faktisk handler om kompatibilitet.',
+      limit:
+        'Dette er læringsmodeller, ikke en Azure Portal for Storage. En støttet kombinasjon beviser ikke autorisasjon eller en faktisk respons, og guidet arbeid er aldri selvstendig vurdering.',
+    },
+  },
+  part: 'Part A · kontoer og tjenester',
+} as const;
+
+export const storageItemsNb = {
+  sa01: {
+    title: 'Lydarkivet skal nå nye klienter',
+    problem:
+      'Et museum tilbyr ferdige lydspor til nettlesere og en ny mobilklient. Filene byttes sjelden; begge klientene henter hvert spor ved en kjent objektadresse.',
+    premises: [
+      'Applikasjonen kan bruke HTTPS-baserte objektoperasjoner.',
+      'Ingen klient trenger å montere et filområde eller endre deler av filen gjennom en filprotokoll.',
+      'Tilgang til lydsporene skal fortsatt autoriseres.',
+    ],
+    decisions: [
+      'Lagre sporene på en managed disk og dele diskreferansen.',
+      'Bruk Blob Storage med containere og navngitte objekter.',
+      'Bruk en Azure Files-share som begge klienter må montere.',
+    ],
+    reasons: [
+      'Dataene er binære mediefiler, så klientene trenger en delt filprotokoll for å lese dem.',
+      'Et globalt navnerom gjør objektadressen til en lesetillatelse.',
+      'Klientene trenger navngitte objekter over et API, uten et montert filsystem.',
+    ],
+    decisive:
+      'Objekttilgang over HTTPS er den avgjørende klientkontrakten. Konto og URL gir ikke anonym tilgang. En disk- eller shareløsning ville kreve andre klient-/tjenestekomponenter.',
+    feedback: [
+      [
+        'En managed disk er et blokknivåvolum til en VM, ikke en objektadresse som de to klientene kan lese. Den passer hvis et VM-operativsystem trenger et volum.',
+        'Blob organiserer sporene som objekter i en container og passer den deklarerte API-klienten. Autorisasjon må fremdeles håndteres.',
+        'Files passer klienter som trenger monterte delte filer. Her ville det innføre en filprotokoll som ingen av klientene etterspør.',
+      ],
+      [
+        'Filinnholdet avgjør ikke protokollen. Lyd kan ligge som Blob; en share blir relevant når klienten trenger delte filoperasjoner.',
+        'En kjent offentlig adresse opphever ikke autorisasjon. Blob-data blir ikke anonyme av kontoopprettelse.',
+        'Dette begrunner Blob-valget under disse premissene. Ved et senere krav om delte filoperasjoner må klientkontrakten vurderes på nytt.',
+      ],
+    ],
+  },
+  sa02: {
+    title: 'Produksjonsprogram uten kodeendring',
+    problem:
+      'Et produksjonsprogram åpner og låser tegninger på en delt SMB-sti. To eksisterende Windows-klienter skal fortsette å bruke samme filoperasjoner.',
+    premises: [
+      'Klientene kan nå nødvendig nettverk og skal gis riktige tillatelser.',
+      'Programmet skal ikke omskrives til objekt-API.',
+      'Det kreves ikke NFS eller en blokk-enhet til én VM.',
+    ],
+    decisions: [
+      'Velg en Azure Files SMB-share med støttet konto og tilgang.',
+      'Legg tegningene i en vanlig Blob Container og behold klientkoden.',
+      'Bruk en managed datadisk som automatisk felles SMB-tjeneste.',
+    ],
+    reasons: [
+      'Objektnavn kan inneholde katalogstier, så Blob dekker de samme filoperasjonene som SMB.',
+      'SMB-fildeling passer klientkontrakten; nettverk og rettigheter må kvalifiseres.',
+      'Et managed blokkvolum har varige data, så flere klienter kan bruke det som samme SMB-share.',
+    ],
+    decisive:
+      'SMB-filsystemkontrakten skal bevares. Files passer; Blob og en vanlig managed disk gir ikke automatisk den kontrakten.',
+    feedback: [
+      [
+        'Files SMB kan bevare filorientert tilgang. Støttet konfigurasjon, klientnettverk og rettigheter må fremdeles være på plass.',
+        'En vanlig API-basert Blob Container er ikke en SMB-share. Blob ville passe hvis programmet ble endret til objektoperasjoner.',
+        'En disk kan brukes av en VM som driver en filserver, men det er ekstra compute og administrasjon; disken alene er ingen Azure Files-tjeneste.',
+      ],
+      [
+        'Et objektnavn kan ligne en katalogsti uten å gi SMB-operasjoner eller fil-låsing. Blob passer objektklienter; en montert filkontrakt må støttes av en egnet filflate.',
+        'Begrunnelsen kobler ønsket mekanisme til tjenesten uten å anta at en share automatisk gir alle tilgang.',
+        'Flere klienter skaper ikke filserverfunksjon i en managed disk. Særlige delte diskoppsett krever egne vilkår og er ikke denne SMB-tjenesten.',
+      ],
+    ],
+  },
+  sa03: {
+    title: 'Når arkivklienten endrer kontrakt',
+    problem:
+      'Et medieteam har hittil lest ferdige objektfiler via HTTPS. Et nytt redigeringsprogram må i stedet jobbe mot en montert SMB-sti og dele filer med de eksisterende redigeringsklientene.',
+    premises: [
+      'Programmet kan ikke omskrives til objektoperasjoner i denne leveransen.',
+      'Det nye kravet gjelder delte filoperasjoner, ikke bare nedlasting av en ferdig fil.',
+      'Eksisterende distribusjonsklienter må fortsatt bruke sine stabile HTTPS-objektadresser.',
+    ],
+    decisions: [
+      'Behold samme Blob-oppsett fordi innholdet fortsatt er video.',
+      'Flytt bare objektene til en premium page blob-konto.',
+      'Tilby Azure Files SMB for redigeringen og behold en separat Blob-publiseringsflate.',
+    ],
+    reasons: [
+      'Redigering og publisering trenger ulike klientkontrakter og en planlagt dataflyt.',
+      'Premiumytelse kan erstatte de to klientenes ulike lagringsgrensesnitt.',
+      'De opprinnelige objektene kan gjenbrukes, så publiseringskontrakten bør styre også SMB-klienten.',
+    ],
+    decisive:
+      'Det nye SMB-redigeringskravet må kombineres med fortsatt HTTPS-objektdistribusjon. En egnet filflate og en eksplisitt separat publiseringsflyt dekker forskjellige behov; selve overføringen utføres ikke her.',
+    feedback: [
+      [
+        'Et uendret objektoppsett dekker ikke kravet til monterte SMB-filer. Det kan fortsatt passe publisering av ferdige objekter.',
+        'Page blobs er en Blob-type med annen oppdateringsmekanisme; premium page blobs gir ikke Azure Files SMB.',
+        'Files SMB passer redigeringsklienten, mens Blob kan bevare de eksterne objektadressene. Tilgang og publisering/dataflyt må planlegges; de oppstår ikke automatisk.',
+      ],
+      [
+        'Dette forklarer hvorfor et nytt klientkrav kan trenge en ekstra tjenesteflate uten at det gamle objektbehovet forsvinner.',
+        'Premium er en funksjons-/ytelsesfamilie, ikke en automatisk protokolladapter.',
+        'Samme bytes kan brukes gjennom forskjellige mekanismer. Kravene til klienttilgang må vurderes på nytt.',
+      ],
+    ],
+  },
+  sa04: {
+    title: 'To aktive workers, samme import',
+    problem:
+      'En importjobb varer lenger enn meldingens visibility-periode. Worker A lever fortsatt og behandler data når worker B får den samme jobb-ID-en fra Queue. Klientene trenger også et varig sted å lese importstatus.',
+    premises: [
+      'Løsningen bruker Azure Queue Storage.',
+      'Mottak og sletting er separate handlinger.',
+      'Samme import skal ikke gi gjentatt forretningseffekt. En meldingstelling er ikke importens varige statusregister.',
+    ],
+    decisions: [
+      'Slett ved mottak og behandle det som bevis på at importen er fullført.',
+      'Behold køen, håndter visibility under arbeid og utform idempotens samt separat varig jobbstatus.',
+      'Bruk bare Table-oppføringer og forvent automatisk arbeidstildeling uten claim-/workerlogikk.',
+    ],
+    reasons: [
+      'Visibility kan utløpe før jobben er ferdig; jobbstatus og sideeffekt må håndteres i appen.',
+      'Kølagring fram til sletting betyr at en mottatt melding dokumenterer ferdig arbeid.',
+      'Et varig Table-register kan overta køens arbeidstildeling uten ny logikk.',
+    ],
+    decisive:
+      'Ny levering er mulig også uten et krasj når visibility utløper. Applikasjonen må vurdere passende fornyelse og varig idempotens, og lagre jobbstatus separat fra køens meldingsantall. En lease er ingen garanti for nøyaktig én applikasjonseffekt.',
+    feedback: [
+      [
+        'Sletting ved mottak kan miste arbeidsoppgaven dersom behandlingen feiler etterpå. Mottak eller fravær fra køen beviser ikke fullført import.',
+        'Dette håndterer den lange jobbens synlighet, gjentatt effekt og status som separate ansvar. Varig idempotens må koordineres med dataoppdateringen; køen kan fremdeles levere igjen.',
+        'Table kan lagre status-/idempotensdata, men starter ikke workers eller tildeler importjobber av seg selv. En egen arbeidstildelingsmekanisme måtte utformes.',
+      ],
+      [
+        'Begrunnelsen adresserer både den utløpte visibility-perioden og skillet mellom kølevering, forretningseffekt og et eget statusregister.',
+        'Meldingslagring og mottak dokumenterer ikke at importen er ferdig. Den første workeren kan fortsatt arbeide når visibility utløper; jobbstatus må styres av applikasjonens faktiske behandling.',
+        'Table kan lagre status, men tildeler ikke arbeid uten applikasjons-/claimlogikk. Et statusregister kan supplere køen; det erstatter ikke kømekanismen ved navnevalg alene.',
+      ],
+    ],
+  },
+  sa05: {
+    title: 'Enhetsregister med forskjellige egenskaper',
+    problem:
+      'Et teknisk register finner sensorer ved anleggskode og sensor-ID. Noen sensorer har måleområde, andre har firmwaretype; klienten kjenner begge identifikatorene før oppslaget.',
+    premises: [
+      'Det kreves ikke SQL-joins, foreign keys eller vilkårlige sekundærindekser.',
+      'Anleggskoden og sensor-ID-en kan brukes som et stabilt nøkkelpar.',
+      'Ulike anlegg kan ha samme lokale sensor-ID.',
+    ],
+    decisions: [
+      'Bruk en Queue der mottak sletter en sensor etter oppslag.',
+      'Bruk en Blob Container som automatisk oppretter relasjonelle indekser.',
+      'Bruk Table Storage-entities med et begrunnet PartitionKey/RowKey-par.',
+    ],
+    reasons: [
+      'RowKey brukes som et identifikatorfelt, så sensor-ID-en må være unik på tvers av alle anlegg.',
+      'Kjente PartitionKey/RowKey-par gir entydige oppslag selv om entity-egenskapene varierer.',
+      'Strukturerte entities gir relasjonelle joins uten nytt datadesign.',
+    ],
+    decisive:
+      'Tilgangsmønsteret samsvarer med nøkkelbaserte entities. Samme RowKey kan brukes under forskjellige PartitionKey; hele paret er identiteten i tabellen.',
+    feedback: [
+      [
+        'En kø er for arbeidsmeldinger, ikke varig tilfeldig oppslag i et sensorregister. Den kan varsle at en sensoroppdatering skal behandles.',
+        'Blob kan lagre registereksporter som objekter, men lager ikke automatiske relasjonelle indekser i innholdet.',
+        'Table passer det angitte ikke-relasjonelle oppslaget. Valg av nøkler og klientvalidering er applikasjonsansvar.',
+      ],
+      [
+        'Unikheten gjelder nøkkelparet innen en table. En lokal sensor-ID kan derfor gjenbrukes for et annet anlegg.',
+        'Begrunnelsen treffer både tilgangsmønsteret og variasjonen i egenskaper uten å gi Table SQL-egenskaper.',
+        'Fleksible egenskaper betyr ikke at tjenesten har joins eller indekserer alle egenskaper. Et annet spørringsbehov kan kreve et annet datadesign.',
+      ],
+    ],
+  },
+  sa06: {
+    title: 'Rapporten krever relasjonell sammenheng',
+    problem:
+      'Et økonomisystem trenger server-side SQL-joins mellom betalinger, ordrelinjer og kunder samt relasjonelle integritetsregler. Teamet foreslår Table Storage fordi dataene ser tabulære ut.',
+    premises: [
+      'SQL-mekanismen er et eksplisitt krav, ikke bare en foretrukket visningsform.',
+      'Det er ikke avtalt å omskrive hele spørringsmodellen til nøkkelbasert NoSQL.',
+      'Lagring som objekter eller arbeidsmeldinger oppfyller heller ikke dette kravet.',
+    ],
+    decisions: [
+      'Vurder en egnet relasjonell databasetjeneste utenfor de fire account-tjenestene.',
+      'Velg Table Storage og forvent at tabellnavnet innebærer en SQL-motor.',
+      'Velg Queue Storage og la meldingsrekkefølgen håndtere foreign keys.',
+    ],
+    reasons: [
+      'Økonomidata er strukturerte rader, så et fleksibelt entity-skjema dekker de relasjonelle kravene.',
+      'En kø kan skille produsent fra konsument, så meldingsflyten håndhever referanser mellom postene.',
+      'Et krav om SQL-joins og relasjonsregler oppfylles ikke av Table-tjenestens keyed entities.',
+    ],
+    decisive:
+      'Det riktige valget kan ligge utenfor de fire tjenestene. Her er SQL-/relasjonskravet avgjørende; modulens tjenesteutvalg skal ikke tvinge frem et feil svar.',
+    feedback: [
+      [
+        'En relasjonell tjeneste kan vurderes mot kravene; denne oppgaven lover ingen konkret databasekonfigurasjon eller migrering.',
+        'Table passer kjente nøkkelbaserte oppslag og fleksible entities, men gir ikke de etterspurte SQL-mekanismene.',
+        'Queue fordeler arbeid, men er ikke en database med foreign keys. Den kan inngå rundt en database uten å erstatte den.',
+      ],
+      [
+        'Strukturerte egenskaper er ikke i seg selv relasjonell funksjonalitet. Mekanisme og spørringskrav må passe.',
+        'En kø gir ikke referanseintegritet. Meldinger og databaseposter har forskjellige roller.',
+        'Dette forklarer hvorfor en ellers nyttig NoSQL-tjeneste er feil under de endrede kravene.',
+      ],
+    ],
+  },
+  sa07: {
+    title: 'Jobbkø ved siden av premiumobjekter',
+    problem:
+      'Et analyseverktøy bruker premium block blobs for mange små objektoperasjoner. Teamet vil nå lagre asynkrone jobbreferanser i en Queue og antar at samme premium account støtter det.',
+    premises: [
+      'Det eksisterende premiumbehovet for objektene skal beholdes.',
+      'Køen trenger Azure Queue Storage, ikke en applikasjonsbygd kø inne i Blob.',
+      'Region-/funksjonsstøtte for de valgte moderne account-typene forutsettes i eksemplet.',
+    ],
+    decisions: [
+      'Slå på Queue i premium block blob-kontoen uten å endre type.',
+      'Bytt den eksisterende kontoen til premium page blobs for å få Queue.',
+      'Behold objektkontoen og bruk en Standard GPv2-konto for købehovet.',
+    ],
+    reasons: [
+      'Premiumobjekter har høy lagringsytelse, så samme premiumkonto dekker også meldingsarbeidslasten.',
+      'HTTPS gjør at page blobs og kømeldinger kan dele account-familie.',
+      'Queue støttes av GPv2, mens premium block blobs dekker et annet tjenesteutvalg.',
+    ],
+    decisive:
+      'Tjenestekompatibiliteten gjør en separat GPv2-konto til en forsvarlig løsning uten å oppheve det eksisterende premiumobjektkravet.',
+    feedback: [
+      [
+        'Det finnes ingen modellert Queue-støtte i premium block blobs. Et tjenestenavn i en plan aktiverer ikke funksjonen.',
+        'Premium page blobs støtter page blobs, ikke Queue. Den endringen dekker heller ikke det erklærte block-blob-behovet.',
+        'Dette bevarer det første behovet og plasserer Queue i en type som støtter den under de deklarerte forutsetningene.',
+      ],
+      [
+        'Premium er spesialisert, ikke en universell superset. Kontotype må kontrolleres per tjeneste.',
+        'Felles HTTP-transport gjør ikke datastruktur eller tjenestestøtte lik.',
+        'Begrunnelsen adresserer den faktiske typegrensen uten å hevde at kontoopprettelse beviser runtime eller adgang.',
+      ],
+    ],
+  },
+  sa08: {
+    title: 'Linux-share og en separat kø',
+    problem:
+      'Et laboratorium trenger en classic Azure Files NFS-share til Linux-klienter og en Queue for bakgrunnsarbeid. Et provisioned HDD FileStorage-oppsett er foreslått for alt.',
+    premises: [
+      'Studioets account-baserte management-modell brukes.',
+      'Nødvendig region-/funksjonsstøtte, nettverk og tillatelser for egnede typer er eksplisitt forutsatt.',
+      'Kravene kan fordeles på mer enn én account.',
+    ],
+    decisions: [
+      'Bruk egnet SSD-file-account for NFS og GPv2 for Queue.',
+      'Bruk HDD-file-account for NFS og Queue i samme konto.',
+      'Bruk premium block blobs for både NFS-file-share og Queue.',
+    ],
+    reasons: [
+      'FileStorage gir samme protokollstøtte på HDD og SSD.',
+      'NFS trenger egnet SSD Files-støtte her; Queue krever en annen støttet kontofamilie.',
+      'Klientene har en fungerende nettverksvei, så kontoens tjenesteutvalg kan behandles som avklart.',
+    ],
+    decisive:
+      'To forskjellige behov kan kreve forskjellige account-familier. Top-level Microsoft.FileShares er et annet dokumentert NFS-alternativ, men er ikke account-modellen i disse premissene.',
+    feedback: [
+      [
+        'Dette dekker de to ulike tjenestemekanismene under de deklarerte vilkårene. SSD-file-accounten støtter ikke køen; derfor skilles de.',
+        'HDD gjør ikke classic NFS støttet i modellen, og FileStorage er uansett bare for Files.',
+        'Premium block blobs gir ikke de to forespurte tjenestene. Blob-spesifikke NFS-muligheter er ikke Azure Files NFS.',
+      ],
+      [
+        'FileStorage er ikke ensbetydende med SSD, og file accounts tilbyr ikke Queue. Media og tjeneste må vurderes separat.',
+        'Begrunnelsen kobler begge kravene til støttede tjenester, i stedet for å behandle premium som universell støtte.',
+        'Nettverksvei kan være nødvendig, men endrer ikke hvilke tjenester accounttypen tilbyr.',
+      ],
+    ],
+  },
+  sa09: {
+    title: 'Tilføying til objektlogger',
+    problem:
+      'Et system skal skrive append blobs og hente block blobs med et eksplisitt krav om premium SSD-objektlagring. Teamet har valgt en premium page blob-account.',
+    premises: [
+      'Det trengs ikke et VM-blokkvolum eller en montert file share.',
+      'Kravet er Blob-typer: append og block, ikke page.',
+      'Støtte i den valgte regionen for et egnet premiumalternativ forutsettes.',
+    ],
+    decisions: [
+      'Behold premium page blobs for alle Blob-typer.',
+      'Velg premium block blobs for det deklarerte objektbehovet.',
+      'Velg en provisioned SSD-file-account fordi den også bruker SSD.',
+    ],
+    reasons: [
+      'Premium block blobs støtter block og append; premium page blobs dekker page.',
+      'SSD gir raskere lagringsoperasjoner, så en SSD-file-account kan utføre ønskede Blob-operasjoner.',
+      'Alle valgene er Azure-lagring, så Blob-typen kan velges uavhengig av accountens tjenestestøtte.',
+    ],
+    decisive:
+      'Både Blob-type og account-familie må passe. Samme media eller produktfamilienavn fjerner ikke den konkrete funksjonsgrensen.',
+    feedback: [
+      [
+        'Premium page blobs passer page-baserte behov, men er ikke den erklærte block-/append-kombinasjonen.',
+        'Dette dekker Blob-typene og det eksplisitte premiumobjektkravet under de oppgitte forutsetningene.',
+        'SSD-file-accounten er for file shares, ikke Blob-operasjoner. Den kan passe et SSD-baserte filprotokollbehov.',
+      ],
+      [
+        'Dette er den dokumenterte kompatibilitetsforskjellen som løser situasjonen.',
+        'SSD beskriver media, ikke at tjenestene har identiske API-er eller datakontrakter.',
+        'Accountfamilien kan begrense Blob-typen. Felles produktnavn er ikke nok for et korrekt design.',
+      ],
+    ],
+  },
+  sa10: {
+    title: 'Databasefil inne i en VM',
+    problem:
+      'En databaseprosess kjører i en eksisterende VM og trenger et vedvarende blokknivåvolum for sine datafiler. Den skal ikke publisere filene direkte som objekter til webklienter.',
+    premises: [
+      'VM-størrelse, diskstøtte og antall tilkoblinger må være passende i et virkelig design.',
+      'Prosessen forventer et volum som operativsystemet kan håndtere.',
+      'Denne oppgaven ber ikke om en administrert database eller en eksportflyt.',
+    ],
+    decisions: [
+      'Vurder en egnet managed datadisk til VM-en.',
+      'Legg en Queue inn som VM-ens blokkenhet.',
+      'Bruk en vanlig Blob Container som om den allerede var VM-ens datadisk.',
+    ],
+    reasons: [
+      'OS-diskrelasjonen dokumenterer også de andre Storage-målene.',
+      'Et Blob-objekt med databasefilens navn kan brukes som samme tilkoblede blokkvolum.',
+      'VM-klienten trenger et blokkvolum; objekt- og meldingstjenester har andre I/O-kontrakter.',
+    ],
+    decisive:
+      'Det eksplisitte volumkravet begrunner en managed disk-vurdering. Dette gir ingen automatisk kompetanse om account-tjenestene og ingen påstand om gjestehelse.',
+    feedback: [
+      [
+        'En managed datadisk passer den angitte blokklagringsrollen; en faktisk løsning må fremdeles kvalifisere størrelse, type og VM-støtte.',
+        'En kø lagrer arbeidsmeldinger, ikke blokker som operativsystemet kan bruke som disk.',
+        'Blob kan lagre eksporter eller objekter, men en vanlig container er ikke allerede en tilkoblet datadisk.',
+      ],
+      [
+        'En faktisk ressursrelasjon er kontekst, ikke bevis for at studenten forstår andre lagringsmekanismer.',
+        'Filnavnet endrer ikke klientens I/O-kontrakt. Objektlagring og blokkvolum er forskjellige grensesnitt.',
+        'Begrunnelsen skiller VM-volum fra account-organiserte datatjenester uten å hevde at disken har startet et operativsystem.',
+      ],
+    ],
+  },
+  sa11: {
+    title: 'Eksporten skal ut av VM-klienten',
+    problem:
+      'Et rapportprogram i en VM produserer ferdige eksportfiler. Eksterne applikasjoner skal hente hver eksport via HTTPS med objektidentifikator; de skal ikke koble til VM-ens filsystem.',
+    premises: [
+      'VM-en har allerede en managed datadisk.',
+      'Eksportene er ferdige objekter, ikke delte filer under samtidig redigering.',
+      'En separat dataflyt og autorisasjon må etableres; den utføres ikke av denne oppgaven.',
+    ],
+    decisions: [
+      'Send managed disk-ID-en til de eksterne klientene som objektadresse.',
+      'Bytt datadisken til en Queue og la klientene hente blokker.',
+      'Vurder Blob Storage for de ferdige eksportobjektene.',
+    ],
+    reasons: [
+      'En varig eksportfil gir diskreferansen samme rolle som en objektadresse.',
+      'Eksterne klienter trenger objektlesing; den eksisterende VM-disken gir ikke det grensesnittet.',
+      'Et tilgjengelig navnerom gir eksportklientene den lesetilgangen de trenger.',
+    ],
+    decisive:
+      'En eksisterende disk kan være riktig for intern produksjon, mens ferdige eksporter trenger en separat objektkontrakt. Ingen faktisk overføring eller offentlig publisering er gjennomført.',
+    feedback: [
+      [
+        'Disk-ID er en ressursreferanse, ikke automatisk en autorisert eksport-URL for eksterne objektklienter.',
+        'Queue lagrer arbeidsmeldinger. Den kan starte eksportarbeid, men erstatter ikke disken eller objektleveringen.',
+        'Blob passer den nye objektlesingen. Overføring, publiseringsflyt og tilgang kommer i tillegg.',
+      ],
+      [
+        'Protokollen i en klient lager ikke en ny datatjeneste rundt en disk. Det kreves en eksplisitt flyt eller tjeneste.',
+        'Dette skiller datatjenestens egnethet fra faktisk dataflyt og autorisert tilgang.',
+        'Account-eksistens gir ikke anonym Blob-lesing. Offentlig adresse og tillatelse er forskjellige forhold.',
+      ],
+    ],
+  },
+  sa12: {
+    title: 'To klienter trenger et administrert filområde',
+    problem:
+      'To applikasjonsinstanser skal lese og skrive via et felles SMB-filområde. Forslaget er å opprette hver sin vanlige managed datadisk og anta at innholdet blir delt.',
+    premises: [
+      'Instansene forventer filshare-semantikk og har ikke en separat filserver-/klyngeløsning.',
+      'Et særskilt Azure shared-disk-oppsett med egen applikasjonskoordinering er ikke del av kravet.',
+      'Nødvendig Files-støtte, nettverk og tilgang må kvalifiseres.',
+    ],
+    decisions: [
+      'Bruk hver sin disk og anta automatisk synkronisering.',
+      'Vurder en Azure Files SMB-share for det felles filbehovet.',
+      'Bruk en Table og anta at entities gir SMB-fil-låsing.',
+    ],
+    reasons: [
+      'En share gir den delte SMB-kontrakten; separate blokkvolumer deler ikke innhold av seg selv.',
+      'Administrert Azure-lagring synkroniserer filene mellom to disker.',
+      'Filoversikten kan lagres som entities, så Table kan tilby de samme åpne-/låseoperasjonene som SMB.',
+    ],
+    decisive:
+      'Kravet er en administrert delt filkontrakt. Eksistensen av managed disks oppretter verken en filshare eller automatisk synkronisering.',
+    feedback: [
+      [
+        'Separate disker kan passe separate VM-volumer, men synkroniserer ikke data eller oppretter en SMB-tjeneste av seg selv.',
+        'Files SMB er en relevant tjeneste for den ønskede delte filkontrakten under kvalifiserte forutsetninger.',
+        'Table er for nøkkelbaserte entities, ikke en SMB-filshare. Det kan lagre metadata om filer uten å levere filprotokollen.',
+      ],
+      [
+        'Dette begrunner tjenestevalget med klientmekanismen og beholder disk-/filshare-skillet.',
+        'Administrert infrastruktur betyr ikke automatisk datasynkronisering mellom uavhengige volumer.',
+        'Tabulære data gir ikke filsystemprotokoll eller fil-låsing bare ved å få et filrelatert navn.',
+      ],
+    ],
+  },
 } as const;

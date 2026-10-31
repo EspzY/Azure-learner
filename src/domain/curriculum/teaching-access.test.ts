@@ -25,10 +25,10 @@ const io = () => {
   };
 };
 describe('shared teaching preflight for frozen assessment contracts', () => {
-  it('validates fresh unaided fixtures for all ten registered independent contexts', () => {
+  it('validates fresh unaided fixtures for all eleven fixture-registered independent contexts', () => {
     const fixtures = activeTeachingContexts();
-    expect(fixtures).toHaveLength(10);
-    expect(new Set(fixtures.map((f) => f.key)).size).toBe(10);
+    expect(fixtures).toHaveLength(11);
+    expect(new Set(fixtures.map((f) => f.key)).size).toBe(11);
     expect(fixtures.map((f) => f.key)).toContain(connectivityKey);
     for (const f of fixtures)
       expect(f.state(f.raw)).toMatchObject({ active: true, assisted: false });
