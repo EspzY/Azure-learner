@@ -1,4 +1,11 @@
 import {
+  freshResilience,
+  applyResilience,
+  resilienceKey,
+  restoreResilience,
+  resilienceFacts,
+} from '../../src/domain/curriculum/storage-resilience';
+import {
   freshStorage,
   applyStorage,
   storageKey,
@@ -85,6 +92,12 @@ function fixture<S>(
 /** Valid records from frozen reducers, never new runtime curriculum. */
 export function activeTeachingContexts() {
   return [
+    fixture(
+      resilienceKey,
+      applyResilience(freshResilience(), { kind: 'begin', item: 'rb01' }),
+      restoreResilience,
+      resilienceFacts,
+    ),
     fixture(
       storageKey,
       applyStorage(freshStorage(), { kind: 'begin', item: 'sa01' }),

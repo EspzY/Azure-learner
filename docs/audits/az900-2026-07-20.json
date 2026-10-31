@@ -1335,6 +1335,190 @@
       "url": "https://learn.microsoft.com/en-us/azure/storage/files/files-management-concepts",
       "reviewed": "2026-10-31",
       "purpose": "Current FileStorage HDD/SSD, GPv2 pay-as-you-go and separate top-level NFS Files management."
+    },
+    "SRG01": {
+      "title": "Study guide for Exam AZ-900: Microsoft Azure Fundamentals | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900",
+      "reviewed": "2026-10-31",
+      "version": "Current public rolling page checked2026-10-31; study guide2026-07-20",
+      "availability": "AVAILABLE",
+      "purpose": "Current dated AZ-900 scoped storage tier/redundancy bullets. No actual Azure interaction, protected items, copied figures or human approval."
+    },
+    "SRG02": {
+      "title": "Describe Azure storage services - Training | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-storage-services/",
+      "reviewed": "2026-10-31",
+      "version": "Current public rolling page checked2026-10-31; study guide2026-07-20",
+      "availability": "AVAILABLE",
+      "purpose": "Official Storage module has8 units; only scoped public teaching units used. No actual Azure interaction, protected items, copied figures or human approval."
+    },
+    "SRG03": {
+      "title": "Access tiers for blob data - Azure Storage | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/azure/storage/blobs/access-tiers-overview",
+      "reviewed": "2026-10-31",
+      "version": "Current public rolling page checked2026-10-31; study guide2026-07-20",
+      "availability": "AVAILABLE",
+      "purpose": "Online/manual standard GPv2 tiers, minimum periods, inherited/default assignment and Archive eligibility. No actual Azure interaction, protected items, copied figures or human approval."
+    },
+    "SRG04": {
+      "title": "Data redundancy - Azure Storage | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/azure/storage/common/storage-redundancy",
+      "reviewed": "2026-10-31",
+      "version": "Current public rolling page checked2026-10-31; study guide2026-07-20",
+      "availability": "AVAILABLE",
+      "purpose": "Primary LRS/ZRS, geo/RA boundaries, service/account support and Archive exclusion. No actual Azure interaction, protected items, copied figures or human approval."
+    },
+    "SRG05": {
+      "title": "Blob rehydration from the archive tier | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/azure/storage/blobs/archive-rehydrate-overview",
+      "reviewed": "2026-10-31",
+      "version": "Current public rolling page checked2026-10-31; study guide2026-07-20",
+      "availability": "AVAILABLE",
+      "purpose": "Archive pending/completion, copy versus Set Tier, source retention, cost and rearchiving. No actual Azure interaction, protected items, copied figures or human approval."
+    },
+    "SRG06": {
+      "title": "Azure Blob Storage lifecycle management overview - Azure Blob Storage | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/azure/storage/blobs/lifecycle-management-overview",
+      "reviewed": "2026-10-31",
+      "version": "Current public rolling page checked2026-10-31; study guide2026-07-20",
+      "availability": "AVAILABLE",
+      "purpose": "Policy conditions, periodic execution, no Archive rehydration and premium/feature limits. No actual Azure interaction, protected items, copied figures or human approval."
+    },
+    "SRG07": {
+      "title": "Optimize Azure Blob Storage costs with smart tier - Azure Storage | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/azure/storage/blobs/access-tiers-smart",
+      "reviewed": "2026-10-31",
+      "version": "Current public rolling page checked2026-10-31; study guide2026-07-20",
+      "availability": "AVAILABLE",
+      "purpose": "Current eligible Smart GPv2/zonal block blobs, online-only, explicit tiers, cloud and billing exceptions. No actual Azure interaction, protected items, copied figures or human approval."
+    },
+    "SRG08": {
+      "title": "Azure storage disaster recovery planning and failover - Azure Storage | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/azure/storage/common/storage-disaster-recovery-guidance",
+      "reviewed": "2026-10-31",
+      "version": "Current public rolling page checked2026-10-31; study guide2026-07-20",
+      "availability": "AVAILABLE",
+      "purpose": "Planned/unplanned failover, endpoint/DNS, last-sync uncertainty and remaining application work. No actual Azure interaction, protected items, copied figures or human approval."
+    },
+    "SRG09": {
+      "title": "Introduction - Training | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-storage-services/1-introduction",
+      "reviewed": "2026-10-31",
+      "version": "Current public rolling page checked2026-10-31; study guide2026-07-20",
+      "availability": "AVAILABLE",
+      "purpose": "Scoped introduction and IT prerequisite; other Storage objectives deferred. No actual Azure interaction, protected items, copied figures or human approval."
+    },
+    "SRG10": {
+      "title": "Describe Azure storage accounts - Training | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-storage-services/2-accounts",
+      "reviewed": "2026-10-31",
+      "version": "Current public rolling page checked2026-10-31; study guide2026-07-20",
+      "availability": "AVAILABLE",
+      "purpose": "Account/type/redundancy context qualified by current Files product source. No actual Azure interaction, protected items, copied figures or human approval."
+    },
+    "SRG11": {
+      "title": "Describe Azure storage redundancy - Training | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-storage-services/3-redundancy",
+      "reviewed": "2026-10-31",
+      "version": "Current public rolling page checked2026-10-31; study guide2026-07-20",
+      "availability": "AVAILABLE",
+      "purpose": "Six variants and asynchronous/secondary-access introduction; no generic15-minute promise credited. No actual Azure interaction, protected items, copied figures or human approval."
+    },
+    "SRG12": {
+      "title": "Describe Azure storage services - Training | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-storage-services/4-describe-azure-storage-services",
+      "reviewed": "2026-10-31",
+      "version": "Current public rolling page checked2026-10-31; study guide2026-07-20",
+      "availability": "AVAILABLE",
+      "purpose": "Four access tiers in Learn; other service content remains Part A. No actual Azure interaction, protected items, copied figures or human approval."
+    },
+    "SRG13": {
+      "title": "Summary - Training | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-storage-services/9-summary",
+      "reviewed": "2026-10-31",
+      "version": "Current public rolling page checked2026-10-31; study guide2026-07-20",
+      "availability": "AVAILABLE",
+      "purpose": "Module scope/summary; assessment and P16 content not credited. No actual Azure interaction, protected items, copied figures or human approval."
+    },
+    "SRG14": {
+      "title": "Redundancy options for Azure managed disks - Azure Virtual Machines | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/azure/virtual-machines/disks-redundancy",
+      "reviewed": "2026-10-31",
+      "version": "Current public rolling page checked2026-10-31; study guide2026-07-20",
+      "availability": "AVAILABLE",
+      "purpose": "Managed disk LRS/ZRS, supported SSD types, force-detach data disk and separate VM recovery. No actual Azure interaction, protected items, copied figures or human approval."
+    },
+    "SRG15": {
+      "title": "Data Redundancy in Azure Files | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/azure/storage/files/files-redundancy",
+      "reviewed": "2026-10-31",
+      "version": "Current public rolling page checked2026-10-31; study guide2026-07-20",
+      "availability": "AVAILABLE",
+      "purpose": "Files HDD SMB geo versus SSD LRS/ZRS, no Files RA before failover. No actual Azure interaction, protected items, copied figures or human approval."
+    },
+    "SRG16": {
+      "title": "Blob Storage feature support in Azure storage accounts | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/azure/storage/blobs/storage-feature-support-in-storage-accounts",
+      "reviewed": "2026-10-31",
+      "version": "Current public rolling page checked2026-10-31; study guide2026-07-20",
+      "availability": "AVAILABLE",
+      "purpose": "Premium block tier restriction and function-specific support qualifications. No actual Azure interaction, protected items, copied figures or human approval."
+    },
+    "SRG17": {
+      "title": "Data protection overview - Azure Storage | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/azure/storage/blobs/data-protection-overview",
+      "reviewed": "2026-10-31",
+      "version": "Current public rolling page checked2026-10-31; study guide2026-07-20",
+      "availability": "AVAILABLE",
+      "purpose": "Replication versus logical history, protected backup/selective restore under declared support. No actual Azure interaction, protected items, copied figures or human approval."
+    },
+    "SRG18": {
+      "title": "Azure Files management concepts | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/azure/storage/files/files-management-concepts",
+      "reviewed": "2026-10-31",
+      "version": "Current public rolling page checked2026-10-31; study guide2026-07-20",
+      "availability": "AVAILABLE",
+      "purpose": "Current classic FileStorage HDD/SSD/account and top-level Files/protocol distinctions preserved. No actual Azure interaction, protected items, copied figures or human approval."
+    },
+    "SRG19": {
+      "title": "Introduction to Cloud Infrastructure: Describe Azure Architecture and Services - Training | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/training/paths/azure-fundamentals-describe-azure-architecture-services/",
+      "reviewed": "2026-10-31",
+      "version": "Current public rolling page checked2026-10-31; study guide2026-07-20",
+      "availability": "AVAILABLE",
+      "purpose": "Second official path and Storage module relationship; no other module credited. No actual Azure interaction, protected items, copied figures or human approval."
+    },
+    "SRG20": {
+      "title": "Azure Blob Storage lifecycle management policy structure - Azure Blob Storage | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/azure/storage/blobs/lifecycle-management-policy-structure",
+      "reviewed": "2026-10-31",
+      "version": "Current public rolling page checked2026-10-31; study guide2026-07-20",
+      "availability": "AVAILABLE",
+      "purpose": "TierToArchive conditions and last-tier-change guard; no Archive rehydration via lifecycle. No actual Azure interaction, protected items, copied figures or human approval."
+    },
+    "SRG21": {
+      "title": "Check the Last Sync Time property for a storage account - Azure Storage | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/azure/storage/common/last-sync-time-get",
+      "reviewed": "2026-10-31",
+      "version": "Current public rolling page checked2026-10-31; study guide2026-07-20",
+      "availability": "AVAILABLE",
+      "purpose": "Last Sync Time covers earlier writes; later writes may be absent, no fixed RPO. No actual Azure interaction, protected items, copied figures or human approval."
+    },
+    "SRG22": {
+      "title": "How Azure Storage account customer-managed unplanned failover works - Azure Storage | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/azure/storage/common/storage-failover-customer-managed-unplanned",
+      "reviewed": "2026-10-31",
+      "version": "Current public rolling page checked2026-10-31; study guide2026-07-20",
+      "availability": "AVAILABLE",
+      "purpose": "Separate unplanned promotion, asynchronous data loss and post-failover protection changes. No actual Azure interaction, protected items, copied figures or human approval."
+    },
+    "SRG23": {
+      "title": "What are Azure Availability Zones? | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/azure/reliability/availability-zones-overview",
+      "reviewed": "2026-10-31",
+      "version": "Current public rolling page checked2026-10-31; study guide2026-07-20",
+      "availability": "AVAILABLE",
+      "purpose": "Availability Zones are logical groups of physical sites; do not infer actual buildings or app resilience. No actual Azure interaction, protected items, copied figures or human approval."
     }
   },
   "evidenceProfiles": {
@@ -2101,6 +2285,49 @@
       ],
       "tests": ["src/domain/curriculum/storage.test.ts", "tests/e2e/storage-services.spec.ts"],
       "limits": "P08 authored content coverage, not learner mastery/human acceptance. Separate1.0.0 history; no Storage runtime/receipts/XP. Newer Files account/media/management qualifications applied; P09/P16 unchanged."
+    },
+    "SR": {
+      "teaching": [
+        {
+          "path": "src/content/nb.ts",
+          "marker": "storageResilienceNb"
+        }
+      ],
+      "mechanism": [
+        {
+          "path": "src/domain/curriculum/storage-resilience-model.ts",
+          "marker": "runTiers"
+        },
+        {
+          "path": "src/domain/curriculum/storage-resilience.ts",
+          "marker": "resilienceManifest"
+        }
+      ],
+      "presentation": [
+        {
+          "path": "src/features/learning/storage-resilience.tsx",
+          "marker": "ResilienceLesson"
+        },
+        {
+          "path": "src/features/learning/storage-resilience-visuals.tsx",
+          "marker": "ResilienceModelResult"
+        }
+      ],
+      "assessment": [
+        {
+          "path": "src/domain/curriculum/storage-resilience-items.ts",
+          "marker": "evaluateResilience"
+        },
+        {
+          "path": "src/features/learning/storage-resilience-assessment.tsx",
+          "marker": "ResilienceAssessment"
+        }
+      ],
+      "tests": [
+        "src/domain/curriculum/storage-resilience.test.ts",
+        "tests/e2e/storage-resilience.spec.ts"
+      ],
+      "limits": "P09 scoped authored A–F only, not mastery/exam readiness/human efficacy. Two causal models/missions, original paired transfer, independent1.0.0 history. No Azure runtime/price/RPO/failover/XP. P08/P16 unchanged."
     }
   },
   "plannedPRs": [
@@ -3378,77 +3605,112 @@
       "slot": "2.3.02",
       "id": "az900.storage.tiers",
       "title": "Storage access tiers",
-      "status": "MISSING",
+      "status": "COMPLETE",
       "criteria": {
-        "A": "M",
-        "B": "M",
-        "C": "M",
-        "D": "M",
-        "E": "M",
-        "F": "N"
+        "A": "V",
+        "B": "V",
+        "C": "V",
+        "D": "V",
+        "E": "V",
+        "F": "V"
       },
       "facets": [
         {
           "topic": "Hot",
-          "status": "MISSING"
+          "status": "COMPLETE"
         },
         {
           "topic": "Cool",
-          "status": "MISSING"
+          "status": "COMPLETE"
         },
         {
           "topic": "Cold",
-          "status": "MISSING"
+          "status": "COMPLETE"
         },
         {
           "topic": "Archive",
-          "status": "MISSING"
+          "status": "COMPLETE"
         }
       ],
       "localObjectives": ["D01"],
-      "evidence": [],
-      "observed": "Ingen aktiv tiermodell, tilgangsmønster eller gjenhentingsscenario.",
-      "gap": "Mangler egen forklaring, relevant mekanisme/praksis, uavhengig scenario og begrunnet vurdering for de angitte emnene.",
+      "evidence": ["SR"],
+      "observed": "Original substansiell tier-/lifecycle-/rehydreringsundervisning med Cold online, Archive offline, standard GPv2-minimumsperioder som fakturering, default/eksplisitt, aktuelle Smart-forbehold og tjenestegrenser. Deterministiske lagrede kontraster, fiktive kostnadsdrivere og endrede selvstendige beslutning/begrunnelse-kontekster rb01–05.",
+      "gap": "Ingen innholdsgap identifisert i scoped forfattergjennomgang A–F. Full innholdsdekning er ikke målt læringseffekt eller eksamensberedskap; menneskelig SME/UX/skjermleser/transfer uutført. Separat sluttrevisjon og leveransegater dokumenteres på PR34.",
       "plannedPRs": ["P09"],
-      "sources": ["EXAM", "M07"]
+      "sources": [
+        "EXAM",
+        "M07",
+        "SRG01",
+        "SRG02",
+        "SRG03",
+        "SRG05",
+        "SRG06",
+        "SRG07",
+        "SRG09",
+        "SRG10",
+        "SRG12",
+        "SRG13",
+        "SRG16",
+        "SRG19",
+        "SRG20"
+      ]
     },
     {
       "slot": "2.3.03",
       "id": "az900.storage.redundancy",
       "title": "Storage redundancy",
-      "status": "MISSING",
+      "status": "COMPLETE",
       "criteria": {
-        "A": "M",
-        "B": "M",
-        "C": "M",
-        "D": "M",
-        "E": "M",
-        "F": "N"
+        "A": "V",
+        "B": "V",
+        "C": "V",
+        "D": "V",
+        "E": "V",
+        "F": "V"
       },
       "facets": [
         {
           "topic": "LRS",
-          "status": "MISSING"
+          "status": "COMPLETE"
         },
         {
           "topic": "ZRS",
-          "status": "MISSING"
+          "status": "COMPLETE"
         },
         {
           "topic": "GRS/RA-GRS",
-          "status": "MISSING"
+          "status": "COMPLETE"
         },
         {
           "topic": "GZRS/RA-GZRS",
-          "status": "MISSING"
+          "status": "COMPLETE"
         }
       ],
       "localObjectives": ["D01", "O03"],
-      "evidence": [],
-      "observed": "Generisk replika-/kapasitetsmodell dokumenterer ikke Azure Storage-redundans, failover eller datatapgrenser.",
-      "gap": "Mangler egen forklaring, relevant mekanisme/praksis, uavhengig scenario og begrunnet vurdering for de angitte emnene.",
+      "evidence": ["SR"],
+      "observed": "Alle seks alternativer forklares med primær LRS/ZRS, asynkron sekundær LRS, RA-lesing uten sekundærskriving, separat failover, dataversjon og logisk sletting versus restore. Replikakart/tabell og lagrede feilhendelser, originale kombinerte krav/selektiv restore/tjenestegrenser rb05–10. Region, Files, managed disks og Archive-forbehold eksplisitte.",
+      "gap": "Ingen innholdsgap identifisert i scoped forfattergjennomgang A–F. Full innholdsdekning er ikke målt læringseffekt eller eksamensberedskap; menneskelig SME/UX/skjermleser/transfer uutført. Separat sluttrevisjon og leveransegater dokumenteres på PR34.",
       "plannedPRs": ["P09"],
-      "sources": ["EXAM", "M07"]
+      "sources": [
+        "EXAM",
+        "M07",
+        "SRG01",
+        "SRG02",
+        "SRG04",
+        "SRG08",
+        "SRG09",
+        "SRG10",
+        "SRG11",
+        "SRG13",
+        "SRG14",
+        "SRG15",
+        "SRG17",
+        "SRG18",
+        "SRG19",
+        "SRG21",
+        "SRG22",
+        "SRG23"
+      ]
     },
     {
       "slot": "2.3.04",
@@ -4559,6 +4821,37 @@
       ],
       "objectives": ["2.3.01", "2.3.04"],
       "note": "Only two scoped Storage rows re-reviewed A–F: service/data contracts, current account/media/protocol compatibility, independent decision/reason contexts and original feedback. P09/P16 and55 other rows unchanged. No historical learner upgrade or human approval."
+    },
+    {
+      "id": "PR34-P09",
+      "reviewed": "2026-10-31",
+      "objectives": ["2.3.02", "2.3.03"],
+      "note": "Only two P09 rows re-reviewed A–F: access/relative-cost/lifecycle and physical replication/secondary/recovery mechanisms, original paired independent contexts and current sources. P08/P16 and55 other objective rows preserved. Human validation unperformed; authored content is not learner mastery.",
+      "sources": [
+        "SRG01",
+        "SRG02",
+        "SRG03",
+        "SRG04",
+        "SRG05",
+        "SRG06",
+        "SRG07",
+        "SRG08",
+        "SRG09",
+        "SRG10",
+        "SRG11",
+        "SRG12",
+        "SRG13",
+        "SRG14",
+        "SRG15",
+        "SRG16",
+        "SRG17",
+        "SRG18",
+        "SRG19",
+        "SRG20",
+        "SRG21",
+        "SRG22",
+        "SRG23"
+      ]
     }
   ]
 }

@@ -98,14 +98,14 @@ export const officialNetworking = {
   humanReview: null,
 } as const;
 
-/** Part A is authored; the full official Storage module still includes P09/P16. */
+/** Parts A/B are authored; movement/migration remain P16. */
 export const officialStorage = {
   reviewed: '2026-10-31',
   path: 'https://learn.microsoft.com/en-us/training/paths/azure-fundamentals-describe-azure-architecture-services/',
   module: 'describe-azure-storage-services',
   officialUnits: 8,
-  implementedObjectives: ['2.3.01', '2.3.04'],
-  deferredObjectives: ['2.3.02', '2.3.03', '2.3.05', '2.3.06'],
+  implementedObjectives: ['2.3.01', '2.3.02', '2.3.03', '2.3.04'],
+  deferredObjectives: ['2.3.05', '2.3.06'],
   status: 'partial',
   humanReview: null,
 } as const;

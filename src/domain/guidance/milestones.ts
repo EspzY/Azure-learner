@@ -4,6 +4,20 @@ import { replayEngine } from '../sandbox/replay';
 
 /** Conceptual observations are not Engine receipts and have their own source contract. */
 export const conceptMilestones = {
+  'resilience-tiers': {
+    version: '1.0.0',
+    objectives: ['STB01'],
+    sources: ['SB03', 'SB05'],
+    trigger: 'saved-distinct-archive-stored-pending-complete-and-unmet-immediate',
+    auto: 'first-new-guided-model-result',
+  },
+  'resilience-replication': {
+    version: '1.0.0',
+    objectives: ['STB02'],
+    sources: ['SB04', 'SB21'],
+    trigger: 'saved-grs-ra-grs-read-access-contrast-with-unreplicated-write',
+    auto: 'first-new-guided-model-result',
+  },
   'storage-accounts': {
     version: '1.0.0',
     objectives: ['SG03'],
