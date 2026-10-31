@@ -151,6 +151,8 @@ PR33 implements the bounded [Storage Part A module](STORAGE_SERVICES.md) in the 
 
 ## P09 — Storage B: tiers og redundans
 
+PR34 extends the existing Storage group with [Part B](STORAGE_RESILIENCE.md): original tiers/replication teaching, two causal Explorers, two substantive guided investigations, ten paired independent situations and isolated1.0.0 evidence. Only2.3.02/03 are re-reviewed A–F; P08/P16 and earlier learner history are preserved. Full exact-head182-case CI/strict release, actual images and fresh final audit govern delivery. No merge or production deploy. Next is P10 Entra ID, authentication and external identities.
+
 - **Mål:** `2.3.02–03`; Hot/Cool/Cold/Archive, LRS/ZRS/GRS/GZRS og read-access-varianter.
 - **Elevaktivitet:** Velg tier fra tilgangs-/hentebehov og redundans fra definerte feilgrenser. Sammenlign tilgjengelighet, kopiering og gjenoppretting med tydelige modellforutsetninger.
 - **Gjenbruk:** P01 fysisk infrastruktur og P08 konto-/tjenestemodell.

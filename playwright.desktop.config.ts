@@ -5,6 +5,10 @@ import baseline from './playwright.config';
 // names. No test body, assertion, title, timeout or skip is modified.
 const compactCases = [
   [
+    'storage-resilience.spec.ts',
+    'Storage B desktop and compact keyboard, hover contrast, semantic maps and short native briefing remain readable',
+  ],
+  [
     'storage-services.spec.ts',
     'Storage compact briefing, keyboard, reduced motion and semantic controls stay readable across desktop and short views',
   ],

@@ -168,3 +168,7 @@ No general distribution license has been selected; public visibility does not gr
 # PR24 practical mission expansion
 
 The ordinary course overview now exposes four distinct applied missions in Benefits and Service Types: inspect real VM dependencies then test a declared failure hypothesis; compare a real policy denial/correction and scope; build a VM for a new guest/profile/storage requirement; and distinguish an app-settings draft from two ordered Apply operations. They reuse the same Portal/inventory and retain the existing foundational labs. Isolated mission evidence preserves all prior learning/XP and technical contracts. [Audit, original manuscript, sources and lifecycle](docs/PRACTICAL_MISSION_EXPANSION.md); [actual verification](docs/PROJECT_STATUS.md). Qualified human SME/UX/accessibility/learning approval remains outstanding.
+
+## Storage Part B
+
+[P09 Storage Part B](docs/STORAGE_RESILIENCE.md) extends the ordinary Storage group with tier/lifecycle and replication/resilience investigations. Separate history preserves Part A, all old evidence and the technical Sandbox. Only2.3.02/03 are scoped; P16 remains planned. Current verification and SSO limits are recorded on Draft PR34; no merge or production deployment.

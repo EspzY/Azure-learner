@@ -1,5 +1,7 @@
 # Azure Storage Part A — accounts and services
 
+Current availability note: PR34 adds [Part B — tiers and redundancy](STORAGE_RESILIENCE.md) under the same Storage group with separate history. The PR33 scope/evidence below is its historical snapshot; Part A code, manuscript, answers and rubric remain unchanged.
+
 P08 / PR33, authored31 October2026, based on verified PR32 `72ba60a46871d32991893efc1a61138a4f830f2d`. Scope is `2.3.01` and `2.3.04`; P09 tiers/redundancy and P16 movement/migration remain unchanged. No merge or production deployment.
 
 ## Source discovery before manuscript

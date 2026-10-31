@@ -1,4 +1,7 @@
 'use client';
+import { useResilience } from '@/features/learning/storage-resilience-provider';
+import { resilienceHref } from '@/domain/curriculum/storage-resilience';
+
 import { useStorage } from '@/features/learning/storage-provider';
 import { storageHref } from '@/domain/curriculum/storage';
 
@@ -58,7 +61,8 @@ export function useMissionSafetyContexts(owner?: 'missions') {
     compute = useCompute(),
     networking = useNetworking(),
     connectivity = useConnectivity(),
-    storage = useStorage();
+    storage = useStorage(),
+    resilience = useResilience();
   return (
     [
       {
@@ -66,6 +70,12 @@ export function useMissionSafetyContexts(owner?: 'missions') {
         state: missions,
         active: missions.active,
         href: missionOrigin(missions.activeSession?.mission ?? 'diagnose'),
+      },
+      {
+        id: 'resilience',
+        state: resilience,
+        active: resilience.facts.active,
+        href: resilienceHref('assessment', resilience.facts.current?.item),
       },
       {
         id: 'storage',

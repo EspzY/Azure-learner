@@ -1,558 +1,686 @@
 {
   "schema": 1,
-  "id": "PR33-storage-services",
-  "baseCommit": "72ba60a46871d32991893efc1a61138a4f830f2d",
-  "author": "codex-storage-author",
+  "id": "PR34-P09-storage-resilience",
+  "baseCommit": "593e7a63a1adec54a986cf8609b8191e9fcff9ad",
+  "author": "codex-storage-resilience-author",
   "scope": {
     "kind": "new-module",
-    "description": "P08 Azure Storage Part A: original accounts/services/disk comparison, Workload Studio, three distinct causal investigations, independent assessment and isolated versioned evidence within existing Course Hub. No P09/P16 implementation, resource engine, migration, XP, merge or production deploy.",
-    "objectives": ["az900.storage.services", "az900.storage.accounts"]
+    "description": "P09 Storage Part B integrated under existing Storage group. Only2.3.02/03; original theory, two causal models/missions, ten independent pairs and isolated1.0.0 history. Part A/P16 preserved. No resources, real prices/RPO, runtime/failover/XP, merge or production deploy.",
+    "objectives": ["az900.storage.tiers", "az900.storage.redundancy"]
   },
   "sources": [
     {
-      "id": "SS01",
+      "id": "SB01",
       "title": "Study guide for Exam AZ-900: Microsoft Azure Fundamentals | Microsoft Learn",
       "url": "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900",
       "kind": "exam",
       "reviewed": "2026-10-31",
       "version": "Skills measured2026-07-20",
       "availability": "AVAILABLE",
-      "objectives": ["az900.storage.services", "az900.storage.accounts"],
-      "claims": ["storage.SS01"],
-      "limits": "Current dated AZ-900 scope2.3.01 and2.3.04; other Storage objectives deferred.",
+      "objectives": ["az900.storage.tiers", "az900.storage.redundancy"],
+      "claims": ["resilience.SB01"],
+      "limits": "Current dated AZ-900 scoped storage tier/redundancy bullets. No actual Azure interaction, protected items, copied figures or human approval.",
       "discovery": [
         {
           "url": "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900",
           "disposition": "reviewed-essential",
-          "reason": "Current dated AZ-900 scope2.3.01 and2.3.04; other Storage objectives deferred."
+          "reason": "Current dated AZ-900 scoped storage tier/redundancy bullets."
         }
       ]
     },
     {
-      "id": "SS02",
+      "id": "SB02",
       "title": "Describe Azure storage services - Training | Microsoft Learn",
       "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-storage-services/",
-      "kind": "learn-module",
+      "kind": "module",
       "reviewed": "2026-10-31",
-      "version": "Public rolling body; retrieved2026-10-31; document metadata 2026-02-03T00:00:00.0000000Z, 2026-10-28T17:12:00.0000000Z",
+      "version": "2026-10-28T17:12:00.0000000Z / actually checked2026-10-31",
       "availability": "AVAILABLE",
-      "objectives": ["az900.storage.services", "az900.storage.accounts"],
-      "claims": ["storage.SS02"],
-      "limits": "Eight-unit Learn structure and scoped discovery; no protected assessment reuse.",
+      "objectives": ["az900.storage.tiers", "az900.storage.redundancy"],
+      "claims": ["resilience.SB02"],
+      "limits": "Official Storage module has8 units; only scoped public teaching units used. No actual Azure interaction, protected items, copied figures or human approval.",
       "discovery": [
         {
           "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-storage-services/",
           "disposition": "reviewed-essential",
-          "reason": "Eight-unit Learn structure and scoped discovery; no protected assessment reuse."
-        },
-        {
-          "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-storage-services/3-redundancy",
-          "disposition": "outside-scope",
-          "reason": "P09 tier/redundancy scope; no coverage promotion."
+          "reason": "Official Storage module has8 units; only scoped public teaching units used."
         },
         {
           "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-storage-services/6-identify-azure-data-migration-options",
           "disposition": "outside-scope",
-          "reason": "P16 migration scope; no coverage promotion."
+          "reason": "P16, not implemented or re-assessed."
         },
         {
           "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-storage-services/7-identify-azure-file-movement-options",
           "disposition": "outside-scope",
-          "reason": "P16 movement/sync scope; no coverage promotion."
+          "reason": "P16, not implemented or re-assessed."
         },
         {
           "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-storage-services/8-knowledge-check",
           "disposition": "outside-scope",
-          "reason": "Protected/third-party assessment not a source of original authored items."
-        },
-        {
-          "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-storage-services/1-introduction",
-          "disposition": "reviewed-essential",
-          "reason": "Read actual scoped unit body; Storage prerequisites and accounts/services relationship."
-        },
-        {
-          "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-storage-services/2-accounts",
-          "disposition": "reviewed-essential",
-          "reason": "Read actual scoped unit body; Introductory modern account/service families; qualified by newer Files docs."
-        },
-        {
-          "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-storage-services/4-describe-azure-storage-services",
-          "disposition": "reviewed-essential",
-          "reason": "Read actual scoped unit body; Blob, Files, Queue, Table and managed block disks as different data contracts."
-        },
-        {
-          "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-storage-services/9-summary",
-          "disposition": "reviewed-essential",
-          "reason": "Read actual scoped unit body; Module summary and explicit later tier/redundancy/movement/migration scope."
+          "reason": "Protected Microsoft assessment excluded; all items original."
         }
       ]
     },
     {
-      "id": "SS03",
+      "id": "SB03",
+      "title": "Access tiers for blob data - Azure Storage | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/azure/storage/blobs/access-tiers-overview",
+      "kind": "product",
+      "reviewed": "2026-10-31",
+      "version": "2026-06-15T17:26:00.0000000Z / actually checked2026-10-31",
+      "availability": "AVAILABLE",
+      "objectives": ["az900.storage.tiers"],
+      "claims": ["resilience.SB03"],
+      "limits": "Online/manual standard GPv2 tiers, minimum periods, inherited/default assignment and Archive eligibility. No actual Azure interaction, protected items, copied figures or human approval.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/storage/blobs/access-tiers-overview",
+          "disposition": "reviewed-essential",
+          "reason": "Online/manual standard GPv2 tiers, minimum periods, inherited/default assignment and Archive eligibility."
+        }
+      ]
+    },
+    {
+      "id": "SB04",
+      "title": "Data redundancy - Azure Storage | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/azure/storage/common/storage-redundancy",
+      "kind": "product",
+      "reviewed": "2026-10-31",
+      "version": "2026-08-15T05:12:00.0000000Z / actually checked2026-10-31",
+      "availability": "AVAILABLE",
+      "objectives": ["az900.storage.redundancy"],
+      "claims": ["resilience.SB04"],
+      "limits": "Primary LRS/ZRS, geo/RA boundaries, service/account support and Archive exclusion. No actual Azure interaction, protected items, copied figures or human approval.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/storage/common/storage-redundancy",
+          "disposition": "reviewed-essential",
+          "reason": "Primary LRS/ZRS, geo/RA boundaries, service/account support and Archive exclusion."
+        }
+      ]
+    },
+    {
+      "id": "SB05",
+      "title": "Blob rehydration from the archive tier | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/azure/storage/blobs/archive-rehydrate-overview",
+      "kind": "product",
+      "reviewed": "2026-10-31",
+      "version": "2026-09-01T05:17:00.0000000Z / actually checked2026-10-31",
+      "availability": "AVAILABLE",
+      "objectives": ["az900.storage.tiers"],
+      "claims": ["resilience.SB05"],
+      "limits": "Archive pending/completion, copy versus Set Tier, source retention, cost and rearchiving. No actual Azure interaction, protected items, copied figures or human approval.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/storage/blobs/archive-rehydrate-overview",
+          "disposition": "reviewed-essential",
+          "reason": "Archive pending/completion, copy versus Set Tier, source retention, cost and rearchiving."
+        }
+      ]
+    },
+    {
+      "id": "SB06",
+      "title": "Azure Blob Storage lifecycle management overview - Azure Blob Storage | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/azure/storage/blobs/lifecycle-management-overview",
+      "kind": "product",
+      "reviewed": "2026-10-31",
+      "version": "2026-08-25T02:03:00.0000000Z / actually checked2026-10-31",
+      "availability": "AVAILABLE",
+      "objectives": ["az900.storage.tiers"],
+      "claims": ["resilience.SB06"],
+      "limits": "Policy conditions, periodic execution, no Archive rehydration and premium/feature limits. No actual Azure interaction, protected items, copied figures or human approval.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/storage/blobs/lifecycle-management-overview",
+          "disposition": "reviewed-essential",
+          "reason": "Policy conditions, periodic execution, no Archive rehydration and premium/feature limits."
+        }
+      ]
+    },
+    {
+      "id": "SB07",
+      "title": "Optimize Azure Blob Storage costs with smart tier - Azure Storage | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/azure/storage/blobs/access-tiers-smart",
+      "kind": "product",
+      "reviewed": "2026-10-31",
+      "version": "2026-08-12T22:14:00.0000000Z / actually checked2026-10-31",
+      "availability": "AVAILABLE",
+      "objectives": ["az900.storage.tiers"],
+      "claims": ["resilience.SB07"],
+      "limits": "Current eligible Smart GPv2/zonal block blobs, online-only, explicit tiers, cloud and billing exceptions. No actual Azure interaction, protected items, copied figures or human approval.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/storage/blobs/access-tiers-smart",
+          "disposition": "reviewed-essential",
+          "reason": "Current eligible Smart GPv2/zonal block blobs, online-only, explicit tiers, cloud and billing exceptions."
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/storage/common/storage-redundancy-priority-replication",
+          "disposition": "optional",
+          "reason": "Discovered in current redundancy product body, not used to infer universal RPO or implemented as another model."
+        }
+      ]
+    },
+    {
+      "id": "SB08",
+      "title": "Azure storage disaster recovery planning and failover - Azure Storage | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/azure/storage/common/storage-disaster-recovery-guidance",
+      "kind": "product",
+      "reviewed": "2026-10-31",
+      "version": "2026-07-17T17:52:00.0000000Z / actually checked2026-10-31",
+      "availability": "AVAILABLE",
+      "objectives": ["az900.storage.redundancy"],
+      "claims": ["resilience.SB08"],
+      "limits": "Planned/unplanned failover, endpoint/DNS, last-sync uncertainty and remaining application work. No actual Azure interaction, protected items, copied figures or human approval.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/storage/common/storage-disaster-recovery-guidance",
+          "disposition": "reviewed-essential",
+          "reason": "Planned/unplanned failover, endpoint/DNS, last-sync uncertainty and remaining application work."
+        }
+      ]
+    },
+    {
+      "id": "SB09",
       "title": "Introduction - Training | Microsoft Learn",
       "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-storage-services/1-introduction",
-      "kind": "learn-unit",
+      "kind": "unit",
       "reviewed": "2026-10-31",
-      "version": "Public rolling body; retrieved2026-10-31; document metadata 2025-09-09T00:00:00.0000000Z, 2025-09-09T17:13:00.0000000Z",
+      "version": "2025-09-09T17:13:00.0000000Z / actually checked2026-10-31",
       "availability": "AVAILABLE",
-      "objectives": ["az900.storage.services", "az900.storage.accounts"],
-      "claims": ["storage.SS03"],
-      "limits": "Storage prerequisites and accounts/services relationship.",
+      "objectives": ["az900.storage.tiers", "az900.storage.redundancy"],
+      "claims": ["resilience.SB09"],
+      "limits": "Scoped introduction and IT prerequisite; other Storage objectives deferred. No actual Azure interaction, protected items, copied figures or human approval.",
       "discovery": [
         {
           "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-storage-services/1-introduction",
           "disposition": "reviewed-essential",
-          "reason": "Storage prerequisites and accounts/services relationship."
+          "reason": "Scoped introduction and IT prerequisite; other Storage objectives deferred."
         }
       ]
     },
     {
-      "id": "SS04",
+      "id": "SB10",
       "title": "Describe Azure storage accounts - Training | Microsoft Learn",
       "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-storage-services/2-accounts",
-      "kind": "learn-unit",
+      "kind": "unit",
       "reviewed": "2026-10-31",
-      "version": "Public rolling body; retrieved2026-10-31; document metadata 2025-09-09T00:00:00.0000000Z, 2025-09-09T17:13:00.0000000Z",
+      "version": "2025-09-09T17:13:00.0000000Z / actually checked2026-10-31",
       "availability": "AVAILABLE",
-      "objectives": ["az900.storage.services", "az900.storage.accounts"],
-      "claims": ["storage.SS04"],
-      "limits": "Introductory modern account/service families; qualified by newer Files docs.",
+      "objectives": ["az900.storage.tiers", "az900.storage.redundancy"],
+      "claims": ["resilience.SB10"],
+      "limits": "Account/type/redundancy context qualified by current Files product source. No actual Azure interaction, protected items, copied figures or human approval.",
       "discovery": [
         {
           "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-storage-services/2-accounts",
           "disposition": "reviewed-essential",
-          "reason": "Introductory modern account/service families; qualified by newer Files docs."
+          "reason": "Account/type/redundancy context qualified by current Files product source."
         }
       ]
     },
     {
-      "id": "SS05",
+      "id": "SB11",
+      "title": "Describe Azure storage redundancy - Training | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-storage-services/3-redundancy",
+      "kind": "unit",
+      "reviewed": "2026-10-31",
+      "version": "2025-09-09T17:13:00.0000000Z / actually checked2026-10-31",
+      "availability": "AVAILABLE",
+      "objectives": ["az900.storage.redundancy"],
+      "claims": ["resilience.SB11"],
+      "limits": "Six variants and asynchronous/secondary-access introduction; no generic15-minute promise credited. No actual Azure interaction, protected items, copied figures or human approval.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-storage-services/3-redundancy",
+          "disposition": "reviewed-essential",
+          "reason": "Six variants and asynchronous/secondary-access introduction; no generic15-minute promise credited."
+        }
+      ]
+    },
+    {
+      "id": "SB12",
       "title": "Describe Azure storage services - Training | Microsoft Learn",
       "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-storage-services/4-describe-azure-storage-services",
-      "kind": "learn-unit",
+      "kind": "unit",
       "reviewed": "2026-10-31",
-      "version": "Public rolling body; retrieved2026-10-31; document metadata 2025-09-09T00:00:00.0000000Z, 2025-09-09T17:13:00.0000000Z",
+      "version": "2025-09-09T17:13:00.0000000Z / actually checked2026-10-31",
       "availability": "AVAILABLE",
-      "objectives": ["az900.storage.services", "az900.storage.accounts"],
-      "claims": ["storage.SS05"],
-      "limits": "Blob, Files, Queue, Table and managed block disks as different data contracts.",
+      "objectives": ["az900.storage.tiers"],
+      "claims": ["resilience.SB12"],
+      "limits": "Four access tiers in Learn; other service content remains Part A. No actual Azure interaction, protected items, copied figures or human approval.",
       "discovery": [
         {
           "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-storage-services/4-describe-azure-storage-services",
           "disposition": "reviewed-essential",
-          "reason": "Blob, Files, Queue, Table and managed block disks as different data contracts."
+          "reason": "Four access tiers in Learn; other service content remains Part A."
         }
       ]
     },
     {
-      "id": "SS06",
+      "id": "SB13",
       "title": "Summary - Training | Microsoft Learn",
       "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-storage-services/9-summary",
-      "kind": "learn-unit",
+      "kind": "unit",
       "reviewed": "2026-10-31",
-      "version": "Public rolling body; retrieved2026-10-31; document metadata 2025-09-09T00:00:00.0000000Z, 2025-09-09T17:13:00.0000000Z",
+      "version": "2025-09-09T17:13:00.0000000Z / actually checked2026-10-31",
       "availability": "AVAILABLE",
-      "objectives": ["az900.storage.services", "az900.storage.accounts"],
-      "claims": ["storage.SS06"],
-      "limits": "Module summary and explicit later tier/redundancy/movement/migration scope.",
+      "objectives": ["az900.storage.tiers", "az900.storage.redundancy"],
+      "claims": ["resilience.SB13"],
+      "limits": "Module scope/summary; assessment and P16 content not credited. No actual Azure interaction, protected items, copied figures or human approval.",
       "discovery": [
         {
           "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-storage-services/9-summary",
           "disposition": "reviewed-essential",
-          "reason": "Module summary and explicit later tier/redundancy/movement/migration scope."
+          "reason": "Module scope/summary; assessment and P16 content not credited."
         }
       ]
     },
     {
-      "id": "SS07",
-      "title": "Introduction to Azure Storage - Cloud storage on Azure | Microsoft Learn",
-      "url": "https://learn.microsoft.com/en-us/azure/storage/common/storage-introduction",
+      "id": "SB14",
+      "title": "Redundancy options for Azure managed disks - Azure Virtual Machines | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/azure/virtual-machines/disks-redundancy",
       "kind": "product",
       "reviewed": "2026-10-31",
-      "version": "Public rolling body; retrieved2026-10-31; document metadata 2026-08-11T00:00:00.0000000Z, 2026-08-15T05:12:00.0000000Z",
+      "version": "2026-09-19T06:05:00.0000000Z / actually checked2026-10-31",
       "availability": "AVAILABLE",
-      "objectives": ["az900.storage.services", "az900.storage.accounts"],
-      "claims": ["storage.SS07"],
-      "limits": "Storage namespace/data services versus compute/network and access boundaries.",
+      "objectives": ["az900.storage.redundancy"],
+      "claims": ["resilience.SB14"],
+      "limits": "Managed disk LRS/ZRS, supported SSD types, force-detach data disk and separate VM recovery. No actual Azure interaction, protected items, copied figures or human approval.",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/storage/common/storage-introduction",
+          "url": "https://learn.microsoft.com/en-us/azure/virtual-machines/disks-redundancy",
           "disposition": "reviewed-essential",
-          "reason": "Storage namespace/data services versus compute/network and access boundaries."
+          "reason": "Managed disk LRS/ZRS, supported SSD types, force-detach data disk and separate VM recovery."
         }
       ]
     },
     {
-      "id": "SS08",
-      "title": "Storage Account Overview - Azure Storage | Microsoft Learn",
-      "url": "https://learn.microsoft.com/en-us/azure/storage/common/storage-account-overview",
+      "id": "SB15",
+      "title": "Data Redundancy in Azure Files | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/azure/storage/files/files-redundancy",
       "kind": "product",
       "reviewed": "2026-10-31",
-      "version": "Public rolling body; retrieved2026-10-31; document metadata 2026-07-16T00:00:00.0000000Z, 2026-10-16T22:20:00.0000000Z",
+      "version": "2026-07-17T17:52:00.0000000Z / actually checked2026-10-31",
       "availability": "AVAILABLE",
-      "objectives": ["az900.storage.services", "az900.storage.accounts"],
-      "claims": ["storage.SS08"],
-      "limits": "Modern account families, premium specialization and region/feature qualifications.",
+      "objectives": ["az900.storage.redundancy"],
+      "claims": ["resilience.SB15"],
+      "limits": "Files HDD SMB geo versus SSD LRS/ZRS, no Files RA before failover. No actual Azure interaction, protected items, copied figures or human approval.",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/storage/common/storage-account-overview",
+          "url": "https://learn.microsoft.com/en-us/azure/storage/files/files-redundancy",
           "disposition": "reviewed-essential",
-          "reason": "Modern account families, premium specialization and region/feature qualifications."
+          "reason": "Files HDD SMB geo versus SSD LRS/ZRS, no Files RA before failover."
         }
       ]
     },
     {
-      "id": "SS09",
-      "title": "About Blob (object) storage - Azure Storage | Microsoft Learn",
-      "url": "https://learn.microsoft.com/en-us/azure/storage/blobs/storage-blobs-overview",
+      "id": "SB16",
+      "title": "Blob Storage feature support in Azure storage accounts | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/azure/storage/blobs/storage-feature-support-in-storage-accounts",
       "kind": "product",
       "reviewed": "2026-10-31",
-      "version": "Public rolling body; retrieved2026-10-31; document metadata 2026-05-18T00:00:00.0000000Z, 2026-05-19T05:18:00.0000000Z",
+      "version": "2026-10-12T17:20:00.0000000Z / actually checked2026-10-31",
       "availability": "AVAILABLE",
-      "objectives": ["az900.storage.services", "az900.storage.accounts"],
-      "claims": ["storage.SS09"],
-      "limits": "Blob object semantics and conditional NFS/SFTP/Data Lake capabilities.",
+      "objectives": ["az900.storage.tiers"],
+      "claims": ["resilience.SB16"],
+      "limits": "Premium block tier restriction and function-specific support qualifications. No actual Azure interaction, protected items, copied figures or human approval.",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/storage/blobs/storage-blobs-overview",
+          "url": "https://learn.microsoft.com/en-us/azure/storage/blobs/storage-feature-support-in-storage-accounts",
           "disposition": "reviewed-essential",
-          "reason": "Blob object semantics and conditional NFS/SFTP/Data Lake capabilities."
-        },
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/storage/blobs/storage-blobs-introduction",
-          "disposition": "reviewed-essential",
-          "reason": "Container/blob organization and block/append/page distinctions."
+          "reason": "Premium block tier restriction and function-specific support qualifications."
         }
       ]
     },
     {
-      "id": "SS10",
-      "title": "Introduction to Blob (object) Storage - Azure Storage | Microsoft Learn",
-      "url": "https://learn.microsoft.com/en-us/azure/storage/blobs/storage-blobs-introduction",
+      "id": "SB17",
+      "title": "Data protection overview - Azure Storage | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/azure/storage/blobs/data-protection-overview",
       "kind": "product",
       "reviewed": "2026-10-31",
-      "version": "Public rolling body; retrieved2026-10-31; document metadata 2026-05-15T00:00:00.0000000Z, 2026-05-16T05:17:00.0000000Z",
+      "version": "2026-10-05T22:13:00.0000000Z / actually checked2026-10-31",
       "availability": "AVAILABLE",
-      "objectives": ["az900.storage.services", "az900.storage.accounts"],
-      "claims": ["storage.SS10"],
-      "limits": "Container/blob organization and block/append/page distinctions.",
+      "objectives": ["az900.storage.redundancy"],
+      "claims": ["resilience.SB17"],
+      "limits": "Replication versus logical history, protected backup/selective restore under declared support. No actual Azure interaction, protected items, copied figures or human approval.",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/storage/blobs/storage-blobs-introduction",
+          "url": "https://learn.microsoft.com/en-us/azure/storage/blobs/data-protection-overview",
           "disposition": "reviewed-essential",
-          "reason": "Container/blob organization and block/append/page distinctions."
+          "reason": "Replication versus logical history, protected backup/selective restore under declared support."
         }
       ]
     },
     {
-      "id": "SS11",
-      "title": "What is Azure Files? | Microsoft Learn",
-      "url": "https://learn.microsoft.com/en-us/azure/storage/files/storage-files-introduction",
-      "kind": "product",
-      "reviewed": "2026-10-31",
-      "version": "Public rolling body; retrieved2026-10-31; document metadata 2026-08-17T00:00:00.0000000Z, 2026-10-16T17:18:00.0000000Z",
-      "availability": "AVAILABLE",
-      "objectives": ["az900.storage.services", "az900.storage.accounts"],
-      "claims": ["storage.SS11"],
-      "limits": "Files shares and protocol-specific client contracts.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/storage/files/storage-files-introduction",
-          "disposition": "reviewed-essential",
-          "reason": "Files shares and protocol-specific client contracts."
-        },
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/storage/files/storage-files-planning",
-          "disposition": "reviewed-essential",
-          "reason": "SMB/NFS, media and management-model qualifications; one protocol per share."
-        }
-      ]
-    },
-    {
-      "id": "SS12",
-      "title": "Plan an Azure Files deployment | Microsoft Learn",
-      "url": "https://learn.microsoft.com/en-us/azure/storage/files/storage-files-planning",
-      "kind": "product",
-      "reviewed": "2026-10-31",
-      "version": "Public rolling body; retrieved2026-10-31; document metadata 2026-08-17T00:00:00.0000000Z, 2026-10-26T11:42:00.0000000Z",
-      "availability": "AVAILABLE",
-      "objectives": ["az900.storage.services", "az900.storage.accounts"],
-      "claims": ["storage.SS12"],
-      "limits": "SMB/NFS, media and management-model qualifications; one protocol per share.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/storage/files/storage-files-planning",
-          "disposition": "reviewed-essential",
-          "reason": "SMB/NFS, media and management-model qualifications; one protocol per share."
-        },
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/storage/files/files-management-concepts",
-          "disposition": "reviewed-essential",
-          "reason": "Current FileStorage HDD/SSD, GPv2 pay-as-you-go and separate top-level NFS Files management."
-        }
-      ]
-    },
-    {
-      "id": "SS13",
-      "title": "Introduction to Azure Queue Storage - Azure Storage | Microsoft Learn",
-      "url": "https://learn.microsoft.com/en-us/azure/storage/queues/storage-queues-introduction",
-      "kind": "product",
-      "reviewed": "2026-10-31",
-      "version": "Public rolling body; retrieved2026-10-31; document metadata 2020-03-18T00:00:00.0000000Z, 2025-07-02T22:09:00.0000000Z",
-      "availability": "AVAILABLE",
-      "objectives": ["az900.storage.services", "az900.storage.accounts"],
-      "claims": ["storage.SS13"],
-      "limits": "Queue/message relationship and small reference payloads.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/storage/queues/storage-queues-introduction",
-          "disposition": "reviewed-essential",
-          "reason": "Queue/message relationship and small reference payloads."
-        },
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/architecture/guide/architecture-styles/web-queue-worker",
-          "disposition": "reviewed-applied",
-          "reason": "Producer/worker/data flow and failure/idempotency boundary."
-        }
-      ]
-    },
-    {
-      "id": "SS14",
-      "title": "Compare Azure Storage queues and Service Bus queues - Azure Service Bus | Microsoft Learn",
-      "url": "https://learn.microsoft.com/en-us/azure/service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted",
-      "kind": "product",
-      "reviewed": "2026-10-31",
-      "version": "Public rolling body; retrieved2026-10-31; document metadata 2026-02-05T00:00:00.0000000Z, 2026-02-24T23:11:00.0000000Z",
-      "availability": "AVAILABLE",
-      "objectives": ["az900.storage.services", "az900.storage.accounts"],
-      "claims": ["storage.SS14"],
-      "limits": "At-least-once delivery/no FIFO, Queue versus Service Bus; no exactly-once application guarantee.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted",
-          "disposition": "reviewed-essential",
-          "reason": "At-least-once delivery/no FIFO, Queue versus Service Bus; no exactly-once application guarantee."
-        }
-      ]
-    },
-    {
-      "id": "SS15",
-      "title": "Web-Queue-Worker Architecture Style - Azure Architecture Center | Microsoft Learn",
-      "url": "https://learn.microsoft.com/en-us/azure/architecture/guide/architecture-styles/web-queue-worker",
-      "kind": "product",
-      "reviewed": "2026-10-31",
-      "version": "Public rolling body; retrieved2026-10-31; document metadata 2026-01-06T00:00:00.0000000Z, 2026-10-29T05:02:00.0000000Z",
-      "availability": "AVAILABLE",
-      "objectives": ["az900.storage.services", "az900.storage.accounts"],
-      "claims": ["storage.SS15"],
-      "limits": "Producer/worker/data flow and failure/idempotency boundary.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/architecture/guide/architecture-styles/web-queue-worker",
-          "disposition": "reviewed-applied",
-          "reason": "Producer/worker/data flow and failure/idempotency boundary."
-        }
-      ]
-    },
-    {
-      "id": "SS16",
-      "title": "Introduction to Table storage - Object storage in Azure | Microsoft Learn",
-      "url": "https://learn.microsoft.com/en-us/azure/storage/tables/table-storage-overview",
-      "kind": "product",
-      "reviewed": "2026-10-31",
-      "version": "Public rolling body; retrieved2026-10-31; document metadata 2021-05-27T00:00:00.0000000Z, 2025-07-02T22:09:00.0000000Z",
-      "availability": "AVAILABLE",
-      "objectives": ["az900.storage.services", "az900.storage.accounts"],
-      "claims": ["storage.SS16"],
-      "limits": "NoSQL entity/key/attribute data versus relational requirements.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/storage/tables/table-storage-overview",
-          "disposition": "reviewed-essential",
-          "reason": "NoSQL entity/key/attribute data versus relational requirements."
-        },
-        {
-          "url": "https://learn.microsoft.com/en-us/rest/api/storageservices/Understanding-the-Table-Service-Data-Model",
-          "disposition": "reviewed-essential",
-          "reason": "PartitionKey+RowKey identity, different entity properties and key-based access."
-        }
-      ]
-    },
-    {
-      "id": "SS17",
-      "title": "Understanding the Table service data model (REST API) - Azure Storage | Microsoft Learn",
-      "url": "https://learn.microsoft.com/en-us/rest/api/storageservices/Understanding-the-Table-Service-Data-Model",
-      "kind": "product",
-      "reviewed": "2026-10-31",
-      "version": "Public rolling body; retrieved2026-10-31; document metadata 2020-11-16T00:00:00.0000000Z, 2024-05-03T22:16:00.0000000Z",
-      "availability": "AVAILABLE",
-      "objectives": ["az900.storage.services", "az900.storage.accounts"],
-      "claims": ["storage.SS17"],
-      "limits": "PartitionKey+RowKey identity, different entity properties and key-based access.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/rest/api/storageservices/Understanding-the-Table-Service-Data-Model",
-          "disposition": "reviewed-essential",
-          "reason": "PartitionKey+RowKey identity, different entity properties and key-based access."
-        }
-      ]
-    },
-    {
-      "id": "SS18",
-      "title": "Overview of Azure Disk Storage - Azure Virtual Machines | Microsoft Learn",
-      "url": "https://learn.microsoft.com/en-us/azure/virtual-machines/managed-disks-overview",
-      "kind": "product",
-      "reviewed": "2026-10-31",
-      "version": "Public rolling body; retrieved2026-10-31; document metadata 2026-08-20T00:00:00.0000000Z, 2026-08-20T22:03:00.0000000Z",
-      "availability": "AVAILABLE",
-      "objectives": ["az900.storage.services", "az900.storage.accounts"],
-      "claims": ["storage.SS18"],
-      "limits": "Managed block disks, OS/data disk roles and separate VM relationships.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/virtual-machines/managed-disks-overview",
-          "disposition": "reviewed-essential",
-          "reason": "Managed block disks, OS/data disk roles and separate VM relationships."
-        }
-      ]
-    },
-    {
-      "id": "SS19",
-      "title": "Configure anonymous read access for containers and blobs - Azure Storage | Microsoft Learn",
-      "url": "https://learn.microsoft.com/en-us/azure/storage/blobs/anonymous-read-access-configure",
-      "kind": "product",
-      "reviewed": "2026-10-31",
-      "version": "Public rolling body; retrieved2026-10-31; document metadata 2026-08-20T00:00:00.0000000Z, 2026-08-25T02:03:00.0000000Z",
-      "availability": "AVAILABLE",
-      "objectives": ["az900.storage.services", "az900.storage.accounts"],
-      "claims": ["storage.SS19"],
-      "limits": "No anonymous Blob access merely from account creation or public address.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/storage/blobs/anonymous-read-access-configure",
-          "disposition": "reviewed-essential",
-          "reason": "No anonymous Blob access merely from account creation or public address."
-        }
-      ]
-    },
-    {
-      "id": "SS20",
-      "title": "Create an Azure Storage Account - Azure Storage | Microsoft Learn",
-      "url": "https://learn.microsoft.com/en-us/azure/storage/common/storage-account-create",
-      "kind": "product",
-      "reviewed": "2026-10-31",
-      "version": "Public rolling body; retrieved2026-10-31; document metadata 2026-05-08T00:00:00.0000000Z, 2026-09-01T22:21:00.0000000Z",
-      "availability": "AVAILABLE",
-      "objectives": ["az900.storage.services", "az900.storage.accounts"],
-      "claims": ["storage.SS20"],
-      "limits": "Modern account type/kind/performance distinctions; no create operation implemented.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/storage/common/storage-account-create",
-          "disposition": "reviewed-applied",
-          "reason": "Modern account type/kind/performance distinctions; no create operation implemented."
-        }
-      ]
-    },
-    {
-      "id": "SS21",
-      "title": "Azure Files management concepts",
+      "id": "SB18",
+      "title": "Azure Files management concepts | Microsoft Learn",
       "url": "https://learn.microsoft.com/en-us/azure/storage/files/files-management-concepts",
       "kind": "product",
       "reviewed": "2026-10-31",
-      "version": "Public rolling body; retrieved2026-10-31; document metadata 2026-10-27T00:00:00.0000000Z, 2026-10-28T22:31:00.0000000Z",
+      "version": "2026-10-28T22:31:00.0000000Z / actually checked2026-10-31",
       "availability": "AVAILABLE",
-      "objectives": ["az900.storage.services", "az900.storage.accounts"],
-      "claims": ["storage.SS21"],
-      "limits": "Current FileStorage HDD/SSD, GPv2 pay-as-you-go and separate top-level NFS Files management.",
+      "objectives": ["az900.storage.redundancy"],
+      "claims": ["resilience.SB18"],
+      "limits": "Current classic FileStorage HDD/SSD/account and top-level Files/protocol distinctions preserved. No actual Azure interaction, protected items, copied figures or human approval.",
       "discovery": [
         {
           "url": "https://learn.microsoft.com/en-us/azure/storage/files/files-management-concepts",
           "disposition": "reviewed-essential",
-          "reason": "Current FileStorage HDD/SSD, GPv2 pay-as-you-go and separate top-level NFS Files management."
+          "reason": "Current classic FileStorage HDD/SSD/account and top-level Files/protocol distinctions preserved."
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/storage/files/storage-files-management-concepts",
+          "disposition": "blocked",
+          "reason": "Guessed URL returned404; exact existing files-management-concepts linked URL supplies reviewed alternative."
+        }
+      ]
+    },
+    {
+      "id": "SB19",
+      "title": "Introduction to Cloud Infrastructure: Describe Azure Architecture and Services - Training | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/training/paths/azure-fundamentals-describe-azure-architecture-services/",
+      "kind": "path",
+      "reviewed": "2026-10-31",
+      "version": "2026-10-28T17:12:00.0000000Z / actually checked2026-10-31",
+      "availability": "AVAILABLE",
+      "objectives": ["az900.storage.tiers", "az900.storage.redundancy"],
+      "claims": ["resilience.SB19"],
+      "limits": "Second official path and Storage module relationship; no other module credited. No actual Azure interaction, protected items, copied figures or human approval.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/training/paths/azure-fundamentals-describe-azure-architecture-services/",
+          "disposition": "reviewed-essential",
+          "reason": "Second official path and Storage module relationship; no other module credited."
+        }
+      ]
+    },
+    {
+      "id": "SB20",
+      "title": "Azure Blob Storage lifecycle management policy structure - Azure Blob Storage | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/azure/storage/blobs/lifecycle-management-policy-structure",
+      "kind": "product",
+      "reviewed": "2026-10-31",
+      "version": "2026-04-14T22:21:00.0000000Z / actually checked2026-10-31",
+      "availability": "AVAILABLE",
+      "objectives": ["az900.storage.tiers"],
+      "claims": ["resilience.SB20"],
+      "limits": "TierToArchive conditions and last-tier-change guard; no Archive rehydration via lifecycle. No actual Azure interaction, protected items, copied figures or human approval.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/storage/blobs/lifecycle-management-policy-structure",
+          "disposition": "reviewed-essential",
+          "reason": "TierToArchive conditions and last-tier-change guard; no Archive rehydration via lifecycle."
+        }
+      ]
+    },
+    {
+      "id": "SB21",
+      "title": "Check the Last Sync Time property for a storage account - Azure Storage | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/azure/storage/common/last-sync-time-get",
+      "kind": "product",
+      "reviewed": "2026-10-31",
+      "version": "2025-07-02T22:09:00.0000000Z / actually checked2026-10-31",
+      "availability": "AVAILABLE",
+      "objectives": ["az900.storage.redundancy"],
+      "claims": ["resilience.SB21"],
+      "limits": "Last Sync Time covers earlier writes; later writes may be absent, no fixed RPO. No actual Azure interaction, protected items, copied figures or human approval.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/storage/common/last-sync-time-get",
+          "disposition": "reviewed-essential",
+          "reason": "Last Sync Time covers earlier writes; later writes may be absent, no fixed RPO."
+        }
+      ]
+    },
+    {
+      "id": "SB22",
+      "title": "How Azure Storage account customer-managed unplanned failover works - Azure Storage | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/azure/storage/common/storage-failover-customer-managed-unplanned",
+      "kind": "product",
+      "reviewed": "2026-10-31",
+      "version": "2025-12-17T06:10:00.0000000Z / actually checked2026-10-31",
+      "availability": "AVAILABLE",
+      "objectives": ["az900.storage.redundancy"],
+      "claims": ["resilience.SB22"],
+      "limits": "Separate unplanned promotion, asynchronous data loss and post-failover protection changes. No actual Azure interaction, protected items, copied figures or human approval.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/storage/common/storage-failover-customer-managed-unplanned",
+          "disposition": "reviewed-essential",
+          "reason": "Separate unplanned promotion, asynchronous data loss and post-failover protection changes."
+        }
+      ]
+    },
+    {
+      "id": "SB23",
+      "title": "What are Azure Availability Zones? | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/azure/reliability/availability-zones-overview",
+      "kind": "product",
+      "reviewed": "2026-10-31",
+      "version": "2026-10-30T11:03:00.0000000Z / actually checked2026-10-31",
+      "availability": "AVAILABLE",
+      "objectives": ["az900.storage.redundancy"],
+      "claims": ["resilience.SB23"],
+      "limits": "Availability Zones are logical groups of physical sites; do not infer actual buildings or app resilience. No actual Azure interaction, protected items, copied figures or human approval.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/reliability/availability-zones-overview",
+          "disposition": "reviewed-essential",
+          "reason": "Availability Zones are logical groups of physical sites; do not infer actual buildings or app resilience."
         }
       ]
     }
   ],
   "activities": [
     {
-      "id": "storage-services",
-      "objectives": ["az900.storage.services"],
+      "id": "storage-resilience-tiers",
+      "objectives": ["az900.storage.tiers"],
       "claims": [
-        "storage.SS05",
-        "storage.SS09",
-        "storage.SS10",
-        "storage.SS11",
-        "storage.SS13",
-        "storage.SS16",
-        "storage.SS17",
-        "storage.SS18",
-        "storage.SS19"
+        "resilience.SB03",
+        "resilience.SB05",
+        "resilience.SB06",
+        "resilience.SB07",
+        "resilience.SB12",
+        "resilience.SB16",
+        "resilience.SB20"
       ],
-      "limits": "Declared deterministic teaching only; no real API, database, upload, queue worker, account, token, receipt, XP or inherited mastery.",
+      "limits": "Declared deterministic mechanism only; immutable independent observations separate from guided completion. No operation, cloud price, timing, RPO, inventory, receipt or XP.",
       "assessmentStatus": "new-independent",
-      "theory": [{ "path": "src/content/nb.ts", "marker": "storageNb" }],
-      "mechanism": [{ "path": "src/domain/curriculum/storage-model.ts", "marker": "runAccounts" }],
+      "theory": [
+        {
+          "path": "src/content/nb.ts",
+          "marker": "storageResilienceNb"
+        }
+      ],
+      "mechanism": [
+        {
+          "path": "src/domain/curriculum/storage-resilience-model.ts",
+          "marker": "runTiers"
+        }
+      ],
       "practice": [
-        { "path": "src/features/learning/storage-workbench.tsx", "marker": "StorageWorkbench" }
+        {
+          "path": "src/features/learning/storage-resilience-workbench.tsx",
+          "marker": "ResilienceWorkbench"
+        }
       ],
-      "feedback": [{ "path": "src/content/nb.ts", "marker": "storageItemsNb" }],
+      "feedback": [
+        {
+          "path": "src/content/nb.ts",
+          "marker": "resilienceItemsNb"
+        }
+      ],
       "visual": [
-        { "path": "src/features/learning/storage-visuals.tsx", "marker": "StorageRelationships" }
+        {
+          "path": "src/features/learning/storage-resilience-visuals.tsx",
+          "marker": "ResilienceModelResult"
+        }
       ],
-      "accessible": [{ "path": "src/features/learning/storage.css" }],
+      "accessible": [
+        {
+          "path": "src/features/learning/storage-resilience.css"
+        }
+      ],
       "assessment": [
-        { "path": "src/features/learning/storage-assessment.tsx", "marker": "StorageAssessment" }
+        {
+          "path": "src/features/learning/storage-resilience-assessment.tsx",
+          "marker": "ResilienceAssessment"
+        }
       ],
       "savvyshark": [
-        { "path": "src/features/learning/storage-workbench.tsx", "marker": "SavvyShark" }
+        {
+          "path": "src/features/learning/storage-resilience-workbench.tsx",
+          "marker": "SavvyShark"
+        }
       ]
     },
     {
-      "id": "storage-accounts",
-      "objectives": ["az900.storage.accounts"],
-      "claims": ["storage.SS04", "storage.SS08", "storage.SS12", "storage.SS20", "storage.SS21"],
-      "limits": "Declared deterministic teaching only; no real API, database, upload, queue worker, account, token, receipt, XP or inherited mastery.",
+      "id": "storage-resilience-replication",
+      "objectives": ["az900.storage.redundancy"],
+      "claims": [
+        "resilience.SB04",
+        "resilience.SB08",
+        "resilience.SB11",
+        "resilience.SB14",
+        "resilience.SB15",
+        "resilience.SB17",
+        "resilience.SB18",
+        "resilience.SB21",
+        "resilience.SB22",
+        "resilience.SB23"
+      ],
+      "limits": "Declared deterministic mechanism only; immutable independent observations separate from guided completion. No operation, cloud price, timing, RPO, inventory, receipt or XP.",
       "assessmentStatus": "new-independent",
-      "theory": [{ "path": "src/content/nb.ts", "marker": "storageNb" }],
-      "mechanism": [{ "path": "src/domain/curriculum/storage-model.ts", "marker": "runAccounts" }],
+      "theory": [
+        {
+          "path": "src/content/nb.ts",
+          "marker": "storageResilienceNb"
+        }
+      ],
+      "mechanism": [
+        {
+          "path": "src/domain/curriculum/storage-resilience-model.ts",
+          "marker": "runReplication"
+        }
+      ],
       "practice": [
-        { "path": "src/features/learning/storage-workbench.tsx", "marker": "StorageWorkbench" }
+        {
+          "path": "src/features/learning/storage-resilience-workbench.tsx",
+          "marker": "ResilienceWorkbench"
+        }
       ],
-      "feedback": [{ "path": "src/content/nb.ts", "marker": "storageItemsNb" }],
+      "feedback": [
+        {
+          "path": "src/content/nb.ts",
+          "marker": "resilienceItemsNb"
+        }
+      ],
       "visual": [
-        { "path": "src/features/learning/storage-visuals.tsx", "marker": "StorageRelationships" }
+        {
+          "path": "src/features/learning/storage-resilience-visuals.tsx",
+          "marker": "ResilienceModelResult"
+        }
       ],
-      "accessible": [{ "path": "src/features/learning/storage.css" }],
+      "accessible": [
+        {
+          "path": "src/features/learning/storage-resilience.css"
+        }
+      ],
       "assessment": [
-        { "path": "src/features/learning/storage-assessment.tsx", "marker": "StorageAssessment" }
+        {
+          "path": "src/features/learning/storage-resilience-assessment.tsx",
+          "marker": "ResilienceAssessment"
+        }
       ],
       "savvyshark": [
-        { "path": "src/features/learning/storage-workbench.tsx", "marker": "SavvyShark" }
+        {
+          "path": "src/features/learning/storage-resilience-workbench.tsx",
+          "marker": "SavvyShark"
+        }
       ]
     }
   ],
   "modules": [
     {
-      "id": "storage-services",
-      "prerequisites": [{ "path": "src/content/nb.ts", "marker": "storageNb" }],
-      "terminology": [{ "path": "src/content/nb.ts", "marker": "storageNb" }],
-      "concept": [{ "path": "src/content/nb.ts", "marker": "storageNb" }],
-      "azureExample": [{ "path": "src/content/nb.ts", "marker": "storageNb" }],
-      "workedExample": [{ "path": "src/content/nb.ts", "marker": "storageNb" }],
-      "misconception": [{ "path": "src/content/nb.ts", "marker": "storageNb" }],
-      "limits": [{ "path": "src/content/nb.ts", "marker": "storageNb" }],
-      "mechanism": [{ "path": "src/domain/curriculum/storage-model.ts", "marker": "runDelivery" }],
+      "id": "storage-resilience",
+      "prerequisites": [
+        {
+          "path": "src/content/nb.ts",
+          "marker": "storageResilienceNb"
+        }
+      ],
+      "terminology": [
+        {
+          "path": "src/content/nb.ts",
+          "marker": "storageResilienceNb"
+        }
+      ],
+      "concept": [
+        {
+          "path": "src/content/nb.ts",
+          "marker": "storageResilienceNb"
+        }
+      ],
+      "azureExample": [
+        {
+          "path": "src/content/nb.ts",
+          "marker": "storageResilienceNb"
+        }
+      ],
+      "workedExample": [
+        {
+          "path": "src/content/nb.ts",
+          "marker": "storageResilienceNb"
+        }
+      ],
+      "misconception": [
+        {
+          "path": "src/content/nb.ts",
+          "marker": "storageResilienceNb"
+        }
+      ],
+      "limits": [
+        {
+          "path": "src/content/nb.ts",
+          "marker": "storageResilienceNb"
+        }
+      ],
+      "mechanism": [
+        {
+          "path": "src/domain/curriculum/storage-resilience-model.ts",
+          "marker": "runReplication"
+        }
+      ],
       "visual": [
-        { "path": "src/features/learning/storage-visuals.tsx", "marker": "StorageModelResult" }
+        {
+          "path": "src/features/learning/storage-resilience-visuals.tsx",
+          "marker": "ResilienceModelResult"
+        }
       ],
       "practice": [
-        { "path": "src/features/learning/storage-workbench.tsx", "marker": "StorageWorkbench" }
+        {
+          "path": "src/features/learning/storage-resilience-workbench.tsx",
+          "marker": "ResilienceWorkbench"
+        }
       ],
-      "independentScenario": [{ "path": "src/content/nb.ts", "marker": "storageItemsNb" }],
-      "correctAndWrongRationales": [{ "path": "src/content/nb.ts", "marker": "storageItemsNb" }],
+      "independentScenario": [
+        {
+          "path": "src/content/nb.ts",
+          "marker": "resilienceItemsNb"
+        }
+      ],
+      "correctAndWrongRationales": [
+        {
+          "path": "src/content/nb.ts",
+          "marker": "resilienceItemsNb"
+        }
+      ],
       "sources": [
-        { "path": "src/domain/curriculum/storage-sources.ts", "marker": "storageSourceReview" }
+        {
+          "path": "src/domain/curriculum/storage-resilience-sources.ts",
+          "marker": "resilienceSourceReview"
+        }
       ]
     }
   ],
@@ -590,202 +718,231 @@
     "src/domain/curriculum/cost.ts",
     "src/domain/curriculum/cost-model.ts",
     "src/domain/curriculum/cost-store.ts",
-    "src/domain/curriculum/cost-sources.ts"
+    "src/domain/curriculum/cost-sources.ts",
+    "src/domain/curriculum/storage.ts",
+    "src/domain/curriculum/storage-model.ts",
+    "src/domain/curriculum/storage-items.ts",
+    "src/domain/curriculum/storage-sources.ts",
+    "src/domain/curriculum/storage-store.ts",
+    "src/domain/curriculum/storage.test.ts",
+    "src/features/learning/storage.tsx",
+    "src/features/learning/storage-provider.tsx",
+    "src/features/learning/storage-assessment.tsx",
+    "src/features/learning/storage-workbench.tsx",
+    "src/features/learning/storage-visuals.tsx",
+    "src/features/learning/storage.css",
+    "tests/e2e/storage-services.spec.ts"
   ],
   "gates": {
     "source": {
       "checks": [
-        { "path": "docs/STORAGE_SERVICES.md" },
-        { "path": "src/domain/curriculum/storage-sources.ts" }
+        {
+          "path": "docs/STORAGE_RESILIENCE.md"
+        },
+        {
+          "path": "src/domain/curriculum/storage-resilience-sources.ts"
+        }
       ],
-      "limits": "P08 scoped implementation candidate. All actual tests/images/review must be recorded before delivery. Human SME/usability/screen-reader/learning transfer unperformed. Actual full approved exact-head CI and strict release mandatory; external deployed-root/SHA gate remains separately BLOCKED without legitimate access."
+      "limits": "P09 candidate. Complete actual new/affected checks, full check/build, inspected images, fresh final audit and exact-head182 CI/strict release required. External deployed-root/SHA remains separately SSO blocked without legitimate access. Human SME/UX/screen-reader/learning validation unperformed. No merge/prod."
     },
     "curriculum": {
-      "checks": [{ "path": "src/domain/curriculum/storage.ts" }, { "path": "src/content/nb.ts" }],
-      "limits": "P08 scoped implementation candidate. All actual tests/images/review must be recorded before delivery. Human SME/usability/screen-reader/learning transfer unperformed. Actual full approved exact-head CI and strict release mandatory; external deployed-root/SHA gate remains separately BLOCKED without legitimate access."
+      "checks": [
+        {
+          "path": "src/domain/curriculum/storage-resilience.ts"
+        },
+        {
+          "path": "src/content/nb.ts"
+        }
+      ],
+      "limits": "P09 candidate. Complete actual new/affected checks, full check/build, inspected images, fresh final audit and exact-head182 CI/strict release required. External deployed-root/SHA remains separately SSO blocked without legitimate access. Human SME/UX/screen-reader/learning validation unperformed. No merge/prod."
     },
     "simulation": {
       "checks": [
-        { "path": "src/domain/curriculum/storage-model.ts" },
-        { "path": "src/domain/curriculum/storage.test.ts" }
+        {
+          "path": "src/domain/curriculum/storage-resilience-model.ts"
+        },
+        {
+          "path": "src/domain/curriculum/storage-resilience.test.ts"
+        }
       ],
-      "limits": "P08 scoped implementation candidate. All actual tests/images/review must be recorded before delivery. Human SME/usability/screen-reader/learning transfer unperformed. Actual full approved exact-head CI and strict release mandatory; external deployed-root/SHA gate remains separately BLOCKED without legitimate access."
+      "limits": "P09 candidate. Complete actual new/affected checks, full check/build, inspected images, fresh final audit and exact-head182 CI/strict release required. External deployed-root/SHA remains separately SSO blocked without legitimate access. Human SME/UX/screen-reader/learning validation unperformed. No merge/prod."
     },
     "savvyshark": {
       "checks": [
-        { "path": "src/features/learning/storage-workbench.tsx" },
-        { "path": "src/features/learning/management-access.tsx" },
-        { "path": "tests/e2e/storage-services.spec.ts" }
+        {
+          "path": "src/features/learning/storage-resilience-workbench.tsx"
+        },
+        {
+          "path": "src/features/learning/management-access.tsx"
+        },
+        {
+          "path": "tests/e2e/storage-resilience.spec.ts"
+        }
       ],
-      "limits": "P08 scoped implementation candidate. All actual tests/images/review must be recorded before delivery. Human SME/usability/screen-reader/learning transfer unperformed. Actual full approved exact-head CI and strict release mandatory; external deployed-root/SHA gate remains separately BLOCKED without legitimate access."
+      "limits": "P09 candidate. Complete actual new/affected checks, full check/build, inspected images, fresh final audit and exact-head182 CI/strict release required. External deployed-root/SHA remains separately SSO blocked without legitimate access. Human SME/UX/screen-reader/learning validation unperformed. No merge/prod."
     },
     "visual-accessibility": {
       "checks": [
-        { "path": "src/features/learning/storage.css" },
-        { "path": "tests/e2e/storage-services.spec.ts" }
+        {
+          "path": "src/features/learning/storage-resilience-visuals.tsx"
+        },
+        {
+          "path": "src/features/learning/storage-resilience.css"
+        },
+        {
+          "path": "tests/e2e/storage-resilience.spec.ts"
+        }
       ],
-      "limits": "P08 scoped implementation candidate. All actual tests/images/review must be recorded before delivery. Human SME/usability/screen-reader/learning transfer unperformed. Actual full approved exact-head CI and strict release mandatory; external deployed-root/SHA gate remains separately BLOCKED without legitimate access."
+      "limits": "P09 candidate. Complete actual new/affected checks, full check/build, inspected images, fresh final audit and exact-head182 CI/strict release required. External deployed-root/SHA remains separately SSO blocked without legitimate access. Human SME/UX/screen-reader/learning validation unperformed. No merge/prod."
     },
     "independent-final-audit": {
       "checks": [
-        { "path": "docs/RELEASE_ACCEPTANCE.md" },
-        { "path": "docs/quality/PR33_FINAL_AUDIT.md" }
+        {
+          "path": "docs/RELEASE_ACCEPTANCE.md"
+        },
+        {
+          "path": "docs/quality/PR34_FINAL_AUDIT.md"
+        }
       ],
-      "limits": "P08 scoped implementation candidate. All actual tests/images/review must be recorded before delivery. Human SME/usability/screen-reader/learning transfer unperformed. Actual full approved exact-head CI and strict release mandatory; external deployed-root/SHA gate remains separately BLOCKED without legitimate access."
+      "limits": "P09 candidate. Complete actual new/affected checks, full check/build, inspected images, fresh final audit and exact-head182 CI/strict release required. External deployed-root/SHA remains separately SSO blocked without legitimate access. Human SME/UX/screen-reader/learning validation unperformed. No merge/prod."
     },
     "delivery": {
       "checks": [
-        { "path": ".github/workflows/ci.yml" },
-        { "path": "scripts/e2e-plan-check.mjs" },
-        { "path": "docs/STORAGE_SERVICES.md" }
+        {
+          "path": ".github/workflows/ci.yml"
+        },
+        {
+          "path": "scripts/e2e-plan-check.mjs"
+        },
+        {
+          "path": "docs/STORAGE_RESILIENCE.md"
+        }
       ],
-      "limits": "P08 scoped implementation candidate. All actual tests/images/review must be recorded before delivery. Human SME/usability/screen-reader/learning transfer unperformed. Actual full approved exact-head CI and strict release mandatory; external deployed-root/SHA gate remains separately BLOCKED without legitimate access."
+      "limits": "P09 candidate. Complete actual new/affected checks, full check/build, inspected images, fresh final audit and exact-head182 CI/strict release required. External deployed-root/SHA remains separately SSO blocked without legitimate access. Human SME/UX/screen-reader/learning validation unperformed. No merge/prod."
     }
   },
   "verification": [
     {
       "command": "npm run check",
       "result": "passed",
-      "details": "Actual complete local command exited0:378 Vitest/29files,288 curriculum/20files,17 Node fixtures,99 Markdown/local links,type/lint/format/quality/AZ900/assets/legacy/build. Subsequent bounded manuscript/alternative wording and table-wrap refinements received full curriculum288 exit0,lint/format exit0,production rebuild exit0 and affected browser/direct probes; no full local175 duplication."
+      "details": "Actual full local command exit0:405 Vitest/30files,315 curriculum/21files,17 Node fixtures,101 docs/links,type/lint/format/quality/audit/assets/legacy/build. Earlier type/lint integration attempts stopped, not passed. Later bounded causal-message/word-spacing fixes received315 curriculum,production rebuild,3 affected browser cases21.4s and2 strengthened negatives7.4s, all exit0; final lint/global format exit0. Full exact-head check remains in CI."
     },
     {
-      "command": "Targeted new Storage and affected Course Hub browser cases",
+      "command": "New and affected production browser",
       "result": "passed",
-      "details": "Actual complete14-case production run55.8s exit0, no retry: all8 Storage cases and6 existing Hub cases including all16 independent contexts, cross-tab/denied/corrupt recovery, client Back/Forward/reload and Sandbox return. Initial8-case run exited1 on3 fixture/selector failures; all3 corrected affected cases passed12.9s exit0 before this full14 run."
-    },
-    {
-      "command": "Final bounded refinement checks",
-      "result": "passed",
-      "details": "After final worked-example/transfer/alternative and table-wrap author review:288 curriculum tests exit0; lint and format exit0; production build exit0;3 affected design/matrix/keyboard-Axe-six-viewports cases passed20.3s exit0;2 final independent/denied-assistance cases passed5.5s exit0. Direct1024x500 fresh-context sa03/sa04 probes rejected correct-decision/wrong-reason, accepted correct pair and preserved exact first event prefix. No new skips/retries/timeouts."
-    },
-    {
-      "command": "Independent-audit accessibility correction",
-      "result": "passed",
-      "details": "PR33-A11Y-01 fixed with a Storage-only dark-blue/white primary-button hover rule. Actual production rebuild exit0; strengthened existing compact browser case passed10.8s exit0, including hovered-button Axe and3px focus outline at all six desktop/short viewports. Reviewer renewal remains required; old default-state screenshots remain representative."
+      "details": "Initial6 process exit1:4pass/2 test selector/navigation failures. Updated20 process exit1:19pass/1 client-history synchronization assertion. Corrected navigation1passed3.1s exit0. All17 context resume/all8 existing Part A cases were among unaffected passes. Final bounded model/visual/control3passed21.4s exit0 and2 strengthened negatives7.4s exit0. No complete20-case exit0 or local182 claimed."
     },
     {
       "command": "npm run test:e2e:plan",
       "result": "passed",
-      "details": "Actual plan validates164 desktop+11 compact=175; retains all166 inherited cases,adds8 Storage desktop and1 justified compact witness; optional legacy328 remains. Collection is not full execution."
+      "details": "Actual mandatory plan182=170desktop+12compact, retains all175 inherited cases; optional legacy340. No new skips or increased workers/retries/timeouts. Collection is not full execution."
     },
     {
       "command": "Preservation proof",
       "result": "passed",
-      "details": "All21 pre-existing content exports compare exactly to verified base after only6 declared navigation/assistance metadata extensions. Only audit objective rows2.3.01/04 changed;55 other rows, including P09/P16, remain exact. Technical domain/commands/World/receipts, old learning models/stores/rubrics and XP preserved."
+      "details": "All23 previous copy exports exact after six declared metadata differences; only2.3.02/03 audit rows change,55 including P08/P16 exact. Frozen Part A domain/store/UI/test, technical World/commands/receipts/XP and native guidance preserved."
     },
     {
-      "command": "Actual production screenshots",
+      "command": "Actual production capture and inspection",
       "result": "passed",
-      "details": "17 actual PNGs personally inspected: ordinary Hub/Storage row,theory,all3 native briefings,1920 design,1440 full matrix,queue1440/1366/1024/short800,relationships,independent and two short feedback views. Capture and fresh-context transfer processes exited0 with no page errors or automatic external requests. Screenshots are local candidate evidence, not deployed-SHA verification."
+      "details": "Final capture exit0; all15 current images personally viewed across1920,1440,1366,1024,800 and1024x500. Native briefing, Archive phases, fictional cost bars, replica flow/map/table, service matrix and independent/feedback. No runtime page errors/automatic external requests. Local only, not deployed-SHA evidence."
     },
     {
       "command": "Full exact-head GitHub CI",
       "result": "pending",
-      "details": "Required after Draft publication: full175 with pinned Chromium, mandatory plan and unchanged success-only receipt wrapper,then strict release against verified72ba60a46871d32991893efc1a61138a4f830f2d. Base166 or targeted runs cannot substitute."
+      "details": "After Draft publication require complete182 with pinned Chromium, mandatory plan and existing success-only receipt wrapper, then strict release against593e7a63a1adec54a986cf8609b8191e9fcff9ad. Historical/targeted/plan results cannot substitute."
     }
   ],
   "visualEvidence": [
     {
-      "path": "docs/screenshots/storage-services/account-matrix-1440.png",
+      "path": "docs/screenshots/storage-resilience/hub-1440.png",
       "viewport": "1440x900",
       "inspected": true,
-      "observation": "Personally inspected actual local production rendering: all seven service/protocol columns fit ordinary desktop; selected SSD file row and explicit unverified regional assumption remain separate."
+      "observation": "Three paths/one primary start; no new promotion."
     },
     {
-      "path": "docs/screenshots/storage-services/brief-accounts-1440.png",
+      "path": "docs/screenshots/storage-resilience/storage-group-1440.png",
       "viewport": "1440x900",
       "inspected": true,
-      "observation": "Personally inspected actual local production rendering: native SavvyShark briefing,blur,visible start/cancel and scrollable essential explanation; no resource command."
+      "observation": "One Storage group, separate A/B links; P16 planned."
     },
     {
-      "path": "docs/screenshots/storage-services/brief-delivery-1440.png",
+      "path": "docs/screenshots/storage-resilience/introduction-1440.png",
       "viewport": "1440x900",
       "inspected": true,
-      "observation": "Personally inspected actual local production rendering: native SavvyShark briefing,blur,visible start/cancel and scrollable essential explanation; no resource command."
+      "observation": "Readable theory/terms, active sidebar and Part A return."
     },
     {
-      "path": "docs/screenshots/storage-services/brief-design-1440.png",
-      "viewport": "1440x900",
+      "path": "docs/screenshots/storage-resilience/briefing-tiers-1024x500.png",
+      "viewport": "1024x500",
       "inspected": true,
-      "observation": "Personally inspected actual local production rendering: native SavvyShark briefing,blur,visible start/cancel and scrollable essential explanation; no resource command."
+      "observation": "Native blur and explicit Start/Cancel; long body scrolls."
     },
     {
-      "path": "docs/screenshots/storage-services/design-1920.png",
+      "path": "docs/screenshots/storage-resilience/cold-online-1920.png",
       "viewport": "1920x1080",
       "inspected": true,
-      "observation": "Personally inspected actual local production rendering: four differentiated datatype/client contracts,chosen services and causal comparison; conceptual boundary explicit."
+      "observation": "Cold online and fictional cost drivers/bars remain separate."
     },
     {
-      "path": "docs/screenshots/storage-services/feedback-sa03-1024x500.png",
-      "viewport": "1024x500",
-      "inspected": true,
-      "observation": "Personally inspected actual local production rendering: submitted retry feedback and explicit classification visible in short window; full rationales remain in ordinary scroll; first remains unchanged."
-    },
-    {
-      "path": "docs/screenshots/storage-services/feedback-sa04-1024x500.png",
-      "viewport": "1024x500",
-      "inspected": true,
-      "observation": "Personally inspected actual local production rendering: submitted retry feedback and explicit classification visible in short window; full rationales remain in ordinary scroll; first remains unchanged."
-    },
-    {
-      "path": "docs/screenshots/storage-services/hub-1440.png",
+      "path": "docs/screenshots/storage-resilience/archive-pending-1440.png",
       "viewport": "1440x900",
       "inspected": true,
-      "observation": "Personally inspected actual local production rendering: three paths and one primary action preserved; Storage is an ordinary row after Networking,Part B planned,no new promotion."
+      "observation": "Declared requested Archive phase remains offline."
     },
     {
-      "path": "docs/screenshots/storage-services/hub-storage-entry-1440.png",
+      "path": "docs/screenshots/storage-resilience/archive-rehydrated-1440.png",
       "viewport": "1440x900",
       "inspected": true,
-      "observation": "Personally inspected actual local production rendering: three paths and one primary action preserved; Storage is an ordinary row after Networking,Part B planned,no new promotion."
+      "observation": "Only declared completion is online; remaining minimum costs separate."
     },
     {
-      "path": "docs/screenshots/storage-services/independent-1024.png",
+      "path": "docs/screenshots/storage-resilience/archive-zrs-rejected-1024.png",
       "viewport": "1024x768",
       "inspected": true,
-      "observation": "Personally inspected actual local production rendering: separate undecided decision/reason controls,active assessment sidebar and disabled unfilled submit; no pre-submit solution."
+      "observation": "Precise Archive/zonal rejection, no false datatype reason."
     },
     {
-      "path": "docs/screenshots/storage-services/queue-1024x500.png",
-      "viewport": "1024x500",
+      "path": "docs/screenshots/storage-resilience/replica-map-1440.png",
+      "viewport": "1440x900",
       "inspected": true,
-      "observation": "Personally inspected actual local production rendering: two deliveries versus one assumed idempotent effect,explicit lifecycle and crash assumption; short windows use ordinary vertical scroll,not hidden mandatory text."
+      "observation": "Numbered causal chain and primary/secondary different versions."
     },
     {
-      "path": "docs/screenshots/storage-services/queue-1024x768.png",
+      "path": "docs/screenshots/storage-resilience/replica-map-1024.png",
       "viewport": "1024x768",
       "inspected": true,
-      "observation": "Personally inspected actual local production rendering: two deliveries versus one assumed idempotent effect,explicit lifecycle and crash assumption; short windows use ordinary vertical scroll,not hidden mandatory text."
+      "observation": "Readable compact causal sequence and physical replica state."
     },
     {
-      "path": "docs/screenshots/storage-services/queue-1366x768.png",
-      "viewport": "1366x768",
-      "inspected": true,
-      "observation": "Personally inspected actual local production rendering: two deliveries versus one assumed idempotent effect,explicit lifecycle and crash assumption; short windows use ordinary vertical scroll,not hidden mandatory text."
-    },
-    {
-      "path": "docs/screenshots/storage-services/queue-800x700.png",
+      "path": "docs/screenshots/storage-resilience/replica-map-800.png",
       "viewport": "800x700",
       "inspected": true,
-      "observation": "Personally inspected actual local production rendering: two deliveries versus one assumed idempotent effect,explicit lifecycle and crash assumption; short windows use ordinary vertical scroll,not hidden mandatory text."
+      "observation": "Stacked flow and ordinary scrolling; no mobile product redesign."
     },
     {
-      "path": "docs/screenshots/storage-services/queue-lifecycle-1440.png",
-      "viewport": "1440x900",
+      "path": "docs/screenshots/storage-resilience/replica-decisions-1024x500.png",
+      "viewport": "1024x500",
       "inspected": true,
-      "observation": "Personally inspected actual local production rendering: two deliveries versus one assumed idempotent effect,explicit lifecycle and crash assumption; short windows use ordinary vertical scroll,not hidden mandatory text."
+      "observation": "Primary/secondary read and no secondary write remain distinct."
     },
     {
-      "path": "docs/screenshots/storage-services/table-relationships-1024.png",
+      "path": "docs/screenshots/storage-resilience/service-matrix-1366.png",
+      "viewport": "1366x768",
+      "inspected": true,
+      "observation": "All six redundancy columns, Files RA and disk/premium limits."
+    },
+    {
+      "path": "docs/screenshots/storage-resilience/independent-rb09-1024.png",
       "viewport": "1024x768",
       "inspected": true,
-      "observation": "Personally inspected actual local production rendering: different table data structure,explicit PartitionKey/RowKey pair and different properties; no SQL/World claim."
+      "observation": "Unselected decision/reason; selective restore requirements without feedback."
     },
     {
-      "path": "docs/screenshots/storage-services/theory-1440.png",
-      "viewport": "1440x900",
+      "path": "docs/screenshots/storage-resilience/feedback-rb09-1024x500.png",
+      "viewport": "1024x500",
       "inspected": true,
-      "observation": "Personally inspected actual local production rendering: original theory,defined terms and contextual Storage sidebar with existing course bar."
+      "observation": "Post-submit first classification and causal feedback; scroll continues."
     }
   ],
   "humanReview": {
@@ -796,156 +953,203 @@
   },
   "review": {
     "status": "complete",
-    "fingerprint": "81dd8c5e5dd4627e172c57403783ae8c9594c77dc9cbf41780dfcdaa3cb87bfa",
-    "reviewer": { "id": "codex-storage-final-auditor", "kind": "agent" },
-    "started": "2026-10-31T15:53:40.741Z",
+    "fingerprint": "20fcfb502719e7da2176e084296f748f2c44583b9dd8b2ba27787555960e3060",
+    "reviewer": {
+      "id": "codex-storage-resilience-final-auditor",
+      "kind": "agent"
+    },
+    "started": "2026-10-31T19:21:42Z",
     "domains": {
       "content": {
-        "finding": "Read full original manuscript/all feedback and current official source bodies; SS21 qualifies HDD/SSD FileStorage and standalone NFS. Supports scoped2.3.01/04 authored A–F COMPLETE only, with55 other rows preserved and human efficacy unperformed.",
+        "finding": "Accepted: current scoped sources, substantive manuscript, worked counterexamples and product qualifications verified; no human efficacy claim.",
         "evidence": [
-          { "path": "src/content/nb.ts" },
-          { "path": "src/domain/curriculum/storage-sources.ts" },
-          { "path": "docs/STORAGE_SERVICES.md" },
-          { "path": "docs/audits/az900-2026-07-20.json" }
+          {
+            "path": "src/content/nb.ts"
+          },
+          {
+            "path": "src/domain/curriculum/storage-resilience-sources.ts"
+          },
+          {
+            "path": "docs/quality/PR34_FINAL_AUDIT.md"
+          }
         ]
       },
       "technical": {
-        "finding": "Pure model/account80-combination and blind108-pair probes exit0; schema1 and1.0.0 pins, durable aid, replay, terminal reserve, stale writers and compare-before-delete inspected;36 targeted tests exit0. No technical resource/receipt/XP or runtime worker added.",
+        "finding": "Accepted: separate support/region/physical/access/version/app fields; strict replay, durable denial/conflict, immutable firsts and terminal reserve passed targeted tests.",
         "evidence": [
-          { "path": "src/domain/curriculum/storage-model.ts" },
-          { "path": "src/domain/curriculum/storage.ts" },
-          { "path": "src/domain/curriculum/storage-store.ts" },
-          { "path": "src/domain/curriculum/storage.test.ts" }
+          {
+            "path": "src/domain/curriculum/storage-resilience-model.ts"
+          },
+          {
+            "path": "src/domain/curriculum/storage-resilience.ts"
+          },
+          {
+            "path": "src/domain/curriculum/storage-resilience-store.ts"
+          },
+          {
+            "path": "src/domain/curriculum/storage-resilience.test.ts"
+          }
         ]
       },
       "visual": {
-        "finding": "Personally viewed all17 actual PNGs. Independently found MAJOR hovered white-on-pale button contrast1.08:1; author scoped correction and restamp verified on actual latest build across primary assessment/Studio buttons,1024x500 and1440x900, Axe0/3px focus. Native short briefing scroll-to-end and footer reachability passed.",
+        "finding": "Accepted: personally inspected all15 actual PNGs plus independent short hover/focus captures; six-size Axe/keyboard/overflow sweep and1024x500 native End/Escape/focus passed. Ordinary scrolling; no human or zoom claim.",
         "evidence": [
-          { "path": "src/features/learning/storage.css" },
-          { "path": "tests/e2e/storage-services.spec.ts" },
-          { "path": "docs/screenshots/storage-services/account-matrix-1440.png" },
-          { "path": "docs/screenshots/storage-services/feedback-sa04-1024x500.png" },
-          { "path": "docs/quality/PR33_FINAL_AUDIT.md" }
+          {
+            "path": "docs/screenshots/storage-resilience/briefing-tiers-1024x500.png"
+          },
+          {
+            "path": "docs/screenshots/storage-resilience/cold-online-1920.png"
+          },
+          {
+            "path": "docs/screenshots/storage-resilience/replica-map-1440.png"
+          },
+          {
+            "path": "docs/screenshots/storage-resilience/service-matrix-1366.png"
+          },
+          {
+            "path": "tests/e2e/storage-resilience.spec.ts"
+          }
         ]
       },
       "assessment": {
-        "finding": "Locked12 independent decisions before keys, packet actual equality verified, all108 pairs matched blind indexes. Actual sa03/04 wrong rationale rejected/correct retry accepted and first prefix retained. Mixed client/visibility/SQL/account cases change constraints. Weak distractors/comprehensive-option cues retained as MINOR bounded difficulty limitation; no psychometric/efficacy claim.",
+        "finding": "Accepted with minor cue limitation: fresh blind packet/hash lock before keys; exact actual-source field equality;10of10 pairs independently agree;all alternatives/feedback read;correct decision plus wrong reason fails; firsts survive helped retry.",
         "evidence": [
-          { "path": "src/domain/curriculum/storage-items.ts" },
-          { "path": "src/features/learning/storage-assessment.tsx" },
-          { "path": "src/content/nb.ts" },
-          { "path": "docs/quality/PR33_FINAL_AUDIT.md" }
+          {
+            "path": "src/domain/curriculum/storage-resilience-items.ts"
+          },
+          {
+            "path": "src/content/nb.ts"
+          },
+          {
+            "path": "src/features/learning/storage-resilience-assessment.tsx"
+          },
+          {
+            "path": "docs/quality/PR34_FINAL_AUDIT.md"
+          }
         ]
       },
       "guidance": {
-        "finding": "Inspected all16 shared independent contexts, Journal/Summary/mission recovery/Portal shielding and native SavvyShark witness triggers. Actual metadata exact resume wrote no aid; Journal aid durable; denied write withheld teaching; newer-tab conflict hid open Journal and reloaded without merging. No automatic independent solution, command or XP.",
+        "finding": "Accepted: native brief/start/cancel/milestone/recall and17-context durable teaching/Journal/Summary/history/mission/automatic/Portal protection; denial/cross-tab and assisted-active mission probes passed.",
         "evidence": [
-          { "path": "src/features/learning/management-access.tsx" },
-          { "path": "src/features/course/mission-context.ts" },
-          { "path": "src/features/portal/portal.tsx" },
-          { "path": "src/features/learning/storage-workbench.tsx" },
-          { "path": "tests/e2e/course-hub.spec.ts" }
+          {
+            "path": "src/features/learning/storage-resilience-workbench.tsx"
+          },
+          {
+            "path": "src/features/learning/management-access.tsx"
+          },
+          {
+            "path": "src/features/course/mission-context.ts"
+          },
+          {
+            "path": "src/features/portal/portal.tsx"
+          },
+          {
+            "path": "tests/fixtures/active-teaching-contexts.ts"
+          }
         ]
       },
       "regression": {
-        "finding": "All58 final normalized hashes/fingerprint and34 preserved prefixes verified.21 prior exports exact after six declared metadata differences;55 audit rows including P09/P16 exact. Fixture10to11/Hub15to16 adds coverage without assertion loss. Actual author logs reviewed; final candidate175 CI/strict pending, external Gate7 separately SSO blocked; no invented receipt. Post-acceptance docs and full format checks exit0; strict release against full base exits1 solely for missing executed candidate full-browser profile, with no other traceability errors.",
+        "finding": "Accepted conditionally: independently recomputed57 hashes/fingerprint,47 preserved paths,23 old content-data exports plus function and55 objective rows; fresh targeted tests/17-context resume and182-plan passed. Full exact-head CI/strict and external deployed verification pending.",
         "evidence": [
-          { "path": "tests/fixtures/active-teaching-contexts.ts" },
-          { "path": "src/domain/curriculum/teaching-access.test.ts" },
-          { "path": "tests/e2e/course-hub.spec.ts" },
-          { "path": "scripts/e2e-plan-check.mjs" },
-          { "path": "docs/quality/PR33_FINAL_AUDIT.md" }
+          {
+            "path": "docs/quality/PR34_FINAL_AUDIT.md"
+          },
+          {
+            "path": "tests/e2e/course-hub.spec.ts"
+          },
+          {
+            "path": "playwright.desktop.config.ts"
+          },
+          {
+            "path": "scripts/e2e-plan-check.mjs"
+          }
         ]
       }
     },
     "findings": [
       {
-        "id": "PR33-A11Y-01",
-        "severity": "major",
-        "status": "fixed",
-        "description": "Hovered Storage primary model-run button inherited pale portal background with white text; independently reproduced1.08:1 contrast.",
-        "fix": "Author scoped Storage compute-primary hover to#075595/white, retaining all shared legacy CSS; strengthened existing six-viewport hover/Axe/focus assertions, rebuilt and restamped.",
-        "retests": [
-          "Author production build exit0 and existing six-viewport accessibility case1 passed10.8s exit0.",
-          "Independent final browser probe exit0: hover computed colors/Axe0 and3px focus for assessment begin/dialog start/submit,Studio begin/model run1024x500;run1440x900; causal Explain; sa04 wrong/right and immutable first; screenshot viewed."
-        ]
-      },
-      {
-        "id": "PR33-ASSESSMENT-02",
+        "id": "MINOR-01",
         "severity": "minor",
         "status": "accepted-limitation",
-        "description": "Several introductory distractors are weak and correct sa03/04 decisions are comprehensive cues. Changed constraints, paired grading and feedback support bounded coverage; do not infer psychometric validation, exam readiness or measured learning efficacy."
+        "description": "Some categorical distractor claims and the unique differentiated rb04 outcome provide elimination cues. Blind choices remain unambiguous and supported by substantive paired feedback. No psychometric inference from option length."
       },
       {
-        "id": "PR33-DELIVERY-03",
+        "id": "NOTE-02",
         "severity": "note",
-        "status": "open",
-        "description": "Candidate full175 exact-head GitHub browser profile and strict release remain pending; external deployed-root/SHA Gate7 independently SSO-blocked. Targeted/base/local evidence cannot replace either."
+        "status": "accepted-limitation",
+        "description": "Conditional implementation acceptance only. Unpublished candidate still needs complete182 exact-head GitHub CI, success-only receipt and strict release; targeted/local/collection evidence cannot substitute."
+      },
+      {
+        "id": "NOTE-03",
+        "severity": "note",
+        "status": "accepted-limitation",
+        "description": "New feature preview unverified; older external Gate7 SSO block remains separate. No anonymous deployed-root/in-app-SHA or human SME/UX/screen-reader/learning approval claimed."
       }
     ],
-    "report": { "path": "docs/quality/PR33_FINAL_AUDIT.md" }
+    "report": {
+      "path": "docs/quality/PR34_FINAL_AUDIT.md"
+    }
   },
   "snapshot": {
     "files": {
-      "AGENTS.md": "3c0d06ece36cdca07268a194f8058e650bb2d92580c7de8e380e36a682638935",
-      "README.md": "6f84334c0d5d65e1784bb62605a25fe7d5efe5fad6f51366964c298be2bedc15",
-      "docs/ARCHITECTURE.md": "4bd8b2fff92eb25dc0d99c9c72ce90d9bcfb15810e4606031beda0137f58bef0",
-      "docs/AZ900_COVERAGE_MATRIX.md": "0552b7085904129d75c80646ab2f8804620ace6d9dc340952d59c642c962e5d0",
-      "docs/AZ900_EXPANSION_ROADMAP.md": "10961cf530260bf84e06d0101ab9d7a3f197c310b04d24a22609e22b93d18703",
-      "docs/DECISIONS.md": "bb7a339f824be78817d26c3298dcd06c254bbdc5a0bd9814a3e9e609cee80ff1",
-      "docs/DEVELOPMENT_WORKFLOW.md": "a7158782e0a24f3ee305dd899273197b8e25766feb8fdbac1c1221a03b7138c0",
-      "docs/STORAGE_SERVICES.md": "cd65b57ada5cbe7dc8b142b17d486461f5b4059e93cbddf53920c36cb8a35bab",
-      "docs/audits/az900-2026-07-20.json": "7d4131e7493bd02ea3f760a4aa242eb386335f25704344238aefd4d1462f767f",
-      "docs/screenshots/storage-services/account-matrix-1440.png": "0fd72cd78e000ed35d32633079e756c8a45a17283b6888140ff2e977a769f15b",
-      "docs/screenshots/storage-services/brief-accounts-1440.png": "1615512730c861b053124c14971406b11e91d7fb3d53bb2507ee4f10e10950d9",
-      "docs/screenshots/storage-services/brief-delivery-1440.png": "9eb9378e49df691b2bd16964eb72abb3b1047bdc9128c4219b97f4193ea83913",
-      "docs/screenshots/storage-services/brief-design-1440.png": "23320bcfd7eedcd38dee8c3853021b3c040166bca49946ef5244998e3d657b6f",
-      "docs/screenshots/storage-services/design-1920.png": "b39ec4a4fbf194105f4c92c091d2b3519aa0dc43e20a1efdead7db3dcaecb3d6",
-      "docs/screenshots/storage-services/feedback-sa03-1024x500.png": "44807d6866b173e124bf642f00e9df8aaff045a50378831069be3b3f8eda0e86",
-      "docs/screenshots/storage-services/feedback-sa04-1024x500.png": "3f47715a4eff93eb5188583bfd1409aace7e30d5a2dbd6bc26f112eabe0e9571",
-      "docs/screenshots/storage-services/hub-1440.png": "ab38de4aca98e1343b08d3d67e8d3cada7bc52845efd24faaa3b058e4e237eb6",
-      "docs/screenshots/storage-services/hub-storage-entry-1440.png": "a4ce34b96d240f7856a2225e5d8bcae10d41487d598b43b55e27513ca5380807",
-      "docs/screenshots/storage-services/independent-1024.png": "661a2b10da10520e22d3b46d0e9028c215affb4e08a1305c2e2435cbd9363695",
-      "docs/screenshots/storage-services/queue-1024x500.png": "51014b9dac2368b0966da1d51b0e979ca60287de00ee4706b98e02bd01471364",
-      "docs/screenshots/storage-services/queue-1024x768.png": "c5982507c30567aa5dc97de62e65cb30826de49c34a90c3776dfd3ea40da29d9",
-      "docs/screenshots/storage-services/queue-1366x768.png": "d9e2fc56cfe53bae908e970ec208d63cc455d39bc849fe5b15efa86edc89d32d",
-      "docs/screenshots/storage-services/queue-800x700.png": "bde78a76f165a9f1c6fd296c8a0074c5bdbd3ef7a471508a87196a54eb8fdf8c",
-      "docs/screenshots/storage-services/queue-lifecycle-1440.png": "e59192442eb8e23f2aa75c2c5a766d3db9c2edf184f8897d24c2820ba5e66c8b",
-      "docs/screenshots/storage-services/table-relationships-1024.png": "75e1ffb39511e562e8f0102392a9ef536cf0f79522e5e9c8495e23072dea7b64",
-      "docs/screenshots/storage-services/theory-1440.png": "297bb57805945f0b8e339df6bd71382419c04671e1f1265c057b425da72b290e",
-      "package.json": "d6ea967d7557d824d9919dac668fe105fbf88a94e7a4d9d4d51235aef80723b5",
-      "playwright.desktop.config.ts": "d69ad0b026ec1388da72158d950cbb0f3486ad1ff6fc933271fd50c38a5186f2",
-      "scripts/az900-audit-check.test.mjs": "c661adf2a72d45f70c11cee048f69f3ecafcce24d0ba7583e8297350b7ebd230",
-      "scripts/e2e-plan-check.mjs": "775586d3b68c3763924f60b30a41b490d039e5887470feb7ef0cf672990cf782",
-      "src/app/layout.tsx": "a656b61ef52ab52cef324e2e9f452a0596323f8f57729d276ae0acaaba9d1e58",
-      "src/app/learn/[module]/page.tsx": "5adc6c0736cb3ab6658d9406fc78d891df1722fabfaf971919c123234deefb58",
-      "src/components/progress-provider.tsx": "639d48338e71ac7fbd437b5621f1b4497c868e17ce3c866bc409b634eef2cf17",
-      "src/content/nb.ts": "60c7b1a64f8aa66591999d758565e3deda74316c0372d6ff7114fc8a49f18290",
-      "src/domain/course/model.ts": "208bb5d98174b7f9fbcad54d1f6afa8e2be73baca7d10f434a8380b6cec80d78",
-      "src/domain/curriculum/official.ts": "d1a49cf2b06e59538587d713a0e7e246015a0dd088a03b16f85e873f693c323a",
-      "src/domain/curriculum/storage-items.ts": "7697fcbeac7d479dc3aa01cdc0797b050dcbad7a2fbb37f4513388c7a533d857",
-      "src/domain/curriculum/storage-model.ts": "ddf994f99e493e2d50d6ddd9a29a72e104e2f8e0c09a0dc3297806f9506d0160",
-      "src/domain/curriculum/storage-sources.ts": "bd1722de19755e1ec35190e0f32df96480c90cf15139bf1988ec6e6fae7539c8",
-      "src/domain/curriculum/storage-store.ts": "0bce26f00efb142b8627aeb2c9be99cbac0451ec35b505880cd336493d7d629f",
-      "src/domain/curriculum/storage.test.ts": "8bf922ef4c8da42f8df795c8a28903a0d2d397d26113e49a7cdc6feb6723cd07",
-      "src/domain/curriculum/storage.ts": "b65a7aec89a968a85a0ae5e589f7a8d2042e5aa3f77d22a64211a84636fb3f9e",
-      "src/domain/curriculum/teaching-access.test.ts": "cf7b9170701204352e4800c2d88d657e81eaecdead12263e79f09fabfa4b71d3",
-      "src/domain/guidance/milestones.ts": "288f4752577f32762d28977a0613e9bd02d64a6dca28be565d82bd4f57dd596a",
-      "src/features/course/course-outline.ts": "3b9e1e5c17edfe0e341bc03080668702c54d38718d8f35c574e67b247a2e17bf",
-      "src/features/course/course.tsx": "02104916e773244030f2b99016aedf777700d1be8839b39ff2780846f7153c9c",
-      "src/features/course/mission-context.ts": "23caf923ac6693ef526daac84420d499f46135a35169f4393a82af39c40ba5eb",
-      "src/features/learning/management-access.tsx": "782d4614a66b61dd9175b3267f239602c010b5a92353c14ef7aeb9b8c37077c4",
-      "src/features/learning/storage-assessment.tsx": "5619db4850e6295040d97553648e36e4387bdc746afc972c3afa1bc2367c8bb0",
-      "src/features/learning/storage-provider.tsx": "fa9476d24ad565dede318ddbb4ed0b21761f250d65bd67e881d5f6ec57d6115b",
-      "src/features/learning/storage-visuals.tsx": "6d2ccfad5860fa36bd84c22d270b5216ec928efd68bbede98dbf19297918a115",
-      "src/features/learning/storage-workbench.tsx": "72dc7c5030d2f2fe9851b362c4579489ad313f275fcc6ae7974e52c6efc4c3f4",
-      "src/features/learning/storage.css": "3d4dcca0abfb423c85620093d362b2b9331fb302627f0f87ca4e3285278e1810",
-      "src/features/learning/storage.tsx": "99e8ac2a980b17873f0dbe3b1c1234dd8025b5f4b0aa1070239b4a4ac7594ddc",
-      "src/features/portal/portal.tsx": "4f5512a92d6593c55c443e5f1b12177d390e0449dccae11378b4dd6d78e0fe2f",
-      "tests/e2e/course-hub.spec.ts": "8587faad18ba4c0c40d79640b7a9be28b8518cdb4e750e5c85e7a7e24f253545",
-      "tests/e2e/storage-services.spec.ts": "9b25929f5da4a097d3693e78dea9ab8a32d5dc5853278d6641873a38e830c6f4",
-      "tests/fixtures/active-teaching-contexts.ts": "0624409588e6c6df33a83d6a2ea82ff721fd867b59af210a60efe5087e57c5b9"
+      "AGENTS.md": "dbb6d12ae91da495326065b8fcc72a27cb1dde6a02143db3707f89bd26d31f1b",
+      "README.md": "7a1ed6f92f259849e0f7073c1f5d00e4ec1d532e0955e9b715c6dd1125690e0a",
+      "docs/ARCHITECTURE.md": "0f4524b260217dc71d5cb1a7779697f07961ca3225c2c6c4f307872054e44f4f",
+      "docs/AZ900_COVERAGE_MATRIX.md": "a50112518cbe07d4e38282dd878d36d38bc772385f45fdfc32725ac1886cd68e",
+      "docs/AZ900_EXPANSION_ROADMAP.md": "c92cf3e168191529c67bf514ccae998eb238f7a12551a91c24944340a5d0b171",
+      "docs/DECISIONS.md": "3ea5bc5d7590c7b5df41445372244e3a3d0c88f38087db0cd520387e9e231bc6",
+      "docs/DEVELOPMENT_WORKFLOW.md": "247baac0a173fed8e849352cb062286809ec4241b5bc4bdd3d8101898047bfc9",
+      "docs/STORAGE_RESILIENCE.md": "382ce44a1d8c54da301e984309622d891de9d2c47afee2672aaf7c6d491b5df7",
+      "docs/STORAGE_SERVICES.md": "7ad16df2cfb91874aba40b6d3387e0c89484f3bab8b4e2ae6587b4327fede3ac",
+      "docs/audits/az900-2026-07-20.json": "308c6c1d8dfbcda3ada1abaa22af76b40d869ac061085c4058df70422098e4c9",
+      "docs/screenshots/storage-resilience/archive-pending-1440.png": "9b2b499532edef57e2b2b3bb923ee9cb2a14d2e91b3fcf7dce1e0274202f555c",
+      "docs/screenshots/storage-resilience/archive-rehydrated-1440.png": "ec26f684f8823320d0bfa3e98949057041aac12e02d15a1c0d9627ce5976a9b0",
+      "docs/screenshots/storage-resilience/archive-zrs-rejected-1024.png": "aca6cdc859e17b7b37fea59aa252cd8bc8f644dd0100da29cecffb57d351d210",
+      "docs/screenshots/storage-resilience/briefing-tiers-1024x500.png": "617a48c14e0bbd11403b9171621462a913d7a5c1172bf22ffc701bea28b14db5",
+      "docs/screenshots/storage-resilience/cold-online-1920.png": "bee2690ff0316f76296b64551ad621ece7f258efb4910d016f87c2301c9f0c67",
+      "docs/screenshots/storage-resilience/feedback-rb09-1024x500.png": "9ad648272c10d08e54019244c504cccaf2123e3c4a665098ea0eb0ddcbe62e8f",
+      "docs/screenshots/storage-resilience/hub-1440.png": "ab38de4aca98e1343b08d3d67e8d3cada7bc52845efd24faaa3b058e4e237eb6",
+      "docs/screenshots/storage-resilience/independent-rb09-1024.png": "b85d7b71a1a2e9ccccdebfbd49e85bd001c17b61652a41227ffab53b544e4768",
+      "docs/screenshots/storage-resilience/introduction-1440.png": "f4e47323e3035c1ffdbc8e9f48dadd20468c9cada7accc86c783f3b2b6b26332",
+      "docs/screenshots/storage-resilience/replica-decisions-1024x500.png": "abb3789f717e596b59bdd2677adadc4579571718ac1531196c5d7459ed6fc7ef",
+      "docs/screenshots/storage-resilience/replica-map-1024.png": "8f8fd876cb16ec49ed0de1fa48449180a45b3e7edee14bb03d7bf49be4811ea8",
+      "docs/screenshots/storage-resilience/replica-map-1440.png": "7c2ebaf5c06f105509b0cdf42525f8b13c2deb3212f4e8a0bb89db6b3a2680a2",
+      "docs/screenshots/storage-resilience/replica-map-800.png": "935447557b26c2b57ae1f6c6eaf82dee5a2dfca50d207750c713f4cf75166d01",
+      "docs/screenshots/storage-resilience/service-matrix-1366.png": "d534c154bf443b44d46ab5754677e5130d72c732ea2d7b4d28e7ffaf7dc68fd6",
+      "docs/screenshots/storage-resilience/storage-group-1440.png": "771784deaa4c1136a3ba1589d7ebfa5d22f075fbce0ea9a029b546d0a925fd18",
+      "package.json": "c3638d2c22cad708d1b73e60c3d0ddfc0d3cda2720d9b9b579e3d45dd87891aa",
+      "playwright.desktop.config.ts": "7580f4a2a6074a1ee2ced5589eb17552a38bc38922e4b4b68c5001e9b556d327",
+      "scripts/az900-audit-check.test.mjs": "61b1e3731847b8c3418f9150fd61d4c9dedf03812c14731962aefe684f32803b",
+      "scripts/e2e-plan-check.mjs": "ac6de65a05a2c4907afdaabafeb3baea84f8ead3bf179a7616969b17f54065f7",
+      "src/app/layout.tsx": "805035a8096c94134a5f2a128889413f3d4c752fc7a47a3a32cfb5f772893f94",
+      "src/app/learn/[module]/page.tsx": "6acc26821c68de630d6370e3aa3280b48a618ae17db92a2b3acd313f770f8b9c",
+      "src/components/progress-provider.tsx": "5c3969a7e8d1196b910fd8fe291fce60c9a409ae6f75fda734df3ea4a5b1a64a",
+      "src/content/nb.ts": "b2ad132a4bae9213070e773dd0a1058a570b1d0d1c3abe85720b7975b7bf485d",
+      "src/domain/course/model.ts": "9ad8266c783c58781b073b8082c7faf2a32a7a4c5fa91459f406ce6e7a13d273",
+      "src/domain/curriculum/official.ts": "675cd552e24b15fd2966f6f7f2ff2308c3a69d0c5941c9c0785df5ae135f030f",
+      "src/domain/curriculum/storage-resilience-items.ts": "549dea3c5ac516f0a4ad35dc72445120fbaa0177e4a7c94f986a32fdd3e9e17a",
+      "src/domain/curriculum/storage-resilience-model.ts": "44d3bfb730b9d140d4f4c434bc346d46ecc7280105ec8f8720a2595fd1c9bb4e",
+      "src/domain/curriculum/storage-resilience-sources.ts": "0344e75ade0d8108ee9cb104592c70f305dc35449bc53b6b3dc378e2cb4b4263",
+      "src/domain/curriculum/storage-resilience-store.ts": "6b53a0f5a6d1bb79469b9b0ffa711d3ed455ea4f1c85860d9d349d4cbe71276b",
+      "src/domain/curriculum/storage-resilience.test.ts": "751f63e84974f045b8e1e73c9a283f71a2de1f271f69d132d35c3b841cf40c36",
+      "src/domain/curriculum/storage-resilience.ts": "0caa90a736d2896557ffafca519a9c2ae6e85ad46db543c220a8d57cf0f4b2b8",
+      "src/domain/curriculum/teaching-access.test.ts": "7c6066aece17bc946b952900d9cec973bc6d4d926d6e5f74e7ab920e978e25a3",
+      "src/domain/guidance/milestones.ts": "2e79bcf9aff6540ac7f625d7febd04ea6eb5ba28de1511c807d18460f0a0da32",
+      "src/features/course/course-outline.ts": "5e9fa1ef0fd05090ef549aa8aac739bf49d82be533efc16288638b47eff6033b",
+      "src/features/course/course.tsx": "06b9a99f604e2276c78a87a48b169102ca2dc1b8fa98ccbe273b73b6243fcfbd",
+      "src/features/course/mission-context.ts": "58b52998e2a6bec2e9cb6773f522005f21f9aa7383c155d01e65ff9124ff3dce",
+      "src/features/learning/management-access.tsx": "4906311818b5c0a52c5e559dbb93c8607091a1f57c4ad206bc5a21ee75fb9a18",
+      "src/features/learning/storage-resilience-assessment.tsx": "9f62074de780da88a835a1b82195a409e3fd491a98e8c77d0c18a7659b477380",
+      "src/features/learning/storage-resilience-provider.tsx": "d89830b93dc9d1e9d7683a1e6b405fdabc1090d5a8c7dfd732592666ec9c0bd7",
+      "src/features/learning/storage-resilience-visuals.tsx": "b4672656b8e4ac15fc7803e7e6cba2461232199a1019ff18de0c9d0e5f4fa0d7",
+      "src/features/learning/storage-resilience-workbench.tsx": "ba1365842972823be87f1c7ee7919f983abc3b9fe9afc655940f6cc0fa1915e0",
+      "src/features/learning/storage-resilience.css": "f8e850362964e7501e659a66a90dba982559e9b66633c8c04ccc7b8e05c3f1dc",
+      "src/features/learning/storage-resilience.tsx": "8b7e49aa7365d172d52ddeb296007dc62e5d01f3b51103cb853de40b8f4dd6cd",
+      "src/features/portal/portal.tsx": "fcf8aefb4ea4f781f8046edca85cea643f234e04728667a76e571989bebd5989",
+      "tests/e2e/course-hub.spec.ts": "7fb583c6e504e94a751505291e8ba072e0ed1dd6bf88588e9ef4af880e7067ec",
+      "tests/e2e/storage-resilience.spec.ts": "4a5c09b0cdf628fe1ea07eeb4371e7539295114e8373ee20c714f6cfa346ce96",
+      "tests/fixtures/active-teaching-contexts.ts": "4aed3276f5eaaa4aa4fc1c8f69246d69a845f92cb02fac543a281b578e051162"
     }
   },
-  "implementationFinished": "2026-10-31T15:51:50.241Z"
+  "implementationFinished": "2026-10-31T19:20:49.601Z"
 }

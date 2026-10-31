@@ -5400,6 +5400,7 @@ export const managementNb = {
   accessReload: 'Les lagret vurderingskontekst på nytt',
   accessReview: 'Åpne egen vurdering og lagringskontroll',
   accessContexts: {
+    resilience: 'Storage Part B',
     storage: 'Azure Storage Part A',
     connectivity: 'Networking Part B',
     networking: 'Networking Part A · selvstendig anvendelse',
@@ -5953,6 +5954,7 @@ export const missionsNb = {
   reloadContext: 'Last inn bare denne konteksten',
   reviewContext: 'Åpne kontekstens eksisterende recovery eller vurdering',
   recoveryContexts: {
+    resilience: 'Storage Part B',
     storage: 'Azure Storage Part A',
     connectivity: 'Networking Part B',
     networking: 'Networking Part A',
@@ -11348,6 +11350,7 @@ export const courseHubNb = {
     },
   },
   moduleLabels: {
+    'storage-resilience': 'Part B — Tiers & Redundancy',
     computing: 'Cloud computing',
     benefits: 'Benefits of cloud services',
     services: 'Cloud service types',
@@ -11359,11 +11362,13 @@ export const courseHubNb = {
     cost: 'Cost Management',
   },
   networking: 'Networking',
+  storage: 'Storage',
   plannedModules: {
-    architecture: ['Storage Part B · tiers og redundans', 'Identity & Security'],
+    architecture: ['File Movement & Migration (P16)', 'Identity & Security'],
     management: ['Governance', 'Management Tools', 'Monitoring'],
   },
   recordLabels: {
+    resilience: 'Storage Part B',
     course: 'Kursposisjon',
     chapter: 'Sandbox',
     learning: 'Cloud computing · opprinnelig historikk',
@@ -12393,6 +12398,823 @@ export const storageItemsNb = {
         'Dette begrunner tjenestevalget med klientmekanismen og beholder disk-/filshare-skillet.',
         'Administrert infrastruktur betyr ikke automatisk datasynkronisering mellom uavhengige volumer.',
         'Tabulære data gir ikke filsystemprotokoll eller fil-låsing bare ved å få et filrelatert navn.',
+      ],
+    ],
+  },
+} as const;
+/** P09: original Bokmål manuscript. Part A's content and history are preserved. */
+export const storageResilienceNb = {
+  title: 'Storage Part B — Access Tiers & Redundancy',
+  path: '02 — Azure Architecture & Services',
+  part: 'Storage · Part B',
+  perspective: 'Velg faglig undersøkelse',
+  links: {
+    title: 'Relevante forkunnskaper',
+    partA: 'Storage Part A — tjenester og accounts',
+    core: 'Core Architecture — Availability Zones',
+    cost: 'Cost Management — bruk og total',
+  },
+  overview: 'Velg datatilgang og beskyttelse ut fra forskjellige behov.',
+  prerequisites:
+    'Bygg på Storage Part A: account, tjeneste og data er forskjellige nivåer. Core Architecture forklarer regioner og Availability Zones; Cost Management skiller enhetskostnad fra total bruk.',
+  available:
+    'To konseptuelle undersøkelser og nye selvstendige situasjoner. Resultatene tilhører Part B. File Movement & Migration kommer i P16.',
+  topics: {
+    introduction: 'Fra lagringstjeneste til tilgang og beskyttelse',
+    tiers: 'Hot, Cool, Cold og Archive',
+    lifecycle: 'Standardtier, lifecycle og rehydrering',
+    redundancy: 'LRS, ZRS og geo-replikering',
+    recovery: 'Sekundær lesing, failover og gjenoppretting',
+    boundaries: 'Tjenestegrenser og kombinasjoner',
+    studio: 'Tier & Resilience Studio',
+    missions: 'Guidede undersøkelser',
+    assessment: 'Selvstendig anvendelse',
+    summary: 'Summary — Storage Part B',
+  },
+  sections: {
+    introduction: {
+      title: 'Fjordverk har valgt tjenester. Nå endrer behovene seg.',
+      paragraphs: [
+        'Fjordverk bruker Blob Storage til produktbilder, Azure Files til delte arbeidsdokumenter, Queue Storage til bakgrunnsarbeid og Table Storage til nøkkelbaserte produktdata. Det valget forklarer hvordan data brukes. Det svarer ikke alene på hvor raskt et gammelt bilde må kunne hentes, eller hva som skjer hvis en fysisk lokasjon blir utilgjengelig.',
+        'To nye beslutninger følger. Access tier avveier lagringskostnad, brukskostnader og tilgangstilstand for relevante blobs. Redundans bestemmer hvordan data kopieres over fysiske feilgrenser. Et billig offline objekt kan ha flere geografiske kopier uten å kunne leses direkte. Et online objekt kan være raskt å lese så lenge den eneste berørte lokasjonen fungerer.',
+        'Tilgjengelighet betyr at tjenesten kan brukes når den trengs. Varighet eller durability handler om at data bevares. Gjenoppretting betyr å få tilbake brukbare data eller funksjon etter en feil. Begrepene overlapper, men er ikke like: en bevart sekundær kopi kan kreve failover før skriving, og en korrekt replika kan inneholde en uønsket sletting.',
+        'Fra Cost Management tar vi med totalperspektivet: antall GB, lagringsperiode, operasjoner, hentet datamengde, tier-endringer og eventuell tidlig avslutning påvirker kostnaden. Fra Core Architecture tar vi med at flere ressurser eller navn ikke beviser fysisk feilseparasjon. Her undersøker vi datakopier og betingelser, uten å opprette ressurser eller utføre Azure-operasjoner.',
+      ],
+      terms: [
+        ['Access tier', 'En tilgangs- og kostnadsklasse for støttede Blob-data.'],
+        [
+          'Replika',
+          'En vedlikeholdt datakopi, ikke automatisk en historisk gjenopprettingsversjon.',
+        ],
+        [
+          'Feilgrense',
+          'Omfanget som den deklarerte hendelsen rammer, for eksempel én lokasjon eller en hel region.',
+        ],
+      ],
+      example:
+        'Gamle kampanjebilder leses sjelden, men kundestøtte må hente dem mens kunden venter. Uavhengig av hvilken redundans Fjordverk velger, gjør dette kravet Archive uegnet som direkte leseflate. Et separat behov for regional beredskap må vurderes i tillegg.',
+      limit:
+        'Modellene antar datatyper, hendelser og støtte. De måler ikke Azure-tilgjengelighet, applikasjonshelse, priser eller faktisk replikering. Å åpne en side gir ingen faglig fullføring.',
+    },
+    tiers: {
+      title: 'Online eller offline er en teknisk forskjell, ikke bare en prislapp',
+      paragraphs: [
+        'Hot er en online tier for data som leses eller endres ofte. Lagringskostnaden er relativt høy, mens tilgang og operasjoner normalt koster mindre enn i kjøligere tiers. Aktive produktbilder og datasett som bearbeides gjentatte ganger er typiske kandidater. Hot betyr ikke ubegrenset kapasitet, garantert responstid eller automatisk autorisasjon.',
+        'Cool er også online. Data kan leses uten rehydrering, men lavere lagringskostnad byttes mot høyere kostnader ved tilgang og relevante operasjoner. For manuelt valgte Cool-blobs i standard GPv2 gjelder normalt en faktureringsperiode på minst 30 dager. En sjeldnere brukt rapport som må være tilgjengelig direkte, kan passe bedre her enn i Hot.',
+        'Cold er online for data som brukes enda sjeldnere og fortsatt trenger rask gjenfinning. I standard GPv2 er den tilsvarende minimumsperioden90 dager. Cold er ikke et annet navn på Archive. En sjelden lesing utløser ikke først en overgang fra offline til online. Høyere hentekostnader og relevante tilgjengelighetsvilkår må likevel vurderes.',
+        'Archive er offline. Selve blob-innholdet kan ikke leses eller endres på vanlig måte før rehydrering til Hot, Cool eller Cold er fullført. Det kan fortsatt være mulig å liste objektet og lese relevante egenskaper; en vellykket listing beviser derfor ikke lesbart innhold. Archive passer langsiktig, sjelden brukt materiale med fleksibel hentetid. Normal minimumsperiode er180 dager.',
+        'Minimumsperiodene er faktureringsregler, ikke generelle tekniske låser. Hvis et objekt slettes, overskrives eller flyttes ut av en tier for tidlig, kan resterende periode bli belastet forholdsmessig. Et Cool-objekt som slettes etter 20 dager kan for eksempel få en tidlig-slettingskostnad for10 resterende dager. Retention/immutability er egne funksjoner og må ikke forveksles med denne betalingen. Soft delete kan påvirke når en sletting regnes som endelig.',
+        'Velg etter forventet bruk, ikke bare hva som skjedde sist måned. En produktlansering kan gjøre sjeldne bilder aktive igjen. Lavest lagringskostnad er da ikke nødvendigvis lavest totalkostnad. I Studio bruker vi synlige, fiktive indekspoeng for å undersøke drivere. Tallene er verken Azure-priser, tilbud eller bevis for hvilken tier som alltid er billigst.',
+      ],
+      terms: [
+        [
+          'Online',
+          'Innholdet krever ingen Archive-rehydrering før vanlig lesing; øvrige tilgangskrav gjelder fortsatt.',
+        ],
+        ['Offline', 'Archive-innhold må bringes til en online tier før det kan leses.'],
+        [
+          'Early deletion charge',
+          'En mulig faktureringskonsekvens når data forlater tier før minimumsperioden er oppfylt.',
+        ],
+      ],
+      example:
+        'Et midlertidig datasett på 2 GiB brukes intensivt og kastes etter 12 dager. Cool har lavere lagringspris per dag enn Hot, men flere lesinger og eventuell fakturering for gjenstående minimumsperiode kan snu totalen. Det riktige spørsmålet er hvilken kombinasjon som dekker bruken og kostnadsdriverne.',
+      limit:
+        '30/90/180 gjelder de beskrevne manuelt styrte standard-blobbetingelsene. Legacy account-typer og Smart tier har andre forbehold. Dette er ikke universelle oppbevaringskrav for Azure Files, Queues, Tables eller managed disks.',
+    },
+    lifecycle: {
+      title: 'En policy kan flytte data uten å forstå neste ukes bruk',
+      paragraphs: [
+        'En standard GPv2-account kan ha en standard online tier. Blobs uten eksplisitt tier arver innstillingen. Endres account-default, kan den derfor endre tier for disse blobene, med relevante operasjons- og hentekostnader. En blob med eksplisitt Hot blir ikke automatisk Cold fordi account-default endres til Cold. Archive kan ikke være vanlig account-default.',
+        'Lifecycle management bruker deklarerte regler, filtre og betingelser, for eksempel tid siden endring eller siste tilgang når tilgangssporing er konfigurert. En regel kan flytte kvalifiserte block blobs til kjøligere tiers eller slette kvalifiserte objekter. Dette er periodisk behandling, ikke et presist tidspunkt eller en garanti om at data alltid er billigst lagret. Policybehandling og tilgangssporing kan gi kostnader selv om selve policyen ikke har en egen fast pris.',
+        'Rehydrering er et eget forløp. Ved Set Blob Tier flyttes samme arkiverte blob til en online tier; innholdet er fortsatt offline mens forespørselen behandles. Ved Copy Blob opprettes en ny online kopi når kopieringen er ferdig, mens arkivkilden kan beholdes. Å beholde kilden kan unngå tidlig-slettingskostnad på den, men gir kostnader for kopiering, henting og to lagrede objekter. Ikke slett arkivkilden før kopieringen er bekreftet fullført.',
+        'Rehydrering kan ta timer, og påvirkes blant annet av prioritet, størrelse, volum og kapasitet. Høy prioritet koster mer og er ikke et løfte om umiddelbar henting. Et synlig nytt objektnavn eller en registrert forespørsel er ikke bevis for at innholdet er online. Planlegg og kontroller fullføring. Studio har eksplisitte deklarerte tilstander; ingen klokke, kø eller Azure-henting kjører.',
+        'Lifecycle management kan ikke rehydrere Archive-blobs til online. Dessuten endrer ikke Set Blob Tier objektets last-modified-tid. En gammel blob kan derfor bli kvalifisert for arkivering på nytt ved en senere policykjøring. Et passende vilkår basert på siste tier-endring, eller en ny kopi med ny last-modified-tid, kan motvirke denne sløyfen. Vilkårene må passe den faktiske policyen; rehydrering alene retter ikke reglene.',
+        'Gjeldende Smart tier styrer støttede block blobs automatisk mellom Hot, Cool og Cold, uten Archive. Det krever standard GPv2 og zonal redundans: ZRS, GZRS eller RA-GZRS. Det er generelt tilgjengelig i offentlige skyregioner med slik støtte; Government/21Vianet er fortsatt preview ifølge den kontrollerte siden. Smart settes som account-default og tar ikke over blobs med eksplisitt tier. Objekter under 128 KiB forblir i Hot; tilgang kan flytte kvalifiserte objekter tilbake dit.',
+        'Smart har egne faktureringsvilkår, blant annet overvåking av kvalifiserte objekter og unntak fra ordinære interne tier-overgangs-, early-deletion- og hentekostnader. Det gjør ikke alle operasjoner eller all lagring gratis. Støtte, konvertering og failover har egne begrensninger. Smart er kort produktkontekst, ikke et nytt AZ-900-mål eller en funksjon som Studio forsøker å emulere.',
+      ],
+      terms: [
+        ['Inferred tier', 'Tier følger account-default fordi bloben ikke har en eksplisitt tier.'],
+        [
+          'Rehydration pending',
+          'Henting er forespurt, men Archive-innholdet er ennå ikke klart for vanlig lesing.',
+        ],
+        [
+          'Lifecycle condition',
+          'En deklarert betingelse som må være oppfylt for en regelhandling.',
+        ],
+      ],
+      example:
+        'En juridisk eksport har ligget i Archive i 200 dager. En ny lesbar kopi kan brukes i en undersøkelse mens originalen beholdes. Hvis man i stedet endrer originalens tier, må en gammel last-modified-basert arkivregel vurderes: den kan ellers arkivere dataene på nytt ved senere kjøring.',
+      limit:
+        'Ingen faktisk policy, Copy Blob, Set Blob Tier eller Smart-motor opprettes. Premium block blob-accounts kan ikke bruke de vanlige Hot/Cool/Cold/Archive-overgangene på samme måte. Snapshot/versjon, immutability, encryption scopes og aktiverte funksjoner kan gi ytterligere grenser.',
+    },
+    redundancy: {
+      title: 'Hvor mange kopier hjelper først når feilgrensen er kjent',
+      paragraphs: [
+        'Locally Redundant Storage, LRS, holder synkrone kopier innen én fysisk lokasjon i primærregionen. Kopiene beskytter mot for eksempel disk-, server- og rackfeil. Hvis en brann eller annen lokasjonsomfattende hendelse rammer alle kopiene, er tre kopier der ikke det samme som tre uavhengige feilgrenser. Account-navn og resource groups endrer ikke dette.',
+        'Zone Redundant Storage, ZRS, replikerer synkront over minst tre Availability Zones i primærregionen. Sonene har separat strøm, kjøling og nettverk. En sone er en feilgrense og kan omfatte flere datacentre; diagrammet her viser representative steder, ikke faktiske Azure-bygninger. ZRS er relevant når data skal holdes i regionen og forbli tilgjengelige ved en sonehendelse. Nettverksoppdateringer og forbigående feil krever fortsatt hensyn i klienten.',
+        'Synkron replikering knytter fullføring av en normal skriving til replikaene som deltar i den tilgjengelige konfigurasjonen. Det betyr ikke at kundens hele applikasjon kjører synkront eller at alle fremtidige feil er dekket. Når en sone er utilgjengelig, kan tjenesten fortsette med tilgjengelige soner etter sine regler. Vi modellerer ikke quorum, timing eller virkelige service-SLA-er.',
+        'Geo Redundant Storage, GRS, bruker LRS i primærregionen og asynkron kopiering til en sekundærregion, som også har LRS. Geo-Zone Redundant Storage, GZRS, bruker i stedet ZRS i primærregionen før den asynkrone geo-kopieringen. Forskjellen mellom GRS og GZRS ligger derfor særlig i den primære feilseparasjonen, ikke i at sekundærregionen plutselig får ZRS.',
+        'Asynkron betyr at en skriving kan være bekreftet i primærregionen før den finnes i sekundærregionen. Dersom primærregionen går tapt, kan nylige data mangle i sekundærkopien. Geo-redundans er derfor ikke en generell garanti om null datatap. Last Sync Time kan støtte en vurdering av hvilke tidligere skriv som er kopiert; den gjør ikke alle senere skriv sikre. Nye spesialfunksjoner kan ha egne vilkår, men vi antar ingen konkret RPO eller tidsgaranti her.',
+        'Redundans velges for accounten og deles av de aktuelle lagringstjenestene som accounten eksponerer. Støtte avhenger samtidig av tjeneste, account-type og region. En GPv2-account kan for eksempel ha en RA-variant uten at Azure Files får samme sekundære lesemulighet som Blob. Behov for forskjellige redundansregler kan kreve separate accounts. Valget må kontrolleres mot produktstøtten, ikke bare et sekskolonners navneskjema.',
+      ],
+      terms: [
+        ['LRS / ZRS', 'Lokal synkron kopiering versus synkron kopiering over Availability Zones.'],
+        ['GRS / GZRS', 'LRS eller ZRS i primærregionen, asynkront til LRS i sekundærregionen.'],
+        [
+          'Asynkron geo-kopiering',
+          'En sekundær kopi kan ligge etter allerede bekreftede primære skriv.',
+        ],
+      ],
+      example:
+        'Et laboratorium må holde aktive data innen én region, også ved tap av en sone. ZRS passer den fysiske feilgrensen bedre enn LRS. Hvis kravet senere blir en egen regional beredskapskopi, må geo-alternativ og tillatt datalokasjon vurderes i tillegg; ZRS alene flytter ingen data til en annen region.',
+      limit:
+        'Modellen bruker representative kopier, en deklarert hendelse og valgte versjoner. Den utleder ingen faktisk Azure-plassering, replikeringsforsinkelse, SLA, RPO eller applikasjonshelse fra diagrammet.',
+    },
+    recovery: {
+      title: 'Bevart kopi, lesbar sekundær og fungerende applikasjon er forskjellige trinn',
+      paragraphs: [
+        'Vanlig GRS og GZRS gir ikke direkte lesing eller skriving mot sekundærregionen før relevant failover. RA-GRS og RA-GZRS legger til read access for støttede tjenester. Applikasjonen må bruke og være laget for sekundærendpointet og kunne håndtere at data kan være eldre. Account-navnets -secondary-suffiks er en annen inngang, ikke en automatisk klientomkobling eller en ny autorisasjon.',
+        'RA betyr read access. Det er ikke sekundær skriveadgang. Før failover skrives data fortsatt mot primærregionen. En applikasjon kan derfor fortsette i en begrenset lesemodus fra en støttet sekundær mens nye skriv venter eller feiler. Hvilken applikasjonsatferd som er forsvarlig, avhenger av datakravene; en betalingsløsning kan ikke uten videre behandle et eldre saldoresultat som oppdatert.',
+        'Failover er en separat operasjon og en beredskapsbeslutning. Ved relevant fullført account-failover blir den tidligere sekundærregionen ny primær, og tjenesteendpointene oppdateres. Det garanterer ikke umiddelbar applikasjonsgjenoppretting: DNS, retry, nettverk, tilgang, andre datalagre, compute og inkonsistente data må fortsatt håndteres. Studio viser bare at en operasjon ville være nødvendig; det utfører den ikke.',
+        'Planlagt kundestyrt failover krever at begge regioners relevante tjenester er tilgjengelige og har et annet datatapsgrunnlag enn en uplanlagt katastrofe. Ved uplanlagt failover kan skriv som ikke nådde sekundærregionen gå tapt. Konfigurasjon og geo-beskyttelse etterpå må kontrolleres; ikke anta at den gamle beredskapen automatisk fortsetter. Microsoft-styrt failover er for ekstreme hendelser og bør ikke være kundens eneste plan.',
+        'Redundans vedlikeholder dataenes gjeldende tilstand. En feilaktig sletting eller overskriving kan derfor bli kopiert til alle replikaene. En RA-variant eller en annen region er ikke en pålitelig historisk undo-funksjon. Etterslep er heller ingen uavhengig backup. Gjenoppretting etter logiske feil trenger relevante forberedte mekanismer, for eksempel versjonering, soft delete eller en beskyttet backup, med riktig oppbevaring og testet restore.',
+        'En restoreplan må også avgrense hvilke data som skal erstattes. Hvis bare én container er slettet mens andre har nye skriv, kan en støttet selektiv restore til et kontrollert mål og validert tilbakeføring bevare de upåvirkede dataene. Å erstatte alt med en gammel kopi kan ellers skape et nytt datatap. En backup gir mulighet for å hente en tidligere tilstand under sine egne vilkår. Hvor uavhengig den er, avhenger blant annet av plassering, tilgang og beskyttelse mot sletting. Ikke kall en ekstra aktiv replika en fullverdig backup, og ikke anta at en snapshot i samme feil-/tilgangsgrense dekker alle trusler. Sikkerhet og gjenoppretting utfyller fysisk redundans.',
+      ],
+      terms: [
+        ['RA-GRS / RA-GZRS', 'Geo-alternativer med sekundær lesetilgang for støttede tjenester.'],
+        [
+          'Failover',
+          'En separat overgang der sekundærregionen kan bli ny primær under produktets vilkår.',
+        ],
+        ['Backup / restore', 'En beskyttet tidligere tilstand og en plan for å hente den tilbake.'],
+      ],
+      example:
+        'En nettbutikk har RA-GRS og en kopiert katalogversjon, men en ny lagerjustering finnes bare i primærregionen når den blir utilgjengelig. Sekundær kan gi eldre kataloglesing hvis klienten er laget for det. Den kan ikke ta imot nye skriv før relevant failover, og et regionalt skifte tryller ikke frem den manglende justeringen.',
+      limit:
+        'Ingen faktisk failover, routing, DNS-endring, restore eller feilretting av appen simuleres. Fysisk kopibeskyttelse, endpoint-tilgjengelighet, dataversjon og applikasjonsresultat rapporteres hver for seg.',
+    },
+    boundaries: {
+      title: 'To riktige enkeltvalg kan være en ugyldig kombinasjon',
+      paragraphs: [
+        'Hot, Cool, Cold og Archive gjelder relevante block blobs, med account- og funksjonsvilkår. De kan ikke ukritisk settes på append/page blobs, Azure Files, Queues, Tables eller managed disks. Premium block blob-accounts har egne ytelses-/kostnadsegenskaper og støtter ikke den vanlige tieringen. Files har egne media- og pris-/tilgangsmodeller; navnelikhet gjør dem ikke til samme Blob-mekanisme.',
+        'Archive støttes med LRS, GRS og RA-GRS, men ikke ZRS, GZRS eller RA-GZRS. En organisasjon som krever zonal tilgjengelighet i primærregionen, kan derfor ikke bare kombinere Archive med ZRS. Den må for eksempel beholde relevante data online, skille datasett og beredskapsbehov, eller endre et krav etter en bevisst avveining. En account med arkiverte blobs har dessuten egne begrensninger ved redundansendringer; ingen universell ett-klikks konvertering loves.',
+        'Standard GPv2 kan støtte alle seks redundansalternativer for Blob, Queue og Table i aktuelle regioner. Premium block blob-accounts støtter LRS/ZRS; premium page blob-accounts LRS. Region, aktive funksjoner og valgt tjeneste må kontrolleres særskilt. En avkrysset antakelse om regional støtte i Studio er nettopp en antakelse, ikke et oppslag mot Azure.',
+        'Azure Files har tjenestespesifikke grenser. SSD-shares bruker LRS eller ZRS, mens geo-alternativer gjelder støttede HDD SMB-shares og kombinasjoner av account, billing model og region. Files tilbyr ikke sekundær RA-lesing før failover: shares i en RA-GRS/RA-GZRS-account behandles for dette formålet som GRS/GZRS. Det er forskjell på at account-konfigurasjonen finnes og at en bestemt tjeneste får funksjonen.',
+        'Managed disks er fortsatt separate VM-volumer fra Part A. De har egne LRS/ZRS-alternativer og ingen GRS/RA-GRS på selve diskressursen. ZRS støttes for aktuelle Premium SSD og Standard SSD, ikke Ultra eller Premium SSD v2 etter den kontrollerte dokumentasjonen. Hvis VM-en også feiler, må compute og disktilknytning håndteres; force detach gjelder data disks under egne vilkår og er ingen automatisk oppstart av en frisk VM.',
+        'Det riktige valget begynner dermed med data, tilgangskrav og feilgrense. Deretter kontrolleres støttet kombinasjon, gjenværende datarisiko og en faktisk beredskapsplan. Part A-resultater beviser ikke automatisk Part B-forståelse, og en vellykket konseptkjøring er ikke en Azure-deployment eller et nytt teknisk receipt.',
+      ],
+      terms: [
+        ['Account-level setting', 'Felles konfigurasjon med tjenestespesifikke funksjonsgrenser.'],
+        ['Støtteforutsetning', 'Account, datatype, region og funksjoner må passe sammen.'],
+        ['Uavhengige valg', 'Tier og redundans løser ulike behov, men kan ha kombinasjonsgrenser.'],
+      ],
+      example:
+        'Et prosjekt trenger både online data under en sonehendelse og langtidsarkiv. Å sette hele datasettet til Archive i en GZRS-account er ikke støttet. En bevisst oppdeling kan la aktive data få zonal beskyttelse og la et annet, langsomt tilgjengelig arkiv få en støttet account-konfigurasjon.',
+      limit:
+        'Explorer-tabellene er avgrensede eksempler på deklarerte, moderne kombinasjoner. De erstatter ikke regional produktkontroll, service-SKU-dokumentasjon eller en faktisk arkitekturgjennomgang.',
+    },
+    studio: {
+      title: 'Undersøk en konsekvens før du velger',
+      paragraphs: [
+        'Tier & Lifecycle Explorer følger et deklarert datasett fra lagret tier til lesetilstand og fiktive kostnadsdrivere. Endre ett sentralt krav, gjør en ny prediksjon og kjør eksplisitt. Sammenlign de lagrede resultatene. Feltet for rehydrering er en deklarert fase i eksempelet, ikke en faktisk start- eller fullføringsknapp for Azure.',
+        'Replication & Resilience Explorer viser representative replikaer, primær/sekundær region og valgt feilhendelse. Versjon2 er det siste bekreftede primære skrivet i eksempelet; en deklarert eldre sekundær har bare versjon 1. Tallene uttrykker en datatilstand, aldri minutter eller en målt RPO. Les tabellen som alternativ til kartet.',
+        'Prediksjon, modellresultat og årsaksforklaring har forskjellige roller. En feil prediksjon er en anledning til å undersøke mekanismen. En guidet aktivitet fullføres først når de nødvendige kontrastene faktisk er lagret og en faglig forklaring er levert. En selvstendig vurdering har sin egen historikk og gir ingen automatisk hjelp fra Studio.',
+      ],
+      terms: [
+        [
+          'Indekspoeng',
+          'Synlige, fiktive vekter for å sammenligne kostnadsdrivere under samme forutsetninger.',
+        ],
+        ['Deklarert fase', 'En valgt tilstand i et eksempel, ikke observert Azure-runtime.'],
+      ],
+      example:
+        'Kjør samme sjeldent brukte datasett med Cold og Archive mens rask lesing kreves. Endre så kravet til fleksibel henting og undersøk Archive lagret → forespurt → deklarert rehydrert. Kostnad, støtte og lesbarhet kan nå gi forskjellige svar.',
+      limit:
+        'Ingen operativ lagring, ekte penger, faktisk replikering, tidspassasje, policykjøring, upload eller ressurskommando. Endring av kontrollene erstatter ikke siste lagrede resultat før en ny kjøring.',
+    },
+  },
+  labels: {
+    ...storageNb.labels,
+    model: 'Deterministisk konseptmodell · ingen Azure-operasjon',
+    tiers: 'Tier & Lifecycle Explorer',
+    replication: 'Replication & Resilience Explorer',
+    configured: 'Deklarert datasett og forutsetninger',
+    predict: 'Forutsi konsekvensen under disse forutsetningene',
+    predictionOptions: [
+      'Velg en prediksjon',
+      'Avvist kombinasjon / ingen deklarert leseflate',
+      'Data kan bevares, men et krav eller en operasjon gjenstår',
+      'Deklarerte krav passer innen modellgrensen',
+    ],
+    amount: 'Datamengde i GiB',
+    usage: 'Tilgangsmønster',
+    days: 'Dager i valgt tier før planlagt endring',
+    retrieval: 'Krav til hentetid',
+    change: 'Planlagt endring ved periodens slutt',
+    service: 'Datatype / tjeneste',
+    account: 'Account for tier-eksempelet',
+    tier: 'Eksplisitt blob-tier',
+    replicaTier: 'Datasettets tilgangstilstand',
+    defaultTier: 'Account-default',
+    assignment: 'Hvordan tier velges',
+    phase: 'Deklarert rehydreringsfase',
+    rule: 'Lifecycle-forutsetning for et gammelt objekt',
+    redundancy: 'Redundans',
+    target: 'Tjeneste / account-eksempel',
+    failure: 'Deklarert feilhendelse',
+    lag: 'Deklarert sekundær dataversjon',
+    region: 'Forutsett relevant regional/feature-støtte i dette eksempelet',
+    costs: 'Fiktive kostnadsdrivere — ikke Azure-priser',
+    capacity: 'Lagring',
+    access: 'Tilgang / henting',
+    early: 'Resterende minimumsperiode',
+    total: 'Sum indekspoeng',
+    matrix: 'Støtte og replikeringsmekanisme',
+    replicas: 'Representativt replikakart',
+    secondary: 'Sekundærregion',
+    primary: 'Primærregion',
+    location: 'Plassering',
+    version: 'Deklarert versjon',
+    copyState: 'Tilstand etter hendelsen',
+    primaryRead: 'Primær leseflate',
+    secondaryRead: 'Sekundær leseflate før failover',
+    secondaryWrite: 'Sekundær skriving før failover',
+    failover: 'Behov for separat failover',
+    loss: 'Ikke kopiert siste skriv',
+    app: 'Applikasjonsgjenoppretting',
+    compare: 'Lagrede kontraster i dette oppdraget',
+    supported: 'Støttet under de oppgitte typevilkårene',
+    unverified: 'Regional støtte er ikke verifisert',
+    nextPart: 'Fortsett til planlagt File Movement & Migration (P16)',
+  },
+  options: {
+    service: {
+      block: 'Block blob',
+      append: 'Append/page blob',
+      files: 'Azure Files',
+      queue: 'Queue Storage',
+      table: 'Table Storage',
+      disk: 'Managed disk',
+    },
+    account: { standard: 'Standard GPv2', premium: 'Premium block blob' },
+    usage: {
+      frequent: 'Hyppig / aktiv bruk',
+      occasional: 'Sporadisk bruk',
+      rare: 'Sjelden bruk — ingen planlagt lesing i indeksperioden',
+    },
+    retrieval: {
+      immediate: 'Vanlig lesing uten rehydrering',
+      flexible: 'Kan vente på rehydrering',
+    },
+    change: {
+      keep: 'Behold uten planlagt utgang',
+      delete: 'Slett',
+      overwrite: 'Overskriv',
+      tier: 'Flytt til en annen tier',
+    },
+    assignment: { explicit: 'Eksplisitt på blob', inherit: 'Arv account-default' },
+    phase: {
+      stored: 'Lagret i Archive / ingen rehydrering',
+      pending: 'Rehydrering forespurt, ikke fullført',
+      complete: 'Forutsett fullført rehydrering til Hot',
+    },
+    rule: {
+      none: 'Ingen arkivregel i eksempelet',
+      unguarded: 'Gammel last-modified kvalifiserer fortsatt',
+      guarded: 'Relevant vilkår for tid siden tier-endring hindrer ny arkivering nå',
+    },
+    target: {
+      blob: 'Standard GPv2 · block blob',
+      queue: 'Standard GPv2 · Queue',
+      table: 'Standard GPv2 · Table',
+      premiumBlob: 'Premium block blob-account',
+      filesHdd: 'Støttet klassisk HDD SMB-share',
+      filesSsd: 'SSD file share',
+      diskSsd: 'Støttet Standard/Premium SSD managed disk',
+    },
+    failure: {
+      rack: 'Én disk / ett rack',
+      datacenter: 'Én fysisk lokasjon i primærregionen',
+      zone: 'Én primær Availability Zone',
+      region: 'Hele primærregionen',
+      deletion: 'Logisk sletting som har nådd replikaene',
+    },
+    lag: {
+      older: 'Siste primærskriv er ikke kopiert til sekundær',
+      current: 'Alle deklarerte eksempel-skriv er kopiert',
+    },
+  },
+  model: {
+    outcome: [
+      'Kombinasjon/leseflate avvist',
+      'Et krav eller en operasjon gjenstår',
+      'Deklarerte krav passer',
+    ],
+    snapshot: 'lagret eksempel',
+    noRun: 'Ingen modellobservasjon er kjørt i dette oppdraget.',
+    draftChanged:
+      'Kontrollene er endret. Resultatet nedenfor gjelder fortsatt forrige lagrede kjøring.',
+    unsupported: 'Avvist kombinasjon',
+    phaseOnlyArchive:
+      'Rehydreringsfase og arkivregel gjelder bare eksplisitt Archive. Andre tiers bruker ingen slik fase; de irrelevante feltene er deaktivert.',
+    onlineDataset: 'Online datasett (ingen Archive-fase)',
+    scope:
+      'Konseptuell modell. Ingen operativ Azure Storage, faktisk pris, RPO, replikering eller failover.',
+    tierUnsupported:
+      'Vanlige Blob access tiers støttes ikke for valgt datatype/account i dette eksempelet.',
+    archiveConflict:
+      'Archive støttes ikke med ZRS, GZRS eller RA-GZRS. Velg en støttet kombinasjon før videre vurdering.',
+    typeConflict:
+      'Valgt redundans støttes ikke av denne tjeneste-/account-typen i den avgrensede modellen.',
+    regionUnknown:
+      'Typevilkåret kan passe, men regional/feature-støtte er ikke verifisert. Ingen tilgjengelighetskonklusjon.',
+    online:
+      'Online: innholdet trenger ingen Archive-rehydrering. Identitet, nettverk og apprespons er fortsatt utenfor modellen.',
+    offline: 'Lagret, men offline: Archive-innholdet kan ikke leses direkte.',
+    pending: 'Forespurt, fortsatt offline: ingen garantert ferdigtid eller faktisk henting kjører.',
+    rehydrated:
+      'Deklarert rehydrert til Hot: online under denne antakelsen. Dette er ikke en observert Azure-fullføring.',
+    overwriteBlocked:
+      'Et offline Archive-innhold kan ikke overskrives som et online objekt. Rehydrering eller et separat nytt objekt må vurderes.',
+    earlyNone: 'Ingen beregnet tidlig-utgangskostnad under akkurat disse eksempelvilkårene.',
+    earlySome:
+      'Planlagt utgang før minimumsperioden kan gi fakturering for resterende dager. Den er ikke en teknisk oppbevaringslås.',
+    minimum: 'Minimumsperiode for den beskrevne standardtieringen',
+    remaining: 'Resterende faktureringsdager',
+    costAssumptions:
+      'Fiktive vekter per GiB/30 dager: lagring Hot 40 / Cool 20 / Cold 10 / Archive 3; tilgang 1/4/10/25. Bruksvekt 40/2/0 for hyppig/sporadisk/sjelden. Sjelden forutsetter her ingen planlagt lesing i indeksperioden; en faktisk henting må tas med separat. Avrunding opp. Rehydrering har tillegg 25 per GiB i dette eksempelet. Verken valuta eller faktiske Azure-priser.',
+    lifecycleRisk:
+      'Det gamle last-modified-tidspunktet er fortsatt kvalifisert. En senere policykjøring kan arkivere dataene igjen.',
+    lifecycleGuard:
+      'Det deklarerte tier-alder-vilkåret hindrer ny arkivering nå. Verifiser riktig regel i en virkelig løsning.',
+    lifecycleOffline:
+      'Lifecycle management kan ikke rehydrere Archive-innholdet. En annen rehydreringshandling må planlegges.',
+    filesRa:
+      'Accountens RA-navn gir ikke Files sekundær lesetilgang. Denne HDD-sharen har GRS/GZRS-atferd før failover.',
+    synchronous: 'Synkron kopiering i primærregionen',
+    asynchronous: 'Asynkront til LRS i sekundærregionen',
+    localOnly: 'Ingen sekundærregion konfigurert',
+    exists: 'Bevart i det deklarerte eksempelet',
+    unavailable: 'Rammet av fysisk hendelse',
+    deleted: 'Slettingen er kopiert hit',
+    readYes: 'Ja, som deklarert tjenesteleseflate — ikke bevist apprespons',
+    readNo: 'Nei',
+    notConfigured: 'Ingen slik sekundær',
+    writeNo: 'Nei. RA gir ikke sekundær skriveadgang før relevant failover.',
+    failoverNeeded:
+      'Krever separat failover for ny primær/skriveadgang. Ikke utført eller tidfestet her.',
+    failoverNotNeeded:
+      'Ikke nødvendig for å bruke den gjenværende primærflaten i dette eksempelet.',
+    restoreNeeded:
+      'Failover henter ikke tilbake en tidligere tilstand når slettingen er replikert. Vurder forberedt historikk/backup og validert restore.',
+    noRegionalCopy: 'Ingen sekundær kopi for regional gjenoppretting i denne konfigurasjonen.',
+    pendingWrite:
+      'Versjon2 finnes bare i primærregionen. Ved tap av den kan dette skrivet gå tapt.',
+    caughtUp:
+      'Bare de deklarerte eksempel-skrivene er kopiert. Asynkron geo-replikering gir fortsatt ingen generell null-datatapsgaranti.',
+    deletion:
+      'Alle aktive replikaer har den deklarerte slettingen. Redundans gjenoppretter ikke en tidligere tilstand.',
+    appUnknown:
+      'Ikke simulert. Compute, DNS, tilgang, retry og datakonsistens må vurderes separat.',
+    physicalVsAccess:
+      'Bevart kopi er ikke det samme som en tilgjengelig leseflate. Se versjon, RA-vilkår og Archive-tilstand hver for seg.',
+    schematic:
+      'Eget skjematisk kart: representative kopier og feilgrenser, ingen faktiske Azure-bygninger eller plasseringsdata.',
+    noZero: 'Ingen generell garanti om null datatap fra asynkron replikering.',
+  },
+  missions: {
+    tiers: {
+      title: 'Choose the Right Storage Tier',
+      situation:
+        'Fjordverk beholder et sjeldent brukt block-blob-datasett i 120 dager, men trenger vanlig lesing. En kampanje endrer senere bruken; et separat langsiktig arkiv må undersøkes.',
+      goal: 'Skill online tilgang, kostnadsdrivere, minimumsperiode og deklarert rehydrering. Undersøk også Archive mot zonal redundans.',
+      where: 'Tier & Lifecycle Explorer, feltene og siste lagrede resultat nedenfor.',
+      why: 'Et nytt krav kan endre hvilket valg som passer, selv når datamengden er den samme.',
+      observe:
+        'Lesetilstand, støttegrunnlag og fiktive kostnadsdrivere endres når forutsetningen endres.',
+      steps: [
+        'Velg Cold for et standard GPv2 block-blob-datasett med sjelden bruk,120 dager og krav om vanlig lesing. Forutsi og kjør; undersøk at Cold er online.',
+        'Behold datasett og periode. Endre til hyppig bruk og sammenlign lagrede kjøringer med Cold og Hot. Forklar forskjellen i tilgangsdriveren.',
+        'Undersøk Archive med LRS og fleksibel henting: lagret, forespurt og deklarert fullført rehydrering. Krev så vanlig lesing og se forskjell før/etter fullføring. Ingen virkelig henting kjører.',
+        'Kjør Archive med ZRS og undersøk avvisningen. Forklar hvorfor et riktig tier-navn og et riktig redundansnavn ikke alltid kan kombineres.',
+      ],
+      debrief:
+        'Du har skilt Cold online fra Archive offline, sammenlignet samme endrede bruk og undersøkt en reell støttebegrensning. Fiktive kostnader viser mekanismer, ikke en Azure-prisfasit.',
+    },
+    replication: {
+      title: 'Protect the Data Against Failure',
+      situation:
+        'Fjordverk vil forstå hvilke data og leseflater som gjenstår ved lokasjons-, sone- og regionale hendelser. Siste primærskriv kan mangle i sekundærregionen.',
+      goal: 'Skill fysisk kopibeskyttelse, sekundær lesing, failover, versjon og historisk gjenoppretting.',
+      where: 'Replication & Resilience Explorer, replikakartet og den tilsvarende tabellen.',
+      why: 'Et kart med flere kopier forklarer ikke alene om klienten kan lese eller om de nyeste dataene finnes.',
+      observe:
+        'ZRS endrer primær feilseparasjon; RA endrer sekundær lesing; ingen av dem gjør en replika til en historisk backup.',
+      steps: [
+        'Bruk standard GPv2 Blob, online og deklarert regional støtte. Kjør LRS med rackfeil og deretter sonehendelse. Sammenlign hva samme lokasjon beskytter mot.',
+        'Kjør ZRS under samme sonehendelse. Undersøk forskjellen i primær replika- og lesetilstand.',
+        'Kjør GRS og RA-GRS ved regional hendelse med et eldre sekundært datasett. Sammenlign sekundær lesing, manglende versjon 2 og fortsatt ingen sekundær skriving.',
+        'Kjør en logisk sletting med RA-GZRS. Forklar hvorfor replikaene ikke gir en tidligere versjon og hva en separat gjenopprettingsplan må dekke.',
+      ],
+      debrief:
+        'Du har undersøkt feilgrenser og tilgang hver for seg. En RA-leseflate kan vise eldre data; fullført failover og fungerende applikasjon er egne spørsmål. Replikert sletting trenger en annen gjenopprettingsmekanisme.',
+    },
+  },
+  causal: {
+    tiers: [
+      'En tier gjelder først og fremst lagringsmengde; når data er kopiert til flere steder, blir hentetid og bruksfrekvens sekundære hensyn.',
+      'Cold er online; Archive trenger rehydrering. Endret bruk påvirker totaldriverne, og Archive kan ikke kombineres med zonal redundans.',
+      'En fullført rehydreringsforespørsel fastsetter både pris og senere tilgjengelighet, mens minimumsperiodene hindrer at objektet kan slettes.',
+    ],
+    replication: [
+      'RA gjør sekundærdata lesbare og skrivbare, mens asynkron kopiering bare begrenser hvor raskt kunden ser en fullført failover.',
+      'En ekstra region erstatter historiske versjoner fordi en logisk feil i primærregionen forblir lokal inntil en fysisk hendelse skjer.',
+      'Feilgrenser, kopiert versjon og lesetilgang er ulike vilkår; RA gir ikke sekundær skriving, og replikaer kan inneholde samme sletting.',
+    ],
+  },
+  milestone: {
+    tiers: {
+      title: 'En offline kopi er ikke en leseflate',
+      text: 'De lagrede Archive-fasene viser forskjellen på forespurt og deklarert fullført rehydrering. Ingen faktisk Azure-henting er utført.',
+    },
+    replication: {
+      title: 'Kopi, tilgang og versjon er ulike spørsmål',
+      text: 'Du har sammenlignet GRS og RA-GRS ved samme regionale hendelse. Lesbar sekundær betyr verken siste skriv eller sekundær skriveadgang.',
+    },
+  },
+  visual: {
+    phaseTitle: 'Tre deklarerte faser — ikke en faktisk hentejobb',
+    flowTitle: 'Årsakskjeden i eksempelet',
+    write: 'Før hendelsen: primærskriv versjon 2 er bekreftet',
+    sync: 'Synkron primærkopiering under valgt feilseparasjon',
+    async: 'Asynkron geo-kopiering kan ligge etter',
+    incident: 'Undersøk den deklarerte hendelsen',
+    costTitle: 'Forhold mellom fiktive kostnadsdrivere',
+  },
+  units: { days: 'dager', copy: 'representativ kopi' },
+  costLabels: {
+    capacity: 'Lagring',
+    access: 'Tilgang / henting',
+    early: 'Tidlig utgang',
+    rehydrate: 'Deklarert rehydrering',
+    total: 'Sum indekspoeng',
+  },
+  matrixBoundary:
+    'Avgrensede støttede eksempler, forutsatt aktuell region, billing model og funksjon. Archive krever i tillegg standard block blobs med LRS/GRS/RA-GRS. Files RA-account betyr ikke sekundær lesing. Ingen regional oppslagstjeneste.',
+  matrixFiles: 'GRS/GZRS-atferd',
+  matrixYes: 'Type støttet',
+  matrixNo: 'Ikke støttet',
+  comparisonBoundary:
+    'Lagrede eksplisitte kjøringer. Kostnader sammenlignes bare under like datasett- og modellforutsetninger. Ingen faktisk Azure-tilstand.',
+  storage: {
+    ...storageNb.storage,
+    text: 'Part B-historikken kan ikke brukes sikkert. Behold eldre data; last inn nyeste eller gjenopprett bare denne ugyldige Part B-kontrakten.',
+  },
+  assessment: {
+    ...storageNb.assessment,
+    intro:
+      'Løs nye lagrings- og beredskapssituasjoner. Vurder beslutning og teknisk begrunnelse hver for seg; riktige ord uten riktig relasjon godkjennes ikke.',
+  },
+  assessmentActive: storageNb.assessmentActive,
+  historyFeedback: storageNb.historyFeedback,
+  currentFeedback: storageNb.currentFeedback,
+  milestoneNotice: storageNb.milestoneNotice,
+  pauseGuided: storageNb.pauseGuided,
+  recallGuided: storageNb.recallGuided,
+  summaryBoundary:
+    'Besøk, guidede undersøkelser, første innleveringer, hjelp og retry er forskjellige observasjoner. Part A er en egen historikk; eldre resultat oppgraderes ikke. Dette er ikke målt eksamensberedskap eller menneskelig læringsvalidering.',
+};
+
+export const resilienceItemsNb = {
+  rb01: {
+    title: 'Sjelden inspeksjon med direkte innsyn',
+    problem:
+      'En produsent lagrer ferdige målepakker som standard block blobs. De leses svært sjelden, men en kontrollør må kunne åpne innholdet direkte. Hvilken kandidat passer best til det oppgitte prioriteringskravet?',
+    premises: [
+      'Data skal beholdes uendret i minst 150 dager. Account og region støtter alle aktuelle online tiers.',
+      'Prioriter lavest lagringskostnad blant de navngitte online kandidatene. Sjeldne hentekostnader er akseptert; ingen konkret totalpris skal beregnes.',
+    ],
+    decisions: [
+      'Cool, fordi det er en online kandidat med lavere hentekostnad enn Cold.',
+      'Cold, fordi det beholder direkte tilgang med lavere lagringskostnad enn Cool.',
+      'Archive, fordi minimumsperioden kan oppfylles ved å forlenge oppbevaringen.',
+    ],
+    reasons: [
+      'Lavere hentekostnad skal veie tyngst når et datasett er stort, uavhengig av valgt prioritering.',
+      'Oppbevaring over 90 dager gjør alle kjøligere tiers direkte lesbare uten noen rehydreringsfase.',
+      'Cold er online; Archive krever rehydrering selv når oppbevaringsperioden er lang nok.',
+    ],
+    decisive:
+      'Prioriteten er lagringskostnad blant online kandidater. Cold dekker det, uten å bli en universell totalkostnadsfasit.',
+    feedback: [
+      [
+        'Cool kan fungere, men oppfyller ikke den uttrykte prioriteten mellom online kandidatene.',
+        'Cold dekker online-kravet og den oppgitte lagringsprioriteten; hentekostnader er fortsatt relevante.',
+        'Lengre oppbevaring retter ikke kravet om direkte lesing; Archive er fortsatt offline.',
+      ],
+      [
+        'Datamengde alene overstyrer ikke kundens eksplisitte prioritet og tilgangsmønster.',
+        'Minimumsperioden er en faktureringsregel, ikke en overgang fra Archive til online.',
+        'Riktig: tierens tilgangstilstand og faktureringsperiode må vurderes separat.',
+      ],
+    ],
+  },
+  rb02: {
+    title: 'Et kort analyseprosjekt med oppgitte satser',
+    problem:
+      'Et analysebyrå går fra sjeldent leste sluttrapporter til nye kortlevde mellomresultater med hyppig bruk. Hot, Cool og Cold sammenlignes for den nye jobben. Hvilket valg følger det oppgitte budsjettgrunnlaget?',
+    premises: [
+      'Standard GPv2 block blobs,14 dager før sletting. Umiddelbar lesing trengs hele perioden.',
+      'Kun for dette fiktive tilbudet: Hot totalt80 indekspoeng; Cool70 pluss20 i early-deletion ved denne slettingen; Cold55 pluss50 i early-deletion ved denne slettingen. Ingen andre kostnader.',
+    ],
+    decisions: [
+      'Cold, med55 indekspoeng når slettingen bestilles på dag14.',
+      'Cool, med70 indekspoeng før minimumsperioden er utløpt.',
+      'Hot, med80 indekspoeng under de oppgitte forutsetningene.',
+    ],
+    reasons: [
+      'Regn med de oppgitte faktureringskonsekvensene: Cool90 og Cold105 overstiger Hot80.',
+      'De oppgitte minimumsperiodene hindrer sletting til dag30 eller90, så prosjektet må velge Hot av tekniske grunner.',
+      'Tidlig sletting blir først en kostnad hvis prosjektet rekker å lese data etter at slettingen ble bestilt.',
+    ],
+    decisive:
+      'Et lavere utgangspunkt kan gi høyere total. Minimumsperiodene beskriver betalingen, ikke en generell slettingslås.',
+    feedback: [
+      [
+        'Cold er også online, men det oppgitte tilbudet gir total105, ikke55.',
+        'Cool er online, men den relevante tidlig-utgangskostnaden gjør den oppgitte totalen90.',
+        'Riktig under det fiktive tilbudet; dette er ikke faktiske Azure-priser.',
+      ],
+      [
+        'Riktig: inkluder alle eksplisitte kostnadsdrivere før du sammenligner totalene.',
+        'Immutability kan gi tekniske sperrer, men det er ikke oppgitt her; early deletion er fakturering.',
+        'Gebyrgrunnlaget følger tier/utgang/periode, ikke en slik ekstra lesing.',
+      ],
+    ],
+  },
+  rb03: {
+    title: 'Arkivkilden må fortsatt være der',
+    problem:
+      'Et revisjonsteam må analysere et arkivert datasett og beholde originalen. Hvilken plan oppfyller kravene med minst tidlig-utgangskostnad på originalen?',
+    premises: [
+      'Originalen har vært i Archive i 70 dager i en støttet LRS-account. Analyse kan vente på fullført rehydrering.',
+      'En ny online kopi og dens lagrings-/hentekostnad er akseptert. Originalen skal ikke slettes eller få endret tier nå.',
+    ],
+    decisions: [
+      'Rehydrer ved kopiering til et nytt online objekt, og behold arkivkilden.',
+      'Endre originalen til Cool, og flytt den tilbake når analysen er avsluttet.',
+      'Kopier og behold arkivkilden; la analysen starte når destinasjonens navn vises.',
+    ],
+    reasons: [
+      'Et opprettet destinasjonsnavn viser at innholdet er online og at analysen kan starte.',
+      'En beholdt arkivkilde forlater ikke sin tier; den nye kopien må likevel bli ferdig og gir egne kostnader.',
+      'En tilbakeflytting til Archive viderefører alltid den gamle minimumsperioden uten nye konsekvenser.',
+    ],
+    decisive:
+      'Kopieringsmetoden kan beholde originalens tier og unngå tidlig utgang på den. Rehydrering er fortsatt et forløp med egen kostnad.',
+    feedback: [
+      [
+        'Riktig: behold kilden, kontroller fullføring og ta med kostnader for kopi/henting/to objekter.',
+        'Det endrer originalens tier og kan utløse tidlig-utgangskostnad, i strid med de eksplisitte kravene.',
+        'Kilden beholdes, men et synlig destinasjonsnavn beviser ikke at rehydreringen er fullført og analysen kan lese innholdet.',
+      ],
+      [
+        'Destinasjonen kan vises før rehydrering er ferdig. Behold kilden og kontroller fullføring før analyse.',
+        'Riktig: ingen utgang på kilden betyr ikke at den nye online kopien er gratis eller umiddelbar.',
+        'En ny tier-overgang er ikke en slik universell videreføring; planen bryter dessuten kildekravet.',
+      ],
+    ],
+  },
+  rb04: {
+    title: 'En standardinnstilling med to ulike blob-grupper',
+    problem:
+      'Et lag bytter account-default fra Cool til Cold. Gruppe M hadde arvet default; gruppe N har eksplisitt Hot. Hvilken forventning er faglig riktig?',
+    premises: [
+      'Standard GPv2, støttet funksjon og region. Ingen annen policy eller eksplisitt tier-endring kjører.',
+      'Vurder effekt av account-default, ikke en operasjon som er utført av AzureLab.',
+    ],
+    decisions: [
+      'Ingen av gruppene følger Cold, fordi default bare brukes ved ny opplasting.',
+      'Begge grupper følger Cold, fordi standardinnstillingen gjelder hele accounten.',
+      'M følger Cold; N beholder sin eksplisitte Hot-tier under disse vilkårene.',
+    ],
+    reasons: [
+      'Inferred tier følger default, mens en eksplisitt blob-tier overstyrer default-innstillingen.',
+      'Alle blobs i samme account må bruke én tier, på samme måte som de deler en redundansinnstilling.',
+      'Eksisterende blobs blir låst til første inferred tier frem til de slettes og opprettes på nytt.',
+    ],
+    decisive:
+      'Tier-arv og account-level redundans er forskjellige mekanismer. Endring av default kan påvirke eksisterende inferred blobs.',
+    feedback: [
+      [
+        'Default-endring kan også påvirke eksisterende inferred blobs, med relevante kostnadsvirkninger.',
+        'En eksplisitt tier overstyrer denne defaulten; ikke bruk redundansregelen som tier-regel.',
+        'Riktig: de to gruppene har ulike tier-grunnlag.',
+      ],
+      [
+        'Riktig: undersøk om tier er inferred eller eksplisitt før du forutsier effekten.',
+        'Én account kan inneholde blobs i forskjellige tiers; felles redundans betyr ikke felles tier.',
+        'Inferred betyr nettopp at innstillingen arves, ikke at første verdi er permanent låst.',
+      ],
+    ],
+  },
+  rb05: {
+    title: 'Online under sonefeil og sjeldne lesinger',
+    problem:
+      'En avdeling vil kjøle ned et sjeldent brukt datasett uten å svekke det gjeldende kravet om online tilgang ved en sonehendelse. Hvilken kandidat dekker de oppgitte grensene?',
+    premises: [
+      'Standard block blobs beholdes uendret over 200 dager. Region støtter valgene. Lavere lagringskostnad ønskes, men ingen bestemt totalpris er lovet.',
+      'Kravet om zonal primærtilgjengelighet og vanlig lesing skal beholdes. Ingen separat arkivkopi inngår i oppdraget.',
+    ],
+    decisions: [
+      'Cold med RA-GRS for online tilgang og en geografisk kopi.',
+      'Cold med ZRS for dette online datasettet.',
+      'Archive med GZRS for kombinert zonal og geo-beskyttelse.',
+    ],
+    reasons: [
+      'GZRS gir flere feilgrenser og kan derfor brukes til Archive når minimumsperioden er lang nok.',
+      'En online RA-sekundær erstatter automatisk behovet for primær soneseparasjon ved samme hendelse.',
+      'Cold er online og støtter ZRS; Archive oppfyller verken direkte lesing eller den foreslåtte zonale kombinasjonen.',
+    ],
+    decisive:
+      'Et støttet online tier-valg må beholde feilgrensen. Lengre oppbevaring opphever ikke Archive-begrensningene.',
+    feedback: [
+      [
+        'Cold er online, men RA-GRS har LRS i primærregionen. Sekundær lesing erstatter ikke zonal primærtilgjengelighet.',
+        'Riktig under de oppgitte vilkårene. Totalpris og faktisk apphelse krever egne vurderinger.',
+        'Archive støttes ikke med GZRS, selv om GZRS ellers gir den ønskede primære feilseparasjonen.',
+      ],
+      [
+        'Oppbevaringslengde endrer ikke støtten for Archive med GZRS.',
+        'RA gir en annen leseflate for støttede online data, men endrer ikke LRS til ZRS i primærregionen.',
+        'Riktig: tilgangstilstand og kombinasjonsstøtte er to kontroller, begge nødvendige.',
+      ],
+    ],
+  },
+  rb06: {
+    title: 'Ingen data ut av regionen',
+    problem:
+      'En helsetjeneste vil tåle tap av én Availability Zone med fortsatt primær lesing og skriving. Hvilken navngitt konfigurasjon passer den oppgitte plasseringsgrensen?',
+    premises: [
+      'Alle aktive replikaer i denne løsningen skal være innen den valgte regionen. Standard GPv2 og zonal støtte er bekreftet.',
+      'Uavhengig historisk gjenoppretting håndteres separat; velg bare fysisk redundans her.',
+    ],
+    decisions: [
+      'ZRS, for synkron kopiering over primærregionens soner.',
+      'LRS, for synkrone kopier i regionen med lavere kostnad.',
+      'GRS, for en ekstra kopi i en geografisk adskilt feilgrense.',
+    ],
+    reasons: [
+      'GRS bruker alltid tre soner i primærregionen og flytter bare data ut av regionen etter en feil.',
+      'ZRS skiller primære soner uten å kreve en sekundærregion; lokal kopiering alene dekker ikke sonehendelsen.',
+      'LRS har samme sonebeskyttelse som ZRS når alle kopiene har forskjellige diskidentiteter.',
+    ],
+    decisive:
+      'Antall diskidentiteter og felles region er ikke tilstrekkelig. Feilseparasjonen må dekke sonen.',
+    feedback: [
+      [
+        'Riktig: ZRS dekker den deklarerte primære feilgrensen innen regionen.',
+        'LRS beskytter blant annet mot rackfeil, men ikke en hendelse som rammer hele den felles lokasjonen.',
+        'GRS kopierer til en annen region og har LRS, ikke ZRS, som primærmekanisme.',
+      ],
+      [
+        'GRS bruker LRS i primær og asynkron kopiering skjer også før en feil.',
+        'Riktig: vurder både fysisk feilgrense og tillatt plassering.',
+        'Ulike disker i samme fysiske lokasjon beviser ikke soneseparasjon.',
+      ],
+    ],
+  },
+  rb07: {
+    title: 'To forskjellige katastrofekrav',
+    problem:
+      'En katalogtjeneste krever både fortsatt primærtilgang ved en sonehendelse og en kopi i en annen region for katastrofeberedskap. Hvilket forslag dekker begge?',
+    premises: [
+      'Støttet standard GPv2 med online blobs. Geo-kopiering er tillatt. Direkte sekundær lesing er ikke påkrevd.',
+      'En regional katastrofe håndteres med egen failover-plan og akseptert asynkron datarisiko.',
+    ],
+    decisions: [
+      'GZRS, siden primær ZRS kombineres med en asynkron geo-kopi.',
+      'ZRS, siden kopier i tre soner dekker både zonal og regional katastrofe.',
+      'RA-GRS, siden sekundær lesing også gir zonal primærtilgjengelighet.',
+    ],
+    reasons: [
+      'Read access erstatter behovet for primær soneseparasjon når nye skriv kan fortsette mot sekundær.',
+      'GZRS bruker også ZRS i sekundærregionen, slik at begge regioner alltid har identisk online tilstand.',
+      'Primær ZRS og sekundær geo-kopi dekker ulike feilgrenser; app/failover og datarisiko må fortsatt planlegges.',
+    ],
+    decisive:
+      'GZRS endrer primærmekanismen fra LRS til ZRS og beholder asynkron geo-kopiering. Sekundær bruker LRS.',
+    feedback: [
+      [
+        'Riktig: GZRS dekker de to fysiske behovene uten å love umiddelbar regional appgjenoppretting.',
+        'ZRS alene kopierer ikke til en annen region.',
+        'RA-GRS gir en støttet sekundær leseflate, men primærmekanismen er fortsatt LRS.',
+      ],
+      [
+        'RA gir ikke sekundær skriveadgang eller ZRS i primærregionen.',
+        'Sekundær bruker LRS; asynkron kopiering gjør heller ikke versjonene alltid identiske.',
+        'Riktig: mekanismene supplerer hverandre, og fjerner ikke behovet for beredskapsarbeid.',
+      ],
+    ],
+  },
+  rb08: {
+    title: 'Lesemodus før en beslutning om failover',
+    problem:
+      'En transporttjeneste skal kunne vise en eldre statusoversikt når primærregionen er utilgjengelig, uten å utføre failover ennå. Hvilken plan kan dekke dette?',
+    premises: [
+      'Standard GPv2 Blob med online innhold. Eldre data er eksplisitt akseptert for denne lesemodusen.',
+      'Klienten kan bruke sekundærendpointet. Nye skriv skal vente; mål er sekundær lesing før failover.',
+    ],
+    decisions: [
+      'RA-GRS med sekundær lese-/skrivemodus for nye statusoppdateringer.',
+      'GRS med sekundær lesemodus og ventende primære skriv.',
+      'RA-GRS med sekundær lesemodus og ventende primære skriv.',
+    ],
+    reasons: [
+      'En geografisk kopi er direkte lesbar så snart replikeringen har bekreftet en komplett eldre versjon.',
+      'RA legger til sekundær lesing for støttet tjeneste; kopien kan være eldre og gir ikke sekundær skriving.',
+      'RA utvider sekundær tilgang til både lesing og skriving når primærregionen slutter å svare.',
+    ],
+    decisive:
+      'RA oppfyller et spesifikt sekundært lesebehov. Det er ikke automatisk klientomkobling, ferske data eller sekundær skriveadgang.',
+    feedback: [
+      [
+        'RA gir ikke sekundær skriving før relevant fullført failover.',
+        'GRS alene gir ikke slik direkte sekundær lesing før failover.',
+        'Riktig: klientforutsetningen og akseptert eldre versjon gjør denne begrensede lesemodusen mulig.',
+      ],
+      [
+        'Kopiert versjon og lesetillatelse er ulike vilkår; vanlig GRS får ikke RA av å være ajour.',
+        'Riktig: vurder endpoint, RA, dataversjon og operasjonstype hver for seg.',
+        'Bortfall av primær endrer ikke RA til en generell read/write-funksjon.',
+      ],
+    ],
+  },
+  rb09: {
+    title: 'Riktig replikering av en feil sletting',
+    problem:
+      'En administrator har slettet én container i en RA-GZRS-account. Slettingen er kopiert til begge regioner. Hvordan kan dataene hentes tilbake uten å miste nyere arbeid i andre containere?',
+    premises: [
+      'En beskyttet backup innen oppbevaringsperioden støtter restore av valgt container til et kontrollert mål. Andre containere har viktige skriv etter backupen.',
+      'Gjenværende nye data skal bevares. Både gjenopprettet innhold og applikasjon må valideres før normal bruk.',
+    ],
+    decisions: [
+      'Utfør account-failover og bruk samme replikerte tilstand fra den andre regionen.',
+      'Gjenopprett den slettede containeren til kontrollert mål, valider og før relevante data tilbake.',
+      'Erstatt hele den aktive accountens data med backupens tilstand, og valider resultatet.',
+    ],
+    reasons: [
+      'Replikaer kan kopiere sletting; avgrenset restore fra historikk kan bevare nyere upåvirkede data.',
+      'En full tilbakeføring til backup gjør nyere upåvirkede skriv tilgjengelige fra samme historiske tidspunkt.',
+      'En ny primærregion reverserer siste administrative dataendring fordi failover bytter historikk.',
+    ],
+    decisive:
+      'Geografisk redundans og historisk gjenoppretting løser forskjellige feil. Verifisert restore er fortsatt nødvendig.',
+    feedback: [
+      [
+        'Den oppgitte sekundærkopien har også slettingen; failover er ikke en undo-funksjon.',
+        'Riktig: den deklarerte selektive restore-muligheten kan dekke slettingen uten å erstatte andre containeres nye skriv.',
+        'En full erstatning kan få tilbake den slettede containeren, men ville overskrive nyere arbeid som skal bevares.',
+      ],
+      [
+        'Riktig: beskyttelse mot fysisk svikt erstatter ikke en tidligere beskyttet tilstand.',
+        'Backupen inneholder ikke skrivene som kom senere. Verifisering alene gjenoppretter ikke disse fra det gamle tidspunktet.',
+        'Failover endrer roller/endpoint under sine vilkår, ikke automatisk datainnholdet til en eldre dato.',
+      ],
+    ],
+  },
+  rb10: {
+    title: 'Filshare og VM-volum under samme sonekrav',
+    problem:
+      'Et produksjonsmiljø har en SSD SMB-share og en Standard SSD managed data disk. Begge trenger støttet zonal databeskyttelse. Hvilket forslag respekterer tjenestegrensene?',
+    premises: [
+      'Regionene og typene støtter ZRS. Den eksisterende VM-en står i den berørte sonen og svarer ikke; data disken inneholder arbeid som skal bevares.',
+      'Miljøet skal beholde sine to lagringstjenester og kunne bruke de bevarte dataene når en egnet compute-flate er tilgjengelig.',
+    ],
+    decisions: [
+      'ZRS på de støttede tjenestene, med separat plan for VM og data disk-tilknytning.',
+      'RA-GZRS på begge; planlegg en ny VM med sekundær data disk fra geo-kopien.',
+      'ZRS på begge; la den beskyttede datakopien håndtere oppstart av VM etter sonehendelsen.',
+    ],
+    reasons: [
+      'En ZRS-datakopi holder også VM-ens kjøretilstand tilgjengelig i de gjenværende sonene.',
+      'En RA-account gir alle tilknyttede tjenester samme sekundære lese- og skriveegenskaper.',
+      'Disk-ZRS gjenstarter ikke VM-en, og Files/disks arver ikke Blob-tiers eller alle geo-/RA-egenskaper.',
+    ],
+    decisive:
+      'Tjenestespesifikk ZRS-støtte er relevant. En beskyttet disk eller share er fortsatt ikke en frisk, korrekt tilknyttet applikasjon.',
+    feedback: [
+      [
+        'Riktig under de deklarerte type-/regionvilkårene; compute og tilknytning krever egen plan.',
+        'En ny VM alene retter ikke støtten: SSD Files og managed disks har ikke dette generelle geo-/RA-tilbudet.',
+        'ZRS kan beskytte disse dataene under vilkårene, men gir ikke en generell automatisk oppstart av den berørte VM-en.',
+      ],
+      [
+        'ZRS beskriver databeskyttelse; VM-ens kjøretilstand og tilknytning må vurderes separat.',
+        'Files har ikke slik RA-lesing, managed disks har ikke RA-GZRS, og RA gir ikke sekundær skriving.',
+        'Riktig: databeskyttelse, tjenestestøtte og applikasjonsgjenoppretting må skilles.',
       ],
     ],
   },

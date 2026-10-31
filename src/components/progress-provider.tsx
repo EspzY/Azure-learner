@@ -1,4 +1,5 @@
 'use client';
+import { resilienceKey } from '@/domain/curriculum/storage-resilience';
 import { storageKey as storageLearningKey } from '@/domain/curriculum/storage';
 import { connectivityKey } from '@/domain/curriculum/connectivity';
 import { networkingKey } from '@/domain/curriculum/networking';
@@ -103,6 +104,7 @@ export function ProgressProvider({ children }: { children: React.ReactNode }) {
         networkingKey,
         connectivityKey,
         storageLearningKey,
+        resilienceKey,
       ])
         localStorage.removeItem(key);
     } catch {

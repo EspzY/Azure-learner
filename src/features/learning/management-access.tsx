@@ -1,4 +1,13 @@
 'use client';
+import { useResilience } from './storage-resilience-provider';
+import {
+  resilienceHref,
+  resilienceFacts,
+  resilienceKey,
+  restoreResilience,
+} from '@/domain/curriculum/storage-resilience';
+import { ResilienceRecovery } from './storage-resilience';
+
 import { useStorage } from './storage-provider';
 import { storageFacts, storageKey, restoreStorage, storageHref } from '@/domain/curriculum/storage';
 import { StorageRecovery } from './storage';
@@ -135,8 +144,18 @@ export function ManagementTeachingBoundary({
     compute = useCompute(),
     networking = useNetworking(),
     connectivity = useConnectivity(),
-    storage = useStorage();
+    storage = useStorage(),
+    resilience = useResilience();
   const checks = [
+    check(
+      'resilience',
+      resilience,
+      resilienceKey,
+      restoreResilience,
+      resilienceFacts,
+      () => resilience.store.event({ kind: 'aid' }),
+      resilienceHref('assessment', resilience.facts.current?.item),
+    ),
     check(
       'storage',
       storage,
@@ -301,6 +320,7 @@ export function ManagementTeachingBoundary({
         item.id === 'networking' ||
         item.id === 'connectivity' ||
         item.id === 'storage' ||
+        item.id === 'resilience' ||
         (only === 'core' ? ['management', 'physical'].includes(item.id) : item.id === only)),
   );
   const token = JSON.stringify([
@@ -359,6 +379,7 @@ export function ManagementTeachingBoundary({
               {item.id === 'networking' && <NetworkingRecovery />}
               {item.id === 'connectivity' && <ConnectivityRecovery />}
               {item.id === 'storage' && <StorageRecovery />}
+              {item.id === 'resilience' && <ResilienceRecovery />}
             </div>
           ))}
       </div>

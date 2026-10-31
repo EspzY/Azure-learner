@@ -1,3 +1,4 @@
+import { ResilienceProvider } from '@/features/learning/storage-resilience-provider';
 import { StorageProvider } from '@/features/learning/storage-provider';
 import { ConnectivityProvider } from '@/features/learning/connectivity-provider';
 import { NetworkingProvider } from '@/features/learning/networking-provider';
@@ -33,41 +34,43 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         <ProgressProvider>
           <StorageProvider>
-            <ConnectivityProvider>
-              <NetworkingProvider>
-                <ComputeProvider>
-                  <CostProvider>
-                    <TransferProvider>
-                      <MissionProvider>
-                        <ManagementProvider>
-                          <PortalLearningProvider>
-                            <FoundationsV2Provider>
-                              <CourseProvider>
-                                <ExpansionProvider>
-                                  <SandboxProvider>
-                                    <SaasProvider>
-                                      <PracticalProvider>
-                                        <ServerlessProvider>
-                                          <PhysicalProvider>
-                                            <LearningProvider>
-                                              <AppShell>{children}</AppShell>
-                                            </LearningProvider>
-                                          </PhysicalProvider>
-                                        </ServerlessProvider>
-                                      </PracticalProvider>
-                                    </SaasProvider>
-                                  </SandboxProvider>
-                                </ExpansionProvider>
-                              </CourseProvider>
-                            </FoundationsV2Provider>
-                          </PortalLearningProvider>
-                        </ManagementProvider>
-                      </MissionProvider>
-                    </TransferProvider>
-                  </CostProvider>
-                </ComputeProvider>
-              </NetworkingProvider>
-            </ConnectivityProvider>
+            <ResilienceProvider>
+              <ConnectivityProvider>
+                <NetworkingProvider>
+                  <ComputeProvider>
+                    <CostProvider>
+                      <TransferProvider>
+                        <MissionProvider>
+                          <ManagementProvider>
+                            <PortalLearningProvider>
+                              <FoundationsV2Provider>
+                                <CourseProvider>
+                                  <ExpansionProvider>
+                                    <SandboxProvider>
+                                      <SaasProvider>
+                                        <PracticalProvider>
+                                          <ServerlessProvider>
+                                            <PhysicalProvider>
+                                              <LearningProvider>
+                                                <AppShell>{children}</AppShell>
+                                              </LearningProvider>
+                                            </PhysicalProvider>
+                                          </ServerlessProvider>
+                                        </PracticalProvider>
+                                      </SaasProvider>
+                                    </SandboxProvider>
+                                  </ExpansionProvider>
+                                </CourseProvider>
+                              </FoundationsV2Provider>
+                            </PortalLearningProvider>
+                          </ManagementProvider>
+                        </MissionProvider>
+                      </TransferProvider>
+                    </CostProvider>
+                  </ComputeProvider>
+                </NetworkingProvider>
+              </ConnectivityProvider>
+            </ResilienceProvider>
           </StorageProvider>
         </ProgressProvider>
       </body>
