@@ -1,4 +1,11 @@
 import {
+  freshIdentity,
+  applyIdentity,
+  identityKey,
+  restoreIdentity,
+  identityFacts,
+} from '../../src/domain/curriculum/identity-foundations';
+import {
   freshResilience,
   applyResilience,
   resilienceKey,
@@ -92,6 +99,12 @@ function fixture<S>(
 /** Valid records from frozen reducers, never new runtime curriculum. */
 export function activeTeachingContexts() {
   return [
+    fixture(
+      identityKey,
+      applyIdentity(freshIdentity(), { kind: 'begin', item: 'if01' }),
+      restoreIdentity,
+      identityFacts,
+    ),
     fixture(
       resilienceKey,
       applyResilience(freshResilience(), { kind: 'begin', item: 'rb01' }),

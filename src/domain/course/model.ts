@@ -1,3 +1,4 @@
+import { identityTopics } from '../curriculum/identity-foundations';
 import { resilienceTopics } from '../curriculum/storage-resilience';
 import { storageTopics } from '../curriculum/storage';
 import { connectivityTopics } from '../curriculum/connectivity';
@@ -27,6 +28,7 @@ export const moduleIds = [
   'connectivity',
   'storage',
   'storage-resilience',
+  'identity',
 ] as const;
 export type CourseModule = (typeof moduleIds)[number];
 export const guideTargets = [
@@ -106,6 +108,8 @@ const id = (v: unknown): v is string => typeof v === 'string' && /^[a-zA-Z0-9_-]
 const exact = (v: object, keys: string[]) =>
   Object.keys(v).sort().join(',') === keys.sort().join(',');
 export function courseTopic(module: CourseModule, topic: string | null) {
+  if (module === 'identity')
+    return (identityTopics as readonly string[]).includes(topic ?? '') ? topic! : 'introduction';
   if (module === 'storage-resilience')
     return (resilienceTopics as readonly string[]).includes(topic ?? '') ? topic! : 'introduction';
   if (module === 'storage')

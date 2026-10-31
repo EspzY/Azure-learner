@@ -124,7 +124,7 @@ export function CourseHub({
               <ul className="learn-hub-modules">
                 {path.modules.map((group) => (
                   <li key={group.title}>
-                    {group.parts.length > 1 && (
+                    {(group.parts.length > 1 || group.title !== moduleLabels[group.parts[0]]) && (
                       <strong className="learn-hub-module-group">{group.title}</strong>
                     )}
                     {group.parts.map((part) => (

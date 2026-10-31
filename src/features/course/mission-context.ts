@@ -1,4 +1,6 @@
 'use client';
+import { useIdentity } from '@/features/learning/identity-foundations-provider';
+import { identityHref } from '@/domain/curriculum/identity-foundations';
 import { useResilience } from '@/features/learning/storage-resilience-provider';
 import { resilienceHref } from '@/domain/curriculum/storage-resilience';
 
@@ -62,9 +64,16 @@ export function useMissionSafetyContexts(owner?: 'missions') {
     networking = useNetworking(),
     connectivity = useConnectivity(),
     storage = useStorage(),
-    resilience = useResilience();
+    resilience = useResilience(),
+    identityState = useIdentity();
   return (
     [
+      {
+        id: 'identity',
+        state: identityState,
+        active: identityState.facts.active,
+        href: identityHref('assessment', identityState.facts.current?.item),
+      },
       {
         id: 'missions',
         state: missions,

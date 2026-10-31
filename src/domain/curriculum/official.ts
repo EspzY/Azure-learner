@@ -109,3 +109,15 @@ export const officialStorage = {
   status: 'partial',
   humanReview: null,
 } as const;
+
+/** P10 only. Access/security remain later phases of the twelve-unit official module. */
+export const officialIdentity = {
+  reviewed: '2026-10-31',
+  path: 'https://learn.microsoft.com/en-us/training/paths/azure-fundamentals-describe-azure-architecture-services/',
+  module: 'describe-azure-identity-access-security',
+  officialUnits: 12,
+  implementedObjectives: ['2.4.01', '2.4.02', '2.4.03'],
+  deferredObjectives: ['2.4.04', '2.4.05', '2.4.06', '2.4.07', '2.4.08'],
+  status: 'partial',
+  humanReview: null,
+} as const;

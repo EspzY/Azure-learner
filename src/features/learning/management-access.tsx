@@ -1,4 +1,12 @@
 'use client';
+import { useIdentity } from './identity-foundations-provider';
+import {
+  identityHref,
+  identityFacts,
+  identityKey,
+  restoreIdentity,
+} from '@/domain/curriculum/identity-foundations';
+import { IdentityRecovery } from './identity-foundations';
 import { useResilience } from './storage-resilience-provider';
 import {
   resilienceHref,
@@ -145,8 +153,18 @@ export function ManagementTeachingBoundary({
     networking = useNetworking(),
     connectivity = useConnectivity(),
     storage = useStorage(),
-    resilience = useResilience();
+    resilience = useResilience(),
+    identityState = useIdentity();
   const checks = [
+    check(
+      'identity',
+      identityState,
+      identityKey,
+      restoreIdentity,
+      identityFacts,
+      () => identityState.store.event({ kind: 'aid' }),
+      identityHref('assessment', identityState.facts.current?.item),
+    ),
     check(
       'resilience',
       resilience,
@@ -320,6 +338,7 @@ export function ManagementTeachingBoundary({
         item.id === 'networking' ||
         item.id === 'connectivity' ||
         item.id === 'storage' ||
+        item.id === 'identity' ||
         item.id === 'resilience' ||
         (only === 'core' ? ['management', 'physical'].includes(item.id) : item.id === only)),
   );
@@ -380,6 +399,7 @@ export function ManagementTeachingBoundary({
               {item.id === 'connectivity' && <ConnectivityRecovery />}
               {item.id === 'storage' && <StorageRecovery />}
               {item.id === 'resilience' && <ResilienceRecovery />}
+              {item.id === 'identity' && <IdentityRecovery />}
             </div>
           ))}
       </div>

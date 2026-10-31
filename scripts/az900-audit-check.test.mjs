@@ -8,7 +8,7 @@ const data = JSON.parse(
 );
 test('all 57 pinned official slots and code/evidence/source references resolve', () => {
   assert.deepEqual(validateAudit(data), []);
-  assert.equal(data.objectives.filter((r) => r.status === 'COMPLETE').length, 36);
+  assert.equal(data.objectives.filter((r) => r.status === 'COMPLETE').length, 39);
   assert.equal(
     data.objectives.filter((r) => r.slot.startsWith('1.') && r.status === 'COMPLETE').length,
     15,
@@ -73,6 +73,14 @@ test('all 57 pinned official slots and code/evidence/source references resolve',
     assert.deepEqual(Object.values(row.criteria), ['V', 'V', 'V', 'V', 'V', 'V']);
     assert.ok(row.facets.every((f) => f.status === 'COMPLETE'));
     assert.ok(row.sources.some((id) => id.startsWith('SRG')));
+  }
+  for (const slot of ['2.4.01', '2.4.02', '2.4.03']) {
+    const row = data.objectives.find((r) => r.slot === slot);
+    assert.equal(row.status, 'COMPLETE');
+    assert.ok(row.evidence.includes('ID'));
+    assert.deepEqual(Object.values(row.criteria), ['V', 'V', 'V', 'V', 'V', 'V']);
+    assert.ok(row.facets.every((f) => f.status === 'COMPLETE'));
+    assert.ok(row.sources.some((id) => id.startsWith('IDG')));
   }
   for (const slot of ['2.3.05', '2.3.06']) {
     const row = data.objectives.find((r) => r.slot === slot);

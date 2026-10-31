@@ -5400,6 +5400,7 @@ export const managementNb = {
   accessReload: 'Les lagret vurderingskontekst på nytt',
   accessReview: 'Åpne egen vurdering og lagringskontroll',
   accessContexts: {
+    identity: 'Identity Foundations',
     resilience: 'Storage Part B',
     storage: 'Azure Storage Part A',
     connectivity: 'Networking Part B',
@@ -5954,6 +5955,7 @@ export const missionsNb = {
   reloadContext: 'Last inn bare denne konteksten',
   reviewContext: 'Åpne kontekstens eksisterende recovery eller vurdering',
   recoveryContexts: {
+    identity: 'Identity Foundations',
     resilience: 'Storage Part B',
     storage: 'Azure Storage Part A',
     connectivity: 'Networking Part B',
@@ -11342,7 +11344,7 @@ export const courseHubNb = {
     },
     architecture: {
       title: 'Azure Architecture & Services',
-      description: 'Utforsk Azure fra fysisk infrastruktur til compute, nettverk og lagring.',
+      description: 'Utforsk Azure fra infrastruktur til compute, nettverk, lagring og identitet.',
     },
     management: {
       title: 'Azure Management & Governance',
@@ -11350,6 +11352,7 @@ export const courseHubNb = {
     },
   },
   moduleLabels: {
+    identity: 'Part A — Identity Foundations',
     'storage-resilience': 'Part B — Tiers & Redundancy',
     computing: 'Cloud computing',
     benefits: 'Benefits of cloud services',
@@ -11363,11 +11366,17 @@ export const courseHubNb = {
   },
   networking: 'Networking',
   storage: 'Storage',
+  identity: 'Identity, Access & Security',
   plannedModules: {
-    architecture: ['File Movement & Migration (P16)', 'Identity & Security'],
+    architecture: [
+      'Identity Part B — RBAC & Conditional Access (P11)',
+      'Security Principles (P15)',
+      'File Movement & Migration (P16)',
+    ],
     management: ['Governance', 'Management Tools', 'Monitoring'],
   },
   recordLabels: {
+    identity: 'Identity Foundations',
     resilience: 'Storage Part B',
     course: 'Kursposisjon',
     chapter: 'Sandbox',
@@ -13217,5 +13226,919 @@ export const resilienceItemsNb = {
         'Riktig: databeskyttelse, tjenestestøtte og applikasjonsgjenoppretting må skilles.',
       ],
     ],
+  },
+} as const;
+
+// P10 original manuscript, authored after current source review and before presenter code.
+export const identityNb = {
+  milestoneNotice: storageNb.milestoneNotice,
+  pauseGuided: storageNb.pauseGuided,
+  recallGuided: 'Gjenoppta lagret Identity-oppdrag',
+  assessmentActive:
+    'Et annet Identity-scenario er aktivt. Gå tilbake til ditt varig lagrede utkast.',
+  currentFeedback: 'Tilbakemelding på innlevert Identity-svar',
+  historyFeedback: 'Historisk Identity-besvarelse',
+  title: 'Microsoft Entra ID, Authentication & External Identities',
+  path: '02 — Azure Architecture & Services',
+  part: 'Identity, Access & Security · Part A',
+  perspective: 'Velg perspektiv',
+  overview: 'Fra hvem du er, til hvordan det bevises — og hva du får gjøre.',
+  prerequisites:
+    'Forkunnskaper: tenant/subscription/resource group fra Core Architecture og kundens identitets-/tilgangsansvar fra Service Types. Storage Part B forklarer at data kan være bevart og tilgjengelige uten at en bestemt bruker har tilgang.',
+  available:
+    'Tre konseptuelle undersøkelser, guidede oppdrag og nye selvstendige situasjoner. Conditional Access og Azure RBAC kommer i Part B (P11); Security-prinsipper kommer i P15.',
+  topics: {
+    introduction: 'Fra ressurser til identitet',
+    directory: 'Microsoft Entra ID og tenant',
+    domain: 'Microsoft Entra Domain Services',
+    authentication: 'Authentication versus Authorization',
+    sso: 'Single Sign-On',
+    mfa: 'Multifactor Authentication',
+    passwordless: 'Passwordless Authentication',
+    external: 'External Identities',
+    studio: 'Identity & Authentication Studio',
+    missions: 'Guidede undersøkelser',
+    assessment: 'Selvstendig anvendelse',
+    summary: 'Summary — Identity Foundations',
+  },
+  sections: {
+    introduction: {
+      title: 'Fjordverk må vite hvem som ber om hva',
+      paragraphs: [
+        'Fjordverk har applikasjoner, nettverk og data i Azure. Ansatte bruker en prosjektapp og en rapportapp. Et eldre produksjonsprogram forventer et Windows-domene. En leverandør trenger innsyn i én prosjektflate, mens kunder skal registrere seg i en egen kundetjeneste. De samme lagringsvalgene svarer ikke på hvem disse menneskene er eller hva hver av dem skal få gjøre.',
+        'En digital identitet er en representasjon i et system: identifikatorer og attributter knytter en person, en enhet eller en programvarearbeidslast til et objekt. En brukerkonto kan ha visningsnavn og innloggingsidentifikator. En gruppe samler identiteter for administrasjon. Et navn eller gruppemedlemskap er informasjon; den aktuelle tjenesten må fortsatt vurdere hvilke handlinger identiteten kan utføre.',
+        'Vi skiller tre spørsmål. Katalogen organiserer identiteter. Autentisering kontrollerer bevis for den påståtte identiteten. Autorisasjon avgjør tilgang til en bestemt handling eller ressurs. Det er mulig å være riktig autentisert og likevel mangle tillatelse til rapporten. Vi følger dette skillet fra første eksempel til siste undersøkelse.',
+        'Fra Core Architecture kjenner du tenant, subscription og resource group. Fra Service Types vet du at kunden fortsatt håndterer blant annet brukere, tilgang og applikasjonsansvar i relevante tjenester. Her lærer du identitetsmekanismene; full Conditional Access og Azure RBAC kommer i neste del. Studio er en deklarert konseptmodell, ikke et ekte innloggingssystem.',
+      ],
+      terms: [
+        ['Identitet', 'En representasjon av hvem eller hva et system handler med.'],
+        [
+          'Credential',
+          'Et legitimasjonsmiddel som kan brukes som identitetsbevis, ikke bare et brukernavn.',
+        ],
+        ['Principal', 'En identitet som et system kan gi tillatelser til.'],
+      ],
+      example:
+        'En innleid tegner kan finnes som gjest i Fjordverks katalog og være riktig innlogget, men fortsatt få avslag på å endre en produksjonsordre. Vi må undersøke identitetsbeviset og den konkrete tillatelsen hver for seg.',
+      limit:
+        'Ingen konto, tenant, token, passord, MFA-kode eller rettighet opprettes. Besøk og navigasjon registrerer ingen faglig fullføring.',
+    },
+    directory: {
+      title: 'En katalog og en tenant er en identitetsgrense',
+      paragraphs: [
+        'Microsoft Entra ID er Microsofts skybaserte tjeneste for identitets- og tilgangsstyring. Den lagrer katalogobjekter og kan være Identity Provider, forkortet IdP, for integrerte applikasjoner. En IdP verifiserer identitetsbevis og formidler et verifiserbart resultat til en applikasjon som stoler på den. Appen må være riktig integrert; en tilfeldig app får ikke SSO bare fordi organisasjonen bruker Azure.',
+        'En Microsoft Entra-tenant er en egen forekomst med en katalog og organisasjonens identitetskonfigurasjon. Brukere, grupper og registrerte applikasjoner hører til denne identitetskonteksten. Brukerobjektet representerer personen; gruppen kan forenkle administrasjon, men er ikke selv bevis for at en bestemt app har gitt tilgang. Også enheter og programvare kan ha identiteter. Denne delen undersøker først og fremst menneskers innlogging.',
+        'En Azure subscription er en administrativ ressurs- og faktureringskontekst med en tilknytning til én Entra-katalog. Flere subscriptions kan stole på samme tenant. En resource group samler Azure-ressurser for administrasjon og livssyklus; den er ikke en mappe med identiteter. En ny subscription trenger derfor ikke en ny tenant. Identitetsgrensen og ressursenes management-hierarki er forskjellige strukturer.',
+        'Moderne apper kan integreres med standarder som OpenID Connect og SAML for innlogging. OpenID Connect bygger på OAuth 2.0, men OAuth-autorisasjon og innloggingsbevis er forskjellige formål. På dette nivået er poenget tillitsforholdet mellom appen og IdP-en. Vi utsteder ingen tokens og implementerer ingen protokoll.',
+        'Microsoft driver Entra ID-plattformen. Fjordverk må fortsatt håndtere identiteters livssyklus, korrekt appintegrasjon, passende autentiseringsmetoder og tilganger. Når en ansatt slutter, er ikke det å ha en skybasert katalog en erstatning for å avslutte kontoens og applikasjonenes relevante tilgang.',
+      ],
+      terms: [
+        ['Directory', 'Katalog med identitetsobjekter og relaterte opplysninger.'],
+        ['Tenant', 'En avgrenset Entra-forekomst, adskilt fra ressursgrupper og subscriptions.'],
+        [
+          'Identity Provider',
+          'Tjenesten som en integrert app stoler på for identitetsverifisering.',
+        ],
+      ],
+      example:
+        'Prosjektappen og rapportappen ligger i forskjellige subscriptions, men bruker samme workforce tenant for de ansattes identiteter. Felles tenant kan gi en samlet innloggingsopplevelse; tilgang til prosjektet blir likevel ikke automatisk tilgang til alle rapporter.',
+      limit:
+        'AzureLab sin eksisterende Directory/hierarkivisning er kun read-only kontekst for organisering. Den er ingen operativ Entra-katalog. Tenantflytting, rolleadministrasjon og tokenvalidering inngår ikke her.',
+    },
+    domain: {
+      title: 'Et eldre domeneprogram trenger andre egenskaper',
+      paragraphs: [
+        'Tradisjonell Active Directory Domain Services, AD DS, bruker domenekontrollere til katalog- og domenetjenester. Domain join knytter en maskin til et domene. Group Policy brukes til å administrere relevante innstillinger. LDAP er en katalogprotokoll, mens Kerberos og NTLM er autentiseringsmekanismer som eldre apper kan være avhengige av. Entra ID er ikke i seg selv en vanlig AD DS-domenekontroller med disse egenskapene.',
+        'Microsoft Entra Domain Services tilbyr et managed domain med domain join, Group Policy, LDAP og Kerberos/NTLM. Et støttet eldre program i Azure kan bruke disse domenetjenestene uten at Fjordverk selv drifter domenekontrollerne. Tjenesten har en egen domenekontekst og er ikke et synonym for Entra ID. Domain join og moderne SSO beskriver heller ikke samme handling.',
+        'Microsoft administrerer blant annet domenekontrollerne, oppdateringer, plattformtilgjengelighet og plattformbackup. Kunden må fortsatt kontrollere nettverk/DNS, maskinenes domain join, relevante gruppepolicyer og organisasjonsenheter, identitets- og credential-forutsetninger og applikasjonens tillatelser. Managed betyr ikke at Microsoft overtar hele den gamle applikasjonen.',
+        'Brukere, grupper og nødvendige credential-hasher synkroniseres én vei fra Entra ID til managed domain. Ved en hybrid løsning kan relevante objekter først synkroniseres fra lokal AD DS til Entra ID og derfra videre. Domain Services sender ikke endringer tilbake til Entra ID. Dokumentasjonen krever riktige Kerberos/NTLM-hasher; blant annet kan cloud-only-brukere måtte endre passord før de nødvendige hashene er tilgjengelige. I AzureLab oppgir vi bare om disse forutsetningene er klare, uten å behandle passord.',
+        'Synkroniserte objekter kan ikke endres fritt fra managed domain. Egne objekter kan opprettes i støttede egendefinerte organisasjonsenheter, men blir ikke dermed synkronisert tilbake til Entra ID. Eksisterende lokal Group Policy, OU-hierarki og maskinobjekter flyttes heller ikke automatisk med brukerobjektene. Eksterne gjester uten tilgjengelige relevante credentials blir ikke automatisk brukbare domeneidentiteter.',
+        'Et managed domain er ingen ubegrenset AD DS-erstatning. Full Domain/Enterprise Admin-kontroll og egendefinerte schema-utvidelser er ikke tilgjengelig på samme måte. Dersom et program krever slike egenskaper, må kravene vurderes mot tradisjonell kundedrevet AD DS eller endret programdesign. At to løsninger begge kan gjøre domain join beviser ikke at alle krav er oppfylt.',
+      ],
+      terms: [
+        ['Managed domain', 'Domenetjenester der Microsoft drifter domenekontrollerne.'],
+        [
+          'LDAP / Kerberos / NTLM',
+          'Katalog- og autentiseringsmekanismer som må skilles fra moderne app-SSO.',
+        ],
+        [
+          'Enveissynkronisering',
+          'Fra Entra ID til managed domain; ingen automatisk retur av domeneendringer.',
+        ],
+      ],
+      example:
+        'En uendret produksjonsapp krever LDAP-lesing og Kerberos. Domain Services kan passe under dokumenterte nettverks- og credential-forutsetninger. Et annet program krever leverandørens schema-utvidelse; det kravet kan gjøre samme managed domain uegnet selv om LDAP er støttet.',
+      limit:
+        'Studio antar eksplisitt en støttet Azure-arbeidslast og ferdig nettverk/DNS der det er oppgitt. Det oppretter ikke domene, maskin, konto eller synkronisering og lover ingen drift eller kompatibilitet utover de navngitte kravene.',
+    },
+    authentication: {
+      title: 'Et identitetsbevis er ikke en tillatelse',
+      paragraphs: [
+        'Autentisering, AuthN, svarer på om identiteten er den den hevder å være. Et brukernavn alene er en påstand, ikke beviset. En autentiseringsmetode kan kontrollere et passord, en besittelse eller en lokal brukerbekreftelse. At et objekt finnes i katalogen betyr ikke at den som skriver navnet har bevist identiteten.',
+        'Autorisasjon, AuthZ, avgjør hva den identiteten får gjøre: lese en prosjektfil, endre en ordre eller administrere et system. En app kan basere avgjørelsen på sine egne regler og relevant tildelt tilgang. Azure RBAC er én mekanisme for Azure-ressurser, ikke et synonym for alle apptillatelser. Vi implementerer ikke rolle- eller policymotor i denne delen.',
+        'Innloggingsreisen har flere grenser: finnes riktig identitet, stoler appen på IdP-en, er valgt credential registrert og verifisert, oppfyller beviset det deklarerte autentiseringskravet, og er den konkrete apphandlingen tillatt? En vellykket første kontroll gjør ikke de neste overflødige. Et identitetsbevis kan være gyldig uten at et strengere MFA-krav er møtt.',
+        'I Studio oppgis appens tilgang som tillatt, avvist eller ikke dokumentert. Et tillatt resultat er bare en antakelse i det valgte eksempelet. Ukjent tilgang forblir ukjent; vi konkluderer verken med tillatelse eller faktisk tjenestesvar. Ved manglende autentiseringsforutsetninger evalueres appens tilgang ikke.',
+      ],
+      terms: [
+        ['AuthN', 'Verifikasjon av påstått identitet.'],
+        ['AuthZ', 'Tillatelse til en konkret handling.'],
+        ['Ikke dokumentert', 'En forutsetning mangler; modellen får ikke finne på utfallet.'],
+      ],
+      example:
+        'En regnskapsmedarbeider bruker en riktig registrert passkey. Identitetsbeviset kan være sterkt og godkjent, mens appen avviser endring av en låst periode. Et nytt passord løser ikke nødvendigvis dette autorisasjonsspørsmålet.',
+      limit:
+        'Deklarerte krav er en undervisningsforutsetning. Dette er ingen ekte Entra sign-in, Conditional Access-vurdering eller håndhevet applikasjonstillatelse.',
+    },
+    sso: {
+      title: 'SSO gjenbruker tillit og innloggingskontekst',
+      paragraphs: [
+        'Single Sign-On, SSO, lar brukeren få en sammenhengende innloggingsopplevelse på tvers av integrerte apper som stoler på samme identitetsleverandør. Brukeren åpner App A, blir verifisert hos Entra ID, og App B kan senere bruke en egnet eksisterende innloggingskontekst. Det krever appintegrasjon og gyldig kontekst; det betyr ikke at alle apper bruker samme passorddatabase.',
+        'SSO kan redusere antall separate innlogginger og passord, men sier ikke i seg selv hvor sterkt identiteten ble bekreftet. En kontekst etablert med bare passord blir ikke til MFA fordi en annen app åpnes. En eksisterende MFA-kontekst kan derimot tilfredsstille et passende senere krav uten et nytt synlig popup-vindu under de oppgitte betingelsene.',
+        'App B kan kreve et sterkere eller nyere identitetsbevis. Da kan ny verifikasjon være nødvendig selv om SSO er konfigurert. Varighet, session-kontroller, enhet og andre virkelige betingelser finnes, men modelleres ikke som en full policy. Her angir vi eksplisitt hvilken bevisstyrke den eksisterende konteksten kan brukes til.',
+        'Etter innlogging må App B fortsatt avgjøre sin egen tilgang. SSO gjør det lettere å komme frem til denne avgjørelsen, men opphever den ikke. En felles identitetsleverandør betyr derfor verken felles administratorrettigheter eller at alle data kan leses.',
+      ],
+      terms: [
+        ['SSO', 'Gjenbruk av en gyldig innloggingskontekst mellom integrerte apper.'],
+        ['Tillitsforhold', 'Appen aksepterer identitetsbevis fra en bestemt IdP.'],
+        ['Ny verifikasjon', 'Et sterkere krav kan kreve mer enn den eksisterende konteksten.'],
+      ],
+      example:
+        'Fjordverks App A har etablert en enkeltfaktor-kontekst. App B stoler på samme IdP, men krever MFA. SSO-integrasjonen er fortsatt relevant; beviset må likevel styrkes før App B kan gå videre til sin separate tilgangskontroll.',
+      limit:
+        'Ingen session-cookie eller token produseres. Modellen antar gyldig tidsrom og korrekt appintegrasjon når dette er valgt; en gjenbrukt kontekst er ikke en garantert virkelig innlogging.',
+    },
+    mfa: {
+      title: 'Uavhengige faktortyper er viktigere enn antall spørsmål',
+      paragraphs: [
+        'Multifactor Authentication, MFA, bruker minst to relevante faktortyper: noe du vet, noe du har, og noe du er. Et passord er knowledge. En registrert sikkerhetsnøkkel eller telefon er possession. Et biometrisk kjennetegn brukt som brukerbekreftelse er inherence. To passord eller et passord og et hemmelig spørsmål blir ikke to uavhengige faktortyper.',
+        'MFA kan gjøre et lekket passord utilstrekkelig for å fullføre innlogging. Et passord pluss en korrekt ekstra verifikasjon fra en registrert enhet kan dekke to faktortyper. Forutsetningene betyr noe: å registrere en metode er ikke det samme som å bruke eller verifisere den i innloggingen.',
+        'En sterk credential kan kombinere faktorer i én brukerhandling. En registrert FIDO2-passkey med lokal PIN eller biometrisk brukerbekreftelse kan oppfylle MFA uten et ekstra SMS-vindu. Antall skjermbilder eller tastetrykk er derfor ikke en god MFA-test. Vi undersøker bevisets egenskaper, ikke animasjonen.',
+        'MFA reduserer risiko for visse angrep, men garanterer ikke sikkerhet. Koder og vanlige godkjenningsvarsler kan fortsatt utsettes for phishing eller manipulasjon. Gjenoppretting, metodevalg, brukeropplæring og applikasjonens tilgangskontroll er fortsatt viktige. Full risikobasert Conditional Access kommer senere.',
+      ],
+      terms: [
+        ['Knowledge', 'Noe brukeren vet.'],
+        ['Possession', 'Noe brukeren kontrollerer eller har.'],
+        ['Inherence', 'Et biometrisk kjennetegn brukt på en relevant måte.'],
+      ],
+      example:
+        'En intern app legger til et sikkerhetsspørsmål etter passordet. Antallet hemmeligheter øker, men begge er knowledge. En registrert besittelsesfaktor endrer derimot typen bevis. En lokal PIN som låser opp en device-bound nøkkel har en annen rolle enn et nytt serverpassord.',
+      limit:
+        'Vi ber aldri om passord, PIN, biometriske data eller MFA-koder. Modellen bruker deklarert verifikasjon og enkle faktorkategorier, ikke en sikkerhetssertifisering.',
+    },
+    passwordless: {
+      title: 'Uten passord beskriver brukerreisen, ikke hele sikkerhetsnivået',
+      paragraphs: [
+        'Passwordless betyr at innloggingen kan gjennomføres uten å skrive et vanlig kontopassord. Det sier ikke alene hvor mange faktortyper som brukes, om metoden er phishing-resistent eller hvilke apper som støttes. En enkelt besittelsesbasert kode kan være passwordless, mens en riktig konfigurert nøkkel med lokal brukerbekreftelse kan gi et sterkere multifaktorbevis.',
+        'Passkeys bygger på FIDO-standarder og offentlig-nøkkel-kryptografi. Credentialen bindes til riktig tjeneste/opprinnelse; en lokal PIN eller biometri kan bekrefte brukeren. Den private nøkkelen håndteres av autentikatoren og sendes ikke som et vanlig passord til en nettside. Passkeys kan være device-bound, for eksempel en sikkerhetsnøkkel, eller synkronisert under støttede leverandør- og Entra-betingelser. Støtte og policy må kontrolleres; her utføres ingen kryptografi.',
+        'Windows Hello for Business kombinerer en enhetsspesifikk credential med lokal PIN eller biometri. PIN-en låser opp nøkkelen på den aktuelle enheten; den er ikke bare et nytt fjernpassord. Riktig registrering, enhet og brukerbekreftelse er forutsetninger. En Hello-kontekst er heller ikke et løfte om enhver mulig senere step-up-flyt.',
+        'Microsoft Authenticator har forskjellige funksjoner. Passwordless phone sign-in bruker en registrert enhetsbundet credential med lokal bekreftelse og nummermatching. Vanlig MFA-push er en annen bruk. Passkeys i Authenticator er igjen en FIDO2-metode. At alle finnes i samme app gjør dem ikke sikkerhetsmessig identiske: vanlig phone sign-in/push skal ikke likestilles med FIDO2s phishing-resistens.',
+        'SMS-basert first-factor sign-in finnes for utvalgte støttede Entra-brukere og apper. Det er et konkret moteksempel til at passwordless alltid er MFA: én kode som viser kontroll over telefonen gir ikke i seg selv to faktortyper. Den kontrollerte dokumentasjonen sier blant annet at denne first-factor-flyten ikke er kompatibel med Entra MFA og ikke støtter B2B-kontoer. Den anbefaler overgang til phishing-resistente metoder og varsler at Microsoft-levert SMS/voice, inkludert denne first-factor-flyten, avvikles 1. februar 2027. Dette er en datert sammenligning kontrollert 31. oktober 2026, ikke et råd om ny utrulling. Studio antar uttrykkelig en aktivert, støttet intern flyt når SMS-eksempelet velges.',
+        'FIDO2-passkeys og Windows Hello for Business kan gi phishing-resistent autentisering under sine vilkår. Det betyr ikke at kontogjenoppretting, enhet, sesjon eller appdata er immune mot alle angrep. Velg metode etter faktisk støtte, brukerbekreftelse, risiko og behov, ikke bare merkelappen passwordless.',
+      ],
+      terms: [
+        [
+          'Passkey / FIDO2',
+          'En opprinnelsesbundet nøkkelbasert credential under dokumenterte støttevilkår.',
+        ],
+        [
+          'Lokal brukerbekreftelse',
+          'PIN eller biometri låser opp enhetens credential; ingen slik kontroll utføres her.',
+        ],
+        [
+          'Phishing-resistent',
+          'Designet for å motstå relevante identitetsphishing-angrep; ingen universell sikkerhetsgaranti.',
+        ],
+      ],
+      example:
+        'En bedrift vil beskytte mot en falsk nettside som videresender koder. En registrert passkey med lokal brukerbekreftelse har andre egenskaper enn passwordless phone sign-in. Begge kan være uten kontopassord, men det avgjør ikke alene om det nye kravet er møtt.',
+      limit:
+        'Alle registrerings-, enhets- og verifikasjonsforutsetninger i Studio er erklærte. Ingen ekte passkey, biometri, Hello-innlogging, Authenticator-varsel, SMS eller token finnes i modellen.',
+    },
+    external: {
+      title: 'Partner og kunde krysser forskjellige identitetsgrenser',
+      paragraphs: [
+        'En intern ansatt hører normalt til organisasjonens workforce tenant. En ekstern partner kan i stedet beholde sin identitet hos hjemmeorganisasjonens IdP og samarbeide om utvalgte ressurser. Resource tenant er organisasjonen som tilbyr ressursen; home tenant er partnerens hjemmekontekst. De er ikke to navn på samme katalog.',
+        'B2B collaboration lar Fjordverk representere en ekstern samarbeidspartner i sin workforce-katalog, vanligvis som et guest user object. Partneren kan autentiseres med sin eksisterende støttede identitet. En invitasjon og eventuell innløsning/provisionering etablerer ikke automatisk alle apptillatelser, og gjester blir ikke administratorer gjennom gjestestatusen. I Studio angis en etablert gjesterepresentasjon som en forutsetning; ingen invitasjon sendes.',
+        'External collaboration settings styrer blant annet hvem som kan invitere, tillatte/blokkerte invitasjonsdomener og gjesters kataloginnsyn. Cross-tenant access settings styrer inbound/outbound samarbeid med andre Entra-organisasjoner og relevant tillit til eksterne bevis. Å tillate en ny invitasjon og å tillate innlogging for en eksisterende gjest er forskjellige kontroller. En blokkering av nye domeneinvitasjoner tilbakekaller ikke i seg selv en allerede etablert gjests apprettigheter.',
+        'B2B direct connect er en annen mekanisme: begge Entra-organisasjoner må konfigurere relevant gjensidig inbound/outbound tilgang. Den kontrollerte produktdokumentasjonen avgrenser bruken til Teams shared channels. Brukeren arbeider fra sin hjemmekontekst uten et vanlig gjesteobjekt i ressursorganisasjonen. Dette er ikke en universell løsning for innlogging til enhver egenutviklet app, og kanaltilgang gir ikke generell Azure- eller administratortilgang.',
+        'For en kundevendt tjeneste med selvregistrering og egen kundelivssyklus tilbyr Microsoft Entra External ID customer identity and access management, CIAM, i en external tenant. Denne er atskilt fra workforce tenant og inneholder relevante kundeidentiteter, appregistreringer og brukerflyter. Kundeidentitet er ikke bare et nytt navn på en intern B2B-gjest. B2B kan også bruke støttede forbrukeridentiteter for samarbeid; det er formålet og tjenestekravene som avgjør, ikke bare e-postdomenet.',
+        'En external tenant har andre støttede funksjoner enn en workforce tenant. Nåværende External ID må heller ikke beskrives som bare en omdøping av Azure AD B2C: de eksisterende B2C-tenantene og den nye kundeløsningen har egne produktgrenser. Det eldre Learn-uttrykket «formerly» kvalifiseres derfor av aktuell produktdokumentasjon. Nye B2C-kjøp ble avsluttet for nye kunder fra 1. mai 2025; migrering er utenfor denne delen.',
+        'Uansett mekanisme må identitetsbevis, samarbeidsforutsetninger og konkret applikasjonstilgang undersøkes hver for seg. Et riktig partner- eller kundedesign beviser ikke at appen er sikker, at alle brukere kan lese interne data, eller at faktiske rettigheter finnes i AzureLab.',
+      ],
+      terms: [
+        [
+          'B2B collaboration',
+          'Partneridentitet med representasjon i ressursens workforce-katalog.',
+        ],
+        [
+          'B2B direct connect',
+          'Gjensidig Entra-samarbeid for støttede Teams shared channels uten vanlig gjesteobjekt.',
+        ],
+        [
+          'External tenant / CIAM',
+          'Separat kundekontekst for kundevendte apper, brukerflyter og livssyklus.',
+        ],
+      ],
+      example:
+        'En leverandør skal inn i Fjordverks private prosjektapp og beholde sin arbeidsidentitet: B2B collaboration kan passe. Når Fjordverk senere lanserer selvregistrering for produktkunder i en separat kundetjeneste, gir en external tenant en annen passende grense. Shared-channel-arbeid mellom to Entra-organisasjoner må vurderes mot direct connect sine egne krav.',
+      limit:
+        'Valgene er deklarerte undervisningseksempler. Ingen tenant-ID, konto, gjest, invitasjon, Graph-kall, rettighet eller cross-tenant-konfigurasjon opprettes. P11 skal undervise tilgangskontroll videre.',
+    },
+    studio: {
+      title: 'Undersøk krav, identitetsbevis og tilgang i tre perspektiver',
+      paragraphs: [
+        'Velg først katalog-/domeneegenskaper, deretter en innloggingsreise og til slutt en ekstern identitetsgrense. Start et guidet oppdrag, forutsi konsekvensen, kjør den deterministiske modellen og sammenlign lagrede observasjoner når ett krav endres.',
+        'Det enkle resultatet viser hvor forløpet stopper og hva som fortsatt er ukjent. Tekniske detaljer og semantiske tabeller beskriver samme resultat. Endrede kontroller skriver ikke om en tidligere observasjon. Fullføring krever kontraster og en årsaksforklaring; riktig prediksjon alene er ikke selvstendig kompetanse.',
+      ],
+      terms: [
+        ['Forutsetning', 'Et eksplisitt scenariofaktum, ikke en observert Azure-tilstand.'],
+        ['Observasjon', 'Resultatet fra en lagret, eksplisitt modellkjøring.'],
+      ],
+      example:
+        'Autentiser med en egnet metode og sett appens tilgang til «ikke dokumentert». Undersøk hvorfor identitetsbeviset kan være godkjent mens tilgang fortsatt må avklares. Endre bare appforutsetningen og sammenlign.',
+      limit:
+        'Ingen Conditional Access-/RBAC-motor, sanntid, tokenutstedelse eller faktisk applikasjonsrespons. Tekniske detaljer er et valgfritt tillegg; nødvendige instruksjoner og resultater vises alltid.',
+    },
+  },
+
+  links: {
+    title: 'Relevante forkunnskaper',
+    core: 'Core Architecture — tenant og subscription',
+    services: 'Service Types — kundens ansvar',
+    storage: 'Storage Part B — tilgang og beskyttelse',
+  },
+  labels: {
+    ...storageResilienceNb.labels,
+    notice:
+      'Start lagrer bare en lokal oppdragskontekst. Lukk og Avbryt starter ingenting. Forutsi og kjør eksplisitt; ingen identitet, credential, token eller rettighet opprettes.',
+    predictionOptions: [
+      'Velg prediksjon',
+      'Et deklarert krav blir ikke oppfylt',
+      'Et trinn eller en avklaring gjenstår',
+      'De oppgitte kravene er møtt i modellen',
+    ],
+    directory: 'Directory & Legacy Requirements',
+    journey: 'Sign-in Journey Explorer',
+    external: 'External Collaboration Explorer',
+    model: 'Deklarert konseptmodell — ingen ekte Entra-innlogging',
+    configured: 'Deklarerte forutsetninger',
+    noXp: 'Ingen XP eller automatisk kompetanse. Historikken tilhører bare denne delen.',
+  },
+  storage: {
+    ...storageResilienceNb.storage,
+    loading: 'Laster versjonert Identity-arbeid …',
+    reload: 'Last inn Identity på nytt',
+    recover: 'Gjenopprett bare ugyldige Identity-data',
+    title: 'Identity-historikken må avklares',
+    text: 'Identitetshistorikken kan ikke brukes sikkert. Last inn nyeste data, eller gjenopprett bare denne ugyldige kontrakten etter eksplisitt bekreftelse.',
+  },
+  assessment: {
+    ...storageResilienceNb.assessment,
+    title: 'Selvstendig Identity-anvendelse',
+    neutral:
+      'Vurder begge valgene under de oppgitte premissene. Ingen av valgene er forhåndsvalgt; riktig beslutning med feil teknisk årsak godkjennes ikke.',
+    intro:
+      'Løs nye identitets- og innloggingssituasjoner. Velg både beslutning og en kompatibel teknisk begrunnelse. Korrekt beslutning med feil årsak godkjennes ikke.',
+  },
+  summaryBoundary:
+    'Besøk, guidede observasjoner, første innleveringer, hjelp og retry vises separat. Tidligere resultater oppgraderes ikke. Innholdsdekning er ikke målt forståelse, eksamensberedskap eller menneskelig godkjenning.',
+  controls: {
+    workload: 'Arbeidslastens krav',
+    solution: 'Katalog-/domeneløsning',
+    sync: 'Credential-/synkroniseringsforutsetning',
+    change: 'Undersøkt endring i managed domain',
+    identity: 'Identiteten finnes og er aktiv i riktig kontekst',
+    trust: 'App B er integrert og stoler på oppgitt Entra-IdP',
+    session: 'Gyldig innloggingskontekst fra App A',
+    method: 'Valgt ny autentiseringsmetode',
+    credential: 'Deklarert registrering og verifikasjon',
+    requirement: 'Autentiseringskrav i dette eksempelet',
+    access: 'Separat tilgang til apphandlingen',
+    audience: 'Samarbeids-/kundebehov',
+    approach: 'Valgt mekanisme',
+    home: 'Hjemme-IdP / konfigurert kunde-IdP',
+    guest: 'B2B-gjesterepresentasjon er allerede etablert',
+    invitation: 'Ny B2B-invitasjon er tillatt',
+    inbound: 'Relevant inbound samarbeid er tillatt',
+    outbound: 'Relevant outbound samarbeid er tillatt',
+    homeAuth: 'Identitetsbevis hos relevant IdP er verifisert',
+  },
+  options: {
+    workload: {
+      modern: 'Moderne app med OIDC/SAML',
+      legacy: 'Uendret app med domain join, LDAP og Kerberos/NTLM',
+      schema: 'Legacy-app som i tillegg krever egen schema-utvidelse',
+    },
+    solution: {
+      entra: 'Microsoft Entra ID',
+      managed: 'Microsoft Entra Domain Services',
+      adds: 'Kundedrevet tradisjonell AD DS',
+    },
+    sync: {
+      ready: 'Relevant identitet, hash og synkronisering er klargjort',
+      pending: 'Nødvendige hash-/synkroniseringsforutsetninger mangler',
+    },
+    change: {
+      none: 'Ingen katalogendring undersøkes',
+      synced: 'Endre et synkronisert objekt i managed domain',
+      local: 'Eget objekt i en støttet egendefinert OU',
+    },
+    session: {
+      none: 'Ingen eksisterende kontekst',
+      single: 'Egnet enkeltfaktor-kontekst',
+      mfa: 'Egnet MFA-kontekst',
+      resistant: 'Egnet phishing-resistent MFA-kontekst',
+    },
+    method: {
+      password: 'Passord alene',
+      'two-secrets': 'Passord + sikkerhetsfrase (to knowledge-bevis)',
+      'password-otp': 'Passord + registrert besittelsesbasert kode',
+      passkey: 'FIDO2-passkey + lokal PIN/biometri',
+      hello: 'Windows Hello for Business + lokal PIN/biometri',
+      authenticator: 'Authenticator passwordless phone sign-in + lokal bekreftelse',
+      sms: 'Aktivert SMS first-factor sign-in i støttet intern app',
+    },
+    credential: {
+      verified: 'Metoden er registrert og nødvendig bevis verifisert',
+      unregistered: 'Nødvendig credential er ikke registrert',
+      failed: 'Nødvendig bevis er ikke verifisert',
+    },
+    requirement: {
+      single: 'Verifisert identitet',
+      mfa: 'MFA med forskjellige faktortyper',
+      resistant: 'Phishing-resistent MFA',
+    },
+    access: { allow: 'Deklarert tillatt', deny: 'Deklarert avvist', unknown: 'Ikke dokumentert' },
+    audience: {
+      partner: 'Partner i intern egenutviklet prosjektapp',
+      customer: 'Selvregistrerte kunder i separat CIAM-kontekst',
+      shared: 'Teams shared channel fra hjemmetenant uten gjest',
+    },
+    approach: {
+      b2b: 'B2B collaboration',
+      direct: 'B2B direct connect',
+      customer: 'External ID i external tenant',
+    },
+    home: {
+      entra: 'Annen Microsoft Entra-organisasjon',
+      other: 'Annen støttet og konfigurert identitetsleverandør',
+    },
+  },
+  model: {
+    shortYes: 'Ja',
+    identityAvailable: 'Identiteten er tilgjengelig i riktig kontekst.',
+    identityMissing: 'Riktig identitet er ikke tilgjengelig.',
+    appTrusted: 'App B er integrert og stoler på denne IdP-en.',
+    appUntrusted: 'Det relevante tillitsforholdet til IdP-en mangler.',
+    outcome: [
+      'Et deklarert krav er ikke oppfylt',
+      'Et trinn eller en avklaring gjenstår',
+      'Oppgitte krav er møtt i konseptmodellen',
+    ],
+    snapshot: 'lagret konseptobservasjon',
+    noRun: 'Ingen modellobservasjon er kjørt i dette oppdraget.',
+    draftChanged: 'Forutsetningene er endret. Resultatet gjelder fortsatt siste lagrede kjøring.',
+    scope:
+      'Konseptuell og deterministisk. Ingen ekte Entra-innlogging, konto, credential, token, Graph, rettighet, policyvurdering eller apprespons.',
+    yes: 'Ja, under de oppgitte premissene',
+    no: 'Nei',
+    na: 'Ikke relevant for denne mekanismen',
+    unknown: 'Ikke dokumentert',
+    directoryCauses: {
+      capability:
+        'Den valgte løsningen tilbyr ikke hele den navngitte kravkombinasjonen i dette eksempelet.',
+      readonly:
+        'Synkroniserte objekter kan ikke endres slik fra managed domain. Endre riktig kilde; en egen OU gir ikke retur-synkronisering.',
+      sync: 'Legacy-egenskapene passer, men nødvendige credential-/synkroniseringsforutsetninger må klargjøres før identiteten kan brukes.',
+      fit: 'De deklarerte katalog-/domenekravene passer. Dette er ikke en observert deployment eller innlogging.',
+    },
+    journeyCauses: {
+      identity:
+        'Identiteten er ikke tilgjengelig i riktig kontekst. Et metodenavn oppretter ikke identiteten.',
+      trust: 'Appens relevante tillitsforhold mangler. Ingen gyldig appinnlogging kan utledes.',
+      reused:
+        'En eksisterende kontekst møter det deklarerte kravet. Den valgte nye metoden er ikke brukt i denne kjøringen.',
+      credential:
+        'Ny verifikasjon trengs, men den oppgitte registreringen eller verifikasjonen mangler.',
+      strength:
+        'Identitetsbeviset er verifisert, men møter ikke det erklærte autentiseringskravet.',
+      verified:
+        'Den nye metoden møter det erklærte autentiseringskravet. Undersøk apphandlingen separat.',
+    },
+    externalCauses: {
+      purpose:
+        'Mekanismen passer ikke hele det deklarerte samarbeids-/kundebehovet. Dette er ikke en universell rangering av tenanttyper.',
+      'direct-scope':
+        'Direct connect krever et støttet Teams shared-channel-scenario mellom Entra-organisasjoner.',
+      cross:
+        'Relevant tillatelse i begge organisasjoners retninger mangler. En gjest eller kanaltilordning opphever ikke dette.',
+      invitation:
+        'En nødvendig ny invitasjon er blokkert. Ingen representasjon er etablert eller opprettet her.',
+      guest:
+        'B2B trenger en etablert representasjon og relevante innløsningsforutsetninger. En tillatt invitasjon oppretter ikke objektet i modellen.',
+      authentication: 'Samarbeidsforutsetningene passer, men identitetsbeviset er ikke verifisert.',
+      ready:
+        'De deklarerte samarbeids- og identitetsforutsetningene er møtt. Appens konkrete tilgang må fortsatt undersøkes.',
+    },
+    accessText: {
+      'not-evaluated': 'Ikke evaluert: autentiserings-/samarbeidsforutsetninger er ikke oppfylt.',
+      allowed:
+        'Tillatt bare fordi denne apphandlingen er eksplisitt deklarert tillatt. Ingen faktisk tillatelse er opprettet.',
+      denied: 'Identitetsbeviset kan være godkjent; denne apphandlingen er deklarert avvist.',
+      unknown:
+        'Identitetsbeviset kan være godkjent; relevant applikasjonstilgang er ikke dokumentert.',
+    },
+    factorNames: {
+      knowledge: 'Knowledge — noe du vet',
+      possession: 'Possession — noe du har',
+      'knowledge-or-inherence': 'Lokal PIN eller biometri — brukerbekreftelse',
+    },
+    sessionNote:
+      'Den eksisterende App A-konteksten har oppgitt bevisstyrke og antas gyldig for dette formålet. Ingen faktisk cookie eller token finnes.',
+    methodAssumptions:
+      'Passkey, Hello og Authenticator-eksemplene forutsetter registrert enhets-/nøkkelcredential og nødvendig lokal brukerbekreftelse når «verifisert» velges. En eventuell ny Hello-stepup forutsetter også FIDO2-aktivering og registrert passkey etter gjeldende produktvilkår. SMS forutsetter en aktivert, støttet intern first-factor-flyt; ikke B2B og ikke en universell MFA-metode.',
+    directoryAssumptions:
+      'Arbeidslasten antas å ha relevant nettverk/DNS. AD DS-alternativet forutsetter kundedrift og nødvendig kontroll. Ingen ekstra federation eller protokolloversettelse legges til løsningene.',
+    externalAssumptions:
+      'Partner betyr her en egen intern app. Shared betyr støttet Teams shared channel fra hjemmetenant uten gjest. Kunde betyr separat CIAM-livssyklus. Andre arkitekturer krever andre premisser. Cross-tenant-feltene gjelder Entra-til-Entra; eksisterende B2B-gjester mister ikke tilgang bare fordi nye invitasjoner blokkeres.',
+    noAdmin: 'Gjeste-/kundestatus eller direct connect tildeler ingen administratorrettighet her.',
+    syncDirection:
+      'Entra ID → managed domain. Ingen synkronisering tilbake. Egne lokale OU-objekter blir ikke Entra-objekter.',
+    noSyncClaim: 'Denne sammenligningen oppretter ingen tilkobling eller synkronisering.',
+  },
+  visual: {
+    directoryTitle: 'Krav møter katalogegenskaper',
+    journeyTitle: 'Fra påstått identitet til separat appavgjørelse',
+    externalTitle: 'Hjemmekontekst, representasjon og ressursgrense',
+    details: 'Åpne teknisk grunnlag og semantisk sammenligning',
+    property: 'Egenskap / kontroll',
+    result: 'Deklarert resultat',
+    capability: 'Kravkombinasjon støttet',
+    credentials: 'Credential-forutsetninger klare',
+    write: 'Endring tillatt i undersøkt objekt',
+    sync: 'Retning og kilde',
+    modern: 'Moderne app-IdP alene',
+    legacy: 'Domain join / LDAP / Kerberos / NTLM',
+    schema: 'Egen AD DS-schema-kontroll',
+    identity: 'Brukeridentitet',
+    app: 'App B',
+    idp: 'Microsoft Entra ID',
+    proof: 'Nytt bevis eller egnet kontekst',
+    authn: 'Autentiseringskrav',
+    authz: 'Apphandling / AuthZ',
+    proven: 'Identitetsbevis verifisert',
+    homeProof: 'Identitetsbevis hos hjemme-/kunde-IdP er deklarert verifisert',
+    collaborationReady: 'Katalog- og samarbeidsforutsetninger møtt',
+    resourceAccepted: 'Bevis og forutsetninger akseptert i valgt ressurskontekst',
+    requirements: 'Deklarert autentiseringskrav møtt',
+    reused: 'Eksisterende kontekst brukt',
+    methodUsed: 'Ny metode faktisk vurdert i modellen',
+    factors: 'Metodens faktortyper',
+    passwordless: 'Passwordless under oppgitt oppsett',
+    mfa: 'Kan gi MFA-bevis under oppgitt oppsett',
+    resistant: 'Phishing-resistent under oppgitt oppsett',
+    methodTable: 'Metodeegenskaper — ingen faktisk verifikasjon',
+    tenant: 'Ressursens tenantkonfigurasjon',
+    workforce: 'Workforce tenant',
+    externalTenant: 'External tenant',
+    home: 'Partner / hjemme-IdP',
+    customer: 'Kunde / konfigurert IdP',
+    representation: 'Representasjon i ressurskatalog',
+    guest: 'Etablert B2B-gjest nødvendig',
+    noGuest: 'Ingen vanlig B2B-gjest nødvendig',
+    customerObject: 'Kundeidentitet i egen external tenant',
+    trust: 'Gjensidig relevant cross-tenant-tilgang',
+    target: 'Separat app-/kanaltilgang',
+    compare: 'Lagrede årsakskontraster',
+    input: 'Valgte forutsetninger',
+    inputDetails: 'Vis hele den lagrede forutsetningen',
+    consequence: 'Konsekvens',
+    administration: 'Administratorrettighet tildelt',
+    truth: 'Ingen faktisk identitets-/apphandling er utført.',
+  },
+  missions: {
+    directory: {
+      title: 'Choose the Identity Architecture',
+      situation:
+        'Fjordverks moderne app og eldre produksjonsprogram har forskjellige protokoll- og driftskrav. Et nytt leverandørkrav gjør sammenligningen strengere.',
+      goal: 'Skill Entra ID, managed domain og kundedrevet AD DS etter faktiske egenskaper og synkroniseringsgrenser.',
+      where:
+        'Directory & Legacy Requirements: krav, løsning, credential-forutsetning og undersøkt objekt.',
+      why: 'Et felles produktnavn eller LDAP alene beviser ikke at hele arbeidslastkravet er møtt.',
+      observe:
+        'Resultatet skiller manglende egenskap, manglende credential-forutsetning og endring av synkronisert objekt.',
+      steps: [
+        'Kjør moderne app med Entra ID. Forutsi og undersøk hvilke egenskaper som dekker moderne appautentisering.',
+        'Bytt til legacy-krav. Sammenlign Entra ID med Domain Services med klargjorte credential-/synkroniseringsforutsetninger.',
+        'Undersøk samme legacy-krav med Domain Services: sammenlign manglende versus klargjorte credential-forutsetninger.',
+        'Sammenlign endring av synkronisert objekt med eget lokalt OU-objekt i managed domain. Undersøk at lokal endring ikke betyr retur til Entra ID.',
+        'Legg til schema-utvidelse i legacy-kravet. Sammenlign managed domain med kundedrevet AD DS.',
+      ],
+      debrief:
+        'Du har sammenlignet egenskaper og kildegrenser. Managed domain kan dekke relevante legacy-krav uten at det får all AD DS-kontroll eller toveis synkronisering.',
+    },
+    journey: {
+      title: 'Investigate a Sign-in Journey',
+      situation:
+        'Fjordverks App A og App B deler IdP. App B trenger sterkere bevis, og dens apprettigheter må vurderes separat.',
+      goal: 'Undersøk faktortyper, egnet SSO-kontekst, passwordless og forskjellen på autentisering og apphandling.',
+      where:
+        'Sign-in Journey Explorer: eksisterende kontekst, metode, verifikasjon, krav og separat tilgang.',
+      why: 'Antall innloggingsvinduer sier lite om bevisstyrke, og et godt identitetsbevis er ikke en apprettighet.',
+      observe:
+        'Flyten viser hvor beviset holder, hvor kravet stopper og om apphandlingen er tillatt, avvist eller ukjent.',
+      steps: [
+        'Med tilgjengelig identitet/tillit, ingen SSO-kontekst og verifisert metode: kjør to knowledge-hemmeligheter mot MFA-krav. Undersøk hvorfor kravet ikke møtes.',
+        'Velg enkeltfaktor-kontekst fra App A og MFA-krav. Sammenlign passord med registrert/verifisert passkey og lokal brukerbekreftelse.',
+        'Velg eksisterende MFA-kontekst mot MFA-krav. Undersøk at konteksten kan brukes uten at den valgte nye metoden vurderes.',
+        'Med egnet nytt bevis: lagre avvist apphandling, endre bare apptilgang til tillatt og kjør igjen. Sammenlign AuthN og AuthZ.',
+        'Fjern eksisterende kontekst. Sammenlign støttet SMS first-factor med registrert Hello og lokal brukerbekreftelse mot MFA-krav. Forklar faktorene.',
+      ],
+      debrief:
+        'Du har skilt kontekst, faktortyper, metodeegenskaper og tilgang. Passwordless er ikke universell MFA; SSO er ikke en rettighet. Dette var ingen ekte sign-in.',
+    },
+    external: {
+      title: 'Collaborate with an External Partner',
+      situation:
+        'Fjordverk samarbeider med en leverandør, lanserer en kundetjeneste og vurderer en Teams shared channel. De trenger forskjellige identitetsgrenser.',
+      goal: 'Skill home/resource tenant, B2B-representasjon, kundekontekst og direct connect sine gjensidige forutsetninger.',
+      where:
+        'External Collaboration Explorer: formål, mekanisme, representasjon, samarbeid og apphandling.',
+      why: 'At en person er ekstern bestemmer ikke alene hvordan identiteten skal organiseres eller hva personen får gjøre.',
+      observe:
+        'Du ser representasjonskrav, workforce/external-kontekst og separate identitets-/tilgangsresultater.',
+      steps: [
+        'Velg partner/B2B og verifisert hjemme-IdP. Kjør uten etablert gjest, så med etablert gjest og avvist apphandling. Undersøk forskjellen.',
+        'Bytt til kundebehov med separat CIAM-livssyklus. Sammenlign B2B med External ID i external tenant under verifiserte forutsetninger.',
+        'Velg Teams shared channel, direct connect og Entra-hjemmeorganisasjon. Sammenlign blokkert versus tillatt relevant outbound mens inbound er tillatt.',
+        'Gå tilbake til etablert B2B-partner med tillatt samarbeid. Blokker nye invitasjoner og undersøk at eksisterende representasjon og autentisering kan bestå. Forklar separat apprettighet.',
+      ],
+      debrief:
+        'Du har undersøkt formål, katalogrepresentasjon og samarbeidskontroller. En invitasjonsregel er ikke en komplett tilgangsregel, og en ekstern identitet blir ikke administrator av sin status.',
+    },
+  },
+  causal: {
+    directory: [
+      'Når LDAP virker, blir krav til schema og credential-kilde bare driftsdetaljer som alle tre katalogene løser likt.',
+      'Entra ID dekker moderne app-IdP, managed domain bestemte legacy-egenskaper; kilde, credential-forutsetninger og begrenset kontroll må vurderes separat.',
+      'Egne OU-objekter etablerer toveis synkronisering og gjør managed domain til kilde for Entra ID.',
+    ],
+    journey: [
+      'SSO viser at et ekstra appvindu er unødvendig, og gir derfor samme bevisstyrke uansett den første metoden.',
+      'Passwordless fjerner kontopassordet og gir dermed samme faktortyper og phishing-egenskaper for de undersøkte metodene.',
+      'Egnet kontekst og ulike faktortyper avgjør autentiseringskravet; apphandlingen har en separat tillatelse, og passwordless-metoder har ulike egenskaper.',
+    ],
+    external: [
+      'Formål, representasjon og gjensidige samarbeidsvilkår er forskjellige fra autentisering og apprettighet; ekstern status gir ingen administratorrolle.',
+      'En etablert gjest bruker ressursorganisasjonen som hjemmekatalog og arver dermed de ansattes interne tilgang.',
+      'En kunde-tenant og B2B direct connect er alternative navn for samme gjesteflyt med de samme støttede appene.',
+    ],
+  },
+  milestone: {
+    directory: {
+      title: 'Samme bruker er ikke samme protokoll',
+      text: 'Lagrede kontraster viser Entra ID versus managed domain for legacy-kravet. Det er egenskapene og forutsetningene som endret utfallet, ikke en ekte deployment.',
+    },
+    journey: {
+      title: 'Identitetsbevis og apphandling er forskjellige',
+      text: 'Du har beholdt samme innloggingsforutsetninger og endret bare apphandlingen. AuthN kan være godkjent selv om AuthZ avviser handlingen.',
+    },
+    external: {
+      title: 'Ekstern identitet trenger riktig grense',
+      text: 'Lagrede partner-/kundekontraster viser hvorfor separat CIAM i external tenant ikke er samme løsning som B2B i workforce-katalogen.',
+    },
+  },
+};
+
+export const identityItemsNb = {
+  if01: {
+    title: 'Et nytt faktureringsskille',
+    problem:
+      'Et konsulenthus deler en eksisterende Azure subscription i to for å skille fakturering. De samme ansatte og interne appene fortsetter, og det er ikke bestilt en ny identitetsgrense. Hvilket utgangspunkt passer best?',
+    premises: [
+      'Begge subscriptions kan tilknyttes samme eksisterende Entra-tenant.',
+      'Oppdraget ber om minst mulig ekstra identitetsadministrasjon; apprettigheter må fortsatt kontrolleres.',
+    ],
+    decisions: [
+      'Opprett en ny workforce tenant og synkroniser de samme ansatte mellom tenantene.',
+      'Behold eksisterende workforce tenant som katalog for begge subscriptions.',
+      'Opprett egne brukerkontoer i den eksisterende tenanten for den nye subscriptionen.',
+    ],
+    reasons: [
+      'Et nytt faktureringsskille krever at innloggingsbevis utstedes fra en annen katalog.',
+      'Hver subscription trenger separate brukerobjekter for å holde ressursenes fakturering adskilt.',
+      'Subscriptionenes ressurs-/faktureringsgrenser kan være ulike selv om identitetskatalogen er felles.',
+    ],
+    feedback: [
+      [
+        'En separat tenant kan være riktig ved selvstendig identitetsstyring, men innfører her synkroniserings-/tilgangsarbeid uten et slikt krav.',
+        'Felles tenant dekker de oppgitte identitetsbehovene uten ekstra katalog. En egen tenant kan passe ved et uttrykkelig isolasjonskrav.',
+        'Egne kontoer kan være relevant ved et uttrykkelig identitets- eller driftskrav. Et nytt faktureringsskille krever ikke i seg selv at de samme ansatte får nye brukerobjekter.',
+      ],
+      [
+        'Separat fakturering er ikke i seg selv et krav om separat IdP. Ved et nytt isolasjonskrav må grensen vurderes igjen.',
+        'Subscriptionens fakturering og brukerobjektenes identitet er forskjellige grenser. Samme tenant og brukerobjekt kan brukes på tvers under separate tilgangstildelinger.',
+        'Dette skiller identity boundary fra management/billing og gir ingen automatisk ny apprettighet.',
+      ],
+    ],
+    decisive:
+      'En tenant kan være tilknyttet flere subscriptions. Den nye ressursgrensen endrer ikke alene hvem som må administreres som identiteter.',
+  },
+  if02: {
+    title: 'Leverandørens schema-utvidelse',
+    problem:
+      'Et analysesystem skal flyttes uendret i denne fasen. Det bruker LDAP og krever en dokumentert egendefinert AD DS-schema-utvidelse. Organisasjonen tillater bare Microsoft-drevne domenekontrollere. Hvilken videre plan er faglig forsvarlig?',
+    premises: [
+      'Moderne appomskriving er utsatt; kunden har ikke mandat til å drifte egne domenekontrollere.',
+      'Schema-utvidelsen er påkrevd. Vurder de tre underviste katalog-/domenealternativene uten nye tilleggstjenester.',
+    ],
+    decisions: [
+      'Avklar endring av appkravet eller driftskravet før løsningen kan godkjennes.',
+      'Bruk Entra Domain Services og legg leverandørattributtene i en egen OU.',
+      'Bruk kundedrevet AD DS i Azure og la Microsoft overta domenedriften.',
+    ],
+    reasons: [
+      'Et eget OU gir managed domain nødvendig schema-kontroll uten å endre driftsansvaret.',
+      'Managed domain mangler schema-kontrollen; kundedrevet AD DS møter ikke driftskravet.',
+      'AD DS i Azure beholder kundens schema-kontroll mens domenedriften blir Microsofts ansvar.',
+    ],
+    feedback: [
+      [
+        'Kravene kolliderer under de beskrevne egenskapene. Kundedrevet AD DS kan passe med et endret driftsmandat; managed domain kan passe hvis leverandøren fjerner schema-avhengigheten.',
+        'En egen OU opphever ikke schema-begrensningen. Managed domain kunne passe et støttet legacy-program uten dette ekstra kravet.',
+        'Å kjøre AD DS på Azure-VM-er overfører ikke domenedriften til Microsoft. Dette kunne være aktuelt hvis kunden aksepterer driftsansvaret.',
+      ],
+      [
+        'OU-struktur og schema-kontroll er forskjellige egenskaper. En OU løser ikke den påkrevde utvidelsen.',
+        'Dette knytter begge begrensningene til beslutningen. Ingen av de tre underviste alternativene oppfyller hele dette kravbildet slik det står.',
+        'Dette blander IaaS-plattformansvar med kundens domene-/gjesteansvar. En separat driftstjeneste er ikke avtalt i premissene.',
+      ],
+    ],
+    decisive:
+      'En dokumentert egenskap er ikke nok når organisasjonens driftskrav utelukker løsningen. Avklar den motstridende forutsetningen i stedet for å tillegge et managed domain schema-kontroll eller Azure-VM-er Microsoft-drevet AD DS.',
+  },
+  if03: {
+    title: 'En avdeling endres på feil sted',
+    problem:
+      'Et støttet legacy-program bruker et managed domain. En ansatt er synkronisert fra Entra ID. Teamet prøver å endre den synkroniserte brukerens avdelingsattributt i domenet og forventer at endringen kommer tilbake til Entra ID. Hva bør de gjøre?',
+    premises: [
+      'Entra ID er kilde for denne cloud-only-brukeren.',
+      'Nettverk og nødvendige credential-hasher er klargjort; spørsmålet gjelder attributtets kilde.',
+    ],
+    decisions: [
+      'Opprett et lokalt brukerobjekt i en egen OU og forvent at det erstatter Entra-objektet ved neste synkronisering.',
+      'Installer Entra Connect i managed domain for å synkronisere brukerendringen tilbake til Entra ID.',
+      'Endre det støttede kildeattributtet i Entra ID og la enveissynkroniseringen oppdatere managed domain.',
+    ],
+    reasons: [
+      'Synkroniserte objekter har kilde i Entra ID; endringer i managed domain sendes ikke tilbake dit.',
+      'Et lokalt OU-objekt blir kilde for det tidligere synkroniserte Entra-objektet når navnene samsvarer.',
+      'Entra Connect oppretter den manglende retningen når det kjøres på managed-domain-maskiner.',
+    ],
+    feedback: [
+      [
+        'Lokale OU-objekter kan brukes lokalt under støttede vilkår, men blir ikke automatisk Entra-objekter eller erstatninger.',
+        'Connect i managed domain er ikke en støttet returmekanisme til Entra ID.',
+        'Riktig kilde må endres. For en hybrid bruker kan den autoritative kilden ligge i lokal AD DS; det er eksplisitt ikke premisset her.',
+      ],
+      [
+        'Dette følger den dokumenterte retningen og begrensningen.',
+        'Likhet i navn etablerer ingen slik eierskaps-/synkroniseringsrelasjon.',
+        'Denne løsningen blander hybrid AD DS→Entra-synkronisering med en ikke støttet managed-domain-retur.',
+      ],
+    ],
+    decisive:
+      'Managed-domain-synkronisering er én vei. Å kunne opprette lokale objekter betyr ikke at synkroniserte objekter får en ny kilde.',
+  },
+  if04: {
+    title: 'MFA virker, men to innlogginger gjenstår',
+    problem:
+      'Et reisebyrå bruker en intern Entra-integrert app og en leverandørapp med sin egen brukerkatalog. Begge krever og får gyldig MFA, men de ansatte logger inn separat. Leverandøren støtter integrasjon med Entra ID. Teamet vil redusere separate innlogginger og beholde MFA. Hvilken endring bør vurderes?',
+    premises: [
+      'Leverandørappen har ennå ingen tillitsrelasjon til organisasjonens Entra-IdP.',
+      'Appenes konkrete tilgangskontroller skal beholdes; det er innloggingsarkitekturen som skal endres.',
+    ],
+    decisions: [
+      'Legg til enda en MFA-metode i leverandørens eksisterende innlogging.',
+      'Integrer leverandørappen for SSO med Entra ID og behold relevante MFA- og apptilgangskrav.',
+      'Synkroniser samme kontopassord til leverandørkatalogen og behold separate innlogginger.',
+    ],
+    reasons: [
+      'SSO krever at appene kan stole på felles identitetsbevis; MFA alene etablerer ikke denne tilliten.',
+      'En ekstra faktortype oppretter en felles innloggingskontekst mellom uavhengige kataloger.',
+      'Like passord gjør at leverandørappen kan gjenbruke den andre appens MFA-bevis.',
+    ],
+    feedback: [
+      [
+        'En ekstra metode kan styrke eller gi reserve for autentisering, men løser ikke den manglende tillitsrelasjonen mellom innloggingssystemene.',
+        'Undersøk den støttede SSO-integrasjonen og behold separate krav til bevis og apphandlinger. Egnet kontekst kan da gjenbrukes; nye krav eller utløpt kontekst kan fortsatt gi en ny utfordring.',
+        'Passordsynkronisering kan ha andre bruksområder, men identiske hemmeligheter gjør ikke to innlogginger til SSO eller overfører MFA-beviset.',
+      ],
+      [
+        'Dette skiller hvordan appen stoler på en IdP fra hvor sterkt brukeren verifiseres. Hvis integrasjonen allerede var etablert, måtte kontekst og nye krav undersøkes i stedet.',
+        'Faktortyper beskriver brukerbevis. Den støttede app-/IdP-integrasjonen må etableres separat.',
+        'Kjennskap til samme passord er ikke en tillitsrelasjon mellom apper og gir ingen automatisk gjenbruk av MFA.',
+      ],
+    ],
+    decisive:
+      'MFA kan fungere i to isolerte innlogginger. Felles støttet IdP-tillit er et eget arkitekturvalg; verken MFA eller SSO erstatter appens tillatelser.',
+  },
+  if05: {
+    title: 'To hemmeligheter fra forskjellige systemer',
+    problem:
+      'Et arkiv spør etter kontopassord og en personlig sikkerhetsfrase. Hemmelighetene lagres i forskjellige systemer, og begge er korrekt verifisert. Kravet er to forskjellige faktortyper. Hvilken endring møter dette?',
+    premises: [
+      'Det finnes ingen annen etablert innloggingskontekst.',
+      'En registrert OATH-enhet er tilgjengelig, og passord pluss korrekt enhetskode er støttet i denne deklarerte flyten.',
+    ],
+    decisions: [
+      'Behold de to hemmelighetene og krev at de oppdateres på forskjellige datoer.',
+      'Behold passordet og flytt sikkerhetsfrasen til et eget utfordringsvindu.',
+      'Erstatt sikkerhetsfrasen med verifikasjon fra den registrerte OATH-enheten.',
+    ],
+    reasons: [
+      'To separate credential-lagre gjør at samme type hemmelighet blir to faktortyper.',
+      'Passordet er knowledge, mens kontroll over den registrerte enheten gir possession.',
+      'En endret dialogsekvens skiller besittelsesbeviset fra kunnskapsbeviset.',
+    ],
+    feedback: [
+      [
+        'Ulike oppdateringsdatoer kan påvirke håndtering, men endrer ikke faktorkategorien.',
+        'Egen dialog kan endre brukeropplevelsen, men en hemmelig frase forblir knowledge.',
+        'Dette tilfører en annen faktortype. Det er ikke en garanti mot alle phishing-angrep; et slikt strengere krav kan kreve en annen metode.',
+      ],
+      [
+        'Lagringssted er ikke den avgjørende faktorkategorien.',
+        'Dette er riktig skille under de oppgitte metode- og verifikasjonsforutsetningene.',
+        'Dialoger er ikke possession. Et faktisk registrert besittelsesbevis ville være en annen forutsetning.',
+      ],
+    ],
+    decisive:
+      'Faktorene avgjøres av hva beviset representerer, ikke antall hemmeligheter, databaser eller vinduer.',
+  },
+  if06: {
+    title: 'Vernet mot videresendt innloggingsbevis',
+    problem:
+      'Et team har passwordless phone sign-in i Authenticator med nummermatching og lokal PIN. Et nytt krav ber om opprinnelsesbundet phishing-resistent autentisering for en støttet webapp. En registrert FIDO2-passkey med lokal brukerbekreftelse er tilgjengelig. Hvilken metode passer det nye kravet?',
+    premises: [
+      'Metoden må møte det nye kravet, ikke bare være uten kontopassord.',
+      'Registrering, brukerbekreftelse og appstøtte er klargjort for passkey-alternativet.',
+    ],
+    decisions: [
+      'Bruk den registrerte FIDO2-passkeyen med lokal brukerbekreftelse.',
+      'Behold passwordless phone sign-in med nummermatching som samme sikkerhetsegenskap.',
+      'Bytt til passord pluss OATH-kode som den opprinnelsesbundne metoden.',
+    ],
+    reasons: [
+      'Nummermatching gir phone sign-in samme opprinnelsesbinding som FIDO2 i denne appen.',
+      'To faktortyper gir den etterspurte opprinnelsesbindingen uavhengig av metoden.',
+      'FIDO2 binder beviset til tjenesten; phone sign-in og OATH-koder gjør ikke det.',
+    ],
+    feedback: [
+      [
+        'FIDO2 med de oppgitte vilkårene møter dette egenskapskravet. Kontogjenoppretting, enhet og appautorisasjon må fortsatt håndteres.',
+        'Phone sign-in kan være en sterk passwordless-flyt, men må ikke likestilles med FIDO2s phishing-resistens. En passkey i Authenticator er en egen FIDO2-metode.',
+        'Passord pluss kode kan møte MFA, men koden kan fortsatt phishing-videresendes; kravet her er strengere.',
+      ],
+      [
+        'Nummermatching er nyttig, men etablerer ikke den samme protokollbindingen.',
+        'MFA og phishing-resistens er relaterte, men forskjellige egenskaper.',
+        'Dette skiller metodeegenskaper fra en felles passwordless-merkelapp.',
+      ],
+    ],
+    decisive:
+      'Metoden og dens bevisegenskaper avgjør om det nye kravet er møtt. Passwordless alene gir ikke en slik konklusjon.',
+  },
+  if07: {
+    title: 'PIN-en er kjent, men jobb-PC-en er byttet',
+    problem:
+      'En ansatt har brukt Windows Hello for Business med lokal PIN på sin gamle jobb-PC. Etter maskinbytte husker personen PIN-en, men den nye PC-en har ikke fått noen Hello-credential for brukeren. Hva er et forsvarlig neste steg før Hello kan brukes der?',
+    premises: [
+      'Ingen Hello-nøkkel eller egnet innloggingskontekst er overført eller klargjort på den nye PC-en.',
+      'Organisasjonen har en godkjent prosess for registrering og gjenoppretting; oppgaven ber ikke om å omgå den.',
+    ],
+    decisions: [
+      'Klargjør Hello på den nye PC-en gjennom organisasjonens godkjente registreringsprosess.',
+      'Bruk den gamle PIN-en som kontopassord i appens ordinære Entra-innlogging.',
+      'Overfør bare PIN-en til den nye PC-en som tilstrekkelig eksisterende Hello-bevis.',
+    ],
+    reasons: [
+      'Den huskede PIN-en kan alene bevise besittelse av credentialen på en hvilken som helst PC.',
+      'Passwordless gjør at brukeren kan gjenbruke sin lokale PIN som et serververifisert kontopassord.',
+      'Hello bruker en registrert enhetscredential; lokal PIN alene klargjør ikke denne på en ny PC.',
+    ],
+    feedback: [
+      [
+        'Bruk den godkjente prosessen til å etablere nødvendig credential og lokal brukerbekreftelse. Et allerede klargjort, støttet oppsett ville gitt et annet utgangspunkt.',
+        'En Hello-PIN er ikke Entra-kontoens fjernpassord. Å kjenne den etablerer ikke et nytt serverpassord eller et nytt enhetsbevis.',
+        'Det manglende er ikke bare et nytt PIN-felt. Registrering av en støttet enhetscredential må håndteres; ingen nøkkel finnes her etter premisset.',
+      ],
+      [
+        'Kunnskap om en PIN kan ikke erstatte den manglende enhetscredentialen og dens registrering.',
+        'Passwordless betyr ikke at en lokal brukerbekreftelse blir et portabelt kontopassord.',
+        'Dette skiller lokal brukerbekreftelse fra den registrerte credentialen. Gjenoppretting og ny klargjøring må følge organisasjonens støttede prosess.',
+      ],
+    ],
+    decisive:
+      'En lokal PIN virker sammen med en klargjort credential. Maskinbytte endrer forutsetningene, selv om personen husker samme tall.',
+  },
+  if08: {
+    title: 'Partneren er innlogget, men ser ikke rapporten',
+    problem:
+      'En etablert B2B-gjest bruker partnerens arbeidskonto i prosjektappen. I en ny rapportapp får personen «Ingen tilgang» etter innlogging. Hva bør undersøkes først?',
+    premises: [
+      'Rapportappen godtar gjestens autentisering, og relevante samarbeidsregler er oppfylt.',
+      'Oppdraget gjelder lesing i rapportappen; gjesten skal ikke få katalogadministrasjon.',
+    ],
+    decisions: [
+      'Kontroller om gjestens innsyn i Entra-katalogen må utvides til internt nivå.',
+      'Kontroller rapportappens tildeling til det eksisterende gjesteobjektet.',
+      'Kontroller om partnerens e-postdomene må tillates for en ny gjesteinvitasjon.',
+    ],
+    reasons: [
+      'Nye invitasjonsregler gir en etablert gjest tilgang til flere interne apper.',
+      'Gjestens kataloginnsyn avgjør hvilke interne rapportdata personen kan lese.',
+      'Godkjent identitetsbevis erstatter ikke rapportappens tilgangskontroll.',
+    ],
+    feedback: [
+      [
+        'Kataloginnsyn kan være et eget behov, men gir ikke i seg selv rettigheten i rapportappen.',
+        'Kontroller at riktig gjesteobjekt har nødvendig avgrenset rapporttilgang. Opplysningene viser at autentiseringen virker, men fastslår ennå ikke om tildelingen faktisk mangler. En ny app kan kreve egen tilgang selv når prosjektappen virker.',
+        'Invitasjonsregler gjelder etablering av nye gjester. Her er representasjon og autentisering allerede på plass.',
+      ],
+      [
+        'Dette blander ny invitasjon med apptildeling for et eksisterende objekt.',
+        'Katalogens objektsynlighet og appens datarettighet er forskjellige kontroller.',
+        'Dette følger den oppgitte home/resource-grensen og gjør ikke gjesten til administrator.',
+      ],
+    ],
+    decisive:
+      'Et eksisterende gjesteobjekt og godkjent autentisering er ikke en komplett apptillatelse.',
+  },
+  if09: {
+    title: 'En kunde blir også prosjektpartner',
+    problem:
+      'En person har en privat kundekonto i selskapets external tenant for nettbutikken. Nå skal personen også arbeide som konsulent i en intern prosjektapp, med arbeidskonto fra sitt eget firma. Hvordan bør det nye samarbeidet etableres uten å endre kundekontoens formål?',
+    premises: [
+      'Prosjektappen skal fortsatt stole på selskapets workforce tenant; nettbutikkens kundeoppsett skal beholdes.',
+      'Partnerfirmaet skal fortsatt forvalte arbeidslegitimasjonen. Samarbeidet gjelder avgrenset prosjektarbeid.',
+    ],
+    decisions: [
+      'Flytt prosjektappens innlogging til kundetenanten og tildel den eksisterende kundeprofilen.',
+      'Opprett en ny intern member-konto med et separat arbeidskontopassord hos ressursorganisasjonen.',
+      'Bruk arbeidskontoen gjennom B2B i workforce-tenanten, med egen tildeling til prosjektappen.',
+    ],
+    reasons: [
+      'Eksisterende kundeautentisering utgjør allerede en gjesterepresentasjon i selskapets workforce.',
+      'Samme person kan ha ulike identiteter; en kundeprofil etablerer ikke workforce-samarbeid.',
+      'En ny member-konto er nødvendig når en samarbeidspartner allerede har en konto i en external tenant.',
+    ],
+    feedback: [
+      [
+        'En kundevendt app kan bruke external tenant, men å flytte prosjektappen endrer den uttrykkelig beholdte tillitsgrensen og kundekontoens formål.',
+        'En intern konto kan passe en ansatt i en annen situasjon. Her skal partneren beholde hjemmeorganisasjonens arbeidslegitimasjon og trenger ikke en ny intern identitet.',
+        'Etabler relevant B2B-representasjon og avgrenset apptilgang med den støttede arbeidsidentiteten. Den separate private kundekontoen kan beholdes som kundeidentitet.',
+      ],
+      [
+        'En konto i kundetenanten oppretter ikke et objekt eller en tillitsrelasjon i workforce-tenanten.',
+        'Dette følger både personens to roller og tenantgrensene. Hvis oppgaven bare gjaldt nettbutikken, ville kundekonteksten fortsatt vært den relevante.',
+        'Eksistensen av en kundeprofil krever ikke en ny intern member-konto. B2B kan bevare den oppgitte arbeidsidentiteten.',
+      ],
+    ],
+    decisive:
+      'Person, kundeidentitet og arbeidsidentitet er ikke samme katalogobjekt. Et nytt samarbeidsformål krever riktig representasjon og separat tilgang i ressurskonteksten.',
+  },
+  if10: {
+    title: 'En shared channel stopper ved partnergrensen',
+    problem:
+      'En partnerbruker får ikke åpnet en Teams shared channel hos en annen Entra-organisasjon. Organisasjonene har valgt B2B direct connect. Hvilken gjenstående samarbeidskontroll er mest relevant?',
+    premises: [
+      'Brukeren er lagt til kanalen, og ressursorganisasjonens inbound tillater relevant direct connect.',
+      'Øvrige tjenesteforutsetninger er oppfylt; løsningen skal fortsatt være shared channel fra brukerens hjemmekontekst.',
+    ],
+    decisions: [
+      'Kontroller hjemmeorganisasjonens inbound direct connect fra ressursorganisasjonen.',
+      'Inviter brukeren som B2B-gjest til teamet og tilby samarbeidet i en standardkanal.',
+      'Kontroller hjemmeorganisasjonens outbound direct connect mot ressursorganisasjonen.',
+    ],
+    reasons: [
+      'Hjemmeorganisasjonens inbound styrer brukerens tilgang til eksterne kanaler.',
+      'Denne reisen krever ressursens inbound og hjemmeorganisasjonens outbound.',
+      'Gjestetilgang til teamet beholder samme representasjon som B2B direct connect.',
+    ],
+    feedback: [
+      [
+        'Hjemmeorganisasjonens inbound gjelder når den mottar eksterne brukere til egne ressurser. Her skal dens bruker ut til en annen organisasjons kanal.',
+        'B2B-gjest i en standardkanal kan passe et endret samarbeidsbehov, men endrer representasjon og reise i strid med dette premisset.',
+        'Hjemmeorganisasjonens relevante outbound er ikke bekreftet i opplysningene. Kontroller denne retningen før en eventuell avgrenset endring vurderes.',
+      ],
+      [
+        'Retningen må følge hvem som eier ressursen. Hjemmeorganisasjonens inbound åpner ikke dens brukers utreise.',
+        'Dette er den relevante gjensidige grensen. Kanalmedlemskap og identitetsbevis erstatter ikke samarbeidskontrollen.',
+        'Guest collaboration og direct connect er forskjellige mekanismer. En standardkanal kan være et alternativ ved et annet produktbehov.',
+      ],
+    ],
+    decisive:
+      'Den relevante uavklarte retningen er hjemmeorganisasjonens outbound mot ressursorganisasjonens inbound. Opplysningene beviser ikke en blokkering; de viser hva som må kontrolleres før en eventuell endring.',
   },
 } as const;

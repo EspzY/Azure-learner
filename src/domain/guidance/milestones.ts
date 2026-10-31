@@ -4,6 +4,27 @@ import { replayEngine } from '../sandbox/replay';
 
 /** Conceptual observations are not Engine receipts and have their own source contract. */
 export const conceptMilestones = {
+  'identity-directory': {
+    version: '1.0.0',
+    objectives: ['IDF01'],
+    sources: ['IF04', 'IF16', 'IF17'],
+    trigger: 'saved-entra-managed-legacy-capability-contrast',
+    auto: 'first-new-guided-model-result',
+  },
+  'identity-journey': {
+    version: '1.0.0',
+    objectives: ['IDF02'],
+    sources: ['IF05', 'IF07', 'IF19', 'IF28'],
+    trigger: 'saved-same-authentication-different-application-access',
+    auto: 'first-new-guided-model-result',
+  },
+  'identity-external': {
+    version: '1.0.0',
+    objectives: ['IDF03'],
+    sources: ['IF09', 'IF20', 'IF25'],
+    trigger: 'saved-customer-b2b-versus-external-tenant-contrast',
+    auto: 'first-new-guided-model-result',
+  },
   'resilience-tiers': {
     version: '1.0.0',
     objectives: ['STB01'],
