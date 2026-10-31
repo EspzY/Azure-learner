@@ -1,4 +1,11 @@
 import {
+  freshStorage,
+  applyStorage,
+  storageKey,
+  restoreStorage,
+  storageFacts,
+} from '../../src/domain/curriculum/storage';
+import {
   freshConnectivity,
   applyConnectivity,
   connectivityKey,
@@ -78,6 +85,12 @@ function fixture<S>(
 /** Valid records from frozen reducers, never new runtime curriculum. */
 export function activeTeachingContexts() {
   return [
+    fixture(
+      storageKey,
+      applyStorage(freshStorage(), { kind: 'begin', item: 'sa01' }),
+      restoreStorage,
+      storageFacts,
+    ),
     fixture(
       connectivityKey,
       applyConnectivity(freshConnectivity(), { kind: 'begin', item: 'nc03' }),

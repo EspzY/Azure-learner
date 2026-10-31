@@ -8,7 +8,7 @@ const data = JSON.parse(
 );
 test('all 57 pinned official slots and code/evidence/source references resolve', () => {
   assert.deepEqual(validateAudit(data), []);
-  assert.equal(data.objectives.filter((r) => r.status === 'COMPLETE').length, 32);
+  assert.equal(data.objectives.filter((r) => r.status === 'COMPLETE').length, 34);
   assert.equal(
     data.objectives.filter((r) => r.slot.startsWith('1.') && r.status === 'COMPLETE').length,
     15,
@@ -58,6 +58,20 @@ test('all 57 pinned official slots and code/evidence/source references resolve',
     assert.ok(row.sources.some((id) => id.startsWith('NCS')));
     assert.ok(!row.evidence.includes('CP'));
   }
+  for (const slot of ['2.3.01', '2.3.04']) {
+    const row = data.objectives.find((r) => r.slot === slot);
+    assert.equal(row.status, 'COMPLETE');
+    assert.ok(row.evidence.includes('ST'));
+    assert.deepEqual(Object.values(row.criteria), ['V', 'V', 'V', 'V', 'V', 'V']);
+    assert.ok(row.facets.every((facet) => facet.status === 'COMPLETE'));
+    assert.ok(row.sources.some((id) => id.startsWith('STG')));
+  }
+  for (const slot of ['2.3.02', '2.3.03', '2.3.05', '2.3.06']) {
+    const row = data.objectives.find((r) => r.slot === slot);
+    assert.equal(row.status, 'MISSING');
+    assert.ok(!row.evidence.includes('ST'));
+  }
+  assert.match(data.sources.STG21.url, /storage\/files\/files-management-concepts$/);
   // A new runtime source register may reuse local IDs; the shared audit must
   // retain the old Cost provenance and namespace the new connectivity sources.
   assert.match(

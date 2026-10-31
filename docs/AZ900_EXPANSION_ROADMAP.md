@@ -140,6 +140,8 @@ P13/P14 kan trekkes frem når forutsetningene er dekket, for å balansere archit
 
 ## P08 — Storage A: kontoer og tjenester
 
+PR33 implements the bounded [Storage Part A module](STORAGE_SERVICES.md) in the established Course Hub. Only2.3.01/04 receive a new scoped A–F content finding; P09 and P16 are unchanged. Account/media/protocol support uses current Files qualifications, three causal investigations and original independent decisions. Old learner evidence and technical resources remain separate. Full candidate CI, independent audit and honest external status govern delivery.
+
 - **Mål:** `2.3.01,04`; Blob/Files/Queues/Tables, konto-/tjeneste-/typevalg.
 - **Elevaktivitet:** Fordel objekt, filshare, asynkron melding og nøkkelbasert tabulært datasett til passende tjeneste; undersøk kontoavgrensninger og differensier disk fra Blob.
 - **Gjenbruk:** Forklarende inspeksjon, typerelasjoner, datalifecycle og Journal.

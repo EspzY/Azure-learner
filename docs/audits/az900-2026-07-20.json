@@ -1230,6 +1230,111 @@
       "url": "https://learn.microsoft.com/en-us/azure/storage/common/storage-network-security",
       "reviewed": "2026-10-29",
       "purpose": "Storage firewall controls public endpoint; identity/data roles remain independent, no generic private firewall claim."
+    },
+    "STG01": {
+      "url": "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900",
+      "reviewed": "2026-10-31",
+      "purpose": "Current dated AZ-900 scope2.3.01 and2.3.04; other Storage objectives deferred."
+    },
+    "STG02": {
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-storage-services/",
+      "reviewed": "2026-10-31",
+      "purpose": "Eight-unit Learn structure and scoped discovery; no protected assessment reuse."
+    },
+    "STG03": {
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-storage-services/1-introduction",
+      "reviewed": "2026-10-31",
+      "purpose": "Storage prerequisites and accounts/services relationship."
+    },
+    "STG04": {
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-storage-services/2-accounts",
+      "reviewed": "2026-10-31",
+      "purpose": "Introductory modern account/service families; qualified by newer Files docs."
+    },
+    "STG05": {
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-storage-services/4-describe-azure-storage-services",
+      "reviewed": "2026-10-31",
+      "purpose": "Blob, Files, Queue, Table and managed block disks as different data contracts."
+    },
+    "STG06": {
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-storage-services/9-summary",
+      "reviewed": "2026-10-31",
+      "purpose": "Module summary and explicit later tier/redundancy/movement/migration scope."
+    },
+    "STG07": {
+      "url": "https://learn.microsoft.com/en-us/azure/storage/common/storage-introduction",
+      "reviewed": "2026-10-31",
+      "purpose": "Storage namespace/data services versus compute/network and access boundaries."
+    },
+    "STG08": {
+      "url": "https://learn.microsoft.com/en-us/azure/storage/common/storage-account-overview",
+      "reviewed": "2026-10-31",
+      "purpose": "Modern account families, premium specialization and region/feature qualifications."
+    },
+    "STG09": {
+      "url": "https://learn.microsoft.com/en-us/azure/storage/blobs/storage-blobs-overview",
+      "reviewed": "2026-10-31",
+      "purpose": "Blob object semantics and conditional NFS/SFTP/Data Lake capabilities."
+    },
+    "STG10": {
+      "url": "https://learn.microsoft.com/en-us/azure/storage/blobs/storage-blobs-introduction",
+      "reviewed": "2026-10-31",
+      "purpose": "Container/blob organization and block/append/page distinctions."
+    },
+    "STG11": {
+      "url": "https://learn.microsoft.com/en-us/azure/storage/files/storage-files-introduction",
+      "reviewed": "2026-10-31",
+      "purpose": "Files shares and protocol-specific client contracts."
+    },
+    "STG12": {
+      "url": "https://learn.microsoft.com/en-us/azure/storage/files/storage-files-planning",
+      "reviewed": "2026-10-31",
+      "purpose": "SMB/NFS, media and management-model qualifications; one protocol per share."
+    },
+    "STG13": {
+      "url": "https://learn.microsoft.com/en-us/azure/storage/queues/storage-queues-introduction",
+      "reviewed": "2026-10-31",
+      "purpose": "Queue/message relationship and small reference payloads."
+    },
+    "STG14": {
+      "url": "https://learn.microsoft.com/en-us/azure/service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted",
+      "reviewed": "2026-10-31",
+      "purpose": "At-least-once delivery/no FIFO, Queue versus Service Bus; no exactly-once application guarantee."
+    },
+    "STG15": {
+      "url": "https://learn.microsoft.com/en-us/azure/architecture/guide/architecture-styles/web-queue-worker",
+      "reviewed": "2026-10-31",
+      "purpose": "Producer/worker/data flow and failure/idempotency boundary."
+    },
+    "STG16": {
+      "url": "https://learn.microsoft.com/en-us/azure/storage/tables/table-storage-overview",
+      "reviewed": "2026-10-31",
+      "purpose": "NoSQL entity/key/attribute data versus relational requirements."
+    },
+    "STG17": {
+      "url": "https://learn.microsoft.com/en-us/rest/api/storageservices/Understanding-the-Table-Service-Data-Model",
+      "reviewed": "2026-10-31",
+      "purpose": "PartitionKey+RowKey identity, different entity properties and key-based access."
+    },
+    "STG18": {
+      "url": "https://learn.microsoft.com/en-us/azure/virtual-machines/managed-disks-overview",
+      "reviewed": "2026-10-31",
+      "purpose": "Managed block disks, OS/data disk roles and separate VM relationships."
+    },
+    "STG19": {
+      "url": "https://learn.microsoft.com/en-us/azure/storage/blobs/anonymous-read-access-configure",
+      "reviewed": "2026-10-31",
+      "purpose": "No anonymous Blob access merely from account creation or public address."
+    },
+    "STG20": {
+      "url": "https://learn.microsoft.com/en-us/azure/storage/common/storage-account-create",
+      "reviewed": "2026-10-31",
+      "purpose": "Modern account type/kind/performance distinctions; no create operation implemented."
+    },
+    "STG21": {
+      "url": "https://learn.microsoft.com/en-us/azure/storage/files/files-management-concepts",
+      "reviewed": "2026-10-31",
+      "purpose": "Current FileStorage HDD/SSD, GPv2 pay-as-you-go and separate top-level NFS Files management."
     }
   },
   "evidenceProfiles": {
@@ -1956,6 +2061,46 @@
         "tests/e2e/networking-connectivity.spec.ts"
       ],
       "limits": "P07 scoped authored coverage only. Separate first/help/retry/abandon and private transport/encryption/DNS/path/auth layers. No old evidence upgrade, actual cloud execution, readiness or human learning approval."
+    },
+    "ST": {
+      "teaching": [
+        {
+          "path": "src/content/nb.ts",
+          "marker": "storageNb"
+        }
+      ],
+      "mechanism": [
+        {
+          "path": "src/domain/curriculum/storage-model.ts",
+          "marker": "runAccounts"
+        },
+        {
+          "path": "src/domain/curriculum/storage.ts",
+          "marker": "storageManifest"
+        }
+      ],
+      "presentation": [
+        {
+          "path": "src/features/learning/storage.tsx",
+          "marker": "StorageLesson"
+        },
+        {
+          "path": "src/features/learning/storage-visuals.tsx",
+          "marker": "StorageModelResult"
+        }
+      ],
+      "assessment": [
+        {
+          "path": "src/domain/curriculum/storage-items.ts",
+          "marker": "evaluateStorage"
+        },
+        {
+          "path": "src/features/learning/storage-assessment.tsx",
+          "marker": "StorageAssessment"
+        }
+      ],
+      "tests": ["src/domain/curriculum/storage.test.ts", "tests/e2e/storage-services.spec.ts"],
+      "limits": "P08 authored content coverage, not learner mastery/human acceptance. Separate1.0.0 history; no Storage runtime/receipts/XP. Newer Files account/media/management qualifications applied; P09/P16 unchanged."
     }
   },
   "plannedPRs": [
@@ -3171,39 +3316,63 @@
       "slot": "2.3.01",
       "id": "az900.storage.services",
       "title": "Sammenligne Azure Storage services",
-      "status": "MISSING",
+      "status": "COMPLETE",
       "criteria": {
-        "A": "M",
-        "B": "M",
-        "C": "M",
-        "D": "M",
-        "E": "M",
-        "F": "N"
+        "A": "V",
+        "B": "V",
+        "C": "V",
+        "D": "V",
+        "E": "V",
+        "F": "V"
       },
       "facets": [
         {
           "topic": "Blob",
-          "status": "MISSING"
+          "status": "COMPLETE"
         },
         {
           "topic": "Files",
-          "status": "MISSING"
+          "status": "COMPLETE"
         },
         {
           "topic": "Queues",
-          "status": "MISSING"
+          "status": "COMPLETE"
         },
         {
           "topic": "Tables",
-          "status": "MISSING"
+          "status": "COMPLETE"
         }
       ],
-      "localObjectives": ["D01"],
-      "evidence": [],
-      "observed": "Managed disks i VM-lab er ikke undervisning om Storage-kontotjenestene.",
-      "gap": "Mangler egen forklaring, relevant mekanisme/praksis, uavhengig scenario og begrunnet vurdering for de angitte emnene.",
+      "localObjectives": ["D01", "SG01", "SG02", "SG04"],
+      "evidence": ["ST"],
+      "observed": "P08 original Storage manuscript, one Workload Studio with differentiated data structures, three causal investigations, changed decision/reason cases and specific all-alternative feedback. Current Files HDD/SSD/top-level management qualifications and managed-disk boundary are explicit.",
+      "gap": "Authored A–F content coverage only; no actual API/upload/account/database/queue/runtime or mastery/readiness/human-learning approval. P09/P16 remain deferred; external Gate7 separately SSO-blocked.",
       "plannedPRs": ["P08"],
-      "sources": ["EXAM", "M07"]
+      "sources": [
+        "EXAM",
+        "M07",
+        "STG01",
+        "STG02",
+        "STG03",
+        "STG04",
+        "STG05",
+        "STG06",
+        "STG07",
+        "STG08",
+        "STG09",
+        "STG10",
+        "STG11",
+        "STG12",
+        "STG13",
+        "STG14",
+        "STG15",
+        "STG16",
+        "STG17",
+        "STG18",
+        "STG19",
+        "STG20",
+        "STG21"
+      ]
     },
     {
       "slot": "2.3.02",
@@ -3285,31 +3454,55 @@
       "slot": "2.3.04",
       "id": "az900.storage.accounts",
       "title": "Storage account options og storage types",
-      "status": "MISSING",
+      "status": "COMPLETE",
       "criteria": {
-        "A": "M",
-        "B": "M",
-        "C": "M",
-        "D": "M",
-        "E": "M",
-        "F": "N"
+        "A": "V",
+        "B": "V",
+        "C": "V",
+        "D": "V",
+        "E": "V",
+        "F": "V"
       },
       "facets": [
         {
           "topic": "Account options",
-          "status": "MISSING"
+          "status": "COMPLETE"
         },
         {
           "topic": "Storage types",
-          "status": "MISSING"
+          "status": "COMPLETE"
         }
       ],
-      "localObjectives": ["D01", "G02"],
-      "evidence": [],
-      "observed": "Ingen konto-/tjeneste-/ytelsesmodell. Diskprofile i VM er en annen kontekst.",
-      "gap": "Mangler egen forklaring, relevant mekanisme/praksis, uavhengig scenario og begrunnet vurdering for de angitte emnene.",
+      "localObjectives": ["D01", "G02", "SG03", "SG04"],
+      "evidence": ["ST"],
+      "observed": "P08 original Storage manuscript, one Workload Studio with differentiated data structures, three causal investigations, changed decision/reason cases and specific all-alternative feedback. Current Files HDD/SSD/top-level management qualifications and managed-disk boundary are explicit.",
+      "gap": "Authored A–F content coverage only; no actual API/upload/account/database/queue/runtime or mastery/readiness/human-learning approval. P09/P16 remain deferred; external Gate7 separately SSO-blocked.",
       "plannedPRs": ["P08"],
-      "sources": ["EXAM", "M07"]
+      "sources": [
+        "EXAM",
+        "M07",
+        "STG01",
+        "STG02",
+        "STG03",
+        "STG04",
+        "STG05",
+        "STG06",
+        "STG07",
+        "STG08",
+        "STG09",
+        "STG10",
+        "STG11",
+        "STG12",
+        "STG13",
+        "STG14",
+        "STG15",
+        "STG16",
+        "STG17",
+        "STG18",
+        "STG19",
+        "STG20",
+        "STG21"
+      ]
     },
     {
       "slot": "2.3.05",
@@ -4337,6 +4530,35 @@
       ],
       "objectives": ["2.2.05", "2.2.06"],
       "note": "P07 scoped A–F content coverage for VPN Gateway/ExpressRoute and public/private endpoints composes with P06. Historical PartA evidence/rubrics unchanged; content COMPLETE is not learner mastery, human validation or external Gate7 approval."
+    },
+    {
+      "id": "PR33-P08",
+      "reviewed": "2026-10-31",
+      "sources": [
+        "STG01",
+        "STG02",
+        "STG03",
+        "STG04",
+        "STG05",
+        "STG06",
+        "STG07",
+        "STG08",
+        "STG09",
+        "STG10",
+        "STG11",
+        "STG12",
+        "STG13",
+        "STG14",
+        "STG15",
+        "STG16",
+        "STG17",
+        "STG18",
+        "STG19",
+        "STG20",
+        "STG21"
+      ],
+      "objectives": ["2.3.01", "2.3.04"],
+      "note": "Only two scoped Storage rows re-reviewed A–F: service/data contracts, current account/media/protocol compatibility, independent decision/reason contexts and original feedback. P09/P16 and55 other rows unchanged. No historical learner upgrade or human approval."
     }
   ]
 }

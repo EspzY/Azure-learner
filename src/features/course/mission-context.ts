@@ -1,4 +1,7 @@
 'use client';
+import { useStorage } from '@/features/learning/storage-provider';
+import { storageHref } from '@/domain/curriculum/storage';
+
 import { useConnectivity } from '@/features/learning/connectivity-provider';
 import { connectivityHref } from '@/domain/curriculum/connectivity';
 import { useNetworking } from '@/features/learning/networking-provider';
@@ -54,7 +57,8 @@ export function useMissionSafetyContexts(owner?: 'missions') {
     cost = useCost(),
     compute = useCompute(),
     networking = useNetworking(),
-    connectivity = useConnectivity();
+    connectivity = useConnectivity(),
+    storage = useStorage();
   return (
     [
       {
@@ -62,6 +66,12 @@ export function useMissionSafetyContexts(owner?: 'missions') {
         state: missions,
         active: missions.active,
         href: missionOrigin(missions.activeSession?.mission ?? 'diagnose'),
+      },
+      {
+        id: 'storage',
+        state: storage,
+        active: storage.facts.active,
+        href: storageHref('assessment', storage.facts.current?.item),
       },
       {
         id: 'connectivity',

@@ -11,6 +11,7 @@ export default async function ModulePage({ params }: { params: Promise<{ module:
     module !== 'cost' &&
     module !== 'compute' &&
     module !== 'networking' &&
+    module !== 'storage' &&
     module !== 'connectivity'
   )
     notFound();
