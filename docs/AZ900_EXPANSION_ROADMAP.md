@@ -180,6 +180,8 @@ PR35 supplies [Identity Foundations](IDENTITY_FOUNDATIONS.md) as the first Ident
 - **Tester:** Entra directory roles versus Azure roles, arv/scope, autentisert versus autorisert, policy versus access, hjelp versus unaided.
 - **Aksept:** Nye cases kan løses uten at guide viser rolle/scope-fasit. SaaS-produktroller teller aldri som Azure RBAC-bevis.
 
+PR36 supplies [Access Control](ACCESS_CONTROL.md) as Identity Part B: original principal/role/scope/plane and CA targeting/controls/report-only teaching, two declared Studio perspectives with separate Azure-action authorization, read-only actual Sandbox ancestry, two causal investigations and eight changed independent contexts. Only2.4.04/05 reviewed; Part A and P12/P15/P16 preserved. Exact-head198 CI/strict, fresh final audit and separate external Gate7 govern delivery. No merge/production deploy. Next P12.
+
 ## P12 — Governance-verktøy og begrensninger
 
 - **Mål:** `3.2.01–03`; Purview, Policy og locks.

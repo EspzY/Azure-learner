@@ -1,0 +1,64 @@
+# Identity Part B — Azure RBAC & Conditional Access / P11
+
+Verified remote/base2eef3efad9b867534a69327a2f6deee31ffacaa5. Only2.4.04–05; Part A and P12/P15 remain preserved. Original Norwegian manuscript is authored after actual public Microsoft retrieval, before presenter implementation. Research bodies/index in ignored .artifacts/access-sources record URL/title/updated/retrieved/SHA256. No protected assessment or copied Microsoft diagram; no real tenant/sign-in/role/policy/Graph operation.
+
+## Source decisions before implementation
+
+AC01 current study guide retains the two objectives; AC02 is the12-unit official module. Public units5/6 and intro/summary are relevant; P10 sources are preserved and later security units are outside scope. AC05–08/18–24/26 verify principal/role/scope, downward inheritance, additive assignments, NotActions versus deny, control/DataActions, directory roles and alternate data routes. AC09–17/25 verify actual CA targeting, signals, all applicable policies, within-policy AND/OR, report-only and What If boundaries. AC27 verifies the separate configuration-policy contrast.
+
+Current product qualifications govern broad Learn descriptions: CA P1 (also appropriate bundles); risk-based sign-in/user risk P2/ID Protection; service principals have separate Workload ID Premium/direct targeting/control limits, managed identities are not ordinary user-policy targets. Device compliance is a declared externally supplied signal. Report-only does not enforce, but some actual platforms can still see certificate-selection prompts. What If estimates supplied conditions and omits service-dependency evaluation. Current agent/impact/rollout preview features are product context, not extra AZ-900 mechanisms or a new simulator. Emergency accounts should be separately protected, monitored/tested and excluded from restrictive CA; exclusion is not immunity from mandatory MFA or every security control. Never propose broad activation without small-scope testing and recovery.
+
+Owner/Contributor control-plane roles can expose keys or allow role changes through their real permissions; lacking direct Blob DataActions is not proof of data isolation. The model explicitly uses an Entra/RBAC request with keys/SAS/alternate routes absent. RBAC Administrator currently includes */read; VM Contributor has other management permissions at relevant scopes. Role tables show only declared requested operations, not full definitions. Custom roles are original subsets, not operative definitions. NotActions subtracts from one role; another grant can still apply. A declared applicable deny is distinct.
+
+## Teaching and mechanism plan
+
+Fjordverk now asks who may do what, and under which sign-in conditions. Sequence: AuthN/AuthZ bridge → principal/role/assignment/scope → downward hierarchy → built-ins/least privilege → directory versus Azure roles → control/data/NotActions → CA signals/targeting → multiple policies/report-only/testing → one Studio → two causal guides → independent transfer/Summary/Journal. All essential explanations are visible; optional semantic detail is supplementary.
+
+The RBAC model records exact bounded scope/principal/role/action snapshots. Default Fjordverk resources are conceptual. A read-only current Sandbox ancestry can supply the same management structure for a separately labelled hypothetical assignment; it never writes World, commands, roles or receipts. Old resource-policy denials retain their actual meaning. The CA model has two authored policy slots with bounded targeting/state/grant controls, declared first-factor/MFA/compliance evidence and explicit unsupported workload identity boundaries. It is not a general IAM/policy engine. Combined Azure management examples keep CA requirements and a fixed VM action's RBAC authorization separate; other app authorization stays outside.
+
+Two saved guides require causal contrasts and explanation, never visits. Independent cases change decisions: additive custom/inherited grants, split resource-group reading/single-VM access delegation, complementary Portal management access, directory-admin versus Azure scope, OR/MFA with preserved unmanaged-device use, two-user CA/RBAC diagnosis, correcting an app-specific block boundary, and paired resource-configuration outcomes despite authority. Eight situations are chosen for distinct coverage, not a bank-size target. Blind review must precede keys/feedback and compare actual guided witnesses.
+
+## Evidence and delivery boundaries
+
+New isolated azurelab.learning.access-control.v1 pins schema/content/model/rubric1.0.0, bounded replay/durable CAS/first/help/retry/family/abandon and scoped recovery. All19 independent contexts join shared teaching/Journal/Summary/history/mission/Portal protection. No old firsts/rubrics/XP/Sandbox/Part A reinterpretation. Course Hub retains three paths; access-control is Part B under Identity, Access & Security, with P15 planned. Exact-head full approved CI, post-stamp independent audit, actual screenshots and strict release are delivery gates. External Gate7 remains separately SSO-blocked if legitimate root access is unavailable; human SME/UX/screen-reader/measured learning remain unperformed. No merge or production deployment. P12 next, not implemented.
+
+Early blind review found two real MAJORs: overly diagnostic/cross-plane alternatives and overlap with guide/manuscript. The bank was reduced10→8 and rewritten before publication. Current decisions include complementary Portal Reader access, two valid direct/group Reader plans, OR/AND tradeoffs preserving unmanaged work, two-user diagnostic counterevidence and a user×app block matrix. Fresh independent blind review is required. No old learner rubric changes.
+
+Scope snapshots make events larger than earlier module inputs. New Part B retains800 events/five terminal reserves and additionally closes normal work at480000 JSON characters, safely inside its600000-character parser envelope. Input nodes/IDs/names/depth are bounded; no old contract or history is changed.
+
+Fresh8-item blind review found and preserved two valid Reader architectures in ab04, resolved ab03 authority ambiguity with an explicit least-extra-authority requirement, changed ab06 to a read-only handover with preserved access, and required ab02 to split group-wide reading from VM-only access delegation. The actual final packet will be independently locked again before the stamped final audit sees keys. Early agreement is not claimed for revised text.
+
+## Executed development verification
+
+Full `npm run check` exited0:458 Vitest tests/32files,368 curriculum cases,17 Node checks,105 Markdown/local-link documents, types/lint/format/quality/coverage/assets/legacy and production build. After the final Studio-first composition and role-table changes, the affected build/domain/lint/browser checks were repeated rather than another complete local regression. The planned mandatory profile is198=184desktop+14compact; optional legacy368 remains. Collection is not execution. Full exact-head GitHub CI and its strict release receipt remain pending until Draft publication.
+
+Production browser selection13 completed12pass/1failure: the strengthened RBAC Axe check found a real nonfocusable scrollable JSON detail. Actual screenshots also exposed overlapping compact role-table text. Product fixes add a labelled keyboard-focusable JSON region and a readable scoped horizontal table with wrapping; affected RBAC and compact retests both passed23.4s,29 P11/shared domain cases passed, and the final bounded production build passed. Unchanged affected Identity navigation and old Benefits case both passed. The original Benefits test additionally passed three repetitions without retry after waiting for actual protected teaching readiness, preserving its exact durable-assistance assertion. A new held-animation-frame negative proves URL commit alone does not reveal teaching; denied assistance leaves content hidden and old bytes unchanged. No timeout/retry/worker/skip changes. Earlier selector and immediate-reload races were corrected in new tests, not reported as product successes.
+
+Preservation probe against2eef3efad9b867534a69327a2f6deee31ffacaa5 compares27 old data exports and one function. The only five metadata paths changed are managementNb.accessContexts.access,missionsNb.recoveryContexts.access,courseHubNb.moduleLabels.access-control,courseHubNb.plannedModules.architecture and courseHubNb.recordLabels.access. All55 other objective rows and72 declared protected path patterns are unchanged. New P11 content coverage yields41/57 overall; this is not learner mastery or exam readiness.
+
+## Actual production gallery
+
+Sixteen pinned-Chromium captures were personally inspected across1920×1080,1440×900,1366×768,1024×768,1024×500 and800×700. Long teaching uses normal vertical scroll; the wide role matrix has a separate keyboard-scrollable region. The capture journey produced zero page errors or automatic external requests, and the actual native-command Sandbox seed remained byte-identical.
+
+- [hub-1440](screenshots/access-control/hub-1440.png) — One start and three existing learning paths; no new promotion.
+- [introduction-1440](screenshots/access-control/introduction-1440.png) — AuthN/CA/AuthZ bridge and contextual Identity Part B sidebar.
+- [studio-entry-1440](screenshots/access-control/studio-entry-1440.png) — Both Studio perspectives and explicit briefing entry visible before full supporting theory.
+- [briefing-rbac-1024x500](screenshots/access-control/briefing-rbac-1024x500.png) — Native blurred briefing fits1024x500 with explicit Start/Cancel.
+- [rbac-inheritance-1920](screenshots/access-control/rbac-inheritance-1920.png) — Reader subscription assignment and downward ancestry, declared permission/result.
+- [rbac-narrow-role-1440](screenshots/access-control/rbac-narrow-role-1440.png) — Specialised VM-only scope; transparent cause and narrower shown-node reach.
+- [rbac-upward-denied-1024](screenshots/access-control/rbac-upward-denied-1024.png) — VM-scoped Reader cannot inherit upward to resource group.
+- [rbac-data-plane-1366](screenshots/access-control/rbac-data-plane-1366.png) — Declared Entra/RBAC Blob DataAction separate from management permission.
+- [rbac-role-matrix-1024](screenshots/access-control/rbac-role-matrix-1024.png) — Scoped table wraps labels; local horizontal region and JSON are keyboard-focusable.
+- [actual-sandbox-ancestry-1440](screenshots/access-control/actual-sandbox-ancestry-1440.png) — Actual replayed Sandbox ancestry revision3 used only as hypothetical role context.
+- [ca-missing-device-1440](screenshots/access-control/ca-missing-device-1440.png) — Concurrent MFA/device policies retain unmet device and separate missing Azure role.
+- [ca-enforced-block-1366](screenshots/access-control/ca-enforced-block-1366.png) — Applicable enforced Block persists despite satisfied MFA.
+- [ca-report-only-1024](screenshots/access-control/ca-report-only-1024.png) — Report-only Block is applicable but not enforced.
+- [ca-and-rbac-met-800](screenshots/access-control/ca-and-rbac-met-800.png) — CA requirements and relevant VM permission separately met; no runtime claim.
+- [independent-ab09-1024](screenshots/access-control/independent-ab09-1024.png) — Original user-by-application policy boundary question has no exposed key before submit.
+- [feedback-valid-group-plan-1024x500](screenshots/access-control/feedback-valid-group-plan-1024x500.png) — Alternate approved group Reader plan accepted with its technical reason; first classified separately.
+
+External Vercel Ready, local browser success and green CI are distinct evidence. Actual new preview root/in-app SHA/journey verification remains unperformed until publication; if normal authorised access redirects to SSO, Gate7 is BLOCKED. Human Azure-SME, UX, screen-reader, measured transfer and psychometric validation remain unperformed. No merge/production deploy; P12 is next and not implemented.
+
+## Final-audit correction: additive role order
+
+The fresh post-stamp reviewer found MAJOR-01: VM Contributor as the primary role could suppress a known second Reader grant for a generic resource; swapping role order changed the result. The corrected boundary checks both selected roles and remains outside only when no known grant establishes the operation. One hundred role-order permutations and explicit known-grant/remaining-uncertainty counterexamples are tested. Actual production controls exercise both Reader/VM Contributor orders. The unpublished Part B1.0.0 contract is corrected before delivery; no Part A or historical published rubric changes. Targeted30 P11/shared tests and production build passed; affected production RBAC browser passed7.7s without retry, full typecheck and targeted ESLint exited0. Independent delta audit binds the renewed stamp. Existing captured scenarios are unchanged by this correction.

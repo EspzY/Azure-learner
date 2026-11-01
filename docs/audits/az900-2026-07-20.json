@@ -1693,6 +1693,186 @@
       "purpose": "P10: Actual official path/module discovery, prerequisite and later-unit scope.",
       "reviewed": "2026-10-31",
       "version": "Rolling page updated 2026-10-28T17:12:00.0000000Z"
+    },
+    "ACG01": {
+      "url": "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900",
+      "purpose": "P11: Current20July2026 study guide, scoped Conditional Access and Azure RBAC objectives.",
+      "reviewed": "2026-10-31",
+      "version": "Rolling page updated 2026-06-22T23:35:00.0000000Z"
+    },
+    "ACG02": {
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-identity-access-security/",
+      "purpose": "P11: Actual12-unit module, public relevant units5/6; protected assessment not opened.",
+      "reviewed": "2026-10-31",
+      "version": "Rolling page updated 2026-10-28T17:12:00.0000000Z"
+    },
+    "ACG03": {
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-identity-access-security/5-conditional-access",
+      "purpose": "P11: Public CA signal/decision/enforcement introduction qualified by current product targeting/grant boundaries.",
+      "reviewed": "2026-10-31",
+      "version": "Rolling page updated 2025-03-28T23:01:00.0000000Z"
+    },
+    "ACG04": {
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-identity-access-security/6-role-based-access-control",
+      "purpose": "P11: RBAC scope/least privilege; broad no-data-plane wording qualified by actual DataActions product docs.",
+      "reviewed": "2026-10-31",
+      "version": "Rolling page updated 2025-03-28T23:01:00.0000000Z"
+    },
+    "ACG05": {
+      "url": "https://learn.microsoft.com/en-us/azure/role-based-access-control/overview",
+      "purpose": "P11: Principal/role/scope, group/transitive membership, additive grants and authorization evaluation.",
+      "reviewed": "2026-10-31",
+      "version": "Rolling page updated 2025-10-15T22:11:00.0000000Z"
+    },
+    "ACG06": {
+      "url": "https://learn.microsoft.com/en-us/azure/role-based-access-control/scope-overview",
+      "purpose": "P11: Downward management-group/subscription/resource-group/resource inheritance; no upward/sibling grant.",
+      "reviewed": "2026-10-31",
+      "version": "Rolling page updated 2026-02-13T12:10:00.0000000Z"
+    },
+    "ACG07": {
+      "url": "https://learn.microsoft.com/en-us/azure/role-based-access-control/role-definitions",
+      "purpose": "P11: Actions/NotActions/DataActions; subtract within one role, not global deny; another role can grant.",
+      "reviewed": "2026-10-31",
+      "version": "Rolling page updated 2026-05-24T11:44:00.0000000Z"
+    },
+    "ACG08": {
+      "url": "https://learn.microsoft.com/en-us/azure/role-based-access-control/rbac-and-directory-admin-roles",
+      "purpose": "P11: Azure versus Entra roles, no automatic GlobalAdmin=Owner; explicit elevation is separate.",
+      "reviewed": "2026-10-31",
+      "version": "Rolling page updated 2026-05-07T06:30:00.0000000Z"
+    },
+    "ACG09": {
+      "url": "https://learn.microsoft.com/en-us/entra/identity/conditional-access/overview",
+      "purpose": "P11: CA after first factor, signals, P1/bundles, risk P2/IDProtection and other product licenses.",
+      "reviewed": "2026-10-31",
+      "version": "Rolling page updated 2026-04-28T05:19:00.0000000Z"
+    },
+    "ACG10": {
+      "url": "https://learn.microsoft.com/en-us/entra/identity/conditional-access/concept-conditional-access-policies",
+      "purpose": "P11: All applicable policies must be satisfied; targeting and grant controls distinct, AND across policies.",
+      "reviewed": "2026-10-31",
+      "version": "Rolling page updated 2026-03-25T05:05:00.0000000Z"
+    },
+    "ACG11": {
+      "url": "https://learn.microsoft.com/en-us/entra/identity/conditional-access/concept-conditional-access-report-only",
+      "purpose": "P11: Report-only evaluated not enforced, real certificate prompt qualifications, policy-impact preview context.",
+      "reviewed": "2026-10-31",
+      "version": "Rolling page updated 2026-06-01T22:39:00.0000000Z"
+    },
+    "ACG12": {
+      "url": "https://learn.microsoft.com/en-us/entra/identity/conditional-access/what-if-tool",
+      "purpose": "P11: What If estimates supplied conditions, current supported identities, does not test service dependencies.",
+      "reviewed": "2026-10-31",
+      "version": "Rolling page updated 2026-08-27T22:38:00.0000000Z"
+    },
+    "ACG13": {
+      "url": "https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/security-emergency-access",
+      "purpose": "P11: Current emergency account protections, restrict-policy exclusions, monitoring/testing, mandatory MFA remains.",
+      "reviewed": "2026-10-31",
+      "version": "Rolling page updated 2026-06-05T07:33:00.0000000Z"
+    },
+    "ACG14": {
+      "url": "https://learn.microsoft.com/en-us/entra/identity/conditional-access/concept-conditional-access-users-groups",
+      "purpose": "P11: Identity inclusion/exclusion precedence perpolicy; user/group/directory role and workload distinctions.",
+      "reviewed": "2026-10-31",
+      "version": "Rolling page updated 2026-05-18T22:35:00.0000000Z"
+    },
+    "ACG15": {
+      "url": "https://learn.microsoft.com/en-us/entra/identity/conditional-access/concept-conditional-access-grant",
+      "purpose": "P11: Within-policy AND/OR grant controls, MFA/compliance/block distinctions; other controls outside model.",
+      "reviewed": "2026-10-31",
+      "version": "Rolling page updated 2026-06-16T22:43:00.0000000Z"
+    },
+    "ACG16": {
+      "url": "https://learn.microsoft.com/en-us/entra/identity/conditional-access/concept-conditional-access-conditions",
+      "purpose": "P11: Actual condition signals and limits; no fabricated risk/device verification.",
+      "reviewed": "2026-10-31",
+      "version": "Rolling page updated 2026-09-28T17:38:00.0000000Z"
+    },
+    "ACG17": {
+      "url": "https://learn.microsoft.com/en-us/entra/identity/conditional-access/concept-conditional-access-cloud-apps",
+      "purpose": "P11: Target-resource include/exclude and app boundaries distinct from principal targeting.",
+      "reviewed": "2026-10-31",
+      "version": "Rolling page updated 2026-05-28T07:44:00.0000000Z"
+    },
+    "ACG18": {
+      "url": "https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles/privileged",
+      "purpose": "P11: Current Contributor/Owner/RBAC Administrator definitions, access delegation and */read qualification.",
+      "reviewed": "2026-10-31",
+      "version": "Rolling page updated 2026-07-01T23:48:00.0000000Z"
+    },
+    "ACG19": {
+      "url": "https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles/compute",
+      "purpose": "P11: VM Contributor actual operation set and other scoped management permissions; not full data isolation.",
+      "reviewed": "2026-10-31",
+      "version": "Rolling page updated 2026-07-01T23:48:00.0000000Z"
+    },
+    "ACG20": {
+      "url": "https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles/storage",
+      "purpose": "P11: Blob Data Reader includes data read plus service-specific Actions; not arbitrary account management.",
+      "reviewed": "2026-10-31",
+      "version": "Rolling page updated 2026-07-01T23:48:00.0000000Z"
+    },
+    "ACG21": {
+      "url": "https://learn.microsoft.com/en-us/azure/role-based-access-control/deny-assignments",
+      "purpose": "P11: Applicable deny assignments distinct from role NotActions and additional role grants.",
+      "reviewed": "2026-10-31",
+      "version": "Rolling page updated 2026-10-07T17:13:00.0000000Z"
+    },
+    "ACG22": {
+      "url": "https://learn.microsoft.com/en-us/azure/role-based-access-control/custom-roles",
+      "purpose": "P11: Custom roles concept and assignable scopes, not a deployed role definition.",
+      "reviewed": "2026-10-31",
+      "version": "Rolling page updated 2026-04-30T17:19:00.0000000Z"
+    },
+    "ACG23": {
+      "url": "https://learn.microsoft.com/en-us/azure/storage/blobs/assign-azure-role-data-access",
+      "purpose": "P11: Entra/RBAC Blob API data role scope; Portal navigation and alternate keys/SAS are separate.",
+      "reviewed": "2026-10-31",
+      "version": "Rolling page updated 2026-05-09T06:18:00.0000000Z"
+    },
+    "ACG24": {
+      "url": "https://learn.microsoft.com/en-us/azure/role-based-access-control/conditions-overview",
+      "purpose": "P11: ABAC conditions can qualify RBAC service grants; not implemented as an engine.",
+      "reviewed": "2026-10-31",
+      "version": "Rolling page updated 2025-09-09T05:11:00.0000000Z"
+    },
+    "ACG25": {
+      "url": "https://learn.microsoft.com/en-us/entra/identity/conditional-access/workload-identity",
+      "purpose": "P11: Workload CA direct single-tenant principal targeting/Workload ID Premium; no managed identity or group-MFA equivalence.",
+      "reviewed": "2026-10-31",
+      "version": "Rolling page updated 2026-05-18T22:35:00.0000000Z"
+    },
+    "ACG26": {
+      "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/control-plane-and-data-plane",
+      "purpose": "P11: Control plane versus data plane and service-specific authorization paths.",
+      "reviewed": "2026-10-31",
+      "version": "Rolling page updated 2026-02-27T18:31:00.0000000Z"
+    },
+    "ACG27": {
+      "url": "https://learn.microsoft.com/en-us/azure/governance/policy/overview",
+      "purpose": "P11: Azure Policy configuration rules distinct from authority; valid RBAC does not override applicable Policy deny.",
+      "reviewed": "2026-10-31",
+      "version": "Rolling page updated 2026-07-08T05:12:00.0000000Z"
+    },
+    "ACG28": {
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-identity-access-security/1-introduction",
+      "purpose": "P11: Official public introduction/discovery, no protected question use.",
+      "reviewed": "2026-10-31",
+      "version": "Rolling page updated 2025-03-28T23:01:00.0000000Z"
+    },
+    "ACG29": {
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-identity-access-security/11-summary",
+      "purpose": "P11: Official public summary, source discovery and later-unit scope.",
+      "reviewed": "2026-10-31",
+      "version": "Rolling page updated 2025-03-28T23:01:00.0000000Z"
+    },
+    "ACG30": {
+      "url": "https://learn.microsoft.com/en-us/training/paths/azure-fundamentals-describe-azure-architecture-services/",
+      "purpose": "P11: Actual official five-module path and identity/security-module discovery; no unrelated unit re-audit.",
+      "reviewed": "2026-10-31",
+      "version": "Rolling page updated 2026-10-28T17:12:00.0000000Z"
     }
   },
   "evidenceProfiles": {
@@ -2545,6 +2725,46 @@
         "tests/e2e/identity-foundations.spec.ts"
       ],
       "limits": "P10 authored A–F only. Original directory/sign-in/external models, causal guides and changed independent contexts. No actual Entra/account/token/credential/Graph/World mutation/XP. P11/P15/P16 deferred; all old evidence preserved. Human and measured learning validation unperformed."
+    },
+    "AC": {
+      "teaching": [
+        {
+          "path": "src/content/nb.ts",
+          "marker": "accessNb"
+        }
+      ],
+      "mechanism": [
+        {
+          "path": "src/domain/curriculum/access-control-model.ts",
+          "marker": "runAccess"
+        },
+        {
+          "path": "src/domain/curriculum/access-control.ts",
+          "marker": "accessManifest"
+        }
+      ],
+      "presentation": [
+        {
+          "path": "src/features/learning/access-control.tsx",
+          "marker": "AccessLesson"
+        },
+        {
+          "path": "src/features/learning/access-control-visuals.tsx",
+          "marker": "AccessModelResult"
+        }
+      ],
+      "assessment": [
+        {
+          "path": "src/domain/curriculum/access-control-items.ts",
+          "marker": "evaluateAccess"
+        },
+        {
+          "path": "src/features/learning/access-control-assessment.tsx",
+          "marker": "AccessAssessment"
+        }
+      ],
+      "tests": ["src/domain/curriculum/access-control.test.ts", "tests/e2e/access-control.spec.ts"],
+      "limits": "P11 authored A–F only. Original principal/role/scope/data-plane and two-policy CA teaching, causal guides, changed independent role/scope/policy decisions, readonly actual Sandbox ancestry and isolated history. No actual IAM/CA/token/role/policy/World/receipt/XP operation. P10/P12/P15/P16 preserved; human and measured learning validation unperformed."
     }
   },
   "plannedPRs": [
@@ -4189,61 +4409,102 @@
       "slot": "2.4.04",
       "id": "az900.identity.conditional-access",
       "title": "Conditional Access",
-      "status": "MISSING",
+      "status": "COMPLETE",
       "criteria": {
-        "A": "M",
-        "B": "M",
-        "C": "M",
-        "D": "M",
-        "E": "M",
-        "F": "N"
+        "A": "V",
+        "B": "V",
+        "C": "V",
+        "D": "V",
+        "E": "V",
+        "F": "V"
       },
       "facets": [
         {
           "topic": "Signal",
-          "status": "MISSING"
+          "status": "COMPLETE"
         },
         {
           "topic": "Policybeslutning",
-          "status": "MISSING"
+          "status": "COMPLETE"
         },
         {
           "topic": "Access controls",
-          "status": "MISSING"
+          "status": "COMPLETE"
         }
       ],
       "localObjectives": ["I03"],
-      "evidence": [],
-      "observed": "Custom resource-location Policy i Portal er ikke Entra Conditional Access.",
-      "gap": "Mangler egen forklaring, relevant mekanisme/praksis, uavhengig scenario og begrunnet vurdering for de angitte emnene.",
+      "evidence": ["AC"],
+      "observed": "Original CA targeting/signal/control and report-only/multiple-policy/WhatIf/licensing/emergency teaching. Saved matched CA contrasts and separate Azure-action authorization. Independent OR/MFA/unmanaged-work preservation, read-only handover with report-only counterevidence and user-by-app matrix; prior guide/length/transfer findings substantively revised.",
+      "gap": "Ingen scoped innholdsgap identifisert etter opprinnelig manuskript, verifisert mekanisme, kausale undersøkelser, reviderte nye vurderingssituasjoner og kilder. Fersk post-stamp audit og faktiske CI-/leveransegater kreves på PR36. Innholdsdekning er ikke elevmestring eller menneskelig validering.",
       "plannedPRs": ["P11"],
-      "sources": ["EXAM", "M08"]
+      "sources": [
+        "EXAM",
+        "M08",
+        "ACG01",
+        "ACG02",
+        "ACG03",
+        "ACG09",
+        "ACG10",
+        "ACG11",
+        "ACG12",
+        "ACG13",
+        "ACG14",
+        "ACG15",
+        "ACG16",
+        "ACG17",
+        "ACG25",
+        "ACG28",
+        "ACG29",
+        "ACG30"
+      ]
     },
     {
       "slot": "2.4.05",
       "id": "az900.identity.rbac",
       "title": "Azure RBAC",
-      "status": "PARTIAL",
+      "status": "COMPLETE",
       "criteria": {
-        "A": "P",
-        "B": "P",
-        "C": "P",
-        "D": "M",
-        "E": "P",
-        "F": "P"
+        "A": "V",
+        "B": "V",
+        "C": "V",
+        "D": "V",
+        "E": "V",
+        "F": "V"
       },
       "facets": [
         {
           "topic": "Principal/role/scope",
-          "status": "PARTIAL"
+          "status": "COMPLETE"
         }
       ],
-      "localObjectives": ["I01", "G01"],
-      "evidence": ["BG", "H"],
-      "observed": "CB03 forklarer hvem/hva/hvor og forskjellen fra konfigurasjonskrav.",
-      "gap": "Ingen uavhengig Azure-rolle/scope-beslutning; SaaS-produktroller og antatt autorisasjon i labben er ikke Azure RBAC-engine/evidens.",
+      "localObjectives": ["I02"],
+      "evidence": ["AC"],
+      "observed": "Original principal/role/assignment/scope/downward inheritance, builtin/custom/NotActions/deny and control/DataActions teaching; read-only actual Sandbox ancestry and causal scope guide. Independent additive permission removal, split RG-read/VM-delegation, complementary Portal/data access, two valid direct/group Reader paths and paired authorized-create/Policy configuration analysis.",
+      "gap": "Ingen scoped innholdsgap identifisert etter opprinnelig manuskript, verifisert mekanisme, kausale undersøkelser, reviderte nye vurderingssituasjoner og kilder. Fersk post-stamp audit og faktiske CI-/leveransegater kreves på PR36. Innholdsdekning er ikke elevmestring eller menneskelig validering.",
       "plannedPRs": ["P11"],
-      "sources": ["EXAM", "M08"]
+      "sources": [
+        "EXAM",
+        "M08",
+        "ACG01",
+        "ACG02",
+        "ACG04",
+        "ACG05",
+        "ACG06",
+        "ACG07",
+        "ACG08",
+        "ACG18",
+        "ACG19",
+        "ACG20",
+        "ACG21",
+        "ACG22",
+        "ACG23",
+        "ACG24",
+        "ACG26",
+        "ACG27",
+        "ACG28",
+        "ACG29",
+        "ACG30"
+      ]
     },
     {
       "slot": "2.4.06",
@@ -5153,6 +5414,44 @@
         "IDG27",
         "IDG28",
         "IDG29"
+      ]
+    },
+    {
+      "id": "PR36-P11",
+      "reviewed": "2026-10-31",
+      "objectives": ["2.4.04", "2.4.05"],
+      "note": "Only two P11 rows re-reviewed A–F after scoped actual source review and substantive blind-review corrections.55 other rows including P10/P12/P15/P16 preserved. No historical learner evidence or human validation upgraded.",
+      "sources": [
+        "ACG01",
+        "ACG02",
+        "ACG03",
+        "ACG04",
+        "ACG05",
+        "ACG06",
+        "ACG07",
+        "ACG08",
+        "ACG09",
+        "ACG10",
+        "ACG11",
+        "ACG12",
+        "ACG13",
+        "ACG14",
+        "ACG15",
+        "ACG16",
+        "ACG17",
+        "ACG18",
+        "ACG19",
+        "ACG20",
+        "ACG21",
+        "ACG22",
+        "ACG23",
+        "ACG24",
+        "ACG25",
+        "ACG26",
+        "ACG27",
+        "ACG28",
+        "ACG29",
+        "ACG30"
       ]
     }
   ]

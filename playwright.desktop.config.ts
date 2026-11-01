@@ -5,6 +5,10 @@ import baseline from './playwright.config';
 // names. No test body, assertion, title, timeout or skip is modified.
 const compactCases = [
   [
+    'access-control.spec.ts',
+    'Access Control keyboard, semantic flow, short native briefing, reduced motion and compact views remain readable',
+  ],
+  [
     'identity-foundations.spec.ts',
     'Identity desktop and compact keyboard, semantic flows, reduced motion and short native briefing stay readable',
   ],

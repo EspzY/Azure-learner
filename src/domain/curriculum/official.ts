@@ -121,3 +121,13 @@ export const officialIdentity = {
   status: 'partial',
   humanReview: null,
 } as const;
+
+export const officialAccess = {
+  reviewed: '2026-10-31',
+  path: 'https://learn.microsoft.com/en-us/training/paths/azure-fundamentals-describe-azure-architecture-services/',
+  module: 'describe-azure-identity-access-security',
+  officialUnits: 12,
+  implementedObjectives: ['2.4.04', '2.4.05'],
+  status: 'partial',
+  humanReview: null,
+} as const;

@@ -1,860 +1,713 @@
 {
   "schema": 1,
-  "id": "PR35-P10-identity-foundations",
-  "baseCommit": "713d52851712a92a58de124815414c78ffb7fc1b",
-  "author": "codex-identity-foundations-author",
+  "id": "PR36-P11-access-control",
+  "baseCommit": "2eef3efad9b867534a69327a2f6deee31ffacaa5",
+  "author": "codex-access-control-author",
   "scope": {
     "kind": "new-module",
-    "description": "P10 original directory/AuthN/AuthZ/SSO/MFA/passwordless/external identity teaching in existing Course Hub. Three conceptual perspectives/guides, ten original paired situations, isolated1.0.0 history. Only2.4.01–03; P11/P15/P16 and all old results/World/receipts/XP preserved. No login/tenant/token/credential/Graph or role/policy engine, merge or production deploy.",
-    "objectives": [
-      "az900.identity.directories",
-      "az900.identity.authentication",
-      "az900.identity.external"
-    ]
+    "description": "P11 Identity Part B: original Azure RBAC/Conditional Access manuscript, pure role/scope and two-policy models, actual read-only Sandbox ancestry, two saved causal investigations, eight original independent contexts including multi-valid Reader plans, isolated1.0.0 history. Only2.4.04–05; P10/P12/P15 and old World/receipts/XP/firsts preserved. No real identity/role/policy/token operation, merge or production deploy.",
+    "objectives": ["az900.identity.conditional-access", "az900.identity.rbac"]
   },
   "sources": [
     {
-      "id": "IF01",
+      "id": "AC01",
       "title": "Study guide for Exam AZ-900: Microsoft Azure Fundamentals | Microsoft Learn",
       "url": "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900",
-      "kind": "exam",
+      "kind": "study-guide",
       "reviewed": "2026-10-31",
-      "version": "Skills measured 2026-07-20",
+      "version": "Rolling page updated 2026-06-22T23:35:00.0000000Z",
       "availability": "AVAILABLE",
-      "objectives": [
-        "az900.identity.directories",
-        "az900.identity.authentication",
-        "az900.identity.external"
-      ],
-      "claims": ["identity.IF01"],
-      "limits": "Current 20 July 2026 scoped three identity/auth/external objectives; no readiness claim. Original conceptual application only; no operational sign-in, protected assessment, copied illustration or human validation.",
+      "objectives": ["az900.identity.conditional-access", "az900.identity.rbac"],
+      "claims": ["access.AC01"],
+      "limits": "Current20July2026 study guide, scoped Conditional Access and Azure RBAC objectives. Declared conceptual teaching; no actual Entra/Azure operation or human validation.",
       "discovery": [
         {
           "url": "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900",
-          "disposition": "reviewed-essential",
-          "reason": "Current 20 July 2026 scoped three identity/auth/external objectives; no readiness claim."
+          "disposition": "reviewed-applied",
+          "reason": "Current20July2026 study guide, scoped Conditional Access and Azure RBAC objectives."
         }
       ]
     },
     {
-      "id": "IF02",
+      "id": "AC02",
       "title": "Describe Azure identity, access, and security - Training | Microsoft Learn",
       "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-identity-access-security/",
       "kind": "module",
       "reviewed": "2026-10-31",
       "version": "Rolling page updated 2026-10-28T17:12:00.0000000Z",
       "availability": "AVAILABLE",
-      "objectives": [
-        "az900.identity.directories",
-        "az900.identity.authentication",
-        "az900.identity.external"
-      ],
-      "claims": ["identity.IF02"],
-      "limits": "Twelve-unit module and actual scoped unit structure; later access/security units deferred. Original conceptual application only; no operational sign-in, protected assessment, copied illustration or human validation.",
+      "objectives": ["az900.identity.conditional-access", "az900.identity.rbac"],
+      "claims": ["access.AC02"],
+      "limits": "Actual12-unit module, public relevant units5/6; protected assessment not opened. Declared conceptual teaching; no actual Entra/Azure operation or human validation.",
       "discovery": [
         {
           "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-identity-access-security/",
-          "disposition": "reviewed-essential",
-          "reason": "Twelve-unit module and actual scoped unit structure; later access/security units deferred."
+          "disposition": "reviewed-applied",
+          "reason": "Actual12-unit module, public relevant units5/6; protected assessment not opened."
         }
       ]
     },
     {
-      "id": "IF03",
-      "title": "Identity and Access Management (IAM): Core Concepts and Benefits - Microsoft Entra | Microsoft Learn",
-      "url": "https://learn.microsoft.com/en-us/entra/fundamentals/identity-fundamental-concepts",
-      "kind": "product",
+      "id": "AC03",
+      "title": "Describe Azure conditional access - Training | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-identity-access-security/5-conditional-access",
+      "kind": "unit",
       "reviewed": "2026-10-31",
-      "version": "Rolling page updated 2026-06-26T22:37:00.0000000Z",
+      "version": "Rolling page updated 2025-03-28T23:01:00.0000000Z",
       "availability": "AVAILABLE",
-      "objectives": ["az900.identity.directories"],
-      "claims": ["identity.IF03"],
-      "limits": "Identity objects, IdP, AuthN/AuthZ and directory boundary. Original conceptual application only; no operational sign-in, protected assessment, copied illustration or human validation.",
+      "objectives": ["az900.identity.conditional-access"],
+      "claims": ["access.AC03"],
+      "limits": "Public CA signal/decision/enforcement introduction qualified by current product targeting/grant boundaries. Declared conceptual teaching; no actual Entra/Azure operation or human validation.",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/entra/fundamentals/identity-fundamental-concepts",
+          "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-identity-access-security/5-conditional-access",
           "disposition": "reviewed-applied",
-          "reason": "Identity objects, IdP, AuthN/AuthZ and directory boundary."
+          "reason": "Public CA signal/decision/enforcement introduction qualified by current product targeting/grant boundaries."
         }
       ]
     },
     {
-      "id": "IF04",
-      "title": "Overview of Microsoft Entra Domain Services - Microsoft Entra ID | Microsoft Learn",
-      "url": "https://learn.microsoft.com/en-us/entra/identity/domain-services/overview",
-      "kind": "product",
+      "id": "AC04",
+      "title": "Describe Azure role-based access control - Training | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-identity-access-security/6-role-based-access-control",
+      "kind": "unit",
       "reviewed": "2026-10-31",
-      "version": "Rolling page updated 2026-03-03T23:42:00.0000000Z",
+      "version": "Rolling page updated 2025-03-28T23:01:00.0000000Z",
       "availability": "AVAILABLE",
-      "objectives": ["az900.identity.directories"],
-      "claims": ["identity.IF04"],
-      "limits": "Managed domain protocols and responsibility split; one-way sync and scoped legacy use. Original conceptual application only; no operational sign-in, protected assessment, copied illustration or human validation.",
+      "objectives": ["az900.identity.rbac"],
+      "claims": ["access.AC04"],
+      "limits": "RBAC scope/least privilege; broad no-data-plane wording qualified by actual DataActions product docs. Declared conceptual teaching; no actual Entra/Azure operation or human validation.",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/entra/identity/domain-services/overview",
+          "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-identity-access-security/6-role-based-access-control",
           "disposition": "reviewed-applied",
-          "reason": "Managed domain protocols and responsibility split; one-way sync and scoped legacy use."
+          "reason": "RBAC scope/least privilege; broad no-data-plane wording qualified by actual DataActions product docs."
         }
       ]
     },
     {
-      "id": "IF05",
-      "title": "What is single sign-on in Microsoft Entra ID? - Microsoft Entra ID | Microsoft Learn",
-      "url": "https://learn.microsoft.com/en-us/entra/identity/enterprise-apps/what-is-single-sign-on",
+      "id": "AC05",
+      "title": "What is Azure role-based access control (Azure RBAC)? | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/azure/role-based-access-control/overview",
       "kind": "product",
       "reviewed": "2026-10-31",
-      "version": "Rolling page updated 2026-10-06T17:42:00.0000000Z",
+      "version": "Rolling page updated 2025-10-15T22:11:00.0000000Z",
       "availability": "AVAILABLE",
-      "objectives": ["az900.identity.authentication"],
-      "claims": ["identity.IF05"],
-      "limits": "Trusted-app SSO, session versus new method, integration prerequisites. Original conceptual application only; no operational sign-in, protected assessment, copied illustration or human validation.",
+      "objectives": ["az900.identity.rbac"],
+      "claims": ["access.AC05"],
+      "limits": "Principal/role/scope, group/transitive membership, additive grants and authorization evaluation. Declared conceptual teaching; no actual Entra/Azure operation or human validation.",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/entra/identity/enterprise-apps/what-is-single-sign-on",
+          "url": "https://learn.microsoft.com/en-us/azure/role-based-access-control/overview",
           "disposition": "reviewed-applied",
-          "reason": "Trusted-app SSO, session versus new method, integration prerequisites."
+          "reason": "Principal/role/scope, group/transitive membership, additive grants and authorization evaluation."
         }
       ]
     },
     {
-      "id": "IF06",
-      "title": "Passwordless authentication with Microsoft Entra ID - Microsoft Entra | Microsoft Learn",
-      "url": "https://learn.microsoft.com/en-us/entra/architecture/auth-passwordless",
+      "id": "AC06",
+      "title": "Understand scope for Azure RBAC | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/azure/role-based-access-control/scope-overview",
       "kind": "product",
       "reviewed": "2026-10-31",
-      "version": "Rolling page updated 2026-02-26T06:11:00.0000000Z",
+      "version": "Rolling page updated 2026-02-13T12:10:00.0000000Z",
       "availability": "AVAILABLE",
-      "objectives": ["az900.identity.authentication"],
-      "claims": ["identity.IF06"],
-      "limits": "Passwordless method/deployment context, not universal equivalence. Original conceptual application only; no operational sign-in, protected assessment, copied illustration or human validation.",
+      "objectives": ["az900.identity.rbac"],
+      "claims": ["access.AC06"],
+      "limits": "Downward management-group/subscription/resource-group/resource inheritance; no upward/sibling grant. Declared conceptual teaching; no actual Entra/Azure operation or human validation.",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/entra/architecture/auth-passwordless",
+          "url": "https://learn.microsoft.com/en-us/azure/role-based-access-control/scope-overview",
           "disposition": "reviewed-applied",
-          "reason": "Passwordless method/deployment context, not universal equivalence."
+          "reason": "Downward management-group/subscription/resource-group/resource inheritance; no upward/sibling grant."
         }
       ]
     },
     {
-      "id": "IF07",
-      "title": "Microsoft Entra multifactor authentication overview - Microsoft Entra ID | Microsoft Learn",
-      "url": "https://learn.microsoft.com/en-us/entra/identity/authentication/concept-mfa-howitworks",
+      "id": "AC07",
+      "title": "Understand Azure role definitions - Azure RBAC | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/azure/role-based-access-control/role-definitions",
       "kind": "product",
       "reviewed": "2026-10-31",
-      "version": "Rolling page updated 2026-04-01T17:23:00.0000000Z",
+      "version": "Rolling page updated 2026-05-24T11:44:00.0000000Z",
       "availability": "AVAILABLE",
-      "objectives": ["az900.identity.authentication"],
-      "claims": ["identity.IF07"],
-      "limits": "Knowledge/possession/inherence and relevant MFA methods; no security guarantee. Original conceptual application only; no operational sign-in, protected assessment, copied illustration or human validation.",
+      "objectives": ["az900.identity.rbac"],
+      "claims": ["access.AC07"],
+      "limits": "Actions/NotActions/DataActions; subtract within one role, not global deny; another role can grant. Declared conceptual teaching; no actual Entra/Azure operation or human validation.",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/entra/identity/authentication/concept-mfa-howitworks",
+          "url": "https://learn.microsoft.com/en-us/azure/role-based-access-control/role-definitions",
           "disposition": "reviewed-applied",
-          "reason": "Knowledge/possession/inherence and relevant MFA methods; no security guarantee."
+          "reason": "Actions/NotActions/DataActions; subtract within one role, not global deny; another role can grant."
         }
       ]
     },
     {
-      "id": "IF08",
-      "title": "Microsoft Entra External ID Overview - Microsoft Entra External ID | Microsoft Learn",
-      "url": "https://learn.microsoft.com/en-us/entra/external-id/external-identities-overview",
+      "id": "AC08",
+      "title": "Azure roles, Microsoft Entra roles, and classic subscription administrator roles | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/azure/role-based-access-control/rbac-and-directory-admin-roles",
       "kind": "product",
       "reviewed": "2026-10-31",
-      "version": "Rolling page updated 2026-06-15T17:40:00.0000000Z",
+      "version": "Rolling page updated 2026-05-07T06:30:00.0000000Z",
       "availability": "AVAILABLE",
-      "objectives": ["az900.identity.external"],
-      "claims": ["identity.IF08"],
-      "limits": "External ID workforce/external purpose and product boundaries. Original conceptual application only; no operational sign-in, protected assessment, copied illustration or human validation.",
+      "objectives": ["az900.identity.rbac"],
+      "claims": ["access.AC08"],
+      "limits": "Azure versus Entra roles, no automatic GlobalAdmin=Owner; explicit elevation is separate. Declared conceptual teaching; no actual Entra/Azure operation or human validation.",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/entra/external-id/external-identities-overview",
+          "url": "https://learn.microsoft.com/en-us/azure/role-based-access-control/rbac-and-directory-admin-roles",
           "disposition": "reviewed-applied",
-          "reason": "External ID workforce/external purpose and product boundaries."
+          "reason": "Azure versus Entra roles, no automatic GlobalAdmin=Owner; explicit elevation is separate."
         }
       ]
     },
     {
-      "id": "IF09",
-      "title": "What is Microsoft Entra B2B collaboration? - Microsoft Entra External ID | Microsoft Learn",
-      "url": "https://learn.microsoft.com/en-us/entra/external-id/what-is-b2b",
+      "id": "AC09",
+      "title": "Microsoft Entra Conditional Access: Zero Trust Policy Engine - Microsoft Entra ID | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/entra/identity/conditional-access/overview",
       "kind": "product",
       "reviewed": "2026-10-31",
-      "version": "Rolling page updated 2026-04-25T05:05:00.0000000Z",
+      "version": "Rolling page updated 2026-04-28T05:19:00.0000000Z",
       "availability": "AVAILABLE",
-      "objectives": ["az900.identity.external"],
-      "claims": ["identity.IF09"],
-      "limits": "Home provider/resource guest, separate permissions, invitation versus cross-tenant control. Original conceptual application only; no operational sign-in, protected assessment, copied illustration or human validation.",
+      "objectives": ["az900.identity.conditional-access"],
+      "claims": ["access.AC09"],
+      "limits": "CA after first factor, signals, P1/bundles, risk P2/IDProtection and other product licenses. Declared conceptual teaching; no actual Entra/Azure operation or human validation.",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/entra/external-id/what-is-b2b",
+          "url": "https://learn.microsoft.com/en-us/entra/identity/conditional-access/overview",
           "disposition": "reviewed-applied",
-          "reason": "Home provider/resource guest, separate permissions, invitation versus cross-tenant control."
+          "reason": "CA after first factor, signals, P1/bundles, risk P2/IDProtection and other product licenses."
         }
       ]
     },
     {
-      "id": "IF10",
-      "title": "B2B direct connect Microsoft Entra overview - Microsoft Entra External ID | Microsoft Learn",
-      "url": "https://learn.microsoft.com/en-us/entra/external-id/b2b-direct-connect-overview",
+      "id": "AC10",
+      "title": "Build Conditional Access policies in Microsoft Entra - Microsoft Entra ID | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/entra/identity/conditional-access/concept-conditional-access-policies",
       "kind": "product",
       "reviewed": "2026-10-31",
-      "version": "Rolling page updated 2026-04-25T05:05:00.0000000Z",
+      "version": "Rolling page updated 2026-03-25T05:05:00.0000000Z",
       "availability": "AVAILABLE",
-      "objectives": ["az900.identity.external"],
-      "claims": ["identity.IF10"],
-      "limits": "Current Entra shared-channel direct-connect scope, mutual directions and no ordinary guest. Original conceptual application only; no operational sign-in, protected assessment, copied illustration or human validation.",
+      "objectives": ["az900.identity.conditional-access"],
+      "claims": ["access.AC10"],
+      "limits": "All applicable policies must be satisfied; targeting and grant controls distinct, AND across policies. Declared conceptual teaching; no actual Entra/Azure operation or human validation.",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/entra/external-id/b2b-direct-connect-overview",
+          "url": "https://learn.microsoft.com/en-us/entra/identity/conditional-access/concept-conditional-access-policies",
           "disposition": "reviewed-applied",
-          "reason": "Current Entra shared-channel direct-connect scope, mutual directions and no ordinary guest."
+          "reason": "All applicable policies must be satisfied; targeting and grant controls distinct, AND across policies."
         }
       ]
     },
     {
-      "id": "IF11",
+      "id": "AC11",
+      "title": "Conditional Access Policy Insights: Monitoring and Evaluation - Microsoft Entra ID | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/entra/identity/conditional-access/concept-conditional-access-report-only",
+      "kind": "product",
+      "reviewed": "2026-10-31",
+      "version": "Rolling page updated 2026-06-01T22:39:00.0000000Z",
+      "availability": "AVAILABLE",
+      "objectives": ["az900.identity.conditional-access"],
+      "claims": ["access.AC11"],
+      "limits": "Report-only evaluated not enforced, real certificate prompt qualifications, policy-impact preview context. Declared conceptual teaching; no actual Entra/Azure operation or human validation.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/entra/identity/conditional-access/concept-conditional-access-report-only",
+          "disposition": "reviewed-applied",
+          "reason": "Report-only evaluated not enforced, real certificate prompt qualifications, policy-impact preview context."
+        }
+      ]
+    },
+    {
+      "id": "AC12",
+      "title": "The Conditional Access What If tool - Microsoft Entra ID | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/entra/identity/conditional-access/what-if-tool",
+      "kind": "product",
+      "reviewed": "2026-10-31",
+      "version": "Rolling page updated 2026-08-27T22:38:00.0000000Z",
+      "availability": "AVAILABLE",
+      "objectives": ["az900.identity.conditional-access"],
+      "claims": ["access.AC12"],
+      "limits": "What If estimates supplied conditions, current supported identities, does not test service dependencies. Declared conceptual teaching; no actual Entra/Azure operation or human validation.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/entra/identity/conditional-access/what-if-tool",
+          "disposition": "reviewed-applied",
+          "reason": "What If estimates supplied conditions, current supported identities, does not test service dependencies."
+        }
+      ]
+    },
+    {
+      "id": "AC13",
+      "title": "Manage emergency access admin accounts - Microsoft Entra ID | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/security-emergency-access",
+      "kind": "product",
+      "reviewed": "2026-10-31",
+      "version": "Rolling page updated 2026-06-05T07:33:00.0000000Z",
+      "availability": "AVAILABLE",
+      "objectives": ["az900.identity.conditional-access"],
+      "claims": ["access.AC13"],
+      "limits": "Current emergency account protections, restrict-policy exclusions, monitoring/testing, mandatory MFA remains. Declared conceptual teaching; no actual Entra/Azure operation or human validation.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/security-emergency-access",
+          "disposition": "reviewed-applied",
+          "reason": "Current emergency account protections, restrict-policy exclusions, monitoring/testing, mandatory MFA remains."
+        }
+      ]
+    },
+    {
+      "id": "AC14",
+      "title": "Conditional Access Setup: Users, Groups, Agents, and Workload Identities - Microsoft Entra ID | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/entra/identity/conditional-access/concept-conditional-access-users-groups",
+      "kind": "product",
+      "reviewed": "2026-10-31",
+      "version": "Rolling page updated 2026-05-18T22:35:00.0000000Z",
+      "availability": "AVAILABLE",
+      "objectives": ["az900.identity.conditional-access"],
+      "claims": ["access.AC14"],
+      "limits": "Identity inclusion/exclusion precedence perpolicy; user/group/directory role and workload distinctions. Declared conceptual teaching; no actual Entra/Azure operation or human validation.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/entra/identity/conditional-access/concept-conditional-access-users-groups",
+          "disposition": "reviewed-applied",
+          "reason": "Identity inclusion/exclusion precedence perpolicy; user/group/directory role and workload distinctions."
+        }
+      ]
+    },
+    {
+      "id": "AC15",
+      "title": "How to Configure Grant Controls in Microsoft Entra - Microsoft Entra ID | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/entra/identity/conditional-access/concept-conditional-access-grant",
+      "kind": "product",
+      "reviewed": "2026-10-31",
+      "version": "Rolling page updated 2026-06-16T22:43:00.0000000Z",
+      "availability": "AVAILABLE",
+      "objectives": ["az900.identity.conditional-access"],
+      "claims": ["access.AC15"],
+      "limits": "Within-policy AND/OR grant controls, MFA/compliance/block distinctions; other controls outside model. Declared conceptual teaching; no actual Entra/Azure operation or human validation.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/entra/identity/conditional-access/concept-conditional-access-grant",
+          "disposition": "reviewed-applied",
+          "reason": "Within-policy AND/OR grant controls, MFA/compliance/block distinctions; other controls outside model."
+        }
+      ]
+    },
+    {
+      "id": "AC16",
+      "title": "How to Use Conditions in Conditional Access Policies - Microsoft Entra ID | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/entra/identity/conditional-access/concept-conditional-access-conditions",
+      "kind": "product",
+      "reviewed": "2026-10-31",
+      "version": "Rolling page updated 2026-09-28T17:38:00.0000000Z",
+      "availability": "AVAILABLE",
+      "objectives": ["az900.identity.conditional-access"],
+      "claims": ["access.AC16"],
+      "limits": "Actual condition signals and limits; no fabricated risk/device verification. Declared conceptual teaching; no actual Entra/Azure operation or human validation.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/entra/identity/conditional-access/concept-conditional-access-conditions",
+          "disposition": "reviewed-applied",
+          "reason": "Actual condition signals and limits; no fabricated risk/device verification."
+        }
+      ]
+    },
+    {
+      "id": "AC17",
+      "title": "Targeting Resources in Conditional Access Policies - Microsoft Entra ID | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/entra/identity/conditional-access/concept-conditional-access-cloud-apps",
+      "kind": "product",
+      "reviewed": "2026-10-31",
+      "version": "Rolling page updated 2026-05-28T07:44:00.0000000Z",
+      "availability": "AVAILABLE",
+      "objectives": ["az900.identity.conditional-access"],
+      "claims": ["access.AC17"],
+      "limits": "Target-resource include/exclude and app boundaries distinct from principal targeting. Declared conceptual teaching; no actual Entra/Azure operation or human validation.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/entra/identity/conditional-access/concept-conditional-access-cloud-apps",
+          "disposition": "reviewed-applied",
+          "reason": "Target-resource include/exclude and app boundaries distinct from principal targeting."
+        }
+      ]
+    },
+    {
+      "id": "AC18",
+      "title": "Azure built-in roles for Privileged - Azure RBAC | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles/privileged",
+      "kind": "product",
+      "reviewed": "2026-10-31",
+      "version": "Rolling page updated 2026-07-01T23:48:00.0000000Z",
+      "availability": "AVAILABLE",
+      "objectives": ["az900.identity.rbac"],
+      "claims": ["access.AC18"],
+      "limits": "Current Contributor/Owner/RBAC Administrator definitions, access delegation and */read qualification. Declared conceptual teaching; no actual Entra/Azure operation or human validation.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles/privileged",
+          "disposition": "reviewed-applied",
+          "reason": "Current Contributor/Owner/RBAC Administrator definitions, access delegation and */read qualification."
+        }
+      ]
+    },
+    {
+      "id": "AC19",
+      "title": "Azure built-in roles for Compute - Azure RBAC | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles/compute",
+      "kind": "product",
+      "reviewed": "2026-10-31",
+      "version": "Rolling page updated 2026-07-01T23:48:00.0000000Z",
+      "availability": "AVAILABLE",
+      "objectives": ["az900.identity.rbac"],
+      "claims": ["access.AC19"],
+      "limits": "VM Contributor actual operation set and other scoped management permissions; not full data isolation. Declared conceptual teaching; no actual Entra/Azure operation or human validation.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles/compute",
+          "disposition": "reviewed-applied",
+          "reason": "VM Contributor actual operation set and other scoped management permissions; not full data isolation."
+        }
+      ]
+    },
+    {
+      "id": "AC20",
+      "title": "Azure built-in roles for Storage - Azure RBAC | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles/storage",
+      "kind": "product",
+      "reviewed": "2026-10-31",
+      "version": "Rolling page updated 2026-07-01T23:48:00.0000000Z",
+      "availability": "AVAILABLE",
+      "objectives": ["az900.identity.rbac"],
+      "claims": ["access.AC20"],
+      "limits": "Blob Data Reader includes data read plus service-specific Actions; not arbitrary account management. Declared conceptual teaching; no actual Entra/Azure operation or human validation.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles/storage",
+          "disposition": "reviewed-applied",
+          "reason": "Blob Data Reader includes data read plus service-specific Actions; not arbitrary account management."
+        }
+      ]
+    },
+    {
+      "id": "AC21",
+      "title": "List Azure deny assignments - Azure RBAC | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/azure/role-based-access-control/deny-assignments",
+      "kind": "product",
+      "reviewed": "2026-10-31",
+      "version": "Rolling page updated 2026-10-07T17:13:00.0000000Z",
+      "availability": "AVAILABLE",
+      "objectives": ["az900.identity.rbac"],
+      "claims": ["access.AC21"],
+      "limits": "Applicable deny assignments distinct from role NotActions and additional role grants. Declared conceptual teaching; no actual Entra/Azure operation or human validation.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/role-based-access-control/deny-assignments",
+          "disposition": "reviewed-applied",
+          "reason": "Applicable deny assignments distinct from role NotActions and additional role grants."
+        }
+      ]
+    },
+    {
+      "id": "AC22",
+      "title": "Azure custom roles - Azure RBAC | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/azure/role-based-access-control/custom-roles",
+      "kind": "product",
+      "reviewed": "2026-10-31",
+      "version": "Rolling page updated 2026-04-30T17:19:00.0000000Z",
+      "availability": "AVAILABLE",
+      "objectives": ["az900.identity.rbac"],
+      "claims": ["access.AC22"],
+      "limits": "Custom roles concept and assignable scopes, not a deployed role definition. Declared conceptual teaching; no actual Entra/Azure operation or human validation.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/role-based-access-control/custom-roles",
+          "disposition": "reviewed-applied",
+          "reason": "Custom roles concept and assignable scopes, not a deployed role definition."
+        }
+      ]
+    },
+    {
+      "id": "AC23",
+      "title": "Assign an Azure Role for Blob Data Access - Azure Storage | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/azure/storage/blobs/assign-azure-role-data-access",
+      "kind": "product",
+      "reviewed": "2026-10-31",
+      "version": "Rolling page updated 2026-05-09T06:18:00.0000000Z",
+      "availability": "AVAILABLE",
+      "objectives": ["az900.identity.rbac"],
+      "claims": ["access.AC23"],
+      "limits": "Entra/RBAC Blob API data role scope; Portal navigation and alternate keys/SAS are separate. Declared conceptual teaching; no actual Entra/Azure operation or human validation.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/storage/blobs/assign-azure-role-data-access",
+          "disposition": "reviewed-applied",
+          "reason": "Entra/RBAC Blob API data role scope; Portal navigation and alternate keys/SAS are separate."
+        }
+      ]
+    },
+    {
+      "id": "AC24",
+      "title": "What is Azure attribute-based access control (Azure ABAC)? | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/azure/role-based-access-control/conditions-overview",
+      "kind": "product",
+      "reviewed": "2026-10-31",
+      "version": "Rolling page updated 2025-09-09T05:11:00.0000000Z",
+      "availability": "AVAILABLE",
+      "objectives": ["az900.identity.rbac"],
+      "claims": ["access.AC24"],
+      "limits": "ABAC conditions can qualify RBAC service grants; not implemented as an engine. Declared conceptual teaching; no actual Entra/Azure operation or human validation.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/role-based-access-control/conditions-overview",
+          "disposition": "reviewed-applied",
+          "reason": "ABAC conditions can qualify RBAC service grants; not implemented as an engine."
+        }
+      ]
+    },
+    {
+      "id": "AC25",
+      "title": "Microsoft Entra Conditional Access for workload identities - Microsoft Entra ID | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/entra/identity/conditional-access/workload-identity",
+      "kind": "product",
+      "reviewed": "2026-10-31",
+      "version": "Rolling page updated 2026-05-18T22:35:00.0000000Z",
+      "availability": "AVAILABLE",
+      "objectives": ["az900.identity.conditional-access"],
+      "claims": ["access.AC25"],
+      "limits": "Workload CA direct single-tenant principal targeting/Workload ID Premium; no managed identity or group-MFA equivalence. Declared conceptual teaching; no actual Entra/Azure operation or human validation.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/entra/identity/conditional-access/workload-identity",
+          "disposition": "reviewed-applied",
+          "reason": "Workload CA direct single-tenant principal targeting/Workload ID Premium; no managed identity or group-MFA equivalence."
+        }
+      ]
+    },
+    {
+      "id": "AC26",
+      "title": "Control plane and data plane operations - Azure Resource Manager | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/control-plane-and-data-plane",
+      "kind": "product",
+      "reviewed": "2026-10-31",
+      "version": "Rolling page updated 2026-02-27T18:31:00.0000000Z",
+      "availability": "AVAILABLE",
+      "objectives": ["az900.identity.rbac"],
+      "claims": ["access.AC26"],
+      "limits": "Control plane versus data plane and service-specific authorization paths. Declared conceptual teaching; no actual Entra/Azure operation or human validation.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/control-plane-and-data-plane",
+          "disposition": "reviewed-applied",
+          "reason": "Control plane versus data plane and service-specific authorization paths."
+        }
+      ]
+    },
+    {
+      "id": "AC27",
+      "title": "Overview of Azure Policy - Azure Policy | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/azure/governance/policy/overview",
+      "kind": "product",
+      "reviewed": "2026-10-31",
+      "version": "Rolling page updated 2026-07-08T05:12:00.0000000Z",
+      "availability": "AVAILABLE",
+      "objectives": ["az900.identity.rbac"],
+      "claims": ["access.AC27"],
+      "limits": "Azure Policy configuration rules distinct from authority; valid RBAC does not override applicable Policy deny. Declared conceptual teaching; no actual Entra/Azure operation or human validation.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/governance/policy/overview",
+          "disposition": "reviewed-applied",
+          "reason": "Azure Policy configuration rules distinct from authority; valid RBAC does not override applicable Policy deny."
+        }
+      ]
+    },
+    {
+      "id": "AC28",
       "title": "Introduction - Training | Microsoft Learn",
       "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-identity-access-security/1-introduction",
       "kind": "unit",
       "reviewed": "2026-10-31",
       "version": "Rolling page updated 2025-03-28T23:01:00.0000000Z",
       "availability": "AVAILABLE",
-      "objectives": [
-        "az900.identity.directories",
-        "az900.identity.authentication",
-        "az900.identity.external"
-      ],
-      "claims": ["identity.IF11"],
-      "limits": "Intro scope and basic terminology prerequisite; no protected questions. Original conceptual application only; no operational sign-in, protected assessment, copied illustration or human validation.",
+      "objectives": ["az900.identity.conditional-access", "az900.identity.rbac"],
+      "claims": ["access.AC28"],
+      "limits": "Official public introduction/discovery, no protected question use. Declared conceptual teaching; no actual Entra/Azure operation or human validation.",
       "discovery": [
         {
           "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-identity-access-security/1-introduction",
-          "disposition": "reviewed-essential",
-          "reason": "Intro scope and basic terminology prerequisite; no protected questions."
+          "disposition": "reviewed-applied",
+          "reason": "Official public introduction/discovery, no protected question use."
         }
       ]
     },
     {
-      "id": "IF12",
-      "title": "Describe Azure directory services - Training | Microsoft Learn",
-      "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-identity-access-security/2-directory-services",
-      "kind": "unit",
-      "reviewed": "2026-10-31",
-      "version": "Rolling page updated 2025-03-28T23:01:00.0000000Z",
-      "availability": "AVAILABLE",
-      "objectives": ["az900.identity.directories"],
-      "claims": ["identity.IF12"],
-      "limits": "Directory Learn unit versus actual managed-domain/product limits. Original conceptual application only; no operational sign-in, protected assessment, copied illustration or human validation.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-identity-access-security/2-directory-services",
-          "disposition": "reviewed-essential",
-          "reason": "Directory Learn unit versus actual managed-domain/product limits."
-        }
-      ]
-    },
-    {
-      "id": "IF13",
-      "title": "Describe Azure authentication methods - Training | Microsoft Learn",
-      "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-identity-access-security/3-authentication-methods",
-      "kind": "unit",
-      "reviewed": "2026-10-31",
-      "version": "Rolling page updated 2025-03-28T23:01:00.0000000Z",
-      "availability": "AVAILABLE",
-      "objectives": ["az900.identity.authentication"],
-      "claims": ["identity.IF13"],
-      "limits": "SSO/MFA/passwordless Learn unit qualified by method-specific current docs. Original conceptual application only; no operational sign-in, protected assessment, copied illustration or human validation.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-identity-access-security/3-authentication-methods",
-          "disposition": "reviewed-essential",
-          "reason": "SSO/MFA/passwordless Learn unit qualified by method-specific current docs."
-        }
-      ]
-    },
-    {
-      "id": "IF14",
-      "title": "Describe Azure external identities - Training | Microsoft Learn",
-      "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-identity-access-security/4-external-identities",
-      "kind": "unit",
-      "reviewed": "2026-10-31",
-      "version": "Rolling page updated 2025-03-28T23:01:00.0000000Z",
-      "availability": "AVAILABLE",
-      "objectives": ["az900.identity.external"],
-      "claims": ["identity.IF14"],
-      "limits": "External Learn unit, qualified B2C/product wording and current scopes. Original conceptual application only; no operational sign-in, protected assessment, copied illustration or human validation.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-identity-access-security/4-external-identities",
-          "disposition": "reviewed-essential",
-          "reason": "External Learn unit, qualified B2C/product wording and current scopes."
-        }
-      ]
-    },
-    {
-      "id": "IF15",
+      "id": "AC29",
       "title": "Summary - Training | Microsoft Learn",
       "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-identity-access-security/11-summary",
       "kind": "unit",
       "reviewed": "2026-10-31",
       "version": "Rolling page updated 2025-03-28T23:01:00.0000000Z",
       "availability": "AVAILABLE",
-      "objectives": [
-        "az900.identity.directories",
-        "az900.identity.authentication",
-        "az900.identity.external"
-      ],
-      "claims": ["identity.IF15"],
-      "limits": "Official summary scope; only P10 units credited. Original conceptual application only; no operational sign-in, protected assessment, copied illustration or human validation.",
+      "objectives": ["az900.identity.conditional-access", "az900.identity.rbac"],
+      "claims": ["access.AC29"],
+      "limits": "Official public summary, source discovery and later-unit scope. Declared conceptual teaching; no actual Entra/Azure operation or human validation.",
       "discovery": [
         {
           "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-identity-access-security/11-summary",
-          "disposition": "reviewed-essential",
-          "reason": "Official summary scope; only P10 units credited."
-        }
-      ]
-    },
-    {
-      "id": "IF16",
-      "title": "How synchronization works in Microsoft Entra Domain Services - Microsoft Entra ID | Microsoft Learn",
-      "url": "https://learn.microsoft.com/en-us/entra/identity/domain-services/synchronization",
-      "kind": "product",
-      "reviewed": "2026-10-31",
-      "version": "Rolling page updated 2026-08-18T12:37:00.0000000Z",
-      "availability": "AVAILABLE",
-      "objectives": ["az900.identity.directories"],
-      "claims": ["identity.IF16"],
-      "limits": "One-way automatic sync, password-hash prerequisites, read-only synced versus local OU objects, no reverse sync. Original conceptual application only; no operational sign-in, protected assessment, copied illustration or human validation.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/entra/identity/domain-services/synchronization",
           "disposition": "reviewed-applied",
-          "reason": "One-way automatic sync, password-hash prerequisites, read-only synced versus local OU objects, no reverse sync."
+          "reason": "Official public summary, source discovery and later-unit scope."
         }
       ]
     },
     {
-      "id": "IF17",
-      "title": "Compare Microsoft directory-based services - Microsoft Entra ID | Microsoft Learn",
-      "url": "https://learn.microsoft.com/en-us/entra/identity/domain-services/compare-identity-solutions",
-      "kind": "product",
-      "reviewed": "2026-10-31",
-      "version": "Rolling page updated 2026-02-19T06:03:00.0000000Z",
-      "availability": "AVAILABLE",
-      "objectives": ["az900.identity.directories"],
-      "claims": ["identity.IF17"],
-      "limits": "AD DS versus managed domain versus Entra ID; no managed schema/Domain Admin equivalence. Original conceptual application only; no operational sign-in, protected assessment, copied illustration or human validation.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/entra/identity/domain-services/compare-identity-solutions",
-          "disposition": "reviewed-applied",
-          "reason": "AD DS versus managed domain versus Entra ID; no managed schema/Domain Admin equivalence."
-        }
-      ]
-    },
-    {
-      "id": "IF18",
-      "title": "Microsoft Entra authentication overview - Microsoft Entra ID | Microsoft Learn",
-      "url": "https://learn.microsoft.com/en-us/entra/identity/authentication/concept-authentication-methods",
-      "kind": "product",
-      "reviewed": "2026-10-31",
-      "version": "Rolling page updated 2026-09-16T17:38:00.0000000Z",
-      "availability": "AVAILABLE",
-      "objectives": ["az900.identity.authentication"],
-      "claims": ["identity.IF18"],
-      "limits": "Current method matrix, phishing resistance and Hello step-up qualification. Original conceptual application only; no operational sign-in, protected assessment, copied illustration or human validation.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/entra/identity/authentication/concept-authentication-methods",
-          "disposition": "reviewed-applied",
-          "reason": "Current method matrix, phishing resistance and Hello step-up qualification."
-        }
-      ]
-    },
-    {
-      "id": "IF19",
-      "title": "Passkeys (FIDO2) authentication method in Microsoft Entra ID - Microsoft Entra ID | Microsoft Learn",
-      "url": "https://learn.microsoft.com/en-us/entra/identity/authentication/concept-authentication-passwordless",
-      "kind": "product",
-      "reviewed": "2026-10-31",
-      "version": "Rolling page updated 2026-06-15T17:40:00.0000000Z",
-      "availability": "AVAILABLE",
-      "objectives": ["az900.identity.authentication"],
-      "claims": ["identity.IF19"],
-      "limits": "FIDO2 origin-bound credentials, local UV and device-bound/synced distinction; no crypto emulation. Original conceptual application only; no operational sign-in, protected assessment, copied illustration or human validation.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/entra/identity/authentication/concept-authentication-passwordless",
-          "disposition": "reviewed-applied",
-          "reason": "FIDO2 origin-bound credentials, local UV and device-bound/synced distinction; no crypto emulation."
-        }
-      ]
-    },
-    {
-      "id": "IF20",
-      "title": "Tenant Configurations - Microsoft Entra External ID | Microsoft Learn",
-      "url": "https://learn.microsoft.com/en-us/entra/external-id/tenant-configurations",
-      "kind": "product",
-      "reviewed": "2026-10-31",
-      "version": "Rolling page updated 2026-06-26T22:37:00.0000000Z",
-      "availability": "AVAILABLE",
-      "objectives": ["az900.identity.external"],
-      "claims": ["identity.IF20"],
-      "limits": "Distinct workforce and external configurations; existing B2C versus current CIAM. Original conceptual application only; no operational sign-in, protected assessment, copied illustration or human validation.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/entra/external-id/tenant-configurations",
-          "disposition": "reviewed-applied",
-          "reason": "Distinct workforce and external configurations; existing B2C versus current CIAM."
-        }
-      ]
-    },
-    {
-      "id": "IF21",
-      "title": "Cross-tenant access overview - Microsoft Entra External ID | Microsoft Learn",
-      "url": "https://learn.microsoft.com/en-us/entra/external-id/cross-tenant-access-overview",
-      "kind": "product",
-      "reviewed": "2026-10-31",
-      "version": "Rolling page updated 2026-10-13T17:41:00.0000000Z",
-      "availability": "AVAILABLE",
-      "objectives": ["az900.identity.external"],
-      "claims": ["identity.IF21"],
-      "limits": "Inbound/outbound and relevant trust conditions with other Entra organizations. Original conceptual application only; no operational sign-in, protected assessment, copied illustration or human validation.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/entra/external-id/cross-tenant-access-overview",
-          "disposition": "reviewed-applied",
-          "reason": "Inbound/outbound and relevant trust conditions with other Entra organizations."
-        }
-      ]
-    },
-    {
-      "id": "IF22",
-      "title": "Configure external collaboration - Microsoft Entra External ID | Microsoft Learn",
-      "url": "https://learn.microsoft.com/en-us/entra/external-id/external-collaboration-settings-configure",
-      "kind": "product",
-      "reviewed": "2026-10-31",
-      "version": "Rolling page updated 2026-04-25T05:05:00.0000000Z",
-      "availability": "AVAILABLE",
-      "objectives": ["az900.identity.external"],
-      "claims": ["identity.IF22"],
-      "limits": "Who may invite, domain restrictions and guest directory visibility; not an app grant. Original conceptual application only; no operational sign-in, protected assessment, copied illustration or human validation.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/entra/external-id/external-collaboration-settings-configure",
-          "disposition": "reviewed-applied",
-          "reason": "Who may invite, domain restrictions and guest directory visibility; not an app grant."
-        }
-      ]
-    },
-    {
-      "id": "IF23",
-      "title": "Add an existing Azure subscription to your tenant - Microsoft Entra | Microsoft Learn",
-      "url": "https://learn.microsoft.com/en-us/entra/fundamentals/how-subscriptions-associated-directory",
-      "kind": "product",
-      "reviewed": "2026-10-31",
-      "version": "Rolling page updated 2026-06-19T22:42:00.0000000Z",
-      "availability": "AVAILABLE",
-      "objectives": ["az900.identity.directories"],
-      "claims": ["identity.IF23"],
-      "limits": "One directory per subscription, many subscriptions per tenant, directory/resource role distinction. Original conceptual application only; no operational sign-in, protected assessment, copied illustration or human validation.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/entra/fundamentals/how-subscriptions-associated-directory",
-          "disposition": "reviewed-applied",
-          "reason": "One directory per subscription, many subscriptions per tenant, directory/resource role distinction."
-        }
-      ]
-    },
-    {
-      "id": "IF24",
-      "title": "Passwordless sign-in with Authenticator - Microsoft Entra ID | Microsoft Learn",
-      "url": "https://learn.microsoft.com/en-us/entra/identity/authentication/howto-authentication-passwordless-phone",
-      "kind": "product",
-      "reviewed": "2026-10-31",
-      "version": "Rolling page updated 2026-03-27T05:06:00.0000000Z",
-      "availability": "AVAILABLE",
-      "objectives": ["az900.identity.authentication"],
-      "claims": ["identity.IF24"],
-      "limits": "Authenticator phone sign-in with device credential/local confirmation; distinct from passkey and push. Original conceptual application only; no operational sign-in, protected assessment, copied illustration or human validation.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/entra/identity/authentication/howto-authentication-passwordless-phone",
-          "disposition": "reviewed-applied",
-          "reason": "Authenticator phone sign-in with device credential/local confirmation; distinct from passkey and push."
-        }
-      ]
-    },
-    {
-      "id": "IF25",
-      "title": "External Tenant Overview - Microsoft Entra External ID | Microsoft Learn",
-      "url": "https://learn.microsoft.com/en-us/entra/external-id/customers/overview-customers-ciam",
-      "kind": "product",
-      "reviewed": "2026-10-31",
-      "version": "Rolling page updated 2026-05-29T12:39:00.0000000Z",
-      "availability": "AVAILABLE",
-      "objectives": ["az900.identity.external"],
-      "claims": ["identity.IF25"],
-      "limits": "Separate external tenant CIAM, customer lifecycle, app/user flows. Original conceptual application only; no operational sign-in, protected assessment, copied illustration or human validation.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/entra/external-id/customers/overview-customers-ciam",
-          "disposition": "reviewed-applied",
-          "reason": "Separate external tenant CIAM, customer lifecycle, app/user flows."
-        }
-      ]
-    },
-    {
-      "id": "IF26",
-      "title": "Windows Hello for Business overview | Microsoft Learn",
-      "url": "https://learn.microsoft.com/en-us/windows/security/identity-protection/hello-for-business/hello-overview",
-      "kind": "product",
-      "reviewed": "2026-10-31",
-      "version": "Rolling page updated 2026-10-08T11:38:00.0000000Z",
-      "availability": "AVAILABLE",
-      "objectives": ["az900.identity.authentication"],
-      "claims": ["identity.IF26"],
-      "limits": "Hello device-bound credential plus PIN/biometric, phishing-resistant properties; not any arbitrary PIN. Original conceptual application only; no operational sign-in, protected assessment, copied illustration or human validation.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/windows/security/identity-protection/hello-for-business/hello-overview",
-          "disposition": "reviewed-applied",
-          "reason": "Hello device-bound credential plus PIN/biometric, phishing-resistant properties; not any arbitrary PIN."
-        }
-      ]
-    },
-    {
-      "id": "IF27",
-      "title": "SMS-based user sign-in for Microsoft Entra ID - Microsoft Entra ID | Microsoft Learn",
-      "url": "https://learn.microsoft.com/en-us/entra/identity/authentication/howto-authentication-sms-signin",
-      "kind": "product",
-      "reviewed": "2026-10-31",
-      "version": "Rolling page updated 2026-10-30T22:39:00.0000000Z",
-      "availability": "AVAILABLE",
-      "objectives": ["az900.identity.authentication"],
-      "claims": ["identity.IF27"],
-      "limits": "Supported SMS first-factor users/apps; not B2B or Entra MFA-compatible. Microsoft-provided SMS/voice, including this flow, retires2027-02-01. Dated conceptual comparison, not rollout advice; no operational sign-in or human validation.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/entra/identity/authentication/howto-authentication-sms-signin",
-          "disposition": "reviewed-applied",
-          "reason": "Current source explicitly announces Microsoft-provided SMS/voice retirement2027-02-01, including SMS first-factor. Teaching includes the date and scopes the historical comparison."
-        }
-      ]
-    },
-    {
-      "id": "IF28",
-      "title": "Authentication vs. authorization - Microsoft identity platform | Microsoft Learn",
-      "url": "https://learn.microsoft.com/en-us/entra/identity-platform/authentication-vs-authorization",
-      "kind": "product",
-      "reviewed": "2026-10-31",
-      "version": "Rolling page updated 2026-06-15T17:40:00.0000000Z",
-      "availability": "AVAILABLE",
-      "objectives": ["az900.identity.authentication"],
-      "claims": ["identity.IF28"],
-      "limits": "AuthN versus AuthZ, OIDC/SAML app integration and separate authorization. Original conceptual application only; no operational sign-in, protected assessment, copied illustration or human validation.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/entra/identity-platform/authentication-vs-authorization",
-          "disposition": "reviewed-applied",
-          "reason": "AuthN versus AuthZ, OIDC/SAML app integration and separate authorization."
-        }
-      ]
-    },
-    {
-      "id": "IF29",
+      "id": "AC30",
       "title": "Introduction to Cloud Infrastructure: Describe Azure Architecture and Services - Training | Microsoft Learn",
       "url": "https://learn.microsoft.com/en-us/training/paths/azure-fundamentals-describe-azure-architecture-services/",
-      "kind": "path",
+      "kind": "learning-path",
       "reviewed": "2026-10-31",
       "version": "Rolling page updated 2026-10-28T17:12:00.0000000Z",
       "availability": "AVAILABLE",
-      "objectives": [
-        "az900.identity.directories",
-        "az900.identity.authentication",
-        "az900.identity.external"
-      ],
-      "claims": ["identity.IF29"],
-      "limits": "Actual official path/module discovery, prerequisite and later-unit scope. Original conceptual application only; no operational sign-in, protected assessment, copied illustration or human validation.",
+      "objectives": ["az900.identity.conditional-access", "az900.identity.rbac"],
+      "claims": ["access.AC30"],
+      "limits": "Actual official five-module path and identity/security-module discovery; no unrelated unit re-audit. Declared conceptual teaching; no actual Entra/Azure operation or human validation.",
       "discovery": [
         {
           "url": "https://learn.microsoft.com/en-us/training/paths/azure-fundamentals-describe-azure-architecture-services/",
-          "disposition": "reviewed-essential",
-          "reason": "Actual official path/module discovery, prerequisite and later-unit scope."
+          "disposition": "reviewed-applied",
+          "reason": "Actual official five-module path and identity/security-module discovery; no unrelated unit re-audit."
         }
       ]
     }
   ],
   "activities": [
     {
-      "id": "identity-directory",
-      "objectives": ["az900.identity.directories"],
+      "id": "access-rbac",
+      "objectives": ["az900.identity.rbac"],
       "claims": [
-        "identity.IF03",
-        "identity.IF04",
-        "identity.IF12",
-        "identity.IF16",
-        "identity.IF17",
-        "identity.IF23"
+        "access.AC04",
+        "access.AC05",
+        "access.AC06",
+        "access.AC07",
+        "access.AC08",
+        "access.AC18",
+        "access.AC19",
+        "access.AC20",
+        "access.AC21",
+        "access.AC22",
+        "access.AC23",
+        "access.AC24",
+        "access.AC26",
+        "access.AC27"
       ],
-      "limits": "Declared deterministic education only. No credential, key, token, account, identity provider, role, policy, World mutation, app runtime or XP. Historical firsts remain immutable.",
+      "limits": "Bounded conceptual snapshots only. No actual IAM/CA evaluator, principal/role/policy command, World mutation, receipt, runtime response or XP. Immutable old evidence stays separate.",
       "assessmentStatus": "new-independent",
-      "theory": [
-        {
-          "path": "src/content/nb.ts",
-          "marker": "identityNb"
-        }
-      ],
+      "theory": [{ "path": "src/content/nb.ts", "marker": "accessNb" }],
       "mechanism": [
-        {
-          "path": "src/domain/curriculum/identity-foundations-model.ts",
-          "marker": "runDirectory"
-        }
+        { "path": "src/domain/curriculum/access-control-model.ts", "marker": "runRbac" }
       ],
       "practice": [
         {
-          "path": "src/features/learning/identity-foundations-workbench.tsx",
-          "marker": "IdentityWorkbench"
+          "path": "src/features/learning/access-control-workbench.tsx",
+          "marker": "AccessWorkbench"
         }
       ],
-      "feedback": [
-        {
-          "path": "src/content/nb.ts",
-          "marker": "identityItemsNb"
-        }
-      ],
+      "feedback": [{ "path": "src/content/nb.ts", "marker": "accessItemsNb" }],
       "visual": [
         {
-          "path": "src/features/learning/identity-foundations-visuals.tsx",
-          "marker": "IdentityModelResult"
+          "path": "src/features/learning/access-control-visuals.tsx",
+          "marker": "AccessModelResult"
         }
       ],
-      "accessible": [
-        {
-          "path": "src/features/learning/identity-foundations.css"
-        }
-      ],
+      "accessible": [{ "path": "src/features/learning/access-control.css" }],
       "assessment": [
         {
-          "path": "src/features/learning/identity-foundations-assessment.tsx",
-          "marker": "IdentityAssessment"
+          "path": "src/features/learning/access-control-assessment.tsx",
+          "marker": "AccessAssessment"
         }
       ],
       "savvyshark": [
-        {
-          "path": "src/features/learning/identity-foundations-workbench.tsx",
-          "marker": "SavvyShark"
-        }
+        { "path": "src/features/learning/access-control-workbench.tsx", "marker": "SavvyShark" }
       ]
     },
     {
-      "id": "identity-journey",
-      "objectives": ["az900.identity.authentication"],
+      "id": "access-conditional",
+      "objectives": ["az900.identity.conditional-access"],
       "claims": [
-        "identity.IF05",
-        "identity.IF06",
-        "identity.IF07",
-        "identity.IF13",
-        "identity.IF18",
-        "identity.IF19",
-        "identity.IF24",
-        "identity.IF26",
-        "identity.IF27",
-        "identity.IF28"
+        "access.AC03",
+        "access.AC09",
+        "access.AC10",
+        "access.AC11",
+        "access.AC12",
+        "access.AC13",
+        "access.AC14",
+        "access.AC15",
+        "access.AC16",
+        "access.AC17",
+        "access.AC25"
       ],
-      "limits": "Declared deterministic education only. No credential, key, token, account, identity provider, role, policy, World mutation, app runtime or XP. Historical firsts remain immutable.",
+      "limits": "Bounded conceptual snapshots only. No actual IAM/CA evaluator, principal/role/policy command, World mutation, receipt, runtime response or XP. Immutable old evidence stays separate.",
       "assessmentStatus": "new-independent",
-      "theory": [
-        {
-          "path": "src/content/nb.ts",
-          "marker": "identityNb"
-        }
-      ],
+      "theory": [{ "path": "src/content/nb.ts", "marker": "accessNb" }],
       "mechanism": [
-        {
-          "path": "src/domain/curriculum/identity-foundations-model.ts",
-          "marker": "runJourney"
-        }
+        { "path": "src/domain/curriculum/access-control-model.ts", "marker": "runConditional" }
       ],
       "practice": [
         {
-          "path": "src/features/learning/identity-foundations-workbench.tsx",
-          "marker": "IdentityWorkbench"
+          "path": "src/features/learning/access-control-workbench.tsx",
+          "marker": "AccessWorkbench"
         }
       ],
-      "feedback": [
-        {
-          "path": "src/content/nb.ts",
-          "marker": "identityItemsNb"
-        }
-      ],
+      "feedback": [{ "path": "src/content/nb.ts", "marker": "accessItemsNb" }],
       "visual": [
         {
-          "path": "src/features/learning/identity-foundations-visuals.tsx",
-          "marker": "IdentityModelResult"
+          "path": "src/features/learning/access-control-visuals.tsx",
+          "marker": "AccessModelResult"
         }
       ],
-      "accessible": [
-        {
-          "path": "src/features/learning/identity-foundations.css"
-        }
-      ],
+      "accessible": [{ "path": "src/features/learning/access-control.css" }],
       "assessment": [
         {
-          "path": "src/features/learning/identity-foundations-assessment.tsx",
-          "marker": "IdentityAssessment"
+          "path": "src/features/learning/access-control-assessment.tsx",
+          "marker": "AccessAssessment"
         }
       ],
       "savvyshark": [
-        {
-          "path": "src/features/learning/identity-foundations-workbench.tsx",
-          "marker": "SavvyShark"
-        }
-      ]
-    },
-    {
-      "id": "identity-external",
-      "objectives": ["az900.identity.external"],
-      "claims": [
-        "identity.IF08",
-        "identity.IF09",
-        "identity.IF10",
-        "identity.IF14",
-        "identity.IF20",
-        "identity.IF21",
-        "identity.IF22",
-        "identity.IF25"
-      ],
-      "limits": "Declared deterministic education only. No credential, key, token, account, identity provider, role, policy, World mutation, app runtime or XP. Historical firsts remain immutable.",
-      "assessmentStatus": "new-independent",
-      "theory": [
-        {
-          "path": "src/content/nb.ts",
-          "marker": "identityNb"
-        }
-      ],
-      "mechanism": [
-        {
-          "path": "src/domain/curriculum/identity-foundations-model.ts",
-          "marker": "runExternal"
-        }
-      ],
-      "practice": [
-        {
-          "path": "src/features/learning/identity-foundations-workbench.tsx",
-          "marker": "IdentityWorkbench"
-        }
-      ],
-      "feedback": [
-        {
-          "path": "src/content/nb.ts",
-          "marker": "identityItemsNb"
-        }
-      ],
-      "visual": [
-        {
-          "path": "src/features/learning/identity-foundations-visuals.tsx",
-          "marker": "IdentityModelResult"
-        }
-      ],
-      "accessible": [
-        {
-          "path": "src/features/learning/identity-foundations.css"
-        }
-      ],
-      "assessment": [
-        {
-          "path": "src/features/learning/identity-foundations-assessment.tsx",
-          "marker": "IdentityAssessment"
-        }
-      ],
-      "savvyshark": [
-        {
-          "path": "src/features/learning/identity-foundations-workbench.tsx",
-          "marker": "SavvyShark"
-        }
+        { "path": "src/features/learning/access-control-workbench.tsx", "marker": "SavvyShark" }
       ]
     }
   ],
   "modules": [
     {
-      "id": "identity-foundations",
-      "prerequisites": [
-        {
-          "path": "src/content/nb.ts",
-          "marker": "identityNb"
-        }
-      ],
-      "terminology": [
-        {
-          "path": "src/content/nb.ts",
-          "marker": "identityNb"
-        }
-      ],
-      "concept": [
-        {
-          "path": "src/content/nb.ts",
-          "marker": "identityNb"
-        }
-      ],
-      "azureExample": [
-        {
-          "path": "src/content/nb.ts",
-          "marker": "identityNb"
-        }
-      ],
-      "workedExample": [
-        {
-          "path": "src/content/nb.ts",
-          "marker": "identityNb"
-        }
-      ],
-      "misconception": [
-        {
-          "path": "src/content/nb.ts",
-          "marker": "identityNb"
-        }
-      ],
-      "limits": [
-        {
-          "path": "src/content/nb.ts",
-          "marker": "identityNb"
-        }
-      ],
+      "id": "access-control",
+      "prerequisites": [{ "path": "src/content/nb.ts", "marker": "accessNb" }],
+      "terminology": [{ "path": "src/content/nb.ts", "marker": "accessNb" }],
+      "concept": [{ "path": "src/content/nb.ts", "marker": "accessNb" }],
+      "azureExample": [{ "path": "src/content/nb.ts", "marker": "accessNb" }],
+      "workedExample": [{ "path": "src/content/nb.ts", "marker": "accessNb" }],
+      "misconception": [{ "path": "src/content/nb.ts", "marker": "accessNb" }],
+      "limits": [{ "path": "src/content/nb.ts", "marker": "accessNb" }],
       "mechanism": [
-        {
-          "path": "src/domain/curriculum/identity-foundations-model.ts",
-          "marker": "runJourney"
-        }
+        { "path": "src/domain/curriculum/access-control-model.ts", "marker": "runConditional" }
       ],
       "visual": [
         {
-          "path": "src/features/learning/identity-foundations-visuals.tsx",
-          "marker": "IdentityModelResult"
+          "path": "src/features/learning/access-control-visuals.tsx",
+          "marker": "AccessModelResult"
         }
       ],
       "practice": [
         {
-          "path": "src/features/learning/identity-foundations-workbench.tsx",
-          "marker": "IdentityWorkbench"
+          "path": "src/features/learning/access-control-workbench.tsx",
+          "marker": "AccessWorkbench"
         }
       ],
-      "independentScenario": [
-        {
-          "path": "src/content/nb.ts",
-          "marker": "identityItemsNb"
-        }
-      ],
-      "correctAndWrongRationales": [
-        {
-          "path": "src/content/nb.ts",
-          "marker": "identityItemsNb"
-        }
-      ],
+      "independentScenario": [{ "path": "src/content/nb.ts", "marker": "accessItemsNb" }],
+      "correctAndWrongRationales": [{ "path": "src/content/nb.ts", "marker": "accessItemsNb" }],
       "sources": [
         {
-          "path": "src/domain/curriculum/identity-foundations-sources.ts",
-          "marker": "identitySourceReview"
+          "path": "src/domain/curriculum/access-control-sources.ts",
+          "marker": "accessSourceReview"
         }
       ]
     }
@@ -919,233 +772,202 @@
     "src/features/learning/storage.css",
     "src/features/learning/storage.tsx",
     "tests/e2e/storage-resilience.spec.ts",
-    "tests/e2e/storage-services.spec.ts"
+    "tests/e2e/storage-services.spec.ts",
+    "src/domain/curriculum/identity-foundations.ts",
+    "src/domain/curriculum/identity-foundations-model.ts",
+    "src/domain/curriculum/identity-foundations-store.ts",
+    "src/domain/curriculum/identity-foundations-items.ts",
+    "src/domain/curriculum/identity-foundations-sources.ts",
+    "src/domain/curriculum/identity-foundations.test.ts",
+    "src/features/learning/identity-foundations.tsx",
+    "src/features/learning/identity-foundations-assessment.tsx",
+    "src/features/learning/identity-foundations-provider.tsx",
+    "src/features/learning/identity-foundations-workbench.tsx",
+    "src/features/learning/identity-foundations-visuals.tsx",
+    "src/features/learning/identity-foundations.css"
   ],
   "gates": {
     "source": {
       "checks": [
-        {
-          "path": "docs/IDENTITY_FOUNDATIONS.md"
-        },
-        {
-          "path": "src/domain/curriculum/identity-foundations-sources.ts"
-        }
+        { "path": "docs/ACCESS_CONTROL.md" },
+        { "path": "src/domain/curriculum/access-control-sources.ts" }
       ],
-      "limits": "P10 candidate. Full check/build, actual inspected desktop/compact images, separate post-stamp audit and complete exact-head190 CI/strict release required. Source author review is not human validation. External Gate7 remains BLOCKED on actual SSO unless legitimate access becomes available. No merge/production deploy."
+      "limits": "P11 candidate. Actual sources, full local check, bounded production/visual tests, fresh post-stamp six-domain audit and complete exact-head198 CI/strict required. External Gate7 separately blocked if normal root requires SSO. Humans unperformed; no merge/production deploy."
     },
     "curriculum": {
       "checks": [
-        {
-          "path": "src/domain/curriculum/identity-foundations.ts"
-        },
-        {
-          "path": "src/content/nb.ts"
-        }
+        { "path": "src/domain/curriculum/access-control.ts" },
+        { "path": "src/content/nb.ts" }
       ],
-      "limits": "P10 candidate. Full check/build, actual inspected desktop/compact images, separate post-stamp audit and complete exact-head190 CI/strict release required. Source author review is not human validation. External Gate7 remains BLOCKED on actual SSO unless legitimate access becomes available. No merge/production deploy."
+      "limits": "P11 candidate. Actual sources, full local check, bounded production/visual tests, fresh post-stamp six-domain audit and complete exact-head198 CI/strict required. External Gate7 separately blocked if normal root requires SSO. Humans unperformed; no merge/production deploy."
     },
     "simulation": {
       "checks": [
-        {
-          "path": "src/domain/curriculum/identity-foundations-model.ts"
-        },
-        {
-          "path": "src/domain/curriculum/identity-foundations.test.ts"
-        }
+        { "path": "src/domain/curriculum/access-control-model.ts" },
+        { "path": "src/domain/curriculum/access-control.test.ts" }
       ],
-      "limits": "P10 candidate. Full check/build, actual inspected desktop/compact images, separate post-stamp audit and complete exact-head190 CI/strict release required. Source author review is not human validation. External Gate7 remains BLOCKED on actual SSO unless legitimate access becomes available. No merge/production deploy."
+      "limits": "P11 candidate. Actual sources, full local check, bounded production/visual tests, fresh post-stamp six-domain audit and complete exact-head198 CI/strict required. External Gate7 separately blocked if normal root requires SSO. Humans unperformed; no merge/production deploy."
     },
     "savvyshark": {
       "checks": [
-        {
-          "path": "src/features/learning/identity-foundations-workbench.tsx"
-        },
-        {
-          "path": "src/features/learning/management-access.tsx"
-        },
-        {
-          "path": "tests/e2e/identity-foundations.spec.ts"
-        }
+        { "path": "src/features/learning/access-control-workbench.tsx" },
+        { "path": "src/features/learning/management-access.tsx" },
+        { "path": "tests/e2e/access-control.spec.ts" }
       ],
-      "limits": "P10 candidate. Full check/build, actual inspected desktop/compact images, separate post-stamp audit and complete exact-head190 CI/strict release required. Source author review is not human validation. External Gate7 remains BLOCKED on actual SSO unless legitimate access becomes available. No merge/production deploy."
+      "limits": "P11 candidate. Actual sources, full local check, bounded production/visual tests, fresh post-stamp six-domain audit and complete exact-head198 CI/strict required. External Gate7 separately blocked if normal root requires SSO. Humans unperformed; no merge/production deploy."
     },
     "visual-accessibility": {
       "checks": [
-        {
-          "path": "src/features/learning/identity-foundations-visuals.tsx"
-        },
-        {
-          "path": "src/features/learning/identity-foundations.css"
-        },
-        {
-          "path": "tests/e2e/identity-foundations.spec.ts"
-        }
+        { "path": "src/features/learning/access-control-visuals.tsx" },
+        { "path": "src/features/learning/access-control.css" },
+        { "path": "tests/e2e/access-control.spec.ts" }
       ],
-      "limits": "P10 candidate. Full check/build, actual inspected desktop/compact images, separate post-stamp audit and complete exact-head190 CI/strict release required. Source author review is not human validation. External Gate7 remains BLOCKED on actual SSO unless legitimate access becomes available. No merge/production deploy."
+      "limits": "P11 candidate. Actual sources, full local check, bounded production/visual tests, fresh post-stamp six-domain audit and complete exact-head198 CI/strict required. External Gate7 separately blocked if normal root requires SSO. Humans unperformed; no merge/production deploy."
     },
     "independent-final-audit": {
       "checks": [
-        {
-          "path": "docs/RELEASE_ACCEPTANCE.md"
-        },
-        {
-          "path": "docs/quality/PR35_FINAL_AUDIT.md"
-        }
+        { "path": "docs/RELEASE_ACCEPTANCE.md" },
+        { "path": "docs/quality/PR36_FINAL_AUDIT.md" }
       ],
-      "limits": "P10 candidate. Full check/build, actual inspected desktop/compact images, separate post-stamp audit and complete exact-head190 CI/strict release required. Source author review is not human validation. External Gate7 remains BLOCKED on actual SSO unless legitimate access becomes available. No merge/production deploy."
+      "limits": "P11 candidate. Actual sources, full local check, bounded production/visual tests, fresh post-stamp six-domain audit and complete exact-head198 CI/strict required. External Gate7 separately blocked if normal root requires SSO. Humans unperformed; no merge/production deploy."
     },
     "delivery": {
       "checks": [
-        {
-          "path": ".github/workflows/ci.yml"
-        },
-        {
-          "path": "scripts/e2e-plan-check.mjs"
-        },
-        {
-          "path": "docs/IDENTITY_FOUNDATIONS.md"
-        }
+        { "path": ".github/workflows/ci.yml" },
+        { "path": "scripts/e2e-plan-check.mjs" },
+        { "path": "docs/ACCESS_CONTROL.md" }
       ],
-      "limits": "P10 candidate. Full check/build, actual inspected desktop/compact images, separate post-stamp audit and complete exact-head190 CI/strict release required. Source author review is not human validation. External Gate7 remains BLOCKED on actual SSO unless legitimate access becomes available. No merge/production deploy."
+      "limits": "P11 candidate. Actual sources, full local check, bounded production/visual tests, fresh post-stamp six-domain audit and complete exact-head198 CI/strict required. External Gate7 separately blocked if normal root requires SSO. Humans unperformed; no merge/production deploy."
     }
   },
   "verification": [
     {
       "command": "npm run check",
       "result": "passed",
-      "details": "Actual second complete local process exit0 after final model/visual/context-label corrections:433 Vitest/31files,343 curriculum/22files,17 Node fixtures,103 docs/local links,type/lint/format/quality/AZ900/assets/legacy and production build. Last if02 transfer refinement (conflicting app/schema and permitted-domain-operations requirements) then passed28 domain and a production rebuild, exit0. Final exact-head full check/browser/strict remain in CI. Intermediate failed processes were corrected, not credited. Final-audit three-scenario transfer/SMS-date correction then received targeted32 domain/shared,343 curriculum, production build and affected browser checks; no third complete local regression is claimed."
+      "details": "Actual full local process exited0:458 Vitest/32files,368 curriculum,17 Node,105 Markdown/local links, type/lint/format/source/assets/legacy and production build. Earlier lint failure corrected. After small Studio/role-table refinements: bounded build, lint/domain, browser/Axe and screenshots repeated; not repeated full local regression."
     },
     {
-      "command": "New and affected production browser",
+      "command": "Targeted production browser tests",
       "result": "passed",
-      "details": "Initial7 process exit1:five passes, broad planned-text selector and an old own-item feedback navigation issue. Fixed selector and own-item withholding; next complete13(new7+Hub6) passed3.0m exit0 including all18 exact independent resumes. Subsequent affected visual4 passed26.3s; strengthened new7+existing all-context Core protection8 passed1.3m; home-proof/keyboard2 passed15.8s; own-context/first-history/denied-aid/keyboard4 passed18.9s; final external false-home-proof negative1 passed7.3s. All exit0, pinned Chromium, no retries. No complete local190 claimed. Strengthened persisted native Sandbox accepted-group receipt and prior XP/Storage firsts byte-preservation1 passed4.2s exit0. Final false-home-proof/collaboration readiness1 passed7.3s exit0."
-    },
-    {
-      "command": "Targeted Identity and shared domain",
-      "result": "passed",
-      "details": "New28 domain passed; shared final32 passed after corrected explicit home-proof/resource fields, replay, bounds/reserve, immutable first/help/retry/family/abandon, durable denial/stale/scoped recovery and source/content checks. Source labels have a specific wrong-module regression. Final production rebuild after last label negative passed. Earlier shared fixture count12→13 and intermediate namespace/duplicate test-key errors were corrected rather than weakening assertions."
+      "details": "Pinned Playwright1.64.1/Chromium1248,worker1,retries0. Final selection13 executed:12passed, RBAC revealed focusable pre defect; corrected product with focusable labelled pre and scoped readable horizontally scrollable table, affected RBAC/compact2 passed23.4s after correction,29 P11/shared domain tests passed; final bounded production build passed. Other affected Identity navigation+old Benefits2passed. Earlier selectors/reload readiness corrected without weakening assertions. Old Benefits3repeat passed without retry; held-animation-frame durable-aid negative passed. Complete198 GitHub CI remains pending."
     },
     {
       "command": "npm run test:e2e:plan",
       "result": "passed",
-      "details": "Actual serial guarded collection190=177desktop+13compact, preserves182 inherited cases; optional legacy354. One earlier collection hit its unchanged30-second bound while other browser/capture processes were running; serial run succeeded without changing any limit/worker/retry/skip. Collection is not browser execution."
+      "details": "198 planned=184desktop+14compact,legacy368,worker1. Collection only; never full executed CI proof."
     },
     {
-      "command": "Preservation proof",
+      "command": "Preservation and actual screenshot capture",
       "result": "passed",
-      "details": "All25 old data exports and one function export match after exactly seven declared navigation/context metadata extensions. Only2.4.01–03 objective rows change;54 including P08/P09/P11/P15/P16 preserved. All60 declared old path patterns are unchanged. Older actual Storage A/B submitted firsts, Sandbox and XP bytes remain unchanged through Identity work/reload."
-    },
-    {
-      "command": "Actual production capture and inspection",
-      "result": "passed",
-      "details": "Capture exit0; all15 final PNGs personally viewed at1920/1440/1366/1024/800 and1024x500 after actual UI runs and independent submission. Zero page errors or automatic external requests. Normal vertical scrolling is intentional; no human/native-browser-zoom/deployed-SHA claim."
+      "details": "27 historical data exports+1function exact except five declared presentation/context metadata paths;55 other AZ900 rows and72 protected path patterns unchanged.16 actual final production PNGs, personally inspected; zero page errors/external runtime requests, actual native Sandbox seed remains byte-exact."
     },
     {
       "command": "Full exact-head GitHub CI",
       "result": "pending",
-      "details": "Draft publication must enable complete190 with pinned Chromium, mandatory plan and unchanged success-only candidate receipt wrapper, followed by strict release against713d52851712a92a58de124815414c78ffb7fc1b. Historical/local/targeted/collection proof cannot substitute."
+      "details": "Draft enables complete guarded198 with pinned Chromium, mandatory plan and success-only candidate receipt, then strict release against verified2eef3efad9b867534a69327a2f6deee31ffacaa5. Local/collection/targeted proof is not full CI."
     },
     {
-      "command": "Final if02 transfer refinement",
+      "command": "Final-audit additive-role correction",
       "result": "passed",
-      "details": "Only new unpublished if02 adds a conflicting permitted-operations requirement, so guided AD DS selection cannot simply be repeated. New variant1.0.0, same accepted pair;28 domain and production build exit0. Fresh final blind packet extracted from actual source SHA256 ba6f5eeb6562504bece4babc20dd2e48639ac1a756556060d0a648d5ae0f20ae. Early blind lock is not claimed for this changed text."
-    },
-    {
-      "command": "Final-audit transfer correction",
-      "result": "passed",
-      "details": "MAJOR-01 changed if04/if07/if09 decision structures rather than accepting guided copies. Separate blind packet17e0e2798666246e14ae0b35530820c3276a32abd674e962e768ebb41657dcae, lock91901bc529b5ba5438f3c8628c2c469f6105f6b0b5b0e17e1a3150759aebfa93 before keys; reviewer confirmed unique pairs and real transfer delta, with minor discrimination limits. Actual32 domain/shared,343 curriculum, production build and paired first/help/retry/history browser1 in4.8s exit0. Three revised1024px question captures personally inspected, no overflow/page errors. IF27 dated retirement qualification added from current body. New stamp and independent final delta binding follow; complete190 exact-head CI remains required."
+      "details": "Reviewer MAJOR-01 corrected primary-role-biased generic-resource boundary;100 role-order permutations plus explicit known/unknown cases.30 P11/shared domain tests, production rebuild, targeted ESLint and full typecheck exited0. Actual production RBAC guide with both role orders passed7.7s,retries0. Independent delta audit required against renewed fingerprint. Prior full local check458 remains attributed to before bounded correction; final CI expected459."
     }
   ],
   "visualEvidence": [
     {
-      "path": "docs/screenshots/identity/hub-1440.png",
+      "path": "docs/screenshots/access-control/hub-1440.png",
       "viewport": "1440x900",
       "inspected": true,
-      "observation": "Three paths and one start; no competing Identity promotion."
+      "observation": "One start and three existing learning paths; no new promotion."
     },
     {
-      "path": "docs/screenshots/identity/identity-group-1440.png",
+      "path": "docs/screenshots/access-control/introduction-1440.png",
       "viewport": "1440x900",
       "inspected": true,
-      "observation": "Identity, Access & Security follows both unchanged Storage parts; later content remains planned."
+      "observation": "AuthN/CA/AuthZ bridge and contextual Identity Part B sidebar."
     },
     {
-      "path": "docs/screenshots/identity/introduction-1440.png",
+      "path": "docs/screenshots/access-control/studio-entry-1440.png",
       "viewport": "1440x900",
       "inspected": true,
-      "observation": "Substantive beginner manuscript, terms and exact contextual sidebar."
+      "observation": "Both Studio perspectives and explicit briefing entry visible before full supporting theory."
     },
     {
-      "path": "docs/screenshots/identity/briefing-journey-1024x500.png",
+      "path": "docs/screenshots/access-control/briefing-rbac-1024x500.png",
       "viewport": "1024x500",
       "inspected": true,
-      "observation": "Native blur briefing with visible Start/Cancel and keyboard-scrollable body."
+      "observation": "Native blurred briefing fits1024x500 with explicit Start/Cancel."
     },
     {
-      "path": "docs/screenshots/identity/managed-domain-1366.png",
-      "viewport": "1366x768",
-      "inspected": true,
-      "observation": "Declared legacy requirements, selected service, capability and causal consequence; no deployment."
-    },
-    {
-      "path": "docs/screenshots/identity/directory-matrix-1024.png",
-      "viewport": "1024x768",
-      "inspected": true,
-      "observation": "All four semantic capability columns remain readable; no hidden schema result."
-    },
-    {
-      "path": "docs/screenshots/identity/sso-reused-1440.png",
-      "viewport": "1440x900",
-      "inspected": true,
-      "observation": "Explicit App A context, reused proof and unknown separate app action."
-    },
-    {
-      "path": "docs/screenshots/identity/authenticated-denied-1920.png",
+      "path": "docs/screenshots/access-control/rbac-inheritance-1920.png",
       "viewport": "1920x1080",
       "inspected": true,
-      "observation": "Trusted app, suitable new proof and separate amber denied action."
+      "observation": "Reader subscription assignment and downward ancestry, declared permission/result."
     },
     {
-      "path": "docs/screenshots/identity/access-decisions-1024x500.png",
-      "viewport": "1024x500",
-      "inspected": true,
-      "observation": "Short-window verified proof/requirement and distinct method/session fields with normal scrolling."
-    },
-    {
-      "path": "docs/screenshots/identity/method-matrix-1366.png",
-      "viewport": "1366x768",
-      "inspected": true,
-      "observation": "Qualified method/factor/passwordless/MFA/phishing properties, equivalent semantic table."
-    },
-    {
-      "path": "docs/screenshots/identity/partner-resource-1440.png",
+      "path": "docs/screenshots/access-control/rbac-narrow-role-1440.png",
       "viewport": "1440x900",
       "inspected": true,
-      "observation": "Home proof, representation, collaboration readiness, resource acceptance and denied action remain distinct."
+      "observation": "Specialised VM-only scope; transparent cause and narrower shown-node reach."
     },
     {
-      "path": "docs/screenshots/identity/customer-tenant-1024.png",
+      "path": "docs/screenshots/access-control/rbac-upward-denied-1024.png",
       "viewport": "1024x768",
       "inspected": true,
-      "observation": "Separate external tenant/customer representation; cross-tenant collaboration marked not applicable."
+      "observation": "VM-scoped Reader cannot inherit upward to resource group."
     },
     {
-      "path": "docs/screenshots/identity/direct-connect-boundary-800.png",
+      "path": "docs/screenshots/access-control/rbac-data-plane-1366.png",
+      "viewport": "1366x768",
+      "inspected": true,
+      "observation": "Declared Entra/RBAC Blob DataAction separate from management permission."
+    },
+    {
+      "path": "docs/screenshots/access-control/rbac-role-matrix-1024.png",
+      "viewport": "1024x768",
+      "inspected": true,
+      "observation": "Scoped table wraps labels; local horizontal region and JSON are keyboard-focusable."
+    },
+    {
+      "path": "docs/screenshots/access-control/actual-sandbox-ancestry-1440.png",
+      "viewport": "1440x900",
+      "inspected": true,
+      "observation": "Actual replayed Sandbox ancestry revision3 used only as hypothetical role context."
+    },
+    {
+      "path": "docs/screenshots/access-control/ca-missing-device-1440.png",
+      "viewport": "1440x900",
+      "inspected": true,
+      "observation": "Concurrent MFA/device policies retain unmet device and separate missing Azure role."
+    },
+    {
+      "path": "docs/screenshots/access-control/ca-enforced-block-1366.png",
+      "viewport": "1366x768",
+      "inspected": true,
+      "observation": "Applicable enforced Block persists despite satisfied MFA."
+    },
+    {
+      "path": "docs/screenshots/access-control/ca-report-only-1024.png",
+      "viewport": "1024x768",
+      "inspected": true,
+      "observation": "Report-only Block is applicable but not enforced."
+    },
+    {
+      "path": "docs/screenshots/access-control/ca-and-rbac-met-800.png",
       "viewport": "800x700",
       "inspected": true,
-      "observation": "No ordinary guest, missing mutual access, resource acceptance false and app action not evaluated."
+      "observation": "CA requirements and relevant VM permission separately met; no runtime claim."
     },
     {
-      "path": "docs/screenshots/identity/independent-if10-1024.png",
+      "path": "docs/screenshots/access-control/independent-ab09-1024.png",
       "viewport": "1024x768",
       "inspected": true,
-      "observation": "Neutral original question and unselected decision/rationale pairs, ordinary vertical scroll."
+      "observation": "Original user-by-application policy boundary question has no exposed key before submit."
     },
     {
-      "path": "docs/screenshots/identity/feedback-if10-1024x500.png",
+      "path": "docs/screenshots/access-control/feedback-valid-group-plan-1024x500.png",
       "viewport": "1024x500",
       "inspected": true,
-      "observation": "Only after explicit submission, own Identity label/classification and causal feedback; longer explanations scroll."
+      "observation": "Alternate approved group Reader plan accepted with its technical reason; first classified separately."
     }
   ],
   "humanReview": {
@@ -1156,120 +978,83 @@
   },
   "review": {
     "status": "complete",
-    "fingerprint": "96dbd296e9ed3adab3f9b2208b64c02dd820da45f2be9e5ad260f5508c8c851f",
+    "fingerprint": "b58f95a28f619848160d82839bd79e7801b32aa941d65afb751f13e7c7f6b9c4",
     "reviewer": {
-      "id": "independent-final-auditor-identity-20261031",
+      "id": "access-final-independent-auditor-20261031",
       "kind": "agent"
     },
-    "started": "2026-10-31T21:23:33Z",
-    "finished": "2026-10-31T21:26:28.226899Z",
+    "started": "2026-11-01T00:00:30.334Z",
+    "completed": "2026-11-01T00:06:43.513Z",
     "domains": {
       "content": {
-        "finding": "Accepted. Scoped substantive original manuscript and current official claims checked against actual public sources;15 fresh normal-TLS200 bodies match authored hashes. Managed sync/schema, SSO/MFA, qualified passwordless, configured customer IdP and tenant boundaries are correct. SMS retirement qualification fixed. Human SME remains unperformed.",
+        "finding": "Accepted: actual original manuscript/final bank and relevant AC01–30 source bodies reviewed. All30 indexed hashes verified; eight critical fresh normal-TLS refetches exact. Azure/Entra, additive/NotActions/deny, direct and alternate data routes, all-CA/Block/report-only/targeting, P1/P2/workload/emergency and What If limits are correctly qualified. Scope only2.4.04/.05; human SME/learning unperformed.",
         "evidence": [
-          {
-            "path": "src/content/nb.ts"
-          },
-          {
-            "path": "src/domain/curriculum/identity-foundations-sources.ts"
-          },
-          {
-            "path": "docs/IDENTITY_FOUNDATIONS.md"
-          }
+          { "path": "src/content/nb.ts", "marker": "export const accessNb" },
+          { "path": "src/domain/curriculum/access-control-sources.ts" },
+          { "path": "docs/quality/PR36_FINAL_AUDIT.md" }
         ]
       },
       "technical": {
-        "finding": "Accepted. Pure declared models never create identity/credential/token/runtime/World/receipt/XP. Registration, evidence, context, collaboration readiness, resource acceptance and app action are separate. Fresh32 domain/shared tests plus explicit failed-proof browser probe pass; durable replay/reserve/CAS/first/recovery invariants preserved.",
+        "finding": "Accepted after independently reported MAJOR-01: role ordering no longer suppresses a known second Reader grant. Fresh30 domain/shared tests and independent5,000 role-order cases pass. Strict replay/CAS/readback/stale/recovery,800events/five reserves/24runs,480000 normal inside600000 parser, immutable first/help/retry/family/abandon and read-only actual Sandbox ancestry remain. No IAM/token/runtime/World/receipt/XP operation.",
         "evidence": [
           {
-            "path": "src/domain/curriculum/identity-foundations-model.ts"
+            "path": "src/domain/curriculum/access-control-model.ts",
+            "marker": "const grantingRoles"
           },
           {
-            "path": "src/domain/curriculum/identity-foundations.ts"
+            "path": "src/domain/curriculum/access-control.ts",
+            "marker": "accessNormalCharacters"
           },
-          {
-            "path": "src/domain/curriculum/identity-foundations-store.ts"
-          },
-          {
-            "path": "src/domain/curriculum/identity-foundations.test.ts"
-          }
+          { "path": "src/domain/curriculum/access-control-store.ts" },
+          { "path": "docs/quality/PR36_FINAL_AUDIT.md" }
         ]
       },
       "visual": {
-        "finding": "Accepted for local production. All15 committed Identity PNGs personally viewed, plus3 revised question captures. Fresh viewport/keyboard/Axe/reduced-motion/hover/focus/semantic/short-briefing checks pass; normal vertical scroll. No native zoom, human UX, screen-reader or deployed-SHA approval.",
+        "finding": "Accepted for local production: each16 actual PNG opened individually. Semantic numbered stages and explicit limits remain readable at desktop/compact sizes; long content scrolls normally. Actual keyboard horizontal matrix scroll and labelled JSON focus verified; production Axe/reduced-motion/short native-dialog tests pass. Screens unchanged by pure model correction. Human UX/screen-reader/native-browser-zoom approval unperformed.",
         "evidence": [
           {
-            "path": "docs/screenshots/identity/introduction-1440.png"
+            "path": "docs/screenshots/access-control/rbac-role-matrix-1024.png"
           },
           {
-            "path": "docs/screenshots/identity/authenticated-denied-1920.png"
+            "path": "docs/screenshots/access-control/briefing-rbac-1024x500.png"
           },
-          {
-            "path": "docs/screenshots/identity/briefing-journey-1024x500.png"
-          },
-          {
-            "path": "docs/screenshots/identity/direct-connect-boundary-800.png"
-          },
-          {
-            "path": "tests/e2e/identity-foundations.spec.ts"
-          }
+          { "path": "src/features/learning/access-control-visuals.tsx" },
+          { "path": "docs/quality/PR36_FINAL_AUDIT.md" }
         ]
       },
       "assessment": {
-        "finding": "Accepted after MAJOR-01. Original all10 blind lock followed by separate fresh revised3 blind lock; final source/packet equality and all90 pairs independently checked. Changed if04/07/09 now require different decisions from actual guides. Actual wrong-reason/correct-retry/immutable first probes pass. Residual cue/difficulty limits remain MINOR; measured transfer unperformed.",
+        "finding": "Accepted with introductory cue/discrimination limitation. First read only final8 packet; all72 blind pair judgments locked before keys at23:56:42.587Z, lock SHA1ed2c7ac0f7fe3272e3e093eaa272533f96819540f1e1f10e9f4f2c06d883ac8. Actual packet exact; nine defensible pairs including both ab04 Reader paths and63 rejections match actual grader. Compared all items/48 alternatives/feedback with actual guide witnesses and manuscript; changed constraints require new plans. Browser wrong-reason rejection/both plans/immutable first verified. No psychometric or measured-transfer claim.",
         "evidence": [
+          { "path": "src/domain/curriculum/access-control-items.ts" },
           {
-            "path": "src/domain/curriculum/identity-foundations-items.ts"
+            "path": "src/content/nb.ts",
+            "marker": "export const accessItemsNb"
           },
-          {
-            "path": "src/domain/curriculum/identity-foundations.test.ts"
-          },
-          {
-            "path": "src/content/nb.ts"
-          },
-          {
-            "path": "docs/quality/PR35_FINAL_AUDIT.md"
-          }
+          { "path": "tests/fixtures/access.ts" },
+          { "path": "docs/quality/PR36_FINAL_AUDIT.md" }
         ]
       },
       "guidance": {
-        "finding": "Accepted. Native explicit start/cancel, saved causal contrasts and once-only milestone history remain separate from evidence. All18 contexts registered; fresh exact-resume/Core-Journal shielding and Identity denial/conflict tests pass. Summary records durable aid; assisted-active still shields guides/Portal. No guide submits work or XP.",
+        "finding": "Accepted: native explicit-start causal guides, persisted matched witnesses and cause gating; no visit/time/prediction-only completion. All19 contexts included in shared teaching/Journal/Summary/history, mission safety and Portal shielding. Fresh browser denial/cross-tab/recovery/held-frame checks pass; manual Summary durable aid and assisted-active Studio/Portal withholding verified. Existing Benefits exact durable-aid assertion retained after actual mount. Isolated19-context resume passes; initial transient blank is retained explicitly.",
         "evidence": [
+          { "path": "src/features/learning/access-control-workbench.tsx" },
+          { "path": "src/features/learning/management-access.tsx" },
+          { "path": "src/features/course/mission-context.ts" },
           {
-            "path": "src/features/learning/identity-foundations-workbench.tsx"
+            "path": "tests/e2e/access-control.spec.ts",
+            "marker": "shared teaching preflight hides Benefits"
           },
-          {
-            "path": "src/features/learning/management-access.tsx"
-          },
-          {
-            "path": "src/features/course/mission-context.ts"
-          },
-          {
-            "path": "src/features/portal/portal.tsx"
-          },
-          {
-            "path": "tests/e2e/course-hub.spec.ts"
-          }
+          { "path": "docs/quality/PR36_FINAL_AUDIT.md" }
         ]
       },
       "regression": {
-        "finding": "Accepted within bounded local scope. Independently recomputed59 final hashes/fingerprint;13 critical model/UI/guard/browser files unchanged from initial audit. Preservation25 old data exports+1function after7metadata paths,54 other objective rows and60 protected patterns exact. Existing182 cases retained in190=177/13;legacy354. No assertion weakening/skips/worker/retry/timeout increase. Exact-head full CI and strict remain pending.",
+        "finding": "Accepted within bounded implementation review: independently recomputed61 final hashes/fingerprint;57 unchanged initial hashes/four reviewed deltas. Fresh preservation confirms27 old exports+one function, five exact metadata paths,55 other objective rows and72 protected patterns; actual Sandbox/prior Identity first/XP bytes preserved in executed browser. No weakened assertion/skip/worker/retry/timeout/dependency change. Initial9-browser process8pass/1blank-Hub failure retained; direct diagnostic and unchanged isolated19-context21.0s pass do not replace complete exact-head198 CI/strict. External root/SHA journey unverified; humans unperformed.",
         "evidence": [
-          {
-            "path": "tests/e2e/identity-foundations.spec.ts"
-          },
-          {
-            "path": "tests/e2e/course-hub.spec.ts"
-          },
-          {
-            "path": "src/domain/curriculum/teaching-access.test.ts"
-          },
-          {
-            "path": "playwright.desktop.config.ts"
-          },
-          {
-            "path": "docs/quality/PR35_FINAL_AUDIT.md"
-          }
+          { "path": "tests/e2e/access-control.spec.ts" },
+          { "path": "tests/e2e/course-hub.spec.ts" },
+          { "path": "tests/e2e/cloud-transfer.spec.ts" },
+          { "path": "scripts/e2e-plan-check.mjs" },
+          { "path": "docs/quality/PR36_FINAL_AUDIT.md" }
         ]
       }
     },
@@ -1278,110 +1063,100 @@
         "id": "MAJOR-01",
         "severity": "major",
         "status": "fixed",
-        "description": "Original if04/if07/if09 repeated actual guided decision structures, so unique blind answers did not establish robust transfer.",
-        "fix": "Changed if04 to separately successful MFA with missing SSO trust, if07 to replacement device without its Hello credential, and if09 to one person retaining separate private-customer/work-partner identities. Updated variants/feedback/changed keys, separately blinded revised3 and renewed stamp.",
+        "description": "Primary VM Contributor generic-resource View guard suppressed a known secondary Reader grant; swapping the same roles changed outside/outcome1 to allowed/outcome2.",
+        "fix": "Author guard now examines both roles and retains uncertainty only without a known granting role; explicit unsupported route/action bounds retained. Added symmetric role permutations and actual-control dual-order assertions. Four-file delta restamped and independently reviewed.",
         "retests": [
-          "Separate fresh revised3 blind lock91901bc529b5ba5438f3c8628c2c469f6105f6b0b5b0e17e1a3150759aebfa93;actual guide comparison",
-          "Post-stamp32 Identity/shared domain tests exit0;actual packet/90-pair independent probe exit0",
-          "Affected two browser cases16.3s exit0;independent actual-browser if07/if09 wrong-reason/correct-retry/immutable first probes exit0"
+          "Author domain30/build/type/lint/affected RBAC browser exit0.",
+          "Auditor domain/shared30 exit0; independent5,000 role-order cases exit0.",
+          "Auditor strengthened current production RBAC/Sandbox/prior-first/XP browser case passed as part of bounded selection.",
+          "61 final normalized hashes/fingerprint and57 unchanged initial files independently verified."
         ]
       },
       {
         "id": "MINOR-02",
         "severity": "minor",
         "status": "accepted-limitation",
-        "description": "Explicit premises and some categorical distractors allow elimination; several correct options, especially if04, are more detailed/longer. Blind uniqueness/position balance is not measured discrimination or transfer. Human learning/psychometric validation unperformed."
+        "description": "Some explicit premises directly remove distractors and several wrong reasons are categorical; ab09 valid plan is relatively long. Suitable constrained introductory application, with empirical discrimination/transfer/retention/psychometrics unperformed."
       },
       {
-        "id": "MINOR-03",
-        "severity": "minor",
-        "status": "fixed",
-        "description": "The dated SMS first-factor counterexample omitted the currently announced Microsoft-provided SMS/voice retirement.",
-        "fix": "Manuscript and IF27 claim now state retirement1February2027 including SMS first-factor, checked31October2026, and expressly avoid new-rollout advice.",
-        "retests": [
-          "Fresh normal-TLS IF27 body200/exact hash and factual reading",
-          "Post-stamp32 domain/shared tests and affected keyboard/browser exit0;author343curriculum/build exit0"
-        ]
+        "id": "NOTE-03",
+        "severity": "note",
+        "status": "accepted-limitation",
+        "description": "Initial auditor9-case process exited1:7P11+Benefits passed,19-context Hub blanked once on legacy Service Types. Cause unestablished. Direct actual-context diagnostic rendered correct entry with zero pageerrors/requestfailed; identical isolated19-context case passed21.0s without code/settings/assertion/timeout/retry changes. Original failure retained; complete exact-head CI must pass and recurrence warrants investigation."
       },
       {
         "id": "NOTE-04",
         "severity": "note",
         "status": "accepted-limitation",
-        "description": "Delivery pending:exact-head complete190 GitHub CI, success-only candidate receipt and strict release remain required. Local targeted/plan/historical checks cannot substitute."
-      },
-      {
-        "id": "NOTE-05",
-        "severity": "note",
-        "status": "accepted-limitation",
-        "description": "New Vercel feature preview and deployed-root/SHA journey unverified;older external Gate7 SSO block separate. Human SME,UX,screen-reader and measured learning remain unperformed. No merge/production deploy authorized."
+        "description": "Full exact-head198-case GitHub CI/candidate receipt/strict release pending; new feature preview ordinary-root/displayed SHA/journey/return unverified. No SSO bypass. Human SME/UX/screen-reader/learning/psychometric reviews unperformed. No merge/production deploy."
       }
     ],
-    "report": {
-      "path": "docs/quality/PR35_FINAL_AUDIT.md"
-    }
+    "report": { "path": "docs/quality/PR36_FINAL_AUDIT.md" }
   },
   "snapshot": {
     "files": {
-      "AGENTS.md": "4d56d9b54549881e135a80c2553b55652e11c500cf975c4632a958ea5c8c12bb",
-      "README.md": "9f6e036d93094937aae79baa820731d6b9a4079c975cd6f0dbca9293d2584e05",
-      "docs/ARCHITECTURE.md": "d0b245fe8c60cda6eb3776bc01eb764729fe0cea9ce5622e67107f7da939ed10",
-      "docs/AZ900_COVERAGE_MATRIX.md": "5fabfe3d814674564a165753822c4ec38b13456e5a10ba4fc137c9c7f8b73122",
-      "docs/AZ900_EXPANSION_ROADMAP.md": "24e9e8532d1055eeda193cb51b2f1073b6550ee923279c76ad833effbe61b84c",
-      "docs/DECISIONS.md": "f1e8f5e1a29f9e6b2225198e1a936a05e2960be40a4b721a99352a5816731985",
-      "docs/DEVELOPMENT_WORKFLOW.md": "b358960ad2dc6161335c0e962afa40ccf9d19627f50c73e5b89cf73ad35ec428",
-      "docs/IDENTITY_FOUNDATIONS.md": "ff79a09764b12ab756fd8638105a2e3e4c53febb8061d6f03d3771e529045314",
-      "docs/audits/az900-2026-07-20.json": "0f546d463abbc7fc03a240378bbcf816260ac193bc851333324577f279a37159",
-      "docs/screenshots/identity/access-decisions-1024x500.png": "3969e6f0631bad19f3823f7aae995dbd3b9f4119fa6d2aa9c7f7f5645a2fd1ae",
-      "docs/screenshots/identity/authenticated-denied-1920.png": "18ed942651947c69fa999ff9aa7fe36fe2e82655aabc56e38134c81d82c812db",
-      "docs/screenshots/identity/briefing-journey-1024x500.png": "4772641c956ca2dd29b39879eb55e1f4bfe7e2a504b31e590889b9d9c82de192",
-      "docs/screenshots/identity/customer-tenant-1024.png": "b4085425ba779de1367bee5d385ad641b89d39c4afb63e6911557b282c7a1dd5",
-      "docs/screenshots/identity/direct-connect-boundary-800.png": "3f4b322cc46f878462223ad45e85d265b1aa18bcc66de626d748ab7a50ada35d",
-      "docs/screenshots/identity/directory-matrix-1024.png": "d59c374be3ad8c1b1e71eb56473860223aec103edfe445811bfc5537aed3ed88",
-      "docs/screenshots/identity/feedback-if10-1024x500.png": "33ebe57a6fbc1f0febbde74b4da84c08fc5af623d2af770f876a2f8ef95caf3d",
-      "docs/screenshots/identity/hub-1440.png": "ecd686f3ecaf14c83135320541b43c94fbe27cc9a11e93841cdf98aa2b5d3a8c",
-      "docs/screenshots/identity/identity-group-1440.png": "93902accb7a9b78d209901041ecd1127a7b010a163d7404d368c62556774d9c3",
-      "docs/screenshots/identity/independent-if10-1024.png": "1ff5f0a8239c26102aa76e7b79d4b73f131048caac07977a5fd774f092e51c8a",
-      "docs/screenshots/identity/introduction-1440.png": "a66a9e33ee796530980370eba09fb599412613a1facff172e9e834b25b7cb68a",
-      "docs/screenshots/identity/managed-domain-1366.png": "abd052df97719a36db95e5e18f00b4711192cf84ea2d6ae49ffffcd9ce1ee222",
-      "docs/screenshots/identity/method-matrix-1366.png": "1b59bae1b8ccef53139a1e046417937cea9ac6f716c8a6990c07073c77c07992",
-      "docs/screenshots/identity/partner-resource-1440.png": "fb4425c478b39aba780f099f9792c397c98d8f7ac17546f56a89069b2965b4d8",
-      "docs/screenshots/identity/sso-reused-1440.png": "3a80cc27d631001bb6f389c9b7510add5f734caca47d7c80cb0c65795be3d2f4",
-      "package.json": "9d8dd0286d901b7ea4fbd59e8d1d2eb1bed0466f7c6b9bed3806cb01ea3e1cf1",
-      "playwright.desktop.config.ts": "7c9447bb2c644cb17de2a7523c4ccd52c32b4930696791ce1385a994b850951d",
-      "scripts/az900-audit-check.test.mjs": "ecd07327c4cb07435409a07f10cb1ed8173181fcaa2d11774dd9c10cae9424bb",
-      "scripts/e2e-plan-check.mjs": "b45b6aa221b14ce1af9a0c99d4bd78366da6bcab00a5e54931f7ef5369087f21",
-      "src/app/layout.tsx": "67b8465ff2662729c882f6e9a6f9d22a1aea71fb33fc1c78e8f540a3fce134bf",
-      "src/app/learn/[module]/page.tsx": "fa130b3efd610a3981bad8b99fa4dabb1bbec3e9771b75e1e09ef0b32cc40dd8",
-      "src/components/progress-provider.tsx": "1d510d5f6e83b6b7c2e2d8bd3a2860bdb545e53a5e3f16000f1a08222c4e64b0",
-      "src/content/nb.ts": "04fdb2c37ab80e691e940f6dcef0f5f5a41052047d4e30f9703d270c9e503d53",
-      "src/domain/course/model.ts": "3b1cb476509a9c1e0fc97c31783df50a8cac7142c6da2aeb640c3df69449fee2",
-      "src/domain/curriculum/identity-foundations-items.ts": "586a1dd0b16e592a4a3962b5bc038ab109b41b8eff0fa9b3985ae01d383ad2da",
-      "src/domain/curriculum/identity-foundations-model.ts": "48e2ce025c5ab4a35cd8203aa63e714edc90b3636482b1cfde52fa310eafc58c",
-      "src/domain/curriculum/identity-foundations-sources.ts": "4cbc22b3d8b64c31bad11c6fe3fc4d5bc512d910718475c0621001577337b265",
-      "src/domain/curriculum/identity-foundations-store.ts": "6f675af7c59f3bd76f1f38e9a3593ca40fd58b76361dd15b28679348311a2aff",
-      "src/domain/curriculum/identity-foundations.test.ts": "1b7e4ab1cf1bafbc32b0b4ce3436d25ef6043482af58a0323986a9181fcaddd2",
-      "src/domain/curriculum/identity-foundations.ts": "7b8d536e367c1994cf651e382e6f3916a464c8746798f24b84ebd423590abcde",
-      "src/domain/curriculum/official.ts": "20f26142e64b8994036288fccac7e0e5c31cc381aee22f58f85b5e3221f991e1",
-      "src/domain/curriculum/teaching-access.test.ts": "5758c19184ee35191107b731a6f857a962f74d2322c83c27b2821d182420b14e",
-      "src/domain/guidance/milestones.ts": "428152615a15a7fcca14cb086592c99229f4644d30af2b50c27c738713c07aca",
-      "src/features/course/course-hub.tsx": "79e3ab3244dca0581983f7a00319d1b3c74b87fdf91e21e844772164552d11fc",
-      "src/features/course/course-outline.ts": "229f6c62f501d3187fa340081995ea8dc8e4137ea2468c67a364648da426d4d6",
-      "src/features/course/course-sidebar.tsx": "3d45b684640e6c43b9d8e6fbd9c8c31d16c361d117a81c6836e68a9621e4c3e7",
-      "src/features/course/course.tsx": "1848c24f4ff59aee77209bc942027fc74e2164c0ee2cc9277a744b143847d58d",
-      "src/features/course/mission-context.ts": "95bf48e26f63ff3e33499272e601908650b172524fdba8520eb795ee402e5c07",
-      "src/features/learning/identity-foundations-assessment.tsx": "f2ead1e8e09a7024e4e4145b6d3a40dac940e9408fc675407bab6e0fda889ffc",
-      "src/features/learning/identity-foundations-provider.tsx": "7baa976d835d4e70553b25c19dbe1c600f83c573052fa4fbb762f9915f69aa70",
-      "src/features/learning/identity-foundations-visuals.tsx": "f96fb4341f7f43cbfbc88ce77e2d5506dca79e8abb7a64df89e6cf8bec798038",
-      "src/features/learning/identity-foundations-workbench.tsx": "1f6e74139f74a04e3a95dbc5b5223d446f0f9246d8918f2d5985a6e626c7d16c",
-      "src/features/learning/identity-foundations.css": "5f5e3a4603837a72cd243649da30bbcfdba1a72d8811ba95ed45350b0fa0cea3",
-      "src/features/learning/identity-foundations.tsx": "eb42136b72029ace3208a7ca4766f829560db93f3cfd0248b2aa52834428bf13",
-      "src/features/learning/management-access.tsx": "45268bdf102950c79a08554120e7e0f7b6fc0b540be4e71c4d48ed2c90c00710",
-      "src/features/portal/portal.tsx": "f68aa75fff72cf716ff2befd97004ead5cfd78bb9a7c3177bacd347fc0bed597",
-      "tests/e2e/course-hub.spec.ts": "f256315ae16e7b985702052000bb01e61bcc00f67575746118cd8a515345210d",
-      "tests/e2e/identity-foundations.spec.ts": "ec5509f01a08043c6cbf72726d0a88f5d2645c2df5e9b0a24e3293c9ba6e4860",
-      "tests/fixtures/active-teaching-contexts.ts": "4a7913fa944003d979debd29975b83c764af4849a956061c2a27f13875bfd0f6",
-      "tests/fixtures/identity.ts": "e7e4a1b5009b14b50f7f0205b3765e6275a3fe114790cb2d8a76ea2848083ce8"
+      "AGENTS.md": "d474fa9617af504c75b9ec06f0523927002671bd794e6399982cda214451b882",
+      "README.md": "ca1d5b46f9cecb9da7f329f420f166b2b7a12f236bcfa651a4c42af0a4dafa21",
+      "docs/ACCESS_CONTROL.md": "ae37df5a5b14aedd768ee55a0a07efda0a9b3ef34032ec826baea680bae80403",
+      "docs/ARCHITECTURE.md": "f57f8e19b6f06d2b3066cced2d4b661afcfe270b8c5a46136893ecbecc72a172",
+      "docs/AZ900_COVERAGE_MATRIX.md": "f628c07428706e3aafe64d89729449e868f85c26df5265b8bacf9ecabe6a6cda",
+      "docs/AZ900_EXPANSION_ROADMAP.md": "cc82794cd26a9f2c4c594c4131dfffd143be2f86856420caa5be7fdcd4b82425",
+      "docs/DECISIONS.md": "c4eebbc3f3134a244ddfed4563e56ad69687e6036e418e042bf4bbcef68c777f",
+      "docs/DEVELOPMENT_WORKFLOW.md": "71d2f6653be6dec6b593c262d370059bd0965b1a765154addd0ac8501c412c97",
+      "docs/audits/az900-2026-07-20.json": "941f4abea30da48acbefb34f8055ee0dd55a7bb2c424f938d7e3ba27722f5f62",
+      "docs/screenshots/access-control/actual-sandbox-ancestry-1440.png": "3fce9c421aad5a29d8b790a4025043dddb6537b7baa39287921281ff8444141f",
+      "docs/screenshots/access-control/briefing-rbac-1024x500.png": "30c202c44b920fc09fd4015506be26353bd5fa10ac1a92f120a981bbe9e1f549",
+      "docs/screenshots/access-control/ca-and-rbac-met-800.png": "eb88facf1ef1cd9319f0796d9f0a8d0d28a90c1c64c9b5bd31051afdf9139dae",
+      "docs/screenshots/access-control/ca-enforced-block-1366.png": "71e4220bab5da8535215c3a93dc23931d7eb3b8b14c712ce455407a6ddfec53e",
+      "docs/screenshots/access-control/ca-missing-device-1440.png": "55cbf763837b4ee3d6f50ec7d04aae45a81772f0216f238efd02611c244b834d",
+      "docs/screenshots/access-control/ca-report-only-1024.png": "b4d6da5897c3552d4b598a033c1262ac50c4df921e405b97639aafb5aeb538e0",
+      "docs/screenshots/access-control/feedback-valid-group-plan-1024x500.png": "7dc1afce94658880c895c56f0aad5efed8112f252f53ef14440ea9cc5c931103",
+      "docs/screenshots/access-control/hub-1440.png": "ecd686f3ecaf14c83135320541b43c94fbe27cc9a11e93841cdf98aa2b5d3a8c",
+      "docs/screenshots/access-control/independent-ab09-1024.png": "c5ecfbe877f6c145e5675458c19fcbbc18fd99c721fbe5f0646e38f1d81d7df0",
+      "docs/screenshots/access-control/introduction-1440.png": "994e3fad5c286372c49e6dac7ae833b24929351af0fda42dbb2b049ea4334722",
+      "docs/screenshots/access-control/rbac-data-plane-1366.png": "239401113dc37b9f55c3a263d428b9f3dd65f09d8233cb8e408f2d9a52f7f1cd",
+      "docs/screenshots/access-control/rbac-inheritance-1920.png": "b2ccb111fac13bebf25e94636efb7b83d4af9432fc67c669b7d3d24425267225",
+      "docs/screenshots/access-control/rbac-narrow-role-1440.png": "c645e3dd0f19e3f10ccc26e2be7970e9668f3d8a3b5fcf278f8d83829534dbab",
+      "docs/screenshots/access-control/rbac-role-matrix-1024.png": "5d2142d64660fafa15f4669dcae09710dc1f06b564f1aa79ab7f78be4abef9e9",
+      "docs/screenshots/access-control/rbac-upward-denied-1024.png": "6e806cb5023512beb0188e6ae266a1a907a07d464b9b2dc1485e1f70734244d6",
+      "docs/screenshots/access-control/studio-entry-1440.png": "5f7598a59da41d70078e2c463fa50eeadc39be3a835f1d36a7e9159f188a7552",
+      "package.json": "165ccad5a66c457c000d4379697d3a8b0f3e193d035ac8adf5e4d240ee456e1b",
+      "playwright.desktop.config.ts": "f903c4e95c0780e6a050cd30452160db84c6f150c14a1543f7d2b2caec014a43",
+      "scripts/az900-audit-check.test.mjs": "8d6839e2105191a683c1448aa5bf2390e8be88bee807d53b5f21e472a2f035ed",
+      "scripts/e2e-plan-check.mjs": "fe80384e12bc3a2e5f2a7035c90b61288fdf3a5ac1f176302c3081e473a00542",
+      "src/app/layout.tsx": "003befc68638cd0a3ca9574c4935da7f073d5ad6c704285244ebe25ff170de2d",
+      "src/app/learn/[module]/page.tsx": "6386ace7fd0e9f01b018eae2e359beee5b2b33e6d1f1133d6d350a318b1b34d4",
+      "src/components/progress-provider.tsx": "f871452b7ed1a8eb22dfc3fde6b13df57dbbb33de4adb0566f7d22a23292aecf",
+      "src/content/nb.ts": "4a1d6510ee51245037c527ccf00e901abd0d9bcf32d7417e027dd9e7d10e76d0",
+      "src/domain/course/model.ts": "84c99751920d788917ec948dee8cc458e7dbd71abd4950bed9450a186678fbea",
+      "src/domain/curriculum/access-control-items.ts": "80766d442bd7a93e603e1d479033b296c598578be488a3d2880637207208a021",
+      "src/domain/curriculum/access-control-model.ts": "ed75e0fa2dd7fe2b29d760ee365d31ee5cd1bfc0bd516f23924df7bb0b7a79fc",
+      "src/domain/curriculum/access-control-sources.ts": "16f12c8f5d9b415322d136149625dc0852b4eb8cc331117310955282a7821593",
+      "src/domain/curriculum/access-control-store.ts": "3825a4842f18f7bffb38863946c6fc3e26799c84c7987a91c4bc17cc706ee2e5",
+      "src/domain/curriculum/access-control.test.ts": "eef8a8230d171845c8f496e07b7b3c64d8f683bc902c18f162f066acd6ba72e0",
+      "src/domain/curriculum/access-control.ts": "0fc4df5b03d524fb7c1f8276dd81bcf67439b32c8ab6dccba0f6afb0e56c5554",
+      "src/domain/curriculum/official.ts": "cb0e6a5370dfd54bd491c25a8712caffa9e6d1dc610d252b11915566e2372bef",
+      "src/domain/curriculum/teaching-access.test.ts": "972dce9f944265e5667af40e12187c704e2e107c9cfa37c3a60801de0a38b977",
+      "src/domain/guidance/milestones.ts": "83c6fe742476534b38e7ba3fcaba7288fe8aad6bcf0dd5e40636bfa4227ba355",
+      "src/features/course/course-outline.ts": "bef9193d79c5640e276927c18f849b1b7bc1cf349377f082cd13f3165c80e4d7",
+      "src/features/course/course.tsx": "c09f9672535115d026eab4309c86645f5e8d5ee02c29b15dee18450f88ac08a4",
+      "src/features/course/mission-context.ts": "5dbe421b903a33b88d680de15327b786c27dbeb8af32af4ce85db9defec29d40",
+      "src/features/learning/access-control-assessment.tsx": "76ac560efb65759691621e515df26ce88dd3257be360fa778d3db4c3ef579193",
+      "src/features/learning/access-control-controls.tsx": "4df384885c9f522efeb33e453ea6f35e257427edbabd5ea650bb78f2f281354b",
+      "src/features/learning/access-control-provider.tsx": "920eaa96bed6a067914f90ae99800882971f7a0ec8c46df93fa7112d5671c941",
+      "src/features/learning/access-control-visuals.tsx": "473d493643324b1214035bc0124f8e6383736fd586a4ff6d8905016bddf0f71d",
+      "src/features/learning/access-control-workbench.tsx": "6297cfe0b6b9f670e27a4ef0d625aaac45114249c8b59721e4c0d3a2c69483cb",
+      "src/features/learning/access-control.css": "800bdb1ef17cb0dc6437576569de2ad1a9d83f877a4d041329e21c513cda8f70",
+      "src/features/learning/access-control.tsx": "f7aa0ddd344254c6f1ecc0db0d7563f2fcdc46cdd72cdddaf4c28b6b2bf76eb2",
+      "src/features/learning/management-access.tsx": "b4c0770f5f5ebc5313b52e9a28f8dcfdf8e8937a1259ca1846cfaf97d78d9a25",
+      "src/features/portal/portal.tsx": "aa3cb18d424fde733e8e2c488bebefb1a818f890c889512174241101048b7bb2",
+      "tests/e2e/access-control.spec.ts": "215d540674287cf75cbb3335ccad372c512fb0f1d0bd833b9881e4d6a0dc0dee",
+      "tests/e2e/cloud-transfer.spec.ts": "3fd2f8172735d065e2e6a1e6cc443b7d112410726674b3150d2c5afbb6ea04f8",
+      "tests/e2e/course-hub.spec.ts": "ef85b5b6500519fc1d2bd54642ad84c1a8a782f93abbd80cb8931ccf2c232d2c",
+      "tests/e2e/identity-foundations.spec.ts": "1acdabe36ebd8e47efb92ebda001c49d6e98ab614589f8bb74a13135e7b447b2",
+      "tests/fixtures/access.ts": "4b249b71e94678202401b2742763a9363deda551ecc4733df6fbc9288715a6ec",
+      "tests/fixtures/active-teaching-contexts.ts": "fb7136744c42b1f00866b07da771e6116184d02b4df2c66ba559c4b169ce69aa"
     }
   },
-  "implementationFinished": "2026-10-31T21:22:59.325Z"
+  "implementationFinished": "2026-11-01T00:00:11.410Z"
 }

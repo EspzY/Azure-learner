@@ -123,6 +123,9 @@ test('Benefits wrong first has selected-specific feedback, then durable theory h
   await page.getByRole('dialog').getByRole('button', { name: c.start, exact: true }).click();
   await page.getByRole('link', { name: c.help, exact: true }).click();
   await expect(page).toHaveURL(/topic=governance/);
+  // A URL can commit before the token-bound durable teaching preflight.
+  // Require the real lesson to mount, then retain the exact persisted-aid assertion.
+  await expect(page.locator('.expanded-module')).toBeVisible();
   expect(transferFacts(await state(page)).current?.assisted).toBe(true);
   await page.goto(transferHref('accepted-configuration'));
   await answer(page, 'accepted-configuration', 0, 1);

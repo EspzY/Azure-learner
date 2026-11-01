@@ -71,6 +71,7 @@ for (const file of [
   'storage-services',
   'storage-resilience',
   'identity-foundations',
+  'access-control',
 ]) {
   if (!compact.some((x) => x.file.endsWith(`${file}.spec.ts`)))
     throw Error(`Missing justified compact surface: ${file}`);
