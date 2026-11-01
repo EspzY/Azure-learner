@@ -40,6 +40,8 @@ Alle funn var åpne produktfunn i PR42. PR43 implementerer nå avgrenset LJ-01 o
 - **Risiko:** global CSS/reset, Portal-blades, focus trap/retur, Escape, korte vinduer og lange starttekster.
 - **Akseptanse/tester:** geometrisk sentrering ved 1440×900 og 1024×768; full obligatorisk tekst/knapper kan nås ved 1024×500 og zoom; Escape avbryter uten forsøk og returnerer fokus. Test normal dialog både på Course og Portal, Journal, native SavvyShark og uendret høyrestilt Notifications. Axe, keyboard og reduced motion. Ikke «fiks» riktige sidepaneler ved å sentrere alt.
 
+**PR44 — implementert og lokalt retestet:** årsaken er bekreftet på PR43s offentlige full-SHA-preview: global margin0 på native dialog. Tre avgrensede CSS-linjer gir auto-margin bare til ordinære dialoger. Alle lokale akseptansekontroller består: fire assessments, Journal og Portal Help geometrisk sentrert; kortvindu, ekte200%browserzoom/forstørret tekst, fokus/Escape/Axe; uendrede sidepaneler/native guider/PR43 recovery; denied durable Journal og historisk first bevart. [Før/etter og avgrensning](../DIALOG_PLACEMENT.md). UX-01 er rettet i kandidaten; endelig leveranseaksept krever separat audit, eksakt-head274CI/strict og faktisk ekstern Gate7, dokumentert på Draft PR44. Ingen andre funn lukkes.
+
 ### LJ-02 · P1 · Curriculum Sequencing & Theory Consolidation, første trinn
 
 - **Berørt:** standard overgang Storage B→Migration og Security→Cost, samt eksplisitte forkunnskaper i `migrationNb` og `securityNb`.

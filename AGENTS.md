@@ -1,5 +1,9 @@
 # AzureLab engineering contract
 
+## PR44 dialog continuity
+
+Read [DIALOG_PLACEMENT](docs/DIALOG_PLACEMENT.md). Ordinary native PortalDialog owns auto margin; explicitly exclude portal-side-panel. Preserve native SavvyShark and PR43 header recovery anchoring, all focus/Escape/durable assistance and historical contracts. No new modal engine/state/schema. Retain265 old browser executions; nine justified new cases yield274 (253desktop/21compact), optional legacy506. No changed workers/retries/timeouts/skips. Separate post-stamp six-domain risk-based audit, exact-head CI/strict and anonymous deployed full-SHA journey required. Next LJ-02, then AS-01/UX-02; no P17/P18, merge or production.
+
 ## PR43 learning-flow continuity
 
 Read [LEARNING_FLOW_GUIDANCE](docs/LEARNING_FLOW_GUIDANCE.md). Derive primary guidance from existing stores/evaluators only; no persistent progress engine or changed completion/schema. Explicit briefing link does not Start. Independent and uncertain histories precede guided navigation; preserve durable aid, technical attempt/origin, scoped recovery and every old first/rubric/World/receipt/XP. Header SavvyShark recovers existing resident guides or returns Studio-owned work; neutral free/independent status gives no answer-bearing help. Pinned desktop-first265 (245/20), legacy490 optional, settings unchanged. Separate post-stamp risk-based six-domain review, exact-head CI/strict and anonymous deployed full-SHA journey required. Next UX-01; LJ-02/AS-01/UX-02 remain; no P17/P18, merge or production.

@@ -5,6 +5,10 @@ import baseline from './playwright.config';
 // names. No test body, assertion, title, timeout or skip is modified.
 const compactCases = [
   [
+    'dialog-placement.spec.ts',
+    'Portal ordinary modal side panels native briefings and guidance menu retain distinct desktop compact placement',
+  ],
+  [
     'learning-flow-guidance.spec.ts',
     'Guidance desktop compact keyboard short windows reduced motion and Axe keep recovery and next actions reachable',
   ],
