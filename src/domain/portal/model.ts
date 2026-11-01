@@ -39,6 +39,7 @@ export const benefitBridgeTopics = [
   'sustainability',
 ] as const;
 export interface PortalLocation {
+  security?: 'trust' | 'depth' | 'defender';
   monitoring?: 'evidence' | 'health' | 'telemetry';
   tools?: true;
   governance?: true;
@@ -61,8 +62,28 @@ export function parseLocation(query: URLSearchParams): PortalLocation {
   const area = query.get('area') ?? 'home',
     mode = query.get('mode') ?? 'learn';
   return {
+    ...(query.get('security') === 'inspect' &&
+    ![
+      'monitoring',
+      'tools',
+      'governance',
+      'networking',
+      'compute',
+      'mission',
+      'practice',
+      'bridge',
+      'lab',
+      'course',
+    ].some((k) => query.has(k))
+      ? {
+          security: (['trust', 'depth', 'defender'].includes(query.get('perspective') ?? '')
+            ? query.get('perspective')
+            : 'defender') as 'trust' | 'depth' | 'defender',
+        }
+      : {}),
     ...(query.get('monitoring') === 'inspect' &&
     ![
+      'security',
       'tools',
       'governance',
       'networking',
@@ -81,6 +102,7 @@ export function parseLocation(query: URLSearchParams): PortalLocation {
       : {}),
     ...(query.get('tools') === 'intent' &&
     ![
+      'security',
       'monitoring',
       'governance',
       'networking',
@@ -95,6 +117,7 @@ export function parseLocation(query: URLSearchParams): PortalLocation {
       : {}),
     ...(query.get('governance') === 'policy' &&
     ![
+      'security',
       'monitoring',
       'tools',
       'networking',
@@ -109,6 +132,7 @@ export function parseLocation(query: URLSearchParams): PortalLocation {
       : {}),
     ...(query.get('networking') === 'inspect' &&
     ![
+      'security',
       'monitoring',
       'tools',
       'governance',
@@ -123,6 +147,7 @@ export function parseLocation(query: URLSearchParams): PortalLocation {
       : {}),
     ...(query.get('compute') === 'vm' &&
     ![
+      'security',
       'monitoring',
       'tools',
       'governance',
@@ -200,6 +225,10 @@ export function portalHref(
   if (next.networking) query.set('networking', 'inspect');
   if (next.compute) query.set('compute', 'vm');
   if (next.governance) query.set('governance', 'policy');
+  if (next.security) {
+    query.set('security', 'inspect');
+    query.set('perspective', next.security);
+  }
   if (next.monitoring) {
     query.set('monitoring', 'inspect');
     query.set('perspective', next.monitoring);

@@ -59,6 +59,7 @@ if (expected.length !== declared.length || !equal(ids(expected), ids(compact)))
     `Compact selection differs: ${declared.length} declared, ${expected.length} found, ${compact.length} selected`,
   );
 for (const file of [
+  'security-principles',
   'monitoring-diagnostics',
   'management-tools',
   'course',

@@ -1,4 +1,11 @@
 import {
+  freshSecurity,
+  applySecurity,
+  securityKey,
+  restoreSecurity,
+  securityFacts,
+} from '../../src/domain/curriculum/security';
+import {
   freshMonitoring,
   applyMonitoring,
   monitoringKey,
@@ -127,6 +134,12 @@ function fixture<S>(
 /** Valid records from frozen reducers, never new runtime curriculum. */
 export function activeTeachingContexts() {
   return [
+    fixture(
+      securityKey,
+      applySecurity(freshSecurity(), { kind: 'begin', item: 'sp01' }),
+      restoreSecurity,
+      securityFacts,
+    ),
     fixture(
       monitoringKey,
       applyMonitoring(freshMonitoring(), { kind: 'begin', item: 'md01' }),

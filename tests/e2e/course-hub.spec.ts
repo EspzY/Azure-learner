@@ -216,6 +216,7 @@ test('all twenty-two independent contexts resume their own exact route without m
   baseURL,
 }) => {
   const expected: Record<string, string> = {
+    'azurelab.learning.security-principles.v1': '/learn/security?topic=assessment&case=sp01',
     'azurelab.learning.monitoring-diagnostics.v1': '/learn/monitoring?topic=assessment&case=md01',
     'azurelab.learning.management-tools.v1': '/learn/management-tools?topic=assessment&case=mt01',
     'azurelab.learning.governance-compliance.v1': '/learn/governance?topic=assessment&case=gc01',
@@ -277,7 +278,7 @@ test('all twenty-two independent contexts resume their own exact route without m
       href: missionOrigin('platform'),
     },
   ];
-  expect(fixtures).toHaveLength(22);
+  expect(fixtures).toHaveLength(23);
   for (const fixture of fixtures) {
     expect(fixture.href, fixture.key).toBeTruthy();
     expect(fixture.raw).not.toBe('null');

@@ -8,7 +8,7 @@ const data = JSON.parse(
 );
 test('all 57 pinned official slots and code/evidence/source references resolve', () => {
   assert.deepEqual(validateAudit(data), []);
-  assert.equal(data.objectives.filter((r) => r.status === 'COMPLETE').length, 52);
+  assert.equal(data.objectives.filter((r) => r.status === 'COMPLETE').length, 55);
   assert.equal(
     data.objectives.filter((r) => r.slot.startsWith('1.') && r.status === 'COMPLETE').length,
     15,
@@ -131,4 +131,20 @@ test('public calculator is an exact official HTTPS source, not a lookalike or in
     assert.ok(validateAudit(invalid).some((e) => e.includes('CS28: missing official source')));
   }
   assert.deepEqual(validateAudit(data), []);
+});
+
+test('generated sources distinguish individual review date, baseline fallback and product update date', () => {
+  const copy = structuredClone(data);
+  copy.sources.SEG01.reviewed = '2026-11-01';
+  delete copy.sources.SEG01.pageUpdated;
+  delete copy.sources.M01.reviewed;
+  delete copy.sources.M01.pageUpdated;
+  copy.sources.SEG02.reviewed = '2026-11-01';
+  copy.sources.SEG02.pageUpdated = '2026-10-29';
+  const lines = renderMatrix(copy).split('\n');
+  const row = (id) => lines.find((line) => line.startsWith('| ' + id + ' |'));
+  assert.match(row('SEG01'), /Rolling page; reviewed 2026-11-01/);
+  assert.ok(row('M01').includes('Rolling page; reviewed ' + copy.reviewed));
+  assert.match(row('SEG02'), /Page updated 2026-10-29; reviewed 2026-11-01/);
+  assert.ok(!renderMatrix(copy).includes('Alle lenker ble kontrollert 2026-10-26'));
 });

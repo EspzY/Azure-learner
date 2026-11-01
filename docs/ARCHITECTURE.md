@@ -1,5 +1,9 @@
 # Architecture
 
+## P15 isolated security design and evidence models
+
+[Security contract](SECURITY_PRINCIPLES.md): pure typed security-model exposes trust design questions, seven-layer control contributions under explicit failure assumptions, and Defender feature/evidence/plan comparisons. It imports no Sandbox World or commands. Read-only resource/context/receipt presentation never supplies patch, protection, telemetry or compromise evidence. No generalized security, CA/RBAC, crypto or scan engine. Independent contract azurelab.learning.security-principles.v1 reuses bounded replay/CAS/reserve/recovery and immutable first/family classification; all23 shared contexts protect teaching, Journal, Summary, old feedback, missions and Portal. Existing identity/access models and all earlier rubrics remain unchanged.
+
 ## P14 synthetic monitoring boundary
 
 `monitoring-model.ts` uses closed deterministic inputs and fixed independent fixtures; Portal inventory/ledger are read-only configuration context, never metric/log/trace sources. New isolated monitoring key, provider and existing shared assistance boundaries preserve old evidence. No ingestion/query engine, real alerts or runtime-health inference. See [MONITORING_DIAGNOSTICS](MONITORING_DIAGNOSTICS.md).

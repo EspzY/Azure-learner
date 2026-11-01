@@ -5400,6 +5400,7 @@ export const managementNb = {
   accessReload: 'Les lagret vurderingskontekst på nytt',
   accessReview: 'Åpne egen vurdering og lagringskontroll',
   accessContexts: {
+    security: 'Security Part C',
     monitoring: 'Monitoring & Diagnostics',
     tools: 'Management & Deployment',
     governance: 'Governance & Compliance',
@@ -5959,6 +5960,7 @@ export const missionsNb = {
   reloadContext: 'Last inn bare denne konteksten',
   reviewContext: 'Åpne kontekstens eksisterende recovery eller vurdering',
   recoveryContexts: {
+    security: 'Security Part C',
     monitoring: 'Monitoring & Diagnostics',
     tools: 'Management & Deployment',
     governance: 'Governance & Compliance',
@@ -11360,6 +11362,7 @@ export const courseHubNb = {
     },
   },
   moduleLabels: {
+    security: 'Part C — Security Principles & Defender for Cloud',
     monitoring: 'Monitoring & Diagnostic Tools',
     'management-tools': 'Management & Deployment Tools',
     governance: 'Governance & Compliance',
@@ -11380,10 +11383,11 @@ export const courseHubNb = {
   storage: 'Storage',
   identity: 'Identity, Access & Security',
   plannedModules: {
-    architecture: ['Security Principles (P15)', 'File Movement & Migration (P16)'],
+    architecture: ['File Movement & Migration (P16)'],
     management: [],
   },
   recordLabels: {
+    security: 'Security Part C',
     monitoring: 'Monitoring & Diagnostics',
     tools: 'Management & Deployment',
     governance: 'Governance & Compliance',
@@ -13258,7 +13262,7 @@ export const identityNb = {
   prerequisites:
     'Forkunnskaper: tenant/subscription/resource group fra Core Architecture og kundens identitets-/tilgangsansvar fra Service Types. Storage Part B forklarer at data kan være bevart og tilgjengelige uten at en bestemt bruker har tilgang.',
   available:
-    'Tre konseptuelle undersøkelser, guidede oppdrag og nye selvstendige situasjoner. Conditional Access og Azure RBAC kommer i Part B (P11); Security-prinsipper kommer i P15.',
+    'Tre konseptuelle undersøkelser, guidede oppdrag og nye selvstendige situasjoner. Fortsett med RBAC og Conditional Access i Part B, deretter Security Principles og Defender for Cloud i Part C.',
   topics: {
     introduction: 'Fra ressurser til identitet',
     directory: 'Microsoft Entra ID og tenant',
@@ -14164,7 +14168,7 @@ export const accessNb = {
   prerequisites:
     'Forkunnskaper: Identity Part A om identitetsbevis og AuthN/AuthZ; Core Architecture om tenant, subscription og management-scope.',
   available:
-    'To konseptuelle undersøkelser, originale selvstendige situasjoner og separat læringshistorikk. P15 Security Principles og Defender er fortsatt planlagt.',
+    'To konseptuelle undersøkelser, originale selvstendige situasjoner og separat læringshistorikk. Security Principles og Defender for Cloud er tilgjengelig som Part C.',
   perspective: 'Perspektiver i Azure Access Decision Studio',
   studioLead:
     'Velg RBAC eller Conditional Access. Start en avgrenset undersøkelse, forutsi før kjøring og følg hvor i beslutningen et krav gjenstår. Alle resultater er deklarerte konseptmodeller.',
@@ -17231,7 +17235,7 @@ export const monitoringNb = {
   prerequisites:
     'Du kjenner ressursorganisering, lokal Portal-konfigurasjon, tilgang og skillet mellom management-resultat og applikasjonsdrift. Her undersøker du hvilke observasjoner som trengs i tillegg.',
   available:
-    'Advisor, Service Health og Azure Monitor med Log Analytics, alerts og Application Insights er tilgjengelige her. Security Principles/Defender og File Movement/Migration kommer senere.',
+    'Advisor, Service Health og Azure Monitor med Log Analytics, alerts og Application Insights er tilgjengelige her. Security Part C er tilgjengelig i Identity, Access & Security. File Movement/Migration kommer senere.',
   studioLead:
     'Alle tall, hendelser og spor er faste syntetiske Fjordverk-eksempler. De er ikke målinger av ressursene i din Sandbox. Velg en hypotese, forutsi, kjør og sammenlign lagrede observasjoner.',
   sections: {
@@ -18059,5 +18063,1053 @@ export const monitoringItemsNb = {
     ],
     explain:
       'Hvis en relevant aktiv regel, innsamling og action group allerede var dokumentert, kunne teamet undersøkt evaluering og levering. Ved endret app/scope må dekningen verifiseres på nytt.',
+  },
+} as const;
+
+export const securityNb = {
+  milestoneNotice:
+    'Forklaringen bygger på lagrede, validerte modellresultater. Den er veiledning, ikke en selvstendig besvarelse eller en Azure-kvittering.',
+  pauseGuided: 'Sett oppdraget på pause',
+  recallGuided: 'Gjenoppta lagret sikkerhetsundersøkelse',
+  assessmentActive: 'En annen selvstendig sikkerhetssituasjon er aktiv.',
+  currentFeedback: 'Feedback — Security Principles',
+  historyFeedback: 'Tidligere Security Principles-arbeid',
+  labels: {
+    terms: 'Begreper i denne forklaringen',
+    example: 'Gjennomarbeidet eksempel',
+    limits: 'Avgrensning og moteksempel',
+    sources: 'Offisielle kilder · kontrollert 1. november 2026',
+    model: 'Avgrenset konseptmodell — ingen sikkerhetsruntime',
+    configured: 'Undersøk deklarerte valg og datakilder',
+    observed: 'Sist lagrede modellobservasjon',
+    predicted: 'Din prediksjon',
+    result: 'Modellens resultat',
+    run: 'Kjør konseptmodell',
+    predict: 'Forutsi konsekvensen under disse forutsetningene',
+    cause: 'Forklar årsaken',
+    explain: 'Lagre årsaksforklaring',
+    done: 'Guidet anvendelse dokumentert',
+    pending: 'Ikke dokumentert ennå',
+    begin: 'Åpne SavvyShark-briefing',
+    cancel: 'Avbryt',
+    recall: 'Gjenåpne briefing',
+    next: 'Neste handling',
+    where: 'Hvor finner du kontrollen?',
+    why: 'Hvorfor gjør du dette?',
+    expected: 'Hva skal du observere?',
+    actual: 'Faktisk registrert',
+    aided: 'Med registrert hjelp',
+    retry: 'Gjeneksponert familie / retry',
+    unaided: 'Første uassisterte forsøk',
+    guided: 'Guidede oppdrag',
+    visited: 'Undervisningsaktiviteter åpnet',
+    independent: 'Uavhengige innleveringer',
+    noXp: 'Ingen XP eller automatisk godskriving fra tidligere identitets-/sikkerhetsarbeid.',
+    human:
+      'Kvalifisert menneskelig Azure-SME-, novice/IT-, UX-, skjermleser- og målt transfer-validering er ikke gjennomført.',
+    switch:
+      'Ett guidet oppdrag er nåværende. Gjenoppta et lagret oppdrag for å beholde dets forutsetninger og observasjoner, eller start et nytt forsøk. Pause og vanlig navigasjon sletter ikke arbeidet.',
+    current: 'Fortsett nåværende oppdrag',
+    notice:
+      'Start lagrer bare en pedagogisk undersøkelse. Ingen tilgangskontroll, skanning eller ressursendring utføres.',
+    predictionOptions: [
+      'Velg prediksjon før kjøring',
+      'Valget eller bidraget passer ikke de deklarerte kravene',
+      'Forutsetninger eller evidens er utilstrekkelige',
+      'Et avgrenset bidrag kan begrunnes under premissene',
+    ],
+    chooseCause: 'Begrunn helheten og gjenværende risiko',
+    modelBoundary: 'En konseptuell kontroll er ikke en faktisk konfigurert sikkerhetskontroll.',
+    trust: 'Zero Trust Decision Explorer',
+    depth: 'Defense-in-Depth Explorer',
+    defender: 'Defender for Cloud Explorer',
+  },
+  storage: {
+    loading: 'Laster Security Principles …',
+    title: 'Security-historikken må avklares',
+    text: 'Data kan ikke brukes sikkert. Gjenopprett bare denne ugyldige læringskontrakten etter eksplisitt bekreftelse.',
+    reload: 'Last inn Security på nytt',
+    recover: 'Gjenopprett bare Security-data',
+    confirm: 'Bekreft isolert gjenoppretting',
+    cancel: 'Behold data',
+    capacity:
+      'Ny aktivitet er stanset ved hendelsesgrensen. Et aktivt forsøk kan fortsatt lagre siste svar, registrere hjelp og levere eller avbryte. En allerede undersøkt guidet aktivitet kan avsluttes.',
+    failed: 'Handlingen ble ikke varig lagret. Ingen faglig fullføring er registrert.',
+    milestones:
+      'Automatiske forklaringer er satt på pause fordi visningshistorikken ikke kan bekreftes. Arbeidet kan fortsette; forklaringen kan åpnes manuelt når konteksten er trygg.',
+    unsafe:
+      'Automatisk veiledning er skjermet under aktiv selvstendig vurdering eller usikker lagring. Åpne vurderings-/recovery-konteksten nedenfor.',
+    ownDraft: 'Sist leste oppgaveutkast · endring og innlevering sperret til trygg reload',
+  },
+  assessment: {
+    title: 'Selvstendig Security Principles-anvendelse',
+    intro:
+      'Velg en faglig forsvarlig beslutning og begrunnelsen som best forklarer hele valget under alle oppgitte krav. Et sant, men ufullstendig eller irrelevant utsagn er ikke tilstrekkelig. Flere tilbudte beslutninger kan være gyldige når premissene tillater det. Hvert forsøk vurderer ditt valgte par.',
+    rules:
+      'Første besvarelse låses ved innlevering. Ingen fasit eller løsningsguide vises under arbeidet. Åpning av teori, Journal, Summary eller tidligere feedback krever varig registrert hjelp i alle aktive kontekster. Samme familie senere er retry, også etter avbrudd.',
+    case: 'Velg scenario',
+    result: 'Resultat for dette paret',
+    decision: 'Velg én faglig forsvarlig beslutning under premissene.',
+    reason:
+      'Velg forklaringen som begrunner hele beslutningen i denne situasjonen. Begge valgene må passe sammen.',
+    draft: 'Varig lagret utkast',
+    unaided: 'Første uassisterte forsøk',
+    assisted: 'Med registrert hjelp',
+    retried: 'Gjeneksponert familie / retry',
+    first: 'Første innlevering',
+    pass: 'Faglig forsvarlig beslutning og begrunnelse i denne situasjonen',
+    fail: 'Beslutning og begrunnelse tilfredsstiller ikke kravene sammen',
+    start: 'Start selvstendig forsøk',
+    retry: 'Start nytt forsøk',
+    submit: 'Lever beslutning og begrunnelse',
+    abandon: 'Avbryt forsøket',
+    help: 'Be om hjelp i relevant undervisning',
+    neutral:
+      'Vurder begge valgene under de oppgitte premissene. Ingen av valgene er forhåndsvalgt; riktig beslutning med feil teknisk årsak godkjennes ikke.',
+    history: 'Undersøk tidligere innleveringer',
+    alternatives: 'Alle alternativer og endrede forutsetninger',
+    repeat: 'Repeter presis undervisningsaktivitet',
+  },
+  summaryBoundary:
+    'Besøk, guidede undersøkelser, faktiske lokale receipts, førsteinnleveringer, hjelp og retry er forskjellige registreringer. Modellen er ikke en faktisk Azure-deployment eller dokumentert studentmestring.',
+  model: {
+    snapshot: 'Lagret, avgrenset undervisningsobservasjon',
+    noRun: 'Start undersøkelsen, velg forutsetninger og forutsi før en kjøring lagres.',
+    draftChanged:
+      'Kontrollene er endret. Dette resultatet viser fortsatt den lagrede konfigurasjonen. Kjør igjen for et nytt resultat.',
+    outcome: [
+      'Valget eller bidraget passer ikke de deklarerte kravene',
+      'Forutsetninger eller evidens er utilstrekkelige',
+      'Et avgrenset bidrag kan begrunnes under premissene',
+    ],
+    yes: 'Ja',
+    no: 'Nei',
+  },
+  links: {
+    title: 'Relevante forkunnskaper',
+    identity: 'Identity Foundations',
+    access: 'RBAC & Conditional Access',
+    governance: 'Governance & Compliance',
+    monitoring: 'Monitoring & Diagnostics',
+    sandbox: 'Fri Portal-sandbox',
+  },
+  title: 'Security Principles & Defender for Cloud',
+  part: 'Part C — Security Principles & Defender for Cloud',
+  path: '02 — Azure Architecture & Services',
+  perspective: 'Perspektiver i Security Decision Studio',
+  overview:
+    'Knytt sammen sikkerhetsprinsipper, kontrollag og Defender-funn, og begrunn hva som fortsatt må undersøkes.',
+  prerequisites:
+    'Forkunnskaper: Identity Part A/B, networking, Storage, governance og monitoring. Her bygger du helhetlig sikkerhetsforståelse, uten å gjenta de tidligere modellene eller endre deres resultater.',
+  available:
+    'Part C er tilgjengelig med Zero Trust, Defense in Depth og Defender for Cloud. Kryptering/Key Vault er Learn-supplement. File Movement & Migration kommer senere.',
+  studioLead:
+    'Faste konseptpremisser, ikke angrep eller sikkerhetsskanning. Undersøk et bidrag, endre en relevant forutsetning og begrunn gjenværende risiko.',
+  sections: {
+    introduction: {
+      title: 'Sikkerhet er en arkitektur av kontroller',
+      paragraphs: [
+        'Fjordverk har nå applikasjoner, nettverk, lagring og identiteter. En driftsleder spør om MFA, kryptering og en grønn ressursvisning betyr at bestillingssystemet er sikkert. Hvert tiltak svarer på forskjellige spørsmål. MFA kan styrke innloggingen, mens en feil i applikasjonens tilgangskontroll fortsatt kan gi en innlogget bruker innsyn i feil kundedata. En ressurskvittering beskriver dessuten konfigurasjon, ikke en sikkerhetsundersøkelse.',
+        'Cloud security handler om å beskytte konfidensialitet, integritet og tilgjengelighet under konkrete risikoer. Konfidensialitet gjelder hvem som får se informasjon. Integritet gjelder uønskede endringer. Tilgjengelighet gjelder at tjenester og data kan brukes når de trengs. Et tiltak som hjelper mot én risiko, løser ikke nødvendigvis de to andre. En kryptert, men utilgjengelig kopi er fortsatt et tilgjengelighetsproblem.',
+        'Delt ansvar fra Service Types er en viktig forkunnskap. Microsoft beskytter blant annet den fysiske Azure-infrastrukturen. For en IaaS-VM har kunden fortsatt oppgaver rundt gjesteoperativsystem, konfigurasjon, identiteter og data. Med PaaS overtar leverandøren flere plattformoppgaver; kunden må fortsatt forvalte egne applikasjoner, tilganger og informasjon etter tjenestens ansvarsdeling. «I skyen» betyr ikke «ferdig sikret».',
+        'Vi skal koble sammen tidligere kunnskap. Identity Foundations forklarte hvem som kan identifiseres. RBAC og Conditional Access forklarte ulike tilgangsbeslutninger. Governance forklarte ressurskrav, og Monitoring forklarte signaler. Her undersøker vi hvordan prinsipper og komplementære kontroller reduserer konsekvenser når én antakelse eller kontroll svikter. Ingen enkelt produktetikett gir en generell garanti.',
+        'Alle sikkerhetssituasjoner i AzureLab er deklarerte undervisningseksempler. En faktisk lokal VM, Web App eller kvittering kan brukes som lesbar kontekst. Den beviser ikke at et operativsystem er patchet, at Defender kjører, at trafikk er trygg eller at en applikasjon er fri for feil. Vi oppretter verken sikkerhetstelemetri eller sikkerhetskontroller i Sandbox World.',
+      ],
+      terms: [
+        [
+          'Konfidensialitet',
+          'Riktig tilgang til informasjon, også gjennom applikasjoner og kopier.',
+        ],
+        ['Integritet', 'Beskyttelse mot uønsket endring eller sletting.'],
+        [
+          'Gjenværende risiko',
+          'Det et tiltak ikke har dokumentert eller håndtert under premissene.',
+        ],
+      ],
+      example:
+        'En Web App er opprettet med en accepted-kvittering. Fjordverk kan undersøke navn, scope og hostingreferanse. Teamet trenger andre kontroller og observasjoner for å vurdere applikasjonstilgang, hemmeligheter og mistenkelig aktivitet.',
+      limit:
+        'Ingen hypotetisk risiko i denne modulen er et oppdaget angrep. Full A–F-innholdsdekning er ikke dokumentert elevmestring eller eksamensberedskap.',
+    },
+    'zero-trust': {
+      title: 'Zero Trust — verifiser, avgrens og forbered deg på svikt',
+      paragraphs: [
+        'Zero Trust er en sikkerhetsstrategi, ikke et enkelt Microsoft-produkt. Den utfordrer antakelsen om at en forespørsel er trygg fordi den kommer fra et internt nettverk eller en kjent enhet. Organisasjonen trenger fortsatt nettverk og forbindelser, men plassering alene er ikke et tilstrekkelig tillitsbevis. En intern IP-adresse sier noe om nettverkskontekst, ikke om personen, enhetens tilstand eller formålet med handlingen.',
+        'Verify explicitly betyr å autentisere og autorisere med relevante, tilgjengelige signaler. Identitet, enhet, lokasjon, risikoforutsetninger, ressurs, handling og eksisterende autentiseringskontekst kan ha betydning. Signaler kan mangle eller være gamle. Da må vi skille et uavklart grunnlag fra et positivt bevis. Dette bygger på P10/P11, men Zero Trust begrenser seg ikke til én Conditional Access-policy eller én innlogging.',
+        'Use least privilege access betyr å gi bare nødvendig tilgang, i riktig scope og så lenge oppgaven krever det. En supportmedarbeider som skal lese en VM-konfigurasjon trenger ikke varig administrasjon av hele abonnementet. Just-enough-access beskriver tilstrekkelige oppgaverettigheter; just-in-time beskriver tilgang som gjøres tilgjengelig når den trengs, med relevant godkjenning og varighet. Dette er prinsipper her, ikke et nytt operativt PIM-system.',
+        'Assume breach betyr å utforme løsningen med muligheten for at en identitet, en komponent eller en kontroll kan svikte. Begrens skadeomfang gjennom segmentering og avgrenset datatilgang. Beskytt data under transport og lagring. Sørg for relevante observasjoner, deteksjon, respons og gjenoppretting. Antakelsen er en designforutsetning; den er ikke en påstand om at et kompromiss allerede har skjedd.',
+        'Prinsippene virker sammen. En vellykket MFA-verifisering sier ikke at brukeren har riktig ressursrolle. En smal RBAC-rolle sier ikke at applikasjonens egen autorisasjon er korrekt. En oppfylt CA-vurdering sier ikke at kode og data er uten svakheter. Relevante produkter kan støtte deler av strategien, men må konfigureres og følges opp i en helhet.',
+        'Fjordverk vurderer derfor både første tilgang og mulige konsekvenser etterpå. Organisasjonen kan beholde intern kommunikasjon der den er nødvendig, samtidig som hver arbeidslast får begrensede forbindelser, relevante identitetskrav og egne datakontroller. Målet er begrunnet, løpende og kontekstbevisst tilgang og begrenset skadeomfang, ikke å avvikle alle interne nettverk.',
+      ],
+      terms: [
+        [
+          'Verify explicitly',
+          'Undersøk identitet, handling og relevant kontekst; skill dokumenterte signaler fra antakelser.',
+        ],
+        [
+          'Use least privilege access',
+          'Avgrens hva, hvor og hvor lenge identiteten trenger tilgang.',
+        ],
+        [
+          'Assume breach',
+          'Planlegg for svikt, begrens konsekvenser og ha deteksjon/respons/gjenoppretting.',
+        ],
+      ],
+      example:
+        'En ekstern partner med kjent identitet skal lese ett prosjekt i to timer. Fjordverk trenger både relevant verifisering, smal og tidsavgrenset tilgang og begrensninger på hva partnerens økt kan nå hvis den misbrukes. Et VPN eller MFA alene besvarer ikke alle tre spørsmålene.',
+      limit:
+        'Studioet viser manglende beslutningsforutsetninger og dokumenterte designbidrag. Det kjører ikke en ny CA-/RBAC-motor, utfører ikke autentisering og gir ingen faktisk tilgangsbeslutning.',
+    },
+    depth: {
+      title: 'Defense in Depth — komplementære lag rundt arbeidslasten',
+      paragraphs: [
+        'Defense in Depth bruker flere mekanismer for å beskytte arbeidslast og informasjon. Hvis én kontroll svikter, kan andre kontroller begrense videre eksponering, oppdage aktivitet eller støtte gjenoppretting. Lagene er en måte å organisere vurderingen på. De er ikke en garanti om at hvert angrep må passere nøyaktig sju porter i bestemt rekkefølge.',
+        'Den klassiske Fundamentals-modellen bruker Physical Security, Identity & Access, Perimeter, Network, Compute, Application og Data. Et enkelt tiltak kan støtte flere hensyn. Vi navngir hovedformålet i undervisningskartet, men det er mekanismen og forutsetningene som avgjør bidraget. To produkter er heller ikke nødvendigvis uavhengige hvis begge er avhengige av samme feilaktige identitets- eller konfigurasjonsgrunnlag.',
+        'Et beskyttet nettverksperimeter gjør ikke svake applikasjonstillatelser ufarlige. En forespørsel kan komme fra en lovlig bruker gjennom en tillatt forbindelse og likevel be om feil kundes data. Tilsvarende krypterer ikke MFA sensitive data. Kryptering av lagringsmediet hindrer ikke automatisk at en legitim, men overprivilegert bruker får informasjon dekryptert gjennom en tjeneste.',
+        'Tiltak har forskjellige roller. En kontroll kan redusere muligheten for en feil, begrense skadeomfang, gjøre aktivitet synlig eller støtte gjenoppretting. En backup er nyttig for gjenoppretting, men stopper ikke nødvendigvis uautorisert lesing. En deteksjon er grunnlag for videre oppfølging, ikke bevis for at sårbarheten er rettet.',
+        'Layered Protection Explorer bruker eksplisitte, fiktive feilgrenser. Hvis du erklærer et helt lag som sviktet, godskrives ikke kontroller i det laget i denne kjøringen. Dette er en avgrenset sammenligningsregel, ikke en modell av alle virkelige feil. En kontroll i et annet lag kan gi et bestemt bidrag, mens den opprinnelige svakheten og andre risikoer fortsatt består.',
+      ],
+      terms: [
+        ['Lag', 'Et perspektiv på beskyttelse; alle sju formål forklares nedenfor.'],
+        ['Komplementær kontroll', 'En annen mekanisme som bidrar mot en deklarert konsekvens.'],
+        ['Feilgrense', 'Den avhengigheten eller kontrollgruppen vi eksplisitt antar har sviktet.'],
+      ],
+      example:
+        'Et utsatt vedlikeholdsvindu gjør at en VM fortsatt har en kjent OS-svakhet. Segmentering kan begrense forbindelser videre, og en verifisert separat kopi kan støtte gjenoppretting. Ingen av dem installerer oppdateringen eller beviser at VM-en er frisk.',
+      limit:
+        'Ingen utnyttelse, skanning, malware, brannmur eller DDoS-motor kjøres. Bidragene er betingede undervisningsforklaringer, uten tallfestet angrepssannsynlighet eller løfte om sikkerhet.',
+    },
+    encryption: {
+      title: 'Kryptering og Azure Key Vault — Learn-supplement',
+      paragraphs: [
+        'Kryptering omformer data slik at lesing krever relevant nøkkelmateriale og riktig behandling. Encryption at rest gjelder lagrede data, for eksempel disker, databaser og objekter. Encryption in transit gjelder data under overføring, for eksempel gjennom en korrekt konfigurert TLS-forbindelse. Beskyttelse i én tilstand gjør ikke den andre automatisk dekket.',
+        'En tjeneste kan dekryptere data for en autorisert forespørsel. Derfor må kryptering kombineres med riktig datatilgang og applikasjonsautorisasjon. Et klassifiseringsmerke beskriver informasjonens egenskaper, men krypterer ikke innholdet. En RBAC-rolle bestemmer relevante tillatelser, men er ikke i seg selv en krypteringsmekanisme. Disse kontrollene løser forskjellige problemer.',
+        'En secret er en hemmelig verdi, som en forbindelsesstreng. En encryption key brukes av kryptografiske operasjoner. Et certificate binder en identitet til en offentlig nøkkel med relevante attestasjoner og kan inngå i TLS eller andre løsninger. De tre kategoriene har forskjellige bruksområder og livssykluser. Ingen virkelige verdier opprettes eller vises i AzureLab.',
+        'Azure Key Vault er en tjeneste for å lagre og styre tilgang til secrets, nøkler og sertifikater. Den er ikke en generell database for kundeordrer eller dokumenter. En applikasjon må autentiseres og ha nødvendige tillatelser til riktig objekt og operasjon. Managed identity kan redusere behovet for innbakte autentiseringshemmeligheter; den erstatter ikke autorisasjon eller sikker applikasjonskode.',
+        'Å flytte en hemmelighet ut av kildekoden reduserer en bestemt eksponeringsvei. Teamet må fortsatt avgrense hvem som kan hente og administrere den, kontrollere bruk, håndtere feil og vurdere rotasjon. En rotasjonspolicy for en støttet nøkkel kan opprette en ny versjon. At applikasjonen eller en tilkoblet tjeneste faktisk tar den i bruk, avhenger av integrasjonen. Rotasjon av et vilkårlig vault-objekt endrer ikke automatisk alle eksterne passord, og eldre data kan fortsatt trenge eldre nøkkelversjoner.',
+      ],
+      terms: [
+        ['At rest / in transit', 'Lagring og transport er forskjellige beskyttelsesflater.'],
+        [
+          'Secret / key / certificate',
+          'Hemmelig verdi, kryptografisk nøkkel og sertifikat har ulike formål.',
+        ],
+        [
+          'Rotasjon',
+          'Planlagt fornyelse med kontrollert versjonsbruk og nødvendige integrasjoner.',
+        ],
+      ],
+      example:
+        'Fjordverk fjerner en databasehemmelighet fra et repository, legger den i Key Vault og gir appens identitet bare nødvendig henterett. TLS og datalagringens kryptering må fortsatt konfigureres separat, og appens tilgang til kundedata må fortsatt kontrolleres.',
+      limit:
+        'Dette er et avgrenset Learn-supplement, ikke et fjerde AZ-900-mål. Ingen vault, nøkkel, sertifikat, secret, passord eller kryptografisk operasjon opprettes.',
+    },
+    defender: {
+      title: 'Microsoft Defender for Cloud — posture og workload-beskyttelse',
+      paragraphs: [
+        'Microsoft Defender for Cloud er en Cloud Native Application Protection Platform, ofte forkortet CNAPP. Den samler funksjoner for å forstå sikkerhetskonfigurasjon, beskytte støttede arbeidslaster og koble sikkerhet til utviklingsløpet. På Fundamentals-nivå er det viktigere å skille disse rollene enn å huske alle delprodukter.',
+        'Cloud Security Posture Management, CSPM, vurderer konfigurasjon og synlig eksponering mot relevante krav og anbefalt praksis. Cloud Workload Protection Platform, CWPP, gir arbeidslastspesifikk beskyttelse og deteksjoner. DevSecOps setter sikkerhet tidligere inn i utvikling og utrulling, blant annet gjennom relevante kode-/pipelineintegrasjoner. Planer, datakilder og funksjoner varierer mellom disse områdene.',
+        'Defender for Cloud kan brukes med støttede Azure-, hybrid- og multicloud-ressurser. Eksterne miljøer må kobles til og oppfylle relevante krav. For servere kan Azure Arc være en del av løsningen; det er fortsatt ikke automatisk migrering eller dokumentert driftstilstand. En funksjon som finnes for én sky, region eller ressurstype er ikke dermed tilgjengelig for alle.',
+        'Microsoft utvider opplevelsen i Defender-portalen samtidig som Azure-portalen fortsatt har relevante visninger. Funksjonstilgang, navigation og scoremodeller kan være forskjellige. Vi bruker dagens produktdokumentasjon til å kvalifisere Learn-oversikten, og bygger ingen parallell Defender-portal eller universell kopi av skjermbilder.',
+        'Fjordverk kan for eksempel få en anbefaling om en svak ressursinnstilling og et separat security alert om mistenkelig aktivitet. Førstnevnte støtter forbedring av posture. Sistnevnte krever undersøkelse av deteksjonens tid, ressurs, alvorlighet og faktiske underlag. Ingen av dem er alene en ferdig rapport om all virksomhetens sikkerhet.',
+      ],
+      terms: [
+        ['CNAPP', 'En samlet plattformtilnærming for sikkerhet gjennom applikasjoners livsløp.'],
+        ['CSPM', 'Vurdering og forbedring av konfigurasjon og eksponering.'],
+        ['CWPP', 'Ressurs-/arbeidslastspesifikk beskyttelse og deteksjon.'],
+      ],
+      example:
+        'En VM har en uheldig administrasjonsinnstilling, mens en Storage-ressurs har et separat mistenkelig tilgangssignal. Teamet må undersøke riktig anbefaling og riktig deteksjonskilde, ikke anta at det ene funnet forklarer det andre.',
+      limit:
+        'Ingen faktisk Defender-plan, agent, scan, anbefaling, sikkerhetshendelse eller portaltilkobling finnes i AzureLab. Ressurskonfigurasjon i Sandbox er ikke skannet sikkerhetsinformasjon.',
+    },
+    posture: {
+      title: 'CSPM, anbefalinger og planavhengig prioritering',
+      paragraphs: [
+        'En sikkerhetsanbefaling kan identifisere en svak konfigurasjon, utilstrekkelig beskyttelse eller potensiell eksponering. Den beskriver hva som bør undersøkes og forbedres, og kan gi forklaring og forslag til tiltak. En posture finding er et vurderingsfunn. Den dokumenterer ikke automatisk at en angriper har utnyttet svakheten.',
+        'Foundational CSPM gir kostnadsfrie grunnfunksjoner når det er aktivert for det relevante miljøet. Defender CSPM er en betalt plan med flere funksjoner, blant annet avansert risikoprioritering og attack-path-analyse. Enkelte anbefalinger eller sikkerhetsfunksjoner krever dessuten bestemte workload-planer. «CSPM finnes» betyr derfor ikke «alle funksjoner er aktivert og gratis».',
+        'Risikoprioritering kan ta hensyn til for eksempel internettilgjengelighet, datasensitivitet og mulige veier mellom ressurser. Dette hjelper ansvarlige å prioritere oppfølging. Manglende risikoevaluering kan skyldes manglende plan eller grunnlag; det er ikke et funn om null risiko. En kritisk forretningsressurs kan også kreve rask oppfølging selv om et aggregert mål ser godt ut.',
+        'En anbefaling må vurderes mot arbeidslastens krav, eier, effekt og endringsrisiko. Remediation er en separat rettelse eller arbeidsflyt. Noen produktfunksjoner kan støtte automatisering når de er konfigurert, men et funn eller et anbefalt tiltak gjør ikke endringen automatisk utført. En rettelse må kontrolleres i riktig miljø.',
+        'Studioet erklærer om et bestemt syntetisk funn krever Foundational CSPM, Defender CSPM eller en workload-plan. Dette er en avgrenset fixtureforutsetning, ikke en universell matrise for alle anbefalinger. Ressursstøtte, oppdatert kontekst, aktivering og datagrunnlag må også være tilstrekkelig før modellen viser at funnet kan tolkes.',
+      ],
+      terms: [
+        [
+          'Foundational CSPM',
+          'Kostnadsfrie grunnfunksjoner; ikke all avansert posture eller workload-beskyttelse.',
+        ],
+        ['Defender CSPM', 'Betalt utvidelse med bestemte avanserte posture-funksjoner.'],
+        ['Remediation', 'En konkret rettelse som må gjennomføres og verifiseres separat.'],
+      ],
+      example:
+        'Fjordverk ser en grunnleggende konfigurasjonsanbefaling, men har ikke aktivert betalt risikoprioritering. Teamet kan undersøke konfigurasjonen og vurdere tiltak, men kan ikke late som alle avanserte risikovurderinger allerede finnes.',
+      limit:
+        'Modellen utsteder ingen Microsoft-anbefaling eller beregnet risikoscore. Den viser bare hvilke deklarerte forutsetninger som støtter den syntetiske undersøkelsen.',
+    },
+    protection: {
+      title: 'Workload Protection, security alerts og undersøkelse',
+      paragraphs: [
+        'Relevante Defender-planer kan beskytte støttede servere, containere, Storage, databaser og App Services. Dekningen er spesifikk: Defender for Servers har Plan1 og Plan2 med forskjellige egenskaper; containere kan trenge bestemte innstillinger eller sensorer; Storage-funksjoner har egne aktiveringsvalg og grenser; databasebeskyttelse varierer mellom tjenester. Ingen slik plan blir dokumentert aktiv bare fordi ressursen finnes.',
+        'Et security alert kommer fra en relevant deteksjon og må skilles fra en konfigurasjonsanbefaling. Varslet kan gi ressurs, tidspunkt, alvorlighet, aktivitet og tekniske observasjoner. Alvorlighet og confidence hjelper med prioritering, men et alert er ikke automatisk en fullstendig bekreftelse på at et angrep lyktes. Også legitim administrasjon eller blokkerte forsøk kan kreve tolkning.',
+        'Incident investigation sammenholder relaterte observasjoner og spørsmål: Gjelder signalet riktig ressurs og tid? Var aktiviteten forventet? Hvilke detaljer eller andre logger støtter hypotesen? Hva vet ressursens eier? Relaterte alerts kan inngå i en incident-visning, men undersøkelsen trenger fortsatt tilstrekkelig kontekst.',
+        'Threat protection, remediation og respons er relaterte, men forskjellige aktiviteter. Beskyttelsesplanen tilbyr bestemte deteksjoner og mekanismer. En operatør kan undersøke og iverksette passende tiltak; konfigurert automatisering kan støtte dette. En mottatt melding eller en endret alert-status er ikke i seg selv bevis for at rotårsaken er fjernet.',
+        'Defender for Cloud skiller seg fra verktøyene du kjenner. Advisor gir bredere forbedringsanbefalinger. Azure Monitor samler og analyserer relevante driftssignaler og evaluerer konfigurerte varsler. Azure Policy vurderer ressurskrav. Conditional Access vurderer relevante tilgangsbetingelser, Azure RBAC relevante Azure-tillatelser, og Purview hjelper med datastyring/sikkerhet/compliance i sine produktområder. Produktene kan integreres, men de løser ikke samme oppgave.',
+      ],
+      terms: [
+        [
+          'Security recommendation',
+          'Et forbedrings-/konfigurasjonsfunn; ikke det samme som trusseldeteksjon.',
+        ],
+        ['Security alert', 'Et deteksjonssignal med kontekst som må undersøkes.'],
+        [
+          'Dekningsgap',
+          'Manglende plan, støtte, innsamling eller kontekst; ikke bevis på normal drift.',
+        ],
+      ],
+      example:
+        'Et syntetisk varsel beskriver uvanlig aktivitet på en støttet server. Med deaktivert workload-plan og manglende innsamlingsgrunnlag kan AzureLab ikke hevde at en slik deteksjon er tilgjengelig. Med deklarert plan og grunnlag kan studenten øve på relevant undersøkelse, fortsatt uten å hevde et virkelig kompromiss.',
+      limit:
+        'Ingen melding, agent, faktisk deteksjon, scan, respons eller utbedring kjøres. Et tomt eller utilgjengelig signalsett kan ikke tolkes som at miljøet er uten angrep.',
+    },
+    score: {
+      title: 'To Secure Score-modeller — støtte til prioritering, ikke garanti',
+      paragraphs: [
+        'Secure Score gjør vurdert sikkerhetsposture lettere å følge opp over tid og på tvers av et valgt scope. Et slikt mål hjelper med oversikt og prioritering innen det datagrunnlaget det bygger på. Det sier ikke at alle relevante risikoer er målt, at ingen angriper finnes, eller at applikasjonens autorisasjon virker korrekt.',
+        'Klassisk Secure Score i Azure-portalen bygger på relevante sikkerhetskontroller og tilhørende anbefalinger. Cloud Secure Score i Defender-portalen bruker en annen, risikobasert modell med blant annet ressurser, risikofaktorer og kritikalitet. Dagens dokumentasjon beskriver dem som forskjellige beregninger og verdier. De skal ikke behandles som to navn på identiske tall.',
+        'En endring i hvilke ressurser, anbefalinger eller miljøer som vurderes, kan endre bildet uten at det betyr at en ny hendelse akkurat har skjedd. Sammenlign riktig scope, modell, dekning og tidspunkt. En ny portalvisning bør heller ikke sammenlignes direkte med et eldre klassisk tall som om datagrunnlaget var uendret.',
+        'Plan- og produktforbehold må holdes presise. Avansert risikoprioritering er planavhengig; det betyr ikke at vi kan utlede alle rettigheter og produktfunksjoner fra navnet på en scorevisning. Dokumentasjonen kvalifiserer også hvordan preview-anbefalinger håndteres. Kontroller gjeldende funksjon og kontekst før du bruker en score i en rapport.',
+        'AzureLab viser hvilken modell som forklares og hvilket datagrunnlag som mangler, men beregner ingen Secure Score. Vi bruker heller ikke en forenklet prosent som ser ut som Microsofts resultat. Studenten skal kunne begrunne videre oppfølging av et konkret funn selv når en aggregert score ikke gir hele svaret.',
+      ],
+      terms: [
+        ['Klassisk Secure Score', 'Kontroll-/anbefalingsbasert posture-visning i Azure-portalen.'],
+        ['Cloud Secure Score', 'En annen, risikobasert cloud posture-modell i Defender-portalen.'],
+        ['Scope og dekning', 'Hvilke miljøer, ressurser og vurderinger et mål faktisk beskriver.'],
+      ],
+      example:
+        'Fjordverk bytter portalvisning samtidig som flere ressurser kommer inn i vurderingen. Teamet dokumenterer modell, scope og dekning før det sammenligner resultater. En åpen konkret svakhet trenger fortsatt vurdering, uansett hvordan et aggregert tall ser ut.',
+      limit:
+        'Ingen faktisk eller oppdiktet Microsoft-score presenteres. Fargene i Studioet er heller ikke en samlet vurdering av AzureLabs eller en Sandbox-ressurs sin sikkerhet.',
+    },
+    studio: {
+      title: 'Fra risiko til begrunnet sikkerhetsarkitektur',
+      paragraphs: [
+        'Security Decision Studio har tre perspektiver med faste, deklarerte premisser. Zero Trust-perspektivet undersøker hva som trengs for å begrunne tilgang og begrense konsekvenser. Lagperspektivet viser hvor en kontroll bidrar og hva som fortsatt står åpent når ett lag antas sviktet. Defender-perspektivet skiller posture, plan-/datadekning og deteksjon.',
+        'Start et oppdrag eksplisitt. Les situasjonen, forutsi en avgrenset konsekvens og lagre en modellkjøring. Endre deretter et vesentlig premiss og sammenlign de lagrede observasjonene. Endrede kontroller erstatter ikke det forrige resultatet før du kjører igjen. SavvyShark følger registrerte vitner og årsaksforklaring, ikke klikk eller tid.',
+        'Den siste Defender-debriefen samler hele kjeden: relevant Zero Trust-prinsipp, sikkerhetslag, kontroll, Defender-funksjon og neste undersøkelse. En faglig forklaring må holde disse delene sammen og samtidig bevare gjenværende usikkerhet. Dette bruker samme guide-/forklaringskontrakt som resten av modulen.',
+        'De selvstendige situasjonene endrer krav og anvendelseskontekst. Beslutning og teknisk begrunnelse må passe sammen. Første innlevering beholdes, og hjelp under aktiv vurdering klassifiseres varig før undervisning eller Journal åpnes. Retry gjør ikke et tidligere resultat om til et nytt uassistert førstegangsresultat.',
+      ],
+      terms: [
+        ['Deklarert premiss', 'En eksplisitt forutsetning i en lukket undervisningsmodell.'],
+        ['Lagret kontrast', 'Sammenlignbare kjøringer der en relevant forutsetning er endret.'],
+        [
+          'Selvstendig anvendelse',
+          'En ny beslutningssituasjon med separat registrert beslutning og begrunnelse.',
+        ],
+      ],
+      example:
+        'Et antatt nettverksproblem, et syntetisk posture-funn og en lokal ressurskvittering kan vises i samme læringsreise, men de blir ikke ett felles bevis for en sikkerhetshendelse.',
+      limit:
+        'Ingen faktisk sikkerhetstilstand, tilgangstillatelse, scan, alarm eller utbedring utføres. Å åpne Studio eller en ressurs gir ikke oppgavekreditt.',
+    },
+  },
+  topics: {
+    introduction: 'Sikkerhet som helhet',
+    'zero-trust': 'Zero Trust — tre prinsipper',
+    depth: 'Defense in Depth — sju lag',
+    encryption: 'Encryption & Key Vault · Learn-supplement',
+    defender: 'Microsoft Defender for Cloud',
+    posture: 'CSPM, anbefalinger og planer',
+    protection: 'Workload Protection & Security Alerts',
+    score: 'To Secure Score-modeller',
+    studio: 'Security Decision Studio',
+    missions: 'Guidede sikkerhetsundersøkelser',
+    assessment: 'Selvstendig sikkerhetsanvendelse',
+    summary: 'Summary — Security Part C',
+  },
+  missions: {
+    trust: {
+      title: 'Apply Zero Trust Principles',
+      situation:
+        'Fjordverks supportflyt har MFA og intern ruting, men ukjent enhetskontekst, bred varig tilgang og manglende beredskap ved mulig svikt.',
+      goal: 'Begrunn de tre prinsippene og skill verifiseringsgrunnlag, minst nødvendige privilegier og begrensning av konsekvenser.',
+      where:
+        'Zero Trust Decision Explorer. Alle signaler og kontroller er eksplisitte undervisningspremisser.',
+      why: 'En MFA-runde eller intern plassering besvarer ikke alle spørsmålene i sikkerhetsarkitekturen.',
+      observe:
+        'Sammenlignbar forespørsel får ikke tillit bare fra nettverk. Mer kontekst, avgrenset scope/varighet og beredskap gir forskjellige dokumenterte designbidrag.',
+      debrief:
+        'Du har sammenholdt alle tre prinsippene. Oppfylte sjekkpunkter er fortsatt ikke en faktisk tilgangsbeslutning eller en sikkerhetsgaranti.',
+      steps: [
+        'Kjør starttilfellet med intern plassering og MFA, deretter samme premisser med ekstern plassering. Ingen av dem fyller de manglende spørsmålene.',
+        'Med starttilfellets øvrige valg: dokumenter enheten og legg inn eksplisitt kontekstgjennomgang. Sammenlign de lagrede observasjonene.',
+        'Behold det nye verifiseringsgrunnlaget. Sammenlign bred/permanent tilgang med nødvendig scope og oppgavebundet varighet.',
+        'Behold forrige grunnlag. Deklarer segmentering, databeskyttelse, observasjoner og gjenoppretting. Forklar hva beredskapen bidrar med, uten å hevde et kompromiss.',
+      ],
+    },
+    depth: {
+      title: 'Build Layered Protection',
+      situation:
+        'En arbeidslast har identitets- og vertssvakheter. Du skal undersøke direkte kontroller, komplementære lag og en erklært sviktgrense.',
+      goal: 'Vis hvorfor en annen kontroll kan begrense en bestemt konsekvens uten å reparere alle gjenværende svakheter.',
+      where:
+        'Defense-in-Depth Explorer. Velg relevant lag, direkte kontroll og komplement; undersøk en antatt lagsvikt.',
+      why: 'To kontrollnavn er ikke nok. Mekanisme, feilgrense og konsekvens avgjør om de faktisk supplerer hverandre.',
+      observe:
+        'Et komplement kan fortsatt bidra når det direkte laget antas sviktet. Recovery og begrenset rekkevidde er forskjellige bidrag. Kryptering retter ikke appautorisasjon.',
+      debrief:
+        'Du har skilt direkte risikoreduksjon, komplementære bidrag og gjenværende risiko. Ingen faktisk feil, utnyttelse eller utbedring er simulert.',
+      steps: [
+        'Ved passordmisbruk: inspiser Identity & Access. Sammenlign MFA med og uten deklarert segmentering som komplement, med ellers like premisser.',
+        'Med begge kontrollene konfigurert: sammenlign ingen lagsvikt med antatt svikt i Identity & Access. Undersøk hva segmenteringen fortsatt kan begrense.',
+        'Ved vertssvakhet: inspiser Compute, velg patching og separat backup som komplement. Sammenlign ingen lagsvikt med Compute-svikt og skill recovery fra rettet OS-svakhet.',
+        'Ved appens manglende datatilgangssjekk: inspiser Application og bruk appautorisasjon direkte. Sammenlign lagringskryptering og avgrenset datatilgang som komplement med ellers like premisser.',
+      ],
+    },
+    defender: {
+      title: 'Investigate Security Posture',
+      situation:
+        'Fjordverk har et syntetisk konfigurasjonsfunn og et separat tenkt deteksjonssignal. Du må undersøke planer, grunnlag og relevante neste handlinger.',
+      goal: 'Skill posture, workload-deteksjon, risikoprioritering og de to scoremodellene. Avslutt med en samlet prinsipp-/lag-/kontroll-/oppfølgingsplan.',
+      where:
+        'Defender for Cloud Explorer. Ressursslaget er kontekst; nødvendige plan- og datakrav må erklæres separat.',
+      why: 'En anbefaling er ikke et aktivt angrep. Et aktivt plannavn eller et scorebilde er heller ikke bevis på full sikkerhet.',
+      observe:
+        'Grunnleggende posture kan være tilgjengelig mens workload-deteksjon mangler. Plan og data gjør ulike undersøkelsesgrunnlag mulige, men beviser ikke et vellykket kompromiss.',
+      debrief:
+        'Samlet anvendelse: Assume breach støtter begrenset skadeomfang. Relevante lag og kontroller må fortsatt velges; CSPM-funn og CWPP-signaler undersøkes hver for seg med korrekt plan-/datagrunnlag.',
+      steps: [
+        'Kjør starttilfellets grunnleggende posture-funn. Bytt deretter bare til workload-funksjon og avklaring av dekning, med samme inaktive workload-plan.',
+        'Behold workload-situasjonen. Sammenlign inaktiv plan/dekningsavklaring med aktiv relevant plan og undersøkelse av den deklarerte evidensen.',
+        'Med grunnleggende posture og Foundational CSPM: velg risikoprioritering/dekningsavklaring. Sammenlign med Defender CSPM og konfigurasjonsgjennomgang.',
+        'Behold forrige premisser. Sammenlign klassisk og Cloud risk-basert scorevisning. Ingen av dem beregner en score eller en sikkerhetsgaranti.',
+      ],
+    },
+  },
+  causal: {
+    trust: [
+      'Intern plassering bør styre tilliten til alle handlinger; mer kontekst er først relevant når en hendelse er påvist.',
+      'Eksplisitt grunnlag, avgrenset scope/varighet og forberedelse på mulig svikt dekker forskjellige designspørsmål; ingen av dem er hele strategien alene.',
+      'MFA og en smal rolle dokumenterer at alle data er kryptert og at deteksjon/recovery ikke trenger videre avklaring.',
+    ],
+    depth: [
+      'Patching, backup og kryptering retter samme svakhet; riktig produktnavn er derfor tilstrekkelig for samlet sikkerhet.',
+      'Når ett lag svikter, blir de andre lagene automatisk uvirksomme og bør erstattes av én større perimeterkontroll.',
+      'En erklært uavhengig kontroll kan begrense en bestemt konsekvens eller støtte recovery; den opprinnelige svakheten og andre risikoer kan fortsatt bestå.',
+    ],
+    defender: [
+      'Assume breach tilsier avgrensede forbindelser og datarettigheter på relevante Network-/Data-lag. Undersøk CSPM-konfigurasjonsfunn og CWPP-deteksjoner separat, bekreft plan/data og følg opp aktivitetens kontekst uten å kalle funnet et bekreftet kompromiss.',
+      'Verify explicitly tilsier at alle resource receipts brukes som sikkerhetssignaler. Velg Compute-kryptering som hovedkontroll og behandle et posture-funn som dokumentasjon på at en workload-plan detekterte et angrep.',
+      'Least privilege tilsier at én smal Azure-rolle dekker hele arbeidslasten. Velg samme management-rolle som databeskyttelse og bruk en scorevisning til å avslutte videre undersøkelse av sikkerhetssignaler.',
+    ],
+  },
+  milestone: {
+    trust: {
+      title: 'Apply Zero Trust Principles — kontraster lagret',
+      text: 'Du har lagret teknisk begrunnede sammenligninger. Fullført oppdrag krever også korrekt årsaksforklaring. Ingen faktisk sikkerhetskontroll eller hendelse er opprettet.',
+    },
+    depth: {
+      title: 'Build Layered Protection — kontraster lagret',
+      text: 'Du har lagret teknisk begrunnede sammenligninger. Fullført oppdrag krever også korrekt årsaksforklaring. Ingen faktisk sikkerhetskontroll eller hendelse er opprettet.',
+    },
+    defender: {
+      title: 'Investigate Security Posture — kontraster lagret',
+      text: 'Du har lagret teknisk begrunnede sammenligninger. Fullført oppdrag krever også korrekt årsaksforklaring. Ingen faktisk sikkerhetskontroll eller hendelse er opprettet.',
+    },
+  },
+  controls: {
+    network: 'Deklarert nettverksplassering',
+    identity: 'Identitetskontekst',
+    device: 'Enhetskontekst',
+    sensitivity: 'Ressursens sensitivitet',
+    mfa: 'MFA-evidens er deklarert',
+    contextReview: 'Identitet, handling og relevant kontekst er gjennomgått',
+    scope: 'Deklarert tilgangsomfang',
+    duration: 'Deklarert varighet',
+    segmented: 'Nødvendige forbindelser er avgrenset',
+    dataProtection: 'Relevant databeskyttelse er deklarert',
+    observability: 'Relevante observasjoner og respons er planlagt',
+    recovery: 'Gjenoppretting er planlagt og kontrollert',
+    risk: 'Deklarert risiko',
+    inspectedLayer: 'Laget du undersøker',
+    primary: 'Direkte kontroll',
+    complement: 'Komplementær kontroll',
+    failure: 'Antatt sviktgrense',
+    primaryConfigured: 'Direkte kontroll er deklarert konfigurert',
+    complementConfigured: 'Komplementet er deklarert konfigurert',
+    resource: 'Syntetisk ressurstype',
+    posturePlan: 'CSPM-plan',
+    workloadPlan: 'Relevant workload-plan er deklarert aktiv',
+    requirementsReady: 'Valgt funksjons støtte, tilkobling og data-/integrasjonskrav er avklart',
+    fresh: 'Konteksten er aktuell for undersøkelsen',
+    recommendation: 'Syntetisk anbefaling og dens erklærte plankrav',
+    alert: 'Syntetisk deteksjonsgrunnlag',
+    feature: 'Valgt Defender-funksjon',
+    followUp: 'Valgt oppfølging',
+    scoreView: 'Forklart scoremodell',
+  },
+  options: {
+    network: {
+      internal: 'Internt nettverk',
+      external: 'Eksternt nettverk',
+    },
+    identity: {
+      known: 'Identiteten er dokumentert',
+      unverified: 'Identiteten er ikke avklart',
+    },
+    device: {
+      documented: 'Relevant enhetsgrunnlag er dokumentert',
+      unknown: 'Enhetsgrunnlaget er uavklart',
+    },
+    sensitivity: {
+      routine: 'Avgrenset rutinebehov',
+      sensitive: 'Sensitiv handling',
+    },
+    scope: {
+      minimal: 'Bare nødvendig scope/handlinger',
+      broad: 'Bredere tilgang enn oppgaven trenger',
+      missing: 'Nødvendig tilgang er ikke avklart',
+    },
+    duration: {
+      'task-bound': 'Oppgavebundet og kontrollert varighet',
+      permanent: 'Varig tilgang i dette tidsavgrensede tilfellet',
+    },
+    risk: {
+      password: 'Mulig misbruk av et passord',
+      host: 'Kjent gjeste-OS-svakhet',
+      application: 'Manglende applikasjonssjekk av data',
+      copy: 'Mulig tap av en lagret offlinekopi',
+    },
+    inspectedLayer: {
+      physical: 'Physical Security',
+      identity: 'Identity & Access',
+      perimeter: 'Perimeter',
+      network: 'Network',
+      compute: 'Compute',
+      application: 'Application',
+      data: 'Data',
+    },
+    primary: {
+      physical: 'Fysisk adgangsvern',
+      mfa: 'Multifactor authentication',
+      least: 'Minst nødvendige privilegier',
+      ddos: 'Relevant DDoS-beskyttelse',
+      segment: 'Nettverkssegmentering',
+      patch: 'Patching og hardening',
+      app: 'Applikasjonens datatilgangskontroll',
+      vault: 'Forsvarlig secret management',
+      encrypt: 'Kryptering av lagret kopi',
+      dataScope: 'Avgrenset tilgang i datatjenesten',
+      backup: 'Separat gjenopprettingskopi',
+    },
+    complement: {
+      physical: 'Fysisk adgangsvern',
+      mfa: 'Multifactor authentication',
+      least: 'Minst nødvendige privilegier',
+      ddos: 'Relevant DDoS-beskyttelse',
+      segment: 'Nettverkssegmentering',
+      patch: 'Patching og hardening',
+      app: 'Applikasjonens datatilgangskontroll',
+      vault: 'Forsvarlig secret management',
+      encrypt: 'Kryptering av lagret kopi',
+      dataScope: 'Avgrenset tilgang i datatjenesten',
+      backup: 'Separat gjenopprettingskopi',
+    },
+    failure: {
+      none: 'Ingen erklært lagsvikt',
+      physical: 'Physical Security',
+      identity: 'Identity & Access',
+      perimeter: 'Perimeter',
+      network: 'Network',
+      compute: 'Compute',
+      application: 'Application',
+      data: 'Data',
+    },
+    resource: {
+      server: 'Fiktiv støttet Azure-server',
+      container: 'Fiktiv støttet Azure-containerarbeidslast',
+      storage: 'Fiktiv støttet Azure Storage-kontekst',
+      database: 'Fiktiv støttet Azure-databasetjeneste',
+      app: 'Fiktiv støttet Azure App Service',
+    },
+    posturePlan: {
+      none: 'Ingen CSPM-plan erklært',
+      foundational: 'Foundational CSPM · grunnfunksjoner',
+      defender: 'Defender CSPM · betalt utvidelse',
+    },
+    recommendation: {
+      none: 'Intet funn er oppgitt',
+      foundational: 'Fiktivt grunnfunn · Foundational-forutsetning',
+      defender: 'Fiktivt avansert funn · Defender CSPM-forutsetning',
+      workload: 'Fiktivt plan-spesifikt funn · workload-forutsetning',
+    },
+    alert: {
+      none: 'Ingen alert i det deklarerte datagrunnlaget',
+      declared: 'Et hypotetisk deteksjonssignal er oppgitt',
+      missing: 'Relevant deteksjonsgrunnlag mangler',
+    },
+    feature: {
+      posture: 'Konfigurasjon/posture',
+      'risk-prioritization': 'Avansert risikoprioritering',
+      workload: 'Workload-deteksjon',
+    },
+    followUp: {
+      'configuration-review': 'Undersøk konfigurasjonen og planlegg/verifiser eventuell rettelse',
+      'investigate-evidence': 'Undersøk ressurs, tid, aktivitet og annen relevant evidens',
+      'confirm-coverage': 'Avklar manglende produkt-/datadekning',
+      'close-as-remediated': 'Bruk funnet eller scorevisningen som bevis for ferdig utbedring',
+      'continue-observing': 'Behold relevant oppfølging uten å kalle fravær av funn sikkerhet',
+    },
+    scoreView: {
+      classic: 'Klassisk Secure Score · Azure-portalen',
+      'cloud-risk': 'Cloud Secure Score · Defender-portalen',
+    },
+  },
+  visual: {
+    boundary:
+      'Avgrensede undervisningspremisser. Ingen autentisering/autorisasjon, sikkerhetsskanning, angrep, faktisk Defender-status, varsling eller World-endring utføres.',
+    result: 'Begrunnet modellobservasjon',
+    details: 'Lagrede premisser og avgrenset resultat',
+    snapshot: 'Alle lagrede premisser',
+    input: 'Premiss',
+    value: 'Deklarert verdi',
+    comparison: 'Sammenlign lagrede bidrag og risiko',
+    sameInputs: 'Samme premisser som forrige kjøring',
+    run: 'Kjøring',
+    observation: 'Avgrenset observasjon',
+    yes: 'Ja',
+    no: 'Nei',
+    unknown: 'Uavklart',
+    trustTitle:
+      'Forespørsel → kontekst → nødvendig tilgang → tre prinsippperspektiver → gjenværende risiko',
+    verify: 'Verify explicitly · dokumentert grunnlag',
+    privilege: 'Least privilege · nødvendig scope og varighet',
+    preparation: 'Assume breach · beredskap for svikt',
+    networkLimit:
+      'Intern plassering gir ikke automatisk tillit. MFA er et bidrag til autentisering, ikke hele Zero Trust.',
+    reviewOnly:
+      'Dette er et design-/evidenssjekkpunkt, ikke en faktisk CA- eller RBAC-beslutning. Selv fullførte punkter beviser ikke korrekt kode eller full sikkerhet.',
+    verifyFacts: {
+      identity: 'Identitet dokumentert',
+      device: 'Enhetsgrunnlag tilstrekkelig under valgt sensitivitet',
+      context: 'Relevante signaler og handling gjennomgått',
+    },
+    privilegeFacts: {
+      scope: 'Omfanget svarer til oppgaven',
+      duration: 'Varigheten svarer til oppgaven',
+    },
+    preparationFacts: {
+      segmentation: 'Begrensede forbindelser',
+      data: 'Deklarert databeskyttelse',
+      detection: 'Observasjoner og respons',
+      recovery: 'Gjenoppretting',
+    },
+    layersTitle: 'Sju komplementære lag rundt arbeidslast og data',
+    layerLegend:
+      'Inspiser et lag. Markøren viser den deklarerte risikoens hovedlag i denne modellen; mekanismer kan krysse flere lag.',
+    layer: 'Lag',
+    purpose: 'Formål',
+    controls: 'Eksempler på kontroller',
+    risk: 'Relevant risiko',
+    limit: 'Hva laget ikke løser',
+    complements: 'Hvordan andre lag bidrar',
+    directLayer: 'Direkte relevant lag under disse premissene',
+    inspected: 'Undersøkt lag er relevant for risikoen',
+    contribution: 'Avgrenset bidrag',
+    primaryFits: 'Direkte mekanisme passer risikoen',
+    complementFits: 'Komplementet passer en relevant konsekvens',
+    available: 'Kontrollen er tilgjengelig under erklært sviktgrense',
+    independent: 'Kontrollene har ulike erklærte laggrenser',
+    primaryContribution: 'Direkte kontroll kan bidra',
+    complementContribution: 'Komplementet kan bidra',
+    remainingWeakness: 'Den opprinnelige svakheten står igjen i sammenligningen',
+    failureLimit:
+      'Modellen antar at alle valgte kontroller i det erklærte laget svikter. Ulike lag er ikke i seg selv bevis på reell uavhengighet. Ingen utnyttelse eller kontroll kjøres.',
+    contributions: {
+      recovery: 'Støtte til gjenoppretting; ikke forebygging av selve feilen',
+      'limits-consequence': 'Begrense en bestemt videre konsekvens',
+      'no-matching-complement': 'Intet passende komplement under disse premissene',
+    },
+    residuals: {
+      'session-and-application-risk':
+        'MFA og segmentering utelukker ikke misbruk av en aktiv økt eller feil i appens autorisasjon.',
+      'original-host-and-service-risk':
+        'Et komplement installerer ikke en manglende oppdatering eller dokumenterer appens driftstilstand.',
+      'within-data-scope-risk':
+        'Data som fortsatt er tilgjengelige innenfor det avgrensede scopet trenger riktig appautorisasjon og videre vern.',
+      'authorized-use-and-key-risk':
+        'Kryptering hindrer ikke all autorisert lesing. Nøkkeltilgang og kopiens øvrige livssyklus må håndteres.',
+    },
+    defenderTitle: 'Deklarert kontekst → produkt-/datakrav → forskjellig evidens → oppfølging',
+    postureAvailable: 'Valgt posture-grunnlag er deklarert tilgjengelig',
+    advancedAvailable: 'Avansert risikoprioritering har deklarert plangrunnlag',
+    workloadAvailable: 'Valgt workload-funksjon har deklarert dekning',
+    recommendation: 'Syntetisk konfigurasjonsfunn kan tolkes',
+    alert: 'Syntetisk deteksjonsgrunnlag kan tolkes',
+    selectedFeature: 'Valgt funksjon er tilgjengelig under premissene',
+    selectedEvidence: 'Relevant syntetisk registrering kan undersøkes',
+    needsCoverage: 'Produkt-/datadekning må avklares',
+    noRecord: 'Deklarert tilgjengelig grunnlag uten en oppgitt registrering',
+    unavailableRecord: 'Oppgitt registrering mangler tilstrekkelig grunnlag',
+    followUpFits: 'Oppfølgingen passer den deklarerte situasjonen',
+    noCause:
+      'Et konfigurasjonsfunn eller et security alert er ikke her et bekreftet kompromiss, en faktisk utbedring eller en fullstendig sikkerhetsvurdering.',
+    planLimit:
+      'Ressurstypen er et fiktivt støttet Azure-eksempel. Feltet om forutsetninger dekker funksjonens faktiske plan-, region-, plattform- og datakrav. Å velge et ressursnavn aktiverer ingenting.',
+    scoreTitle: 'Forskjellige modeller · ingen score beregnes',
+    scoreModels: {
+      'classic-control-based':
+        'Klassisk: sikkerhetskontroller og relevante anbefalinger i Azure-portalen.',
+      'cloud-risk-based':
+        'Cloud risk-basert: ressurser, risikofaktorer og kritikalitet i Defender-portalen.',
+    },
+    noScore:
+      'Ingen faktisk eller pedagogisk Microsoft-score beregnes. Modellene har forskjellige beregninger/verdier; et scorebilde er ikke bevis for fravær av risiko.',
+    synthesis:
+      'Samlet anvendelse: prinsipp → lag → kontroll → Defender-funksjon → videre undersøkelse',
+  },
+  context: {
+    title: 'Faktisk lokal konfigurasjon — ingen sikkerhetsskanning',
+    boundary:
+      'Dette er faktisk lokal ressurskonfigurasjon og opprinnelige receipts. Den dokumenterer ikke patching, antivirus, Defender-plan, scanning, sikker trafikk eller samlet sikkerhet. Valget endrer ingen syntetiske sikkerhetspremisser.',
+    open: 'Åpne ordinær Portal for konfigurasjonsinspeksjon',
+    select: 'Velg faktisk lokal ressurs',
+    empty:
+      'Ingen passende ressurs er konfigurert i denne Sandboxen. Ordinær Portal tilbyr eksisterende støttede opprettelser; ingen opprettes her.',
+    unsafe:
+      'Teknisk lagring er uavklart. Ingen aktuell konfigurasjon eller faktisk tilstand hevdes.',
+    resource: 'Faktisk lokal ressurs',
+    type: 'Ressurstype',
+    scope: 'Faktisk lokal gruppe / subscription',
+    relation: 'Lagret hosting-/ressursreferanse',
+    receipt: 'Siste opprinnelige lokale operasjon',
+    return: 'Tilbake til Security Principles',
+    noCredit:
+      'Konfigurasjonslesing er kontekst, ikke et sikkerhetsfunn, en aktiv beskyttelsesplan eller automatisk oppgavekreditt.',
+  },
+  layers: {
+    physical: {
+      name: 'Physical Security',
+      purpose: 'Beskytte bygg, maskinvare og fysisk tilgang.',
+      controls: 'Adgangskontroll og fysisk beskyttelse i datasentre.',
+      risk: 'Tyveri, uautorisert fysisk tilgang og tap av utstyr.',
+      limit:
+        'Stopper ikke en feilaktig tillatt API-forespørsel. Microsoft og kunden har forskjellige fysiske ansvarsområder.',
+      complement: 'Identity-, applikasjons- og datakontroller beskytter andre tilgangsveier.',
+    },
+    identity: {
+      name: 'Identity & Access',
+      purpose: 'Verifisere identitet og avgrense nødvendig tilgang.',
+      controls: 'Entra, MFA, relevante CA-betingelser og minste nødvendige rettigheter.',
+      risk: 'Misbruk av legitimasjon eller for brede privilegier.',
+      limit:
+        'Krypterer ikke data og retter ikke applikasjonskode. En legitim innlogging kan fortsatt misbrukes.',
+      complement:
+        'Segmentering, applikasjonsautorisasjon og separate datakontroller begrenser konsekvenser.',
+    },
+    perimeter: {
+      name: 'Perimeter',
+      purpose: 'Redusere eksponering ved nettverkets yttergrense.',
+      controls: 'Relevante DDoS- og perimeterkontroller.',
+      risk: 'Store tilgjengelighetsangrep og uønsket trafikk ved inngangen.',
+      limit:
+        'En tillatt forespørsel kan fortsatt ha et uønsket applikasjonsformål. DDoS-beskyttelse løser ikke alle tilgjengelighetsproblemer.',
+      complement:
+        'Network begrenser videre forbindelser; Application og Data vurderer bruk av informasjon.',
+    },
+    network: {
+      name: 'Network',
+      purpose: 'Begrense kommunikasjon til nødvendige forbindelser.',
+      controls: 'Segmentering og relevante nettverkstilgangskontroller.',
+      risk: 'Unødvendig lateral kommunikasjon og bred intern eksponering.',
+      limit: 'En tillatt forbindelse er ikke bevis for sikker kode eller autorisert databruk.',
+      complement:
+        'Compute-hardening, appautorisasjon og datatilgang håndterer risiko innenfor tillatte forbindelser.',
+    },
+    compute: {
+      name: 'Compute',
+      purpose: 'Sikre kjøreplattform og relevante gjesteoperativsystemer.',
+      controls: 'Hardening, patching og støttet endpoint protection.',
+      risk: 'Kjente OS-svakheter, feilkonfigurert vert og malware.',
+      limit:
+        'En oppdatert vert gjør ikke appens tilgangslogikk korrekt. Ansvar varierer med IaaS/PaaS.',
+      complement: 'Segmentering og smale datarettigheter kan begrense skade hvis en vert svikter.',
+    },
+    application: {
+      name: 'Application',
+      purpose: 'Sikre applikasjonslogikk, forespørsler og bruk av hemmeligheter.',
+      controls:
+        'Sikker utvikling, egen autorisasjon og forsvarlig secret management med for eksempel Key Vault.',
+      risk: 'Kodefeil, manglende tilgangssjekk og hardkodede hemmeligheter.',
+      limit:
+        'En vault-referanse er ikke bevis på riktig datatilgang eller at alle hemmeligheter er rotert.',
+      complement:
+        'Identitet, datatilgang og transport-/lagringsbeskyttelse støtter appens egne kontroller.',
+    },
+    data: {
+      name: 'Data',
+      purpose: 'Beskytte informasjonens konfidensialitet, integritet og tilgjengelighet.',
+      controls: 'Datatilgang, kryptering og relevante separate gjenopprettingskopier.',
+      risk: 'Uønsket lesing, endring, sletting og tap av lagrede kopier.',
+      limit:
+        'Kryptering hindrer ikke all legitim, overprivilegert lesing. En backup er ikke en forebyggende tilgangskontroll.',
+      complement: 'Appautorisasjon og minste privilegier begrenser hvem som kan be om data.',
+    },
+  },
+} as const;
+export const securityItemsNb = {
+  sp01: {
+    title: 'To enheter i samme økt',
+    problem:
+      'En partner kan lese en offentlig katalog og be om fortrolige kontrakteksporter. SSO/MFA er gyldig, og forbindelsen går gjennom Fjordverk. Enhetsrapporten gjelder enhetA, mens den nye forespørselen kommer fra enhetB. Katalogen skal fortsatt kunne brukes. Velg vurderingsplan for eksporten.',
+    premises: [
+      'EnhetA og enhetB er forskjellige enheter.',
+      'Eksporten bruker applikasjonens egen datatillatelse.',
+      'Partneren har Reader til management-konfigurasjon i appens Resource Group; eksporttillatelsen er ikke oppgitt.',
+    ],
+    decisions: [
+      'Behold katalogen; kontroller eksporttillatelsen og bruk enhetA-rapporten som enhetsgrunnlag for den nye forespørselen.',
+      'Behold katalogen; kontroller enhetB og bruk den gjeldende Reader-tildelingen som eksportens tillatelsesgrunnlag.',
+      'Behold katalogen; kontroller enhetB og partnerens eksporttillatelse før eksportforespørselen behandles.',
+    ],
+    reasons: [
+      'Et dokumentert signal må gjelde enheten som sender denne forespørselen. Partnerens Reader beskriver management-lesing, mens eksporten krever applikasjonens datatillatelse; både enhetB og den aktuelle eksportretten inngår derfor i vurderingen.',
+      'Enhetsrapporten inngår i partnerens etablerte autentiseringskontekst. Når partnerens økt er gyldig, kan dette grunnlaget følge brukeren mellom arbeidsenheter mens den separate eksportretten undersøkes.',
+      'Reader avgrenser partnerens lesetilgang til applikasjonens Resource Group. Eksporten er en lesehandling på data tilknyttet denne ressursen, slik at oppdatert enhetsinformasjon utfyller det eksisterende tilgangsgrunnlaget.',
+    ],
+    decisionFeedback: [
+      'Planen undersøker én relevant tillatelse, men rapporten gjelder en annen enhet enn den aktuelle forespørselen.',
+      'Planen undersøker riktig enhet, men management-lesing er ikke eksportens applikasjonstillatelse.',
+      'Riktig: begge de konkrete gapene behandles for den aktuelle eksporten, uten å fjerne katalogflyten.',
+    ],
+    reasonFeedback: [
+      'Riktig: signalets identitet/aktualitet og handlingens autorisasjon er nødvendige deler av vurderingen.',
+      'At rapporten er ekte sier ikke at den beskriver enhetB. Sammenhengen mellom signal og forespørsel mangler.',
+      'Riktig ressurskontekst er nyttig, men Reader gjelder management-handlinger og begrunner ikke kontrakteksporten.',
+    ],
+    explain:
+      'Hvis rapporten faktisk gjaldt enhetB og eksportens tillatelse var dokumentert, kunne de inngå i vurderingen. Intern ruting eller MFA endrer ikke hvilke objekter og handlinger et bevis gjelder.',
+  },
+  sp02: {
+    title: 'To timer med innsyn',
+    problem:
+      'Et eksternt revisjonsteam skal lese management-konfigurasjon i én Resource Group i to timer. Teamet skal ikke endre ressurser, delegere roller eller lese applikasjonsdata. Begge løsningene med direkte tildeling og gruppe støtter verifisert automatisk utløp. Velg én forsvarlig tilgangsplan.',
+    premises: [
+      'Identitetene er allerede verifisert.',
+      'Reader dekker de oppgitte management-lesingene.',
+      'Gruppealternativet har bare dette teamet som medlemmer, og utløpet gjelder nødvendig tilgang.',
+    ],
+    decisions: [
+      'Gi Reader på den aktuelle Resource Group med dokumentert to timers utløp direkte til teamets identiteter.',
+      'Gi Reader på samme Resource Group gjennom den avgrensede gruppen, med det dokumenterte to timers utløpet.',
+      'Gi Contributor på abonnementet under revisjonsdagen, og fjern tildelingen når alle kontrollene er ferdige.',
+    ],
+    reasons: [
+      'Oppfølgingsspørsmål kan kreve flere undersøkelser enn første kontrolliste beskriver. Contributor på abonnementet gir revisorene dette handlingsrommet gjennom arbeidsdagen uten gjentatte endringer av tildelingene.',
+      'En tidsavgrenset MFA-økt krever ny bekreftelse etter utløp. Når tildelte roller brukes gjennom denne økten, avgrenser øktens levetid hvor lenge revisjonsteamets Azure-tillatelse består.',
+      'Reader dekker management-lesing i oppgitt Resource Group. Dokumentert utløp av tilgangen begrenser varigheten uten å legge til endringsrett.',
+    ],
+    decisionFeedback: [
+      'Riktig: avgrenset direkte Reader med utløp oppfyller det oppgitte oppdraget.',
+      'Også riktig: den beskrevne gruppen har samme effektive scope, handlinger og dokumenterte utløp.',
+      'Mulig framtidig fleksibilitet er ikke et erklært behov for endringsrett eller abonnementsomfattende tilgang i dette oppdraget.',
+    ],
+    reasonFeedback: [
+      'Et annet oppdrag kunne krevd mer fleksibilitet. Her er kontrollene leseoppgaver i én kjent Resource Group.',
+      'Autentiseringsøkt og rolletildeling har separate betydninger. Utløp av MFA-kontekst dokumenterer ikke at en varig tildeling er fjernet.',
+      'Riktig: velg tilstrekkelig handling, scope og varighet; direkte tildeling er ikke det eneste gyldige mønsteret.',
+    ],
+    explain:
+      'Hvis oppdraget krevde en faktisk konfigurasjonsendring, måtte nødvendige handlinger vurderes på nytt. Det ville fortsatt ikke automatisk begrunne abonnementsomfattende Contributor.',
+  },
+  sp03: {
+    title: 'To nødvendige dataflyter',
+    problem:
+      'En nattjobb trenger forbindelse til to datatjenester. Den kan i dag også nå andre produksjonssystemer direkte. Ingen hendelse er bekreftet. Hvilken plan begrenser konsekvenser ved mulig misbruk og beholder de nødvendige jobbforbindelsene?',
+    premises: [
+      'Jobbens nødvendige handlinger er kjent.',
+      'En foreslått gateway kan kontrollere både inngang og videre forbindelser hvis direkte omveier lukkes.',
+      'Observasjoner, respons og gjenoppretting kan inngå i begge gjennomførbare designene.',
+    ],
+    decisions: [
+      'Registrer to avhengigheter i gatewayens inngangsregler, men behold jobbens eksisterende direkte forbindelser under migreringen.',
+      'Tillat bare de to avhengighetene direkte fra jobben og behold relevant observasjon, respons og gjenoppretting.',
+      'Før videre forbindelser gjennom gatewayen med de to avhengighetene som håndhevet grense, og lukk direkte omveier med relevant observasjon og beredskap.',
+    ],
+    reasons: [
+      'Gatewayens inngangsregler registrerer de to godkjente avhengighetene. Jobbens eksisterende forbindelser viderefører disse godkjenningene under migreringen, slik at øvrige produksjonssystemer ligger utenfor den registrerte flyten.',
+      'Assume breach begrenser jobbens rekkevidde ved misbruk. Nødvendige forbindelser beholdes og annen videre tilgang avgrenses; inngangsregistrering begrenser ikke forbindelser som faktisk kan gå utenom kontrollen.',
+      'En kortvarig jobbidentitet reduserer hvor lenge misbruk kan pågå. Når økten avsluttes etter nattjobben, avgrenser denne tidskontrollen også skadeomfanget fra jobbens eksisterende forbindelser til andre produksjonssystemer.',
+    ],
+    decisionFeedback: [
+      'Planen har nyttig inngangskontekst, men de direkte omveiene beholder den gamle videre rekkevidden.',
+      'Riktig: de nødvendige forbindelsene beholdes, mens direkte unødvendig rekkevidde avgrenses.',
+      'Også riktig: gatewayen er et gyldig alternativ når videre trafikk faktisk avgrenses og direkte omveier lukkes.',
+    ],
+    reasonFeedback: [
+      'Oversikt over avhengigheter er ikke det samme som en håndhevet grense på forbindelser som kan omgå gatewayen.',
+      'Riktig: mekanismen er håndhevet konsekvensbegrensning, ikke ett obligatorisk nettverksprodukt.',
+      'Varighet er relevant least privilege, men begrunner ikke at bred intern rekkevidde er avgrenset mens jobben kjører.',
+    ],
+    explain:
+      'En gateway med reell kontroll av avhengigheter kan være like forsvarlig som direkte segmentering. Hvis direkte omveier beholdes, må den gjenværende eksponeringen håndteres separat.',
+  },
+  sp04: {
+    title: 'Rapporten brukes uten nett',
+    problem:
+      'Feltpersonell trenger en rapportkopi uten nett i tre dager. Tap av en avslått og låst arbeidsenhet skal begrense lesing av rapporten. Originalen er kryptert i skyen og eksporten bruker TLS. Velg en lokal plan under de oppgitte nøkkelforutsetningene.',
+    premises: [
+      'Dagens lokale fil er lesbar uten ytterligere dekryptering.',
+      'Planene er alternative forslag; ingen annen lokal diskkryptering er forutsatt.',
+      'Den legitime brukeren må kunne låse opp og lese uten nett i perioden.',
+    ],
+    decisions: [
+      'Bruk en kryptert rapportbeholder og legg den lesbare dekrypteringsnøkkelen i samme ubeskyttede mappe for å forenkle offlineopplåsing.',
+      'Bruk lokal kryptering med nøkkelvern som er utilgjengelig fra den tapte, låste enhetens filsystem, og autorisert lokal opplåsing uten nett.',
+      'Bruk en kryptert rapportbeholder der hver opplåsing må hente nødvendig nøkkel fra en nettjeneste, uten lokal nøkkeltilgang.',
+    ],
+    reasons: [
+      'Lokal kryptering beskytter den lagrede rapporten i den oppgitte tapssituasjonen når nøkkelen også er vernet. Beskrevet autorisert opplåsing beholder samtidig nødvendig offlinebruk; kontrollen gjelder den lokale kopien, uavhengig av originalens skybeskyttelse.',
+      'En kryptert rapportbeholder skiller rapportinnhold fra nøkkelfilen. Denne oppdelingen beholder beskyttelsen av innholdet ved tap, samtidig som filene i eksportmappen gir brukeren enkel opplåsing uten nett.',
+      'Sentral nøkkeltilgang kan trekkes tilbake etter at en enhet er meldt tapt. Den sentrale kontrollen gir rapportens nødvendige tilgjengelighet gjennom hele perioden, uten at dekrypteringsmateriale må oppbevares på arbeidsenheten.',
+    ],
+    decisionFeedback: [
+      'Krypteringens nøkkel er tilgjengelig sammen med beholderen i tapsbildet; den manglende nøkkelgrensen er avgjørende.',
+      'Riktig under premissene: lagret innhold og nøkkelvern henger sammen og den nødvendige offlineflyten beholdes.',
+      'Forslaget kan være relevant når nett alltid finnes, men bryter dette oppdragets tre dagers offlinebruk.',
+    ],
+    reasonFeedback: [
+      'Riktig: resultatet avhenger av både krypteringens nøkkelvern og tilgangsmodellen for legitim bruk.',
+      'Beholderens kryptering alene er ikke tilstrekkelig mot den oppgitte tapssituasjonen når nøkkelen kan leses ved siden av.',
+      'Sentral kontroll har en reell avveining: nøkkeltjenesten er utilgjengelig i en nødvendig del av den erklærte arbeidsflyten.',
+    ],
+    explain:
+      'Med kontinuerlig nettilgang kunne sentral nøkkelhenting vært et annet valg. Med dokumentert beskyttelse også av nøkkelkopien kunne beholderløsningen endret karakter. Ingen kryptografi kjøres her.',
+  },
+  sp05: {
+    title: 'Prosjekteksport i to trinn',
+    problem:
+      'En app lister bare en brukers tillatte prosjekter og lar brukeren bestille en asynkron eksport. En lovlig test viser at en annen innlogget bruker likevel kan laste ned et ferdig resultat med kjent jobb-ID. Den private datatjenesten er kryptert og leses av appens arbeider. Velg en plan som beholder asynkron eksport og avgrenser ferdige resultater.',
+    premises: [
+      'Listing og eksportbestilling kontrollerer allerede riktig prosjektmedlemskap.',
+      'Nedlastingsruten kontrollerer innlogging, men ingen sammenheng mellom bruker, jobb og resultat.',
+      'En nedlastingsgateway kan motta verifisert brukeridentitet og jobbens eierskap; all nedlasting kan tvinges gjennom den.',
+    ],
+    decisions: [
+      'Stram inn prosjektlisten og eksportbestillingens medlemskapssjekk, og behold den eksisterende nedlastingsrutens innloggingskontroll.',
+      'Håndhev verifisert bruker-/jobbtilhørighet i den beskrevne nedlastingsgatewayen og steng direkte nedlasting som omgår kontrollen.',
+      'Knytt jobbens eier/prosjekt til den aktuelle brukeren i appens nedlastingsrute før resultatet leveres.',
+    ],
+    reasons: [
+      'Listing og eksportbestilling avgrenser hvilke jobber en bruker kan opprette. Når arbeideren lager resultatet fra en godkjent jobb, videreføres denne brukeravgrensningen til senere nedlasting med jobb-ID.',
+      'En ferdig eksport får en ny leveringsforespørsel. Brukerens aktuelle tilhørighet til jobb og resultat må kontrolleres ved denne grensen; en tidligere godkjent bestilling avgjør et annet tilgangsforsøk.',
+      'Den private datatjenesten godtar arbeiderens identitet og beskytter resultatene med kryptering. Når appen formidler denne godkjente datatilgangen til innloggede brukere, er lagringens eksisterende beskyttelsesgrense også grunnlaget for utleveringen.',
+    ],
+    decisionFeedback: [
+      'De to tidligere kontrollene fungerer allerede. Endring bare der avgrenser ikke en annen brukers tilgang til et ferdig resultat.',
+      'Også riktig: under premissene er gatewayen en alternativ håndhevingsplass når den kontrollerer tilhørighet og omveier er stengt.',
+      'Riktig: den observerte leveringsgrensen får relevant bruker-/resultatkontroll uten å fjerne asynkronitet.',
+    ],
+    reasonFeedback: [
+      'Arbeiderens tilgang til å opprette en fil bestemmer ikke hvem som senere skal få laste den ned.',
+      'Riktig: kontrollen følger den konkrete tillitsgrensen, ikke bare første innlogging eller første datatilgang.',
+      'Appen kan legitimt lese resultatet, men den innloggede sluttbrukerens tilhørighet må fortsatt være riktig ved utlevering.',
+    ],
+    explain:
+      'Hvis også nedlasting allerede kontrollerte relevant tilhørighet, måtte testens andre forutsetninger undersøkes. En annen håndhevingsplass kan være gyldig; den må gjelde hele den faktiske leveringsveien.',
+  },
+  sp06: {
+    title: 'Dokumenter dekningen for den valgte funksjonen',
+    problem:
+      'En Arc-registrert server har en grunnleggende posture-anbefaling. Fjordverk vil vurdere deteksjon av mistenkelig prosessaktivitet på akkurat denne serveren, med avklart pris. Teamet har konfigurasjonsutdrag for Foundational CSPM, Arc og driftsmålinger, men ingen bekreftet workload-dekning for denne funksjonen. Velg verifikasjonsplan.',
+    premises: [
+      'Den ønskede funksjonen er en serverdeteksjon, ikke bare inventar eller konfigurasjonsprioritering.',
+      'Tilgjengelige Microsoft-planbeskrivelser og priser kan undersøkes.',
+      'Ingen oppgitt observasjon fastslår at serveren er kompromittert.',
+    ],
+    decisions: [
+      'Kontroller relevant Servers-plan, faktisk aktivering og funksjonens støtte-/integrasjonsgrunnlag på serveren; vurder prisen før dekning rapporteres.',
+      'Kontroller Defender CSPM-planens risikoprioritering og de vurderte ressursene; bruk denne plandekningen som verifikasjon av ønsket prosessdeteksjon.',
+      'Kontroller Arc-tilkobling, Activity Log og konfigurerte CPU-regler; bruk disse operative observasjonene til å verifisere den etterspurte deteksjonen.',
+    ],
+    reasons: [
+      'Defender CSPM knytter konfigurasjonsrisiko til den registrerte ressursen og vurderer eksponeringen. Denne ressursdekkende risikovurderingen omfatter prosessaktiviteten som trengs for å bekrefte den ønskede deteksjonsfunksjonen på serveren.',
+      'Verifikasjonen gjelder en bestemt Servers-funksjon. Riktig plan, aktivering og funksjonens tekniske grunnlag må bekreftes; posture-data og management-observasjoner dokumenterer andre egenskaper ved serveren.',
+      'Arc bekrefter at serveren inngår i administrasjon, mens Activity Log og CPU-regler følger administrative handlinger og ressursbruk. Samlet gir disse observerbare signalene nødvendig dekning for den beskrevne prosessdeteksjonen uten et nytt planvalg.',
+    ],
+    decisionFeedback: [
+      'Riktig: det undersøkes om akkurat den bestilte funksjonen har nødvendig plan og teknisk grunnlag på serveren.',
+      'Planen undersøker reell posture-funksjonalitet, men den verifiserer ikke den valgte workload-deteksjonen.',
+      'Disse signalene er relevante for andre oppgaver. De beskriver ikke at prosessdeteksjonen er aktiv og har riktig grunnlag.',
+    ],
+    reasonFeedback: [
+      'Risikokontekst kan støtte prioritering, men den er et annet verifikasjonsmål enn at en bestemt deteksjon er operativ.',
+      'Riktig: støtte-/datakrav gjelder den konkrete funksjonen; verken universell agentplikt eller universell agentfri dekning er antatt.',
+      'Signalene kan være nyttige forkunnskaper. De erstatter ikke dokumentasjon av den funksjonen teamet faktisk vil vurdere.',
+    ],
+    explain:
+      'For et oppdrag om risikoprioritering kunne Defender CSPM-data vært sentralt. For management-hendelser kunne Activity Log vært riktig. Valgt prosessdeteksjon krever sitt eget relevante grunnlag.',
+  },
+  sp07: {
+    title: 'To rapportutdrag til eiermøtet',
+    problem:
+      'Et team har to syntetiske rapportutdrag. Klassisk Secure Score gjelder samme avgrensede ressursgruppe ved to kontrollpunkter, med samme vurderingsgrunnlag og verifiserte rettelser i de relevante kontrollene. Det nyere Cloud Secure Score-utdraget gjelder et større miljø og bare dagens risikokontekst. Hva kan rapporteres til eieren?',
+    premises: [
+      'Den stabile gruppens underlag viser færre åpne kontrollanbefalinger etter de verifiserte rettelsene.',
+      'Det større miljøet omfatter flere ressurser og databehov enn den stabile gruppen.',
+      'Oppgaven gjelder faglig avgrenset rapportering, ikke en samlet garanti eller en ny scoreberegning.',
+    ],
+    decisions: [
+      'Utsett konklusjoner også om den stabile gruppens rettelser til begge portalutdrag kan sammenlignes med samme scoremodell.',
+      'Bruk forbedringen i den stabile gruppen som trend for det større miljøet og bruk dagens risikoutdrag til å utdype denne felles trenden.',
+      'Rapporter den dokumenterte forbedringen for den stabile gruppen og beskriv dagens større risikobaserte bilde separat med modell og scope.',
+    ],
+    reasons: [
+      'De to portalmodellene vekter sikkerhetsforhold forskjellig. En vurdering av forbedring må derfor vente på en felles modell for begge rapportutdrag, også når den stabile gruppens egne kontroller er sammenlignbare.',
+      'Den stabile gruppen er del av det større miljøet, og de verifiserte rettelsene reduserer virksomhetens åpne anbefalinger. Gruppens endring kan derfor rapporteres som miljøets trend med risikoutdraget som supplerende kontekst.',
+      'Den stabile gruppen har sammenlignbare kontroller og verifiserte rettelser som støtter en konkret forbedring. Det større utdraget beskriver dagens risikokontekst for en annen populasjon og kan rapporteres ved siden av, uten å danne en felles historisk trend.',
+    ],
+    decisionFeedback: [
+      'Forsiktighet rundt det større sammenligningsgrunnlaget opphever ikke den stabile gruppens egne sammenlignbare bevis.',
+      'En delmengdes forbedring dokumenterer ikke utviklingen for de ekstra ressursene i det større miljøet.',
+      'Riktig: et positivt, begrenset resultat rapporteres der underlaget støtter det; et annet scope gis en separat tolkning.',
+    ],
+    reasonFeedback: [
+      'Den foreslåtte forsiktigheten går for langt. Den stabile gruppen har allerede samme modell og verifiserte endringer.',
+      'Mer aktuell kontekst er ikke historisk endringsevidence for hele populasjonen. Ikke ekstrapoler utover det dokumenterte scopet.',
+      'Riktig: dette skiller hva bevisene faktisk støtter, uten å avvise gyldige begrensede observasjoner.',
+    ],
+    explain:
+      'Hvis det større miljøet også hadde sammenlignbart historisk underlag i samme modell, kunne det støtte sin egen trend. Verken en slik trend eller et forbedret gruppetall ville bevise fravær av all risiko.',
+  },
+  sp08: {
+    title: 'Tre ressurser i samme tidsrom',
+    problem:
+      'To personer følger opp et posture-funn på StorageC og et medium security alert på ServerB. En godkjent vedlikeholdslogg gjelder ServerA i samme tidsrom. Konfigurasjonsendringen på StorageC er reverserbar og godkjent. Velg én sammenhengende parallell oppfølgingsplan.',
+    premises: [
+      'ServerA og ServerB er forskjellige ressurser.',
+      'Relevant plan og datagrunnlag er bekreftet for det syntetiske alertet.',
+      'Begge personene kan undersøke og verifisere sitt eget arbeidsområde.',
+    ],
+    decisions: [
+      'La én person verifisere StorageC-endringen mens den andre bruker ServerA-loggens aktør og tidsrom til å avslutte ServerB-alertet som vedlikehold.',
+      'La én person verifisere StorageC-endringen mens den andre undersøker ServerB-aktiviteten mot riktig ressurskontekst og forventede oppgaver.',
+      'Start med ServerB-undersøkelsen og gi samtidig den andre personen eierskap til gjennomføring og verifikasjon av StorageC-endringen.',
+    ],
+    reasons: [
+      'Vedlikeholdsloggen dokumenterer en godkjent operatør i det aktuelle tidsrommet. Denne kjente aktiviteten gir et positivt klassifiseringsgrunnlag for ServerB-alertet mens den andre personen verifiserer den reversible StorageC-endringen.',
+      'StorageC-rettelsen reduserer den registrerte eksponeringen, og vedlikeholdet forklarer samtidig legitim aktivitet i miljøet. Disse to bekreftede tiltakene gir grunnlag for å avslutte det samtidige alertet mens teamet følger opp gjenværende konfigurasjon.',
+      'StorageC trenger verifikasjon av konfigurasjonsrettelsen. ServerB trenger aktivitetskontekst som gjelder den ressursen, fordi vedlikehold dokumentert på ServerA ikke klassifiserer ServerB-hendelsen; undersøkelser med ulike bevis kan foregå parallelt.',
+    ],
+    decisionFeedback: [
+      'Loggens tid og aktør kan være relevant, men den gjelder en annen ressurs og avslutter ikke ServerB-undersøkelsen.',
+      'Riktig: begge informasjonskildene behandles med kontekst som gjelder den aktuelle ressursen.',
+      'Også riktig: alternativ fordeling av parallell oppfølging beholder riktig ressurs-/bevisgrense.',
+    ],
+    reasonFeedback: [
+      'Aktør og tid er bare deler av sammenhengen. Oppgitte ServerA-oppgaver beskriver ikke automatisk ServerB-aktivitet.',
+      'StorageC-rettelsen gjelder konfigurasjon. Den klassifiserer ikke en separat deteksjon på ServerB.',
+      'Riktig: et forventet utfall må være underbygd for riktig ressurs, aktivitet og tiltak.',
+    ],
+    explain:
+      'Hvis relevante observasjoner på ServerB dokumenterte forventet vedlikehold, kunne alertet klassifiseres deretter. StorageC-endringen måtte fortsatt verifiseres for seg.',
   },
 } as const;

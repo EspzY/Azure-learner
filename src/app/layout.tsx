@@ -1,3 +1,4 @@
+import { SecurityProvider } from '@/features/learning/security-provider';
 import { MonitoringProvider } from '@/features/learning/monitoring-provider';
 import { ToolsProvider } from '@/features/learning/management-tools-provider';
 import { GovernanceProvider } from '@/features/learning/governance-provider';
@@ -57,17 +58,19 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                                           <GovernanceProvider>
                                             <ToolsProvider>
                                               <MonitoringProvider>
-                                                <SaasProvider>
-                                                  <PracticalProvider>
-                                                    <ServerlessProvider>
-                                                      <PhysicalProvider>
-                                                        <LearningProvider>
-                                                          <AppShell>{children}</AppShell>
-                                                        </LearningProvider>
-                                                      </PhysicalProvider>
-                                                    </ServerlessProvider>
-                                                  </PracticalProvider>
-                                                </SaasProvider>
+                                                <SecurityProvider>
+                                                  <SaasProvider>
+                                                    <PracticalProvider>
+                                                      <ServerlessProvider>
+                                                        <PhysicalProvider>
+                                                          <LearningProvider>
+                                                            <AppShell>{children}</AppShell>
+                                                          </LearningProvider>
+                                                        </PhysicalProvider>
+                                                      </ServerlessProvider>
+                                                    </PracticalProvider>
+                                                  </SaasProvider>
+                                                </SecurityProvider>
                                               </MonitoringProvider>
                                             </ToolsProvider>
                                           </GovernanceProvider>

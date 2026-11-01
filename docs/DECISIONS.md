@@ -1,5 +1,9 @@
 # Decisions
 
+## P15 — model risk contributions rather than a universal safety decision
+
+Keep three conceptual perspectives in Identity Part C: design/evidence questions, complementary seven-layer protection and plan-qualified Defender evidence. Different declared layers do not prove operational independence; reduced declared exposure never proves prevention, app health or recovery. Keep classic control-based and Cloud risk-based score explanations distinct without a universal formula. Preserve actual local inventory as read-only context. Eight independently reasoned cases accept valid direct/group, gateway and parallel alternatives. Blind reviews must remove systematic answer cues, followed by a fresh post-stamp final audit. No new global engine or operational security feature.
+
 ## P14 — observations separate from configured resources
 
 Use three mechanism-specific views in the existing Course Hub. Require persisted matched contrasts plus a causal explanation; visits and Portal inspection give no credit. Available metric aggregate excludes missing samples, while an explicitly stricter teaching gate withholds a rule decision without full selected-window coverage. One stateless evaluation avoids inventing stateful alert history. A valid notification path is never delivery/remediation evidence. Keep both defensible correlated-analysis answers.

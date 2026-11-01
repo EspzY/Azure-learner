@@ -164,3 +164,15 @@ export const officialMonitoring = {
   status: 'scoped-content-covered',
   humanReview: null,
 } as const;
+
+export const officialSecurity = {
+  reviewed: '2026-11-01',
+  module: 'describe-azure-identity-access-security',
+  officialUnits: 12,
+  publicScopedUnits: ['1', '7', '8', '9a', '9', '11'],
+  protectedAssessment: '10-not-opened',
+  implementedObjectives: ['2.4.06', '2.4.07', '2.4.08'],
+  supplement: 'encryption-key-management',
+  status: 'scoped-content-covered',
+  humanReview: null,
+} as const;

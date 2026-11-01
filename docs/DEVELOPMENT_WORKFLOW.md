@@ -1,5 +1,9 @@
 # Development workflow — owner direction, 29 October 2026
 
+## P15 candidate extension
+
+Preserve all224 earlier executions. Seven Security desktop cases plus one compact witness extend the candidate to232 (214/18); optional legacy428. Targeted checks cover three security mechanisms, plan/evidence/score boundaries, persisted causal contrasts, source links, actual read-only Portal context, immutable first/help/retry, assistance/cross-tab/recovery and Part C navigation/resume. Pinned Chromium, worker1 and existing retries/timeouts/skips remain unchanged. Systematic final-bank cues must be corrected and independently rechecked. Full exact-head CI/strict and anonymous root/fullSHA/journey are separate mandatory delivery proof.
+
 ## P14 candidate extension
 
 Preserve all216 previous executions. Seven new Monitoring desktop cases plus one compact witness extend the approved candidate to224 (207/17); optional legacy414. Dedicated checks cover source/evidence boundaries, temporal Health context, aggregation/NULL/collection/rules/notification, immutable assessment, assistance/cross-tab/recovery and Hub/resume/Portal navigation. Pinned Chromium, worker1 and existing retries/timeouts/skips remain unchanged. Full exact-head CI/strict is authoritative; local targeted results and collection are separate evidence.

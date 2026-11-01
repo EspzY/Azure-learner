@@ -1,5 +1,7 @@
 # AzureLab 3.2.1
 
+P15 adds [Security Principles & Defender for Cloud](docs/SECURITY_PRINCIPLES.md) as Identity, Access & Security Part C in the existing Course Hub. Original Zero Trust/seven-layer Defense/Defender teaching, encryption/Key Vault supplement, three bounded synthetic investigations and eight independent situations preserve all historical learning and technical resources. No real scan, security runtime or numerical score. Scoped authored A–F coverage becomes55/57; this is not learner mastery. Candidate232 desktop/compact executions and actual external Gate7 remain separate required delivery evidence. P16 File Movement & Migration follows; no merge/production.
+
 ### P14 — Monitoring & Diagnostic Tools
 
 Monitoring follows Management & Deployment in the third Course Hub path. Original Advisor/Status/Service Health/Resource Health/Monitor teaching, synthetic evidence/incident/telemetry perspectives, three causal SavvyShark investigations and eight independent situations keep observed evidence separate from actual local configuration. See [module contract](docs/MONITORING_DIAGNOSTICS.md). Scoped authored coverage52/57 is not learner mastery or exam readiness.

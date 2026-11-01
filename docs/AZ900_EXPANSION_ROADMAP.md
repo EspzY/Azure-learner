@@ -1,5 +1,9 @@
 # AZ-900 — prioritert, avgrenset PR-plan
 
+## P15 implementation candidate — PR40
+
+[Security Principles & Defender for Cloud](SECURITY_PRINCIPLES.md) is Identity Part C in the existing path02 group. Only2.4.06–08 reassessed using A–F, with encryption/Key Vault Learn supplement, pure bounded models, causal guides and eight original paired situations. All historical contracts/54 other objective rows preserved. Candidate232 desktop/compact executions, independent fresh review and actual anonymous final-SHA Gate7 required. P16 remains planned; full-course pedagogy audit remains a later separate milestone.
+
 ## P14 implementation continuity
 
 PR39 scopes only3.4.01–03: Advisor, three Health views, Monitor/Log Analytics/alerts/APM. Existing Course Hub and authoritative Sandbox are preserved. Synthetic fixtures never establish actual runtime. See [MONITORING_DIAGNOSTICS](MONITORING_DIAGNOSTICS.md). P15 Security/Defender remains next, followed by P16 and the separate whole-journey learning audit.

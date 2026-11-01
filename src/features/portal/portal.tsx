@@ -1,4 +1,6 @@
 'use client';
+import { useSecurity } from '@/features/learning/security-provider';
+import { securityHref } from '@/domain/curriculum/security';
 import { useMonitoring } from '@/features/learning/monitoring-provider';
 import { monitoringHref } from '@/domain/curriculum/monitoring';
 import { useTools } from '@/features/learning/management-tools-provider';
@@ -123,7 +125,8 @@ function PortalWorkspace() {
     accessState = useAccess(),
     governanceState = useGovernance(),
     toolsState = useTools(),
-    monitoringState = useMonitoring();
+    monitoringState = useMonitoring(),
+    securityState = useSecurity();
   useEffect(() => {
     if (serverless.facts.active && ['learn', 'responsibility', 'hierarchy'].includes(location.area))
       serverless.store.event({ kind: 'aid' });
@@ -152,6 +155,7 @@ function PortalWorkspace() {
     location.area,
   ]);
   const otherIndependentContext =
+    securityState.facts.active ||
     monitoringState.facts.active ||
     toolsState.facts.active ||
     governanceState.facts.active ||
@@ -177,6 +181,7 @@ function PortalWorkspace() {
   const independentContext = otherIndependentContext || missions.active;
   const guidanceContexts = [
     storage,
+    securityState,
     monitoringState,
     toolsState,
     governanceState,
@@ -218,32 +223,35 @@ function PortalWorkspace() {
     !benefits.facts.active &&
     !services2.facts.active;
   const managementLab = guidedLab && course.save.lab?.origin === 'architecture-management';
-  const courseReturn = location.monitoring
-    ? monitoringHref('studio') + '&perspective=' + location.monitoring
-    : location.tools
-      ? toolsHref('studio') + '&perspective=intent'
-      : location.governance
-        ? governanceHref('studio') + '&perspective=policy'
-        : location.networking
-          ? networkingHref('dependencies')
-          : location.compute
-            ? computeHref('dependencies')
-            : location.mission
-              ? missionOrigin(location.mission)
-              : location.bridge
-                ? `/learn/benefits?topic=${location.bridge}&activity=practical`
-                : location.practice && practical.current
-                  ? practicalReturn(practical.current)
-                  : guidedLab
-                    ? courseLabHref(
-                        labFacts(course.save.lab, chapter.attempt.engine, chapter.attemptNumber)
-                          .complete,
-                        course.save.lab?.origin,
-                      )
-                    : location.course
-                      ? courseHref(location.module, location.topic)
-                      : '/learn';
+  const courseReturn = location.security
+    ? securityHref('studio') + '&perspective=' + location.security
+    : location.monitoring
+      ? monitoringHref('studio') + '&perspective=' + location.monitoring
+      : location.tools
+        ? toolsHref('studio') + '&perspective=intent'
+        : location.governance
+          ? governanceHref('studio') + '&perspective=policy'
+          : location.networking
+            ? networkingHref('dependencies')
+            : location.compute
+              ? computeHref('dependencies')
+              : location.mission
+                ? missionOrigin(location.mission)
+                : location.bridge
+                  ? `/learn/benefits?topic=${location.bridge}&activity=practical`
+                  : location.practice && practical.current
+                    ? practicalReturn(practical.current)
+                    : guidedLab
+                      ? courseLabHref(
+                          labFacts(course.save.lab, chapter.attempt.engine, chapter.attemptNumber)
+                            .complete,
+                          course.save.lab?.origin,
+                        )
+                      : location.course
+                        ? courseHref(location.module, location.topic)
+                        : '/learn';
   const returnLearning = () =>
+    location.security ||
     location.monitoring ||
     location.tools ||
     location.governance ||

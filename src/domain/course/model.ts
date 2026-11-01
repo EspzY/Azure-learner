@@ -1,3 +1,4 @@
+import { securityTopics } from '../curriculum/security';
 import { monitoringTopics } from '../curriculum/monitoring';
 import { toolsTopics } from '../curriculum/management-tools';
 import { governanceTopics } from '../curriculum/governance';
@@ -22,6 +23,7 @@ import { routes } from '../curriculum/expansion';
 
 export const courseKey = 'azurelab.course.v1';
 export const moduleIds = [
+  'security',
   'monitoring',
   'management-tools',
   'governance',
@@ -116,6 +118,8 @@ const id = (v: unknown): v is string => typeof v === 'string' && /^[a-zA-Z0-9_-]
 const exact = (v: object, keys: string[]) =>
   Object.keys(v).sort().join(',') === keys.sort().join(',');
 export function courseTopic(module: CourseModule, topic: string | null) {
+  if (module === 'security')
+    return (securityTopics as readonly string[]).includes(topic ?? '') ? topic! : 'introduction';
   if (module === 'monitoring')
     return (monitoringTopics as readonly string[]).includes(topic ?? '') ? topic! : 'introduction';
   if (module === 'management-tools')

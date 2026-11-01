@@ -2573,6 +2573,174 @@
       "purpose": "P14: KQL countif counts true predicates under summarize; original examples use documented table fields, not a general local interpreter.",
       "reviewed": "2026-11-01",
       "version": "Rolling official page 2025-02-05T12:13:00.0000000Z"
+    },
+    "SEG01": {
+      "url": "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900",
+      "purpose": "P15: Current July20 AZ-900 guide: only2.4.06–08; encryption/key management is Learn supplement, not a fourth exam objective.",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page 2026-06-22T23:35:00.0000000Z"
+    },
+    "SEG02": {
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-identity-access-security/",
+      "purpose": "P15: Twelve-unit Identity/Access/Security module; P15 units7,8,9a,9 and public introduction/summary scoped; units2–6 preserved prerequisite material; protected10assessment not opened.",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page 2026-10-28T17:12:00.0000000Z"
+    },
+    "SEG03": {
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-identity-access-security/7-describe-zero-trust-model",
+      "purpose": "P15: Three Zero Trust principles; network location is insufficient; authentication plus authorization/context; broad Learn shorthand qualified by actual Azure documentation.",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page 2025-03-28T23:01:00.0000000Z"
+    },
+    "SEG04": {
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-identity-access-security/8-describe-defense-depth",
+      "purpose": "P15: Seven layers and their purpose/controls; layered reduction not an absolute protection guarantee. Original AzureLab diagram only.",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page 2025-03-28T23:01:00.0000000Z"
+    },
+    "SEG05": {
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-identity-access-security/9a-describe-encryption-key-management",
+      "purpose": "P15: Encryption at rest/in transit, keys/secrets/certificates and centralized Key Vault; rotation/access responsibilities remain separate.",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page 2026-03-24T01:47:00.0000000Z"
+    },
+    "SEG06": {
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-identity-access-security/9-describe-microsoft-defender-for-cloud",
+      "purpose": "P15: Learn assessment/secure/defend overview; Azure/hybrid/multicloud connectivity/plan prerequisites qualified by current product sources.",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page 2025-03-28T23:01:00.0000000Z"
+    },
+    "SEG07": {
+      "url": "https://learn.microsoft.com/en-us/security/zero-trust/zero-trust-overview",
+      "purpose": "P15: Zero Trust is a strategy covering explicit contextual verification, shortest adequate access and assume-breach containment/detection, not a product or confirmed incident.",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page 2026-05-31T12:33:00.0000000Z"
+    },
+    "SEG08": {
+      "url": "https://learn.microsoft.com/en-us/azure/security/fundamentals/zero-trust",
+      "purpose": "P15: Azure Zero Trust patterns: MFA/CA/RBAC/managed identities, segmentation, encryption/monitoring/recovery are coordinated controls, not a new evaluator.",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page 2026-07-24T18:54:00.0000000Z"
+    },
+    "SEG09": {
+      "url": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/defender-for-cloud-introduction",
+      "purpose": "P15: CNAPP combines CSPM, CWPP and DevSecOps; expanding Defender portal differs from Azure portal; extra plans/collection/support required; advanced AI/SOC products outside P15.",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page 2026-08-10T22:36:00.0000000Z"
+    },
+    "SEG10": {
+      "url": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/concept-cloud-security-posture-management",
+      "purpose": "P15: Free Foundational CSPM versus paid Defender CSPM; risk prioritization/attack paths and advanced DevOps are plan-dependent. Some recommendations require CWPP. Regional/cloud/resource availability varies.",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page 2026-09-30T17:37:00.0000000Z"
+    },
+    "SEG11": {
+      "url": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/security-recommendations",
+      "purpose": "P15: Posture recommendations arise from assessment; risk context differs from threat evidence; risk-level evaluation requires relevant Defender CSPM coverage and is not universal safety proof.",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page 2026-06-17T12:36:00.0000000Z"
+    },
+    "SEG12": {
+      "url": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/secure-score-security-controls",
+      "purpose": "P15: Both actual portal pivots reviewed: classic control-based Secure Score and risk-based Cloud Secure Score have different calculations/values. No numeric score computed in AzureLab; changing coverage can change score; preview recommendation qualification applies today.",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page 2026-07-07T17:36:00.0000000Z"
+    },
+    "SEG13": {
+      "url": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/manage-respond-alerts",
+      "purpose": "P15: Canonical redirect to manage-respond-alerts: investigate resource/time/evidence/severity and possible false positives; remediation/automation are separate actions, not automatic from alert.",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page 2026-09-22T17:34:00.0000000Z"
+    },
+    "SEG14": {
+      "url": "https://learn.microsoft.com/en-us/azure/key-vault/general/overview",
+      "purpose": "P15: Key Vault protects secrets, encryption keys and certificates; Entra authentication plus data authorization needed; not a general application database. Premium cryptography/preview internals excluded.",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page 2026-10-06T17:34:00.0000000Z"
+    },
+    "SEG15": {
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-identity-access-security/1-introduction",
+      "purpose": "P15: Public module introduction reviewed as prerequisite bridge only; earlier P10/P11 manuscripts and rubrics unchanged.",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page 2025-03-28T23:01:00.0000000Z"
+    },
+    "SEG16": {
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-identity-access-security/11-summary",
+      "purpose": "P15: Public module summary confirms scoped security concepts and encryption supplement; assessment not opened.",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page 2025-03-28T23:01:00.0000000Z"
+    },
+    "SEG17": {
+      "url": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/alerts-overview",
+      "purpose": "P15: Workload-plan detections generate security alerts, severity expresses confidence/context; incidents correlate alerts and still require investigation. Alert is not universal proof of successful compromise.",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page 2026-07-07T17:36:00.0000000Z"
+    },
+    "SEG18": {
+      "url": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/defender-for-servers-overview",
+      "purpose": "P15: Servers Plan1/2 and feature/integration differences; machine existence is not Endpoint protection or active Defender coverage. Separately sold Experts service excluded.",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page 2026-09-30T07:42:00.0000000Z"
+    },
+    "SEG19": {
+      "url": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/defender-for-containers-introduction",
+      "purpose": "P15: Containers posture/agentless/sensor/runtime features vary with configuration/plan/platform; preview capabilities not generalized to all containers.",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page 2026-08-10T22:36:00.0000000Z"
+    },
+    "SEG20": {
+      "url": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/defender-for-storage-introduction",
+      "purpose": "P15: Defender for Storage protects supported Azure Storage with enabled scope/settings; activity monitoring/malware scanning/sensitive-data features and cost/limits separate; no universal free scan.",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page 2026-08-06T12:40:00.0000000Z"
+    },
+    "SEG21": {
+      "url": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/defender-for-databases-introduction",
+      "purpose": "P15: Databases overview is specifically open-source relational database protection with platform availability limits, not one universal plan for every database.",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page 2026-08-10T22:36:00.0000000Z"
+    },
+    "SEG22": {
+      "url": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/defender-for-app-service-introduction",
+      "purpose": "P15: App Service workload protection is a specific enabled plan for supported Azure App Service threats; resource creation alone does not enable security instrumentation/protection.",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page 2026-07-07T17:36:00.0000000Z"
+    },
+    "SEG23": {
+      "url": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/support-matrix-defender-for-cloud",
+      "purpose": "P15: Actual support matrices distinguish services/clouds/portals/regions and preview; no universal all-cloud coverage. China retirement qualification reviewed, no onboarding performed.",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page 2026-09-03T12:37:00.0000000Z"
+    },
+    "SEG24": {
+      "url": "https://learn.microsoft.com/en-us/azure/security/fundamentals/encryption-overview",
+      "purpose": "P15: At-rest/in-transit and client/server encryption responsibilities; decrypting authorized services can still expose data to overprivileged users. No ADE implementation or legacy universal recommendation.",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page 2026-09-18T22:43:00.0000000Z"
+    },
+    "SEG25": {
+      "url": "https://learn.microsoft.com/en-us/azure/key-vault/general/about-keys-secrets-certificates",
+      "purpose": "P15: Key/secret/certificate object types and versioning differ; deprecated Storage-account-key management is not taught as current feature.",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page 2026-06-12T22:35:00.0000000Z"
+    },
+    "SEG26": {
+      "url": "https://learn.microsoft.com/en-us/azure/key-vault/general/secure-key-vault",
+      "purpose": "P15: Best-practices URL redirects to secure-key-vault: access restrictions, managed identities/least privilege, rotation/logging and recovery protections remain customer configuration responsibilities.",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page 2026-10-06T17:34:00.0000000Z"
+    },
+    "SEG27": {
+      "url": "https://learn.microsoft.com/en-us/azure/key-vault/keys/how-to-configure-key-rotation",
+      "purpose": "P15: Rotation creates new key version using policy/permissions and service-specific integration; applying new versions/retaining old decryptability not universally automatic. No key operation executed.",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page 2026-06-12T22:35:00.0000000Z"
+    },
+    "SEG28": {
+      "url": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/risk-prioritization",
+      "purpose": "P15: Risk-prioritization prerequisites: paid Defender CSPM; contextual exposure/sensitivity/criticality guides review, not confirmed threat or universal score formula.",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page 2026-06-16T18:23:00.0000000Z"
     }
   },
   "evidenceProfiles": {
@@ -3590,6 +3758,34 @@
         "tests/e2e/monitoring-diagnostics.spec.ts"
       ],
       "limits": "Authored A–F content only; synthetic fixed signals separate from read-only local configuration/receipts. No real telemetry/incident/cause/notification/runtime or measured human learning."
+    },
+    "SE": {
+      "teaching": [
+        {
+          "path": "src/content/nb.ts",
+          "marker": "securityNb"
+        }
+      ],
+      "mechanism": [
+        {
+          "path": "src/domain/curriculum/security-model.ts",
+          "marker": "runSecurity"
+        }
+      ],
+      "presentation": [
+        {
+          "path": "src/features/learning/security-visuals.tsx",
+          "marker": "SecurityModelResult"
+        }
+      ],
+      "assessment": [
+        {
+          "path": "src/domain/curriculum/security-items.ts",
+          "marker": "evaluateSecurity"
+        }
+      ],
+      "tests": ["src/domain/curriculum/security.test.ts", "tests/e2e/security-principles.spec.ts"],
+      "limits": "Authored A–F only; synthetic risk/control/evidence fixtures separate from actual local configuration and receipts. No real security evaluation, attack, score, alert, plan activation, remediation or measured human learning."
     }
   },
   "plannedPRs": [
@@ -5335,95 +5531,185 @@
       "slot": "2.4.06",
       "id": "az900.security.zero-trust",
       "title": "Zero Trust",
-      "status": "MISSING",
+      "status": "COMPLETE",
       "criteria": {
-        "A": "M",
-        "B": "M",
-        "C": "M",
-        "D": "M",
-        "E": "M",
-        "F": "N"
+        "A": "V",
+        "B": "V",
+        "C": "V",
+        "D": "V",
+        "E": "V",
+        "F": "V"
       },
       "facets": [
         {
           "topic": "Verify explicitly",
-          "status": "MISSING"
+          "status": "COMPLETE"
         },
         {
           "topic": "Least privilege",
-          "status": "MISSING"
+          "status": "COMPLETE"
         },
         {
           "topic": "Assume breach",
-          "status": "MISSING"
+          "status": "COMPLETE"
         }
       ],
       "localObjectives": ["I03"],
-      "evidence": [],
-      "observed": "Least privilege alene er ikke full Zero Trust-modell eller vurdering.",
-      "gap": "Mangler egen forklaring, relevant mekanisme/praksis, uavhengig scenario og begrunnet vurdering for de angitte emnene.",
+      "evidence": ["SE"],
+      "observed": "Original three-principle theory and current-source qualifications; persisted matched internal/external, explicit context, scope/duration and breach-preparation contrasts. Three independent evidence freshness/action, time-bound audit alternatives and batch onward-containment cases with compatible reasons and counterfactuals.",
+      "gap": "Ingen scoped A–F-innholdsgap identifisert; separat sluttkontroll/CI/ekstern verifikasjon kreves. Dekning er ikke elevmestring eller sertifisering.",
       "plannedPRs": ["P15"],
-      "sources": ["EXAM", "M08"]
+      "sources": [
+        "EXAM",
+        "SEG01",
+        "SEG02",
+        "SEG03",
+        "SEG04",
+        "SEG05",
+        "SEG06",
+        "SEG07",
+        "SEG08",
+        "SEG09",
+        "SEG10",
+        "SEG11",
+        "SEG12",
+        "SEG13",
+        "SEG14",
+        "SEG15",
+        "SEG16",
+        "SEG17",
+        "SEG18",
+        "SEG19",
+        "SEG20",
+        "SEG21",
+        "SEG22",
+        "SEG23",
+        "SEG24",
+        "SEG25",
+        "SEG26",
+        "SEG27",
+        "SEG28"
+      ]
     },
     {
       "slot": "2.4.07",
       "id": "az900.security.defense",
       "title": "Defense in depth",
-      "status": "MISSING",
+      "status": "COMPLETE",
       "criteria": {
-        "A": "M",
-        "B": "M",
-        "C": "M",
-        "D": "M",
-        "E": "M",
-        "F": "N"
+        "A": "V",
+        "B": "V",
+        "C": "V",
+        "D": "V",
+        "E": "V",
+        "F": "V"
       },
       "facets": [
         {
           "topic": "Lagdelte kontroller",
-          "status": "MISSING"
+          "status": "COMPLETE"
         },
         {
           "topic": "Feil i ett lag",
-          "status": "MISSING"
+          "status": "COMPLETE"
         }
       ],
       "localObjectives": ["I03"],
-      "evidence": [],
-      "observed": "Ansvarsstakken er ikke en undervisningsmodell for lagdelt sikkerhetsforsvar.",
-      "gap": "Mangler egen forklaring, relevant mekanisme/praksis, uavhengig scenario og begrunnet vurdering for de angitte emnene.",
+      "evidence": ["SE"],
+      "observed": "Original seven-layer purposes, controls, risk, limits and complements; deterministic control failure/remaining risk and recovery contrasts. Changed offline key/copy constraints and asynchronous later-result authorization boundary provide independent application; encryption/Key Vault remains Learn supplement.",
+      "gap": "Ingen scoped A–F-innholdsgap identifisert; separat sluttkontroll/CI/ekstern verifikasjon kreves. Dekning er ikke elevmestring eller sertifisering.",
       "plannedPRs": ["P15"],
-      "sources": ["EXAM", "M08"]
+      "sources": [
+        "EXAM",
+        "SEG01",
+        "SEG02",
+        "SEG03",
+        "SEG04",
+        "SEG05",
+        "SEG06",
+        "SEG07",
+        "SEG08",
+        "SEG09",
+        "SEG10",
+        "SEG11",
+        "SEG12",
+        "SEG13",
+        "SEG14",
+        "SEG15",
+        "SEG16",
+        "SEG17",
+        "SEG18",
+        "SEG19",
+        "SEG20",
+        "SEG21",
+        "SEG22",
+        "SEG23",
+        "SEG24",
+        "SEG25",
+        "SEG26",
+        "SEG27",
+        "SEG28"
+      ]
     },
     {
       "slot": "2.4.08",
       "id": "az900.security.defender",
       "title": "Microsoft Defender for Cloud",
-      "status": "MISSING",
+      "status": "COMPLETE",
       "criteria": {
-        "A": "M",
-        "B": "M",
-        "C": "M",
-        "D": "M",
-        "E": "M",
-        "F": "N"
+        "A": "V",
+        "B": "V",
+        "C": "V",
+        "D": "V",
+        "E": "V",
+        "F": "V"
       },
       "facets": [
         {
           "topic": "Posture",
-          "status": "MISSING"
+          "status": "COMPLETE"
         },
         {
           "topic": "Workload protection",
-          "status": "MISSING"
+          "status": "COMPLETE"
         }
       ],
       "localObjectives": ["I03", "O01"],
-      "evidence": [],
-      "observed": "Ingen egen leksjon, inspektérbar modell eller beslutningsoppgave.",
-      "gap": "Mangler egen forklaring, relevant mekanisme/praksis, uavhengig scenario og begrunnet vurdering for de angitte emnene.",
+      "evidence": ["SE"],
+      "observed": "Original CNAPP/CSPM/CWPP/DevSecOps, plan/platform/data requirements, posture versus alert and follow-up; both classic and Cloud risk score models, no invented calculation. Persisted plan/coverage/evidence/portal contrasts and independent process-detection verification, supported subset improvement versus estate inference, parallel evidence-bound follow-up.",
+      "gap": "Ingen scoped A–F-innholdsgap identifisert; separat sluttkontroll/CI/ekstern verifikasjon kreves. Dekning er ikke elevmestring eller sertifisering.",
       "plannedPRs": ["P15"],
-      "sources": ["EXAM", "M08"]
+      "sources": [
+        "EXAM",
+        "SEG01",
+        "SEG02",
+        "SEG03",
+        "SEG04",
+        "SEG05",
+        "SEG06",
+        "SEG07",
+        "SEG08",
+        "SEG09",
+        "SEG10",
+        "SEG11",
+        "SEG12",
+        "SEG13",
+        "SEG14",
+        "SEG15",
+        "SEG16",
+        "SEG17",
+        "SEG18",
+        "SEG19",
+        "SEG20",
+        "SEG21",
+        "SEG22",
+        "SEG23",
+        "SEG24",
+        "SEG25",
+        "SEG26",
+        "SEG27",
+        "SEG28"
+      ]
     },
     {
       "slot": "3.1.01",
@@ -6846,6 +7132,42 @@
         "MOG35",
         "MOG36",
         "MOG37"
+      ]
+    },
+    {
+      "id": "PR40-P15",
+      "reviewed": "2026-11-01",
+      "objectives": ["2.4.06", "2.4.07", "2.4.08"],
+      "note": "Only three P15 rows reassessed;54 others unchanged. Encryption/Key Vault is supplement, no fourth goal or historical mastery reinterpretation.",
+      "sources": [
+        "SEG01",
+        "SEG02",
+        "SEG03",
+        "SEG04",
+        "SEG05",
+        "SEG06",
+        "SEG07",
+        "SEG08",
+        "SEG09",
+        "SEG10",
+        "SEG11",
+        "SEG12",
+        "SEG13",
+        "SEG14",
+        "SEG15",
+        "SEG16",
+        "SEG17",
+        "SEG18",
+        "SEG19",
+        "SEG20",
+        "SEG21",
+        "SEG22",
+        "SEG23",
+        "SEG24",
+        "SEG25",
+        "SEG26",
+        "SEG27",
+        "SEG28"
       ]
     }
   ]

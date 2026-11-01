@@ -4,6 +4,27 @@ import { replayEngine } from '../sandbox/replay';
 
 /** Conceptual observations are not Engine receipts and have their own source contract. */
 export const conceptMilestones = {
+  'security-trust': {
+    version: '1.0.0',
+    objectives: ['SEC01'],
+    sources: ['SE03', 'SE07', 'SE08'],
+    trigger: 'saved-origin-context-scope-duration-and-breach-preparation-contrasts',
+    auto: 'first-new-guided-model-result',
+  },
+  'security-depth': {
+    version: '1.0.0',
+    objectives: ['SEC02'],
+    sources: ['SE04', 'SE05', 'SE08'],
+    trigger: 'saved-specific-controls-independent-failure-recovery-and-data-access-contrasts',
+    auto: 'first-new-guided-model-result',
+  },
+  'security-defender': {
+    version: '1.0.0',
+    objectives: ['SEC03'],
+    sources: ['SE09', 'SE10', 'SE12', 'SE17'],
+    trigger: 'saved-posture-workload-plan-data-risk-prioritization-and-score-model-contrasts',
+    auto: 'first-new-guided-model-result',
+  },
   'monitoring-evidence': {
     version: '1.0.0',
     objectives: ['MON01', 'MON03'],
