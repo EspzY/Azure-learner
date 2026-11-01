@@ -1,3 +1,7 @@
+## PR42 — audit og neste beslutning, 1. november 2026
+
+[End-to-End Audit](reviews/AZ900_END_TO_END_AUDIT.md), [faktisk reisekart](reviews/AZ900_LEARNING_JOURNEY_MAP.md) og [prioritert tiltaksplan](reviews/AZ900_REMEDIATION_PLAN.md) er leveransen for eiergjennomgang. Fire bekreftede P1 gjelder oppdragsnavigasjon, ordinære dialoger, forkunnskapsrekkefølge og svarposisjon i eldre vurderinger. Produktrettinger er ikke implementert her. P17/P18 starter ikke før eieren har valgt forbedringsarbeid og viktige P0/P1 er løst eller eksplisitt vurdert. Historisk status nedenfor er versjonsbundet; full kandidat-QA/CI/ekstern SHA dokumenteres på Draft PR42. Ingen merge/produksjon eller menneskelig validering.
+
 # Roadmap
 
 ## P16 candidate and mandatory next priority
