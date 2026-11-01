@@ -1,3 +1,4 @@
+import { accessKey } from './access-control';
 import { describe, it, expect } from 'vitest';
 import { prepareExistingTeaching } from './teaching-access';
 import { PhysicalStore } from './architecture-physical-store';
@@ -26,12 +27,13 @@ const io = () => {
   };
 };
 describe('shared teaching preflight for frozen assessment contracts', () => {
-  it('validates fresh unaided fixtures for all thirteen fixture-registered independent contexts', () => {
+  it('validates fresh unaided fixtures for all fourteen fixture-registered independent contexts', () => {
     const fixtures = activeTeachingContexts();
-    expect(fixtures).toHaveLength(13);
-    expect(new Set(fixtures.map((f) => f.key)).size).toBe(13);
+    expect(fixtures).toHaveLength(14);
+    expect(new Set(fixtures.map((f) => f.key)).size).toBe(14);
     expect(fixtures.map((f) => f.key)).toContain(connectivityKey);
     expect(fixtures.map((f) => f.key)).toContain(identityKey);
+    expect(fixtures.map((f) => f.key)).toContain(accessKey);
     for (const f of fixtures)
       expect(f.state(f.raw)).toMatchObject({ active: true, assisted: false });
   });

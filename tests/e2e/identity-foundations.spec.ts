@@ -107,7 +107,10 @@ test('Identity follows Storage in one existing path with exact sidebar, Back/For
       .locator('.learn-hub-path')
       .filter({ has: page.getByRole('heading', { name: h.paths.architecture.title, exact: true }) })
       .locator('.learn-hub-planned'),
-  ).toContainText('RBAC & Conditional Access');
+  ).toContainText('Security Principles');
+  await expect(page.locator('.learn-hub-module[data-module="access-control"]')).toContainText(
+    'RBAC & Conditional Access',
+  );
   await row.locator('a').click();
   await expect(page).toHaveURL(identityHref('introduction'));
   for (const topic of ['directory', 'domain', 'sso', 'mfa', 'passwordless', 'external'] as const) {

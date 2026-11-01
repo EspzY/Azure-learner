@@ -86,3 +86,7 @@ Storage Part B retains all175 inherited cases and adds six desktop investigation
 ## P10 / PR35 scoped profile extension
 
 Retain all182 inherited desktop/compact cases. Seven focused Identity journeys plus one justified initial compact witness give190 (177 desktop/13 compact), optional legacy354. The new witness covers a distinct three-perspective flow, semantic details, factor distinctions, keyboard/Axe/reduced motion and short native briefing; existing full desktop sweeps remain. No new skips, assertion weakening, worker/retry/timeout increase or dependency. Early targeted work and affected correction retests precede one complete authoritative exact-head GitHub CI/strict run. Blind scenario decisions are locked before keys; a fresh post-stamp six-domain audit remains mandatory. [Bounded implementation](IDENTITY_FOUNDATIONS.md).
+
+## P11 / PR36 bounded profile extension
+
+Retain all190 previous cases. Seven distinct new desktop cases cover Part B continuity, read-only actual scope/causal RBAC, simultaneous CA, independent history, fail-closed recovery, compact accessibility and deterministic shared teaching readiness. One justified initial compact Studio/native-dialog witness gives198 (184/14); optionallegacy368 remains. No settings/skips/assertion weakening. The old Benefits assertion is retained after awaiting real lesson mount, with a causal held-frame/denied-write negative. Full exact-head CI/strict is authoritative; local regressions remain targeted.

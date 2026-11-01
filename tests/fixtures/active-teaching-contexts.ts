@@ -1,4 +1,11 @@
 import {
+  freshAccess,
+  applyAccess,
+  accessKey,
+  restoreAccess,
+  accessFacts,
+} from '../../src/domain/curriculum/access-control';
+import {
   freshIdentity,
   applyIdentity,
   identityKey,
@@ -99,6 +106,12 @@ function fixture<S>(
 /** Valid records from frozen reducers, never new runtime curriculum. */
 export function activeTeachingContexts() {
   return [
+    fixture(
+      accessKey,
+      applyAccess(freshAccess(), { kind: 'begin', item: 'ab01' }),
+      restoreAccess,
+      accessFacts,
+    ),
     fixture(
       identityKey,
       applyIdentity(freshIdentity(), { kind: 'begin', item: 'if01' }),

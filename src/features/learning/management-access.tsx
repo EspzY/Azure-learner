@@ -1,4 +1,12 @@
 'use client';
+import { useAccess } from './access-control-provider';
+import {
+  accessHref,
+  accessFacts,
+  accessKey,
+  restoreAccess,
+} from '@/domain/curriculum/access-control';
+import { AccessRecovery } from './access-control';
 import { useIdentity } from './identity-foundations-provider';
 import {
   identityHref,
@@ -154,8 +162,18 @@ export function ManagementTeachingBoundary({
     connectivity = useConnectivity(),
     storage = useStorage(),
     resilience = useResilience(),
-    identityState = useIdentity();
+    identityState = useIdentity(),
+    accessState = useAccess();
   const checks = [
+    check(
+      'access',
+      accessState,
+      accessKey,
+      restoreAccess,
+      accessFacts,
+      () => accessState.store.event({ kind: 'aid' }),
+      accessHref('assessment', accessState.facts.current?.item),
+    ),
     check(
       'identity',
       identityState,
@@ -339,6 +357,7 @@ export function ManagementTeachingBoundary({
         item.id === 'connectivity' ||
         item.id === 'storage' ||
         item.id === 'identity' ||
+        item.id === 'access' ||
         item.id === 'resilience' ||
         (only === 'core' ? ['management', 'physical'].includes(item.id) : item.id === only)),
   );
@@ -400,6 +419,7 @@ export function ManagementTeachingBoundary({
               {item.id === 'storage' && <StorageRecovery />}
               {item.id === 'resilience' && <ResilienceRecovery />}
               {item.id === 'identity' && <IdentityRecovery />}
+              {item.id === 'access' && <AccessRecovery />}
             </div>
           ))}
       </div>

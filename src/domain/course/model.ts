@@ -1,3 +1,4 @@
+import { accessTopics } from '../curriculum/access-control';
 import { identityTopics } from '../curriculum/identity-foundations';
 import { resilienceTopics } from '../curriculum/storage-resilience';
 import { storageTopics } from '../curriculum/storage';
@@ -18,6 +19,7 @@ import { routes } from '../curriculum/expansion';
 
 export const courseKey = 'azurelab.course.v1';
 export const moduleIds = [
+  'access-control',
   'computing',
   'benefits',
   'services',
@@ -108,6 +110,8 @@ const id = (v: unknown): v is string => typeof v === 'string' && /^[a-zA-Z0-9_-]
 const exact = (v: object, keys: string[]) =>
   Object.keys(v).sort().join(',') === keys.sort().join(',');
 export function courseTopic(module: CourseModule, topic: string | null) {
+  if (module === 'access-control')
+    return (accessTopics as readonly string[]).includes(topic ?? '') ? topic! : 'introduction';
   if (module === 'identity')
     return (identityTopics as readonly string[]).includes(topic ?? '') ? topic! : 'introduction';
   if (module === 'storage-resilience')

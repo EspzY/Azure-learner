@@ -1,4 +1,6 @@
 'use client';
+import { useAccess } from '@/features/learning/access-control-provider';
+import { accessHref } from '@/domain/curriculum/access-control';
 import { useIdentity } from '@/features/learning/identity-foundations-provider';
 import { identityHref } from '@/domain/curriculum/identity-foundations';
 import { useResilience } from '@/features/learning/storage-resilience-provider';
@@ -65,9 +67,16 @@ export function useMissionSafetyContexts(owner?: 'missions') {
     connectivity = useConnectivity(),
     storage = useStorage(),
     resilience = useResilience(),
-    identityState = useIdentity();
+    identityState = useIdentity(),
+    accessState = useAccess();
   return (
     [
+      {
+        id: 'access',
+        state: accessState,
+        active: accessState.facts.active,
+        href: accessHref('assessment', accessState.facts.current?.item),
+      },
       {
         id: 'identity',
         state: identityState,

@@ -176,3 +176,5 @@ The ordinary course overview now exposes four distinct applied missions in Benef
 ## Storage Part B
 
 [P09 Storage Part B](docs/STORAGE_RESILIENCE.md) extends the ordinary Storage group with tier/lifecycle and replication/resilience investigations. Separate history preserves Part A, all old evidence and the technical Sandbox. Only2.3.02/03 are scoped; P16 remains planned. Current verification and SSO limits are recorded on Draft PR34; no merge or production deployment.
+
+P11 / PR36 adds [Identity Part B — Azure RBAC & Conditional Access](docs/ACCESS_CONTROL.md) in the existing Course Hub: bounded role/scope and policy investigations, preserved Part A and a separate learning contract. Actual exact-head CI/strict and independent audit govern delivery; no real IAM, role, policy, token, merge or production deployment.

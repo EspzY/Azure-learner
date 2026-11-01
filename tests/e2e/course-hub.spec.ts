@@ -209,11 +209,12 @@ test('saved deep link resumes the exact Core B activity and preserves separate h
   await expect(page).toHaveURL(missionOrigin('platform'));
 });
 
-test('all eighteen independent contexts resume their own exact route without metadata help or evidence rewriting', async ({
+test('all nineteen independent contexts resume their own exact route without metadata help or evidence rewriting', async ({
   browser,
   baseURL,
 }) => {
   const expected: Record<string, string> = {
+    'azurelab.learning.access-control.v1': '/learn/access-control?topic=assessment&case=ab01',
     'azurelab.learning.identity-foundations.v1': '/learn/identity?topic=assessment&case=if01',
     'azurelab.learning.storage-resilience.v1':
       '/learn/storage-resilience?topic=assessment&case=rb01',
@@ -271,7 +272,7 @@ test('all eighteen independent contexts resume their own exact route without met
       href: missionOrigin('platform'),
     },
   ];
-  expect(fixtures).toHaveLength(18);
+  expect(fixtures).toHaveLength(19);
   for (const fixture of fixtures) {
     expect(fixture.href, fixture.key).toBeTruthy();
     expect(fixture.raw).not.toBe('null');

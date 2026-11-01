@@ -206,3 +206,7 @@ The Course groups `storage` and `storage-resilience` as parts, without a navigat
 ## P10 identity boundaries
 
 [Identity Foundations](IDENTITY_FOUNDATIONS.md) extends Course/outline/contextual sidebar with `/learn/identity`, following Storage in the existing second path. `identity-foundations-model` is a pure directory/sign-in/external rule set under declared prerequisites. No identity object or permission enters World. `identity-foundations`/Store/Provider pin a separate1.0.0 evidence contract; existing patterns provide strict replay, bounded terminal capacity, durable stale-writer rejection and scoped recovery. Shared access/mission/Portal protection now includes18 independent contexts. Native SavvyShark observes saved contrasts; own active assessment and recovery remain accessible. New named single-part groups reuse existing Hub/Sidebar rendering so later P11/P15 can append parts. Earlier URLs, state and technical/evidence meaning are preserved. No auth framework, Azure login, token, Graph, CA/RBAC engine or XP.
+
+## P11 Access Control
+
+P11 reuses the established durable learning pattern at access-control.v1 and existing Course Hub/teaching guards. Read-only Sandbox ancestry supplies a labelled captured scope, never a role database or technical World mutation. Bounded RBAC/CA functions are declared education, not general policy evaluators. See [contract](ACCESS_CONTROL.md).

@@ -304,3 +304,7 @@ Use a new1.0.0 Part B contract and the existing multi-part Course grouping, pres
 ## P10 — declared identity evidence before access policy
 
 Keep directory capabilities, authentication proof, requirement acceptance and app authorization separate. Three typed perspectives share one Studio and existing guided/assessment UI contracts. Reuse the isolated durable event pattern instead of a new global engine. SSO can reuse only a declared suitable context; a method name alone cannot prove registration or verification. Passwordless method properties are qualified by current product support, including Hello step-up and SMS first-factor limits. External collaboration chooses a declared business boundary rather than treating every outsider as a guest or every guest as an administrator. P11 will teach CA/RBAC without reinterpreting frozen P10 evidence. No operative identity or authorization object is written to World. [Source/contract rationale](IDENTITY_FOUNDATIONS.md).
+
+## P11 Access Control
+
+P11 keeps RBAC scope authorization separate from CA requirements. Two frozen policy slots and bounded role/action subsets explain causality without introducing a real IAM engine. A captured actual Sandbox path remains separate from conceptual grants. The known Benefits readiness race is corrected in its test by awaiting real lesson mount while preserving the exact persisted-aid assertion; a deterministic held-frame/denied-write regression protects the behavior. See [contract](ACCESS_CONTROL.md).

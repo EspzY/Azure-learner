@@ -5400,6 +5400,7 @@ export const managementNb = {
   accessReload: 'Les lagret vurderingskontekst på nytt',
   accessReview: 'Åpne egen vurdering og lagringskontroll',
   accessContexts: {
+    access: 'Access Control · Identity Part B',
     identity: 'Identity Foundations',
     resilience: 'Storage Part B',
     storage: 'Azure Storage Part A',
@@ -5955,6 +5956,7 @@ export const missionsNb = {
   reloadContext: 'Last inn bare denne konteksten',
   reviewContext: 'Åpne kontekstens eksisterende recovery eller vurdering',
   recoveryContexts: {
+    access: 'Access Control · Identity Part B',
     identity: 'Identity Foundations',
     resilience: 'Storage Part B',
     storage: 'Azure Storage Part A',
@@ -11352,6 +11354,7 @@ export const courseHubNb = {
     },
   },
   moduleLabels: {
+    'access-control': 'Part B — RBAC & Conditional Access',
     identity: 'Part A — Identity Foundations',
     'storage-resilience': 'Part B — Tiers & Redundancy',
     computing: 'Cloud computing',
@@ -11368,14 +11371,11 @@ export const courseHubNb = {
   storage: 'Storage',
   identity: 'Identity, Access & Security',
   plannedModules: {
-    architecture: [
-      'Identity Part B — RBAC & Conditional Access (P11)',
-      'Security Principles (P15)',
-      'File Movement & Migration (P16)',
-    ],
+    architecture: ['Security Principles (P15)', 'File Movement & Migration (P16)'],
     management: ['Governance', 'Management Tools', 'Monitoring'],
   },
   recordLabels: {
+    access: 'Access Control · Identity Part B',
     identity: 'Identity Foundations',
     resilience: 'Storage Part B',
     course: 'Kursposisjon',
@@ -14140,5 +14140,771 @@ export const identityItemsNb = {
     ],
     decisive:
       'Den relevante uavklarte retningen er hjemmeorganisasjonens outbound mot ressursorganisasjonens inbound. Opplysningene beviser ikke en blokkering; de viser hva som må kontrolleres før en eventuell endring.',
+  },
+} as const;
+
+export const accessNb = {
+  ...identityNb,
+  title: 'Azure RBAC & Conditional Access',
+  part: 'Part B — Access Control',
+  path: '02 — Azure Architecture & Services · Identity, Access & Security',
+  overview: 'Hvem får gjøre hva — og hvilke innloggingskrav må være oppfylt?',
+  prerequisites:
+    'Forkunnskaper: Identity Part A om identitetsbevis og AuthN/AuthZ; Core Architecture om tenant, subscription og management-scope.',
+  available:
+    'To konseptuelle undersøkelser, originale selvstendige situasjoner og separat læringshistorikk. P15 Security Principles og Defender er fortsatt planlagt.',
+  perspective: 'Perspektiver i Azure Access Decision Studio',
+  studioLead:
+    'Velg RBAC eller Conditional Access. Start en avgrenset undersøkelse, forutsi før kjøring og følg hvor i beslutningen et krav gjenstår. Alle resultater er deklarerte konseptmodeller.',
+  topics: {
+    introduction: 'Fra autentisering til handling',
+    rbac: 'Principal, rolle og tildeling',
+    scope: 'Scope og arv',
+    roles: 'Azure- og Entra-roller',
+    planes: 'Management og data',
+    conditional: 'Conditional Access',
+    policies: 'Samtidige policyer',
+    testing: 'Testing og nødtilgang',
+    studio: 'Azure Access Decision Studio',
+    missions: 'Guidede undersøkelser',
+    assessment: 'Selvstendig anvendelse',
+    summary: 'Summary — Access Control',
+  },
+  sections: {
+    introduction: {
+      title: 'Fra riktig identitet til riktig handling',
+      paragraphs: [
+        'Fjordverk har nå apper, virtuelle maskiner og data i Azure. En medarbeider kan ha bevist identiteten sin med en sterk metode uten å ha rett til å endre en VM. En annen kan ha en relevant Azure-rolle, men forsøke å logge inn fra en enhet som ikke møter et pålagt krav. Begge situasjonene krever en forklaring som er mer presis enn «innloggingen virker ikke».',
+        'I Part A skilte vi authentication fra authorization. Her følger vi tre spørsmål: Er identiteten verifisert? Oppfyller innloggingsforsøket relevante Conditional Access-krav? Har principalen den nødvendige Azure RBAC-tillatelsen til akkurat denne handlingen på dette scopet? Det siste spørsmålet gjelder en deklarert Azure-operasjon, ikke enhver rettighet i en vilkårlig app.',
+        'Azure RBAC og Microsoft Entra Conditional Access løser forskjellige problemer. Azure Policy kan dessuten avvise en ressurskonfigurasjon selv om den som sender forespørselen har tilstrekkelig myndighet. Vi undersøker mekanismene hver for seg før vi setter dem sammen. Den eksisterende lokale Portal-simulatoren får ingen nye tilgangsblokker av disse undersøkelsene.',
+      ],
+      terms: [
+        ['Principal', 'Identitetsobjektet en tilgangstildeling gjelder.'],
+        ['Tillatelse', 'En bestemt handling på en bestemt type mål.'],
+      ],
+      example:
+        'En driftstekniker trenger å lese VM-konfigurasjon. Reader på riktig avgrenset scope kan være tilstrekkelig; Owner i hele organisasjonen gir mange flere muligheter enn behovet krever.',
+      limit:
+        'Dette er konseptuell opplæring. Ingen reell rolle, policy, tenant, innlogging, token eller Azure-handling opprettes.',
+    },
+    rbac: {
+      title: 'En rolletildeling binder sammen hvem, hva og hvor',
+      paragraphs: [
+        'Azure role-based access control, Azure RBAC, er et autorisasjonssystem for Azure-ressurser og tjenesters RBAC-integrerte operasjoner. Det gir en strukturert måte å dele ansvar uten å gi alle full kontroll. En security principal representerer en bruker, gruppe, service principal eller managed identity. En service principal representerer en applikasjon eller tjeneste i en tenant; en managed identity er en identitet Azure forvalter for en støttet arbeidslast, slik at applikasjonen ikke trenger å håndtere en egen lagret credential på samme måte.',
+        'En role definition beskriver tillatelsene. En role assignment knytter en principal til en definisjon på et bestemt scope. Å ha rollen tilgjengelig i en katalog er ikke det samme som å ha en tildeling. En gruppe kan samle medarbeidere med samme behov; medlemskap og tildeling må begge være relevante. En rolle for en annen bruker eller en gruppe brukeren ikke tilhører gir ikke tilgang til den aktuelle principalen.',
+        'En tildeling må vurderes mot den forespurte handlingen. «Kan se VM-en», «kan endre VM-konfigurasjon» og «kan tildele andre Azure-roller» er forskjellige forespørsler. Selv korrekt rolle og scope garanterer ikke at en faktisk operasjon lykkes: ressursavhengigheter, tjenesteforhold, andre kontroller og registrering/propagering kan fortsatt ha betydning. Studio bruker ferdig erklærte tilstander, ikke levende tokens eller propagasjon.',
+      ],
+      terms: [
+        ['Role definition', 'Samling av tillatelser, ikke en bestemt persons tilgang.'],
+        ['Role assignment', 'Principal + role definition + scope.'],
+        ['Managed identity', 'Azure-forvaltet identitet for en støttet arbeidslast.'],
+      ],
+      example:
+        'En automatisert intern jobb kan få en relevant rolle gjennom sin egen managed identity. Det er jobbens identitet som trenger tildelingen; at en utvikler har rettigheter med sin personlige konto er et annet forhold.',
+      limit:
+        'Ingen bruker-, gruppe-, medlemskaps- eller identitetsopprettelse. Medlemskap i modellen er et deklarert faktum; den løser ikke ekte grupper eller alle kombinasjoner av arbeidslastidentitet.',
+    },
+    scope: {
+      title: 'Arv går nedover i management-hierarkiet',
+      paragraphs: [
+        'Scope avgrenser hvilke ressurser en tildeling kan nå: Management Group → Subscription → Resource Group → Resource. Management groups kan også være nøstet. En tenant er identitetskontekst for tilknyttede subscriptions, ikke en ekstra vanlig Azure RBAC-resource group. Den eksisterende Core Architecture-undervisningen beskriver denne organiseringen; her undersøker vi tillatelsens rekkevidde.',
+        'En Reader-tildeling på en subscription kan gi lesing av managementinformasjon i underliggende grupper og ressurser. Contributor på én resource group kan gi relevante endringer innen den gruppen, men sprer seg ikke oppover til subscriptionen eller sideveis til en søstergruppe. En tildeling på én VM gir ikke i seg selv rett til å administrere gruppen som inneholder VM-en.',
+        'Least privilege betyr at både rollens handlinger og scopets rekkevidde passer oppgaven. En spesialisert rolle på en relevant ressurs kan begrense andre endringer sammenlignet med et bredt Contributor- eller Owner-scope. Det finnes ikke ett universelt minste rollevalg for alle organisasjoner; custom roles og tjenestekrav kan gi flere gyldige løsninger. Se på faktisk behov og ekstra privilegier, ikke bare om ett forsøk ble godtatt.',
+        'Flere rolletildelinger er normalt additive. Reader på en gruppe fjerner ikke en Contributor-tildeling arvet fra subscriptionen. Du må undersøke alle relevante tildelinger for å finne hvorfor en handling fortsatt er tillatt. En smal ny tildeling kan ikke brukes som en overstyrende nedgradering av en bred eksisterende tildeling.',
+      ],
+      terms: [
+        ['Arvet tildeling', 'Rollen er tildelt på et ancestor-scope som omfatter målet.'],
+        ['Least privilege', 'Avgrens tillatelser og rekkevidde til det dokumenterte behovet.'],
+      ],
+      example:
+        'Fjordverks VM trenger en avgrenset konfigurasjonsendring. Sammenlign Reader på subscription, Contributor på gruppen og Virtual Machine Contributor på VM-en. Undersøk både den ønskede handlingen og hva tildelingen ellers kan nå.',
+      limit:
+        'Scope-kartet er en management-relasjon, ikke trafikk eller fysisk plassering. Read-only Sandbox-kontekst er faktiske lokale ressurser; hypotetiske roller blir bare separate læringsobservasjoner.',
+    },
+    roles: {
+      title: 'Built-in roles, custom roles og forskjellige rollesystemer',
+      paragraphs: [
+        'Reader kan lese relevant managementinformasjon, men ikke endre ressurser. Contributor kan administrere ressurser innen scopet, men gir ikke gjennom denne rollen rett til å tildele Azure RBAC-roller. Owner har bred ressursadministrasjon og kan også tildele roller. Det gjør Owner til et kraftig valg, ikke et praktisk standardvalg for alle oppgaver.',
+        'Role Based Access Control Administrator kan administrere Azure RBAC-tildelinger og inneholder etter den kontrollerte definisjonen også */read på control plane. Den gir ikke vanlig ressursendring på samme måte som Contributor. Tilgangsdelegasjon er i seg selv svært privilegert: en person som kan tildele omfattende roller kan øke andres eller egne rettigheter. Avgrens delegasjon og ta høyde for relevante betingelser og deny assignments.',
+        'Virtual Machine Contributor gir VM-relatert administrasjon og enkelte tilknyttede managementoperasjoner, men ikke generell RBAC-delegasjon. Den komplette rollen omfatter mer enn bare én VM-handling, og effektive rettigheter avhenger av scope. Storage Blob Data Reader har relevante Blob DataActions for å lese blobdata, i tillegg til noen service-managementhandlinger. Full definisjon og tjenestekrav må undersøkes ved en faktisk tildeling.',
+        'Custom roles kan beskrive et mer tilpasset sett av tillatelser. Actions og NotActions brukes for control plane; NotActions trekker handlinger fra tillatelsene i akkurat den rollen. NotActions er ikke en generell eksplisitt deny. En annen relevant rolle kan gi den samme handlingen. En faktisk applicable deny assignment er en annen mekanisme som kan blokkere en ellers tillatt handling. Vi oppretter ingen av delene operativt.',
+        'Microsoft Entra directory roles forvalter katalogressurser som brukere, grupper og administrative katalogfunksjoner. Azure roles forvalter Azure-rettigheter på management-scope og relevante tjenester. Global Administrator er derfor ikke automatisk Owner på alle Azure subscriptions. En Global Administrator kan under bestemte omstendigheter eksplisitt heve tilgangen til Azure-administrasjon; det er en separat privilegert handling, ikke en automatisk rollelikhet. Studio utfører ingen slik heving.',
+      ],
+      terms: [
+        [
+          'Reader / Contributor / Owner',
+          'Lesing, ressursendring og bred kontroll med tilgangsdelegasjon er ulike behov.',
+        ],
+        ['NotActions', 'Fratrekk i én rolleddefinisjon, ikke global deny.'],
+        ['Entra role', 'Katalogadministrasjon, adskilt fra Azure RBAC.'],
+      ],
+      example:
+        'En støttefunksjon skal bare delegere avgrensede Azure-tildelinger, mens et annet team endrer VM-er. De to jobbene trenger forskjellige vurderinger; å gi begge Owner skjuler forskjellen.',
+      limit:
+        'Tabellen i Studio viser bare de valgte handlingene, ikke komplette rolleddefinisjoner. PIM, ekte custom roles og avansert betinget delegasjon implementeres ikke.',
+    },
+    planes: {
+      title: 'Managementinformasjon og data har forskjellige tilgangsveier',
+      paragraphs: [
+        'Control plane omfatter Azure-ressursenes managementoperasjoner gjennom Resource Manager: eksempelvis lese konfigurasjon, endre en VM eller tildele en rolle. Data plane omfatter bruken av tjenestens data, som lesing av en blob. Role definitions kan ha både Actions og DataActions. En administrativ rolle uten en gitt DataAction gir ikke dermed den direkte Entra/RBAC-datatillatelsen.',
+        'Enkelte generelle Learn-forklaringer sier at RBAC ikke håndhever datatilgang. Det er for bredt: produktdokumentasjonen beskriver DataActions og tjenester som integrerer data-plane-autorisasjon med Azure RBAC. Riktig forklaring er å undersøke den konkrete tjenesten og tilgangsveien, ikke anta at alle data er enten dekket eller udekket.',
+        'For en deklarert Blob API-forespørsel med Microsoft Entra-autorisasjon kan Storage Blob Data Reader på passende scope gi relevant lesetillatelse. En Reader som bare kan se kontokonfigurasjon er noe annet. Bruk av Azure Portal til Blobdata kan kreve tillegg for å navigere i managementvisningen; et avgrenset API-eksempel må ikke gjøres om til en universell Portal-oppskrift.',
+        'Andre tilgangsveier kan eksistere, for eksempel ressursnøkler og SAS. En bred administrativ rolle kan ha rett til å hente nøkler eller tildele seg datarettigheter. Å mangle en direkte DataAction beviser derfor ikke at personen er isolert fra data. Nettverk, tjenesteinnstillinger og applikasjonens egne tillatelser kommer i tillegg. Studio forutsetter uttrykkelig Entra/RBAC-ruten og ingen nøkkel-/SAS-rute når Blob-handlingen vurderes.',
+        'Azure Policy vurderer en ressurskonfigurasjon mot regler; RBAC vurderer autorisasjon; Conditional Access vurderer relevante innloggingskrav. En Owner kan fortsatt få en ressursforespørsel avvist av en gjeldende Policy deny. AzureLabs eksisterende Web-lokasjonsavslag beholder akkurat sin gamle betydning og er ikke et RBAC- eller CA-avslag.',
+      ],
+      terms: [
+        ['Actions', 'Control-plane-tillatelser i en rolleddefinisjon.'],
+        ['DataActions', 'Tillatelser for støttede data-plane-operasjoner.'],
+        [
+          'Alternativ tilgangsvei',
+          'Eksempelvis ressursnøkkel; ikke evaluert som Entra/RBAC-dataforespørsel.',
+        ],
+      ],
+      example:
+        'En jobb skal lese en avgrenset rapportcontainer gjennom Entra-autoriserte Blob API-er. Vurder jobbidentitetens datarolle uten å gi den unødvendig mulighet til å endre kontoen eller hente nøkler.',
+      limit:
+        'Modellen garanterer ikke appdata, nettverk, faktisk Blob-svar eller beskyttelse mot indirekte privilegieøkning. Ingen nøkkel, SAS, dataopplasting eller faktisk Policy-evaluering utføres.',
+    },
+    conditional: {
+      title: 'Conditional Access: relevante signaler, tydelige krav',
+      paragraphs: [
+        'Microsoft Entra Conditional Access bruker identitetssignaler og policyer for å styre et tilgangsforsøk. Det er ikke et synonym for MFA og erstatter ikke den første identitetsverifiseringen. Policyhåndheving kommer etter første faktor. En policy kan kreve sterkere verifikasjon, en egnet enhet eller blokkere et omfattet forsøk, men tildeler ikke Azure RBAC-roller.',
+        'Begynn med targeting: Hvem og hvilke ressurser gjelder policyen? Inclusion kan omfatte alle brukere eller utvalgte grupper, brukere og støttede roller. Exclusion kan avgrense dem. Hvis samme bruker både inkluderes og ekskluderes i én policy, vinner eksklusjonen for den policyen. Det er ikke et globalt unntak fra andre policyer eller appens egne krav.',
+        'Targeting av directory roles gjelder støttede built-in Entra-roller, ikke Azure-roller, custom directory roles eller roller avgrenset til en administrative unit eller et enkelt objekt. Brukergrupper kan gi et annet målsett, men medlemskap og støttede grupper må vurderes. Studio bruker bare eksplisitt deklarert teammedlemskap og løser ingen ekte eller nøstede grupper.',
+        'Relevante signaler kan være bruker/gruppe, målapp, nettverk/lokasjon, enhetsstatus og gjeldende risikoopplysninger. Lokasjon kan bygge på navngitte nettverk/IP-områder. Et kjent nettverk betyr ikke at brukeren, enheten eller appen automatisk er sikker. Device compliance er et signal fra en støttet løsning, eksempelvis Intune; det er ikke noe AzureLab måler eller registrerer.',
+        'Grant controls kan blant annet kreve MFA, en definert authentication strength eller en compliant device. Block access er en eksplisitt blokkerende kontroll. I én policy kan utvalgte grant controls kombineres med «alle» eller «ett av» under støttede vilkår. Et krav om MFA eller compliant device er logisk forskjellig fra MFA og compliant device.',
+      ],
+      terms: [
+        ['Targeting', 'Hvilke identiteter og målressurser en policy omfatter.'],
+        ['Signal', 'Opplysning brukt i vurderingen; her et deklarert scenariofaktum.'],
+        [
+          'Grant control',
+          'Krav som må oppfylles for at den aktuelle policyen skal være tilfredsstilt.',
+        ],
+      ],
+      example:
+        'En ansatt har bevist identiteten. For en sensitiv app kreves også at enheten er compliant. Samme bruker og samme MFA på en ikke-compliant enhet møter ikke dette enhetskravet.',
+      limit:
+        'Ingen ekte risikodeteksjon, enhetscompliance, innloggingslogg eller policyhåndheving. Studio bruker to avgrensede brukerpolicyer og eksplisitte forutsetninger.',
+    },
+    policies: {
+      title: 'Flere policyer må vurderes samlet',
+      paragraphs: [
+        'Alle relevante håndhevede Conditional Access-policyer må oppfylles. En policy som krever MFA og en annen som krever compliant device gir samlet begge krav. En vanlig grant-policy opphever ikke en gjeldende Block-policy. En allerede oppfylt MFA-policy gjør derfor ikke en policykombinasjon tilfredsstilt når enhetskravet eller en blokkering gjenstår.',
+        'Report-only vurderer hva en policy ville gjort, men håndhever ikke grant controls eller blokkerer forsøket gjennom den policyen. En report-only Block kan derfor ha et hypotetisk avvisningsresultat samtidig som innloggingen ikke avvises av den. Report-only kan vise blant annet oppfylt krav, feil eller behov for brukerhandling. Det er ikke det samme som at et ekte MFA-vindu åpnes.',
+        'Ingen gjeldende policy betyr bare at disse policyene ikke legger et krav på dette forsøket. Førstefaktor, andre sikkerhetskrav, tilgang i appen og Azure RBAC kan fortsatt være relevante. Når målet er Azure Management, viser Studio derfor en separat VM-handlingsvurdering. Når målet er en prosjektapp, erklæres appautorisasjonen utenfor Azure RBAC-modellen.',
+        'Betingelser og unntak har konkret rekkevidde. Hvis én app skal unntas en blokkering, kan det være feil å ekskludere hele personen og dermed også andre apper. En ny tillatende policy reparerer ikke en fortsatt gjeldende blokkering. Undersøk hvem, hva, hvilke signaler og hvilken policystate som faktisk bidrar til utfallet.',
+      ],
+      terms: [
+        ['Report-only', 'Vurdert, men ikke håndhevet policystate.'],
+        ['Samlet krav', 'Alle relevante håndhevede policyer må være tilfredsstilt.'],
+      ],
+      example:
+        'Policy A krever MFA; policy B krever compliant device. Lagre et forsøk med MFA oppfylt og enhetskravet manglende. Endre bare compliance og sammenlign; bytt deretter en blokkering mellom On og Report-only.',
+      limit:
+        'Modellen simulerer ikke alle evalueringsfaser, protokoller, session controls eller tjenesteavhengigheter. Faktisk report-only kan i enkelte plattformer vise sertifikatvalg selv om kontrollen ikke håndheves; vi lager ingen slike forespørsler.',
+    },
+    testing: {
+      title: 'Test avgrenset, bevar nødtilgang og kvalifiser støtte',
+      paragraphs: [
+        'Feilaktig brede policyer kan låse ute brukere og administratorer. Start med en avgrenset pilot, report-only, representative forsøk og gjennomgang av relevante resultater før håndheving. Test også feilsituasjoner og tjenesteavhengigheter. En konfigurasjon som ser riktig ut er ikke i seg selv dokumentert fungerende tilgang.',
+        'Det offentlige What If-verktøyet estimerer hvilke policyer som vil gjelde for oppgitte forhold. Det er nyttig for targeting og konsekvenser, men garanterer ikke nøyaktig bruker- eller tjenesteatferd. Den kontrollerte dokumentasjonen sier at verktøyet ikke tester Conditional Access service dependencies. AzureLab er heller ikke en implementasjon av dette verktøyet.',
+        'Emergency-access-kontoer skal redusere risikoen for at vanlig administratorinnlogging og dens avhengigheter svikter samtidig. Aktuell veiledning anbefaler to eller flere separat beskyttede cloud-only kontoer, phishing-resistente metoder, sikker oppbevaring, overvåking og regelmessig testing. De bør ekskluderes fra CA-policyer som blokkerer eller begrenser nødvendig nødinnlogging. Report-only-policyer trenger ikke et unntak for å unngå håndhevet blokkering.',
+        'Et emergency-unntak fjerner ikke alle sikkerhetskrav. Det er ikke en instruks om å deaktivere obligatorisk MFA eller gi alle et globalt frikort. Eksklusjonen må vurderes i hver relevant policy; en annen restrictive policy kan fortsatt blokkere kontoen. Studio viser bare det deklarerte policyutvalget, ikke den komplette sikkerheten rundt en slik konto.',
+        'Conditional Access krever relevant Microsoft Entra ID P1-lisensiering eller en egnet pakke som inkluderer funksjonen. Sign-in risk og user risk fra Identity Protection krever relevante P2-funksjoner. Intune og andre integrerte tjenester har egne støtte-/lisensvilkår. Disse pris- og produktgrensene gjør ikke AzureLabs konseptmodell til en lisenssimulator.',
+        'Ordinære bruker-/gruppepolicyer håndheves ikke automatisk for en service principal som legges i samme gruppe. Aktuell workload-CA har egne krav: støttede single-tenant service principals eid i organisasjonen, direkte targeting, Workload ID Premium og et avgrenset kontrollsett. Managed identities er ikke dekket av denne workload-policyen. Ikke krev menneskelig MFA fra en bakgrunnsidentitet som om den var en vanlig ansatt.',
+        'Aktuell dokumentasjon beskriver også agent-/impact-/rollout-funksjoner og preview-kontekst. De er ikke ekstra AZ-900-mekanismer i P11 og implementeres ikke. Zero Trust, full Policy, resource locks, PIM og Defender tas ikke som fullført gjennom denne modulen.',
+      ],
+      terms: [
+        ['Pilot', 'Begrenset utprøving før bred håndheving.'],
+        ['Emergency access', 'Separat beskyttet nødtilgang med kontrollerte avhengigheter.'],
+        ['Støttegrense', 'Lisens, tjeneste og identitetstype må passe mekanismen.'],
+      ],
+      example:
+        'En nødadministrator er unntatt policy A, men policy B krever fortsatt en bestemt enhet. Undersøk den andre policyens rekkevidde; et unntak i A er ikke en global frikobling fra B.',
+      limit:
+        'Ingen aktivering av faktiske policyer, nød-/adminbrukere, Workload ID-funksjoner eller tilgangsrettigheter. Menneskelig SME-, UX-, skjermleser- og læringseffektvalidering er ikke utført.',
+    },
+    studio: {
+      title: 'Undersøk årsak og virkning før du velger løsning',
+      paragraphs: [
+        'I RBAC-perspektivet følger du principal, rolletildeling, scope-sti og den valgte tillatelsen. Bytt én viktig forutsetning og sammenlign lagrede resultater. Et bredere scope kan gjøre samme handling mulig, men også nå flere ressurser. Det er ikke automatisk et bedre design.',
+        'I CA-perspektivet velger du deklarerte signaler og undersøker to policyer. Vurder hver policy og så den samlede håndhevede konsekvensen. For Azure Management vises en separat autorisasjon til å endre den oppgitte konseptuelle VM-en. Både korrekt CA og korrekt RBAC er forutsetninger i akkurat dette eksemplet, uten at modellen beviser en faktisk operasjon.',
+        'Forutsi før hver lagrede kjøring. SavvyShark bruker bare lagrede kontraster til neste steg og milepæler. Endrede kontroller skriver ikke om et tidligere resultat. En ferdig guidet undersøkelse er ikke en selvstendig førstegangsbesvarelse.',
+      ],
+      terms: [
+        ['Lagret observasjon', 'Deklarert input + prediksjon med et deterministisk resultat.'],
+        ['Separat autorisasjon', 'En bestemt Azure-handling, ikke alle apprettigheter.'],
+      ],
+      example:
+        'La CA-kravene være oppfylt mens VM-rollen mangler. Endre bare den deklarerte RBAC-tildelingen. Undersøk hvorfor innlogging og handling må forklares hver for seg.',
+      limit:
+        'Ingen runtime, rolletildelingsreceipt, faktisk policyavslag, passord, token eller API-kall. Read-only ressurskontekst er ikke en påstand om en ekte Entra-katalog.',
+    },
+  },
+  missions: {
+    rbac: {
+      title: 'Assign the Right Access',
+      situation:
+        'Fjordverks VM-team skal kunne undersøke og endre én VM uten generell kontroll over andre team eller tilgangsdelegasjon.',
+      where: 'RBAC Scope & Permission Explorer — principal, rolle, scope og handling.',
+      why: 'Samme handling kan være tillatt med unødvendig bred myndighet. Årsaken og rekkevidden må undersøkes.',
+      goal: 'Skill lese-/endringsrett, rolle og scope; dokumenter nedadgående arv og en avgrenset løsning.',
+      steps: [
+        'Kjør Reader på Applications med View Resource og deretter Modify VM configuration. Forutsi forskjellen.',
+        'Kjør Contributor på Application team med Modify VM configuration og Assign an Azure role. Forklar den ulike tillatelsen.',
+        'Sammenlign Contributor på Fjordverk med Virtual Machine Contributor på Application VM for samme VM-endring. Se både rekkevidde og handling.',
+        'Kjør Reader tildelt på VM-en mot den overordnede gruppen. Sammenlign med Reader på subscriptionen mot samme gruppe.',
+        'Velg årsaksforklaring. Oppsummer et konkret avgrenset valg og hva dette ikke beviser.',
+      ],
+      observe:
+        'Observer principal-match, ancestor-sti, faktisk tillatelse og om scope er arvet. Velg eksplisitt prediksjon før kjøring.',
+      debrief:
+        'Tilgang trenger relevant principal, tillatelse og scope. Reader snevrer ikke inn en annen rolle. Ressursnivå gir ikke arv oppover, og riktig hypotetisk resultat er ikke en virkelig Azure-operasjon.',
+    },
+    conditional: {
+      title: 'Investigate Conditional Access',
+      situation:
+        'Fjordverk vil forstå hvorfor en korrekt innlogget ansatt likevel stoppes på vei til en sensitiv Azure-handling.',
+      where: 'Conditional Access Policy Explorer — signaler og to deklarerte policyer.',
+      why: 'Innlogging kan møte policykrav mens den konkrete Azure-handlingen fortsatt mangler en tillatelse.',
+      goal: 'Sammenlign samtidige krav, report-only og targeting; hold CA og VM-autorisasjon adskilt.',
+      steps: [
+        'Behold employee/Azure Management, MFA oppfylt: policy A On/MFA og B On/compliant device. Kjør uten og med compliance.',
+        'Med MFA/compliance oppfylt: sammenlign B Block som On og som Report-only. Se både policyresultat og håndheving.',
+        'Sett B Off, A On/MFA og audience team, MFA ikke oppfylt. Sammenlign medlem og ikke-medlem av teamet.',
+        'Tilbakestill to policyer On/MFA og On/device. Sammenlign oppfylt CA uten VM-rolle med samme CA og Virtual Machine Contributor. Fjern deretter MFA mens VM-rollen beholdes.',
+        'Velg teknisk årsak. Skill videre verifikasjon, blokkering, ingen policykrav og nødvendig Azure-handlingstillatelse.',
+      ],
+      observe:
+        'Policy A/B vurderes hver for seg før samlet resultat. MFA og compliance er erklærte fakta; ingen dialog eller enhetskontroll kjøres.',
+      debrief:
+        'Alle relevante håndhevede policyer må være tilfredsstilt. Report-only blokkerer ikke. Selv oppfylt CA kan ikke erstatte den konkrete Azure RBAC-rettigheten.',
+    },
+  },
+  causal: {
+    rbac: [
+      'Et smalere Reader-scope opphever en bredere Contributor-tildeling.',
+      'Principal, effektiv tillatelse og ancestor-scope må passe handlingen; et mindre scope begrenser rekkevidden.',
+      'En passende innloggingsmetode erstatter den konkrete rolletildelingen.',
+    ],
+    conditional: [
+      'En tilfredsstilt grant-policy overstyrer en annen policies Block.',
+      'En rapportert report-only-feil betyr at tilgangen faktisk ble blokkert av den policyen.',
+      'Alle gjeldende håndhevede policyer må være møtt; konkret Azure-autorisasjon vurderes separat.',
+    ],
+  },
+  milestone: {
+    rbac: {
+      title: 'Rolle og scope forklart',
+      text: 'Lagrede kontraster skiller rollehandling, rekkevidde og retning på arv. Ingen faktisk rolletildeling er utført.',
+    },
+    conditional: {
+      title: 'Policykrav og handling adskilt',
+      text: 'Lagrede kontraster skiller håndheving, report-only, targeting og Azure-handlingens egen rettighet.',
+    },
+  },
+  links: {
+    title: 'Relevante forkunnskaper',
+    core: 'Core Architecture — management-hierarki',
+    identity: 'Identity Part A — autentisering',
+    sandbox: 'Fri Portal-sandbox',
+  },
+  controls: {
+    teamMember: 'Identiteten er medlem av policyens deklarerte team',
+    principal: 'Principal som ber om handlingen',
+    assignment: 'Principal som rolletildelingen gjelder',
+    member: 'Brukeren er medlem av den tildelte gruppen',
+    role: 'Primær rolle',
+    second: 'Ytterligere rolle på samme scope',
+    scope: 'Scope for tildelingen',
+    target: 'Mål for handlingen',
+    action: 'Deklarert Azure-handling',
+    route: 'Tilgangsvei',
+    deny: 'En applicable deny assignment er eksplisitt oppgitt',
+    subject: 'Identitetstype i innloggingsforsøket',
+    app: 'Målressurs / app',
+    location: 'Deklarert lokasjon',
+    authenticated: 'Første identitetsverifisering er oppfylt',
+    mfa: 'Relevant MFA-bevis er oppfylt',
+    compliant: 'Enheten er erklært compliant',
+    authorization: 'Separat tildeling for VM-endringen',
+    state: 'Policystate',
+    audience: 'Inkluderte identiteter',
+    excludeEmergency: 'Emergency-identiteten er ekskludert fra denne policyen',
+    control: 'Grant-/block-kontroll',
+    policyApp: 'Policyens målressurs',
+    policyLocation: 'Policyens lokasjonsbetingelse',
+  },
+  options: {
+    principal: {
+      user: 'Konseptuell bruker',
+      service: 'Konseptuell service principal',
+      managed: 'Konseptuell managed identity',
+    },
+    assignment: {
+      user: 'Samme bruker',
+      group: 'Brukerens deklarerte gruppe',
+      service: 'Samme service principal',
+      managed: 'Samme managed identity',
+      other: 'En annen principal',
+    },
+    roles: {
+      none: 'Ingen Azure-rolle',
+      reader: 'Reader',
+      contributor: 'Contributor',
+      owner: 'Owner',
+      'rbac-admin': 'Role Based Access Control Administrator',
+      'vm-contributor': 'Virtual Machine Contributor',
+      'blob-reader': 'Storage Blob Data Reader',
+      'custom-no-delete': 'Custom VM management uten delete (undervisning)',
+      'custom-delete': 'Custom VM delete (undervisning)',
+      'entra-admin': 'Microsoft Entra Global Administrator — ingen Azure-tildeling',
+    },
+    action: {
+      view: 'View Resource',
+      'modify-vm': 'Modify VM configuration',
+      'delete-vm': 'Delete VM — kun autorisasjonsspørsmål',
+      'assign-role': 'Assign an Azure role — kun autorisasjonsspørsmål',
+      'read-blob': 'Read blob data — deklarert Entra/RBAC-rute',
+    },
+    route: {
+      'entra-rbac': 'Deklarert Azure RBAC-rute, ingen nøkler/SAS',
+      other: 'Annen rute / appautorisasjon — utenfor modellen',
+    },
+    subject: {
+      employee: 'Ansatt (bruker)',
+      partner: 'Partner (bruker)',
+      emergency: 'Separat emergency-bruker',
+      service: 'Service principal — utenfor brukerpolicyene',
+      managed: 'Managed identity — utenfor brukerpolicyene',
+    },
+    app: {
+      azure: 'Azure Management — deklarert VM-handling',
+      project: 'Intern prosjektapp — egen appautorisasjon',
+    },
+    location: {
+      known: 'Kjent lokasjon (ikke en sikkerhetsgaranti)',
+      outside: 'Utenfor det deklarerte kjente nettverket',
+    },
+    authorization: {
+      none: 'Ingen relevant Azure-tildeling',
+      reader: 'Reader på den konseptuelle VM-en',
+      'vm-contributor': 'Virtual Machine Contributor på den konseptuelle VM-en',
+    },
+    state: {
+      off: 'Off',
+      report: 'Report-only',
+      on: 'On — håndhevet i modellen',
+    },
+    audience: {
+      all: 'Alle deklarerte brukere',
+      team: 'Bare det deklarerte teamets medlemmer',
+      emergency: 'Bare deklarert emergency-bruker',
+    },
+    policyApp: {
+      all: 'Begge deklarerte målressurser',
+      azure: 'Bare Azure Management',
+      project: 'Bare prosjektappen',
+    },
+    policyLocation: {
+      all: 'Begge deklarerte lokasjoner',
+      outside: 'Bare utenfor kjent nettverk',
+    },
+    control: {
+      mfa: 'Require MFA',
+      device: 'Require compliant device',
+      both: 'MFA AND compliant device',
+      either: 'MFA OR compliant device',
+      block: 'Block access',
+    },
+  },
+  model: {
+    snapshot: 'Kun eksplisitt lagrede modellkjøringer',
+    noRun: 'Start, velg forutsetninger og forutsi før en observasjon lagres.',
+    draftChanged:
+      'Kontrollene er endret. Dette resultatet viser fortsatt den lagrede konfigurasjonen. Kjør igjen for et nytt resultat.',
+    outcome: [
+      'Et deklarert krav eller en tillatelse er utilstrekkelig',
+      'Utenfor modellens støttede vurdering / ikke dokumentert',
+      'De avgrensede modellkravene er oppfylt',
+    ],
+    yes: 'Ja',
+    no: 'Nei',
+  },
+  visual: {
+    rbacAssumptions:
+      'Deklarert principal og støttet handling, bare de viste direkte tildelingene/betingelsene. Dataforespørselen bruker Entra/RBAC, ingen nøkkel eller SAS. Azure RBAC inngår i Azure subscription; P1-forbeholdet gjelder CA, ikke vanlig RBAC. Ressurs-/nettverks-/apphelse er ikke målt.',
+    notEvaluated: 'Ikke evaluert: første identitetsverifisering mangler.',
+    details: 'Tekniske detaljer og semantisk alternativ',
+    boundary:
+      'Deklarert konseptmodell. Ingen faktisk Entra-beslutning, operasjon, token, rolle, CA-policy eller Azure-receipt.',
+    assignment: 'Konseptuell rolletildeling',
+    scope: 'Scope og nedadgående arv',
+    permission: 'Tillatelsen som handlingen trenger',
+    result: 'Deklarert RBAC-resultat',
+    principal: 'Principal passer tildelingen',
+    inScope: 'Tildelt scope omfatter målet',
+    inherited: 'Tildelingen arves ned til målet',
+    allowed: 'Direkte tillatelse i den deklarerte modellen',
+    breadth: 'Antall viste scope-noder under tildelingen',
+    plane: 'Plane',
+    none: 'Ingen matchende tildeling',
+    report: 'Vurdert uten håndheving',
+    enforced: 'Håndhevet policykrav',
+    applies: 'Policyen gjelder',
+    included: 'Inkludert',
+    excluded: 'Ekskludert',
+    would: 'Policyens avgrensede resultat',
+    policy: 'Policy',
+    status: 'Samlet CA-vurdering',
+    combined: 'Sign-in versus Azure-handling',
+    ca: 'CA-krav møtt i dette utvalget',
+    rbac: 'Relevant VM-rettighet finnes',
+    both: 'Begge avgrensede forutsetninger møtt',
+    appOutside: 'Prosjektappens autorisasjon er utenfor Azure RBAC-modellen.',
+    snapshot: 'Lagret scope-observasjon; kontroller kan nå vise andre verdier.',
+    assumptions:
+      'P1/støttede brukerpolicyer, første faktor og oppgitte MFA-/compliancesignaler er erklært. Ingen session controls, risikomåling, serviceavhengigheter eller faktisk apprespons. RBAC-ruten utelukker nøkler/SAS.',
+    notApplicable:
+      'Ingen av disse policyene gjelder; øvrig sikkerhet og autorisasjon er fortsatt separate spørsmål.',
+    caStatus: {
+      outside: 'Identitetstypen er utenfor de ordinære brukerpolicyene',
+      authentication: 'Første identitetsverifisering mangler — CA ikke evaluert',
+      blocked: 'En gjeldende håndhevet Block stopper det deklarerte forsøket',
+      requirements: 'Videre verifikasjon eller enhetskrav gjenstår',
+      'not-applicable': 'Ingen av de valgte policyene gjelder',
+      met: 'Gjeldende håndhevede krav er møtt; RBAC/app kan fortsatt mangle',
+    },
+    policyResult: {
+      block: 'Ville blokkere',
+      met: 'Oppgitte krav møtt',
+      'mfa-needed': 'MFA-brukerhandling gjenstår',
+      'both-needed': 'Både MFA og compliant device gjenstår',
+      'either-needed': 'MFA eller compliant device gjenstår',
+      'device-needed': 'Compliant-device-krav gjenstår',
+    },
+    cause: {
+      outside:
+        'Denne tilgangsveien/operasjonen ligger utenfor vurderingen. Ingen generell avvisning av andre dataruter er bevist.',
+      principal: 'Tildelingen gjelder en annen principal eller et medlemskap som ikke er oppfylt.',
+      scope:
+        'Målet ligger utenfor tildelingens ancestor-rekkevidde. Ingen arv oppover eller til søsterscope.',
+      permission:
+        'Ingen av de relevante oppgitte rollene har den valgte direkte tillatelsen. Andre ruter vurderes ikke.',
+      deny: 'En separat, eksplisitt oppgitt applicable deny blokkerer den ellers relevante tildelingen.',
+      allowed:
+        'Principal, tillatelse og scope passer under de erklærte forutsetningene. Faktisk operasjon og apprespons er ikke bevist.',
+    },
+  },
+  sandbox: {
+    title: 'Faktisk AzureLab-scope — bare lesing',
+    text: 'Velg en eksisterende lokal gruppe eller ressurs. Stien kommer fra autoritativ replay. Bruk den som separat hypotetisk rollekontekst; ingen tildeling skrives til World.',
+    select: 'Eksisterende scope/ressurs',
+    use: 'Bruk denne faktiske stien som konseptuell kontekst',
+    reset: 'Bruk Fjordverk-eksempelet igjen',
+    empty:
+      'Ingen gruppe eller ressurs finnes ennå. Du kan bruke det deklarerte eksemplet eller opprette støttet innhold i vanlig Portal.',
+    unsafe:
+      'Faktisk Sandbox-kontekst kan ikke bekreftes. Last inn Sandbox på dens egen flate; lagrede læringsobservasjoner er ikke live inventory.',
+    policy: 'Eksisterende lokale Policy-definisjoner (ikke RBAC/CA)',
+    policyLimit:
+      'Dette er faktisk lagret Policy-konfigurasjon, ikke en ny kjøring eller endring av tidligere receipts.',
+  },
+  labels: {
+    ...identityNb.labels,
+    rbac: 'RBAC Scope & Permission Explorer',
+    conditional: 'Conditional Access Policy Explorer',
+    model: 'Azure Access Decision Studio — konseptuell vurdering',
+    noXp: 'Ingen XP eller automatisk Part A-/Part B-kompetanse. Separate læringskontrakter.',
+    notice:
+      'Start lagrer bare en lokal undersøkelse. Ingen rolle eller policy endres. Forutsi og kjør eksplisitt; Start/Cancel er reelle valg.',
+  },
+  storage: {
+    ...identityNb.storage,
+    title: 'Access Control-historikken må avklares',
+    text: 'Part B-data kan ikke brukes sikkert. Last inn nyeste eller gjenopprett bare denne ugyldige kontrakten etter eksplisitt bekreftelse.',
+    loading: 'Laster Access Control …',
+    reload: 'Last inn Access Control på nytt',
+    recover: 'Gjenopprett bare Access Control-data',
+  },
+  assessment: {
+    ...identityNb.assessment,
+    title: 'Selvstendig Access Control-anvendelse',
+    intro:
+      'Løs nye rolle-, scope- og policybeslutninger. Velg beslutning og kompatibel teknisk begrunnelse; korrekt beslutning med feil årsak godkjennes ikke.',
+  },
+  recallGuided: 'Gjenoppta lagret Access Control-undersøkelse',
+  assessmentActive: 'En annen selvstendig Access Control-situasjon er aktiv.',
+  currentFeedback: 'Feedback — Access Control',
+  historyFeedback: 'Tidligere Access Control-arbeid',
+  summaryBoundary:
+    'Besøk, guidede kontraster, first, hjelp og retry vises separat. Gamle Part A-resultater oppgraderes ikke. Innholdsdekning er ikke målt elevmestring.',
+} as const;
+
+export const accessItemsNb = {
+  ab01: {
+    title: 'Avgrensning av en driftstildeling',
+    problem:
+      'Et verksted gir driftsteamet en custom role på én resource group: managementlesing og VM-endringer, med VM-delete trukket fra i NotActions. Teamet har også Contributor arvet fra subscriptionen. De skal fortsatt endre VM-konfigurasjon, men ikke slette VM-er. Hva bør endres?',
+    premises: [
+      'Alle aktuelle tildelinger er oppgitt. Det finnes ingen applicable deny assignment eller annen slettemekanisme.',
+      'Custom-rollen dekker den nødvendige konfigurasjonsendringen; den arvede Contributor-tildelingen er ikke nødvendig for andre avtalte oppgaver.',
+    ],
+    decisions: [
+      'Legg Reader på resource group slik at gruppens lokale rolletildeling blir den mest spesifikke.',
+      'Fjern eller avgrens den arvede Contributor-tildelingen, og behold den nødvendige custom-rollen.',
+      'Flytt Contributor-tildelingen til gruppen og behold custom-rollen på samme scope.',
+    ],
+    reasons: [
+      'Den mest spesifikke rolletildelingen bestemmer alene de effektive rettighetene til gruppen.',
+      'Når to tildelinger har samme scope, begrenser den smaleste rollen den bredeste.',
+      'NotActions trekker fra i én rolle; den andre relevante tildelingen kan fortsatt gi delete.',
+    ],
+    feedback: [
+      [
+        'Reader er nyttig for innsyn, men trekker ikke tillatelser fra den arvede Contributor-rollen.',
+        'Da fjernes den unødvendige tillatelseskilden under de oppgitte vilkårene. Hvis flere nødvendige brede tildelinger fantes, måtte de vurderes før endring.',
+        'Det reduserer Contributor-rekkevidden, men beholder delete inne i gruppen. Den ekstra custom-rollen trekker ikke fra den andre tildelingens handlinger.',
+      ],
+      [
+        'Azure RBAC er normalt additivt; et smalere scope etablerer ikke en prioriterende nedgradering.',
+        'På samme scope er tildelinger fortsatt additive. To parallelle roller er ikke en prioriteringsliste.',
+        'Dette forklarer hvorfor den eksisterende fratrekksregelen ikke er tilstrekkelig.',
+      ],
+    ],
+    decisive:
+      'Finn kilden til den effektive tillatelsen. Flere roller summeres; NotActions er ikke en global deny.',
+  },
+  ab02: {
+    title: 'En støttefunksjon med delt rekkevidde',
+    problem:
+      'En støttefunksjon skal lese managementinformasjon i hele en resource group, men bare administrere Azure RBAC-tildelinger på én navngitt VM. Vanlig ressursendring skal ikke inngå i de valgte rollenes direkte tillatelser. Hvilken kombinasjon passer?',
+    premises: [
+      'Nødvendig identitet og autentisering er på plass. Det finnes ingen annen relevant rolletildeling.',
+      'Delegasjon er godkjent bare på den navngitte VM-en; gruppens andre ressurser skal bare kunne leses. Tilgangsdelegasjonen må fortsatt behandles som privilegert.',
+    ],
+    decisions: [
+      'Role Based Access Control Administrator på hele gruppen, uten en ekstra VM-tildeling.',
+      'Reader på gruppen og Owner på den navngitte VM-en, med to separate rolletildelinger.',
+      'Reader på gruppen og Role Based Access Control Administrator på den navngitte VM-en.',
+    ],
+    reasons: [
+      'Lesing og delegasjon har ulike rekkevidder; separate rolle/scope-par kan begrense hvert behov.',
+      'En tildeling på gruppen gir delegasjon bare på den VM-en som oppdraget navngir.',
+      'Reader på gruppen begrenser Owner på VM-en til lesing og tilgangsdelegasjon.',
+    ],
+    feedback: [
+      [
+        'Dette gir lesing, men også delegasjon på andre ressurser i gruppen. Det er bredere enn den godkjente rekkevidden.',
+        'Dette begrenser delegasjonens scope, men Owner tilfører også vanlig VM-administrasjon gjennom rollen.',
+        'Dette dekker gruppelesing og avgrenser direkte delegasjonsmyndighet til VM-en. Den som kan tildele kraftige roller har fortsatt sensitiv myndighet som må styres og følges opp.',
+      ],
+      [
+        'Dette forklarer hvorfor én bred tilgangsrolle ikke er nødvendig for begge oppgavene. Hvis delegasjon også gjaldt hele gruppen, ville et annet scope vært relevant.',
+        'Det faktiske tildelingsscopet avgjør rekkevidden. Oppdragsbeskrivelsens VM-navn snevrer ikke inn en gruppetildeling.',
+        'Tildelinger er additive. Reader fjerner ikke Owners egne VM-handlinger.',
+      ],
+    ],
+    decisive:
+      'Del opp et sammensatt behov i tillatelser og scope. Gruppelesing og VM-delegasjon trenger ikke gis med samme brede tildeling.',
+  },
+  ab03: {
+    title: 'Rapportbrukeren bytter arbeidsflate',
+    problem:
+      'En analytiker leser rapportblobs med Entra-autoriserte API-er og Storage Blob Data Reader på én container. Nå skal samme person finne kontoen og lese de samme dataene i Azure Portal. Managementvisningen mangler nødvendig lesetillatelse. Hvilken endring passer det nye behovet?',
+    premises: [
+      'Den eksisterende datatillatelsen virker og skal ikke utvides til skriving.',
+      'Nøkler/SAS er ikke i bruk. Reader-innsyn i den aktuelle Storage Account er godkjent. Rolleendringen skal gi minst mulig ekstra myndighet blant de oppgitte valgene.',
+    ],
+    decisions: [
+      'Behold datarollen på containeren og suppler med Reader på den aktuelle Storage Account.',
+      'Erstatt datarollen med Reader på kontoen, slik at én tildeling dekker begge arbeidsflatene.',
+      'Behold datarollen og suppler med Storage Account Contributor på den aktuelle kontoen.',
+    ],
+    reasons: [
+      'En managementleser på kontoen omfatter både kontostruktur og innholdet i alle containerne.',
+      'Portal-navigasjon og Blob-data er separate tillatelsesbehov; de kan trenge komplementære roller.',
+      'En administrativ kontorolle er nødvendig fordi Portal bruker en annen datakilde enn Blob API-er.',
+    ],
+    feedback: [
+      [
+        'Dette legger til nødvendig managementinnsyn uten å utvide Blob-lesing til dataskriving. Den eksisterende datarollen beholdes.',
+        'Reader gir managementinnsyn, men den tidligere datarollen trengs fortsatt for den deklarerte Entra-dataruten.',
+        'Denne rollen kan gi managementinnsyn, men også kontoadministrasjon som ikke er godkjent her. Reader er tilstrekkelig for tilleggsbehovet.',
+      ],
+      [
+        'Actions for managementlesing er ikke automatisk Blob DataActions.',
+        'Dette forklarer hvorfor et tidligere riktig API-design trenger et ekstra, avgrenset managementbehov ved bytte av arbeidsflate.',
+        'Portal kan bruke samme Blobtjeneste. Det nye behovet gjelder navigasjon/management, ikke en annen datakilde som krever kontoadministrasjon.',
+      ],
+    ],
+    decisive:
+      'Et nytt grensesnitt kan kreve et tillegg uten at det gamle databehovet endres. Bevar fungerende datatillatelse og avgrens managementinnsyn.',
+  },
+  ab04: {
+    title: 'To mulige tildelingsveier',
+    problem:
+      'En Entra-katalogadministrator skal få lesetilgang til alle ressursene i en bestemt resource group. Personen har ingen relevant Azure-rolle og er ikke i teamets eksisterende Azure-lesergruppe. Hvilke av de oppgitte planene kan møte behovet uten endringsrett?',
+    premises: [
+      'Lesergruppen har allerede Reader på akkurat den aktuelle resource group og ingen annen relevant tildeling.',
+      'Både individuell tildeling og godkjent gruppemedlemskap er tillatt i organisasjonen. Autentisering og CA er oppfylt. Velg én faglig gyldig plan.',
+    ],
+    decisions: [
+      'Gi personen Reader direkte på den aktuelle resource group.',
+      'Gi personen Contributor direkte på den aktuelle resource group.',
+      'Legg personen til i den godkjente lesergruppen for den aktuelle resource group.',
+    ],
+    reasons: [
+      'En individuell tildeling har prioritet over gruppetildelinger, slik at personens katalogrolle avgrenses.',
+      'Azure-rollen kan nå principalen direkte eller gjennom relevant gruppemedlemskap; katalogrollen er separat.',
+      'Contributor tilsvarer Reader når behovet er deklarert som innsyn og ingen endringer forsøkes.',
+    ],
+    feedback: [
+      [
+        'Dette er én gyldig løsning med Reader på det godkjente scopet. Gruppesporet kan også være gyldig under de oppgitte vilkårene.',
+        'Contributor tilfører endringsrettigheter som ikke inngår i oppgaven. At personen bare planlegger å lese endrer ikke rollen.',
+        'Dette er også en gyldig løsning: medlemskapet gjør gruppens eksisterende Reader-tildeling relevant. Ingen ny egen Azure-rolle trenger opprettes.',
+      ],
+      [
+        'Direkte og gruppebaserte tildelinger summeres; det finnes ikke en slik generell individuell prioritet.',
+        'Dette begrunner begge gyldige leserplanene, uten å behandle en katalogadministrator som automatisk Azure-administrator.',
+        'Rolledefinisjonen endrer seg ikke etter hva personen akkurat nå ønsker å gjøre.',
+      ],
+    ],
+    decisive:
+      'Flere arkitekturer kan oppfylle samme tilgangsbehov. Vurder effektiv rolle og scope, ikke antall tildelinger eller katalogtittel.',
+  },
+  ab05: {
+    title: 'En endret arbeidsform',
+    problem:
+      'En intern app skal kreve MFA for alle omfattet brukere. Godkjent fjernarbeid fra unmanaged enheter skal fortsatt være mulig. Den nåværende aktive policyen treffer riktige brukere og app, men tillater MFA OR compliant device. Hva passer det endrede kravet?',
+    premises: [
+      'Første faktor og nødvendig apprettighet er separate og oppfylt. Ingen annen CA-policy krever enhetscompliance.',
+      'En compliant enhet uten MFA skal ikke være tilstrekkelig; en godkjent unmanaged enhet med MFA skal kunne møte policykravet.',
+    ],
+    decisions: [
+      'Behold MFA OR compliant device, og behold de samme brukerne og appen.',
+      'Krev MFA i den gjeldende policyen, og behold de samme brukerne og appen.',
+      'Krev MFA AND compliant device, og behold de samme brukerne og appen.',
+    ],
+    reasons: [
+      'MFA er da nødvendig, mens godkjente enheter uten compliance ikke utelukkes av et ekstra enhetskrav.',
+      'OR gir samme krav som MFA alene fordi compliant device alltid innebærer et oppfylt MFA-bevis.',
+      'AND er nødvendig for å håndheve MFA, også når unmanaged enheter skal være godkjente.',
+    ],
+    feedback: [
+      [
+        'OR tillater den oppgitte compliant-enhet-grenen uten MFA og møter ikke det endrede kravet.',
+        'Dette gjør MFA nødvendig uten å legge på det enhetskravet som ville hindret godkjent unmanaged bruk.',
+        'Dette krever MFA, men hindrer samtidig den uttrykkelig godkjente unmanaged arbeidsformen.',
+      ],
+      [
+        'Dette møter begge oppgitte avveininger. Et annet krav om managed/compliant enheter ville gitt en annen vurdering.',
+        'Compliance og MFA er forskjellige signaler. Det ene er ikke automatisk bevis for det andre.',
+        'MFA-only kan være nødvendig uten å kreve enheten i tillegg. AND endrer også hvem som kan møte policyen.',
+      ],
+    ],
+    decisive:
+      'Kravet må vurderes mot begge godkjente og ikke-godkjente reiser. Et strengere sett kan være feil hvis det fjerner en avtalt arbeidsform.',
+  },
+  ab06: {
+    title: 'Et prosjekt går over til lesemodus',
+    problem:
+      'To ansatte har samme oppfylte første faktor og aktive MFA-policy, og samme ville-feilet-resultat fra en Report-only device-policy. Begge kan lese samme VM-konfigurasjon. Bare den med Virtual Machine Contributor kan også endre den; den andre har Reader. Etter prosjektoverlevering skal begge fortsatt lese fra dagens enheter, men ingen skal endre VM-en. Hvilken plan passer det nye behovet?',
+    premises: [
+      'Alle relevante Azure-tildelinger er oppgitt. Device-policyen gjelder samme Azure Management-app for både innsyn og endring.',
+      'De nåværende enhetene oppfyller ikke det rapporterte compliance-kravet. Apprettigheter og øvrige forhold er like.',
+    ],
+    decisions: [
+      'Erstatt VM Contributor med Reader på VM-en for den tidligere endringsbrukeren.',
+      'Behold VM Contributor og legg til Reader på VM-en for den tidligere endringsbrukeren.',
+      'Aktiver den rapporterte device-policyen og behold begge eksisterende Azure-tildelinger.',
+    ],
+    reasons: [
+      'Reader som tillegg har et smalere sett handlinger og begrenser derfor den eksisterende VM-rollen.',
+      'En håndhevet device-policy kan stanse VM-endring uten å påvirke innsyn i samme målapp.',
+      'Report-only håndhever ikke forskjellen; ressursrollen må snevres inn mens nødvendig lesing beholdes.',
+    ],
+    feedback: [
+      [
+        'Dette fjerner den avtalte endringsmyndigheten og beholder lesing under de oppgitte tildelingene. En annen bred rolle måtte også vært undersøkt hvis den fantes.',
+        'Den ekstra Reader-tildelingen trekker ikke fra VM Contributor. Endringsretten ville fortsatt finnes.',
+        'Dette kan blokkere begge brukernes innlogging til målappen fra dagens enheter, også for innsyn. Det møter ikke den godkjente lesereisen.',
+      ],
+      [
+        'Azure RBAC-tildelinger er additive. Et mindre handlingssett i en ekstra rolle er ikke en nedgradering av den andre.',
+        'Policyen er avgrenset til app og signaler, ikke en slik Reader-versus-VM-write-splitt. Begge reiser bruker de samme oppgitte forholdene.',
+        'Dette bruker observasjonen til å avgrense en ressursmyndighet, ikke til å innføre en ny innloggingsavhengighet. Report-only-resultatet må fortsatt forstås som en hypotese.',
+      ],
+    ],
+    decisive:
+      'Når behovet blir read-only, må den faktiske endringsmyndigheten fjernes. En ekstra Reader eller en appomfattende innloggingsblokk er ikke samme rettelse.',
+  },
+  ab09: {
+    title: 'Et avgrenset pilotbehov',
+    problem:
+      'En aktiv Block-policy omfatter ansatte og partnere, begge interne apper, når lokasjonen er utenfor kjent nettverk. Bare partnergruppen skal nå få prosjektappen utenfra, med MFA. Ansatte skal fortsatt være blokkert fra prosjektappen utenfra, og begge grupper skal fortsatt være blokkert fra økonomiappen utenfra. Hvilken plan bevarer matrisen?',
+    premises: [
+      'En egen aktiv MFA-policy omfatter partnergruppen og prosjektappen. Apprettigheten er håndtert separat.',
+      'Endringen gjelder bare CA-scope for denne piloten. Emergency-kontoer og øvrige unntak skal beholdes ved ny avgrensning; test begge grupper og apper før håndheving.',
+    ],
+    decisions: [
+      'Unnta prosjektappen fra den felles Block-policyen; behold MFA for partnergruppen og den andre appens Block.',
+      'Del blokkomfanget: ansatte blokkeres for begge apper, partnergruppen bare for økonomiappen; behold partner/prosjekt-MFA.',
+      'Unnta partnergruppen fra den felles Block-policyen; behold MFA for prosjektappen og den andre gruppens Block.',
+    ],
+    reasons: [
+      'MFA i partnerens policy gjør at ansatte fortsatt blokkeres selv om prosjektappen tas ut av Block-scope.',
+      'Et partnerunntak fra den felles policyen beholder økonomiblokken fordi appen ikke er godkjent til fjernarbeid.',
+      'Både identitet og målapp må avgrenses; en vanlig grant-policy opphever ikke et gjenværende Block-treff.',
+    ],
+    feedback: [
+      [
+        'Da fjernes også ansatte/prosjekt fra den felles blokken. Partner-MFA-policyen blokkerer ikke automatisk ansatte som ligger utenfor den.',
+        'Dette bevarer alle tre blokkeringene og lar det ene godkjente krysspunktet møte sin separate MFA-policy. Eksisterende beskyttede unntak og pilottesting må videreføres.',
+        'Da fjernes også partner/økonomi fra den felles blokken. At den reisen ikke er godkjent betyr ikke at systemet automatisk bevarer blokken.',
+      ],
+      [
+        'En policy for partnergruppen kan ikke brukes som et implisitt avslag for ansatte utenfor målgruppen.',
+        'Det kreves fortsatt en policy som faktisk omfatter partner/økonomi og blokkerer den reisen.',
+        'Dette begrunner hvorfor verken et rent appunntak, et rent gruppeunntak eller en ny vanlig grant over Block er tilstrekkelig.',
+      ],
+    ],
+    decisive:
+      'Kontroller bruker×app-kombinasjonene, ikke bare den ønskede reisen. En rettelse kan ellers åpne et annet krysspunkt utilsiktet.',
+  },
+  ab10: {
+    title: 'To konfigurasjonsforsøk',
+    problem:
+      'En utvikler med Contributor på én resource group sender to ellers like opprettelsesforespørsler. Første forespørsel mangler ressursens påkrevde team-tag og avvises. Den andre har tagget fra godkjent arbeidsordre og godtas. Innlogging, tildeling, scope og region er identiske. En oppgitt Azure Policy deny vurderer dette ressurskravet. Hvilken plan passer for neste tilsvarende opprettelse?',
+    premises: [
+      'Contributor dekker den aktuelle opprettelseshandlingen. Ingen role assignment- eller datatilgangshandling inngår.',
+      'Organisasjonens konfigurasjonsregel skal beholdes. Et tagg på resource group arves ikke automatisk til den nye ressursen.',
+    ],
+    decisions: [
+      'Bruk den godkjente taggkonfigurasjonen på ressursen og behold den eksisterende rolletildelingen.',
+      'Gi Owner på gruppen og behold forespørselen uten ressursens team-tag som første forsøk.',
+      'Legg team-tagget bare på resource group og behold forespørselen uten ressursens team-tag.',
+    ],
+    reasons: [
+      'RBAC dekker hvem som kan opprette; Policy vurderer fortsatt forespørselens konfigurasjon.',
+      'Owner tilfører en management-overstyring som Contributor mangler ved en konfigurert Policy deny.',
+      'Samme administrative scope gjør at den nye ressursen automatisk overtar gruppens konfigurasjonstag.',
+    ],
+    feedback: [
+      [
+        'Dette følger den observerte årsaken uten å utvide privilegier eller endre organisasjonens regel.',
+        'Owner tilfører unødvendig myndighet, men den samme ugyldige konfigurasjonen oppfyller fortsatt ikke regelen.',
+        'Gruppens tagg kan være relevant for organisering, men erstatter ikke den forespurte ressursens påkrevde tagg i dette premisset.',
+      ],
+      [
+        'Dette skiller rett til å opprette fra om forespørselen følger konfigurasjonskravet.',
+        'Rolleutvidelse gjør ikke den samme forespørselen compliant med en separat Policy-regel.',
+        'Tilgangsarv og taggkonfigurasjon er forskjellige forhold. Automatisk taggarv er uttrykkelig ikke premisset.',
+      ],
+    ],
+    decisive:
+      'Bruk før/etter-observasjonen til å finne relevant endring. RBAC-autorisasjon og ressurskonfigurasjonsregler må ikke behandles som samme kontroll.',
   },
 } as const;

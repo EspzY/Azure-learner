@@ -4,6 +4,20 @@ import { replayEngine } from '../sandbox/replay';
 
 /** Conceptual observations are not Engine receipts and have their own source contract. */
 export const conceptMilestones = {
+  'access-rbac': {
+    version: '1.0.0',
+    objectives: ['ACF02'],
+    sources: ['AC05', 'AC06', 'AC07'],
+    trigger: 'saved-permission-and-scope-direction-contrasts',
+    auto: 'first-new-guided-model-result',
+  },
+  'access-conditional': {
+    version: '1.0.0',
+    objectives: ['ACF01'],
+    sources: ['AC10', 'AC11', 'AC14', 'AC15'],
+    trigger: 'saved-targeting-enforcement-and-resource-authorization-contrasts',
+    auto: 'first-new-guided-model-result',
+  },
   'identity-directory': {
     version: '1.0.0',
     objectives: ['IDF01'],
