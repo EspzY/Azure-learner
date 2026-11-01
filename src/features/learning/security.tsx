@@ -1,4 +1,5 @@
 'use client';
+import { GuidedMissionLink } from '@/features/course/guided-mission-link';
 import { useEffect } from 'react';
 import Link from 'next/link';
 import { securityNb as c } from '@/content/nb';
@@ -156,7 +157,7 @@ function SecurityMissions() {
             <h3>{c.missions[id].title}</h3>
             <p>{c.missions[id].situation}</p>
             <p>{c.missions[id].goal}</p>
-            <Link href={securityHref('studio') + '&perspective=' + id}>{c.labels.begin} →</Link>
+            <GuidedMissionLink module="security" mission={id} />
           </div>
         </article>
       ))}

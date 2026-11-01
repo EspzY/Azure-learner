@@ -1,0 +1,15 @@
+.guided-mission-status {
+  font-size: 0.8rem;
+  color: #315672;
+  margin-block: 8px;
+}
+#guided-work,
+#guided-cause {
+  scroll-margin-top: 96px;
+  scroll-margin-bottom: calc(var(--course-navigation-height, 108px) + 24px);
+}
+#guided-work:focus-visible,
+#guided-cause:focus-visible {
+  outline: 2px solid #0874bf;
+  outline-offset: 4px;
+}

@@ -5,6 +5,10 @@ import baseline from './playwright.config';
 // names. No test body, assertion, title, timeout or skip is modified.
 const compactCases = [
   [
+    'learning-flow-guidance.spec.ts',
+    'Guidance desktop compact keyboard short windows reduced motion and Axe keep recovery and next actions reachable',
+  ],
+  [
     'file-movement-migration.spec.ts',
     'File Movement desktop and compact keyboard manifest flows short briefing reduced motion Axe and scoped corrupt recovery stay readable',
   ],

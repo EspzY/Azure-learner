@@ -1,4 +1,5 @@
 'use client';
+import { usePortalGuideVisibility } from '@/features/course/portal-guide-visibility';
 import { useState } from 'react';
 import Link from 'next/link';
 import { missionsNb as c } from '@/content/nb';
@@ -17,7 +18,7 @@ export function MissionPortalLayer({
   blocked: boolean;
 }) {
   const { m, s, technical, result } = useMissionResult(),
-    [minimized, setMinimized] = useState(false),
+    [minimized, setMinimized] = usePortalGuideVisibility(),
     [brief, setBrief] = useState(false);
   if (!location.mission) return null;
   if (!s || s.mission !== location.mission || s.status !== 'active')
@@ -111,6 +112,7 @@ export function MissionPortalLayer({
   return (
     <>
       <aside
+        tabIndex={-1}
         className={`guided-coach mission-coach ${minimized ? 'coach-minimized' : ''}`}
         aria-label={independent ? c.independentMode : c.guided}
         data-mission={s.mission}

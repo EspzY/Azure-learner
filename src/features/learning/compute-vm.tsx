@@ -1,4 +1,7 @@
 'use client';
+import { OtherGuideNotice } from '@/features/course/guided-mission-link';
+import { usePortalGuideVisibility } from '@/features/course/portal-guide-visibility';
+import { useGuideBriefing } from '@/features/course/guide-briefing-request';
 import { useState } from 'react';
 import Link from 'next/link';
 import { computeNb as c } from '@/content/nb';
@@ -27,9 +30,10 @@ export function ComputeVmLesson() {
   const g = t.facts.guide?.mission === 'vm' ? t.facts.guide : undefined,
     f = computeVmFacts(g, technical.attempt.engine, technical.attemptNumber),
     copy = c.missions.vm;
+  useGuideBriefing('vm', safe, () => setBrief(true));
   if (brief && !safe) setBrief(false);
   return (
-    <section className="compute-workbench" aria-label={copy.title}>
+    <section id="guided-work" tabIndex={-1} className="compute-workbench" aria-label={copy.title}>
       <h3>{copy.title}</h3>
       <p>{copy.situation}</p>
       <p>{copy.goal}</p>
@@ -43,11 +47,7 @@ export function ComputeVmLesson() {
           ) : (
             <ComputeGuideRecall mission="vm" />
           )}
-          {!g && t.facts.guide && (
-            <p>
-              {c.labels.switch} <Link href={computeHref('missions')}>{c.topics.missions}</Link>
-            </p>
-          )}
+          <OtherGuideNotice module="compute" mission="vm" />
           {g && (
             <>
               <SavvyShark compact>
@@ -228,7 +228,7 @@ export function ComputePortalMission({
   const t = useCompute(),
     technical = useSandbox(),
     safe = useMissionSafety(),
-    [minimized, setMinimized] = useState(false),
+    [minimized, setMinimized] = usePortalGuideVisibility(),
     [failed, setFailed] = useState(false),
     g = t.facts.guide?.mission === 'vm' ? t.facts.guide : undefined;
   if (!g)
@@ -237,7 +237,8 @@ export function ComputePortalMission({
         <Link href={computeHref('dependencies')}>{c.labels.return}</Link>
       </aside>
     );
-  if (!safe || independent || g.attempt !== technical.attemptNumber)
+  const f = computeVmFacts(g, technical.attempt.engine, technical.attemptNumber);
+  if (!safe || independent || !f.verifiable)
     return (
       <aside className="compute-portal-guide">
         <p>{c.storage.unsafe}</p>
@@ -245,8 +246,7 @@ export function ComputePortalMission({
         <MissionSafetyRecovery />
       </aside>
     );
-  const f = computeVmFacts(g, technical.attempt.engine, technical.attemptNumber),
-    chain = f.chain;
+  const chain = f.chain;
   const rs = chain
     ? [chain.vm, chain.os, ...(chain.data ? [chain.data] : []), chain.nic, chain.subnet, chain.vnet]
     : [];
@@ -259,6 +259,7 @@ export function ComputePortalMission({
   const current = inventory(technical.attempt.engine.world).find((r) => r.id === location.id);
   return (
     <aside
+      tabIndex={-1}
       className={`compute-portal-guide ${minimized ? 'compute-guide-minimized' : ''}`}
       aria-label={c.missions.vm.title}
     >

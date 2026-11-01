@@ -1,4 +1,5 @@
 'use client';
+import { usePortalGuideVisibility } from '@/features/course/portal-guide-visibility';
 import { useMissions } from './mission-provider';
 import { useEffect, useRef, useState } from 'react';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
@@ -419,7 +420,7 @@ export function PracticalCoach({
 }) {
   const { p, technical, findings } = usePracticalResult(),
     course = useCourse();
-  const [minimized, setMinimized] = useState(false);
+  const [minimized, setMinimized] = usePortalGuideVisibility();
   const s = p.current;
   const oldWeb =
     location.lab &&
@@ -466,6 +467,7 @@ export function PracticalCoach({
         />
       )}
       <aside
+        tabIndex={-1}
         className={`guided-coach practical-coach ${minimized ? 'coach-minimized' : ''}`}
         aria-label={t.guided}
         data-step={`practical-${s.kind}`}

@@ -1,4 +1,7 @@
 'use client';
+import { GuidedLearning } from '@/features/course/guided-learning';
+import { PortalGuideVisibility } from '@/features/course/portal-guide-visibility';
+import { PortalGuideRecovery } from './guide-recovery';
 import { useMigration } from '@/features/learning/migration-provider';
 import { migrationHref } from '@/domain/curriculum/migration';
 import { useSecurity } from '@/features/learning/security-provider';
@@ -98,7 +101,13 @@ const services = [
 ] as const;
 const educational = ['learn', 'responsibility', 'hierarchy', 'architecture', 'challenge'] as const;
 export function Portal() {
-  return <PortalWorkspace />;
+  return (
+    <GuidedLearning>
+      <PortalGuideVisibility>
+        <PortalWorkspace />
+      </PortalGuideVisibility>
+    </GuidedLearning>
+  );
 }
 function PortalWorkspace() {
   const router = useRouter(),
@@ -638,6 +647,11 @@ function PortalWorkspace() {
             </div>
           )}
         </div>
+        <PortalGuideRecovery
+          location={location}
+          independent={independentContext}
+          uncertain={contextIssue || guidanceContexts.some((c) => !c.ready)}
+        />
         <span className="portal-simulation">{nb.portalUi.training}</span>
         <button
           type="button"

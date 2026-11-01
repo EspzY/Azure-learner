@@ -1,4 +1,6 @@
 'use client';
+import { OtherGuideNotice } from '@/features/course/guided-mission-link';
+import { useGuideBriefing } from '@/features/course/guide-briefing-request';
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { costNb as c, nb } from '@/content/nb';
@@ -68,6 +70,7 @@ export function CostWorkbench({ mission }: { mission: CostMission }) {
     [warning, setWarning] = useState(false),
     [failed, setFailed] = useState(false),
     [answer, setAnswer] = useState<number | null>(null);
+  useGuideBriefing(mission, safe, () => setOverlay('brief'));
   useEffect(() => {
     const changed = (event: StorageEvent) => {
       if (event.key !== null && event.key !== milestonePreferenceKey) return;
@@ -118,13 +121,14 @@ export function CostWorkbench({ mission }: { mission: CostMission }) {
   };
   const milestones = costMilestoneFacts(t.save);
   return (
-    <section className="cost-workbench" aria-label={copy.title}>
+    <section id="guided-work" tabIndex={-1} className="cost-workbench" aria-label={copy.title}>
       <header>
         <small>{c.workbench.subheading}</small>
         <h3>{copy.title}</h3>
         <p>{copy.situation}</p>
         <p>{copy.goal}</p>
       </header>
+      <OtherGuideNotice module="cost" mission={mission} />
       {!safe ? (
         <div role="status">
           <p>{c.workbench.recallUnsafe}</p>
@@ -179,7 +183,7 @@ export function CostWorkbench({ mission }: { mission: CostMission }) {
                 }}
               >
                 <h4>{c.guided.answer}</h4>
-                <fieldset>
+                <fieldset id="guided-cause" tabIndex={-1}>
                   <legend>{copy.question}</legend>
                   {copy.answers.map((text, i) => (
                     <label key={text}>

@@ -1,4 +1,5 @@
 'use client';
+import { GuidedMissionLink } from '@/features/course/guided-mission-link';
 import { useCallback, useEffect, useState } from 'react';
 import Link from 'next/link';
 import { costNb as c } from '@/content/nb';
@@ -276,8 +277,7 @@ function CostSummary() {
       <ul>
         {costMissions.map((id) => (
           <li key={id}>
-            <Link href={costHref(id)}>{c.missions[id].title}</Link> ·{' '}
-            {t.facts.completed.includes(id) ? c.guided.done : c.summary.none}
+            <GuidedMissionLink module="cost" mission={id} label={c.missions[id].title} />
           </li>
         ))}
       </ul>

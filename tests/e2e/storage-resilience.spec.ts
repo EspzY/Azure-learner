@@ -204,8 +204,9 @@ test('tier contrasts preserve Cold online, explicit costs, pending Archive and u
   await page.goto('/learn');
   await expect(page.locator('.learn-hub-start a.course-primary')).toHaveAttribute(
     'href',
-    resilienceHref('studio') + '&perspective=tiers',
+    resilienceHref('studio') + '&perspective=replication',
   );
+  expect(await raw(page)).toBe(saved);
 });
 test('replica maps separate physical survival, read-only secondary, missing writes, deletion and service support', async ({
   page,

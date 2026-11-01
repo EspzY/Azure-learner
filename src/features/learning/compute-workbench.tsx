@@ -1,4 +1,6 @@
 'use client';
+import { OtherGuideNotice } from '@/features/course/guided-mission-link';
+import { useGuideBriefing } from '@/features/course/guide-briefing-request';
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { computeNb as c } from '@/content/nb';
@@ -6,7 +8,6 @@ import {
   computeGuidedFacts,
   computeMilestoneFacts,
   computeHref,
-  computeMissionTopic,
   type ComputeMission,
 } from '@/domain/curriculum/compute';
 import {
@@ -68,6 +69,7 @@ export function ComputeWorkbench({
     [warning, setWarning] = useState(false),
     [prediction, setPrediction] = useState<Outcome | null>(null),
     [answer, setAnswer] = useState<number | null>(null);
+  useGuideBriefing(mission, safe, () => setOverlay('brief'));
   useEffect(() => {
     const sync = (e: StorageEvent) => {
       if (e.key !== null && e.key !== milestonePreferenceKey) return;
@@ -127,6 +129,8 @@ export function ComputeWorkbench({
     milestones = computeMilestoneFacts(t.save);
   return (
     <section
+      id="guided-work"
+      tabIndex={-1}
       className="compute-workbench"
       aria-label={desktop ? c.models.desktop.title : copy.title}
     >
@@ -151,14 +155,7 @@ export function ComputeWorkbench({
           ) : (
             <ComputeGuideRecall mission={mission} />
           )}
-          {!g && t.facts.guide && (
-            <aside className="compute-switch">
-              <p>{c.labels.switch}</p>
-              <Link href={computeHref(computeMissionTopic[t.facts.guide.mission])}>
-                {c.labels.current} · {c.missions[t.facts.guide.mission].title}
-              </Link>
-            </aside>
-          )}
+          <OtherGuideNotice module="compute" mission={mission} />
           {g && (
             <>
               <SavvyShark compact>
@@ -641,7 +638,7 @@ export function ComputeCausalChoice({
 }) {
   const copy = c.causes[mission];
   return (
-    <fieldset className="compute-causal-choice" disabled={disabled}>
+    <fieldset id="guided-cause" tabIndex={-1} className="compute-causal-choice" disabled={disabled}>
       <legend>{c.labels.cause}</legend>
       <p>{copy.prompt}</p>
       {copy.choices.map((text, n) => (

@@ -1,13 +1,12 @@
 'use client';
+import { OtherGuideNotice } from '@/features/course/guided-mission-link';
+import { useGuideBriefing } from '@/features/course/guide-briefing-request';
 import { useEffect, useState } from 'react';
-import Link from 'next/link';
 import { storageResilienceNb as c } from '@/content/nb';
 import {
   resilienceGuidedFacts,
   resilienceWitnesses,
   resilienceMilestoneFacts,
-  resilienceHref,
-  resilienceMissionTopic,
   type ResilienceMission,
   type ResilienceGuide,
 } from '@/domain/curriculum/storage-resilience';
@@ -45,6 +44,7 @@ export function ResilienceWorkbench({ mission }: { mission: ResilienceMission })
     [warning, setWarning] = useState(false),
     [prediction, setPrediction] = useState<Outcome | null>(null),
     [answer, setAnswer] = useState<number | null>(null);
+  useGuideBriefing(mission, safe, () => setOverlay('brief'));
   useEffect(() => {
     const changed = (e: StorageEvent) => {
       if (e.key !== null && e.key !== milestonePreferenceKey) return;
@@ -100,7 +100,12 @@ export function ResilienceWorkbench({ mission }: { mission: ResilienceMission })
     }
   };
   return (
-    <section className="compute-workbench resilience-workbench" aria-label={copy.title}>
+    <section
+      id="guided-work"
+      tabIndex={-1}
+      className="compute-workbench resilience-workbench"
+      aria-label={copy.title}
+    >
       <header>
         <small>{c.labels.model}</small>
         <h3>{copy.title}</h3>
@@ -130,14 +135,7 @@ export function ResilienceWorkbench({ mission }: { mission: ResilienceMission })
               <ResilienceGuideRecall mission={mission} />
             )}
           </div>
-          {!g && t.facts.guide && (
-            <p>
-              {c.labels.switch}{' '}
-              <Link href={resilienceHref(resilienceMissionTopic[t.facts.guide.mission])}>
-                {c.labels.current}
-              </Link>
-            </p>
-          )}
+          <OtherGuideNotice module="storage-resilience" mission={mission} />
           {g && (
             <>
               <SavvyShark compact>
@@ -349,7 +347,7 @@ function ResilienceCausalChoice({
   onChange: (v: number) => void;
 }) {
   return (
-    <fieldset disabled={disabled}>
+    <fieldset id="guided-cause" tabIndex={-1} disabled={disabled}>
       <legend>{c.labels.chooseCause}</legend>
       {c.causal[mission].map((s, i) => (
         <label className="resilience-causal-choice" key={s}>

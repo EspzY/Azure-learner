@@ -206,7 +206,7 @@ test('message lifecycle preserves two deliveries, changes only declared applicat
   await page.goto('/learn');
   await expect(page.locator('.learn-hub-start a.course-primary')).toHaveAttribute(
     'href',
-    storageHref('studio') + '&perspective=delivery',
+    storageHref('studio') + '&perspective=design',
   );
   await page.locator('.learn-hub-start a.course-primary').click();
   expect(await raw(page)).toBe(saved);

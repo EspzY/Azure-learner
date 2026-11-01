@@ -8,11 +8,13 @@ Ingen bekreftet P0 i det avgrensede, faktiske utvalget. **LJ-01, UX-01, LJ-02 og
 
 Anbefalt første leveranse er **Learning Flow & Guided Mission Navigation**. Deretter kan den lille dialogrettingen leveres separat, før kildeforenkling og mer omfattende curriculum-/assessment-arbeid. Fastsett rekkefølgen for nybegynnerreisen før store manuskriptkutt. Assessment-pakken må håndtere historikk fra starten. Portal-utvidelser kommer etter sentrale flyt-/vurderingsproblemer.
 
-Alle funn er åpne produktfunn i PR42. Ingen av tiltakene nedenfor er implementert av audit-rapporten. Endelige PR-numre velges etter eiergjennomgang; vi reserverer ikke PR43–47 eller starter arbeid automatisk.
+Alle funn var åpne produktfunn i PR42. PR43 implementerer nå avgrenset LJ-01 og PORTAL-GUIDE-01; se status nedenfor. Ingen av tiltakene nedenfor er implementert av audit-rapporten. Endelige PR-numre velges etter eiergjennomgang; vi reserverer ikke PR43–47 eller starter arbeid automatisk.
 
 ## Funnregister og testbare arbeidspakker
 
 ### LJ-01 · P1 · Learning Flow & Guided Mission Navigation
+
+**PR43-status:** implementert og under endelig kandidatverifikasjon. Felles read-only navigasjonsprojeksjon bruker opprinnelige evaluatorer i 13 moderne moduler; eksplisitt briefing/Start, aktiv/pauset/årsaksfase, debrief/neste og eksakt independent-prioritet er skilt. Før/etter og faktisk testomfang finnes i [leveransekontrakten](../LEARNING_FLOW_GUIDANCE.md). Full CI/streng release og ekstern eksakt-SHA-verifikasjon rapporteres på Draft PR43; denne teksten alene lukker ikke leveransen. Ingen historisk completion eller manuskript endres.
 
 - **Berørt:** Security `missions → studio&perspective=trust → missions`; samme statiske navigasjonsmønster i Compute, Networking, Storage, Identity, Cost, Governance, Tools og Monitoring. Tidligere praktiske oppdrag har egne origin-/returforløp.
 - **Evidens:** anonym SHA `4732f93…`, én lagret run uten forklaring; Next gikk til missions. Etter gyldig fullføring er Next fortsatt missions og Hub anbefaler samme Studio. Back/reload/resume bevarer arbeidet. [Bilde](screenshots/owner01-next-returns-list.png), `owner01` og `breadth` i bevisfilen.
@@ -20,6 +22,14 @@ Alle funn er åpne produktfunn i PR42. Ingen av tiltakene nedenfor er implemente
 - **Anbefaling:** videreutvikle eksisterende CourseNavigation med en anbefalt handling fra modulens faktiske guide-/assessment-status. Vis oppdragsnavn og gjenstående steg nær primærhandlingen. Etter ferdig guide: debrief → neste relevante oppdrag eller independent. Korriger «Åpne briefing»-kopi eller la den synlige inngangen faktisk åpne briefingen; Start skal fortsatt være eksplisitt.
 - **Risiko:** management teaching-boundary, independent-shielding, stored guide/session, multi-tab-konflikt og eldre Portal-origin. Ingen ny global progress-motor eller ny fullføringsbetydning.
 - **Akseptanse/tester:** ny og delvis Security-guide; lagret kontrast uten cause; fullført guide; aktiv unaided og assisted assessment; Back/Forward, Hub, reload og eksakt resume; scope recovery. Samme tilstandsmatrise med representative Compute-/Network-/Cost-arbeidsflater, nyere Studio og eldre praktisk mission/Web-lab. Frivillig direkte navigasjon forblir mulig og gir aldri kreditt. Manglende/avvist durable write må blokkere svarbærende hjelp. Verifiser fokus/scroll, 1440×900, 1024×768 og kort desktop. Utvid målrettet eksisterende E2E; full godkjent CI én gang på endelig kandidat.
+
+### PORTAL-GUIDE-01 · gjenfinnbar veiledning
+
+**Identifisert:** VM/PaaS-panelets eksisterende minimert-knapp fungerer. Bekreftet UX-/kontekstfeil: vanlig `/portal` mister nødvendige URL-parametere og viser ingen vei tilbake til gyldig lagret guide. Økten er ikke slettet. Fri Sandbox manglet generell orientering. Studio-eid veiledning som naturlig hører hjemme i kurset, og undertrykking ved independent/ukjent state, er tilsiktede grenser.
+
+**PR43-retting:** permanent diskret SavvyShark-kontroll gjenåpner resident-panelet eller tilbyr eksplisitt kontekstretur. Fri Portal får orientering og eksisterende oppdragsinngang. Ugyldig teknisk forsøk får recovery fremfor automatisk rebinding. Minimering og recovery-lenker gir ingen kreditt, World-endring eller nye økter. Nøytral independent-status gir ingen hjelp; faktisk hjelp krever fortsatt opprinnelig durable klassifisering.
+
+**Verifikasjon:** nye målrettede VM/PaaS/Compute/Networking-reiser, ressursnavigasjon, Back/Forward/reload, kursretur, reset, cross-tab og denied writes. Faktiske før/etter-bilder i [leveransekontrakten](../LEARNING_FLOW_GUIDANCE.md). Sluttstatus avhenger av separat review, eksakt-head full CI og faktisk ekstern brukerreise på Draft PR43. Større ny SavvyShark-plattform, generelle Portal-kapabiliteter og modalretting inngår ikke.
 
 ### UX-01 · P1 · avgrenset normal-dialogretting
 

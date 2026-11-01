@@ -1,5 +1,6 @@
 'use client';
-import { useEffect, useState } from 'react';
+import { usePortalGuideVisibility } from '@/features/course/portal-guide-visibility';
+import { useEffect } from 'react';
 import Link from 'next/link';
 import { nb, regionLabels } from '@/content/nb';
 import {
@@ -37,7 +38,7 @@ export function GuidedCoach({
     module = usePortalLearning();
   const benefits = useExpansion('benefits'),
     services2 = useExpansion('services');
-  const [minimized, setMinimized] = useState(false);
+  const [minimized, setMinimized] = usePortalGuideVisibility();
   const lab = save.lab;
   const active =
     !!lab &&
@@ -91,6 +92,7 @@ export function GuidedCoach({
         />
       )}
       <aside
+        tabIndex={-1}
         className={`guided-coach ${minimized ? 'coach-minimized' : ''}`}
         aria-label={c.guided}
         data-step={step.id}

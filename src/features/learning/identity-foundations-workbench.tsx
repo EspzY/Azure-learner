@@ -1,13 +1,12 @@
 'use client';
+import { OtherGuideNotice } from '@/features/course/guided-mission-link';
+import { useGuideBriefing } from '@/features/course/guide-briefing-request';
 import { useEffect, useState } from 'react';
-import Link from 'next/link';
 import { identityNb as c } from '@/content/nb';
 import {
   identityGuidedFacts,
   identityWitnesses,
   identityMilestoneFacts,
-  identityHref,
-  identityMissionTopic,
   type IdentityMission,
   type IdentityGuide,
 } from '@/domain/curriculum/identity-foundations';
@@ -45,6 +44,7 @@ export function IdentityWorkbench({ mission }: { mission: IdentityMission }) {
     [warning, setWarning] = useState(false),
     [prediction, setPrediction] = useState<Outcome | null>(null),
     [answer, setAnswer] = useState<number | null>(null);
+  useGuideBriefing(mission, safe, () => setOverlay('brief'));
   useEffect(() => {
     const changed = (e: StorageEvent) => {
       if (e.key !== null && e.key !== milestonePreferenceKey) return;
@@ -98,7 +98,12 @@ export function IdentityWorkbench({ mission }: { mission: IdentityMission }) {
     }
   };
   return (
-    <section className="compute-workbench identity-workbench" aria-label={copy.title}>
+    <section
+      id="guided-work"
+      tabIndex={-1}
+      className="compute-workbench identity-workbench"
+      aria-label={copy.title}
+    >
       <header>
         <small>{c.labels.model}</small>
         <h3>{copy.title}</h3>
@@ -128,14 +133,7 @@ export function IdentityWorkbench({ mission }: { mission: IdentityMission }) {
               <IdentityGuideRecall mission={mission} />
             )}
           </div>
-          {!g && t.facts.guide && (
-            <p>
-              {c.labels.switch}{' '}
-              <Link href={identityHref(identityMissionTopic[t.facts.guide.mission])}>
-                {c.labels.current}
-              </Link>
-            </p>
-          )}
+          <OtherGuideNotice module="identity" mission={mission} />
           {g && (
             <>
               <SavvyShark compact>
@@ -344,7 +342,7 @@ function IdentityCausalChoice({
   onChange: (v: number) => void;
 }) {
   return (
-    <fieldset disabled={disabled}>
+    <fieldset id="guided-cause" tabIndex={-1} disabled={disabled}>
       <legend>{c.labels.chooseCause}</legend>
       {c.causal[mission].map((s, i) => (
         <label className="identity-causal-choice" key={s}>
