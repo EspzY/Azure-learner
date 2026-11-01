@@ -1,0 +1,1266 @@
+{
+  "review": {
+    "review": "PR42 assessment subreview",
+    "reviewed_at_utc": "2026-11-01T19:10:29.615609+00:00",
+    "head": "4732f93dfcdd233dcb6d7acc2a4838ba7a292141",
+    "report": ".artifacts/a42/assessment-review.md",
+    "status": "audit-only recommendations; no tracked/runtime/rubric/history changes",
+    "seal": {
+      "path": ".artifacts/a42/blind-review-lock.json",
+      "sha256": "ebcca6548c6f6ae93efd6bb5ba979a5ec408996339bc569238ae0cd90e67de19",
+      "sealed_at_utc": "2026-11-01T19:02:24.700551+00:00",
+      "mode": "0o444",
+      "packet_sha256": "9a9850d969713f83e788d5edf0ebd3dfd0c06777de064194c2d7f25e53fb28b3",
+      "first_only_preseal_input": "blind-sample-final.json"
+    },
+    "population": {
+      "paired_cases": 152,
+      "paired_banks": 14,
+      "module_qualified_authored_families": 110,
+      "legacy_forms": 8,
+      "legacy_criterion_fields": 60,
+      "legacy_numeric_fields": 3,
+      "legacy_selectable_fields": 57,
+      "not_valid_unit": "212 scenarios"
+    },
+    "manual_blind_scope": {
+      "paired_cases": 28,
+      "cases_per_bank": 2,
+      "legacy_forms": 4,
+      "legacy_fields": 34,
+      "sampling": "risk-selected, descriptive, not representative",
+      "all_sampled_pair_sets_match": true,
+      "all_sampled_legacy_fields_match": true
+    },
+    "browser_scope": {
+      "url": "https://azure-learner-git-codex-az900-file-movem-438e7b-espzys-projects.vercel.app",
+      "actual_full_sha": "4732f93dfcdd233dcb6d7acc2a4838ba7a292141",
+      "followup_actual_full_sha": "4732f93dfcdd233dcb6d7acc2a4838ba7a292141",
+      "viewport": [1440, 900],
+      "paired_cases_order_checked": 28,
+      "legacy_forms_order_checked": 7,
+      "legacy_fields_checked": 57,
+      "remaining_historical_form_not_browser_checked": "original-services-v1 (3 criterion fields)",
+      "page_errors": [],
+      "inspected_images": [
+        "assessment-services-1440.png",
+        "assessment-sp01-1440.png",
+        "assessment-fm10-1440.png"
+      ],
+      "probe_corrections": "Initial Cost and Architecture B selectors and Foundations v2 field extractor corrected in followup; not product failures."
+    },
+    "findings": [
+      {
+        "id": "A42-AS1",
+        "priority": "P1",
+        "title": "Two current forms permit every selectable answer via first-substantive-option rule",
+        "evidence": {
+          "benefits": "5/5 choice fields, plus separately solved numeric 1, yielded6/6 correct UI criteria",
+          "services": "7/7 first-substantive choices, with coherent iaas/os-team pair, yielded7/7 correct UI criteria",
+          "witness_file": ".artifacts/a42/assessment-first-option-witness.json",
+          "unaided_ui_label": "Første innlevering uten registrert hjelp"
+        },
+        "recommendation": "Version a successor assessment with balanced or preserved per-attempt display mapping; preserve original evidence and improve distractors."
+      },
+      {
+        "id": "A42-AS2",
+        "priority": "P2",
+        "title": "Some tasks mainly measure recognition; legacy distractors often signal invalidity through absolute claims",
+        "evidence": [
+          "nw12 expressly states missing app role after correct DNS/path",
+          "sa02/sa12 reuse explicit shared-SMB-to-Files requirement",
+          "cm10/campaign-pricing reuse uncertain noninterruptible demand-to-PAYG reasoning",
+          "Legacy Services/Benefits contrast qualified complete right answers with automatically/all/only caricatures"
+        ],
+        "recommendation": "Keep recognition labelled; add reserved changed-constraint/evidence-representation tasks with plausible partial alternatives and causal justification; define whole-course exposure; validate with humans.",
+        "limit": "Qualitative risk sample; no prevalence or learner-effect estimate."
+      }
+    ],
+    "p0_findings": [],
+    "sample_pair_comparison": [
+      {
+        "module": "compute",
+        "id": "cp01",
+        "matches": true,
+        "accepted_pairs_zero_based": [[2, 0]],
+        "matrix_rows_decisions_columns_reasons": [
+          [false, false, false],
+          [false, false, false],
+          [true, false, false]
+        ],
+        "validation": "blind solved all alternatives in the sample, then compared pair sets; browser checked rendered option order, not every answer combination"
+      },
+      {
+        "module": "compute",
+        "id": "cp14",
+        "matches": true,
+        "accepted_pairs_zero_based": [[1, 2]],
+        "matrix_rows_decisions_columns_reasons": [
+          [false, false, false],
+          [false, false, true],
+          [false, false, false]
+        ],
+        "validation": "blind solved all alternatives in the sample, then compared pair sets; browser checked rendered option order, not every answer combination"
+      },
+      {
+        "module": "networking",
+        "id": "nw01",
+        "matches": true,
+        "accepted_pairs_zero_based": [[1, 2]],
+        "matrix_rows_decisions_columns_reasons": [
+          [false, false, false],
+          [false, false, true],
+          [false, false, false]
+        ],
+        "validation": "blind solved all alternatives in the sample, then compared pair sets; browser checked rendered option order, not every answer combination"
+      },
+      {
+        "module": "networking",
+        "id": "nw12",
+        "matches": true,
+        "accepted_pairs_zero_based": [[0, 1]],
+        "matrix_rows_decisions_columns_reasons": [
+          [false, true, false],
+          [false, false, false],
+          [false, false, false]
+        ],
+        "validation": "blind solved all alternatives in the sample, then compared pair sets; browser checked rendered option order, not every answer combination"
+      },
+      {
+        "module": "connectivity",
+        "id": "nc02",
+        "matches": true,
+        "accepted_pairs_zero_based": [[0, 2]],
+        "matrix_rows_decisions_columns_reasons": [
+          [false, false, true],
+          [false, false, false],
+          [false, false, false]
+        ],
+        "validation": "blind solved all alternatives in the sample, then compared pair sets; browser checked rendered option order, not every answer combination"
+      },
+      {
+        "module": "connectivity",
+        "id": "nc12",
+        "matches": true,
+        "accepted_pairs_zero_based": [[0, 0]],
+        "matrix_rows_decisions_columns_reasons": [
+          [true, false, false],
+          [false, false, false],
+          [false, false, false]
+        ],
+        "validation": "blind solved all alternatives in the sample, then compared pair sets; browser checked rendered option order, not every answer combination"
+      },
+      {
+        "module": "storage",
+        "id": "sa02",
+        "matches": true,
+        "accepted_pairs_zero_based": [[0, 1]],
+        "matrix_rows_decisions_columns_reasons": [
+          [false, true, false],
+          [false, false, false],
+          [false, false, false]
+        ],
+        "validation": "blind solved all alternatives in the sample, then compared pair sets; browser checked rendered option order, not every answer combination"
+      },
+      {
+        "module": "storage",
+        "id": "sa12",
+        "matches": true,
+        "accepted_pairs_zero_based": [[1, 0]],
+        "matrix_rows_decisions_columns_reasons": [
+          [false, false, false],
+          [true, false, false],
+          [false, false, false]
+        ],
+        "validation": "blind solved all alternatives in the sample, then compared pair sets; browser checked rendered option order, not every answer combination"
+      },
+      {
+        "module": "storage-resilience",
+        "id": "rb03",
+        "matches": true,
+        "accepted_pairs_zero_based": [[0, 1]],
+        "matrix_rows_decisions_columns_reasons": [
+          [false, true, false],
+          [false, false, false],
+          [false, false, false]
+        ],
+        "validation": "blind solved all alternatives in the sample, then compared pair sets; browser checked rendered option order, not every answer combination"
+      },
+      {
+        "module": "storage-resilience",
+        "id": "rb10",
+        "matches": true,
+        "accepted_pairs_zero_based": [[0, 2]],
+        "matrix_rows_decisions_columns_reasons": [
+          [false, false, true],
+          [false, false, false],
+          [false, false, false]
+        ],
+        "validation": "blind solved all alternatives in the sample, then compared pair sets; browser checked rendered option order, not every answer combination"
+      },
+      {
+        "module": "migration",
+        "id": "fm03",
+        "matches": true,
+        "accepted_pairs_zero_based": [[2, 2]],
+        "matrix_rows_decisions_columns_reasons": [
+          [false, false, false],
+          [false, false, false],
+          [false, false, true]
+        ],
+        "validation": "blind solved all alternatives in the sample, then compared pair sets; browser checked rendered option order, not every answer combination"
+      },
+      {
+        "module": "migration",
+        "id": "fm10",
+        "matches": true,
+        "accepted_pairs_zero_based": [
+          [1, 2],
+          [2, 2]
+        ],
+        "matrix_rows_decisions_columns_reasons": [
+          [false, false, false],
+          [false, false, true],
+          [false, false, true]
+        ],
+        "validation": "blind solved all alternatives in the sample, then compared pair sets; browser checked rendered option order, not every answer combination"
+      },
+      {
+        "module": "identity",
+        "id": "if02",
+        "matches": true,
+        "accepted_pairs_zero_based": [[0, 1]],
+        "matrix_rows_decisions_columns_reasons": [
+          [false, true, false],
+          [false, false, false],
+          [false, false, false]
+        ],
+        "validation": "blind solved all alternatives in the sample, then compared pair sets; browser checked rendered option order, not every answer combination"
+      },
+      {
+        "module": "identity",
+        "id": "if10",
+        "matches": true,
+        "accepted_pairs_zero_based": [[2, 1]],
+        "matrix_rows_decisions_columns_reasons": [
+          [false, false, false],
+          [false, false, false],
+          [false, true, false]
+        ],
+        "validation": "blind solved all alternatives in the sample, then compared pair sets; browser checked rendered option order, not every answer combination"
+      },
+      {
+        "module": "access-control",
+        "id": "ab10",
+        "matches": true,
+        "accepted_pairs_zero_based": [[0, 0]],
+        "matrix_rows_decisions_columns_reasons": [
+          [true, false, false],
+          [false, false, false],
+          [false, false, false]
+        ],
+        "validation": "blind solved all alternatives in the sample, then compared pair sets; browser checked rendered option order, not every answer combination"
+      },
+      {
+        "module": "access-control",
+        "id": "ab09",
+        "matches": true,
+        "accepted_pairs_zero_based": [[1, 2]],
+        "matrix_rows_decisions_columns_reasons": [
+          [false, false, false],
+          [false, false, true],
+          [false, false, false]
+        ],
+        "validation": "blind solved all alternatives in the sample, then compared pair sets; browser checked rendered option order, not every answer combination"
+      },
+      {
+        "module": "security",
+        "id": "sp01",
+        "matches": true,
+        "accepted_pairs_zero_based": [[2, 0]],
+        "matrix_rows_decisions_columns_reasons": [
+          [false, false, false],
+          [false, false, false],
+          [true, false, false]
+        ],
+        "validation": "blind solved all alternatives in the sample, then compared pair sets; browser checked rendered option order, not every answer combination"
+      },
+      {
+        "module": "security",
+        "id": "sp08",
+        "matches": true,
+        "accepted_pairs_zero_based": [
+          [1, 2],
+          [2, 2]
+        ],
+        "matrix_rows_decisions_columns_reasons": [
+          [false, false, false],
+          [false, false, true],
+          [false, false, true]
+        ],
+        "validation": "blind solved all alternatives in the sample, then compared pair sets; browser checked rendered option order, not every answer combination"
+      },
+      {
+        "module": "cost",
+        "id": "cm01",
+        "matches": true,
+        "accepted_pairs_zero_based": [[1, 2]],
+        "matrix_rows_decisions_columns_reasons": [
+          [false, false, false],
+          [false, false, true],
+          [false, false, false]
+        ],
+        "validation": "blind solved all alternatives in the sample, then compared pair sets; browser checked rendered option order, not every answer combination"
+      },
+      {
+        "module": "cost",
+        "id": "cm10",
+        "matches": true,
+        "accepted_pairs_zero_based": [[1, 2]],
+        "matrix_rows_decisions_columns_reasons": [
+          [false, false, false],
+          [false, false, true],
+          [false, false, false]
+        ],
+        "validation": "blind solved all alternatives in the sample, then compared pair sets; browser checked rendered option order, not every answer combination"
+      },
+      {
+        "module": "governance",
+        "id": "gc01",
+        "matches": true,
+        "accepted_pairs_zero_based": [[2, 1]],
+        "matrix_rows_decisions_columns_reasons": [
+          [false, false, false],
+          [false, false, false],
+          [false, true, false]
+        ],
+        "validation": "blind solved all alternatives in the sample, then compared pair sets; browser checked rendered option order, not every answer combination"
+      },
+      {
+        "module": "governance",
+        "id": "gc09",
+        "matches": true,
+        "accepted_pairs_zero_based": [[0, 0]],
+        "matrix_rows_decisions_columns_reasons": [
+          [true, false, false],
+          [false, false, false],
+          [false, false, false]
+        ],
+        "validation": "blind solved all alternatives in the sample, then compared pair sets; browser checked rendered option order, not every answer combination"
+      },
+      {
+        "module": "management-tools",
+        "id": "mt02",
+        "matches": true,
+        "accepted_pairs_zero_based": [[2, 0]],
+        "matrix_rows_decisions_columns_reasons": [
+          [false, false, false],
+          [false, false, false],
+          [true, false, false]
+        ],
+        "validation": "blind solved all alternatives in the sample, then compared pair sets; browser checked rendered option order, not every answer combination"
+      },
+      {
+        "module": "management-tools",
+        "id": "mt10",
+        "matches": true,
+        "accepted_pairs_zero_based": [[1, 1]],
+        "matrix_rows_decisions_columns_reasons": [
+          [false, false, false],
+          [false, true, false],
+          [false, false, false]
+        ],
+        "validation": "blind solved all alternatives in the sample, then compared pair sets; browser checked rendered option order, not every answer combination"
+      },
+      {
+        "module": "monitoring",
+        "id": "md02",
+        "matches": true,
+        "accepted_pairs_zero_based": [[2, 2]],
+        "matrix_rows_decisions_columns_reasons": [
+          [false, false, false],
+          [false, false, false],
+          [false, false, true]
+        ],
+        "validation": "blind solved all alternatives in the sample, then compared pair sets; browser checked rendered option order, not every answer combination"
+      },
+      {
+        "module": "monitoring",
+        "id": "md08",
+        "matches": true,
+        "accepted_pairs_zero_based": [[1, 0]],
+        "matrix_rows_decisions_columns_reasons": [
+          [false, false, false],
+          [true, false, false],
+          [false, false, false]
+        ],
+        "validation": "blind solved all alternatives in the sample, then compared pair sets; browser checked rendered option order, not every answer combination"
+      },
+      {
+        "module": "transfer",
+        "id": "campaign-pricing",
+        "matches": true,
+        "accepted_pairs_zero_based": [[1, 2]],
+        "matrix_rows_decisions_columns_reasons": [
+          [false, false, false],
+          [false, false, true],
+          [false, false, false]
+        ],
+        "validation": "blind solved all alternatives in the sample, then compared pair sets; browser checked rendered option order, not every answer combination"
+      },
+      {
+        "module": "transfer",
+        "id": "two-valid-hosts",
+        "matches": true,
+        "accepted_pairs_zero_based": [
+          [1, 0],
+          [2, 1]
+        ],
+        "matrix_rows_decisions_columns_reasons": [
+          [false, false, false],
+          [true, false, false],
+          [false, true, false]
+        ],
+        "validation": "blind solved all alternatives in the sample, then compared pair sets; browser checked rendered option order, not every answer combination"
+      }
+    ],
+    "sample_legacy_comparison": [
+      {
+        "id": "architecture-a",
+        "fields": 10,
+        "all_match": true
+      },
+      {
+        "id": "benefits",
+        "fields": 6,
+        "all_match": true
+      },
+      {
+        "id": "serverless",
+        "fields": 7,
+        "all_match": true
+      },
+      {
+        "id": "foundations-v2",
+        "fields": 11,
+        "all_match": true
+      }
+    ],
+    "all_bank_multiple_accepted_pairs": [
+      {
+        "module": "compute",
+        "id": "cp12",
+        "accepted_pairs_zero_based": [
+          [0, 2],
+          [2, 0]
+        ],
+        "validation": "structural stored-key enumeration only"
+      },
+      {
+        "module": "networking",
+        "id": "nw07",
+        "accepted_pairs_zero_based": [
+          [0, 0],
+          [2, 1]
+        ],
+        "validation": "structural stored-key enumeration only"
+      },
+      {
+        "module": "migration",
+        "id": "fm02",
+        "accepted_pairs_zero_based": [
+          [0, 1],
+          [2, 1]
+        ],
+        "validation": "structural stored-key enumeration only"
+      },
+      {
+        "module": "migration",
+        "id": "fm08",
+        "accepted_pairs_zero_based": [
+          [1, 2],
+          [2, 2]
+        ],
+        "validation": "structural stored-key enumeration only"
+      },
+      {
+        "module": "migration",
+        "id": "fm10",
+        "accepted_pairs_zero_based": [
+          [1, 2],
+          [2, 2]
+        ],
+        "validation": "blind manual set comparison"
+      },
+      {
+        "module": "access-control",
+        "id": "ab04",
+        "accepted_pairs_zero_based": [
+          [0, 1],
+          [2, 1]
+        ],
+        "validation": "structural stored-key enumeration only"
+      },
+      {
+        "module": "security",
+        "id": "sp02",
+        "accepted_pairs_zero_based": [
+          [0, 2],
+          [1, 2]
+        ],
+        "validation": "structural stored-key enumeration only"
+      },
+      {
+        "module": "security",
+        "id": "sp03",
+        "accepted_pairs_zero_based": [
+          [1, 1],
+          [2, 1]
+        ],
+        "validation": "structural stored-key enumeration only"
+      },
+      {
+        "module": "security",
+        "id": "sp05",
+        "accepted_pairs_zero_based": [
+          [2, 1],
+          [1, 1]
+        ],
+        "validation": "structural stored-key enumeration only"
+      },
+      {
+        "module": "security",
+        "id": "sp08",
+        "accepted_pairs_zero_based": [
+          [1, 2],
+          [2, 2]
+        ],
+        "validation": "blind manual set comparison"
+      },
+      {
+        "module": "management-tools",
+        "id": "mt07",
+        "accepted_pairs_zero_based": [
+          [2, 1],
+          [0, 1]
+        ],
+        "validation": "structural stored-key enumeration only"
+      },
+      {
+        "module": "monitoring",
+        "id": "md06",
+        "accepted_pairs_zero_based": [
+          [1, 0],
+          [2, 0]
+        ],
+        "validation": "structural stored-key enumeration only"
+      },
+      {
+        "module": "transfer",
+        "id": "two-valid-hosts",
+        "accepted_pairs_zero_based": [
+          [1, 0],
+          [2, 1]
+        ],
+        "validation": "blind manual set comparison"
+      }
+    ],
+    "legacy_services_relational_matrix": {
+      "row_ids_architecture": ["iaas", "paas", "saas"],
+      "column_ids_reason": ["os-team", "platform-supported", "no-work"],
+      "matrix": [
+        [true, false, false],
+        [false, true, false],
+        [false, false, false]
+      ],
+      "accepted_pairs": [
+        ["iaas", "os-team"],
+        ["paas", "platform-supported"]
+      ],
+      "cross_pairs_accepted": false,
+      "basis": "actual assess() in src/domain/curriculum/expansion.ts:75; do not flatten separate field arrays"
+    },
+    "structural_probe": {
+      "paired_cases": 152,
+      "banks": 14,
+      "families_module_qualified": 110,
+      "structural_errors": [],
+      "long_short_words": {
+        "decisions": {
+          "unique_long_count": 118,
+          "unique_long_correct": 31,
+          "unique_short_count": 123,
+          "unique_short_correct": 58
+        },
+        "reasons": {
+          "unique_long_count": 118,
+          "unique_long_correct": 49,
+          "unique_short_count": 128,
+          "unique_short_correct": 38
+        }
+      },
+      "fixed_pairs": [
+        {
+          "decision": 1,
+          "reason": 1,
+          "correct_cases": 8
+        },
+        {
+          "decision": 1,
+          "reason": 2,
+          "correct_cases": 28
+        },
+        {
+          "decision": 1,
+          "reason": 3,
+          "correct_cases": 17
+        },
+        {
+          "decision": 2,
+          "reason": 1,
+          "correct_cases": 21
+        },
+        {
+          "decision": 2,
+          "reason": 2,
+          "correct_cases": 8
+        },
+        {
+          "decision": 2,
+          "reason": 3,
+          "correct_cases": 29
+        },
+        {
+          "decision": 3,
+          "reason": 1,
+          "correct_cases": 20
+        },
+        {
+          "decision": 3,
+          "reason": 2,
+          "correct_cases": 23
+        },
+        {
+          "decision": 3,
+          "reason": 3,
+          "correct_cases": 11
+        }
+      ],
+      "word_markers": {
+        "automatisk": {
+          "nonaccepted": 8,
+          "accepted": 3
+        },
+        "alltid": {
+          "nonaccepted": 4,
+          "accepted": 0
+        },
+        "alle": {
+          "nonaccepted": 19,
+          "accepted": 2
+        },
+        "bare": {
+          "nonaccepted": 27,
+          "accepted": 8
+        },
+        "ingen": {
+          "nonaccepted": 3,
+          "accepted": 2
+        },
+        "derfor": {
+          "nonaccepted": 28,
+          "accepted": 6
+        },
+        "må": {
+          "nonaccepted": 18,
+          "accepted": 36
+        },
+        "kan": {
+          "nonaccepted": 118,
+          "accepted": 56
+        }
+      },
+      "legacy_correction": {
+        "fields": 60,
+        "numeric_fields_actual": [
+          "foundations-v1/shortfall",
+          "foundations-v2/shortfall",
+          "benefits/unmet"
+        ],
+        "choice_fields_actual": 57,
+        "export_foundations_v1_shortfall_numeric_flag_is_wrong": true
+      },
+      "legacy_accepted_id_pair_correction": {
+        "form": "services",
+        "accepted_architecture_reason_pairs": [
+          ["iaas", "os-team"],
+          ["paas", "platform-supported"]
+        ],
+        "cross_pairs_valid": false
+      }
+    },
+    "key_strengths": [
+      "All sampled keys and defensible alternatives match blind judgments",
+      "13 whole-bank cases contain alternate accepted pairs; 3 independently checked blind",
+      "Stronger sampled evidence attribution, conjunctive scope, partial cache and service-boundary tasks",
+      "Paired option margins broadly balanced; no universal longest-option cue demonstrated",
+      "Actual line-height observations preserve raw-character versus visible-cue distinction",
+      "Guided/assisted/retry/independent/official-mastery claims remain separated in observed copy"
+    ],
+    "version_safe_constraints": [
+      "Paired persisted numeric indices prohibit silent reorder or old-key reinterpretation",
+      "Use new content/rubric version, stable option IDs or historical index/order maps and original-version rendering",
+      "Legacy IDs allow display decoupling but substantive task/scoring change still requires separate version",
+      "Preserve first/help/retry/exposure/World/receipt/XP histories"
+    ],
+    "method_errata": [
+      "Sealed Foundations v2 note says8/10 second; correct recount7/10; seal unchanged",
+      "Foundations v1 shortfall is numeric despite retained copy choices; root corrected private extraction after report",
+      "Locked Foundations v2 commitment question inherits original installation wording; renderer substitutes museum question, same choices/key",
+      "Services guessed storage-key lookup in first-option probe returned false; persistence was not evaluated by that lookup"
+    ],
+    "human_validation": {
+      "learner_study": "unperformed",
+      "azure_sme_validation": "unperformed",
+      "psychometric_validation": "unperformed",
+      "accessibility_user_study": "unperformed",
+      "learning_gain_retention_transfer": "not established"
+    },
+    "real_azure_operations": false
+  },
+  "sealedBlindAnswers": {
+    "review": "PR42 independent pre-key blind assessment review",
+    "packet_path": ".artifacts/a42/blind-sample-final.json",
+    "packet_sha256": "9a9850d969713f83e788d5edf0ebd3dfd0c06777de064194c2d7f25e53fb28b3",
+    "sealed_at_utc": "2026-11-01T19:02:24.700551+00:00",
+    "exposure_declaration": "Before this seal I read only blind-sample-final.json and did not read keys, rubrics, feedback, prior reviews, source, guides or manuscript. The blind judgments use packet text and general subject knowledge. No actual browser rendering inspected.",
+    "scope": {
+      "paired_cases_manually_solved": 28,
+      "paired_banks": 14,
+      "legacy_forms_manually_solved": 4,
+      "legacy_fields_manually_solved": 34,
+      "population_inference_limit": "Risk-selected sample only; not a random estimate of all-bank defect prevalence and not psychometric validation."
+    },
+    "paired_reviews": [
+      {
+        "module": "compute",
+        "id": "cp01",
+        "answer_indexing": "1-based packet order",
+        "valid_pairs": [
+          {
+            "decision": 3,
+            "reason": 1
+          }
+        ],
+        "rationale": "The indispensable Linux guest-kernel driver, kernel-version choice and reboot control require the guest OS boundary of a VM; container repackaging does not remove that requirement.",
+        "alternatives_or_ambiguity": "Windows Hyper-V isolation is not a substitute for the required Linux guest.",
+        "cue_and_transfer_assessment": "The necessary control boundary is stated very explicitly; near application of service-control concepts.",
+        "confidence": "high"
+      },
+      {
+        "module": "compute",
+        "id": "cp14",
+        "answer_indexing": "1-based packet order",
+        "valid_pairs": [
+          {
+            "decision": 2,
+            "reason": 3
+          }
+        ],
+        "rationale": "Accepted A explains vm-old and its exact dependent IDs. Rejected B with no additions and unchanged revision cannot be credited with a new VM or with A's older resources.",
+        "alternatives_or_ambiguity": "The local deterministic receipt premise makes eventual Azure deployment an invalid alternative.",
+        "cue_and_transfer_assessment": "Meaningful command/outcome/resource attribution; wording itself rules out asynchronous ambiguity.",
+        "confidence": "high"
+      },
+      {
+        "module": "networking",
+        "id": "nw01",
+        "answer_indexing": "1-based packet order",
+        "valid_pairs": [
+          {
+            "decision": 2,
+            "reason": 3
+          }
+        ],
+        "rationale": "Management grouping does not change network topology: inspect the NIC/subnet/VNet chain and establish a supported connection.",
+        "alternatives_or_ambiguity": "No peering or other existing path is given. A subscription or metadata location cannot provide one.",
+        "cue_and_transfer_assessment": "Good boundary distinction, but both distractors conflate visibly different concepts.",
+        "confidence": "high"
+      },
+      {
+        "module": "networking",
+        "id": "nw12",
+        "answer_indexing": "1-based packet order",
+        "valid_pairs": [
+          {
+            "decision": 1,
+            "reason": 2
+          }
+        ],
+        "rationale": "The stipulated failure is missing application authorization after valid resolution and routing, so inspect the app role.",
+        "alternatives_or_ambiguity": "DNS and subnet changes do not address the expressly identified failure.",
+        "cue_and_transfer_assessment": "Recognition is heavily scaffolded: the stem supplies the root cause.",
+        "confidence": "high"
+      },
+      {
+        "module": "connectivity",
+        "id": "nc02",
+        "answer_indexing": "1-based packet order",
+        "valid_pairs": [
+          {
+            "decision": 1,
+            "reason": 3
+          }
+        ],
+        "rationale": "A site-to-site IPsec/IKE VPN uses the branch device as the network tunnel peer over the allowed internet underlay.",
+        "alternatives_or_ambiguity": "An individual P2S client does not document the branch network connection. A physical branch router is not an Azure VNet for peering.",
+        "cue_and_transfer_assessment": "Conventional service-to-requirement matching with explicit constraints; near application.",
+        "confidence": "high"
+      },
+      {
+        "module": "connectivity",
+        "id": "nc12",
+        "answer_indexing": "1-based packet order",
+        "valid_pairs": [
+          {
+            "decision": 1,
+            "reason": 1
+          }
+        ],
+        "rationale": "Private Endpoint approval applies to the supported target subresource, so File needs its proper endpoint and DNS design rather than repurposing Blob.",
+        "alternatives_or_ambiguity": "Existing private NIC lifecycle and common account ownership are true context but do not extend subresource scope.",
+        "cue_and_transfer_assessment": "Good subresource boundary, though RG distractor is easy to reject.",
+        "confidence": "high"
+      },
+      {
+        "module": "storage",
+        "id": "sa02",
+        "answer_indexing": "1-based packet order",
+        "valid_pairs": [
+          {
+            "decision": 1,
+            "reason": 2
+          }
+        ],
+        "rationale": "The unmodified two-client SMB/open/lock contract matches Azure Files SMB, subject to support, network and permissions.",
+        "alternatives_or_ambiguity": "Blob object names are not SMB semantics and a managed disk is not automatically a shared file service.",
+        "cue_and_transfer_assessment": "Repeated SMB contract language makes matching straightforward.",
+        "confidence": "high"
+      },
+      {
+        "module": "storage",
+        "id": "sa12",
+        "answer_indexing": "1-based packet order",
+        "valid_pairs": [
+          {
+            "decision": 2,
+            "reason": 1
+          }
+        ],
+        "rationale": "Two ordinary independent block volumes do not synchronize content; use the SMB file service expected by both applications.",
+        "alternatives_or_ambiguity": "A deliberately engineered shared-disk cluster is expressly outside scope. Table entities cannot supply SMB operations.",
+        "cue_and_transfer_assessment": "This is a close sibling of sa02, so repeated exposure would not establish fresh transfer.",
+        "confidence": "high"
+      },
+      {
+        "module": "storage-resilience",
+        "id": "rb03",
+        "answer_indexing": "1-based packet order",
+        "valid_pairs": [
+          {
+            "decision": 1,
+            "reason": 2
+          }
+        ],
+        "rationale": "Copy rehydration can preserve the archived source at day 70 without early-exiting its tier; wait for the new online copy to complete and account for its own costs.",
+        "alternatives_or_ambiguity": "Destination-name appearance is not rehydration completion. Changing the original violates preservation and the minimum-period concern.",
+        "cue_and_transfer_assessment": "Combines archival economics and readiness evidence; less rote than simple tier naming.",
+        "confidence": "high"
+      },
+      {
+        "module": "storage-resilience",
+        "id": "rb10",
+        "answer_indexing": "1-based packet order",
+        "valid_pairs": [
+          {
+            "decision": 1,
+            "reason": 3
+          }
+        ],
+        "rationale": "Use supported ZRS separately for Files and the data disk, then plan usable compute and disk attachment; the protected data does not restart a zonal VM.",
+        "alternatives_or_ambiguity": "RA/geo properties do not apply generically to all storage services; preserving a disk does not preserve the guest running state.",
+        "cue_and_transfer_assessment": "Useful cross-service/application-boundary application with explicit support assumptions.",
+        "confidence": "high"
+      },
+      {
+        "module": "migration",
+        "id": "fm03",
+        "answer_indexing": "1-based packet order",
+        "valid_pairs": [
+          {
+            "decision": 3,
+            "reason": 3
+          }
+        ],
+        "rationale": "Fetch each needed file in full while connected, verify completion and test offline access; namespace, a first page and a partial cache do not prove whole-file offline readiness.",
+        "alternatives_or_ambiguity": "Disabling tiering is not evidence that previously tiered file content has been fully recalled.",
+        "cue_and_transfer_assessment": "Plausible partial-content alternatives require attention to the actual offline contract.",
+        "confidence": "high"
+      },
+      {
+        "module": "migration",
+        "id": "fm10",
+        "answer_indexing": "1-based packet order",
+        "valid_pairs": [
+          {
+            "decision": 2,
+            "reason": 3
+          },
+          {
+            "decision": 3,
+            "reason": 3
+          }
+        ],
+        "rationale": "Azure File Sync with cloud tiering serves the temporary two-server namespace/cache requirement. After writes stop, either a bounded supported copy or one-way sync without destination deletions can carry the chosen set while preserving unrelated targets.",
+        "alternatives_or_ambiguity": "Both decision 2 and decision 3 are technically valid under the explicit support, writer-stop and newer-source assumptions. Neither extends a server sync relationship.",
+        "cue_and_transfer_assessment": "Important deliberate non-single-key case. Elaborate premises neutralize metadata/direction objections; task asks differentiated mechanisms rather than mere names.",
+        "confidence": "high"
+      },
+      {
+        "module": "identity",
+        "id": "if02",
+        "answer_indexing": "1-based packet order",
+        "valid_pairs": [
+          {
+            "decision": 1,
+            "reason": 2
+          }
+        ],
+        "rationale": "Entra Domain Services does not permit the required AD DS schema extension; customer-run AD DS violates the Microsoft-operated-DC constraint. Renegotiate a requirement.",
+        "alternatives_or_ambiguity": "An OU does not confer schema control and hosting AD DS in Azure does not transfer domain operations to Microsoft.",
+        "cue_and_transfer_assessment": "Strong no-feasible-choice reasoning under the stated option set, with an explicit constraint pair.",
+        "confidence": "high"
+      },
+      {
+        "module": "identity",
+        "id": "if10",
+        "answer_indexing": "1-based packet order",
+        "valid_pairs": [
+          {
+            "decision": 3,
+            "reason": 2
+          }
+        ],
+        "rationale": "For the home user reaching the resource organization's shared channel via direct connect, resource inbound plus home outbound must allow it.",
+        "alternatives_or_ambiguity": "Home inbound is the reverse direction; switching to a B2B guest/standard channel breaks the required experience.",
+        "cue_and_transfer_assessment": "Useful directional application, but the inbound/outbound pairing can also be memorized.",
+        "confidence": "high"
+      },
+      {
+        "module": "access-control",
+        "id": "ab10",
+        "answer_indexing": "1-based packet order",
+        "valid_pairs": [
+          {
+            "decision": 1,
+            "reason": 1
+          }
+        ],
+        "rationale": "Contributor is already sufficient for the operation. Apply the resource tag required by Policy; Owner does not bypass a deny, and group tags are not automatically inherited.",
+        "alternatives_or_ambiguity": "The paired accepted/rejected requests isolate configuration from role/scope/login changes.",
+        "cue_and_transfer_assessment": "Controlled comparison supports causal reasoning, although the stem expressly identifies the deny rule.",
+        "confidence": "high"
+      },
+      {
+        "module": "access-control",
+        "id": "ab09",
+        "answer_indexing": "1-based packet order",
+        "valid_pairs": [
+          {
+            "decision": 2,
+            "reason": 3
+          }
+        ],
+        "rationale": "Split Block scope along both identity and application: employees remain blocked to both apps, partners to finance; preserve partner/project MFA.",
+        "alternatives_or_ambiguity": "App exclusion opens project for employees; partner exclusion opens finance for partners. A grant cannot override a remaining Block match.",
+        "cue_and_transfer_assessment": "One of the stronger matrix tasks; each plausible broad exception fails a different cell.",
+        "confidence": "high"
+      },
+      {
+        "module": "security",
+        "id": "sp01",
+        "answer_indexing": "1-based packet order",
+        "valid_pairs": [
+          {
+            "decision": 3,
+            "reason": 1
+          }
+        ],
+        "rationale": "The device signal must describe device B making the request, and export authorization belongs to the application data action; management Reader on the RG cannot establish that permission.",
+        "alternatives_or_ambiguity": "A valid user session does not transfer A's device facts to B. Reading resource management metadata is not exporting application data.",
+        "cue_and_transfer_assessment": "Good two-boundary evidence/authorization combination. Correct reason is more explicit and somewhat longer than alternatives in packet text; actual visible rendering still requires inspection.",
+        "confidence": "high"
+      },
+      {
+        "module": "security",
+        "id": "sp08",
+        "answer_indexing": "1-based packet order",
+        "valid_pairs": [
+          {
+            "decision": 2,
+            "reason": 3
+          },
+          {
+            "decision": 3,
+            "reason": 3
+          }
+        ],
+        "rationale": "Have each person perform and verify their own stream: StorageC configuration remediation and ServerB activity investigation. ServerA maintenance is not evidence that ServerB's alert is benign.",
+        "alternatives_or_ambiguity": "Both the parallel verification-first wording and the ServerB-first-with-simultaneous-StorageC-owner wording satisfy the requested parallel plan.",
+        "cue_and_transfer_assessment": "Strong evidence attribution with valid alternate plan wording. Correct reason synthesizes two tasks; do not infer visible length from character count alone.",
+        "confidence": "high"
+      },
+      {
+        "module": "cost",
+        "id": "cm01",
+        "answer_indexing": "1-based packet order",
+        "valid_pairs": [
+          {
+            "decision": 2,
+            "reason": 3
+          }
+        ],
+        "rationale": "Compare the complete mix of relevant meters, rates, quantities and terms, including unresolved region, traffic, license and support costs.",
+        "alternatives_or_ambiguity": "Resource count and compute-only totals do not price different storage/compute mixes.",
+        "cue_and_transfer_assessment": "Good total-cost boundary, but the completeness wording makes the right option conspicuous.",
+        "confidence": "high"
+      },
+      {
+        "module": "cost",
+        "id": "cm10",
+        "answer_indexing": "1-based packet order",
+        "valid_pairs": [
+          {
+            "decision": 2,
+            "reason": 3
+          }
+        ],
+        "rationale": "The verified sufficient PAYG profile avoids Spot interruption and unjustified long commitments while usage is gathered; pricing alone does not prove HA.",
+        "alternatives_or_ambiguity": "The work cannot resume after interruption and no stable commitment baseline exists.",
+        "cue_and_transfer_assessment": "Close conceptual overlap with campaign-pricing; new noun context is limited transfer.",
+        "confidence": "high"
+      },
+      {
+        "module": "governance",
+        "id": "gc01",
+        "answer_indexing": "1-based packet order",
+        "valid_pairs": [
+          {
+            "decision": 3,
+            "reason": 2
+          }
+        ],
+        "rationale": "Curate data products with responsible owners and scoped glossary terms so both retained source definitions can be discovered without merging data.",
+        "alternatives_or_ambiguity": "Collections/access rights and ARM tags do not define the business meaning; classifications do not adjudicate the two meanings.",
+        "cue_and_transfer_assessment": "Relevant semantic governance task; product terminology may dominate over deeper performance.",
+        "confidence": "high"
+      },
+      {
+        "module": "governance",
+        "id": "gc09",
+        "answer_indexing": "1-based packet order",
+        "valid_pairs": [
+          {
+            "decision": 1,
+            "reason": 1
+          }
+        ],
+        "rationale": "CanNotDelete protects resource deletion while allowing needed management updates; logical data deletion requires a separately suitable tested historical recovery mechanism.",
+        "alternatives_or_ambiguity": "Reason 2 (ReadOnly is more intrusive) and reason 3 (replication has limited physical-protection roles) are true in isolation, but neither justifies both parts of the selected plan. They are partial truths, not accepted equivalent explanations.",
+        "cue_and_transfer_assessment": "Useful management/data plane distinction; potential learner concern is rejection of true-but-incomplete reasons unless feedback states the completeness criterion.",
+        "confidence": "high"
+      },
+      {
+        "module": "management-tools",
+        "id": "mt02",
+        "answer_indexing": "1-based packet order",
+        "valid_pairs": [
+          {
+            "decision": 3,
+            "reason": 1
+          }
+        ],
+        "rationale": "Use existing operation/Properties evidence for management configuration and require a separate successful user-function test.",
+        "alternatives_or_ambiguity": "An exportable template can be true/useful documentation but not proof of the failed user function; resource existence/URL likewise cannot establish it.",
+        "cue_and_transfer_assessment": "Good evidence-scope separation, with a true-but-insufficient reason distractor.",
+        "confidence": "high"
+      },
+      {
+        "module": "management-tools",
+        "id": "mt10",
+        "answer_indexing": "1-based packet order",
+        "valid_pairs": [
+          {
+            "decision": 2,
+            "reason": 2
+          }
+        ],
+        "rationale": "Fix serverFarmId to the approved plan's full existing resource ID. dependsOn does not create an absent referent and changing CLI context cannot rewrite an explicit incorrect ID.",
+        "alternatives_or_ambiguity": "The full-ID description in reason 1 is true but does not by itself explain why dependsOn/context fail to repair the reference.",
+        "cue_and_transfer_assessment": "Concrete ARM reference application; full-ID terminology echoed between the correct choice and reason is a possible matching cue.",
+        "confidence": "high"
+      },
+      {
+        "module": "monitoring",
+        "id": "md02",
+        "answer_indexing": "1-based packet order",
+        "valid_pairs": [
+          {
+            "decision": 3,
+            "reason": 3
+          }
+        ],
+        "rationale": "Map exposed administrative surface to Security, a vulnerable single point to Reliability, and reviewed rollout practice to Operational Excellence; these are recommendations without confirmed incident evidence.",
+        "alternatives_or_ambiguity": "A continuity single point is not primarily Performance here, and rollout procedure is not itself a performance categorization.",
+        "cue_and_transfer_assessment": "Mostly category recognition. Nearly parallel decisions reduce voice cues but repeated correct taxonomy exposure can teach labels rather than diagnosis.",
+        "confidence": "high"
+      },
+      {
+        "module": "monitoring",
+        "id": "md08",
+        "answer_indexing": "1-based packet order",
+        "valid_pairs": [
+          {
+            "decision": 2,
+            "reason": 1
+          }
+        ],
+        "rationale": "Validate relevant collected sources and app coverage, then configure a log-query alert evaluation and action group to detect the exact pattern automatically all day.",
+        "alternatives_or_ambiguity": "Manual shift searches cannot satisfy automatic continuous evaluation; CPU metrics do not substitute for the stipulated log pattern. True general metric/manual-query reasons are insufficient.",
+        "cue_and_transfer_assessment": "The appended all-day automation requirement resolves a plausible manual-review alternative; answer still reads as the only complete workflow.",
+        "confidence": "high"
+      },
+      {
+        "module": "transfer",
+        "id": "campaign-pricing",
+        "answer_indexing": "1-based packet order",
+        "valid_pairs": [
+          {
+            "decision": 2,
+            "reason": 3
+          }
+        ],
+        "rationale": "PAYG fits six weeks of uncertain use without an unjustified long commitment; Spot-only compute conflicts with non-interruptible orders.",
+        "alternatives_or_ambiguity": "Storage/other charges persist; no numerical cost ranking can be derived.",
+        "cue_and_transfer_assessment": "Near application of the same price/interruptibility principle as cm10; a new story alone is not evidence of far transfer.",
+        "confidence": "high"
+      },
+      {
+        "module": "transfer",
+        "id": "two-valid-hosts",
+        "answer_indexing": "1-based packet order",
+        "valid_pairs": [
+          {
+            "decision": 2,
+            "reason": 1
+          },
+          {
+            "decision": 3,
+            "reason": 2
+          }
+        ],
+        "rationale": "Both supported App Service and VM are valid: PaaS transfers platform OS maintenance but retains customer code/data/access duties; IaaS additionally requires team guest-OS operations.",
+        "alternatives_or_ambiguity": "The premises intentionally give no minimal-operations or full-control preference. Accept either coherent decision/reason pair, not cross-paired responsibility explanations.",
+        "cue_and_transfer_assessment": "Strong anti-overclaim example: multiple defensible services are explicit. Tests calibrated responsibility rather than one-product reflex.",
+        "confidence": "high"
+      }
+    ],
+    "legacy_reviews": [
+      {
+        "module": "architecture-a",
+        "id": "architecture-a",
+        "answers": {
+          "zoneDesign": "complete",
+          "zoneReason": "boundary",
+          "mapping": "check",
+          "regions": "configured",
+          "regionReason": "all-data",
+          "sovereign": "government",
+          "asymmetric": "asymmetric",
+          "facility": "datacenter",
+          "grouping": "facilities",
+          "fault": "shared-zone"
+        },
+        "rationale_and_quality": "All ten selections follow the stated failure/geographic/sovereign constraints. Distributed API without zonally resilient data leaves a required dependency exposed. Different buildings in one zone do not defeat the zone-wide fault. Logical zone numbers do not prove physical mapping. Region pairs neither constrain all app-region choices nor instantiate recovery. Mostly concept and taxonomy recognition; the integrated dependency question is stronger.",
+        "valid_alternatives": "None under the stated premises; no hidden price ranking or service support assumed.",
+        "confidence": "high"
+      },
+      {
+        "module": "benefits",
+        "id": "benefits",
+        "answers": {
+          "unmet": 1,
+          "dependency": "restore",
+          "policy": "one-rule",
+          "template": "review",
+          "sustainability": "data",
+          "forecast": "usage"
+        },
+        "rationale_and_quality": "Two surviving instances supply 6 against demand 7, so unmet=1. Other fields reject broad automatic claims. All five selectable answers appear first in this packet; if rendered unchanged this offers a serious within-form position cue. The wrong alternatives are conspicuously absolute (all/automatic/nothing/only) and the right alternatives qualified. Numeric input has no option-position cue.",
+        "valid_alternatives": "None under the stated premises; no hidden price ranking or service support assumed.",
+        "confidence": "high"
+      },
+      {
+        "module": "serverless",
+        "id": "serverless",
+        "answers": {
+          "webhook": "functions",
+          "webhookReason": "events",
+          "agent": "vm",
+          "agentReason": "guest-control",
+          "result": "successful-output",
+          "duties": "customer",
+          "bill": "plan"
+        },
+        "rationale_and_quality": "The short event code suits Functions subject to plan/latency assessment; the kernel driver needs VM guest control. Real successful output, customer code/data/access duties, and plan/allocation/services determine the other judgments. Several distractors use never/always/all/free, so recognition by tone is a material concern. This is the same kernel/control boundary as cp01 in another context.",
+        "valid_alternatives": "None under the stated premises; no hidden price ranking or service support assumed.",
+        "confidence": "high"
+      },
+      {
+        "module": "foundations-v2",
+        "id": "foundations-v2",
+        "answers": {
+          "shortfall": 2,
+          "unused": "1,3,4",
+          "cause": "allocation",
+          "host": "finite",
+          "service": "provisioning",
+          "duties": "customer",
+          "exclusive": "private",
+          "integration": "hybrid",
+          "idle": "allocated",
+          "uncertain": "usage",
+          "commitment": "paid"
+        },
+        "rationale_and_quality": "Max demand 7 minus allocation 5 gives 2 shortfall. Demand is below allocation in hours 1,3,4. Provider purchase alone changes neither demand nor allocation; cloud/virtualization retain finite hardware and customer duties. Private cloud can be third-party hosted; integration with public and retained on-prem is hybrid. Idle allocated compute can cost money; uncertain noninterruptible demand favors PAYG. Eight of ten selectable answers appear second and several distractors are absolute caricatures; actual rendered order requires checking. Numeric field excluded from option-position analysis.",
+        "valid_alternatives": "None under the stated premises; no hidden price ranking or service support assumed.",
+        "confidence": "high"
+      }
+    ],
+    "blind_synthesis": {
+      "strengths": [
+        "No apparent factual-key ambiguity in the single-answer sampled cases under their explicit premises.",
+        "Three cases deliberately admit alternate coherent pairs: fm10, sp08, two-valid-hosts.",
+        "Several richer tasks require evidence attribution, conjunctive policy scope, or separation of management/data/runtime responsibilities."
+      ],
+      "risks": [
+        "Possible all-first position cue in legacy benefits and dominant-second cue in foundations-v2 if options render unchanged.",
+        "Many wrong options assert automatic/all/always behavior while the right one is qualified and complete; this can reward test-taking tone recognition.",
+        "True-but-insufficient reason distractors in gc09, mt02 and mt10 need feedback explaining the relevant completeness criterion.",
+        "New titles and industries do not alone establish transfer: storage sa02/sa12 and pricing cm10/campaign-pricing are close conceptual repetitions.",
+        "Separate decision/reason fields can disclose the decision through answer-to-reason matching; later browser/source comparison must check feedback and exposure gates."
+      ],
+      "validation_limit": "No learner study, reliability, discrimination, difficulty, retention or transfer evidence established. Distinguish text plausibility from actual learner performance."
+    }
+  }
+}

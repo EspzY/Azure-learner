@@ -1,3 +1,7 @@
+# Learning journey — current audit map and historical contracts
+
+**1 November 2026:** use the [PR42 actual journey map](reviews/AZ900_LEARNING_JOURNEY_MAP.md) for current availability and recommended sequencing analysis. Sections below preserve historical delivery-specific states; their older “current/planned” labels do not describe today's full course. No stored learning meaning is changed.
+
 # Learning journey and competency universe
 
 ## P05 ordinary learning sequence
