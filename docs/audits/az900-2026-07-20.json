@@ -2741,6 +2741,192 @@
       "purpose": "P15: Risk-prioritization prerequisites: paid Defender CSPM; contextual exposure/sensitivity/criticality guides review, not confirmed threat or universal score formula.",
       "reviewed": "2026-11-01",
       "version": "Rolling official page 2026-06-16T18:23:00.0000000Z"
+    },
+    "MIG01": {
+      "url": "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900",
+      "purpose": "P16: Current July20 AZ-900 scope: only2.3.05/06; five named tools, no exam-readiness inference.",
+      "reviewed": "2026-11-01",
+      "version": "Rolling public source 2026-05-31T00:00:00.0000000Z"
+    },
+    "MIG02": {
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-storage-services/",
+      "purpose": "P16: Actual eight-unit Storage module; P16 public6/7 plus introduction/summary, account/service/redundancy units preserved prerequisites; protected8assessment not opened.",
+      "reviewed": "2026-11-01",
+      "version": "Rolling public source 2026-02-03T00:00:00.0000000Z"
+    },
+    "MIG03": {
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-storage-services/6-identify-azure-data-migration-options",
+      "purpose": "P16: Migration learning sequence and basic Migrate/DataBox purposes; old80TB universal language qualified by current device pivots and retirement.",
+      "reviewed": "2026-11-01",
+      "version": "Rolling public source 2025-09-09T00:00:00.0000000Z"
+    },
+    "MIG04": {
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-storage-services/7-identify-azure-file-movement-options",
+      "purpose": "P16: Copy/directional sync/GUI/hybrid concepts; broad any-protocol/unlimited-cache/backend language qualified by specific current protocol, scale, fidelity and resource-auth sources.",
+      "reviewed": "2026-11-01",
+      "version": "Rolling public source 2025-09-09T00:00:00.0000000Z"
+    },
+    "MIG05": {
+      "url": "https://learn.microsoft.com/en-us/azure/storage/common/storage-use-azcopy",
+      "purpose": "P16: Supported AzCopyv10 CLI/source/destination/Entra/SAS, source-specific data rights, scripts and jobs; no live execution. Current recommendation to assess Storage Mover for large/complex migrations is contextual, not new goal.",
+      "reviewed": "2026-11-01",
+      "version": "Rolling public source 2026-10-23T00:00:00.0000000Z"
+    },
+    "MIG06": {
+      "url": "https://learn.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-blobs-synchronize",
+      "purpose": "P16: Blob/local and container directional examples, timestamp/hash comparison and explicit delete-destination; narrow note conflicts with broader current command reference, so no universal Files-sync support claim.",
+      "reviewed": "2026-11-01",
+      "version": "Rolling public source 2025-10-28T00:00:00.0000000Z"
+    },
+    "MIG07": {
+      "url": "https://learn.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-files",
+      "purpose": "P16: Current SMB/NFS copy directions/platform/from-to and fidelity flags;10.30 no automatic share creation; file/directory Entra vs share/account operation authorization differs.",
+      "reviewed": "2026-11-01",
+      "version": "Rolling public source 2025-10-28T00:00:00.0000000Z"
+    },
+    "MIG08": {
+      "url": "https://learn.microsoft.com/en-us/azure/storage/storage-explorer/vs-azure-tools-storage-manage-with-storage-explorer",
+      "purpose": "P16: Standalone Windows/macOS/Linux GUI; Blob/Files/Queue/Table attachment/auth matrix varies by resource; GUI does not add data rights or guarantee all ACL fidelity.",
+      "reviewed": "2026-11-01",
+      "version": "Rolling public source 2019-11-08T00:00:00.0000000Z"
+    },
+    "MIG09": {
+      "url": "https://learn.microsoft.com/en-us/azure/storage/file-sync/file-sync-introduction",
+      "purpose": "P16: Windows Server ↔ central Azure Files topology, tiering and registered endpoints; broad recovery/no-local-backup wording qualified by separate recovery and backup responsibilities.",
+      "reviewed": "2026-11-01",
+      "version": "Rolling public source 2026-08-17T00:00:00.0000000Z"
+    },
+    "MIG10": {
+      "url": "https://learn.microsoft.com/en-us/azure/storage/file-sync/file-sync-cloud-tiering-policy",
+      "purpose": "P16: Local volume free-space/date tiering, free-space priority, policy changes do not automatically recall all content; not Blob access tiers.",
+      "reviewed": "2026-11-01",
+      "version": "Rolling public source 2024-06-03T00:00:00.0000000Z"
+    },
+    "MIG11": {
+      "url": "https://learn.microsoft.com/en-us/azure/migrate/migrate-overview",
+      "purpose": "P16: Current default migrate versus migrate-classic views; decide/plan/execute, multiple workloads and separate migration execution; Copilot migration agent preview is outside modeled scope.",
+      "reviewed": "2026-11-01",
+      "version": "Rolling public source 2026-05-18T00:00:00.0000000Z"
+    },
+    "MIG12": {
+      "url": "https://learn.microsoft.com/en-us/azure/migrate/concepts-overview",
+      "purpose": "P16: Readiness, right-sizing and cost are point-in-time assessment outputs dependent on discovered configuration/performance/settings; source changes can invalidate evidence.",
+      "reviewed": "2026-11-01",
+      "version": "Rolling public source 2025-04-09T00:00:00.0000000Z"
+    },
+    "MIG13": {
+      "url": "https://learn.microsoft.com/en-us/azure/databox/data-box-overview",
+      "purpose": "P16: Both current Data Box pivots,120/525TB versus legacy80 and Heavy retirement; import/export phases differ; availability/commerce/region/logistics and actual upload/verify remain separate.",
+      "reviewed": "2026-11-01",
+      "version": "Rolling public source 2025-03-04T00:00:00.0000000Z"
+    },
+    "MIG14": {
+      "url": "https://learn.microsoft.com/en-us/azure/databox/data-box-faq",
+      "purpose": "P16: Selected FAQ capacity/availability/security content only; stale Heavy recommendation is explicitly superseded by current overview retirement note. No universalcapacity/automaticfastest claim.",
+      "reviewed": "2026-11-01",
+      "version": "Rolling public source 2025-03-06T00:00:00.0000000Z"
+    },
+    "MIG15": {
+      "url": "https://learn.microsoft.com/en-us/azure/databox/",
+      "purpose": "P16: Official Data Box family discovery inclDisk/NextGen; no ordering/tracking or protected reports executed.",
+      "reviewed": "2026-11-01",
+      "version": "Rolling public source 2025-03-06T00:00:00.0000000Z"
+    },
+    "MIG16": {
+      "url": "https://learn.microsoft.com/en-us/azure/storage/file-sync/file-sync-cloud-tiering-overview",
+      "purpose": "P16: Tiered local namespace vs cloud file content, optional cache and recall; availability/access prerequisites remain distinct.",
+      "reviewed": "2026-11-01",
+      "version": "Rolling public source 2026-07-20T22:11:00.0000000Z"
+    },
+    "MIG17": {
+      "url": "https://learn.microsoft.com/en-us/azure/storage/file-sync/file-sync-planning",
+      "purpose": "P16: Storage Sync Service/group/cloud/server endpoints; Windows Server and SMB classic Azure Files, not top-levelNFS. Direct cloud changes require detection; backup and scale/network design remain separate.",
+      "reviewed": "2026-11-01",
+      "version": "Rolling public source 2026-10-26T11:42:00.0000000Z"
+    },
+    "MIG19": {
+      "url": "https://learn.microsoft.com/en-us/azure/storage/files/storage-files-migration-overview",
+      "purpose": "P16: Current SMB migration fidelity distinctions: ACL/owner/timestamps/ADS, alternate methods StorageMover/Robocopy/FileSync; AzCopy/Explorer not universal complete-fidelity solution.",
+      "reviewed": "2026-11-01",
+      "version": "Rolling public source 2026-10-29T11:42:00.0000000Z"
+    },
+    "MIG20": {
+      "url": "https://learn.microsoft.com/en-us/azure/storage/common/storage-ref-azcopy-sync",
+      "purpose": "P16: Learn command reference redirects to official GitHub wiki HTML; duplicate discovery only, readable raw officialFM32 used for actual command claims.",
+      "reviewed": "2026-11-01",
+      "version": "Rolling public source not stated"
+    },
+    "MIG21": {
+      "url": "https://learn.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-configure",
+      "purpose": "P16: AzCopy jobs/logs/resume and failed-item status, resumption requires valid authorization; command/job completion is not independent data/app validation.",
+      "reviewed": "2026-11-01",
+      "version": "Rolling public source 2026-05-06T11:15:00.0000000Z"
+    },
+    "MIG23": {
+      "url": "https://learn.microsoft.com/en-us/azure/databox/data-box-disk-overview",
+      "purpose": "P16: DataBoxDisk separate variant supports import only, no export; region/hardware-encryption/support vary, no universal familycapacity.",
+      "reviewed": "2026-11-01",
+      "version": "Rolling public source 2026-03-26T22:23:00.0000000Z"
+    },
+    "MIG24": {
+      "url": "https://learn.microsoft.com/en-us/azure/databox/data-box-deploy-export-ordered",
+      "purpose": "P16: Actual export order fills device in Azure before shipment and copies out locally; export excludes ACL/metadata; independent restoration/validation needed.",
+      "reviewed": "2026-11-01",
+      "version": "Rolling public source 2026-08-03T05:10:00.0000000Z"
+    },
+    "MIG25": {
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-storage-services/1-introduction",
+      "purpose": "P16: Scoped public introduction bridges storage knowledge to transfer/migration; no Azure exercise execution credited.",
+      "reviewed": "2026-11-01",
+      "version": "Rolling public source 2025-09-09T17:13:00.0000000Z"
+    },
+    "MIG26": {
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-storage-services/9-summary",
+      "purpose": "P16: Public summary confirms two named scoped goals; earlier four Storage goals preserved, protectedassessment excluded.",
+      "reviewed": "2026-11-01",
+      "version": "Rolling public source 2025-09-09T17:13:00.0000000Z"
+    },
+    "MIG27": {
+      "url": "https://learn.microsoft.com/en-us/azure/storage-mover/service-overview",
+      "purpose": "P16: Current Azure Storage Mover recommendation and pair-specific fidelity/preview context; no extra exam objective, engine, onboarding or unsupported universal claim.",
+      "reviewed": "2026-11-01",
+      "version": "Rolling public source 2026-05-05T22:14:00.0000000Z"
+    },
+    "MIG29": {
+      "url": "https://learn.microsoft.com/en-us/azure/migrate/migrate-support-matrix",
+      "purpose": "P16: Migrate scenario/region/geography/project/appliance permissions support varies; metadata collection is not app migration, no appliance implemented.",
+      "reviewed": "2026-11-01",
+      "version": "Rolling public source 2026-09-24T11:41:00.0000000Z"
+    },
+    "MIG32": {
+      "url": "https://learn.microsoft.com/en-us/azure/storage/common/storage-ref-azcopy-sync",
+      "purpose": "P16: Actual official AzCopy v10 raw commandreference: directed source/destination, supported pair/version-specific auth, timestamps/MD5, deleteDestinationfalse default, mirroroverride explicit; not continuous bidirectional service.",
+      "reviewed": "2026-11-01",
+      "version": "Rolling public source rolling official repository"
+    },
+    "MIG33": {
+      "url": "https://learn.microsoft.com/en-us/azure/storage/file-sync/file-sync-deployment-guide",
+      "purpose": "P16: Real Sync Service registration, syncgroup/onecloudendpoint/serverendpoints and merge/authoritative initial-policy differences; no universal conflict outcome or simulated deployment.",
+      "reviewed": "2026-11-01",
+      "version": "Rolling public source 2026-08-17T22:15:00.0000000Z"
+    },
+    "MIG35": {
+      "url": "https://learn.microsoft.com/en-us/azure/storage/files/storage-files-faq",
+      "purpose": "P16: Current official FAQ: direct-cloud change detection, concurrent edits preserve conflict copies under documented limits; no instantaneous global consistency or substitute for independent backup. Model withholds winner absent complete premises.",
+      "reviewed": "2026-11-01",
+      "version": "Rolling public source 2026-08-18T22:40:00.0000000Z"
+    },
+    "MIG36": {
+      "url": "https://learn.microsoft.com/en-us/azure/migrate/discovery-methods-modes",
+      "purpose": "P16: Current appliance/collector/import discovery methods, continuous vs point-in-time data and prerequisites; Arc discoverypreview context not implemented.",
+      "reviewed": "2026-11-01",
+      "version": "Rolling public source 2026-09-24T11:41:00.0000000Z"
+    },
+    "MIG37": {
+      "url": "https://learn.microsoft.com/en-us/azure/migrate/concepts-dependency-visualization",
+      "purpose": "P16: Current recommended agentless dependency analysis and application grouping; classic agent-based analysis limited/ending, no old universal LogAnalytics/agent requirement.",
+      "reviewed": "2026-11-01",
+      "version": "Rolling public source 2026-09-24T11:41:00.0000000Z"
     }
   },
   "evidenceProfiles": {
@@ -3786,6 +3972,37 @@
       ],
       "tests": ["src/domain/curriculum/security.test.ts", "tests/e2e/security-principles.spec.ts"],
       "limits": "Authored A–F only; synthetic risk/control/evidence fixtures separate from actual local configuration and receipts. No real security evaluation, attack, score, alert, plan activation, remediation or measured human learning."
+    },
+    "MV": {
+      "teaching": [
+        {
+          "path": "src/content/nb.ts",
+          "marker": "migrationNb"
+        }
+      ],
+      "mechanism": [
+        {
+          "path": "src/domain/curriculum/migration-model.ts",
+          "marker": "runMigration"
+        }
+      ],
+      "presentation": [
+        {
+          "path": "src/features/learning/migration-visuals.tsx",
+          "marker": "MigrationModelResult"
+        }
+      ],
+      "assessment": [
+        {
+          "path": "src/domain/curriculum/migration-items.ts",
+          "marker": "evaluateMigration"
+        }
+      ],
+      "tests": [
+        "src/domain/curriculum/migration.test.ts",
+        "tests/e2e/file-movement-migration.spec.ts"
+      ],
+      "limits": "Authored A–F coverage only, no learner mastery/exam readiness. Bounded synthetic manifests/plans never transfer files, claim integrity/app health or mutate actual local resources/receipts. Human learning validation unperformed."
     }
   },
   "plannedPRs": [
@@ -5228,65 +5445,131 @@
       "slot": "2.3.05",
       "id": "az900.storage.file-tools",
       "title": "Verktøy for filflytting og synkronisering",
-      "status": "MISSING",
+      "status": "COMPLETE",
       "criteria": {
-        "A": "M",
-        "B": "M",
-        "C": "M",
-        "D": "M",
-        "E": "M",
-        "F": "N"
+        "A": "V",
+        "B": "V",
+        "C": "V",
+        "D": "V",
+        "E": "V",
+        "F": "V"
       },
       "facets": [
         {
           "topic": "AzCopy",
-          "status": "MISSING"
+          "status": "COMPLETE"
         },
         {
           "topic": "Storage Explorer",
-          "status": "MISSING"
+          "status": "COMPLETE"
         },
         {
           "topic": "Azure File Sync",
-          "status": "MISSING"
+          "status": "COMPLETE"
         }
       ],
       "localObjectives": ["D01", "R03"],
-      "evidence": [],
-      "observed": "Ingen undervisning eller anvendt sammenligning av de tre verktøyene.",
-      "gap": "Mangler egen forklaring, relevant mekanisme/praksis, uavhengig scenario og begrunnet vurdering for de angitte emnene.",
+      "evidence": ["MV"],
+      "observed": "Original AzCopy/Storage Explorer/File Sync theory with current protocol/auth/fidelity limits, directional copy/sync versus hybrid topology, cache/partial recall versus Blob tiers, conflict/detection/backup boundaries. Persisted method/manifest causal contrasts; independent rollback content/date/retention, two accepted Explorer access architectures, partial-recall offline preparation and v10.30+ share creation/SMB preservation cases with paired feedback. Independent changed graphical-to-headless workflow directly compares Storage Explorer/AzCopy; server-retirement case compares persistent File Sync/cloud cache with one-off copy or directional sync and separates Blob access tiers.",
+      "gap": "Ingen scoped authored A–F-innholdsgap identifisert. Separat sluttrevisjon/CI/ekstern kontroll kreves;57/57 er ikke elevmestring, eksamensberedskap eller Microsoft-godkjenning.",
       "plannedPRs": ["P16"],
-      "sources": ["EXAM", "M07"]
+      "sources": [
+        "EXAM",
+        "MIG01",
+        "MIG02",
+        "MIG03",
+        "MIG04",
+        "MIG05",
+        "MIG06",
+        "MIG07",
+        "MIG08",
+        "MIG09",
+        "MIG10",
+        "MIG11",
+        "MIG12",
+        "MIG13",
+        "MIG14",
+        "MIG15",
+        "MIG16",
+        "MIG17",
+        "MIG19",
+        "MIG20",
+        "MIG21",
+        "MIG23",
+        "MIG24",
+        "MIG25",
+        "MIG26",
+        "MIG27",
+        "MIG29",
+        "MIG32",
+        "MIG33",
+        "MIG35",
+        "MIG36",
+        "MIG37"
+      ]
     },
     {
       "slot": "2.3.06",
       "id": "az900.storage.migration",
       "title": "Migrering til Azure",
-      "status": "MISSING",
+      "status": "COMPLETE",
       "criteria": {
-        "A": "M",
-        "B": "M",
-        "C": "M",
-        "D": "M",
-        "E": "M",
-        "F": "N"
+        "A": "V",
+        "B": "V",
+        "C": "V",
+        "D": "V",
+        "E": "V",
+        "F": "V"
       },
       "facets": [
         {
           "topic": "Azure Migrate",
-          "status": "MISSING"
+          "status": "COMPLETE"
         },
         {
           "topic": "Azure Data Box",
-          "status": "MISSING"
+          "status": "COMPLETE"
         }
       ],
       "localObjectives": ["R03", "D01"],
-      "evidence": [],
-      "observed": "Ingen tilgjengelig migreringssekvens eller beslutningsoppgave.",
-      "gap": "Mangler egen forklaring, relevant mekanisme/praksis, uavhengig scenario og begrunnet vurdering for de angitte emnene.",
+      "evidence": ["MV"],
+      "observed": "Original current Migrate discovery/assessment/planning/migration/validation and device-qualified Data Box import/export, variable capacities/retirement/availability, total budget and separate cutover/integrity/app checks. Persisted stale assessment/dependency/network/physical/validation contrasts; independent configuration-only CSV assessment, complementary physical-server Migrate plus archive Data Box, full-stage device budget and final-write-boundary reconciliation cases with specific feedback.",
+      "gap": "Ingen scoped authored A–F-innholdsgap identifisert. Separat sluttrevisjon/CI/ekstern kontroll kreves;57/57 er ikke elevmestring, eksamensberedskap eller Microsoft-godkjenning.",
       "plannedPRs": ["P16"],
-      "sources": ["EXAM", "M07"]
+      "sources": [
+        "EXAM",
+        "MIG01",
+        "MIG02",
+        "MIG03",
+        "MIG04",
+        "MIG05",
+        "MIG06",
+        "MIG07",
+        "MIG08",
+        "MIG09",
+        "MIG10",
+        "MIG11",
+        "MIG12",
+        "MIG13",
+        "MIG14",
+        "MIG15",
+        "MIG16",
+        "MIG17",
+        "MIG19",
+        "MIG20",
+        "MIG21",
+        "MIG23",
+        "MIG24",
+        "MIG25",
+        "MIG26",
+        "MIG27",
+        "MIG29",
+        "MIG32",
+        "MIG33",
+        "MIG35",
+        "MIG36",
+        "MIG37"
+      ]
     },
     {
       "slot": "2.4.01",
@@ -7168,6 +7451,45 @@
         "SEG26",
         "SEG27",
         "SEG28"
+      ]
+    },
+    {
+      "id": "PR41-P16",
+      "reviewed": "2026-11-01",
+      "objectives": ["2.3.05", "2.3.06"],
+      "note": "Only2.3.05/06 reassessed;55 other rows preserved.57/57 authored-content coverage only. Next: separate End-to-End Learning Journey Audit before P17/P18.",
+      "sources": [
+        "MIG01",
+        "MIG02",
+        "MIG03",
+        "MIG04",
+        "MIG05",
+        "MIG06",
+        "MIG07",
+        "MIG08",
+        "MIG09",
+        "MIG10",
+        "MIG11",
+        "MIG12",
+        "MIG13",
+        "MIG14",
+        "MIG15",
+        "MIG16",
+        "MIG17",
+        "MIG19",
+        "MIG20",
+        "MIG21",
+        "MIG23",
+        "MIG24",
+        "MIG25",
+        "MIG26",
+        "MIG27",
+        "MIG29",
+        "MIG32",
+        "MIG33",
+        "MIG35",
+        "MIG36",
+        "MIG37"
       ]
     }
   ]

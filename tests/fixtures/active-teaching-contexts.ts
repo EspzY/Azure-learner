@@ -1,4 +1,11 @@
 import {
+  freshMigration,
+  applyMigration,
+  migrationKey,
+  restoreMigration,
+  migrationFacts,
+} from '../../src/domain/curriculum/migration';
+import {
   freshSecurity,
   applySecurity,
   securityKey,
@@ -134,6 +141,12 @@ function fixture<S>(
 /** Valid records from frozen reducers, never new runtime curriculum. */
 export function activeTeachingContexts() {
   return [
+    fixture(
+      migrationKey,
+      applyMigration(freshMigration(), { kind: 'begin', item: 'fm01' }),
+      restoreMigration,
+      migrationFacts,
+    ),
     fixture(
       securityKey,
       applySecurity(freshSecurity(), { kind: 'begin', item: 'sp01' }),

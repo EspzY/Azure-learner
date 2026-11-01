@@ -39,6 +39,7 @@ export const benefitBridgeTopics = [
   'sustainability',
 ] as const;
 export interface PortalLocation {
+  migration?: 'method' | 'sync' | 'planning';
   security?: 'trust' | 'depth' | 'defender';
   monitoring?: 'evidence' | 'health' | 'telemetry';
   tools?: true;
@@ -62,8 +63,29 @@ export function parseLocation(query: URLSearchParams): PortalLocation {
   const area = query.get('area') ?? 'home',
     mode = query.get('mode') ?? 'learn';
   return {
+    ...(query.get('migration') === 'inspect' &&
+    ![
+      'security',
+      'monitoring',
+      'tools',
+      'governance',
+      'networking',
+      'compute',
+      'mission',
+      'practice',
+      'bridge',
+      'lab',
+      'course',
+    ].some((k) => query.has(k))
+      ? {
+          migration: (['method', 'sync', 'planning'].includes(query.get('perspective') ?? '')
+            ? query.get('perspective')
+            : 'planning') as 'method' | 'sync' | 'planning',
+        }
+      : {}),
     ...(query.get('security') === 'inspect' &&
     ![
+      'migration',
       'monitoring',
       'tools',
       'governance',
@@ -83,6 +105,7 @@ export function parseLocation(query: URLSearchParams): PortalLocation {
       : {}),
     ...(query.get('monitoring') === 'inspect' &&
     ![
+      'migration',
       'security',
       'tools',
       'governance',
@@ -102,6 +125,7 @@ export function parseLocation(query: URLSearchParams): PortalLocation {
       : {}),
     ...(query.get('tools') === 'intent' &&
     ![
+      'migration',
       'security',
       'monitoring',
       'governance',
@@ -117,6 +141,7 @@ export function parseLocation(query: URLSearchParams): PortalLocation {
       : {}),
     ...(query.get('governance') === 'policy' &&
     ![
+      'migration',
       'security',
       'monitoring',
       'tools',
@@ -132,6 +157,7 @@ export function parseLocation(query: URLSearchParams): PortalLocation {
       : {}),
     ...(query.get('networking') === 'inspect' &&
     ![
+      'migration',
       'security',
       'monitoring',
       'tools',
@@ -147,6 +173,7 @@ export function parseLocation(query: URLSearchParams): PortalLocation {
       : {}),
     ...(query.get('compute') === 'vm' &&
     ![
+      'migration',
       'security',
       'monitoring',
       'tools',
@@ -225,6 +252,10 @@ export function portalHref(
   if (next.networking) query.set('networking', 'inspect');
   if (next.compute) query.set('compute', 'vm');
   if (next.governance) query.set('governance', 'policy');
+  if (next.migration) {
+    query.set('migration', 'inspect');
+    query.set('perspective', next.migration);
+  }
   if (next.security) {
     query.set('security', 'inspect');
     query.set('perspective', next.security);

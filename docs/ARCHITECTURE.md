@@ -1,5 +1,9 @@
 # Architecture
 
+## P16 isolated file movement and migration models
+
+[Storage Part C contract](FILE_MOVEMENT_MIGRATION.md): pure typed requirements, tiny synthetic manifest and declared planning perspectives import no filesystem/World/command API. Five tool roles have qualified support/fidelity assumptions. Directional sync cannot mutate server B; ambiguous hybrid edits remain unresolved, missing local bytes stay missing after tiering is disabled. Transport/check/cutover/app validation are separate declared evidence. Read-only original local scope/resource/receipt context never supplies migrated data. Isolated azurelab.learning.file-movement-migration.v1 reuses strict replay/durable CAS/reserve/recovery and immutable first/family history. All24 shared contexts protect teaching, Journal, Summary, feedback, missions and Portal. Existing Storage A/B and all earlier rubrics remain unchanged.
+
 ## P15 isolated security design and evidence models
 
 [Security contract](SECURITY_PRINCIPLES.md): pure typed security-model exposes trust design questions, seven-layer control contributions under explicit failure assumptions, and Defender feature/evidence/plan comparisons. It imports no Sandbox World or commands. Read-only resource/context/receipt presentation never supplies patch, protection, telemetry or compromise evidence. No generalized security, CA/RBAC, crypto or scan engine. Independent contract azurelab.learning.security-principles.v1 reuses bounded replay/CAS/reserve/recovery and immutable first/family classification; all23 shared contexts protect teaching, Journal, Summary, old feedback, missions and Portal. Existing identity/access models and all earlier rubrics remain unchanged.

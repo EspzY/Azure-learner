@@ -1,5 +1,9 @@
 # Roadmap
 
+## P16 candidate and mandatory next priority
+
+[File Movement & Migration](FILE_MOVEMENT_MIGRATION.md) closes the two remaining authored-content rows as Storage Part C. **Next is the separate End-to-End AZ-900 Learning Journey Audit, before P17/P18.** It must be planned and completed as its own approved delivery, covering progression/prerequisites, repetition/load, tasks/visualizations, Sandbox, SavvyShark, independent scenario quality, navigation/Journal/resume and novice desktop experience. Human validation is credited only when performed. No P17/P18 implementation or whole-course audit is included in P16;57/57 is content coverage, not exam readiness.
+
 ## P15 candidate and next boundary
 
 [Security Part C](SECURITY_PRINCIPLES.md) supplies Zero Trust, Defense in Depth and plan-qualified Defender for Cloud, with encryption/Key Vault as supplement. P16 — Azure File Movement & Migration — remains next. Whole-course end-to-end pedagogy audit follows P16 before final diagnostic engine/question bank. Neither is implemented in P15.

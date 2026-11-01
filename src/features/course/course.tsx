@@ -1,4 +1,8 @@
 'use client';
+import { useMigration } from '@/features/learning/migration-provider';
+import { MigrationLesson } from '@/features/learning/migration';
+import { migrationHref, migrationTopics, type MigrationTopic } from '@/domain/curriculum/migration';
+import { migrationNb } from '@/content/nb';
 import { useSecurity } from '@/features/learning/security-provider';
 import { SecurityLesson } from '@/features/learning/security';
 import { securityHref, securityTopics, type SecurityTopic } from '@/domain/curriculum/security';
@@ -142,6 +146,7 @@ const names = {
   networking: networkingNb.title,
   connectivity: connectivityNb.title,
   storage: storageNb.title,
+  migration: migrationNb.title,
   security: securityNb.title,
   monitoring: monitoringNb.title,
   'management-tools': toolsNb.title,
@@ -173,7 +178,8 @@ export function Course({ module }: { module?: CourseModule }) {
     governanceState = useGovernance(),
     toolsState = useTools(),
     monitoringState = useMonitoring(),
-    securityState = useSecurity();
+    securityState = useSecurity(),
+    migrationState = useMigration();
   const query = useSearchParams(),
     router = useRouter(),
     course = useCourse(),
@@ -373,150 +379,165 @@ export function Course({ module }: { module?: CourseModule }) {
       ? { module: 'computing' as const, topic: learning.save.unit }
       : null);
   const resumeHref =
-    securityState.facts.active && securityState.facts.current
-      ? securityHref('assessment', securityState.facts.current.item)
-      : monitoringState.facts.active && monitoringState.facts.current
-        ? monitoringHref('assessment', monitoringState.facts.current.item)
-        : toolsState.facts.active && toolsState.facts.current
-          ? toolsHref('assessment', toolsState.facts.current.item)
-          : governanceState.facts.active && governanceState.facts.current
-            ? governanceHref('assessment', governanceState.facts.current.item)
-            : accessState.facts.active && accessState.facts.current
-              ? accessHref('assessment', accessState.facts.current.item)
-              : identityState.facts.active && identityState.facts.current
-                ? identityHref('assessment', identityState.facts.current.item)
-                : resilience.facts.active && resilience.facts.current
-                  ? resilienceHref('assessment', resilience.facts.current.item)
-                  : storage.facts.active && storage.facts.current
-                    ? storageHref('assessment', storage.facts.current.item)
-                    : connectivity.facts.active && connectivity.facts.current
-                      ? connectivityHref('assessment', connectivity.facts.current.item)
-                      : networking.facts.active && networking.facts.current
-                        ? networkingHref('assessment', networking.facts.current.item)
-                        : compute.facts.active && compute.facts.current
-                          ? computeHref('assessment', compute.facts.current.item)
-                          : cost.facts.active && cost.facts.current
-                            ? costHref('assessment', cost.facts.current.item)
-                            : transfer.facts.active && transfer.facts.current
-                              ? transferHref(transfer.facts.current.item)
-                              : missions.active && missions.activeSession
-                                ? missionOrigin(missions.activeSession.mission)
-                                : practical.activeIndependent &&
-                                    practical.current?.status === 'active'
-                                  ? practicalHref(practical.current, chapter.attempt.engine)
-                                  : management.facts.active
-                                    ? courseHref('architecture', 'management-assessment')
-                                    : physical.facts.active
-                                      ? courseHref('architecture', 'assessment')
-                                      : serverless.facts.active
-                                        ? courseHref('computing', 'serverless-assessment')
-                                        : v2.facts.active
-                                          ? courseHref('computing', 'v2-assessment')
-                                          : benefits.facts.active
-                                            ? courseHref('benefits', 'assessment')
-                                            : service2.facts.active
-                                              ? courseHref('services', 'assessment')
-                                              : services.facts.active
-                                                ? '/portal?area=challenge&course=1&module=services&topic=practice'
-                                                : learning.facts.active
-                                                  ? courseHref('computing', 'assessment')
-                                                  : practical.current?.status === 'active'
-                                                    ? practicalHref(
-                                                        practical.current,
-                                                        chapter.attempt.engine,
-                                                      )
-                                                    : missions.activeSession
-                                                      ? missionOrigin(
-                                                          missions.activeSession.mission,
+    migrationState.facts.active && migrationState.facts.current
+      ? migrationHref('assessment', migrationState.facts.current.item)
+      : securityState.facts.active && securityState.facts.current
+        ? securityHref('assessment', securityState.facts.current.item)
+        : monitoringState.facts.active && monitoringState.facts.current
+          ? monitoringHref('assessment', monitoringState.facts.current.item)
+          : toolsState.facts.active && toolsState.facts.current
+            ? toolsHref('assessment', toolsState.facts.current.item)
+            : governanceState.facts.active && governanceState.facts.current
+              ? governanceHref('assessment', governanceState.facts.current.item)
+              : accessState.facts.active && accessState.facts.current
+                ? accessHref('assessment', accessState.facts.current.item)
+                : identityState.facts.active && identityState.facts.current
+                  ? identityHref('assessment', identityState.facts.current.item)
+                  : resilience.facts.active && resilience.facts.current
+                    ? resilienceHref('assessment', resilience.facts.current.item)
+                    : storage.facts.active && storage.facts.current
+                      ? storageHref('assessment', storage.facts.current.item)
+                      : connectivity.facts.active && connectivity.facts.current
+                        ? connectivityHref('assessment', connectivity.facts.current.item)
+                        : networking.facts.active && networking.facts.current
+                          ? networkingHref('assessment', networking.facts.current.item)
+                          : compute.facts.active && compute.facts.current
+                            ? computeHref('assessment', compute.facts.current.item)
+                            : cost.facts.active && cost.facts.current
+                              ? costHref('assessment', cost.facts.current.item)
+                              : transfer.facts.active && transfer.facts.current
+                                ? transferHref(transfer.facts.current.item)
+                                : missions.active && missions.activeSession
+                                  ? missionOrigin(missions.activeSession.mission)
+                                  : practical.activeIndependent &&
+                                      practical.current?.status === 'active'
+                                    ? practicalHref(practical.current, chapter.attempt.engine)
+                                    : management.facts.active
+                                      ? courseHref('architecture', 'management-assessment')
+                                      : physical.facts.active
+                                        ? courseHref('architecture', 'assessment')
+                                        : serverless.facts.active
+                                          ? courseHref('computing', 'serverless-assessment')
+                                          : v2.facts.active
+                                            ? courseHref('computing', 'v2-assessment')
+                                            : benefits.facts.active
+                                              ? courseHref('benefits', 'assessment')
+                                              : service2.facts.active
+                                                ? courseHref('services', 'assessment')
+                                                : services.facts.active
+                                                  ? '/portal?area=challenge&course=1&module=services&topic=practice'
+                                                  : learning.facts.active
+                                                    ? courseHref('computing', 'assessment')
+                                                    : practical.current?.status === 'active'
+                                                      ? practicalHref(
+                                                          practical.current,
+                                                          chapter.attempt.engine,
                                                         )
-                                                      : securityState.facts.guide &&
-                                                          (!preferredResume ||
-                                                            preferredResume.module === 'security')
-                                                        ? securityHref('studio') +
-                                                          '&perspective=' +
-                                                          securityState.facts.guide.mission
-                                                        : monitoringState.facts.guide &&
+                                                      : missions.activeSession
+                                                        ? missionOrigin(
+                                                            missions.activeSession.mission,
+                                                          )
+                                                        : migrationState.facts.guide &&
                                                             (!preferredResume ||
                                                               preferredResume.module ===
-                                                                'monitoring')
-                                                          ? monitoringHref('studio') +
+                                                                'migration')
+                                                          ? migrationHref('studio') +
                                                             '&perspective=' +
-                                                            monitoringState.facts.guide.mission
-                                                          : toolsState.facts.guide &&
+                                                            migrationState.facts.guide.mission
+                                                          : securityState.facts.guide &&
                                                               (!preferredResume ||
                                                                 preferredResume.module ===
-                                                                  'management-tools')
-                                                            ? toolsHref('studio') +
+                                                                  'security')
+                                                            ? securityHref('studio') +
                                                               '&perspective=' +
-                                                              toolsState.facts.guide.mission
-                                                            : governanceState.facts.guide &&
+                                                              securityState.facts.guide.mission
+                                                            : monitoringState.facts.guide &&
                                                                 (!preferredResume ||
                                                                   preferredResume.module ===
-                                                                    'governance')
-                                                              ? governanceHref('studio') +
+                                                                    'monitoring')
+                                                              ? monitoringHref('studio') +
                                                                 '&perspective=' +
-                                                                governanceState.facts.guide.mission
-                                                              : accessState.facts.guide &&
+                                                                monitoringState.facts.guide.mission
+                                                              : toolsState.facts.guide &&
                                                                   (!preferredResume ||
                                                                     preferredResume.module ===
-                                                                      'access-control')
-                                                                ? accessHref('studio') +
+                                                                      'management-tools')
+                                                                ? toolsHref('studio') +
                                                                   '&perspective=' +
-                                                                  accessState.facts.guide.mission
-                                                                : identityState.facts.guide &&
+                                                                  toolsState.facts.guide.mission
+                                                                : governanceState.facts.guide &&
                                                                     (!preferredResume ||
                                                                       preferredResume.module ===
-                                                                        'identity')
-                                                                  ? identityHref('studio') +
+                                                                        'governance')
+                                                                  ? governanceHref('studio') +
                                                                     '&perspective=' +
-                                                                    identityState.facts.guide
+                                                                    governanceState.facts.guide
                                                                       .mission
-                                                                  : resilience.facts.guide &&
-                                                                      preferredResume?.module !==
-                                                                        'storage'
-                                                                    ? resilienceHref('studio') +
+                                                                  : accessState.facts.guide &&
+                                                                      (!preferredResume ||
+                                                                        preferredResume.module ===
+                                                                          'access-control')
+                                                                    ? accessHref('studio') +
                                                                       '&perspective=' +
-                                                                      resilience.facts.guide.mission
-                                                                    : storage.facts.guide
-                                                                      ? storageHref('studio') +
+                                                                      accessState.facts.guide
+                                                                        .mission
+                                                                    : identityState.facts.guide &&
+                                                                        (!preferredResume ||
+                                                                          preferredResume.module ===
+                                                                            'identity')
+                                                                      ? identityHref('studio') +
                                                                         '&perspective=' +
-                                                                        storage.facts.guide.mission
-                                                                      : preferredResume
-                                                                        ? preferredResume.topic ===
-                                                                            'transfer' &&
-                                                                          transfer.facts.current
-                                                                          ? transferHref(
+                                                                        identityState.facts.guide
+                                                                          .mission
+                                                                      : resilience.facts.guide &&
+                                                                          preferredResume?.module !==
+                                                                            'storage'
+                                                                        ? resilienceHref('studio') +
+                                                                          '&perspective=' +
+                                                                          resilience.facts.guide
+                                                                            .mission
+                                                                        : storage.facts.guide
+                                                                          ? storageHref('studio') +
+                                                                            '&perspective=' +
+                                                                            storage.facts.guide
+                                                                              .mission
+                                                                          : preferredResume
+                                                                            ? preferredResume.topic ===
+                                                                                'transfer' &&
                                                                               transfer.facts.current
-                                                                                .item,
-                                                                            )
-                                                                          : preferredResume.module ===
-                                                                                'cost' &&
-                                                                              preferredResume.topic ===
-                                                                                'assessment' &&
-                                                                              cost.facts.current
-                                                                            ? costHref(
-                                                                                'assessment',
-                                                                                cost.facts.current
-                                                                                  .item,
-                                                                              )
-                                                                            : (preferredResume.module ===
-                                                                                  'services' &&
-                                                                                  preferredResume.topic ===
-                                                                                    'practice') ||
-                                                                                (preferredResume.module ===
-                                                                                  'computing' &&
-                                                                                  preferredResume.topic ===
-                                                                                    'resource-bridge')
-                                                                              ? courseLabHref(
-                                                                                  lab.complete,
-                                                                                  course.save.lab
-                                                                                    ?.origin,
+                                                                              ? transferHref(
+                                                                                  transfer.facts
+                                                                                    .current.item,
                                                                                 )
-                                                                              : courseHref(
-                                                                                  preferredResume.module,
-                                                                                  preferredResume.topic,
-                                                                                )
-                                                                        : computingEntry;
+                                                                              : preferredResume.module ===
+                                                                                    'cost' &&
+                                                                                  preferredResume.topic ===
+                                                                                    'assessment' &&
+                                                                                  cost.facts.current
+                                                                                ? costHref(
+                                                                                    'assessment',
+                                                                                    cost.facts
+                                                                                      .current.item,
+                                                                                  )
+                                                                                : (preferredResume.module ===
+                                                                                      'services' &&
+                                                                                      preferredResume.topic ===
+                                                                                        'practice') ||
+                                                                                    (preferredResume.module ===
+                                                                                      'computing' &&
+                                                                                      preferredResume.topic ===
+                                                                                        'resource-bridge')
+                                                                                  ? courseLabHref(
+                                                                                      lab.complete,
+                                                                                      course.save
+                                                                                        .lab
+                                                                                        ?.origin,
+                                                                                    )
+                                                                                  : courseHref(
+                                                                                      preferredResume.module,
+                                                                                      preferredResume.topic,
+                                                                                    )
+                                                                            : computingEntry;
   const navigate = (area: PortalLocation['area'], change: Partial<PortalLocation> = {}) => {
     if (area === 'learn')
       router.push(courseHref(change.module ?? module ?? 'services', change.topic ?? topic));
@@ -524,6 +545,7 @@ export function Course({ module }: { module?: CourseModule }) {
       router.push(
         portalHref(parseLocation(new URLSearchParams()), area, {
           module:
+            module === 'migration' ||
             module === 'security' ||
             module === 'monitoring' ||
             module === 'management-tools' ||
@@ -547,99 +569,105 @@ export function Course({ module }: { module?: CourseModule }) {
       );
   };
   const pathTopics: readonly string[] =
-    module === 'security'
-      ? securityTopics
-      : module === 'monitoring'
-        ? monitoringTopics
-        : module === 'management-tools'
-          ? toolsTopics
-          : module === 'governance'
-            ? governanceTopics
-            : module === 'access-control'
-              ? accessTopics
-              : module === 'identity'
-                ? identityTopics
-                : module === 'storage-resilience'
-                  ? resilienceTopics
-                  : module === 'storage'
-                    ? storageTopics
-                    : module === 'connectivity'
-                      ? connectivityTopics
-                      : module === 'networking'
-                        ? networkingTopics
-                        : module === 'compute'
-                          ? computeTopics
-                          : module === 'cost'
-                            ? costTopics
-                            : module === 'architecture'
-                              ? [...physicalTopics, ...managementTopics]
-                              : module === 'benefits'
-                                ? [...trackUnits.benefits, 'summary', 'transfer']
-                                : module === 'computing'
-                                  ? currentV2
-                                    ? [
-                                        ...v2Topics.slice(0, -1),
-                                        ...serverlessTopics,
-                                        v2Topics.at(-1)!,
-                                        'transfer',
-                                      ]
-                                    : [...unitIds, 'transfer']
-                                  : legacyServices
-                                    ? topics
-                                    : [...trackUnits.services, 'summary', 'transfer'];
+    module === 'migration'
+      ? migrationTopics
+      : module === 'security'
+        ? securityTopics
+        : module === 'monitoring'
+          ? monitoringTopics
+          : module === 'management-tools'
+            ? toolsTopics
+            : module === 'governance'
+              ? governanceTopics
+              : module === 'access-control'
+                ? accessTopics
+                : module === 'identity'
+                  ? identityTopics
+                  : module === 'storage-resilience'
+                    ? resilienceTopics
+                    : module === 'storage'
+                      ? storageTopics
+                      : module === 'connectivity'
+                        ? connectivityTopics
+                        : module === 'networking'
+                          ? networkingTopics
+                          : module === 'compute'
+                            ? computeTopics
+                            : module === 'cost'
+                              ? costTopics
+                              : module === 'architecture'
+                                ? [...physicalTopics, ...managementTopics]
+                                : module === 'benefits'
+                                  ? [...trackUnits.benefits, 'summary', 'transfer']
+                                  : module === 'computing'
+                                    ? currentV2
+                                      ? [
+                                          ...v2Topics.slice(0, -1),
+                                          ...serverlessTopics,
+                                          v2Topics.at(-1)!,
+                                          'transfer',
+                                        ]
+                                      : [...unitIds, 'transfer']
+                                    : legacyServices
+                                      ? topics
+                                      : [...trackUnits.services, 'summary', 'transfer'];
   const index = pathTopics.indexOf(topic);
   const historicalReturn = pathTopics.filter((t) => t !== 'transfer').at(-1)!;
   const location = parseLocation(
     new URLSearchParams({ area: 'learn', module: module ?? 'services', topic }),
   );
   const title = (m: CourseModule, t: string) =>
-    m === 'security'
-      ? securityNb.topics[t as SecurityTopic]
-      : m === 'monitoring'
-        ? monitoringNb.topics[t as MonitoringTopic]
-        : m === 'management-tools'
-          ? toolsNb.topics[t as ToolsTopic]
-          : m === 'governance'
-            ? governanceNb.topics[t as GovernanceTopic]
-            : m === 'access-control'
-              ? accessNb.topics[t as AccessTopic]
-              : m === 'identity'
-                ? identityNb.topics[t as IdentityTopic]
-                : m === 'storage-resilience'
-                  ? storageResilienceNb.topics[t as ResilienceTopic]
-                  : m === 'storage'
-                    ? storageNb.topics[t as StorageTopic]
-                    : m === 'connectivity'
-                      ? connectivityNb.topics[t as ConnectivityTopic]
-                      : m === 'networking'
-                        ? networkingNb.topics[t as NetworkingTopic]
-                        : m === 'compute'
-                          ? computeNb.topics[t as ComputeTopic]
-                          : m === 'cost'
-                            ? costNb.topics[t as CostTopic]
-                            : t === 'transfer'
-                              ? transferNb.entry
-                              : m === 'architecture'
-                                ? isManagementTopic(t)
-                                  ? managementNb.topics[t]
-                                  : architectureNb.topics[t as PhysicalTopic]
-                                : m === 'benefits'
-                                  ? (manuscript('benefits', t)?.title ??
-                                    (t === 'summary'
-                                      ? nb.expansion.common.summary
-                                      : nb.expansion.common.assessment))
-                                  : m === 'services'
-                                    ? legacyServices
-                                      ? nb.portal.lesson.sections[t as (typeof topics)[number]]
-                                          ?.title
-                                      : (manuscript('services', t)?.title ??
-                                        (t === 'summary'
-                                          ? nb.expansion.common.summary
-                                          : nb.expansion.common.assessment))
-                                    : (serverlessNb.topics[t as keyof typeof serverlessNb.topics] ??
-                                      nb.foundationsV2.topics[t as (typeof v2Topics)[number]]
-                                        ?.title ??
-                                      nb.foundations.units[t as (typeof unitIds)[number]]?.title);
+    m === 'migration'
+      ? migrationNb.topics[t as MigrationTopic]
+      : m === 'security'
+        ? securityNb.topics[t as SecurityTopic]
+        : m === 'monitoring'
+          ? monitoringNb.topics[t as MonitoringTopic]
+          : m === 'management-tools'
+            ? toolsNb.topics[t as ToolsTopic]
+            : m === 'governance'
+              ? governanceNb.topics[t as GovernanceTopic]
+              : m === 'access-control'
+                ? accessNb.topics[t as AccessTopic]
+                : m === 'identity'
+                  ? identityNb.topics[t as IdentityTopic]
+                  : m === 'storage-resilience'
+                    ? storageResilienceNb.topics[t as ResilienceTopic]
+                    : m === 'storage'
+                      ? storageNb.topics[t as StorageTopic]
+                      : m === 'connectivity'
+                        ? connectivityNb.topics[t as ConnectivityTopic]
+                        : m === 'networking'
+                          ? networkingNb.topics[t as NetworkingTopic]
+                          : m === 'compute'
+                            ? computeNb.topics[t as ComputeTopic]
+                            : m === 'cost'
+                              ? costNb.topics[t as CostTopic]
+                              : t === 'transfer'
+                                ? transferNb.entry
+                                : m === 'architecture'
+                                  ? isManagementTopic(t)
+                                    ? managementNb.topics[t]
+                                    : architectureNb.topics[t as PhysicalTopic]
+                                  : m === 'benefits'
+                                    ? (manuscript('benefits', t)?.title ??
+                                      (t === 'summary'
+                                        ? nb.expansion.common.summary
+                                        : nb.expansion.common.assessment))
+                                    : m === 'services'
+                                      ? legacyServices
+                                        ? nb.portal.lesson.sections[t as (typeof topics)[number]]
+                                            ?.title
+                                        : (manuscript('services', t)?.title ??
+                                          (t === 'summary'
+                                            ? nb.expansion.common.summary
+                                            : nb.expansion.common.assessment))
+                                      : (serverlessNb.topics[
+                                          t as keyof typeof serverlessNb.topics
+                                        ] ??
+                                        nb.foundationsV2.topics[t as (typeof v2Topics)[number]]
+                                          ?.title ??
+                                        nb.foundations.units[t as (typeof unitIds)[number]]?.title);
   const navigationDestinations: CourseDestinations = {
     computing: computingEntry,
     benefits: courseHref('benefits', 'availability'),
@@ -649,6 +677,7 @@ export function Course({ module }: { module?: CourseModule }) {
     networking: networkingHref('introduction'),
     connectivity: connectivityHref('introduction'),
     storage: storageHref('introduction'),
+    migration: migrationHref('introduction'),
     security: securityHref('introduction'),
     monitoring: monitoringHref('introduction'),
     'management-tools': toolsHref('introduction'),
@@ -672,6 +701,7 @@ export function Course({ module }: { module?: CourseModule }) {
     networking: networkingTopics,
     connectivity: connectivityTopics,
     storage: storageTopics,
+    migration: migrationTopics,
     security: securityTopics,
     monitoring: monitoringTopics,
     'management-tools': toolsTopics,
@@ -682,6 +712,12 @@ export function Course({ module }: { module?: CourseModule }) {
     cost: costTopics,
   };
   const hubRecords: HubRecord[] = [
+    [
+      'migration',
+      hubCopy.recordLabels.migration,
+      migrationState,
+      migrationHref('assessment', migrationState.facts.current?.item),
+    ],
     [
       'security',
       hubCopy.recordLabels.security,
@@ -821,6 +857,7 @@ export function Course({ module }: { module?: CourseModule }) {
     ]),
   ) as unknown as CourseActivities;
   const activeIndependent =
+    migrationState.facts.active ||
     securityState.facts.active ||
     monitoringState.facts.active ||
     toolsState.facts.active ||
@@ -848,6 +885,7 @@ export function Course({ module }: { module?: CourseModule }) {
     activeIndependent ||
     !!preferredResume ||
     !!storage.facts.guide ||
+    !!migrationState.facts.guide ||
     !!securityState.facts.guide ||
     !!monitoringState.facts.guide ||
     !!toolsState.facts.guide ||
@@ -859,6 +897,10 @@ export function Course({ module }: { module?: CourseModule }) {
     practical.current?.status === 'active';
   const entryDestinations: CourseDestinations = {
     ...navigationDestinations,
+    migration: migrationHref(
+      migrationState.facts.active ? 'assessment' : migrationState.facts.topic,
+      migrationState.facts.current?.item,
+    ),
     security: securityHref(
       securityState.facts.active ? 'assessment' : securityState.facts.topic,
       securityState.facts.current?.item,
@@ -929,6 +971,7 @@ export function Course({ module }: { module?: CourseModule }) {
     networking: guidedCount(networking.facts.completed.length),
     connectivity: guidedCount(connectivity.facts.completed.length),
     storage: guidedCount(storage.facts.completed.length),
+    migration: guidedCount(migrationState.facts.completed.length),
     security: guidedCount(securityState.facts.completed.length),
     monitoring: guidedCount(monitoringState.facts.completed.length),
     'management-tools': guidedCount(toolsState.facts.completed.length),
@@ -966,7 +1009,7 @@ export function Course({ module }: { module?: CourseModule }) {
   };
   return (
     <div
-      className={`portal course-shell ${module === 'security' || module === 'monitoring' || module === 'management-tools' || module === 'governance' || module === 'access-control' || module === 'identity' || module === 'storage-resilience' || module === 'storage' || module === 'connectivity' || module === 'networking' || module === 'compute' || module === 'cost' || module === 'architecture' || currentV2 || module === 'benefits' || (module === 'services' && !legacyServices) ? 'course-v2' : ''}`}
+      className={`portal course-shell ${module === 'migration' || module === 'security' || module === 'monitoring' || module === 'management-tools' || module === 'governance' || module === 'access-control' || module === 'identity' || module === 'storage-resilience' || module === 'storage' || module === 'connectivity' || module === 'networking' || module === 'compute' || module === 'cost' || module === 'architecture' || currentV2 || module === 'benefits' || (module === 'services' && !legacyServices) ? 'course-v2' : ''}`}
     >
       <ExpansionAssistance />
       <PracticalAssistance />
@@ -1058,6 +1101,7 @@ export function Course({ module }: { module?: CourseModule }) {
               module !== 'compute' &&
               module !== 'networking' &&
               module !== 'storage' &&
+              module !== 'migration' &&
               module !== 'security' &&
               module !== 'monitoring' &&
               module !== 'management-tools' &&
@@ -1070,40 +1114,42 @@ export function Course({ module }: { module?: CourseModule }) {
                 : undefined
             }
             assessment={
-              module === 'security' && topic === 'assessment'
-                ? 'security'
-                : module === 'monitoring' && topic === 'assessment'
-                  ? 'monitoring'
-                  : module === 'management-tools' && topic === 'assessment'
-                    ? 'tools'
-                    : module === 'governance' && topic === 'assessment'
-                      ? 'governance'
-                      : module === 'access-control' && topic === 'assessment'
-                        ? 'access'
-                        : module === 'identity' && topic === 'assessment'
-                          ? 'identity'
-                          : module === 'storage-resilience' && topic === 'assessment'
-                            ? 'resilience'
-                            : module === 'storage' && topic === 'assessment'
-                              ? 'storage'
-                              : module === 'connectivity' && topic === 'assessment'
-                                ? 'connectivity'
-                                : module === 'networking' && topic === 'assessment'
-                                  ? 'networking'
-                                  : module === 'compute' && topic === 'assessment'
-                                    ? 'compute'
-                                    : module === 'cost' && topic === 'assessment'
-                                      ? 'cost'
-                                      : topic === 'transfer'
-                                        ? 'transfer'
-                                        : module && missions.active && !missions.assisted
-                                          ? 'missions'
-                                          : module === 'architecture' &&
-                                              topic === 'management-assessment'
-                                            ? 'management'
-                                            : module === 'architecture' && topic === 'assessment'
-                                              ? 'physical'
-                                              : undefined
+              module === 'migration' && topic === 'assessment'
+                ? 'migration'
+                : module === 'security' && topic === 'assessment'
+                  ? 'security'
+                  : module === 'monitoring' && topic === 'assessment'
+                    ? 'monitoring'
+                    : module === 'management-tools' && topic === 'assessment'
+                      ? 'tools'
+                      : module === 'governance' && topic === 'assessment'
+                        ? 'governance'
+                        : module === 'access-control' && topic === 'assessment'
+                          ? 'access'
+                          : module === 'identity' && topic === 'assessment'
+                            ? 'identity'
+                            : module === 'storage-resilience' && topic === 'assessment'
+                              ? 'resilience'
+                              : module === 'storage' && topic === 'assessment'
+                                ? 'storage'
+                                : module === 'connectivity' && topic === 'assessment'
+                                  ? 'connectivity'
+                                  : module === 'networking' && topic === 'assessment'
+                                    ? 'networking'
+                                    : module === 'compute' && topic === 'assessment'
+                                      ? 'compute'
+                                      : module === 'cost' && topic === 'assessment'
+                                        ? 'cost'
+                                        : topic === 'transfer'
+                                          ? 'transfer'
+                                          : module && missions.active && !missions.assisted
+                                            ? 'missions'
+                                            : module === 'architecture' &&
+                                                topic === 'management-assessment'
+                                              ? 'management'
+                                              : module === 'architecture' && topic === 'assessment'
+                                                ? 'physical'
+                                                : undefined
             }
           >
             {!module ? (
@@ -1155,74 +1201,78 @@ export function Course({ module }: { module?: CourseModule }) {
                 <header className="course-module-header">
                   <small>
                     {c.module}{' '}
-                    {module === 'security'
-                      ? securityNb.part
-                      : module === 'monitoring'
-                        ? monitoringNb.part
-                        : module === 'management-tools'
-                          ? toolsNb.part
-                          : module === 'governance'
-                            ? governanceNb.part
-                            : module === 'access-control'
-                              ? accessNb.part
-                              : module === 'identity'
-                                ? identityNb.part
-                                : module === 'storage-resilience'
-                                  ? storageResilienceNb.part
-                                  : module === 'storage'
-                                    ? '08'
-                                    : module === 'connectivity'
-                                      ? '07'
-                                      : module === 'networking'
-                                        ? '06'
-                                        : module === 'compute'
-                                          ? '05'
-                                          : module === 'cost'
-                                            ? '06'
-                                            : module === 'architecture'
-                                              ? '04'
-                                              : module === 'computing'
-                                                ? '01'
-                                                : module === 'benefits'
-                                                  ? '02'
-                                                  : '03'}{' '}
+                    {module === 'migration'
+                      ? migrationNb.part
+                      : module === 'security'
+                        ? securityNb.part
+                        : module === 'monitoring'
+                          ? monitoringNb.part
+                          : module === 'management-tools'
+                            ? toolsNb.part
+                            : module === 'governance'
+                              ? governanceNb.part
+                              : module === 'access-control'
+                                ? accessNb.part
+                                : module === 'identity'
+                                  ? identityNb.part
+                                  : module === 'storage-resilience'
+                                    ? storageResilienceNb.part
+                                    : module === 'storage'
+                                      ? '08'
+                                      : module === 'connectivity'
+                                        ? '07'
+                                        : module === 'networking'
+                                          ? '06'
+                                          : module === 'compute'
+                                            ? '05'
+                                            : module === 'cost'
+                                              ? '06'
+                                              : module === 'architecture'
+                                                ? '04'
+                                                : module === 'computing'
+                                                  ? '01'
+                                                  : module === 'benefits'
+                                                    ? '02'
+                                                    : '03'}{' '}
                     · {module === 'architecture' ? managementNb.available : c.available}
                   </small>
                   <h1>{names[module]}</h1>
                   <p>
-                    {module === 'security'
-                      ? securityNb.overview
-                      : module === 'monitoring'
-                        ? monitoringNb.overview
-                        : module === 'management-tools'
-                          ? toolsNb.overview
-                          : module === 'governance'
-                            ? governanceNb.overview
-                            : module === 'access-control'
-                              ? accessNb.overview
-                              : module === 'identity'
-                                ? identityNb.overview
-                                : module === 'storage-resilience'
-                                  ? storageResilienceNb.overview
-                                  : module === 'storage'
-                                    ? storageNb.overview
-                                    : module === 'connectivity'
-                                      ? connectivityNb.overview
-                                      : module === 'networking'
-                                        ? networkingNb.overview
-                                        : module === 'compute'
-                                          ? computeNb.overview
-                                          : module === 'cost'
-                                            ? costNb.overview
-                                            : module === 'architecture'
-                                              ? managementNb.intro
-                                              : module === 'benefits'
-                                                ? nb.expansion.benefits.intro
-                                                : module === 'services'
-                                                  ? c.services
-                                                  : currentV2
-                                                    ? nb.foundationsV2.intro
-                                                    : c.computing}
+                    {module === 'migration'
+                      ? migrationNb.overview
+                      : module === 'security'
+                        ? securityNb.overview
+                        : module === 'monitoring'
+                          ? monitoringNb.overview
+                          : module === 'management-tools'
+                            ? toolsNb.overview
+                            : module === 'governance'
+                              ? governanceNb.overview
+                              : module === 'access-control'
+                                ? accessNb.overview
+                                : module === 'identity'
+                                  ? identityNb.overview
+                                  : module === 'storage-resilience'
+                                    ? storageResilienceNb.overview
+                                    : module === 'storage'
+                                      ? storageNb.overview
+                                      : module === 'connectivity'
+                                        ? connectivityNb.overview
+                                        : module === 'networking'
+                                          ? networkingNb.overview
+                                          : module === 'compute'
+                                            ? computeNb.overview
+                                            : module === 'cost'
+                                              ? costNb.overview
+                                              : module === 'architecture'
+                                                ? managementNb.intro
+                                                : module === 'benefits'
+                                                  ? nb.expansion.benefits.intro
+                                                  : module === 'services'
+                                                    ? c.services
+                                                    : currentV2
+                                                      ? nb.foundationsV2.intro
+                                                      : c.computing}
                   </p>
                 </header>
                 {services.facts.active && (
@@ -1237,7 +1287,13 @@ export function Course({ module }: { module?: CourseModule }) {
                   </p>
                 )}
                 <div ref={activityRef} className="course-activity">
-                  {module === 'security' ? (
+                  {module === 'migration' ? (
+                    <MigrationLesson
+                      topic={topic as MigrationTopic}
+                      selected={query.get('case')}
+                      perspective={query.get('perspective')}
+                    />
+                  ) : module === 'security' ? (
                     <SecurityLesson
                       topic={topic as SecurityTopic}
                       selected={query.get('case')}
@@ -1356,6 +1412,7 @@ export function Course({ module }: { module?: CourseModule }) {
                           networking,
                           connectivity,
                           storage,
+                          migrationState,
                           securityState,
                           monitoringState,
                           toolsState,
@@ -1412,6 +1469,7 @@ export function Course({ module }: { module?: CourseModule }) {
                           networking,
                           connectivity,
                           storage,
+                          migrationState,
                           securityState,
                           monitoringState,
                           toolsState,
@@ -1470,6 +1528,7 @@ export function Course({ module }: { module?: CourseModule }) {
                           networking,
                           connectivity,
                           storage,
+                          migrationState,
                           securityState,
                           monitoringState,
                           toolsState,
@@ -1605,6 +1664,7 @@ export function Course({ module }: { module?: CourseModule }) {
                 {module !== 'compute' &&
                   module !== 'networking' &&
                   module !== 'storage' &&
+                  module !== 'migration' &&
                   module !== 'security' &&
                   module !== 'monitoring' &&
                   module !== 'management-tools' &&
@@ -1801,52 +1861,57 @@ export function Course({ module }: { module?: CourseModule }) {
                                 href: courseHref(module, historicalReturn),
                                 title: title(module, historicalReturn)!,
                               }
-                            : module === 'security'
-                              ? { href: accessHref('summary'), title: names['access-control'] }
-                              : module === 'monitoring'
-                                ? { href: toolsHref('summary'), title: names['management-tools'] }
-                                : module === 'management-tools'
-                                  ? { href: governanceHref('summary'), title: names.governance }
-                                  : module === 'governance'
-                                    ? { href: costHref('summary'), title: names.cost }
-                                    : module === 'access-control'
-                                      ? { href: identityHref('summary'), title: names.identity }
-                                      : module === 'identity'
-                                        ? {
-                                            href: resilienceHref('summary'),
-                                            title: names['storage-resilience'],
-                                          }
-                                        : module === 'storage-resilience'
-                                          ? { href: storageHref('summary'), title: names.storage }
-                                          : module === 'storage'
-                                            ? {
-                                                href: connectivityHref('summary'),
-                                                title: names.connectivity,
-                                              }
-                                            : module === 'connectivity'
+                            : module === 'migration'
+                              ? {
+                                  href: resilienceHref('summary'),
+                                  title: names['storage-resilience'],
+                                }
+                              : module === 'security'
+                                ? { href: accessHref('summary'), title: names['access-control'] }
+                                : module === 'monitoring'
+                                  ? { href: toolsHref('summary'), title: names['management-tools'] }
+                                  : module === 'management-tools'
+                                    ? { href: governanceHref('summary'), title: names.governance }
+                                    : module === 'governance'
+                                      ? { href: costHref('summary'), title: names.cost }
+                                      : module === 'access-control'
+                                        ? { href: identityHref('summary'), title: names.identity }
+                                        : module === 'identity'
+                                          ? {
+                                              href: migrationHref('summary'),
+                                              title: names.migration,
+                                            }
+                                          : module === 'storage-resilience'
+                                            ? { href: storageHref('summary'), title: names.storage }
+                                            : module === 'storage'
                                               ? {
-                                                  href: networkingHref('summary'),
-                                                  title: names.networking,
+                                                  href: connectivityHref('summary'),
+                                                  title: names.connectivity,
                                                 }
-                                              : module === 'networking'
+                                              : module === 'connectivity'
                                                 ? {
-                                                    href: computeHref('summary'),
-                                                    title: names.compute,
+                                                    href: networkingHref('summary'),
+                                                    title: names.networking,
                                                   }
-                                                : module === 'compute'
+                                                : module === 'networking'
                                                   ? {
-                                                      href: courseHref(
-                                                        'architecture',
-                                                        'core-summary',
-                                                      ),
-                                                      title: names.architecture,
+                                                      href: computeHref('summary'),
+                                                      title: names.compute,
                                                     }
-                                                  : module === 'architecture'
+                                                  : module === 'compute'
                                                     ? {
-                                                        href: courseHref('services', 'summary'),
-                                                        title: names.services,
+                                                        href: courseHref(
+                                                          'architecture',
+                                                          'core-summary',
+                                                        ),
+                                                        title: names.architecture,
                                                       }
-                                                    : undefined
+                                                    : module === 'architecture'
+                                                      ? {
+                                                          href: courseHref('services', 'summary'),
+                                                          title: names.services,
+                                                        }
+                                                      : undefined
                       }
                       next={
                         index >= 0 && index < pathTopics.length - 1
@@ -1860,74 +1925,81 @@ export function Course({ module }: { module?: CourseModule }) {
                           : index === pathTopics.length - 1
                             ? {
                                 href:
-                                  module === 'security'
-                                    ? costHref('introduction')
-                                    : module === 'access-control'
-                                      ? securityHref('introduction')
-                                      : module === 'management-tools'
-                                        ? monitoringHref('introduction')
-                                        : module === 'governance'
-                                          ? toolsHref('introduction')
-                                          : module === 'cost'
-                                            ? governanceHref('introduction')
-                                            : module === 'identity'
-                                              ? accessHref('introduction')
-                                              : module === 'storage-resilience'
-                                                ? identityHref('introduction')
-                                                : module === 'storage'
-                                                  ? resilienceHref('introduction')
-                                                  : module === 'connectivity'
-                                                    ? storageHref('introduction')
-                                                    : module === 'networking'
-                                                      ? connectivityHref('introduction')
-                                                      : module === 'compute'
-                                                        ? networkingHref('introduction')
-                                                        : module === 'architecture'
-                                                          ? computeHref('introduction')
-                                                          : currentV2
-                                                            ? courseHref('benefits', 'availability')
-                                                            : module === 'benefits'
-                                                              ? courseHref('services', 'overview')
-                                                              : module === 'services' &&
-                                                                  !legacyServices
-                                                                ? courseHref(
-                                                                    'architecture',
-                                                                    'datacenters',
-                                                                  )
-                                                                : '/learn',
+                                  module === 'migration'
+                                    ? identityHref('introduction')
+                                    : module === 'security'
+                                      ? costHref('introduction')
+                                      : module === 'access-control'
+                                        ? securityHref('introduction')
+                                        : module === 'management-tools'
+                                          ? monitoringHref('introduction')
+                                          : module === 'governance'
+                                            ? toolsHref('introduction')
+                                            : module === 'cost'
+                                              ? governanceHref('introduction')
+                                              : module === 'identity'
+                                                ? accessHref('introduction')
+                                                : module === 'storage-resilience'
+                                                  ? migrationHref('introduction')
+                                                  : module === 'storage'
+                                                    ? resilienceHref('introduction')
+                                                    : module === 'connectivity'
+                                                      ? storageHref('introduction')
+                                                      : module === 'networking'
+                                                        ? connectivityHref('introduction')
+                                                        : module === 'compute'
+                                                          ? networkingHref('introduction')
+                                                          : module === 'architecture'
+                                                            ? computeHref('introduction')
+                                                            : currentV2
+                                                              ? courseHref(
+                                                                  'benefits',
+                                                                  'availability',
+                                                                )
+                                                              : module === 'benefits'
+                                                                ? courseHref('services', 'overview')
+                                                                : module === 'services' &&
+                                                                    !legacyServices
+                                                                  ? courseHref(
+                                                                      'architecture',
+                                                                      'datacenters',
+                                                                    )
+                                                                  : '/learn',
                                 title:
-                                  module === 'security'
-                                    ? costNb.title
-                                    : module === 'access-control'
-                                      ? securityNb.title
-                                      : module === 'management-tools'
-                                        ? monitoringNb.title
-                                        : module === 'governance'
-                                          ? toolsNb.title
-                                          : module === 'cost'
-                                            ? governanceNb.title
-                                            : module === 'identity'
-                                              ? accessNb.title
-                                              : module === 'storage-resilience'
-                                                ? identityNb.title
-                                                : module === 'storage'
-                                                  ? storageResilienceNb.title
-                                                  : module === 'connectivity'
-                                                    ? storageNb.title
-                                                    : module === 'networking'
-                                                      ? connectivityNb.title
-                                                      : module === 'compute'
-                                                        ? networkingNb.title
-                                                        : module === 'architecture'
-                                                          ? computeNb.title
-                                                          : currentV2
-                                                            ? names.benefits
-                                                            : module === 'benefits'
-                                                              ? names.services
-                                                              : module === 'services' &&
-                                                                  !legacyServices
-                                                                ? names.architecture
-                                                                : c.overview,
+                                  module === 'migration'
+                                    ? identityNb.title
+                                    : module === 'security'
+                                      ? costNb.title
+                                      : module === 'access-control'
+                                        ? securityNb.title
+                                        : module === 'management-tools'
+                                          ? monitoringNb.title
+                                          : module === 'governance'
+                                            ? toolsNb.title
+                                            : module === 'cost'
+                                              ? governanceNb.title
+                                              : module === 'identity'
+                                                ? accessNb.title
+                                                : module === 'storage-resilience'
+                                                  ? migrationNb.title
+                                                  : module === 'storage'
+                                                    ? storageResilienceNb.title
+                                                    : module === 'connectivity'
+                                                      ? storageNb.title
+                                                      : module === 'networking'
+                                                        ? connectivityNb.title
+                                                        : module === 'compute'
+                                                          ? networkingNb.title
+                                                          : module === 'architecture'
+                                                            ? computeNb.title
+                                                            : currentV2
+                                                              ? names.benefits
+                                                              : module === 'benefits'
+                                                                ? names.services
+                                                                : module === 'services' &&
+                                                                    !legacyServices
+                                                                  ? names.architecture
+                                                                  : c.overview,
                               }
                             : undefined
                       }
@@ -1945,7 +2017,9 @@ export function Course({ module }: { module?: CourseModule }) {
       {journal && (
         <PortalDialog title={c.journal} onClose={() => setJournal(false)}>
           <ManagementTeachingBoundary identity="course-journal">
-            {module === 'security' || (!module && preferredResume?.module === 'security') ? (
+            {module === 'migration' || (!module && preferredResume?.module === 'migration') ? (
+              <MigrationLesson topic="introduction" journal />
+            ) : module === 'security' || (!module && preferredResume?.module === 'security') ? (
               <SecurityLesson topic="introduction" journal />
             ) : module === 'monitoring' || (!module && preferredResume?.module === 'monitoring') ? (
               <MonitoringLesson topic="introduction" journal />

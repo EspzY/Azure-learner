@@ -176,3 +176,14 @@ export const officialSecurity = {
   status: 'scoped-content-covered',
   humanReview: null,
 } as const;
+
+export const officialMigration = {
+  reviewed: '2026-11-01',
+  module: 'describe-azure-storage-services',
+  officialUnits: 8,
+  publicScopedUnits: ['1', '6', '7', '9'],
+  protectedAssessment: '8-not-opened',
+  implementedObjectives: ['2.3.05', '2.3.06'],
+  status: 'scoped-content-covered',
+  humanReview: null,
+} as const;

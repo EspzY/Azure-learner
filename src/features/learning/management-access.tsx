@@ -1,4 +1,8 @@
 'use client';
+import { useMigration } from '@/features/learning/migration-provider';
+import { migrationHref } from '@/domain/curriculum/migration';
+import { MigrationRecovery } from './migration';
+import { migrationKey, restoreMigration, migrationFacts } from '@/domain/curriculum/migration';
 import { useSecurity } from './security-provider';
 import { SecurityRecovery } from './security';
 import {
@@ -200,8 +204,18 @@ export function ManagementTeachingBoundary({
     governanceState = useGovernance(),
     toolsState = useTools(),
     monitoringState = useMonitoring(),
-    securityState = useSecurity();
+    securityState = useSecurity(),
+    migrationState = useMigration();
   const checks = [
+    check(
+      'migration',
+      migrationState,
+      migrationKey,
+      restoreMigration,
+      migrationFacts,
+      () => migrationState.store.event({ kind: 'aid' }),
+      migrationHref('assessment', migrationState.facts.current?.item),
+    ),
     check(
       'security',
       securityState,
@@ -430,6 +444,7 @@ export function ManagementTeachingBoundary({
         item.id === 'connectivity' ||
         item.id === 'storage' ||
         item.id === 'identity' ||
+        item.id === 'migration' ||
         item.id === 'security' ||
         item.id === 'monitoring' ||
         item.id === 'tools' ||
@@ -496,6 +511,7 @@ export function ManagementTeachingBoundary({
               {item.id === 'storage' && <StorageRecovery />}
               {item.id === 'resilience' && <ResilienceRecovery />}
               {item.id === 'identity' && <IdentityRecovery />}
+              {item.id === 'migration' && <MigrationRecovery />}
               {item.id === 'security' && <SecurityRecovery />}
               {item.id === 'monitoring' && <MonitoringRecovery />}
               {item.id === 'tools' && <ToolsRecovery />}

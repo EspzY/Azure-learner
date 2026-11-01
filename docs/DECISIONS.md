@@ -1,5 +1,9 @@
 # Decisions
 
+## P16 — compare bounded consequences instead of emulating file tools
+
+Keep three closed perspectives in Storage Part C: tool requirements, deterministic manifest consequences and declared migration readiness. Accept multiple defensible plans and paired reasons. Local/Blob directional fixtures do not claim universal AzCopy pair/protocol support; Windows-local→Files NFS is explicitly incompatible. File Sync fixture is established topology with one declared event, not a universal conflict resolver. Disabling cloud tiering cannot manufacture local bytes. Separate metadata generation, integrity checks, final write boundary and app validation from data transport. Source conflicts/retired Data Box variants/current Migrate discovery paths remain explicit. No new global engine or operative file runtime. After this final authored-content expansion, prioritize the separate complete learning-journey audit before any diagnostic engine or question bank.
+
 ## P15 — model risk contributions rather than a universal safety decision
 
 Keep three conceptual perspectives in Identity Part C: design/evidence questions, complementary seven-layer protection and plan-qualified Defender evidence. Different declared layers do not prove operational independence; reduced declared exposure never proves prevention, app health or recovery. Keep classic control-based and Cloud risk-based score explanations distinct without a universal formula. Preserve actual local inventory as read-only context. Eight independently reasoned cases accept valid direct/group, gateway and parallel alternatives. Blind reviews must remove systematic answer cues, followed by a fresh post-stamp final audit. No new global engine or operational security feature.

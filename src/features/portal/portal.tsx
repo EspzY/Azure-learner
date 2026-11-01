@@ -1,4 +1,6 @@
 'use client';
+import { useMigration } from '@/features/learning/migration-provider';
+import { migrationHref } from '@/domain/curriculum/migration';
 import { useSecurity } from '@/features/learning/security-provider';
 import { securityHref } from '@/domain/curriculum/security';
 import { useMonitoring } from '@/features/learning/monitoring-provider';
@@ -126,7 +128,8 @@ function PortalWorkspace() {
     governanceState = useGovernance(),
     toolsState = useTools(),
     monitoringState = useMonitoring(),
-    securityState = useSecurity();
+    securityState = useSecurity(),
+    migrationState = useMigration();
   useEffect(() => {
     if (serverless.facts.active && ['learn', 'responsibility', 'hierarchy'].includes(location.area))
       serverless.store.event({ kind: 'aid' });
@@ -155,6 +158,7 @@ function PortalWorkspace() {
     location.area,
   ]);
   const otherIndependentContext =
+    migrationState.facts.active ||
     securityState.facts.active ||
     monitoringState.facts.active ||
     toolsState.facts.active ||
@@ -181,6 +185,7 @@ function PortalWorkspace() {
   const independentContext = otherIndependentContext || missions.active;
   const guidanceContexts = [
     storage,
+    migrationState,
     securityState,
     monitoringState,
     toolsState,
@@ -223,34 +228,37 @@ function PortalWorkspace() {
     !benefits.facts.active &&
     !services2.facts.active;
   const managementLab = guidedLab && course.save.lab?.origin === 'architecture-management';
-  const courseReturn = location.security
-    ? securityHref('studio') + '&perspective=' + location.security
-    : location.monitoring
-      ? monitoringHref('studio') + '&perspective=' + location.monitoring
-      : location.tools
-        ? toolsHref('studio') + '&perspective=intent'
-        : location.governance
-          ? governanceHref('studio') + '&perspective=policy'
-          : location.networking
-            ? networkingHref('dependencies')
-            : location.compute
-              ? computeHref('dependencies')
-              : location.mission
-                ? missionOrigin(location.mission)
-                : location.bridge
-                  ? `/learn/benefits?topic=${location.bridge}&activity=practical`
-                  : location.practice && practical.current
-                    ? practicalReturn(practical.current)
-                    : guidedLab
-                      ? courseLabHref(
-                          labFacts(course.save.lab, chapter.attempt.engine, chapter.attemptNumber)
-                            .complete,
-                          course.save.lab?.origin,
-                        )
-                      : location.course
-                        ? courseHref(location.module, location.topic)
-                        : '/learn';
+  const courseReturn = location.migration
+    ? migrationHref('studio') + '&perspective=' + location.migration
+    : location.security
+      ? securityHref('studio') + '&perspective=' + location.security
+      : location.monitoring
+        ? monitoringHref('studio') + '&perspective=' + location.monitoring
+        : location.tools
+          ? toolsHref('studio') + '&perspective=intent'
+          : location.governance
+            ? governanceHref('studio') + '&perspective=policy'
+            : location.networking
+              ? networkingHref('dependencies')
+              : location.compute
+                ? computeHref('dependencies')
+                : location.mission
+                  ? missionOrigin(location.mission)
+                  : location.bridge
+                    ? `/learn/benefits?topic=${location.bridge}&activity=practical`
+                    : location.practice && practical.current
+                      ? practicalReturn(practical.current)
+                      : guidedLab
+                        ? courseLabHref(
+                            labFacts(course.save.lab, chapter.attempt.engine, chapter.attemptNumber)
+                              .complete,
+                            course.save.lab?.origin,
+                          )
+                        : location.course
+                          ? courseHref(location.module, location.topic)
+                          : '/learn';
   const returnLearning = () =>
+    location.migration ||
     location.security ||
     location.monitoring ||
     location.tools ||

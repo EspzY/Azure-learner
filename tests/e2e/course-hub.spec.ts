@@ -67,7 +67,10 @@ test('first visit exposes one start, three honest paths and direct modules befor
     'Azure Management & Governance',
   ])
     await expect(page.getByRole('heading', { name: title, exact: true })).toBeVisible();
-  await expect(page.locator('.learn-hub-planned')).toContainText(['File Movement & Migration']);
+  await expect(page.locator('.learn-hub-planned')).toHaveCount(0);
+  await expect(page.locator('.learn-hub-module[data-module="migration"]')).toContainText(
+    'File Movement & Migration',
+  );
   await expect(
     page
       .locator('.course-hub a')
@@ -211,11 +214,12 @@ test('saved deep link resumes the exact Core B activity and preserves separate h
   await expect(page).toHaveURL(missionOrigin('platform'));
 });
 
-test('all twenty-two independent contexts resume their own exact route without metadata help or evidence rewriting', async ({
+test('all independent contexts resume their own exact route without metadata help or evidence rewriting', async ({
   browser,
   baseURL,
 }) => {
   const expected: Record<string, string> = {
+    'azurelab.learning.file-movement-migration.v1': '/learn/migration?topic=assessment&case=fm01',
     'azurelab.learning.security-principles.v1': '/learn/security?topic=assessment&case=sp01',
     'azurelab.learning.monitoring-diagnostics.v1': '/learn/monitoring?topic=assessment&case=md01',
     'azurelab.learning.management-tools.v1': '/learn/management-tools?topic=assessment&case=mt01',
@@ -278,7 +282,7 @@ test('all twenty-two independent contexts resume their own exact route without m
       href: missionOrigin('platform'),
     },
   ];
-  expect(fixtures).toHaveLength(23);
+  expect(fixtures).toHaveLength(24);
   for (const fixture of fixtures) {
     expect(fixture.href, fixture.key).toBeTruthy();
     expect(fixture.raw).not.toBe('null');
