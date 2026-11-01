@@ -1,5 +1,9 @@
 # Development workflow — owner direction, 29 October 2026
 
+## P14 candidate extension
+
+Preserve all216 previous executions. Seven new Monitoring desktop cases plus one compact witness extend the approved candidate to224 (207/17); optional legacy414. Dedicated checks cover source/evidence boundaries, temporal Health context, aggregation/NULL/collection/rules/notification, immutable assessment, assistance/cross-tab/recovery and Hub/resume/Portal navigation. Pinned Chromium, worker1 and existing retries/timeouts/skips remain unchanged. Full exact-head CI/strict is authoritative; local targeted results and collection are separate evidence.
+
 This is the bounded process follow-up to PR29, based on the owner's **Strategic Development Pivot: Quality, Efficiency & Product Experience**. PR29 is unchanged: exact head `0d9b96ed73780ec881bf3dac20ccc71cba97a9cf`, green [Quality run40895484858](https://github.com/EspzY/Azure-learner/actions/runs/40895484858),283 browser passes/17 inherited skips. Its external Gate7 remains SSO-blocked. Do not reopen approved PR29 implementation without a concrete finding.
 
 ## Permanent requirements and selectable methods

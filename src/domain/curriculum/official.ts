@@ -153,3 +153,14 @@ export const officialManagementTools = {
   status: 'scoped-content-covered',
   humanReview: null,
 } as const;
+
+export const officialMonitoring = {
+  reviewed: '2026-11-01',
+  module: 'describe-monitoring-tools-azure',
+  officialUnits: 6,
+  publicUnits: 5,
+  protectedAssessment: 'not opened',
+  implementedObjectives: ['3.4.01', '3.4.02', '3.4.03'],
+  status: 'scoped-content-covered',
+  humanReview: null,
+} as const;

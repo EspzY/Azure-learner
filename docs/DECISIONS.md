@@ -1,5 +1,9 @@
 # Decisions
 
+## P14 — observations separate from configured resources
+
+Use three mechanism-specific views in the existing Course Hub. Require persisted matched contrasts plus a causal explanation; visits and Portal inspection give no credit. Available metric aggregate excludes missing samples, while an explicitly stricter teaching gate withholds a rule decision without full selected-window coverage. One stateless evaluation avoids inventing stateful alert history. A valid notification path is never delivery/remediation evidence. Keep both defensible correlated-analysis answers.
+
 ## P13: distinguish declared management from actual local commands
 
 Keep one existing resource engine. A typed closed-input model teaches interface/ARM/provider/scope, parameters/dependencies and Arc support without arbitrary evaluation or runtime claims. Bicep symbolic references can order new resources; ARM resourceId alone cannot. Unresolved preview differences remain unknown. Existing local Flux reconciliation is distinct from new Azure configuration. Practical proof requires actual learner-operated RG/Plan/App operations after guide start and original replayed receipts. The isolated1.0.0 learning store preserves all old evidence. [Rationale](MANAGEMENT_DEPLOYMENT_TOOLS.md).

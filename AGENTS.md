@@ -1,5 +1,9 @@
 # AzureLab engineering contract
 
+## P14 monitoring continuity — 1 November2026
+
+Read [MONITORING_DIAGNOSTICS](docs/MONITORING_DIAGNOSTICS.md). Three pure fixed synthetic perspectives never collect Azure telemetry, execute KQL, instrument applications, publish alerts/notifications or mutate World. Read-only Portal context is configuration, never measured runtime or guided credit. Preserve azurelab.learning.monitoring-diagnostics.v1, bounded replay/durable CAS/first-help-retry and all earlier contracts. Extend all22 independent guards. Only3.4.01–03; source-specific NULL behavior and one stateless metric evaluation remain explicit. Eight paired independent cases require fresh post-stamp blind audit; prior early review is developmental only. Desktop-first224 executions (207/17), legacy414 optional. Actual exact-head CI/strict and anonymous root/fullSHA/journey required. Humans unperformed; no merge/production. P15 next.
+
 ## P13 management continuity —1 November2026
 
 Read [MANAGEMENT_DEPLOYMENT_TOOLS](docs/MANAGEMENT_DEPLOYMENT_TOOLS.md). Preserve isolated azurelab.learning.management-tools.v1 and all prior records. Three typed pure perspectives never execute CLI/PowerShell/ARM/Bicep/Arc or mutate World. Actual practical credit requires post-start original RG/Plan/App commands, pinned replay and explicit scope/resource/receipt/dependency inspections. Shell and tool, definition and ARM, ordering and reference, preview and deployment, Arc representation and physical placement remain distinct. Extend all21 independent guards. Only3.3.01–05; Copilot is supplement. Desktop-first216-case profile preserves all207 earlier executions; legacy400 optional. Full exact-head CI/strict and actual anonymous root/fullSHA/journey required. No merge/production or settings changes.

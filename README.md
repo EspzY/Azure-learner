@@ -1,5 +1,9 @@
 # AzureLab 3.2.1
 
+### P14 — Monitoring & Diagnostic Tools
+
+Monitoring follows Management & Deployment in the third Course Hub path. Original Advisor/Status/Service Health/Resource Health/Monitor teaching, synthetic evidence/incident/telemetry perspectives, three causal SavvyShark investigations and eight independent situations keep observed evidence separate from actual local configuration. See [module contract](docs/MONITORING_DIAGNOSTICS.md). Scoped authored coverage52/57 is not learner mastery or exam readiness.
+
 ## P13 — Management & Deployment Tools
 
 [Original module and boundaries](docs/MANAGEMENT_DEPLOYMENT_TOOLS.md): ordinary Course Hub path03 after Governance; Portal, hosted shells, CLI/PowerShell, ARM, IaC/Bicep/What-if and Arc. Three causal Studio investigations combine explicit conceptual limits with actual learner-operated local Portal commands and original receipts. Separate versioned learning history; ten original paired scenarios. Only five scoped AZ-900 goals reassessed; no real cloud runtime, XP, merge or production.

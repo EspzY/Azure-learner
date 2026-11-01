@@ -38,6 +38,7 @@ export const coursePaths = [
       { title: h.moduleLabels.cost, parts: ['cost'] },
       { title: h.moduleLabels.governance, parts: ['governance'] },
       { title: h.moduleLabels['management-tools'], parts: ['management-tools'] },
+      { title: h.moduleLabels.monitoring, parts: ['monitoring'] },
     ],
     planned: h.plannedModules.management,
   },

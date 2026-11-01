@@ -5400,6 +5400,7 @@ export const managementNb = {
   accessReload: 'Les lagret vurderingskontekst på nytt',
   accessReview: 'Åpne egen vurdering og lagringskontroll',
   accessContexts: {
+    monitoring: 'Monitoring & Diagnostics',
     tools: 'Management & Deployment',
     governance: 'Governance & Compliance',
     access: 'Access Control · Identity Part B',
@@ -5958,6 +5959,7 @@ export const missionsNb = {
   reloadContext: 'Last inn bare denne konteksten',
   reviewContext: 'Åpne kontekstens eksisterende recovery eller vurdering',
   recoveryContexts: {
+    monitoring: 'Monitoring & Diagnostics',
     tools: 'Management & Deployment',
     governance: 'Governance & Compliance',
     access: 'Access Control · Identity Part B',
@@ -11358,6 +11360,7 @@ export const courseHubNb = {
     },
   },
   moduleLabels: {
+    monitoring: 'Monitoring & Diagnostic Tools',
     'management-tools': 'Management & Deployment Tools',
     governance: 'Governance & Compliance',
     'access-control': 'Part B — RBAC & Conditional Access',
@@ -11378,9 +11381,10 @@ export const courseHubNb = {
   identity: 'Identity, Access & Security',
   plannedModules: {
     architecture: ['Security Principles (P15)', 'File Movement & Migration (P16)'],
-    management: ['Monitoring'],
+    management: [],
   },
   recordLabels: {
+    monitoring: 'Monitoring & Diagnostics',
     tools: 'Management & Deployment',
     governance: 'Governance & Compliance',
     access: 'Access Control · Identity Part B',
@@ -14928,7 +14932,7 @@ export const governanceNb = {
   prerequisites:
     'Forkunnskaper: Cost Management om tags og ansvar, Core Architecture om scopes og Access Control om tillatelser. De gamle resultatene dine forblir separate.',
   available:
-    'Purview, Azure Policy og Resource Locks med et kort Service Trust Portal-supplement. Management & Deployment følger i samme læringssti; Monitoring kommer senere.',
+    'Purview, Azure Policy og Resource Locks med et kort Service Trust Portal-supplement. Management & Deployment og Monitoring følger i samme læringssti.',
   perspective: 'Perspektiver i Governance Decision Studio',
   studioLead:
     'Velg datastyring, Policy eller ressursbeskyttelse. Forutsi, kjør og sammenlign deklarerte konsekvenser. Faktiske lokale Policy-receipts holdes separat fra konseptmodellene.',
@@ -16030,7 +16034,7 @@ export const toolsNb = {
   prerequisites:
     'Forkunnskaper: Core Architecture om scope og ressurser, Access Control om tillatelser og Governance om konfigurasjonskrav og locks. Tidligere resultater beholdes separat.',
   available:
-    'Portal, Cloud Shell, CLI, PowerShell, ARM, IaC, Bicep og Arc er tilgjengelig som undervisning. Monitoring kommer senere.',
+    'Portal, Cloud Shell, CLI, PowerShell, ARM, IaC, Bicep og Arc er tilgjengelig som undervisning. Monitoring følger i samme læringssti.',
   studioLead:
     'Velg verktøyperspektiv, deklarativ endring eller Arc. Konseptberegninger og illustrerte tekster holdes tydelig adskilt fra faktiske lokale Portal-operasjoner.',
   topics: {
@@ -17091,3 +17095,969 @@ export function toolsDefinition(input: {
     2,
   );
 }
+
+/** Original P14 manuscript; current official source claims reviewed before UI. */
+export const monitoringNb = {
+  milestoneNotice:
+    'Forklaringen bygger på lagrede, validerte modellresultater. Den er veiledning, ikke en selvstendig besvarelse eller en Azure-kvittering.',
+  pauseGuided: 'Sett oppdraget på pause',
+  recallGuided: 'Gjenoppta lagret monitoring-/diagnose-undersøkelse',
+  assessmentActive: 'En annen selvstendig monitoring-/diagnose-situasjon er aktiv.',
+  currentFeedback: 'Feedback — Monitoring & Diagnostics',
+  historyFeedback: 'Tidligere Monitoring & Diagnostics-arbeid',
+  labels: {
+    terms: 'Begreper i denne forklaringen',
+    example: 'Gjennomarbeidet eksempel',
+    limits: 'Avgrensning og moteksempel',
+    sources: 'Offisielle kilder · kontrollert 1. november 2026',
+    model: 'Syntetisk konseptmodell — ingen live overvåking',
+    configured: 'Undersøk deklarerte valg og datakilder',
+    observed: 'Sist lagrede modellobservasjon',
+    predicted: 'Din prediksjon',
+    result: 'Modellens resultat',
+    run: 'Kjør konseptmodell',
+    predict: 'Forutsi konsekvensen under disse forutsetningene',
+    cause: 'Forklar årsaken',
+    explain: 'Lagre årsaksforklaring',
+    done: 'Guidet anvendelse dokumentert',
+    pending: 'Ikke dokumentert ennå',
+    begin: 'Åpne SavvyShark-briefing',
+    cancel: 'Avbryt',
+    recall: 'Gjenåpne briefing',
+    next: 'Neste handling',
+    where: 'Hvor finner du kontrollen?',
+    why: 'Hvorfor gjør du dette?',
+    expected: 'Hva skal du observere?',
+    actual: 'Faktisk registrert',
+    aided: 'Med registrert hjelp',
+    retry: 'Gjeneksponert familie / retry',
+    unaided: 'Første uassisterte forsøk',
+    guided: 'Guidede oppdrag',
+    visited: 'Undervisningsaktiviteter åpnet',
+    independent: 'Uavhengige innleveringer',
+    noXp: 'Ingen XP eller automatisk godskriving av tidligere kompetanse.',
+    human:
+      'Kvalifisert menneskelig Azure-SME-, novice/IT-, UX-, skjermleser- og målt transfer-validering er ikke gjennomført.',
+    switch:
+      'Ett guidet oppdrag er nåværende. Gjenoppta et lagret oppdrag for å beholde dets forutsetninger og observasjoner, eller start et nytt forsøk. Pause og vanlig navigasjon sletter ikke arbeidet.',
+    current: 'Fortsett nåværende oppdrag',
+    notice:
+      'Start lagrer bare en konseptuell undersøkelse. Ingen innsamling, varsling eller ressursendring utføres.',
+    predictionOptions: [
+      'Velg prediksjon før kjøring',
+      'Kilden eller signalet passer ikke spørsmålet',
+      'Informasjon eller forutsetninger er utilstrekkelige',
+      'En avgrenset modellobservasjon kan begrunnes',
+    ],
+    chooseCause: 'Velg årsaksforklaring',
+    modelBoundary: 'Fiktive data er ikke faktisk Azure- eller Sandbox-telemetri.',
+    evidence: 'Choose the Right Evidence',
+    health: 'Health & Incident Explorer',
+    telemetry: 'Telemetry, Logs & Alerts',
+  },
+  storage: {
+    loading: 'Laster Monitoring & Diagnostics …',
+    title: 'Monitoring-historikken må avklares',
+    text: 'Data kan ikke brukes sikkert. Gjenopprett bare denne ugyldige læringskontrakten etter eksplisitt bekreftelse.',
+    reload: 'Last inn Monitoring på nytt',
+    recover: 'Gjenopprett bare Monitoring-data',
+    confirm: 'Bekreft isolert gjenoppretting',
+    cancel: 'Behold data',
+    capacity:
+      'Ny aktivitet er stanset ved hendelsesgrensen. Et aktivt forsøk kan fortsatt lagre siste svar, registrere hjelp og levere eller avbryte. En allerede undersøkt guidet aktivitet kan avsluttes.',
+    failed: 'Handlingen ble ikke varig lagret. Ingen faglig fullføring er registrert.',
+    milestones:
+      'Automatiske forklaringer er satt på pause fordi visningshistorikken ikke kan bekreftes. Arbeidet kan fortsette; forklaringen kan åpnes manuelt når konteksten er trygg.',
+    unsafe:
+      'Automatisk veiledning er skjermet under aktiv selvstendig vurdering eller usikker lagring. Åpne vurderings-/recovery-konteksten nedenfor.',
+    ownDraft: 'Sist leste oppgaveutkast · endring og innlevering sperret til trygg reload',
+  },
+  assessment: {
+    title: 'Selvstendig Monitoring & Diagnostics-anvendelse',
+    intro:
+      'Velg en faglig forsvarlig beslutning og begrunnelsen som best forklarer hele valget under alle oppgitte krav. Et sant, men ufullstendig eller irrelevant utsagn er ikke tilstrekkelig. Flere tilbudte beslutninger kan være gyldige når premissene tillater det. Hvert forsøk vurderer ditt valgte par.',
+    rules:
+      'Første besvarelse låses ved innlevering. Ingen fasit eller løsningsguide vises under arbeidet. Åpning av teori, Journal, Summary eller tidligere feedback krever varig registrert hjelp i alle aktive kontekster. Samme familie senere er retry, også etter avbrudd.',
+    case: 'Velg scenario',
+    result: 'Resultat for dette paret',
+    decision: 'Din beslutning',
+    reason: 'Begrunnelsen som best forklarer hele valget',
+    draft: 'Varig lagret utkast',
+    unaided: 'Første uassisterte forsøk',
+    assisted: 'Med registrert hjelp',
+    retried: 'Gjeneksponert familie / retry',
+    first: 'Første innlevering',
+    pass: 'Faglig forsvarlig beslutning og begrunnelse i denne situasjonen',
+    fail: 'Beslutning og begrunnelse tilfredsstiller ikke kravene sammen',
+    start: 'Start selvstendig forsøk',
+    retry: 'Start nytt forsøk',
+    submit: 'Lever beslutning og begrunnelse',
+    abandon: 'Avbryt forsøket',
+    help: 'Be om hjelp i relevant undervisning',
+    neutral:
+      'Vurder begge valgene under de oppgitte premissene. Ingen av valgene er forhåndsvalgt; riktig beslutning med feil teknisk årsak godkjennes ikke.',
+    history: 'Undersøk tidligere innleveringer',
+    alternatives: 'Alle alternativer og endrede forutsetninger',
+    repeat: 'Repeter presis undervisningsaktivitet',
+  },
+  summaryBoundary:
+    'Besøk, guidede undersøkelser, faktiske lokale receipts, førsteinnleveringer, hjelp og retry er forskjellige registreringer. Modellen er ikke en faktisk Azure-deployment eller dokumentert studentmestring.',
+  model: {
+    snapshot: 'Lagret, avgrenset undervisningsobservasjon',
+    noRun: 'Start, velg forutsetninger og forutsi før en observasjon lagres.',
+    draftChanged:
+      'Kontrollene er endret. Dette resultatet viser fortsatt den lagrede konfigurasjonen. Kjør igjen for et nytt resultat.',
+    outcome: [
+      'Kilden eller signalet passer ikke spørsmålet',
+      'Informasjon eller forutsetninger er utilstrekkelige',
+      'En avgrenset modellobservasjon kan begrunnes',
+    ],
+    yes: 'Ja',
+    no: 'Nei',
+  },
+  links: {
+    title: 'Relevante forkunnskaper',
+    core: 'Core Architecture — scope',
+    management: 'Management & Deployment — konfigurasjon',
+    cost: 'Cost Management — anbefaling versus kostnad',
+    sandbox: 'Fri Portal-sandbox',
+  },
+  title: 'Monitoring & Diagnostic Tools',
+  part: 'Evidens, helse, telemetri og oppfølging',
+  path: '03 — Azure Management & Governance',
+  perspective: 'Perspektiver i Monitoring & Diagnostics Studio',
+  overview:
+    'Skill forbedringsråd, plattformhendelse, ressurshelse og applikasjonssignaler — og begrunn hva du faktisk kan konkludere.',
+  prerequisites:
+    'Du kjenner ressursorganisering, lokal Portal-konfigurasjon, tilgang og skillet mellom management-resultat og applikasjonsdrift. Her undersøker du hvilke observasjoner som trengs i tillegg.',
+  available:
+    'Advisor, Service Health og Azure Monitor med Log Analytics, alerts og Application Insights er tilgjengelige her. Security Principles/Defender og File Movement/Migration kommer senere.',
+  studioLead:
+    'Alle tall, hendelser og spor er faste syntetiske Fjordverk-eksempler. De er ikke målinger av ressursene i din Sandbox. Velg en hypotese, forutsi, kjør og sammenlign lagrede observasjoner.',
+  sections: {
+    introduction: {
+      title: 'Fra registrert konfigurasjon til begrunnet driftsinnsikt',
+      paragraphs: [
+        'En mandag melder ansatte i Fjordverk at bestillingsappen er treg og noen bestillinger feiler. Driftsteamet finner samtidig et forbedringsråd, en melding om mulig plattformpåvirkning, en kurve med lengre svartid og noen feilhendelser. Dette er ulike typer informasjon. Før teamet endrer noe, må det avklare hva hver kilde faktisk observerer, hvilket miljø opplysningen gjelder og når den ble registrert.',
+        'I forrige modul opprettet og undersøkte vi ressurskonfigurasjon. En accepted-kvittering i AzureLab viser at en støttet lokal kommando ble godtatt. Den måler verken CPU, trafikk, tilgjengelighet eller riktig svar til en sluttbruker. I ekte Azure er en vellykket management-operasjon heller ikke en full funksjonstest. Konfigurasjon og observert drift må undersøkes med forskjellige bevis.',
+        'Observability handler om å bruke relevante signaler til å forstå et systems tilstand. En metric kan vise en endring i et tall. En logg kan gi detaljer om en hendelse. Et trace kan binde sammen arbeid gjennom en forespørsel. En alarmregel kan oppdage et bestemt mønster, men trenger data og en konfigurasjon som passer problemet. Diagnose er sammenstilling av bevis, ikke bare et rødt eller grønt ikon.',
+        'Læringsreisen begynner med kildevalg, går gjennom plattform- og ressurshelse og ender med telemetri, analyse og varsler. Vi bruker separate, tydelig fiktive Fjordverk-data for å øve uten Azure-konto eller overvåking av din Sandbox. Målet er å begrunne neste undersøkelse og si hva som fortsatt er ukjent. Manglende observasjon skal aldri gjøres om til et oppdiktet bevis på normal drift.',
+      ],
+      terms: [
+        ['Observasjon', 'Et registrert signal med kilde, tid, scope og begrensninger.'],
+        ['Diagnose', 'En undersøkelse som sammenholder bevis og prøver hypoteser.'],
+        [
+          'Konfigurasjon',
+          'Oppsettet som er registrert; det er ikke en måling av hvordan løsningen faktisk virker.',
+        ],
+      ],
+      example:
+        'Fjordverk finner en ny Web App i Portal. Det besvarer «finnes konfigurasjonen?». For «hvorfor feiler bestillingen?» trenger teamet for eksempel innsamlede forespørselsdata, feil og avhengighetsspor fra den relevante appen.',
+      limit:
+        'Ingen av modellens tall eller hendelser er faktisk Azure-telemetri. Å åpne en leksjon, et diagram eller en lokal ressurs gir ikke dokumentert selvstendig forståelse.',
+    },
+    advisor: {
+      title: 'Azure Advisor — forbedringsråd med en vurderingsjobb',
+      paragraphs: [
+        'Azure Advisor gir personlige anbefalinger basert på relevant ressurskonfigurasjon og brukstelemetri. Tjenesten sammenholder dette med anbefalt praksis og foreslår mulige forbedringer. Et råd beskriver en mulighet eller risiko som bør vurderes; det er ikke det samme som en sanntidsmelding om at en brukerforespørsel akkurat feilet.',
+        'Anbefalingene deles i fem kategorier. Reliability handler om robusthet og kontinuitet. Security gjelder relevante sikkerhetsfunn og forbedringer. Performance gjelder ytelsesmuligheter. Cost gjelder muligheter for å redusere eller optimalisere utgifter. Operational Excellence gjelder blant annet administrerbarhet, arbeidsprosesser og utrullingspraksis. Kategoriene besvarer forskjellige spørsmål selv om ett tiltak kan ha flere konsekvenser.',
+        'Fjordverk får et forslag om å redusere kapasiteten i en lite utnyttet App Service Plan. Teamet må kontrollere hvilke perioder datagrunnlaget dekker, om kampanjer eller beredskap krever ekstra kapasitet, og hvordan et endret oppsett skal testes. En foreslått besparelse er ikke en faktura eller ressursens registrerte kostnad i Cost Analysis. Cost-modulen gir forkunnskap om dette skillet.',
+        'En Security-anbefaling kan peke på konfigurasjon eller sårbarhetsfunn som bør håndteres. Den er ikke alene bevis for at en angriper er inne i miljøet. Advisor bruker også sikkerhetsanbefalinger fra relevante tjenester som Microsoft Defender for Cloud; full undervisning om Defender kommer senere. Undersøk hva akkurat det konkrete funnet sier, hvilke ressurser det gjelder og hva som støtter vurderingen.',
+        'En ansvarlig person må prioritere, gjennomgå og følge opp tiltaket under riktige tillatelser og endringsprosesser. Advisor kan tilby forslag, handlingsinnganger og varsler om anbefalinger, men gjennomfører ikke automatisk alle endringer. Et tomt sett med anbefalinger beviser heller ikke at miljøet er optimalt: støttede ressurser, datagrunnlag, filtre og tidspunkt setter grenser for hva tjenesten kan foreslå.',
+      ],
+      terms: [
+        ['Reliability', 'Anbefalinger om robusthet og kontinuitet.'],
+        ['Security', 'Sikkerhetsrelaterte funn og anbefalte forbedringer.'],
+        ['Performance', 'Muligheter for bedre ytelse.'],
+        ['Cost', 'Muligheter for økonomisk optimalisering.'],
+        ['Operational Excellence', 'Forbedret administrasjon, arbeidsflyt og utrullingspraksis.'],
+      ],
+      example:
+        'Fjordverks nattjeneste har lav gjennomsnittsbruk, men må kunne håndtere en planlagt månedsjobb. Teamet vurderer et kapasitetsråd mot jobbens krav og tester et eventuelt tiltak. Hvis brukerne samtidig melder HTTP-feil, krever den aktive feilen egne driftsdata.',
+      limit:
+        'Et optimaliseringsråd, estimert besparelse eller tom anbefalingsliste er ikke en full helsesjekk, garanti om sikkerhet eller bekreftelse på en aktiv outage.',
+    },
+    health: {
+      title: 'Plattform, abonnement og ressurs — tre helsevinkler',
+      paragraphs: [
+        'Azure Service Health er en familie av visninger som gjør helseopplysninger relevante på forskjellig nivå. Azure Status er den offentlige, brede inngangen. Den brukes blant annet ved hendelser med omfattende påvirkning eller når Microsoft ennå ikke kan nå berørte kunder gjennom den normale, målrettede kommunikasjonsveien. En grønn offentlig side utelukker ikke alle lokale eller abonnementsspesifikke problemer.',
+        'Den personlige Service Health-opplevelsen viser kommunikasjon relevant for Azure-tjenester, regioner og subscriptions du bruker. Service issues gjelder hendelser; planned maintenance varsler planlagt arbeid; health advisories gir viktig informasjon som kan kreve oppfølging. Du kan konfigurere relevante varsler. At vedlikehold er annonsert betyr ikke at hver arbeidslast nødvendigvis får nedetid.',
+        'Azure Resource Health ser på støttede individuelle ressurser med signaler og kontroller som varierer mellom ressurstyper. Available betyr at tjenesten ikke har oppdaget en hendelse som påvirker ressurshelsen. Unavailable betyr at det er oppdaget en relevant pågående plattform- eller ikke-plattformhendelse. En brukerstoppet VM kan derfor ha en annen årsak enn en feil hos Microsoft.',
+        'Degraded betyr redusert ytelse etter den relevante ressursens kriterier, mens ressursen fortsatt er tilgjengelig for bruk. Unknown betyr at nødvendig informasjon mangler; det skal ikke oversettes til Unavailable. Produktdokumentasjonen beskriver blant annet fravær av informasjon over tid og deallokerte VM-er som relevant kontekst. «Health not supported» og utilstrekkelig tilgang er egne begrensninger, ikke bevis for en frisk eller ødelagt app.',
+        'Fjordverk sammenholder subscription, region, tjeneste, ressurs og tidsrom. En kommunikasjon om Web-tjenesten i en region er relevant å undersøke for en Web App der, men det beviser ikke at akkurat denne appen er rammet eller at dens feil har plattformhendelsen som årsak. En gammel helsestatus må heller ikke fremstilles som en aktuell måling. Tjenestekommunikasjon, ressurshelse og appobservasjoner kan ha forskjellige tidspunkter og forsinkelser.',
+        'Resource Health Available er ikke en full diagnose av kode, data, identitet eller sluttbrukerrespons. Forretningsoperasjonen kan fortsatt feile. Når flere signaler peker i samme retning, får teamet et bedre grunnlag for neste undersøkelse; en årsak må støttes med mer enn geografisk og tidsmessig sammenfall. Service Health formidler informasjon og oppfølgingsmuligheter, men løser ikke automatisk hendelsen for deg.',
+      ],
+      terms: [
+        ['Azure Status', 'Utvalgt offentlig informasjon om brede plattformhendelser.'],
+        ['Service Health', 'Personlig tjeneste-/region-/subscription-relevant kommunikasjon.'],
+        ['Resource Health', 'Ressursspesifikk helse for støttede typer og kontroller.'],
+        ['Unknown', 'Utilstrekkelig informasjon; ikke en automatisk nedetidserklæring.'],
+      ],
+      example:
+        'En melding gjelder Web-tjenesten i West Europe klokken08:00–08:10. Fjordverks berørte VM står i en annen region. Teamet kontrollerer scope før det knytter melding og symptom sammen. Hvis en relevant Web App står som Available, undersøkes likevel de rapporterte bestillingsfeilene med applikasjonsdata.',
+      limit:
+        'Helseinformasjon er avgrenset av støtte, tilgang og tidspunkt. Offentlig historikk er ikke komplett abonnementshistorikk, og en ressursobservasjon er ikke et garantert riktig svar fra applikasjonen.',
+    },
+    monitor: {
+      title: 'Azure Monitor — samle inn, analysere og følge opp',
+      paragraphs: [
+        'Azure Monitor er Microsofts plattform for å samle, analysere og følge opp telemetri fra Azure, applikasjoner og støttede hybride miljøer. Tenk på tre mekanismer: innsamling gjør data tilgjengelig, analyse gjør dem forståelige, og konfigurert respons kan varsle eller sette i gang en arbeidsflyt. Å ha et administrasjonsvindu åpent utfører ikke automatisk alle disse tre oppgavene.',
+        'Data kommer fra forskjellige lag. Plattformen kan levere ressursmetrics og Activity Log. Gjeste-OS, detaljerte ressurslogger og applikasjonsspor kan kreve agent, diagnostic settings eller instrumentering. Hvilken innsamling som er nødvendig avhenger av kilde, tjeneste og ønsket opplysning. Et nylig opprettet workspace fylles ikke automatisk med alle loggene du kunne ønske å analysere.',
+        'Monitor bruker forskjellige datalagre og verktøy. Log Analytics-workspaces organiserer innsamlede logg- og tracedata i tabeller som kan analyseres med KQL. Azure Monitor-workspaces er en annen ressurstype for relevante Prometheus-/OpenTelemetry-metrics. Vanlige plattformmetrics har sin egen metrics-plattform. Liknende navn betyr ikke at alle data eller spørringer fungerer likt.',
+        'Fjordverk må velge en kilde som besvarer spørsmålet. «Når økte responstiden?» kan starte i en tidsserie. «Hvilket kall feilet?» krever mer detalj. «Hvem endret konfigurasjonen?» er ofte et management-/Activity Log-spørsmål. Tilgang, innsamling, tidsfilter, forsinkelse og datakvalitet må kontrolleres før fravær av treff tolkes. Innsamling og lagring kan ha kostnader; vi bruker ingen faktiske Azure-priser i øvelsene.',
+      ],
+      terms: [
+        ['Innsamling', 'Å få relevante signaler fra kilden til et tilgjengelig datalager.'],
+        ['Analyse', 'Å filtrere, sammenligne og tolke innsamlede signaler.'],
+        ['Respons', 'Konfigurert varsling eller arbeidsflyt; ikke automatisk vellykket utbedring.'],
+      ],
+      example:
+        'En CPU-kurve finnes allerede på den ekte Azure-ressursens plattformnivå, mens detaljene fra en prosess i VM-ens gjeste-OS mangler. Det er ikke en motsetning: de er forskjellige datakilder med forskjellige innsamlingskrav. AzureLab måler ingen av dem.',
+      limit:
+        'Produktet har flere avanserte og AI-baserte arbeidsflyter enn denne Fundamentals-modulen modellerer. Studioen bruker bare deklarerte syntetiske signaler og en avgrenset evaluering, ingen agent, ingestion eller automatisk respons.',
+    },
+    signals: {
+      title: 'Metrics, logs, events og traces gir ulike typer bevis',
+      paragraphs: [
+        'En metric er en numerisk tidsserie med enhet, ressurs-/dimensjonskontekst og tidspunkt. For eksempel kan CPU-bruk uttrykkes i prosent per måleintervall, og responstid i millisekunder. Ett punkt og et gjennomsnitt for fem minutter svarer på forskjellige spørsmål. Før du sammenligner verdier, må du vite hvilke målinger og hvilket tidsrom de representerer.',
+        'Average glatter ut variasjon; Maximum beholder den høyeste verdien i vinduet. Et kort høyt punkt kan derfor utløse en maximum-betingelse uten å utløse en gjennomsnittsbetingelse med samme tallgrense. Et gjennomsnitt av intervallgjennomsnitt er heller ikke uten videre et samlet request-vektet gjennomsnitt når intervallene har forskjellig antall requests. Studioens fiktive punkt har uttrykkelig lik vekt.',
+        'En manglende verdi er ikke null. Azure-dokumentasjonen beskriver at NULL utelates fra gyldige verdier ved gjennomsnittsberegning, mens håndtering av null/NULL kan variere med metric og provider. I Studio viser vi aggregatet av tilgjengelige verdier, men krever uttrykkelig et komplett valgt vindu før modellens alarmvurdering. Denne konservative undervisningsregelen er ikke en universell regel for ekte Azure-alarmer.',
+        'Logs er detaljerte registreringer med for eksempel tid, ressurs, operasjon, resultat og feilkode. Events er hendelser som kan uttrykkes i slike registreringer. Activity Log gjelder i hovedsak management-/kontrollplanhendelser, som endring av en ressurs. Resource Logs gjelder støttede interne/data-plane-operasjoner og varierer etter tjeneste. En ressursendring beskriver ikke alle brukerforespørsler.',
+        'Et distribuert trace følger en forespørsel gjennom instrumenterte komponenter. Et trace-/operation-ID og relaterte span-/parent-ID-er kan koble request, dependency og exception til samme arbeid. Da kan teamet undersøke om forsinkelse eller feil oppstod rundt en bestemt avhengighet. Sampling, manglende instrumentering og manglende overføring kan gjøre sporet ufullstendig. En korrelasjon er et viktig undersøkelsesgrunnlag, ikke automatisk en fullstendig årsaksrapport.',
+      ],
+      terms: [
+        ['Metric', 'Et tall knyttet til enhet, tid og relevant ressurs/dimensjon.'],
+        ['Aggregasjon', 'En beregning, som Average eller Maximum, over et bestemt utvalg.'],
+        ['Logg/event', 'En detaljert registrering av en hendelse eller operasjon.'],
+        ['Trace/span', 'Et sammenhengende forespørselsspor med relaterte arbeidsdeler.'],
+      ],
+      example:
+        'Fem fiktive CPU-punkt er40,70,90,80,50prosent. Gjennomsnittet er66prosent, maksimum90. En streng terskel «større enn70» har dermed forskjellig resultat. Et feilet databasekall med samme operation-ID som en treg request gir en annen type detalj enn denne kurven.',
+      limit:
+        'En kurve er ikke en loggrad, en loggrad er ikke en full trace, og et tomt datasett er ikke et automatisk null-feil-resultat. Enhet, dekning, dimensjoner, scope og tid må alltid følge tolkningen.',
+    },
+    logs: {
+      title: 'Log Analytics — analyser det som faktisk er samlet inn',
+      paragraphs: [
+        'Et Log Analytics-workspace er et organisert datalager med tabeller, tilgang og innstillinger for innsamlede logger og traces. Log Analytics er analyseverktøyet der du utforsker disse dataene. Verktøyet kan åpnes med workspace-scope eller fra en ressurs; inngang, tidsrom og tilgang påvirker hvilke data du kan se. Et eksisterende workspace er ikke bevis for at en bestemt loggtype faktisk er kommet fram.',
+        'Kusto Query Language, KQL, beskriver hvordan data filtreres og bearbeides. Et tabellnavn velger et utgangspunkt. where filtrerer rader. project velger kolonner. summarize kan telle eller gruppere, og bin kan dele tid i faste intervaller. KQL er ikke et shell for å opprette Azure-ressurser. De to originale illustrasjonene under bygger på dokumenterte AzureActivity- og AppRequests-felt.',
+        'Activity Log samles normalt inn automatisk på plattformnivå og har en dokumentert standardhistorikk på90dager i den opprinnelige visningen. Skal oppføringene analyseres i et workspace, må relevant eksport/ruting være på plass. Resource Logs krever relevante diagnostic settings og støttede loggkategorier. Tilgang til kilden og til analysen er også forskjellige forutsetninger; forsinkelse og feil tidsfilter kan skjule aktuelle data.',
+        'Fjordverk undersøker først om riktig tabell, ressurs og tidsrom er valgt. Hvis Resource Logs aldri er rutet dit, kan en tom resultatliste ikke bekrefte normal drift. Hvis data faktisk er tilgjengelige og filteret ikke finner en bestemt feilkode i det valgte tidsrommet, støtter det bare den avgrensede observasjonen. Det er fortsatt ikke en garanti for at ingen andre feil finnes.',
+        'En interaktiv spørring utføres når du ber om den. En log search alert rule har i tillegg en eksplisitt konfigurasjon med scope, spørring, betingelse og evaluering. En nyttig query blir ikke automatisk en aktiv alarmregel. Studio tilbyr bare forhåndsdefinerte filtre på egne fiktive rader. Den tolker ikke vilkårlig KQL og oppretter intet workspace.',
+      ],
+      terms: [
+        ['Workspace', 'Datastore med tabeller, tilgang og oppbevarings-/innsamlingskontekst.'],
+        ['KQL', 'Språk for å filtrere og analysere tabellbaserte data.'],
+        [
+          'Diagnostic setting',
+          'Ruting/innsamling for relevante plattformdata og støttede ressurslogger.',
+        ],
+        ['Query-scope', 'Hvilke data og hvilket tidsrom analysen faktisk omfatter.'],
+      ],
+      example:
+        'For spørsmålet «hvilke management-endringer feilet den siste timen?» er AzureActivity relevant hvis dataene er tilgjengelige i valgt workspace. For «hvor mange instrumenterte requests feilet per femminuttersintervall?» er AppRequests en annen tabell og datakilde. Ingen av illustrasjonene kjøres i AzureLab.',
+      limit:
+        'Portalens Activity Log, en konfigurert eksport, en Log Analytics-query og en alert rule er separate mekanismer. Felles tidsstempel eller ressursnavn gjør dem ikke identiske.',
+    },
+    alerts: {
+      title: 'En betingelse, en alarm og en varslingsvei er forskjellige ting',
+      paragraphs: [
+        'En Azure Monitor alert rule beskriver hva som skal overvåkes: scope, signal og betingelse. Evaluering skjer etter den aktuelle regeltypens mekanisme. For en metric-regel kan du velge et tidsvindu, aggregasjon, operator og terskel. «Større enn70» er ikke det samme som «større enn eller lik70». Hvilken metric og dimensjon som vurderes må også passe den aktuelle ressursen.',
+        'At data eller en høy verdi finnes, betyr ikke at en relevant regel er aktiv. Log search alerts vurderer resultatet av en konfigurert loggspørring, mens Activity Log alerts reagerer på matchende hendelser. Service Health- og Resource Health-varsler tilhører denne hendelsesfamilien. Forskjellige alert-typer har forskjellige datakilder, muligheter og evalueringsregler; en spørring i analysevinduet erstatter ingen av disse oppsettene.',
+        'En action group er en gjenbrukbar konfigurasjon med relevante varslinger og/eller handlinger. Den kan for eksempel inneholde e-post eller en webhook til en arbeidsflyt. En regel kan finne en oppfylt betingelse uten at akkurat den ønskede mottakeren er konfigurert. At en varslingsvei er konfigurert er heller ikke dokumentasjon på at meldingen faktisk er levert.',
+        'Fired og Resolved beskriver monitor condition. User response, som New, Acknowledged eller Closed, er en separat oppfølgingsstatus. Å kvittere for en alarm reparerer ikke ressursen. Stateful og stateless alarmer oppfører seg ulikt: en stateless regel kan fire ved hver oppfylt evaluering, mens en stateful alarm beholder sin tilstand til relevante oppløsningskrav er møtt. For stateful metric alerts beskriver dokumentasjonen blant annet tre påfølgende kontroller uten oppfylt betingelse før resolved.',
+        'Fjordverks øvelse vurderer én uttrykkelig stateless metric-betingelse om gangen. Vi viser modellens fired, ikke oppfylt, manglende data eller manglende konfigurasjon; vi simulerer ikke stateful automatisk gjenoppretting. Et skifte fra Average til Maximum kan endre betingelsen, mens det å legge til en varslingsgruppe bare endrer den deklarerte varslingsveien. Signalet og konfigurasjonen må fortsatt vurderes separat.',
+        'En fired alert er et signal til oppfølging. En notification er en formidling. Remediation er et tiltak som eventuelt må være konfigurert, autorisert og kontrollert etterpå. Azure kan støtte egne automatiserte arbeidsflyter, men det gjør ikke alle alarmutfall til automatiske løsninger. AzureLab sender ingen melding, endrer ingen ressurs og hevder ingen faktisk utbedring.',
+      ],
+      terms: [
+        ['Alert rule', 'Scope + signal + betingelse og relevant evaluering.'],
+        ['Evaluation window', 'Tidsrommet som inngår i den konkrete vurderingen.'],
+        ['Action group', 'Konfigurerte mottakere og/eller handlinger.'],
+        ['Monitor condition', 'Fired/Resolved, forskjellig fra menneskets oppfølgingsstatus.'],
+      ],
+      example:
+        'En fiktiv Maximum-vurdering av CPU gir90mot terskelen70. Uten regel er ingen alarm konfigurert. Med matchende aktiv regel er modellbetingelsen fired. Uten action group er ingen varslingsvei deklarert; med gruppen finnes en mulig vei, men ingen faktisk melding sendes og ingen feil er løst.',
+      limit:
+        'Manglende data må ikke bli «normal». Én lavere måling er ikke universelt det samme som en resolved stateful Azure-alarm. Modellens avgrensede evaluering er ikke en reell Azure Monitor-regel eller varslingsutsendelse.',
+    },
+    insights: {
+      title: 'Application Insights — fra brukerforespørsel til avhengighetsspor',
+      paragraphs: [
+        'Application Insights er application performance monitoring, APM, som en del av Azure Monitor. Det hjelper deg å undersøke applikasjonens forespørsler, responstider, feil og avhengigheter. Dette er en annen vinkel enn en generell regional servicemelding eller helseobservasjonen for en bestemt VM. Appen kan kjøre i Azure eller et annet støttet miljø; relevant instrumentering og innsamling er fortsatt nødvendig.',
+        'En request beskriver arbeid som kommer inn til appen. En dependency beskriver et utgående kall, for eksempel til en database eller et API. En exception kan forklare en feil under arbeidet. Traces og korrelasjons-ID-er kan koble detaljene sammen. Ytelses- og failure-visninger gir både oversikt og mulighet til å undersøke en konkret transaksjon.',
+        'OpenTelemetry er et leverandørnøytralt rammeverk for å beskrive og samle observasjonsdata. For støttede serverscenarioer anbefaler Microsoft relevante OpenTelemetry-distribusjoner og konfigurasjon. Enkelte plattformer har muligheter for automatisk instrumentering; andre krever kode/oppsett. Nettleserbasert Application Insights-telemetri bruker den relevante JavaScript SDK-en, ikke en universell OTel-mekanisme for alle apper.',
+        'En App Service-ressurs er derfor ikke alene bevis for at Application Insights er aktiv, at requests når riktig workspace eller at et komplett trace finnes. Nettverk, tilgang, instrumentering, eksport og sampling kan begrense hva som sees. Ingen av disse oppsettene gjøres automatisk for AzureLabs Web Apps. Deres lagrede planreferanse og lokale receipts er bare konfigurasjonskontekst.',
+        'I Fjordverks syntetiske spor har en feilet request og et feilet databasekall samme operation-ID. Det gir et konkret spor å undersøke videre. Det beviser ikke alene om årsaken var databasekapasitet, nettverk, feil requestinnhold eller en endring i appen. Sammenlign med andre forespørsler, tidsrom og tilgjengelige signaler før du formulerer en årsak eller erklærer løsningen frisk.',
+      ],
+      terms: [
+        ['APM', 'Overvåking og analyse av applikasjonsytelse og oppførsel.'],
+        ['Request', 'Arbeid som kommer inn til applikasjonen.'],
+        ['Dependency', 'Et utgående kall til en avhengighet.'],
+        ['Instrumentering', 'Oppsett som gjør relevant applikasjonstelemetri tilgjengelig.'],
+        ['OpenTelemetry', 'Et leverandørnøytralt rammeverk for observasjonsdata.'],
+      ],
+      example:
+        'Et aggregert responstidspunkt er650ms. Appsporet viser en request, et databasekall og en exception i samme operasjon. Detaljene hjelper teamet å stille et mer presist neste spørsmål enn «er Azure nede?», uten å gjøre selve korrelasjonen til en ferdig rotårsaksrapport.',
+      limit:
+        'Ingen faktisk request, trace, availability test eller instrumentering kjøres. Et manglende spor betyr ikke at forespørselen aldri fantes eller at applikasjonen er feilfri.',
+    },
+    studio: {
+      title: 'Undersøk en hypotese og bevar grensene for beviset',
+      paragraphs: [
+        'Studioens tre perspektiver deler Fjordverks problem, men undersøker ulike mekanismer. Velg først hvilken informasjon som kan besvare spørsmålet. Sammenhold deretter hendelsens scope og tid med ressurshelse og separate appsymptomer. Til slutt kan du undersøke fiktive målepunkt, loggrader, trace-relasjoner og en begrenset alarmbetingelse.',
+        'Velg og forutsi før du kjører. Resultatet er en lagret observasjon av akkurat de deklarerte inndataene. Endre ett relevant premiss og sammenlign, slik at forskjellen kan forklares. Oppdragene krever bestemte faglige kontraster og en årsaksforklaring; klikk, navigasjon eller bare det å se et diagram gir ingen oppgavekreditt. Du kan pause og gjenoppta det lagrede arbeidet.',
+      ],
+      terms: [
+        [
+          'Syntetisk fixture',
+          'Et fast, versjonert eksempelsett som aldri hentes fra faktisk runtime.',
+        ],
+        [
+          'Matchet kontrast',
+          'To lagrede kjøringer der den sentrale endringen kan undersøkes uten andre skjulte forskjeller.',
+        ],
+      ],
+      example:
+        'Samme fiktive datasett kan gi en annen betingelse når Average erstattes av Maximum. Den lokale Web Appen du eventuelt åpner i Portal endrer ingen av punktene. Du kan undersøke ressursens konfigurasjon og deretter forklare hvorfor målinger ville krevd en annen datakilde.',
+      limit:
+        'Ingen Azure-konto, metrics-innsamling, KQL-motor, live hendelsesfeed, agent eller automatisk feilretting finnes bak kontrollene. Guidance og tidligere undervisning beskyttes under aktiv selvstendig vurdering.',
+    },
+  },
+  topics: {
+    introduction: 'Fra konfigurasjon til driftsinnsikt',
+    advisor: 'Azure Advisor',
+    health: 'Service Health, Status og Resource Health',
+    monitor: 'Azure Monitor',
+    signals: 'Metrics, logs, events og traces',
+    logs: 'Log Analytics og KQL',
+    alerts: 'Azure Monitor Alerts',
+    insights: 'Application Insights',
+    studio: 'Monitoring & Diagnostics Studio',
+    missions: 'Guidede undersøkelser',
+    assessment: 'Selvstendig anvendelse',
+    summary: 'Summary — Monitoring & Diagnostics',
+  },
+  missions: {
+    evidence: {
+      title: 'Find the Right Evidence',
+      situation:
+        'Fjordverk har et kapasitetsråd, men brukerne melder en konkret feilet forespørsel. Det første rådet forklarer ikke automatisk feilen.',
+      goal: 'Begrunn kildevalg og avgrens hva et anbefalings- eller applikasjonsspor faktisk støtter.',
+      where:
+        'Choose the Right Evidence. Velg problem, kilde og signal; faktiske Portal-ressurser kan undersøkes separat under modellen.',
+      why: 'Et relevant Azure-produktnavn er ikke nok. Spørsmålet krever en kilde med passende detalj, dekning og tid.',
+      observe:
+        'Et råd kan være ekte som anbefaling, men utilstrekkelig for forespørselen. En riktig kilde med gammelt eller manglende datagrunnlag er fortsatt uavklart.',
+      debrief:
+        'Du har skilt relevant kilde fra tilstrekkelig evidens. Optimaliseringsråd, appobservasjon og faktisk konfigurasjon har forskjellige roller.',
+      steps: [
+        'For en feilet request: kjør Advisor + anbefaling, deretter Application Insights + korrelerte registreringer med ellers like forutsetninger. Forklar hvorfor første kilde ikke besvarer hele spørsmålet.',
+        'For Cost-vurdering med Advisor + anbefaling: sammenlign bare gammel og fersk opplysning. Riktig verktøy opphever ikke tidsbegrensningen.',
+        'Undersøk også en Performance-vurdering med passende anbefaling, og forklar hva som måtte til for å knytte et råd til en aktuell feil.',
+      ],
+    },
+    health: {
+      title: 'Diagnose an Incident',
+      situation:
+        'En fiktiv Web-hendelse gjelder Fjordverks app-subscription i West Europe. Den offentlige siden viser ingen bred melding. Appfeil og ressursobservasjoner må undersøkes hver for seg.',
+      goal: 'Sammenhold scope og tid, og skill relevant hendelse fra dokumentert ressurshelse og bekreftet appårsak.',
+      where:
+        'Health & Incident Explorer. Hendelsesscopet er fast i scenariet; velg hvilken ressurskontekst og hvilket tidspunkt du undersøker.',
+      why: 'En regional melding er ikke en generell årsaksrapport. Available og Unknown betyr forskjellige ting og erstatter ikke appdata.',
+      observe:
+        'En personlig relevant hendelse kan finnes uten offentlig melding. En Available-ressurs kan ha appsymptomer. Et annet abonnement eller en gammel observasjon endrer relevansen.',
+      debrief:
+        'Du har sammenholdt flere bevisnivå uten å gjøre en samtidig hendelse til automatisk appårsak eller tolke Unknown som nedetid.',
+      steps: [
+        'Sammenlign app-subscription og shared-subscription med ellers like Web/West Europe/current/Available/appfeil-premisser. Undersøk hendelsesrelevansen.',
+        'Med relevant scope: sammenlign bare Available og Unknown. Appfeilene må fortsatt undersøkes og årsaken er ikke bekreftet.',
+        'Med Available og relevant scope: sammenlign inspeksjon under hendelsen og senere. Behold den historiske observasjonen, men ikke gi den en oppdiktet aktuell gyldighet.',
+      ],
+    },
+    telemetry: {
+      title: 'Investigate an Alert',
+      situation:
+        'De fiktive CPU-punktene varierer gjennom seks minutter. Teamet trenger å forstå både signalberegning, alarmoppsett og hvorfor en melding eventuelt ikke har en konfigurert vei.',
+      goal: 'Skill aggregasjon, komplett datagrunnlag, matchende regel, query, trace og varslingsvei fra faktisk utbedring.',
+      where:
+        'Telemetry, Logs & Alerts. Alle punkt har lik vekt, enhet vises før beregning, og vinduet slutter klokken08:05. Logg-/traceforutsetninger står i egen kontrollgruppe.',
+      why: 'En høy verdi uten relevant regel er ikke en konfigurert alarm. En fired vurdering er verken en levert melding eller reparasjon.',
+      observe:
+        'Maximum og Average kan gi ulike betingelser. Ruting åpner bare relevant fiktiv logganalyse. Manglende punkt stopper modellbeslutningen uten å bli null.',
+      debrief:
+        'Du har lagret observasjoner som skiller fem ledd: data, beregning, regel, varslingsvei og videre undersøkelse. Fullført oppdrag krever også en korrekt årsaksforklaring. Ingen varsling eller remediation er utført.',
+      steps: [
+        'Bruk morning/CPU/full/Maximum/5min/70. Sammenlign ingen regel med aktiv matchende CPU-regel; ikke velg action group ennå.',
+        'Med aktiv matchende regel og ellers samme valg: sammenlign action group av og på. Betingelsen endres ikke av mottakeroppsettet.',
+        'Med samme oppsett: sammenlign bare Average og Maximum over5punkt. Forklar66mot90og den strenge terskelen70.',
+        'Med Maximum: sammenlign bare full dekning og et manglende punkt. Vis tilgjengelig aggregat, men skill dette fra modellens krav om et komplett vindu.',
+        'Med full dekning og Resource Logs: sammenlign ruting av og på. Undersøk et forhåndsdefinert feilfilter; query oppretter ingen regel og et trace trenger egen instrumentering.',
+      ],
+    },
+  },
+  causal: {
+    evidence: [
+      'Et passende produktnavn og en tilgjengelig ressurs beviser at alle aktuelle feil er forklart.',
+      'Kilde, signal, tid og dekning må passe spørsmålet; et råd eller en konfigurasjonskvittering er ikke en full appdiagnose.',
+      'Ingen offentlig melding betyr at de lokale appfeilene kan avvises.',
+    ],
+    health: [
+      'En relevant hendelse og en samtidig feil har dermed samme bekreftede årsak.',
+      'Unknown er et annet navn på Unavailable; Available beviser at alle brukerfunksjoner virker.',
+      'Scope, tid, ressurshelse og appsymptomer må holdes adskilt; sammenfall gir en hypotese, ikke automatisk bekreftet årsak.',
+    ],
+    telemetry: [
+      'Datadekning, aggregasjon, regel og varslingsvei er separate; fired eller en query er ikke faktisk levering, utbedring eller bevis på full apphelse.',
+      'En action group endrer metric-verdiene og reparerer alle ressursene når regelen er fired.',
+      'Manglende punkt betyr null belastning, og en lagret loggquery er automatisk en aktiv alert rule.',
+    ],
+  },
+  milestone: {
+    evidence: {
+      title: 'Find the Right Evidence — observasjoner lagret',
+      text: 'Du har skilt relevant kilde fra tilstrekkelig evidens. Optimaliseringsråd, appobservasjon og faktisk konfigurasjon har forskjellige roller.',
+    },
+    health: {
+      title: 'Diagnose an Incident — observasjoner lagret',
+      text: 'Du har sammenholdt flere bevisnivå uten å gjøre en samtidig hendelse til automatisk appårsak eller tolke Unknown som nedetid.',
+    },
+    telemetry: {
+      title: 'Investigate an Alert — observasjoner lagret',
+      text: 'Du har lagret observasjoner som skiller fem ledd: data, beregning, regel, varslingsvei og videre undersøkelse. Fullført oppdrag krever også en korrekt årsaksforklaring. Ingen varsling eller remediation er utført.',
+    },
+  },
+  controls: {
+    question: 'Spørsmålet som skal undersøkes',
+    tool: 'Valgt verktøy / analyseinngang',
+    signal: 'Tilgjengelig type bevis',
+    dataReady: 'Relevant datagrunnlag er tilgjengelig',
+    fresh: 'Opplysningen er aktuell for spørsmålet',
+    subscription: 'Undersøkt subscription',
+    region: 'Undersøkt region',
+    resourceType: 'Undersøkt ressurstype',
+    event: 'Deklarert tjenestekommunikasjon',
+    publicNotice: 'En bred offentlig melding er publisert',
+    inspection: 'Tidspunkt for undersøkelsen',
+    health: 'Registrert Resource Health-observasjon',
+    supported: 'Ressurskontrollen er støttet og tilgjengelig',
+    appObservation: 'Separat appobservasjon',
+    fixture: 'Syntetisk datasett',
+    coverage: 'Dekning av metric-punkter',
+    instrumented: 'Applikasjonsinstrumentering er deklarert',
+    logSource: 'Valgt loggkilde i workspace',
+    routed: 'Activity/Resource Logs er rutet til workspace',
+    access: 'Nødvendig workspace-/datatilgang finnes',
+    filter: 'Forhåndsdefinert loggfilter',
+    aggregation: 'Aggregasjon for betingelsen',
+    window: 'Evalueringsvindu',
+    threshold: 'Streng terskel: større enn',
+    rule: 'Konseptuell metric-regel',
+    ruleSignal: 'Signal regelen er konfigurert for',
+    actionGroup: 'En relevant action group er konfigurert',
+  },
+  options: {
+    question: {
+      'cost-review': 'Vurder et forslag til lavere utgifter',
+      'security-review': 'Vurder et sikkerhetsrelatert forbedringsfunn',
+      'reliability-review': 'Vurder et robusthets- og kontinuitetsråd',
+      'performance-review': 'Vurder en mulig ytelsesforbedring',
+      'operations-review': 'Vurder arbeidsflyt og administrerbarhet',
+      'broad-check': 'Undersøk en bred offentlig plattformmelding',
+      'subscription-issue': 'Undersøk en melding relevant for abonnementet',
+      'resource-check': 'Undersøk støttet individuell ressurshelse',
+      'request-failure': 'Undersøk detaljene i en konkret feilet request',
+    },
+    tool: {
+      advisor: 'Azure Advisor',
+      status: 'Azure Status',
+      'service-health': 'Azure Service Health',
+      'resource-health': 'Azure Resource Health',
+      metrics: 'Azure Monitor · Metrics',
+      'log-analytics': 'Log Analytics · korrelerte tabeller',
+      'application-insights': 'Application Insights · transaksjonsdetaljer',
+    },
+    signal: {
+      recommendation: 'Forbedringsanbefaling',
+      'global-notice': 'Bred offentlig melding',
+      'personal-notice': 'Målrettet tjenestekommunikasjon',
+      'health-observation': 'Individuell ressursobservasjon',
+      metric: 'Aggregert metric',
+      'correlated-records': 'Korrelerte request-/dependency-/exception-data',
+      missing: 'Ingen relevant registrering',
+      cpu: 'CPU · prosent',
+      duration: 'Request duration · millisekund',
+    },
+    subscription: {
+      app: 'Fiktiv app-subscription',
+      shared: 'Fiktiv shared-subscription',
+    },
+    region: {
+      westeurope: 'West Europe',
+      northeurope: 'North Europe',
+    },
+    resourceType: {
+      web: 'Fiktiv Web App',
+      vm: 'Fiktiv VM',
+    },
+    event: {
+      issue: 'Service issue',
+      maintenance: 'Planned maintenance',
+      advisory: 'Health advisory',
+      none: 'Ingen registrert melding',
+    },
+    inspection: {
+      during: '18. september2026 kl.08:05 · under hendelsen',
+      after: '18. september2026 kl.10:00 · senere undersøkelse',
+    },
+    health: {
+      available: 'Available',
+      unavailable: 'Unavailable',
+      degraded: 'Degraded',
+      unknown: 'Unknown',
+    },
+    appObservation: {
+      errors: 'Konkrete fiktive appfeil kl. 08:04',
+      'normal-sample': 'Ett normalt fiktivt apputvalg kl. 08:04',
+      missing: 'Appdata mangler',
+    },
+    fixture: {
+      morning: 'Fjordverk · syntetisk morgenhendelse',
+      quiet: 'Fjordverk · syntetisk rolig sammenligning',
+    },
+    coverage: {
+      full: 'Alle punkt tilgjengelige',
+      gap: 'Punktet kl. 08:04 mangler',
+      none: 'Alle metric-punkt mangler',
+    },
+    logSource: {
+      activity: 'Activity Log · syntetiske management-rader',
+      resource: 'Resource Logs · syntetiske tjeneste-rader',
+      application: 'Application Insights · syntetiske app-rader',
+    },
+    filter: {
+      all: 'Alle tilgjengelige rader i vinduet',
+      errors: 'Bare feil i vinduet',
+      'operation-a': 'Bare operation-a i vinduet',
+    },
+    aggregation: {
+      average: 'Average · lik vekt per punkt',
+      maximum: 'Maximum · høyeste gyldige punkt',
+    },
+    window: {
+      '3': 'Siste 3 minutter · (08:02,08:05]',
+      '5': 'Siste 5 minutter · (08:00,08:05]',
+    },
+    threshold: {
+      '50': '50 i valgt enhet',
+      '70': '70 i valgt enhet',
+      '400': '400 i valgt enhet',
+    },
+    rule: {
+      none: 'Ingen regel er konfigurert',
+      enabled: 'Matchende stateless-evaluering aktiv',
+      disabled: 'Regelen er deaktivert',
+    },
+    ruleSignal: {
+      cpu: 'CPU · prosent',
+      duration: 'Request duration · millisekund',
+    },
+  },
+  visual: {
+    boundary:
+      'Faste syntetiske undervisningsdata. Ingen faktisk Azure-hendelse, innsamling, query, alarm, melding, utbedring eller World-endring utføres.',
+    result: 'Avgrenset modellresultat',
+    details: 'Lagrede premisser og semantisk alternativ',
+    snapshot: 'Deklarert input og avgrenset resultat',
+    input: 'Premiss',
+    value: 'Deklarert verdi',
+    comparison: 'Sammenlign lagrede observasjoner',
+    sameInputs: 'Samme premisser som forrige kjøring',
+    run: 'Kjøring',
+    observation: 'Avgrenset observasjon',
+    yes: 'Ja',
+    no: 'Nei',
+    unknown: 'Ukjent / utilstrekkelig informasjon',
+    evidenceTitle: 'Spørsmål → kilde → faktisk støttet observasjon → videre undersøkelse',
+    fits: 'Kildevalget passer spørsmålet',
+    signalFits: 'Bevistypen passer spørsmålet',
+    ready: 'Relevant og aktuell evidens er tilgjengelig',
+    noCause: 'Ingen aktiv outage eller full applikasjonshelse er bevist av dette kildevalget.',
+    category: 'Anbefalingskategori',
+    categories: {
+      cost: 'Cost',
+      security: 'Security',
+      reliability: 'Reliability',
+      performance: 'Performance',
+      operations: 'Operational Excellence',
+    },
+    toolGap:
+      'Kilden eller detaljnivået besvarer ikke hele spørsmålet. Vurder et annet signal eller en mer relevant analyseinngang.',
+    dataGap: 'Riktig verktøy er ikke tilstrekkelig når datagrunnlag eller aktualitet mangler.',
+    supportedClaim:
+      'Dette støtter bare den deklarerte undersøkelsen. Verifiser relevante krav før tiltak eller en konklusjon om årsak.',
+    healthTitle: 'Hendelse → relevant scope → individuell observasjon → separate appsymptomer',
+    eventScope: 'Fast fiktivt hendelsesscope: app-subscription · West Europe · Web-tjenesten',
+    eventTime: 'Fiktivt hendelsesvindu: 18. september 2026 kl. 08:00–08:10 UTC',
+    scopeMatch: 'Subscription / region / tjeneste passer',
+    relevant: 'Hendelsen er relevant for valgt scope',
+    current: 'Undersøkelsen gjelder hendelsens aktuelle tidsrom',
+    public: 'Bred offentlig melding',
+    personal: 'Målrettet melding i riktig scope',
+    individual: 'Individuell Resource Health-observasjon',
+    app: 'Separat applikasjonsobservasjon',
+    recorded: 'Registrert status kl. 08:04',
+    currentHealth: 'Aktuell modellkunnskap om ressurshelse',
+    historical:
+      'Den registrerte observasjonen er historisk ved dette senere tidspunktet. Ikke gi den en oppdiktet aktuell gyldighet.',
+    notSupported: 'Ressurskontrollen er ikke støttet/tilgjengelig under disse premissene.',
+    correlation:
+      'Relevant kommunikasjon og samtidig symptom gir en hypotese. Verken årsak, vedlikeholdsnedetid eller full apphelse er automatisk bevist.',
+    globalLimit: 'Ingen bred melding er ikke det samme som ingen personlig relevant hendelse.',
+    healthAvailableLimit:
+      'Available er avgrenset til støttede ressurskontroller; appfeil krever egne bevis.',
+    telemetryTitle: 'Syntetisk tidsserie · én stateless-vurdering ved 08:05 UTC',
+    time: 'Tid · 18. september 2026 UTC',
+    metric: 'Syntetisk verdi',
+    selected: 'Innenfor valgt vindu',
+    missing: 'Mangler · ikke null',
+    chart: 'Syntetisk metric-tidsserie med valgt vindu og terskel',
+    unit: 'Enhet',
+    valid: 'Gyldige punkt / forventede punkt',
+    aggregate: 'Aggregat av tilgjengelige punkt',
+    complete: 'Komplett valgt vindu',
+    condition: 'Streng betingelse',
+    evaluation: 'Modellens regelvurdering',
+    notification: 'Deklarert varslingsvei er aktuell ved fired',
+    notSent:
+      'Ingen faktisk melding eller utbedring er utført. Konfigurert vei er ikke leveringsbevis.',
+    coverageLimit:
+      'Modellen krever alle punktene før en beslutning. Tilgjengelig Average utelater NULL; ekte Azure-håndtering av NULL/zero varierer med metric/provider og regeltype.',
+    equalWeights:
+      'Punktene har lik vekt. Dette er ingen garanti om et request-vektet gjennomsnitt fra en virkelig app.',
+    assessments: {
+      'not-configured': 'Ingen regel konfigurert',
+      disabled: 'Deaktivert regel',
+      'different-signal': 'Regelen gjelder et annet signal',
+      'insufficient-data': 'Utilstrekkelig datadekning',
+      fired: 'Fired i denne stateless-modellvurderingen',
+      'condition-not-met': 'Betingelsen er ikke oppfylt i denne vurderingen',
+    },
+    notStateful:
+      'Én stateless-vurdering; User response og stateful oppløsning simuleres ikke. Fired/Resolved og New/Acknowledged/Closed er ulike begreper.',
+    logsTitle: 'Faste syntetiske loggrader · ingen KQL-interpreter',
+    logsMissing:
+      'Relevant kilde/ruting/instrumentering eller tilgang mangler. Ingen rader kan bekreftes her; dette er ikke null feil.',
+    zeroRows:
+      'Datagrunnlaget er deklarert tilgjengelig, men ingen rader matcher dette filteret/vinduet. Dette er en avgrenset observasjon.',
+    operation: 'Operasjon',
+    code: 'Resultatkode',
+    id: 'Operation-ID',
+    detail: 'Kontekst',
+    queryLimit:
+      'Det forhåndsdefinerte filteret oppretter ingen alert rule. Activity/Resource-ruting og APM-instrumentering er ulike innsamlingsveier.',
+    traceTitle: 'Syntetisk request → dependency → exception · operation-a',
+    traceMissing:
+      'Applikasjonsinstrumentering, tilgang eller relevante spor mangler. Intet komplett transaksjonsforløp kan hevdes.',
+    traceLimit:
+      'Relasjoner i samme arbeid gir neste undersøkelsesspor, ikke automatisk bekreftet rotårsak. Ingen app-runtime er kjørt.',
+    logControls: 'Logg-/traceforutsetninger',
+    metricControls: 'Metric, dekning og aggregasjon',
+    alertControls: 'Regel og separat varslingsvei',
+  },
+  context: {
+    title: 'Faktisk lokal konfigurasjon — separat fra syntetiske signaler',
+    boundary:
+      'Denne lesbare Sandbox-konteksten viser konfigurasjon og lokale receipts, ikke CPU, latency, trafikk, oppetid, appfeil eller Azure Monitor-data. Valget endrer ingen av Studioens syntetiske fixtures.',
+    open: 'Åpne ordinær Portal for ressursinspeksjon',
+    select: 'Velg faktisk lokal ressurs',
+    empty:
+      'Ingen passende ressurs er konfigurert i denne Sandboxen. Ordinær Portal tilbyr eksisterende støttede opprettelser; ingen opprettes her.',
+    unsafe:
+      'Teknisk lagring er uavklart. Ingen aktuell konfigurasjon eller faktisk tilstand hevdes.',
+    resource: 'Faktisk lokal ressurs',
+    type: 'Ressurstype',
+    scope: 'Faktisk lokal gruppe / subscription',
+    relation: 'Lagret hosting-/ressursreferanse',
+    receipt: 'Siste opprinnelige lokale operasjon',
+    return: 'Tilbake til Monitoring & Diagnostics',
+    noCredit:
+      'Å lese konfigurasjonen er kontekst, ikke en telemetrimåling eller automatisk oppgavekreditt.',
+  },
+  queries: {
+    title: 'Originale KQL-illustrasjoner — ikke kjørt',
+    activity:
+      "AzureActivity\n| where TimeGenerated > ago(1h)\n| where ActivityStatusValue == 'Failed'\n| project TimeGenerated, OperationNameValue, ResourceId",
+    requests:
+      'AppRequests\n| where TimeGenerated > ago(30m)\n| summarize Requests=count(), Failures=countif(Success == false)\n    by bin(TimeGenerated, 5m)',
+    limit:
+      'Tabeller, felt, tidsrom og tilgang må finnes i faktisk innsamlede data. Disse teksteksemplene utføres ikke av Studioens faste filtre.',
+  },
+} as const;
+
+export const monitoringItemsNb = {
+  md01: {
+    title: 'Et tomt rådgivningsbilde og registrerte produksjonskostnader',
+    problem:
+      'Et økonomiteam skal undersøke produksjonslagringen. Det ser registrerte Storage-kostnader, men finner ingen Cost-anbefaling i sin åpne Advisor-visning. Hvilket arbeidsgrunnlag passer best til reviewen?',
+    premises: [
+      'Cost Analysis-visning: subscription=Produksjon, ressurskategori=Storage, avsluttet forrige måned.',
+      'Advisor-filter: subscription=Lab, ressurskategori=Virtual Machines. Antall Cost-anbefalinger=0.',
+      'Teamet vil vurdere forbedringer og dokumentere registrerte kostnader hver for seg.',
+    ],
+    decisions: [
+      'Bruk Lab-VMenes kapasitetstrend som hovedgrunnlag for lagringsreviewen, og velg lavere VM-størrelse som produksjonens lagringstiltak.',
+      'Bruk produksjonens budsjettbeløp som kostnadsgrunnlag, og behold det åpne Advisor-filteret som den fullførte optimaliseringsundersøkelsen.',
+      'Sammenstill registrerte produksjonskostnader, og undersøk Advisor med relevante produksjons-/Storage-filtre for mulige forbedringer.',
+    ],
+    reasons: [
+      'Budsjetter gir en planlagt økonomisk grense og kan støtte oppfølging og varsling når virksomheten vurderer framtidig forbruk.',
+      'Kapasitetstrender kan støtte vurdering av ressursstørrelser og ytelsesbehov når riktig arbeidslast og måleperiode undersøkes.',
+      'Advisor viser muligheter innen valgt scope og datagrunnlag; registrert forbruk og riktig filtrert forbedringsreview er forskjellige bevis.',
+    ],
+    feedback: [
+      [
+        'Kapasitetstrenden gjelder en annen subscription og ressurskategori; den avklarer ikke produksjonens lagringsreview.',
+        'Et budsjett er ikke registrerte kostnader, og det åpne Lab/VM-filteret dekker ikke ønsket produksjonslagring.',
+        'Riktig: kontroller faktisk scope før du bruker fravær av råd, og skill anbefaling fra registrert kostnad.',
+      ],
+      [
+        'Dette beskriver budsjettets formål, men forklarer ikke Advisor-scope eller registrerte kostnadsposter.',
+        'Dette kan passe en riktig avgrenset kapasitetsanalyse; her gjelder grunnlaget en annen arbeidslast og kostnadstype.',
+        'Riktig: et tomt filtrert sett beviser ikke at produksjonsmiljøet mangler forbedringsmuligheter.',
+      ],
+    ],
+    explain:
+      'Hvis reviewen gjaldt Lab-VMer, kunne deres kapasitetsdata vært relevante. Hvis Advisor-filtrene allerede dekket produksjonslagringen, måtte støttet ressursdekning og datagrunnlag fortsatt vurderes før «ingen forbedringsmuligheter» ble konkludert.',
+  },
+  md02: {
+    title: 'Tre forbedringsfunn uten hendelsesbevis',
+    problem:
+      'En miljøgjennomgang peker på en eksponert administrativ inngang, et sårbart enkeltpunkt og manuell utrulling uten en gjennomgått arbeidsflyt. Ingen kompromittering eller outage er bekreftet. Hvordan bør funnene beskrives og følges opp?',
+    premises: [
+      'Rapporten inneholder anbefalte forbedringer, ikke en bekreftet hendelsesrapport.',
+      'Eieren skal prioritere tiltak under virksomhetens risiko- og endringsprosess.',
+    ],
+    decisions: [
+      'Knytt eksponert inngang til Operational Excellence, enkeltpunktet til Reliability og utrullingsflyten til Performance før tiltaksreview.',
+      'Knytt eksponert inngang til Security, enkeltpunktet til Performance og utrullingsflyten til Operational Excellence før tiltaksreview.',
+      'Knytt eksponert inngang til Security, enkeltpunktet til Reliability og utrullingsflyten til Operational Excellence før tiltaksreview.',
+    ],
+    reasons: [
+      'Administrasjon og utrulling påvirker ytelse, slik at manuell utrullingspraksis primært kategoriseres som Performance i denne gjennomgangen.',
+      'Et enkeltpunkt gjelder teknisk kapasitet under feil, slik at det primært er en Performance-anbefaling framfor kontinuitetsarbeid.',
+      'Angrepsflate, kontinuitetsrisiko og arbeidsprosess er ulike forbedringsformål; kategoriene hjelper reviewen å prioritere relevante tiltak.',
+    ],
+    feedback: [
+      [
+        'Eksponert inngang retter søkelyset mot Security; manuell utrullingspraksis er ikke primært en ytelsesvurdering.',
+        'Enkeltpunktet gjelder kontinuitet og robusthet. Det er Reliability-formålet, selv om feil også kan få ytelseskonsekvenser.',
+        'Riktig: hold sikkerhet, robusthet og arbeidsflyt fra hverandre; et forbedringsfunn er ikke utført tiltak.',
+      ],
+      [
+        'Her gjelder funnet reviewbar arbeidsflyt og administrerbarhet. Ytelse kan påvirkes, men forklarer ikke hele klassifiseringen.',
+        'Enkeltpunktet er en kontinuitetsrisiko, ikke først og fremst et mål på hastighet eller kapasitet.',
+        'Riktig: kategoriene følger formålet med forbedringen, ikke bare at ressursen er teknisk.',
+      ],
+    ],
+    explain:
+      'Bekreftede angreps- eller tilgjengelighetssignaler ville krevd hendelsesoppfølging i tillegg. Et dokumentert gjennomført tiltak kan vurderes på nytt; det må ikke antas fra anbefalingen.',
+  },
+  md03: {
+    title: 'Den offentlige siden viser ingen bred hendelse',
+    problem:
+      'En leverandør vil utelukke at gårsdagens korte problem berørte kundens bestemte abonnement og tjeneste. Den offentlige statussiden viser ingen bred hendelse nå. Teamet har tilgang til kundens relevante Azure-kontekst. Hva bør undersøkes? Velg den primære planen som gir et tilstrekkelig abonnementsspesifikt grunnlag for kundens berørte tjenester og perioder; generell offentlig historikk alene oppfyller ikke dokumentasjonskravet.',
+    premises: [
+      'Undersøkelsen gjelder et bestemt tidsrom i går, ikke bare nåværende global status.',
+      'Det kan finnes målrettet tjenestekommunikasjon som ikke er publisert som en bred offentlig hendelse.',
+    ],
+    decisions: [
+      'Velg den offentlige Status-historikkens publiserte PIR-er som kundens tjenestehendelsesgrunnlag, og bruk dem til denne abonnementsavklaringen.',
+      'Undersøk kundens målrettede Service Health-kommunikasjon for tjeneste, region og gårsdagens tidsrom, sammen med kundens hendelsesdata.',
+      'Velg Resource Health-historikken til en tilgjengelig ressurs som grunnlag for hele tjenestekommunikasjonen i kundens abonnement i går.',
+    ],
+    reasons: [
+      'Offentlige PIR-er beskriver gjennomgåtte hendelser med bred påvirkning og kan gi nyttig plattformkontekst ved en historisk undersøkelse.',
+      'Personlig tjenestekommunikasjon har relevant abonnements- og tjenestescope; offentlig PIR-utvalg og én ressurskontroll dekker andre avgrensninger.',
+      'Resource Health-historikk kan vise tidligere ressursobservasjoner for støttede typer og støtte en undersøkelse av den valgte ressursen.',
+    ],
+    feedback: [
+      [
+        'PIR-er kan være nyttige, men det offentlige utvalget er ikke kundens komplette målrettede tjenestekommunikasjon.',
+        'Riktig: match kilde, kunde og tidsrom; bruk deretter relevante kundedata for faktisk påvirkning.',
+        'Ressurshistorikk kan støtte ressursundersøkelsen, men dekker ikke hele abonnementets tjenestekommunikasjon.',
+      ],
+      [
+        'Dette er sant som tilleggsgrunnlag, men begrunner ikke at offentlig utvalg erstatter kundens tjenestescope.',
+        'Riktig: velg bevisnivået som faktisk svarer på den avgrensede kundekommunikasjonen.',
+        'Dette er sant om den enkelte ressursen; det forklarer ikke valget av abonnementets tjenestekommunikasjon.',
+      ],
+    ],
+    explain:
+      'En bred aktuell hendelse kan gjøre Azure Status til et nyttig startpunkt. For denne avgrensede historiske undersøkelsen må målrettet kommunikasjon og kundedata fortsatt vurderes.',
+  },
+  md04: {
+    title: 'Unavailable etter en dokumentert brukerstopp',
+    problem:
+      'En syntetisk hendelsesrapport viser at en autorisert operatør stoppet en VM klokken09:00. Resource Health viser Unavailable med ikke-plattformårsak knyttet til denne stoppen. Appen på maskinen kan ikke nås. Hvilken primær oppfølging støttes?',
+    premises: [
+      'Hendelsesgrunnlaget og ressursobservasjonen gjelder samme VM og tidsrom.',
+      'Ingen aktuell tjenestehendelse er meldt for dette scopet. Det foreligger ikke data som bekrefter en feil hos Microsoft.',
+    ],
+    decisions: [
+      'Undersøk den brukerinitierte stoppen og arbeidslastens godkjente gjenopprettingsløp; behold ressursobservasjonen med den oppgitte årsaken.',
+      'Eskaler som primær plattformhendelse på grunnlag av Unavailable-statusen, og vent på en leverandørrettelse før operatørhendelsen vurderes.',
+      'Prioriter en ny analyse av applikasjonens kodefeil som forklaring på at VM-en er Unavailable, og utsett kontrollen av den registrerte stoppen.',
+    ],
+    reasons: [
+      'Application Insights kan undersøke applikasjonsfeil og avhengigheter når relevant instrumentering, tilgang og innsamlede data finnes.',
+      'Unavailable kan skyldes plattform- eller ikke-plattformhendelser; den oppgitte brukerstoppingen gir et konkret ressurs- og oppfølgingsspor.',
+      'Service Health kan gi målrettet kommunikasjon og støtteoppfølging når en Azure-tjenestehendelse påvirker relevante kunder og ressurser.',
+    ],
+    feedback: [
+      [
+        'Riktig: oppfølgingen bygger på den dokumenterte ressursårsaken, uten å anta en plattformfeil eller automatisk gjenoppretting.',
+        'Unavailable alene betyr ikke Microsoft-feil. Den konkrete observasjonen oppgir en brukerinitiert ikke-plattformårsak.',
+        'Applikasjonsanalyse kan bli relevant, men den forklarer ikke den allerede dokumenterte brukerinitierte VM-stoppen.',
+      ],
+      [
+        'Dette er en relevant APM-egenskap, men ikke begrunnelsen for primær oppfølging av en kjent VM-stopp.',
+        'Riktig: les årsaken og scopet, ikke bare statusnavnet. En eventuell start krever riktige tillatelser og godkjent oppfølging.',
+        'Dette beskriver tjenestehendelser; i denne situasjonen er en annen konkret ressursårsak allerede dokumentert.',
+      ],
+    ],
+    explain:
+      'Uten en kjent årsak måtte flere relevante signaler undersøkes. Unknown ville ikke dokumentert nedetid, og Available ville heller ikke bevist at alle forretningsfunksjoner virket. Her er ressursens konkrete ikke-plattformårsak en vesentlig ekstra opplysning.',
+  },
+  md05: {
+    title: 'To revisjonsspørsmål krever ulike registreringer',
+    problem:
+      'Et revisjonsteam vil finne avviste konfigurasjonsendringer og feilede databaseforespørsler i går. Management-hendelser er eksportert til workspace, men den aktuelle databasens Resource Logs ble aldri samlet inn der. Hva er en riktig plan?',
+    premises: [
+      'Teamet har nødvendig tilgang til eksisterende AzureActivity-data og kjenner tidsrommet.',
+      'Nye innsamlingsinnstillinger gir ikke grunnlag for å påstå at gårsdagens tidligere uinnsamlede logger finnes.',
+    ],
+    decisions: [
+      'Konfigurer Resource Logs nå og kjør gårsdagens tidsfilter i den nye loggkilden som hovedgrunnlag for databaseundersøkelsen; behandle rutingen som den historiske avklaringen.',
+      'Undersøk eksisterende AzureActivity-data for management-spørsmålet; avklar manglende databasebevis og konfigurer relevant framtidig logginnsamling.',
+      'Kjør det eksisterende AzureActivity-søket for Failed-operasjoner som grunnlag for både management-endringer og databaseforespørsler; utsett annen innsamling.',
+    ],
+    reasons: [
+      'Diagnostic settings kan samle relevante Resource Logs til et valgt workspace, hvor loggdata kan filtreres etter tid, ressurs og resultat.',
+      'Management- og ressursoperasjoner har ulike kilder; manglende relevant innsamling gir et evidensgap, ikke et historisk null-feil-resultat.',
+      'AzureActivity-data kan filtreres etter mislykkede operasjoner og riktig ressurs-/tidsscope for å undersøke hendelser i management-planet.',
+    ],
+    feedback: [
+      [
+        'Ruting nå gir ikke grunnlag for å påstå at gårsdagens uinnsamlede databasehendelser finnes. Konfigurer framtidig innsamling med et ærlig historisk gap.',
+        'Riktig: bruk tilgjengelige bevis for det ene spørsmålet og dokumenter evidensgapet for det andre.',
+        'Dette kan besvare management-delen, men Activity Log er ikke detaljhistorikk for alle databaseforespørsler.',
+      ],
+      [
+        'Dette er riktig som framtidig innsamlingsmekanisme; det begrunner ikke at tidligere uinnsamlede data er gjenskapt.',
+        'Riktig: ulike kilder og faktisk innsamling bestemmer hva den historiske undersøkelsen kan støtte.',
+        'Dette er riktig for management-hendelser; det forklarer ikke databaseforespørslene som aldri ble samlet inn der.',
+      ],
+    ],
+    explain:
+      'Hvis relevante Resource Logs allerede var samlet inn med korrekt tid og scope, kunne de støttet databaseundersøkelsen. En ny innsamling kan støtte framtidige undersøkelser, men beviser ikke gårsdagens utfall.',
+  },
+  md06: {
+    title: 'En forespørsel har et konkret avhengighetsspor',
+    problem:
+      'En instrumentert betalingstjeneste har en feilet request, et tregt utgående kall og en exception med samme operation-ID. Dataene er tilgjengelige både i Application Insights og i godkjente workspace-tabeller. Velg én av de faglig forsvarlige planene.',
+    premises: [
+      'Begge analyseinnganger har nødvendige data og tilgang. Ingen rotårsak er bekreftet.',
+      'Oppgaven er å undersøke den bestemte forespørselen og dens avhengigheter, ikke å endre infrastrukturen.',
+    ],
+    decisions: [
+      'Bruk den aggregerte responstidsserien og splitting per ressurs som hovedforklaring på det bestemte utgående kallet i denne forespørselen.',
+      'Undersøk transaksjonen og avhengigheten i Application Insights, og sammenhold detaljer før en årsak foreslås.',
+      'Analyser de tilgjengelige korrelerte workspace-tabellene med Log Analytics og etterprøv sammenhengen i det konkrete sporet.',
+    ],
+    reasons: [
+      'Korrelerte request-, dependency- og exception-data kan støtte en avgrenset undersøkelse gjennom begge godkjente visninger uten å bevise rotårsak.',
+      'En responstidsserie med riktig dimensjon kan synliggjøre perioder med økt varighet og gjøre videre ytelsesundersøkelser mer målrettede.',
+      'En tilgjengelighetsprøve kan kontrollere et endepunkts svar fra sin testkontekst og supplere andre observasjoner ved oppfølging av appen.',
+    ],
+    feedback: [
+      [
+        'Tidsserien kan avgrense symptomet og perioden, men gir ikke den samme detaljen som de tilgjengelige korrelerte registreringene.',
+        'Riktig: den instrumenterte transaksjonsvisningen gir relevant detalj. Skill observasjon fra bekreftet årsak.',
+        'Riktig: når data og tilgang er eksplisitt tilgjengelige, er korrelert logganalyse en annen gyldig inngang.',
+      ],
+      [
+        'Riktig: ID-er og relasjoner gir et undersøkelsesgrunnlag; flere årsaker og manglende signaler kan fortsatt gjenstå.',
+        'Dette er relevant for symptom og periode, men forklarer ikke hele den konkrete request-/dependency-/exception-undersøkelsen.',
+        'Tilgjengelighetstesting kan supplere, men forklarer ikke hvorfor et tilgjengelig korrelert transaksjonsspor bør undersøkes her.',
+      ],
+    ],
+    explain:
+      'Hvis bare den ene inngangen hadde data eller tilgang, ville ikke begge planer vært like tilgjengelige. Uten instrumentering eller korrelasjon kunne et manglende spor heller ikke tolkes som ingen feil.',
+  },
+  md07: {
+    title: 'To statuser etter en ny kontroll',
+    problem:
+      'En stateful metric-alarm har monitor condition Fired. Den siste av flere kontroller ligger under terskelen, men bare én påfølgende kontroll uten oppfylt betingelse er bekreftet. En operatør setter User response til Closed. Hvordan skal opplysningene holdes fra hverandre?',
+    premises: [
+      'Dette er en syntetisk ordinær stateful metric-alert med automatisk oppløsning etter de dokumenterte relevante kontrollene.',
+      'Ingen faktisk utbedring eller fullført oppløsningssekvens er dokumentert.',
+    ],
+    decisions: [
+      'Bruk den ene kontrollen under terskelen til å behandle monitor condition som Resolved, og bruk Closed som bekreftelse på denne oppløsningen.',
+      'Behold Closed som operatørens oppfølgingsstatus; kontroller videre evalueringer før monitor condition behandles som Resolved.',
+      'Sett User response tilbake til New for å starte metric-evalueringen på nytt, og bruk denne manuelle statusendringen som oppløsningsmekanisme.',
+    ],
+    reasons: [
+      'En metric-betingelse bruker valgt signal, aggregasjon og evalueringsvindu; én evaluering kan vise at den aktuelle betingelsen ikke er møtt.',
+      'User response og monitor condition er separate; den oppgitte stateful metric-mekanismen krever tre påfølgende kontroller uten oppfylt betingelse.',
+      'Action groups kan konfigurere mottakere og handlinger, slik at en alarm kan inngå i en organisert varslings- og oppfølgingsprosess.',
+    ],
+    feedback: [
+      [
+        'Én kontroll uten betingelse oppfyller ikke denne stateful oppløsningsmekanismen. Closed er separat User response.',
+        'Riktig: operatørens status og den evaluerte monitor condition har ulike mekanismer og kan ikke slås sammen.',
+        'Å endre User response starter ikke metric-evalueringen på nytt eller oppfyller stateful oppløsningskrav.',
+      ],
+      [
+        'Dette beskriver én betingelsesvurdering, men ikke hvordan den stateful alarmen blir Resolved eller forholdet til Closed.',
+        'Riktig: les begge statusakser og de faktiske kontrollene. Dette er heller ikke bevis på utført reparasjon.',
+        'Dette er riktig om oppfølgingsveien, men forklarer ikke forholdet mellom monitor condition og User response.',
+      ],
+    ],
+    explain:
+      'Tre relevante påfølgende kontroller uten oppfylt betingelse kunne gi Resolved for denne oppgitte stateful metric-typen. Stateless og log search alerts har andre mekanismer. En notification eller Closed-status er ikke i seg selv bevis for feilretting.',
+  },
+  md08: {
+    title: 'Et lagret søk er ikke løpende oppfølging',
+    problem:
+      'Et team har kjørt et nyttig workspace-søk som finner et bestemt feilmønster. Det ønsker gjentatt oppdagelse og varsling. Teamet har ikke opprettet en alert rule, og en ny app er heller ikke instrumentert. Hvilken videreføring er forsvarlig? Det skal evalueres automatisk gjennom døgnet, også utenfor vaktskiftets manuelle gjennomgang, med konfigurert varsling når betingelsen er oppfylt.',
+    premises: [
+      'Det eksisterende søket virker på data som faktisk er samlet inn. Den nye appens forespørselsdata er ikke dokumentert tilgjengelige.',
+      'Ingen varsling eller automatisk feilretting er bekreftet gjennomført.',
+    ],
+    decisions: [
+      'Kjør den lagrede queryen manuelt ved vaktskifte, og bruk resultatlisten som den planlagte gjentatte varslingen teamet etterspør.',
+      'Avklar datakildene og appscopet, og konfigurer en log search alert rule med passende evaluering og action group for det konkrete feilmønsteret.',
+      'Konfigurer en CPU-metric-alarm for samme miljø som erstatning for det definerte loggmønsteret, og la eksisterende appdekning være uendret.',
+    ],
+    reasons: [
+      'Loggmønsteret krever en relevant kilde og konfigurert query-basert evaluering; innsamling, analyse, regel og varslingsvei er egne ledd.',
+      'Metrics kan evalueres mot terskler og brukes til å oppdage endringer i ressursbruk når målingen og betingelsen passer driftsbehovet.',
+      'Log Analytics kan kjøre og lagre nyttige spørringer som operatører gjenbruker ved manuell analyse av innsamlede hendelser.',
+    ],
+    feedback: [
+      [
+        'Manuell analyse kan være nyttig, men er ikke den konfigurerte regel-/varslingsmekanismen som etterspørres.',
+        'Riktig: velg en regel og en datadekning som faktisk passer målet om gjentatt oppdagelse av dette loggmønsteret.',
+        'CPU-terskel er et annet signal. Den etablerer verken det valgte loggmønsteret eller nødvendig ny appinstrumentering.',
+      ],
+      [
+        'Riktig: en fungerende query er et analysegrunnlag; de øvrige leddene må konfigureres og etterprøves.',
+        'Dette er sant om metrics, men begrunner ikke å erstatte det konkrete loggmønsteret eller anta ny appdekning.',
+        'Dette er sant om manuell analyse, men forklarer ikke full kjede for konfigurert gjentatt oppdagelse og varsling.',
+      ],
+    ],
+    explain:
+      'Hvis en relevant aktiv regel, innsamling og action group allerede var dokumentert, kunne teamet undersøkt evaluering og levering. Ved endret app/scope må dekningen verifiseres på nytt.',
+  },
+} as const;

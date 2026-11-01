@@ -1,4 +1,11 @@
 import {
+  freshMonitoring,
+  applyMonitoring,
+  monitoringKey,
+  restoreMonitoring,
+  monitoringFacts,
+} from '../../src/domain/curriculum/monitoring';
+import {
   freshTools,
   applyTools,
   toolsKey,
@@ -120,6 +127,12 @@ function fixture<S>(
 /** Valid records from frozen reducers, never new runtime curriculum. */
 export function activeTeachingContexts() {
   return [
+    fixture(
+      monitoringKey,
+      applyMonitoring(freshMonitoring(), { kind: 'begin', item: 'md01' }),
+      restoreMonitoring,
+      monitoringFacts,
+    ),
     fixture(
       toolsKey,
       applyTools(freshTools(), { kind: 'begin', item: 'mt01' }),

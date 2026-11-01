@@ -1,5 +1,9 @@
 # Architecture
 
+## P14 synthetic monitoring boundary
+
+`monitoring-model.ts` uses closed deterministic inputs and fixed independent fixtures; Portal inventory/ledger are read-only configuration context, never metric/log/trace sources. New isolated monitoring key, provider and existing shared assistance boundaries preserve old evidence. No ingestion/query engine, real alerts or runtime-health inference. See [MONITORING_DIAGNOSTICS](MONITORING_DIAGNOSTICS.md).
+
 ## P13 management and deployment
 
 ToolsProvider inside SandboxProvider owns only azurelab.learning.management-tools.v1. Pure typed models evaluate selected tool/environment prerequisites, fictional App Service declaration changes and resource-specific Arc representation. ToolsNativeEvidence replays original pinned Sandbox history and requires new RG/Plan/App receipts plus explicit resource/dependency inspections. It stores pointers, not copied inventory. Navigation-only tools=intent preserves exact return; the operative Portal model and old World/receipts stay unchanged. Shared teaching/Journal/Summary/history/mission/Portal guards include all21 contexts. [Contract](MANAGEMENT_DEPLOYMENT_TOOLS.md).
