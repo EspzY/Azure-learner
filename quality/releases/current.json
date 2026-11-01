@@ -1,1221 +1,1064 @@
 {
   "schema": 1,
-  "id": "PR38-P13-management-deployment",
-  "baseCommit": "1738490d13af4c3f6deb771d4154154aa217a8fd",
-  "author": "codex-management-tools-author",
+  "id": "PR39-P14-monitoring-diagnostics",
+  "baseCommit": "4510d2c7885c35463ddbee71cd7e53bd0c88b5a1",
+  "author": "codex-monitoring-author",
   "scope": {
     "kind": "new-module",
-    "description": "P13 original Portal, hosted shells, CLI/PowerShell, ARM, IaC/Bicep/dependencies/What-if and Arc teaching; Copilot supplement. Three pure perspectives/causal guides, original post-start Portal RG/Plan/App receipts and dependency inspection, ten paired independent contexts, isolated versioned history. Only3.3.01–05. No actual command/compiler/deployment/Arc runtime, new World engine or XP, merge/production.",
+    "description": "P14 original Advisor/Health/Monitor teaching, three pure synthetic perspectives and causal guides, eight original paired cases, isolated learning history and read-only actual Portal context. Only3.4.01–03. No real collection/query/alert/notification/APM/feed/API or conceptual World mutation/XP; no merge/production.",
     "objectives": [
-      "az900.management.portal",
-      "az900.management.shell-tools",
-      "az900.management.arc",
-      "az900.management.iac",
-      "az900.management.arm-templates"
+      "az900.monitoring.advisor",
+      "az900.monitoring.service-health",
+      "az900.monitoring.monitor"
     ]
   },
   "sources": [
     {
-      "id": "MT01",
+      "id": "MO01",
       "url": "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900",
       "title": "Study guide for Exam AZ-900: Microsoft Azure Fundamentals | Microsoft Learn",
       "reviewed": "2026-11-01",
-      "version": "Rolling official page; updated 2026-06-22T23:35:00.0000000Z; SHA256 177b736af1bae8702d9e04ef68bac8c1f2985838652bb40818a5ac25ed320716",
+      "version": "Rolling public page; 2026-06-22T23:35:00.0000000Z; SHA256 177b736af1bae8702d9e04ef68bac8c1f2985838652bb40818a5ac25ed320716",
       "kind": "official-public-documentation",
       "objectives": [
-        "az900.management.portal",
-        "az900.management.shell-tools",
-        "az900.management.arc",
-        "az900.management.iac",
-        "az900.management.arm-templates"
+        "az900.monitoring.advisor",
+        "az900.monitoring.service-health",
+        "az900.monitoring.monitor"
       ],
-      "claims": ["tools.MT01"],
-      "limits": "Actual public source body read to scoped claims; no protected assessment/sign-in/deployment or video execution. MT18 qualifies persistent Cloud Shell shorthand; MT19 distinguishes tools/shells; MT39 separates existing local Flux from new Azure configuration; MT40 qualifies management versus data plane. Examples are not executed.",
+      "claims": ["monitoring.MO01"],
+      "limits": "Scoped public text actually reviewed; protected assessment not opened, no runtime executed. MO19 unavailable replaced by MO35. MO26 selected classic correlation paragraphs only, current MO36 alternative. MO27 duplicates MO13, not independent corroboration. Alert stateful/state and NULL/provider behavior qualified separately.",
       "availability": "AVAILABLE",
       "discovery": [
         {
           "url": "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900",
-          "disposition": "reviewed",
-          "reason": "Current study guide: only3.3.01–05; Bicep/Copilot context does not add exam rows."
+          "disposition": "reviewed-applied",
+          "reason": "Current AZ-900 guide: only3.4.01–03; all named Monitor facets required."
         }
       ]
     },
     {
-      "id": "MT02",
-      "url": "https://learn.microsoft.com/en-us/training/modules/describe-features-tools-manage-deploy-azure-resources/",
-      "title": "Describe features and tools for managing and deploying Azure resources - Training | Microsoft Learn",
+      "id": "MO02",
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-monitoring-tools-azure/",
+      "title": "Describe monitoring tools in Azure - Training | Microsoft Learn",
       "reviewed": "2026-11-01",
-      "version": "Rolling official page; updated 2026-10-28T17:12:00.0000000Z; SHA256 4fab135e181b1156098f0ae4528b6983112e2345f637e75a531f4063beed788d",
+      "version": "Rolling public page; 2026-10-28T17:12:00.0000000Z; SHA256 c355d9406349a9743a592216b32c9f80c4ac89a1b8f776ec2e7ca6f86edd54f5",
       "kind": "official-public-documentation",
       "objectives": [
-        "az900.management.portal",
-        "az900.management.shell-tools",
-        "az900.management.arc",
-        "az900.management.iac",
-        "az900.management.arm-templates"
+        "az900.monitoring.advisor",
+        "az900.monitoring.service-health",
+        "az900.monitoring.monitor"
       ],
-      "claims": ["tools.MT02"],
-      "limits": "Actual public source body read to scoped claims; no protected assessment/sign-in/deployment or video execution. MT18 qualifies persistent Cloud Shell shorthand; MT19 distinguishes tools/shells; MT39 separates existing local Flux from new Azure configuration; MT40 qualifies management versus data plane. Examples are not executed.",
+      "claims": ["monitoring.MO02"],
+      "limits": "Scoped public text actually reviewed; protected assessment not opened, no runtime executed. MO19 unavailable replaced by MO35. MO26 selected classic correlation paragraphs only, current MO36 alternative. MO27 duplicates MO13, not independent corroboration. Alert stateful/state and NULL/provider behavior qualified separately.",
       "availability": "AVAILABLE",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/training/modules/describe-features-tools-manage-deploy-azure-resources/",
-          "disposition": "reviewed",
-          "reason": "Current six-unit official module; all five public introduction/teaching/summary pages scoped, assessment not opened."
+          "url": "https://learn.microsoft.com/en-us/training/modules/describe-monitoring-tools-azure/",
+          "disposition": "reviewed-applied",
+          "reason": "Six-unit Learn module; five public intro/teaching/summary units reviewed, protected assessment not opened."
         }
       ]
     },
     {
-      "id": "MT03",
-      "url": "https://learn.microsoft.com/en-us/azure/azure-portal/azure-portal-overview",
-      "title": "What is the Azure portal? - Azure portal | Microsoft Learn",
+      "id": "MO03",
+      "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-overview",
+      "title": "Introduction to Azure Advisor - Azure Advisor | Microsoft Learn",
       "reviewed": "2026-11-01",
-      "version": "Rolling official page; updated 2026-04-07T06:02:00.0000000Z; SHA256 50482578f6a1c53b0f09e1c9e00111e785c2a5cf8b3793ae878f74a377e6c8af",
+      "version": "Rolling public page; 2026-05-18T22:10:00.0000000Z; SHA256 f901b121f9a1272ae08e2bf5fc8d8c6bf68d5b6b1771d5163bffe2e0285e2bc1",
       "kind": "official-public-documentation",
       "objectives": [
-        "az900.management.portal",
-        "az900.management.shell-tools",
-        "az900.management.arc",
-        "az900.management.iac",
-        "az900.management.arm-templates"
+        "az900.monitoring.advisor",
+        "az900.monitoring.service-health",
+        "az900.monitoring.monitor"
       ],
-      "claims": ["tools.MT03"],
-      "limits": "Actual public source body read to scoped claims; no protected assessment/sign-in/deployment or video execution. MT18 qualifies persistent Cloud Shell shorthand; MT19 distinguishes tools/shells; MT39 separates existing local Flux from new Azure configuration; MT40 qualifies management versus data plane. Examples are not executed.",
+      "claims": ["monitoring.MO03"],
+      "limits": "Scoped public text actually reviewed; protected assessment not opened, no runtime executed. MO19 unavailable replaced by MO35. MO26 selected classic correlation paragraphs only, current MO36 alternative. MO27 duplicates MO13, not independent corroboration. Alert stateful/state and NULL/provider behavior qualified separately.",
       "availability": "AVAILABLE",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/azure-portal/azure-portal-overview",
-          "disposition": "reviewed",
-          "reason": "Portal global/contextual controls, filters, resource navigation and dashboards; GUI is not an executed outcome."
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-overview",
+          "disposition": "reviewed-applied",
+          "reason": "Advisor uses configuration and usage telemetry for five recommendation categories; proposed changes require review, not incident proof."
         }
       ]
     },
     {
-      "id": "MT04",
-      "url": "https://learn.microsoft.com/en-us/azure/cloud-shell/overview",
-      "title": "What is Azure Cloud Shell? - Azure Cloud Shell | Microsoft Learn",
+      "id": "MO04",
+      "url": "https://learn.microsoft.com/en-us/azure/service-health/overview",
+      "title": "What is Azure Service Health? - Azure Service Health | Microsoft Learn",
       "reviewed": "2026-11-01",
-      "version": "Rolling official page; updated 2026-08-08T05:14:00.0000000Z; SHA256 7e5a7bfe76f5bb41e66bbf483dd6d8aa7dcbf387b959d2413acbe317afdd9f0b",
+      "version": "Rolling public page; 2025-10-31T22:10:00.0000000Z; SHA256 90922449784598ef984f5ddd1a6566951570ae4a46487207c50d4968f7688325",
       "kind": "official-public-documentation",
       "objectives": [
-        "az900.management.portal",
-        "az900.management.shell-tools",
-        "az900.management.arc",
-        "az900.management.iac",
-        "az900.management.arm-templates"
+        "az900.monitoring.advisor",
+        "az900.monitoring.service-health",
+        "az900.monitoring.monitor"
       ],
-      "claims": ["tools.MT04"],
-      "limits": "Actual public source body read to scoped claims; no protected assessment/sign-in/deployment or video execution. MT18 qualifies persistent Cloud Shell shorthand; MT19 distinguishes tools/shells; MT39 separates existing local Flux from new Azure configuration; MT40 qualifies management versus data plane. Examples are not executed.",
+      "claims": ["monitoring.MO04"],
+      "limits": "Scoped public text actually reviewed; protected assessment not opened, no runtime executed. MO19 unavailable replaced by MO35. MO26 selected classic correlation paragraphs only, current MO36 alternative. MO27 duplicates MO13, not independent corroboration. Alert stateful/state and NULL/provider behavior qualified separately.",
       "availability": "AVAILABLE",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/cloud-shell/overview",
-          "disposition": "reviewed",
-          "reason": "Hosted authenticated Cloud Shell environment; persistent-storage statements qualified by MT18 ephemeral guidance."
+          "url": "https://learn.microsoft.com/en-us/azure/service-health/overview",
+          "disposition": "reviewed-applied",
+          "reason": "Service Health combines public Status, personalized Service Health and individual Resource Health perspectives."
         }
       ]
     },
     {
-      "id": "MT05",
-      "url": "https://learn.microsoft.com/en-us/cli/azure/what-is-azure-cli",
-      "title": "What is the Azure CLI? | Microsoft Learn",
+      "id": "MO05",
+      "url": "https://learn.microsoft.com/en-us/azure/service-health/azure-status-overview",
+      "title": "Azure Status Overview - Azure Service Health | Microsoft Learn",
       "reviewed": "2026-11-01",
-      "version": "Rolling official page; updated 2025-08-28T22:06:00.0000000Z; SHA256 c671d9d96196d16fd6118dc75d0132252845ca6bb933731641055a5ac20f2bed",
+      "version": "Rolling public page; 2026-06-02T22:21:00.0000000Z; SHA256 448016079a47de3cfaf44ce0a8b914c7f4dce659b9215b801ed7917ada1b263f",
       "kind": "official-public-documentation",
       "objectives": [
-        "az900.management.portal",
-        "az900.management.shell-tools",
-        "az900.management.arc",
-        "az900.management.iac",
-        "az900.management.arm-templates"
+        "az900.monitoring.advisor",
+        "az900.monitoring.service-health",
+        "az900.monitoring.monitor"
       ],
-      "claims": ["tools.MT05"],
-      "limits": "Actual public source body read to scoped claims; no protected assessment/sign-in/deployment or video execution. MT18 qualifies persistent Cloud Shell shorthand; MT19 distinguishes tools/shells; MT39 separates existing local Flux from new Azure configuration; MT40 qualifies management versus data plane. Examples are not executed.",
+      "claims": ["monitoring.MO05"],
+      "limits": "Scoped public text actually reviewed; protected assessment not opened, no runtime executed. MO19 unavailable replaced by MO35. MO26 selected classic correlation paragraphs only, current MO36 alternative. MO27 duplicates MO13, not independent corroboration. Alert stateful/state and NULL/provider behavior qualified separately.",
       "availability": "AVAILABLE",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/cli/azure/what-is-azure-cli",
-          "disposition": "reviewed",
-          "reason": "CLI is cross-platform tool, az syntax and JSON output; not Bash itself, no guaranteed universal feature parity."
+          "url": "https://learn.microsoft.com/en-us/azure/service-health/azure-status-overview",
+          "disposition": "reviewed-applied",
+          "reason": "Public Status publishes selected widespread/access-path/uncertain-broad incidents; public history is not every subscription incident."
         }
       ]
     },
     {
-      "id": "MT06",
-      "url": "https://learn.microsoft.com/en-us/powershell/azure/what-is-azure-powershell",
-      "title": "What is Azure PowerShell | Microsoft Learn",
+      "id": "MO06",
+      "url": "https://learn.microsoft.com/en-us/azure/service-health/resource-health-overview",
+      "title": "Azure Resource Health overview - Azure Service Health | Microsoft Learn",
       "reviewed": "2026-11-01",
-      "version": "Rolling official page; updated 2026-10-06T17:01:00.0000000Z; SHA256 383c84f7ef1c1116351d89cde9e5774e757d6ba40922ce84b675d734f8ef08b7",
+      "version": "Rolling public page; 2026-09-22T06:04:00.0000000Z; SHA256 0aaa426ec80441e63d323c90cfedffe1d0fddca264608af081ab53cdaf703376",
       "kind": "official-public-documentation",
       "objectives": [
-        "az900.management.portal",
-        "az900.management.shell-tools",
-        "az900.management.arc",
-        "az900.management.iac",
-        "az900.management.arm-templates"
+        "az900.monitoring.advisor",
+        "az900.monitoring.service-health",
+        "az900.monitoring.monitor"
       ],
-      "claims": ["tools.MT06"],
-      "limits": "Actual public source body read to scoped claims; no protected assessment/sign-in/deployment or video execution. MT18 qualifies persistent Cloud Shell shorthand; MT19 distinguishes tools/shells; MT39 separates existing local Flux from new Azure configuration; MT40 qualifies management versus data plane. Examples are not executed.",
+      "claims": ["monitoring.MO06"],
+      "limits": "Scoped public text actually reviewed; protected assessment not opened, no runtime executed. MO19 unavailable replaced by MO35. MO26 selected classic correlation paragraphs only, current MO36 alternative. MO27 duplicates MO13, not independent corroboration. Alert stateful/state and NULL/provider behavior qualified separately.",
       "availability": "AVAILABLE",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/powershell/azure/what-is-azure-powershell",
-          "disposition": "reviewed",
-          "reason": "Azure PowerShell is current Az module family in PowerShell; object output, local/Cloud Shell and control/data planes."
+          "url": "https://learn.microsoft.com/en-us/azure/service-health/resource-health-overview",
+          "disposition": "reviewed-applied",
+          "reason": "Available/Unavailable/Degraded/Unknown and supported-resource/access qualifications; resource availability is not complete application correctness."
         }
       ]
     },
     {
-      "id": "MT07",
-      "url": "https://learn.microsoft.com/en-us/azure/azure-arc/overview",
-      "title": "Azure Arc overview - Azure Arc | Microsoft Learn",
+      "id": "MO07",
+      "url": "https://learn.microsoft.com/en-us/azure/azure-monitor/overview",
+      "title": "Azure Monitor overview - Azure Monitor | Microsoft Learn",
       "reviewed": "2026-11-01",
-      "version": "Rolling official page; updated 2026-08-01T06:03:00.0000000Z; SHA256 6a6b46c35f3a43e4846717d63b7bcc20eaf9264be8ddd5cba76f47c6212325bb",
+      "version": "Rolling public page; 2026-10-09T22:14:00.0000000Z; SHA256 07e0f1cfa600de08982f9f1880416362d42061d82ae82879a41489def55f0f99",
       "kind": "official-public-documentation",
       "objectives": [
-        "az900.management.portal",
-        "az900.management.shell-tools",
-        "az900.management.arc",
-        "az900.management.iac",
-        "az900.management.arm-templates"
+        "az900.monitoring.advisor",
+        "az900.monitoring.service-health",
+        "az900.monitoring.monitor"
       ],
-      "claims": ["tools.MT07"],
-      "limits": "Actual public source body read to scoped claims; no protected assessment/sign-in/deployment or video execution. MT18 qualifies persistent Cloud Shell shorthand; MT19 distinguishes tools/shells; MT39 separates existing local Flux from new Azure configuration; MT40 qualifies management versus data plane. Examples are not executed.",
+      "claims": ["monitoring.MO07"],
+      "limits": "Scoped public text actually reviewed; protected assessment not opened, no runtime executed. MO19 unavailable replaced by MO35. MO26 selected classic correlation paragraphs only, current MO36 alternative. MO27 duplicates MO13, not independent corroboration. Alert stateful/state and NULL/provider behavior qualified separately.",
       "availability": "AVAILABLE",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/azure-arc/overview",
-          "disposition": "reviewed",
-          "reason": "Arc projects supported external resources into ARM; products differ, indirectly connected data mode retired; no automatic migration."
+          "url": "https://learn.microsoft.com/en-us/azure/azure-monitor/fundamentals/overview",
+          "disposition": "reviewed-applied",
+          "reason": "Collect/analyze/respond across metrics/logs/traces/events; distinct Log Analytics versus Azure Monitor workspaces; agentic extensions outside P14 scope."
         }
       ]
     },
     {
-      "id": "MT08",
-      "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/overview",
-      "title": "What is Azure Resource Manager? - Azure Resource Manager | Microsoft Learn",
+      "id": "MO08",
+      "url": "https://learn.microsoft.com/en-us/azure/azure-monitor/fundamentals/getting-started",
+      "title": "Monitor Azure resources with Azure Monitor - Azure Monitor | Microsoft Learn",
       "reviewed": "2026-11-01",
-      "version": "Rolling official page; updated 2026-08-06T22:11:00.0000000Z; SHA256 f80b13b5d1fae98e61dbc39f54fec5a558d5c9a3be9b189fb23c49c74af1de6c",
+      "version": "Rolling public page; 2026-09-22T06:04:00.0000000Z; SHA256 c364bdfeb8d989ec45af56f83fd9681d9355c195a822268639cdb91b9afd8303",
       "kind": "official-public-documentation",
       "objectives": [
-        "az900.management.portal",
-        "az900.management.shell-tools",
-        "az900.management.arc",
-        "az900.management.iac",
-        "az900.management.arm-templates"
+        "az900.monitoring.advisor",
+        "az900.monitoring.service-health",
+        "az900.monitoring.monitor"
       ],
-      "claims": ["tools.MT08"],
-      "limits": "Actual public source body read to scoped claims; no protected assessment/sign-in/deployment or video execution. MT18 qualifies persistent Cloud Shell shorthand; MT19 distinguishes tools/shells; MT39 separates existing local Flux from new Azure configuration; MT40 qualifies management versus data plane. Examples are not executed.",
+      "claims": ["monitoring.MO08"],
+      "limits": "Scoped public text actually reviewed; protected assessment not opened, no runtime executed. MO19 unavailable replaced by MO35. MO26 selected classic correlation paragraphs only, current MO36 alternative. MO27 duplicates MO13, not independent corroboration. Alert stateful/state and NULL/provider behavior qualified separately.",
       "availability": "AVAILABLE",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/overview",
-          "disposition": "reviewed",
-          "reason": "ARM routes relevant management requests/providers, identity/authorization and four template scopes; not all data-plane traffic."
+          "url": "https://learn.microsoft.com/en-us/azure/azure-monitor/fundamentals/monitor-azure-resource",
+          "disposition": "reviewed-applied",
+          "reason": "Resource monitoring overview: platform metrics and Activity Log available by default, resource monitoring options/service support vary."
         }
       ]
     },
     {
-      "id": "MT09",
-      "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/overview",
-      "title": "Templates overview - Azure Resource Manager | Microsoft Learn",
+      "id": "MO09",
+      "url": "https://learn.microsoft.com/en-us/azure/azure-monitor/fundamentals/activity-log",
+      "title": "Activity Log in Azure Monitor - Azure Monitor | Microsoft Learn",
       "reviewed": "2026-11-01",
-      "version": "Rolling official page; updated 2026-06-26T22:12:00.0000000Z; SHA256 47d3e1cc4949d7a52310a1eebed7dd2028f460345fb0332de1da1180a5012c8d",
+      "version": "Rolling public page; 2026-10-27T06:04:00.0000000Z; SHA256 58e340a43522daa5f63e6151528ddad0e74e284086628960ef95953b3a9a2598",
       "kind": "official-public-documentation",
       "objectives": [
-        "az900.management.portal",
-        "az900.management.shell-tools",
-        "az900.management.arc",
-        "az900.management.iac",
-        "az900.management.arm-templates"
+        "az900.monitoring.advisor",
+        "az900.monitoring.service-health",
+        "az900.monitoring.monitor"
       ],
-      "claims": ["tools.MT09"],
-      "limits": "Actual public source body read to scoped claims; no protected assessment/sign-in/deployment or video execution. MT18 qualifies persistent Cloud Shell shorthand; MT19 distinguishes tools/shells; MT39 separates existing local Flux from new Azure configuration; MT40 qualifies management versus data plane. Examples are not executed.",
+      "claims": ["monitoring.MO09"],
+      "limits": "Scoped public text actually reviewed; protected assessment not opened, no runtime executed. MO19 unavailable replaced by MO35. MO26 selected classic correlation paragraphs only, current MO36 alternative. MO27 duplicates MO13, not independent corroboration. Alert stateful/state and NULL/provider behavior qualified separately.",
       "availability": "AVAILABLE",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/overview",
-          "disposition": "reviewed",
-          "reason": "Declarative ARM JSON, parameters/variables/resources/outputs, deployment orchestration, repeatability and inspected results."
+          "url": "https://learn.microsoft.com/en-us/azure/azure-monitor/fundamentals/activity-log",
+          "disposition": "reviewed-applied",
+          "reason": "Activity Log control-plane events collected by default,90-day native retention; exported/queryable workspace data requires routing; ingestion is not instantaneous."
         }
       ]
     },
     {
-      "id": "MT10",
-      "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/overview",
-      "title": "What is Bicep? - Azure Resource Manager | Microsoft Learn",
+      "id": "MO10",
+      "url": "https://learn.microsoft.com/en-us/azure/azure-monitor/logs/log-analytics-overview",
+      "title": "Overview of Log Analytics in Azure Monitor - Azure Monitor | Microsoft Learn",
       "reviewed": "2026-11-01",
-      "version": "Rolling official page; updated 2026-01-08T18:12:00.0000000Z; SHA256 2cc6f53f19a84c7d14ef0a19158e264387ffcf344816287624bc796415f51431",
+      "version": "Rolling public page; 2026-07-20T12:04:00.0000000Z; SHA256 e7b706b1cca1cb61d259e566b2db661b5d00c41e92c8bbeb1160cb372b17212f",
       "kind": "official-public-documentation",
       "objectives": [
-        "az900.management.portal",
-        "az900.management.shell-tools",
-        "az900.management.arc",
-        "az900.management.iac",
-        "az900.management.arm-templates"
+        "az900.monitoring.advisor",
+        "az900.monitoring.service-health",
+        "az900.monitoring.monitor"
       ],
-      "claims": ["tools.MT10"],
-      "limits": "Actual public source body read to scoped claims; no protected assessment/sign-in/deployment or video execution. MT18 qualifies persistent Cloud Shell shorthand; MT19 distinguishes tools/shells; MT39 separates existing local Flux from new Azure configuration; MT40 qualifies management versus data plane. Examples are not executed.",
+      "claims": ["monitoring.MO10"],
+      "limits": "Scoped public text actually reviewed; protected assessment not opened, no runtime executed. MO19 unavailable replaced by MO35. MO26 selected classic correlation paragraphs only, current MO36 alternative. MO27 duplicates MO13, not independent corroboration. Alert stateful/state and NULL/provider behavior qualified separately.",
       "availability": "AVAILABLE",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/overview",
-          "disposition": "reviewed",
-          "reason": "Declarative Bicep symbolic authoring uses ARM, implicit reference dependencies; not alternate authority or runtime proof."
+          "url": "https://learn.microsoft.com/en-us/azure/azure-monitor/logs/log-analytics-overview",
+          "disposition": "reviewed-applied",
+          "reason": "Log Analytics interface supports simple/KQL query modes; query scope/time/access determine available records, not automatic alert configuration."
         }
       ]
     },
     {
-      "id": "MT11",
-      "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/deploy-what-if",
-      "title": "Template deployment what-if - Azure Resource Manager | Microsoft Learn",
+      "id": "MO11",
+      "url": "https://learn.microsoft.com/en-us/azure/azure-monitor/logs/log-query-overview",
+      "title": "Log queries in Azure Monitor - Azure Monitor | Microsoft Learn",
       "reviewed": "2026-11-01",
-      "version": "Rolling official page; updated 2026-06-26T22:12:00.0000000Z; SHA256 b94efdf6b6361b8084fd77653e6aa549f8fcda9ac9adec935c64a78f5d3173cd",
+      "version": "Rolling public page; 2026-04-29T22:07:00.0000000Z; SHA256 dbcd9ca79cb2655f55f05b4dfa645bb272eabc6457fdbf222aa13b3013d9a4a3",
       "kind": "official-public-documentation",
       "objectives": [
-        "az900.management.portal",
-        "az900.management.shell-tools",
-        "az900.management.arc",
-        "az900.management.iac",
-        "az900.management.arm-templates"
+        "az900.monitoring.advisor",
+        "az900.monitoring.service-health",
+        "az900.monitoring.monitor"
       ],
-      "claims": ["tools.MT11"],
-      "limits": "Actual public source body read to scoped claims; no protected assessment/sign-in/deployment or video execution. MT18 qualifies persistent Cloud Shell shorthand; MT19 distinguishes tools/shells; MT39 separates existing local Flux from new Azure configuration; MT40 qualifies management versus data plane. Examples are not executed.",
+      "claims": ["monitoring.MO11"],
+      "limits": "Scoped public text actually reviewed; protected assessment not opened, no runtime executed. MO19 unavailable replaced by MO35. MO26 selected classic correlation paragraphs only, current MO36 alternative. MO27 duplicates MO13, not independent corroboration. Alert stateful/state and NULL/provider behavior qualified separately.",
       "availability": "AVAILABLE",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/deploy-what-if",
-          "disposition": "reviewed",
-          "reason": "Actual What-if is non-mutating but requires deployment/write rights, has unresolved reference/expansion/change-type limits."
+          "url": "https://learn.microsoft.com/en-us/azure/azure-monitor/logs/log-query-overview",
+          "disposition": "reviewed-applied",
+          "reason": "KQL queries analyze stored data; scheduled log search alert rules are separate consumers/configurations."
         }
       ]
     },
     {
-      "id": "MT12",
-      "url": "https://learn.microsoft.com/en-us/training/modules/describe-features-tools-manage-deploy-azure-resources/1-introduction",
+      "id": "MO12",
+      "url": "https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-overview",
+      "title": "Overview of Azure Monitor alerts - Azure Monitor | Microsoft Learn",
+      "reviewed": "2026-11-01",
+      "version": "Rolling public page; 2026-07-08T22:11:00.0000000Z; SHA256 7d9e53434ea413b12ef61b7a9a30c30ef1727af9feca4b3e30d42ed3802fd644",
+      "kind": "official-public-documentation",
+      "objectives": [
+        "az900.monitoring.advisor",
+        "az900.monitoring.service-health",
+        "az900.monitoring.monitor"
+      ],
+      "claims": ["monitoring.MO12"],
+      "limits": "Scoped public text actually reviewed; protected assessment not opened, no runtime executed. MO19 unavailable replaced by MO35. MO26 selected classic correlation paragraphs only, current MO36 alternative. MO27 duplicates MO13, not independent corroboration. Alert stateful/state and NULL/provider behavior qualified separately.",
+      "availability": "AVAILABLE",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-overview",
+          "disposition": "reviewed-applied",
+          "reason": "Rule resource/signal/condition, action groups, Fired/Resolved monitor condition versus New/Acknowledged/Closed user response; stateful/stateless differ."
+        }
+      ]
+    },
+    {
+      "id": "MO13",
+      "url": "https://learn.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview",
+      "title": "Application Insights OpenTelemetry observability overview - Azure Monitor | Microsoft Learn",
+      "reviewed": "2026-11-01",
+      "version": "Rolling public page; 2026-10-09T22:14:00.0000000Z; SHA256 395637b202f9216948b5adbe1d5c95d3620ca8dc81f8ae93429921ba4774af63",
+      "kind": "official-public-documentation",
+      "objectives": [
+        "az900.monitoring.advisor",
+        "az900.monitoring.service-health",
+        "az900.monitoring.monitor"
+      ],
+      "claims": ["monitoring.MO13"],
+      "limits": "Scoped public text actually reviewed; protected assessment not opened, no runtime executed. MO19 unavailable replaced by MO35. MO26 selected classic correlation paragraphs only, current MO36 alternative. MO27 duplicates MO13, not independent corroboration. Alert stateful/state and NULL/provider behavior qualified separately.",
+      "availability": "AVAILABLE",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview",
+          "disposition": "reviewed-applied",
+          "reason": "Current APM Application Insights and supported OTel instrumentation paths; browser JavaScript SDK differs, data collection is not universal automatic onboarding."
+        }
+      ]
+    },
+    {
+      "id": "MO14",
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-monitoring-tools-azure/1-introduction",
       "title": "Introduction - Training | Microsoft Learn",
       "reviewed": "2026-11-01",
-      "version": "Rolling official page; updated 2026-03-24T17:11:00.0000000Z; SHA256 d25e8888e75a3b4fa7a5afc3792d3f617f8916be10ae7656a9225d501177c370",
+      "version": "Rolling public page; 2026-03-24T17:11:00.0000000Z; SHA256 211b6cd661ff60c7e8bd5ea2c687bd5faec08f9a4ffeb89eae2cba71ea041d5d",
       "kind": "official-public-documentation",
       "objectives": [
-        "az900.management.portal",
-        "az900.management.shell-tools",
-        "az900.management.arc",
-        "az900.management.iac",
-        "az900.management.arm-templates"
+        "az900.monitoring.advisor",
+        "az900.monitoring.service-health",
+        "az900.monitoring.monitor"
       ],
-      "claims": ["tools.MT12"],
-      "limits": "Actual public source body read to scoped claims; no protected assessment/sign-in/deployment or video execution. MT18 qualifies persistent Cloud Shell shorthand; MT19 distinguishes tools/shells; MT39 separates existing local Flux from new Azure configuration; MT40 qualifies management versus data plane. Examples are not executed.",
+      "claims": ["monitoring.MO14"],
+      "limits": "Scoped public text actually reviewed; protected assessment not opened, no runtime executed. MO19 unavailable replaced by MO35. MO26 selected classic correlation paragraphs only, current MO36 alternative. MO27 duplicates MO13, not independent corroboration. Alert stateful/state and NULL/provider behavior qualified separately.",
       "availability": "AVAILABLE",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/training/modules/describe-features-tools-manage-deploy-azure-resources/1-introduction",
-          "disposition": "reviewed",
-          "reason": "Official introduction and prerequisites: managing/deploying resources, no protected interaction."
+          "url": "https://learn.microsoft.com/en-us/training/modules/describe-monitoring-tools-azure/1-introduction",
+          "disposition": "reviewed-applied",
+          "reason": "Public introduction defines three monitoring goals and cloud/onprem/multicloud context."
         }
       ]
     },
     {
-      "id": "MT13",
-      "url": "https://learn.microsoft.com/en-us/training/modules/describe-features-tools-manage-deploy-azure-resources/2-describe-interacting-azure",
-      "title": "Describe tools for interacting with Azure - Training | Microsoft Learn",
+      "id": "MO15",
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-monitoring-tools-azure/2-describe-purpose-of-azure-advisor",
+      "title": "Describe the purpose of Azure Advisor - Training | Microsoft Learn",
       "reviewed": "2026-11-01",
-      "version": "Rolling official page; updated 2026-03-24T17:11:00.0000000Z; SHA256 62ecf8b516d27216a93e53d7405702e0ee5eef95d974946beafbc0d52e284064",
+      "version": "Rolling public page; 2026-03-24T17:11:00.0000000Z; SHA256 6c5721cc6be62cbdd8b9f331e6cc9b9ce338836197d00cef55fd0605db8d5693",
       "kind": "official-public-documentation",
       "objectives": [
-        "az900.management.portal",
-        "az900.management.shell-tools",
-        "az900.management.arc",
-        "az900.management.iac",
-        "az900.management.arm-templates"
+        "az900.monitoring.advisor",
+        "az900.monitoring.service-health",
+        "az900.monitoring.monitor"
       ],
-      "claims": ["tools.MT13"],
-      "limits": "Actual public source body read to scoped claims; no protected assessment/sign-in/deployment or video execution. MT18 qualifies persistent Cloud Shell shorthand; MT19 distinguishes tools/shells; MT39 separates existing local Flux from new Azure configuration; MT40 qualifies management versus data plane. Examples are not executed.",
+      "claims": ["monitoring.MO15"],
+      "limits": "Scoped public text actually reviewed; protected assessment not opened, no runtime executed. MO19 unavailable replaced by MO35. MO26 selected classic correlation paragraphs only, current MO36 alternative. MO27 duplicates MO13, not independent corroboration. Alert stateful/state and NULL/provider behavior qualified separately.",
       "availability": "AVAILABLE",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/training/modules/describe-features-tools-manage-deploy-azure-resources/2-describe-interacting-azure",
-          "disposition": "reviewed",
-          "reason": "Learn Portal/shell/CLI/PS/Copilot unit; its CLI-is-Bash and PowerShell-is-shell shorthand qualified by MT05/06/19."
+          "url": "https://learn.microsoft.com/en-us/training/modules/describe-monitoring-tools-azure/2-describe-purpose-of-azure-advisor",
+          "disposition": "reviewed-applied",
+          "reason": "Public Advisor unit introduces five categories; security wording qualified by product recommendation context and MO33."
         }
       ]
     },
     {
-      "id": "MT14",
-      "url": "https://learn.microsoft.com/en-us/training/modules/describe-features-tools-manage-deploy-azure-resources/3-describe-purpose-of-azure-arc",
-      "title": "Describe the purpose of Azure Arc - Training | Microsoft Learn",
+      "id": "MO16",
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-monitoring-tools-azure/3-describe-azure-service-health",
+      "title": "Describe Azure Service Health - Training | Microsoft Learn",
       "reviewed": "2026-11-01",
-      "version": "Rolling official page; updated 2026-03-24T17:11:00.0000000Z; SHA256 a4fc0da3e825f976a962bec200a812ef1c45dd5fe855837db77d9e39205b88eb",
+      "version": "Rolling public page; 2026-03-24T17:11:00.0000000Z; SHA256 888978926e0ec1f4646163072fc2ce3bcd34f240ce79808b48fa5c285c4ea6da",
       "kind": "official-public-documentation",
       "objectives": [
-        "az900.management.portal",
-        "az900.management.shell-tools",
-        "az900.management.arc",
-        "az900.management.iac",
-        "az900.management.arm-templates"
+        "az900.monitoring.advisor",
+        "az900.monitoring.service-health",
+        "az900.monitoring.monitor"
       ],
-      "claims": ["tools.MT14"],
-      "limits": "Actual public source body read to scoped claims; no protected assessment/sign-in/deployment or video execution. MT18 qualifies persistent Cloud Shell shorthand; MT19 distinguishes tools/shells; MT39 separates existing local Flux from new Azure configuration; MT40 qualifies management versus data plane. Examples are not executed.",
+      "claims": ["monitoring.MO16"],
+      "limits": "Scoped public text actually reviewed; protected assessment not opened, no runtime executed. MO19 unavailable replaced by MO35. MO26 selected classic correlation paragraphs only, current MO36 alternative. MO27 duplicates MO13, not independent corroboration. Alert stateful/state and NULL/provider behavior qualified separately.",
       "availability": "AVAILABLE",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/training/modules/describe-features-tools-manage-deploy-azure-resources/3-describe-purpose-of-azure-arc",
-          "disposition": "reviewed",
-          "reason": "Learn Arc purpose; broad product/VM-preview wording qualified by current product-specific MT07/29/30/31."
+          "url": "https://learn.microsoft.com/en-us/training/modules/describe-monitoring-tools-azure/3-describe-azure-service-health",
+          "disposition": "reviewed-applied",
+          "reason": "Public health unit three views; broad normal/resource/root-cause shorthand qualified by MO05/06/30/31."
         }
       ]
     },
     {
-      "id": "MT15",
-      "url": "https://learn.microsoft.com/en-us/training/modules/describe-features-tools-manage-deploy-azure-resources/4-describe-azure-resource-manager-azure-arm-templates",
-      "title": "Describe Azure Resource Manager and Azure ARM templates - Training | Microsoft Learn",
+      "id": "MO17",
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-monitoring-tools-azure/4-describe-azure-monitor",
+      "title": "Describe Azure Monitor - Training | Microsoft Learn",
       "reviewed": "2026-11-01",
-      "version": "Rolling official page; updated 2026-03-24T17:11:00.0000000Z; SHA256 a27c820685d68db071e0af73770b0a726cbf2a5b674c3411147d0557e616107d",
+      "version": "Rolling public page; 2026-03-24T17:11:00.0000000Z; SHA256 eeca3d8e8e822e4e81a39075f6b63b853005063b43e68e56d4bc5d3a99568c75",
       "kind": "official-public-documentation",
       "objectives": [
-        "az900.management.portal",
-        "az900.management.shell-tools",
-        "az900.management.arc",
-        "az900.management.iac",
-        "az900.management.arm-templates"
+        "az900.monitoring.advisor",
+        "az900.monitoring.service-health",
+        "az900.monitoring.monitor"
       ],
-      "claims": ["tools.MT15"],
-      "limits": "Actual public source body read to scoped claims; no protected assessment/sign-in/deployment or video execution. MT18 qualifies persistent Cloud Shell shorthand; MT19 distinguishes tools/shells; MT39 separates existing local Flux from new Azure configuration; MT40 qualifies management versus data plane. Examples are not executed.",
+      "claims": ["monitoring.MO17"],
+      "limits": "Scoped public text actually reviewed; protected assessment not opened, no runtime executed. MO19 unavailable replaced by MO35. MO26 selected classic correlation paragraphs only, current MO36 alternative. MO27 duplicates MO13, not independent corroboration. Alert stateful/state and NULL/provider behavior qualified separately.",
       "availability": "AVAILABLE",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/training/modules/describe-features-tools-manage-deploy-azure-resources/4-describe-azure-resource-manager-azure-arm-templates",
-          "disposition": "reviewed",
-          "reason": "Learn IaC includes code/scripts and templates; imperative versus declarative retained; Bicep/ARM same deployment layer."
+          "url": "https://learn.microsoft.com/en-us/training/modules/describe-monitoring-tools-azure/4-describe-azure-monitor",
+          "disposition": "reviewed-applied",
+          "reason": "Public Monitor unit analysis/alerts/APM; broad collection/setup shorthand qualified by MO13/20/21/35."
         }
       ]
     },
     {
-      "id": "MT16",
-      "url": "https://learn.microsoft.com/en-us/training/modules/describe-features-tools-manage-deploy-azure-resources/6-summary",
+      "id": "MO18",
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-monitoring-tools-azure/6-summary",
       "title": "Summary - Training | Microsoft Learn",
       "reviewed": "2026-11-01",
-      "version": "Rolling official page; updated 2026-03-24T17:11:00.0000000Z; SHA256 f66d09c25bdc602c643442d77a85fa16ab203c8d9e78b32553078c1c815ebdb7",
+      "version": "Rolling public page; 2026-03-24T17:11:00.0000000Z; SHA256 502d9457c52a1f5e3eba6baa77254bc39db0f82c47e4cf349303d55bf2267aaa",
       "kind": "official-public-documentation",
       "objectives": [
-        "az900.management.portal",
-        "az900.management.shell-tools",
-        "az900.management.arc",
-        "az900.management.iac",
-        "az900.management.arm-templates"
+        "az900.monitoring.advisor",
+        "az900.monitoring.service-health",
+        "az900.monitoring.monitor"
       ],
-      "claims": ["tools.MT16"],
-      "limits": "Actual public source body read to scoped claims; no protected assessment/sign-in/deployment or video execution. MT18 qualifies persistent Cloud Shell shorthand; MT19 distinguishes tools/shells; MT39 separates existing local Flux from new Azure configuration; MT40 qualifies management versus data plane. Examples are not executed.",
+      "claims": ["monitoring.MO18"],
+      "limits": "Scoped public text actually reviewed; protected assessment not opened, no runtime executed. MO19 unavailable replaced by MO35. MO26 selected classic correlation paragraphs only, current MO36 alternative. MO27 duplicates MO13, not independent corroboration. Alert stateful/state and NULL/provider behavior qualified separately.",
       "availability": "AVAILABLE",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/training/modules/describe-features-tools-manage-deploy-azure-resources/6-summary",
-          "disposition": "reviewed",
-          "reason": "Official summary includes Copilot as supplemental operational assistance, no sixth exam goal."
+          "url": "https://learn.microsoft.com/en-us/training/modules/describe-monitoring-tools-azure/6-summary",
+          "disposition": "reviewed-applied",
+          "reason": "Public summary confirms the same three scoped learning goals; assessment not accessed."
         }
       ]
     },
     {
-      "id": "MT17",
-      "url": "https://learn.microsoft.com/en-us/azure/cloud-shell/features",
-      "title": "Azure Cloud Shell features - Azure Cloud Shell | Microsoft Learn",
+      "id": "MO19",
+      "url": "https://learn.microsoft.com/en-us/azure/azure-monitor/data-collection/data-sources",
+      "title": "MO19",
       "reviewed": "2026-11-01",
-      "version": "Rolling official page; updated 2025-12-04T06:11:00.0000000Z; SHA256 c1b92937c09b7aee5173adeb15fec30ab9abe4153932a195576d4bbd971ab25c",
+      "version": "Rolling public page; unknown; SHA256 unavailable",
       "kind": "official-public-documentation",
       "objectives": [
-        "az900.management.portal",
-        "az900.management.shell-tools",
-        "az900.management.arc",
-        "az900.management.iac",
-        "az900.management.arm-templates"
+        "az900.monitoring.advisor",
+        "az900.monitoring.service-health",
+        "az900.monitoring.monitor"
       ],
-      "claims": ["tools.MT17"],
-      "limits": "Actual public source body read to scoped claims; no protected assessment/sign-in/deployment or video execution. MT18 qualifies persistent Cloud Shell shorthand; MT19 distinguishes tools/shells; MT39 separates existing local Flux from new Azure configuration; MT40 qualifies management versus data plane. Examples are not executed.",
-      "availability": "AVAILABLE",
+      "claims": ["monitoring.MO19"],
+      "limits": "Scoped public text actually reviewed; protected assessment not opened, no runtime executed. MO19 unavailable replaced by MO35. MO26 selected classic correlation paragraphs only, current MO36 alternative. MO27 duplicates MO13, not independent corroboration. Alert stateful/state and NULL/provider behavior qualified separately.",
+      "availability": "BLOCKED",
+      "alternative": "MO35 current official data sources",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/cloud-shell/features",
-          "disposition": "reviewed",
-          "reason": "Cloud Shell tools/environments and conditional persistent customization; no always-latest version guarantee."
+          "url": "https://learn.microsoft.com/en-us/azure/azure-monitor/data-collection/data-sources",
+          "disposition": "blocked",
+          "reason": "Old data-collection/data-sources route returned404; official fundamentals/data-sources MO35 is the available factual replacement."
         }
       ]
     },
     {
-      "id": "MT18",
-      "url": "https://learn.microsoft.com/en-us/azure/cloud-shell/get-started/ephemeral",
-      "title": "Get started with Azure Cloud Shell ephemeral sessions - Azure Cloud Shell | Microsoft Learn",
+      "id": "MO20",
+      "url": "https://learn.microsoft.com/en-us/azure/azure-monitor/data-collection/diagnostic-settings",
+      "title": "Diagnostic Settings in Azure Monitor - Azure Monitor | Microsoft Learn",
       "reviewed": "2026-11-01",
-      "version": "Rolling official page; updated 2024-05-29T17:18:00.0000000Z; SHA256 4cf46dfb8683bda7b19b094be9901e2cd4076fa0888c05a22718de256026e205",
+      "version": "Rolling public page; 2026-09-22T06:04:00.0000000Z; SHA256 a8e53edfd1e231ddf3f276a958333c32da2aaa156bca012e3b55fbd45579184b",
       "kind": "official-public-documentation",
       "objectives": [
-        "az900.management.portal",
-        "az900.management.shell-tools",
-        "az900.management.arc",
-        "az900.management.iac",
-        "az900.management.arm-templates"
+        "az900.monitoring.advisor",
+        "az900.monitoring.service-health",
+        "az900.monitoring.monitor"
       ],
-      "claims": ["tools.MT18"],
-      "limits": "Actual public source body read to scoped claims; no protected assessment/sign-in/deployment or video execution. MT18 qualifies persistent Cloud Shell shorthand; MT19 distinguishes tools/shells; MT39 separates existing local Flux from new Azure configuration; MT40 qualifies management versus data plane. Examples are not executed.",
+      "claims": ["monitoring.MO20"],
+      "limits": "Scoped public text actually reviewed; protected assessment not opened, no runtime executed. MO19 unavailable replaced by MO35. MO26 selected classic correlation paragraphs only, current MO36 alternative. MO27 duplicates MO13, not independent corroboration. Alert stateful/state and NULL/provider behavior qualified separately.",
       "availability": "AVAILABLE",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/cloud-shell/get-started/ephemeral",
-          "disposition": "reviewed",
-          "reason": "Ephemeral Cloud Shell requires no storage account, discards session files; provider/subscription prerequisites remain."
+          "url": "https://learn.microsoft.com/en-us/azure/azure-monitor/data-collection/diagnostic-settings",
+          "disposition": "reviewed-applied",
+          "reason": "Diagnostic settings route platform metrics/Activity Log and explicitly collect supported resource-log categories; destinations, permissions and latency matter."
         }
       ]
     },
     {
-      "id": "MT19",
-      "url": "https://learn.microsoft.com/en-us/cli/azure/choose-the-right-azure-command-line-tool",
-      "title": "Choose the right Azure command-line tool - Azure CLI | Microsoft Learn",
+      "id": "MO21",
+      "url": "https://learn.microsoft.com/en-us/azure/azure-monitor/logs/resource-logs",
+      "title": "Resource logs in Azure Monitor - Azure Monitor | Microsoft Learn",
       "reviewed": "2026-11-01",
-      "version": "Rolling official page; updated 2025-07-14T22:05:00.0000000Z; SHA256 2211e4f553cacd3aab9911b210d37ad3b8f8b70f63560422cb3ea5fb807a9550",
+      "version": "Rolling public page; 2026-10-27T06:04:00.0000000Z; SHA256 2177fa0af14d2535aa6da19654155467ff8367b765a12d93ae0cda23d940551f",
       "kind": "official-public-documentation",
       "objectives": [
-        "az900.management.portal",
-        "az900.management.shell-tools",
-        "az900.management.arc",
-        "az900.management.iac",
-        "az900.management.arm-templates"
+        "az900.monitoring.advisor",
+        "az900.monitoring.service-health",
+        "az900.monitoring.monitor"
       ],
-      "claims": ["tools.MT19"],
-      "limits": "Actual public source body read to scoped claims; no protected assessment/sign-in/deployment or video execution. MT18 qualifies persistent Cloud Shell shorthand; MT19 distinguishes tools/shells; MT39 separates existing local Flux from new Azure configuration; MT40 qualifies management versus data plane. Examples are not executed.",
+      "claims": ["monitoring.MO21"],
+      "limits": "Scoped public text actually reviewed; protected assessment not opened, no runtime executed. MO19 unavailable replaced by MO35. MO26 selected classic correlation paragraphs only, current MO36 alternative. MO27 duplicates MO13, not independent corroboration. Alert stateful/state and NULL/provider behavior qualified separately.",
       "availability": "AVAILABLE",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/cli/azure/choose-the-right-azure-command-line-tool",
-          "disposition": "reviewed",
-          "reason": "Tool versus host matrix: CLI in Bash/PowerShell, Az requires PowerShell; syntax/output/version support vary."
+          "url": "https://learn.microsoft.com/en-us/azure/azure-monitor/logs/resource-logs",
+          "disposition": "reviewed-applied",
+          "reason": "Resource logs are service-specific records of resource operations; no configured collection means missing evidence, not absence of failures."
         }
       ]
     },
     {
-      "id": "MT20",
-      "url": "https://learn.microsoft.com/en-us/cli/azure/group",
-      "title": "az group | Microsoft Learn",
+      "id": "MO22",
+      "url": "https://learn.microsoft.com/en-us/azure/azure-monitor/metrics/metrics-aggregation-explained",
+      "title": "Azure Monitor metrics aggregation and display explained - Azure Monitor | Microsoft Learn",
       "reviewed": "2026-11-01",
-      "version": "Rolling official page; updated 2026-09-01T07:51:00.0000000Z; SHA256 bb4850d8ccc118fb39bff75e51d88d189cf25e8c932b439b5551be632d437318",
+      "version": "Rolling public page; 2026-08-10T22:17:00.0000000Z; SHA256 7a32ba4b4376ed2698d9c3b5850e9590ad3eb2960bfd9713b07c6d75f4f5b9b0",
       "kind": "official-public-documentation",
       "objectives": [
-        "az900.management.portal",
-        "az900.management.shell-tools",
-        "az900.management.arc",
-        "az900.management.iac",
-        "az900.management.arm-templates"
+        "az900.monitoring.advisor",
+        "az900.monitoring.service-health",
+        "az900.monitoring.monitor"
       ],
-      "claims": ["tools.MT20"],
-      "limits": "Actual public source body read to scoped claims; no protected assessment/sign-in/deployment or video execution. MT18 qualifies persistent Cloud Shell shorthand; MT19 distinguishes tools/shells; MT39 separates existing local Flux from new Azure configuration; MT40 qualifies management versus data plane. Examples are not executed.",
+      "claims": ["monitoring.MO22"],
+      "limits": "Scoped public text actually reviewed; protected assessment not opened, no runtime executed. MO19 unavailable replaced by MO35. MO26 selected classic correlation paragraphs only, current MO36 alternative. MO27 duplicates MO13, not independent corroboration. Alert stateful/state and NULL/provider behavior qualified separately.",
       "availability": "AVAILABLE",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/cli/azure/group",
-          "disposition": "reviewed",
-          "reason": "az group create name/location/subscription syntax; command reference only, no executed Azure request."
+          "url": "https://learn.microsoft.com/en-us/azure/azure-monitor/metrics/metrics-aggregation-explained",
+          "disposition": "reviewed-applied",
+          "reason": "Time granularity/aggregation, Average versus Max; NULL differs from zero and Azure averages exclude absent values; provider handling varies."
         }
       ]
     },
     {
-      "id": "MT21",
-      "url": "https://learn.microsoft.com/en-us/powershell/module/az.resources/new-azresourcegroup",
-      "title": "New-AzResourceGroup (Az.Resources) | Microsoft Learn",
+      "id": "MO23",
+      "url": "https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-types",
+      "title": "Types of Azure Monitor alerts - Azure Monitor | Microsoft Learn",
       "reviewed": "2026-11-01",
-      "version": "Rolling official page; updated 2026-10-06T17:01:00.0000000Z; SHA256 1d2c83293a16969a1fc710fa8926869362d1584f41792fdbdbff7340a9d3d42f",
+      "version": "Rolling public page; 2026-07-08T22:11:00.0000000Z; SHA256 63820713a84e37cfbdfb910b359e625258015345a4bd87d28fade8bddf7554c8",
       "kind": "official-public-documentation",
       "objectives": [
-        "az900.management.portal",
-        "az900.management.shell-tools",
-        "az900.management.arc",
-        "az900.management.iac",
-        "az900.management.arm-templates"
+        "az900.monitoring.advisor",
+        "az900.monitoring.service-health",
+        "az900.monitoring.monitor"
       ],
-      "claims": ["tools.MT21"],
-      "limits": "Actual public source body read to scoped claims; no protected assessment/sign-in/deployment or video execution. MT18 qualifies persistent Cloud Shell shorthand; MT19 distinguishes tools/shells; MT39 separates existing local Flux from new Azure configuration; MT40 qualifies management versus data plane. Examples are not executed.",
+      "claims": ["monitoring.MO23"],
+      "limits": "Scoped public text actually reviewed; protected assessment not opened, no runtime executed. MO19 unavailable replaced by MO35. MO26 selected classic correlation paragraphs only, current MO36 alternative. MO27 duplicates MO13, not independent corroboration. Alert stateful/state and NULL/provider behavior qualified separately.",
       "availability": "AVAILABLE",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/powershell/module/az.resources/new-azresourcegroup",
-          "disposition": "reviewed",
-          "reason": "New-AzResourceGroup Az.Resources16.4.0 syntax/name/location/context; not New-AzResourceGroupDeployment."
+          "url": "https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-types",
+          "disposition": "reviewed-applied",
+          "reason": "Metric/log-search/activity/health alert types use different evaluations; no universal one-evaluation resolution; bounded Studio uses declared stateless evaluation only."
         }
       ]
     },
     {
-      "id": "MT22",
-      "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/manage-resource-groups-portal",
-      "title": "Use the Azure portal and Azure Resource Manager to Manage Resource Groups - Azure Resource Manager | Microsoft Learn",
+      "id": "MO24",
+      "url": "https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/action-groups",
+      "title": "Create and manage action groups in Azure Monitor - Azure Monitor | Microsoft Learn",
       "reviewed": "2026-11-01",
-      "version": "Rolling official page; updated 2026-03-04T23:27:00.0000000Z; SHA256 db87abe4855cb8e62f66f3a9296b69ac62c429b5ff9f4e4f03a280050999b073",
+      "version": "Rolling public page; 2026-07-29T22:13:00.0000000Z; SHA256 aa86ca1cf8e7fa883313b5d72abcf8fb2c62471c8fd688e7a078863f109d536d",
       "kind": "official-public-documentation",
       "objectives": [
-        "az900.management.portal",
-        "az900.management.shell-tools",
-        "az900.management.arc",
-        "az900.management.iac",
-        "az900.management.arm-templates"
+        "az900.monitoring.advisor",
+        "az900.monitoring.service-health",
+        "az900.monitoring.monitor"
       ],
-      "claims": ["tools.MT22"],
-      "limits": "Actual public source body read to scoped claims; no protected assessment/sign-in/deployment or video execution. MT18 qualifies persistent Cloud Shell shorthand; MT19 distinguishes tools/shells; MT39 separates existing local Flux from new Azure configuration; MT40 qualifies management versus data plane. Examples are not executed.",
+      "claims": ["monitoring.MO24"],
+      "limits": "Scoped public text actually reviewed; protected assessment not opened, no runtime executed. MO19 unavailable replaced by MO35. MO26 selected classic correlation paragraphs only, current MO36 alternative. MO27 duplicates MO13, not independent corroboration. Alert stateful/state and NULL/provider behavior qualified separately.",
       "availability": "AVAILABLE",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/manage-resource-groups-portal",
-          "disposition": "reviewed",
-          "reason": "Actual public Portal RG workflow: subscription/name/metadata region, Review+create, submit, inspect result; reference text not fidelity approval."
+          "url": "https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/action-groups",
+          "disposition": "reviewed-applied",
+          "reason": "Reusable action groups carry configured notification/automation actions; eligible path is neither confirmed delivery nor automatic remediation."
         }
       ]
     },
     {
-      "id": "MT23",
-      "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/resource-providers-and-types",
-      "title": "Azure resource providers and types - Azure Resource Manager | Microsoft Learn",
+      "id": "MO25",
+      "url": "https://learn.microsoft.com/en-us/azure/azure-monitor/logs/log-analytics-workspace-overview",
+      "title": "Log Analytics workspace overview - Azure Monitor | Microsoft Learn",
       "reviewed": "2026-11-01",
-      "version": "Rolling official page; updated 2026-02-27T18:31:00.0000000Z; SHA256 794e7971ea0e38fe2a67ffcf6aee4d9fdc3dfad327ef9cb2a633d0c324c3e181",
+      "version": "Rolling public page; 2026-08-13T17:12:00.0000000Z; SHA256 f93ceeebfbf9cf617b4db96ed5a065b0893a70225dc046f2f706c12f7e1db69e",
       "kind": "official-public-documentation",
       "objectives": [
-        "az900.management.portal",
-        "az900.management.shell-tools",
-        "az900.management.arc",
-        "az900.management.iac",
-        "az900.management.arm-templates"
+        "az900.monitoring.advisor",
+        "az900.monitoring.service-health",
+        "az900.monitoring.monitor"
       ],
-      "claims": ["tools.MT23"],
-      "limits": "Actual public source body read to scoped claims; no protected assessment/sign-in/deployment or video execution. MT18 qualifies persistent Cloud Shell shorthand; MT19 distinguishes tools/shells; MT39 separates existing local Flux from new Azure configuration; MT40 qualifies management versus data plane. Examples are not executed.",
+      "claims": ["monitoring.MO25"],
+      "limits": "Scoped public text actually reviewed; protected assessment not opened, no runtime executed. MO19 unavailable replaced by MO35. MO26 selected classic correlation paragraphs only, current MO36 alternative. MO27 duplicates MO13, not independent corroboration. Alert stateful/state and NULL/provider behavior qualified separately.",
       "availability": "AVAILABLE",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/resource-providers-and-types",
-          "disposition": "reviewed",
-          "reason": "Providers implement type/APIs; context-specific auto-registration and regional registration status; no generic always-manual rule."
+          "url": "https://learn.microsoft.com/en-us/azure/azure-monitor/logs/log-analytics-workspace-overview",
+          "disposition": "reviewed-applied",
+          "reason": "Log Analytics workspace stores selected tables with access/retention/table-plan constraints; it is not every monitoring metric datastore."
         }
       ]
     },
     {
-      "id": "MT24",
-      "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/syntax",
-      "title": "Template structure and syntax - Azure Resource Manager | Microsoft Learn",
+      "id": "MO26",
+      "url": "https://learn.microsoft.com/en-us/azure/azure-monitor/app/distributed-trace-data",
+      "title": "Monitor .NET and Node.js Applications with Application Insights (Classic API 2.x) - Azure Monitor | Microsoft Learn",
       "reviewed": "2026-11-01",
-      "version": "Rolling official page; updated 2026-01-27T23:11:00.0000000Z; SHA256 a73779c6ed9d5fce57ee6fff77c009189d106efe3446b815219d6758e62bab9a",
+      "version": "Rolling public page; 2026-05-04T22:46:00.0000000Z; SHA256 d56c8ef8708d6158a63eaa01bce506966b8833924157b71fa5356da561f368ba",
       "kind": "official-public-documentation",
       "objectives": [
-        "az900.management.portal",
-        "az900.management.shell-tools",
-        "az900.management.arc",
-        "az900.management.iac",
-        "az900.management.arm-templates"
+        "az900.monitoring.advisor",
+        "az900.monitoring.service-health",
+        "az900.monitoring.monitor"
       ],
-      "claims": ["tools.MT24"],
-      "limits": "Actual public source body read to scoped claims; no protected assessment/sign-in/deployment or video execution. MT18 qualifies persistent Cloud Shell shorthand; MT19 distinguishes tools/shells; MT39 separates existing local Flux from new Azure configuration; MT40 qualifies management versus data plane. Examples are not executed.",
+      "claims": ["monitoring.MO26"],
+      "limits": "Scoped public text actually reviewed; protected assessment not opened, no runtime executed. MO19 unavailable replaced by MO35. MO26 selected classic correlation paragraphs only, current MO36 alternative. MO27 duplicates MO13, not independent corroboration. Alert stateful/state and NULL/provider behavior qualified separately.",
       "availability": "AVAILABLE",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/syntax",
-          "disposition": "reviewed",
-          "reason": "ARM JSON selected syntax: schema/contentVersion versus apiVersion, params, derived variables, resources and outputs."
+          "url": "https://learn.microsoft.com/en-us/previous-versions/azure/azure-monitor/app/classic-api",
+          "disposition": "optional-classic-selected",
+          "reason": "Distributed-trace old route redirects to very large Classic API2.x guide; selected correlation paragraphs only, not reviewed as current universal OTel setup; MO36 supplies generic concepts."
         }
       ]
     },
     {
-      "id": "MT25",
-      "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/resource-dependency",
-      "title": "Set deployment order for resources - Azure Resource Manager | Microsoft Learn",
+      "id": "MO27",
+      "url": "https://learn.microsoft.com/en-us/azure/azure-monitor/app/opentelemetry-overview",
+      "title": "Application Insights OpenTelemetry observability overview - Azure Monitor | Microsoft Learn",
       "reviewed": "2026-11-01",
-      "version": "Rolling official page; updated 2026-06-26T22:12:00.0000000Z; SHA256 462850ee7ead5b9b1edc1684f1caf248d0eec655625c0a31e36e67f84c731be2",
+      "version": "Rolling public page; 2026-10-09T22:14:00.0000000Z; SHA256 395637b202f9216948b5adbe1d5c95d3620ca8dc81f8ae93429921ba4774af63",
       "kind": "official-public-documentation",
       "objectives": [
-        "az900.management.portal",
-        "az900.management.shell-tools",
-        "az900.management.arc",
-        "az900.management.iac",
-        "az900.management.arm-templates"
+        "az900.monitoring.advisor",
+        "az900.monitoring.service-health",
+        "az900.monitoring.monitor"
       ],
-      "claims": ["tools.MT25"],
-      "limits": "Actual public source body read to scoped claims; no protected assessment/sign-in/deployment or video execution. MT18 qualifies persistent Cloud Shell shorthand; MT19 distinguishes tools/shells; MT39 separates existing local Flux from new Azure configuration; MT40 qualifies management versus data plane. Examples are not executed.",
+      "claims": ["monitoring.MO27"],
+      "limits": "Scoped public text actually reviewed; protected assessment not opened, no runtime executed. MO19 unavailable replaced by MO35. MO26 selected classic correlation paragraphs only, current MO36 alternative. MO27 duplicates MO13, not independent corroboration. Alert stateful/state and NULL/provider behavior qualified separately.",
       "availability": "AVAILABLE",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/resource-dependency",
-          "disposition": "reviewed",
-          "reason": "ARM dependsOn/implicit reference behavior and cycles; resourceId alone not order; deployment edges not retained as runtime graph."
+          "url": "https://learn.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview#getting-started",
+          "disposition": "duplicate-canonical-MO13",
+          "reason": "opentelemetry-overview redirects to the same actual MO13 canonical body; not independent corroboration."
         }
       ]
     },
     {
-      "id": "MT26",
-      "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/resource-dependencies",
-      "title": "Set resource dependencies in Bicep - Azure Resource Manager | Microsoft Learn",
+      "id": "MO28",
+      "url": "https://learn.microsoft.com/en-us/azure/azure-monitor/reference/tables/apprequests",
+      "title": "Azure Monitor Logs reference - AppRequests - Azure Monitor | Microsoft Learn",
       "reviewed": "2026-11-01",
-      "version": "Rolling official page; updated 2025-12-08T23:11:00.0000000Z; SHA256 e441cbc5c9f6ad01e7df46348a793e07c5288c923009d6632fd7260c9d1ac1a4",
+      "version": "Rolling public page; 2026-07-28T17:16:00.0000000Z; SHA256 683859c15531c91b49b50bfc02b2f551605756f5d3733f88de4753b8ecd28d31",
       "kind": "official-public-documentation",
       "objectives": [
-        "az900.management.portal",
-        "az900.management.shell-tools",
-        "az900.management.arc",
-        "az900.management.iac",
-        "az900.management.arm-templates"
+        "az900.monitoring.advisor",
+        "az900.monitoring.service-health",
+        "az900.monitoring.monitor"
       ],
-      "claims": ["tools.MT26"],
-      "limits": "Actual public source body read to scoped claims; no protected assessment/sign-in/deployment or video execution. MT18 qualifies persistent Cloud Shell shorthand; MT19 distinguishes tools/shells; MT39 separates existing local Flux from new Azure configuration; MT40 qualifies management versus data plane. Examples are not executed.",
+      "claims": ["monitoring.MO28"],
+      "limits": "Scoped public text actually reviewed; protected assessment not opened, no runtime executed. MO19 unavailable replaced by MO35. MO26 selected classic correlation paragraphs only, current MO36 alternative. MO27 duplicates MO13, not independent corroboration. Alert stateful/state and NULL/provider behavior qualified separately.",
       "availability": "AVAILABLE",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/resource-dependencies",
-          "disposition": "reviewed",
-          "reason": "Bicep symbolic property reference implies dependency; only same-file creation ordering, explicit redundancy and cycle limits."
+          "url": "https://learn.microsoft.com/en-us/azure/azure-monitor/reference/tables/apprequests",
+          "disposition": "reviewed-applied",
+          "reason": "AppRequests schema: TimeGenerated,Success bool,OperationId,DurationMs support original KQL illustration."
         }
       ]
     },
     {
-      "id": "MT27",
-      "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/deploy-to-subscription",
-      "title": "Deploy resources to subscription - Azure Resource Manager | Microsoft Learn",
+      "id": "MO29",
+      "url": "https://learn.microsoft.com/en-us/azure/azure-monitor/reference/tables/azureactivity",
+      "title": "Azure Monitor Logs reference - AzureActivity - Azure Monitor | Microsoft Learn",
       "reviewed": "2026-11-01",
-      "version": "Rolling official page; updated 2026-06-26T22:12:00.0000000Z; SHA256 4ae67fd986987e3cfd9123b722171230320e0d4dc37916c4a9bb0c518610530e",
+      "version": "Rolling public page; 2026-07-28T17:16:00.0000000Z; SHA256 90f2274a15880fb70a11dc91292cd3fe40df67d06b98a93faeeab6dedec37312",
       "kind": "official-public-documentation",
       "objectives": [
-        "az900.management.portal",
-        "az900.management.shell-tools",
-        "az900.management.arc",
-        "az900.management.iac",
-        "az900.management.arm-templates"
+        "az900.monitoring.advisor",
+        "az900.monitoring.service-health",
+        "az900.monitoring.monitor"
       ],
-      "claims": ["tools.MT27"],
-      "limits": "Actual public source body read to scoped claims; no protected assessment/sign-in/deployment or video execution. MT18 qualifies persistent Cloud Shell shorthand; MT19 distinguishes tools/shells; MT39 separates existing local Flux from new Azure configuration; MT40 qualifies management versus data plane. Examples are not executed.",
+      "claims": ["monitoring.MO29"],
+      "limits": "Scoped public text actually reviewed; protected assessment not opened, no runtime executed. MO19 unavailable replaced by MO35. MO26 selected classic correlation paragraphs only, current MO36 alternative. MO27 duplicates MO13, not independent corroboration. Alert stateful/state and NULL/provider behavior qualified separately.",
       "availability": "AVAILABLE",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/deploy-to-subscription",
-          "disposition": "reviewed",
-          "reason": "Subscription-scope RG ARM example/type/API2025-04-01; scope affects schema/resources/permissions."
+          "url": "https://learn.microsoft.com/en-us/azure/azure-monitor/reference/tables/azureactivity",
+          "disposition": "reviewed-applied",
+          "reason": "AzureActivity schema: TimeGenerated,ActivityStatusValue,OperationNameValue,ResourceId support original failed-management query."
         }
       ]
     },
     {
-      "id": "MT28",
-      "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/deployment-modes",
-      "title": "Deployment modes - Azure Resource Manager | Microsoft Learn",
+      "id": "MO30",
+      "url": "https://learn.microsoft.com/en-us/azure/service-health/service-health-portal-update",
+      "title": "Azure Service Health Portal - Azure Service Health | Microsoft Learn",
       "reviewed": "2026-11-01",
-      "version": "Rolling official page; updated 2026-06-26T22:12:00.0000000Z; SHA256 b5752f4683f65ec0e0f1bc4c99ca72397093ee7df1b51bacd70c85dc743ef0bb",
+      "version": "Rolling public page; 2026-09-22T06:04:00.0000000Z; SHA256 2427b5a49b2e440aa8bf6ad5b09ddd0932838a2e3126155064d393d5593fff7a",
       "kind": "official-public-documentation",
       "objectives": [
-        "az900.management.portal",
-        "az900.management.shell-tools",
-        "az900.management.arc",
-        "az900.management.iac",
-        "az900.management.arm-templates"
+        "az900.monitoring.advisor",
+        "az900.monitoring.service-health",
+        "az900.monitoring.monitor"
       ],
-      "claims": ["tools.MT28"],
-      "limits": "Actual public source body read to scoped claims; no protected assessment/sign-in/deployment or video execution. MT18 qualifies persistent Cloud Shell shorthand; MT19 distinguishes tools/shells; MT39 separates existing local Flux from new Azure configuration; MT40 qualifies management versus data plane. Examples are not executed.",
+      "claims": ["monitoring.MO30"],
+      "limits": "Scoped public text actually reviewed; protected assessment not opened, no runtime executed. MO19 unavailable replaced by MO35. MO26 selected classic correlation paragraphs only, current MO36 alternative. MO27 duplicates MO13, not independent corroboration. Alert stateful/state and NULL/provider behavior qualified separately.",
       "availability": "AVAILABLE",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/deployment-modes",
-          "disposition": "reviewed",
-          "reason": "Incremental preserves omitted resources but not necessarily omitted properties; Complete is not recommended, stacks outside scope."
+          "url": "https://learn.microsoft.com/en-us/azure/service-health/service-health-portal-update",
+          "disposition": "reviewed-applied",
+          "reason": "Personalized Service Health scope, service issues/planned maintenance/health advisories; subscription/region/service context and communications matter."
         }
       ]
     },
     {
-      "id": "MT29",
-      "url": "https://learn.microsoft.com/en-us/azure/azure-arc/servers/overview",
-      "title": "Azure Arc-enabled servers Overview - Azure Arc | Microsoft Learn",
+      "id": "MO31",
+      "url": "https://learn.microsoft.com/en-us/azure/service-health/resource-health-checks-resource-types",
+      "title": "Supported Resource Types through Azure Resource Health - Azure Service Health | Microsoft Learn",
       "reviewed": "2026-11-01",
-      "version": "Rolling official page; updated 2026-07-27T22:12:00.0000000Z; SHA256 538474b6e03dc774ff31774fc9a3608cc2735bafa198cf15e67bfff871d3d188",
+      "version": "Rolling public page; 2026-03-12T05:06:00.0000000Z; SHA256 6551fedc19366ef79b87a676e9f4441529dc2d74b6a3ee787e9a05c01d3f3f54",
       "kind": "official-public-documentation",
       "objectives": [
-        "az900.management.portal",
-        "az900.management.shell-tools",
-        "az900.management.arc",
-        "az900.management.iac",
-        "az900.management.arm-templates"
+        "az900.monitoring.advisor",
+        "az900.monitoring.service-health",
+        "az900.monitoring.monitor"
       ],
-      "claims": ["tools.MT29"],
-      "limits": "Actual public source body read to scoped claims; no protected assessment/sign-in/deployment or video execution. MT18 qualifies persistent Cloud Shell shorthand; MT19 distinguishes tools/shells; MT39 separates existing local Flux from new Azure configuration; MT40 qualifies management versus data plane. Examples are not executed.",
+      "claims": ["monitoring.MO31"],
+      "limits": "Scoped public text actually reviewed; protected assessment not opened, no runtime executed. MO19 unavailable replaced by MO35. MO26 selected classic correlation paragraphs only, current MO36 alternative. MO27 duplicates MO13, not independent corroboration. Alert stateful/state and NULL/provider behavior qualified separately.",
       "availability": "AVAILABLE",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/azure-arc/servers/overview",
-          "disposition": "reviewed",
-          "reason": "Arc Servers supports external Windows/Linux, native Azure VMs excluded; metadata region and extensions not universal native VM control."
+          "url": "https://learn.microsoft.com/en-us/azure/service-health/resource-health-checks-resource-types",
+          "disposition": "reviewed-applied",
+          "reason": "Resource Health supports specific resource types/checks; VM/Web health checks do not establish business-response correctness."
         }
       ]
     },
     {
-      "id": "MT30",
-      "url": "https://learn.microsoft.com/en-us/azure/azure-arc/kubernetes/overview",
-      "title": "Overview of Azure Arc-enabled Kubernetes - Azure Arc | Microsoft Learn",
+      "id": "MO32",
+      "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations",
+      "title": "Cost recommendations - Azure Advisor | Microsoft Learn",
       "reviewed": "2026-11-01",
-      "version": "Rolling official page; updated 2026-03-24T22:15:00.0000000Z; SHA256 e50c1b9bf21717335a81e007119032942b871f55323d309799d880e5ca2b859e",
+      "version": "Rolling public page; 2026-09-25T22:08:00.0000000Z; SHA256 c75dc3eb8863243cb48e2aa47de1177be8ee796501414aff3d94fe166fa04614",
       "kind": "official-public-documentation",
       "objectives": [
-        "az900.management.portal",
-        "az900.management.shell-tools",
-        "az900.management.arc",
-        "az900.management.iac",
-        "az900.management.arm-templates"
+        "az900.monitoring.advisor",
+        "az900.monitoring.service-health",
+        "az900.monitoring.monitor"
       ],
-      "claims": ["tools.MT30"],
-      "limits": "Actual public source body read to scoped claims; no protected assessment/sign-in/deployment or video execution. MT18 qualifies persistent Cloud Shell shorthand; MT19 distinguishes tools/shells; MT39 separates existing local Flux from new Azure configuration; MT40 qualifies management versus data plane. Examples are not executed.",
+      "claims": ["monitoring.MO32"],
+      "limits": "Scoped public text actually reviewed; protected assessment not opened, no runtime executed. MO19 unavailable replaced by MO35. MO26 selected classic correlation paragraphs only, current MO36 alternative. MO27 duplicates MO13, not independent corroboration. Alert stateful/state and NULL/provider behavior qualified separately.",
       "availability": "AVAILABLE",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/azure-arc/kubernetes/overview",
-          "disposition": "reviewed",
-          "reason": "Arc Kubernetes ARM representation/agents and capability-specific extensions; not generic server or automatic workload migration."
+          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations",
+          "disposition": "reviewed-applied",
+          "reason": "Advisor cost recommendations use declared/configuration/usage context and need workload review; examples include right-sizing and capacity risks, not actual invoices."
         }
       ]
     },
     {
-      "id": "MT31",
-      "url": "https://learn.microsoft.com/en-us/azure/azure-arc/data/overview",
-      "title": "Introducing Azure Arc-enabled data services - Azure Arc | Microsoft Learn",
+      "id": "MO33",
+      "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-security-recommendations",
+      "title": "Review Security Recommendations in Microsoft Defender for Cloud - Microsoft Defender for Cloud | Microsoft Learn",
       "reviewed": "2026-11-01",
-      "version": "Rolling official page; updated 2026-06-24T06:10:00.0000000Z; SHA256 d38ae8fa101458c754c698552303af6a28699ba3491d7220705ce477896f6225",
+      "version": "Rolling public page; 2026-09-17T17:37:00.0000000Z; SHA256 63bc71d26e5824d57ebddcaa382d6b94ff2b470ec69bf55e304af89614b7fb15",
       "kind": "official-public-documentation",
       "objectives": [
-        "az900.management.portal",
-        "az900.management.shell-tools",
-        "az900.management.arc",
-        "az900.management.iac",
-        "az900.management.arm-templates"
+        "az900.monitoring.advisor",
+        "az900.monitoring.service-health",
+        "az900.monitoring.monitor"
       ],
-      "claims": ["tools.MT31"],
-      "limits": "Actual public source body read to scoped claims; no protected assessment/sign-in/deployment or video execution. MT18 qualifies persistent Cloud Shell shorthand; MT19 distinguishes tools/shells; MT39 separates existing local Flux from new Azure configuration; MT40 qualifies management versus data plane. Examples are not executed.",
+      "claims": ["monitoring.MO33"],
+      "limits": "Scoped public text actually reviewed; protected assessment not opened, no runtime executed. MO19 unavailable replaced by MO35. MO26 selected classic correlation paragraphs only, current MO36 alternative. MO27 duplicates MO13, not independent corroboration. Alert stateful/state and NULL/provider behavior qualified separately.",
       "availability": "AVAILABLE",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/azure-arc/data/overview",
-          "disposition": "reviewed",
-          "reason": "Arc data services current SQL MI on supported external Kubernetes; not universal database onboarding/runtime/capacity guarantee."
+          "url": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/review-security-recommendations",
+          "disposition": "reviewed-applied",
+          "reason": "Advisor Security link resolves to current Defender recommendation documentation; findings/recommendations are not universal proof of active compromise; P15 depth deferred."
         }
       ]
     },
     {
-      "id": "MT32",
-      "url": "https://learn.microsoft.com/en-us/azure/copilot/overview",
-      "title": "Azure Copilot Overview | Microsoft Learn",
+      "id": "MO34",
+      "url": "https://learn.microsoft.com/en-us/azure/azure-monitor/logs/log-analytics-tutorial",
+      "title": "Log Analytics Tutorial: Query and Analyze Log Data - Azure Monitor | Microsoft Learn",
       "reviewed": "2026-11-01",
-      "version": "Rolling official page; updated 2026-08-11T06:02:00.0000000Z; SHA256 7b4037d08a73e66d0eae38ee7d1a7c859177332ee739927e901cc1feb03da8e8",
+      "version": "Rolling public page; 2026-05-14T22:14:00.0000000Z; SHA256 8e435c11931d5af23fbcaf919eeec962b71aa7fc89d085148e5bb241fa520818",
       "kind": "official-public-documentation",
       "objectives": [
-        "az900.management.portal",
-        "az900.management.shell-tools",
-        "az900.management.arc",
-        "az900.management.iac",
-        "az900.management.arm-templates"
+        "az900.monitoring.advisor",
+        "az900.monitoring.service-health",
+        "az900.monitoring.monitor"
       ],
-      "claims": ["tools.MT32"],
-      "limits": "Actual public source body read to scoped claims; no protected assessment/sign-in/deployment or video execution. MT18 qualifies persistent Cloud Shell shorthand; MT19 distinguishes tools/shells; MT39 separates existing local Flux from new Azure configuration; MT40 qualifies management versus data plane. Examples are not executed.",
+      "claims": ["monitoring.MO34"],
+      "limits": "Scoped public text actually reviewed; protected assessment not opened, no runtime executed. MO19 unavailable replaced by MO35. MO26 selected classic correlation paragraphs only, current MO36 alternative. MO27 duplicates MO13, not independent corroboration. Alert stateful/state and NULL/provider behavior qualified separately.",
       "availability": "AVAILABLE",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/copilot/overview",
-          "disposition": "reviewed",
-          "reason": "Current Azure Copilot can assist and perform supported confirmation-based actions with available permissions; not simulated here."
+          "url": "https://learn.microsoft.com/en-us/azure/azure-monitor/logs/log-analytics-tutorial",
+          "disposition": "reviewed-applied",
+          "reason": "Public Log Analytics tutorial query/filter/group/time mechanisms reviewed; no actual hosted workspace/query or video run claimed."
         }
       ]
     },
     {
-      "id": "MT33",
-      "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/template-functions-resource",
-      "title": "Template functions - resources - Azure Resource Manager | Microsoft Learn",
+      "id": "MO35",
+      "url": "https://learn.microsoft.com/en-us/azure/azure-monitor/fundamentals/data-sources",
+      "title": "Azure Monitor data sources and data collection methods - Azure Monitor | Microsoft Learn",
       "reviewed": "2026-11-01",
-      "version": "Rolling official page; updated 2026-10-20T22:12:00.0000000Z; SHA256 5fdb27e89ebc76c68c10ac39c965a25b357ca26e400567f17b928b48e0c30d42",
+      "version": "Rolling public page; 2026-09-22T06:04:00.0000000Z; SHA256 46933dddb33bec316dd8b24c46bd14208fc17cf6657d7fc4ba5834c6976892c7",
       "kind": "official-public-documentation",
       "objectives": [
-        "az900.management.portal",
-        "az900.management.shell-tools",
-        "az900.management.arc",
-        "az900.management.iac",
-        "az900.management.arm-templates"
+        "az900.monitoring.advisor",
+        "az900.monitoring.service-health",
+        "az900.monitoring.monitor"
       ],
-      "claims": ["tools.MT33"],
-      "limits": "Actual public source body read to scoped claims; no protected assessment/sign-in/deployment or video execution. MT18 qualifies persistent Cloud Shell shorthand; MT19 distinguishes tools/shells; MT39 separates existing local Flux from new Azure configuration; MT40 qualifies management versus data plane. Examples are not executed.",
+      "claims": ["monitoring.MO35"],
+      "limits": "Scoped public text actually reviewed; protected assessment not opened, no runtime executed. MO19 unavailable replaced by MO35. MO26 selected classic correlation paragraphs only, current MO36 alternative. MO27 duplicates MO13, not independent corroboration. Alert stateful/state and NULL/provider behavior qualified separately.",
       "availability": "AVAILABLE",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/template-functions-resource",
-          "disposition": "reviewed",
-          "reason": "Only scoped resourceId and reference paragraphs reviewed-applied: exact scoped ID construction and name-vs-ID dependency qualification."
+          "url": "https://learn.microsoft.com/en-us/azure/azure-monitor/fundamentals/data-sources",
+          "disposition": "reviewed-applied",
+          "reason": "Current common data-collection methods qualify automatically collected platform metrics/Activity Log versus resource logs and application onboarding."
         }
       ]
     },
     {
-      "id": "MT34",
-      "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/deployment-history",
-      "title": "Deployment history - Azure Resource Manager | Microsoft Learn",
+      "id": "MO36",
+      "url": "https://learn.microsoft.com/en-us/dotnet/core/diagnostics/distributed-tracing-concepts",
+      "title": "Distributed tracing concepts - .NET | Microsoft Learn",
       "reviewed": "2026-11-01",
-      "version": "Rolling official page; updated 2026-06-26T22:12:00.0000000Z; SHA256 f3b06cbc95c6f82b44abadf3e1b56f14e89d8f7bd547a2cb50ffb8d9318e00fa",
+      "version": "Rolling public page; 2026-03-30T21:10:00.0000000Z; SHA256 742a4dec2a9d0e62f1a206cec9d25b08563faedb93c91ebbacc984aba2ea44e5",
       "kind": "official-public-documentation",
       "objectives": [
-        "az900.management.portal",
-        "az900.management.shell-tools",
-        "az900.management.arc",
-        "az900.management.iac",
-        "az900.management.arm-templates"
+        "az900.monitoring.advisor",
+        "az900.monitoring.service-health",
+        "az900.monitoring.monitor"
       ],
-      "claims": ["tools.MT34"],
-      "limits": "Actual public source body read to scoped claims; no protected assessment/sign-in/deployment or video execution. MT18 qualifies persistent Cloud Shell shorthand; MT19 distinguishes tools/shells; MT39 separates existing local Flux from new Azure configuration; MT40 qualifies management versus data plane. Examples are not executed.",
+      "claims": ["monitoring.MO36"],
+      "limits": "Scoped public text actually reviewed; protected assessment not opened, no runtime executed. MO19 unavailable replaced by MO35. MO26 selected classic correlation paragraphs only, current MO36 alternative. MO27 duplicates MO13, not independent corroboration. Alert stateful/state and NULL/provider behavior qualified separately.",
       "availability": "AVAILABLE",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/deployment-history",
-          "disposition": "reviewed",
-          "reason": "Inspect operation/deployment status/details/history, not app health; no AzureLab copy of cloud deployment history."
+          "url": "https://learn.microsoft.com/en-us/dotnet/core/diagnostics/distributed-tracing-concepts",
+          "disposition": "reviewed-applied",
+          "reason": "Official distributed tracing concepts: trace/span IDs, parent-child work, collection and sampling; no actual .NET/OTel runtime performed."
         }
       ]
     },
     {
-      "id": "MT35",
-      "url": "https://learn.microsoft.com/en-us/training/paths/describe-azure-management-governance/",
-      "title": "Introduction to Cloud Infrastructure: Describe Azure Management and Governance - Training | Microsoft Learn",
+      "id": "MO37",
+      "url": "https://learn.microsoft.com/en-us/kusto/query/countif-aggregation-function",
+      "title": "countif() (aggregation function) - Kusto | Microsoft Learn",
       "reviewed": "2026-11-01",
-      "version": "Rolling official page; updated 2026-10-28T17:12:00.0000000Z; SHA256 3c0dc41b6958dd1a8cecf4483ebf5ab3961704d7829955168fdf3dc3872c2a2f",
+      "version": "Rolling public page; 2025-02-05T12:13:00.0000000Z; SHA256 bd90c7bdb46fd2c346eb58272933967e43f7ea3d9c6d14fd6440caed1d5593eb",
       "kind": "official-public-documentation",
       "objectives": [
-        "az900.management.portal",
-        "az900.management.shell-tools",
-        "az900.management.arc",
-        "az900.management.iac",
-        "az900.management.arm-templates"
+        "az900.monitoring.advisor",
+        "az900.monitoring.service-health",
+        "az900.monitoring.monitor"
       ],
-      "claims": ["tools.MT35"],
-      "limits": "Actual public source body read to scoped claims; no protected assessment/sign-in/deployment or video execution. MT18 qualifies persistent Cloud Shell shorthand; MT19 distinguishes tools/shells; MT39 separates existing local Flux from new Azure configuration; MT40 qualifies management versus data plane. Examples are not executed.",
+      "claims": ["monitoring.MO37"],
+      "limits": "Scoped public text actually reviewed; protected assessment not opened, no runtime executed. MO19 unavailable replaced by MO35. MO26 selected classic correlation paragraphs only, current MO36 alternative. MO27 duplicates MO13, not independent corroboration. Alert stateful/state and NULL/provider behavior qualified separately.",
       "availability": "AVAILABLE",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/training/paths/describe-azure-management-governance/",
-          "disposition": "reviewed",
-          "reason": "Official management/governance path and relevant module discovery; earlier/later modules remain outside this re-audit."
-        }
-      ]
-    },
-    {
-      "id": "MT36",
-      "url": "https://learn.microsoft.com/en-us/azure/app-service/quickstart-arm-template",
-      "title": "Create an App Service app using an Azure Resource Manager template - Azure App Service | Microsoft Learn",
-      "reviewed": "2026-11-01",
-      "version": "Rolling official page; updated 2025-10-08T05:12:00.0000000Z; SHA256 f785afbef6da8d960eaf7d07942a6229023fd8f46aad0ff2440654a0117e9a29",
-      "kind": "official-public-documentation",
-      "objectives": [
-        "az900.management.portal",
-        "az900.management.shell-tools",
-        "az900.management.arc",
-        "az900.management.iac",
-        "az900.management.arm-templates"
-      ],
-      "claims": ["tools.MT36"],
-      "limits": "Actual public source body read to scoped claims; no protected assessment/sign-in/deployment or video execution. MT18 qualifies persistent Cloud Shell shorthand; MT19 distinguishes tools/shells; MT39 separates existing local Flux from new Azure configuration; MT40 qualifies management versus data plane. Examples are not executed.",
-      "availability": "AVAILABLE",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/app-service/quickstart-arm-template",
-          "disposition": "reviewed",
-          "reason": "Actual App Service template example verifies Web types, LinuxAPI2021-02-01/reserved/F1/serverFarmId/dependsOn; no quickstart deployment performed."
-        }
-      ]
-    },
-    {
-      "id": "MT37",
-      "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/bicep-cli",
-      "title": "Bicep CLI commands - Azure Resource Manager | Microsoft Learn",
-      "reviewed": "2026-11-01",
-      "version": "Rolling official page; updated 2026-10-28T06:29:00.0000000Z; SHA256 a0fea08c623faae153fdd2505c6ab5855b043681064880237df83769760940fe",
-      "kind": "official-public-documentation",
-      "objectives": [
-        "az900.management.portal",
-        "az900.management.shell-tools",
-        "az900.management.arc",
-        "az900.management.iac",
-        "az900.management.arm-templates"
-      ],
-      "claims": ["tools.MT37"],
-      "limits": "Actual public source body read to scoped claims; no protected assessment/sign-in/deployment or video execution. MT18 qualifies persistent Cloud Shell shorthand; MT19 distinguishes tools/shells; MT39 separates existing local Flux from new Azure configuration; MT40 qualifies management versus data plane. Examples are not executed.",
-      "availability": "AVAILABLE",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/bicep-cli",
-          "disposition": "reviewed",
-          "reason": "Bicep build converts to JSON ARM template and supported deployment tooling can do it automatically; no actual compiler executed."
-        }
-      ]
-    },
-    {
-      "id": "MT38",
-      "url": "https://learn.microsoft.com/en-us/azure/azure-arc/servers/agent-overview",
-      "title": "Overview of the Azure Connected Machine agent - Azure Arc | Microsoft Learn",
-      "reviewed": "2026-11-01",
-      "version": "Rolling official page; updated 2026-10-27T22:13:00.0000000Z; SHA256 6537c6b0eaf322763eb5e6022732f53af416249a4cb921ba8c602910997b5de9",
-      "kind": "official-public-documentation",
-      "objectives": [
-        "az900.management.portal",
-        "az900.management.shell-tools",
-        "az900.management.arc",
-        "az900.management.iac",
-        "az900.management.arm-templates"
-      ],
-      "claims": ["tools.MT38"],
-      "limits": "Actual public source body read to scoped claims; no protected assessment/sign-in/deployment or video execution. MT18 qualifies persistent Cloud Shell shorthand; MT19 distinguishes tools/shells; MT39 separates existing local Flux from new Azure configuration; MT40 qualifies management versus data plane. Examples are not executed.",
-      "availability": "AVAILABLE",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/azure-arc/servers/agent-overview",
-          "disposition": "reviewed",
-          "reason": "Connected Machine agent metadata/extension roles; no agent/identity endpoints accessed or installed."
-        }
-      ]
-    },
-    {
-      "id": "MT39",
-      "url": "https://learn.microsoft.com/en-us/azure/azure-arc/kubernetes/conceptual-gitops-flux2",
-      "title": "Application deployments with GitOps (Flux v2) - Azure Arc | Microsoft Learn",
-      "reviewed": "2026-11-01",
-      "version": "Rolling official page; updated 2026-03-24T06:03:00.0000000Z; SHA256 0e2894de3c4a9c8436789391155b5080ddc1886b7699f331eb3fb70da3d19a80",
-      "kind": "official-public-documentation",
-      "objectives": [
-        "az900.management.portal",
-        "az900.management.shell-tools",
-        "az900.management.arc",
-        "az900.management.iac",
-        "az900.management.arm-templates"
-      ],
-      "claims": ["tools.MT39"],
-      "limits": "Actual public source body read to scoped claims; no protected assessment/sign-in/deployment or video execution. MT18 qualifies persistent Cloud Shell shorthand; MT19 distinguishes tools/shells; MT39 separates existing local Flux from new Azure configuration; MT40 qualifies management versus data plane. Examples are not executed.",
-      "availability": "AVAILABLE",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/azure-arc/kubernetes/conceptual-gitops-flux2",
-          "disposition": "reviewed",
-          "reason": "Flux controllers run locally and pull Git; Azure fluxConfiguration updates need Azure reachability while existing Git reconciliation is separate."
-        }
-      ]
-    },
-    {
-      "id": "MT40",
-      "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/control-plane-and-data-plane",
-      "title": "Control plane and data plane operations - Azure Resource Manager | Microsoft Learn",
-      "reviewed": "2026-11-01",
-      "version": "Rolling official page; updated 2026-02-27T18:31:00.0000000Z; SHA256 be7a2dbed6422d1faac6d015f1f001157a0e9a11190c8590ffdbc84a14cc782a",
-      "kind": "official-public-documentation",
-      "objectives": [
-        "az900.management.portal",
-        "az900.management.shell-tools",
-        "az900.management.arc",
-        "az900.management.iac",
-        "az900.management.arm-templates"
-      ],
-      "claims": ["tools.MT40"],
-      "limits": "Actual public source body read to scoped claims; no protected assessment/sign-in/deployment or video execution. MT18 qualifies persistent Cloud Shell shorthand; MT19 distinguishes tools/shells; MT39 separates existing local Flux from new Azure configuration; MT40 qualifies management versus data plane. Examples are not executed.",
-      "availability": "AVAILABLE",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/control-plane-and-data-plane",
-          "disposition": "reviewed",
-          "reason": "Control-plane management via ARM differs from direct service data-plane operations; no all-traffic-through-ARM claim."
+          "url": "https://learn.microsoft.com/en-us/kusto/query/countif-aggregation-function?view=microsoft-fabric",
+          "disposition": "reviewed-applied",
+          "reason": "KQL countif counts true predicates under summarize; original examples use documented table fields, not a general local interpreter."
         }
       ]
     }
   ],
   "activities": [
     {
-      "id": "tools-intent",
-      "objectives": [
-        "az900.management.portal",
-        "az900.management.shell-tools",
-        "az900.management.arm-templates"
-      ],
+      "id": "monitoring-evidence",
+      "objectives": ["az900.monitoring.advisor", "az900.monitoring.monitor"],
       "claims": [
-        "tools.MT03",
-        "tools.MT04",
-        "tools.MT05",
-        "tools.MT06",
-        "tools.MT08",
-        "tools.MT17",
-        "tools.MT18",
-        "tools.MT19",
-        "tools.MT20",
-        "tools.MT21",
-        "tools.MT22",
-        "tools.MT23",
-        "tools.MT27",
-        "tools.MT34",
-        "tools.MT40"
+        "monitoring.MO03",
+        "monitoring.MO07",
+        "monitoring.MO13",
+        "monitoring.MO15",
+        "monitoring.MO32",
+        "monitoring.MO33"
       ],
-      "limits": "Bounded deterministic conceptual observations, no actual Azure request/receipt/compiler/deployment/agent. Intent guided credit additionally requires original replayed post-start local Sandbox operations and explicit inspections. No conceptual World mutation or XP.",
+      "limits": "Fixed synthetic fixtures and closed inputs; observed aggregation separate from strict full-coverage teaching gate; one stateless metric-rule evaluation. No actual runtime/cause/notification/remediation proof. Actual Portal configuration is independent read-only context, never a telemetry source or guided credit.",
       "assessmentStatus": "new-independent",
       "theory": [
         {
           "path": "src/content/nb.ts",
-          "marker": "toolsNb"
+          "marker": "monitoringNb"
         }
       ],
       "mechanism": [
         {
-          "path": "src/domain/curriculum/management-tools-model.ts",
-          "marker": "runIntent"
+          "path": "src/domain/curriculum/monitoring-model.ts",
+          "marker": "runEvidence"
         }
       ],
       "practice": [
         {
-          "path": "src/features/learning/management-tools-workbench.tsx",
-          "marker": "ToolsWorkbench"
+          "path": "src/features/learning/monitoring-workbench.tsx",
+          "marker": "MonitoringWorkbench"
         }
       ],
       "feedback": [
         {
           "path": "src/content/nb.ts",
-          "marker": "toolsItemsNb"
+          "marker": "monitoringItemsNb"
         }
       ],
       "visual": [
         {
-          "path": "src/features/learning/management-tools-visuals.tsx",
-          "marker": "ToolsModelResult"
+          "path": "src/features/learning/monitoring-visuals.tsx",
+          "marker": "MonitoringModelResult"
         }
       ],
       "accessible": [
         {
-          "path": "src/features/learning/management-tools.css"
+          "path": "src/features/learning/monitoring.css"
         }
       ],
       "assessment": [
         {
-          "path": "src/features/learning/management-tools-assessment.tsx",
-          "marker": "ToolsAssessment"
+          "path": "src/features/learning/monitoring-assessment.tsx",
+          "marker": "MonitoringAssessment"
         }
       ],
       "savvyshark": [
         {
-          "path": "src/features/learning/management-tools-workbench.tsx",
+          "path": "src/features/learning/monitoring-workbench.tsx",
           "marker": "SavvyShark"
         }
       ]
     },
     {
-      "id": "tools-change",
-      "objectives": ["az900.management.iac", "az900.management.arm-templates"],
+      "id": "monitoring-health",
+      "objectives": ["az900.monitoring.service-health"],
       "claims": [
-        "tools.MT08",
-        "tools.MT09",
-        "tools.MT10",
-        "tools.MT11",
-        "tools.MT15",
-        "tools.MT24",
-        "tools.MT25",
-        "tools.MT26",
-        "tools.MT28",
-        "tools.MT33",
-        "tools.MT36",
-        "tools.MT37"
+        "monitoring.MO04",
+        "monitoring.MO05",
+        "monitoring.MO06",
+        "monitoring.MO16",
+        "monitoring.MO30",
+        "monitoring.MO31"
       ],
-      "limits": "Bounded deterministic conceptual observations, no actual Azure request/receipt/compiler/deployment/agent. Intent guided credit additionally requires original replayed post-start local Sandbox operations and explicit inspections. No conceptual World mutation or XP.",
+      "limits": "Fixed synthetic fixtures and closed inputs; observed aggregation separate from strict full-coverage teaching gate; one stateless metric-rule evaluation. No actual runtime/cause/notification/remediation proof. Actual Portal configuration is independent read-only context, never a telemetry source or guided credit.",
       "assessmentStatus": "new-independent",
       "theory": [
         {
           "path": "src/content/nb.ts",
-          "marker": "toolsNb"
+          "marker": "monitoringNb"
         }
       ],
       "mechanism": [
         {
-          "path": "src/domain/curriculum/management-tools-model.ts",
-          "marker": "runChange"
+          "path": "src/domain/curriculum/monitoring-model.ts",
+          "marker": "runHealth"
         }
       ],
       "practice": [
         {
-          "path": "src/features/learning/management-tools-workbench.tsx",
-          "marker": "ToolsWorkbench"
+          "path": "src/features/learning/monitoring-workbench.tsx",
+          "marker": "MonitoringWorkbench"
         }
       ],
       "feedback": [
         {
           "path": "src/content/nb.ts",
-          "marker": "toolsItemsNb"
+          "marker": "monitoringItemsNb"
         }
       ],
       "visual": [
         {
-          "path": "src/features/learning/management-tools-visuals.tsx",
-          "marker": "ToolsModelResult"
+          "path": "src/features/learning/monitoring-visuals.tsx",
+          "marker": "MonitoringModelResult"
         }
       ],
       "accessible": [
         {
-          "path": "src/features/learning/management-tools.css"
+          "path": "src/features/learning/monitoring.css"
         }
       ],
       "assessment": [
         {
-          "path": "src/features/learning/management-tools-assessment.tsx",
-          "marker": "ToolsAssessment"
+          "path": "src/features/learning/monitoring-assessment.tsx",
+          "marker": "MonitoringAssessment"
         }
       ],
       "savvyshark": [
         {
-          "path": "src/features/learning/management-tools-workbench.tsx",
+          "path": "src/features/learning/monitoring-workbench.tsx",
           "marker": "SavvyShark"
         }
       ]
     },
     {
-      "id": "tools-arc",
-      "objectives": ["az900.management.arc"],
+      "id": "monitoring-telemetry",
+      "objectives": ["az900.monitoring.monitor"],
       "claims": [
-        "tools.MT07",
-        "tools.MT14",
-        "tools.MT29",
-        "tools.MT30",
-        "tools.MT31",
-        "tools.MT38",
-        "tools.MT39"
+        "monitoring.MO07",
+        "monitoring.MO09",
+        "monitoring.MO10",
+        "monitoring.MO11",
+        "monitoring.MO12",
+        "monitoring.MO13",
+        "monitoring.MO17",
+        "monitoring.MO20",
+        "monitoring.MO21",
+        "monitoring.MO22",
+        "monitoring.MO23",
+        "monitoring.MO24",
+        "monitoring.MO25",
+        "monitoring.MO28",
+        "monitoring.MO29",
+        "monitoring.MO34",
+        "monitoring.MO35",
+        "monitoring.MO36",
+        "monitoring.MO37"
       ],
-      "limits": "Bounded deterministic conceptual observations, no actual Azure request/receipt/compiler/deployment/agent. Intent guided credit additionally requires original replayed post-start local Sandbox operations and explicit inspections. No conceptual World mutation or XP.",
+      "limits": "Fixed synthetic fixtures and closed inputs; observed aggregation separate from strict full-coverage teaching gate; one stateless metric-rule evaluation. No actual runtime/cause/notification/remediation proof. Actual Portal configuration is independent read-only context, never a telemetry source or guided credit.",
       "assessmentStatus": "new-independent",
       "theory": [
         {
           "path": "src/content/nb.ts",
-          "marker": "toolsNb"
+          "marker": "monitoringNb"
         }
       ],
       "mechanism": [
         {
-          "path": "src/domain/curriculum/management-tools-model.ts",
-          "marker": "runArc"
+          "path": "src/domain/curriculum/monitoring-model.ts",
+          "marker": "runTelemetry"
         }
       ],
       "practice": [
         {
-          "path": "src/features/learning/management-tools-workbench.tsx",
-          "marker": "ToolsWorkbench"
+          "path": "src/features/learning/monitoring-workbench.tsx",
+          "marker": "MonitoringWorkbench"
         }
       ],
       "feedback": [
         {
           "path": "src/content/nb.ts",
-          "marker": "toolsItemsNb"
+          "marker": "monitoringItemsNb"
         }
       ],
       "visual": [
         {
-          "path": "src/features/learning/management-tools-visuals.tsx",
-          "marker": "ToolsModelResult"
+          "path": "src/features/learning/monitoring-visuals.tsx",
+          "marker": "MonitoringModelResult"
         }
       ],
       "accessible": [
         {
-          "path": "src/features/learning/management-tools.css"
+          "path": "src/features/learning/monitoring.css"
         }
       ],
       "assessment": [
         {
-          "path": "src/features/learning/management-tools-assessment.tsx",
-          "marker": "ToolsAssessment"
+          "path": "src/features/learning/monitoring-assessment.tsx",
+          "marker": "MonitoringAssessment"
         }
       ],
       "savvyshark": [
         {
-          "path": "src/features/learning/management-tools-workbench.tsx",
+          "path": "src/features/learning/monitoring-workbench.tsx",
           "marker": "SavvyShark"
         }
       ]
@@ -1223,81 +1066,81 @@
   ],
   "modules": [
     {
-      "id": "management-tools",
+      "id": "monitoring",
       "prerequisites": [
         {
           "path": "src/content/nb.ts",
-          "marker": "toolsNb"
+          "marker": "monitoringNb"
         }
       ],
       "terminology": [
         {
           "path": "src/content/nb.ts",
-          "marker": "toolsNb"
+          "marker": "monitoringNb"
         }
       ],
       "concept": [
         {
           "path": "src/content/nb.ts",
-          "marker": "toolsNb"
+          "marker": "monitoringNb"
         }
       ],
       "azureExample": [
         {
           "path": "src/content/nb.ts",
-          "marker": "toolsNb"
+          "marker": "monitoringNb"
         }
       ],
       "workedExample": [
         {
           "path": "src/content/nb.ts",
-          "marker": "toolsNb"
+          "marker": "monitoringNb"
         }
       ],
       "misconception": [
         {
           "path": "src/content/nb.ts",
-          "marker": "toolsNb"
+          "marker": "monitoringNb"
         }
       ],
       "limits": [
         {
           "path": "src/content/nb.ts",
-          "marker": "toolsNb"
+          "marker": "monitoringNb"
         }
       ],
       "mechanism": [
         {
-          "path": "src/domain/curriculum/management-tools-model.ts",
-          "marker": "runTools"
+          "path": "src/domain/curriculum/monitoring-model.ts",
+          "marker": "runMonitoring"
         }
       ],
       "visual": [
         {
-          "path": "src/features/learning/management-tools-visuals.tsx"
+          "path": "src/features/learning/monitoring-visuals.tsx"
         }
       ],
       "practice": [
         {
-          "path": "src/features/learning/management-tools-workbench.tsx"
+          "path": "src/features/learning/monitoring-workbench.tsx"
         }
       ],
       "independentScenario": [
         {
           "path": "src/content/nb.ts",
-          "marker": "toolsItemsNb"
+          "marker": "monitoringItemsNb"
         }
       ],
       "correctAndWrongRationales": [
         {
           "path": "src/content/nb.ts",
-          "marker": "toolsItemsNb"
+          "marker": "monitoringItemsNb"
         }
       ],
       "sources": [
         {
-          "path": "src/domain/curriculum/management-tools-sources.ts",
-          "marker": "toolsSourceReview"
+          "path": "src/domain/curriculum/monitoring-sources.ts",
+          "marker": "monitoringSourceReview"
         }
       ]
     }
@@ -1400,19 +1243,34 @@
     "src/features/learning/governance-visuals.tsx",
     "src/features/learning/governance-controls.tsx",
     "src/features/learning/governance-evidence.tsx",
-    "src/features/learning/governance.css"
+    "src/features/learning/governance.css",
+    "src/domain/curriculum/management-tools.ts",
+    "src/domain/curriculum/management-tools-model.ts",
+    "src/domain/curriculum/management-tools-items.ts",
+    "src/domain/curriculum/management-tools-store.ts",
+    "src/domain/curriculum/management-tools-sources.ts",
+    "src/domain/curriculum/management-tools-evidence.ts",
+    "src/domain/curriculum/management-tools.test.ts",
+    "src/features/learning/management-tools.tsx",
+    "src/features/learning/management-tools-assessment.tsx",
+    "src/features/learning/management-tools-provider.tsx",
+    "src/features/learning/management-tools-workbench.tsx",
+    "src/features/learning/management-tools-visuals.tsx",
+    "src/features/learning/management-tools-controls.tsx",
+    "src/features/learning/management-tools-evidence.tsx",
+    "src/features/learning/management-tools.css"
   ],
   "gates": {
     "source": {
       "checks": [
         {
-          "path": "docs/MANAGEMENT_DEPLOYMENT_TOOLS.md"
+          "path": "docs/MONITORING_DIAGNOSTICS.md"
         },
         {
-          "path": "src/domain/curriculum/management-tools-sources.ts"
+          "path": "src/domain/curriculum/monitoring-sources.ts"
         }
       ],
-      "limits": "P13 source/model/history/visual/fresh audit and exact-head216-case CI/strict remain separate. Anonymous previous-preview preflight succeeds; final external root/fullSHA/journey must be actually verified. Human SME/UX/screen-reader/learning unperformed. No merge/production."
+      "limits": "Source/model/history/visual/audit and actual complete exact-head224-case CI/strict remain distinct; actual anonymous final root/fullSHA/journey still required. Humans unperformed; no merge/production."
     },
     "curriculum": {
       "checks": [
@@ -1420,52 +1278,49 @@
           "path": "src/content/nb.ts"
         },
         {
-          "path": "src/domain/curriculum/management-tools.ts"
+          "path": "src/domain/curriculum/monitoring.ts"
         }
       ],
-      "limits": "P13 source/model/history/visual/fresh audit and exact-head216-case CI/strict remain separate. Anonymous previous-preview preflight succeeds; final external root/fullSHA/journey must be actually verified. Human SME/UX/screen-reader/learning unperformed. No merge/production."
+      "limits": "Source/model/history/visual/audit and actual complete exact-head224-case CI/strict remain distinct; actual anonymous final root/fullSHA/journey still required. Humans unperformed; no merge/production."
     },
     "simulation": {
       "checks": [
         {
-          "path": "src/domain/curriculum/management-tools-model.ts"
+          "path": "src/domain/curriculum/monitoring-model.ts"
         },
         {
-          "path": "src/domain/curriculum/management-tools-evidence.ts"
-        },
-        {
-          "path": "src/domain/curriculum/management-tools.test.ts"
+          "path": "src/domain/curriculum/monitoring.test.ts"
         }
       ],
-      "limits": "P13 source/model/history/visual/fresh audit and exact-head216-case CI/strict remain separate. Anonymous previous-preview preflight succeeds; final external root/fullSHA/journey must be actually verified. Human SME/UX/screen-reader/learning unperformed. No merge/production."
+      "limits": "Source/model/history/visual/audit and actual complete exact-head224-case CI/strict remain distinct; actual anonymous final root/fullSHA/journey still required. Humans unperformed; no merge/production."
     },
     "savvyshark": {
       "checks": [
         {
-          "path": "src/features/learning/management-tools-workbench.tsx"
+          "path": "src/features/learning/monitoring-workbench.tsx"
         },
         {
           "path": "src/features/learning/management-access.tsx"
         },
         {
-          "path": "tests/e2e/management-tools.spec.ts"
+          "path": "tests/e2e/monitoring-diagnostics.spec.ts"
         }
       ],
-      "limits": "P13 source/model/history/visual/fresh audit and exact-head216-case CI/strict remain separate. Anonymous previous-preview preflight succeeds; final external root/fullSHA/journey must be actually verified. Human SME/UX/screen-reader/learning unperformed. No merge/production."
+      "limits": "Source/model/history/visual/audit and actual complete exact-head224-case CI/strict remain distinct; actual anonymous final root/fullSHA/journey still required. Humans unperformed; no merge/production."
     },
     "visual-accessibility": {
       "checks": [
         {
-          "path": "src/features/learning/management-tools-visuals.tsx"
+          "path": "src/features/learning/monitoring-visuals.tsx"
         },
         {
-          "path": "src/features/learning/management-tools.css"
+          "path": "src/features/learning/monitoring.css"
         },
         {
-          "path": "tests/e2e/management-tools.spec.ts"
+          "path": "tests/e2e/monitoring-diagnostics.spec.ts"
         }
       ],
-      "limits": "P13 source/model/history/visual/fresh audit and exact-head216-case CI/strict remain separate. Anonymous previous-preview preflight succeeds; final external root/fullSHA/journey must be actually verified. Human SME/UX/screen-reader/learning unperformed. No merge/production."
+      "limits": "Source/model/history/visual/audit and actual complete exact-head224-case CI/strict remain distinct; actual anonymous final root/fullSHA/journey still required. Humans unperformed; no merge/production."
     },
     "independent-final-audit": {
       "checks": [
@@ -1473,10 +1328,10 @@
           "path": "docs/RELEASE_ACCEPTANCE.md"
         },
         {
-          "path": "docs/quality/PR38_FINAL_AUDIT.md"
+          "path": "docs/quality/PR39_FINAL_AUDIT.md"
         }
       ],
-      "limits": "P13 source/model/history/visual/fresh audit and exact-head216-case CI/strict remain separate. Anonymous previous-preview preflight succeeds; final external root/fullSHA/journey must be actually verified. Human SME/UX/screen-reader/learning unperformed. No merge/production."
+      "limits": "Source/model/history/visual/audit and actual complete exact-head224-case CI/strict remain distinct; actual anonymous final root/fullSHA/journey still required. Humans unperformed; no merge/production."
     },
     "delivery": {
       "checks": [
@@ -1487,163 +1342,78 @@
           "path": "scripts/e2e-plan-check.mjs"
         },
         {
-          "path": "docs/MANAGEMENT_DEPLOYMENT_TOOLS.md"
+          "path": "docs/MONITORING_DIAGNOSTICS.md"
         }
       ],
-      "limits": "P13 source/model/history/visual/fresh audit and exact-head216-case CI/strict remain separate. Anonymous previous-preview preflight succeeds; final external root/fullSHA/journey must be actually verified. Human SME/UX/screen-reader/learning unperformed. No merge/production."
+      "limits": "Source/model/history/visual/audit and actual complete exact-head224-case CI/strict remain distinct; actual anonymous final root/fullSHA/journey still required. Humans unperformed; no merge/production."
     }
   },
   "verification": [
     {
       "command": "npm run check",
       "result": "passed",
-      "details": "Local full check exit0;517 Vitest,427 curriculum subset,17 Node validators, type/lint/format/docs/assets/legacy and production build. Final scoped Arc CSS/test and source-table date correction additionally retested; final authoritative CI reruns full check."
+      "details": "Actual complete local exit0, 1 November2026: TypeScript/lint/format,112 Markdown docs, all gates/reference/matrix/assets/legacy;445 curriculum subset;535 Vitest total;17 Node gate tests; production build. Earlier unused-import lint failure corrected; successful complete second invocation /tmp/p14-check2.log."
     },
     {
-      "command": "targeted production Playwright",
+      "command": "targeted-domain-and-browser",
       "result": "passed",
-      "scope": "targeted-local-only",
-      "details": "16 new/affected cases passed, no retries, on production build; includes8 P13 and all21-context exact resume, shared assistance, Hub/Portal/Storage. Not complete candidate regression."
-    },
-    {
-      "command": "npm run test:e2e:plan",
-      "result": "passed",
-      "scope": "collection-only",
-      "details": "200 desktop +16 justified compact =216; all inherited207 retained; optional legacy400, worker1 unchanged. No executed full browser profile claimed."
-    },
-    {
-      "command": "targeted final-audit corrections",
-      "result": "passed",
-      "scope": "targeted-local-only",
-      "details": "Per-resource reference-difference fix:35 domain/teaching tests, production IaC browser1/1, lint/build pass; new negative screenshot personally inspected. Source-date-only fix30 tests; scoped audit validators5/5; Arc CSS/Axe/layout2/2. Final exact-head fullcheck/profile remains required."
-    },
-    {
-      "command": "targeted balanced final-copy verification",
-      "result": "passed",
-      "scope": "targeted-local-only",
-      "details": "35 domain/teaching tests,3 production browser cases (navigation/first-help-retry/valid alternatives/denied-cross-tab), preservation and build pass on final balanced learner copy; accepted pair keys unchanged. Fresh independent blind90-pair lock precedes keys. Not full candidate regression."
+      "details": "Actual final delta checks:36 affected domain tests; final7desktop+1compact passed0retries; source-link correction ALL34 rendered targets/titles plus exact Portal return2/2passed; new production build passed. Copy-only milestone qualification then18domain tests pass, full exact-head CI will render final wording. Local final19-shot journey13:13:40Z all3guides, md07first, exact active-md06 resume,0pageerrors/0foreignfetch/World bytes unchanged. Prior19affecteddesktop+1compact also passed. Full224 profile remains CI-owned and pending."
     }
   ],
   "visualEvidence": [
     {
-      "path": "docs/screenshots/management-tools/hub-1440.png",
+      "path": "docs/screenshots/monitoring/introduction-sidebar-1440.png",
       "viewport": "1440x900",
       "inspected": true,
-      "observation": "Three paths, one primary action; new module is an ordinary path03 row."
+      "observation": "Visible module hierarchy, original reading and term column; next activity remains reachable."
     },
     {
-      "path": "docs/screenshots/management-tools/hub-1024.png",
+      "path": "docs/screenshots/monitoring/introduction-sidebar-1024.png",
       "viewport": "1024x768",
       "inspected": true,
-      "observation": "Compact PC Hub preserves readable hierarchy; longer module list remains scrollable."
+      "observation": "Readable compact desktop theory, active path/module/activity and scrollable long reading."
     },
     {
-      "path": "docs/screenshots/management-tools/introduction-sidebar-1440.png",
+      "path": "docs/screenshots/monitoring/evidence-flow-1440.png",
       "viewport": "1440x900",
       "inspected": true,
-      "observation": "Original introductory mechanism and contextual active module/activity are visible."
+      "observation": "Four evidence stages, bounded source claim, category and saved comparison; no incident assertion."
     },
     {
-      "path": "docs/screenshots/management-tools/theory-templates-1024.png",
+      "path": "docs/screenshots/monitoring/health-unknown-1024.png",
       "viewport": "1024x768",
       "inspected": true,
-      "observation": "Original ARM sections/version/reference theory and focusable current activity remain readable."
+      "observation": "Explicit event scope/time, separate global/personal and Unknown resource observations; vertical readable lanes."
     },
     {
-      "path": "docs/screenshots/management-tools/briefing-intent-1024x500.png",
-      "viewport": "1024x500",
-      "inspected": true,
-      "observation": "Native blurred briefing retains explicit Start/Cancel in short PC window; body scrolls."
-    },
-    {
-      "path": "docs/screenshots/management-tools/intent-arm-provider-map-1920.png",
-      "viewport": "1920x1080",
-      "inspected": true,
-      "observation": "Intent, chosen author form, ARM, provider/type and unexecuted result remain separate."
-    },
-    {
-      "path": "docs/screenshots/management-tools/intent-code-comparison-1440.png",
+      "path": "docs/screenshots/monitoring/metric-missing-1440.png",
       "viewport": "1440x900",
       "inspected": true,
-      "observation": "Readable original Bicep illustration and semantic five-tool comparison; no execution claim."
+      "observation": "Visible gap rather than zero/interpolation, selected window/threshold/units and semantic data table."
     },
     {
-      "path": "docs/screenshots/management-tools/actual-portal-webapp-1440.png",
-      "viewport": "1440x900",
-      "inspected": true,
-      "observation": "Ordinary Portal shows original accepted Web App and its real local plan."
-    },
-    {
-      "path": "docs/screenshots/management-tools/actual-hosting-relation-1024.png",
-      "viewport": "1024x768",
-      "inspected": true,
-      "observation": "Actual app ID/planId/plan relationship and original receipt fields visible."
-    },
-    {
-      "path": "docs/screenshots/management-tools/actual-request-receipt-1440.png",
-      "viewport": "1440x900",
-      "inspected": true,
-      "observation": "Original request and explicit inspected checks; no copied fictional receipt."
-    },
-    {
-      "path": "docs/screenshots/management-tools/arm-missing-order-1366.png",
-      "viewport": "1366x768",
-      "inspected": true,
-      "observation": "Valid target reference and missing new-resource order have different visible consequences."
-    },
-    {
-      "path": "docs/screenshots/management-tools/bicep-implicit-reference-1440.png",
-      "viewport": "1440x900",
-      "inspected": true,
-      "observation": "Implicit establishment edge and reverse serverFarmId reference have different roles."
-    },
-    {
-      "path": "docs/screenshots/management-tools/parameter-diff-retained-1024.png",
-      "viewport": "1024x768",
-      "inspected": true,
-      "observation": "New desired names/Create and retained dev resources are readable; scoped incremental caveat visible."
-    },
-    {
-      "path": "docs/screenshots/management-tools/unresolved-nochange-withheld-1024.png",
-      "viewport": "1024x768",
-      "inspected": true,
-      "observation": "Unresolved difference explicitly withholds NoChange despite matching selected fields."
-    },
-    {
-      "path": "docs/screenshots/management-tools/invalid-reference-1024.png",
-      "viewport": "1024x768",
-      "inspected": true,
-      "observation": "Missing target remains invalid; language/dependency does not create it."
-    },
-    {
-      "path": "docs/screenshots/management-tools/arc-location-stale-1440.png",
-      "viewport": "1440x900",
-      "inspected": true,
-      "observation": "Physical other-cloud placement stays separate from Azure representation; stale management and corrected light caption visible."
-    },
-    {
-      "path": "docs/screenshots/management-tools/arc-semantic-800.png",
+      "path": "docs/screenshots/monitoring/metric-compact-800.png",
       "viewport": "800x700",
       "inspected": true,
-      "observation": "Stacked physical lanes remain readable at constrained PC width; representation continues below fold."
+      "observation": "Chart and semantic table fit compact PC viewport without horizontal page overflow."
     },
     {
-      "path": "docs/screenshots/management-tools/independent-whatif-1024.png",
-      "viewport": "1024x768",
-      "inspected": true,
-      "observation": "Actual independent premise and paired complete-reason choices, no key before submission."
-    },
-    {
-      "path": "docs/screenshots/management-tools/feedback-whatif-1024x500.png",
+      "path": "docs/screenshots/monitoring/native-start-cancel-1024x500.png",
       "viewport": "1024x500",
       "inspected": true,
-      "observation": "Post-submission specific feedback and SavvyShark readable in short viewport."
+      "observation": "Actual mascot loaded; background blur, explicit Start/Cancel and short-window scroll."
     },
     {
-      "path": "docs/screenshots/management-tools/invalid-existing-reference-1024.png",
+      "path": "docs/screenshots/monitoring/feedback-state-1024x500.png",
+      "viewport": "1024x500",
+      "inspected": true,
+      "observation": "Unassisted first feedback and causal distinction remain readable with sticky navigation; further feedback scrolls."
+    },
+    {
+      "path": "docs/screenshots/monitoring/actual-context-1024.png",
       "viewport": "1024x768",
       "inspected": true,
-      "observation": "Existing plan NoChange and changed invalid app reference Modify are distinguished in selected-field comparison; invalid structure remains rejected separately."
+      "observation": "Original configuration and CreatePlan receipt are clearly separate from synthetic monitoring; no telemetry claim."
     }
   ],
   "humanReview": {
@@ -1654,92 +1424,89 @@
   },
   "review": {
     "status": "complete",
-    "fingerprint": "0226f21f34cb09f830cbb483d3e53789d99cd4698b8cacdf73ad4364cf81209f",
+    "fingerprint": "97a90dd85ccd48f3482a6434a59d1bd60417d656be3a6f8c45251e6495834148",
     "reviewer": {
-      "id": "independent-final-risk-audit-p13-pr38-2026-11-01",
+      "id": "independent-agent-monitoring-final-audit",
       "kind": "agent"
     },
-    "started": "2026-11-01T11:06:24.629Z",
+    "started": "2026-11-01T13:15:31.736687Z",
     "domains": {
       "content": {
-        "finding": "Original substantive teaching and current claim qualifications verified against actual retained public bodies; all 40 hashes match. Only 3.3.01–05 changed; 52 other rows preserved. Human SME unperformed.",
+        "finding": "Scoped original manuscript and critical current official bodies support MON01–03. Public Status/PIR, Resource Health cause/Unknown, collection, NULL, OTel and stateful metric claims checked; excluded/duplicate sources remain honestly qualified. Human SME unperformed.",
         "evidence": [
           {
             "path": "src/content/nb.ts"
           },
           {
-            "path": "src/domain/curriculum/management-tools-sources.ts"
+            "path": "src/domain/curriculum/monitoring-sources.ts"
           },
           {
-            "path": "docs/MANAGEMENT_DEPLOYMENT_TOOLS.md"
-          },
-          {
-            "path": "docs/quality/PR38_FINAL_AUDIT.md"
+            "path": "docs/MONITORING_DIAGNOSTICS.md"
           }
         ]
       },
       "technical": {
-        "finding": "Pure typed models and original pinned post-start proof fail closed. MAJOR per-resource reference-diff error fixed and independently checked across 6144 legal inputs; each missing inspection/archive eviction withholds credit. No World/XP/runtime expansion.",
+        "finding": "Independent arithmetic/rule, source/filter, health and evidence probes plus replay/first/CAS/denied-aid/recovery checks passed. Available aggregate is separate from the stricter teaching coverage gate; stateless evaluation, stateful teaching, response, notification and cause remain separate.",
         "evidence": [
           {
-            "path": "src/domain/curriculum/management-tools-model.ts"
+            "path": "src/domain/curriculum/monitoring-model.ts"
           },
           {
-            "path": "src/domain/curriculum/management-tools-evidence.ts"
+            "path": "src/domain/curriculum/monitoring.ts"
           },
           {
-            "path": "src/domain/curriculum/management-tools-store.ts"
+            "path": "src/domain/curriculum/monitoring-store.ts"
           },
           {
-            "path": "src/domain/curriculum/management-tools.test.ts"
-          },
-          {
-            "path": "docs/screenshots/management-tools/invalid-existing-reference-1024.png"
+            "path": "src/domain/curriculum/monitoring.test.ts"
           }
         ]
       },
       "visual": {
-        "finding": "Personally opened all 20 actual production images across desktop/short/compact sizes. Corrected Arc caption, separate reference/order/uncertainty, original receipts and negative reference-only difference are legible. Keyboard/Axe evidence checked; human UX/screen-reader unperformed.",
+        "finding": "Actual desktop/compact/short-height images inspected; missing-data break and semantic tables readable, actual scope-order defect corrected. Keyboard/reduced-motion/Axe browser witnesses passed; independent final source Summary probe Axe0/pageerrors0. Human UX/screen-reader unperformed.",
         "evidence": [
           {
-            "path": "docs/quality/PR38_VISUAL_INSPECTION.md"
+            "path": "src/features/learning/monitoring-visuals.tsx"
           },
           {
-            "path": "docs/screenshots/management-tools/arc-location-stale-1440.png"
+            "path": "src/features/learning/monitoring.css"
           },
           {
-            "path": "docs/screenshots/management-tools/briefing-intent-1024x500.png"
+            "path": "tests/e2e/monitoring-diagnostics.spec.ts"
           },
           {
-            "path": "docs/screenshots/management-tools/invalid-existing-reference-1024.png"
+            "path": "docs/screenshots/monitoring/metric-compact-800.png"
           },
           {
-            "path": "tests/e2e/management-tools.spec.ts"
+            "path": "docs/screenshots/monitoring/native-start-cancel-1024x500.png"
+          },
+          {
+            "path": "docs/screenshots/monitoring/actual-context-1024.png"
           }
         ]
       },
       "assessment": {
-        "finding": "All original 90 pairs locked before keys. MAJOR universal reason-length cue corrected; separate fresh final-copy reviewer locked all 90 before keys, 11 defensible pairs match actual keys, all 60 feedback entries/10 explanations and changed-context transfer checked. Both mt07 plans valid. Residual minor scaffolding/near-transfer limits documented; no psychometric claim.",
+        "finding": "Fresh immutable blind lock judged all72 pairs before keys; actual evaluation matches all72 including both md06 alternatives. Feedback/overlap read. Accepted minor limitations: cueing, weak distractors,5/8middle decision positions,7/8longest correct reasons and bounded near transfer; no empirical learning claim. Lock narrative count slip corrected transparently in report without rewriting lock.",
         "evidence": [
           {
-            "path": "src/domain/curriculum/management-tools-items.ts"
+            "path": "src/domain/curriculum/monitoring-items.ts"
           },
           {
             "path": "src/content/nb.ts"
           },
           {
-            "path": "src/features/learning/management-tools-assessment.tsx"
+            "path": "src/features/learning/monitoring-assessment.tsx"
           },
           {
-            "path": "docs/quality/PR38_FINAL_AUDIT.md"
+            "path": "docs/quality/PR39_FINAL_AUDIT.md"
           }
         ]
       },
       "guidance": {
-        "finding": "Explicit native Start/Cancel, saved causal contrasts, correct cause, original practical proof and dedup/resume verified. All 21 independent contexts extend teaching/Journal/history/Summary/mission/Portal protection; denied aid, assisted-active and stale/conflict state withhold solutions and preserve firsts.",
+        "finding": "Explicit Start, saved matched contrasts, state-driven next action, isolated milestone dedup and separate correct-cause completion verified. Premature explanation wording corrected. Durable all-context aid and active/unsafe shielding retain own draft/recovery and protect Journal/Summary/history/Portal.",
         "evidence": [
           {
-            "path": "src/features/learning/management-tools-workbench.tsx"
+            "path": "src/features/learning/monitoring-workbench.tsx"
           },
           {
             "path": "src/features/learning/management-access.tsx"
@@ -1751,182 +1518,147 @@
             "path": "src/features/portal/portal.tsx"
           },
           {
-            "path": "tests/e2e/management-tools.spec.ts"
+            "path": "tests/e2e/monitoring-diagnostics.spec.ts"
           }
         ]
       },
       "regression": {
-        "finding": "Independent preservation and 216-case plan checks pass: 31 prior data exports/one function, 52 other rows, 98 protected paths and operative Portal suffix preserved; all inherited 207 executions retained. Focused independent 34-test/3-browser exits 0 plus author final 35-test/3-browser/build corrections. Complete exact-head CI/strict and actual deployed Gate7 remain pending. Final quality/docs checks exit0; strict preflight exit1 solely for missing executed full candidate browser profile, with no stale binding/reviewer/finding errors.",
+        "finding": "Shared Hub/Portal/Journal/exact active resume preserved. Independent preservation rerun confirms33olddata+2functions,7metadataexceptions,54oldrows,113pathpatterns and byte-identical operative Portal suffix. Local check and targeted browser/domain evidence passed; complete final exact-head224CI/strict and external deployed journey remain pending.",
         "evidence": [
           {
-            "path": "tests/e2e/management-tools.spec.ts"
+            "path": "src/features/course/course.tsx"
           },
           {
-            "path": "tests/fixtures/active-teaching-contexts.ts"
+            "path": "src/features/course/course-outline.ts"
           },
           {
-            "path": "src/domain/curriculum/teaching-access.test.ts"
+            "path": "src/domain/portal/model.ts"
           },
           {
-            "path": "playwright.desktop.config.ts"
+            "path": "src/features/learning/monitoring-context.tsx"
           },
           {
-            "path": "scripts/e2e-plan-check.mjs"
+            "path": "tests/e2e/monitoring-diagnostics.spec.ts"
           },
           {
-            "path": ".github/workflows/ci.yml"
-          },
-          {
-            "path": "docs/quality/PR38_FINAL_AUDIT.md"
+            "path": "docs/MONITORING_DIAGNOSTICS.md"
           }
         ]
       }
     },
     "findings": [
       {
-        "id": "P13-F01",
+        "id": "P14-FA-01",
         "severity": "major",
         "status": "fixed",
-        "description": "Existing-dev app plan reference changed but shared tag-only classification incorrectly displayed NoChange.",
-        "fix": "Per-resource selected-field comparison and Modify wording covering configuration/reference changes; invalid structure and unresolved preview remain separate.",
+        "description": "Learner official-source renderer reversed [URL,title] tuples, making every href a relative title string.",
+        "fix": "MonitoringSources now uses URL index0 and title index1 with incidental outer metadata quote trimmed.",
         "retests": [
-          {
-            "path": "src/domain/curriculum/management-tools.test.ts"
-          },
-          {
-            "path": "tests/e2e/management-tools.spec.ts"
-          },
-          {
-            "path": "docs/screenshots/management-tools/invalid-existing-reference-1024.png"
-          },
-          {
-            "path": "docs/quality/PR38_FINAL_AUDIT.md"
-          }
+          "Actual corrected production build exit0;2 affected desktop browser journeys passed with exact assertions for all34 source links.",
+          "Independent post-renewed-stamp Chromium check of34href/title/target/rel;Axe0,pageerrors0. Tracked renderer and browser test linked in report."
         ]
       },
       {
-        "id": "P13-F02",
-        "severity": "major",
-        "status": "fixed",
-        "description": "Every original accepted reason was longest; the form-only longest-pair strategy passed six of ten items.",
-        "fix": "Substantive balancing across all reason sets and three shortened decisions; genuinely fresh final-copy 90-pair blind lock and feedback/novelty review match all keys. Correct reason length ranks now3 longest/4 middle/3 shortest.",
-        "retests": [
-          {
-            "path": "src/content/nb.ts"
-          },
-          {
-            "path": "src/domain/curriculum/management-tools.test.ts"
-          },
-          {
-            "path": "tests/e2e/management-tools.spec.ts"
-          },
-          {
-            "path": "docs/quality/PR38_FINAL_AUDIT.md"
-          }
-        ]
-      },
-      {
-        "id": "P13-F03",
+        "id": "P14-FA-02",
         "severity": "minor",
         "status": "fixed",
-        "description": "Source-review caption said31October although sources were reviewed1November2026.",
-        "fix": "Final source caption now states1November2026; actual copy and final snapshot independently checked.",
+        "description": "Read-only actual scope values appeared subscription/group beneath a group/subscription label.",
+        "fix": "Values now render groupId then subscriptionId.",
         "retests": [
-          {
-            "path": "src/content/nb.ts"
-          },
-          {
-            "path": "docs/quality/PR38_FINAL_AUDIT.md"
-          }
+          "Affected Portal browser journey passed; final source read and actual-context-1024.png independently inspected after renewal."
         ]
       },
       {
-        "id": "P13-F04",
+        "id": "P14-FA-03",
+        "severity": "minor",
+        "status": "fixed",
+        "description": "Telemetry observation milestone claimed explanation before a causal answer was submitted.",
+        "fix": "Final copy describes stored observations and explicitly requires a correct causal explanation for completion; credit mechanism unchanged.",
+        "retests": [
+          "Affected18domain tests passed in /tmp/p14-milestone-unit.log.",
+          "Final stamped milestone source and separate witnessed/complete rules independently reread; final complete build/CI remains pending."
+        ]
+      },
+      {
+        "id": "P14-FA-04",
         "severity": "minor",
         "status": "accepted-limitation",
-        "description": "mt03 remains near the locked-PC worked example, mt06 has extreme substitutions, and several items scaffold choices through explicit constraints. Results remain bounded formative observations, not measured transfer/mastery."
-      },
-      {
-        "id": "P13-F05",
-        "severity": "note",
-        "status": "open",
-        "description": "Final exact-head complete CI/strict and actual deployed ordinary-root/full-SHA/journey Gate7 remain mandatory and pending at audit completion; targeted/local/previous-preview preflight is not delivery proof."
+        "description": "Bounded assessment near transfer: explicit-premise cueing, several weak distractors,5/8 cases accept the middle decision and 7/8 correct reasons are longest; no empirical discrimination, broad diagnostic competence or learning effect established. Independent blind judgment still matches all 72 scoring relations, including valid alternatives."
       }
     ],
     "report": {
-      "path": "docs/quality/PR38_FINAL_AUDIT.md"
+      "path": "docs/quality/PR39_FINAL_AUDIT.md"
     }
   },
   "snapshot": {
     "files": {
-      "AGENTS.md": "fbc5418ce00bbd12448229300ff8ed0f1eaa81c5058a1617979ec63fd89080f9",
-      "README.md": "85d4d198b5dfcc2dc896abd8123b93d9d083c21282f416180f8666fce8714cef",
-      "docs/ARCHITECTURE.md": "6414150fc7b3f0e604511860f54d11be3c7b83b6c8a02e368e970db2c0b24d26",
-      "docs/AZ900_COVERAGE_MATRIX.md": "432ac9c3963d99c093e81ee429489662732b2f2bc3f0af0e00a1429c5d648c95",
-      "docs/AZ900_EXPANSION_ROADMAP.md": "5bbc6095e7131029d803cef29e4a4a7fbc6b8dac1fabb4ddac3d10c48b021b61",
-      "docs/DECISIONS.md": "79df69f1151454595a069b40120b7129bdd062a88c7d7c74de0664692b4075c8",
-      "docs/DEVELOPMENT_WORKFLOW.md": "82f5efe2c89f5e1b99b1ba0fe46fb8c4589045a05ac2aa25fb0531f7bd3b2187",
-      "docs/MANAGEMENT_DEPLOYMENT_TOOLS.md": "e57d2eae3accb0c848f3a961c1fc377ae0d1949b0493e7a5444a5ae0af7d6eeb",
-      "docs/audits/az900-2026-07-20.json": "0bbf819deec2a8343c74b4d575bf41f7da17b64fcee52885b98b33b90fdd9b72",
-      "docs/screenshots/management-tools/actual-hosting-relation-1024.png": "13b7147d850ebf68a93a79635e32c4fafc0ace4f288cc008aacc677f6e91aa35",
-      "docs/screenshots/management-tools/actual-portal-webapp-1440.png": "65c9039613021e15451914f285864a3f9c1a90e95ea018e8c6768e9b6402820b",
-      "docs/screenshots/management-tools/actual-request-receipt-1440.png": "1eb1b20f4c0438241f3aadbe5cabb48cde48cd1938dec8b63c4fe814a6a873c6",
-      "docs/screenshots/management-tools/arc-location-stale-1440.png": "983a03bff5d45af33e95d6300320d0f4645792fef4c6083a1038da2c8f91a319",
-      "docs/screenshots/management-tools/arc-semantic-800.png": "66e9ed3e642ca4f32c32ea93f941c401022eb767a41ba4e4861bab9d2deab9c0",
-      "docs/screenshots/management-tools/arm-missing-order-1366.png": "e0d5ec83d8b0721d3a0692a3b06878486dc52c16c8040d7ff4ba31aac04f95a4",
-      "docs/screenshots/management-tools/bicep-implicit-reference-1440.png": "8ffbe7ad205f63a0b6a4d3efed4390b9f824dc9841f0fc921c3dd6878c497518",
-      "docs/screenshots/management-tools/briefing-intent-1024x500.png": "7eddc77cefde28517b1783dd30c1514b4807d1b0ca629f0ca4de5dfc6d2eac4e",
-      "docs/screenshots/management-tools/feedback-whatif-1024x500.png": "bd0a8e3df449bdfcbbcd15c9508fce0e344db5e1bbd65ea7a1e941837a111f55",
-      "docs/screenshots/management-tools/hub-1024.png": "aeec355c07e54a1727460f80e4138cbbe5ec6351a045804940e1b1108f1945b5",
-      "docs/screenshots/management-tools/hub-1440.png": "3289f780b73c030bf1cedec292c88b3bac2e521189f37780085d500532f1dc28",
-      "docs/screenshots/management-tools/independent-whatif-1024.png": "89469559a94571037b5b4caaa2387e2f7465568b3084ca49401a1d431b7010ef",
-      "docs/screenshots/management-tools/intent-arm-provider-map-1920.png": "f7b79df058adec0f742751d41466a1a4d0cf84c684746e5d7cb74c3b9335d510",
-      "docs/screenshots/management-tools/intent-code-comparison-1440.png": "3a1608007b7583002ab1db207179fc4202ecd11f9badf121193d10016d8658ce",
-      "docs/screenshots/management-tools/introduction-sidebar-1440.png": "b2be9b22d6666821833a16d0d6cc25291cf15847dff34c13596ebc314c508ecd",
-      "docs/screenshots/management-tools/invalid-existing-reference-1024.png": "c543f9c33fe34ea598fe47195ec561b3caefc6a8de61dff73b6980dd8bf10a25",
-      "docs/screenshots/management-tools/invalid-reference-1024.png": "87b152a0ab98c788384f52e4e569584d9012c8adbd4757d9f692dc7ad8e8df9a",
-      "docs/screenshots/management-tools/parameter-diff-retained-1024.png": "e850c1e864875fc24efd6750e07441ca8e8156e32699350759a7197fddf6363c",
-      "docs/screenshots/management-tools/theory-templates-1024.png": "ebdae963717fe0721d062a58c88379a92035bf0361dc99af618b92c407e08978",
-      "docs/screenshots/management-tools/unresolved-nochange-withheld-1024.png": "d0d17b501a788d8b701189c398ba3e3d6f5b8f1d6d8b2e353dec6b481c6710ba",
-      "package.json": "0d5319d7d477503175c69fba7e014f586cfc47ef9235a223ba7e8986fbd9bcfc",
-      "playwright.desktop.config.ts": "95117df62c891e8d9eb8800ca88d6de093a758a7f98d41a55c1b2dba25685148",
-      "scripts/az900-audit-check.test.mjs": "8a5ac41865cdf87588f29f77c498286e6beb96024c09256280dd28989961debb",
-      "scripts/e2e-plan-check.mjs": "6a128d6f3691eefcbde4c42e15ac139cd325233f8fe8726a4b4d007860ce2336",
-      "src/app/layout.tsx": "5b033b7c397a23689ab9169f7857a15a9388937d1a771d809f6140464e9a9daa",
-      "src/app/learn/[module]/page.tsx": "7a045c8c3845188245c8dd37401af14a0ffb53f293ac964f11f218edaf99773c",
-      "src/components/progress-provider.tsx": "b3114c2dc7b5bc83f74a110d76f1cde9eec1e8a59d16d4d3ab725163f7f03e5b",
-      "src/content/nb.ts": "bb024b7010eb269c053659b6bac18d4788623b76fc06b87bbbdc9aa39e7eac86",
-      "src/domain/course/model.ts": "6806a8e267c46a79b8ea0afafa33c9f5f106742a186a09b4d0316acf5962cb17",
-      "src/domain/curriculum/management-tools-evidence.ts": "b834fc3668ebd32eccc7c603a9f545c00e16b3d370571ff148e8126035eda227",
-      "src/domain/curriculum/management-tools-items.ts": "935f824f44bfbcf6940666a02062a536dd7adb542ea92f5303567005749b4a7f",
-      "src/domain/curriculum/management-tools-model.ts": "e9e0e85f84c99dae228dafe8ebac80c8d73920bc117809e9cf8f17a7e64ea5fc",
-      "src/domain/curriculum/management-tools-sources.ts": "156731b305a9dc248c1225dff84d273257acae2a005e712f34c1fe53bb8c6b78",
-      "src/domain/curriculum/management-tools-store.ts": "119e757548b9fd89ecf28d577432010c437f3c5f125419e4b346c4c9c9eac543",
-      "src/domain/curriculum/management-tools.test.ts": "381f2ba5e0b2898ba9013d7dd99a6981a015f5646fcf1b737e181eb4c48bd2f9",
-      "src/domain/curriculum/management-tools.ts": "853cf970e4b30a457f2ac3f73a5b6a4771a2a9615def1e3140aa1ce9dfcf35be",
-      "src/domain/curriculum/official.ts": "56db3588a6fa500bd862b626753093f43702a946801a7ce1471d96f70b5dbde7",
-      "src/domain/curriculum/teaching-access.test.ts": "f6be64ad3980b9be2f31e296b3430aaee19e6bd26fab47b21777e9584294d64c",
-      "src/domain/guidance/milestones.ts": "8f6773197493a0131f452cd4f25fdc1e4b4ec0ed477cc800e38758d1442b233b",
-      "src/domain/portal/model.ts": "d726bc2fb4f8ab59db9b43575731329522a0a685fd7ad38ffe3f62b2dd053112",
-      "src/features/course/course-outline.ts": "9e7c9b83565fa304ee17b3808a2270b7e1f149ea9a6d66a38b0cb8f4e04d1316",
-      "src/features/course/course.tsx": "583d59b3808a474a9237c1f8eaac1d349db64a397b8fee6a97acd2534fe255e7",
-      "src/features/course/mission-context.ts": "41dc223c8e2214442ed7b028c4b58470d386a3e69ede49e7e5939178396014a2",
-      "src/features/learning/management-access.tsx": "3b81abc3db16a2e7f17220ef2319a2b9b666de7609f860ba6a3158006d161703",
-      "src/features/learning/management-tools-assessment.tsx": "0b885ac57ba8df951748baa08b690c320026c63bea256ee939d1b457995bc83d",
-      "src/features/learning/management-tools-controls.tsx": "46a890a9e2377d9bcbdc32798e494a306833e28e433fb89211e268195c4fbc96",
-      "src/features/learning/management-tools-evidence.tsx": "00ae9884c3ce76eb91496abbb7c1bd24e860407b946bcf3e583ed138757f7cb1",
-      "src/features/learning/management-tools-provider.tsx": "6b5d57ee60c1263053cf535ec994c61cefe901dcafe88fd4558c9efc78305f1c",
-      "src/features/learning/management-tools-visuals.tsx": "654b8951f4a77c97a4a144e06f010a36ee2d857783d8481fe6ab4c8fc539dc0f",
-      "src/features/learning/management-tools-workbench.tsx": "09be1d87857a8ee3f3aee51c716fa4ec450e99050efa26f201b356e7a38fb1b4",
-      "src/features/learning/management-tools.css": "f169dd4b491a99e0d2ababb98957e83bafca8f5a28572c0a21db4ba34c47eccf",
-      "src/features/learning/management-tools.tsx": "23f7cf04ad658c995ac67e0d78ab2f6b5a0577d2e9c9eaaccc0d62430bcd06a4",
-      "src/features/portal/portal.tsx": "9c1bb47a357894e88608b7d881de3848b3fd10b20ff1f68240307f028df93efd",
-      "tests/e2e/course-hub.spec.ts": "fc409d6e5082ade8b86cc4e43e6893c7386fa034b6e8d56e45d7a2e772337791",
-      "tests/e2e/management-tools.spec.ts": "623785154a09a87b351bc0100af40656c1b50c6f11a62bad6ca9b36d481ea592",
-      "tests/e2e/storage-resilience.spec.ts": "4a0e3ca001f7c1f3fad994846e635c3bd32778f55dfe4ef8ab6779aeb508dec3",
-      "tests/fixtures/active-teaching-contexts.ts": "22208370670fe931564ae87252f464e343ce16377cf95467abdb6d918c550302",
-      "tests/fixtures/management-tools.ts": "8aeb38e9d236507a45eac65db39b3187c66f6d1b50e1cd5702dd9416f07cc8f8"
+      "AGENTS.md": "213104636c9b9c16d3839a2e49114ba567e561b1368533c6fb47b125b3f4569f",
+      "README.md": "09a3e0f6c9a7cdb24ac55ffff516709ba51310e56036bd25fdb0494cbc3a5eaa",
+      "docs/ARCHITECTURE.md": "1875e1fc2bee924d39aab5cda7d8fecd0684fad877d2c4d9711cd9e7a5a6820d",
+      "docs/AZ900_COVERAGE_MATRIX.md": "cf922acb9e58d05fbab6c05de2023078f89f942507ad451717e7afb88503c36e",
+      "docs/AZ900_EXPANSION_ROADMAP.md": "78cd04cf5b526d339268bbfd75ab89c48776d6e409be0d90b574614b292dcac4",
+      "docs/DECISIONS.md": "0865d3d597662994f31fb33d7ec586e8a70de5a1260d6919f5fade02636860d9",
+      "docs/DEVELOPMENT_WORKFLOW.md": "71debc824a1295b1c70c4c9201c7d820cf8c80dde82c3324ccc289cdc52065ae",
+      "docs/MONITORING_DIAGNOSTICS.md": "69380720fba3de0cc77be820823fd229ce1aaa00a94a3fdc4939f389531226e0",
+      "docs/audits/az900-2026-07-20.json": "a96f49c8288534f1b0a97f6b80bc0e1bacdd764b0233302df78d2d276d4dffa3",
+      "docs/screenshots/monitoring/actual-context-1024.png": "1536c4fe001a5c2b969efa7712d5303c2dd43d84462e741b536918595591d154",
+      "docs/screenshots/monitoring/actual-portal-resource-1440.png": "99eed130ea6efc7231c33e497f6ba240fc773bf5de2e5c4dff796ac8a8c55f88",
+      "docs/screenshots/monitoring/alert-notification-1024.png": "69b74c3fa3304bcdc3bd1f78559951ac8bf7ec7e772ee8565b304f114a8a6a45",
+      "docs/screenshots/monitoring/evidence-flow-1440.png": "c8417efaee08b22a7bb6480bcfa2f3850c4afd4607094a5ef01df55c2080b579",
+      "docs/screenshots/monitoring/feedback-state-1024x500.png": "aa6371535ebfb1f698f26db7af1515e6c6d0ca93e5744a2682b6d92d1627fb04",
+      "docs/screenshots/monitoring/health-time-scope-1366.png": "97d43b62be84f26dfed18c6ec84eb6b202dd5cdc82503ae43d06c0c2bfd4f70f",
+      "docs/screenshots/monitoring/health-unknown-1024.png": "145084b39dbf9f8dfe92c8f02c637ea1da110df7a75e1ec4784e98b7c0c359ec",
+      "docs/screenshots/monitoring/hub-1024.png": "2d83ac296f2d31e101f201fe635541b519058a4da2c6623c980a415c5f94c546",
+      "docs/screenshots/monitoring/hub-1440.png": "982778a4792d909fe555fa0cda3a5d542941c1eae2e044920225c1d55aaf3157",
+      "docs/screenshots/monitoring/independent-state-1024.png": "4085ccbf6b92e79f76ff2200df1d0affec98afd03711de8253e04d74bf9055ea",
+      "docs/screenshots/monitoring/introduction-sidebar-1024.png": "6e107ba98432f86f56d701b95c373dbeb95617b1573d3592d4e19ed00ddb97ed",
+      "docs/screenshots/monitoring/introduction-sidebar-1440.png": "4442b1ef80f95a90defd7e8f8b823513d5e89bf5e9c5499a0a75bfa81a5d3977",
+      "docs/screenshots/monitoring/introduction-sidebar-1920.png": "8d89f7cfe43d484da6459bab7d849acbdeea72f7521b1f7847fefea0ae2d466c",
+      "docs/screenshots/monitoring/logs-traces-1440.png": "bbede8373dddcfb8171aa2a653218f8c2646f2eb3ae563969d0a30eedb4405e1",
+      "docs/screenshots/monitoring/metric-compact-800.png": "6fd1418259c6a0931e8da93d64fc236c98051ed98043f8a1ab38643d62332a1d",
+      "docs/screenshots/monitoring/metric-missing-1440.png": "26405a54ce8c2e9f7b56e9a6053c5d69a0fbd0483dd3e882ecad47f2fe9f68a8",
+      "docs/screenshots/monitoring/metric-semantic-1024.png": "598d6a244dfedba4f0ddb97aeb1950cab918c99d343df3c1bdd795fad9ae9e15",
+      "docs/screenshots/monitoring/native-briefing-1024x500.png": "f4e88a092dc6db2602d3ff75583fec38912a8142581fbff9482ec20860da8980",
+      "docs/screenshots/monitoring/native-start-cancel-1024x500.png": "76d2469b812be5c00e6b13dccbf9a6b8913535bc643725c7a94398a7dde91a4f",
+      "docs/screenshots/monitoring/theory-kql-1024.png": "eae8175c67e21dad27ac089079c0d17015d0b4671ba8773454c308c44a28f5b9",
+      "package.json": "2f4fe60568c1e7c9a0014fdd9b984e2e3345c723f193e9495c649de20de7f774",
+      "playwright.desktop.config.ts": "38de428b33c18631363752ee89925ec4529790a0a028c860c54e2f471220de95",
+      "scripts/az900-audit-check.test.mjs": "9c706bcd15673fefaf4f8a7ffaa3723744166d01b1590d18fe63f3f19aabb504",
+      "scripts/e2e-plan-check.mjs": "ebae3c6570f80d29cd9317cdd4761267af95eeab490bf372fc5b13d7c776326c",
+      "src/app/layout.tsx": "cf106f202b47299bda1ed426806f58151b784839504d9bf5203fa800dcd123c6",
+      "src/app/learn/[module]/page.tsx": "e27b0032e0a2b3aa0c9a513c35e94d7b8d78db9cd6696fd9d52f027d0016c1bf",
+      "src/components/progress-provider.tsx": "386ff44828b79ab2f1216f89345e770057c5dd3e38f0782dde7438a154c24fbf",
+      "src/content/nb.ts": "de25717e6531052364c7848719e7de51ed8d537a8262258690a6f344187c931f",
+      "src/domain/course/model.ts": "784255cf77d335ce62dbfd7f9275bd0bd20087349b12c4958974c2562bb58575",
+      "src/domain/curriculum/monitoring-items.ts": "995b3d60c76821596d86b011918f75d86f556e3f8800a1029235ec7e2187757c",
+      "src/domain/curriculum/monitoring-model.ts": "e429af209281d6de84d40c1ee45b081bc0d81c6161e89b4d06b175750f47b2da",
+      "src/domain/curriculum/monitoring-sources.ts": "f54af37431540c1fc14b331e4a3ce9eec7e539098acaeceed9f5c41f3f13412c",
+      "src/domain/curriculum/monitoring-store.ts": "1b930289a4252b5a6334190b20e2ef20f56729dce364c0cadd2b08d10e4383e5",
+      "src/domain/curriculum/monitoring.test.ts": "2f605d0f539d2d0d12700851da1ea6c167a819c8573dbaa299ab0108f0c4cd8e",
+      "src/domain/curriculum/monitoring.ts": "69f9587c2c3e3969bb35ec25bcaf7a7cf1052fad145176717cd9fd3c146ff621",
+      "src/domain/curriculum/official.ts": "5ad236901be62b46fd96560b3ced55723860e420e16b08ea8f3f4062982a45d0",
+      "src/domain/curriculum/teaching-access.test.ts": "ca49dd846a55f9966a59061f7f6ad132b0952ae73f31776996fd543a52bc2cdc",
+      "src/domain/guidance/milestones.ts": "56e887b6ea3620527480de4eebf896e1622e6a8fc5b8d17d61be9ed8523d620b",
+      "src/domain/portal/model.ts": "0375ecb8e53c93a6612a35c8675560e803b92c5a8abcff23b6551f0bf659e1c8",
+      "src/features/course/course-outline.ts": "5e63500d27ea32b65637afcecdb5b094e140e3d0dec6a77218ff0e5f1637c0c7",
+      "src/features/course/course.tsx": "d997ec889b369710702d9009dbe6c064c905b3dcf94d523ee161776d9bf359b5",
+      "src/features/course/mission-context.ts": "34baad97d607f864623169de103b21eb852c3b8b4b7f40cc58a6937e6f4b7546",
+      "src/features/learning/management-access.tsx": "1023ac56cfc1c2ed97117bb75b1ce19773ea9ab4cb05a943c6ced59dc33a2faa",
+      "src/features/learning/monitoring-assessment.tsx": "6d911df924dd8a4e99b5ba3f7fe545f0f4cf201debb0556398340227e9c1ee97",
+      "src/features/learning/monitoring-context.tsx": "273aacc5784ad8afe50ac8cf43ec4c79e42c60e0587e7fe39dd9d6fcee5db6e0",
+      "src/features/learning/monitoring-controls.tsx": "fe9ff8df190de24bae220c23dd542090f14464668f3559bdff322e97234fff1d",
+      "src/features/learning/monitoring-provider.tsx": "f488077cba22945b5879ffa8b784a0524ca33838bb24fa7115fc9f82befe4e62",
+      "src/features/learning/monitoring-visuals.tsx": "60cb08c64f2a51ef95a43a410bd20c6f3cf83c36a838df48f86f6a896af3f888",
+      "src/features/learning/monitoring-workbench.tsx": "0acc277a39b566ce26a94b0fa601b023169375f76d0f6c9c12882d56b4179aa1",
+      "src/features/learning/monitoring.css": "e8c039c91f5d5c19f89d8e983d3aeab6a5fada82f6cdf5ffbef80e5deb8dc0f2",
+      "src/features/learning/monitoring.tsx": "cce92a9183ddc314dbd2a71b7dd29690b7f44f7c147fcf24b850896077dee8d5",
+      "src/features/portal/portal.tsx": "83fcf65f9c0022fabec57ff851a82505627a7133d32231286d65daafa73e730c",
+      "tests/e2e/course-hub.spec.ts": "41bd17db1784f96245340a1d2b37f5f00be99862e171f96134504c318fe29f05",
+      "tests/e2e/monitoring-diagnostics.spec.ts": "4f1497ee6e21e85bbc567e007059b181aa493f5c3bd14fc1269412fa75bdbb4a",
+      "tests/e2e/storage-resilience.spec.ts": "7117233ff67ea98b0d755d916e776db07010366d40d3309cd5ce70e04399e7b0",
+      "tests/fixtures/active-teaching-contexts.ts": "809f1417faf4b5c84cde585f05d9236e9f3836193a6552226ab54b8211f48e9d",
+      "tests/fixtures/monitoring.ts": "81115b85f3c2d71cb6d8867ee8861a7720224c462a304e9ef1c66fc37c9eb46e"
     }
   },
-  "implementationFinished": "2026-11-01T11:05:49.780Z"
+  "implementationFinished": "2026-11-01T13:15:08.418Z"
 }

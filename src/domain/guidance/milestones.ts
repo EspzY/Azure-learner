@@ -4,6 +4,27 @@ import { replayEngine } from '../sandbox/replay';
 
 /** Conceptual observations are not Engine receipts and have their own source contract. */
 export const conceptMilestones = {
+  'monitoring-evidence': {
+    version: '1.0.0',
+    objectives: ['MON01', 'MON03'],
+    sources: ['MO03', 'MO07', 'MO13'],
+    trigger: 'saved-source-relevance-freshness-and-category-contrasts',
+    auto: 'first-new-guided-model-result',
+  },
+  'monitoring-health': {
+    version: '1.0.0',
+    objectives: ['MON02'],
+    sources: ['MO04', 'MO05', 'MO06'],
+    trigger: 'saved-scope-unknown-and-historical-observation-contrasts',
+    auto: 'first-new-guided-model-result',
+  },
+  'monitoring-telemetry': {
+    version: '1.0.0',
+    objectives: ['MON03'],
+    sources: ['MO12', 'MO20', 'MO22', 'MO24'],
+    trigger: 'saved-rule-notification-aggregation-coverage-and-log-collection-contrasts',
+    auto: 'first-new-guided-model-result',
+  },
   'tools-intent': {
     version: '1.0.0',
     objectives: ['MGT01', 'MGT02'],

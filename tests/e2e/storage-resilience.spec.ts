@@ -110,10 +110,8 @@ test('Storage parts share one Hub group and keep exact A links, active sidebar, 
   await expect(page.locator('.learn-hub-module[data-module="storage-resilience"]')).toContainText(
     h.moduleLabels['storage-resilience'],
   );
-  await expect(page.locator('.learn-hub-planned')).toContainText([
-    'File Movement & Migration',
-    'Monitoring',
-  ]);
+  await expect(page.locator('.learn-hub-planned')).toContainText(['File Movement & Migration']);
+  await expect(page.locator('.learn-hub-module[data-module="monitoring"]')).toBeVisible();
   await expect(page.locator('.learn-hub-module[data-module="management-tools"]')).toBeVisible();
   await expect(page.locator('.learn-hub-module[data-module="governance"]')).toContainText(
     h.moduleLabels.governance,

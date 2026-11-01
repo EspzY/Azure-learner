@@ -1,3 +1,4 @@
+import { MonitoringProvider } from '@/features/learning/monitoring-provider';
 import { ToolsProvider } from '@/features/learning/management-tools-provider';
 import { GovernanceProvider } from '@/features/learning/governance-provider';
 import { AccessProvider } from '@/features/learning/access-control-provider';
@@ -55,17 +56,19 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                                         <SandboxProvider>
                                           <GovernanceProvider>
                                             <ToolsProvider>
-                                              <SaasProvider>
-                                                <PracticalProvider>
-                                                  <ServerlessProvider>
-                                                    <PhysicalProvider>
-                                                      <LearningProvider>
-                                                        <AppShell>{children}</AppShell>
-                                                      </LearningProvider>
-                                                    </PhysicalProvider>
-                                                  </ServerlessProvider>
-                                                </PracticalProvider>
-                                              </SaasProvider>
+                                              <MonitoringProvider>
+                                                <SaasProvider>
+                                                  <PracticalProvider>
+                                                    <ServerlessProvider>
+                                                      <PhysicalProvider>
+                                                        <LearningProvider>
+                                                          <AppShell>{children}</AppShell>
+                                                        </LearningProvider>
+                                                      </PhysicalProvider>
+                                                    </ServerlessProvider>
+                                                  </PracticalProvider>
+                                                </SaasProvider>
+                                              </MonitoringProvider>
                                             </ToolsProvider>
                                           </GovernanceProvider>
                                         </SandboxProvider>

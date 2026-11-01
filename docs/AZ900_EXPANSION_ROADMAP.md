@@ -1,5 +1,9 @@
 # AZ-900 — prioritert, avgrenset PR-plan
 
+## P14 implementation continuity
+
+PR39 scopes only3.4.01–03: Advisor, three Health views, Monitor/Log Analytics/alerts/APM. Existing Course Hub and authoritative Sandbox are preserved. Synthetic fixtures never establish actual runtime. See [MONITORING_DIAGNOSTICS](MONITORING_DIAGNOSTICS.md). P15 Security/Defender remains next, followed by P16 and the separate whole-journey learning audit.
+
 ## Aktiv eierprioritering —29 oktober2026
 
 PR29 er levert som Draft med grønn komplett CI; ekstern Gate7 står SSO-blokkert. Ingen ny revisjon av godkjente deler uten konkret funn. [Arbeidsmodellen](DEVELOPMENT_WORKFLOW.md) bevarer permanent kvalitet, dataintegritet og alle gater, med målrettet lokal testing og risikobasert audit. Desktop/kompakt-fordelingen er eiergodkjent30 oktober2026 og aktiveres gjennom egen avgrenset endring etter faktisk160-test-CI med planvalidering og streng release. Legacy300 beholdes for risikobegrunnet bruk; kompakt/tastatur/tilgjengelighet skal videreføres og utvides ved nye funksjoner.

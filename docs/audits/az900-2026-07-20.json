@@ -2369,6 +2369,210 @@
       "reviewed": "2026-11-01",
       "version": "Rolling official page updated 2026-02-27T18:31:00.0000000Z",
       "pageUpdated": "Updated 2026-02-27T18:31:00.0000000Z; reviewed 2026-11-01"
+    },
+    "MOG01": {
+      "url": "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900",
+      "purpose": "P14: Current AZ-900 guide: only3.4.01–03; all named Monitor facets required.",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page 2026-06-22T23:35:00.0000000Z"
+    },
+    "MOG02": {
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-monitoring-tools-azure/",
+      "purpose": "P14: Six-unit Learn module; five public intro/teaching/summary units reviewed, protected assessment not opened.",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page 2026-10-28T17:12:00.0000000Z"
+    },
+    "MOG03": {
+      "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-overview",
+      "purpose": "P14: Advisor uses configuration and usage telemetry for five recommendation categories; proposed changes require review, not incident proof.",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page 2026-05-18T22:10:00.0000000Z"
+    },
+    "MOG04": {
+      "url": "https://learn.microsoft.com/en-us/azure/service-health/overview",
+      "purpose": "P14: Service Health combines public Status, personalized Service Health and individual Resource Health perspectives.",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page 2025-10-31T22:10:00.0000000Z"
+    },
+    "MOG05": {
+      "url": "https://learn.microsoft.com/en-us/azure/service-health/azure-status-overview",
+      "purpose": "P14: Public Status publishes selected widespread/access-path/uncertain-broad incidents; public history is not every subscription incident.",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page 2026-06-02T22:21:00.0000000Z"
+    },
+    "MOG06": {
+      "url": "https://learn.microsoft.com/en-us/azure/service-health/resource-health-overview",
+      "purpose": "P14: Available/Unavailable/Degraded/Unknown and supported-resource/access qualifications; resource availability is not complete application correctness.",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page 2026-09-22T06:04:00.0000000Z"
+    },
+    "MOG07": {
+      "url": "https://learn.microsoft.com/en-us/azure/azure-monitor/fundamentals/overview",
+      "purpose": "P14: Collect/analyze/respond across metrics/logs/traces/events; distinct Log Analytics versus Azure Monitor workspaces; agentic extensions outside P14 scope.",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page 2026-10-09T22:14:00.0000000Z"
+    },
+    "MOG08": {
+      "url": "https://learn.microsoft.com/en-us/azure/azure-monitor/fundamentals/monitor-azure-resource",
+      "purpose": "P14: Resource monitoring overview: platform metrics and Activity Log available by default, resource monitoring options/service support vary.",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page 2026-09-22T06:04:00.0000000Z"
+    },
+    "MOG09": {
+      "url": "https://learn.microsoft.com/en-us/azure/azure-monitor/fundamentals/activity-log",
+      "purpose": "P14: Activity Log control-plane events collected by default,90-day native retention; exported/queryable workspace data requires routing; ingestion is not instantaneous.",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page 2026-10-27T06:04:00.0000000Z"
+    },
+    "MOG10": {
+      "url": "https://learn.microsoft.com/en-us/azure/azure-monitor/logs/log-analytics-overview",
+      "purpose": "P14: Log Analytics interface supports simple/KQL query modes; query scope/time/access determine available records, not automatic alert configuration.",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page 2026-07-20T12:04:00.0000000Z"
+    },
+    "MOG11": {
+      "url": "https://learn.microsoft.com/en-us/azure/azure-monitor/logs/log-query-overview",
+      "purpose": "P14: KQL queries analyze stored data; scheduled log search alert rules are separate consumers/configurations.",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page 2026-04-29T22:07:00.0000000Z"
+    },
+    "MOG12": {
+      "url": "https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-overview",
+      "purpose": "P14: Rule resource/signal/condition, action groups, Fired/Resolved monitor condition versus New/Acknowledged/Closed user response; stateful/stateless differ.",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page 2026-07-08T22:11:00.0000000Z"
+    },
+    "MOG13": {
+      "url": "https://learn.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview",
+      "purpose": "P14: Current APM Application Insights and supported OTel instrumentation paths; browser JavaScript SDK differs, data collection is not universal automatic onboarding.",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page 2026-10-09T22:14:00.0000000Z"
+    },
+    "MOG14": {
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-monitoring-tools-azure/1-introduction",
+      "purpose": "P14: Public introduction defines three monitoring goals and cloud/onprem/multicloud context.",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page 2026-03-24T17:11:00.0000000Z"
+    },
+    "MOG15": {
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-monitoring-tools-azure/2-describe-purpose-of-azure-advisor",
+      "purpose": "P14: Public Advisor unit introduces five categories; security wording qualified by product recommendation context and MO33.",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page 2026-03-24T17:11:00.0000000Z"
+    },
+    "MOG16": {
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-monitoring-tools-azure/3-describe-azure-service-health",
+      "purpose": "P14: Public health unit three views; broad normal/resource/root-cause shorthand qualified by MO05/06/30/31.",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page 2026-03-24T17:11:00.0000000Z"
+    },
+    "MOG17": {
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-monitoring-tools-azure/4-describe-azure-monitor",
+      "purpose": "P14: Public Monitor unit analysis/alerts/APM; broad collection/setup shorthand qualified by MO13/20/21/35.",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page 2026-03-24T17:11:00.0000000Z"
+    },
+    "MOG18": {
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-monitoring-tools-azure/6-summary",
+      "purpose": "P14: Public summary confirms the same three scoped learning goals; assessment not accessed.",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page 2026-03-24T17:11:00.0000000Z"
+    },
+    "MOG20": {
+      "url": "https://learn.microsoft.com/en-us/azure/azure-monitor/data-collection/diagnostic-settings",
+      "purpose": "P14: Diagnostic settings route platform metrics/Activity Log and explicitly collect supported resource-log categories; destinations, permissions and latency matter.",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page 2026-09-22T06:04:00.0000000Z"
+    },
+    "MOG21": {
+      "url": "https://learn.microsoft.com/en-us/azure/azure-monitor/logs/resource-logs",
+      "purpose": "P14: Resource logs are service-specific records of resource operations; no configured collection means missing evidence, not absence of failures.",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page 2026-10-27T06:04:00.0000000Z"
+    },
+    "MOG22": {
+      "url": "https://learn.microsoft.com/en-us/azure/azure-monitor/metrics/metrics-aggregation-explained",
+      "purpose": "P14: Time granularity/aggregation, Average versus Max; NULL differs from zero and Azure averages exclude absent values; provider handling varies.",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page 2026-08-10T22:17:00.0000000Z"
+    },
+    "MOG23": {
+      "url": "https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-types",
+      "purpose": "P14: Metric/log-search/activity/health alert types use different evaluations; no universal one-evaluation resolution; bounded Studio uses declared stateless evaluation only.",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page 2026-07-08T22:11:00.0000000Z"
+    },
+    "MOG24": {
+      "url": "https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/action-groups",
+      "purpose": "P14: Reusable action groups carry configured notification/automation actions; eligible path is neither confirmed delivery nor automatic remediation.",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page 2026-07-29T22:13:00.0000000Z"
+    },
+    "MOG25": {
+      "url": "https://learn.microsoft.com/en-us/azure/azure-monitor/logs/log-analytics-workspace-overview",
+      "purpose": "P14: Log Analytics workspace stores selected tables with access/retention/table-plan constraints; it is not every monitoring metric datastore.",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page 2026-08-13T17:12:00.0000000Z"
+    },
+    "MOG28": {
+      "url": "https://learn.microsoft.com/en-us/azure/azure-monitor/reference/tables/apprequests",
+      "purpose": "P14: AppRequests schema: TimeGenerated,Success bool,OperationId,DurationMs support original KQL illustration.",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page 2026-07-28T17:16:00.0000000Z"
+    },
+    "MOG29": {
+      "url": "https://learn.microsoft.com/en-us/azure/azure-monitor/reference/tables/azureactivity",
+      "purpose": "P14: AzureActivity schema: TimeGenerated,ActivityStatusValue,OperationNameValue,ResourceId support original failed-management query.",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page 2026-07-28T17:16:00.0000000Z"
+    },
+    "MOG30": {
+      "url": "https://learn.microsoft.com/en-us/azure/service-health/service-health-portal-update",
+      "purpose": "P14: Personalized Service Health scope, service issues/planned maintenance/health advisories; subscription/region/service context and communications matter.",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page 2026-09-22T06:04:00.0000000Z"
+    },
+    "MOG31": {
+      "url": "https://learn.microsoft.com/en-us/azure/service-health/resource-health-checks-resource-types",
+      "purpose": "P14: Resource Health supports specific resource types/checks; VM/Web health checks do not establish business-response correctness.",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page 2026-03-12T05:06:00.0000000Z"
+    },
+    "MOG32": {
+      "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations",
+      "purpose": "P14: Advisor cost recommendations use declared/configuration/usage context and need workload review; examples include right-sizing and capacity risks, not actual invoices.",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page 2026-09-25T22:08:00.0000000Z"
+    },
+    "MOG33": {
+      "url": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/review-security-recommendations",
+      "purpose": "P14: Advisor Security link resolves to current Defender recommendation documentation; findings/recommendations are not universal proof of active compromise; P15 depth deferred.",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page 2026-09-17T17:37:00.0000000Z"
+    },
+    "MOG34": {
+      "url": "https://learn.microsoft.com/en-us/azure/azure-monitor/logs/log-analytics-tutorial",
+      "purpose": "P14: Public Log Analytics tutorial query/filter/group/time mechanisms reviewed; no actual hosted workspace/query or video run claimed.",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page 2026-05-14T22:14:00.0000000Z"
+    },
+    "MOG35": {
+      "url": "https://learn.microsoft.com/en-us/azure/azure-monitor/fundamentals/data-sources",
+      "purpose": "P14: Current common data-collection methods qualify automatically collected platform metrics/Activity Log versus resource logs and application onboarding.",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page 2026-09-22T06:04:00.0000000Z"
+    },
+    "MOG36": {
+      "url": "https://learn.microsoft.com/en-us/dotnet/core/diagnostics/distributed-tracing-concepts",
+      "purpose": "P14: Official distributed tracing concepts: trace/span IDs, parent-child work, collection and sampling; no actual .NET/OTel runtime performed.",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page 2026-03-30T21:10:00.0000000Z"
+    },
+    "MOG37": {
+      "url": "https://learn.microsoft.com/en-us/kusto/query/countif-aggregation-function?view=microsoft-fabric",
+      "purpose": "P14: KQL countif counts true predicates under summarize; original examples use documented table fields, not a general local interpreter.",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page 2025-02-05T12:13:00.0000000Z"
     }
   },
   "evidenceProfiles": {
@@ -3355,6 +3559,37 @@
         "tests/e2e/management-tools.spec.ts"
       ],
       "limits": "Authored A–F coverage only. Three bounded conceptual models; actual existing learner-operated Portal commands/receipts remain authoritative. No CLI/PowerShell/ARM/Bicep/Arc execution, copied inventory, runtime-health proof or XP. Human validation unperformed."
+    },
+    "MO": {
+      "teaching": [
+        {
+          "path": "src/content/nb.ts",
+          "marker": "monitoringNb"
+        }
+      ],
+      "mechanism": [
+        {
+          "path": "src/domain/curriculum/monitoring-model.ts",
+          "marker": "runMonitoring"
+        }
+      ],
+      "presentation": [
+        {
+          "path": "src/features/learning/monitoring-visuals.tsx",
+          "marker": "MonitoringModelResult"
+        }
+      ],
+      "assessment": [
+        {
+          "path": "src/domain/curriculum/monitoring-items.ts",
+          "marker": "evaluateMonitoring"
+        }
+      ],
+      "tests": [
+        "src/domain/curriculum/monitoring.test.ts",
+        "tests/e2e/monitoring-diagnostics.spec.ts"
+      ],
+      "limits": "Authored A–F content only; synthetic fixed signals separate from read-only local configuration/receipts. No real telemetry/incident/cause/notification/runtime or measured human learning."
     }
   },
   "plannedPRs": [
@@ -5911,99 +6146,207 @@
       "slot": "3.4.01",
       "id": "az900.monitoring.advisor",
       "title": "Azure Advisor",
-      "status": "MISSING",
+      "status": "COMPLETE",
       "criteria": {
-        "A": "M",
-        "B": "M",
-        "C": "M",
-        "D": "M",
-        "E": "M",
-        "F": "N"
+        "A": "V",
+        "B": "V",
+        "C": "V",
+        "D": "V",
+        "E": "V",
+        "F": "V"
       },
       "facets": [
         {
           "topic": "Personlige anbefalinger",
-          "status": "MISSING"
+          "status": "COMPLETE"
         }
       ],
       "localObjectives": ["O01", "R01"],
-      "evidence": [],
-      "observed": "Ingen egen Advisor-undervisning, anbefalingsmodell eller avgrensningsoppgave.",
-      "gap": "Mangler egen forklaring, relevant mekanisme/praksis, uavhengig scenario og begrunnet vurdering for de angitte emnene.",
+      "evidence": ["MO"],
+      "observed": "Original five-category recommendation, configuration/usage and scoped freshness theory; saved source/freshness/category contrasts; two new filter-and-cost/category-priority scenarios and counterfactual feedback.",
+      "gap": "Ingen scoped A–F-innholdsgap identifisert; separat audit/CI/ekstern verifikasjon kreves. Dekning er ikke elevmestring eller sertifisering.",
       "plannedPRs": ["P14"],
-      "sources": ["EXAM", "M12"]
+      "sources": [
+        "EXAM",
+        "MOG01",
+        "MOG02",
+        "MOG03",
+        "MOG04",
+        "MOG05",
+        "MOG06",
+        "MOG07",
+        "MOG08",
+        "MOG09",
+        "MOG10",
+        "MOG11",
+        "MOG12",
+        "MOG13",
+        "MOG14",
+        "MOG15",
+        "MOG16",
+        "MOG17",
+        "MOG18",
+        "MOG20",
+        "MOG21",
+        "MOG22",
+        "MOG23",
+        "MOG24",
+        "MOG25",
+        "MOG28",
+        "MOG29",
+        "MOG30",
+        "MOG31",
+        "MOG32",
+        "MOG33",
+        "MOG34",
+        "MOG35",
+        "MOG36",
+        "MOG37"
+      ]
     },
     {
       "slot": "3.4.02",
       "id": "az900.monitoring.service-health",
       "title": "Azure Service Health",
-      "status": "MISSING",
+      "status": "COMPLETE",
       "criteria": {
-        "A": "M",
-        "B": "M",
-        "C": "M",
-        "D": "M",
-        "E": "M",
-        "F": "N"
+        "A": "V",
+        "B": "V",
+        "C": "V",
+        "D": "V",
+        "E": "V",
+        "F": "V"
       },
       "facets": [
         {
           "topic": "Azure status",
-          "status": "MISSING"
+          "status": "COMPLETE"
         },
         {
           "topic": "Service Health",
-          "status": "MISSING"
+          "status": "COMPLETE"
         },
         {
           "topic": "Resource Health",
-          "status": "MISSING"
+          "status": "COMPLETE"
         }
       ],
       "localObjectives": ["O01", "O02"],
-      "evidence": [],
-      "observed": "Lokal Activity log/command receipt er ikke en Azure-tjenestehendelse eller Service Health.",
-      "gap": "Mangler egen forklaring, relevant mekanisme/praksis, uavhengig scenario og begrunnet vurdering for de angitte emnene.",
+      "evidence": ["MO"],
+      "observed": "Original global selective Status/personal Service Health and supported four-state Resource Health with time/scope/app boundaries. Saved current/scope/Unknown/history contrasts; new historical evidence and customer-stop contexts.",
+      "gap": "Ingen scoped A–F-innholdsgap identifisert; separat audit/CI/ekstern verifikasjon kreves. Dekning er ikke elevmestring eller sertifisering.",
       "plannedPRs": ["P14"],
-      "sources": ["EXAM", "M12"]
+      "sources": [
+        "EXAM",
+        "MOG01",
+        "MOG02",
+        "MOG03",
+        "MOG04",
+        "MOG05",
+        "MOG06",
+        "MOG07",
+        "MOG08",
+        "MOG09",
+        "MOG10",
+        "MOG11",
+        "MOG12",
+        "MOG13",
+        "MOG14",
+        "MOG15",
+        "MOG16",
+        "MOG17",
+        "MOG18",
+        "MOG20",
+        "MOG21",
+        "MOG22",
+        "MOG23",
+        "MOG24",
+        "MOG25",
+        "MOG28",
+        "MOG29",
+        "MOG30",
+        "MOG31",
+        "MOG32",
+        "MOG33",
+        "MOG34",
+        "MOG35",
+        "MOG36",
+        "MOG37"
+      ]
     },
     {
       "slot": "3.4.03",
       "id": "az900.monitoring.monitor",
       "title": "Azure Monitor og tilknyttede verktøy",
-      "status": "PARTIAL",
+      "status": "COMPLETE",
       "criteria": {
-        "A": "P",
-        "B": "P",
-        "C": "M",
-        "D": "M",
-        "E": "P",
-        "F": "P"
+        "A": "V",
+        "B": "V",
+        "C": "V",
+        "D": "V",
+        "E": "V",
+        "F": "V"
       },
       "facets": [
         {
           "topic": "Azure Monitor",
-          "status": "PARTIAL"
+          "status": "COMPLETE"
         },
         {
           "topic": "Log Analytics",
-          "status": "MISSING"
+          "status": "COMPLETE"
         },
         {
           "topic": "Alerts",
-          "status": "PARTIAL"
+          "status": "COMPLETE"
         },
         {
           "topic": "Application Insights",
-          "status": "MISSING"
+          "status": "COMPLETE"
         }
       ],
       "localObjectives": ["O01", "O02"],
-      "evidence": ["BR", "BM"],
-      "observed": "Reliability/manageability nevner målinger, Monitor og varsler som observasjonsgrunnlag.",
-      "gap": "Ingen metrics/logs/traces-modell, KQL-/logginspeksjon, alertbeslutning eller App Insights-forklaring. Ikke konverter simuleringskvitteringer til oppdiktet driftstelemetri.",
+      "evidence": ["MO"],
+      "observed": "Original collection/analysis/response, metric/log/trace/event, Activity/Resource Logs, routing/workspace/KQL, configured alert/action group versus notification/remediation and instrumented APM. Synthetic windows/aggregations/NULL/filters/traces/rule contrasts; four independent management-log gap/correlated valid views/stateful versus response/automatic log-alert contexts.",
+      "gap": "Ingen scoped A–F-innholdsgap identifisert; separat audit/CI/ekstern verifikasjon kreves. Dekning er ikke elevmestring eller sertifisering.",
       "plannedPRs": ["P14"],
-      "sources": ["EXAM", "M12"]
+      "sources": [
+        "EXAM",
+        "MOG01",
+        "MOG02",
+        "MOG03",
+        "MOG04",
+        "MOG05",
+        "MOG06",
+        "MOG07",
+        "MOG08",
+        "MOG09",
+        "MOG10",
+        "MOG11",
+        "MOG12",
+        "MOG13",
+        "MOG14",
+        "MOG15",
+        "MOG16",
+        "MOG17",
+        "MOG18",
+        "MOG20",
+        "MOG21",
+        "MOG22",
+        "MOG23",
+        "MOG24",
+        "MOG25",
+        "MOG28",
+        "MOG29",
+        "MOG30",
+        "MOG31",
+        "MOG32",
+        "MOG33",
+        "MOG34",
+        "MOG35",
+        "MOG36",
+        "MOG37"
+      ]
     }
   ],
   "updates": [
@@ -6461,6 +6804,48 @@
         "MTG38",
         "MTG39",
         "MTG40"
+      ]
+    },
+    {
+      "id": "PR39-P14",
+      "reviewed": "2026-11-01",
+      "objectives": ["3.4.01", "3.4.02", "3.4.03"],
+      "note": "Only three P14 rows reassessed;54 others unchanged. No historic mastery reinterpretation.",
+      "sources": [
+        "MOG01",
+        "MOG02",
+        "MOG03",
+        "MOG04",
+        "MOG05",
+        "MOG06",
+        "MOG07",
+        "MOG08",
+        "MOG09",
+        "MOG10",
+        "MOG11",
+        "MOG12",
+        "MOG13",
+        "MOG14",
+        "MOG15",
+        "MOG16",
+        "MOG17",
+        "MOG18",
+        "MOG20",
+        "MOG21",
+        "MOG22",
+        "MOG23",
+        "MOG24",
+        "MOG25",
+        "MOG28",
+        "MOG29",
+        "MOG30",
+        "MOG31",
+        "MOG32",
+        "MOG33",
+        "MOG34",
+        "MOG35",
+        "MOG36",
+        "MOG37"
       ]
     }
   ]

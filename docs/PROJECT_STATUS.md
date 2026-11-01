@@ -1,5 +1,9 @@
 ## PR36 / P11 — Access Control candidate
 
+## P14 candidate — Monitoring & Diagnostic Tools
+
+P14 adds only3.4.01–03; authored coverage52/57 after the scoped A–F update. Three synthetic perspectives, three causal investigations, eight original paired situations and isolated historical evidence integrate after Management in path03. Candidate profile224 (207desktop/17compact), legacy414 remains. Actual audit, CI/strict and deployed exact-SHA journey are recorded on Draft PR39; planning is not execution proof. Humans unperformed, no merge/production. P15 next.
+
 ## P13 / PR38 candidate
 
 Management & Deployment Tools extends path03 after Governance with original teaching, three typed Studio perspectives/causal investigations, ten paired scenarios and isolated history. Targeted verification, actual screenshots, separate final audit, exact-head216-case CI/strict and anonymous deployed fullSHA/user journey are required before delivery. Only3.3.01–05 reassessed; authored coverage49/57 does not mean learner mastery. Human validations unperformed. No merge/production. Next P14 Monitoring; not implemented. [Evidence](MANAGEMENT_DEPLOYMENT_TOOLS.md).
