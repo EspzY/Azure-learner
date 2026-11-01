@@ -1,5 +1,9 @@
 # Roadmap
 
+## P15 candidate and next boundary
+
+[Security Part C](SECURITY_PRINCIPLES.md) supplies Zero Trust, Defense in Depth and plan-qualified Defender for Cloud, with encryption/Key Vault as supplement. P16 — Azure File Movement & Migration — remains next. Whole-course end-to-end pedagogy audit follows P16 before final diagnostic engine/question bank. Neither is implemented in P15.
+
 ## PR28 — P06 Networking Part A
 
 Implemented original Networking teaching, actual configuration inspection, three pure conceptual workbenches, four distinct guided missions and twelve independent cases. [Actual gates and limitations](NETWORKING_FOUNDATIONS.md). Next: P07 Networking Part B, then Storage. No network resource engine, IP allocator, resolver, VPN or endpoint operation is introduced.

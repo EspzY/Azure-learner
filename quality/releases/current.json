@@ -1,1064 +1,865 @@
 {
   "schema": 1,
-  "id": "PR39-P14-monitoring-diagnostics",
-  "baseCommit": "4510d2c7885c35463ddbee71cd7e53bd0c88b5a1",
-  "author": "codex-monitoring-author",
+  "id": "PR40-P15-security-principles",
+  "baseCommit": "385e76c1d544b992626d529dfca2130fbf01d42a",
+  "author": "codex-security-author",
   "scope": {
     "kind": "new-module",
-    "description": "P14 original Advisor/Health/Monitor teaching, three pure synthetic perspectives and causal guides, eight original paired cases, isolated learning history and read-only actual Portal context. Only3.4.01–03. No real collection/query/alert/notification/APM/feed/API or conceptual World mutation/XP; no merge/production.",
-    "objectives": [
-      "az900.monitoring.advisor",
-      "az900.monitoring.service-health",
-      "az900.monitoring.monitor"
-    ]
+    "description": "P15 Identity Part C original Zero Trust/seven-layer Defense/Defender theory and encryption supplement, three pure synthetic design/evidence perspectives and causal guides, eight original paired cases, isolated learning history and read-only Portal context. Only2.4.06–08. No actual security runtime, scan, credentials, World/receipt mutation, score or protection claim. No merge/production.",
+    "objectives": ["az900.security.zero-trust", "az900.security.defense", "az900.security.defender"]
   },
   "sources": [
     {
-      "id": "MO01",
+      "id": "SE01",
       "url": "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900",
       "title": "Study guide for Exam AZ-900: Microsoft Azure Fundamentals | Microsoft Learn",
       "reviewed": "2026-11-01",
-      "version": "Rolling public page; 2026-06-22T23:35:00.0000000Z; SHA256 177b736af1bae8702d9e04ef68bac8c1f2985838652bb40818a5ac25ed320716",
+      "version": "Rolling official page; 2026-06-22T23:35:00.0000000Z; SHA256 177b736af1bae8702d9e04ef68bac8c1f2985838652bb40818a5ac25ed320716",
       "kind": "official-public-documentation",
       "objectives": [
-        "az900.monitoring.advisor",
-        "az900.monitoring.service-health",
-        "az900.monitoring.monitor"
+        "az900.security.zero-trust",
+        "az900.security.defense",
+        "az900.security.defender"
       ],
-      "claims": ["monitoring.MO01"],
-      "limits": "Scoped public text actually reviewed; protected assessment not opened, no runtime executed. MO19 unavailable replaced by MO35. MO26 selected classic correlation paragraphs only, current MO36 alternative. MO27 duplicates MO13, not independent corroboration. Alert stateful/state and NULL/provider behavior qualified separately.",
+      "claims": ["security.SE01"],
+      "limits": "Actual scoped public content reviewed before manuscript. Learn shorthand qualified by current product claims, plan/platform/support differences and two different score models. Protected assessment not opened; no real operation or human validation.",
       "availability": "AVAILABLE",
       "discovery": [
         {
           "url": "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900",
-          "disposition": "reviewed-applied",
-          "reason": "Current AZ-900 guide: only3.4.01–03; all named Monitor facets required."
+          "disposition": "reviewed-essential",
+          "reason": "Current July20 AZ-900 guide: only2.4.06–08; encryption/key management is Learn supplement, not a fourth exam objective."
         }
       ]
     },
     {
-      "id": "MO02",
-      "url": "https://learn.microsoft.com/en-us/training/modules/describe-monitoring-tools-azure/",
-      "title": "Describe monitoring tools in Azure - Training | Microsoft Learn",
+      "id": "SE02",
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-identity-access-security/",
+      "title": "Describe Azure identity, access, and security - Training | Microsoft Learn",
       "reviewed": "2026-11-01",
-      "version": "Rolling public page; 2026-10-28T17:12:00.0000000Z; SHA256 c355d9406349a9743a592216b32c9f80c4ac89a1b8f776ec2e7ca6f86edd54f5",
+      "version": "Rolling official page; 2026-10-28T17:12:00.0000000Z; SHA256 70aeac9267c6e6c173edeececfed3e522cd58a5734e5152653ac5dd083ed388b",
       "kind": "official-public-documentation",
       "objectives": [
-        "az900.monitoring.advisor",
-        "az900.monitoring.service-health",
-        "az900.monitoring.monitor"
+        "az900.security.zero-trust",
+        "az900.security.defense",
+        "az900.security.defender"
       ],
-      "claims": ["monitoring.MO02"],
-      "limits": "Scoped public text actually reviewed; protected assessment not opened, no runtime executed. MO19 unavailable replaced by MO35. MO26 selected classic correlation paragraphs only, current MO36 alternative. MO27 duplicates MO13, not independent corroboration. Alert stateful/state and NULL/provider behavior qualified separately.",
+      "claims": ["security.SE02"],
+      "limits": "Actual scoped public content reviewed before manuscript. Learn shorthand qualified by current product claims, plan/platform/support differences and two different score models. Protected assessment not opened; no real operation or human validation.",
       "availability": "AVAILABLE",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/training/modules/describe-monitoring-tools-azure/",
-          "disposition": "reviewed-applied",
-          "reason": "Six-unit Learn module; five public intro/teaching/summary units reviewed, protected assessment not opened."
+          "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-identity-access-security/",
+          "disposition": "reviewed-essential",
+          "reason": "Twelve-unit Identity/Access/Security module; P15 units7,8,9a,9 and public introduction/summary scoped; units2–6 preserved prerequisite material; protected10assessment not opened."
         }
       ]
     },
     {
-      "id": "MO03",
-      "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-overview",
-      "title": "Introduction to Azure Advisor - Azure Advisor | Microsoft Learn",
+      "id": "SE03",
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-identity-access-security/7-describe-zero-trust-model",
+      "title": "Describe Zero Trust model - Training | Microsoft Learn",
       "reviewed": "2026-11-01",
-      "version": "Rolling public page; 2026-05-18T22:10:00.0000000Z; SHA256 f901b121f9a1272ae08e2bf5fc8d8c6bf68d5b6b1771d5163bffe2e0285e2bc1",
+      "version": "Rolling official page; 2025-03-28T23:01:00.0000000Z; SHA256 c4ec67fb9ed259b58e09d0fe958b0b94efa1a699339ef43c478528661131d411",
       "kind": "official-public-documentation",
       "objectives": [
-        "az900.monitoring.advisor",
-        "az900.monitoring.service-health",
-        "az900.monitoring.monitor"
+        "az900.security.zero-trust",
+        "az900.security.defense",
+        "az900.security.defender"
       ],
-      "claims": ["monitoring.MO03"],
-      "limits": "Scoped public text actually reviewed; protected assessment not opened, no runtime executed. MO19 unavailable replaced by MO35. MO26 selected classic correlation paragraphs only, current MO36 alternative. MO27 duplicates MO13, not independent corroboration. Alert stateful/state and NULL/provider behavior qualified separately.",
+      "claims": ["security.SE03"],
+      "limits": "Actual scoped public content reviewed before manuscript. Learn shorthand qualified by current product claims, plan/platform/support differences and two different score models. Protected assessment not opened; no real operation or human validation.",
       "availability": "AVAILABLE",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-overview",
-          "disposition": "reviewed-applied",
-          "reason": "Advisor uses configuration and usage telemetry for five recommendation categories; proposed changes require review, not incident proof."
+          "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-identity-access-security/7-describe-zero-trust-model",
+          "disposition": "reviewed-essential",
+          "reason": "Three Zero Trust principles; network location is insufficient; authentication plus authorization/context; broad Learn shorthand qualified by actual Azure documentation."
         }
       ]
     },
     {
-      "id": "MO04",
-      "url": "https://learn.microsoft.com/en-us/azure/service-health/overview",
-      "title": "What is Azure Service Health? - Azure Service Health | Microsoft Learn",
+      "id": "SE04",
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-identity-access-security/8-describe-defense-depth",
+      "title": "Describe defense-in-depth - Training | Microsoft Learn",
       "reviewed": "2026-11-01",
-      "version": "Rolling public page; 2025-10-31T22:10:00.0000000Z; SHA256 90922449784598ef984f5ddd1a6566951570ae4a46487207c50d4968f7688325",
+      "version": "Rolling official page; 2025-03-28T23:01:00.0000000Z; SHA256 bf47072ee09485b3477bdb9d1fcd6903f04325468b1074c2c36d70a5627094f5",
       "kind": "official-public-documentation",
       "objectives": [
-        "az900.monitoring.advisor",
-        "az900.monitoring.service-health",
-        "az900.monitoring.monitor"
+        "az900.security.zero-trust",
+        "az900.security.defense",
+        "az900.security.defender"
       ],
-      "claims": ["monitoring.MO04"],
-      "limits": "Scoped public text actually reviewed; protected assessment not opened, no runtime executed. MO19 unavailable replaced by MO35. MO26 selected classic correlation paragraphs only, current MO36 alternative. MO27 duplicates MO13, not independent corroboration. Alert stateful/state and NULL/provider behavior qualified separately.",
+      "claims": ["security.SE04"],
+      "limits": "Actual scoped public content reviewed before manuscript. Learn shorthand qualified by current product claims, plan/platform/support differences and two different score models. Protected assessment not opened; no real operation or human validation.",
       "availability": "AVAILABLE",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/service-health/overview",
-          "disposition": "reviewed-applied",
-          "reason": "Service Health combines public Status, personalized Service Health and individual Resource Health perspectives."
+          "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-identity-access-security/8-describe-defense-depth",
+          "disposition": "reviewed-essential",
+          "reason": "Seven layers and their purpose/controls; layered reduction not an absolute protection guarantee. Original AzureLab diagram only."
         }
       ]
     },
     {
-      "id": "MO05",
-      "url": "https://learn.microsoft.com/en-us/azure/service-health/azure-status-overview",
-      "title": "Azure Status Overview - Azure Service Health | Microsoft Learn",
+      "id": "SE05",
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-identity-access-security/9a-describe-encryption-key-management",
+      "title": "Describe encryption and key management in Azure - Training | Microsoft Learn",
       "reviewed": "2026-11-01",
-      "version": "Rolling public page; 2026-06-02T22:21:00.0000000Z; SHA256 448016079a47de3cfaf44ce0a8b914c7f4dce659b9215b801ed7917ada1b263f",
+      "version": "Rolling official page; 2026-03-24T01:47:00.0000000Z; SHA256 889967b38d712741d373929ac457a2a1479e0b468651dc4643affc1fbfe8cbe0",
       "kind": "official-public-documentation",
       "objectives": [
-        "az900.monitoring.advisor",
-        "az900.monitoring.service-health",
-        "az900.monitoring.monitor"
+        "az900.security.zero-trust",
+        "az900.security.defense",
+        "az900.security.defender"
       ],
-      "claims": ["monitoring.MO05"],
-      "limits": "Scoped public text actually reviewed; protected assessment not opened, no runtime executed. MO19 unavailable replaced by MO35. MO26 selected classic correlation paragraphs only, current MO36 alternative. MO27 duplicates MO13, not independent corroboration. Alert stateful/state and NULL/provider behavior qualified separately.",
+      "claims": ["security.SE05"],
+      "limits": "Actual scoped public content reviewed before manuscript. Learn shorthand qualified by current product claims, plan/platform/support differences and two different score models. Protected assessment not opened; no real operation or human validation.",
       "availability": "AVAILABLE",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/service-health/azure-status-overview",
-          "disposition": "reviewed-applied",
-          "reason": "Public Status publishes selected widespread/access-path/uncertain-broad incidents; public history is not every subscription incident."
+          "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-identity-access-security/9a-describe-encryption-key-management",
+          "disposition": "reviewed-essential",
+          "reason": "Encryption at rest/in transit, keys/secrets/certificates and centralized Key Vault; rotation/access responsibilities remain separate."
         }
       ]
     },
     {
-      "id": "MO06",
-      "url": "https://learn.microsoft.com/en-us/azure/service-health/resource-health-overview",
-      "title": "Azure Resource Health overview - Azure Service Health | Microsoft Learn",
+      "id": "SE06",
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-identity-access-security/9-describe-microsoft-defender-for-cloud",
+      "title": "Describe Microsoft Defender for Cloud - Training | Microsoft Learn",
       "reviewed": "2026-11-01",
-      "version": "Rolling public page; 2026-09-22T06:04:00.0000000Z; SHA256 0aaa426ec80441e63d323c90cfedffe1d0fddca264608af081ab53cdaf703376",
+      "version": "Rolling official page; 2025-03-28T23:01:00.0000000Z; SHA256 c27dc44cf773d422d43f8bd4507aee1fd492f3a847dd70bb8078b988bf32cfa0",
       "kind": "official-public-documentation",
       "objectives": [
-        "az900.monitoring.advisor",
-        "az900.monitoring.service-health",
-        "az900.monitoring.monitor"
+        "az900.security.zero-trust",
+        "az900.security.defense",
+        "az900.security.defender"
       ],
-      "claims": ["monitoring.MO06"],
-      "limits": "Scoped public text actually reviewed; protected assessment not opened, no runtime executed. MO19 unavailable replaced by MO35. MO26 selected classic correlation paragraphs only, current MO36 alternative. MO27 duplicates MO13, not independent corroboration. Alert stateful/state and NULL/provider behavior qualified separately.",
+      "claims": ["security.SE06"],
+      "limits": "Actual scoped public content reviewed before manuscript. Learn shorthand qualified by current product claims, plan/platform/support differences and two different score models. Protected assessment not opened; no real operation or human validation.",
       "availability": "AVAILABLE",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/service-health/resource-health-overview",
-          "disposition": "reviewed-applied",
-          "reason": "Available/Unavailable/Degraded/Unknown and supported-resource/access qualifications; resource availability is not complete application correctness."
+          "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-identity-access-security/9-describe-microsoft-defender-for-cloud",
+          "disposition": "reviewed-essential",
+          "reason": "Learn assessment/secure/defend overview; Azure/hybrid/multicloud connectivity/plan prerequisites qualified by current product sources."
         }
       ]
     },
     {
-      "id": "MO07",
-      "url": "https://learn.microsoft.com/en-us/azure/azure-monitor/overview",
-      "title": "Azure Monitor overview - Azure Monitor | Microsoft Learn",
+      "id": "SE07",
+      "url": "https://learn.microsoft.com/en-us/security/zero-trust/zero-trust-overview",
+      "title": "Zero Trust as a security foundation | Microsoft Learn",
       "reviewed": "2026-11-01",
-      "version": "Rolling public page; 2026-10-09T22:14:00.0000000Z; SHA256 07e0f1cfa600de08982f9f1880416362d42061d82ae82879a41489def55f0f99",
+      "version": "Rolling official page; 2026-05-31T12:33:00.0000000Z; SHA256 6c7b0b94d67f8736c6c05c326c5b5e2a19f2cf7f28a7d583dd3244fec71de23b",
       "kind": "official-public-documentation",
       "objectives": [
-        "az900.monitoring.advisor",
-        "az900.monitoring.service-health",
-        "az900.monitoring.monitor"
+        "az900.security.zero-trust",
+        "az900.security.defense",
+        "az900.security.defender"
       ],
-      "claims": ["monitoring.MO07"],
-      "limits": "Scoped public text actually reviewed; protected assessment not opened, no runtime executed. MO19 unavailable replaced by MO35. MO26 selected classic correlation paragraphs only, current MO36 alternative. MO27 duplicates MO13, not independent corroboration. Alert stateful/state and NULL/provider behavior qualified separately.",
+      "claims": ["security.SE07"],
+      "limits": "Actual scoped public content reviewed before manuscript. Learn shorthand qualified by current product claims, plan/platform/support differences and two different score models. Protected assessment not opened; no real operation or human validation.",
       "availability": "AVAILABLE",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/azure-monitor/fundamentals/overview",
-          "disposition": "reviewed-applied",
-          "reason": "Collect/analyze/respond across metrics/logs/traces/events; distinct Log Analytics versus Azure Monitor workspaces; agentic extensions outside P14 scope."
+          "url": "https://learn.microsoft.com/en-us/security/zero-trust/zero-trust-overview",
+          "disposition": "reviewed-essential",
+          "reason": "Zero Trust is a strategy covering explicit contextual verification, shortest adequate access and assume-breach containment/detection, not a product or confirmed incident."
         }
       ]
     },
     {
-      "id": "MO08",
-      "url": "https://learn.microsoft.com/en-us/azure/azure-monitor/fundamentals/getting-started",
-      "title": "Monitor Azure resources with Azure Monitor - Azure Monitor | Microsoft Learn",
+      "id": "SE08",
+      "url": "https://learn.microsoft.com/en-us/azure/security/fundamentals/zero-trust",
+      "title": "Zero Trust security in Azure | Microsoft Learn",
       "reviewed": "2026-11-01",
-      "version": "Rolling public page; 2026-09-22T06:04:00.0000000Z; SHA256 c364bdfeb8d989ec45af56f83fd9681d9355c195a822268639cdb91b9afd8303",
+      "version": "Rolling official page; 2026-07-24T18:54:00.0000000Z; SHA256 c7d946d3d9ee6e72045d081a678f3a890cdefa5af8a6602adccc1ed0a7ec9c4e",
       "kind": "official-public-documentation",
       "objectives": [
-        "az900.monitoring.advisor",
-        "az900.monitoring.service-health",
-        "az900.monitoring.monitor"
+        "az900.security.zero-trust",
+        "az900.security.defense",
+        "az900.security.defender"
       ],
-      "claims": ["monitoring.MO08"],
-      "limits": "Scoped public text actually reviewed; protected assessment not opened, no runtime executed. MO19 unavailable replaced by MO35. MO26 selected classic correlation paragraphs only, current MO36 alternative. MO27 duplicates MO13, not independent corroboration. Alert stateful/state and NULL/provider behavior qualified separately.",
+      "claims": ["security.SE08"],
+      "limits": "Actual scoped public content reviewed before manuscript. Learn shorthand qualified by current product claims, plan/platform/support differences and two different score models. Protected assessment not opened; no real operation or human validation.",
       "availability": "AVAILABLE",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/azure-monitor/fundamentals/monitor-azure-resource",
-          "disposition": "reviewed-applied",
-          "reason": "Resource monitoring overview: platform metrics and Activity Log available by default, resource monitoring options/service support vary."
+          "url": "https://learn.microsoft.com/en-us/azure/security/fundamentals/zero-trust",
+          "disposition": "reviewed-essential",
+          "reason": "Azure Zero Trust patterns: MFA/CA/RBAC/managed identities, segmentation, encryption/monitoring/recovery are coordinated controls, not a new evaluator."
         }
       ]
     },
     {
-      "id": "MO09",
-      "url": "https://learn.microsoft.com/en-us/azure/azure-monitor/fundamentals/activity-log",
-      "title": "Activity Log in Azure Monitor - Azure Monitor | Microsoft Learn",
+      "id": "SE09",
+      "url": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/defender-for-cloud-introduction",
+      "title": "Microsoft Defender for Cloud Overview - Microsoft Defender for Cloud | Microsoft Learn",
       "reviewed": "2026-11-01",
-      "version": "Rolling public page; 2026-10-27T06:04:00.0000000Z; SHA256 58e340a43522daa5f63e6151528ddad0e74e284086628960ef95953b3a9a2598",
+      "version": "Rolling official page; 2026-08-10T22:36:00.0000000Z; SHA256 72dfee448af156964f26beaa7d1c58f0a3420c4c5e39600f8f0be6de91075d7c",
       "kind": "official-public-documentation",
       "objectives": [
-        "az900.monitoring.advisor",
-        "az900.monitoring.service-health",
-        "az900.monitoring.monitor"
+        "az900.security.zero-trust",
+        "az900.security.defense",
+        "az900.security.defender"
       ],
-      "claims": ["monitoring.MO09"],
-      "limits": "Scoped public text actually reviewed; protected assessment not opened, no runtime executed. MO19 unavailable replaced by MO35. MO26 selected classic correlation paragraphs only, current MO36 alternative. MO27 duplicates MO13, not independent corroboration. Alert stateful/state and NULL/provider behavior qualified separately.",
+      "claims": ["security.SE09"],
+      "limits": "Actual scoped public content reviewed before manuscript. Learn shorthand qualified by current product claims, plan/platform/support differences and two different score models. Protected assessment not opened; no real operation or human validation.",
       "availability": "AVAILABLE",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/azure-monitor/fundamentals/activity-log",
-          "disposition": "reviewed-applied",
-          "reason": "Activity Log control-plane events collected by default,90-day native retention; exported/queryable workspace data requires routing; ingestion is not instantaneous."
+          "url": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/defender-for-cloud-introduction",
+          "disposition": "reviewed-essential",
+          "reason": "CNAPP combines CSPM, CWPP and DevSecOps; expanding Defender portal differs from Azure portal; extra plans/collection/support required; advanced AI/SOC products outside P15."
         }
       ]
     },
     {
-      "id": "MO10",
-      "url": "https://learn.microsoft.com/en-us/azure/azure-monitor/logs/log-analytics-overview",
-      "title": "Overview of Log Analytics in Azure Monitor - Azure Monitor | Microsoft Learn",
+      "id": "SE10",
+      "url": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/concept-cloud-security-posture-management",
+      "title": "What is Cloud Security Posture Management (CSPM) - Microsoft Defender for Cloud | Microsoft Learn",
       "reviewed": "2026-11-01",
-      "version": "Rolling public page; 2026-07-20T12:04:00.0000000Z; SHA256 e7b706b1cca1cb61d259e566b2db661b5d00c41e92c8bbeb1160cb372b17212f",
+      "version": "Rolling official page; 2026-09-30T17:37:00.0000000Z; SHA256 1b1e18470b0d1d322af8762daff3a4a066cf31ef7ca2658980088d644ca7fffe",
       "kind": "official-public-documentation",
       "objectives": [
-        "az900.monitoring.advisor",
-        "az900.monitoring.service-health",
-        "az900.monitoring.monitor"
+        "az900.security.zero-trust",
+        "az900.security.defense",
+        "az900.security.defender"
       ],
-      "claims": ["monitoring.MO10"],
-      "limits": "Scoped public text actually reviewed; protected assessment not opened, no runtime executed. MO19 unavailable replaced by MO35. MO26 selected classic correlation paragraphs only, current MO36 alternative. MO27 duplicates MO13, not independent corroboration. Alert stateful/state and NULL/provider behavior qualified separately.",
+      "claims": ["security.SE10"],
+      "limits": "Actual scoped public content reviewed before manuscript. Learn shorthand qualified by current product claims, plan/platform/support differences and two different score models. Protected assessment not opened; no real operation or human validation.",
       "availability": "AVAILABLE",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/azure-monitor/logs/log-analytics-overview",
-          "disposition": "reviewed-applied",
-          "reason": "Log Analytics interface supports simple/KQL query modes; query scope/time/access determine available records, not automatic alert configuration."
+          "url": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/concept-cloud-security-posture-management",
+          "disposition": "reviewed-essential",
+          "reason": "Free Foundational CSPM versus paid Defender CSPM; risk prioritization/attack paths and advanced DevOps are plan-dependent. Some recommendations require CWPP. Regional/cloud/resource availability varies."
         }
       ]
     },
     {
-      "id": "MO11",
-      "url": "https://learn.microsoft.com/en-us/azure/azure-monitor/logs/log-query-overview",
-      "title": "Log queries in Azure Monitor - Azure Monitor | Microsoft Learn",
+      "id": "SE11",
+      "url": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/security-recommendations",
+      "title": "Security Recommendations - Microsoft Defender for Cloud | Microsoft Learn",
       "reviewed": "2026-11-01",
-      "version": "Rolling public page; 2026-04-29T22:07:00.0000000Z; SHA256 dbcd9ca79cb2655f55f05b4dfa645bb272eabc6457fdbf222aa13b3013d9a4a3",
+      "version": "Rolling official page; 2026-06-17T12:36:00.0000000Z; SHA256 a1162bf672519dfe7d07a982194cb59ca401dbe3d6d232ecc82c97f67845f068",
       "kind": "official-public-documentation",
       "objectives": [
-        "az900.monitoring.advisor",
-        "az900.monitoring.service-health",
-        "az900.monitoring.monitor"
+        "az900.security.zero-trust",
+        "az900.security.defense",
+        "az900.security.defender"
       ],
-      "claims": ["monitoring.MO11"],
-      "limits": "Scoped public text actually reviewed; protected assessment not opened, no runtime executed. MO19 unavailable replaced by MO35. MO26 selected classic correlation paragraphs only, current MO36 alternative. MO27 duplicates MO13, not independent corroboration. Alert stateful/state and NULL/provider behavior qualified separately.",
+      "claims": ["security.SE11"],
+      "limits": "Actual scoped public content reviewed before manuscript. Learn shorthand qualified by current product claims, plan/platform/support differences and two different score models. Protected assessment not opened; no real operation or human validation.",
       "availability": "AVAILABLE",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/azure-monitor/logs/log-query-overview",
-          "disposition": "reviewed-applied",
-          "reason": "KQL queries analyze stored data; scheduled log search alert rules are separate consumers/configurations."
+          "url": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/security-recommendations",
+          "disposition": "reviewed-essential",
+          "reason": "Posture recommendations arise from assessment; risk context differs from threat evidence; risk-level evaluation requires relevant Defender CSPM coverage and is not universal safety proof."
         }
       ]
     },
     {
-      "id": "MO12",
-      "url": "https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-overview",
-      "title": "Overview of Azure Monitor alerts - Azure Monitor | Microsoft Learn",
+      "id": "SE12",
+      "url": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/secure-score-security-controls",
+      "title": "Cloud Secure Score in Microsoft Defender for Cloud - Microsoft Defender for Cloud | Microsoft Learn",
       "reviewed": "2026-11-01",
-      "version": "Rolling public page; 2026-07-08T22:11:00.0000000Z; SHA256 7d9e53434ea413b12ef61b7a9a30c30ef1727af9feca4b3e30d42ed3802fd644",
+      "version": "Rolling official page; 2026-07-07T17:36:00.0000000Z; SHA256 a89e39681dd655f53410ef190997d1fffc945629de7899fa837ee8956c57cd7d",
       "kind": "official-public-documentation",
       "objectives": [
-        "az900.monitoring.advisor",
-        "az900.monitoring.service-health",
-        "az900.monitoring.monitor"
+        "az900.security.zero-trust",
+        "az900.security.defense",
+        "az900.security.defender"
       ],
-      "claims": ["monitoring.MO12"],
-      "limits": "Scoped public text actually reviewed; protected assessment not opened, no runtime executed. MO19 unavailable replaced by MO35. MO26 selected classic correlation paragraphs only, current MO36 alternative. MO27 duplicates MO13, not independent corroboration. Alert stateful/state and NULL/provider behavior qualified separately.",
+      "claims": ["security.SE12"],
+      "limits": "Actual scoped public content reviewed before manuscript. Learn shorthand qualified by current product claims, plan/platform/support differences and two different score models. Protected assessment not opened; no real operation or human validation.",
       "availability": "AVAILABLE",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-overview",
-          "disposition": "reviewed-applied",
-          "reason": "Rule resource/signal/condition, action groups, Fired/Resolved monitor condition versus New/Acknowledged/Closed user response; stateful/stateless differ."
+          "url": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/secure-score-security-controls",
+          "disposition": "reviewed-essential",
+          "reason": "Both actual portal pivots reviewed: classic control-based Secure Score and risk-based Cloud Secure Score have different calculations/values. No numeric score computed in AzureLab; changing coverage can change score; preview recommendation qualification applies today."
         }
       ]
     },
     {
-      "id": "MO13",
-      "url": "https://learn.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview",
-      "title": "Application Insights OpenTelemetry observability overview - Azure Monitor | Microsoft Learn",
+      "id": "SE13",
+      "url": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/managing-and-responding-alerts",
+      "title": "Manage and Respond to Security Alerts - Microsoft Defender for Cloud | Microsoft Learn",
       "reviewed": "2026-11-01",
-      "version": "Rolling public page; 2026-10-09T22:14:00.0000000Z; SHA256 395637b202f9216948b5adbe1d5c95d3620ca8dc81f8ae93429921ba4774af63",
+      "version": "Rolling official page; 2026-09-22T17:34:00.0000000Z; SHA256 f27e1229e6d50029fc2f5c4602873199e91eaa819e8df766d9f20fd82d799116",
       "kind": "official-public-documentation",
       "objectives": [
-        "az900.monitoring.advisor",
-        "az900.monitoring.service-health",
-        "az900.monitoring.monitor"
+        "az900.security.zero-trust",
+        "az900.security.defense",
+        "az900.security.defender"
       ],
-      "claims": ["monitoring.MO13"],
-      "limits": "Scoped public text actually reviewed; protected assessment not opened, no runtime executed. MO19 unavailable replaced by MO35. MO26 selected classic correlation paragraphs only, current MO36 alternative. MO27 duplicates MO13, not independent corroboration. Alert stateful/state and NULL/provider behavior qualified separately.",
+      "claims": ["security.SE13"],
+      "limits": "Actual scoped public content reviewed before manuscript. Learn shorthand qualified by current product claims, plan/platform/support differences and two different score models. Protected assessment not opened; no real operation or human validation.",
       "availability": "AVAILABLE",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview",
-          "disposition": "reviewed-applied",
-          "reason": "Current APM Application Insights and supported OTel instrumentation paths; browser JavaScript SDK differs, data collection is not universal automatic onboarding."
+          "url": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/manage-respond-alerts",
+          "disposition": "reviewed-essential",
+          "reason": "Canonical redirect to manage-respond-alerts: investigate resource/time/evidence/severity and possible false positives; remediation/automation are separate actions, not automatic from alert."
         }
       ]
     },
     {
-      "id": "MO14",
-      "url": "https://learn.microsoft.com/en-us/training/modules/describe-monitoring-tools-azure/1-introduction",
+      "id": "SE14",
+      "url": "https://learn.microsoft.com/en-us/azure/key-vault/general/overview",
+      "title": "Azure Key Vault Overview - Azure Key Vault | Microsoft Learn",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page; 2026-10-06T17:34:00.0000000Z; SHA256 22fa34895ca98f21a1781510902752f0b6337e78acb4c5cf2cbc3882fae3b874",
+      "kind": "official-public-documentation",
+      "objectives": [
+        "az900.security.zero-trust",
+        "az900.security.defense",
+        "az900.security.defender"
+      ],
+      "claims": ["security.SE14"],
+      "limits": "Actual scoped public content reviewed before manuscript. Learn shorthand qualified by current product claims, plan/platform/support differences and two different score models. Protected assessment not opened; no real operation or human validation.",
+      "availability": "AVAILABLE",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/key-vault/general/overview",
+          "disposition": "reviewed-essential",
+          "reason": "Key Vault protects secrets, encryption keys and certificates; Entra authentication plus data authorization needed; not a general application database. Premium cryptography/preview internals excluded."
+        }
+      ]
+    },
+    {
+      "id": "SE15",
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-identity-access-security/1-introduction",
       "title": "Introduction - Training | Microsoft Learn",
       "reviewed": "2026-11-01",
-      "version": "Rolling public page; 2026-03-24T17:11:00.0000000Z; SHA256 211b6cd661ff60c7e8bd5ea2c687bd5faec08f9a4ffeb89eae2cba71ea041d5d",
+      "version": "Rolling official page; 2025-03-28T23:01:00.0000000Z; SHA256 0ce001af136a8d592905aad76fd63d8e61deddc1316e06ca795b205b73caf8f0",
       "kind": "official-public-documentation",
       "objectives": [
-        "az900.monitoring.advisor",
-        "az900.monitoring.service-health",
-        "az900.monitoring.monitor"
+        "az900.security.zero-trust",
+        "az900.security.defense",
+        "az900.security.defender"
       ],
-      "claims": ["monitoring.MO14"],
-      "limits": "Scoped public text actually reviewed; protected assessment not opened, no runtime executed. MO19 unavailable replaced by MO35. MO26 selected classic correlation paragraphs only, current MO36 alternative. MO27 duplicates MO13, not independent corroboration. Alert stateful/state and NULL/provider behavior qualified separately.",
+      "claims": ["security.SE15"],
+      "limits": "Actual scoped public content reviewed before manuscript. Learn shorthand qualified by current product claims, plan/platform/support differences and two different score models. Protected assessment not opened; no real operation or human validation.",
       "availability": "AVAILABLE",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/training/modules/describe-monitoring-tools-azure/1-introduction",
+          "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-identity-access-security/1-introduction",
           "disposition": "reviewed-applied",
-          "reason": "Public introduction defines three monitoring goals and cloud/onprem/multicloud context."
+          "reason": "Public module introduction reviewed as prerequisite bridge only; earlier P10/P11 manuscripts and rubrics unchanged."
         }
       ]
     },
     {
-      "id": "MO15",
-      "url": "https://learn.microsoft.com/en-us/training/modules/describe-monitoring-tools-azure/2-describe-purpose-of-azure-advisor",
-      "title": "Describe the purpose of Azure Advisor - Training | Microsoft Learn",
-      "reviewed": "2026-11-01",
-      "version": "Rolling public page; 2026-03-24T17:11:00.0000000Z; SHA256 6c5721cc6be62cbdd8b9f331e6cc9b9ce338836197d00cef55fd0605db8d5693",
-      "kind": "official-public-documentation",
-      "objectives": [
-        "az900.monitoring.advisor",
-        "az900.monitoring.service-health",
-        "az900.monitoring.monitor"
-      ],
-      "claims": ["monitoring.MO15"],
-      "limits": "Scoped public text actually reviewed; protected assessment not opened, no runtime executed. MO19 unavailable replaced by MO35. MO26 selected classic correlation paragraphs only, current MO36 alternative. MO27 duplicates MO13, not independent corroboration. Alert stateful/state and NULL/provider behavior qualified separately.",
-      "availability": "AVAILABLE",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/training/modules/describe-monitoring-tools-azure/2-describe-purpose-of-azure-advisor",
-          "disposition": "reviewed-applied",
-          "reason": "Public Advisor unit introduces five categories; security wording qualified by product recommendation context and MO33."
-        }
-      ]
-    },
-    {
-      "id": "MO16",
-      "url": "https://learn.microsoft.com/en-us/training/modules/describe-monitoring-tools-azure/3-describe-azure-service-health",
-      "title": "Describe Azure Service Health - Training | Microsoft Learn",
-      "reviewed": "2026-11-01",
-      "version": "Rolling public page; 2026-03-24T17:11:00.0000000Z; SHA256 888978926e0ec1f4646163072fc2ce3bcd34f240ce79808b48fa5c285c4ea6da",
-      "kind": "official-public-documentation",
-      "objectives": [
-        "az900.monitoring.advisor",
-        "az900.monitoring.service-health",
-        "az900.monitoring.monitor"
-      ],
-      "claims": ["monitoring.MO16"],
-      "limits": "Scoped public text actually reviewed; protected assessment not opened, no runtime executed. MO19 unavailable replaced by MO35. MO26 selected classic correlation paragraphs only, current MO36 alternative. MO27 duplicates MO13, not independent corroboration. Alert stateful/state and NULL/provider behavior qualified separately.",
-      "availability": "AVAILABLE",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/training/modules/describe-monitoring-tools-azure/3-describe-azure-service-health",
-          "disposition": "reviewed-applied",
-          "reason": "Public health unit three views; broad normal/resource/root-cause shorthand qualified by MO05/06/30/31."
-        }
-      ]
-    },
-    {
-      "id": "MO17",
-      "url": "https://learn.microsoft.com/en-us/training/modules/describe-monitoring-tools-azure/4-describe-azure-monitor",
-      "title": "Describe Azure Monitor - Training | Microsoft Learn",
-      "reviewed": "2026-11-01",
-      "version": "Rolling public page; 2026-03-24T17:11:00.0000000Z; SHA256 eeca3d8e8e822e4e81a39075f6b63b853005063b43e68e56d4bc5d3a99568c75",
-      "kind": "official-public-documentation",
-      "objectives": [
-        "az900.monitoring.advisor",
-        "az900.monitoring.service-health",
-        "az900.monitoring.monitor"
-      ],
-      "claims": ["monitoring.MO17"],
-      "limits": "Scoped public text actually reviewed; protected assessment not opened, no runtime executed. MO19 unavailable replaced by MO35. MO26 selected classic correlation paragraphs only, current MO36 alternative. MO27 duplicates MO13, not independent corroboration. Alert stateful/state and NULL/provider behavior qualified separately.",
-      "availability": "AVAILABLE",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/training/modules/describe-monitoring-tools-azure/4-describe-azure-monitor",
-          "disposition": "reviewed-applied",
-          "reason": "Public Monitor unit analysis/alerts/APM; broad collection/setup shorthand qualified by MO13/20/21/35."
-        }
-      ]
-    },
-    {
-      "id": "MO18",
-      "url": "https://learn.microsoft.com/en-us/training/modules/describe-monitoring-tools-azure/6-summary",
+      "id": "SE16",
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-identity-access-security/11-summary",
       "title": "Summary - Training | Microsoft Learn",
       "reviewed": "2026-11-01",
-      "version": "Rolling public page; 2026-03-24T17:11:00.0000000Z; SHA256 502d9457c52a1f5e3eba6baa77254bc39db0f82c47e4cf349303d55bf2267aaa",
+      "version": "Rolling official page; 2025-03-28T23:01:00.0000000Z; SHA256 1045366e34c1525a1e333a72c05e9c0a4a77a42cd270513d241020a6c3ed423e",
       "kind": "official-public-documentation",
       "objectives": [
-        "az900.monitoring.advisor",
-        "az900.monitoring.service-health",
-        "az900.monitoring.monitor"
+        "az900.security.zero-trust",
+        "az900.security.defense",
+        "az900.security.defender"
       ],
-      "claims": ["monitoring.MO18"],
-      "limits": "Scoped public text actually reviewed; protected assessment not opened, no runtime executed. MO19 unavailable replaced by MO35. MO26 selected classic correlation paragraphs only, current MO36 alternative. MO27 duplicates MO13, not independent corroboration. Alert stateful/state and NULL/provider behavior qualified separately.",
+      "claims": ["security.SE16"],
+      "limits": "Actual scoped public content reviewed before manuscript. Learn shorthand qualified by current product claims, plan/platform/support differences and two different score models. Protected assessment not opened; no real operation or human validation.",
       "availability": "AVAILABLE",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/training/modules/describe-monitoring-tools-azure/6-summary",
+          "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-identity-access-security/11-summary",
           "disposition": "reviewed-applied",
-          "reason": "Public summary confirms the same three scoped learning goals; assessment not accessed."
+          "reason": "Public module summary confirms scoped security concepts and encryption supplement; assessment not opened."
         }
       ]
     },
     {
-      "id": "MO19",
-      "url": "https://learn.microsoft.com/en-us/azure/azure-monitor/data-collection/data-sources",
-      "title": "MO19",
+      "id": "SE17",
+      "url": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/alerts-overview",
+      "title": "Security Alerts and Incidents - Microsoft Defender for Cloud | Microsoft Learn",
       "reviewed": "2026-11-01",
-      "version": "Rolling public page; unknown; SHA256 unavailable",
+      "version": "Rolling official page; 2026-07-07T17:36:00.0000000Z; SHA256 bca20af1cfe299a74ec5d44ffcb972c2c2a24916550ef5db46723a4389a01128",
       "kind": "official-public-documentation",
       "objectives": [
-        "az900.monitoring.advisor",
-        "az900.monitoring.service-health",
-        "az900.monitoring.monitor"
+        "az900.security.zero-trust",
+        "az900.security.defense",
+        "az900.security.defender"
       ],
-      "claims": ["monitoring.MO19"],
-      "limits": "Scoped public text actually reviewed; protected assessment not opened, no runtime executed. MO19 unavailable replaced by MO35. MO26 selected classic correlation paragraphs only, current MO36 alternative. MO27 duplicates MO13, not independent corroboration. Alert stateful/state and NULL/provider behavior qualified separately.",
+      "claims": ["security.SE17"],
+      "limits": "Actual scoped public content reviewed before manuscript. Learn shorthand qualified by current product claims, plan/platform/support differences and two different score models. Protected assessment not opened; no real operation or human validation.",
+      "availability": "AVAILABLE",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/alerts-overview",
+          "disposition": "reviewed-applied",
+          "reason": "Workload-plan detections generate security alerts, severity expresses confidence/context; incidents correlate alerts and still require investigation. Alert is not universal proof of successful compromise."
+        }
+      ]
+    },
+    {
+      "id": "SE18",
+      "url": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/defender-for-servers-overview",
+      "title": "Overview of Defender for Servers in Defender for Cloud - Microsoft Defender for Cloud | Microsoft Learn",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page; 2026-09-30T07:42:00.0000000Z; SHA256 bdb565e00bb7013f05b600717fa719327a1297be2faa026b1e081477f568170e",
+      "kind": "official-public-documentation",
+      "objectives": [
+        "az900.security.zero-trust",
+        "az900.security.defense",
+        "az900.security.defender"
+      ],
+      "claims": ["security.SE18"],
+      "limits": "Actual scoped public content reviewed before manuscript. Learn shorthand qualified by current product claims, plan/platform/support differences and two different score models. Protected assessment not opened; no real operation or human validation.",
+      "availability": "AVAILABLE",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/defender-for-servers-overview",
+          "disposition": "reviewed-applied",
+          "reason": "Servers Plan1/2 and feature/integration differences; machine existence is not Endpoint protection or active Defender coverage. Separately sold Experts service excluded."
+        }
+      ]
+    },
+    {
+      "id": "SE19",
+      "url": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/defender-for-containers-introduction",
+      "title": "Introduction to Microsoft Defender for Containers - Microsoft Defender for Cloud | Microsoft Learn",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page; 2026-08-10T22:36:00.0000000Z; SHA256 50319a336c920859566c629861aa6bb85cce14f4e8938fa4d71e0f2ea4d20561",
+      "kind": "official-public-documentation",
+      "objectives": [
+        "az900.security.zero-trust",
+        "az900.security.defense",
+        "az900.security.defender"
+      ],
+      "claims": ["security.SE19"],
+      "limits": "Actual scoped public content reviewed before manuscript. Learn shorthand qualified by current product claims, plan/platform/support differences and two different score models. Protected assessment not opened; no real operation or human validation.",
+      "availability": "AVAILABLE",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/defender-for-containers-introduction",
+          "disposition": "reviewed-applied",
+          "reason": "Containers posture/agentless/sensor/runtime features vary with configuration/plan/platform; preview capabilities not generalized to all containers."
+        }
+      ]
+    },
+    {
+      "id": "SE20",
+      "url": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/defender-for-storage-introduction",
+      "title": "What is Microsoft Defender for Storage - Microsoft Defender for Cloud | Microsoft Learn",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page; 2026-08-06T12:40:00.0000000Z; SHA256 9b2ef61ebc2989d4b70a3503092752551e8e2c8b9fd0848639b591eebfed3035",
+      "kind": "official-public-documentation",
+      "objectives": [
+        "az900.security.zero-trust",
+        "az900.security.defense",
+        "az900.security.defender"
+      ],
+      "claims": ["security.SE20"],
+      "limits": "Actual scoped public content reviewed before manuscript. Learn shorthand qualified by current product claims, plan/platform/support differences and two different score models. Protected assessment not opened; no real operation or human validation.",
+      "availability": "AVAILABLE",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/defender-for-storage-introduction",
+          "disposition": "reviewed-applied",
+          "reason": "Defender for Storage protects supported Azure Storage with enabled scope/settings; activity monitoring/malware scanning/sensitive-data features and cost/limits separate; no universal free scan."
+        }
+      ]
+    },
+    {
+      "id": "SE21",
+      "url": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/defender-for-databases-introduction",
+      "title": "Overview of Defender for Open-Source Relational Databases - Microsoft Defender for Cloud | Microsoft Learn",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page; 2026-08-10T22:36:00.0000000Z; SHA256 9a9cac6b134cf98504a9b4c6955e771c5260ca146c72c33ff220d7e103121c59",
+      "kind": "official-public-documentation",
+      "objectives": [
+        "az900.security.zero-trust",
+        "az900.security.defense",
+        "az900.security.defender"
+      ],
+      "claims": ["security.SE21"],
+      "limits": "Actual scoped public content reviewed before manuscript. Learn shorthand qualified by current product claims, plan/platform/support differences and two different score models. Protected assessment not opened; no real operation or human validation.",
+      "availability": "AVAILABLE",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/defender-for-databases-introduction",
+          "disposition": "reviewed-applied",
+          "reason": "Databases overview is specifically open-source relational database protection with platform availability limits, not one universal plan for every database."
+        }
+      ]
+    },
+    {
+      "id": "SE22",
+      "url": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/defender-for-app-service-introduction",
+      "title": "Microsoft Defender for App Service - Benefits and Features - Microsoft Defender for Cloud | Microsoft Learn",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page; 2026-07-07T17:36:00.0000000Z; SHA256 48b2239f737ed85e4b4f450ae9fc7780a2227f5877bc677f38852bfe20ad4aab",
+      "kind": "official-public-documentation",
+      "objectives": [
+        "az900.security.zero-trust",
+        "az900.security.defense",
+        "az900.security.defender"
+      ],
+      "claims": ["security.SE22"],
+      "limits": "Actual scoped public content reviewed before manuscript. Learn shorthand qualified by current product claims, plan/platform/support differences and two different score models. Protected assessment not opened; no real operation or human validation.",
+      "availability": "AVAILABLE",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/defender-for-app-service-introduction",
+          "disposition": "reviewed-applied",
+          "reason": "App Service workload protection is a specific enabled plan for supported Azure App Service threats; resource creation alone does not enable security instrumentation/protection."
+        }
+      ]
+    },
+    {
+      "id": "SE23",
+      "url": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/support-matrix-defender-for-cloud",
+      "title": "Interoperability with Azure services, Azure clouds, and client operating systems - Microsoft Defender for Cloud | Microsoft Learn",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page; 2026-09-03T12:37:00.0000000Z; SHA256 eb101c10d98fd3e463606cebf0b2a15fcd81ad911ae6e1de6087b1ec397f4110",
+      "kind": "official-public-documentation",
+      "objectives": [
+        "az900.security.zero-trust",
+        "az900.security.defense",
+        "az900.security.defender"
+      ],
+      "claims": ["security.SE23"],
+      "limits": "Actual scoped public content reviewed before manuscript. Learn shorthand qualified by current product claims, plan/platform/support differences and two different score models. Protected assessment not opened; no real operation or human validation.",
+      "availability": "AVAILABLE",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/support-matrix-defender-for-cloud",
+          "disposition": "reviewed-applied",
+          "reason": "Actual support matrices distinguish services/clouds/portals/regions and preview; no universal all-cloud coverage. China retirement qualification reviewed, no onboarding performed."
+        }
+      ]
+    },
+    {
+      "id": "SE24",
+      "url": "https://learn.microsoft.com/en-us/azure/security/fundamentals/encryption-overview",
+      "title": "Azure encryption overview | Microsoft Learn",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page; 2026-09-18T22:43:00.0000000Z; SHA256 99219cdf14063cd5d7abcd52c92a09affd8f041dd11513b7a3a16101ecccc2b8",
+      "kind": "official-public-documentation",
+      "objectives": [
+        "az900.security.zero-trust",
+        "az900.security.defense",
+        "az900.security.defender"
+      ],
+      "claims": ["security.SE24"],
+      "limits": "Actual scoped public content reviewed before manuscript. Learn shorthand qualified by current product claims, plan/platform/support differences and two different score models. Protected assessment not opened; no real operation or human validation.",
+      "availability": "AVAILABLE",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/security/fundamentals/encryption-overview",
+          "disposition": "reviewed-applied",
+          "reason": "At-rest/in-transit and client/server encryption responsibilities; decrypting authorized services can still expose data to overprivileged users. No ADE implementation or legacy universal recommendation."
+        }
+      ]
+    },
+    {
+      "id": "SE25",
+      "url": "https://learn.microsoft.com/en-us/azure/key-vault/general/about-keys-secrets-certificates",
+      "title": "Azure Key Vault Keys, Secrets, and Certificates Overview | Microsoft Learn",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page; 2026-06-12T22:35:00.0000000Z; SHA256 195dd44b217e989636790ac4ce4f1e51bb30061ba6066a4ff91543623eeef47a",
+      "kind": "official-public-documentation",
+      "objectives": [
+        "az900.security.zero-trust",
+        "az900.security.defense",
+        "az900.security.defender"
+      ],
+      "claims": ["security.SE25"],
+      "limits": "Actual scoped public content reviewed before manuscript. Learn shorthand qualified by current product claims, plan/platform/support differences and two different score models. Protected assessment not opened; no real operation or human validation.",
+      "availability": "AVAILABLE",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/key-vault/general/about-keys-secrets-certificates",
+          "disposition": "reviewed-applied",
+          "reason": "Key/secret/certificate object types and versioning differ; deprecated Storage-account-key management is not taught as current feature."
+        }
+      ]
+    },
+    {
+      "id": "SE26",
+      "url": "https://learn.microsoft.com/en-us/azure/key-vault/general/best-practices",
+      "title": "Secure your Azure Key Vault | Microsoft Learn",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page; 2026-10-06T17:34:00.0000000Z; SHA256 720e1610f16c4489d692ce8ca670328268253b041d3da276d8da88393700a9fd",
+      "kind": "official-public-documentation",
+      "objectives": [
+        "az900.security.zero-trust",
+        "az900.security.defense",
+        "az900.security.defender"
+      ],
+      "claims": ["security.SE26"],
+      "limits": "Actual scoped public content reviewed before manuscript. Learn shorthand qualified by current product claims, plan/platform/support differences and two different score models. Protected assessment not opened; no real operation or human validation.",
+      "availability": "AVAILABLE",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/key-vault/general/secure-key-vault",
+          "disposition": "reviewed-applied",
+          "reason": "Best-practices URL redirects to secure-key-vault: access restrictions, managed identities/least privilege, rotation/logging and recovery protections remain customer configuration responsibilities."
+        }
+      ]
+    },
+    {
+      "id": "SE27",
+      "url": "https://learn.microsoft.com/en-us/azure/key-vault/keys/how-to-configure-key-rotation",
+      "title": "Configure cryptographic key auto-rotation in Azure Key Vault | Microsoft Learn",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page; 2026-06-12T22:35:00.0000000Z; SHA256 c94628eceefac8a85010d7d13260a213c7a45c1c27a1c1db1b86a6f047247377",
+      "kind": "official-public-documentation",
+      "objectives": [
+        "az900.security.zero-trust",
+        "az900.security.defense",
+        "az900.security.defender"
+      ],
+      "claims": ["security.SE27"],
+      "limits": "Actual scoped public content reviewed before manuscript. Learn shorthand qualified by current product claims, plan/platform/support differences and two different score models. Protected assessment not opened; no real operation or human validation.",
+      "availability": "AVAILABLE",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/key-vault/keys/how-to-configure-key-rotation",
+          "disposition": "reviewed-applied",
+          "reason": "Rotation creates new key version using policy/permissions and service-specific integration; applying new versions/retaining old decryptability not universally automatic. No key operation executed."
+        }
+      ]
+    },
+    {
+      "id": "SE28",
+      "url": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/risk-prioritization",
+      "title": "Risk prioritization - Microsoft Defender for Cloud | Microsoft Learn",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page; 2026-06-16T18:23:00.0000000Z; SHA256 7ad409a18b05ffb7212da98501de076145bd1554c58291e24219f77a15ae9c86",
+      "kind": "official-public-documentation",
+      "objectives": [
+        "az900.security.zero-trust",
+        "az900.security.defense",
+        "az900.security.defender"
+      ],
+      "claims": ["security.SE28"],
+      "limits": "Actual scoped public content reviewed before manuscript. Learn shorthand qualified by current product claims, plan/platform/support differences and two different score models. Protected assessment not opened; no real operation or human validation.",
+      "availability": "AVAILABLE",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/risk-prioritization",
+          "disposition": "reviewed-applied",
+          "reason": "Risk-prioritization prerequisites: paid Defender CSPM; contextual exposure/sensitivity/criticality guides review, not confirmed threat or universal score formula."
+        }
+      ]
+    },
+    {
+      "id": "SE29",
+      "url": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/concept-defender-for-cloud-defender-portal",
+      "title": "Unavailable official source",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page; unavailable; SHA256 ",
+      "kind": "official-public-documentation",
+      "objectives": [
+        "az900.security.zero-trust",
+        "az900.security.defense",
+        "az900.security.defender"
+      ],
+      "claims": ["security.SE29"],
+      "limits": "Actual scoped public content reviewed before manuscript. Learn shorthand qualified by current product claims, plan/platform/support differences and two different score models. Protected assessment not opened; no real operation or human validation.",
       "availability": "BLOCKED",
-      "alternative": "MO35 current official data sources",
+      "alternative": "SE09 current Defender overview and SE12 both score portal pivots",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/azure-monitor/data-collection/data-sources",
-          "disposition": "blocked",
-          "reason": "Old data-collection/data-sources route returned404; official fundamentals/data-sources MO35 is the available factual replacement."
-        }
-      ]
-    },
-    {
-      "id": "MO20",
-      "url": "https://learn.microsoft.com/en-us/azure/azure-monitor/data-collection/diagnostic-settings",
-      "title": "Diagnostic Settings in Azure Monitor - Azure Monitor | Microsoft Learn",
-      "reviewed": "2026-11-01",
-      "version": "Rolling public page; 2026-09-22T06:04:00.0000000Z; SHA256 a8e53edfd1e231ddf3f276a958333c32da2aaa156bca012e3b55fbd45579184b",
-      "kind": "official-public-documentation",
-      "objectives": [
-        "az900.monitoring.advisor",
-        "az900.monitoring.service-health",
-        "az900.monitoring.monitor"
-      ],
-      "claims": ["monitoring.MO20"],
-      "limits": "Scoped public text actually reviewed; protected assessment not opened, no runtime executed. MO19 unavailable replaced by MO35. MO26 selected classic correlation paragraphs only, current MO36 alternative. MO27 duplicates MO13, not independent corroboration. Alert stateful/state and NULL/provider behavior qualified separately.",
-      "availability": "AVAILABLE",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/azure-monitor/data-collection/diagnostic-settings",
-          "disposition": "reviewed-applied",
-          "reason": "Diagnostic settings route platform metrics/Activity Log and explicitly collect supported resource-log categories; destinations, permissions and latency matter."
-        }
-      ]
-    },
-    {
-      "id": "MO21",
-      "url": "https://learn.microsoft.com/en-us/azure/azure-monitor/logs/resource-logs",
-      "title": "Resource logs in Azure Monitor - Azure Monitor | Microsoft Learn",
-      "reviewed": "2026-11-01",
-      "version": "Rolling public page; 2026-10-27T06:04:00.0000000Z; SHA256 2177fa0af14d2535aa6da19654155467ff8367b765a12d93ae0cda23d940551f",
-      "kind": "official-public-documentation",
-      "objectives": [
-        "az900.monitoring.advisor",
-        "az900.monitoring.service-health",
-        "az900.monitoring.monitor"
-      ],
-      "claims": ["monitoring.MO21"],
-      "limits": "Scoped public text actually reviewed; protected assessment not opened, no runtime executed. MO19 unavailable replaced by MO35. MO26 selected classic correlation paragraphs only, current MO36 alternative. MO27 duplicates MO13, not independent corroboration. Alert stateful/state and NULL/provider behavior qualified separately.",
-      "availability": "AVAILABLE",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/azure-monitor/logs/resource-logs",
-          "disposition": "reviewed-applied",
-          "reason": "Resource logs are service-specific records of resource operations; no configured collection means missing evidence, not absence of failures."
-        }
-      ]
-    },
-    {
-      "id": "MO22",
-      "url": "https://learn.microsoft.com/en-us/azure/azure-monitor/metrics/metrics-aggregation-explained",
-      "title": "Azure Monitor metrics aggregation and display explained - Azure Monitor | Microsoft Learn",
-      "reviewed": "2026-11-01",
-      "version": "Rolling public page; 2026-08-10T22:17:00.0000000Z; SHA256 7a32ba4b4376ed2698d9c3b5850e9590ad3eb2960bfd9713b07c6d75f4f5b9b0",
-      "kind": "official-public-documentation",
-      "objectives": [
-        "az900.monitoring.advisor",
-        "az900.monitoring.service-health",
-        "az900.monitoring.monitor"
-      ],
-      "claims": ["monitoring.MO22"],
-      "limits": "Scoped public text actually reviewed; protected assessment not opened, no runtime executed. MO19 unavailable replaced by MO35. MO26 selected classic correlation paragraphs only, current MO36 alternative. MO27 duplicates MO13, not independent corroboration. Alert stateful/state and NULL/provider behavior qualified separately.",
-      "availability": "AVAILABLE",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/azure-monitor/metrics/metrics-aggregation-explained",
-          "disposition": "reviewed-applied",
-          "reason": "Time granularity/aggregation, Average versus Max; NULL differs from zero and Azure averages exclude absent values; provider handling varies."
-        }
-      ]
-    },
-    {
-      "id": "MO23",
-      "url": "https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-types",
-      "title": "Types of Azure Monitor alerts - Azure Monitor | Microsoft Learn",
-      "reviewed": "2026-11-01",
-      "version": "Rolling public page; 2026-07-08T22:11:00.0000000Z; SHA256 63820713a84e37cfbdfb910b359e625258015345a4bd87d28fade8bddf7554c8",
-      "kind": "official-public-documentation",
-      "objectives": [
-        "az900.monitoring.advisor",
-        "az900.monitoring.service-health",
-        "az900.monitoring.monitor"
-      ],
-      "claims": ["monitoring.MO23"],
-      "limits": "Scoped public text actually reviewed; protected assessment not opened, no runtime executed. MO19 unavailable replaced by MO35. MO26 selected classic correlation paragraphs only, current MO36 alternative. MO27 duplicates MO13, not independent corroboration. Alert stateful/state and NULL/provider behavior qualified separately.",
-      "availability": "AVAILABLE",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-types",
-          "disposition": "reviewed-applied",
-          "reason": "Metric/log-search/activity/health alert types use different evaluations; no universal one-evaluation resolution; bounded Studio uses declared stateless evaluation only."
-        }
-      ]
-    },
-    {
-      "id": "MO24",
-      "url": "https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/action-groups",
-      "title": "Create and manage action groups in Azure Monitor - Azure Monitor | Microsoft Learn",
-      "reviewed": "2026-11-01",
-      "version": "Rolling public page; 2026-07-29T22:13:00.0000000Z; SHA256 aa86ca1cf8e7fa883313b5d72abcf8fb2c62471c8fd688e7a078863f109d536d",
-      "kind": "official-public-documentation",
-      "objectives": [
-        "az900.monitoring.advisor",
-        "az900.monitoring.service-health",
-        "az900.monitoring.monitor"
-      ],
-      "claims": ["monitoring.MO24"],
-      "limits": "Scoped public text actually reviewed; protected assessment not opened, no runtime executed. MO19 unavailable replaced by MO35. MO26 selected classic correlation paragraphs only, current MO36 alternative. MO27 duplicates MO13, not independent corroboration. Alert stateful/state and NULL/provider behavior qualified separately.",
-      "availability": "AVAILABLE",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/action-groups",
-          "disposition": "reviewed-applied",
-          "reason": "Reusable action groups carry configured notification/automation actions; eligible path is neither confirmed delivery nor automatic remediation."
-        }
-      ]
-    },
-    {
-      "id": "MO25",
-      "url": "https://learn.microsoft.com/en-us/azure/azure-monitor/logs/log-analytics-workspace-overview",
-      "title": "Log Analytics workspace overview - Azure Monitor | Microsoft Learn",
-      "reviewed": "2026-11-01",
-      "version": "Rolling public page; 2026-08-13T17:12:00.0000000Z; SHA256 f93ceeebfbf9cf617b4db96ed5a065b0893a70225dc046f2f706c12f7e1db69e",
-      "kind": "official-public-documentation",
-      "objectives": [
-        "az900.monitoring.advisor",
-        "az900.monitoring.service-health",
-        "az900.monitoring.monitor"
-      ],
-      "claims": ["monitoring.MO25"],
-      "limits": "Scoped public text actually reviewed; protected assessment not opened, no runtime executed. MO19 unavailable replaced by MO35. MO26 selected classic correlation paragraphs only, current MO36 alternative. MO27 duplicates MO13, not independent corroboration. Alert stateful/state and NULL/provider behavior qualified separately.",
-      "availability": "AVAILABLE",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/azure-monitor/logs/log-analytics-workspace-overview",
-          "disposition": "reviewed-applied",
-          "reason": "Log Analytics workspace stores selected tables with access/retention/table-plan constraints; it is not every monitoring metric datastore."
-        }
-      ]
-    },
-    {
-      "id": "MO26",
-      "url": "https://learn.microsoft.com/en-us/azure/azure-monitor/app/distributed-trace-data",
-      "title": "Monitor .NET and Node.js Applications with Application Insights (Classic API 2.x) - Azure Monitor | Microsoft Learn",
-      "reviewed": "2026-11-01",
-      "version": "Rolling public page; 2026-05-04T22:46:00.0000000Z; SHA256 d56c8ef8708d6158a63eaa01bce506966b8833924157b71fa5356da561f368ba",
-      "kind": "official-public-documentation",
-      "objectives": [
-        "az900.monitoring.advisor",
-        "az900.monitoring.service-health",
-        "az900.monitoring.monitor"
-      ],
-      "claims": ["monitoring.MO26"],
-      "limits": "Scoped public text actually reviewed; protected assessment not opened, no runtime executed. MO19 unavailable replaced by MO35. MO26 selected classic correlation paragraphs only, current MO36 alternative. MO27 duplicates MO13, not independent corroboration. Alert stateful/state and NULL/provider behavior qualified separately.",
-      "availability": "AVAILABLE",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/previous-versions/azure/azure-monitor/app/classic-api",
-          "disposition": "optional-classic-selected",
-          "reason": "Distributed-trace old route redirects to very large Classic API2.x guide; selected correlation paragraphs only, not reviewed as current universal OTel setup; MO36 supplies generic concepts."
-        }
-      ]
-    },
-    {
-      "id": "MO27",
-      "url": "https://learn.microsoft.com/en-us/azure/azure-monitor/app/opentelemetry-overview",
-      "title": "Application Insights OpenTelemetry observability overview - Azure Monitor | Microsoft Learn",
-      "reviewed": "2026-11-01",
-      "version": "Rolling public page; 2026-10-09T22:14:00.0000000Z; SHA256 395637b202f9216948b5adbe1d5c95d3620ca8dc81f8ae93429921ba4774af63",
-      "kind": "official-public-documentation",
-      "objectives": [
-        "az900.monitoring.advisor",
-        "az900.monitoring.service-health",
-        "az900.monitoring.monitor"
-      ],
-      "claims": ["monitoring.MO27"],
-      "limits": "Scoped public text actually reviewed; protected assessment not opened, no runtime executed. MO19 unavailable replaced by MO35. MO26 selected classic correlation paragraphs only, current MO36 alternative. MO27 duplicates MO13, not independent corroboration. Alert stateful/state and NULL/provider behavior qualified separately.",
-      "availability": "AVAILABLE",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview#getting-started",
-          "disposition": "duplicate-canonical-MO13",
-          "reason": "opentelemetry-overview redirects to the same actual MO13 canonical body; not independent corroboration."
-        }
-      ]
-    },
-    {
-      "id": "MO28",
-      "url": "https://learn.microsoft.com/en-us/azure/azure-monitor/reference/tables/apprequests",
-      "title": "Azure Monitor Logs reference - AppRequests - Azure Monitor | Microsoft Learn",
-      "reviewed": "2026-11-01",
-      "version": "Rolling public page; 2026-07-28T17:16:00.0000000Z; SHA256 683859c15531c91b49b50bfc02b2f551605756f5d3733f88de4753b8ecd28d31",
-      "kind": "official-public-documentation",
-      "objectives": [
-        "az900.monitoring.advisor",
-        "az900.monitoring.service-health",
-        "az900.monitoring.monitor"
-      ],
-      "claims": ["monitoring.MO28"],
-      "limits": "Scoped public text actually reviewed; protected assessment not opened, no runtime executed. MO19 unavailable replaced by MO35. MO26 selected classic correlation paragraphs only, current MO36 alternative. MO27 duplicates MO13, not independent corroboration. Alert stateful/state and NULL/provider behavior qualified separately.",
-      "availability": "AVAILABLE",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/azure-monitor/reference/tables/apprequests",
-          "disposition": "reviewed-applied",
-          "reason": "AppRequests schema: TimeGenerated,Success bool,OperationId,DurationMs support original KQL illustration."
-        }
-      ]
-    },
-    {
-      "id": "MO29",
-      "url": "https://learn.microsoft.com/en-us/azure/azure-monitor/reference/tables/azureactivity",
-      "title": "Azure Monitor Logs reference - AzureActivity - Azure Monitor | Microsoft Learn",
-      "reviewed": "2026-11-01",
-      "version": "Rolling public page; 2026-07-28T17:16:00.0000000Z; SHA256 90f2274a15880fb70a11dc91292cd3fe40df67d06b98a93faeeab6dedec37312",
-      "kind": "official-public-documentation",
-      "objectives": [
-        "az900.monitoring.advisor",
-        "az900.monitoring.service-health",
-        "az900.monitoring.monitor"
-      ],
-      "claims": ["monitoring.MO29"],
-      "limits": "Scoped public text actually reviewed; protected assessment not opened, no runtime executed. MO19 unavailable replaced by MO35. MO26 selected classic correlation paragraphs only, current MO36 alternative. MO27 duplicates MO13, not independent corroboration. Alert stateful/state and NULL/provider behavior qualified separately.",
-      "availability": "AVAILABLE",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/azure-monitor/reference/tables/azureactivity",
-          "disposition": "reviewed-applied",
-          "reason": "AzureActivity schema: TimeGenerated,ActivityStatusValue,OperationNameValue,ResourceId support original failed-management query."
-        }
-      ]
-    },
-    {
-      "id": "MO30",
-      "url": "https://learn.microsoft.com/en-us/azure/service-health/service-health-portal-update",
-      "title": "Azure Service Health Portal - Azure Service Health | Microsoft Learn",
-      "reviewed": "2026-11-01",
-      "version": "Rolling public page; 2026-09-22T06:04:00.0000000Z; SHA256 2427b5a49b2e440aa8bf6ad5b09ddd0932838a2e3126155064d393d5593fff7a",
-      "kind": "official-public-documentation",
-      "objectives": [
-        "az900.monitoring.advisor",
-        "az900.monitoring.service-health",
-        "az900.monitoring.monitor"
-      ],
-      "claims": ["monitoring.MO30"],
-      "limits": "Scoped public text actually reviewed; protected assessment not opened, no runtime executed. MO19 unavailable replaced by MO35. MO26 selected classic correlation paragraphs only, current MO36 alternative. MO27 duplicates MO13, not independent corroboration. Alert stateful/state and NULL/provider behavior qualified separately.",
-      "availability": "AVAILABLE",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/service-health/service-health-portal-update",
-          "disposition": "reviewed-applied",
-          "reason": "Personalized Service Health scope, service issues/planned maintenance/health advisories; subscription/region/service context and communications matter."
-        }
-      ]
-    },
-    {
-      "id": "MO31",
-      "url": "https://learn.microsoft.com/en-us/azure/service-health/resource-health-checks-resource-types",
-      "title": "Supported Resource Types through Azure Resource Health - Azure Service Health | Microsoft Learn",
-      "reviewed": "2026-11-01",
-      "version": "Rolling public page; 2026-03-12T05:06:00.0000000Z; SHA256 6551fedc19366ef79b87a676e9f4441529dc2d74b6a3ee787e9a05c01d3f3f54",
-      "kind": "official-public-documentation",
-      "objectives": [
-        "az900.monitoring.advisor",
-        "az900.monitoring.service-health",
-        "az900.monitoring.monitor"
-      ],
-      "claims": ["monitoring.MO31"],
-      "limits": "Scoped public text actually reviewed; protected assessment not opened, no runtime executed. MO19 unavailable replaced by MO35. MO26 selected classic correlation paragraphs only, current MO36 alternative. MO27 duplicates MO13, not independent corroboration. Alert stateful/state and NULL/provider behavior qualified separately.",
-      "availability": "AVAILABLE",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/service-health/resource-health-checks-resource-types",
-          "disposition": "reviewed-applied",
-          "reason": "Resource Health supports specific resource types/checks; VM/Web health checks do not establish business-response correctness."
-        }
-      ]
-    },
-    {
-      "id": "MO32",
-      "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations",
-      "title": "Cost recommendations - Azure Advisor | Microsoft Learn",
-      "reviewed": "2026-11-01",
-      "version": "Rolling public page; 2026-09-25T22:08:00.0000000Z; SHA256 c75dc3eb8863243cb48e2aa47de1177be8ee796501414aff3d94fe166fa04614",
-      "kind": "official-public-documentation",
-      "objectives": [
-        "az900.monitoring.advisor",
-        "az900.monitoring.service-health",
-        "az900.monitoring.monitor"
-      ],
-      "claims": ["monitoring.MO32"],
-      "limits": "Scoped public text actually reviewed; protected assessment not opened, no runtime executed. MO19 unavailable replaced by MO35. MO26 selected classic correlation paragraphs only, current MO36 alternative. MO27 duplicates MO13, not independent corroboration. Alert stateful/state and NULL/provider behavior qualified separately.",
-      "availability": "AVAILABLE",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-cost-recommendations",
-          "disposition": "reviewed-applied",
-          "reason": "Advisor cost recommendations use declared/configuration/usage context and need workload review; examples include right-sizing and capacity risks, not actual invoices."
-        }
-      ]
-    },
-    {
-      "id": "MO33",
-      "url": "https://learn.microsoft.com/en-us/azure/advisor/advisor-security-recommendations",
-      "title": "Review Security Recommendations in Microsoft Defender for Cloud - Microsoft Defender for Cloud | Microsoft Learn",
-      "reviewed": "2026-11-01",
-      "version": "Rolling public page; 2026-09-17T17:37:00.0000000Z; SHA256 63bc71d26e5824d57ebddcaa382d6b94ff2b470ec69bf55e304af89614b7fb15",
-      "kind": "official-public-documentation",
-      "objectives": [
-        "az900.monitoring.advisor",
-        "az900.monitoring.service-health",
-        "az900.monitoring.monitor"
-      ],
-      "claims": ["monitoring.MO33"],
-      "limits": "Scoped public text actually reviewed; protected assessment not opened, no runtime executed. MO19 unavailable replaced by MO35. MO26 selected classic correlation paragraphs only, current MO36 alternative. MO27 duplicates MO13, not independent corroboration. Alert stateful/state and NULL/provider behavior qualified separately.",
-      "availability": "AVAILABLE",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/review-security-recommendations",
-          "disposition": "reviewed-applied",
-          "reason": "Advisor Security link resolves to current Defender recommendation documentation; findings/recommendations are not universal proof of active compromise; P15 depth deferred."
-        }
-      ]
-    },
-    {
-      "id": "MO34",
-      "url": "https://learn.microsoft.com/en-us/azure/azure-monitor/logs/log-analytics-tutorial",
-      "title": "Log Analytics Tutorial: Query and Analyze Log Data - Azure Monitor | Microsoft Learn",
-      "reviewed": "2026-11-01",
-      "version": "Rolling public page; 2026-05-14T22:14:00.0000000Z; SHA256 8e435c11931d5af23fbcaf919eeec962b71aa7fc89d085148e5bb241fa520818",
-      "kind": "official-public-documentation",
-      "objectives": [
-        "az900.monitoring.advisor",
-        "az900.monitoring.service-health",
-        "az900.monitoring.monitor"
-      ],
-      "claims": ["monitoring.MO34"],
-      "limits": "Scoped public text actually reviewed; protected assessment not opened, no runtime executed. MO19 unavailable replaced by MO35. MO26 selected classic correlation paragraphs only, current MO36 alternative. MO27 duplicates MO13, not independent corroboration. Alert stateful/state and NULL/provider behavior qualified separately.",
-      "availability": "AVAILABLE",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/azure-monitor/logs/log-analytics-tutorial",
-          "disposition": "reviewed-applied",
-          "reason": "Public Log Analytics tutorial query/filter/group/time mechanisms reviewed; no actual hosted workspace/query or video run claimed."
-        }
-      ]
-    },
-    {
-      "id": "MO35",
-      "url": "https://learn.microsoft.com/en-us/azure/azure-monitor/fundamentals/data-sources",
-      "title": "Azure Monitor data sources and data collection methods - Azure Monitor | Microsoft Learn",
-      "reviewed": "2026-11-01",
-      "version": "Rolling public page; 2026-09-22T06:04:00.0000000Z; SHA256 46933dddb33bec316dd8b24c46bd14208fc17cf6657d7fc4ba5834c6976892c7",
-      "kind": "official-public-documentation",
-      "objectives": [
-        "az900.monitoring.advisor",
-        "az900.monitoring.service-health",
-        "az900.monitoring.monitor"
-      ],
-      "claims": ["monitoring.MO35"],
-      "limits": "Scoped public text actually reviewed; protected assessment not opened, no runtime executed. MO19 unavailable replaced by MO35. MO26 selected classic correlation paragraphs only, current MO36 alternative. MO27 duplicates MO13, not independent corroboration. Alert stateful/state and NULL/provider behavior qualified separately.",
-      "availability": "AVAILABLE",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/azure-monitor/fundamentals/data-sources",
-          "disposition": "reviewed-applied",
-          "reason": "Current common data-collection methods qualify automatically collected platform metrics/Activity Log versus resource logs and application onboarding."
-        }
-      ]
-    },
-    {
-      "id": "MO36",
-      "url": "https://learn.microsoft.com/en-us/dotnet/core/diagnostics/distributed-tracing-concepts",
-      "title": "Distributed tracing concepts - .NET | Microsoft Learn",
-      "reviewed": "2026-11-01",
-      "version": "Rolling public page; 2026-03-30T21:10:00.0000000Z; SHA256 742a4dec2a9d0e62f1a206cec9d25b08563faedb93c91ebbacc984aba2ea44e5",
-      "kind": "official-public-documentation",
-      "objectives": [
-        "az900.monitoring.advisor",
-        "az900.monitoring.service-health",
-        "az900.monitoring.monitor"
-      ],
-      "claims": ["monitoring.MO36"],
-      "limits": "Scoped public text actually reviewed; protected assessment not opened, no runtime executed. MO19 unavailable replaced by MO35. MO26 selected classic correlation paragraphs only, current MO36 alternative. MO27 duplicates MO13, not independent corroboration. Alert stateful/state and NULL/provider behavior qualified separately.",
-      "availability": "AVAILABLE",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/dotnet/core/diagnostics/distributed-tracing-concepts",
-          "disposition": "reviewed-applied",
-          "reason": "Official distributed tracing concepts: trace/span IDs, parent-child work, collection and sampling; no actual .NET/OTel runtime performed."
-        }
-      ]
-    },
-    {
-      "id": "MO37",
-      "url": "https://learn.microsoft.com/en-us/kusto/query/countif-aggregation-function",
-      "title": "countif() (aggregation function) - Kusto | Microsoft Learn",
-      "reviewed": "2026-11-01",
-      "version": "Rolling public page; 2025-02-05T12:13:00.0000000Z; SHA256 bd90c7bdb46fd2c346eb58272933967e43f7ea3d9c6d14fd6440caed1d5593eb",
-      "kind": "official-public-documentation",
-      "objectives": [
-        "az900.monitoring.advisor",
-        "az900.monitoring.service-health",
-        "az900.monitoring.monitor"
-      ],
-      "claims": ["monitoring.MO37"],
-      "limits": "Scoped public text actually reviewed; protected assessment not opened, no runtime executed. MO19 unavailable replaced by MO35. MO26 selected classic correlation paragraphs only, current MO36 alternative. MO27 duplicates MO13, not independent corroboration. Alert stateful/state and NULL/provider behavior qualified separately.",
-      "availability": "AVAILABLE",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/kusto/query/countif-aggregation-function?view=microsoft-fabric",
-          "disposition": "reviewed-applied",
-          "reason": "KQL countif counts true predicates under summarize; original examples use documented table fields, not a general local interpreter."
+          "url": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/concept-defender-for-cloud-defender-portal",
+          "disposition": "blocked-with-official-alternative",
+          "reason": "Guessed portal-experience URL404; not relied on. Current SE09 overview and both SE12 documented portal pivots provide the official alternative."
         }
       ]
     }
   ],
   "activities": [
     {
-      "id": "monitoring-evidence",
-      "objectives": ["az900.monitoring.advisor", "az900.monitoring.monitor"],
-      "claims": [
-        "monitoring.MO03",
-        "monitoring.MO07",
-        "monitoring.MO13",
-        "monitoring.MO15",
-        "monitoring.MO32",
-        "monitoring.MO33"
-      ],
-      "limits": "Fixed synthetic fixtures and closed inputs; observed aggregation separate from strict full-coverage teaching gate; one stateless metric-rule evaluation. No actual runtime/cause/notification/remediation proof. Actual Portal configuration is independent read-only context, never a telemetry source or guided credit.",
+      "id": "security-trust",
+      "objectives": ["az900.security.zero-trust"],
+      "claims": ["security.SE03", "security.SE07", "security.SE08"],
+      "limits": "Closed deterministic fictional design/evidence comparisons. No actual AuthN/AuthZ/CA/RBAC, scan/attack/alert/score/remediation/protection or World mutation. Actual local resource configuration remains independent read-only context.",
       "assessmentStatus": "new-independent",
       "theory": [
         {
           "path": "src/content/nb.ts",
-          "marker": "monitoringNb"
+          "marker": "securityNb"
         }
       ],
       "mechanism": [
         {
-          "path": "src/domain/curriculum/monitoring-model.ts",
-          "marker": "runEvidence"
+          "path": "src/domain/curriculum/security-model.ts",
+          "marker": "runTrust"
         }
       ],
       "practice": [
         {
-          "path": "src/features/learning/monitoring-workbench.tsx",
-          "marker": "MonitoringWorkbench"
+          "path": "src/features/learning/security-workbench.tsx",
+          "marker": "SecurityWorkbench"
         }
       ],
       "feedback": [
         {
           "path": "src/content/nb.ts",
-          "marker": "monitoringItemsNb"
+          "marker": "securityItemsNb"
         }
       ],
       "visual": [
         {
-          "path": "src/features/learning/monitoring-visuals.tsx",
-          "marker": "MonitoringModelResult"
+          "path": "src/features/learning/security-visuals.tsx",
+          "marker": "SecurityModelResult"
         }
       ],
       "accessible": [
         {
-          "path": "src/features/learning/monitoring.css"
+          "path": "src/features/learning/security.css"
         }
       ],
       "assessment": [
         {
-          "path": "src/features/learning/monitoring-assessment.tsx",
-          "marker": "MonitoringAssessment"
+          "path": "src/features/learning/security-assessment.tsx",
+          "marker": "SecurityAssessment"
         }
       ],
       "savvyshark": [
         {
-          "path": "src/features/learning/monitoring-workbench.tsx",
+          "path": "src/features/learning/security-workbench.tsx",
           "marker": "SavvyShark"
         }
       ]
     },
     {
-      "id": "monitoring-health",
-      "objectives": ["az900.monitoring.service-health"],
+      "id": "security-depth",
+      "objectives": ["az900.security.defense"],
       "claims": [
-        "monitoring.MO04",
-        "monitoring.MO05",
-        "monitoring.MO06",
-        "monitoring.MO16",
-        "monitoring.MO30",
-        "monitoring.MO31"
+        "security.SE04",
+        "security.SE05",
+        "security.SE14",
+        "security.SE24",
+        "security.SE25",
+        "security.SE26",
+        "security.SE27"
       ],
-      "limits": "Fixed synthetic fixtures and closed inputs; observed aggregation separate from strict full-coverage teaching gate; one stateless metric-rule evaluation. No actual runtime/cause/notification/remediation proof. Actual Portal configuration is independent read-only context, never a telemetry source or guided credit.",
+      "limits": "Closed deterministic fictional design/evidence comparisons. No actual AuthN/AuthZ/CA/RBAC, scan/attack/alert/score/remediation/protection or World mutation. Actual local resource configuration remains independent read-only context.",
       "assessmentStatus": "new-independent",
       "theory": [
         {
           "path": "src/content/nb.ts",
-          "marker": "monitoringNb"
+          "marker": "securityNb"
         }
       ],
       "mechanism": [
         {
-          "path": "src/domain/curriculum/monitoring-model.ts",
-          "marker": "runHealth"
+          "path": "src/domain/curriculum/security-model.ts",
+          "marker": "runDepth"
         }
       ],
       "practice": [
         {
-          "path": "src/features/learning/monitoring-workbench.tsx",
-          "marker": "MonitoringWorkbench"
+          "path": "src/features/learning/security-workbench.tsx",
+          "marker": "SecurityWorkbench"
         }
       ],
       "feedback": [
         {
           "path": "src/content/nb.ts",
-          "marker": "monitoringItemsNb"
+          "marker": "securityItemsNb"
         }
       ],
       "visual": [
         {
-          "path": "src/features/learning/monitoring-visuals.tsx",
-          "marker": "MonitoringModelResult"
+          "path": "src/features/learning/security-visuals.tsx",
+          "marker": "SecurityModelResult"
         }
       ],
       "accessible": [
         {
-          "path": "src/features/learning/monitoring.css"
+          "path": "src/features/learning/security.css"
         }
       ],
       "assessment": [
         {
-          "path": "src/features/learning/monitoring-assessment.tsx",
-          "marker": "MonitoringAssessment"
+          "path": "src/features/learning/security-assessment.tsx",
+          "marker": "SecurityAssessment"
         }
       ],
       "savvyshark": [
         {
-          "path": "src/features/learning/monitoring-workbench.tsx",
+          "path": "src/features/learning/security-workbench.tsx",
           "marker": "SavvyShark"
         }
       ]
     },
     {
-      "id": "monitoring-telemetry",
-      "objectives": ["az900.monitoring.monitor"],
+      "id": "security-defender",
+      "objectives": ["az900.security.defender"],
       "claims": [
-        "monitoring.MO07",
-        "monitoring.MO09",
-        "monitoring.MO10",
-        "monitoring.MO11",
-        "monitoring.MO12",
-        "monitoring.MO13",
-        "monitoring.MO17",
-        "monitoring.MO20",
-        "monitoring.MO21",
-        "monitoring.MO22",
-        "monitoring.MO23",
-        "monitoring.MO24",
-        "monitoring.MO25",
-        "monitoring.MO28",
-        "monitoring.MO29",
-        "monitoring.MO34",
-        "monitoring.MO35",
-        "monitoring.MO36",
-        "monitoring.MO37"
+        "security.SE06",
+        "security.SE09",
+        "security.SE10",
+        "security.SE11",
+        "security.SE12",
+        "security.SE13",
+        "security.SE17",
+        "security.SE18",
+        "security.SE19",
+        "security.SE20",
+        "security.SE21",
+        "security.SE22",
+        "security.SE23",
+        "security.SE28"
       ],
-      "limits": "Fixed synthetic fixtures and closed inputs; observed aggregation separate from strict full-coverage teaching gate; one stateless metric-rule evaluation. No actual runtime/cause/notification/remediation proof. Actual Portal configuration is independent read-only context, never a telemetry source or guided credit.",
+      "limits": "Closed deterministic fictional design/evidence comparisons. No actual AuthN/AuthZ/CA/RBAC, scan/attack/alert/score/remediation/protection or World mutation. Actual local resource configuration remains independent read-only context.",
       "assessmentStatus": "new-independent",
       "theory": [
         {
           "path": "src/content/nb.ts",
-          "marker": "monitoringNb"
+          "marker": "securityNb"
         }
       ],
       "mechanism": [
         {
-          "path": "src/domain/curriculum/monitoring-model.ts",
-          "marker": "runTelemetry"
+          "path": "src/domain/curriculum/security-model.ts",
+          "marker": "runDefender"
         }
       ],
       "practice": [
         {
-          "path": "src/features/learning/monitoring-workbench.tsx",
-          "marker": "MonitoringWorkbench"
+          "path": "src/features/learning/security-workbench.tsx",
+          "marker": "SecurityWorkbench"
         }
       ],
       "feedback": [
         {
           "path": "src/content/nb.ts",
-          "marker": "monitoringItemsNb"
+          "marker": "securityItemsNb"
         }
       ],
       "visual": [
         {
-          "path": "src/features/learning/monitoring-visuals.tsx",
-          "marker": "MonitoringModelResult"
+          "path": "src/features/learning/security-visuals.tsx",
+          "marker": "SecurityModelResult"
         }
       ],
       "accessible": [
         {
-          "path": "src/features/learning/monitoring.css"
+          "path": "src/features/learning/security.css"
         }
       ],
       "assessment": [
         {
-          "path": "src/features/learning/monitoring-assessment.tsx",
-          "marker": "MonitoringAssessment"
+          "path": "src/features/learning/security-assessment.tsx",
+          "marker": "SecurityAssessment"
         }
       ],
       "savvyshark": [
         {
-          "path": "src/features/learning/monitoring-workbench.tsx",
+          "path": "src/features/learning/security-workbench.tsx",
           "marker": "SavvyShark"
         }
       ]
@@ -1066,81 +867,81 @@
   ],
   "modules": [
     {
-      "id": "monitoring",
+      "id": "security",
       "prerequisites": [
         {
           "path": "src/content/nb.ts",
-          "marker": "monitoringNb"
+          "marker": "securityNb"
         }
       ],
       "terminology": [
         {
           "path": "src/content/nb.ts",
-          "marker": "monitoringNb"
+          "marker": "securityNb"
         }
       ],
       "concept": [
         {
           "path": "src/content/nb.ts",
-          "marker": "monitoringNb"
+          "marker": "securityNb"
         }
       ],
       "azureExample": [
         {
           "path": "src/content/nb.ts",
-          "marker": "monitoringNb"
+          "marker": "securityNb"
         }
       ],
       "workedExample": [
         {
           "path": "src/content/nb.ts",
-          "marker": "monitoringNb"
+          "marker": "securityNb"
         }
       ],
       "misconception": [
         {
           "path": "src/content/nb.ts",
-          "marker": "monitoringNb"
+          "marker": "securityNb"
         }
       ],
       "limits": [
         {
           "path": "src/content/nb.ts",
-          "marker": "monitoringNb"
+          "marker": "securityNb"
         }
       ],
       "mechanism": [
         {
-          "path": "src/domain/curriculum/monitoring-model.ts",
-          "marker": "runMonitoring"
+          "path": "src/domain/curriculum/security-model.ts",
+          "marker": "runSecurity"
         }
       ],
       "visual": [
         {
-          "path": "src/features/learning/monitoring-visuals.tsx"
+          "path": "src/features/learning/security-visuals.tsx"
         }
       ],
       "practice": [
         {
-          "path": "src/features/learning/monitoring-workbench.tsx"
+          "path": "src/features/learning/security-workbench.tsx"
         }
       ],
       "independentScenario": [
         {
           "path": "src/content/nb.ts",
-          "marker": "monitoringItemsNb"
+          "marker": "securityItemsNb"
         }
       ],
       "correctAndWrongRationales": [
         {
           "path": "src/content/nb.ts",
-          "marker": "monitoringItemsNb"
+          "marker": "securityItemsNb"
         }
       ],
       "sources": [
         {
-          "path": "src/domain/curriculum/monitoring-sources.ts",
-          "marker": "monitoringSourceReview"
+          "path": "src/domain/curriculum/security-sources.ts",
+          "marker": "securitySourceReview"
         }
       ]
     }
@@ -1258,19 +1059,33 @@
     "src/features/learning/management-tools-visuals.tsx",
     "src/features/learning/management-tools-controls.tsx",
     "src/features/learning/management-tools-evidence.tsx",
-    "src/features/learning/management-tools.css"
+    "src/features/learning/management-tools.css",
+    "src/domain/curriculum/monitoring.ts",
+    "src/domain/curriculum/monitoring-store.ts",
+    "src/domain/curriculum/monitoring-model.ts",
+    "src/domain/curriculum/monitoring.test.ts",
+    "src/domain/curriculum/monitoring-items.ts",
+    "src/domain/curriculum/monitoring-sources.ts",
+    "src/features/learning/monitoring-provider.tsx",
+    "src/features/learning/monitoring-context.tsx",
+    "src/features/learning/monitoring-assessment.tsx",
+    "src/features/learning/monitoring.css",
+    "src/features/learning/monitoring-controls.tsx",
+    "src/features/learning/monitoring-visuals.tsx",
+    "src/features/learning/monitoring.tsx",
+    "src/features/learning/monitoring-workbench.tsx"
   ],
   "gates": {
     "source": {
       "checks": [
         {
-          "path": "docs/MONITORING_DIAGNOSTICS.md"
+          "path": "docs/SECURITY_PRINCIPLES.md"
         },
         {
-          "path": "src/domain/curriculum/monitoring-sources.ts"
+          "path": "src/domain/curriculum/security-sources.ts"
         }
       ],
-      "limits": "Source/model/history/visual/audit and actual complete exact-head224-case CI/strict remain distinct; actual anonymous final root/fullSHA/journey still required. Humans unperformed; no merge/production."
+      "limits": "Local/source/model/visual/fresh independent audit and actual complete exact-head232-case CI/strict are distinct. Actual anonymous final root/fullSHA/journey still required. Humans unperformed; no merge/production."
     },
     "curriculum": {
       "checks": [
@@ -1278,49 +1093,49 @@
           "path": "src/content/nb.ts"
         },
         {
-          "path": "src/domain/curriculum/monitoring.ts"
+          "path": "src/domain/curriculum/security.ts"
         }
       ],
-      "limits": "Source/model/history/visual/audit and actual complete exact-head224-case CI/strict remain distinct; actual anonymous final root/fullSHA/journey still required. Humans unperformed; no merge/production."
+      "limits": "Local/source/model/visual/fresh independent audit and actual complete exact-head232-case CI/strict are distinct. Actual anonymous final root/fullSHA/journey still required. Humans unperformed; no merge/production."
     },
     "simulation": {
       "checks": [
         {
-          "path": "src/domain/curriculum/monitoring-model.ts"
+          "path": "src/domain/curriculum/security-model.ts"
         },
         {
-          "path": "src/domain/curriculum/monitoring.test.ts"
+          "path": "src/domain/curriculum/security.test.ts"
         }
       ],
-      "limits": "Source/model/history/visual/audit and actual complete exact-head224-case CI/strict remain distinct; actual anonymous final root/fullSHA/journey still required. Humans unperformed; no merge/production."
+      "limits": "Local/source/model/visual/fresh independent audit and actual complete exact-head232-case CI/strict are distinct. Actual anonymous final root/fullSHA/journey still required. Humans unperformed; no merge/production."
     },
     "savvyshark": {
       "checks": [
         {
-          "path": "src/features/learning/monitoring-workbench.tsx"
+          "path": "src/features/learning/security-workbench.tsx"
         },
         {
           "path": "src/features/learning/management-access.tsx"
         },
         {
-          "path": "tests/e2e/monitoring-diagnostics.spec.ts"
+          "path": "tests/e2e/security-principles.spec.ts"
         }
       ],
-      "limits": "Source/model/history/visual/audit and actual complete exact-head224-case CI/strict remain distinct; actual anonymous final root/fullSHA/journey still required. Humans unperformed; no merge/production."
+      "limits": "Local/source/model/visual/fresh independent audit and actual complete exact-head232-case CI/strict are distinct. Actual anonymous final root/fullSHA/journey still required. Humans unperformed; no merge/production."
     },
     "visual-accessibility": {
       "checks": [
         {
-          "path": "src/features/learning/monitoring-visuals.tsx"
+          "path": "src/features/learning/security-visuals.tsx"
         },
         {
-          "path": "src/features/learning/monitoring.css"
+          "path": "src/features/learning/security.css"
         },
         {
-          "path": "tests/e2e/monitoring-diagnostics.spec.ts"
+          "path": "tests/e2e/security-principles.spec.ts"
         }
       ],
-      "limits": "Source/model/history/visual/audit and actual complete exact-head224-case CI/strict remain distinct; actual anonymous final root/fullSHA/journey still required. Humans unperformed; no merge/production."
+      "limits": "Local/source/model/visual/fresh independent audit and actual complete exact-head232-case CI/strict are distinct. Actual anonymous final root/fullSHA/journey still required. Humans unperformed; no merge/production."
     },
     "independent-final-audit": {
       "checks": [
@@ -1328,10 +1143,10 @@
           "path": "docs/RELEASE_ACCEPTANCE.md"
         },
         {
-          "path": "docs/quality/PR39_FINAL_AUDIT.md"
+          "path": "docs/quality/PR40_FINAL_AUDIT.md"
         }
       ],
-      "limits": "Source/model/history/visual/audit and actual complete exact-head224-case CI/strict remain distinct; actual anonymous final root/fullSHA/journey still required. Humans unperformed; no merge/production."
+      "limits": "Local/source/model/visual/fresh independent audit and actual complete exact-head232-case CI/strict are distinct. Actual anonymous final root/fullSHA/journey still required. Humans unperformed; no merge/production."
     },
     "delivery": {
       "checks": [
@@ -1342,78 +1157,83 @@
           "path": "scripts/e2e-plan-check.mjs"
         },
         {
-          "path": "docs/MONITORING_DIAGNOSTICS.md"
+          "path": "docs/SECURITY_PRINCIPLES.md"
         }
       ],
-      "limits": "Source/model/history/visual/audit and actual complete exact-head224-case CI/strict remain distinct; actual anonymous final root/fullSHA/journey still required. Humans unperformed; no merge/production."
+      "limits": "Local/source/model/visual/fresh independent audit and actual complete exact-head232-case CI/strict are distinct. Actual anonymous final root/fullSHA/journey still required. Humans unperformed; no merge/production."
     }
   },
   "verification": [
     {
       "command": "npm run check",
       "result": "passed",
-      "details": "Actual complete local exit0, 1 November2026: TypeScript/lint/format,112 Markdown docs, all gates/reference/matrix/assets/legacy;445 curriculum subset;535 Vitest total;17 Node gate tests; production build. Earlier unused-import lint failure corrected; successful complete second invocation /tmp/p14-check2.log."
+      "details": "Actual complete local exit0 at15:21UTC1November2026: TypeScript/lint/format,114Markdown docs, gates/matrix/assets/legacy;462curriculum subset,552Vitest,17Node checks, production build. Earlier invocations stopped only at generated reviewer/harness lint artifacts; corrected without lint configuration changes. Complete successful log .artifacts/p15-check3.log."
     },
     {
       "command": "targeted-domain-and-browser",
       "result": "passed",
-      "details": "Actual final delta checks:36 affected domain tests; final7desktop+1compact passed0retries; source-link correction ALL34 rendered targets/titles plus exact Portal return2/2passed; new production build passed. Copy-only milestone qualification then18domain tests pass, full exact-head CI will render final wording. Local final19-shot journey13:13:40Z all3guides, md07first, exact active-md06 resume,0pageerrors/0foreignfetch/World bytes unchanged. Prior19affecteddesktop+1compact also passed. Full224 profile remains CI-owned and pending."
+      "details": "Actual20domain checks,20affected desktop journeys,3strengthened actual-context/final keyboard/Axe desktop+compact retests and complete20-image local user journey. All3guides, unaidedsp07, Journal, exact activesp06 reload/resume;0pageerrors/foreignfetches/World mutation. Candidate232 collection validated, fullCI pending."
+    },
+    {
+      "command": "final-bounded-corrections",
+      "result": "passed",
+      "details": "Availability metadata only: Identity A/B now point to existing B/C. Actual20domain checks, format/docs and eight-exception preservation passed; no previous manuscript/rubric change. Inherited generated source-date display corrected using per-source reviewed date/baseline fallback/product page-update date; focused Node renderer suite and ESLint exit0. Final complete CI must cover exact delivered metadata and renderer."
     }
   ],
   "visualEvidence": [
     {
-      "path": "docs/screenshots/monitoring/introduction-sidebar-1440.png",
+      "path": "docs/screenshots/security/introduction-sidebar-1440.png",
       "viewport": "1440x900",
       "inspected": true,
-      "observation": "Visible module hierarchy, original reading and term column; next activity remains reachable."
+      "observation": "Part C active in preserved Identity hierarchy; visible substantive introduction and contextual navigation."
     },
     {
-      "path": "docs/screenshots/monitoring/introduction-sidebar-1024.png",
+      "path": "docs/screenshots/security/introduction-sidebar-1024.png",
       "viewport": "1024x768",
       "inspected": true,
-      "observation": "Readable compact desktop theory, active path/module/activity and scrollable long reading."
+      "observation": "Readable narrow desktop theory and scrollable contextual sidebar."
     },
     {
-      "path": "docs/screenshots/monitoring/evidence-flow-1440.png",
-      "viewport": "1440x900",
+      "path": "docs/screenshots/security/layers-1366.png",
+      "viewport": "1366x768",
       "inspected": true,
-      "observation": "Four evidence stages, bounded source claim, category and saved comparison; no incident assertion."
+      "observation": "Seven-layer semantic map with selected direct application layer; vertical scroll retains all content."
     },
     {
-      "path": "docs/screenshots/monitoring/health-unknown-1024.png",
-      "viewport": "1024x768",
-      "inspected": true,
-      "observation": "Explicit event scope/time, separate global/personal and Unknown resource observations; vertical readable lanes."
-    },
-    {
-      "path": "docs/screenshots/monitoring/metric-missing-1440.png",
-      "viewport": "1440x900",
-      "inspected": true,
-      "observation": "Visible gap rather than zero/interpolation, selected window/threshold/units and semantic data table."
-    },
-    {
-      "path": "docs/screenshots/monitoring/metric-compact-800.png",
+      "path": "docs/screenshots/security/layers-compact-800.png",
       "viewport": "800x700",
       "inspected": true,
-      "observation": "Chart and semantic table fit compact PC viewport without horizontal page overflow."
+      "observation": "Layer purposes reflow to vertical semantic layout without horizontal page overflow."
     },
     {
-      "path": "docs/screenshots/monitoring/native-start-cancel-1024x500.png",
-      "viewport": "1024x500",
-      "inspected": true,
-      "observation": "Actual mascot loaded; background blur, explicit Start/Cancel and short-window scroll."
-    },
-    {
-      "path": "docs/screenshots/monitoring/feedback-state-1024x500.png",
-      "viewport": "1024x500",
-      "inspected": true,
-      "observation": "Unassisted first feedback and causal distinction remain readable with sticky navigation; further feedback scrolls."
-    },
-    {
-      "path": "docs/screenshots/monitoring/actual-context-1024.png",
+      "path": "docs/screenshots/security/failed-layer-residual-1024.png",
       "viewport": "1024x768",
       "inspected": true,
-      "observation": "Original configuration and CreatePlan receipt are clearly separate from synthetic monitoring; no telemetry claim."
+      "observation": "Failed identity contribution remains separate from surviving network complement and residual risk."
+    },
+    {
+      "path": "docs/screenshots/security/defender-score-models-1024.png",
+      "viewport": "1024x768",
+      "inspected": true,
+      "observation": "Cloud risk model qualified separately with no score calculated; saved comparison remains available."
+    },
+    {
+      "path": "docs/screenshots/security/native-start-cancel-1024x500.png",
+      "viewport": "1024x500",
+      "inspected": true,
+      "observation": "Loaded SavvyShark, blurred background and explicit Start/Cancel visible in short PC window."
+    },
+    {
+      "path": "docs/screenshots/security/actual-context-1024.png",
+      "viewport": "1024x768",
+      "inspected": true,
+      "observation": "Selected actual app/group/subscription/plan/original receipt clearly separated from hypothetical security evidence."
+    },
+    {
+      "path": "docs/screenshots/security/feedback-state-1024x500.png",
+      "viewport": "1024x500",
+      "inspected": true,
+      "observation": "First unassisted feedback readable with further deliberate scrolling; historical record preserved."
     }
   ],
   "humanReview": {
@@ -1424,89 +1244,123 @@
   },
   "review": {
     "status": "complete",
-    "fingerprint": "97a90dd85ccd48f3482a6434a59d1bd60417d656be3a6f8c45251e6495834148",
+    "fingerprint": "ad3619f64feb63746c9c33ce7bd190493c4c51c2d8f7fd4a53e6d8ebbe13d914",
     "reviewer": {
-      "id": "independent-agent-monitoring-final-audit",
+      "id": "security_p15_final_audit",
       "kind": "agent"
     },
-    "started": "2026-11-01T13:15:31.736687Z",
+    "started": "2026-11-01T15:34:29Z",
+    "finished": "2026-11-01T15:38:12.815876Z",
     "domains": {
       "content": {
-        "finding": "Scoped original manuscript and critical current official bodies support MON01–03. Public Status/PIR, Resource Health cause/Unknown, collection, NULL, OTel and stateful metric claims checked; excluded/duplicate sources remain honestly qualified. Human SME unperformed.",
+        "finding": "Scoped original Norwegian teaching, seven layer purposes/limits/complements, and current official claim passages support only 2.4.06–08. SEC02 A–F adequacy was explicitly challenged: sp04 preserves offline availability while protecting the local copy/key, and sp05 requires a new asynchronous delivery boundary despite private encrypted storage and earlier authorization. These apply complementary controls; neither sp03 tagging nor case count is used to manufacture SEC02 coverage. Encryption/Key Vault stays supplement. All 28 cached hashes/canonical learner links and 29 source records agree; blocked SE29 has SE09/12 alternatives. Generated source-date inconsistency was corrected. Human SME remains unperformed.",
         "evidence": [
           {
             "path": "src/content/nb.ts"
           },
           {
-            "path": "src/domain/curriculum/monitoring-sources.ts"
+            "path": "src/domain/curriculum/security-sources.ts"
           },
           {
-            "path": "docs/MONITORING_DIAGNOSTICS.md"
+            "path": "docs/SECURITY_PRINCIPLES.md"
+          },
+          {
+            "path": "docs/audits/az900-2026-07-20.json"
+          },
+          {
+            "path": "scripts/az900-audit-check.mjs"
+          },
+          {
+            "path": "scripts/az900-audit-check.test.mjs"
           }
         ]
       },
       "technical": {
-        "finding": "Independent arithmetic/rule, source/filter, health and evidence probes plus replay/first/CAS/denied-aid/recovery checks passed. Available aggregate is separate from the stricter teaching coverage gate; stateless evaluation, stateful teaching, response, notification and cause remain separate.",
+        "finding": "Three pure declared perspectives preserve real-security and World boundaries. Defender plan/data/alert/score matrix probes, matched guide witnesses, strict replay, immutable first/help/retry/family, durable write conflict, terminal reserve and scoped recovery were examined. Independent 144-input matrix, invalid replay and stale-aid probes passed. Actual local configuration/receipts remain read-only context. No security scan, access engine, crypto, score, detection or remediation is claimed.",
         "evidence": [
           {
-            "path": "src/domain/curriculum/monitoring-model.ts"
+            "path": "src/domain/curriculum/security-model.ts"
           },
           {
-            "path": "src/domain/curriculum/monitoring.ts"
+            "path": "src/domain/curriculum/security.ts"
           },
           {
-            "path": "src/domain/curriculum/monitoring-store.ts"
+            "path": "src/domain/curriculum/security-store.ts"
           },
           {
-            "path": "src/domain/curriculum/monitoring.test.ts"
+            "path": "src/domain/curriculum/security.test.ts"
+          },
+          {
+            "path": "src/features/learning/security-context.tsx"
+          },
+          {
+            "path": "src/domain/portal/model.ts"
           }
         ]
       },
       "visual": {
-        "finding": "Actual desktop/compact/short-height images inspected; missing-data break and semantic tables readable, actual scope-order defect corrected. Keyboard/reduced-motion/Axe browser witnesses passed; independent final source Summary probe Axe0/pageerrors0. Human UX/screen-reader unperformed.",
+        "finding": "Personally inspected all 20 committed production images across 1920/1440/1366/1024/800 and short 1024x500 states. Semantic mechanism flows, seven layers, complementary residual risk, missing evidence, distinct score views, actual context and native Start/Cancel/feedback remain readable. Independent pinned-Chromium 1024x500 active-draft screenshot was also inspected with no horizontal overflow or page errors. Author keyboard/reduced-motion/Axe witnesses were inspected; human UX/screen-reader validation is unperformed. Final two availability strings were source-reviewed, not claimed rendered by the earlier local build.",
         "evidence": [
           {
-            "path": "src/features/learning/monitoring-visuals.tsx"
+            "path": "src/features/learning/security-visuals.tsx"
           },
           {
-            "path": "src/features/learning/monitoring.css"
+            "path": "src/features/learning/security.css"
           },
           {
-            "path": "tests/e2e/monitoring-diagnostics.spec.ts"
+            "path": "tests/e2e/security-principles.spec.ts"
           },
           {
-            "path": "docs/screenshots/monitoring/metric-compact-800.png"
+            "path": "docs/screenshots/security/introduction-sidebar-1920.png"
           },
           {
-            "path": "docs/screenshots/monitoring/native-start-cancel-1024x500.png"
+            "path": "docs/screenshots/security/depth-mechanism-1440.png"
           },
           {
-            "path": "docs/screenshots/monitoring/actual-context-1024.png"
+            "path": "docs/screenshots/security/layers-1366.png"
+          },
+          {
+            "path": "docs/screenshots/security/layers-compact-800.png"
+          },
+          {
+            "path": "docs/screenshots/security/native-start-cancel-1024x500.png"
+          },
+          {
+            "path": "docs/screenshots/security/feedback-state-1024x500.png"
+          },
+          {
+            "path": "docs/screenshots/security/actual-context-1024.png"
           }
         ]
       },
       "assessment": {
-        "finding": "Fresh immutable blind lock judged all72 pairs before keys; actual evaluation matches all72 including both md06 alternatives. Feedback/overlap read. Accepted minor limitations: cueing, weak distractors,5/8middle decision positions,7/8longest correct reasons and bounded near transfer; no empirical learning claim. Lock narrative count slip corrected transparently in report without rewriting lock.",
+        "finding": "Fresh v4 blind lock sealed all 72 pair judgments/rationales before keys. Actual final item fields match packet exactly; 72/72 judgments match keys, with 12 accepted pairs including all four two-design cases. Correct reasons are longest in 3, middle in 1 and shortest in 4 cases; positions vary and no systematic completeness/alternative-enumeration/title shortcut remained. Changed device/evidence, offline/key, asynchronous-result, population/model and resource-attribution constraints require application. Near transfer in sp02/sp06 and limited SEC02 diagnostic breadth remain explicit. Independent actual UI accepted sp05 gateway/sp08 parallel alternatives and rejected sp01 correct-decision/wrong-reason with causal feedback. No psychometric or measured-transfer claim.",
         "evidence": [
-          {
-            "path": "src/domain/curriculum/monitoring-items.ts"
-          },
           {
             "path": "src/content/nb.ts"
           },
           {
-            "path": "src/features/learning/monitoring-assessment.tsx"
+            "path": "src/domain/curriculum/security-items.ts"
           },
           {
-            "path": "docs/quality/PR39_FINAL_AUDIT.md"
+            "path": "src/features/learning/security-assessment.tsx"
+          },
+          {
+            "path": "docs/quality/PR40_FINAL_AUDIT.md"
           }
         ]
       },
       "guidance": {
-        "finding": "Explicit Start, saved matched contrasts, state-driven next action, isolated milestone dedup and separate correct-cause completion verified. Premature explanation wording corrected. Durable all-context aid and active/unsafe shielding retain own draft/recovery and protect Journal/Summary/history/Portal.",
+        "finding": "Native explicit Start/Cancel, stored contrasts and causal explanations govern three guides. Deleting each essential contrast run independently withheld completion; a causal answer or visits alone cannot award guided credit. Observed milestones, manual recall, dedup, storage uncertainty and active-independent shielding were checked. All 23 distinct teaching guards include Security; Course/Journal/Summary/history, mission safety and Portal guidance preserve durable assistance. Independent actual browser denied-aid and successful-aid probes passed while exact draft/earlier submissions persisted.",
         "evidence": [
           {
-            "path": "src/features/learning/monitoring-workbench.tsx"
+            "path": "src/features/learning/security-workbench.tsx"
+          },
+          {
+            "path": "src/domain/curriculum/security.ts"
+          },
+          {
+            "path": "src/domain/guidance/milestones.ts"
           },
           {
             "path": "src/features/learning/management-access.tsx"
@@ -1515,150 +1369,178 @@
             "path": "src/features/course/mission-context.ts"
           },
           {
+            "path": "src/features/course/course.tsx"
+          },
+          {
             "path": "src/features/portal/portal.tsx"
           },
           {
-            "path": "tests/e2e/monitoring-diagnostics.spec.ts"
+            "path": "tests/e2e/course-hub.spec.ts"
+          },
+          {
+            "path": "tests/e2e/security-principles.spec.ts"
           }
         ]
       },
       "regression": {
-        "finding": "Shared Hub/Portal/Journal/exact active resume preserved. Independent preservation rerun confirms33olddata+2functions,7metadataexceptions,54oldrows,113pathpatterns and byte-identical operative Portal suffix. Local check and targeted browser/domain evidence passed; complete final exact-head224CI/strict and external deployed journey remain pending.",
+        "finding": "Exact base diff, original/final hashes and preservation were checked. Initial 67-file fingerprint was reconstructed exactly; final 68-file snapshot has no hash mismatch. Delta is limited to two availability fields, source-date renderer/test, generated source metadata and ordinary documentation. Preservation independently exited0: 35 earlier data exports and 2 functions, eight declared metadata exceptions, 54 unchanged objective rows, 127 patterns and operative Portal suffix. Renderer source-specific/baseline/page-update regression and affected checks passed; generated matrix outside dated-source block is byte-identical to initial candidate. Existing browser settings/assertions remain; 232-case exact-head CI/strict and deployed Gate7 remain pending.",
         "evidence": [
           {
-            "path": "src/features/course/course.tsx"
+            "path": "docs/SECURITY_PRINCIPLES.md"
           },
           {
-            "path": "src/features/course/course-outline.ts"
+            "path": "scripts/az900-audit-check.mjs"
           },
           {
-            "path": "src/domain/portal/model.ts"
+            "path": "scripts/az900-audit-check.test.mjs"
           },
           {
-            "path": "src/features/learning/monitoring-context.tsx"
+            "path": "docs/AZ900_COVERAGE_MATRIX.md"
           },
           {
-            "path": "tests/e2e/monitoring-diagnostics.spec.ts"
+            "path": "playwright.desktop.config.ts"
           },
           {
-            "path": "docs/MONITORING_DIAGNOSTICS.md"
+            "path": "scripts/e2e-plan-check.mjs"
+          },
+          {
+            "path": "tests/fixtures/active-teaching-contexts.ts"
+          },
+          {
+            "path": "src/domain/curriculum/teaching-access.test.ts"
+          },
+          {
+            "path": "tests/e2e/identity-foundations.spec.ts"
+          },
+          {
+            "path": "tests/e2e/course-hub.spec.ts"
           }
         ]
       }
     },
     "findings": [
       {
-        "id": "P14-FA-01",
-        "severity": "major",
+        "id": "P15-FINAL-01",
+        "description": "Generated dated-source table used inherited 2026-10-26 fallback for later scoped reviews despite correct 2026-11-01 source records.",
+        "severity": "minor",
         "status": "fixed",
-        "description": "Learner official-source renderer reversed [URL,title] tuples, making every href a relative title string.",
-        "fix": "MonitoringSources now uses URL index0 and title index1 with incidental outer metadata quote trimmed.",
+        "fix": "Data-driven source.reviewed with audit.reviewed fallback; page-update date separately labeled; baseline introduction qualified and matrix regenerated. Final delta inspected after renewed stamp.",
         "retests": [
-          "Actual corrected production build exit0;2 affected desktop browser journeys passed with exact assertions for all34 source links.",
-          "Independent post-renewed-stamp Chromium check of34href/title/target/rel;Axe0,pageerrors0. Tracked renderer and browser test linked in report."
+          "Focused Node audit suite 6/6, actual exit0; source-specific, missing-date fallback and page-update distinctions covered.",
+          "Focused ESLint actual exit0; generated matrix outside dated-source metadata unchanged; preservation exit0."
         ]
       },
       {
-        "id": "P14-FA-02",
+        "id": "P15-FINAL-02",
+        "description": "Author identified Identity A/B availability strings still describing implemented B/C as future.",
         "severity": "minor",
         "status": "fixed",
-        "description": "Read-only actual scope values appeared subscription/group beneath a group/subscription label.",
-        "fix": "Values now render groupId then subscriptionId.",
+        "fix": "Only identityNb.available and accessNb.available now describe available Part B/C. Added explicit preservation exceptions; all earlier manuscripts/rubrics retain bytes.",
         "retests": [
-          "Affected Portal browser journey passed; final source read and actual-context-1024.png independently inspected after renewal."
+          "Postavailability targeted domain20, TypeScript/format/docs checks passed as recorded by author.",
+          "Reviewer inspected exact two-field delta and independently reran preservation: eight declared metadata changes only. Final actual rendering remains for final CI/deployed verification."
         ]
       },
       {
-        "id": "P14-FA-03",
-        "severity": "minor",
-        "status": "fixed",
-        "description": "Telemetry observation milestone claimed explanation before a causal answer was submitted.",
-        "fix": "Final copy describes stored observations and explicitly requires a correct causal explanation for completion; credit mechanism unchanged.",
-        "retests": [
-          "Affected18domain tests passed in /tmp/p14-milestone-unit.log.",
-          "Final stamped milestone source and separate witnessed/complete rules independently reread; final complete build/CI remains pending."
-        ]
-      },
-      {
-        "id": "P14-FA-04",
-        "severity": "minor",
+        "id": "P15-FINAL-03",
+        "description": "The fixed paired bank provides bounded application rather than validated broad diagnostic transfer: sp02/sp06 remain near transfer, and SEC02 independently samples offline/key and application-delivery boundaries rather than every layer.",
+        "severity": "note",
         "status": "accepted-limitation",
-        "description": "Bounded assessment near transfer: explicit-premise cueing, several weak distractors,5/8 cases accept the middle decision and 7/8 correct reasons are longest; no empirical discrimination, broad diagnostic competence or learning effect established. Independent blind judgment still matches all 72 scoring relations, including valid alternatives."
+        "fix": "No rubric weakening or scenario-count inflation. Retain explicit bounded claims; no individual mastery, unseen-family readiness or empirical transfer claim.",
+        "retests": []
+      },
+      {
+        "id": "P15-FINAL-04",
+        "description": "Qualified human Azure-SME, novice UX, screen-reader, psychometric, retention and measured learning reviews remain unperformed.",
+        "severity": "note",
+        "status": "accepted-limitation",
+        "fix": "Keep all human validation fields unperformed; agent audit and automated accessibility witnesses do not substitute.",
+        "retests": []
+      },
+      {
+        "id": "P15-FINAL-05",
+        "description": "Complete exact-head 232-case CI/strict release and anonymous deployed ordinary-root/full-SHA/end-to-end journey remain mandatory pending delivery work.",
+        "severity": "note",
+        "status": "accepted-limitation",
+        "fix": "This audit accepts implementation only. It does not pass Gate7, waive CI or deployed verification, authorize merge, or claim production delivery.",
+        "retests": []
       }
     ],
     "report": {
-      "path": "docs/quality/PR39_FINAL_AUDIT.md"
+      "path": "docs/quality/PR40_FINAL_AUDIT.md"
     }
   },
   "snapshot": {
     "files": {
-      "AGENTS.md": "213104636c9b9c16d3839a2e49114ba567e561b1368533c6fb47b125b3f4569f",
-      "README.md": "09a3e0f6c9a7cdb24ac55ffff516709ba51310e56036bd25fdb0494cbc3a5eaa",
-      "docs/ARCHITECTURE.md": "1875e1fc2bee924d39aab5cda7d8fecd0684fad877d2c4d9711cd9e7a5a6820d",
-      "docs/AZ900_COVERAGE_MATRIX.md": "cf922acb9e58d05fbab6c05de2023078f89f942507ad451717e7afb88503c36e",
-      "docs/AZ900_EXPANSION_ROADMAP.md": "78cd04cf5b526d339268bbfd75ab89c48776d6e409be0d90b574614b292dcac4",
-      "docs/DECISIONS.md": "0865d3d597662994f31fb33d7ec586e8a70de5a1260d6919f5fade02636860d9",
-      "docs/DEVELOPMENT_WORKFLOW.md": "71debc824a1295b1c70c4c9201c7d820cf8c80dde82c3324ccc289cdc52065ae",
-      "docs/MONITORING_DIAGNOSTICS.md": "69380720fba3de0cc77be820823fd229ce1aaa00a94a3fdc4939f389531226e0",
-      "docs/audits/az900-2026-07-20.json": "a96f49c8288534f1b0a97f6b80bc0e1bacdd764b0233302df78d2d276d4dffa3",
-      "docs/screenshots/monitoring/actual-context-1024.png": "1536c4fe001a5c2b969efa7712d5303c2dd43d84462e741b536918595591d154",
-      "docs/screenshots/monitoring/actual-portal-resource-1440.png": "99eed130ea6efc7231c33e497f6ba240fc773bf5de2e5c4dff796ac8a8c55f88",
-      "docs/screenshots/monitoring/alert-notification-1024.png": "69b74c3fa3304bcdc3bd1f78559951ac8bf7ec7e772ee8565b304f114a8a6a45",
-      "docs/screenshots/monitoring/evidence-flow-1440.png": "c8417efaee08b22a7bb6480bcfa2f3850c4afd4607094a5ef01df55c2080b579",
-      "docs/screenshots/monitoring/feedback-state-1024x500.png": "aa6371535ebfb1f698f26db7af1515e6c6d0ca93e5744a2682b6d92d1627fb04",
-      "docs/screenshots/monitoring/health-time-scope-1366.png": "97d43b62be84f26dfed18c6ec84eb6b202dd5cdc82503ae43d06c0c2bfd4f70f",
-      "docs/screenshots/monitoring/health-unknown-1024.png": "145084b39dbf9f8dfe92c8f02c637ea1da110df7a75e1ec4784e98b7c0c359ec",
-      "docs/screenshots/monitoring/hub-1024.png": "2d83ac296f2d31e101f201fe635541b519058a4da2c6623c980a415c5f94c546",
-      "docs/screenshots/monitoring/hub-1440.png": "982778a4792d909fe555fa0cda3a5d542941c1eae2e044920225c1d55aaf3157",
-      "docs/screenshots/monitoring/independent-state-1024.png": "4085ccbf6b92e79f76ff2200df1d0affec98afd03711de8253e04d74bf9055ea",
-      "docs/screenshots/monitoring/introduction-sidebar-1024.png": "6e107ba98432f86f56d701b95c373dbeb95617b1573d3592d4e19ed00ddb97ed",
-      "docs/screenshots/monitoring/introduction-sidebar-1440.png": "4442b1ef80f95a90defd7e8f8b823513d5e89bf5e9c5499a0a75bfa81a5d3977",
-      "docs/screenshots/monitoring/introduction-sidebar-1920.png": "8d89f7cfe43d484da6459bab7d849acbdeea72f7521b1f7847fefea0ae2d466c",
-      "docs/screenshots/monitoring/logs-traces-1440.png": "bbede8373dddcfb8171aa2a653218f8c2646f2eb3ae563969d0a30eedb4405e1",
-      "docs/screenshots/monitoring/metric-compact-800.png": "6fd1418259c6a0931e8da93d64fc236c98051ed98043f8a1ab38643d62332a1d",
-      "docs/screenshots/monitoring/metric-missing-1440.png": "26405a54ce8c2e9f7b56e9a6053c5d69a0fbd0483dd3e882ecad47f2fe9f68a8",
-      "docs/screenshots/monitoring/metric-semantic-1024.png": "598d6a244dfedba4f0ddb97aeb1950cab918c99d343df3c1bdd795fad9ae9e15",
-      "docs/screenshots/monitoring/native-briefing-1024x500.png": "f4e88a092dc6db2602d3ff75583fec38912a8142581fbff9482ec20860da8980",
-      "docs/screenshots/monitoring/native-start-cancel-1024x500.png": "76d2469b812be5c00e6b13dccbf9a6b8913535bc643725c7a94398a7dde91a4f",
-      "docs/screenshots/monitoring/theory-kql-1024.png": "eae8175c67e21dad27ac089079c0d17015d0b4671ba8773454c308c44a28f5b9",
-      "package.json": "2f4fe60568c1e7c9a0014fdd9b984e2e3345c723f193e9495c649de20de7f774",
-      "playwright.desktop.config.ts": "38de428b33c18631363752ee89925ec4529790a0a028c860c54e2f471220de95",
-      "scripts/az900-audit-check.test.mjs": "9c706bcd15673fefaf4f8a7ffaa3723744166d01b1590d18fe63f3f19aabb504",
-      "scripts/e2e-plan-check.mjs": "ebae3c6570f80d29cd9317cdd4761267af95eeab490bf372fc5b13d7c776326c",
-      "src/app/layout.tsx": "cf106f202b47299bda1ed426806f58151b784839504d9bf5203fa800dcd123c6",
-      "src/app/learn/[module]/page.tsx": "e27b0032e0a2b3aa0c9a513c35e94d7b8d78db9cd6696fd9d52f027d0016c1bf",
-      "src/components/progress-provider.tsx": "386ff44828b79ab2f1216f89345e770057c5dd3e38f0782dde7438a154c24fbf",
-      "src/content/nb.ts": "de25717e6531052364c7848719e7de51ed8d537a8262258690a6f344187c931f",
-      "src/domain/course/model.ts": "784255cf77d335ce62dbfd7f9275bd0bd20087349b12c4958974c2562bb58575",
-      "src/domain/curriculum/monitoring-items.ts": "995b3d60c76821596d86b011918f75d86f556e3f8800a1029235ec7e2187757c",
-      "src/domain/curriculum/monitoring-model.ts": "e429af209281d6de84d40c1ee45b081bc0d81c6161e89b4d06b175750f47b2da",
-      "src/domain/curriculum/monitoring-sources.ts": "f54af37431540c1fc14b331e4a3ce9eec7e539098acaeceed9f5c41f3f13412c",
-      "src/domain/curriculum/monitoring-store.ts": "1b930289a4252b5a6334190b20e2ef20f56729dce364c0cadd2b08d10e4383e5",
-      "src/domain/curriculum/monitoring.test.ts": "2f605d0f539d2d0d12700851da1ea6c167a819c8573dbaa299ab0108f0c4cd8e",
-      "src/domain/curriculum/monitoring.ts": "69f9587c2c3e3969bb35ec25bcaf7a7cf1052fad145176717cd9fd3c146ff621",
-      "src/domain/curriculum/official.ts": "5ad236901be62b46fd96560b3ced55723860e420e16b08ea8f3f4062982a45d0",
-      "src/domain/curriculum/teaching-access.test.ts": "ca49dd846a55f9966a59061f7f6ad132b0952ae73f31776996fd543a52bc2cdc",
-      "src/domain/guidance/milestones.ts": "56e887b6ea3620527480de4eebf896e1622e6a8fc5b8d17d61be9ed8523d620b",
-      "src/domain/portal/model.ts": "0375ecb8e53c93a6612a35c8675560e803b92c5a8abcff23b6551f0bf659e1c8",
-      "src/features/course/course-outline.ts": "5e63500d27ea32b65637afcecdb5b094e140e3d0dec6a77218ff0e5f1637c0c7",
-      "src/features/course/course.tsx": "d997ec889b369710702d9009dbe6c064c905b3dcf94d523ee161776d9bf359b5",
-      "src/features/course/mission-context.ts": "34baad97d607f864623169de103b21eb852c3b8b4b7f40cc58a6937e6f4b7546",
-      "src/features/learning/management-access.tsx": "1023ac56cfc1c2ed97117bb75b1ce19773ea9ab4cb05a943c6ced59dc33a2faa",
-      "src/features/learning/monitoring-assessment.tsx": "6d911df924dd8a4e99b5ba3f7fe545f0f4cf201debb0556398340227e9c1ee97",
-      "src/features/learning/monitoring-context.tsx": "273aacc5784ad8afe50ac8cf43ec4c79e42c60e0587e7fe39dd9d6fcee5db6e0",
-      "src/features/learning/monitoring-controls.tsx": "fe9ff8df190de24bae220c23dd542090f14464668f3559bdff322e97234fff1d",
-      "src/features/learning/monitoring-provider.tsx": "f488077cba22945b5879ffa8b784a0524ca33838bb24fa7115fc9f82befe4e62",
-      "src/features/learning/monitoring-visuals.tsx": "60cb08c64f2a51ef95a43a410bd20c6f3cf83c36a838df48f86f6a896af3f888",
-      "src/features/learning/monitoring-workbench.tsx": "0acc277a39b566ce26a94b0fa601b023169375f76d0f6c9c12882d56b4179aa1",
-      "src/features/learning/monitoring.css": "e8c039c91f5d5c19f89d8e983d3aeab6a5fada82f6cdf5ffbef80e5deb8dc0f2",
-      "src/features/learning/monitoring.tsx": "cce92a9183ddc314dbd2a71b7dd29690b7f44f7c147fcf24b850896077dee8d5",
-      "src/features/portal/portal.tsx": "83fcf65f9c0022fabec57ff851a82505627a7133d32231286d65daafa73e730c",
-      "tests/e2e/course-hub.spec.ts": "41bd17db1784f96245340a1d2b37f5f00be99862e171f96134504c318fe29f05",
-      "tests/e2e/monitoring-diagnostics.spec.ts": "4f1497ee6e21e85bbc567e007059b181aa493f5c3bd14fc1269412fa75bdbb4a",
-      "tests/e2e/storage-resilience.spec.ts": "7117233ff67ea98b0d755d916e776db07010366d40d3309cd5ce70e04399e7b0",
-      "tests/fixtures/active-teaching-contexts.ts": "809f1417faf4b5c84cde585f05d9236e9f3836193a6552226ab54b8211f48e9d",
-      "tests/fixtures/monitoring.ts": "81115b85f3c2d71cb6d8867ee8861a7720224c462a304e9ef1c66fc37c9eb46e"
+      "AGENTS.md": "b2e08c33d38613bcb4c9e217adc39b3dd3c0d7e6b761ea55422a361bf14d0b75",
+      "README.md": "c6a16f71f125eccd7186ca31ec0209a18949842c82f69413963faa579c5c2a38",
+      "docs/ARCHITECTURE.md": "a89b15dd48ac77b12c8d03e8049c32295fb8550104fffa4c62b43d97ebb9329f",
+      "docs/AZ900_COVERAGE_MATRIX.md": "d3d2c10b797d2ce600dea0d90d93a00a85638125e1ce79a2b638881f066a420d",
+      "docs/AZ900_EXPANSION_ROADMAP.md": "e3888347737b04c73a7d6f1c11d1164b156bcc015e047b46af5b0a7fe1ed51b7",
+      "docs/DECISIONS.md": "8dc2bf992cc4de0dc98403b848dc90e7ed5a362544407b1e903a4346992a1912",
+      "docs/DEVELOPMENT_WORKFLOW.md": "d4c2deb5ea75fbedc73af09b5479d8d8903753b811b228a97be2e4c4b7ed129c",
+      "docs/ROADMAP.md": "b3948b7e8da50d2a14f8f72ceb5f6895a7333ad8463d51b2cf98e1f8fc0b4d81",
+      "docs/SECURITY_PRINCIPLES.md": "18452c59dfa571dd6dab47b7c552b999cee54962e6a2f273fc33dbf69216bb72",
+      "docs/audits/az900-2026-07-20.json": "8e5af7b4b51d0bb9e51b42b44811e990b94b5b83385b3d4302143d65da610622",
+      "docs/screenshots/security/actual-context-1024.png": "9596407a56da04c04258e45794d7260251fa2e51c31d7f012f1831afc61c03d3",
+      "docs/screenshots/security/actual-portal-resource-1440.png": "d265b62c9346674292d125c3b069857ed021a0ac059705650efb2d3c8d18cf47",
+      "docs/screenshots/security/defender-mechanism-1440.png": "1086aaef38fae11fc41be3637fc55f9ac8253835d1914a620ed95d50537ca08d",
+      "docs/screenshots/security/defender-missing-evidence-1440.png": "2ed598ad3eedb9b6b38c9cc2265d39aa549817fa0fada972bbdeb1768ff61994",
+      "docs/screenshots/security/defender-score-models-1024.png": "eb5d1af74a473a8ff65d145ef916ee1803ee5cc07655393dda5961b6d1ea535b",
+      "docs/screenshots/security/depth-mechanism-1440.png": "8a81b41943abece254a745c4335e886c8882cf33a9bb5f7cfba0f023d1eac4e3",
+      "docs/screenshots/security/encryption-theory-1024.png": "c41a7ba2f86128a25437eaf6c56afbe1fdff9858daa873a23dc666e0f75f1e71",
+      "docs/screenshots/security/failed-layer-residual-1024.png": "90873f60899cabc8238542a30d4c557cf35b14e8001025562053cc42ae4b230c",
+      "docs/screenshots/security/feedback-state-1024x500.png": "157bc0b7b213229037b98b1f1cd2d3f845baddf311aae8d05192f28fa9c925f8",
+      "docs/screenshots/security/hub-1024.png": "2d83ac296f2d31e101f201fe635541b519058a4da2c6623c980a415c5f94c546",
+      "docs/screenshots/security/hub-1440.png": "982778a4792d909fe555fa0cda3a5d542941c1eae2e044920225c1d55aaf3157",
+      "docs/screenshots/security/independent-state-1024.png": "3d7af03dc2d58a69808dc1bed74a9eb64acc5cb00d91a3a1378c144c2364b2d4",
+      "docs/screenshots/security/introduction-sidebar-1024.png": "63d45c7885fe6e4a6133d988aaf5a195aa74258792c0da6d955b0c02ed5a6c8b",
+      "docs/screenshots/security/introduction-sidebar-1440.png": "bd58c95b01c76378b741a0b72b44397f44a95806dd529251351f247d185b95bf",
+      "docs/screenshots/security/introduction-sidebar-1920.png": "e7a2fc718854427e6bba9d8f7477b1934aebf6accb362009c7e00256a3dc093c",
+      "docs/screenshots/security/layers-1024.png": "0c4c9ddf7f099f9f342cf1c09f0c201a10621ff11d6f0732866ab6594acd013e",
+      "docs/screenshots/security/layers-1366.png": "1f27c7ca94d38e25643a1bf2ac2360d0438f3d1ad7f767190c39989b367c3f34",
+      "docs/screenshots/security/layers-compact-800.png": "0d8c3cf1b0ab0fe89476b9362d1606a8f8395167c6ff37b8b22929720520f7c1",
+      "docs/screenshots/security/native-start-cancel-1024x500.png": "4fa5fd74c94c7dc968a6130b68038bf77be889973f1c42a1b946c83334120a99",
+      "docs/screenshots/security/trust-mechanism-1440.png": "64966b851d97b5806d040b69cbd8e188ad6fdd6450171e7ea9dc20115cb42e09",
+      "package.json": "f2d05c9fe0c2be2bad080bcd88615e04dd14be62f33a1f9fc76ac4ff83d4f91c",
+      "playwright.desktop.config.ts": "b2c8197ea956ca414883ed9d4279f6c60a2ee80f3126301f2d9367840343bb91",
+      "scripts/az900-audit-check.mjs": "ad7806a68ca80f0274f66e511ae1fbd3caa0f99afbfc5534b04000b75166540b",
+      "scripts/az900-audit-check.test.mjs": "e7b5800b31ace96a70befe979286be3d7f4238f96ea2da5056e8e7cf02efab50",
+      "scripts/e2e-plan-check.mjs": "b664063bc1e0cda55a4c499639e48498d7419a5fe412b717b3995cde7f6793de",
+      "src/app/layout.tsx": "c3b94a91d15eb97b0eebb3e4737c7af11d549e841988a720c89a45c839fd8e3b",
+      "src/app/learn/[module]/page.tsx": "36c338b8790784cc4f4ed780780e2622d9a4ebeb6848fb0564eaab4831741fb3",
+      "src/components/progress-provider.tsx": "8b3503a352c7cf138d25504ccbb12157ccb1f7fc46e052dc3d13ef8244b59470",
+      "src/content/nb.ts": "afc592d02f8f5818442f16db2c63601f5f937fcae73b4c2307c39fd92dc9f9c8",
+      "src/domain/course/model.ts": "21d4a0d69e058349ba79ae8179c8a1ece63db43368366e0b19dcbfd4202e0fa0",
+      "src/domain/curriculum/official.ts": "af725f9b0428e265bc58744e40d3a32bd08cb439e01afb40082249bf11f90244",
+      "src/domain/curriculum/security-items.ts": "862dc9d11a0626240012d3ae933a72c4cdc19acce1fc2eeadaa7af41a934045d",
+      "src/domain/curriculum/security-model.ts": "b3bcc61bb81bdb2bae85fbf318600a0d97fec3f1bf8e32b3ac201d45565811e5",
+      "src/domain/curriculum/security-sources.ts": "e3bfd079739a58b9cccc11fd272a7935561f86cc78167a48a5bc92a26d115364",
+      "src/domain/curriculum/security-store.ts": "0ab0612801c97d6bb80c64afb41a598897d0abff3a828c0ae1c0202683b7d2bf",
+      "src/domain/curriculum/security.test.ts": "3861505fbfa3d851fb835058f4d011710190f5f6906bcf83637e874bbc83d87f",
+      "src/domain/curriculum/security.ts": "65c5f625bd1f118cadf07d669cd1e45ae0f58cb15bbe3ebf77a48280202aa619",
+      "src/domain/curriculum/teaching-access.test.ts": "45c59ae0a535b7c8e07a5c73f4fa4c94a01025ff7817f98dc2e09d36bff193c4",
+      "src/domain/guidance/milestones.ts": "16efd7713bd0d9d67cf572aa44ee64c148154bc3c11165875c7ab8264563ed2f",
+      "src/domain/portal/model.ts": "2ee3dd03b6c07a1a4c6d54aa9ecd49456edbabae3cd2c5c8b2d9f754117370c0",
+      "src/features/course/course-outline.ts": "65dc164cda2bd1e3cab3efb9833d0649c22486ef3c36ac1b67c209bf7254940f",
+      "src/features/course/course.tsx": "2e8ba0c7c10e22a31fcc8fb18b8172ae76a9c9d51305ad41cabc1954e2f001ae",
+      "src/features/course/mission-context.ts": "2db923438d305412dccd71fc77a59e68525e088c823b2f50b4ff700dd191eb7a",
+      "src/features/learning/management-access.tsx": "3781f1fb421d4215530bec29776a630d10d3f870a822ec5732e83e078bd58dae",
+      "src/features/learning/security-assessment.tsx": "8d82ff78707ba9aba1794b00941ab4390260a9ea151994da2547f671ab6c9bc1",
+      "src/features/learning/security-context.tsx": "f9d1d5bb4a164fee803523fdbee3de44c849ae60f49018f377a456c096b23d58",
+      "src/features/learning/security-controls.tsx": "94c7e5ade385787811ea86ef9e46af61a928ed1b21e3af55ff9e99aec149cecc",
+      "src/features/learning/security-provider.tsx": "2d0d1897fa4f046b99c21a4a7af4a3673dc61151569ef0a841281eec38474afc",
+      "src/features/learning/security-visuals.tsx": "39f2f7d380398c7e550a6d6c159e496f731f0a5a7eed46be33846ff287c4a5b2",
+      "src/features/learning/security-workbench.tsx": "6ee07e62d946c0772d2d5c467becdf98b50f8614d5f5de82ea5dc13ecda927d9",
+      "src/features/learning/security.css": "751b0e80f1c6b22d4a065ed2c696315c7d55c777ac7283c5f1ace88d3adfc89e",
+      "src/features/learning/security.tsx": "6eb15263b5b2587fcc2565894a03c19dc9d0c6d76d8531ee43186d995da5fc87",
+      "src/features/portal/portal.tsx": "2b642763c3539c97c15ce33d9ad336f08aafbdadc9b41830b0401e00e6dda718",
+      "tests/e2e/course-hub.spec.ts": "beb400d6062f19f958a4b53714a8e84ac384488a131c0a233b780bcb8f19adb5",
+      "tests/e2e/identity-foundations.spec.ts": "06541ba60c1403d08d2641e1b7f8c4b139ff02b738e1c4e71a97138bf6128737",
+      "tests/e2e/security-principles.spec.ts": "83eca289c35e2378c2974bc837af29fb13c593c4e575db25d135d732aa7519e4",
+      "tests/fixtures/active-teaching-contexts.ts": "7575765fd3e0f28d3ff6c366153a7b943d18d6e22b2f5cccaad2ba3c07a2e7ab",
+      "tests/fixtures/security.ts": "dfbbf1b8f7974c83ab8a66e7ccc19ba2dfdedf14ccd5b993304f928c69fbab45"
     }
   },
-  "implementationFinished": "2026-11-01T13:15:08.418Z"
+  "implementationFinished": "2026-11-01T15:33:58.227Z"
 }

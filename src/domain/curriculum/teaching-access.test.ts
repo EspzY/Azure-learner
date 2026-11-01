@@ -32,8 +32,8 @@ const io = () => {
 describe('shared teaching preflight for frozen assessment contracts', () => {
   it('validates fresh unaided fixtures for all seventeen fixture-registered independent contexts', () => {
     const fixtures = activeTeachingContexts();
-    expect(fixtures).toHaveLength(17);
-    expect(new Set(fixtures.map((f) => f.key)).size).toBe(17);
+    expect(fixtures).toHaveLength(18);
+    expect(new Set(fixtures.map((f) => f.key)).size).toBe(18);
     expect(fixtures.map((f) => f.key)).toContain(connectivityKey);
     expect(fixtures.map((f) => f.key)).toContain(identityKey);
     expect(fixtures.map((f) => f.key)).toContain(accessKey);

@@ -221,14 +221,14 @@ export function renderMatrix(audit) {
   lines.push(
     '## Daterte offisielle kilder',
     '',
-    'Alle lenker ble kontrollert 2026-10-26. «Page updated» er bare registrert der siden oppgav dette; det er ikke automatisk reviewdato. Module/unit-struktur og relevante tekniske forklaringer er lest; ingen komplette Learn-leksjoner eller beskyttede spørsmål er kopiert. Microsofts offentlige Practice Assessment-beskrivelse ble lest; selve innloggede oppgavebanken ble ikke åpnet.',
+    `Den opprinnelige kildekontrollen er datert ${audit.reviewed}. Senere avgrensede kontroller vises med kildens registrerte reviewdato; uten egen dato beholdes auditens baseline. «Page updated» er en oppgitt produktdato, ikke automatisk reviewdato. Module/unit-struktur og relevante tekniske forklaringer er lest; ingen komplette Learn-leksjoner eller beskyttede spørsmål er kopiert. Microsofts offentlige Practice Assessment-beskrivelse ble lest; selve innloggede oppgavebanken ble ikke åpnet.`,
     '',
     '| ID | Kilde og anvendelse | Synlig versjon/dato |',
     '| --- | --- | --- |',
   );
   for (const [id, s] of Object.entries(audit.sources))
     lines.push(
-      `| ${id} | [Microsoft: ${s.purpose}](${s.url}) | ${s.pageUpdated || 'Rolling page; reviewed 2026-10-26'} |`,
+      `| ${id} | [Microsoft: ${s.purpose}](${s.url}) | ${s.pageUpdated ? 'Page updated ' + s.pageUpdated : 'Rolling page'}; reviewed ${s.reviewed || audit.reviewed} |`,
     );
   lines.push(
     '',

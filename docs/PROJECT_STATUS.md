@@ -1,5 +1,9 @@
 ## PR36 / P11 — Access Control candidate
 
+## P15 candidate — Security Principles & Defender for Cloud
+
+Identity, Access & Security Part C is implemented on verified PR39 base385e76c1d544b992626d529dfca2130fbf01d42a. Three scoped authored A–F rows bring coverage52→55/57; P16's two migration rows remain. Original theory and encryption supplement, three bounded Studio perspectives, causal guided investigations, eight independent situations and isolated learning history extend the existing three-path Hub. Candidate232 (214desktop/18compact), optional legacy428. Full exact-head CI, independent final review and anonymous final-SHA external journey must be recorded on Draft PR40 before delivery. No human validation, merge or production deployment claimed.
+
 ## P14 candidate — Monitoring & Diagnostic Tools
 
 P14 adds only3.4.01–03; authored coverage52/57 after the scoped A–F update. Three synthetic perspectives, three causal investigations, eight original paired situations and isolated historical evidence integrate after Management in path03. Candidate profile224 (207desktop/17compact), legacy414 remains. Actual audit, CI/strict and deployed exact-SHA journey are recorded on Draft PR39; planning is not execution proof. Humans unperformed, no merge/production. P15 next.
