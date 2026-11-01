@@ -202,6 +202,8 @@ PR37 supplies [Governance & Compliance](GOVERNANCE_COMPLIANCE.md): original Purv
 - **Tester:** Imperativ/deklarativ forskjell, klient versus management-layer, feil avhengighetsreferanse, Cloud Shell versus CLI/PowerShell og Arc-moteksempel.
 - **Aksept:** Fem separate mål med komplette oppgaver/rationales. Den lokale simulatormotoren utgis aldri for ARM.
 
+P13 supplies [Management & Deployment Tools](MANAGEMENT_DEPLOYMENT_TOOLS.md): original Portal/shell/tool/ARM/IaC/Bicep/Arc teaching, three causal perspectives, actual local post-start Portal receipts and hosting inspection, ten changed paired scenarios and separate1.0.0 history. Only3.3.01–05 reassessed;52 other rows preserved. Complete exact-head216 CI/strict, fresh final audit and actual anonymous deployed fullSHA/journey govern delivery. No merge/production. P14 next.
+
 ## P14 — Monitoring og diagnose på Fundamentals-nivå
 
 - **Mål:** Alle `3.4`-punkter og relevante predictability-hull.

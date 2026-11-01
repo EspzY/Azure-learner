@@ -1,5 +1,9 @@
 ## PR36 / P11 — Access Control candidate
 
+## P13 / PR38 candidate
+
+Management & Deployment Tools extends path03 after Governance with original teaching, three typed Studio perspectives/causal investigations, ten paired scenarios and isolated history. Targeted verification, actual screenshots, separate final audit, exact-head216-case CI/strict and anonymous deployed fullSHA/user journey are required before delivery. Only3.3.01–05 reassessed; authored coverage49/57 does not mean learner mastery. Human validations unperformed. No merge/production. Next P14 Monitoring; not implemented. [Evidence](MANAGEMENT_DEPLOYMENT_TOOLS.md).
+
 ## PR37 / P12 candidate — 1 November 2026
 
 Governance & Compliance is integrated after Cost in path03: ten original teaching sections, three deterministic Studio perspectives, three native causal investigations, nine original paired independent contexts, Journal/Summary and isolated history. Actual Policy credit additionally requires original post-start denial/correction receipts and scope/policy/resource inspection. Only3.2.01–03 are reassessed;44/57 denotes authored A–F, not mastery. [Contract](GOVERNANCE_COMPLIANCE.md), [independent final review](quality/PR37_FINAL_AUDIT.md). Final local check exited0 (487 Vitest/397 curriculum/17 Node/107 docs/build). Separate post-stamp six-domain audit found no BLOCKER/MAJOR; two accepted minor limits concern scaffolded assessment transfer and image framing. Complete207-case exact-head CI/strict and external root/SHA/journey evidence will be reported separately in the Draft PR. The short fresh/existing-user preflight did not reproduce the prior blank Hub; no cause/fix claimed. Human SME/UX/screen-reader/learning unperformed. No merge/production. Next P13, not started.

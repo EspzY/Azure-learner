@@ -2089,6 +2089,286 @@
       "purpose": "P12: Blob data-protection and recovery controls differ from ARM locks/replication; service support and recovery requirements must be verified.",
       "reviewed": "2026-11-01",
       "version": "Rolling official page updated 2026-10-05T22:13:00.0000000Z"
+    },
+    "MTG01": {
+      "url": "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900",
+      "purpose": "P13: Current study guide: only3.3.01–05; Bicep/Copilot context does not add exam rows.",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page updated 2026-06-22T23:35:00.0000000Z",
+      "pageUpdated": "Updated 2026-06-22T23:35:00.0000000Z; reviewed 2026-11-01"
+    },
+    "MTG02": {
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-features-tools-manage-deploy-azure-resources/",
+      "purpose": "P13: Current six-unit official module; all five public introduction/teaching/summary pages scoped, assessment not opened.",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page updated 2026-10-28T17:12:00.0000000Z",
+      "pageUpdated": "Updated 2026-10-28T17:12:00.0000000Z; reviewed 2026-11-01"
+    },
+    "MTG03": {
+      "url": "https://learn.microsoft.com/en-us/azure/azure-portal/azure-portal-overview",
+      "purpose": "P13: Portal global/contextual controls, filters, resource navigation and dashboards; GUI is not an executed outcome.",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page updated 2026-04-07T06:02:00.0000000Z",
+      "pageUpdated": "Updated 2026-04-07T06:02:00.0000000Z; reviewed 2026-11-01"
+    },
+    "MTG04": {
+      "url": "https://learn.microsoft.com/en-us/azure/cloud-shell/overview",
+      "purpose": "P13: Hosted authenticated Cloud Shell environment; persistent-storage statements qualified by MT18 ephemeral guidance.",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page updated 2026-08-08T05:14:00.0000000Z",
+      "pageUpdated": "Updated 2026-08-08T05:14:00.0000000Z; reviewed 2026-11-01"
+    },
+    "MTG05": {
+      "url": "https://learn.microsoft.com/en-us/cli/azure/what-is-azure-cli",
+      "purpose": "P13: CLI is cross-platform tool, az syntax and JSON output; not Bash itself, no guaranteed universal feature parity.",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page updated 2025-08-28T22:06:00.0000000Z",
+      "pageUpdated": "Updated 2025-08-28T22:06:00.0000000Z; reviewed 2026-11-01"
+    },
+    "MTG06": {
+      "url": "https://learn.microsoft.com/en-us/powershell/azure/what-is-azure-powershell",
+      "purpose": "P13: Azure PowerShell is current Az module family in PowerShell; object output, local/Cloud Shell and control/data planes.",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page updated 2026-10-06T17:01:00.0000000Z",
+      "pageUpdated": "Updated 2026-10-06T17:01:00.0000000Z; reviewed 2026-11-01"
+    },
+    "MTG07": {
+      "url": "https://learn.microsoft.com/en-us/azure/azure-arc/overview",
+      "purpose": "P13: Arc projects supported external resources into ARM; products differ, indirectly connected data mode retired; no automatic migration.",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page updated 2026-08-01T06:03:00.0000000Z",
+      "pageUpdated": "Updated 2026-08-01T06:03:00.0000000Z; reviewed 2026-11-01"
+    },
+    "MTG08": {
+      "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/overview",
+      "purpose": "P13: ARM routes relevant management requests/providers, identity/authorization and four template scopes; not all data-plane traffic.",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page updated 2026-08-06T22:11:00.0000000Z",
+      "pageUpdated": "Updated 2026-08-06T22:11:00.0000000Z; reviewed 2026-11-01"
+    },
+    "MTG09": {
+      "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/overview",
+      "purpose": "P13: Declarative ARM JSON, parameters/variables/resources/outputs, deployment orchestration, repeatability and inspected results.",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page updated 2026-06-26T22:12:00.0000000Z",
+      "pageUpdated": "Updated 2026-06-26T22:12:00.0000000Z; reviewed 2026-11-01"
+    },
+    "MTG10": {
+      "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/overview",
+      "purpose": "P13: Declarative Bicep symbolic authoring uses ARM, implicit reference dependencies; not alternate authority or runtime proof.",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page updated 2026-01-08T18:12:00.0000000Z",
+      "pageUpdated": "Updated 2026-01-08T18:12:00.0000000Z; reviewed 2026-11-01"
+    },
+    "MTG11": {
+      "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/deploy-what-if",
+      "purpose": "P13: Actual What-if is non-mutating but requires deployment/write rights, has unresolved reference/expansion/change-type limits.",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page updated 2026-06-26T22:12:00.0000000Z",
+      "pageUpdated": "Updated 2026-06-26T22:12:00.0000000Z; reviewed 2026-11-01"
+    },
+    "MTG12": {
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-features-tools-manage-deploy-azure-resources/1-introduction",
+      "purpose": "P13: Official introduction and prerequisites: managing/deploying resources, no protected interaction.",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page updated 2026-03-24T17:11:00.0000000Z",
+      "pageUpdated": "Updated 2026-03-24T17:11:00.0000000Z; reviewed 2026-11-01"
+    },
+    "MTG13": {
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-features-tools-manage-deploy-azure-resources/2-describe-interacting-azure",
+      "purpose": "P13: Learn Portal/shell/CLI/PS/Copilot unit; its CLI-is-Bash and PowerShell-is-shell shorthand qualified by MT05/06/19.",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page updated 2026-03-24T17:11:00.0000000Z",
+      "pageUpdated": "Updated 2026-03-24T17:11:00.0000000Z; reviewed 2026-11-01"
+    },
+    "MTG14": {
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-features-tools-manage-deploy-azure-resources/3-describe-purpose-of-azure-arc",
+      "purpose": "P13: Learn Arc purpose; broad product/VM-preview wording qualified by current product-specific MT07/29/30/31.",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page updated 2026-03-24T17:11:00.0000000Z",
+      "pageUpdated": "Updated 2026-03-24T17:11:00.0000000Z; reviewed 2026-11-01"
+    },
+    "MTG15": {
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-features-tools-manage-deploy-azure-resources/4-describe-azure-resource-manager-azure-arm-templates",
+      "purpose": "P13: Learn IaC includes code/scripts and templates; imperative versus declarative retained; Bicep/ARM same deployment layer.",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page updated 2026-03-24T17:11:00.0000000Z",
+      "pageUpdated": "Updated 2026-03-24T17:11:00.0000000Z; reviewed 2026-11-01"
+    },
+    "MTG16": {
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-features-tools-manage-deploy-azure-resources/6-summary",
+      "purpose": "P13: Official summary includes Copilot as supplemental operational assistance, no sixth exam goal.",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page updated 2026-03-24T17:11:00.0000000Z",
+      "pageUpdated": "Updated 2026-03-24T17:11:00.0000000Z; reviewed 2026-11-01"
+    },
+    "MTG17": {
+      "url": "https://learn.microsoft.com/en-us/azure/cloud-shell/features",
+      "purpose": "P13: Cloud Shell tools/environments and conditional persistent customization; no always-latest version guarantee.",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page updated 2025-12-04T06:11:00.0000000Z",
+      "pageUpdated": "Updated 2025-12-04T06:11:00.0000000Z; reviewed 2026-11-01"
+    },
+    "MTG18": {
+      "url": "https://learn.microsoft.com/en-us/azure/cloud-shell/get-started/ephemeral",
+      "purpose": "P13: Ephemeral Cloud Shell requires no storage account, discards session files; provider/subscription prerequisites remain.",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page updated 2024-05-29T17:18:00.0000000Z",
+      "pageUpdated": "Updated 2024-05-29T17:18:00.0000000Z; reviewed 2026-11-01"
+    },
+    "MTG19": {
+      "url": "https://learn.microsoft.com/en-us/cli/azure/choose-the-right-azure-command-line-tool",
+      "purpose": "P13: Tool versus host matrix: CLI in Bash/PowerShell, Az requires PowerShell; syntax/output/version support vary.",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page updated 2025-07-14T22:05:00.0000000Z",
+      "pageUpdated": "Updated 2025-07-14T22:05:00.0000000Z; reviewed 2026-11-01"
+    },
+    "MTG20": {
+      "url": "https://learn.microsoft.com/en-us/cli/azure/group",
+      "purpose": "P13: az group create name/location/subscription syntax; command reference only, no executed Azure request.",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page updated 2026-09-01T07:51:00.0000000Z",
+      "pageUpdated": "Updated 2026-09-01T07:51:00.0000000Z; reviewed 2026-11-01"
+    },
+    "MTG21": {
+      "url": "https://learn.microsoft.com/en-us/powershell/module/az.resources/new-azresourcegroup",
+      "purpose": "P13: New-AzResourceGroup Az.Resources16.4.0 syntax/name/location/context; not New-AzResourceGroupDeployment.",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page updated 2026-10-06T17:01:00.0000000Z",
+      "pageUpdated": "Updated 2026-10-06T17:01:00.0000000Z; reviewed 2026-11-01"
+    },
+    "MTG22": {
+      "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/manage-resource-groups-portal",
+      "purpose": "P13: Actual public Portal RG workflow: subscription/name/metadata region, Review+create, submit, inspect result; reference text not fidelity approval.",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page updated 2026-03-04T23:27:00.0000000Z",
+      "pageUpdated": "Updated 2026-03-04T23:27:00.0000000Z; reviewed 2026-11-01"
+    },
+    "MTG23": {
+      "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/resource-providers-and-types",
+      "purpose": "P13: Providers implement type/APIs; context-specific auto-registration and regional registration status; no generic always-manual rule.",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page updated 2026-02-27T18:31:00.0000000Z",
+      "pageUpdated": "Updated 2026-02-27T18:31:00.0000000Z; reviewed 2026-11-01"
+    },
+    "MTG24": {
+      "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/syntax",
+      "purpose": "P13: ARM JSON selected syntax: schema/contentVersion versus apiVersion, params, derived variables, resources and outputs.",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page updated 2026-01-27T23:11:00.0000000Z",
+      "pageUpdated": "Updated 2026-01-27T23:11:00.0000000Z; reviewed 2026-11-01"
+    },
+    "MTG25": {
+      "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/resource-dependency",
+      "purpose": "P13: ARM dependsOn/implicit reference behavior and cycles; resourceId alone not order; deployment edges not retained as runtime graph.",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page updated 2026-06-26T22:12:00.0000000Z",
+      "pageUpdated": "Updated 2026-06-26T22:12:00.0000000Z; reviewed 2026-11-01"
+    },
+    "MTG26": {
+      "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/resource-dependencies",
+      "purpose": "P13: Bicep symbolic property reference implies dependency; only same-file creation ordering, explicit redundancy and cycle limits.",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page updated 2025-12-08T23:11:00.0000000Z",
+      "pageUpdated": "Updated 2025-12-08T23:11:00.0000000Z; reviewed 2026-11-01"
+    },
+    "MTG27": {
+      "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/deploy-to-subscription",
+      "purpose": "P13: Subscription-scope RG ARM example/type/API2025-04-01; scope affects schema/resources/permissions.",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page updated 2026-06-26T22:12:00.0000000Z",
+      "pageUpdated": "Updated 2026-06-26T22:12:00.0000000Z; reviewed 2026-11-01"
+    },
+    "MTG28": {
+      "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/deployment-modes",
+      "purpose": "P13: Incremental preserves omitted resources but not necessarily omitted properties; Complete is not recommended, stacks outside scope.",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page updated 2026-06-26T22:12:00.0000000Z",
+      "pageUpdated": "Updated 2026-06-26T22:12:00.0000000Z; reviewed 2026-11-01"
+    },
+    "MTG29": {
+      "url": "https://learn.microsoft.com/en-us/azure/azure-arc/servers/overview",
+      "purpose": "P13: Arc Servers supports external Windows/Linux, native Azure VMs excluded; metadata region and extensions not universal native VM control.",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page updated 2026-07-27T22:12:00.0000000Z",
+      "pageUpdated": "Updated 2026-07-27T22:12:00.0000000Z; reviewed 2026-11-01"
+    },
+    "MTG30": {
+      "url": "https://learn.microsoft.com/en-us/azure/azure-arc/kubernetes/overview",
+      "purpose": "P13: Arc Kubernetes ARM representation/agents and capability-specific extensions; not generic server or automatic workload migration.",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page updated 2026-03-24T22:15:00.0000000Z",
+      "pageUpdated": "Updated 2026-03-24T22:15:00.0000000Z; reviewed 2026-11-01"
+    },
+    "MTG31": {
+      "url": "https://learn.microsoft.com/en-us/azure/azure-arc/data/overview",
+      "purpose": "P13: Arc data services current SQL MI on supported external Kubernetes; not universal database onboarding/runtime/capacity guarantee.",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page updated 2026-06-24T06:10:00.0000000Z",
+      "pageUpdated": "Updated 2026-06-24T06:10:00.0000000Z; reviewed 2026-11-01"
+    },
+    "MTG32": {
+      "url": "https://learn.microsoft.com/en-us/azure/copilot/overview",
+      "purpose": "P13: Current Azure Copilot can assist and perform supported confirmation-based actions with available permissions; not simulated here.",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page updated 2026-08-11T06:02:00.0000000Z",
+      "pageUpdated": "Updated 2026-08-11T06:02:00.0000000Z; reviewed 2026-11-01"
+    },
+    "MTG33": {
+      "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/template-functions-resource",
+      "purpose": "P13: Only scoped resourceId and reference paragraphs reviewed-applied: exact scoped ID construction and name-vs-ID dependency qualification.",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page updated 2026-10-20T22:12:00.0000000Z",
+      "pageUpdated": "Updated 2026-10-20T22:12:00.0000000Z; reviewed 2026-11-01"
+    },
+    "MTG34": {
+      "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/deployment-history",
+      "purpose": "P13: Inspect operation/deployment status/details/history, not app health; no AzureLab copy of cloud deployment history.",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page updated 2026-06-26T22:12:00.0000000Z",
+      "pageUpdated": "Updated 2026-06-26T22:12:00.0000000Z; reviewed 2026-11-01"
+    },
+    "MTG35": {
+      "url": "https://learn.microsoft.com/en-us/training/paths/describe-azure-management-governance/",
+      "purpose": "P13: Official management/governance path and relevant module discovery; earlier/later modules remain outside this re-audit.",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page updated 2026-10-28T17:12:00.0000000Z",
+      "pageUpdated": "Updated 2026-10-28T17:12:00.0000000Z; reviewed 2026-11-01"
+    },
+    "MTG36": {
+      "url": "https://learn.microsoft.com/en-us/azure/app-service/quickstart-arm-template",
+      "purpose": "P13: Actual App Service template example verifies Web types, LinuxAPI2021-02-01/reserved/F1/serverFarmId/dependsOn; no quickstart deployment performed.",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page updated 2025-10-08T05:12:00.0000000Z",
+      "pageUpdated": "Updated 2025-10-08T05:12:00.0000000Z; reviewed 2026-11-01"
+    },
+    "MTG37": {
+      "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/bicep-cli",
+      "purpose": "P13: Bicep build converts to JSON ARM template and supported deployment tooling can do it automatically; no actual compiler executed.",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page updated 2026-10-28T06:29:00.0000000Z",
+      "pageUpdated": "Updated 2026-10-28T06:29:00.0000000Z; reviewed 2026-11-01"
+    },
+    "MTG38": {
+      "url": "https://learn.microsoft.com/en-us/azure/azure-arc/servers/agent-overview",
+      "purpose": "P13: Connected Machine agent metadata/extension roles; no agent/identity endpoints accessed or installed.",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page updated 2026-10-27T22:13:00.0000000Z",
+      "pageUpdated": "Updated 2026-10-27T22:13:00.0000000Z; reviewed 2026-11-01"
+    },
+    "MTG39": {
+      "url": "https://learn.microsoft.com/en-us/azure/azure-arc/kubernetes/conceptual-gitops-flux2",
+      "purpose": "P13: Flux controllers run locally and pull Git; Azure fluxConfiguration updates need Azure reachability while existing Git reconciliation is separate.",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page updated 2026-03-24T06:03:00.0000000Z",
+      "pageUpdated": "Updated 2026-03-24T06:03:00.0000000Z; reviewed 2026-11-01"
+    },
+    "MTG40": {
+      "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/control-plane-and-data-plane",
+      "purpose": "P13: Control-plane management via ARM differs from direct service data-plane operations; no all-traffic-through-ARM claim.",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page updated 2026-02-27T18:31:00.0000000Z",
+      "pageUpdated": "Updated 2026-02-27T18:31:00.0000000Z; reviewed 2026-11-01"
     }
   },
   "evidenceProfiles": {
@@ -3028,6 +3308,53 @@
         "tests/e2e/governance-compliance.spec.ts"
       ],
       "limits": "Authored A–F only. Fictional Purview metadata, bounded Policy and management-lock models; actual existing custom Web location policy/receipts remain authoritative and separately witnessed after mission start. No new Policy/lock/scanning engine or XP. Human SME/UX/screen-reader/learning validation unperformed."
+    },
+    "MT": {
+      "teaching": [
+        {
+          "path": "src/content/nb.ts",
+          "marker": "toolsNb"
+        }
+      ],
+      "mechanism": [
+        {
+          "path": "src/domain/curriculum/management-tools-model.ts",
+          "marker": "runTools"
+        },
+        {
+          "path": "src/domain/curriculum/management-tools.ts",
+          "marker": "toolsManifest"
+        },
+        {
+          "path": "src/domain/curriculum/management-tools-evidence.ts",
+          "marker": "toolsNativeEvidence"
+        }
+      ],
+      "presentation": [
+        {
+          "path": "src/features/learning/management-tools.tsx",
+          "marker": "ToolsLesson"
+        },
+        {
+          "path": "src/features/learning/management-tools-visuals.tsx",
+          "marker": "ToolsModelResult"
+        }
+      ],
+      "assessment": [
+        {
+          "path": "src/domain/curriculum/management-tools-items.ts",
+          "marker": "evaluateTools"
+        },
+        {
+          "path": "src/features/learning/management-tools-assessment.tsx",
+          "marker": "ToolsAssessment"
+        }
+      ],
+      "tests": [
+        "src/domain/curriculum/management-tools.test.ts",
+        "tests/e2e/management-tools.spec.ts"
+      ],
+      "limits": "Authored A–F coverage only. Three bounded conceptual models; actual existing learner-operated Portal commands/receipts remain authoritative. No CLI/PowerShell/ARM/Bicep/Arc execution, copied inventory, runtime-health proof or XP. Human validation unperformed."
     }
   },
   "plannedPRs": [
@@ -5232,143 +5559,353 @@
       "slot": "3.3.01",
       "id": "az900.management.portal",
       "title": "Azure Portal som administrasjonsverktøy",
-      "status": "PARTIAL",
+      "status": "COMPLETE",
       "criteria": {
-        "A": "P",
+        "A": "V",
         "B": "V",
         "C": "V",
         "D": "V",
-        "E": "P",
-        "F": "P"
+        "E": "V",
+        "F": "V"
       },
       "facets": [
         {
           "topic": "Webbasert management",
-          "status": "PARTIAL"
+          "status": "COMPLETE"
         }
       ],
       "localObjectives": ["CB04", "A01"],
-      "evidence": ["BM", "PORTAL"],
-      "observed": "Arbeidsflyt fra søk/liste til Review/Create/Overview, faktisk lokal command/evidence og kursretur.",
-      "gap": "UI-fidelity er sterk praksis, men mangler samlet forklaring/sammenligning av Portalens rolle versus andre management-klienter.",
+      "evidence": ["MT"],
+      "observed": "Original Portal navigation/context/scope/ID/review/result inspection theory; actual post-start RG/Plan/App learner commands, original receipts and hosting relation. Two changed independent contexts distinguish same-name resources and management success from app health.",
+      "gap": "Ingen scoped A–F-innholdsgap identifisert; separat sluttkontroll og faktisk exact-head CI/strict kreves. Innholdsdekning er ikke elevmestring, sertifisering eller menneskelig validering.",
       "plannedPRs": ["P13"],
-      "sources": ["EXAM", "M11"]
+      "sources": [
+        "EXAM",
+        "MTG01",
+        "MTG02",
+        "MTG03",
+        "MTG04",
+        "MTG05",
+        "MTG06",
+        "MTG07",
+        "MTG08",
+        "MTG09",
+        "MTG10",
+        "MTG11",
+        "MTG12",
+        "MTG13",
+        "MTG14",
+        "MTG15",
+        "MTG16",
+        "MTG17",
+        "MTG18",
+        "MTG19",
+        "MTG20",
+        "MTG21",
+        "MTG22",
+        "MTG23",
+        "MTG24",
+        "MTG25",
+        "MTG26",
+        "MTG27",
+        "MTG28",
+        "MTG29",
+        "MTG30",
+        "MTG31",
+        "MTG32",
+        "MTG33",
+        "MTG34",
+        "MTG35",
+        "MTG36",
+        "MTG37",
+        "MTG38",
+        "MTG39",
+        "MTG40"
+      ]
     },
     {
       "slot": "3.3.02",
       "id": "az900.management.shells",
       "title": "Cloud Shell, Azure CLI og Azure PowerShell",
-      "status": "PARTIAL",
+      "status": "COMPLETE",
       "criteria": {
-        "A": "P",
-        "B": "P",
-        "C": "M",
-        "D": "M",
-        "E": "P",
-        "F": "P"
+        "A": "V",
+        "B": "V",
+        "C": "V",
+        "D": "V",
+        "E": "V",
+        "F": "V"
       },
       "facets": [
         {
           "topic": "Cloud Shell",
-          "status": "MISSING"
+          "status": "COMPLETE"
         },
         {
           "topic": "Azure CLI",
-          "status": "PARTIAL"
+          "status": "COMPLETE"
         },
         {
           "topic": "Azure PowerShell",
-          "status": "PARTIAL"
+          "status": "COMPLETE"
         }
       ],
       "localObjectives": ["CB04", "A01"],
-      "evidence": ["BM"],
-      "observed": "CB04 gir korte originale definisjoner av CLI/PowerShell og felles API.",
-      "gap": "Ingen Cloud Shell-forklaring, gjennomarbeidet kommandoeksempel eller uavhengig verktøyvalg. Ikke kjør ekte shell/Azure.",
+      "evidence": ["MT"],
+      "observed": "Original hosted/local shell versus CLI/Az PowerShell, syntax/object/automation/session-storage/prerequisite teaching. Five-tool comparison and local-install contrast; two independent locked-PC/scheduled-runner contexts.",
+      "gap": "Ingen scoped A–F-innholdsgap identifisert; separat sluttkontroll og faktisk exact-head CI/strict kreves. Innholdsdekning er ikke elevmestring, sertifisering eller menneskelig validering.",
       "plannedPRs": ["P13"],
-      "sources": ["EXAM", "M11"]
+      "sources": [
+        "EXAM",
+        "MTG01",
+        "MTG02",
+        "MTG03",
+        "MTG04",
+        "MTG05",
+        "MTG06",
+        "MTG07",
+        "MTG08",
+        "MTG09",
+        "MTG10",
+        "MTG11",
+        "MTG12",
+        "MTG13",
+        "MTG14",
+        "MTG15",
+        "MTG16",
+        "MTG17",
+        "MTG18",
+        "MTG19",
+        "MTG20",
+        "MTG21",
+        "MTG22",
+        "MTG23",
+        "MTG24",
+        "MTG25",
+        "MTG26",
+        "MTG27",
+        "MTG28",
+        "MTG29",
+        "MTG30",
+        "MTG31",
+        "MTG32",
+        "MTG33",
+        "MTG34",
+        "MTG35",
+        "MTG36",
+        "MTG37",
+        "MTG38",
+        "MTG39",
+        "MTG40"
+      ]
     },
     {
       "slot": "3.3.03",
       "id": "az900.management.arc",
       "title": "Azure Arc",
-      "status": "PARTIAL",
+      "status": "COMPLETE",
       "criteria": {
-        "A": "P",
-        "B": "P",
-        "C": "M",
-        "D": "M",
-        "E": "M",
-        "F": "P"
+        "A": "V",
+        "B": "V",
+        "C": "V",
+        "D": "V",
+        "E": "V",
+        "F": "V"
       },
       "facets": [
         {
           "topic": "Hybrid/cross-environment management",
-          "status": "PARTIAL"
+          "status": "COMPLETE"
         }
       ],
       "localObjectives": ["FC04", "R02"],
-      "evidence": ["F"],
-      "observed": "models.azure nevner styring av miljøer gjennom Arc og avviser automatisk flytting av workload.",
-      "gap": "En kort korrekt kobling er ikke komplett Arc-undervisning; mekanisme, grenser og selvstendig scenario mangler.",
+      "evidence": ["MT"],
+      "observed": "Original hybrid/multicloud server/Kubernetes/data integration and management representation/physical-location/connection limits. Matched persisted contrasting models, two independent hardware-control/disconnected-GitOps contexts; existing Flux reconciliation not assumed stopped.",
+      "gap": "Ingen scoped A–F-innholdsgap identifisert; separat sluttkontroll og faktisk exact-head CI/strict kreves. Innholdsdekning er ikke elevmestring, sertifisering eller menneskelig validering.",
       "plannedPRs": ["P13"],
-      "sources": ["EXAM", "M11"]
+      "sources": [
+        "EXAM",
+        "MTG01",
+        "MTG02",
+        "MTG03",
+        "MTG04",
+        "MTG05",
+        "MTG06",
+        "MTG07",
+        "MTG08",
+        "MTG09",
+        "MTG10",
+        "MTG11",
+        "MTG12",
+        "MTG13",
+        "MTG14",
+        "MTG15",
+        "MTG16",
+        "MTG17",
+        "MTG18",
+        "MTG19",
+        "MTG20",
+        "MTG21",
+        "MTG22",
+        "MTG23",
+        "MTG24",
+        "MTG25",
+        "MTG26",
+        "MTG27",
+        "MTG28",
+        "MTG29",
+        "MTG30",
+        "MTG31",
+        "MTG32",
+        "MTG33",
+        "MTG34",
+        "MTG35",
+        "MTG36",
+        "MTG37",
+        "MTG38",
+        "MTG39",
+        "MTG40"
+      ]
     },
     {
       "slot": "3.3.04",
       "id": "az900.management.iac",
       "title": "Infrastructure as code",
-      "status": "PARTIAL",
+      "status": "COMPLETE",
       "criteria": {
-        "A": "P",
-        "B": "P",
+        "A": "V",
+        "B": "V",
         "C": "V",
-        "D": "P",
-        "E": "P",
-        "F": "P"
+        "D": "V",
+        "E": "V",
+        "F": "V"
       },
       "facets": [
         {
           "topic": "Deklarativ ønsket tilstand og review",
-          "status": "PARTIAL"
+          "status": "COMPLETE"
         }
       ],
       "localObjectives": ["CB04", "A01"],
-      "evidence": ["BM"],
-      "observed": "Original fil-/manuell-konfigurasjonsmodell med feil som må oppdages.",
-      "gap": "Mangler selvstendig deklarativ-versus-imperativ/repeterbarhet-beslutning og dybde; template-spørsmålet røper feilens art.",
+      "evidence": ["MT"],
+      "observed": "Original broad IaC imperative/declarative/version/review/parameters and change implications. Saved parameter/naming/retained-resource contrasts and two independent multiple-valid-architecture/effective-input-review contexts.",
+      "gap": "Ingen scoped A–F-innholdsgap identifisert; separat sluttkontroll og faktisk exact-head CI/strict kreves. Innholdsdekning er ikke elevmestring, sertifisering eller menneskelig validering.",
       "plannedPRs": ["P13"],
-      "sources": ["EXAM", "M11"]
+      "sources": [
+        "EXAM",
+        "MTG01",
+        "MTG02",
+        "MTG03",
+        "MTG04",
+        "MTG05",
+        "MTG06",
+        "MTG07",
+        "MTG08",
+        "MTG09",
+        "MTG10",
+        "MTG11",
+        "MTG12",
+        "MTG13",
+        "MTG14",
+        "MTG15",
+        "MTG16",
+        "MTG17",
+        "MTG18",
+        "MTG19",
+        "MTG20",
+        "MTG21",
+        "MTG22",
+        "MTG23",
+        "MTG24",
+        "MTG25",
+        "MTG26",
+        "MTG27",
+        "MTG28",
+        "MTG29",
+        "MTG30",
+        "MTG31",
+        "MTG32",
+        "MTG33",
+        "MTG34",
+        "MTG35",
+        "MTG36",
+        "MTG37",
+        "MTG38",
+        "MTG39",
+        "MTG40"
+      ]
     },
     {
       "slot": "3.3.05",
       "id": "az900.management.arm",
       "title": "ARM og ARM templates",
-      "status": "PARTIAL",
+      "status": "COMPLETE",
       "criteria": {
-        "A": "P",
-        "B": "P",
-        "C": "P",
-        "D": "M",
-        "E": "P",
+        "A": "V",
+        "B": "V",
+        "C": "V",
+        "D": "V",
+        "E": "V",
         "F": "V"
       },
       "facets": [
         {
           "topic": "ARM control plane",
-          "status": "PARTIAL"
+          "status": "COMPLETE"
         },
         {
           "topic": "ARM templates",
-          "status": "PARTIAL"
+          "status": "COMPLETE"
         }
       ],
       "localObjectives": ["G02", "A01"],
-      "evidence": ["BM", "H"],
-      "observed": "Kort felles management-layer og JSON/Bicep-kobling, ekte lokalt resource-ID-/dependency-system.",
-      "gap": "Lokal motor er ikke ARM; mangler gjennomarbeidet request/declarative-template-forklaring og ny-kontekst vurdering.",
+      "evidence": ["MT"],
+      "observed": "Original ARM/providers/IDs/scopes versus JSON/Bicep definition, parameters/variables/resources/outputs/dependency/order and limited What-if. Stored structural contrasts; new independent permission and existing-plan-reference contexts with specific counterfactual feedback.",
+      "gap": "Ingen scoped A–F-innholdsgap identifisert; separat sluttkontroll og faktisk exact-head CI/strict kreves. Innholdsdekning er ikke elevmestring, sertifisering eller menneskelig validering.",
       "plannedPRs": ["P13"],
-      "sources": ["EXAM", "M11", "ARM"]
+      "sources": [
+        "EXAM",
+        "MTG01",
+        "MTG02",
+        "MTG03",
+        "MTG04",
+        "MTG05",
+        "MTG06",
+        "MTG07",
+        "MTG08",
+        "MTG09",
+        "MTG10",
+        "MTG11",
+        "MTG12",
+        "MTG13",
+        "MTG14",
+        "MTG15",
+        "MTG16",
+        "MTG17",
+        "MTG18",
+        "MTG19",
+        "MTG20",
+        "MTG21",
+        "MTG22",
+        "MTG23",
+        "MTG24",
+        "MTG25",
+        "MTG26",
+        "MTG27",
+        "MTG28",
+        "MTG29",
+        "MTG30",
+        "MTG31",
+        "MTG32",
+        "MTG33",
+        "MTG34",
+        "MTG35",
+        "MTG36",
+        "MTG37",
+        "MTG38",
+        "MTG39",
+        "MTG40"
+      ]
     },
     {
       "slot": "3.4.01",
@@ -5876,6 +6413,54 @@
         "GVG34",
         "GVG35",
         "GVG36"
+      ]
+    },
+    {
+      "id": "PR38-P13",
+      "reviewed": "2026-11-01",
+      "objectives": ["3.3.01", "3.3.02", "3.3.03", "3.3.04", "3.3.05"],
+      "note": "Only five P13 rows reassessed;52 other rows unchanged. Copilot is a Learn supplement, not an exam row. Historical evidence unchanged.",
+      "sources": [
+        "MTG01",
+        "MTG02",
+        "MTG03",
+        "MTG04",
+        "MTG05",
+        "MTG06",
+        "MTG07",
+        "MTG08",
+        "MTG09",
+        "MTG10",
+        "MTG11",
+        "MTG12",
+        "MTG13",
+        "MTG14",
+        "MTG15",
+        "MTG16",
+        "MTG17",
+        "MTG18",
+        "MTG19",
+        "MTG20",
+        "MTG21",
+        "MTG22",
+        "MTG23",
+        "MTG24",
+        "MTG25",
+        "MTG26",
+        "MTG27",
+        "MTG28",
+        "MTG29",
+        "MTG30",
+        "MTG31",
+        "MTG32",
+        "MTG33",
+        "MTG34",
+        "MTG35",
+        "MTG36",
+        "MTG37",
+        "MTG38",
+        "MTG39",
+        "MTG40"
       ]
     }
   ]

@@ -1,1034 +1,1221 @@
 {
   "schema": 1,
-  "id": "PR37-P12-governance-compliance",
-  "baseCommit": "9c03462d2805e3878d295667ac0462dfc9b607f7",
-  "author": "codex-governance-author",
+  "id": "PR38-P13-management-deployment",
+  "baseCommit": "1738490d13af4c3f6deb771d4154154aa217a8fd",
+  "author": "codex-management-tools-author",
   "scope": {
     "kind": "new-module",
-    "description": "P12 original Purview, Policy and Resource Locks course; STP Learn supplement, three pure Studio perspectives and causal guides, actual unchanged post-start custom location-policy denial/correction/receipt verification, nine original paired decisions and isolated1.0.0 history. Only3.2.01–03. No cloud/scan/lock/Policy backend, new World semantics, XP, merge or production.",
-    "objectives": ["az900.governance.purview", "az900.governance.policy", "az900.governance.locks"]
+    "description": "P13 original Portal, hosted shells, CLI/PowerShell, ARM, IaC/Bicep/dependencies/What-if and Arc teaching; Copilot supplement. Three pure perspectives/causal guides, original post-start Portal RG/Plan/App receipts and dependency inspection, ten paired independent contexts, isolated versioned history. Only3.3.01–05. No actual command/compiler/deployment/Arc runtime, new World engine or XP, merge/production.",
+    "objectives": [
+      "az900.management.portal",
+      "az900.management.shell-tools",
+      "az900.management.arc",
+      "az900.management.iac",
+      "az900.management.arm-templates"
+    ]
   },
   "sources": [
     {
-      "id": "GV01",
+      "id": "MT01",
       "url": "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900",
       "title": "Study guide for Exam AZ-900: Microsoft Azure Fundamentals | Microsoft Learn",
       "reviewed": "2026-11-01",
       "version": "Rolling official page; updated 2026-06-22T23:35:00.0000000Z; SHA256 177b736af1bae8702d9e04ef68bac8c1f2985838652bb40818a5ac25ed320716",
       "kind": "official-public-documentation",
       "objectives": [
-        "az900.governance.purview",
-        "az900.governance.policy",
-        "az900.governance.locks"
+        "az900.management.portal",
+        "az900.management.shell-tools",
+        "az900.management.arc",
+        "az900.management.iac",
+        "az900.management.arm-templates"
       ],
-      "claims": ["governance.GV01"],
-      "limits": "Public body actually read. No protected assessment/report/sign-in. Classic lineage qualified with current GV33/34; older Learn product examples are not current universal claims. Source-specific support and timing limits retained.",
+      "claims": ["tools.MT01"],
+      "limits": "Actual public source body read to scoped claims; no protected assessment/sign-in/deployment or video execution. MT18 qualifies persistent Cloud Shell shorthand; MT19 distinguishes tools/shells; MT39 separates existing local Flux from new Azure configuration; MT40 qualifies management versus data plane. Examples are not executed.",
       "availability": "AVAILABLE",
       "discovery": [
         {
           "url": "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900",
           "disposition": "reviewed",
-          "reason": "Current20July2026 guide: only3.2.01–03 are scoped; STP is not an extra exam row."
+          "reason": "Current study guide: only3.3.01–05; Bicep/Copilot context does not add exam rows."
         }
       ]
     },
     {
-      "id": "GV02",
-      "url": "https://learn.microsoft.com/en-us/training/modules/describe-features-tools-azure-for-governance-compliance/",
-      "title": "Describe features and tools in Azure for governance and compliance - Training | Microsoft Learn",
+      "id": "MT02",
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-features-tools-manage-deploy-azure-resources/",
+      "title": "Describe features and tools for managing and deploying Azure resources - Training | Microsoft Learn",
       "reviewed": "2026-11-01",
-      "version": "Rolling official page; updated 2026-10-28T17:12:00.0000000Z; SHA256 114e71cb03d7158354ac7beb167600fe553f7ef7ff56e3e0fa7b65ca896b41a8",
+      "version": "Rolling official page; updated 2026-10-28T17:12:00.0000000Z; SHA256 4fab135e181b1156098f0ae4528b6983112e2345f637e75a531f4063beed788d",
       "kind": "official-public-documentation",
       "objectives": [
-        "az900.governance.purview",
-        "az900.governance.policy",
-        "az900.governance.locks"
+        "az900.management.portal",
+        "az900.management.shell-tools",
+        "az900.management.arc",
+        "az900.management.iac",
+        "az900.management.arm-templates"
       ],
-      "claims": ["governance.GV02"],
-      "limits": "Public body actually read. No protected assessment/report/sign-in. Classic lineage qualified with current GV33/34; older Learn product examples are not current universal claims. Source-specific support and timing limits retained.",
+      "claims": ["tools.MT02"],
+      "limits": "Actual public source body read to scoped claims; no protected assessment/sign-in/deployment or video execution. MT18 qualifies persistent Cloud Shell shorthand; MT19 distinguishes tools/shells; MT39 separates existing local Flux from new Azure configuration; MT40 qualifies management versus data plane. Examples are not executed.",
       "availability": "AVAILABLE",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/training/modules/describe-features-tools-azure-for-governance-compliance/",
+          "url": "https://learn.microsoft.com/en-us/training/modules/describe-features-tools-manage-deploy-azure-resources/",
           "disposition": "reviewed",
-          "reason": "Actual seven-unit module; six public teaching/introduction/summary units reviewed, protected assessment not opened."
+          "reason": "Current six-unit official module; all five public introduction/teaching/summary pages scoped, assessment not opened."
         }
       ]
     },
     {
-      "id": "GV03",
-      "url": "https://learn.microsoft.com/en-us/purview/",
-      "title": "Microsoft Purview | Microsoft Learn",
+      "id": "MT03",
+      "url": "https://learn.microsoft.com/en-us/azure/azure-portal/azure-portal-overview",
+      "title": "What is the Azure portal? - Azure portal | Microsoft Learn",
       "reviewed": "2026-11-01",
-      "version": "Rolling official page; updated 2026-06-11T17:42:00.0000000Z; SHA256 8004b96e57d75a72992ead2b090f7d93322677899ca5a2c5d64eca59329feb61",
+      "version": "Rolling official page; updated 2026-04-07T06:02:00.0000000Z; SHA256 50482578f6a1c53b0f09e1c9e00111e785c2a5cf8b3793ae878f74a377e6c8af",
       "kind": "official-public-documentation",
       "objectives": [
-        "az900.governance.purview",
-        "az900.governance.policy",
-        "az900.governance.locks"
+        "az900.management.portal",
+        "az900.management.shell-tools",
+        "az900.management.arc",
+        "az900.management.iac",
+        "az900.management.arm-templates"
       ],
-      "claims": ["governance.GV03"],
-      "limits": "Public body actually read. No protected assessment/report/sign-in. Classic lineage qualified with current GV33/34; older Learn product examples are not current universal claims. Source-specific support and timing limits retained.",
+      "claims": ["tools.MT03"],
+      "limits": "Actual public source body read to scoped claims; no protected assessment/sign-in/deployment or video execution. MT18 qualifies persistent Cloud Shell shorthand; MT19 distinguishes tools/shells; MT39 separates existing local Flux from new Azure configuration; MT40 qualifies management versus data plane. Examples are not executed.",
       "availability": "AVAILABLE",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/purview/",
+          "url": "https://learn.microsoft.com/en-us/azure/azure-portal/azure-portal-overview",
           "disposition": "reviewed",
-          "reason": "Current Purview portfolio spans data governance, data security and data compliance; not a universal compliance guarantee."
+          "reason": "Portal global/contextual controls, filters, resource navigation and dashboards; GUI is not an executed outcome."
         }
       ]
     },
     {
-      "id": "GV04",
-      "url": "https://learn.microsoft.com/en-us/purview/data-governance-get-started",
-      "title": "Get started with data governance in Microsoft Purview | Microsoft Learn",
+      "id": "MT04",
+      "url": "https://learn.microsoft.com/en-us/azure/cloud-shell/overview",
+      "title": "What is Azure Cloud Shell? - Azure Cloud Shell | Microsoft Learn",
       "reviewed": "2026-11-01",
-      "version": "Rolling official page; updated 2026-04-24T17:33:00.0000000Z; SHA256 d3df490ed527da37ce838b1198114d5d8d140053269386f62af1c4837683d103",
+      "version": "Rolling official page; updated 2026-08-08T05:14:00.0000000Z; SHA256 7e5a7bfe76f5bb41e66bbf483dd6d8aa7dcbf387b959d2413acbe317afdd9f0b",
       "kind": "official-public-documentation",
       "objectives": [
-        "az900.governance.purview",
-        "az900.governance.policy",
-        "az900.governance.locks"
+        "az900.management.portal",
+        "az900.management.shell-tools",
+        "az900.management.arc",
+        "az900.management.iac",
+        "az900.management.arm-templates"
       ],
-      "claims": ["governance.GV04"],
-      "limits": "Public body actually read. No protected assessment/report/sign-in. Classic lineage qualified with current GV33/34; older Learn product examples are not current universal claims. Source-specific support and timing limits retained.",
+      "claims": ["tools.MT04"],
+      "limits": "Actual public source body read to scoped claims; no protected assessment/sign-in/deployment or video execution. MT18 qualifies persistent Cloud Shell shorthand; MT19 distinguishes tools/shells; MT39 separates existing local Flux from new Azure configuration; MT40 qualifies management versus data plane. Examples are not executed.",
       "availability": "AVAILABLE",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/purview/data-governance-get-started",
+          "url": "https://learn.microsoft.com/en-us/azure/cloud-shell/overview",
           "disposition": "reviewed",
-          "reason": "Enterprise/source registration/scanning prerequisites; governance domains,data products,owners and stewards; no performed setup."
+          "reason": "Hosted authenticated Cloud Shell environment; persistent-storage statements qualified by MT18 ephemeral guidance."
         }
       ]
     },
     {
-      "id": "GV05",
-      "url": "https://learn.microsoft.com/en-us/purview/unified-catalog",
-      "title": "Learn about Microsoft Purview Unified Catalog | Microsoft Learn",
+      "id": "MT05",
+      "url": "https://learn.microsoft.com/en-us/cli/azure/what-is-azure-cli",
+      "title": "What is the Azure CLI? | Microsoft Learn",
       "reviewed": "2026-11-01",
-      "version": "Rolling official page; updated 2026-03-16T18:32:00.0000000Z; SHA256 43f54416f5d5947749601d44d2c7bef7e67bb7ca4c2061fb56dc4ee8e789ddab",
+      "version": "Rolling official page; updated 2025-08-28T22:06:00.0000000Z; SHA256 c671d9d96196d16fd6118dc75d0132252845ca6bb933731641055a5ac20f2bed",
       "kind": "official-public-documentation",
       "objectives": [
-        "az900.governance.purview",
-        "az900.governance.policy",
-        "az900.governance.locks"
+        "az900.management.portal",
+        "az900.management.shell-tools",
+        "az900.management.arc",
+        "az900.management.iac",
+        "az900.management.arm-templates"
       ],
-      "claims": ["governance.GV05"],
-      "limits": "Public body actually read. No protected assessment/report/sign-in. Classic lineage qualified with current GV33/34; older Learn product examples are not current universal claims. Source-specific support and timing limits retained.",
+      "claims": ["tools.MT05"],
+      "limits": "Actual public source body read to scoped claims; no protected assessment/sign-in/deployment or video execution. MT18 qualifies persistent Cloud Shell shorthand; MT19 distinguishes tools/shells; MT39 separates existing local Flux from new Azure configuration; MT40 qualifies management versus data plane. Examples are not executed.",
       "availability": "AVAILABLE",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/purview/unified-catalog",
+          "url": "https://learn.microsoft.com/en-us/cli/azure/what-is-azure-cli",
           "disposition": "reviewed",
-          "reason": "Current Unified Catalog purpose, federated curation/discovery; experience availability qualified by account/region."
+          "reason": "CLI is cross-platform tool, az syntax and JSON output; not Bash itself, no guaranteed universal feature parity."
         }
       ]
     },
     {
-      "id": "GV06",
-      "url": "https://learn.microsoft.com/en-us/purview/data-governance-roles-permissions",
-      "title": "Data Governance Roles and Permissions in Microsoft Purview | Microsoft Learn",
+      "id": "MT06",
+      "url": "https://learn.microsoft.com/en-us/powershell/azure/what-is-azure-powershell",
+      "title": "What is Azure PowerShell | Microsoft Learn",
       "reviewed": "2026-11-01",
-      "version": "Rolling official page; updated 2026-06-01T22:33:00.0000000Z; SHA256 ffdbdc3a07219a42355764491dc0d8ea9d81de99fb6bf790305a873b992ed69c",
+      "version": "Rolling official page; updated 2026-10-06T17:01:00.0000000Z; SHA256 383c84f7ef1c1116351d89cde9e5774e757d6ba40922ce84b675d734f8ef08b7",
       "kind": "official-public-documentation",
       "objectives": [
-        "az900.governance.purview",
-        "az900.governance.policy",
-        "az900.governance.locks"
+        "az900.management.portal",
+        "az900.management.shell-tools",
+        "az900.management.arc",
+        "az900.management.iac",
+        "az900.management.arm-templates"
       ],
-      "claims": ["governance.GV06"],
-      "limits": "Public body actually read. No protected assessment/report/sign-in. Classic lineage qualified with current GV33/34; older Learn product examples are not current universal claims. Source-specific support and timing limits retained.",
+      "claims": ["tools.MT06"],
+      "limits": "Actual public source body read to scoped claims; no protected assessment/sign-in/deployment or video execution. MT18 qualifies persistent Cloud Shell shorthand; MT19 distinguishes tools/shells; MT39 separates existing local Flux from new Azure configuration; MT40 qualifies management versus data plane. Examples are not executed.",
       "availability": "AVAILABLE",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/purview/data-governance-roles-permissions",
+          "url": "https://learn.microsoft.com/en-us/powershell/azure/what-is-azure-powershell",
           "disposition": "reviewed",
-          "reason": "Purview metadata permissions, tenant/catalog/domain and source permissions; not Azure Owner or universal data access."
+          "reason": "Azure PowerShell is current Az module family in PowerShell; object output, local/Cloud Shell and control/data planes."
         }
       ]
     },
     {
-      "id": "GV07",
-      "url": "https://learn.microsoft.com/en-us/azure/governance/policy/overview",
-      "title": "Overview of Azure Policy - Azure Policy | Microsoft Learn",
+      "id": "MT07",
+      "url": "https://learn.microsoft.com/en-us/azure/azure-arc/overview",
+      "title": "Azure Arc overview - Azure Arc | Microsoft Learn",
       "reviewed": "2026-11-01",
-      "version": "Rolling official page; updated 2026-07-08T05:12:00.0000000Z; SHA256 7e01f318bb65486430622adca4000d2f8543a49e0b6cb12026e525a9ee751060",
+      "version": "Rolling official page; updated 2026-08-01T06:03:00.0000000Z; SHA256 6a6b46c35f3a43e4846717d63b7bcc20eaf9264be8ddd5cba76f47c6212325bb",
       "kind": "official-public-documentation",
       "objectives": [
-        "az900.governance.purview",
-        "az900.governance.policy",
-        "az900.governance.locks"
+        "az900.management.portal",
+        "az900.management.shell-tools",
+        "az900.management.arc",
+        "az900.management.iac",
+        "az900.management.arm-templates"
       ],
-      "claims": ["governance.GV07"],
-      "limits": "Public body actually read. No protected assessment/report/sign-in. Classic lineage qualified with current GV33/34; older Learn product examples are not current universal claims. Source-specific support and timing limits retained.",
+      "claims": ["tools.MT07"],
+      "limits": "Actual public source body read to scoped claims; no protected assessment/sign-in/deployment or video execution. MT18 qualifies persistent Cloud Shell shorthand; MT19 distinguishes tools/shells; MT39 separates existing local Flux from new Azure configuration; MT40 qualifies management versus data plane. Examples are not executed.",
       "availability": "AVAILABLE",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/governance/policy/overview",
+          "url": "https://learn.microsoft.com/en-us/azure/azure-arc/overview",
           "disposition": "reviewed",
-          "reason": "Policy definitions/assignments/initiatives, resource configuration versus permissions; Resource Provider modes qualify universal simplifications."
+          "reason": "Arc projects supported external resources into ARM; products differ, indirectly connected data mode retired; no automatic migration."
         }
       ]
     },
     {
-      "id": "GV08",
-      "url": "https://learn.microsoft.com/en-us/azure/governance/policy/concepts/scope",
-      "title": "Understand scope in Azure Policy - Azure Policy | Microsoft Learn",
+      "id": "MT08",
+      "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/overview",
+      "title": "What is Azure Resource Manager? - Azure Resource Manager | Microsoft Learn",
       "reviewed": "2026-11-01",
-      "version": "Rolling official page; updated 2025-12-01T18:18:00.0000000Z; SHA256 d96bbe1fc878aec905bb7d9d30bfdff7d16c4570d66e2dc1fea1f681ac82ef67",
+      "version": "Rolling official page; updated 2026-08-06T22:11:00.0000000Z; SHA256 f80b13b5d1fae98e61dbc39f54fec5a558d5c9a3be9b189fb23c49c74af1de6c",
       "kind": "official-public-documentation",
       "objectives": [
-        "az900.governance.purview",
-        "az900.governance.policy",
-        "az900.governance.locks"
+        "az900.management.portal",
+        "az900.management.shell-tools",
+        "az900.management.arc",
+        "az900.management.iac",
+        "az900.management.arm-templates"
       ],
-      "claims": ["governance.GV08"],
-      "limits": "Public body actually read. No protected assessment/report/sign-in. Classic lineage qualified with current GV33/34; older Learn product examples are not current universal claims. Source-specific support and timing limits retained.",
+      "claims": ["tools.MT08"],
+      "limits": "Actual public source body read to scoped claims; no protected assessment/sign-in/deployment or video execution. MT18 qualifies persistent Cloud Shell shorthand; MT19 distinguishes tools/shells; MT39 separates existing local Flux from new Azure configuration; MT40 qualifies management versus data plane. Examples are not executed.",
       "availability": "AVAILABLE",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/governance/policy/concepts/scope",
+          "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/overview",
           "disposition": "reviewed",
-          "reason": "Definition location differs from assignment scope; notScopes excludes evaluation/count, exemption remains tracked."
+          "reason": "ARM routes relevant management requests/providers, identity/authorization and four template scopes; not all data-plane traffic."
         }
       ]
     },
     {
-      "id": "GV09",
-      "url": "https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effect-basics",
-      "title": "Azure Policy definitions effect basics - Azure Policy | Microsoft Learn",
+      "id": "MT09",
+      "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/overview",
+      "title": "Templates overview - Azure Resource Manager | Microsoft Learn",
       "reviewed": "2026-11-01",
-      "version": "Rolling official page; updated 2025-12-01T18:18:00.0000000Z; SHA256 a5392bb2962225f28c3e34bfe8796ebab7e1d3854f1e3e83879f110066bbdff6",
+      "version": "Rolling official page; updated 2026-06-26T22:12:00.0000000Z; SHA256 47d3e1cc4949d7a52310a1eebed7dd2028f460345fb0332de1da1180a5012c8d",
       "kind": "official-public-documentation",
       "objectives": [
-        "az900.governance.purview",
-        "az900.governance.policy",
-        "az900.governance.locks"
+        "az900.management.portal",
+        "az900.management.shell-tools",
+        "az900.management.arc",
+        "az900.management.iac",
+        "az900.management.arm-templates"
       ],
-      "claims": ["governance.GV09"],
-      "limits": "Public body actually read. No protected assessment/report/sign-in. Classic lineage qualified with current GV33/34; older Learn product examples are not current universal claims. Source-specific support and timing limits retained.",
+      "claims": ["tools.MT09"],
+      "limits": "Actual public source body read to scoped claims; no protected assessment/sign-in/deployment or video execution. MT18 qualifies persistent Cloud Shell shorthand; MT19 distinguishes tools/shells; MT39 separates existing local Flux from new Azure configuration; MT40 qualifies management versus data plane. Examples are not executed.",
       "availability": "AVAILABLE",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effect-basics",
+          "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/overview",
           "disposition": "reviewed",
-          "reason": "Effects are not universally interchangeable; request-time order and cumulative assignments; DINE after provider success."
+          "reason": "Declarative ARM JSON, parameters/variables/resources/outputs, deployment orchestration, repeatability and inspected results."
         }
       ]
     },
     {
-      "id": "GV10",
-      "url": "https://learn.microsoft.com/en-us/azure/governance/policy/concepts/compliance-states",
-      "title": "Azure Policy compliance states - Azure Policy | Microsoft Learn",
+      "id": "MT10",
+      "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/overview",
+      "title": "What is Bicep? - Azure Resource Manager | Microsoft Learn",
       "reviewed": "2026-11-01",
-      "version": "Rolling official page; updated 2026-03-25T22:12:00.0000000Z; SHA256 6b2a36dfa49d7c638205581e80cb446027bf3c6dba56c96978d140891b38a551",
+      "version": "Rolling official page; updated 2026-01-08T18:12:00.0000000Z; SHA256 2cc6f53f19a84c7d14ef0a19158e264387ffcf344816287624bc796415f51431",
       "kind": "official-public-documentation",
       "objectives": [
-        "az900.governance.purview",
-        "az900.governance.policy",
-        "az900.governance.locks"
+        "az900.management.portal",
+        "az900.management.shell-tools",
+        "az900.management.arc",
+        "az900.management.iac",
+        "az900.management.arm-templates"
       ],
-      "claims": ["governance.GV10"],
-      "limits": "Public body actually read. No protected assessment/report/sign-in. Classic lineage qualified with current GV33/34; older Learn product examples are not current universal claims. Source-specific support and timing limits retained.",
+      "claims": ["tools.MT10"],
+      "limits": "Actual public source body read to scoped claims; no protected assessment/sign-in/deployment or video execution. MT18 qualifies persistent Cloud Shell shorthand; MT19 distinguishes tools/shells; MT39 separates existing local Flux from new Azure configuration; MT40 qualifies management versus data plane. Examples are not executed.",
       "availability": "AVAILABLE",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/governance/policy/concepts/compliance-states",
+          "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/overview",
           "disposition": "reviewed",
-          "reason": "Per-assignment compliance states and timing; non-compliant existing resource is not automatically deleted or repaired."
+          "reason": "Declarative Bicep symbolic authoring uses ARM, implicit reference dependencies; not alternate authority or runtime proof."
         }
       ]
     },
     {
-      "id": "GV11",
-      "url": "https://learn.microsoft.com/en-us/azure/governance/policy/concepts/exemption-structure",
-      "title": "Details of the policy exemption structure - Azure Policy | Microsoft Learn",
+      "id": "MT11",
+      "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/deploy-what-if",
+      "title": "Template deployment what-if - Azure Resource Manager | Microsoft Learn",
       "reviewed": "2026-11-01",
-      "version": "Rolling official page; updated 2026-08-04T17:21:00.0000000Z; SHA256 186d039ecab8425044cae13b166f41ff8c322bb74b9527465289b4828d30acaa",
+      "version": "Rolling official page; updated 2026-06-26T22:12:00.0000000Z; SHA256 b94efdf6b6361b8084fd77653e6aa549f8fcda9ac9adec935c64a78f5d3173cd",
       "kind": "official-public-documentation",
       "objectives": [
-        "az900.governance.purview",
-        "az900.governance.policy",
-        "az900.governance.locks"
+        "az900.management.portal",
+        "az900.management.shell-tools",
+        "az900.management.arc",
+        "az900.management.iac",
+        "az900.management.arm-templates"
       ],
-      "claims": ["governance.GV11"],
-      "limits": "Public body actually read. No protected assessment/report/sign-in. Classic lineage qualified with current GV33/34; older Learn product examples are not current universal claims. Source-specific support and timing limits retained.",
+      "claims": ["tools.MT11"],
+      "limits": "Actual public source body read to scoped claims; no protected assessment/sign-in/deployment or video execution. MT18 qualifies persistent Cloud Shell shorthand; MT19 distinguishes tools/shells; MT39 separates existing local Flux from new Azure configuration; MT40 qualifies management versus data plane. Examples are not executed.",
       "availability": "AVAILABLE",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/governance/policy/concepts/exemption-structure",
+          "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/deploy-what-if",
           "disposition": "reviewed",
-          "reason": "Exemptions bind assignments,waiver/mitigated,optional expiry; expired object remains but no longer exempts."
+          "reason": "Actual What-if is non-mutating but requires deployment/write rights, has unresolved reference/expansion/change-type limits."
         }
       ]
     },
     {
-      "id": "GV12",
-      "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/lock-resources",
-      "title": "Lock your Azure resources to protect your infrastructure - Azure Resource Manager | Microsoft Learn",
-      "reviewed": "2026-11-01",
-      "version": "Rolling official page; updated 2026-04-10T06:11:00.0000000Z; SHA256 24f8be84dfe7a410068e464552fecc0811cbe43ac2758da5595c9dd694ae535c",
-      "kind": "official-public-documentation",
-      "objectives": [
-        "az900.governance.purview",
-        "az900.governance.policy",
-        "az900.governance.locks"
-      ],
-      "claims": ["governance.GV12"],
-      "limits": "Public body actually read. No protected assessment/report/sign-in. Classic lineage qualified with current GV33/34; older Learn product examples are not current universal claims. Source-specific support and timing limits retained.",
-      "availability": "AVAILABLE",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/lock-resources",
-          "disposition": "reviewed",
-          "reason": "Delete/ReadOnly,downward most-restrictive inheritance,locked-descendant group deletion,POST caveats,data plane and removal permissions."
-        }
-      ]
-    },
-    {
-      "id": "GV13",
-      "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/control-plane-and-data-plane",
-      "title": "Control plane and data plane operations - Azure Resource Manager | Microsoft Learn",
-      "reviewed": "2026-11-01",
-      "version": "Rolling official page; updated 2026-02-27T18:31:00.0000000Z; SHA256 be7a2dbed6422d1faac6d015f1f001157a0e9a11190c8590ffdbc84a14cc782a",
-      "kind": "official-public-documentation",
-      "objectives": [
-        "az900.governance.purview",
-        "az900.governance.policy",
-        "az900.governance.locks"
-      ],
-      "claims": ["governance.GV13"],
-      "limits": "Public body actually read. No protected assessment/report/sign-in. Classic lineage qualified with current GV33/34; older Learn product examples are not current universal claims. Source-specific support and timing limits retained.",
-      "availability": "AVAILABLE",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/control-plane-and-data-plane",
-          "disposition": "reviewed",
-          "reason": "Control versus data plane depends on the concrete operation/endpoint,not HTTP method alone; governance features have qualified scope."
-        }
-      ]
-    },
-    {
-      "id": "GV14",
-      "url": "https://learn.microsoft.com/en-us/compliance/assurance/stp-get-started",
-      "title": "Get started with the Microsoft Service Trust Portal | Microsoft Learn",
-      "reviewed": "2026-11-01",
-      "version": "Rolling official page; updated 2026-04-06T21:51:00.0000000Z; SHA256 9bfed081dc992ff8f2b3777353fa3cf838dca67a5def975d34d296511751d956",
-      "kind": "official-public-documentation",
-      "objectives": [
-        "az900.governance.purview",
-        "az900.governance.policy",
-        "az900.governance.locks"
-      ],
-      "claims": ["governance.GV14"],
-      "limits": "Public body actually read. No protected assessment/report/sign-in. Classic lineage qualified with current GV33/34; older Learn product examples are not current universal claims. Source-specific support and timing limits retained.",
-      "availability": "AVAILABLE",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/compliance/assurance/stp-get-started",
-          "disposition": "reviewed",
-          "reason": "STP audit/assurance documentation; some reports require organisational account/NDA; no restricted content accessed."
-        }
-      ]
-    },
-    {
-      "id": "GV15",
-      "url": "https://learn.microsoft.com/en-us/training/modules/describe-features-tools-azure-for-governance-compliance/1-introduction",
+      "id": "MT12",
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-features-tools-manage-deploy-azure-resources/1-introduction",
       "title": "Introduction - Training | Microsoft Learn",
       "reviewed": "2026-11-01",
-      "version": "Rolling official page; updated 2026-03-24T17:11:00.0000000Z; SHA256 475cfdd2008b56fbce7676c05f5150d17da99ac79e144f8e680fee4cff56f600",
+      "version": "Rolling official page; updated 2026-03-24T17:11:00.0000000Z; SHA256 d25e8888e75a3b4fa7a5afc3792d3f617f8916be10ae7656a9225d501177c370",
       "kind": "official-public-documentation",
       "objectives": [
-        "az900.governance.purview",
-        "az900.governance.policy",
-        "az900.governance.locks"
+        "az900.management.portal",
+        "az900.management.shell-tools",
+        "az900.management.arc",
+        "az900.management.iac",
+        "az900.management.arm-templates"
       ],
-      "claims": ["governance.GV15"],
-      "limits": "Public body actually read. No protected assessment/report/sign-in. Classic lineage qualified with current GV33/34; older Learn product examples are not current universal claims. Source-specific support and timing limits retained.",
+      "claims": ["tools.MT12"],
+      "limits": "Actual public source body read to scoped claims; no protected assessment/sign-in/deployment or video execution. MT18 qualifies persistent Cloud Shell shorthand; MT19 distinguishes tools/shells; MT39 separates existing local Flux from new Azure configuration; MT40 qualifies management versus data plane. Examples are not executed.",
       "availability": "AVAILABLE",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/training/modules/describe-features-tools-azure-for-governance-compliance/1-introduction",
+          "url": "https://learn.microsoft.com/en-us/training/modules/describe-features-tools-manage-deploy-azure-resources/1-introduction",
           "disposition": "reviewed",
-          "reason": "Public introduction confirms four Learn goals and basic prerequisites; only three study-guide rows."
+          "reason": "Official introduction and prerequisites: managing/deploying resources, no protected interaction."
         }
       ]
     },
     {
-      "id": "GV16",
-      "url": "https://learn.microsoft.com/en-us/training/modules/describe-features-tools-azure-for-governance-compliance/2-describe-purpose-microsoft-purview",
-      "title": "Describe the purpose of Microsoft Purview - Training | Microsoft Learn",
+      "id": "MT13",
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-features-tools-manage-deploy-azure-resources/2-describe-interacting-azure",
+      "title": "Describe tools for interacting with Azure - Training | Microsoft Learn",
       "reviewed": "2026-11-01",
-      "version": "Rolling official page; updated 2026-03-24T17:11:00.0000000Z; SHA256 9a06bda69e8acd81fca67e1e6ff3aec39ca1c1c3d982b97868227b3f77a5a638",
+      "version": "Rolling official page; updated 2026-03-24T17:11:00.0000000Z; SHA256 62ecf8b516d27216a93e53d7405702e0ee5eef95d974946beafbc0d52e284064",
       "kind": "official-public-documentation",
       "objectives": [
-        "az900.governance.purview",
-        "az900.governance.policy",
-        "az900.governance.locks"
+        "az900.management.portal",
+        "az900.management.shell-tools",
+        "az900.management.arc",
+        "az900.management.iac",
+        "az900.management.arm-templates"
       ],
-      "claims": ["governance.GV16"],
-      "limits": "Public body actually read. No protected assessment/report/sign-in. Classic lineage qualified with current GV33/34; older Learn product examples are not current universal claims. Source-specific support and timing limits retained.",
+      "claims": ["tools.MT13"],
+      "limits": "Actual public source body read to scoped claims; no protected assessment/sign-in/deployment or video execution. MT18 qualifies persistent Cloud Shell shorthand; MT19 distinguishes tools/shells; MT39 separates existing local Flux from new Azure configuration; MT40 qualifies management versus data plane. Examples are not executed.",
       "availability": "AVAILABLE",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/training/modules/describe-features-tools-azure-for-governance-compliance/2-describe-purpose-microsoft-purview",
+          "url": "https://learn.microsoft.com/en-us/training/modules/describe-features-tools-manage-deploy-azure-resources/2-describe-interacting-azure",
           "disposition": "reviewed",
-          "reason": "Learn Purview purpose; older two-area grouping qualified by current portfolio and Data Map/Unified Catalog docs."
+          "reason": "Learn Portal/shell/CLI/PS/Copilot unit; its CLI-is-Bash and PowerShell-is-shell shorthand qualified by MT05/06/19."
         }
       ]
     },
     {
-      "id": "GV17",
-      "url": "https://learn.microsoft.com/en-us/training/modules/describe-features-tools-azure-for-governance-compliance/3-describe-purpose-azure-policy",
-      "title": "Describe the purpose of Azure Policy - Training | Microsoft Learn",
+      "id": "MT14",
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-features-tools-manage-deploy-azure-resources/3-describe-purpose-of-azure-arc",
+      "title": "Describe the purpose of Azure Arc - Training | Microsoft Learn",
       "reviewed": "2026-11-01",
-      "version": "Rolling official page; updated 2026-03-24T17:11:00.0000000Z; SHA256 b194245caddfae61ad4fb384af0dbde4267748c446851ebde65a9b6a273ec1da",
+      "version": "Rolling official page; updated 2026-03-24T17:11:00.0000000Z; SHA256 a4fc0da3e825f976a962bec200a812ef1c45dd5fe855837db77d9e39205b88eb",
       "kind": "official-public-documentation",
       "objectives": [
-        "az900.governance.purview",
-        "az900.governance.policy",
-        "az900.governance.locks"
+        "az900.management.portal",
+        "az900.management.shell-tools",
+        "az900.management.arc",
+        "az900.management.iac",
+        "az900.management.arm-templates"
       ],
-      "claims": ["governance.GV17"],
-      "limits": "Public body actually read. No protected assessment/report/sign-in. Classic lineage qualified with current GV33/34; older Learn product examples are not current universal claims. Source-specific support and timing limits retained.",
+      "claims": ["tools.MT14"],
+      "limits": "Actual public source body read to scoped claims; no protected assessment/sign-in/deployment or video execution. MT18 qualifies persistent Cloud Shell shorthand; MT19 distinguishes tools/shells; MT39 separates existing local Flux from new Azure configuration; MT40 qualifies management versus data plane. Examples are not executed.",
       "availability": "AVAILABLE",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/training/modules/describe-features-tools-azure-for-governance-compliance/3-describe-purpose-azure-policy",
+          "url": "https://learn.microsoft.com/en-us/training/modules/describe-features-tools-manage-deploy-azure-resources/3-describe-purpose-of-azure-arc",
           "disposition": "reviewed",
-          "reason": "Learn Policy purpose/initiatives; automatic-remediation and older Security Center examples qualified by current effect docs."
+          "reason": "Learn Arc purpose; broad product/VM-preview wording qualified by current product-specific MT07/29/30/31."
         }
       ]
     },
     {
-      "id": "GV18",
-      "url": "https://learn.microsoft.com/en-us/training/modules/describe-features-tools-azure-for-governance-compliance/4-describe-purpose-resource-locks",
-      "title": "Describe the purpose of resource locks - Training | Microsoft Learn",
+      "id": "MT15",
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-features-tools-manage-deploy-azure-resources/4-describe-azure-resource-manager-azure-arm-templates",
+      "title": "Describe Azure Resource Manager and Azure ARM templates - Training | Microsoft Learn",
       "reviewed": "2026-11-01",
-      "version": "Rolling official page; updated 2026-03-24T17:11:00.0000000Z; SHA256 ce1d7a1174e8bc7f17f96bc46ae3124649cb860470306543d0cb85303eb580a2",
+      "version": "Rolling official page; updated 2026-03-24T17:11:00.0000000Z; SHA256 a27c820685d68db071e0af73770b0a726cbf2a5b674c3411147d0557e616107d",
       "kind": "official-public-documentation",
       "objectives": [
-        "az900.governance.purview",
-        "az900.governance.policy",
-        "az900.governance.locks"
+        "az900.management.portal",
+        "az900.management.shell-tools",
+        "az900.management.arc",
+        "az900.management.iac",
+        "az900.management.arm-templates"
       ],
-      "claims": ["governance.GV18"],
-      "limits": "Public body actually read. No protected assessment/report/sign-in. Classic lineage qualified with current GV33/34; older Learn product examples are not current universal claims. Source-specific support and timing limits retained.",
+      "claims": ["tools.MT15"],
+      "limits": "Actual public source body read to scoped claims; no protected assessment/sign-in/deployment or video execution. MT18 qualifies persistent Cloud Shell shorthand; MT19 distinguishes tools/shells; MT39 separates existing local Flux from new Azure configuration; MT40 qualifies management versus data plane. Examples are not executed.",
       "availability": "AVAILABLE",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/training/modules/describe-features-tools-azure-for-governance-compliance/4-describe-purpose-resource-locks",
+          "url": "https://learn.microsoft.com/en-us/training/modules/describe-features-tools-manage-deploy-azure-resources/4-describe-azure-resource-manager-azure-arm-templates",
           "disposition": "reviewed",
-          "reason": "Learn resource locks and owner caveat; current product docs qualify control/data and POST consequences."
+          "reason": "Learn IaC includes code/scripts and templates; imperative versus declarative retained; Bicep/ARM same deployment layer."
         }
       ]
     },
     {
-      "id": "GV19",
-      "url": "https://learn.microsoft.com/en-us/training/modules/describe-features-tools-azure-for-governance-compliance/6-describe-purpose-service-trust-portal",
-      "title": "Describe the purpose of the Service Trust portal - Training | Microsoft Learn",
-      "reviewed": "2026-11-01",
-      "version": "Rolling official page; updated 2026-03-24T17:11:00.0000000Z; SHA256 6e0da4b879542423834cc789cfab475a0858a8a2be1b75ea03f6914f9cbbccef",
-      "kind": "official-public-documentation",
-      "objectives": [
-        "az900.governance.purview",
-        "az900.governance.policy",
-        "az900.governance.locks"
-      ],
-      "claims": ["governance.GV19"],
-      "limits": "Public body actually read. No protected assessment/report/sign-in. Classic lineage qualified with current GV33/34; older Learn product examples are not current universal claims. Source-specific support and timing limits retained.",
-      "availability": "AVAILABLE",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/training/modules/describe-features-tools-azure-for-governance-compliance/6-describe-purpose-service-trust-portal",
-          "disposition": "reviewed",
-          "reason": "STP public purpose/access; teaching is supplement,not a new exam objective or tenant compliance attestation."
-        }
-      ]
-    },
-    {
-      "id": "GV20",
-      "url": "https://learn.microsoft.com/en-us/training/modules/describe-features-tools-azure-for-governance-compliance/8-summary",
+      "id": "MT16",
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-features-tools-manage-deploy-azure-resources/6-summary",
       "title": "Summary - Training | Microsoft Learn",
       "reviewed": "2026-11-01",
-      "version": "Rolling official page; updated 2026-03-24T17:11:00.0000000Z; SHA256 365b8aff199f871b23c4abf32016c51f9a5188a1282194bf2fadfc5759c4f0f5",
+      "version": "Rolling official page; updated 2026-03-24T17:11:00.0000000Z; SHA256 f66d09c25bdc602c643442d77a85fa16ab203c8d9e78b32553078c1c815ebdb7",
       "kind": "official-public-documentation",
       "objectives": [
-        "az900.governance.purview",
-        "az900.governance.policy",
-        "az900.governance.locks"
+        "az900.management.portal",
+        "az900.management.shell-tools",
+        "az900.management.arc",
+        "az900.management.iac",
+        "az900.management.arm-templates"
       ],
-      "claims": ["governance.GV20"],
-      "limits": "Public body actually read. No protected assessment/report/sign-in. Classic lineage qualified with current GV33/34; older Learn product examples are not current universal claims. Source-specific support and timing limits retained.",
+      "claims": ["tools.MT16"],
+      "limits": "Actual public source body read to scoped claims; no protected assessment/sign-in/deployment or video execution. MT18 qualifies persistent Cloud Shell shorthand; MT19 distinguishes tools/shells; MT39 separates existing local Flux from new Azure configuration; MT40 qualifies management versus data plane. Examples are not executed.",
       "availability": "AVAILABLE",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/training/modules/describe-features-tools-azure-for-governance-compliance/8-summary",
+          "url": "https://learn.microsoft.com/en-us/training/modules/describe-features-tools-manage-deploy-azure-resources/6-summary",
           "disposition": "reviewed",
-          "reason": "Summary/context links; extra AI-assisted-administration guardrail sentence is context,not another scoped goal/agent feature."
+          "reason": "Official summary includes Copilot as supplemental operational assistance, no sixth exam goal."
         }
       ]
     },
     {
-      "id": "GV21",
-      "url": "https://learn.microsoft.com/en-us/purview/data-map",
-      "title": "Microsoft Purview Data Map overview | Microsoft Learn",
+      "id": "MT17",
+      "url": "https://learn.microsoft.com/en-us/azure/cloud-shell/features",
+      "title": "Azure Cloud Shell features - Azure Cloud Shell | Microsoft Learn",
       "reviewed": "2026-11-01",
-      "version": "Rolling official page; updated 2026-10-01T12:34:00.0000000Z; SHA256 d1a54a6d63c8a92e77d6936bf67d234ae0f6c8c70ac470b55ee66e70ca1b712c",
+      "version": "Rolling official page; updated 2025-12-04T06:11:00.0000000Z; SHA256 c1b92937c09b7aee5173adeb15fec30ab9abe4153932a195576d4bbd971ab25c",
       "kind": "official-public-documentation",
       "objectives": [
-        "az900.governance.purview",
-        "az900.governance.policy",
-        "az900.governance.locks"
+        "az900.management.portal",
+        "az900.management.shell-tools",
+        "az900.management.arc",
+        "az900.management.iac",
+        "az900.management.arm-templates"
       ],
-      "claims": ["governance.GV21"],
-      "limits": "Public body actually read. No protected assessment/report/sign-in. Classic lineage qualified with current GV33/34; older Learn product examples are not current universal claims. Source-specific support and timing limits retained.",
+      "claims": ["tools.MT17"],
+      "limits": "Actual public source body read to scoped claims; no protected assessment/sign-in/deployment or video execution. MT18 qualifies persistent Cloud Shell shorthand; MT19 distinguishes tools/shells; MT39 separates existing local Flux from new Azure configuration; MT40 qualifies management versus data plane. Examples are not executed.",
       "availability": "AVAILABLE",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/purview/data-map",
+          "url": "https://learn.microsoft.com/en-us/azure/cloud-shell/features",
           "disposition": "reviewed",
-          "reason": "Data Map captures technical/business/semantic/operational metadata; scanning is connector/permission/scope dependent."
+          "reason": "Cloud Shell tools/environments and conditional persistent customization; no always-latest version guarantee."
         }
       ]
     },
     {
-      "id": "GV22",
-      "url": "https://learn.microsoft.com/en-us/purview/data-map-classification",
-      "title": "Data classification in Microsoft Purview Data Map | Microsoft Learn",
+      "id": "MT18",
+      "url": "https://learn.microsoft.com/en-us/azure/cloud-shell/get-started/ephemeral",
+      "title": "Get started with Azure Cloud Shell ephemeral sessions - Azure Cloud Shell | Microsoft Learn",
       "reviewed": "2026-11-01",
-      "version": "Rolling official page; updated 2026-06-01T22:33:00.0000000Z; SHA256 996e1c846117c09dd535eb03b31d8b5a5058efeb2b1da6022957a890d0c97a91",
+      "version": "Rolling official page; updated 2024-05-29T17:18:00.0000000Z; SHA256 4cf46dfb8683bda7b19b094be9901e2cd4076fa0888c05a22718de256026e205",
       "kind": "official-public-documentation",
       "objectives": [
-        "az900.governance.purview",
-        "az900.governance.policy",
-        "az900.governance.locks"
+        "az900.management.portal",
+        "az900.management.shell-tools",
+        "az900.management.arc",
+        "az900.management.iac",
+        "az900.management.arm-templates"
       ],
-      "claims": ["governance.GV22"],
-      "limits": "Public body actually read. No protected assessment/report/sign-in. Classic lineage qualified with current GV33/34; older Learn product examples are not current universal claims. Source-specific support and timing limits retained.",
+      "claims": ["tools.MT18"],
+      "limits": "Actual public source body read to scoped claims; no protected assessment/sign-in/deployment or video execution. MT18 qualifies persistent Cloud Shell shorthand; MT19 distinguishes tools/shells; MT39 separates existing local Flux from new Azure configuration; MT40 qualifies management versus data plane. Examples are not executed.",
       "availability": "AVAILABLE",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/purview/data-map-classification",
+          "url": "https://learn.microsoft.com/en-us/azure/cloud-shell/get-started/ephemeral",
           "disposition": "reviewed",
-          "reason": "Classification supports understanding/risk; not the same as sensitivity labels or automatic universal protection."
+          "reason": "Ephemeral Cloud Shell requires no storage account, discards session files; provider/subscription prerequisites remain."
         }
       ]
     },
     {
-      "id": "GV23",
-      "url": "https://learn.microsoft.com/en-us/purview/data-gov-classic-lineage",
-      "title": "Data lineage in classic Microsoft Purview Data Catalog | Microsoft Learn",
+      "id": "MT19",
+      "url": "https://learn.microsoft.com/en-us/cli/azure/choose-the-right-azure-command-line-tool",
+      "title": "Choose the right Azure command-line tool - Azure CLI | Microsoft Learn",
       "reviewed": "2026-11-01",
-      "version": "Rolling official page; updated 2025-11-18T22:10:00.0000000Z; SHA256 fcb8946f7a1119535be1b760d53f1470e203bbc603310254152f426cbba9681f",
+      "version": "Rolling official page; updated 2025-07-14T22:05:00.0000000Z; SHA256 2211e4f553cacd3aab9911b210d37ad3b8f8b70f63560422cb3ea5fb807a9550",
       "kind": "official-public-documentation",
       "objectives": [
-        "az900.governance.purview",
-        "az900.governance.policy",
-        "az900.governance.locks"
+        "az900.management.portal",
+        "az900.management.shell-tools",
+        "az900.management.arc",
+        "az900.management.iac",
+        "az900.management.arm-templates"
       ],
-      "claims": ["governance.GV23"],
-      "limits": "Public body actually read. No protected assessment/report/sign-in. Classic lineage qualified with current GV33/34; older Learn product examples are not current universal claims. Source-specific support and timing limits retained.",
+      "claims": ["tools.MT19"],
+      "limits": "Actual public source body read to scoped claims; no protected assessment/sign-in/deployment or video execution. MT18 qualifies persistent Cloud Shell shorthand; MT19 distinguishes tools/shells; MT39 separates existing local Flux from new Azure configuration; MT40 qualifies management versus data plane. Examples are not executed.",
       "availability": "AVAILABLE",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/purview/data-gov-classic-lineage",
+          "url": "https://learn.microsoft.com/en-us/cli/azure/choose-the-right-azure-command-line-tool",
           "disposition": "reviewed",
-          "reason": "Explicitly classic lineage concepts,source/process/target and coverage granularity; current experience qualified by GV33/GV34."
+          "reason": "Tool versus host matrix: CLI in Bash/PowerShell, Az requires PowerShell; syntax/output/version support vary."
         }
       ]
     },
     {
-      "id": "GV24",
-      "url": "https://learn.microsoft.com/en-us/purview/unified-catalog-glossary-terms",
-      "title": "Glossary Terms in Unified Catalog | Microsoft Learn",
+      "id": "MT20",
+      "url": "https://learn.microsoft.com/en-us/cli/azure/group",
+      "title": "az group | Microsoft Learn",
       "reviewed": "2026-11-01",
-      "version": "Rolling official page; updated 2026-04-24T17:33:00.0000000Z; SHA256 bf3c5063b40e095c713a44e1bf74725c027656610140c58df789d8cdef787cec",
+      "version": "Rolling official page; updated 2026-09-01T07:51:00.0000000Z; SHA256 bb4850d8ccc118fb39bff75e51d88d189cf25e8c932b439b5551be632d437318",
       "kind": "official-public-documentation",
       "objectives": [
-        "az900.governance.purview",
-        "az900.governance.policy",
-        "az900.governance.locks"
+        "az900.management.portal",
+        "az900.management.shell-tools",
+        "az900.management.arc",
+        "az900.management.iac",
+        "az900.management.arm-templates"
       ],
-      "claims": ["governance.GV24"],
-      "limits": "Public body actually read. No protected assessment/report/sign-in. Classic lineage qualified with current GV33/34; older Learn product examples are not current universal claims. Source-specific support and timing limits retained.",
+      "claims": ["tools.MT20"],
+      "limits": "Actual public source body read to scoped claims; no protected assessment/sign-in/deployment or video execution. MT18 qualifies persistent Cloud Shell shorthand; MT19 distinguishes tools/shells; MT39 separates existing local Flux from new Azure configuration; MT40 qualifies management versus data plane. Examples are not executed.",
       "availability": "AVAILABLE",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/purview/unified-catalog-glossary-terms",
+          "url": "https://learn.microsoft.com/en-us/cli/azure/group",
           "disposition": "reviewed",
-          "reason": "Business glossary terms supply curated organisational vocabulary; not automatic data quality or access grants."
+          "reason": "az group create name/location/subscription syntax; command reference only, no executed Azure request."
         }
       ]
     },
     {
-      "id": "GV25",
-      "url": "https://learn.microsoft.com/en-us/azure/governance/policy/how-to/remediate-resources",
-      "title": "Remediate non-compliant resources - Azure Policy | Microsoft Learn",
+      "id": "MT21",
+      "url": "https://learn.microsoft.com/en-us/powershell/module/az.resources/new-azresourcegroup",
+      "title": "New-AzResourceGroup (Az.Resources) | Microsoft Learn",
       "reviewed": "2026-11-01",
-      "version": "Rolling official page; updated 2025-12-12T18:11:00.0000000Z; SHA256 0e806102be6504bf63192d6f261e98d67023a55fa1f10ce13f4aa65193013177",
+      "version": "Rolling official page; updated 2026-10-06T17:01:00.0000000Z; SHA256 1d2c83293a16969a1fc710fa8926869362d1584f41792fdbdbff7340a9d3d42f",
       "kind": "official-public-documentation",
       "objectives": [
-        "az900.governance.purview",
-        "az900.governance.policy",
-        "az900.governance.locks"
+        "az900.management.portal",
+        "az900.management.shell-tools",
+        "az900.management.arc",
+        "az900.management.iac",
+        "az900.management.arm-templates"
       ],
-      "claims": ["governance.GV25"],
-      "limits": "Public body actually read. No protected assessment/report/sign-in. Classic lineage qualified with current GV33/34; older Learn product examples are not current universal claims. Source-specific support and timing limits retained.",
+      "claims": ["tools.MT21"],
+      "limits": "Actual public source body read to scoped claims; no protected assessment/sign-in/deployment or video execution. MT18 qualifies persistent Cloud Shell shorthand; MT19 distinguishes tools/shells; MT39 separates existing local Flux from new Azure configuration; MT40 qualifies management versus data plane. Examples are not executed.",
       "availability": "AVAILABLE",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/governance/policy/how-to/remediate-resources",
+          "url": "https://learn.microsoft.com/en-us/powershell/module/az.resources/new-azresourcegroup",
           "disposition": "reviewed",
-          "reason": "Existing Modify/DINE deviations require explicit supported remediation/identity/permissions; evaluation is not execution."
+          "reason": "New-AzResourceGroup Az.Resources16.4.0 syntax/name/location/context; not New-AzResourceGroupDeployment."
         }
       ]
     },
     {
-      "id": "GV26",
-      "url": "https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effect-audit",
-      "title": "Azure Policy definitions audit effect - Azure Policy | Microsoft Learn",
+      "id": "MT22",
+      "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/manage-resource-groups-portal",
+      "title": "Use the Azure portal and Azure Resource Manager to Manage Resource Groups - Azure Resource Manager | Microsoft Learn",
       "reviewed": "2026-11-01",
-      "version": "Rolling official page; updated 2025-12-01T18:18:00.0000000Z; SHA256 8a36a80d847e6ee06de29571383af7ea2f85ecf475a5c51a874ac89667a5a2cd",
+      "version": "Rolling official page; updated 2026-03-04T23:27:00.0000000Z; SHA256 db87abe4855cb8e62f66f3a9296b69ac62c429b5ff9f4e4f03a280050999b073",
       "kind": "official-public-documentation",
       "objectives": [
-        "az900.governance.purview",
-        "az900.governance.policy",
-        "az900.governance.locks"
+        "az900.management.portal",
+        "az900.management.shell-tools",
+        "az900.management.arc",
+        "az900.management.iac",
+        "az900.management.arm-templates"
       ],
-      "claims": ["governance.GV26"],
-      "limits": "Public body actually read. No protected assessment/report/sign-in. Classic lineage qualified with current GV33/34; older Learn product examples are not current universal claims. Source-specific support and timing limits retained.",
+      "claims": ["tools.MT22"],
+      "limits": "Actual public source body read to scoped claims; no protected assessment/sign-in/deployment or video execution. MT18 qualifies persistent Cloud Shell shorthand; MT19 distinguishes tools/shells; MT39 separates existing local Flux from new Azure configuration; MT40 qualifies management versus data plane. Examples are not executed.",
       "availability": "AVAILABLE",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effect-audit",
+          "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/manage-resource-groups-portal",
           "disposition": "reviewed",
-          "reason": "Audit warns/marks relevant noncompliance without stopping request with that effect; no Kubernetes mode engine implemented."
+          "reason": "Actual public Portal RG workflow: subscription/name/metadata region, Review+create, submit, inspect result; reference text not fidelity approval."
         }
       ]
     },
     {
-      "id": "GV27",
-      "url": "https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effect-deny",
-      "title": "Azure Policy definitions deny effect - Azure Policy | Microsoft Learn",
+      "id": "MT23",
+      "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/resource-providers-and-types",
+      "title": "Azure resource providers and types - Azure Resource Manager | Microsoft Learn",
       "reviewed": "2026-11-01",
-      "version": "Rolling official page; updated 2025-12-01T18:18:00.0000000Z; SHA256 699e622bbb9eb3cb430f8b01c175c26e8d0e5d469de8a4bee0cc5f81e52c4129",
+      "version": "Rolling official page; updated 2026-02-27T18:31:00.0000000Z; SHA256 794e7971ea0e38fe2a67ffcf6aee4d9fdc3dfad327ef9cb2a633d0c324c3e181",
       "kind": "official-public-documentation",
       "objectives": [
-        "az900.governance.purview",
-        "az900.governance.policy",
-        "az900.governance.locks"
+        "az900.management.portal",
+        "az900.management.shell-tools",
+        "az900.management.arc",
+        "az900.management.iac",
+        "az900.management.arm-templates"
       ],
-      "claims": ["governance.GV27"],
-      "limits": "Public body actually read. No protected assessment/report/sign-in. Classic lineage qualified with current GV33/34; older Learn product examples are not current universal claims. Source-specific support and timing limits retained.",
+      "claims": ["tools.MT23"],
+      "limits": "Actual public source body read to scoped claims; no protected assessment/sign-in/deployment or video execution. MT18 qualifies persistent Cloud Shell shorthand; MT19 distinguishes tools/shells; MT39 separates existing local Flux from new Azure configuration; MT40 qualifies management versus data plane. Examples are not executed.",
       "availability": "AVAILABLE",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effect-deny",
+          "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/resource-providers-and-types",
           "disposition": "reviewed",
-          "reason": "Deny rejects matching Resource Manager create/update requests; existing evaluation marks deviation without deleting resource."
+          "reason": "Providers implement type/APIs; context-specific auto-registration and regional registration status; no generic always-manual rule."
         }
       ]
     },
     {
-      "id": "GV28",
-      "url": "https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effect-modify",
-      "title": "Azure Policy definitions modify effect - Azure Policy | Microsoft Learn",
+      "id": "MT24",
+      "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/syntax",
+      "title": "Template structure and syntax - Azure Resource Manager | Microsoft Learn",
       "reviewed": "2026-11-01",
-      "version": "Rolling official page; updated 2025-12-01T18:18:00.0000000Z; SHA256 6844f7e030574e65df1ffdb892c3eaf90b2282dcefcb2580e93bf3837667650f",
+      "version": "Rolling official page; updated 2026-01-27T23:11:00.0000000Z; SHA256 a73779c6ed9d5fce57ee6fff77c009189d106efe3446b815219d6758e62bab9a",
       "kind": "official-public-documentation",
       "objectives": [
-        "az900.governance.purview",
-        "az900.governance.policy",
-        "az900.governance.locks"
+        "az900.management.portal",
+        "az900.management.shell-tools",
+        "az900.management.arc",
+        "az900.management.iac",
+        "az900.management.arm-templates"
       ],
-      "claims": ["governance.GV28"],
-      "limits": "Public body actually read. No protected assessment/report/sign-in. Classic lineage qualified with current GV33/34; older Learn product examples are not current universal claims. Source-specific support and timing limits retained.",
+      "claims": ["tools.MT24"],
+      "limits": "Actual public source body read to scoped claims; no protected assessment/sign-in/deployment or video execution. MT18 qualifies persistent Cloud Shell shorthand; MT19 distinguishes tools/shells; MT39 separates existing local Flux from new Azure configuration; MT40 qualifies management versus data plane. Examples are not executed.",
       "availability": "AVAILABLE",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effect-modify",
+          "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/syntax",
           "disposition": "reviewed",
-          "reason": "Modify supports tags/modifiable aliases; request-time changes differ from existing-resource remediation and API support matters."
+          "reason": "ARM JSON selected syntax: schema/contentVersion versus apiVersion, params, derived variables, resources and outputs."
         }
       ]
     },
     {
-      "id": "GV29",
-      "url": "https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effect-deploy-if-not-exists",
-      "title": "Azure Policy definitions deployIfNotExists effect - Azure Policy | Microsoft Learn",
+      "id": "MT25",
+      "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/resource-dependency",
+      "title": "Set deployment order for resources - Azure Resource Manager | Microsoft Learn",
       "reviewed": "2026-11-01",
-      "version": "Rolling official page; updated 2025-12-01T18:18:00.0000000Z; SHA256 70381d34345ad6c23ef90ba1ee6a2391d9d1b55cc6bbcb322a720ef905358ea9",
+      "version": "Rolling official page; updated 2026-06-26T22:12:00.0000000Z; SHA256 462850ee7ead5b9b1edc1684f1caf248d0eec655625c0a31e36e67f84c731be2",
       "kind": "official-public-documentation",
       "objectives": [
-        "az900.governance.purview",
-        "az900.governance.policy",
-        "az900.governance.locks"
+        "az900.management.portal",
+        "az900.management.shell-tools",
+        "az900.management.arc",
+        "az900.management.iac",
+        "az900.management.arm-templates"
       ],
-      "claims": ["governance.GV29"],
-      "limits": "Public body actually read. No protected assessment/report/sign-in. Classic lineage qualified with current GV33/34; older Learn product examples are not current universal claims. Source-specific support and timing limits retained.",
+      "claims": ["tools.MT25"],
+      "limits": "Actual public source body read to scoped claims; no protected assessment/sign-in/deployment or video execution. MT18 qualifies persistent Cloud Shell shorthand; MT19 distinguishes tools/shells; MT39 separates existing local Flux from new Azure configuration; MT40 qualifies management versus data plane. Examples are not executed.",
       "availability": "AVAILABLE",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effect-deploy-if-not-exists",
+          "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/resource-dependency",
           "disposition": "reviewed",
-          "reason": "DINE evaluates related existence after provider success/delay; existing resources require remediation task and appropriate identity."
+          "reason": "ARM dependsOn/implicit reference behavior and cycles; resourceId alone not order; deployment edges not retained as runtime graph."
         }
       ]
     },
     {
-      "id": "GV30",
-      "url": "https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure",
-      "title": "Details of the policy assignment structure - Azure Policy | Microsoft Learn",
+      "id": "MT26",
+      "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/resource-dependencies",
+      "title": "Set resource dependencies in Bicep - Azure Resource Manager | Microsoft Learn",
       "reviewed": "2026-11-01",
-      "version": "Rolling official page; updated 2026-09-18T17:17:00.0000000Z; SHA256 5420745e4e3dd9b58e5167d72336e786c3d83588aa8ea7cb1b215c296ce75243",
+      "version": "Rolling official page; updated 2025-12-08T23:11:00.0000000Z; SHA256 e441cbc5c9f6ad01e7df46348a793e07c5288c923009d6632fd7260c9d1ac1a4",
       "kind": "official-public-documentation",
       "objectives": [
-        "az900.governance.purview",
-        "az900.governance.policy",
-        "az900.governance.locks"
+        "az900.management.portal",
+        "az900.management.shell-tools",
+        "az900.management.arc",
+        "az900.management.iac",
+        "az900.management.arm-templates"
       ],
-      "claims": ["governance.GV30"],
-      "limits": "Public body actually read. No protected assessment/report/sign-in. Classic lineage qualified with current GV33/34; older Learn product examples are not current universal claims. Source-specific support and timing limits retained.",
+      "claims": ["tools.MT26"],
+      "limits": "Actual public source body read to scoped claims; no protected assessment/sign-in/deployment or video execution. MT18 qualifies persistent Cloud Shell shorthand; MT19 distinguishes tools/shells; MT39 separates existing local Flux from new Azure configuration; MT40 qualifies management versus data plane. Examples are not executed.",
       "availability": "AVAILABLE",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure",
+          "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/resource-dependencies",
           "disposition": "reviewed",
-          "reason": "Assignment parameters/notScopes/enforcement; Default vs DoNotEnforce,manual remediation separate; Enroll outside bounded model."
+          "reason": "Bicep symbolic property reference implies dependency; only same-file creation ordering, explicit redundancy and cycle limits."
         }
       ]
     },
     {
-      "id": "GV31",
-      "url": "https://learn.microsoft.com/en-us/azure/governance/policy/how-to/get-compliance-data",
-      "title": "Get policy compliance data - Azure Policy | Microsoft Learn",
+      "id": "MT27",
+      "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/deploy-to-subscription",
+      "title": "Deploy resources to subscription - Azure Resource Manager | Microsoft Learn",
       "reviewed": "2026-11-01",
-      "version": "Rolling official page; updated 2026-03-18T06:15:00.0000000Z; SHA256 c4983ff9536d8b318fd94a774f9605dcc289681fa0fc5b33d662b6978db200d1",
+      "version": "Rolling official page; updated 2026-06-26T22:12:00.0000000Z; SHA256 4ae67fd986987e3cfd9123b722171230320e0d4dc37916c4a9bb0c518610530e",
       "kind": "official-public-documentation",
       "objectives": [
-        "az900.governance.purview",
-        "az900.governance.policy",
-        "az900.governance.locks"
+        "az900.management.portal",
+        "az900.management.shell-tools",
+        "az900.management.arc",
+        "az900.management.iac",
+        "az900.management.arm-templates"
       ],
-      "claims": ["governance.GV31"],
-      "limits": "Public body actually read. No protected assessment/report/sign-in. Classic lineage qualified with current GV33/34; older Learn product examples are not current universal claims. Source-specific support and timing limits retained.",
+      "claims": ["tools.MT27"],
+      "limits": "Actual public source body read to scoped claims; no protected assessment/sign-in/deployment or video execution. MT18 qualifies persistent Cloud Shell shorthand; MT19 distinguishes tools/shells; MT39 separates existing local Flux from new Azure configuration; MT40 qualifies management versus data plane. Examples are not executed.",
       "availability": "AVAILABLE",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/governance/policy/how-to/get-compliance-data",
+          "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/deploy-to-subscription",
           "disposition": "reviewed",
-          "reason": "Evaluation triggers/periodic scans have qualified timing; no real-time/guaranteed compliance freshness is inferred."
+          "reason": "Subscription-scope RG ARM example/type/API2025-04-01; scope affects schema/resources/permissions."
         }
       ]
     },
     {
-      "id": "GV32",
+      "id": "MT28",
+      "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/deployment-modes",
+      "title": "Deployment modes - Azure Resource Manager | Microsoft Learn",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page; updated 2026-06-26T22:12:00.0000000Z; SHA256 b5752f4683f65ec0e0f1bc4c99ca72397093ee7df1b51bacd70c85dc743ef0bb",
+      "kind": "official-public-documentation",
+      "objectives": [
+        "az900.management.portal",
+        "az900.management.shell-tools",
+        "az900.management.arc",
+        "az900.management.iac",
+        "az900.management.arm-templates"
+      ],
+      "claims": ["tools.MT28"],
+      "limits": "Actual public source body read to scoped claims; no protected assessment/sign-in/deployment or video execution. MT18 qualifies persistent Cloud Shell shorthand; MT19 distinguishes tools/shells; MT39 separates existing local Flux from new Azure configuration; MT40 qualifies management versus data plane. Examples are not executed.",
+      "availability": "AVAILABLE",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/deployment-modes",
+          "disposition": "reviewed",
+          "reason": "Incremental preserves omitted resources but not necessarily omitted properties; Complete is not recommended, stacks outside scope."
+        }
+      ]
+    },
+    {
+      "id": "MT29",
+      "url": "https://learn.microsoft.com/en-us/azure/azure-arc/servers/overview",
+      "title": "Azure Arc-enabled servers Overview - Azure Arc | Microsoft Learn",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page; updated 2026-07-27T22:12:00.0000000Z; SHA256 538474b6e03dc774ff31774fc9a3608cc2735bafa198cf15e67bfff871d3d188",
+      "kind": "official-public-documentation",
+      "objectives": [
+        "az900.management.portal",
+        "az900.management.shell-tools",
+        "az900.management.arc",
+        "az900.management.iac",
+        "az900.management.arm-templates"
+      ],
+      "claims": ["tools.MT29"],
+      "limits": "Actual public source body read to scoped claims; no protected assessment/sign-in/deployment or video execution. MT18 qualifies persistent Cloud Shell shorthand; MT19 distinguishes tools/shells; MT39 separates existing local Flux from new Azure configuration; MT40 qualifies management versus data plane. Examples are not executed.",
+      "availability": "AVAILABLE",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/azure-arc/servers/overview",
+          "disposition": "reviewed",
+          "reason": "Arc Servers supports external Windows/Linux, native Azure VMs excluded; metadata region and extensions not universal native VM control."
+        }
+      ]
+    },
+    {
+      "id": "MT30",
+      "url": "https://learn.microsoft.com/en-us/azure/azure-arc/kubernetes/overview",
+      "title": "Overview of Azure Arc-enabled Kubernetes - Azure Arc | Microsoft Learn",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page; updated 2026-03-24T22:15:00.0000000Z; SHA256 e50c1b9bf21717335a81e007119032942b871f55323d309799d880e5ca2b859e",
+      "kind": "official-public-documentation",
+      "objectives": [
+        "az900.management.portal",
+        "az900.management.shell-tools",
+        "az900.management.arc",
+        "az900.management.iac",
+        "az900.management.arm-templates"
+      ],
+      "claims": ["tools.MT30"],
+      "limits": "Actual public source body read to scoped claims; no protected assessment/sign-in/deployment or video execution. MT18 qualifies persistent Cloud Shell shorthand; MT19 distinguishes tools/shells; MT39 separates existing local Flux from new Azure configuration; MT40 qualifies management versus data plane. Examples are not executed.",
+      "availability": "AVAILABLE",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/azure-arc/kubernetes/overview",
+          "disposition": "reviewed",
+          "reason": "Arc Kubernetes ARM representation/agents and capability-specific extensions; not generic server or automatic workload migration."
+        }
+      ]
+    },
+    {
+      "id": "MT31",
+      "url": "https://learn.microsoft.com/en-us/azure/azure-arc/data/overview",
+      "title": "Introducing Azure Arc-enabled data services - Azure Arc | Microsoft Learn",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page; updated 2026-06-24T06:10:00.0000000Z; SHA256 d38ae8fa101458c754c698552303af6a28699ba3491d7220705ce477896f6225",
+      "kind": "official-public-documentation",
+      "objectives": [
+        "az900.management.portal",
+        "az900.management.shell-tools",
+        "az900.management.arc",
+        "az900.management.iac",
+        "az900.management.arm-templates"
+      ],
+      "claims": ["tools.MT31"],
+      "limits": "Actual public source body read to scoped claims; no protected assessment/sign-in/deployment or video execution. MT18 qualifies persistent Cloud Shell shorthand; MT19 distinguishes tools/shells; MT39 separates existing local Flux from new Azure configuration; MT40 qualifies management versus data plane. Examples are not executed.",
+      "availability": "AVAILABLE",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/azure-arc/data/overview",
+          "disposition": "reviewed",
+          "reason": "Arc data services current SQL MI on supported external Kubernetes; not universal database onboarding/runtime/capacity guarantee."
+        }
+      ]
+    },
+    {
+      "id": "MT32",
+      "url": "https://learn.microsoft.com/en-us/azure/copilot/overview",
+      "title": "Azure Copilot Overview | Microsoft Learn",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page; updated 2026-08-11T06:02:00.0000000Z; SHA256 7b4037d08a73e66d0eae38ee7d1a7c859177332ee739927e901cc1feb03da8e8",
+      "kind": "official-public-documentation",
+      "objectives": [
+        "az900.management.portal",
+        "az900.management.shell-tools",
+        "az900.management.arc",
+        "az900.management.iac",
+        "az900.management.arm-templates"
+      ],
+      "claims": ["tools.MT32"],
+      "limits": "Actual public source body read to scoped claims; no protected assessment/sign-in/deployment or video execution. MT18 qualifies persistent Cloud Shell shorthand; MT19 distinguishes tools/shells; MT39 separates existing local Flux from new Azure configuration; MT40 qualifies management versus data plane. Examples are not executed.",
+      "availability": "AVAILABLE",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/copilot/overview",
+          "disposition": "reviewed",
+          "reason": "Current Azure Copilot can assist and perform supported confirmation-based actions with available permissions; not simulated here."
+        }
+      ]
+    },
+    {
+      "id": "MT33",
+      "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/template-functions-resource",
+      "title": "Template functions - resources - Azure Resource Manager | Microsoft Learn",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page; updated 2026-10-20T22:12:00.0000000Z; SHA256 5fdb27e89ebc76c68c10ac39c965a25b357ca26e400567f17b928b48e0c30d42",
+      "kind": "official-public-documentation",
+      "objectives": [
+        "az900.management.portal",
+        "az900.management.shell-tools",
+        "az900.management.arc",
+        "az900.management.iac",
+        "az900.management.arm-templates"
+      ],
+      "claims": ["tools.MT33"],
+      "limits": "Actual public source body read to scoped claims; no protected assessment/sign-in/deployment or video execution. MT18 qualifies persistent Cloud Shell shorthand; MT19 distinguishes tools/shells; MT39 separates existing local Flux from new Azure configuration; MT40 qualifies management versus data plane. Examples are not executed.",
+      "availability": "AVAILABLE",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/template-functions-resource",
+          "disposition": "reviewed",
+          "reason": "Only scoped resourceId and reference paragraphs reviewed-applied: exact scoped ID construction and name-vs-ID dependency qualification."
+        }
+      ]
+    },
+    {
+      "id": "MT34",
+      "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/deployment-history",
+      "title": "Deployment history - Azure Resource Manager | Microsoft Learn",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page; updated 2026-06-26T22:12:00.0000000Z; SHA256 f3b06cbc95c6f82b44abadf3e1b56f14e89d8f7bd547a2cb50ffb8d9318e00fa",
+      "kind": "official-public-documentation",
+      "objectives": [
+        "az900.management.portal",
+        "az900.management.shell-tools",
+        "az900.management.arc",
+        "az900.management.iac",
+        "az900.management.arm-templates"
+      ],
+      "claims": ["tools.MT34"],
+      "limits": "Actual public source body read to scoped claims; no protected assessment/sign-in/deployment or video execution. MT18 qualifies persistent Cloud Shell shorthand; MT19 distinguishes tools/shells; MT39 separates existing local Flux from new Azure configuration; MT40 qualifies management versus data plane. Examples are not executed.",
+      "availability": "AVAILABLE",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/deployment-history",
+          "disposition": "reviewed",
+          "reason": "Inspect operation/deployment status/details/history, not app health; no AzureLab copy of cloud deployment history."
+        }
+      ]
+    },
+    {
+      "id": "MT35",
       "url": "https://learn.microsoft.com/en-us/training/paths/describe-azure-management-governance/",
       "title": "Introduction to Cloud Infrastructure: Describe Azure Management and Governance - Training | Microsoft Learn",
       "reviewed": "2026-11-01",
       "version": "Rolling official page; updated 2026-10-28T17:12:00.0000000Z; SHA256 3c0dc41b6958dd1a8cecf4483ebf5ab3961704d7829955168fdf3dc3872c2a2f",
       "kind": "official-public-documentation",
       "objectives": [
-        "az900.governance.purview",
-        "az900.governance.policy",
-        "az900.governance.locks"
+        "az900.management.portal",
+        "az900.management.shell-tools",
+        "az900.management.arc",
+        "az900.management.iac",
+        "az900.management.arm-templates"
       ],
-      "claims": ["governance.GV32"],
-      "limits": "Public body actually read. No protected assessment/report/sign-in. Classic lineage qualified with current GV33/34; older Learn product examples are not current universal claims. Source-specific support and timing limits retained.",
+      "claims": ["tools.MT35"],
+      "limits": "Actual public source body read to scoped claims; no protected assessment/sign-in/deployment or video execution. MT18 qualifies persistent Cloud Shell shorthand; MT19 distinguishes tools/shells; MT39 separates existing local Flux from new Azure configuration; MT40 qualifies management versus data plane. Examples are not executed.",
       "availability": "AVAILABLE",
       "discovery": [
         {
           "url": "https://learn.microsoft.com/en-us/training/paths/describe-azure-management-governance/",
           "disposition": "reviewed",
-          "reason": "Official management/governance learning path supplies module context; other modules remain out of scope."
+          "reason": "Official management/governance path and relevant module discovery; earlier/later modules remain outside this re-audit."
         }
       ]
     },
     {
-      "id": "GV33",
-      "url": "https://learn.microsoft.com/en-us/purview/data-governance-overview",
-      "title": "Learn about data governance with Microsoft Purview | Microsoft Learn",
+      "id": "MT36",
+      "url": "https://learn.microsoft.com/en-us/azure/app-service/quickstart-arm-template",
+      "title": "Create an App Service app using an Azure Resource Manager template - Azure App Service | Microsoft Learn",
       "reviewed": "2026-11-01",
-      "version": "Rolling official page; updated 2025-11-18T22:10:00.0000000Z; SHA256 e083fcd17a3a73ac40dc95dde3ddd0eec23258b1cede31d6735122701872e9fa",
+      "version": "Rolling official page; updated 2025-10-08T05:12:00.0000000Z; SHA256 f785afbef6da8d960eaf7d07942a6229023fd8f46aad0ff2440654a0117e9a29",
       "kind": "official-public-documentation",
       "objectives": [
-        "az900.governance.purview",
-        "az900.governance.policy",
-        "az900.governance.locks"
+        "az900.management.portal",
+        "az900.management.shell-tools",
+        "az900.management.arc",
+        "az900.management.iac",
+        "az900.management.arm-templates"
       ],
-      "claims": ["governance.GV33"],
-      "limits": "Public body actually read. No protected assessment/report/sign-in. Classic lineage qualified with current GV33/34; older Learn product examples are not current universal claims. Source-specific support and timing limits retained.",
+      "claims": ["tools.MT36"],
+      "limits": "Actual public source body read to scoped claims; no protected assessment/sign-in/deployment or video execution. MT18 qualifies persistent Cloud Shell shorthand; MT19 distinguishes tools/shells; MT39 separates existing local Flux from new Azure configuration; MT40 qualifies management versus data plane. Examples are not executed.",
       "availability": "AVAILABLE",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/purview/data-governance-overview",
+          "url": "https://learn.microsoft.com/en-us/azure/app-service/quickstart-arm-template",
           "disposition": "reviewed",
-          "reason": "Current Data Map/Unified Catalog contain metadata; their roles do not themselves grant underlying data access; owners/stewards/lineage."
+          "reason": "Actual App Service template example verifies Web types, LinuxAPI2021-02-01/reserved/F1/serverFarmId/dependsOn; no quickstart deployment performed."
         }
       ]
     },
     {
-      "id": "GV34",
-      "url": "https://learn.microsoft.com/en-us/purview/unified-catalog-data-products-search",
-      "title": "Search for Data Products in Unified Catalog | Microsoft Learn",
+      "id": "MT37",
+      "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/bicep-cli",
+      "title": "Bicep CLI commands - Azure Resource Manager | Microsoft Learn",
       "reviewed": "2026-11-01",
-      "version": "Rolling official page; updated 2026-05-21T22:34:00.0000000Z; SHA256 91f16554f3dd61aa060411f0fda29aba83aa4bc53c2ab79b0d5b2b280d087035",
+      "version": "Rolling official page; updated 2026-10-28T06:29:00.0000000Z; SHA256 a0fea08c623faae153fdd2505c6ab5855b043681064880237df83769760940fe",
       "kind": "official-public-documentation",
       "objectives": [
-        "az900.governance.purview",
-        "az900.governance.policy",
-        "az900.governance.locks"
+        "az900.management.portal",
+        "az900.management.shell-tools",
+        "az900.management.arc",
+        "az900.management.iac",
+        "az900.management.arm-templates"
       ],
-      "claims": ["governance.GV34"],
-      "limits": "Public body actually read. No protected assessment/report/sign-in. Classic lineage qualified with current GV33/34; older Learn product examples are not current universal claims. Source-specific support and timing limits retained.",
+      "claims": ["tools.MT37"],
+      "limits": "Actual public source body read to scoped claims; no protected assessment/sign-in/deployment or video execution. MT18 qualifies persistent Cloud Shell shorthand; MT19 distinguishes tools/shells; MT39 separates existing local Flux from new Azure configuration; MT40 qualifies management versus data plane. Examples are not executed.",
       "availability": "AVAILABLE",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/purview/unified-catalog-data-products-search",
+          "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/bicep-cli",
           "disposition": "reviewed",
-          "reason": "Current Unified Catalog asset details show owner,columns and lineage; classic UI is not claimed as current portal parity."
+          "reason": "Bicep build converts to JSON ARM template and supported deployment tooling can do it automatically; no actual compiler executed."
         }
       ]
     },
     {
-      "id": "GV35",
-      "url": "https://learn.microsoft.com/en-us/azure/storage/common/storage-redundancy",
-      "title": "Data redundancy - Azure Storage | Microsoft Learn",
+      "id": "MT38",
+      "url": "https://learn.microsoft.com/en-us/azure/azure-arc/servers/agent-overview",
+      "title": "Overview of the Azure Connected Machine agent - Azure Arc | Microsoft Learn",
       "reviewed": "2026-11-01",
-      "version": "Rolling official page; updated 2026-08-15T05:12:00.0000000Z; SHA256 c1d738774b9f1cab5617491e7a06a7f0a1a689728112db94abb9b38b3aa16596",
+      "version": "Rolling official page; updated 2026-10-27T22:13:00.0000000Z; SHA256 6537c6b0eaf322763eb5e6022732f53af416249a4cb921ba8c602910997b5de9",
       "kind": "official-public-documentation",
       "objectives": [
-        "az900.governance.purview",
-        "az900.governance.policy",
-        "az900.governance.locks"
+        "az900.management.portal",
+        "az900.management.shell-tools",
+        "az900.management.arc",
+        "az900.management.iac",
+        "az900.management.arm-templates"
       ],
-      "claims": ["governance.GV35"],
-      "limits": "Public body actually read. No protected assessment/report/sign-in. Classic lineage qualified with current GV33/34; older Learn product examples are not current universal claims. Source-specific support and timing limits retained.",
+      "claims": ["tools.MT38"],
+      "limits": "Actual public source body read to scoped claims; no protected assessment/sign-in/deployment or video execution. MT18 qualifies persistent Cloud Shell shorthand; MT19 distinguishes tools/shells; MT39 separates existing local Flux from new Azure configuration; MT40 qualifies management versus data plane. Examples are not executed.",
       "availability": "AVAILABLE",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/storage/common/storage-redundancy",
+          "url": "https://learn.microsoft.com/en-us/azure/azure-arc/servers/agent-overview",
           "disposition": "reviewed",
-          "reason": "Storage redundancy protects declared physical failure domains,not a separate historical restore design; no old P09 objective re-audit."
+          "reason": "Connected Machine agent metadata/extension roles; no agent/identity endpoints accessed or installed."
         }
       ]
     },
     {
-      "id": "GV36",
-      "url": "https://learn.microsoft.com/en-us/azure/storage/blobs/data-protection-overview",
-      "title": "Data protection overview - Azure Storage | Microsoft Learn",
+      "id": "MT39",
+      "url": "https://learn.microsoft.com/en-us/azure/azure-arc/kubernetes/conceptual-gitops-flux2",
+      "title": "Application deployments with GitOps (Flux v2) - Azure Arc | Microsoft Learn",
       "reviewed": "2026-11-01",
-      "version": "Rolling official page; updated 2026-10-05T22:13:00.0000000Z; SHA256 5502d83b9305c9951876dd2ffcbaac3c66f691f95d015454e9ecf4396ec7dfe3",
+      "version": "Rolling official page; updated 2026-03-24T06:03:00.0000000Z; SHA256 0e2894de3c4a9c8436789391155b5080ddc1886b7699f331eb3fb70da3d19a80",
       "kind": "official-public-documentation",
       "objectives": [
-        "az900.governance.purview",
-        "az900.governance.policy",
-        "az900.governance.locks"
+        "az900.management.portal",
+        "az900.management.shell-tools",
+        "az900.management.arc",
+        "az900.management.iac",
+        "az900.management.arm-templates"
       ],
-      "claims": ["governance.GV36"],
-      "limits": "Public body actually read. No protected assessment/report/sign-in. Classic lineage qualified with current GV33/34; older Learn product examples are not current universal claims. Source-specific support and timing limits retained.",
+      "claims": ["tools.MT39"],
+      "limits": "Actual public source body read to scoped claims; no protected assessment/sign-in/deployment or video execution. MT18 qualifies persistent Cloud Shell shorthand; MT19 distinguishes tools/shells; MT39 separates existing local Flux from new Azure configuration; MT40 qualifies management versus data plane. Examples are not executed.",
       "availability": "AVAILABLE",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/storage/blobs/data-protection-overview",
+          "url": "https://learn.microsoft.com/en-us/azure/azure-arc/kubernetes/conceptual-gitops-flux2",
           "disposition": "reviewed",
-          "reason": "Blob data-protection and recovery controls differ from ARM locks/replication; service support and recovery requirements must be verified."
+          "reason": "Flux controllers run locally and pull Git; Azure fluxConfiguration updates need Azure reachability while existing Git reconciliation is separate."
+        }
+      ]
+    },
+    {
+      "id": "MT40",
+      "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/control-plane-and-data-plane",
+      "title": "Control plane and data plane operations - Azure Resource Manager | Microsoft Learn",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page; updated 2026-02-27T18:31:00.0000000Z; SHA256 be7a2dbed6422d1faac6d015f1f001157a0e9a11190c8590ffdbc84a14cc782a",
+      "kind": "official-public-documentation",
+      "objectives": [
+        "az900.management.portal",
+        "az900.management.shell-tools",
+        "az900.management.arc",
+        "az900.management.iac",
+        "az900.management.arm-templates"
+      ],
+      "claims": ["tools.MT40"],
+      "limits": "Actual public source body read to scoped claims; no protected assessment/sign-in/deployment or video execution. MT18 qualifies persistent Cloud Shell shorthand; MT19 distinguishes tools/shells; MT39 separates existing local Flux from new Azure configuration; MT40 qualifies management versus data plane. Examples are not executed.",
+      "availability": "AVAILABLE",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/control-plane-and-data-plane",
+          "disposition": "reviewed",
+          "reason": "Control-plane management via ARM differs from direct service data-plane operations; no all-traffic-through-ARM claim."
         }
       ]
     }
   ],
   "activities": [
     {
-      "id": "governance-data",
-      "objectives": ["az900.governance.purview"],
-      "claims": [
-        "governance.GV03",
-        "governance.GV04",
-        "governance.GV05",
-        "governance.GV06",
-        "governance.GV16",
-        "governance.GV21",
-        "governance.GV22",
-        "governance.GV23",
-        "governance.GV24",
-        "governance.GV33",
-        "governance.GV34"
+      "id": "tools-intent",
+      "objectives": [
+        "az900.management.portal",
+        "az900.management.shell-tools",
+        "az900.management.arm-templates"
       ],
-      "limits": "Deterministic conceptual observations; actual Policy learning credit additionally requires replayed post-start receipts from original Sandbox and explicit inspections. No conceptual World mutation/receipt or XP.",
+      "claims": [
+        "tools.MT03",
+        "tools.MT04",
+        "tools.MT05",
+        "tools.MT06",
+        "tools.MT08",
+        "tools.MT17",
+        "tools.MT18",
+        "tools.MT19",
+        "tools.MT20",
+        "tools.MT21",
+        "tools.MT22",
+        "tools.MT23",
+        "tools.MT27",
+        "tools.MT34",
+        "tools.MT40"
+      ],
+      "limits": "Bounded deterministic conceptual observations, no actual Azure request/receipt/compiler/deployment/agent. Intent guided credit additionally requires original replayed post-start local Sandbox operations and explicit inspections. No conceptual World mutation or XP.",
       "assessmentStatus": "new-independent",
       "theory": [
         {
           "path": "src/content/nb.ts",
-          "marker": "governanceNb"
+          "marker": "toolsNb"
         }
       ],
       "mechanism": [
         {
-          "path": "src/domain/curriculum/governance-model.ts",
-          "marker": "runData"
+          "path": "src/domain/curriculum/management-tools-model.ts",
+          "marker": "runIntent"
         }
       ],
       "practice": [
         {
-          "path": "src/features/learning/governance-workbench.tsx",
-          "marker": "GovernanceWorkbench"
+          "path": "src/features/learning/management-tools-workbench.tsx",
+          "marker": "ToolsWorkbench"
         }
       ],
       "feedback": [
         {
           "path": "src/content/nb.ts",
-          "marker": "governanceItemsNb"
+          "marker": "toolsItemsNb"
         }
       ],
       "visual": [
         {
-          "path": "src/features/learning/governance-visuals.tsx",
-          "marker": "GovernanceModelResult"
+          "path": "src/features/learning/management-tools-visuals.tsx",
+          "marker": "ToolsModelResult"
         }
       ],
       "accessible": [
         {
-          "path": "src/features/learning/governance.css"
+          "path": "src/features/learning/management-tools.css"
         }
       ],
       "assessment": [
         {
-          "path": "src/features/learning/governance-assessment.tsx",
-          "marker": "GovernanceAssessment"
+          "path": "src/features/learning/management-tools-assessment.tsx",
+          "marker": "ToolsAssessment"
         }
       ],
       "savvyshark": [
         {
-          "path": "src/features/learning/governance-workbench.tsx",
+          "path": "src/features/learning/management-tools-workbench.tsx",
           "marker": "SavvyShark"
         }
       ]
     },
     {
-      "id": "governance-policy",
-      "objectives": ["az900.governance.policy"],
+      "id": "tools-change",
+      "objectives": ["az900.management.iac", "az900.management.arm-templates"],
       "claims": [
-        "governance.GV07",
-        "governance.GV08",
-        "governance.GV09",
-        "governance.GV10",
-        "governance.GV11",
-        "governance.GV17",
-        "governance.GV25",
-        "governance.GV26",
-        "governance.GV27",
-        "governance.GV28",
-        "governance.GV29",
-        "governance.GV30",
-        "governance.GV31"
+        "tools.MT08",
+        "tools.MT09",
+        "tools.MT10",
+        "tools.MT11",
+        "tools.MT15",
+        "tools.MT24",
+        "tools.MT25",
+        "tools.MT26",
+        "tools.MT28",
+        "tools.MT33",
+        "tools.MT36",
+        "tools.MT37"
       ],
-      "limits": "Deterministic conceptual observations; actual Policy learning credit additionally requires replayed post-start receipts from original Sandbox and explicit inspections. No conceptual World mutation/receipt or XP.",
+      "limits": "Bounded deterministic conceptual observations, no actual Azure request/receipt/compiler/deployment/agent. Intent guided credit additionally requires original replayed post-start local Sandbox operations and explicit inspections. No conceptual World mutation or XP.",
       "assessmentStatus": "new-independent",
       "theory": [
         {
           "path": "src/content/nb.ts",
-          "marker": "governanceNb"
+          "marker": "toolsNb"
         }
       ],
       "mechanism": [
         {
-          "path": "src/domain/curriculum/governance-model.ts",
-          "marker": "runPolicy"
+          "path": "src/domain/curriculum/management-tools-model.ts",
+          "marker": "runChange"
         }
       ],
       "practice": [
         {
-          "path": "src/features/learning/governance-workbench.tsx",
-          "marker": "GovernanceWorkbench"
+          "path": "src/features/learning/management-tools-workbench.tsx",
+          "marker": "ToolsWorkbench"
         }
       ],
       "feedback": [
         {
           "path": "src/content/nb.ts",
-          "marker": "governanceItemsNb"
+          "marker": "toolsItemsNb"
         }
       ],
       "visual": [
         {
-          "path": "src/features/learning/governance-visuals.tsx",
-          "marker": "GovernanceModelResult"
+          "path": "src/features/learning/management-tools-visuals.tsx",
+          "marker": "ToolsModelResult"
         }
       ],
       "accessible": [
         {
-          "path": "src/features/learning/governance.css"
+          "path": "src/features/learning/management-tools.css"
         }
       ],
       "assessment": [
         {
-          "path": "src/features/learning/governance-assessment.tsx",
-          "marker": "GovernanceAssessment"
+          "path": "src/features/learning/management-tools-assessment.tsx",
+          "marker": "ToolsAssessment"
         }
       ],
       "savvyshark": [
         {
-          "path": "src/features/learning/governance-workbench.tsx",
+          "path": "src/features/learning/management-tools-workbench.tsx",
           "marker": "SavvyShark"
         }
       ]
     },
     {
-      "id": "governance-locks",
-      "objectives": ["az900.governance.locks"],
+      "id": "tools-arc",
+      "objectives": ["az900.management.arc"],
       "claims": [
-        "governance.GV12",
-        "governance.GV13",
-        "governance.GV18",
-        "governance.GV35",
-        "governance.GV36"
+        "tools.MT07",
+        "tools.MT14",
+        "tools.MT29",
+        "tools.MT30",
+        "tools.MT31",
+        "tools.MT38",
+        "tools.MT39"
       ],
-      "limits": "Deterministic conceptual observations; actual Policy learning credit additionally requires replayed post-start receipts from original Sandbox and explicit inspections. No conceptual World mutation/receipt or XP.",
+      "limits": "Bounded deterministic conceptual observations, no actual Azure request/receipt/compiler/deployment/agent. Intent guided credit additionally requires original replayed post-start local Sandbox operations and explicit inspections. No conceptual World mutation or XP.",
       "assessmentStatus": "new-independent",
       "theory": [
         {
           "path": "src/content/nb.ts",
-          "marker": "governanceNb"
+          "marker": "toolsNb"
         }
       ],
       "mechanism": [
         {
-          "path": "src/domain/curriculum/governance-model.ts",
-          "marker": "runLocks"
+          "path": "src/domain/curriculum/management-tools-model.ts",
+          "marker": "runArc"
         }
       ],
       "practice": [
         {
-          "path": "src/features/learning/governance-workbench.tsx",
-          "marker": "GovernanceWorkbench"
+          "path": "src/features/learning/management-tools-workbench.tsx",
+          "marker": "ToolsWorkbench"
         }
       ],
       "feedback": [
         {
           "path": "src/content/nb.ts",
-          "marker": "governanceItemsNb"
+          "marker": "toolsItemsNb"
         }
       ],
       "visual": [
         {
-          "path": "src/features/learning/governance-visuals.tsx",
-          "marker": "GovernanceModelResult"
+          "path": "src/features/learning/management-tools-visuals.tsx",
+          "marker": "ToolsModelResult"
         }
       ],
       "accessible": [
         {
-          "path": "src/features/learning/governance.css"
+          "path": "src/features/learning/management-tools.css"
         }
       ],
       "assessment": [
         {
-          "path": "src/features/learning/governance-assessment.tsx",
-          "marker": "GovernanceAssessment"
+          "path": "src/features/learning/management-tools-assessment.tsx",
+          "marker": "ToolsAssessment"
         }
       ],
       "savvyshark": [
         {
-          "path": "src/features/learning/governance-workbench.tsx",
+          "path": "src/features/learning/management-tools-workbench.tsx",
           "marker": "SavvyShark"
         }
       ]
@@ -1036,81 +1223,81 @@
   ],
   "modules": [
     {
-      "id": "governance-compliance",
+      "id": "management-tools",
       "prerequisites": [
         {
           "path": "src/content/nb.ts",
-          "marker": "governanceNb"
+          "marker": "toolsNb"
         }
       ],
       "terminology": [
         {
           "path": "src/content/nb.ts",
-          "marker": "governanceNb"
+          "marker": "toolsNb"
         }
       ],
       "concept": [
         {
           "path": "src/content/nb.ts",
-          "marker": "governanceNb"
+          "marker": "toolsNb"
         }
       ],
       "azureExample": [
         {
           "path": "src/content/nb.ts",
-          "marker": "governanceNb"
+          "marker": "toolsNb"
         }
       ],
       "workedExample": [
         {
           "path": "src/content/nb.ts",
-          "marker": "governanceNb"
+          "marker": "toolsNb"
         }
       ],
       "misconception": [
         {
           "path": "src/content/nb.ts",
-          "marker": "governanceNb"
+          "marker": "toolsNb"
         }
       ],
       "limits": [
         {
           "path": "src/content/nb.ts",
-          "marker": "governanceNb"
+          "marker": "toolsNb"
         }
       ],
       "mechanism": [
         {
-          "path": "src/domain/curriculum/governance-model.ts",
-          "marker": "runGovernance"
+          "path": "src/domain/curriculum/management-tools-model.ts",
+          "marker": "runTools"
         }
       ],
       "visual": [
         {
-          "path": "src/features/learning/governance-visuals.tsx"
+          "path": "src/features/learning/management-tools-visuals.tsx"
         }
       ],
       "practice": [
         {
-          "path": "src/features/learning/governance-workbench.tsx"
+          "path": "src/features/learning/management-tools-workbench.tsx"
         }
       ],
       "independentScenario": [
         {
           "path": "src/content/nb.ts",
-          "marker": "governanceItemsNb"
+          "marker": "toolsItemsNb"
         }
       ],
       "correctAndWrongRationales": [
         {
           "path": "src/content/nb.ts",
-          "marker": "governanceItemsNb"
+          "marker": "toolsItemsNb"
         }
       ],
       "sources": [
         {
-          "path": "src/domain/curriculum/governance-sources.ts",
-          "marker": "governanceSourceReview"
+          "path": "src/domain/curriculum/management-tools-sources.ts",
+          "marker": "toolsSourceReview"
         }
       ]
     }
@@ -1198,19 +1385,34 @@
     "src/features/learning/access-control-workbench.tsx",
     "src/features/learning/access-control-visuals.tsx",
     "src/features/learning/access-control-controls.tsx",
-    "src/features/learning/access-control.css"
+    "src/features/learning/access-control.css",
+    "src/domain/curriculum/governance.ts",
+    "src/domain/curriculum/governance-model.ts",
+    "src/domain/curriculum/governance-items.ts",
+    "src/domain/curriculum/governance-store.ts",
+    "src/domain/curriculum/governance-sources.ts",
+    "src/domain/curriculum/governance-evidence.ts",
+    "src/domain/curriculum/governance.test.ts",
+    "src/features/learning/governance.tsx",
+    "src/features/learning/governance-assessment.tsx",
+    "src/features/learning/governance-provider.tsx",
+    "src/features/learning/governance-workbench.tsx",
+    "src/features/learning/governance-visuals.tsx",
+    "src/features/learning/governance-controls.tsx",
+    "src/features/learning/governance-evidence.tsx",
+    "src/features/learning/governance.css"
   ],
   "gates": {
     "source": {
       "checks": [
         {
-          "path": "docs/GOVERNANCE_COMPLIANCE.md"
+          "path": "docs/MANAGEMENT_DEPLOYMENT_TOOLS.md"
         },
         {
-          "path": "src/domain/curriculum/governance-sources.ts"
+          "path": "src/domain/curriculum/management-tools-sources.ts"
         }
       ],
-      "limits": "P12 candidate: actual source/model/learning/visual/audit and exact-head207-case CI/strict are separate gates. External root/SHA/journey BLOCKED if SSO. Human SME/UX/screen-reader/learning unperformed. No merge/production."
+      "limits": "P13 source/model/history/visual/fresh audit and exact-head216-case CI/strict remain separate. Anonymous previous-preview preflight succeeds; final external root/fullSHA/journey must be actually verified. Human SME/UX/screen-reader/learning unperformed. No merge/production."
     },
     "curriculum": {
       "checks": [
@@ -1218,52 +1420,52 @@
           "path": "src/content/nb.ts"
         },
         {
-          "path": "src/domain/curriculum/governance.ts"
+          "path": "src/domain/curriculum/management-tools.ts"
         }
       ],
-      "limits": "P12 candidate: actual source/model/learning/visual/audit and exact-head207-case CI/strict are separate gates. External root/SHA/journey BLOCKED if SSO. Human SME/UX/screen-reader/learning unperformed. No merge/production."
+      "limits": "P13 source/model/history/visual/fresh audit and exact-head216-case CI/strict remain separate. Anonymous previous-preview preflight succeeds; final external root/fullSHA/journey must be actually verified. Human SME/UX/screen-reader/learning unperformed. No merge/production."
     },
     "simulation": {
       "checks": [
         {
-          "path": "src/domain/curriculum/governance-model.ts"
+          "path": "src/domain/curriculum/management-tools-model.ts"
         },
         {
-          "path": "src/domain/curriculum/governance-evidence.ts"
+          "path": "src/domain/curriculum/management-tools-evidence.ts"
         },
         {
-          "path": "src/domain/curriculum/governance.test.ts"
+          "path": "src/domain/curriculum/management-tools.test.ts"
         }
       ],
-      "limits": "P12 candidate: actual source/model/learning/visual/audit and exact-head207-case CI/strict are separate gates. External root/SHA/journey BLOCKED if SSO. Human SME/UX/screen-reader/learning unperformed. No merge/production."
+      "limits": "P13 source/model/history/visual/fresh audit and exact-head216-case CI/strict remain separate. Anonymous previous-preview preflight succeeds; final external root/fullSHA/journey must be actually verified. Human SME/UX/screen-reader/learning unperformed. No merge/production."
     },
     "savvyshark": {
       "checks": [
         {
-          "path": "src/features/learning/governance-workbench.tsx"
+          "path": "src/features/learning/management-tools-workbench.tsx"
         },
         {
           "path": "src/features/learning/management-access.tsx"
         },
         {
-          "path": "tests/e2e/governance-compliance.spec.ts"
+          "path": "tests/e2e/management-tools.spec.ts"
         }
       ],
-      "limits": "P12 candidate: actual source/model/learning/visual/audit and exact-head207-case CI/strict are separate gates. External root/SHA/journey BLOCKED if SSO. Human SME/UX/screen-reader/learning unperformed. No merge/production."
+      "limits": "P13 source/model/history/visual/fresh audit and exact-head216-case CI/strict remain separate. Anonymous previous-preview preflight succeeds; final external root/fullSHA/journey must be actually verified. Human SME/UX/screen-reader/learning unperformed. No merge/production."
     },
     "visual-accessibility": {
       "checks": [
         {
-          "path": "src/features/learning/governance-visuals.tsx"
+          "path": "src/features/learning/management-tools-visuals.tsx"
         },
         {
-          "path": "src/features/learning/governance.css"
+          "path": "src/features/learning/management-tools.css"
         },
         {
-          "path": "tests/e2e/governance-compliance.spec.ts"
+          "path": "tests/e2e/management-tools.spec.ts"
         }
       ],
-      "limits": "P12 candidate: actual source/model/learning/visual/audit and exact-head207-case CI/strict are separate gates. External root/SHA/journey BLOCKED if SSO. Human SME/UX/screen-reader/learning unperformed. No merge/production."
+      "limits": "P13 source/model/history/visual/fresh audit and exact-head216-case CI/strict remain separate. Anonymous previous-preview preflight succeeds; final external root/fullSHA/journey must be actually verified. Human SME/UX/screen-reader/learning unperformed. No merge/production."
     },
     "independent-final-audit": {
       "checks": [
@@ -1271,10 +1473,10 @@
           "path": "docs/RELEASE_ACCEPTANCE.md"
         },
         {
-          "path": "docs/quality/PR37_FINAL_AUDIT.md"
+          "path": "docs/quality/PR38_FINAL_AUDIT.md"
         }
       ],
-      "limits": "P12 candidate: actual source/model/learning/visual/audit and exact-head207-case CI/strict are separate gates. External root/SHA/journey BLOCKED if SSO. Human SME/UX/screen-reader/learning unperformed. No merge/production."
+      "limits": "P13 source/model/history/visual/fresh audit and exact-head216-case CI/strict remain separate. Anonymous previous-preview preflight succeeds; final external root/fullSHA/journey must be actually verified. Human SME/UX/screen-reader/learning unperformed. No merge/production."
     },
     "delivery": {
       "checks": [
@@ -1285,163 +1487,163 @@
           "path": "scripts/e2e-plan-check.mjs"
         },
         {
-          "path": "docs/GOVERNANCE_COMPLIANCE.md"
+          "path": "docs/MANAGEMENT_DEPLOYMENT_TOOLS.md"
         }
       ],
-      "limits": "P12 candidate: actual source/model/learning/visual/audit and exact-head207-case CI/strict are separate gates. External root/SHA/journey BLOCKED if SSO. Human SME/UX/screen-reader/learning unperformed. No merge/production."
+      "limits": "P13 source/model/history/visual/fresh audit and exact-head216-case CI/strict remain separate. Anonymous previous-preview preflight succeeds; final external root/fullSHA/journey must be actually verified. Human SME/UX/screen-reader/learning unperformed. No merge/production."
     }
   },
   "verification": [
     {
       "command": "npm run check",
       "result": "passed",
-      "details": "Actual complete local implementation process before the presentation-only CI correction exited0:487 Vitest/33files,397 curriculum,17 Node,107 Markdown/local links; type/lint/format/quality/audit/assets/legacy and production build. Earlier type-test extra argument and unused import/hook-dependency lint failures were corrected; they are not claimed as passing runs. Provider now explicitly consumes current immutable Sandbox engine or pinned archived engine, retaining memo invalidation without lint suppression."
+      "details": "Local full check exit0;517 Vitest,427 curriculum subset,17 Node validators, type/lint/format/docs/assets/legacy and production build. Final scoped Arc CSS/test and source-table date correction additionally retested; final authoritative CI reruns full check."
     },
     {
-      "command": "Targeted production browser tests",
+      "command": "targeted production Playwright",
       "result": "passed",
-      "details": "Seven of eight initial new cases passed; original Policy denial assertions succeeded, then incorrect Basics selector failed. Existing Edit configuration flow corrected test, full Policy case then passed3.7s without retry. Five affected Hub/CloudTransfer cases passed30.1s, including all20 exact assessment resume contexts. Compact Governance keyboard/Axe/reduced-motion/native short-dialog case passed14.4s. No workers/retries/timeouts/skips/assertions weakened."
+      "scope": "targeted-local-only",
+      "details": "16 new/affected cases passed, no retries, on production build; includes8 P13 and all21-context exact resume, shared assistance, Hub/Portal/Storage. Not complete candidate regression."
     },
     {
       "command": "npm run test:e2e:plan",
       "result": "passed",
-      "details": "Actual mandatory collection validates207=192desktop+15compact, legacy384, worker1. Collection is not executed full-profile proof."
+      "scope": "collection-only",
+      "details": "200 desktop +16 justified compact =216; all inherited207 retained; optional legacy400, worker1 unchanged. No executed full browser profile claimed."
     },
     {
-      "command": "Source and historical preservation",
+      "command": "targeted final-audit corrections",
       "result": "passed",
-      "details": "36 actual public source bodies with hashes/versions and discovery; no protected assessment or report.29 old data exports+one function exact except five explicit context/navigation paths;54 other objective rows and84 protected patterns unchanged; operative Portal model suffix byte-identical.19 actual production PNGs opened; zero page errors/external runtime requests; later conceptual/assessment activity preserves native bytes."
+      "scope": "targeted-local-only",
+      "details": "Per-resource reference-difference fix:35 domain/teaching tests, production IaC browser1/1, lint/build pass; new negative screenshot personally inspected. Source-date-only fix30 tests; scoped audit validators5/5; Arc CSS/Axe/layout2/2. Final exact-head fullcheck/profile remains required."
     },
     {
-      "command": "Full exact-head GitHub CI",
-      "result": "pending",
-      "details": "Draft PR enables unchanged CI wrapper, complete207 profile, pinned Chromium, candidate receipt and strict release. Local targeted passes and collection do not substitute for actual complete candidate evidence."
-    },
-    {
-      "command": "First complete candidate CI",
-      "result": "failed",
-      "details": "Run41289972585 on7a76fd048e80887bd3e680e525b8284f3b67898f: full check487/397/17 and dependency audit passed; mandatory207 browser process had206passed and one deterministic failure in old Storage Hub test expecting Governance still planned. Existing configured retries reproduced the same wrong expectation. No full-browser success receipt or strict pass. Corrected only planned-label expectation to Management Tools and added available Governance entry assertion; all other assertions/settings retained. This test is explicitly removed from byte-preserved test paths; old Storage manuscript/models/rubrics/history remain byte-preserved."
-    },
-    {
-      "command": "Post-CI presentation delta verification",
+      "command": "targeted balanced final-copy verification",
       "result": "passed",
-      "details": "Only obsolete Storage Hub planned-label assertion corrected to still-planned Management Tools plus positive available Governance assertion. Author full target case2.2s/process3.6s and independent full target case2.5s/process3.7s passed, worker1/retries0. Target ESLint/docs107/preservation passed. Independent delta confirms65 original files unchanged, one contract addendum and one added changed presentation test:67 final hashes,83 protected patterns; final fingerprint2797591be00a00a9d194b3cc91a631eb0b6f53dc4c82fa0cd494e4c431a007df. No application/source/question/image/settings change. Fresh complete207 CI must run on new head."
+      "scope": "targeted-local-only",
+      "details": "35 domain/teaching tests,3 production browser cases (navigation/first-help-retry/valid alternatives/denied-cross-tab), preservation and build pass on final balanced learner copy; accepted pair keys unchanged. Fresh independent blind90-pair lock precedes keys. Not full candidate regression."
     }
   ],
   "visualEvidence": [
     {
-      "path": "docs/screenshots/governance-compliance/hub-1440.png",
+      "path": "docs/screenshots/management-tools/hub-1440.png",
       "viewport": "1440x900",
       "inspected": true,
-      "observation": "Actual local production view personally opened; hub 1440. Long content uses ordinary scrolling; conceptual and actual receipts remain distinct."
+      "observation": "Three paths, one primary action; new module is an ordinary path03 row."
     },
     {
-      "path": "docs/screenshots/governance-compliance/hub-1024.png",
+      "path": "docs/screenshots/management-tools/hub-1024.png",
       "viewport": "1024x768",
       "inspected": true,
-      "observation": "Actual local production view personally opened; hub 1024. Long content uses ordinary scrolling; conceptual and actual receipts remain distinct."
+      "observation": "Compact PC Hub preserves readable hierarchy; longer module list remains scrollable."
     },
     {
-      "path": "docs/screenshots/governance-compliance/introduction-1440.png",
+      "path": "docs/screenshots/management-tools/introduction-sidebar-1440.png",
       "viewport": "1440x900",
       "inspected": true,
-      "observation": "Actual local production view personally opened; introduction 1440. Long content uses ordinary scrolling; conceptual and actual receipts remain distinct."
+      "observation": "Original introductory mechanism and contextual active module/activity are visible."
     },
     {
-      "path": "docs/screenshots/governance-compliance/studio-entry-1440.png",
-      "viewport": "1440x900",
+      "path": "docs/screenshots/management-tools/theory-templates-1024.png",
+      "viewport": "1024x768",
       "inspected": true,
-      "observation": "Actual local production view personally opened; studio entry 1440. Long content uses ordinary scrolling; conceptual and actual receipts remain distinct."
+      "observation": "Original ARM sections/version/reference theory and focusable current activity remain readable."
     },
     {
-      "path": "docs/screenshots/governance-compliance/briefing-data-1024x500.png",
+      "path": "docs/screenshots/management-tools/briefing-intent-1024x500.png",
       "viewport": "1024x500",
       "inspected": true,
-      "observation": "Actual local production view personally opened; briefing data 1024x500. Long content uses ordinary scrolling; conceptual and actual receipts remain distinct."
+      "observation": "Native blurred briefing retains explicit Start/Cancel in short PC window; body scrolls."
     },
     {
-      "path": "docs/screenshots/governance-compliance/metadata-lineage-not-access-1920.png",
+      "path": "docs/screenshots/management-tools/intent-arm-provider-map-1920.png",
       "viewport": "1920x1080",
       "inspected": true,
-      "observation": "Actual local production view personally opened; metadata lineage not access 1920. Long content uses ordinary scrolling; conceptual and actual receipts remain distinct."
+      "observation": "Intent, chosen author form, ARM, provider/type and unexecuted result remain separate."
     },
     {
-      "path": "docs/screenshots/governance-compliance/data-declared-permission-1024.png",
-      "viewport": "1024x768",
-      "inspected": true,
-      "observation": "Actual local production view personally opened; data declared permission 1024. Long content uses ordinary scrolling; conceptual and actual receipts remain distinct."
-    },
-    {
-      "path": "docs/screenshots/governance-compliance/policy-audit-1440.png",
+      "path": "docs/screenshots/management-tools/intent-code-comparison-1440.png",
       "viewport": "1440x900",
       "inspected": true,
-      "observation": "Actual local production view personally opened; policy audit 1440. Long content uses ordinary scrolling; conceptual and actual receipts remain distinct."
+      "observation": "Readable original Bicep illustration and semantic five-tool comparison; no execution claim."
     },
     {
-      "path": "docs/screenshots/governance-compliance/policy-deny-1366.png",
+      "path": "docs/screenshots/management-tools/actual-portal-webapp-1440.png",
+      "viewport": "1440x900",
+      "inspected": true,
+      "observation": "Ordinary Portal shows original accepted Web App and its real local plan."
+    },
+    {
+      "path": "docs/screenshots/management-tools/actual-hosting-relation-1024.png",
+      "viewport": "1024x768",
+      "inspected": true,
+      "observation": "Actual app ID/planId/plan relationship and original receipt fields visible."
+    },
+    {
+      "path": "docs/screenshots/management-tools/actual-request-receipt-1440.png",
+      "viewport": "1440x900",
+      "inspected": true,
+      "observation": "Original request and explicit inspected checks; no copied fictional receipt."
+    },
+    {
+      "path": "docs/screenshots/management-tools/arm-missing-order-1366.png",
       "viewport": "1366x768",
       "inspected": true,
-      "observation": "Actual local production view personally opened; policy deny 1366. Long content uses ordinary scrolling; conceptual and actual receipts remain distinct."
+      "observation": "Valid target reference and missing new-resource order have different visible consequences."
     },
     {
-      "path": "docs/screenshots/governance-compliance/policy-exemption-1024.png",
-      "viewport": "1024x768",
-      "inspected": true,
-      "observation": "Actual local production view personally opened; policy exemption 1024. Long content uses ordinary scrolling; conceptual and actual receipts remain distinct."
-    },
-    {
-      "path": "docs/screenshots/governance-compliance/policy-remediation-prerequisites-1440.png",
+      "path": "docs/screenshots/management-tools/bicep-implicit-reference-1440.png",
       "viewport": "1440x900",
       "inspected": true,
-      "observation": "Independently opened actual1440x900 PNG: Modify/non-compliant result flow and scope ancestry are readable. Lower managed-identity/task prerequisite fields are outside this frame; pure model and negative domain tests separately establish those constraints. Not human visual approval."
+      "observation": "Implicit establishment edge and reverse serverFarmId reference have different roles."
     },
     {
-      "path": "docs/screenshots/governance-compliance/actual-policy-denial-1440.png",
+      "path": "docs/screenshots/management-tools/parameter-diff-retained-1024.png",
+      "viewport": "1024x768",
+      "inspected": true,
+      "observation": "New desired names/Create and retained dev resources are readable; scoped incremental caveat visible."
+    },
+    {
+      "path": "docs/screenshots/management-tools/unresolved-nochange-withheld-1024.png",
+      "viewport": "1024x768",
+      "inspected": true,
+      "observation": "Unresolved difference explicitly withholds NoChange despite matching selected fields."
+    },
+    {
+      "path": "docs/screenshots/management-tools/invalid-reference-1024.png",
+      "viewport": "1024x768",
+      "inspected": true,
+      "observation": "Missing target remains invalid; language/dependency does not create it."
+    },
+    {
+      "path": "docs/screenshots/management-tools/arc-location-stale-1440.png",
       "viewport": "1440x900",
       "inspected": true,
-      "observation": "Actual local production view personally opened; actual policy denial 1440. Long content uses ordinary scrolling; conceptual and actual receipts remain distinct."
+      "observation": "Physical other-cloud placement stays separate from Azure representation; stale management and corrected light caption visible."
     },
     {
-      "path": "docs/screenshots/governance-compliance/actual-correction-receipt-1024.png",
-      "viewport": "1024x768",
-      "inspected": true,
-      "observation": "Independently opened actual1024x768 PNG: upper actual policy inspector header/scope/target types/allowed location/mode are readable. Lower accepted receipt details are outside this frame; final production browser and original replay verification separately establish same-plan correction. Not human visual approval."
-    },
-    {
-      "path": "docs/screenshots/governance-compliance/cannotdelete-1366.png",
-      "viewport": "1366x768",
-      "inspected": true,
-      "observation": "Actual local production view personally opened; cannotdelete 1366. Long content uses ordinary scrolling; conceptual and actual receipts remain distinct."
-    },
-    {
-      "path": "docs/screenshots/governance-compliance/readonly-management-post-1024.png",
-      "viewport": "1024x768",
-      "inspected": true,
-      "observation": "Actual local production view personally opened; readonly management post 1024. Long content uses ordinary scrolling; conceptual and actual receipts remain distinct."
-    },
-    {
-      "path": "docs/screenshots/governance-compliance/data-plane-separate-800.png",
+      "path": "docs/screenshots/management-tools/arc-semantic-800.png",
       "viewport": "800x700",
       "inspected": true,
-      "observation": "Actual local production view personally opened; data plane separate 800. Long content uses ordinary scrolling; conceptual and actual receipts remain distinct."
+      "observation": "Stacked physical lanes remain readable at constrained PC width; representation continues below fold."
     },
     {
-      "path": "docs/screenshots/governance-compliance/semantic-details-1024.png",
+      "path": "docs/screenshots/management-tools/independent-whatif-1024.png",
       "viewport": "1024x768",
       "inspected": true,
-      "observation": "Actual local production view personally opened; semantic details 1024. Long content uses ordinary scrolling; conceptual and actual receipts remain distinct."
+      "observation": "Actual independent premise and paired complete-reason choices, no key before submission."
     },
     {
-      "path": "docs/screenshots/governance-compliance/independent-remediation-1024.png",
-      "viewport": "1024x768",
-      "inspected": true,
-      "observation": "Actual local production view personally opened; independent remediation 1024. Long content uses ordinary scrolling; conceptual and actual receipts remain distinct."
-    },
-    {
-      "path": "docs/screenshots/governance-compliance/feedback-remediation-1024x500.png",
+      "path": "docs/screenshots/management-tools/feedback-whatif-1024x500.png",
       "viewport": "1024x500",
       "inspected": true,
-      "observation": "Actual local production view personally opened; feedback remediation 1024x500. Long content uses ordinary scrolling; conceptual and actual receipts remain distinct."
+      "observation": "Post-submission specific feedback and SavvyShark readable in short viewport."
+    },
+    {
+      "path": "docs/screenshots/management-tools/invalid-existing-reference-1024.png",
+      "viewport": "1024x768",
+      "inspected": true,
+      "observation": "Existing plan NoChange and changed invalid app reference Modify are distinguished in selected-field comparison; invalid structure remains rejected separately."
     }
   ],
   "humanReview": {
@@ -1452,108 +1654,92 @@
   },
   "review": {
     "status": "complete",
-    "fingerprint": "2797591be00a00a9d194b3cc91a631eb0b6f53dc4c82fa0cd494e4c431a007df",
+    "fingerprint": "0226f21f34cb09f830cbb483d3e53789d99cd4698b8cacdf73ad4364cf81209f",
     "reviewer": {
-      "id": "independent-final-audit-20261101-agent-governance-final-audit",
+      "id": "independent-final-risk-audit-p13-pr38-2026-11-01",
       "kind": "agent"
     },
-    "started": "2026-11-01T08:57:43.825Z",
-    "finished": "2026-11-01T08:59:04.603013+00:00",
+    "started": "2026-11-01T11:06:24.629Z",
     "domains": {
       "content": {
-        "finding": "Reviewed actual Norwegian ten-section manuscript and relevant body passages from all36 retained public sources; hashes/versions match. Current portfolio/classic-lineage qualification, Policy effects/scope/expiry/timing/remediation, concrete locks/control-data and STP boundaries hold. Only3.2.01–03; STP supplement; no SME/learning claim.",
+        "finding": "Original substantive teaching and current claim qualifications verified against actual retained public bodies; all 40 hashes match. Only 3.3.01–05 changed; 52 other rows preserved. Human SME unperformed.",
         "evidence": [
           {
             "path": "src/content/nb.ts"
           },
           {
-            "path": "src/domain/curriculum/governance-sources.ts"
+            "path": "src/domain/curriculum/management-tools-sources.ts"
           },
           {
-            "path": "docs/GOVERNANCE_COMPLIANCE.md"
+            "path": "docs/MANAGEMENT_DEPLOYMENT_TOOLS.md"
           },
           {
-            "path": "docs/audits/az900-2026-07-20.json"
+            "path": "docs/quality/PR38_FINAL_AUDIT.md"
           }
         ]
       },
       "technical": {
-        "finding": "Pure concepts do not mutate World/receipts/XP. Pinned original replay requires post-start unchanged denial and same-plan correction plus policy/scope/group/both-receipt inspections. Independently executed9 boundary probes include wrong plan/group/through/inspection, retained archive/new current/evicted archive. Current-engine memo dependencies and archived engineFor fail closed; immutablefirst/CAS/replay/bounds/scoped recovery reviewed.",
+        "finding": "Pure typed models and original pinned post-start proof fail closed. MAJOR per-resource reference-diff error fixed and independently checked across 6144 legal inputs; each missing inspection/archive eviction withholds credit. No World/XP/runtime expansion.",
         "evidence": [
           {
-            "path": "src/domain/curriculum/governance-model.ts"
+            "path": "src/domain/curriculum/management-tools-model.ts"
           },
           {
-            "path": "src/domain/curriculum/governance-evidence.ts"
+            "path": "src/domain/curriculum/management-tools-evidence.ts"
           },
           {
-            "path": "src/domain/curriculum/governance.ts"
+            "path": "src/domain/curriculum/management-tools-store.ts"
           },
           {
-            "path": "src/domain/curriculum/governance-store.ts"
+            "path": "src/domain/curriculum/management-tools.test.ts"
           },
           {
-            "path": "src/features/learning/governance-provider.tsx"
-          },
-          {
-            "path": "src/features/learning/governance-evidence.tsx"
-          },
-          {
-            "path": "src/domain/curriculum/governance.test.ts"
+            "path": "docs/screenshots/management-tools/invalid-existing-reference-1024.png"
           }
         ]
       },
       "visual": {
-        "finding": "All19 actual PNGs individually opened and hashes matched. Desktop1920/1440/1366,1024,800 and short1024x500 wrap/read/scroll with native briefing and semantic alternative. Two frames show upper inspector/Modify flow only; lower receipt/MI-task details are not established by those images. Their visualEvidence observations are qualified. Human UX/screen-reader unperformed.",
+        "finding": "Personally opened all 20 actual production images across desktop/short/compact sizes. Corrected Arc caption, separate reference/order/uncertainty, original receipts and negative reference-only difference are legible. Keyboard/Axe evidence checked; human UX/screen-reader unperformed.",
         "evidence": [
           {
-            "path": "docs/screenshots/governance-compliance/hub-1440.png"
+            "path": "docs/quality/PR38_VISUAL_INSPECTION.md"
           },
           {
-            "path": "docs/screenshots/governance-compliance/briefing-data-1024x500.png"
+            "path": "docs/screenshots/management-tools/arc-location-stale-1440.png"
           },
           {
-            "path": "docs/screenshots/governance-compliance/actual-policy-denial-1440.png"
+            "path": "docs/screenshots/management-tools/briefing-intent-1024x500.png"
           },
           {
-            "path": "docs/screenshots/governance-compliance/actual-correction-receipt-1024.png"
+            "path": "docs/screenshots/management-tools/invalid-existing-reference-1024.png"
           },
           {
-            "path": "docs/screenshots/governance-compliance/policy-remediation-prerequisites-1440.png"
-          },
-          {
-            "path": "docs/screenshots/governance-compliance/semantic-details-1024.png"
-          },
-          {
-            "path": "docs/quality/PR37_FINAL_AUDIT.md"
+            "path": "tests/e2e/management-tools.spec.ts"
           }
         ]
       },
       "assessment": {
-        "finding": "Before any keys/feedback/repo/log reads, locked81 decisions/reasons from final learner packet plus actual whole-choice instructions at08:34:02.591795Z, immutable read-only file SHA256e8d7b7064c05b04a91ae68c306dd78912ca5dafae26e89b86ed6a1890547f020. Exactly one complete pair/item; all81 match actual grading after lock. Alternatives/cues/guide comparison and six rationales/item reviewed; gc02/gc08 remain scaffolded near-transfer. No psychometrics/readiness claim.",
+        "finding": "All original 90 pairs locked before keys. MAJOR universal reason-length cue corrected; separate fresh final-copy reviewer locked all 90 before keys, 11 defensible pairs match actual keys, all 60 feedback entries/10 explanations and changed-context transfer checked. Both mt07 plans valid. Residual minor scaffolding/near-transfer limits documented; no psychometric claim.",
         "evidence": [
+          {
+            "path": "src/domain/curriculum/management-tools-items.ts"
+          },
           {
             "path": "src/content/nb.ts"
           },
           {
-            "path": "src/domain/curriculum/governance-items.ts"
+            "path": "src/features/learning/management-tools-assessment.tsx"
           },
           {
-            "path": "src/features/learning/governance-assessment.tsx"
-          },
-          {
-            "path": "src/domain/curriculum/governance.test.ts"
-          },
-          {
-            "path": "docs/quality/PR37_FINAL_AUDIT.md"
+            "path": "docs/quality/PR38_FINAL_AUDIT.md"
           }
         ]
       },
       "guidance": {
-        "finding": "Native SavvyShark explicit briefing/start, observation milestones, persisted contrasts/cause and actual Policy evidence reviewed. Shared twentieth context covers durable teaching/Journal/Summary/history and mission/Portal automatic shields, including active-assisted or uncertain records. Final production actualPolicy+denied/cross-tab assistance process independently exited0,2cases6.5s worker1/retries0. No copied inventory or automatic answer/action.",
+        "finding": "Explicit native Start/Cancel, saved causal contrasts, correct cause, original practical proof and dedup/resume verified. All 21 independent contexts extend teaching/Journal/history/Summary/mission/Portal protection; denied aid, assisted-active and stale/conflict state withhold solutions and preserve firsts.",
         "evidence": [
           {
-            "path": "src/features/learning/governance-workbench.tsx"
+            "path": "src/features/learning/management-tools-workbench.tsx"
           },
           {
             "path": "src/features/learning/management-access.tsx"
@@ -1562,191 +1748,185 @@
             "path": "src/features/course/mission-context.ts"
           },
           {
-            "path": "src/features/course/course.tsx"
-          },
-          {
             "path": "src/features/portal/portal.tsx"
           },
           {
-            "path": "tests/e2e/governance-compliance.spec.ts"
+            "path": "tests/e2e/management-tools.spec.ts"
           }
         ]
       },
       "regression": {
-        "finding": "Final delta independently reviewed after first complete CI41289972585 failed206/207 with one obsolete Storage Hub planned-Governance expectation; actual job124798998230 logs inspected. Correction changes only that presentation assertion to still-planned Management Tools and adds positive available Governance check, retaining all old Storage journey assertions/settings. Final67 normalized hashes/fingerprint2797591b… match;65 initial candidate files unchanged, contract changed1 and test added1. Preservation83patterns/29exports+onefunction except5metadata/54otherrows/operativePortal suffix independently passes. Author targeted1case2.2s/3.6s exited0; independent complete case2.5s/3.7s exited0 worker1/retries0. Initial blind/source/model/images conclusions remain byte-bound. Renewed complete207 exact-head CI/strict pending; failed firstCI retained. ExternalGate7 and humans unchanged.",
+        "finding": "Independent preservation and 216-case plan checks pass: 31 prior data exports/one function, 52 other rows, 98 protected paths and operative Portal suffix preserved; all inherited 207 executions retained. Focused independent 34-test/3-browser exits 0 plus author final 35-test/3-browser/build corrections. Complete exact-head CI/strict and actual deployed Gate7 remain pending. Final quality/docs checks exit0; strict preflight exit1 solely for missing executed full candidate browser profile, with no stale binding/reviewer/finding errors.",
         "evidence": [
           {
-            "path": "src/domain/curriculum/governance.test.ts"
+            "path": "tests/e2e/management-tools.spec.ts"
+          },
+          {
+            "path": "tests/fixtures/active-teaching-contexts.ts"
           },
           {
             "path": "src/domain/curriculum/teaching-access.test.ts"
           },
           {
-            "path": "tests/e2e/governance-compliance.spec.ts"
+            "path": "playwright.desktop.config.ts"
           },
           {
-            "path": "tests/e2e/course-hub.spec.ts"
+            "path": "scripts/e2e-plan-check.mjs"
           },
           {
-            "path": "docs/GOVERNANCE_COMPLIANCE.md"
+            "path": ".github/workflows/ci.yml"
           },
           {
-            "path": "docs/quality/PR37_FINAL_AUDIT.md"
-          },
-          {
-            "path": "tests/e2e/storage-resilience.spec.ts"
+            "path": "docs/quality/PR38_FINAL_AUDIT.md"
           }
         ]
       }
     },
     "findings": [
       {
-        "id": "PR37-F01",
-        "severity": "minor",
-        "status": "accepted-limitation",
-        "description": "gc02/gc08 are scaffolded near-transfer, with some vocabulary/completeness cues and uneven distractor strength. Independent all81 judgment found no alternate complete pair. No empirical discrimination/transfer/exam-readiness claim."
-      },
-      {
-        "id": "PR37-F02",
-        "severity": "minor",
-        "status": "accepted-limitation",
-        "description": "actual-correction-receipt-1024 shows upper actual policy inspector, not lower accepted receipt details; policy-remediation-prerequisites-1440 shows Modify/non-compliant flow, not lower identity/task fields. Qualified observations/report make these evidence limits explicit; distinct browser/domain proof establishes behavior."
-      },
-      {
-        "id": "PR37-N01",
-        "severity": "note",
-        "status": "accepted-limitation",
-        "description": "First complete candidate CI41289972585 failed206/207 on obsolete Storage presentation expectation; corrected and independently targeted-retested. Renewed final-head207 GitHub CI wrapper receipt and strict release remain pending. External root/SHA/journey remains unverified and BLOCKED if SSO; human SME/novice UX/screen-reader/learning/psychometrics unperformed. No merge/production."
-      },
-      {
-        "id": "PR37-D01",
+        "id": "P13-F01",
         "severity": "major",
         "status": "fixed",
-        "description": "First complete CI failed the older Storage Hub test because it expected now-available Governance to remain planned;206/207 is not a pass.",
-        "fix": "Replace only obsolete planned-Governance label with still-planned Management Tools; add explicit available Governance module assertion; retain all Storage grouping/link/sidebar/history/reload/return assertions. Document failed run and explicit presentation-test preservation exception.",
+        "description": "Existing-dev app plan reference changed but shared tag-only classification incorrectly displayed NoChange.",
+        "fix": "Per-resource selected-field comparison and Modify wording covering configuration/reference changes; invalid structure and unresolved preview remain separate.",
         "retests": [
           {
-            "command": "Complete Storage Hub/path/history/return targeted production case",
-            "result": "passed",
-            "details": "Author exit0 case2.2s/process3.6s; independent reviewer exit0 case2.5s/process3.7s, worker1/retries0. Final67 hashes/fingerprint and83pattern preservation pass. Renewed complete207 exact-head CI/strict pending."
+            "path": "src/domain/curriculum/management-tools.test.ts"
+          },
+          {
+            "path": "tests/e2e/management-tools.spec.ts"
+          },
+          {
+            "path": "docs/screenshots/management-tools/invalid-existing-reference-1024.png"
+          },
+          {
+            "path": "docs/quality/PR38_FINAL_AUDIT.md"
           }
         ]
+      },
+      {
+        "id": "P13-F02",
+        "severity": "major",
+        "status": "fixed",
+        "description": "Every original accepted reason was longest; the form-only longest-pair strategy passed six of ten items.",
+        "fix": "Substantive balancing across all reason sets and three shortened decisions; genuinely fresh final-copy 90-pair blind lock and feedback/novelty review match all keys. Correct reason length ranks now3 longest/4 middle/3 shortest.",
+        "retests": [
+          {
+            "path": "src/content/nb.ts"
+          },
+          {
+            "path": "src/domain/curriculum/management-tools.test.ts"
+          },
+          {
+            "path": "tests/e2e/management-tools.spec.ts"
+          },
+          {
+            "path": "docs/quality/PR38_FINAL_AUDIT.md"
+          }
+        ]
+      },
+      {
+        "id": "P13-F03",
+        "severity": "minor",
+        "status": "fixed",
+        "description": "Source-review caption said31October although sources were reviewed1November2026.",
+        "fix": "Final source caption now states1November2026; actual copy and final snapshot independently checked.",
+        "retests": [
+          {
+            "path": "src/content/nb.ts"
+          },
+          {
+            "path": "docs/quality/PR38_FINAL_AUDIT.md"
+          }
+        ]
+      },
+      {
+        "id": "P13-F04",
+        "severity": "minor",
+        "status": "accepted-limitation",
+        "description": "mt03 remains near the locked-PC worked example, mt06 has extreme substitutions, and several items scaffold choices through explicit constraints. Results remain bounded formative observations, not measured transfer/mastery."
+      },
+      {
+        "id": "P13-F05",
+        "severity": "note",
+        "status": "open",
+        "description": "Final exact-head complete CI/strict and actual deployed ordinary-root/full-SHA/journey Gate7 remain mandatory and pending at audit completion; targeted/local/previous-preview preflight is not delivery proof."
       }
     ],
     "report": {
-      "path": "docs/quality/PR37_FINAL_AUDIT.md"
-    },
-    "initialAudit": {
-      "implementationFinished": "2026-11-01T08:32:12.893Z",
-      "started": "2026-11-01T08:34:02.591795Z",
-      "finished": "2026-11-01T08:40:41.202897+00:00",
-      "fingerprint": "4f725f245edda8b1faf035bcf75fe6656fb3cb0ea30691dafde0c332b04a9354",
-      "files": 66,
-      "publishedCommit": "7a76fd048e80887bd3e680e525b8284f3b67898f"
-    },
-    "deltaReview": {
-      "scope": "one old Hub presentation test plus honest contract note and explicit preservation exception",
-      "started": "2026-11-01T08:57:43.825Z",
-      "finished": "2026-11-01T08:59:04.603013+00:00",
-      "implementationFinished": "2026-11-01T08:57:05.771Z",
-      "finalFiles": 67,
-      "unchangedInitialFiles": 65,
-      "changedInitialFiles": ["docs/GOVERNANCE_COMPLIANCE.md"],
-      "addedCandidateFiles": ["tests/e2e/storage-resilience.spec.ts"],
-      "removedCandidateFiles": [],
-      "protectedPatterns": 83,
-      "firstCi": {
-        "run": 41289972585,
-        "job": 124798998230,
-        "head": "7a76fd048e80887bd3e680e525b8284f3b67898f",
-        "result": "failed",
-        "passed": 206,
-        "failed": 1,
-        "logsIndependentlyInspected": true
-      },
-      "independentRetest": {
-        "command": "npx playwright test --config=.artifacts/course-hub-diagnostic.config.mjs tests/e2e/storage-resilience.spec.ts --grep 'Storage parts share one Hub'",
-        "result": "passed",
-        "processExit": 0,
-        "cases": 1,
-        "caseSeconds": 2.5,
-        "processSeconds": 3.7,
-        "workers": 1,
-        "retries": 0
-      },
-      "renewedFullCi": "pending"
+      "path": "docs/quality/PR38_FINAL_AUDIT.md"
     }
   },
   "snapshot": {
     "files": {
-      "AGENTS.md": "8bf7e54666266d91607a169204dea52e694d05aae0786bc774e059540aa2cbae",
-      "README.md": "caae1412e9f2fae0ed1e292adf9f8c3e0f35fb0fd2e1d9a8acb75a934649931a",
-      "docs/ARCHITECTURE.md": "75f82ef96ae63196a5978a221b63db0d062845f405189bc036c6b4d04691b204",
-      "docs/AZ900_COVERAGE_MATRIX.md": "4eb8742b74138d465b6e6ef688a37c57f8a788c9850a032dc920569be7a6ffea",
-      "docs/AZ900_EXPANSION_ROADMAP.md": "633244a68e3e61ca3a8a0aac785dc2af82bb1209ae670f498eba5b52064e3979",
-      "docs/DECISIONS.md": "5ebf231edb67b5fc6a6c64b7fce1436d57e68c70e57c0bbe6be6c24a16e76b54",
-      "docs/DEVELOPMENT_WORKFLOW.md": "752ac2c5523f8d2329975c7bbfafce3e7aa14827c1b6cd1c6862b45c139c19d4",
-      "docs/GOVERNANCE_COMPLIANCE.md": "38c0ce5ee196d5e572dbd4063620177616f4f2c345e268b05092c42e21ee4bfe",
-      "docs/audits/az900-2026-07-20.json": "24aed5f1b08f55184b5327af96b40c461f1a36351a838f82a519e5525c52e1a4",
-      "docs/screenshots/governance-compliance/actual-correction-receipt-1024.png": "2acf08708c4e7590fbc690a8fd7585429f20025e04397dfa5281e7d94a646ee3",
-      "docs/screenshots/governance-compliance/actual-policy-denial-1440.png": "412528da7552873b4bd9090ed67b26fea20da31b4012b26955e3ecaae8efee16",
-      "docs/screenshots/governance-compliance/briefing-data-1024x500.png": "5eb31126255f5d53597212b2448b76c38e51b6ea0ef4647bd5916bcc63d75bd1",
-      "docs/screenshots/governance-compliance/cannotdelete-1366.png": "65a4646fc1def1609a3479952d197f1ce2148f93ca09337774f45d70c58a0896",
-      "docs/screenshots/governance-compliance/data-declared-permission-1024.png": "014b5da7b9732bc830d0b080dd4ca1916106c29844122967213b63016aa60935",
-      "docs/screenshots/governance-compliance/data-plane-separate-800.png": "4b81ebd938ac5da9e4c50bc317c67e67f739f3e8ebb33a075d347ec1cb601ec1",
-      "docs/screenshots/governance-compliance/feedback-remediation-1024x500.png": "5dd8ab1936fc5f43b505dbf241f4922777c44110ffc8ea32e4f1dfff6aad1610",
-      "docs/screenshots/governance-compliance/hub-1024.png": "5848c404ab2e5ab1c0ab21d7d02919a2cdf167393f1fe01cb02799f5af17198c",
-      "docs/screenshots/governance-compliance/hub-1440.png": "ffbaba4bbd23e30d30f7e10e6fd4f23afd6bd37f12820cb856112a350176c3ed",
-      "docs/screenshots/governance-compliance/independent-remediation-1024.png": "6e3e369094dae45b0ba2ea0daf5848660a6fffe7167f2a47b2031d9af8cdf23e",
-      "docs/screenshots/governance-compliance/introduction-1440.png": "00ff1d6aa8e72b6ce8b67dfa1f14ec1c7d70c241dbc529f82a0746cf7680e07b",
-      "docs/screenshots/governance-compliance/metadata-lineage-not-access-1920.png": "d92ded1c9193dc4b50d464ff92113e4de9c64f89b014a74a64f9a802ef0fa0df",
-      "docs/screenshots/governance-compliance/policy-audit-1440.png": "b3c3422fe0140843bafea7c29513b5c6b73445133d2676da506326ad8df8731b",
-      "docs/screenshots/governance-compliance/policy-deny-1366.png": "7d1d2841ae3dea54c2f3604d16897ceaf47cbf8dc7218033ff150fe729c1974c",
-      "docs/screenshots/governance-compliance/policy-exemption-1024.png": "5e6d658036e1f6c71e9e27648dd3ecd9829995bba425d152d5a08a6ab87d902a",
-      "docs/screenshots/governance-compliance/policy-remediation-prerequisites-1440.png": "0cb0c725d2d66cf6575f56ce975bb2089e55796b3f9751c3aedde363189025f3",
-      "docs/screenshots/governance-compliance/readonly-management-post-1024.png": "667adbd208f9af5fed3ca66fd4f638964f4df1c233d567da7da8c57a09f1fc97",
-      "docs/screenshots/governance-compliance/semantic-details-1024.png": "e6bd79181df745510bc120ed3f97ddd3aff07b5065f71b359e2be0f1cb15bfdc",
-      "docs/screenshots/governance-compliance/studio-entry-1440.png": "85816d6f4e7f7ba49f336347280b42f672c1ba2a0a1b07b8c05d065f958beab8",
-      "package.json": "7a93cb443e2c52516686f378a40c8c64621c58776cea0a8159451499fe24d18e",
-      "playwright.desktop.config.ts": "ef0ba9aff52854f7b3c5dcd8703bf53526b5515096db9da0615966d028bacb02",
-      "scripts/az900-audit-check.test.mjs": "6d73eda863c55d06338d5726006b82fe66bbd0d07b403fc15be6c2375b767ef7",
-      "scripts/e2e-plan-check.mjs": "aedb903d10c4857cf487be97ca4633099a8a6a9da4cf475737339f743947dc44",
-      "src/app/layout.tsx": "f581cbcd34e6af34dec95b9c5bf551c90d25782c7369edbce9238f740d1a797b",
-      "src/app/learn/[module]/page.tsx": "aaa413f18b58448d365dd99dfc3e90135cf3e91674257b5ed530a576806348c3",
-      "src/components/progress-provider.tsx": "7b00a9a8e2112f2b264815ebccef44a0f5b6b207f242746a8d0573a8773a1d2c",
-      "src/content/nb.ts": "4b22b8fafdd6718c08617d2e9f9e034fb776432e516929cee3e4fbf9900410e9",
-      "src/domain/course/model.ts": "2da58dc2dafb66e11f618ed6c8c1a535f3ac71effa84f9466c0eeb45246100a1",
-      "src/domain/curriculum/governance-evidence.ts": "da35982e951c68a1e2623918ef33eb380ef3f2bce5242a18c89b63ec3df76206",
-      "src/domain/curriculum/governance-items.ts": "5229004708444c46df14c4def15a0bd3526ecd448cc19d11ccfbd55f49a7dc31",
-      "src/domain/curriculum/governance-model.ts": "18db92c1f95cab26c479cb0dab74a45ce5a6a714ff25bf3642190e2a518e7543",
-      "src/domain/curriculum/governance-sources.ts": "7226745a6aac8862d330e4be9c6b1d675f40d3b1a79144f9fac18f93916cdf09",
-      "src/domain/curriculum/governance-store.ts": "92b4673783bf5b0bc167427d129bfc32ce33ba3b710bfe7f865c6d879df2bbd4",
-      "src/domain/curriculum/governance.test.ts": "ef18e67d5e5f19c997a9a8685b54bc318b5fc5baba59980786f32f8ec404c5f0",
-      "src/domain/curriculum/governance.ts": "e37defa8c0b95a957f6c77b382fe0c14a2e676eff9a26aac66c007469fa9dc12",
-      "src/domain/curriculum/official.ts": "eade8baeb6a05e7ecbaaca3cb10d5f1382c31e8aa928e45788ee3b2dc83ae148",
-      "src/domain/curriculum/teaching-access.test.ts": "e0e735d4ffadc02b3c8b6a6122f1b23a2c1e91c6b1830448ebf0d8940d8cfc3d",
-      "src/domain/guidance/milestones.ts": "ece72ccf1700758dcc8543419c25ac698d90e0652a090a9f7b16d1954d2ca6ad",
-      "src/domain/portal/model.ts": "c9a1c1f7883a6c4e0b64c202f1609a786d44ad44ebe7dadd478d841e28d4e888",
-      "src/features/course/course-hub.tsx": "47895ad357a08000d221e146267ba09040c2a27ec60490d6a2b82195d5db3c2f",
-      "src/features/course/course-outline.ts": "b52f3ff4a4bab1fd3d4542585a941ad49409c8f2ce6f192926287b421b97ba9e",
-      "src/features/course/course.tsx": "06787bb06b9d8b4d56d6ff50ba66ae0f4c37319112e2bf8f830ef38e08212856",
-      "src/features/course/mission-context.ts": "55007d9e9738a4c0d8af88d1d0e53f74c378e335076482878a05d0a36bb93fb9",
-      "src/features/learning/governance-assessment.tsx": "f6d966cdd1f2786b3527011239638fdacf326a924ded929d167ecd3bc0fde892",
-      "src/features/learning/governance-controls.tsx": "7e3c6078cc4977d11926df17b1b600a4876906e595f4ae84ba4d7bf30dc6d80c",
-      "src/features/learning/governance-evidence.tsx": "37a8be6aba235e24eb785041584dc0a3e699d49b69db2b6a6c6e2ae872c97d37",
-      "src/features/learning/governance-provider.tsx": "145ac9c69bcfbcc422c4f400776e94d9e10974f4cb4d89bbad7a9da32f2125a0",
-      "src/features/learning/governance-visuals.tsx": "45d533fce72f1e7f7d2c4552814b0e4d298d2a80be6d5d231fdb942f6678c812",
-      "src/features/learning/governance-workbench.tsx": "e2cd7813a507a39c3376810bfab5c4c366859eeac8603c28772375135dda459e",
-      "src/features/learning/governance.css": "dba802de2ffa5827c7b9698f93534a59ca52d639c57800d6a3ec554c89faf373",
-      "src/features/learning/governance.tsx": "a7bf65d9e6189d571efeccf33cfd5025fd59d72790e4240260fd21bde4f28ab2",
-      "src/features/learning/management-access.tsx": "2f32bfb0017679fd9958415a2d4200c952d8e39efd160992bfa12d1156f8a91b",
-      "src/features/portal/portal.tsx": "3a1ea83b5840fc915d22528b2d29226909b66adde9031af38eb0cd7b6ac05cc2",
-      "tests/e2e/course-hub.spec.ts": "5c0618f7b18591c05da4db5ab1fc2ff43b36a8c97f5b5a71bec9c16c17fa5661",
-      "tests/e2e/governance-compliance.spec.ts": "f0f47e51d2eac31c63b7a35167913528d667ca074fab511c941b46d5ad1ae845",
-      "tests/e2e/storage-resilience.spec.ts": "e919e7ff4bfef140d62e39f19f5080e8872778fe7d042472661f024a975ac75f",
-      "tests/fixtures/active-teaching-contexts.ts": "9540e5d652520808d45b9850d824ecb79ed6785b28c401814d4e44cf3602a5e8",
-      "tests/fixtures/governance.ts": "99978831f39e90ba5b1fd9104625c20d2a1efb499ca03aaef69eec52edfa0746"
+      "AGENTS.md": "fbc5418ce00bbd12448229300ff8ed0f1eaa81c5058a1617979ec63fd89080f9",
+      "README.md": "85d4d198b5dfcc2dc896abd8123b93d9d083c21282f416180f8666fce8714cef",
+      "docs/ARCHITECTURE.md": "6414150fc7b3f0e604511860f54d11be3c7b83b6c8a02e368e970db2c0b24d26",
+      "docs/AZ900_COVERAGE_MATRIX.md": "432ac9c3963d99c093e81ee429489662732b2f2bc3f0af0e00a1429c5d648c95",
+      "docs/AZ900_EXPANSION_ROADMAP.md": "5bbc6095e7131029d803cef29e4a4a7fbc6b8dac1fabb4ddac3d10c48b021b61",
+      "docs/DECISIONS.md": "79df69f1151454595a069b40120b7129bdd062a88c7d7c74de0664692b4075c8",
+      "docs/DEVELOPMENT_WORKFLOW.md": "82f5efe2c89f5e1b99b1ba0fe46fb8c4589045a05ac2aa25fb0531f7bd3b2187",
+      "docs/MANAGEMENT_DEPLOYMENT_TOOLS.md": "e57d2eae3accb0c848f3a961c1fc377ae0d1949b0493e7a5444a5ae0af7d6eeb",
+      "docs/audits/az900-2026-07-20.json": "0bbf819deec2a8343c74b4d575bf41f7da17b64fcee52885b98b33b90fdd9b72",
+      "docs/screenshots/management-tools/actual-hosting-relation-1024.png": "13b7147d850ebf68a93a79635e32c4fafc0ace4f288cc008aacc677f6e91aa35",
+      "docs/screenshots/management-tools/actual-portal-webapp-1440.png": "65c9039613021e15451914f285864a3f9c1a90e95ea018e8c6768e9b6402820b",
+      "docs/screenshots/management-tools/actual-request-receipt-1440.png": "1eb1b20f4c0438241f3aadbe5cabb48cde48cd1938dec8b63c4fe814a6a873c6",
+      "docs/screenshots/management-tools/arc-location-stale-1440.png": "983a03bff5d45af33e95d6300320d0f4645792fef4c6083a1038da2c8f91a319",
+      "docs/screenshots/management-tools/arc-semantic-800.png": "66e9ed3e642ca4f32c32ea93f941c401022eb767a41ba4e4861bab9d2deab9c0",
+      "docs/screenshots/management-tools/arm-missing-order-1366.png": "e0d5ec83d8b0721d3a0692a3b06878486dc52c16c8040d7ff4ba31aac04f95a4",
+      "docs/screenshots/management-tools/bicep-implicit-reference-1440.png": "8ffbe7ad205f63a0b6a4d3efed4390b9f824dc9841f0fc921c3dd6878c497518",
+      "docs/screenshots/management-tools/briefing-intent-1024x500.png": "7eddc77cefde28517b1783dd30c1514b4807d1b0ca629f0ca4de5dfc6d2eac4e",
+      "docs/screenshots/management-tools/feedback-whatif-1024x500.png": "bd0a8e3df449bdfcbbcd15c9508fce0e344db5e1bbd65ea7a1e941837a111f55",
+      "docs/screenshots/management-tools/hub-1024.png": "aeec355c07e54a1727460f80e4138cbbe5ec6351a045804940e1b1108f1945b5",
+      "docs/screenshots/management-tools/hub-1440.png": "3289f780b73c030bf1cedec292c88b3bac2e521189f37780085d500532f1dc28",
+      "docs/screenshots/management-tools/independent-whatif-1024.png": "89469559a94571037b5b4caaa2387e2f7465568b3084ca49401a1d431b7010ef",
+      "docs/screenshots/management-tools/intent-arm-provider-map-1920.png": "f7b79df058adec0f742751d41466a1a4d0cf84c684746e5d7cb74c3b9335d510",
+      "docs/screenshots/management-tools/intent-code-comparison-1440.png": "3a1608007b7583002ab1db207179fc4202ecd11f9badf121193d10016d8658ce",
+      "docs/screenshots/management-tools/introduction-sidebar-1440.png": "b2be9b22d6666821833a16d0d6cc25291cf15847dff34c13596ebc314c508ecd",
+      "docs/screenshots/management-tools/invalid-existing-reference-1024.png": "c543f9c33fe34ea598fe47195ec561b3caefc6a8de61dff73b6980dd8bf10a25",
+      "docs/screenshots/management-tools/invalid-reference-1024.png": "87b152a0ab98c788384f52e4e569584d9012c8adbd4757d9f692dc7ad8e8df9a",
+      "docs/screenshots/management-tools/parameter-diff-retained-1024.png": "e850c1e864875fc24efd6750e07441ca8e8156e32699350759a7197fddf6363c",
+      "docs/screenshots/management-tools/theory-templates-1024.png": "ebdae963717fe0721d062a58c88379a92035bf0361dc99af618b92c407e08978",
+      "docs/screenshots/management-tools/unresolved-nochange-withheld-1024.png": "d0d17b501a788d8b701189c398ba3e3d6f5b8f1d6d8b2e353dec6b481c6710ba",
+      "package.json": "0d5319d7d477503175c69fba7e014f586cfc47ef9235a223ba7e8986fbd9bcfc",
+      "playwright.desktop.config.ts": "95117df62c891e8d9eb8800ca88d6de093a758a7f98d41a55c1b2dba25685148",
+      "scripts/az900-audit-check.test.mjs": "8a5ac41865cdf87588f29f77c498286e6beb96024c09256280dd28989961debb",
+      "scripts/e2e-plan-check.mjs": "6a128d6f3691eefcbde4c42e15ac139cd325233f8fe8726a4b4d007860ce2336",
+      "src/app/layout.tsx": "5b033b7c397a23689ab9169f7857a15a9388937d1a771d809f6140464e9a9daa",
+      "src/app/learn/[module]/page.tsx": "7a045c8c3845188245c8dd37401af14a0ffb53f293ac964f11f218edaf99773c",
+      "src/components/progress-provider.tsx": "b3114c2dc7b5bc83f74a110d76f1cde9eec1e8a59d16d4d3ab725163f7f03e5b",
+      "src/content/nb.ts": "bb024b7010eb269c053659b6bac18d4788623b76fc06b87bbbdc9aa39e7eac86",
+      "src/domain/course/model.ts": "6806a8e267c46a79b8ea0afafa33c9f5f106742a186a09b4d0316acf5962cb17",
+      "src/domain/curriculum/management-tools-evidence.ts": "b834fc3668ebd32eccc7c603a9f545c00e16b3d370571ff148e8126035eda227",
+      "src/domain/curriculum/management-tools-items.ts": "935f824f44bfbcf6940666a02062a536dd7adb542ea92f5303567005749b4a7f",
+      "src/domain/curriculum/management-tools-model.ts": "e9e0e85f84c99dae228dafe8ebac80c8d73920bc117809e9cf8f17a7e64ea5fc",
+      "src/domain/curriculum/management-tools-sources.ts": "156731b305a9dc248c1225dff84d273257acae2a005e712f34c1fe53bb8c6b78",
+      "src/domain/curriculum/management-tools-store.ts": "119e757548b9fd89ecf28d577432010c437f3c5f125419e4b346c4c9c9eac543",
+      "src/domain/curriculum/management-tools.test.ts": "381f2ba5e0b2898ba9013d7dd99a6981a015f5646fcf1b737e181eb4c48bd2f9",
+      "src/domain/curriculum/management-tools.ts": "853cf970e4b30a457f2ac3f73a5b6a4771a2a9615def1e3140aa1ce9dfcf35be",
+      "src/domain/curriculum/official.ts": "56db3588a6fa500bd862b626753093f43702a946801a7ce1471d96f70b5dbde7",
+      "src/domain/curriculum/teaching-access.test.ts": "f6be64ad3980b9be2f31e296b3430aaee19e6bd26fab47b21777e9584294d64c",
+      "src/domain/guidance/milestones.ts": "8f6773197493a0131f452cd4f25fdc1e4b4ec0ed477cc800e38758d1442b233b",
+      "src/domain/portal/model.ts": "d726bc2fb4f8ab59db9b43575731329522a0a685fd7ad38ffe3f62b2dd053112",
+      "src/features/course/course-outline.ts": "9e7c9b83565fa304ee17b3808a2270b7e1f149ea9a6d66a38b0cb8f4e04d1316",
+      "src/features/course/course.tsx": "583d59b3808a474a9237c1f8eaac1d349db64a397b8fee6a97acd2534fe255e7",
+      "src/features/course/mission-context.ts": "41dc223c8e2214442ed7b028c4b58470d386a3e69ede49e7e5939178396014a2",
+      "src/features/learning/management-access.tsx": "3b81abc3db16a2e7f17220ef2319a2b9b666de7609f860ba6a3158006d161703",
+      "src/features/learning/management-tools-assessment.tsx": "0b885ac57ba8df951748baa08b690c320026c63bea256ee939d1b457995bc83d",
+      "src/features/learning/management-tools-controls.tsx": "46a890a9e2377d9bcbdc32798e494a306833e28e433fb89211e268195c4fbc96",
+      "src/features/learning/management-tools-evidence.tsx": "00ae9884c3ce76eb91496abbb7c1bd24e860407b946bcf3e583ed138757f7cb1",
+      "src/features/learning/management-tools-provider.tsx": "6b5d57ee60c1263053cf535ec994c61cefe901dcafe88fd4558c9efc78305f1c",
+      "src/features/learning/management-tools-visuals.tsx": "654b8951f4a77c97a4a144e06f010a36ee2d857783d8481fe6ab4c8fc539dc0f",
+      "src/features/learning/management-tools-workbench.tsx": "09be1d87857a8ee3f3aee51c716fa4ec450e99050efa26f201b356e7a38fb1b4",
+      "src/features/learning/management-tools.css": "f169dd4b491a99e0d2ababb98957e83bafca8f5a28572c0a21db4ba34c47eccf",
+      "src/features/learning/management-tools.tsx": "23f7cf04ad658c995ac67e0d78ab2f6b5a0577d2e9c9eaaccc0d62430bcd06a4",
+      "src/features/portal/portal.tsx": "9c1bb47a357894e88608b7d881de3848b3fd10b20ff1f68240307f028df93efd",
+      "tests/e2e/course-hub.spec.ts": "fc409d6e5082ade8b86cc4e43e6893c7386fa034b6e8d56e45d7a2e772337791",
+      "tests/e2e/management-tools.spec.ts": "623785154a09a87b351bc0100af40656c1b50c6f11a62bad6ca9b36d481ea592",
+      "tests/e2e/storage-resilience.spec.ts": "4a0e3ca001f7c1f3fad994846e635c3bd32778f55dfe4ef8ab6779aeb508dec3",
+      "tests/fixtures/active-teaching-contexts.ts": "22208370670fe931564ae87252f464e343ce16377cf95467abdb6d918c550302",
+      "tests/fixtures/management-tools.ts": "8aeb38e9d236507a45eac65db39b3187c66f6d1b50e1cd5702dd9416f07cc8f8"
     }
   },
-  "implementationFinished": "2026-11-01T08:57:05.771Z"
+  "implementationFinished": "2026-11-01T11:05:49.780Z"
 }

@@ -94,3 +94,7 @@ Retain all190 previous cases. Seven distinct new desktop cases cover Part B cont
 ## P12 / PR37 bounded profile extension
 
 Retain all198 previous executions and their assertions. Eight distinct Governance desktop cases cover Course navigation/resume, metadata/source access, actual Portal policy denial/correction/receipts, management/data lock consequences, immutable first/retry, denied/cross-tab assistance, old-receipt/scoped recovery and keyboard/Axe/short desktop layouts. One justified compact semantic Studio/native-dialog witness adds207 executions (192desktop/15compact); optional full legacy384 remains. Pinned Chromium, worker1 and existing retries/timeouts remain. Complete exact-head CI/strict is authoritative; targeted local checks and collection alone are not activation proof.
+
+## P13 / PR38 bounded profile extension
+
+Retain all207 earlier browser executions and assertions. Eight new Management desktop cases cover third-path navigation/resume, five tools with original local Portal RG/Plan/App receipts/dependency, IaC references/ordering/changes/uncertainty, Arc boundaries, paired immutable first/retry, denied/cross-tab assistance, scoped recovery and keyboard/Axe/code/short desktop layouts. One justified compact semantic Studio/native-dialog witness extends the candidate to216 (200desktop/16compact); optional full legacy400 remains. Pinned Chromium, worker1 and existing retries/timeouts/skips are unchanged. Actual complete exact-head CI/strict is required; collection and targeted local runs are not full-profile proof.

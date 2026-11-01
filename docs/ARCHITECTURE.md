@@ -1,5 +1,9 @@
 # Architecture
 
+## P13 management and deployment
+
+ToolsProvider inside SandboxProvider owns only azurelab.learning.management-tools.v1. Pure typed models evaluate selected tool/environment prerequisites, fictional App Service declaration changes and resource-specific Arc representation. ToolsNativeEvidence replays original pinned Sandbox history and requires new RG/Plan/App receipts plus explicit resource/dependency inspections. It stores pointers, not copied inventory. Navigation-only tools=intent preserves exact return; the operative Portal model and old World/receipts stay unchanged. Shared teaching/Journal/Summary/history/mission/Portal guards include all21 contexts. [Contract](MANAGEMENT_DEPLOYMENT_TOOLS.md).
+
 ## P12 Governance & Compliance
 
 GovernanceProvider lives inside SandboxProvider and owns only azurelab.learning.governance-compliance.v1. Pure data/Policy/lock models are declared educational snapshots, never World writes. The read-only evidence verifier replays the original pinned attempt ledger through inspected command IDs and requires post-start denial plus same-plan correction. It stores references, not an inventory or duplicate receipts. Shared teaching, Journal/history/Summary, missions and Portal shield the new independent context. One navigation-only governance=policy allowlist preserves exact Studio return across ordinary Portal navigation; command semantics are unchanged. See [contract](GOVERNANCE_COMPLIANCE.md).
