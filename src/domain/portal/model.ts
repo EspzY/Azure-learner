@@ -39,6 +39,7 @@ export const benefitBridgeTopics = [
   'sustainability',
 ] as const;
 export interface PortalLocation {
+  tools?: true;
   governance?: true;
   area: Area;
   id: string;
@@ -59,21 +60,27 @@ export function parseLocation(query: URLSearchParams): PortalLocation {
   const area = query.get('area') ?? 'home',
     mode = query.get('mode') ?? 'learn';
   return {
+    ...(query.get('tools') === 'intent' &&
+    !['governance', 'networking', 'compute', 'mission', 'practice', 'bridge', 'lab', 'course'].some(
+      (k) => query.has(k),
+    )
+      ? { tools: true as const }
+      : {}),
     ...(query.get('governance') === 'policy' &&
-    !['networking', 'compute', 'mission', 'practice', 'bridge', 'lab', 'course'].some((k) =>
-      query.has(k),
+    !['tools', 'networking', 'compute', 'mission', 'practice', 'bridge', 'lab', 'course'].some(
+      (k) => query.has(k),
     )
       ? { governance: true as const }
       : {}),
     ...(query.get('networking') === 'inspect' &&
-    !['governance', 'compute', 'mission', 'practice', 'bridge', 'lab', 'course'].some((k) =>
-      query.has(k),
+    !['tools', 'governance', 'compute', 'mission', 'practice', 'bridge', 'lab', 'course'].some(
+      (k) => query.has(k),
     )
       ? { networking: true as const }
       : {}),
     ...(query.get('compute') === 'vm' &&
-    !['governance', 'networking', 'mission', 'practice', 'bridge', 'lab', 'course'].some((k) =>
-      query.has(k),
+    !['tools', 'governance', 'networking', 'mission', 'practice', 'bridge', 'lab', 'course'].some(
+      (k) => query.has(k),
     )
       ? { compute: true as const }
       : {}),
@@ -142,6 +149,7 @@ export function portalHref(
   if (next.networking) query.set('networking', 'inspect');
   if (next.compute) query.set('compute', 'vm');
   if (next.governance) query.set('governance', 'policy');
+  if (next.tools) query.set('tools', 'intent');
   return `/portal?${query}`;
 }
 export type InventoryKind =

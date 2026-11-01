@@ -1,4 +1,6 @@
 'use client';
+import { useTools } from '@/features/learning/management-tools-provider';
+import { toolsHref } from '@/domain/curriculum/management-tools';
 
 import { useGovernance } from '@/features/learning/governance-provider';
 import { governanceHref } from '@/domain/curriculum/governance';
@@ -72,9 +74,16 @@ export function useMissionSafetyContexts(owner?: 'missions') {
     resilience = useResilience(),
     identityState = useIdentity(),
     accessState = useAccess(),
-    governanceState = useGovernance();
+    governanceState = useGovernance(),
+    toolsState = useTools();
   return (
     [
+      {
+        id: 'tools',
+        state: toolsState,
+        active: toolsState.facts.active,
+        href: toolsHref('assessment', toolsState.facts.current?.item),
+      },
       {
         id: 'governance',
         state: governanceState,

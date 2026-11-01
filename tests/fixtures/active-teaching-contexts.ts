@@ -1,4 +1,11 @@
 import {
+  freshTools,
+  applyTools,
+  toolsKey,
+  restoreTools,
+  toolsFacts,
+} from '../../src/domain/curriculum/management-tools';
+import {
   freshGovernance,
   applyGovernance,
   governanceKey,
@@ -113,6 +120,12 @@ function fixture<S>(
 /** Valid records from frozen reducers, never new runtime curriculum. */
 export function activeTeachingContexts() {
   return [
+    fixture(
+      toolsKey,
+      applyTools(freshTools(), { kind: 'begin', item: 'mt01' }),
+      restoreTools,
+      toolsFacts,
+    ),
     fixture(
       governanceKey,
       applyGovernance(freshGovernance(), { kind: 'begin', item: 'gc01' }),

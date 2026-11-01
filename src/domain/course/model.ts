@@ -1,3 +1,4 @@
+import { toolsTopics } from '../curriculum/management-tools';
 import { governanceTopics } from '../curriculum/governance';
 import { accessTopics } from '../curriculum/access-control';
 import { identityTopics } from '../curriculum/identity-foundations';
@@ -20,6 +21,7 @@ import { routes } from '../curriculum/expansion';
 
 export const courseKey = 'azurelab.course.v1';
 export const moduleIds = [
+  'management-tools',
   'governance',
   'access-control',
   'computing',
@@ -112,6 +114,8 @@ const id = (v: unknown): v is string => typeof v === 'string' && /^[a-zA-Z0-9_-]
 const exact = (v: object, keys: string[]) =>
   Object.keys(v).sort().join(',') === keys.sort().join(',');
 export function courseTopic(module: CourseModule, topic: string | null) {
+  if (module === 'management-tools')
+    return (toolsTopics as readonly string[]).includes(topic ?? '') ? topic! : 'introduction';
   if (module === 'governance')
     return (governanceTopics as readonly string[]).includes(topic ?? '') ? topic! : 'introduction';
   if (module === 'access-control')

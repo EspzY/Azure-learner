@@ -5400,6 +5400,7 @@ export const managementNb = {
   accessReload: 'Les lagret vurderingskontekst på nytt',
   accessReview: 'Åpne egen vurdering og lagringskontroll',
   accessContexts: {
+    tools: 'Management & Deployment',
     governance: 'Governance & Compliance',
     access: 'Access Control · Identity Part B',
     identity: 'Identity Foundations',
@@ -5957,6 +5958,7 @@ export const missionsNb = {
   reloadContext: 'Last inn bare denne konteksten',
   reviewContext: 'Åpne kontekstens eksisterende recovery eller vurdering',
   recoveryContexts: {
+    tools: 'Management & Deployment',
     governance: 'Governance & Compliance',
     access: 'Access Control · Identity Part B',
     identity: 'Identity Foundations',
@@ -11356,6 +11358,7 @@ export const courseHubNb = {
     },
   },
   moduleLabels: {
+    'management-tools': 'Management & Deployment Tools',
     governance: 'Governance & Compliance',
     'access-control': 'Part B — RBAC & Conditional Access',
     identity: 'Part A — Identity Foundations',
@@ -11375,9 +11378,10 @@ export const courseHubNb = {
   identity: 'Identity, Access & Security',
   plannedModules: {
     architecture: ['Security Principles (P15)', 'File Movement & Migration (P16)'],
-    management: ['Management Tools', 'Monitoring'],
+    management: ['Monitoring'],
   },
   recordLabels: {
+    tools: 'Management & Deployment',
     governance: 'Governance & Compliance',
     access: 'Access Control · Identity Part B',
     identity: 'Identity Foundations',
@@ -14924,7 +14928,7 @@ export const governanceNb = {
   prerequisites:
     'Forkunnskaper: Cost Management om tags og ansvar, Core Architecture om scopes og Access Control om tillatelser. De gamle resultatene dine forblir separate.',
   available:
-    'Purview, Azure Policy og Resource Locks med et kort Service Trust Portal-supplement. Management Tools og Monitoring er fortsatt planlagt.',
+    'Purview, Azure Policy og Resource Locks med et kort Service Trust Portal-supplement. Management & Deployment følger i samme læringssti; Monitoring kommer senere.',
   perspective: 'Perspektiver i Governance Decision Studio',
   studioLead:
     'Velg datastyring, Policy eller ressursbeskyttelse. Forutsi, kjør og sammenlign deklarerte konsekvenser. Faktiske lokale Policy-receipts holdes separat fra konseptmodellene.',
@@ -15891,3 +15895,1199 @@ export const governanceItemsNb = {
       'CanNotDelete kan beskytte ressursens livsløp uten å blokkere all management-endring. Historisk datagjenoppretting er et eget, støttet og testbart behov.',
   },
 } as const;
+
+export const toolsNb = {
+  milestoneNotice:
+    'Forklaringen bygger på lagrede, validerte modellresultater. Den er veiledning, ikke en selvstendig besvarelse eller en Azure-kvittering.',
+  pauseGuided: 'Sett oppdraget på pause',
+  recallGuided: 'Gjenoppta lagret management-/deployment-undersøkelse',
+  assessmentActive: 'En annen selvstendig management-/deployment-situasjon er aktiv.',
+  currentFeedback: 'Feedback — Management & Deployment',
+  historyFeedback: 'Tidligere Management & Deployment-arbeid',
+  labels: {
+    terms: 'Begreper i denne forklaringen',
+    example: 'Gjennomarbeidet eksempel',
+    limits: 'Avgrensning og moteksempel',
+    sources: 'Offisielle kilder · kontrollert 1. november 2026',
+    model: 'Deklarert konseptmodell — ingen shell eller deployment kjøres',
+    configured: 'Undersøk deklarerte valg og forutsetninger',
+    observed: 'Sist lagrede observasjon',
+    predicted: 'Din prediksjon',
+    result: 'Modellens resultat',
+    run: 'Kjør konseptmodell',
+    predict: 'Forutsi konsekvensen under disse forutsetningene',
+    cause: 'Forklar årsaken',
+    explain: 'Lagre årsaksforklaring',
+    done: 'Guidet anvendelse dokumentert',
+    pending: 'Ikke dokumentert ennå',
+    begin: 'Åpne SavvyShark-briefing',
+    cancel: 'Avbryt',
+    recall: 'Gjenåpne briefing',
+    next: 'Neste handling',
+    where: 'Hvor finner du kontrollen?',
+    why: 'Hvorfor gjør du dette?',
+    expected: 'Hva skal du observere?',
+    actual: 'Faktisk registrert',
+    aided: 'Med registrert hjelp',
+    retry: 'Gjeneksponert familie / retry',
+    unaided: 'Første uassisterte forsøk',
+    guided: 'Guidede oppdrag',
+    visited: 'Undervisningsaktiviteter åpnet',
+    independent: 'Uavhengige innleveringer',
+    noXp: 'Ingen XP eller automatisk godskriving av tidligere kompetanse.',
+    human:
+      'Kvalifisert menneskelig Azure-SME-, novice/IT-, UX-, skjermleser- og målt transfer-validering er ikke gjennomført.',
+    switch:
+      'Ett guidet oppdrag er nåværende. Gjenoppta et lagret oppdrag for å beholde dets forutsetninger og observasjoner, eller start et nytt forsøk. Pause og vanlig navigasjon sletter ikke arbeidet.',
+    current: 'Fortsett nåværende oppdrag',
+    notice:
+      'Start lagrer en lokal undersøkelse og eventuelle tekniske referanser. Konseptvalg utfører aldri kommandoer. Bruk ordinær Portal for faktisk lokalt arbeid.',
+    predictionOptions: [
+      'Velg prediksjon før kjøring',
+      'Avslag eller avgrenset forutsetning ikke møtt',
+      'Avvik, avklaring eller utenfor støtte',
+      'Avgrenset forutsetning møtt',
+    ],
+    chooseCause: 'Velg årsaksforklaring',
+    intent: 'Same Intent, Different Tools',
+    change: 'IaC & Change Explorer',
+    arc: 'Azure Arc & Hybrid Management',
+  },
+  storage: {
+    loading: 'Laster Management & Deployment …',
+    title: 'Management & Deployment-historikken må avklares',
+    text: 'Data kan ikke brukes sikkert. Gjenopprett bare denne ugyldige læringskontrakten etter eksplisitt bekreftelse.',
+    reload: 'Last inn Management & Deployment på nytt',
+    recover: 'Gjenopprett bare Management & Deployment-data',
+    confirm: 'Bekreft isolert gjenoppretting',
+    cancel: 'Behold data',
+    capacity:
+      'Ny aktivitet er stanset ved hendelsesgrensen. Et aktivt forsøk kan fortsatt lagre siste svar, registrere hjelp og levere eller avbryte. En allerede undersøkt guidet aktivitet kan avsluttes.',
+    failed: 'Handlingen ble ikke varig lagret. Ingen faglig fullføring er registrert.',
+    milestones:
+      'Automatiske forklaringer er satt på pause fordi visningshistorikken ikke kan bekreftes. Arbeidet kan fortsette; forklaringen kan åpnes manuelt når konteksten er trygg.',
+    unsafe:
+      'Automatisk veiledning er skjermet under aktiv selvstendig vurdering eller usikker lagring. Åpne vurderings-/recovery-konteksten nedenfor.',
+    ownDraft: 'Sist leste oppgaveutkast · endring og innlevering sperret til trygg reload',
+  },
+  assessment: {
+    title: 'Selvstendig Management & Deployment-anvendelse',
+    intro:
+      'Velg en faglig forsvarlig beslutning og begrunnelsen som best forklarer hele valget under alle oppgitte krav. Et sant, men ufullstendig eller irrelevant utsagn er ikke tilstrekkelig. Flere tilbudte beslutninger kan være gyldige når premissene tillater det. Hvert forsøk vurderer ditt valgte par.',
+    rules:
+      'Første besvarelse låses ved innlevering. Ingen fasit eller løsningsguide vises under arbeidet. Åpning av teori, Journal, Summary eller tidligere feedback krever varig registrert hjelp i alle aktive kontekster. Samme familie senere er retry, også etter avbrudd.',
+    case: 'Velg scenario',
+    result: 'Resultat for dette paret',
+    decision: 'Din beslutning',
+    reason: 'Begrunnelsen som best forklarer hele valget',
+    draft: 'Varig lagret utkast',
+    unaided: 'Første uassisterte forsøk',
+    assisted: 'Med registrert hjelp',
+    retried: 'Gjeneksponert familie / retry',
+    first: 'Første innlevering',
+    pass: 'Faglig forsvarlig beslutning og begrunnelse i denne situasjonen',
+    fail: 'Beslutning og begrunnelse tilfredsstiller ikke kravene sammen',
+    start: 'Start selvstendig forsøk',
+    retry: 'Start nytt forsøk',
+    submit: 'Lever beslutning og begrunnelse',
+    abandon: 'Avbryt forsøket',
+    help: 'Be om hjelp i relevant undervisning',
+    neutral:
+      'Vurder begge valgene under de oppgitte premissene. Ingen av valgene er forhåndsvalgt; riktig beslutning med feil teknisk årsak godkjennes ikke.',
+    history: 'Undersøk tidligere innleveringer',
+    alternatives: 'Alle alternativer og endrede forutsetninger',
+    repeat: 'Repeter presis undervisningsaktivitet',
+  },
+  summaryBoundary:
+    'Besøk, guidede undersøkelser, faktiske lokale receipts, førsteinnleveringer, hjelp og retry er forskjellige registreringer. Modellen er ikke en faktisk Azure-deployment eller dokumentert studentmestring.',
+  model: {
+    snapshot: 'Lagret, avgrenset undervisningsobservasjon',
+    noRun: 'Start, velg forutsetninger og forutsi før en observasjon lagres.',
+    draftChanged:
+      'Kontrollene er endret. Dette resultatet viser fortsatt den lagrede konfigurasjonen. Kjør igjen for et nytt resultat.',
+    outcome: [
+      'Forutsetninger eller modellstruktur passer ikke',
+      'Avklaring eller flere forutsetninger kreves',
+      'Deklarerte modellforutsetninger er møtt',
+    ],
+    yes: 'Ja',
+    no: 'Nei',
+  },
+  links: {
+    title: 'Relevante forkunnskaper',
+    core: 'Core Architecture — scopes',
+    identity: 'Access Control — principal og tillatelse',
+    cost: 'Cost Management — tags',
+    sandbox: 'Fri Portal-sandbox',
+    governance: 'Governance & Compliance — relevante kontroller',
+  },
+  title: 'Management & Deployment Tools',
+  part: 'Grensesnitt, ARM, Infrastructure as Code og Azure Arc',
+  path: '03 — Azure Management & Governance',
+  perspective: 'Perspektiver i Management & Deployment Studio',
+  overview:
+    'Følg en administrativ intensjon gjennom verktøy, management-lag og ressurskonfigurasjon — og kontroller hva resultatet faktisk beviser.',
+  prerequisites:
+    'Forkunnskaper: Core Architecture om scope og ressurser, Access Control om tillatelser og Governance om konfigurasjonskrav og locks. Tidligere resultater beholdes separat.',
+  available:
+    'Portal, Cloud Shell, CLI, PowerShell, ARM, IaC, Bicep og Arc er tilgjengelig som undervisning. Monitoring kommer senere.',
+  studioLead:
+    'Velg verktøyperspektiv, deklarativ endring eller Arc. Konseptberegninger og illustrerte tekster holdes tydelig adskilt fra faktiske lokale Portal-operasjoner.',
+  topics: {
+    introduction: 'Fra intensjon til konfigurasjon',
+    portal: 'Azure Portal',
+    shell: 'Azure Cloud Shell',
+    cli: 'Azure CLI',
+    powershell: 'Azure PowerShell',
+    arm: 'Azure Resource Manager',
+    iac: 'Infrastructure as Code',
+    templates: 'ARM templates',
+    bicep: 'Bicep',
+    changes: 'Parametere, dependencies og What-if',
+    arc: 'Azure Arc',
+    copilot: 'Copilot — kort supplement',
+    studio: 'Management & Deployment Studio',
+    missions: 'Guidede undersøkelser',
+    assessment: 'Selvstendig anvendelse',
+    summary: 'Summary — Management & Deployment',
+  },
+  sections: {
+    introduction: {
+      title: 'Fra administrativ hensikt til etterprøvbar konfigurasjon',
+      paragraphs: [
+        'Fjordverk har bestemt hvem som får administrere Azure og hvilke krav ressursene skal følge. Nå trenger teamene en trygg måte å opprette, undersøke og gjenskape konfigurasjon på. En enkelt Resource Group kan være enkel å opprette manuelt. Ti miljøer med like avhengigheter krever også en forståelig definisjon, riktige parametere og kontroll av resultatet.',
+        'En administrativ intensjon er målet du vil oppnå: opprette en gruppe, endre en ressurs eller undersøke hvorfor noe feilet. Verktøyet uttrykker intensjonen. Azure Resource Manager, ARM, er management-laget som behandler relevante kontrollplanrequests og sender dem til riktig resource provider. Leverandøren av ressurstypen utfører den støttede tjenesteoperasjonen. En tegnet flyt eller sendt request beviser ikke at operasjonen lyktes.',
+        'Vi skiller derfor mellom forfatting, innsending, management-resultat og applikasjonsdrift. En gyldig beskrivelse kan mangle nødvendige tillatelser. En autorisert request kan møte Policy eller Resource Locks. En opprettet Web App kan fortsatt mangle kode, riktig applikasjonskonfigurasjon eller fungerende avhengigheter. Korrekt kontrollplan er nødvendig i mange oppgaver, men dokumenterer ikke hele løsningen.',
+        'Fra Core Architecture tar vi med scope, ressurs-ID og forholdet mellom medlemskap og avhengighet. Fra Access Control tar vi med identitet og rettigheter; fra Governance tar vi med regler og locks. Her undersøker vi hvordan grensesnitt, automatisering og deklarative definisjoner bruker disse forutsetningene. De gamle besvarelsene dine får ikke ny betydning.',
+      ],
+      terms: [
+        [
+          'Administrativ intensjon',
+          'Et konkret ønsket management-resultat, uttrykt gjennom et valgt grensesnitt.',
+        ],
+        [
+          'Etterprøving',
+          'Kontroll av faktisk operasjonsstatus og konfigurasjon, med separat vurdering av drift.',
+        ],
+      ],
+      example:
+        'Fjordverk vil opprette en gruppe for testmiljøet. Portal, Azure CLI og Azure PowerShell kan uttrykke dette, mens en ARM-/Bicep-definisjon kan beskrive ønsket gruppe. Alle krever riktig mål-scope og relevante rettigheter; ingen av dem gjør en ukorrekt konfigurasjon sikker av seg selv.',
+      limit:
+        'AzureLab har én faktisk lokal Sandbox. Illustrerte shell-kommandoer, templates, What-if og Arc er ikke operative Azure-funksjoner.',
+    },
+    portal: {
+      title: 'Azure Portal gir et grafisk arbeidsrom for administrasjon',
+      paragraphs: [
+        'Azure Portal er Microsofts nettbaserte, grafiske konsoll for å finne, opprette, konfigurere og undersøke Azure-ressurser. Home gir innganger og nylig besøkte ressurser. Den globale søkeboksen finner tjenester, ressurser og dokumentasjon. Portalmenyen åpner tjenester; et tjeneste- eller ressursmenysett viser handlinger som gjelder den aktuelle konteksten. Breadcrumbs hjelper deg tilbake i arbeidsflyten.',
+        'Se først på katalog-/subscription-kontekst og filtrering, deretter ressursens faktiske scope. To ressurser kan ha like navn i forskjellige Resource Groups eller subscriptions. Ressurs-ID og type er bedre identifikatorer enn bare navnet. Et filter kan skjule en ressurs uten å slette den; tilgangsrettigheter kan begrense det du ser. Å bytte visning tildeler ingen nye rettigheter.',
+        'For en ny Resource Group velger du Resource groups → Create, angir Subscription, Resource group og Region, kontrollerer Review + create og sender Create. Gruppens Region gjelder gruppemetadata, ikke en automatisk region for alle medlemmene. Etterpå undersøker du status og åpner gruppens egenskaper. En gjennomført review-side er en konfigurasjonskontroll, ikke en godkjent opprettelse.',
+        'Portal passer godt til orientering, sjeldne endringer, visuell undersøkelse og veivisere. Dashboards kan samle relevante visninger, men er ikke den autoritative ressurskonfigurasjonen. For mange gjentatte oppgaver kan skript eller deklarative definisjoner gjøre endringer mer etterprøvbare. Det finnes ingen universell regel om at det grafiske grensesnittet er bedre eller dårligere enn kommandolinjen.',
+      ],
+      terms: [
+        [
+          'Globalt og kontekstuelt',
+          'Søk/portalmeny er brede innganger; ressursmeny og command bar gjelder valgt arbeid.',
+        ],
+        ['Review → Create → resultat', 'Tre forskjellige stadier; les utfallet etter innsending.'],
+      ],
+      example:
+        'En operatør undersøker en bestemt Web App: finn riktig subscription og gruppe, kontroller ressurs-ID, åpne Properties og undersøk relevante operation-/deployment-detaljer. En akseptert konfigurasjon og en tegnet hosting-relasjon er fortsatt ikke bevis på at nettstedets kode kjører.',
+      limit:
+        'AzureLab Portal tilbyr bare sine eksisterende støttede kontroller. Den er en lokal simulator, ikke innlogging til Microsoft Azure eller en full kopi av alle Portal-funksjoner.',
+    },
+    shell: {
+      title: 'Cloud Shell er et miljø — ikke et synonym for CLI',
+      paragraphs: [
+        'Azure Cloud Shell er en autentisert terminalopplevelse tilgjengelig i nettleseren, blant annet fra Azure Portal og shell.azure.com. Microsoft leverer det midlertidige arbeidsmiljøet med relevante verktøy. Du velger Bash eller PowerShell som shell. Et shell tolker kommandoer og skript; et verktøy som Azure CLI eller Az-modulene utfører sine egne definerte kommandoer i et passende miljø.',
+        'Azure CLI kan brukes i Bash, PowerShell og andre støttede lokale shell. Azure PowerShell krever PowerShell med de relevante Az-modulene. Cloud Shell gir deg tilgang til disse uten lokal installasjon. Du kan derfor gjenbruke riktig kommandosyntaks i et annet egnet miljø, men må ta hensyn til quoting, variabler og linjefortsettelse i det valgte shellet. Bash er ikke Azure CLI, og et PowerShell-vindu er ikke automatisk et installert Az-verktøysett.',
+        'Cloud Shell har både ephemeral sessions uten storage account og en lagringskonfigurert variant. Filer i en ephemeral session overlever ikke at sesjonen avsluttes. Ved vedvarende lagring brukes relevant Azure Files-/Storage-konfigurasjon med egne kostnader og tillatelser. Det er derfor feil å si at hver Cloud Shell-økt alltid krever et eget lagringskontooppsett. Tilgjengelighet, provider-/nettverksforutsetninger og organisasjonens regler må fortsatt kontrolleres.',
+        'Autentisering gjør identiteten kjent; subscription-kontekst, RBAC og øvrige kontroller bestemmer hva du kan gjøre. Cloud Shell er et interaktivt, midlertidig miljø, ikke en garantert permanent jobbserver for nattlige produksjonsjobber. Skript, parameterfiler og nødvendig arbeidsgrunnlag må lagres og håndteres bevisst; ikke anta at lokale sesjonsfiler er en backup.',
+      ],
+      terms: [
+        ['Shell', 'Miljøet som tolker kommandoer, eksempelvis Bash eller PowerShell.'],
+        [
+          'Ephemeral session',
+          'Midlertidig Cloud Shell uten krav om lagringskonto; sesjonsfiler beholdes ikke.',
+        ],
+      ],
+      example:
+        'En medarbeider har en låst PC og skal undersøke en godkjent subscription i nettleseren med kjente Az-cmdlets. Cloud Shell med PowerShell er et relevant miljø. En eksisterende Bash-basert automatiseringsjobb kan i stedet bruke installert Azure CLI i sitt godkjente kjøremiljø.',
+      limit:
+        'Her åpnes ingen autentisert terminal. Ingen passord, token, Cloud Shell-lagring eller ekte shell-session opprettes.',
+    },
+    cli: {
+      title: 'Azure CLI uttrykker administrative handlinger med az',
+      paragraphs: [
+        'Azure Command-Line Interface, Azure CLI, er et plattformuavhengig kommandolinjeverktøy for Azure. Kommandoer følger blant annet mønsteret az → command group → command → parametere. az group create uttrykker opprettelse eller oppdatering av en Resource Group; az group show undersøker en bestemt gruppe. Det er forskjell på et program, dets kommandosyntaks og shellet som starter programmet.',
+        'Et kildeverifisert gruppeeksempel er az group create --name rg-fjordverk-lab --location norwayeast --subscription <subscription-id>. Den siste verdien er en eksplisitt plassholder, ikke en AzureLab-subscription som kan brukes mot Azure. I en virkelig økt må riktig identitet og mål velges først. Du kontrollerer utfallet og den faktiske ressursen etterpå; en skrevet eller sendt kommandolinje er ikke en receipt.',
+        'Azure CLI kan brukes interaktivt, lokalt installert på støttede operativsystemer eller i et egnet automatiseringsmiljø. Flere kommandoer kan inngå i et Bash- eller PowerShell-skript. Skript kan håndtere gjentakelse, inndata og feil, men må gjøre det riktig. Å kopiere en kommando hundre ganger gir ikke automatisk idempotens, gjennomgåtte endringer eller korrekt mål-scope.',
+        'CLI returnerer normalt JSON og kan tilby andre output-formater. En kommandofeil må håndteres som en feil, ikke som vellykket opprettelse fordi en senere logglinje ble skrevet. Azure CLI og Azure PowerShell overlapper i administrasjonsmuligheter, men har forskjellig syntaks, output og utgivelsestakt. Tjenester og nye funksjoner kan ha ulik støtte mellom klientene.',
+      ],
+      terms: [
+        [
+          'az group create',
+          'Azure CLI-handling med eksplisitte parametere for gruppe og metadataregion.',
+        ],
+        [
+          'Imperativ handling',
+          'En beskjed om en operasjon; selv et skript med flere slike er ikke dermed en deklarativ ARM-template.',
+        ],
+      ],
+      example:
+        'Fjordverk har en godkjent jobb som leser en liste over prosjektgrupper og bruker az-kommandoer med feilkontroll. Det er et annet behov enn en nybegynner som vil se én ressurs grafisk. Valget følger arbeidsflyt og kompetanse, ikke hvilket verktøy som har kortest navn.',
+      limit:
+        'Eksemplene er originale illustrasjoner, ikke kjørte kommandoer. De autentiserer ikke, oppretter ikke Azure-ressurser og garanterer ikke syntaksstøtte for alle fremtidige versjoner.',
+    },
+    powershell: {
+      title: 'Azure PowerShell bruker Az-moduler og objekter',
+      paragraphs: [
+        'Azure PowerShell er Microsofts moduler for Azure-administrasjon gjennom PowerShell. Den nåværende modulfamilien heter Az. PowerShell er selv et shell og skriptspråk; Az.Resources og andre tjenestemoduler tilfører cmdlets. Det er derfor upresist å bruke Azure PowerShell som navn på enhver PowerShell-installasjon.',
+        'Det tilsvarende gruppeeksemplet er New-AzResourceGroup -Name rg-fjordverk-lab -Location norwayeast. Subscription velges i en relevant kontekst, eksempelvis med Set-AzContext -Subscription <subscription-id>. Cmdlets bruker verb–noun-navn og returnerer normalt objekter som kan føres gjennom en PowerShell-pipeline. Azure CLI bruker az-syntaks selv om du starter CLI fra PowerShell; det blir ikke en New-Az-kommando av den grunn.',
+        'Az kan installeres lokalt på støttede plattformer eller brukes i Cloud Shell med PowerShell. Valget kan bygge på teamets eksisterende PowerShell-skript, objektbehandling, verktøystøtte og krav til kjøremiljø. Et godkjent automatiseringsmiljø trenger fortsatt passende autentisering og minst nødvendige tillatelser. Vi oppretter ingen slik identitet eller jobb i AzureLab.',
+        'Både CLI og Az kan utføre administrative enkelthandlinger og starte deklarative deployments. Et PowerShell-skript som sender en ARM-template, gjør ikke selve templaten imperativ. Omvendt er en liste over cmdlets fortsatt handlingsorientert selv om filen ligger i versjonskontroll. Skillet gjelder det som beskrives, ikke bare filnavn eller hvilket program som sender requesten.',
+      ],
+      terms: [
+        ['Az', 'Den nåværende modulfamilien for Azure PowerShell.'],
+        [
+          'Objektpipeline',
+          'Behandling av strukturert PowerShell-output, i stedet for å anta at alle resultater er tekstlinjer.',
+        ],
+      ],
+      example:
+        'Et driftsteam vedlikeholder en eksisterende objektpipeline og trenger Resource Group-egenskaper. Get-AzResourceGroup passer naturlig inn. En annen gruppe kan bruke az group show og JSON. Begge må undersøke riktig subscription og tolke faktiske feil.',
+      limit:
+        'Eldre AzureRM-eksempler skal ikke presenteres som dagens anbefalte Az-syntaks. AzureLab kjører verken PowerShell, Az-moduler eller Microsoft Graph.',
+    },
+    arm: {
+      title: 'ARM er management-laget — templaten er en beskrivelse',
+      paragraphs: [
+        'Azure Resource Manager, ARM, er Azures deployment- og management-tjeneste. For relevante kontrollplanhandlinger får den en request fra Portal, Azure CLI, Azure PowerShell, et SDK eller en REST-klient. Requests må autentiseres og autoriseres, og relevante konfigurasjonskontroller må møtes. ARM sender videre til riktig resource provider. Mange datatransaksjoner går derimot direkte til en tjenestes data plane; ikke lær dette som at enhver byte alltid går gjennom ARM.',
+        'En resource provider implementerer bestemte Azure-ressurstyper og API-operasjoner. Microsoft.Resources/resourceGroups representerer grupper. Microsoft.Web/serverfarms er App Service Plans og Microsoft.Web/sites er Web Apps. Provider/type sier hva slags ressurs som håndteres; ressurs-ID identifiserer et konkret objekt i sitt scope. En applikasjons URL og dens ARM resource ID er forskjellige identifikatorer.',
+        'For en vanlig gruppebasert ressurs inneholder ID-en subscription, Resource Group, provider/type og navn. Opprettelse av selve Resource Group retter seg derimot mot subscription-scope. ARM-template deployments kan målrettes mot Resource Group, subscription, management group eller tenant, med støttede typer og rettigheter på det valgte nivået. Dette er ikke det samme som å si at enhver ressurstype kan opprettes ved alle scopes.',
+        'Providerregistrering og støtte for API/region er relevante forutsetninger. Portal og template-deployments kan registrere relevante providers automatisk i støttede situasjoner; andre eller støttende providers kan kreve registrering. Nødvendige rettigheter må finnes, og et samlet «registering»-navn er ikke bevis for at alle regioner er klare eller utilgjengelige. Modellen vår bruker en eksplisitt premiss om at akkurat den relevante provider-operasjonen er tilgjengelig; den simulerer ingen registrering.',
+      ],
+      terms: [
+        ['ARM', 'Felles management- og deployment-lag for relevante Azure-kontrollplanrequests.'],
+        ['Resource provider', 'Tjenestens implementasjon av støttede ressurstyper og operasjoner.'],
+        ['Resource ID', 'Identifikator med scope/type/navn; ikke et bevis på faktisk drift.'],
+      ],
+      example:
+        'En gruppeopprettelse går mot Microsoft.Resources ved subscription-scope. En senere Web App-konfigurasjon går mot Microsoft.Web i riktig gruppe og peker til en plan. Samme management-intensjon kan uttrykkes i forskjellige klienter, men en klient kan ikke gjøre manglende rettigheter eller en relevant Policy usynlig.',
+      limit:
+        'AzureLab har ikke ARM som backend. Våre eksisterende lokale kommandoer og receipts er avgrensede simulatorbevis; de er ikke Azure deployment history eller API-responser.',
+    },
+    iac: {
+      title: 'Infrastructure as Code gjør konfigurasjon gjennomgåelig',
+      paragraphs: [
+        'Infrastructure as Code, IaC, betyr å forvalte infrastruktur gjennom kodebaserte beskrivelser og automatisering fremfor bare manuelle klikk. En imperativ tilnærming beskriver handlinger: opprett gruppe, opprett plan, opprett app. En deklarativ tilnærming beskriver ønsket konfigurasjon og relasjoner; verktøyet og plattformen håndterer støttede operasjoner. ARM JSON og Bicep er deklarative. IaC er et bredere arbeidsprinsipp enn ett filformat.',
+        'Fjordverk kan lagre en felles beskrivelse i Git, foreslå en endring, få review og bruke parameterverdier for test og produksjon. Diff viser hva forfatteren endret; parameterfiler viser miljøvalg. Det gjør oppsett mer etterprøvbart og reduserer manuell inkonsistens. En historikk med godkjente endringer hjelper teamet å forstå hvorfor en konfigurasjon ble valgt og å gjenskape relevant oppsett.',
+        'Gjentakbarhet betyr ikke at hvilken som helst fil alltid gir samme faktiske miljø. API-støtte, eksisterende tilstand, parameterverdier, tjenesteegenskaper og driftsendringer har betydning. Idempotens beskriver at gjentatt anvendelse av samme ønskede konfigurasjon under relevante forutsetninger ikke stadig oppretter nye kopier. Bytter du navn eller scope, kan det likevel være en ny ressurs. Samme fil med andre parametere er ikke nødvendigvis samme ressurs.',
+        'En korrekt gjennomgått fil er ikke alene en sikkerhetskontroll. Rettigheter, Policy, locks, nettverk, data og applikasjonskonfigurasjon må fortsatt vurderes. Et behov for en konkret operativ handling, som en planlagt VM-restart, kan fortsatt passe bedre som en eksplisitt handlingsorientert arbeidsflyt. Deklarativ konfigurasjon og driftsoperasjoner supplerer hverandre; ingen tilnærming er alltid best.',
+      ],
+      terms: [
+        ['Imperativ', 'Beskriver handlinger som skal utføres.'],
+        ['Deklarativ', 'Beskriver ønsket ressurskonfigurasjon og relasjoner.'],
+        [
+          'Versjonskontroll',
+          'Sporbare fil-/parameterendringer; ikke automatisk godkjenning av innholdet.',
+        ],
+      ],
+      example:
+        'To team skal lage like testmiljøer. En delt template med gjennomgåtte parametere er mer etterprøvbar enn to usammenhengende klikksekvenser. Dersom ett team endrer navneparameteren, må revieweren undersøke om endringen oppretter nye ressurser i stedet for å endre de gamle.',
+      limit:
+        'IaC garanterer ikke sikkerhet, korrekt applikasjonskode, datamigrering eller vellykket drift. Hemmeligheter skal ikke legges i vanlig kildekode; AzureLab ber ikke om noen.',
+    },
+    templates: {
+      title: 'Les ARM JSON som en kontrakt for ønsket konfigurasjon',
+      paragraphs: [
+        'En ARM template er et JSON-dokument med et definert deployment-schema. contentVersion angir forfatterens innholdsversjon; apiVersion i en ressursdefinisjon velger ressurs-API-kontrakten. Dette er to forskjellige versjoner. En velformet JSON-fil er bare et første steg: scope, typer, felter, funksjonsuttrykk og støtte må også være korrekte.',
+        'Parameters er verdier som kan gis ved deployment, eksempelvis miljønavn og costCenter. Variables setter sammen gjenbrukte verdier, eksempelvis et plannavn avledet fra miljøparameteren. Resources beskriver ressursene med type, navn, location og relevante properties. Outputs returnerer uttrykk eller ressursverdier etter en faktisk deployment; en output som inneholder en ID eller adresse er ikke en måling av applikasjonshelse.',
+        'En liten gruppebasert beskrivelse kan definere Microsoft.Web/serverfarms og Microsoft.Web/sites. Appens serverFarmId peker mot planen. I illustrasjonen brukes resourceId til å danne ID-en og dependsOn til eksplisitt deployment-rekkefølge. Oppføringenes rekkefølge i JSON-arrayet bestemmer ikke alene deployment-rekkefølgen. Et navn som peker til en plan som ikke er definert eller finnes under de oppgitte premissene, må undersøkes.',
+        'Incremental deployment er standard og er konteksten i vår endringsmodell. Utelatte ressurser i gruppen slettes ikke bare fordi de mangler i filen. For ressurser som er med, kan derimot utelatte properties gå tilbake til standardverdier; incremental betyr ikke en universell «patch bare dette feltet»-operasjon. Complete mode har slettingsrisiko og anbefales ikke som ny normal arbeidsflyt i gjeldende dokumentasjon; deployment stacks er relevant videre kontekst, ikke en funksjon vi bygger her.',
+      ],
+      terms: [
+        ['Parameters / variables', 'Inndata og avledede gjenbrukte verdier.'],
+        [
+          'Resources / outputs',
+          'Ønskede ressursdefinisjoner og verdier returnert fra en faktisk deployment.',
+        ],
+        [
+          'Deployment-avhengighet',
+          'Styrer rekkefølge ved opprettelse; er ikke det samme som en målt runtime-forbindelse.',
+        ],
+      ],
+      example:
+        'Fjordverk endrer en tag i sin template. Den fiktive før-/etter-modellen kan vise endret ønsket metadata på to ressurser. Den beviser ikke at Azure har mottatt filen, at en faktisk Modify lyktes, eller at alle utelatte service-properties automatisk beholdes.',
+      limit:
+        'Studio kjenner bare to eksplisitte fiktive konfigurasjoner og utvalgte felter. Det parser ikke vilkårlig JSON, støtter ikke hele ARM-språket og utfører ingen incremental eller complete deployment.',
+    },
+    bicep: {
+      title: 'Bicep forenkler forfatting og bruker fortsatt ARM',
+      paragraphs: [
+        'Bicep er et deklarativt språk for Azure-infrastruktur. Det tilbyr kortere ressursdeklarasjoner, parametere, variabler, outputs og symbolske navn. Der ARM JSON bruker bracketed expressions som parameters og resourceId, kan Bicep referere direkte til en ressurs med et symbolsk navn, for eksempel plan.id.',
+        'Bicep bygges til en JSON ARM template. De støttede deployment-verktøyene kan utføre konverteringen automatisk når du deployer en Bicep-fil. ARM og resource provider er fortsatt sentrale; Bicep er ikke en ny autorisasjonsvei, en erstatning for provider-API-et eller en måte å omgå Policy og locks på. En vellykket kompilering er heller ikke en vellykket Azure-deployment.',
+        'Når en Bicep-ressurs bruker en annen ressursdeklarasjons egenskaper, kan Bicep etablere en implisitt deployment-avhengighet. En Web App med serverFarmId: plan.id får derfor rekkefølge fra den symbolske referansen. En bokstavelig ID-streng gir ikke samme garanti. Eksplisitt dependsOn kan brukes når nødvendig, men unødvendige avhengigheter begrenser parallellisering.',
+        'De samme forretningsvalgene må vurderes i begge språk: hvilke navn parameterne gir, hvilket scope som brukes, hva som er gammelt eller nytt, og hvilke avhengigheter som faktisk er gyldige. JSON og Bicep er ulike måter å forfatte ønsket tilstand, ikke henholdsvis en ekte og en mindre ekte Azure-ressurs. Språk- og API-versjoner kan ha ulike tilgjengelige egenskaper.',
+      ],
+      terms: [
+        [
+          'Symbolsk ressursnavn',
+          'Et forfatternavn, eksempelvis plan, som kan brukes for ressursreferanser.',
+        ],
+        [
+          'Bicep → ARM JSON',
+          'Konvertering av beskrivelsen; ingen autorisasjons- eller runtime-garanti.',
+        ],
+      ],
+      example:
+        'I et tomt undervisningsmiljø gir Bicep plan.id en implisitt avhengighet. Den viste ARM JSON-varianten bruker resourceId og et eksplisitt dependsOn. Fjerner du bare dependsOn i JSON, skaper ikke selve resourceId-strengen en tilsvarende rekkefølge.',
+      limit:
+        'Vi viser originalt genererte illustrative tekster fra typesikre valg. Ingen Bicep-kompilator, vilkårlig kode eller deployment-runtime kjøres i AzureLab.',
+    },
+    changes: {
+      title: 'Parametere, avhengigheter og What-if må tolkes sammen',
+      paragraphs: [
+        'En endringsanalyse starter med korrekt førtilstand, ønsket definisjon og faktiske parameterverdier. Nytt miljønavn kan gi nye ressursnavn. Ny costCenter-verdi kan beskrive endret metadata. En uendret definisjon kan likevel møte andre eksterne forhold. Et Git-diff viser filendringen, mens en management-endringsanalyse sammenligner den resulterende konfigurasjonen med eksisterende ressurser.',
+        'Kontroller både referansen og rekkefølgen. resourceId danner en identifikator; den oppretter ikke målet. I vår ARM JSON-illustrasjon må en ny plan opprettes før appen kan bruke den. Bicep kan utlede dette fra plan.id. En sirkel der plan venter på app og app venter på plan er ikke en gyldig etableringsrekkefølge. Hvis en plan allerede finnes, er dette en annen forutsetning enn et tomt miljø; ikke trekk samme slutning om alle manglende dependsOn.',
+        'ARM What-if forsøker å forhåndsvise management-endringer uten å endre de eksisterende ressursene. Den kan indikere Create, Modify, NoChange eller andre relevante endringstyper. Den krever relevante rettigheter, inkludert samme write-/deployment-rettigheter som beskrevet for deployment; «viser bare en preview» betyr ikke at Reader alltid er nok. Resultatet må leses med korrekt scope, modus og parametere.',
+        'What-if har grenser og kan ha uavklarte uttrykk, rapporterte endringer som ikke ender som reelle endringer, eller Ignore når utvidelsesgrenser nås. Validering, forventet endring, faktisk deployment og senere applikasjonshelse er fire ulike bevis. Før en virkelig endring må en operatør gjennomgå forventningene og etterpå kontrollere faktisk operasjonsstatus og konfigurasjon, samt relevante driftsmålinger separat.',
+      ],
+      terms: [
+        [
+          'Referanse versus rekkefølge',
+          'Hvilken ressurs brukes, og når kan den være tilgjengelig?',
+        ],
+        [
+          'What-if',
+          'Forventet management-differanse med begrensninger; ikke en utført deployment.',
+        ],
+      ],
+      example:
+        'Fjordverk endrer en miljøparameter fra dev til prod. Dersom navn avledes fra verdien, kan resultatet være to nye ressurser mens gamle dev-ressurser blir stående ved incremental deployment. Det er ikke automatisk en oppgradering, flytting eller sletting av det gamle miljøet.',
+      limit:
+        'Vår sammenligning er en deterministisk differanse mellom deklarerte fiktive tilstander. Den er ikke et Azure What-if-resultat og dokumenterer verken gyldighet i alle API-versjoner eller vellykket drift.',
+    },
+    arc: {
+      title: 'Azure Arc utvider management — ressursen blir ikke flyttet',
+      paragraphs: [
+        'Fjordverk har en Azure VM, en server i eget datasenter og en server hos en annen cloud-leverandør. De to siste skal fortsatt kjøre der de står. Azure Arc kan gi støttede eksterne ressurser en administrativ representasjon i Azure Resource Manager, slik at organisering og relevante management-/governance-egenskaper kan brukes på tvers av miljøer.',
+        'Arc-enabled Servers bruker Connected Machine-agent for støttede eksterne Windows-/Linux-servere og VM-er. Arc-enabled Kubernetes bruker agenter/integrasjon for støttede eksterne klynger. Arc-enabled data services kan tilby bestemte tjenester, som SQL Managed Instance, på støttet Kubernetes-infrastruktur. SQL Server enabled by Azure Arc er en egen relevant produktsammenheng; en generisk serverregistrering er ikke automatisk full innføring av alle datatjenester.',
+        'En representasjon kan ha et Azure resource ID, en Resource Group, tags og en Azure-region for relevante metadata. Den fysiske arbeidslasten står fortsatt i sitt opprinnelige miljø. En registrert server hos en annen leverandør blir ikke automatisk en Microsoft.Compute/virtualMachines-ressurs med alle native Azure VM-handlinger. Arc-enabled Servers er heller ikke den anbefalte måten å registrere en ordinær VM som allerede kjører i Azure.',
+        'Funksjonene avhenger av ressurstype, agent/integrasjon, nettverk, rettigheter og eventuelle utvidelser eller tilleggstjenester. Machine configuration, GitOps, overvåking og datatjenester har forskjellige forutsetninger; registrering alene oppfyller dem ikke. En frakoblet maskin kan fortsatt ha en registrert representasjon, men oppdatert tilstand og nye management-handlinger kan være utilgjengelige. En grønn registrering er ikke i seg selv bevis på applikasjonshelse.',
+        'For GitOps må vi skille Azure-management-forbindelsen fra klyngens forbindelse til Git. Eksisterende Flux-kontrollere kjører i klyngen og kan fortsette å hente og avstemme tilgjengelige Git-kilder ved brutt Azure-forbindelse. Nye Azure fluxConfiguration-endringer og oppdatert management-status har egne forbindelseskrav. Frakoblet Azure betyr derfor ikke automatisk at all lokal reconciliation eller applikasjonsdrift har stoppet.',
+      ],
+      terms: [
+        ['Fysisk plassering', 'Hvor arbeidslasten faktisk kjører.'],
+        [
+          'ARM-representasjon',
+          'Administrativ identitet og metadata for en tilkoblet støttet ressurs.',
+        ],
+        ['Hybrid / multicloud', 'Eget miljø sammen med cloud, eller flere cloud-miljøer.'],
+      ],
+      example:
+        'Fjordverk velger relevant Arc-serverintegrasjon for to støttede eksterne maskiner og lar Azure VM-en bruke sin native representasjon. For Kubernetes trenger teamet den relevante klyngeintegrasjonen. Ingen av valgene flytter automatisk maskiner, data eller applikasjoner til Azure.',
+      limit:
+        'Vi installerer ingen agent og registrerer ingen maskin. Produktstøtte, regioner, tilleggsfunksjoner og kostnader må kontrolleres i en virkelig innføring. Indirectly connected mode for Arc data services er ikke en nåværende universell løsning; gjeldende overview oppgir at denne modusen er pensjonert.',
+    },
+    copilot: {
+      title: 'Copilot kan assistere — operatøren må fortsatt kontrollere',
+      paragraphs: [
+        'Microsoft Learn omtaler Copilot in Azure som supplerende hjelp til å utforske tjenester, forstå innstillinger og formulere spørsmål, kommandoer eller arbeidsflyter. Den aktuelle produktdokumentasjonen bruker navnet Azure Copilot og beskriver også handlinger som krever brukerbekreftelse. Tilgjengelighet og konkrete muligheter avhenger av gjeldende produkt, tilgang og organisasjonens forutsetninger.',
+        'En anbefaling eller foreslått kommando er ikke et teknisk bevis for at den bør brukes. Operatøren må kontrollere mål-scope, nødvendige rettigheter, parameterverdier, databruk og mulige endringer før en virkelig handling. Utført arbeid må etterprøves som annet management-arbeid. En AI-forklaring erstatter ikke resource providerens faktiske operasjonsresultat eller egne sikkerhetskrav.',
+      ],
+      terms: [
+        [
+          'Operativ assistanse',
+          'Støtte til forståelse og planlegging; kvalitet og konsekvenser må kontrolleres.',
+        ],
+      ],
+      example:
+        'Et forslag om å opprette produksjonsressurser med en bestemt template må gjennom samme review av kilde, parametere, scope og endringsanalyse som et menneskeskrevet forslag.',
+      limit:
+        'Dette er et kort Learn-supplement, ikke et sjette AZ-900-mål. AzureLab kobles ikke til Azure Copilot, og SavvyShark får ingen tillatelse til å utføre ressurskommandoer.',
+    },
+    studio: {
+      title: 'Undersøk verktøy, konfigurasjonsendring og ekstern administrasjon',
+      paragraphs: [
+        'Management & Deployment Studio samler tre ulike undersøkelser. Same Intent viser hvordan samme gruppebehov uttrykkes med ulike grensesnitt, og skiller en illustrert request fra et faktisk resultat. Change Explorer viser hvordan parametere, referanser og etableringsrekkefølge påvirker en avgrenset ønsket Web-konfigurasjon. Arc-perspektivet holder fysisk plassering og administrativ representasjon adskilt.',
+        'Forutsi en konsekvens før kjøring. Endre deretter ett relevant premiss, kjør igjen og sammenlign de lagrede observasjonene. De guidede undersøkelsene krever sammenlignbare faglige kontraster og riktig årsak; tilfeldige klikk, åpning av undervisning eller en enkelt grønn modelltilstand fullfører ingenting.',
+        'Den faktiske lokale Portal-undersøkelsen er separat. Start setter en teknisk forsøksgrense. Du bruker de ordinære skjemaene til støttede kommandoer og undersøker opprinnelige receipts, scope og Web App → App Service Plan-relasjonen. Den pedagogiske loggen lagrer bare referanser og observasjoner. En template-endring, et kodeeksempel eller en Arc-representasjon skrives aldri til World.',
+        'Etter guided arbeid møter du nye selvstendige situasjoner med andre krav. Beslutning og full teknisk begrunnelse må passe sammen. Journal, tidligere feedback og annen undervisning følger den eksisterende varige help-klassifiseringen. Tidligere førsteinnleveringer beholdes gjennom retry; ingen nye XP eller automatisk eksamensberedskap følger av modulen.',
+      ],
+      terms: [
+        [
+          'Ekvivalent intensjon',
+          'Samme administrative mål; grensesnitt og syntaks kan være forskjellige.',
+        ],
+        [
+          'Konseptmodell / faktisk receipt',
+          'En pedagogisk beregning og en opprinnelig lokal teknisk kvittering er forskjellige bevis.',
+        ],
+      ],
+      example:
+        'Et komplett undervisningsforløp kan sammenligne klienter, vise et ugyldig planreferansevalg, rette definisjonen og deretter forklare hvorfor en ekstern server fortsatt kjører utenfor Azure etter Arc-registrering.',
+      limit:
+        'Alle illustrasjoner er avgrenset til deklarerte premisser. Ingen shell-runtime, ARM-/Bicep-evaluator, Azure-deployment eller Arc-onboarding skjules bak modellknappene.',
+    },
+  },
+  missions: {
+    intent: {
+      title: 'Manage the Same Resource',
+      situation:
+        'Fjordverk skal uttrykke samme gruppebehov gjennom ulike verktøy og kontrollere hva faktisk lokal konfigurasjon dokumenterer.',
+      goal: 'Skill vertsmiljø, syntaks og innsending; sammenlign ekvivalente illustrasjoner med opprinnelige Portal-receipts og en faktisk hosting-relasjon.',
+      where:
+        'Same Intent-modellen og ordinær AzureLab Portal. Den faktiske inspektøren ligger etter modellresultatet.',
+      why: 'Et kodeeksempel eller en modellklar request oppretter ingenting. Verktøyvalg må kontrolleres mot identitet, scope og faktisk utfall.',
+      observe:
+        'Modellresultatet forklarer forutsetninger. Den faktiske loggen viser CreateGroup, CreatePlan og CreateWebApp samt appens opprinnelige planreferanse. Dette dokumenterer ikke at appkode kjører.',
+      debrief:
+        'Du har sammenlignet grensesnitt og deklarativ forfatting, møtt ulike verktøyforutsetninger og undersøkt faktisk lokal konfigurasjon med opprinnelige receipts. Ingen shell-kommando eller template ble kjørt.',
+      steps: [
+        'Kjør lokal Bash/CLI med verktøy ikke installert, forutsi avklaringen, og endre bare installasjonsforutsetningen før ny kjøring.',
+        'Sammenlign Portal, CLI, PowerShell, ARM JSON og Bicep under passende miljøvalg. Bruk App Sandbox og Norway East for gruppemetadata; øvrige deklarerte krav må være møtt.',
+        'Åpne ordinær Portal. Opprett en ny Resource Group i App Sandbox med Norway East-metadata, en støttet Linux-plan i West Europe og en Web App på denne planen. Bruk egne navn; illustrasjonenes navn er fiktive.',
+        'Returner hit. Inspiser riktig subscription, gruppe, plan, app, hosting-relasjon og de tre opprinnelige accepted-receipts.',
+        'Forklar hva sammenligningen og de faktiske receipts dokumenterer — og hva som fortsatt ikke er et driftsbevis.',
+      ],
+    },
+    change: {
+      title: 'Diagnose an IaC Change',
+      situation:
+        'Fjordverk undersøker en deklarativ Web-konfigurasjon før en planlagt endring. Riktig JSON-formatering alene gir ikke riktig etableringsrekkefølge.',
+      goal: 'Skill parametere, referanse, deployment-avhengighet og fiktiv differanse fra faktisk Azure What-if og utført deployment.',
+      where:
+        'IaC & Change Explorer. Velg deklarert førtilstand og språk; les definisjon og endrings-/avhengighetskart.',
+      why: 'En gyldig referanse identifiserer målet; en avhengighet kan være nødvendig for at et nytt mål skal finnes i tide. Navne- og parameterendringer har ulike konsekvenser.',
+      observe:
+        'I et tomt ARM-eksempel avklares manglende rekkefølge. Bicep-symboler kan gi implisitt rekkefølge. Metadataendring og nye miljønavn gir forskjellige fiktive differanser.',
+      debrief:
+        'Du har rettet rekkefølge under et nytt-ressurs-premiss, sammenlignet metadata versus ressursidentitet og sett at Bicep fortsatt bruker ARM. Ingen beregning ble sendt til Azure.',
+      steps: [
+        'Bruk ARM JSON, tom førtilstand, korrekt referanse og ingen rekkefølge. Kjør før og etter at bare rekkefølge endres til eksplisitt dependsOn.',
+        'Bruk dev-førtilstand og dev-mål med engineering-tag. Kjør og endre bare costCenter til sales for å se metadataendring uten nye navn.',
+        'Med samme dev-førtilstand og ellers like verdier: sammenlign dev og prod. Nye navn kan gi Create, mens gamle dev-ressurser beholdes i den deklarerte incremental-konteksten.',
+        'Sammenlign tom ARM JSON uten rekkefølge med samme Bicep-definisjon. Den symbolske plan.id-referansen gir implisitt rekkefølge.',
+        'Forklar referanse, rekkefølge, parameterdifferanse og grensene for hva det fiktive resultatet beviser.',
+      ],
+    },
+    arc: {
+      title: 'Extend Management, Keep the Workload',
+      situation:
+        'Fjordverk vil administrere støttede eksterne maskiner og en Kubernetes-klynge uten å flytte dem til Azure.',
+      goal: 'Skill fysisk plassering fra representasjon, relevant Arc-integrasjon, aktuell forbindelse og støttede tilleggsfunksjoner.',
+      where:
+        'Azure Arc & Hybrid Management. Kartet viser både fysisk arbeidslast og administrativ representasjon.',
+      why: 'Server, klynge og datatjeneste har forskjellige integrasjoner. En listeoppføring kan overleve frakobling, og registrering utfører ingen migrering.',
+      observe:
+        'Riktig Arc-valg passer ressursen, men beholder fysisk plassering. Ved deklarert frakobling blir aktuell management-tilstand uavklart selv om representasjonen fortsatt finnes.',
+      debrief:
+        'Du har valgt ressurstilpasset Arc-representasjon og undersøkt en frakoblet maskin uten å hevde fysisk migrering, universell funksjonsparitet eller applikasjonshelse.',
+      steps: [
+        'Sammenlign en lokal server med native- og Servers-tilnærming. La registrering, forbindelse og forutsetninger være oppgitt oppfylt; fysisk plassering skal fortsatt være on-premises.',
+        'Sammenlign en lokal Kubernetes-klynge med Servers og Kubernetes. Velg inventory og behold øvrige premisser like.',
+        'For en server hos annen cloud-leverandør med Servers/inventory: kjør før og etter at bare forbindelsen settes frakoblet. Registreringen beholdes, aktuell management blir uavklart.',
+        'Forklar hva representasjonen gir og hvilke forutsetninger og driftsbevis som fortsatt mangler.',
+      ],
+    },
+  },
+  causal: {
+    intent: [
+      'Illustrert syntaks og en modellklar request dokumenterer at en Azure-ressurs er opprettet.',
+      'Vertsmiljø og verktøy må passe, mens bare opprinnelige lokale receipts og inspeksjoner dokumenterer den faktiske simulatorhandlingen; de beviser ikke Azure-deployment eller apphelse.',
+      'Når alle grensesnitt bruker ARM kan samme identitet alltid utføre alle handlinger med samme utfall.',
+    ],
+    change: [
+      'JSON-arrayrekkefølgen etablerer alle avhengigheter, og navneparametere endrer alltid den gamle instansen.',
+      'Bicep-kompilering oppretter manglende referansemål og dokumenterer at appen kjører.',
+      'Referanse, etableringsrekkefølge og parameterverdier har ulike roller; fiktiv differanse og deklarerte forutsetninger er ikke faktisk What-if, deployment eller applikasjonsdrift.',
+    ],
+    arc: [
+      'Ressursspesifikk representasjon beholder fysisk plassering; forbindelse og relevante integrasjoner styrer hva som kan undersøkes, uten å bevise faktisk drift eller migrering.',
+      'En registrert Arc-representasjon flytter maskinen til sin Azure-metadataregion.',
+      'Samme resource ID-format betyr at alle native VM-operasjoner og tilleggstjenester følger med enhver Arc-registrering.',
+    ],
+  },
+  milestone: {
+    intent: {
+      title: 'Manage the Same Resource — observasjoner lagret',
+      text: 'Du har sammenlignet grensesnitt og deklarativ forfatting, møtt ulike verktøyforutsetninger og undersøkt faktisk lokal konfigurasjon med opprinnelige receipts. Ingen shell-kommando eller template ble kjørt.',
+    },
+    change: {
+      title: 'Diagnose an IaC Change — observasjoner lagret',
+      text: 'Du har rettet rekkefølge under et nytt-ressurs-premiss, sammenlignet metadata versus ressursidentitet og sett at Bicep fortsatt bruker ARM. Ingen beregning ble sendt til Azure.',
+    },
+    arc: {
+      title: 'Extend Management, Keep the Workload — observasjoner lagret',
+      text: 'Du har valgt ressurstilpasset Arc-representasjon og undersøkt en frakoblet maskin uten å hevde fysisk migrering, universell funksjonsparitet eller applikasjonshelse.',
+    },
+  },
+  controls: {
+    tool: 'Valgt grensesnitt / forfatterform',
+    host: 'Deklarert vertsmiljø',
+    subscription: 'Mål-subscription i eksemplet',
+    metadataRegion: 'Gruppens metadataregion',
+    installed: 'Nødvendig lokalt verktøy er installert',
+    authenticated: 'Relevant identitet er autentisert',
+    authorized: 'Nødvendig scoped autorisasjon er deklarert',
+    providerReady: 'Relevant provider-operasjon er tilgjengelig',
+    policyAllows: 'Relevante konfigurasjonskrav er møtt',
+    lockAllows: 'Relevante management-locks hindrer ikke handlingen',
+    syntax: 'Definisjonens språk',
+    stage: 'Miljøparameter',
+    baseline: 'Fiktiv førtilstand',
+    binding: 'Appens planreferanse',
+    order: 'Deklarert etableringsrekkefølge',
+    costCenter: 'costCenter-parameter',
+    evaluation: 'Avgrenset preview-kunnskap',
+    resource: 'Fysisk arbeidslast',
+    approach: 'Administrativ tilnærming',
+    capability: 'Undersøkt egenskap',
+    onboarded: 'Relevant ekstern registrering er deklarert utført',
+    connected: 'Aktuell management-forbindelse er deklarert tilgjengelig',
+    prerequisites: 'Støtte og øvrige nødvendige forutsetninger er deklarert møtt',
+    extension: 'Relevante tilleggsintegrasjoner er deklarert konfigurert',
+  },
+  options: {
+    tool: {
+      portal: 'Azure Portal',
+      cli: 'Azure CLI',
+      powershell: 'Azure PowerShell',
+      arm: 'ARM JSON — forfatterillustrasjon',
+      bicep: 'Bicep — forfatterillustrasjon',
+    },
+    host: {
+      browser: 'Nettleser / grafisk arbeidsrom',
+      'cloud-bash': 'Cloud Shell — Bash',
+      'cloud-pwsh': 'Cloud Shell — PowerShell',
+      'local-bash': 'Lokal Bash',
+      'local-pwsh': 'Lokal PowerShell',
+    },
+    subscription: {
+      app: 'App Sandbox — deklarert eksempel',
+      shared: 'Shared Sandbox — deklarert eksempel',
+    },
+    metadataRegion: {
+      norwayeast: 'Norway East',
+      westeurope: 'West Europe',
+    },
+    syntax: {
+      arm: 'ARM JSON',
+      bicep: 'Bicep',
+    },
+    stage: {
+      dev: 'dev',
+      prod: 'prod',
+    },
+    baseline: {
+      empty: 'Ingen av de to fiktive ressursene finnes',
+      dev: 'De to fiktive dev-ressursene finnes; engineering-tag',
+    },
+    binding: {
+      correct: 'Korrekt deklarert plan i samme gruppe',
+      dangling: 'ID til en manglende plan',
+      'wrong-scope': 'ID til annen gruppe som ikke finnes i premissene',
+    },
+    order: {
+      auto: 'Forvent implisitt fra språkuttrykket',
+      explicit: 'Eksplisitt dependsOn',
+      none: 'Ingen eksplisitt dependsOn',
+      cycle: 'Sirkel: plan venter på app, app venter på plan',
+    },
+    costCenter: {
+      engineering: 'engineering',
+      sales: 'sales',
+    },
+    evaluation: {
+      complete: 'Alle utvalgte differansefelter er kjent',
+      unresolved: 'Preview har uavklart uttrykk',
+    },
+    resource: {
+      'azure-vm': 'Ordinær Azure VM',
+      'onprem-server': 'Støttet lokal server',
+      'othercloud-server': 'Støttet server hos annen cloud-leverandør',
+      'onprem-kubernetes': 'Støttet ekstern Kubernetes-klynge',
+      'sql-mi': 'SQL Managed Instance på støttet ekstern Kubernetes',
+    },
+    approach: {
+      native: 'Native Azure-ressurs',
+      servers: 'Arc-enabled Servers',
+      kubernetes: 'Arc-enabled Kubernetes',
+      data: 'Arc-enabled data services',
+    },
+    capability: {
+      inventory: 'Inventory og organisering',
+      'machine-config': 'Machine configuration — avgrenset eksempel',
+      gitops: 'GitOps på støttet klynge',
+      'sql-service': 'SQL Managed Instance-tjeneste',
+      'resize-vm': 'Native VM-størrelsesendring',
+    },
+  },
+  visual: {
+    boundary:
+      'Dette er en deklarert undervisningsmodell. Ingen shell, kompilering, API, What-if, deployment, Arc-agent, migrering eller faktisk drift er utført.',
+    details: 'Tekniske premisser og semantisk alternativ',
+    snapshot: 'Lagret input og avgrenset resultat',
+    result: 'Konseptmodellens resultat',
+    input: 'Deklarert input',
+    run: 'Kjøring',
+    comparison: 'Sammenlign lagrede årsakskontraster',
+    yes: 'Ja',
+    no: 'Nei',
+    intentTitle: 'Administrativ intensjon → grensesnitt → ARM → provider → etterprøving',
+    definitionTitle: 'Fiktiv førtilstand → parametere → referanse → rekkefølge → ønsket differanse',
+    arcTitle: 'Fysisk plassering → relevant integrasjon → administrativ representasjon',
+    intent: 'Opprett en Resource Group for en ny applikasjon',
+    compatible: 'Miljø og valgt verktøy passer',
+    toolReady: 'Verktøyforutsetningen er møtt',
+    auth: 'Identitet og nødvendige tillatelser',
+    configuration: 'Relevante konfigurasjons-/lock-premisser',
+    provider: 'Resource provider / type',
+    scope: 'Request-scope',
+    groupMetadata: 'Eksemplets gruppemetadata',
+    ready: 'Deklarerte innsending-/management-forutsetninger er møtt',
+    unexecuted:
+      'Ingen request er utført; faktisk operasjonsstatus og konfigurasjon må kontrolleres separat.',
+    authoring:
+      'ARM JSON og Bicep vises som forfatting. Å skrive en definisjon krever ikke at du er innlogget; oppgitte autorisasjonsfelt gjelder en senere innsending, som ikke utføres her.',
+    snippet:
+      'Original kildeverifisert illustrasjon — ikke kjørt eller produksjonsklart komplett oppsett',
+    sameIntent: 'Samme gruppeintensjon i ulike uttrykk',
+    resource: 'Deklarert ressurs',
+    before: 'Fiktiv førtilstand',
+    desired: 'Ønsket konfigurasjon',
+    difference: 'Fiktiv differanse',
+    changeTypes: {
+      unknown: 'Uavklart forskjell – kan ikke bekrefte Create, Modify eller NoChange',
+      create: 'Create i den fiktive sammenligningen',
+      modify: 'Modify av utvalgte konfigurasjonsfelt (tags eller referanse)',
+      'no-change': 'NoChange for de utvalgte feltene',
+    },
+    notRealWhatif:
+      'En avgrenset differanse er ikke et faktisk Azure What-if-resultat. Ignore, uavklarte uttrykk, andre service-properties og reelle kontroller må vurderes i Azure.',
+    plan: 'App Service Plan',
+    app: 'Web App',
+    binding: 'serverFarmId → erklært plan',
+    refValid: 'Referansemålet finnes i de deklarerte premissene',
+    order: 'Etableringsrekkefølge',
+    orders: {
+      implicit: 'Implisitt Bicep-symbolreferanse',
+      explicit: 'Eksplisitt dependsOn',
+      unspecified: 'Ingen avledet rekkefølge i dette uttrykket',
+      cycle: 'Ugyldig sirkel',
+    },
+    existing:
+      'En allerede eksisterende plan trenger ikke ny opprettelse; en korrekt referanse trengs fortsatt.',
+    newPlan: 'Planen er ny under premissene; appen må få en gyldig etableringsrekkefølge.',
+    retained: 'Gamle dev-ressurser beholdes i den deklarerte incremental-konteksten',
+    noneRetained: 'Ingen andre ressurser inngår i denne fiktive sammenligningen.',
+    incremental:
+      'Incremental-kontekst: utelatte ressurser slettes ikke her. Dette garanterer ikke at utelatte properties på ressurser som redeployes alltid beholdes.',
+    previewUnknown:
+      'Uavklart preview er ikke et verifisert NoChange eller en vellykket deployment.',
+    physical: 'Arbeidslastens fysiske plassering',
+    locations: {
+      azure: 'Azure — eksisterende native VM',
+      onprem: 'Eget datasenter — forblir her',
+      othercloud: 'Annen cloud-leverandør — forblir her',
+    },
+    representation: 'Deklarert management-representasjon',
+    notRegistered: 'Ingen passende representasjon er etablert under premissene',
+    metadataRegion: 'Azure-region for representasjonsmetadata',
+    supported: 'Undersøkt egenskap passer integrasjonen',
+    extension: 'Tilleggsintegrasjon er nødvendig for dette eksemplet',
+    current: 'Aktuell management er tilgjengelig under de deklarerte premissene',
+    stale:
+      'Representasjonen beholdes, men aktuell management-/konfigurasjonskunnskap er uavklart ved frakobling.',
+    notMigrated:
+      'Den fysiske arbeidslasten er ikke flyttet. Ingen universell funksjonsparitet, automatisk tilleggstjeneste eller apphelse er bevist.',
+    wrongApproach:
+      'Velg integrasjon for ressurstypen; en ordinær Azure VM trenger ikke generisk Arc-serverregistrering.',
+    notSupported:
+      'Den valgte egenskapen inngår ikke i denne avgrensede ressursspesifikke modellen. Andre Arc-produkter kan ha andre muligheter.',
+    observedOnly: 'Alle tilstander er oppgitte premisser, ikke innhentede Azure-observasjoner.',
+    arcConnectionBoundary:
+      'Denne modellen vurderer aktuell Azure-management under deklarerte premisser. Eksisterende Flux-kontrollere kan fortsatt hente og avstemme fra tilgjengelig Git selv om Azure-forbindelsen er brutt; den separate Git-forbindelsen og lokal tjenestedrift vurderes ikke her.',
+    localTemplateBoundary:
+      'Utdraget er et forfattereksempel med eldre kildeverifisert Linux-API og utvalgte properties, ikke et komplett produksjonsoppsett. SKU-feltet er ikke AzureLab-planens lokale profil, og angir ingen målt pris eller faktisk kapasitet.',
+    selectedCode: 'Illustrert valgt uttrykk — ikke kjørt',
+    toolComparison: 'Sammenligning av uttrykksform og administrativt scope',
+    notation: 'Uttrykksform',
+    toolModes: {
+      portal: 'Grafisk skjema',
+      cli: 'Imperativ az-kommando',
+      powershell: 'Imperativ Az-cmdlet',
+      arm: 'Deklarativ JSON-template',
+      bicep: 'Deklarativ Bicep, som bygges til ARM JSON',
+    },
+    previewKnown: 'Utvalgte preview-felter er kjent',
+    definition: 'Originalt illustrativt definisjonsutdrag — ikke kompilert eller deployet',
+    managementLink: 'Deklarert administrativ forbindelse — ingen trafikk måles',
+    capabilityReady: 'Nye Azure-management-forutsetninger for eksemplet er møtt',
+    declaredValue: 'Deklarert verdi',
+  },
+  technical: {
+    title: 'Faktisk lokal Portal-konfigurasjon og receipts',
+    boundary:
+      'Kun lesing av den eksisterende Sandboxens originale replay. Knappene lagrer inspeksjonsreferanser; alle kommandoer utføres av deg i ordinær Portal. Lokale ID-er er ikke Azure resource IDs.',
+    open: 'Åpne ordinær Portal for Management-oppdraget',
+    return: 'Tilbake til Management & Deployment',
+    unsafe:
+      'Det opprinnelige tekniske forsøket kan ikke verifiseres nå. Løs usikker lagring eller start et eksplisitt nytt oppdrag; vi lager ingen erstatningsressurser.',
+    archive:
+      'Dette er oppdragets beholdte historiske tekniske forsøk; det er ikke nødvendigvis gjeldende inventory.',
+    newGuide: 'Start nytt oppdrag med ny teknisk grense',
+    startBoundary: 'Teknisk forsøk og startgrense',
+    scope: 'Faktisk subscription',
+    inspectScope: 'Registrer inspeksjon av faktisk subscription',
+    group: 'Faktisk ny gruppe',
+    inspectGroup: 'Registrer inspeksjon av faktisk gruppe',
+    plan: 'Faktisk ny plan',
+    inspectPlan: 'Registrer inspeksjon av faktisk plan',
+    app: 'Faktisk ny app',
+    inspectApp: 'Registrer inspeksjon av faktisk app',
+    inspectDependency: 'Registrer faktisk app → plan-inspeksjon',
+    emptyGroup:
+      'Ingen ny passende gruppe med Norway East-metadata er tilgjengelig etter start. Bruk ordinær Portal.',
+    emptyPlan: 'Ingen ny passende West Europe-plan er funnet i gruppen etter start.',
+    emptyApp: 'Ingen ny Web App med riktig planreferanse er funnet etter start.',
+    receipt: 'Opprinnelig teknisk kvittering',
+    emptyReceipts:
+      'Ingen relevante faktiske accepted-CreateGroup/Plan/WebApp-receipts etter start.',
+    inspectReceipt: 'Registrer inspeksjon av kvitteringen',
+    outcome: 'Faktisk lokalt utfall',
+    code: 'Modellregel / kode',
+    operation: 'Støttet lokal operasjon',
+    type: 'Faktisk type',
+    location: 'Faktisk lokasjon / metadata',
+    revision: 'World-revisjon før → etter',
+    count: 'Ressursantall før → etter',
+    added: 'Faktisk opprettede lokale ID-er',
+    request: 'Opprinnelig innsendt lokal request',
+    observed: 'Registrerte tekniske inspeksjoner',
+    verified: 'Opprinnelige nye receipts, riktig scope og faktisk hosting-relasjon er verifisert.',
+    notVerified:
+      'Praktisk bevis er ennå ikke fullstendig verifisert. Modellresultater alene gir ikke denne godkjenningen.',
+    history:
+      'Kvitteringer og referanser er historiske lokale observasjoner. De dokumenterer ingen kjørte CLI-/PowerShell-/template- eller Azure-operasjoner.',
+    checks: {
+      group: 'Ny gruppe og dens inspeksjon',
+      scope: 'Riktig subscription og inspeksjon',
+      plan: 'Ny plan i gruppen og inspeksjon',
+      app: 'Ny app med riktig plan og inspeksjon',
+      receipts: 'Tre opprinnelige accepted-receipts inspisert',
+      dependency: 'Den faktiske appens planreferanse inspisert',
+    },
+  },
+  snippets: {
+    portal:
+      'Resource groups → Create\nSubscription: <subscription-id>\nResource group: rg-fjordverk-lab\nRegion: {{location}}\nReview + create → Create → inspect result',
+    cli: 'az group create --name rg-fjordverk-lab --location {{location}} --subscription <subscription-id>',
+    powershell:
+      'Set-AzContext -Subscription <subscription-id>\nNew-AzResourceGroup -Name rg-fjordverk-lab -Location {{location}}',
+    arm: '{\n  "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",\n  "contentVersion": "1.0.0.0",\n  "parameters": {\n    "groupName": {\n      "type": "string",\n      "defaultValue": "rg-fjordverk-lab"\n    }\n  },\n  "resources": [\n    {\n      "type": "Microsoft.Resources/resourceGroups",\n      "apiVersion": "2025-04-01",\n      "name": "[parameters(\'groupName\')]",\n      "location": "{{location}}",\n      "properties": {}\n    }\n  ]\n}',
+    bicep:
+      "targetScope = 'subscription'\nparam groupName string = 'rg-fjordverk-lab'\nresource group 'Microsoft.Resources/resourceGroups@2025-04-01' = {\n  name: groupName\n  location: '{{location}}'\n}",
+  },
+} as const;
+
+export const toolsItemsNb = {
+  mt01: {
+    title: 'Like navn i to subscriptions',
+    problem:
+      'Helpdesk skal finne egenskapene til riktig ressurs i et grafisk administrasjonsvindu. To godkjente subscriptions har en ressurs med samme visningsnavn. Bestillingen oppgir full resource ID. Hvordan bør operatøren finne riktig objekt?',
+    premises: [
+      'Operatøren har relevant lesetilgang. Oppgaven krever ingen ny konfigurasjon, script eller terminal.',
+      'Begge ressursene er synlige når riktig subscription-filter brukes.',
+    ],
+    decisions: [
+      'Velg relevante subscription-filtre, match full ID og åpne egenskapene for dette objektet.',
+      'Velg det første treffet med samme navn og bruk plasseringen i Recently visited som identitetskontroll.',
+      'Åpne tjenestekategorien med riktig provider/type og behandle første navnetreff som den oppgitte instansen.',
+    ],
+    reasons: [
+      'Full resource ID avgrenser instansens scope og type; et navn eller en tjenestekategori alene skiller ikke disse treffene.',
+      'En provider beskriver støttede operasjoner og ressurstyper; dette brukes til å finne tjenestekategorien og dens ressursliste i Portal.',
+      'Recently visited gir en snarvei til tidligere åpnede ressurser og kan brukes sammen med navnesøk ved senere inspeksjon.',
+    ],
+    feedback: [
+      [
+        'Riktig: kontroller scope og faktisk instans før du leser Properties. Filtrering er navigasjon, ikke en ny tilgangstildeling.',
+        'Recent-listen er nyttig som snarvei, men rekkefølgen bekrefter ikke at treffet har bestillingens resource ID.',
+        'Provider/type avgrenser typen, ikke hvilken av de to instansene som er bestilt. Sammenlign hele ID-en.',
+      ],
+      [
+        'Dette forklarer hele valget: Portal finner objektet grafisk, mens full ID kontrollerer at det er riktig instans.',
+        'Dette er sant om tjenestekategorier, men gir ikke alene riktig subscription/RG/instans.',
+        'Dette beskriver en nyttig snarvei, men ikke identitetskontrollen som trengs mellom to scopes.',
+      ],
+    ],
+    explanation:
+      'Bruk Portal som grafisk inspeksjonsverktøy og resource ID som instanskontroll. Hvis bestillingen bare oppga et navn, måtte operatøren avklare scope før den valgte én av ressursene.',
+  },
+  mt02: {
+    title: 'Opprettelsen er registrert, men brukertesten feiler',
+    problem:
+      'En Web App vises i Portal etter en vellykket management-operasjon. Brukernes funksjonstest feiler fortsatt. Teamet skal dokumentere hva administrasjonsarbeidet faktisk har levert, uten å gjenta opprettelsen. Hvilken oppfølging passer?',
+    premises: [
+      'Den relevante operasjonen er rapportert vellykket. Det er ikke fremlagt en vellykket funksjonstest.',
+      'Undersøkelsen kan bruke eksisterende ressurs- og operasjonsvisninger; nye deployments er ikke bestilt.',
+    ],
+    decisions: [
+      'Godkjenn funksjonen ut fra at ressursen har Overview og en adresse i administrasjonsvisningen.',
+      'Eksporter en ny template fra visningen og bruk filens gyldighet som bekreftelse på det innsendte arbeidet.',
+      'Kontroller operasjon og Properties i Portal; dokumenter konfigurasjon og krev separat funksjonsbevis.',
+    ],
+    reasons: [
+      'Management-status og Properties beskriver administrativt resultat; applikasjonens funksjon må verifiseres med eget driftsbevis.',
+      'En eksportert template dokumenterer utvalgt ressurskonfigurasjon og kan versjoneres som grunnlag for å etablere et senere miljø.',
+      'En vellykket create-operasjon og en registrert adresse viser at management-laget har godkjent både ressurskonfigurasjon og applikasjonens brukerfunksjon.',
+    ],
+    feedback: [
+      [
+        'En adresse er en konfigurasjonsopplysning. Den dokumenterer ikke at kode, data og øvrige avhengigheter fungerer.',
+        'En eksportert beskrivelse kan være nyttig for videre arbeid, men dokumenterer ikke appens funksjon eller erstatter den opprinnelige operasjonskontrollen.',
+        'Riktig: knytt management-resultatet til riktig operasjon/ressurs og behold funksjonstesten som separat bevis.',
+      ],
+      [
+        'Dette er skillet oppgaven krever. En vellykket administrativ endring er ikke en bestått applikasjonstest.',
+        'Dette er en relevant bruk av en beskrivelse, men forklarer ikke hvilke bevis Portal kan gi om arbeidet som allerede ble utført.',
+        'Dette trekker en driftskonklusjon fra konfigurasjonsdata. En egen funksjonstest trengs.',
+      ],
+    ],
+    explanation:
+      'Bekreft den administrative leveransen med riktig operasjon og konfigurasjon. Hvis funksjonstesten senere lykkes, er det et nytt og separat bevis; den bør ikke tilskrives management-status alene.',
+  },
+  mt03: {
+    title: 'Et eksisterende Az-uttrykk på en låst PC',
+    problem:
+      'En vakt bruker en PC hvor nye verktøy ikke kan installeres. Vakten har godkjent nettlesertilgang og skal bruke et allerede gjennomgått Az-cmdlet med objektpipeline. Ingen filer skal beholdes etter økten. Hvilket oppsett passer?',
+    premises: [
+      'Relevant Azure-identitet og subscription-tilgang finnes. Organisasjonen tillater Cloud Shell og nødvendige forutsetninger er på plass.',
+      'Det godkjente uttrykket bruker PowerShell-/Az-syntaks; en omskriving er ikke bestilt.',
+    ],
+    decisions: [
+      'Åpne en lokal PowerShell uten Az-moduler og bruk nettleserinnloggingen som erstatning for de manglende modulene.',
+      'Bruk Cloud Shell med PowerShell og en ephemeral session for det godkjente Az-uttrykket.',
+      'Åpne Bash i Cloud Shell og send det eksisterende Az-cmdlet direkte som en az-kommando.',
+    ],
+    reasons: [
+      'Azure CLI kan brukes fra flere shell-miljøer, også PowerShell, og returnere JSON som kan behandles videre i en administrativ arbeidsflyt.',
+      'PowerShell behandler objekter og kan utvides med moduler; en lokalt tilgjengelig shell-installasjon inneholder ikke nødvendigvis Azure-cmdlets.',
+      'Cloud Shell leverer et egnet PowerShell-/Az-miljø uten lokal installasjon; ephemeral-filer trenger ikke å bli beholdt.',
+    ],
+    feedback: [
+      [
+        'Et shell og en autentisert identitet tilfører ikke automatisk Az-modulene som uttrykket trenger.',
+        'Riktig: dette passer godkjent syntaks, installasjonsgrensen og fraværet av behov for vedvarende filer.',
+        'Bash/CLI er et annet miljø og en annen kommandosyntaks. En oversetting måtte gjennomgås; den skjer ikke ved å legge az foran cmdlet-navnet.',
+      ],
+      [
+        'Dette er sant om CLI, men begrunner ikke kjøring av den uendrede Az-objektpipelinen.',
+        'Dette forklarer en del av den lokale begrensningen, men ikke hele valget av det tillatte vertsmiljøet.',
+        'Dette forklarer alle kravene, samtidig som autentisering og relevante tillatelser fortsatt må finnes.',
+      ],
+    ],
+    explanation:
+      'Velg både riktig verktøy og et tillatt vertsmiljø. Hadde oppgaven krevd filer mellom økter, måtte lagring eller ekstern kildekodehåndtering vurderes særskilt; ephemeral gir ingen filpersistens.',
+  },
+  mt04: {
+    title: 'En godkjent jobb skal kjøre uten åpen nettleser',
+    problem:
+      'Et team har et gjennomgått Bash-skript med az-kommandoer. Det skal kjøre på faste tidspunkter uten at en ansatt holder en interaktiv økt åpen. Teamets godkjente automatiseringsrunner har installert Azure CLI og passende identitet. Hva er en relevant videreføring?',
+    premises: [
+      'Runneren og nødvendig tilgang er allerede godkjent. Oppgaven oppretter ikke nye credentials eller en ny plattform.',
+      'Jobben må beholde feilhåndtering og kontroll av mål-subscription; samme Bash-skript skal brukes.',
+    ],
+    decisions: [
+      'Skriv om det godkjente Bash-skriptet til Az-cmdlets og bytt til en PowerShell-jobb før denne kjøringen.',
+      'Kjør skriptet i en ansatts Cloud Shell og bruk vedvarende filshare som garanti for at jobben fortsetter.',
+      'Kjør skriptet i den godkjente runneren med installert CLI og kontroller hver operasjons utfall.',
+    ],
+    reasons: [
+      'CLI kan brukes fra runnerens shell; riktig identitet, scope og kontroll av operasjonsutfall kreves også ved planlagt automatisering.',
+      'Et skript i en vedvarende Cloud Shell-filshare fortsetter som en tidsstyrt tjeneste også når den interaktive økten avsluttes.',
+      'PowerShell-pipelines behandler objekter og passer administrative arbeidsflyter som er forfattet for Az-modulenes cmdlets.',
+    ],
+    feedback: [
+      [
+        'En gjennomgått omskriving kan være en annen forsvarlig løsning, men oppgaven krever gjenbruk av det eksisterende Bash-skriptet og bestiller ingen omskriving.',
+        'Filpersistens er ikke jobbkjøring. En interaktiv Cloud Shell-session er ikke en garantert permanent scheduler.',
+        'Riktig: bruk de allerede godkjente forutsetningene og behold kontroll av feil og scope. Ingen interaktiv browserøkt er nødvendig.',
+      ],
+      [
+        'Dette forklarer hvorfor eksisterende verktøy og vertsmiljø passer uten å gi automatisering flere rettigheter enn identiteten har.',
+        'Lagring og prosesslevetid er forskjellige mekanismer. En filshare garanterer ikke fremtidig utførelse.',
+        'Dette er sant i en annen arbeidsflyt, men oppgaven krever å videreføre det eksisterende Bash-/CLI-skriptet.',
+      ],
+    ],
+    explanation:
+      'Et kommandolinjeverktøy er ikke bundet til en bestemt interaktiv terminal. Hvis runneren manglet godkjent autentisering, ville installert CLI alene ikke gjort jobben mulig.',
+  },
+  mt05: {
+    title: 'En Arc-server skal få mer maskinkapasitet',
+    problem:
+      'En ekstern virtuell server er registrert gjennom generisk Arc-enabled Servers. Eieren vil øke maskinens CPU/RAM og antar at et Azure resource ID gjør dette til en vanlig Azure VM-endring. Hvilken videreføring passer den dokumenterte integrasjonen?',
+    premises: [
+      'Det finnes ingen Arc-enabled VMware/SCVMM/Azure Local-livssyklusintegrasjon i oppsettet; bare generisk Servers-registrering.',
+      'Den underliggende eksterne plattformen har et godkjent løp for kapasitetsendring. Maskinen og arbeidslasten skal beholdes der de er.',
+    ],
+    decisions: [
+      'Bruk godkjent CPU/RAM-endring i underliggende plattform; behold Arc til støttede management-funksjoner.',
+      'Eksporter Arc-serverrepresentasjonen og legg en VMSize-egenskap inn i dens deklarative definisjon.',
+      'Utvid Azure-rollen på Arc-objektet og send en Microsoft.Compute VM-størrelsesendring mot samme ressurs-ID.',
+    ],
+    reasons: [
+      'En særskilt Arc-plattformintegrasjon kan tilby utvalgte VM-livssyklusoperasjoner når dens egne tilkoblinger og forutsetninger er møtt.',
+      'Arc-enabled Kubernetes representerer eksterne klynger og kan bruke relevante klyngeutvidelser når disse er installert og støttet i miljøet.',
+      'Generisk Arc Servers gir støttet inventory og management; representasjonen blir ikke en Compute-VM med universell kontroll over ekstern kapasitet.',
+    ],
+    feedback: [
+      [
+        'Riktig: bruk en støttet mekanisme for selve maskinendringen, uten å oppgi Arc-funksjonene som allerede er relevante.',
+        'En vilkårlig ekstra property gir ikke den generiske Arc-ressurstypen kontroll over hypervisorens CPU/RAM.',
+        'En bredere rolle endrer ikke ressursens provider/type og tilfører ikke en manglende maskinlivssyklus-API.',
+      ],
+      [
+        'Dette er sant om enkelte andre Arc-produkter, men de er eksplisitt ikke integrasjonen som finnes i oppgaven.',
+        'Dette er sant om klynger, men svarer ikke på denne serverens kapasitets- og integrasjonsgrense.',
+        'Dette begrunner både fortsatt Arc-bruk og hvorfor akkurat denne kapasitetsoperasjonen må følge en annen støttet mekanisme.',
+      ],
+    ],
+    explanation:
+      'Et Azure ID gjør den eksterne maskinen administrativt representert, ikke til en universelt native VM. Med en annen støttet Arc-plattformintegrasjon kunne enkelte livssyklusoperasjoner vært aktuelle gjennom Azure; det må undersøkes særskilt.',
+  },
+  mt06: {
+    title: 'En registrert ekstern klynge mottar ikke ny konfigurasjon',
+    problem:
+      'En støttet Kubernetes-klynge i et eksternt datasenter vises allerede som Arc-ressurs. Nettforbindelsen til Azure er nå brutt, og den planlagte GitOps-oppfølgingen er ikke bekreftet. Hva bør teamet konkludere og undersøke?',
+    premises: [
+      'Klyngen er fortsatt den eksisterende eksterne klyngen. Det er ikke påvist sletting av Azure-representasjonen.',
+      'Det foreligger ingen fersk bekreftelse fra klyngen på den planlagte GitOps-endringen.',
+    ],
+    decisions: [
+      'Registrer klyngens worker-maskiner som generiske Arc-servere og bruk det som bevis på klyngens GitOps-resultat.',
+      'Erstatt representasjonen med en native AKS-definisjon og behandle eksisterende arbeidslaster som automatisk overført.',
+      'Behold skillet mellom registrert representasjon og aktuell konfigurasjon; undersøk forbindelsen og relevante Arc-/GitOps-forutsetninger.',
+    ],
+    reasons: [
+      'Generisk serverinventory erstatter klyngeintegrasjonen; registrerte worker-maskiner dokumenterer at også klyngens GitOps-utvidelse har lykkes.',
+      'En synlig ARM-representasjon bekrefter klyngens gjeldende ønskede konfigurasjon selv når forbindelsen til Azure ikke er tilgjengelig.',
+      'En representasjon kan fortsatt finnes når forbindelsen er brutt; nytt management-resultat krever egne relevante forutsetninger og bevis.',
+    ],
+    feedback: [
+      [
+        'Server- og klyngeintegrasjon har forskjellige roller. Synlige worker-maskiner dokumenterer ikke GitOps-applikasjon av klyngekonfigurasjon.',
+        'En AKS-definisjon flytter ikke de eksisterende eksterne arbeidslastene. Dette løser ikke forbindelsen til den registrerte klyngen.',
+        'Riktig: kontroller den aktuelle forbindelsen og de klyngespesifikke mekanismene før du hevder at en endring er utført.',
+      ],
+      [
+        'Dette erstatter en nødvendig klyngemekanisme med en annen ressurstype og dokumenterer ikke resultatet.',
+        'Representasjon og aktuell utførelse er forskjellige observasjoner; en listeoppføring er ikke et resultat for alle senere endringer.',
+        'Dette forklarer både hvorfor listen kan være intakt og hvorfor det nye resultatet fortsatt er uavklart.',
+      ],
+    ],
+    explanation:
+      'Det kan være riktig å beholde registreringen mens tilkoblingen undersøkes. Selv med gjenopprettet forbindelse må den aktuelle konfigurasjonen kontrolleres; en «Connected»-tilstand alene er ikke en bestått app- eller GitOps-test.',
+  },
+  mt07: {
+    title: 'To team foreslår forskjellige kodebaserte oppsett',
+    problem:
+      'En avdeling krever at nye miljøoppsett kan gjennomgås i Git, gis eksplisitte inndata og gjentas med kontroll av feil og resultat. Ett team kan vedlikeholde et imperativt PowerShell-oppsett, et annet kan vedlikeholde en deklarativ ARM-/Bicep-beskrivelse. Hvilke tilbudte planer kan møte kravene?',
+    premises: [
+      'Begge teamene har relevant kompetanse og godkjente kjøreforutsetninger. Det er ikke stilt et krav om bare deklarativ syntaks.',
+      'Planen må inneholde faktisk versjonert oppsett og resultatsjekk; bare navnet på et språk eller et Git-repository er ikke nok.',
+    ],
+    decisions: [
+      'Versjoner en ARM-/Bicep-definisjon og parameterverdier med review og kontroll av deployment og etablert konfigurasjon.',
+      'Lagre skjermbilder av ett manuelt Portal-oppsett i Git og behandle fremtidige klikk som tilsvarende versjonerte endringer.',
+      'Versjoner et parameterstyrt PowerShell-oppsett med feilhåndtering, review og kontroll av etablert konfigurasjon.',
+    ],
+    reasons: [
+      'Bare deklarative ressursfiler regnes som IaC; et imperativt oppsett som er versjonert og gjennomgått, er fortsatt utenfor denne arbeidsformen.',
+      'Gjennomgått kode, eksplisitte inndata og etterprøving kan støtte begge tilnærminger; imperativ handling må skilles fra deklarativ ønsket tilstand.',
+      'Når infrastrukturkode og parametere er lagret i Git, er oppsettet sikret og det faktiske management-resultatet ferdig etterprøvd.',
+    ],
+    feedback: [
+      [
+        'Forsvarlig under premissene: ønsket ressurskonfigurasjon og miljøverdier er gjennomgåelige, med separat resultatkontroll.',
+        'Skjermbilder dokumenterer et tidligere UI, men er ikke en versjonert utførbar eller deklarativ oppsettsbeskrivelse for de nye miljøene.',
+        'Forsvarlig under premissene: skriptet beskriver oppsettet imperativt, og planen inkluderer inndata, review, feil- og resultatsjekk.',
+      ],
+      [
+        'IaC er bredere enn ett deklarativt format. Kravet i oppgaven begrenser ikke teamene til bare én av de to kodebaserte tilnærmingene.',
+        'Dette er den hele forklaringen for begge gyldige planene i oppgaven. De har forskjellig mekanisme, men møter de oppgitte kravene.',
+        'Versjonskontroll gir sporbarhet, ikke automatisk sikkerhet eller utført kontroll av miljøet.',
+      ],
+    ],
+    explanation:
+      'Her finnes to gyldige tilbudte planer, med samme fullstendige begrunnelse. Dersom avdelingen krevde gjennomgang av deklarativ ønsket tilstand fremfor handlingssekvenser, ville kravene blitt snevrere og valget endret.',
+  },
+  mt08: {
+    title: 'Samme Git-revisjon, andre miljøverdier',
+    problem:
+      'Et team skal vurdere en ny IaC-kjøring. Definisjonen har samme Git-revisjon som sist, men miljøverdier leveres fra en separat parameterfil som er endret. Revieweren ser ingen ny fil-diff i selve definisjonen. Hva må reviewen ta stilling til?',
+    premises: [
+      'Det nye miljøvalget kan være legitimt, men er ikke automatisk godkjent. Ingen deployment er utført ennå.',
+      'Kravet er sporbar og gjennomgått effektiv konfigurasjon, ikke bare kontroll av én uendret kildefil.',
+    ],
+    decisions: [
+      'Behandle den tidligere godkjenningen av definisjonen som tilstrekkelig, og registrer den nye parameterfilen først etter utførelse.',
+      'Review faktisk parameterfil, mål-scope og relevant førtilstand; vurder ønsket konfigurasjon før godkjenning.',
+      'Behold contentVersion uendret og bruk denne versjonslikheten som bekreftelse på uendret miljø.',
+    ],
+    reasons: [
+      'contentVersion beskriver hele kjøringens effektive inndata; når verdien er uendret, gjelder den tidligere godkjenningen også nye parameterfiler.',
+      'Den effektive ønskede konfigurasjonen avhenger av både definisjon, parametere og kontekst; samme kildefil er ikke bevis for samme miljøvalg.',
+      'API-versjonen velger ressursoperasjonens kontrakt, mens contentVersion er forfatterens innholdsversjon og kan beholdes mellom kjøringer.',
+    ],
+    feedback: [
+      [
+        'Den tidligere godkjenningen omfattet ikke automatisk nye miljøverdier. Sporbarhet etter utførelse erstatter ikke det bestilte forhåndsreviewet.',
+        'Riktig: inkluder relevante faktiske inndata og kontekst. Et nytt parameterønske kan godkjennes etter vurdering, uten at selve definisjonen må omskrives.',
+        'contentVersion er ikke en kryptografisk binding til alle miljøverdier eller en forhåndsgodkjenning av konfigurasjonen.',
+      ],
+      [
+        'Forfatterens versjonsstreng fastslår ikke faktiske parameterverdier ved en senere kjøring.',
+        'Dette forklarer hvorfor uendret definisjon fortsatt kan kreve review av en endret effektiv konfigurasjon.',
+        'Dette skiller to viktige versjoner, men forklarer ikke hele behovet for å vurdere den endrede parameterfilen.',
+      ],
+    ],
+    explanation:
+      'IaC-sporbarhet må følge artefakter og effektive inndata, ikke bare filnavn eller en versjonsstreng. Hvis både definisjon og alle relevante inndata/kontekst var verifisert uendret, ville det vært et annet og snevrere endringsgrunnlag.',
+  },
+  mt09: {
+    title: 'Reviewer kan lese, men får ikke kjøre ARM What-if',
+    problem:
+      'En reviewer har Reader på én Resource Group og skal undersøke en faktisk Azure ARM What-if mot gjeldende ressursstatus. What-if blir avvist på grunn av manglende tillatelser. En godkjent, avgrenset utvidelse for denne kontrollen kan avklares. Hva er riktig oppfølging?',
+    premises: [
+      'Det er den faktiske ARM What-if-operasjonen som kreves, ikke bare en lokal fil-diff eller JSON-syntakskontroll.',
+      'Tilgang skal begrenses til nødvendige operasjoner/scope; bred Owner på hele subscription er ikke godkjent.',
+    ],
+    decisions: [
+      'Avklar nødvendige scoped write-/deployment-rettigheter og kjør den godkjente What-if-kontrollen med riktige parametere.',
+      'Send samme definisjon som Bicep fra en annen klient og bruk klientbyttet som løsning på ARM-rettighetene.',
+      'Erstatt den avviste kontrollen med lokal fil-diff og rapporter den som et What-if-resultat fra gjeldende Azure-status.',
+    ],
+    reasons: [
+      'What-if har dokumenterte write-/deployment-rettighetskrav; forhåndsvisning og språkvalg fjerner ikke ARM-autorisasjon.',
+      'Bicep utfører en deklarativ forhåndsvisning hos klienten og kan dermed erstatte denne Azure-kontrollen uten de manglende ARM-rettighetene.',
+      'En lokal fil-diff synliggjør endringer mellom forfatterens kildefiler og er nyttig som en del av gjennomgangen før en planlagt innsending.',
+    ],
+    feedback: [
+      [
+        'Riktig: avklar avgrenset, godkjent tilgang som dekker den nødvendige operasjonen; behandle What-if som preview med egne begrensninger.',
+        'Bicep og klientbytte omgår ikke management-laget eller kravene som har avvist requesten.',
+        'En lokal sammenligning kan hjelpe review, men er ikke en faktisk Azure-analyse mot de gjeldende ressursene.',
+      ],
+      [
+        'Dette forklarer både hvorfor Reader ikke automatisk er nok og hvorfor riktig, begrenset tillatelse må avklares.',
+        'Språket endrer forfatting, ikke autorisasjonen for den aktuelle ARM-operasjonen.',
+        'Dette er sant om kodegjennomgang, men begrunner ikke at den kan rapporteres som det bestilte Azure What-if-resultatet.',
+      ],
+    ],
+    explanation:
+      'What-if endrer ikke ressurser, men har likevel dokumenterte deployment-/write-forutsetninger. Selv et vellykket What-if gir ikke garanti for vellykket deployment eller applikasjonshelse.',
+  },
+  mt10: {
+    title: 'Planen finnes allerede, men appen peker feil',
+    problem:
+      'En ny Web App skal bruke en eksisterende, godkjent plan i samme Resource Group. Appens ARM-beskrivelse peker ved en feil til en ikke-eksisterende plan-ID i en annen gruppe. Planen skal beholdes; den er ikke en ressurs som opprettes i denne deploymenten. Hva må korrigeres?',
+    premises: [
+      'Den riktige eksisterende planen har passende region/egenskaper og relevante tillatelser er kontrollert.',
+      'Oppgaven gjelder ressursreferansen; det er ikke bestilt en ny plan eller migrering til en annen gruppe.',
+    ],
+    decisions: [
+      'Legg den gale ID-en i dependsOn og behold serverFarmId uendret for å få ARM til å etablere målet først.',
+      'Pek serverFarmId til den bekreftede eksisterende planens fulle ID og behold skillet mellom referanse og ny opprettelsesrekkefølge.',
+      'Bytt aktiv subscription-/gruppekontekst i klienten og send den uendrede definisjonen med den samme eksplisitte gale plan-ID-en.',
+    ],
+    reasons: [
+      'En resource ID angir subscription, eventuell gruppe, provider/type og navn; denne identifikatoren kan brukes når en ressurs skal finnes igjen.',
+      'Referansen må peke til riktig eksisterende plan; dependsOn oppretter ikke referansemålet, og klientkontekst retter ikke en eksplisitt gal ID.',
+      'Rekkefølgen i JSON-arrayet etablerer ressursene i samme rekkefølge og bruker den aktive gruppen til å rette målreferanser til andre scope.',
+    ],
+    feedback: [
+      [
+        'dependsOn retter ikke den gale egenskapsverdien og oppretter ikke en manglende ekstern ressurs. Planen er allerede eksisterende under andre oppgitte data.',
+        'Riktig: bruk den verifiserte eksisterende ressurs-ID-en. Ikke lag en oppdiktet ny plan eller en unødvendig avhengighet til en ikke-deklarert ressurs.',
+        'Et klientkontekstbytte retter ikke en eksplisitt gal ID-streng i den innsendte definisjonen. Selve serverFarmId må peke til det bekreftede målet.',
+      ],
+      [
+        'Dette er en sann beskrivelse av ID-format, men forklarer ikke alene eksisterende versus ny ressurs eller hvorfor endret rekkefølge eller klientkontekst er utilstrekkelig.',
+        'Dette forklarer hele korrigeringen og hvorfor de to andre forslagene ikke retter selve referansen.',
+        'JSON-arrayrekkefølge løser verken en gal ressursidentitet eller et annet scope.',
+      ],
+    ],
+    explanation:
+      'En referanse sier hvilket eksisterende objekt appen skal bruke. En deployment-avhengighet sier når en ressurs som inngår i etableringen må være klar. Her er planen allerede kontrollert; identiteten i egenskapsverdien må rettes, ikke bare rekkefølge eller klientkontekst.',
+  },
+} as const;
+
+/** Original bounded illustration only; never compiled, interpreted or sent. */
+export function toolsDefinition(input: {
+  syntax: 'arm' | 'bicep';
+  stage: 'dev' | 'prod';
+  binding: 'correct' | 'dangling' | 'wrong-scope';
+  order: 'auto' | 'explicit' | 'none' | 'cycle';
+  costCenter: 'engineering' | 'sales';
+}) {
+  const cycle = input.order === 'cycle';
+  if (input.syntax === 'bicep') {
+    const reference =
+      input.binding === 'correct'
+        ? 'plan.id'
+        : input.binding === 'dangling'
+          ? "resourceId('Microsoft.Web/serverfarms', 'plan-absent')"
+          : "resourceId('rg-absent', 'Microsoft.Web/serverfarms', 'plan-absent')";
+    return `targetScope = 'resourceGroup'\nparam stage string = '${input.stage}'\nparam costCenter string = '${input.costCenter}'\nvar planName = 'plan-fjord-\${stage}'\nvar appName = 'fjord-\${stage}'\n\nresource plan 'Microsoft.Web/serverfarms@2021-02-01' = {\n  name: planName\n  location: 'westeurope'\n  kind: 'linux'\n  sku: { name: 'F1' }\n  tags: { costCenter: costCenter }\n  properties: { reserved: true }${cycle ? '\n  dependsOn: [app]' : ''}\n}\n\nresource app 'Microsoft.Web/sites@2021-02-01' = {\n  name: appName\n  location: 'westeurope'\n  tags: { costCenter: costCenter }\n  properties: { serverFarmId: ${reference} }${input.order === 'explicit' || cycle ? '\n  dependsOn: [plan]' : ''}\n}\n\noutput appId string = app.id`;
+  }
+  const planId = "[resourceId('Microsoft.Web/serverfarms', variables('planName'))]";
+  const appId = "[resourceId('Microsoft.Web/sites', variables('appName'))]";
+  return JSON.stringify(
+    {
+      $schema: 'https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#',
+      contentVersion: '1.0.0.0',
+      parameters: {
+        stage: { type: 'string', defaultValue: input.stage },
+        costCenter: { type: 'string', defaultValue: input.costCenter },
+      },
+      variables: {
+        planName: "[format('plan-fjord-{0}', parameters('stage'))]",
+        appName: "[format('fjord-{0}', parameters('stage'))]",
+      },
+      resources: [
+        {
+          type: 'Microsoft.Web/serverfarms',
+          apiVersion: '2021-02-01',
+          name: "[variables('planName')]",
+          location: 'westeurope',
+          kind: 'linux',
+          sku: { name: 'F1' },
+          tags: { costCenter: "[parameters('costCenter')]" },
+          properties: { reserved: true },
+          ...(cycle ? { dependsOn: [appId] } : {}),
+        },
+        {
+          type: 'Microsoft.Web/sites',
+          apiVersion: '2021-02-01',
+          name: "[variables('appName')]",
+          location: 'westeurope',
+          tags: { costCenter: "[parameters('costCenter')]" },
+          properties: {
+            serverFarmId:
+              input.binding === 'correct'
+                ? planId
+                : input.binding === 'dangling'
+                  ? "[resourceId('Microsoft.Web/serverfarms', 'plan-absent')]"
+                  : "[resourceId('rg-absent', 'Microsoft.Web/serverfarms', 'plan-absent')]",
+          },
+          ...(input.order === 'explicit' || cycle ? { dependsOn: [planId] } : {}),
+        },
+      ],
+      outputs: { appId: { type: 'string', value: appId } },
+    },
+    null,
+    2,
+  );
+}

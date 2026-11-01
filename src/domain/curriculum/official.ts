@@ -142,3 +142,14 @@ export const officialGovernance = {
   status: 'scoped-content-covered',
   humanReview: null,
 } as const;
+
+export const officialManagementTools = {
+  reviewed: '2026-11-01',
+  path: 'https://learn.microsoft.com/en-us/training/paths/describe-azure-management-governance/',
+  module: 'describe-features-tools-manage-deploy-azure-resources',
+  officialUnits: 6,
+  implementedObjectives: ['3.3.01', '3.3.02', '3.3.03', '3.3.04', '3.3.05'],
+  supplement: 'Azure Copilot; no sixth exam goal',
+  status: 'scoped-content-covered',
+  humanReview: null,
+} as const;

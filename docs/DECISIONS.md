@@ -1,5 +1,9 @@
 # Decisions
 
+## P13: distinguish declared management from actual local commands
+
+Keep one existing resource engine. A typed closed-input model teaches interface/ARM/provider/scope, parameters/dependencies and Arc support without arbitrary evaluation or runtime claims. Bicep symbolic references can order new resources; ARM resourceId alone cannot. Unresolved preview differences remain unknown. Existing local Flux reconciliation is distinct from new Azure configuration. Practical proof requires actual learner-operated RG/Plan/App operations after guide start and original replayed receipts. The isolated1.0.0 learning store preserves all old evidence. [Rationale](MANAGEMENT_DEPLOYMENT_TOOLS.md).
+
 ## P12 — Separate governance mechanisms and actual receipt evidence, 1 November 2026
 
 Use one three-perspective Governance Studio rather than another Portal or generic Policy engine. Purview metadata curation, declared Policy decisions and management-lock consequences solve different learning problems. The Policy mission alone also observes actual existing Sandbox enforcement; credit is verified against original post-start receipts, same corrected plan and explicit inspections. Archive loss leaves the investigation unverified. Keep an isolated versioned history, existing command/replay/XP semantics and ordinary Hub integration. This gives practical consequence without inventing scanning, operative locks or compliance infrastructure. Nine original paired contexts were blind-reviewed; substantive remediation rewrite and explicit complete-explanation instructions closed two early major findings. Human learning validation remains separate.

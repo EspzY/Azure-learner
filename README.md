@@ -1,5 +1,9 @@
 # AzureLab 3.2.1
 
+## P13 — Management & Deployment Tools
+
+[Original module and boundaries](docs/MANAGEMENT_DEPLOYMENT_TOOLS.md): ordinary Course Hub path03 after Governance; Portal, hosted shells, CLI/PowerShell, ARM, IaC/Bicep/What-if and Arc. Three causal Studio investigations combine explicit conceptual limits with actual learner-operated local Portal commands and original receipts. Separate versioned learning history; ten original paired scenarios. Only five scoped AZ-900 goals reassessed; no real cloud runtime, XP, merge or production.
+
 ## Governance & Compliance — P12
 
 [Governance & Compliance](docs/GOVERNANCE_COMPLIANCE.md) follows Cost Management in path03. Original Norwegian Purview, Azure Policy, Resource Locks and short Service Trust Portal teaching leads to three causal Studio investigations and nine paired independent contexts. The actual Policy investigation uses existing local Portal commands and unchanged receipts; metadata and lock examples remain conceptual. Isolated history preserves prior results and XP. Authored scoped coverage becomes44/57; this is not student mastery or exam readiness. Release evidence and limitations: [PR37 audit](docs/quality/PR37_FINAL_AUDIT.md).

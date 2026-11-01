@@ -4,6 +4,28 @@ import { replayEngine } from '../sandbox/replay';
 
 /** Conceptual observations are not Engine receipts and have their own source contract. */
 export const conceptMilestones = {
+  'tools-intent': {
+    version: '1.0.0',
+    objectives: ['MGT01', 'MGT02'],
+    sources: ['MT19', 'MT20', 'MT21', 'MT22'],
+    trigger:
+      'saved-tool-environment-contrasts-plus-original-post-start-portal-receipt-and-hosting-inspections',
+    auto: 'first-new-guided-model-result',
+  },
+  'tools-change': {
+    version: '1.0.0',
+    objectives: ['MGT04', 'MGT05'],
+    sources: ['MT24', 'MT25', 'MT26', 'MT28'],
+    trigger: 'saved-parameter-reference-dependency-and-language-contrasts',
+    auto: 'first-new-guided-model-result',
+  },
+  'tools-arc': {
+    version: '1.0.0',
+    objectives: ['MGT03'],
+    sources: ['MT07', 'MT29', 'MT30', 'MT39'],
+    trigger: 'saved-representation-physical-location-and-current-management-contrasts',
+    auto: 'first-new-guided-model-result',
+  },
   'governance-data': {
     version: '1.0.0',
     objectives: ['GOV01'],

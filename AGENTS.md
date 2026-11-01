@@ -1,5 +1,9 @@
 # AzureLab engineering contract
 
+## P13 management continuity —1 November2026
+
+Read [MANAGEMENT_DEPLOYMENT_TOOLS](docs/MANAGEMENT_DEPLOYMENT_TOOLS.md). Preserve isolated azurelab.learning.management-tools.v1 and all prior records. Three typed pure perspectives never execute CLI/PowerShell/ARM/Bicep/Arc or mutate World. Actual practical credit requires post-start original RG/Plan/App commands, pinned replay and explicit scope/resource/receipt/dependency inspections. Shell and tool, definition and ARM, ordering and reference, preview and deployment, Arc representation and physical placement remain distinct. Extend all21 independent guards. Only3.3.01–05; Copilot is supplement. Desktop-first216-case profile preserves all207 earlier executions; legacy400 optional. Full exact-head CI/strict and actual anonymous root/fullSHA/journey required. No merge/production or settings changes.
+
 ## P12 governance continuity — 1 November 2026
 
 Read [GOVERNANCE_COMPLIANCE](docs/GOVERNANCE_COMPLIANCE.md) for Governance changes. Preserve azurelab.learning.governance-compliance.v1, original first/help/retry records and the original Sandbox Web location policy. Three pure Studio perspectives never mutate World. Actual Policy guided credit requires same-plan post-start denied/corrected original receipts, replayed pinned technical attempt/boundary/through and explicit policy/scope/group/receipt inspections. Missing/uncertain archive fails closed; no copied inventory. Purview metadata is not source access, Audit is not Deny, and management locks are not data protection or backup. P12 adds only3.2.01–03; STP is Learn supplement. Extend all shared independent guards and preserve the three-path Hub. Desktop-first207-case profile requires complete exact-head CI/strict; optional full legacy384 remains. No merge/production or SSO bypass.
