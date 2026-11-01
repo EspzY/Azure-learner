@@ -5,6 +5,10 @@ import baseline from './playwright.config';
 // names. No test body, assertion, title, timeout or skip is modified.
 const compactCases = [
   [
+    'governance-compliance.spec.ts',
+    'Governance desktop and compact keyboard, short native briefing, semantic alternatives and reduced motion remain readable',
+  ],
+  [
     'access-control.spec.ts',
     'Access Control keyboard, semantic flow, short native briefing, reduced motion and compact views remain readable',
   ],

@@ -1,4 +1,11 @@
 import {
+  freshGovernance,
+  applyGovernance,
+  governanceKey,
+  restoreGovernance,
+  governanceFacts,
+} from '../../src/domain/curriculum/governance';
+import {
   freshAccess,
   applyAccess,
   accessKey,
@@ -106,6 +113,12 @@ function fixture<S>(
 /** Valid records from frozen reducers, never new runtime curriculum. */
 export function activeTeachingContexts() {
   return [
+    fixture(
+      governanceKey,
+      applyGovernance(freshGovernance(), { kind: 'begin', item: 'gc01' }),
+      restoreGovernance,
+      governanceFacts,
+    ),
     fixture(
       accessKey,
       applyAccess(freshAccess(), { kind: 'begin', item: 'ab01' }),

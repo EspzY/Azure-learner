@@ -116,7 +116,7 @@ export function CourseHub({
                 <span className="learn-hub-path-number">{path.number}</span>
                 <span className="learn-hub-availability">
                   {path.modules.length}{' '}
-                  {path.modules.length === 1 ? h.availableModule : h.availableModules}
+                  {Number(path.modules.length) === 1 ? h.availableModule : h.availableModules}
                 </span>
               </div>
               <h3 id={`learn-hub-${path.id}-title`}>{path.title}</h3>

@@ -191,6 +191,8 @@ PR36 supplies [Access Control](ACCESS_CONTROL.md) as Identity Part B: original p
 - **Tester:** Lock er ikke backup eller RBAC; tillatt location betyr ikke full compliance; auditering versus deny; avvist kommando forblir uten mutation.
 - **Aksept:** Alle tre formål kan velges/begrunnes i uavhengig situasjon. Ingen skjult endring i policyregler eller gamle receipts.
 
+PR37 supplies [Governance & Compliance](GOVERNANCE_COMPLIANCE.md): original Purview/Policy/locks and STP supplement, three causal perspectives/investigations, actual unchanged custom-policy denial/correction inspection and nine original paired contexts. Only3.2.01–03 reassessed;54 other rows preserved. Complete exact-head207 CI/strict, independent audit and separate external Gate7 govern delivery. No merge/production. Next P13.
+
 ## P13 — Administrasjon og deployment
 
 - **Mål:** Alle fem `3.3`-punkter.

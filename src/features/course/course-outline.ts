@@ -34,7 +34,10 @@ export const coursePaths = [
     number: '03',
     title: h.paths.management.title,
     description: h.paths.management.description,
-    modules: [{ title: h.moduleLabels.cost, parts: ['cost'] }],
+    modules: [
+      { title: h.moduleLabels.cost, parts: ['cost'] },
+      { title: h.moduleLabels.governance, parts: ['governance'] },
+    ],
     planned: h.plannedModules.management,
   },
 ] as const satisfies readonly {

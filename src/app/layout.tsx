@@ -1,3 +1,4 @@
+import { GovernanceProvider } from '@/features/learning/governance-provider';
 import { AccessProvider } from '@/features/learning/access-control-provider';
 import { IdentityProvider } from '@/features/learning/identity-foundations-provider';
 import { ResilienceProvider } from '@/features/learning/storage-resilience-provider';
@@ -51,17 +52,19 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                                     <CourseProvider>
                                       <ExpansionProvider>
                                         <SandboxProvider>
-                                          <SaasProvider>
-                                            <PracticalProvider>
-                                              <ServerlessProvider>
-                                                <PhysicalProvider>
-                                                  <LearningProvider>
-                                                    <AppShell>{children}</AppShell>
-                                                  </LearningProvider>
-                                                </PhysicalProvider>
-                                              </ServerlessProvider>
-                                            </PracticalProvider>
-                                          </SaasProvider>
+                                          <GovernanceProvider>
+                                            <SaasProvider>
+                                              <PracticalProvider>
+                                                <ServerlessProvider>
+                                                  <PhysicalProvider>
+                                                    <LearningProvider>
+                                                      <AppShell>{children}</AppShell>
+                                                    </LearningProvider>
+                                                  </PhysicalProvider>
+                                                </ServerlessProvider>
+                                              </PracticalProvider>
+                                            </SaasProvider>
+                                          </GovernanceProvider>
                                         </SandboxProvider>
                                       </ExpansionProvider>
                                     </CourseProvider>

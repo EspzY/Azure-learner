@@ -112,8 +112,11 @@ test('Storage parts share one Hub group and keep exact A links, active sidebar, 
   );
   await expect(page.locator('.learn-hub-planned')).toContainText([
     'File Movement & Migration',
-    'Governance',
+    'Management Tools',
   ]);
+  await expect(page.locator('.learn-hub-module[data-module="governance"]')).toContainText(
+    h.moduleLabels.governance,
+  );
   await page.locator('.learn-hub-module[data-module="storage-resilience"] a').click();
   await expect(page).toHaveURL(resilienceHref('introduction'));
   for (const topic of ['tiers', 'lifecycle', 'redundancy', 'recovery', 'boundaries'] as const) {

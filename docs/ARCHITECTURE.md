@@ -1,5 +1,9 @@
 # Architecture
 
+## P12 Governance & Compliance
+
+GovernanceProvider lives inside SandboxProvider and owns only azurelab.learning.governance-compliance.v1. Pure data/Policy/lock models are declared educational snapshots, never World writes. The read-only evidence verifier replays the original pinned attempt ledger through inspected command IDs and requires post-start denial plus same-plan correction. It stores references, not an inventory or duplicate receipts. Shared teaching, Journal/history/Summary, missions and Portal shield the new independent context. One navigation-only governance=policy allowlist preserves exact Studio return across ordinary Portal navigation; command semantics are unchanged. See [contract](GOVERNANCE_COMPLIANCE.md).
+
 ## P07 isolated hybrid connectivity and endpoint learning
 
 Part B composes with Part A through `/learn/connectivity` in the existing Course and Journal. ConnectivityProvider adds a separately replayed 1.0.0 record without migrating prior evidence. The pure hybrid model distinguishes VPN kind, provider/gateway/underlay/routes, private transport, encryption scope and declared access; the endpoint model separates DNS visibility, selected public/private entry, approval, path, public-network settings, network policy, application authorization and assumed response. Neither imports World or issues commands. Shared teaching and automatic-guidance guards include the fifteenth independent context. Actual Part A network inspection remains the authoritative read-only Sandbox bridge. [Manuscript, source reconciliation and limitations](NETWORKING_CONNECTIVITY.md).

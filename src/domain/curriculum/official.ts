@@ -131,3 +131,14 @@ export const officialAccess = {
   status: 'partial',
   humanReview: null,
 } as const;
+
+export const officialGovernance = {
+  reviewed: '2026-11-01',
+  path: 'https://learn.microsoft.com/en-us/training/paths/describe-azure-management-governance/',
+  module: 'describe-features-tools-azure-for-governance-compliance',
+  officialUnits: 7,
+  implementedObjectives: ['3.2.01', '3.2.02', '3.2.03'],
+  supplement: 'Service Trust Portal; no extra exam row',
+  status: 'scoped-content-covered',
+  humanReview: null,
+} as const;

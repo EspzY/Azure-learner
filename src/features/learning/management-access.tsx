@@ -1,4 +1,13 @@
 'use client';
+
+import { useGovernance } from './governance-provider';
+import { GovernanceRecovery } from './governance';
+import {
+  governanceHref,
+  governanceFacts,
+  governanceKey,
+  restoreGovernance,
+} from '@/domain/curriculum/governance';
 import { useAccess } from './access-control-provider';
 import {
   accessHref,
@@ -163,8 +172,18 @@ export function ManagementTeachingBoundary({
     storage = useStorage(),
     resilience = useResilience(),
     identityState = useIdentity(),
-    accessState = useAccess();
+    accessState = useAccess(),
+    governanceState = useGovernance();
   const checks = [
+    check(
+      'governance',
+      governanceState,
+      governanceKey,
+      restoreGovernance,
+      governanceFacts,
+      () => governanceState.store.event({ kind: 'aid' }),
+      governanceHref('assessment', governanceState.facts.current?.item),
+    ),
     check(
       'access',
       accessState,
@@ -357,6 +376,7 @@ export function ManagementTeachingBoundary({
         item.id === 'connectivity' ||
         item.id === 'storage' ||
         item.id === 'identity' ||
+        item.id === 'governance' ||
         item.id === 'access' ||
         item.id === 'resilience' ||
         (only === 'core' ? ['management', 'physical'].includes(item.id) : item.id === only)),
@@ -419,6 +439,7 @@ export function ManagementTeachingBoundary({
               {item.id === 'storage' && <StorageRecovery />}
               {item.id === 'resilience' && <ResilienceRecovery />}
               {item.id === 'identity' && <IdentityRecovery />}
+              {item.id === 'governance' && <GovernanceRecovery />}
               {item.id === 'access' && <AccessRecovery />}
             </div>
           ))}

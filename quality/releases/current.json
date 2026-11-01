@@ -1,713 +1,1116 @@
 {
   "schema": 1,
-  "id": "PR36-P11-access-control",
-  "baseCommit": "2eef3efad9b867534a69327a2f6deee31ffacaa5",
-  "author": "codex-access-control-author",
+  "id": "PR37-P12-governance-compliance",
+  "baseCommit": "9c03462d2805e3878d295667ac0462dfc9b607f7",
+  "author": "codex-governance-author",
   "scope": {
     "kind": "new-module",
-    "description": "P11 Identity Part B: original Azure RBAC/Conditional Access manuscript, pure role/scope and two-policy models, actual read-only Sandbox ancestry, two saved causal investigations, eight original independent contexts including multi-valid Reader plans, isolated1.0.0 history. Only2.4.04–05; P10/P12/P15 and old World/receipts/XP/firsts preserved. No real identity/role/policy/token operation, merge or production deploy.",
-    "objectives": ["az900.identity.conditional-access", "az900.identity.rbac"]
+    "description": "P12 original Purview, Policy and Resource Locks course; STP Learn supplement, three pure Studio perspectives and causal guides, actual unchanged post-start custom location-policy denial/correction/receipt verification, nine original paired decisions and isolated1.0.0 history. Only3.2.01–03. No cloud/scan/lock/Policy backend, new World semantics, XP, merge or production.",
+    "objectives": ["az900.governance.purview", "az900.governance.policy", "az900.governance.locks"]
   },
   "sources": [
     {
-      "id": "AC01",
-      "title": "Study guide for Exam AZ-900: Microsoft Azure Fundamentals | Microsoft Learn",
+      "id": "GV01",
       "url": "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900",
-      "kind": "study-guide",
-      "reviewed": "2026-10-31",
-      "version": "Rolling page updated 2026-06-22T23:35:00.0000000Z",
+      "title": "Study guide for Exam AZ-900: Microsoft Azure Fundamentals | Microsoft Learn",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page; updated 2026-06-22T23:35:00.0000000Z; SHA256 177b736af1bae8702d9e04ef68bac8c1f2985838652bb40818a5ac25ed320716",
+      "kind": "official-public-documentation",
+      "objectives": [
+        "az900.governance.purview",
+        "az900.governance.policy",
+        "az900.governance.locks"
+      ],
+      "claims": ["governance.GV01"],
+      "limits": "Public body actually read. No protected assessment/report/sign-in. Classic lineage qualified with current GV33/34; older Learn product examples are not current universal claims. Source-specific support and timing limits retained.",
       "availability": "AVAILABLE",
-      "objectives": ["az900.identity.conditional-access", "az900.identity.rbac"],
-      "claims": ["access.AC01"],
-      "limits": "Current20July2026 study guide, scoped Conditional Access and Azure RBAC objectives. Declared conceptual teaching; no actual Entra/Azure operation or human validation.",
       "discovery": [
         {
           "url": "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900",
-          "disposition": "reviewed-applied",
-          "reason": "Current20July2026 study guide, scoped Conditional Access and Azure RBAC objectives."
+          "disposition": "reviewed",
+          "reason": "Current20July2026 guide: only3.2.01–03 are scoped; STP is not an extra exam row."
         }
       ]
     },
     {
-      "id": "AC02",
-      "title": "Describe Azure identity, access, and security - Training | Microsoft Learn",
-      "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-identity-access-security/",
-      "kind": "module",
-      "reviewed": "2026-10-31",
-      "version": "Rolling page updated 2026-10-28T17:12:00.0000000Z",
+      "id": "GV02",
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-features-tools-azure-for-governance-compliance/",
+      "title": "Describe features and tools in Azure for governance and compliance - Training | Microsoft Learn",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page; updated 2026-10-28T17:12:00.0000000Z; SHA256 114e71cb03d7158354ac7beb167600fe553f7ef7ff56e3e0fa7b65ca896b41a8",
+      "kind": "official-public-documentation",
+      "objectives": [
+        "az900.governance.purview",
+        "az900.governance.policy",
+        "az900.governance.locks"
+      ],
+      "claims": ["governance.GV02"],
+      "limits": "Public body actually read. No protected assessment/report/sign-in. Classic lineage qualified with current GV33/34; older Learn product examples are not current universal claims. Source-specific support and timing limits retained.",
       "availability": "AVAILABLE",
-      "objectives": ["az900.identity.conditional-access", "az900.identity.rbac"],
-      "claims": ["access.AC02"],
-      "limits": "Actual12-unit module, public relevant units5/6; protected assessment not opened. Declared conceptual teaching; no actual Entra/Azure operation or human validation.",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-identity-access-security/",
-          "disposition": "reviewed-applied",
-          "reason": "Actual12-unit module, public relevant units5/6; protected assessment not opened."
+          "url": "https://learn.microsoft.com/en-us/training/modules/describe-features-tools-azure-for-governance-compliance/",
+          "disposition": "reviewed",
+          "reason": "Actual seven-unit module; six public teaching/introduction/summary units reviewed, protected assessment not opened."
         }
       ]
     },
     {
-      "id": "AC03",
-      "title": "Describe Azure conditional access - Training | Microsoft Learn",
-      "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-identity-access-security/5-conditional-access",
-      "kind": "unit",
-      "reviewed": "2026-10-31",
-      "version": "Rolling page updated 2025-03-28T23:01:00.0000000Z",
+      "id": "GV03",
+      "url": "https://learn.microsoft.com/en-us/purview/",
+      "title": "Microsoft Purview | Microsoft Learn",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page; updated 2026-06-11T17:42:00.0000000Z; SHA256 8004b96e57d75a72992ead2b090f7d93322677899ca5a2c5d64eca59329feb61",
+      "kind": "official-public-documentation",
+      "objectives": [
+        "az900.governance.purview",
+        "az900.governance.policy",
+        "az900.governance.locks"
+      ],
+      "claims": ["governance.GV03"],
+      "limits": "Public body actually read. No protected assessment/report/sign-in. Classic lineage qualified with current GV33/34; older Learn product examples are not current universal claims. Source-specific support and timing limits retained.",
       "availability": "AVAILABLE",
-      "objectives": ["az900.identity.conditional-access"],
-      "claims": ["access.AC03"],
-      "limits": "Public CA signal/decision/enforcement introduction qualified by current product targeting/grant boundaries. Declared conceptual teaching; no actual Entra/Azure operation or human validation.",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-identity-access-security/5-conditional-access",
-          "disposition": "reviewed-applied",
-          "reason": "Public CA signal/decision/enforcement introduction qualified by current product targeting/grant boundaries."
+          "url": "https://learn.microsoft.com/en-us/purview/",
+          "disposition": "reviewed",
+          "reason": "Current Purview portfolio spans data governance, data security and data compliance; not a universal compliance guarantee."
         }
       ]
     },
     {
-      "id": "AC04",
-      "title": "Describe Azure role-based access control - Training | Microsoft Learn",
-      "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-identity-access-security/6-role-based-access-control",
-      "kind": "unit",
-      "reviewed": "2026-10-31",
-      "version": "Rolling page updated 2025-03-28T23:01:00.0000000Z",
+      "id": "GV04",
+      "url": "https://learn.microsoft.com/en-us/purview/data-governance-get-started",
+      "title": "Get started with data governance in Microsoft Purview | Microsoft Learn",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page; updated 2026-04-24T17:33:00.0000000Z; SHA256 d3df490ed527da37ce838b1198114d5d8d140053269386f62af1c4837683d103",
+      "kind": "official-public-documentation",
+      "objectives": [
+        "az900.governance.purview",
+        "az900.governance.policy",
+        "az900.governance.locks"
+      ],
+      "claims": ["governance.GV04"],
+      "limits": "Public body actually read. No protected assessment/report/sign-in. Classic lineage qualified with current GV33/34; older Learn product examples are not current universal claims. Source-specific support and timing limits retained.",
       "availability": "AVAILABLE",
-      "objectives": ["az900.identity.rbac"],
-      "claims": ["access.AC04"],
-      "limits": "RBAC scope/least privilege; broad no-data-plane wording qualified by actual DataActions product docs. Declared conceptual teaching; no actual Entra/Azure operation or human validation.",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-identity-access-security/6-role-based-access-control",
-          "disposition": "reviewed-applied",
-          "reason": "RBAC scope/least privilege; broad no-data-plane wording qualified by actual DataActions product docs."
+          "url": "https://learn.microsoft.com/en-us/purview/data-governance-get-started",
+          "disposition": "reviewed",
+          "reason": "Enterprise/source registration/scanning prerequisites; governance domains,data products,owners and stewards; no performed setup."
         }
       ]
     },
     {
-      "id": "AC05",
-      "title": "What is Azure role-based access control (Azure RBAC)? | Microsoft Learn",
-      "url": "https://learn.microsoft.com/en-us/azure/role-based-access-control/overview",
-      "kind": "product",
-      "reviewed": "2026-10-31",
-      "version": "Rolling page updated 2025-10-15T22:11:00.0000000Z",
+      "id": "GV05",
+      "url": "https://learn.microsoft.com/en-us/purview/unified-catalog",
+      "title": "Learn about Microsoft Purview Unified Catalog | Microsoft Learn",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page; updated 2026-03-16T18:32:00.0000000Z; SHA256 43f54416f5d5947749601d44d2c7bef7e67bb7ca4c2061fb56dc4ee8e789ddab",
+      "kind": "official-public-documentation",
+      "objectives": [
+        "az900.governance.purview",
+        "az900.governance.policy",
+        "az900.governance.locks"
+      ],
+      "claims": ["governance.GV05"],
+      "limits": "Public body actually read. No protected assessment/report/sign-in. Classic lineage qualified with current GV33/34; older Learn product examples are not current universal claims. Source-specific support and timing limits retained.",
       "availability": "AVAILABLE",
-      "objectives": ["az900.identity.rbac"],
-      "claims": ["access.AC05"],
-      "limits": "Principal/role/scope, group/transitive membership, additive grants and authorization evaluation. Declared conceptual teaching; no actual Entra/Azure operation or human validation.",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/role-based-access-control/overview",
-          "disposition": "reviewed-applied",
-          "reason": "Principal/role/scope, group/transitive membership, additive grants and authorization evaluation."
+          "url": "https://learn.microsoft.com/en-us/purview/unified-catalog",
+          "disposition": "reviewed",
+          "reason": "Current Unified Catalog purpose, federated curation/discovery; experience availability qualified by account/region."
         }
       ]
     },
     {
-      "id": "AC06",
-      "title": "Understand scope for Azure RBAC | Microsoft Learn",
-      "url": "https://learn.microsoft.com/en-us/azure/role-based-access-control/scope-overview",
-      "kind": "product",
-      "reviewed": "2026-10-31",
-      "version": "Rolling page updated 2026-02-13T12:10:00.0000000Z",
+      "id": "GV06",
+      "url": "https://learn.microsoft.com/en-us/purview/data-governance-roles-permissions",
+      "title": "Data Governance Roles and Permissions in Microsoft Purview | Microsoft Learn",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page; updated 2026-06-01T22:33:00.0000000Z; SHA256 ffdbdc3a07219a42355764491dc0d8ea9d81de99fb6bf790305a873b992ed69c",
+      "kind": "official-public-documentation",
+      "objectives": [
+        "az900.governance.purview",
+        "az900.governance.policy",
+        "az900.governance.locks"
+      ],
+      "claims": ["governance.GV06"],
+      "limits": "Public body actually read. No protected assessment/report/sign-in. Classic lineage qualified with current GV33/34; older Learn product examples are not current universal claims. Source-specific support and timing limits retained.",
       "availability": "AVAILABLE",
-      "objectives": ["az900.identity.rbac"],
-      "claims": ["access.AC06"],
-      "limits": "Downward management-group/subscription/resource-group/resource inheritance; no upward/sibling grant. Declared conceptual teaching; no actual Entra/Azure operation or human validation.",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/role-based-access-control/scope-overview",
-          "disposition": "reviewed-applied",
-          "reason": "Downward management-group/subscription/resource-group/resource inheritance; no upward/sibling grant."
+          "url": "https://learn.microsoft.com/en-us/purview/data-governance-roles-permissions",
+          "disposition": "reviewed",
+          "reason": "Purview metadata permissions, tenant/catalog/domain and source permissions; not Azure Owner or universal data access."
         }
       ]
     },
     {
-      "id": "AC07",
-      "title": "Understand Azure role definitions - Azure RBAC | Microsoft Learn",
-      "url": "https://learn.microsoft.com/en-us/azure/role-based-access-control/role-definitions",
-      "kind": "product",
-      "reviewed": "2026-10-31",
-      "version": "Rolling page updated 2026-05-24T11:44:00.0000000Z",
-      "availability": "AVAILABLE",
-      "objectives": ["az900.identity.rbac"],
-      "claims": ["access.AC07"],
-      "limits": "Actions/NotActions/DataActions; subtract within one role, not global deny; another role can grant. Declared conceptual teaching; no actual Entra/Azure operation or human validation.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/role-based-access-control/role-definitions",
-          "disposition": "reviewed-applied",
-          "reason": "Actions/NotActions/DataActions; subtract within one role, not global deny; another role can grant."
-        }
-      ]
-    },
-    {
-      "id": "AC08",
-      "title": "Azure roles, Microsoft Entra roles, and classic subscription administrator roles | Microsoft Learn",
-      "url": "https://learn.microsoft.com/en-us/azure/role-based-access-control/rbac-and-directory-admin-roles",
-      "kind": "product",
-      "reviewed": "2026-10-31",
-      "version": "Rolling page updated 2026-05-07T06:30:00.0000000Z",
-      "availability": "AVAILABLE",
-      "objectives": ["az900.identity.rbac"],
-      "claims": ["access.AC08"],
-      "limits": "Azure versus Entra roles, no automatic GlobalAdmin=Owner; explicit elevation is separate. Declared conceptual teaching; no actual Entra/Azure operation or human validation.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/role-based-access-control/rbac-and-directory-admin-roles",
-          "disposition": "reviewed-applied",
-          "reason": "Azure versus Entra roles, no automatic GlobalAdmin=Owner; explicit elevation is separate."
-        }
-      ]
-    },
-    {
-      "id": "AC09",
-      "title": "Microsoft Entra Conditional Access: Zero Trust Policy Engine - Microsoft Entra ID | Microsoft Learn",
-      "url": "https://learn.microsoft.com/en-us/entra/identity/conditional-access/overview",
-      "kind": "product",
-      "reviewed": "2026-10-31",
-      "version": "Rolling page updated 2026-04-28T05:19:00.0000000Z",
-      "availability": "AVAILABLE",
-      "objectives": ["az900.identity.conditional-access"],
-      "claims": ["access.AC09"],
-      "limits": "CA after first factor, signals, P1/bundles, risk P2/IDProtection and other product licenses. Declared conceptual teaching; no actual Entra/Azure operation or human validation.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/entra/identity/conditional-access/overview",
-          "disposition": "reviewed-applied",
-          "reason": "CA after first factor, signals, P1/bundles, risk P2/IDProtection and other product licenses."
-        }
-      ]
-    },
-    {
-      "id": "AC10",
-      "title": "Build Conditional Access policies in Microsoft Entra - Microsoft Entra ID | Microsoft Learn",
-      "url": "https://learn.microsoft.com/en-us/entra/identity/conditional-access/concept-conditional-access-policies",
-      "kind": "product",
-      "reviewed": "2026-10-31",
-      "version": "Rolling page updated 2026-03-25T05:05:00.0000000Z",
-      "availability": "AVAILABLE",
-      "objectives": ["az900.identity.conditional-access"],
-      "claims": ["access.AC10"],
-      "limits": "All applicable policies must be satisfied; targeting and grant controls distinct, AND across policies. Declared conceptual teaching; no actual Entra/Azure operation or human validation.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/entra/identity/conditional-access/concept-conditional-access-policies",
-          "disposition": "reviewed-applied",
-          "reason": "All applicable policies must be satisfied; targeting and grant controls distinct, AND across policies."
-        }
-      ]
-    },
-    {
-      "id": "AC11",
-      "title": "Conditional Access Policy Insights: Monitoring and Evaluation - Microsoft Entra ID | Microsoft Learn",
-      "url": "https://learn.microsoft.com/en-us/entra/identity/conditional-access/concept-conditional-access-report-only",
-      "kind": "product",
-      "reviewed": "2026-10-31",
-      "version": "Rolling page updated 2026-06-01T22:39:00.0000000Z",
-      "availability": "AVAILABLE",
-      "objectives": ["az900.identity.conditional-access"],
-      "claims": ["access.AC11"],
-      "limits": "Report-only evaluated not enforced, real certificate prompt qualifications, policy-impact preview context. Declared conceptual teaching; no actual Entra/Azure operation or human validation.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/entra/identity/conditional-access/concept-conditional-access-report-only",
-          "disposition": "reviewed-applied",
-          "reason": "Report-only evaluated not enforced, real certificate prompt qualifications, policy-impact preview context."
-        }
-      ]
-    },
-    {
-      "id": "AC12",
-      "title": "The Conditional Access What If tool - Microsoft Entra ID | Microsoft Learn",
-      "url": "https://learn.microsoft.com/en-us/entra/identity/conditional-access/what-if-tool",
-      "kind": "product",
-      "reviewed": "2026-10-31",
-      "version": "Rolling page updated 2026-08-27T22:38:00.0000000Z",
-      "availability": "AVAILABLE",
-      "objectives": ["az900.identity.conditional-access"],
-      "claims": ["access.AC12"],
-      "limits": "What If estimates supplied conditions, current supported identities, does not test service dependencies. Declared conceptual teaching; no actual Entra/Azure operation or human validation.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/entra/identity/conditional-access/what-if-tool",
-          "disposition": "reviewed-applied",
-          "reason": "What If estimates supplied conditions, current supported identities, does not test service dependencies."
-        }
-      ]
-    },
-    {
-      "id": "AC13",
-      "title": "Manage emergency access admin accounts - Microsoft Entra ID | Microsoft Learn",
-      "url": "https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/security-emergency-access",
-      "kind": "product",
-      "reviewed": "2026-10-31",
-      "version": "Rolling page updated 2026-06-05T07:33:00.0000000Z",
-      "availability": "AVAILABLE",
-      "objectives": ["az900.identity.conditional-access"],
-      "claims": ["access.AC13"],
-      "limits": "Current emergency account protections, restrict-policy exclusions, monitoring/testing, mandatory MFA remains. Declared conceptual teaching; no actual Entra/Azure operation or human validation.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/security-emergency-access",
-          "disposition": "reviewed-applied",
-          "reason": "Current emergency account protections, restrict-policy exclusions, monitoring/testing, mandatory MFA remains."
-        }
-      ]
-    },
-    {
-      "id": "AC14",
-      "title": "Conditional Access Setup: Users, Groups, Agents, and Workload Identities - Microsoft Entra ID | Microsoft Learn",
-      "url": "https://learn.microsoft.com/en-us/entra/identity/conditional-access/concept-conditional-access-users-groups",
-      "kind": "product",
-      "reviewed": "2026-10-31",
-      "version": "Rolling page updated 2026-05-18T22:35:00.0000000Z",
-      "availability": "AVAILABLE",
-      "objectives": ["az900.identity.conditional-access"],
-      "claims": ["access.AC14"],
-      "limits": "Identity inclusion/exclusion precedence perpolicy; user/group/directory role and workload distinctions. Declared conceptual teaching; no actual Entra/Azure operation or human validation.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/entra/identity/conditional-access/concept-conditional-access-users-groups",
-          "disposition": "reviewed-applied",
-          "reason": "Identity inclusion/exclusion precedence perpolicy; user/group/directory role and workload distinctions."
-        }
-      ]
-    },
-    {
-      "id": "AC15",
-      "title": "How to Configure Grant Controls in Microsoft Entra - Microsoft Entra ID | Microsoft Learn",
-      "url": "https://learn.microsoft.com/en-us/entra/identity/conditional-access/concept-conditional-access-grant",
-      "kind": "product",
-      "reviewed": "2026-10-31",
-      "version": "Rolling page updated 2026-06-16T22:43:00.0000000Z",
-      "availability": "AVAILABLE",
-      "objectives": ["az900.identity.conditional-access"],
-      "claims": ["access.AC15"],
-      "limits": "Within-policy AND/OR grant controls, MFA/compliance/block distinctions; other controls outside model. Declared conceptual teaching; no actual Entra/Azure operation or human validation.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/entra/identity/conditional-access/concept-conditional-access-grant",
-          "disposition": "reviewed-applied",
-          "reason": "Within-policy AND/OR grant controls, MFA/compliance/block distinctions; other controls outside model."
-        }
-      ]
-    },
-    {
-      "id": "AC16",
-      "title": "How to Use Conditions in Conditional Access Policies - Microsoft Entra ID | Microsoft Learn",
-      "url": "https://learn.microsoft.com/en-us/entra/identity/conditional-access/concept-conditional-access-conditions",
-      "kind": "product",
-      "reviewed": "2026-10-31",
-      "version": "Rolling page updated 2026-09-28T17:38:00.0000000Z",
-      "availability": "AVAILABLE",
-      "objectives": ["az900.identity.conditional-access"],
-      "claims": ["access.AC16"],
-      "limits": "Actual condition signals and limits; no fabricated risk/device verification. Declared conceptual teaching; no actual Entra/Azure operation or human validation.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/entra/identity/conditional-access/concept-conditional-access-conditions",
-          "disposition": "reviewed-applied",
-          "reason": "Actual condition signals and limits; no fabricated risk/device verification."
-        }
-      ]
-    },
-    {
-      "id": "AC17",
-      "title": "Targeting Resources in Conditional Access Policies - Microsoft Entra ID | Microsoft Learn",
-      "url": "https://learn.microsoft.com/en-us/entra/identity/conditional-access/concept-conditional-access-cloud-apps",
-      "kind": "product",
-      "reviewed": "2026-10-31",
-      "version": "Rolling page updated 2026-05-28T07:44:00.0000000Z",
-      "availability": "AVAILABLE",
-      "objectives": ["az900.identity.conditional-access"],
-      "claims": ["access.AC17"],
-      "limits": "Target-resource include/exclude and app boundaries distinct from principal targeting. Declared conceptual teaching; no actual Entra/Azure operation or human validation.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/entra/identity/conditional-access/concept-conditional-access-cloud-apps",
-          "disposition": "reviewed-applied",
-          "reason": "Target-resource include/exclude and app boundaries distinct from principal targeting."
-        }
-      ]
-    },
-    {
-      "id": "AC18",
-      "title": "Azure built-in roles for Privileged - Azure RBAC | Microsoft Learn",
-      "url": "https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles/privileged",
-      "kind": "product",
-      "reviewed": "2026-10-31",
-      "version": "Rolling page updated 2026-07-01T23:48:00.0000000Z",
-      "availability": "AVAILABLE",
-      "objectives": ["az900.identity.rbac"],
-      "claims": ["access.AC18"],
-      "limits": "Current Contributor/Owner/RBAC Administrator definitions, access delegation and */read qualification. Declared conceptual teaching; no actual Entra/Azure operation or human validation.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles/privileged",
-          "disposition": "reviewed-applied",
-          "reason": "Current Contributor/Owner/RBAC Administrator definitions, access delegation and */read qualification."
-        }
-      ]
-    },
-    {
-      "id": "AC19",
-      "title": "Azure built-in roles for Compute - Azure RBAC | Microsoft Learn",
-      "url": "https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles/compute",
-      "kind": "product",
-      "reviewed": "2026-10-31",
-      "version": "Rolling page updated 2026-07-01T23:48:00.0000000Z",
-      "availability": "AVAILABLE",
-      "objectives": ["az900.identity.rbac"],
-      "claims": ["access.AC19"],
-      "limits": "VM Contributor actual operation set and other scoped management permissions; not full data isolation. Declared conceptual teaching; no actual Entra/Azure operation or human validation.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles/compute",
-          "disposition": "reviewed-applied",
-          "reason": "VM Contributor actual operation set and other scoped management permissions; not full data isolation."
-        }
-      ]
-    },
-    {
-      "id": "AC20",
-      "title": "Azure built-in roles for Storage - Azure RBAC | Microsoft Learn",
-      "url": "https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles/storage",
-      "kind": "product",
-      "reviewed": "2026-10-31",
-      "version": "Rolling page updated 2026-07-01T23:48:00.0000000Z",
-      "availability": "AVAILABLE",
-      "objectives": ["az900.identity.rbac"],
-      "claims": ["access.AC20"],
-      "limits": "Blob Data Reader includes data read plus service-specific Actions; not arbitrary account management. Declared conceptual teaching; no actual Entra/Azure operation or human validation.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles/storage",
-          "disposition": "reviewed-applied",
-          "reason": "Blob Data Reader includes data read plus service-specific Actions; not arbitrary account management."
-        }
-      ]
-    },
-    {
-      "id": "AC21",
-      "title": "List Azure deny assignments - Azure RBAC | Microsoft Learn",
-      "url": "https://learn.microsoft.com/en-us/azure/role-based-access-control/deny-assignments",
-      "kind": "product",
-      "reviewed": "2026-10-31",
-      "version": "Rolling page updated 2026-10-07T17:13:00.0000000Z",
-      "availability": "AVAILABLE",
-      "objectives": ["az900.identity.rbac"],
-      "claims": ["access.AC21"],
-      "limits": "Applicable deny assignments distinct from role NotActions and additional role grants. Declared conceptual teaching; no actual Entra/Azure operation or human validation.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/role-based-access-control/deny-assignments",
-          "disposition": "reviewed-applied",
-          "reason": "Applicable deny assignments distinct from role NotActions and additional role grants."
-        }
-      ]
-    },
-    {
-      "id": "AC22",
-      "title": "Azure custom roles - Azure RBAC | Microsoft Learn",
-      "url": "https://learn.microsoft.com/en-us/azure/role-based-access-control/custom-roles",
-      "kind": "product",
-      "reviewed": "2026-10-31",
-      "version": "Rolling page updated 2026-04-30T17:19:00.0000000Z",
-      "availability": "AVAILABLE",
-      "objectives": ["az900.identity.rbac"],
-      "claims": ["access.AC22"],
-      "limits": "Custom roles concept and assignable scopes, not a deployed role definition. Declared conceptual teaching; no actual Entra/Azure operation or human validation.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/role-based-access-control/custom-roles",
-          "disposition": "reviewed-applied",
-          "reason": "Custom roles concept and assignable scopes, not a deployed role definition."
-        }
-      ]
-    },
-    {
-      "id": "AC23",
-      "title": "Assign an Azure Role for Blob Data Access - Azure Storage | Microsoft Learn",
-      "url": "https://learn.microsoft.com/en-us/azure/storage/blobs/assign-azure-role-data-access",
-      "kind": "product",
-      "reviewed": "2026-10-31",
-      "version": "Rolling page updated 2026-05-09T06:18:00.0000000Z",
-      "availability": "AVAILABLE",
-      "objectives": ["az900.identity.rbac"],
-      "claims": ["access.AC23"],
-      "limits": "Entra/RBAC Blob API data role scope; Portal navigation and alternate keys/SAS are separate. Declared conceptual teaching; no actual Entra/Azure operation or human validation.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/storage/blobs/assign-azure-role-data-access",
-          "disposition": "reviewed-applied",
-          "reason": "Entra/RBAC Blob API data role scope; Portal navigation and alternate keys/SAS are separate."
-        }
-      ]
-    },
-    {
-      "id": "AC24",
-      "title": "What is Azure attribute-based access control (Azure ABAC)? | Microsoft Learn",
-      "url": "https://learn.microsoft.com/en-us/azure/role-based-access-control/conditions-overview",
-      "kind": "product",
-      "reviewed": "2026-10-31",
-      "version": "Rolling page updated 2025-09-09T05:11:00.0000000Z",
-      "availability": "AVAILABLE",
-      "objectives": ["az900.identity.rbac"],
-      "claims": ["access.AC24"],
-      "limits": "ABAC conditions can qualify RBAC service grants; not implemented as an engine. Declared conceptual teaching; no actual Entra/Azure operation or human validation.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/role-based-access-control/conditions-overview",
-          "disposition": "reviewed-applied",
-          "reason": "ABAC conditions can qualify RBAC service grants; not implemented as an engine."
-        }
-      ]
-    },
-    {
-      "id": "AC25",
-      "title": "Microsoft Entra Conditional Access for workload identities - Microsoft Entra ID | Microsoft Learn",
-      "url": "https://learn.microsoft.com/en-us/entra/identity/conditional-access/workload-identity",
-      "kind": "product",
-      "reviewed": "2026-10-31",
-      "version": "Rolling page updated 2026-05-18T22:35:00.0000000Z",
-      "availability": "AVAILABLE",
-      "objectives": ["az900.identity.conditional-access"],
-      "claims": ["access.AC25"],
-      "limits": "Workload CA direct single-tenant principal targeting/Workload ID Premium; no managed identity or group-MFA equivalence. Declared conceptual teaching; no actual Entra/Azure operation or human validation.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/entra/identity/conditional-access/workload-identity",
-          "disposition": "reviewed-applied",
-          "reason": "Workload CA direct single-tenant principal targeting/Workload ID Premium; no managed identity or group-MFA equivalence."
-        }
-      ]
-    },
-    {
-      "id": "AC26",
-      "title": "Control plane and data plane operations - Azure Resource Manager | Microsoft Learn",
-      "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/control-plane-and-data-plane",
-      "kind": "product",
-      "reviewed": "2026-10-31",
-      "version": "Rolling page updated 2026-02-27T18:31:00.0000000Z",
-      "availability": "AVAILABLE",
-      "objectives": ["az900.identity.rbac"],
-      "claims": ["access.AC26"],
-      "limits": "Control plane versus data plane and service-specific authorization paths. Declared conceptual teaching; no actual Entra/Azure operation or human validation.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/control-plane-and-data-plane",
-          "disposition": "reviewed-applied",
-          "reason": "Control plane versus data plane and service-specific authorization paths."
-        }
-      ]
-    },
-    {
-      "id": "AC27",
-      "title": "Overview of Azure Policy - Azure Policy | Microsoft Learn",
+      "id": "GV07",
       "url": "https://learn.microsoft.com/en-us/azure/governance/policy/overview",
-      "kind": "product",
-      "reviewed": "2026-10-31",
-      "version": "Rolling page updated 2026-07-08T05:12:00.0000000Z",
+      "title": "Overview of Azure Policy - Azure Policy | Microsoft Learn",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page; updated 2026-07-08T05:12:00.0000000Z; SHA256 7e01f318bb65486430622adca4000d2f8543a49e0b6cb12026e525a9ee751060",
+      "kind": "official-public-documentation",
+      "objectives": [
+        "az900.governance.purview",
+        "az900.governance.policy",
+        "az900.governance.locks"
+      ],
+      "claims": ["governance.GV07"],
+      "limits": "Public body actually read. No protected assessment/report/sign-in. Classic lineage qualified with current GV33/34; older Learn product examples are not current universal claims. Source-specific support and timing limits retained.",
       "availability": "AVAILABLE",
-      "objectives": ["az900.identity.rbac"],
-      "claims": ["access.AC27"],
-      "limits": "Azure Policy configuration rules distinct from authority; valid RBAC does not override applicable Policy deny. Declared conceptual teaching; no actual Entra/Azure operation or human validation.",
       "discovery": [
         {
           "url": "https://learn.microsoft.com/en-us/azure/governance/policy/overview",
-          "disposition": "reviewed-applied",
-          "reason": "Azure Policy configuration rules distinct from authority; valid RBAC does not override applicable Policy deny."
+          "disposition": "reviewed",
+          "reason": "Policy definitions/assignments/initiatives, resource configuration versus permissions; Resource Provider modes qualify universal simplifications."
         }
       ]
     },
     {
-      "id": "AC28",
+      "id": "GV08",
+      "url": "https://learn.microsoft.com/en-us/azure/governance/policy/concepts/scope",
+      "title": "Understand scope in Azure Policy - Azure Policy | Microsoft Learn",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page; updated 2025-12-01T18:18:00.0000000Z; SHA256 d96bbe1fc878aec905bb7d9d30bfdff7d16c4570d66e2dc1fea1f681ac82ef67",
+      "kind": "official-public-documentation",
+      "objectives": [
+        "az900.governance.purview",
+        "az900.governance.policy",
+        "az900.governance.locks"
+      ],
+      "claims": ["governance.GV08"],
+      "limits": "Public body actually read. No protected assessment/report/sign-in. Classic lineage qualified with current GV33/34; older Learn product examples are not current universal claims. Source-specific support and timing limits retained.",
+      "availability": "AVAILABLE",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/governance/policy/concepts/scope",
+          "disposition": "reviewed",
+          "reason": "Definition location differs from assignment scope; notScopes excludes evaluation/count, exemption remains tracked."
+        }
+      ]
+    },
+    {
+      "id": "GV09",
+      "url": "https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effect-basics",
+      "title": "Azure Policy definitions effect basics - Azure Policy | Microsoft Learn",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page; updated 2025-12-01T18:18:00.0000000Z; SHA256 a5392bb2962225f28c3e34bfe8796ebab7e1d3854f1e3e83879f110066bbdff6",
+      "kind": "official-public-documentation",
+      "objectives": [
+        "az900.governance.purview",
+        "az900.governance.policy",
+        "az900.governance.locks"
+      ],
+      "claims": ["governance.GV09"],
+      "limits": "Public body actually read. No protected assessment/report/sign-in. Classic lineage qualified with current GV33/34; older Learn product examples are not current universal claims. Source-specific support and timing limits retained.",
+      "availability": "AVAILABLE",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effect-basics",
+          "disposition": "reviewed",
+          "reason": "Effects are not universally interchangeable; request-time order and cumulative assignments; DINE after provider success."
+        }
+      ]
+    },
+    {
+      "id": "GV10",
+      "url": "https://learn.microsoft.com/en-us/azure/governance/policy/concepts/compliance-states",
+      "title": "Azure Policy compliance states - Azure Policy | Microsoft Learn",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page; updated 2026-03-25T22:12:00.0000000Z; SHA256 6b2a36dfa49d7c638205581e80cb446027bf3c6dba56c96978d140891b38a551",
+      "kind": "official-public-documentation",
+      "objectives": [
+        "az900.governance.purview",
+        "az900.governance.policy",
+        "az900.governance.locks"
+      ],
+      "claims": ["governance.GV10"],
+      "limits": "Public body actually read. No protected assessment/report/sign-in. Classic lineage qualified with current GV33/34; older Learn product examples are not current universal claims. Source-specific support and timing limits retained.",
+      "availability": "AVAILABLE",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/governance/policy/concepts/compliance-states",
+          "disposition": "reviewed",
+          "reason": "Per-assignment compliance states and timing; non-compliant existing resource is not automatically deleted or repaired."
+        }
+      ]
+    },
+    {
+      "id": "GV11",
+      "url": "https://learn.microsoft.com/en-us/azure/governance/policy/concepts/exemption-structure",
+      "title": "Details of the policy exemption structure - Azure Policy | Microsoft Learn",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page; updated 2026-08-04T17:21:00.0000000Z; SHA256 186d039ecab8425044cae13b166f41ff8c322bb74b9527465289b4828d30acaa",
+      "kind": "official-public-documentation",
+      "objectives": [
+        "az900.governance.purview",
+        "az900.governance.policy",
+        "az900.governance.locks"
+      ],
+      "claims": ["governance.GV11"],
+      "limits": "Public body actually read. No protected assessment/report/sign-in. Classic lineage qualified with current GV33/34; older Learn product examples are not current universal claims. Source-specific support and timing limits retained.",
+      "availability": "AVAILABLE",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/governance/policy/concepts/exemption-structure",
+          "disposition": "reviewed",
+          "reason": "Exemptions bind assignments,waiver/mitigated,optional expiry; expired object remains but no longer exempts."
+        }
+      ]
+    },
+    {
+      "id": "GV12",
+      "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/lock-resources",
+      "title": "Lock your Azure resources to protect your infrastructure - Azure Resource Manager | Microsoft Learn",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page; updated 2026-04-10T06:11:00.0000000Z; SHA256 24f8be84dfe7a410068e464552fecc0811cbe43ac2758da5595c9dd694ae535c",
+      "kind": "official-public-documentation",
+      "objectives": [
+        "az900.governance.purview",
+        "az900.governance.policy",
+        "az900.governance.locks"
+      ],
+      "claims": ["governance.GV12"],
+      "limits": "Public body actually read. No protected assessment/report/sign-in. Classic lineage qualified with current GV33/34; older Learn product examples are not current universal claims. Source-specific support and timing limits retained.",
+      "availability": "AVAILABLE",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/lock-resources",
+          "disposition": "reviewed",
+          "reason": "Delete/ReadOnly,downward most-restrictive inheritance,locked-descendant group deletion,POST caveats,data plane and removal permissions."
+        }
+      ]
+    },
+    {
+      "id": "GV13",
+      "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/control-plane-and-data-plane",
+      "title": "Control plane and data plane operations - Azure Resource Manager | Microsoft Learn",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page; updated 2026-02-27T18:31:00.0000000Z; SHA256 be7a2dbed6422d1faac6d015f1f001157a0e9a11190c8590ffdbc84a14cc782a",
+      "kind": "official-public-documentation",
+      "objectives": [
+        "az900.governance.purview",
+        "az900.governance.policy",
+        "az900.governance.locks"
+      ],
+      "claims": ["governance.GV13"],
+      "limits": "Public body actually read. No protected assessment/report/sign-in. Classic lineage qualified with current GV33/34; older Learn product examples are not current universal claims. Source-specific support and timing limits retained.",
+      "availability": "AVAILABLE",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/control-plane-and-data-plane",
+          "disposition": "reviewed",
+          "reason": "Control versus data plane depends on the concrete operation/endpoint,not HTTP method alone; governance features have qualified scope."
+        }
+      ]
+    },
+    {
+      "id": "GV14",
+      "url": "https://learn.microsoft.com/en-us/compliance/assurance/stp-get-started",
+      "title": "Get started with the Microsoft Service Trust Portal | Microsoft Learn",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page; updated 2026-04-06T21:51:00.0000000Z; SHA256 9bfed081dc992ff8f2b3777353fa3cf838dca67a5def975d34d296511751d956",
+      "kind": "official-public-documentation",
+      "objectives": [
+        "az900.governance.purview",
+        "az900.governance.policy",
+        "az900.governance.locks"
+      ],
+      "claims": ["governance.GV14"],
+      "limits": "Public body actually read. No protected assessment/report/sign-in. Classic lineage qualified with current GV33/34; older Learn product examples are not current universal claims. Source-specific support and timing limits retained.",
+      "availability": "AVAILABLE",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/compliance/assurance/stp-get-started",
+          "disposition": "reviewed",
+          "reason": "STP audit/assurance documentation; some reports require organisational account/NDA; no restricted content accessed."
+        }
+      ]
+    },
+    {
+      "id": "GV15",
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-features-tools-azure-for-governance-compliance/1-introduction",
       "title": "Introduction - Training | Microsoft Learn",
-      "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-identity-access-security/1-introduction",
-      "kind": "unit",
-      "reviewed": "2026-10-31",
-      "version": "Rolling page updated 2025-03-28T23:01:00.0000000Z",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page; updated 2026-03-24T17:11:00.0000000Z; SHA256 475cfdd2008b56fbce7676c05f5150d17da99ac79e144f8e680fee4cff56f600",
+      "kind": "official-public-documentation",
+      "objectives": [
+        "az900.governance.purview",
+        "az900.governance.policy",
+        "az900.governance.locks"
+      ],
+      "claims": ["governance.GV15"],
+      "limits": "Public body actually read. No protected assessment/report/sign-in. Classic lineage qualified with current GV33/34; older Learn product examples are not current universal claims. Source-specific support and timing limits retained.",
       "availability": "AVAILABLE",
-      "objectives": ["az900.identity.conditional-access", "az900.identity.rbac"],
-      "claims": ["access.AC28"],
-      "limits": "Official public introduction/discovery, no protected question use. Declared conceptual teaching; no actual Entra/Azure operation or human validation.",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-identity-access-security/1-introduction",
-          "disposition": "reviewed-applied",
-          "reason": "Official public introduction/discovery, no protected question use."
+          "url": "https://learn.microsoft.com/en-us/training/modules/describe-features-tools-azure-for-governance-compliance/1-introduction",
+          "disposition": "reviewed",
+          "reason": "Public introduction confirms four Learn goals and basic prerequisites; only three study-guide rows."
         }
       ]
     },
     {
-      "id": "AC29",
+      "id": "GV16",
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-features-tools-azure-for-governance-compliance/2-describe-purpose-microsoft-purview",
+      "title": "Describe the purpose of Microsoft Purview - Training | Microsoft Learn",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page; updated 2026-03-24T17:11:00.0000000Z; SHA256 9a06bda69e8acd81fca67e1e6ff3aec39ca1c1c3d982b97868227b3f77a5a638",
+      "kind": "official-public-documentation",
+      "objectives": [
+        "az900.governance.purview",
+        "az900.governance.policy",
+        "az900.governance.locks"
+      ],
+      "claims": ["governance.GV16"],
+      "limits": "Public body actually read. No protected assessment/report/sign-in. Classic lineage qualified with current GV33/34; older Learn product examples are not current universal claims. Source-specific support and timing limits retained.",
+      "availability": "AVAILABLE",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/training/modules/describe-features-tools-azure-for-governance-compliance/2-describe-purpose-microsoft-purview",
+          "disposition": "reviewed",
+          "reason": "Learn Purview purpose; older two-area grouping qualified by current portfolio and Data Map/Unified Catalog docs."
+        }
+      ]
+    },
+    {
+      "id": "GV17",
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-features-tools-azure-for-governance-compliance/3-describe-purpose-azure-policy",
+      "title": "Describe the purpose of Azure Policy - Training | Microsoft Learn",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page; updated 2026-03-24T17:11:00.0000000Z; SHA256 b194245caddfae61ad4fb384af0dbde4267748c446851ebde65a9b6a273ec1da",
+      "kind": "official-public-documentation",
+      "objectives": [
+        "az900.governance.purview",
+        "az900.governance.policy",
+        "az900.governance.locks"
+      ],
+      "claims": ["governance.GV17"],
+      "limits": "Public body actually read. No protected assessment/report/sign-in. Classic lineage qualified with current GV33/34; older Learn product examples are not current universal claims. Source-specific support and timing limits retained.",
+      "availability": "AVAILABLE",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/training/modules/describe-features-tools-azure-for-governance-compliance/3-describe-purpose-azure-policy",
+          "disposition": "reviewed",
+          "reason": "Learn Policy purpose/initiatives; automatic-remediation and older Security Center examples qualified by current effect docs."
+        }
+      ]
+    },
+    {
+      "id": "GV18",
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-features-tools-azure-for-governance-compliance/4-describe-purpose-resource-locks",
+      "title": "Describe the purpose of resource locks - Training | Microsoft Learn",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page; updated 2026-03-24T17:11:00.0000000Z; SHA256 ce1d7a1174e8bc7f17f96bc46ae3124649cb860470306543d0cb85303eb580a2",
+      "kind": "official-public-documentation",
+      "objectives": [
+        "az900.governance.purview",
+        "az900.governance.policy",
+        "az900.governance.locks"
+      ],
+      "claims": ["governance.GV18"],
+      "limits": "Public body actually read. No protected assessment/report/sign-in. Classic lineage qualified with current GV33/34; older Learn product examples are not current universal claims. Source-specific support and timing limits retained.",
+      "availability": "AVAILABLE",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/training/modules/describe-features-tools-azure-for-governance-compliance/4-describe-purpose-resource-locks",
+          "disposition": "reviewed",
+          "reason": "Learn resource locks and owner caveat; current product docs qualify control/data and POST consequences."
+        }
+      ]
+    },
+    {
+      "id": "GV19",
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-features-tools-azure-for-governance-compliance/6-describe-purpose-service-trust-portal",
+      "title": "Describe the purpose of the Service Trust portal - Training | Microsoft Learn",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page; updated 2026-03-24T17:11:00.0000000Z; SHA256 6e0da4b879542423834cc789cfab475a0858a8a2be1b75ea03f6914f9cbbccef",
+      "kind": "official-public-documentation",
+      "objectives": [
+        "az900.governance.purview",
+        "az900.governance.policy",
+        "az900.governance.locks"
+      ],
+      "claims": ["governance.GV19"],
+      "limits": "Public body actually read. No protected assessment/report/sign-in. Classic lineage qualified with current GV33/34; older Learn product examples are not current universal claims. Source-specific support and timing limits retained.",
+      "availability": "AVAILABLE",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/training/modules/describe-features-tools-azure-for-governance-compliance/6-describe-purpose-service-trust-portal",
+          "disposition": "reviewed",
+          "reason": "STP public purpose/access; teaching is supplement,not a new exam objective or tenant compliance attestation."
+        }
+      ]
+    },
+    {
+      "id": "GV20",
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-features-tools-azure-for-governance-compliance/8-summary",
       "title": "Summary - Training | Microsoft Learn",
-      "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-identity-access-security/11-summary",
-      "kind": "unit",
-      "reviewed": "2026-10-31",
-      "version": "Rolling page updated 2025-03-28T23:01:00.0000000Z",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page; updated 2026-03-24T17:11:00.0000000Z; SHA256 365b8aff199f871b23c4abf32016c51f9a5188a1282194bf2fadfc5759c4f0f5",
+      "kind": "official-public-documentation",
+      "objectives": [
+        "az900.governance.purview",
+        "az900.governance.policy",
+        "az900.governance.locks"
+      ],
+      "claims": ["governance.GV20"],
+      "limits": "Public body actually read. No protected assessment/report/sign-in. Classic lineage qualified with current GV33/34; older Learn product examples are not current universal claims. Source-specific support and timing limits retained.",
       "availability": "AVAILABLE",
-      "objectives": ["az900.identity.conditional-access", "az900.identity.rbac"],
-      "claims": ["access.AC29"],
-      "limits": "Official public summary, source discovery and later-unit scope. Declared conceptual teaching; no actual Entra/Azure operation or human validation.",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-identity-access-security/11-summary",
-          "disposition": "reviewed-applied",
-          "reason": "Official public summary, source discovery and later-unit scope."
+          "url": "https://learn.microsoft.com/en-us/training/modules/describe-features-tools-azure-for-governance-compliance/8-summary",
+          "disposition": "reviewed",
+          "reason": "Summary/context links; extra AI-assisted-administration guardrail sentence is context,not another scoped goal/agent feature."
         }
       ]
     },
     {
-      "id": "AC30",
-      "title": "Introduction to Cloud Infrastructure: Describe Azure Architecture and Services - Training | Microsoft Learn",
-      "url": "https://learn.microsoft.com/en-us/training/paths/azure-fundamentals-describe-azure-architecture-services/",
-      "kind": "learning-path",
-      "reviewed": "2026-10-31",
-      "version": "Rolling page updated 2026-10-28T17:12:00.0000000Z",
+      "id": "GV21",
+      "url": "https://learn.microsoft.com/en-us/purview/data-map",
+      "title": "Microsoft Purview Data Map overview | Microsoft Learn",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page; updated 2026-10-01T12:34:00.0000000Z; SHA256 d1a54a6d63c8a92e77d6936bf67d234ae0f6c8c70ac470b55ee66e70ca1b712c",
+      "kind": "official-public-documentation",
+      "objectives": [
+        "az900.governance.purview",
+        "az900.governance.policy",
+        "az900.governance.locks"
+      ],
+      "claims": ["governance.GV21"],
+      "limits": "Public body actually read. No protected assessment/report/sign-in. Classic lineage qualified with current GV33/34; older Learn product examples are not current universal claims. Source-specific support and timing limits retained.",
       "availability": "AVAILABLE",
-      "objectives": ["az900.identity.conditional-access", "az900.identity.rbac"],
-      "claims": ["access.AC30"],
-      "limits": "Actual official five-module path and identity/security-module discovery; no unrelated unit re-audit. Declared conceptual teaching; no actual Entra/Azure operation or human validation.",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/training/paths/azure-fundamentals-describe-azure-architecture-services/",
-          "disposition": "reviewed-applied",
-          "reason": "Actual official five-module path and identity/security-module discovery; no unrelated unit re-audit."
+          "url": "https://learn.microsoft.com/en-us/purview/data-map",
+          "disposition": "reviewed",
+          "reason": "Data Map captures technical/business/semantic/operational metadata; scanning is connector/permission/scope dependent."
+        }
+      ]
+    },
+    {
+      "id": "GV22",
+      "url": "https://learn.microsoft.com/en-us/purview/data-map-classification",
+      "title": "Data classification in Microsoft Purview Data Map | Microsoft Learn",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page; updated 2026-06-01T22:33:00.0000000Z; SHA256 996e1c846117c09dd535eb03b31d8b5a5058efeb2b1da6022957a890d0c97a91",
+      "kind": "official-public-documentation",
+      "objectives": [
+        "az900.governance.purview",
+        "az900.governance.policy",
+        "az900.governance.locks"
+      ],
+      "claims": ["governance.GV22"],
+      "limits": "Public body actually read. No protected assessment/report/sign-in. Classic lineage qualified with current GV33/34; older Learn product examples are not current universal claims. Source-specific support and timing limits retained.",
+      "availability": "AVAILABLE",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/purview/data-map-classification",
+          "disposition": "reviewed",
+          "reason": "Classification supports understanding/risk; not the same as sensitivity labels or automatic universal protection."
+        }
+      ]
+    },
+    {
+      "id": "GV23",
+      "url": "https://learn.microsoft.com/en-us/purview/data-gov-classic-lineage",
+      "title": "Data lineage in classic Microsoft Purview Data Catalog | Microsoft Learn",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page; updated 2025-11-18T22:10:00.0000000Z; SHA256 fcb8946f7a1119535be1b760d53f1470e203bbc603310254152f426cbba9681f",
+      "kind": "official-public-documentation",
+      "objectives": [
+        "az900.governance.purview",
+        "az900.governance.policy",
+        "az900.governance.locks"
+      ],
+      "claims": ["governance.GV23"],
+      "limits": "Public body actually read. No protected assessment/report/sign-in. Classic lineage qualified with current GV33/34; older Learn product examples are not current universal claims. Source-specific support and timing limits retained.",
+      "availability": "AVAILABLE",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/purview/data-gov-classic-lineage",
+          "disposition": "reviewed",
+          "reason": "Explicitly classic lineage concepts,source/process/target and coverage granularity; current experience qualified by GV33/GV34."
+        }
+      ]
+    },
+    {
+      "id": "GV24",
+      "url": "https://learn.microsoft.com/en-us/purview/unified-catalog-glossary-terms",
+      "title": "Glossary Terms in Unified Catalog | Microsoft Learn",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page; updated 2026-04-24T17:33:00.0000000Z; SHA256 bf3c5063b40e095c713a44e1bf74725c027656610140c58df789d8cdef787cec",
+      "kind": "official-public-documentation",
+      "objectives": [
+        "az900.governance.purview",
+        "az900.governance.policy",
+        "az900.governance.locks"
+      ],
+      "claims": ["governance.GV24"],
+      "limits": "Public body actually read. No protected assessment/report/sign-in. Classic lineage qualified with current GV33/34; older Learn product examples are not current universal claims. Source-specific support and timing limits retained.",
+      "availability": "AVAILABLE",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/purview/unified-catalog-glossary-terms",
+          "disposition": "reviewed",
+          "reason": "Business glossary terms supply curated organisational vocabulary; not automatic data quality or access grants."
+        }
+      ]
+    },
+    {
+      "id": "GV25",
+      "url": "https://learn.microsoft.com/en-us/azure/governance/policy/how-to/remediate-resources",
+      "title": "Remediate non-compliant resources - Azure Policy | Microsoft Learn",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page; updated 2025-12-12T18:11:00.0000000Z; SHA256 0e806102be6504bf63192d6f261e98d67023a55fa1f10ce13f4aa65193013177",
+      "kind": "official-public-documentation",
+      "objectives": [
+        "az900.governance.purview",
+        "az900.governance.policy",
+        "az900.governance.locks"
+      ],
+      "claims": ["governance.GV25"],
+      "limits": "Public body actually read. No protected assessment/report/sign-in. Classic lineage qualified with current GV33/34; older Learn product examples are not current universal claims. Source-specific support and timing limits retained.",
+      "availability": "AVAILABLE",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/governance/policy/how-to/remediate-resources",
+          "disposition": "reviewed",
+          "reason": "Existing Modify/DINE deviations require explicit supported remediation/identity/permissions; evaluation is not execution."
+        }
+      ]
+    },
+    {
+      "id": "GV26",
+      "url": "https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effect-audit",
+      "title": "Azure Policy definitions audit effect - Azure Policy | Microsoft Learn",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page; updated 2025-12-01T18:18:00.0000000Z; SHA256 8a36a80d847e6ee06de29571383af7ea2f85ecf475a5c51a874ac89667a5a2cd",
+      "kind": "official-public-documentation",
+      "objectives": [
+        "az900.governance.purview",
+        "az900.governance.policy",
+        "az900.governance.locks"
+      ],
+      "claims": ["governance.GV26"],
+      "limits": "Public body actually read. No protected assessment/report/sign-in. Classic lineage qualified with current GV33/34; older Learn product examples are not current universal claims. Source-specific support and timing limits retained.",
+      "availability": "AVAILABLE",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effect-audit",
+          "disposition": "reviewed",
+          "reason": "Audit warns/marks relevant noncompliance without stopping request with that effect; no Kubernetes mode engine implemented."
+        }
+      ]
+    },
+    {
+      "id": "GV27",
+      "url": "https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effect-deny",
+      "title": "Azure Policy definitions deny effect - Azure Policy | Microsoft Learn",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page; updated 2025-12-01T18:18:00.0000000Z; SHA256 699e622bbb9eb3cb430f8b01c175c26e8d0e5d469de8a4bee0cc5f81e52c4129",
+      "kind": "official-public-documentation",
+      "objectives": [
+        "az900.governance.purview",
+        "az900.governance.policy",
+        "az900.governance.locks"
+      ],
+      "claims": ["governance.GV27"],
+      "limits": "Public body actually read. No protected assessment/report/sign-in. Classic lineage qualified with current GV33/34; older Learn product examples are not current universal claims. Source-specific support and timing limits retained.",
+      "availability": "AVAILABLE",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effect-deny",
+          "disposition": "reviewed",
+          "reason": "Deny rejects matching Resource Manager create/update requests; existing evaluation marks deviation without deleting resource."
+        }
+      ]
+    },
+    {
+      "id": "GV28",
+      "url": "https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effect-modify",
+      "title": "Azure Policy definitions modify effect - Azure Policy | Microsoft Learn",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page; updated 2025-12-01T18:18:00.0000000Z; SHA256 6844f7e030574e65df1ffdb892c3eaf90b2282dcefcb2580e93bf3837667650f",
+      "kind": "official-public-documentation",
+      "objectives": [
+        "az900.governance.purview",
+        "az900.governance.policy",
+        "az900.governance.locks"
+      ],
+      "claims": ["governance.GV28"],
+      "limits": "Public body actually read. No protected assessment/report/sign-in. Classic lineage qualified with current GV33/34; older Learn product examples are not current universal claims. Source-specific support and timing limits retained.",
+      "availability": "AVAILABLE",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effect-modify",
+          "disposition": "reviewed",
+          "reason": "Modify supports tags/modifiable aliases; request-time changes differ from existing-resource remediation and API support matters."
+        }
+      ]
+    },
+    {
+      "id": "GV29",
+      "url": "https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effect-deploy-if-not-exists",
+      "title": "Azure Policy definitions deployIfNotExists effect - Azure Policy | Microsoft Learn",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page; updated 2025-12-01T18:18:00.0000000Z; SHA256 70381d34345ad6c23ef90ba1ee6a2391d9d1b55cc6bbcb322a720ef905358ea9",
+      "kind": "official-public-documentation",
+      "objectives": [
+        "az900.governance.purview",
+        "az900.governance.policy",
+        "az900.governance.locks"
+      ],
+      "claims": ["governance.GV29"],
+      "limits": "Public body actually read. No protected assessment/report/sign-in. Classic lineage qualified with current GV33/34; older Learn product examples are not current universal claims. Source-specific support and timing limits retained.",
+      "availability": "AVAILABLE",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effect-deploy-if-not-exists",
+          "disposition": "reviewed",
+          "reason": "DINE evaluates related existence after provider success/delay; existing resources require remediation task and appropriate identity."
+        }
+      ]
+    },
+    {
+      "id": "GV30",
+      "url": "https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure",
+      "title": "Details of the policy assignment structure - Azure Policy | Microsoft Learn",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page; updated 2026-09-18T17:17:00.0000000Z; SHA256 5420745e4e3dd9b58e5167d72336e786c3d83588aa8ea7cb1b215c296ce75243",
+      "kind": "official-public-documentation",
+      "objectives": [
+        "az900.governance.purview",
+        "az900.governance.policy",
+        "az900.governance.locks"
+      ],
+      "claims": ["governance.GV30"],
+      "limits": "Public body actually read. No protected assessment/report/sign-in. Classic lineage qualified with current GV33/34; older Learn product examples are not current universal claims. Source-specific support and timing limits retained.",
+      "availability": "AVAILABLE",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure",
+          "disposition": "reviewed",
+          "reason": "Assignment parameters/notScopes/enforcement; Default vs DoNotEnforce,manual remediation separate; Enroll outside bounded model."
+        }
+      ]
+    },
+    {
+      "id": "GV31",
+      "url": "https://learn.microsoft.com/en-us/azure/governance/policy/how-to/get-compliance-data",
+      "title": "Get policy compliance data - Azure Policy | Microsoft Learn",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page; updated 2026-03-18T06:15:00.0000000Z; SHA256 c4983ff9536d8b318fd94a774f9605dcc289681fa0fc5b33d662b6978db200d1",
+      "kind": "official-public-documentation",
+      "objectives": [
+        "az900.governance.purview",
+        "az900.governance.policy",
+        "az900.governance.locks"
+      ],
+      "claims": ["governance.GV31"],
+      "limits": "Public body actually read. No protected assessment/report/sign-in. Classic lineage qualified with current GV33/34; older Learn product examples are not current universal claims. Source-specific support and timing limits retained.",
+      "availability": "AVAILABLE",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/governance/policy/how-to/get-compliance-data",
+          "disposition": "reviewed",
+          "reason": "Evaluation triggers/periodic scans have qualified timing; no real-time/guaranteed compliance freshness is inferred."
+        }
+      ]
+    },
+    {
+      "id": "GV32",
+      "url": "https://learn.microsoft.com/en-us/training/paths/describe-azure-management-governance/",
+      "title": "Introduction to Cloud Infrastructure: Describe Azure Management and Governance - Training | Microsoft Learn",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page; updated 2026-10-28T17:12:00.0000000Z; SHA256 3c0dc41b6958dd1a8cecf4483ebf5ab3961704d7829955168fdf3dc3872c2a2f",
+      "kind": "official-public-documentation",
+      "objectives": [
+        "az900.governance.purview",
+        "az900.governance.policy",
+        "az900.governance.locks"
+      ],
+      "claims": ["governance.GV32"],
+      "limits": "Public body actually read. No protected assessment/report/sign-in. Classic lineage qualified with current GV33/34; older Learn product examples are not current universal claims. Source-specific support and timing limits retained.",
+      "availability": "AVAILABLE",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/training/paths/describe-azure-management-governance/",
+          "disposition": "reviewed",
+          "reason": "Official management/governance learning path supplies module context; other modules remain out of scope."
+        }
+      ]
+    },
+    {
+      "id": "GV33",
+      "url": "https://learn.microsoft.com/en-us/purview/data-governance-overview",
+      "title": "Learn about data governance with Microsoft Purview | Microsoft Learn",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page; updated 2025-11-18T22:10:00.0000000Z; SHA256 e083fcd17a3a73ac40dc95dde3ddd0eec23258b1cede31d6735122701872e9fa",
+      "kind": "official-public-documentation",
+      "objectives": [
+        "az900.governance.purview",
+        "az900.governance.policy",
+        "az900.governance.locks"
+      ],
+      "claims": ["governance.GV33"],
+      "limits": "Public body actually read. No protected assessment/report/sign-in. Classic lineage qualified with current GV33/34; older Learn product examples are not current universal claims. Source-specific support and timing limits retained.",
+      "availability": "AVAILABLE",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/purview/data-governance-overview",
+          "disposition": "reviewed",
+          "reason": "Current Data Map/Unified Catalog contain metadata; their roles do not themselves grant underlying data access; owners/stewards/lineage."
+        }
+      ]
+    },
+    {
+      "id": "GV34",
+      "url": "https://learn.microsoft.com/en-us/purview/unified-catalog-data-products-search",
+      "title": "Search for Data Products in Unified Catalog | Microsoft Learn",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page; updated 2026-05-21T22:34:00.0000000Z; SHA256 91f16554f3dd61aa060411f0fda29aba83aa4bc53c2ab79b0d5b2b280d087035",
+      "kind": "official-public-documentation",
+      "objectives": [
+        "az900.governance.purview",
+        "az900.governance.policy",
+        "az900.governance.locks"
+      ],
+      "claims": ["governance.GV34"],
+      "limits": "Public body actually read. No protected assessment/report/sign-in. Classic lineage qualified with current GV33/34; older Learn product examples are not current universal claims. Source-specific support and timing limits retained.",
+      "availability": "AVAILABLE",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/purview/unified-catalog-data-products-search",
+          "disposition": "reviewed",
+          "reason": "Current Unified Catalog asset details show owner,columns and lineage; classic UI is not claimed as current portal parity."
+        }
+      ]
+    },
+    {
+      "id": "GV35",
+      "url": "https://learn.microsoft.com/en-us/azure/storage/common/storage-redundancy",
+      "title": "Data redundancy - Azure Storage | Microsoft Learn",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page; updated 2026-08-15T05:12:00.0000000Z; SHA256 c1d738774b9f1cab5617491e7a06a7f0a1a689728112db94abb9b38b3aa16596",
+      "kind": "official-public-documentation",
+      "objectives": [
+        "az900.governance.purview",
+        "az900.governance.policy",
+        "az900.governance.locks"
+      ],
+      "claims": ["governance.GV35"],
+      "limits": "Public body actually read. No protected assessment/report/sign-in. Classic lineage qualified with current GV33/34; older Learn product examples are not current universal claims. Source-specific support and timing limits retained.",
+      "availability": "AVAILABLE",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/storage/common/storage-redundancy",
+          "disposition": "reviewed",
+          "reason": "Storage redundancy protects declared physical failure domains,not a separate historical restore design; no old P09 objective re-audit."
+        }
+      ]
+    },
+    {
+      "id": "GV36",
+      "url": "https://learn.microsoft.com/en-us/azure/storage/blobs/data-protection-overview",
+      "title": "Data protection overview - Azure Storage | Microsoft Learn",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official page; updated 2026-10-05T22:13:00.0000000Z; SHA256 5502d83b9305c9951876dd2ffcbaac3c66f691f95d015454e9ecf4396ec7dfe3",
+      "kind": "official-public-documentation",
+      "objectives": [
+        "az900.governance.purview",
+        "az900.governance.policy",
+        "az900.governance.locks"
+      ],
+      "claims": ["governance.GV36"],
+      "limits": "Public body actually read. No protected assessment/report/sign-in. Classic lineage qualified with current GV33/34; older Learn product examples are not current universal claims. Source-specific support and timing limits retained.",
+      "availability": "AVAILABLE",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/storage/blobs/data-protection-overview",
+          "disposition": "reviewed",
+          "reason": "Blob data-protection and recovery controls differ from ARM locks/replication; service support and recovery requirements must be verified."
         }
       ]
     }
   ],
   "activities": [
     {
-      "id": "access-rbac",
-      "objectives": ["az900.identity.rbac"],
+      "id": "governance-data",
+      "objectives": ["az900.governance.purview"],
       "claims": [
-        "access.AC04",
-        "access.AC05",
-        "access.AC06",
-        "access.AC07",
-        "access.AC08",
-        "access.AC18",
-        "access.AC19",
-        "access.AC20",
-        "access.AC21",
-        "access.AC22",
-        "access.AC23",
-        "access.AC24",
-        "access.AC26",
-        "access.AC27"
+        "governance.GV03",
+        "governance.GV04",
+        "governance.GV05",
+        "governance.GV06",
+        "governance.GV16",
+        "governance.GV21",
+        "governance.GV22",
+        "governance.GV23",
+        "governance.GV24",
+        "governance.GV33",
+        "governance.GV34"
       ],
-      "limits": "Bounded conceptual snapshots only. No actual IAM/CA evaluator, principal/role/policy command, World mutation, receipt, runtime response or XP. Immutable old evidence stays separate.",
+      "limits": "Deterministic conceptual observations; actual Policy learning credit additionally requires replayed post-start receipts from original Sandbox and explicit inspections. No conceptual World mutation/receipt or XP.",
       "assessmentStatus": "new-independent",
-      "theory": [{ "path": "src/content/nb.ts", "marker": "accessNb" }],
+      "theory": [
+        {
+          "path": "src/content/nb.ts",
+          "marker": "governanceNb"
+        }
+      ],
       "mechanism": [
-        { "path": "src/domain/curriculum/access-control-model.ts", "marker": "runRbac" }
+        {
+          "path": "src/domain/curriculum/governance-model.ts",
+          "marker": "runData"
+        }
       ],
       "practice": [
         {
-          "path": "src/features/learning/access-control-workbench.tsx",
-          "marker": "AccessWorkbench"
+          "path": "src/features/learning/governance-workbench.tsx",
+          "marker": "GovernanceWorkbench"
         }
       ],
-      "feedback": [{ "path": "src/content/nb.ts", "marker": "accessItemsNb" }],
+      "feedback": [
+        {
+          "path": "src/content/nb.ts",
+          "marker": "governanceItemsNb"
+        }
+      ],
       "visual": [
         {
-          "path": "src/features/learning/access-control-visuals.tsx",
-          "marker": "AccessModelResult"
+          "path": "src/features/learning/governance-visuals.tsx",
+          "marker": "GovernanceModelResult"
         }
       ],
-      "accessible": [{ "path": "src/features/learning/access-control.css" }],
+      "accessible": [
+        {
+          "path": "src/features/learning/governance.css"
+        }
+      ],
       "assessment": [
         {
-          "path": "src/features/learning/access-control-assessment.tsx",
-          "marker": "AccessAssessment"
+          "path": "src/features/learning/governance-assessment.tsx",
+          "marker": "GovernanceAssessment"
         }
       ],
       "savvyshark": [
-        { "path": "src/features/learning/access-control-workbench.tsx", "marker": "SavvyShark" }
+        {
+          "path": "src/features/learning/governance-workbench.tsx",
+          "marker": "SavvyShark"
+        }
       ]
     },
     {
-      "id": "access-conditional",
-      "objectives": ["az900.identity.conditional-access"],
+      "id": "governance-policy",
+      "objectives": ["az900.governance.policy"],
       "claims": [
-        "access.AC03",
-        "access.AC09",
-        "access.AC10",
-        "access.AC11",
-        "access.AC12",
-        "access.AC13",
-        "access.AC14",
-        "access.AC15",
-        "access.AC16",
-        "access.AC17",
-        "access.AC25"
+        "governance.GV07",
+        "governance.GV08",
+        "governance.GV09",
+        "governance.GV10",
+        "governance.GV11",
+        "governance.GV17",
+        "governance.GV25",
+        "governance.GV26",
+        "governance.GV27",
+        "governance.GV28",
+        "governance.GV29",
+        "governance.GV30",
+        "governance.GV31"
       ],
-      "limits": "Bounded conceptual snapshots only. No actual IAM/CA evaluator, principal/role/policy command, World mutation, receipt, runtime response or XP. Immutable old evidence stays separate.",
+      "limits": "Deterministic conceptual observations; actual Policy learning credit additionally requires replayed post-start receipts from original Sandbox and explicit inspections. No conceptual World mutation/receipt or XP.",
       "assessmentStatus": "new-independent",
-      "theory": [{ "path": "src/content/nb.ts", "marker": "accessNb" }],
+      "theory": [
+        {
+          "path": "src/content/nb.ts",
+          "marker": "governanceNb"
+        }
+      ],
       "mechanism": [
-        { "path": "src/domain/curriculum/access-control-model.ts", "marker": "runConditional" }
+        {
+          "path": "src/domain/curriculum/governance-model.ts",
+          "marker": "runPolicy"
+        }
       ],
       "practice": [
         {
-          "path": "src/features/learning/access-control-workbench.tsx",
-          "marker": "AccessWorkbench"
+          "path": "src/features/learning/governance-workbench.tsx",
+          "marker": "GovernanceWorkbench"
         }
       ],
-      "feedback": [{ "path": "src/content/nb.ts", "marker": "accessItemsNb" }],
+      "feedback": [
+        {
+          "path": "src/content/nb.ts",
+          "marker": "governanceItemsNb"
+        }
+      ],
       "visual": [
         {
-          "path": "src/features/learning/access-control-visuals.tsx",
-          "marker": "AccessModelResult"
+          "path": "src/features/learning/governance-visuals.tsx",
+          "marker": "GovernanceModelResult"
         }
       ],
-      "accessible": [{ "path": "src/features/learning/access-control.css" }],
+      "accessible": [
+        {
+          "path": "src/features/learning/governance.css"
+        }
+      ],
       "assessment": [
         {
-          "path": "src/features/learning/access-control-assessment.tsx",
-          "marker": "AccessAssessment"
+          "path": "src/features/learning/governance-assessment.tsx",
+          "marker": "GovernanceAssessment"
         }
       ],
       "savvyshark": [
-        { "path": "src/features/learning/access-control-workbench.tsx", "marker": "SavvyShark" }
+        {
+          "path": "src/features/learning/governance-workbench.tsx",
+          "marker": "SavvyShark"
+        }
+      ]
+    },
+    {
+      "id": "governance-locks",
+      "objectives": ["az900.governance.locks"],
+      "claims": [
+        "governance.GV12",
+        "governance.GV13",
+        "governance.GV18",
+        "governance.GV35",
+        "governance.GV36"
+      ],
+      "limits": "Deterministic conceptual observations; actual Policy learning credit additionally requires replayed post-start receipts from original Sandbox and explicit inspections. No conceptual World mutation/receipt or XP.",
+      "assessmentStatus": "new-independent",
+      "theory": [
+        {
+          "path": "src/content/nb.ts",
+          "marker": "governanceNb"
+        }
+      ],
+      "mechanism": [
+        {
+          "path": "src/domain/curriculum/governance-model.ts",
+          "marker": "runLocks"
+        }
+      ],
+      "practice": [
+        {
+          "path": "src/features/learning/governance-workbench.tsx",
+          "marker": "GovernanceWorkbench"
+        }
+      ],
+      "feedback": [
+        {
+          "path": "src/content/nb.ts",
+          "marker": "governanceItemsNb"
+        }
+      ],
+      "visual": [
+        {
+          "path": "src/features/learning/governance-visuals.tsx",
+          "marker": "GovernanceModelResult"
+        }
+      ],
+      "accessible": [
+        {
+          "path": "src/features/learning/governance.css"
+        }
+      ],
+      "assessment": [
+        {
+          "path": "src/features/learning/governance-assessment.tsx",
+          "marker": "GovernanceAssessment"
+        }
+      ],
+      "savvyshark": [
+        {
+          "path": "src/features/learning/governance-workbench.tsx",
+          "marker": "SavvyShark"
+        }
       ]
     }
   ],
   "modules": [
     {
-      "id": "access-control",
-      "prerequisites": [{ "path": "src/content/nb.ts", "marker": "accessNb" }],
-      "terminology": [{ "path": "src/content/nb.ts", "marker": "accessNb" }],
-      "concept": [{ "path": "src/content/nb.ts", "marker": "accessNb" }],
-      "azureExample": [{ "path": "src/content/nb.ts", "marker": "accessNb" }],
-      "workedExample": [{ "path": "src/content/nb.ts", "marker": "accessNb" }],
-      "misconception": [{ "path": "src/content/nb.ts", "marker": "accessNb" }],
-      "limits": [{ "path": "src/content/nb.ts", "marker": "accessNb" }],
+      "id": "governance-compliance",
+      "prerequisites": [
+        {
+          "path": "src/content/nb.ts",
+          "marker": "governanceNb"
+        }
+      ],
+      "terminology": [
+        {
+          "path": "src/content/nb.ts",
+          "marker": "governanceNb"
+        }
+      ],
+      "concept": [
+        {
+          "path": "src/content/nb.ts",
+          "marker": "governanceNb"
+        }
+      ],
+      "azureExample": [
+        {
+          "path": "src/content/nb.ts",
+          "marker": "governanceNb"
+        }
+      ],
+      "workedExample": [
+        {
+          "path": "src/content/nb.ts",
+          "marker": "governanceNb"
+        }
+      ],
+      "misconception": [
+        {
+          "path": "src/content/nb.ts",
+          "marker": "governanceNb"
+        }
+      ],
+      "limits": [
+        {
+          "path": "src/content/nb.ts",
+          "marker": "governanceNb"
+        }
+      ],
       "mechanism": [
-        { "path": "src/domain/curriculum/access-control-model.ts", "marker": "runConditional" }
+        {
+          "path": "src/domain/curriculum/governance-model.ts",
+          "marker": "runGovernance"
+        }
       ],
       "visual": [
         {
-          "path": "src/features/learning/access-control-visuals.tsx",
-          "marker": "AccessModelResult"
+          "path": "src/features/learning/governance-visuals.tsx"
         }
       ],
       "practice": [
         {
-          "path": "src/features/learning/access-control-workbench.tsx",
-          "marker": "AccessWorkbench"
+          "path": "src/features/learning/governance-workbench.tsx"
         }
       ],
-      "independentScenario": [{ "path": "src/content/nb.ts", "marker": "accessItemsNb" }],
-      "correctAndWrongRationales": [{ "path": "src/content/nb.ts", "marker": "accessItemsNb" }],
+      "independentScenario": [
+        {
+          "path": "src/content/nb.ts",
+          "marker": "governanceItemsNb"
+        }
+      ],
+      "correctAndWrongRationales": [
+        {
+          "path": "src/content/nb.ts",
+          "marker": "governanceItemsNb"
+        }
+      ],
       "sources": [
         {
-          "path": "src/domain/curriculum/access-control-sources.ts",
-          "marker": "accessSourceReview"
+          "path": "src/domain/curriculum/governance-sources.ts",
+          "marker": "governanceSourceReview"
         }
       ]
     }
@@ -751,7 +1154,6 @@
     "src/domain/curriculum/storage-store.ts",
     "src/domain/curriculum/storage.test.ts",
     "src/domain/curriculum/storage.ts",
-    "src/domain/portal/",
     "src/domain/progression.ts",
     "src/domain/sandbox/",
     "src/features/course/mission-briefing.tsx",
@@ -771,7 +1173,6 @@
     "src/features/learning/storage-workbench.tsx",
     "src/features/learning/storage.css",
     "src/features/learning/storage.tsx",
-    "tests/e2e/storage-resilience.spec.ts",
     "tests/e2e/storage-services.spec.ts",
     "src/domain/curriculum/identity-foundations.ts",
     "src/domain/curriculum/identity-foundations-model.ts",
@@ -784,190 +1185,263 @@
     "src/features/learning/identity-foundations-provider.tsx",
     "src/features/learning/identity-foundations-workbench.tsx",
     "src/features/learning/identity-foundations-visuals.tsx",
-    "src/features/learning/identity-foundations.css"
+    "src/features/learning/identity-foundations.css",
+    "src/domain/curriculum/access-control.ts",
+    "src/domain/curriculum/access-control-model.ts",
+    "src/domain/curriculum/access-control-items.ts",
+    "src/domain/curriculum/access-control-store.ts",
+    "src/domain/curriculum/access-control-sources.ts",
+    "src/domain/curriculum/access-control.test.ts",
+    "src/features/learning/access-control.tsx",
+    "src/features/learning/access-control-assessment.tsx",
+    "src/features/learning/access-control-provider.tsx",
+    "src/features/learning/access-control-workbench.tsx",
+    "src/features/learning/access-control-visuals.tsx",
+    "src/features/learning/access-control-controls.tsx",
+    "src/features/learning/access-control.css"
   ],
   "gates": {
     "source": {
       "checks": [
-        { "path": "docs/ACCESS_CONTROL.md" },
-        { "path": "src/domain/curriculum/access-control-sources.ts" }
+        {
+          "path": "docs/GOVERNANCE_COMPLIANCE.md"
+        },
+        {
+          "path": "src/domain/curriculum/governance-sources.ts"
+        }
       ],
-      "limits": "P11 candidate. Actual sources, full local check, bounded production/visual tests, fresh post-stamp six-domain audit and complete exact-head198 CI/strict required. External Gate7 separately blocked if normal root requires SSO. Humans unperformed; no merge/production deploy."
+      "limits": "P12 candidate: actual source/model/learning/visual/audit and exact-head207-case CI/strict are separate gates. External root/SHA/journey BLOCKED if SSO. Human SME/UX/screen-reader/learning unperformed. No merge/production."
     },
     "curriculum": {
       "checks": [
-        { "path": "src/domain/curriculum/access-control.ts" },
-        { "path": "src/content/nb.ts" }
+        {
+          "path": "src/content/nb.ts"
+        },
+        {
+          "path": "src/domain/curriculum/governance.ts"
+        }
       ],
-      "limits": "P11 candidate. Actual sources, full local check, bounded production/visual tests, fresh post-stamp six-domain audit and complete exact-head198 CI/strict required. External Gate7 separately blocked if normal root requires SSO. Humans unperformed; no merge/production deploy."
+      "limits": "P12 candidate: actual source/model/learning/visual/audit and exact-head207-case CI/strict are separate gates. External root/SHA/journey BLOCKED if SSO. Human SME/UX/screen-reader/learning unperformed. No merge/production."
     },
     "simulation": {
       "checks": [
-        { "path": "src/domain/curriculum/access-control-model.ts" },
-        { "path": "src/domain/curriculum/access-control.test.ts" }
+        {
+          "path": "src/domain/curriculum/governance-model.ts"
+        },
+        {
+          "path": "src/domain/curriculum/governance-evidence.ts"
+        },
+        {
+          "path": "src/domain/curriculum/governance.test.ts"
+        }
       ],
-      "limits": "P11 candidate. Actual sources, full local check, bounded production/visual tests, fresh post-stamp six-domain audit and complete exact-head198 CI/strict required. External Gate7 separately blocked if normal root requires SSO. Humans unperformed; no merge/production deploy."
+      "limits": "P12 candidate: actual source/model/learning/visual/audit and exact-head207-case CI/strict are separate gates. External root/SHA/journey BLOCKED if SSO. Human SME/UX/screen-reader/learning unperformed. No merge/production."
     },
     "savvyshark": {
       "checks": [
-        { "path": "src/features/learning/access-control-workbench.tsx" },
-        { "path": "src/features/learning/management-access.tsx" },
-        { "path": "tests/e2e/access-control.spec.ts" }
+        {
+          "path": "src/features/learning/governance-workbench.tsx"
+        },
+        {
+          "path": "src/features/learning/management-access.tsx"
+        },
+        {
+          "path": "tests/e2e/governance-compliance.spec.ts"
+        }
       ],
-      "limits": "P11 candidate. Actual sources, full local check, bounded production/visual tests, fresh post-stamp six-domain audit and complete exact-head198 CI/strict required. External Gate7 separately blocked if normal root requires SSO. Humans unperformed; no merge/production deploy."
+      "limits": "P12 candidate: actual source/model/learning/visual/audit and exact-head207-case CI/strict are separate gates. External root/SHA/journey BLOCKED if SSO. Human SME/UX/screen-reader/learning unperformed. No merge/production."
     },
     "visual-accessibility": {
       "checks": [
-        { "path": "src/features/learning/access-control-visuals.tsx" },
-        { "path": "src/features/learning/access-control.css" },
-        { "path": "tests/e2e/access-control.spec.ts" }
+        {
+          "path": "src/features/learning/governance-visuals.tsx"
+        },
+        {
+          "path": "src/features/learning/governance.css"
+        },
+        {
+          "path": "tests/e2e/governance-compliance.spec.ts"
+        }
       ],
-      "limits": "P11 candidate. Actual sources, full local check, bounded production/visual tests, fresh post-stamp six-domain audit and complete exact-head198 CI/strict required. External Gate7 separately blocked if normal root requires SSO. Humans unperformed; no merge/production deploy."
+      "limits": "P12 candidate: actual source/model/learning/visual/audit and exact-head207-case CI/strict are separate gates. External root/SHA/journey BLOCKED if SSO. Human SME/UX/screen-reader/learning unperformed. No merge/production."
     },
     "independent-final-audit": {
       "checks": [
-        { "path": "docs/RELEASE_ACCEPTANCE.md" },
-        { "path": "docs/quality/PR36_FINAL_AUDIT.md" }
+        {
+          "path": "docs/RELEASE_ACCEPTANCE.md"
+        },
+        {
+          "path": "docs/quality/PR37_FINAL_AUDIT.md"
+        }
       ],
-      "limits": "P11 candidate. Actual sources, full local check, bounded production/visual tests, fresh post-stamp six-domain audit and complete exact-head198 CI/strict required. External Gate7 separately blocked if normal root requires SSO. Humans unperformed; no merge/production deploy."
+      "limits": "P12 candidate: actual source/model/learning/visual/audit and exact-head207-case CI/strict are separate gates. External root/SHA/journey BLOCKED if SSO. Human SME/UX/screen-reader/learning unperformed. No merge/production."
     },
     "delivery": {
       "checks": [
-        { "path": ".github/workflows/ci.yml" },
-        { "path": "scripts/e2e-plan-check.mjs" },
-        { "path": "docs/ACCESS_CONTROL.md" }
+        {
+          "path": ".github/workflows/ci.yml"
+        },
+        {
+          "path": "scripts/e2e-plan-check.mjs"
+        },
+        {
+          "path": "docs/GOVERNANCE_COMPLIANCE.md"
+        }
       ],
-      "limits": "P11 candidate. Actual sources, full local check, bounded production/visual tests, fresh post-stamp six-domain audit and complete exact-head198 CI/strict required. External Gate7 separately blocked if normal root requires SSO. Humans unperformed; no merge/production deploy."
+      "limits": "P12 candidate: actual source/model/learning/visual/audit and exact-head207-case CI/strict are separate gates. External root/SHA/journey BLOCKED if SSO. Human SME/UX/screen-reader/learning unperformed. No merge/production."
     }
   },
   "verification": [
     {
       "command": "npm run check",
       "result": "passed",
-      "details": "Actual full local process exited0:458 Vitest/32files,368 curriculum,17 Node,105 Markdown/local links, type/lint/format/source/assets/legacy and production build. Earlier lint failure corrected. After small Studio/role-table refinements: bounded build, lint/domain, browser/Axe and screenshots repeated; not repeated full local regression."
+      "details": "Actual complete local implementation process before the presentation-only CI correction exited0:487 Vitest/33files,397 curriculum,17 Node,107 Markdown/local links; type/lint/format/quality/audit/assets/legacy and production build. Earlier type-test extra argument and unused import/hook-dependency lint failures were corrected; they are not claimed as passing runs. Provider now explicitly consumes current immutable Sandbox engine or pinned archived engine, retaining memo invalidation without lint suppression."
     },
     {
       "command": "Targeted production browser tests",
       "result": "passed",
-      "details": "Pinned Playwright1.64.1/Chromium1248,worker1,retries0. Final selection13 executed:12passed, RBAC revealed focusable pre defect; corrected product with focusable labelled pre and scoped readable horizontally scrollable table, affected RBAC/compact2 passed23.4s after correction,29 P11/shared domain tests passed; final bounded production build passed. Other affected Identity navigation+old Benefits2passed. Earlier selectors/reload readiness corrected without weakening assertions. Old Benefits3repeat passed without retry; held-animation-frame durable-aid negative passed. Complete198 GitHub CI remains pending."
+      "details": "Seven of eight initial new cases passed; original Policy denial assertions succeeded, then incorrect Basics selector failed. Existing Edit configuration flow corrected test, full Policy case then passed3.7s without retry. Five affected Hub/CloudTransfer cases passed30.1s, including all20 exact assessment resume contexts. Compact Governance keyboard/Axe/reduced-motion/native short-dialog case passed14.4s. No workers/retries/timeouts/skips/assertions weakened."
     },
     {
       "command": "npm run test:e2e:plan",
       "result": "passed",
-      "details": "198 planned=184desktop+14compact,legacy368,worker1. Collection only; never full executed CI proof."
+      "details": "Actual mandatory collection validates207=192desktop+15compact, legacy384, worker1. Collection is not executed full-profile proof."
     },
     {
-      "command": "Preservation and actual screenshot capture",
+      "command": "Source and historical preservation",
       "result": "passed",
-      "details": "27 historical data exports+1function exact except five declared presentation/context metadata paths;55 other AZ900 rows and72 protected path patterns unchanged.16 actual final production PNGs, personally inspected; zero page errors/external runtime requests, actual native Sandbox seed remains byte-exact."
+      "details": "36 actual public source bodies with hashes/versions and discovery; no protected assessment or report.29 old data exports+one function exact except five explicit context/navigation paths;54 other objective rows and84 protected patterns unchanged; operative Portal model suffix byte-identical.19 actual production PNGs opened; zero page errors/external runtime requests; later conceptual/assessment activity preserves native bytes."
     },
     {
       "command": "Full exact-head GitHub CI",
       "result": "pending",
-      "details": "Draft enables complete guarded198 with pinned Chromium, mandatory plan and success-only candidate receipt, then strict release against verified2eef3efad9b867534a69327a2f6deee31ffacaa5. Local/collection/targeted proof is not full CI."
+      "details": "Draft PR enables unchanged CI wrapper, complete207 profile, pinned Chromium, candidate receipt and strict release. Local targeted passes and collection do not substitute for actual complete candidate evidence."
     },
     {
-      "command": "Final-audit additive-role correction",
+      "command": "First complete candidate CI",
+      "result": "failed",
+      "details": "Run41289972585 on7a76fd048e80887bd3e680e525b8284f3b67898f: full check487/397/17 and dependency audit passed; mandatory207 browser process had206passed and one deterministic failure in old Storage Hub test expecting Governance still planned. Existing configured retries reproduced the same wrong expectation. No full-browser success receipt or strict pass. Corrected only planned-label expectation to Management Tools and added available Governance entry assertion; all other assertions/settings retained. This test is explicitly removed from byte-preserved test paths; old Storage manuscript/models/rubrics/history remain byte-preserved."
+    },
+    {
+      "command": "Post-CI presentation delta verification",
       "result": "passed",
-      "details": "Reviewer MAJOR-01 corrected primary-role-biased generic-resource boundary;100 role-order permutations plus explicit known/unknown cases.30 P11/shared domain tests, production rebuild, targeted ESLint and full typecheck exited0. Actual production RBAC guide with both role orders passed7.7s,retries0. Independent delta audit required against renewed fingerprint. Prior full local check458 remains attributed to before bounded correction; final CI expected459."
+      "details": "Only obsolete Storage Hub planned-label assertion corrected to still-planned Management Tools plus positive available Governance assertion. Author full target case2.2s/process3.6s and independent full target case2.5s/process3.7s passed, worker1/retries0. Target ESLint/docs107/preservation passed. Independent delta confirms65 original files unchanged, one contract addendum and one added changed presentation test:67 final hashes,83 protected patterns; final fingerprint2797591be00a00a9d194b3cc91a631eb0b6f53dc4c82fa0cd494e4c431a007df. No application/source/question/image/settings change. Fresh complete207 CI must run on new head."
     }
   ],
   "visualEvidence": [
     {
-      "path": "docs/screenshots/access-control/hub-1440.png",
+      "path": "docs/screenshots/governance-compliance/hub-1440.png",
       "viewport": "1440x900",
       "inspected": true,
-      "observation": "One start and three existing learning paths; no new promotion."
+      "observation": "Actual local production view personally opened; hub 1440. Long content uses ordinary scrolling; conceptual and actual receipts remain distinct."
     },
     {
-      "path": "docs/screenshots/access-control/introduction-1440.png",
+      "path": "docs/screenshots/governance-compliance/hub-1024.png",
+      "viewport": "1024x768",
+      "inspected": true,
+      "observation": "Actual local production view personally opened; hub 1024. Long content uses ordinary scrolling; conceptual and actual receipts remain distinct."
+    },
+    {
+      "path": "docs/screenshots/governance-compliance/introduction-1440.png",
       "viewport": "1440x900",
       "inspected": true,
-      "observation": "AuthN/CA/AuthZ bridge and contextual Identity Part B sidebar."
+      "observation": "Actual local production view personally opened; introduction 1440. Long content uses ordinary scrolling; conceptual and actual receipts remain distinct."
     },
     {
-      "path": "docs/screenshots/access-control/studio-entry-1440.png",
+      "path": "docs/screenshots/governance-compliance/studio-entry-1440.png",
       "viewport": "1440x900",
       "inspected": true,
-      "observation": "Both Studio perspectives and explicit briefing entry visible before full supporting theory."
+      "observation": "Actual local production view personally opened; studio entry 1440. Long content uses ordinary scrolling; conceptual and actual receipts remain distinct."
     },
     {
-      "path": "docs/screenshots/access-control/briefing-rbac-1024x500.png",
+      "path": "docs/screenshots/governance-compliance/briefing-data-1024x500.png",
       "viewport": "1024x500",
       "inspected": true,
-      "observation": "Native blurred briefing fits1024x500 with explicit Start/Cancel."
+      "observation": "Actual local production view personally opened; briefing data 1024x500. Long content uses ordinary scrolling; conceptual and actual receipts remain distinct."
     },
     {
-      "path": "docs/screenshots/access-control/rbac-inheritance-1920.png",
+      "path": "docs/screenshots/governance-compliance/metadata-lineage-not-access-1920.png",
       "viewport": "1920x1080",
       "inspected": true,
-      "observation": "Reader subscription assignment and downward ancestry, declared permission/result."
+      "observation": "Actual local production view personally opened; metadata lineage not access 1920. Long content uses ordinary scrolling; conceptual and actual receipts remain distinct."
     },
     {
-      "path": "docs/screenshots/access-control/rbac-narrow-role-1440.png",
-      "viewport": "1440x900",
-      "inspected": true,
-      "observation": "Specialised VM-only scope; transparent cause and narrower shown-node reach."
-    },
-    {
-      "path": "docs/screenshots/access-control/rbac-upward-denied-1024.png",
+      "path": "docs/screenshots/governance-compliance/data-declared-permission-1024.png",
       "viewport": "1024x768",
       "inspected": true,
-      "observation": "VM-scoped Reader cannot inherit upward to resource group."
+      "observation": "Actual local production view personally opened; data declared permission 1024. Long content uses ordinary scrolling; conceptual and actual receipts remain distinct."
     },
     {
-      "path": "docs/screenshots/access-control/rbac-data-plane-1366.png",
+      "path": "docs/screenshots/governance-compliance/policy-audit-1440.png",
+      "viewport": "1440x900",
+      "inspected": true,
+      "observation": "Actual local production view personally opened; policy audit 1440. Long content uses ordinary scrolling; conceptual and actual receipts remain distinct."
+    },
+    {
+      "path": "docs/screenshots/governance-compliance/policy-deny-1366.png",
       "viewport": "1366x768",
       "inspected": true,
-      "observation": "Declared Entra/RBAC Blob DataAction separate from management permission."
+      "observation": "Actual local production view personally opened; policy deny 1366. Long content uses ordinary scrolling; conceptual and actual receipts remain distinct."
     },
     {
-      "path": "docs/screenshots/access-control/rbac-role-matrix-1024.png",
+      "path": "docs/screenshots/governance-compliance/policy-exemption-1024.png",
       "viewport": "1024x768",
       "inspected": true,
-      "observation": "Scoped table wraps labels; local horizontal region and JSON are keyboard-focusable."
+      "observation": "Actual local production view personally opened; policy exemption 1024. Long content uses ordinary scrolling; conceptual and actual receipts remain distinct."
     },
     {
-      "path": "docs/screenshots/access-control/actual-sandbox-ancestry-1440.png",
+      "path": "docs/screenshots/governance-compliance/policy-remediation-prerequisites-1440.png",
       "viewport": "1440x900",
       "inspected": true,
-      "observation": "Actual replayed Sandbox ancestry revision3 used only as hypothetical role context."
+      "observation": "Independently opened actual1440x900 PNG: Modify/non-compliant result flow and scope ancestry are readable. Lower managed-identity/task prerequisite fields are outside this frame; pure model and negative domain tests separately establish those constraints. Not human visual approval."
     },
     {
-      "path": "docs/screenshots/access-control/ca-missing-device-1440.png",
+      "path": "docs/screenshots/governance-compliance/actual-policy-denial-1440.png",
       "viewport": "1440x900",
       "inspected": true,
-      "observation": "Concurrent MFA/device policies retain unmet device and separate missing Azure role."
+      "observation": "Actual local production view personally opened; actual policy denial 1440. Long content uses ordinary scrolling; conceptual and actual receipts remain distinct."
     },
     {
-      "path": "docs/screenshots/access-control/ca-enforced-block-1366.png",
+      "path": "docs/screenshots/governance-compliance/actual-correction-receipt-1024.png",
+      "viewport": "1024x768",
+      "inspected": true,
+      "observation": "Independently opened actual1024x768 PNG: upper actual policy inspector header/scope/target types/allowed location/mode are readable. Lower accepted receipt details are outside this frame; final production browser and original replay verification separately establish same-plan correction. Not human visual approval."
+    },
+    {
+      "path": "docs/screenshots/governance-compliance/cannotdelete-1366.png",
       "viewport": "1366x768",
       "inspected": true,
-      "observation": "Applicable enforced Block persists despite satisfied MFA."
+      "observation": "Actual local production view personally opened; cannotdelete 1366. Long content uses ordinary scrolling; conceptual and actual receipts remain distinct."
     },
     {
-      "path": "docs/screenshots/access-control/ca-report-only-1024.png",
+      "path": "docs/screenshots/governance-compliance/readonly-management-post-1024.png",
       "viewport": "1024x768",
       "inspected": true,
-      "observation": "Report-only Block is applicable but not enforced."
+      "observation": "Actual local production view personally opened; readonly management post 1024. Long content uses ordinary scrolling; conceptual and actual receipts remain distinct."
     },
     {
-      "path": "docs/screenshots/access-control/ca-and-rbac-met-800.png",
+      "path": "docs/screenshots/governance-compliance/data-plane-separate-800.png",
       "viewport": "800x700",
       "inspected": true,
-      "observation": "CA requirements and relevant VM permission separately met; no runtime claim."
+      "observation": "Actual local production view personally opened; data plane separate 800. Long content uses ordinary scrolling; conceptual and actual receipts remain distinct."
     },
     {
-      "path": "docs/screenshots/access-control/independent-ab09-1024.png",
+      "path": "docs/screenshots/governance-compliance/semantic-details-1024.png",
       "viewport": "1024x768",
       "inspected": true,
-      "observation": "Original user-by-application policy boundary question has no exposed key before submit."
+      "observation": "Actual local production view personally opened; semantic details 1024. Long content uses ordinary scrolling; conceptual and actual receipts remain distinct."
     },
     {
-      "path": "docs/screenshots/access-control/feedback-valid-group-plan-1024x500.png",
+      "path": "docs/screenshots/governance-compliance/independent-remediation-1024.png",
+      "viewport": "1024x768",
+      "inspected": true,
+      "observation": "Actual local production view personally opened; independent remediation 1024. Long content uses ordinary scrolling; conceptual and actual receipts remain distinct."
+    },
+    {
+      "path": "docs/screenshots/governance-compliance/feedback-remediation-1024x500.png",
       "viewport": "1024x500",
       "inspected": true,
-      "observation": "Alternate approved group Reader plan accepted with its technical reason; first classified separately."
+      "observation": "Actual local production view personally opened; feedback remediation 1024x500. Long content uses ordinary scrolling; conceptual and actual receipts remain distinct."
     }
   ],
   "humanReview": {
@@ -978,185 +1452,301 @@
   },
   "review": {
     "status": "complete",
-    "fingerprint": "b58f95a28f619848160d82839bd79e7801b32aa941d65afb751f13e7c7f6b9c4",
+    "fingerprint": "2797591be00a00a9d194b3cc91a631eb0b6f53dc4c82fa0cd494e4c431a007df",
     "reviewer": {
-      "id": "access-final-independent-auditor-20261031",
+      "id": "independent-final-audit-20261101-agent-governance-final-audit",
       "kind": "agent"
     },
-    "started": "2026-11-01T00:00:30.334Z",
-    "completed": "2026-11-01T00:06:43.513Z",
+    "started": "2026-11-01T08:57:43.825Z",
+    "finished": "2026-11-01T08:59:04.603013+00:00",
     "domains": {
       "content": {
-        "finding": "Accepted: actual original manuscript/final bank and relevant AC01–30 source bodies reviewed. All30 indexed hashes verified; eight critical fresh normal-TLS refetches exact. Azure/Entra, additive/NotActions/deny, direct and alternate data routes, all-CA/Block/report-only/targeting, P1/P2/workload/emergency and What If limits are correctly qualified. Scope only2.4.04/.05; human SME/learning unperformed.",
+        "finding": "Reviewed actual Norwegian ten-section manuscript and relevant body passages from all36 retained public sources; hashes/versions match. Current portfolio/classic-lineage qualification, Policy effects/scope/expiry/timing/remediation, concrete locks/control-data and STP boundaries hold. Only3.2.01–03; STP supplement; no SME/learning claim.",
         "evidence": [
-          { "path": "src/content/nb.ts", "marker": "export const accessNb" },
-          { "path": "src/domain/curriculum/access-control-sources.ts" },
-          { "path": "docs/quality/PR36_FINAL_AUDIT.md" }
+          {
+            "path": "src/content/nb.ts"
+          },
+          {
+            "path": "src/domain/curriculum/governance-sources.ts"
+          },
+          {
+            "path": "docs/GOVERNANCE_COMPLIANCE.md"
+          },
+          {
+            "path": "docs/audits/az900-2026-07-20.json"
+          }
         ]
       },
       "technical": {
-        "finding": "Accepted after independently reported MAJOR-01: role ordering no longer suppresses a known second Reader grant. Fresh30 domain/shared tests and independent5,000 role-order cases pass. Strict replay/CAS/readback/stale/recovery,800events/five reserves/24runs,480000 normal inside600000 parser, immutable first/help/retry/family/abandon and read-only actual Sandbox ancestry remain. No IAM/token/runtime/World/receipt/XP operation.",
+        "finding": "Pure concepts do not mutate World/receipts/XP. Pinned original replay requires post-start unchanged denial and same-plan correction plus policy/scope/group/both-receipt inspections. Independently executed9 boundary probes include wrong plan/group/through/inspection, retained archive/new current/evicted archive. Current-engine memo dependencies and archived engineFor fail closed; immutablefirst/CAS/replay/bounds/scoped recovery reviewed.",
         "evidence": [
           {
-            "path": "src/domain/curriculum/access-control-model.ts",
-            "marker": "const grantingRoles"
+            "path": "src/domain/curriculum/governance-model.ts"
           },
           {
-            "path": "src/domain/curriculum/access-control.ts",
-            "marker": "accessNormalCharacters"
+            "path": "src/domain/curriculum/governance-evidence.ts"
           },
-          { "path": "src/domain/curriculum/access-control-store.ts" },
-          { "path": "docs/quality/PR36_FINAL_AUDIT.md" }
+          {
+            "path": "src/domain/curriculum/governance.ts"
+          },
+          {
+            "path": "src/domain/curriculum/governance-store.ts"
+          },
+          {
+            "path": "src/features/learning/governance-provider.tsx"
+          },
+          {
+            "path": "src/features/learning/governance-evidence.tsx"
+          },
+          {
+            "path": "src/domain/curriculum/governance.test.ts"
+          }
         ]
       },
       "visual": {
-        "finding": "Accepted for local production: each16 actual PNG opened individually. Semantic numbered stages and explicit limits remain readable at desktop/compact sizes; long content scrolls normally. Actual keyboard horizontal matrix scroll and labelled JSON focus verified; production Axe/reduced-motion/short native-dialog tests pass. Screens unchanged by pure model correction. Human UX/screen-reader/native-browser-zoom approval unperformed.",
+        "finding": "All19 actual PNGs individually opened and hashes matched. Desktop1920/1440/1366,1024,800 and short1024x500 wrap/read/scroll with native briefing and semantic alternative. Two frames show upper inspector/Modify flow only; lower receipt/MI-task details are not established by those images. Their visualEvidence observations are qualified. Human UX/screen-reader unperformed.",
         "evidence": [
           {
-            "path": "docs/screenshots/access-control/rbac-role-matrix-1024.png"
+            "path": "docs/screenshots/governance-compliance/hub-1440.png"
           },
           {
-            "path": "docs/screenshots/access-control/briefing-rbac-1024x500.png"
+            "path": "docs/screenshots/governance-compliance/briefing-data-1024x500.png"
           },
-          { "path": "src/features/learning/access-control-visuals.tsx" },
-          { "path": "docs/quality/PR36_FINAL_AUDIT.md" }
+          {
+            "path": "docs/screenshots/governance-compliance/actual-policy-denial-1440.png"
+          },
+          {
+            "path": "docs/screenshots/governance-compliance/actual-correction-receipt-1024.png"
+          },
+          {
+            "path": "docs/screenshots/governance-compliance/policy-remediation-prerequisites-1440.png"
+          },
+          {
+            "path": "docs/screenshots/governance-compliance/semantic-details-1024.png"
+          },
+          {
+            "path": "docs/quality/PR37_FINAL_AUDIT.md"
+          }
         ]
       },
       "assessment": {
-        "finding": "Accepted with introductory cue/discrimination limitation. First read only final8 packet; all72 blind pair judgments locked before keys at23:56:42.587Z, lock SHA1ed2c7ac0f7fe3272e3e093eaa272533f96819540f1e1f10e9f4f2c06d883ac8. Actual packet exact; nine defensible pairs including both ab04 Reader paths and63 rejections match actual grader. Compared all items/48 alternatives/feedback with actual guide witnesses and manuscript; changed constraints require new plans. Browser wrong-reason rejection/both plans/immutable first verified. No psychometric or measured-transfer claim.",
+        "finding": "Before any keys/feedback/repo/log reads, locked81 decisions/reasons from final learner packet plus actual whole-choice instructions at08:34:02.591795Z, immutable read-only file SHA256e8d7b7064c05b04a91ae68c306dd78912ca5dafae26e89b86ed6a1890547f020. Exactly one complete pair/item; all81 match actual grading after lock. Alternatives/cues/guide comparison and six rationales/item reviewed; gc02/gc08 remain scaffolded near-transfer. No psychometrics/readiness claim.",
         "evidence": [
-          { "path": "src/domain/curriculum/access-control-items.ts" },
           {
-            "path": "src/content/nb.ts",
-            "marker": "export const accessItemsNb"
+            "path": "src/content/nb.ts"
           },
-          { "path": "tests/fixtures/access.ts" },
-          { "path": "docs/quality/PR36_FINAL_AUDIT.md" }
+          {
+            "path": "src/domain/curriculum/governance-items.ts"
+          },
+          {
+            "path": "src/features/learning/governance-assessment.tsx"
+          },
+          {
+            "path": "src/domain/curriculum/governance.test.ts"
+          },
+          {
+            "path": "docs/quality/PR37_FINAL_AUDIT.md"
+          }
         ]
       },
       "guidance": {
-        "finding": "Accepted: native explicit-start causal guides, persisted matched witnesses and cause gating; no visit/time/prediction-only completion. All19 contexts included in shared teaching/Journal/Summary/history, mission safety and Portal shielding. Fresh browser denial/cross-tab/recovery/held-frame checks pass; manual Summary durable aid and assisted-active Studio/Portal withholding verified. Existing Benefits exact durable-aid assertion retained after actual mount. Isolated19-context resume passes; initial transient blank is retained explicitly.",
+        "finding": "Native SavvyShark explicit briefing/start, observation milestones, persisted contrasts/cause and actual Policy evidence reviewed. Shared twentieth context covers durable teaching/Journal/Summary/history and mission/Portal automatic shields, including active-assisted or uncertain records. Final production actualPolicy+denied/cross-tab assistance process independently exited0,2cases6.5s worker1/retries0. No copied inventory or automatic answer/action.",
         "evidence": [
-          { "path": "src/features/learning/access-control-workbench.tsx" },
-          { "path": "src/features/learning/management-access.tsx" },
-          { "path": "src/features/course/mission-context.ts" },
           {
-            "path": "tests/e2e/access-control.spec.ts",
-            "marker": "shared teaching preflight hides Benefits"
+            "path": "src/features/learning/governance-workbench.tsx"
           },
-          { "path": "docs/quality/PR36_FINAL_AUDIT.md" }
+          {
+            "path": "src/features/learning/management-access.tsx"
+          },
+          {
+            "path": "src/features/course/mission-context.ts"
+          },
+          {
+            "path": "src/features/course/course.tsx"
+          },
+          {
+            "path": "src/features/portal/portal.tsx"
+          },
+          {
+            "path": "tests/e2e/governance-compliance.spec.ts"
+          }
         ]
       },
       "regression": {
-        "finding": "Accepted within bounded implementation review: independently recomputed61 final hashes/fingerprint;57 unchanged initial hashes/four reviewed deltas. Fresh preservation confirms27 old exports+one function, five exact metadata paths,55 other objective rows and72 protected patterns; actual Sandbox/prior Identity first/XP bytes preserved in executed browser. No weakened assertion/skip/worker/retry/timeout/dependency change. Initial9-browser process8pass/1blank-Hub failure retained; direct diagnostic and unchanged isolated19-context21.0s pass do not replace complete exact-head198 CI/strict. External root/SHA journey unverified; humans unperformed.",
+        "finding": "Final delta independently reviewed after first complete CI41289972585 failed206/207 with one obsolete Storage Hub planned-Governance expectation; actual job124798998230 logs inspected. Correction changes only that presentation assertion to still-planned Management Tools and adds positive available Governance check, retaining all old Storage journey assertions/settings. Final67 normalized hashes/fingerprint2797591b… match;65 initial candidate files unchanged, contract changed1 and test added1. Preservation83patterns/29exports+onefunction except5metadata/54otherrows/operativePortal suffix independently passes. Author targeted1case2.2s/3.6s exited0; independent complete case2.5s/3.7s exited0 worker1/retries0. Initial blind/source/model/images conclusions remain byte-bound. Renewed complete207 exact-head CI/strict pending; failed firstCI retained. ExternalGate7 and humans unchanged.",
         "evidence": [
-          { "path": "tests/e2e/access-control.spec.ts" },
-          { "path": "tests/e2e/course-hub.spec.ts" },
-          { "path": "tests/e2e/cloud-transfer.spec.ts" },
-          { "path": "scripts/e2e-plan-check.mjs" },
-          { "path": "docs/quality/PR36_FINAL_AUDIT.md" }
+          {
+            "path": "src/domain/curriculum/governance.test.ts"
+          },
+          {
+            "path": "src/domain/curriculum/teaching-access.test.ts"
+          },
+          {
+            "path": "tests/e2e/governance-compliance.spec.ts"
+          },
+          {
+            "path": "tests/e2e/course-hub.spec.ts"
+          },
+          {
+            "path": "docs/GOVERNANCE_COMPLIANCE.md"
+          },
+          {
+            "path": "docs/quality/PR37_FINAL_AUDIT.md"
+          },
+          {
+            "path": "tests/e2e/storage-resilience.spec.ts"
+          }
         ]
       }
     },
     "findings": [
       {
-        "id": "MAJOR-01",
-        "severity": "major",
-        "status": "fixed",
-        "description": "Primary VM Contributor generic-resource View guard suppressed a known secondary Reader grant; swapping the same roles changed outside/outcome1 to allowed/outcome2.",
-        "fix": "Author guard now examines both roles and retains uncertainty only without a known granting role; explicit unsupported route/action bounds retained. Added symmetric role permutations and actual-control dual-order assertions. Four-file delta restamped and independently reviewed.",
-        "retests": [
-          "Author domain30/build/type/lint/affected RBAC browser exit0.",
-          "Auditor domain/shared30 exit0; independent5,000 role-order cases exit0.",
-          "Auditor strengthened current production RBAC/Sandbox/prior-first/XP browser case passed as part of bounded selection.",
-          "61 final normalized hashes/fingerprint and57 unchanged initial files independently verified."
-        ]
-      },
-      {
-        "id": "MINOR-02",
+        "id": "PR37-F01",
         "severity": "minor",
         "status": "accepted-limitation",
-        "description": "Some explicit premises directly remove distractors and several wrong reasons are categorical; ab09 valid plan is relatively long. Suitable constrained introductory application, with empirical discrimination/transfer/retention/psychometrics unperformed."
+        "description": "gc02/gc08 are scaffolded near-transfer, with some vocabulary/completeness cues and uneven distractor strength. Independent all81 judgment found no alternate complete pair. No empirical discrimination/transfer/exam-readiness claim."
       },
       {
-        "id": "NOTE-03",
-        "severity": "note",
+        "id": "PR37-F02",
+        "severity": "minor",
         "status": "accepted-limitation",
-        "description": "Initial auditor9-case process exited1:7P11+Benefits passed,19-context Hub blanked once on legacy Service Types. Cause unestablished. Direct actual-context diagnostic rendered correct entry with zero pageerrors/requestfailed; identical isolated19-context case passed21.0s without code/settings/assertion/timeout/retry changes. Original failure retained; complete exact-head CI must pass and recurrence warrants investigation."
+        "description": "actual-correction-receipt-1024 shows upper actual policy inspector, not lower accepted receipt details; policy-remediation-prerequisites-1440 shows Modify/non-compliant flow, not lower identity/task fields. Qualified observations/report make these evidence limits explicit; distinct browser/domain proof establishes behavior."
       },
       {
-        "id": "NOTE-04",
+        "id": "PR37-N01",
         "severity": "note",
         "status": "accepted-limitation",
-        "description": "Full exact-head198-case GitHub CI/candidate receipt/strict release pending; new feature preview ordinary-root/displayed SHA/journey/return unverified. No SSO bypass. Human SME/UX/screen-reader/learning/psychometric reviews unperformed. No merge/production deploy."
+        "description": "First complete candidate CI41289972585 failed206/207 on obsolete Storage presentation expectation; corrected and independently targeted-retested. Renewed final-head207 GitHub CI wrapper receipt and strict release remain pending. External root/SHA/journey remains unverified and BLOCKED if SSO; human SME/novice UX/screen-reader/learning/psychometrics unperformed. No merge/production."
+      },
+      {
+        "id": "PR37-D01",
+        "severity": "major",
+        "status": "fixed",
+        "description": "First complete CI failed the older Storage Hub test because it expected now-available Governance to remain planned;206/207 is not a pass.",
+        "fix": "Replace only obsolete planned-Governance label with still-planned Management Tools; add explicit available Governance module assertion; retain all Storage grouping/link/sidebar/history/reload/return assertions. Document failed run and explicit presentation-test preservation exception.",
+        "retests": [
+          {
+            "command": "Complete Storage Hub/path/history/return targeted production case",
+            "result": "passed",
+            "details": "Author exit0 case2.2s/process3.6s; independent reviewer exit0 case2.5s/process3.7s, worker1/retries0. Final67 hashes/fingerprint and83pattern preservation pass. Renewed complete207 exact-head CI/strict pending."
+          }
+        ]
       }
     ],
-    "report": { "path": "docs/quality/PR36_FINAL_AUDIT.md" }
+    "report": {
+      "path": "docs/quality/PR37_FINAL_AUDIT.md"
+    },
+    "initialAudit": {
+      "implementationFinished": "2026-11-01T08:32:12.893Z",
+      "started": "2026-11-01T08:34:02.591795Z",
+      "finished": "2026-11-01T08:40:41.202897+00:00",
+      "fingerprint": "4f725f245edda8b1faf035bcf75fe6656fb3cb0ea30691dafde0c332b04a9354",
+      "files": 66,
+      "publishedCommit": "7a76fd048e80887bd3e680e525b8284f3b67898f"
+    },
+    "deltaReview": {
+      "scope": "one old Hub presentation test plus honest contract note and explicit preservation exception",
+      "started": "2026-11-01T08:57:43.825Z",
+      "finished": "2026-11-01T08:59:04.603013+00:00",
+      "implementationFinished": "2026-11-01T08:57:05.771Z",
+      "finalFiles": 67,
+      "unchangedInitialFiles": 65,
+      "changedInitialFiles": ["docs/GOVERNANCE_COMPLIANCE.md"],
+      "addedCandidateFiles": ["tests/e2e/storage-resilience.spec.ts"],
+      "removedCandidateFiles": [],
+      "protectedPatterns": 83,
+      "firstCi": {
+        "run": 41289972585,
+        "job": 124798998230,
+        "head": "7a76fd048e80887bd3e680e525b8284f3b67898f",
+        "result": "failed",
+        "passed": 206,
+        "failed": 1,
+        "logsIndependentlyInspected": true
+      },
+      "independentRetest": {
+        "command": "npx playwright test --config=.artifacts/course-hub-diagnostic.config.mjs tests/e2e/storage-resilience.spec.ts --grep 'Storage parts share one Hub'",
+        "result": "passed",
+        "processExit": 0,
+        "cases": 1,
+        "caseSeconds": 2.5,
+        "processSeconds": 3.7,
+        "workers": 1,
+        "retries": 0
+      },
+      "renewedFullCi": "pending"
+    }
   },
   "snapshot": {
     "files": {
-      "AGENTS.md": "d474fa9617af504c75b9ec06f0523927002671bd794e6399982cda214451b882",
-      "README.md": "ca1d5b46f9cecb9da7f329f420f166b2b7a12f236bcfa651a4c42af0a4dafa21",
-      "docs/ACCESS_CONTROL.md": "ae37df5a5b14aedd768ee55a0a07efda0a9b3ef34032ec826baea680bae80403",
-      "docs/ARCHITECTURE.md": "f57f8e19b6f06d2b3066cced2d4b661afcfe270b8c5a46136893ecbecc72a172",
-      "docs/AZ900_COVERAGE_MATRIX.md": "f628c07428706e3aafe64d89729449e868f85c26df5265b8bacf9ecabe6a6cda",
-      "docs/AZ900_EXPANSION_ROADMAP.md": "cc82794cd26a9f2c4c594c4131dfffd143be2f86856420caa5be7fdcd4b82425",
-      "docs/DECISIONS.md": "c4eebbc3f3134a244ddfed4563e56ad69687e6036e418e042bf4bbcef68c777f",
-      "docs/DEVELOPMENT_WORKFLOW.md": "71d2f6653be6dec6b593c262d370059bd0965b1a765154addd0ac8501c412c97",
-      "docs/audits/az900-2026-07-20.json": "941f4abea30da48acbefb34f8055ee0dd55a7bb2c424f938d7e3ba27722f5f62",
-      "docs/screenshots/access-control/actual-sandbox-ancestry-1440.png": "3fce9c421aad5a29d8b790a4025043dddb6537b7baa39287921281ff8444141f",
-      "docs/screenshots/access-control/briefing-rbac-1024x500.png": "30c202c44b920fc09fd4015506be26353bd5fa10ac1a92f120a981bbe9e1f549",
-      "docs/screenshots/access-control/ca-and-rbac-met-800.png": "eb88facf1ef1cd9319f0796d9f0a8d0d28a90c1c64c9b5bd31051afdf9139dae",
-      "docs/screenshots/access-control/ca-enforced-block-1366.png": "71e4220bab5da8535215c3a93dc23931d7eb3b8b14c712ce455407a6ddfec53e",
-      "docs/screenshots/access-control/ca-missing-device-1440.png": "55cbf763837b4ee3d6f50ec7d04aae45a81772f0216f238efd02611c244b834d",
-      "docs/screenshots/access-control/ca-report-only-1024.png": "b4d6da5897c3552d4b598a033c1262ac50c4df921e405b97639aafb5aeb538e0",
-      "docs/screenshots/access-control/feedback-valid-group-plan-1024x500.png": "7dc1afce94658880c895c56f0aad5efed8112f252f53ef14440ea9cc5c931103",
-      "docs/screenshots/access-control/hub-1440.png": "ecd686f3ecaf14c83135320541b43c94fbe27cc9a11e93841cdf98aa2b5d3a8c",
-      "docs/screenshots/access-control/independent-ab09-1024.png": "c5ecfbe877f6c145e5675458c19fcbbc18fd99c721fbe5f0646e38f1d81d7df0",
-      "docs/screenshots/access-control/introduction-1440.png": "994e3fad5c286372c49e6dac7ae833b24929351af0fda42dbb2b049ea4334722",
-      "docs/screenshots/access-control/rbac-data-plane-1366.png": "239401113dc37b9f55c3a263d428b9f3dd65f09d8233cb8e408f2d9a52f7f1cd",
-      "docs/screenshots/access-control/rbac-inheritance-1920.png": "b2ccb111fac13bebf25e94636efb7b83d4af9432fc67c669b7d3d24425267225",
-      "docs/screenshots/access-control/rbac-narrow-role-1440.png": "c645e3dd0f19e3f10ccc26e2be7970e9668f3d8a3b5fcf278f8d83829534dbab",
-      "docs/screenshots/access-control/rbac-role-matrix-1024.png": "5d2142d64660fafa15f4669dcae09710dc1f06b564f1aa79ab7f78be4abef9e9",
-      "docs/screenshots/access-control/rbac-upward-denied-1024.png": "6e806cb5023512beb0188e6ae266a1a907a07d464b9b2dc1485e1f70734244d6",
-      "docs/screenshots/access-control/studio-entry-1440.png": "5f7598a59da41d70078e2c463fa50eeadc39be3a835f1d36a7e9159f188a7552",
-      "package.json": "165ccad5a66c457c000d4379697d3a8b0f3e193d035ac8adf5e4d240ee456e1b",
-      "playwright.desktop.config.ts": "f903c4e95c0780e6a050cd30452160db84c6f150c14a1543f7d2b2caec014a43",
-      "scripts/az900-audit-check.test.mjs": "8d6839e2105191a683c1448aa5bf2390e8be88bee807d53b5f21e472a2f035ed",
-      "scripts/e2e-plan-check.mjs": "fe80384e12bc3a2e5f2a7035c90b61288fdf3a5ac1f176302c3081e473a00542",
-      "src/app/layout.tsx": "003befc68638cd0a3ca9574c4935da7f073d5ad6c704285244ebe25ff170de2d",
-      "src/app/learn/[module]/page.tsx": "6386ace7fd0e9f01b018eae2e359beee5b2b33e6d1f1133d6d350a318b1b34d4",
-      "src/components/progress-provider.tsx": "f871452b7ed1a8eb22dfc3fde6b13df57dbbb33de4adb0566f7d22a23292aecf",
-      "src/content/nb.ts": "4a1d6510ee51245037c527ccf00e901abd0d9bcf32d7417e027dd9e7d10e76d0",
-      "src/domain/course/model.ts": "84c99751920d788917ec948dee8cc458e7dbd71abd4950bed9450a186678fbea",
-      "src/domain/curriculum/access-control-items.ts": "80766d442bd7a93e603e1d479033b296c598578be488a3d2880637207208a021",
-      "src/domain/curriculum/access-control-model.ts": "ed75e0fa2dd7fe2b29d760ee365d31ee5cd1bfc0bd516f23924df7bb0b7a79fc",
-      "src/domain/curriculum/access-control-sources.ts": "16f12c8f5d9b415322d136149625dc0852b4eb8cc331117310955282a7821593",
-      "src/domain/curriculum/access-control-store.ts": "3825a4842f18f7bffb38863946c6fc3e26799c84c7987a91c4bc17cc706ee2e5",
-      "src/domain/curriculum/access-control.test.ts": "eef8a8230d171845c8f496e07b7b3c64d8f683bc902c18f162f066acd6ba72e0",
-      "src/domain/curriculum/access-control.ts": "0fc4df5b03d524fb7c1f8276dd81bcf67439b32c8ab6dccba0f6afb0e56c5554",
-      "src/domain/curriculum/official.ts": "cb0e6a5370dfd54bd491c25a8712caffa9e6d1dc610d252b11915566e2372bef",
-      "src/domain/curriculum/teaching-access.test.ts": "972dce9f944265e5667af40e12187c704e2e107c9cfa37c3a60801de0a38b977",
-      "src/domain/guidance/milestones.ts": "83c6fe742476534b38e7ba3fcaba7288fe8aad6bcf0dd5e40636bfa4227ba355",
-      "src/features/course/course-outline.ts": "bef9193d79c5640e276927c18f849b1b7bc1cf349377f082cd13f3165c80e4d7",
-      "src/features/course/course.tsx": "c09f9672535115d026eab4309c86645f5e8d5ee02c29b15dee18450f88ac08a4",
-      "src/features/course/mission-context.ts": "5dbe421b903a33b88d680de15327b786c27dbeb8af32af4ce85db9defec29d40",
-      "src/features/learning/access-control-assessment.tsx": "76ac560efb65759691621e515df26ce88dd3257be360fa778d3db4c3ef579193",
-      "src/features/learning/access-control-controls.tsx": "4df384885c9f522efeb33e453ea6f35e257427edbabd5ea650bb78f2f281354b",
-      "src/features/learning/access-control-provider.tsx": "920eaa96bed6a067914f90ae99800882971f7a0ec8c46df93fa7112d5671c941",
-      "src/features/learning/access-control-visuals.tsx": "473d493643324b1214035bc0124f8e6383736fd586a4ff6d8905016bddf0f71d",
-      "src/features/learning/access-control-workbench.tsx": "6297cfe0b6b9f670e27a4ef0d625aaac45114249c8b59721e4c0d3a2c69483cb",
-      "src/features/learning/access-control.css": "800bdb1ef17cb0dc6437576569de2ad1a9d83f877a4d041329e21c513cda8f70",
-      "src/features/learning/access-control.tsx": "f7aa0ddd344254c6f1ecc0db0d7563f2fcdc46cdd72cdddaf4c28b6b2bf76eb2",
-      "src/features/learning/management-access.tsx": "b4c0770f5f5ebc5313b52e9a28f8dcfdf8e8937a1259ca1846cfaf97d78d9a25",
-      "src/features/portal/portal.tsx": "aa3cb18d424fde733e8e2c488bebefb1a818f890c889512174241101048b7bb2",
-      "tests/e2e/access-control.spec.ts": "215d540674287cf75cbb3335ccad372c512fb0f1d0bd833b9881e4d6a0dc0dee",
-      "tests/e2e/cloud-transfer.spec.ts": "3fd2f8172735d065e2e6a1e6cc443b7d112410726674b3150d2c5afbb6ea04f8",
-      "tests/e2e/course-hub.spec.ts": "ef85b5b6500519fc1d2bd54642ad84c1a8a782f93abbd80cb8931ccf2c232d2c",
-      "tests/e2e/identity-foundations.spec.ts": "1acdabe36ebd8e47efb92ebda001c49d6e98ab614589f8bb74a13135e7b447b2",
-      "tests/fixtures/access.ts": "4b249b71e94678202401b2742763a9363deda551ecc4733df6fbc9288715a6ec",
-      "tests/fixtures/active-teaching-contexts.ts": "fb7136744c42b1f00866b07da771e6116184d02b4df2c66ba559c4b169ce69aa"
+      "AGENTS.md": "8bf7e54666266d91607a169204dea52e694d05aae0786bc774e059540aa2cbae",
+      "README.md": "caae1412e9f2fae0ed1e292adf9f8c3e0f35fb0fd2e1d9a8acb75a934649931a",
+      "docs/ARCHITECTURE.md": "75f82ef96ae63196a5978a221b63db0d062845f405189bc036c6b4d04691b204",
+      "docs/AZ900_COVERAGE_MATRIX.md": "4eb8742b74138d465b6e6ef688a37c57f8a788c9850a032dc920569be7a6ffea",
+      "docs/AZ900_EXPANSION_ROADMAP.md": "633244a68e3e61ca3a8a0aac785dc2af82bb1209ae670f498eba5b52064e3979",
+      "docs/DECISIONS.md": "5ebf231edb67b5fc6a6c64b7fce1436d57e68c70e57c0bbe6be6c24a16e76b54",
+      "docs/DEVELOPMENT_WORKFLOW.md": "752ac2c5523f8d2329975c7bbfafce3e7aa14827c1b6cd1c6862b45c139c19d4",
+      "docs/GOVERNANCE_COMPLIANCE.md": "38c0ce5ee196d5e572dbd4063620177616f4f2c345e268b05092c42e21ee4bfe",
+      "docs/audits/az900-2026-07-20.json": "24aed5f1b08f55184b5327af96b40c461f1a36351a838f82a519e5525c52e1a4",
+      "docs/screenshots/governance-compliance/actual-correction-receipt-1024.png": "2acf08708c4e7590fbc690a8fd7585429f20025e04397dfa5281e7d94a646ee3",
+      "docs/screenshots/governance-compliance/actual-policy-denial-1440.png": "412528da7552873b4bd9090ed67b26fea20da31b4012b26955e3ecaae8efee16",
+      "docs/screenshots/governance-compliance/briefing-data-1024x500.png": "5eb31126255f5d53597212b2448b76c38e51b6ea0ef4647bd5916bcc63d75bd1",
+      "docs/screenshots/governance-compliance/cannotdelete-1366.png": "65a4646fc1def1609a3479952d197f1ce2148f93ca09337774f45d70c58a0896",
+      "docs/screenshots/governance-compliance/data-declared-permission-1024.png": "014b5da7b9732bc830d0b080dd4ca1916106c29844122967213b63016aa60935",
+      "docs/screenshots/governance-compliance/data-plane-separate-800.png": "4b81ebd938ac5da9e4c50bc317c67e67f739f3e8ebb33a075d347ec1cb601ec1",
+      "docs/screenshots/governance-compliance/feedback-remediation-1024x500.png": "5dd8ab1936fc5f43b505dbf241f4922777c44110ffc8ea32e4f1dfff6aad1610",
+      "docs/screenshots/governance-compliance/hub-1024.png": "5848c404ab2e5ab1c0ab21d7d02919a2cdf167393f1fe01cb02799f5af17198c",
+      "docs/screenshots/governance-compliance/hub-1440.png": "ffbaba4bbd23e30d30f7e10e6fd4f23afd6bd37f12820cb856112a350176c3ed",
+      "docs/screenshots/governance-compliance/independent-remediation-1024.png": "6e3e369094dae45b0ba2ea0daf5848660a6fffe7167f2a47b2031d9af8cdf23e",
+      "docs/screenshots/governance-compliance/introduction-1440.png": "00ff1d6aa8e72b6ce8b67dfa1f14ec1c7d70c241dbc529f82a0746cf7680e07b",
+      "docs/screenshots/governance-compliance/metadata-lineage-not-access-1920.png": "d92ded1c9193dc4b50d464ff92113e4de9c64f89b014a74a64f9a802ef0fa0df",
+      "docs/screenshots/governance-compliance/policy-audit-1440.png": "b3c3422fe0140843bafea7c29513b5c6b73445133d2676da506326ad8df8731b",
+      "docs/screenshots/governance-compliance/policy-deny-1366.png": "7d1d2841ae3dea54c2f3604d16897ceaf47cbf8dc7218033ff150fe729c1974c",
+      "docs/screenshots/governance-compliance/policy-exemption-1024.png": "5e6d658036e1f6c71e9e27648dd3ecd9829995bba425d152d5a08a6ab87d902a",
+      "docs/screenshots/governance-compliance/policy-remediation-prerequisites-1440.png": "0cb0c725d2d66cf6575f56ce975bb2089e55796b3f9751c3aedde363189025f3",
+      "docs/screenshots/governance-compliance/readonly-management-post-1024.png": "667adbd208f9af5fed3ca66fd4f638964f4df1c233d567da7da8c57a09f1fc97",
+      "docs/screenshots/governance-compliance/semantic-details-1024.png": "e6bd79181df745510bc120ed3f97ddd3aff07b5065f71b359e2be0f1cb15bfdc",
+      "docs/screenshots/governance-compliance/studio-entry-1440.png": "85816d6f4e7f7ba49f336347280b42f672c1ba2a0a1b07b8c05d065f958beab8",
+      "package.json": "7a93cb443e2c52516686f378a40c8c64621c58776cea0a8159451499fe24d18e",
+      "playwright.desktop.config.ts": "ef0ba9aff52854f7b3c5dcd8703bf53526b5515096db9da0615966d028bacb02",
+      "scripts/az900-audit-check.test.mjs": "6d73eda863c55d06338d5726006b82fe66bbd0d07b403fc15be6c2375b767ef7",
+      "scripts/e2e-plan-check.mjs": "aedb903d10c4857cf487be97ca4633099a8a6a9da4cf475737339f743947dc44",
+      "src/app/layout.tsx": "f581cbcd34e6af34dec95b9c5bf551c90d25782c7369edbce9238f740d1a797b",
+      "src/app/learn/[module]/page.tsx": "aaa413f18b58448d365dd99dfc3e90135cf3e91674257b5ed530a576806348c3",
+      "src/components/progress-provider.tsx": "7b00a9a8e2112f2b264815ebccef44a0f5b6b207f242746a8d0573a8773a1d2c",
+      "src/content/nb.ts": "4b22b8fafdd6718c08617d2e9f9e034fb776432e516929cee3e4fbf9900410e9",
+      "src/domain/course/model.ts": "2da58dc2dafb66e11f618ed6c8c1a535f3ac71effa84f9466c0eeb45246100a1",
+      "src/domain/curriculum/governance-evidence.ts": "da35982e951c68a1e2623918ef33eb380ef3f2bce5242a18c89b63ec3df76206",
+      "src/domain/curriculum/governance-items.ts": "5229004708444c46df14c4def15a0bd3526ecd448cc19d11ccfbd55f49a7dc31",
+      "src/domain/curriculum/governance-model.ts": "18db92c1f95cab26c479cb0dab74a45ce5a6a714ff25bf3642190e2a518e7543",
+      "src/domain/curriculum/governance-sources.ts": "7226745a6aac8862d330e4be9c6b1d675f40d3b1a79144f9fac18f93916cdf09",
+      "src/domain/curriculum/governance-store.ts": "92b4673783bf5b0bc167427d129bfc32ce33ba3b710bfe7f865c6d879df2bbd4",
+      "src/domain/curriculum/governance.test.ts": "ef18e67d5e5f19c997a9a8685b54bc318b5fc5baba59980786f32f8ec404c5f0",
+      "src/domain/curriculum/governance.ts": "e37defa8c0b95a957f6c77b382fe0c14a2e676eff9a26aac66c007469fa9dc12",
+      "src/domain/curriculum/official.ts": "eade8baeb6a05e7ecbaaca3cb10d5f1382c31e8aa928e45788ee3b2dc83ae148",
+      "src/domain/curriculum/teaching-access.test.ts": "e0e735d4ffadc02b3c8b6a6122f1b23a2c1e91c6b1830448ebf0d8940d8cfc3d",
+      "src/domain/guidance/milestones.ts": "ece72ccf1700758dcc8543419c25ac698d90e0652a090a9f7b16d1954d2ca6ad",
+      "src/domain/portal/model.ts": "c9a1c1f7883a6c4e0b64c202f1609a786d44ad44ebe7dadd478d841e28d4e888",
+      "src/features/course/course-hub.tsx": "47895ad357a08000d221e146267ba09040c2a27ec60490d6a2b82195d5db3c2f",
+      "src/features/course/course-outline.ts": "b52f3ff4a4bab1fd3d4542585a941ad49409c8f2ce6f192926287b421b97ba9e",
+      "src/features/course/course.tsx": "06787bb06b9d8b4d56d6ff50ba66ae0f4c37319112e2bf8f830ef38e08212856",
+      "src/features/course/mission-context.ts": "55007d9e9738a4c0d8af88d1d0e53f74c378e335076482878a05d0a36bb93fb9",
+      "src/features/learning/governance-assessment.tsx": "f6d966cdd1f2786b3527011239638fdacf326a924ded929d167ecd3bc0fde892",
+      "src/features/learning/governance-controls.tsx": "7e3c6078cc4977d11926df17b1b600a4876906e595f4ae84ba4d7bf30dc6d80c",
+      "src/features/learning/governance-evidence.tsx": "37a8be6aba235e24eb785041584dc0a3e699d49b69db2b6a6c6e2ae872c97d37",
+      "src/features/learning/governance-provider.tsx": "145ac9c69bcfbcc422c4f400776e94d9e10974f4cb4d89bbad7a9da32f2125a0",
+      "src/features/learning/governance-visuals.tsx": "45d533fce72f1e7f7d2c4552814b0e4d298d2a80be6d5d231fdb942f6678c812",
+      "src/features/learning/governance-workbench.tsx": "e2cd7813a507a39c3376810bfab5c4c366859eeac8603c28772375135dda459e",
+      "src/features/learning/governance.css": "dba802de2ffa5827c7b9698f93534a59ca52d639c57800d6a3ec554c89faf373",
+      "src/features/learning/governance.tsx": "a7bf65d9e6189d571efeccf33cfd5025fd59d72790e4240260fd21bde4f28ab2",
+      "src/features/learning/management-access.tsx": "2f32bfb0017679fd9958415a2d4200c952d8e39efd160992bfa12d1156f8a91b",
+      "src/features/portal/portal.tsx": "3a1ea83b5840fc915d22528b2d29226909b66adde9031af38eb0cd7b6ac05cc2",
+      "tests/e2e/course-hub.spec.ts": "5c0618f7b18591c05da4db5ab1fc2ff43b36a8c97f5b5a71bec9c16c17fa5661",
+      "tests/e2e/governance-compliance.spec.ts": "f0f47e51d2eac31c63b7a35167913528d667ca074fab511c941b46d5ad1ae845",
+      "tests/e2e/storage-resilience.spec.ts": "e919e7ff4bfef140d62e39f19f5080e8872778fe7d042472661f024a975ac75f",
+      "tests/fixtures/active-teaching-contexts.ts": "9540e5d652520808d45b9850d824ecb79ed6785b28c401814d4e44cf3602a5e8",
+      "tests/fixtures/governance.ts": "99978831f39e90ba5b1fd9104625c20d2a1efb499ca03aaef69eec52edfa0746"
     }
   },
-  "implementationFinished": "2026-11-01T00:00:11.410Z"
+  "implementationFinished": "2026-11-01T08:57:05.771Z"
 }

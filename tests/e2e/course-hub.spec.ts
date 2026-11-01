@@ -69,7 +69,7 @@ test('first visit exposes one start, three honest paths and direct modules befor
     await expect(page.getByRole('heading', { name: title, exact: true })).toBeVisible();
   await expect(page.locator('.learn-hub-planned')).toContainText([
     'File Movement & Migration',
-    'Governance',
+    'Management Tools',
   ]);
   await expect(
     page
@@ -78,6 +78,9 @@ test('first visit exposes one start, three honest paths and direct modules befor
   ).toHaveCount(0);
   await expect(page.locator('.learn-hub-module[data-module="computing"]')).toContainText(
     `${h.guided}: 0`,
+  );
+  await expect(page.locator('.learn-hub-module[data-module="governance"]')).toContainText(
+    'Governance & Compliance',
   );
   await openPathActivities(page, 'architecture');
   await expect(page.getByRole('link', { name: h.partBSummary, exact: true })).toHaveAttribute(
@@ -209,11 +212,12 @@ test('saved deep link resumes the exact Core B activity and preserves separate h
   await expect(page).toHaveURL(missionOrigin('platform'));
 });
 
-test('all nineteen independent contexts resume their own exact route without metadata help or evidence rewriting', async ({
+test('all twenty independent contexts resume their own exact route without metadata help or evidence rewriting', async ({
   browser,
   baseURL,
 }) => {
   const expected: Record<string, string> = {
+    'azurelab.learning.governance-compliance.v1': '/learn/governance?topic=assessment&case=gc01',
     'azurelab.learning.access-control.v1': '/learn/access-control?topic=assessment&case=ab01',
     'azurelab.learning.identity-foundations.v1': '/learn/identity?topic=assessment&case=if01',
     'azurelab.learning.storage-resilience.v1':
@@ -272,7 +276,7 @@ test('all nineteen independent contexts resume their own exact route without met
       href: missionOrigin('platform'),
     },
   ];
-  expect(fixtures).toHaveLength(19);
+  expect(fixtures).toHaveLength(20);
   for (const fixture of fixtures) {
     expect(fixture.href, fixture.key).toBeTruthy();
     expect(fixture.raw).not.toBe('null');

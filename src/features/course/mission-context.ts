@@ -1,4 +1,7 @@
 'use client';
+
+import { useGovernance } from '@/features/learning/governance-provider';
+import { governanceHref } from '@/domain/curriculum/governance';
 import { useAccess } from '@/features/learning/access-control-provider';
 import { accessHref } from '@/domain/curriculum/access-control';
 import { useIdentity } from '@/features/learning/identity-foundations-provider';
@@ -68,9 +71,16 @@ export function useMissionSafetyContexts(owner?: 'missions') {
     storage = useStorage(),
     resilience = useResilience(),
     identityState = useIdentity(),
-    accessState = useAccess();
+    accessState = useAccess(),
+    governanceState = useGovernance();
   return (
     [
+      {
+        id: 'governance',
+        state: governanceState,
+        active: governanceState.facts.active,
+        href: governanceHref('assessment', governanceState.facts.current?.item),
+      },
       {
         id: 'access',
         state: accessState,
