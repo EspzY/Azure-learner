@@ -5400,6 +5400,7 @@ export const managementNb = {
   accessReload: 'Les lagret vurderingskontekst på nytt',
   accessReview: 'Åpne egen vurdering og lagringskontroll',
   accessContexts: {
+    governance: 'Governance & Compliance',
     access: 'Access Control · Identity Part B',
     identity: 'Identity Foundations',
     resilience: 'Storage Part B',
@@ -5956,6 +5957,7 @@ export const missionsNb = {
   reloadContext: 'Last inn bare denne konteksten',
   reviewContext: 'Åpne kontekstens eksisterende recovery eller vurdering',
   recoveryContexts: {
+    governance: 'Governance & Compliance',
     access: 'Access Control · Identity Part B',
     identity: 'Identity Foundations',
     resilience: 'Storage Part B',
@@ -11354,6 +11356,7 @@ export const courseHubNb = {
     },
   },
   moduleLabels: {
+    governance: 'Governance & Compliance',
     'access-control': 'Part B — RBAC & Conditional Access',
     identity: 'Part A — Identity Foundations',
     'storage-resilience': 'Part B — Tiers & Redundancy',
@@ -11372,9 +11375,10 @@ export const courseHubNb = {
   identity: 'Identity, Access & Security',
   plannedModules: {
     architecture: ['Security Principles (P15)', 'File Movement & Migration (P16)'],
-    management: ['Governance', 'Management Tools', 'Monitoring'],
+    management: ['Management Tools', 'Monitoring'],
   },
   recordLabels: {
+    governance: 'Governance & Compliance',
     access: 'Access Control · Identity Part B',
     identity: 'Identity Foundations',
     resilience: 'Storage Part B',
@@ -14906,5 +14910,984 @@ export const accessItemsNb = {
     ],
     decisive:
       'Bruk før/etter-observasjonen til å finne relevant endring. RBAC-autorisasjon og ressurskonfigurasjonsregler må ikke behandles som samme kontroll.',
+  },
+} as const;
+
+export const governanceNb = {
+  ...accessNb,
+
+  title: 'Governance & Compliance',
+  part: 'Datastyring, ressurskrav og administrativ beskyttelse',
+  path: '03 — Azure Management & Governance',
+  overview:
+    'Velg riktig styringsmekanisme, forstå dens konsekvenser og undersøk faktisk lokal Policy-håndheving.',
+  prerequisites:
+    'Forkunnskaper: Cost Management om tags og ansvar, Core Architecture om scopes og Access Control om tillatelser. De gamle resultatene dine forblir separate.',
+  available:
+    'Purview, Azure Policy og Resource Locks med et kort Service Trust Portal-supplement. Management Tools og Monitoring er fortsatt planlagt.',
+  perspective: 'Perspektiver i Governance Decision Studio',
+  studioLead:
+    'Velg datastyring, Policy eller ressursbeskyttelse. Forutsi, kjør og sammenlign deklarerte konsekvenser. Faktiske lokale Policy-receipts holdes separat fra konseptmodellene.',
+  topics: {
+    introduction: 'Fra kostnader til styring',
+    purview: 'Microsoft Purview',
+    catalog: 'Metadata, eiere og lineage',
+    policy: 'Azure Policy',
+    assignments: 'Assignment, scope og unntak',
+    compliance: 'Compliance og remediation',
+    locks: 'Resource Locks',
+    planes: 'Control plane og data plane',
+    trust: 'Service Trust Portal',
+    studio: 'Governance Decision Studio',
+    missions: 'Guidede undersøkelser',
+    assessment: 'Selvstendig anvendelse',
+    summary: 'Summary — Governance',
+  },
+  sections: {
+    introduction: {
+      title: 'Fra kontroll over kostnader til ansvarlig styring',
+      paragraphs: [
+        'Fjordverk vet nå hvem som administrerer Azure, hvor ressursene ligger og hva de koster. Likevel kan en fullt autorisert medarbeider opprette en tjeneste i feil region, slette en viktig ressurs eller publisere en rapport ingen kjenner opphavet til. Tilgang alene forteller ikke hvilken konfigurasjon organisasjonen ønsker, hvem som eier informasjonen eller hvilken dokumentasjon en revisor trenger.',
+        'Governance er måten organisasjonen fordeler ansvar, etablerer beslutningsregler og følger opp bruken av teknologi og informasjon. Compliance beskriver etterlevelse av bestemte krav: interne standarder, avtaler eller relevante lover og forskrifter. Krav må avgrenses. En ressurs som består én location-policy er ikke dermed godkjent etter alle sikkerhets-, personvern- og bransjekrav.',
+        'Bruk mekanismen som svarer på spørsmålet. Azure RBAC gjelder principalens tillatelse til en konkret handling. Azure Policy vurderer deklarerte krav til støttede ressurser. Resource Locks beskytter mot bestemte management-endringer og slettinger. Purview hjelper med datastyring og andre særskilte data security-/compliance-funksjoner. Service Trust Portal gir dokumentasjon om Microsofts kontroller, ikke en kontroll av Fjordverks egen konfigurasjon.',
+        'Mekanismene supplerer hverandre. En bruker kan ha lov til å opprette en VM, men få en relevant konfigurasjon avvist. En autorisert bruker kan møte en management-lock. En katalogbruker kan finne metadata uten å ha rett til å lese kildedataene. En ryddig datakatalog beviser heller ikke at alle Azure-ressurser oppfyller konfigurasjonskravene.',
+        'Fra Cost Management tar vi med at tags hjelper med organisering, men ikke automatisk arves som ressurskonfigurasjon eller gir tilgang. Fra Core Architecture tar vi med management-hierarkiet; fra Identity Part B tar vi med skillet mellom autentisering og autorisasjon. Her bruker vi forkunnskapene til å undersøke standarder, beskyttelse og dokumentert ansvar, uten å gjenta hele de tidligere modulene.',
+      ],
+      terms: [
+        ['Governance', 'Ansvar, beslutningsregler og oppfølging av teknologi og informasjon.'],
+        ['Compliance', 'Etterlevelse vurdert mot et konkret, avgrenset sett krav.'],
+      ],
+      example:
+        'Fjordverk har tre ulike hendelser: ukjent eier for kundedata, en Web-plan i en uønsket region og fare for utilsiktet VM-sletting. Datastyring, en relevant Policy og en passende lock adresserer forskjellige deler av problemet. Å gi alle Owner løser ingen av disse kravene.',
+      limit:
+        'AzureLab lærer mekanismene gjennom deklarerte modeller og en avgrenset faktisk lokal Policy. Ingen juridisk vurdering eller attestasjon av en organisasjon utføres.',
+    },
+    purview: {
+      title: 'Microsoft Purview gjør informasjonen lettere å finne og forvalte',
+      paragraphs: [
+        'Data governance handler om å gjøre virksomhetens informasjon forståelig, nyttig og ansvarlig forvaltet. Fjordverk har produktopplysninger, kundedata, salgsrapporter og interne dokumenter i ulike systemer. Spørsmålene er blant annet: Hvilke datasett finnes? Hva betyr feltene? Hvem kan avklare kvalitet og tillatt bruk? Hvilke rapporter påvirkes hvis en kilde endres?',
+        'Microsoft Purview er en produktportefølje for data governance, data security og data compliance. Datastyring organiserer kunnskap og ansvar for informasjon. Data security omfatter særskilte beskyttelsesmekanismer, for eksempel Information Protection og Data Loss Prevention der de er støttet og konfigurert. Compliance-området omfatter egne løsninger for blant annet audit, records og eDiscovery. Vi lærer formålet og datastyringsmekanismene; vi administrerer ikke hele porteføljen.',
+        'Data Map er et teknisk fundament for metadata om datakilder og data assets. Registrering og korrekt konfigurert scanning kan hente støttede beskrivelser, skjema, klassifisering og relasjoner. Kildekoblinger, rettigheter, skanneomfang, tidspunkt og støtte for den aktuelle kilden avgjør hva som faktisk oppdages. En opprettet Purview-instans er ikke et bevis for at alle data er kartlagt.',
+        'Unified Catalog gir en forretningsorientert måte å kuratere og finne data på. Governance domains organiserer ansvar og begreper, eksempelvis Salg eller Produkt. Et data product pakker relevante data assets rundt et bruksformål, med eier og beskrivelse. Ett produkt styres av ett governance domain, samtidig som andre områder kan oppdage det under relevante katalogrettigheter. Dette er et datastyringshierarki, ikke Azure management groups eller et nytt subscription-scope.',
+        'En data owner har ansvar og beslutningsmyndighet for dataenes bruk og kvalitet. En data steward vedlikeholder forståelig metadata, begreper, kvalitet og relasjoner i samarbeid med eier og virksomheten. Rollenavn og rettigheter i Purview er særskilte produktmekanismer. De er ikke automatisk Azure Owner eller tillatelse til å hente kundedata. Konto-/produktvariant, region og kildestøtte må kontrolleres i en virkelig innføring.',
+      ],
+      terms: [
+        [
+          'Data asset',
+          'En beskrevet datakilde eller dataenhet, for eksempel en tabell, fil eller rapport.',
+        ],
+        ['Data product', 'Data assets samlet rundt et dokumentert bruksformål.'],
+        [
+          'Data owner / steward',
+          'Ansvarlig beslutningseier og den som kuraterer og følger opp datakunnskapen.',
+        ],
+      ],
+      example:
+        'Produktområdet i Fjordverk eier produktkatalogen. En steward dokumenterer hva «aktivt produkt» betyr og hvilke rapporter som bruker katalogen. Salg kan dermed oppdage riktig datagrunnlag og be rette eier om avklaring. Publiseringen erstatter ikke kildens egen tilgangskontroll.',
+      limit:
+        'Purview-portalens nye Unified Catalog og eldre classic Data Catalog har ulike opplevelser og rettigheter. Ikke bruk en eldre skjerm eller en generell produktbeskrivelse som garanti for dagens funksjoner i alle kontoer og regioner.',
+    },
+    catalog: {
+      title: 'Metadata beskriver data — det er ikke selve dataene',
+      paragraphs: [
+        'Metadata er informasjon om data: navn, beskrivelse, skjema, klassifisering, eier, begreper, opphav og avhengigheter. De underliggende radene, filinnholdet eller transaksjonene ligger fortsatt i datakilden. En katalogregistrering kan gjøre det lettere å finne et datasett, men kopierer ikke automatisk hele datasettet inn i katalogen.',
+        'Data classification plasserer data assets i meningsfulle kategorier, for eksempel at en kilde under oppgitte premisser kan inneholde personopplysninger. Støttede scanninger kan foreslå eller tilordne klassifisering, og kuratering kan tilføre kunnskap. Klassifisering hjelper med forståelse, søk og risikovurdering. Den er ikke alene kryptering, en tilgangstildeling eller et bevis på korrekt beskyttelse. Klassifisering og sensitivity labels er forskjellige funksjoner; eventuelle beskyttelsesvirkninger av labels avhenger av støtte og konfigurasjon.',
+        'Et business glossary gir felles forretningsbegreper. «Netto salg» kan bety omsetning etter retur og før en bestemt avgift; dette må være definert i virksomhetens kontekst. Å knytte begrepet til en rapport gjør ikke tallene riktige av seg selv, men gjør tolkningen etterprøvbar og reduserer risikoen for at team sammenligner forskjellige størrelser.',
+        'Data lineage beskriver opphav, transformasjoner og hvor data brukes videre. Et forenklet eksempel er produkt- og ordregrunnlag → månedlig sammenstilling → salgsrapport. Hvis et kildefelt endres, kan registrert lineage hjelpe med konsekvensanalyse. Manglende kant betyr ikke at det ikke finnes en avhengighet. Granularitet og dekning avhenger av kilden, integrasjonen og metadataene som faktisk er fanget; en visualisert pil er ikke en kjørt pipeline eller et målt datakvalitetsresultat.',
+        'Katalogtilgang og tilgang til kildedata er separate spørsmål. Data Map-/Unified Catalog-roller gir ikke i seg selv underliggende datatilgang. Støttede access request-/policyarbeidsflyter kan hjelpe med godkjent tilgang, men en synlig katalogoppføring eller en klassifisering alene er ikke en slik godkjenning. Fjordverk må fortsatt styre rettigheter, teknisk beskyttelse, lovlig bruk og vedlikehold av metadata.',
+      ],
+      terms: [
+        [
+          'Metadata',
+          'Beskrivelse og relasjoner om informasjon, ikke automatisk en kopi av innholdet.',
+        ],
+        [
+          'Classification',
+          'Kategorisering som informerer forståelse og risiko; ikke universell beskyttelse.',
+        ],
+        ['Lineage', 'Dokumentert opphav, transformasjon og videre bruk.'],
+      ],
+      example:
+        'En økonom ser beskrivelsen av salgsrapporten og dens registrerte kilder, men har ikke tillatelse til å hente kundetabellen. Dette kan være en riktig avgrensning: metadata hjelper økonomien å forstå rapporten, mens nødvendig datatilgang må avklares separat.',
+      limit:
+        'Studio viser fire fiktive metadataeksempler og erklærte relasjoner. Ingen sensitiv informasjon, scanning, faktisk kildeforespørsel eller reell tilgangsavgjørelse finnes i modellen.',
+    },
+    policy: {
+      title: 'Azure Policy setter krav til ressurskonfigurasjon',
+      paragraphs: [
+        'Azure Policy hjelper organisasjoner å vurdere og håndheve standarder for støttede Azure-ressurser. En regel kan undersøke type, location eller en støttet egenskap. Resultatet avhenger av definisjonen, assignment, parametere, scope, mode og effect. En policy som bare gjelder Web-planer bestemmer ikke automatisk hva som skjer med en VM i samme subscription.',
+        'En policy definition beskriver betingelser og ønsket virkning. En assignment knytter definisjonen, eller en initiative, til et scope og relevante parametere. Definisjonens lagringssted er heller ikke den samme egenskapen som assignment-scope eller ressursens fysiske region. En initiative samler flere definisjoner for et større styringsmål; den er ikke en ny ressurs, en rolle eller en garanti for juridisk etterlevelse.',
+        'Audit registrerer et relevant avvik uten å blokkere requesten med denne effekten. Deny kan avvise en matching create-/update-request før Resource Provider håndterer den i den avgrensede Resource Manager-situasjonen. Vurdering av eksisterende ressurser er annerledes: en gammel ressurs kan være non-compliant uten at en deny-policy sletter den eller flytter den. Andre regler og autorisasjonskrav kan fortsatt stoppe en request som denne audit-policyen ikke blokkerer.',
+        'Modify kan legge til, oppdatere eller fjerne støttede tags eller endre støttede egenskaper under dokumenterte vilkår. Det er ikke en generell omskriver av enhver ressurs, og støtte kan avhenge av alias og API-versjon. DeployIfNotExists undersøker en relevant tilknyttet konfigurasjon etter en vellykket provider-request og en konfigurert evalueringsforsinkelse, og kan utføre en definert deployment når forutsetningene er oppfylt. Dette er ikke det samme som et umiddelbart Deny.',
+        'Azure Policy erstatter ikke Azure RBAC. Først må principalen ha relevant myndighet; deretter kan konfigurasjonen likevel bryte en policy. En Owner-rolle er ikke en generell måte å omgå et slikt avslag på. Samtidig finnes Policy-funksjoner og Resource Provider-modes som er mer omfattende enn den enkle management-regelen her. Ikke gjør «Policy gjelder bare én type operasjon overalt» til en universell Azure-regel.',
+      ],
+      terms: [
+        ['Definition', 'Betingelser og effekt for en avgrenset policy.'],
+        [
+          'Assignment',
+          'Definisjon/initiative knyttet til et scope med parametere og øvrige innstillinger.',
+        ],
+        [
+          'Audit / Deny',
+          'Observere avvik uten denne blokkeringen / avvise en relevant ny request.',
+        ],
+      ],
+      example:
+        'Fjordverk ønsker å få oversikt over manglende kostnadstags før håndheving. En relevant Audit-regel kan avdekke ressursene uten å blokkere nye opprettelser med denne effekten. Et senere Deny-valg endrer konsekvensen for matching requests, men retter ikke alle gamle tags.',
+      limit:
+        'Studio er en eksplisitt liten Resource Manager-konseptmodell med deklarerte betingelser. Den oppretter ingen definition, assignment, initiative, remediation task eller compliance-backend.',
+    },
+    assignments: {
+      title: 'Scope bestemmer rekkevidde — betingelsene bestemmer anvendelse',
+      paragraphs: [
+        'Management Group → Subscription → Resource Group → Resource gir administrative nivåer. En assignment på en subscription kan omfatte relevante ressurser i dens resource groups. En assignment på App Sandbox omfatter ikke søster-subscriptionen Shared Sandbox. Hvilke ressurser som faktisk vurderes, krever også at type, policy-mode og regelvilkår passer; et bredt scope betyr ikke at alle typer avvises.',
+        'Exclusions er avgrensninger i assignmentens notScopes. En ekskludert ressurs eller ressursgruppe blir ikke evaluert eller inkludert i compliance-tellingen for den assignmenten. Dette kan passe et dokumentert, varig scope-unntak. Det er ikke en påstand om at konfigurasjonen faktisk oppfyller regelen.',
+        'En exemption er et eget sporbarhetsobjekt knyttet til en assignment, eventuelt bestemte definisjoner i en initiative. Ressourcen kan vises som Exempt i rapporteringen. Waiver betyr at avviket er akseptert under de angitte vilkårene; Mitigated betyr at formålet er ivaretatt på en annen måte. Godkjenning, begrunnelse og en mulig utløpstid gjør unntaket etterprøvbart. Når en tidsbegrenset exemption utløper, blir den ikke lenger respektert selv om objektet beholdes for historikk.',
+        'Flere assignments kan gjelde samtidig. En mer lokal Audit-assignment opphever ikke en overordnet, relevant Deny-assignment. Exemption eller exclusion må gjelde de riktige assignmentene. Det finnes ingen generell regel om at den nærmeste eller mest tillatende policyen alltid vinner. Effektrekkefølge og supported regler kan også påvirke et faktisk request-resultat.',
+        'Den faktiske lokale AzureLab-regelen heter policy-web-location. Den er en avgrenset custom location-deny på App Sandbox, med mode all, target types Microsoft.Web/serverfarms og Microsoft.Web/sites, og West Europe som tillatt region. Den lokale World-representasjonen samler denne faste regelen og assignmentens opplysninger; den er ikke en full Azure-definition/assignment-API. Resource Groupens metadataLocation er en annen egenskap enn Web-ressursens location. Her finnes ingen generell VM-location-deny eller operativ exemptions-editor.',
+      ],
+      terms: [
+        [
+          'notScopes',
+          'Assignmentens ekskluderte scope; ikke evaluert eller telt for denne assignmenten.',
+        ],
+        ['Exemption', 'Sporbart unntak med assignment-tilknytning og eventuell utløpstid.'],
+        ['Applicability', 'Scope, type, mode og vilkår må samlet passe ressursen.'],
+      ],
+      example:
+        'En plan i Shared Sandbox kan ligge utenfor den konkrete App Sandbox-assignmenten selv om samme plantype i App Sandbox ville blitt avvist. Dette demonstrerer assignment-rekkevidde, ikke at den andre subscriptionen er fritatt fra enhver mulig organisasjonsregel.',
+      limit:
+        'Konseptmodellens exclusions/exemptions skriver ikke til den faktiske lokale policyen. Den gjeldende World-regelen og gamle kvitteringer beholdes uendret.',
+    },
+    compliance: {
+      title: 'Observasjon, håndheving og retting skjer på ulike tidspunkter',
+      paragraphs: [
+        'En compliance-vurdering må knyttes til en bestemt regel, ressurs og evalueringskontekst. Compliant betyr at de aktuelle vilkårene er oppfylt under denne vurderingen. Non-compliant betyr et relevant avvik. Exempt er et sporbarhetsunntak; det er ikke en faktisk reparasjon. Excluded og not applicable er ikke bevis for at ressursen har bestått alle krav.',
+        'Resultater blir ikke nødvendigvis tilgjengelige idet en assignment lagres eller en ressurs endres. Opprettelse, oppdatering, endringer i assignments/exemptions og periodiske eller eksplisitt utløste evalueringer har ulike timingforutsetninger. En gammel observasjon kan være utdatert; en manglende ferdig vurdering er ikke Compliant. I Studio velger studenten eksplisitt om den deklarerte evalueringen er ferdig. Ingen klokke eller faktisk Azure-scan kjøres.',
+        'For eksisterende ressurser gir Audit og Deny observasjoner uten at de i seg selv retter avviket. Modify og DeployIfNotExists kan brukes til støttede remediation tasks. En faktisk remediation trenger relevante rettigheter, en egnet managed identity for assignmenten, riktig definisjon og en faktisk utført oppgave eller deployment. At en evaluering fant et avvik, beviser ikke at en remediation har kjørt eller lykkes.',
+        'Det er også forskjell på Modify i en ny request og retting av eksisterende ressurser. En støttet tag-modifikasjon kan endre requestinnhold før provideren behandler det. En periodisk vurdering av en gammel ressurs endrer ikke tags automatisk. DeployIfNotExists har sin egen vurdering av related resource og existenceCondition; ved eksisterende avvik må egnet remediation utløses. Unsupported alias, manglende rettigheter eller andre feil kan hindre virkningen.',
+        'Assignmentens enforcementMode DoNotEnforce kan brukes til å vurdere uten å håndheve den aktuelle effekten. Det er ikke identisk med å velge disabled, som hopper over den relevante evalueringen, eller med å endre definisjonen til Audit. Dette er også en annen produktinnstilling enn Conditional Access report-only. En test må avklare hvilken mekanisme som faktisk gjelder før man tolker en observert tillatelse som compliance.',
+      ],
+      terms: [
+        [
+          'Compliance snapshot',
+          'En vurdering mot et konkret sett vilkår ved et angitt evalueringspunkt.',
+        ],
+        ['Remediation', 'En særskilt støttet retting, ikke et synonym for scanning.'],
+        ['DoNotEnforce', 'Evaluer den aktuelle policyen uten å håndheve dens effekt.'],
+      ],
+      example:
+        'Fjordverk legger en Modify-policy for et godkjent kostnadstag på gamle ressurser. Evalueringen viser manglende tags. Neste riktige spørsmål er om en egnet remediation task med nødvendige rettigheter er utført — ikke om dashboardet nå har «sett» ressursene.',
+      limit:
+        'Modellen viser forventet behov og deklarert virkning. Den utsteder ingen faktisk compliance-status, gir ingen tidsløfter og utfører aldri en remediation.',
+    },
+    locks: {
+      title: 'Beskytt mot utilsiktede management-endringer',
+      paragraphs: [
+        'Resource Locks begrenser bestemte management-operasjoner på en subscription, resource group eller ressurs. De er et ekstra vern mot at noen med ellers tilstrekkelig myndighet gjør en uønsket administrativ endring. Azure Portal bruker navnene Delete og Read-only; API-/CLI-begrepene er CanNotDelete og ReadOnly. En lock tildeler ikke rettigheter til en bruker.',
+        'CanNotDelete hindrer relevant sletting, men lar ellers autoriserte brukere lese og endre ressursen. ReadOnly hindrer relevante management-endringer og slettinger. Det kan være mer inngripende enn studenten først forventer: en ReadOnly-lock rundt en VM kan også stoppe start/restart som bruker en management POST-operasjon, selv om handlingen ikke ser ut som en vanlig redigering av konfigurasjon.',
+        'Låser arves nedover fra et overordnet scope, også til nye ressurser under scopet. Den mest restriktive relevante låsen i kjeden gjelder. En mindre streng lock på en ressurs opphever ikke en arvet ReadOnly-lock. En lock på én VM gir ikke en generell oppadgående lock-arv til hele resource groupen, men sletting av gruppen som helhet kan stoppes fordi operasjonen ville slette den låste VM-en. Gruppen slettes da ikke delvis.',
+        'En Owner-rolle overstyrer ikke en eksisterende lock i den blokkerte ressursoperasjonen. Å endre eller fjerne management-locks krever egne støttede tillatelser, eksempelvis relevante Microsoft.Authorization/locks-handlinger. Noen tjenestestyrte låser har særskilte begrensninger. Dette betyr at locks heller ikke gjør en ressurs immun mot en autorisert administrativ prosess, subscription-avslutning eller alle typer feil.',
+        'Locks har en annen hensikt enn RBAC og Azure Policy. RBAC regulerer hvem som har hvilke tillatelser på et scope. Policy vurderer konfigurasjonskrav. Lock setter et vern rundt bestemte management-handlinger. Ingen av dem er alene en uavhengig kopi av data som kan gjenopprettes etter logisk sletting, korrupsjon eller feil i en applikasjon.',
+      ],
+      terms: [
+        [
+          'CanNotDelete / Delete',
+          'Relevant management-sletting stoppes; endring er ikke generelt blokkert.',
+        ],
+        ['ReadOnly', 'Management-endringer, sletting og visse POST-operasjoner kan stoppes.'],
+        ['Inheritance', 'Et overordnet verns rekkevidde følger den administrative kjeden.'],
+      ],
+      example:
+        'Fjordverks drift må oppdatere en VM jevnlig, men ønsker ekstra vern mot feilaktig ressurs-sletting. CanNotDelete kan passe dette avgrensede behovet. ReadOnly har andre konsekvenser og må ikke velges automatisk fordi navnet høres tryggere ut.',
+      limit:
+        'AzureLab har ingen operativ lock-motor. Alle lock-valg og utfall er konseptuelle; den vanlige Portalen får ingen nye lock-knapper eller endrede kvitteringer.',
+    },
+    planes: {
+      title: 'Samme tjeneste kan ha forskjellige kontrollveier',
+      paragraphs: [
+        'Control plane brukes til å administrere Azure-ressursen, vanligvis gjennom Azure Resource Manager. Å opprette eller slette en Storage Account, starte en VM via management-API eller hente account keys gjennom List Keys er konkrete management-operasjoner. Data plane brukes til tjenestens innhold, for eksempel å slette en blob gjennom Blob-tjenestens endpoint. HTTP-metoden alene er ikke nok til å avgjøre hvilket plan en forespørsel tilhører.',
+        'Management-locks gjelder control plane, ikke alle handlinger som berører en tjenestes data. En ReadOnly-lock på en Storage Account blokkerer ikke automatisk en ellers gyldig Blob data-plane-delete. En CanNotDelete-lock er derfor ikke et generelt løfte om at alle blobs, filer, kømeldinger eller tabellrader overlever. Rettigheter og andre beskyttelsesmekanismer for data må vurderes separat.',
+        'Samtidig er det feil å konkludere med at en management-lock aldri påvirker hvordan brukeren kommer til dataene. List Keys er en management POST og kan stoppes av ReadOnly. En klient som er avhengig av å hente nye keys kan dermed få problemer, selv om selve data-plane-operasjonen ikke er låst. Separat gyldig Entra-basert datatilgang har andre forutsetninger. Modellen utsteder verken keys eller credentials.',
+        'Noen tilsynelatende like handlinger finnes i begge plan. Opprettelse av en container eller sletting av en file share kan bruke en control-plane-API eller en data-plane-API, med forskjellige lock-konsekvenser. Undersøk den konkrete operasjonen og endpointet før du sier at «filen er låst». API-støtte, egne tillatelser og andre regler kan fortsatt begrense forespørselen.',
+        'En ressurs-lock lager ingen backup. For datatap må organisasjonen velge relevante gjenopprettingsmekanismer, oppbevaring, tilgangskontroll og tester som passer tjenesten. Lagringsredundans er heller ikke automatisk en uavhengig historisk backup. Her viser vi lockens avgrensning; vi innfører ingen ny backup-tjeneste eller operativ restore.',
+      ],
+      terms: [
+        ['Control plane', 'Administrasjon av ressursen via en konkret management-operasjon.'],
+        ['Data plane', 'Bruk eller endring av tjenestens innhold via dens egen tilgangsvei.'],
+        ['List Keys', 'Et eksempel på en management POST som ReadOnly kan blokkere.'],
+      ],
+      example:
+        'En administrator får ikke hentet account keys på en ReadOnly-låst Storage Account. En annen klient har allerede separat gyldig Entra-datatillatelse og sletter en blob via Blob-API. Disse to utfallene kan være forenlige: den første operasjonen er management, den andre er data.',
+      limit:
+        'Alle autorisasjonsforutsetninger er deklarerte. Et modellresultat er ikke bevis for faktisk datatilgang, en vellykket Azure-operasjon eller sikker backup.',
+    },
+    trust: {
+      title: 'Service Trust Portal dokumenterer Microsofts kontroller',
+      paragraphs: [
+        'Når Fjordverk vurderer en skytjeneste, trenger organisasjonen også dokumentasjon fra leverandøren. Microsoft Service Trust Portal samler materiale om Microsofts sikkerhets-, personvern- og compliance-praksis, blant annet revisjonsrapporter, attestasjoner og forklarende dokumenter for aktuelle skytjenester og standarder. Det er en annen oppgave enn å inventere Fjordverks egne datasett eller vurdere en ressurskonfigurasjon.',
+        'En rapport må leses med riktig tjeneste, omfang, versjon og periode. Dokumentasjon om Microsofts implementerte kontroller kan støtte leverandørvurdering og eget revisjonsarbeid. Den sertifiserer ikke automatisk at Fjordverks valgte regioner, databehandling, rettigheter og daglige rutiner oppfyller organisasjonens krav. Kundens eget ansvar består.',
+        'Noe informasjon er offentlig, mens bestemte rapporter og ressurser krever en relevant Microsoft Entra work-/school-konto, riktig tilgang og aksept av vilkår som Microsofts NDA for compliance-materiale. At en offentlig side beskriver en rapport, betyr ikke at rapporten er fritt nedlastbar eller kan gjengis. Vi åpner ikke beskyttede rapporter eller aksepterer vilkår på studentens vegne.',
+        'Velg riktig kilde til riktig spørsmål: Service Trust Portal for Microsofts tillits- og revisjonsdokumentasjon; Azure Policy for relevante ressurskrav og compliance-observasjoner; Purview for datastyring og særskilte data security-/compliance-løsninger; RBAC for rettigheter; locks for et administrativt vern. Et produkt med «compliance» i navnet er ikke en universell erstatning for de andre mekanismene.',
+      ],
+      terms: [
+        ['Attestasjon', 'Dokumentert vurdering med et bestemt omfang og en bestemt periode.'],
+        ['Kundens ansvar', 'Egen konfigurasjon, databruk og oppfølging må fortsatt vurderes.'],
+      ],
+      example:
+        'En innkjøpsansvarlig trenger en aktuell Microsoft-revisjonsrapport for en valgt tjeneste. Service Trust Portal er relevant. En Policy-compliance-visning av Fjordverks egne ressurser svarer på et annet spørsmål og kan ikke erstatte leverandørens rapport.',
+      limit:
+        'Dette er et avgrenset Microsoft Learn-supplement. Det opprettes ingen ekstra AZ-900-rad, ingen innlogging og ingen nedlasting av tilgangsbeskyttet materiale.',
+    },
+    studio: {
+      title: 'Undersøk årsaken før du velger styringsmekanisme',
+      paragraphs: [
+        'Governance Decision Studio samler tre forskjellige mekanismer. Data Governance viser hva deklarerte metadata forteller om fiktive datasett og hva de ikke beviser om datatilgang. Policy viser assignment, applicability, regel og effekt, mens Resource Protection viser hvilke konkrete management-/data-operasjoner en hypotetisk lock berører. Alle modellkjøringer krever en eksplisitt prediksjon.',
+        'Endre ett relevant premiss, kjør igjen og sammenlign lagrede observasjoner. Da kan du forklare hvorfor et utfall endres. En tilfeldig samling grønne resultater beviser ingen årsakssammenheng. De guidede undersøkelsene krever bestemte sammenlignbare kontraster og en teknisk forklaring; navigasjon eller det å åpne Studio fullfører ingenting.',
+        'I Policy-perspektivet finnes dessuten en faktisk lokal kvitteringsinspektør. Den leser den eksisterende Sandboxens replay, assignment og receipts. Opprettelse og korrigering skjer gjennom de ordinære Portal-skjemaene, ikke gjennom modellkontrollene. Et faktisk policyavslag skal ha uendret ressursantall og World-revisjon. Et senere godkjent request må kunne knyttes til den riktige konfigurasjonen og den aktuelle tekniske forsøksgrensen.',
+        'Hvis Sandbox-historikken eller læringslagringen er usikker, viser vi begrensningen og tilbyr riktig scoped recovery. Vi lager ikke erstatningsressurser eller vellykkede receipts. Lagrede konseptresultater er pedagogiske observasjoner; bare de opprinnelige tekniske kvitteringene beskriver faktiske lokale kommandoer. Den selvstendige vurderingen har egne opplysninger og skjuler undervisningshjelp til hjelp er klassifisert durabelt.',
+      ],
+      terms: [
+        [
+          'Prediksjon → observasjon → årsak',
+          'Et eksplisitt faglig forløp med lagrede, sammenlignbare premisser.',
+        ],
+        [
+          'Teknisk referanse',
+          'En peker til faktisk replay/receipt, ikke en ekstra ressursdatabase.',
+        ],
+      ],
+      example:
+        'Et datasett uten eier peker mot datastyring. En ulovlig location peker mot en relevant konfigurasjonsregel. Risiko for management-sletting peker mot lock-konsekvenser. Manglende principal-rettighet peker mot RBAC, mens Microsofts revisjonsdokumentasjon finnes i Service Trust Portal.',
+      limit:
+        'Ingen modell sender Azure-requests, skanner data, endrer World, låser ressurser eller oppretter compliance-bevis for en virkelig organisasjon.',
+    },
+  },
+  missions: {
+    data: {
+      title: 'Govern the Data Estate',
+      situation:
+        'Fjordverks rapportbrukere finner ikke et pålitelig, forståelig datagrunnlag. De må kunne skille metadata fra rett til å hente kildedata.',
+      where: 'Data Governance — fiktiv salgsrapport med erklærte kildeavhengigheter.',
+      why: 'Katalog, klassifisering, ansvar og lineage svarer på ulike spørsmål. Ingen av dem er alene en datatilgang.',
+      goal: 'Dokumenter hvordan oppdagbarhet og forståelse endres, mens datatilgang fortsatt har en separat forutsetning.',
+      steps: [
+        'Velg salgsrapporten uten katalogregistrering. Kjør, registrer så katalogmetadata og kjør igjen med samme øvrige premisser.',
+        'Med katalogrettighet oppfylt og datatilgang ikke oppfylt: sammenlign ukjent og kjent business-klassifisering.',
+        'Behold katalog/klassifisering. Sett ansvarlig eier og begrep; sammenlign manglende og deklarert lineage.',
+        'Behold de kuraterte metadataene. Sammenlign separat kildeautorisasjon ikke oppfylt og oppfylt. Forklar hva som faktisk er endret.',
+      ],
+      observe:
+        'Relasjonene er fiktive, manuelt deklarerte metadata. Modellen leser ingen data eller kilde.',
+      debrief:
+        'Metadata og ansvar gjør data lettere å finne og forstå; kildeautorisasjon, beskyttelse og faktisk datakvalitet må avklares separat.',
+    },
+    policy: {
+      title: 'Investigate an Azure Policy Denial',
+      situation:
+        'Et team tolker et location-avslag som en mangel på roller. Undersøk hvilken assignment som faktisk gjelder, og sammenlign med en ikke-blokkerende Audit-modell.',
+      where:
+        'Policy Decision Explorer og ordinær Portal → Policy, Create an App Service plan og tekniske kvitteringer.',
+      why: 'Scope, target type og condition må passe før et Deny kan forklare et faktisk avslag.',
+      goal: 'Koble nye faktiske denied/corrected plan-receipts til korrekt scope og forklar hvorfor Audit-konseptet ikke endrer den ekte regelen.',
+      steps: [
+        'I modellen: Web-plan i App Sandbox, North Europe, location-regel med West Europe; sammenlign Audit og Deny ved ny request.',
+        'Med Deny og samme planbehov i Shared Sandbox: sammenlign assignment på App Sandbox med assignment på Learning.',
+        'Start ordinær Portal fra denne undersøkelsen. Inspiser den faktiske policyen. Opprett en gruppe i App Sandbox og send en støttet plan-request i North Europe; undersøk den ekte avvisningen.',
+        'Korriger samme planens region til West Europe i eksisterende skjema. Returner hit og inspiser policy samt begge nye kvitteringer. De må ligge etter undersøkelsens startgrense.',
+        'Kontroller uendret revisjon/antall ved avslag og riktig faktisk opprettelse ved korreksjon. Begrunn skillet mellom applicability, observasjon og håndheving.',
+      ],
+      observe:
+        'En modellkjøring lager aldri en receipt. Den faktiske custom-regelen er fortsatt Web-only på App Sandbox; ikke en generell Azure-policy.',
+      debrief:
+        'Det faktiske Deny avslår en bestemt request uten å opprette planen. Den korrigerte requesten må verifiseres i den opprinnelige ledgeren; Audit-sammenligningen er separat og endrer ingen ekte regel.',
+    },
+    locks: {
+      title: 'Protect a Critical Resource',
+      situation:
+        'Driftsteamet trenger daglige VM-endringer, men vil redusere utilsiktet ressurs-sletting. Samtidig må det forstå hva en Storage Account-lock ikke beskytter.',
+      where: 'Resource Lock Consequence Explorer — eksplisitte management-/data-operasjoner.',
+      why: 'Det strengeste lock-navnet kan også stoppe nødvendige administrative handlinger.',
+      goal: 'Skille Delete/ReadOnly, arv, separat autorisasjon og datatilgang uten å bruke lock som backup.',
+      steps: [
+        'Behold oppfylt autorisasjon og en VM. Sammenlign CanNotDelete ved VM-konfigurasjonsendring og VM-sletting.',
+        'Ved VM start via management POST: sammenlign CanNotDelete og ReadOnly på resource groupen.',
+        'Med ReadOnly på Storage Account: sammenlign List Keys og Blob data-plane-delete under deklarert separat autorisasjon.',
+        'Ved sletting av hele resource groupen: sammenlign ingen lock med CanNotDelete på VM-en under gruppen. Forklar hvorfor dette ikke er generell oppadgående lock-arv.',
+      ],
+      observe:
+        'Ingen lock opprettes. Management POST, resource delete og data-plane-delete har forskjellige konsekvenser.',
+      debrief:
+        'Lock begrenser konkrete administrative operasjoner på og under relevante scopes. Den gir ikke rettigheter, beskytter ikke alle dataruter og lager ingen backup.',
+    },
+  },
+  causal: {
+    data: [
+      'Katalogtilgang og klassifisering gir automatisk den samme lesetilgangen i datakilden.',
+      'Metadata beskriver og knytter data sammen; kildeautorisasjon og faktisk beskyttelse må vurderes separat.',
+      'Når lineage mangler, finnes det ingen reell avhengighet mellom datasettene.',
+    ],
+    policy: [
+      'Audit og Deny avviser begge den nye requesten når location ikke passer.',
+      'En godkjent korrigering beviser at alle organisasjonens krav er oppfylt.',
+      'Assignment, type og vilkår forklarer det avgrensede avslaget; Audit observerer uten denne blokkeringen.',
+    ],
+    locks: [
+      'Lockens type, relevante arv og konkret operasjonsplan må vurderes; separat autorisasjon og backup består.',
+      'En Owner-rolle gjør at den eksisterende locken kan ignoreres i ressursoperasjonen.',
+      'CanNotDelete er en uavhengig historisk kopi av alle data i den låste ressursen.',
+    ],
+  },
+  milestone: {
+    data: {
+      title: 'Metadata og tilgang adskilt',
+      text: 'Lagrede kontraster viser katalogisering, forståelse og separat kildeautorisasjon. Ingen scanning eller dataforespørsel er kjørt.',
+    },
+    policy: {
+      title: 'Faktisk Deny og konseptuell Audit forklart',
+      text: 'Assignment og ekte kvitteringer er kontrollert mot riktig teknisk forsøk. Ingen konseptuell policy har endret World.',
+    },
+    locks: {
+      title: 'Lock-konsekvensen undersøkt',
+      text: 'Lagrede kontraster skiller sletting, management POST, data plane og vernet av en underliggende ressurs.',
+    },
+  },
+  links: {
+    title: 'Relevante forkunnskaper',
+    core: 'Core Architecture — scopes',
+    identity: 'Access Control — principal og tillatelse',
+    cost: 'Cost Management — tags',
+    sandbox: 'Fri Portal-sandbox',
+  },
+  currentFeedback: 'Feedback — Governance',
+  historyFeedback: 'Tidligere Governance-arbeid',
+  recallGuided: 'Gjenoppta lagret governance-undersøkelse',
+  assessmentActive: 'En annen selvstendig governance-situasjon er aktiv.',
+  summaryBoundary:
+    'Besøk, guidede observasjoner, førsteinnlevering, hjelp og retry er forskjellige registreringer. Faktiske Policy-referanser krever riktig teknisk historikk. Innholdsdekning er ikke målt studentmestring.',
+  controls: {
+    asset: 'Fiktivt datasett',
+    registered: 'Metadata er registrert',
+    catalogAccess: 'Relevant katalogtilgang er oppfylt',
+    classification: 'Deklarert klassifisering',
+    owner: 'Deklarert ansvarlig eier',
+    glossary: 'Forretningsbegrepet er dokumentert',
+    lineage: 'Lineage er dokumentert for eksemplet',
+    sourceAuthorized: 'Separat kildeautorisasjon er oppfylt',
+    resourceType: 'Ressurskategori',
+    resourceScope: 'Ressursens gruppe',
+    location: 'Ressursens location',
+    assignment: 'Assignment-scope',
+    policyTarget: 'Regelens ressurskategorier',
+    allowed: 'Tillatt location i regelen',
+    rule: 'Deklarert regel',
+    effect: 'Deklarert effect',
+    phase: 'Vurderingssituasjon',
+    evaluationReady: 'Den deklarerte evalueringen er ferdig',
+    excluded: 'Ekskludert gruppe i denne assignmenten',
+    exemption: 'Exemption for denne ressursen og assignmenten',
+    enforcement: 'Default enforcement for nye requests',
+    propertyPresent: 'Påkrevd tag/related setting finnes',
+    remediationRequested: 'Eksplisitt remediation task er etterspurt',
+    identityReady: 'Nødvendig remediation-/deployment-identitet og rettighet er oppfylt',
+    lock: 'Første lock-type',
+    scope: 'Første lock-scope',
+    second: 'Andre lock-type',
+    secondScope: 'Andre lock-scope',
+    lockTarget: 'Ressursen for operasjonen',
+    operation: 'Konkret operasjon',
+    authorized: 'Separat autorisasjon for denne konkrete operasjonen er oppfylt',
+  },
+  options: {
+    asset: {
+      product: 'Produktkatalog',
+      customer: 'Kundedata',
+      sales: 'Salgsrapport',
+      documents: 'Interne dokumenter',
+    },
+    classification: {
+      unknown: 'Ukjent / ikke klassifisert',
+      business: 'Business-data i dette eksemplet',
+      personal: 'Personopplysninger under eksemplets premisser',
+    },
+    owner: {
+      unknown: 'Ingen ansvarlig avklart',
+      product: 'Produktområdet',
+      privacy: 'Kunde-/personvernansvarlig',
+      finance: 'Økonomi og rapportering',
+      operations: 'Intern drift og dokumentforvaltning',
+    },
+    scopes: {
+      'mg-lab': 'Learning — management group',
+      'sub-app': 'App Sandbox — subscription',
+      'sub-shared': 'Shared Sandbox — subscription',
+      'rg-app': 'Fjordverk App — resource group',
+      'rg-shared': 'Fjordverk Shared — resource group',
+      vm: 'Kritisk VM',
+      account: 'Rapportenes Storage Account',
+    },
+    resourceType: {
+      plan: 'App Service plan · Microsoft.Web/serverfarms',
+      app: 'Web App · Microsoft.Web/sites',
+      vm: 'Virtual Machine · Microsoft.Compute/virtualMachines',
+      storage: 'Storage Account · Microsoft.Storage/storageAccounts',
+    },
+    target: {
+      web: 'Web-planer og Web Apps',
+      vm: 'Bare Virtual Machines',
+      all: 'Alle de viste, deklarerte kategoriene',
+    },
+    region: {
+      westeurope: 'West Europe',
+      northeurope: 'North Europe',
+      norwayeast: 'Norway East',
+    },
+    rule: {
+      location: 'Tillatt location',
+      tag: 'Et støttet, påkrevd costCenter-tag',
+      related: 'En bestemt støttet related setting',
+    },
+    effect: {
+      audit: 'Audit',
+      deny: 'Deny',
+      modify: 'Modify',
+      deploy: 'DeployIfNotExists',
+      disabled: 'Disabled',
+    },
+    phase: {
+      request: 'Ny create-request',
+      existing: 'Evaluering av eksisterende ressurs',
+    },
+    excluded: {
+      none: 'Ingen exclusion',
+      'rg-app': 'Fjordverk App',
+      'rg-shared': 'Fjordverk Shared',
+    },
+    exemption: {
+      none: 'Ingen exemption',
+      waiver: 'Gyldig Waiver for dette kravet',
+      mitigated: 'Gyldig Mitigated for dette kravet',
+      expired: 'Tidligere exemption har utløpt',
+    },
+    lock: {
+      none: 'Ingen lock',
+      delete: 'CanNotDelete / Delete',
+      readonly: 'ReadOnly',
+    },
+    operation: {
+      view: 'Les management-konfigurasjon · GET',
+      'modify-vm': 'Endre VM-konfigurasjon · management PUT',
+      'start-vm': 'Start VM · management POST',
+      'delete-vm': 'Slett VM-ressurs · management DELETE',
+      'delete-account': 'Slett Storage Account · management DELETE',
+      'list-keys': 'List Keys · management POST',
+      'delete-blob': 'Slett blob · Blob data-plane DELETE',
+      'delete-group': 'Slett hele resource groupen · management DELETE',
+    },
+  },
+  assets: {
+    product: {
+      description:
+        'Fiktive produktattributter og produktstatus, uten persondata i dette eksemplet.',
+      domain: 'Produkt',
+      product: 'Produktinformasjon for salg',
+      term: 'Aktivt produkt',
+    },
+    customer: {
+      description:
+        'Fiktiv kundekilde som under oppgitte premisser kan inneholde personopplysninger; ingen rader vises.',
+      domain: 'Kunde',
+      product: 'Godkjent kundegrunnlag',
+      term: 'Aktiv kunde',
+    },
+    sales: {
+      description:
+        'Fiktiv aggregert salgsrapport uten personidentifikatorer; bruker produkt- og kundegrunnlag i en erklært sammenstilling.',
+      domain: 'Økonomi',
+      product: 'Månedlig salgsinnsikt',
+      term: 'Netto månedsomsetning',
+    },
+    documents: {
+      description:
+        'Fiktive interne driftsdokumenter; katalogmetadata er ikke en kopi av filinnholdet.',
+      domain: 'Intern drift',
+      product: 'Driftshåndbok',
+      term: 'Godkjent intern rutine',
+    },
+  },
+  visual: {
+    boundary:
+      'Deklarert konseptmodell: ingen scanning, Azure-policy, lock, deployment, remediation eller Azure-receipt er utført.',
+    details: 'Tekniske detaljer og semantisk alternativ',
+    snapshot: 'Lagret input og avgrenset modellresultat',
+    result: 'Avgrenset konsekvens',
+    yes: 'Ja',
+    no: 'Nei',
+    dataTitle: 'Metadata → forståelse → separat kildeautorisasjon',
+    policyTitle: 'Assignment → applicability → regel → effekt',
+    lockTitle: 'Scope → konkret operasjon → relevant lock-konsekvens',
+    registered: 'Registrert metadata',
+    discovered: 'Oppdagbart under erklært katalogtilgang',
+    classified: 'Klassifiseringen passer eksemplets premiss',
+    accountable: 'Ansvarlig eier passer eksemplet',
+    glossary: 'Begrepet er dokumentert',
+    traceable: 'Lineage er deklarert',
+    curated: 'De valgte metadataforutsetningene er møtt',
+    dataAccess: 'Separat kildeautorisasjon er deklarert oppfylt',
+    notAccess:
+      'Metadata, klassifisering og eierskap gir ikke i seg selv faktisk datatilgang eller dokumentert compliance.',
+    lineage: 'Fiktiv datalinje',
+    process: 'Deklarert månedlig sammenstilling',
+    unknownLineage:
+      'Opphav/avhengigheter er ikke dokumentert i den valgte observasjonen. Dette beviser ikke at ingen avhengighet finnes.',
+    noUpstream: 'Ingen ytterligere kilde er deklarert i dette avgrensede eksemplet.',
+    domain: 'Governance domain',
+    dataProduct: 'Data product',
+    businessTerm: 'Business glossary term',
+    inScope: 'Innen assignment-scope',
+    typeMatches: 'Ressurskategorien passer',
+    excluded: 'Ekskludert fra denne assignmenten',
+    exempt: 'Gyldig exemption for dette kravet',
+    evaluated: 'Deklarert evaluering utført',
+    condition: 'Regelens avviksvilkår er møtt',
+    blocked: 'Denne modellen håndhever Deny på requesten',
+    modifyRequest: 'Ville endre støttet tag i requestinnholdet',
+    wouldDeploy: 'Forutsetninger for deklarert related deployment er møtt',
+    needsRemediation: 'Eksisterende avvik trenger egen støttet retting',
+    remediationEligible: 'Eksplisitt retting er etterspurt og rettighet deklarert',
+    state: 'Avgrenset compliance-observasjon',
+    noRepair:
+      'En foreslått eller etterspurt retting er ikke et utført, vellykket resultat. Den lagrede observasjonen endres ikke til compliant av dette.',
+    noApplicable: 'Ingen relevant håndheving her beviser ikke universell compliance eller tilgang.',
+    enforcement: 'Request-time enforcement',
+    scopedAssumptions:
+      'Bare viste typer/scopes, deklarert Resource Manager-regel og ferdig evalueringspunkt. Modify er begrenset til støttet tag; DINE krever den erklærte related regelen. Ingen generell policy-engine eller faktisk timing.',
+    lockAssumptions:
+      'Bare viste ressurser, konkrete operasjoner og to deklarerte management-locks. Separat autorisasjon er en forutsetning, ikke en ny RBAC-evaluator.',
+    operation: 'Operasjon',
+    plane: 'Plan',
+    controlPlane: 'Control plane',
+    dataPlane: 'Data plane',
+    method: 'HTTP-metode i dette eksemplet',
+    endpoint: 'Eksempel på endpoint',
+    inherited: 'Relevante locks i ancestry',
+    descendant: 'Slettingen berører en låst ressurs under gruppen',
+    lockBlocked: 'Relevant management-lock blokkerer',
+    allowed: 'Ingen manglende forutsetning i dette avgrensede eksemplet',
+    noBackup:
+      'Ingen lock eller modellkjøring har opprettet en backup eller verifisert datagjenoppretting.',
+    comparison: 'Lagrede observasjoner',
+    input: 'Deklarerte premisser',
+    run: 'Kjøring',
+    permission: 'Separat autorisasjon',
+    noRuntime: 'Faktisk Azure-/applikasjonsrespons er ikke undersøkt.',
+    states: {
+      unsupported: 'Kombinasjonen er utenfor denne regelmodellens støtte',
+      'not-applicable': 'Assignment/type gjelder ikke dette eksemplet',
+      excluded: 'Excluded — ikke evaluert/telt for denne assignmenten',
+      exempt: 'Exempt — sporbart unntak for dette kravet',
+      disabled: 'Disabled — evaluering hoppes over',
+      pending: 'Avventer deklarert evaluering; compliance kan ikke konkluderes',
+      'non-compliant': 'Non-compliant mot den viste regelen',
+      compliant: 'Compliant mot bare den viste regelen',
+    },
+    lockCauses: {
+      outside: 'Ressurs/operasjon-kombinasjonen er utenfor modellens støtte.',
+      authorization: 'Den særskilte tillatelsen for operasjonen er ikke oppfylt i premisset.',
+      'protected-descendant':
+        'Sletting av hele gruppen ville berøre en låst ressurs under den; ingen delvis gruppesletting er modellert.',
+      lock: 'En relevant lock begrenser denne management-operasjonen, selv om separat myndighet er oppfylt.',
+      'data-plane':
+        'Denne management-locken blokkerer ikke den deklarerte data-plane-ruten. Andre krav er fortsatt separate.',
+      'no-block':
+        'Ingen av de valgte lockene blokkerer denne operasjonen under de erklærte forutsetningene.',
+    },
+  },
+  technical: {
+    title: 'Faktisk lokal Policy og tekniske kvitteringer',
+    boundary:
+      'Dette er lesing fra den opprinnelige Sandboxens replay. Knapper her registrerer bare læringsinspeksjon; kommandoer utføres i vanlig Portal.',
+    open: 'Åpne ordinær Portal for denne undersøkelsen',
+    return: 'Tilbake til Governance-undersøkelsen',
+    unsafe:
+      'Teknisk kontekst kan ikke bekreftes. Bruk Sandboxens egen innlasting/gjenoppretting; ingen erstatningskvittering opprettes.',
+    archive:
+      'Denne undersøkelsen peker til et eldre teknisk forsøk. Historiske kvitteringer kan undersøkes; nye Portal-kommandoer tilhører det aktive forsøket.',
+    newGuide: 'Start en ny undersøkelse med gjeldende forsøk',
+    startBoundary: 'Teknisk forsøksnummer og startgrense',
+    assignment: 'Faktisk lokal custom assignment',
+    scope: 'Faktisk assignment-scope',
+    types: 'Faktiske target types',
+    allowed: 'Faktisk tillatte locations',
+    mode: 'Faktisk mode',
+    inspectPolicy: 'Registrer inspeksjon av faktisk policy',
+    inspectScope: 'Registrer inspeksjon av App Sandbox-scope',
+    group: 'Eksisterende App Sandbox-gruppe',
+    inspectGroup: 'Registrer inspeksjon av faktisk gruppe',
+    emptyGroup:
+      'Ingen gruppe i App Sandbox er tilgjengelig i dette forsøket. Bruk det ordinære Portal-skjemaet.',
+    receipt: 'Ny faktisk plan-kvittering etter startgrensen',
+    emptyReceipts:
+      'Ingen relevant ny plan-kvittering er tilgjengelig etter startgrensen ennå. Eldre historikk finnes i vanlig Portal og er ikke ny oppgaveevidence.',
+    inspectReceipt: 'Registrer inspeksjon av denne kvitteringen',
+    outcome: 'Faktisk utfall',
+    code: 'Faktisk kode',
+    operation: 'Faktisk operasjon',
+    type: 'Faktisk ressurstype',
+    location: 'Faktisk location',
+    revision: 'World-revisjon før → etter',
+    count: 'Ressursantall før → etter',
+    added: 'Faktisk opprettede referanser',
+    request: 'Opprinnelig request',
+    observed: 'Lagret inspeksjon',
+    verified: 'Referansene er verifisert i riktig teknisk forsøk',
+    notVerified: 'Faktiske referanser er ikke tilstrekkelig verifisert ennå',
+    history: 'Tidligere eller manglende teknisk kontekst gir ikke ny fullføring.',
+    checks: {
+      policy: 'Riktig faktisk custom policy inspisert',
+      scope: 'App Sandbox og faktisk gruppe inspisert',
+      denied: 'Nytt relevant avslag uten ressurs-/revisjonsendring',
+      corrected: 'Senere godkjent korrigering av samme plan',
+      receipts: 'Begge faktiske kvitteringer eksplisitt inspisert',
+    },
+  },
+  labels: {
+    ...accessNb.labels,
+    data: 'Data Governance',
+    policy: 'Policy Decision Explorer',
+    locks: 'Resource Lock Consequence Explorer',
+    model: 'Governance Decision Studio — konseptuell undersøkelse',
+    predictionOptions: [
+      'Velg prediksjon før kjøring',
+      'Avslag eller avgrenset forutsetning ikke møtt',
+      'Avvik, avklaring eller utenfor støtte',
+      'Avgrenset forutsetning møtt',
+    ],
+    noXp: 'Ingen XP eller automatisk godskriving av tidligere kompetanse.',
+    notice:
+      'Start lagrer bare en lokal undersøkelse og eventuell teknisk referansegrense. Modellvalg endrer aldri World eller faktiske policyer/locks.',
+  },
+  model: {
+    ...accessNb.model,
+    outcome: [
+      'Avslag / forutsetning ikke møtt',
+      'Avvik / avklaring / utenfor støtte',
+      'Avgrenset forutsetning møtt',
+    ],
+  },
+  storage: {
+    ...accessNb.storage,
+    title: 'Governance-historikken må avklares',
+    text: 'Data kan ikke brukes sikkert. Gjenopprett bare denne ugyldige læringskontrakten etter eksplisitt bekreftelse.',
+    loading: 'Laster Governance …',
+    reload: 'Last inn Governance på nytt',
+    recover: 'Gjenopprett bare Governance-data',
+  },
+  assessment: {
+    ...accessNb.assessment,
+    title: 'Selvstendig Governance-anvendelse',
+    intro:
+      'Velg en faglig forsvarlig beslutning og begrunnelsen som best forklarer hele valget under alle oppgitte krav. Et sant, men ufullstendig eller irrelevant utsagn er ikke tilstrekkelig. Riktig verktøy med feil eller ufullstendig årsak godkjennes ikke.',
+    reason: 'Begrunnelsen som best forklarer hele valget',
+  },
+} as const;
+
+export const governanceItemsNb = {
+  gc01: {
+    title: 'To avdelinger bruker samme rapportbegrep',
+    problem:
+      'Et konsern har to salgsområder som bruker «aktiv kunde» forskjellig. Begge datakildene skal beholdes. Analytikere har nødvendig lesetilgang, men må kunne finne riktig definisjon og en ansvarlig for hvert forretningsområde. Hvilken plan møter behovet?',
+    premises: [
+      'Ingen endring av kildeskjema eller datakopiering er godkjent. Navn alene avklarer ikke begrepets betydning.',
+      'Virksomheten har en støttet Purview-governance-løsning og kan kuratere metadata og forretningsbegreper.',
+    ],
+    decisions: [
+      'Flytt kildene til nye Data Map collections og endre bare katalogrettighetene for hvert salgsområde.',
+      'Krev owner- og costCenter-tags på Azure-ressursene, og bruk tags som definisjon av rapportbegrepet.',
+      'Kurater relevante data products med ansvarlige eiere og knytt dem til tydelig avgrensede glossary terms.',
+    ],
+    reasons: [
+      'Datakildenes eksisterende leseroller bestemmer også hvilken forretningsdefinisjon som gjelder for rapportbrukeren.',
+      'Kuraterte begreper og eierskap gjør metadata forståelige; dette krever ikke at de to datakildene slås sammen.',
+      'En klassifisering av kildens innhold fastsetter hvilken av de to forretningsdefinisjonene som er autoritativ.',
+    ],
+    feedback: [
+      [
+        'Collections og katalogrettigheter kan ha en viktig teknisk rolle, men bare å endre dem dokumenterer ikke de to forretningsdefinisjonene og beslutningseierne. Ved et rent tilgangsproblem kunne dette vært relevant.',
+        'ARM-tags organiserer støttede Azure-ressurser. Et costCenter-tag kan ikke alene definere to data products, deres begreper eller ansvar for datainnhold. Kostnadsrapportering ville vært et annet behov.',
+        'Dette kobler virksomhetens formål, begreper og ansvar til dataene uten å endre kildene. De ulike definisjonene kan være dokumenterte og avgrensede i stedet for å tvinges inn i én betydning.',
+      ],
+      [
+        'Leseroller er autorisasjon. De fastsetter ikke betydningen av «aktiv kunde» for to forretningsområder.',
+        'Dette forklarer kurateringsvalget. Felles forståelse betyr ikke at man må kopiere data eller oppheve legitime lokale begreper.',
+        'Klassifisering kan beskrive innholdets kategori og risiko. Den avgjør ikke automatisk hvilken forretningsdefinisjon virksomheten skal bruke.',
+      ],
+    ],
+    decisive:
+      'Datastyring knytter virksomhetens begreper og ansvar til data assets. Rettigheter og ARM-tags svarer på andre spørsmål; ingen sammenslåing av kilder er nødvendig.',
+  },
+  gc02: {
+    title: 'En kilderegel endres før neste rapport',
+    problem:
+      'Et team vil endre en transformasjon i et støttet dataløp. Før endringen må det finne hvilke rapporter som kan bli påvirket og hvilke registrerte prosesser som forbinder dem med kilden. Oppgaven gjelder avhengigheter, ikke å lese radinnhold. Hva bør teamet undersøke først?',
+    premises: [
+      'Relevante, registrerte lineage-metadata er tilgjengelige; dekningen må kontrolleres mot de faktiske integrasjonene.',
+      'Rapportenes eiere og tilgangsroller er allerede kjent. Det er ikke gitt at en manglende relasjon betyr at ingen avhengighet finnes.',
+    ],
+    decisions: [
+      'Undersøk registrert lineage fra kilde via transformasjoner til rapporter, og kontroller om kartleggingen dekker endringen.',
+      'Kjør ny innholdsklassifisering på kildene og bruk de nye kategoriene som oversikt over rapportavhengighetene.',
+      'Utvid lesetilgang til alle datakilder og bruk den utvidede rettighetslisten som oversikt over dataløpet.',
+    ],
+    reasons: [
+      'Klassifisering beskriver datakategorier og kan brukes til å prioritere vurdering av sensitive kilder.',
+      'En datakonsument trenger relevante tillatelser dersom den senere skal hente innhold fra en datakilde.',
+      'Lineage beskriver registrert opphav, transformasjon og videre bruk, med kildeavhengige dekningsgrenser.',
+    ],
+    feedback: [
+      [
+        'Lineage er riktig start for dette konsekvensspørsmålet. Bekreft støtte og dekning før du behandler bildet som komplett; det er metadata, ikke en testkjøring av pipelinen.',
+        'Ny klassifisering kan avdekke andre risikokategorier, men leverer ikke alene transformasjons- og rapportrelasjonene som endringen krever.',
+        'En bredere lesetillatelse gir ikke en avhengighetsgraf. Hvis teamet senere trenger radinnhold, må den tilgangen vurderes særskilt.',
+      ],
+      [
+        'Dette er et sant formål med klassifisering, men forklarer ikke hvordan rapportenes avhengighet av transformasjonen spores.',
+        'Dette gjelder en eventuell senere dataforespørsel, ikke valg av metadata for konsekvensanalyse.',
+        'Dette er den relevante mekanismen. Registrerte relasjoner kan vise hvilke nedstrøms rapporter som må undersøkes, uten å love full dekning.',
+      ],
+    ],
+    decisive:
+      'Undersøk faktisk registrerte relasjoner og deres dekning. Klassifisering og leserettigheter alene er ikke lineage eller en garanti for komplett konsekvensanalyse.',
+  },
+  gc03: {
+    title: 'Katalogen er oppdatert, men en klient kan fortsatt lese',
+    problem:
+      'Et datasett er nå klassifisert i Purview, men en ekstern klient kan fortsatt gjøre nye direkte lesinger som virksomheten ikke lenger godkjenner. Godkjente interne analytikere skal beholde sitt arbeid. Hvilken endring adresserer den observerte tilgangen?',
+    premises: [
+      'Klienten bruker datakildens eksisterende autorisasjon og spør ikke katalogen når den leser. Ingen ny beskyttelsespolicy er aktivert av klassifiseringen.',
+      'Målet er å stoppe fremtidige ikke-godkjente kildeforespørsler; allerede nedlastede kopier kan ikke trekkes tilbake gjennom denne endringen.',
+    ],
+    decisions: [
+      'Fjern klientens katalogrolle og behold dens nåværende kildetillatelse for å unngå endringer i datatjenesten.',
+      'Fjern katalogoppføringen og klassifiseringen slik at klienten ikke lenger kan oppdage det registrerte datasettet.',
+      'Avgrens den aktuelle kildetilgangen eller delingen, og behold metadataene til ansvarlig oppfølging og risikovurdering.',
+    ],
+    reasons: [
+      'Klassifisering beskriver risiko; en direkte kildelesing må fortsatt kontrolleres med relevante tilgangs- og beskyttelsesmekanismer.',
+      'En katalogrolle kan begrense hvilke metadata en bruker oppdager i den aktuelle governance-opplevelsen.',
+      'En steward kan kuratere begreper og metadata slik at organisasjonen lettere forstår datasettet.',
+    ],
+    feedback: [
+      [
+        'Dette kan begrense katalogoppdagelse, men klienten leser direkte med en eksisterende kildetillatelse. Den observerte tilgangsveien er fortsatt åpen.',
+        'Å fjerne metadata trekker ikke tilbake kildens autorisasjon. Det vil dessuten fjerne kunnskap organisasjonen trenger til oppfølging.',
+        'Dette adresserer den faktiske tilgangsveien og bevarer godkjente interne behov. Klassifiseringen kan fortsatt hjelpe med prioritering og ansvar, uten å bli fremstilt som selve vernet.',
+      ],
+      [
+        'Dette skiller klassifisering fra håndhevet beskyttelse. Dersom en separat støttet beskyttelsespolicy var konfigurert, måtte dens konkrete virkning også undersøkes.',
+        'Katalogsynlighet er relevant ved et katalogspørsmål. Den er ikke i dette tilfellet kontrollen som stopper en direkte kildeklient.',
+        'Kuratering er verdifullt, men en bedre beskrivelse stopper ikke en allerede autorisert direkte dataforespørsel.',
+      ],
+    ],
+    decisive:
+      'Klassifisering er kunnskap om data. En klient som går direkte til kilden må styres gjennom den relevante tilgangsveien; metadata kan beholdes uten at uønsket kildeautorisasjon beholdes.',
+  },
+  gc04: {
+    title: 'Et pilotområde skal observeres uten produksjonsendring',
+    problem:
+      'En subscription har en Deny-assignment som krever en bestemt navnestandard. Pilotgruppen har også en Audit-assignment for samme krav. Teamet vil prøve avvikende navn i piloten uten denne blokkeringen, men produksjon skal beholde Deny. Hvilken godkjent endring passer?',
+    premises: [
+      'Piloten er en varig, uttrykkelig godkjent testavgrensning. Det kreves ikke et tidsbegrenset Exempt-spor for dette scopet.',
+      'Alle andre relevante tillatelser og regler er avklart. Å endre den lokale Audit-assignmenten alene endrer ikke subscriptionens Deny.',
+    ],
+    decisions: [
+      'Bytt subscriptionens Deny til Audit og behold pilotgruppens eksisterende Audit-assignment.',
+      'Legg bare pilotgruppen i notScopes for den overordnede Deny-assignmenten; behold den lokale Audit-assignmenten.',
+      'Gi pilotteamet Owner på pilotgruppen og behold begge assignmentene med uendret scope.',
+    ],
+    reasons: [
+      'En lokal assignment bestemmer resultatet foran en overordnet assignment fordi scopet er mer spesifikt.',
+      'Owner gir de administrative tillatelsene som trengs for ressursopprettelse, uavhengig av navnet som velges.',
+      'Assignments gjelder samlet; en avgrenset exclusion kan fjerne akkurat Deny-rekkevidden uten å oppheve produksjonens vern.',
+    ],
+    feedback: [
+      [
+        'Dette lar også produksjonen miste den aktuelle Deny-håndhevingen. Det er større endring enn det godkjente pilotbehovet.',
+        'Dette bevarer den overordnede regelen for produksjon og lar den separate lokale Audit-vurderingen bestå for piloten. Excluded betyr ikke compliant for den opprinnelige assignmenten.',
+        'Rollen løser ikke en matching Policy-Deny. I premissene er tillatelsene allerede avklart; dette ville økt myndighet uten å endre navnekravet.',
+      ],
+      [
+        'En lokal Audit opphever ikke en relevant overordnet Deny. Assignments vurderes samlet, ikke etter en enkel nærmeste-vinner-regel.',
+        'Owner kan gi rettigheter, men konfigurasjonskravet kan fortsatt avvise requesten. Denne begrunnelsen passer ikke som policy-unntak.',
+        'Dette forklarer den avgrensede endringen. Et tidsbegrenset, sporbart fritak med Exempt-status ville vært en annen oppgave og kunne pekt mot exemption.',
+      ],
+    ],
+    decisive:
+      'Audit på et barn-scope er ikke en override av en overordnet Deny. Endre den godkjente assignment-rekkevidden presist, og behold de andre ønskede kontrollene.',
+  },
+  gc05: {
+    title: 'Nye og gamle ressurser får forskjellige resultater',
+    problem:
+      'En støttet Modify-policy legger riktig tag på nye ressurser i gruppe A og B. En remediation task for gamle ressurser har rettet A, men B har feilede endringer. Ressursene og dataene skal beholdes. Hvilken avgrenset oppfølging passer bevisene?',
+    premises: [
+      'Task-loggen viser manglende rettighet for assignmentens managed identity på B; samme identitet har dokumentert nødvendig tilgang på A. Ingen andre feil er observert.',
+      'Ny request-time Modify og remediation av gamle ressurser er separate forløp. Det er godkjent å gi task-identiteten det dokumenterte minimumet på B; nyopprettelse eller bredere brukerroller er ikke godkjent.',
+    ],
+    decisions: [
+      'Gi task-identiteten det dokumenterte minimumet på B; kjør gjenstående støttet retting og verifiser utfallet.',
+      'Gi ressursoppretteren Owner på subscriptionen; behold task-identiteten og vent på neste standardevaluering.',
+      'Bytt Modify til Deny for begge gruppene; kjør en ny compliance-evaluering før de gamle avvikene lukkes.',
+    ],
+    reasons: [
+      'At nye B-ressurser får tagget viser at assignmentens managed identity allerede har nødvendige rettigheter til all gammel retting.',
+      'Request-time Modify og gammel remediation er ulike forløp; den observerte task-rettigheten forklarer forskjellen mellom A og B.',
+      'En ny Deny-evaluering retter automatisk tidligere tag-avvik når ressursoppretteren har tilstrekkelige rettigheter.',
+    ],
+    feedback: [
+      [
+        'Dette følger den dokumenterte feilen og begrenser endringen til gjenstående ressurser i B. Kontroller faktisk task-utfall og ny vurdering; en startet oppgave er ikke et ferdig resultat.',
+        'Brukerens bredere rolle retter ikke task-identitetens manglende B-rettighet, og er heller ikke godkjent. Periodisk evaluering er ingen automatisk retting.',
+        'Deny kan vise eksisterende avvik uten å rette dem. Her vil et strengere nytt request-krav ikke løse den dokumenterte remediation-feilen.',
+      ],
+      [
+        'At en ny request blir modifisert beviser ikke at assignmentens managed identity kan rette gamle ressurser på B. Forløpene har ulike oppgaver og rettighetsforutsetninger.',
+        'Dette begrunner både den smale korrigeringen og behovet for å kontrollere resten av tasken. Var feilen en unsupported egenskap i stedet, måtte den årsaken undersøkes fremfor å gi flere rettigheter.',
+        'Deny retter ikke eksisterende tags automatisk. Brukerens ressursrettighet er dessuten ikke i seg selv task-identitetens rettighet.',
+      ],
+    ],
+    decisive:
+      'Nye vellykkede request-resultater beviser ikke at gammel remediation er fullført. Bruk den konkrete task-feilen, gi bare nødvendig autorisasjon på B og verifiser de gjenstående endringene uten å omtolke historiske ressurser.',
+  },
+  gc06: {
+    title: 'Ett krav er ivaretatt på en annen måte',
+    problem:
+      'En ressurs omfattes av en initiative med flere krav. Ett krav ivaretas gjennom en godkjent alternativ kontroll frem til en fastsatt dato. Unntaket skal være sporbar, mens de øvrige kravene fortsatt skal vurderes. Hvilken løsning passer?',
+    premises: [
+      'Ressursen skal ikke fjernes fra hele initiativets compliance-oppfølging. Det konkrete policyDefinitionReferenceId er kjent.',
+      'Den ansvarlige har godkjent og kan opprette et avgrenset unntak med nødvendig dokumentasjon og rettigheter.',
+    ],
+    decisions: [
+      'Legg ressursen i initiative-assignmentens notScopes og dokumenter den alternative kontrollen i et vanlig ressurs-tag.',
+      'Opprett en Mitigated-exemption for den aktuelle definisjonen i assignmenten med begrunnelse og expiresOn.',
+      'Lag en ny initiative uten dette kravet på ressursen, og behold den opprinnelige assignmenten uendret over den.',
+    ],
+    reasons: [
+      'En avgrenset exemption kan spores per assignment/definisjon; ved utløp beholdes objektet, men fritaket gjelder ikke lenger.',
+      'En exclusion fjerner det aktuelle scopet fra evaluering og compliance-telling for assignmenten som ekskluderer det.',
+      'En lokal, mindre omfattende initiative kan organiseres som et eget sett med relaterte policy definitions.',
+    ],
+    feedback: [
+      [
+        'Dette tar ressursen ut av hele assignmentens evaluering og teller ikke det enkelte kravet som et sporbart exemption. Det mister oppfølgingen som skulle beholdes.',
+        'Dette dokumenterer en alternativ kontroll på akkurat riktig definisjon uten å oppheve de øvrige. Når datoen passeres, må kravet vurderes igjen; historikkobjektet er ikke det samme som et fortsatt fritak.',
+        'En ny lokal initiative erstatter ikke automatisk den gamle som fortsatt gjelder. Det dokumenterer heller ikke det påkrevde tidsbegrensede fritaket.',
+      ],
+      [
+        'Dette forklarer både presis avgrensning og levetid. Mitigated passer den godkjente alternative kontrollen; et midlertidig akseptert avvik uten slik kontroll ville pekt mot Waiver.',
+        'Dette er den riktige betydningen av exclusion, men den oppfyller ikke oppgavens krav om sporbarhet for ett bestemt krav.',
+        'Initiatives grupperer relaterte regler, men en ny gruppering opphever ikke en eksisterende assignment eller skaper et exemption.',
+      ],
+    ],
+    decisive:
+      'Exemption og exclusion har ulik sporbarhet. Et presist Mitigated-unntak kan utløpe for én definisjon mens de øvrige kravene består.',
+  },
+  gc07: {
+    title: 'En arbeidslast trenger endringer under et bredt vern',
+    problem:
+      'En subscription har en arvet ReadOnly-lock. Den har tre resource groups. Én arbeidslast trenger igjen management-endringer; de to andre gruppene skal fortsatt være ReadOnly. Den utpekte VM-en skal beholde CanNotDelete-vernet sitt. Hvilken godkjent lock-plan oppfyller dette?',
+    premises: [
+      'Det er gitt tillatelse til å omorganisere lock-scope. Ressursene skal ikke flyttes eller gjenopprettes, og RBAC endres ikke.',
+      'Det finnes ingen andre locks. Den utpekte arbeidslastens gruppe skal kunne endres, mens VM-ressursen fortsatt ikke skal management-slettes.',
+    ],
+    decisions: [
+      'Fjern bare VM-ens CanNotDelete-lock; behold subscriptionens ReadOnly-lock og de øvrige gruppenes struktur.',
+      'Legg en ny CanNotDelete-lock på arbeidslastens gruppe; behold subscriptionens ReadOnly-lock uendret.',
+      'Erstatt subscription-locken med ReadOnly på de to andre gruppene; behold VM-ens CanNotDelete-lock.',
+    ],
+    reasons: [
+      'En lokal CanNotDelete-lock begrenser hvilke handlinger en overordnet ReadOnly-lock får behandle.',
+      'Den strengeste relevante arvede locken gjelder; en mindre streng barn-lock opphever ikke ReadOnly over den.',
+      'En eksisterende Azure-administratorrolle kan gi tillatelse til å utføre bestemte management-handlinger på scopet.',
+    ],
+    feedback: [
+      [
+        'Den arvede ReadOnly gjelder fortsatt. Dessuten ville det eksplisitte slettingsvernet for VM-en bli fjernet, uten at den nødvendige endringsmuligheten kom tilbake.',
+        'En mindre streng barn-lock kan ikke overstyre den arvede ReadOnly. Dette oppfyller derfor ikke arbeidslastens endringsbehov.',
+        'Dette avgrenser ReadOnly til de to gruppene som fortsatt trenger vernet. Den utpekte arbeidslasten blir ikke lenger omfattet av den overordnede ReadOnly, mens VM-ens CanNotDelete består.',
+      ],
+      [
+        'En barn-lock bestemmer ikke at den arvede ReadOnly skal slutte å gjelde. Det er den relevante strengeste begrensningen som må undersøkes.',
+        'Dette forklarer hvorfor det faktiske overordnede scopet må endres i den godkjente planen; en ekstra lokal lock er ingen override.',
+        'Rettigheter kan være nødvendige, men overstyrer ikke den eksisterende locken i ressursoperasjonen. Her er endring av RBAC heller ikke godkjent.',
+      ],
+    ],
+    decisive:
+      'Låsens faktiske arvede rekkevidde må endres. En mindre streng barn-lock eller en administratorrolle kan ikke gjøre den overordnede ReadOnly irrelevant.',
+  },
+  gc08: {
+    title: 'En godkjent opprydding i en låst lagringstjeneste',
+    problem:
+      'En Storage Account skal beholde ReadOnly på management-planet. En gammel file share skal slettes som en godkjent dataoperasjon. Teamet har både en ARM-rute og en Storage File Service-rute tilgjengelig. Hvilket valg er forenlig med vernet?',
+    premises: [
+      'ARM File Shares–Delete er en control-plane-operasjon. Storage File Service Delete Share er en data-plane-operasjon.',
+      'Nødvendig separat autorisasjon for dataoperasjonen er bekreftet. Andre tjenestekrav er avklart; ingen lock skal fjernes eller svekkes.',
+    ],
+    decisions: [
+      'Bruk ARM File Shares–Delete med Owner på kontoen; behold ReadOnly og resten av konfigurasjonen.',
+      'Bruk den godkjente Storage File Service Delete Share-ruten; behold management-locken og kontoen.',
+      'Bytt ReadOnly til CanNotDelete før ARM-slettingen; behold den samme dataautorisasjonen.',
+    ],
+    reasons: [
+      'En Azure Owner-rolle gir management-tillatelser, og ressurs-locks bruker det samme prinsippet som en rolledefinisjon.',
+      'En CanNotDelete-lock kan la ellers autoriserte brukere endre ressursen uten at management-sletting tillates.',
+      'Management-locken begrenser ikke automatisk en separat gyldig data-plane-rute; samme tjeneste kan ha begge plan.',
+    ],
+    feedback: [
+      [
+        'ARM-ruten er en management-sletting og stoppes av ReadOnly, også for en ellers autorisert Owner.',
+        'Dette er forenlig med den deklarerte separate dataautorisasjonen og det uendrede management-vernet. Modellen lover ikke at vilkårlige dataforespørsler er autoriserte.',
+        'Dette svekker det uttrykkelig uendrede vernet og er ikke nødvendig for den godkjente data-plane-ruten. CanNotDelete er heller ikke en generell tillatelse til ARM-sletting.',
+      ],
+      [
+        'Owner og lock har forskjellige mekanismer. Rollen er ikke en automatisk bypass av den relevante locken.',
+        'Dette er et riktig CanNotDelete-prinsipp, men forklarer ikke hvorfor den separate data-plane-ruten passer oppgaven.',
+        'Dette er den operative forskjellen i premissene. Hvis slettingen i stedet brukte ARM-ruten, ville management-locken være relevant.',
+      ],
+    ],
+    decisive:
+      'Vurder den konkrete API-ruten. Et management-vern kan bestå samtidig som en separat gyldig dataoperasjon får fortsette under de oppgitte forutsetningene.',
+  },
+  gc09: {
+    title: 'Daglig drift og gjenoppretting har forskjellige krav',
+    problem:
+      'Et lagringsteam må kunne endre management-tags daglig og fortsette applikasjonens dataskriving. Det vil også redusere risikoen for utilsiktet sletting av Storage Account og kunne gjenopprette etter logisk sletting av data. Hvilken plan adresserer begge risikoene?',
+    premises: [
+      'Et kompatibelt, separat historisk gjenopprettingsopplegg er tilgjengelig og kan testes. Scope og tjenestestøtte må verifiseres før bruk.',
+      'Endringsrettighetene er allerede avgrenset med RBAC. Geo-replikering alene er ikke en uavhengig historikk over slettede data.',
+    ],
+    decisions: [
+      'Bruk CanNotDelete for ressursen og et egnet, testet historisk gjenopprettingsopplegg for dataene.',
+      'Bruk ReadOnly for ressursen og geo-replikering for å beholde både daglige management-endringer og gamle dataversjoner.',
+      'Bruk CanNotDelete for ressursen og bare geo-replikering som løsning på fremtidig logisk datasletting.',
+    ],
+    reasons: [
+      'Ressursvern og gjenopprettbare dataversjoner har ulike formål; CanNotDelete kan bevare nødvendige management-endringer.',
+      'ReadOnly begrenser relevante management-endringer og kan derfor være mer inngripende enn et rent slettingsvern.',
+      'Replikering kan beskytte mot visse fysiske hendelser, med tjeneste- og replikasjonsavhengige begrensninger.',
+    ],
+    feedback: [
+      [
+        'Dette skiller administrativt slettingsvern fra mulighet til å gjenopprette historiske data. Tjenestestøtte og faktiske gjenopprettingstester må fortsatt bekreftes.',
+        'ReadOnly kan stoppe de nødvendige management-tag-endringene. Geo-replikering alene gir heller ikke den separate historiske gjenopprettingen som er etterspurt.',
+        'Ressursvernet kan passe første risiko, men replikering alene gjør ikke en logisk sletting gjenopprettbar som en uavhengig historisk kopi.',
+      ],
+      [
+        'Dette begrunner begge deler av planen uten å love at lock eller replikering alene løser datatap.',
+        'Dette er sant, men er ikke alene en begrunnelse for hvordan den valgte planen både tillater drift og sikrer historisk gjenoppretting.',
+        'Dette beskriver fysisk motstandsdyktighet, ikke hvordan tidligere data gjenopprettes etter en logisk sletting.',
+      ],
+    ],
+    decisive:
+      'CanNotDelete kan beskytte ressursens livsløp uten å blokkere all management-endring. Historisk datagjenoppretting er et eget, støttet og testbart behov.',
   },
 } as const;

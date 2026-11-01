@@ -90,3 +90,7 @@ Retain all182 inherited desktop/compact cases. Seven focused Identity journeys p
 ## P11 / PR36 bounded profile extension
 
 Retain all190 previous cases. Seven distinct new desktop cases cover Part B continuity, read-only actual scope/causal RBAC, simultaneous CA, independent history, fail-closed recovery, compact accessibility and deterministic shared teaching readiness. One justified initial compact Studio/native-dialog witness gives198 (184/14); optionallegacy368 remains. No settings/skips/assertion weakening. The old Benefits assertion is retained after awaiting real lesson mount, with a causal held-frame/denied-write negative. Full exact-head CI/strict is authoritative; local regressions remain targeted.
+
+## P12 / PR37 bounded profile extension
+
+Retain all198 previous executions and their assertions. Eight distinct Governance desktop cases cover Course navigation/resume, metadata/source access, actual Portal policy denial/correction/receipts, management/data lock consequences, immutable first/retry, denied/cross-tab assistance, old-receipt/scoped recovery and keyboard/Axe/short desktop layouts. One justified compact semantic Studio/native-dialog witness adds207 executions (192desktop/15compact); optional full legacy384 remains. Pinned Chromium, worker1 and existing retries/timeouts remain. Complete exact-head CI/strict is authoritative; targeted local checks and collection alone are not activation proof.

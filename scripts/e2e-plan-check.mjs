@@ -71,6 +71,7 @@ for (const file of [
   'storage-services',
   'storage-resilience',
   'identity-foundations',
+  'governance-compliance',
   'access-control',
 ]) {
   if (!compact.some((x) => x.file.endsWith(`${file}.spec.ts`)))

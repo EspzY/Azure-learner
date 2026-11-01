@@ -1,4 +1,7 @@
 'use client';
+
+import { useGovernance } from '@/features/learning/governance-provider';
+import { governanceHref } from '@/domain/curriculum/governance';
 import { useAccess } from '@/features/learning/access-control-provider';
 import { useIdentity } from '@/features/learning/identity-foundations-provider';
 import { useResilience } from '@/features/learning/storage-resilience-provider';
@@ -113,7 +116,8 @@ function PortalWorkspace() {
     storage = useStorage(),
     resilience = useResilience(),
     identityState = useIdentity(),
-    accessState = useAccess();
+    accessState = useAccess(),
+    governanceState = useGovernance();
   useEffect(() => {
     if (serverless.facts.active && ['learn', 'responsibility', 'hierarchy'].includes(location.area))
       serverless.store.event({ kind: 'aid' });
@@ -142,6 +146,7 @@ function PortalWorkspace() {
     location.area,
   ]);
   const otherIndependentContext =
+    governanceState.facts.active ||
     accessState.facts.active ||
     identityState.facts.active ||
     resilience.facts.active ||
@@ -164,6 +169,7 @@ function PortalWorkspace() {
   const independentContext = otherIndependentContext || missions.active;
   const guidanceContexts = [
     storage,
+    governanceState,
     accessState,
     identityState,
     resilience,
@@ -202,25 +208,29 @@ function PortalWorkspace() {
     !benefits.facts.active &&
     !services2.facts.active;
   const managementLab = guidedLab && course.save.lab?.origin === 'architecture-management';
-  const courseReturn = location.networking
-    ? networkingHref('dependencies')
-    : location.compute
-      ? computeHref('dependencies')
-      : location.mission
-        ? missionOrigin(location.mission)
-        : location.bridge
-          ? `/learn/benefits?topic=${location.bridge}&activity=practical`
-          : location.practice && practical.current
-            ? practicalReturn(practical.current)
-            : guidedLab
-              ? courseLabHref(
-                  labFacts(course.save.lab, chapter.attempt.engine, chapter.attemptNumber).complete,
-                  course.save.lab?.origin,
-                )
-              : location.course
-                ? courseHref(location.module, location.topic)
-                : '/learn';
+  const courseReturn = location.governance
+    ? governanceHref('studio') + '&perspective=policy'
+    : location.networking
+      ? networkingHref('dependencies')
+      : location.compute
+        ? computeHref('dependencies')
+        : location.mission
+          ? missionOrigin(location.mission)
+          : location.bridge
+            ? `/learn/benefits?topic=${location.bridge}&activity=practical`
+            : location.practice && practical.current
+              ? practicalReturn(practical.current)
+              : guidedLab
+                ? courseLabHref(
+                    labFacts(course.save.lab, chapter.attempt.engine, chapter.attemptNumber)
+                      .complete,
+                    course.save.lab?.origin,
+                  )
+                : location.course
+                  ? courseHref(location.module, location.topic)
+                  : '/learn';
   const returnLearning = () =>
+    location.governance ||
     location.networking ||
     location.compute ||
     location.mission ||

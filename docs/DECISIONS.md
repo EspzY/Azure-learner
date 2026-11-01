@@ -1,5 +1,9 @@
 # Decisions
 
+## P12 — Separate governance mechanisms and actual receipt evidence, 1 November 2026
+
+Use one three-perspective Governance Studio rather than another Portal or generic Policy engine. Purview metadata curation, declared Policy decisions and management-lock consequences solve different learning problems. The Policy mission alone also observes actual existing Sandbox enforcement; credit is verified against original post-start receipts, same corrected plan and explicit inspections. Archive loss leaves the investigation unverified. Keep an isolated versioned history, existing command/replay/XP semantics and ordinary Hub integration. This gives practical consequence without inventing scanning, operative locks or compliance infrastructure. Nine original paired contexts were blind-reviewed; substantive remediation rewrite and explicit complete-explanation instructions closed two early major findings. Human learning validation remains separate.
+
 ## PR29 — compose hybrid and endpoint evidence without changing Part A
 
 Use a separately versioned Networking connectivity supplement in the existing shell. Hybrid connections and service endpoints require different explanatory diagrams and causal models, but share explicit prediction/run/cause and first/help/retry/abandon boundaries. No VPN, circuit or Private Endpoint resource provider is added. Private transport and encryption scope are separate; DNS selects an entry but does not prove network or application permission. A+B navigation and summary references compose the module without upgrading historical Part A submissions. Service-specific Storage endpoint examples support networking teaching only; P08 Storage remains deferred. PR28's inaccessible protected preview is a delivery dependency, not a reason to invent external acceptance. [Scope](NETWORKING_CONNECTIVITY.md).

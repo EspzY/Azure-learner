@@ -39,6 +39,7 @@ export const benefitBridgeTopics = [
   'sustainability',
 ] as const;
 export interface PortalLocation {
+  governance?: true;
   area: Area;
   id: string;
   kind: CreateKind;
@@ -58,12 +59,22 @@ export function parseLocation(query: URLSearchParams): PortalLocation {
   const area = query.get('area') ?? 'home',
     mode = query.get('mode') ?? 'learn';
   return {
+    ...(query.get('governance') === 'policy' &&
+    !['networking', 'compute', 'mission', 'practice', 'bridge', 'lab', 'course'].some((k) =>
+      query.has(k),
+    )
+      ? { governance: true as const }
+      : {}),
     ...(query.get('networking') === 'inspect' &&
-    !['compute', 'mission', 'practice', 'bridge', 'lab', 'course'].some((k) => query.has(k))
+    !['governance', 'compute', 'mission', 'practice', 'bridge', 'lab', 'course'].some((k) =>
+      query.has(k),
+    )
       ? { networking: true as const }
       : {}),
     ...(query.get('compute') === 'vm' &&
-    !['networking', 'mission', 'practice', 'bridge', 'lab', 'course'].some((k) => query.has(k))
+    !['governance', 'networking', 'mission', 'practice', 'bridge', 'lab', 'course'].some((k) =>
+      query.has(k),
+    )
       ? { compute: true as const }
       : {}),
     ...(isMission(query.get('mission')) ? { mission: query.get('mission') as MissionId } : {}),
@@ -130,6 +141,7 @@ export function portalHref(
   if (next.mission) query.set('mission', next.mission);
   if (next.networking) query.set('networking', 'inspect');
   if (next.compute) query.set('compute', 'vm');
+  if (next.governance) query.set('governance', 'policy');
   return `/portal?${query}`;
 }
 export type InventoryKind =

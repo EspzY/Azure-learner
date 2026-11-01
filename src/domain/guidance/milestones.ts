@@ -4,6 +4,27 @@ import { replayEngine } from '../sandbox/replay';
 
 /** Conceptual observations are not Engine receipts and have their own source contract. */
 export const conceptMilestones = {
+  'governance-data': {
+    version: '1.0.0',
+    objectives: ['GOV01'],
+    sources: ['GV21', 'GV22', 'GV33'],
+    trigger: 'saved-metadata-lineage-and-separate-source-access-contrasts',
+    auto: 'first-new-guided-model-result',
+  },
+  'governance-policy': {
+    version: '1.0.0',
+    objectives: ['GOV02'],
+    sources: ['GV07', 'GV08', 'GV26', 'GV27'],
+    trigger: 'saved-applicability-contrasts-and-verified-native-denial-correction',
+    auto: 'first-new-guided-model-result',
+  },
+  'governance-locks': {
+    version: '1.0.0',
+    objectives: ['GOV03'],
+    sources: ['GV12', 'GV13'],
+    trigger: 'saved-management-data-and-inherited-lock-consequences',
+    auto: 'first-new-guided-model-result',
+  },
   'access-rbac': {
     version: '1.0.0',
     objectives: ['ACF02'],

@@ -1,5 +1,9 @@
 # AzureLab 3.2.1
 
+## Governance & Compliance — P12
+
+[Governance & Compliance](docs/GOVERNANCE_COMPLIANCE.md) follows Cost Management in path03. Original Norwegian Purview, Azure Policy, Resource Locks and short Service Trust Portal teaching leads to three causal Studio investigations and nine paired independent contexts. The actual Policy investigation uses existing local Portal commands and unchanged receipts; metadata and lock examples remain conceptual. Isolated history preserves prior results and XP. Authored scoped coverage becomes44/57; this is not student mastery or exam readiness. Release evidence and limitations: [PR37 audit](docs/quality/PR37_FINAL_AUDIT.md).
+
 ## Identity Foundations — PR35
 
 [Original P10 teaching and limitations](docs/IDENTITY_FOUNDATIONS.md) extend the existing second-path journey after Storage into Identity, Access & Security. Directory/legacy requirements, sign-in evidence versus app authorization and external collaboration have three causal Studio perspectives, three guided investigations, ten paired independent situations and isolated versioned history. Existing Storage A/B, course results, technical resources and XP remain. Only2.4.01–03 are reviewed; Conditional Access/RBAC and later security remain planned. The inherited182 browser cases extend to190 (177 desktop/13 compact), with the optional legacy354 profile retained. Full exact-head CI/strict, actual images and independent final audit govern delivery; deployed preview verification remains separate. No live identity operation or production deployment.

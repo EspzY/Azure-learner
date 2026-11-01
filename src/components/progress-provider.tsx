@@ -1,4 +1,6 @@
 'use client';
+
+import { governanceKey } from '@/domain/curriculum/governance';
 import { accessKey } from '@/domain/curriculum/access-control';
 import { identityKey } from '@/domain/curriculum/identity-foundations';
 import { resilienceKey } from '@/domain/curriculum/storage-resilience';
@@ -106,6 +108,7 @@ export function ProgressProvider({ children }: { children: React.ReactNode }) {
         networkingKey,
         connectivityKey,
         storageLearningKey,
+        governanceKey,
         accessKey,
         identityKey,
         resilienceKey,

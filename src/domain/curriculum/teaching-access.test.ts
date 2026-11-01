@@ -1,3 +1,4 @@
+import { governanceKey } from './governance';
 import { accessKey } from './access-control';
 import { describe, it, expect } from 'vitest';
 import { prepareExistingTeaching } from './teaching-access';
@@ -27,13 +28,14 @@ const io = () => {
   };
 };
 describe('shared teaching preflight for frozen assessment contracts', () => {
-  it('validates fresh unaided fixtures for all fourteen fixture-registered independent contexts', () => {
+  it('validates fresh unaided fixtures for all fifteen fixture-registered independent contexts', () => {
     const fixtures = activeTeachingContexts();
-    expect(fixtures).toHaveLength(14);
-    expect(new Set(fixtures.map((f) => f.key)).size).toBe(14);
+    expect(fixtures).toHaveLength(15);
+    expect(new Set(fixtures.map((f) => f.key)).size).toBe(15);
     expect(fixtures.map((f) => f.key)).toContain(connectivityKey);
     expect(fixtures.map((f) => f.key)).toContain(identityKey);
     expect(fixtures.map((f) => f.key)).toContain(accessKey);
+    expect(fixtures.map((f) => f.key)).toContain(governanceKey);
     for (const f of fixtures)
       expect(f.state(f.raw)).toMatchObject({ active: true, assisted: false });
   });
