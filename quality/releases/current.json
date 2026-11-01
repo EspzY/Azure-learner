@@ -1173,7 +1173,6 @@
     "src/features/learning/storage-workbench.tsx",
     "src/features/learning/storage.css",
     "src/features/learning/storage.tsx",
-    "tests/e2e/storage-resilience.spec.ts",
     "tests/e2e/storage-services.spec.ts",
     "src/domain/curriculum/identity-foundations.ts",
     "src/domain/curriculum/identity-foundations-model.ts",
@@ -1296,7 +1295,7 @@
     {
       "command": "npm run check",
       "result": "passed",
-      "details": "Actual final full local process exited0:487 Vitest/33files,397 curriculum,17 Node,107 Markdown/local links; type/lint/format/quality/audit/assets/legacy and production build. Earlier type-test extra argument and unused import/hook-dependency lint failures were corrected; they are not claimed as passing runs. Provider now explicitly consumes current immutable Sandbox engine or pinned archived engine, retaining memo invalidation without lint suppression."
+      "details": "Actual complete local implementation process before the presentation-only CI correction exited0:487 Vitest/33files,397 curriculum,17 Node,107 Markdown/local links; type/lint/format/quality/audit/assets/legacy and production build. Earlier type-test extra argument and unused import/hook-dependency lint failures were corrected; they are not claimed as passing runs. Provider now explicitly consumes current immutable Sandbox engine or pinned archived engine, retaining memo invalidation without lint suppression."
     },
     {
       "command": "Targeted production browser tests",
@@ -1317,6 +1316,16 @@
       "command": "Full exact-head GitHub CI",
       "result": "pending",
       "details": "Draft PR enables unchanged CI wrapper, complete207 profile, pinned Chromium, candidate receipt and strict release. Local targeted passes and collection do not substitute for actual complete candidate evidence."
+    },
+    {
+      "command": "First complete candidate CI",
+      "result": "failed",
+      "details": "Run41289972585 on7a76fd048e80887bd3e680e525b8284f3b67898f: full check487/397/17 and dependency audit passed; mandatory207 browser process had206passed and one deterministic failure in old Storage Hub test expecting Governance still planned. Existing configured retries reproduced the same wrong expectation. No full-browser success receipt or strict pass. Corrected only planned-label expectation to Management Tools and added available Governance entry assertion; all other assertions/settings retained. This test is explicitly removed from byte-preserved test paths; old Storage manuscript/models/rubrics/history remain byte-preserved."
+    },
+    {
+      "command": "Post-CI presentation delta verification",
+      "result": "passed",
+      "details": "Only obsolete Storage Hub planned-label assertion corrected to still-planned Management Tools plus positive available Governance assertion. Author full target case2.2s/process3.6s and independent full target case2.5s/process3.7s passed, worker1/retries0. Target ESLint/docs107/preservation passed. Independent delta confirms65 original files unchanged, one contract addendum and one added changed presentation test:67 final hashes,83 protected patterns; final fingerprint2797591be00a00a9d194b3cc91a631eb0b6f53dc4c82fa0cd494e4c431a007df. No application/source/question/image/settings change. Fresh complete207 CI must run on new head."
     }
   ],
   "visualEvidence": [
@@ -1443,13 +1452,13 @@
   },
   "review": {
     "status": "complete",
-    "fingerprint": "4f725f245edda8b1faf035bcf75fe6656fb3cb0ea30691dafde0c332b04a9354",
+    "fingerprint": "2797591be00a00a9d194b3cc91a631eb0b6f53dc4c82fa0cd494e4c431a007df",
     "reviewer": {
       "id": "independent-final-audit-20261101-agent-governance-final-audit",
       "kind": "agent"
     },
-    "started": "2026-11-01T08:34:02.591795Z",
-    "finished": "2026-11-01T08:40:41.202897+00:00",
+    "started": "2026-11-01T08:57:43.825Z",
+    "finished": "2026-11-01T08:59:04.603013+00:00",
     "domains": {
       "content": {
         "finding": "Reviewed actual Norwegian ten-section manuscript and relevant body passages from all36 retained public sources; hashes/versions match. Current portfolio/classic-lineage qualification, Policy effects/scope/expiry/timing/remediation, concrete locks/control-data and STP boundaries hold. Only3.2.01–03; STP supplement; no SME/learning claim.",
@@ -1564,7 +1573,7 @@
         ]
       },
       "regression": {
-        "finding": "Independently reproduced84 protected patterns,29 old data exports+one function except5declaredmetadata,54 other rows and byte-identical operative Portal suffix. All66 snapshot hashes and36 source hashes/fingerprint match. Independently ran32 domain/shared tests exit0 and2 final production browser tests exit0 plus9 proof probes. Recorded author fullcheck exit0 inspected; full207 exact-head GitHub CI/strict pending. Old blankHub not reproduced/fixed; externalGate7 unverified/SSO-blocked and humans unperformed.",
+        "finding": "Final delta independently reviewed after first complete CI41289972585 failed206/207 with one obsolete Storage Hub planned-Governance expectation; actual job124798998230 logs inspected. Correction changes only that presentation assertion to still-planned Management Tools and adds positive available Governance check, retaining all old Storage journey assertions/settings. Final67 normalized hashes/fingerprint2797591b… match;65 initial candidate files unchanged, contract changed1 and test added1. Preservation83patterns/29exports+onefunction except5metadata/54otherrows/operativePortal suffix independently passes. Author targeted1case2.2s/3.6s exited0; independent complete case2.5s/3.7s exited0 worker1/retries0. Initial blind/source/model/images conclusions remain byte-bound. Renewed complete207 exact-head CI/strict pending; failed firstCI retained. ExternalGate7 and humans unchanged.",
         "evidence": [
           {
             "path": "src/domain/curriculum/governance.test.ts"
@@ -1583,6 +1592,9 @@
           },
           {
             "path": "docs/quality/PR37_FINAL_AUDIT.md"
+          },
+          {
+            "path": "tests/e2e/storage-resilience.spec.ts"
           }
         ]
       }
@@ -1604,11 +1616,65 @@
         "id": "PR37-N01",
         "severity": "note",
         "status": "accepted-limitation",
-        "description": "Final engineering audit complete; delivery remains pending full207 exact-head GitHub CI wrapper receipt and strict release. External root/SHA/journey remains unverified and BLOCKED if SSO; human SME/novice UX/screen-reader/learning/psychometrics unperformed. No merge/production."
+        "description": "First complete candidate CI41289972585 failed206/207 on obsolete Storage presentation expectation; corrected and independently targeted-retested. Renewed final-head207 GitHub CI wrapper receipt and strict release remain pending. External root/SHA/journey remains unverified and BLOCKED if SSO; human SME/novice UX/screen-reader/learning/psychometrics unperformed. No merge/production."
+      },
+      {
+        "id": "PR37-D01",
+        "severity": "major",
+        "status": "fixed",
+        "description": "First complete CI failed the older Storage Hub test because it expected now-available Governance to remain planned;206/207 is not a pass.",
+        "fix": "Replace only obsolete planned-Governance label with still-planned Management Tools; add explicit available Governance module assertion; retain all Storage grouping/link/sidebar/history/reload/return assertions. Document failed run and explicit presentation-test preservation exception.",
+        "retests": [
+          {
+            "command": "Complete Storage Hub/path/history/return targeted production case",
+            "result": "passed",
+            "details": "Author exit0 case2.2s/process3.6s; independent reviewer exit0 case2.5s/process3.7s, worker1/retries0. Final67 hashes/fingerprint and83pattern preservation pass. Renewed complete207 exact-head CI/strict pending."
+          }
+        ]
       }
     ],
     "report": {
       "path": "docs/quality/PR37_FINAL_AUDIT.md"
+    },
+    "initialAudit": {
+      "implementationFinished": "2026-11-01T08:32:12.893Z",
+      "started": "2026-11-01T08:34:02.591795Z",
+      "finished": "2026-11-01T08:40:41.202897+00:00",
+      "fingerprint": "4f725f245edda8b1faf035bcf75fe6656fb3cb0ea30691dafde0c332b04a9354",
+      "files": 66,
+      "publishedCommit": "7a76fd048e80887bd3e680e525b8284f3b67898f"
+    },
+    "deltaReview": {
+      "scope": "one old Hub presentation test plus honest contract note and explicit preservation exception",
+      "started": "2026-11-01T08:57:43.825Z",
+      "finished": "2026-11-01T08:59:04.603013+00:00",
+      "implementationFinished": "2026-11-01T08:57:05.771Z",
+      "finalFiles": 67,
+      "unchangedInitialFiles": 65,
+      "changedInitialFiles": ["docs/GOVERNANCE_COMPLIANCE.md"],
+      "addedCandidateFiles": ["tests/e2e/storage-resilience.spec.ts"],
+      "removedCandidateFiles": [],
+      "protectedPatterns": 83,
+      "firstCi": {
+        "run": 41289972585,
+        "job": 124798998230,
+        "head": "7a76fd048e80887bd3e680e525b8284f3b67898f",
+        "result": "failed",
+        "passed": 206,
+        "failed": 1,
+        "logsIndependentlyInspected": true
+      },
+      "independentRetest": {
+        "command": "npx playwright test --config=.artifacts/course-hub-diagnostic.config.mjs tests/e2e/storage-resilience.spec.ts --grep 'Storage parts share one Hub'",
+        "result": "passed",
+        "processExit": 0,
+        "cases": 1,
+        "caseSeconds": 2.5,
+        "processSeconds": 3.7,
+        "workers": 1,
+        "retries": 0
+      },
+      "renewedFullCi": "pending"
     }
   },
   "snapshot": {
@@ -1620,7 +1686,7 @@
       "docs/AZ900_EXPANSION_ROADMAP.md": "633244a68e3e61ca3a8a0aac785dc2af82bb1209ae670f498eba5b52064e3979",
       "docs/DECISIONS.md": "5ebf231edb67b5fc6a6c64b7fce1436d57e68c70e57c0bbe6be6c24a16e76b54",
       "docs/DEVELOPMENT_WORKFLOW.md": "752ac2c5523f8d2329975c7bbfafce3e7aa14827c1b6cd1c6862b45c139c19d4",
-      "docs/GOVERNANCE_COMPLIANCE.md": "adaa70ad091bc029d48af7ccb0f9afdba6846830bd6557446e49e150255d75dc",
+      "docs/GOVERNANCE_COMPLIANCE.md": "38c0ce5ee196d5e572dbd4063620177616f4f2c345e268b05092c42e21ee4bfe",
       "docs/audits/az900-2026-07-20.json": "24aed5f1b08f55184b5327af96b40c461f1a36351a838f82a519e5525c52e1a4",
       "docs/screenshots/governance-compliance/actual-correction-receipt-1024.png": "2acf08708c4e7590fbc690a8fd7585429f20025e04397dfa5281e7d94a646ee3",
       "docs/screenshots/governance-compliance/actual-policy-denial-1440.png": "412528da7552873b4bd9090ed67b26fea20da31b4012b26955e3ecaae8efee16",
@@ -1677,9 +1743,10 @@
       "src/features/portal/portal.tsx": "3a1ea83b5840fc915d22528b2d29226909b66adde9031af38eb0cd7b6ac05cc2",
       "tests/e2e/course-hub.spec.ts": "5c0618f7b18591c05da4db5ab1fc2ff43b36a8c97f5b5a71bec9c16c17fa5661",
       "tests/e2e/governance-compliance.spec.ts": "f0f47e51d2eac31c63b7a35167913528d667ca074fab511c941b46d5ad1ae845",
+      "tests/e2e/storage-resilience.spec.ts": "e919e7ff4bfef140d62e39f19f5080e8872778fe7d042472661f024a975ac75f",
       "tests/fixtures/active-teaching-contexts.ts": "9540e5d652520808d45b9850d824ecb79ed6785b28c401814d4e44cf3602a5e8",
       "tests/fixtures/governance.ts": "99978831f39e90ba5b1fd9104625c20d2a1efb499ca03aaef69eec52edfa0746"
     }
   },
-  "implementationFinished": "2026-11-01T08:32:12.893Z"
+  "implementationFinished": "2026-11-01T08:57:05.771Z"
 }
