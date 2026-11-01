@@ -5400,6 +5400,7 @@ export const managementNb = {
   accessReload: 'Les lagret vurderingskontekst på nytt',
   accessReview: 'Åpne egen vurdering og lagringskontroll',
   accessContexts: {
+    migration: 'Storage Part C · File Movement',
     security: 'Security Part C',
     monitoring: 'Monitoring & Diagnostics',
     tools: 'Management & Deployment',
@@ -5960,6 +5961,7 @@ export const missionsNb = {
   reloadContext: 'Last inn bare denne konteksten',
   reviewContext: 'Åpne kontekstens eksisterende recovery eller vurdering',
   recoveryContexts: {
+    migration: 'Storage Part C · File Movement',
     security: 'Security Part C',
     monitoring: 'Monitoring & Diagnostics',
     tools: 'Management & Deployment',
@@ -11362,6 +11364,7 @@ export const courseHubNb = {
     },
   },
   moduleLabels: {
+    migration: 'Part C — File Movement & Migration',
     security: 'Part C — Security Principles & Defender for Cloud',
     monitoring: 'Monitoring & Diagnostic Tools',
     'management-tools': 'Management & Deployment Tools',
@@ -11383,10 +11386,11 @@ export const courseHubNb = {
   storage: 'Storage',
   identity: 'Identity, Access & Security',
   plannedModules: {
-    architecture: ['File Movement & Migration (P16)'],
+    architecture: [],
     management: [],
   },
   recordLabels: {
+    migration: 'Storage Part C · File Movement',
     security: 'Security Part C',
     monitoring: 'Monitoring & Diagnostics',
     tools: 'Management & Deployment',
@@ -12443,7 +12447,7 @@ export const storageResilienceNb = {
   prerequisites:
     'Bygg på Storage Part A: account, tjeneste og data er forskjellige nivåer. Core Architecture forklarer regioner og Availability Zones; Cost Management skiller enhetskostnad fra total bruk.',
   available:
-    'To konseptuelle undersøkelser og nye selvstendige situasjoner. Resultatene tilhører Part B. File Movement & Migration kommer i P16.',
+    'To konseptuelle undersøkelser og nye selvstendige situasjoner. Resultatene tilhører Part B. Fortsett med File Movement & Migration i Storage Part C.',
   topics: {
     introduction: 'Fra lagringstjeneste til tilgang og beskyttelse',
     tiers: 'Hot, Cool, Cold og Archive',
@@ -17235,7 +17239,7 @@ export const monitoringNb = {
   prerequisites:
     'Du kjenner ressursorganisering, lokal Portal-konfigurasjon, tilgang og skillet mellom management-resultat og applikasjonsdrift. Her undersøker du hvilke observasjoner som trengs i tillegg.',
   available:
-    'Advisor, Service Health og Azure Monitor med Log Analytics, alerts og Application Insights er tilgjengelige her. Security Part C er tilgjengelig i Identity, Access & Security. File Movement/Migration kommer senere.',
+    'Advisor, Service Health og Azure Monitor med Log Analytics, alerts og Application Insights er tilgjengelige her. Security Part C og Storage Part C — File Movement & Migration er tilgjengelige i læringssti02.',
   studioLead:
     'Alle tall, hendelser og spor er faste syntetiske Fjordverk-eksempler. De er ikke målinger av ressursene i din Sandbox. Velg en hypotese, forutsi, kjør og sammenlign lagrede observasjoner.',
   sections: {
@@ -18202,7 +18206,7 @@ export const securityNb = {
   prerequisites:
     'Forkunnskaper: Identity Part A/B, networking, Storage, governance og monitoring. Her bygger du helhetlig sikkerhetsforståelse, uten å gjenta de tidligere modellene eller endre deres resultater.',
   available:
-    'Part C er tilgjengelig med Zero Trust, Defense in Depth og Defender for Cloud. Kryptering/Key Vault er Learn-supplement. File Movement & Migration kommer senere.',
+    'Part C er tilgjengelig med Zero Trust, Defense in Depth og Defender for Cloud. Kryptering/Key Vault er Learn-supplement. File Movement & Migration er tilgjengelig som Storage Part C.',
   studioLead:
     'Faste konseptpremisser, ikke angrep eller sikkerhetsskanning. Undersøk et bidrag, endre en relevant forutsetning og begrunn gjenværende risiko.',
   sections: {
@@ -19111,5 +19115,1070 @@ export const securityItemsNb = {
     ],
     explain:
       'Hvis relevante observasjoner på ServerB dokumenterte forventet vedlikehold, kunne alertet klassifiseres deretter. StorageC-endringen måtte fortsatt verifiseres for seg.',
+  },
+} as const;
+
+export const migrationNb = {
+  milestoneNotice:
+    'Forklaringen bygger på lagrede, validerte modellresultater. Den er veiledning, ikke en selvstendig besvarelse eller en Azure-kvittering.',
+  pauseGuided: 'Sett oppdraget på pause',
+  recallGuided: 'Gjenoppta lagret fil-/migreringsundersøkelse',
+  assessmentActive: 'En annen selvstendig File Movement-situasjon er aktiv.',
+  currentFeedback: 'Feedback — File Movement & Migration',
+  historyFeedback: 'Tidligere File Movement-arbeid',
+  labels: {
+    terms: 'Begreper i denne forklaringen',
+    example: 'Gjennomarbeidet eksempel',
+    limits: 'Avgrensning og moteksempel',
+    sources: 'Offisielle kilder · kontrollert 1. november 2026',
+    model: 'Avgrenset konseptmodell — ingen faktisk filoverføring',
+    configured: 'Undersøk deklarerte kilde-, mål- og planforutsetninger',
+    observed: 'Sist lagrede modellobservasjon',
+    predicted: 'Din prediksjon',
+    result: 'Modellens resultat',
+    run: 'Kjør konseptmodell',
+    predict: 'Forutsi konsekvensen under disse forutsetningene',
+    cause: 'Forklar årsaken',
+    explain: 'Lagre årsaksforklaring',
+    done: 'Guidet anvendelse dokumentert',
+    pending: 'Ikke dokumentert ennå',
+    begin: 'Åpne SavvyShark-briefing',
+    cancel: 'Avbryt',
+    recall: 'Gjenåpne briefing',
+    next: 'Neste handling',
+    where: 'Hvor finner du kontrollen?',
+    why: 'Hvorfor gjør du dette?',
+    expected: 'Hva skal du observere?',
+    actual: 'Faktisk registrert',
+    aided: 'Med registrert hjelp',
+    retry: 'Gjeneksponert familie / retry',
+    unaided: 'Første uassisterte forsøk',
+    guided: 'Guidede oppdrag',
+    visited: 'Undervisningsaktiviteter åpnet',
+    independent: 'Uavhengige innleveringer',
+    noXp: 'Ingen XP eller automatisk godskriving fra tidligere Storage-arbeid.',
+    human:
+      'Kvalifisert menneskelig Azure-SME-, novice/IT-, UX-, skjermleser- og målt transfer-validering er ikke gjennomført.',
+    switch:
+      'Ett guidet oppdrag er nåværende. Gjenoppta et lagret oppdrag for å beholde dets forutsetninger og observasjoner, eller start et nytt forsøk. Pause og vanlig navigasjon sletter ikke arbeidet.',
+    current: 'Fortsett nåværende oppdrag',
+    notice:
+      'Kun pedagogiske premisser og syntetiske filer. Ingen kopi, sync, migrering, Azure-ordre eller teknisk receipt opprettes.',
+    predictionOptions: [
+      'Velg prediksjon før kjøring',
+      'Valget eller bidraget passer ikke de deklarerte kravene',
+      'Forutsetninger eller evidens er utilstrekkelige',
+      'Et avgrenset bidrag kan begrunnes under premissene',
+    ],
+    chooseCause: 'Begrunn helheten og gjenværende risiko',
+    modelBoundary:
+      'Kun deterministiske undervisningspremisser; ingen filsystem-, overførings-, synkroniserings- eller migreringsruntime.',
+    method: 'Choose the Transfer Method',
+    sync: 'Synchronization & File Lifecycle',
+    planning: 'Migration Planning',
+  },
+  storage: {
+    loading: 'Laster File Movement …',
+    title: 'File Movement-historikken må avklares',
+    text: 'Data kan ikke brukes sikkert. Gjenopprett bare denne ugyldige læringskontrakten etter eksplisitt bekreftelse.',
+    reload: 'Last inn File Movement på nytt',
+    recover: 'Gjenopprett bare File Movement-data',
+    confirm: 'Bekreft isolert gjenoppretting',
+    cancel: 'Behold data',
+    capacity:
+      'Ny aktivitet er stanset ved hendelsesgrensen. Et aktivt forsøk kan fortsatt lagre siste svar, registrere hjelp og levere eller avbryte. En allerede undersøkt guidet aktivitet kan avsluttes.',
+    failed: 'Handlingen ble ikke varig lagret. Ingen faglig fullføring er registrert.',
+    milestones:
+      'Automatiske forklaringer er satt på pause fordi visningshistorikken ikke kan bekreftes. Arbeidet kan fortsette; forklaringen kan åpnes manuelt når konteksten er trygg.',
+    unsafe:
+      'Automatisk veiledning er skjermet under aktiv selvstendig vurdering eller usikker lagring. Åpne vurderings-/recovery-konteksten nedenfor.',
+    ownDraft: 'Sist leste oppgaveutkast · endring og innlevering sperret til trygg reload',
+  },
+  assessment: {
+    title: 'Selvstendig File Movement & Migration-anvendelse',
+    intro:
+      'Velg en faglig forsvarlig beslutning og begrunnelsen som best forklarer hele valget under alle oppgitte krav. Et sant, men ufullstendig eller irrelevant utsagn er ikke tilstrekkelig. Flere tilbudte beslutninger kan være gyldige når premissene tillater det. Hvert forsøk vurderer ditt valgte par.',
+    rules:
+      'Første besvarelse låses ved innlevering. Ingen fasit eller løsningsguide vises under arbeidet. Åpning av teori, Journal, Summary eller tidligere feedback krever varig registrert hjelp i alle aktive kontekster. Samme familie senere er retry, også etter avbrudd.',
+    case: 'Velg scenario',
+    result: 'Resultat for dette paret',
+    decision: 'Velg én faglig forsvarlig beslutning under premissene.',
+    reason:
+      'Velg forklaringen som begrunner hele beslutningen i denne situasjonen. Begge valgene må passe sammen.',
+    draft: 'Varig lagret utkast',
+    unaided: 'Første uassisterte forsøk',
+    assisted: 'Med registrert hjelp',
+    retried: 'Gjeneksponert familie / retry',
+    first: 'Første innlevering',
+    pass: 'Faglig forsvarlig beslutning og begrunnelse i denne situasjonen',
+    fail: 'Beslutning og begrunnelse tilfredsstiller ikke kravene sammen',
+    start: 'Start selvstendig forsøk',
+    retry: 'Start nytt forsøk',
+    submit: 'Lever beslutning og begrunnelse',
+    abandon: 'Avbryt forsøket',
+    help: 'Be om hjelp i relevant undervisning',
+    neutral:
+      'Vurder begge valgene under de oppgitte premissene. Ingen av valgene er forhåndsvalgt; riktig beslutning med feil teknisk årsak godkjennes ikke.',
+    history: 'Undersøk tidligere innleveringer',
+    alternatives: 'Alle alternativer og endrede forutsetninger',
+    repeat: 'Repeter presis undervisningsaktivitet',
+  },
+  summaryBoundary:
+    'Besøk, guidede undersøkelser, faktiske lokale receipts, førsteinnleveringer, hjelp og retry er forskjellige registreringer. Modellen er ikke en faktisk Azure-deployment eller dokumentert studentmestring.',
+  model: {
+    snapshot: 'Lagret, avgrenset undervisningsobservasjon',
+    noRun: 'Start undersøkelsen, velg forutsetninger og forutsi før en kjøring lagres.',
+    draftChanged:
+      'Kontrollene er endret. Dette resultatet viser fortsatt den lagrede konfigurasjonen. Kjør igjen for et nytt resultat.',
+    outcome: [
+      'Et deklarert krav er ikke oppfylt',
+      'Nødvendige forutsetninger eller observasjoner gjenstår',
+      'Et avgrenset resultat kan begrunnes under premissene',
+    ],
+    yes: 'Ja',
+    no: 'Nei',
+  },
+  links: {
+    title: 'Relevante forkunnskaper',
+    storage: 'Storage Part A',
+    resilience: 'Storage Part B',
+    network: 'Hybrid connectivity',
+    tools: 'Management & Deployment',
+    sandbox: 'Fri Portal-sandbox',
+  },
+  title: 'File Movement & Migration',
+  part: 'Part C — File Movement & Migration',
+  path: '02 — Azure Architecture & Services',
+  perspective: 'Perspektiver i File Movement & Migration Studio',
+  overview: 'Velg en overføringsmetode, undersøk endringer og planlegg en etterprøvbar migrering.',
+  prerequisites:
+    'Forkunnskaper: Storage Part A/B, nettverksforbindelser, datarettigheter og Management. Her bruker du disse begrepene til å planlegge bevegelse og validering av data.',
+  available:
+    'Storage Part C er tilgjengelig med AzCopy, Storage Explorer, Azure File Sync, Azure Migrate og Data Box. Neste produktfase er en separat pedagogisk helhetsrevisjon, ikke automatisk eksamensgodkjenning.',
+  studioLead:
+    'Deklarerte behov, små syntetiske manifester og eksplisitte planantakelser. Ingen filer eller arbeidslaster flyttes.',
+  sections: {
+    introduction: {
+      title: 'Fra lagrede data til en kontrollert overgang',
+      paragraphs: [
+        'Fjordverk har produktbilder i et lokalt arkiv, dokumenter på Windows-filservere og en applikasjon som bruker database, identitet og nettverksforbindelser. Å legge noe av dette i Azure er forskjellige oppdrag. En mappe med bilder kan kopieres én gang. Kontorenes dokumenter kan trenge fortsatt lokal tilgang. Applikasjonen kan kreve oppdagelse av avhengigheter, en overgangsplan og tester etter flytting.',
+        'Kopiering gjør et utvalg data tilgjengelig et annet sted under bestemte overføringsregler. Synkronisering sammenholder endringer mellom deklarerte endepunkter. Migrering handler om å flytte eller modernisere en fungerende arbeidslast og dens nødvendige data, konfigurasjon og forbindelser. En fullført datakopi dokumenterer ikke at brukere kan logge inn eller at applikasjonen gir riktige svar.',
+        'Før et verktøy velges, beskriver teamet kilde, destinasjon, datamengde, hvor data endres, ønsket arbeidsmåte, tidsvindu og krav til innhold og metadata. Deretter undersøkes tilgang og nettverk. Et kjent Storage Account eller en ressursrolle fra tidligere moduler er ikke i seg selv dokumentert lesing eller skriving av data.',
+        'Vi bygger videre på Storage A/B, nettverk og Management. Her er det nye spørsmålet hvordan en konkret overgang kan gjennomføres og etterprøves. Alle manifester, tider og tilstander i Studio er syntetiske undervisningspremisser. AzureLab kopierer ingen filer, oppretter ingen migreringsjobb og endrer ingen teknisk ressurs når en modell kjøres.',
+      ],
+      terms: [
+        ['Datatransport', 'Flytting av deklarert datautvalg mellom kilde og mål.'],
+        [
+          'Cutover',
+          'Kontrollert overgang til målmiljøet, inkludert håndtering av aktive skrivere og forbindelser.',
+        ],
+        ['Validering', 'Etterprøving av avtalte data- og applikasjonskrav.'],
+      ],
+      example:
+        'Fjordverk kan få alle bilder til et lagringsmål og fortsatt mangle nettverksruten, appens datatillatelse eller riktig URL. Hvert resultat trenger et bevis som gjelder akkurat det spørsmålet.',
+      limit:
+        'Konfigurasjon, transport, integritet og applikasjonsatferd er separate bevis. Innholdsdekning i kurset er ikke målt elevmestring.',
+    },
+    methods: {
+      title: 'Ett behov kan gi flere forsvarlige verktøyvalg',
+      paragraphs: [
+        'Begynn med arbeidsmåten. Et repeterbart kommandolinjesteg kan passe et automatisert bildeutvalg. Et lite, manuelt utvalg kan være enklere i et grafisk verktøy. Et kontor som skal beholde Windows-filservere og løpende endringer, trenger en annen mekanisme enn en engangskopi. Datamengde alene avgjør ikke valget.',
+        'AzCopy og Storage Explorer kan begge overføre relevante Blob- og Files-data, men grensesnitt, automatisering og det konkrete tjeneste-/autentiseringsparet betyr noe. En grafisk preferanse gjør ikke kommandolinjen faglig feil hvis andre krav tillater den. Modellen skal vise avveininger når flere valg passer, fremfor å gjøre én preferanse til en universell fasit.',
+        'Filfidelity betyr at nødvendige egenskaper følger med eller gjenopprettes riktig. Filinnhold, navn, tidsstempler, eier, ACL-er og ekstra filsystemegenskaper er ulike ting. Azure Files kan lagre støttede Windows-ACL-er, men enkelte egenskaper, som alternative datastrømmer, lagres ikke som ordinært Azure Files-innhold. Velg derfor kilde, mål og metode som en samlet bevaringsplan.',
+        'Gjeldende Azure Files-veiledning beskriver File Sync, Storage Mover og Robocopy for bestemte migreringsbehov. AzCopy har flagg som bevarer støttede egenskaper og tillatelser, men dette gjør ikke alle kilde-/målpar til full-fidelity-migrering. Storage Mover er relevant supplerende produktkontekst, ikke et sjette P16-eksamensmål eller en ny motor i AzureLab.',
+      ],
+      terms: [
+        ['Fidelity', 'Bevaring av de egenskapene oppdraget faktisk krever.'],
+        ['ACL', 'Tilgangsliste knyttet til støttede filer eller mapper.'],
+        ['Tilgangsmønster', 'Hvem som endrer eller leser data, hvor og hvor ofte.'],
+      ],
+      example:
+        'Et lite engangsutvalg til Blob kan passe både AzCopy og Explorer. Når kravet endres til automatisert kjøring uten operatør, får grensesnittet en konkret konsekvens. Når målet i stedet er flerendepunkts Windows-filarbeid, endres mekanismen.',
+      limit:
+        'Ingen valgt transport eller filtype beviser universell metadatafidelity. Krevende eller uavklarte egenskaper krever konkret støtte- og pilotkontroll.',
+    },
+    azcopy: {
+      title: 'AzCopy: en eksplisitt kilde, et mål og en jobb',
+      paragraphs: [
+        'AzCopy v10 er et selvstendig kommandolinjeverktøy for dataoverføring. Det er forskjellig fra Azure CLI. AzCopy kan laste opp, laste ned og kopiere mellom støttede lagringsendepunkter, blant annet relevante Blob- og Azure Files-scenarioer. Kommandoen beskriver en jobb; den oppretter ikke automatisk en vedvarende flerendepunkts filsynkronisering.',
+        'copy og sync må leses med de valgte flaggene. En kopi kan for eksempel bruke --overwrite=ifSourceNewer. En sync-kjøring har én valgt kilde og én destinasjon, sammenligner blant annet navn og sist endret-tid og kan bruke en støttet hash-sammenligning. Sletting av objekter som bare finnes i mål krever et eksplisitt delete-destination-valg. To motsatte jobber er ikke en koordinert, kontinuerlig toveis tjeneste.',
+        'Riktig identitet må ha nødvendige datarettigheter til den aktuelle kilden og destinasjonen. Microsoft Entra ID og SAS brukes i støttede kombinasjoner; dette er ikke en instruks om å lage eller dele et token. For Azure Files varierer støtte med operasjon, SMB/NFS, operativsystem og versjon. For eksempel har lokale NFS-overføringer andre plattformkrav enn server-til-server. Fra v10.30 blir nødvendige file shares ikke lenger automatisk opprettet ved overføring.',
+        'Gjeldende kommandoreferanse beskriver flere støttede sync-par enn den smalere notisen i Blob-howtoen. Kontroller derfor den konkrete versjonen, retningen og autorisasjonen. Studioets retningsbestemte AzCopy-eksempler er avgrenset til lokal/Blob. Deres enkle versjonstegn er ikke AzCopys faktiske tids-/hashalgoritme.',
+        'AzCopy har jobb- og loggkommandoer for status, feil og gjenopptakelse. En avbrutt jobb må undersøkes, og ny kjøring eller resume må fortsatt ha gyldig tilgang. Kontroller overførte objekter og avtalte egenskaper separat. Ikke endre kilde eller mål under en overføring og anta at jobben da lager et konsistent snapshot av seg selv.',
+      ],
+      terms: [
+        ['Source → destination', 'Retningen velges for den aktuelle kjøringen.'],
+        [
+          'Jobbresultat',
+          'Status for de handlingene verktøyet forsøkte, ikke automatisk applikasjonsgodkjenning.',
+        ],
+        ['Illustrativ kommando', 'Tekst som forklarer syntaks; den kjøres ikke i AzureLab.'],
+      ],
+      example:
+        'En avgrenset Blob-kopi kan uttrykkes som azcopy copy med en lokal mappe og en container-URL. En senere kontroll kan sammenholde avtalt manifest og mål. Et management-svar om at kontoen finnes erstatter ingen av disse handlingene.',
+      limit:
+        'Ingen kommando utføres. Eksemplene bruker plassholdere og ingen SAS, passord eller autentisering. Ikke anta universell ACL-støtte, driftssikkerhet eller at jobbstatus alene beviser integritet.',
+    },
+    explorer: {
+      title: 'Storage Explorer: kontrollert, grafisk dataarbeid',
+      paragraphs: [
+        'Azure Storage Explorer er et eget skrivebordsprogram for Windows, macOS og Linux. Det gir en grafisk måte å navigere støttede Storage Accounts og ressurser på. Blob-containere, Azure Files, Queues og Tables har ulike strukturer og handlinger; de er ikke mapper i ett universelt filsystem.',
+        'En administrator kan undersøke objekter og egenskaper, velge noen filer for upload eller download og følge en avgrenset overføring. Dette passer for eksempel når Fjordverk skal kontrollere tre produktbilder eller inspisere et lite lagringsområde. Det er en annen arbeidsmåte enn en ubemannet pipeline, selv om et dataoverføringsverktøy kan brukes under deler av grensesnittet.',
+        'Tilkobling kan bruke Microsoft Entra ID, kontonavn/nøkkel, SAS eller en annen støttet metode for den valgte ressurstypen. Metodene er ikke støttet likt overalt. En bruker med bare Blob-datarettigheter kan i et støttet tilfelle koble til den konkrete containeren uten å ha full management-oversikt over abonnementet. Et innlogget vindu eller en Reader-rolle gir ikke automatisk mer datatilgang.',
+        'Det visuelle grensesnittet erstatter ikke kontroll av metadata, kilde-/målvalg, nettverk eller etterresultat. Det etablerer ikke en File Sync-topologi, og en liten vellykket overføring beviser ikke at verktøyet passer en stor full-fidelity-migrering. Storage Explorer i dette kurset forklares og sammenlignes; AzureLab lager ingen kopi av selve programmet.',
+      ],
+      terms: [
+        ['Grafisk utvalg', 'Brukeren velger et konkret ressurs-/datautvalg visuelt.'],
+        [
+          'Individuell tilkobling',
+          'En støttet kobling til én ressurs kan ha et annet management-behov enn full kontooversikt.',
+        ],
+        [
+          'Datatilgang',
+          'Tillatelse til relevant innhold; forskjellig fra ressursens management-oversikt.',
+        ],
+      ],
+      example:
+        'Administratorens oppdrag er å inspisere Blob-navn og hente et lite kontrollutvalg. Et støttet Explorer-oppsett kan være mer naturlig enn å etablere en vedvarende filserverrelasjon.',
+      limit:
+        'Ingen installasjon, ekstern innlogging, filoverføring eller generell Storage Explorer-klone. GUI gir ingen ekstra tillatelser og ingen universell filfidelity.',
+    },
+    'file-sync': {
+      title: 'Azure File Sync: en vedvarende hybrid filrelasjon',
+      paragraphs: [
+        'Azure File Sync samler filer i Azure Files samtidig som støttede Windows Server-endepunkter beholdes lokalt. En Storage Sync Service organiserer registrerte servere og sync groups. En sync group har ett cloud endpoint mot et støttet Azure Files SMB-share og ett eller flere server endpoints som beskriver relevante servermapper. Endringer kan gå fra en server via skyshare til andre servere.',
+        'Dette er ikke det samme som å kopiere en mappe én gang. Hvert endepunkt inngår i en vedvarende synkroniseringsrelasjon med agent, konto-, filsystem-, nettverks- og skaleringskrav. Lokale klienter kan bruke protokoller Windows-serveren tilbyr; dette må ikke forveksles med støtte for en NFS Azure file share som cloud endpoint. Gjeldende File Sync-støtte bruker SMB classic file shares, ikke de nye top-level NFS-ressursene.',
+        'Cloud tiering er valgfri lokal cachehåndtering. Namespace med navn og mapper kan være synlig lokalt mens sjeldent brukt filinnhold ligger i Azure Files. Når innholdet ikke er lokalt, trenger recall relevant skytilgang og forbindelse. En synlig plassholder er derfor ikke nok hvis Fjordverk krever garantert frakoblet lesing av en bestemt arbeidsmengde. Dette er forskjellig fra Blob Hot, Cool, Cold eller Archive.',
+        'Volumets ledigplasspolicy og datopolicy påvirker hva som tier-es, med ledigplassprioritet under dokumenterte regler. Endret policy betyr ikke at alle filer umiddelbart hentes tilbake. Planlegg derfor lokalt tilgjengelig innhold og overvåk faktiske forhold; læringsmodellens cachevalg er et deklarert eksempel, ikke en gjenimplementering av produktets heatmap.',
+        'Synkronisering betyr ikke øyeblikkelig global konsistens. Direkte endringer i cloud endpoint må oppdages; dokumentasjonen beskriver en periodisk change-detection-jobb og egne måter å initiere deteksjon på. Samtidige endringer kan gi konfliktkopier etter dokumenterte regler og grenser. Etter initial opplasting beskriver FAQ-en bevaring av begge endringer, med navn basert på blant annet sist skrevet-tid og endpoint. Initial merge/authoritative-policy og ufullstendige premisser må vurderes separat.',
+        'Studio vil derfor vise en uavklart konflikt når det ikke finnes nok forutsetninger til å velge et resultat. Ingen fil vinner automatisk bare fordi et klokkeslett eller et servernavn ser kjent ut. Synkroniserte endringer og slettinger er heller ikke en uavhengig backup. Planlegg separat gjenoppretting, tilgangskontroll og etterprøving av filer.',
+      ],
+      terms: [
+        ['Cloud endpoint', 'Den støttede sentrale Azure Files-sharen i en sync group.'],
+        ['Server endpoint', 'En relevant mappe på en registrert Windows-server.'],
+        [
+          'Namespace / innhold',
+          'Navn og struktur kan være lokale selv når filinnhold må hentes fra skyen.',
+        ],
+      ],
+      example:
+        'Kontor A og B redigerer samme rapport før endringen er nådd fram. Det er et konfliktspørsmål, ikke bevis for at siste klikk i en læringsmodell skal vinne. En kritisk offlinefil trenger lokalt innhold, ikke bare et navn.',
+      limit:
+        'Ingen agent, faktisk synkronisering, recall, backup eller universell konfliktmotor. Produktets støtte, initial policy, endringsdeteksjon, tilganger og grenser må fortsatt vurderes.',
+    },
+    migrate: {
+      title: 'Azure Migrate: fra oppdagelse til en verifisert overgang',
+      paragraphs: [
+        'Azure Migrate hjelper organisasjonen å finne, vurdere, planlegge og gjennomføre migrering eller modernisering av støttede arbeidslaster. Det samler relevante verktøy og resultater for blant annet servere, databaser og webapper. Tjenesten er derfor mer enn en måte å kopiere enkeltfiler på, og det å opprette eller fylle en oversikt er ikke en gjennomført migrering.',
+        'Vi bruker Discover → Assess → Plan → Migrate → Validate som pedagogisk oppdeling. Den faktiske portalen organiserer arbeidet gjennom oppdaterte decide/plan/execute-opplevelser og produktspesifikke flyter. Nyere applikasjons-/cross-workload-visninger og anbefalt dependency analysis må skilles fra classic-grensesnitt og eldre agentbasert analyse. Preview-funksjoner er avgrenset produktkontekst, ikke nødvendige AZ-900-mekanismer.',
+        'Discovery kan bruke ulike støttede kilder. En appliance kan gi løpende konfigurasjon og ytelse under sine forutsetninger. Collector eller importert CSV/RVTools kan gi et mer avgrenset snapshot. Et gyldig eksportert inventar kan være nyttig, men inneholder ikke automatisk alle forbindelser, målinger eller applikasjonsavhengigheter.',
+        'Assessment vurderer blant annet readiness, kompatibilitet, anbefalt mål og right-sizing. Kostnadsestimatet avhenger av innsamlet konfigurasjon, ytelse, målvalg og økonomiske antakelser. Det er ikke en regning eller et løfte om faktisk framtidig pris. Resultatet er et tidspunktavhengig grunnlag: endret databaseversjon, belastning eller en ny lisensserver kan gjøre deler av vurderingen foreldet.',
+        'Planen må beskrive avhengigheter, dataoverføring, nedetid, identitet, nettverk, omkobling, validering og eventuell retrett. Migrering utfører støttede flyttehandlinger; validering undersøker om målmiljøet faktisk oppfyller avtalte krav. En VM som er opprettet eller kopiert gir ikke alene bevis for riktige applikasjonssvar eller at kundens data er konsistente.',
+      ],
+      terms: [
+        ['Discovery', 'Hvilke arbeidslaster og relevante egenskaper/forbindelser finnes?'],
+        [
+          'Assessment',
+          'Hva støtter det aktuelle datagrunnlaget om readiness, målvalg og estimater?',
+        ],
+        [
+          'Applikasjonsavhengighet',
+          'En forbindelse eller tjeneste som må håndteres for at arbeidslasten skal fungere.',
+        ],
+      ],
+      example:
+        'En uendret anbefalt VM-størrelse opphever ikke en ny databaseversjon eller ekstern lisensavhengighet. Teamet undersøker påvirkningen og fornyer nødvendig grunnlag før overgangstester.',
+      limit:
+        'Ingen prosjektopprettelse, appliance, agent, migreringsjobb eller kostnadskalkulator. Modellens arbeidstrinn er pedagogiske og dokumenterer ingen faktisk Azure-operasjon.',
+    },
+    databox: {
+      title: 'Azure Data Box: fysisk transport er en del av planen',
+      paragraphs: [
+        'Azure Data Box-familien flytter store datamengder med fysiske enheter når tilgjengelig netttransport er utilstrekkelig eller ugunstig. Filer må først kopieres til riktig sted, enheten må håndteres og transporteres, data må behandles i mål og resultatet må kontrolleres. Offline transport betyr ikke at data allerede finnes tilgjengelig i Azure.',
+        'Familien har forskjellige varianter, kapasiteter og bruksgrenser. Gjeldende dokumentasjon beskriver Data Box120 og525 med ulike brukbare kapasiteter, tidligere80TB-enheter under regional utfasing og Heavy som ikke lenger kan bestilles. Data Box Disk er et eget alternativ og støtter import, ikke eksport. Kontroller aktuell enhet, region, land/handelsgrense og tilgjengelighet; ett Learn-eksempel med80TB er ikke en universell produktgrense.',
+        'En import har typisk planlegging og ordre/mottak, lokal kopi til enhet, retur til Azure, opplasting/behandling og verifikasjon i lagringsmålet. Lokal kopiering, fysisk retur og Azure-import er tre ulike hendelser. En eksport starter derimot med at Azure-data kopieres til enheten før den sendes til kunden. Etter mottak kopieres de ut lokalt; enheten returneres og slettes etter dokumentert behandling.',
+        'Autentisering, datarettigheter, kryptering, sikker enhetshåndtering og integritet er fortsatt nødvendige. Noen eksportflyter tar ikke med relevante fil-/mappemetadata og ACL-er. En fil kan dermed ha blitt transportert uten at hele oppdragets fidelity- eller tilgangskrav er oppfylt. Vurder separat bevaring, restaurering og test der det er nødvendig.',
+        'Sammenlign hele tidsbildet. Datamengde og tilgjengelig båndbredde gir et illustrativt nedre tidsestimat for netttransport. Fysisk håndtering krever i tillegg planlagt lokal kopi, tilgjengelighet, transport og behandling. Data Box er ikke alltid raskest, og egner seg ikke som generell kontinuerlig live-synkronisering. Et stort første seed kan noen ganger kombineres med senere nettverksinkrementer, kontrollert cutover og separat validering.',
+      ],
+      terms: [
+        [
+          'Import / eksport',
+          'Retningene har forskjellige rekkefølger for Azure-sidekopi, transport og lokal kopiering.',
+        ],
+        [
+          'Logistikkforutsetning',
+          'En oppgitt planpremiss, ikke en virkelig ordre eller en garantert leveringstid.',
+        ],
+        [
+          'Seed / sluttendringer',
+          'Innledende datakopi og senere avstemming er forskjellige oppgaver.',
+        ],
+      ],
+      example:
+        'Et låst datasett kan passe fysisk transport når hele den erklærte planen rekker fristen. Et lite sluttinkrement kan passe nettet selv om første hovedkopi brukte en fysisk enhet.',
+      limit:
+        'Ingen ordre, enhet, sporingsnummer, virkelig transport eller prisløfte. Kapasitet og funksjoner må kvalifiseres per variant og region. Kopiert data er ikke bevis for migrert applikasjon.',
+    },
+    validation: {
+      title: 'Hva må resultatet faktisk dokumentere?',
+      paragraphs: [
+        'En god plan har flere kontrollpunkter. Før transport avklares hva som skal kopieres, en stabil kilde eller et konsistent snapshot, kilde-/måltilgang og nettverk. Etter kopiering kontrolleres det avtalte utvalget og eventuelle feil eller utelatelser. Filantall, størrelse, metadata og avtalte kontrollsummer kan inngå etter valgt tjeneste og metode.',
+        'En verktøystatus må leses med sitt omfang. Den kan beskrive at jobbens handlinger er fullført, men ikke at alle forretningskrav er testet. En læringsmodells versjonstegn eller like rader er heller ikke en beregnet kontrollsum av virkelig innhold. Man må fortsatt vurdere nødvendige tillatelser, datafidelity og riktig kildeversjon.',
+        'En aktiv kilde kan få nye skriv underveis. Planen kan derfor trenge en innledende kopi, endringsavstemming og en kort kontrollert skrivepause før omkobling. Alternativt kan arbeidslastens egne konsistensmekanismer gi en annen støttet løsning. Ingen slik strategi er automatisk korrekt for alle databaser, filer eller applikasjoner.',
+        'Applikasjonsvalidering omfatter avtalte funksjoner, identitet, avhengigheter, forbindelser og data. Først når de relevante kravene er etterprøvd kan teamet vurdere godkjenning og avvikling av gammel kilde. Et støttet, dokumentert begrenset resultat kan brukes underveis; usikkerhet skal ikke bli verken oppdiktet suksess eller automatisk avvisning av all tilgjengelig informasjon.',
+      ],
+      terms: [
+        [
+          'Integritetskontroll',
+          'Etterprøving av avtalte dataegenskaper mot et relevant kildegrunnlag.',
+        ],
+        ['Konsistensgrense', 'Hvordan endringer og aktive skrivere avgrenses ved overgangen.'],
+        ['Akseptansekriterium', 'Et konkret krav som må kontrolleres for å godkjenne resultatet.'],
+      ],
+      example:
+        'En enhet er sendt, men Azure-import er ikke verifisert. Eller filene er i Azure, men siste lokale endringer og applikasjonstester gjenstår. Hver status trenger en separat konklusjon.',
+      limit:
+        'Modellen utfører ingen hashing, faktisk datavalidering, cutover eller applikasjonstest. En deklarert kontrollpremiss skal aldri framstilles som en faktisk kvittering.',
+    },
+    studio: {
+      title: 'File Movement & Migration Studio',
+      paragraphs: [
+        'Første perspektiv sammenholder behov med verktøy. Se datatype, kilde og mål, engangs-/gjentatt bruk, grensesnitt og støtte-/tilgangsforutsetninger. Velg et verktøy, forutsi konsekvensen og lagre en kjøring. Når flere løsninger oppfyller kravene, viser modellen avveiningene i stedet for å hevde at ett produkt alltid er best.',
+        'Andre perspektiv bruker et lite, syntetisk manifest med navn og deklarerte versjoner. Sammenlign en kopi med en retningsbestemt sync og et separat hybrid File Sync-spørsmål. Undersøk objekter som bare finnes i kilde eller mål, en endring på begge sider, ukjent metadata og en fil der bare namespace er lokalt. Dette er avgrensede regelillustrasjoner, ikke et nytt filsystem.',
+        'Tredje perspektiv viser en avhengighets- og fasemodell. Undersøk hva som er oppdaget, om vurderingen gjelder dagens kilde, og hva en erklært transportplan faktisk kan støtte. De illustrative tidene skiller nettets nedre grense fra fiktive, eksplisitte logistikkpremisser. Cutover og appvalidering forblir egne spørsmål.',
+        'De guidede undersøkelsene bruker lagrede kontraster, prediksjon og årsaksforklaring. SavvyShark følger den faktiske lagrede aktiviteten og utfører ingen overføringer. Senere selvstendige situasjoner har andre beslutningskrav. Løsningstekst eller Journal under en aktiv selvstendig vurdering må klassifiseres som hjelp etter eksisterende varige kontrakter.',
+      ],
+      terms: [
+        [
+          'Syntetisk manifest',
+          'Et lite erklært datasett som viser retning og konsekvens uten ekte filer.',
+        ],
+        ['Lagret observasjon', 'Deterministisk resultat av de nøyaktige lagrede premissene.'],
+        [
+          'Uavklart',
+          'Nødvendig støtte eller grunnlag mangler; ikke det samme som vellykket overføring.',
+        ],
+      ],
+      example:
+        'En faktisk lokal VM eller ressurskvittering kan leses som arkitekturkontekst. Den gjør verken manifestfilene virkelige eller VM-en migrert.',
+      limit:
+        'Ingen modell endrer autoritativ World eller gir XP. Å åpne en aktivitet fullfører den ikke, og tidligere Storage-resultater gir ingen automatisk Part C-kompetanse.',
+    },
+  },
+  topics: {
+    introduction: 'Fra lagrede data til en kontrollert overgang',
+    methods: 'Ett behov kan gi flere forsvarlige verktøyvalg',
+    azcopy: 'AzCopy: en eksplisitt kilde, et mål og en jobb',
+    explorer: 'Storage Explorer: kontrollert, grafisk dataarbeid',
+    'file-sync': 'Azure File Sync: en vedvarende hybrid filrelasjon',
+    migrate: 'Azure Migrate: fra oppdagelse til en verifisert overgang',
+    databox: 'Azure Data Box: fysisk transport er en del av planen',
+    validation: 'Hva må resultatet faktisk dokumentere?',
+    studio: 'File Movement & Migration Studio',
+    missions: 'Guidede overføringsundersøkelser',
+    assessment: 'Selvstendig File Movement & Migration',
+    summary: 'Summary — Storage Part C',
+  },
+  missions: {
+    method: {
+      title: 'Select the Right File Movement Tool',
+      situation:
+        'Fjordverk trenger både et lite bildeutvalg, ubemannet publisering og en hybrid dokumentløsning. Undersøk hvilke krav som endrer verktøyvalget.',
+      goal: 'Forstå verktøyrolle, alternativer, tjenestestøtte og fidelity som forskjellige spørsmål.',
+      why: 'Riktig verktøyvalg må passe de faktiske data- og driftskravene; ett statusfelt er ikke et samlet migreringsbevis.',
+      limits:
+        'Kun syntetiske premisser. Ingen fil, agent, overføring, ordre eller migrering utføres.',
+      steps: [
+        'Kjør samme lille engangsscenario med AzCopy og Explorer; observer at begge arbeidsformer kan passe.',
+        'Endre til scheduled/scripted og sammenlign AzCopy med Explorer med ellers like premisser.',
+        'Velg hybrid dokumentarbeid, Windows, SMB og File Sync; sammenlign med samme scenario mot NFS.',
+        'Krev ekstra fidelity; lagre samme verktøyvalg først uten og deretter med dokumentert fidelity-grunnlag.',
+      ],
+      debrief:
+        'Forstå verktøyrolle, alternativer, tjenestestøtte og fidelity som forskjellige spørsmål. Lagrede kontraster og årsaksforklaring gir guidet evidence, ikke uassistert kompetanse.',
+      where: 'Velg de navngitte kontrollene i Studioet og lagre hver kontrast med en prediksjon.',
+      observe:
+        'Sammenlign lagrede premisser og konkrete regelkonsekvenser. Skille kopiert innhold, ukjent fidelity, transportbudsjett og faktisk validering.',
+    },
+    sync: {
+      title: 'Investigate a Synchronization Problem',
+      situation:
+        'Et lite manifest har oppdaterte, manglende og målspesifikke objekter. Kontorene må også forstå konflikt og lokal cache.',
+      goal: 'Skille engangsregel, valgt retning, hybridendring og lokal tilgjengelighet uten faktisk filbehandling.',
+      why: 'Riktig verktøyvalg må passe de faktiske data- og driftskravene; ett statusfelt er ikke et samlet migreringsbevis.',
+      limits:
+        'Kun syntetiske premisser. Ingen fil, agent, overføring, ordre eller migrering utføres.',
+      steps: [
+        'Sammenlign copy-baseline med directional sync og eksplisitt mål-sletting. Undersøk arkiv.txt.',
+        'Sammenlign directional sync i begge retninger uten mål-sletting; kontroller at B ikke berøres.',
+        'Sammenlign File Sync-fixturen med concurrent og baseline; et uavklart konfliktgrunnlag skal ikke få automatisk vinner.',
+        'Med File Sync, cloud tiering og uten lokalt innhold: sammenlign frakoblet og tilkoblet situasjon.',
+      ],
+      debrief:
+        'Skille engangsregel, valgt retning, hybridendring og lokal tilgjengelighet uten faktisk filbehandling. Lagrede kontraster og årsaksforklaring gir guidet evidence, ikke uassistert kompetanse.',
+      where: 'Velg de navngitte kontrollene i Studioet og lagre hver kontrast med en prediksjon.',
+      observe:
+        'Sammenlign lagrede premisser og konkrete regelkonsekvenser. Skille kopiert innhold, ukjent fidelity, transportbudsjett og faktisk validering.',
+    },
+    planning: {
+      title: 'Plan a Migration',
+      situation:
+        'En avhengig applikasjon og et stort datasett trenger en plan som omfatter mer enn datatransport.',
+      goal: 'Skille discovery, fersk assessment, transportbudsjett, cutover og separat validering.',
+      why: 'Riktig verktøyvalg må passe de faktiske data- og driftskravene; ett statusfelt er ikke et samlet migreringsbevis.',
+      limits:
+        'Kun syntetiske premisser. Ingen fil, agent, overføring, ordre eller migrering utføres.',
+      steps: [
+        'Hold startscenarioet ellers likt og sammenlign manglende med dokumenterte avhengigheter.',
+        'Med dokumenterte avhengigheter: sammenlign aktuelt og foreldet vurderingsgrunnlag.',
+        'For20 000GB,100Mbit/s og240timer: sammenlign netttransport med en støttet fysisk120-timers plan.',
+        'Fra fysisk plan med erklært datakontroll: sammenlign transported-fase med validated, avstemte skrivere og appkontroller.',
+      ],
+      debrief:
+        'Skille discovery, fersk assessment, transportbudsjett, cutover og separat validering. Lagrede kontraster og årsaksforklaring gir guidet evidence, ikke uassistert kompetanse.',
+      where: 'Velg de navngitte kontrollene i Studioet og lagre hver kontrast med en prediksjon.',
+      observe:
+        'Sammenlign lagrede premisser og konkrete regelkonsekvenser. Skille kopiert innhold, ukjent fidelity, transportbudsjett og faktisk validering.',
+    },
+  },
+  causal: {
+    method: [
+      'Et verktøy som passer én datamengde, gir samme støtte for alle protokoller og metadata.',
+      'Grafisk eller kommandolinje bestemmer datarettighetene, slik at andre tilgangsforutsetninger kan utelates.',
+      'Arbeidsform, datakrav og støttet topologi styrer rollen; dokumentert tilgang og fidelity er separate forutsetninger.',
+    ],
+    sync: [
+      'Retning, eksplisitt sletting, konflikter og lokalt innhold har egne konsekvenser; ingen syntetisk likhet beviser virkelig sync eller backup.',
+      'To motsatte sync-jobber utgjør en kontinuerlig, koordinert flerendepunktstjeneste med automatisk konflikthåndtering.',
+      'Et lokalt filnavn beviser at filinnholdet er tilgjengelig uten forbindelse, også etter cloud tiering.',
+    ],
+    planning: [
+      'En erklært datakontroll avslutter hele applikasjonsmigreringen, også når vurderingen er foreldet.',
+      'Aktuell discovery/assessment, en gjennomførbar transportplan, konsistens og separate måltester støtter ulike deler av overgangen.',
+      'Et estimert nett- eller logistikkbudsjett er en garantert gjennomføringstid som gjør etterkontroll unødvendig.',
+    ],
+  },
+  milestone: {
+    method: {
+      title: 'Lagrede kontraster — Select the Right File Movement Tool',
+      text: 'De nødvendige modellkontrastene er lagret. Undersøk årsaken og lagre en kompatibel forklaring før oppdraget kan regnes som fullført.',
+    },
+    sync: {
+      title: 'Lagrede kontraster — Investigate a Synchronization Problem',
+      text: 'De nødvendige modellkontrastene er lagret. Undersøk årsaken og lagre en kompatibel forklaring før oppdraget kan regnes som fullført.',
+    },
+    planning: {
+      title: 'Lagrede kontraster — Plan a Migration',
+      text: 'De nødvendige modellkontrastene er lagret. Undersøk årsaken og lagre en kompatibel forklaring før oppdraget kan regnes som fullført.',
+    },
+  },
+  controls: {
+    dataset: 'Arbeidslastens datatype',
+    destination: 'Deklarert lagringsmål',
+    cadence: 'Endringer og varighet',
+    interface: 'Ønsket arbeidsform',
+    volume: 'Relativ datamengde',
+    host: 'Deklarert lokal plattform',
+    tool: 'Valgt verktøy',
+    access: 'Nødvendige kilde-/måldatarettigheter er dokumentert',
+    network: 'Relevant kilde-/mål-/lokalnett er avklart',
+    supported: 'Versjon, protokoll og ressursstøtte er avklart',
+    sourceStable: 'Kilde og mål er stabile under den deklarerte kopien',
+    fidelity: 'Krav til filfidelity',
+    fidelityChecked: 'Nødvendige egenskaper og egnet metode er dokumentert',
+    method: 'Valgt sammenligningsmekanisme',
+    direction: 'Retning for copy/sync-kjøringen',
+    scenario: 'Syntetisk manifest-situasjon',
+    comparison: 'Grunnlag for retningsbestemt sammenligning',
+    deleteDestination: 'Directional sync sletter objekter som bare finnes i mål',
+    cloudTiering: 'Cloud tiering er deklarert aktivt på server A',
+    localContent: 'Den undersøkte filens innhold finnes lokalt på A',
+    connected: 'Relevante endepunkter har nødvendig forbindelse',
+    fidelityKnown: 'Deklarert metadatafidelity er avklart',
+    detected: 'Den direkte cloud-endringen er oppdaget i dette eksemplet',
+    workload: 'Hva skal migreringsplanen omfatte?',
+    strategy: 'Valgt datatransport i planen',
+    phase: 'Deklarert prosessfase',
+    sizeGB: 'Syntetisk datamengde i desimal GB',
+    mbps: 'Deklarert nettverkskapasitet i Mbit/s',
+    windowHours: 'Tilgjengelig planvindu i timer',
+    physicalHours: 'Fiktiv samlet fysisk håndtering/behandling i timer',
+    discovered: 'Relevant inventar er oppdaget',
+    dependencies: 'Nødvendige arbeidslastavhengigheter er kartlagt',
+    assessmentFresh: 'Vurderingen gjelder dagens kildekonfigurasjon',
+    compatible: 'Nødvendig kompatibilitet er dokumentert',
+    connectivity: 'Relevante lokale/skybaserte forbindelser er avklart',
+    deviceEligible: 'Valgt enhetsvariant, kapasitet, land og rute støttes',
+    logisticsKnown: 'Samlet logistikk/behandling er erklært som planpremiss',
+    transferVerified: 'Avtalt datakontroll er erklært gjennomført i scenarioet',
+    writersControlled: 'Aktive skrivere og sluttendringer er avstemt',
+    appValidated: 'Avtalte applikasjons-/avhengighetstester er erklært utført',
+    fallbackReady: 'Retrett og feilhåndtering er planlagt',
+  },
+  options: {
+    dataset: {
+      media: 'Objekter / produktmedia',
+      documents: 'Dokumenter / filshare',
+      application: 'Samlet applikasjonsarbeidslast',
+    },
+    destination: {
+      blob: 'Azure Blob-container',
+      'files-smb': 'Støttet classic Azure Files SMB',
+      'files-nfs': 'Azure Files NFS',
+    },
+    cadence: {
+      once: 'Avgrenset engangsoverføring',
+      scheduled: 'Gjentatt ubemannet jobb',
+      hybrid: 'Løpende hybrid filarbeid på flere servere',
+    },
+    interface: {
+      either: 'Begge arbeidsformer kan passe',
+      scripted: 'Repeterbart CLI-/skriptsteg',
+      visual: 'Manuelt grafisk utvalg',
+    },
+    volume: {
+      small: 'Lite, avgrenset utvalg',
+      large: 'Stort utvalg som krever skala-/logistikkvurdering',
+    },
+    host: {
+      windows: 'Støttet Windows Server',
+      linux: 'Deklarert Linux-miljø',
+    },
+    tool: {
+      azcopy: 'AzCopy',
+      explorer: 'Azure Storage Explorer',
+      'file-sync': 'Azure File Sync',
+      migrate: 'Azure Migrate',
+      databox: 'Azure Data Box',
+    },
+    fidelity: {
+      content: 'Avtalt innhold / grunnleggende egenskaper',
+      required: 'Tilleggskrav til metadata / ACL / filsystemfidelity',
+    },
+    method: {
+      copy: 'AzCopy copy · ifSourceNewer-eksempel',
+      directional: 'AzCopy directional sync · lokal/Blob',
+      'file-sync': 'Azure File Sync · separat deklarert hybridfixture',
+    },
+    direction: {
+      'a-to-cloud': 'Server A → cloud-mål',
+      'cloud-to-a': 'Cloud-kilde → server A',
+    },
+    scenario: {
+      baseline: 'Én kildeoppdatering og ulike kilde-/målobjekter',
+      'target-newer': 'Mål har en nyere lokal endring',
+      'same-time-different': 'Like modifikasjonstegn, forskjellig versjon',
+      concurrent: 'Uavklarte endringer i flere endepunkter',
+      'cloud-change': 'Direkte endring i cloud endpoint',
+      'deleted-source': 'Erklært sletting etter etablert baseline på A',
+    },
+    comparison: {
+      time: 'Deklarert sist-endret-tid',
+      manifest: 'Deklarerte versjonstegn · ikke ekte hash',
+    },
+    workload: {
+      files: 'Et deklarert datasett',
+      application: 'Applikasjon med avhengigheter og data',
+    },
+    strategy: {
+      online: 'Nettverksbasert datatransport',
+      physical: 'Fysisk dataoverføring',
+    },
+    phase: {
+      discover: 'Discover · oppdag grunnlag',
+      assess: 'Assess · vurder readiness',
+      plan: 'Plan · vurder gjennomførbarhet',
+      transported: 'Data behandlet · kontroller separat',
+      cutover: 'Kontrollert omkobling',
+      validated: 'Deklarerte akseptansetester utført',
+    },
+    sizeGB: {
+      '100': '100GB',
+      '2000': '2000GB',
+      '20000': '20000GB',
+    },
+    mbps: {
+      '10': '10Mbit/s',
+      '100': '100Mbit/s',
+      '1000': '1000Mbit/s',
+    },
+    windowHours: {
+      '8': '8timer',
+      '48': '48timer',
+      '240': '240timer',
+    },
+    physicalHours: {
+      '24': '24timer · fiktiv total',
+      '120': '120timer · fiktiv total',
+      '360': '360timer · fiktiv total',
+    },
+  },
+  visual: {
+    boundary:
+      'Syntetisk undervisningsmodell. Ingen faktisk fil, kopi, sync, migrering, kontrollsum, enhet eller Azure-receipt. Alle resultater gjelder bare de lagrede premissene.',
+    result: 'Begrunnet modellobservasjon',
+    details: 'Alle lagrede premisser og modellgrense',
+    snapshot: 'Lagrede premisser',
+    input: 'Premiss',
+    value: 'Deklarert verdi',
+    comparison: 'Sammenlign lagrede observasjoner',
+    sameInputs: 'Samme premisser som forrige kjøring',
+    run: 'Kjøring',
+    observation: 'Avgrenset observasjon',
+    yes: 'Ja',
+    no: 'Nei',
+    unknown: 'Uavklart',
+    methodTitle: 'Behov → kilde/mål → kompatible arbeidsmåter → gjenstående kontroll',
+    tools: 'Verktøy innenfor denne avgrensede sammenligningen',
+    fits: 'Oppfyller den deklarerte verktøyrollen',
+    prerequisites: 'Tilgang, forbindelse, støtte og stabil kilde er dokumentert',
+    fidelity: 'Krevd fidelity er dokumentert som premiss',
+    alternatives: 'Andre kompatible valg under de samme premissene',
+    none: 'Ingen av modellens enkeltverktøy oppfyller kravene slik de er angitt',
+    methodLimit:
+      'Kompatibel rolle er ikke en overføring. Flere valg kan passe; skala, støtte og metadata krever fortsatt konkret vurdering. Storage Mover/Robocopy kan være relevante utenfor denne fem-verktøyssammenligningen.',
+    roles: {
+      'workload-process': 'Discovery / assessment / migreringsprosess',
+      'physical-data': 'Fysisk datatransport med separate faser',
+      'hybrid-relationship': 'Vedvarende støttet filserverrelasjon',
+      'data-copy': 'Avgrenset data-/objektkopi',
+    },
+    manifestTitle: 'Lite syntetisk manifest · før → forventet regelkonsekvens',
+    file: 'Fiktivt objekt',
+    serverA: 'Server A / lokal side',
+    cloud: 'Cloud-endepunkt',
+    serverB: 'Server B · bare hybridfixture',
+    action: 'Deklarert konsekvens',
+    absent: 'Finnes ikke i fixture',
+    actions: {
+      unchanged: 'Ingen valgt endring',
+      copy: 'Kopier et manglende objekt',
+      update: 'Oppdater etter valgt sammenligningsregel',
+      'keep-target': 'Behold mål; forskjellen er ikke dermed verifisert',
+      'delete-target': 'Erklært mål-sletting etter eksplisitt flagg',
+      'pending-detection': 'Cloud-endringen er ikke oppdaget',
+      'conflict-review': 'Konfliktgrunnlag uavklart; ingen automatisk vinner',
+      'declared-propagation': 'Forventet fordeling av en kjent, avgrenset endring',
+      blocked: 'Forutsetning mangler; ingen endring beregnes',
+    },
+    manifestLimit:
+      'Versjoner og tider er fiktive tegn, ikke ekte filer eller kontrollsummer. copy bruker her ifSourceNewer; manifest-sammenligning gjelder bare directional sync. Server B berøres aldri av en copy/sync-kjøring. File Sync-fixturen erklærer etablert topologi og avklarer bare utvalgte hendelser, ikke produktets generelle konfliktmotor. File Sync-perspektivet avgrenser manifestet til to referansefiler og én erklært hendelse; det utfører ikke den fulle produktflyten eller faktisk konfliktoppløsning.',
+    content: 'Tilgang til den undersøkte filens lokale innhold',
+    contentStates: {
+      'version-unresolved': 'Versjonsvalget er uavklart',
+      'recall-required': 'Namespace lokalt; innhold må kunne hentes fra cloud',
+      'offline-unavailable':
+        'Namespace er ikke nok: innhold mangler lokalt og recall-forbindelsen er ikke avklart',
+      'declared-local-content': 'Filinnhold er deklarert lokalt i dette eksemplet',
+    },
+    cacheLimit:
+      'Cloud tiering gjelder cache/innhold på serveren, ikke Blob access tiers. Synkronisering er ikke backup og like rader beviser ikke global konsistens.',
+    planningTitle: 'Oppdagelse → vurdering → plan → datatransport → omkobling → validering',
+    dependencyTitle: 'Deklarert arbeidslast og avhengigheter',
+    web: 'Applikasjon / web-lag',
+    database: 'Database / tilstand',
+    identity: 'Identitet / nettverk / relevante tjenester',
+    dependencyMissing: 'Avhengigheter må undersøkes før planen kan godkjennes',
+    hours: 'timer',
+    networkLower: 'Teoretisk nedre grense for netttransport',
+    formula:
+      'Desimal GB × 8×10⁹ / (Mbit/s × 10⁶ × 3600). Ingen overhead, Azure-pris eller garantert gjennomføringstid.',
+    physical: 'Oppgitt fiktiv samlet fysisk plan',
+    transport: 'Valgt transportsituasjon',
+    transportStates: {
+      'ruled-out': 'Det deklarerte tidskravet er ikke oppfylt',
+      candidate: 'Kan vurderes videre under de deklarerte forutsetningene',
+      unknown: 'Nødvendig plan-/støttegrunnlag mangler',
+    },
+    assessmentReady: 'Vurderingsgrunnlaget er relevant og aktuelt',
+    planReady: 'Den avgrensede planen har nødvendige erklærte forutsetninger',
+    dataCheck: 'Datakontroll er erklært utført i denne fasen',
+    cutover: 'Konsistens og omkoblingsgrunnlag er erklært avklart',
+    validation: 'Avtalte mål-/applikasjonskontroller er erklært utført',
+    planningLimit:
+      'Et mulig transportbudsjett er ikke en faktisk overføring. Fysisk total er en prosjektantakelse inklusive nødvendige trinn; import og eksport har forskjellig rekkefølge. Azure Migrate kan støtte arbeidslastprosessen, Data Box kan støtte datatransporten i samme plan. Ingen kostnad, levering eller apphelse garanteres.',
+    toolLimits: {
+      azcopy: 'CLI med konkrete kilde-/mål-, autentiserings- og versjonskrav.',
+      explorer: 'Grafisk, avgrenset dataarbeid; ingen vedvarende File Sync-relasjon.',
+      'file-sync': 'Registrerte Windows-endepunkter og støttet Azure Files SMB-share.',
+      migrate: 'Arbeidslastprosess; vurdering og migrering er ulike faser.',
+      databox: 'Fysisk dataflyt; enhet, rute, logistikk og etterkontroll må avklares.',
+    },
+    beforeAfter: 'Før → avgrenset modellkonsekvens',
+    topology: 'Deklarert retning / hybridtopologi',
+    phaseStates: [
+      'Oppdaget grunnlag',
+      'Aktuell vurdering',
+      'Avgrenset plan',
+      'Erklært datakontroll',
+      'Omkoblingsgrunnlag',
+      'Deklarert målvalidering',
+    ],
+    syncPrerequisites: 'Tilgang, forbindelse og støtte er deklarert',
+  },
+  context: {
+    title: 'Faktisk lokal ressurskontekst — ingen migrerte data',
+    boundary:
+      'Dette er faktisk lokal ressurskonfigurasjon og opprinnelige receipts. En VM er ikke dermed migrert, og en Storage-relasjon inneholder ikke Studioets syntetiske filer. Valget endrer ingen modellpremisser eller tekniske ressurser.',
+    open: 'Åpne ordinær Portal for konfigurasjonsinspeksjon',
+    select: 'Velg faktisk lokal ressurs',
+    empty:
+      'Ingen passende ressurs er konfigurert i denne Sandboxen. Ordinær Portal tilbyr eksisterende støttede opprettelser; ingen opprettes her.',
+    unsafe:
+      'Teknisk lagring er uavklart. Ingen aktuell konfigurasjon eller faktisk tilstand hevdes.',
+    resource: 'Faktisk lokal ressurs',
+    type: 'Ressurstype',
+    scope: 'Faktisk lokal gruppe / subscription',
+    relation: 'Lagret hosting-/ressursreferanse',
+    receipt: 'Siste opprinnelige lokale operasjon',
+    return: 'Tilbake til Storage Part C',
+    noCredit:
+      'Konfigurasjonslesing er arkitekturkontekst, ikke filoverføring, migreringsbevis eller automatisk oppgavekreditt.',
+  },
+  commands: {
+    title: 'Illustrativ syntaks — kjøres ikke',
+    boundary:
+      'Plassholdere, ingen SAS eller credentials. Nødvendig dataautorisasjon og støtte er forutsatt. Files-eksemplet gjelder et allerede opprettet, støttet SMB-share; flagg er ikke universell fidelity-garanti.',
+    examples: [
+      [
+        'Last opp et stabilt bildeutvalg',
+        "azcopy copy './bilder' 'https://<konto>.blob.core.windows.net/<container>' --recursive=true",
+      ],
+      [
+        'Last ned et kontrollutvalg',
+        "azcopy copy 'https://<konto>.blob.core.windows.net/<container>/kontroll' './kontroll' --recursive=true",
+      ],
+      [
+        'Retningsbestemt oppdatering uten automatisk sletting',
+        "azcopy sync './bilder' 'https://<konto>.blob.core.windows.net/<container>' --recursive=true --delete-destination=false",
+      ],
+      [
+        'Støttet Windows/SMB-kopi med relevante flagg',
+        "azcopy copy 'C:\\dokumenter' 'https://<konto>.file.core.windows.net/<share>' --recursive=true --preserve-permissions=true --preserve-info=true",
+      ],
+    ],
+  },
+} as const;
+export const migrationItemsNb = {
+  fm01: {
+    title: 'Et tidligere utvalg skal publiseres igjen',
+    problem:
+      'Et feilaktig bildeutvalgR18 er publisert. Pipeline-teamet skal gjenopprette nøyaktig innhold fra det låste utvalgetR17 i en Blob-container. Ett målobjekt har nyere modifikasjonstid enn R17, men feil innhold. Et separat målobjekt, arkiv.txt, skal beholdes.',
+    premises: [
+      'KildeutvalgetR17 er stabilt; nødvendige datarettigheter og nettverk er avklart.',
+      'Alle forslagene er automatiserte og inkluderer jobbkontroll og etterkontroll mot avtalt manifest.',
+      'ifSourceNewer hopper over mål med nyere dato; eksplisitt overskriving kan erstatte valgt målinnhold.',
+    ],
+    decisions: [
+      'Kopier R17 med ifSourceNewer, behold målobjekter utenfor utvalget, og utfør de avtalte jobb-/manifestkontrollene.',
+      'Kopier det låste R17-utvalget med eksplisitt overskriving av de valgte objektene, behold andre målobjekter og utfør jobb-/manifestkontrollene.',
+      'Sammenlign R17 med mål etter deklarerte innholdstegn, erstatt forskjeller og bruk delete-destination for å fjerne målobjekter uten kilde, med jobb-/manifestkontroll.',
+    ],
+    reasons: [
+      'R17 angir ønsket innhold, mens dato bare ordner endringer. Derfor må valgt målinnhold kunne erstattes uten at det separate målarkivet fjernes.',
+      'Modifikasjonstid ordner filversjoner uten en ekstra versjonsdatabase. Gjenopprettingen bør følge denne ordenen og la den nyere målversjonen inngå som videreført innhold.',
+      'Et låst manifest gir et avstemmingsgrunnlag for publiseringen. Målobjekter utenfor manifestet behandles som avvik, slik at hele containeren avstemmes mot samme utvalg.',
+    ],
+    decisionFeedback: [
+      'Den feilaktige nyere målversjonen vil bli hoppet over. Etterkontroll kan oppdage feilen, men dette forslaget gjenoppretter ikke det bestilte innholdet.',
+      'Riktig: innholdsvalget og bevaring av målobjekter håndteres etter oppdraget, fremfor at nyeste dato bestemmer utvalget.',
+      'Innholdssammenligningen kan finne riktig versjon, men slettingen bryter det separate bevaringskravet for arkiv.txt.',
+    ],
+    reasonFeedback: [
+      'Riktig: ønsket utvalg, sammenligningsregel og slettingsomfang må vurderes hver for seg.',
+      'Dato sier ikke hvilket publiseringsutvalg eieren vil ha. R18 er nyere og samtidig feil i dette oppdraget.',
+      'Et manifest kan være avgrenset til publiseringen uten å være en ordre om å slette hele resten av containeren.',
+    ],
+    explain:
+      'Hvis oppdraget var å beholde nyeste målversjon, kunne ifSourceNewer vært relevant. Hvis mål skulle speile hele kilden uten særskilt arkivbevaring, ville slettingskravet vært annerledes.',
+  },
+  fm02: {
+    title: 'To tilkoblingsmåter til samme container',
+    problem:
+      'En administrator skal inspisere objekter og hente et kontrollutvalg i Storage Explorer. Hun har gyldig Blob-datatilgang til containeren. Prosjektet tillater både ressursavgrenset tilkobling og kontooversikt med en ekstra Reader-tildeling. Velg en støttet tilgangsplan.',
+    premises: [
+      'Både den konkrete Entra-containerkoblingen og vanlig kontotilkobling er støttet i det erklærte oppsettet.',
+      'Nåværende Blob-datarolle tillater det valgte objektutvalget. Prosjektet tillater en ekstra Reader-tildeling dersom arbeidsmåten trenger den.',
+      'Nettverk, lokalt mål og overføringskontroll er like i alle forslag.',
+    ],
+    decisions: [
+      'Bruk kontotilkobling med Reader for ressursoversikt og behold Blob-datarollen for objektlesing; kontroller det valgte datautvalget.',
+      'Bruk kontotilkobling med Reader for ressursoversikt, fjern Blob-datarollen og bruk oversikten til objektlesing; kontroller det valgte datautvalget.',
+      'Koble til den konkrete containeren med eksisterende Blob-datarettigheter og uten generell kontooversikt; kontroller det valgte datautvalget.',
+    ],
+    reasons: [
+      'Kontooversikten krever management-innsyn i de viste ressursene. Derfor kan objektutvalget leses med Reader når det først er funnet gjennom den støttede kontotilkoblingen.',
+      'Management-oversikt og objektlesing har ulike tillatelsesgrunnlag. Derfor kan direkte datatilkobling og en kontooversikt med beholdt datarolle begge dekke arbeidsmåten.',
+      'En individuell containerkobling avgrenser hvilke objekter som kan finnes. Den avgrensningen ivaretar lesetillatelsen etter tilkobling, mens rollekravet gjelder generell kontooversikt.',
+    ],
+    decisionFeedback: [
+      'Riktig: management og data har hver sin rolle; en ekstra Reader-tildeling gjør ikke den eksisterende datatilgangen ugyldig.',
+      'Reader er ikke den nødvendige Blob-datatillatelsen. Fjerning av datarollen etterlater et gap for innholdet.',
+      'Også riktig: støttet individuell kobling kan bruke datatilgangen uten generell management-oversikt.',
+    ],
+    reasonFeedback: [
+      'En synlig ressurs er ikke automatisk lesbart objektinnhold. Reader alene dekker ikke dette databehovet.',
+      'Riktig: det er de to tillatelseslagene og valgt støttet kobling som forklarer resultatet, ikke at én av arkitekturene alltid er best.',
+      'En presis nettadresse erstatter ikke autorisasjon. Den erklærte datarollen brukes også ved individuell kobling.',
+    ],
+    explain:
+      'Et krav om minst mulig ekstra management-innsyn kunne gitt et argument for den avgrensede koblingen. Her tillates begge planene når nødvendige datarettigheter beholdes.',
+  },
+  fm03: {
+    title: 'En arbeidsmappe før frakobling',
+    problem:
+      'Et kontor bruker Azure File Sync med cloud tiering. Før to døgn uten nett skal ansatte kunne lese to bestemte dokumenter i sin helhet. Det ene finnes fullt lokalt; det andre har bare namespace og en delvis tilbakekalt innledning.',
+    premises: [
+      'Policyer og Windows-/SMB-støtte er ellers avklart.',
+      'Det delvis tilbakekalte dokumentet har ikke vært lest i sin helhet på denne serveren.',
+      'Alle forslag beholder separat backup, tilgangskontroll og oppfølging av synkroniseringskonflikter.',
+    ],
+    decisions: [
+      'Deaktiver cloud tiering, bekreft at begge dokumentnavn finnes lokalt, og ta serveren frakoblet med den eksisterende delvise tilbakekallingen.',
+      'Behold dagens cache, les første side i begge dokumentene mens nettet er tilkoblet, og ta serveren frakoblet uten å hente resten.',
+      'Hent hele det nødvendige filinnholdet mens forbindelsen finnes, bekreft lokal fullføring og test de avtalte filene frakoblet før avreise.',
+    ],
+    reasons: [
+      'Tiering-policyen bestemmer hva som beholdes lokalt. Når policyen deaktiveres, brukes de eksisterende filoppføringene som grunnlag for offlinearbeidet uten en separat helfilhenting.',
+      'Dokumentets innledning blir lest gjennom den samme filoppføringen som resten. Derfor er en vellykket åpning en egnet tilgjengelighetskontroll for begge hele dokumentene før avreise.',
+      'Azure File Sync kan beholde namespace med bare deler av innholdet i lokal cache. Hel tilbakekalling fyller det innholdet som de avtalte dokumentene skal bruke frakoblet.',
+    ],
+    decisionFeedback: [
+      'Policyendringen behandler ikke automatisk innhold som allerede er tieret eller bare delvis tilbakekalt.',
+      'En test av innledningen dokumenterer ikke at resten av filen finnes lokalt.',
+      'Riktig: planen undersøker det konkrete offlinebehovet, ikke bare namespace eller policytilstand.',
+    ],
+    reasonFeedback: [
+      'Å stoppe videre tiering og å hente eksisterende cloud-innhold er forskjellige handlinger.',
+      'En fil kan være delvis tilbakekalt. Senere områder kan fortsatt trenge skytilgang.',
+      'Riktig: lokal tilgjengelighet må vurderes for det innholdet som faktisk skal brukes frakoblet.',
+    ],
+    explain:
+      'Hvis ansatte bare trengte en dokumentert lokal del, kunne cachebehovet vært mindre. Hvis forbindelsen var tilgjengelig hele tiden, kunne recall inngått i arbeidsmåten.',
+  },
+  fm04: {
+    title: 'Et nytt nattlig eksportmål',
+    problem:
+      'Et Windows-team skal hver natt kopiere et avgrenset, låst NTFS-utvalg til en ny Azure Files SMB-share med AzCopyv10.30 eller nyere. Skriptet skal bevare de støttede SMB-egenskapene og tillatelsene som prosjektet har spesifisert. Ingen målshare finnes ennå.',
+    premises: [
+      'Det konkrete kilde-/målparet, autorisasjonen og bevaringsflaggene støttes i denne versjonen; ingen ekstrastrømmer inngår.',
+      'Prosjektet kan opprette målsharen gjennom en separat godkjent administrativ prosedyre.',
+      'Alle forslag kjører innholds- og jobbkontroll. Oppgaven krever ingen kontinuerlig hybrid filtilgang.',
+    ],
+    decisions: [
+      'Kjør AzCopy copy mot den nye share-URL-en med de avklarte bevaringsflaggene, og la første kopijobb opprette sharen før kontrollene.',
+      'Opprett sharen gjennom den godkjente prosedyren, kjør AzCopy copy med de avklarte bevaringsflaggene og kontroller både innhold og egenskaper.',
+      'Opprett sharen gjennom den godkjente prosedyren, kjør AzCopy copy med standard kopiflagg og bruk likt filinnhold som godkjenning av egenskapene.',
+    ],
+    reasons: [
+      'AzCopy copy oppretter fil- og mappestruktur i målet. Share-nivået inngår i samme første kopiering når den autoriserte URL-en peker på et nytt navn.',
+      'AzCopy støtter SMB-egenskaper gjennom relevante bevaringsflagg, mens målsharen her opprettes separat. Det gir de to nødvendige delene av den planlagte filkopien.',
+      'AzCopy bruker Azure Files SMB-grensesnittet for målområdet. Dermed følger de opprinnelige SMB-egenskapene med standard kopiering når filinnholdet er kontrollert.',
+    ],
+    decisionFeedback: [
+      'AzCopyv10.30+ oppretter ikke lenger målsharen implisitt. Fil-/mappestruktur er et annet nivå enn share-opprettelse.',
+      'Riktig: separat share-opprettelse og de støttede eksplisitte bevaringsflaggene dekker denne avgrensede nattlige kopien.',
+      'Lik filtekst eller kontrollsum beviser ikke at de krevde SMB-egenskapene og tillatelsene er bevart.',
+    ],
+    reasonFeedback: [
+      'Endringen i v10.30 gjelder nettopp at sharen må eksistere; støttet objektkopiering oppretter ikke dette administrative nivået.',
+      'Riktig: kilde/mål, versjon, nødvendige tillatelser og eksplisitte bevaringsvalg må passe sammen.',
+      'Protokollnavnet gir ingen universell full-fidelity-garanti. De oppgitte bevaringsflaggene er nødvendige i dette scenarioet.',
+    ],
+    explain:
+      'Hvis sharen allerede fantes, ville opprettelsessteget vært borte. Hvis bare innhold var påkrevd, kunne andre flagg vært tilstrekkelige. Behov for vedvarende lokal hybridtilgang ville vært en annen arbeidsmåte.',
+  },
+  fm05: {
+    title: 'En første as-is-oversikt uten innsamling',
+    problem:
+      'En porteføljeansvarlig trenger en første konfigurasjonsbasert as-is-vurdering av servere til et møte i dag. Et kvalitetssikret CSV-inventar med dagens vCPU og RAM er tilgjengelig. Teamet får ikke starte appliance eller Collector før neste uke.',
+    premises: [
+      'Den aktuelle Azure Migrate-flyten støtter det oppgitte CSV-formatet og de konfigurasjonsbaserte vurderingene.',
+      'Oppdraget ber om as-is-konfigurasjon og et antakelsesbasert første estimat, ikke ytelsesbasert right-sizing eller avhengighetskartlegging.',
+      'Ingen migrering eller cutover er godkjent i denne fasen.',
+    ],
+    decisions: [
+      'Importer det oppgitte CSV-inventaret og bruk konfigurasjonen til den avgrensede as-is-vurderingen og dens dokumenterte estimatforutsetninger.',
+      'Utsett hele konfigurasjonsvurderingen til en appliance kan måle arbeidslasten, og lever dagens CSV bare som en ubehandlet vedleggsliste.',
+      'Importer CSV-inventaret og bruk de tildelte vCPU-/RAM-verdiene som målt belastning til ytelsesbasert right-sizing og avhengighetsanalyse.',
+    ],
+    reasons: [
+      'CSV-import kan gi Azure Migrate serverkonfigurasjon til konfigurasjonsbasert vurdering. Denne discovery-metoden kan derfor brukes til det avgrensede as-is-formålet.',
+      'Appliance samler serverinformasjon som inngår i Migrate-vurderinger. Den er også nødvendig for å behandle en eksisterende konfigurasjonsliste til en as-is-vurdering.',
+      'CSV-import oppretter serverposter med vCPU og RAM. Disse verdiene representerer ressursbruk og gir derfor samme ytelses- og avhengighetsgrunnlag som en løpende innsamling.',
+    ],
+    decisionFeedback: [
+      'Riktig: import er en relevant discovery-vei for dette eksplisitt konfigurasjonsbaserte første formålet.',
+      'Appliance kan gi rikere data, men den er ikke påkrevd for den støttede CSV-baserte as-is-vurderingen som er bestilt her.',
+      'Tildelt kapasitet er ikke målt bruk. CSV-import gir ikke her ytelsesbasert right-sizing eller dependency discovery.',
+    ],
+    reasonFeedback: [
+      'Riktig: velg discovery-metode ut fra hva vurderingen faktisk trenger, fremfor at rikest mulig innsamling alltid må komme først.',
+      'Dette gjør et rikere datagrunnlag til et universelt krav. Den aktuelle importflyten støtter et smalere konfigurasjonsformål.',
+      'Ressurskonfigurasjon beskriver hva serveren har, ikke målt utnyttelse eller kartlagte forbindelser.',
+    ],
+    explain:
+      'Et senere krav om målt right-sizing ville krevd et relevant ytelsesgrunnlag. Et krav om avhengigheter ville krevd en egen støttet kartlegging; ingen av delene oppstår av CSV-importen.',
+  },
+  fm06: {
+    title: 'En sammensatt flytting fra et annet datasenter',
+    problem:
+      'Et team skal flytte en støttet fysisk applikasjonsserver til Azure og samtidig overføre et stort, separat filarkiv. Applikasjonen trenger discovery, vurdering og en servermigreringsflyt. Filarkivet har en avklart støttet fysisk importrute fordi den tilgjengelige nettforbindelsen er utilstrekkelig.',
+    premises: [
+      'Målplattform, tillatelser og støtten for den fysiske serverens Migrate-løp er kontrollert; ingen VMware-infrastruktur finnes.',
+      'Data Box-rute og kapasitet er avklart for filarkivet. Det er ikke en kontinuerlig synkroniseringsoppgave.',
+      'Alle forslag inkluderer kontroll av applikasjonens avhengigheter og data etter sine valgte transportsteg. Velg planen som gir begge delene riktig verktøyrolle.',
+    ],
+    decisions: [
+      'Bruk Data Box til servermigreringen og filarkivet, og behandle enhetsimporten som den støttede servermigreringsflyten før måltestene.',
+      'Bruk Azure Migrate til den støttede fysiske serverens migreringsprosess og Data Box til filarkivets fysiske dataoverføring, med samlet cutover-plan.',
+      'Bruk Azure Migrate til serverens vurdering og Data Box til filarkivet, og behandle den beståtte vurderingen som gjennomført servermigrering før måltestene.',
+    ],
+    reasons: [
+      'Data Box flytter data til Azure gjennom fysisk transport. Når både serverdata og arkivfiler inngår, utfører enhetsimporten også serverens discovery og migreringsorkestrering.',
+      'Azure Migrate kan vurdere fysisk serverkonfigurasjon og kompatibilitet. En bestått vurdering oppretter derfor den migrerte serverkonfigurasjonen som måltestene kan bruke.',
+      'Azure Migrate støtter arbeidslastens vurderings- og migreringsløp, mens Data Box flytter arkivdata gjennom den fysiske ruten. Disse rollene kan kombineres i én overgang.',
+    ],
+    decisionFeedback: [
+      'En fysisk dataimport er ikke Migrate-prosessen for discovery/vurdering/servermigrering. Etterkontroll kan ikke erstatte den manglende serverflyten.',
+      'Riktig: Migrate og Data Box kan være komplementære når arbeidslastprosess og stor datatransport har forskjellige krav.',
+      'Assessment og migration execution er ulike faser. En god vurdering utfører ikke automatisk servermigreringen.',
+    ],
+    reasonFeedback: [
+      'Data Box utfører datatransporten i valgt støttet rute, ikke generell serverdiscovery eller migreringsorkestrering.',
+      'Readiness/vurdering er grunnlag for et senere migreringsvalg, ikke bevis på at målserveren er opprettet og migrert.',
+      'Riktig: valget er ikke nødvendigvis enten Migrate eller Data Box; forskjellige deler av samme plan kan bruke begge.',
+    ],
+    explain:
+      'Et lite filarkiv med god forbindelse kunne brukt netttransport. En ren filkopi uten servermigrering ville ikke i seg selv krevd Migrate, mens en servervurdering alene kunne stoppe før migration execution.',
+  },
+  fm07: {
+    title: 'Tre planer mot samme frist',
+    problem:
+      'Et låst datasett på48TB skal importeres innen240timer. Online-alternativet har200Mbit/s. To støttede fysiske alternativer har36timer lokal kopi,60timer transport,72timer Azure-behandling og12timer verifikasjon. Alfa kan starte nå; Beta kan først begynne lokal kopi etter168timer.',
+    premises: [
+      'Alle tider er eksplisitte, fiktive prosjektpremisser uten Azure-leveringsløfte. De oppgitte fysiske trinnene skjer etter hverandre.',
+      'Nettets nedre grense beregnes med desimal TB og8bit per byte, uten overhead.',
+      'Enhetsvariant, kapasitet, rute, tilgang og datakontroller er avklart for Alfa og Beta; alle forslag beholder verifikasjon.',
+    ],
+    decisions: [
+      'Velg Alfa og gjennomfør lokal kopi, transport, Azure-behandling og verifikasjon før dataene godkjennes.',
+      'Velg netttransport på200Mbit/s og legg den beregnede nedre grensen med etterkontroll inn i240-timersvinduet.',
+      'Velg Beta og gjennomfør samme fysiske trinnrekke og verifikasjon etter at lokal kopi kan begynne.',
+    ],
+    reasons: [
+      '48TB ved200Mbit/s gir omtrent66,7timer før overhead. Dermed ligger nettets nedre tidsgrense godt innenfor fristen, med gjenværende tid til avstemming og etterkontroll.',
+      'Ventetid må regnes sammen med arbeidstrinnene. Alfa gir180timer, Beta348timer og nettets nedre grense omtrent533timer; derfor passer bare Alfa under de erklærte tallene.',
+      'Beta har de samme avklarte180timene med arbeids- og kontrolltrinn. Oppstartstidspunktet endrer når disse trinnene utføres, mens de sammenliknes med240-timersvinduet som én prosess.',
+    ],
+    decisionFeedback: [
+      'Riktig under de erklærte premissene:36+60+72+12=180timer fra nå.',
+      '48×10^12×8/(200×10^6) sekunder er omtrent533,3timer, før overhead eller etterkontroll.',
+      'Ventetiden kommer før de180timene:168+180=348timer, som overskrider fristen.',
+    ],
+    reasonFeedback: [
+      'Regnestykket mangler bit-/bytefaktoren. Datamengde og overføringsrate må ha sammenlignbare enheter.',
+      'Riktig: regn hele den sekvensielle planen og skill teoretisk nettminimum fra oppgitte fysiske planpremisser.',
+      'Lik tjenestestøtte og lik trinnvarighet opphever ikke tidspunktet for når arbeidet kan starte.',
+    ],
+    explain:
+      'Med et mindre datasett, høyere tilgjengelig rate eller et større vindu kunne nettplanen vært aktuell. Med tidligere kopistart kunne Beta endret gjennomførbarhet. Dette er ingen garanti om faktisk Azure-logistikk.',
+  },
+  fm08: {
+    title: 'Sluttlisten og siste skriv',
+    problem:
+      'En innledende kopi er ferdig. Kilden tar imot godkjente nye skriv fram til18:00, når en planlagt skrivepause starter. Mål skal inneholde alle godtatte skriv før omkobling. Tre sluttplaner har samme datatilgang, kontrollsummer og applikasjonstester.',
+    premises: [
+      'En dokumentert endringsliste kan lukkes enten17:00 eller ved skrivepausen18:00.',
+      'En alternativ støttet endringslogg kan registrere alle godkjente skriv fra17:00 til pausen og tømmes før omkobling.',
+      'Overføring, kontroll og appprøver passer vinduet i alle planene; kravet som undersøkes er konsistensgrensen for godtatte skriv.',
+      'Det finnes et kjent, konsistent grunnlag ved17:00; loggalternativet avstemmer endringer fra denne grensen og brukes bare etter en stabil skrivepause.',
+    ],
+    decisions: [
+      'Lukk listen17:00, la kilden motta skriv til18:00, kopier bare den lukkede listen og verifiser den mot17:00-grunnlaget før appprøver og omkobling.',
+      'Start skrivepausen18:00, lukk sluttlisten ved denne grensen, kopier og verifiser endringene gjennom grensen, og gjennomfør appprøver før omkobling.',
+      'Bruk17:00-grunnlaget sammen med den støttede loggen for senere skriv, start pausen18:00, tøm loggen og verifiser den avstemte grensen før appprøver og omkobling.',
+    ],
+    reasons: [
+      'Kontrollsummene knytter filinnhold til et konsistent utvalg. Derfor kan det validerte17:00-grunnlaget brukes som sluttgrunnlag når applikasjonstestene etter skrivepausen også består.',
+      'Den første kopien har allerede flyttet hoveddelen av dataene. Fullførte innholds- og appkontroller dekker omkoblingen, mens avstemming av de senere skrivene kan følges opp etterpå.',
+      'Kontrollgrunnlaget må dekke den avtalte skrivegrensen. Et riktig eldre utvalg dokumenterer ikke senere endringer; både en ny sluttliste og en avstemt endringslogg kan dekke gapet.',
+    ],
+    decisionFeedback: [
+      'Planen kan verifisere17:00-listen korrekt og likevel utelate godtatte skriv mellom17:00 og18:00.',
+      'Riktig: sluttgrunnlaget og pausen har en konsistent grense for hvilke skriv som skal være med.',
+      'Også riktig under de oppgitte loggforutsetningene: senere skriv avstemmes gjennom den samme grensen før omkobling.',
+    ],
+    reasonFeedback: [
+      'En kontrollsum beviser bare forholdet til det grunnlaget som ble kontrollert, ikke at senere skriv er tatt med.',
+      'Applikasjonsprøver er nyttige, men gir ikke automatisk fullstendighet for et eldre datautvalg.',
+      'Riktig: datatransport, riktig kontrollgrunnlag og avstemming av aktive skrivere er forskjellige nødvendige spørsmål.',
+    ],
+    explain:
+      'Hvis ingen skriv ble godtatt etter17:00, kunne den tidlige listen vært tilstrekkelig for dette avstemmingskravet. En annen dokumentert konsistensmekanisme kan også være gyldig; den må dekke hele det avtalte skrivegrunnlaget.',
+  },
+  fm09: {
+    title: 'En kontrollrunde blir en nattlig pipeline',
+    problem:
+      'Et arkivteam skal først velge og hente et avgrenset Blob-utvalg gjennom en godkjent grafisk arbeidsflyt. Etter kontrollrunden blir utvalgsregelen fast, og samme type overføring skal kjøre om natten uten operatør på en eksisterende runner. Velg en plan som passer begge fasene.',
+    premises: [
+      'Nødvendig Blob-datatilgang, nettverk og støttede kilde-/målpar finnes for alle verktøyforslag.',
+      'Runneren støtter kommandolinjejobber. Det er ikke godkjent GUI-automatisering eller operatør på nattvakt.',
+      'Alle forslag beholder kontroll av overføringsresultatet. Ingen Windows-filserver skal ha vedvarende hybrid filtilgang.',
+    ],
+    decisions: [
+      'Bruk Storage Explorer til begge fasene: grafisk utvalg først og en lagret navigasjonsvisning som nattlig overføringsjobb på runneren.',
+      'Bruk AzCopy til begge fasene: et manuelt kommandolinjeutvalg først og samme kommando som nattlig jobb på runneren.',
+      'Bruk Storage Explorer til den grafiske kontrollrunden og AzCopy til den senere skriptede overføringen med den fastlagte regelen.',
+    ],
+    reasons: [
+      'AzCopy gir en kommandolinjebasert overføring, mens Storage Explorer gir grafisk dataarbeid. Disse grensesnittene passer henholdsvis runnerjobben og den avtalte kontrollrunden.',
+      'Begge verktøyene bruker Azure Storage-data. Derfor oppfyller et manuelt AzCopy-utvalg den grafiske arbeidsflyten, mens en lagret Explorer-visning kan utføre den operatørløse jobben.',
+      'Storage Explorer kan vise og overføre et valgt objektutvalg. Den samme lagrede oversikten er en kjørbar automatiseringsdefinisjon, så den kan brukes videre i runnerens nattlige overføring.',
+    ],
+    decisionFeedback: [
+      'En lagret Explorer-visning er ikke den godkjente kommandolinjejobben. Forslaget dekker kontrollrunden, men mangler den operatørløse nattlige mekanismen.',
+      'AzCopy passer runneren, men et manuelt CLI-utvalg oppfyller ikke det eksplisitte kravet om grafisk kontrollrunde.',
+      'Riktig: forskjellige operative krav i de to fasene gir to relevante verktøy, uten at dette blir kontinuerlig hybrid synkronisering.',
+    ],
+    reasonFeedback: [
+      'Riktig: verktøyets grensesnitt og arbeidsform er avgjørende her, mens datatilgang og etterkontroll er nødvendige for begge.',
+      'Felles datatjeneste gjør ikke grensesnitt eller automatiseringsfunksjoner identiske. Datatilgang opphever ikke arbeidsflytkravene.',
+      'En grafisk oversikt er ikke et unattended-script. Storage Explorer og AzCopy har ulike roller i denne avgrensede planen.',
+    ],
+    explain:
+      'Hvis også første fase var et fast, operatørløst utvalg, kunne AzCopy brukt gjennom begge faser vært relevant. Hvis overføringen forble en sporadisk grafisk oppgave, kunne Storage Explorer vært tilstrekkelig.',
+  },
+  fm10: {
+    title: 'Filserverrollen forsvinner etter overgangsperioden',
+    problem:
+      'To støttede Windows-filservere skal i en overgangsperiode ta imot endringer fra hver sin lokasjon gjennom en sentral Azure Files SMB-share. Serverne trenger et felles filnavnsrom, men ikke alt filinnhold i lokal cache. Etter perioden stenges skriverne, serverne avvikles, og ett fast filutvalg skal overføres én vei til en eksisterende støttet målshare.',
+    premises: [
+      'Den etablerte File Sync-topologien og den konkrete AzCopy copy/sync-retningen er støttet; tilgang, nettverk og metadatafidelity er avklart.',
+      'Sluttoverføringen skal ha én avgrenset kjøring med eksplisitt bevaring av målobjekter utenfor utvalget. Ingen automatisk jobb eller servertilknytning skal fortsette etterpå.',
+      'Skriverne er stanset før sluttjobben. Målobjekter i det valgte utvalget mangler eller er eldre; andre målobjekter skal beholdes. Separat backup og etterkontroll beholdes.',
+    ],
+    decisions: [
+      'Bruk vekslende AzCopy sync-jobber i overgangsperioden som servernes vedvarende synkroniseringsrelasjon; bruk Blob Cool til lokal cache og avslutt med en copy-jobb.',
+      'Bruk Azure File Sync med cloud tiering i overgangsperioden, og en avgrenset AzCopy copy-jobb etter skrivepausen og før serveravviklingen.',
+      'Bruk Azure File Sync med cloud tiering i overgangsperioden, og én støttet retningsbestemt AzCopy sync-jobb uten mål-sletting etter skrivepausen.',
+    ],
+    reasons: [
+      'En sentral share gir begge sync-jobbene samme sammenligningspunkt. Vekslende retninger danner derfor File Sync-relasjonen, mens Blob Cool bestemmer hvor mye innhold serverne beholder lokalt.',
+      'Cloud tiering velger Blob access tier for filene i den sentrale sharen. AzCopy copy og sync viderefører deretter den samme tiering- og serverrelasjonen til målet under engangsoverføringen.',
+      'File Sync knytter støttede serverendepunkter til Azure Files og styrer lokal cache gjennom cloud tiering. Den senere copy- eller enveis sync-jobben er filoverføring; Blob access tiers er en annen mekanisme.',
+    ],
+    decisionFeedback: [
+      'Vekslende enveisjobber er ikke Azure File Syncs vedvarende hybridrelasjon, og Blob Cool styrer ikke denne Windows-/Azure Files-cachen.',
+      'Riktig: den vedvarende serverrollen brukes mens den trengs; etter skrivepausen dekker en avgrenset kopijobb det endrede behovet.',
+      'Også riktig under de eksplisitte pare-/flaggbetingelsene: AzCopy sync kan kjøres én gang uten å bli en vedvarende toveis tjeneste.',
+    ],
+    reasonFeedback: [
+      'Et delt sammenligningspunkt gjør ikke to retningsbestemte jobber til File Sync, og lokal cachepolicy er ikke en Blob-tier.',
+      'Cloud tiering gjelder innhold og namespace på filserveren. Copy/sync oppretter ikke en ny File Sync-relasjon eller Blob-tiering for Azure Files.',
+      'Riktig: løpende hybridtilgang, lokal cache og en senere avgrenset overføring er forskjellige oppgaver. Backup og etterkontroll er fortsatt separate.',
+    ],
+    explain:
+      'Hvis begge kontorene fortsatte med lokale endringer, ville en engangsjobb ikke erstatte hybridrelasjonen. Hvis alt innhold måtte være tilgjengelig frakoblet, måtte nødvendig lokal tilbakekalling undersøkes. Blob Hot/Cool/Cold/Archive endrer ikke denne Azure Files-cachemekanismen.',
   },
 } as const;

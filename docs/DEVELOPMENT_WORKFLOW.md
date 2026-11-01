@@ -1,5 +1,9 @@
 # Development workflow — owner direction, 29 October 2026
 
+## P16 candidate extension
+
+Preserve all232 inherited executions. Eight File Movement desktop cases plus one justified initial compact manifest/native-dialog witness extend the candidate to241 (222/19); optional legacy444 remains. Targeted checks cover method alternatives/support/access/fidelity, directional manifests and hybrid/cache/conflict boundaries, current planning/dependency/transport/validation distinctions, persisted causal contrasts, immutable first/help/retry, all24 assistance contexts, cross-tab/recovery and Storage A/B/C navigation/resume. Pinned Chromium, worker1 and existing retries/timeouts/skips remain. Correct serious blind-bank findings substantively and recheck independently. Fresh post-stamp six-domain audit, full exact-head CI/strict and actual anonymous root/fullSHA/journey remain distinct required proof. After P16, perform the separately approved whole-course learning journey audit before P17/P18.
+
 ## P15 candidate extension
 
 Preserve all224 earlier executions. Seven Security desktop cases plus one compact witness extend the candidate to232 (214/18); optional legacy428. Targeted checks cover three security mechanisms, plan/evidence/score boundaries, persisted causal contrasts, source links, actual read-only Portal context, immutable first/help/retry, assistance/cross-tab/recovery and Part C navigation/resume. Pinned Chromium, worker1 and existing retries/timeouts/skips remain unchanged. Systematic final-bank cues must be corrected and independently rechecked. Full exact-head CI/strict and anonymous root/fullSHA/journey are separate mandatory delivery proof.

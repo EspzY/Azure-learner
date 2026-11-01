@@ -4,6 +4,27 @@ import { replayEngine } from '../sandbox/replay';
 
 /** Conceptual observations are not Engine receipts and have their own source contract. */
 export const conceptMilestones = {
+  'migration-method': {
+    version: '1.0.0',
+    objectives: ['MOVE01'],
+    sources: ['FM04', 'FM05', 'FM08', 'FM17'],
+    trigger: 'saved-role-alternative-automation-protocol-and-fidelity-contrasts',
+    auto: 'first-new-guided-model-result',
+  },
+  'migration-sync': {
+    version: '1.0.0',
+    objectives: ['MOVE01'],
+    sources: ['FM06', 'FM17', 'FM32', 'FM35'],
+    trigger: 'saved-direction-deletion-conflict-and-cache-contrasts',
+    auto: 'first-new-guided-model-result',
+  },
+  'migration-planning': {
+    version: '1.0.0',
+    objectives: ['MOVE02'],
+    sources: ['FM11', 'FM12', 'FM13', 'FM37'],
+    trigger: 'saved-discovery-fresh-assessment-transport-and-validation-contrasts',
+    auto: 'first-new-guided-model-result',
+  },
   'security-trust': {
     version: '1.0.0',
     objectives: ['SEC01'],

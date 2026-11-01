@@ -8,7 +8,7 @@ const data = JSON.parse(
 );
 test('all 57 pinned official slots and code/evidence/source references resolve', () => {
   assert.deepEqual(validateAudit(data), []);
-  assert.equal(data.objectives.filter((r) => r.status === 'COMPLETE').length, 55);
+  assert.equal(data.objectives.filter((r) => r.status === 'COMPLETE').length, 57);
   assert.equal(
     data.objectives.filter((r) => r.slot.startsWith('1.') && r.status === 'COMPLETE').length,
     15,
@@ -84,7 +84,11 @@ test('all 57 pinned official slots and code/evidence/source references resolve',
   }
   for (const slot of ['2.3.05', '2.3.06']) {
     const row = data.objectives.find((r) => r.slot === slot);
-    assert.equal(row.status, 'MISSING');
+    assert.equal(row.status, 'COMPLETE');
+    assert.ok(row.evidence.includes('MV'));
+    assert.deepEqual(Object.values(row.criteria), ['V', 'V', 'V', 'V', 'V', 'V']);
+    assert.ok(row.facets.every((f) => f.status === 'COMPLETE'));
+    assert.ok(row.sources.some((id) => id.startsWith('MIG')));
     assert.ok(!row.evidence.includes('ST'));
   }
   assert.match(data.sources.STG21.url, /storage\/files\/files-management-concepts$/);
@@ -105,7 +109,13 @@ test('rejects omitted/duplicated official skills and stable IDs rather than incr
 });
 test('a title, test pointer or invented human approval cannot promote missing evidence to COMPLETE', () => {
   const invalid = structuredClone(data);
-  invalid.objectives.find((r) => r.status === 'MISSING').status = 'COMPLETE';
+  // The authored matrix now has no missing row. Construct the same negative
+  // fixture explicitly so the false-COMPLETE gate never depends on live gaps.
+  const row = invalid.objectives.find((r) => r.slot === '2.3.05');
+  row.criteria.C = 'M';
+  row.evidence = [];
+  row.facets[0].status = 'MISSING';
+  row.status = 'COMPLETE';
   invalid.humanSmeReview = 'automatically approved';
   assert.ok(validateAudit(invalid).some((e) => e.includes('false COMPLETE')));
   assert.ok(validateAudit(invalid).some((e) => e.includes('Human approval')));

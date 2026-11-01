@@ -1,0 +1,205 @@
+.migration-lesson {
+  --movement-border: #b9d0e2;
+  --movement-ink: #233f55;
+  --movement-blue: #006bb2;
+}
+.migration-result {
+  margin-block: 1rem;
+  color: var(--movement-ink);
+}
+.migration-result figure {
+  margin: 1.2rem 0;
+}
+.migration-result figcaption {
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+.migration-intent ol,
+.migration-topology ol,
+.migration-stages ol {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  padding: 0;
+  list-style: none;
+}
+.migration-intent li,
+.migration-stages li {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  padding: 1.2rem;
+  border-top: 3px solid #247d9e;
+  background: #edf5fa;
+}
+.migration-intent small,
+.migration-stages small {
+  color: #4a6175;
+}
+.migration-facts {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.8rem;
+  margin: 1rem 0;
+}
+.migration-facts > div {
+  padding: 0.9rem;
+  background: #edf5fa;
+}
+.migration-facts dt {
+  font-size: 0.86rem;
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+}
+.migration-facts dd {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+.migration-topology li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background: #edf5fa;
+  border: 1px solid var(--movement-border);
+}
+.migration-topology li > span {
+  font-size: 1.8rem;
+  color: var(--movement-blue);
+}
+.migration-manifest table {
+  min-width: 600px;
+}
+.migration-manifest td > span,
+.migration-manifest td > strong {
+  display: block;
+}
+.migration-manifest td[data-changed='true'] {
+  background: #edf7f1;
+  border-inline-start: 3px solid #3b7761;
+}
+.migration-result tr[data-selected='true'] {
+  background: #edf5fa;
+}
+.migration-result table p {
+  margin: 0 0 0.5rem;
+}
+.migration-result th,
+.migration-result td {
+  vertical-align: top;
+}
+.migration-stages ol {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.migration-stages li[data-met='false'] {
+  border-top-style: dashed;
+  background: #f5f7f9;
+}
+.migration-dependencies {
+  border: 1px solid var(--movement-border);
+  padding: 1.2rem;
+}
+.migration-dependencies > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.8rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.migration-dependencies p {
+  border-left: 3px solid #ad6723;
+  padding-left: 1rem;
+}
+.migration-budget {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+.migration-budget > section {
+  padding: 1.1rem;
+  background: #fff8ed;
+  border-top: 3px solid #ad6723;
+}
+.migration-budget strong {
+  display: block;
+  font-size: 1.5rem;
+  margin-block: 0.7rem;
+}
+.migration-context {
+  border: 1px solid #5b7d96;
+  padding: 1rem;
+  border-radius: 12px;
+  margin: 1.2rem 0;
+}
+.migration-context h4 {
+  margin-top: 0;
+}
+.migration-context select {
+  width: 100%;
+}
+.migration-causal-choice {
+  display: flex;
+  gap: 0.7rem;
+  padding: 0.9rem;
+  border: 1px solid var(--movement-border);
+  margin-block: 0.7rem;
+  align-items: flex-start;
+}
+.migration-causal-choice:focus-within {
+  outline: 2px solid var(--movement-blue);
+  outline-offset: 2px;
+}
+.migration-causal-choice input {
+  margin-top: 0.35rem;
+  flex-shrink: 0;
+}
+.migration-workbench fieldset {
+  min-width: 0;
+}
+.migration-workbench fieldset > .compute-control,
+.migration-workbench .storage-check {
+  margin-block: 0.5rem;
+}
+.migration-workbench select {
+  max-width: 100%;
+}
+.migration-comparison {
+  margin-block: 1rem;
+}
+.migration-comparison table {
+  min-width: 600px;
+}
+.migration-commands pre {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  background: #f0f5f9;
+  border: 1px solid var(--movement-border);
+  padding: 1rem;
+  font-size: 0.9rem;
+}
+@media (max-width: 1100px) {
+  .migration-facts {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .migration-budget {
+    grid-template-columns: 1fr;
+  }
+  .migration-intent ol {
+    grid-template-columns: 1fr;
+  }
+  .migration-topology ol {
+    grid-template-columns: 1fr;
+  }
+  .migration-stages ol {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 850px) {
+  .migration-facts {
+    grid-template-columns: 1fr;
+  }
+  .migration-stages ol {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,865 +1,916 @@
 {
   "schema": 1,
-  "id": "PR40-P15-security-principles",
-  "baseCommit": "385e76c1d544b992626d529dfca2130fbf01d42a",
-  "author": "codex-security-author",
+  "id": "PR41-P16-file-movement-migration",
+  "baseCommit": "13593e86bc045b1c2ed2244fcc00412c3e82026a",
+  "author": "codex-migration-author",
   "scope": {
     "kind": "new-module",
-    "description": "P15 Identity Part C original Zero Trust/seven-layer Defense/Defender theory and encryption supplement, three pure synthetic design/evidence perspectives and causal guides, eight original paired cases, isolated learning history and read-only Portal context. Only2.4.06–08. No actual security runtime, scan, credentials, World/receipt mutation, score or protection claim. No merge/production.",
-    "objectives": ["az900.security.zero-trust", "az900.security.defense", "az900.security.defender"]
+    "description": "P16 Storage Part C: original copy/sync/migration teaching, three pure typed requirement/manifest/planning perspectives, causal guides, ten original paired scenarios and isolated learning history with read-only actual resource context. Only2.3.05/06. No actual files, transfer, migration, orders, agents, Azure credentials or World/receipt mutation. No merge/production.",
+    "objectives": ["az900.storage.file-tools", "az900.storage.migration"]
   },
   "sources": [
     {
-      "id": "SE01",
+      "id": "FM01",
       "url": "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900",
-      "title": "Study guide for Exam AZ-900: Microsoft Azure Fundamentals | Microsoft Learn",
+      "title": "'Study guide for Exam AZ-900: Microsoft Azure Fundamentals | Microsoft Learn'",
       "reviewed": "2026-11-01",
-      "version": "Rolling official page; 2026-06-22T23:35:00.0000000Z; SHA256 177b736af1bae8702d9e04ef68bac8c1f2985838652bb40818a5ac25ed320716",
+      "version": "Rolling official public source; 2026-05-31T00:00:00.0000000Z; SHA256 177b736af1bae8702d9e04ef68bac8c1f2985838652bb40818a5ac25ed320716",
       "kind": "official-public-documentation",
-      "objectives": [
-        "az900.security.zero-trust",
-        "az900.security.defense",
-        "az900.security.defender"
-      ],
-      "claims": ["security.SE01"],
-      "limits": "Actual scoped public content reviewed before manuscript. Learn shorthand qualified by current product claims, plan/platform/support differences and two different score models. Protected assessment not opened; no real operation or human validation.",
+      "objectives": ["az900.storage.file-tools", "az900.storage.migration"],
+      "claims": ["migration.FM01"],
+      "limits": "Actual public content inspected before manuscript; broad Learn claims qualified by current support/version/platform/fidelity/availability. Command-reference pair differences explicitly bounded; no protected assessment, operation or human validation.",
       "availability": "AVAILABLE",
       "discovery": [
         {
           "url": "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900",
           "disposition": "reviewed-essential",
-          "reason": "Current July20 AZ-900 guide: only2.4.06–08; encryption/key management is Learn supplement, not a fourth exam objective."
+          "reason": "Current July20 AZ-900 scope: only2.3.05/06; five named tools, no exam-readiness inference."
         }
       ]
     },
     {
-      "id": "SE02",
-      "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-identity-access-security/",
-      "title": "Describe Azure identity, access, and security - Training | Microsoft Learn",
+      "id": "FM02",
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-storage-services/",
+      "title": "Describe Azure storage services - Training | Microsoft Learn",
       "reviewed": "2026-11-01",
-      "version": "Rolling official page; 2026-10-28T17:12:00.0000000Z; SHA256 70aeac9267c6e6c173edeececfed3e522cd58a5734e5152653ac5dd083ed388b",
+      "version": "Rolling official public source; 2026-02-03T00:00:00.0000000Z; SHA256 c27e2576d366e06110418c10b45c3560bfbbc447313543a3cf1d3e3bd122a82f",
       "kind": "official-public-documentation",
-      "objectives": [
-        "az900.security.zero-trust",
-        "az900.security.defense",
-        "az900.security.defender"
-      ],
-      "claims": ["security.SE02"],
-      "limits": "Actual scoped public content reviewed before manuscript. Learn shorthand qualified by current product claims, plan/platform/support differences and two different score models. Protected assessment not opened; no real operation or human validation.",
+      "objectives": ["az900.storage.file-tools", "az900.storage.migration"],
+      "claims": ["migration.FM02"],
+      "limits": "Actual public content inspected before manuscript; broad Learn claims qualified by current support/version/platform/fidelity/availability. Command-reference pair differences explicitly bounded; no protected assessment, operation or human validation.",
       "availability": "AVAILABLE",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-identity-access-security/",
+          "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-storage-services/",
           "disposition": "reviewed-essential",
-          "reason": "Twelve-unit Identity/Access/Security module; P15 units7,8,9a,9 and public introduction/summary scoped; units2–6 preserved prerequisite material; protected10assessment not opened."
+          "reason": "Actual eight-unit Storage module; P16 public6/7 plus introduction/summary, account/service/redundancy units preserved prerequisites; protected8assessment not opened."
         }
       ]
     },
     {
-      "id": "SE03",
-      "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-identity-access-security/7-describe-zero-trust-model",
-      "title": "Describe Zero Trust model - Training | Microsoft Learn",
+      "id": "FM03",
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-storage-services/6-identify-azure-data-migration-options",
+      "title": "Identify Azure data migration options - Training | Microsoft Learn",
       "reviewed": "2026-11-01",
-      "version": "Rolling official page; 2025-03-28T23:01:00.0000000Z; SHA256 c4ec67fb9ed259b58e09d0fe958b0b94efa1a699339ef43c478528661131d411",
+      "version": "Rolling official public source; 2025-09-09T00:00:00.0000000Z; SHA256 c81cd53fd9b9d378843cdaffbb683737509dbebdc740d900226662c90ed98dbe",
       "kind": "official-public-documentation",
-      "objectives": [
-        "az900.security.zero-trust",
-        "az900.security.defense",
-        "az900.security.defender"
-      ],
-      "claims": ["security.SE03"],
-      "limits": "Actual scoped public content reviewed before manuscript. Learn shorthand qualified by current product claims, plan/platform/support differences and two different score models. Protected assessment not opened; no real operation or human validation.",
+      "objectives": ["az900.storage.file-tools", "az900.storage.migration"],
+      "claims": ["migration.FM03"],
+      "limits": "Actual public content inspected before manuscript; broad Learn claims qualified by current support/version/platform/fidelity/availability. Command-reference pair differences explicitly bounded; no protected assessment, operation or human validation.",
       "availability": "AVAILABLE",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-identity-access-security/7-describe-zero-trust-model",
+          "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-storage-services/6-identify-azure-data-migration-options",
           "disposition": "reviewed-essential",
-          "reason": "Three Zero Trust principles; network location is insufficient; authentication plus authorization/context; broad Learn shorthand qualified by actual Azure documentation."
+          "reason": "Migration learning sequence and basic Migrate/DataBox purposes; old80TB universal language qualified by current device pivots and retirement."
         }
       ]
     },
     {
-      "id": "SE04",
-      "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-identity-access-security/8-describe-defense-depth",
-      "title": "Describe defense-in-depth - Training | Microsoft Learn",
+      "id": "FM04",
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-storage-services/7-identify-azure-file-movement-options",
+      "title": "Identify Azure file movement options - Training | Microsoft Learn",
       "reviewed": "2026-11-01",
-      "version": "Rolling official page; 2025-03-28T23:01:00.0000000Z; SHA256 bf47072ee09485b3477bdb9d1fcd6903f04325468b1074c2c36d70a5627094f5",
+      "version": "Rolling official public source; 2025-09-09T00:00:00.0000000Z; SHA256 53aa1dc4ade8c0cb971cf875f7560409c1f6befb9330037a1ea3cfe1e189093d",
       "kind": "official-public-documentation",
-      "objectives": [
-        "az900.security.zero-trust",
-        "az900.security.defense",
-        "az900.security.defender"
-      ],
-      "claims": ["security.SE04"],
-      "limits": "Actual scoped public content reviewed before manuscript. Learn shorthand qualified by current product claims, plan/platform/support differences and two different score models. Protected assessment not opened; no real operation or human validation.",
+      "objectives": ["az900.storage.file-tools", "az900.storage.migration"],
+      "claims": ["migration.FM04"],
+      "limits": "Actual public content inspected before manuscript; broad Learn claims qualified by current support/version/platform/fidelity/availability. Command-reference pair differences explicitly bounded; no protected assessment, operation or human validation.",
       "availability": "AVAILABLE",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-identity-access-security/8-describe-defense-depth",
+          "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-storage-services/7-identify-azure-file-movement-options",
           "disposition": "reviewed-essential",
-          "reason": "Seven layers and their purpose/controls; layered reduction not an absolute protection guarantee. Original AzureLab diagram only."
+          "reason": "Copy/directional sync/GUI/hybrid concepts; broad any-protocol/unlimited-cache/backend language qualified by specific current protocol, scale, fidelity and resource-auth sources."
         }
       ]
     },
     {
-      "id": "SE05",
-      "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-identity-access-security/9a-describe-encryption-key-management",
-      "title": "Describe encryption and key management in Azure - Training | Microsoft Learn",
+      "id": "FM05",
+      "url": "https://learn.microsoft.com/en-us/azure/storage/common/storage-use-azcopy",
+      "title": "Copy or move data to Azure Storage by using AzCopy v10 | Microsoft Learn",
       "reviewed": "2026-11-01",
-      "version": "Rolling official page; 2026-03-24T01:47:00.0000000Z; SHA256 889967b38d712741d373929ac457a2a1479e0b468651dc4643affc1fbfe8cbe0",
+      "version": "Rolling official public source; 2026-10-23T00:00:00.0000000Z; SHA256 49170e07b976ab392d3ea018e744023a0f18756fd9d0c87b6f9260c48730eb86",
       "kind": "official-public-documentation",
-      "objectives": [
-        "az900.security.zero-trust",
-        "az900.security.defense",
-        "az900.security.defender"
-      ],
-      "claims": ["security.SE05"],
-      "limits": "Actual scoped public content reviewed before manuscript. Learn shorthand qualified by current product claims, plan/platform/support differences and two different score models. Protected assessment not opened; no real operation or human validation.",
+      "objectives": ["az900.storage.file-tools", "az900.storage.migration"],
+      "claims": ["migration.FM05"],
+      "limits": "Actual public content inspected before manuscript; broad Learn claims qualified by current support/version/platform/fidelity/availability. Command-reference pair differences explicitly bounded; no protected assessment, operation or human validation.",
       "availability": "AVAILABLE",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-identity-access-security/9a-describe-encryption-key-management",
+          "url": "https://learn.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-v10",
           "disposition": "reviewed-essential",
-          "reason": "Encryption at rest/in transit, keys/secrets/certificates and centralized Key Vault; rotation/access responsibilities remain separate."
+          "reason": "Supported AzCopyv10 CLI/source/destination/Entra/SAS, source-specific data rights, scripts and jobs; no live execution. Current recommendation to assess Storage Mover for large/complex migrations is contextual, not new goal."
         }
       ]
     },
     {
-      "id": "SE06",
-      "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-identity-access-security/9-describe-microsoft-defender-for-cloud",
-      "title": "Describe Microsoft Defender for Cloud - Training | Microsoft Learn",
+      "id": "FM06",
+      "url": "https://learn.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-blobs-synchronize",
+      "title": "Synchronize with Azure Blob storage by using AzCopy v10 | Microsoft Learn",
       "reviewed": "2026-11-01",
-      "version": "Rolling official page; 2025-03-28T23:01:00.0000000Z; SHA256 c27dc44cf773d422d43f8bd4507aee1fd492f3a847dd70bb8078b988bf32cfa0",
+      "version": "Rolling official public source; 2025-10-28T00:00:00.0000000Z; SHA256 a33ed63de054130e4d3ffa9acef1e5d09b61cfb72cba5d1901f2302a472eb865",
       "kind": "official-public-documentation",
-      "objectives": [
-        "az900.security.zero-trust",
-        "az900.security.defense",
-        "az900.security.defender"
-      ],
-      "claims": ["security.SE06"],
-      "limits": "Actual scoped public content reviewed before manuscript. Learn shorthand qualified by current product claims, plan/platform/support differences and two different score models. Protected assessment not opened; no real operation or human validation.",
+      "objectives": ["az900.storage.file-tools", "az900.storage.migration"],
+      "claims": ["migration.FM06"],
+      "limits": "Actual public content inspected before manuscript; broad Learn claims qualified by current support/version/platform/fidelity/availability. Command-reference pair differences explicitly bounded; no protected assessment, operation or human validation.",
       "availability": "AVAILABLE",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-identity-access-security/9-describe-microsoft-defender-for-cloud",
+          "url": "https://learn.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-blobs-synchronize",
           "disposition": "reviewed-essential",
-          "reason": "Learn assessment/secure/defend overview; Azure/hybrid/multicloud connectivity/plan prerequisites qualified by current product sources."
+          "reason": "Blob/local and container directional examples, timestamp/hash comparison and explicit delete-destination; narrow note conflicts with broader current command reference, so no universal Files-sync support claim."
         }
       ]
     },
     {
-      "id": "SE07",
-      "url": "https://learn.microsoft.com/en-us/security/zero-trust/zero-trust-overview",
-      "title": "Zero Trust as a security foundation | Microsoft Learn",
+      "id": "FM07",
+      "url": "https://learn.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-files",
+      "title": "Transfer data to or from Azure Files by using AzCopy v10 | Microsoft Learn",
       "reviewed": "2026-11-01",
-      "version": "Rolling official page; 2026-05-31T12:33:00.0000000Z; SHA256 6c7b0b94d67f8736c6c05c326c5b5e2a19f2cf7f28a7d583dd3244fec71de23b",
+      "version": "Rolling official public source; 2025-10-28T00:00:00.0000000Z; SHA256 a679d22efe0d7f0acc951947b08c3429107cd7fad2d869c0a148ad6a18c809ca",
       "kind": "official-public-documentation",
-      "objectives": [
-        "az900.security.zero-trust",
-        "az900.security.defense",
-        "az900.security.defender"
-      ],
-      "claims": ["security.SE07"],
-      "limits": "Actual scoped public content reviewed before manuscript. Learn shorthand qualified by current product claims, plan/platform/support differences and two different score models. Protected assessment not opened; no real operation or human validation.",
+      "objectives": ["az900.storage.file-tools", "az900.storage.migration"],
+      "claims": ["migration.FM07"],
+      "limits": "Actual public content inspected before manuscript; broad Learn claims qualified by current support/version/platform/fidelity/availability. Command-reference pair differences explicitly bounded; no protected assessment, operation or human validation.",
       "availability": "AVAILABLE",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/security/zero-trust/zero-trust-overview",
+          "url": "https://learn.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-files",
           "disposition": "reviewed-essential",
-          "reason": "Zero Trust is a strategy covering explicit contextual verification, shortest adequate access and assume-breach containment/detection, not a product or confirmed incident."
+          "reason": "Current SMB/NFS copy directions/platform/from-to and fidelity flags;10.30 no automatic share creation; file/directory Entra vs share/account operation authorization differs."
         }
       ]
     },
     {
-      "id": "SE08",
-      "url": "https://learn.microsoft.com/en-us/azure/security/fundamentals/zero-trust",
-      "title": "Zero Trust security in Azure | Microsoft Learn",
+      "id": "FM08",
+      "url": "https://learn.microsoft.com/en-us/azure/storage/storage-explorer/vs-azure-tools-storage-manage-with-storage-explorer",
+      "title": "Get started with Storage Explorer | Microsoft Learn",
       "reviewed": "2026-11-01",
-      "version": "Rolling official page; 2026-07-24T18:54:00.0000000Z; SHA256 c7d946d3d9ee6e72045d081a678f3a890cdefa5af8a6602adccc1ed0a7ec9c4e",
+      "version": "Rolling official public source; 2019-11-08T00:00:00.0000000Z; SHA256 3ceb4951571aace95c8a17a2d7a9289da2c1e5e480a53464a43a682642844722",
       "kind": "official-public-documentation",
-      "objectives": [
-        "az900.security.zero-trust",
-        "az900.security.defense",
-        "az900.security.defender"
-      ],
-      "claims": ["security.SE08"],
-      "limits": "Actual scoped public content reviewed before manuscript. Learn shorthand qualified by current product claims, plan/platform/support differences and two different score models. Protected assessment not opened; no real operation or human validation.",
+      "objectives": ["az900.storage.file-tools", "az900.storage.migration"],
+      "claims": ["migration.FM08"],
+      "limits": "Actual public content inspected before manuscript; broad Learn claims qualified by current support/version/platform/fidelity/availability. Command-reference pair differences explicitly bounded; no protected assessment, operation or human validation.",
       "availability": "AVAILABLE",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/security/fundamentals/zero-trust",
+          "url": "https://learn.microsoft.com/en-us/azure/storage/storage-explorer/vs-azure-tools-storage-manage-with-storage-explorer",
           "disposition": "reviewed-essential",
-          "reason": "Azure Zero Trust patterns: MFA/CA/RBAC/managed identities, segmentation, encryption/monitoring/recovery are coordinated controls, not a new evaluator."
+          "reason": "Standalone Windows/macOS/Linux GUI; Blob/Files/Queue/Table attachment/auth matrix varies by resource; GUI does not add data rights or guarantee all ACL fidelity."
         }
       ]
     },
     {
-      "id": "SE09",
-      "url": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/defender-for-cloud-introduction",
-      "title": "Microsoft Defender for Cloud Overview - Microsoft Defender for Cloud | Microsoft Learn",
+      "id": "FM09",
+      "url": "https://learn.microsoft.com/en-us/azure/storage/file-sync/file-sync-introduction",
+      "title": "What is Azure File Sync? | Microsoft Learn",
       "reviewed": "2026-11-01",
-      "version": "Rolling official page; 2026-08-10T22:36:00.0000000Z; SHA256 72dfee448af156964f26beaa7d1c58f0a3420c4c5e39600f8f0be6de91075d7c",
+      "version": "Rolling official public source; 2026-08-17T00:00:00.0000000Z; SHA256 f9262e559b2d0e9023fcc79151b61ac9f9b1a2b0a05625d4b25334b2841a6027",
       "kind": "official-public-documentation",
-      "objectives": [
-        "az900.security.zero-trust",
-        "az900.security.defense",
-        "az900.security.defender"
-      ],
-      "claims": ["security.SE09"],
-      "limits": "Actual scoped public content reviewed before manuscript. Learn shorthand qualified by current product claims, plan/platform/support differences and two different score models. Protected assessment not opened; no real operation or human validation.",
+      "objectives": ["az900.storage.file-tools", "az900.storage.migration"],
+      "claims": ["migration.FM09"],
+      "limits": "Actual public content inspected before manuscript; broad Learn claims qualified by current support/version/platform/fidelity/availability. Command-reference pair differences explicitly bounded; no protected assessment, operation or human validation.",
       "availability": "AVAILABLE",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/defender-for-cloud-introduction",
+          "url": "https://learn.microsoft.com/en-us/azure/storage/file-sync/file-sync-introduction",
           "disposition": "reviewed-essential",
-          "reason": "CNAPP combines CSPM, CWPP and DevSecOps; expanding Defender portal differs from Azure portal; extra plans/collection/support required; advanced AI/SOC products outside P15."
+          "reason": "Windows Server ↔ central Azure Files topology, tiering and registered endpoints; broad recovery/no-local-backup wording qualified by separate recovery and backup responsibilities."
         }
       ]
     },
     {
-      "id": "SE10",
-      "url": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/concept-cloud-security-posture-management",
-      "title": "What is Cloud Security Posture Management (CSPM) - Microsoft Defender for Cloud | Microsoft Learn",
+      "id": "FM10",
+      "url": "https://learn.microsoft.com/en-us/azure/storage/file-sync/file-sync-cloud-tiering-policy",
+      "title": "Azure File Sync cloud tiering policies | Microsoft Learn",
       "reviewed": "2026-11-01",
-      "version": "Rolling official page; 2026-09-30T17:37:00.0000000Z; SHA256 1b1e18470b0d1d322af8762daff3a4a066cf31ef7ca2658980088d644ca7fffe",
+      "version": "Rolling official public source; 2024-06-03T00:00:00.0000000Z; SHA256 2415dab196828f7033df3a99a7a649aa836f86044a21f2049b41b1fa156c6b75",
       "kind": "official-public-documentation",
-      "objectives": [
-        "az900.security.zero-trust",
-        "az900.security.defense",
-        "az900.security.defender"
-      ],
-      "claims": ["security.SE10"],
-      "limits": "Actual scoped public content reviewed before manuscript. Learn shorthand qualified by current product claims, plan/platform/support differences and two different score models. Protected assessment not opened; no real operation or human validation.",
+      "objectives": ["az900.storage.file-tools", "az900.storage.migration"],
+      "claims": ["migration.FM10"],
+      "limits": "Actual public content inspected before manuscript; broad Learn claims qualified by current support/version/platform/fidelity/availability. Command-reference pair differences explicitly bounded; no protected assessment, operation or human validation.",
       "availability": "AVAILABLE",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/concept-cloud-security-posture-management",
+          "url": "https://learn.microsoft.com/en-us/azure/storage/file-sync/file-sync-cloud-tiering-policy",
           "disposition": "reviewed-essential",
-          "reason": "Free Foundational CSPM versus paid Defender CSPM; risk prioritization/attack paths and advanced DevOps are plan-dependent. Some recommendations require CWPP. Regional/cloud/resource availability varies."
+          "reason": "Local volume free-space/date tiering, free-space priority, policy changes do not automatically recall all content; not Blob access tiers."
         }
       ]
     },
     {
-      "id": "SE11",
-      "url": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/security-recommendations",
-      "title": "Security Recommendations - Microsoft Defender for Cloud | Microsoft Learn",
+      "id": "FM11",
+      "url": "https://learn.microsoft.com/en-us/azure/migrate/migrate-overview",
+      "title": "About Azure Migrate - Azure Migrate | Microsoft Learn",
       "reviewed": "2026-11-01",
-      "version": "Rolling official page; 2026-06-17T12:36:00.0000000Z; SHA256 a1162bf672519dfe7d07a982194cb59ca401dbe3d6d232ecc82c97f67845f068",
+      "version": "Rolling official public source; 2026-05-18T00:00:00.0000000Z; SHA256 acebad078f44ef4b11cb281c8951dad450ecdbcb99ed7c53389a28a229ae7f56",
       "kind": "official-public-documentation",
-      "objectives": [
-        "az900.security.zero-trust",
-        "az900.security.defense",
-        "az900.security.defender"
-      ],
-      "claims": ["security.SE11"],
-      "limits": "Actual scoped public content reviewed before manuscript. Learn shorthand qualified by current product claims, plan/platform/support differences and two different score models. Protected assessment not opened; no real operation or human validation.",
+      "objectives": ["az900.storage.file-tools", "az900.storage.migration"],
+      "claims": ["migration.FM11"],
+      "limits": "Actual public content inspected before manuscript; broad Learn claims qualified by current support/version/platform/fidelity/availability. Command-reference pair differences explicitly bounded; no protected assessment, operation or human validation.",
       "availability": "AVAILABLE",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/security-recommendations",
+          "url": "https://learn.microsoft.com/en-us/azure/migrate/migrate-services-overview?view=migrate",
           "disposition": "reviewed-essential",
-          "reason": "Posture recommendations arise from assessment; risk context differs from threat evidence; risk-level evaluation requires relevant Defender CSPM coverage and is not universal safety proof."
+          "reason": "Current default migrate versus migrate-classic views; decide/plan/execute, multiple workloads and separate migration execution; Copilot migration agent preview is outside modeled scope."
         }
       ]
     },
     {
-      "id": "SE12",
-      "url": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/secure-score-security-controls",
-      "title": "Cloud Secure Score in Microsoft Defender for Cloud - Microsoft Defender for Cloud | Microsoft Learn",
+      "id": "FM12",
+      "url": "https://learn.microsoft.com/en-us/azure/migrate/concepts-overview",
+      "title": "Overview Assessment - Azure Migrate | Microsoft Learn",
       "reviewed": "2026-11-01",
-      "version": "Rolling official page; 2026-07-07T17:36:00.0000000Z; SHA256 a89e39681dd655f53410ef190997d1fffc945629de7899fa837ee8956c57cd7d",
+      "version": "Rolling official public source; 2025-04-09T00:00:00.0000000Z; SHA256 710bd328276139e26103188a73d9f5f388192fe4368777e145b2400e4a49a449",
       "kind": "official-public-documentation",
-      "objectives": [
-        "az900.security.zero-trust",
-        "az900.security.defense",
-        "az900.security.defender"
-      ],
-      "claims": ["security.SE12"],
-      "limits": "Actual scoped public content reviewed before manuscript. Learn shorthand qualified by current product claims, plan/platform/support differences and two different score models. Protected assessment not opened; no real operation or human validation.",
+      "objectives": ["az900.storage.file-tools", "az900.storage.migration"],
+      "claims": ["migration.FM12"],
+      "limits": "Actual public content inspected before manuscript; broad Learn claims qualified by current support/version/platform/fidelity/availability. Command-reference pair differences explicitly bounded; no protected assessment, operation or human validation.",
       "availability": "AVAILABLE",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/secure-score-security-controls",
+          "url": "https://learn.microsoft.com/en-us/azure/migrate/concepts-overview?view=migrate",
           "disposition": "reviewed-essential",
-          "reason": "Both actual portal pivots reviewed: classic control-based Secure Score and risk-based Cloud Secure Score have different calculations/values. No numeric score computed in AzureLab; changing coverage can change score; preview recommendation qualification applies today."
+          "reason": "Readiness, right-sizing and cost are point-in-time assessment outputs dependent on discovered configuration/performance/settings; source changes can invalidate evidence."
         }
       ]
     },
     {
-      "id": "SE13",
-      "url": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/managing-and-responding-alerts",
-      "title": "Manage and Respond to Security Alerts - Microsoft Defender for Cloud | Microsoft Learn",
+      "id": "FM13",
+      "url": "https://learn.microsoft.com/en-us/azure/databox/data-box-overview",
+      "title": "Microsoft Azure Data Box overview | Microsoft Learn",
       "reviewed": "2026-11-01",
-      "version": "Rolling official page; 2026-09-22T17:34:00.0000000Z; SHA256 f27e1229e6d50029fc2f5c4602873199e91eaa819e8df766d9f20fd82d799116",
+      "version": "Rolling official public source; 2025-03-04T00:00:00.0000000Z; SHA256 0f5a81b0d27ba0d8421618278c4aeb9138a63f482243b07e422303ac1f8f923d",
       "kind": "official-public-documentation",
-      "objectives": [
-        "az900.security.zero-trust",
-        "az900.security.defense",
-        "az900.security.defender"
-      ],
-      "claims": ["security.SE13"],
-      "limits": "Actual scoped public content reviewed before manuscript. Learn shorthand qualified by current product claims, plan/platform/support differences and two different score models. Protected assessment not opened; no real operation or human validation.",
+      "objectives": ["az900.storage.file-tools", "az900.storage.migration"],
+      "claims": ["migration.FM13"],
+      "limits": "Actual public content inspected before manuscript; broad Learn claims qualified by current support/version/platform/fidelity/availability. Command-reference pair differences explicitly bounded; no protected assessment, operation or human validation.",
       "availability": "AVAILABLE",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/manage-respond-alerts",
+          "url": "https://learn.microsoft.com/en-us/azure/databox/data-box-overview",
           "disposition": "reviewed-essential",
-          "reason": "Canonical redirect to manage-respond-alerts: investigate resource/time/evidence/severity and possible false positives; remediation/automation are separate actions, not automatic from alert."
+          "reason": "Both current Data Box pivots,120/525TB versus legacy80 and Heavy retirement; import/export phases differ; availability/commerce/region/logistics and actual upload/verify remain separate."
         }
       ]
     },
     {
-      "id": "SE14",
-      "url": "https://learn.microsoft.com/en-us/azure/key-vault/general/overview",
-      "title": "Azure Key Vault Overview - Azure Key Vault | Microsoft Learn",
+      "id": "FM14",
+      "url": "https://learn.microsoft.com/en-us/azure/databox/data-box-faq",
+      "title": "Azure Data Box, Azure Data Box Next Gen, and Azure Data Box Heavy FAQ | Microsoft Learn",
       "reviewed": "2026-11-01",
-      "version": "Rolling official page; 2026-10-06T17:34:00.0000000Z; SHA256 22fa34895ca98f21a1781510902752f0b6337e78acb4c5cf2cbc3882fae3b874",
+      "version": "Rolling official public source; 2025-03-06T00:00:00.0000000Z; SHA256 8320cb6ce970e298a178f38a7d57dba29f10b92a30157bce8a27958e9f20da16",
       "kind": "official-public-documentation",
-      "objectives": [
-        "az900.security.zero-trust",
-        "az900.security.defense",
-        "az900.security.defender"
-      ],
-      "claims": ["security.SE14"],
-      "limits": "Actual scoped public content reviewed before manuscript. Learn shorthand qualified by current product claims, plan/platform/support differences and two different score models. Protected assessment not opened; no real operation or human validation.",
+      "objectives": ["az900.storage.file-tools", "az900.storage.migration"],
+      "claims": ["migration.FM14"],
+      "limits": "Actual public content inspected before manuscript; broad Learn claims qualified by current support/version/platform/fidelity/availability. Command-reference pair differences explicitly bounded; no protected assessment, operation or human validation.",
       "availability": "AVAILABLE",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/key-vault/general/overview",
+          "url": "https://learn.microsoft.com/en-us/azure/databox/data-box-faq",
           "disposition": "reviewed-essential",
-          "reason": "Key Vault protects secrets, encryption keys and certificates; Entra authentication plus data authorization needed; not a general application database. Premium cryptography/preview internals excluded."
+          "reason": "Selected FAQ capacity/availability/security content only; stale Heavy recommendation is explicitly superseded by current overview retirement note. No universalcapacity/automaticfastest claim."
         }
       ]
     },
     {
-      "id": "SE15",
-      "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-identity-access-security/1-introduction",
+      "id": "FM15",
+      "url": "https://learn.microsoft.com/en-us/azure/databox/",
+      "title": "Azure Data Box Documentation - Offline Transfer | Microsoft Learn",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official public source; 2025-03-06T00:00:00.0000000Z; SHA256 4402fc996984b67825b9d54f68cc59dda11c8b295acd7f9b632a5904f28fb556",
+      "kind": "official-public-documentation",
+      "objectives": ["az900.storage.file-tools", "az900.storage.migration"],
+      "claims": ["migration.FM15"],
+      "limits": "Actual public content inspected before manuscript; broad Learn claims qualified by current support/version/platform/fidelity/availability. Command-reference pair differences explicitly bounded; no protected assessment, operation or human validation.",
+      "availability": "AVAILABLE",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/databox/",
+          "disposition": "reviewed-essential",
+          "reason": "Official Data Box family discovery inclDisk/NextGen; no ordering/tracking or protected reports executed."
+        }
+      ]
+    },
+    {
+      "id": "FM16",
+      "url": "https://learn.microsoft.com/en-us/azure/storage/file-sync/file-sync-cloud-tiering-overview",
+      "title": "Understand Azure File Sync Cloud Tiering | Microsoft Learn",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official public source; 2026-07-20T22:11:00.0000000Z; SHA256 9ffe7b504c48b85e902a262042c9f86cd207c556655c1801b9fbdae40018c433",
+      "kind": "official-public-documentation",
+      "objectives": ["az900.storage.file-tools", "az900.storage.migration"],
+      "claims": ["migration.FM16"],
+      "limits": "Actual public content inspected before manuscript; broad Learn claims qualified by current support/version/platform/fidelity/availability. Command-reference pair differences explicitly bounded; no protected assessment, operation or human validation.",
+      "availability": "AVAILABLE",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/storage/file-sync/file-sync-cloud-tiering-overview",
+          "disposition": "reviewed-applied",
+          "reason": "Tiered local namespace vs cloud file content, optional cache and recall; availability/access prerequisites remain distinct."
+        }
+      ]
+    },
+    {
+      "id": "FM17",
+      "url": "https://learn.microsoft.com/en-us/azure/storage/file-sync/file-sync-planning",
+      "title": "Plan an Azure File Sync deployment | Microsoft Learn",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official public source; 2026-10-26T11:42:00.0000000Z; SHA256 84cfc71a15623e6f5c49ffca99856b0c39dbed05ef0aaa883b8d18a2de96446d",
+      "kind": "official-public-documentation",
+      "objectives": ["az900.storage.file-tools", "az900.storage.migration"],
+      "claims": ["migration.FM17"],
+      "limits": "Actual public content inspected before manuscript; broad Learn claims qualified by current support/version/platform/fidelity/availability. Command-reference pair differences explicitly bounded; no protected assessment, operation or human validation.",
+      "availability": "AVAILABLE",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/storage/file-sync/file-sync-planning",
+          "disposition": "reviewed-applied",
+          "reason": "Storage Sync Service/group/cloud/server endpoints; Windows Server and SMB classic Azure Files, not top-levelNFS. Direct cloud changes require detection; backup and scale/network design remain separate."
+        }
+      ]
+    },
+    {
+      "id": "FM18",
+      "url": "https://learn.microsoft.com/en-us/azure/storage/file-sync/file-sync-faq",
+      "title": "FM18",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official public source; unknown; SHA256 unavailable",
+      "kind": "official-public-documentation",
+      "objectives": ["az900.storage.file-tools", "az900.storage.migration"],
+      "claims": ["migration.FM18"],
+      "limits": "Actual public content inspected before manuscript; broad Learn claims qualified by current support/version/platform/fidelity/availability. Command-reference pair differences explicitly bounded; no protected assessment, operation or human validation.",
+      "availability": "BLOCKED",
+      "alternative": "Current linked official FM17/19/24/32/35/36/37; no unsupported guessed source credited",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/storage/file-sync/file-sync-faq",
+          "disposition": "blocked",
+          "reason": "Guessed old FileSync FAQ unavailable; actual linked Azure Files/FileSync FAQ FM35 replaces it."
+        }
+      ]
+    },
+    {
+      "id": "FM19",
+      "url": "https://learn.microsoft.com/en-us/azure/storage/files/storage-files-migration-overview",
+      "title": "Migration Overview for SMB Azure File Shares | Microsoft Learn",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official public source; 2026-10-29T11:42:00.0000000Z; SHA256 6e1de616f211019809a4e06877a477f87b8977f2f3ea665c00df88a70b68a2d9",
+      "kind": "official-public-documentation",
+      "objectives": ["az900.storage.file-tools", "az900.storage.migration"],
+      "claims": ["migration.FM19"],
+      "limits": "Actual public content inspected before manuscript; broad Learn claims qualified by current support/version/platform/fidelity/availability. Command-reference pair differences explicitly bounded; no protected assessment, operation or human validation.",
+      "availability": "AVAILABLE",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/storage/files/storage-files-migration-overview",
+          "disposition": "reviewed-applied",
+          "reason": "Current SMB migration fidelity distinctions: ACL/owner/timestamps/ADS, alternate methods StorageMover/Robocopy/FileSync; AzCopy/Explorer not universal complete-fidelity solution."
+        }
+      ]
+    },
+    {
+      "id": "FM20",
+      "url": "https://learn.microsoft.com/en-us/azure/storage/common/storage-ref-azcopy-sync",
+      "title": "azure/storage/common/storage-ref-azcopy-sync",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official public source; not stated; SHA256 69b62e3d850fa7900c6e6741c430b74ef139511e75978f7799af991fd442a456",
+      "kind": "official-public-documentation",
+      "objectives": ["az900.storage.file-tools", "az900.storage.migration"],
+      "claims": ["migration.FM20"],
+      "limits": "Actual public content inspected before manuscript; broad Learn claims qualified by current support/version/platform/fidelity/availability. Command-reference pair differences explicitly bounded; no protected assessment, operation or human validation.",
+      "availability": "AVAILABLE",
+      "discovery": [
+        {
+          "url": "https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_sync",
+          "disposition": "optional-duplicate",
+          "reason": "Learn command reference redirects to official GitHub wiki HTML; duplicate discovery only, readable raw officialFM32 used for actual command claims."
+        }
+      ]
+    },
+    {
+      "id": "FM21",
+      "url": "https://learn.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-configure",
+      "title": "Find errors & resume jobs with logs in AzCopy (Azure Storage) | Microsoft Learn",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official public source; 2026-05-06T11:15:00.0000000Z; SHA256 741660f339a889327b8b560997e3e9943e4b8eb9b6f19930c883b6fe3fbb3c4f",
+      "kind": "official-public-documentation",
+      "objectives": ["az900.storage.file-tools", "az900.storage.migration"],
+      "claims": ["migration.FM21"],
+      "limits": "Actual public content inspected before manuscript; broad Learn claims qualified by current support/version/platform/fidelity/availability. Command-reference pair differences explicitly bounded; no protected assessment, operation or human validation.",
+      "availability": "AVAILABLE",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-configure",
+          "disposition": "reviewed-applied",
+          "reason": "AzCopy jobs/logs/resume and failed-item status, resumption requires valid authorization; command/job completion is not independent data/app validation."
+        }
+      ]
+    },
+    {
+      "id": "FM22",
+      "url": "https://learn.microsoft.com/en-us/azure/migrate/migrate-execution",
+      "title": "FM22",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official public source; unknown; SHA256 unavailable",
+      "kind": "official-public-documentation",
+      "objectives": ["az900.storage.file-tools", "az900.storage.migration"],
+      "claims": ["migration.FM22"],
+      "limits": "Actual public content inspected before manuscript; broad Learn claims qualified by current support/version/platform/fidelity/availability. Command-reference pair differences explicitly bounded; no protected assessment, operation or human validation.",
+      "availability": "BLOCKED",
+      "alternative": "Current linked official FM17/19/24/32/35/36/37; no unsupported guessed source credited",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/migrate/migrate-execution",
+          "disposition": "blocked",
+          "reason": "Guessed execution article unavailable; current overviewFM11 and discovery/dependencyFM36/37 supply relevant process evidence."
+        }
+      ]
+    },
+    {
+      "id": "FM23",
+      "url": "https://learn.microsoft.com/en-us/azure/databox/data-box-disk-overview",
+      "title": "Microsoft Azure Data Box Disk overview | Microsoft Learn",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official public source; 2026-03-26T22:23:00.0000000Z; SHA256 3c77519982b5f66da5b86976ead598411cf54a51403c614485146a6949443c00",
+      "kind": "official-public-documentation",
+      "objectives": ["az900.storage.file-tools", "az900.storage.migration"],
+      "claims": ["migration.FM23"],
+      "limits": "Actual public content inspected before manuscript; broad Learn claims qualified by current support/version/platform/fidelity/availability. Command-reference pair differences explicitly bounded; no protected assessment, operation or human validation.",
+      "availability": "AVAILABLE",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/databox/data-box-disk-overview",
+          "disposition": "reviewed-applied",
+          "reason": "DataBoxDisk separate variant supports import only, no export; region/hardware-encryption/support vary, no universal familycapacity."
+        }
+      ]
+    },
+    {
+      "id": "FM24",
+      "url": "https://learn.microsoft.com/en-us/azure/databox/data-box-deploy-export-ordered",
+      "title": "Tutorial to export data from Azure Data Box | Microsoft Learn",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official public source; 2026-08-03T05:10:00.0000000Z; SHA256 5c50917fc0e3ed4b88ff752fcdd14009e5cd3b7525496b9f651ccd950d50419e",
+      "kind": "official-public-documentation",
+      "objectives": ["az900.storage.file-tools", "az900.storage.migration"],
+      "claims": ["migration.FM24"],
+      "limits": "Actual public content inspected before manuscript; broad Learn claims qualified by current support/version/platform/fidelity/availability. Command-reference pair differences explicitly bounded; no protected assessment, operation or human validation.",
+      "availability": "AVAILABLE",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/databox/data-box-deploy-export-ordered",
+          "disposition": "reviewed-applied",
+          "reason": "Actual export order fills device in Azure before shipment and copies out locally; export excludes ACL/metadata; independent restoration/validation needed."
+        }
+      ]
+    },
+    {
+      "id": "FM25",
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-storage-services/1-introduction",
       "title": "Introduction - Training | Microsoft Learn",
       "reviewed": "2026-11-01",
-      "version": "Rolling official page; 2025-03-28T23:01:00.0000000Z; SHA256 0ce001af136a8d592905aad76fd63d8e61deddc1316e06ca795b205b73caf8f0",
+      "version": "Rolling official public source; 2025-09-09T17:13:00.0000000Z; SHA256 6e46cc1f26b2449d52529076d43e3a368abce31087bf8cfafd6b32257c161953",
       "kind": "official-public-documentation",
-      "objectives": [
-        "az900.security.zero-trust",
-        "az900.security.defense",
-        "az900.security.defender"
-      ],
-      "claims": ["security.SE15"],
-      "limits": "Actual scoped public content reviewed before manuscript. Learn shorthand qualified by current product claims, plan/platform/support differences and two different score models. Protected assessment not opened; no real operation or human validation.",
+      "objectives": ["az900.storage.file-tools", "az900.storage.migration"],
+      "claims": ["migration.FM25"],
+      "limits": "Actual public content inspected before manuscript; broad Learn claims qualified by current support/version/platform/fidelity/availability. Command-reference pair differences explicitly bounded; no protected assessment, operation or human validation.",
       "availability": "AVAILABLE",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-identity-access-security/1-introduction",
+          "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-storage-services/1-introduction",
           "disposition": "reviewed-applied",
-          "reason": "Public module introduction reviewed as prerequisite bridge only; earlier P10/P11 manuscripts and rubrics unchanged."
+          "reason": "Scoped public introduction bridges storage knowledge to transfer/migration; no Azure exercise execution credited."
         }
       ]
     },
     {
-      "id": "SE16",
-      "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-identity-access-security/11-summary",
+      "id": "FM26",
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-storage-services/9-summary",
       "title": "Summary - Training | Microsoft Learn",
       "reviewed": "2026-11-01",
-      "version": "Rolling official page; 2025-03-28T23:01:00.0000000Z; SHA256 1045366e34c1525a1e333a72c05e9c0a4a77a42cd270513d241020a6c3ed423e",
+      "version": "Rolling official public source; 2025-09-09T17:13:00.0000000Z; SHA256 e1ba9fb35bc4049f2e6cf7ddd53cb96f89891749d3641a49ba997e5cf8f1046a",
       "kind": "official-public-documentation",
-      "objectives": [
-        "az900.security.zero-trust",
-        "az900.security.defense",
-        "az900.security.defender"
-      ],
-      "claims": ["security.SE16"],
-      "limits": "Actual scoped public content reviewed before manuscript. Learn shorthand qualified by current product claims, plan/platform/support differences and two different score models. Protected assessment not opened; no real operation or human validation.",
+      "objectives": ["az900.storage.file-tools", "az900.storage.migration"],
+      "claims": ["migration.FM26"],
+      "limits": "Actual public content inspected before manuscript; broad Learn claims qualified by current support/version/platform/fidelity/availability. Command-reference pair differences explicitly bounded; no protected assessment, operation or human validation.",
       "availability": "AVAILABLE",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-identity-access-security/11-summary",
+          "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-storage-services/9-summary",
           "disposition": "reviewed-applied",
-          "reason": "Public module summary confirms scoped security concepts and encryption supplement; assessment not opened."
+          "reason": "Public summary confirms two named scoped goals; earlier four Storage goals preserved, protectedassessment excluded."
         }
       ]
     },
     {
-      "id": "SE17",
-      "url": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/alerts-overview",
-      "title": "Security Alerts and Incidents - Microsoft Defender for Cloud | Microsoft Learn",
+      "id": "FM27",
+      "url": "https://learn.microsoft.com/en-us/azure/storage-mover/service-overview",
+      "title": "Introduction to Azure Storage Mover | Microsoft Learn",
       "reviewed": "2026-11-01",
-      "version": "Rolling official page; 2026-07-07T17:36:00.0000000Z; SHA256 bca20af1cfe299a74ec5d44ffcb972c2c2a24916550ef5db46723a4389a01128",
+      "version": "Rolling official public source; 2026-05-05T22:14:00.0000000Z; SHA256 25dde9cb1c56b4b30e87ab511ce6c945025d2b5b0ef1c07acfff2c944279a653",
       "kind": "official-public-documentation",
-      "objectives": [
-        "az900.security.zero-trust",
-        "az900.security.defense",
-        "az900.security.defender"
-      ],
-      "claims": ["security.SE17"],
-      "limits": "Actual scoped public content reviewed before manuscript. Learn shorthand qualified by current product claims, plan/platform/support differences and two different score models. Protected assessment not opened; no real operation or human validation.",
+      "objectives": ["az900.storage.file-tools", "az900.storage.migration"],
+      "claims": ["migration.FM27"],
+      "limits": "Actual public content inspected before manuscript; broad Learn claims qualified by current support/version/platform/fidelity/availability. Command-reference pair differences explicitly bounded; no protected assessment, operation or human validation.",
       "availability": "AVAILABLE",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/alerts-overview",
-          "disposition": "reviewed-applied",
-          "reason": "Workload-plan detections generate security alerts, severity expresses confidence/context; incidents correlate alerts and still require investigation. Alert is not universal proof of successful compromise."
+          "url": "https://learn.microsoft.com/en-us/azure/storage-mover/service-overview",
+          "disposition": "outside-scope-product-context",
+          "reason": "Current Azure Storage Mover recommendation and pair-specific fidelity/preview context; no extra exam objective, engine, onboarding or unsupported universal claim."
         }
       ]
     },
     {
-      "id": "SE18",
-      "url": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/defender-for-servers-overview",
-      "title": "Overview of Defender for Servers in Defender for Cloud - Microsoft Defender for Cloud | Microsoft Learn",
+      "id": "FM28",
+      "url": "https://learn.microsoft.com/en-us/azure/migrate/migrate-application-discovery",
+      "title": "FM28",
       "reviewed": "2026-11-01",
-      "version": "Rolling official page; 2026-09-30T07:42:00.0000000Z; SHA256 bdb565e00bb7013f05b600717fa719327a1297be2faa026b1e081477f568170e",
+      "version": "Rolling official public source; unknown; SHA256 unavailable",
       "kind": "official-public-documentation",
-      "objectives": [
-        "az900.security.zero-trust",
-        "az900.security.defense",
-        "az900.security.defender"
-      ],
-      "claims": ["security.SE18"],
-      "limits": "Actual scoped public content reviewed before manuscript. Learn shorthand qualified by current product claims, plan/platform/support differences and two different score models. Protected assessment not opened; no real operation or human validation.",
-      "availability": "AVAILABLE",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/defender-for-servers-overview",
-          "disposition": "reviewed-applied",
-          "reason": "Servers Plan1/2 and feature/integration differences; machine existence is not Endpoint protection or active Defender coverage. Separately sold Experts service excluded."
-        }
-      ]
-    },
-    {
-      "id": "SE19",
-      "url": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/defender-for-containers-introduction",
-      "title": "Introduction to Microsoft Defender for Containers - Microsoft Defender for Cloud | Microsoft Learn",
-      "reviewed": "2026-11-01",
-      "version": "Rolling official page; 2026-08-10T22:36:00.0000000Z; SHA256 50319a336c920859566c629861aa6bb85cce14f4e8938fa4d71e0f2ea4d20561",
-      "kind": "official-public-documentation",
-      "objectives": [
-        "az900.security.zero-trust",
-        "az900.security.defense",
-        "az900.security.defender"
-      ],
-      "claims": ["security.SE19"],
-      "limits": "Actual scoped public content reviewed before manuscript. Learn shorthand qualified by current product claims, plan/platform/support differences and two different score models. Protected assessment not opened; no real operation or human validation.",
-      "availability": "AVAILABLE",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/defender-for-containers-introduction",
-          "disposition": "reviewed-applied",
-          "reason": "Containers posture/agentless/sensor/runtime features vary with configuration/plan/platform; preview capabilities not generalized to all containers."
-        }
-      ]
-    },
-    {
-      "id": "SE20",
-      "url": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/defender-for-storage-introduction",
-      "title": "What is Microsoft Defender for Storage - Microsoft Defender for Cloud | Microsoft Learn",
-      "reviewed": "2026-11-01",
-      "version": "Rolling official page; 2026-08-06T12:40:00.0000000Z; SHA256 9b2ef61ebc2989d4b70a3503092752551e8e2c8b9fd0848639b591eebfed3035",
-      "kind": "official-public-documentation",
-      "objectives": [
-        "az900.security.zero-trust",
-        "az900.security.defense",
-        "az900.security.defender"
-      ],
-      "claims": ["security.SE20"],
-      "limits": "Actual scoped public content reviewed before manuscript. Learn shorthand qualified by current product claims, plan/platform/support differences and two different score models. Protected assessment not opened; no real operation or human validation.",
-      "availability": "AVAILABLE",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/defender-for-storage-introduction",
-          "disposition": "reviewed-applied",
-          "reason": "Defender for Storage protects supported Azure Storage with enabled scope/settings; activity monitoring/malware scanning/sensitive-data features and cost/limits separate; no universal free scan."
-        }
-      ]
-    },
-    {
-      "id": "SE21",
-      "url": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/defender-for-databases-introduction",
-      "title": "Overview of Defender for Open-Source Relational Databases - Microsoft Defender for Cloud | Microsoft Learn",
-      "reviewed": "2026-11-01",
-      "version": "Rolling official page; 2026-08-10T22:36:00.0000000Z; SHA256 9a9cac6b134cf98504a9b4c6955e771c5260ca146c72c33ff220d7e103121c59",
-      "kind": "official-public-documentation",
-      "objectives": [
-        "az900.security.zero-trust",
-        "az900.security.defense",
-        "az900.security.defender"
-      ],
-      "claims": ["security.SE21"],
-      "limits": "Actual scoped public content reviewed before manuscript. Learn shorthand qualified by current product claims, plan/platform/support differences and two different score models. Protected assessment not opened; no real operation or human validation.",
-      "availability": "AVAILABLE",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/defender-for-databases-introduction",
-          "disposition": "reviewed-applied",
-          "reason": "Databases overview is specifically open-source relational database protection with platform availability limits, not one universal plan for every database."
-        }
-      ]
-    },
-    {
-      "id": "SE22",
-      "url": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/defender-for-app-service-introduction",
-      "title": "Microsoft Defender for App Service - Benefits and Features - Microsoft Defender for Cloud | Microsoft Learn",
-      "reviewed": "2026-11-01",
-      "version": "Rolling official page; 2026-07-07T17:36:00.0000000Z; SHA256 48b2239f737ed85e4b4f450ae9fc7780a2227f5877bc677f38852bfe20ad4aab",
-      "kind": "official-public-documentation",
-      "objectives": [
-        "az900.security.zero-trust",
-        "az900.security.defense",
-        "az900.security.defender"
-      ],
-      "claims": ["security.SE22"],
-      "limits": "Actual scoped public content reviewed before manuscript. Learn shorthand qualified by current product claims, plan/platform/support differences and two different score models. Protected assessment not opened; no real operation or human validation.",
-      "availability": "AVAILABLE",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/defender-for-app-service-introduction",
-          "disposition": "reviewed-applied",
-          "reason": "App Service workload protection is a specific enabled plan for supported Azure App Service threats; resource creation alone does not enable security instrumentation/protection."
-        }
-      ]
-    },
-    {
-      "id": "SE23",
-      "url": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/support-matrix-defender-for-cloud",
-      "title": "Interoperability with Azure services, Azure clouds, and client operating systems - Microsoft Defender for Cloud | Microsoft Learn",
-      "reviewed": "2026-11-01",
-      "version": "Rolling official page; 2026-09-03T12:37:00.0000000Z; SHA256 eb101c10d98fd3e463606cebf0b2a15fcd81ad911ae6e1de6087b1ec397f4110",
-      "kind": "official-public-documentation",
-      "objectives": [
-        "az900.security.zero-trust",
-        "az900.security.defense",
-        "az900.security.defender"
-      ],
-      "claims": ["security.SE23"],
-      "limits": "Actual scoped public content reviewed before manuscript. Learn shorthand qualified by current product claims, plan/platform/support differences and two different score models. Protected assessment not opened; no real operation or human validation.",
-      "availability": "AVAILABLE",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/support-matrix-defender-for-cloud",
-          "disposition": "reviewed-applied",
-          "reason": "Actual support matrices distinguish services/clouds/portals/regions and preview; no universal all-cloud coverage. China retirement qualification reviewed, no onboarding performed."
-        }
-      ]
-    },
-    {
-      "id": "SE24",
-      "url": "https://learn.microsoft.com/en-us/azure/security/fundamentals/encryption-overview",
-      "title": "Azure encryption overview | Microsoft Learn",
-      "reviewed": "2026-11-01",
-      "version": "Rolling official page; 2026-09-18T22:43:00.0000000Z; SHA256 99219cdf14063cd5d7abcd52c92a09affd8f041dd11513b7a3a16101ecccc2b8",
-      "kind": "official-public-documentation",
-      "objectives": [
-        "az900.security.zero-trust",
-        "az900.security.defense",
-        "az900.security.defender"
-      ],
-      "claims": ["security.SE24"],
-      "limits": "Actual scoped public content reviewed before manuscript. Learn shorthand qualified by current product claims, plan/platform/support differences and two different score models. Protected assessment not opened; no real operation or human validation.",
-      "availability": "AVAILABLE",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/security/fundamentals/encryption-overview",
-          "disposition": "reviewed-applied",
-          "reason": "At-rest/in-transit and client/server encryption responsibilities; decrypting authorized services can still expose data to overprivileged users. No ADE implementation or legacy universal recommendation."
-        }
-      ]
-    },
-    {
-      "id": "SE25",
-      "url": "https://learn.microsoft.com/en-us/azure/key-vault/general/about-keys-secrets-certificates",
-      "title": "Azure Key Vault Keys, Secrets, and Certificates Overview | Microsoft Learn",
-      "reviewed": "2026-11-01",
-      "version": "Rolling official page; 2026-06-12T22:35:00.0000000Z; SHA256 195dd44b217e989636790ac4ce4f1e51bb30061ba6066a4ff91543623eeef47a",
-      "kind": "official-public-documentation",
-      "objectives": [
-        "az900.security.zero-trust",
-        "az900.security.defense",
-        "az900.security.defender"
-      ],
-      "claims": ["security.SE25"],
-      "limits": "Actual scoped public content reviewed before manuscript. Learn shorthand qualified by current product claims, plan/platform/support differences and two different score models. Protected assessment not opened; no real operation or human validation.",
-      "availability": "AVAILABLE",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/key-vault/general/about-keys-secrets-certificates",
-          "disposition": "reviewed-applied",
-          "reason": "Key/secret/certificate object types and versioning differ; deprecated Storage-account-key management is not taught as current feature."
-        }
-      ]
-    },
-    {
-      "id": "SE26",
-      "url": "https://learn.microsoft.com/en-us/azure/key-vault/general/best-practices",
-      "title": "Secure your Azure Key Vault | Microsoft Learn",
-      "reviewed": "2026-11-01",
-      "version": "Rolling official page; 2026-10-06T17:34:00.0000000Z; SHA256 720e1610f16c4489d692ce8ca670328268253b041d3da276d8da88393700a9fd",
-      "kind": "official-public-documentation",
-      "objectives": [
-        "az900.security.zero-trust",
-        "az900.security.defense",
-        "az900.security.defender"
-      ],
-      "claims": ["security.SE26"],
-      "limits": "Actual scoped public content reviewed before manuscript. Learn shorthand qualified by current product claims, plan/platform/support differences and two different score models. Protected assessment not opened; no real operation or human validation.",
-      "availability": "AVAILABLE",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/key-vault/general/secure-key-vault",
-          "disposition": "reviewed-applied",
-          "reason": "Best-practices URL redirects to secure-key-vault: access restrictions, managed identities/least privilege, rotation/logging and recovery protections remain customer configuration responsibilities."
-        }
-      ]
-    },
-    {
-      "id": "SE27",
-      "url": "https://learn.microsoft.com/en-us/azure/key-vault/keys/how-to-configure-key-rotation",
-      "title": "Configure cryptographic key auto-rotation in Azure Key Vault | Microsoft Learn",
-      "reviewed": "2026-11-01",
-      "version": "Rolling official page; 2026-06-12T22:35:00.0000000Z; SHA256 c94628eceefac8a85010d7d13260a213c7a45c1c27a1c1db1b86a6f047247377",
-      "kind": "official-public-documentation",
-      "objectives": [
-        "az900.security.zero-trust",
-        "az900.security.defense",
-        "az900.security.defender"
-      ],
-      "claims": ["security.SE27"],
-      "limits": "Actual scoped public content reviewed before manuscript. Learn shorthand qualified by current product claims, plan/platform/support differences and two different score models. Protected assessment not opened; no real operation or human validation.",
-      "availability": "AVAILABLE",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/key-vault/keys/how-to-configure-key-rotation",
-          "disposition": "reviewed-applied",
-          "reason": "Rotation creates new key version using policy/permissions and service-specific integration; applying new versions/retaining old decryptability not universally automatic. No key operation executed."
-        }
-      ]
-    },
-    {
-      "id": "SE28",
-      "url": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/risk-prioritization",
-      "title": "Risk prioritization - Microsoft Defender for Cloud | Microsoft Learn",
-      "reviewed": "2026-11-01",
-      "version": "Rolling official page; 2026-06-16T18:23:00.0000000Z; SHA256 7ad409a18b05ffb7212da98501de076145bd1554c58291e24219f77a15ae9c86",
-      "kind": "official-public-documentation",
-      "objectives": [
-        "az900.security.zero-trust",
-        "az900.security.defense",
-        "az900.security.defender"
-      ],
-      "claims": ["security.SE28"],
-      "limits": "Actual scoped public content reviewed before manuscript. Learn shorthand qualified by current product claims, plan/platform/support differences and two different score models. Protected assessment not opened; no real operation or human validation.",
-      "availability": "AVAILABLE",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/risk-prioritization",
-          "disposition": "reviewed-applied",
-          "reason": "Risk-prioritization prerequisites: paid Defender CSPM; contextual exposure/sensitivity/criticality guides review, not confirmed threat or universal score formula."
-        }
-      ]
-    },
-    {
-      "id": "SE29",
-      "url": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/concept-defender-for-cloud-defender-portal",
-      "title": "Unavailable official source",
-      "reviewed": "2026-11-01",
-      "version": "Rolling official page; unavailable; SHA256 ",
-      "kind": "official-public-documentation",
-      "objectives": [
-        "az900.security.zero-trust",
-        "az900.security.defense",
-        "az900.security.defender"
-      ],
-      "claims": ["security.SE29"],
-      "limits": "Actual scoped public content reviewed before manuscript. Learn shorthand qualified by current product claims, plan/platform/support differences and two different score models. Protected assessment not opened; no real operation or human validation.",
+      "objectives": ["az900.storage.file-tools", "az900.storage.migration"],
+      "claims": ["migration.FM28"],
+      "limits": "Actual public content inspected before manuscript; broad Learn claims qualified by current support/version/platform/fidelity/availability. Command-reference pair differences explicitly bounded; no protected assessment, operation or human validation.",
       "availability": "BLOCKED",
-      "alternative": "SE09 current Defender overview and SE12 both score portal pivots",
+      "alternative": "Current linked official FM17/19/24/32/35/36/37; no unsupported guessed source credited",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/concept-defender-for-cloud-defender-portal",
-          "disposition": "blocked-with-official-alternative",
-          "reason": "Guessed portal-experience URL404; not relied on. Current SE09 overview and both SE12 documented portal pivots provide the official alternative."
+          "url": "https://learn.microsoft.com/en-us/azure/migrate/migrate-application-discovery",
+          "disposition": "blocked",
+          "reason": "Guessed application-discovery URL unavailable; defaultoverviewFM11 plusdiscoverymethodsFM36 anddependenciesFM37 replace it."
+        }
+      ]
+    },
+    {
+      "id": "FM29",
+      "url": "https://learn.microsoft.com/en-us/azure/migrate/migrate-support-matrix",
+      "title": "Support Matrix - Azure Migrate | Microsoft Learn",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official public source; 2026-09-24T11:41:00.0000000Z; SHA256 b672b3ee1be22985a2bd593d4e2360936caf7b962280cf2e642d9e0f8190ca35",
+      "kind": "official-public-documentation",
+      "objectives": ["az900.storage.file-tools", "az900.storage.migration"],
+      "claims": ["migration.FM29"],
+      "limits": "Actual public content inspected before manuscript; broad Learn claims qualified by current support/version/platform/fidelity/availability. Command-reference pair differences explicitly bounded; no protected assessment, operation or human validation.",
+      "availability": "AVAILABLE",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/migrate/migrate-support-matrix?view=migrate",
+          "disposition": "reviewed-applied",
+          "reason": "Migrate scenario/region/geography/project/appliance permissions support varies; metadata collection is not app migration, no appliance implemented."
+        }
+      ]
+    },
+    {
+      "id": "FM30",
+      "url": "https://learn.microsoft.com/en-us/azure/storage/file-sync/file-sync-troubleshoot-sync",
+      "title": "FM30",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official public source; unknown; SHA256 unavailable",
+      "kind": "official-public-documentation",
+      "objectives": ["az900.storage.file-tools", "az900.storage.migration"],
+      "claims": ["migration.FM30"],
+      "limits": "Actual public content inspected before manuscript; broad Learn claims qualified by current support/version/platform/fidelity/availability. Command-reference pair differences explicitly bounded; no protected assessment, operation or human validation.",
+      "availability": "BLOCKED",
+      "alternative": "Current linked official FM17/19/24/32/35/36/37; no unsupported guessed source credited",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/storage/file-sync/file-sync-troubleshoot-sync",
+          "disposition": "blocked",
+          "reason": "Guessed sync-troubleshoot URL unavailable; actual linkedFAQFM35 provides conflict/detection/backup qualifications."
+        }
+      ]
+    },
+    {
+      "id": "FM31",
+      "url": "https://learn.microsoft.com/en-us/azure/migrate/concepts-application-discovery",
+      "title": "FM31",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official public source; unknown; SHA256 unavailable",
+      "kind": "official-public-documentation",
+      "objectives": ["az900.storage.file-tools", "az900.storage.migration"],
+      "claims": ["migration.FM31"],
+      "limits": "Actual public content inspected before manuscript; broad Learn claims qualified by current support/version/platform/fidelity/availability. Command-reference pair differences explicitly bounded; no protected assessment, operation or human validation.",
+      "availability": "BLOCKED",
+      "alternative": "Current linked official FM17/19/24/32/35/36/37; no unsupported guessed source credited",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/migrate/concepts-application-discovery",
+          "disposition": "blocked",
+          "reason": "Guessed application concepts URL unavailable; FM11/12/36/37 current discovery and assessment alternative."
+        }
+      ]
+    },
+    {
+      "id": "FM32",
+      "url": "https://learn.microsoft.com/en-us/azure/storage/common/storage-ref-azcopy-sync",
+      "title": "azcopy sync",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official public source; rolling official repository; SHA256 80c7418e009e7b4ce6475de8f0b1e10ba30453eca2386cf3f5b15457db9565f7",
+      "kind": "official-public-documentation",
+      "objectives": ["az900.storage.file-tools", "az900.storage.migration"],
+      "claims": ["migration.FM32"],
+      "limits": "Actual public content inspected before manuscript; broad Learn claims qualified by current support/version/platform/fidelity/availability. Command-reference pair differences explicitly bounded; no protected assessment, operation or human validation.",
+      "availability": "AVAILABLE",
+      "discovery": [
+        {
+          "url": "https://raw.githubusercontent.com/wiki/Azure/azure-storage-azcopy/azcopy_sync.md",
+          "disposition": "reviewed-applied",
+          "reason": "Actual official AzCopy v10 raw commandreference: directed source/destination, supported pair/version-specific auth, timestamps/MD5, deleteDestinationfalse default, mirroroverride explicit; not continuous bidirectional service."
+        }
+      ]
+    },
+    {
+      "id": "FM33",
+      "url": "https://learn.microsoft.com/en-us/azure/storage/file-sync/file-sync-deployment-guide",
+      "title": "Deploy Azure File Sync | Microsoft Learn",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official public source; 2026-08-17T22:15:00.0000000Z; SHA256 c66329c9480c98822981e5f5b9e8463f1d9c446046cd5b5e0f330551eec700d7",
+      "kind": "official-public-documentation",
+      "objectives": ["az900.storage.file-tools", "az900.storage.migration"],
+      "claims": ["migration.FM33"],
+      "limits": "Actual public content inspected before manuscript; broad Learn claims qualified by current support/version/platform/fidelity/availability. Command-reference pair differences explicitly bounded; no protected assessment, operation or human validation.",
+      "availability": "AVAILABLE",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/storage/file-sync/file-sync-deployment-guide",
+          "disposition": "reviewed-applied",
+          "reason": "Real Sync Service registration, syncgroup/onecloudendpoint/serverendpoints and merge/authoritative initial-policy differences; no universal conflict outcome or simulated deployment."
+        }
+      ]
+    },
+    {
+      "id": "FM34",
+      "url": "https://learn.microsoft.com/en-us/azure/storage/file-sync/file-sync-disaster-recovery-overview",
+      "title": "FM34",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official public source; unknown; SHA256 unavailable",
+      "kind": "official-public-documentation",
+      "objectives": ["az900.storage.file-tools", "az900.storage.migration"],
+      "claims": ["migration.FM34"],
+      "limits": "Actual public content inspected before manuscript; broad Learn claims qualified by current support/version/platform/fidelity/availability. Command-reference pair differences explicitly bounded; no protected assessment, operation or human validation.",
+      "availability": "BLOCKED",
+      "alternative": "Current linked official FM17/19/24/32/35/36/37; no unsupported guessed source credited",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/storage/file-sync/file-sync-disaster-recovery-overview",
+          "disposition": "blocked",
+          "reason": "Guessed recovery overview unavailable; FM17/35 explain separate backup/restore responsibilities and sync effects."
+        }
+      ]
+    },
+    {
+      "id": "FM35",
+      "url": "https://learn.microsoft.com/en-us/azure/storage/files/storage-files-faq",
+      "title": "Azure Files frequently asked questions (FAQ) | Microsoft Learn",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official public source; 2026-08-18T22:40:00.0000000Z; SHA256 be054df8eca347d68385579a639669bf3ccf13473073bf9e09fd0f404773c786",
+      "kind": "official-public-documentation",
+      "objectives": ["az900.storage.file-tools", "az900.storage.migration"],
+      "claims": ["migration.FM35"],
+      "limits": "Actual public content inspected before manuscript; broad Learn claims qualified by current support/version/platform/fidelity/availability. Command-reference pair differences explicitly bounded; no protected assessment, operation or human validation.",
+      "availability": "AVAILABLE",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/storage/files/storage-files-faq",
+          "disposition": "reviewed-applied",
+          "reason": "Current official FAQ: direct-cloud change detection, concurrent edits preserve conflict copies under documented limits; no instantaneous global consistency or substitute for independent backup. Model withholds winner absent complete premises."
+        }
+      ]
+    },
+    {
+      "id": "FM36",
+      "url": "https://learn.microsoft.com/en-us/azure/migrate/discovery-methods-modes",
+      "title": "Discovery methods in Azure Migrate - Azure Migrate | Microsoft Learn",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official public source; 2026-09-24T11:41:00.0000000Z; SHA256 d93f40e357a567fda280bb584584dcc6860ac55f985327fe47e573275c678618",
+      "kind": "official-public-documentation",
+      "objectives": ["az900.storage.file-tools", "az900.storage.migration"],
+      "claims": ["migration.FM36"],
+      "limits": "Actual public content inspected before manuscript; broad Learn claims qualified by current support/version/platform/fidelity/availability. Command-reference pair differences explicitly bounded; no protected assessment, operation or human validation.",
+      "availability": "AVAILABLE",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/migrate/discovery-methods-modes?view=migrate",
+          "disposition": "reviewed-applied",
+          "reason": "Current appliance/collector/import discovery methods, continuous vs point-in-time data and prerequisites; Arc discoverypreview context not implemented."
+        }
+      ]
+    },
+    {
+      "id": "FM37",
+      "url": "https://learn.microsoft.com/en-us/azure/migrate/concepts-dependency-visualization",
+      "title": "Dependency analysis in Azure Migrate Discovery and assessment - Azure Migrate | Microsoft Learn",
+      "reviewed": "2026-11-01",
+      "version": "Rolling official public source; 2026-09-24T11:41:00.0000000Z; SHA256 25cbe843ca520869591ff254a28b32bff15f1ef479378be84346a191a9a497f1",
+      "kind": "official-public-documentation",
+      "objectives": ["az900.storage.file-tools", "az900.storage.migration"],
+      "claims": ["migration.FM37"],
+      "limits": "Actual public content inspected before manuscript; broad Learn claims qualified by current support/version/platform/fidelity/availability. Command-reference pair differences explicitly bounded; no protected assessment, operation or human validation.",
+      "availability": "AVAILABLE",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/migrate/concepts-dependency-visualization?view=migrate",
+          "disposition": "reviewed-applied",
+          "reason": "Current recommended agentless dependency analysis and application grouping; classic agent-based analysis limited/ending, no old universal LogAnalytics/agent requirement."
         }
       ]
     }
   ],
   "activities": [
     {
-      "id": "security-trust",
-      "objectives": ["az900.security.zero-trust"],
-      "claims": ["security.SE03", "security.SE07", "security.SE08"],
-      "limits": "Closed deterministic fictional design/evidence comparisons. No actual AuthN/AuthZ/CA/RBAC, scan/attack/alert/score/remediation/protection or World mutation. Actual local resource configuration remains independent read-only context.",
+      "id": "migration-method",
+      "objectives": ["az900.storage.file-tools"],
+      "claims": [
+        "migration.FM04",
+        "migration.FM05",
+        "migration.FM07",
+        "migration.FM08",
+        "migration.FM09",
+        "migration.FM17",
+        "migration.FM19",
+        "migration.FM27",
+        "migration.FM32"
+      ],
+      "limits": "Closed synthetic requirements/manifest/plan comparison. No filesystem, real files, sync, transfer, integrity check, app validation, migration, order or receipt. Read-only actual configuration remains separate.",
       "assessmentStatus": "new-independent",
       "theory": [
         {
           "path": "src/content/nb.ts",
-          "marker": "securityNb"
+          "marker": "migrationNb"
         }
       ],
       "mechanism": [
         {
-          "path": "src/domain/curriculum/security-model.ts",
-          "marker": "runTrust"
+          "path": "src/domain/curriculum/migration-model.ts",
+          "marker": "runMethod"
         }
       ],
       "practice": [
         {
-          "path": "src/features/learning/security-workbench.tsx",
-          "marker": "SecurityWorkbench"
+          "path": "src/features/learning/migration-workbench.tsx",
+          "marker": "MigrationWorkbench"
         }
       ],
       "feedback": [
         {
           "path": "src/content/nb.ts",
-          "marker": "securityItemsNb"
+          "marker": "migrationItemsNb"
         }
       ],
       "visual": [
         {
-          "path": "src/features/learning/security-visuals.tsx",
-          "marker": "SecurityModelResult"
+          "path": "src/features/learning/migration-visuals.tsx",
+          "marker": "MigrationModelResult"
         }
       ],
       "accessible": [
         {
-          "path": "src/features/learning/security.css"
+          "path": "src/features/learning/migration.css"
         }
       ],
       "assessment": [
         {
-          "path": "src/features/learning/security-assessment.tsx",
-          "marker": "SecurityAssessment"
+          "path": "src/features/learning/migration-assessment.tsx",
+          "marker": "MigrationAssessment"
         }
       ],
       "savvyshark": [
         {
-          "path": "src/features/learning/security-workbench.tsx",
+          "path": "src/features/learning/migration-workbench.tsx",
           "marker": "SavvyShark"
         }
       ]
     },
     {
-      "id": "security-depth",
-      "objectives": ["az900.security.defense"],
+      "id": "migration-sync",
+      "objectives": ["az900.storage.file-tools"],
       "claims": [
-        "security.SE04",
-        "security.SE05",
-        "security.SE14",
-        "security.SE24",
-        "security.SE25",
-        "security.SE26",
-        "security.SE27"
+        "migration.FM05",
+        "migration.FM06",
+        "migration.FM07",
+        "migration.FM09",
+        "migration.FM10",
+        "migration.FM16",
+        "migration.FM17",
+        "migration.FM21",
+        "migration.FM32",
+        "migration.FM33",
+        "migration.FM35"
       ],
-      "limits": "Closed deterministic fictional design/evidence comparisons. No actual AuthN/AuthZ/CA/RBAC, scan/attack/alert/score/remediation/protection or World mutation. Actual local resource configuration remains independent read-only context.",
+      "limits": "Closed synthetic requirements/manifest/plan comparison. No filesystem, real files, sync, transfer, integrity check, app validation, migration, order or receipt. Read-only actual configuration remains separate.",
       "assessmentStatus": "new-independent",
       "theory": [
         {
           "path": "src/content/nb.ts",
-          "marker": "securityNb"
+          "marker": "migrationNb"
         }
       ],
       "mechanism": [
         {
-          "path": "src/domain/curriculum/security-model.ts",
-          "marker": "runDepth"
+          "path": "src/domain/curriculum/migration-model.ts",
+          "marker": "runSync"
         }
       ],
       "practice": [
         {
-          "path": "src/features/learning/security-workbench.tsx",
-          "marker": "SecurityWorkbench"
+          "path": "src/features/learning/migration-workbench.tsx",
+          "marker": "MigrationWorkbench"
         }
       ],
       "feedback": [
         {
           "path": "src/content/nb.ts",
-          "marker": "securityItemsNb"
+          "marker": "migrationItemsNb"
         }
       ],
       "visual": [
         {
-          "path": "src/features/learning/security-visuals.tsx",
-          "marker": "SecurityModelResult"
+          "path": "src/features/learning/migration-visuals.tsx",
+          "marker": "MigrationModelResult"
         }
       ],
       "accessible": [
         {
-          "path": "src/features/learning/security.css"
+          "path": "src/features/learning/migration.css"
         }
       ],
       "assessment": [
         {
-          "path": "src/features/learning/security-assessment.tsx",
-          "marker": "SecurityAssessment"
+          "path": "src/features/learning/migration-assessment.tsx",
+          "marker": "MigrationAssessment"
         }
       ],
       "savvyshark": [
         {
-          "path": "src/features/learning/security-workbench.tsx",
+          "path": "src/features/learning/migration-workbench.tsx",
           "marker": "SavvyShark"
         }
       ]
     },
     {
-      "id": "security-defender",
-      "objectives": ["az900.security.defender"],
+      "id": "migration-planning",
+      "objectives": ["az900.storage.migration"],
       "claims": [
-        "security.SE06",
-        "security.SE09",
-        "security.SE10",
-        "security.SE11",
-        "security.SE12",
-        "security.SE13",
-        "security.SE17",
-        "security.SE18",
-        "security.SE19",
-        "security.SE20",
-        "security.SE21",
-        "security.SE22",
-        "security.SE23",
-        "security.SE28"
+        "migration.FM03",
+        "migration.FM11",
+        "migration.FM12",
+        "migration.FM13",
+        "migration.FM14",
+        "migration.FM23",
+        "migration.FM24",
+        "migration.FM29",
+        "migration.FM36",
+        "migration.FM37"
       ],
-      "limits": "Closed deterministic fictional design/evidence comparisons. No actual AuthN/AuthZ/CA/RBAC, scan/attack/alert/score/remediation/protection or World mutation. Actual local resource configuration remains independent read-only context.",
+      "limits": "Closed synthetic requirements/manifest/plan comparison. No filesystem, real files, sync, transfer, integrity check, app validation, migration, order or receipt. Read-only actual configuration remains separate.",
       "assessmentStatus": "new-independent",
       "theory": [
         {
           "path": "src/content/nb.ts",
-          "marker": "securityNb"
+          "marker": "migrationNb"
         }
       ],
       "mechanism": [
         {
-          "path": "src/domain/curriculum/security-model.ts",
-          "marker": "runDefender"
+          "path": "src/domain/curriculum/migration-model.ts",
+          "marker": "runPlanning"
         }
       ],
       "practice": [
         {
-          "path": "src/features/learning/security-workbench.tsx",
-          "marker": "SecurityWorkbench"
+          "path": "src/features/learning/migration-workbench.tsx",
+          "marker": "MigrationWorkbench"
         }
       ],
       "feedback": [
         {
           "path": "src/content/nb.ts",
-          "marker": "securityItemsNb"
+          "marker": "migrationItemsNb"
         }
       ],
       "visual": [
         {
-          "path": "src/features/learning/security-visuals.tsx",
-          "marker": "SecurityModelResult"
+          "path": "src/features/learning/migration-visuals.tsx",
+          "marker": "MigrationModelResult"
         }
       ],
       "accessible": [
         {
-          "path": "src/features/learning/security.css"
+          "path": "src/features/learning/migration.css"
         }
       ],
       "assessment": [
         {
-          "path": "src/features/learning/security-assessment.tsx",
-          "marker": "SecurityAssessment"
+          "path": "src/features/learning/migration-assessment.tsx",
+          "marker": "MigrationAssessment"
         }
       ],
       "savvyshark": [
         {
-          "path": "src/features/learning/security-workbench.tsx",
+          "path": "src/features/learning/migration-workbench.tsx",
           "marker": "SavvyShark"
         }
       ]
@@ -867,81 +918,81 @@
   ],
   "modules": [
     {
-      "id": "security",
+      "id": "migration",
       "prerequisites": [
         {
           "path": "src/content/nb.ts",
-          "marker": "securityNb"
+          "marker": "migrationNb"
         }
       ],
       "terminology": [
         {
           "path": "src/content/nb.ts",
-          "marker": "securityNb"
+          "marker": "migrationNb"
         }
       ],
       "concept": [
         {
           "path": "src/content/nb.ts",
-          "marker": "securityNb"
+          "marker": "migrationNb"
         }
       ],
       "azureExample": [
         {
           "path": "src/content/nb.ts",
-          "marker": "securityNb"
+          "marker": "migrationNb"
         }
       ],
       "workedExample": [
         {
           "path": "src/content/nb.ts",
-          "marker": "securityNb"
+          "marker": "migrationNb"
         }
       ],
       "misconception": [
         {
           "path": "src/content/nb.ts",
-          "marker": "securityNb"
+          "marker": "migrationNb"
         }
       ],
       "limits": [
         {
           "path": "src/content/nb.ts",
-          "marker": "securityNb"
+          "marker": "migrationNb"
         }
       ],
       "mechanism": [
         {
-          "path": "src/domain/curriculum/security-model.ts",
-          "marker": "runSecurity"
+          "path": "src/domain/curriculum/migration-model.ts",
+          "marker": "runMigration"
         }
       ],
       "visual": [
         {
-          "path": "src/features/learning/security-visuals.tsx"
+          "path": "src/features/learning/migration-visuals.tsx"
         }
       ],
       "practice": [
         {
-          "path": "src/features/learning/security-workbench.tsx"
+          "path": "src/features/learning/migration-workbench.tsx"
         }
       ],
       "independentScenario": [
         {
           "path": "src/content/nb.ts",
-          "marker": "securityItemsNb"
+          "marker": "migrationItemsNb"
         }
       ],
       "correctAndWrongRationales": [
         {
           "path": "src/content/nb.ts",
-          "marker": "securityItemsNb"
+          "marker": "migrationItemsNb"
         }
       ],
       "sources": [
         {
-          "path": "src/domain/curriculum/security-sources.ts",
-          "marker": "securitySourceReview"
+          "path": "src/domain/curriculum/migration-sources.ts",
+          "marker": "migrationSourceReview"
         }
       ]
     }
@@ -1073,19 +1124,33 @@
     "src/features/learning/monitoring-controls.tsx",
     "src/features/learning/monitoring-visuals.tsx",
     "src/features/learning/monitoring.tsx",
-    "src/features/learning/monitoring-workbench.tsx"
+    "src/features/learning/monitoring-workbench.tsx",
+    "src/domain/curriculum/security.test.ts",
+    "src/domain/curriculum/security-model.ts",
+    "src/domain/curriculum/security-store.ts",
+    "src/domain/curriculum/security-sources.ts",
+    "src/domain/curriculum/security.ts",
+    "src/domain/curriculum/security-items.ts",
+    "src/features/learning/security-visuals.tsx",
+    "src/features/learning/security-workbench.tsx",
+    "src/features/learning/security-controls.tsx",
+    "src/features/learning/security-assessment.tsx",
+    "src/features/learning/security.css",
+    "src/features/learning/security-provider.tsx",
+    "src/features/learning/security-context.tsx",
+    "src/features/learning/security.tsx"
   ],
   "gates": {
     "source": {
       "checks": [
         {
-          "path": "docs/SECURITY_PRINCIPLES.md"
+          "path": "docs/FILE_MOVEMENT_MIGRATION.md"
         },
         {
-          "path": "src/domain/curriculum/security-sources.ts"
+          "path": "src/domain/curriculum/migration-sources.ts"
         }
       ],
-      "limits": "Local/source/model/visual/fresh independent audit and actual complete exact-head232-case CI/strict are distinct. Actual anonymous final root/fullSHA/journey still required. Humans unperformed; no merge/production."
+      "limits": "Source/model/local visual/fresh audit and actual full exact-head241-case CI/strict are distinct. Actual anonymous final root/fullSHA/journey required. Human validation unperformed. No merge/production."
     },
     "curriculum": {
       "checks": [
@@ -1093,49 +1158,49 @@
           "path": "src/content/nb.ts"
         },
         {
-          "path": "src/domain/curriculum/security.ts"
+          "path": "src/domain/curriculum/migration.ts"
         }
       ],
-      "limits": "Local/source/model/visual/fresh independent audit and actual complete exact-head232-case CI/strict are distinct. Actual anonymous final root/fullSHA/journey still required. Humans unperformed; no merge/production."
+      "limits": "Source/model/local visual/fresh audit and actual full exact-head241-case CI/strict are distinct. Actual anonymous final root/fullSHA/journey required. Human validation unperformed. No merge/production."
     },
     "simulation": {
       "checks": [
         {
-          "path": "src/domain/curriculum/security-model.ts"
+          "path": "src/domain/curriculum/migration-model.ts"
         },
         {
-          "path": "src/domain/curriculum/security.test.ts"
+          "path": "src/domain/curriculum/migration.test.ts"
         }
       ],
-      "limits": "Local/source/model/visual/fresh independent audit and actual complete exact-head232-case CI/strict are distinct. Actual anonymous final root/fullSHA/journey still required. Humans unperformed; no merge/production."
+      "limits": "Source/model/local visual/fresh audit and actual full exact-head241-case CI/strict are distinct. Actual anonymous final root/fullSHA/journey required. Human validation unperformed. No merge/production."
     },
     "savvyshark": {
       "checks": [
         {
-          "path": "src/features/learning/security-workbench.tsx"
+          "path": "src/features/learning/migration-workbench.tsx"
         },
         {
           "path": "src/features/learning/management-access.tsx"
         },
         {
-          "path": "tests/e2e/security-principles.spec.ts"
+          "path": "tests/e2e/file-movement-migration.spec.ts"
         }
       ],
-      "limits": "Local/source/model/visual/fresh independent audit and actual complete exact-head232-case CI/strict are distinct. Actual anonymous final root/fullSHA/journey still required. Humans unperformed; no merge/production."
+      "limits": "Source/model/local visual/fresh audit and actual full exact-head241-case CI/strict are distinct. Actual anonymous final root/fullSHA/journey required. Human validation unperformed. No merge/production."
     },
     "visual-accessibility": {
       "checks": [
         {
-          "path": "src/features/learning/security-visuals.tsx"
+          "path": "src/features/learning/migration-visuals.tsx"
         },
         {
-          "path": "src/features/learning/security.css"
+          "path": "src/features/learning/migration.css"
         },
         {
-          "path": "tests/e2e/security-principles.spec.ts"
+          "path": "tests/e2e/file-movement-migration.spec.ts"
         }
       ],
-      "limits": "Local/source/model/visual/fresh independent audit and actual complete exact-head232-case CI/strict are distinct. Actual anonymous final root/fullSHA/journey still required. Humans unperformed; no merge/production."
+      "limits": "Source/model/local visual/fresh audit and actual full exact-head241-case CI/strict are distinct. Actual anonymous final root/fullSHA/journey required. Human validation unperformed. No merge/production."
     },
     "independent-final-audit": {
       "checks": [
@@ -1143,10 +1208,10 @@
           "path": "docs/RELEASE_ACCEPTANCE.md"
         },
         {
-          "path": "docs/quality/PR40_FINAL_AUDIT.md"
+          "path": "docs/quality/PR41_FINAL_AUDIT.md"
         }
       ],
-      "limits": "Local/source/model/visual/fresh independent audit and actual complete exact-head232-case CI/strict are distinct. Actual anonymous final root/fullSHA/journey still required. Humans unperformed; no merge/production."
+      "limits": "Source/model/local visual/fresh audit and actual full exact-head241-case CI/strict are distinct. Actual anonymous final root/fullSHA/journey required. Human validation unperformed. No merge/production."
     },
     "delivery": {
       "checks": [
@@ -1157,83 +1222,128 @@
           "path": "scripts/e2e-plan-check.mjs"
         },
         {
-          "path": "docs/SECURITY_PRINCIPLES.md"
+          "path": "docs/FILE_MOVEMENT_MIGRATION.md"
         }
       ],
-      "limits": "Local/source/model/visual/fresh independent audit and actual complete exact-head232-case CI/strict are distinct. Actual anonymous final root/fullSHA/journey still required. Humans unperformed; no merge/production."
+      "limits": "Source/model/local visual/fresh audit and actual full exact-head241-case CI/strict are distinct. Actual anonymous final root/fullSHA/journey required. Human validation unperformed. No merge/production."
     }
   },
   "verification": [
     {
       "command": "npm run check",
       "result": "passed",
-      "details": "Actual complete local exit0 at15:21UTC1November2026: TypeScript/lint/format,114Markdown docs, gates/matrix/assets/legacy;462curriculum subset,552Vitest,17Node checks, production build. Earlier invocations stopped only at generated reviewer/harness lint artifacts; corrected without lint configuration changes. Complete successful log .artifacts/p15-check3.log."
+      "details": "Full local candidate check exit0: TypeScript/lint/format,116 Markdown, quality/AZ900 audit,482 curriculum tests,572 full Vitest,18 Node tests,assets/legacy and production build. Afterward only the Sync prerequisite label was clarified; focused ESLint and final build/type validation repeat that delta. Earlier initial failures were formatting and live-MISSING audit-test assumptions, corrected without weakening assertions."
     },
     {
-      "command": "targeted-domain-and-browser",
+      "command": "targeted P16 + affected navigation browser tests",
       "result": "passed",
-      "details": "Actual20domain checks,20affected desktop journeys,3strengthened actual-context/final keyboard/Axe desktop+compact retests and complete20-image local user journey. All3guides, unaidedsp07, Journal, exact activesp06 reload/resume;0pageerrors/foreignfetches/World mutation. Candidate232 collection validated, fullCI pending."
+      "details": "11/11 production browser executions,10 desktop+1 compact, exit0, no retry. All7 new desktop, compact manifest/native-dialog/Axe, Hub first visit and StorageB/Identity transition corrections."
     },
     {
-      "command": "final-bounded-corrections",
+      "command": "npm run test:e2e:plan",
       "result": "passed",
-      "details": "Availability metadata only: Identity A/B now point to existing B/C. Actual20domain checks, format/docs and eight-exception preservation passed; no previous manuscript/rubric change. Inherited generated source-date display corrected using per-source reviewed date/baseline fallback/product page-update date; focused Node renderer suite and ESLint exit0. Final complete CI must cover exact delivered metadata and renderer."
+      "details": "Actual updated plan exit0:241=222desktop+19compact;444 optional legacy; worker/retry/timeout/skip settings unchanged."
+    },
+    {
+      "command": "npm run test:e2e:desktop",
+      "result": "pending",
+      "details": "Actual complete exact-head CI execution required; targeted local runs are not relabelled full-profile proof."
+    },
+    {
+      "command": "P16 final-audit correction",
+      "result": "passed",
+      "details": "P16-F01 adds2required independent comparisons and1browser case. Domain20/ESLint/productionbuild+type validation/3affectedbrowser tests (new workflow case has1024short+800compact andAxe0)/Node6/docs116/preservation all exit0. Fresh90-pair blind and renewed independent final audit still pending."
+    },
+    {
+      "command": "current local anonymous root journey",
+      "result": "passed",
+      "details": "Actual final-current local journey17:37:31Z:all3causal guides,currentfm07unaidedfirst,Journal,newpartialfm06correctfamily,exactHubresume/reload,0pageerrors/foreignfetches,Worldbytesunchanged. Additional finalfm09/fm10unaided submissions and short/compact/Axe0 browser pass; this is local evidence,not externalGate7."
     }
   ],
   "visualEvidence": [
     {
-      "path": "docs/screenshots/security/introduction-sidebar-1440.png",
+      "path": "docs/screenshots/migration/introduction-sidebar-1920.png",
+      "viewport": "1920x1080",
+      "inspected": true,
+      "observation": "Readable theory/term hierarchy, actual contextual sidebar and previous/next progression."
+    },
+    {
+      "path": "docs/screenshots/migration/introduction-sidebar-1440.png",
       "viewport": "1440x900",
       "inspected": true,
-      "observation": "Part C active in preserved Identity hierarchy; visible substantive introduction and contextual navigation."
+      "observation": "Storage PartC active under path02; lesson and essential local-model boundary readable."
     },
     {
-      "path": "docs/screenshots/security/introduction-sidebar-1024.png",
-      "viewport": "1024x768",
+      "path": "docs/screenshots/migration/method-mechanism-1440.png",
+      "viewport": "1440x900",
       "inspected": true,
-      "observation": "Readable narrow desktop theory and scrollable contextual sidebar."
+      "observation": "Requirements lead to multiple compatible tools with semantic role/support/limit matrix."
     },
     {
-      "path": "docs/screenshots/security/layers-1366.png",
+      "path": "docs/screenshots/migration/manifest-1366.png",
       "viewport": "1366x768",
       "inspected": true,
-      "observation": "Seven-layer semantic map with selected direct application layer; vertical scroll retains all content."
+      "observation": "Version/time before-after and declared event consequences readable with reference endpoints."
     },
     {
-      "path": "docs/screenshots/security/layers-compact-800.png",
+      "path": "docs/screenshots/migration/manifest-1024.png",
+      "viewport": "1024x768",
+      "inspected": true,
+      "observation": "Compact PC text remains readable; wide semantic manifest uses focusable horizontal region."
+    },
+    {
+      "path": "docs/screenshots/migration/manifest-800.png",
       "viewport": "800x700",
       "inspected": true,
-      "observation": "Layer purposes reflow to vertical semantic layout without horizontal page overflow."
+      "observation": "Snapped PC layout, stacked facts and scrollable semantic manifest; no page overflow."
     },
     {
-      "path": "docs/screenshots/security/failed-layer-residual-1024.png",
-      "viewport": "1024x768",
-      "inspected": true,
-      "observation": "Failed identity contribution remains separate from surviving network complement and residual risk."
-    },
-    {
-      "path": "docs/screenshots/security/defender-score-models-1024.png",
-      "viewport": "1024x768",
-      "inspected": true,
-      "observation": "Cloud risk model qualified separately with no score calculated; saved comparison remains available."
-    },
-    {
-      "path": "docs/screenshots/security/native-start-cancel-1024x500.png",
+      "path": "docs/screenshots/migration/sync-native-start-cancel-1024x500.png",
       "viewport": "1024x500",
       "inspected": true,
-      "observation": "Loaded SavvyShark, blurred background and explicit Start/Cancel visible in short PC window."
+      "observation": "Native SavvyShark backdrop blur, explicit Cancel/Start and scrollable required briefing."
     },
     {
-      "path": "docs/screenshots/security/actual-context-1024.png",
-      "viewport": "1024x768",
-      "inspected": true,
-      "observation": "Selected actual app/group/subscription/plan/original receipt clearly separated from hypothetical security evidence."
-    },
-    {
-      "path": "docs/screenshots/security/feedback-state-1024x500.png",
+      "path": "docs/screenshots/migration/feedback-state-1024x500.png",
       "viewport": "1024x500",
       "inspected": true,
-      "observation": "First unassisted feedback readable with further deliberate scrolling; historical record preserved."
+      "observation": "Unaided first feedback and explanation readable through ordinary vertical scroll; no implicit completion."
+    },
+    {
+      "path": "docs/screenshots/migration/planning-budgets-1024.png",
+      "viewport": "1024x768",
+      "inspected": true,
+      "observation": "Decimal network lower bound separately labelled from fictional all-stage physical plan; no runtime/time guarantee."
+    },
+    {
+      "path": "docs/screenshots/migration/tiering-disabled-content-missing-1024.png",
+      "viewport": "1024x768",
+      "inspected": true,
+      "observation": "Disabling tiering does not supply missing bytes: corrected actual model shows namespace without local content and missing recall connection."
+    },
+    {
+      "path": "docs/screenshots/migration/hybrid-divergent-version-1440.png",
+      "viewport": "1440x900",
+      "inspected": true,
+      "observation": "Divergent p2/p3 generations remain unchanged with explicit conflict/unknown result, no silent overwrite."
+    },
+    {
+      "path": "docs/screenshots/migration/directional-deletion-1440.png",
+      "viewport": "1440x900",
+      "inspected": true,
+      "observation": "Directional fixture shows selected target deletion separately from updates/copy and keeps server B outside the operation."
+    },
+    {
+      "path": "docs/screenshots/migration/independent-fm09-1024.png",
+      "viewport": "1024x768",
+      "inspected": true,
+      "observation": "Actual revised independent scenario, declared premises and readable structured decision/reason choices; no key before submission. Ordinary vertical scroll is required for the complete case."
+    },
+    {
+      "path": "docs/screenshots/migration/independent-fm10-800.png",
+      "viewport": "800x700",
+      "inspected": true,
+      "observation": "Actual revised independent scenario, declared premises and readable structured decision/reason choices; no key before submission. Ordinary vertical scroll is required for the complete case."
     }
   ],
   "humanReview": {
@@ -1244,123 +1354,114 @@
   },
   "review": {
     "status": "complete",
-    "fingerprint": "ad3619f64feb63746c9c33ce7bd190493c4c51c2d8f7fd4a53e6d8ebbe13d914",
+    "fingerprint": "b4e42e782d1f42d56c39d94a23b9abe25fed3b8f5392bba8d49b3959e641af57",
     "reviewer": {
-      "id": "security_p15_final_audit",
+      "id": "codex-independent-final-p16",
       "kind": "agent"
     },
-    "started": "2026-11-01T15:34:29Z",
-    "finished": "2026-11-01T15:38:12.815876Z",
+    "started": "2026-11-01T17:53:34.956881Z",
+    "completed": "2026-11-01T18:03:33.155Z",
     "domains": {
       "content": {
-        "finding": "Scoped original Norwegian teaching, seven layer purposes/limits/complements, and current official claim passages support only 2.4.06–08. SEC02 A–F adequacy was explicitly challenged: sp04 preserves offline availability while protecting the local copy/key, and sp05 requires a new asynchronous delivery boundary despite private encrypted storage and earlier authorization. These apply complementary controls; neither sp03 tagging nor case count is used to manufacture SEC02 coverage. Encryption/Key Vault stays supplement. All 28 cached hashes/canonical learner links and 29 source records agree; blocked SE29 has SE09/12 alternatives. Generated source-date inconsistency was corrected. Human SME remains unperformed.",
+        "finding": "Current source-qualified five-tool manuscript retains mechanisms, terms, examples and boundaries. All31 available cached hashes match;6discovery404s are qualified. P16-F01 authored independent-scope gap is now substantively corrected byfm09/fm10; currentrow2.3.05 accurately describes that breadth. Human SME/learning validation unperformed.",
         "evidence": [
           {
             "path": "src/content/nb.ts"
           },
           {
-            "path": "src/domain/curriculum/security-sources.ts"
+            "path": "src/domain/curriculum/migration-sources.ts"
           },
           {
-            "path": "docs/SECURITY_PRINCIPLES.md"
+            "path": "docs/FILE_MOVEMENT_MIGRATION.md"
           },
           {
-            "path": "docs/audits/az900-2026-07-20.json"
-          },
-          {
-            "path": "scripts/az900-audit-check.mjs"
-          },
-          {
-            "path": "scripts/az900-audit-check.test.mjs"
+            "path": "docs/quality/PR41_FINAL_AUDIT.md"
           }
         ]
       },
       "technical": {
-        "finding": "Three pure declared perspectives preserve real-security and World boundaries. Defender plan/data/alert/score matrix probes, matched guide witnesses, strict replay, immutable first/help/retry/family, durable write conflict, terminal reserve and scoped recovery were examined. Independent 144-input matrix, invalid replay and stale-aid probes passed. Actual local configuration/receipts remain read-only context. No security scan, access engine, crypto, score, detection or remediation is claimed.",
+        "finding": "Pure typed models and independent probes preserve synthetic-versus-World boundaries, missing-content uncertainty, direction/deletion/conflict, OS/pair limits, planning unknowns, strict replay, immutable firsts, durable CAS/aid, terminal reserve and scoped recovery. No technical BLOCKER/MAJOR identified in the reviewed payload. Post-stamp delta verifies all18new pair relations, supportedfm10alternatives and strict immutable first/retry/replay; models/stores/source/guidance hashes unchanged.",
         "evidence": [
           {
-            "path": "src/domain/curriculum/security-model.ts"
+            "path": "src/domain/curriculum/migration-model.ts"
           },
           {
-            "path": "src/domain/curriculum/security.ts"
+            "path": "src/domain/curriculum/migration.ts"
           },
           {
-            "path": "src/domain/curriculum/security-store.ts"
+            "path": "src/domain/curriculum/migration-store.ts"
           },
           {
-            "path": "src/domain/curriculum/security.test.ts"
+            "path": "src/domain/curriculum/migration.test.ts"
           },
           {
-            "path": "src/features/learning/security-context.tsx"
+            "path": "src/features/learning/migration-context.tsx"
           },
           {
-            "path": "src/domain/portal/model.ts"
+            "path": "docs/quality/PR41_FINAL_AUDIT.md"
           }
         ]
       },
       "visual": {
-        "finding": "Personally inspected all 20 committed production images across 1920/1440/1366/1024/800 and short 1024x500 states. Semantic mechanism flows, seven layers, complementary residual risk, missing evidence, distinct score views, actual context and native Start/Cancel/feedback remain readable. Independent pinned-Chromium 1024x500 active-draft screenshot was also inspected with no horizontal overflow or page errors. Author keyboard/reduced-motion/Axe witnesses were inspected; human UX/screen-reader validation is unperformed. Final two availability strings were source-reviewed, not claimed rendered by the earlier local build.",
+        "finding": "Personally inspected14 committed frames including newfm09at1024 andfm10at800, retaining first-pass1920/1440/1366/1024/800/short-window review. Own pinned-browser keyboard/horizontal-scroll/Axe0 proof preserved; new author browser case has1024x500+800x700/Axe0/World-byte and immutable-first assertions. Residual numeric typography MINOR; humanUX/screenreader unperformed.",
         "evidence": [
           {
-            "path": "src/features/learning/security-visuals.tsx"
+            "path": "src/features/learning/migration-visuals.tsx"
           },
           {
-            "path": "src/features/learning/security.css"
+            "path": "src/features/learning/migration.css"
           },
           {
-            "path": "tests/e2e/security-principles.spec.ts"
+            "path": "docs/screenshots/migration/introduction-sidebar-1920.png"
           },
           {
-            "path": "docs/screenshots/security/introduction-sidebar-1920.png"
+            "path": "docs/screenshots/migration/manifest-1366.png"
           },
           {
-            "path": "docs/screenshots/security/depth-mechanism-1440.png"
+            "path": "docs/screenshots/migration/manifest-800.png"
           },
           {
-            "path": "docs/screenshots/security/layers-1366.png"
+            "path": "docs/screenshots/migration/sync-native-start-cancel-1024x500.png"
           },
           {
-            "path": "docs/screenshots/security/layers-compact-800.png"
+            "path": "docs/screenshots/migration/hybrid-divergent-version-1440.png"
           },
           {
-            "path": "docs/screenshots/security/native-start-cancel-1024x500.png"
+            "path": "docs/quality/PR41_FINAL_AUDIT.md"
           },
           {
-            "path": "docs/screenshots/security/feedback-state-1024x500.png"
+            "path": "docs/screenshots/migration/independent-fm09-1024.png"
           },
           {
-            "path": "docs/screenshots/security/actual-context-1024.png"
+            "path": "docs/screenshots/migration/independent-fm10-800.png"
           }
         ]
       },
       "assessment": {
-        "finding": "Fresh v4 blind lock sealed all 72 pair judgments/rationales before keys. Actual final item fields match packet exactly; 72/72 judgments match keys, with 12 accepted pairs including all four two-design cases. Correct reasons are longest in 3, middle in 1 and shortest in 4 cases; positions vary and no systematic completeness/alternative-enumeration/title shortcut remained. Changed device/evidence, offline/key, asynchronous-result, population/model and resource-attribution constraints require application. Near transfer in sp02/sp06 and limited SEC02 diagnostic breadth remain explicit. Independent actual UI accepted sp05 gateway/sp08 parallel alternatives and rejected sp01 correct-decision/wrong-reason with causal feedback. No psychometric or measured-transfer claim.",
+        "finding": "P16-F01 FIXED after adding changed-workflowfm09/fm10 and restamping. Separate fresh reviewer solved all10items/90pairs before keys and then verified actualbank/sources/scope/feedback:13acceptedpairs,0mismatch,0BLOCKER/MAJOR. Direct independent file-tool/GUI-script/continuous-oneoff/cache-Blob comparisons now present; validcopy/sync alternatives retained. Exact-character-shortest7/10 is disclosed; actual rendered uniquelyshortestcorrect reasons0/0/3/0 at1920/1440/1024/800 and wordcount3/10 do not establish a material systematic visible cue. P16-F04 records residual compound-distractor/partial-knowledge risks, without psychometric/learning claims.",
         "evidence": [
+          {
+            "path": "src/domain/curriculum/migration-items.ts"
+          },
           {
             "path": "src/content/nb.ts"
           },
           {
-            "path": "src/domain/curriculum/security-items.ts"
+            "path": "src/domain/curriculum/migration.test.ts"
           },
           {
-            "path": "src/features/learning/security-assessment.tsx"
-          },
-          {
-            "path": "docs/quality/PR40_FINAL_AUDIT.md"
+            "path": "docs/quality/PR41_FINAL_AUDIT.md"
           }
         ]
       },
       "guidance": {
-        "finding": "Native explicit Start/Cancel, stored contrasts and causal explanations govern three guides. Deleting each essential contrast run independently withheld completion; a causal answer or visits alone cannot award guided credit. Observed milestones, manual recall, dedup, storage uncertainty and active-independent shielding were checked. All 23 distinct teaching guards include Security; Course/Journal/Summary/history, mission safety and Portal guidance preserve durable assistance. Independent actual browser denied-aid and successful-aid probes passed while exact draft/earlier submissions persisted.",
+        "finding": "Explicit Start/Cancel, persisted matched contrasts, predictions, causal explanations, recall/pause/resume, deduplicated witnessed milestones and shared24-context teaching/Journal/Summary/history/Portal shielding are preserved. Own currentfm04 Journal test durably marks aid. Guidance provides no World mutation, XP or independent credit. Guidance implementation is unchanged by the correction; new cases reuse its existing durable first/help/retry boundaries.",
         "evidence": [
           {
-            "path": "src/features/learning/security-workbench.tsx"
+            "path": "src/features/learning/migration-workbench.tsx"
           },
           {
-            "path": "src/domain/curriculum/security.ts"
-          },
-          {
-            "path": "src/domain/guidance/milestones.ts"
+            "path": "src/features/learning/migration-assessment.tsx"
           },
           {
             "path": "src/features/learning/management-access.tsx"
@@ -1369,178 +1470,160 @@
             "path": "src/features/course/mission-context.ts"
           },
           {
-            "path": "src/features/course/course.tsx"
+            "path": "tests/fixtures/active-teaching-contexts.ts"
           },
           {
-            "path": "src/features/portal/portal.tsx"
+            "path": "tests/e2e/file-movement-migration.spec.ts"
           },
           {
-            "path": "tests/e2e/course-hub.spec.ts"
-          },
-          {
-            "path": "tests/e2e/security-principles.spec.ts"
+            "path": "docs/quality/PR41_FINAL_AUDIT.md"
           }
         ]
       },
       "regression": {
-        "finding": "Exact base diff, original/final hashes and preservation were checked. Initial 67-file fingerprint was reconstructed exactly; final 68-file snapshot has no hash mismatch. Delta is limited to two availability fields, source-date renderer/test, generated source metadata and ordinary documentation. Preservation independently exited0: 35 earlier data exports and 2 functions, eight declared metadata exceptions, 54 unchanged objective rows, 127 patterns and operative Portal suffix. Renderer source-specific/baseline/page-update regression and affected checks passed; generated matrix outside dated-source block is byte-identical to initial candidate. Existing browser settings/assertions remain; 232-case exact-head CI/strict and deployed Gate7 remain pending.",
+        "finding": "All75current snapshot hashes and independently recomputed FP match. Preservation rerun passes37olddata+2functions/8allowedmetadata/55unchangedrows/141patterns and operativePortal suffix. No old displayedbankcases/model/store/source/guidance changed. New focuseddesktop case preserves earlier firsts/World and adds no workers/retries/timeouts/skips. Own planexit0 validates241=222desktop+19compact, legacy444. Historical fullcheck/11browser and targeted correction20domain/ESLint/build+types/Node6/docs116/3affectedbrowser+final1/Axe0 exits reviewed. Full exact-head241CI/strict and anonymous deployedSHA/journey remain mandatory PENDING delivery, not waived.",
         "evidence": [
           {
-            "path": "docs/SECURITY_PRINCIPLES.md"
+            "path": "tests/e2e/file-movement-migration.spec.ts"
           },
           {
-            "path": "scripts/az900-audit-check.mjs"
-          },
-          {
-            "path": "scripts/az900-audit-check.test.mjs"
-          },
-          {
-            "path": "docs/AZ900_COVERAGE_MATRIX.md"
-          },
-          {
-            "path": "playwright.desktop.config.ts"
-          },
-          {
-            "path": "scripts/e2e-plan-check.mjs"
-          },
-          {
-            "path": "tests/fixtures/active-teaching-contexts.ts"
-          },
-          {
-            "path": "src/domain/curriculum/teaching-access.test.ts"
+            "path": "tests/e2e/course-hub.spec.ts"
           },
           {
             "path": "tests/e2e/identity-foundations.spec.ts"
           },
           {
-            "path": "tests/e2e/course-hub.spec.ts"
+            "path": "tests/e2e/storage-resilience.spec.ts"
+          },
+          {
+            "path": "scripts/az900-audit-check.test.mjs"
+          },
+          {
+            "path": "playwright.desktop.config.ts"
+          },
+          {
+            "path": "docs/quality/PR41_FINAL_AUDIT.md"
           }
         ]
       }
     },
     "findings": [
       {
-        "id": "P15-FINAL-01",
-        "description": "Generated dated-source table used inherited 2026-10-26 fallback for later scoped reviews despite correct 2026-11-01 source records.",
-        "severity": "minor",
+        "id": "P16-F01",
+        "severity": "major",
         "status": "fixed",
-        "fix": "Data-driven source.reviewed with audit.reviewed fallback; page-update date separately labeled; baseline introduction qualified and matrix regenerated. Final delta inspected after renewed stamp.",
+        "description": "Explicit owner §12 independent comparisons are absent from MOVE01 bank: AzCopy versus Explorer, directional sync versus FileSync, one-time versus continuous work, GUI versus scripted work, and cloud tiering versus Blob access tiers. Named-tool consequence questions and guided contrasts do not satisfy this independent requirement.",
+        "requiredCorrection": "Substantively revise/add independent scenarios with those discriminating requirements, retain plausible alternatives/compatible reasons, rerun affected checks, restamp and obtain a fresh pre-key final-bank blind review plus independent follow-up.",
+        "fix": "Addedfm09 graphical-review-to-headless-pipeline tool selection andfm10 persistent hybrid/cloud-cache-to-oneoffcopy-or-supported-directionalsync selection, explicitly distinguishing Blob tiers. Source-supportedmissing/olderselectedtargets andno-deletepremises retain both legitimate final-transfer alternatives. Restamped17:52:26.486Z; fresh pre-key90-pair reviewer independently accepts allactualrelations and requiredscope; this auditor validates delta/75filebinding.",
         "retests": [
-          "Focused Node audit suite 6/6, actual exit0; source-specific, missing-date fallback and page-update distinctions covered.",
-          "Focused ESLint actual exit0; generated matrix outside dated-source metadata unchanged; preservation exit0."
+          "node .artifacts/p16-final-audit-delta-probes.mjs: exit0,18newpairs/packetbody/old8/first-retry-replay/unchangedmodelstoreguidancesources/75hashes",
+          "Fresh final90 pre-key lock and postseal actualbank/source/scope/rendered-cue review:0mismatch,0BLOCKER/MAJOR",
+          "npm run test:e2e:plan: exit0,241=222+19/legacy444/worker1",
+          "node .artifacts/p16-preservation.mjs: exit0",
+          "Author correction:20domain,ESLint/format,productionbuild+types,Node6,docs116,3affectedproductionbrowser andfinal1case/Axe0 exit0"
         ]
       },
       {
-        "id": "P15-FINAL-02",
-        "description": "Author identified Identity A/B availability strings still describing implemented B/C as future.",
+        "id": "P16-F02",
         "severity": "minor",
-        "status": "fixed",
-        "fix": "Only identityNb.available and accessNb.available now describe available Part B/C. Added explicit preservation exceptions; all earlier manuscripts/rubrics retain bytes.",
-        "retests": [
-          "Postavailability targeted domain20, TypeScript/format/docs checks passed as recorded by author.",
-          "Reviewer inspected exact two-field delta and independently reran preservation: eight declared metadata changes only. Final actual rendering remains for final CI/deployed verification."
-        ]
+        "status": "accepted-limitation",
+        "description": "Joined numeric prose tokens such as på48TB, innen240timer and fram til18:00 reduce scanning quality. Meaning remains readable; not an answer cue."
       },
       {
-        "id": "P15-FINAL-03",
-        "description": "The fixed paired bank provides bounded application rather than validated broad diagnostic transfer: sp02/sp06 remain near transfer, and SEC02 independently samples offline/key and application-delivery boundaries rather than every layer.",
+        "id": "P16-F03",
         "severity": "note",
-        "status": "accepted-limitation",
-        "fix": "No rubric weakening or scenario-count inflation. Retain explicit bounded claims; no individual mastery, unseen-family readiness or empirical transfer claim.",
-        "retests": []
+        "status": "open",
+        "description": "Full exact-head241-execution CI and strict release plus anonymous deployedroot/fullSHA/journey remain mandatory pendingdelivery checks, not waived by local evidence."
       },
       {
-        "id": "P15-FINAL-04",
-        "description": "Qualified human Azure-SME, novice UX, screen-reader, psychometric, retention and measured learning reviews remain unperformed.",
-        "severity": "note",
+        "id": "P16-F04",
+        "severity": "minor",
         "status": "accepted-limitation",
-        "fix": "Keep all human validation fields unperformed; agent audit and automated accessibility witnesses do not substitute.",
-        "retests": []
-      },
-      {
-        "id": "P15-FINAL-05",
-        "description": "Complete exact-head 232-case CI/strict release and anonymous deployed ordinary-root/full-SHA/end-to-end journey remain mandatory pending delivery work.",
-        "severity": "note",
-        "status": "accepted-limitation",
-        "fix": "This audit accepts implementation only. It does not pass Gate7, waive CI or deployed verification, authorize merge, or claim production delivery.",
-        "retests": []
+        "description": "Residual compound-distractor and explicit-constraint matching may permit partial-knowledge elimination; a correctcombinedpair does not isolate every subdistinction. Raw character-shortest correct7/10 is disclosed, but nearestgaps mostly1–2characters,wordcountuniqueshortest3/10 and rendered-lineuniqueshortestcorrect0/0/3/0 across1920/1440/1024/800 do not establish a material systematic visible shortcut. Fresh reviewer P16-B90-C01 concurs. Human psychometric/learning pilot unperformed."
       }
     ],
     "report": {
-      "path": "docs/quality/PR40_FINAL_AUDIT.md"
+      "path": "docs/quality/PR41_FINAL_AUDIT.md"
     }
   },
   "snapshot": {
     "files": {
-      "AGENTS.md": "b2e08c33d38613bcb4c9e217adc39b3dd3c0d7e6b761ea55422a361bf14d0b75",
-      "README.md": "c6a16f71f125eccd7186ca31ec0209a18949842c82f69413963faa579c5c2a38",
-      "docs/ARCHITECTURE.md": "a89b15dd48ac77b12c8d03e8049c32295fb8550104fffa4c62b43d97ebb9329f",
-      "docs/AZ900_COVERAGE_MATRIX.md": "d3d2c10b797d2ce600dea0d90d93a00a85638125e1ce79a2b638881f066a420d",
-      "docs/AZ900_EXPANSION_ROADMAP.md": "e3888347737b04c73a7d6f1c11d1164b156bcc015e047b46af5b0a7fe1ed51b7",
-      "docs/DECISIONS.md": "8dc2bf992cc4de0dc98403b848dc90e7ed5a362544407b1e903a4346992a1912",
-      "docs/DEVELOPMENT_WORKFLOW.md": "d4c2deb5ea75fbedc73af09b5479d8d8903753b811b228a97be2e4c4b7ed129c",
-      "docs/ROADMAP.md": "b3948b7e8da50d2a14f8f72ceb5f6895a7333ad8463d51b2cf98e1f8fc0b4d81",
-      "docs/SECURITY_PRINCIPLES.md": "18452c59dfa571dd6dab47b7c552b999cee54962e6a2f273fc33dbf69216bb72",
-      "docs/audits/az900-2026-07-20.json": "8e5af7b4b51d0bb9e51b42b44811e990b94b5b83385b3d4302143d65da610622",
-      "docs/screenshots/security/actual-context-1024.png": "9596407a56da04c04258e45794d7260251fa2e51c31d7f012f1831afc61c03d3",
-      "docs/screenshots/security/actual-portal-resource-1440.png": "d265b62c9346674292d125c3b069857ed021a0ac059705650efb2d3c8d18cf47",
-      "docs/screenshots/security/defender-mechanism-1440.png": "1086aaef38fae11fc41be3637fc55f9ac8253835d1914a620ed95d50537ca08d",
-      "docs/screenshots/security/defender-missing-evidence-1440.png": "2ed598ad3eedb9b6b38c9cc2265d39aa549817fa0fada972bbdeb1768ff61994",
-      "docs/screenshots/security/defender-score-models-1024.png": "eb5d1af74a473a8ff65d145ef916ee1803ee5cc07655393dda5961b6d1ea535b",
-      "docs/screenshots/security/depth-mechanism-1440.png": "8a81b41943abece254a745c4335e886c8882cf33a9bb5f7cfba0f023d1eac4e3",
-      "docs/screenshots/security/encryption-theory-1024.png": "c41a7ba2f86128a25437eaf6c56afbe1fdff9858daa873a23dc666e0f75f1e71",
-      "docs/screenshots/security/failed-layer-residual-1024.png": "90873f60899cabc8238542a30d4c557cf35b14e8001025562053cc42ae4b230c",
-      "docs/screenshots/security/feedback-state-1024x500.png": "157bc0b7b213229037b98b1f1cd2d3f845baddf311aae8d05192f28fa9c925f8",
-      "docs/screenshots/security/hub-1024.png": "2d83ac296f2d31e101f201fe635541b519058a4da2c6623c980a415c5f94c546",
-      "docs/screenshots/security/hub-1440.png": "982778a4792d909fe555fa0cda3a5d542941c1eae2e044920225c1d55aaf3157",
-      "docs/screenshots/security/independent-state-1024.png": "3d7af03dc2d58a69808dc1bed74a9eb64acc5cb00d91a3a1378c144c2364b2d4",
-      "docs/screenshots/security/introduction-sidebar-1024.png": "63d45c7885fe6e4a6133d988aaf5a195aa74258792c0da6d955b0c02ed5a6c8b",
-      "docs/screenshots/security/introduction-sidebar-1440.png": "bd58c95b01c76378b741a0b72b44397f44a95806dd529251351f247d185b95bf",
-      "docs/screenshots/security/introduction-sidebar-1920.png": "e7a2fc718854427e6bba9d8f7477b1934aebf6accb362009c7e00256a3dc093c",
-      "docs/screenshots/security/layers-1024.png": "0c4c9ddf7f099f9f342cf1c09f0c201a10621ff11d6f0732866ab6594acd013e",
-      "docs/screenshots/security/layers-1366.png": "1f27c7ca94d38e25643a1bf2ac2360d0438f3d1ad7f767190c39989b367c3f34",
-      "docs/screenshots/security/layers-compact-800.png": "0d8c3cf1b0ab0fe89476b9362d1606a8f8395167c6ff37b8b22929720520f7c1",
-      "docs/screenshots/security/native-start-cancel-1024x500.png": "4fa5fd74c94c7dc968a6130b68038bf77be889973f1c42a1b946c83334120a99",
-      "docs/screenshots/security/trust-mechanism-1440.png": "64966b851d97b5806d040b69cbd8e188ad6fdd6450171e7ea9dc20115cb42e09",
-      "package.json": "f2d05c9fe0c2be2bad080bcd88615e04dd14be62f33a1f9fc76ac4ff83d4f91c",
-      "playwright.desktop.config.ts": "b2c8197ea956ca414883ed9d4279f6c60a2ee80f3126301f2d9367840343bb91",
-      "scripts/az900-audit-check.mjs": "ad7806a68ca80f0274f66e511ae1fbd3caa0f99afbfc5534b04000b75166540b",
-      "scripts/az900-audit-check.test.mjs": "e7b5800b31ace96a70befe979286be3d7f4238f96ea2da5056e8e7cf02efab50",
-      "scripts/e2e-plan-check.mjs": "b664063bc1e0cda55a4c499639e48498d7419a5fe412b717b3995cde7f6793de",
-      "src/app/layout.tsx": "c3b94a91d15eb97b0eebb3e4737c7af11d549e841988a720c89a45c839fd8e3b",
-      "src/app/learn/[module]/page.tsx": "36c338b8790784cc4f4ed780780e2622d9a4ebeb6848fb0564eaab4831741fb3",
-      "src/components/progress-provider.tsx": "8b3503a352c7cf138d25504ccbb12157ccb1f7fc46e052dc3d13ef8244b59470",
-      "src/content/nb.ts": "afc592d02f8f5818442f16db2c63601f5f937fcae73b4c2307c39fd92dc9f9c8",
-      "src/domain/course/model.ts": "21d4a0d69e058349ba79ae8179c8a1ece63db43368366e0b19dcbfd4202e0fa0",
-      "src/domain/curriculum/official.ts": "af725f9b0428e265bc58744e40d3a32bd08cb439e01afb40082249bf11f90244",
-      "src/domain/curriculum/security-items.ts": "862dc9d11a0626240012d3ae933a72c4cdc19acce1fc2eeadaa7af41a934045d",
-      "src/domain/curriculum/security-model.ts": "b3bcc61bb81bdb2bae85fbf318600a0d97fec3f1bf8e32b3ac201d45565811e5",
-      "src/domain/curriculum/security-sources.ts": "e3bfd079739a58b9cccc11fd272a7935561f86cc78167a48a5bc92a26d115364",
-      "src/domain/curriculum/security-store.ts": "0ab0612801c97d6bb80c64afb41a598897d0abff3a828c0ae1c0202683b7d2bf",
-      "src/domain/curriculum/security.test.ts": "3861505fbfa3d851fb835058f4d011710190f5f6906bcf83637e874bbc83d87f",
-      "src/domain/curriculum/security.ts": "65c5f625bd1f118cadf07d669cd1e45ae0f58cb15bbe3ebf77a48280202aa619",
-      "src/domain/curriculum/teaching-access.test.ts": "45c59ae0a535b7c8e07a5c73f4fa4c94a01025ff7817f98dc2e09d36bff193c4",
-      "src/domain/guidance/milestones.ts": "16efd7713bd0d9d67cf572aa44ee64c148154bc3c11165875c7ab8264563ed2f",
-      "src/domain/portal/model.ts": "2ee3dd03b6c07a1a4c6d54aa9ecd49456edbabae3cd2c5c8b2d9f754117370c0",
-      "src/features/course/course-outline.ts": "65dc164cda2bd1e3cab3efb9833d0649c22486ef3c36ac1b67c209bf7254940f",
-      "src/features/course/course.tsx": "2e8ba0c7c10e22a31fcc8fb18b8172ae76a9c9d51305ad41cabc1954e2f001ae",
-      "src/features/course/mission-context.ts": "2db923438d305412dccd71fc77a59e68525e088c823b2f50b4ff700dd191eb7a",
-      "src/features/learning/management-access.tsx": "3781f1fb421d4215530bec29776a630d10d3f870a822ec5732e83e078bd58dae",
-      "src/features/learning/security-assessment.tsx": "8d82ff78707ba9aba1794b00941ab4390260a9ea151994da2547f671ab6c9bc1",
-      "src/features/learning/security-context.tsx": "f9d1d5bb4a164fee803523fdbee3de44c849ae60f49018f377a456c096b23d58",
-      "src/features/learning/security-controls.tsx": "94c7e5ade385787811ea86ef9e46af61a928ed1b21e3af55ff9e99aec149cecc",
-      "src/features/learning/security-provider.tsx": "2d0d1897fa4f046b99c21a4a7af4a3673dc61151569ef0a841281eec38474afc",
-      "src/features/learning/security-visuals.tsx": "39f2f7d380398c7e550a6d6c159e496f731f0a5a7eed46be33846ff287c4a5b2",
-      "src/features/learning/security-workbench.tsx": "6ee07e62d946c0772d2d5c467becdf98b50f8614d5f5de82ea5dc13ecda927d9",
-      "src/features/learning/security.css": "751b0e80f1c6b22d4a065ed2c696315c7d55c777ac7283c5f1ace88d3adfc89e",
-      "src/features/learning/security.tsx": "6eb15263b5b2587fcc2565894a03c19dc9d0c6d76d8531ee43186d995da5fc87",
-      "src/features/portal/portal.tsx": "2b642763c3539c97c15ce33d9ad336f08aafbdadc9b41830b0401e00e6dda718",
-      "tests/e2e/course-hub.spec.ts": "beb400d6062f19f958a4b53714a8e84ac384488a131c0a233b780bcb8f19adb5",
-      "tests/e2e/identity-foundations.spec.ts": "06541ba60c1403d08d2641e1b7f8c4b139ff02b738e1c4e71a97138bf6128737",
-      "tests/e2e/security-principles.spec.ts": "83eca289c35e2378c2974bc837af29fb13c593c4e575db25d135d732aa7519e4",
-      "tests/fixtures/active-teaching-contexts.ts": "7575765fd3e0f28d3ff6c366153a7b943d18d6e22b2f5cccaad2ba3c07a2e7ab",
-      "tests/fixtures/security.ts": "dfbbf1b8f7974c83ab8a66e7ccc19ba2dfdedf14ccd5b993304f928c69fbab45"
+      "AGENTS.md": "106ef3c2c002b38fa33b6e8358422eda9f6080236a3c21892df1433e492e06d4",
+      "README.md": "d72c297e57327f51c9d4a40e7fcba4b93c5211c7dfa3cf571ec8d72e35fced73",
+      "docs/ARCHITECTURE.md": "2d43f58c6660b4cc51cb91400c73eb64c5116b84ae05e77f68e8d4ab0099bdc1",
+      "docs/AZ900_COVERAGE_MATRIX.md": "eb79df7851c94213f0bada48a9a382a69e6063ef791f3ef10c8898f9247d4765",
+      "docs/AZ900_EXPANSION_ROADMAP.md": "259fe52203081afdf5627b028fb03bca5e49da2b72b3283f1609f1dec1d80ca6",
+      "docs/DECISIONS.md": "5bb3122be22f603631205cf0cd1369ad4c363d24317aa3282e3fa9ccf838a92b",
+      "docs/DEVELOPMENT_WORKFLOW.md": "b8cc758f7693cc9f6c1d2544fec713153812a6d3f20b25205c9101d229ea0049",
+      "docs/FILE_MOVEMENT_MIGRATION.md": "07cd085038ce30669d0579c5d4d9f1c5be83709e3fd2424c0b122221ea3b3efa",
+      "docs/ROADMAP.md": "92984d07548f581d0330d405a8118d17b6028ce78e231ec48878d8eb50ec7eaf",
+      "docs/audits/az900-2026-07-20.json": "5314ae6da5155f208ebbad3c00a54a9fec9ac52e9816c93c8068dff81e890f97",
+      "docs/screenshots/migration/actual-context-1024.png": "29a4d3f50c5d5ae5c5f70082bff8e3b085570068223518d9adf5e0ebec597b81",
+      "docs/screenshots/migration/actual-portal-resource-1440.png": "8384c2b97c98538c781e62983513a5e266ce9f9e93b254cb6192fd34e191a5ca",
+      "docs/screenshots/migration/azcopy-theory-1440.png": "a690dc1152b1e8485e36cec37f8bd6cc1a02acaf10e76bc695d5fc42a29905fa",
+      "docs/screenshots/migration/directional-deletion-1440.png": "64628fa6829d7ee3d370aa8870044c07dd36506336967cd080cd2499bd576ac0",
+      "docs/screenshots/migration/feedback-state-1024x500.png": "dd3dd098bcf3a4c0330cf4f5bc6f4a1ca7ea9134fb82d0725ebb132971522938",
+      "docs/screenshots/migration/file-sync-theory-1024.png": "fa0338afc18406584490826da9e39459fc0dd933e3bcaa92cb1be42967c33350",
+      "docs/screenshots/migration/hub-1024.png": "2d83ac296f2d31e101f201fe635541b519058a4da2c6623c980a415c5f94c546",
+      "docs/screenshots/migration/hub-1440.png": "982778a4792d909fe555fa0cda3a5d542941c1eae2e044920225c1d55aaf3157",
+      "docs/screenshots/migration/hybrid-divergent-version-1440.png": "88916a64696953925433992f43995b50f1303d50b99fd97b4e04dafb5839bafb",
+      "docs/screenshots/migration/independent-fm09-1024.png": "4600a272ea4bd655b888e616781f2134c34b5c6ce1ae59610fc46fdf3c6ef0da",
+      "docs/screenshots/migration/independent-fm10-800.png": "7c8a85d53fac7b667d9450411e4c0b18779b1f4312cc147700b58fc2ac37b23e",
+      "docs/screenshots/migration/independent-state-1024.png": "616de87503cf3e418b476de405c5837aa34e050a493d1af7583035d2de1867ff",
+      "docs/screenshots/migration/introduction-sidebar-1024.png": "e01a118194606e20414ae2759d356ac929f463188f2f5f332e0b443d4971880e",
+      "docs/screenshots/migration/introduction-sidebar-1440.png": "92c236a2cc4451d90f671d418d1a31e9d8f5484988aa67b4d34e449fabecca3e",
+      "docs/screenshots/migration/introduction-sidebar-1920.png": "c9d651f63529c11367b44b3640ea1e6a52952a13e546353e6eaf2e0a942e4849",
+      "docs/screenshots/migration/manifest-1024.png": "0146fd347d541790b525203370fc45b91049b7f8d1d4845e8cc6e0f6349efbb9",
+      "docs/screenshots/migration/manifest-1366.png": "1fdbca55e658f5e0cf55e6a034762c910dde50c2c9850e2cf8b241548b3328c5",
+      "docs/screenshots/migration/manifest-800.png": "1a86d5fcb25354ee17374f61cc0c0fde5b8cd8f2e871b22d54d8024563d807e5",
+      "docs/screenshots/migration/method-mechanism-1440.png": "81295ce2af3b66b8b88691d8c055dad8f29cd1d73be7064633c316e380049bde",
+      "docs/screenshots/migration/method-native-start-cancel-1024x500.png": "121e4e824cde50c73f8cca61d42c7e742a662793322334d922f742cf07163b7f",
+      "docs/screenshots/migration/planning-budgets-1024.png": "6d17f648e9fb57714d524230edc8edbd672a6d6a5e90c90eef0c0990474fb39d",
+      "docs/screenshots/migration/planning-mechanism-1440.png": "e665025804bcdc519f2825b12d64f14f312c8bf4f507d85296d5155cf62148bb",
+      "docs/screenshots/migration/planning-native-start-cancel-1024x500.png": "b6ae0c71c1e3582b6ca6f23dd2b9818cd4ddd4cdd00417465d15e7814ca2df57",
+      "docs/screenshots/migration/planning-unknown-device-1440.png": "a6bc9a3dc5f4c7b99c33feae1b9b6ab1dfd4d541cc5e57b3a00ccfc826769c61",
+      "docs/screenshots/migration/sync-mechanism-1440.png": "e1eeb3fafe0e38fe2fe167bf68764ebe75675bb1899dbad719c98f0dd8bc6e80",
+      "docs/screenshots/migration/sync-native-start-cancel-1024x500.png": "4747b50866a131687a5fbe45b5cb270d839e5ef717f7432e7edaad4da35c9bbf",
+      "docs/screenshots/migration/tiering-disabled-content-missing-1024.png": "fa5ef716031969e95fb6d28f2ccf1f84b8ab31be672fa1026a1c173599621c0e",
+      "package.json": "4608dcffbc1a56471ecb61b4c9f647227a59137a621db92f504c5a23c17efdc0",
+      "playwright.desktop.config.ts": "23104ada6aa65deb8a66c4267272ae56e0a2016cc63727d0a7d7cded824d9320",
+      "scripts/az900-audit-check.test.mjs": "9d50f9d2261c19f4c101c98af9a63359997f91ef67a2591d27c0ea727e1204cd",
+      "scripts/e2e-plan-check.mjs": "5dbb3b2f0e2abebf8f31283f35b59736dab84bf14477f802d108354d9f25e751",
+      "src/app/layout.tsx": "494f7e3f2789b19e61a6fc1a0360660e1f222848582cbb8473f29cee55f57782",
+      "src/app/learn/[module]/page.tsx": "2407110de07d039d4a9d168b6b52bc414763522a199c8d005ee6906fb21bef04",
+      "src/components/progress-provider.tsx": "8ea37df44790ade08ae77fb4dced88f9fed4540d1cb9a51a16f0ed44b401248e",
+      "src/content/nb.ts": "ff6e3cedfa81bc757ad0df832de2a3b6f561b729824bc33d3497618859bb3544",
+      "src/domain/course/model.ts": "3fefab2ba34eb03f20a76ba17dbc8476181a040ba14f357dce69a68876788965",
+      "src/domain/curriculum/migration-items.ts": "234c4f3b24032a731f649590be6879797792cfcd5e405159c29040c20266ec5d",
+      "src/domain/curriculum/migration-model.ts": "e5914a693b55d5ab0190175b5f72edefa190359a7b63ce09dccf854d113fa245",
+      "src/domain/curriculum/migration-sources.ts": "83341f213f544a41328c76bd9186c365b8324aa794795f0e0f40fde099b2e15c",
+      "src/domain/curriculum/migration-store.ts": "97d91ebcdc7e02d8b5a029d9c5d7b221c38c9854a9b89584d3665381df917240",
+      "src/domain/curriculum/migration.test.ts": "1b9681d0831d848fcbaab3d8045f306097364ef53c8e487f4bf139c0b4b3baaa",
+      "src/domain/curriculum/migration.ts": "592964c02e2f0800f9d3c0555cb555716034f71c6b67177f89080da391607840",
+      "src/domain/curriculum/official.ts": "313058730b9f5caa4022ecd6fc2dc25dfb85f42f437541bc8b2e3d368a9dfee1",
+      "src/domain/curriculum/teaching-access.test.ts": "acc1f342f37e6ddcd1cd9648009b7ca33a005d55d62b492abdd9d2676129eab9",
+      "src/domain/guidance/milestones.ts": "4f33737c5a4777a8fcd91104fe5b7c41563ef2abd2b3899479c376aa95848f74",
+      "src/domain/portal/model.ts": "cbe5dfe6bb84b84d0da2b735d0f1357e8f43d3f670ab0c93854aadcd48334734",
+      "src/features/course/course-outline.ts": "27f0602b605ee7968a5b40bce37dab722ab4a2870bdfdbbf7968e0ed8cb9a9ca",
+      "src/features/course/course.tsx": "02da3bbc1ecd1efcea3d41d80e55681806c1a612a1d0f8c7dc377e9e02ea68e8",
+      "src/features/course/mission-context.ts": "08a8beedf663556f1f3729a98cfa0c65eeda1b53e2ab6229afd6704984be7c0c",
+      "src/features/learning/management-access.tsx": "e223060f944c60f973fba88c474988bba363d90daf5284d7322fb813ba942e22",
+      "src/features/learning/migration-assessment.tsx": "90ce37c3f225b7cab94d7e544adce4ab3d3b55b9f9b832f2f80bac9719dd77a7",
+      "src/features/learning/migration-context.tsx": "55d9ee16ca3e91e42dec33b4980f8501c68af7e5dc60770d6e2fb104cd407a6a",
+      "src/features/learning/migration-controls.tsx": "95d0197a2301536d5269ff71208a388d8144f00c1d67b2888b7469d4594b487b",
+      "src/features/learning/migration-provider.tsx": "44e47e13cd91fb868a2e531b48070c36a0dd615c56af251dc42f9bb2dbd80dfc",
+      "src/features/learning/migration-visuals.tsx": "3d46c4823c9e0c90428fab87d922ddc35ff5fe2ae9d65132c81c532f4efe3aba",
+      "src/features/learning/migration-workbench.tsx": "44c91ebead8f5aae173978223a931b50a594c5e06b3cf7bb5a812f2b6a08fc25",
+      "src/features/learning/migration.css": "db0698603bae5b1b8853821e79964f3660e30457c3081787069ee30527bf6e12",
+      "src/features/learning/migration.tsx": "2f315b624b9310826f808cd998b1e51d99cb418702460386b4579c45234e3fea",
+      "src/features/portal/portal.tsx": "c08f2418a63aaeb0c05a2877884f65d21c7e7495618f9912ddc666308fb4db44",
+      "tests/e2e/course-hub.spec.ts": "7740c6f7beba06ddb08375465251dd62000442c4af99af58e050afdd3ece7cee",
+      "tests/e2e/file-movement-migration.spec.ts": "68bf147322a279003a87318315e91311a24b633afac419f4edac18a8981686aa",
+      "tests/e2e/identity-foundations.spec.ts": "c0362894aa874b1abebeb07934b17e2da6043f1de907f3f1d85529c9edeb069e",
+      "tests/e2e/storage-resilience.spec.ts": "0e5f5f29b0185ab04602568c7e35ce97a413250de249fb19ce1e9bd3dde88df8",
+      "tests/fixtures/active-teaching-contexts.ts": "0dcd60ce31f92e9c838de87737870b0a2b98adca43e71a7a9c5de654400fe483",
+      "tests/fixtures/migration.ts": "a265a9fec051b2c4841d1050beb80cd07eadd78fa3bfbc885158c8fb6f4d688d"
     }
   },
-  "implementationFinished": "2026-11-01T15:33:58.227Z"
+  "implementationFinished": "2026-11-01T17:52:26.486Z"
 }

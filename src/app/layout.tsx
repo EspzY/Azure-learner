@@ -1,3 +1,4 @@
+import { MigrationProvider } from '@/features/learning/migration-provider';
 import { SecurityProvider } from '@/features/learning/security-provider';
 import { MonitoringProvider } from '@/features/learning/monitoring-provider';
 import { ToolsProvider } from '@/features/learning/management-tools-provider';
@@ -59,17 +60,19 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                                             <ToolsProvider>
                                               <MonitoringProvider>
                                                 <SecurityProvider>
-                                                  <SaasProvider>
-                                                    <PracticalProvider>
-                                                      <ServerlessProvider>
-                                                        <PhysicalProvider>
-                                                          <LearningProvider>
-                                                            <AppShell>{children}</AppShell>
-                                                          </LearningProvider>
-                                                        </PhysicalProvider>
-                                                      </ServerlessProvider>
-                                                    </PracticalProvider>
-                                                  </SaasProvider>
+                                                  <MigrationProvider>
+                                                    <SaasProvider>
+                                                      <PracticalProvider>
+                                                        <ServerlessProvider>
+                                                          <PhysicalProvider>
+                                                            <LearningProvider>
+                                                              <AppShell>{children}</AppShell>
+                                                            </LearningProvider>
+                                                          </PhysicalProvider>
+                                                        </ServerlessProvider>
+                                                      </PracticalProvider>
+                                                    </SaasProvider>
+                                                  </MigrationProvider>
                                                 </SecurityProvider>
                                               </MonitoringProvider>
                                             </ToolsProvider>

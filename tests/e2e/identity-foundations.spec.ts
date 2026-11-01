@@ -106,7 +106,7 @@ test('Identity follows Storage in one existing path with exact sidebar, Back/For
     page
       .locator('.learn-hub-path')
       .filter({ has: page.getByRole('heading', { name: h.paths.architecture.title, exact: true }) })
-      .locator('.learn-hub-planned'),
+      .locator('.learn-hub-module[data-module="migration"]'),
   ).toContainText('File Movement & Migration');
   await expect(page.locator('.learn-hub-module[data-module="security"]')).toContainText(
     'Security Principles',
@@ -149,9 +149,12 @@ test('Identity follows Storage in one existing path with exact sidebar, Back/For
   await expect(page).toHaveURL(identityHref('external'));
   await page.goto('/learn/storage-resilience?topic=summary');
   await page.locator('.course-step-navigation .course-nav-next a').click();
+  await expect(page).toHaveURL('/learn/migration?topic=introduction');
+  await page.goto('/learn/migration?topic=summary');
+  await page.locator('.course-step-navigation .course-nav-next a').click();
   await expect(page).toHaveURL(identityHref('introduction'));
   await page.locator('.course-step-navigation .course-nav-previous a').click();
-  await expect(page).toHaveURL('/learn/storage-resilience?topic=summary');
+  await expect(page).toHaveURL('/learn/migration?topic=summary');
   expect((await facts(page)).completed).toEqual([]);
   expect((await facts(page)).firsts).toEqual([]);
 });
