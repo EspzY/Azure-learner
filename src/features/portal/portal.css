@@ -1150,6 +1150,9 @@
   max-height: 90dvh;
   overflow: auto;
 }
+.portal-dialog:not(.portal-side-panel) {
+  margin: auto;
+}
 .portal-dialog::backdrop {
   background: #0005;
 }
