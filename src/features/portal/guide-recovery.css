@@ -73,3 +73,30 @@
     display: none;
   }
 }
+
+/* Keep the inherited narrow-window regression without expanding mobile scope. */
+@media (max-width: 600px) {
+  .portal-header .portal-guidance-toggle {
+    width: 30px;
+    min-width: 30px;
+    justify-content: center;
+    padding: 3px;
+  }
+  .portal-guidance-toggle-label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+  }
+}
+/* The existing Portal header gains a second row at800px, independently of label size. */
+@media (max-width: 800px) {
+  .portal-guidance-menu {
+    position: fixed;
+    left: 12px;
+    right: auto;
+    top: 96px;
+    max-height: calc(100dvh - 108px);
+  }
+}

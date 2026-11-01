@@ -407,6 +407,26 @@ test('Guidance desktop compact keyboard short windows reduced motion and Axe kee
   expect(workTop).toBeGreaterThanOrEqual(65);
   expect(workTop).toBeLessThan(200);
   expect((await new AxeBuilder({ page }).analyze()).violations).toEqual([]);
+  // Preserve inherited narrow/Arial bounds and the separate two-row Portal header boundary.
+  await page.goto('/portal');
+  await page.addStyleTag({ content: '.portal { font-family: Arial, sans-serif; }' });
+  for (const width of [320, 600, 601, 640, 700, 768, 800, 801, 1024]) {
+    await page.setViewportSize({ width, height: 500 });
+    await page.locator('.portal-guidance-toggle').focus();
+    await page.keyboard.press('Enter');
+    const bounds = await page.locator('#portal-guidance-menu').boundingBox();
+    const header = await page.locator('.portal-header').boundingBox();
+    expect(bounds!.x).toBeGreaterThanOrEqual(0);
+    expect(bounds!.x + bounds!.width).toBeLessThanOrEqual(width);
+    expect(bounds!.y).toBeGreaterThanOrEqual(header!.y + header!.height);
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(
+      true,
+    );
+    if (width === 320 || width === 800)
+      expect((await new AxeBuilder({ page }).analyze()).violations).toEqual([]);
+    await page.keyboard.press('Escape');
+    await expect(page.locator('.portal-guidance-toggle')).toBeFocused();
+  }
 });
 
 for (const module of ['compute', 'networking'] as const) {

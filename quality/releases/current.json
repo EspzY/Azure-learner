@@ -225,7 +225,7 @@
     {
       "command": "npm run test:e2e:desktop",
       "result": "pending",
-      "details": "Complete265-case candidate profile awaits actual exact-head GitHub CI. Targeted local execution and collection are not that evidence."
+      "details": "Initial actual CI run41350350079 on1a9562ddab03912691a8690d080ebdfcb024f544 failed261/265: two old completed-guide destination expectations and desktop/compact instances of the same320px/Arial header overflow. No passed receipt/strict. Corrected targeted5desktop+2compact passed; new exact-head complete265 profile remains mandatory."
     },
     {
       "command": "npm run check",
@@ -245,7 +245,17 @@
     {
       "command": "Independent Final Audit",
       "result": "passed",
-      "details": "Separate final auditor verified final8b9fff3c fingerprint,65snapshot files and251preserved files, all16images and independent browser/domain probes. One MINOR paused-selection mismatch fixed and independently retested. No open BLOCKER/MAJOR; exact-head complete CI/strict and anonymous deployed Gate7 remain pending."
+      "details": "Separate final revalidation21:44:03.624Z–21:46:57.253Z covers finala90e73d2 fingerprint,67stamped hashes and251byte-preserved files. PR43-AUDIT-01minor paused-selection andPR43-AUDIT-02major header/menu recovery regression are fixed with actual independent probes. Nine boundary widths plus1440, vertical/header bounds, keyboard, Axe320/800/1024, short390 unaided status/exact resume and800resident VM recovery pass. No open BLOCKER/MAJOR. Prior261/265CI failure and Gate7only1aSHA remain historical; fresh exact-head CI/strict+Gate7 pending."
+    },
+    {
+      "command": "CI correction targeted checks",
+      "result": "passed",
+      "details": "Reproduced initial Portal320px/Arial overflow356/320. Corrected only new header control and narrow popover; actual320/320. Two Storage destination expectations now follow next incomplete guide with critical evidence assertions retained. Five targeted desktop plus two compact executions passed exit0, no retry;11model tests, targetedlint and productionbuild/TypeScript passed. No new skips/timeouts/workers/retries."
+    },
+    {
+      "command": "Popover inherited-header boundary checks",
+      "result": "passed",
+      "details": "Independent after-review caught601–800px menu clipping at x-161.7/y50 under90px header although document width passed. Corrected only menu positioning at inherited800px boundary, label compression stays600px. Bounds/header/keyboard assertions at320/600/601/640/700/768/800/801/1024 plus Axe320/800 passed desktop and compact,13.2s/12.1s test times, no retry. Actual800px before/after x-161.7/y50→x12/y96,width380. Productionbuild/TS and targetedlint passed. Profile remains265."
     }
   ],
   "visualEvidence": [
@@ -355,7 +365,7 @@
   "snapshot": {
     "files": {
       "AGENTS.md": "9c8022e22cdc97704127811ca08a75cce9f4d0ceb7df870e1f2f02423c15762b",
-      "docs/LEARNING_FLOW_GUIDANCE.md": "c8bd6cb9b3b81667a0b85646a0cc80fbe8cff675a620da1984c4d7ea440f7a90",
+      "docs/LEARNING_FLOW_GUIDANCE.md": "6751c15cb6f1ddc6eb800732fc9725ebd9483e94841d9cbfd4a5f3d4306fd3e5",
       "docs/ROADMAP.md": "04cc4c322fe6504f490f1cb73b2e154967ebda4e905d6c07babb843c66552314",
       "docs/reviews/AZ900_REMEDIATION_PLAN.md": "c31ed4b3f70b0cfe0c6d05c42bd5b3418768a39e8e12e0f4ea0bb1ac3363db55",
       "docs/screenshots/learning-flow/after-briefing-1440.png": "f7394f4d52b566bc1166c59831fe4a24661dd070e7809a323feabff2c1faed09",
@@ -415,22 +425,24 @@
       "src/features/learning/storage-resilience.tsx": "55ba64351bd4d119d44e8d440a3e14fc0b260f945c4167c5ae3d841e170526c6",
       "src/features/learning/storage-workbench.tsx": "4a54b8eec06ae56395abbed82828e6a5c4401700e647287620e0626f70fac15a",
       "src/features/learning/storage.tsx": "15887b11ebd7748a182d0fe6de161135bc100122842e9d1de41b8ea90a35825e",
-      "src/features/portal/guide-recovery.css": "4a856d107e360e74b33bd9010c70836151127f78faf6e7dfd5949ae2c8c22a0f",
-      "src/features/portal/guide-recovery.tsx": "a36418c52ba9657cf7d48c523a32c47189fc6f1be1cc8adbc9d5f7b720bc80b4",
+      "src/features/portal/guide-recovery.css": "57c14179e60fdf69e072326d549ca7043965a86e7064d84c3189440afbf54dab",
+      "src/features/portal/guide-recovery.tsx": "e60581dbf5b0d5a40ab38e581cf7fc5c88e1ff3480371c496216b10f2b01d13b",
       "src/features/portal/portal.tsx": "00576ff4897967e26af02cd72d758b8b0e668b502b36a449db03808ca28650fd",
-      "tests/e2e/learning-flow-guidance.spec.ts": "2f61bb076010e8d808b13cf6e433841348ed9356c06e347c2a1d71b2f324d813"
+      "tests/e2e/learning-flow-guidance.spec.ts": "ac5a67f05cb28e6a4eb613268cfc24af1bd8ee44c81b98067a002cc814310c01",
+      "tests/e2e/storage-resilience.spec.ts": "a6ab5536f6f7da060857661e1692cd14b8504895d505a891eb32040a9cb20f19",
+      "tests/e2e/storage-services.spec.ts": "4c66a59b6656dd52c899e84b4ce8c03eab60bbcbff91fc0ca3ebf4e8c09b2213"
     }
   },
-  "implementationFinished": "2026-11-01T21:02:01.900Z",
+  "implementationFinished": "2026-11-01T21:43:38.146Z",
   "review": {
     "status": "complete",
-    "fingerprint": "8b9fff3c95850b09ba7fdaebe05589b8f75cbf2a3815f5b1ad34bec00e688b3c",
+    "fingerprint": "a90e73d261c474af3fa7895f3aefce568636d7806d5462a105f9e38b68a074fa",
     "reviewer": {
       "id": "codex-pr43-independent-final-auditor",
       "kind": "agent"
     },
-    "started": "2026-11-01T21:02:16.477Z",
-    "completed": "2026-11-01T21:05:46.380Z",
+    "started": "2026-11-01T21:44:03.624Z",
+    "completed": "2026-11-01T21:46:57.253Z",
     "domains": {
       "content": {
         "finding": "Unchanged content/domain/public and original stores/providers proved byte-preserved across 251 base files. Scoped UX copy inspected; no new curriculum or broad content approval claimed.",
@@ -447,7 +459,7 @@
         ]
       },
       "technical": {
-        "finding": "All 65 stamped hashes and final fingerprint match. Projection retains original evaluators/technical attempt/boundary evidence; independent missing-boundary probes fail closed. Real RG/receipt, practical and prior XP stores remain byte-identical across recovery.",
+        "finding": "All 67 stamped hashes/final fingerprint match; 251 original contract files remain byte-identical. Projection/native evidence behavior from the earlier substantive audit is unchanged. Both actual Storage completion-to-next flows preserve saves/World; final narrow status/VM restoration preserves assessment/practical bytes.",
         "evidence": [
           {
             "path": "src/features/course/learning-flow.ts"
@@ -464,7 +476,7 @@
         ]
       },
       "visual": {
-        "finding": "Independently inspected all 16 actual screenshots and exercised short-desktop keyboard/reduced-motion/Axe; no blocker in scoped layouts. Human novice UX/screen-reader validation unperformed.",
+        "finding": "All 16 stamped screenshots remain unchanged; correction screenshots inspected. CI uncovered320px/Arial overflow; independent follow-up additionally reproduced601–800 menu clipping/header overlap. Both corrected; independent final-stamp320–1440 bounds/header/focus checks and Axe320/800/1024 passed, plus320/800 short390 neutral-status Axe. Humans unperformed.",
         "evidence": [
           {
             "path": "docs/screenshots/learning-flow/after-security-1024x500.png"
@@ -477,6 +489,9 @@
           },
           {
             "path": "docs/quality/PR43_FINAL_AUDIT.md"
+          },
+          {
+            "path": "src/features/portal/guide-recovery.css"
           }
         ]
       },
@@ -515,7 +530,7 @@
         ]
       },
       "regression": {
-        "finding": "Auditor reran 11 focused model tests successfully and independent production-browser probes; inspected full author check, 19 affected existing, new-case failures/corrections and 4 correction retests. 265/245/20 profile/settings preserved. Exact-head full CI/strict and anonymous deployed Gate7 remain pending, not passed.",
+        "finding": "Earlier auditor11focused tests passed and model code remains unchanged. Actual first full CI run41350350079 failed261/265; no receipt/strict. Two Storage expected destinations aligned precisely with intended next-incomplete flow and critical assertions retained. Author5desktop+2compact then finaldesktop/compact boundary tests passed; independent final browser probes passed. Profile265 and settings unchanged. New exact-head fullCI/strict and anonymous finalSHA Gate7 pending; oldGate7 applies only1a9562dd.",
         "evidence": [
           {
             "path": "src/features/course/learning-flow.test.ts"
@@ -528,6 +543,12 @@
           },
           {
             "path": "docs/quality/PR43_FINAL_AUDIT.md"
+          },
+          {
+            "path": "tests/e2e/storage-services.spec.ts"
+          },
+          {
+            "path": "tests/e2e/storage-resilience.spec.ts"
           }
         ]
       }
@@ -542,7 +563,7 @@
         "retests": [
           {
             "path": "tests/e2e/learning-flow-guidance.spec.ts",
-            "result": "Author affected four-case run passed without retry; independent post-stamp keyboard Portal recovery and explicit same-session Resume passed for depth/session 2."
+            "result": "Author affected four-case run passed without retry; independent21:02-stamp keyboard Portal recovery and explicit same-session Resume passed for depth/session2. This selection helper is unchanged in the final payload."
           },
           {
             "path": "src/features/course/learning-flow.test.ts",
@@ -551,9 +572,26 @@
         ]
       },
       {
+        "id": "PR43-AUDIT-02",
+        "severity": "major",
+        "description": "New header control caused320px/Arial overflow in actualCI; the initial narrow correction left recovery menu x=-161.71875/y50 at601–800, clipping its content and overlapping the two-row header. Independent review withheld82bc payload.",
+        "status": "fixed",
+        "fix": "Keep mascot-label compression at600px; position only the new popover atx12/y96 through the inherited800px Portal header breakpoint, preserving its380px maximum and viewport-bounded height. Extend the same keyboard witness across320/600/601/640/700/768/800/801/1024 without changing profile/settings.",
+        "retests": [
+          {
+            "path": "tests/e2e/learning-flow-guidance.spec.ts",
+            "result": "Author final desktop and compact boundary tests passed without retry; independent final-stamp Arial/reduced-motion keyboard/bounds/header/Escape probes passed320–1440, Axe320/800/1024zero."
+          },
+          {
+            "path": "src/features/portal/guide-recovery.css",
+            "result": "Independent final320/800×390 neutral assessment status/Axe gave no help writes and exact unaided draft resume;800×500 resident VM reopen focused the same unchanged session."
+          }
+        ]
+      },
+      {
         "id": "PR43-AUDIT-N01",
         "severity": "note",
-        "description": "At audit completion, exact-head full265 CI/strict release and anonymous deployed final-SHA Gate7 remain pending. Audit completion is not delivery, merge or production approval; human validation is unperformed.",
+        "description": "At final audit completion, a new exact-head full265CI/strict and anonymous deployed final-SHA Gate7 remain pending. FirstCI on1a9562dd failed261/265; historical successfulGate7 verifies only that priorSHA. No delivery/merge/production approval or human validation is inferred.",
         "status": "open"
       }
     ],

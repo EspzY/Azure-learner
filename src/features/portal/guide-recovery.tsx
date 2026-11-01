@@ -181,7 +181,7 @@ export function PortalGuideRecovery({
         onClick={() => (direct ? showCoach() : setOpen((v) => !v))}
       >
         <img src="/mascot/savvy-shark-default.png" width={21} height={24} alt="" />
-        <span>
+        <span className="portal-guidance-toggle-label">
           SavvyShark
           <span className="portal-guidance-toggle-detail">
             {' '}
