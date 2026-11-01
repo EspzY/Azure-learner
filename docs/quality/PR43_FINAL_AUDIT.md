@@ -1,0 +1,67 @@
+# PR43 Independent Final Audit
+
+Result: **complete scoped agent audit; no open BLOCKER or MAJOR found.** One reproduced MINOR was corrected and independently retested. Full candidate CI/strict release and anonymous deployed Gate7 remain pending at audit completion; this report does not approve delivery, merge or production.
+
+- Reviewer: `codex-pr43-independent-final-auditor` (separate agent `/root/learning_flow43_final_audit`; not the author and not a human reviewer).
+- Base: `0e9ab6d7def350df4ae8d4822169dc243ac0c4ec`.
+- Final implementation finished: `2026-11-01T21:02:01.900Z`.
+- Final stamped-payload revalidation started: `2026-11-01T21:02:16.477Z`; completed: `2026-11-01T21:05:46.380Z`.
+- Final fingerprint: `8b9fff3c95850b09ba7fdaebe05589b8f75cbf2a3815f5b1ad34bec00e688b3c`.
+- Initial independent inspection began at `2026-11-01T20:56:47.507Z`, after the earlier `20:56:18.740Z` stamp. That pass found the paused-guide defect below. Final approval is bound only to the corrected stamp above; the original fingerprint is superseded.
+
+## Scope and preservation
+
+Read AGENTS, [Learning Flow guidance](../LEARNING_FLOW_GUIDANCE.md), QUALITY_CONTRACT and RELEASE_ACCEPTANCE. Inspected all changed application/test/configuration/contract paths, the actual release record, and all 16 supplied screenshots. Reviewed the common projection, all 13 module adapters and their briefing/mission integrations, Course/Hub precedence, Portal candidates and visibility, native verification, and the focused tests.
+
+Independently recomputed the normalized hashes for all **65 stamped files** and the release fingerprint: exact match, no snapshot errors. Independently compared **251 preserved base files byte for byte**, with zero differences. This includes all 151 `src/domain/` files, the complete `src/content/nb.ts`, all 38 `public/` files, declared app/package/script/assessment contracts and existing stores/providers. No curriculum, assessment bank, schema, rubric, World/command/receipt/XP model or old persistence implementation changed. A fresh broad content or assessment audit would add no evidence for this UX-only change and was not claimed.
+
+## Six risk-based domains
+
+| Domain     | Finding and evidence                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Content    | No changed teaching or assessment manuscript. New UX copy distinguishes an explicit briefing from Start, guided work from independent application, and Studio guidance from actual local Portal context. Verified byte preservation rather than claiming a new curriculum review. Evidence: `src/content/nb.ts`, `docs/LEARNING_FLOW_GUIDANCE.md`, preserved base comparison.                                                                                                                                                                                                                                                                                                                         |
+| Technical  | Projection reads original facts/evaluators and creates no parallel persistent completion state. Resume uses the existing explicit event. Compute/Networking use the original attempt/boundary/replay predicates; Policy/Tools use their existing native evidence providers. Browser probes with missing original boundaries in the same attempt produced recovery, not a restored instructional guide. Real persisted RG/receipt, practical session and prior XP remained byte-identical across minimize/recovery/reload. Evidence: `learning-flow.ts`, `guided-learning.tsx`, `guide-recovery.tsx`, preserved native evaluators.                                                                     |
+| Visual     | All 16 actual images inspected. Desktop primary actions show the correct phase and mission; briefing retains explicit Cancel/Start; cause and debrief differ visibly. Portal toggle, minimized guide and recovery menu remain legible at 1440×900 and 1024×500. Security layouts at 1920, 1440, 1366, 1024 and 800 widths use ordinary scrolling. Independent 1024×500 keyboard/reduced-motion/Axe probe passed with no violations. No novice or screen-reader study claimed.                                                                                                                                                                                                                         |
+| Assessment | Engines, accepted answers, rubrics and first/help/retry handling are unchanged. Course prioritizes exact active assessment even when assisted; Portal uses neutral status before candidate generation. Independently opened an active unaided assessment's Portal status and verified no assistance write; inspected the new immutable-first/assisted-retry browser case and its executed author evidence. This is preservation/boundary review, not a new blind assessment-bank audit. Evidence: `course.tsx`, `portal.tsx`, `guide-recovery.tsx`, `learning-flow-guidance.spec.ts`.                                                                                                                 |
+| Guidance   | Browser-verified cold explicit briefing without a mission write, actual Start, partial work, complete contrasts, wrong explanation remaining incomplete, correct explanation/debrief, next guide without implicit Start, focus of the cause field, and paused same-session recovery. Found and retested the corrected latest-paused selection defect. VM minimize/reopen focuses the resident guide; ordinary Portal restores saved context. Denied Resume and cross-tab replacement fail closed.                                                                                                                                                                                                     |
+| Regression | Auditor reran the 11 focused model tests on the corrected stamped payload: exit 0, 11/11. Independently executed the browser probes below with package-pinned Playwright/Chromium 156.0.8078.4 against the production server on port 3100. Inspected actual author logs: full check passed before the narrow audit correction; 19 affected existing journeys passed; 21 new cases passed and the two native navigation-synchronization failures were corrected/retested; the correction's four affected browser cases passed. Approved profile remains 265 (245 desktop/20 compact), legacy 490 optional, unchanged workers/retries/timeouts/skips. No full local baseline was rerun by this auditor. |
+
+## Independent browser evidence
+
+Inline Playwright probes used fresh contexts against `http://127.0.0.1:3100`, without editing source/tests or producing an alternative test profile.
+
+- Cold `studio&perspective=trust&brief=trust` opened one briefing, consumed the intent, and stored no mission. Explicit Start then created the original session.
+- At 1024×500 with reduced motion: one stored observation kept work active; all required contrasts changed the primary action to cause; an incorrect cause did not complete; the correct cause produced debrief/next. Next navigated to depth without a new session or popup. No page errors observed.
+- Denied durable Resume preserved the raw save, kept the guide paused, withheld the workbench and displayed the existing `unsaved` recovery boundary. The footer is intentionally unmounted by that safety boundary.
+- Active unaided assessment → ordinary Portal → keyboard-opened SavvyShark status: no help write, no solution guide, no Axe violations; Escape returned focus to the toggle.
+- VM resident guide minimized/reopened with focus, and ordinary Portal recovery restored its original context. A final post-stamp probe first created a real local RG (one original command/receipt) and seeded valid prior XP, then verified all three actual non-null stores (`azurelab.sandbox.v2`, practical session, progress) remained byte-identical through recovery/reload.
+- Compute and Networking: valid UI-started native guide followed by a missing original boundary in the same technical attempt yielded context recovery and no continuation link. Cross-tab replacement with another valid Security guide hid both retained and replacement guide instructions until scoped recovery.
+- **After the final stamp:** paused trust session 1 then depth session 2; Course and Portal both selected depth, Portal excluded trust, menu/navigation wrote nothing, and explicit Resume restored session 2 with exactly two sessions and no completed missions.
+
+Auditor probe assumptions were corrected before their final assertions: a denied Resume replaces the footer with the global safety boundary; an untouched Sandbox legitimately has no persisted v2 key. The final preservation probe used an actual persisted command and checked non-null stores. These were probe corrections, not application fixes.
+
+## Finding PR43-AUDIT-01 — MINOR, fixed
+
+**Observed:** after pausing trust then depth, Course correctly selected depth/session 2, while ordinary Portal offered only trust/session 1. `guide-recovery.tsx` used the first paused guide in mission-list order, so its recovery choice disagreed with Course and omitted the more recent session.
+
+**Correction:** the author exported the existing pure `latestPausedGuide` helper and used it in Portal as well as Course. The existing pause browser test now creates two paused sessions and asserts that the menu includes depth and excludes trust. No extra test case/profile/settings or persistence contract was added.
+
+**Actual retests:** author four-case pause/native/keyboard run passed (21.6s, no retry), 11 model tests/targeted lint/build/TS passed; independent final-stamp keyboard Portal→depth→explicit Resume probe passed and restored exactly session 2. Auditor independently reran all 11 focused model tests at 21:04:24, exit 0. Finding closed on the final fingerprint above.
+
+## Visual evidence inspected
+
+All paths below are stamped and their bytes remain unchanged after the narrow selection correction:
+
+- Before: [1440](../screenshots/learning-flow/before-security-1440.png), [1024](../screenshots/learning-flow/before-security-1024.png).
+- Entry: [missions](../screenshots/learning-flow/after-missions-1440.png), [briefing](../screenshots/learning-flow/after-briefing-1440.png).
+- Security work: [1920×1080](../screenshots/learning-flow/after-security-1920x1080.png), [1440×900](../screenshots/learning-flow/after-security-1440x900.png), [1366×768](../screenshots/learning-flow/after-security-1366x768.png), [1024×768](../screenshots/learning-flow/after-security-1024x768.png), [1024×500](../screenshots/learning-flow/after-security-1024x500.png), [800×700](../screenshots/learning-flow/after-security-800x700.png).
+- Phase: [cause](../screenshots/learning-flow/after-cause-1440.png), [debrief](../screenshots/learning-flow/after-debrief-1440.png).
+- Portal: [minimized](../screenshots/learning-flow/after-portal-minimized-1440.png), [restored](../screenshots/learning-flow/after-portal-restored-1440.png), [recovery](../screenshots/learning-flow/after-portal-recovery-1440.png), [1024×500 recovery](../screenshots/learning-flow/after-portal-recovery-1024x500.png).
+
+The author's initial Axe nested-landmark failure and correction are retained in the evidence history; the final semantic/keyboard run and the auditor's independent neutral-status Axe probe passed. Native test failures caused by reloading before client navigation settled are likewise recorded, with explicit URL synchronization and actual passing retests, rather than relabelled as an uninterrupted 23-case pass.
+
+## Remaining delivery requirements and limits
+
+**PR43-AUDIT-N01 — NOTE, open at audit completion:** exact delivered-head full **265-case CI plus strict release**, and anonymous deployed **root → visible entry → actual actions → return** with the full final SHA, are still pending. Targeted local tests, this review and a fingerprint are not those results. Verify them before delivery; do not merge or deploy production.
+
+Human SME, learning-effect, novice UX and screen-reader validation remain unperformed. Existing broader UX-01, LJ-02, AS-01 and UX-02 work remains outside this bounded fix; no P17/P18 or new Portal capabilities were reviewed or authorized.

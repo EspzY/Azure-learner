@@ -1,4 +1,5 @@
 'use client';
+import { GuidedMissionLink } from '@/features/course/guided-mission-link';
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { connectivityNb as c } from '@/content/nb';
@@ -6,7 +7,6 @@ import {
   connectivityHref,
   connectivityTopics,
   connectivityMissions,
-  connectivityMissionTopic,
   connectivityLimit,
   connectivityItemIds,
   evaluateConnectivityAttempt,
@@ -323,7 +323,7 @@ function ConnectivityMissions() {
             <h3>{c.missions[id].title}</h3>
             <p>{c.missions[id].situation}</p>
             <p>{c.missions[id].goal}</p>
-            <Link href={connectivityHref(connectivityMissionTopic[id])}>{c.labels.begin} →</Link>
+            <GuidedMissionLink module="connectivity" mission={id} />
           </div>
         </article>
       ))}

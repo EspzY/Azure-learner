@@ -1,13 +1,12 @@
 'use client';
+import { OtherGuideNotice } from '@/features/course/guided-mission-link';
+import { useGuideBriefing } from '@/features/course/guide-briefing-request';
 import { useEffect, useState } from 'react';
-import Link from 'next/link';
 import { accessNb as c } from '@/content/nb';
 import {
   accessGuidedFacts,
   accessWitnesses,
   accessMilestoneFacts,
-  accessHref,
-  accessMissionTopic,
   type AccessMission,
   type AccessGuide,
 } from '@/domain/curriculum/access-control';
@@ -44,6 +43,7 @@ export function AccessWorkbench({ mission }: { mission: AccessMission }) {
     [warning, setWarning] = useState(false),
     [prediction, setPrediction] = useState<Outcome | null>(null),
     [answer, setAnswer] = useState<number | null>(null);
+  useGuideBriefing(mission, safe, () => setOverlay('brief'));
   useEffect(() => {
     const changed = (e: StorageEvent) => {
       if (e.key !== null && e.key !== milestonePreferenceKey) return;
@@ -97,7 +97,12 @@ export function AccessWorkbench({ mission }: { mission: AccessMission }) {
     }
   };
   return (
-    <section className="compute-workbench access-workbench" aria-label={copy.title}>
+    <section
+      id="guided-work"
+      tabIndex={-1}
+      className="compute-workbench access-workbench"
+      aria-label={copy.title}
+    >
       <header>
         <small>{c.labels.model}</small>
         <h3>{copy.title}</h3>
@@ -127,14 +132,7 @@ export function AccessWorkbench({ mission }: { mission: AccessMission }) {
               <AccessGuideRecall mission={mission} />
             )}
           </div>
-          {!g && t.facts.guide && (
-            <p>
-              {c.labels.switch}{' '}
-              <Link href={accessHref(accessMissionTopic[t.facts.guide.mission])}>
-                {c.labels.current}
-              </Link>
-            </p>
-          )}
+          <OtherGuideNotice module="access-control" mission={mission} />
           {g && (
             <>
               <SavvyShark compact>
@@ -343,7 +341,7 @@ function AccessCausalChoice({
   onChange: (v: number) => void;
 }) {
   return (
-    <fieldset disabled={disabled}>
+    <fieldset id="guided-cause" tabIndex={-1} disabled={disabled}>
       <legend>{c.labels.chooseCause}</legend>
       {c.causal[mission].map((s, i) => (
         <label className="access-causal-choice" key={s}>

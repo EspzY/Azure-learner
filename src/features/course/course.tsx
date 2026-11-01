@@ -1,4 +1,6 @@
 'use client';
+import { GuidedLearning, useGuidedLearning } from './guided-learning';
+import { guidedNext, guidedResume, flowCopy } from './learning-flow';
 import { useMigration } from '@/features/learning/migration-provider';
 import { MigrationLesson } from '@/features/learning/migration';
 import { migrationHref, migrationTopics, type MigrationTopic } from '@/domain/curriculum/migration';
@@ -160,7 +162,15 @@ const names = {
   services: nb.official.services,
   benefits: nb.official.benefits,
 };
-export function Course({ module }: { module?: CourseModule }) {
+export function Course(props: { module?: CourseModule }) {
+  return (
+    <GuidedLearning>
+      <CourseWorkspace {...props} />
+    </GuidedLearning>
+  );
+}
+function CourseWorkspace({ module }: { module?: CourseModule }) {
+  const guidedModules = useGuidedLearning();
   const missions = useMissions(),
     practical = usePractical(),
     serverless = useServerless(),
@@ -378,7 +388,7 @@ export function Course({ module }: { module?: CourseModule }) {
     (learning.save.events.length
       ? { module: 'computing' as const, topic: learning.save.unit }
       : null);
-  const resumeHref =
+  const storedResumeHref =
     migrationState.facts.active && migrationState.facts.current
       ? migrationHref('assessment', migrationState.facts.current.item)
       : securityState.facts.active && securityState.facts.current
@@ -881,6 +891,29 @@ export function Course({ module }: { module?: CourseModule }) {
     service2.facts.active ||
     services.facts.active ||
     learning.facts.active;
+  const currentGuidedModule = guidedModules.find((m) => m.id === module);
+  const resumeHref =
+    activeIndependent || !reliableHistory
+      ? storedResumeHref
+      : (guidedResume(guidedModules.find((m) => m.id === preferredResume?.module)) ??
+        storedResumeHref);
+  const recommendation = !reliableHistory
+    ? {
+        href: module ? courseHref(module, topic) : '/learn',
+        label: flowCopy.recovery,
+        title: 'Kontroller den berørte aktiviteten før du fortsetter.',
+        kind: 'recovery' as const,
+      }
+    : activeIndependent
+      ? {
+          href: resumeHref,
+          label: flowCopy.activeAssessment,
+          title: 'Aktivt selvstendig arbeid',
+          kind: 'assessment' as const,
+        }
+      : currentGuidedModule
+        ? guidedNext(currentGuidedModule, topic, query.get('perspective'))
+        : undefined;
   const hasResume =
     activeIndependent ||
     !!preferredResume ||
@@ -1838,6 +1871,7 @@ export function Course({ module }: { module?: CourseModule }) {
                       </SavvyShark>
                     )}
                     <CourseNavigation
+                      recommended={recommendation}
                       moduleName={names[module]}
                       current={
                         title(module, topic) ??

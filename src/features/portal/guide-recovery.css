@@ -1,0 +1,75 @@
+.portal-guidance-control {
+  position: relative;
+  flex-shrink: 0;
+}
+.portal-header .portal-guidance-toggle {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding-inline: 6px;
+  white-space: nowrap;
+}
+.portal-guidance-toggle img {
+  width: 21px;
+  height: 24px;
+  object-fit: contain;
+}
+.portal-guidance-menu {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 8px);
+  z-index: 75;
+  width: min(380px, calc(100vw - 24px));
+  max-height: calc(100dvh - 90px);
+  overflow: auto;
+  padding: 16px;
+  border: 1px solid #a3b8c9;
+  border-top: 3px solid #0078d4;
+  border-radius: 3px;
+  background: #fff;
+  color: #243746;
+  box-shadow: 0 5px 22px #0003;
+  font-size: 13px;
+  line-height: 1.6;
+  text-align: left;
+}
+.portal-guidance-menu[hidden] {
+  display: none;
+}
+.portal-guidance-menu-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.portal-guidance-menu h2 {
+  font-size: 15px;
+  margin-block: 12px 6px;
+}
+.portal-guidance-menu p {
+  margin-block: 10px;
+}
+.portal .portal-guidance-menu button {
+  color: #174568;
+  border: 1px solid #9eb5c7;
+  background: #f5f9fc;
+}
+.portal-guidance-menu a {
+  display: block;
+  color: #005a9e;
+  padding-block: 8px;
+  text-decoration: underline;
+}
+.portal-guidance-menu ul {
+  padding-left: 16px;
+}
+.portal-guidance-menu :focus-visible,
+.portal-guidance-menu:focus-visible {
+  outline: 2px solid #0067b8;
+  outline-offset: 3px;
+}
+@media (max-width: 1100px) {
+  .portal-guidance-toggle-detail {
+    display: none;
+  }
+}

@@ -1,4 +1,5 @@
 'use client';
+import { GuidedMissionLink } from '@/features/course/guided-mission-link';
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { networkingNb as c } from '@/content/nb';
@@ -6,7 +7,6 @@ import {
   networkingHref,
   networkingTopics,
   networkingMissions,
-  networkingMissionTopic,
   networkingLimit,
   evaluateNetworkingAttempt,
   type NetworkingTopic,
@@ -267,7 +267,7 @@ function NetworkingMissions() {
             <h3>{c.missions[id].title}</h3>
             <p>{c.missions[id].situation}</p>
             <p>{c.missions[id].goal}</p>
-            <Link href={networkingHref(networkingMissionTopic[id])}>{c.labels.begin} →</Link>
+            <GuidedMissionLink module="networking" mission={id} />
           </div>
         </article>
       ))}

@@ -1,12 +1,11 @@
 'use client';
+import { OtherGuideNotice } from '@/features/course/guided-mission-link';
+import { useGuideBriefing } from '@/features/course/guide-briefing-request';
 import { useEffect, useState } from 'react';
-import Link from 'next/link';
 import { connectivityNb as c } from '@/content/nb';
 import {
   connectivityGuidedFacts,
   connectivityMilestoneFacts,
-  connectivityHref,
-  connectivityMissionTopic,
   connectivityLimit,
   type ConnectivityMission,
   type ConnectivityGuide,
@@ -46,6 +45,7 @@ export function ConnectivityWorkbench({ mission }: { mission: ConnectivityMissio
     [warning, setWarning] = useState(false),
     [prediction, setPrediction] = useState<Outcome | null>(null),
     [answer, setAnswer] = useState<number | null>(null);
+  useGuideBriefing(mission, safe, () => setOverlay('brief'));
   useEffect(() => {
     const changed = (e: StorageEvent) => {
       if (e.key !== null && e.key !== milestonePreferenceKey) return;
@@ -100,7 +100,12 @@ export function ConnectivityWorkbench({ mission }: { mission: ConnectivityMissio
     }
   };
   return (
-    <section className="compute-workbench connectivity-workbench" aria-label={copy.title}>
+    <section
+      id="guided-work"
+      tabIndex={-1}
+      className="compute-workbench connectivity-workbench"
+      aria-label={copy.title}
+    >
       <header>
         <small>{c.labels.model}</small>
         <h3>{copy.title}</h3>
@@ -130,14 +135,7 @@ export function ConnectivityWorkbench({ mission }: { mission: ConnectivityMissio
               <ConnectivityGuideRecall mission={mission} />
             )}
           </div>
-          {!g && t.facts.guide && (
-            <p>
-              {c.labels.switch}{' '}
-              <Link href={connectivityHref(connectivityMissionTopic[t.facts.guide.mission])}>
-                {c.labels.current}
-              </Link>
-            </p>
-          )}
+          <OtherGuideNotice module="connectivity" mission={mission} />
           {g && (
             <>
               <SavvyShark compact>
@@ -402,7 +400,7 @@ export function ConnectivityCausalChoice({
   onChange: (n: number) => void;
 }) {
   return (
-    <fieldset disabled={disabled}>
+    <fieldset id="guided-cause" tabIndex={-1} disabled={disabled}>
       <legend>{c.labels.cause}</legend>
       {c.causal[mission].map((s, i) => (
         <label className="compute-toggle" key={s}>

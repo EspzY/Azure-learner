@@ -1,4 +1,5 @@
 'use client';
+import { GuidedMissionLink } from '@/features/course/guided-mission-link';
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { computeNb as c } from '@/content/nb';
@@ -243,7 +244,7 @@ function ComputeMissions() {
             <h3>{c.missions[id].title}</h3>
             <p>{c.missions[id].situation}</p>
             <p>{c.missions[id].goal}</p>
-            <Link href={computeHref(computeMissionTopic[id])}>{c.labels.begin} →</Link>
+            <GuidedMissionLink module="compute" mission={id} />
           </div>
         </article>
       ))}

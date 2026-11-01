@@ -1,4 +1,7 @@
 'use client';
+import { OtherGuideNotice } from '@/features/course/guided-mission-link';
+import { usePortalGuideVisibility } from '@/features/course/portal-guide-visibility';
+import { useGuideBriefing } from '@/features/course/guide-briefing-request';
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { networkingNb as c } from '@/content/nb';
@@ -39,10 +42,11 @@ export function NetworkingInspectionLesson() {
     g = t.facts.guide?.mission === 'inspect' ? t.facts.guide : undefined,
     f = networkingInspection(g, technical.attempt.engine, technical.attemptNumber),
     copy = c.missions.inspect;
+  useGuideBriefing('inspect', safe, () => setBrief(true));
   if (brief && !safe) setBrief(false);
   if (insight && (!safe || !f.inspected)) setInsight(false);
   return (
-    <section className="compute-workbench" aria-label={copy.title}>
+    <section id="guided-work" tabIndex={-1} className="compute-workbench" aria-label={copy.title}>
       <h3>{copy.title}</h3>
       <p>{copy.situation}</p>
       <p>{copy.goal}</p>
@@ -63,6 +67,7 @@ export function NetworkingInspectionLesson() {
               <NetworkingGuideRecall mission="inspect" />
             )}
           </div>
+          <OtherGuideNotice module="networking" mission="inspect" />
           {g && (
             <>
               <SavvyShark compact>
@@ -275,7 +280,7 @@ export function NetworkingPortalMission({
   const t = useNetworking(),
     technical = useSandbox(),
     safe = useMissionSafety(),
-    [minimized, setMinimized] = useState(false),
+    [minimized, setMinimized] = usePortalGuideVisibility(),
     [failed, setFailed] = useState(false),
     [milestone, setMilestone] = useState(false),
     [milestoneScope, setMilestoneScope] = useState(''),
@@ -413,6 +418,7 @@ export function NetworkingPortalMission({
   };
   return (
     <aside
+      tabIndex={-1}
       className={`compute-portal-guide network-portal-guide ${minimized ? 'compute-guide-minimized' : ''}`}
       aria-label={c.missions.inspect.title}
     >

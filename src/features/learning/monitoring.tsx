@@ -1,4 +1,5 @@
 'use client';
+import { GuidedMissionLink } from '@/features/course/guided-mission-link';
 import { useEffect } from 'react';
 import Link from 'next/link';
 import { monitoringNb as c } from '@/content/nb';
@@ -158,7 +159,7 @@ function MonitoringMissions() {
             <h3>{c.missions[id].title}</h3>
             <p>{c.missions[id].situation}</p>
             <p>{c.missions[id].goal}</p>
-            <Link href={monitoringHref('studio') + '&perspective=' + id}>{c.labels.begin} →</Link>
+            <GuidedMissionLink module="monitoring" mission={id} />
           </div>
         </article>
       ))}
