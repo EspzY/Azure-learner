@@ -1,4 +1,5 @@
 'use client';
+import { SourceDisclosure } from './source-disclosure';
 import { useCallback, useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { transferNb as c } from '@/content/nb';
@@ -398,19 +399,13 @@ function TransferFeedback({
         </div>
         <p>{c.resultNote}</p>
         <Link href={transferItems[a.item].repeat}>{c.repeat}</Link>
-        <ul>
-          {transferItems[a.item].sources.map((id) => {
-            const source = transferSources[id as keyof typeof transferSources];
-            return (
-              <li key={id}>
-                <a href={source.url} target="_blank" rel="noreferrer">
-                  {source.title}
-                </a>{' '}
-                · {transferSourceDate}
-              </li>
-            );
-          })}
-        </ul>
+        <SourceDisclosure
+          entries={transferItems[a.item].sources.map((id) => ({
+            id,
+            ...transferSources[id as keyof typeof transferSources],
+            reviewed: transferSourceDate,
+          }))}
+        />
       </section>
     </ManagementTeachingBoundary>
   );

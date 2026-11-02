@@ -1,4 +1,5 @@
 'use client';
+import { SourceDisclosure } from './source-disclosure';
 import { GuidedMissionLink } from '@/features/course/guided-mission-link';
 import { useEffect } from 'react';
 import Link from 'next/link';
@@ -245,18 +246,15 @@ export function GovernanceSources({ topic }: { topic?: GovernanceTopic }) {
       ? governanceStudySources[topic as keyof typeof governanceStudySources]
       : (Object.keys(governanceSources) as (keyof typeof governanceSources)[]);
   return (
-    <section className="compute-sources">
-      <h3>{c.labels.sources}</h3>
-      <ul>
-        {ids.map((id) => (
-          <li key={id}>
-            <a href={governanceSources[id][1]} target="_blank" rel="noreferrer">
-              {id} · {governanceSources[id][0]} ↗
-            </a>
-          </li>
-        ))}
-      </ul>
-      <p>{c.labels.human}</p>
+    <section className="compute-sources source-section">
+      <SourceDisclosure
+        entries={ids.map((id) => ({
+          id,
+          url: governanceSources[id][1],
+          title: governanceSources[id][0],
+        }))}
+      />
+      <p className="source-context">{c.labels.human}</p>
     </section>
   );
 }

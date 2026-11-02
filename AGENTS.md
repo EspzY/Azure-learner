@@ -1,5 +1,9 @@
 # AzureLab engineering contract
 
+## PR47 source presentation continuity
+
+Read [COLLAPSIBLE_SOURCES](docs/COLLAPSIBLE_SOURCES.md). SourceDisclosure is native, closed-by-default presentation over original source selections; no persisted open state, new sources/dates/claims or evidence. Preserve all domain/source bytes, historical rubrics, independent/durable aid boundaries, mandatory visible limits and PR43–46 contracts. 13 modern banks contain377 registered entries, plus adapted Core/Serverless/older/Portal/Journal lists. Retain290 earlier browser executions;5desktop+1actualcompact yield296 (272/24), optional legacy544; settings unchanged. Separate fresh stamped six-domain audit, exact-head full CI/strict and anonymous fullSHA Gate7 required. Human validation unperformed. Next owner review of PD-01/AS-02/PR-01; no automatic P17/P18, merge or production.
+
 ## PR46 assessment continuity
 
 Read [ASSESSMENT_REFINEMENT](docs/ASSESSMENT_REFINEMENT.md). New isolated Benefits assessment2 and Services assessment3 stores pin content/rubric/presentation and stable IDs. Preserve original expansion/transfer stores, rubrics, firsts and teaching version1/2. Assessment parameter is separate; active historic attempts resume explicitly. Both new independent contexts protect all teaching/history/Journal/Portal/guidance; durable-only CAS/readback, bounded replay/terminal reserve and scoped recovery remain. No World/receipt/XP changes. Blind final-bank review before keys plus corrected recheck, heuristic/legacy/browser proof, fresh stamped six-domain audit, exact-head290CI/strict and anonymous fullSHA Gate7 required. Retain281 earlier browser executions/settings;8desktop+1compact yield290 (267/23), optional legacy534. Human validation unperformed; next UX-02/AS-02, no P17/P18, merge or production.

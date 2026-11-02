@@ -1,4 +1,5 @@
 'use client';
+import { SourceDisclosure } from '@/features/learning/source-disclosure';
 import { useRefined } from '@/features/learning/refined-assessment-provider';
 import { usePortalGuideVisibility } from '@/features/course/portal-guide-visibility';
 import { useMissions } from './mission-provider';
@@ -253,21 +254,17 @@ export function LabEntry({ kind, origin }: { kind: LabKind; origin: Origin }) {
           )}
         </>
       )}
-      <details className="practical-sources">
-        <summary>{nb.expansion.common.sources}</summary>
-        <p>
-          {practicalReview.reviewed} · {nb.expansion.common.review}
-        </p>
-        <ul>
-          {labDefinitions[kind].sources.map((source) => (
-            <li key={source}>
-              <a href={practicalSources[source]} target="_blank" rel="noreferrer">
-                {source} · Microsoft Learn ↗
-              </a>
-            </li>
-          ))}
-        </ul>
-      </details>
+      <SourceDisclosure
+        entries={labDefinitions[kind].sources.map((source) => ({
+          id: source,
+          url: practicalSources[source],
+        }))}
+        note={
+          <>
+            {practicalReview.reviewed} · {nb.expansion.common.review}
+          </>
+        }
+      />
       {p.sessions.filter((s) => s.kind === kind && s.status !== 'active').length > 0 && (
         <details>
           <summary>{t.attempts}</summary>

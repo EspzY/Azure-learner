@@ -20876,3 +20876,8 @@ export const refinedAssessmentNb = {
     },
   },
 } as const;
+
+export const sourceDisclosureNb = {
+  title: 'Kilder og videre lesning',
+  publisher: 'Microsoft Learn',
+} as const;

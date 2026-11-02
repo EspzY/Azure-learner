@@ -1,4 +1,5 @@
 'use client';
+import { SourceDisclosure } from '@/features/learning/source-disclosure';
 import { useCallback, useEffect, useState } from 'react';
 import { nb } from '@/content/nb';
 import {
@@ -28,7 +29,7 @@ import type { Navigate } from './shared';
 import { serviceSources } from '@/domain/portal/content';
 const p = nb.portal,
   l = p.lesson;
-const references = Object.entries(serviceSources).map(([id, record]) => [id, record.url]);
+const references = Object.entries(serviceSources).map(([id, record]) => [id, record.url] as const);
 export function FoundationsReference({ topic }: { topic: string }) {
   const { save } = useLearning();
   const [selected, setSelected] = useState<UnitId>(
@@ -74,18 +75,11 @@ export function FoundationsReference({ topic }: { topic: string }) {
           </section>
         ),
       )}
-      <h4>{p.source}</h4>
-      <ul>
-        {units
+      <SourceDisclosure
+        entries={units
           .find((u) => u.id === selected)!
-          .sources.map((id) => (
-            <li key={id}>
-              <a href={sourceUrl(id)} target="_blank" rel="noreferrer">
-                {id} · {p.referencePublisher} ↗
-              </a>
-            </li>
-          ))}
-      </ul>
+          .sources.map((id) => ({ id, url: sourceUrl(id), publisher: p.referencePublisher }))}
+      />
     </article>
   );
 }
@@ -122,16 +116,14 @@ export function ServiceReference({ topic }: { topic: string }) {
           <p>{c[key]}</p>
         </section>
       ))}
-      <h4>{p.source}</h4>
-      <ul>
-        {references.map(([id, url]) => (
-          <li key={id}>
-            <a href={url} target="_blank" rel="noreferrer">
-              {id} · {p.referencePublisher} ↗
-            </a>
-          </li>
-        ))}
-      </ul>
+      <SourceDisclosure
+        entries={references.map(([id, url]) => ({
+          id,
+          url,
+          title: p.referenceTitles[id as keyof typeof p.referenceTitles],
+          publisher: p.referencePublisher,
+        }))}
+      />
       <small>{p.reviewed}</small>
     </article>
   );
@@ -301,16 +293,14 @@ export function ServicesWorkspace({
           </button>
         </div>
       )}
-      <h3>{p.source}</h3>
-      <ul className="portal-references">
-        {references.map(([id, url]) => (
-          <li key={id}>
-            <a href={url} target="_blank" rel="noreferrer">
-              {id} · {p.referencePublisher} ↗
-            </a>
-          </li>
-        ))}
-      </ul>
+      <SourceDisclosure
+        entries={references.map(([id, url]) => ({
+          id,
+          url,
+          title: p.referenceTitles[id as keyof typeof p.referenceTitles],
+          publisher: p.referencePublisher,
+        }))}
+      />
       <small>{p.reviewed}</small>
     </article>
   );
@@ -596,17 +586,11 @@ export function FoundationsWorkspace({
             ),
           )}
           <UnitInvestigation key={unit} unit={unit} onProject={onProject} showCore={false} />
-          <ul>
-            {units
+          <SourceDisclosure
+            entries={units
               .find((u) => u.id === unit)!
-              .sources.map((id) => (
-                <li key={id}>
-                  <a href={sourceUrl(id)} target="_blank" rel="noreferrer">
-                    {id} · {p.referencePublisher} ↗
-                  </a>
-                </li>
-              ))}
-          </ul>
+              .sources.map((id) => ({ id, url: sourceUrl(id), publisher: p.referencePublisher }))}
+          />
         </>
       )}
       {!study && (

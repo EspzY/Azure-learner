@@ -1,4 +1,5 @@
 'use client';
+import { SourceDisclosure } from './source-disclosure';
 import { GuidedMissionLink } from '@/features/course/guided-mission-link';
 import { useEffect } from 'react';
 import Link from 'next/link';
@@ -247,18 +248,15 @@ export function MonitoringSources({ topic }: { topic?: MonitoringTopic }) {
       ? monitoringStudySources[topic as keyof typeof monitoringStudySources]
       : (Object.keys(monitoringSources) as (keyof typeof monitoringSources)[]);
   return (
-    <section className="compute-sources">
-      <h3>{c.labels.sources}</h3>
-      <ul>
-        {ids.map((id) => (
-          <li key={id}>
-            <a href={monitoringSources[id][0]} target="_blank" rel="noreferrer">
-              {id} · {monitoringSources[id][1].replace(/^'|'$/g, '')} ↗
-            </a>
-          </li>
-        ))}
-      </ul>
-      <p>{c.labels.human}</p>
+    <section className="compute-sources source-section">
+      <SourceDisclosure
+        entries={ids.map((id) => ({
+          id,
+          url: monitoringSources[id][0],
+          title: monitoringSources[id][1].replace(/^'|'$/g, ''),
+        }))}
+      />
+      <p className="source-context">{c.labels.human}</p>
     </section>
   );
 }

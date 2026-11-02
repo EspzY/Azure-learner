@@ -1,4 +1,5 @@
 'use client';
+import { SourceDisclosure } from './source-disclosure';
 import { nb } from '@/content/nb';
 import { unitIds, units, sourceUrl, type UnitId } from '@/domain/curriculum/manifest';
 import { CommandDialog } from '@/components/command-dialog';
@@ -72,19 +73,14 @@ export function KnowledgeJournal({
                 </section>
               ),
             )}
-            <section>
-              <h4>{t.sources}</h4>
-              <ul>
-                {definition.sources.map((id) => (
-                  <li key={id}>
-                    <a href={sourceUrl(id)} target="_blank" rel="noreferrer">
-                      {id} · {t.sourcePublisher} ↗
-                    </a>
-                  </li>
-                ))}
-              </ul>
-              <p>{t.reviewed}</p>
-            </section>
+            <SourceDisclosure
+              entries={definition.sources.map((id) => ({
+                id,
+                url: sourceUrl(id),
+                publisher: t.sourcePublisher,
+              }))}
+              note={t.reviewed}
+            />
           </article>
           <button type="button" className="button button-secondary" onClick={onClose}>
             {t.close}

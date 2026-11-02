@@ -1,4 +1,5 @@
 'use client';
+import { SourceDisclosure } from './source-disclosure';
 import { useEffect, useState, useRef } from 'react';
 import Link from 'next/link';
 import { nb, regionLabels } from '@/content/nb';
@@ -189,19 +190,10 @@ export function ExpandedModule({
 }
 function Sources({ unit }: { unit: Unit }) {
   return (
-    <details className="expanded-sources">
-      <summary>{t.sources}</summary>
-      <p>{t.review}</p>
-      <ul>
-        {bindings[unit].sources.map((id) => (
-          <li key={id}>
-            <a href={expansionSources[id]!.url} target="_blank" rel="noreferrer">
-              {id} · Microsoft Learn ↗
-            </a>
-          </li>
-        ))}
-      </ul>
-    </details>
+    <SourceDisclosure
+      entries={bindings[unit].sources.map((id) => ({ id, ...expansionSources[id]! }))}
+      note={t.review}
+    />
   );
 }
 export function ExpansionReference({ track, topic }: { track: Track; topic: string }) {

@@ -1,4 +1,5 @@
 'use client';
+import { SourceDisclosure } from './source-disclosure';
 import { useEffect, useState } from 'react';
 import { serverlessNb as c } from '@/content/nb';
 import {
@@ -220,20 +221,17 @@ function Ownership() {
     </div>
   );
 }
-function Sources() {
+export function Sources() {
   return (
-    <section className="sl-sources">
-      <h3>{c.sources}</h3>
-      <p>{c.reviewed}</p>
-      <ul>
-        {Object.entries(serverlessManifest.sources).map(([id, path]) => (
-          <li key={id}>
-            <a href={`https://learn.microsoft.com/en-us/${path}`} target="_blank" rel="noreferrer">
-              {id} · {path.split('/').at(-1) || 'Describe cloud computing'} ↗
-            </a>
-          </li>
-        ))}
-      </ul>
+    <section className="sl-sources source-section">
+      <SourceDisclosure
+        entries={Object.entries(serverlessManifest.sources).map(([id, path]) => ({
+          id,
+          url: 'https://learn.microsoft.com/en-us/' + path,
+          title: path.split('/').at(-1) || 'Describe cloud computing',
+        }))}
+      />
+      <p className="source-context">{c.reviewed}</p>
       <p>{c.boundary}</p>
     </section>
   );

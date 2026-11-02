@@ -77,6 +77,8 @@ Alle funn var åpne produktfunn i PR42. PR43 implementerer nå avgrenset LJ-01 o
 - **Risiko:** Journal/feedback kan være svarbærende. Kilde-/teorikomponent må fortsatt ligge innen korrekt assistance-boundary før den i det hele tatt monteres.
 - **Akseptanse/tester:** collapsed som standard, tastaturåpning, semantisk summary/expanded-state, alle samme ID/URL/tittel/dato tilgjengelige ved åpning; ingen viktig forklaring skjult som «valgfri». Journal under aktiv independent registrerer hjelp varig før tilgang; 1024×500 og normal desktop, ingen overflow eller mistet fokus. Ingen omskriving av assessment-kopier som del av CSS-pakken.
 
+**PR47 — implementert UX-02-kandidat:** Én native SourceDisclosure erstatter åpne bibliografier i 13 moderne moduler og relevante Core/Serverless/eldre kurs-/Portal-/Journal-flater. Alle kildebanker/claim mappings og historisk evidence er uendret. Målt synlig Summary-kildeareal er redusert 89,6–93,0 %, Journal-eksemplet 92,8 %. Obligatoriske modellgrenser forblir synlige, teaching boundaries består. [Omfang, før/etter og tester](../COLLAPSIBLE_SOURCES.md). **UX-02 lukkes først når separat audit, full296 eksakt-head CI/streng release og anonym full-SHA Gate7 er dokumentert på Draft PR47.** De daterte PR42-funnene beholdes; andre P2 og menneskelig validering gjenstår. LJ-01/PORTAL-GUIDE-01, UX-01, LJ-02 og AS-01 gjenåpnes ikke uten konkret regresjon. Neste eiergjennomgang prioriterer PD-01/AS-02/PR-01; ingen P17/P18.
+
 ### PD-01 · P2 · Curriculum Consolidation, andre trinn
 
 - **Berørt:** hele reisens framing, korte forkunnskapsbroer, Summary-/starttekst og omfattende profesjonelle detaljseksjoner.
