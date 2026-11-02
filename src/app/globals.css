@@ -3345,3 +3345,20 @@ main {
     scroll-behavior: auto !important;
   }
 }
+
+.visual-review-entry {
+  background: #fff;
+  padding: 12px 24px;
+  border-top: 1px solid #d7dfe6;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  font: 13px/1.5 system-ui;
+}
+.visual-review-entry a {
+  color: #075fa7;
+  text-decoration: underline;
+}
+.visual-review-entry small {
+  color: #526171;
+}

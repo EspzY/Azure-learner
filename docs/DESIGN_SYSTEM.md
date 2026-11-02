@@ -1,3 +1,7 @@
+# PR50 — isolated visual candidates
+
+[Two interactive directions and scoped token/motion/rollout contract](VISUAL_EXCELLENCE.md) are available for owner comparison. The existing production design below remains authoritative until separate rollout approval. New character production is blocked under the [locked Character Bible](SAVVYSHARK_CHARACTER_BIBLE.md). No global reskin or evidence change.
+
 # Design system — immersive reset
 
 ## Current operational Portal tokens — 2026-10-26

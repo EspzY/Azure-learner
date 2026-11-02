@@ -105,16 +105,22 @@ const services = [
   'activity',
 ] as const;
 const educational = ['learn', 'responsibility', 'hierarchy', 'architecture', 'challenge'] as const;
-export function Portal() {
+export interface PortalPresentationNavigation {
+  href: (native: string) => string;
+  courseReturn: string;
+}
+/** Optional scoped design-review navigation; ordinary Portal retains its exact native routes. */
+export function Portal({ navigation }: { navigation?: PortalPresentationNavigation } = {}) {
   return (
     <GuidedLearning>
       <PortalGuideVisibility>
-        <PortalWorkspace />
+        <PortalWorkspace navigation={navigation} />
       </PortalGuideVisibility>
     </GuidedLearning>
   );
 }
-function PortalWorkspace() {
+function PortalWorkspace({ navigation }: { navigation?: PortalPresentationNavigation }) {
+  const portalLink = (native: string) => navigation?.href(native) ?? native;
   const router = useRouter(),
     query = useSearchParams(),
     location = parseLocation(new URLSearchParams(query.toString()));
@@ -251,7 +257,7 @@ function PortalWorkspace() {
     !benefits.facts.active &&
     !services2.facts.active;
   const managementLab = guidedLab && course.save.lab?.origin === 'architecture-management';
-  const courseReturn = location.migration
+  const nativeCourseReturn = location.migration
     ? migrationHref('studio') + '&perspective=' + location.migration
     : location.security
       ? securityHref('studio') + '&perspective=' + location.security
@@ -280,6 +286,7 @@ function PortalWorkspace() {
                         : location.course
                           ? courseHref(location.module, location.topic)
                           : '/learn';
+  const courseReturn = navigation?.courseReturn ?? nativeCourseReturn;
   const returnLearning = () =>
     location.migration ||
     location.security ||
@@ -376,7 +383,7 @@ function PortalWorkspace() {
     }
     setMenu(false);
     setSearch('');
-    router.push(portalHref(location, area, change), { scroll: false });
+    router.push(portalLink(portalHref(location, area, change)), { scroll: false });
   };
   const current = rows.find((r) => r.id === location.id),
     scope = world.scopes.find((s) => s.id === location.id);
@@ -578,7 +585,7 @@ function PortalWorkspace() {
           <ServiceIcon kind="menu" size={20} />
         </button>
         <a
-          href="/portal"
+          href={portalLink('/portal')}
           onClick={(e) => {
             e.preventDefault();
             navigate('home');
@@ -644,7 +651,7 @@ function PortalWorkspace() {
                         .map((item) => (
                           <a
                             key={item.id}
-                            href={portalHref(location, item.area, { id: item.idValue })}
+                            href={portalLink(portalHref(location, item.area, { id: item.idValue }))}
                             onClick={(e) => {
                               e.preventDefault();
                               navigate(item.area, { id: item.idValue });
@@ -741,7 +748,7 @@ function PortalWorkspace() {
         <aside className={`portal-nav ${menu ? 'mobile-open' : ''}`} aria-label={p.navLabel}>
           <nav aria-label={p.navLabel}>
             <a
-              href={portalHref(location, 'services')}
+              href={portalLink(portalHref(location, 'services'))}
               onClick={(e) => {
                 e.preventDefault();
                 navigate('services');
@@ -754,7 +761,7 @@ function PortalWorkspace() {
               return (
                 <a
                   key={area}
-                  href={portalHref(location, area)}
+                  href={portalLink(portalHref(location, area))}
                   aria-current={location.area === area ? 'page' : undefined}
                   onClick={(e) => {
                     e.preventDefault();
@@ -775,7 +782,7 @@ function PortalWorkspace() {
                 <a
                   key={area}
                   data-guide={area === 'groups' ? 'groups' : undefined}
-                  href={portalHref(location, area)}
+                  href={portalLink(portalHref(location, area))}
                   aria-current={
                     location.area === area ||
                     ((location.area === 'resource' || location.area === 'settings') &&
@@ -809,7 +816,7 @@ function PortalWorkspace() {
                 return (
                   <a
                     key={area}
-                    href={portalHref(location, area)}
+                    href={portalLink(portalHref(location, area))}
                     aria-current={location.area === area ? 'page' : undefined}
                     onClick={(e) => {
                       e.preventDefault();
@@ -1479,6 +1486,7 @@ function PortalWorkspace() {
       )}
       {location.compute && (
         <ComputePortalMission
+          returnHref={navigation?.courseReturn}
           location={location}
           navigate={navigate}
           independent={independentContext}

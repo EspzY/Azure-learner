@@ -1,4 +1,5 @@
-import { nb } from '@/content/nb';
+import { visualReviewAllowed, visualRoute } from '@/features/design-review/model';
+import { nb, visualReviewNb } from '@/content/nb';
 import { auditReviewHref } from '@/features/course/audit-review';
 export default function LearningLayout({ children }: { children: React.ReactNode }) {
   const sha = process.env.VERCEL_GIT_COMMIT_SHA;
@@ -17,6 +18,12 @@ export default function LearningLayout({ children }: { children: React.ReactNode
         </aside>
       )}
       {children}
+      {visualReviewAllowed(process.env.VERCEL_ENV, branch, process.env.GITHUB_HEAD_REF) && (
+        <aside className="visual-review-entry" aria-label={visualReviewNb.entry}>
+          <a href={visualRoute}>{visualReviewNb.entry}</a>
+          <small>{visualReviewNb.entryNote}</small>
+        </aside>
+      )}
       {preview && (
         <details className="course-build">
           <summary>{nb.foundationsV2.build}</summary>

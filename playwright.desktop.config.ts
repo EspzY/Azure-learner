@@ -5,6 +5,10 @@ import baseline from './playwright.config';
 // names. No test body, assertion, title, timeout or skip is modified.
 const compactCases = [
   [
+    'visual-excellence.spec.ts',
+    'both visual directions preserve native controls Axe semantics and contrast in actual Studio',
+  ],
+  [
     'application-transfer.spec.ts',
     'native keyboard short-window composition reduced motion and Axe keep transfer controls accessible',
   ],

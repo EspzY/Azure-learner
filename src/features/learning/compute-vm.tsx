@@ -20,7 +20,13 @@ import { useCompute } from './compute-provider';
 import { ComputeGuideRecall, ComputeCausalChoice } from './compute-workbench';
 const portal = (area: string, id?: string) =>
   `/portal?area=${area}&compute=vm${id ? `&id=${id}` : ''}`;
-export function ComputeVmLesson() {
+type PresentationHref = (href: string) => string;
+const nativeHref: PresentationHref = (href) => href;
+/** Optional presentation-only link adapter; original guided events remain unchanged. */
+export function ComputeVmLesson({
+  portalLink = nativeHref,
+  headingLevel = 3,
+}: { portalLink?: PresentationHref; headingLevel?: 2 | 3 } = {}) {
   const t = useCompute(),
     technical = useSandbox(),
     safe = useMissionSafety(),
@@ -30,11 +36,12 @@ export function ComputeVmLesson() {
   const g = t.facts.guide?.mission === 'vm' ? t.facts.guide : undefined,
     f = computeVmFacts(g, technical.attempt.engine, technical.attemptNumber),
     copy = c.missions.vm;
+  const Heading = headingLevel === 2 ? 'h2' : 'h3';
   useGuideBriefing('vm', safe, () => setBrief(true));
   if (brief && !safe) setBrief(false);
   return (
     <section id="guided-work" tabIndex={-1} className="compute-workbench" aria-label={copy.title}>
-      <h3>{copy.title}</h3>
+      <Heading>{copy.title}</Heading>
       <p>{copy.situation}</p>
       <p>{copy.goal}</p>
       {safe ? (
@@ -61,18 +68,18 @@ export function ComputeVmLesson() {
                 ))}
               </ol>
               <nav className="compute-actions">
-                <Link href={portal('groups')}>{c.labels.portal} · Resource groups</Link>
-                <Link href={portal('vms')}>{c.labels.portal} · Virtual machines</Link>
+                <Link href={portalLink(portal('groups'))}>{c.labels.portal} · Resource groups</Link>
+                <Link href={portalLink(portal('vms'))}>{c.labels.portal} · Virtual machines</Link>
               </nav>
               <ActualVmSelection />
               {!f.verifiable && (
                 <p role="status">
-                  {c.storage.text} <Link href="/portal">{c.labels.portal}</Link>
+                  {c.storage.text} <Link href={portalLink('/portal')}>{c.labels.portal}</Link>
                 </p>
               )}
               {f.chain && (
                 <>
-                  <VmReferenceList />
+                  <VmReferenceList portalLink={portalLink} headingLevel={headingLevel} />
                   <p>{f.newBuild ? c.vmCopy.newBuild : c.vmCopy.notNew}</p>
                   {f.inspected && f.newBuild && (
                     <section className="compute-debrief">
@@ -170,11 +177,18 @@ function ActualVmSelection() {
     </label>
   );
 }
-function VmReferenceList() {
+function VmReferenceList({
+  portalLink = nativeHref,
+  headingLevel = 3,
+}: {
+  portalLink?: PresentationHref;
+  headingLevel?: 2 | 3;
+}) {
   const t = useCompute(),
     technical = useSandbox(),
     g = t.facts.guide,
     f = computeVmFacts(g, technical.attempt.engine, technical.attemptNumber);
+  const ReferenceHeading = headingLevel === 2 ? 'h3' : 'h4';
   if (!f.chain || !g) return null;
   const chain = f.chain,
     rs = [
@@ -187,12 +201,12 @@ function VmReferenceList() {
     ];
   return (
     <section className="compute-real-chain">
-      <h4>{c.vmCopy.references}</h4>
+      <ReferenceHeading>{c.vmCopy.references}</ReferenceHeading>
       <ol>
         {rs.map((r) => (
           <li key={r.id}>
             <ServiceIcon kind={r.kind} />
-            <Link href={portal('resource', r.id)}>{r.name}</Link>
+            <Link href={portalLink(portal('resource', r.id))}>{r.name}</Link>
             <small>
               {r.kind} · {r.id} · {r.location}
             </small>
@@ -201,7 +215,7 @@ function VmReferenceList() {
         ))}
         {f.receipt && (
           <li>
-            <Link href={portal('activity', f.receipt.receipt.commandId)}>
+            <Link href={portalLink(portal('activity', f.receipt.receipt.commandId))}>
               {f.receipt.receipt.commandId} · {f.receipt.receipt.outcome}
             </Link>
             <span>
@@ -220,10 +234,12 @@ export function ComputePortalMission({
   location,
   navigate,
   independent,
+  returnHref = computeHref('dependencies'),
 }: {
   location: PortalLocation;
   navigate: Navigate;
   independent: boolean;
+  returnHref?: string;
 }) {
   const t = useCompute(),
     technical = useSandbox(),
@@ -234,7 +250,7 @@ export function ComputePortalMission({
   if (!g)
     return (
       <aside className="compute-portal-guide">
-        <Link href={computeHref('dependencies')}>{c.labels.return}</Link>
+        <Link href={returnHref}>{c.labels.return}</Link>
       </aside>
     );
   const f = computeVmFacts(g, technical.attempt.engine, technical.attemptNumber);
@@ -242,7 +258,7 @@ export function ComputePortalMission({
     return (
       <aside className="compute-portal-guide">
         <p>{c.storage.unsafe}</p>
-        <Link href={computeHref('dependencies')}>{c.labels.return}</Link>
+        <Link href={returnHref}>{c.labels.return}</Link>
         <MissionSafetyRecovery />
       </aside>
     );
@@ -268,7 +284,7 @@ export function ComputePortalMission({
         <button onClick={() => setMinimized(!minimized)} aria-expanded={!minimized}>
           {minimized ? c.vmCopy.show : c.vmCopy.hide}
         </button>
-        <Link href={computeHref('dependencies')}>{c.labels.return}</Link>
+        <Link href={returnHref}>{c.labels.return}</Link>
       </div>
       {!minimized && (
         <>

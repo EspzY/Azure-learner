@@ -1,3 +1,9 @@
+# PR50 — Visual Excellence design candidate
+
+Two interactive preview-only visual directions (Kontinuitet/Feltbok) cover Hub, actual Compute manuscript, original pure Studio, native guide, same-store Portal handoff/resource/receipt and honest Journal history selection. [Design and rollout contract](VISUAL_EXCELLENCE.md). The original course remains primary and unchanged; broad rollout awaits owner choice. Original mascot is unchanged. Three real generated pose specimens are quarantined after independent rejection; zero new production-approved poses and nineteen planned. [Character acceptance boundary](SAVVYSHARK_CHARACTER_BIBLE.md). [Actual Portal capability/fidelity matrix](PORTAL_CAPABILITY_MATRIX.md) does not imply new operative resources.
+
+Final acceptance requires actual targeted/visual checks, full check, post-stamp independent audit, exact-head full CI/strict and anonymous preview fullSHA/journey on Draft PR50. These are recorded separately; neither Ready nor a design preference proves usability/learning or full art completion. Human validation unperformed. PD01, broader AS02, PR01B/C and owner-approved rollout remain separate. No merge, production or P17/P18.
+
 # PR48 — Practical Portal Learning Bridge, Stage A
 
 ## PR49 — AS-02 Stage A-kandidat, 2. november2026
