@@ -300,6 +300,22 @@ test('both visual directions preserve native controls Axe semantics and contrast
 }) => {
   for (const d of directions) {
     await page.goto(visualHref(d, 'studio'));
+    const opacity = await page.locator('.ve-page').evaluate((el) => {
+      const animations = el.getAnimations();
+      // Exercise the authored entrance at its start, never wait for a fade to finish.
+      for (const a of animations) {
+        a.pause();
+        a.currentTime = 0;
+      }
+      return {
+        current: getComputedStyle(el).opacity,
+        frames: animations
+          .flatMap((a) => (a.effect as KeyframeEffect).getKeyframes())
+          .map((f) => f.opacity),
+      };
+    });
+    expect(opacity.current).toBe('1');
+    expect(opacity.frames.every((x) => x === undefined || Number(x) === 1)).toBe(true);
     expect((await new AxeBuilder({ page }).analyze()).violations).toEqual([]);
   }
 });

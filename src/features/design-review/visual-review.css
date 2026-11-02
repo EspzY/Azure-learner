@@ -1625,27 +1625,18 @@
   max-width: 560px;
 }
 .ve-workspace-entry {
-  animation: ve-workspace-enter 180ms var(--ve-ease) both;
+  /* Operational text is fully opaque immediately; do not composite native Portal controls. */
+  animation: none;
 }
 .visual-review-workspace .ve-review-bar {
   position: relative;
 }
 @keyframes ve-page-enter {
   from {
-    opacity: 0.25;
     translate: 0 5px;
   }
   to {
-    opacity: 1;
     translate: 0 0;
-  }
-}
-@keyframes ve-workspace-enter {
-  from {
-    opacity: 0.65;
-  }
-  to {
-    opacity: 1;
   }
 }
 @media (min-width: 1800px) {
