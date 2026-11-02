@@ -140,6 +140,7 @@ test('root → complete Benefits investigations → independent changed context 
   await expect(page.locator('.expanded-summary')).toContainText(c.guidedComplete);
   await expect(page.locator('.expanded-summary')).toContainText(c.noAssessment);
   await page.getByRole('link', { name: c.assessment, exact: true }).last().click();
+  await page.goto('/learn/benefits?topic=assessment&assessment=legacy');
   await page.getByRole('button', { name: c.begin, exact: true }).click();
   await page
     .getByLabel(nb.expansion.benefits.assessment.items[0]!.question, { exact: true })
@@ -264,7 +265,7 @@ test('operational Service Types configurations, wrong causes, separate version a
   await page.goto('/learn/services?topic=practice');
   await expect(page.locator('.expanded-technical')).toContainText(c.technicalMissing);
   await expect(page.getByRole('button', { name: nb.course.startLab, exact: true })).toBeEnabled();
-  await page.goto('/learn/services?topic=assessment');
+  await page.goto('/learn/services?topic=assessment&assessment=legacy');
   await page.getByRole('button', { name: c.begin, exact: true }).click();
   const independentAnswers: Record<string, string> = {
     guest: 'iaas',

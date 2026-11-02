@@ -459,7 +459,7 @@ for (const older of ['benefits', 'practical', 'none'] as const) {
     await openPathActivities(page, 'cloud');
     const href =
       older === 'benefits'
-        ? '/learn/benefits?topic=assessment'
+        ? '/learn/benefits?topic=assessment&assessment=legacy'
         : older === 'practical'
           ? '/portal?area=home&practice=vm'
           : transferHref('baseline-pricing');

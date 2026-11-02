@@ -1,5 +1,9 @@
 # AzureLab engineering contract
 
+## PR46 assessment continuity
+
+Read [ASSESSMENT_REFINEMENT](docs/ASSESSMENT_REFINEMENT.md). New isolated Benefits assessment2 and Services assessment3 stores pin content/rubric/presentation and stable IDs. Preserve original expansion/transfer stores, rubrics, firsts and teaching version1/2. Assessment parameter is separate; active historic attempts resume explicitly. Both new independent contexts protect all teaching/history/Journal/Portal/guidance; durable-only CAS/readback, bounded replay/terminal reserve and scoped recovery remain. No World/receipt/XP changes. Blind final-bank review before keys plus corrected recheck, heuristic/legacy/browser proof, fresh stamped six-domain audit, exact-head290CI/strict and anonymous fullSHA Gate7 required. Retain281 earlier browser executions/settings;8desktop+1compact yield290 (267/23), optional legacy534. Human validation unperformed; next UX-02/AS-02, no P17/P18, merge or production.
+
 ## PR45 sequencing continuity
 
 Read [LEARNING_SEQUENCE](docs/LEARNING_SEQUENCE.md). course-sequence is pure navigation metadata over17canonical routes, separate from the three unchanged catalogue paths and original authoritative resume/guide priority. Security follows Monitoring; Migration follows Security and ends at Hub. No completion/prerequisite locks, new progress engine, schemas, rubric changes or history migration. Preserve original teaching/assessment objects except three explicit available/orientation strings. Legacyv1 terminal returns and practical origins remain. Retain274old browser executions;6desktop+1compact yield281 (259/22), legacy518 optional; settings unchanged. Fresh post-stamp risk-based audit, exact-head CI/strict and anonymous full-SHA journey required. Dependency follow-up remains separate. Next AS-01, then UX-02; no P17/P18, merge or production.

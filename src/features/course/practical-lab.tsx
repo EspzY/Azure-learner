@@ -1,4 +1,5 @@
 'use client';
+import { useRefined } from '@/features/learning/refined-assessment-provider';
 import { usePortalGuideVisibility } from '@/features/course/portal-guide-visibility';
 import { useMissions } from './mission-provider';
 import { useEffect, useRef, useState } from 'react';
@@ -96,7 +97,13 @@ export function LabEntry({ kind, origin }: { kind: LabKind; origin: Origin }) {
   const original = usePortalLearning(),
     benefits = useExpansion('benefits'),
     services = useExpansion('services');
+  const updatedBenefits = useRefined('benefits'),
+    updatedServices = useRefined('services');
   const allReady =
+    updatedBenefits.ready &&
+    !updatedBenefits.issue &&
+    updatedServices.ready &&
+    !updatedServices.issue &&
     p.ready &&
     technical.ready &&
     saas.ready &&
@@ -105,7 +112,12 @@ export function LabEntry({ kind, origin }: { kind: LabKind; origin: Origin }) {
     benefits.ready &&
     services.ready;
   const otherActive =
-    original.facts.active || benefits.facts.active || services.facts.active || missions.active;
+    updatedBenefits.facts.active ||
+    updatedServices.facts.active ||
+    original.facts.active ||
+    benefits.facts.active ||
+    services.facts.active ||
+    missions.active;
   const current = p.sessions.filter((s) => s.kind === kind).at(-1) ?? null;
   const currentFindings = evaluatedSession(current, technical, saas);
   const ref = useRef<HTMLElement>(null),

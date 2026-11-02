@@ -1,3 +1,7 @@
+# PR46 — Assessment Quality & Transfer
+
+Versjonerte Benefits2/Services3-etterfølgere er implementert med isolert durable historikk, parvis årsaksvurdering, eksplisitt historisk tilgang og bevarte gamle rubrics/firsts. Se [avgrensning og faktisk verifikasjonskrav](ASSESSMENT_REFINEMENT.md). Låst blindreview før nøkkelsammenligning førte til substansielle alternativ- og presisjonsrettinger. Endelig CI/strict og anonym Gate7 føres på Draft PR46; lokale tester eller Ready er ikke endelig godkjenning. Neste UX-02, deretter resterende P2/AS-02; ingen P17/P18, merge eller produksjon. Menneskelig validering uutført.
+
 ## PR43 — Learning Flow & Guidance Recovery, kandidat
 
 [Løsning og bevaringsgrenser](LEARNING_FLOW_GUIDANCE.md): tilstandsbasert primærhandling i 13 moderne moduler, eksplisitt native briefing, riktig årsaksfase/neste oppdrag og gjenfinnbar Portal-guide. Ingen nye evidence-skjemaer eller endret World/receipts/XP/rubrics. Målrettet QA før separat post-stamp review; full265-case eksakt-head CI/streng release og anonym ekstern SHA/brukerreise rapporteres på Draft PR43. Desktop først; menneskelig UX-/skjermleser-/læringsvalidering uutført. [Tiltaksstatus](reviews/AZ900_REMEDIATION_PLAN.md).

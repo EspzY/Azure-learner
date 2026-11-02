@@ -5,6 +5,10 @@ import baseline from './playwright.config';
 // names. No test body, assertion, title, timeout or skip is modified.
 const compactCases = [
   [
+    'assessment-refinement.spec.ts',
+    'updated assessment desktop compact short-height keyboard centered start reduced motion and Axe remain usable',
+  ],
+  [
     'learning-sequencing.spec.ts',
     'Closing journey desktop compact short-height keyboard focus and honest ending remain accessible',
   ],

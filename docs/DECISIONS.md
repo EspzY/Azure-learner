@@ -328,3 +328,7 @@ Keep directory capabilities, authentication proof, requirement acceptance and ap
 ## P11 Access Control
 
 P11 keeps RBAC scope authorization separate from CA requirements. Two frozen policy slots and bounded role/action subsets explain causality without introducing a real IAM engine. A captured actual Sandbox path remains separate from conceptual grants. The known Benefits readiness race is corrected in its test by awaiting real lesson mount while preserving the exact persisted-aid assertion; a deterministic held-frame/denied-write regression protects the behavior. See [contract](ACCESS_CONTROL.md).
+
+## PR46 — isolated successors, frozen historical assessment semantics
+
+Keep original Benefits/Services expansion contracts and Cloud Transfer byte-identical. Two bounded successor assessment stores use stable IDs and pinned static presentation; separate assessment=legacy/updated preserves teaching version1/2. New contexts join existing preflight/resume/guidance rather than creating another engine. No silent migration, new XP or technical mutation. [Contract](ASSESSMENT_REFINEMENT.md).

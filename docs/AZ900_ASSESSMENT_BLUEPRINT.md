@@ -1,5 +1,9 @@
 # AZ-900 — fremtidig diagnostikk og læringsoverføring
 
+## PR46 — AS-01: versjonerte modulvurderinger
+
+Benefits assessment v2 og Service Types assessment v3 erstatter den naturlige standardvurderingen med seks originale parvise situasjoner hver. Gamle teaching-versjoner, rubrics, first/help/retry og aktive historiske forsøk beholdes uendret; ingen Cloud Transfer- eller eksamensmotorendring. Stabile answer-ID-er og fast versjonert visningsrekkefølge, kompatible IaaS/PaaS-par, historisk Summary/Journal og durable assistance dokumenteres i [etterfølgerkontrakten](ASSESSMENT_REFINEMENT.md). All-first og andre blinde heuristikker får ikke fullt resultat; låst blindreview og korrigert recheck er atskilt fra nøkkelsammenligning. Dette er ikke psykometrisk validering.
+
 ## P06 original Networking application
 
 Twelve original cases in four versioned families test management/network structure, CIDR boundary/capacity/canonical form, global/whole-VNet-versus-subnet-scope planning/selected-subnet peering and DNS delegation/alias/custom resolver/authorization. Decision and reason must form the documented causal pair. First submissions, aid, retry/family exposure and abandon are separate; all-context durable access precedes historical feedback/Journal/teaching. Exact repetition links and every alternative are explained after submission. This is a bounded module supplement, not a general exam engine. [Case map](NETWORKING_FOUNDATIONS.md).

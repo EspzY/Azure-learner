@@ -52,7 +52,8 @@ export function ExpansionAssistance() {
       const own =
         path === `/learn/${module.store.track}` &&
         query.get('topic') === 'assessment' &&
-        query.get('version') !== '1';
+        query.get('version') !== '1' &&
+        query.get('assessment') !== 'updated';
       const metadata = path === '/learn';
       const operational =
         path === '/portal' &&
