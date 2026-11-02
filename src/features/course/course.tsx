@@ -124,6 +124,8 @@ import { SavvyShark } from './savvy-shark';
 import { MissionBriefing } from './mission-briefing';
 import { useCourse } from './provider';
 import { CourseNavigation } from './course-navigation';
+import { recommendedBoundary } from './course-sequence';
+import { CourseJourneyContext } from './course-journey-context';
 import { ExpandedModule, ExpansionReference } from '@/features/learning/expanded-module';
 import { useExpansion, ExpansionAssistance } from '@/features/learning/expansion-provider';
 import { trackUnits } from '@/domain/curriculum/expansion';
@@ -1320,6 +1322,11 @@ function CourseWorkspace({ module }: { module?: CourseModule }) {
                   </p>
                 )}
                 <div ref={activityRef} className="course-activity">
+                  <CourseJourneyContext
+                    module={module}
+                    topic={topic}
+                    transitioning={!recommendation && index === pathTopics.length - 1}
+                  />
                   {module === 'migration' ? (
                     <MigrationLesson
                       topic={topic as MigrationTopic}
@@ -1895,57 +1902,12 @@ function CourseWorkspace({ module }: { module?: CourseModule }) {
                                 href: courseHref(module, historicalReturn),
                                 title: title(module, historicalReturn)!,
                               }
-                            : module === 'migration'
-                              ? {
-                                  href: resilienceHref('summary'),
-                                  title: names['storage-resilience'],
-                                }
-                              : module === 'security'
-                                ? { href: accessHref('summary'), title: names['access-control'] }
-                                : module === 'monitoring'
-                                  ? { href: toolsHref('summary'), title: names['management-tools'] }
-                                  : module === 'management-tools'
-                                    ? { href: governanceHref('summary'), title: names.governance }
-                                    : module === 'governance'
-                                      ? { href: costHref('summary'), title: names.cost }
-                                      : module === 'access-control'
-                                        ? { href: identityHref('summary'), title: names.identity }
-                                        : module === 'identity'
-                                          ? {
-                                              href: migrationHref('summary'),
-                                              title: names.migration,
-                                            }
-                                          : module === 'storage-resilience'
-                                            ? { href: storageHref('summary'), title: names.storage }
-                                            : module === 'storage'
-                                              ? {
-                                                  href: connectivityHref('summary'),
-                                                  title: names.connectivity,
-                                                }
-                                              : module === 'connectivity'
-                                                ? {
-                                                    href: networkingHref('summary'),
-                                                    title: names.networking,
-                                                  }
-                                                : module === 'networking'
-                                                  ? {
-                                                      href: computeHref('summary'),
-                                                      title: names.compute,
-                                                    }
-                                                  : module === 'compute'
-                                                    ? {
-                                                        href: courseHref(
-                                                          'architecture',
-                                                          'core-summary',
-                                                        ),
-                                                        title: names.architecture,
-                                                      }
-                                                    : module === 'architecture'
-                                                      ? {
-                                                          href: courseHref('services', 'summary'),
-                                                          title: names.services,
-                                                        }
-                                                      : undefined
+                            : (() => {
+                                const boundary = recommendedBoundary(module, 'previous');
+                                return boundary
+                                  ? { href: boundary.href, title: names[boundary.module!] }
+                                  : undefined;
+                              })()
                       }
                       next={
                         index >= 0 && index < pathTopics.length - 1
@@ -1957,84 +1919,17 @@ function CourseWorkspace({ module }: { module?: CourseModule }) {
                               title: title(module, pathTopics[index + 1]!)!,
                             }
                           : index === pathTopics.length - 1
-                            ? {
-                                href:
-                                  module === 'migration'
-                                    ? identityHref('introduction')
-                                    : module === 'security'
-                                      ? costHref('introduction')
-                                      : module === 'access-control'
-                                        ? securityHref('introduction')
-                                        : module === 'management-tools'
-                                          ? monitoringHref('introduction')
-                                          : module === 'governance'
-                                            ? toolsHref('introduction')
-                                            : module === 'cost'
-                                              ? governanceHref('introduction')
-                                              : module === 'identity'
-                                                ? accessHref('introduction')
-                                                : module === 'storage-resilience'
-                                                  ? migrationHref('introduction')
-                                                  : module === 'storage'
-                                                    ? resilienceHref('introduction')
-                                                    : module === 'connectivity'
-                                                      ? storageHref('introduction')
-                                                      : module === 'networking'
-                                                        ? connectivityHref('introduction')
-                                                        : module === 'compute'
-                                                          ? networkingHref('introduction')
-                                                          : module === 'architecture'
-                                                            ? computeHref('introduction')
-                                                            : currentV2
-                                                              ? courseHref(
-                                                                  'benefits',
-                                                                  'availability',
-                                                                )
-                                                              : module === 'benefits'
-                                                                ? courseHref('services', 'overview')
-                                                                : module === 'services' &&
-                                                                    !legacyServices
-                                                                  ? courseHref(
-                                                                      'architecture',
-                                                                      'datacenters',
-                                                                    )
-                                                                  : '/learn',
-                                title:
-                                  module === 'migration'
-                                    ? identityNb.title
-                                    : module === 'security'
-                                      ? costNb.title
-                                      : module === 'access-control'
-                                        ? securityNb.title
-                                        : module === 'management-tools'
-                                          ? monitoringNb.title
-                                          : module === 'governance'
-                                            ? toolsNb.title
-                                            : module === 'cost'
-                                              ? governanceNb.title
-                                              : module === 'identity'
-                                                ? accessNb.title
-                                                : module === 'storage-resilience'
-                                                  ? migrationNb.title
-                                                  : module === 'storage'
-                                                    ? storageResilienceNb.title
-                                                    : module === 'connectivity'
-                                                      ? storageNb.title
-                                                      : module === 'networking'
-                                                        ? connectivityNb.title
-                                                        : module === 'compute'
-                                                          ? networkingNb.title
-                                                          : module === 'architecture'
-                                                            ? computeNb.title
-                                                            : currentV2
-                                                              ? names.benefits
-                                                              : module === 'benefits'
-                                                                ? names.services
-                                                                : module === 'services' &&
-                                                                    !legacyServices
-                                                                  ? names.architecture
-                                                                  : c.overview,
-                              }
+                            ? (() => {
+                                // Preserve the original terminal return for historical v1 teaching.
+                                const boundary =
+                                  (module === 'computing' && !currentV2) || legacyServices
+                                    ? { href: '/learn', module: undefined }
+                                    : recommendedBoundary(module, 'next')!;
+                                return {
+                                  href: boundary.href,
+                                  title: boundary.module ? names[boundary.module] : c.overview,
+                                };
+                              })()
                             : undefined
                       }
                       continueTeaching={labTopic && lab.complete}

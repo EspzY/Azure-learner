@@ -12447,7 +12447,7 @@ export const storageResilienceNb = {
   prerequisites:
     'Bygg på Storage Part A: account, tjeneste og data er forskjellige nivåer. Core Architecture forklarer regioner og Availability Zones; Cost Management skiller enhetskostnad fra total bruk.',
   available:
-    'To konseptuelle undersøkelser og nye selvstendige situasjoner. Resultatene tilhører Part B. Fortsett med File Movement & Migration i Storage Part C.',
+    'To konseptuelle undersøkelser og nye selvstendige situasjoner. Resultatene tilhører Part B. Den anbefalte reisen fortsetter med Identity Part A; Storage Part C kommer som avsluttende anvendelse.',
   topics: {
     introduction: 'Fra lagringstjeneste til tilgang og beskyttelse',
     tiers: 'Hot, Cool, Cold og Archive',
@@ -13266,7 +13266,7 @@ export const identityNb = {
   prerequisites:
     'Forkunnskaper: tenant/subscription/resource group fra Core Architecture og kundens identitets-/tilgangsansvar fra Service Types. Storage Part B forklarer at data kan være bevart og tilgjengelige uten at en bestemt bruker har tilgang.',
   available:
-    'Tre konseptuelle undersøkelser, guidede oppdrag og nye selvstendige situasjoner. Fortsett med RBAC og Conditional Access i Part B, deretter Security Principles og Defender for Cloud i Part C.',
+    'Tre konseptuelle undersøkelser, guidede oppdrag og nye selvstendige situasjoner. Fortsett med RBAC og Conditional Access i Part B. Security Part C anbefales etter Governance og Monitoring.',
   topics: {
     introduction: 'Fra ressurser til identitet',
     directory: 'Microsoft Entra ID og tenant',
@@ -19254,7 +19254,7 @@ export const migrationNb = {
   prerequisites:
     'Forkunnskaper: Storage Part A/B, nettverksforbindelser, datarettigheter og Management. Her bruker du disse begrepene til å planlegge bevegelse og validering av data.',
   available:
-    'Storage Part C er tilgjengelig med AzCopy, Storage Explorer, Azure File Sync, Azure Migrate og Data Box. Neste produktfase er en separat pedagogisk helhetsrevisjon, ikke automatisk eksamensgodkjenning.',
+    'Storage Part C er tilgjengelig med AzCopy, Storage Explorer, Azure File Sync, Azure Migrate og Data Box. Dette er siste modul i den anbefalte læringsreisen; bruk kursoversikten til repetisjon.',
   studioLead:
     'Deklarerte behov, små syntetiske manifester og eksplisitte planantakelser. Ingen filer eller arbeidslaster flyttes.',
   sections: {

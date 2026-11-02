@@ -5,6 +5,8 @@ import { architectureNb, nb, courseHubNb as h, missionsNb, transferNb, labsNb } 
 import { courseHref, type CourseModule } from '@/domain/course/model';
 import { missionIds, missionOrigin } from '@/domain/sandbox/missions';
 import { coursePaths, moduleLabels } from './course-outline';
+import { isClosingApplication } from './course-sequence';
+import { journeyNb } from '@/content/learning-journey';
 import type { CourseDestinations } from './course-sidebar';
 
 export type HubRecord = {
@@ -103,8 +105,9 @@ export function CourseHub({
             <small>{h.courseMap}</small>
             <h2 id="learn-hub-paths-title">{h.pathsTitle}</h2>
           </div>
-          <p>{h.pathsNote}</p>
+          <p>{journeyNb.catalogAccess}</p>
         </div>
+        <p className="learn-hub-journey-note">{journeyNb.catalogNote}</p>
         <div className="learn-hub-path-grid">
           {coursePaths.map((path) => (
             <article
@@ -140,6 +143,9 @@ export function CourseHub({
                           <span>{moduleLabels[part]}</span>
                           <ArrowRight size={14} aria-hidden="true" />
                         </Link>
+                        {isClosingApplication(part) && (
+                          <small className="learn-hub-closing">{journeyNb.closing}</small>
+                        )}
                         <small>{known ? observations[part] : h.historyUnknownShort}</small>
                       </div>
                     ))}

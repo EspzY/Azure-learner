@@ -1,79 +1,88 @@
 {
   "schema": 1,
-  "id": "PR44-dialog-placement-modal-consistency",
-  "baseCommit": "0d7905061ccd9bd0684a37cea895b0baad137c38",
-  "author": "codex-dialog44-author",
+  "id": "PR45-learning-sequencing",
+  "baseCommit": "7775b0a22d0a5c88597c28b3df780b92425f3dce",
+  "author": "codex-sequence45-author",
   "scope": {
-    "kind": "ux-modal",
-    "description": "Bounded UX-01: explicit auto margin for ordinary native PortalDialog, excluding intentional side panels. No new engine, state, content, assessment or guide changes.",
-    "objectives": ["modal.course", "modal.portal"]
+    "kind": "ux-sequencing",
+    "description": "LJ-02 first step: pure17-module prerequisite-respecting navigation order, boundary Previous/Next, short bridges and ending; unchanged catalogue/history/guide priority.",
+    "objectives": ["sequence.navigation", "sequence.continuity"]
   },
   "sources": [
     {
-      "id": "DP01",
+      "id": "SQ-study",
+      "url": "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900",
+      "title": "Study guide for Exam AZ-900: Microsoft Azure Fundamentals | Microsoft Learn",
+      "reviewed": "2026-11-02",
+      "version": "Retrieved2026-11-02 SHA256 58bee7dadd3426094ab189375b86b07f9c59111037529e42176150b53ee821ee",
+      "kind": "official-public-documentation",
+      "objectives": ["sequence.navigation", "sequence.continuity"],
+      "claims": ["sequence.catalogue"],
+      "limits": "Existing three study-guide subject areas or graphical Portal context only. AzureLab recommended ordering is the owner-approved audit42 prerequisite decision, not prescribed by Microsoft; no new product/content claims.",
+      "availability": "AVAILABLE",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900",
+          "disposition": "reviewed-essential",
+          "reason": "Actual text checked: Describe cloud concepts, Describe Azure architecture and services, Describe Azure management and governance"
+        }
+      ]
+    },
+    {
+      "id": "SQ-portal",
       "url": "https://learn.microsoft.com/en-us/azure/azure-portal/azure-portal-overview",
       "title": "What is the Azure portal? - Azure portal | Microsoft Learn",
-      "reviewed": "2026-11-01",
-      "version": "2026-01-26T00:00:00Z SHA256 4fc74270f0edfa683482cb2b90f4ce661cf5cc0ea94210ebe132a8139b0a059e",
+      "reviewed": "2026-11-02",
+      "version": "Retrieved2026-11-02 SHA256 4fc74270f0edfa683482cb2b90f4ce661cf5cc0ea94210ebe132a8139b0a059e",
       "kind": "official-public-documentation",
-      "objectives": ["modal.course", "modal.portal"],
-      "claims": ["modal.portal-context"],
-      "limits": "Existing graphical Portal context only; no new curriculum claim. Native dialog/CSS behavior verified by MDN and actual browser. Earlier content and assessments preserved.",
+      "objectives": ["sequence.navigation", "sequence.continuity"],
+      "claims": ["sequence.portal-context"],
+      "limits": "Existing three study-guide subject areas or graphical Portal context only. AzureLab recommended ordering is the owner-approved audit42 prerequisite decision, not prescribed by Microsoft; no new product/content claims.",
       "availability": "AVAILABLE",
       "discovery": [
         {
           "url": "https://learn.microsoft.com/en-us/azure/azure-portal/azure-portal-overview",
           "disposition": "reviewed-essential",
-          "reason": "Portal shell: menu/header/search/breadcrumbs/command and service menu; supported AzureLab subset compared."
-        },
-        {
-          "url": "https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/dialog",
-          "disposition": "reviewed-essential",
-          "reason": "Native modal semantics, showModal and inert background."
-        },
-        {
-          "url": "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/margin",
-          "disposition": "reviewed-essential",
-          "reason": "Auto margins; actual geometry additionally tested."
+          "reason": "Actual text checked: graphical user interface"
         }
       ]
     }
   ],
   "activities": [
     {
-      "id": "modal-course",
-      "objectives": ["modal.course"],
-      "claims": ["modal.portal-context"],
+      "id": "sequence-navigation",
+      "objectives": ["sequence.navigation"],
+      "claims": ["sequence.catalogue"],
       "assessmentStatus": "unchanged-existing",
-      "limits": "Visual-only; no changed content/rubric/transition/evidence. Open/cancel/minimize do not start or award credit.",
+      "limits": "Bounded navigation/orientation; no new content coverage, progress engine, locks or history migration. Original guide/independent/recovery priority and substantive teaching/assessment objects preserved. Human validation unperformed. Separate final audit, exact-head281CI/strict and anonymous final-SHA Gate7 required. No merge/production.",
       "theory": [
         {
-          "path": "docs/DIALOG_PLACEMENT.md"
+          "path": "docs/LEARNING_SEQUENCE.md"
         }
       ],
       "mechanism": [
         {
-          "path": "src/features/portal/portal.css"
+          "path": "src/features/course/course-sequence.ts"
         }
       ],
       "practice": [
         {
-          "path": "tests/e2e/dialog-placement.spec.ts"
+          "path": "tests/e2e/learning-sequencing.spec.ts"
         }
       ],
       "feedback": [
         {
-          "path": "docs/DIALOG_PLACEMENT.md"
+          "path": "docs/LEARNING_SEQUENCE.md"
         }
       ],
       "visual": [
         {
-          "path": "docs/screenshots/dialog-placement/after-assessment-1440x900.png"
+          "path": "docs/screenshots/learning-sequencing/after-storage-resilience-1440.png"
         }
       ],
       "accessible": [
         {
-          "path": "tests/e2e/dialog-placement.spec.ts"
+          "path": "tests/e2e/learning-sequencing.spec.ts"
         }
       ],
       "assessment": [
@@ -83,7 +92,7 @@
       ],
       "savvyshark": [
         {
-          "path": "src/features/course/mission-briefing.tsx"
+          "path": "src/features/course/learning-flow.ts"
         },
         {
           "path": "tests/e2e/learning-flow-guidance.spec.ts"
@@ -91,39 +100,39 @@
       ]
     },
     {
-      "id": "modal-portal",
-      "objectives": ["modal.portal"],
-      "claims": ["modal.portal-context"],
+      "id": "sequence-continuity",
+      "objectives": ["sequence.continuity"],
+      "claims": ["sequence.portal-context"],
       "assessmentStatus": "unchanged-existing",
-      "limits": "Visual-only; no changed content/rubric/transition/evidence. Open/cancel/minimize do not start or award credit.",
+      "limits": "Bounded navigation/orientation; no new content coverage, progress engine, locks or history migration. Original guide/independent/recovery priority and substantive teaching/assessment objects preserved. Human validation unperformed. Separate final audit, exact-head281CI/strict and anonymous final-SHA Gate7 required. No merge/production.",
       "theory": [
         {
-          "path": "docs/DIALOG_PLACEMENT.md"
+          "path": "docs/LEARNING_SEQUENCE.md"
         }
       ],
       "mechanism": [
         {
-          "path": "src/features/portal/portal.css"
+          "path": "src/features/course/course.tsx"
         }
       ],
       "practice": [
         {
-          "path": "tests/e2e/dialog-placement.spec.ts"
+          "path": "tests/e2e/learning-sequencing.spec.ts"
         }
       ],
       "feedback": [
         {
-          "path": "docs/DIALOG_PLACEMENT.md"
+          "path": "docs/LEARNING_SEQUENCE.md"
         }
       ],
       "visual": [
         {
-          "path": "docs/screenshots/dialog-placement/after-notifications-1024.png"
+          "path": "docs/screenshots/learning-sequencing/after-migration-end-1024x500.png"
         }
       ],
       "accessible": [
         {
-          "path": "tests/e2e/dialog-placement.spec.ts"
+          "path": "tests/e2e/learning-sequencing.spec.ts"
         }
       ],
       "assessment": [
@@ -133,7 +142,7 @@
       ],
       "savvyshark": [
         {
-          "path": "src/features/course/mission-briefing.tsx"
+          "path": "src/features/course/learning-flow.ts"
         },
         {
           "path": "tests/e2e/learning-flow-guidance.spec.ts"
@@ -144,171 +153,176 @@
   "modules": [],
   "preservedPaths": [
     "src/domain/",
-    "src/content/",
     "src/app/",
     "public/",
     "scripts/",
+    ".github/",
     "package.json",
     "package-lock.json",
     "playwright.config.ts",
-    "src/features/course/",
+    "src/features/portal/",
     "src/features/learning/",
-    "src/features/portal/shared.tsx",
-    "src/features/portal/portal.tsx",
-    "src/features/portal/guide-recovery",
+    "src/features/course/course-sidebar.tsx",
+    "src/features/course/course-outline.ts",
+    "src/features/course/course-navigation.tsx",
+    "src/features/course/learning-flow.ts",
+    "src/features/course/guided-learning.tsx",
+    "src/features/course/mission-",
     "tests/e2e/learning-flow-guidance.spec.ts",
-    "tests/e2e/portal.spec.ts",
+    "tests/e2e/dialog-placement.spec.ts",
     "docs/AZ900_COVERAGE_MATRIX.md",
-    "docs/audits/az900-2026-07-20.json"
+    "docs/audits/az900-2026-07-20.json",
+    "docs/reviews/AZ900_END_TO_END_AUDIT.md",
+    "docs/reviews/evidence/"
   ],
   "gates": {
     "source": {
       "checks": [
         {
-          "path": "docs/DIALOG_PLACEMENT.md"
+          "path": "docs/LEARNING_SEQUENCE.md"
         },
         {
-          "path": "tests/e2e/dialog-placement.spec.ts"
+          "path": "tests/e2e/learning-sequencing.spec.ts"
         }
       ],
-      "limits": "CSS-only UX correction. Previous content/assessments/stores/World/receipts/XP/guide byte-preserved. Human validation unperformed. Separate final audit, exact-head full CI/strict and actual anonymous final-SHA Gate7 required; no merge/production."
+      "limits": "Bounded navigation/orientation; no new content coverage, progress engine, locks or history migration. Original guide/independent/recovery priority and substantive teaching/assessment objects preserved. Human validation unperformed. Separate final audit, exact-head281CI/strict and anonymous final-SHA Gate7 required. No merge/production."
     },
     "curriculum": {
       "checks": [
         {
-          "path": "docs/DIALOG_PLACEMENT.md"
+          "path": "docs/LEARNING_SEQUENCE.md"
         },
         {
-          "path": "tests/e2e/dialog-placement.spec.ts"
+          "path": "tests/e2e/learning-sequencing.spec.ts"
         }
       ],
-      "limits": "CSS-only UX correction. Previous content/assessments/stores/World/receipts/XP/guide byte-preserved. Human validation unperformed. Separate final audit, exact-head full CI/strict and actual anonymous final-SHA Gate7 required; no merge/production."
+      "limits": "Bounded navigation/orientation; no new content coverage, progress engine, locks or history migration. Original guide/independent/recovery priority and substantive teaching/assessment objects preserved. Human validation unperformed. Separate final audit, exact-head281CI/strict and anonymous final-SHA Gate7 required. No merge/production."
     },
     "simulation": {
       "checks": [
         {
-          "path": "docs/DIALOG_PLACEMENT.md"
+          "path": "docs/LEARNING_SEQUENCE.md"
         },
         {
-          "path": "tests/e2e/dialog-placement.spec.ts"
+          "path": "tests/e2e/learning-sequencing.spec.ts"
         }
       ],
-      "limits": "CSS-only UX correction. Previous content/assessments/stores/World/receipts/XP/guide byte-preserved. Human validation unperformed. Separate final audit, exact-head full CI/strict and actual anonymous final-SHA Gate7 required; no merge/production."
+      "limits": "Bounded navigation/orientation; no new content coverage, progress engine, locks or history migration. Original guide/independent/recovery priority and substantive teaching/assessment objects preserved. Human validation unperformed. Separate final audit, exact-head281CI/strict and anonymous final-SHA Gate7 required. No merge/production."
     },
     "savvyshark": {
       "checks": [
         {
-          "path": "docs/DIALOG_PLACEMENT.md"
+          "path": "docs/LEARNING_SEQUENCE.md"
         },
         {
-          "path": "tests/e2e/dialog-placement.spec.ts"
+          "path": "tests/e2e/learning-sequencing.spec.ts"
         }
       ],
-      "limits": "CSS-only UX correction. Previous content/assessments/stores/World/receipts/XP/guide byte-preserved. Human validation unperformed. Separate final audit, exact-head full CI/strict and actual anonymous final-SHA Gate7 required; no merge/production."
+      "limits": "Bounded navigation/orientation; no new content coverage, progress engine, locks or history migration. Original guide/independent/recovery priority and substantive teaching/assessment objects preserved. Human validation unperformed. Separate final audit, exact-head281CI/strict and anonymous final-SHA Gate7 required. No merge/production."
     },
     "visual-accessibility": {
       "checks": [
         {
-          "path": "docs/DIALOG_PLACEMENT.md"
+          "path": "docs/LEARNING_SEQUENCE.md"
         },
         {
-          "path": "tests/e2e/dialog-placement.spec.ts"
+          "path": "tests/e2e/learning-sequencing.spec.ts"
         }
       ],
-      "limits": "CSS-only UX correction. Previous content/assessments/stores/World/receipts/XP/guide byte-preserved. Human validation unperformed. Separate final audit, exact-head full CI/strict and actual anonymous final-SHA Gate7 required; no merge/production."
+      "limits": "Bounded navigation/orientation; no new content coverage, progress engine, locks or history migration. Original guide/independent/recovery priority and substantive teaching/assessment objects preserved. Human validation unperformed. Separate final audit, exact-head281CI/strict and anonymous final-SHA Gate7 required. No merge/production."
     },
     "independent-final-audit": {
       "checks": [
         {
-          "path": "docs/DIALOG_PLACEMENT.md"
+          "path": "docs/LEARNING_SEQUENCE.md"
         },
         {
-          "path": "tests/e2e/dialog-placement.spec.ts"
+          "path": "tests/e2e/learning-sequencing.spec.ts"
         }
       ],
-      "limits": "CSS-only UX correction. Previous content/assessments/stores/World/receipts/XP/guide byte-preserved. Human validation unperformed. Separate final audit, exact-head full CI/strict and actual anonymous final-SHA Gate7 required; no merge/production."
+      "limits": "Bounded navigation/orientation; no new content coverage, progress engine, locks or history migration. Original guide/independent/recovery priority and substantive teaching/assessment objects preserved. Human validation unperformed. Separate final audit, exact-head281CI/strict and anonymous final-SHA Gate7 required. No merge/production."
     },
     "delivery": {
       "checks": [
         {
-          "path": "docs/DIALOG_PLACEMENT.md"
+          "path": "docs/LEARNING_SEQUENCE.md"
         },
         {
-          "path": "tests/e2e/dialog-placement.spec.ts"
+          "path": "tests/e2e/learning-sequencing.spec.ts"
         }
       ],
-      "limits": "CSS-only UX correction. Previous content/assessments/stores/World/receipts/XP/guide byte-preserved. Human validation unperformed. Separate final audit, exact-head full CI/strict and actual anonymous final-SHA Gate7 required; no merge/production."
+      "limits": "Bounded navigation/orientation; no new content coverage, progress engine, locks or history migration. Original guide/independent/recovery priority and substantive teaching/assessment objects preserved. Human validation unperformed. Separate final audit, exact-head281CI/strict and anonymous final-SHA Gate7 required. No merge/production."
     }
   },
   "verification": [
     {
       "command": "npm run test:e2e:desktop",
       "result": "pending",
-      "details": "Full274 candidate CI and its strict release required; targeted passes are not full-profile evidence."
-    },
-    {
-      "command": "targeted browser checks",
-      "result": "passed",
-      "details": "Production build, pinned browser:8desktop+1compact new cases and9existing affected cases, exit0/no retry. Actual geometry, keyboard, Axe, short height, true200%browserzoom+doubledtext, side/native/recovery/assistance/first/World checks."
-    },
-    {
-      "command": "npm run test:e2e:plan",
-      "result": "passed",
-      "details": "274=253desktop+21compact; all265 inherited executions retained; optional legacy506. Settings unchanged."
+      "details": "Complete exact-head281candidateCI/strict required; targeted/collection results do not substitute."
     },
     {
       "command": "npm run check",
       "result": "passed",
-      "details": "Actual full local exit0: typecheck/lint/format/docs/quality/57objective audit/482curriculum/assets/legacy/583Vitest/18Node tests/productionbuild. Ignored historical .artifacts temporarily moved outside lint scope then restored byte-unchanged.382 previous domain/content/app/Course/learning/test/shared/Portal/guide/package files independently compared to base, no changed bytes."
+      "details": "Full local exit0: typecheck/lint/format/126docs/quality/57objective audit/482curriculum/assets/legacy/587Vitest/18Node tests/productionbuild. Ignored historical artifacts temporarily moved outside lint then restored unchanged. Subsequent tiny semantic context-heading/focus correction received targeted lint, productionbuild/TypeScript and final6desktop+1compact tests rather than repeated full local regression. Actual final-head full check remains mandatory in CI."
+    },
+    {
+      "command": "targeted browser checks",
+      "result": "passed",
+      "details": "Final6desktop31.3s+1compact9.0s passed exit0/no retry; all17boundaries, reciprocalPrevious, firstStart, freshsubjectcatalogue, scope/capstone/direct/legacy/practicalPortalreturn, guidedactive/pausedsame-session, exactunaideddraft/immutablefirst/deniedJournal, focus/scroll/Axe/reducedmotion. Six affected oldguide/modal/cross-tab journeys passed29.6s;2oldsource/resume journeys passed13.9s after exact predecessor/successor expectations changed. Earlier compact fixed-footer assumption and2old-origin failures are historical failed runs, not claimed passed."
+    },
+    {
+      "command": "npm run test:e2e:plan",
+      "result": "passed",
+      "details": "281=259desktop+22compact, all274inherited retained, optionallegacy518. Settings unchanged."
     },
     {
       "command": "Independent Final Audit",
       "result": "passed",
-      "details": "Separate post-stamp reviewer accepted finalf0b3f54e:13hashes/all7images inspected;401existing src/test files compared, only3CSSlines differ. Fresh8desktop+1compact and owncounterfactual/nativefocus/shortJournal probes passed;0openBLOCKER/MAJOR. Full274candidateCI/strict and finalSHAanonymousGate7 remain mandatory delivery."
+      "details": "Separate post-stamp agent accepted finald8a963db payload:24hashes,402oldsource/testfiles only6expectedchanges,39oldcontentexports only3orientationchanges;originalpriority/internaltopics byte-preserved. All7images inspected; independent15unit,6desktop30.6s,1compact8.2s and actualnonemptyWorld/receipt/shortfocus/corrupt/cross-tab probes passed.0openBLOCKER/MAJOR. Fullcandidate281CI/strict and actualanonymousfinalSHA Gate7 still pending delivery."
     }
   ],
   "visualEvidence": [
     {
-      "path": "docs/screenshots/dialog-placement/before-assessment-1440.png",
+      "path": "docs/screenshots/learning-sequencing/before-storage-resilience-1440.png",
       "viewport": "1440x900",
       "inspected": true,
-      "observation": "Actual anonymous PR43 base0d; x0/y0 corner defect."
+      "observation": "Anonymous base7775: StorageB incorrectly recommends Migration before Identity/Tools."
     },
     {
-      "path": "docs/screenshots/dialog-placement/after-assessment-1440x900.png",
+      "path": "docs/screenshots/learning-sequencing/before-monitoring-1440.png",
       "viewport": "1440x900",
       "inspected": true,
-      "observation": "Centered x345/y168, original750px width, existing spacing/actions."
+      "observation": "Anonymous base7775: Monitoring ends at Hub before security synthesis."
     },
     {
-      "path": "docs/screenshots/dialog-placement/after-assessment-1024x768.png",
+      "path": "docs/screenshots/learning-sequencing/after-storage-resilience-1440.png",
+      "viewport": "1440x900",
+      "inspected": true,
+      "observation": "Identity bridge and correct next; old onward copy corrected."
+    },
+    {
+      "path": "docs/screenshots/learning-sequencing/after-monitoring-1440.png",
+      "viewport": "1440x900",
+      "inspected": true,
+      "observation": "Brief security synthesis bridge and nextSecurityC."
+    },
+    {
+      "path": "docs/screenshots/learning-sequencing/after-security-1024.png",
       "viewport": "1024x768",
       "inspected": true,
-      "observation": "Centered x137/y102, visible keyboard focus."
+      "observation": "Direct access with concise prerequisite orientation and previousMonitoring."
     },
     {
-      "path": "docs/screenshots/dialog-placement/after-assessment-1024x500.png",
+      "path": "docs/screenshots/learning-sequencing/after-migration-end-1024x500.png",
       "viewport": "1024x500",
       "inspected": true,
-      "observation": "Bounded450px high; internal scroll exposes unobscured focused Start, not pressed."
+      "observation": "Honest course ending and Hub/Sandbox links, ordinary scrolling and reachable footer."
     },
     {
-      "path": "docs/screenshots/dialog-placement/after-journal-1440.png",
+      "path": "docs/screenshots/learning-sequencing/after-hub-1440.png",
       "viewport": "1440x900",
       "inspected": true,
-      "observation": "Centered long Journal810px high with internal scroll."
-    },
-    {
-      "path": "docs/screenshots/dialog-placement/after-notifications-1024.png",
-      "viewport": "1024x768",
-      "inspected": true,
-      "observation": "Intended right440px panel x584/y40, margin0."
-    },
-    {
-      "path": "docs/screenshots/dialog-placement/native-savvyshark-1440.png",
-      "viewport": "1440x900",
-      "inspected": true,
-      "observation": "Unchanged1040px native briefing atx200/y24 with separate scrolling/footer."
+      "observation": "Fresh Start and unchanged three catalogue paths, discreet sequence explanation."
     }
   ],
   "humanReview": {
@@ -319,133 +333,156 @@
   },
   "snapshot": {
     "files": {
-      "AGENTS.md": "fc0c9a84d84657050df3df514d81e6c74f59a67577a75d2d5da2576f0c3b4447",
-      "docs/DIALOG_PLACEMENT.md": "5ed8a5d433a126993082a204141b2b8981f1df555de1753a5749d11836059483",
-      "docs/reviews/AZ900_REMEDIATION_PLAN.md": "0d9dad072fc469f0ae9f123fe89971ed495daca2981e8019ac4d174c4bffb4d4",
-      "docs/screenshots/dialog-placement/after-assessment-1024x500.png": "d71741739e74130d4cec3b6ed5e83d282c615c1895f55766ba9331d1f89c2019",
-      "docs/screenshots/dialog-placement/after-assessment-1024x768.png": "28efd9af520b4638a6fdc82e734607f4cb39ccdad3e819c3d4f29f6088986d0c",
-      "docs/screenshots/dialog-placement/after-assessment-1440x900.png": "491d43b4ced50590b4b222e7375b86a712cc570acb50afbe0ca0a26a0bec188d",
-      "docs/screenshots/dialog-placement/after-journal-1440.png": "13891e56c90c0d80152c56618da64e84cae9032bc5adae204ee4b80d7f311d8c",
-      "docs/screenshots/dialog-placement/after-notifications-1024.png": "203b79d569697fe45ed25fab0abebdfa074216d9186410844fd5ac5a0de69b7a",
-      "docs/screenshots/dialog-placement/before-assessment-1440.png": "914d81bc858d7594963a6e066b052605d0228d56fc71a3ed82951a02ff28a45b",
-      "docs/screenshots/dialog-placement/native-savvyshark-1440.png": "116837bd1ccacaa8ba70ce26c8ab49c2949ea74bad3574fbfa1b83307739e36a",
-      "playwright.desktop.config.ts": "a735e02c92faafd2a602d74cc1bbe6da896fa880fab91154c1254c42be4e5ac9",
-      "src/features/portal/portal.css": "f0ef7a5cc710ab9b7d82a054af4d2f6f24af1f953f893e1227af45f8cacc5697",
-      "tests/e2e/dialog-placement.spec.ts": "2c0964beae8800cc69ad730875abb604a3dfcc0c6a2a729a4d4aafc28d6ebf1d"
+      "AGENTS.md": "01b1c44789bc3826921551e5203eca8782533472af82471efc19541d10f0137b",
+      "docs/DEPENDENCY_FOLLOWUP.md": "3848090024039b3863677f96f14fd92da1c0dff9f50e16682644c596eeb5733e",
+      "docs/LEARNING_SEQUENCE.md": "03532fd1446a1fbaa7314e5df71246f540284b8dcf616e7a33ac3534c7a3e1db",
+      "docs/reviews/AZ900_LEARNING_JOURNEY_MAP.md": "4cc32832343a0b125eb117e32cc88533dacf0f4c1f08932eaccb0f2ada6d77d0",
+      "docs/reviews/AZ900_REMEDIATION_PLAN.md": "6ce0b783859550afc425727108e48844cd58da5aab5facc7150217ae0184e11e",
+      "docs/screenshots/learning-sequencing/after-hub-1440.png": "1af935a11952243c534f9463f8fe01147b908975eafc0519a781aca95a6667dd",
+      "docs/screenshots/learning-sequencing/after-migration-end-1024x500.png": "318f3d4545d74c8aa3e965ca2c74e6e86711793a705523bf8daa7589f7a502e4",
+      "docs/screenshots/learning-sequencing/after-monitoring-1440.png": "8eb176501278612020b5c80a91f564f04b6a6de5c0e1d5b984a3d4c01e90bc13",
+      "docs/screenshots/learning-sequencing/after-security-1024.png": "f982b2a26a2e7ddd77007b0c690ce6c48f4b29c1aa6d64c8a3839cc4a74b5a67",
+      "docs/screenshots/learning-sequencing/after-storage-resilience-1440.png": "c3b43092da82e656e94681ae47689cbc0a7fff2aa14ac035467ffbed95ffd11f",
+      "docs/screenshots/learning-sequencing/before-monitoring-1440.png": "0bd39b8fe344e7453bf412acaa76488bcb3ade6ef11bb2b9d47f8af29ba04384",
+      "docs/screenshots/learning-sequencing/before-storage-resilience-1440.png": "4e53dac49901bc5ccdde04a640618197c2f606f9e784d5f7fa1d9ece9c938ab4",
+      "playwright.desktop.config.ts": "416707398da728f60c8a3bb249d38ec556f09270fbc493e811897f57490ed999",
+      "src/content/learning-journey.ts": "9594c6ef21ffff5eda0cc48ce26c5c7e0e354e9291036432674997e2b4d07e42",
+      "src/content/nb.ts": "7ea3010a22dfb5d44eaf35e8a95b6e68b7b82a01422369107b461e1e74db9c03",
+      "src/features/course/course-hub.tsx": "59a66713adfdd2ad1d57751e07ce26110dfe35b6d07568df753050853b283d03",
+      "src/features/course/course-journey-context.tsx": "1f2e51ad239496e10f5f348377f531b9dc1a51eb4a7c7badc98f48e2b3054b5b",
+      "src/features/course/course-sequence.test.ts": "290f7499663617c4749d1a5a6bab2b1e0066dd9db11099c315e287585d1bf206",
+      "src/features/course/course-sequence.ts": "c29d46e184a46132613be91387671c676ea898a1687a1768fc8e3221eed08221",
+      "src/features/course/course.css": "8e3c2689d9fe04ad6793a658913f2b8a38bfa346da5e0dc35848f7ff9fe49b13",
+      "src/features/course/course.tsx": "dc3cad094991830b08376fd3089102eda479af16db9e3b75c8eb8eeae10b99b3",
+      "tests/e2e/file-movement-migration.spec.ts": "6e75693997e2855846a059c6d56c7fcde3dcab4f1cf3ef5b48ca14abddcfbdd9",
+      "tests/e2e/learning-sequencing.spec.ts": "a2fe6ba303380f0767ac16a1e871c7da9e6fe8b8f3441ff9e7528eff82c2fa31",
+      "tests/e2e/security-principles.spec.ts": "a131f41a7cd0661616dfb7dc74107a07caa85c3dc1f14265514de04c1550274e"
     }
   },
-  "implementationFinished": "2026-11-01T23:04:40.925Z",
+  "implementationFinished": "2026-11-02T06:35:46.884Z",
   "review": {
     "status": "complete",
-    "fingerprint": "f0b3f54efcc12e07aea4a35744c6410d19079b5109895088cc771728a7e93102",
+    "fingerprint": "d8a963dbacb962646a734f46a12e11ec9504a6a269cbbcefd6e100aba85cf07a",
     "reviewer": {
-      "id": "codex-pr44-independent-final-auditor",
+      "id": "codex-pr45-independent-final-auditor",
       "kind": "agent"
     },
-    "started": "2026-11-01T23:05:03Z",
-    "completed": "2026-11-01T23:07:24.957Z",
+    "started": "2026-11-02T06:36:47Z",
+    "completed": "2026-11-02T06:43:45.274085Z",
     "domains": {
       "content": {
-        "finding": "All earlier source/test/manuscript/bank/store contracts preserved;401 existing src/test files independently compared, only three CSS lines differ. Scoped Portal/MDN claims appropriate; no new curriculum review claimed.",
+        "finding": "Audit42 prerequisite graph supports the owner sequence; all17canonical routes are ordered after their declared introduction dependencies. Independent39export comparison finds exactly3declared available/orientation strings changed, all substantive teaching/assessment objects preserved. No new57objective or blind-bank audit claimed.",
         "evidence": [
           {
-            "path": "docs/DIALOG_PLACEMENT.md"
+            "path": "src/features/course/course-sequence.ts"
           },
           {
             "path": "src/content/nb.ts"
           },
           {
-            "path": "docs/quality/PR44_FINAL_AUDIT.md"
+            "path": "docs/reviews/AZ900_LEARNING_JOURNEY_MAP.md"
+          },
+          {
+            "path": "docs/quality/PR45_FINAL_AUDIT.md"
           }
         ]
       },
       "technical": {
-        "finding": "All13 snapshot hashes and computed fingerprint match. Three-line selector centers ordinary native dialog and explicitly excludes side panels; no JS/state/store changes. Own browser margin0 counterfactual reproduces corner and restores original centered box.",
+        "finding": "Independently verified24stamp hashes/fingerprint and compared402existing src/test files: only6expected existing paths changed. Priority/resume/recommendation and internal activity blocks are byte-preserved. Pure boundary metadata has finite reciprocal canonical routes; direct/versioned/practical navigation remains free; no persistent progress/locks/schema/resource changes.",
         "evidence": [
           {
-            "path": "src/features/portal/portal.css"
+            "path": "src/features/course/course.tsx"
           },
           {
-            "path": "src/features/portal/shared.tsx"
+            "path": "src/features/course/course-sequence.ts"
           },
           {
-            "path": "docs/quality/PR44_FINAL_AUDIT.md"
+            "path": "src/features/course/course-sequence.test.ts"
+          },
+          {
+            "path": "docs/quality/PR45_FINAL_AUDIT.md"
           }
         ]
       },
       "visual": {
-        "finding": "Seven actual images inspected; independent actual bbox, short450px/25px edges, keyboard scroll/Start, long Journal, Tab/ShiftTab/Escape/focus, Axe/reduced motion, real200%browserzoom+doubledtext pass. Human screen-reader/UX unperformed.",
+        "finding": "All7actual images inspected; three catalogue paths and singleStart remain. Fresh6desktop+1compact tests pass keyboard/focus/scroll/reducedmotion/Axe; own1024x500 probe shows semantic orientation focus abovefooter with all content scrollable. HumanUX/screen-reader unperformed.",
         "evidence": [
           {
-            "path": "docs/screenshots/dialog-placement/after-assessment-1440x900.png"
+            "path": "docs/screenshots/learning-sequencing/after-hub-1440.png"
           },
           {
-            "path": "docs/screenshots/dialog-placement/after-assessment-1024x500.png"
+            "path": "docs/screenshots/learning-sequencing/after-migration-end-1024x500.png"
           },
           {
-            "path": "tests/e2e/dialog-placement.spec.ts"
+            "path": "src/features/course/course-journey-context.tsx"
           },
           {
-            "path": "docs/quality/PR44_FINAL_AUDIT.md"
+            "path": "docs/quality/PR45_FINAL_AUDIT.md"
           }
         ]
       },
       "assessment": {
-        "finding": "Banks/rubrics/stores unchanged. Independent execution proves four start-dialog types create no attempt on open/Cancel/Escape; explicit unaided first submission, durable Journal denial, retained draft and immutable old first survive permitted assisted access.",
+        "finding": "Domains/stores/rubrics and assessmentcopy unchanged. Independent browser execution preserves unaidedfirst/exactdraft and denies Journal teaching when durable aid fails. Own realcross-tab change disables stalepeerresume and produces no aid/first/World writes. Old records are not regraded.",
         "evidence": [
           {
-            "path": "tests/e2e/dialog-placement.spec.ts"
+            "path": "tests/e2e/learning-sequencing.spec.ts"
           },
           {
-            "path": "src/features/learning/security-assessment.tsx"
+            "path": "src/domain/curriculum/security.ts"
           },
           {
-            "path": "docs/quality/PR44_FINAL_AUDIT.md"
+            "path": "src/features/course/course.tsx"
+          },
+          {
+            "path": "docs/quality/PR45_FINAL_AUDIT.md"
           }
         ]
       },
       "guidance": {
-        "finding": "No guide code changed. Independently executed native GuidanceWindow/MissionBriefing and header-menu320/800 bounds/focus; intended Notifications/Appearance remain right-side panels. Actual nonempty localRG/receipt World remains byte-identical after overlay actions. Existing author9 affected guidance/assistance journey evidence inspected.",
+        "finding": "Fresh partialSecurity and pausedHubresume retain the same authoritative session and override the new module boundary without credit.11original guidance unit cases pass including cause/complete behavior; nativepractical Start/Portalreturn passes. Guide/Portal engines and their assistance guards remain byte-preserved.",
         "evidence": [
           {
-            "path": "tests/e2e/dialog-placement.spec.ts"
+            "path": "src/features/course/learning-flow.ts"
           },
           {
-            "path": "tests/e2e/learning-flow-guidance.spec.ts"
+            "path": "src/features/course/guided-learning.tsx"
           },
           {
-            "path": "src/features/portal/guide-recovery.css"
+            "path": "tests/e2e/learning-sequencing.spec.ts"
           },
           {
-            "path": "docs/quality/PR44_FINAL_AUDIT.md"
+            "path": "docs/quality/PR45_FINAL_AUDIT.md"
           }
         ]
       },
       "regression": {
-        "finding": "Auditor8desktop/1compact pass exit0 without retry; own four-check browser probe passes. Author fullcheck log inspected583Vitest/482curriculum/18Node/123docs/build.274profile retains all265 old executions/settings; legacy506. Exact-head fullCI/strict and finalSHA anonymous Gate7 remain pending delivery.",
+        "finding": "Independent15unit/6desktop/1compact allpassed, no retry; separate3check nonemptyWorld/shortfocus/corruptrecovery/cross-tabprobe passed. Actual plan281(259/22), all274inherited retained, legacy518/settings/pins unchanged. Old2navigation tests align only new origins/successors; source/grouping/history assertions retained. Exacthead fullCI/strict and deployedSHA Gate7 remain pending delivery.",
         "evidence": [
+          {
+            "path": "src/features/course/course-sequence.test.ts"
+          },
+          {
+            "path": "tests/e2e/learning-sequencing.spec.ts"
+          },
           {
             "path": "playwright.desktop.config.ts"
           },
           {
-            "path": "tests/e2e/dialog-placement.spec.ts"
-          },
-          {
-            "path": "docs/quality/PR44_FINAL_AUDIT.md"
+            "path": "docs/quality/PR45_FINAL_AUDIT.md"
           }
         ]
       }
     },
     "findings": [
       {
-        "id": "PR44-AUDIT-N01",
+        "id": "PR45-AUDIT-N01",
         "severity": "note",
-        "description": "Full exact-head274CI and strict release plus anonymous final-SHA Gate7 are pending delivery at audit completion; no local/audit pass substitutes for them. Human validation unperformed.",
+        "description": "At review completion actual complete281candidateCI/strict and anonymous deployed final-SHA Gate7 remain pending. Local/targeted passes and Ready status cannot substitute for delivery execution.",
         "status": "open"
       }
     ],
     "report": {
-      "path": "docs/quality/PR44_FINAL_AUDIT.md"
+      "path": "docs/quality/PR45_FINAL_AUDIT.md"
     }
   }
 }

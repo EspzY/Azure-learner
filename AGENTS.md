@@ -1,5 +1,9 @@
 # AzureLab engineering contract
 
+## PR45 sequencing continuity
+
+Read [LEARNING_SEQUENCE](docs/LEARNING_SEQUENCE.md). course-sequence is pure navigation metadata over17canonical routes, separate from the three unchanged catalogue paths and original authoritative resume/guide priority. Security follows Monitoring; Migration follows Security and ends at Hub. No completion/prerequisite locks, new progress engine, schemas, rubric changes or history migration. Preserve original teaching/assessment objects except three explicit available/orientation strings. Legacyv1 terminal returns and practical origins remain. Retain274old browser executions;6desktop+1compact yield281 (259/22), legacy518 optional; settings unchanged. Fresh post-stamp risk-based audit, exact-head CI/strict and anonymous full-SHA journey required. Dependency follow-up remains separate. Next AS-01, then UX-02; no P17/P18, merge or production.
+
 ## PR44 dialog continuity
 
 Read [DIALOG_PLACEMENT](docs/DIALOG_PLACEMENT.md). Ordinary native PortalDialog owns auto margin; explicitly exclude portal-side-panel. Preserve native SavvyShark and PR43 header recovery anchoring, all focus/Escape/durable assistance and historical contracts. No new modal engine/state/schema. Retain265 old browser executions; nine justified new cases yield274 (253desktop/21compact), optional legacy506. No changed workers/retries/timeouts/skips. Separate post-stamp six-domain risk-based audit, exact-head CI/strict and anonymous deployed full-SHA journey required. Next LJ-02, then AS-01/UX-02; no P17/P18, merge or production.
