@@ -1,3 +1,7 @@
+# PR47 — Collapsible Official Sources, kandidat
+
+[UX-02-implementasjon og faktiske før/etter-mål](COLLAPSIBLE_SOURCES.md): én lukket native kildeinngang i 13 moderne moduler og relevante eldre/Core/Serverless/Portal-/Journal-flater. Uendrede kilderegistre/claims/datoer og alle tidligere historikk-/teaching-grenser. Synlig Summary-kildeareal redusert 89,6–93,0 %, Journal-eksempel 92,8 %. Full296 eksakt-head CI, separat audit, streng release og faktisk anonym full-SHA Gate7 føres på Draft PR47 før godkjenning. Menneskelig validering uutført. Neste er kort eiergjennomgang av PD-01, AS-02, PR-01 og menneskelig pilot; ingen automatisk P17/P18, merge eller produksjon. Historiske statusavsnitt nedenfor er versjonsbundet.
+
 # PR46 — Assessment Quality & Transfer
 
 Versjonerte Benefits2/Services3-etterfølgere er implementert med isolert durable historikk, parvis årsaksvurdering, eksplisitt historisk tilgang og bevarte gamle rubrics/firsts. Se [avgrensning og faktisk verifikasjonskrav](ASSESSMENT_REFINEMENT.md). Låst blindreview før nøkkelsammenligning førte til substansielle alternativ- og presisjonsrettinger. Endelig CI/strict og anonym Gate7 føres på Draft PR46; lokale tester eller Ready er ikke endelig godkjenning. Neste UX-02, deretter resterende P2/AS-02; ingen P17/P18, merge eller produksjon. Menneskelig validering uutført.

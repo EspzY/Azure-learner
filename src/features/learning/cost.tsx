@@ -1,4 +1,5 @@
 'use client';
+import { SourceDisclosure } from './source-disclosure';
 import { GuidedMissionLink } from '@/features/course/guided-mission-link';
 import { useCallback, useEffect, useState } from 'react';
 import Link from 'next/link';
@@ -237,18 +238,11 @@ export function CostSources({ topic }: { topic?: keyof typeof costStudySources }
     ? costStudySources[topic]
     : (Object.keys(costSources) as (keyof typeof costSources)[]);
   return (
-    <section className="cost-sources">
-      <h3>{c.sources}</h3>
-      <ul>
-        {ids.map((id) => (
-          <li key={id}>
-            <a href={costSources[id][1]} target="_blank" rel="noreferrer">
-              {id} · {costSources[id][0]} ↗
-            </a>
-          </li>
-        ))}
-      </ul>
-      <p>{c.human}</p>
+    <section className="cost-sources source-section">
+      <SourceDisclosure
+        entries={ids.map((id) => ({ id, url: costSources[id][1], title: costSources[id][0] }))}
+      />
+      <p className="source-context">{c.human}</p>
     </section>
   );
 }

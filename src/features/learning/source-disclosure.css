@@ -1,0 +1,55 @@
+.source-section.compute-sources,
+.source-section.cost-sources,
+.source-section.sl-sources,
+.source-section.pa-sources {
+  margin: 24px 0;
+  padding: 0;
+  border: 0;
+  background: none;
+}
+details.source-disclosure {
+  min-width: 0;
+  margin: 20px 0;
+  border-top: 1px solid #d4dfe8;
+  color: #324b60;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+details.source-disclosure > summary {
+  padding: 12px 4px;
+  cursor: pointer;
+  font-weight: 600;
+}
+details.source-disclosure > summary:focus-visible {
+  outline: 2px solid #0067b8;
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+.source-count {
+  font-weight: 400;
+}
+details.source-disclosure > ul.source-list {
+  display: block;
+  columns: 1;
+  margin: 0;
+  padding: 0 0 8px 24px;
+}
+details.source-disclosure > ul.source-list > li {
+  margin: 10px 0;
+}
+.source-disclosure a {
+  color: #005a9e;
+  overflow-wrap: anywhere;
+}
+.source-disclosure small {
+  display: block;
+  color: #455d70;
+}
+.source-note {
+  margin: 0 4px 12px;
+}
+.source-context {
+  font-size: 0.875rem;
+  color: #455d70;
+}

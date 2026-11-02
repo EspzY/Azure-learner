@@ -1,4 +1,5 @@
 'use client';
+import { SourceDisclosure } from './source-disclosure';
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { architectureNb as c, managementNb } from '@/content/nb';
@@ -853,20 +854,17 @@ function PhysicalSummary() {
     </section>
   );
 }
-function PhysicalSources() {
+export function PhysicalSources() {
   return (
-    <section className="pa-sources">
-      <h3>{c.sources}</h3>
-      <p>{c.sourceReview}</p>
-      <ul>
-        {Object.entries(physicalSources).map(([id, path]) => (
-          <li key={id}>
-            <a href={`https://learn.microsoft.com/en-us/${path}`} target="_blank" rel="noreferrer">
-              {id} · {path.split('/').filter(Boolean).at(-1)} ↗
-            </a>
-          </li>
-        ))}
-      </ul>
+    <section className="pa-sources source-section">
+      <SourceDisclosure
+        entries={Object.entries(physicalSources).map(([id, path]) => ({
+          id,
+          url: 'https://learn.microsoft.com/en-us/' + path,
+          title: path.split('/').filter(Boolean).at(-1),
+        }))}
+      />
+      <p className="source-context">{c.sourceReview}</p>
       <p>{c.locationLimit}</p>
     </section>
   );

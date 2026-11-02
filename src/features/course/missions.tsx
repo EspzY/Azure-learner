@@ -1,4 +1,5 @@
 'use client';
+import { SourceDisclosure } from '@/features/learning/source-disclosure';
 import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
@@ -234,21 +235,17 @@ export function MissionEntry({ id }: { id: MissionId }) {
           }}
         />
       )}
-      <details className="mission-sources">
-        <summary>{nb.expansion.common.sources}</summary>
-        <p>
-          {missionReviewDate} · {nb.expansion.common.review}
-        </p>
-        <ul>
-          {missionDefinitions[id].sources.map((source) => (
-            <li key={source}>
-              <a href={missionSources[source]} target="_blank" rel="noreferrer">
-                {source} · Microsoft Learn ↗
-              </a>
-            </li>
-          ))}
-        </ul>
-      </details>
+      <SourceDisclosure
+        entries={missionDefinitions[id].sources.map((source) => ({
+          id: source,
+          url: missionSources[source],
+        }))}
+        note={
+          <>
+            {missionReviewDate} · {nb.expansion.common.review}
+          </>
+        }
+      />
       {m.sessions.some((s) => s.mission === id && s.status !== 'active') && (
         <details>
           <summary>{c.history}</summary>

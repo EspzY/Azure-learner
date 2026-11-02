@@ -1,273 +1,94 @@
 {
   "schema": 1,
-  "id": "PR46-assessment-quality-transfer",
-  "baseCommit": "5a6c4314edd8d41aa416436a4a91bfa9447be98f",
-  "author": "codex-assessment46-author",
+  "id": "PR47-collapsible-official-sources",
+  "baseCommit": "baf68a90d80cb22b0397a5a34e9c20809110eb84",
+  "author": "codex-source47-author",
   "scope": {
-    "kind": "assessment-successor",
-    "description": "AS-01: substantively improved Benefits2/Services3 paired scenarios, isolated durable histories, preserved old active/first/rubric/route contracts.",
-    "objectives": ["assessment.benefits", "assessment.services"]
+    "kind": "source-presentation",
+    "description": "UX-02: consistent closed native source disclosures across existing course and Journal surfaces; original source/evidence content unchanged.",
+    "objectives": ["presentation.sources"]
   },
   "sources": [
     {
-      "id": "AQ-study",
+      "id": "UX47-study",
       "url": "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900",
       "title": "Study guide for Exam AZ-900: Microsoft Azure Fundamentals | Microsoft Learn",
       "reviewed": "2026-11-02",
       "version": "Rolling public page retrieved2026-11-02 SHA256 58bee7dadd3426094ab189375b86b07f9c59111037529e42176150b53ee821ee",
       "kind": "official-public-documentation",
-      "objectives": ["assessment.benefits", "assessment.services"],
-      "claims": ["assessment.scope"],
+      "objectives": ["presentation.sources"],
+      "claims": ["presentation.existing-scope"],
       "availability": "AVAILABLE",
-      "limits": "Only mapped concepts, not protected assessment content, universal failover/carbon assertions or guaranteed runtime outcomes. Synthetic numbers and scenario constraints are authored premises; no live Azure measurements.",
+      "limits": "Context for preserved Azure scope and Portal teaching only. These documents do not specify the authored disclosure UI. No new Azure claims or dates assigned to existing sources; all source/domain data remain byte-identical.",
       "discovery": [
         {
           "url": "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900",
-          "disposition": "reviewed-essential",
-          "reason": "Actual public technical text reviewed for bounded authored scenario claims; assessment questions not opened/copied."
+          "disposition": "reviewed-context",
+          "reason": "Actual public scope/Portal content inspected. Source preservation, not a new57-objective source audit; presentation behavior is verified by component/browser tests."
         }
       ]
     },
     {
-      "id": "AQ-benefits",
-      "url": "https://learn.microsoft.com/en-us/training/modules/describe-benefits-use-cloud-services/",
-      "title": "Describe the benefits of using cloud services - Training | Microsoft Learn",
+      "id": "UX47-portal",
+      "url": "https://learn.microsoft.com/en-us/azure/azure-portal/azure-portal-overview",
+      "title": "What is the Azure portal? - Azure portal | Microsoft Learn",
       "reviewed": "2026-11-02",
-      "version": "Rolling public page retrieved2026-11-02 SHA256 946ea7427d8f83d8401a6465baf55b5b16a358f74ff7ca806c65f8a595c305bc",
+      "version": "Rolling public page retrieved2026-11-02 SHA256 4fc74270f0edfa683482cb2b90f4ce661cf5cc0ea94210ebe132a8139b0a059e",
       "kind": "official-public-documentation",
-      "objectives": ["assessment.benefits"],
-      "claims": [
-        "assessment.b-capacity",
-        "assessment.b-recovery",
-        "assessment.b-rule",
-        "assessment.b-template",
-        "assessment.b-footprint",
-        "assessment.b-estimate"
-      ],
+      "objectives": ["presentation.sources"],
+      "claims": ["presentation.existing-scope"],
       "availability": "AVAILABLE",
-      "limits": "Only mapped concepts, not protected assessment content, universal failover/carbon assertions or guaranteed runtime outcomes. Synthetic numbers and scenario constraints are authored premises; no live Azure measurements.",
+      "limits": "Context for preserved Azure scope and Portal teaching only. These documents do not specify the authored disclosure UI. No new Azure claims or dates assigned to existing sources; all source/domain data remain byte-identical.",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/training/modules/describe-benefits-use-cloud-services/",
-          "disposition": "reviewed-essential",
-          "reason": "Actual public technical text reviewed for bounded authored scenario claims; assessment questions not opened/copied."
-        },
-        {
-          "url": "https://learn.microsoft.com/en-us/training/modules/describe-benefits-use-cloud-services/1-introduction",
-          "disposition": "reviewed-applied",
-          "reason": "Public unit text reviewed; original case assumptions distinguish capacity/recovery, evidence limits and retained customer responsibilities."
-        },
-        {
-          "url": "https://learn.microsoft.com/en-us/training/modules/describe-benefits-use-cloud-services/2-high-availability-scalability-cloud",
-          "disposition": "reviewed-applied",
-          "reason": "Public unit text reviewed; original case assumptions distinguish capacity/recovery, evidence limits and retained customer responsibilities."
-        },
-        {
-          "url": "https://learn.microsoft.com/en-us/training/modules/describe-benefits-use-cloud-services/3-reliability-predictability-cloud",
-          "disposition": "reviewed-applied",
-          "reason": "Public unit text reviewed; original case assumptions distinguish capacity/recovery, evidence limits and retained customer responsibilities."
-        },
-        {
-          "url": "https://learn.microsoft.com/en-us/training/modules/describe-benefits-use-cloud-services/4-security-governance-cloud",
-          "disposition": "reviewed-applied",
-          "reason": "Public unit text reviewed; original case assumptions distinguish capacity/recovery, evidence limits and retained customer responsibilities."
-        },
-        {
-          "url": "https://learn.microsoft.com/en-us/training/modules/describe-benefits-use-cloud-services/5-manageability-cloud",
-          "disposition": "reviewed-applied",
-          "reason": "Public unit text reviewed; original case assumptions distinguish capacity/recovery, evidence limits and retained customer responsibilities."
-        },
-        {
-          "url": "https://learn.microsoft.com/en-us/training/modules/describe-benefits-use-cloud-services/5a-describe-sustainability-cloud",
-          "disposition": "reviewed-applied",
-          "reason": "Public unit text reviewed; original case assumptions distinguish capacity/recovery, evidence limits and retained customer responsibilities."
-        },
-        {
-          "url": "https://learn.microsoft.com/en-us/training/modules/describe-benefits-use-cloud-services/7-summary",
-          "disposition": "reviewed-applied",
-          "reason": "Public unit text reviewed; original case assumptions distinguish capacity/recovery, evidence limits and retained customer responsibilities."
-        }
-      ]
-    },
-    {
-      "id": "AQ-services",
-      "url": "https://learn.microsoft.com/en-us/training/modules/describe-cloud-service-types/",
-      "title": "Describe Cloud Service Types - Training | Microsoft Learn",
-      "reviewed": "2026-11-02",
-      "version": "Rolling public page retrieved2026-11-02 SHA256 d3dd5a32f1608d66c25f3d7474b21a16e1ef85ae9348318ce31dd2d450ac5db9",
-      "kind": "official-public-documentation",
-      "objectives": ["assessment.services"],
-      "claims": [
-        "assessment.s-driver",
-        "assessment.s-patching",
-        "assessment.s-runtime",
-        "assessment.s-departure",
-        "assessment.s-choice",
-        "assessment.s-plan"
-      ],
-      "availability": "AVAILABLE",
-      "limits": "Only mapped concepts, not protected assessment content, universal failover/carbon assertions or guaranteed runtime outcomes. Synthetic numbers and scenario constraints are authored premises; no live Azure measurements.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/training/modules/describe-cloud-service-types/",
-          "disposition": "reviewed-essential",
-          "reason": "Actual public technical text reviewed for bounded authored scenario claims; assessment questions not opened/copied."
-        },
-        {
-          "url": "https://learn.microsoft.com/en-us/training/modules/describe-cloud-service-types/1-introduction",
-          "disposition": "reviewed-applied",
-          "reason": "Public unit text reviewed; original case assumptions distinguish capacity/recovery, evidence limits and retained customer responsibilities."
-        },
-        {
-          "url": "https://learn.microsoft.com/en-us/training/modules/describe-cloud-service-types/2-describe-infrastructure-service",
-          "disposition": "reviewed-applied",
-          "reason": "Public unit text reviewed; original case assumptions distinguish capacity/recovery, evidence limits and retained customer responsibilities."
-        },
-        {
-          "url": "https://learn.microsoft.com/en-us/training/modules/describe-cloud-service-types/3-describe-platform-service",
-          "disposition": "reviewed-applied",
-          "reason": "Public unit text reviewed; original case assumptions distinguish capacity/recovery, evidence limits and retained customer responsibilities."
-        },
-        {
-          "url": "https://learn.microsoft.com/en-us/training/modules/describe-cloud-service-types/4-describe-software-service",
-          "disposition": "reviewed-applied",
-          "reason": "Public unit text reviewed; original case assumptions distinguish capacity/recovery, evidence limits and retained customer responsibilities."
-        },
-        {
-          "url": "https://learn.microsoft.com/en-us/training/modules/describe-cloud-service-types/6-summary",
-          "disposition": "reviewed-applied",
-          "reason": "Public unit text reviewed; original case assumptions distinguish capacity/recovery, evidence limits and retained customer responsibilities."
-        }
-      ]
-    },
-    {
-      "id": "AQ-responsibility",
-      "url": "https://learn.microsoft.com/en-us/azure/security/fundamentals/shared-responsibility",
-      "title": "Shared responsibility in the cloud - Microsoft Azure | Microsoft Learn",
-      "reviewed": "2026-11-02",
-      "version": "Rolling public page retrieved2026-11-02 SHA256 d3c9ff39ebcd87cb526f25250a6427a0008462387d7df4447d10ff6c66c81846",
-      "kind": "official-public-documentation",
-      "objectives": ["assessment.services"],
-      "claims": [
-        "assessment.s-driver",
-        "assessment.s-patching",
-        "assessment.s-runtime",
-        "assessment.s-departure",
-        "assessment.s-choice"
-      ],
-      "availability": "AVAILABLE",
-      "limits": "Only mapped concepts, not protected assessment content, universal failover/carbon assertions or guaranteed runtime outcomes. Synthetic numbers and scenario constraints are authored premises; no live Azure measurements.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/security/fundamentals/shared-responsibility",
-          "disposition": "reviewed-essential",
-          "reason": "Actual public technical text reviewed for bounded authored scenario claims; assessment questions not opened/copied."
-        }
-      ]
-    },
-    {
-      "id": "AQ-plan",
-      "url": "https://learn.microsoft.com/en-us/azure/app-service/overview-hosting-plans",
-      "title": "Azure App Service Plans - Azure App Service | Microsoft Learn",
-      "reviewed": "2026-11-02",
-      "version": "Rolling public page retrieved2026-11-02 SHA256 1d6ef5ba99802096dc174066666b96e7281a0c9227863cc9065776b198e031bf",
-      "kind": "official-public-documentation",
-      "objectives": ["assessment.services"],
-      "claims": ["assessment.s-plan"],
-      "availability": "AVAILABLE",
-      "limits": "Only mapped concepts, not protected assessment content, universal failover/carbon assertions or guaranteed runtime outcomes. Synthetic numbers and scenario constraints are authored premises; no live Azure measurements.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/app-service/overview-hosting-plans",
-          "disposition": "reviewed-essential",
-          "reason": "Actual public technical text reviewed for bounded authored scenario claims; assessment questions not opened/copied."
-        }
-      ]
-    },
-    {
-      "id": "AQ-wa",
-      "url": "https://learn.microsoft.com/en-us/azure/well-architected/reliability/",
-      "title": "Reliability quick links - Microsoft Azure Well-Architected Framework | Microsoft Learn",
-      "reviewed": "2026-11-02",
-      "version": "Rolling public page retrieved2026-11-02 SHA256 a4be87856acc214785e79d6cdb04e5a93de95a3ad6857696c5cc4aaea879577a",
-      "kind": "official-public-documentation",
-      "objectives": ["assessment.benefits"],
-      "claims": ["assessment.b-recovery"],
-      "availability": "AVAILABLE",
-      "limits": "Only mapped concepts, not protected assessment content, universal failover/carbon assertions or guaranteed runtime outcomes. Synthetic numbers and scenario constraints are authored premises; no live Azure measurements.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/well-architected/reliability/",
-          "disposition": "reviewed-essential",
-          "reason": "Actual public technical text reviewed for bounded authored scenario claims; assessment questions not opened/copied."
-        }
-      ]
-    },
-    {
-      "id": "AQ-sustainability",
-      "url": "https://learn.microsoft.com/en-us/azure/well-architected/sustainability/sustainability-design-principles",
-      "title": "Sustainable workloads on Azure - Microsoft Azure Well-Architected Framework | Microsoft Learn",
-      "reviewed": "2026-11-02",
-      "version": "Rolling public page retrieved2026-11-02 SHA256 438d7c11c193d8eebea6979e46e79da347110291845a4b8c7d40082e8ccd497c",
-      "kind": "official-public-documentation",
-      "objectives": ["assessment.benefits"],
-      "claims": ["assessment.b-footprint"],
-      "availability": "AVAILABLE",
-      "limits": "Only mapped concepts, not protected assessment content, universal failover/carbon assertions or guaranteed runtime outcomes. Synthetic numbers and scenario constraints are authored premises; no live Azure measurements.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/well-architected/sustainability/sustainability-design-principles",
-          "disposition": "reviewed-essential",
-          "reason": "Actual public technical text reviewed for bounded authored scenario claims; assessment questions not opened/copied."
+          "url": "https://learn.microsoft.com/en-us/azure/azure-portal/azure-portal-overview",
+          "disposition": "reviewed-context",
+          "reason": "Actual public scope/Portal content inspected. Source preservation, not a new57-objective source audit; presentation behavior is verified by component/browser tests."
         }
       ]
     }
   ],
   "activities": [
     {
-      "id": "assessment-benefits",
-      "objectives": ["assessment.benefits"],
-      "claims": [
-        "assessment.b-capacity",
-        "assessment.b-recovery",
-        "assessment.b-rule",
-        "assessment.b-template",
-        "assessment.b-footprint",
-        "assessment.b-estimate"
-      ],
-      "assessmentStatus": "new-independent",
-      "limits": "Six successor cases in an existing module, not new AZ900 targets/general exam engine. Frozen old rubrics/records and Cloud Transfer preserved. Human validation unperformed.",
+      "id": "source-presentation",
+      "objectives": ["presentation.sources"],
+      "claims": ["presentation.existing-scope"],
+      "assessmentStatus": "unchanged-existing",
+      "limits": "Presentation only. No source/rubric/schema/claim/evidence changes; native disclosure never replaces durable teaching boundaries.",
       "theory": [
         {
-          "path": "docs/ASSESSMENT_REFINEMENT.md"
+          "path": "docs/COLLAPSIBLE_SOURCES.md"
         }
       ],
       "mechanism": [
         {
-          "path": "src/domain/curriculum/refined-assessment.ts"
+          "path": "src/features/learning/source-disclosure.tsx"
         },
         {
-          "path": "src/domain/curriculum/refined-assessment-store.ts"
+          "path": "src/features/learning/source-disclosure.css"
         }
       ],
       "practice": [
         {
-          "path": "tests/e2e/assessment-refinement.spec.ts"
+          "path": "tests/e2e/collapsible-sources.spec.ts"
         }
       ],
       "feedback": [
         {
-          "path": "src/content/nb.ts"
+          "path": "src/features/learning/cloud-transfer.tsx"
         }
       ],
       "visual": [
         {
-          "path": "docs/screenshots/assessment-refinement/active-benefits-1440x900.png"
+          "path": "docs/screenshots/collapsible-sources/after-security-1440.png"
+        },
+        {
+          "path": "docs/screenshots/collapsible-sources/after-journal-1440.png"
         }
       ],
       "accessible": [
         {
-          "path": "tests/e2e/assessment-refinement.spec.ts"
+          "path": "tests/e2e/collapsible-sources.spec.ts"
         }
       ],
       "assessment": [
@@ -275,106 +96,42 @@
           "path": "src/domain/curriculum/refined-assessment.test.ts"
         },
         {
-          "path": "src/content/nb.ts"
+          "path": "tests/e2e/assessment-refinement.spec.ts"
         }
       ],
       "savvyshark": [
         {
-          "path": "src/features/course/mission-context.ts"
-        },
-        {
-          "path": "src/features/portal/portal.tsx"
-        }
-      ]
-    },
-    {
-      "id": "assessment-services",
-      "objectives": ["assessment.services"],
-      "claims": [
-        "assessment.s-driver",
-        "assessment.s-patching",
-        "assessment.s-runtime",
-        "assessment.s-departure",
-        "assessment.s-choice",
-        "assessment.s-plan"
-      ],
-      "assessmentStatus": "new-independent",
-      "limits": "Six successor cases in an existing module, not new AZ900 targets/general exam engine. Frozen old rubrics/records and Cloud Transfer preserved. Human validation unperformed.",
-      "theory": [
-        {
-          "path": "docs/ASSESSMENT_REFINEMENT.md"
-        }
-      ],
-      "mechanism": [
-        {
-          "path": "src/domain/curriculum/refined-assessment.ts"
-        },
-        {
-          "path": "src/domain/curriculum/refined-assessment-store.ts"
-        }
-      ],
-      "practice": [
-        {
-          "path": "tests/e2e/assessment-refinement.spec.ts"
-        }
-      ],
-      "feedback": [
-        {
-          "path": "src/content/nb.ts"
-        }
-      ],
-      "visual": [
-        {
-          "path": "docs/screenshots/assessment-refinement/active-services-1024x500.png"
-        }
-      ],
-      "accessible": [
-        {
-          "path": "tests/e2e/assessment-refinement.spec.ts"
-        }
-      ],
-      "assessment": [
-        {
-          "path": "src/domain/curriculum/refined-assessment.test.ts"
-        },
-        {
-          "path": "src/content/nb.ts"
-        }
-      ],
-      "savvyshark": [
-        {
-          "path": "src/features/course/mission-context.ts"
-        },
-        {
-          "path": "src/features/portal/portal.tsx"
+          "path": "tests/e2e/learning-flow-guidance.spec.ts"
         }
       ]
     }
   ],
   "modules": [],
   "preservedPaths": [
-    "src/domain/curriculum/expansion.ts",
-    "src/domain/curriculum/expansion-store.ts",
-    "src/domain/curriculum/expansion-content.ts",
-    "src/domain/curriculum/expansion-models.ts",
-    "src/domain/curriculum/transfer.ts",
-    "src/domain/curriculum/transfer-store.ts",
-    "src/domain/sandbox/",
-    "src/domain/portal/",
-    "src/domain/course/",
-    "public/",
-    "scripts/",
-    ".github/",
-    "package-lock.json",
-    "playwright.config.ts",
+    "src/domain/",
+    "src/features/learning/management-access.tsx",
+    "src/features/learning/refined-assessment.tsx",
+    "src/features/learning/refined-assessment-provider.tsx",
+    "src/features/course/course.tsx",
     "src/features/course/course-sequence.ts",
     "src/features/course/course-navigation.tsx",
     "src/features/course/learning-flow.ts",
+    "src/features/course/course-hub.tsx",
     "src/features/course/course-outline.ts",
     "src/features/course/course-sidebar.tsx",
+    "src/features/portal/portal.tsx",
+    "src/features/portal/shared.tsx",
+    "src/features/portal/portal.css",
+    "public/",
+    "scripts/",
+    ".github/",
+    "package.json",
+    "package-lock.json",
+    "playwright.config.ts",
     "tests/e2e/learning-flow-guidance.spec.ts",
     "tests/e2e/dialog-placement.spec.ts",
     "tests/e2e/learning-sequencing.spec.ts",
+    "tests/e2e/assessment-refinement.spec.ts",
     "docs/AZ900_COVERAGE_MATRIX.md",
     "docs/audits/az900-2026-07-20.json",
     "docs/reviews/AZ900_END_TO_END_AUDIT.md",
@@ -384,169 +141,183 @@
     "source": {
       "checks": [
         {
-          "path": "docs/ASSESSMENT_REFINEMENT.md"
+          "path": "docs/COLLAPSIBLE_SOURCES.md"
         },
         {
-          "path": "src/domain/curriculum/refined-assessment.test.ts"
+          "path": "src/features/learning/source-disclosure.test.ts"
         },
         {
-          "path": "tests/e2e/assessment-refinement.spec.ts"
+          "path": "tests/e2e/collapsible-sources.spec.ts"
         }
       ],
-      "limits": "Two bounded versioned successors. Original expansion/transfer/World/receipt/XP semantics and PR43-45 contracts preserved. Final stamped independent audit, complete exact-head290CI/strict and actual anonymous fullSHA Gate7 are distinct delivery requirements; no Ready/local-only approval. Humans unperformed."
+      "limits": "UX-02 bibliography presentation only. Original source registries, learner histories, teaching/durable-aid boundaries and all PR43–46 navigation/guidance/modal/version contracts preserved. Fresh stamped independent audit, exact-head complete296CI/strict and actual anonymous fullSHA Gate7 required; no Ready/local-only acceptance. Humans unperformed."
     },
     "curriculum": {
       "checks": [
         {
-          "path": "docs/ASSESSMENT_REFINEMENT.md"
+          "path": "docs/COLLAPSIBLE_SOURCES.md"
         },
         {
-          "path": "src/domain/curriculum/refined-assessment.test.ts"
+          "path": "src/features/learning/source-disclosure.test.ts"
         },
         {
-          "path": "tests/e2e/assessment-refinement.spec.ts"
+          "path": "tests/e2e/collapsible-sources.spec.ts"
         }
       ],
-      "limits": "Two bounded versioned successors. Original expansion/transfer/World/receipt/XP semantics and PR43-45 contracts preserved. Final stamped independent audit, complete exact-head290CI/strict and actual anonymous fullSHA Gate7 are distinct delivery requirements; no Ready/local-only approval. Humans unperformed."
+      "limits": "UX-02 bibliography presentation only. Original source registries, learner histories, teaching/durable-aid boundaries and all PR43–46 navigation/guidance/modal/version contracts preserved. Fresh stamped independent audit, exact-head complete296CI/strict and actual anonymous fullSHA Gate7 required; no Ready/local-only acceptance. Humans unperformed."
     },
     "simulation": {
       "checks": [
         {
-          "path": "docs/ASSESSMENT_REFINEMENT.md"
+          "path": "docs/COLLAPSIBLE_SOURCES.md"
         },
         {
-          "path": "src/domain/curriculum/refined-assessment.test.ts"
+          "path": "src/features/learning/source-disclosure.test.ts"
         },
         {
-          "path": "tests/e2e/assessment-refinement.spec.ts"
+          "path": "tests/e2e/collapsible-sources.spec.ts"
         }
       ],
-      "limits": "Two bounded versioned successors. Original expansion/transfer/World/receipt/XP semantics and PR43-45 contracts preserved. Final stamped independent audit, complete exact-head290CI/strict and actual anonymous fullSHA Gate7 are distinct delivery requirements; no Ready/local-only approval. Humans unperformed."
+      "limits": "UX-02 bibliography presentation only. Original source registries, learner histories, teaching/durable-aid boundaries and all PR43–46 navigation/guidance/modal/version contracts preserved. Fresh stamped independent audit, exact-head complete296CI/strict and actual anonymous fullSHA Gate7 required; no Ready/local-only acceptance. Humans unperformed."
     },
     "savvyshark": {
       "checks": [
         {
-          "path": "docs/ASSESSMENT_REFINEMENT.md"
+          "path": "docs/COLLAPSIBLE_SOURCES.md"
         },
         {
-          "path": "src/domain/curriculum/refined-assessment.test.ts"
+          "path": "src/features/learning/source-disclosure.test.ts"
         },
         {
-          "path": "tests/e2e/assessment-refinement.spec.ts"
+          "path": "tests/e2e/collapsible-sources.spec.ts"
         }
       ],
-      "limits": "Two bounded versioned successors. Original expansion/transfer/World/receipt/XP semantics and PR43-45 contracts preserved. Final stamped independent audit, complete exact-head290CI/strict and actual anonymous fullSHA Gate7 are distinct delivery requirements; no Ready/local-only approval. Humans unperformed."
+      "limits": "UX-02 bibliography presentation only. Original source registries, learner histories, teaching/durable-aid boundaries and all PR43–46 navigation/guidance/modal/version contracts preserved. Fresh stamped independent audit, exact-head complete296CI/strict and actual anonymous fullSHA Gate7 required; no Ready/local-only acceptance. Humans unperformed."
     },
     "visual-accessibility": {
       "checks": [
         {
-          "path": "docs/ASSESSMENT_REFINEMENT.md"
+          "path": "docs/COLLAPSIBLE_SOURCES.md"
         },
         {
-          "path": "src/domain/curriculum/refined-assessment.test.ts"
+          "path": "src/features/learning/source-disclosure.test.ts"
         },
         {
-          "path": "tests/e2e/assessment-refinement.spec.ts"
+          "path": "tests/e2e/collapsible-sources.spec.ts"
         }
       ],
-      "limits": "Two bounded versioned successors. Original expansion/transfer/World/receipt/XP semantics and PR43-45 contracts preserved. Final stamped independent audit, complete exact-head290CI/strict and actual anonymous fullSHA Gate7 are distinct delivery requirements; no Ready/local-only approval. Humans unperformed."
+      "limits": "UX-02 bibliography presentation only. Original source registries, learner histories, teaching/durable-aid boundaries and all PR43–46 navigation/guidance/modal/version contracts preserved. Fresh stamped independent audit, exact-head complete296CI/strict and actual anonymous fullSHA Gate7 required; no Ready/local-only acceptance. Humans unperformed."
     },
     "independent-final-audit": {
       "checks": [
         {
-          "path": "docs/ASSESSMENT_REFINEMENT.md"
+          "path": "docs/COLLAPSIBLE_SOURCES.md"
         },
         {
-          "path": "src/domain/curriculum/refined-assessment.test.ts"
+          "path": "src/features/learning/source-disclosure.test.ts"
         },
         {
-          "path": "tests/e2e/assessment-refinement.spec.ts"
+          "path": "tests/e2e/collapsible-sources.spec.ts"
         }
       ],
-      "limits": "Two bounded versioned successors. Original expansion/transfer/World/receipt/XP semantics and PR43-45 contracts preserved. Final stamped independent audit, complete exact-head290CI/strict and actual anonymous fullSHA Gate7 are distinct delivery requirements; no Ready/local-only approval. Humans unperformed."
+      "limits": "UX-02 bibliography presentation only. Original source registries, learner histories, teaching/durable-aid boundaries and all PR43–46 navigation/guidance/modal/version contracts preserved. Fresh stamped independent audit, exact-head complete296CI/strict and actual anonymous fullSHA Gate7 required; no Ready/local-only acceptance. Humans unperformed."
     },
     "delivery": {
       "checks": [
         {
-          "path": "docs/ASSESSMENT_REFINEMENT.md"
+          "path": "docs/COLLAPSIBLE_SOURCES.md"
         },
         {
-          "path": "src/domain/curriculum/refined-assessment.test.ts"
+          "path": "src/features/learning/source-disclosure.test.ts"
         },
         {
-          "path": "tests/e2e/assessment-refinement.spec.ts"
+          "path": "tests/e2e/collapsible-sources.spec.ts"
         }
       ],
-      "limits": "Two bounded versioned successors. Original expansion/transfer/World/receipt/XP semantics and PR43-45 contracts preserved. Final stamped independent audit, complete exact-head290CI/strict and actual anonymous fullSHA Gate7 are distinct delivery requirements; no Ready/local-only approval. Humans unperformed."
+      "limits": "UX-02 bibliography presentation only. Original source registries, learner histories, teaching/durable-aid boundaries and all PR43–46 navigation/guidance/modal/version contracts preserved. Fresh stamped independent audit, exact-head complete296CI/strict and actual anonymous fullSHA Gate7 required; no Ready/local-only acceptance. Humans unperformed."
     }
   },
   "verification": [
     {
       "command": "npm run test:e2e:desktop",
       "result": "pending",
-      "details": "Actual complete final290CI and strict release required; no targeted/old receipt substitutes."
+      "details": "Complete exact-head296CI/strict required; inherited290 or targeted tests are not substitutes."
     },
     {
       "command": "npm run check",
       "result": "passed",
-      "details": "Full local exit0: TypeScript/lint/format/128docs/quality/57objective audit/493curriculum/assets/legacy/598Vitest/18Node/productionbuild. Ignored inherited .artifacts were temporarily moved then restored byte-identically. Later bounded UI/focus/numeric normalization and conservative all-context selector received targeted lint/domain/productionbuild/browser retests; exact final full check remains mandatory in authoritative CI."
+      "details": "Actual final local npm run check exit0: typecheck/lint/format/docs/quality/57objectives/493curriculum/assets/legacy/601Vitest/18Node/productionbuild. Inherited ignored .artifacts temporarily moved outside and restored unchanged. No pipeline/threshold/dependency changes."
     },
     {
-      "command": "targeted domain and browser",
+      "command": "targeted production browser and structural tests",
       "result": "passed",
-      "details": "Final11 successor domain tests exit0. All8 new desktop36.0s and1compact7.1s passed. After actual final focus/numeric/bounds refinements,5affecteddesktop26.9s +1compact36.4s exit0/no retry, covering both all-first browser submissions,005numeric,immutable first/assistedretry,capacityabandon,keyboard/Axe/shortcenteredstart and known oldCore case. Four oldstale/guidedpartial/paused/PR45ending witnesses26.9s passed. Fiveother originalexpansion/Huballcontexts/Portalmodal/deniedJournal cases passed in earlier targeted run; oldstalecontrol regression was corrected by narrowing new owner preflight and separately passed. Initial2newtest assumptions and duplicate own recovery UI were corrected; failed runs retained as artifacts."
+      "details": "3structural tests inspect all13 banks and actualtopic/Summary rendering. Five new desktop cases and1actualcompact passed across targeted runs. Seven old historicalrubric/deniedaid/Journal/dialog/pausedguide witnesses passed. Initial test-only invalidtopic and historicalversiongate assumptions corrected; assertions retained. Keyboard/Axe/reducedmotion/real200%zoom and1024x500/800initial covered. Source toggles preserve rawstorage; deniedaid/stale context unmount sources. Final combined5desktop production run passed1.1m exit0; compact separate passed10.9s. Unchangedhighthreshold audit exit0:12moderate dev warnings, no dependency changes."
     },
     {
       "command": "npm run test:e2e:plan",
       "result": "passed",
-      "details": "290=267desktop+23compact, all281previous retained;8newdesktop+1compact; optionallegacy534; settings unchanged."
+      "details": "296=272desktop+24compact;5newdesktop+1actualcompact, all290 earlier retained. Optionallegacy544; settings unchanged."
     },
     {
-      "command": "npm audit --audit-level=high",
+      "command": "independent risk-based PR47 final audit",
       "result": "passed",
-      "details": "Actual policy command exit0 with unchanged high threshold. JSON audit reports12moderate dev entries,0high/critical; production omit-dev0. Separate maintenance, not fixed."
-    },
-    {
-      "command": "blind final bank review",
-      "result": "passed",
-      "details": "Initial and revised locked blind reviews corrected substantive ambiguity/distractors/length and cyclic positions. Corrected actual final learner packet SHA256 771cd0fc625508548fbd97fdf9ce4038613b038a55b02dbe23e7e12a8cf26ab5 rechecked without key access:0BLOCKER/MAJOR,all12pairs align incl2legitimate architectures. No fixed or length/absolute heuristic full score; all27decision→reason mappings fail complete form. Human SME/psychometric/learning validation unperformed."
-    },
-    {
-      "command": "Independent Final Audit",
-      "result": "passed",
-      "details": "Fresh separate post-stamp six-domain agent audit verified all40hashes and renewed metadata-only fingerprint;28independent unit tests,8newdesktop,1selectedcompact,3inheritedcases and direct denied-boundary/800x700 keyboard/Axe probes exit0. Sevenimages inspected.0openBLOCKER/MAJOR. Accepted minor editorial/intensity/near-transfer/local-cue and compact-witness override limits documented. Full exacthead290CI/strict and anonymous Gate7 remain pending delivery requirements. Humans unperformed."
+      "details": "Completed2026-11-02T11:40:52.408Z by separate agent /root/source47_final_audit after11:33:59.818Z stamp. Zero BLOCKER/MAJOR. Actual exits0:18Vitest source/teaching/refined tests;9quality-gate negative Node tests;3newdesktop+1actualcompact+3inherited production browser witnesses; independent native final-link/storage/reload probe; preservation and296plan validation. All42hashes/fingerprint,154domain files,1445380-byte locale prefix and four DOM pairs verified. All9committed images personally inspected. Full candidateCI/strict and anonymousGate7 remain pending; humans unperformed. Report docs/quality/PR47_FINAL_AUDIT.md."
     }
   ],
   "visualEvidence": [
     {
-      "path": "docs/screenshots/assessment-refinement/active-benefits-1440x900.png",
+      "path": "docs/screenshots/collapsible-sources/before-security-1440.png",
       "viewport": "1440x900",
       "inspected": true,
-      "observation": "Paired structured decisions, numeric capacity, no pre-submit hints."
+      "observation": "Baseline28-source wall; boundingheight920px."
     },
     {
-      "path": "docs/screenshots/assessment-refinement/active-services-1024x768.png",
-      "viewport": "1024x768",
-      "inspected": true,
-      "observation": "Requirements and choices remain readable with ordinary scrolling."
-    },
-    {
-      "path": "docs/screenshots/assessment-refinement/active-services-1024x500.png",
-      "viewport": "1024x500",
-      "inspected": true,
-      "observation": "Short desktop keeps normal scroll, keyboard submit accessible."
-    },
-    {
-      "path": "docs/screenshots/assessment-refinement/start-services-1024x500.png",
-      "viewport": "1024x500",
-      "inspected": true,
-      "observation": "Native centered explicit Start/Cancel; opening or Escape creates no attempt."
-    },
-    {
-      "path": "docs/screenshots/assessment-refinement/journal-benefits-1440x900.png",
+      "path": "docs/screenshots/collapsible-sources/after-security-1440.png",
       "viewport": "1440x900",
       "inspected": true,
-      "observation": "Historical versus updated results, actual choice/causal feedback and repetition inside durable preflight."
+      "observation": "Closed28-source line; human limit visible;95px whole source section."
+    },
+    {
+      "path": "docs/screenshots/collapsible-sources/before-governance-1440.png",
+      "viewport": "1440x900",
+      "inspected": true,
+      "observation": "Baseline36-source wall;1178px."
+    },
+    {
+      "path": "docs/screenshots/collapsible-sources/after-governance-1440.png",
+      "viewport": "1440x900",
+      "inspected": true,
+      "observation": "Closed36-source line; human limit visible;91px."
+    },
+    {
+      "path": "docs/screenshots/collapsible-sources/before-management-tools-1440.png",
+      "viewport": "1440x900",
+      "inspected": true,
+      "observation": "Baseline40-source wall;1300px."
+    },
+    {
+      "path": "docs/screenshots/collapsible-sources/after-management-tools-1440.png",
+      "viewport": "1440x900",
+      "inspected": true,
+      "observation": "Closed40-source line; human limit visible;91px."
+    },
+    {
+      "path": "docs/screenshots/collapsible-sources/before-journal-1440.png",
+      "viewport": "1440x900",
+      "inspected": true,
+      "observation": "Baseline globalJournal40source list1654px."
+    },
+    {
+      "path": "docs/screenshots/collapsible-sources/after-journal-1440.png",
+      "viewport": "1440x900",
+      "inspected": true,
+      "observation": "Journalcentered; visible limitations outside;40sources closed;119px."
+    },
+    {
+      "path": "docs/screenshots/collapsible-sources/open-security-1024x500.png",
+      "viewport": "1024x500",
+      "inspected": true,
+      "observation": "Actual open28source list; singlecolumn readable title wraps, no horizontal overflow, normal page scroll keeps later references accessible."
     }
   ],
   "humanReview": {
@@ -557,173 +328,119 @@
   },
   "snapshot": {
     "files": {
-      "AGENTS.md": "9a588f1917dd5541c8556121241c4d5d68fce7271aa39ac777a89b49e89dc9aa",
-      "docs/ASSESSMENT_REFINEMENT.md": "9527e994ca5b0e9059eaea95e30da3dad58ccd852e42f50aba5e08fd9f616f0d",
-      "docs/AZ900_ASSESSMENT_BLUEPRINT.md": "84285ab1cc828c0d06c78a3612725ad62b72dbd0592acfdeb25358e1e3e1013d",
-      "docs/DECISIONS.md": "78baa69e39174771c9a7249b136cd5c78c54386a012bf25ed561a4d1cce7f265",
-      "docs/DEPENDENCY_FOLLOWUP.md": "c167171078c741d2c83b407951e5fa6ee2edd0e94f0ffea61ef742e16625a429",
-      "docs/reviews/AZ900_REMEDIATION_PLAN.md": "4f495405907ee3d8f9227fa17e88f8c079f734b31e356abe99b5782537c80713",
-      "docs/reviews/evidence/assessment46-blind-initial.json": "8a49e70c42cc2d10245907516329c741031a58dc015e22d1767eef106254ef5c",
-      "docs/reviews/evidence/assessment46-blind-release.json": "c4a92956a84e6d8b3307460d9e70af3f1d4b8f99aadd24dee32af41d32648857",
-      "docs/reviews/evidence/assessment46-blind-revised.json": "e8e0072e220e38b587eac0825dcb01555dff6963d40c480cb4bce05bccaf2945",
-      "docs/reviews/evidence/assessment46-heuristics.json": "920edcffacafc63eaac458d37d72e1182168922e1eebc3154b8516476a4b415c",
-      "docs/screenshots/assessment-refinement/active-benefits-1440x900.png": "2770e1c09b140dba95b4769135dcf968dfd9d4b73230bcdd0b6e50a7810967a7",
-      "docs/screenshots/assessment-refinement/active-services-1024x500.png": "e32026b4c3b580ba1f0b766301fc0543e8a9dc2f94342fc94ab347d4bdbf4cc3",
-      "docs/screenshots/assessment-refinement/active-services-1024x768.png": "2ed016831d17c82696447c953d798e4781e9cde3a1e4dd65b9231df462df9bbf",
-      "docs/screenshots/assessment-refinement/journal-benefits-1440x900.png": "f5c0d3a93d30d9542ce1853fcbafe0717b7bd071520db27657e549ac7235cd55",
-      "docs/screenshots/assessment-refinement/start-benefits-1440x900.png": "25bca5c675ad86b3c018bf83804e0f88af6e64c82e18e6a5682c947c288a39a2",
-      "docs/screenshots/assessment-refinement/start-services-1024x500.png": "33ba5bab66001319a560e2af29fd4879a256508a1a5d9f554f12f165b5b88077",
-      "docs/screenshots/assessment-refinement/start-services-1024x768.png": "7cceaaeadc9320112ea36dffd3b1ff607beea96754c5d3631f8be9f544cf0368",
-      "package.json": "a785d39048872f6dc58ad7591456844815ce3557658448075723b91bd16d1f66",
-      "playwright.desktop.config.ts": "849e14dfc4ad45db6b896e0e0f6fb50f15ebc8461413b15ff356d7acd108b85c",
-      "src/app/layout.tsx": "23846f852e14bef98f32ec43279bc9e1e5097c69f2132f9e88d439d38b8e9aee",
-      "src/components/progress-provider.tsx": "d168318e09d830a209474eac0c1819b0816e5f4cbcbfb12fc5f6a6a700049751",
-      "src/content/nb.ts": "9caa7b77fe401c17dc8f1fcf3216d800327826b2530a9d502d6c87cc7d16751e",
-      "src/domain/curriculum/refined-assessment-store.ts": "8cc3a16914dc6023e8b4a20390308a910f9ba019d6cc3ff88aab8a4f703fc067",
-      "src/domain/curriculum/refined-assessment.test.ts": "1dae8cf8d2183a340ea0cba23645bbd3d0a0f59991fc540ea5c918c791dbe426",
-      "src/domain/curriculum/refined-assessment.ts": "7bb504dace1d5213dc4424d7f5a0c646947964a0d41f23bbc94ddbd4a0733b9d",
-      "src/features/course/course.tsx": "23ea3d610c957e03b637bea7076941f473d545ceb9ff0907c79e6d0f02e652d3",
-      "src/features/course/guided-coach.tsx": "5196ba68eff2f55fb60baf2248d2eab4907536bcf3a79b079fbeedee4d43bfc4",
-      "src/features/course/mission-context.ts": "73fd9e547f05b72e177dae4e5ae2813bad2cc0b932bdeb31ce967bd78fe70316",
-      "src/features/course/practical-lab.tsx": "eec021d25399467e8a4614bc534f608527286ef14f19effd2ef39f69dbc38e7b",
-      "src/features/learning/expanded-module.tsx": "002b9188e202b31077a2d722972f7cb9c3c46c3d4170857229da852ae1c0e49b",
-      "src/features/learning/expansion-provider.tsx": "819e4bb9f38b678f680bc942b25eb1b47f6cb217e491da695ce31f72aba48220",
-      "src/features/learning/expansion.css": "0b198285aeb7ed57b9101b13c38d92d0353d33003d591a1137754a92bf16914f",
-      "src/features/learning/management-access.tsx": "a37999ec74881a991573b1b5ef3870f3064e4174506ce60d84d4838eca075a1c",
-      "src/features/learning/refined-assessment-provider.tsx": "fc42148bb731a245de7f8b05f4e94b1742d7c38172dfa3962a16eee8dd8138d1",
-      "src/features/learning/refined-assessment.tsx": "6631f771832de66bd74bd5b0d312dd5d77b54279e12b96eb5dcf225592a656ea",
-      "src/features/portal/portal.tsx": "37c4aecba40a3e0c4b9e857cd8fb8e2890d63f4ec564742028a8898ba0d02132",
-      "tests/e2e/assessment-refinement.spec.ts": "95023eb7cdd1c13af4732a24f07f3efbb4385a8922c6ca41c2b9a4694368da43",
-      "tests/e2e/cloud-transfer.spec.ts": "619c0d501f48a1be2d39a29ea7f29c261bf50221266bec6fab13f88826c8b304",
-      "tests/e2e/course-hub.spec.ts": "cf348ca266822fae0f5d663ea19aafb9663e660366cba356284949ff07cfa70c",
-      "tests/e2e/curriculum-expansion.spec.ts": "2fab79ff68b3a301b2d9e79c8cbe28dff41eb5952708c9d2b00a684b22267d45"
+      "AGENTS.md": "a708637084f7a11942f794daa8d2ccb95ebcdb14fe3a40e533f56edf92a81a12",
+      "docs/COLLAPSIBLE_SOURCES.md": "b2576e04dd5ba9f987d2040b5444667120a2f202cd063a03324a0cf0f1b14c75",
+      "docs/reviews/AZ900_REMEDIATION_PLAN.md": "40e050c45a54f0633812141c335b136bdb0669721df703a1e0da5d50b1a3fa41",
+      "docs/reviews/evidence/source47-preservation.json": "aef9c62e8ae109109c74e03ade1b9fdb11f4bd60077aeffcf72830a190fe0c29",
+      "docs/screenshots/collapsible-sources/after-governance-1440.png": "cbaa4f204ed3b532320a0bfa576f0895731861af52edbe60118335bfb3beba70",
+      "docs/screenshots/collapsible-sources/after-journal-1440.png": "233afe33cde1c694c7be419c221e77ba2983644774011818f225d826bcb77aac",
+      "docs/screenshots/collapsible-sources/after-management-tools-1440.png": "7b438aebbc242cb23ca2ca396a4d13e4320918ae5ad3d6c996c6e3e9b668e9b6",
+      "docs/screenshots/collapsible-sources/after-security-1440.png": "71088ee6338ae2044ff46b8ca0cefe7c3fc0e5fda2b2fb42d7b0d4b607f6cb1d",
+      "docs/screenshots/collapsible-sources/before-governance-1440.png": "80d17a6f21a94a0cf689a49e5022681311e03fd791be18475cdbbb6b1d419b3e",
+      "docs/screenshots/collapsible-sources/before-journal-1440.png": "75f5204a6b5d743c5be059adbddee28b1260ad77a14eb71d2407c9e1a9596f99",
+      "docs/screenshots/collapsible-sources/before-management-tools-1440.png": "34755c199e10df19e18fb2bb17ccac86439686c0e79481990b31366348e3a758",
+      "docs/screenshots/collapsible-sources/before-security-1440.png": "68ddd3a88ab897e31882616a5fb1a990d55fe155414c7cd20c9e1da384e3622b",
+      "docs/screenshots/collapsible-sources/open-security-1024x500.png": "6263d6585a57addc3825e721862aece62ffce261a22537389346cffd8ed7337c",
+      "playwright.desktop.config.ts": "61eeb8ca37733679ce0085df465637c30c86ca31652a82fe1ab39f35560509d4",
+      "src/content/nb.ts": "999a5e77e918e75bf9c94e6931ae39c103701636b9ed276d6bd7bd800881e27c",
+      "src/features/course/missions.tsx": "afb68a4223ac75b56d4b0b1cdc8458c480f16e0cd56a55829892a8b2365f62a3",
+      "src/features/course/practical-lab.tsx": "40de9a255cdb6a65e514f3ad30617307fc130ff38d3fabc2ee71b22700a0e6e0",
+      "src/features/learning/access-control.tsx": "7689b9923393ea4ee6dd88b442a7ee991a6d595b86dee434a1c15b4c7afc5ebd",
+      "src/features/learning/cloud-transfer.tsx": "1c3b59cae5c207c94a87b3d9982a4230029a98359e177714620368b4613be84b",
+      "src/features/learning/compute.tsx": "d6b0dc59facc8f3b8d7a1308c0c61babf7a831f7c220d31eb91057d11f05a1d1",
+      "src/features/learning/connectivity.tsx": "9f42966bb3670f8a83f890114d438328cc3952e2bdd1fd5afadb7523ca3d7534",
+      "src/features/learning/cost.tsx": "3921da3fe2a4380a07f810f15697fd3ea7e350a02c9bf2f7ee673594ee8e9071",
+      "src/features/learning/expanded-module.tsx": "e324db037d4c237ea3b1f8a444539e813d8e8c783fb4687e0e4404f9a58ef20c",
+      "src/features/learning/foundations-v2.tsx": "ec0129601c3bdaa898a32911f2cd01e0af5e7cb56fcd604956346ce5dae7ab4d",
+      "src/features/learning/governance.tsx": "82e54ee7c2ce61e30ca471f34086f728784647222795d21a89822d1229a7ce1e",
+      "src/features/learning/identity-foundations.tsx": "ce59d1e4a95649ee7c10c5fa1851b00eeb3ff1865e0961bb9537726b260daa16",
+      "src/features/learning/journal.tsx": "4e0e49b305244cf92afa187dd14d05bd1f84efa295bf670ccb6cb2532abe6018",
+      "src/features/learning/management-tools.tsx": "52c3d54a12ca7b211cffcc8ec459d4d0cf3ad9ce55506b29a7595fac6476f694",
+      "src/features/learning/management.tsx": "6a4c6669e6465b9ae4006360369b4df5c8f6297592880996e8ba2b94b54360fa",
+      "src/features/learning/migration.tsx": "038510ce3bc06e62243db827dfc393b806a150440fca0d6668b1bd48228eb0ec",
+      "src/features/learning/monitoring.tsx": "ffdcf2b4413f12bc3da71ee3651aa2729ee76e46fa2f06b59b4d6bcfd75a1656",
+      "src/features/learning/networking.tsx": "d9be92efb903762a1a4257215b3c73a50813451411f9800208790ca6b18c042c",
+      "src/features/learning/physical.tsx": "fd27530ebdb1c023d46add21f688f7c2a47e7541a84f2fb71ee270a6e44e4f77",
+      "src/features/learning/security.tsx": "2808971fedda0d0ac40316a248a7020d1875f63c84f8bfae64e08e25d16ea789",
+      "src/features/learning/serverless.tsx": "488d9a863f2ac4b7e50e8a8f261d79eab49e1d26f420d22eeed4fbee38895f25",
+      "src/features/learning/source-disclosure.css": "6094c0a60e2cbfe5b9c2c5848cc555f634898bdbd512ec7da3773e5c9cb74498",
+      "src/features/learning/source-disclosure.test.ts": "3996be9867ed727d95260182942569ddd3ccd55caae70b7276649bc936693292",
+      "src/features/learning/source-disclosure.tsx": "0b2d947da9a960418ca27e920bd41fcc21b307a28130bd71c35e75eb0496d504",
+      "src/features/learning/storage-resilience.tsx": "28893c84d136effe690a8841868e9e780a69cd9aee571f290a7daf3703119489",
+      "src/features/learning/storage.tsx": "e64229010dcdfaf2be9a3eb7fd25f57eb5bbf4ee3c0483bc65339fa8d0d92806",
+      "src/features/portal/learning.tsx": "f6da8df70f2307d25bc6b2959fdc6584002ef1c11e995d92c0efe25fad33befb",
+      "tests/e2e/collapsible-sources.spec.ts": "fbfa53841fe9f2c9f45cd1720bbe46f4e989a171fe9474ea0495248e8f992cce"
     }
   },
-  "implementationFinished": "2026-11-02T09:27:57.478Z",
+  "implementationFinished": "2026-11-02T11:33:59.818Z",
   "review": {
     "status": "complete",
-    "fingerprint": "2887e96f37f2afc8878a5b87e0c3bf55b79f12bf80de83aa8b3c625380b4cf71",
+    "fingerprint": "3f1e396ab4fb3ccfca56060199e2f21dcaf6e659699fe2fb7a7bbfafcf8328f8",
     "reviewer": {
-      "id": "assessment46-final-audit-agent",
+      "id": "/root/source47_final_audit",
       "kind": "agent"
     },
-    "started": "2026-11-02T09:28:21.537Z",
-    "completed": "2026-11-02T09:35:09.901Z",
+    "started": "2026-11-02T11:35:37.356Z",
     "domains": {
       "content": {
-        "finding": "Complete final bank/feedback reviewed against preserved teaching and precise scoped official claims. Fresh public responsibility, App Service plan and sustainability bodies reproduce recorded hashes. No technical answer error found; sustainability intensity/editorial and near-transfer limits remain explicit. Source metadata narrowed and restamped; no human SME claim.",
+        "finding": "No source/content regression found. Independently byte-compared all154 original domain files and the1445380-byte original nb.ts prefix; inspected all23 adapted files/26 calls. All13 modern banks/377 registered entries and actual topic/Summary selections pass. Legacy adapters retain original selections and notes; no new source metadata or Azure claim. FM32 remains the existing official Azure GitHub wiki source. Four measured DOM pairs preserve exact anchor text/href. This is preservation, not a new57-objective source audit.",
         "evidence": [
           {
-            "path": "src/content/nb.ts"
+            "path": "src/features/learning/source-disclosure.test.ts"
           },
           {
-            "path": "docs/ASSESSMENT_REFINEMENT.md"
+            "path": "docs/reviews/evidence/source47-preservation.json"
           },
           {
-            "path": "quality/releases/current.json"
+            "path": "src/features/learning/foundations-v2.tsx"
           },
           {
-            "path": "docs/quality/PR46_FINAL_AUDIT.md"
+            "path": "src/features/portal/learning.tsx"
           }
         ]
       },
       "technical": {
-        "finding": "Two isolated version-pinned successor stores validate exact bounded replay, IDs/options/input and terminal reserve, CAS/readback, durable-only publication, stale conflict and compare-before-delete recovery. Independent negative/replay/domain and production denied/stale/recovery checks passed. Original expansion/transfer/Sandbox/World/receipt/XP contracts are unchanged.",
+        "finding": "Presentation has no storage/evidence/event path; original teaching boundaries and technical engine remain unchanged. Independent unit negatives and production denied-aid tests for both refined contexts, invalid direct topic and cross-tab removal of already-open sources pass. Toggling/reload preserves raw storage; no World/receipt/schema/XP change. Existing source URLs are HTTPS and new-tab links use noopener noreferrer.",
         "evidence": [
           {
-            "path": "src/domain/curriculum/refined-assessment.ts"
+            "path": "src/features/learning/source-disclosure.tsx"
           },
-          {
-            "path": "src/domain/curriculum/refined-assessment-store.ts"
-          },
-          {
-            "path": "src/domain/curriculum/refined-assessment.test.ts"
-          },
-          {
-            "path": "tests/e2e/assessment-refinement.spec.ts"
-          }
-        ]
-      },
-      "visual": {
-        "finding": "Personally inspected all seven committed images at 1440/1024/short. Native start/Journal placement, readable labels, normal scroll, first-question focus, Escape return, reduced motion and Axe passed production checks. A separate real 800×700 probe passed keyboard access to all 12 selects and submit, no horizontal overflow, focus and Axe zero. The selected compact test overrides its viewport and is not credited as 800-pixel proof.",
-        "evidence": [
-          {
-            "path": "docs/screenshots/assessment-refinement/active-benefits-1440x900.png"
-          },
-          {
-            "path": "docs/screenshots/assessment-refinement/active-services-1024x768.png"
-          },
-          {
-            "path": "docs/screenshots/assessment-refinement/active-services-1024x500.png"
-          },
-          {
-            "path": "docs/screenshots/assessment-refinement/start-services-1024x500.png"
-          },
-          {
-            "path": "docs/screenshots/assessment-refinement/journal-benefits-1440x900.png"
-          },
-          {
-            "path": "docs/screenshots/assessment-refinement/start-benefits-1440x900.png"
-          },
-          {
-            "path": "docs/screenshots/assessment-refinement/start-services-1024x768.png"
-          },
-          {
-            "path": "docs/quality/PR46_FINAL_AUDIT.md"
-          }
-        ]
-      },
-      "assessment": {
-        "finding": "Existing locked learner-only initial/revised/corrected release reviews evaluated without relabelling this key-aware audit as blind. Actual learner objects match the release packet and all 12 derived pairs. Both IaaS/os and PaaS/platform pass; crossed pairs fail; new 37−4×8=5 and old 1 remain scoped. Independent heuristic/domain checks and actual all-first submissions fail full forms; immutable first and assisted retry are preserved. Introductory premise density, taught-example overlap and residual local positions limit transfer inference. No psychometric claim.",
-        "evidence": [
-          {
-            "path": "docs/reviews/evidence/assessment46-blind-initial.json"
-          },
-          {
-            "path": "docs/reviews/evidence/assessment46-blind-revised.json"
-          },
-          {
-            "path": "docs/reviews/evidence/assessment46-blind-release.json"
-          },
-          {
-            "path": "docs/reviews/evidence/assessment46-heuristics.json"
-          },
-          {
-            "path": "src/domain/curriculum/refined-assessment.test.ts"
-          },
-          {
-            "path": "tests/e2e/assessment-refinement.spec.ts"
-          }
-        ]
-      },
-      "guidance": {
-        "finding": "Both new active/uncertain contexts participate in teaching/Summary/Journal/history/mission/Portal shielding and scoped recovery. Explicit Start alone begins; active forms withhold answer feedback. Direct production probes for both keys confirm neutral Portal preserves unaided bytes and suppresses solution guides, and denied Summary/Portal responsibility aid prevents teaching mount. Exact old/new routes and explicit competing contexts verified.",
-        "evidence": [
           {
             "path": "src/features/learning/management-access.tsx"
           },
           {
-            "path": "src/features/learning/refined-assessment.tsx"
+            "path": "src/domain/curriculum/teaching-access.test.ts"
           },
           {
-            "path": "src/features/course/mission-context.ts"
-          },
-          {
-            "path": "src/features/course/course.tsx"
-          },
-          {
-            "path": "src/features/portal/portal.tsx"
-          },
-          {
-            "path": "tests/e2e/assessment-refinement.spec.ts"
-          },
-          {
-            "path": "docs/quality/PR46_FINAL_AUDIT.md"
+            "path": "tests/e2e/collapsible-sources.spec.ts"
           }
         ]
       },
-      "regression": {
-        "finding": "All 40 final normalized hashes and fingerprint verified. Reconstruction of the original source-only metadata reproduces the original fingerprint, proving unchanged application/test/image payload across the restamp. Protected original expansion/transfer/technical/navigation/CI/dependency files remain unchanged; old tests keep assertions with explicit historical routes. Independent 28 domain tests, eight new desktop cases, one selected compact execution, three inherited browser cases, direct boundary probes and actual 800×700 probe exited zero. The plan validates 290 executions (267/23), with unchanged settings. Complete exact-head CI/strict and anonymous full-SHA Gate 7 remain pending. The old Core cause/fix remains unconfirmed.",
+      "visual": {
+        "finding": "Personally inspected all9 committed images. Closed Summary/Journal disclosures substantially reduce bibliography height while limits and human-validation notes remain visible. Independent desktop/actual800x700 compact,1024x500, native Space/Enter/focus/Escape,200percent Chromium zoom, doubled text, reduced motion and Axe checks pass. A separate short-window probe reached and trial-clicked the final source above the footer, preserved raw storage and confirmed reload closed. Long open lists retain normal vertical scrolling.",
+        "evidence": [
+          {
+            "path": "src/features/learning/source-disclosure.css"
+          },
+          {
+            "path": "tests/e2e/collapsible-sources.spec.ts"
+          },
+          {
+            "path": "docs/screenshots/collapsible-sources/after-security-1440.png"
+          },
+          {
+            "path": "docs/screenshots/collapsible-sources/after-journal-1440.png"
+          },
+          {
+            "path": "docs/screenshots/collapsible-sources/open-security-1024x500.png"
+          },
+          {
+            "path": "docs/quality/PR47_FINAL_AUDIT.md"
+          }
+        ]
+      },
+      "assessment": {
+        "finding": "No bank/rubric/item/store/version changes. Independent refined-assessment/teaching-access tests preserve replay/terminal/first/retry distinctions; inherited browser witness preserves original Benefits/Services rubrics and explicit historical routes. No fresh blind-bank or psychometric claim is made for unchanged assessments.",
         "evidence": [
           {
             "path": "src/domain/curriculum/refined-assessment.test.ts"
@@ -732,69 +449,61 @@
             "path": "tests/e2e/assessment-refinement.spec.ts"
           },
           {
-            "path": "tests/e2e/curriculum-expansion.spec.ts"
+            "path": "src/features/learning/cloud-transfer.tsx"
+          }
+        ]
+      },
+      "guidance": {
+        "finding": "PR43-46 Course, learning-flow, sequence, shared Portal/modal and refined assessment contracts are unchanged. Independent inherited browser witnesses preserve paused guide resume/BackForward and centered scrollable Journal/focus return. Native disclosure never grants teaching permission; substantive model limits remain outside it. No guide/session/completion/automatic-help change.",
+        "evidence": [
+          {
+            "path": "src/features/course/learning-flow.ts"
+          },
+          {
+            "path": "src/features/course/course-sequence.ts"
           },
           {
             "path": "tests/e2e/learning-flow-guidance.spec.ts"
           },
           {
-            "path": "tests/e2e/learning-sequencing.spec.ts"
-          },
+            "path": "tests/e2e/dialog-placement.spec.ts"
+          }
+        ]
+      },
+      "regression": {
+        "finding": "All42 changed payload hashes and fingerprint match stamp. No prior browser assertion, dependency, CI, worker/retry/timeout/skip changed. Independent plan validates296=272desktop+24compact, retaining290 earlier executions; optional legacy544. Author fullcheck log and bounded browser logs inspected; independent checks listed in report pass. Candidate fullCI/strict and anonymous fullSHA Gate7 remain pending delivery, not credited by this audit; humans remain unperformed.",
+        "evidence": [
           {
             "path": "playwright.desktop.config.ts"
           },
           {
-            "path": "docs/quality/PR46_FINAL_AUDIT.md"
+            "path": "docs/COLLAPSIBLE_SOURCES.md"
+          },
+          {
+            "path": "docs/RELEASE_ACCEPTANCE.md"
+          },
+          {
+            "path": "docs/quality/PR47_FINAL_AUDIT.md"
           }
         ]
       }
     },
     "findings": [
       {
-        "id": "PR46-AUDIT-01",
-        "severity": "minor",
-        "status": "fixed",
-        "description": "During audit the author identified source/claim metadata broader than actual coverage. Final binding now distinguishes scope, Benefits, Services, shared responsibility, plan, recovery and sustainability.",
-        "fix": "Narrowed current.json source claims/objectives only and renewed stamp at 2026-11-02T09:27:57.478Z; all 40 reviewed file hashes remain unchanged.",
-        "retests": [
-          "Renewed metadata review at 2026-11-02T09:28:21.537Z recomputed all 40 hashes and final fingerprint 2887e96f37f2afc8878a5b87e0c3bf55b79f12bf80de83aa8b3c625380b4cf71.",
-          "Reconstructed original source metadata with current file hashes reproduces original fingerprint 955d85832afbb0c2513d63086dae33be287f482a6b8b32d0ad7abdb867a2d3c2.",
-          "Fresh public responsibility/plan/sustainability HTTP 200 bodies reproduce recorded hashes and support the relevant actual claims."
-        ]
-      },
-      {
-        "id": "PR46-AUDIT-02",
+        "id": "PR47-AUDIT-01",
         "severity": "minor",
         "status": "accepted-limitation",
-        "description": "b-footprint selects the strongest available environmental investigation but per-order intensity alone would not establish lower total footprint. Existing feedback withholds a measured environmental outcome; retain bounded interpretation."
+        "description": "Opening a long bibliography still requires normal vertical scrolling. Native open state is intentionally not persisted; reload/remount returns closed. Links remain keyboard reachable and mandatory limits remain visible."
       },
       {
-        "id": "PR46-AUDIT-03",
-        "severity": "minor",
-        "status": "accepted-limitation",
-        "description": "s-patching asks who while choices are actions. Responsibility remains unambiguous under explicit IaaS/guest premises; editorial refinement is optional."
-      },
-      {
-        "id": "PR46-AUDIT-04",
-        "severity": "note",
-        "status": "accepted-limitation",
-        "description": "The small explicit-premise bank contains substantial near-transfer overlap with guided driver and VM/PaaS examples, plus scope-aware language cues. All three cases with a correct decision at position 2 have their correct reason at position 3, although all 27 fixed mappings fail each whole form. Do not infer broad diagnosis, exam readiness or measured transfer."
-      },
-      {
-        "id": "PR46-AUDIT-05",
-        "severity": "minor",
-        "status": "accepted-limitation",
-        "description": "The selected compact witness immediately overrides its viewport to 1440/1024/short; its project label is not 800-pixel evidence. A separate independent actual 800×700 production probe passed centered start, Escape/first-field focus, keyboard access to 12 selects and submit, no horizontal overflow, reduced motion and Axe zero. The author accepted this distinct bounded evidence."
-      },
-      {
-        "id": "PR46-AUDIT-06",
+        "id": "PR47-AUDIT-02",
         "severity": "note",
         "status": "open",
-        "description": "Delivery remains pending: actual complete exact-head 290-case CI plus strict release, and anonymous ordinary-root/full-SHA/representative journey. This complete Gate 6 audit does not approve those unexecuted delivery gates."
+        "description": "Delivery remains pending: complete exact-head296 GitHub CI plus strict release and anonymous ordinary-root/fullSHA/interaction/return Gate7 must be recorded separately. Local tests or Ready status cannot establish them; human SME/UX/screen-reader/learning validation is unperformed."
       }
     ],
     "report": {
-      "path": "docs/quality/PR46_FINAL_AUDIT.md"
+      "path": "docs/quality/PR47_FINAL_AUDIT.md"
     }
   }
 }

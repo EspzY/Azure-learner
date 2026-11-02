@@ -1,4 +1,5 @@
 'use client';
+import { SourceDisclosure } from './source-disclosure';
 import { useCallback, useEffect, useState } from 'react';
 import Link from 'next/link';
 import { nb } from '@/content/nb';
@@ -216,11 +217,10 @@ export function FoundationsV2({ topic, journal = false }: { topic: string; journ
       <SavvyShark compact>
         <p>{topic === 'resource-bridge' ? t.topics['resource-bridge'].detail : t.guidedNote}</p>
       </SavvyShark>
-      <details className="v2-sources">
-        <summary>{t.sources}</summary>
-        <p>{p.sourceNote}</p>
-        <ul>
-          {(unit
+      <p className="source-context">{p.sourceNote}</p>
+      <SourceDisclosure
+        entries={
+          unit
             ? units.find((u) => u.id === unit)!.sources.map((id) => ({ id, url: sourceUrl(id) }))
             : v2Bindings
                 .find((b) => b.topic === topic)!
@@ -230,15 +230,8 @@ export function FoundationsV2({ topic, journal = false }: { topic: string; journ
                     ? beginnerSources[id as keyof typeof beginnerSources]
                     : sourceUrl(id as 'L02'),
                 }))
-          ).map((s) => (
-            <li key={s.id}>
-              <a href={s.url} target="_blank" rel="noreferrer">
-                {s.id} · Microsoft Learn ↗
-              </a>
-            </li>
-          ))}
-        </ul>
-      </details>
+        }
+      />
       <nav className="v2-evidence-nav" aria-label={t.summary}>
         <Link href="/learn/computing?topic=v2-assessment">
           {facts.active ? t.continueAssessment : t.assessment}

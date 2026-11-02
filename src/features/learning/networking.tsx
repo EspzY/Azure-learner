@@ -1,4 +1,5 @@
 'use client';
+import { SourceDisclosure } from './source-disclosure';
 import { GuidedMissionLink } from '@/features/course/guided-mission-link';
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
@@ -219,18 +220,15 @@ export function NetworkingSources({ topic }: { topic?: NetworkingTopic }) {
       ? networkingStudySources[topic as keyof typeof networkingStudySources]
       : (Object.keys(networkingSources) as (keyof typeof networkingSources)[]);
   return (
-    <section className="compute-sources">
-      <h3>{c.labels.sources}</h3>
-      <ul>
-        {ids.map((id) => (
-          <li key={id}>
-            <a href={networkingSources[id][1]} target="_blank" rel="noreferrer">
-              {id} · {networkingSources[id][0]} ↗
-            </a>
-          </li>
-        ))}
-      </ul>
-      <p>{c.labels.human}</p>
+    <section className="compute-sources source-section">
+      <SourceDisclosure
+        entries={ids.map((id) => ({
+          id,
+          url: networkingSources[id][1],
+          title: networkingSources[id][0],
+        }))}
+      />
+      <p className="source-context">{c.labels.human}</p>
     </section>
   );
 }

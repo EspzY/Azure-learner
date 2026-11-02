@@ -1,4 +1,5 @@
 'use client';
+import { SourceDisclosure } from './source-disclosure';
 import { useSearchParams } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
@@ -221,20 +222,17 @@ function ScopeExplanation() {
     </section>
   );
 }
-function ManagementSources() {
+export function ManagementSources() {
   return (
-    <section>
-      <h3>{c.sources}</h3>
-      <p>{c.sourceReview}</p>
-      <ul>
-        {Object.entries(managementSources).map(([id, path]) => (
-          <li key={id}>
-            <a href={'https://learn.microsoft.com/en-us/' + path} target="_blank" rel="noreferrer">
-              {id} · {path}
-            </a>
-          </li>
-        ))}
-      </ul>
+    <section className="source-section">
+      <SourceDisclosure
+        entries={Object.entries(managementSources).map(([id, path]) => ({
+          id,
+          url: 'https://learn.microsoft.com/en-us/' + path,
+          title: path,
+        }))}
+      />
+      <p className="source-context">{c.sourceReview}</p>
     </section>
   );
 }
