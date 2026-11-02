@@ -296,6 +296,23 @@ test('four natural entries invalid links original Portal inspection and guidance
     await expect(page.locator('.application-entry')).toHaveCount(1);
     await expect(page.locator('.application-entry')).toContainText(c.ui.preps[group]);
     await expect(page.locator('.application-entry a')).toHaveCount(2);
+    const original = page.locator(
+      path.includes('/computing')
+        ? '.transfer-cases'
+        : group === 'cost'
+          ? '.cost-assessment'
+          : '.compute-assessment:not(.application-assessment)',
+    );
+    await expect(original).toBeVisible();
+    expect(
+      await original.evaluate(
+        (el) =>
+          !!(
+            el.compareDocumentPosition(document.querySelector('.application-entry')!) &
+            Node.DOCUMENT_POSITION_FOLLOWING
+          ),
+      ),
+    ).toBe(true);
   }
   await page.goto('/learn/storage?topic=assessment&application=at-network-01');
   await expect(page.getByText(c.ui.invalid, { exact: true })).toBeVisible();

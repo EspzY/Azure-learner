@@ -1416,18 +1416,10 @@ function CourseWorkspace({ module }: { module?: CourseModule }) {
                     transitioning={!recommendation && index === pathTopics.length - 1}
                   />
                   {!applicationRoute &&
-                    (topic === 'assessment' || topic === 'summary') &&
-                    (module === 'networking' || module === 'storage' || module === 'cost') && (
-                      <ApplicationEntry group={module} />
-                    )}
-                  {!applicationRoute &&
                     topic === 'summary' &&
                     (module === 'networking' || module === 'storage' || module === 'cost') && (
                       <ApplicationHistory group={module} />
                     )}
-                  {topic === 'transfer' && module === 'computing' && (
-                    <ApplicationEntry group="cost" />
-                  )}
                   {applicationRoute ? (
                     <ApplicationAssessment selected={query.get('application')} module={module} />
                   ) : module === 'migration' ? (
@@ -1802,6 +1794,14 @@ function CourseWorkspace({ module }: { module?: CourseModule }) {
                       </section>
                       <FoundationsWorkspace location={location} navigate={navigate} />
                     </>
+                  )}
+                  {!applicationRoute &&
+                    (topic === 'assessment' || topic === 'summary') &&
+                    (module === 'networking' || module === 'storage' || module === 'cost') && (
+                      <ApplicationEntry group={module} />
+                    )}
+                  {topic === 'transfer' && module === 'computing' && (
+                    <ApplicationEntry group="cost" />
                   )}
                 </div>
                 {module === 'networking' && topic === 'summary' && (
