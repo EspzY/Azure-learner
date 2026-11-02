@@ -31,6 +31,8 @@ Alle funn var åpne produktfunn i PR42. PR43 implementerer nå avgrenset LJ-01 o
 
 **Verifikasjon:** nye målrettede VM/PaaS/Compute/Networking-reiser, ressursnavigasjon, Back/Forward/reload, kursretur, reset, cross-tab og denied writes. Faktiske før/etter-bilder i [leveransekontrakten](../LEARNING_FLOW_GUIDANCE.md). Sluttstatus avhenger av separat review, eksakt-head full CI og faktisk ekstern brukerreise på Draft PR43. Større ny SavvyShark-plattform, generelle Portal-kapabiliteter og modalretting inngår ikke.
 
+**Levert PR43-status:** LJ-01 og PORTAL-GUIDE-01 er verifisert på head `0d7905061ccd9bd0684a37cea895b0baad137c38`, [full265CI/strict](https://github.com/EspzY/Azure-learner/actions/runs/41353895601) og faktisk anonym full-SHA Gate7. Disse funnene gjenåpnes ikke av PR45.
+
 ### UX-01 · P1 · avgrenset normal-dialogretting
 
 - **Berørt:** Security/Storage/Identity/Monitoring startbekreftelse og global Journal; felles `PortalDialog` uten tilsiktet sidepanel.
@@ -42,6 +44,8 @@ Alle funn var åpne produktfunn i PR42. PR43 implementerer nå avgrenset LJ-01 o
 
 **PR44 — implementert og lokalt retestet:** årsaken er bekreftet på PR43s offentlige full-SHA-preview: global margin0 på native dialog. Tre avgrensede CSS-linjer gir auto-margin bare til ordinære dialoger. Alle lokale akseptansekontroller består: fire assessments, Journal og Portal Help geometrisk sentrert; kortvindu, ekte200%browserzoom/forstørret tekst, fokus/Escape/Axe; uendrede sidepaneler/native guider/PR43 recovery; denied durable Journal og historisk first bevart. [Før/etter og avgrensning](../DIALOG_PLACEMENT.md). UX-01 er rettet i kandidaten; endelig leveranseaksept krever separat audit, eksakt-head274CI/strict og faktisk ekstern Gate7, dokumentert på Draft PR44. Ingen andre funn lukkes.
 
+**Levert PR44-status:** UX-01 er verifisert på head `7775b0a22d0a5c88597c28b3df780b92425f3dce`, [full274CI/strict](https://github.com/EspzY/Azure-learner/actions/runs/41360582115), separat audit uten åpne BLOCKER/MAJOR og faktisk anonym full-SHA Gate7.
+
 ### LJ-02 · P1 · Curriculum Sequencing & Theory Consolidation, første trinn
 
 - **Berørt:** standard overgang Storage B→Migration og Security→Cost, samt eksplisitte forkunnskaper i `migrationNb` og `securityNb`.
@@ -50,6 +54,8 @@ Alle funn var åpne produktfunn i PR42. PR43 implementerer nå avgrenset LJ-01 o
 - **Anbefaling:** behold Storage/Identity A/B/C i Course Hubs faglige gruppering, men anbefal Migration og Security som senere capstones på tvers av stier. Første patch bør begrenses til anbefaling, overgangstekst og Next-kjede. Deretter vurder valgfri profesjonell fordypning.
 - **Risiko:** navigation metadata, aktive deep links og resume, ufrivillig omklassifisering av gamle resultater. Ikke bruk besøkt modul som ny «forutsetning fullført»-sperre.
 - **Akseptanse/tester:** første Start for ny state; anbefalt sekvens har alle eksplisitte forutsetninger introdusert før capstones; IT-erfaren kan fortsatt åpne Migration direkte; aktiv assessment gjenopptas uansett ny anbefaling. Alle gamle Part A/B/C-URL-er, historiske førsvar og sidebar-state ved Back/Forward/reload består. Ingen ny authored-coverage-/mestringspåstand.
+
+**PR45 — implementert kandidat, verifikasjon dokumenteres separat:** én typesikker anbefalt sekvens bruker alle17modulruter én gang. StorageB→IdentityA, AccessB→Cost, Monitoring→SecurityC→MigrationC→Hub; Forrige er symmetrisk. Katalogens tre stier og delgrupper består. Korte broer, to avsluttende markører og en nøktern avslutning gir orientering uten completion-/mestringspåstand. Eksisterende guided/independent/recovery-prioritet, gamle ruter/records, World/receipts/XP og rubrics er bevart. Kun tre gamle available-/navigasjonstekster er oppdatert. Se [implementasjon, målrettede retester og før/etter](../LEARNING_SEQUENCE.md). LJ-02 lukkes for denne avgrensede første etappen først når separat audit, faktisk eksakt-head281CI/strict og anonym Gate7 er bestått og dokumentert på Draft PR45. Ingen annen pedagogisk konsolidering eller menneskelig læringsvalidering påstås utført.
 
 ### AS-01 · P1 · Assessment Quality & Transfer, versjonert etterfølger
 

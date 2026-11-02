@@ -2,9 +2,17 @@
 
 **Revisjonsbase:** `4732f93dfcdd233dcb6d7acc2a4838ba7a292141`, 1. november 2026. [Hovedfunn](AZ900_END_TO_END_AUDIT.md) · [Tiltak og akseptanse](AZ900_REMEDIATION_PLAN.md) · [Alle kanoniske ruter, familier og målemetode](evidence/audit42.json).
 
-## Faktisk navigasjon og inventar
+## Anbefalt nybegynnerreise — PR45, 2. november 2026
 
-`course-outline.ts` definerer tre stier. `course.tsx` definerer aktivitetsrekkefølge og modulovergang; `domain/course/model.ts` validerer også eldre/direkte ruter. Dette kartet beskriver den faktiske koden, ikke PR-utviklingsrekkefølgen.
+Dette er en eksplisitt oppdatering av anbefalt navigasjon etter den historiske PR42-revisjonen. De tre faggruppene og inventaret under er bevart. Forkunnskapsgrafen er validert før endringen; ingen nye fullføringssperrer eller learner-record-migreringer.
+
+Computing (inkludert Serverless) → Benefits → Service Types → Core Architecture A/B → Compute → Networking A → Networking B → Storage A → Storage B → Identity A → Identity B → Cost → Governance → Management Tools → Monitoring → Security C → Migration C → Course Hub.
+
+17 kanoniske modulruter, med Core A/B innen samme rute. Security og Migration er avsluttende anvendelser i anbefalt reise, men forblir henholdsvis i Identity- og Storage-gruppene i sti02. Aktiv independent/guide/recovery og lagret resume har fortsatt opprinnelig prioritet. Se [implementasjon og bevis](../LEARNING_SEQUENCE.md). Ingen mestring eller eksamensberedskap utledes av sidebesøk eller av å nå siste modul.
+
+## Historisk faktisk navigasjon og inventar — PR42
+
+`course-outline.ts` definerer tre stier. `course.tsx` definerer aktivitetsrekkefølge og modulovergang; `domain/course/model.ts` validerer også eldre/direkte ruter. Avsnittene under beskriver den faktiske PR42-koden på den oppgitte revisjonsbasen, ikke PR-utviklingsrekkefølgen. Dagens anbefalte sekvens står i PR45-avsnittet over.
 
 1. **01 Cloud Concepts:** Computing (med Serverless) → Benefits → Service Types.
 2. **02 Azure Architecture & Services:** Core A/B → Compute → Networking A/B → Storage A/B/**C Migration** → Identity A/B/**C Security**.

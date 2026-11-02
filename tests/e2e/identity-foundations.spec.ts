@@ -149,12 +149,12 @@ test('Identity follows Storage in one existing path with exact sidebar, Back/For
   await expect(page).toHaveURL(identityHref('external'));
   await page.goto('/learn/storage-resilience?topic=summary');
   await page.locator('.course-step-navigation .course-nav-next a').click();
-  await expect(page).toHaveURL('/learn/migration?topic=introduction');
-  await page.goto('/learn/migration?topic=summary');
-  await page.locator('.course-step-navigation .course-nav-next a').click();
   await expect(page).toHaveURL(identityHref('introduction'));
   await page.locator('.course-step-navigation .course-nav-previous a').click();
-  await expect(page).toHaveURL('/learn/migration?topic=summary');
+  await expect(page).toHaveURL('/learn/storage-resilience?topic=summary');
+  await page.goto('/learn/migration?topic=summary');
+  await page.locator('.course-step-navigation .course-nav-next a').click();
+  await expect(page).toHaveURL('/learn');
   expect((await facts(page)).completed).toEqual([]);
   expect((await facts(page)).firsts).toEqual([]);
 });

@@ -1,7 +1,13 @@
 import { securitySources } from '../../src/domain/curriculum/security-sources';
 import { test, expect, type Page } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
-import { securityNb as c, securityItemsNb, nb, serverlessNb, costNb } from '../../src/content/nb';
+import {
+  securityNb as c,
+  securityItemsNb,
+  nb,
+  serverlessNb,
+  migrationNb,
+} from '../../src/content/nb';
 import {
   securityHref,
   securityKey,
@@ -117,10 +123,10 @@ async function create(p: Page, kind: 'group' | 'plan' | 'app', name: string, reg
     .click();
 }
 
-test('Security Part C follows Access in path02 with exact active resume source URLs and client navigation', async ({
+test('Security Part C retains path02 and follows Monitoring with exact active resume source URLs and client navigation', async ({
   page,
 }) => {
-  await page.goto('/learn/access-control?topic=summary');
+  await page.goto('/learn/monitoring?topic=summary');
   await page
     .locator('.course-step-navigation')
     .getByRole('link', { name: new RegExp(c.title) })
@@ -137,8 +143,10 @@ test('Security Part C follows Access in path02 with exact active resume source U
     await expect(source).toContainText(title);
   }
   await expect(
-    page.locator('.course-step-navigation').getByRole('link', { name: new RegExp(costNb.title) }),
-  ).toHaveAttribute('href', '/learn/cost?topic=introduction');
+    page
+      .locator('.course-step-navigation')
+      .getByRole('link', { name: new RegExp(migrationNb.title) }),
+  ).toHaveAttribute('href', '/learn/migration?topic=introduction');
   await page.goto('/learn');
   await openCoursePath(page, 'architecture');
   await expect(page.locator('.learn-hub-module[data-module="security"]')).toBeVisible();

@@ -1508,3 +1508,32 @@
     background: #f6f8fb;
   }
 }
+
+/* Navigation orientation; catalogue groups and the existing fixed footer stay intact. */
+.learn-hub-journey-note {
+  color: #415d72;
+  font-size: 13px;
+  line-height: 1.6;
+  margin: 0 0 14px;
+}
+.course-journey-context {
+  border-left: 3px solid #8da8ba;
+  padding: 4px 0 4px 15px;
+  margin: 0 0 22px;
+  color: #334f66;
+  max-width: 850px;
+}
+.course-journey-context h2 {
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 0;
+}
+.course-journey-context p {
+  margin: 6px 0;
+  line-height: 1.65;
+}
+.course-journey-context nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 20px;
+}

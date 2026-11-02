@@ -1,13 +1,7 @@
 import { migrationSources } from '../../src/domain/curriculum/migration-sources';
 import { test, expect, type Page } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
-import {
-  migrationNb as c,
-  migrationItemsNb,
-  nb,
-  serverlessNb,
-  identityNb,
-} from '../../src/content/nb';
+import { migrationNb as c, migrationItemsNb, nb, serverlessNb } from '../../src/content/nb';
 import {
   migrationHref,
   migrationKey,
@@ -123,10 +117,10 @@ async function create(p: Page, kind: 'group' | 'plan' | 'app', name: string, reg
     .click();
 }
 
-test('Storage Part C follows preserved Part B with exact source links three-part Hub hierarchy and active resume', async ({
+test('Storage Part C retains its three-part catalogue and follows Security with exact source links and active resume', async ({
   page,
 }) => {
-  await page.goto('/learn/storage-resilience?topic=summary');
+  await page.goto('/learn/security?topic=summary');
   await page
     .locator('.course-step-navigation')
     .getByRole('link', { name: new RegExp(c.title) })
@@ -144,8 +138,8 @@ test('Storage Part C follows preserved Part B with exact source links three-part
   await expect(
     page
       .locator('.course-step-navigation')
-      .getByRole('link', { name: new RegExp(identityNb.title) }),
-  ).toHaveAttribute('href', '/learn/identity?topic=introduction');
+      .getByRole('link', { name: new RegExp(nb.course.overview) }),
+  ).toHaveAttribute('href', '/learn');
   await page.goto('/learn');
   await openCoursePath(page, 'architecture');
   const path = page
