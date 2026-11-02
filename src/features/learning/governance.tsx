@@ -1,4 +1,5 @@
 'use client';
+import { PortalInspectionBridge } from '@/features/course/portal-inspection-bridge';
 import { SourceDisclosure } from './source-disclosure';
 import { GuidedMissionLink } from '@/features/course/guided-mission-link';
 import { useEffect } from 'react';
@@ -145,6 +146,7 @@ function GovernanceStudio({ perspective }: { perspective?: string | null }) {
         ))}
       </nav>
       <GovernanceWorkbench key={view} mission={view} />
+      {view === 'policy' && <PortalInspectionBridge context="policy" />}
     </section>
   );
 }

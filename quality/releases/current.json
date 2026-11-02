@@ -1,94 +1,138 @@
 {
   "schema": 1,
-  "id": "PR47-collapsible-official-sources",
-  "baseCommit": "baf68a90d80cb22b0397a5a34e9c20809110eb84",
-  "author": "codex-source47-author",
+  "id": "PR48-practical-portal-inspection",
+  "baseCommit": "475bddd5b068165528ffa59c288d76c341a914ba",
+  "author": "codex-inspection48-author",
   "scope": {
-    "kind": "source-presentation",
-    "description": "UX-02: consistent closed native source disclosures across existing course and Journal surfaces; original source/evidence content unchanged.",
-    "objectives": ["presentation.sources"]
+    "kind": "portal-inspection-bridge",
+    "description": "PR01StageA: actual VM/Policy/WebApp inspection from three existing course activities, original receipts, scoped history and URL views with unchanged evidence semantics.",
+    "objectives": ["portal.inspection"]
   },
   "sources": [
     {
-      "id": "UX47-study",
-      "url": "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900",
-      "title": "Study guide for Exam AZ-900: Microsoft Azure Fundamentals | Microsoft Learn",
-      "reviewed": "2026-11-02",
-      "version": "Rolling public page retrieved2026-11-02 SHA256 58bee7dadd3426094ab189375b86b07f9c59111037529e42176150b53ee821ee",
-      "kind": "official-public-documentation",
-      "objectives": ["presentation.sources"],
-      "claims": ["presentation.existing-scope"],
-      "availability": "AVAILABLE",
-      "limits": "Context for preserved Azure scope and Portal teaching only. These documents do not specify the authored disclosure UI. No new Azure claims or dates assigned to existing sources; all source/domain data remain byte-identical.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900",
-          "disposition": "reviewed-context",
-          "reason": "Actual public scope/Portal content inspected. Source preservation, not a new57-objective source audit; presentation behavior is verified by component/browser tests."
-        }
-      ]
-    },
-    {
-      "id": "UX47-portal",
+      "id": "PI48-portal",
       "url": "https://learn.microsoft.com/en-us/azure/azure-portal/azure-portal-overview",
       "title": "What is the Azure portal? - Azure portal | Microsoft Learn",
       "reviewed": "2026-11-02",
       "version": "Rolling public page retrieved2026-11-02 SHA256 4fc74270f0edfa683482cb2b90f4ce661cf5cc0ea94210ebe132a8139b0a059e",
       "kind": "official-public-documentation",
-      "objectives": ["presentation.sources"],
-      "claims": ["presentation.existing-scope"],
+      "objectives": ["portal.inspection"],
+      "claims": ["portal.reference-structure"],
       "availability": "AVAILABLE",
-      "limits": "Context for preserved Azure scope and Portal teaching only. These documents do not specify the authored disclosure UI. No new Azure claims or dates assigned to existing sources; all source/domain data remain byte-identical.",
+      "limits": "Reference for navigation/Essentials/plan/resource/control-plane history structure only. AzureLab uses its original bounded local World and ledger, not real ARM IDs, runtime measurements, Azure Monitor events or90day retention. No live tenant/login or product parity approval.",
       "discovery": [
         {
           "url": "https://learn.microsoft.com/en-us/azure/azure-portal/azure-portal-overview",
-          "disposition": "reviewed-context",
-          "reason": "Actual public scope/Portal content inspected. Source preservation, not a new57-objective source audit; presentation behavior is verified by component/browser tests."
+          "disposition": "reviewed-reference",
+          "reason": "Actual public body inspected. Portal callout and Activity log illustrations personally viewed for menu/scope/history structure; source images not copied into the product. Original engine semantics remain authoritative locally."
+        }
+      ]
+    },
+    {
+      "id": "PI48-vm",
+      "url": "https://learn.microsoft.com/en-us/azure/virtual-machines/windows/overview",
+      "title": "Overview of virtual machines in Azure - Azure Virtual Machines | Microsoft Learn",
+      "reviewed": "2026-11-02",
+      "version": "Rolling public page retrieved2026-11-02 SHA256 b8b7bd46ab35808553b79b1c7d1a5dd5ebde20d5b6aa272e4dc0ad258129c199",
+      "kind": "official-public-documentation",
+      "objectives": ["portal.inspection"],
+      "claims": ["portal.reference-structure"],
+      "availability": "AVAILABLE",
+      "limits": "Reference for navigation/Essentials/plan/resource/control-plane history structure only. AzureLab uses its original bounded local World and ledger, not real ARM IDs, runtime measurements, Azure Monitor events or90day retention. No live tenant/login or product parity approval.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/virtual-machines/windows/overview",
+          "disposition": "reviewed-reference",
+          "reason": "Actual public body inspected. Portal callout and Activity log illustrations personally viewed for menu/scope/history structure; source images not copied into the product. Original engine semantics remain authoritative locally."
+        }
+      ]
+    },
+    {
+      "id": "PI48-plan",
+      "url": "https://learn.microsoft.com/en-us/azure/app-service/app-service-plan-manage",
+      "title": "Manage an App Service Plan - Azure App Service | Microsoft Learn",
+      "reviewed": "2026-11-02",
+      "version": "Rolling public page retrieved2026-11-02 SHA256 1b7304550694791bdcb9bab83d215b2650255ad4338a44e585371d6660524da1",
+      "kind": "official-public-documentation",
+      "objectives": ["portal.inspection"],
+      "claims": ["portal.reference-structure"],
+      "availability": "AVAILABLE",
+      "limits": "Reference for navigation/Essentials/plan/resource/control-plane history structure only. AzureLab uses its original bounded local World and ledger, not real ARM IDs, runtime measurements, Azure Monitor events or90day retention. No live tenant/login or product parity approval.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/app-service/app-service-plan-manage",
+          "disposition": "reviewed-reference",
+          "reason": "Actual public body inspected. Portal callout and Activity log illustrations personally viewed for menu/scope/history structure; source images not copied into the product. Original engine semantics remain authoritative locally."
+        }
+      ]
+    },
+    {
+      "id": "PI48-activity",
+      "url": "https://learn.microsoft.com/en-us/azure/azure-monitor/fundamentals/activity-log",
+      "title": "Activity Log in Azure Monitor - Azure Monitor | Microsoft Learn",
+      "reviewed": "2026-11-02",
+      "version": "Rolling public page retrieved2026-11-02 SHA256 7164ae27dac4c01c21697201a3fdff04a22fe55ece2fae1fe77aa88e6144cc44",
+      "kind": "official-public-documentation",
+      "objectives": ["portal.inspection"],
+      "claims": ["portal.reference-structure"],
+      "availability": "AVAILABLE",
+      "limits": "Reference for navigation/Essentials/plan/resource/control-plane history structure only. AzureLab uses its original bounded local World and ledger, not real ARM IDs, runtime measurements, Azure Monitor events or90day retention. No live tenant/login or product parity approval.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/azure-monitor/fundamentals/activity-log",
+          "disposition": "reviewed-reference",
+          "reason": "Actual public body inspected. Portal callout and Activity log illustrations personally viewed for menu/scope/history structure; source images not copied into the product. Original engine semantics remain authoritative locally."
         }
       ]
     }
   ],
   "activities": [
     {
-      "id": "source-presentation",
-      "objectives": ["presentation.sources"],
-      "claims": ["presentation.existing-scope"],
+      "id": "portal-resource-inspection",
+      "objectives": ["portal.inspection"],
+      "claims": ["portal.reference-structure"],
       "assessmentStatus": "unchanged-existing",
-      "limits": "Presentation only. No source/rubric/schema/claim/evidence changes; native disclosure never replaces durable teaching boundaries.",
+      "limits": "Three existing native course contexts, original commands/receipts; inspection/navigation never create a guide or automatic credit. Raw technical metadata stays neutral, new teaching questions behind existing durable boundaries.",
       "theory": [
         {
-          "path": "docs/COLLAPSIBLE_SOURCES.md"
+          "path": "docs/PORTAL_INSPECTION_BRIDGE.md"
         }
       ],
       "mechanism": [
         {
-          "path": "src/features/learning/source-disclosure.tsx"
+          "path": "src/domain/portal/inspection.ts"
         },
         {
-          "path": "src/features/learning/source-disclosure.css"
+          "path": "src/domain/portal/model.ts"
+        },
+        {
+          "path": "src/features/portal/inspection-evidence.tsx"
         }
       ],
       "practice": [
         {
-          "path": "tests/e2e/collapsible-sources.spec.ts"
+          "path": "src/features/course/portal-inspection-bridge.tsx"
+        },
+        {
+          "path": "tests/e2e/portal-inspection-bridge.spec.ts"
         }
       ],
       "feedback": [
         {
-          "path": "src/features/learning/cloud-transfer.tsx"
+          "path": "src/features/portal/receipt-panel.tsx"
         }
       ],
       "visual": [
         {
-          "path": "docs/screenshots/collapsible-sources/after-security-1440.png"
+          "path": "docs/screenshots/portal-inspection/after-vm-history-1440.png"
         },
         {
-          "path": "docs/screenshots/collapsible-sources/after-journal-1440.png"
+          "path": "docs/screenshots/portal-inspection/after-properties-1024x500.png"
         }
       ],
       "accessible": [
         {
-          "path": "tests/e2e/collapsible-sources.spec.ts"
+          "path": "tests/e2e/portal-inspection-bridge.spec.ts"
         }
       ],
       "assessment": [
@@ -96,10 +140,16 @@
           "path": "src/domain/curriculum/refined-assessment.test.ts"
         },
         {
-          "path": "tests/e2e/assessment-refinement.spec.ts"
+          "path": "tests/e2e/practical-labs.spec.ts"
         }
       ],
       "savvyshark": [
+        {
+          "path": "src/features/course/portal-guide-visibility.tsx"
+        },
+        {
+          "path": "src/features/learning/compute-vm.tsx"
+        },
         {
           "path": "tests/e2e/learning-flow-guidance.spec.ts"
         }
@@ -108,10 +158,14 @@
   ],
   "modules": [],
   "preservedPaths": [
-    "src/domain/",
+    "src/domain/sandbox/",
+    "src/domain/chapter01/",
+    "src/domain/curriculum/",
+    "src/domain/course/",
+    "src/domain/portal/content.ts",
+    "src/domain/portal/learning.ts",
+    "src/domain/portal/store.ts",
     "src/features/learning/management-access.tsx",
-    "src/features/learning/refined-assessment.tsx",
-    "src/features/learning/refined-assessment-provider.tsx",
     "src/features/course/course.tsx",
     "src/features/course/course-sequence.ts",
     "src/features/course/course-navigation.tsx",
@@ -119,9 +173,15 @@
     "src/features/course/course-hub.tsx",
     "src/features/course/course-outline.ts",
     "src/features/course/course-sidebar.tsx",
-    "src/features/portal/portal.tsx",
+    "src/features/course/mission-portal.tsx",
+    "src/features/course/practical-lab.tsx",
+    "src/features/learning/compute-vm.tsx",
+    "src/features/portal/receipt-panel.tsx",
+    "src/features/portal/sandbox-provider.tsx",
     "src/features/portal/shared.tsx",
     "src/features/portal/portal.css",
+    "src/features/learning/source-disclosure.tsx",
+    "src/features/learning/source-disclosure.css",
     "public/",
     "scripts/",
     ".github/",
@@ -132,192 +192,185 @@
     "tests/e2e/dialog-placement.spec.ts",
     "tests/e2e/learning-sequencing.spec.ts",
     "tests/e2e/assessment-refinement.spec.ts",
+    "tests/e2e/collapsible-sources.spec.ts",
     "docs/AZ900_COVERAGE_MATRIX.md",
     "docs/audits/az900-2026-07-20.json",
-    "docs/reviews/AZ900_END_TO_END_AUDIT.md",
-    "docs/reviews/evidence/audit42-assessment.json"
+    "docs/reviews/AZ900_END_TO_END_AUDIT.md"
   ],
   "gates": {
     "source": {
       "checks": [
         {
-          "path": "docs/COLLAPSIBLE_SOURCES.md"
+          "path": "docs/PORTAL_INSPECTION_BRIDGE.md"
         },
         {
-          "path": "src/features/learning/source-disclosure.test.ts"
+          "path": "src/domain/portal/inspection.test.ts"
         },
         {
-          "path": "tests/e2e/collapsible-sources.spec.ts"
+          "path": "tests/e2e/portal-inspection-bridge.spec.ts"
         }
       ],
-      "limits": "UX-02 bibliography presentation only. Original source registries, learner histories, teaching/durable-aid boundaries and all PR43–46 navigation/guidance/modal/version contracts preserved. Fresh stamped independent audit, exact-head complete296CI/strict and actual anonymous fullSHA Gate7 required; no Ready/local-only acceptance. Humans unperformed."
+      "limits": "PR-01 Stage A inspection/navigation over original simulator only. No new resources/commands/World schema/receipt semantics/rubrics/stores/XP or technical observations. Separate post-stamp six-domain audit, complete exact-head303 CI/strict and actual anonymous fullSHA Gate7 required; Ready/local tests alone are insufficient. Stage B/C and PD01/AS02 remain open; human validation unperformed."
     },
     "curriculum": {
       "checks": [
         {
-          "path": "docs/COLLAPSIBLE_SOURCES.md"
+          "path": "docs/PORTAL_INSPECTION_BRIDGE.md"
         },
         {
-          "path": "src/features/learning/source-disclosure.test.ts"
+          "path": "src/domain/portal/inspection.test.ts"
         },
         {
-          "path": "tests/e2e/collapsible-sources.spec.ts"
+          "path": "tests/e2e/portal-inspection-bridge.spec.ts"
         }
       ],
-      "limits": "UX-02 bibliography presentation only. Original source registries, learner histories, teaching/durable-aid boundaries and all PR43–46 navigation/guidance/modal/version contracts preserved. Fresh stamped independent audit, exact-head complete296CI/strict and actual anonymous fullSHA Gate7 required; no Ready/local-only acceptance. Humans unperformed."
+      "limits": "PR-01 Stage A inspection/navigation over original simulator only. No new resources/commands/World schema/receipt semantics/rubrics/stores/XP or technical observations. Separate post-stamp six-domain audit, complete exact-head303 CI/strict and actual anonymous fullSHA Gate7 required; Ready/local tests alone are insufficient. Stage B/C and PD01/AS02 remain open; human validation unperformed."
     },
     "simulation": {
       "checks": [
         {
-          "path": "docs/COLLAPSIBLE_SOURCES.md"
+          "path": "docs/PORTAL_INSPECTION_BRIDGE.md"
         },
         {
-          "path": "src/features/learning/source-disclosure.test.ts"
+          "path": "src/domain/portal/inspection.test.ts"
         },
         {
-          "path": "tests/e2e/collapsible-sources.spec.ts"
+          "path": "tests/e2e/portal-inspection-bridge.spec.ts"
         }
       ],
-      "limits": "UX-02 bibliography presentation only. Original source registries, learner histories, teaching/durable-aid boundaries and all PR43–46 navigation/guidance/modal/version contracts preserved. Fresh stamped independent audit, exact-head complete296CI/strict and actual anonymous fullSHA Gate7 required; no Ready/local-only acceptance. Humans unperformed."
+      "limits": "PR-01 Stage A inspection/navigation over original simulator only. No new resources/commands/World schema/receipt semantics/rubrics/stores/XP or technical observations. Separate post-stamp six-domain audit, complete exact-head303 CI/strict and actual anonymous fullSHA Gate7 required; Ready/local tests alone are insufficient. Stage B/C and PD01/AS02 remain open; human validation unperformed."
     },
     "savvyshark": {
       "checks": [
         {
-          "path": "docs/COLLAPSIBLE_SOURCES.md"
+          "path": "docs/PORTAL_INSPECTION_BRIDGE.md"
         },
         {
-          "path": "src/features/learning/source-disclosure.test.ts"
+          "path": "src/domain/portal/inspection.test.ts"
         },
         {
-          "path": "tests/e2e/collapsible-sources.spec.ts"
+          "path": "tests/e2e/portal-inspection-bridge.spec.ts"
         }
       ],
-      "limits": "UX-02 bibliography presentation only. Original source registries, learner histories, teaching/durable-aid boundaries and all PR43–46 navigation/guidance/modal/version contracts preserved. Fresh stamped independent audit, exact-head complete296CI/strict and actual anonymous fullSHA Gate7 required; no Ready/local-only acceptance. Humans unperformed."
+      "limits": "PR-01 Stage A inspection/navigation over original simulator only. No new resources/commands/World schema/receipt semantics/rubrics/stores/XP or technical observations. Separate post-stamp six-domain audit, complete exact-head303 CI/strict and actual anonymous fullSHA Gate7 required; Ready/local tests alone are insufficient. Stage B/C and PD01/AS02 remain open; human validation unperformed."
     },
     "visual-accessibility": {
       "checks": [
         {
-          "path": "docs/COLLAPSIBLE_SOURCES.md"
+          "path": "docs/PORTAL_INSPECTION_BRIDGE.md"
         },
         {
-          "path": "src/features/learning/source-disclosure.test.ts"
+          "path": "src/domain/portal/inspection.test.ts"
         },
         {
-          "path": "tests/e2e/collapsible-sources.spec.ts"
+          "path": "tests/e2e/portal-inspection-bridge.spec.ts"
         }
       ],
-      "limits": "UX-02 bibliography presentation only. Original source registries, learner histories, teaching/durable-aid boundaries and all PR43–46 navigation/guidance/modal/version contracts preserved. Fresh stamped independent audit, exact-head complete296CI/strict and actual anonymous fullSHA Gate7 required; no Ready/local-only acceptance. Humans unperformed."
+      "limits": "PR-01 Stage A inspection/navigation over original simulator only. No new resources/commands/World schema/receipt semantics/rubrics/stores/XP or technical observations. Separate post-stamp six-domain audit, complete exact-head303 CI/strict and actual anonymous fullSHA Gate7 required; Ready/local tests alone are insufficient. Stage B/C and PD01/AS02 remain open; human validation unperformed."
     },
     "independent-final-audit": {
       "checks": [
         {
-          "path": "docs/COLLAPSIBLE_SOURCES.md"
+          "path": "docs/PORTAL_INSPECTION_BRIDGE.md"
         },
         {
-          "path": "src/features/learning/source-disclosure.test.ts"
+          "path": "src/domain/portal/inspection.test.ts"
         },
         {
-          "path": "tests/e2e/collapsible-sources.spec.ts"
+          "path": "tests/e2e/portal-inspection-bridge.spec.ts"
         }
       ],
-      "limits": "UX-02 bibliography presentation only. Original source registries, learner histories, teaching/durable-aid boundaries and all PR43–46 navigation/guidance/modal/version contracts preserved. Fresh stamped independent audit, exact-head complete296CI/strict and actual anonymous fullSHA Gate7 required; no Ready/local-only acceptance. Humans unperformed."
+      "limits": "PR-01 Stage A inspection/navigation over original simulator only. No new resources/commands/World schema/receipt semantics/rubrics/stores/XP or technical observations. Separate post-stamp six-domain audit, complete exact-head303 CI/strict and actual anonymous fullSHA Gate7 required; Ready/local tests alone are insufficient. Stage B/C and PD01/AS02 remain open; human validation unperformed."
     },
     "delivery": {
       "checks": [
         {
-          "path": "docs/COLLAPSIBLE_SOURCES.md"
+          "path": "docs/PORTAL_INSPECTION_BRIDGE.md"
         },
         {
-          "path": "src/features/learning/source-disclosure.test.ts"
+          "path": "src/domain/portal/inspection.test.ts"
         },
         {
-          "path": "tests/e2e/collapsible-sources.spec.ts"
+          "path": "tests/e2e/portal-inspection-bridge.spec.ts"
         }
       ],
-      "limits": "UX-02 bibliography presentation only. Original source registries, learner histories, teaching/durable-aid boundaries and all PR43–46 navigation/guidance/modal/version contracts preserved. Fresh stamped independent audit, exact-head complete296CI/strict and actual anonymous fullSHA Gate7 required; no Ready/local-only acceptance. Humans unperformed."
+      "limits": "PR-01 Stage A inspection/navigation over original simulator only. No new resources/commands/World schema/receipt semantics/rubrics/stores/XP or technical observations. Separate post-stamp six-domain audit, complete exact-head303 CI/strict and actual anonymous fullSHA Gate7 required; Ready/local tests alone are insufficient. Stage B/C and PD01/AS02 remain open; human validation unperformed."
     }
   },
   "verification": [
     {
       "command": "npm run test:e2e:desktop",
       "result": "pending",
-      "details": "Complete exact-head296CI/strict required; inherited290 or targeted tests are not substitutes."
+      "details": "Complete final303 candidate CI and strict required; no old296 or targeted receipt substitutes."
     },
     {
       "command": "npm run check",
       "result": "passed",
-      "details": "Actual final local npm run check exit0: typecheck/lint/format/docs/quality/57objectives/493curriculum/assets/legacy/601Vitest/18Node/productionbuild. Inherited ignored .artifacts temporarily moved outside and restored unchanged. No pipeline/threshold/dependency changes."
+      "details": "Actual final npm run check exit0: typecheck/lint/format/docs/quality/57objective audit/493curriculum/assets/legacy/609Vitest/18Node/productionbuild. Previous full608 before scope correction also passed; initial test-Scalar and optional-parent TypeScript errors corrected, failedlogs retained. Inherited ignored .artifacts temporarily moved then restored unchanged. Final scope/oldTools and actualcompact browser retests follow the final productionbuild."
     },
     {
-      "command": "targeted production browser and structural tests",
+      "command": "targeted domain and production browser",
       "result": "passed",
-      "details": "3structural tests inspect all13 banks and actualtopic/Summary rendering. Five new desktop cases and1actualcompact passed across targeted runs. Seven old historicalrubric/deniedaid/Journal/dialog/pausedguide witnesses passed. Initial test-only invalidtopic and historicalversiongate assumptions corrected; assertions retained. Keyboard/Axe/reducedmotion/real200%zoom and1024x500/800initial covered. Source toggles preserve rawstorage; deniedaid/stale context unmount sources. Final combined5desktop production run passed1.1m exit0; compact separate passed10.9s. Unchangedhighthreshold audit exit0:12moderate dev warnings, no dependency changes."
+      "details": "25new/olddomain-source tests passed (8new pure,14Portal,3sourcepreservation), finalfull609. All6newdesktop29.1s and actualcompact13.8s passed. Scope/invalid/mismatched/deleted/stale retest6.8s and originalTools21.9s passed on finalproductionbuild;7oldcritical witnesses total preservePolicy/VM/AppSettings/PaaS/SaaS/guidance/source patterns. Initialunsupported16GiB/scalarfixture/optionalparent and SPA-reload assumptions corrected without changingengine/rubrics or weakening assertions. All7actualbefore/afterscreens inspected; scopedselectstyle corrected. No full local browserbaseline repeated."
     },
     {
       "command": "npm run test:e2e:plan",
       "result": "passed",
-      "details": "296=272desktop+24compact;5newdesktop+1actualcompact, all290 earlier retained. Optionallegacy544; settings unchanged."
+      "details": "303=278desktop+25compact, all296prior retained;6newdesktop+1actualcompact, optionallegacy556. No workers/retries/timeouts/skips changes."
     },
     {
-      "command": "independent risk-based PR47 final audit",
+      "command": "npm audit --audit-level=high",
       "result": "passed",
-      "details": "Completed2026-11-02T11:40:52.408Z by separate agent /root/source47_final_audit after11:33:59.818Z stamp. Zero BLOCKER/MAJOR. Actual exits0:18Vitest source/teaching/refined tests;9quality-gate negative Node tests;3newdesktop+1actualcompact+3inherited production browser witnesses; independent native final-link/storage/reload probe; preservation and296plan validation. All42hashes/fingerprint,154domain files,1445380-byte locale prefix and four DOM pairs verified. All9committed images personally inspected. Full candidateCI/strict and anonymousGate7 remain pending; humans unperformed. Report docs/quality/PR47_FINAL_AUDIT.md."
+      "details": "Actual unchanged policy exit0,12moderate development warnings, no dependency or threshold change. Separate maintenance retained."
+    },
+    {
+      "command": "independent PR48 risk-based final audit",
+      "result": "passed",
+      "details": "Separate poststamp reviewer /root/inspection48_final_audit: all27hashes/fingerprint recomputed;153otherolddomainfiles+original1445498locale bytes+Portaltechnicaltail identical.40targeteddomain tests exit0(2.62s);6newdesktop exit0(27.5s);1actualcompact exit0(15.6s);3inheritedcriticalbrowser exit0(15.5s);9qualitynegatives+plan303 exit0. Separatebrowserprobes cover all3empty/native/noimplicitguide, preservedattempt1guidewithcurrentattempt2VM, identitynotARMscope/deletedgroupancestry, shortwindowcontrolreachability, rawPolicy/Appneutral and deniedaidall3. All7committedscreens+2publicreferenceimages personallyviewed. Report docs/quality/PR48_FINAL_AUDIT.md; private artifacts /workspace/azurelab-pr48/independent-*. No fullcandidateCI/Gate7 pass claimed. Final docs:check and quality:check exit0. Strict release preflight exit1 solely for missing executed fullcandidatebrowserprofile; this delivery requirement stays pending."
     }
   ],
   "visualEvidence": [
     {
-      "path": "docs/screenshots/collapsible-sources/before-security-1440.png",
+      "path": "docs/screenshots/portal-inspection/before-course-vm-1440.png",
       "viewport": "1440x900",
       "inspected": true,
-      "observation": "Baseline28-source wall; boundingheight920px."
+      "observation": "PR47 native VM activity required guide start before any target inspection link."
     },
     {
-      "path": "docs/screenshots/collapsible-sources/after-security-1440.png",
+      "path": "docs/screenshots/portal-inspection/after-course-vm-1440.png",
       "viewport": "1440x900",
       "inspected": true,
-      "observation": "Closed28-source line; human limit visible;95px whole source section."
+      "observation": "Actual resource selector and questions next to existing guided activity; no session/credit from link."
     },
     {
-      "path": "docs/screenshots/collapsible-sources/before-governance-1440.png",
+      "path": "docs/screenshots/portal-inspection/before-vm-history-1440.png",
       "viewport": "1440x900",
       "inspected": true,
-      "observation": "Baseline36-source wall;1178px."
+      "observation": "Resource Activitylog displayed all8original operations."
     },
     {
-      "path": "docs/screenshots/collapsible-sources/after-governance-1440.png",
+      "path": "docs/screenshots/portal-inspection/after-vm-history-1440.png",
       "viewport": "1440x900",
       "inspected": true,
-      "observation": "Closed36-source line; human limit visible;91px."
+      "observation": "Same World now filters1actualVM operation; explicit allhistory available."
     },
     {
-      "path": "docs/screenshots/collapsible-sources/before-management-tools-1440.png",
+      "path": "docs/screenshots/portal-inspection/before-policy-receipt-1440.png",
       "viewport": "1440x900",
       "inspected": true,
-      "observation": "Baseline40-source wall;1300px."
+      "observation": "Original denial/witness/revision retained."
     },
     {
-      "path": "docs/screenshots/collapsible-sources/after-management-tools-1440.png",
+      "path": "docs/screenshots/portal-inspection/after-policy-receipt-1440.png",
       "viewport": "1440x900",
       "inspected": true,
-      "observation": "Closed40-source line; human limit visible;91px."
+      "observation": "Original denied request and actual references are separate from current configuration; no created Plan."
     },
     {
-      "path": "docs/screenshots/collapsible-sources/before-journal-1440.png",
-      "viewport": "1440x900",
-      "inspected": true,
-      "observation": "Baseline globalJournal40source list1654px."
-    },
-    {
-      "path": "docs/screenshots/collapsible-sources/after-journal-1440.png",
-      "viewport": "1440x900",
-      "inspected": true,
-      "observation": "Journalcentered; visible limitations outside;40sources closed;119px."
-    },
-    {
-      "path": "docs/screenshots/collapsible-sources/open-security-1024x500.png",
+      "path": "docs/screenshots/portal-inspection/after-properties-1024x500.png",
       "viewport": "1024x500",
       "inspected": true,
-      "observation": "Actual open28source list; singlecolumn readable title wraps, no horizontal overflow, normal page scroll keeps later references accessible."
+      "observation": "URLProperties view survives reload; normal scrolling reaches evidence below short viewport."
     }
   ],
   "humanReview": {
@@ -328,182 +381,183 @@
   },
   "snapshot": {
     "files": {
-      "AGENTS.md": "a708637084f7a11942f794daa8d2ccb95ebcdb14fe3a40e533f56edf92a81a12",
-      "docs/COLLAPSIBLE_SOURCES.md": "b2576e04dd5ba9f987d2040b5444667120a2f202cd063a03324a0cf0f1b14c75",
-      "docs/reviews/AZ900_REMEDIATION_PLAN.md": "40e050c45a54f0633812141c335b136bdb0669721df703a1e0da5d50b1a3fa41",
-      "docs/reviews/evidence/source47-preservation.json": "aef9c62e8ae109109c74e03ade1b9fdb11f4bd60077aeffcf72830a190fe0c29",
-      "docs/screenshots/collapsible-sources/after-governance-1440.png": "cbaa4f204ed3b532320a0bfa576f0895731861af52edbe60118335bfb3beba70",
-      "docs/screenshots/collapsible-sources/after-journal-1440.png": "233afe33cde1c694c7be419c221e77ba2983644774011818f225d826bcb77aac",
-      "docs/screenshots/collapsible-sources/after-management-tools-1440.png": "7b438aebbc242cb23ca2ca396a4d13e4320918ae5ad3d6c996c6e3e9b668e9b6",
-      "docs/screenshots/collapsible-sources/after-security-1440.png": "71088ee6338ae2044ff46b8ca0cefe7c3fc0e5fda2b2fb42d7b0d4b607f6cb1d",
-      "docs/screenshots/collapsible-sources/before-governance-1440.png": "80d17a6f21a94a0cf689a49e5022681311e03fd791be18475cdbbb6b1d419b3e",
-      "docs/screenshots/collapsible-sources/before-journal-1440.png": "75f5204a6b5d743c5be059adbddee28b1260ad77a14eb71d2407c9e1a9596f99",
-      "docs/screenshots/collapsible-sources/before-management-tools-1440.png": "34755c199e10df19e18fb2bb17ccac86439686c0e79481990b31366348e3a758",
-      "docs/screenshots/collapsible-sources/before-security-1440.png": "68ddd3a88ab897e31882616a5fb1a990d55fe155414c7cd20c9e1da384e3622b",
-      "docs/screenshots/collapsible-sources/open-security-1024x500.png": "6263d6585a57addc3825e721862aece62ffce261a22537389346cffd8ed7337c",
-      "playwright.desktop.config.ts": "61eeb8ca37733679ce0085df465637c30c86ca31652a82fe1ab39f35560509d4",
-      "src/content/nb.ts": "999a5e77e918e75bf9c94e6931ae39c103701636b9ed276d6bd7bd800881e27c",
-      "src/features/course/missions.tsx": "afb68a4223ac75b56d4b0b1cdc8458c480f16e0cd56a55829892a8b2365f62a3",
-      "src/features/course/practical-lab.tsx": "40de9a255cdb6a65e514f3ad30617307fc130ff38d3fabc2ee71b22700a0e6e0",
-      "src/features/learning/access-control.tsx": "7689b9923393ea4ee6dd88b442a7ee991a6d595b86dee434a1c15b4c7afc5ebd",
-      "src/features/learning/cloud-transfer.tsx": "1c3b59cae5c207c94a87b3d9982a4230029a98359e177714620368b4613be84b",
-      "src/features/learning/compute.tsx": "d6b0dc59facc8f3b8d7a1308c0c61babf7a831f7c220d31eb91057d11f05a1d1",
-      "src/features/learning/connectivity.tsx": "9f42966bb3670f8a83f890114d438328cc3952e2bdd1fd5afadb7523ca3d7534",
-      "src/features/learning/cost.tsx": "3921da3fe2a4380a07f810f15697fd3ea7e350a02c9bf2f7ee673594ee8e9071",
-      "src/features/learning/expanded-module.tsx": "e324db037d4c237ea3b1f8a444539e813d8e8c783fb4687e0e4404f9a58ef20c",
-      "src/features/learning/foundations-v2.tsx": "ec0129601c3bdaa898a32911f2cd01e0af5e7cb56fcd604956346ce5dae7ab4d",
-      "src/features/learning/governance.tsx": "82e54ee7c2ce61e30ca471f34086f728784647222795d21a89822d1229a7ce1e",
-      "src/features/learning/identity-foundations.tsx": "ce59d1e4a95649ee7c10c5fa1851b00eeb3ff1865e0961bb9537726b260daa16",
-      "src/features/learning/journal.tsx": "4e0e49b305244cf92afa187dd14d05bd1f84efa295bf670ccb6cb2532abe6018",
-      "src/features/learning/management-tools.tsx": "52c3d54a12ca7b211cffcc8ec459d4d0cf3ad9ce55506b29a7595fac6476f694",
-      "src/features/learning/management.tsx": "6a4c6669e6465b9ae4006360369b4df5c8f6297592880996e8ba2b94b54360fa",
-      "src/features/learning/migration.tsx": "038510ce3bc06e62243db827dfc393b806a150440fca0d6668b1bd48228eb0ec",
-      "src/features/learning/monitoring.tsx": "ffdcf2b4413f12bc3da71ee3651aa2729ee76e46fa2f06b59b4d6bcfd75a1656",
-      "src/features/learning/networking.tsx": "d9be92efb903762a1a4257215b3c73a50813451411f9800208790ca6b18c042c",
-      "src/features/learning/physical.tsx": "fd27530ebdb1c023d46add21f688f7c2a47e7541a84f2fb71ee270a6e44e4f77",
-      "src/features/learning/security.tsx": "2808971fedda0d0ac40316a248a7020d1875f63c84f8bfae64e08e25d16ea789",
-      "src/features/learning/serverless.tsx": "488d9a863f2ac4b7e50e8a8f261d79eab49e1d26f420d22eeed4fbee38895f25",
-      "src/features/learning/source-disclosure.css": "6094c0a60e2cbfe5b9c2c5848cc555f634898bdbd512ec7da3773e5c9cb74498",
-      "src/features/learning/source-disclosure.test.ts": "3996be9867ed727d95260182942569ddd3ccd55caae70b7276649bc936693292",
-      "src/features/learning/source-disclosure.tsx": "0b2d947da9a960418ca27e920bd41fcc21b307a28130bd71c35e75eb0496d504",
-      "src/features/learning/storage-resilience.tsx": "28893c84d136effe690a8841868e9e780a69cd9aee571f290a7daf3703119489",
-      "src/features/learning/storage.tsx": "e64229010dcdfaf2be9a3eb7fd25f57eb5bbf4ee3c0483bc65339fa8d0d92806",
-      "src/features/portal/learning.tsx": "f6da8df70f2307d25bc6b2959fdc6584002ef1c11e995d92c0efe25fad33befb",
-      "tests/e2e/collapsible-sources.spec.ts": "fbfa53841fe9f2c9f45cd1720bbe46f4e989a171fe9474ea0495248e8f992cce"
+      "AGENTS.md": "c93606f9a329682c2ed2c314604b8451a7ec2453cc2085d2fa51390b937ca499",
+      "docs/PORTAL_INSPECTION_BRIDGE.md": "910c6b190407b32c73daabc50b40a670f23d024fb08fe144f460a631222a812c",
+      "docs/reviews/AZ900_REMEDIATION_PLAN.md": "916b980fdf9fcd1a5fb9cfc24bd64c984dd03c60f205695ad4e9a1644e3464ca",
+      "docs/reviews/evidence/inspection48-preservation.json": "ff67c19e6fec0b1888e06ff220b50fb925b7da4942bc5d18f1bbd4447403edc3",
+      "docs/screenshots/portal-inspection/after-course-vm-1440.png": "3c262e0cfc2c721ae63e9cc0a5d0c6a61b7a7567d140f3ce73578803768b2a89",
+      "docs/screenshots/portal-inspection/after-policy-receipt-1440.png": "25a1e5fe6efa628985b6ad57ecc4d22f76b1c794952d0216c9e4d4bcfbc803ab",
+      "docs/screenshots/portal-inspection/after-properties-1024x500.png": "6342e44a122d1f57b54d07238ac99f1834f0dc85360c9f46b66b6155e8107b97",
+      "docs/screenshots/portal-inspection/after-vm-history-1440.png": "f11ccc8bde26517c273e2e4b09934ecd87e4b6ce12bbb211caea8bfdc6f98351",
+      "docs/screenshots/portal-inspection/before-course-vm-1440.png": "e18910199625edafa018b6e5869d2f338ad16cadecb830a5cc3882bbd2f9f4ef",
+      "docs/screenshots/portal-inspection/before-policy-receipt-1440.png": "184a3f043b6fcb98f338d2125ae9d407e6cd179e603ab32cacf8cefb4b523ea6",
+      "docs/screenshots/portal-inspection/before-vm-history-1440.png": "bbbee803300c71b3a408d762e5ea1ad2aed1cdd2d95a82120280bdb5100982aa",
+      "playwright.desktop.config.ts": "fecd1b88895d5480c78684284e8628aff21d05ee83be5d6a62b5e2f78e294f65",
+      "src/content/nb.ts": "5bb6b06957b0054b1d0398231a864f482e04db51e09897b5c1aa0ffc23f14c8b",
+      "src/domain/portal/inspection.test.ts": "addd1576701cb1f300b212b049868e00b4cf44c36ee2f23181654da7aed54605",
+      "src/domain/portal/inspection.ts": "6bca54f6900b4b96128880dc90d1e296b3e20dbcb810e2bebb9f5a8981fd85f6",
+      "src/domain/portal/model.ts": "7f75f3d118a81190bd49f14fda60829773e59e8cca32b117698523dbf27af2cf",
+      "src/features/course/portal-inspection-bridge.tsx": "30f06bd1f342ce07165f4b5679bbd854a5b89e1af567e30a4ee87b2e48bd4eea",
+      "src/features/course/portal-inspection.css": "cd9e0cb7a10ab97ac11b90b0fd017b2793ecb343c66e2185157fd387ca5679fc",
+      "src/features/learning/compute.tsx": "a8a8400745debd2be73eaa5af29c200c05d65ab4a62901e28f94f3710b46e24c",
+      "src/features/learning/governance.tsx": "710dff001659d95b50cb1ac2d247a6aa2600666e16e761fd26819970331b4183",
+      "src/features/learning/management-tools.tsx": "79dd2d924ed5250bd869d86596ca027cc566c89bbc6f7e34645a6699d9c5daaa",
+      "src/features/learning/source-disclosure.test.ts": "f6a0213a0fbcf3c1733ac5f77f7082238923fdd092cede8851ec596acbe9aea5",
+      "src/features/portal/inspection-evidence.tsx": "6e5fbeba9401508d2d4bc62ae750d53bb0dd78397bb8bcd4038138e67400616a",
+      "src/features/portal/inventory.tsx": "0b36baa6c4b682cbd1e141b16ba21c0c1082aa55e26ecc3c9a4eebc8d9b22983",
+      "src/features/portal/portal.tsx": "00ac528f359acd6e6b57f888e9150e12db6fbbb2ac7e8efdf60644f6e6813b35",
+      "tests/e2e/portal-inspection-bridge.spec.ts": "3c851537e2d7c7750bdd4a49763d648f7f35d11569ffaf2228afbe15a4769cef",
+      "tests/fixtures/portal-inspection.ts": "891ebbf58ed5b05c4e30a79b4102fb5e6d53cff77b68dddb605448087d4ee881"
     }
   },
-  "implementationFinished": "2026-11-02T11:33:59.818Z",
+  "implementationFinished": "2026-11-02T13:33:09.692Z",
   "review": {
     "status": "complete",
-    "fingerprint": "3f1e396ab4fb3ccfca56060199e2f21dcaf6e659699fe2fb7a7bbfafcf8328f8",
+    "fingerprint": "4832c4211ba6ec49c91a2ae7cfb2609ec3362159c4c74a11f51e1c578d0b2cbe",
     "reviewer": {
-      "id": "/root/source47_final_audit",
+      "id": "/root/inspection48_final_audit",
       "kind": "agent"
     },
-    "started": "2026-11-02T11:35:37.356Z",
+    "started": "2026-11-02T13:34:56.285Z",
+    "completed": "2026-11-02T13:43:46.924Z",
     "domains": {
       "content": {
-        "finding": "No source/content regression found. Independently byte-compared all154 original domain files and the1445380-byte original nb.ts prefix; inspected all23 adapted files/26 calls. All13 modern banks/377 registered entries and actual topic/Summary selections pass. Legacy adapters retain original selections and notes; no new source metadata or Azure claim. FM32 remains the existing official Azure GitHub wiki source. Four measured DOM pairs preserve exact anchor text/href. This is preservation, not a new57-objective source audit.",
+        "finding": "New prompts and current official reference structure checked within Stage A limits; four actual saved source-body hashes verified, two public reference illustrations inspected. All153 other old domain files and original1445498 locale bytes are identical; complete original Portal technical tail preserved. No new full57objective or unchanged-bank audit claimed.",
         "evidence": [
+          {
+            "path": "docs/PORTAL_INSPECTION_BRIDGE.md"
+          },
+          {
+            "path": "docs/reviews/evidence/inspection48-preservation.json"
+          },
           {
             "path": "src/features/learning/source-disclosure.test.ts"
           },
           {
-            "path": "docs/reviews/evidence/source47-preservation.json"
-          },
-          {
-            "path": "src/features/learning/foundations-v2.tsx"
-          },
-          {
-            "path": "src/features/portal/learning.tsx"
+            "path": "docs/quality/PR48_FINAL_AUDIT.md"
           }
         ]
       },
       "technical": {
-        "finding": "Presentation has no storage/evidence/event path; original teaching boundaries and technical engine remain unchanged. Independent unit negatives and production denied-aid tests for both refined contexts, invalid direct topic and cross-tab removal of already-open sources pass. Toggling/reload preserves raw storage; no World/receipt/schema/XP change. Existing source URLs are HTTPS and new-tab links use noopener noreferrer.",
+        "finding": "Pure original-World/ledger projection preserves direct/reference/scope distinctions, current versus absent references and allowlisted request fields. Browser checks cover all native origins, rejected Policy, changed settings, invalid/deleted/stale/mismatched targets, historical deleted-group ancestry and tenantidentity0operations. Raw metadata stays neutral; denied durable aid mounts no bridge in all3activities.",
         "evidence": [
           {
-            "path": "src/features/learning/source-disclosure.tsx"
+            "path": "src/domain/portal/inspection.ts"
+          },
+          {
+            "path": "src/domain/portal/inspection.test.ts"
+          },
+          {
+            "path": "src/features/portal/inspection-evidence.tsx"
+          },
+          {
+            "path": "tests/e2e/portal-inspection-bridge.spec.ts"
           },
           {
             "path": "src/features/learning/management-access.tsx"
           },
           {
-            "path": "src/domain/curriculum/teaching-access.test.ts"
-          },
-          {
-            "path": "tests/e2e/collapsible-sources.spec.ts"
+            "path": "docs/quality/PR48_FINAL_AUDIT.md"
           }
         ]
       },
       "visual": {
-        "finding": "Personally inspected all9 committed images. Closed Summary/Journal disclosures substantially reduce bibliography height while limits and human-validation notes remain visible. Independent desktop/actual800x700 compact,1024x500, native Space/Enter/focus/Escape,200percent Chromium zoom, doubled text, reduced motion and Axe checks pass. A separate short-window probe reached and trial-clicked the final source above the footer, preserved raw storage and confirmed reload closed. Long open lists retain normal vertical scrolling.",
+        "finding": "All7committedimages and2publicreferenceillustrations personally inspected. Sixdesktop plus actual800x700compact pass keyboard/focus/reducedmotion/shortview/Axe; separate1024x500resourcehistory reachability probe inspected. Same8before→1afterVMhistory preserves all receipts through explicit allhistory. Normal vertical scrolling remains. HumanUX/screenreader unperformed.",
         "evidence": [
           {
-            "path": "src/features/learning/source-disclosure.css"
+            "path": "docs/screenshots/portal-inspection/after-course-vm-1440.png"
           },
           {
-            "path": "tests/e2e/collapsible-sources.spec.ts"
+            "path": "docs/screenshots/portal-inspection/after-vm-history-1440.png"
           },
           {
-            "path": "docs/screenshots/collapsible-sources/after-security-1440.png"
+            "path": "docs/screenshots/portal-inspection/after-policy-receipt-1440.png"
           },
           {
-            "path": "docs/screenshots/collapsible-sources/after-journal-1440.png"
+            "path": "docs/screenshots/portal-inspection/after-properties-1024x500.png"
           },
           {
-            "path": "docs/screenshots/collapsible-sources/open-security-1024x500.png"
+            "path": "tests/e2e/portal-inspection-bridge.spec.ts"
           },
           {
-            "path": "docs/quality/PR47_FINAL_AUDIT.md"
+            "path": "docs/quality/PR48_FINAL_AUDIT.md"
           }
         ]
       },
       "assessment": {
-        "finding": "No bank/rubric/item/store/version changes. Independent refined-assessment/teaching-access tests preserve replay/terminal/first/retry distinctions; inherited browser witness preserves original Benefits/Services rubrics and explicit historical routes. No fresh blind-bank or psychometric claim is made for unchanged assessments.",
+        "finding": "Original curriculum/rubric/store/source bytes and locale prefix preserved. No new assessed bank or scoring. Independent40targeteddomain tests and browser aid probes preserve unaided draft/nullfirst/exactresume; all3coursebridges withheld on deniedaid. New reflection prompts have no submission/credit path.",
         "evidence": [
+          {
+            "path": "src/features/learning/source-disclosure.test.ts"
+          },
+          {
+            "path": "src/domain/curriculum/teaching-access.test.ts"
+          },
           {
             "path": "src/domain/curriculum/refined-assessment.test.ts"
           },
           {
-            "path": "tests/e2e/assessment-refinement.spec.ts"
+            "path": "tests/e2e/portal-inspection-bridge.spec.ts"
           },
           {
-            "path": "src/features/learning/cloud-transfer.tsx"
+            "path": "docs/quality/PR48_FINAL_AUDIT.md"
           }
         ]
       },
       "guidance": {
-        "finding": "PR43-46 Course, learning-flow, sequence, shared Portal/modal and refined assessment contracts are unchanged. Independent inherited browser witnesses preserve paused guide resume/BackForward and centered scrollable Journal/focus return. Native disclosure never grants teaching permission; substantive model limits remain outside it. No guide/session/completion/automatic-help change.",
+        "finding": "Existing3nativeorigins and course returns unchanged; no implicit guide/observations/credit. Independent probe preserved every attempt1guidefield while inspecting currentattempt2VM. Actual browser verifies Savvyhide/headerrecall, independent shielding and stalecontext; inheritedactualVMcommand/dependency/sourceaid witnesses pass.",
         "evidence": [
           {
-            "path": "src/features/course/learning-flow.ts"
+            "path": "src/features/course/portal-inspection-bridge.tsx"
           },
           {
-            "path": "src/features/course/course-sequence.ts"
+            "path": "src/features/learning/compute-vm.tsx"
+          },
+          {
+            "path": "src/features/course/portal-guide-visibility.tsx"
           },
           {
             "path": "tests/e2e/learning-flow-guidance.spec.ts"
           },
           {
-            "path": "tests/e2e/dialog-placement.spec.ts"
+            "path": "tests/e2e/compute-hosting.spec.ts"
+          },
+          {
+            "path": "docs/quality/PR48_FINAL_AUDIT.md"
           }
         ]
       },
       "regression": {
-        "finding": "All42 changed payload hashes and fingerprint match stamp. No prior browser assertion, dependency, CI, worker/retry/timeout/skip changed. Independent plan validates296=272desktop+24compact, retaining290 earlier executions; optional legacy544. Author fullcheck log and bounded browser logs inspected; independent checks listed in report pass. Candidate fullCI/strict and anonymous fullSHA Gate7 remain pending delivery, not credited by this audit; humans remain unperformed.",
+        "finding": "Independent27filehash/fingerprint recomputation matches stamp. SourceDisclosure3explicitexceptions accepted after full technicaltail and153otherdomain/prefix verification. All296previousbrowserexecutions retained; plan303=278desktop+25compact, optionallegacy556. No oldbrowserassertion/config/CI/dependency change. Independent9qualitynegatives pass. Full candidateCI/strict and actualanonymousGate7 remain pending.",
         "evidence": [
           {
             "path": "playwright.desktop.config.ts"
           },
           {
-            "path": "docs/COLLAPSIBLE_SOURCES.md"
+            "path": "tests/e2e/portal-inspection-bridge.spec.ts"
           },
           {
-            "path": "docs/RELEASE_ACCEPTANCE.md"
+            "path": "scripts/quality-check.test.mjs"
           },
           {
-            "path": "docs/quality/PR47_FINAL_AUDIT.md"
+            "path": "src/features/learning/source-disclosure.test.ts"
+          },
+          {
+            "path": "docs/quality/PR48_FINAL_AUDIT.md"
           }
         ]
       }
     },
     "findings": [
       {
-        "id": "PR47-AUDIT-01",
-        "severity": "minor",
-        "status": "accepted-limitation",
-        "description": "Opening a long bibliography still requires normal vertical scrolling. Native open state is intentionally not persisted; reload/remount returns closed. Links remain keyboard reachable and mandatory limits remain visible."
-      },
-      {
-        "id": "PR47-AUDIT-02",
+        "id": "PR48-AUDIT-01",
+        "description": "Complete exact-head303 GitHub CI/strict and actual anonymous ordinary-root/fullSHA/action/return Gate7 remain pending at audit completion; local targeted results do not establish delivery.",
         "severity": "note",
-        "status": "open",
-        "description": "Delivery remains pending: complete exact-head296 GitHub CI plus strict release and anonymous ordinary-root/fullSHA/interaction/return Gate7 must be recorded separately. Local tests or Ready status cannot establish them; human SME/UX/screen-reader/learning validation is unperformed."
+        "status": "open"
       }
     ],
     "report": {
-      "path": "docs/quality/PR47_FINAL_AUDIT.md"
+      "path": "docs/quality/PR48_FINAL_AUDIT.md"
     }
   }
 }

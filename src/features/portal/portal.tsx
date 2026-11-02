@@ -63,6 +63,9 @@ import { labsNb, nb, regionLabels, learningPolishNb as polish } from '@/content/
 import { useSandbox as useChapter } from '@/features/portal/sandbox-provider';
 import { useLearning } from '@/features/learning/provider';
 import { ReceiptPanel } from './receipt-panel';
+import { ResourceEvidence, ReceiptReferences } from './inspection-evidence';
+import { resourceOperations } from '@/domain/portal/inspection';
+import { inspectionBridgeNb as inspectionCopy } from '@/content/nb';
 import {
   inventory,
   parseLocation,
@@ -428,6 +431,35 @@ function PortalWorkspace() {
     (e) => e.request.commandId === location.id,
   );
   const receipt = receiptEntry?.receipt;
+  // Preserve historic activity?id=<resource> links while supporting an explicit scope.
+  const activityResource =
+    location.resource ??
+    (!receiptEntry &&
+    location.id &&
+    (rows.some((r) => r.id === location.id) ||
+      location.id === world.identity.id ||
+      resourceOperations(chapter.attempt.engine, location.id).length)
+      ? location.id
+      : '');
+  const activityEntries = activityResource
+    ? resourceOperations(chapter.attempt.engine, activityResource).map((x) => x.entry)
+    : chapter.attempt.engine.ledger;
+  const missingActivity =
+    !!(location.id && !receiptEntry && !activityResource) ||
+    !!(
+      location.resource &&
+      !rows.some((r) => r.id === location.resource) &&
+      location.resource !== world.identity.id &&
+      !activityEntries.length
+    ) ||
+    !!(
+      location.resource &&
+      receiptEntry &&
+      !activityEntries.some((e) => e.receipt.commandId === receiptEntry.receipt.commandId)
+    );
+  const activityObject =
+    rows.find((r) => r.id === activityResource) ??
+    (world.identity.id === activityResource ? world.identity : undefined);
   const updatedAppId = receiptEntry?.request.command.appId;
   const receiptResourceId =
     receipt?.outcome === 'accepted'
@@ -1168,61 +1200,83 @@ function PortalWorkspace() {
                     />
                   )
                 ) : location.area === 'settings' || location.area === 'resource' ? (
-                  <ResourceDetails
-                    key={location.id}
-                    world={world}
-                    id={location.id}
-                    navigate={navigate}
-                    settings={location.area === 'settings'}
-                    commands={commands}
-                  >
-                    {(view) =>
-                      location.area === 'settings' ? (
-                        <AppSettings
-                          key={location.id}
-                          world={world}
-                          id={location.id}
-                          disabled={disabled}
-                          onCreate={command}
-                          onDraft={
-                            location.mission &&
-                            missions.current?.mission === 'platform' &&
-                            missions.current.status === 'active' &&
-                            !contextIssue &&
-                            !otherIndependentContext
-                              ? (values) =>
-                                  missions.store.event({
-                                    type: 'draft',
-                                    target: location.id,
-                                    through:
-                                      chapter.attempt.engine.ledger.at(-1)?.receipt.commandId ??
-                                      null,
-                                    ...values,
-                                  })
-                              : undefined
-                          }
-                        />
-                      ) : (
-                        <InfrastructureDetails
-                          view={view}
-                          world={world}
-                          id={location.id}
-                          navigate={navigate}
-                          onCreate={command}
-                          receipt={
-                            chapter.attempt.engine.ledger
-                              .filter(
-                                (e) =>
-                                  e.receipt.outcome === 'accepted' &&
-                                  (e.receipt.addedIds.includes(location.id) ||
-                                    e.request.command.appId === location.id),
-                              )
-                              .at(-1)?.receipt
-                          }
-                        />
-                      )
-                    }
-                  </ResourceDetails>
+                  !current && !scope && location.id !== world.identity.id ? (
+                    <section className="portal-empty" role="status">
+                      <p>{inspectionCopy.missing}</p>
+                      <button type="button" onClick={() => navigate('resources')}>
+                        {inspectionCopy.inventory}
+                      </button>
+                      <Link href={courseReturn}>{nb.course.returnCourse}</Link>
+                    </section>
+                  ) : (
+                    <ResourceDetails
+                      key={location.id}
+                      world={world}
+                      id={location.id}
+                      navigate={navigate}
+                      settings={location.area === 'settings'}
+                      commands={commands}
+                      view={location.view}
+                      evidence={
+                        chapter.ready &&
+                        !chapter.issue &&
+                        rows.some((r) => r.id === location.id) ? (
+                          <ResourceEvidence
+                            engine={chapter.attempt.engine}
+                            id={location.id}
+                            navigate={navigate}
+                          />
+                        ) : undefined
+                      }
+                    >
+                      {(view) =>
+                        location.area === 'settings' ? (
+                          <AppSettings
+                            key={location.id}
+                            world={world}
+                            id={location.id}
+                            disabled={disabled}
+                            onCreate={command}
+                            onDraft={
+                              location.mission &&
+                              missions.current?.mission === 'platform' &&
+                              missions.current.status === 'active' &&
+                              !contextIssue &&
+                              !otherIndependentContext
+                                ? (values) =>
+                                    missions.store.event({
+                                      type: 'draft',
+                                      target: location.id,
+                                      through:
+                                        chapter.attempt.engine.ledger.at(-1)?.receipt.commandId ??
+                                        null,
+                                      ...values,
+                                    })
+                                : undefined
+                            }
+                          />
+                        ) : (
+                          <InfrastructureDetails
+                            view={view}
+                            world={world}
+                            id={location.id}
+                            navigate={navigate}
+                            onCreate={command}
+                            receipt={
+                              chapter.attempt.engine.ledger
+                                .filter(
+                                  (e) =>
+                                    e.receipt.outcome === 'accepted' &&
+                                    (e.receipt.addedIds.includes(location.id) ||
+                                      e.request.command.appId === location.id),
+                                )
+                                .at(-1)?.receipt
+                            }
+                          />
+                        )
+                      }
+                    </ResourceDetails>
+                  )
                 ) : location.area === 'learn' ? (
                   <LearningWorkspace location={location} navigate={navigate} />
                 ) : location.area === 'challenge' ? (
@@ -1287,11 +1341,41 @@ function PortalWorkspace() {
                   </>
                 ) : (
                   <>
-                    <OperationTable
-                      receipts={chapter.attempt.engine.ledger.map((e) => e.receipt)}
-                      onSelect={(r) => navigate('activity', { id: r.commandId })}
-                    />
-                    {receipt && (
+                    {activityResource && (
+                      <div className="portal-inspection-scope">
+                        <span>
+                          {inspectionCopy.filtered} ·{' '}
+                          <strong>{activityObject?.name ?? activityResource}</strong>
+                        </span>
+                        {chapter.ready && !chapter.issue && activityObject ? (
+                          <button
+                            type="button"
+                            onClick={() => navigate('resource', { id: activityResource })}
+                          >
+                            {inspectionCopy.current}
+                          </button>
+                        ) : (
+                          <span>{inspectionCopy.absent}</span>
+                        )}
+                        <button type="button" onClick={() => navigate('activity')}>
+                          {inspectionCopy.allHistory}
+                        </button>
+                      </div>
+                    )}
+                    {missingActivity ? (
+                      <p role="status">{inspectionCopy.noTarget}</p>
+                    ) : (
+                      <OperationTable
+                        receipts={activityEntries.map((e) => e.receipt)}
+                        onSelect={(r) =>
+                          navigate('activity', {
+                            id: r.commandId,
+                            resource: activityResource || undefined,
+                          })
+                        }
+                      />
+                    )}
+                    {receipt && !missingActivity && (
                       <div data-guide="receipt">
                         <ReceiptPanel
                           receipt={receipt}
@@ -1304,6 +1388,13 @@ function PortalWorkspace() {
                               : () => edit(receipt)
                           }
                         />
+                        {receiptEntry && chapter.ready && !chapter.issue && (
+                          <ReceiptReferences
+                            engine={chapter.attempt.engine}
+                            entry={receiptEntry}
+                            navigate={navigate}
+                          />
+                        )}
                         {receiptResourceId && (
                           <button
                             type="button"

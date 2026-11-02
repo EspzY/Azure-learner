@@ -38,7 +38,17 @@ export const benefitBridgeTopics = [
   'management',
   'sustainability',
 ] as const;
+export const resourceSections = [
+  'overview',
+  'properties',
+  'relations',
+  'disks',
+  'network',
+] as const;
+export type ResourceSection = (typeof resourceSections)[number];
 export interface PortalLocation {
+  view?: ResourceSection;
+  resource?: string;
   migration?: 'method' | 'sync' | 'planning';
   security?: 'trust' | 'depth' | 'defender';
   monitoring?: 'evidence' | 'health' | 'telemetry';
@@ -63,6 +73,12 @@ export function parseLocation(query: URLSearchParams): PortalLocation {
   const area = query.get('area') ?? 'home',
     mode = query.get('mode') ?? 'learn';
   return {
+    ...(area === 'resource' && resourceSections.includes(query.get('view') as ResourceSection)
+      ? { view: query.get('view') as ResourceSection }
+      : {}),
+    ...(area === 'activity' && /^[a-zA-Z0-9_-]{1,64}$/.test(query.get('resource') ?? '')
+      ? { resource: query.get('resource')! }
+      : {}),
     ...(query.get('migration') === 'inspect' &&
     ![
       'security',
@@ -234,7 +250,15 @@ export function portalHref(
   area: Area,
   change: Partial<PortalLocation> = {},
 ) {
-  const next = { ...location, area, id: '', edit: '', ...change };
+  const next = {
+    ...location,
+    area,
+    id: '',
+    edit: '',
+    view: undefined,
+    resource: undefined,
+    ...change,
+  };
   const query = new URLSearchParams({
     area: next.area,
     module: next.module,
@@ -242,6 +266,8 @@ export function portalHref(
     mode: next.mode,
   });
   if (next.id) query.set('id', next.id);
+  if (next.area === 'resource' && next.view) query.set('view', next.view);
+  if (next.area === 'activity' && next.resource) query.set('resource', next.resource);
   if (next.area === 'create') query.set('kind', next.kind);
   if (next.edit) query.set('edit', next.edit);
   if (next.lab) query.set('lab', 'web-platform');

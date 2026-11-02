@@ -33,7 +33,7 @@ import * as cost from '@/domain/curriculum/cost-sources';
 // Next uses the automatic JSX transform; the existing Node test runner uses classic JSX.
 vi.stubGlobal('React', React);
 afterAll(() => vi.unstubAllGlobals());
-const base = 'baf68a90d80cb22b0397a5a34e9c20809110eb84';
+const base = '475bddd5b068165528ffa59c288d76c341a914ba';
 const families = [
   [ComputeSources, compute.computeSources, compute.computeStudySources],
   [NetworkingSources, networking.networkingSources, networking.networkingStudySources],
@@ -120,9 +120,27 @@ describe('Source presentation preservation', () => {
     }
   });
   it('preserves every original domain source record mapping rubric store and full authored content prefix against the verified base', () => {
+    // PR48 explicitly extends read-only Portal navigation/projections. All prior
+    // source, rubric, store and engine files remain frozen; the original technical
+    // portion of portal/model.ts is independently byte-checked below.
+    const navigationOnly = [
+      'src/domain/portal/model.ts',
+      'src/domain/portal/inspection.ts',
+      'src/domain/portal/inspection.test.ts',
+    ];
+    const changed = execFileSync('git', ['diff', '--name-only', base, '--', 'src/domain/'], {
+      encoding: 'utf8',
+    })
+      .trim()
+      .split('\n')
+      .filter(Boolean);
+    expect(changed.filter((path) => !navigationOnly.includes(path))).toEqual([]);
+    const priorPortal = execFileSync('git', ['show', base + ':src/domain/portal/model.ts'], {
+      encoding: 'utf8',
+    });
     expect(
-      execFileSync('git', ['diff', '--name-only', base, '--', 'src/domain/'], { encoding: 'utf8' }),
-    ).toBe('');
+      readFileSync('src/domain/portal/model.ts', 'utf8').split('export type InventoryKind =')[1],
+    ).toBe(priorPortal.split('export type InventoryKind =')[1]);
     const old = execFileSync('git', ['show', base + ':src/content/nb.ts'], {
       encoding: 'utf8',
       maxBuffer: 8 * 1024 * 1024,

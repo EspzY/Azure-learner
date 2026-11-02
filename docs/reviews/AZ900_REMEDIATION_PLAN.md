@@ -106,6 +106,16 @@ Alle funn var åpne produktfunn i PR42. PR43 implementerer nå avgrenset LJ-01 o
 - **Risiko:** tekniske saves/receipts/World, versjoner, scope og kryssressursreferanser. Konseptmodeller må ikke bli en ny konkurrerende ressursdatabase.
 - **Akseptanse/tester:** spesifiser kommando-/ressurstype, felt/avvisninger, idempotens, atomisitet, scope/dependencies, versjon og gamle saves/receipts før UI. Samme ressurs skal finnes i inventory/Overview/Properties/history. Oppdrag krever faktisk verifisert resultat. Ingen Azure API, betalt ressurs, credentials eller falsk runtime. Bruk daterte Microsoft-UI-referanser og korrekte ikoner.
 
+**PR48 — PR-01 faseinndeling:**
+
+| Fase    | Avgrensning                                                                                                      | Status                                                                                                                         |
+| ------- | ---------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| Stage A | Eksisterende ressursinspeksjon og kursintegrasjon: VM, Policy-receipt, Web App/plan; original World/ledger/retur | Implementert kandidat; godkjennes etter separat audit,303 eksakt-head CI/streng release og anonym full-SHA Gate7 på Draft PR48 |
+| Stage B | Eventuelle nye operative ressurskapabiliteter med eget teknisk design/versjonering                               | Ikke implementert eller godkjent her                                                                                           |
+| Stage C | Mer omfattende Portal-fidelity og senere AZ-104/AZ-305-funksjoner                                                | Separat senere produktprogram                                                                                                  |
+
+[Stage A: faktiske forløp, før/etter og integritetsgrenser](../PORTAL_INSPECTION_BRIDGE.md). Hele PR-01 er fortsatt åpen selv når Stage A godkjennes. PD-01 og AS-02 er fortsatt åpne. Menneskelig UX-/lærings-/skjermleservalidering er uutført; ingen P17/P18, merge eller produksjon.
+
 ## Portal-faser: elevverdi mot kostnad
 
 Vurderingene er arkitektoniske estimater i lav/middels/høy, ikke tids-/kostnadsløfter.

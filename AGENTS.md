@@ -1,5 +1,9 @@
 # AzureLab engineering contract
 
+## PR48 Portal inspection Stage A continuity
+
+Read [PORTAL_INSPECTION_BRIDGE](docs/PORTAL_INSPECTION_BRIDGE.md). Three existing native origins (compute=vm/governance=policy/tools=intent) select actual current World/ledger objects only. Resource view and resource-scoped Activity log are allowlisted PortalLocation metadata, not learner state. Preserve all original technical engine/source/rubric/store bytes; portal/model technical tail stays byte-protected. No new commands, World/schema/receipt semantics, observations, XP or implicit guided starts. Raw request/ID inspection is neutral; course questions remain behind durable teaching boundaries. Missing/deleted/mismatched/stale evidence cannot invent a current resource. Retain296 previous browser executions;6desktop+1actualcompact give303 (278/25), optional legacy556; settings unchanged. Fresh stamped six-domain audit, full exact-head CI/strict and anonymous fullSHA Gate7 required. PR-01 Stage B/C, PD-01 and AS-02 remain open; humans unperformed. No P17/P18, merge or production.
+
 ## PR47 source presentation continuity
 
 Read [COLLAPSIBLE_SOURCES](docs/COLLAPSIBLE_SOURCES.md). SourceDisclosure is native, closed-by-default presentation over original source selections; no persisted open state, new sources/dates/claims or evidence. Preserve all domain/source bytes, historical rubrics, independent/durable aid boundaries, mandatory visible limits and PR43–46 contracts. 13 modern banks contain377 registered entries, plus adapted Core/Serverless/older/Portal/Journal lists. Retain290 earlier browser executions;5desktop+1actualcompact yield296 (272/24), optional legacy544; settings unchanged. Separate fresh stamped six-domain audit, exact-head full CI/strict and anonymous fullSHA Gate7 required. Human validation unperformed. Next owner review of PD-01/AS-02/PR-01; no automatic P17/P18, merge or production.

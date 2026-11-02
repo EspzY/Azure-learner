@@ -1,5 +1,5 @@
 'use client';
-import { useId, useRef, useState } from 'react';
+import { useEffect, useId, useRef, useState } from 'react';
 import { labsNb, nb, regionLabels, learningPolishNb as polish } from '@/content/nb';
 import { infrastructure } from '@/domain/sandbox/model';
 import {
@@ -8,6 +8,7 @@ import {
   resourceInventory,
   type Area,
   type InventoryRow,
+  type ResourceSection,
 } from '@/domain/portal/model';
 import type { World } from '@/domain/chapter01/model';
 import { ServiceIcon } from './service-icon';
@@ -204,6 +205,8 @@ export function ResourceDetails({
   children,
   settings = false,
   commands,
+  view = 'overview',
+  evidence,
 }: {
   world: World;
   id: string;
@@ -211,19 +214,26 @@ export function ResourceDetails({
   children?: (view: ResourceView) => React.ReactNode;
   settings?: boolean;
   commands?: React.ReactNode;
+  view?: ResourceSection;
+  evidence?: React.ReactNode;
 }) {
   const sectionId = useId(),
     content = useRef<HTMLDivElement>(null);
-  const [section, setSection] = useState<
-    'overview' | 'properties' | 'relations' | 'disks' | 'network'
-  >('overview');
+  const vm = infrastructure(world).find((r) => r.id === id && r.kind === 'vm');
+  const section = (view === 'disks' || view === 'network') && !vm ? 'overview' : view;
+  const previous = useRef(section);
+  useEffect(() => {
+    if (previous.current === section) return;
+    previous.current = section;
+    const frame = requestAnimationFrame(() => content.current?.focus({ preventScroll: true }));
+    return () => cancelAnimationFrame(frame);
+  }, [section]);
   const [query, setQuery] = useState('');
   const row = inventory(world).find((r) => r.id === id),
     scope = world.scopes.find((s) => s.id === id),
     identity = world.identity.id === id ? world.identity : null;
   if (!row && !scope && !identity) return <p>{p.noResource}</p>;
   const name = row?.name ?? scope?.name ?? identity!.name;
-  const vm = infrastructure(world).find((r) => r.id === id && r.kind === 'vm');
   const parentId = row?.parentId ?? scope?.parentId ?? row?.groupId ?? row?.subscriptionId;
   const parentName =
     inventory(world).find((r) => r.id === parentId)?.name ??
@@ -302,8 +312,7 @@ export function ResourceDetails({
       : []),
   ];
   const select = (next: typeof section) => {
-    setSection(next);
-    requestAnimationFrame(() => content.current?.focus({ preventScroll: true }));
+    navigate('resource', { id, view: next });
   };
   const matches = (label: string) => label.toLowerCase().includes(query.toLowerCase());
   const menuButton = (key: typeof section, label: string) =>
@@ -314,7 +323,6 @@ export function ResourceDetails({
         aria-current={!settings && section === key ? 'page' : undefined}
         onClick={() => {
           select(key);
-          if (settings) navigate('resource', { id });
         }}
       >
         <ServiceIcon
@@ -357,7 +365,7 @@ export function ResourceDetails({
         </label>
         {menuButton('overview', p.overview)}
         {matches(p.areas.activity) && (
-          <button type="button" onClick={() => navigate('activity', { id })}>
+          <button type="button" onClick={() => navigate('activity', { resource: id })}>
             <ServiceIcon kind="activity" />
             {p.areas.activity}
           </button>
@@ -444,6 +452,7 @@ export function ResourceDetails({
             )}
           </>
         )}
+        {evidence}
       </div>
     </div>
   );

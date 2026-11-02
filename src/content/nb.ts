@@ -20881,3 +20881,80 @@ export const sourceDisclosureNb = {
   title: 'Kilder og videre lesning',
   publisher: 'Microsoft Learn',
 } as const;
+
+export const inspectionBridgeNb = {
+  title: 'Undersøk det lokale ressursmiljøet',
+  select: 'Velg faktisk ressurs eller kvittering',
+  placeholder: 'Velg fra det lagrede miljøet',
+  open: 'Undersøk i AzureLab Portal',
+  empty:
+    'Det finnes ingen relevant ressurs eller kvittering i dette lokale forsøket ennå. Bruk den eksisterende praktiske aktiviteten ovenfor og kom tilbake hit.',
+  missing:
+    'Det valgte objektet finnes ikke lenger i det gjeldende lokale miljøet. Velg et tilgjengelig objekt eller gå tilbake til aktiviteten.',
+  unsafe:
+    'Ressursmiljøet kan ikke leses sikkert. Last inn lagret teknisk historikk før du velger et inspeksjonsmål.',
+  reload: 'Last inn teknisk historikk',
+  attempt: 'Lokalt teknisk forsøk',
+  boundary:
+    'Dette er inspeksjon av lagret konfigurasjon og originale kvitteringer. Navigasjon gir ingen oppgavekreditt. Valget her endrer ikke det aktive oppdragets mål eller lagrede observasjoner. Ingen Azure-tilkobling, applikasjonshelse eller kjøretidsmålinger følger av ressursene.',
+  contexts: {
+    vm: {
+      title: 'VM → disk → NIC → subnett → VNet',
+      question:
+        'Velg en VM fra ditt lokale forsøk. Sammenlign image og profil i Overview/Properties, følg disk- og nettverksreferansene, og finn kvitteringen som opprettet objektene.',
+      reflection:
+        'Hvilke ID-er dokumenterer avhengighetene? Hva viser kvitteringen om konfigurasjonen, og hva vet du fortsatt ikke om operativsystemets faktiske drift?',
+    },
+    policy: {
+      title: 'Policy-avslag → forespørsel → scope',
+      question:
+        'Velg et faktisk lokalt Policy-avslag. Undersøk operasjon, forespurt region, scope og assignment. Sammenlign revisjon og ressursantall før og etter; åpne relevante ressurser som fortsatt finnes.',
+      reflection:
+        'Hvorfor ble akkurat denne forespørselen avvist? Hvilken konfigurasjon kan undersøkes i den eksisterende oppgaven, og hvorfor er et avslag ikke en opprettet ressurs?',
+    },
+    app: {
+      title: 'Web App → App Service Plan → kvittering',
+      question:
+        'Velg en faktisk Web App. Finn Resource Group, planreferanse og lokasjon, følg planen og sammenlign de opprinnelige forespørslene i Activity log.',
+      reflection:
+        'Hvilken plan er appen knyttet til, og hva kan du kontrollere i konfigurasjonen? Hvorfor dokumenterer ikke en akseptert lokal opprettelse deployet kode eller fungerende HTTP-svar?',
+    },
+  },
+  evidence: 'Teknisk historikk for ressursen',
+  noEvidence:
+    'Ingen koblet teknisk kvittering finnes i dette forsøket. Ressursens eksistens gir ikke grunnlag for å finne på en operasjon.',
+  resource: 'Ressurs-ID i forespørsel eller kvittering',
+  reference: 'Referert som avhengighet i forespørselen',
+  scope: 'Operasjon på scopet eller et underscope',
+  history: 'Vis ressursens Activity log',
+  filtered: 'Activity log avgrenset til',
+  allHistory: 'Vis alle operasjoner',
+  submitted: 'Støttede felt i den opprinnelige forespørselen',
+  noFields: 'Ingen støttede konfigurasjonsfelt kan vises for denne operasjonen.',
+  requestFields: {
+    subscriptionId: 'Subscription ID',
+    groupId: 'Resource group ID',
+    name: 'Name',
+    metadataRegion: 'Resource group metadata location',
+    region: 'Requested location',
+    profile: 'Training profile',
+    planId: 'App Service plan ID',
+    image: 'Image alias',
+    dataDiskGiB: 'Data disk (GiB)',
+    subnetId: 'Subnet ID',
+    vmId: 'Virtual machine ID',
+    appId: 'Web App ID',
+    environment: 'Environment',
+    catalogMode: 'Catalog mode',
+  },
+  references: 'Objektreferanser i denne operasjonen',
+  absent: 'Ikke tilgjengelig i gjeldende World',
+  added: 'Oppført som lagt til',
+  removed: 'Oppført som fjernet',
+  current: 'Åpne gjeldende objekt',
+  operationLimit:
+    'Forespørsel og kvittering beskriver denne lokale operasjonen. Referert avhengighet eller scope betyr ikke at objektet ble endret. Gjeldende Properties kan avvike fra en eldre forespørsel.',
+  noTarget:
+    'Ressursen eller kvitteringen finnes ikke i dette forsøket. Ingen annen operasjon er valgt automatisk.',
+  inventory: 'Åpne All resources',
+} as const;
