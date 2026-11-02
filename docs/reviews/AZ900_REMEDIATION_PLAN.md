@@ -97,6 +97,15 @@ Alle funn var åpne produktfunn i PR42. PR43 implementerer nå avgrenset LJ-01 o
 - **Risiko:** ny transfer-versjon sammenblandes med gammel recognition, eksponerte familier merkes friske, eller gyldig alternativ blir feilavvist.
 - **Akseptanse/tester:** nøkkelfri final-bank review, gyldige alternativpar, teknisk kildegrunnlag, forskjell fra guided i beslutningsstruktur og ikke bare navn. Egen menneskelig ukjent oppgave/retensjon; ingen psykometrisk påstand uten relevante elevdata.
 
+**PR49 — AS-02 faseinndeling:**
+
+| Fase         | Omfang                                                                                                                                                       | Status                                                                                                                                       |
+| ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| Stage A      | Seks nye nærtransfer-situasjoner i Networking, Storage og Cost/Cloud Transfer; tre premisskontraster, kompatible par og eksplisitt gammel familieeksponering | Implementert kandidat; godkjennes først etter separat audit,312 eksakt-head CI/streng release og faktisk anonym full-SHA Gate7 på Draft PR49 |
+| Senere AS-02 | Bredere formater, fjernere/forsinket transfer og menneskelig empirisk validering                                                                             | Ikke lukket eller implementert i Stage A                                                                                                     |
+
+[Versjonering, beslutningsendringer, blindreview og bevaring](../ASSESSMENT_TRANSFER_STAGE_A.md). Originale `nw12`, `sa02/sa12`, `cm10` og `campaign-pricing`, fasiter/familier og gamle first/help/retry er bevart. «Ingen registrert lokal eksponering» er ikke dokumentert ukjent kunnskap. Hele AS-02, PD-01 og PR-01 Stage B/C står fortsatt åpne; ingen P17/P18. Historiske PR42-funn er datert revisjonsevidens og omskrives ikke.
+
 ### PR-01 · P2 · Azure Portal Fidelity & Practical Capability Expansion
 
 - **Berørt:** dagens Portal-kapasitet og forbindelsen fra kursmoduler til operativ praksis.

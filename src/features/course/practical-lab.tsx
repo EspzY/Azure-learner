@@ -1,4 +1,5 @@
 'use client';
+import { useApplication } from '@/features/learning/application-provider';
 import { SourceDisclosure } from '@/features/learning/source-disclosure';
 import { useRefined } from '@/features/learning/refined-assessment-provider';
 import { usePortalGuideVisibility } from '@/features/course/portal-guide-visibility';
@@ -98,9 +99,12 @@ export function LabEntry({ kind, origin }: { kind: LabKind; origin: Origin }) {
   const original = usePortalLearning(),
     benefits = useExpansion('benefits'),
     services = useExpansion('services');
+  const application = useApplication();
   const updatedBenefits = useRefined('benefits'),
     updatedServices = useRefined('services');
   const allReady =
+    application.ready &&
+    !application.issue &&
     updatedBenefits.ready &&
     !updatedBenefits.issue &&
     updatedServices.ready &&
@@ -113,6 +117,7 @@ export function LabEntry({ kind, origin }: { kind: LabKind; origin: Origin }) {
     benefits.ready &&
     services.ready;
   const otherActive =
+    application.facts.active ||
     updatedBenefits.facts.active ||
     updatedServices.facts.active ||
     original.facts.active ||

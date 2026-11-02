@@ -1,4 +1,5 @@
 'use client';
+import { useApplication } from '@/features/learning/application-provider';
 import { useRefined } from '@/features/learning/refined-assessment-provider';
 import { GuidedLearning } from '@/features/course/guided-learning';
 import { PortalGuideVisibility } from '@/features/course/portal-guide-visibility';
@@ -170,9 +171,11 @@ function PortalWorkspace() {
     management.store,
     location.area,
   ]);
+  const application = useApplication();
   const updatedBenefits = useRefined('benefits'),
     updatedServices = useRefined('services');
   const otherIndependentContext =
+    application.facts.active ||
     updatedBenefits.facts.active ||
     updatedServices.facts.active ||
     migrationState.facts.active ||
@@ -201,6 +204,7 @@ function PortalWorkspace() {
     services2.facts.active;
   const independentContext = otherIndependentContext || missions.active;
   const guidanceContexts = [
+    application,
     updatedBenefits,
     updatedServices,
     storage,

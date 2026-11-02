@@ -1,0 +1,62 @@
+# AS-02 Stage A — nye anvendelsessituasjoner
+
+PR49 bygger på levert PR48, `2f2a6c838232a17c4c018ac485e340a0be1711d5`. Seks originale tilfeller i tre familier supplerer de gamle begreps-/anvendelsessjekkene. Ingen av de 152 tidligere scenarioene eller de 57 dekningsradene er omskrevet. Dette er begrenset **nærtransfer**, ikke dokumentert menneskelig generalisering eller en eksamensmotor.
+
+## Endret beslutningsproblem
+
+| Nytt tilfelle   | Nytt krav/evidens og faglig beslutning                                                                                                                                    | Forskjell fra tidligere eksponering                                                                                                                                      |
+| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `at-network-01` | To klienter: navneavvik med kontrollert adressetest versus objektspesifikke appsvar. Prioriter forskjellige videre undersøkelser uten å erklære komplett årsak.           | `nw12` oppga selv korrekt DNS/vei og manglende approlle. Her må studenten sortere flere delbevis; én åpen helseside bekrefter ikke ordretilgang.                         |
+| `at-network-02` | Begge navnesvar stemmer, A feiler før TCP, B når HTTP uten dokumentert godtatt token. Flytt undersøkelsen til forbindelsesvei og autentisering.                           | Kontrafaktisk endring i begge klientenes evidens; den tidligere DNS-/objektresponsen passer ikke. HTTP-koder alene er ikke universelle rotårsaksbevis.                   |
+| `at-storage-01` | Vurder testdekning for en allerede montert Files-pilot: produksjonsidentiteter og overlappende indeksoppdateringer.                                                       | `sa02/sa12` valgte tjeneste fra et SMB-behov. Den nye oppgaven spør hva montering, enkeltbruk og tilgangstest ikke dokumenterer om koordinering.                         |
+| `at-storage-02` | Den delte indeks-/låsekontrakten erstattes av ferdige, unike rapporter og to testede adaptere. Begge kvalifiserte piloter er mulige; produksjonstilgang gjenstår.         | Nytt beslutningsrom: Blob blir mulig, Files forblir mulig. Ingen skjult pris-/driftspreferanse. Begge komplette adapter-/begrunnelsespar godtas; krysspar gjør ikke det. |
+| `at-cost-01`    | To godkjente helårsenheter og maksimalt 200 topptimer gir grunnlag for å skille bindbar grunnlast fra tillegg. Sammenlign total, ikke bare sats.                          | `cm10/campaign-pricing` avviste binding uten grunnlast og avbrudd uten restart. Her er begrenset binding forsvarlig og kan begrunnes kvantitativt.                       |
+| `at-cost-02`    | Tre ukers kampanje, kontrollpunkter og testet PAYG-fallback endrer Spot-vurderingen. En syntetisk kostnadsprøve begrunner videre pilot, ikke fremtidig forventningsverdi. | Den gamle avbruddsintolerante PAYG-responsen kan ikke overføres mekanisk. Både varighet og avbruddsforutsetning endres; dette isolerer ikke en målt kausaleffekt.        |
+
+Alle oppgaver krever en beslutning og den mest dekkende tekniske begrunnelsen for hele beslutningen. Generelt sanne delbetraktninger er ikke tilstrekkelige. Feedback forklarer valgt par, avgjørende premiss, alle alternativer, kontrafaktisk endring og en presis eksisterende teorilenke. Ingen fasit vises under aktivt arbeid.
+
+Kostnadseksemplet bruker fiktive ØK og 8 760 regneårstimer: `H ≤ 6 × 200 = 1 200` ekstra enhetstimer. Grunnlastbinding gir `105 120 + 10H`, bare PAYG `175 200 + 10H`, åtte bindinger `420 480`. Forskjellen gjelder disse oppgitte planene; den er ikke et Azure-pristilbud, kapasitetsreservasjon eller HA-bevis. Kampanjeprøvens `650 − 420 = 230` er et observert syntetisk utfall, ikke en besparelsesgaranti.
+
+## Versjonering og familiehistorikk
+
+`azurelab.learning.application-transfer.v1` er en isolert kontrakt med content/model/rubric/presentation `1.0.0`, stabile item/family/variant-/svar-ID-er og fast rekonstruerbar alternativrekkefølge. 800 hendelser og terminalreserve, streng replay, durable CAS/readback, cross-tab-konflikt og compare-before-delete recovery følger det eksisterende TransferStore-mønsteret. Ny førsteinnlevering, hjelp, retry og abandon omtolker ingen gammel record. Første innlevering per tilfelle forblir uendret etter øving. En ny variant i samme familie er allerede eksponert i den nye banken.
+
+En liten read-only mapping leser opprinnelige parsere uten å endre dem:
+
+| Ny familie            | Konkret tidligere eksponering som kan gi «nært beslektet»                                                           |
+| --------------------- | ------------------------------------------------------------------------------------------------------------------- |
+| `at.network-evidence` | Networking `network-dns`, inkludert `nw12`, eller startet DNS-guide                                                 |
+| `at.storage-contract` | Storage `shared-files`/`object-file`, inkludert `sa02/sa12/sa03`, eller startet design-guide                        |
+| `at.cost-commitment`  | Cost `optimization`, inkludert `cm10`, eller estimate-guide; Cloud Transfer `pricing`, inkludert `campaign-pricing` |
+
+Den konservative mappingen sier beslektet eksponering, ikke identiske oppgaver eller ny kompetanse. Også et startet/avbrutt familiemøte teller. `related`/`uncertain` festes i den **nye** begin-hendelsen; senere aktivitet omskriver ikke dette øyeblikksbildet. Korrupt, utilgjengelig eller ustøttet originalhistorikk gir usikkerhet eller eksisterende recovery, aldri et dokumentert friskt forsøk. Fravær i lokale records dokumenterer hverken all ekstern læring, slettet historikk eller sikker tidsrekkefølge mellom banker. Ingen automatisk semantisk matching eller sammenslåing av gamle familie-ID-er.
+
+## Kurs, Journal og beskyttelse
+
+Valgfrie «Ny anvendelsessituasjon»-innganger finnes ved Networking, Storage A og Cost assessment/Summary, samt Cloud Computing sitt eksisterende Transfer-område. Kosttilfellene har én kanonisk Cost-rute. Nettverks-/lagringsinngangene anbefaler relevante Identity-forkunnskaper. Dette legger ikke en ny obligatorisk vurdering i PR45s rekkefølge. Tre hovedstier, 17 modulruter, gamle `case`- og `version=1/2`-betydninger og originale vurderinger består.
+
+Ny rute bruker separat `application=<stabil-ID>` på eksisterende assessment-topic. Ugyldig eller feil modul-/item-par starter ingenting. Parameteren tar bare over assessment-topic; på teorisider gjelder fortsatt ordinær teaching-preflight, også ved en direkte URL med parameteren. Eksakt aktiv independent-kontekst prioriteres i eksisterende Hub/resume; konkurrerende gamle/nye aktive kontekster vises eksplisitt. Ingen ny resume-/progressmotor.
+
+Journal og relevante Summary-flater viser ny historikk adskilt fra original modulhistorikk, med første innlevering, assistert øving og familieeksponering. Feedback og teori følger original ManagementTeachingBoundary og durable aid før montering. Ny independent-kontekst er registrert i alle teaching-, Journal-, history-, mission-, guidance-, Portal-, Hub-/resume- og clear-beskyttelser. Neutral Portal-konfigurasjon og kvitteringer forblir tekniske fakta; SavvyShark viser status/recovery fremfor løsningsveiledning. Et tilsiktet nøytralt recoverypanel er ikke en svarbærende guide.
+
+Ingen assessment-handling skaper World-objekter, receipts, XP eller guidede observasjoner. Gammel normal navigasjon kan fortsatt lagre sin opprinnelige besøks-/kursposisjon; det er ikke completion. Alle 156 opprinnelige domenefiler og de første 1 449 685 locale-bytene er bytebevart mot basen. [Maskinelt bevis](reviews/evidence/application49-bank-proof.json).
+
+## Kilder og kritisk blindreview
+
+[Kilde-/claim-/discovery-loggen](reviews/evidence/application49-source-review.json) dokumenterer 21 faktiske offentlige Microsoft-bodykontroller 2. november2026. Utvalgte Learn-enheter støttes av produktdokumentasjon om DNS, trafikkregler, API-tokenvalidering, lagringskontrakter, SMB-/identitetsvilkår, matching av reservasjoner og Spot-avbrudd. Brede Learn-formuleringer om betaling kvalifiseres av produktreglene. Alle nye adresser, timer, utfall og priser er originale syntetiske premisser. Rapportenes uforanderlige innhold er appkontrakt, ikke en påstått Azure WORM-policy. Ingen Microsoft-assessment-spørsmål eller beskyttede illustrasjoner er brukt.
+
+Separate reviewere fikk bare elevpakker og tidligere elevsynlig eksponering. [Initial blindreview](reviews/evidence/application49-blind-initial.json) fant et reelt underbestemt kostnadsminimum og for enkle distraktorer. Topptaket ble presisert, Storage-oppgaven ble endret til testdekning, og flere alternativer ble erstattet med plausible deltester. [Revidert review](reviews/evidence/application49-blind-revised.json) fant delvis kompatible grunner. Instruks/alternativer ble presisert. [Neste kontroll](reviews/evidence/application49-blind-final.json) avdekket et kompletthetsgap i de to gyldige adapterbegrunnelsene; produksjonstilgang ble gjort eksplisitt. [Låst release-blindreview](reviews/evidence/application49-blind-release.json) fant sju komplette par og ingen stor/middels restuklarhet. Ingen ny fasit ble lest før låsing. [Proveniens](reviews/evidence/application49-review-provenance.json) skiller låste originalbytes i leveransepakken fra formatterte, payload-identiske JSON-kopier i repositoryet; ingen konklusjon er omskrevet. Først deretter ble faktisk elevmateriale/hash og alle sju aksepterte par maskinelt sammenlignet med rapporten.
+
+Heuristikker på sluttbanken: all-first `0/6`, all-second `0/6`, all-last `1/6`, lengst `0/6`, kortest `2/6`, mest absolutt språk `2/6`; ingen av de ni faste posisjonsparene gir fullt resultat. Domenet prøver alle svarpar og kombinerte heuristikker. Faktiske browserinnleveringer prøver all-first, kompatible alternativer, krysspar, immutable first og assisted retry. Dette er kvalitetssignaler, ikke psykometrisk diskriminering.
+
+## Verifikasjon og avgrensning
+
+Én lokal kald planinnsamling traff den eksisterende 30-sekundersgrensen; uendret ny innsamling validerte312/572. Grensen ble ikke økt, og årsaken er ikke erklært rettet; autoritativ CI må fortsatt bestå.
+
+En eldre Security-dialogtest brukte opp 30-sekundersbudsjettet etter en pause på omtrent 25 sekunder inne i Axe. Trace viste korrekt dialog, fokusretur og ustartet forsøk; uendret målrettet omkjøring bestod på 4,6 sekunder. Ingen bekreftet produktårsak eller retting påstås. Hendelsen beholdes som uavklart sammen med den tidligere Core-testobservasjonen; ingen innstillinger eller assertions er svekket.
+
+Faktiske inspiserte produksjonsbilder: [Networking 1440×900](screenshots/application-transfer/network-evidence-1440.png), [Storage 1024×768](screenshots/application-transfer/storage-test-1024.png), [native Start 1024×500](screenshots/application-transfer/native-start-1024x500.png), [tilgjengelige handlinger 1024×500](screenshots/application-transfer/storage-actions-1024x500.png), [kausal feedback](screenshots/application-transfer/cost-causal-feedback-1440.png) og [Journal](screenshots/application-transfer/journal-transfer-1440.png). Vanlig vertikal scrolling når alle valg/handlinger; ingen horisontal overflow. Native briefing og Journal er sentrert med tilgjengelig lukking og scrolling.
+
+Målrettede domain/replay-, historikk-, eksponerings-, storage-/aid- og browserkontroller suppleres med faktisk desktop/kompakt, short-height, tastatur/fokus/Escape, Axe og reduced motion. Åtte nye desktop-forløp og ett begrunnet kompakt vitne utvider de 303 tidligere til **312 = 286 desktop + 26 kompakt**; optional legacy572, uendrede innstillinger og tester. Full check, korrekt stamp, separat post-stamp audit, faktisk komplett eksakt-head CI/streng release og anonym full-SHA Gate7 er separate leveransekrav og dokumenteres på Draft PR49 før Stage A godkjennes.
+
+Stage A lukker ikke hele AS-02. Enda bredere transfer, flere formater, forsinkede ukjente kontekster og menneskelig nybegynner-/Azure-SME-/UX-/skjermleser-/psykometrisk-/læringsvalidering gjenstår. PD-01 og PR-01 Stage B/C står åpne. Ingen merge, produksjonsdeploy, P17/P18, ny generell eksamensmotor eller avhengighetsoppgradering.

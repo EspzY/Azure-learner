@@ -1,0 +1,346 @@
+{
+  "base": "2f2a6c838232a17c4c018ac485e340a0be1711d5",
+  "studentPacketSHA256": "74e433edefa00d8a3dfcd936c7e9025c8ede7d17b3930c9f0c73df272fdf3657",
+  "blindReportSHA256": "d9aca0a21cbc0d250cbcd986e28c8ab24fd0d5ab9767d436f3b7a5163cd5c901",
+  "actualStudentMaterialMatchesLockedPacket": true,
+  "lockedBlindPairsMatchAccepted": true,
+  "reviewPairs": [
+    {
+      "case_id": "at-network-01",
+      "decision_id": "dns-object",
+      "reason_id": "split-evidence"
+    },
+    {
+      "case_id": "at-network-02",
+      "decision_id": "path-token",
+      "reason_id": "separate-stages"
+    },
+    {
+      "case_id": "at-storage-01",
+      "decision_id": "concurrent-io",
+      "reason_id": "coordination"
+    },
+    {
+      "case_id": "at-storage-02",
+      "decision_id": "blob-pilot",
+      "reason_id": "object-contract"
+    },
+    {
+      "case_id": "at-storage-02",
+      "decision_id": "files-pilot",
+      "reason_id": "files-adapter"
+    },
+    {
+      "case_id": "at-cost-01",
+      "decision_id": "base-commit",
+      "reason_id": "matched-floor"
+    },
+    {
+      "case_id": "at-cost-02",
+      "decision_id": "spot-fallback",
+      "reason_id": "observed-conditional"
+    }
+  ],
+  "accepted": [
+    {
+      "id": "at-network-01",
+      "pairs": [["dns-object", "split-evidence"]],
+      "decisionPositions": [[2, 1]]
+    },
+    {
+      "id": "at-network-02",
+      "pairs": [["path-token", "separate-stages"]],
+      "decisionPositions": [[3, 2]]
+    },
+    {
+      "id": "at-storage-01",
+      "pairs": [["concurrent-io", "coordination"]],
+      "decisionPositions": [[3, 3]]
+    },
+    {
+      "id": "at-storage-02",
+      "pairs": [
+        ["blob-pilot", "object-contract"],
+        ["files-pilot", "files-adapter"]
+      ],
+      "decisionPositions": [
+        [1, 2],
+        [2, 1]
+      ]
+    },
+    {
+      "id": "at-cost-01",
+      "pairs": [["base-commit", "matched-floor"]],
+      "decisionPositions": [[1, 2]]
+    },
+    {
+      "id": "at-cost-02",
+      "pairs": [["spot-fallback", "observed-conditional"]],
+      "decisionPositions": [[2, 1]]
+    }
+  ],
+  "heuristics": [
+    {
+      "strategy": "first",
+      "passed": 0,
+      "total": 6,
+      "cases": [
+        {
+          "id": "at-network-01",
+          "decision": "route-token",
+          "reason": "split-evidence",
+          "pass": false
+        },
+        {
+          "id": "at-network-02",
+          "decision": "dns-object",
+          "reason": "dns-for-timeout",
+          "pass": false
+        },
+        {
+          "id": "at-storage-01",
+          "decision": "sequential-io",
+          "reason": "single-writer",
+          "pass": false
+        },
+        {
+          "id": "at-storage-02",
+          "decision": "blob-pilot",
+          "reason": "files-adapter",
+          "pass": false
+        },
+        {
+          "id": "at-cost-01",
+          "decision": "base-commit",
+          "reason": "no-commit",
+          "pass": false
+        },
+        {
+          "id": "at-cost-02",
+          "decision": "year-commit",
+          "reason": "observed-conditional",
+          "pass": false
+        }
+      ]
+    },
+    {
+      "strategy": "second",
+      "passed": 0,
+      "total": 6,
+      "cases": [
+        {
+          "id": "at-network-01",
+          "decision": "dns-object",
+          "reason": "login-renewal",
+          "pass": false
+        },
+        {
+          "id": "at-network-02",
+          "decision": "token-both",
+          "reason": "separate-stages",
+          "pass": false
+        },
+        {
+          "id": "at-storage-01",
+          "decision": "mount-access",
+          "reason": "identity-sample",
+          "pass": false
+        },
+        {
+          "id": "at-storage-02",
+          "decision": "files-pilot",
+          "reason": "object-contract",
+          "pass": false
+        },
+        {
+          "id": "at-cost-01",
+          "decision": "peak-commit",
+          "reason": "matched-floor",
+          "pass": false
+        },
+        {
+          "id": "at-cost-02",
+          "decision": "spot-fallback",
+          "reason": "reference-run",
+          "pass": false
+        }
+      ]
+    },
+    {
+      "strategy": "last",
+      "passed": 1,
+      "total": 6,
+      "cases": [
+        {
+          "id": "at-network-01",
+          "decision": "dns-route",
+          "reason": "route-uniform",
+          "pass": false
+        },
+        {
+          "id": "at-network-02",
+          "decision": "path-token",
+          "reason": "roles-first",
+          "pass": false
+        },
+        {
+          "id": "at-storage-01",
+          "decision": "concurrent-io",
+          "reason": "coordination",
+          "pass": true
+        },
+        {
+          "id": "at-storage-02",
+          "decision": "activate-now",
+          "reason": "early-activation",
+          "pass": false
+        },
+        {
+          "id": "at-cost-01",
+          "decision": "all-payg",
+          "reason": "peak-equals-floor",
+          "pass": false
+        },
+        {
+          "id": "at-cost-02",
+          "decision": "all-payg",
+          "reason": "commitment-rate",
+          "pass": false
+        }
+      ]
+    },
+    {
+      "strategy": "longest",
+      "passed": 0,
+      "total": 6,
+      "cases": [
+        {
+          "id": "at-network-01",
+          "decision": "dns-object",
+          "reason": "login-renewal",
+          "pass": false
+        },
+        {
+          "id": "at-network-02",
+          "decision": "path-token",
+          "reason": "roles-first",
+          "pass": false
+        },
+        {
+          "id": "at-storage-01",
+          "decision": "concurrent-io",
+          "reason": "identity-sample",
+          "pass": false
+        },
+        {
+          "id": "at-storage-02",
+          "decision": "activate-now",
+          "reason": "early-activation",
+          "pass": false
+        },
+        {
+          "id": "at-cost-01",
+          "decision": "all-payg",
+          "reason": "no-commit",
+          "pass": false
+        },
+        {
+          "id": "at-cost-02",
+          "decision": "year-commit",
+          "reason": "observed-conditional",
+          "pass": false
+        }
+      ]
+    },
+    {
+      "strategy": "shortest",
+      "passed": 2,
+      "total": 6,
+      "cases": [
+        {
+          "id": "at-network-01",
+          "decision": "route-token",
+          "reason": "split-evidence",
+          "pass": false
+        },
+        {
+          "id": "at-network-02",
+          "decision": "token-both",
+          "reason": "dns-for-timeout",
+          "pass": false
+        },
+        {
+          "id": "at-storage-01",
+          "decision": "sequential-io",
+          "reason": "coordination",
+          "pass": false
+        },
+        {
+          "id": "at-storage-02",
+          "decision": "files-pilot",
+          "reason": "files-adapter",
+          "pass": true
+        },
+        {
+          "id": "at-cost-01",
+          "decision": "base-commit",
+          "reason": "matched-floor",
+          "pass": true
+        },
+        {
+          "id": "at-cost-02",
+          "decision": "all-payg",
+          "reason": "commitment-rate",
+          "pass": false
+        }
+      ]
+    },
+    {
+      "strategy": "absolute",
+      "passed": 2,
+      "total": 6,
+      "cases": [
+        {
+          "id": "at-network-01",
+          "decision": "route-token",
+          "reason": "login-renewal",
+          "pass": false
+        },
+        {
+          "id": "at-network-02",
+          "decision": "dns-object",
+          "reason": "dns-for-timeout",
+          "pass": false
+        },
+        {
+          "id": "at-storage-01",
+          "decision": "sequential-io",
+          "reason": "single-writer",
+          "pass": false
+        },
+        {
+          "id": "at-storage-02",
+          "decision": "blob-pilot",
+          "reason": "object-contract",
+          "pass": true
+        },
+        {
+          "id": "at-cost-01",
+          "decision": "base-commit",
+          "reason": "matched-floor",
+          "pass": true
+        },
+        {
+          "id": "at-cost-02",
+          "decision": "all-payg",
+          "reason": "observed-conditional",
+          "pass": false
+        }
+      ]
+    }
+  ],
+  "originalDomainFilesUnchanged": 156,
+  "originalLocalePrefixBytes": 1449685,
+  "originalLocalePrefixSHA256": "5bb6b06957b0054b1d0398231a864f482e04db51e09897b5c1aa0ffc23f14c8b",
+  "scope": "six cases, three near-transfer families; not a psychometric validation or a globally unseen claim"
+}

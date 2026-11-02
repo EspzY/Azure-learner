@@ -20958,3 +20958,459 @@ export const inspectionBridgeNb = {
     'Ressursen eller kvitteringen finnes ikke i dette forsøket. Ingen annen operasjon er valgt automatisk.',
   inventory: 'Åpne All resources',
 } as const;
+
+/** AS-02 Stage A original student-visible cases, separate from all historical banks. */
+export const applicationNb = {
+  ui: {
+    title: 'Ny anvendelsessituasjon',
+    intro:
+      'Velg beslutningen som passer premissene, og den mest dekkende tekniske begrunnelsen for hele beslutningen. En generell sann regel eller støtte til bare ett delkrav er ikke tilstrekkelig.',
+    optional:
+      'Valgfritt fordypningssteg. Den opprinnelige vurderingen og den anbefalte læringsrekkefølgen er bevart.',
+    rules:
+      'Bare eksplisitt Start oppretter et forsøk. Første innlevering bevares. Teori eller tidligere feedback under et aktivt forsøk krever registrert hjelp. En riktig besvarelse er læringsevidens, ikke bevis på full mestring.',
+    start: 'Start ny anvendelsessituasjon',
+    cancel: 'Avbryt',
+    submit: 'Lever beslutning og begrunnelse',
+    abandon: 'Avslutt uten innlevering',
+    help: 'Åpne relevant teori · registrerer hjelp',
+    decision: 'Beslutning',
+    reason: 'Teknisk begrunnelse',
+    case: 'Velg situasjon',
+    resume: 'Fortsett aktiv anvendelsessituasjon',
+    retry: 'Start et nytt øvingsforsøk',
+    active:
+      'En annen selvstendig vurdering er aktiv. Fortsett eller avslutt den før du starter her.',
+    unaided: 'Uassistert innlevering',
+    assisted: 'Assistert øvelse',
+    retried: 'Tidligere eksponert i denne familien',
+    draft: 'Lagret svarutkast',
+    first: 'Første innlevering',
+    history: 'Nye anvendelser · lagret historikk',
+    feedback: 'Tilbakemelding på innleveringen',
+    fail: 'Beslutning og begrunnelse oppfyller ikke kravene sammen.',
+    chosen: 'Ditt valg',
+    decisive: 'Avgjørende premiss',
+    counter: 'Når ville vurderingen endres?',
+    alternatives: 'Andre alternativer og deres grenser',
+    repeat: 'Repeter relevant teori',
+    exposure: 'Familiehistorikk ved start',
+    newBank: 'Første møte med denne familien i den nye banken.',
+    sameFamily: 'Familien er tidligere åpnet i denne banken; dette er en ny variant eller øving.',
+    related: 'Nært beslektet undervisning eller oppgave er registrert i:',
+    unknown: 'Historikken kunne ikke klassifiseres sikkert i:',
+    absent: 'Ingen nær eksponering er registrert i de kontrollerte lokale bankene.',
+    exposureLimit:
+      'Fravær i lokal historikk beviser ikke at situasjonen er ukjent. Lagringen dokumenterer ikke all ekstern læring eller en sikker tidsrekkefølge mellom banker.',
+    loading: 'Laster vurderingshistorikk …',
+    recovery: 'Vurderingshistorikken er ikke bekreftet',
+    load: 'Les lagret historikk på nytt',
+    failed: 'Handlingen kunne ikke lagres varig. Ingen ny gyldig innlevering er registrert.',
+    reset: 'Fjern bare ugyldig historikk for nye anvendelser',
+    confirm: 'Bekreft avgrenset fjerning',
+    capacity:
+      'Historikken er full. Aktivt arbeid kan fortsatt avsluttes; ny start er utilgjengelig.',
+    invalid:
+      'Denne anvendelseslenken er ikke gyldig for modulen. Ingen oppgave eller nytt forsøk er valgt automatisk.',
+    preps: {
+      networking:
+        'Anbefalt etter DNS/nettverksvei og Identity Part A/B: autentisering og tilgang er egne ledd.',
+      storage: 'Anbefalt etter Storage Part A og grunnleggende identiteter/rettigheter.',
+      cost: 'Anbefalt etter forbrukspris og Cost Management: binding, avbruddstoleranse og forventet kostnad.',
+    },
+    groups: {
+      networking: 'Networking',
+      storage: 'Storage',
+      cost: 'Cost / Cloud Transfer',
+    },
+    banks: {
+      networking: 'Networking · DNS-familien',
+      storage: 'Storage · fil-/objektkontrakter',
+      cost: 'Cost · optimalisering/estimat',
+      'cloud-transfer': 'Cloud Transfer · prisfamilien',
+    },
+    pass: 'Beslutning og begrunnelse passer sammen.',
+    return: 'Til modulens opprinnelige vurdering',
+  },
+  items: {
+    'at-network-01': {
+      id: 'at-network-01',
+      group: 'networking',
+      title: 'To klienter, én ordreplattform',
+      problem:
+        'Fjordverk undersøker to klienter etter et endepunktbytte. Velg det mest målrettede paret av videre undersøkelser. Observasjonene er syntetiske; de fastslår ikke en komplett rotårsak.',
+      premises: [
+        'Tjenesteeieren har kontrollert at ment API-adresse er 10.60.4.20. Testene gjelder samme tidspunkt og vertsnavn; et direkte adressetestløp beholder vertsnavn og gyldig TLS-sertifikat.',
+        'Klient A slår navnet opp til 10.60.3.10. Mot ment adresse får A HTTP 200 fra den åpne /ready-siden. Den beskyttede ordreoperasjonen er ikke prøvd i dette løpet.',
+        'Klient B slår opp 10.60.4.20 og får /ready=200. Samme innloggede bruker får lese ordre 17, men får HTTP 403 for ordre 83. Serverens logg for forespørsel 83 er ikke undersøkt.',
+        'Ingen endring skal gis til alle brukere. Et HTTP-resultat gjelder det konkrete testløpet, ikke alle nettverksveier eller appoperasjoner.',
+      ],
+      decisions: [
+        {
+          id: 'route-token',
+          text: 'Undersøk rutingen til A og forny Bs pålogging før andre undersøkelser.',
+        },
+        {
+          id: 'dns-object',
+          text: 'Sammenlign As resolver/cache med målet, og undersøk Bs tilgangsbeslutning for ordre 83.',
+        },
+        {
+          id: 'dns-route',
+          text: 'Sammenlign As resolver/cache med målet, og undersøk Bs ruting til API-et.',
+        },
+      ],
+      reasons: [
+        {
+          id: 'split-evidence',
+          text: 'Adressetesten omgår As navnesvar; Bs objektsvar må undersøkes i appens tilgangskontekst.',
+        },
+        {
+          id: 'login-renewal',
+          text: 'Et endepunktbytte kan gi gamle tokenreferanser; en kontrollert øktfornyelse kan gi sammenlignbare klienttester.',
+        },
+        {
+          id: 'route-uniform',
+          text: 'Ulike klientmiljøer kan ha ulike effektive ruter; en åpen helseside dekker færre operasjoner enn en ordretest.',
+        },
+      ],
+      decisive:
+        'Undersøk forskjellige deler av kjeden for de to klientene. Et åpent endepunkt og én tillatt ordre dokumenterer ikke tilgang til alle ordre.',
+      change:
+        'I neste situasjon blir begge navnesvar like målet, As adressetest feiler før HTTP, og Bs token er ikke validert. Da flyttes undersøkelsene til transport og autentisering.',
+      feedback: {
+        decision: {
+          'route-token':
+            'As kontrollerte adressetest når tjenesten. Bs forskjellige ordresvar gir grunn til å undersøke appens konkrete beslutning før ruting eller generell tokenfornyelse prioriteres.',
+          'dns-object':
+            'Dette prioriterer As observerte navneavvik og Bs objektspesifikke avslag. Loggen må fortsatt undersøkes; et 403-svar alene fastslår ikke hele årsaken.',
+          'dns-route':
+            'Navnesammenligningen for A er relevant. B har allerede fått svar på samme endepunkt; ruting forklarer ikke alene hvorfor ulike ordre behandles forskjellig.',
+        },
+        reason: {
+          'split-evidence':
+            'Den direkte testen omgår As resolver og bekrefter bare dette testløpet. Bs identitet og operasjon må knyttes til serverens faktiske tilgangsbeslutning.',
+          'login-renewal':
+            'En øktfornyelse kan være nyttig i andre testløp. Den avklarer ikke As observerte navneavvik eller Bs objektspesifikke beslutning; den er svakere prioritert enn de foreslåtte sammenligningene.',
+          'route-uniform':
+            'Dette er sanne begrensninger ved generelle helsetester. Det knytter ikke de konkrete avvikene hos A og B til det mest målrettede undersøkelsesparet.',
+        },
+      },
+    },
+    'at-network-02': {
+      id: 'at-network-02',
+      group: 'networking',
+      title: 'Samme API, endret testgrunnlag',
+      problem:
+        'Teamet gjentar undersøkelsen fra en annen arbeidsøkt. Velg neste undersøkelsespar ut fra de nye observasjonene, uten å overføre diagnosen fra forrige situasjon.',
+      premises: [
+        'Ment adresse er kontrollert til 10.60.4.20. Både A og B får denne adressen fra sitt faktiske navneoppslag.',
+        'A får timeout før TCP-forbindelsen etableres, også ved test direkte mot ment adresse på port 443. Det er ikke hentet feillogg fra klient eller nettverksutstyr.',
+        'B etablerer TLS og får /ready=200, men får HTTP 401 ved beskyttet ordrelesing. Klientprogrammet viser at et token er lastet. Serverens logg fra denne forespørselen er ikke hentet.',
+        'Mottaker betyr tjenesten tokenet er ment for. Ingen oppgitt observasjon bekrefter at Bs token er godtatt. En ferdig utredning av appens interne feil finnes heller ikke.',
+      ],
+      decisions: [
+        {
+          id: 'dns-object',
+          text: 'Gjenta As navnesammenligning, og prøv Bs ordre med en kjent godkjent testbruker.',
+        },
+        {
+          id: 'token-both',
+          text: 'Forny begge klientenes tokens, og gjenta ordrelesingen fra de samme maskinene.',
+        },
+        {
+          id: 'path-token',
+          text: 'Undersøk As ruter/trafikkregler, og undersøk Bs tokenvalidering og påloggingslogg.',
+        },
+      ],
+      reasons: [
+        {
+          id: 'dns-for-timeout',
+          text: 'Feil før HTTP krever at faktisk navnesvar og måladresse sammenholdes i det samme tidsrommet.',
+        },
+        {
+          id: 'separate-stages',
+          text: 'As adressetest feiler før HTTP; Bs kjede når tjenesten, men tokenets gyldighet er ennå uavklart.',
+        },
+        {
+          id: 'roles-first',
+          text: 'En beskyttet ordresjekk gir mer presis informasjon enn en helseside om brukerens tilgang til et objekt.',
+        },
+      ],
+      decisive:
+        'Skillet går nå mellom en forbindelse som ikke blir etablert, og et endepunkt som svarer uten at autentiseringen er avklart.',
+      change:
+        'Hvis A igjen løste til feil adresse, ville resolver/cache være relevant. Hvis B fikk godtatt identitet og ulike objektsvar, ville en konkret autorisasjonslogg bli mer relevant.',
+      feedback: {
+        decision: {
+          'dns-object':
+            'As samtidige navnesammenligning og adressetest foreligger allerede. En annen bruker kan gi et nytt Bsvar, men isolerer ikke hvorfor det opprinnelige tokenet ikke er godtatt.',
+          'token-both':
+            'Et token kan ikke forklare As feil før TCP-forbindelsen. B trenger kontroll av validering og logg, ikke en antakelse om at fornyelse alene retter problemet.',
+          'path-token':
+            'Dette undersøker den uavklarte transporten hos A og autentiseringen hos B separat. Det innebærer ingen automatisk utvidelse av regler eller tillatelser.',
+        },
+        reason: {
+          'dns-for-timeout':
+            'Dette er en relevant første kontroll generelt. Den er allerede utført her og begrunner ikke at de to neste undersøkelsene bør være tokenfornyelse eller en ny navnesammenligning.',
+          'separate-stages':
+            'Det er ennå ikke et appsvar å vurdere hos A. B når tjenesten, men et eksisterende token er ikke bevis for at tjenesten godtar identiteten.',
+          'roles-first':
+            'Ordretesten er relevant som symptom. Den er allerede forsøkt; uten valideringsloggen kan resultatet ikke brukes til å hoppe over autentiseringsleddet.',
+        },
+      },
+    },
+    'at-storage-01': {
+      id: 'at-storage-01',
+      group: 'storage',
+      title: 'Rapporter med en delt arbeidsfil',
+      problem:
+        'To Windows-arbeidere i Fjordverk bruker nå en Azure Files SMB-pilot. En administrator har montert området og lest rapporter. Teamet vil avgjøre om pilotbeviset dekker den viktigste kontraktsrisikoen før videre utrulling. Hvilken utprøving bør prioriteres?',
+      premises: [
+        'Arbeiderne åpner samme nettverksfilsti, låser deler av én felles indeksfil og oppdaterer den på stedet. Klientkoden kan ikke endres i denne leveransen.',
+        'Programmet er støttet over SMB. Den første administratortesten dokumenterer kontakt, montering og enkel lesing. Identitetene og belastningen i ordinær drift er ikke brukt i testen.',
+        'Teamet vurderte også Blob Storage og separate managed disks. Det finnes ikke en objektadapter eller egen filserver-/klyngeløsning som kan erstatte den uendrede klientkontrakten.',
+        'Teamet skal ikke velge en vinner ut fra ukjente Azure-priser. En vellykket montering alene er ikke hele akseptansetesten.',
+      ],
+      decisions: [
+        {
+          id: 'sequential-io',
+          text: 'Test at hver arbeider alene kan lese og skrive indeksfilen med sin produksjonsidentitet.',
+        },
+        {
+          id: 'mount-access',
+          text: 'Test at begge produksjonsidentiteter kan montere området og liste de delte rapportfilene.',
+        },
+        {
+          id: 'concurrent-io',
+          text: 'Test overlappende indeksoppdateringer fra begge arbeidere med deres produksjonsidentiteter.',
+        },
+      ],
+      reasons: [
+        {
+          id: 'single-writer',
+          text: 'En full les/skriv-runde viser filoperasjonene hver arbeider trenger og kan avdekke feil i adapterens tilgang.',
+        },
+        {
+          id: 'identity-sample',
+          text: 'Montering med produksjonsidentitetene bør avklares før samtidighet; enkel felles fillesing er derfor den mest relevante neste prøven.',
+        },
+        {
+          id: 'coordination',
+          text: 'Overlappende endringer kan avdekke om koordineringskravet bevares; driftens identiteter må også prøves.',
+        },
+      ],
+      decisive:
+        'Montering og enkeltbruk viser bare deler av kontrakten. Produksjonsidentiteter og overlappende indeksoppdateringer trengs for å undersøke tilgang og koordinering sammen.',
+      change:
+        'Når indeksfil, in-place-oppdatering og låsing fjernes og en objektadapter er testet, blir Blob også et forsvarlig alternativ. Files kan fortsatt være mulig uten å være påkrevd.',
+      feedback: {
+        decision: {
+          'sequential-io':
+            'Dette er nyttig funksjons- og tilgangsbevis for én arbeider om gangen, men prøver ikke det oppgitte risikopunktet ved samtidig indeksoppdatering.',
+          'mount-access':
+            'Dette forbedrer administratortesten med riktige identiteter. Det viser fortsatt ikke at samtidige skrive-/låseoperasjoner bevarer indeksens innhold.',
+          'concurrent-io':
+            'Denne testen undersøker både identitetenes faktiske operasjoner og den delte arbeidsfilens samtidighetskrav. Andre produksjonskrav må fortsatt kvalifiseres.',
+        },
+        reason: {
+          'single-writer':
+            'Dette er et sant delbevis for enkeltbruk. Det begrunner ikke at to overlappende oppdateringer koordineres korrekt.',
+          'identity-sample':
+            'Tilgang må kvalifiseres, men en ny enkel lesetest dekker fortsatt ikke den oppgitte koordineringsrisikoen. Samtidighetstesten må også bruke de faktiske identitetene.',
+          coordination:
+            'Dette knytter testen til den nye feilrisikoen som ikke er undersøkt. At en share er kryptert eller monterbar, svarer ikke på dette.',
+        },
+      },
+    },
+    'at-storage-02': {
+      id: 'at-storage-02',
+      group: 'storage',
+      title: 'Rapporter etter kontraktsendring',
+      problem:
+        'En senere leveranse endrer rapportprogrammet. Velg én faglig forsvarlig pilot og en begrunnelse som faktisk passer den. Det er ikke oppgitt et mål som rangerer pris eller driftsinnsats mellom de to ferdige adapterne.',
+      premises: [
+        'Den felles indeksfilen er fjernet. Hver jobb publiserer en ferdig, uforanderlig rapport med unik nøkkel. Ingen klient trenger delt in-place-oppdatering eller fil-låsing.',
+        'To adaptere finnes og har bestått funksjonstester med testdata: direkte Blob-operasjoner via SDK, og Azure Files via SMB. Begge støttes av alle aktuelle klienter.',
+        'Produksjonsidentitetenes tilgang må fortsatt testes før ordinær aktivering. Data leveres til flere arbeidere; det finnes ikke en egen diskbasert filserver-/distribusjonstjeneste.',
+        'Testene dokumenterer applikasjonsfunksjon for dette behovet. De avgjør ikke fremtidig kostnad, ytelse ved produksjonslast eller hvilken adapter organisasjonen foretrekker.',
+      ],
+      decisions: [
+        {
+          id: 'blob-pilot',
+          text: 'Prøv Blob-adapteren med hele rapportobjekter, og kontroller produksjonsidentitetenes dataoperasjoner.',
+        },
+        {
+          id: 'files-pilot',
+          text: 'Prøv Files-adapteren med rapportfiler, og kontroller produksjonsidentitetenes filrettigheter.',
+        },
+        {
+          id: 'activate-now',
+          text: 'Aktiver Blob-adapteren etter funksjonstesten, og følg produksjonsidentitetenes feil i den første driftsuken.',
+        },
+      ],
+      reasons: [
+        {
+          id: 'files-adapter',
+          text: 'Den testede filadapteren dekker rapportkontrakten; produksjonsidentitetenes filoperasjoner er likevel uprøvd.',
+        },
+        {
+          id: 'object-contract',
+          text: 'Objektadapteren dekker den nye kontrakten uten låsing; produksjonsidentitetenes objektoperasjoner er ennå uprøvd.',
+        },
+        {
+          id: 'early-activation',
+          text: 'Funksjonstesten dekker teknisk tilpasning til programmet; tilgangsoppfølging kan derfor tas som en kontroll under drift.',
+        },
+      ],
+      decisive:
+        'Begge ferdige adaptere kan forsvares under disse premissene. Blob må begrunnes med objektkontrakten; Files med den testede filadapteren. Krysspar godtas ikke.',
+      change:
+        'Hvis klientene igjen krevde uendret delt fil-låsing og ingen objektadapter fantes, ville den direkte Blob-løsningen ikke bevare kontrakten.',
+      feedback: {
+        decision: {
+          'blob-pilot':
+            'Dette passer hele, uforanderlige objekter gjennom den testede adapteren. Testdata dokumenterer ikke produksjonsidentitetenes rettigheter eller den endelige prisen.',
+          'files-pilot':
+            'Også dette er gyldig: den eksisterende adapteren dekker behovet. Det følger ikke at Files er nødvendig eller billigere enn Blob.',
+          'activate-now':
+            'Funksjonstesten er nyttig, men produksjonsidentitetene er ikke prøvd. Å følge feil etter aktivering erstatter ikke den avgrensede tilgangspiloten.',
+        },
+        reason: {
+          'files-adapter':
+            'Dette er den kompatible begrunnelsen for Files-valget. Den begrunner ikke at den direkte Blob-piloten benytter en filadapter.',
+          'object-contract':
+            'Dette begrunner Blob-valget under den nye objektkontrakten. Det er ikke en begrunnelse for at en SMB-pilot bruker objektadapteren.',
+          'early-activation':
+            'Et fungerende datagrensesnitt og riktig produksjonstilgang er separate krav. Den første driftsuken bør ikke være første kontroll av disse rettighetene.',
+        },
+      },
+    },
+    'at-cost-01': {
+      id: 'at-cost-01',
+      group: 'cost',
+      title: 'Grunnlast og topper må behandles hver for seg',
+      problem:
+        'Fjordverk skal velge mellom tre avgrensede compute-planer. Hvilken plan gir lavest beregnet compute-kostnad under de oppgitte forutsetningene uten å bruke avbrytbar kapasitet til det tidskritiske arbeidet?',
+      premises: [
+        'To like VM-enheter må kjøre hele døgnet i ett år. Budsjett og arbeidskrav for denne grunnlasten er godkjent. Type, region, rabatt-scope og støtte er kontrollert.',
+        'I tillegg kommer 0–6 like enheter i topper i til sammen høyst 200 timer i dette året; antallet i hver topptime er ukjent. Alt arbeidet er tidskritisk og støtter ikke gjenopptakelse etter kapasitetsavbrudd.',
+        'Kun i dette fiktive regneeksemplet koster PAYG 10 ØK per brukt enhetstime. Ettårig reservasjon koster 6 ØK per bundet enhetstime, også ved ubrukt binding. Ingen andre rabatter inngår i sammenligningen.',
+        'Andre kostnader er like mellom alternativene og holdes utenfor. Ingen av betalingsplanene dokumenterer at VM-kapasitet er holdt av eller at hele appen er høyt tilgjengelig.',
+        'Regneåret har 8 760 timer. Den dokumenterte toppgrensen gjelder hele året; den er ikke et anslag fra én kort måleperiode.',
+      ],
+      decisions: [
+        {
+          id: 'base-commit',
+          text: 'Reserver to enheter for grunnlasten, og betal PAYG for de variable tilleggstimene.',
+        },
+        {
+          id: 'peak-commit',
+          text: 'Reserver åtte enheter for hele året, og bruk samme binding til både grunnlast og topper.',
+        },
+        {
+          id: 'all-payg',
+          text: 'Bruk PAYG for både grunnlast og topper, og behold muligheten til å frigjøre all kapasitet.',
+        },
+      ],
+      reasons: [
+        {
+          id: 'no-commit',
+          text: 'PAYGs mulighet til å frigjøre kapasitet bør prioriteres også for grunnlasten, siden topptimefordelingen ikke er kjent.',
+        },
+        {
+          id: 'matched-floor',
+          text: 'De to matchende enhetene brukes i alle bindingstimene; tilleggene har en dokumentert øvre grense på 200 topptimer.',
+        },
+        {
+          id: 'peak-equals-floor',
+          text: 'En større rabattbinding kan redusere tilleggstimenes sats; samlet kostnad bør vurderes over hele det godkjente året.',
+        },
+      ],
+      decisive:
+        'Grunnlasten koster 105 120 ØK med reservasjon, mot 175 200 ØK med PAYG i 8 760 timer. Ekstra enhetstimer er høyst 6 × 200 = 1 200. Blandingen koster derfor høyst 117 120 ØK, mot 420 480 ØK for åtte helårsbindinger. Dette gjelder bare de oppgitte fiktive satsene.',
+      change:
+        'Hvis årsgrunnlasten bortfaller og arbeidet blir avbrytbart, kan binding være dårlig begrunnet mens en kontrollert Spot/fallback-pilot blir relevant.',
+      feedback: {
+        decision: {
+          'base-commit':
+            'To kontinuerlig brukte, matchende enheter får den oppgitte rabatten; korte tilleggstimer beholdes uten helårsbinding. Andre tjenestekostnader og tilgjengelighet er egne vurderinger.',
+          'peak-commit':
+            'Dette betaler også for seks enheter utenfor topptimene. En høy, vedvarende bruk kunne begrunnet mer binding, men ikke de oppgitte korte toppene.',
+          'all-payg':
+            'Dette er teknisk mulig, men gir ikke lavest beregnet compute-kostnad for den uttrykkelig godkjente årsgrunnlasten til de oppgitte satsene.',
+        },
+        reason: {
+          'no-commit':
+            'Dette overfører toppusikkerheten til en separat grunnlast som faktisk er godkjent. PAYG for de to helårsenhetene koster mer under de oppgitte satsene.',
+          'matched-floor':
+            'Dette er grunnlaget for å vurdere rabatt på minimumsbruken. Det dokumenterer ikke at kapasitet finnes ved en senere allokering.',
+          'peak-equals-floor':
+            'Dette er et relevant sammenligningsprinsipp, men ikke en full begrunnelse for noen av planene. Den store bindingens ubrukte timer må telles med; lavere sats alene avgjør ikke totalen.',
+        },
+      },
+    },
+    'at-cost-02': {
+      id: 'at-cost-02',
+      group: 'cost',
+      title: 'Når både varighet og avbruddskrav endres',
+      problem:
+        'Årsgrunnlasten erstattes av en kort rapportkampanje. Teamet vil undersøke en hypotese om lavere total compute-kostnad og kan drifte gjenopptakelsesløsningen. Hvilken avgrenset pilot bruker den tilgjengelige evidensen best? Ingen plan er en leveringsgaranti.',
+      premises: [
+        'Kampanjen varer i tre uker. Ingen senere bruk eller minimumsgrunnlast er godkjent. Ettårige bindinger må betales også etter kampanjen; de kan ikke avvikles i denne sammenligningen.',
+        'Jobbene kan nå lagre kontrollpunkter, tåle avbrudd og gjentas uten doble resultater. Teamet har testet gjenopptakelse på vanlig PAYG-kapasitet når Spot ikke er tilgjengelig.',
+        'En syntetisk prøve viste total compute-kostnad inkludert omkjøring og PAYG-fallback: 420 ØK for den blandede løsningen mot 650 ØK med bare PAYG. Fremtidig Spot-tilgjengelighet og fordeling av omkjøring er ukjent.',
+        'En separat operativ plan følger fremdrift mot fristen og utløser overgang til PAYG ved behov. Testen dokumenterer ikke fremtidig kapasitet eller at alle frister vil bli holdt.',
+      ],
+      decisions: [
+        {
+          id: 'year-commit',
+          text: 'Kjøp ettårig binding for kampanjens topp, og la ubrukt kapasitet dekke mulige senere oppdrag.',
+        },
+        {
+          id: 'spot-fallback',
+          text: 'Prøv Spot med kontrollpunkter og testet PAYG-fallback, og følg kostnad og frist underveis.',
+        },
+        {
+          id: 'all-payg',
+          text: 'Velg bare PAYG og utelat gjenopptakelsesløsningen fra denne kostnadsorienterte piloten.',
+        },
+      ],
+      reasons: [
+        {
+          id: 'observed-conditional',
+          text: 'Avbruddstoleranse og prøveutfall begrunner en blandet pilot; omkjøring, overgangstid og fristbuffer må følges videre.',
+        },
+        {
+          id: 'reference-run',
+          text: 'En ren PAYG-prøve avgrenser eviction-risiko; den bør derfor prioriteres før en blandet pilot når tidsbruken varierer.',
+        },
+        {
+          id: 'commitment-rate',
+          text: 'En årsforpliktelse kan gi lavere sats ved matchende bruk; kampanjens dimensjonering kan starte en kjøpsvurdering.',
+        },
+      ],
+      decisive:
+        'Den syntetiske prøven ga et foreløpig signal: 650 − 420 = 230 ØK mindre i dette løpet, inkludert omkjøring og fallback. Endret avbruddstoleranse gjør en blandet pilot relevant. Resultatet fastslår ikke en lavere framtidig forventningsverdi eller en fristgaranti.',
+      change:
+        'Hvis kontrollpunkter eller fallback fjernes og arbeidet igjen må fortsette uten avbrudd, passer Spot som eneste kjøregrunnlag ikke kravet. Godkjent stabil årsbruk kunne gjort en binding relevant.',
+      feedback: {
+        decision: {
+          'year-commit':
+            'Tre ukers bruk dokumenterer ikke matching gjennom et år. Mulige senere oppdrag er ikke en godkjent grunnlast eller en sikker besparelse.',
+          'spot-fallback':
+            'Dette bruker den nye avbruddstoleransen og testede fallbacken. Overvåk faktisk totalforbruk og fremdrift; fremtidig Spot-kapasitet er ikke lovet.',
+          'all-payg':
+            'PAYG er en mulig løsning og kan passe et mål om enklere drift. Her prioriteres forventet kostnadsreduksjon, teamet kan drifte fallbacken, og den oppgitte prøven gir grunnlag for piloten.',
+        },
+        reason: {
+          'observed-conditional':
+            'Denne begrunnelsen gjelder en pilot som undersøker hypotesen videre. Den syntetiske prøven er ikke representativitetsbevis eller et Azure-pristilbud.',
+          'reference-run':
+            'En ren PAYG-bane unngår Spot-eviction og kan være relevant ved andre krav. Her finnes allerede en PAYG-referanse og testet fallback; oppgaven prioriterer en kontrollert kostnadshypotese.',
+          'commitment-rate':
+            'Rabatt ved matching er et reelt prinsipp. Tre ukers dimensjonering dokumenterer imidlertid ikke matching av resten av årsforpliktelsen.',
+        },
+      },
+    },
+  },
+} as const;

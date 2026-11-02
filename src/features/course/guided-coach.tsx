@@ -1,4 +1,5 @@
 'use client';
+import { useApplication } from '@/features/learning/application-provider';
 import { useRefined } from '@/features/learning/refined-assessment-provider';
 import { usePortalGuideVisibility } from '@/features/course/portal-guide-visibility';
 import { useEffect } from 'react';
@@ -39,11 +40,15 @@ export function GuidedCoach({
     module = usePortalLearning();
   const benefits = useExpansion('benefits'),
     services2 = useExpansion('services');
+  const application = useApplication();
   const updatedBenefits = useRefined('benefits'),
     updatedServices = useRefined('services');
   const [minimized, setMinimized] = usePortalGuideVisibility();
   const lab = save.lab;
   const active =
+    application.ready &&
+    !application.issue &&
+    !application.facts.active &&
     updatedBenefits.ready &&
     !updatedBenefits.issue &&
     !updatedBenefits.facts.active &&

@@ -33,7 +33,7 @@ import * as cost from '@/domain/curriculum/cost-sources';
 // Next uses the automatic JSX transform; the existing Node test runner uses classic JSX.
 vi.stubGlobal('React', React);
 afterAll(() => vi.unstubAllGlobals());
-const base = '475bddd5b068165528ffa59c288d76c341a914ba';
+const base = '2f2a6c838232a17c4c018ac485e340a0be1711d5';
 const families = [
   [ComputeSources, compute.computeSources, compute.computeStudySources],
   [NetworkingSources, networking.networkingSources, networking.networkingStudySources],
@@ -120,13 +120,14 @@ describe('Source presentation preservation', () => {
     }
   });
   it('preserves every original domain source record mapping rubric store and full authored content prefix against the verified base', () => {
-    // PR48 explicitly extends read-only Portal navigation/projections. All prior
-    // source, rubric, store and engine files remain frozen; the original technical
-    // portion of portal/model.ts is independently byte-checked below.
+    // PR49 adds one isolated bank and a read-only projection. Every pre-existing
+    // domain/source/rubric/store/Portal byte remains frozen against delivered PR48.
     const navigationOnly = [
-      'src/domain/portal/model.ts',
-      'src/domain/portal/inspection.ts',
-      'src/domain/portal/inspection.test.ts',
+      'src/domain/curriculum/application-transfer.ts',
+      'src/domain/curriculum/application-store.ts',
+      'src/domain/curriculum/application-exposure.ts',
+      'src/domain/curriculum/application-sources.ts',
+      'src/domain/curriculum/application-transfer.test.ts',
     ];
     const changed = execFileSync('git', ['diff', '--name-only', base, '--', 'src/domain/'], {
       encoding: 'utf8',

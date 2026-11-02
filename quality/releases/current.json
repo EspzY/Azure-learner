@@ -1,172 +1,775 @@
 {
   "schema": 1,
-  "id": "PR48-practical-portal-inspection",
-  "baseCommit": "475bddd5b068165528ffa59c288d76c341a914ba",
-  "author": "codex-inspection48-author",
+  "id": "PR49-assessment-transfer-stage-a",
+  "baseCommit": "2f2a6c838232a17c4c018ac485e340a0be1711d5",
+  "author": "codex-application49-author",
   "scope": {
-    "kind": "portal-inspection-bridge",
-    "description": "PR01StageA: actual VM/Policy/WebApp inspection from three existing course activities, original receipts, scoped history and URL views with unchanged evidence semantics.",
-    "objectives": ["portal.inspection"]
+    "kind": "assessment-transfer-refinement",
+    "description": "AS02StageA six isolated changed-premise networking/storage/cost cases and conservative cross-module exposure without historical reinterpretation.",
+    "objectives": ["application.networking", "application.storage", "application.cost"]
   },
   "sources": [
     {
-      "id": "PI48-portal",
-      "url": "https://learn.microsoft.com/en-us/azure/azure-portal/azure-portal-overview",
-      "title": "What is the Azure portal? - Azure portal | Microsoft Learn",
+      "id": "AT01",
+      "url": "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900",
+      "title": "Study guide for Exam AZ-900: Microsoft Azure Fundamentals | Microsoft Learn",
       "reviewed": "2026-11-02",
-      "version": "Rolling public page retrieved2026-11-02 SHA256 4fc74270f0edfa683482cb2b90f4ce661cf5cc0ea94210ebe132a8139b0a059e",
+      "version": "Rolling public body retrieved2026-11-02 SHA256 58bee7dadd3426094ab189375b86b07f9c59111037529e42176150b53ee821ee",
       "kind": "official-public-documentation",
-      "objectives": ["portal.inspection"],
-      "claims": ["portal.reference-structure"],
+      "objectives": ["application.networking", "application.storage", "application.cost"],
+      "claims": ["application.scope"],
       "availability": "AVAILABLE",
-      "limits": "Reference for navigation/Essentials/plan/resource/control-plane history structure only. AzureLab uses its original bounded local World and ledger, not real ARM IDs, runtime measurements, Azure Monitor events or90day retention. No live tenant/login or product parity approval.",
+      "limits": "Only scoped DNS/path/API-evidence, qualified client/storage/access contracts and matched/interruptible pricing claims. All IPs/prices/hours/test outcomes are original synthetic premises. No real Azure operation, blanket price ordering, capacity/availability guarantee, measured transfer or full57-objective audit. Detailed source qualifications in application49-source-review.",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/azure-portal/azure-portal-overview",
-          "disposition": "reviewed-reference",
-          "reason": "Actual public body inspected. Portal callout and Activity log illustrations personally viewed for menu/scope/history structure; source images not copied into the product. Original engine semantics remain authoritative locally."
+          "url": "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900",
+          "disposition": "reviewed-applied",
+          "reason": "Actual anonymous public body and scoped claims checked; selected Learn units/product conditions only, no protected assessment questions. Hash recorded; generic sign-in banner did not block public article."
         }
       ]
     },
     {
-      "id": "PI48-vm",
-      "url": "https://learn.microsoft.com/en-us/azure/virtual-machines/windows/overview",
-      "title": "Overview of virtual machines in Azure - Azure Virtual Machines | Microsoft Learn",
+      "id": "AT02",
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-networking-services/",
+      "title": "Describe Azure Networking Services - Training | Microsoft Learn",
       "reviewed": "2026-11-02",
-      "version": "Rolling public page retrieved2026-11-02 SHA256 b8b7bd46ab35808553b79b1c7d1a5dd5ebde20d5b6aa272e4dc0ad258129c199",
+      "version": "Rolling public body retrieved2026-11-02 SHA256 0116fb8608a6b89aeb73ba7e96ef6229f771d8a4ab7ece5d1c1275e41034a53a",
       "kind": "official-public-documentation",
-      "objectives": ["portal.inspection"],
-      "claims": ["portal.reference-structure"],
+      "objectives": ["application.networking"],
+      "claims": ["application.networking.mechanism"],
       "availability": "AVAILABLE",
-      "limits": "Reference for navigation/Essentials/plan/resource/control-plane history structure only. AzureLab uses its original bounded local World and ledger, not real ARM IDs, runtime measurements, Azure Monitor events or90day retention. No live tenant/login or product parity approval.",
+      "limits": "Only scoped DNS/path/API-evidence, qualified client/storage/access contracts and matched/interruptible pricing claims. All IPs/prices/hours/test outcomes are original synthetic premises. No real Azure operation, blanket price ordering, capacity/availability guarantee, measured transfer or full57-objective audit. Detailed source qualifications in application49-source-review.",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/virtual-machines/windows/overview",
-          "disposition": "reviewed-reference",
-          "reason": "Actual public body inspected. Portal callout and Activity log illustrations personally viewed for menu/scope/history structure; source images not copied into the product. Original engine semantics remain authoritative locally."
+          "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-networking-services/",
+          "disposition": "reviewed-applied",
+          "reason": "Actual anonymous public body and scoped claims checked; selected Learn units/product conditions only, no protected assessment questions. Hash recorded; generic sign-in banner did not block public article."
         }
       ]
     },
     {
-      "id": "PI48-plan",
-      "url": "https://learn.microsoft.com/en-us/azure/app-service/app-service-plan-manage",
-      "title": "Manage an App Service Plan - Azure App Service | Microsoft Learn",
+      "id": "AT03",
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-networking-services/5-domain-name-system",
+      "title": "Describe Azure DNS - Training | Microsoft Learn",
       "reviewed": "2026-11-02",
-      "version": "Rolling public page retrieved2026-11-02 SHA256 1b7304550694791bdcb9bab83d215b2650255ad4338a44e585371d6660524da1",
+      "version": "Rolling public body retrieved2026-11-02 SHA256 4c4607422e788938b2e2fc3051f85178109c6c4886e16ec1b651fe1c5725b47d",
       "kind": "official-public-documentation",
-      "objectives": ["portal.inspection"],
-      "claims": ["portal.reference-structure"],
+      "objectives": ["application.networking"],
+      "claims": ["application.networking.mechanism"],
       "availability": "AVAILABLE",
-      "limits": "Reference for navigation/Essentials/plan/resource/control-plane history structure only. AzureLab uses its original bounded local World and ledger, not real ARM IDs, runtime measurements, Azure Monitor events or90day retention. No live tenant/login or product parity approval.",
+      "limits": "Only scoped DNS/path/API-evidence, qualified client/storage/access contracts and matched/interruptible pricing claims. All IPs/prices/hours/test outcomes are original synthetic premises. No real Azure operation, blanket price ordering, capacity/availability guarantee, measured transfer or full57-objective audit. Detailed source qualifications in application49-source-review.",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/app-service/app-service-plan-manage",
-          "disposition": "reviewed-reference",
-          "reason": "Actual public body inspected. Portal callout and Activity log illustrations personally viewed for menu/scope/history structure; source images not copied into the product. Original engine semantics remain authoritative locally."
+          "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-networking-services/5-domain-name-system",
+          "disposition": "reviewed-applied",
+          "reason": "Actual anonymous public body and scoped claims checked; selected Learn units/product conditions only, no protected assessment questions. Hash recorded; generic sign-in banner did not block public article."
         }
       ]
     },
     {
-      "id": "PI48-activity",
-      "url": "https://learn.microsoft.com/en-us/azure/azure-monitor/fundamentals/activity-log",
-      "title": "Activity Log in Azure Monitor - Azure Monitor | Microsoft Learn",
+      "id": "AT04",
+      "url": "https://learn.microsoft.com/en-us/azure/dns/dns-overview",
+      "title": "Azure DNS Overview: Hosting and Resolution | Microsoft Learn",
       "reviewed": "2026-11-02",
-      "version": "Rolling public page retrieved2026-11-02 SHA256 7164ae27dac4c01c21697201a3fdff04a22fe55ece2fae1fe77aa88e6144cc44",
+      "version": "Rolling public body retrieved2026-11-02 SHA256 c56307a9db4b9e645db48402d628f7fbaf7e1a6b70f22296b02b226f7e8ca72b",
       "kind": "official-public-documentation",
-      "objectives": ["portal.inspection"],
-      "claims": ["portal.reference-structure"],
+      "objectives": ["application.networking"],
+      "claims": ["application.networking.mechanism"],
       "availability": "AVAILABLE",
-      "limits": "Reference for navigation/Essentials/plan/resource/control-plane history structure only. AzureLab uses its original bounded local World and ledger, not real ARM IDs, runtime measurements, Azure Monitor events or90day retention. No live tenant/login or product parity approval.",
+      "limits": "Only scoped DNS/path/API-evidence, qualified client/storage/access contracts and matched/interruptible pricing claims. All IPs/prices/hours/test outcomes are original synthetic premises. No real Azure operation, blanket price ordering, capacity/availability guarantee, measured transfer or full57-objective audit. Detailed source qualifications in application49-source-review.",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/azure-monitor/fundamentals/activity-log",
-          "disposition": "reviewed-reference",
-          "reason": "Actual public body inspected. Portal callout and Activity log illustrations personally viewed for menu/scope/history structure; source images not copied into the product. Original engine semantics remain authoritative locally."
+          "url": "https://learn.microsoft.com/en-us/azure/dns/dns-overview",
+          "disposition": "reviewed-essential",
+          "reason": "Actual anonymous public body and scoped claims checked; selected Learn units/product conditions only, no protected assessment questions. Hash recorded; generic sign-in banner did not block public article."
+        }
+      ]
+    },
+    {
+      "id": "AT05",
+      "url": "https://learn.microsoft.com/en-us/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances",
+      "title": "Azure Virtual Network Name Resolution Guide | Microsoft Learn",
+      "reviewed": "2026-11-02",
+      "version": "Rolling public body retrieved2026-11-02 SHA256 e7ec1e17777ba340d02f1475b183622677c9c3f085fd6ea17cfe7c50066fdb18",
+      "kind": "official-public-documentation",
+      "objectives": ["application.networking"],
+      "claims": ["application.networking.mechanism"],
+      "availability": "AVAILABLE",
+      "limits": "Only scoped DNS/path/API-evidence, qualified client/storage/access contracts and matched/interruptible pricing claims. All IPs/prices/hours/test outcomes are original synthetic premises. No real Azure operation, blanket price ordering, capacity/availability guarantee, measured transfer or full57-objective audit. Detailed source qualifications in application49-source-review.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances",
+          "disposition": "reviewed-essential",
+          "reason": "Actual anonymous public body and scoped claims checked; selected Learn units/product conditions only, no protected assessment questions. Hash recorded; generic sign-in banner did not block public article."
+        }
+      ]
+    },
+    {
+      "id": "AT06",
+      "url": "https://learn.microsoft.com/en-us/azure/virtual-network/network-security-groups-overview",
+      "title": "Azure network security groups overview | Microsoft Learn",
+      "reviewed": "2026-11-02",
+      "version": "Rolling public body retrieved2026-11-02 SHA256 dba48c6e7fa510d4c3c4fcc8ffa5a78d7319b57531b29804e98254e3de84f973",
+      "kind": "official-public-documentation",
+      "objectives": ["application.networking"],
+      "claims": ["application.networking.mechanism"],
+      "availability": "AVAILABLE",
+      "limits": "Only scoped DNS/path/API-evidence, qualified client/storage/access contracts and matched/interruptible pricing claims. All IPs/prices/hours/test outcomes are original synthetic premises. No real Azure operation, blanket price ordering, capacity/availability guarantee, measured transfer or full57-objective audit. Detailed source qualifications in application49-source-review.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/virtual-network/network-security-groups-overview",
+          "disposition": "reviewed-essential",
+          "reason": "Actual anonymous public body and scoped claims checked; selected Learn units/product conditions only, no protected assessment questions. Hash recorded; generic sign-in banner did not block public article."
+        }
+      ]
+    },
+    {
+      "id": "AT07",
+      "url": "https://learn.microsoft.com/en-us/azure/storage/common/authorize-data-access",
+      "title": "Authorize operations for data access - Azure Storage | Microsoft Learn",
+      "reviewed": "2026-11-02",
+      "version": "Rolling public body retrieved2026-11-02 SHA256 20450e707c148558e78aa889193a6e97c91e7c9419a908d95e7afb619cbfd509",
+      "kind": "official-public-documentation",
+      "objectives": ["application.networking"],
+      "claims": ["application.networking.mechanism"],
+      "availability": "AVAILABLE",
+      "limits": "Only scoped DNS/path/API-evidence, qualified client/storage/access contracts and matched/interruptible pricing claims. All IPs/prices/hours/test outcomes are original synthetic premises. No real Azure operation, blanket price ordering, capacity/availability guarantee, measured transfer or full57-objective audit. Detailed source qualifications in application49-source-review.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/storage/common/authorize-data-access",
+          "disposition": "reviewed-essential",
+          "reason": "Actual anonymous public body and scoped claims checked; selected Learn units/product conditions only, no protected assessment questions. Hash recorded; generic sign-in banner did not block public article."
+        }
+      ]
+    },
+    {
+      "id": "AT08",
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-storage-services/",
+      "title": "Describe Azure storage services - Training | Microsoft Learn",
+      "reviewed": "2026-11-02",
+      "version": "Rolling public body retrieved2026-11-02 SHA256 c718034821a69a2a96fdc4d76fcc87e736a7e936bccbdc7f34ea6c00195b8379",
+      "kind": "official-public-documentation",
+      "objectives": ["application.storage"],
+      "claims": ["application.storage.mechanism"],
+      "availability": "AVAILABLE",
+      "limits": "Only scoped DNS/path/API-evidence, qualified client/storage/access contracts and matched/interruptible pricing claims. All IPs/prices/hours/test outcomes are original synthetic premises. No real Azure operation, blanket price ordering, capacity/availability guarantee, measured transfer or full57-objective audit. Detailed source qualifications in application49-source-review.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-storage-services/",
+          "disposition": "reviewed-applied",
+          "reason": "Actual anonymous public body and scoped claims checked; selected Learn units/product conditions only, no protected assessment questions. Hash recorded; generic sign-in banner did not block public article."
+        }
+      ]
+    },
+    {
+      "id": "AT09",
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-storage-services/4-describe-azure-storage-services",
+      "title": "Describe Azure storage services - Training | Microsoft Learn",
+      "reviewed": "2026-11-02",
+      "version": "Rolling public body retrieved2026-11-02 SHA256 fa700acf70d654721f619f037c6f10cdf34c057efea60d46d5fd1cf9c71c48aa",
+      "kind": "official-public-documentation",
+      "objectives": ["application.storage"],
+      "claims": ["application.storage.mechanism"],
+      "availability": "AVAILABLE",
+      "limits": "Only scoped DNS/path/API-evidence, qualified client/storage/access contracts and matched/interruptible pricing claims. All IPs/prices/hours/test outcomes are original synthetic premises. No real Azure operation, blanket price ordering, capacity/availability guarantee, measured transfer or full57-objective audit. Detailed source qualifications in application49-source-review.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/training/modules/describe-azure-storage-services/4-describe-azure-storage-services",
+          "disposition": "reviewed-applied",
+          "reason": "Actual anonymous public body and scoped claims checked; selected Learn units/product conditions only, no protected assessment questions. Hash recorded; generic sign-in banner did not block public article."
+        }
+      ]
+    },
+    {
+      "id": "AT10",
+      "url": "https://learn.microsoft.com/en-us/azure/storage/common/storage-introduction",
+      "title": "Introduction to Azure Storage - Cloud storage on Azure | Microsoft Learn",
+      "reviewed": "2026-11-02",
+      "version": "Rolling public body retrieved2026-11-02 SHA256 89abd8a468242f70cae110a7d3038605d3123da0ef9dcbe44e91f58f88ceea6b",
+      "kind": "official-public-documentation",
+      "objectives": ["application.storage"],
+      "claims": ["application.storage.mechanism"],
+      "availability": "AVAILABLE",
+      "limits": "Only scoped DNS/path/API-evidence, qualified client/storage/access contracts and matched/interruptible pricing claims. All IPs/prices/hours/test outcomes are original synthetic premises. No real Azure operation, blanket price ordering, capacity/availability guarantee, measured transfer or full57-objective audit. Detailed source qualifications in application49-source-review.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/storage/common/storage-introduction",
+          "disposition": "reviewed-essential",
+          "reason": "Actual anonymous public body and scoped claims checked; selected Learn units/product conditions only, no protected assessment questions. Hash recorded; generic sign-in banner did not block public article."
+        }
+      ]
+    },
+    {
+      "id": "AT11",
+      "url": "https://learn.microsoft.com/en-us/azure/storage/files/storage-files-introduction",
+      "title": "What is Azure Files? | Microsoft Learn",
+      "reviewed": "2026-11-02",
+      "version": "Rolling public body retrieved2026-11-02 SHA256 5f3b132c11b75e4c7259d390fdf284c9185d495c6da815632ca08b7d4b3821d9",
+      "kind": "official-public-documentation",
+      "objectives": ["application.storage"],
+      "claims": ["application.storage.mechanism"],
+      "availability": "AVAILABLE",
+      "limits": "Only scoped DNS/path/API-evidence, qualified client/storage/access contracts and matched/interruptible pricing claims. All IPs/prices/hours/test outcomes are original synthetic premises. No real Azure operation, blanket price ordering, capacity/availability guarantee, measured transfer or full57-objective audit. Detailed source qualifications in application49-source-review.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/storage/files/storage-files-introduction",
+          "disposition": "reviewed-essential",
+          "reason": "Actual anonymous public body and scoped claims checked; selected Learn units/product conditions only, no protected assessment questions. Hash recorded; generic sign-in banner did not block public article."
+        }
+      ]
+    },
+    {
+      "id": "AT12",
+      "url": "https://learn.microsoft.com/en-us/azure/storage/files/storage-files-planning",
+      "title": "Plan an Azure Files deployment | Microsoft Learn",
+      "reviewed": "2026-11-02",
+      "version": "Rolling public body retrieved2026-11-02 SHA256 cffc1f0d2b66eeb98360e0da5607928e07e10a2e21beeedc508f198ca431c6cb",
+      "kind": "official-public-documentation",
+      "objectives": ["application.storage"],
+      "claims": ["application.storage.mechanism"],
+      "availability": "AVAILABLE",
+      "limits": "Only scoped DNS/path/API-evidence, qualified client/storage/access contracts and matched/interruptible pricing claims. All IPs/prices/hours/test outcomes are original synthetic premises. No real Azure operation, blanket price ordering, capacity/availability guarantee, measured transfer or full57-objective audit. Detailed source qualifications in application49-source-review.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/storage/files/storage-files-planning",
+          "disposition": "reviewed-essential",
+          "reason": "Actual anonymous public body and scoped claims checked; selected Learn units/product conditions only, no protected assessment questions. Hash recorded; generic sign-in banner did not block public article."
+        }
+      ]
+    },
+    {
+      "id": "AT13",
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-cost-management-azure/",
+      "title": "Describe Cost Management in Azure - Training | Microsoft Learn",
+      "reviewed": "2026-11-02",
+      "version": "Rolling public body retrieved2026-11-02 SHA256 0f71c56019166dc39d917be2367ced19fc3a7d373bdc5570b5c9d38bd51463ff",
+      "kind": "official-public-documentation",
+      "objectives": ["application.cost"],
+      "claims": ["application.cost.mechanism"],
+      "availability": "AVAILABLE",
+      "limits": "Only scoped DNS/path/API-evidence, qualified client/storage/access contracts and matched/interruptible pricing claims. All IPs/prices/hours/test outcomes are original synthetic premises. No real Azure operation, blanket price ordering, capacity/availability guarantee, measured transfer or full57-objective audit. Detailed source qualifications in application49-source-review.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/training/modules/describe-cost-management-azure/",
+          "disposition": "reviewed-applied",
+          "reason": "Actual anonymous public body and scoped claims checked; selected Learn units/product conditions only, no protected assessment questions. Hash recorded; generic sign-in banner did not block public article."
+        }
+      ]
+    },
+    {
+      "id": "AT14",
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-cost-management-azure/7a-describe-cost-optimization-options",
+      "title": "Describe cost optimization options in Azure - Training | Microsoft Learn",
+      "reviewed": "2026-11-02",
+      "version": "Rolling public body retrieved2026-11-02 SHA256 89efd399a32e320a74577ee07b4c3154a29a90ebd9cde91b984dc040749173d6",
+      "kind": "official-public-documentation",
+      "objectives": ["application.cost"],
+      "claims": ["application.cost.mechanism"],
+      "availability": "AVAILABLE",
+      "limits": "Only scoped DNS/path/API-evidence, qualified client/storage/access contracts and matched/interruptible pricing claims. All IPs/prices/hours/test outcomes are original synthetic premises. No real Azure operation, blanket price ordering, capacity/availability guarantee, measured transfer or full57-objective audit. Detailed source qualifications in application49-source-review.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/training/modules/describe-cost-management-azure/7a-describe-cost-optimization-options",
+          "disposition": "reviewed-applied",
+          "reason": "Actual anonymous public body and scoped claims checked; selected Learn units/product conditions only, no protected assessment questions. Hash recorded; generic sign-in banner did not block public article."
+        }
+      ]
+    },
+    {
+      "id": "AT15",
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-cloud-compute/6-describe-consumption-based-model",
+      "title": "Describe the consumption-based model - Training | Microsoft Learn",
+      "reviewed": "2026-11-02",
+      "version": "Rolling public body retrieved2026-11-02 SHA256 8a47abef1587e2062e93dd24b9970713a4a81cc1dff3ed809bc387ef1077bd14",
+      "kind": "official-public-documentation",
+      "objectives": ["application.cost"],
+      "claims": ["application.cost.mechanism"],
+      "availability": "AVAILABLE",
+      "limits": "Only scoped DNS/path/API-evidence, qualified client/storage/access contracts and matched/interruptible pricing claims. All IPs/prices/hours/test outcomes are original synthetic premises. No real Azure operation, blanket price ordering, capacity/availability guarantee, measured transfer or full57-objective audit. Detailed source qualifications in application49-source-review.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/training/modules/describe-cloud-compute/6-describe-consumption-based-model",
+          "disposition": "reviewed-applied",
+          "reason": "Actual anonymous public body and scoped claims checked; selected Learn units/product conditions only, no protected assessment questions. Hash recorded; generic sign-in banner did not block public article."
+        }
+      ]
+    },
+    {
+      "id": "AT16",
+      "url": "https://learn.microsoft.com/en-us/azure/cost-management-billing/reservations/save-compute-costs-reservations",
+      "title": "What are Azure Reservations? - Microsoft Cost Management | Microsoft Learn",
+      "reviewed": "2026-11-02",
+      "version": "Rolling public body retrieved2026-11-02 SHA256 97e0b466ac4c96bf9fcc4245dca1879b1d26c58f9e1dfdede40ed82f5fcb385c",
+      "kind": "official-public-documentation",
+      "objectives": ["application.cost"],
+      "claims": ["application.cost.mechanism"],
+      "availability": "AVAILABLE",
+      "limits": "Only scoped DNS/path/API-evidence, qualified client/storage/access contracts and matched/interruptible pricing claims. All IPs/prices/hours/test outcomes are original synthetic premises. No real Azure operation, blanket price ordering, capacity/availability guarantee, measured transfer or full57-objective audit. Detailed source qualifications in application49-source-review.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/cost-management-billing/reservations/save-compute-costs-reservations",
+          "disposition": "reviewed-essential",
+          "reason": "Actual anonymous public body and scoped claims checked; selected Learn units/product conditions only, no protected assessment questions. Hash recorded; generic sign-in banner did not block public article."
+        }
+      ]
+    },
+    {
+      "id": "AT17",
+      "url": "https://learn.microsoft.com/en-us/azure/virtual-machines/spot-vms",
+      "title": "About Azure Spot Virtual Machines - Azure Virtual Machines | Microsoft Learn",
+      "reviewed": "2026-11-02",
+      "version": "Rolling public body retrieved2026-11-02 SHA256 705b4f5a32f6ac8e6a7d23c5184d9fd2d80dd77e9bfd89f50e4a2e45e6b95850",
+      "kind": "official-public-documentation",
+      "objectives": ["application.cost"],
+      "claims": ["application.cost.mechanism"],
+      "availability": "AVAILABLE",
+      "limits": "Only scoped DNS/path/API-evidence, qualified client/storage/access contracts and matched/interruptible pricing claims. All IPs/prices/hours/test outcomes are original synthetic premises. No real Azure operation, blanket price ordering, capacity/availability guarantee, measured transfer or full57-objective audit. Detailed source qualifications in application49-source-review.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/virtual-machines/spot-vms",
+          "disposition": "reviewed-essential",
+          "reason": "Actual anonymous public body and scoped claims checked; selected Learn units/product conditions only, no protected assessment questions. Hash recorded; generic sign-in banner did not block public article."
+        }
+      ]
+    },
+    {
+      "id": "AT18",
+      "url": "https://learn.microsoft.com/en-us/azure/cost-management-billing/savings-plan/savings-plan-overview",
+      "title": "What are savings plans? - Microsoft Cost Management | Microsoft Learn",
+      "reviewed": "2026-11-02",
+      "version": "Rolling public body retrieved2026-11-02 SHA256 416d725ba4f8f11c364c8793434d09317dec536cf1faa8759afe290fea6587d1",
+      "kind": "official-public-documentation",
+      "objectives": ["application.cost"],
+      "claims": ["application.cost.mechanism"],
+      "availability": "AVAILABLE",
+      "limits": "Only scoped DNS/path/API-evidence, qualified client/storage/access contracts and matched/interruptible pricing claims. All IPs/prices/hours/test outcomes are original synthetic premises. No real Azure operation, blanket price ordering, capacity/availability guarantee, measured transfer or full57-objective audit. Detailed source qualifications in application49-source-review.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/cost-management-billing/savings-plan/savings-plan-overview",
+          "disposition": "reviewed-essential",
+          "reason": "Actual anonymous public body and scoped claims checked; selected Learn units/product conditions only, no protected assessment questions. Hash recorded; generic sign-in banner did not block public article."
+        }
+      ]
+    },
+    {
+      "id": "AT19",
+      "url": "https://learn.microsoft.com/en-us/entra/identity-platform/claims-validation",
+      "title": "Secure applications and APIs by validating claims - Microsoft identity platform | Microsoft Learn",
+      "reviewed": "2026-11-02",
+      "version": "Rolling public body retrieved2026-11-02 SHA256 40eaad3114f885358684aa1ae900a6bbc6355b66950681f6d9d443f5b8948f8c",
+      "kind": "official-public-documentation",
+      "objectives": ["application.networking"],
+      "claims": ["application.networking.mechanism"],
+      "availability": "AVAILABLE",
+      "limits": "Only scoped DNS/path/API-evidence, qualified client/storage/access contracts and matched/interruptible pricing claims. All IPs/prices/hours/test outcomes are original synthetic premises. No real Azure operation, blanket price ordering, capacity/availability guarantee, measured transfer or full57-objective audit. Detailed source qualifications in application49-source-review.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/entra/identity-platform/claims-validation",
+          "disposition": "reviewed-essential",
+          "reason": "Actual anonymous public body and scoped claims checked; selected Learn units/product conditions only, no protected assessment questions. Hash recorded; generic sign-in banner did not block public article."
+        }
+      ]
+    },
+    {
+      "id": "AT20",
+      "url": "https://learn.microsoft.com/en-us/azure/cost-management-billing/reservations/reservation-discount-application",
+      "title": "How an Azure reservation discount is applied - Microsoft Cost Management | Microsoft Learn",
+      "reviewed": "2026-11-02",
+      "version": "Rolling public body retrieved2026-11-02 SHA256 4cfea8272b5e8ca09194acb0e4b8fee32345096abdf62991e6c39a8fc9068015",
+      "kind": "official-public-documentation",
+      "objectives": ["application.cost"],
+      "claims": ["application.cost.mechanism"],
+      "availability": "AVAILABLE",
+      "limits": "Only scoped DNS/path/API-evidence, qualified client/storage/access contracts and matched/interruptible pricing claims. All IPs/prices/hours/test outcomes are original synthetic premises. No real Azure operation, blanket price ordering, capacity/availability guarantee, measured transfer or full57-objective audit. Detailed source qualifications in application49-source-review.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/cost-management-billing/reservations/reservation-discount-application",
+          "disposition": "reviewed-essential",
+          "reason": "Actual anonymous public body and scoped claims checked; selected Learn units/product conditions only, no protected assessment questions. Hash recorded; generic sign-in banner did not block public article."
+        }
+      ]
+    },
+    {
+      "id": "AT21",
+      "url": "https://learn.microsoft.com/en-us/azure/storage/files/files-smb-protocol",
+      "title": "SMB File Shares in Azure Files | Microsoft Learn",
+      "reviewed": "2026-11-02",
+      "version": "Rolling public body retrieved2026-11-02 SHA256 0214ed786df3fdd1b4b88c0af622c7d4eb54a893d254471419b597e451006478",
+      "kind": "official-public-documentation",
+      "objectives": ["application.storage"],
+      "claims": ["application.storage.mechanism"],
+      "availability": "AVAILABLE",
+      "limits": "Only scoped DNS/path/API-evidence, qualified client/storage/access contracts and matched/interruptible pricing claims. All IPs/prices/hours/test outcomes are original synthetic premises. No real Azure operation, blanket price ordering, capacity/availability guarantee, measured transfer or full57-objective audit. Detailed source qualifications in application49-source-review.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/storage/files/files-smb-protocol",
+          "disposition": "reviewed-essential",
+          "reason": "Actual anonymous public body and scoped claims checked; selected Learn units/product conditions only, no protected assessment questions. Hash recorded; generic sign-in banner did not block public article."
         }
       ]
     }
   ],
   "activities": [
     {
-      "id": "portal-resource-inspection",
-      "objectives": ["portal.inspection"],
-      "claims": ["portal.reference-structure"],
-      "assessmentStatus": "unchanged-existing",
-      "limits": "Three existing native course contexts, original commands/receipts; inspection/navigation never create a guide or automatic credit. Raw technical metadata stays neutral, new teaching questions behind existing durable boundaries.",
+      "id": "application-networking",
+      "objectives": ["application.networking"],
+      "claims": ["application.scope", "application.networking.mechanism"],
+      "assessmentStatus": "new-independent",
+      "limits": "Two original changed-premise cases. Decision+complete compatible reason; Storage2 has two accepted pairs. Separate stable version, pinned conservative related/uncertain exposure and immutable first. Near transfer only; original banks unchanged.",
       "theory": [
         {
-          "path": "docs/PORTAL_INSPECTION_BRIDGE.md"
+          "path": "src/features/learning/networking.tsx"
+        },
+        {
+          "path": "docs/ASSESSMENT_TRANSFER_STAGE_A.md"
         }
       ],
       "mechanism": [
         {
-          "path": "src/domain/portal/inspection.ts"
+          "path": "src/domain/curriculum/application-transfer.ts"
         },
         {
-          "path": "src/domain/portal/model.ts"
-        },
-        {
-          "path": "src/features/portal/inspection-evidence.tsx"
+          "path": "src/domain/curriculum/application-exposure.ts"
         }
       ],
       "practice": [
         {
-          "path": "src/features/course/portal-inspection-bridge.tsx"
+          "path": "src/features/learning/application-transfer.tsx"
         },
         {
-          "path": "tests/e2e/portal-inspection-bridge.spec.ts"
+          "path": "tests/e2e/application-transfer.spec.ts"
         }
       ],
       "feedback": [
         {
-          "path": "src/features/portal/receipt-panel.tsx"
+          "path": "src/content/nb.ts",
+          "marker": "applicationNb"
         }
       ],
       "visual": [
         {
-          "path": "docs/screenshots/portal-inspection/after-vm-history-1440.png"
-        },
-        {
-          "path": "docs/screenshots/portal-inspection/after-properties-1024x500.png"
+          "path": "docs/screenshots/application-transfer/network-evidence-1440.png"
         }
       ],
       "accessible": [
         {
-          "path": "tests/e2e/portal-inspection-bridge.spec.ts"
+          "path": "tests/e2e/application-transfer.spec.ts"
         }
       ],
       "assessment": [
         {
-          "path": "src/domain/curriculum/refined-assessment.test.ts"
+          "path": "src/domain/curriculum/application-transfer.test.ts"
         },
         {
-          "path": "tests/e2e/practical-labs.spec.ts"
+          "path": "docs/reviews/evidence/application49-blind-release.json"
         }
       ],
       "savvyshark": [
         {
-          "path": "src/features/course/portal-guide-visibility.tsx"
+          "path": "src/features/course/mission-context.ts"
         },
         {
-          "path": "src/features/learning/compute-vm.tsx"
+          "path": "src/features/portal/portal.tsx"
         },
         {
-          "path": "tests/e2e/learning-flow-guidance.spec.ts"
+          "path": "tests/e2e/application-transfer.spec.ts"
+        }
+      ]
+    },
+    {
+      "id": "application-storage",
+      "objectives": ["application.storage"],
+      "claims": ["application.scope", "application.storage.mechanism"],
+      "assessmentStatus": "new-independent",
+      "limits": "Two original changed-premise cases. Decision+complete compatible reason; Storage2 has two accepted pairs. Separate stable version, pinned conservative related/uncertain exposure and immutable first. Near transfer only; original banks unchanged.",
+      "theory": [
+        {
+          "path": "src/features/learning/storage.tsx"
+        },
+        {
+          "path": "docs/ASSESSMENT_TRANSFER_STAGE_A.md"
+        }
+      ],
+      "mechanism": [
+        {
+          "path": "src/domain/curriculum/application-transfer.ts"
+        },
+        {
+          "path": "src/domain/curriculum/application-exposure.ts"
+        }
+      ],
+      "practice": [
+        {
+          "path": "src/features/learning/application-transfer.tsx"
+        },
+        {
+          "path": "tests/e2e/application-transfer.spec.ts"
+        }
+      ],
+      "feedback": [
+        {
+          "path": "src/content/nb.ts",
+          "marker": "applicationNb"
+        }
+      ],
+      "visual": [
+        {
+          "path": "docs/screenshots/application-transfer/storage-test-1024.png"
+        }
+      ],
+      "accessible": [
+        {
+          "path": "tests/e2e/application-transfer.spec.ts"
+        }
+      ],
+      "assessment": [
+        {
+          "path": "src/domain/curriculum/application-transfer.test.ts"
+        },
+        {
+          "path": "docs/reviews/evidence/application49-blind-release.json"
+        }
+      ],
+      "savvyshark": [
+        {
+          "path": "src/features/course/mission-context.ts"
+        },
+        {
+          "path": "src/features/portal/portal.tsx"
+        },
+        {
+          "path": "tests/e2e/application-transfer.spec.ts"
+        }
+      ]
+    },
+    {
+      "id": "application-cost",
+      "objectives": ["application.cost"],
+      "claims": ["application.scope", "application.cost.mechanism"],
+      "assessmentStatus": "new-independent",
+      "limits": "Two original changed-premise cases. Decision+complete compatible reason; Storage2 has two accepted pairs. Separate stable version, pinned conservative related/uncertain exposure and immutable first. Near transfer only; original banks unchanged.",
+      "theory": [
+        {
+          "path": "src/features/learning/cost.tsx"
+        },
+        {
+          "path": "docs/ASSESSMENT_TRANSFER_STAGE_A.md"
+        }
+      ],
+      "mechanism": [
+        {
+          "path": "src/domain/curriculum/application-transfer.ts"
+        },
+        {
+          "path": "src/domain/curriculum/application-exposure.ts"
+        }
+      ],
+      "practice": [
+        {
+          "path": "src/features/learning/application-transfer.tsx"
+        },
+        {
+          "path": "tests/e2e/application-transfer.spec.ts"
+        }
+      ],
+      "feedback": [
+        {
+          "path": "src/content/nb.ts",
+          "marker": "applicationNb"
+        }
+      ],
+      "visual": [
+        {
+          "path": "docs/screenshots/application-transfer/cost-causal-feedback-1440.png"
+        }
+      ],
+      "accessible": [
+        {
+          "path": "tests/e2e/application-transfer.spec.ts"
+        }
+      ],
+      "assessment": [
+        {
+          "path": "src/domain/curriculum/application-transfer.test.ts"
+        },
+        {
+          "path": "docs/reviews/evidence/application49-blind-release.json"
+        }
+      ],
+      "savvyshark": [
+        {
+          "path": "src/features/course/mission-context.ts"
+        },
+        {
+          "path": "src/features/portal/portal.tsx"
+        },
+        {
+          "path": "tests/e2e/application-transfer.spec.ts"
         }
       ]
     }
   ],
   "modules": [],
   "preservedPaths": [
+    "src/domain/assessment.ts",
+    "src/domain/chapter01/model.test.ts",
+    "src/domain/chapter01/model.ts",
+    "src/domain/chapter01/persistence.ts",
+    "src/domain/chapter01/scenario.ts",
+    "src/domain/course/course.test.ts",
+    "src/domain/course/model.ts",
+    "src/domain/course/store.ts",
+    "src/domain/curriculum/access-control-items.ts",
+    "src/domain/curriculum/access-control-model.ts",
+    "src/domain/curriculum/access-control-sources.ts",
+    "src/domain/curriculum/access-control-store.ts",
+    "src/domain/curriculum/access-control.test.ts",
+    "src/domain/curriculum/access-control.ts",
+    "src/domain/curriculum/architecture-management-store.ts",
+    "src/domain/curriculum/architecture-management.test.ts",
+    "src/domain/curriculum/architecture-management.ts",
+    "src/domain/curriculum/architecture-physical-store.ts",
+    "src/domain/curriculum/architecture-physical.test.ts",
+    "src/domain/curriculum/architecture-physical.ts",
+    "src/domain/curriculum/capacity.test.ts",
+    "src/domain/curriculum/capacity.ts",
+    "src/domain/curriculum/compute-items.ts",
+    "src/domain/curriculum/compute-model.ts",
+    "src/domain/curriculum/compute-sources.ts",
+    "src/domain/curriculum/compute-store.ts",
+    "src/domain/curriculum/compute-vm.ts",
+    "src/domain/curriculum/compute.test.ts",
+    "src/domain/curriculum/compute.ts",
+    "src/domain/curriculum/connectivity-items.ts",
+    "src/domain/curriculum/connectivity-model.ts",
+    "src/domain/curriculum/connectivity-sources.ts",
+    "src/domain/curriculum/connectivity-store.ts",
+    "src/domain/curriculum/connectivity.test.ts",
+    "src/domain/curriculum/connectivity.ts",
+    "src/domain/curriculum/cost-model.ts",
+    "src/domain/curriculum/cost-sources.ts",
+    "src/domain/curriculum/cost-store.ts",
+    "src/domain/curriculum/cost.test.ts",
+    "src/domain/curriculum/cost.ts",
+    "src/domain/curriculum/expansion-content.ts",
+    "src/domain/curriculum/expansion-models.ts",
+    "src/domain/curriculum/expansion-store.ts",
+    "src/domain/curriculum/expansion.test.ts",
+    "src/domain/curriculum/expansion.ts",
+    "src/domain/curriculum/foundations-v2.test.ts",
+    "src/domain/curriculum/foundations-v2.ts",
+    "src/domain/curriculum/foundations.test.ts",
+    "src/domain/curriculum/foundations.ts",
+    "src/domain/curriculum/governance-evidence.ts",
+    "src/domain/curriculum/governance-items.ts",
+    "src/domain/curriculum/governance-model.ts",
+    "src/domain/curriculum/governance-sources.ts",
+    "src/domain/curriculum/governance-store.ts",
+    "src/domain/curriculum/governance.test.ts",
+    "src/domain/curriculum/governance.ts",
+    "src/domain/curriculum/identity-foundations-items.ts",
+    "src/domain/curriculum/identity-foundations-model.ts",
+    "src/domain/curriculum/identity-foundations-sources.ts",
+    "src/domain/curriculum/identity-foundations-store.ts",
+    "src/domain/curriculum/identity-foundations.test.ts",
+    "src/domain/curriculum/identity-foundations.ts",
+    "src/domain/curriculum/integrity.test.ts",
+    "src/domain/curriculum/integrity.ts",
+    "src/domain/curriculum/management-tools-evidence.ts",
+    "src/domain/curriculum/management-tools-items.ts",
+    "src/domain/curriculum/management-tools-model.ts",
+    "src/domain/curriculum/management-tools-sources.ts",
+    "src/domain/curriculum/management-tools-store.ts",
+    "src/domain/curriculum/management-tools.test.ts",
+    "src/domain/curriculum/management-tools.ts",
+    "src/domain/curriculum/manifest.ts",
+    "src/domain/curriculum/migration-items.ts",
+    "src/domain/curriculum/migration-model.ts",
+    "src/domain/curriculum/migration-sources.ts",
+    "src/domain/curriculum/migration-store.ts",
+    "src/domain/curriculum/migration.test.ts",
+    "src/domain/curriculum/migration.ts",
+    "src/domain/curriculum/monitoring-items.ts",
+    "src/domain/curriculum/monitoring-model.ts",
+    "src/domain/curriculum/monitoring-sources.ts",
+    "src/domain/curriculum/monitoring-store.ts",
+    "src/domain/curriculum/monitoring.test.ts",
+    "src/domain/curriculum/monitoring.ts",
+    "src/domain/curriculum/networking-inspection.ts",
+    "src/domain/curriculum/networking-items.ts",
+    "src/domain/curriculum/networking-model.ts",
+    "src/domain/curriculum/networking-sources.ts",
+    "src/domain/curriculum/networking-store.ts",
+    "src/domain/curriculum/networking.test.ts",
+    "src/domain/curriculum/networking.ts",
+    "src/domain/curriculum/official.test.ts",
+    "src/domain/curriculum/official.ts",
+    "src/domain/curriculum/refined-assessment-store.ts",
+    "src/domain/curriculum/refined-assessment.test.ts",
+    "src/domain/curriculum/refined-assessment.ts",
+    "src/domain/curriculum/responsibility.test.ts",
+    "src/domain/curriculum/responsibility.ts",
+    "src/domain/curriculum/security-items.ts",
+    "src/domain/curriculum/security-model.ts",
+    "src/domain/curriculum/security-sources.ts",
+    "src/domain/curriculum/security-store.ts",
+    "src/domain/curriculum/security.test.ts",
+    "src/domain/curriculum/security.ts",
+    "src/domain/curriculum/serverless-store.ts",
+    "src/domain/curriculum/serverless.test.ts",
+    "src/domain/curriculum/serverless.ts",
+    "src/domain/curriculum/storage-items.ts",
+    "src/domain/curriculum/storage-model.ts",
+    "src/domain/curriculum/storage-resilience-items.ts",
+    "src/domain/curriculum/storage-resilience-model.ts",
+    "src/domain/curriculum/storage-resilience-sources.ts",
+    "src/domain/curriculum/storage-resilience-store.ts",
+    "src/domain/curriculum/storage-resilience.test.ts",
+    "src/domain/curriculum/storage-resilience.ts",
+    "src/domain/curriculum/storage-sources.ts",
+    "src/domain/curriculum/storage-store.ts",
+    "src/domain/curriculum/storage.test.ts",
+    "src/domain/curriculum/storage.ts",
+    "src/domain/curriculum/store.ts",
+    "src/domain/curriculum/teaching-access.test.ts",
+    "src/domain/curriculum/teaching-access.ts",
+    "src/domain/curriculum/transfer-sources.ts",
+    "src/domain/curriculum/transfer-store.ts",
+    "src/domain/curriculum/transfer.test.ts",
+    "src/domain/curriculum/transfer.ts",
+    "src/domain/curriculum/v2-store.ts",
+    "src/domain/guidance/milestone-preferences.ts",
+    "src/domain/guidance/milestones.test.ts",
+    "src/domain/guidance/milestones.ts",
+    "src/domain/portal/content.ts",
+    "src/domain/portal/inspection.test.ts",
+    "src/domain/portal/inspection.ts",
+    "src/domain/portal/learning.ts",
+    "src/domain/portal/model.ts",
+    "src/domain/portal/portal.test.ts",
+    "src/domain/portal/store.ts",
+    "src/domain/progression.test.ts",
+    "src/domain/progression.ts",
+    "src/domain/retired-storage.ts",
+    "src/domain/sandbox/content.ts",
+    "src/domain/sandbox/mission-sources.ts",
+    "src/domain/sandbox/mission-store.ts",
+    "src/domain/sandbox/missions.test.ts",
+    "src/domain/sandbox/missions.ts",
+    "src/domain/sandbox/model.ts",
+    "src/domain/sandbox/practical-store.ts",
+    "src/domain/sandbox/practical.test.ts",
+    "src/domain/sandbox/practical.ts",
+    "src/domain/sandbox/replay.ts",
+    "src/domain/sandbox/saas-store.ts",
+    "src/domain/sandbox/saas.ts",
+    "src/domain/sandbox/sandbox.test.ts",
+    "src/domain/sandbox/store.ts",
+    "src/domain/simulation.test.ts",
+    "src/domain/simulation.ts",
     "src/domain/sandbox/",
     "src/domain/chapter01/",
-    "src/domain/curriculum/",
     "src/domain/course/",
-    "src/domain/portal/content.ts",
-    "src/domain/portal/learning.ts",
-    "src/domain/portal/store.ts",
-    "src/features/learning/management-access.tsx",
-    "src/features/course/course.tsx",
     "src/features/course/course-sequence.ts",
     "src/features/course/course-navigation.tsx",
     "src/features/course/learning-flow.ts",
@@ -174,18 +777,18 @@
     "src/features/course/course-outline.ts",
     "src/features/course/course-sidebar.tsx",
     "src/features/course/mission-portal.tsx",
-    "src/features/course/practical-lab.tsx",
     "src/features/learning/compute-vm.tsx",
     "src/features/portal/receipt-panel.tsx",
-    "src/features/portal/sandbox-provider.tsx",
     "src/features/portal/shared.tsx",
     "src/features/portal/portal.css",
+    "src/features/portal/sandbox-provider.tsx",
+    "src/features/course/portal-inspection-bridge.tsx",
+    "src/features/portal/inspection-evidence.tsx",
     "src/features/learning/source-disclosure.tsx",
     "src/features/learning/source-disclosure.css",
     "public/",
     "scripts/",
     ".github/",
-    "package.json",
     "package-lock.json",
     "playwright.config.ts",
     "tests/e2e/learning-flow-guidance.spec.ts",
@@ -193,6 +796,7 @@
     "tests/e2e/learning-sequencing.spec.ts",
     "tests/e2e/assessment-refinement.spec.ts",
     "tests/e2e/collapsible-sources.spec.ts",
+    "tests/e2e/portal-inspection-bridge.spec.ts",
     "docs/AZ900_COVERAGE_MATRIX.md",
     "docs/audits/az900-2026-07-20.json",
     "docs/reviews/AZ900_END_TO_END_AUDIT.md"
@@ -201,176 +805,160 @@
     "source": {
       "checks": [
         {
-          "path": "docs/PORTAL_INSPECTION_BRIDGE.md"
+          "path": "docs/ASSESSMENT_TRANSFER_STAGE_A.md"
         },
         {
-          "path": "src/domain/portal/inspection.test.ts"
+          "path": "src/domain/curriculum/application-transfer.test.ts"
         },
         {
-          "path": "tests/e2e/portal-inspection-bridge.spec.ts"
+          "path": "tests/e2e/application-transfer.spec.ts"
         }
       ],
-      "limits": "PR-01 Stage A inspection/navigation over original simulator only. No new resources/commands/World schema/receipt semantics/rubrics/stores/XP or technical observations. Separate post-stamp six-domain audit, complete exact-head303 CI/strict and actual anonymous fullSHA Gate7 required; Ready/local tests alone are insufficient. Stage B/C and PD01/AS02 remain open; human validation unperformed."
+      "limits": "AS02StageA only:6original cases/3near-transfer families, stable new contract, read-only old exposure. All156 old domain files/locale prefix, historical rubrics/first/help/retry/World/receipts/XP and PR43-48 preserved. Full312 exact-headCI/strict, separate post-stamp six-domain audit and actual anonymous fullSHA Gate7 mandatory. WholeAS02/PD01/PR01B/C and human SME/UX/screenreader/psychometric/learning validation remain open. No merge/prod/P17/P18."
     },
     "curriculum": {
       "checks": [
         {
-          "path": "docs/PORTAL_INSPECTION_BRIDGE.md"
+          "path": "docs/ASSESSMENT_TRANSFER_STAGE_A.md"
         },
         {
-          "path": "src/domain/portal/inspection.test.ts"
+          "path": "src/domain/curriculum/application-transfer.test.ts"
         },
         {
-          "path": "tests/e2e/portal-inspection-bridge.spec.ts"
+          "path": "tests/e2e/application-transfer.spec.ts"
         }
       ],
-      "limits": "PR-01 Stage A inspection/navigation over original simulator only. No new resources/commands/World schema/receipt semantics/rubrics/stores/XP or technical observations. Separate post-stamp six-domain audit, complete exact-head303 CI/strict and actual anonymous fullSHA Gate7 required; Ready/local tests alone are insufficient. Stage B/C and PD01/AS02 remain open; human validation unperformed."
+      "limits": "AS02StageA only:6original cases/3near-transfer families, stable new contract, read-only old exposure. All156 old domain files/locale prefix, historical rubrics/first/help/retry/World/receipts/XP and PR43-48 preserved. Full312 exact-headCI/strict, separate post-stamp six-domain audit and actual anonymous fullSHA Gate7 mandatory. WholeAS02/PD01/PR01B/C and human SME/UX/screenreader/psychometric/learning validation remain open. No merge/prod/P17/P18."
     },
     "simulation": {
       "checks": [
         {
-          "path": "docs/PORTAL_INSPECTION_BRIDGE.md"
+          "path": "docs/ASSESSMENT_TRANSFER_STAGE_A.md"
         },
         {
-          "path": "src/domain/portal/inspection.test.ts"
+          "path": "src/domain/curriculum/application-transfer.test.ts"
         },
         {
-          "path": "tests/e2e/portal-inspection-bridge.spec.ts"
+          "path": "tests/e2e/application-transfer.spec.ts"
         }
       ],
-      "limits": "PR-01 Stage A inspection/navigation over original simulator only. No new resources/commands/World schema/receipt semantics/rubrics/stores/XP or technical observations. Separate post-stamp six-domain audit, complete exact-head303 CI/strict and actual anonymous fullSHA Gate7 required; Ready/local tests alone are insufficient. Stage B/C and PD01/AS02 remain open; human validation unperformed."
+      "limits": "AS02StageA only:6original cases/3near-transfer families, stable new contract, read-only old exposure. All156 old domain files/locale prefix, historical rubrics/first/help/retry/World/receipts/XP and PR43-48 preserved. Full312 exact-headCI/strict, separate post-stamp six-domain audit and actual anonymous fullSHA Gate7 mandatory. WholeAS02/PD01/PR01B/C and human SME/UX/screenreader/psychometric/learning validation remain open. No merge/prod/P17/P18."
     },
     "savvyshark": {
       "checks": [
         {
-          "path": "docs/PORTAL_INSPECTION_BRIDGE.md"
+          "path": "docs/ASSESSMENT_TRANSFER_STAGE_A.md"
         },
         {
-          "path": "src/domain/portal/inspection.test.ts"
+          "path": "src/domain/curriculum/application-transfer.test.ts"
         },
         {
-          "path": "tests/e2e/portal-inspection-bridge.spec.ts"
+          "path": "tests/e2e/application-transfer.spec.ts"
         }
       ],
-      "limits": "PR-01 Stage A inspection/navigation over original simulator only. No new resources/commands/World schema/receipt semantics/rubrics/stores/XP or technical observations. Separate post-stamp six-domain audit, complete exact-head303 CI/strict and actual anonymous fullSHA Gate7 required; Ready/local tests alone are insufficient. Stage B/C and PD01/AS02 remain open; human validation unperformed."
+      "limits": "AS02StageA only:6original cases/3near-transfer families, stable new contract, read-only old exposure. All156 old domain files/locale prefix, historical rubrics/first/help/retry/World/receipts/XP and PR43-48 preserved. Full312 exact-headCI/strict, separate post-stamp six-domain audit and actual anonymous fullSHA Gate7 mandatory. WholeAS02/PD01/PR01B/C and human SME/UX/screenreader/psychometric/learning validation remain open. No merge/prod/P17/P18."
     },
     "visual-accessibility": {
       "checks": [
         {
-          "path": "docs/PORTAL_INSPECTION_BRIDGE.md"
+          "path": "docs/ASSESSMENT_TRANSFER_STAGE_A.md"
         },
         {
-          "path": "src/domain/portal/inspection.test.ts"
+          "path": "src/domain/curriculum/application-transfer.test.ts"
         },
         {
-          "path": "tests/e2e/portal-inspection-bridge.spec.ts"
+          "path": "tests/e2e/application-transfer.spec.ts"
         }
       ],
-      "limits": "PR-01 Stage A inspection/navigation over original simulator only. No new resources/commands/World schema/receipt semantics/rubrics/stores/XP or technical observations. Separate post-stamp six-domain audit, complete exact-head303 CI/strict and actual anonymous fullSHA Gate7 required; Ready/local tests alone are insufficient. Stage B/C and PD01/AS02 remain open; human validation unperformed."
+      "limits": "AS02StageA only:6original cases/3near-transfer families, stable new contract, read-only old exposure. All156 old domain files/locale prefix, historical rubrics/first/help/retry/World/receipts/XP and PR43-48 preserved. Full312 exact-headCI/strict, separate post-stamp six-domain audit and actual anonymous fullSHA Gate7 mandatory. WholeAS02/PD01/PR01B/C and human SME/UX/screenreader/psychometric/learning validation remain open. No merge/prod/P17/P18."
     },
     "independent-final-audit": {
       "checks": [
         {
-          "path": "docs/PORTAL_INSPECTION_BRIDGE.md"
+          "path": "docs/ASSESSMENT_TRANSFER_STAGE_A.md"
         },
         {
-          "path": "src/domain/portal/inspection.test.ts"
+          "path": "src/domain/curriculum/application-transfer.test.ts"
         },
         {
-          "path": "tests/e2e/portal-inspection-bridge.spec.ts"
+          "path": "tests/e2e/application-transfer.spec.ts"
         }
       ],
-      "limits": "PR-01 Stage A inspection/navigation over original simulator only. No new resources/commands/World schema/receipt semantics/rubrics/stores/XP or technical observations. Separate post-stamp six-domain audit, complete exact-head303 CI/strict and actual anonymous fullSHA Gate7 required; Ready/local tests alone are insufficient. Stage B/C and PD01/AS02 remain open; human validation unperformed."
+      "limits": "AS02StageA only:6original cases/3near-transfer families, stable new contract, read-only old exposure. All156 old domain files/locale prefix, historical rubrics/first/help/retry/World/receipts/XP and PR43-48 preserved. Full312 exact-headCI/strict, separate post-stamp six-domain audit and actual anonymous fullSHA Gate7 mandatory. WholeAS02/PD01/PR01B/C and human SME/UX/screenreader/psychometric/learning validation remain open. No merge/prod/P17/P18."
     },
     "delivery": {
       "checks": [
         {
-          "path": "docs/PORTAL_INSPECTION_BRIDGE.md"
+          "path": "docs/ASSESSMENT_TRANSFER_STAGE_A.md"
         },
         {
-          "path": "src/domain/portal/inspection.test.ts"
+          "path": "src/domain/curriculum/application-transfer.test.ts"
         },
         {
-          "path": "tests/e2e/portal-inspection-bridge.spec.ts"
+          "path": "tests/e2e/application-transfer.spec.ts"
         }
       ],
-      "limits": "PR-01 Stage A inspection/navigation over original simulator only. No new resources/commands/World schema/receipt semantics/rubrics/stores/XP or technical observations. Separate post-stamp six-domain audit, complete exact-head303 CI/strict and actual anonymous fullSHA Gate7 required; Ready/local tests alone are insufficient. Stage B/C and PD01/AS02 remain open; human validation unperformed."
+      "limits": "AS02StageA only:6original cases/3near-transfer families, stable new contract, read-only old exposure. All156 old domain files/locale prefix, historical rubrics/first/help/retry/World/receipts/XP and PR43-48 preserved. Full312 exact-headCI/strict, separate post-stamp six-domain audit and actual anonymous fullSHA Gate7 mandatory. WholeAS02/PD01/PR01B/C and human SME/UX/screenreader/psychometric/learning validation remain open. No merge/prod/P17/P18."
     }
   },
   "verification": [
     {
-      "command": "npm run test:e2e:desktop",
-      "result": "pending",
-      "details": "Complete final303 candidate CI and strict required; no old296 or targeted receipt substitutes."
-    },
-    {
       "command": "npm run check",
       "result": "passed",
-      "details": "Actual final npm run check exit0: typecheck/lint/format/docs/quality/57objective audit/493curriculum/assets/legacy/609Vitest/18Node/productionbuild. Previous full608 before scope correction also passed; initial test-Scalar and optional-parent TypeScript errors corrected, failedlogs retained. Inherited ignored .artifacts temporarily moved then restored unchanged. Final scope/oldTools and actualcompact browser retests follow the final productionbuild."
+      "details": "Final full local check exit0:619Vitest,503curriculum,18Node and production build. New10domain tests, all8newdesktop before topic hardening plus2final affected witnesses; actual compact1 and six inherited affected tests (5initialpass, Security dialog timeout then unchanged4.6s pass). No retries/timeouts/workers/skips altered. Full312 exact-head CI remains pending."
     },
     {
-      "command": "targeted domain and production browser",
-      "result": "passed",
-      "details": "25new/olddomain-source tests passed (8new pure,14Portal,3sourcepreservation), finalfull609. All6newdesktop29.1s and actualcompact13.8s passed. Scope/invalid/mismatched/deleted/stale retest6.8s and originalTools21.9s passed on finalproductionbuild;7oldcritical witnesses total preservePolicy/VM/AppSettings/PaaS/SaaS/guidance/source patterns. Initialunsupported16GiB/scalarfixture/optionalparent and SPA-reload assumptions corrected without changingengine/rubrics or weakening assertions. All7actualbefore/afterscreens inspected; scopedselectstyle corrected. No full local browserbaseline repeated."
+      "command": "npm run test:e2e:desktop",
+      "result": "pending",
+      "details": "Actual complete312 final candidate CI and strict required; no inherited303 or targeted/list proof substitutes."
     },
     {
-      "command": "npm run test:e2e:plan",
+      "command": "blind release bank and heuristic/preservation checks",
       "result": "passed",
-      "details": "303=278desktop+25compact, all296prior retained;6newdesktop+1actualcompact, optionallegacy556. No workers/retries/timeouts/skips changes."
+      "details": "Locked student-only release review agrees on all7complete pairs, actual student packet/hash matches;156old domain files and original1449685locale bytes unchanged. Allfirst0/6,second0,last1,longest0,shortest2,absolute2; no fixedpospair perfect. Initialcostbound/distractor/completeness findings corrected and independently rechecked. Human validation unperformed."
     },
     {
-      "command": "npm audit --audit-level=high",
+      "command": "anonymous journey LOCAL_PROBE",
       "result": "passed",
-      "details": "Actual unchanged policy exit0,12moderate development warnings, no dependency or threshold change. Separate maintenance retained."
-    },
-    {
-      "command": "independent PR48 risk-based final audit",
-      "result": "passed",
-      "details": "Separate poststamp reviewer /root/inspection48_final_audit: all27hashes/fingerprint recomputed;153otherolddomainfiles+original1445498locale bytes+Portaltechnicaltail identical.40targeteddomain tests exit0(2.62s);6newdesktop exit0(27.5s);1actualcompact exit0(15.6s);3inheritedcriticalbrowser exit0(15.5s);9qualitynegatives+plan303 exit0. Separatebrowserprobes cover all3empty/native/noimplicitguide, preservedattempt1guidewithcurrentattempt2VM, identitynotARMscope/deletedgroupancestry, shortwindowcontrolreachability, rawPolicy/Appneutral and deniedaidall3. All7committedscreens+2publicreferenceimages personallyviewed. Report docs/quality/PR48_FINAL_AUDIT.md; private artifacts /workspace/azurelab-pr48/independent-*. No fullcandidateCI/Gate7 pass claimed. Final docs:check and quality:check exit0. Strict release preflight exit1 solely for missing executed fullcandidatebrowserprofile; this delivery requirement stays pending."
+      "details": "Final production3100 root/visible entries,6cases/counterfactuals, original nw12+campaign-pricing rubric, cross-module exposure, Journal durable assistance, alternateFiles assisted retry, exactdraft/reload and nonemptyWorld/receipt/XP byte preservation.9checks no pageerrors or externalrequests. Not external Gate7."
     }
   ],
   "visualEvidence": [
     {
-      "path": "docs/screenshots/portal-inspection/before-course-vm-1440.png",
+      "path": "docs/screenshots/application-transfer/network-evidence-1440.png",
       "viewport": "1440x900",
       "inspected": true,
-      "observation": "PR47 native VM activity required guide start before any target inspection link."
+      "observation": "1440×900 actual final production: scenario/evidence and honest exposure remain readable above footer; answer form follows ordinary scroll."
     },
     {
-      "path": "docs/screenshots/portal-inspection/after-course-vm-1440.png",
-      "viewport": "1440x900",
+      "path": "docs/screenshots/application-transfer/storage-test-1024.png",
+      "viewport": "1024x768",
       "inspected": true,
-      "observation": "Actual resource selector and questions next to existing guided activity; no session/credit from link."
+      "observation": "1024×768 actual final production: semantic two-column decision/reason choices wrap clearly; all actions visible and course footer separate."
     },
     {
-      "path": "docs/screenshots/portal-inspection/before-vm-history-1440.png",
-      "viewport": "1440x900",
-      "inspected": true,
-      "observation": "Resource Activitylog displayed all8original operations."
-    },
-    {
-      "path": "docs/screenshots/portal-inspection/after-vm-history-1440.png",
-      "viewport": "1440x900",
-      "inspected": true,
-      "observation": "Same World now filters1actualVM operation; explicit allhistory available."
-    },
-    {
-      "path": "docs/screenshots/portal-inspection/before-policy-receipt-1440.png",
-      "viewport": "1440x900",
-      "inspected": true,
-      "observation": "Original denial/witness/revision retained."
-    },
-    {
-      "path": "docs/screenshots/portal-inspection/after-policy-receipt-1440.png",
-      "viewport": "1440x900",
-      "inspected": true,
-      "observation": "Original denied request and actual references are separate from current configuration; no created Plan."
-    },
-    {
-      "path": "docs/screenshots/portal-inspection/after-properties-1024x500.png",
+      "path": "docs/screenshots/application-transfer/native-start-1024x500.png",
       "viewport": "1024x500",
       "inspected": true,
-      "observation": "URLProperties view survives reload; normal scrolling reaches evidence below short viewport."
+      "observation": "1024×500 actual final production: centered native briefing fits, explicit Start/Cancel and close accessible; no begin on mere opening."
+    },
+    {
+      "path": "docs/screenshots/application-transfer/storage-actions-1024x500.png",
+      "viewport": "1024x500",
+      "inspected": true,
+      "observation": "1024×500 actual final production: vertical scroll reaches submit, abandon, theory-help and return without horizontal overflow or footer cover."
+    },
+    {
+      "path": "docs/screenshots/application-transfer/cost-causal-feedback-1440.png",
+      "viewport": "1440x900",
+      "inspected": true,
+      "observation": "1440×900 actual final production: selected pair, compatible reasoning and synthetic-cost limitations are distinct; immutable first remains labelled."
+    },
+    {
+      "path": "docs/screenshots/application-transfer/journal-transfer-1440.png",
+      "viewport": "1440x900",
+      "inspected": true,
+      "observation": "1440×900 actual final production: centered scrollable Journal separates new history/first/assistance/exposure and keeps original history."
     }
   ],
   "humanReview": {
@@ -381,183 +969,207 @@
   },
   "snapshot": {
     "files": {
-      "AGENTS.md": "c93606f9a329682c2ed2c314604b8451a7ec2453cc2085d2fa51390b937ca499",
-      "docs/PORTAL_INSPECTION_BRIDGE.md": "910c6b190407b32c73daabc50b40a670f23d024fb08fe144f460a631222a812c",
-      "docs/reviews/AZ900_REMEDIATION_PLAN.md": "916b980fdf9fcd1a5fb9cfc24bd64c984dd03c60f205695ad4e9a1644e3464ca",
-      "docs/reviews/evidence/inspection48-preservation.json": "ff67c19e6fec0b1888e06ff220b50fb925b7da4942bc5d18f1bbd4447403edc3",
-      "docs/screenshots/portal-inspection/after-course-vm-1440.png": "3c262e0cfc2c721ae63e9cc0a5d0c6a61b7a7567d140f3ce73578803768b2a89",
-      "docs/screenshots/portal-inspection/after-policy-receipt-1440.png": "25a1e5fe6efa628985b6ad57ecc4d22f76b1c794952d0216c9e4d4bcfbc803ab",
-      "docs/screenshots/portal-inspection/after-properties-1024x500.png": "6342e44a122d1f57b54d07238ac99f1834f0dc85360c9f46b66b6155e8107b97",
-      "docs/screenshots/portal-inspection/after-vm-history-1440.png": "f11ccc8bde26517c273e2e4b09934ecd87e4b6ce12bbb211caea8bfdc6f98351",
-      "docs/screenshots/portal-inspection/before-course-vm-1440.png": "e18910199625edafa018b6e5869d2f338ad16cadecb830a5cc3882bbd2f9f4ef",
-      "docs/screenshots/portal-inspection/before-policy-receipt-1440.png": "184a3f043b6fcb98f338d2125ae9d407e6cd179e603ab32cacf8cefb4b523ea6",
-      "docs/screenshots/portal-inspection/before-vm-history-1440.png": "bbbee803300c71b3a408d762e5ea1ad2aed1cdd2d95a82120280bdb5100982aa",
-      "playwright.desktop.config.ts": "fecd1b88895d5480c78684284e8628aff21d05ee83be5d6a62b5e2f78e294f65",
-      "src/content/nb.ts": "5bb6b06957b0054b1d0398231a864f482e04db51e09897b5c1aa0ffc23f14c8b",
-      "src/domain/portal/inspection.test.ts": "addd1576701cb1f300b212b049868e00b4cf44c36ee2f23181654da7aed54605",
-      "src/domain/portal/inspection.ts": "6bca54f6900b4b96128880dc90d1e296b3e20dbcb810e2bebb9f5a8981fd85f6",
-      "src/domain/portal/model.ts": "7f75f3d118a81190bd49f14fda60829773e59e8cca32b117698523dbf27af2cf",
-      "src/features/course/portal-inspection-bridge.tsx": "30f06bd1f342ce07165f4b5679bbd854a5b89e1af567e30a4ee87b2e48bd4eea",
-      "src/features/course/portal-inspection.css": "cd9e0cb7a10ab97ac11b90b0fd017b2793ecb343c66e2185157fd387ca5679fc",
-      "src/features/learning/compute.tsx": "a8a8400745debd2be73eaa5af29c200c05d65ab4a62901e28f94f3710b46e24c",
-      "src/features/learning/governance.tsx": "710dff001659d95b50cb1ac2d247a6aa2600666e16e761fd26819970331b4183",
-      "src/features/learning/management-tools.tsx": "79dd2d924ed5250bd869d86596ca027cc566c89bbc6f7e34645a6699d9c5daaa",
-      "src/features/learning/source-disclosure.test.ts": "f6a0213a0fbcf3c1733ac5f77f7082238923fdd092cede8851ec596acbe9aea5",
-      "src/features/portal/inspection-evidence.tsx": "6e5fbeba9401508d2d4bc62ae750d53bb0dd78397bb8bcd4038138e67400616a",
-      "src/features/portal/inventory.tsx": "0b36baa6c4b682cbd1e141b16ba21c0c1082aa55e26ecc3c9a4eebc8d9b22983",
-      "src/features/portal/portal.tsx": "00ac528f359acd6e6b57f888e9150e12db6fbbb2ac7e8efdf60644f6e6813b35",
-      "tests/e2e/portal-inspection-bridge.spec.ts": "3c851537e2d7c7750bdd4a49763d648f7f35d11569ffaf2228afbe15a4769cef",
-      "tests/fixtures/portal-inspection.ts": "891ebbf58ed5b05c4e30a79b4102fb5e6d53cff77b68dddb605448087d4ee881"
+      "AGENTS.md": "fb60fb7197cd86c3850d2a4fafa1a57443d3d54a356014285315fdb97c6e8103",
+      "docs/ASSESSMENT_TRANSFER_STAGE_A.md": "d206c7abd7da21a85fe7ab10914e335480b15f8c813e1cb5a0963ab6392f3c55",
+      "docs/AZ900_ASSESSMENT_BLUEPRINT.md": "9209b499077819129f371ea7a9aa82e6a13677d4b01f4459573192fcb90f4595",
+      "docs/reviews/AZ900_REMEDIATION_PLAN.md": "2778c9f6b130d0a3146b8d4439d0f196b55915fc1f6836adc0cae80d4b5ccd70",
+      "docs/reviews/evidence/application49-bank-proof.json": "818beb174b4c064b45ffe7cfc95270becd41f34d52f857988ceb66493d4b338e",
+      "docs/reviews/evidence/application49-blind-final.json": "fdfab637cb8c128a2b551b2e209eee602ccf5231b2892eb9c599a0c806fab3dd",
+      "docs/reviews/evidence/application49-blind-initial.json": "303cab251e7f5aa0f254e90f6220be6f9eacee3374c971a6aa0bc8be0e8ae04a",
+      "docs/reviews/evidence/application49-blind-release.json": "9bb4c5efa36ed6dd0d9b432cce4f48a612c6d2ac1da9eda1c1ab481eda94edbe",
+      "docs/reviews/evidence/application49-blind-revised.json": "996233cb8f3e8b5a53bc882a3ccb851578df4d5316951a3c6aedb812d86d160a",
+      "docs/reviews/evidence/application49-review-provenance.json": "68ba07f4156916156c7958acfa124b6271c3a9242eaad485892c77418b8a9fb7",
+      "docs/reviews/evidence/application49-source-review.json": "00479aad4134646d19c094d03145583bf089aef603f4e076f3a3ecfe3d28fb12",
+      "docs/screenshots/application-transfer/cost-causal-feedback-1440.png": "1a80327e9846e3b38b24e83f0d4e9443c3defe251569aeade442ccbd02f3c9a8",
+      "docs/screenshots/application-transfer/journal-transfer-1440.png": "cc245e2ddc0b656573eeee564cd1738a682e73af1321594fc7e98d8032e52b0e",
+      "docs/screenshots/application-transfer/native-start-1024x500.png": "2b782ea9aac5c24f1f7b4a2bef2758c804a1e9a0223ae93f0f952325c508f28b",
+      "docs/screenshots/application-transfer/network-evidence-1440.png": "9de4ad35fc161d22c8c34d6b96967e38d0ece618c330e0338c423d9fb8f9325d",
+      "docs/screenshots/application-transfer/storage-actions-1024x500.png": "bb310270124deaa1b959ded3a1bb1d2f26b229bc5c77ddd9932139d0a81facbe",
+      "docs/screenshots/application-transfer/storage-test-1024.png": "6495cbe41f6052a5521d53d7593281ed7a17453dc8457d811d8ea2ce4c366619",
+      "package.json": "ba324248dd00bf6028b9d2713dd53aeaf495b0850950c0d697bf3f71c705539d",
+      "playwright.desktop.config.ts": "81ab60e4e9143b5237ecc31923fecc1965f1bc52502016a436ea504dfe2a0b14",
+      "src/app/layout.tsx": "12c0cad9699359211891156ce1760c3e2e75c0fb590e18be044f4b0cccc5d774",
+      "src/components/progress-provider.tsx": "f81c2aba1d53f57712b339fe0b312f6b94c4b3d5cceb667f7056ab3eaf9ad103",
+      "src/content/nb.ts": "61cc9d68e228d7ea6513df5d053f5e4e4b552abf3cf4aab72437c82a6b4b036d",
+      "src/domain/curriculum/application-exposure.ts": "e8ea5f6f9c167cff9203a2113a72a44dd8d2f8ade3e632a00635e24adbef9e88",
+      "src/domain/curriculum/application-sources.ts": "3956c388975cad3594af2f628c5f049b7be413a6aec316d15f464f14e4b58d60",
+      "src/domain/curriculum/application-store.ts": "f4c7ad10baee69273463488a76350e26f2bec6f564e05e6ab57c61b2c7832124",
+      "src/domain/curriculum/application-transfer.test.ts": "93d9cda43e848d4549a01acd85c1c66dfea6f29774686dde033921d552eebdf5",
+      "src/domain/curriculum/application-transfer.ts": "1416abee014f562d6183ecc37130b628ad4bc54a1e362871241eb6e485c96a9d",
+      "src/features/course/course.tsx": "94a9acbac311dc09001899a7fea0ab3c080bb2dbfeeba7089a97e79a88ea8a68",
+      "src/features/course/guided-coach.tsx": "dcbcb3df47883ca5d2674ea4056bf217c3b119868755418cee4a76455e026723",
+      "src/features/course/mission-context.ts": "5cdc87b16c7f094ae47cb755e4c39f5cef7030f36c54d650ab2aa77755ac2948",
+      "src/features/course/missions.tsx": "94d679a7b40e197592f1bca7863b9f46b936e48fc5e224a0866841714422e4e0",
+      "src/features/course/practical-lab.tsx": "4054af407e92bdf0c54d76688edad8fa2de094151f044f711cde07623e5dcdea",
+      "src/features/learning/application-provider.tsx": "a443521760a176bf37c0d6d39b6a76dc98d060c4868d9ee38d6f44465e007f12",
+      "src/features/learning/application-transfer.css": "a700952c8deb1207626e0471f6207bd19461d4130edda5bab726e93fc70a4414",
+      "src/features/learning/application-transfer.tsx": "d491201cdb9274bc5ce7b7589194e13fb555feada2855c7bfe45b0b58eee4712",
+      "src/features/learning/management-access.tsx": "79fbad1005255e098058f62247db9047996f117b85337becf92dce7a278ac66d",
+      "src/features/learning/source-disclosure.test.ts": "0113acc92f0035198b654fac8500b1e7779a2aa925c69058ce8661b826e95a91",
+      "src/features/portal/portal.tsx": "6f4ff6ca413e8b2f3291481c20d91f744094e2159395a84c74545f6f22f542d9",
+      "tests/e2e/application-transfer.spec.ts": "f236a53617c52dabd90e7826151dedbf3799a0700915a49a0aed5f15df1b0810"
     }
   },
-  "implementationFinished": "2026-11-02T13:33:09.692Z",
+  "implementationFinished": "2026-11-02T16:45:44.320Z",
   "review": {
     "status": "complete",
-    "fingerprint": "4832c4211ba6ec49c91a2ae7cfb2609ec3362159c4c74a11f51e1c578d0b2cbe",
+    "fingerprint": "76d3083f60fcb9986dd4370e081cec60a7ff2b5dc6b95cb5459a7e1e4bb27d58",
     "reviewer": {
-      "id": "/root/inspection48_final_audit",
+      "id": "/root/transfer49_final_audit",
       "kind": "agent"
     },
-    "started": "2026-11-02T13:34:56.285Z",
-    "completed": "2026-11-02T13:43:46.924Z",
+    "started": "2026-11-02T16:46:21.000Z",
+    "completed": "2026-11-02T16:53:02.297Z",
     "domains": {
       "content": {
-        "finding": "New prompts and current official reference structure checked within Stage A limits; four actual saved source-body hashes verified, two public reference illustrations inspected. All153 other old domain files and original1445498 locale bytes are identical; complete original Portal technical tail preserved. No new full57objective or unchanged-bank audit claimed.",
+        "finding": "Scoped new claims checked against actual public bodies and source map; all addresses/prices/outcomes synthetic, DNS/path/API access and storage/billing conditions qualified. No blocker or major.",
         "evidence": [
           {
-            "path": "docs/PORTAL_INSPECTION_BRIDGE.md"
+            "path": "src/content/nb.ts"
           },
           {
-            "path": "docs/reviews/evidence/inspection48-preservation.json"
+            "path": "src/domain/curriculum/application-sources.ts"
           },
           {
-            "path": "src/features/learning/source-disclosure.test.ts"
+            "path": "docs/reviews/evidence/application49-source-review.json"
           },
           {
-            "path": "docs/quality/PR48_FINAL_AUDIT.md"
+            "path": "docs/quality/PR49_FINAL_AUDIT.md"
           }
         ]
       },
       "technical": {
-        "finding": "Pure original-World/ledger projection preserves direct/reference/scope distinctions, current versus absent references and allowlisted request fields. Browser checks cover all native origins, rejected Policy, changed settings, invalid/deleted/stale/mismatched targets, historical deleted-group ancestry and tenantidentity0operations. Raw metadata stays neutral; denied durable aid mounts no bridge in all3activities.",
+        "finding": "Strict isolated replay/version/ID/terminal reserve and durable CAS/readback/scoped recovery reviewed and exercised. Independent pinned uncertainty/exposure and rejected replay probes passed; all156 original domain files/1449685 locale bytes unchanged.",
         "evidence": [
           {
-            "path": "src/domain/portal/inspection.ts"
+            "path": "src/domain/curriculum/application-transfer.ts"
           },
           {
-            "path": "src/domain/portal/inspection.test.ts"
+            "path": "src/domain/curriculum/application-store.ts"
           },
           {
-            "path": "src/features/portal/inspection-evidence.tsx"
+            "path": "src/domain/curriculum/application-exposure.ts"
           },
           {
-            "path": "tests/e2e/portal-inspection-bridge.spec.ts"
+            "path": "src/domain/curriculum/application-transfer.test.ts"
           },
           {
-            "path": "src/features/learning/management-access.tsx"
-          },
-          {
-            "path": "docs/quality/PR48_FINAL_AUDIT.md"
+            "path": "docs/quality/PR49_FINAL_AUDIT.md"
           }
         ]
       },
       "visual": {
-        "finding": "All7committedimages and2publicreferenceillustrations personally inspected. Sixdesktop plus actual800x700compact pass keyboard/focus/reducedmotion/shortview/Axe; separate1024x500resourcehistory reachability probe inspected. Same8before→1afterVMhistory preserves all receipts through explicit allhistory. Normal vertical scrolling remains. HumanUX/screenreader unperformed.",
+        "finding": "Personally inspected all6 final production frames plus independent1024x500 focused-action frame. Final desktop and actual800x700 compact journeys passed with keyboard/Escape/focus/reduced-motion/overflow/Axe; human UX/screenreader unperformed.",
         "evidence": [
           {
-            "path": "docs/screenshots/portal-inspection/after-course-vm-1440.png"
+            "path": "tests/e2e/application-transfer.spec.ts"
           },
           {
-            "path": "docs/screenshots/portal-inspection/after-vm-history-1440.png"
+            "path": "docs/screenshots/application-transfer/network-evidence-1440.png"
           },
           {
-            "path": "docs/screenshots/portal-inspection/after-policy-receipt-1440.png"
+            "path": "docs/screenshots/application-transfer/storage-test-1024.png"
           },
           {
-            "path": "docs/screenshots/portal-inspection/after-properties-1024x500.png"
+            "path": "docs/screenshots/application-transfer/native-start-1024x500.png"
           },
           {
-            "path": "tests/e2e/portal-inspection-bridge.spec.ts"
+            "path": "docs/screenshots/application-transfer/storage-actions-1024x500.png"
           },
           {
-            "path": "docs/quality/PR48_FINAL_AUDIT.md"
+            "path": "docs/screenshots/application-transfer/cost-causal-feedback-1440.png"
+          },
+          {
+            "path": "docs/screenshots/application-transfer/journal-transfer-1440.png"
+          },
+          {
+            "path": "docs/quality/PR49_FINAL_AUDIT.md"
           }
         ]
       },
       "assessment": {
-        "finding": "Original curriculum/rubric/store/source bytes and locale prefix preserved. No new assessed bank or scoring. Independent40targeteddomain tests and browser aid probes preserve unaided draft/nullfirst/exactresume; all3coursebridges withheld on deniedaid. New reflection prompts have no submission/credit path.",
+        "finding": "Actual student packet/instruction matches locked release review; raw4 reports match commitments and formatted payloads. Seven solved pairs match actual accepted bank, including both Storage adapters and rejecting cross-pairs. Substantive changed-premise contrasts and arithmetic checked; residual signposting is bounded near-transfer, no psychometric claim.",
         "evidence": [
           {
-            "path": "src/features/learning/source-disclosure.test.ts"
+            "path": "src/domain/curriculum/application-transfer.ts"
           },
           {
-            "path": "src/domain/curriculum/teaching-access.test.ts"
+            "path": "src/content/nb.ts"
           },
           {
-            "path": "src/domain/curriculum/refined-assessment.test.ts"
+            "path": "docs/reviews/evidence/application49-blind-release.json"
           },
           {
-            "path": "tests/e2e/portal-inspection-bridge.spec.ts"
+            "path": "docs/reviews/evidence/application49-review-provenance.json"
           },
           {
-            "path": "docs/quality/PR48_FINAL_AUDIT.md"
+            "path": "docs/reviews/evidence/application49-bank-proof.json"
+          },
+          {
+            "path": "docs/quality/PR49_FINAL_AUDIT.md"
           }
         ]
       },
       "guidance": {
-        "finding": "Existing3nativeorigins and course returns unchanged; no implicit guide/observations/credit. Independent probe preserved every attempt1guidefield while inspecting currentattempt2VM. Actual browser verifies Savvyhide/headerrecall, independent shielding and stalecontext; inheritedactualVMcommand/dependency/sourceaid witnesses pass.",
+        "finding": "All shared teaching/Journal/history/mission/guidance/Portal/Hub/resume/clear guards include the new context. Final browser verifies exact draft, explicit Start, denied theory/direct URL and Journal aid, neutral Portal, stale/recovery/conflicting histories and unchanged guide evidence; sequence preserved.",
         "evidence": [
           {
-            "path": "src/features/course/portal-inspection-bridge.tsx"
+            "path": "src/features/learning/management-access.tsx"
           },
           {
-            "path": "src/features/learning/compute-vm.tsx"
+            "path": "src/features/course/course.tsx"
           },
           {
-            "path": "src/features/course/portal-guide-visibility.tsx"
+            "path": "src/features/course/mission-context.ts"
           },
           {
-            "path": "tests/e2e/learning-flow-guidance.spec.ts"
+            "path": "src/features/portal/portal.tsx"
           },
           {
-            "path": "tests/e2e/compute-hosting.spec.ts"
+            "path": "tests/e2e/application-transfer.spec.ts"
           },
           {
-            "path": "docs/quality/PR48_FINAL_AUDIT.md"
+            "path": "docs/quality/PR49_FINAL_AUDIT.md"
           }
         ]
       },
       "regression": {
-        "finding": "Independent27filehash/fingerprint recomputation matches stamp. SourceDisclosure3explicitexceptions accepted after full technicaltail and153otherdomain/prefix verification. All296previousbrowserexecutions retained; plan303=278desktop+25compact, optionallegacy556. No oldbrowserassertion/config/CI/dependency change. Independent9qualitynegatives pass. Full candidateCI/strict and actualanonymousGate7 remain pending.",
+        "finding": "All38 inherited E2E sources and baseline CI/config/lockfile/sequence preserved; independent plan312/572 with worker1.28 domain/9 negative quality/8 desktop/1 compact/2 actual practical tests passed. Full local check remains distinct from pending actual complete exact-head CI/strict and external Gate7.",
         "evidence": [
           {
+            "path": "package.json"
+          },
+          {
             "path": "playwright.desktop.config.ts"
-          },
-          {
-            "path": "tests/e2e/portal-inspection-bridge.spec.ts"
-          },
-          {
-            "path": "scripts/quality-check.test.mjs"
           },
           {
             "path": "src/features/learning/source-disclosure.test.ts"
           },
           {
-            "path": "docs/quality/PR48_FINAL_AUDIT.md"
+            "path": "tests/e2e/application-transfer.spec.ts"
+          },
+          {
+            "path": "docs/quality/PR49_FINAL_AUDIT.md"
           }
         ]
       }
     },
     "findings": [
       {
-        "id": "PR48-AUDIT-01",
-        "description": "Complete exact-head303 GitHub CI/strict and actual anonymous ordinary-root/fullSHA/action/return Gate7 remain pending at audit completion; local targeted results do not establish delivery.",
+        "id": "PR49-AUDIT-01",
         "severity": "note",
-        "status": "open"
+        "status": "accepted-limitation",
+        "description": "Signposted near-transfer only: titles, explicit evidence limits, stable order and file/object wording support recognition; six cases do not establish human transfer, psychometric discrimination or a single-variable causal effect."
+      },
+      {
+        "id": "PR49-AUDIT-02",
+        "severity": "note",
+        "status": "open",
+        "description": "Actual complete312 exact-head GitHub CI/strict release and anonymous ordinary-root/fullSHA/visible-entry/action/return Gate7 remain required. Local targeted passes, collection and Ready cannot establish delivery."
       }
     ],
     "report": {
-      "path": "docs/quality/PR48_FINAL_AUDIT.md"
+      "path": "docs/quality/PR49_FINAL_AUDIT.md"
     }
   }
 }

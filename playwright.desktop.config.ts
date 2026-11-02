@@ -5,6 +5,10 @@ import baseline from './playwright.config';
 // names. No test body, assertion, title, timeout or skip is modified.
 const compactCases = [
   [
+    'application-transfer.spec.ts',
+    'native keyboard short-window composition reduced motion and Axe keep transfer controls accessible',
+  ],
+  [
     'portal-inspection-bridge.spec.ts',
     'Portal inspection desktop compact short-height keyboard focus reduced motion and Axe preserve accessible source and resource navigation',
   ],

@@ -1,0 +1,37 @@
+{
+  "method": "Locked original reports are unchanged. Repository JSON copies differ only in formatter whitespace; decoded JSON equality is asserted. Exact original byte commitments and originals are included in the delivery evidence ZIP. No reviewer conclusion or payload was rewritten after key comparison.",
+  "reviews": [
+    {
+      "review": "initial",
+      "lockedOriginalSHA256": "cf1758518750f3eec734795ba196453141b21cb4010ead0b0281146b126369b4",
+      "formattedRepositoryCopy": "docs/reviews/evidence/application49-blind-initial.json",
+      "formattedCopySHA256": "303cab251e7f5aa0f254e90f6220be6f9eacee3374c971a6aa0bc8be0e8ae04a",
+      "payloadEqual": true,
+      "originalInDeliveryZIP": "blind-initial.json"
+    },
+    {
+      "review": "revised",
+      "lockedOriginalSHA256": "fcde582fc9b6a3b568cdd0aad82e3f609714ce51831ed7b207b0c7f76ae4d597",
+      "formattedRepositoryCopy": "docs/reviews/evidence/application49-blind-revised.json",
+      "formattedCopySHA256": "996233cb8f3e8b5a53bc882a3ccb851578df4d5316951a3c6aedb812d86d160a",
+      "payloadEqual": true,
+      "originalInDeliveryZIP": "blind-revised.json"
+    },
+    {
+      "review": "final",
+      "lockedOriginalSHA256": "1ad628ed86c00df7facefecfe9c40cc54427cede790974dd8173f0b6fd4de6c0",
+      "formattedRepositoryCopy": "docs/reviews/evidence/application49-blind-final.json",
+      "formattedCopySHA256": "fdfab637cb8c128a2b551b2e209eee602ccf5231b2892eb9c599a0c806fab3dd",
+      "payloadEqual": true,
+      "originalInDeliveryZIP": "blind-final.json"
+    },
+    {
+      "review": "release",
+      "lockedOriginalSHA256": "d9aca0a21cbc0d250cbcd986e28c8ab24fd0d5ab9767d436f3b7a5163cd5c901",
+      "formattedRepositoryCopy": "docs/reviews/evidence/application49-blind-release.json",
+      "formattedCopySHA256": "9bb4c5efa36ed6dd0d9b432cce4f48a612c6d2ac1da9eda1c1ab481eda94edbe",
+      "payloadEqual": true,
+      "originalInDeliveryZIP": "blind-release.json"
+    }
+  ]
+}
