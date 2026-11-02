@@ -1,4 +1,9 @@
 'use client';
+import { useMissionSafetyContexts } from './mission-context';
+import { useRefined } from '@/features/learning/refined-assessment-provider';
+import { refinedAssessmentNb } from '@/content/nb';
+import { refinedHref } from '@/domain/curriculum/refined-assessment';
+import { RefinedHistory, useHistoricalAssessment } from '@/features/learning/refined-assessment';
 import { GuidedLearning, useGuidedLearning } from './guided-learning';
 import { guidedNext, guidedResume, flowCopy } from './learning-flow';
 import { useMigration } from '@/features/learning/migration-provider';
@@ -201,6 +206,10 @@ function CourseWorkspace({ module }: { module?: CourseModule }) {
     v2 = useFoundationsV2(),
     benefits = useExpansion('benefits'),
     service2 = useExpansion('services');
+  const updatedBenefits = useRefined('benefits'),
+    updatedServices = useRefined('services');
+  const historicalBenefits = useHistoricalAssessment('benefits'),
+    historicalServices = useHistoricalAssessment('services');
   const legacyServices =
     module === 'services' &&
     query.get('topic') !== 'transfer' &&
@@ -390,166 +399,177 @@ function CourseWorkspace({ module }: { module?: CourseModule }) {
     (learning.save.events.length
       ? { module: 'computing' as const, topic: learning.save.unit }
       : null);
-  const storedResumeHref =
-    migrationState.facts.active && migrationState.facts.current
-      ? migrationHref('assessment', migrationState.facts.current.item)
-      : securityState.facts.active && securityState.facts.current
-        ? securityHref('assessment', securityState.facts.current.item)
-        : monitoringState.facts.active && monitoringState.facts.current
-          ? monitoringHref('assessment', monitoringState.facts.current.item)
-          : toolsState.facts.active && toolsState.facts.current
-            ? toolsHref('assessment', toolsState.facts.current.item)
-            : governanceState.facts.active && governanceState.facts.current
-              ? governanceHref('assessment', governanceState.facts.current.item)
-              : accessState.facts.active && accessState.facts.current
-                ? accessHref('assessment', accessState.facts.current.item)
-                : identityState.facts.active && identityState.facts.current
-                  ? identityHref('assessment', identityState.facts.current.item)
-                  : resilience.facts.active && resilience.facts.current
-                    ? resilienceHref('assessment', resilience.facts.current.item)
-                    : storage.facts.active && storage.facts.current
-                      ? storageHref('assessment', storage.facts.current.item)
-                      : connectivity.facts.active && connectivity.facts.current
-                        ? connectivityHref('assessment', connectivity.facts.current.item)
-                        : networking.facts.active && networking.facts.current
-                          ? networkingHref('assessment', networking.facts.current.item)
-                          : compute.facts.active && compute.facts.current
-                            ? computeHref('assessment', compute.facts.current.item)
-                            : cost.facts.active && cost.facts.current
-                              ? costHref('assessment', cost.facts.current.item)
-                              : transfer.facts.active && transfer.facts.current
-                                ? transferHref(transfer.facts.current.item)
-                                : missions.active && missions.activeSession
-                                  ? missionOrigin(missions.activeSession.mission)
-                                  : practical.activeIndependent &&
-                                      practical.current?.status === 'active'
-                                    ? practicalHref(practical.current, chapter.attempt.engine)
-                                    : management.facts.active
-                                      ? courseHref('architecture', 'management-assessment')
-                                      : physical.facts.active
-                                        ? courseHref('architecture', 'assessment')
-                                        : serverless.facts.active
-                                          ? courseHref('computing', 'serverless-assessment')
-                                          : v2.facts.active
-                                            ? courseHref('computing', 'v2-assessment')
-                                            : benefits.facts.active
-                                              ? courseHref('benefits', 'assessment')
-                                              : service2.facts.active
-                                                ? courseHref('services', 'assessment')
-                                                : services.facts.active
-                                                  ? '/portal?area=challenge&course=1&module=services&topic=practice'
-                                                  : learning.facts.active
-                                                    ? courseHref('computing', 'assessment')
-                                                    : practical.current?.status === 'active'
-                                                      ? practicalHref(
-                                                          practical.current,
-                                                          chapter.attempt.engine,
-                                                        )
-                                                      : missions.activeSession
-                                                        ? missionOrigin(
-                                                            missions.activeSession.mission,
+  const storedResumeHref = updatedBenefits.facts.active
+    ? refinedHref('benefits')
+    : updatedServices.facts.active
+      ? refinedHref('services')
+      : migrationState.facts.active && migrationState.facts.current
+        ? migrationHref('assessment', migrationState.facts.current.item)
+        : securityState.facts.active && securityState.facts.current
+          ? securityHref('assessment', securityState.facts.current.item)
+          : monitoringState.facts.active && monitoringState.facts.current
+            ? monitoringHref('assessment', monitoringState.facts.current.item)
+            : toolsState.facts.active && toolsState.facts.current
+              ? toolsHref('assessment', toolsState.facts.current.item)
+              : governanceState.facts.active && governanceState.facts.current
+                ? governanceHref('assessment', governanceState.facts.current.item)
+                : accessState.facts.active && accessState.facts.current
+                  ? accessHref('assessment', accessState.facts.current.item)
+                  : identityState.facts.active && identityState.facts.current
+                    ? identityHref('assessment', identityState.facts.current.item)
+                    : resilience.facts.active && resilience.facts.current
+                      ? resilienceHref('assessment', resilience.facts.current.item)
+                      : storage.facts.active && storage.facts.current
+                        ? storageHref('assessment', storage.facts.current.item)
+                        : connectivity.facts.active && connectivity.facts.current
+                          ? connectivityHref('assessment', connectivity.facts.current.item)
+                          : networking.facts.active && networking.facts.current
+                            ? networkingHref('assessment', networking.facts.current.item)
+                            : compute.facts.active && compute.facts.current
+                              ? computeHref('assessment', compute.facts.current.item)
+                              : cost.facts.active && cost.facts.current
+                                ? costHref('assessment', cost.facts.current.item)
+                                : transfer.facts.active && transfer.facts.current
+                                  ? transferHref(transfer.facts.current.item)
+                                  : missions.active && missions.activeSession
+                                    ? missionOrigin(missions.activeSession.mission)
+                                    : practical.activeIndependent &&
+                                        practical.current?.status === 'active'
+                                      ? practicalHref(practical.current, chapter.attempt.engine)
+                                      : management.facts.active
+                                        ? courseHref('architecture', 'management-assessment')
+                                        : physical.facts.active
+                                          ? courseHref('architecture', 'assessment')
+                                          : serverless.facts.active
+                                            ? courseHref('computing', 'serverless-assessment')
+                                            : v2.facts.active
+                                              ? courseHref('computing', 'v2-assessment')
+                                              : benefits.facts.active
+                                                ? refinedHref('benefits', true)
+                                                : service2.facts.active
+                                                  ? refinedHref('services', true)
+                                                  : services.facts.active
+                                                    ? '/portal?area=challenge&course=1&module=services&topic=practice'
+                                                    : learning.facts.active
+                                                      ? courseHref('computing', 'assessment')
+                                                      : practical.current?.status === 'active'
+                                                        ? practicalHref(
+                                                            practical.current,
+                                                            chapter.attempt.engine,
                                                           )
-                                                        : migrationState.facts.guide &&
-                                                            (!preferredResume ||
-                                                              preferredResume.module ===
-                                                                'migration')
-                                                          ? migrationHref('studio') +
-                                                            '&perspective=' +
-                                                            migrationState.facts.guide.mission
-                                                          : securityState.facts.guide &&
+                                                        : missions.activeSession
+                                                          ? missionOrigin(
+                                                              missions.activeSession.mission,
+                                                            )
+                                                          : migrationState.facts.guide &&
                                                               (!preferredResume ||
                                                                 preferredResume.module ===
-                                                                  'security')
-                                                            ? securityHref('studio') +
+                                                                  'migration')
+                                                            ? migrationHref('studio') +
                                                               '&perspective=' +
-                                                              securityState.facts.guide.mission
-                                                            : monitoringState.facts.guide &&
+                                                              migrationState.facts.guide.mission
+                                                            : securityState.facts.guide &&
                                                                 (!preferredResume ||
                                                                   preferredResume.module ===
-                                                                    'monitoring')
-                                                              ? monitoringHref('studio') +
+                                                                    'security')
+                                                              ? securityHref('studio') +
                                                                 '&perspective=' +
-                                                                monitoringState.facts.guide.mission
-                                                              : toolsState.facts.guide &&
+                                                                securityState.facts.guide.mission
+                                                              : monitoringState.facts.guide &&
                                                                   (!preferredResume ||
                                                                     preferredResume.module ===
-                                                                      'management-tools')
-                                                                ? toolsHref('studio') +
+                                                                      'monitoring')
+                                                                ? monitoringHref('studio') +
                                                                   '&perspective=' +
-                                                                  toolsState.facts.guide.mission
-                                                                : governanceState.facts.guide &&
+                                                                  monitoringState.facts.guide
+                                                                    .mission
+                                                                : toolsState.facts.guide &&
                                                                     (!preferredResume ||
                                                                       preferredResume.module ===
-                                                                        'governance')
-                                                                  ? governanceHref('studio') +
+                                                                        'management-tools')
+                                                                  ? toolsHref('studio') +
                                                                     '&perspective=' +
-                                                                    governanceState.facts.guide
-                                                                      .mission
-                                                                  : accessState.facts.guide &&
+                                                                    toolsState.facts.guide.mission
+                                                                  : governanceState.facts.guide &&
                                                                       (!preferredResume ||
                                                                         preferredResume.module ===
-                                                                          'access-control')
-                                                                    ? accessHref('studio') +
+                                                                          'governance')
+                                                                    ? governanceHref('studio') +
                                                                       '&perspective=' +
-                                                                      accessState.facts.guide
+                                                                      governanceState.facts.guide
                                                                         .mission
-                                                                    : identityState.facts.guide &&
+                                                                    : accessState.facts.guide &&
                                                                         (!preferredResume ||
                                                                           preferredResume.module ===
-                                                                            'identity')
-                                                                      ? identityHref('studio') +
+                                                                            'access-control')
+                                                                      ? accessHref('studio') +
                                                                         '&perspective=' +
-                                                                        identityState.facts.guide
+                                                                        accessState.facts.guide
                                                                           .mission
-                                                                      : resilience.facts.guide &&
-                                                                          preferredResume?.module !==
-                                                                            'storage'
-                                                                        ? resilienceHref('studio') +
+                                                                      : identityState.facts.guide &&
+                                                                          (!preferredResume ||
+                                                                            preferredResume.module ===
+                                                                              'identity')
+                                                                        ? identityHref('studio') +
                                                                           '&perspective=' +
-                                                                          resilience.facts.guide
+                                                                          identityState.facts.guide
                                                                             .mission
-                                                                        : storage.facts.guide
-                                                                          ? storageHref('studio') +
+                                                                        : resilience.facts.guide &&
+                                                                            preferredResume?.module !==
+                                                                              'storage'
+                                                                          ? resilienceHref(
+                                                                              'studio',
+                                                                            ) +
                                                                             '&perspective=' +
-                                                                            storage.facts.guide
+                                                                            resilience.facts.guide
                                                                               .mission
-                                                                          : preferredResume
-                                                                            ? preferredResume.topic ===
-                                                                                'transfer' &&
-                                                                              transfer.facts.current
-                                                                              ? transferHref(
-                                                                                  transfer.facts
-                                                                                    .current.item,
-                                                                                )
-                                                                              : preferredResume.module ===
-                                                                                    'cost' &&
-                                                                                  preferredResume.topic ===
-                                                                                    'assessment' &&
-                                                                                  cost.facts.current
-                                                                                ? costHref(
-                                                                                    'assessment',
-                                                                                    cost.facts
+                                                                          : storage.facts.guide
+                                                                            ? storageHref(
+                                                                                'studio',
+                                                                              ) +
+                                                                              '&perspective=' +
+                                                                              storage.facts.guide
+                                                                                .mission
+                                                                            : preferredResume
+                                                                              ? preferredResume.topic ===
+                                                                                  'transfer' &&
+                                                                                transfer.facts
+                                                                                  .current
+                                                                                ? transferHref(
+                                                                                    transfer.facts
                                                                                       .current.item,
                                                                                   )
-                                                                                : (preferredResume.module ===
-                                                                                      'services' &&
-                                                                                      preferredResume.topic ===
-                                                                                        'practice') ||
-                                                                                    (preferredResume.module ===
-                                                                                      'computing' &&
-                                                                                      preferredResume.topic ===
-                                                                                        'resource-bridge')
-                                                                                  ? courseLabHref(
-                                                                                      lab.complete,
-                                                                                      course.save
-                                                                                        .lab
-                                                                                        ?.origin,
+                                                                                : preferredResume.module ===
+                                                                                      'cost' &&
+                                                                                    preferredResume.topic ===
+                                                                                      'assessment' &&
+                                                                                    cost.facts
+                                                                                      .current
+                                                                                  ? costHref(
+                                                                                      'assessment',
+                                                                                      cost.facts
+                                                                                        .current
+                                                                                        .item,
                                                                                     )
-                                                                                  : courseHref(
-                                                                                      preferredResume.module,
-                                                                                      preferredResume.topic,
-                                                                                    )
-                                                                            : computingEntry;
+                                                                                  : (preferredResume.module ===
+                                                                                        'services' &&
+                                                                                        preferredResume.topic ===
+                                                                                          'practice') ||
+                                                                                      (preferredResume.module ===
+                                                                                        'computing' &&
+                                                                                        preferredResume.topic ===
+                                                                                          'resource-bridge')
+                                                                                    ? courseLabHref(
+                                                                                        lab.complete,
+                                                                                        course.save
+                                                                                          .lab
+                                                                                          ?.origin,
+                                                                                      )
+                                                                                    : courseHref(
+                                                                                        preferredResume.module,
+                                                                                        preferredResume.topic,
+                                                                                      )
+                                                                              : computingEntry;
   const navigate = (area: PortalLocation['area'], change: Partial<PortalLocation> = {}) => {
     if (area === 'learn')
       router.push(courseHref(change.module ?? module ?? 'services', change.topic ?? topic));
@@ -725,6 +745,18 @@ function CourseWorkspace({ module }: { module?: CourseModule }) {
   };
   const hubRecords: HubRecord[] = [
     [
+      'updatedBenefits',
+      refinedAssessmentNb.ui.title + ' · Benefits',
+      updatedBenefits,
+      refinedHref('benefits'),
+    ],
+    [
+      'updatedServices',
+      refinedAssessmentNb.ui.title + ' · Service Types',
+      updatedServices,
+      refinedHref('services'),
+    ],
+    [
       'migration',
       hubCopy.recordLabels.migration,
       migrationState,
@@ -843,7 +875,12 @@ function CourseWorkspace({ module }: { module?: CourseModule }) {
       reload: record.store.load,
     };
   });
-  const reliableHistory = hubRecords.every((record) => record.ready && !record.issue);
+  const activeAssessmentContexts = useMissionSafetyContexts().filter((context) => context.active);
+  const assessmentConflict =
+    activeAssessmentContexts.length > 1 &&
+    (updatedBenefits.facts.active || updatedServices.facts.active);
+  const reliableHistory =
+    !assessmentConflict && hubRecords.every((record) => record.ready && !record.issue);
   const navigationActivities = Object.fromEntries(
     (Object.keys(navigationTopics) as CourseModule[]).map((part) => [
       part,
@@ -869,6 +906,8 @@ function CourseWorkspace({ module }: { module?: CourseModule }) {
     ]),
   ) as unknown as CourseActivities;
   const activeIndependent =
+    updatedBenefits.facts.active ||
+    updatedServices.facts.active ||
     migrationState.facts.active ||
     securityState.facts.active ||
     monitoringState.facts.active ||
@@ -894,8 +933,9 @@ function CourseWorkspace({ module }: { module?: CourseModule }) {
     services.facts.active ||
     learning.facts.active;
   const currentGuidedModule = guidedModules.find((m) => m.id === module);
-  const resumeHref =
-    activeIndependent || !reliableHistory
+  const resumeHref = assessmentConflict
+    ? '/learn'
+    : activeIndependent || !reliableHistory
       ? storedResumeHref
       : (guidedResume(guidedModules.find((m) => m.id === preferredResume?.module)) ??
         storedResumeHref);
@@ -1097,6 +1137,16 @@ function CourseWorkspace({ module }: { module?: CourseModule }) {
           />
         </aside>
         <main id="course-main" className="course-main">
+          {assessmentConflict && (
+            <div role="status" className="course-storage">
+              <p>{refinedAssessmentNb.ui.conflict}</p>
+              {activeAssessmentContexts.map((context) => (
+                <p key={context.id}>
+                  <Link href={context.href}>{missionsNb.recoveryContexts[context.id]}</Link>
+                </p>
+              ))}
+            </div>
+          )}
           {course.issue && (
             <div role="status" className="course-storage">
               <p>
@@ -1149,42 +1199,51 @@ function CourseWorkspace({ module }: { module?: CourseModule }) {
                 : undefined
             }
             assessment={
-              module === 'migration' && topic === 'assessment'
-                ? 'migration'
-                : module === 'security' && topic === 'assessment'
-                  ? 'security'
-                  : module === 'monitoring' && topic === 'assessment'
-                    ? 'monitoring'
-                    : module === 'management-tools' && topic === 'assessment'
-                      ? 'tools'
-                      : module === 'governance' && topic === 'assessment'
-                        ? 'governance'
-                        : module === 'access-control' && topic === 'assessment'
-                          ? 'access'
-                          : module === 'identity' && topic === 'assessment'
-                            ? 'identity'
-                            : module === 'storage-resilience' && topic === 'assessment'
-                              ? 'resilience'
-                              : module === 'storage' && topic === 'assessment'
-                                ? 'storage'
-                                : module === 'connectivity' && topic === 'assessment'
-                                  ? 'connectivity'
-                                  : module === 'networking' && topic === 'assessment'
-                                    ? 'networking'
-                                    : module === 'compute' && topic === 'assessment'
-                                      ? 'compute'
-                                      : module === 'cost' && topic === 'assessment'
-                                        ? 'cost'
-                                        : topic === 'transfer'
-                                          ? 'transfer'
-                                          : module && missions.active && !missions.assisted
-                                            ? 'missions'
-                                            : module === 'architecture' &&
-                                                topic === 'management-assessment'
-                                              ? 'management'
-                                              : module === 'architecture' && topic === 'assessment'
-                                                ? 'physical'
-                                                : undefined
+              module === 'benefits' && topic === 'assessment'
+                ? historicalBenefits
+                  ? 'benefits'
+                  : 'updatedBenefits'
+                : module === 'services' && !legacyServices && topic === 'assessment'
+                  ? historicalServices
+                    ? 'services'
+                    : 'updatedServices'
+                  : module === 'migration' && topic === 'assessment'
+                    ? 'migration'
+                    : module === 'security' && topic === 'assessment'
+                      ? 'security'
+                      : module === 'monitoring' && topic === 'assessment'
+                        ? 'monitoring'
+                        : module === 'management-tools' && topic === 'assessment'
+                          ? 'tools'
+                          : module === 'governance' && topic === 'assessment'
+                            ? 'governance'
+                            : module === 'access-control' && topic === 'assessment'
+                              ? 'access'
+                              : module === 'identity' && topic === 'assessment'
+                                ? 'identity'
+                                : module === 'storage-resilience' && topic === 'assessment'
+                                  ? 'resilience'
+                                  : module === 'storage' && topic === 'assessment'
+                                    ? 'storage'
+                                    : module === 'connectivity' && topic === 'assessment'
+                                      ? 'connectivity'
+                                      : module === 'networking' && topic === 'assessment'
+                                        ? 'networking'
+                                        : module === 'compute' && topic === 'assessment'
+                                          ? 'compute'
+                                          : module === 'cost' && topic === 'assessment'
+                                            ? 'cost'
+                                            : topic === 'transfer'
+                                              ? 'transfer'
+                                              : module && missions.active && !missions.assisted
+                                                ? 'missions'
+                                                : module === 'architecture' &&
+                                                    topic === 'management-assessment'
+                                                  ? 'management'
+                                                  : module === 'architecture' &&
+                                                      topic === 'assessment'
+                                                    ? 'physical'
+                                                    : undefined
             }
           >
             {!module ? (
@@ -1434,6 +1493,8 @@ function CourseWorkspace({ module }: { module?: CourseModule }) {
                       onLab={() => (course.save.lab ? begin() : setBriefing(true))}
                       guidanceBlocked={
                         [
+                          updatedBenefits,
+                          updatedServices,
                           learning,
                           v2,
                           services,
@@ -1461,6 +1522,8 @@ function CourseWorkspace({ module }: { module?: CourseModule }) {
                           identityState,
                           resilience,
                         ].some((x) => !x.ready || !!x.issue) ||
+                        updatedBenefits.facts.active ||
+                        updatedServices.facts.active ||
                         learning.facts.active ||
                         v2.facts.active ||
                         services.facts.active ||
@@ -1491,6 +1554,8 @@ function CourseWorkspace({ module }: { module?: CourseModule }) {
                       topic={topic as PhysicalTopic}
                       guidanceBlocked={
                         [
+                          updatedBenefits,
+                          updatedServices,
                           learning,
                           v2,
                           services,
@@ -1518,6 +1583,8 @@ function CourseWorkspace({ module }: { module?: CourseModule }) {
                           identityState,
                           resilience,
                         ].some((x) => !x.ready || !!x.issue) ||
+                        updatedBenefits.facts.active ||
+                        updatedServices.facts.active ||
                         learning.facts.active ||
                         v2.facts.active ||
                         services.facts.active ||
@@ -1550,6 +1617,8 @@ function CourseWorkspace({ module }: { module?: CourseModule }) {
                       topic={topic}
                       guidanceBlocked={
                         [
+                          updatedBenefits,
+                          updatedServices,
                           learning,
                           v2,
                           services,
@@ -1577,6 +1646,8 @@ function CourseWorkspace({ module }: { module?: CourseModule }) {
                           identityState,
                           resilience,
                         ].some((x) => !x.ready || !!x.issue) ||
+                        updatedBenefits.facts.active ||
+                        updatedServices.facts.active ||
                         learning.facts.active ||
                         v2.facts.active ||
                         services.facts.active ||
@@ -1946,6 +2017,12 @@ function CourseWorkspace({ module }: { module?: CourseModule }) {
       {journal && (
         <PortalDialog title={c.journal} onClose={() => setJournal(false)}>
           <ManagementTeachingBoundary identity="course-journal">
+            {!module && (
+              <>
+                <RefinedHistory track="benefits" legacy />
+                <RefinedHistory track="services" legacy />
+              </>
+            )}
             {module === 'migration' || (!module && preferredResume?.module === 'migration') ? (
               <MigrationLesson topic="introduction" journal />
             ) : module === 'security' || (!module && preferredResume?.module === 'security') ? (
@@ -1980,9 +2057,15 @@ function CourseWorkspace({ module }: { module?: CourseModule }) {
               (!module && preferredResume?.module === 'architecture') ? (
               <CoreArchitectureJournal />
             ) : module === 'benefits' ? (
-              <ExpansionReference track="benefits" topic={topic} />
+              <>
+                <RefinedHistory track="benefits" legacy />
+                <ExpansionReference track="benefits" topic={topic} />
+              </>
             ) : module === 'services' && !legacyServices ? (
-              <ExpansionReference track="services" topic={topic} />
+              <>
+                <RefinedHistory track="services" legacy />
+                <ExpansionReference track="services" topic={topic} />
+              </>
             ) : isServerlessTopic(topic) ? (
               <ServerlessLesson topic={topic} journal />
             ) : currentV2 ? (

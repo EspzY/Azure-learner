@@ -66,6 +66,8 @@ Alle funn var åpne produktfunn i PR42. PR43 implementerer nå avgrenset LJ-01 o
 - **Risiko:** content/rubric-versioning, replay og familieeksponering. Services godtar bare koblede par IaaS/os-team eller PaaS/platform-supported, ikke alle fire kombinasjoner. Moderne banker lagrer numeriske indekser; gamle mapper må beholdes.
 - **Akseptanse/tester:** all-first-strategi gir ikke systematisk fullt nytt resultat; reviewer løser faktisk sluttbank blindt før nøkler, utfordrer gyldige alternative par og posisjon/lengde/ordvalg. Test alle koblede par, gammel save/replay/feedback byte-semantikk, familieeksponering, delvis svar, abandon, help og assisted retry. Eldre førsteinnleveringer skal ikke vurderes på nytt mot nye alternativer. UI må vise hvilken vurderingsversjon et historisk resultat tilhører uten å belaste hovedlæringen med intern terminologi.
 
+**PR46 — implementert versjonert retting:** Benefits2 og Services3 er ny standard med separate durable stores, stabile ID-er, seks beslutning/begrunnelse-situasjoner hver, eksplisitte historiske ruter og opprinnelig replay. Svake alternativer er substansielt revidert etter låst blindreview; alternative IaaS/PaaS-par og numerisk scenario vurderes kompatibelt. [Implementasjon og verifikasjonskontrakt](../ASSESSMENT_REFINEMENT.md). Endelig AS-01-lukking krever dokumentert post-stamp audit, eksakt-head290CI/streng release og faktisk anonym full-SHA Gate7 på Draft PR46. Historiske PR42-funn/bevis beholdes; AS-02, UX-02 og øvrige P2 er fortsatt åpne.
+
 ### UX-02 · P2 · Global UX Consistency: kilder og videre lesning
 
 - **Berørt:** alle senere teori-/Studio-/Summary-/Journal-kildeflater; eldre Foundations/Benefits/Services har allerede sammenlagt mønster.

@@ -1,0 +1,932 @@
+{
+  "schema_version": 1,
+  "review_type": "fresh_blind_student_facing_content_review",
+  "candidate": {
+    "path": "/workspace/azurelab-pr46/blind-final-candidate.json",
+    "sha256": "f8116363a98bbf75fba92aea63067e7c06bd8bdef740baae19ca2a507ab12e8b",
+    "case_count": 12,
+    "only_content_source_inspected": true
+  },
+  "lock": {
+    "status": "locked_before_any_comparison",
+    "created_at_utc": "2026-11-02T08:54:03.388084+00:00",
+    "comparison_performed": false,
+    "keys_rubrics_feedback_author_analysis_or_repository_inspected": false
+  },
+  "scope": "Review of the twelve student-facing scenarios, premises, decision options, reason options and the one numeric prompt. No application/source edits, answer-key access, prior-review access, repository inspection or comparison.",
+  "reviewer_limitations": [
+    "This is an agent content review, not a human subject-matter expert sign-off.",
+    "No students were observed; difficulty, discrimination, reliability and psychometric validity are not measured.",
+    "Heuristic results below are scored against the blind answers in this report, not against an inspected key or application scoring implementation.",
+    "Foundational content quality is assessed within the supplied premises; this is not a proposal for a new examination engine."
+  ],
+  "overall": {
+    "verdict": "usable_foundational_content_with_targeted_revisions_recommended",
+    "critical_factual_errors_found": 0,
+    "primary_answer_coverage": "All twelve cases have a technically defensible central answer; s-choice intentionally has two matched answers.",
+    "main_ambiguity": "b-recovery asks broadly what should be investigated before a recovery claim, while two distractor pairs are explicitly true and relevant partial checks. Narrow the question to the most direct evidence for completion of the business process.",
+    "main_measurement_limit": "The bank usually supplies the decisive technical fact and often explicitly rules out alternatives. It can check elementary application and misconception recognition, but does not establish independent operational competence.",
+    "position_length_conclusion": "No tested fixed-position or simple length rule obtains all twelve central answer pairs. A cyclic relationship between decision and reason positions covers ten cases, so position cues are not fully absent.",
+    "language_conclusion": "Qualified, scope-aware reasons and verbs such as verify/review/model are repeatedly favored, while strong sufficiency claims are repeatedly false. A test-wise reader can exploit this. No genuinely content-blind language rule was demonstrated to earn full credit, especially because the numeric response requires arithmetic."
+  },
+  "answers": [
+    {
+      "case_id": "b-capacity",
+      "full_answer_pairs": [
+        {
+          "decision_id": "add",
+          "reason_id": "capacity"
+        }
+      ],
+      "numeric_answer": {
+        "value": 5,
+        "unit": "forespørsler/s",
+        "working": "4 * 8 = 32 requests/s currently; 37 - 32 = 5 requests/s missing. Five instances provide 40 requests/s, leaving 3 requests/s spare."
+      },
+      "reasoning": "Routing cannot exceed the documented aggregate capacity of the four healthy instances. Adding one equivalent instance increases capacity above the stated load. The scenario supplies no failure for restoration to address.",
+      "confidence": "high",
+      "defensible_alternative_pairs": [],
+      "ambiguity": "None material within the supplied assumptions.",
+      "adjacent_misconceptions": [
+        "Load distribution is mistaken for additional aggregate capacity.",
+        "Recovery activity is mistaken for capacity expansion."
+      ],
+      "technical_consequence_test": "Strong for a foundational case: calculate a 5 requests/s shortfall, choose sufficient added capacity, and distinguish capacity from recovery.",
+      "prompt_hints": "The explicit equal-distribution and no-failure premises eliminate both alternatives. These are useful boundary assumptions but make the model selection easy."
+    },
+    {
+      "case_id": "b-recovery",
+      "full_answer_pairs": [
+        {
+          "decision_id": "flow",
+          "reason_id": "end"
+        }
+      ],
+      "reasoning": "A restored database and responsive front end do not demonstrate a completed order. Since signature is required and the normal signing dependency is unavailable, a completed, signed order through the agreed fallback is the most direct missing process-level evidence.",
+      "confidence": "high_for_central_answer_medium_for_exclusivity",
+      "defensible_alternative_pairs": [
+        {
+          "decision_id": "front",
+          "reason_id": "latency",
+          "status": "defensible_under_literal_broad_question_not_equivalent_completion_evidence",
+          "explanation": "Testing front-end latency is a legitimate investigation before declaring service recovery, and the reason correctly calls it partial evidence. It does not establish completion of the signed-order flow."
+        },
+        {
+          "decision_id": "database",
+          "reason_id": "copies",
+          "status": "defensible_under_literal_broad_question_not_equivalent_completion_evidence",
+          "explanation": "Checking restored order readability is a legitimate investigation before a recovery claim, and the reason correctly calls it partial evidence. It does not establish completion of the signed-order flow."
+        }
+      ],
+      "ambiguity": "The question asks what the team should investigate before making the claim, rather than which investigation most directly demonstrates completion. The two partial-evidence pairs are not technically false. They are weaker responses to the central problem but are defensible under the literal broad wording.",
+      "adjacent_misconceptions": [
+        "Component availability is treated as recovery of an entire business process.",
+        "Readable recovered data is treated as proof that an external dependency and the transaction workflow work."
+      ],
+      "technical_consequence_test": "Good conceptual consequence: an unavailable dependency prevents a completed business operation until a fallback succeeds. Only one successful order is demonstrated; throughput or comprehensive resilience is not established.",
+      "prompt_hints": "The premise says that no order has yet been signed and completed through the available fallback, closely restating the preferred decision.",
+      "recommended_correction": "Ask: Hvilken undersøkelse gir det mest direkte beviset for at ordreprosessen fungerer under den beskrevne avhengighetssvikten? Keep the partial-evidence reasons plausible."
+    },
+    {
+      "case_id": "b-rule",
+      "full_answer_pairs": [
+        {
+          "decision_id": "scope",
+          "reason_id": "bounded"
+        }
+      ],
+      "reasoning": "The report evaluates the region field. It can support the assigned regional configuration requirement, but not user-data permissions or application-security settings outside its scope.",
+      "confidence": "high",
+      "defensible_alternative_pairs": [],
+      "ambiguity": "None material. The stated report scope is explicit.",
+      "adjacent_misconceptions": [
+        "Passing a governance policy is treated as comprehensive security compliance.",
+        "Resource location is treated as evidence about identity and data authorization."
+      ],
+      "technical_consequence_test": "Bounded evidence reasoning rather than Azure-specific operation. The conclusion correctly stops at the evaluated property.",
+      "prompt_hints": "The exclusions name the exact subjects of both wrong decisions. Reasons contrasting bounded scope with all settings further cue the preferred answer."
+    },
+    {
+      "case_id": "b-template",
+      "full_answer_pairs": [
+        {
+          "decision_id": "review",
+          "reason_id": "inputs"
+        }
+      ],
+      "reasoning": "The same definition can correctly reproduce incorrect parameter values. Review and correct the relevant inputs, validate the change, and verify the deployed result; an unchanged rerun does not repair wrong sizing, and screenshots do not replace a repeatable reviewed configuration.",
+      "confidence": "high",
+      "defensible_alternative_pairs": [],
+      "ambiguity": "No material answer ambiguity. The wording validate the change reasonably implies an intended parameter correction, though explicitly saying correct the erroneous parameters would be clearer.",
+      "adjacent_misconceptions": [
+        "Infrastructure automation guarantees correct inputs or correct outcomes.",
+        "Idempotent repetition repairs an unchanged bad configuration.",
+        "Manual records provide the same reproducibility as controlled definitions and parameters."
+      ],
+      "technical_consequence_test": "Good elementary consequence: input differences produce deployment differences and functional correctness still needs verification.",
+      "prompt_hints": "The stem already attributes wrong sizing to differing parameter values. The correct decision bundles review, validation and outcome testing while the alternatives are more obviously incomplete."
+    },
+    {
+      "case_id": "b-footprint",
+      "full_answer_pairs": [
+        {
+          "decision_id": "compare",
+          "reason_id": "utility"
+        }
+      ],
+      "reasoning": "Cost and resource counts are not sufficient energy or emissions measures. Compare environmental footprint against delivered orders and comparable service quality using an appropriate energy/emissions basis. The financial figures alone show cost per order rising by 0.8 / 0.5 = 1.6, or 60 percent; they show no emissions result.",
+      "confidence": "high",
+      "defensible_alternative_pairs": [],
+      "ambiguity": "The direction of the best investigation is clear. A lower footprint per order and a lower total footprint are different claims; per-order analysis alone would not establish every possible sustainability claim.",
+      "adjacent_misconceptions": [
+        "Lower spend necessarily means lower energy or emissions.",
+        "Fewer resources necessarily means lower emissions regardless of resource type, utilization or energy mix.",
+        "A lower total caused by lower useful output is treated as improved efficiency."
+      ],
+      "technical_consequence_test": "Sound foundational reasoning about denominators, service quality and environmental evidence. No environmental calculation is possible from the supplied numbers.",
+      "prompt_hints": "The missing energy/emissions basis is explicitly supplied as a premise, and both wrong reasons assert a sufficient emissions proxy.",
+      "recommended_correction": "If the intended claim is environmental efficiency, name footprint per delivered order in the claim; otherwise ask to examine both total footprint and footprint per delivered order at comparable quality."
+    },
+    {
+      "case_id": "b-estimate",
+      "full_answer_pairs": [
+        {
+          "decision_id": "usage",
+          "reason_id": "drivers"
+        }
+      ],
+      "reasoning": "A defensible forecast includes fixed configuration plus variable transaction and egress drivers, known prices, growth assumptions and uncertainty. Historic spend adjusted only for prices omits known growth; baseline instance-hours omit variable charges. A forecast is not a cap or guarantee of actual spend.",
+      "confidence": "high",
+      "defensible_alternative_pairs": [],
+      "ambiguity": "None material because the question asks for the best justified forecast, not any usable rough baseline.",
+      "adjacent_misconceptions": [
+        "A previous bill remains adequate when activity changes.",
+        "Baseline compute captures all meaningful cloud cost.",
+        "A forecast is mistaken for an assured future bill."
+      ],
+      "technical_consequence_test": "Tests selection of an appropriate cost model, but requires no use of a price table or quantitative forecast.",
+      "prompt_hints": "The correct decision directly repeats the available history/growth/prices and varying-use premises. The wrong decisions explicitly omit known drivers."
+    },
+    {
+      "case_id": "s-driver",
+      "full_answer_pairs": [
+        {
+          "decision_id": "iaas",
+          "reason_id": "control"
+        }
+      ],
+      "reasoning": "The required guest-OS driver installation and update control is available with a customer-managed guest operating system on an IaaS VM. The candidate explicitly says the evaluated PaaS and SaaS offerings do not grant that control. This identifies an appropriate responsibility model, not a certification that every possible driver runs on every VM.",
+      "confidence": "high",
+      "defensible_alternative_pairs": [],
+      "ambiguity": "None material within the specified offerings and control requirement.",
+      "adjacent_misconceptions": [
+        "Provider-managed platform OS implies tenant driver-install rights.",
+        "SaaS user administration implies control over the application host OS."
+      ],
+      "technical_consequence_test": "Foundational responsibility and control mapping. The guest-OS requirement provides a concrete consequence of choosing the service model.",
+      "prompt_hints": "The premise explicitly rules out both other model choices; the correct option repeats guest OS and driver installation almost verbatim."
+    },
+    {
+      "case_id": "s-patching",
+      "full_answer_pairs": [
+        {
+          "decision_id": "customer",
+          "reason_id": "guest"
+        }
+      ],
+      "reasoning": "Fjordverk manages the IaaS guest OS and must arrange the outstanding guest patch and verify its update state. Physical-host maintenance does not establish installation in the guest, and an application function test is not patch-state evidence.",
+      "confidence": "high",
+      "defensible_alternative_pairs": [],
+      "ambiguity": "No technical ambiguity. The question says who but the choices are actions; naming Fjordverk in the preferred action would align the grammar.",
+      "adjacent_misconceptions": [
+        "Physical-host servicing implies guest-OS servicing.",
+        "Application functionality proves that a specific security patch is installed."
+      ],
+      "technical_consequence_test": "Useful responsibility boundary with an explicit evidence requirement: check guest update state rather than infer it from unrelated maintenance.",
+      "prompt_hints": "Both the customer role and the host-versus-guest distinction are stated in premises. Both wrong reasons use sufficient confirmation language.",
+      "recommended_correction": "Optional editorial change: make the question ask which action Fjordverk must take, or name the responsible actor in each option."
+    },
+    {
+      "case_id": "s-runtime",
+      "full_answer_pairs": [
+        {
+          "decision_id": "fit",
+          "reason_id": "compatibility"
+        }
+      ],
+      "reasoning": "CPU and memory capacity do not change runtime-version support. Before production use, verify a supported application/runtime/hosting combination, potentially using another app version or hosting environment. Accepted deployment management is not proof the application executes correctly.",
+      "confidence": "high",
+      "defensible_alternative_pairs": [],
+      "ambiguity": "None material. The specific offering is explicitly unsupported for the new runtime; general custom-container possibilities cannot override that premise.",
+      "adjacent_misconceptions": [
+        "Resource sizing solves software compatibility.",
+        "Accepted control-plane deployment proves runtime or application behavior."
+      ],
+      "technical_consequence_test": "Good conceptual distinction between capacity, runtime compatibility and operational success.",
+      "prompt_hints": "One premise directly states why increasing size cannot work and another names the two supported investigation paths. The correct reason is the only one without a sufficiency claim."
+    },
+    {
+      "case_id": "s-departure",
+      "full_answer_pairs": [
+        {
+          "decision_id": "access",
+          "reason_id": "tenant"
+        }
+      ],
+      "reasoning": "The SaaS provider manages its application and OS, while Fjordverk still handles the organization’s access, document sharing, ownership and retention decisions using the service’s functions. Offboarding must therefore address the consultant’s remaining access and shared data.",
+      "confidence": "high",
+      "defensible_alternative_pairs": [],
+      "ambiguity": "None material. Ending relevant access need not mean indiscriminate data deletion; ownership and retention review is properly included.",
+      "adjacent_misconceptions": [
+        "SaaS outsourcing transfers customer access and data-governance decisions to the provider.",
+        "Tenant user administration includes provider server management."
+      ],
+      "technical_consequence_test": "Concrete operational consequence of retained SaaS responsibility, including data ownership and retention rather than only disabling a login.",
+      "prompt_hints": "The premise restates the customer responsibility boundary. Both wrong decisions concern server operations that the premise assigns to the provider."
+    },
+    {
+      "case_id": "s-choice",
+      "full_answer_pairs": [
+        {
+          "decision_id": "iaas",
+          "reason_id": "os"
+        },
+        {
+          "decision_id": "paas",
+          "reason_id": "platform"
+        }
+      ],
+      "reasoning": "Both reviewed proposals meet the application and scaling needs. The team can perform VM guest-OS/runtime/app operations, so iaas/os is defensible. The managed platform can operate its OS/runtime while the customer handles app and data, so paas/platform is also defensible. No stated requirement ranks these proposals. A finished SaaS application has explicitly been excluded as a host for this custom code.",
+      "confidence": "high",
+      "defensible_alternative_pairs": [
+        {
+          "decision_id": "paas",
+          "reason_id": "platform",
+          "status": "equally_valid_alternative_to_iaas_os"
+        }
+      ],
+      "ambiguity": "The two answers are intentionally equally defensible, not an accidental missing premise. Do not impose an unstated preference for least operational work, lowest price, or maximum OS control.",
+      "invalid_cross_pairs": [
+        {
+          "decision_id": "iaas",
+          "reason_id": "platform"
+        },
+        {
+          "decision_id": "paas",
+          "reason_id": "os"
+        }
+      ],
+      "why_cross_pairs_fail": "Those reasons can accurately describe another model but do not explain exactly the selected proposal as the question requests.",
+      "adjacent_misconceptions": [
+        "One cloud service model is universally best without a selection objective.",
+        "SaaS is a general hosting environment for existing custom application code.",
+        "A true responsibility statement is acceptable even when it describes a different chosen proposal."
+      ],
+      "technical_consequence_test": "Valuable bounded choice: two feasible models are accepted only with the matching operational responsibility. This tests avoiding an invented requirement.",
+      "prompt_hints": "The case very explicitly removes all common ranking criteria and excludes SaaS. This makes the two-answer structure clear and limits the decision to matching the responsibility wording."
+    },
+    {
+      "case_id": "s-plan",
+      "full_answer_pairs": [
+        {
+          "decision_id": "scaleup",
+          "reason_id": "compute"
+        }
+      ],
+      "reasoning": "The indivisible job needs more memory in one instance, so select a larger supported instance size for the shared App Service Plan. More instances increase aggregate capacity but do not combine memory for that one job. An application configuration change alone does not create physical memory. Both apps continue to share the changed plan capacity.",
+      "confidence": "high",
+      "defensible_alternative_pairs": [],
+      "ambiguity": "None material given the explicit plan-size bottleneck and supported larger SKU. The conclusion does not imply dedicated additional memory exclusively reserved for one app.",
+      "adjacent_misconceptions": [
+        "Scale-out aggregates separate instance memory for an indivisible workload.",
+        "A per-app setting creates additional physical resources in an unchanged plan.",
+        "Changing a shared plan affects only the app that motivated the change."
+      ],
+      "technical_consequence_test": "One of the strongest items: combines per-instance versus aggregate capacity with the scope of a shared App Service Plan change.",
+      "prompt_hints": "The premises explicitly establish insufficient current size, sufficient larger size, nonparallelizable work and continued plan sharing. Appropriate for a basic check, but little diagnosis remains for the learner."
+    }
+  ],
+  "findings": [
+    {
+      "id": "F1",
+      "severity": "medium",
+      "case_ids": ["b-recovery"],
+      "issue": "Question scope admits relevant partial-evidence investigations as literal answers.",
+      "evidence": "front/latency and database/copies are true, relevant pairs, while the stem asks broadly what should be investigated before a recovery claim.",
+      "impact": "A careful learner can defend an unpreferred pair without misunderstanding recovery scope.",
+      "recommended_correction": "Ask for the investigation giving the most direct evidence of a completed order process under the described dependency failure, while retaining the plausible partial checks."
+    },
+    {
+      "id": "F2",
+      "severity": "medium",
+      "case_ids": [
+        "b-capacity",
+        "b-rule",
+        "b-template",
+        "b-footprint",
+        "b-estimate",
+        "s-driver",
+        "s-patching",
+        "s-runtime",
+        "s-departure",
+        "s-choice",
+        "s-plan"
+      ],
+      "issue": "High density of explicit eliminations and verbal cues reduces the independent technical inference required.",
+      "evidence": "Several premises directly state why alternatives fail; correct reasons commonly qualify scope or retained responsibility, while wrong reasons commonly make broad sufficiency or transfer-of-control claims.",
+      "impact": "Good for introductory guided practice, weak evidence that a learner can diagnose the same issue when the decisive distinction is not named.",
+      "recommended_correction": "For any items intended to discriminate beyond the introductory level, replace one explicit eliminator with a concrete observation and use similarly bounded, plausible distractor reasons. Keep enough assumptions to preserve a defensible answer."
+    },
+    {
+      "id": "F3",
+      "severity": "low",
+      "case_ids": [
+        "b-capacity",
+        "b-template",
+        "b-footprint",
+        "b-estimate",
+        "s-driver",
+        "s-patching",
+        "s-runtime",
+        "s-departure",
+        "s-choice",
+        "s-plan"
+      ],
+      "issue": "Decision/reason answer positions have a recurring cyclic relationship.",
+      "evidence": "For ten of twelve cases there is a defensible full pair with reason position one step after decision position cyclically: 1->2, 2->3, 3->1. Every service case has such a pair.",
+      "impact": "It is not a complete content-blind solver, but a learner who identifies a decision can often infer the reason position without evaluating all reasons.",
+      "recommended_correction": "Break the repeated decision/reason position relationship in the authored ordering, or confirm that the delivery system independently shuffles both groups. No new exam-engine feature is required to correct the authored pattern."
+    },
+    {
+      "id": "F4",
+      "severity": "low",
+      "case_ids": ["b-footprint"],
+      "issue": "The unspecified sustainability claim leaves total footprint versus footprint intensity implicit.",
+      "evidence": "The best decision examines footprint per delivered order, but the stem does not specify whether the claim concerns total impact or efficiency.",
+      "impact": "The preferred option is still the best available; avoid teaching that improved intensity alone proves lower total environmental impact.",
+      "recommended_correction": "Name environmental efficiency in the claim, or include both total footprint and footprint per delivered order in the investigation."
+    },
+    {
+      "id": "F5",
+      "severity": "low_editorial",
+      "case_ids": ["s-patching"],
+      "issue": "Question asks who while choices state actions.",
+      "impact": "Meaning is clear from the premises, but the grammatical mismatch adds avoidable friction.",
+      "recommended_correction": "Ask which follow-up Fjordverk must perform or identify the responsible actor in each option."
+    }
+  ],
+  "heuristic_audit": {
+    "interpretation": "A full case here means a decision/reason pair matching the blind central answers. Numeric-answer credit is reported separately and no scoring implementation was inspected.",
+    "tie_policy": "For length rules, select the earliest displayed option on ties.",
+    "length_metrics": "Unicode character count via Python len; word count via whitespace-separated nonempty tokens.",
+    "numeric_limit": "None of these content-blind rules supplies the required value 5 in b-capacity.",
+    "language_cue_examples": [
+      "All six reason options containing tilstrekkelig are distractors in the blind solution: the two footprint proxies, the two patching confirmations and the two runtime shortcuts.",
+      "Both gjenstår reasons are correct, in s-patching and s-departure.",
+      "Scope restrictions and uncertainty appear in correct reasons such as avgrenset, evaluerte, må kontrolleres and kan avvike.",
+      "These patterns make elimination easier but do not constitute a prospectively specified, validated language-only full-credit solver."
+    ],
+    "cyclic_position_relation": {
+      "rule": "After a correct decision, choose reason at decision_position % 3 + 1.",
+      "cases_with_at_least_one_full_pair_matching_rule": 10,
+      "case_count": 12,
+      "exceptions": ["b-recovery", "b-rule"],
+      "s_choice_caveat": "The paas/platform pair matches this cycle; the equally valid iaas/os pair does not.",
+      "all_service_cases_have_a_matching_pair": true,
+      "conclusion": "Strong enough to be a local answer cue; not independently a full decision/reason solver."
+    },
+    "conclusion": "No tested simple fixed-position or length rule yields twelve complete pairs. Language and premise echoing substantially lower difficulty; absence of a simple full-credit pattern is not evidence of psychometric quality.",
+    "fixed_position_results": [
+      {
+        "decision_position": 1,
+        "reason_position": 1,
+        "correct_full_pairs": 1,
+        "case_ids": ["b-recovery"]
+      },
+      {
+        "decision_position": 1,
+        "reason_position": 2,
+        "correct_full_pairs": 3,
+        "case_ids": ["b-footprint", "s-patching", "s-plan"]
+      },
+      {
+        "decision_position": 1,
+        "reason_position": 3,
+        "correct_full_pairs": 1,
+        "case_ids": ["s-choice"]
+      },
+      {
+        "decision_position": 2,
+        "reason_position": 1,
+        "correct_full_pairs": 0,
+        "case_ids": []
+      },
+      {
+        "decision_position": 2,
+        "reason_position": 2,
+        "correct_full_pairs": 0,
+        "case_ids": []
+      },
+      {
+        "decision_position": 2,
+        "reason_position": 3,
+        "correct_full_pairs": 3,
+        "case_ids": ["b-capacity", "b-template", "s-runtime"]
+      },
+      {
+        "decision_position": 3,
+        "reason_position": 1,
+        "correct_full_pairs": 4,
+        "case_ids": ["b-estimate", "s-driver", "s-departure", "s-choice"]
+      },
+      {
+        "decision_position": 3,
+        "reason_position": 2,
+        "correct_full_pairs": 1,
+        "case_ids": ["b-rule"]
+      },
+      {
+        "decision_position": 3,
+        "reason_position": 3,
+        "correct_full_pairs": 0,
+        "case_ids": []
+      }
+    ],
+    "best_fixed_position_pair": {
+      "decision_position": 3,
+      "reason_position": 1,
+      "correct_full_pairs": 4,
+      "case_count": 12
+    },
+    "length_results": [
+      {
+        "metric": "characters",
+        "direction": "longest",
+        "correct_full_pairs": 2,
+        "case_count": 12,
+        "selections": [
+          {
+            "case_id": "b-capacity",
+            "decision_id": "add",
+            "reason_id": "available",
+            "matches_full_pair": false
+          },
+          {
+            "case_id": "b-recovery",
+            "decision_id": "database",
+            "reason_id": "end",
+            "matches_full_pair": false
+          },
+          {
+            "case_id": "b-rule",
+            "decision_id": "scope",
+            "reason_id": "security",
+            "matches_full_pair": false
+          },
+          {
+            "case_id": "b-template",
+            "decision_id": "review",
+            "reason_id": "inputs",
+            "matches_full_pair": true
+          },
+          {
+            "case_id": "b-footprint",
+            "decision_id": "compare",
+            "reason_id": "cost",
+            "matches_full_pair": false
+          },
+          {
+            "case_id": "b-estimate",
+            "decision_id": "budget",
+            "reason_id": "limit",
+            "matches_full_pair": false
+          },
+          {
+            "case_id": "s-driver",
+            "decision_id": "iaas",
+            "reason_id": "software",
+            "matches_full_pair": false
+          },
+          {
+            "case_id": "s-patching",
+            "decision_id": "vendor",
+            "reason_id": "ui",
+            "matches_full_pair": false
+          },
+          {
+            "case_id": "s-runtime",
+            "decision_id": "group",
+            "reason_id": "capacity",
+            "matches_full_pair": false
+          },
+          {
+            "case_id": "s-departure",
+            "decision_id": "patch",
+            "reason_id": "servers",
+            "matches_full_pair": false
+          },
+          {
+            "case_id": "s-choice",
+            "decision_id": "paas",
+            "reason_id": "platform",
+            "matches_full_pair": true
+          },
+          {
+            "case_id": "s-plan",
+            "decision_id": "resourcegroup",
+            "reason_id": "spread",
+            "matches_full_pair": false
+          }
+        ]
+      },
+      {
+        "metric": "characters",
+        "direction": "shortest",
+        "correct_full_pairs": 3,
+        "case_count": 12,
+        "selections": [
+          {
+            "case_id": "b-capacity",
+            "decision_id": "route",
+            "reason_id": "recover",
+            "matches_full_pair": false
+          },
+          {
+            "case_id": "b-recovery",
+            "decision_id": "front",
+            "reason_id": "latency",
+            "matches_full_pair": false
+          },
+          {
+            "case_id": "b-rule",
+            "decision_id": "access",
+            "reason_id": "identity",
+            "matches_full_pair": false
+          },
+          {
+            "case_id": "b-template",
+            "decision_id": "manual",
+            "reason_id": "record",
+            "matches_full_pair": false
+          },
+          {
+            "case_id": "b-footprint",
+            "decision_id": "count",
+            "reason_id": "utility",
+            "matches_full_pair": false
+          },
+          {
+            "case_id": "b-estimate",
+            "decision_id": "usage",
+            "reason_id": "drivers",
+            "matches_full_pair": true
+          },
+          {
+            "case_id": "s-driver",
+            "decision_id": "paas",
+            "reason_id": "platform",
+            "matches_full_pair": false
+          },
+          {
+            "case_id": "s-patching",
+            "decision_id": "provider",
+            "reason_id": "guest",
+            "matches_full_pair": false
+          },
+          {
+            "case_id": "s-runtime",
+            "decision_id": "size",
+            "reason_id": "compatibility",
+            "matches_full_pair": false
+          },
+          {
+            "case_id": "s-departure",
+            "decision_id": "capacity",
+            "reason_id": "tenant",
+            "matches_full_pair": false
+          },
+          {
+            "case_id": "s-choice",
+            "decision_id": "iaas",
+            "reason_id": "os",
+            "matches_full_pair": true
+          },
+          {
+            "case_id": "s-plan",
+            "decision_id": "scaleup",
+            "reason_id": "compute",
+            "matches_full_pair": true
+          }
+        ]
+      },
+      {
+        "metric": "words",
+        "direction": "longest",
+        "correct_full_pairs": 2,
+        "case_count": 12,
+        "selections": [
+          {
+            "case_id": "b-capacity",
+            "decision_id": "add",
+            "reason_id": "capacity",
+            "matches_full_pair": true
+          },
+          {
+            "case_id": "b-recovery",
+            "decision_id": "flow",
+            "reason_id": "copies",
+            "matches_full_pair": false
+          },
+          {
+            "case_id": "b-rule",
+            "decision_id": "access",
+            "reason_id": "identity",
+            "matches_full_pair": false
+          },
+          {
+            "case_id": "b-template",
+            "decision_id": "rerun",
+            "reason_id": "repeat",
+            "matches_full_pair": false
+          },
+          {
+            "case_id": "b-footprint",
+            "decision_id": "count",
+            "reason_id": "volume",
+            "matches_full_pair": false
+          },
+          {
+            "case_id": "b-estimate",
+            "decision_id": "usage",
+            "reason_id": "limit",
+            "matches_full_pair": false
+          },
+          {
+            "case_id": "s-driver",
+            "decision_id": "saas",
+            "reason_id": "control",
+            "matches_full_pair": false
+          },
+          {
+            "case_id": "s-patching",
+            "decision_id": "vendor",
+            "reason_id": "guest",
+            "matches_full_pair": false
+          },
+          {
+            "case_id": "s-runtime",
+            "decision_id": "fit",
+            "reason_id": "capacity",
+            "matches_full_pair": false
+          },
+          {
+            "case_id": "s-departure",
+            "decision_id": "access",
+            "reason_id": "tenant",
+            "matches_full_pair": true
+          },
+          {
+            "case_id": "s-choice",
+            "decision_id": "saas",
+            "reason_id": "os",
+            "matches_full_pair": false
+          },
+          {
+            "case_id": "s-plan",
+            "decision_id": "scaleout",
+            "reason_id": "spread",
+            "matches_full_pair": false
+          }
+        ]
+      },
+      {
+        "metric": "words",
+        "direction": "shortest",
+        "correct_full_pairs": 1,
+        "case_count": 12,
+        "selections": [
+          {
+            "case_id": "b-capacity",
+            "decision_id": "route",
+            "reason_id": "recover",
+            "matches_full_pair": false
+          },
+          {
+            "case_id": "b-recovery",
+            "decision_id": "front",
+            "reason_id": "end",
+            "matches_full_pair": false
+          },
+          {
+            "case_id": "b-rule",
+            "decision_id": "application",
+            "reason_id": "bounded",
+            "matches_full_pair": false
+          },
+          {
+            "case_id": "b-template",
+            "decision_id": "review",
+            "reason_id": "record",
+            "matches_full_pair": false
+          },
+          {
+            "case_id": "b-footprint",
+            "decision_id": "compare",
+            "reason_id": "cost",
+            "matches_full_pair": false
+          },
+          {
+            "case_id": "b-estimate",
+            "decision_id": "sla",
+            "reason_id": "drivers",
+            "matches_full_pair": false
+          },
+          {
+            "case_id": "s-driver",
+            "decision_id": "paas",
+            "reason_id": "control",
+            "matches_full_pair": false
+          },
+          {
+            "case_id": "s-patching",
+            "decision_id": "customer",
+            "reason_id": "host",
+            "matches_full_pair": false
+          },
+          {
+            "case_id": "s-runtime",
+            "decision_id": "size",
+            "reason_id": "scope",
+            "matches_full_pair": false
+          },
+          {
+            "case_id": "s-departure",
+            "decision_id": "capacity",
+            "reason_id": "servers",
+            "matches_full_pair": false
+          },
+          {
+            "case_id": "s-choice",
+            "decision_id": "iaas",
+            "reason_id": "platform",
+            "matches_full_pair": false
+          },
+          {
+            "case_id": "s-plan",
+            "decision_id": "scaleup",
+            "reason_id": "compute",
+            "matches_full_pair": true
+          }
+        ]
+      }
+    ]
+  },
+  "bounded_recommendations": [
+    "Clarify only the recovery question to distinguish most-direct completion evidence from relevant partial checks.",
+    "Retain both correctly matched s-choice answers and reject mismatched true reasons about the other proposal.",
+    "Preserve the capacity calculation, runtime-versus-sizing consequence, host-versus-guest verification and shared-plan memory consequence.",
+    "Reduce explicit answer repetition selectively if the stated goal extends beyond introductory guided practice.",
+    "Break the repeated decision/reason position cycle in authored order; avoid a broad engine redesign.",
+    "Keep claims about this review limited to agent-assessed foundational content quality."
+  ],
+  "answer_positions": [
+    {
+      "case_id": "b-capacity",
+      "valid_pairs": [
+        {
+          "decision_id": "add",
+          "reason_id": "capacity",
+          "decision_position": 2,
+          "reason_position": 3
+        }
+      ]
+    },
+    {
+      "case_id": "b-recovery",
+      "valid_pairs": [
+        {
+          "decision_id": "flow",
+          "reason_id": "end",
+          "decision_position": 1,
+          "reason_position": 1
+        }
+      ]
+    },
+    {
+      "case_id": "b-rule",
+      "valid_pairs": [
+        {
+          "decision_id": "scope",
+          "reason_id": "bounded",
+          "decision_position": 3,
+          "reason_position": 2
+        }
+      ]
+    },
+    {
+      "case_id": "b-template",
+      "valid_pairs": [
+        {
+          "decision_id": "review",
+          "reason_id": "inputs",
+          "decision_position": 2,
+          "reason_position": 3
+        }
+      ]
+    },
+    {
+      "case_id": "b-footprint",
+      "valid_pairs": [
+        {
+          "decision_id": "compare",
+          "reason_id": "utility",
+          "decision_position": 1,
+          "reason_position": 2
+        }
+      ]
+    },
+    {
+      "case_id": "b-estimate",
+      "valid_pairs": [
+        {
+          "decision_id": "usage",
+          "reason_id": "drivers",
+          "decision_position": 3,
+          "reason_position": 1
+        }
+      ]
+    },
+    {
+      "case_id": "s-driver",
+      "valid_pairs": [
+        {
+          "decision_id": "iaas",
+          "reason_id": "control",
+          "decision_position": 3,
+          "reason_position": 1
+        }
+      ]
+    },
+    {
+      "case_id": "s-patching",
+      "valid_pairs": [
+        {
+          "decision_id": "customer",
+          "reason_id": "guest",
+          "decision_position": 1,
+          "reason_position": 2
+        }
+      ]
+    },
+    {
+      "case_id": "s-runtime",
+      "valid_pairs": [
+        {
+          "decision_id": "fit",
+          "reason_id": "compatibility",
+          "decision_position": 2,
+          "reason_position": 3
+        }
+      ]
+    },
+    {
+      "case_id": "s-departure",
+      "valid_pairs": [
+        {
+          "decision_id": "access",
+          "reason_id": "tenant",
+          "decision_position": 3,
+          "reason_position": 1
+        }
+      ]
+    },
+    {
+      "case_id": "s-choice",
+      "valid_pairs": [
+        {
+          "decision_id": "iaas",
+          "reason_id": "os",
+          "decision_position": 1,
+          "reason_position": 3
+        },
+        {
+          "decision_id": "paas",
+          "reason_id": "platform",
+          "decision_position": 3,
+          "reason_position": 1
+        }
+      ]
+    },
+    {
+      "case_id": "s-plan",
+      "valid_pairs": [
+        {
+          "decision_id": "scaleup",
+          "reason_id": "compute",
+          "decision_position": 1,
+          "reason_position": 2
+        }
+      ]
+    }
+  ]
+}

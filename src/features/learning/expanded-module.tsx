@@ -16,6 +16,13 @@ import {
   manuscript,
   type Manuscript,
 } from '@/domain/curriculum/expansion-content';
+import {
+  AssessmentVersions,
+  RefinedAssessment,
+  RefinedHistory,
+  useHistoricalAssessment,
+} from './refined-assessment';
+import { refinedAssessmentNb } from '@/content/nb';
 import { useExpansion } from './expansion-provider';
 import { SavvyShark } from '@/features/course/savvy-shark';
 import { ResponsibilityExplorer } from '@/features/portal/responsibility';
@@ -510,6 +517,19 @@ function ResultView({
   );
 }
 function ExpandedAssessment({ track }: { track: Track }) {
+  const historical = useHistoricalAssessment(track);
+  return (
+    <>
+      <AssessmentVersions track={track} />
+      {historical ? (
+        <LegacyExpandedAssessment track={track} />
+      ) : (
+        <RefinedAssessment track={track} />
+      )}
+    </>
+  );
+}
+function LegacyExpandedAssessment({ track }: { track: Track }) {
   const { facts, store, ready, issue } = useExpansion(track),
     [help, setHelp] = useState(false),
     task = nb.expansion[track].assessment,
@@ -651,7 +671,9 @@ function ExpandedSummary({ track, technicalReady }: { track: Track; technicalRea
           ))}
         </tbody>
       </table>
-      <h3>{t.assessment}</h3>
+      <RefinedHistory track={track} />
+      <AssessmentVersions track={track} />
+      <h3>{refinedAssessmentNb.ui.legacy}</h3>
       {facts.submissions.length ? (
         facts.submissions.map((s) => (
           <p key={s.attempt}>

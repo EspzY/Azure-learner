@@ -5400,6 +5400,8 @@ export const managementNb = {
   accessReload: 'Les lagret vurderingskontekst på nytt',
   accessReview: 'Åpne egen vurdering og lagringskontroll',
   accessContexts: {
+    updatedBenefits: 'Oppdatert Benefits-vurdering',
+    updatedServices: 'Oppdatert Service Types-vurdering',
     migration: 'Storage Part C · File Movement',
     security: 'Security Part C',
     monitoring: 'Monitoring & Diagnostics',
@@ -5961,6 +5963,8 @@ export const missionsNb = {
   reloadContext: 'Last inn bare denne konteksten',
   reviewContext: 'Åpne kontekstens eksisterende recovery eller vurdering',
   recoveryContexts: {
+    updatedBenefits: 'Oppdatert Benefits-vurdering',
+    updatedServices: 'Oppdatert Service Types-vurdering',
     migration: 'Storage Part C · File Movement',
     security: 'Security Part C',
     monitoring: 'Monitoring & Diagnostics',
@@ -20180,5 +20184,695 @@ export const migrationItemsNb = {
     ],
     explain:
       'Hvis begge kontorene fortsatte med lokale endringer, ville en engangsjobb ikke erstatte hybridrelasjonen. Hvis alt innhold måtte være tilgjengelig frakoblet, måtte nødvendig lokal tilbakekalling undersøkes. Blob Hot/Cool/Cold/Archive endrer ikke denne Azure Files-cachemekanismen.',
+  },
+} as const;
+
+/** PR46: original, static presentation for versioned successor assessments. */
+export const refinedAssessmentNb = {
+  ui: {
+    bounded:
+      'Svarloggen har nådd grensen. Tidligere historikk er bevart. Lever de lagrede svarene eller avslutt et aktivt forsøk; nye svar og forsøk kan ikke registreres i denne vurderingsversjonen.',
+    title: 'Oppdatert vurdering',
+    legacy: 'Tidligere vurdering',
+    updated: 'Åpne oppdatert vurdering',
+    historical: 'Åpne tidligere vurdering',
+    intro:
+      'Tolk hver situasjon og velg både beslutning og faglig begrunnelse. Enkelte situasjoner kan ha flere forsvarlige par. Første innlevering bevares. Oppgavene vises først etter eksplisitt start.',
+    start: 'Start uassistert vurdering',
+    cancel: 'Avbryt',
+    confirm: 'Start vurderingen',
+    decision: 'Beslutning',
+    reason: 'Begrunnelse',
+    choose: 'Velg et alternativ',
+    submit: 'Lever vurderingen',
+    abandon: 'Avslutt uten innlevering',
+    help: 'Åpne repetisjon med registrert hjelp',
+    assisted: 'Hjelp er registrert for dette forsøket.',
+    unaided: 'Ingen registrert hjelp i dette forsøket.',
+    retry: 'Øvingsforsøk',
+    first: 'Første innlevering',
+    result: 'Registrert innlevering',
+    history: 'Vurderingshistorikk',
+    none: 'Ingen innlevering i den oppdaterte vurderingen ennå.',
+    replay:
+      'Tidligere vurderinger bruker sin opprinnelige oppgave og fasit. Nye resultater erstatter dem ikke.',
+    repeat: 'Repeter dette temaet',
+    correct: 'Beslutning og begrunnelse passer premissene.',
+    incorrect: 'Beslutning, begrunnelse eller tall passer ikke hele situasjonen.',
+    selected: 'Du valgte',
+    number: 'Tallsvaret ditt',
+    score: 'situasjoner med kompatible svar',
+    newAttempt: 'Start et nytt øvingsforsøk',
+    recovery:
+      'Vurderingen kan ikke registreres trygt. Last inn lagret historikk før du fortsetter.',
+    reload: 'Last inn lagret historikk',
+    clear: 'Fjern bare ugyldig oppdatert vurderingshistorikk',
+    conflict:
+      'Flere vurderingsversjoner er aktive. Velg hvilken du vil fortsette. Åpning av annet faglig innhold registrerer hjelp for aktive forsøk.',
+    resume: 'Fortsett aktiv vurdering',
+    abandoned: 'Avsluttet uten innlevering',
+    draft: 'Svarene lagres etter hver endring. Reload beholder det varig lagrede utkastet.',
+    feedback:
+      'Feedback vises først etter innlevering. Åpning av tidligere feedback under et aktivt forsøk registrerer hjelp.',
+    version: 'Oppgaveversjon',
+    active: 'Pågående vurdering',
+    blocked: 'En annen vurderingsversjon er aktiv. Fortsett den før du starter en ny.',
+    legacyLabel: 'Historiske resultater og den opprinnelige vurderingen',
+    summary: 'Til Summary',
+    record: 'Innleveringen ble ikke registrert. Kontroller lagringsstatus.',
+    numeric: 'Oppgi et heltall',
+    incomplete: 'Besvar både beslutning og begrunnelse i alle situasjoner før innlevering.',
+  },
+  items: {
+    benefits: [
+      {
+        id: 'b-capacity',
+        family: 'b-capacity',
+        variant: 'a',
+        title: 'Kampanje med fast kapasitet',
+        scenario:
+          'Fjordverk skal håndtere 37 forespørsler per sekund. Fire like instanser er allerede i drift.',
+        premises: [
+          'Hver instans behandler 8 forespørsler per sekund ved avtalt responstid.',
+          'Lasten kan fordeles jevnt. Ingen instans eller avhengighet har feilet.',
+        ],
+        question: 'Hvilket tiltak adresserer det dokumenterte kapasitetsgapet?',
+        decisions: [
+          {
+            id: 'route',
+            text: 'Endre rutingen mellom de fire eksisterende instansene.',
+          },
+          {
+            id: 'add',
+            text: 'Legge til en femte likeverdig instans i kapasitetspoolen.',
+          },
+          {
+            id: 'restore',
+            text: 'Øve på å gjenopprette de fire eksisterende instansene.',
+          },
+        ],
+        reasons: [
+          {
+            id: 'available',
+            text: 'Fire svarende instanser dokumenterer nødvendig kapasitet ved denne lasten.',
+          },
+          {
+            id: 'recover',
+            text: 'Gjenoppretting gir mer behandlingskapasitet i de eksisterende instansene.',
+          },
+          {
+            id: 'capacity',
+            text: 'Tilført kapasitet dekker gapet; dette tester ikke gjenoppretting ved feil.',
+          },
+        ],
+        number: {
+          prompt: 'Hvor mange forespørsler per sekund mangler dagens kapasitet?',
+          unit: 'forespørsler/s',
+        },
+      },
+      {
+        id: 'b-recovery',
+        family: 'b-recovery',
+        variant: 'a',
+        title: 'En bestilling etter gjenoppretting',
+        scenario:
+          'En øvelse har gjenopprettet Fjordverks ordredatabase. Nettfronten svarer, men den eksterne signeringstjenesten er utilgjengelig.',
+        premises: [
+          'En ordre må signeres før den regnes som fullført.',
+          'En avklart reserveflyt kan testes. Ingen ordre er ennå signert og fullført gjennom den.',
+        ],
+        question:
+          'Hvilken undersøkelse gir det mest direkte beviset for at den nødvendige ordreprosessen fungerer etter gjenopprettingen?',
+        decisions: [
+          {
+            id: 'flow',
+            text: 'Teste at én ordre signeres og fullføres gjennom den avklarte reserveflyten.',
+          },
+          {
+            id: 'front',
+            text: 'Teste frontendens svartider og sammenligne med kravene fra før hendelsen.',
+          },
+          {
+            id: 'database',
+            text: 'Kontrollere databasekopiene og bekrefte at de gjenopprettede ordrene er lesbare.',
+          },
+        ],
+        reasons: [
+          {
+            id: 'end',
+            text: 'Gjenopprettingskravet gjelder en fullført forretningsflyt med signeringsavhengigheten.',
+          },
+          {
+            id: 'latency',
+            text: 'Frontendens svartider er et relevant delbevis for brukeropplevelsen etter hendelsen.',
+          },
+          {
+            id: 'copies',
+            text: 'Lesbare kopier er et relevant delbevis for databasens tilstand etter gjenoppretting.',
+          },
+        ],
+      },
+      {
+        id: 'b-rule',
+        family: 'b-rule',
+        variant: 'a',
+        title: 'Hva kan en kontroll dokumentere?',
+        scenario:
+          'Fjordverks revisjon får en rapport som viser at ressursene følger en tildelt regel for tillatte regioner.',
+        premises: [
+          'Rapporten undersøker regionfeltet for de relevante ressursene.',
+          'Datatilganger og applikasjonskonfigurasjon inngår ikke i denne rapporten.',
+        ],
+        question: 'Hvilken konklusjon er faglig forsvarlig?',
+        decisions: [
+          {
+            id: 'access',
+            text: 'Rapporten underbygger regionkrav også for appenes eksterne dataavhengigheter.',
+          },
+          {
+            id: 'application',
+            text: 'Rapporten underbygger alle virksomhetens forpliktelser om datalokasjon.',
+          },
+          {
+            id: 'scope',
+            text: 'Rapporten underbygger regionkravet; andre sikkerhetskrav trenger egne kontroller.',
+          },
+        ],
+        reasons: [
+          {
+            id: 'identity',
+            text: 'Ressursregioner gir et tilstrekkelig bilde av hvor eksterne avhengigheter behandler data.',
+          },
+          {
+            id: 'bounded',
+            text: 'En avgrenset governance-kontroll dokumenterer det evaluerte konfigurasjonskravet.',
+          },
+          {
+            id: 'security',
+            text: 'Samsvar med en regionregel gir et tilstrekkelig bilde av virksomhetens datalokasjonskrav.',
+          },
+        ],
+      },
+      {
+        id: 'b-template',
+        family: 'b-template',
+        variant: 'a',
+        title: 'Samme definisjon, forskjellig resultat',
+        scenario:
+          'Fjordverk bruker én versjonskontrollert definisjon i tre miljøer. Ett miljø ble riktig, mens to fikk feil størrelse etter ulike parameterverdier.',
+        premises: [
+          'Definisjonen og parameterfilene kan gjennomgås før neste utrulling.',
+          'Applikasjonens funksjon er ennå ikke testet i de nye miljøene.',
+        ],
+        question: 'Hva er den mest målrettede neste handlingen?',
+        decisions: [
+          {
+            id: 'manual',
+            text: 'Konfigurere alle tre miljøene manuelt og ta vare på skjermbilder.',
+          },
+          {
+            id: 'review',
+            text: 'Gjennomgå parameterfilene, validere endringen og teste det utrullede resultatet.',
+          },
+          {
+            id: 'rerun',
+            text: 'Kjøre samme definisjon med de samme parameterfilene i alle tre miljøene igjen.',
+          },
+        ],
+        reasons: [
+          {
+            id: 'repeat',
+            text: 'Gjentatt kjøring med uendrede feil input korrigerer forskjellen mellom miljøene.',
+          },
+          {
+            id: 'record',
+            text: 'Skjermbilder erstatter behovet for en gjennomgått, gjentakbar konfigurasjon.',
+          },
+          {
+            id: 'inputs',
+            text: 'Automatisering gjentar deklarerte input; input og faktisk resultat må kontrolleres.',
+          },
+        ],
+      },
+      {
+        id: 'b-footprint',
+        family: 'b-footprint',
+        variant: 'a',
+        title: 'Lavere regning, lavere fotavtrykk?',
+        scenario:
+          'Fjordverks skyregning er redusert med 20 prosent. Samtidig har antallet behandlede ordrer falt med 50 prosent.',
+        premises: [
+          'Tjenestekvalitet og arbeidsmengde kan måles.',
+          'Energibruk og utslippsgrunnlag er ikke undersøkt.',
+        ],
+        question: 'Hvordan bør bærekraftspåstanden undersøkes?',
+        decisions: [
+          {
+            id: 'compare',
+            text: 'Sammenligne fotavtrykk per levert ordre ved tilsvarende tjenestekvalitet.',
+          },
+          {
+            id: 'spend',
+            text: 'Sammenligne månedskostnad før og etter med korrigering for prisendringer.',
+          },
+          {
+            id: 'count',
+            text: 'Sammenligne antall aktive ressurser før og etter med lik måleperiode.',
+          },
+        ],
+        reasons: [
+          {
+            id: 'cost',
+            text: 'Prisjustering gjør sammenligningen mindre påvirket av endringer i prisnivået.',
+          },
+          {
+            id: 'utility',
+            text: 'Nytte og kvalitet må knyttes til et relevant energi- og utslippsgrunnlag.',
+          },
+          {
+            id: 'volume',
+            text: 'Antall aktive ressurser viser størrelsen på den registrerte ressurslisten.',
+          },
+        ],
+      },
+      {
+        id: 'b-estimate',
+        family: 'b-estimate',
+        variant: 'a',
+        title: 'Et kvartal med varierende bruk',
+        scenario:
+          'Fjordverk kjenner grunnkonfigurasjonen, men antall transaksjoner og utgående datamengde varierer gjennom kvartalet.',
+        premises: [
+          'En prognose skal brukes til budsjettplanlegging.',
+          'Teamet har historisk bruk, forventet vekst og kjente prisforutsetninger.',
+        ],
+        question: 'Hvilken tilnærming gir den best begrunnede prognosen?',
+        decisions: [
+          {
+            id: 'budget',
+            text: 'Fremskrive forrige faktura med prisjustering, uten å modellere forventet vekst.',
+          },
+          {
+            id: 'sla',
+            text: 'Beregne instanstimer for grunnkonfigurasjonen og utelate variable bruksposter.',
+          },
+          {
+            id: 'usage',
+            text: 'Modellere forventet bruk, priser og usikkerhet for faste og variable poster.',
+          },
+        ],
+        reasons: [
+          {
+            id: 'drivers',
+            text: 'Bruksdriverne forklarer kostnadsanslaget; senere faktisk bruk kan avvike.',
+          },
+          {
+            id: 'limit',
+            text: 'Historisk faktura viser kostnader som faktisk påløp i en målt periode.',
+          },
+          {
+            id: 'uptime',
+            text: 'Grunnkonfigurasjonen viser hvilke instanser som inngår i basisoppsettet.',
+          },
+        ],
+      },
+    ],
+    services: [
+      {
+        id: 's-driver',
+        family: 's-driver',
+        variant: 'a',
+        title: 'Et leverandørkrav i operativsystemet',
+        scenario:
+          'Et produksjonsverktøy krever en leverandørgodkjent driver installert i gjesteoperativsystemet.',
+        premises: [
+          'Fjordverk må kunne installere og oppdatere denne driveren.',
+          'Teamet vurderer en Azure-VM, Azure App Service og et ferdig SaaS-produkt.',
+        ],
+        question: 'Hvilken modell møter det oppgitte kontrollbehovet?',
+        decisions: [
+          {
+            id: 'paas',
+            text: 'En administrert applikasjonsplattform med leverandørstyrt operativsystem.',
+          },
+          {
+            id: 'saas',
+            text: 'Et ferdig program med leverandørstyrt applikasjons- og operativsystemmiljø.',
+          },
+          {
+            id: 'iaas',
+            text: 'En virtuell maskin med kundestyrt gjesteoperativsystem og driverinstallasjon.',
+          },
+        ],
+        reasons: [
+          {
+            id: 'platform',
+            text: 'Leverandørens ansvar for plattform-OS gir kunden rett til å installere gjestedriveren.',
+          },
+          {
+            id: 'control',
+            text: 'Kunden trenger kontroll over gjeste-OS og beholder ansvar for dette programvaremiljøet.',
+          },
+          {
+            id: 'software',
+            text: 'Brukeradministrasjon i et ferdig program gir kunden kontroll over programmets gjeste-OS.',
+          },
+        ],
+      },
+      {
+        id: 's-patching',
+        family: 's-patching',
+        variant: 'a',
+        title: 'Verten er vedlikeholdt',
+        scenario:
+          'Microsoft har vedlikeholdt den fysiske verten for en av Fjordverks Azure-VM-er. Gjeste-OS har fortsatt en utestående sikkerhetsoppdatering.',
+        premises: [
+          'Dette er IaaS. Fjordverk administrerer VM-ens gjesteoperativsystem.',
+          'En vedlikeholdsmelding beskriver arbeid på verten, ikke installasjon i gjesten.',
+        ],
+        question: 'Hvem må sørge for at gjesteoppdateringen håndteres?',
+        decisions: [
+          {
+            id: 'customer',
+            text: 'Følge opp gjesteoppdateringen og verifisere det registrerte oppdateringsnivået.',
+          },
+          {
+            id: 'provider',
+            text: 'Avvente neste vertvedlikehold før gjestens oppdateringsbehov vurderes på nytt.',
+          },
+          {
+            id: 'vendor',
+            text: 'Oppdatere applikasjonen og bruke dens funksjonstest til å avslutte vedlikeholdssaken.',
+          },
+        ],
+        reasons: [
+          {
+            id: 'host',
+            text: 'Fysisk vertvedlikehold reduserer risiko fra leverandørens infrastruktur.',
+          },
+          {
+            id: 'ui',
+            text: 'Appoppdatering og funksjonstest undersøker feil i applikasjonens egen kode.',
+          },
+          {
+            id: 'guest',
+            text: 'Kundens gjeste-OS-ansvar gjenstår selv om leverandørens fysiske vert er vedlikeholdt.',
+          },
+        ],
+      },
+      {
+        id: 's-runtime',
+        family: 's-runtime',
+        variant: 'a',
+        title: 'Ny utgave endrer forutsetningene',
+        scenario:
+          'En webapp kjører på en støttet PaaS-runtime. Neste leverandørutgave krever en runtime som dette tilbudet ikke støtter.',
+        premises: [
+          'Teamet har ikke testet den nye apputgaven i noe annet Azure-hostingmiljø.',
+          'Det er mulig å undersøke en støttet apputgave eller et annet hostingmiljø.',
+        ],
+        question: 'Hva bør Fjordverk gjøre før oppgradering?',
+        decisions: [
+          {
+            id: 'size',
+            text: 'Øke instansstørrelsen og beholde den planlagte runtime- og appkombinasjonen.',
+          },
+          {
+            id: 'fit',
+            text: 'Verifisere en støttet app- og hostingkombinasjon før den nye utgaven tas i bruk.',
+          },
+          {
+            id: 'group',
+            text: 'Rulle ut på dagens plattform og bruke akseptert utrulling som kompatibilitetstest.',
+          },
+        ],
+        reasons: [
+          {
+            id: 'scope',
+            text: 'En utrullingskvittering dokumenterer behandlingen av ressurskonfigurasjonen.',
+          },
+          {
+            id: 'capacity',
+            text: 'Større instanser gir flere ressurser til beregningskrevende applikasjoner.',
+          },
+          {
+            id: 'compatibility',
+            text: 'Runtime-støtte er et kompatibilitetskrav som må undersøkes før produksjonsbruk.',
+          },
+        ],
+      },
+      {
+        id: 's-departure',
+        family: 's-departure',
+        variant: 'a',
+        title: 'En ekstern konsulent slutter',
+        scenario:
+          'Fjordverk bruker en ferdig SaaS-tjeneste for prosjektarbeid. En konsulent slutter, men har fortsatt konto og delte dokumenter i tjenesten.',
+        premises: [
+          'Leverandøren drifter applikasjonen og dens operativsystem.',
+          'Delte prosjektdokumenter må fortsatt være tilgjengelige for de gjenværende medarbeiderne.',
+        ],
+        question: 'Hvilken oppfølging ligger hos Fjordverk?',
+        decisions: [
+          {
+            id: 'patch',
+            text: 'Planlegge oppdatering av tjenestens operativsystem og applikasjonsserver.',
+          },
+          {
+            id: 'capacity',
+            text: 'Endre leverandørens serverkapasitet og nettverkskonfigurasjon.',
+          },
+          {
+            id: 'access',
+            text: 'Avslutte relevant tilgang og gjennomgå deling, dataeierskap og bevaring.',
+          },
+        ],
+        reasons: [
+          {
+            id: 'tenant',
+            text: 'SaaS reduserer driftsansvar, men kundens bruker-, delings- og dataansvar gjenstår.',
+          },
+          {
+            id: 'ops',
+            text: 'Leverandørens applikasjonsdrift overtar også kundens beslutninger om ansattes tilgang.',
+          },
+          {
+            id: 'servers',
+            text: 'Kundens brukeradministrasjon omfatter vedlikehold av leverandørens applikasjonsservere.',
+          },
+        ],
+      },
+      {
+        id: 's-choice',
+        family: 's-choice',
+        variant: 'a',
+        title: 'To gjennomførbare forslag',
+        scenario:
+          'Fjordverk trenger en egen webapplikasjon. To forslag er teknisk gjennomgått: en VM-løsning og en administrert applikasjonsplattform.',
+        premises: [
+          'Begge støtter applikasjonen og de dokumenterte skaleringskravene.',
+          'Teamet kan drifte gjeste-OS, men kan også velge å bruke en administrert plattform.',
+          'Ingen særskilt OS-kontroll, prisrangering eller krav om lavest driftsarbeid er fastsatt.',
+          'Den eksisterende egenkoden skal videreføres. Et ferdig SaaS-program gir ikke et vertsmiljø for denne koden.',
+        ],
+        question:
+          'Velg et forsvarlig forslag og en begrunnelse som passer akkurat dette forslaget.',
+        decisions: [
+          {
+            id: 'iaas',
+            text: 'Velge VM-forslaget med kundedrift av gjeste-OS, runtime og applikasjon.',
+          },
+          {
+            id: 'saas',
+            text: 'Velge et ferdig SaaS-program som støtte for den eksisterende egenkoden.',
+          },
+          {
+            id: 'paas',
+            text: 'Velge plattformforslaget med leverandørdrift av appplattformens OS og runtime.',
+          },
+        ],
+        reasons: [
+          {
+            id: 'platform',
+            text: 'Leverandøren drifter appplattformens OS og runtime; kunden håndterer egen app og data.',
+          },
+          {
+            id: 'software',
+            text: 'Leverandøren drifter den ferdige appen; kunden kan derfor videreføre sin egenkode der.',
+          },
+          {
+            id: 'os',
+            text: 'Kunden drifter VM-ens gjeste-OS, runtime og app og har kompetanse til dette ansvaret.',
+          },
+        ],
+      },
+      {
+        id: 's-plan',
+        family: 's-plan',
+        variant: 'a',
+        title: 'Én instans trenger mer minne',
+        scenario:
+          'To App Service-apper deler en dedikert App Service Plan. En jobb i én app trenger mer minne i samme instans.',
+        premises: [
+          'Planens nåværende instansstørrelse er for liten for jobben.',
+          'En større støttet SKU har nok minne per instans. Jobben kjøres i én prosess.',
+          'Begge apper skal fortsatt dele planen.',
+        ],
+        question: 'Hvilken endring møter det oppgitte minnebehovet?',
+        decisions: [
+          {
+            id: 'scaleup',
+            text: 'Velge en større støttet instansstørrelse for den delte planen.',
+          },
+          {
+            id: 'scaleout',
+            text: 'Øke antall instanser og fordele planens samlede kapasitet over dem.',
+          },
+          {
+            id: 'resourcegroup',
+            text: 'Endre bare appens konfigurasjon for minne, med uendret planstørrelse.',
+          },
+        ],
+        reasons: [
+          {
+            id: 'compute',
+            text: 'Planstørrelsen gir instansressursene; begge appene deler den endrede kapasiteten.',
+          },
+          {
+            id: 'spread',
+            text: 'Flere instanser gir mer samlet kapasitet til arbeid i parallelle prosesser.',
+          },
+          {
+            id: 'container',
+            text: 'Appkonfigurasjonen kan begrense hvor mye av kapasiteten en app får bruke.',
+          },
+        ],
+      },
+    ],
+  },
+  feedback: {
+    'b-capacity': {
+      pairs: [['add', 'capacity']],
+      explain:
+        '4 × 8 = 32. Gapet er 37 − 32 = 5 forespørsler per sekund. En ekstra instans gir samlet 40 under de oppgitte premissene. Ruting alene gir ikke mer kapasitet når lasten allerede fordeles jevnt. En gjenopprettingsøvelse undersøker en annen egenskap.',
+      counter:
+        'Ved skjev lastfordeling kunne endret ruting vært relevant. Ved feil måtte tilgjengelighet og gjenoppretting undersøkes separat.',
+      repeat: '/learn/benefits?topic=availability',
+      objectives: ['1.2.01'],
+      sources: ['benefits-availability'],
+    },
+    'b-recovery': {
+      pairs: [['flow', 'end']],
+      explain:
+        'Nettfront og database gir delbevis. Kravet gjelder en fullført, signert ordre. Reserveflyten må faktisk demonstrere dette; bare mottak i en kø eller et løfte om senere behandling er ikke nok. Svartidstester og lesbare kopier er nyttige kontroller, men dekker ikke den fortsatt uverifiserte signeringsavhengigheten.',
+      counter:
+        'Hvis signering ikke var et krav for å fullføre en ordre, ville denne avhengigheten hatt en annen betydning for akseptansetesten.',
+      repeat: '/learn/benefits?topic=reliability',
+      objectives: ['1.2.02'],
+      sources: ['benefits-reliability', 'reliability'],
+    },
+    'b-rule': {
+      pairs: [['scope', 'bounded']],
+      explain:
+        'Rapporten støtter den evaluerte regionregelen for de relevante ressursene. Den kartlegger ikke eksterne avhengigheter eller alle virksomhetens juridiske og tekniske krav til data. Brukertilgang og appkonfigurasjon må også undersøkes separat. En avgrenset governance-kontroll er ikke samlet sikkerhets- eller compliance-bevis.',
+      counter:
+        'Hvis rapporten også omfattet verifiserte tilgangskontroller, kunne den støtte en mer omfattende, fortsatt avgrenset konklusjon.',
+      repeat: '/learn/benefits?topic=governance',
+      objectives: ['1.2.03'],
+      sources: ['benefits-governance'],
+    },
+    'b-template': {
+      pairs: [['review', 'inputs']],
+      explain:
+        'Gjentakbarhet hjelper manageability, men gjentar også feil parameterverdier. Review, validering og etterkontroll adresserer den observerte årsaken. Uendret omkjøring beholder feilen; manuell konfigurering kan være nødvendig i andre situasjoner, men gir her mer drift og mindre kontrollert gjentakelse.',
+      counter:
+        'Ved en engangsendring uten støttet automatisering kunne en kontrollert manuell prosess vært forsvarlig. Det fritar ikke fra verifikasjon.',
+      repeat: '/learn/benefits?topic=management',
+      objectives: ['1.2.04'],
+      sources: ['benefits-management'],
+    },
+    'b-footprint': {
+      pairs: [['compare', 'utility']],
+      explain:
+        'Mål nytte og kvalitet sammen med relevant fotavtrykksgrunnlag. Kostnad korrigert for prisendring og antall aktive ressurser kan være støtteinformasjon, men er ikke direkte mål på energi eller utslipp. Færre ressurser kan være større eller ha en annen belastning. Lavere aktivitet må skilles fra bedre effektivitet.',
+      counter:
+        'Hvis et egnet utslippsgrunnlag viste lavere utslipp for samme nytte og kvalitet, ville en forbedringspåstand hatt et bedre bevisgrunnlag.',
+      repeat: '/learn/benefits?topic=sustainability',
+      objectives: ['1.2.05'],
+      sources: ['benefits-sustainability', 'sustainability'],
+    },
+    'b-estimate': {
+      pairs: [['usage', 'drivers']],
+      explain:
+        'Et anslag trenger de kostnadsdriverne som er relevante i situasjonen. Historisk faktura og grunnkonfigurasjon er nyttige utgangspunkt, men alene utelater de oppgitt vekst, transaksjoner eller datatrafikk. Et dokumentert anslag viser pris- og bruksforutsetninger og usikkerhet. Det er ikke en fastsettelse av fremtidig faktura.',
+      counter:
+        'Med helt fast faktureringsavtale og uendret omfang kunne variasjonen i noen kostnadsdrivere hatt mindre betydning.',
+      repeat: '/learn/benefits?topic=reliability',
+      objectives: ['1.2.02'],
+      sources: ['benefits-reliability'],
+    },
+    's-driver': {
+      pairs: [['iaas', 'control']],
+      explain:
+        'IaaS gir den nødvendige kontrollen over gjesteoperativsystemet. Kunden må fortsatt håndtere relevant OS-, driver- og applikasjonsvedlikehold. De beskrevne PaaS- og SaaS-tilbudene dekker ikke driverkravet.',
+      counter:
+        'Uten behov for gjeste-OS-kontroll og med støttet runtime kunne PaaS redusere plattformansvaret.',
+      repeat: '/learn/services?topic=iaas&version=2',
+      objectives: ['1.3.01'],
+      sources: ['services-iaas', 'responsibility'],
+    },
+    's-patching': {
+      pairs: [['customer', 'guest']],
+      explain:
+        'Fjordverk beholder gjeste-OS-ansvaret i IaaS. Vertvedlikehold er ikke bevis for gjesteoppdatering. En fungerende applikasjon kan fortsatt kjøre på et OS som mangler oppdateringen. Oppdateringen kan gjennomføres manuelt eller gjennom en egnet automatisert tjeneste; ansvar og verifikasjon gjenstår.',
+      counter:
+        'På en relevant PaaS-plattform håndterer leverandøren plattformens OS, mens kunden fortsatt har ansvar for egen applikasjon og konfigurasjon.',
+      repeat: '/learn/services?topic=iaas&version=2',
+      objectives: ['1.3.01'],
+      sources: ['services-iaas', 'responsibility'],
+    },
+    's-runtime': {
+      pairs: [['fit', 'compatibility']],
+      explain:
+        'En støttet apputgave eller annen verifisert hosting kan være relevant. Kombinasjonen må først avklares og testes. Mer kapasitet endrer ikke runtime-støtten. En akseptert utrulling viser en management-hendelse, ikke at appen kjører riktig i det nye runtime-miljøet.',
+      counter:
+        'Hvis runtime allerede var støttet og problemet var dokumentert ressursmangel, kunne en kapasitetsendring vært relevant.',
+      repeat: '/learn/services?topic=paas&version=2',
+      objectives: ['1.3.02'],
+      sources: ['services-paas'],
+    },
+    's-departure': {
+      pairs: [['access', 'tenant']],
+      explain:
+        'Fjordverk må håndtere konsulentens tilgang og sine data. SaaS-leverandørens drift av OS og applikasjon betyr ikke at leverandøren kjenner Fjordverks offboarding- og bevaringsbehov. Serverkapasitet og OS-oppdatering er ikke den målrettede handlingen her.',
+      counter:
+        'I en egen IaaS-løsning ville Fjordverk i tillegg ha ansvar for sitt gjeste-OS og applikasjonsmiljø.',
+      repeat: '/learn/services?topic=saas&version=2',
+      objectives: ['1.3.03'],
+      sources: ['services-saas', 'responsibility'],
+    },
+    's-choice': {
+      pairs: [
+        ['iaas', 'os'],
+        ['paas', 'platform'],
+      ],
+      explain:
+        'Både den gjennomgåtte IaaS- og PaaS-løsningen er forsvarlig under disse kravene, men ansvarsbegrunnelsen må passe valget. IaaS gir gjeste-OS-ansvar; PaaS avlaster plattformdrift, men beholder kundens app- og dataansvar. Det beskrevne SaaS-programmet støtter ikke egenappen.',
+      counter:
+        'Et nytt krav om en bestemt gjestedriver kunne gjøre VM nødvendig. Et krav om minst mulig OS-drift kunne favorisere den støttede PaaS-løsningen.',
+      repeat: '/learn/services?topic=selection&version=2',
+      objectives: ['1.3.01', '1.3.02', '1.3.03'],
+      sources: ['services-iaas', 'services-paas', 'services-saas'],
+    },
+    's-plan': {
+      pairs: [['scaleup', 'compute']],
+      explain:
+        'Scale up av planen gir større instansressurser under de oppgitte SKU-premissene. Begge apper deler kapasiteten, så endringen må vurderes for begge. Scale out gir flere instanser, men ikke mer minne i én instans. En appgrense kan ikke gi mer fysisk kapasitet enn planen tilbyr.',
+      counter:
+        'Hvis jobben kunne deles mellom instanser, kunne scale out blitt et relevant alternativ. En endring i planen er ikke bevis for at jobben deretter fungerer.',
+      repeat: '/learn/services?topic=practice&version=2',
+      objectives: ['1.3.02'],
+      sources: ['plan'],
+    },
   },
 } as const;

@@ -393,3 +393,27 @@
     transition: none;
   }
 }
+
+/* Versioned paired assessment only; legacy forms retain their presentation. */
+.expanded-assessment [data-refined-item] {
+  min-width: 0;
+  scroll-margin-top: 88px;
+  margin: 28px 0;
+  padding: 20px;
+  border: 1px solid #cadbe7;
+  border-radius: 8px;
+}
+.expanded-assessment [data-refined-item] legend {
+  padding: 0 8px;
+  font-weight: 700;
+}
+.expanded-assessment [data-refined-item] label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 16px 0;
+}
+.expanded-assessment [data-refined-item] select {
+  width: 100%;
+  max-width: 100%;
+}

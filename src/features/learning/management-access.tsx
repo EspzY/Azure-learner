@@ -1,4 +1,12 @@
 'use client';
+import { useRefined } from './refined-assessment-provider';
+import { RefinedRecovery } from './refined-assessment';
+import {
+  refinedKeys,
+  refinedFacts,
+  restoreRefined,
+  refinedHref,
+} from '@/domain/curriculum/refined-assessment';
 import { useMigration } from '@/features/learning/migration-provider';
 import { migrationHref } from '@/domain/curriculum/migration';
 import { MigrationRecovery } from './migration';
@@ -206,7 +214,27 @@ export function ManagementTeachingBoundary({
     monitoringState = useMonitoring(),
     securityState = useSecurity(),
     migrationState = useMigration();
+  const updatedBenefits = useRefined('benefits'),
+    updatedServices = useRefined('services');
   const checks = [
+    check(
+      'updatedBenefits',
+      updatedBenefits,
+      refinedKeys.benefits,
+      (raw) => restoreRefined('benefits', raw),
+      refinedFacts,
+      () => updatedBenefits.store.event({ kind: 'aid' }),
+      refinedHref('benefits'),
+    ),
+    check(
+      'updatedServices',
+      updatedServices,
+      refinedKeys.services,
+      (raw) => restoreRefined('services', raw),
+      refinedFacts,
+      () => updatedServices.store.event({ kind: 'aid' }),
+      refinedHref('services'),
+    ),
     check(
       'migration',
       migrationState,
@@ -405,7 +433,7 @@ export function ManagementTeachingBoundary({
       (raw) => restoreExpansion('benefits', raw),
       expansionFacts,
       () => benefits.store.event({ kind: 'aid' }),
-      '/learn/benefits?topic=assessment',
+      refinedHref('benefits', true),
     ),
     check(
       'services',
@@ -414,7 +442,7 @@ export function ManagementTeachingBoundary({
       (raw) => restoreExpansion('services', raw),
       expansionFacts,
       () => services.store.event({ kind: 'aid' }),
-      '/learn/services?topic=assessment&version=2',
+      refinedHref('services', true),
     ),
     check(
       'practical',
@@ -436,6 +464,10 @@ export function ManagementTeachingBoundary({
     (item) =>
       item.id !== assessment &&
       (!only ||
+        ((assessment === 'updatedBenefits' || assessment === 'updatedServices') &&
+          ['benefits', 'services'].includes(item.id)) ||
+        item.id === 'updatedBenefits' ||
+        item.id === 'updatedServices' ||
         item.id === 'missions' ||
         item.id === 'transfer' ||
         item.id === 'cost' ||
@@ -500,6 +532,8 @@ export function ManagementTeachingBoundary({
               <Link href={item.href}>
                 {c.accessReview} · {c.accessContexts[item.id]}
               </Link>
+              {item.id === 'updatedBenefits' && <RefinedRecovery track="benefits" />}
+              {item.id === 'updatedServices' && <RefinedRecovery track="services" />}
               {item.id === 'management' && <ManagementRecovery />}
               {item.id === 'physical' && <PhysicalRecovery />}
               {item.id === 'missions' && <MissionRecovery />}

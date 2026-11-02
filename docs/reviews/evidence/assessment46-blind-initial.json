@@ -1,0 +1,596 @@
+{
+  "review_type": "independent_blind_agent_review",
+  "review_status": "LOCKED_BEFORE_ANY_KEY_EXPOSURE",
+  "created_utc": "2026-11-02T08:44:10.876236+00:00",
+  "input_path": "/workspace/azurelab-pr46/blind-candidate.json",
+  "input_sha256": "a1ad9b02788d30a21ffac1e4067741c76dfc0df230a53c2ec54e34f43aee96f3",
+  "permitted_input_read": ["/workspace/azurelab-pr46/blind-candidate.json"],
+  "source_access_attestation": {
+    "candidate_only": true,
+    "answer_keys_seen": false,
+    "rubrics_seen": false,
+    "repository_or_source_inspected": false,
+    "author_analysis_or_feedback_seen": false,
+    "other_files_read": false
+  },
+  "limits": [
+    "This is an independent agent content review, not human subject-matter-expert approval or psychometric validation.",
+    "No response data, scoring implementation, accepted-answer set, translation baseline or original learning-outcome specification was available. Unfair-rejection findings therefore identify prospective scoring requirements, not observed implementation defects.",
+    "Correctness is assessed against the explicit packet premises. Unstated production constraints do not become alternative answers merely because they can exist in real deployments."
+  ],
+  "overall_judgment": {
+    "content": "All 12 cases admit at least one technically defensible decision/reason pair. Eleven have one clear pair under ordinary technical readings. s-choice clearly admits two equally defensible pairs and also has a narrower wording-dependent cross-pair ambiguity.",
+    "difficulty_and_validity": "The scenarios generally distinguish real responsibilities, evidence scope, capacity, compatibility and shared-plan effects. However, many distractors are explicitly contradicted by premises or assert implausible category equivalences. The packet is credible for foundational guided practice; success alone would provide weak evidence of deeper operational judgment.",
+    "priority_revisions": [
+      "Clarify s-choice/platform to identify provider management of the managed app platform runtime/OS, or explicitly tolerate a justified iaas/platform interpretation. Both iaas/os and paas/platform must remain equally acceptable.",
+      "Make selected distractors reflect plausible partial reasoning instead of blanket false equivalences, especially b-estimate, s-patching, s-runtime and the explicitly unsupported s-choice SaaS proposal.",
+      "Keep the distinction between demonstrated eventual completion and mere queue acceptance clear in b-recovery."
+    ],
+    "unqualified_release_claim": "This review does not justify saying the assessment is unambiguous in every pairing, psychometrically validated, or human-SME approved."
+  },
+  "global_observations": [
+    {
+      "topic": "defensible_alternatives",
+      "finding": "The important clear alternative is s-choice: iaas/os and paas/platform. Their equal validity follows from the stated absence of a ranking objective, not from accepting any arbitrary pair. A wording-dependent iaas/platform interpretation also deserves attention."
+    },
+    {
+      "topic": "position_cues",
+      "finding": "There is no simple all-first/all-last answer-position pattern. Counting both clear s-choice decision alternatives gives five valid positions at 1, three at 2 and five at 3 across 13 clear decision choices. Selecting iaas/os yields primary decision positions 5/3/4 and reason positions 4/4/4. These small descriptive counts are not a psychometric finding."
+    },
+    {
+      "topic": "length_cues",
+      "finding": "The selected correct decision is uniquely longest by character count in 9 of 12 cases; this count is unchanged if s-choice uses its other clear answer. Most margins are only 1–4 characters, so raw counts overstate a visual clue. The more conspicuous gaps are b-recovery and b-footprint. Correct reasons are not uniformly longest: only 3/12 with primary iaas/os, or 4/12 with paas/platform. A longest-answer strategy is imperfect but the constructive, qualified phrasing remains a recurring cue."
+    },
+    {
+      "topic": "reasoning_cues",
+      "finding": "Correct responses often mention validation, scope, documented assumptions or customer responsibility. Incorrect responses often claim an unrelated control automatically establishes the whole result, or that one actor’s maintenance transfers all responsibilities. This favors test-wise rejection of overclaims even with modest domain knowledge."
+    },
+    {
+      "topic": "distractor_realism",
+      "finding": "Some wrong actions are reasonable supplementary work, such as recovery practice, database validation or a frontend load test, but their supplied reasons are grossly overclaimed. This makes the paired task easy to solve from the reason wording and limits measurement of realistic prioritization."
+    },
+    {
+      "topic": "local_dependence",
+      "finding": "s-runtime and s-plan both use a Resource Group as an obviously incorrect way to change compute/runtime capability. Once a student recognizes the misconception in one item, that learning helps with the other; consider this when interpreting independent coverage."
+    },
+    {
+      "topic": "language",
+      "finding": "The Norwegian is understandable and generally precise. Some technical register is mixed: “governance”, “runtime”, “input”, “SKU”, “Resource Group”, “IaaS”, “PaaS” and “SaaS”. This is common in Azure contexts but can add language load. Define terms consistently for the intended learner level, especially “plattformmiljøet”, “gjenopptakingsflyt” and “likeverdig levert nytte”. There are no conspicuous grammatical defects that independently reveal answers."
+    },
+    {
+      "topic": "consequence_awareness",
+      "finding": "The best responses usually address a genuine technical consequence. Costs, restarts, idempotency, actual driver compatibility and tenant offboarding details are sensible implementation follow-ups; they are not additional unstated requirements that invalidate the offered best response."
+    },
+    {
+      "topic": "fairness",
+      "finding": "No clear alternative to the main pair is unjustly excluded by the item text in the other eleven cases. Partial tasks can be sensible in a broader program but do not make their false paired reasons valid. Grading must preserve the s-choice alternatives and avoid treating legitimate implementation delegation or eventual-flow caveats as incorrect concepts."
+    }
+  ],
+  "answers_and_findings": [
+    {
+      "case_id": "b-capacity",
+      "selected_answer": {
+        "decision_id": "add",
+        "reason_id": "capacity",
+        "numeric_answer": {
+          "value": 5,
+          "unit": "forespørsler/s",
+          "calculation": "37 - (4 * 8) = 5"
+        }
+      },
+      "academically_defensible_pairs": [
+        {
+          "decision_id": "add",
+          "reason_id": "capacity",
+          "status": "clearly_defensible"
+        }
+      ],
+      "reasoning": "The four healthy instances provide 4 * 8 = 32 requests/s at the agreed response time. Demand is 37, leaving a shortfall of 5 requests/s. A fifth equal instance raises the stated aggregate capacity to 40 requests/s and addresses that documented gap.",
+      "distractor_assessment": [
+        "route does not add processing capacity when load can already be distributed evenly; available falsely equates responding instances with sufficient throughput.",
+        "restore is a useful resilience exercise in another context, but no instance or dependency has failed. recover falsely says restoration adds capacity to these existing healthy instances."
+      ],
+      "ambiguity_assessment": "Low ambiguity under the stated linear-capacity and even-distribution assumptions. The question asks for missing capacity, not the minimum number of instances to add, so the numeric answer is 5 rather than 1.",
+      "realistic_technical_consequences": [
+        "The resulting stated headroom is 3 requests/s. Real production sizing would also consider variability and safety margin, but these are not supplied and do not make another offered answer preferable.",
+        "Recovery practice would not close this throughput deficit."
+      ],
+      "language_and_cue_assessment": [
+        "Decision lengths are closely matched. capacity explicitly contrasts capacity with recovery, providing a useful but fairly direct conceptual cue."
+      ],
+      "unfair_rejection_risks": []
+    },
+    {
+      "case_id": "b-recovery",
+      "selected_answer": {
+        "decision_id": "flow",
+        "reason_id": "end"
+      },
+      "academically_defensible_pairs": [
+        {
+          "decision_id": "flow",
+          "reason_id": "end",
+          "status": "clearly_defensible"
+        }
+      ],
+      "reasoning": "An order is complete only after signing. Database restoration and a responsive frontend do not establish that this business operation can finish while the signing dependency is unavailable. The selected action directly tests an agreed signing or resume path through completion.",
+      "distractor_assessment": [
+        "front can establish frontend concurrency behavior, but latency does not establish signing or end-to-end completion.",
+        "database can provide useful database validation in a wider recovery suite, but copies cannot certify an unavailable external signing service."
+      ],
+      "ambiguity_assessment": "Minor terminology risk: “gjenopptakingsflyt” must mean a demonstrated path to eventual successful signing/completion, not merely enqueueing an order indefinitely. The decision says “kan fullføres”, which supports the stricter interpretation. If recovery means immediately completing orders during the outage, a future resume promise alone is insufficient.",
+      "realistic_technical_consequences": [
+        "A meaningful test should exercise the dependency or a supported alternative, and verify resumed work actually signs and completes without loss or duplication.",
+        "Testing unrelated frontend throughput could leave an unusable order process labelled recovered."
+      ],
+      "language_and_cue_assessment": [
+        "The best decision is 21–22 characters longer than the alternatives and uniquely mentions order completion and a resolved workflow. The scenario already identifies the missing dependency."
+      ],
+      "unfair_rejection_risks": [
+        "Do not reject a student explanation that says restoration cannot yet be claimed until the queue/resume route actually demonstrates successful completion. This is consistent with flow/end. There is no equally supported alternative offered pair."
+      ]
+    },
+    {
+      "case_id": "b-rule",
+      "selected_answer": {
+        "decision_id": "scope",
+        "reason_id": "bounded"
+      },
+      "academically_defensible_pairs": [
+        {
+          "decision_id": "scope",
+          "reason_id": "bounded",
+          "status": "clearly_defensible"
+        }
+      ],
+      "reasoning": "The report evaluated the region field against an assigned allowed-region rule. It supports that specific configuration finding; it contains no evidence about user authorization or application security settings.",
+      "distractor_assessment": [
+        "access/identity conflate geographical resource placement with authorization.",
+        "application/security extend a region-only evaluation to unexamined application security settings. Both alternative conclusions exceed the supplied evidence."
+      ],
+      "ambiguity_assessment": "Low ambiguity. “Andre sikkerhetskrav trenger egne kontroller” is sound scope limitation; “egne” need not mean one separate tool per requirement. The report establishes compliance with this stated region rule, not every possible residency or sovereignty claim.",
+      "realistic_technical_consequences": [
+        "A resource can be in an allowed region while having excessive permissions or unsafe application settings.",
+        "Additional evidence is necessary before an overall security or compliance approval."
+      ],
+      "language_and_cue_assessment": [
+        "All choices are reasonably close in length. The bounded/scope option uses restrained language while the others make conspicuously broad equivalences; a test-wise student can exploit this."
+      ],
+      "unfair_rejection_risks": []
+    },
+    {
+      "case_id": "b-template",
+      "selected_answer": {
+        "decision_id": "review",
+        "reason_id": "inputs"
+      },
+      "academically_defensible_pairs": [
+        {
+          "decision_id": "review",
+          "reason_id": "inputs",
+          "status": "clearly_defensible"
+        }
+      ],
+      "reasoning": "The scenario identifies different parameter inputs as the source of wrong sizes. Reviewing those inputs, validating the correction and testing the deployed result directly addresses the problem. Reusable version-controlled definitions do not validate all their input values or prove application behavior.",
+      "distractor_assessment": [
+        "rerun/repeat retain the faulty inputs and so do not intentionally correct the documented wrong sizes.",
+        "manual can be an operational tactic, but manually configuring all three environments and retaining screenshots is not the most targeted repair here; record incorrectly treats screenshots as a replacement for reviewed repeatable configuration."
+      ],
+      "ambiguity_assessment": "Low ambiguity in the paired-choice task. “Validere endringen” implies an actual parameter correction although the action could say “rette parameterfilene” more directly. Application tests are justified because functionality remains untested.",
+      "realistic_technical_consequences": [
+        "Fixing and reviewing parameters preserves repeatability; a deployment check and application test catch different failure classes.",
+        "Manual edits can introduce drift, and an unchanged redeployment may preserve or reintroduce the wrong sizes."
+      ],
+      "language_and_cue_assessment": [
+        "The correct option combines three prudent actions. The distractor reasons use obviously overstrong claims (“korrigerer” with unchanged wrong input and “erstatter behovet”)."
+      ],
+      "unfair_rejection_risks": [
+        "A student may reasonably discuss a temporary manual repair, but no offered reason makes manual/record academically defensible as the most targeted next paired response."
+      ]
+    },
+    {
+      "case_id": "b-footprint",
+      "selected_answer": {
+        "decision_id": "compare",
+        "reason_id": "utility"
+      },
+      "academically_defensible_pairs": [
+        {
+          "decision_id": "compare",
+          "reason_id": "utility",
+          "status": "clearly_defensible"
+        }
+      ],
+      "reasoning": "A bill is not an energy or emissions measurement, and fewer completed orders confound comparisons of delivered benefit. Compare like service/output and quality using relevant energy and emissions evidence before asserting an environmental improvement.",
+      "distractor_assessment": [
+        "spend/cost equate financial expenditure with environmental impact without energy, carbon intensity or system-boundary evidence.",
+        "count/volume mistake a reduction in useful output for improved efficiency. Lower activity can reduce total impact while worsening impact per unit, so the numbers alone decide neither environmental outcome."
+      ],
+      "ambiguity_assessment": "Low ambiguity. The task is how to investigate the claim, not to conclude that total emissions rose. Monetary cost per order rose from 1.0 to 0.8/0.5 = 1.6 relative units, but that is still not measured emissions per order.",
+      "realistic_technical_consequences": [
+        "Useful analysis distinguishes absolute impact, impact per equivalent order, service quality and relevant measurement boundaries.",
+        "A lower bill could reflect pricing changes or less business output rather than a technical efficiency gain."
+      ],
+      "language_and_cue_assessment": [
+        "compare is 15 characters longer than either distractor and uses measured, multi-factor language. Both distractor reasons explicitly say an unmeasured proxy is “tilstrekkelig”, making them easy to eliminate."
+      ],
+      "unfair_rejection_risks": []
+    },
+    {
+      "case_id": "b-estimate",
+      "selected_answer": {
+        "decision_id": "usage",
+        "reason_id": "drivers"
+      },
+      "academically_defensible_pairs": [
+        {
+          "decision_id": "usage",
+          "reason_id": "drivers",
+          "status": "clearly_defensible"
+        }
+      ],
+      "reasoning": "Historical usage, expected growth and stated prices can support a usage-based forecast with uncertainty. The forecast estimates, rather than controls or guarantees, future transactions and outbound transfer.",
+      "distractor_assessment": [
+        "budget/limit equate a planning or alert threshold with predicted consumption; the prompt supplies no enforced spending cap or other mechanism making that equivalence true.",
+        "sla/uptime equate an availability objective with billable activity. Availability can be relevant to service operation but does not determine transaction counts or egress volume."
+      ],
+      "ambiguity_assessment": "Low ambiguity. A forecast can use ranges or scenarios rather than one precise figure. No numeric answer is requested and the data do not support a numerical bill.",
+      "realistic_technical_consequences": [
+        "Document usage and pricing assumptions and revisit them as actual usage changes.",
+        "Treating a budget threshold or SLA as the expected bill can badly misstate variable charges."
+      ],
+      "language_and_cue_assessment": [
+        "Decision lengths are close. The two alternative approaches are weak technical distractors; almost any understanding of a bill makes usage the plausible choice. The selected reason is the longest, but not by a large margin."
+      ],
+      "unfair_rejection_risks": []
+    },
+    {
+      "case_id": "s-driver",
+      "selected_answer": {
+        "decision_id": "iaas",
+        "reason_id": "control"
+      },
+      "academically_defensible_pairs": [
+        {
+          "decision_id": "iaas",
+          "reason_id": "control",
+          "status": "clearly_defensible"
+        }
+      ],
+      "reasoning": "The explicit requirement is customer installation and updating of a guest-OS driver. Among the described offerings, only the VM gives that guest-OS control, and the customer retains responsibility for that guest software environment.",
+      "distractor_assessment": [
+        "paas/platform infer customer installation rights from provider management of the platform OS, contrary to the premise.",
+        "saas/software confuse application-level user administration with control of the provider guest OS."
+      ],
+      "ambiguity_assessment": "Low ambiguity because the premises explicitly scope the considered PaaS/SaaS offerings. This should not be read as a universal assertion that every service marketed as PaaS can never support any custom driver or privileged workload.",
+      "realistic_technical_consequences": [
+        "The customer must plan guest updates and driver compatibility testing.",
+        "VM control is necessary for the stated requirement but alone does not prove a specific driver supports the chosen guest OS, VM hardware or security configuration; a real deployment must verify those separately."
+      ],
+      "language_and_cue_assessment": [
+        "Lengths are closely matched. The question and correct answer repeat “gjesteoperativsystem” and driver installation; the premises directly rule out the two other models."
+      ],
+      "unfair_rejection_risks": []
+    },
+    {
+      "case_id": "s-patching",
+      "selected_answer": {
+        "decision_id": "customer",
+        "reason_id": "guest"
+      },
+      "academically_defensible_pairs": [
+        {
+          "decision_id": "customer",
+          "reason_id": "guest",
+          "status": "clearly_defensible"
+        }
+      ],
+      "reasoning": "The scenario explicitly assigns administration of the IaaS guest OS to Fjordverk. Host maintenance is separate from installing the outstanding guest update. Fjordverk must ensure a controlled manual or automated guest-patching process handles it.",
+      "distractor_assessment": [
+        "provider/host incorrectly transfer guest accountability because the provider serviced the physical host.",
+        "vendor/ui confuse application UI changes with operating-system security updates and posit an unsupported responsibility assignment."
+      ],
+      "ambiguity_assessment": "Low ambiguity. “Må sørge for” appropriately expresses accountability rather than requiring the customer to click every update. A customer-configured Microsoft automation service could perform patching without transferring the stated responsibility.",
+      "realistic_technical_consequences": [
+        "An unpatched guest can remain vulnerable after a successful host maintenance event.",
+        "The customer should coordinate testing, restart behavior and verification of the guest update."
+      ],
+      "language_and_cue_assessment": [
+        "The premise nearly states the answer verbatim. The app-UI distractor is much less plausible than a realistic confusion about configured guest-patching automation."
+      ],
+      "unfair_rejection_risks": [
+        "A student should not be marked wrong for explaining that Azure automation or a contracted operator can perform the patch while Fjordverk retains responsibility. customer/guest already accommodates this."
+      ]
+    },
+    {
+      "case_id": "s-runtime",
+      "selected_answer": {
+        "decision_id": "fit",
+        "reason_id": "compatibility"
+      },
+      "academically_defensible_pairs": [
+        {
+          "decision_id": "fit",
+          "reason_id": "compatibility",
+          "status": "clearly_defensible"
+        }
+      ],
+      "reasoning": "The proposed app version requires an unsupported runtime, and the prompt explicitly says capacity does not alter runtime support. Investigating a supported app version or a hosting environment that supports the requirement, followed by a test, addresses compatibility before upgrading.",
+      "distractor_assessment": [
+        "size/capacity substitute more CPU or memory for a runtime-support change, which the premise excludes.",
+        "group/scope substitute a management grouping change for a platform-runtime capability change."
+      ],
+      "ambiguity_assessment": "Low ambiguity. A supported existing app version, supported alternate app release, container option where actually supported, or different hosting service can all be implementations of fit. The option does not force migration to IaaS.",
+      "realistic_technical_consequences": [
+        "Upgrading blindly can prevent startup or leave the app unsupported.",
+        "A larger instance or a different Resource Group leaves the stated incompatibility unresolved."
+      ],
+      "language_and_cue_assessment": [
+        "The premise explicitly negates size and the Resource Group distractor is clearly unrelated. Word lengths are similar, and the correct reason is the shortest."
+      ],
+      "unfair_rejection_risks": []
+    },
+    {
+      "case_id": "s-departure",
+      "selected_answer": {
+        "decision_id": "access",
+        "reason_id": "tenant"
+      },
+      "academically_defensible_pairs": [
+        {
+          "decision_id": "access",
+          "reason_id": "tenant",
+          "status": "clearly_defensible"
+        }
+      ],
+      "reasoning": "Fjordverk controls its users, sharing and data within the SaaS features. It must remove relevant former-consultant access and review sharing, ownership and retention. Provider operation of the app and OS does not decide the customer’s offboarding obligations.",
+      "distractor_assessment": [
+        "patch/servers place provider-side application-server or OS maintenance on the customer despite the stated SaaS arrangement.",
+        "capacity/ops either assign infrastructure changes to the wrong actor or imply that operating the service automatically includes the customer’s personnel-access decisions."
+      ],
+      "ambiguity_assessment": "Low ambiguity. “Relevant tilgang” and a review of retention avoid requiring indiscriminate deletion of all account data or documents. Exact revocation, session, token, guest-access and retention steps depend on the service features.",
+      "realistic_technical_consequences": [
+        "Review direct and shared-link access, transfer ownership where necessary, and preserve records according to policy.",
+        "Removing an account alone may not revoke every link, token or external share; deleting all content can lose required records."
+      ],
+      "language_and_cue_assessment": [
+        "The best reason is shorter than both alternatives, which counters a universal longest-reason heuristic. The prompt explicitly gives Fjordverk user/sharing/data responsibility."
+      ],
+      "unfair_rejection_risks": []
+    },
+    {
+      "case_id": "s-choice",
+      "selected_answer": {
+        "decision_id": "iaas",
+        "reason_id": "os"
+      },
+      "academically_defensible_pairs": [
+        {
+          "decision_id": "iaas",
+          "reason_id": "os",
+          "status": "clearly_defensible"
+        },
+        {
+          "decision_id": "paas",
+          "reason_id": "platform",
+          "status": "clearly_defensible",
+          "why": "Both proposals meet the stated requirements; provider operation of the managed platform and retained customer app/data/configuration responsibilities are a coherent reason for this option."
+        },
+        {
+          "decision_id": "iaas",
+          "reason_id": "platform",
+          "status": "wording_dependent_defensible",
+          "why": "If “plattformmiljøet” means the provider-operated underlying IaaS platform, both clauses are true. This is less specific than os but not expressly contradicted by the written reason. If the intended meaning is guest OS/runtime management, the pair is not valid; the current reason does not make that scope explicit."
+        }
+      ],
+      "reasoning": "Both reviewed solutions satisfy the application and scaling requirements, and no cost, OS-control or operations-minimization preference ranks them. I choose the VM with the matching guest-OS/runtime/application responsibility explanation as one valid example. The managed-platform choice with platform/app/data/configuration responsibilities is equally defensible.",
+      "distractor_assessment": [
+        "saas/software is excluded by the option itself: that standard application does not support the required custom app. The distractor relies on reading the explicit non-support statement, rather than assessing a realistic competing proposal.",
+        "paas/os is inconsistent with the ordinary meaning of the reviewed managed application platform, since that reason assigns customer control and patching of the guest OS.",
+        "iaas/platform is not a clear model-specific match under the intended managed-PaaS meaning, but its broad wording can be read literally as true of an IaaS provider platform too; see conditional alternative."
+      ],
+      "ambiguity_assessment": "The deliberate two-answer design is academically sound. The main residual ambiguity is that “plattformmiljøet” is undefined: an IaaS provider also manages an underlying platform and customers still have app/data/configuration duties. The reason never explicitly says the provider manages the app runtime or guest OS, so rejecting iaas/platform as unequivocally false would be disputable under a broad reading.",
+      "realistic_technical_consequences": [
+        "For IaaS, budget for guest OS, runtime and application operations.",
+        "For the managed platform, plan application/data/configuration responsibilities and platform constraints.",
+        "Do not claim a universally optimal model when the scenario leaves the relevant tradeoff unranked."
+      ],
+      "language_and_cue_assessment": [
+        "The valid options bracket the invalid SaaS option in first and third positions. Their labels and reasons use obvious matching model vocabulary.",
+        "The unsupported SaaS distractor is the longest decision, so length alone is not sufficient."
+      ],
+      "unfair_rejection_risks": [
+        "Rejecting either iaas/os or paas/platform would be unfair on the stated premises. Neither can be preferred without an unstated requirement.",
+        "If strict pairing rejects iaas/platform, clarify the platform reason first, e.g. explicitly say the provider manages the runtime and underlying OS for the managed application platform. Otherwise a reasoned appeal is plausible."
+      ]
+    },
+    {
+      "case_id": "s-plan",
+      "selected_answer": {
+        "decision_id": "scaleup",
+        "reason_id": "compute"
+      },
+      "academically_defensible_pairs": [
+        {
+          "decision_id": "scaleup",
+          "reason_id": "compute",
+          "status": "clearly_defensible"
+        }
+      ],
+      "reasoning": "The memory requirement is per instance for one indivisible job, and a larger supported SKU supplies enough memory. Changing the shared App Service Plan instance size addresses it. More instances of the current size do not pool their memory into one process, and Resource Groups do not determine per-instance memory.",
+      "distractor_assessment": [
+        "scaleout/spread confuse aggregate capacity with usable memory for a single non-distributable job.",
+        "resourcegroup/container confuse a resource-management boundary with the compute tier. Moving groups while retaining the plan leaves its instance size unchanged."
+      ],
+      "ambiguity_assessment": "Low ambiguity given the explicit enough-memory and indivisible-job premises. In a live system, actual memory availability also depends on the other app and process limits; the premise should be understood as saying the chosen size meets this job’s effective need, not merely a nominal RAM number.",
+      "realistic_technical_consequences": [
+        "Scaling the shared plan changes shared instance resources and usually its cost, so both apps need appropriate change/health checks.",
+        "Both apps remain in the shared plan; the action does not produce memory isolation between them.",
+        "More small instances cannot satisfy this stipulated per-instance shortfall."
+      ],
+      "language_and_cue_assessment": [
+        "The premises rule out scale-out directly and the Resource Group distractor repeats a familiar false category inference from s-runtime. Length differences are very small."
+      ],
+      "unfair_rejection_risks": []
+    }
+  ],
+  "option_length_and_position_metrics": [
+    {
+      "case_id": "b-capacity",
+      "decisions": {
+        "character_lengths": [54, 57, 54],
+        "selected_position_1_based": 2,
+        "selected_unique_longest": true
+      },
+      "reasons": {
+        "character_lengths": [74, 73, 74],
+        "selected_position_1_based": 3,
+        "selected_unique_longest": false
+      }
+    },
+    {
+      "case_id": "b-recovery",
+      "decisions": {
+        "character_lengths": [84, 62, 63],
+        "selected_position_1_based": 1,
+        "selected_unique_longest": true
+      },
+      "reasons": {
+        "character_lengths": [83, 79, 77],
+        "selected_position_1_based": 1,
+        "selected_unique_longest": true
+      }
+    },
+    {
+      "case_id": "b-rule",
+      "decisions": {
+        "character_lengths": [75, 80, 81],
+        "selected_position_1_based": 3,
+        "selected_unique_longest": true
+      },
+      "reasons": {
+        "character_lengths": [74, 81, 85],
+        "selected_position_1_based": 2,
+        "selected_unique_longest": false
+      }
+    },
+    {
+      "case_id": "b-template",
+      "decisions": {
+        "character_lengths": [65, 80, 78],
+        "selected_position_1_based": 2,
+        "selected_unique_longest": true
+      },
+      "reasons": {
+        "character_lengths": [80, 76, 83],
+        "selected_position_1_based": 3,
+        "selected_unique_longest": true
+      }
+    },
+    {
+      "case_id": "b-footprint",
+      "decisions": {
+        "character_lengths": [89, 74, 74],
+        "selected_position_1_based": 1,
+        "selected_unique_longest": true
+      },
+      "reasons": {
+        "character_lengths": [82, 75, 81],
+        "selected_position_1_based": 2,
+        "selected_unique_longest": false
+      }
+    },
+    {
+      "case_id": "b-estimate",
+      "decisions": {
+        "character_lengths": [76, 81, 80],
+        "selected_position_1_based": 3,
+        "selected_unique_longest": false
+      },
+      "reasons": {
+        "character_lengths": [89, 77, 86],
+        "selected_position_1_based": 1,
+        "selected_unique_longest": true
+      }
+    },
+    {
+      "case_id": "s-driver",
+      "decisions": {
+        "character_lengths": [73, 75, 77],
+        "selected_position_1_based": 3,
+        "selected_unique_longest": true
+      },
+      "reasons": {
+        "character_lengths": [87, 86, 88],
+        "selected_position_1_based": 1,
+        "selected_unique_longest": false
+      }
+    },
+    {
+      "case_id": "s-patching",
+      "decisions": {
+        "character_lengths": [77, 73, 72],
+        "selected_position_1_based": 1,
+        "selected_unique_longest": true
+      },
+      "reasons": {
+        "character_lengths": [82, 80, 84],
+        "selected_position_1_based": 2,
+        "selected_unique_longest": false
+      }
+    },
+    {
+      "case_id": "s-runtime",
+      "decisions": {
+        "character_lengths": [77, 82, 79],
+        "selected_position_1_based": 2,
+        "selected_unique_longest": true
+      },
+      "reasons": {
+        "character_lengths": [75, 74, 72],
+        "selected_position_1_based": 3,
+        "selected_unique_longest": false
+      }
+    },
+    {
+      "case_id": "s-departure",
+      "decisions": {
+        "character_lengths": [73, 62, 72],
+        "selected_position_1_based": 3,
+        "selected_unique_longest": false
+      },
+      "reasons": {
+        "character_lengths": [82, 86, 87],
+        "selected_position_1_based": 1,
+        "selected_unique_longest": false
+      }
+    },
+    {
+      "case_id": "s-choice",
+      "decisions": {
+        "character_lengths": [69, 83, 80],
+        "selected_position_1_based": 1,
+        "selected_unique_longest": false
+      },
+      "reasons": {
+        "character_lengths": [92, 91, 80],
+        "selected_position_1_based": 3,
+        "selected_unique_longest": false
+      }
+    },
+    {
+      "case_id": "s-plan",
+      "decisions": {
+        "character_lengths": [73, 70, 71],
+        "selected_position_1_based": 1,
+        "selected_unique_longest": true
+      },
+      "reasons": {
+        "character_lengths": [88, 87, 75],
+        "selected_position_1_based": 2,
+        "selected_unique_longest": false
+      }
+    }
+  ],
+  "next_step_boundary": "The report is locked. Any later comparison with an answer key must be identified as post-blind reconciliation and must not rewrite these blind findings."
+}

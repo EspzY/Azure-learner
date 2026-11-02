@@ -1,4 +1,6 @@
 'use client';
+import { useRefined } from '@/features/learning/refined-assessment-provider';
+import { refinedHref } from '@/domain/curriculum/refined-assessment';
 import { useMigration } from '@/features/learning/migration-provider';
 import { migrationHref } from '@/domain/curriculum/migration';
 import { useSecurity } from '@/features/learning/security-provider';
@@ -85,8 +87,22 @@ export function useMissionSafetyContexts(owner?: 'missions') {
     monitoringState = useMonitoring(),
     securityState = useSecurity(),
     migrationState = useMigration();
+  const updatedBenefits = useRefined('benefits'),
+    updatedServices = useRefined('services');
   return (
     [
+      {
+        id: 'updatedBenefits',
+        state: updatedBenefits,
+        active: updatedBenefits.facts.active,
+        href: refinedHref('benefits'),
+      },
+      {
+        id: 'updatedServices',
+        state: updatedServices,
+        active: updatedServices.facts.active,
+        href: refinedHref('services'),
+      },
       {
         id: 'migration',
         state: migrationState,
@@ -219,13 +235,13 @@ export function useMissionSafetyContexts(owner?: 'missions') {
         id: 'benefits',
         state: benefits,
         active: benefits.facts.active,
-        href: '/learn/benefits?topic=assessment',
+        href: refinedHref('benefits', true),
       },
       {
         id: 'services',
         state: services,
         active: services.facts.active,
-        href: '/learn/services?topic=assessment&version=2',
+        href: refinedHref('services', true),
       },
       {
         id: 'practical',

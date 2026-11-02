@@ -1,333 +1,552 @@
 {
   "schema": 1,
-  "id": "PR45-learning-sequencing",
-  "baseCommit": "7775b0a22d0a5c88597c28b3df780b92425f3dce",
-  "author": "codex-sequence45-author",
+  "id": "PR46-assessment-quality-transfer",
+  "baseCommit": "5a6c4314edd8d41aa416436a4a91bfa9447be98f",
+  "author": "codex-assessment46-author",
   "scope": {
-    "kind": "ux-sequencing",
-    "description": "LJ-02 first step: pure17-module prerequisite-respecting navigation order, boundary Previous/Next, short bridges and ending; unchanged catalogue/history/guide priority.",
-    "objectives": ["sequence.navigation", "sequence.continuity"]
+    "kind": "assessment-successor",
+    "description": "AS-01: substantively improved Benefits2/Services3 paired scenarios, isolated durable histories, preserved old active/first/rubric/route contracts.",
+    "objectives": ["assessment.benefits", "assessment.services"]
   },
   "sources": [
     {
-      "id": "SQ-study",
+      "id": "AQ-study",
       "url": "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900",
       "title": "Study guide for Exam AZ-900: Microsoft Azure Fundamentals | Microsoft Learn",
       "reviewed": "2026-11-02",
-      "version": "Retrieved2026-11-02 SHA256 58bee7dadd3426094ab189375b86b07f9c59111037529e42176150b53ee821ee",
+      "version": "Rolling public page retrieved2026-11-02 SHA256 58bee7dadd3426094ab189375b86b07f9c59111037529e42176150b53ee821ee",
       "kind": "official-public-documentation",
-      "objectives": ["sequence.navigation", "sequence.continuity"],
-      "claims": ["sequence.catalogue"],
-      "limits": "Existing three study-guide subject areas or graphical Portal context only. AzureLab recommended ordering is the owner-approved audit42 prerequisite decision, not prescribed by Microsoft; no new product/content claims.",
+      "objectives": ["assessment.benefits", "assessment.services"],
+      "claims": ["assessment.scope"],
       "availability": "AVAILABLE",
+      "limits": "Only mapped concepts, not protected assessment content, universal failover/carbon assertions or guaranteed runtime outcomes. Synthetic numbers and scenario constraints are authored premises; no live Azure measurements.",
       "discovery": [
         {
           "url": "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900",
           "disposition": "reviewed-essential",
-          "reason": "Actual text checked: Describe cloud concepts, Describe Azure architecture and services, Describe Azure management and governance"
+          "reason": "Actual public technical text reviewed for bounded authored scenario claims; assessment questions not opened/copied."
         }
       ]
     },
     {
-      "id": "SQ-portal",
-      "url": "https://learn.microsoft.com/en-us/azure/azure-portal/azure-portal-overview",
-      "title": "What is the Azure portal? - Azure portal | Microsoft Learn",
+      "id": "AQ-benefits",
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-benefits-use-cloud-services/",
+      "title": "Describe the benefits of using cloud services - Training | Microsoft Learn",
       "reviewed": "2026-11-02",
-      "version": "Retrieved2026-11-02 SHA256 4fc74270f0edfa683482cb2b90f4ce661cf5cc0ea94210ebe132a8139b0a059e",
+      "version": "Rolling public page retrieved2026-11-02 SHA256 946ea7427d8f83d8401a6465baf55b5b16a358f74ff7ca806c65f8a595c305bc",
       "kind": "official-public-documentation",
-      "objectives": ["sequence.navigation", "sequence.continuity"],
-      "claims": ["sequence.portal-context"],
-      "limits": "Existing three study-guide subject areas or graphical Portal context only. AzureLab recommended ordering is the owner-approved audit42 prerequisite decision, not prescribed by Microsoft; no new product/content claims.",
+      "objectives": ["assessment.benefits"],
+      "claims": [
+        "assessment.b-capacity",
+        "assessment.b-recovery",
+        "assessment.b-rule",
+        "assessment.b-template",
+        "assessment.b-footprint",
+        "assessment.b-estimate"
+      ],
       "availability": "AVAILABLE",
+      "limits": "Only mapped concepts, not protected assessment content, universal failover/carbon assertions or guaranteed runtime outcomes. Synthetic numbers and scenario constraints are authored premises; no live Azure measurements.",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/azure-portal/azure-portal-overview",
+          "url": "https://learn.microsoft.com/en-us/training/modules/describe-benefits-use-cloud-services/",
           "disposition": "reviewed-essential",
-          "reason": "Actual text checked: graphical user interface"
+          "reason": "Actual public technical text reviewed for bounded authored scenario claims; assessment questions not opened/copied."
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/training/modules/describe-benefits-use-cloud-services/1-introduction",
+          "disposition": "reviewed-applied",
+          "reason": "Public unit text reviewed; original case assumptions distinguish capacity/recovery, evidence limits and retained customer responsibilities."
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/training/modules/describe-benefits-use-cloud-services/2-high-availability-scalability-cloud",
+          "disposition": "reviewed-applied",
+          "reason": "Public unit text reviewed; original case assumptions distinguish capacity/recovery, evidence limits and retained customer responsibilities."
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/training/modules/describe-benefits-use-cloud-services/3-reliability-predictability-cloud",
+          "disposition": "reviewed-applied",
+          "reason": "Public unit text reviewed; original case assumptions distinguish capacity/recovery, evidence limits and retained customer responsibilities."
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/training/modules/describe-benefits-use-cloud-services/4-security-governance-cloud",
+          "disposition": "reviewed-applied",
+          "reason": "Public unit text reviewed; original case assumptions distinguish capacity/recovery, evidence limits and retained customer responsibilities."
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/training/modules/describe-benefits-use-cloud-services/5-manageability-cloud",
+          "disposition": "reviewed-applied",
+          "reason": "Public unit text reviewed; original case assumptions distinguish capacity/recovery, evidence limits and retained customer responsibilities."
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/training/modules/describe-benefits-use-cloud-services/5a-describe-sustainability-cloud",
+          "disposition": "reviewed-applied",
+          "reason": "Public unit text reviewed; original case assumptions distinguish capacity/recovery, evidence limits and retained customer responsibilities."
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/training/modules/describe-benefits-use-cloud-services/7-summary",
+          "disposition": "reviewed-applied",
+          "reason": "Public unit text reviewed; original case assumptions distinguish capacity/recovery, evidence limits and retained customer responsibilities."
+        }
+      ]
+    },
+    {
+      "id": "AQ-services",
+      "url": "https://learn.microsoft.com/en-us/training/modules/describe-cloud-service-types/",
+      "title": "Describe Cloud Service Types - Training | Microsoft Learn",
+      "reviewed": "2026-11-02",
+      "version": "Rolling public page retrieved2026-11-02 SHA256 d3dd5a32f1608d66c25f3d7474b21a16e1ef85ae9348318ce31dd2d450ac5db9",
+      "kind": "official-public-documentation",
+      "objectives": ["assessment.services"],
+      "claims": [
+        "assessment.s-driver",
+        "assessment.s-patching",
+        "assessment.s-runtime",
+        "assessment.s-departure",
+        "assessment.s-choice",
+        "assessment.s-plan"
+      ],
+      "availability": "AVAILABLE",
+      "limits": "Only mapped concepts, not protected assessment content, universal failover/carbon assertions or guaranteed runtime outcomes. Synthetic numbers and scenario constraints are authored premises; no live Azure measurements.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/training/modules/describe-cloud-service-types/",
+          "disposition": "reviewed-essential",
+          "reason": "Actual public technical text reviewed for bounded authored scenario claims; assessment questions not opened/copied."
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/training/modules/describe-cloud-service-types/1-introduction",
+          "disposition": "reviewed-applied",
+          "reason": "Public unit text reviewed; original case assumptions distinguish capacity/recovery, evidence limits and retained customer responsibilities."
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/training/modules/describe-cloud-service-types/2-describe-infrastructure-service",
+          "disposition": "reviewed-applied",
+          "reason": "Public unit text reviewed; original case assumptions distinguish capacity/recovery, evidence limits and retained customer responsibilities."
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/training/modules/describe-cloud-service-types/3-describe-platform-service",
+          "disposition": "reviewed-applied",
+          "reason": "Public unit text reviewed; original case assumptions distinguish capacity/recovery, evidence limits and retained customer responsibilities."
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/training/modules/describe-cloud-service-types/4-describe-software-service",
+          "disposition": "reviewed-applied",
+          "reason": "Public unit text reviewed; original case assumptions distinguish capacity/recovery, evidence limits and retained customer responsibilities."
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/training/modules/describe-cloud-service-types/6-summary",
+          "disposition": "reviewed-applied",
+          "reason": "Public unit text reviewed; original case assumptions distinguish capacity/recovery, evidence limits and retained customer responsibilities."
+        }
+      ]
+    },
+    {
+      "id": "AQ-responsibility",
+      "url": "https://learn.microsoft.com/en-us/azure/security/fundamentals/shared-responsibility",
+      "title": "Shared responsibility in the cloud - Microsoft Azure | Microsoft Learn",
+      "reviewed": "2026-11-02",
+      "version": "Rolling public page retrieved2026-11-02 SHA256 d3c9ff39ebcd87cb526f25250a6427a0008462387d7df4447d10ff6c66c81846",
+      "kind": "official-public-documentation",
+      "objectives": ["assessment.services"],
+      "claims": [
+        "assessment.s-driver",
+        "assessment.s-patching",
+        "assessment.s-runtime",
+        "assessment.s-departure",
+        "assessment.s-choice"
+      ],
+      "availability": "AVAILABLE",
+      "limits": "Only mapped concepts, not protected assessment content, universal failover/carbon assertions or guaranteed runtime outcomes. Synthetic numbers and scenario constraints are authored premises; no live Azure measurements.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/security/fundamentals/shared-responsibility",
+          "disposition": "reviewed-essential",
+          "reason": "Actual public technical text reviewed for bounded authored scenario claims; assessment questions not opened/copied."
+        }
+      ]
+    },
+    {
+      "id": "AQ-plan",
+      "url": "https://learn.microsoft.com/en-us/azure/app-service/overview-hosting-plans",
+      "title": "Azure App Service Plans - Azure App Service | Microsoft Learn",
+      "reviewed": "2026-11-02",
+      "version": "Rolling public page retrieved2026-11-02 SHA256 1d6ef5ba99802096dc174066666b96e7281a0c9227863cc9065776b198e031bf",
+      "kind": "official-public-documentation",
+      "objectives": ["assessment.services"],
+      "claims": ["assessment.s-plan"],
+      "availability": "AVAILABLE",
+      "limits": "Only mapped concepts, not protected assessment content, universal failover/carbon assertions or guaranteed runtime outcomes. Synthetic numbers and scenario constraints are authored premises; no live Azure measurements.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/app-service/overview-hosting-plans",
+          "disposition": "reviewed-essential",
+          "reason": "Actual public technical text reviewed for bounded authored scenario claims; assessment questions not opened/copied."
+        }
+      ]
+    },
+    {
+      "id": "AQ-wa",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/reliability/",
+      "title": "Reliability quick links - Microsoft Azure Well-Architected Framework | Microsoft Learn",
+      "reviewed": "2026-11-02",
+      "version": "Rolling public page retrieved2026-11-02 SHA256 a4be87856acc214785e79d6cdb04e5a93de95a3ad6857696c5cc4aaea879577a",
+      "kind": "official-public-documentation",
+      "objectives": ["assessment.benefits"],
+      "claims": ["assessment.b-recovery"],
+      "availability": "AVAILABLE",
+      "limits": "Only mapped concepts, not protected assessment content, universal failover/carbon assertions or guaranteed runtime outcomes. Synthetic numbers and scenario constraints are authored premises; no live Azure measurements.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/well-architected/reliability/",
+          "disposition": "reviewed-essential",
+          "reason": "Actual public technical text reviewed for bounded authored scenario claims; assessment questions not opened/copied."
+        }
+      ]
+    },
+    {
+      "id": "AQ-sustainability",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/sustainability/sustainability-design-principles",
+      "title": "Sustainable workloads on Azure - Microsoft Azure Well-Architected Framework | Microsoft Learn",
+      "reviewed": "2026-11-02",
+      "version": "Rolling public page retrieved2026-11-02 SHA256 438d7c11c193d8eebea6979e46e79da347110291845a4b8c7d40082e8ccd497c",
+      "kind": "official-public-documentation",
+      "objectives": ["assessment.benefits"],
+      "claims": ["assessment.b-footprint"],
+      "availability": "AVAILABLE",
+      "limits": "Only mapped concepts, not protected assessment content, universal failover/carbon assertions or guaranteed runtime outcomes. Synthetic numbers and scenario constraints are authored premises; no live Azure measurements.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/well-architected/sustainability/sustainability-design-principles",
+          "disposition": "reviewed-essential",
+          "reason": "Actual public technical text reviewed for bounded authored scenario claims; assessment questions not opened/copied."
         }
       ]
     }
   ],
   "activities": [
     {
-      "id": "sequence-navigation",
-      "objectives": ["sequence.navigation"],
-      "claims": ["sequence.catalogue"],
-      "assessmentStatus": "unchanged-existing",
-      "limits": "Bounded navigation/orientation; no new content coverage, progress engine, locks or history migration. Original guide/independent/recovery priority and substantive teaching/assessment objects preserved. Human validation unperformed. Separate final audit, exact-head281CI/strict and anonymous final-SHA Gate7 required. No merge/production.",
+      "id": "assessment-benefits",
+      "objectives": ["assessment.benefits"],
+      "claims": [
+        "assessment.b-capacity",
+        "assessment.b-recovery",
+        "assessment.b-rule",
+        "assessment.b-template",
+        "assessment.b-footprint",
+        "assessment.b-estimate"
+      ],
+      "assessmentStatus": "new-independent",
+      "limits": "Six successor cases in an existing module, not new AZ900 targets/general exam engine. Frozen old rubrics/records and Cloud Transfer preserved. Human validation unperformed.",
       "theory": [
         {
-          "path": "docs/LEARNING_SEQUENCE.md"
+          "path": "docs/ASSESSMENT_REFINEMENT.md"
         }
       ],
       "mechanism": [
         {
-          "path": "src/features/course/course-sequence.ts"
+          "path": "src/domain/curriculum/refined-assessment.ts"
+        },
+        {
+          "path": "src/domain/curriculum/refined-assessment-store.ts"
         }
       ],
       "practice": [
         {
-          "path": "tests/e2e/learning-sequencing.spec.ts"
+          "path": "tests/e2e/assessment-refinement.spec.ts"
         }
       ],
       "feedback": [
         {
-          "path": "docs/LEARNING_SEQUENCE.md"
+          "path": "src/content/nb.ts"
         }
       ],
       "visual": [
         {
-          "path": "docs/screenshots/learning-sequencing/after-storage-resilience-1440.png"
+          "path": "docs/screenshots/assessment-refinement/active-benefits-1440x900.png"
         }
       ],
       "accessible": [
         {
-          "path": "tests/e2e/learning-sequencing.spec.ts"
+          "path": "tests/e2e/assessment-refinement.spec.ts"
         }
       ],
       "assessment": [
         {
-          "path": "src/domain/curriculum/security.ts"
+          "path": "src/domain/curriculum/refined-assessment.test.ts"
+        },
+        {
+          "path": "src/content/nb.ts"
         }
       ],
       "savvyshark": [
         {
-          "path": "src/features/course/learning-flow.ts"
+          "path": "src/features/course/mission-context.ts"
         },
         {
-          "path": "tests/e2e/learning-flow-guidance.spec.ts"
+          "path": "src/features/portal/portal.tsx"
         }
       ]
     },
     {
-      "id": "sequence-continuity",
-      "objectives": ["sequence.continuity"],
-      "claims": ["sequence.portal-context"],
-      "assessmentStatus": "unchanged-existing",
-      "limits": "Bounded navigation/orientation; no new content coverage, progress engine, locks or history migration. Original guide/independent/recovery priority and substantive teaching/assessment objects preserved. Human validation unperformed. Separate final audit, exact-head281CI/strict and anonymous final-SHA Gate7 required. No merge/production.",
+      "id": "assessment-services",
+      "objectives": ["assessment.services"],
+      "claims": [
+        "assessment.s-driver",
+        "assessment.s-patching",
+        "assessment.s-runtime",
+        "assessment.s-departure",
+        "assessment.s-choice",
+        "assessment.s-plan"
+      ],
+      "assessmentStatus": "new-independent",
+      "limits": "Six successor cases in an existing module, not new AZ900 targets/general exam engine. Frozen old rubrics/records and Cloud Transfer preserved. Human validation unperformed.",
       "theory": [
         {
-          "path": "docs/LEARNING_SEQUENCE.md"
+          "path": "docs/ASSESSMENT_REFINEMENT.md"
         }
       ],
       "mechanism": [
         {
-          "path": "src/features/course/course.tsx"
+          "path": "src/domain/curriculum/refined-assessment.ts"
+        },
+        {
+          "path": "src/domain/curriculum/refined-assessment-store.ts"
         }
       ],
       "practice": [
         {
-          "path": "tests/e2e/learning-sequencing.spec.ts"
+          "path": "tests/e2e/assessment-refinement.spec.ts"
         }
       ],
       "feedback": [
         {
-          "path": "docs/LEARNING_SEQUENCE.md"
+          "path": "src/content/nb.ts"
         }
       ],
       "visual": [
         {
-          "path": "docs/screenshots/learning-sequencing/after-migration-end-1024x500.png"
+          "path": "docs/screenshots/assessment-refinement/active-services-1024x500.png"
         }
       ],
       "accessible": [
         {
-          "path": "tests/e2e/learning-sequencing.spec.ts"
+          "path": "tests/e2e/assessment-refinement.spec.ts"
         }
       ],
       "assessment": [
         {
-          "path": "src/domain/curriculum/security.ts"
+          "path": "src/domain/curriculum/refined-assessment.test.ts"
+        },
+        {
+          "path": "src/content/nb.ts"
         }
       ],
       "savvyshark": [
         {
-          "path": "src/features/course/learning-flow.ts"
+          "path": "src/features/course/mission-context.ts"
         },
         {
-          "path": "tests/e2e/learning-flow-guidance.spec.ts"
+          "path": "src/features/portal/portal.tsx"
         }
       ]
     }
   ],
   "modules": [],
   "preservedPaths": [
-    "src/domain/",
-    "src/app/",
+    "src/domain/curriculum/expansion.ts",
+    "src/domain/curriculum/expansion-store.ts",
+    "src/domain/curriculum/expansion-content.ts",
+    "src/domain/curriculum/expansion-models.ts",
+    "src/domain/curriculum/transfer.ts",
+    "src/domain/curriculum/transfer-store.ts",
+    "src/domain/sandbox/",
+    "src/domain/portal/",
+    "src/domain/course/",
     "public/",
     "scripts/",
     ".github/",
-    "package.json",
     "package-lock.json",
     "playwright.config.ts",
-    "src/features/portal/",
-    "src/features/learning/",
-    "src/features/course/course-sidebar.tsx",
-    "src/features/course/course-outline.ts",
+    "src/features/course/course-sequence.ts",
     "src/features/course/course-navigation.tsx",
     "src/features/course/learning-flow.ts",
-    "src/features/course/guided-learning.tsx",
-    "src/features/course/mission-",
+    "src/features/course/course-outline.ts",
+    "src/features/course/course-sidebar.tsx",
     "tests/e2e/learning-flow-guidance.spec.ts",
     "tests/e2e/dialog-placement.spec.ts",
+    "tests/e2e/learning-sequencing.spec.ts",
     "docs/AZ900_COVERAGE_MATRIX.md",
     "docs/audits/az900-2026-07-20.json",
     "docs/reviews/AZ900_END_TO_END_AUDIT.md",
-    "docs/reviews/evidence/"
+    "docs/reviews/evidence/audit42-assessment.json"
   ],
   "gates": {
     "source": {
       "checks": [
         {
-          "path": "docs/LEARNING_SEQUENCE.md"
+          "path": "docs/ASSESSMENT_REFINEMENT.md"
         },
         {
-          "path": "tests/e2e/learning-sequencing.spec.ts"
+          "path": "src/domain/curriculum/refined-assessment.test.ts"
+        },
+        {
+          "path": "tests/e2e/assessment-refinement.spec.ts"
         }
       ],
-      "limits": "Bounded navigation/orientation; no new content coverage, progress engine, locks or history migration. Original guide/independent/recovery priority and substantive teaching/assessment objects preserved. Human validation unperformed. Separate final audit, exact-head281CI/strict and anonymous final-SHA Gate7 required. No merge/production."
+      "limits": "Two bounded versioned successors. Original expansion/transfer/World/receipt/XP semantics and PR43-45 contracts preserved. Final stamped independent audit, complete exact-head290CI/strict and actual anonymous fullSHA Gate7 are distinct delivery requirements; no Ready/local-only approval. Humans unperformed."
     },
     "curriculum": {
       "checks": [
         {
-          "path": "docs/LEARNING_SEQUENCE.md"
+          "path": "docs/ASSESSMENT_REFINEMENT.md"
         },
         {
-          "path": "tests/e2e/learning-sequencing.spec.ts"
+          "path": "src/domain/curriculum/refined-assessment.test.ts"
+        },
+        {
+          "path": "tests/e2e/assessment-refinement.spec.ts"
         }
       ],
-      "limits": "Bounded navigation/orientation; no new content coverage, progress engine, locks or history migration. Original guide/independent/recovery priority and substantive teaching/assessment objects preserved. Human validation unperformed. Separate final audit, exact-head281CI/strict and anonymous final-SHA Gate7 required. No merge/production."
+      "limits": "Two bounded versioned successors. Original expansion/transfer/World/receipt/XP semantics and PR43-45 contracts preserved. Final stamped independent audit, complete exact-head290CI/strict and actual anonymous fullSHA Gate7 are distinct delivery requirements; no Ready/local-only approval. Humans unperformed."
     },
     "simulation": {
       "checks": [
         {
-          "path": "docs/LEARNING_SEQUENCE.md"
+          "path": "docs/ASSESSMENT_REFINEMENT.md"
         },
         {
-          "path": "tests/e2e/learning-sequencing.spec.ts"
+          "path": "src/domain/curriculum/refined-assessment.test.ts"
+        },
+        {
+          "path": "tests/e2e/assessment-refinement.spec.ts"
         }
       ],
-      "limits": "Bounded navigation/orientation; no new content coverage, progress engine, locks or history migration. Original guide/independent/recovery priority and substantive teaching/assessment objects preserved. Human validation unperformed. Separate final audit, exact-head281CI/strict and anonymous final-SHA Gate7 required. No merge/production."
+      "limits": "Two bounded versioned successors. Original expansion/transfer/World/receipt/XP semantics and PR43-45 contracts preserved. Final stamped independent audit, complete exact-head290CI/strict and actual anonymous fullSHA Gate7 are distinct delivery requirements; no Ready/local-only approval. Humans unperformed."
     },
     "savvyshark": {
       "checks": [
         {
-          "path": "docs/LEARNING_SEQUENCE.md"
+          "path": "docs/ASSESSMENT_REFINEMENT.md"
         },
         {
-          "path": "tests/e2e/learning-sequencing.spec.ts"
+          "path": "src/domain/curriculum/refined-assessment.test.ts"
+        },
+        {
+          "path": "tests/e2e/assessment-refinement.spec.ts"
         }
       ],
-      "limits": "Bounded navigation/orientation; no new content coverage, progress engine, locks or history migration. Original guide/independent/recovery priority and substantive teaching/assessment objects preserved. Human validation unperformed. Separate final audit, exact-head281CI/strict and anonymous final-SHA Gate7 required. No merge/production."
+      "limits": "Two bounded versioned successors. Original expansion/transfer/World/receipt/XP semantics and PR43-45 contracts preserved. Final stamped independent audit, complete exact-head290CI/strict and actual anonymous fullSHA Gate7 are distinct delivery requirements; no Ready/local-only approval. Humans unperformed."
     },
     "visual-accessibility": {
       "checks": [
         {
-          "path": "docs/LEARNING_SEQUENCE.md"
+          "path": "docs/ASSESSMENT_REFINEMENT.md"
         },
         {
-          "path": "tests/e2e/learning-sequencing.spec.ts"
+          "path": "src/domain/curriculum/refined-assessment.test.ts"
+        },
+        {
+          "path": "tests/e2e/assessment-refinement.spec.ts"
         }
       ],
-      "limits": "Bounded navigation/orientation; no new content coverage, progress engine, locks or history migration. Original guide/independent/recovery priority and substantive teaching/assessment objects preserved. Human validation unperformed. Separate final audit, exact-head281CI/strict and anonymous final-SHA Gate7 required. No merge/production."
+      "limits": "Two bounded versioned successors. Original expansion/transfer/World/receipt/XP semantics and PR43-45 contracts preserved. Final stamped independent audit, complete exact-head290CI/strict and actual anonymous fullSHA Gate7 are distinct delivery requirements; no Ready/local-only approval. Humans unperformed."
     },
     "independent-final-audit": {
       "checks": [
         {
-          "path": "docs/LEARNING_SEQUENCE.md"
+          "path": "docs/ASSESSMENT_REFINEMENT.md"
         },
         {
-          "path": "tests/e2e/learning-sequencing.spec.ts"
+          "path": "src/domain/curriculum/refined-assessment.test.ts"
+        },
+        {
+          "path": "tests/e2e/assessment-refinement.spec.ts"
         }
       ],
-      "limits": "Bounded navigation/orientation; no new content coverage, progress engine, locks or history migration. Original guide/independent/recovery priority and substantive teaching/assessment objects preserved. Human validation unperformed. Separate final audit, exact-head281CI/strict and anonymous final-SHA Gate7 required. No merge/production."
+      "limits": "Two bounded versioned successors. Original expansion/transfer/World/receipt/XP semantics and PR43-45 contracts preserved. Final stamped independent audit, complete exact-head290CI/strict and actual anonymous fullSHA Gate7 are distinct delivery requirements; no Ready/local-only approval. Humans unperformed."
     },
     "delivery": {
       "checks": [
         {
-          "path": "docs/LEARNING_SEQUENCE.md"
+          "path": "docs/ASSESSMENT_REFINEMENT.md"
         },
         {
-          "path": "tests/e2e/learning-sequencing.spec.ts"
+          "path": "src/domain/curriculum/refined-assessment.test.ts"
+        },
+        {
+          "path": "tests/e2e/assessment-refinement.spec.ts"
         }
       ],
-      "limits": "Bounded navigation/orientation; no new content coverage, progress engine, locks or history migration. Original guide/independent/recovery priority and substantive teaching/assessment objects preserved. Human validation unperformed. Separate final audit, exact-head281CI/strict and anonymous final-SHA Gate7 required. No merge/production."
+      "limits": "Two bounded versioned successors. Original expansion/transfer/World/receipt/XP semantics and PR43-45 contracts preserved. Final stamped independent audit, complete exact-head290CI/strict and actual anonymous fullSHA Gate7 are distinct delivery requirements; no Ready/local-only approval. Humans unperformed."
     }
   },
   "verification": [
     {
       "command": "npm run test:e2e:desktop",
       "result": "pending",
-      "details": "Actual initial281CI on9633bd64831f287586a0a660e2f15969896ea744 run41401906187 failed280passed/1failed (obsoleteIdentity StorageB→Migration→Identity expectation; existing2automatic retries same failure). No passed receipt or strict. Exact expectation corrected with every critical assertion retained; new complete exact-head281CI/strict required."
+      "details": "Actual complete final290CI and strict release required; no targeted/old receipt substitutes."
     },
     {
       "command": "npm run check",
       "result": "passed",
-      "details": "Full local exit0: typecheck/lint/format/126docs/quality/57objective audit/482curriculum/assets/legacy/587Vitest/18Node tests/productionbuild. Ignored historical artifacts temporarily moved outside lint then restored unchanged. Subsequent tiny semantic context-heading/focus correction received targeted lint, productionbuild/TypeScript and final6desktop+1compact tests rather than repeated full local regression. Actual final-head full check remains mandatory in CI."
+      "details": "Full local exit0: TypeScript/lint/format/128docs/quality/57objective audit/493curriculum/assets/legacy/598Vitest/18Node/productionbuild. Ignored inherited .artifacts were temporarily moved then restored byte-identically. Later bounded UI/focus/numeric normalization and conservative all-context selector received targeted lint/domain/productionbuild/browser retests; exact final full check remains mandatory in authoritative CI."
     },
     {
-      "command": "targeted browser checks",
+      "command": "targeted domain and browser",
       "result": "passed",
-      "details": "Final6desktop31.3s+1compact9.0s passed exit0/no retry; all17boundaries, reciprocalPrevious, firstStart, freshsubjectcatalogue, scope/capstone/direct/legacy/practicalPortalreturn, guidedactive/pausedsame-session, exactunaideddraft/immutablefirst/deniedJournal, focus/scroll/Axe/reducedmotion. Six affected oldguide/modal/cross-tab journeys passed29.6s;2oldsource/resume journeys passed13.9s after exact predecessor/successor expectations changed. Earlier compact fixed-footer assumption and2old-origin failures are historical failed runs, not claimed passed."
+      "details": "Final11 successor domain tests exit0. All8 new desktop36.0s and1compact7.1s passed. After actual final focus/numeric/bounds refinements,5affecteddesktop26.9s +1compact36.4s exit0/no retry, covering both all-first browser submissions,005numeric,immutable first/assistedretry,capacityabandon,keyboard/Axe/shortcenteredstart and known oldCore case. Four oldstale/guidedpartial/paused/PR45ending witnesses26.9s passed. Fiveother originalexpansion/Huballcontexts/Portalmodal/deniedJournal cases passed in earlier targeted run; oldstalecontrol regression was corrected by narrowing new owner preflight and separately passed. Initial2newtest assumptions and duplicate own recovery UI were corrected; failed runs retained as artifacts."
     },
     {
       "command": "npm run test:e2e:plan",
       "result": "passed",
-      "details": "281=259desktop+22compact, all274inherited retained, optionallegacy518. Settings unchanged."
+      "details": "290=267desktop+23compact, all281previous retained;8newdesktop+1compact; optionallegacy534; settings unchanged."
     },
     {
-      "command": "CI correction targeted retest",
+      "command": "npm audit --audit-level=high",
       "result": "passed",
-      "details": "Affected original Identity navigation test passed exit0,7.6s test/9.5srun, after exact new Next/Previous/ending expectations. Targeted lint passed. No app code/setting/profile change or deleted assertion. Current CI on priorhead already passed fullcheck587Vitest/482curriculum/18Node; all280otherbrowser cases passed. New stamp/review and new exacthead281CI/strict remain mandatory; earlier publicGate7 appliesonly9633head."
+      "details": "Actual policy command exit0 with unchanged high threshold. JSON audit reports12moderate dev entries,0high/critical; production omit-dev0. Separate maintenance, not fixed."
+    },
+    {
+      "command": "blind final bank review",
+      "result": "passed",
+      "details": "Initial and revised locked blind reviews corrected substantive ambiguity/distractors/length and cyclic positions. Corrected actual final learner packet SHA256 771cd0fc625508548fbd97fdf9ce4038613b038a55b02dbe23e7e12a8cf26ab5 rechecked without key access:0BLOCKER/MAJOR,all12pairs align incl2legitimate architectures. No fixed or length/absolute heuristic full score; all27decision→reason mappings fail complete form. Human SME/psychometric/learning validation unperformed."
     },
     {
       "command": "Independent Final Audit",
       "result": "passed",
-      "details": "Separate renewed post-stamp review accepted final3c5 fingerprint25hashes. App and7images byte-identical to9633;402basefiles now7expected differences;39oldcontentexports only3orientationfields. Prior15unit/6desktop/1compact/3browserprobes retained after byte comparison; changed originalIdentity case independently passed4.9s/6.0s exit0 no retry. Fixed verificationfindingCI01,0openBLOCKER/MAJOR. Actual initialCI280/1 failed/no receipt/no strict; new full281CI/strict and corrected-head Gate7 pending."
+      "details": "Fresh separate post-stamp six-domain agent audit verified all40hashes and renewed metadata-only fingerprint;28independent unit tests,8newdesktop,1selectedcompact,3inheritedcases and direct denied-boundary/800x700 keyboard/Axe probes exit0. Sevenimages inspected.0openBLOCKER/MAJOR. Accepted minor editorial/intensity/near-transfer/local-cue and compact-witness override limits documented. Full exacthead290CI/strict and anonymous Gate7 remain pending delivery requirements. Humans unperformed."
     }
   ],
   "visualEvidence": [
     {
-      "path": "docs/screenshots/learning-sequencing/before-storage-resilience-1440.png",
+      "path": "docs/screenshots/assessment-refinement/active-benefits-1440x900.png",
       "viewport": "1440x900",
       "inspected": true,
-      "observation": "Anonymous base7775: StorageB incorrectly recommends Migration before Identity/Tools."
+      "observation": "Paired structured decisions, numeric capacity, no pre-submit hints."
     },
     {
-      "path": "docs/screenshots/learning-sequencing/before-monitoring-1440.png",
-      "viewport": "1440x900",
-      "inspected": true,
-      "observation": "Anonymous base7775: Monitoring ends at Hub before security synthesis."
-    },
-    {
-      "path": "docs/screenshots/learning-sequencing/after-storage-resilience-1440.png",
-      "viewport": "1440x900",
-      "inspected": true,
-      "observation": "Identity bridge and correct next; old onward copy corrected."
-    },
-    {
-      "path": "docs/screenshots/learning-sequencing/after-monitoring-1440.png",
-      "viewport": "1440x900",
-      "inspected": true,
-      "observation": "Brief security synthesis bridge and nextSecurityC."
-    },
-    {
-      "path": "docs/screenshots/learning-sequencing/after-security-1024.png",
+      "path": "docs/screenshots/assessment-refinement/active-services-1024x768.png",
       "viewport": "1024x768",
       "inspected": true,
-      "observation": "Direct access with concise prerequisite orientation and previousMonitoring."
+      "observation": "Requirements and choices remain readable with ordinary scrolling."
     },
     {
-      "path": "docs/screenshots/learning-sequencing/after-migration-end-1024x500.png",
+      "path": "docs/screenshots/assessment-refinement/active-services-1024x500.png",
       "viewport": "1024x500",
       "inspected": true,
-      "observation": "Honest course ending and Hub/Sandbox links, ordinary scrolling and reachable footer."
+      "observation": "Short desktop keeps normal scroll, keyboard submit accessible."
     },
     {
-      "path": "docs/screenshots/learning-sequencing/after-hub-1440.png",
+      "path": "docs/screenshots/assessment-refinement/start-services-1024x500.png",
+      "viewport": "1024x500",
+      "inspected": true,
+      "observation": "Native centered explicit Start/Cancel; opening or Escape creates no attempt."
+    },
+    {
+      "path": "docs/screenshots/assessment-refinement/journal-benefits-1440x900.png",
       "viewport": "1440x900",
       "inspected": true,
-      "observation": "Fresh Start and unchanged three catalogue paths, discreet sequence explanation."
+      "observation": "Historical versus updated results, actual choice/causal feedback and repetition inside durable preflight."
     }
   ],
   "humanReview": {
@@ -338,170 +557,244 @@
   },
   "snapshot": {
     "files": {
-      "AGENTS.md": "01b1c44789bc3826921551e5203eca8782533472af82471efc19541d10f0137b",
-      "docs/DEPENDENCY_FOLLOWUP.md": "3848090024039b3863677f96f14fd92da1c0dff9f50e16682644c596eeb5733e",
-      "docs/LEARNING_SEQUENCE.md": "0c2fce84db9f9c96a8f322a8c5396de19507675d0e866c1aac270aa782292900",
-      "docs/reviews/AZ900_LEARNING_JOURNEY_MAP.md": "4cc32832343a0b125eb117e32cc88533dacf0f4c1f08932eaccb0f2ada6d77d0",
-      "docs/reviews/AZ900_REMEDIATION_PLAN.md": "6ce0b783859550afc425727108e48844cd58da5aab5facc7150217ae0184e11e",
-      "docs/screenshots/learning-sequencing/after-hub-1440.png": "1af935a11952243c534f9463f8fe01147b908975eafc0519a781aca95a6667dd",
-      "docs/screenshots/learning-sequencing/after-migration-end-1024x500.png": "318f3d4545d74c8aa3e965ca2c74e6e86711793a705523bf8daa7589f7a502e4",
-      "docs/screenshots/learning-sequencing/after-monitoring-1440.png": "8eb176501278612020b5c80a91f564f04b6a6de5c0e1d5b984a3d4c01e90bc13",
-      "docs/screenshots/learning-sequencing/after-security-1024.png": "f982b2a26a2e7ddd77007b0c690ce6c48f4b29c1aa6d64c8a3839cc4a74b5a67",
-      "docs/screenshots/learning-sequencing/after-storage-resilience-1440.png": "c3b43092da82e656e94681ae47689cbc0a7fff2aa14ac035467ffbed95ffd11f",
-      "docs/screenshots/learning-sequencing/before-monitoring-1440.png": "0bd39b8fe344e7453bf412acaa76488bcb3ade6ef11bb2b9d47f8af29ba04384",
-      "docs/screenshots/learning-sequencing/before-storage-resilience-1440.png": "4e53dac49901bc5ccdde04a640618197c2f606f9e784d5f7fa1d9ece9c938ab4",
-      "playwright.desktop.config.ts": "416707398da728f60c8a3bb249d38ec556f09270fbc493e811897f57490ed999",
-      "src/content/learning-journey.ts": "9594c6ef21ffff5eda0cc48ce26c5c7e0e354e9291036432674997e2b4d07e42",
-      "src/content/nb.ts": "7ea3010a22dfb5d44eaf35e8a95b6e68b7b82a01422369107b461e1e74db9c03",
-      "src/features/course/course-hub.tsx": "59a66713adfdd2ad1d57751e07ce26110dfe35b6d07568df753050853b283d03",
-      "src/features/course/course-journey-context.tsx": "1f2e51ad239496e10f5f348377f531b9dc1a51eb4a7c7badc98f48e2b3054b5b",
-      "src/features/course/course-sequence.test.ts": "290f7499663617c4749d1a5a6bab2b1e0066dd9db11099c315e287585d1bf206",
-      "src/features/course/course-sequence.ts": "c29d46e184a46132613be91387671c676ea898a1687a1768fc8e3221eed08221",
-      "src/features/course/course.css": "8e3c2689d9fe04ad6793a658913f2b8a38bfa346da5e0dc35848f7ff9fe49b13",
-      "src/features/course/course.tsx": "dc3cad094991830b08376fd3089102eda479af16db9e3b75c8eb8eeae10b99b3",
-      "tests/e2e/file-movement-migration.spec.ts": "6e75693997e2855846a059c6d56c7fcde3dcab4f1cf3ef5b48ca14abddcfbdd9",
-      "tests/e2e/identity-foundations.spec.ts": "07717e323346fcdb7703b0242116e6b8e62c6ab312be1561af39a324e435f62a",
-      "tests/e2e/learning-sequencing.spec.ts": "a2fe6ba303380f0767ac16a1e871c7da9e6fe8b8f3441ff9e7528eff82c2fa31",
-      "tests/e2e/security-principles.spec.ts": "a131f41a7cd0661616dfb7dc74107a07caa85c3dc1f14265514de04c1550274e"
+      "AGENTS.md": "9a588f1917dd5541c8556121241c4d5d68fce7271aa39ac777a89b49e89dc9aa",
+      "docs/ASSESSMENT_REFINEMENT.md": "9527e994ca5b0e9059eaea95e30da3dad58ccd852e42f50aba5e08fd9f616f0d",
+      "docs/AZ900_ASSESSMENT_BLUEPRINT.md": "84285ab1cc828c0d06c78a3612725ad62b72dbd0592acfdeb25358e1e3e1013d",
+      "docs/DECISIONS.md": "78baa69e39174771c9a7249b136cd5c78c54386a012bf25ed561a4d1cce7f265",
+      "docs/DEPENDENCY_FOLLOWUP.md": "c167171078c741d2c83b407951e5fa6ee2edd0e94f0ffea61ef742e16625a429",
+      "docs/reviews/AZ900_REMEDIATION_PLAN.md": "4f495405907ee3d8f9227fa17e88f8c079f734b31e356abe99b5782537c80713",
+      "docs/reviews/evidence/assessment46-blind-initial.json": "8a49e70c42cc2d10245907516329c741031a58dc015e22d1767eef106254ef5c",
+      "docs/reviews/evidence/assessment46-blind-release.json": "c4a92956a84e6d8b3307460d9e70af3f1d4b8f99aadd24dee32af41d32648857",
+      "docs/reviews/evidence/assessment46-blind-revised.json": "e8e0072e220e38b587eac0825dcb01555dff6963d40c480cb4bce05bccaf2945",
+      "docs/reviews/evidence/assessment46-heuristics.json": "920edcffacafc63eaac458d37d72e1182168922e1eebc3154b8516476a4b415c",
+      "docs/screenshots/assessment-refinement/active-benefits-1440x900.png": "2770e1c09b140dba95b4769135dcf968dfd9d4b73230bcdd0b6e50a7810967a7",
+      "docs/screenshots/assessment-refinement/active-services-1024x500.png": "e32026b4c3b580ba1f0b766301fc0543e8a9dc2f94342fc94ab347d4bdbf4cc3",
+      "docs/screenshots/assessment-refinement/active-services-1024x768.png": "2ed016831d17c82696447c953d798e4781e9cde3a1e4dd65b9231df462df9bbf",
+      "docs/screenshots/assessment-refinement/journal-benefits-1440x900.png": "f5c0d3a93d30d9542ce1853fcbafe0717b7bd071520db27657e549ac7235cd55",
+      "docs/screenshots/assessment-refinement/start-benefits-1440x900.png": "25bca5c675ad86b3c018bf83804e0f88af6e64c82e18e6a5682c947c288a39a2",
+      "docs/screenshots/assessment-refinement/start-services-1024x500.png": "33ba5bab66001319a560e2af29fd4879a256508a1a5d9f554f12f165b5b88077",
+      "docs/screenshots/assessment-refinement/start-services-1024x768.png": "7cceaaeadc9320112ea36dffd3b1ff607beea96754c5d3631f8be9f544cf0368",
+      "package.json": "a785d39048872f6dc58ad7591456844815ce3557658448075723b91bd16d1f66",
+      "playwright.desktop.config.ts": "849e14dfc4ad45db6b896e0e0f6fb50f15ebc8461413b15ff356d7acd108b85c",
+      "src/app/layout.tsx": "23846f852e14bef98f32ec43279bc9e1e5097c69f2132f9e88d439d38b8e9aee",
+      "src/components/progress-provider.tsx": "d168318e09d830a209474eac0c1819b0816e5f4cbcbfb12fc5f6a6a700049751",
+      "src/content/nb.ts": "9caa7b77fe401c17dc8f1fcf3216d800327826b2530a9d502d6c87cc7d16751e",
+      "src/domain/curriculum/refined-assessment-store.ts": "8cc3a16914dc6023e8b4a20390308a910f9ba019d6cc3ff88aab8a4f703fc067",
+      "src/domain/curriculum/refined-assessment.test.ts": "1dae8cf8d2183a340ea0cba23645bbd3d0a0f59991fc540ea5c918c791dbe426",
+      "src/domain/curriculum/refined-assessment.ts": "7bb504dace1d5213dc4424d7f5a0c646947964a0d41f23bbc94ddbd4a0733b9d",
+      "src/features/course/course.tsx": "23ea3d610c957e03b637bea7076941f473d545ceb9ff0907c79e6d0f02e652d3",
+      "src/features/course/guided-coach.tsx": "5196ba68eff2f55fb60baf2248d2eab4907536bcf3a79b079fbeedee4d43bfc4",
+      "src/features/course/mission-context.ts": "73fd9e547f05b72e177dae4e5ae2813bad2cc0b932bdeb31ce967bd78fe70316",
+      "src/features/course/practical-lab.tsx": "eec021d25399467e8a4614bc534f608527286ef14f19effd2ef39f69dbc38e7b",
+      "src/features/learning/expanded-module.tsx": "002b9188e202b31077a2d722972f7cb9c3c46c3d4170857229da852ae1c0e49b",
+      "src/features/learning/expansion-provider.tsx": "819e4bb9f38b678f680bc942b25eb1b47f6cb217e491da695ce31f72aba48220",
+      "src/features/learning/expansion.css": "0b198285aeb7ed57b9101b13c38d92d0353d33003d591a1137754a92bf16914f",
+      "src/features/learning/management-access.tsx": "a37999ec74881a991573b1b5ef3870f3064e4174506ce60d84d4838eca075a1c",
+      "src/features/learning/refined-assessment-provider.tsx": "fc42148bb731a245de7f8b05f4e94b1742d7c38172dfa3962a16eee8dd8138d1",
+      "src/features/learning/refined-assessment.tsx": "6631f771832de66bd74bd5b0d312dd5d77b54279e12b96eb5dcf225592a656ea",
+      "src/features/portal/portal.tsx": "37c4aecba40a3e0c4b9e857cd8fb8e2890d63f4ec564742028a8898ba0d02132",
+      "tests/e2e/assessment-refinement.spec.ts": "95023eb7cdd1c13af4732a24f07f3efbb4385a8922c6ca41c2b9a4694368da43",
+      "tests/e2e/cloud-transfer.spec.ts": "619c0d501f48a1be2d39a29ea7f29c261bf50221266bec6fab13f88826c8b304",
+      "tests/e2e/course-hub.spec.ts": "cf348ca266822fae0f5d663ea19aafb9663e660366cba356284949ff07cfa70c",
+      "tests/e2e/curriculum-expansion.spec.ts": "2fab79ff68b3a301b2d9e79c8cbe28dff41eb5952708c9d2b00a684b22267d45"
     }
   },
-  "implementationFinished": "2026-11-02T07:10:09.713Z",
+  "implementationFinished": "2026-11-02T09:27:57.478Z",
   "review": {
     "status": "complete",
-    "fingerprint": "3c5ba3bbf44ca4e535a2f00eba3f3406954ef566043a9e447c4792cd5ae21c63",
+    "fingerprint": "2887e96f37f2afc8878a5b87e0c3bf55b79f12bf80de83aa8b3c625380b4cf71",
     "reviewer": {
-      "id": "codex-pr45-independent-final-auditor",
+      "id": "assessment46-final-audit-agent",
       "kind": "agent"
     },
-    "started": "2026-11-02T07:11:11Z",
-    "completed": "2026-11-02T07:14:54.685116Z",
+    "started": "2026-11-02T09:28:21.537Z",
+    "completed": "2026-11-02T09:35:09.901Z",
     "domains": {
       "content": {
-        "finding": "Renewed25hash/fingerprint and first-candidate byte comparison confirms unchanged app/content. Prior independent39export comparison still applies: exactly3declared orientation strings differ from base; all substantive teaching/assessment objects preserved. Prerequisite order and17canonical route graph unchanged and supported by audit42. No repeated57objective/bank audit claimed.",
+        "finding": "Complete final bank/feedback reviewed against preserved teaching and precise scoped official claims. Fresh public responsibility, App Service plan and sustainability bodies reproduce recorded hashes. No technical answer error found; sustainability intensity/editorial and near-transfer limits remain explicit. Source metadata narrowed and restamped; no human SME claim.",
         "evidence": [
-          {
-            "path": "src/features/course/course-sequence.ts"
-          },
           {
             "path": "src/content/nb.ts"
           },
           {
-            "path": "docs/reviews/AZ900_LEARNING_JOURNEY_MAP.md"
+            "path": "docs/ASSESSMENT_REFINEMENT.md"
           },
           {
-            "path": "docs/quality/PR45_FINAL_AUDIT.md"
+            "path": "quality/releases/current.json"
+          },
+          {
+            "path": "docs/quality/PR46_FINAL_AUDIT.md"
           }
         ]
       },
       "technical": {
-        "finding": "All25current hashes/fingerprint verified. Delta from9633 stamped payload is only LEARNING_SEQUENCE.md and Identitytest; zero app changes and all7images exact.402existing src/test comparison now has7expected changed paths. Original priority/internal activity blocks and stores remain preserved; no new progress/schema/resource mutation.",
+        "finding": "Two isolated version-pinned successor stores validate exact bounded replay, IDs/options/input and terminal reserve, CAS/readback, durable-only publication, stale conflict and compare-before-delete recovery. Independent negative/replay/domain and production denied/stale/recovery checks passed. Original expansion/transfer/Sandbox/World/receipt/XP contracts are unchanged.",
         "evidence": [
           {
-            "path": "src/features/course/course.tsx"
+            "path": "src/domain/curriculum/refined-assessment.ts"
           },
           {
-            "path": "src/features/course/course-sequence.ts"
+            "path": "src/domain/curriculum/refined-assessment-store.ts"
           },
           {
-            "path": "tests/e2e/identity-foundations.spec.ts"
+            "path": "src/domain/curriculum/refined-assessment.test.ts"
           },
           {
-            "path": "docs/quality/PR45_FINAL_AUDIT.md"
+            "path": "tests/e2e/assessment-refinement.spec.ts"
           }
         ]
       },
       "visual": {
-        "finding": "All7actual images inspected in original review and byte-identical now. Original fresh6desktop/1compact plus own1024x500 context-focus probe remain applicable to unchanged app: threepath catalogue, oneStart, shortorientation, keyboard/Axe/reducedmotion/scroll allpassed. No new visual source change; humans unperformed.",
+        "finding": "Personally inspected all seven committed images at 1440/1024/short. Native start/Journal placement, readable labels, normal scroll, first-question focus, Escape return, reduced motion and Axe passed production checks. A separate real 800×700 probe passed keyboard access to all 12 selects and submit, no horizontal overflow, focus and Axe zero. The selected compact test overrides its viewport and is not credited as 800-pixel proof.",
         "evidence": [
           {
-            "path": "docs/screenshots/learning-sequencing/after-hub-1440.png"
+            "path": "docs/screenshots/assessment-refinement/active-benefits-1440x900.png"
           },
           {
-            "path": "docs/screenshots/learning-sequencing/after-migration-end-1024x500.png"
+            "path": "docs/screenshots/assessment-refinement/active-services-1024x768.png"
           },
           {
-            "path": "src/features/course/course-journey-context.tsx"
+            "path": "docs/screenshots/assessment-refinement/active-services-1024x500.png"
           },
           {
-            "path": "docs/quality/PR45_FINAL_AUDIT.md"
+            "path": "docs/screenshots/assessment-refinement/start-services-1024x500.png"
+          },
+          {
+            "path": "docs/screenshots/assessment-refinement/journal-benefits-1440x900.png"
+          },
+          {
+            "path": "docs/screenshots/assessment-refinement/start-benefits-1440x900.png"
+          },
+          {
+            "path": "docs/screenshots/assessment-refinement/start-services-1024x768.png"
+          },
+          {
+            "path": "docs/quality/PR46_FINAL_AUDIT.md"
           }
         ]
       },
       "assessment": {
-        "finding": "Assessment banks/rubrics/stores and original first/help/retry semantics remain byte-preserved. Prior independent actual unaidedfirst/exactdraft/deniedJournal/cross-tab no-aid proofs remain valid for unchanged app. Renewed Identitycase retains original empty-completed/first and navigation/Portal assertions and independently passes.",
+        "finding": "Existing locked learner-only initial/revised/corrected release reviews evaluated without relabelling this key-aware audit as blind. Actual learner objects match the release packet and all 12 derived pairs. Both IaaS/os and PaaS/platform pass; crossed pairs fail; new 37−4×8=5 and old 1 remain scoped. Independent heuristic/domain checks and actual all-first submissions fail full forms; immutable first and assisted retry are preserved. Introductory premise density, taught-example overlap and residual local positions limit transfer inference. No psychometric claim.",
         "evidence": [
           {
-            "path": "src/domain/curriculum/security.ts"
+            "path": "docs/reviews/evidence/assessment46-blind-initial.json"
+          },
+          {
+            "path": "docs/reviews/evidence/assessment46-blind-revised.json"
+          },
+          {
+            "path": "docs/reviews/evidence/assessment46-blind-release.json"
+          },
+          {
+            "path": "docs/reviews/evidence/assessment46-heuristics.json"
+          },
+          {
+            "path": "src/domain/curriculum/refined-assessment.test.ts"
+          },
+          {
+            "path": "tests/e2e/assessment-refinement.spec.ts"
+          }
+        ]
+      },
+      "guidance": {
+        "finding": "Both new active/uncertain contexts participate in teaching/Summary/Journal/history/mission/Portal shielding and scoped recovery. Explicit Start alone begins; active forms withhold answer feedback. Direct production probes for both keys confirm neutral Portal preserves unaided bytes and suppresses solution guides, and denied Summary/Portal responsibility aid prevents teaching mount. Exact old/new routes and explicit competing contexts verified.",
+        "evidence": [
+          {
+            "path": "src/features/learning/management-access.tsx"
+          },
+          {
+            "path": "src/features/learning/refined-assessment.tsx"
+          },
+          {
+            "path": "src/features/course/mission-context.ts"
+          },
+          {
+            "path": "src/features/course/course.tsx"
+          },
+          {
+            "path": "src/features/portal/portal.tsx"
+          },
+          {
+            "path": "tests/e2e/assessment-refinement.spec.ts"
+          },
+          {
+            "path": "docs/quality/PR46_FINAL_AUDIT.md"
+          }
+        ]
+      },
+      "regression": {
+        "finding": "All 40 final normalized hashes and fingerprint verified. Reconstruction of the original source-only metadata reproduces the original fingerprint, proving unchanged application/test/image payload across the restamp. Protected original expansion/transfer/technical/navigation/CI/dependency files remain unchanged; old tests keep assertions with explicit historical routes. Independent 28 domain tests, eight new desktop cases, one selected compact execution, three inherited browser cases, direct boundary probes and actual 800×700 probe exited zero. The plan validates 290 executions (267/23), with unchanged settings. Complete exact-head CI/strict and anonymous full-SHA Gate 7 remain pending. The old Core cause/fix remains unconfirmed.",
+        "evidence": [
+          {
+            "path": "src/domain/curriculum/refined-assessment.test.ts"
+          },
+          {
+            "path": "tests/e2e/assessment-refinement.spec.ts"
+          },
+          {
+            "path": "tests/e2e/curriculum-expansion.spec.ts"
+          },
+          {
+            "path": "tests/e2e/learning-flow-guidance.spec.ts"
           },
           {
             "path": "tests/e2e/learning-sequencing.spec.ts"
           },
           {
-            "path": "tests/e2e/identity-foundations.spec.ts"
-          },
-          {
-            "path": "docs/quality/PR45_FINAL_AUDIT.md"
-          }
-        ]
-      },
-      "guidance": {
-        "finding": "No guide/provider/Portal/recommendation code changed after first review. Original independent15unit/6desktop/1compact and ownprobe established partial/paused same-session precedence, cause/complete projection and native practical return. Identitycorrection retains realPortalreturn coverage; no help/credit or guidance engine change.",
-        "evidence": [
-          {
-            "path": "src/features/course/learning-flow.ts"
-          },
-          {
-            "path": "src/features/course/guided-learning.tsx"
-          },
-          {
-            "path": "tests/e2e/identity-foundations.spec.ts"
-          },
-          {
-            "path": "docs/quality/PR45_FINAL_AUDIT.md"
-          }
-        ]
-      },
-      "regression": {
-        "finding": "Actual initialCI41401906187 on9633 failed280/1 in16.8m; two inherited retries also failed obsoleteIdentityexpectation, no passedreceipt/strict. Final-stamp independent Identitycase passed4.9s(test)/6.0s(run),exit0/no retry, withsame3URLassertions andallotherchecks retained. Plan281/settings unchanged. New exactheadfullCI/strict and finalSHAGate required; successful oldGate verifies only9633.",
-        "evidence": [
-          {
-            "path": "tests/e2e/identity-foundations.spec.ts"
-          },
-          {
-            "path": "docs/LEARNING_SEQUENCE.md"
-          },
-          {
             "path": "playwright.desktop.config.ts"
           },
           {
-            "path": "docs/quality/PR45_FINAL_AUDIT.md"
+            "path": "docs/quality/PR46_FINAL_AUDIT.md"
           }
         ]
       }
     },
     "findings": [
       {
-        "id": "PR45-AUDIT-CI01",
+        "id": "PR46-AUDIT-01",
         "severity": "minor",
-        "description": "Inherited Identity route test still expected old StorageB→Migration→Identity after the approved sequence changed. Initial fullCI failed280/1 and correctly withheld receipt/strict.",
         "status": "fixed",
-        "fix": "Preserve the same three URL assertions/actions but expect StorageB→Identity, reciprocal Previous→StorageB and Migration→Hub. Retain all other sidebar/Back/Forward/reload/Portal/empty-completed/first assertions. No app or retry/timeout/worker/skip changes.",
+        "description": "During audit the author identified source/claim metadata broader than actual coverage. Final binding now distinguishes scope, Benefits, Services, shared responsibility, plan, recovery and sustainability.",
+        "fix": "Narrowed current.json source claims/objectives only and renewed stamp at 2026-11-02T09:27:57.478Z; all 40 reviewed file hashes remain unchanged.",
         "retests": [
-          {
-            "path": "tests/e2e/identity-foundations.spec.ts",
-            "result": "Independent corrected-stamp targeted case passed4.9stest/6.0srun,exit0,no retry; only changedtest/doc payload verified against9633, app/images unchanged."
-          }
+          "Renewed metadata review at 2026-11-02T09:28:21.537Z recomputed all 40 hashes and final fingerprint 2887e96f37f2afc8878a5b87e0c3bf55b79f12bf80de83aa8b3c625380b4cf71.",
+          "Reconstructed original source metadata with current file hashes reproduces original fingerprint 955d85832afbb0c2513d63086dae33be287f482a6b8b32d0ad7abdb867a2d3c2.",
+          "Fresh public responsibility/plan/sustainability HTTP 200 bodies reproduce recorded hashes and support the relevant actual claims."
         ]
       },
       {
-        "id": "PR45-AUDIT-N01",
+        "id": "PR46-AUDIT-02",
+        "severity": "minor",
+        "status": "accepted-limitation",
+        "description": "b-footprint selects the strongest available environmental investigation but per-order intensity alone would not establish lower total footprint. Existing feedback withholds a measured environmental outcome; retain bounded interpretation."
+      },
+      {
+        "id": "PR46-AUDIT-03",
+        "severity": "minor",
+        "status": "accepted-limitation",
+        "description": "s-patching asks who while choices are actions. Responsibility remains unambiguous under explicit IaaS/guest premises; editorial refinement is optional."
+      },
+      {
+        "id": "PR46-AUDIT-04",
         "severity": "note",
-        "description": "New corrected-head complete281CI/strict and anonymous final-SHA Gate7 remain pending at renewed review completion. Failed initialCI and successful earlier9633-onlyGate7 cannot substitute.",
-        "status": "open"
+        "status": "accepted-limitation",
+        "description": "The small explicit-premise bank contains substantial near-transfer overlap with guided driver and VM/PaaS examples, plus scope-aware language cues. All three cases with a correct decision at position 2 have their correct reason at position 3, although all 27 fixed mappings fail each whole form. Do not infer broad diagnosis, exam readiness or measured transfer."
+      },
+      {
+        "id": "PR46-AUDIT-05",
+        "severity": "minor",
+        "status": "accepted-limitation",
+        "description": "The selected compact witness immediately overrides its viewport to 1440/1024/short; its project label is not 800-pixel evidence. A separate independent actual 800×700 production probe passed centered start, Escape/first-field focus, keyboard access to 12 selects and submit, no horizontal overflow, reduced motion and Axe zero. The author accepted this distinct bounded evidence."
+      },
+      {
+        "id": "PR46-AUDIT-06",
+        "severity": "note",
+        "status": "open",
+        "description": "Delivery remains pending: actual complete exact-head 290-case CI plus strict release, and anonymous ordinary-root/full-SHA/representative journey. This complete Gate 6 audit does not approve those unexecuted delivery gates."
       }
     ],
     "report": {
-      "path": "docs/quality/PR45_FINAL_AUDIT.md"
+      "path": "docs/quality/PR46_FINAL_AUDIT.md"
     }
   }
 }
