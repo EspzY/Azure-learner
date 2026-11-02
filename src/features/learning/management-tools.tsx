@@ -1,4 +1,5 @@
 'use client';
+import { PortalInspectionBridge } from '@/features/course/portal-inspection-bridge';
 import { SourceDisclosure } from './source-disclosure';
 import { GuidedMissionLink } from '@/features/course/guided-mission-link';
 import { useEffect } from 'react';
@@ -144,6 +145,7 @@ function ToolsStudio({ perspective }: { perspective?: string | null }) {
         ))}
       </nav>
       <ToolsWorkbench key={view} mission={view} />
+      {view === 'intent' && <PortalInspectionBridge context="app" />}
     </section>
   );
 }

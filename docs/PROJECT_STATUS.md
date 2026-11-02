@@ -1,3 +1,7 @@
+# PR48 — Practical Portal Learning Bridge, Stage A
+
+Tre avgrensede innganger fra eksisterende Compute-/Governance-/Management Tools-aktiviteter åpner faktisk VM, Policy-receipt eller Web App/plan i samme lokale World. Ressursavgrenset historikk, original forespørsel og URL-baserte Properties/Overview forbedrer undersøkelse og retur uten nye commands, schemas, rubrics, observasjoner eller XP. [Omfang og faktiske bevis](PORTAL_INSPECTION_BRIDGE.md). Kandidat303 (278desktop/25kompakt), bevarer296 tidligere. Sluttgodkjenning krever separat audit, komplett eksakt-head CI/streng release og anonym full-SHA Gate7 på Draft PR48. Stage B/C, PD-01 og AS-02 er fortsatt åpne; mennesker uutført. Ingen P17/P18, merge eller produksjon.
+
 # PR47 — Collapsible Official Sources, kandidat
 
 [UX-02-implementasjon og faktiske før/etter-mål](COLLAPSIBLE_SOURCES.md): én lukket native kildeinngang i 13 moderne moduler og relevante eldre/Core/Serverless/Portal-/Journal-flater. Uendrede kilderegistre/claims/datoer og alle tidligere historikk-/teaching-grenser. Synlig Summary-kildeareal redusert 89,6–93,0 %, Journal-eksempel 92,8 %. Full296 eksakt-head CI, separat audit, streng release og faktisk anonym full-SHA Gate7 føres på Draft PR47 før godkjenning. Menneskelig validering uutført. Neste er kort eiergjennomgang av PD-01, AS-02, PR-01 og menneskelig pilot; ingen automatisk P17/P18, merge eller produksjon. Historiske statusavsnitt nedenfor er versjonsbundet.

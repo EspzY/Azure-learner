@@ -1,4 +1,5 @@
 'use client';
+import { PortalInspectionBridge } from '@/features/course/portal-inspection-bridge';
 import { SourceDisclosure } from './source-disclosure';
 import { GuidedMissionLink } from '@/features/course/guided-mission-link';
 import { useEffect, useState } from 'react';
@@ -169,7 +170,12 @@ export function ComputeLesson({
               {c.topics.functions} → Serverless Execution Explorer
             </Link>
           )}
-          {topic === 'dependencies' && <ComputeVmLesson />}
+          {topic === 'dependencies' && (
+            <>
+              <ComputeVmLesson />
+              <PortalInspectionBridge context="vm" />
+            </>
+          )}
           {topic === 'containers' && <ComputeWorkbench mission="container" />}
           {topic === 'resilience' && <ComputeWorkbench mission="capacity" />}
           {topic === 'hosting' && <ComputeWorkbench mission="hosting" />}
