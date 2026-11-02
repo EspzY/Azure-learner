@@ -1,0 +1,599 @@
+{
+  "review": {
+    "review_id": "AzureLab-PR49-AS02-StageA-revised-blind",
+    "language": "nb",
+    "scope": {
+      "role": "Ny, separat blind fag- og oppgavegjennomgang",
+      "allowed_inputs_only": [
+        "/workspace/azurelab-pr49/student-packet-revised.json",
+        "/workspace/azurelab-pr49/previous-exposure-packet.json"
+      ],
+      "read_other_repository_content": false,
+      "read_author_keys_or_accepted_pairs": false,
+      "read_feedback_or_prior_reviews": false,
+      "author_key_comparison_performed": false,
+      "product_modified": false,
+      "independence_limit": "Dette er én selvstendig modellbasert vurdering av to elevsynlige pakker. Ingen faktisk elevprestasjon, Azure-trafikk eller produksjonspilot er observert.",
+      "source_file_sha256": {
+        "/workspace/azurelab-pr49/student-packet-revised.json": "6134a50e8ac3d305bb97870a62b191bb51bfbc98d13b9a8d5eff2d129078c34b",
+        "/workspace/azurelab-pr49/previous-exposure-packet.json": "3c48dd0e6b58f0239183164e9234ec1e84d41983c21ab0a91ff3c0f3f928c416"
+      }
+    },
+    "verdict": {
+      "content": "De seks tilfellene har forsvarlige faglige hovedløsninger. Alle tre kontrastpar endrer relevante premisser og dermed den relevante beslutningen.",
+      "strongest_complete_pair_count": 7,
+      "reason_scoring": "Middels alvorlig restuklarhet: tre ekstra beslutning–begrunnelse-par er bokstavelig kompatible og gir delvis reell støtte. Pakken oppgir ikke en felles regel om at begrunnelsen må forklare hele den diskriminerende prioriteringen. Et strengt enkeltfasitsystem må avklare dette.",
+      "other_limitations": "Noen sterkt signaliserte premisser og tydelig svakere distraktorer gjør banken egnet til støttet, begrenset nærtransfer. Den gir ikke i seg selv evidens for menneskelig validert generalisering.",
+      "readiness": "Faglig brukbar kandidat for begrenset nærtransfer; ikke en ubetinget godkjenning av entydig parskåring eller en empirisk validitetskonklusjon."
+    },
+    "interpretation": {
+      "strongest_complete_pair": "Beslutningen svarer best på spørsmålet, og begrunnelsen forklarer den sentrale forskjellen som gjør denne prioriteringen riktig under de oppgitte premissene.",
+      "additional_defensible_compatible_pair": "Den samme gode beslutningen kombineres med en sann, relevant begrunnelse som faktisk støtter en del av valget, men ikke hele prioriteringen. Under et kriterium om at begrunnelsen bare skal passe valget, er paret forsvarlig. Under et tydelig kriterium om mest fullstendige begrunnelse er det svakere.",
+      "conditional_only": "Et par blir rimelig først når en vesentlig, uoppgitt forutsetning legges til. Det er ikke ført som fullverdig løsning.",
+      "matrix_codes": {
+        "S": "Sterk, fullstendig løsning utledet uavhengig",
+        "P": "Ytterligere forsvarlig kompatibilitet med delvis begrunnelse; skåringsuklarhet",
+        "C": "Sann eller relevant kontekst, men forklarer ikke den valgte undersøkelsen tilstrekkelig",
+        "W": "Begrunnelse kan passe en svakere handling, men handlingen besvarer ikke prioriterings-/best-spørsmålet best",
+        "X": "Mangler relevant støtte, motsier premisser eller begrunner en annen handling"
+      },
+      "note": "Matrisene undersøker alle ni kombinasjoner per tilfelle. P-par er eksplisitt beholdt; de er ikke skjult som feil bare fordi en mer dekkende begrunnelse finnes."
+    },
+    "strongest_complete_pairs": [
+      {
+        "case_id": "at-network-01",
+        "decision_id": "dns-object",
+        "reason_id": "split-evidence"
+      },
+      {
+        "case_id": "at-network-02",
+        "decision_id": "path-token",
+        "reason_id": "separate-stages"
+      },
+      {
+        "case_id": "at-storage-01",
+        "decision_id": "concurrent-io",
+        "reason_id": "coordination"
+      },
+      {
+        "case_id": "at-storage-02",
+        "decision_id": "blob-pilot",
+        "reason_id": "object-contract"
+      },
+      {
+        "case_id": "at-storage-02",
+        "decision_id": "files-pilot",
+        "reason_id": "files-adapter"
+      },
+      {
+        "case_id": "at-cost-01",
+        "decision_id": "base-commit",
+        "reason_id": "matched-floor"
+      },
+      {
+        "case_id": "at-cost-02",
+        "decision_id": "spot-fallback",
+        "reason_id": "observed-conditional"
+      }
+    ],
+    "additional_defensible_compatible_pairs": [
+      {
+        "case_id": "at-storage-01",
+        "decision_id": "concurrent-io",
+        "reason_id": "identity-sample",
+        "support": "Overlappende produksjonsnære tester med begge identiteter prøver nettopp tilgangsgrunnlaget administratortesten ikke dekket.",
+        "limitation": "Begrunnelsen skiller ikke samtidighetstesten fra de andre identitetstestene og forklarer dermed ikke hvorfor koordinering er den viktigste kontraktsrisikoen.",
+        "scoring_implication": "Forsvarlig ved bokstavelig kompatibilitet; svakere dersom eleven uttrykkelig skal velge den mest fullstendige begrunnelsen."
+      },
+      {
+        "case_id": "at-cost-01",
+        "decision_id": "base-commit",
+        "reason_id": "no-commit",
+        "support": "Ukjent toppfordeling gjør PAYG fleksibelt for tilleggstimene, slik den hybride beslutningen faktisk bruker PAYG.",
+        "limitation": "Forklarer ikke hvorfor de to sikre helårsenhetene skal bindes. Setningen om å sammenligne én betalingsform for hele tjenesten er vag, men pålegger ikke å velge bare én betalingsform.",
+        "scoring_implication": "Delvis forsvarlig støtte til hybridvalget; kan ikke avvises som usann eller direkte uforenlig uten et strengere begrunnelseskriterium."
+      },
+      {
+        "case_id": "at-cost-02",
+        "decision_id": "spot-fallback",
+        "reason_id": "reference-run",
+        "support": "At en blandet løsning trenger egne data om omkjøring og overgang er en relevant grunn til nettopp å gjennomføre en avgrenset blandet pilot med oppfølging.",
+        "limitation": "Omtalen av ren PAYG som enklere referanse fremhever også alternativets fordel, og begrunnelsen bruker ikke det observerte kostnadsutfallet eller den endrede avbruddstoleransen.",
+        "scoring_implication": "Et rimelig alternativt begrunnelsesvalg under 'begrunnelse som passer'. Den observerte-betingede begrunnelsen forklarer likevel valget vesentlig bedre."
+      }
+    ],
+    "cases": [
+      {
+        "case_id": "at-network-01",
+        "independent_solution": "A har et navnesvar som avviker fra verifisert mål. Den kontrollerte adressetesten med bevart vertsnavn/TLS når bare /ready, så resolver/cache er et målrettet spor uten at hele ordrebanen friskmeldes. B når riktig tjeneste og kan lese ordre 17; avslaget for ordre 83 begrunner inspeksjon av den konkrete tilgangsbeslutningen og forespørselsloggen. Det beviser ikke en bestemt manglende rolle eller en ferdig rotårsak.",
+        "strongest_pairs": [
+          {
+            "decision_id": "dns-object",
+            "reason_id": "split-evidence"
+          }
+        ],
+        "pair_matrix": {
+          "reason_columns": ["split-evidence", "login-renewal", "route-uniform"],
+          "decision_rows": [
+            {
+              "decision_id": "route-token",
+              "status": ["X", "W", "W"]
+            },
+            {
+              "decision_id": "dns-object",
+              "status": ["S", "X", "C"]
+            },
+            {
+              "decision_id": "dns-route",
+              "status": ["X", "X", "W"]
+            }
+          ]
+        },
+        "distractors": [
+          "route-token foreslår A-ruting selv om det allerede finnes et konkret DNS-avvik, og øktfornyelse for B uten at noe peker særskilt på en ugyldig økt.",
+          "dns-route gjenkjenner As DNS-avvik, men Bs objektsensitive HTTP-resultater gir et bedre app-/tilgangsspor enn generisk ruting til API-et.",
+          "login-renewal er en mulig generell hypotese etter endepunktbytte, ikke det best støttede neste sporet her.",
+          "route-uniform er en sann forsiktighetsregel. Den kan ikke gjøre alle HTTP-observasjoner til full nettverksfriskmelding, men forklarer heller ikke hvorfor akkurat generisk B-ruting bør prioriteres."
+        ],
+        "ambiguity_and_missing_premises": [
+          {
+            "severity": "low",
+            "finding": "Ingen vesentlig manglende premiss for neste undersøkelse. HTTP 403 kan skyldes flere lag og policyer, men valget sier 'tilgangsbeslutning' og ikke en bestemt autorisasjonsrotårsak."
+          },
+          {
+            "severity": "low",
+            "finding": "route-uniform overlapper i generell forsiktighet med den riktige analysen, men gir bare kontekst og ikke et konkret argument for begge delene av dns-object."
+          }
+        ],
+        "transfer": {
+          "prior_exposure": "Tidligere scenario hadde eksplisitt gyldig DNS/vei og eksplisitt manglende applikasjonsrolle. Den guidede DNS-oppgaven skilte navnesvar, vei og tilgang.",
+          "new_demand": "Del to klienters evidens, gjenkjenn faktisk DNS-avvik for A og objektspesifikt avslag for B, og behold usikkerheten rundt den uprøvde ordrebanen.",
+          "classification": "Begrenset nærtransfer med en reell økning i evidenssortering; samme domene og tett beslektede lagbegreper."
+        }
+      },
+      {
+        "case_id": "at-network-02",
+        "independent_solution": "Riktig DNS-svar og samme feil ved direkte adresse flytter As første spor til forbindelsesvei/trafikkregler før HTTP. Bs HTTP 401 ved beskyttet ordrelesing etter fungerende TLS/ready flytter første spor til tokenvalidering og påloggingslogg. At klienten har lastet et token er ikke bevis for at serveren har akseptert det.",
+        "strongest_pairs": [
+          {
+            "decision_id": "path-token",
+            "reason_id": "separate-stages"
+          }
+        ],
+        "pair_matrix": {
+          "reason_columns": ["dns-for-timeout", "separate-stages", "roles-first"],
+          "decision_rows": [
+            {
+              "decision_id": "dns-object",
+              "status": ["W", "X", "W"]
+            },
+            {
+              "decision_id": "token-both",
+              "status": ["X", "X", "X"]
+            },
+            {
+              "decision_id": "path-token",
+              "status": ["C", "S", "C"]
+            }
+          ]
+        },
+        "distractors": [
+          "dns-object gjentar en navnesammenligning som allerede er oppgitt kontrollert. En kjent bruker kan gi sammenligningsdata for B, men er mindre målrettet enn å undersøke 401-valideringen.",
+          "token-both bruker autentiseringsmekanismen på As feil før TCP, uten relevant støtte.",
+          "dns-for-timeout beskriver en nyttig kontroll, men den aktuelle kontrollen er allerede utført i premissene.",
+          "roles-first beskriver verdien av en beskyttet prøve, men den er allerede gjort og gjør ikke tokenets godkjenning kjent."
+        ],
+        "ambiguity_and_missing_premises": [
+          {
+            "severity": "low",
+            "finding": "Timeout beviser ikke en bestemt rute- eller regeldefekt; også lytter, lokal klient eller mellomliggende utstyr kan spille inn. Et videre undersøkelsesvalg er likevel forsvarlig, fordi oppgaven ikke krever ferdig diagnose."
+          },
+          {
+            "severity": "low",
+            "finding": "Definisjonen av 'mottaker' brukes ikke direkte i noen valgmulighet. Siste setning om manglende ferdigutredning av interne appfeil er også lite nødvendig. Begge gjør teksten mer forklarende og signalerer ønsket token-spor."
+          }
+        ],
+        "transfer": {
+          "prior_exposure": "Tidligere korrekt-DNS-scenario endte i autorisasjon. Guidet nettverk skilte navn fra logisk vei og deklarert tilgang.",
+          "new_demand": "Avvis automatisk gjenbruk av DNS-/objektdiagnosen fra kontrasttilfellet; skill timeout før TCP fra 401 og token til stede fra token akseptert.",
+          "classification": "Begrenset nærtransfer og betinget diskriminering; ikke dokumentert selvstendig feilsøking i et virkelig miljø."
+        }
+      },
+      {
+        "case_id": "at-storage-01",
+        "independent_solution": "Test samtidige, overlappende indeksoppdateringer med de to ordinære identitetene. Den sentrale uendrede kontrakten er delt in-place-oppdatering med låsing. Administratorens montering og lesing tester ikke om denne koordineringen og de nødvendige skrive-/låseoperasjonene fungerer under ordinær bruk.",
+        "strongest_pairs": [
+          {
+            "decision_id": "concurrent-io",
+            "reason_id": "coordination"
+          }
+        ],
+        "additional_compatible_pairs": [
+          {
+            "decision_id": "concurrent-io",
+            "reason_id": "identity-sample"
+          }
+        ],
+        "pair_matrix": {
+          "reason_columns": ["single-writer", "identity-sample", "coordination"],
+          "decision_rows": [
+            {
+              "decision_id": "sequential-io",
+              "status": ["W", "W", "X"]
+            },
+            {
+              "decision_id": "mount-access",
+              "status": ["X", "W", "X"]
+            },
+            {
+              "decision_id": "concurrent-io",
+              "status": ["X", "P", "S"]
+            }
+          ]
+        },
+        "distractors": [
+          "sequential-io er en reell og nyttig deltest, men tester ikke den samtidige kontraktsrisikoen som skiller denne arbeidslasten.",
+          "mount-access er også nødvendig evidens, men montering og listing kan lykkes selv når skrive-/låsekontrakten svikter.",
+          "identity-sample er sann og støtter også concurrent-io. Den er dermed ikke en entydig feilbegrunnelse for dette valget.",
+          "single-writer omtaler 'adapterens tilgang', selv om ingen særskilt adapter er introdusert i dette tilfellet. Det er ikke nødvendig for oppgaven og kan virke som et uheldig ordvalg."
+        ],
+        "ambiguity_and_missing_premises": [
+          {
+            "severity": "medium",
+            "finding": "concurrent-io + identity-sample er et forsvarlig delvis begrunnet par dersom elevinstruksen bare krever en passende begrunnelse. Bare coordination forklarer hvorfor samtidighet bør prioriteres."
+          },
+          {
+            "severity": "low",
+            "finding": "Det står ikke eksplisitt at samtidighetstesten skal verifisere låseutfall, endelig indeksintegritet og feil ved låsekonflikt. Dette bør inngå i en faktisk akseptansetest, men er en rimelig underforstått del av den valgte utprøvingen."
+          }
+        ],
+        "transfer": {
+          "prior_exposure": "To tidligere SMB-tilfeller ga Files som tjenestevalg og avviste Blob/separate disker som automatisk SMB-erstatning. Guidet lagring øvde endret klientkontrakt og begrenset bevis.",
+          "new_demand": "Vurder hva en allerede valgt og montert SMB-pilot ennå ikke har testet, særlig samtidighet og produksjonsidentiteter.",
+          "classification": "Nærtransfer fra tjenestekontrakt til testdekning. Materialet gjenbruker Windows, SMB, delt sti og låsing, men spørsmålet er ikke bare det samme tjenestevalget."
+        }
+      },
+      {
+        "case_id": "at-storage-02",
+        "independent_solution": "Både Blob-piloten med object-contract og Files-piloten med files-adapter er faglig forsvarlige. Den gamle låsekontrakten er fjernet, begge adaptere er eksplisitt tilgjengelige, støttet og funksjonstestet, og ingen målsetting rangerer dem. Produksjonsidentitetenes faktiske data-/filoperasjoner gjenstår for begge.",
+        "strongest_pairs": [
+          {
+            "decision_id": "blob-pilot",
+            "reason_id": "object-contract"
+          },
+          {
+            "decision_id": "files-pilot",
+            "reason_id": "files-adapter"
+          }
+        ],
+        "pair_matrix": {
+          "reason_columns": ["files-adapter", "object-contract", "early-activation"],
+          "decision_rows": [
+            {
+              "decision_id": "blob-pilot",
+              "status": ["X", "S", "X"]
+            },
+            {
+              "decision_id": "files-pilot",
+              "status": ["S", "C", "X"]
+            },
+            {
+              "decision_id": "activate-now",
+              "status": ["X", "W", "W"]
+            }
+          ]
+        },
+        "distractors": [
+          "activate-now erstatter en planlagt test av faktiske produksjonsrettigheter med å følge feil etter aktivering. Det gir svakere kvalifikasjon enn de to eksplisitte pilotene.",
+          "Kryssparene blob-pilot + files-adapter og files-pilot + object-contract gir ikke en positiv begrunnelse for adapteren som faktisk velges. En begrunnelse for det alternative valgets egnethet er ikke alene en begrunnelse for dette valget.",
+          "early-activation antar at nødvendig identitetsoppfølging uten videre kan utsettes; det er ikke etablert av funksjonstester med testdata."
+        ],
+        "ambiguity_and_missing_premises": [
+          {
+            "severity": "low",
+            "finding": "Premisset sier at produksjonsidentitetenes tilgang fortsatt må testes, men sier ikke uttrykkelig 'før aktivering'. En strengt avgrenset live-pilot med aktive tilgangstester, rollback og begrenset effekt kunne gjøre tidlig aktivering forsvarlig. Disse kontrollene er ikke oppgitt, og ren feilovervåking er ikke det samme som den nødvendige testen."
+          },
+          {
+            "severity": "low",
+            "finding": "Det finnes ingen oppgitt grunn til å rangere Blob over Files. Et skåringssystem som bare godtar Blob, ville tilføre et uoppgitt preferansemål."
+          }
+        ],
+        "conditional_only_pair": {
+          "decision_id": "activate-now",
+          "reason_id": "early-activation",
+          "status": "Ikke fullverdig løsning ut fra pakken",
+          "extra_premises_needed": "Uttrykkelig avgrenset produksjonspilot, aktiv tilgangskvalifikasjon, akseptabel feilkonsekvens og overgang/rollback. Ingen av disse kan antas fra bare første driftsukes feiloppfølging."
+        },
+        "transfer": {
+          "prior_exposure": "Guidet lagringsdesign øvde allerede at en endret klientmekanisme kan endre riktig tjenestevalg. Tidligere SMB-tilfeller hadde uendret klientkode og ingen objektadapter.",
+          "new_demand": "Slipp et tidligere obligatorisk filkrav, anerkjenn en eksisterende objektadapter, og aksepter at en fortsatt støttet filadapter også kan være riktig uten et pris-/driftsmål.",
+          "classification": "Begrenset nærtransfer med et nytt pluralistisk beslutningspunkt; ingen evidens for et generelt Blob-er-bedre-prinsipp."
+        }
+      },
+      {
+        "case_id": "at-cost-01",
+        "independent_solution": "Reserver bare de to dokumenterte helårsenhetene, og bruk PAYG til topper. Dette er billigst for enhver toppfordeling innenfor den oppgitte årsgrensen.",
+        "strongest_pairs": [
+          {
+            "decision_id": "base-commit",
+            "reason_id": "matched-floor"
+          }
+        ],
+        "additional_compatible_pairs": [
+          {
+            "decision_id": "base-commit",
+            "reason_id": "no-commit"
+          }
+        ],
+        "calculation": {
+          "variable": "H = samlede ekstra enhetstimer i topper gjennom hele året",
+          "bounds": "0 <= H <= 6 * 200 = 1200",
+          "base_commit": "2 * 8760 * 6 + 10H = 105120 + 10H ØK; intervall 105120–117120 ØK",
+          "all_payg": "2 * 8760 * 10 + 10H = 175200 + 10H ØK; intervall 175200–187200 ØK",
+          "peak_commit": "8 * 8760 * 6 = 420480 ØK",
+          "dominance": "base-commit sparer alltid 70080 ØK mot all-payg og minst 303360 ØK mot peak-commit.",
+          "scope": "Beregningen gjelder bare de tre oppgitte compute-planene og de fiktive satsene. Den beviser verken faktisk Azure-pris, reservert VM-kapasitet eller HA."
+        },
+        "pair_matrix": {
+          "reason_columns": ["no-commit", "matched-floor", "peak-equals-floor"],
+          "decision_rows": [
+            {
+              "decision_id": "base-commit",
+              "status": ["P", "S", "X"]
+            },
+            {
+              "decision_id": "peak-commit",
+              "status": ["X", "X", "W"]
+            },
+            {
+              "decision_id": "all-payg",
+              "status": ["W", "X", "X"]
+            }
+          ]
+        },
+        "distractors": [
+          "all-payg kjøper fleksibilitet det ikke finnes behov for i den godkjente helårsgrunnlasten, og taper nøyaktig 70080 ØK i alle tillatte tilfeller.",
+          "peak-commit får lav sats på ekstra enheter, men betaler for 8760 timer per enhet for å dekke høyst 200 topptimer. Totalutgiften domineres klart av hybridvalget.",
+          "no-commit har et sant poeng om de variable tilleggene. Det gjør begrunnelsen delvis kompatibel med base-commit, selv om den ikke forklarer årsgrunnlastens binding.",
+          "peak-equals-floor inneholder generelt riktige satshensyn, men mangler den avgjørende utnyttelsen gjennom hele betalingsperioden."
+        ],
+        "ambiguity_and_missing_premises": [
+          {
+            "severity": "medium",
+            "finding": "base-commit + no-commit kan forsvares som delvis støtte til PAYG-delen av hybridvalget. En instruks om mest fullstendige begrunnelse ville gjøre matched-floor klart best."
+          },
+          {
+            "severity": "low",
+            "finding": "Den årlige toppgrensen, bindetimene og de kontrollerte matchingsvilkårene gjør kostnadsrangeringen robust. Ingen vesentlig ukjent toppfordeling kan snu resultatet innenfor disse premissene."
+          }
+        ],
+        "transfer": {
+          "prior_exposure": "Tidligere kostscenario avviste binding uten dokumentert grunnlast og Spot for tidskritisk arbeid uten gjenopptakelse. Guidet kostarbeid skilte timer, scope, miks og kostposter.",
+          "new_demand": "Anerkjenn at binding nå er begrunnet for en dokumentert del av lasten, bevis totaløkonomien med et hardt årlig topptak, og behold PAYG for resten.",
+          "classification": "Nærtransfer med en ny kvantitativ dominansberegning. Det er ingen empirisk Azure-kostnadsvalidering."
+        }
+      },
+      {
+        "case_id": "at-cost-02",
+        "independent_solution": "En avgrenset blandet Spot-pilot med kontrollpunkter, testet PAYG-fallback og løpende kostnads-/fristoppfølging bruker den tilgjengelige evidensen best. Kort varighet og ingen godkjent senere bruk svekker årsforpliktelsen. Endret avbruddstoleranse og et billigere syntetisk totalutfall støtter å undersøke hypotesen; de beviser ikke fremtidige besparelser eller leveringsevne.",
+        "strongest_pairs": [
+          {
+            "decision_id": "spot-fallback",
+            "reason_id": "observed-conditional"
+          }
+        ],
+        "additional_compatible_pairs": [
+          {
+            "decision_id": "spot-fallback",
+            "reason_id": "reference-run"
+          }
+        ],
+        "calculation": {
+          "observed_difference": "650 - 420 = 230 ØK lavere observert syntetisk total compute-kostnad for den blandede prøven",
+          "observed_relative_reduction": "230 / 650 = omtrent 35,4 prosent i akkurat denne prøven",
+          "inference_limit": "Ingen kjent fremtidig Spot-tilgjengelighet, sannsynlighetsmodell, garantert frist eller garantert besparelse kan utledes."
+        },
+        "pair_matrix": {
+          "reason_columns": ["observed-conditional", "reference-run", "commitment-rate"],
+          "decision_rows": [
+            {
+              "decision_id": "year-commit",
+              "status": ["X", "X", "W"]
+            },
+            {
+              "decision_id": "spot-fallback",
+              "status": ["S", "P", "X"]
+            },
+            {
+              "decision_id": "all-payg",
+              "status": ["X", "W", "X"]
+            }
+          ]
+        },
+        "distractors": [
+          "year-commit bruker mulige senere oppdrag som om de var godkjent bruk. Det strider mot den korte kampanjen og den eksplisitte mangelen på senere grunnlast.",
+          "all-payg er en forsvarlig mulig driftsform, men å utelate gjenopptakelsesløsningen fra akkurat denne kosthypotesepiloten bruker den nye støtten og prøveutfallet dårligere.",
+          "reference-run er en reell metodebetraktning, og behovet for egne blandede data kan begrunne den valgte blandede piloten. Den er dermed ikke entydig uforenlig med spot-fallback.",
+          "commitment-rate uttrykker en betinget rabattmulighet. Premissene dokumenterer ikke den matchende helårsbruken som trengs for den foreslåtte bindingen."
+        ],
+        "ambiguity_and_missing_premises": [
+          {
+            "severity": "medium",
+            "finding": "spot-fallback + reference-run har en faktisk alternativ pilotbegrunnelse. Dersom bare observed-conditional skal skåres, må kriteriet være den mest dekkende begrunnelsen for hele evidensbildet."
+          },
+          {
+            "severity": "low",
+            "finding": "Ingen kvantitativ fristbuffer eller maksimal overgangstid er oppgitt. Det er akseptabelt for valg av en undersøkende pilot, men ville være utilstrekkelig som ubetinget leverings- eller utrullingsbeslutning."
+          }
+        ],
+        "transfer": {
+          "prior_exposure": "Tidligere korte arrangement og tidskritiske kostscenario gjorde PAYG rimelig og avviste Spot som eneste kapasitet. Guidet meldingsarbeid øvde gjentatt levering og applikasjonens idempotens.",
+          "new_demand": "Revider Spot-vurderingen når kontrollpunkter, avbruddstoleranse, gjentakelse uten doble effekter og testet fallback nå finnes; tolk prøveutfall som grunn til pilot, ikke som garanti.",
+          "classification": "Nærtransfer med begrenset sammensetting av kost-, avbrudds- og idempotensbegreper. Ingen menneskelig validert generalisering."
+        }
+      }
+    ],
+    "counterfactual_pair_checks": [
+      {
+        "pair": ["at-network-01", "at-network-02"],
+        "relevant_changes": [
+          "A: feil faktisk navnesvar og fungerende kontrollert /ready-adressetest blir riktig navnesvar og timeout før TCP også ved direkte adresse.",
+          "B: innlogget bruker med objektavhengig 403 blir 401 ved beskyttet operasjon, uten bevis for akseptert token."
+        ],
+        "decision_change": "dns-object blir path-token; både A- og B-sporet skifter.",
+        "passes_relevant_change_test": true,
+        "limitation": "To diagnostiske akser endres samtidig. Paret kan vise respons på et endret evidensbilde, men isolerer ikke én enkelt årsaksvariabel."
+      },
+      {
+        "pair": ["at-storage-01", "at-storage-02"],
+        "relevant_changes": [
+          "Delt låst in-place-indeks og uendret klientkode erstattes av uforanderlige rapporter med unike nøkler.",
+          "Ingen objektadapter i første situasjon blir to eksplisitt støttede og funksjonstestede adaptere i den andre."
+        ],
+        "decision_change": "Prioriter samtidighetskvalifikasjon for den nødvendige filkontrakten i første situasjon; godta både en identitetskvalifisert Blob- og Files-pilot i den andre.",
+        "passes_relevant_change_test": true,
+        "limitation": "Oppgaveformen skifter også fra prioritering av testdekning til valg mellom to pilotbaner. Det er en meningsfull kontrast, men ikke et kontrollert forsøk med identisk beslutningsrom."
+      },
+      {
+        "pair": ["at-cost-01", "at-cost-02"],
+        "relevant_changes": [
+          "Godkjent helårsgrunnlast erstattes av tre uker uten godkjent senere bruk.",
+          "Ikke gjenopptakbart tidskritisk arbeid erstattes av avbruddstoleranse, kontrollpunkter og testet PAYG-fallback.",
+          "Det andre tilfellet tilfører et syntetisk totalutfall og en separat plan for fristoppfølging."
+        ],
+        "decision_change": "Helårsbinding for sikker grunnlast med PAYG-topper blir en avgrenset Spot/PAYG-pilot.",
+        "passes_relevant_change_test": true,
+        "limitation": "Varighet, avbruddskontrakt, kostnadsevidens og beslutningsform endres sammen. Første tilfelle har dessuten ingen Spot-beslutning blant alternativene. Paret isolerer derfor ikke i seg selv effekten av avbruddstoleranse."
+      }
+    ],
+    "cue_and_distractor_audit": {
+      "length": {
+        "measurement": "Tegn inklusive mellomrom i studenttekst; målt direkte fra den tillatte pakken.",
+        "data": [
+          {
+            "case_id": "at-network-01",
+            "decision_lengths_in_order": [70, 87, 73],
+            "reason_lengths_in_order": [88, 111, 110],
+            "strong_positions": [[2, 1]]
+          },
+          {
+            "case_id": "at-network-02",
+            "decision_lengths_in_order": [80, 78, 82],
+            "reason_lengths_in_order": [92, 96, 103],
+            "strong_positions": [[3, 2]]
+          },
+          {
+            "case_id": "at-storage-01",
+            "decision_lengths_in_order": [88, 89, 91],
+            "reason_lengths_in_order": [109, 107, 103],
+            "strong_positions": [[3, 3]]
+          },
+          {
+            "case_id": "at-storage-02",
+            "decision_lengths_in_order": [101, 93, 108],
+            "reason_lengths_in_order": [96, 100, 107],
+            "strong_positions": [
+              [1, 2],
+              [2, 1]
+            ]
+          },
+          {
+            "case_id": "at-cost-01",
+            "decision_lengths_in_order": [82, 88, 90],
+            "reason_lengths_in_order": [121, 114, 116],
+            "strong_positions": [[1, 2]]
+          },
+          {
+            "case_id": "at-cost-02",
+            "decision_lengths_in_order": [93, 90, 87],
+            "reason_lengths_in_order": [117, 110, 113],
+            "strong_positions": [[2, 1]]
+          }
+        ],
+        "finding": "Ingen global regel om å velge lengste alternativ. Riktig beslutning er lengst i tre første tilfeller, men forskjellene i to av dem er små; i kost-01 er den kortest. Riktig begrunnelse er flere ganger kortest. Lengde er derfor en liten lokal cue, ikke en gjennomgående fasitregel."
+      },
+      "position": {
+        "finding": "Alle tre beslutnings- og begrunnelsesposisjoner er representert blant sterke par. D2/R1 forekommer tre av sju sterke par og D1/R2 to ganger. Utvalget er for lite til å etablere en pålitelig posisjonsregel, men fast rekkefølge kan læres ved gjentatt eksponering.",
+        "recommendation": "Bruk stabile IDs i skåring og eventuell tilfeldig visningsrekkefølge dersom den eksisterende løsningen støtter det. Ingen produktendring er gjort her."
+      },
+      "wording": [
+        {
+          "severity": "medium",
+          "finding": "Titler og problemtekst annonserer endrede vilkår: 'endret testgrunnlag', 'etter kontraktsendring', 'varighet og avbruddskrav endres' og instruksen om ikke å overføre diagnosen. Det støtter læring, men reduserer kravet om selv å oppdage at en tidligere regel må revurderes."
+        },
+        {
+          "severity": "low",
+          "finding": "Mange premisser sier eksplisitt hvilken slutning som ikke kan trekkes, eksempelvis token lastet er ikke akseptert og ingen betalingsplan beviser HA. Dette er faglig ryddig, men gjør oppgavene sterkt støttede."
+        },
+        {
+          "severity": "low",
+          "finding": "I kost-02 gjør 'mulige senere oppdrag' årsbindingsdistraktoren tydelig spekulativ etter premisset om ingen godkjent senere bruk. I lagring-02 gjør feiloppfølging etter aktivering alternativet tydelig svakere enn planlagt rettighetstest."
+        },
+        {
+          "severity": "low",
+          "finding": "Begge sterke kostbeslutninger er blandede løsninger med eksplisitt oppfølging eller tilpasning. En elev kan få hjelp av en generell strategi om å velge det balanserte alternativet; matematikk/evidens er likevel nødvendig for en full begrunnelse."
+        }
+      ],
+      "plausibility": "Distraktorene er stort sett nyttige, delvis sanne undersøkelser og konsepter i feil prioritet. Dette er sterkere enn å gjøre alle distraktorer faktuelt absurde, men krever en tydelig regel for når en sann delbegrunnelse er utilstrekkelig."
+    },
+    "findings_ranked": [
+      {
+        "id": "R1",
+        "severity": "medium",
+        "issue": "Tre plausible sekundære begrunnelser kan gi urettmessig feilskåring",
+        "affected_pairs": [
+          ["at-storage-01", "concurrent-io", "identity-sample"],
+          ["at-cost-01", "base-commit", "no-commit"],
+          ["at-cost-02", "spot-fallback", "reference-run"]
+        ],
+        "recommendation": "Enten godta forsvarlige delbegrunnelser, eller gi eleven et eksplisitt kriterium om at begrunnelsen skal forklare den sentrale prioriteringen samlet. Vurder også små tekstjusteringer av de sekundære begrunnelsene dersom skåringen må være entydig.",
+        "product_changed": false
+      },
+      {
+        "id": "R2",
+        "severity": "medium_for_claims_low_for_item_content",
+        "issue": "Høyt signalisert, tett beslektet materiale begrenser transferpåstanden",
+        "recommendation": "Beskriv resultatet som kandidater for støttet nærtransfer. Empiriske elevdata og egne mindre signaliserte eller mer varierte oppgaver trengs før påstander om generalisering, reliabilitet eller menneskelig validert effekt.",
+        "product_changed": false
+      },
+      {
+        "id": "R3",
+        "severity": "low",
+        "issue": "Tidspunktet for identitetskvalifikasjon i lagring-02 er underforstått",
+        "recommendation": "Dersom activate-now skal være uomtvistelig uegnet, presiser at produksjonsidentitetenes nødvendige operasjoner skal kvalifiseres før ordinær aktivering. Ikke anta en kontrollert live-pilot som ikke står i teksten.",
+        "product_changed": false
+      },
+      {
+        "id": "R4",
+        "severity": "low",
+        "issue": "Noen lite nødvendige ord og testdetaljer",
+        "recommendation": "Vurder 'adapterens tilgang' i storage-01 og den ubrukte mottakerdefinisjonen i network-02. En virkelig samtidighetstest trenger også eksplisitte integritets-/låsekriterier, men dette er ikke en blocker for den faglige hovedbeslutningen.",
+        "product_changed": false
+      }
+    ],
+    "final_claim_boundary": {
+      "supported": [
+        "Seks uavhengig løste syntetiske tilfeller med sju sterke komplette par.",
+        "Tre reelle, men sammensatte kontraster i relevant beslutningsgrunnlag.",
+        "To like forsvarlige adapterpiloter i at-storage-02 uten et uoppgitt preferansemål.",
+        "Robust matematisk rangering av de tre fiktive compute-planene i at-cost-01.",
+        "En betinget begrunnelse for å undersøke blandet Spot/PAYG i at-cost-02."
+      ],
+      "not_supported": [
+        "At alle begrunnelser har én entydig skårbar kompatibilitet uten en eksplisitt fullstendighetsregel.",
+        "At eleven selv kan feilsøke Azure eller kvalifisere en produksjonsløsning fra disse tekstsvarene.",
+        "At den blandede Spot-løsningen vil bli billigere eller holde alle frister fremover.",
+        "At seks tilfeller eller én modellbasert blindgjennomgang beviser menneskelig læring, generalisering, diskrimineringsevne eller reliabilitet."
+      ],
+      "key_comparison_gate": "Ingen nøkkel er lest eller sammenlignet. Denne vurderingen er avsluttet og skal ikke omskrives ved senere sammenligning. En eventuell sammenligning krever en separat, eksplisitt forespørsel etter denne låsen."
+    }
+  },
+  "lock": {
+    "completed_at_utc": "2026-11-02T15:40:38.015463Z",
+    "status": "FINAL_BLIND_PRE_KEY_COMPARISON",
+    "review_payload_sha256": "9924bfe45d8f3970cea517ea77071c7ca4bdfb9845bfa03c3f3d9c8e5517c176",
+    "review_payload_serialization": "UTF-8; json.dumps ensure_ascii=False, sort_keys=True, separators=(comma,colon), trailing LF",
+    "write_policy": "Exclusive creation; final bytes frozen before any author-key access; no subsequent rewriting",
+    "lock_method": "Full-file SHA-256 commitment returned at completion, exclusive creation and mode 0444; filesystem immutable attribute attempted after writing"
+  }
+}

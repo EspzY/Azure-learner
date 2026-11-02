@@ -1,4 +1,10 @@
 'use client';
+import { missionsNb, applicationNb } from '@/content/nb';
+export const missionContextLabel = (
+  id: keyof typeof missionsNb.recoveryContexts | 'application',
+) => (id === 'application' ? applicationNb.ui.title : missionsNb.recoveryContexts[id]);
+import { useApplication } from '@/features/learning/application-provider';
+import { applicationHref } from '@/domain/curriculum/application-transfer';
 import { useRefined } from '@/features/learning/refined-assessment-provider';
 import { refinedHref } from '@/domain/curriculum/refined-assessment';
 import { useMigration } from '@/features/learning/migration-provider';
@@ -87,10 +93,17 @@ export function useMissionSafetyContexts(owner?: 'missions') {
     monitoringState = useMonitoring(),
     securityState = useSecurity(),
     migrationState = useMigration();
+  const application = useApplication();
   const updatedBenefits = useRefined('benefits'),
     updatedServices = useRefined('services');
   return (
     [
+      {
+        id: 'application',
+        state: application,
+        active: application.facts.active,
+        href: applicationHref(application.facts.current?.item),
+      },
       {
         id: 'updatedBenefits',
         state: updatedBenefits,

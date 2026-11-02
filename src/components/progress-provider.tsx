@@ -1,4 +1,5 @@
 'use client';
+import { applicationKey } from '@/domain/curriculum/application-transfer';
 import { refinedKeys } from '@/domain/curriculum/refined-assessment';
 import { migrationKey } from '@/domain/curriculum/migration';
 import { securityKey } from '@/domain/curriculum/security';
@@ -108,6 +109,7 @@ export function ProgressProvider({ children }: { children: React.ReactNode }) {
         'azurelab.learning.architecture-physical.v1',
         'azurelab.learning.architecture-management.v1',
         transferKey,
+        applicationKey,
         refinedKeys.benefits,
         refinedKeys.services,
         costKey,

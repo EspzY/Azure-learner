@@ -1,4 +1,5 @@
 'use client';
+import { missionContextLabel } from './mission-context';
 import { SourceDisclosure } from '@/features/learning/source-disclosure';
 import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
@@ -94,13 +95,13 @@ export function MissionSafetyRecovery({ owner }: { owner?: 'missions' }) {
         .filter(({ state, active }) => !state.ready || state.issue || active)
         .map(({ id, state, href, active }) => (
           <section key={id}>
-            <strong>{c.recoveryContexts[id]}</strong>
+            <strong>{missionContextLabel(id)}</strong>
             <p>{state.issue ?? (active ? c.activeElsewhere : c.loading)}</p>
             <button type="button" onClick={state.store.load}>
-              {c.reloadContext} · {c.recoveryContexts[id]}
+              {c.reloadContext} · {missionContextLabel(id)}
             </button>{' '}
             <Link href={href}>
-              {c.reviewContext} · {c.recoveryContexts[id]}
+              {c.reviewContext} · {missionContextLabel(id)}
             </Link>
           </section>
         ))}

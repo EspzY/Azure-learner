@@ -1,0 +1,34 @@
+.application-entry {
+  margin-block: 1.5rem;
+  padding-block: 1rem;
+  border-block: 1px solid #d4e0ed;
+}
+.application-entry h2 {
+  font-size: 1rem;
+}
+.application-assessment {
+  min-width: 0;
+}
+.application-assessment .compute-answer-grid {
+  align-items: start;
+}
+.application-assessment fieldset {
+  min-width: 0;
+}
+.application-assessment label,
+.application-assessment li,
+.application-history {
+  overflow-wrap: anywhere;
+}
+.application-exposure {
+  border-left: 3px solid #c3d3e2;
+  padding-left: 1rem;
+  margin-block: 1rem;
+  font-size: 0.9rem;
+}
+.application-history {
+  margin-block: 1rem;
+}
+.application-history select {
+  max-width: 100%;
+}

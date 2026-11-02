@@ -1,5 +1,9 @@
 # AZ-900 — fremtidig diagnostikk og læringsoverføring
 
+## AS-02 Stage A — PR49, avgrenset nærtransfer
+
+Seks nye, isolerte tilfeller i Networking, Storage og Cost/Cloud Transfer supplerer de frosne bankene. Tre reelle kontrafaktiske par, kompatible stabile svar-ID-er, eksplisitt read-only familieeksponering og separat durable historikk er implementert. Begge gyldige lagringsadapterpar godtas. Låst blindreview og heuristikk-/legacy-bevis finnes i [Stage A-kontrakten](ASSESSMENT_TRANSFER_STAGE_A.md). Ingen generell diagnostikk, ny mastery-score, omskriving av de57 dekningsradene eller påstand om menneskelig generalisering. Endelig Stage A-akseptanse krever faktisk CI/audit/streng release/ekstern Gate7 på Draft PR49; bredere AS-02 gjenstår.
+
 ## PR46 — AS-01: versjonerte modulvurderinger
 
 Benefits assessment v2 og Service Types assessment v3 erstatter den naturlige standardvurderingen med seks originale parvise situasjoner hver. Gamle teaching-versjoner, rubrics, first/help/retry og aktive historiske forsøk beholdes uendret; ingen Cloud Transfer- eller eksamensmotorendring. Stabile answer-ID-er og fast versjonert visningsrekkefølge, kompatible IaaS/PaaS-par, historisk Summary/Journal og durable assistance dokumenteres i [etterfølgerkontrakten](ASSESSMENT_REFINEMENT.md). All-first og andre blinde heuristikker får ikke fullt resultat; låst blindreview og korrigert recheck er atskilt fra nøkkelsammenligning. Dette er ikke psykometrisk validering.

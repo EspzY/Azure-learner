@@ -1,5 +1,11 @@
 # PR48 — Practical Portal Learning Bridge, Stage A
 
+## PR49 — AS-02 Stage A-kandidat, 2. november2026
+
+Seks originale nye anvendelsessituasjoner er implementert i eksisterende Networking/Storage/Cost, med valgfri inngang fra Cloud Transfer, tre reelle premisskontraster og en isolert durable vurderingskontrakt. Gamle banker/rubrics/førstesvar og alle156 opprinnelige domenefiler er bevart. Read-only familiehistorikk skiller beslektet/usikker lokal eksponering fra dokumentert ukjent kunnskap. Kursrekkefølge, tre stier, Journal, eksakt independent-resume, source-disclosure og Portal-inspeksjon består. [Scope, korrigert blindreview og testkontrakt](ASSESSMENT_TRANSFER_STAGE_A.md).
+
+Kandidaten krever full check, separat post-stamp audit, full312 eksakt-head CI/streng release og faktisk anonym full-SHA Gate7 før Stage A godkjennes på Draft PR49. Ingen menneskelig validering eller bred generalisering påstås. Hele AS-02, PD-01 og PR-01 Stage B/C forblir åpne; ingen merge, produksjonsdeploy eller P17/P18. Uendrede moderate utviklingsavhengighetsvarsler følges separat.
+
 Tre avgrensede innganger fra eksisterende Compute-/Governance-/Management Tools-aktiviteter åpner faktisk VM, Policy-receipt eller Web App/plan i samme lokale World. Ressursavgrenset historikk, original forespørsel og URL-baserte Properties/Overview forbedrer undersøkelse og retur uten nye commands, schemas, rubrics, observasjoner eller XP. [Omfang og faktiske bevis](PORTAL_INSPECTION_BRIDGE.md). Kandidat303 (278desktop/25kompakt), bevarer296 tidligere. Sluttgodkjenning krever separat audit, komplett eksakt-head CI/streng release og anonym full-SHA Gate7 på Draft PR48. Stage B/C, PD-01 og AS-02 er fortsatt åpne; mennesker uutført. Ingen P17/P18, merge eller produksjon.
 
 # PR47 — Collapsible Official Sources, kandidat

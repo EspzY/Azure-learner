@@ -1,4 +1,13 @@
 'use client';
+import { useApplication } from '@/features/learning/application-provider';
+import { applicationHref } from '@/domain/curriculum/application-transfer';
+import { ApplicationRecovery } from './application-transfer';
+import {
+  applicationKey,
+  applicationFacts,
+  restoreApplication,
+} from '@/domain/curriculum/application-transfer';
+import { applicationNb } from '@/content/nb';
 import { useRefined } from './refined-assessment-provider';
 import { RefinedRecovery } from './refined-assessment';
 import {
@@ -147,7 +156,9 @@ import { ComputeRecovery } from './compute';
 import { useCost } from './cost-provider';
 import { costFacts, costKey, restoreCost, costHref } from '@/domain/curriculum/cost';
 import { CostRecovery } from './cost';
-export type TeachingContextId = keyof typeof c.accessContexts;
+export type TeachingContextId = keyof typeof c.accessContexts | 'application';
+const contextLabel = (id: TeachingContextId) =>
+  id === 'application' ? applicationNb.ui.title : c.accessContexts[id];
 const read = (key: string) => localStorage.getItem(key);
 function check<S>(
   id: TeachingContextId,
@@ -214,9 +225,19 @@ export function ManagementTeachingBoundary({
     monitoringState = useMonitoring(),
     securityState = useSecurity(),
     migrationState = useMigration();
+  const application = useApplication();
   const updatedBenefits = useRefined('benefits'),
     updatedServices = useRefined('services');
   const checks = [
+    check(
+      'application',
+      application,
+      applicationKey,
+      restoreApplication,
+      applicationFacts,
+      () => application.store.event({ kind: 'aid' }),
+      applicationHref(application.facts.current?.item),
+    ),
     check(
       'updatedBenefits',
       updatedBenefits,
@@ -466,6 +487,7 @@ export function ManagementTeachingBoundary({
       (!only ||
         ((assessment === 'updatedBenefits' || assessment === 'updatedServices') &&
           ['benefits', 'services'].includes(item.id)) ||
+        item.id === 'application' ||
         item.id === 'updatedBenefits' ||
         item.id === 'updatedServices' ||
         item.id === 'missions' ||
@@ -524,14 +546,15 @@ export function ManagementTeachingBoundary({
           .map((item) => (
             <div key={item.id}>
               <p>
-                {c.accessContexts[item.id]} ({item.state.issue})
+                {contextLabel(item.id)} ({item.state.issue})
               </p>
               <button type="button" onClick={item.state.store.load}>
                 {item.id === 'physical' ? architectureNb.reload : c.accessReload}
               </button>{' '}
               <Link href={item.href}>
-                {c.accessReview} · {c.accessContexts[item.id]}
+                {c.accessReview} · {contextLabel(item.id)}
               </Link>
+              {item.id === 'application' && <ApplicationRecovery />}
               {item.id === 'updatedBenefits' && <RefinedRecovery track="benefits" />}
               {item.id === 'updatedServices' && <RefinedRecovery track="services" />}
               {item.id === 'management' && <ManagementRecovery />}
