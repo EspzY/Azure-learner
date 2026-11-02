@@ -1,0 +1,2178 @@
+@font-face {
+  font-family: AzureLab Sans;
+  src: url('/design-review/fonts/manrope.woff2') format('woff2');
+  font-weight: 400 800;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: AzureLab Editorial;
+  src: url('/design-review/fonts/source-serif-4.woff2') format('woff2');
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
+}
+.visual-review {
+  --ve-ink: #182d43;
+  --ve-muted: #526477;
+  --ve-paper: #f7f9fc;
+  --ve-surface: #fff;
+  --ve-line: #d9e2eb;
+  --ve-blue: #0865bd;
+  --ve-blue-soft: #e8f2ff;
+  --ve-teal: #0e706a;
+  --ve-rail: #eef3f8;
+  --ve-rail-ink: #2d4660;
+  --ve-radius: 12px;
+  --ve-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  font-family:
+    AzureLab Sans,
+    Segoe UI,
+    Arial,
+    sans-serif;
+  color: var(--ve-ink);
+  background: var(--ve-paper);
+  min-height: 100vh;
+}
+.visual-review[data-direction='editorial'] {
+  --ve-ink: #142b3d;
+  --ve-muted: #526170;
+  --ve-paper: #f5f3ee;
+  --ve-line: #dadfdc;
+  --ve-rail: #142b3d;
+  --ve-rail-ink: #dbe6ed;
+  --ve-radius: 10px;
+}
+.visual-review :is(a, button, input, select, summary):focus-visible {
+  outline: 3px solid #1381de;
+  outline-offset: 4px;
+}
+.ve-review-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 42px;
+  padding: 6px 24px;
+  background: #0d2030;
+  color: #e4edf5;
+  font:
+    11px/1.5 AzureLab Sans,
+    Segoe UI,
+    sans-serif;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+.ve-review-bar > span {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.ve-review-bar b {
+  letter-spacing: 0.1em;
+  font-size: 10px;
+}
+.ve-review-bar > span > span {
+  color: #b5c6d5;
+}
+.ve-review-bar nav {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  background: #1e3446;
+  padding: 3px;
+  border-radius: 6px;
+}
+.ve-review-bar a {
+  color: #f2f7fb;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  padding: 3px 10px;
+  border-radius: 4px;
+}
+.ve-review-bar nav a[aria-current] {
+  background: #eef5fb;
+  color: #173c5c;
+}
+.ve-review-bar nav a:hover {
+  background: #35536c;
+  color: white;
+}
+.ve-header {
+  height: 84px;
+  background: var(--ve-surface);
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  padding: 0 34px;
+  border-bottom: 1px solid var(--ve-line);
+}
+.ve-brand {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  text-decoration: none;
+  color: var(--ve-ink);
+  flex-shrink: 0;
+}
+.ve-brand > span {
+  width: 34px;
+  height: 36px;
+  color: var(--ve-blue);
+}
+.ve-brand svg {
+  width: 100%;
+  height: 100%;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.ve-brand strong {
+  font-size: 25px;
+  letter-spacing: -1.1px;
+  font-weight: 800;
+}
+.ve-brand small {
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  font-weight: 700;
+  border-left: 1px solid var(--ve-line);
+  padding-left: 12px;
+  margin-left: 6px;
+  color: var(--ve-muted);
+}
+.ve-brand-context {
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  color: var(--ve-muted);
+}
+.ve-header > div {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+.ve-environment {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 11px;
+  color: var(--ve-muted);
+}
+.ve-environment > span {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--ve-teal);
+}
+.ve-header button {
+  border: 0;
+  background: none;
+  color: var(--ve-ink);
+  cursor: pointer;
+}
+.ve-journal-trigger {
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.4;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 10px 0;
+}
+.ve-menu-trigger {
+  display: none;
+}
+.ve-layout {
+  display: grid;
+  grid-template-columns: 228px minmax(0, 1fr);
+  max-width: 2048px;
+  margin: auto;
+}
+.ve-sidebar {
+  background: var(--ve-rail);
+  color: var(--ve-rail-ink);
+  border-right: 1px solid var(--ve-line);
+  padding: 38px 18px 24px;
+  position: sticky;
+  top: 42px;
+  height: calc(100dvh - 42px);
+  overflow: auto;
+  align-self: start;
+}
+.ve-sidebar > .ve-eyebrow {
+  font-size: 8px;
+  letter-spacing: 0.17em;
+  color: inherit;
+  opacity: 0.8;
+  padding: 0 13px;
+}
+.ve-sidebar > strong {
+  display: block;
+  font-size: 13px;
+  line-height: 1.7;
+  padding: 14px 13px 24px;
+  max-width: 190px;
+}
+.ve-sidebar nav {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.ve-sidebar nav a {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  text-decoration: none;
+  color: inherit;
+  font-size: 11px;
+  line-height: 1.5;
+  min-height: 43px;
+  padding: 11px 12px;
+  border-radius: 6px;
+}
+.ve-sidebar nav a > svg {
+  flex-shrink: 0;
+  opacity: 0.8;
+}
+.ve-sidebar nav a > small {
+  margin-left: auto;
+  font:
+    9px/1.4 ui-monospace,
+    monospace;
+  opacity: 1;
+}
+.ve-sidebar nav a[aria-current] {
+  background: #dcecff;
+  color: #075ca8;
+}
+.ve-sidebar nav a:hover {
+  background: #e2eaf3;
+}
+[data-direction='editorial'] .ve-sidebar {
+  border: 0;
+}
+[data-direction='editorial'] .ve-sidebar nav a[aria-current] {
+  background: #28465c;
+  color: #fff;
+  box-shadow: inset 2px 0 #6ec9da;
+}
+[data-direction='editorial'] .ve-sidebar nav a:hover {
+  background: #223d51;
+  color: #fff;
+}
+.ve-sidebar-note {
+  border-top: 1px solid #acbecb;
+  padding: 28px 13px 0;
+  margin-top: 38px;
+  font-size: 10px;
+  line-height: 1.8;
+  color: inherit;
+}
+.ve-sidebar-note p {
+  margin: 12px 0 18px;
+  opacity: 0.85;
+}
+.ve-sidebar-note a {
+  color: inherit;
+  text-decoration: none;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  font-weight: 600;
+}
+.ve-main {
+  min-width: 0;
+}
+.ve-page {
+  padding: 32px clamp(28px, 4.1vw, 80px) 0;
+  max-width: 1680px;
+  margin: auto;
+  animation: ve-page-enter 220ms var(--ve-ease) both;
+}
+.ve-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--ve-muted);
+  font-size: 10px;
+  margin-bottom: 48px;
+}
+.ve-breadcrumb a {
+  color: inherit;
+  text-decoration: none;
+}
+.ve-breadcrumb a:hover {
+  text-decoration: underline;
+}
+.ve-eyebrow {
+  font-size: 9px;
+  line-height: 1.6;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ve-muted);
+  display: block;
+}
+.ve-eyebrow-rule {
+  display: inline-block;
+  width: 36px;
+  height: 1px;
+  background: var(--ve-blue);
+  margin: 0 0 3px 14px;
+}
+.ve-page h1,
+.ve-page h2,
+.ve-page h3,
+.ve-page h4 {
+  color: var(--ve-ink);
+  margin-top: 0;
+}
+.ve-page h1 {
+  font-size: clamp(32px, 3.1vw, 58px);
+  font-weight: 600;
+  line-height: 1.12;
+  letter-spacing: -1.8px;
+  max-width: 1060px;
+  margin-bottom: 24px;
+}
+.ve-page h2 {
+  font-size: 25px;
+  line-height: 1.3;
+  letter-spacing: -0.6px;
+  font-weight: 600;
+}
+.ve-page h3 {
+  font-size: 18px;
+  line-height: 1.4;
+  letter-spacing: -0.3px;
+  font-weight: 700;
+}
+.ve-page h4 {
+  font-size: 13px;
+  line-height: 1.6;
+  font-weight: 700;
+}
+[data-direction='editorial'] .ve-page h1,
+[data-direction='editorial'] .ve-section-heading h2,
+[data-direction='editorial'] .ve-path h3,
+[data-direction='editorial'] .ve-worked h2 {
+  font-family:
+    AzureLab Editorial,
+    Georgia,
+    serif;
+  font-weight: 450;
+  letter-spacing: -1.8px;
+}
+.ve-page p {
+  font-size: 14px;
+  line-height: 1.85;
+  margin: 0 0 20px;
+}
+.ve-page .ve-lead {
+  font-size: 16px;
+  line-height: 1.85;
+  color: var(--ve-muted);
+  max-width: 66ch;
+  margin: 0 0 30px;
+}
+.ve-page .ve-small-note {
+  font-size: 10px;
+  line-height: 1.8;
+  color: var(--ve-muted);
+}
+.ve-page a {
+  color: var(--ve-blue);
+}
+.ve-page header > .ve-eyebrow {
+  margin-bottom: 20px;
+}
+.ve-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  border: 1px solid var(--ve-line);
+  border-radius: 6px;
+  padding: 13px 20px;
+  font:
+    600 12px/1.5 AzureLab Sans,
+    Segoe UI,
+    sans-serif;
+  cursor: pointer;
+  text-decoration: none !important;
+  color: var(--ve-ink);
+  background: var(--ve-surface);
+  min-height: 45px;
+  transition:
+    background 180ms var(--ve-ease),
+    border-color 180ms var(--ve-ease),
+    box-shadow 180ms var(--ve-ease);
+}
+.ve-page .ve-button-primary {
+  background: var(--ve-blue);
+  color: white;
+  border-color: var(--ve-blue);
+}
+.ve-button-primary:hover {
+  background: #004f9c;
+  border-color: #004f9c;
+  box-shadow: 0 3px 12px #0669bd20;
+}
+.ve-button-quiet {
+  background: transparent;
+  border-color: transparent;
+  padding-inline: 0;
+  color: var(--ve-blue);
+}
+.ve-button:disabled {
+  cursor: default;
+  background: #e7ecf0;
+  color: #667480;
+  border-color: #d4dce4;
+}
+.ve-skip {
+  position: absolute;
+  left: 16px;
+  top: -100px;
+  background: white;
+  color: #143f67;
+  padding: 12px;
+  z-index: 100;
+}
+.ve-skip:focus {
+  top: 50px;
+}
+.ve-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.85fr);
+  gap: 40px;
+  align-items: center;
+  padding: 4px 0 70px;
+}
+.ve-hero-copy {
+  max-width: 760px;
+}
+.ve-hero h1 {
+  font-size: clamp(39px, 3.9vw, 72px);
+  line-height: 1.06;
+  letter-spacing: -2.8px;
+  margin: 24px 0 28px;
+  white-space: pre-line;
+}
+.ve-hero .ve-lead {
+  max-width: 48ch;
+  font-size: 15px;
+}
+.ve-hero-action {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 18px;
+  margin: 0 0 24px;
+}
+.ve-hero-action small {
+  font-size: 10px;
+  color: var(--ve-muted);
+  max-width: 135px;
+  line-height: 1.6;
+}
+[data-direction='editorial'] .ve-hero h1 {
+  font-size: clamp(44px, 4.6vw, 90px);
+  line-height: 1.04;
+  letter-spacing: -3.7px;
+}
+.ve-hero-visual {
+  height: 390px;
+  position: relative;
+  max-width: 540px;
+  width: 100%;
+  justify-self: center;
+  isolation: isolate;
+}
+.ve-hero-grid {
+  position: absolute;
+  inset: 16px -14px 4px;
+  border: 1px solid var(--ve-line);
+  border-radius: 50% 50% 10% 10%;
+  background-image:
+    linear-gradient(#b6c4cc30 1px, transparent 1px),
+    linear-gradient(90deg, #b6c4cc30 1px, transparent 1px);
+  background-size: 36px 36px;
+  z-index: -1;
+}
+.ve-hero-notebook {
+  background: #fff;
+  border: 1px solid #d0dce4;
+  width: 72%;
+  height: 300px;
+  position: absolute;
+  top: 24px;
+  left: 10px;
+  box-shadow: 0 18px 45px #253e5010;
+  display: flex;
+  flex-direction: column;
+  padding: 22px 24px;
+  border-radius: 12px;
+}
+.ve-micro {
+  font-size: 8px;
+  letter-spacing: 0.15em;
+  color: #586b7b;
+}
+.ve-hero-art {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex: 1;
+  justify-content: center;
+}
+.ve-hero-plate {
+  width: 82px;
+  height: 82px;
+  background: #e8f3ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #aecce4;
+  box-shadow: 0 7px 0 #d9e8f4;
+  border-radius: 14px;
+}
+.ve-hero-plate-small {
+  width: 55px;
+  height: 95px;
+  flex-direction: column;
+  gap: 16px;
+  border-color: #b4d9d5;
+  background: #edf7f5;
+  box-shadow: 0 5px 0 #d7eae7;
+}
+.ve-hero-edge {
+  width: 28px;
+  height: 1px;
+  background: #7da5bd;
+  position: relative;
+}
+.ve-hero-edge:after {
+  content: '';
+  display: block;
+  width: 5px;
+  height: 5px;
+  border-top: 1px solid #7da5bd;
+  border-right: 1px solid #7da5bd;
+  transform: rotate(45deg);
+  position: absolute;
+  right: 0;
+  top: -2px;
+}
+.ve-hero-caption {
+  font-size: 11px;
+  line-height: 1.7;
+  max-width: 190px;
+  font-weight: 600;
+}
+.ve-hero-notebook-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid var(--ve-line);
+  margin-top: 14px;
+  padding-top: 12px;
+  color: #687d8f;
+  font:
+    10px ui-monospace,
+    monospace;
+}
+.ve-hero-character {
+  position: absolute;
+  right: -8px;
+  bottom: 0;
+  display: flex;
+  align-items: flex-end;
+  gap: 3px;
+}
+.ve-character {
+  height: 190px;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+}
+.ve-hero-character > div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding-bottom: 21px;
+}
+.ve-hero-character strong {
+  font-size: 12px;
+}
+.ve-hero-character small {
+  font-size: 9px;
+  line-height: 1.7;
+  max-width: 110px;
+  color: var(--ve-muted);
+}
+.ve-section-heading {
+  border-top: 1px solid var(--ve-line);
+  padding-top: 34px;
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  align-items: flex-end;
+  margin-bottom: 30px;
+}
+.ve-section-heading h2 {
+  font-size: 28px;
+  letter-spacing: -0.8px;
+  margin: 12px 0 0;
+}
+.ve-section-heading > p {
+  max-width: 300px;
+  font-size: 11px;
+  line-height: 1.8;
+  color: var(--ve-muted);
+  margin: 0;
+}
+.ve-paths {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+.ve-path {
+  background: #fff;
+  border: 1px solid var(--ve-line);
+  border-radius: var(--ve-radius);
+  padding: 26px 24px;
+  overflow: hidden;
+}
+.ve-path-number {
+  display: block;
+  color: var(--ve-blue);
+  font:
+    11px/1.5 ui-monospace,
+    monospace;
+  margin-bottom: 26px;
+}
+.ve-path h3 {
+  font-size: 20px;
+  max-width: 240px;
+}
+.ve-path header > p {
+  font-size: 11px;
+  line-height: 1.8;
+  color: var(--ve-muted);
+  min-height: 59px;
+}
+.ve-module-group {
+  border-top: 1px solid var(--ve-line);
+  padding: 17px 0;
+}
+.ve-module-group h4 {
+  font-size: 10px;
+  color: var(--ve-muted);
+  margin-bottom: 9px;
+}
+.ve-module-group a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  font-size: 11px;
+  line-height: 1.7;
+  text-decoration: none;
+  color: var(--ve-ink);
+  padding: 8px 0;
+}
+.ve-module-group a > svg {
+  flex-shrink: 0;
+  color: var(--ve-blue);
+}
+.ve-module-group a:hover span {
+  text-decoration: underline;
+}
+[data-direction='editorial'] .ve-paths {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+[data-direction='editorial'] .ve-path {
+  background: none;
+  border: 0;
+  border-top: 1px solid var(--ve-line);
+  border-radius: 0;
+  padding: 28px 0;
+  display: grid;
+  grid-template-columns: minmax(210px, 0.8fr) minmax(0, 1.5fr);
+  gap: 45px;
+}
+[data-direction='editorial'] .ve-path:last-child {
+  border-bottom: 1px solid var(--ve-line);
+}
+[data-direction='editorial'] .ve-path header {
+  position: relative;
+  padding-left: 45px;
+}
+[data-direction='editorial'] .ve-path-number {
+  position: absolute;
+  left: 0;
+  top: 3px;
+  margin: 0;
+  color: var(--ve-muted);
+}
+[data-direction='editorial'] .ve-path h3 {
+  font-size: 29px;
+  line-height: 1.2;
+  max-width: 270px;
+  margin-bottom: 16px;
+  letter-spacing: -0.8px;
+}
+[data-direction='editorial'] .ve-path header > p {
+  min-height: 0;
+  max-width: 270px;
+  margin: 0;
+}
+[data-direction='editorial'] .ve-path > div {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 36px;
+  align-items: start;
+}
+[data-direction='editorial'] .ve-module-group {
+  border: 0;
+  padding: 0 0 16px;
+}
+[data-direction='editorial'] .ve-module-group a {
+  font-size: 11px;
+  padding: 5px 0;
+}
+.ve-module-hero {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 56px;
+  align-items: center;
+  padding: 10px 0 60px;
+}
+.ve-module-hero h1 {
+  font-size: clamp(40px, 4vw, 72px);
+  margin: 23px 0;
+}
+.ve-module-hero > aside {
+  border-left: 1px solid var(--ve-line);
+  padding: 16px 0 16px 34px;
+}
+.ve-module-hero > aside > span {
+  font:
+    10px ui-monospace,
+    monospace;
+  letter-spacing: 0.1em;
+  color: var(--ve-muted);
+}
+.ve-module-hero aside > p {
+  font-size: 11px;
+  margin-top: 24px;
+  color: var(--ve-muted);
+}
+.ve-module-hero .compute-concept-figure {
+  max-width: 100%;
+  margin-top: 22px;
+}
+.ve-intro-content {
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(220px, 0.7fr);
+  gap: 60px;
+  border-top: 1px solid var(--ve-line);
+  padding-top: 44px;
+}
+.ve-intro-content > div {
+  max-width: 70ch;
+}
+.ve-intro-content h2 {
+  margin-top: 18px;
+}
+.ve-activity-index {
+  background: #fff;
+  border: 1px solid var(--ve-line);
+  padding: 28px;
+  border-radius: var(--ve-radius);
+  align-self: start;
+}
+.ve-activity-index h3 {
+  font-size: 13px;
+  margin-bottom: 18px;
+}
+.ve-activity-index > a {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  text-decoration: none;
+  border-top: 1px solid var(--ve-line);
+  padding: 17px 0;
+  font-size: 11px;
+}
+.ve-activity-index > a > span {
+  font:
+    9px ui-monospace,
+    monospace;
+  color: var(--ve-muted);
+}
+.ve-activity-index > a > strong {
+  font-weight: 600;
+}
+.ve-activity-index > a > svg {
+  margin-left: auto;
+}
+.ve-activity-index p {
+  font-size: 10px;
+  color: var(--ve-muted);
+  margin: 20px 0 0;
+}
+.ve-truth-note {
+  border-left: 3px solid var(--ve-teal);
+  background: #eaf2ef;
+  padding: 20px 24px;
+  margin: 30px 0;
+  color: #234c49;
+}
+.ve-truth-note strong {
+  font-size: 11px;
+  font-weight: 700;
+}
+.ve-page .ve-truth-note p {
+  font-size: 12px;
+  line-height: 1.85;
+  margin: 10px 0 0;
+}
+.ve-reading-heading {
+  max-width: 900px;
+  margin-bottom: 44px;
+}
+.ve-reading-heading h1 {
+  font-size: clamp(36px, 3.8vw, 66px);
+}
+.ve-reading-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(220px, 310px);
+  gap: clamp(32px, 4vw, 80px);
+}
+.ve-reading {
+  max-width: 72ch;
+  min-width: 0;
+}
+.ve-reading > p {
+  font-size: 15px;
+  line-height: 1.95;
+  margin-bottom: 26px;
+}
+.ve-reading > p.ve-reading-opening {
+  font-size: 17px;
+  line-height: 1.9;
+}
+.ve-reading-aside {
+  min-width: 0;
+  align-self: start;
+}
+.ve-reading-aside > div {
+  border-top: 1px solid var(--ve-line);
+  padding-top: 24px;
+}
+.ve-reading-aside a:not(.ve-button) {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 10px;
+  text-decoration: none;
+  margin-top: 18px;
+  gap: 12px;
+}
+.ve-reading-aside > section {
+  margin-top: 40px;
+  border-top: 1px solid var(--ve-line);
+  padding-top: 24px;
+}
+.ve-reading-aside h2 {
+  font-size: 12px;
+  letter-spacing: 0;
+  margin: 24px 0 12px;
+}
+.ve-reading-aside dl {
+  margin: 0;
+}
+.ve-reading-aside dl > div {
+  padding: 12px 0;
+  border-top: 1px solid var(--ve-line);
+}
+.ve-reading-aside dt {
+  font-size: 11px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+.ve-reading-aside dd {
+  font-size: 11px;
+  line-height: 1.85;
+  margin: 0;
+  color: var(--ve-muted);
+}
+.ve-reading-aside > .ve-button {
+  margin-top: 28px;
+  white-space: normal;
+}
+.ve-worked {
+  border-top: 1px solid var(--ve-line);
+  border-bottom: 1px solid var(--ve-line);
+  padding: 30px 0;
+  margin: 38px 0;
+  scroll-margin-top: 80px;
+}
+.ve-worked h2 {
+  margin: 18px 0;
+  font-size: 27px;
+  line-height: 1.3;
+}
+.ve-worked p {
+  font-size: 14px;
+}
+.ve-truth-note[id] {
+  scroll-margin-top: 80px;
+}
+.ve-page .source-context {
+  font-size: 10px;
+  color: var(--ve-muted);
+}
+.ve-page .source-disclosure {
+  background: transparent;
+}
+.ve-studio-heading {
+  max-width: 970px;
+  margin-bottom: 38px;
+}
+.ve-studio-heading h1 {
+  font-size: clamp(33px, 3.3vw, 58px);
+}
+.ve-studio {
+  display: grid;
+  grid-template-columns: minmax(220px, 0.65fr) minmax(0, 1.4fr);
+  border: 1px solid var(--ve-line);
+  border-radius: var(--ve-radius);
+  background: #fff;
+  overflow: hidden;
+}
+.ve-studio h2 {
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--ve-muted);
+  margin: 0 0 26px;
+}
+.ve-studio-controls {
+  padding: 30px;
+  border-right: 1px solid var(--ve-line);
+  background: #f9fbfc;
+}
+.ve-studio-controls > label,
+.ve-model-run label {
+  display: block;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.8;
+  margin: 0 0 24px;
+}
+.ve-studio select,
+.ve-resource-preview select,
+.ve-model-run select {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  font:
+    11px/1.5 AzureLab Sans,
+    Segoe UI,
+    sans-serif;
+  border: 1px solid #a6b8c9;
+  border-radius: 5px;
+  background: white;
+  color: var(--ve-ink);
+  padding: 10px;
+  margin-top: 10px;
+  min-height: 40px;
+}
+.ve-checkbox {
+  display: flex !important;
+  align-items: flex-start;
+  gap: 11px;
+  font-weight: 400 !important;
+}
+.ve-checkbox input {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  margin-top: 2px;
+  accent-color: var(--ve-blue);
+}
+.ve-page .ve-control-note {
+  font-size: 10px;
+  line-height: 1.9;
+  color: var(--ve-muted);
+  margin: 24px 0 0;
+  padding-top: 20px;
+  border-top: 1px solid var(--ve-line);
+}
+.ve-studio-canvas {
+  padding: 30px 32px;
+  min-width: 0;
+}
+.ve-container-figure {
+  margin: 0;
+}
+.ve-container-figure > svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 420px;
+  min-height: 240px;
+}
+.ve-container-figure svg text {
+  font:
+    11px AzureLab Sans,
+    Segoe UI,
+    sans-serif;
+  fill: #28495e;
+}
+.ve-model-grid {
+  fill: none;
+  stroke: #dbe6eb;
+  stroke-width: 0.7;
+}
+.ve-image-plate path {
+  fill: #edf4fc;
+  stroke: #abc5dd;
+  stroke-width: 1.2;
+}
+.ve-image-plate text {
+  font-size: 10px;
+  font-weight: 600;
+}
+.ve-model-flow {
+  fill: none;
+  stroke: #839bad;
+  stroke-width: 1.5;
+}
+.ve-instance rect {
+  fill: white;
+  stroke: #91b1c8;
+  stroke-width: 1.5;
+}
+.ve-instance text:first-of-type {
+  font-size: 18px;
+  font-weight: 700;
+}
+.ve-instance text:last-of-type {
+  font-size: 10px;
+}
+.ve-instance-prior rect {
+  stroke-dasharray: 5 4;
+  fill: #f7f5f0;
+  stroke: #a29987;
+}
+.ve-instance-current rect {
+  fill: #e7f4f1;
+  stroke: #528d83;
+}
+.ve-model-transfer {
+  fill: none;
+  stroke: #879cac;
+  stroke-width: 1.5;
+  stroke-dasharray: 4 4;
+}
+.ve-data-connector {
+  fill: none;
+  stroke: #879cac;
+  stroke-width: 1.5;
+}
+.ve-data-connector[data-retained='true'] {
+  stroke: #0d7970;
+  stroke-width: 2;
+}
+.ve-data-plate rect {
+  fill: #eef3f6;
+  stroke: #c0d0db;
+}
+.ve-data-plate text {
+  font-size: 11px;
+}
+.ve-container-figure figcaption {
+  font-size: 10px;
+  line-height: 1.85;
+  color: var(--ve-muted);
+  margin-top: 12px;
+}
+.ve-text-alternative {
+  font-size: 10px;
+  margin-top: 20px;
+  border-top: 1px solid var(--ve-line);
+  padding-top: 14px;
+}
+.ve-text-alternative summary {
+  cursor: pointer;
+  color: var(--ve-blue);
+  font-weight: 600;
+}
+.ve-text-alternative table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 16px;
+  font-size: 10px;
+  line-height: 1.8;
+}
+.ve-text-alternative :is(th, td) {
+  padding: 10px 8px;
+  border-bottom: 1px solid var(--ve-line);
+  text-align: left;
+  vertical-align: top;
+}
+.ve-model-result {
+  border-left: 2px solid var(--ve-teal);
+  padding-left: 16px;
+  margin-top: 24px;
+  min-height: 58px;
+}
+.ve-model-result strong {
+  font-size: 11px;
+}
+.ve-page .ve-model-result p {
+  font-size: 12px;
+  line-height: 1.85;
+  margin: 4px 0 0;
+}
+.ve-model-run {
+  grid-column: 1/-1;
+  border-top: 1px solid var(--ve-line);
+  padding: 26px 30px;
+  display: flex;
+  align-items: flex-end;
+  gap: 28px;
+  justify-content: space-between;
+}
+.ve-model-run > div {
+  flex: 1;
+  max-width: 550px;
+}
+.ve-model-run h2 {
+  margin-bottom: 15px;
+}
+.ve-model-run label {
+  margin-bottom: 0;
+}
+.ve-page .ve-model-boundary {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 10px;
+  line-height: 1.9;
+  max-width: 100%;
+  margin: 24px 0 0;
+  color: var(--ve-muted);
+}
+.ve-model-boundary svg {
+  flex-shrink: 0;
+}
+.ve-guide-heading {
+  max-width: 940px;
+  margin-bottom: 44px;
+}
+.ve-guide-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 255px;
+  gap: 40px;
+}
+.ve-live-mission {
+  min-width: 0;
+}
+.ve-live-mission > .compute-workbench {
+  background: #fff;
+  border: 1px solid var(--ve-line);
+  border-radius: var(--ve-radius);
+  padding: 30px;
+  margin: 0 0 28px;
+}
+.ve-live-mission .compute-workbench > :is(h2, h3) {
+  font-size: 20px;
+  line-height: 1.4;
+}
+.ve-live-mission .compute-workbench p,
+.ve-live-mission .compute-workbench li {
+  font-size: 12px;
+  line-height: 1.9;
+}
+.ve-live-mission .compute-primary {
+  background: var(--ve-blue);
+  color: #fff;
+  border: 1px solid var(--ve-blue);
+  padding: 11px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  font:
+    600 11px AzureLab Sans,
+    Segoe UI,
+    sans-serif;
+}
+.ve-live-mission .compute-workbench > button:not(.compute-primary) {
+  margin-left: 12px;
+  padding: 10px;
+  font-size: 11px;
+}
+.ve-live-mission .compute-actions {
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.ve-live-mission .compute-actions a {
+  font-size: 11px;
+}
+.ve-live-mission .compute-reference-table {
+  overflow: auto;
+}
+.ve-live-mission .savvy-compact img {
+  height: 70px;
+  width: auto;
+}
+.ve-coach {
+  align-self: start;
+  background: #e8f1f4;
+  border: 1px solid #cbdde2;
+  border-radius: var(--ve-radius);
+  padding: 22px;
+  position: sticky;
+  top: 66px;
+}
+.ve-coach header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+.ve-coach header strong {
+  font-size: 12px;
+}
+.ve-coach header button {
+  font:
+    10px AzureLab Sans,
+    Segoe UI,
+    sans-serif;
+  color: #235269;
+  border: 0;
+  padding: 3px 0;
+  background: none;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.ve-coach .ve-character {
+  display: block;
+  height: 185px;
+  margin: 18px auto;
+}
+.ve-coach > .ve-eyebrow {
+  font-size: 8px;
+  letter-spacing: 0.09em;
+}
+.ve-page .ve-coach > p {
+  font-size: 11px;
+  line-height: 1.9;
+  margin: 16px 0 0;
+}
+.ve-page .ve-coach > .ve-small-note {
+  font-size: 9px;
+  color: #4b6572;
+}
+.ve-page .mission-briefing {
+  border-radius: 14px;
+  font-family:
+    AzureLab Sans,
+    Segoe UI,
+    sans-serif;
+}
+.ve-page .mission-briefing h2 {
+  font:
+    500 27px/1.3 AzureLab Editorial,
+    Georgia,
+    serif;
+  letter-spacing: -0.5px;
+}
+.ve-page .mission-briefing p,
+.ve-page .mission-briefing li {
+  font-size: 13px;
+  line-height: 1.85;
+}
+.ve-page .mission-briefing .mission-scroll {
+  max-height: calc(100dvh - 180px);
+}
+.ve-handoff-heading {
+  max-width: 960px;
+  margin-bottom: 44px;
+}
+.ve-handoff {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(260px, 0.8fr);
+  gap: 50px;
+}
+.ve-handoff > section {
+  max-width: 650px;
+}
+.ve-handoff ol {
+  list-style: none;
+  margin: 28px 0 36px;
+  padding: 0;
+}
+.ve-handoff li {
+  display: flex;
+  gap: 24px;
+  border-top: 1px solid var(--ve-line);
+  padding: 19px 0;
+}
+.ve-handoff li > span {
+  font:
+    10px ui-monospace,
+    monospace;
+  color: var(--ve-teal);
+  margin-top: 5px;
+}
+.ve-handoff li p {
+  font-size: 13px;
+  margin: 0;
+}
+.ve-handoff > section > .ve-small-note {
+  margin-top: 24px;
+}
+.ve-resource-preview {
+  background: #fff;
+  border: 1px solid var(--ve-line);
+  border-radius: var(--ve-radius);
+  padding: 32px;
+  align-self: start;
+}
+.ve-resource-preview-top {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  border-bottom: 1px solid var(--ve-line);
+  padding-bottom: 24px;
+  margin-bottom: 26px;
+}
+.ve-resource-preview-top > span {
+  font-size: 10px;
+  color: var(--ve-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+}
+.ve-resource-preview h2 {
+  font-size: 25px;
+  overflow-wrap: anywhere;
+}
+.ve-resource-preview label {
+  font-size: 11px;
+  font-weight: 600;
+  display: block;
+  margin-bottom: 22px;
+}
+.ve-resource-preview dl {
+  margin-bottom: 28px;
+}
+.ve-resource-preview dl > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  border-bottom: 1px solid var(--ve-line);
+  padding: 13px 0;
+  font-size: 11px;
+  line-height: 1.7;
+}
+.ve-resource-preview dt {
+  color: var(--ve-muted);
+}
+.ve-resource-preview dd {
+  margin: 0;
+  overflow-wrap: anywhere;
+  text-align: right;
+}
+.ve-resource-preview > p {
+  font-size: 12px;
+}
+.ve-page .ve-resource-preview-note {
+  border-top: 1px solid var(--ve-line);
+  margin: 25px 0 0;
+  padding-top: 20px;
+  font-size: 10px;
+  line-height: 1.8;
+  color: var(--ve-muted);
+}
+.ve-journal-heading {
+  max-width: 900px;
+  margin-bottom: 44px;
+}
+.ve-journal-summary {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  background: #fff;
+  border: 1px solid var(--ve-line);
+  border-radius: var(--ve-radius);
+  padding: 40px;
+  gap: 70px;
+}
+.ve-journal-summary h2 {
+  margin: 20px 0;
+}
+.ve-journal-summary p {
+  font-size: 12px;
+}
+.ve-journal-summary > aside {
+  border-left: 1px solid var(--ve-line);
+  padding-left: 40px;
+}
+.ve-journal-summary dl > div {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 22px;
+  border-bottom: 1px solid var(--ve-line);
+  padding: 20px 0;
+}
+.ve-journal-summary dt {
+  font-size: 11px;
+  color: var(--ve-muted);
+}
+.ve-journal-summary dd {
+  font:
+    32px/1 AzureLab Editorial,
+    Georgia,
+    serif;
+  margin: 0;
+}
+.ve-journal-summary > aside > p {
+  font-size: 10px;
+  color: var(--ve-muted);
+  margin-top: 24px;
+}
+.visual-review > .portal-dialog {
+  font-family:
+    AzureLab Sans,
+    Segoe UI,
+    sans-serif;
+  width: min(900px, calc(100vw - 32px));
+  border-radius: 12px;
+}
+.visual-review .ve-journal-body {
+  color: var(--ve-ink);
+  padding: 8px;
+}
+.ve-journal-body p,
+.ve-journal-body li {
+  font-size: 12px;
+  line-height: 1.9;
+}
+.ve-journal-body > p {
+  color: var(--ve-muted);
+}
+.ve-journal-body > section {
+  border-top: 1px solid var(--ve-line);
+  margin-top: 28px;
+  padding-top: 22px;
+}
+.ve-journal-body h3 {
+  font-size: 17px;
+  font-weight: 600;
+}
+.ve-journal-body ul {
+  padding-left: 20px;
+}
+.ve-journal-body .application-history > button,
+.ve-journal-body .refined-history > button {
+  font-size: 12px;
+}
+.ve-journal-body .compute-sources .source-context {
+  font-size: 10px;
+  color: var(--ve-muted);
+}
+.ve-journal-body .source-disclosure {
+  background: none;
+}
+.ve-art-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+  margin: 40px 0 48px;
+}
+.ve-art-grid figure {
+  margin: 0;
+  background: white;
+  border: 1px solid var(--ve-line);
+  border-radius: var(--ve-radius);
+  overflow: hidden;
+}
+.ve-art-grid figure > div {
+  height: 285px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: repeating-conic-gradient(#f6f8fa 0% 25%, #e8edf1 0% 50%) 50%/20px 20px;
+  padding: 22px;
+}
+.ve-art-grid img {
+  max-width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.ve-art-grid figcaption {
+  padding: 23px 18px;
+}
+.ve-art-grid figcaption > span {
+  font-size: 7px;
+  letter-spacing: 0.09em;
+  font-weight: 700;
+  color: #80553c;
+}
+.ve-art-grid .ve-art-original figcaption > span {
+  color: var(--ve-teal);
+}
+.ve-art-grid h2 {
+  font-size: 15px;
+  letter-spacing: 0;
+  margin: 12px 0;
+}
+.ve-art-grid p {
+  font-size: 10px;
+  line-height: 1.9;
+}
+.ve-art-grid a {
+  font-size: 10px;
+}
+.ve-two-column {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+}
+.ve-two-column h2 {
+  font-size: 24px;
+}
+.ve-two-column li,
+.ve-two-column p {
+  font-size: 13px;
+  line-height: 1.95;
+}
+.ve-two-column li {
+  margin-bottom: 12px;
+}
+.ve-two-column a {
+  font-size: 12px;
+}
+.ve-review-navigation {
+  border-top: 1px solid var(--ve-line);
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+  gap: 24px;
+  margin-top: 65px;
+  padding: 25px 0;
+}
+.ve-review-navigation a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 600;
+}
+.ve-review-navigation a:last-child {
+  justify-self: end;
+  text-align: right;
+}
+.ve-review-navigation a small {
+  display: block;
+  font-size: 9px;
+  line-height: 1.8;
+  font-weight: 400;
+  color: var(--ve-muted);
+  margin-bottom: 3px;
+}
+.ve-review-navigation > p {
+  text-align: center;
+  font-size: 9px;
+  color: var(--ve-muted);
+  line-height: 1.8;
+  margin: 0;
+}
+.ve-page-footer {
+  border-top: 1px solid var(--ve-line);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 25px 0 28px;
+  margin-top: 18px;
+}
+.ve-page-footer > span {
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+.ve-page-footer > p {
+  font-size: 9px;
+  line-height: 1.8;
+  color: var(--ve-muted);
+  margin: 0;
+  max-width: 560px;
+}
+.ve-workspace-entry {
+  /* Operational text is fully opaque immediately; do not composite native Portal controls. */
+  animation: none;
+}
+.visual-review-workspace .ve-review-bar {
+  position: relative;
+}
+@keyframes ve-page-enter {
+  from {
+    translate: 0 5px;
+  }
+  to {
+    translate: 0 0;
+  }
+}
+@media (min-width: 1800px) {
+  .ve-hero {
+    padding-top: 24px;
+    padding-bottom: 80px;
+    min-height: 510px;
+  }
+  .ve-hero-visual {
+    height: 420px;
+    max-width: 570px;
+  }
+  .ve-hero-notebook {
+    height: 325px;
+  }
+  .ve-hero-character .ve-character {
+    height: 215px;
+  }
+  .ve-path {
+    padding: 32px;
+  }
+  .ve-path h3 {
+    font-size: 24px;
+  }
+  .ve-module-group a {
+    font-size: 12px;
+  }
+  .ve-sidebar {
+    padding-top: 48px;
+  }
+  .ve-sidebar nav a {
+    font-size: 12px;
+    min-height: 48px;
+  }
+}
+@media (max-width: 1250px) {
+  .ve-brand-context {
+    display: none;
+  }
+  .ve-page {
+    padding-inline: 30px;
+  }
+  .ve-layout {
+    grid-template-columns: 208px minmax(0, 1fr);
+  }
+  .ve-sidebar {
+    padding-inline: 12px;
+  }
+  .ve-hero {
+    gap: 24px;
+  }
+  .ve-hero-visual {
+    height: 330px;
+  }
+  .ve-hero-notebook {
+    height: 260px;
+    padding: 20px;
+    width: 74%;
+  }
+  .ve-hero-character .ve-character {
+    height: 155px;
+  }
+  .ve-hero-character > div {
+    max-width: 85px;
+  }
+  .ve-hero-plate {
+    width: 65px;
+    height: 65px;
+  }
+  .ve-hero-plate-small {
+    width: 42px;
+    height: 85px;
+  }
+  .ve-hero-art {
+    gap: 12px;
+  }
+  .ve-path {
+    padding: 22px 18px;
+  }
+  .ve-path h3 {
+    font-size: 18px;
+  }
+  .ve-paths {
+    gap: 12px;
+  }
+  .ve-intro-content {
+    gap: 30px;
+  }
+  .ve-guide-layout {
+    grid-template-columns: minmax(0, 1fr) 220px;
+    gap: 24px;
+  }
+  .ve-coach {
+    padding: 18px;
+  }
+  .ve-coach header {
+    display: block;
+  }
+  .ve-coach header button {
+    margin-top: 12px;
+  }
+  .ve-studio {
+    grid-template-columns: 220px minmax(0, 1fr);
+  }
+  .ve-studio-controls {
+    padding: 24px 20px;
+  }
+  .ve-studio-canvas {
+    padding: 24px 20px;
+  }
+  .ve-handoff {
+    gap: 30px;
+  }
+  .ve-art-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 1100px) {
+  .ve-review-bar {
+    padding-inline: 20px;
+    gap: 12px;
+  }
+  .ve-review-bar > span > span {
+    display: none;
+  }
+  .ve-header {
+    height: 76px;
+    padding-inline: 24px;
+  }
+  .ve-header > div {
+    gap: 20px;
+  }
+  .ve-header .ve-environment {
+    display: none;
+  }
+  .ve-layout {
+    display: block;
+  }
+  .ve-menu-trigger {
+    display: block !important;
+  }
+  .ve-sidebar {
+    display: none;
+    position: relative;
+    top: 0;
+    height: auto;
+    padding: 24px;
+    overflow: visible;
+    border-right: 0;
+    border-bottom: 1px solid var(--ve-line);
+  }
+  .ve-sidebar-open {
+    display: block;
+  }
+  .ve-sidebar nav {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .ve-sidebar > strong {
+    max-width: none;
+    padding: 8px 12px 15px;
+  }
+  .ve-sidebar-note {
+    display: none;
+  }
+  .ve-page {
+    padding: 28px 32px 0;
+  }
+  .ve-breadcrumb {
+    margin-bottom: 38px;
+  }
+  .ve-hero {
+    grid-template-columns: 1.2fr 0.8fr;
+    padding-bottom: 50px;
+  }
+  .ve-hero h1 {
+    font-size: 44px;
+    letter-spacing: -2px;
+  }
+  [data-direction='editorial'] .ve-hero h1 {
+    font-size: 58px;
+    letter-spacing: -2.7px;
+  }
+  .ve-hero-visual {
+    height: 335px;
+    max-width: 370px;
+  }
+  .ve-hero-character .ve-character {
+    height: 160px;
+  }
+  .ve-hero-character > div {
+    display: none;
+  }
+  .ve-module-hero {
+    gap: 38px;
+  }
+  .ve-reading-layout {
+    grid-template-columns: minmax(0, 1fr) 240px;
+    gap: 36px;
+  }
+  .ve-guide-layout {
+    grid-template-columns: minmax(0, 1fr) 230px;
+  }
+  .ve-studio {
+    grid-template-columns: 250px minmax(0, 1fr);
+  }
+  .ve-handoff {
+    gap: 40px;
+  }
+  .ve-journal-summary {
+    gap: 40px;
+  }
+  .ve-journal-summary > aside {
+    padding-left: 30px;
+  }
+}
+@media (max-width: 800px) {
+  .ve-review-bar {
+    font-size: 9px;
+    padding: 7px 12px;
+    flex-wrap: wrap;
+  }
+  .ve-review-bar > span > b {
+    font-size: 8px;
+  }
+  .ve-review-bar > a {
+    font-size: 9px;
+    margin-left: auto;
+  }
+  .ve-review-bar nav {
+    margin-left: auto;
+  }
+  .ve-header {
+    padding-inline: 18px;
+    height: 68px;
+  }
+  .ve-brand strong {
+    font-size: 23px;
+  }
+  .ve-brand small {
+    display: none;
+  }
+  .ve-journal-trigger {
+    font-size: 0 !important;
+    gap: 0;
+  }
+  .ve-journal-trigger svg {
+    width: 20px;
+    height: 20px;
+  }
+  .ve-page {
+    padding-inline: 22px;
+  }
+  .ve-hero {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .ve-hero-visual {
+    display: none;
+  }
+  .ve-hero-copy {
+    max-width: 600px;
+  }
+  .ve-hero h1 {
+    font-size: 45px;
+  }
+  [data-direction='editorial'] .ve-hero h1 {
+    font-size: 60px;
+  }
+  .ve-section-heading {
+    display: block;
+  }
+  .ve-section-heading > p {
+    margin-top: 16px;
+    max-width: 100%;
+  }
+  .ve-paths {
+    grid-template-columns: 1fr;
+  }
+  .ve-path header > p {
+    min-height: 0;
+  }
+  .ve-path header {
+    display: block;
+  }
+  .ve-module-group {
+    padding: 12px 0;
+  }
+  .ve-module-group a {
+    font-size: 12px;
+  }
+  .ve-path > div {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 25px;
+  }
+  [data-direction='editorial'] .ve-path {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+  [data-direction='editorial'] .ve-path header {
+    padding-left: 40px;
+  }
+  [data-direction='editorial'] .ve-path header > p {
+    max-width: none;
+  }
+  .ve-module-hero {
+    grid-template-columns: 1fr;
+  }
+  .ve-module-hero > aside {
+    border-left: 0;
+    border-top: 1px solid var(--ve-line);
+    padding: 25px 0;
+  }
+  .ve-intro-content,
+  .ve-reading-layout,
+  .ve-guide-layout,
+  .ve-handoff,
+  .ve-journal-summary {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  .ve-reading-aside {
+    border-top: 1px solid var(--ve-line);
+    padding-top: 20px;
+  }
+  .ve-reading-aside > section {
+    display: none;
+  }
+  .ve-reading-aside > div {
+    border-top: 0;
+  }
+  .ve-reading > p {
+    font-size: 15px;
+  }
+  .ve-coach {
+    position: static;
+  }
+  .ve-coach header {
+    display: flex;
+  }
+  .ve-coach header button {
+    margin: 0;
+  }
+  .ve-coach .ve-character {
+    height: 130px;
+    margin: 16px 0;
+    float: right;
+  }
+  .ve-coach > p {
+    max-width: 65%;
+  }
+  .ve-coach:after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+  .ve-studio {
+    grid-template-columns: 1fr;
+  }
+  .ve-studio-controls {
+    border-right: 0;
+    border-bottom: 1px solid var(--ve-line);
+  }
+  .ve-studio-canvas {
+    padding: 24px;
+  }
+  .ve-model-run {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .ve-model-run > div {
+    max-width: none;
+  }
+  .ve-container-figure > svg {
+    min-height: 0;
+  }
+  .ve-review-navigation {
+    grid-template-columns: 1fr 1fr;
+  }
+  .ve-review-navigation > p {
+    display: none;
+  }
+  .ve-journal-summary > aside {
+    border-left: 0;
+    border-top: 1px solid var(--ve-line);
+    padding: 26px 0 0;
+  }
+  .ve-page-footer {
+    display: block;
+  }
+  .ve-page-footer p {
+    margin-top: 12px;
+  }
+  .ve-two-column {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+}
+@media (max-width: 480px) {
+  .ve-review-bar > span {
+    display: none;
+  }
+  .ve-review-bar nav {
+    margin-left: 0;
+  }
+  .ve-sidebar nav {
+    grid-template-columns: 1fr 1fr;
+  }
+  .ve-page {
+    padding-inline: 18px;
+  }
+  .ve-hero h1 {
+    font-size: 37px;
+  }
+  [data-direction='editorial'] .ve-hero h1 {
+    font-size: 47px;
+  }
+  .ve-page h1 {
+    font-size: 32px;
+    letter-spacing: -1px;
+  }
+  .ve-path > div,
+  [data-direction='editorial'] .ve-path > div {
+    grid-template-columns: 1fr;
+  }
+  .ve-art-grid {
+    grid-template-columns: 1fr;
+  }
+  .ve-review-navigation {
+    gap: 16px;
+  }
+  .ve-review-navigation a {
+    font-size: 10px;
+  }
+  .ve-resource-preview,
+  .ve-journal-summary {
+    padding: 24px;
+  }
+  .ve-model-run {
+    padding: 24px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .visual-review *,
+  .visual-review *:before,
+  .visual-review *:after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+@media (forced-colors: active) {
+  .visual-review :is(button, a, summary, input, select):focus-visible {
+    outline: 3px solid Highlight;
+  }
+  .ve-instance rect,
+  .ve-data-plate rect,
+  .ve-image-plate path {
+    stroke: CanvasText;
+  }
+  .ve-model-grid {
+    stroke: GrayText;
+  }
+  .ve-hero-grid {
+    background: none;
+  }
+  .ve-review-bar nav a[aria-current],
+  .ve-sidebar nav a[aria-current] {
+    outline: 1px solid Highlight;
+  }
+}
+
+@media (min-width: 801px) {
+  .ve-studio-controls {
+    grid-column: 1;
+    grid-row: 1 / 3;
+  }
+  .ve-model-run {
+    grid-column: 2;
+    grid-row: 1;
+    border-top: 0;
+    border-bottom: 1px solid var(--ve-line);
+    gap: 16px;
+  }
+  .ve-model-run .ve-button {
+    padding: 12px;
+    font-size: 11px;
+  }
+  .ve-studio-canvas {
+    grid-column: 2;
+    grid-row: 2;
+  }
+}
+@media (max-height: 650px) and (min-width: 801px) {
+  .ve-page {
+    padding-top: 24px;
+  }
+  .ve-breadcrumb {
+    margin-bottom: 24px;
+  }
+  .ve-studio-heading {
+    margin-bottom: 24px;
+  }
+  .ve-studio-heading h1 {
+    font-size: 36px;
+    line-height: 1.15;
+  }
+  .ve-studio-heading .ve-lead {
+    margin-top: 16px;
+    font-size: 14px;
+  }
+  .ve-model-run {
+    padding: 20px;
+  }
+}
+
+.ve-runtime-plate rect {
+  fill: #f2f6f9;
+  stroke: #8ea7ba;
+  stroke-width: 1.3;
+}
+.ve-runtime-plate text {
+  font-size: 11px;
+}
+
+.ve-page [data-ve-heading]:focus {
+  outline: 1px solid #bbcedb;
+  outline-offset: 6px;
+}
+
+.ve-hero-notebook-bottom {
+  color: #526477;
+}
+
+.ve-page .compute-real-chain > h3 {
+  font-size: 14px;
+  line-height: 1.5;
+}

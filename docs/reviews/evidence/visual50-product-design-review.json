@@ -1,0 +1,235 @@
+{
+  "schema": 1,
+  "review": "AzureLab PR50 independent product and visual design review",
+  "reviewer": "/root/visual50_product_review",
+  "date": "2026-11-02",
+  "reviewPhase": "Developmental candidate review before fixes; not the final post-stamp audit",
+  "repository": "/workspace/Azure-learner",
+  "branch": "codex/azurelab-visual-excellence",
+  "baseCommit": "4934408075fccdab944e629a108a0f23424ee3f8",
+  "scope": {
+    "changedByReviewer": ["External review scripts, screenshots and this report only"],
+    "notChanged": [
+      "Application code",
+      "Documentation",
+      "Domain models",
+      "Stores",
+      "Commands",
+      "Receipts",
+      "Learning content"
+    ],
+    "decision": "Keep both candidates isolated for comparison. Prefer editorial as the next design iteration, conditional on resolving the shared issues. Neither candidate is approved for broad rollout.",
+    "characterDecision": "Quarantine the three real rejected samples in the clearly labelled review gallery. Keep the canonical original as the only active character. The full pose library remains production-blocked; do not fabricate missing poses or call the library complete.",
+    "awardQuality": "Not established. Human novice, IT-user, Azure SME, UX, screen-reader and measured learning/transfer validation are absent. Automated browser observations do not replace them."
+  },
+  "evidence": {
+    "providedScreenshotsInspected": "All 16 editorial/continuity images for hub, introduction, theory, studio, guide, handoff, journal and character at 1440×900",
+    "baselineInspected": [
+      "baseline/03-long-theory-top.png",
+      "baseline/05-studio.png",
+      "baseline/06-native-briefing.png",
+      "baseline/07-journal.png"
+    ],
+    "freshBrowser": {
+      "url": "http://127.0.0.1:3100/learn/design-review",
+      "screens": 28,
+      "interactions": 12,
+      "viewports": ["1024×500", "390×844", "1440×900"],
+      "pageErrors": [],
+      "artifacts": "/workspace/azurelab-pr50/product-review/live-evidence.json",
+      "script": "/workspace/azurelab-pr50/product-live-review.mjs",
+      "actualInteractions": [
+        "Selected Studio prediction and explicitly ran model in both candidates at 1024×500 and 390×844",
+        "Changed storage after a result and observed result invalidation",
+        "Opened native guide briefing, inspected dialog/scroll/control geometry and closed with Escape",
+        "Opened and closed Journal",
+        "Loaded native Portal workspace presentation",
+        "Compared reduced-motion and ordinary-motion computed styles"
+      ],
+      "limits": [
+        "Fresh sessions had empty learner histories; nonempty Journal finding is from source inspection",
+        "No real screen reader or human novice study",
+        "No claim of 1920×1080 or 1366×768 inspection",
+        "An additional journey capture attempt later encountered the route's not-found presentation during concurrent parent work, before its first catalogue screenshot. That attempt is not reported as a pass."
+      ]
+    },
+    "sourceInspected": [
+      "src/features/design-review/visual-review.tsx",
+      "src/features/design-review/visual-review.css",
+      "src/features/design-review/character.tsx",
+      "src/features/design-review/model.ts",
+      "src/features/portal/portal.tsx presentation navigation adapter",
+      "src/features/learning/compute-vm.tsx",
+      "src/features/course/guidance-window.tsx",
+      "src/features/course/mission-briefing.css",
+      "src/features/learning/serverless.css native guidance styles",
+      "src/content/nb.ts visualReviewNb",
+      "public/design-review/characters/v1/manifest.json"
+    ]
+  },
+  "ranking": [
+    {
+      "rank": 1,
+      "direction": "editorial",
+      "label": "B · Feltbok",
+      "reason": "The warm reading surface, dark navigation rail and serif display titles create a clearer division between orientation and reading than the almost uniformly pale continuity treatment. Its Hub uses horizontal catalogue sections with visible rules instead of another row of bordered cards. At 1440 px its Studio heading fits on one line, leaving approximately 53 px more vertical room than continuity.",
+      "tradeoffs": [
+        "The dark rail attracts substantial attention during reading and can feel like permanent application chrome beside a quiet article.",
+        "Long technical titles still need deliberate size and wrapping rules; the serif is not itself evidence of better reading comprehension.",
+        "The catalogue uses a longer vertical page and gives less simultaneous overview of all three subject areas than the continuity cards.",
+        "The body typography, model interaction and native guide are substantially shared with continuity; selecting this direction does not resolve those shared issues."
+      ],
+      "recommendation": "Use it as the leading candidate for the next isolated iteration, retaining native technical UI inside Portal. Do not extend a book-style treatment into dense operational tables and forms without task evidence."
+    },
+    {
+      "rank": 2,
+      "direction": "continuity",
+      "label": "A · Kontinuitet",
+      "reason": "The all-sans interface is closer to the existing course and Portal, and its three-card catalogue supports side-by-side subject overview. It is a useful control candidate for comparison.",
+      "tradeoffs": [
+        "The pale rail and pale main surface provide weaker separation, so much of the page has similar visual weight.",
+        "At 1440 px the Hub title wraps to three large lines and the Studio title wraps to two; useful controls and the catalogue start lower than editorial.",
+        "The large display headings have the visual weight of a landing page while the actual input and navigation text is 10–12 px; this scale imbalance is especially apparent in continuity.",
+        "It carries most of the same layout changes as editorial, so familiar color and sans type alone do not prove lower learning or navigation cost."
+      ]
+    }
+  ],
+  "findings": [
+    {
+      "id": "P50-PD-01",
+      "severity": "MAJOR",
+      "status": "Observed in original reviewed candidate; parent reports correction in progress, not yet rechecked here",
+      "directions": ["editorial", "continuity"],
+      "surface": "Native guide briefing",
+      "problem": "The imported native GuidanceWindow loses its reading-area padding. Its h2, prerequisites and numbered steps start at the dialog's left edge. This differs visibly from the existing course briefing and makes compact reading crowded.",
+      "evidence": [
+        "product-review/editorial-briefing-1024x500.png",
+        "product-review/editorial-briefing-390x844.png",
+        "baseline/06-native-briefing.png",
+        "GuidanceWindow uses .sl-guidance .mission-scroll, whose original padding resides in serverless.css; the original candidate did not import that stylesheet"
+      ],
+      "requiredChange": "Bring in the existing native guidance styles or restore their exact scoped reading inset. Preserve the native dialog's focus restoration, independent scroll region and anchored footer. Check the actual first and last lines at 1024×500 and compact width.",
+      "boundary": "Close, Cancel and Start were reachable in the observed candidate: 1024×500 dialog spans y24–476, Start spans y414.6–457, and its reading region scrolls independently. This is not a claim that modal controls are clipped."
+    },
+    {
+      "id": "P50-PD-02",
+      "severity": "MAJOR",
+      "status": "Source and actual figure observed",
+      "directions": ["editorial", "continuity"],
+      "surface": "Studio causal diagram",
+      "problem": "The custom diagram draws Image/kode directly to two instance boxes, omits the runtime layer despite runtime being an explicit prerequisite, and always draws a dashed A→B arrow called ve-model-transfer. In the default recreate case the result says A's report does not follow, but the arrow still resembles a transfer from A to B. In inspect mode both boxes are labelled A. These visual relationships are ambiguous even though the result text is conservative.",
+      "evidence": [
+        "screenshots/editorial-studio-1440.png",
+        "screenshots/continuity-studio-1440.png",
+        "visual-review.tsx ContainerFigure",
+        "Baseline Container Execution figure explicitly shows Runtime"
+      ],
+      "requiredChange": "Make the presentation distinguish image, available runtime, original instance, replacement instance and data location. Label a replacement edge as replacement/recreate or remove it when it is not a data flow; avoid two equally current A boxes for inspect. Keep pending/unexecuted states distinct and preserve the original pure runContainer outcomes and explicit run action. This is a diagram correction, not authorization for new teaching or engine behavior."
+    },
+    {
+      "id": "P50-PD-03",
+      "severity": "MAJOR",
+      "status": "Measured in live browser",
+      "directions": ["editorial", "continuity"],
+      "surface": "Studio at short heights",
+      "problem": "The question, assumptions, diagram, prediction and run action are spread across a long page. At 1024×500 the first input starts at y487, while prediction begins at y1124 and the run button at y1118 before scrolling. Selecting prediction or running scrolls away from the main diagram. Compact 390 px adds another vertical stack; prediction is around y1509–1545. All controls are technically reachable, but the model comparison requires repeated scrolling and remembering assumptions.",
+      "evidence": [
+        "product-review/live-evidence.json",
+        "product-review/editorial-studio-1024x500.png",
+        "product-review/editorial-studio-run-1024.png",
+        "product-review/editorial-studio-run-390.png"
+      ],
+      "requiredChange": "Reduce display-heading and panel whitespace for short desktop heights, keep prediction/run and the result close to the figure, and retain a readable assumptions summary near the result. Preserve document scrolling and keyboard access. Do not solve this with a fixed overlay that covers reading or native controls. The 11 px input and SVG text also need a practical reading-size review."
+    },
+    {
+      "id": "P50-PD-04",
+      "severity": "MAJOR",
+      "status": "Source-confirmed nonempty-state mismatch; not seeded in browser",
+      "directions": ["editorial", "continuity"],
+      "surface": "Journal summary and detail",
+      "problem": "JournalLanding displays compute.facts.guided.length for all Compute guides, but JournalBody filters rendered rows to mission === vm after deciding whether the unfiltered collection is nonempty. Container/capacity/hosting history alone can therefore produce a positive summary with an empty ul and no empty-state explanation.",
+      "evidence": [
+        "visual-review.tsx JournalLanding and JournalBody",
+        "computeMissions = vm/container/capacity/hosting in src/domain/curriculum/compute.ts"
+      ],
+      "requiredChange": "Use the same explicitly labelled history subset for both the summary and modal, or render every guide counted with its existing native interpretation. Show a specific empty state for the chosen subset. Do not invent results or change existing historical evidence."
+    },
+    {
+      "id": "P50-PD-05",
+      "severity": "MAJOR",
+      "status": "Source-confirmed; route became temporarily unavailable before extra journey confirmation",
+      "directions": ["editorial", "continuity"],
+      "surface": "Active native guide to Portal transition",
+      "problem": "The new handoff action retains the candidate wrapper, but the prominent native Resource groups and Virtual machines actions inside ComputeVmLesson still point directly to /portal. They leave the candidate and native return resolves to the ordinary course. A reviewer can follow the most task-specific controls and lose the visual candidate journey without a clear route-boundary label.",
+      "evidence": [
+        "src/features/learning/compute-vm.tsx compute-actions links",
+        "visual-review.tsx Guide and Handoff",
+        "src/features/portal/portal.tsx optional presentation navigation adapter"
+      ],
+      "requiredChange": "Keep the native guide behavior explicit: either provide a narrowly scoped presentation navigation adapter for these existing links, or visibly label that those actions open the ordinary simulator and provide a clear candidate return. Verify actual Start→native action→Portal→exact return for both directions. Avoid intercepting clicks or changing domain origin/receipt semantics."
+    },
+    {
+      "id": "P50-PD-06",
+      "severity": "MINOR",
+      "status": "Observed in screenshots and source",
+      "directions": ["editorial", "continuity"],
+      "surface": "Global typography and compact review identity",
+      "problem": "Primary navigation is 11 px, reading aids are 10–11 px, and status/eyebrow text is often 8–10 px while display titles dominate the first screen. At max-width 480 px the whole review-bar identity span is hidden, so the explicit prototype marker disappears and only A/B direction names remain.",
+      "evidence": [
+        "visual-review.css .ve-sidebar nav a, .ve-reading-aside, .ve-eyebrow and max-width:480px .ve-review-bar > span",
+        "product-review/editorial-theory-390x844.png"
+      ],
+      "requiredChange": "Increase useful navigation and helper text before increasing decorative heading size. Keep a concise prototype/review-only marker visible at compact width. Check browser zoom and human low-vision reading; no font-size choice alone proves accessibility."
+    },
+    {
+      "id": "P50-PD-07",
+      "severity": "MINOR",
+      "status": "Observed in open Journal",
+      "directions": ["editorial", "continuity"],
+      "surface": "Journal versioned-history hierarchy",
+      "problem": "The empty Benefits and Services refined-history components both show the same visible 'Oppdatert vurdering · Vurderingshistorikk' heading. In the candidate modal the reader cannot tell which track each empty section belongs to without external context.",
+      "evidence": [
+        "product-review/editorial-journal-open-1024x500.png",
+        "product-review/live-evidence.json Journal text"
+      ],
+      "requiredChange": "Add visible existing track names around the native history components. Keep version and assistance distinctions in the native records; do not replace them with a generic score card."
+    },
+    {
+      "id": "P50-PD-08",
+      "severity": "MINOR",
+      "status": "Observed workspace screenshot; exact bottom reachability needs affected recheck",
+      "directions": ["editorial", "continuity"],
+      "surface": "Portal wrapper vertical composition",
+      "problem": "The review bar adds 42 px above a native Portal whose body/nav still use full viewport-height calculations. In the 1440×900 initial workspace capture, the lower native bar and text are cut by the bottom of the image. Ordinary document scrolling may expose the remainder, so this is not established as an unreachable-control defect.",
+      "evidence": [
+        "product-review/editorial-workspace-1440x900.png",
+        "visual-review.css .visual-review-workspace .ve-review-bar",
+        "portal.css .portal min-height:100dvh and .portal-body/.portal-nav viewport calculations"
+      ],
+      "requiredChange": "Measure the candidate workspace at 1440×900 and 1024×500 after the actual handoff. Ensure the review wrapper does not displace native fixed/sticky panels or require confusing nested scroll just to reach their last controls. Keep the Portal operational composition native."
+    }
+  ],
+  "observedBoundaries": [
+    "Both candidates display actual unchanged course paragraphs and source disclosure; this review did not audit all curriculum content or frozen domains.",
+    "Studio requires a prediction before run; its result appears only after explicit run and clears when an assumption changes. The model-only notice does not claim telemetry, receipts or learning credit.",
+    "The observed empty handoff does not invent a VM. It explicitly says none is available and uses the existing simulator for creation.",
+    "Journal starts from real empty stores and does not insert example achievements. This is appropriate, although nonempty presentation consistency needs correction.",
+    "Native briefing controls remain reachable at short height and compact width, with an independently scrollable reading region and Escape closing behavior.",
+    "Ordinary motion is a short 220 ms, 5 px page enter; reduced-motion sessions computed animation-name:none. There are no observed perpetual character loops. This is a narrow engineering observation, not a human vestibular validation.",
+    "No horizontal body overflow was measured in the 28 fresh captures. This does not prove all Portal panels, long names or nonempty records fit.",
+    "CharacterGallery visibly declares real samples rejected, keeps productionAllowed:false in the manifest, and CharacterPortrait falls back to the original. Keeping this evidence quarantined is the right product decision; the rejected samples are not approved assets."
+  ],
+  "rolloutGates": [
+    {
+      "severity": "BLOCKER",
+      "appliesTo": "Broad rollout or claims of completed visual/learning quality",
+      "reason": "Mandatory human novice/IT, SME, UX and screen-reader validation is absent. Two isolated prototypes may remain reviewable while that work is pending."
+    },
+    {
+      "severity": "BLOCKER",
+      "appliesTo": "Full new character library or using rejected poses in active guidance",
+      "reason": "Three real candidates are explicitly rejected for identity/alpha problems and nineteen poses have no files. Preserve the canonical original; commission controlled production and independent export/identity review before approving a library."
+    }
+  ],
+  "nextReview": "After targeted presentation fixes, recheck the affected native briefing, Studio diagram/run layout, non-VM Journal subset and actual candidate/native Portal returns. Then present both candidates and their tradeoffs for human choice. This developmental report is not the separate final post-stamp audit."
+}

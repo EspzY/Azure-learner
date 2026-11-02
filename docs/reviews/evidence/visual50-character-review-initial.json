@@ -1,0 +1,86 @@
+{
+  "review": "PR50 initial independent character review",
+  "scope": "Visual comparison of the canonical PNG and the three named generated PNGs only. No edits, implementation, pedagogy, or key review. This is an early review; a separate final post-stamp audit remains required.",
+  "approval_status": "Reviewer assessment only; no human or art-owner approval is asserted.",
+  "canonical": {
+    "path": "/workspace/Azure-learner/public/mascot/savvy-shark-default.png",
+    "sha256": "74d95ee43f63f8835de757fcc65618cd0db048b157e27ef25c3c5e42e1d930cd",
+    "dimensions": [281, 317],
+    "visible_identity": "A softly rendered cyan, broad-snouted, upright cartoon character with raised eye areas, a pale lower muzzle/jaw, an open toothy smile, peach human-like hands, a teal crewneck sweater, dark blue trousers, and black lace-up shoes with pale soles. Review follows these visible traits, not species implied by its filename.",
+    "limitation": "The source is small. Fine texture, exact eye contours, and hidden shoe surfaces cannot be certified from it. Coarse silhouette, mouth treatment, color blocks, and visible clothing details are usable constraints."
+  },
+  "overall_verdict": "needs_revision_before_wider_pose_production",
+  "identity_assessment": "All three samples plausibly depict the same character; none requires rejecting the underlying pose concept. The strict requirement to preserve face, eyes, snout, mouth, proportions, palette, clothes, shoes, and style is not yet fully met.",
+  "shared_findings": [
+    {
+      "area": "mouth",
+      "severity": "revision",
+      "confidence": "high",
+      "observation": "The generated upper teeth are large rounded beads/scallops. The canonical teeth read as smaller, sharper triangular scallops. The open grin and pale jaw are recognizable, but this changes a salient facial signature.",
+      "action": "Keep the canonical mouth outline and tooth treatment while changing the pose. Do not use the generated rounded dentition as a new identity reference."
+    },
+    {
+      "area": "eyes_and_snout",
+      "severity": "identity_watch",
+      "confidence": "medium",
+      "observation": "The generated eyes read rounder and more front-facing, particularly the eye on the viewer's right; the muzzle reads broader and blunter. These remain plausible interpretations of the source, but together make the face feel more inflated. The source resolution and changed view limit certainty about exact geometric drift.",
+      "action": "Anchor eye aspect, spacing, brow rise, nostril placement, and muzzle-to-jaw shape directly to the canonical image on the next generation. Review at matched displayed character height."
+    },
+    {
+      "area": "proportions_and_anatomy",
+      "severity": "watch",
+      "confidence": "medium",
+      "observation": "The large head, short torso, trousers, and broad shoes remain broadly consistent. No obvious extra limb, fused hand, or impossible joint is visible. Pose changes explain the arm silhouette changes; no new fin, tail, or other species anatomy should be introduced.",
+      "action": "Keep head-to-torso mass, short neck, limb thickness, hand size, and shoe scale stable; inspect hidden/overlapping fingers and wrist transitions independently for each new pose."
+    },
+    {
+      "area": "style_palette_lighting",
+      "severity": "watch",
+      "confidence": "medium",
+      "observation": "The cyan skin, pale jaw, teal sweater, navy trousers, peach hands, and dark shoes remain recognizable, with compatible soft 3D lighting. The generated fabric has considerably more fuzzy fine texture and the face is more brightly polished than the low-resolution source. These may reflect resolution, but should not become a more realistic material redesign.",
+      "action": "Retain the source's simple soft 3D finish and color blocks. Keep texture subordinate; use consistent highlight direction and shadow softness across the final set."
+    },
+    {
+      "area": "alpha_and_silhouette",
+      "severity": "revision",
+      "confidence": "high",
+      "observation": "All samples are RGBA with real transparent backgrounds, but all show colored cyan/blue fringe and scattered residue; warm fringe also appears around hands. The refined wave has conspicuous cyan fragments in the negative space between raised arm and face. Low-alpha residue extends well outside the visible character. Most interior alpha values are approximately 253-254, which alone is not a blocking defect; the source also contains many near-opaque pixels.",
+      "action": "Remove visible edge contamination and isolated residue while retaining antialiasing. Check white, dark, and saturated backgrounds and narrow negative spaces. Do not treat an alpha-channel existence check as a clean-cutout pass."
+    }
+  ],
+  "candidates": [
+    {
+      "name": "initial_wave",
+      "path": "/workspace/generated_images/exec-f97e5f67-165f-4a66-a349-104b6b2990b4.png",
+      "sha256": "c1e48a4fc5e7a83915313d4135a730e32a834a6fd294fadeddae5cedaed88c83",
+      "dimensions": [1181, 1332],
+      "verdict": "needs_revision",
+      "notes": "Readable wave and plausible same character, but rounded dentition and stronger facial inflation remain; visible cool/warm silhouette residue prevents final cutout acceptance."
+    },
+    {
+      "name": "refined_wave",
+      "path": "/workspace/generated_images/exec-aff2a50e-5ced-4c76-bc38-087d9477efd7.png",
+      "sha256": "68a0c812e8802635afe07d0cd67de6cb143df66f5ba572fb02a0abb3229b14fa",
+      "dimensions": [1181, 1332],
+      "verdict": "needs_revision",
+      "notes": "The more open five-digit wave has a readable silhouette and plausible shoulder/elbow/wrist anatomy. The revision does not resolve tooth-shape drift, and visible cyan fragments remain around the left side of the head and inside the raised-arm gap. Acceptable pose direction, not an identity-locked master."
+    },
+    {
+      "name": "think",
+      "path": "/workspace/generated_images/exec-9a00de18-f921-4379-90ed-d25a341e8682.png",
+      "sha256": "c235ec1b602aed802e4c41ee22c62393460a78623f72b8a67e985fc2e500a3ee",
+      "dimensions": [1047, 1502],
+      "verdict": "needs_revision",
+      "notes": "Chin-touch with the opposite arm supporting the elbow is anatomically plausible and reads as thinking. The unchanged broad open grin makes the expression more cheerful than contemplative, but is not a character-identity failure. Two pale side stripes have been added to the shoes; those are not established by the canonical visible shoe design and should be removed under the no-redesign requirement. Rounded dentition and colored edge residue remain."
+    }
+  ],
+  "next_pose_checks": [
+    "Use the canonical PNG as the identity authority for every pose; generated samples must not silently replace it as a face reference.",
+    "Compare face crops at matched height: eye shape/spacing, muzzle breadth/projection, nostrils, grin corners, pale jaw boundary, and sharpness/spacing of teeth.",
+    "Check both hands for five coherent digits, believable thumb placement, wrist/cuff continuity, contact, and no duplicated or fused fingertips.",
+    "Keep sweater neckline/cuffs/hem, trouser silhouette, lace bars, sole treatment, and plain visible shoe sides consistent; add no stripes, logos, accessories, or anatomy.",
+    "Check head/body/hand/shoe scale and weight-bearing stance at matched full-character height, allowing pose perspective but no progressive proportion drift.",
+    "Inspect alpha on contrasting backgrounds, especially arm/head gaps, finger gaps, shoes, chin contact, and isolated low-alpha islands.",
+    "Re-audit the actual final stamped/exported files after any cleanup, resizing, metadata stamping, or asset installation."
+  ]
+}

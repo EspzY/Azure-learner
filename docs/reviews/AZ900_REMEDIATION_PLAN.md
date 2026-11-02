@@ -1,3 +1,7 @@
+## PR50 — visual design phase, 2 November 2026
+
+[Two actual interactive candidates](../VISUAL_EXCELLENCE.md) and an [honest Portal capability matrix](../PORTAL_CAPABILITY_MATRIX.md) explore presentation for the existing platform. They do not close PD-01, broader AS-02 or PR-01 Stage B/C. Stage A operational inspection remains unchanged; owner must choose the direction and bounded rollout. Original character is locked; three generated specimens were independently rejected and are quarantined, with full pose-library production still blocked. [Character Bible](../SAVVYSHARK_CHARACTER_BIBLE.md). Final technical/visual review, exact-head full CI/strict and actual external Gate7 are required on Draft PR50. Historical PR42 findings and PR43–49 status below are preserved. Human novice/SME/screenreader/learning validation unperformed. No P17/P18, merge or production.
+
 # AZ-900 — prioritert forbedringsplan og menneskelig pilot
 
 **1. november 2026 · forslag til separate leveranser, ikke forhåndsgodkjent implementering.** [Hovedrapport](AZ900_END_TO_END_AUDIT.md) · [Reisekart og flytstandard](AZ900_LEARNING_JOURNEY_MAP.md) · [Versjonsbundet evidens](evidence/audit42.json).
