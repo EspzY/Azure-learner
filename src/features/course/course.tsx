@@ -1,4 +1,5 @@
 'use client';
+import { ownerAcceptanceNb as acceptance } from '@/content/nb';
 import { missionContextLabel } from './mission-context';
 import { useApplication } from '@/features/learning/application-provider';
 import { applicationHref } from '@/domain/curriculum/application-transfer';
@@ -107,10 +108,10 @@ import { ManagementLesson, CoreArchitectureJournal } from '@/features/learning/m
 import { managementTopics, isManagementTopic } from '@/domain/curriculum/architecture-management';
 import { usePractical } from './practical-provider';
 import { practicalHref } from '@/domain/sandbox/practical';
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
-import { BookOpen, ChevronRight, FlaskConical, Menu } from 'lucide-react';
+import { ChevronRight, FlaskConical, Menu } from 'lucide-react';
 import { labsNb, nb, serverlessNb, architectureNb, managementNb } from '@/content/nb';
 import { unitIds } from '@/domain/curriculum/manifest';
 import { topics, portalHref, parseLocation, type PortalLocation } from '@/domain/portal/model';
@@ -277,38 +278,41 @@ function CourseWorkspace({ module }: { module?: CourseModule }) {
   const [journal, setJournal] = useState(false),
     [menu, setMenu] = useState(false);
   const labRef = useRef<HTMLElement>(null),
-    debriefRef = useRef<HTMLElement>(null),
-    activityRef = useRef<HTMLDivElement>(null);
-  useEffect(() => {
-    if (
-      !module ||
-      !course.ready ||
-      chooseVersion ||
-      ['lab', 'debrief', 'practical', 'mission'].includes(query.get('activity') ?? '')
-    )
-      return;
-    let settled = 0;
-    const frame = requestAnimationFrame(() => {
-      settled = requestAnimationFrame(() => {
-        const heading = activityRef.current?.querySelector<HTMLElement>(
-          '[data-activity-heading], h2, h3',
-        );
-        if (heading) {
-          heading.tabIndex = -1;
-          const bounds = heading.getBoundingClientRect();
-          // Keep visible context in short lessons; forced scrolling to an already
-          // visible heading can push a sticky sidebar past its parent boundary.
-          if (bounds.top < 84 || bounds.bottom > window.innerHeight - 120)
-            heading.scrollIntoView({ block: 'start', behavior: 'instant' });
-          heading.focus({ preventScroll: true });
-        }
+    debriefRef = useRef<HTMLElement>(null);
+  // Focus belongs to the authorized activity mount, not an earlier route effect.
+  // The teaching boundary may still withhold this DOM after a history change.
+  const focusActivity = useCallback(
+    (element: HTMLDivElement | null) => {
+      if (
+        !element ||
+        !module ||
+        !course.ready ||
+        chooseVersion ||
+        ['lab', 'debrief', 'practical', 'mission'].includes(query.get('activity') ?? '')
+      )
+        return;
+      let settled = 0;
+      const frame = requestAnimationFrame(() => {
+        settled = requestAnimationFrame(() => {
+          const heading = element.querySelector<HTMLElement>('[data-activity-heading], h2, h3');
+          if (heading && element.isConnected) {
+            heading.tabIndex = -1;
+            const bounds = heading.getBoundingClientRect();
+            // Keep visible context in short lessons; forced scrolling to an already
+            // visible heading can push a sticky sidebar past its parent boundary.
+            if (bounds.top < 84 || bounds.bottom > window.innerHeight - 120)
+              heading.scrollIntoView({ block: 'start', behavior: 'instant' });
+            heading.focus({ preventScroll: true });
+          }
+        });
       });
-    });
-    return () => {
-      cancelAnimationFrame(frame);
-      cancelAnimationFrame(settled);
-    };
-  }, [module, topic, course.ready, chooseVersion, query]);
+      return () => {
+        cancelAnimationFrame(frame);
+        cancelAnimationFrame(settled);
+      };
+    },
+    [module, course.ready, chooseVersion, query],
+  );
   useEffect(() => {
     if (module && course.ready && !chooseVersion)
       course.store.update({ ...course.store.getSnapshot().save, resume: { module, topic } });
@@ -1111,7 +1115,9 @@ function CourseWorkspace({ module }: { module?: CourseModule }) {
   };
   return (
     <div
-      className={`portal course-shell ${module === 'migration' || module === 'security' || module === 'monitoring' || module === 'management-tools' || module === 'governance' || module === 'access-control' || module === 'identity' || module === 'storage-resilience' || module === 'storage' || module === 'connectivity' || module === 'networking' || module === 'compute' || module === 'cost' || module === 'architecture' || currentV2 || module === 'benefits' || (module === 'services' && !legacyServices) ? 'course-v2' : ''}`}
+      data-course-module={module ?? 'hub'}
+      data-course-topic={topic}
+      className={`portal course-shell course-hybrid ${module === 'migration' || module === 'security' || module === 'monitoring' || module === 'management-tools' || module === 'governance' || module === 'access-control' || module === 'identity' || module === 'storage-resilience' || module === 'storage' || module === 'connectivity' || module === 'networking' || module === 'compute' || module === 'cost' || module === 'architecture' || currentV2 || module === 'benefits' || (module === 'services' && !legacyServices) ? 'course-v2' : ''}`}
     >
       <ExpansionAssistance />
       <PracticalAssistance />
@@ -1120,7 +1126,9 @@ function CourseWorkspace({ module }: { module?: CourseModule }) {
       </a>
       <header className="course-header">
         <Link className="course-brand" href="/learn">
-          <BookOpen size={23} />
+          <svg className="course-brand-mark" viewBox="0 0 32 32" aria-hidden="true">
+            <path d="M5 25L16 5l11 20M9 19h14M5 28h22" />
+          </svg>
           {c.brand}
           <small>AZ-900</small>
         </Link>
@@ -1226,53 +1234,55 @@ function CourseWorkspace({ module }: { module?: CourseModule }) {
                 : undefined
             }
             assessment={
-              applicationRoute
-                ? 'application'
-                : module === 'benefits' && topic === 'assessment'
-                  ? historicalBenefits
-                    ? 'benefits'
-                    : 'updatedBenefits'
-                  : module === 'services' && !legacyServices && topic === 'assessment'
-                    ? historicalServices
-                      ? 'services'
-                      : 'updatedServices'
-                    : module === 'migration' && topic === 'assessment'
-                      ? 'migration'
-                      : module === 'security' && topic === 'assessment'
-                        ? 'security'
-                        : module === 'monitoring' && topic === 'assessment'
-                          ? 'monitoring'
-                          : module === 'management-tools' && topic === 'assessment'
-                            ? 'tools'
-                            : module === 'governance' && topic === 'assessment'
-                              ? 'governance'
-                              : module === 'access-control' && topic === 'assessment'
-                                ? 'access'
-                                : module === 'identity' && topic === 'assessment'
-                                  ? 'identity'
-                                  : module === 'storage-resilience' && topic === 'assessment'
-                                    ? 'resilience'
-                                    : module === 'storage' && topic === 'assessment'
-                                      ? 'storage'
-                                      : module === 'connectivity' && topic === 'assessment'
-                                        ? 'connectivity'
-                                        : module === 'networking' && topic === 'assessment'
-                                          ? 'networking'
-                                          : module === 'compute' && topic === 'assessment'
-                                            ? 'compute'
-                                            : module === 'cost' && topic === 'assessment'
-                                              ? 'cost'
-                                              : topic === 'transfer'
-                                                ? 'transfer'
-                                                : module && missions.active && !missions.assisted
-                                                  ? 'missions'
-                                                  : module === 'architecture' &&
-                                                      topic === 'management-assessment'
-                                                    ? 'management'
+              module === 'computing' && currentV2 && topic === 'v2-assessment'
+                ? 'v2'
+                : applicationRoute
+                  ? 'application'
+                  : module === 'benefits' && topic === 'assessment'
+                    ? historicalBenefits
+                      ? 'benefits'
+                      : 'updatedBenefits'
+                    : module === 'services' && !legacyServices && topic === 'assessment'
+                      ? historicalServices
+                        ? 'services'
+                        : 'updatedServices'
+                      : module === 'migration' && topic === 'assessment'
+                        ? 'migration'
+                        : module === 'security' && topic === 'assessment'
+                          ? 'security'
+                          : module === 'monitoring' && topic === 'assessment'
+                            ? 'monitoring'
+                            : module === 'management-tools' && topic === 'assessment'
+                              ? 'tools'
+                              : module === 'governance' && topic === 'assessment'
+                                ? 'governance'
+                                : module === 'access-control' && topic === 'assessment'
+                                  ? 'access'
+                                  : module === 'identity' && topic === 'assessment'
+                                    ? 'identity'
+                                    : module === 'storage-resilience' && topic === 'assessment'
+                                      ? 'resilience'
+                                      : module === 'storage' && topic === 'assessment'
+                                        ? 'storage'
+                                        : module === 'connectivity' && topic === 'assessment'
+                                          ? 'connectivity'
+                                          : module === 'networking' && topic === 'assessment'
+                                            ? 'networking'
+                                            : module === 'compute' && topic === 'assessment'
+                                              ? 'compute'
+                                              : module === 'cost' && topic === 'assessment'
+                                                ? 'cost'
+                                                : topic === 'transfer'
+                                                  ? 'transfer'
+                                                  : module && missions.active && !missions.assisted
+                                                    ? 'missions'
                                                     : module === 'architecture' &&
-                                                        topic === 'assessment'
-                                                      ? 'physical'
-                                                      : undefined
+                                                        topic === 'management-assessment'
+                                                      ? 'management'
+                                                      : module === 'architecture' &&
+                                                          topic === 'assessment'
+                                                        ? 'physical'
+                                                        : undefined
             }
           >
             {!module ? (
@@ -1409,7 +1419,7 @@ function CourseWorkspace({ module }: { module?: CourseModule }) {
                     </button>
                   </p>
                 )}
-                <div ref={activityRef} className="course-activity">
+                <div ref={focusActivity} className="course-activity">
                   <CourseJourneyContext
                     module={module}
                     topic={topic}
@@ -1830,7 +1840,12 @@ function CourseWorkspace({ module }: { module?: CourseModule }) {
                   module !== 'connectivity' &&
                   module !== 'cost' &&
                   module !== 'architecture' &&
-                  topic !== 'transfer' && <TransferEntry module={module} />}
+                  topic !== 'transfer' && (
+                    <details className="related-transfer">
+                      <summary>{acceptance.transferActivities}</summary>
+                      <TransferEntry module={module} />
+                    </details>
+                  )}
                 {labTopic && !chooseVersion && !serviceChoice && (
                   <section
                     className="course-lab"

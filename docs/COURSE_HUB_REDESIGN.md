@@ -1,3 +1,7 @@
+# PR51 — approved hybrid presentation
+
+The owner selected B identity with A technical precision. The actual catalogue retains its original three paths, all17 routes and early visible headings, using open numbered chapter columns rather than boxed cards. Original Start/Fortsett/resume and contextual tree remain authoritative. [Bounded actual production rollout](HYBRID_PRODUCTION_FOUNDATION.md). The dated PR32 decisions/evidence below are retained historically.
+
 # Course Hub and learning navigation — PR32
 
 ## Scope and design decision

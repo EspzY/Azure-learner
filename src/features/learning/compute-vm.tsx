@@ -57,7 +57,7 @@ export function ComputeVmLesson({
           <OtherGuideNotice module="compute" mission="vm" />
           {g && (
             <>
-              <SavvyShark compact>
+              <SavvyShark compact dismissiblePortrait>
                 <p>{copy.why}</p>
                 <p>{copy.where}</p>
                 <p>{f.complete ? copy.debrief : copy.observe}</p>

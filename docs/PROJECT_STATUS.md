@@ -1,3 +1,11 @@
+## PR51 owner acceptance corrections —3 November2026
+
+Broad hybrid rollout is **not owner-approved**. Same Draft51 now adds an explicitly versioned Foundations v2 navigation-abandon lifecycle, durable-only write confirmation, practical Start/Resume safety parity, quiet secondary navigation and readable progressive feedback. Old rubrics/firsts/events remain frozen; other authorities/sequence/assets are preserved. [Owner scope and actual local evidence](PR51_OWNER_ACCEPTANCE.md). Full check and focused browser/zoom controls passed; fresh independent audit and new exact-head337CI/strict/public Gate7 must be verified before delivery. No Stage2–5/PR52/merge/production. Later final release evidence belongs to the existing Draft, not a reinterpretation of the initial065 preview acceptance.
+
+# PR51 — approved hybrid production foundation candidate
+
+Ordinary Course Hub/shell now use the selected warm/navy hybrid, local Source Serif4 editorial headings and Manrope UI. Original Compute manuscripts/models/native guide/Portal commands and receipts power the representative vertical journey. Nearby stored-run feedback, actual footer scroll clearance and nontextual enhanced route orientation improve use without a new learning engine. [Implemented versus deferred surfaces, findings and gates](HYBRID_PRODUCTION_FOUNDATION.md). Final fullcheck/stamped separate audit/exacthead329CI/strict/anonymousfullSHA Gate7 are recorded on Draft PR51 before delivery; Ready or local snapshots are not acceptance. Human validation unperformed. Stage2–5, PR01B/C and P17/P18 remain separate; no merge/production.
+
 # PR50 — Visual Excellence design candidate
 
 Two interactive preview-only visual directions (Kontinuitet/Feltbok) cover Hub, actual Compute manuscript, original pure Studio, native guide, same-store Portal handoff/resource/receipt and honest Journal history selection. [Design and rollout contract](VISUAL_EXCELLENCE.md). The original course remains primary and unchanged; broad rollout awaits owner choice. Original mascot is unchanged. Three real generated pose specimens are quarantined after independent rejection; zero new production-approved poses and nineteen planned. [Character acceptance boundary](SAVVYSHARK_CHARACTER_BIBLE.md). [Actual Portal capability/fidelity matrix](PORTAL_CAPABILITY_MATRIX.md) does not imply new operative resources.

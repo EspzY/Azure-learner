@@ -435,3 +435,77 @@
   font-size: 13px;
   line-height: 1.6;
 }
+
+/* Owner acceptance: readable assessment feedback, without changing rubric/content. */
+.v2-assessment {
+  min-width: 0;
+  max-width: 88ch;
+  overflow-wrap: anywhere;
+}
+.v2-assessment fieldset {
+  min-inline-size: 0;
+  max-width: 100%;
+}
+.v2-assessment legend {
+  max-width: 100%;
+  white-space: normal;
+}
+.v2-assessment label {
+  min-width: 0;
+}
+.v2-attempt-note,
+.v2-abandoned {
+  border-left: 3px solid #0e706a;
+  padding-left: 16px;
+  margin-block: 24px;
+  max-width: 76ch;
+}
+.v2-feedback {
+  margin-block: 28px;
+}
+.v2-feedback header {
+  border-block: 1px solid #c9d3d9;
+  padding-block: 16px;
+}
+.v2-feedback header h3 {
+  margin-block: 8px;
+}
+.v2-feedback-items {
+  margin-block: 24px;
+  border-top: 1px solid #c9d3d9;
+}
+.v2-feedback-items > details {
+  padding-block: 16px;
+  border-bottom: 1px solid #c9d3d9;
+}
+.v2-feedback-items summary {
+  cursor: pointer;
+  line-height: 1.6;
+}
+.v2-feedback-items summary > strong {
+  display: block;
+  margin: 6px 0 0 20px;
+  color: #865015;
+  font-size: 13px;
+}
+.v2-feedback-items summary > strong[data-correct='true'] {
+  color: #0e706a;
+}
+.v2-feedback-items summary:focus-visible,
+.v2-feedback-history summary:focus-visible {
+  outline: 2px solid #0865bd;
+  outline-offset: 4px;
+}
+.v2-feedback-detail {
+  padding: 12px 0 4px 20px;
+  max-width: 76ch;
+}
+.v2-feedback-detail h4 {
+  margin: 14px 0 6px;
+}
+.v2-feedback-history {
+  margin-block: 24px;
+}
+.v2-abandoned dd {
+  margin: 6px 0 20px;
+}

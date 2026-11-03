@@ -1,6 +1,7 @@
 'use client';
 import Link from 'next/link';
 import { ArrowRight, BookOpen, FlaskConical, ShieldCheck } from 'lucide-react';
+import { hybridExperienceNb } from '@/content/nb';
 import { architectureNb, nb, courseHubNb as h, missionsNb, transferNb, labsNb } from '@/content/nb';
 import { courseHref, type CourseModule } from '@/domain/course/model';
 import { missionIds, missionOrigin } from '@/domain/sandbox/missions';
@@ -75,6 +76,10 @@ export function CourseHub({
           <ShieldCheck size={15} aria-hidden="true" />
           {h.simulator}
         </p>
+        <aside className="learn-hub-companion">
+          <img src="/mascot/savvy-shark-default.png" width={281} height={317} alt="" />
+          <p>{hybridExperienceNb.companion}</p>
+        </aside>
       </section>
 
       {uncertain.length > 0 && (

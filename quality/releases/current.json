@@ -1,11 +1,11 @@
 {
   "schema": 1,
-  "id": "PR50-visual-excellence",
-  "baseCommit": "4934408075fccdab944e629a108a0f23424ee3f8",
-  "author": "codex-visual50-author",
+  "id": "PR51-owner-acceptance-corrections",
+  "baseCommit": "daa4c6a03945a634633286711fcef452d14b785f",
+  "author": "codex-hybrid51-author",
   "scope": {
-    "kind": "visual-prototype",
-    "description": "Two bounded real interactive design candidates, locked original mascot and rejected pose gallery, original Portal demo and rollout contract. No mass production reskin.",
+    "kind": "hybrid-production-owner-corrections",
+    "description": "Same Draft51 owner corrections: explicit versioned Foundations assessment exit, durable storage, practical safety parity, secondary links and progressive readable feedback. Existing hybrid rollout remains, broad Stage2–5 withheld.",
     "objectives": ["visual.presentation"]
   },
   "sources": [
@@ -19,7 +19,7 @@
       "objectives": ["visual.presentation"],
       "claims": ["visual.portal.boundary"],
       "availability": "AVAILABLE",
-      "limits": "Current public workflow references only; dated screenshot/examples are not full Azure parity. No new teaching or question claims. Motion/W3C/font sources separately recorded, no protected image copied into app.",
+      "limits": "Preserved actual PR50 public Azure workflow/reference check; no new Azure content claim. New local-font/WAAPI/reduced-motion sources are separately read in hybrid51-design-sources.json. Actual UI, motion and learning boundaries require browser evidence.",
       "discovery": [
         {
           "url": "https://learn.microsoft.com/en-us/azure/azure-portal/azure-portal-overview",
@@ -38,7 +38,7 @@
       "objectives": ["visual.presentation"],
       "claims": ["visual.portal.boundary"],
       "availability": "AVAILABLE",
-      "limits": "Current public workflow references only; dated screenshot/examples are not full Azure parity. No new teaching or question claims. Motion/W3C/font sources separately recorded, no protected image copied into app.",
+      "limits": "Preserved actual PR50 public Azure workflow/reference check; no new Azure content claim. New local-font/WAAPI/reduced-motion sources are separately read in hybrid51-design-sources.json. Actual UI, motion and learning boundaries require browser evidence.",
       "discovery": [
         {
           "url": "https://learn.microsoft.com/en-us/azure/azure-portal/set-preferences",
@@ -57,7 +57,7 @@
       "objectives": ["visual.presentation"],
       "claims": ["visual.portal.boundary"],
       "availability": "AVAILABLE",
-      "limits": "Current public workflow references only; dated screenshot/examples are not full Azure parity. No new teaching or question claims. Motion/W3C/font sources separately recorded, no protected image copied into app.",
+      "limits": "Preserved actual PR50 public Azure workflow/reference check; no new Azure content claim. New local-font/WAAPI/reduced-motion sources are separately read in hybrid51-design-sources.json. Actual UI, motion and learning boundaries require browser evidence.",
       "discovery": [
         {
           "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/manage-resource-groups-portal",
@@ -76,7 +76,7 @@
       "objectives": ["visual.presentation"],
       "claims": ["visual.portal.boundary"],
       "availability": "AVAILABLE",
-      "limits": "Current public workflow references only; dated screenshot/examples are not full Azure parity. No new teaching or question claims. Motion/W3C/font sources separately recorded, no protected image copied into app.",
+      "limits": "Preserved actual PR50 public Azure workflow/reference check; no new Azure content claim. New local-font/WAAPI/reduced-motion sources are separately read in hybrid51-design-sources.json. Actual UI, motion and learning boundaries require browser evidence.",
       "discovery": [
         {
           "url": "https://learn.microsoft.com/en-us/azure/virtual-machines/linux/quick-create-portal",
@@ -95,7 +95,7 @@
       "objectives": ["visual.presentation"],
       "claims": ["visual.portal.boundary"],
       "availability": "AVAILABLE",
-      "limits": "Current public workflow references only; dated screenshot/examples are not full Azure parity. No new teaching or question claims. Motion/W3C/font sources separately recorded, no protected image copied into app.",
+      "limits": "Preserved actual PR50 public Azure workflow/reference check; no new Azure content claim. New local-font/WAAPI/reduced-motion sources are separately read in hybrid51-design-sources.json. Actual UI, motion and learning boundaries require browser evidence.",
       "discovery": [
         {
           "url": "https://learn.microsoft.com/en-us/azure/app-service/quickstart-dotnetcore",
@@ -114,7 +114,7 @@
       "objectives": ["visual.presentation"],
       "claims": ["visual.portal.boundary"],
       "availability": "AVAILABLE",
-      "limits": "Current public workflow references only; dated screenshot/examples are not full Azure parity. No new teaching or question claims. Motion/W3C/font sources separately recorded, no protected image copied into app.",
+      "limits": "Preserved actual PR50 public Azure workflow/reference check; no new Azure content claim. New local-font/WAAPI/reduced-motion sources are separately read in hybrid51-design-sources.json. Actual UI, motion and learning boundaries require browser evidence.",
       "discovery": [
         {
           "url": "https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/activity-log",
@@ -126,74 +126,68 @@
   ],
   "activities": [
     {
-      "id": "visual-review-candidates",
+      "id": "hybrid-production-compute",
       "objectives": ["visual.presentation"],
       "claims": ["visual.portal.boundary"],
       "assessmentStatus": "unchanged-existing",
-      "limits": "Isolated visual comparison and original functionality only, no broad rollout, altered learning content/rubrics/state or new Azure resource. Three generated pose candidates explicitly rejected; zero new approved poses,19planned. Human novice/SME/UX/screenreader/learning validation unperformed. Exact-head full CI/strict and anonymous fullSHA Gate7 pending until actual execution; no merge/production/P17/P18.",
-      "theory": [
-        { "path": "docs/VISUAL_EXCELLENCE.md" },
-        { "path": "src/features/learning/compute.tsx" }
-      ],
+      "limits": "Owner explicitly authorizes narrow schema3/lifecycle1 abandonment and durable v2-store correction. Frozen rubric2/schema2 golden results/manuscript prefix and all other technical authorities/mascot/sequence remain protected. Same Draft51; all337 final-head CI/strict and new anonymous SHA-bound Gate7 required. Human validation unperformed; broad rollout, Stage2–5, PR52/merge/production not authorized.",
+      "theory": [{ "path": "src/features/learning/compute.tsx" }],
       "mechanism": [
-        { "path": "src/features/design-review/visual-review.tsx" },
-        { "path": "src/features/design-review/model.test.ts" }
+        { "path": "src/features/course/experience-motion.tsx" },
+        { "path": "src/features/learning/compute-workbench.tsx" }
       ],
-      "practice": [{ "path": "tests/e2e/visual-excellence.spec.ts" }],
+      "practice": [{ "path": "tests/e2e/hybrid-experience.spec.ts" }],
       "feedback": [
         { "path": "src/domain/curriculum/compute-model.ts" },
-        { "path": "src/features/learning/compute-vm.tsx" }
+        { "path": "src/features/learning/compute-workbench.tsx" }
       ],
-      "visual": [{ "path": "docs/screenshots/visual-excellence/editorial-hub-1440x900.png" }],
-      "accessible": [{ "path": "tests/e2e/visual-excellence.spec.ts" }],
-      "assessment": [
-        { "path": "src/features/design-review/preservation.test.ts" },
-        { "path": "tests/e2e/assessment-refinement.spec.ts" }
-      ],
+      "visual": [{ "path": "docs/HYBRID_PRODUCTION_FOUNDATION.md" }],
+      "accessible": [{ "path": "tests/e2e/hybrid-experience.spec.ts" }],
+      "assessment": [{ "path": "src/features/course/hybrid-foundation.test.ts" }],
       "savvyshark": [
-        { "path": "docs/SAVVYSHARK_CHARACTER_BIBLE.md" },
-        { "path": "src/features/design-review/character.tsx" }
+        { "path": "src/features/course/savvy-shark.tsx" },
+        { "path": "docs/SAVVYSHARK_CHARACTER_BIBLE.md" }
       ]
+    },
+    {
+      "id": "foundations-owner-exit-feedback",
+      "objectives": ["visual.presentation"],
+      "claims": ["visual.portal.boundary"],
+      "assessmentStatus": "unchanged-existing",
+      "limits": "Owner explicitly authorizes narrow schema3/lifecycle1 abandonment and durable v2-store correction. Frozen rubric2/schema2 golden results/manuscript prefix and all other technical authorities/mascot/sequence remain protected. Same Draft51; all337 final-head CI/strict and new anonymous SHA-bound Gate7 required. Human validation unperformed; broad rollout, Stage2–5, PR52/merge/production not authorized.",
+      "theory": [{ "path": "docs/PR51_OWNER_ACCEPTANCE.md" }],
+      "mechanism": [
+        { "path": "src/domain/curriculum/foundations-v2.ts" },
+        { "path": "src/domain/curriculum/v2-store.ts" },
+        { "path": "src/features/course/assessment-navigation-exit.tsx" },
+        { "path": "src/features/learning/management-access.tsx" }
+      ],
+      "practice": [{ "path": "tests/e2e/owner-acceptance.spec.ts" }],
+      "feedback": [{ "path": "src/features/learning/foundations-v2.tsx" }],
+      "visual": [{ "path": "docs/PR51_OWNER_ACCEPTANCE.md" }],
+      "accessible": [{ "path": "tests/e2e/owner-acceptance.spec.ts" }],
+      "assessment": [{ "path": "src/domain/curriculum/foundations-v2-lifecycle.test.ts" }],
+      "savvyshark": [{ "path": "src/features/course/practical-lab.tsx" }]
     }
   ],
   "modules": [],
   "preservedPaths": [
-    "public/icons/azure/00007-icon-service-Activity-Log.svg",
-    "public/icons/azure/00046-icon-service-App-Service-Plans.svg",
-    "public/icons/azure/02742-icon-service-Subnet.svg",
-    "public/icons/azure/10001-icon-service-All-Resources.svg",
-    "public/icons/azure/10002-icon-service-Subscriptions.svg",
-    "public/icons/azure/10007-icon-service-Resource-Groups.svg",
-    "public/icons/azure/10011-icon-service-Management-Groups.svg",
-    "public/icons/azure/10021-icon-service-Virtual-Machine.svg",
-    "public/icons/azure/10032-icon-service-Disks.svg",
-    "public/icons/azure/10035-icon-service-App-Services.svg",
-    "public/icons/azure/10061-icon-service-Virtual-Networks.svg",
-    "public/icons/azure/10080-icon-service-Network-Interfaces.svg",
-    "public/icons/azure/10316-icon-service-Policy.svg",
-    "public/icons/fluent/add_16_regular.svg",
-    "public/icons/fluent/alert_16_regular.svg",
-    "public/icons/fluent/arrow_clockwise_16_regular.svg",
-    "public/icons/fluent/book_open_16_regular.svg",
-    "public/icons/fluent/chevron_right_16_regular.svg",
-    "public/icons/fluent/compass_northwest_16_regular.svg",
-    "public/icons/fluent/dismiss_16_regular.svg",
-    "public/icons/fluent/edit_16_regular.svg",
-    "public/icons/fluent/eye_16_regular.svg",
-    "public/icons/fluent/filter_16_regular.svg",
-    "public/icons/fluent/home_16_regular.svg",
-    "public/icons/fluent/layer_diagonal_16_regular.svg",
-    "public/icons/fluent/line_horizontal_3_16_regular.svg",
-    "public/icons/fluent/link_16_regular.svg",
-    "public/icons/fluent/organization_16_regular.svg",
-    "public/icons/fluent/question_circle_16_regular.svg",
-    "public/icons/fluent/search_16_regular.svg",
-    "public/icons/fluent/settings_16_regular.svg",
-    "public/icons/fluent/star_16_regular.svg",
-    "public/icons/fluent/text_bullet_list_square_16_regular.svg",
-    "public/icons/licenses/Fluent-MIT.txt",
-    "public/icons/licenses/Microsoft_Terms_of_Use.pdf",
-    "public/icons/manifest.json",
+    "playwright.config.ts",
+    "public/design-review/characters/v1/explain-right-320.webp",
+    "public/design-review/characters/v1/explain-right-640.webp",
+    "public/design-review/characters/v1/explain-right-candidate.png",
+    "public/design-review/characters/v1/manifest.json",
+    "public/design-review/characters/v1/thinking-320.webp",
+    "public/design-review/characters/v1/thinking-640.webp",
+    "public/design-review/characters/v1/thinking-candidate.png",
+    "public/design-review/characters/v1/wave-320.webp",
+    "public/design-review/characters/v1/wave-640.webp",
+    "public/design-review/characters/v1/wave-candidate.png",
+    "public/design-review/fonts/manifest.json",
+    "public/design-review/fonts/manrope-OFL.txt",
+    "public/design-review/fonts/manrope.woff2",
+    "public/design-review/fonts/source-serif-4-OFL.txt",
+    "public/design-review/fonts/source-serif-4.woff2",
     "public/mascot/manifest.json",
     "public/mascot/savvy-shark-default.png",
     "src/domain/assessment.ts",
@@ -246,8 +240,6 @@
     "src/domain/curriculum/expansion-store.ts",
     "src/domain/curriculum/expansion.test.ts",
     "src/domain/curriculum/expansion.ts",
-    "src/domain/curriculum/foundations-v2.test.ts",
-    "src/domain/curriculum/foundations-v2.ts",
     "src/domain/curriculum/foundations.test.ts",
     "src/domain/curriculum/foundations.ts",
     "src/domain/curriculum/governance-evidence.ts",
@@ -327,7 +319,6 @@
     "src/domain/curriculum/transfer-store.ts",
     "src/domain/curriculum/transfer.test.ts",
     "src/domain/curriculum/transfer.ts",
-    "src/domain/curriculum/v2-store.ts",
     "src/domain/guidance/milestone-preferences.ts",
     "src/domain/guidance/milestones.test.ts",
     "src/domain/guidance/milestones.ts",
@@ -357,47 +348,143 @@
     "src/domain/sandbox/store.ts",
     "src/domain/simulation.test.ts",
     "src/domain/simulation.ts",
-    "src/features/course/audit-review.test.ts",
-    "src/features/course/audit-review.ts",
-    "src/features/course/course-hub.tsx",
-    "src/features/course/course-journey-context.tsx",
     "src/features/course/course-navigation.tsx",
     "src/features/course/course-outline.ts",
-    "src/features/course/course-sequence.test.ts",
     "src/features/course/course-sequence.ts",
     "src/features/course/course-sidebar.tsx",
-    "src/features/course/course.css",
-    "src/features/course/course.tsx",
-    "src/features/course/guidance-milestones.css",
-    "src/features/course/guidance-milestones.tsx",
-    "src/features/course/guidance-window.tsx",
-    "src/features/course/guide-briefing-request.ts",
-    "src/features/course/guided-coach.tsx",
-    "src/features/course/guided-learning.tsx",
-    "src/features/course/guided-mission-link.tsx",
-    "src/features/course/highlight.ts",
-    "src/features/course/learning-flow.css",
-    "src/features/course/learning-flow.test.ts",
     "src/features/course/learning-flow.ts",
-    "src/features/course/mission-briefing.css",
-    "src/features/course/mission-briefing.tsx",
     "src/features/course/mission-context.ts",
-    "src/features/course/mission-diagnosis.tsx",
-    "src/features/course/mission-observations.tsx",
-    "src/features/course/mission-portal.tsx",
-    "src/features/course/mission-provider.tsx",
-    "src/features/course/missions.css",
-    "src/features/course/missions.tsx",
-    "src/features/course/portal-guide-visibility.tsx",
-    "src/features/course/portal-inspection-bridge.tsx",
-    "src/features/course/portal-inspection.css",
-    "src/features/course/practical-guidance.test.ts",
-    "src/features/course/practical-guidance.ts",
-    "src/features/course/practical-lab.tsx",
     "src/features/course/practical-provider.tsx",
-    "src/features/course/practical.css",
     "src/features/course/provider.tsx",
-    "src/features/course/savvy-shark.tsx",
+    "src/features/learning/access-control-assessment.tsx",
+    "src/features/learning/access-control-controls.tsx",
+    "src/features/learning/access-control-provider.tsx",
+    "src/features/learning/access-control-visuals.tsx",
+    "src/features/learning/access-control-workbench.tsx",
+    "src/features/learning/access-control.css",
+    "src/features/learning/access-control.tsx",
+    "src/features/learning/application-provider.tsx",
+    "src/features/learning/application-transfer.css",
+    "src/features/learning/application-transfer.tsx",
+    "src/features/learning/cloud-deployment.tsx",
+    "src/features/learning/cloud-transfer.tsx",
+    "src/features/learning/compute-assessment.tsx",
+    "src/features/learning/compute-provider.tsx",
+    "src/features/learning/compute-visuals.tsx",
+    "src/features/learning/compute.css",
+    "src/features/learning/compute.tsx",
+    "src/features/learning/connectivity-assessment.tsx",
+    "src/features/learning/connectivity-provider.tsx",
+    "src/features/learning/connectivity-visuals.tsx",
+    "src/features/learning/connectivity-workbench.tsx",
+    "src/features/learning/connectivity.css",
+    "src/features/learning/connectivity.tsx",
+    "src/features/learning/cost-assessment.tsx",
+    "src/features/learning/cost-provider.tsx",
+    "src/features/learning/cost-visuals.tsx",
+    "src/features/learning/cost-workbench.tsx",
+    "src/features/learning/cost.css",
+    "src/features/learning/cost.tsx",
+    "src/features/learning/curriculum-trail.tsx",
+    "src/features/learning/diagram.tsx",
+    "src/features/learning/expansion-provider.tsx",
+    "src/features/learning/expansion-visuals.tsx",
+    "src/features/learning/expansion.css",
+    "src/features/learning/foundations-visuals.css",
+    "src/features/learning/foundations-visuals.tsx",
+    "src/features/learning/governance-assessment.tsx",
+    "src/features/learning/governance-controls.tsx",
+    "src/features/learning/governance-evidence.tsx",
+    "src/features/learning/governance-provider.tsx",
+    "src/features/learning/governance-visuals.tsx",
+    "src/features/learning/governance-workbench.tsx",
+    "src/features/learning/governance.css",
+    "src/features/learning/governance.tsx",
+    "src/features/learning/identity-foundations-assessment.tsx",
+    "src/features/learning/identity-foundations-provider.tsx",
+    "src/features/learning/identity-foundations-visuals.tsx",
+    "src/features/learning/identity-foundations-workbench.tsx",
+    "src/features/learning/identity-foundations.css",
+    "src/features/learning/identity-foundations.tsx",
+    "src/features/learning/investigation.tsx",
+    "src/features/learning/journal.tsx",
+    "src/features/learning/learning-visuals.css",
+    "src/features/learning/learning.css",
+    "src/features/learning/management-provider.tsx",
+    "src/features/learning/management-recovery.tsx",
+    "src/features/learning/management-tools-assessment.tsx",
+    "src/features/learning/management-tools-controls.tsx",
+    "src/features/learning/management-tools-evidence.tsx",
+    "src/features/learning/management-tools-provider.tsx",
+    "src/features/learning/management-tools-visuals.tsx",
+    "src/features/learning/management-tools-workbench.tsx",
+    "src/features/learning/management-tools.css",
+    "src/features/learning/management-tools.tsx",
+    "src/features/learning/management.css",
+    "src/features/learning/management.tsx",
+    "src/features/learning/migration-assessment.tsx",
+    "src/features/learning/migration-context.tsx",
+    "src/features/learning/migration-controls.tsx",
+    "src/features/learning/migration-provider.tsx",
+    "src/features/learning/migration-visuals.tsx",
+    "src/features/learning/migration-workbench.tsx",
+    "src/features/learning/migration.css",
+    "src/features/learning/migration.tsx",
+    "src/features/learning/monitoring-assessment.tsx",
+    "src/features/learning/monitoring-context.tsx",
+    "src/features/learning/monitoring-controls.tsx",
+    "src/features/learning/monitoring-provider.tsx",
+    "src/features/learning/monitoring-visuals.tsx",
+    "src/features/learning/monitoring-workbench.tsx",
+    "src/features/learning/monitoring.css",
+    "src/features/learning/monitoring.tsx",
+    "src/features/learning/networking-assessment.tsx",
+    "src/features/learning/networking-inspection.tsx",
+    "src/features/learning/networking-provider.tsx",
+    "src/features/learning/networking-visuals.tsx",
+    "src/features/learning/networking-workbench.tsx",
+    "src/features/learning/networking.css",
+    "src/features/learning/networking.tsx",
+    "src/features/learning/physical-entry.tsx",
+    "src/features/learning/physical-provider.tsx",
+    "src/features/learning/physical-recovery.tsx",
+    "src/features/learning/physical-visual.tsx",
+    "src/features/learning/physical.css",
+    "src/features/learning/physical.tsx",
+    "src/features/learning/provider.tsx",
+    "src/features/learning/refined-assessment-provider.tsx",
+    "src/features/learning/responsibility-recap.tsx",
+    "src/features/learning/security-assessment.tsx",
+    "src/features/learning/security-context.tsx",
+    "src/features/learning/security-controls.tsx",
+    "src/features/learning/security-provider.tsx",
+    "src/features/learning/security-visuals.tsx",
+    "src/features/learning/security-workbench.tsx",
+    "src/features/learning/security.css",
+    "src/features/learning/security.tsx",
+    "src/features/learning/serverless-provider.tsx",
+    "src/features/learning/serverless-recovery.tsx",
+    "src/features/learning/serverless.css",
+    "src/features/learning/serverless.tsx",
+    "src/features/learning/source-disclosure.css",
+    "src/features/learning/source-disclosure.tsx",
+    "src/features/learning/storage-assessment.tsx",
+    "src/features/learning/storage-provider.tsx",
+    "src/features/learning/storage-resilience-assessment.tsx",
+    "src/features/learning/storage-resilience-provider.tsx",
+    "src/features/learning/storage-resilience-visuals.tsx",
+    "src/features/learning/storage-resilience-workbench.tsx",
+    "src/features/learning/storage-resilience.css",
+    "src/features/learning/storage-resilience.tsx",
+    "src/features/learning/storage-visuals.tsx",
+    "src/features/learning/storage-workbench.tsx",
+    "src/features/learning/storage.css",
+    "src/features/learning/storage.tsx",
+    "src/features/learning/summary.tsx",
+    "src/features/learning/transfer-provider.tsx",
+    "src/features/learning/transfer.css",
+    "src/features/learning/transfer.tsx",
+    "src/features/learning/v2-provider.tsx",
     "tests/e2e/access-control.spec.ts",
     "tests/e2e/application-transfer.spec.ts",
     "tests/e2e/architecture-management.spec.ts",
@@ -414,7 +501,6 @@
     "tests/e2e/curriculum-expansion.spec.ts",
     "tests/e2e/dialog-placement.spec.ts",
     "tests/e2e/file-movement-migration.spec.ts",
-    "tests/e2e/foundations-v2.spec.ts",
     "tests/e2e/governance-compliance.spec.ts",
     "tests/e2e/guided-learning-polish.spec.ts",
     "tests/e2e/identity-foundations.spec.ts",
@@ -436,113 +522,231 @@
     "tests/e2e/serverless.spec.ts",
     "tests/e2e/storage-resilience.spec.ts",
     "tests/e2e/storage-services.spec.ts",
-    "tests/e2e/ux-refinement.spec.ts"
+    "tests/e2e/visual-excellence.spec.ts"
   ],
   "gates": {
     "source": {
       "checks": [
-        { "path": "docs/VISUAL_EXCELLENCE.md" },
-        { "path": "tests/e2e/visual-excellence.spec.ts" },
-        { "path": "docs/reviews/evidence/visual50-preservation.json" }
+        { "path": "docs/HYBRID_PRODUCTION_FOUNDATION.md" },
+        { "path": "tests/e2e/hybrid-experience.spec.ts" },
+        { "path": "docs/reviews/evidence/hybrid51-preservation.json" },
+        { "path": "docs/PR51_OWNER_ACCEPTANCE.md" },
+        { "path": "src/domain/curriculum/foundations-v2-lifecycle.test.ts" },
+        { "path": "tests/e2e/owner-acceptance.spec.ts" }
       ],
-      "limits": "Isolated visual comparison and original functionality only, no broad rollout, altered learning content/rubrics/state or new Azure resource. Three generated pose candidates explicitly rejected; zero new approved poses,19planned. Human novice/SME/UX/screenreader/learning validation unperformed. Exact-head full CI/strict and anonymous fullSHA Gate7 pending until actual execution; no merge/production/P17/P18."
+      "limits": "Owner explicitly authorizes narrow schema3/lifecycle1 abandonment and durable v2-store correction. Frozen rubric2/schema2 golden results/manuscript prefix and all other technical authorities/mascot/sequence remain protected. Same Draft51; all337 final-head CI/strict and new anonymous SHA-bound Gate7 required. Human validation unperformed; broad rollout, Stage2–5, PR52/merge/production not authorized."
     },
     "curriculum": {
       "checks": [
-        { "path": "docs/VISUAL_EXCELLENCE.md" },
-        { "path": "tests/e2e/visual-excellence.spec.ts" },
-        { "path": "docs/reviews/evidence/visual50-preservation.json" }
+        { "path": "docs/HYBRID_PRODUCTION_FOUNDATION.md" },
+        { "path": "tests/e2e/hybrid-experience.spec.ts" },
+        { "path": "docs/reviews/evidence/hybrid51-preservation.json" },
+        { "path": "docs/PR51_OWNER_ACCEPTANCE.md" },
+        { "path": "src/domain/curriculum/foundations-v2-lifecycle.test.ts" },
+        { "path": "tests/e2e/owner-acceptance.spec.ts" }
       ],
-      "limits": "Isolated visual comparison and original functionality only, no broad rollout, altered learning content/rubrics/state or new Azure resource. Three generated pose candidates explicitly rejected; zero new approved poses,19planned. Human novice/SME/UX/screenreader/learning validation unperformed. Exact-head full CI/strict and anonymous fullSHA Gate7 pending until actual execution; no merge/production/P17/P18."
+      "limits": "Owner explicitly authorizes narrow schema3/lifecycle1 abandonment and durable v2-store correction. Frozen rubric2/schema2 golden results/manuscript prefix and all other technical authorities/mascot/sequence remain protected. Same Draft51; all337 final-head CI/strict and new anonymous SHA-bound Gate7 required. Human validation unperformed; broad rollout, Stage2–5, PR52/merge/production not authorized."
     },
     "simulation": {
       "checks": [
-        { "path": "docs/VISUAL_EXCELLENCE.md" },
-        { "path": "tests/e2e/visual-excellence.spec.ts" },
-        { "path": "docs/reviews/evidence/visual50-preservation.json" }
+        { "path": "docs/HYBRID_PRODUCTION_FOUNDATION.md" },
+        { "path": "tests/e2e/hybrid-experience.spec.ts" },
+        { "path": "docs/reviews/evidence/hybrid51-preservation.json" },
+        { "path": "docs/PR51_OWNER_ACCEPTANCE.md" },
+        { "path": "src/domain/curriculum/foundations-v2-lifecycle.test.ts" },
+        { "path": "tests/e2e/owner-acceptance.spec.ts" }
       ],
-      "limits": "Isolated visual comparison and original functionality only, no broad rollout, altered learning content/rubrics/state or new Azure resource. Three generated pose candidates explicitly rejected; zero new approved poses,19planned. Human novice/SME/UX/screenreader/learning validation unperformed. Exact-head full CI/strict and anonymous fullSHA Gate7 pending until actual execution; no merge/production/P17/P18."
+      "limits": "Owner explicitly authorizes narrow schema3/lifecycle1 abandonment and durable v2-store correction. Frozen rubric2/schema2 golden results/manuscript prefix and all other technical authorities/mascot/sequence remain protected. Same Draft51; all337 final-head CI/strict and new anonymous SHA-bound Gate7 required. Human validation unperformed; broad rollout, Stage2–5, PR52/merge/production not authorized."
     },
     "savvyshark": {
       "checks": [
-        { "path": "docs/VISUAL_EXCELLENCE.md" },
-        { "path": "tests/e2e/visual-excellence.spec.ts" },
-        { "path": "docs/reviews/evidence/visual50-preservation.json" }
+        { "path": "docs/HYBRID_PRODUCTION_FOUNDATION.md" },
+        { "path": "tests/e2e/hybrid-experience.spec.ts" },
+        { "path": "docs/reviews/evidence/hybrid51-preservation.json" },
+        { "path": "docs/PR51_OWNER_ACCEPTANCE.md" },
+        { "path": "src/domain/curriculum/foundations-v2-lifecycle.test.ts" },
+        { "path": "tests/e2e/owner-acceptance.spec.ts" }
       ],
-      "limits": "Isolated visual comparison and original functionality only, no broad rollout, altered learning content/rubrics/state or new Azure resource. Three generated pose candidates explicitly rejected; zero new approved poses,19planned. Human novice/SME/UX/screenreader/learning validation unperformed. Exact-head full CI/strict and anonymous fullSHA Gate7 pending until actual execution; no merge/production/P17/P18."
+      "limits": "Owner explicitly authorizes narrow schema3/lifecycle1 abandonment and durable v2-store correction. Frozen rubric2/schema2 golden results/manuscript prefix and all other technical authorities/mascot/sequence remain protected. Same Draft51; all337 final-head CI/strict and new anonymous SHA-bound Gate7 required. Human validation unperformed; broad rollout, Stage2–5, PR52/merge/production not authorized."
     },
     "visual-accessibility": {
       "checks": [
-        { "path": "docs/VISUAL_EXCELLENCE.md" },
-        { "path": "tests/e2e/visual-excellence.spec.ts" },
-        { "path": "docs/reviews/evidence/visual50-preservation.json" }
+        { "path": "docs/HYBRID_PRODUCTION_FOUNDATION.md" },
+        { "path": "tests/e2e/hybrid-experience.spec.ts" },
+        { "path": "docs/reviews/evidence/hybrid51-preservation.json" },
+        { "path": "docs/PR51_OWNER_ACCEPTANCE.md" },
+        { "path": "src/domain/curriculum/foundations-v2-lifecycle.test.ts" },
+        { "path": "tests/e2e/owner-acceptance.spec.ts" }
       ],
-      "limits": "Isolated visual comparison and original functionality only, no broad rollout, altered learning content/rubrics/state or new Azure resource. Three generated pose candidates explicitly rejected; zero new approved poses,19planned. Human novice/SME/UX/screenreader/learning validation unperformed. Exact-head full CI/strict and anonymous fullSHA Gate7 pending until actual execution; no merge/production/P17/P18."
+      "limits": "Owner explicitly authorizes narrow schema3/lifecycle1 abandonment and durable v2-store correction. Frozen rubric2/schema2 golden results/manuscript prefix and all other technical authorities/mascot/sequence remain protected. Same Draft51; all337 final-head CI/strict and new anonymous SHA-bound Gate7 required. Human validation unperformed; broad rollout, Stage2–5, PR52/merge/production not authorized."
     },
     "independent-final-audit": {
       "checks": [
-        { "path": "docs/VISUAL_EXCELLENCE.md" },
-        { "path": "tests/e2e/visual-excellence.spec.ts" },
-        { "path": "docs/reviews/evidence/visual50-preservation.json" }
+        { "path": "docs/HYBRID_PRODUCTION_FOUNDATION.md" },
+        { "path": "tests/e2e/hybrid-experience.spec.ts" },
+        { "path": "docs/reviews/evidence/hybrid51-preservation.json" },
+        { "path": "docs/PR51_OWNER_ACCEPTANCE.md" },
+        { "path": "src/domain/curriculum/foundations-v2-lifecycle.test.ts" },
+        { "path": "tests/e2e/owner-acceptance.spec.ts" }
       ],
-      "limits": "Isolated visual comparison and original functionality only, no broad rollout, altered learning content/rubrics/state or new Azure resource. Three generated pose candidates explicitly rejected; zero new approved poses,19planned. Human novice/SME/UX/screenreader/learning validation unperformed. Exact-head full CI/strict and anonymous fullSHA Gate7 pending until actual execution; no merge/production/P17/P18."
+      "limits": "Owner explicitly authorizes narrow schema3/lifecycle1 abandonment and durable v2-store correction. Frozen rubric2/schema2 golden results/manuscript prefix and all other technical authorities/mascot/sequence remain protected. Same Draft51; all337 final-head CI/strict and new anonymous SHA-bound Gate7 required. Human validation unperformed; broad rollout, Stage2–5, PR52/merge/production not authorized."
     },
     "delivery": {
       "checks": [
-        { "path": "docs/VISUAL_EXCELLENCE.md" },
-        { "path": "tests/e2e/visual-excellence.spec.ts" },
-        { "path": "docs/reviews/evidence/visual50-preservation.json" }
+        { "path": "docs/HYBRID_PRODUCTION_FOUNDATION.md" },
+        { "path": "tests/e2e/hybrid-experience.spec.ts" },
+        { "path": "docs/reviews/evidence/hybrid51-preservation.json" },
+        { "path": "docs/PR51_OWNER_ACCEPTANCE.md" },
+        { "path": "src/domain/curriculum/foundations-v2-lifecycle.test.ts" },
+        { "path": "tests/e2e/owner-acceptance.spec.ts" }
       ],
-      "limits": "Isolated visual comparison and original functionality only, no broad rollout, altered learning content/rubrics/state or new Azure resource. Three generated pose candidates explicitly rejected; zero new approved poses,19planned. Human novice/SME/UX/screenreader/learning validation unperformed. Exact-head full CI/strict and anonymous fullSHA Gate7 pending until actual execution; no merge/production/P17/P18."
+      "limits": "Owner explicitly authorizes narrow schema3/lifecycle1 abandonment and durable v2-store correction. Frozen rubric2/schema2 golden results/manuscript prefix and all other technical authorities/mascot/sequence remain protected. Same Draft51; all337 final-head CI/strict and new anonymous SHA-bound Gate7 required. Human validation unperformed; broad rollout, Stage2–5, PR52/merge/production not authorized."
     }
   },
   "verification": [
     {
       "command": "npm run check",
       "result": "passed",
-      "details": "Corrected motion candidate full npm run check exit0:624Vitest,503curriculum,20Node and type/lint/format/docs/quality/assets/legacy/build. Earlier environment-restart unchanged test timeouts remain documented; no setting changes."
+      "details": "Full check actual exit0 after core-boundary correction:634 Vitest/503 curriculum/20Node and production build; terminal-submit UI correction additionally receives type/lint/build and affected domain/browser revalidation before restamp. Original schema2/rubric/source prefix and all other technical authorities retained. No threshold/retry/worker/skip changes."
     },
     {
       "command": "npm run test:e2e:desktop",
       "result": "pending",
-      "details": "All312 inherited executions +7new desktop +1justifiedcompact =320(293/27); settings unchanged. First published CI318passed+2new normal-motion Axe flaky exposed genuine transient opacity contrast loss; that receipt is historical only. Corrected full-opacity candidate requires a NEW complete exact-head authoritative CI receipt."
-    },
-    {
-      "command": "targeted production design browser",
-      "result": "passed",
-      "details": "Original7desktop+1actual800pxcompact production cases and ten-surface A/B zeroAxe retained. Corrected normal-motion entrance paused at0ms asserts full opacity for computed style and every authored keyframe, then runs Axe:6fresh executions(3desktop/3compact),6passed/no retry. Local actual VM guide+3commands+7references+cause+firstBenefits+deniedaid+exactresume VERIFIED again on corrected production build. No waiting for fade/reduced-motion substitute or setting changes. New fullCI/strict and newSHA anonymous external Gate7 pending."
+      "details": "First owner-correction head ran337:336passed/1legacy active-resume expectation failed. Test now preserves archived draft/no-submit and explicit-practice semantics required by owner; no settings changed. Full successor337CI pending."
     }
   ],
   "visualEvidence": [
     {
-      "path": "docs/screenshots/visual-excellence/continuity-hub-1366x768.png",
-      "viewport": "1366x768",
-      "inspected": true,
-      "observation": "Actual production prototype comparison, native focus and original boundary retained; no human design/learning approval inferred."
-    },
-    {
-      "path": "docs/screenshots/visual-excellence/editorial-hub-1920x1080.png",
-      "viewport": "1920x1080",
-      "inspected": true,
-      "observation": "Actual production prototype comparison, native focus and original boundary retained; no human design/learning approval inferred."
-    },
-    {
-      "path": "docs/screenshots/visual-excellence/editorial-studio-controls-1024x500.png",
-      "viewport": "1024x500",
-      "inspected": true,
-      "observation": "Actual production prototype comparison, native focus and original boundary retained; no human design/learning approval inferred."
-    },
-    {
-      "path": "docs/screenshots/visual-excellence/native-briefing-1024x500.png",
-      "viewport": "1024x500",
-      "inspected": true,
-      "observation": "Actual production prototype comparison, native focus and original boundary retained; no human design/learning approval inferred."
-    },
-    {
-      "path": "docs/screenshots/visual-excellence/native-portal-resource-1440x900.png",
+      "path": "docs/screenshots/hybrid-foundation/after-guide-1440x900.png",
       "viewport": "1440x900",
       "inspected": true,
-      "observation": "Actual production prototype comparison, native focus and original boundary retained; no human design/learning approval inferred."
+      "observation": "Actual production capture; original teaching/resources retained. Matched before/after review distinguishes warm editorial Course from unchanged operational Portal; short Studio result and fixed footer remain accessible."
+    },
+    {
+      "path": "docs/screenshots/hybrid-foundation/after-hub-1024x500.png",
+      "viewport": "1024x500",
+      "inspected": true,
+      "observation": "Actual production capture; original teaching/resources retained. Matched before/after review distinguishes warm editorial Course from unchanged operational Portal; short Studio result and fixed footer remain accessible."
+    },
+    {
+      "path": "docs/screenshots/hybrid-foundation/after-hub-1440x900.png",
+      "viewport": "1440x900",
+      "inspected": true,
+      "observation": "Actual production capture; original teaching/resources retained. Matched before/after review distinguishes warm editorial Course from unchanged operational Portal; short Studio result and fixed footer remain accessible."
+    },
+    {
+      "path": "docs/screenshots/hybrid-foundation/after-introduction-1440x900.png",
+      "viewport": "1440x900",
+      "inspected": true,
+      "observation": "Actual production capture; original teaching/resources retained. Matched before/after review distinguishes warm editorial Course from unchanged operational Portal; short Studio result and fixed footer remain accessible."
+    },
+    {
+      "path": "docs/screenshots/hybrid-foundation/after-journal-1440x900.png",
+      "viewport": "1440x900",
+      "inspected": true,
+      "observation": "Actual production capture; original teaching/resources retained. Matched before/after review distinguishes warm editorial Course from unchanged operational Portal; short Studio result and fixed footer remain accessible."
+    },
+    {
+      "path": "docs/screenshots/hybrid-foundation/after-portal-resource-1440x900.png",
+      "viewport": "1440x900",
+      "inspected": true,
+      "observation": "Actual production capture; original teaching/resources retained. Matched before/after review distinguishes warm editorial Course from unchanged operational Portal; short Studio result and fixed footer remain accessible."
+    },
+    {
+      "path": "docs/screenshots/hybrid-foundation/after-return-debrief-1440x900.png",
+      "viewport": "1440x900",
+      "inspected": true,
+      "observation": "Actual production capture; original teaching/resources retained. Matched before/after review distinguishes warm editorial Course from unchanged operational Portal; short Studio result and fixed footer remain accessible."
+    },
+    {
+      "path": "docs/screenshots/hybrid-foundation/after-studio-1024x500.png",
+      "viewport": "1024x500",
+      "inspected": true,
+      "observation": "Actual production capture; original teaching/resources retained. Matched before/after review distinguishes warm editorial Course from unchanged operational Portal; short Studio result and fixed footer remain accessible."
+    },
+    {
+      "path": "docs/screenshots/hybrid-foundation/after-studio-1440x900.png",
+      "viewport": "1440x900",
+      "inspected": true,
+      "observation": "Actual production capture; original teaching/resources retained. Matched before/after review distinguishes warm editorial Course from unchanged operational Portal; short Studio result and fixed footer remain accessible."
+    },
+    {
+      "path": "docs/screenshots/hybrid-foundation/after-theory-1440x900.png",
+      "viewport": "1440x900",
+      "inspected": true,
+      "observation": "Actual production capture; original teaching/resources retained. Matched before/after review distinguishes warm editorial Course from unchanged operational Portal; short Studio result and fixed footer remain accessible."
+    },
+    {
+      "path": "docs/screenshots/hybrid-foundation/before-guide-1440x900.png",
+      "viewport": "1440x900",
+      "inspected": true,
+      "observation": "Actual production capture; original teaching/resources retained. Matched before/after review distinguishes warm editorial Course from unchanged operational Portal; short Studio result and fixed footer remain accessible."
+    },
+    {
+      "path": "docs/screenshots/hybrid-foundation/before-hub-1440x900.png",
+      "viewport": "1440x900",
+      "inspected": true,
+      "observation": "Actual production capture; original teaching/resources retained. Matched before/after review distinguishes warm editorial Course from unchanged operational Portal; short Studio result and fixed footer remain accessible."
+    },
+    {
+      "path": "docs/screenshots/hybrid-foundation/before-introduction-1440x900.png",
+      "viewport": "1440x900",
+      "inspected": true,
+      "observation": "Actual production capture; original teaching/resources retained. Matched before/after review distinguishes warm editorial Course from unchanged operational Portal; short Studio result and fixed footer remain accessible."
+    },
+    {
+      "path": "docs/screenshots/hybrid-foundation/before-studio-1440x900.png",
+      "viewport": "1440x900",
+      "inspected": true,
+      "observation": "Actual production capture; original teaching/resources retained. Matched before/after review distinguishes warm editorial Course from unchanged operational Portal; short Studio result and fixed footer remain accessible."
+    },
+    {
+      "path": "docs/screenshots/hybrid-foundation/before-theory-1440x900.png",
+      "viewport": "1440x900",
+      "inspected": true,
+      "observation": "Actual production capture; original teaching/resources retained. Matched before/after review distinguishes warm editorial Course from unchanged operational Portal; short Studio result and fixed footer remain accessible."
+    },
+    {
+      "path": "docs/screenshots/hybrid-foundation/after-portal-handoff-midpoint-1440x900.png",
+      "viewport": "1440x900",
+      "inspected": true,
+      "observation": "Actual authored320ms workspace transition sampled at160ms. Portal header is y0, text/ancestors remain full opacity/untransformed; only pointer-transparent orientation bracket animates."
+    },
+    {
+      "path": "docs/screenshots/pr51-owner/after-feedback-1440.png",
+      "viewport": "1440x900",
+      "inspected": true,
+      "observation": "Actual criterion summary, weak area and closed per-question details; raw answer IDs replaced by unchanged option text."
+    },
+    {
+      "path": "docs/screenshots/pr51-owner/after-feedback-1024x500.png",
+      "viewport": "1024x500",
+      "inspected": true,
+      "observation": "Actual short desktop feedback summary; retry and explanations remain scrollable above measured footer clearance."
+    },
+    {
+      "path": "docs/screenshots/pr51-owner/after-links-1440.png",
+      "viewport": "1440x900",
+      "inspected": true,
+      "observation": "Actual closed secondary navigation; footer remains recommended primary."
+    },
+    {
+      "path": "docs/screenshots/pr51-owner/after-links-expanded-1440.png",
+      "viewport": "1440x900",
+      "inspected": true,
+      "observation": "Actual purpose-labelled voluntary assessment/observations destinations, no auto begin."
+    },
+    {
+      "path": "docs/screenshots/pr51-owner/native-zoom-125.png",
+      "viewport": "native Chrome window, 125% actual tabs.getZoom",
+      "inspected": true,
+      "observation": "Independent native-window raw CDP fromSurface:false capture visually inspected; no emulated-viewport dark margins. Readable long feedback, visible retry and footer; DOM/Axe/overflow measured separately."
+    },
+    {
+      "path": "docs/screenshots/pr51-owner/native-zoom-200.png",
+      "viewport": "native Chrome window, 200% actual tabs.getZoom",
+      "inspected": true,
+      "observation": "Independent native-window raw CDP fromSurface:false capture visually inspected; no emulated-viewport dark margins. Readable long feedback, visible retry and footer; DOM/Axe/overflow measured separately."
     }
   ],
   "humanReview": {
@@ -553,297 +757,202 @@
   },
   "snapshot": {
     "files": {
-      "AGENTS.md": "d7699cf83d494f6bea15ce0aa5d752c63843f33b583e8b1b2961826a0b1eb694",
-      "docs/DESIGN_SYSTEM.md": "c4cc1cd942ec5a774c1be9cdcf0e6423f9d34cf18f9f762ca674062790c3b0bf",
-      "docs/PORTAL_CAPABILITY_MATRIX.md": "c56895378a6c70a3dff1dfe3c8668b8dae2f23c96f7cb36f2f3ab4d4d8ff8c18",
-      "docs/SAVVYSHARK_CHARACTER_BIBLE.md": "914d37739041ba407814b40c16295d7c091856147ee410062dbff23bad883bd6",
-      "docs/VISUAL_EXCELLENCE.md": "58a9cff180a3bbd113aa497c64391b2b2843f8473c74673fbac1a9d8f833411c",
-      "docs/reviews/AZ900_REMEDIATION_PLAN.md": "364b15b5cd209f0a249a6e7404801d2d0ac8f7c628d1f6a8c362ecefa58cc2e6",
-      "docs/reviews/evidence/visual50-axe-final.json": "9adf1dbeaa5b0feefbc86b2d04b41fb103f8aff95a6db21a62b8aca0fd060191",
-      "docs/reviews/evidence/visual50-character-review-initial.json": "c9ea303ba1b0065b3bdee84c6e3979911fc3a7d9dc7611b849faa6f1106b5edb",
-      "docs/reviews/evidence/visual50-character-review-revision.json": "07460c558c3886472d0afec6dfba608bb4e7b08b96d11d15439381caa30fb2fa",
-      "docs/reviews/evidence/visual50-local-journey.json": "dbe6a8ea40edceb37dc3d568f88e7857bdcb0e5501478b66226c8859186e6207",
-      "docs/reviews/evidence/visual50-measurements.json": "f3bba9ee032cea0c6142ecd779c0bf0c336bda0a527d8d126f1858fcf09ad5ed",
-      "docs/reviews/evidence/visual50-preservation.json": "b548862abfebb6bda992ecbef223769367951fa7dabb741c9d2109e0aeb04803",
-      "docs/reviews/evidence/visual50-product-design-recheck.json": "0c694389887965402bdbc4b81f1649cc664dd1a8daeba8350485218a8ce2cfe7",
-      "docs/reviews/evidence/visual50-product-design-review.json": "97756a6b2a2bbd865e02fd79faa8eba779c86c76eefc716c2d43614ccbbbd4fe",
-      "docs/reviews/evidence/visual50-sources.json": "dc62fc396a4cf818112f81f5f88331ae850c02aae0eb3763f6d87826c4ebf3b6",
-      "docs/screenshots/visual-excellence/before-03-long-theory-top.png": "980a32e12d88b29f0a4e590989803f57b86fdf1c9dd1937c3d27dd2a96b19f1b",
-      "docs/screenshots/visual-excellence/before-05-studio.png": "26990a627f9433393b4a785190bbdeedd14b602b870d3acaaf6693c9c4aae0ac",
-      "docs/screenshots/visual-excellence/before-06-native-briefing.png": "7f343edc7b781cb63b3fc062fa886da708b8093884a16b4bb17cbc683f317227",
-      "docs/screenshots/visual-excellence/before-07-journal.png": "60e9ae732ac8eb20bcba382da98114e11d9ccf4169d60e504201d88964683152",
-      "docs/screenshots/visual-excellence/continuity-guide-1440x900.png": "cdf922e155008c86f3d199c462ac8baaf7c5580618b02198906f437b604014ba",
-      "docs/screenshots/visual-excellence/continuity-handoff-1440x900.png": "2bc51a393b9c3886c8b3fe17607fe458a9228b0a2f21b64517221d62c09c8146",
-      "docs/screenshots/visual-excellence/continuity-hub-1024x500.png": "ad445438912ac7c43e9ca56fcc0861890a5c3c1e662565fdad4e0e2f2120b08c",
-      "docs/screenshots/visual-excellence/continuity-hub-1024x768.png": "33f749e68c81086e53d96ce1175173b71532debce3a70e2d726275f8b8d0a479",
-      "docs/screenshots/visual-excellence/continuity-hub-1366x768.png": "59ec6d690b3d3f00c5efba17cf10502c7705daffa418455ee1f39efcde285178",
-      "docs/screenshots/visual-excellence/continuity-hub-1440x900.png": "280385111e708c34a15b9955980db26875511318651d59298b3ef24dd91dc3fb",
-      "docs/screenshots/visual-excellence/continuity-hub-1920x1080.png": "651820cfb810b2250d8835463be51f2e32090271362d93b696a5f70108df0aa2",
-      "docs/screenshots/visual-excellence/continuity-introduction-1440x900.png": "ed9ba43e7b2a3832d2b55dc34c761667fd89ab4be6d181649623418496b8330e",
-      "docs/screenshots/visual-excellence/continuity-journal-1440x900.png": "1485ef139deb7c503eaa0dbe2102dc3c617c96974f2bf16afb5c7c7acb0b6921",
-      "docs/screenshots/visual-excellence/continuity-studio-1440x900.png": "d22b892517917f6b1b39c9847d6af5568623d782462dcd219735c5f00b8dcf17",
-      "docs/screenshots/visual-excellence/continuity-theory-1440x900.png": "681ded4e333d39f67f9bbb267e96d81350254cf567d550e13db794b24e751d10",
-      "docs/screenshots/visual-excellence/demo-04-original-guided-debrief.png": "ac2f018556df7abee394d0bb7b9390a76dd352155ce41023728acfe5c23d6ba5",
-      "docs/screenshots/visual-excellence/demo-05-actual-journal.png": "2ebec31daea695f2bbf25b7776823a3a800dd041335dae4b7e11c8dd15dd5603",
-      "docs/screenshots/visual-excellence/demo-06-denied-aid-withholds-theory.png": "533c492820d58d6ee506bd7bf34d37f9c1a1e438ce390a0f86bbb87f515ccc9c",
-      "docs/screenshots/visual-excellence/demo-07-exact-independent-resume.png": "000da375cd3712e05f44a20cd188fc075eced1f2b09ef9e79aa992d742d387cc",
-      "docs/screenshots/visual-excellence/editorial-character-1440x900.png": "ee90117eadc707410b92d1aad0ca71288a95ef40f2e9b2b54bd50fdf41348220",
-      "docs/screenshots/visual-excellence/editorial-guide-1440x900.png": "c0382ed36baf54d3a535634333069bff328fe9523d626b28201c8a1b9b06ab3b",
-      "docs/screenshots/visual-excellence/editorial-handoff-1440x900.png": "218166a1f1325035a947076df43e87b922ab3fef429a189b819f28e766f9d000",
-      "docs/screenshots/visual-excellence/editorial-hub-1024x500.png": "ac9cf9f46fa600fbbe3b31eeb3281eeaaab60f23949f21e728e4ef78cbde1108",
-      "docs/screenshots/visual-excellence/editorial-hub-1024x768.png": "b5f8264786563bf881dd32eb31114d3ff40c9f228ae24e89801e747c51d74396",
-      "docs/screenshots/visual-excellence/editorial-hub-1366x768.png": "bd207ec156ca3f44aafc3e05ded639ad4c02c1108b6f2016bda5acbdfc32f667",
-      "docs/screenshots/visual-excellence/editorial-hub-1440x900.png": "0d627ba2bab096c3b885b2c706875d7f5ca41796458fd69dfbe9ff29726469d9",
-      "docs/screenshots/visual-excellence/editorial-hub-1920x1080.png": "39d4681292141bd8500cc30bd497ef0a3361d3587f24ac6fc04eed2c5a912053",
-      "docs/screenshots/visual-excellence/editorial-introduction-1440x900.png": "cfca023155323c25ff90580c769bf4e1fa0b5efbb9f755b910c7d8d62c269fae",
-      "docs/screenshots/visual-excellence/editorial-journal-1440x900.png": "8e3c3b5b338b8e06a5a482f85a3ce527ecaeefc794b976a3425d662d3aadf3f4",
-      "docs/screenshots/visual-excellence/editorial-studio-1440x900.png": "1f9e1ebe66469310e975b10edbf862f50783d3a46c82d1a2afbe740987f1a0e2",
-      "docs/screenshots/visual-excellence/editorial-studio-controls-1024x500.png": "8ab2a54f84fc41fec2c8684ca9f130306c50b2b7dc4569728fa350a35be1629b",
-      "docs/screenshots/visual-excellence/editorial-studio-result-1440x900.png": "57b749ab83c2e2b49dd442cb2a594f42daac3b51e2f9121450b478120f674f59",
-      "docs/screenshots/visual-excellence/editorial-theory-1440x900.png": "6d7aec8c2c40ed2581b3bb3a7974e1392a0c47ab2af85fc8f3612e247746a4a7",
-      "docs/screenshots/visual-excellence/editorial-theory-end-1440x900.png": "f0c3e6d437f8dfcc40c0322f49b6465a1935096b8dc6b103b52481f129821535",
-      "docs/screenshots/visual-excellence/journal-dialog-1440x900.png": "d26e60351609c8916aae4abce2d720086981d632a0f1531c4ea2489e299e3ed1",
-      "docs/screenshots/visual-excellence/native-briefing-1024x500.png": "74890e65dcd7093fdde96e0fec0b0d006210a4666c946d4ff97e25ba5f357285",
-      "docs/screenshots/visual-excellence/native-portal-receipt-1440x900.png": "0fb5d4d62bd740ab56308801dbdd7efa87e12062f55911e3b95ae109f57b27e4",
-      "docs/screenshots/visual-excellence/native-portal-resource-1440x900.png": "4d0c0a23fa74215da448b74fb369afc075d7b626c7c944395f43f1a1b872d846",
-      "package.json": "49d53151b83e66eca98ae125cab913ffa7ee3ebbca8989b45d11176a2d6baf4a",
-      "playwright.desktop.config.ts": "293cc1e26f64b2232a80fa15c8e2a3f58f872b2e053612529e7284d5b26aaeec",
-      "public/design-review/characters/v1/explain-right-320.webp": "9395dbc2cf75611bc3e4bf24fbb582aff315f532aa8809a2f5232fa27e618192",
-      "public/design-review/characters/v1/explain-right-640.webp": "a2e8f368f84977e96823ab6e512bf92f82ae2748e8b1185978d1247f542eeddc",
-      "public/design-review/characters/v1/explain-right-candidate.png": "8aded172f654664841f8911e1fcec7c3775de1c65d9853ad619be7fa7f94c36e",
-      "public/design-review/characters/v1/manifest.json": "a1874e3744f2329633e0b6c8fa74c835e9199694b88eccee6a71b1aebe1e063e",
-      "public/design-review/characters/v1/thinking-320.webp": "7feb627645e17fdf3d5fad8e1d02bb2ad7c4e59c5909fad92594c6ec26cf7d81",
-      "public/design-review/characters/v1/thinking-640.webp": "3205e19871509168db41bcd22db0d4e2dea6b4ee380113fbc2f4001e7e8e113c",
-      "public/design-review/characters/v1/thinking-candidate.png": "c235ec1b602aed802e4c41ee22c62393460a78623f72b8a67e985fc2e500a3ee",
-      "public/design-review/characters/v1/wave-320.webp": "ae88749562ae2beb559eaead4e5a6d2f1c78384a6908dc6db12f7a6681f6449f",
-      "public/design-review/characters/v1/wave-640.webp": "731915bb24960dbcd529b932d90f702e317e9a1c85279bd4e40e6ebf17756299",
-      "public/design-review/characters/v1/wave-candidate.png": "68a0c812e8802635afe07d0cd67de6cb143df66f5ba572fb02a0abb3229b14fa",
-      "public/design-review/fonts/manifest.json": "341647a31577b60506989cd0312f22b494e1c626f957fd39ebab6e7db6b33d34",
-      "public/design-review/fonts/manrope-OFL.txt": "58172e0c0fac2cda8a37b348164bb55e44b0e69051e557e92b1d3f6910141f7b",
-      "public/design-review/fonts/manrope.woff2": "8c2def024c1bf31aacf3624ae3c4d701269b4ec3dc765c04830839f0d36b2d9e",
-      "public/design-review/fonts/source-serif-4-OFL.txt": "5f94c3fd3a23131a417ab5a0c8452de57e70c3cfb9f604d88241f7065ebf9fd9",
-      "public/design-review/fonts/source-serif-4.woff2": "f2ea9c12d2fe9bd3a9589b02ad2c0909da88f30938c91adc838c4f4098f9f9e0",
-      "scripts/design-assets-check.mjs": "fee32c6b8f9a902551658e8d5791fda7f1df4eb9612044c5998c46bf1237aa8d",
-      "scripts/design-assets-check.test.mjs": "b9da8b9d2a14ffd8858d4e40a922a25f99dbd91bfada4b0a052be4f8f9a3f6e2",
-      "src/app/globals.css": "755ce3b6e450d6893449767772a0c96f029901c4120eac3cdcc7cb16433abcec",
-      "src/app/learn/design-review/page.tsx": "84864843009cfce00e6d0caa3737ff1557d4ec45b1cfd5df0cc81d1b978b704d",
-      "src/app/learn/layout.tsx": "034cbf31f2514fe273b2ed96888887fc091c079bdfa45234f5ed5e7070c58935",
-      "src/content/nb.ts": "35e71b7767cf434a4fd43da3cf24333b2e82e36a964a5282bbb4ff546d281be0",
-      "src/features/design-review/character.tsx": "474e8f18bf6f61b57d572075e448c5565f9fdee73b8982b00824112d5eee7659",
-      "src/features/design-review/model.test.ts": "a5c16860069ee0b6d2029b729e02820ecdf1e938e923809e36b88118309f9f63",
-      "src/features/design-review/model.ts": "48edacaee809c6f360e01d2d92180736288481ae7c57c8503c9cde62b0b739d2",
-      "src/features/design-review/preservation.test.ts": "a9952991e4585fc3db5e10e436ea097edb7dbd4465a9a6c42022e12ff3d71563",
-      "src/features/design-review/visual-review.css": "b9971ec90127667f5424979197123b3c20a5b6799a55e5578dc061dc078c9ba1",
-      "src/features/design-review/visual-review.tsx": "0f130ee5ee5a6a921dfe0f4ab1ff69ae000bcedd0e3b895a0a196371ab14459a",
-      "src/features/learning/compute-vm.tsx": "f602ec5648ebc59ee6036ecda977a923259dd6fad0a5385488e8d559153dd618",
-      "src/features/portal/portal.tsx": "fad8ec6c5efc9212b422b864aae08df38c7556829e9b6b089472d76881defac8",
-      "tests/e2e/visual-excellence.spec.ts": "e2a7868ee4dfad69fdc62e0c1b149b1e7dbd2a0cca169e954a296fb028ad2c10"
+      "AGENTS.md": "4a05c4c1ee2855c572ab4c5c9a61bd2644f085e625d2880b806a21386e9c7bed",
+      "docs/COURSE_HUB_REDESIGN.md": "42882dfdf518bc4705e7f51c04fbf7c914ecd354c2bf03848ab9a61f34c15d2b",
+      "docs/DESIGN_SYSTEM.md": "9129b7d761453e34543360d15127e330bfccd8b2eb452087c86ada2d8325f4c2",
+      "docs/DEVELOPMENT_WORKFLOW.md": "73b605f35f3fd8e8c16222928f0e5f98d4f09db7ecf728ce8fd94da11e7338b7",
+      "docs/EXPERIENCE_DESIGN.md": "3a1bd2d6f44b120748865659e31bc6244d448fc431e024e3b8de409e84d3ca21",
+      "docs/HYBRID_PRODUCTION_FOUNDATION.md": "72a9205238fde45a501aa2685ff36ebc385eebc4fee2d5ac3e1c657466257982",
+      "docs/PR51_OWNER_ACCEPTANCE.md": "a903b9c794a19f5d67348416581c5896a562d87e211a3b78ca9d070b7d3e73fb",
+      "docs/VISUAL_EXCELLENCE.md": "7f23bd7e26637e2fa2ecd296fa061a1eca11d68597e970984e9a7195e660c1fc",
+      "docs/reviews/AZ900_REMEDIATION_PLAN.md": "b6508dec0279e84cbdf33c0967e8806182f59a87f111118297c12bd67dca3a95",
+      "docs/reviews/evidence/hybrid51-author-browser.json": "efbf6262af8a9ae458aa6dcdbc726f87742f352f36ab0c143f0a79b549a03a88",
+      "docs/reviews/evidence/hybrid51-design-sources.json": "9d76480a8ed8f0ffc7b2f7c8fd0d840901790251ea1e45440087a8aea84ed120",
+      "docs/reviews/evidence/hybrid51-preservation.json": "780d5377156d278d3be8cd5d083a463786fcbbc8017cb2159ba531dcc4cf31c5",
+      "docs/reviews/evidence/pr51-owner-author-checks.json": "a1969e0aba24d2713e5d8c784ed8dc05321aa5f2ad5fdd48add0b2c2c6341f99",
+      "docs/reviews/evidence/pr51-owner-legacy-v2.json": "232305539ea78aa16bcecb590f14699b9ae92ec36371a646c0af1398cd7d1b96",
+      "docs/reviews/evidence/pr51-owner-preservation.json": "93beaed629193c3851df230459845acc7c34f172e1930fdf610f94a0d5ce344a",
+      "docs/screenshots/hybrid-foundation/after-guide-1440x900.png": "bf740e8357d6312c21ea0fcf26fd7f3acc9cacb3d28a54862f0433769f2c92ec",
+      "docs/screenshots/hybrid-foundation/after-hub-1024x500.png": "7c289d605c9e785c6c06a94031b09ec9667fc00a16f6c1167fc5a14df18d3994",
+      "docs/screenshots/hybrid-foundation/after-hub-1440x900.png": "585ee5d13fd8c1384b3bb52af19c17129c712256ad334e47015da2244a098269",
+      "docs/screenshots/hybrid-foundation/after-introduction-1440x900.png": "c04dabf7cb2636701c94fcf4e7addf21dfd4781e7154758c1144b8d8ac7a525f",
+      "docs/screenshots/hybrid-foundation/after-journal-1440x900.png": "90cc75194b49fbc0fb0adfe00447b20c8a2eb98ec24a1ba792eb5f4575e4c2c9",
+      "docs/screenshots/hybrid-foundation/after-portal-handoff-midpoint-1440x900.png": "32c8d357ce7420358ba8245a2421db3a5e7c80e1c4e8c9411c57311964f39069",
+      "docs/screenshots/hybrid-foundation/after-portal-resource-1440x900.png": "e235f4510995be42e8c8fd705fcdbe23d7385f6f58fd716d1148359df1d0953d",
+      "docs/screenshots/hybrid-foundation/after-return-debrief-1440x900.png": "4c94f5a22c4686989df2fb43ac059b04b0e1ccc1fad86778785b0cbe41439850",
+      "docs/screenshots/hybrid-foundation/after-studio-1024x500.png": "506ea6eb0a6e3c3aaddc6cb106e427bdfb076a18ee22a92b04354a459c7857d3",
+      "docs/screenshots/hybrid-foundation/after-studio-1440x900.png": "f375a3824b8c5a956616d9fa388bd37cffee27f1ac52f7e13ec71ce68dddba0b",
+      "docs/screenshots/hybrid-foundation/after-theory-1440x900.png": "66c7035d036a2467e1a7039e55b7d9e04ac1c24637de735dc3a6994fa4fcb7b7",
+      "docs/screenshots/hybrid-foundation/before-guide-1440x900.png": "30c894cd2f4bd3d8b0abcbdc073ea6bb8582bd17494b0ba643ffea3e38ec36af",
+      "docs/screenshots/hybrid-foundation/before-hub-1440x900.png": "1af935a11952243c534f9463f8fe01147b908975eafc0519a781aca95a6667dd",
+      "docs/screenshots/hybrid-foundation/before-introduction-1440x900.png": "00bdb635688272235fca517c1fe58bf90b6a9eb95da3062422fb01f5f38b2858",
+      "docs/screenshots/hybrid-foundation/before-studio-1440x900.png": "2e1592135ae15a97ebdd5b8dfc3edf6ec70c8f4de96e02801670eaa312b9d4ee",
+      "docs/screenshots/hybrid-foundation/before-theory-1440x900.png": "65c58cd97f629c109e2863274568126baebedf7505731b65c8cb05d6ec931e0f",
+      "docs/screenshots/pr51-owner/after-feedback-1024x500.png": "99c1400c42ffd4853b9083a5a91774b18dae57ae47e5caa432776636c0446399",
+      "docs/screenshots/pr51-owner/after-feedback-1440.png": "e755991e105ce25c77f97c5db902d25835f2313d8ab1a3fddbc773d1a1162d9f",
+      "docs/screenshots/pr51-owner/after-links-1440.png": "3759e99609b8f7bb6df0d9de33d482937121e8ff08ef3f3fe8b56ff36da66046",
+      "docs/screenshots/pr51-owner/after-links-expanded-1440.png": "75bade06a3f3329683166f937fdf2104062d7a85ce1b50706ee77016dbde5b00",
+      "docs/screenshots/pr51-owner/before-feedback-1440.png": "05923ca2108d019216bb4373c66f72472374083de019410821829ecea3f03b7a",
+      "docs/screenshots/pr51-owner/before-links-1440.png": "77b00c263b74ac981eea77fd01e91e1fd1df3a89c218d83dbc0af01d8f589eef",
+      "docs/screenshots/pr51-owner/native-zoom-125.png": "03406bfa830d2977474c1effcfa865d8e1cf8330e69528e0e6b0a1716a50bc0b",
+      "docs/screenshots/pr51-owner/native-zoom-200.png": "f02eff6cd05e0162b1789ee68c541add6485fb415ff281abc44433105d16e1f8",
+      "playwright.desktop.config.ts": "58197a75f268e61a69f1da3b447529be12f46ca4b5b0067e2e7f1aad85e2fdf3",
+      "src/app/globals.css": "f2b22f64390da80e41e027a2bbef34ef4fe4b4c3bcb880e9b86d3506b79bb641",
+      "src/app/layout.tsx": "6a4ae0cd01c83e267b7c88c376dab3d0cf278cd1b4f4b4018742df05b01e0131",
+      "src/app/learn/layout.tsx": "7af5f5f5f506d7037f79d079585a37b7f90b0f5dd50ed21dddceab24dda92c8e",
+      "src/components/app-shell.tsx": "b80ae290443353a78835272d5ba82e89597ad34f456e84f4f9e2c361e9926a18",
+      "src/content/nb.ts": "00a8ad2ccbc85e24b79921b4f9ebc4707fbf88eb0204333a5ef2f3e2f3ff14f2",
+      "src/domain/curriculum/foundations-v2-lifecycle.test.ts": "460f2edf39e24051d0d86a966dba9c666596ed04ab6badd58d65f93b794a94fa",
+      "src/domain/curriculum/foundations-v2.test.ts": "c64f0c096eab0b0f34c786abbea00e213bc9f2220487e8210343a2a1b2905e1c",
+      "src/domain/curriculum/foundations-v2.ts": "8a23d10495c5c49ffb8c5f2c0bec7ca992025b767a4cf0ab969039757565fbfe",
+      "src/domain/curriculum/v2-store.ts": "69d0a065553c28341f3b1cbe1bbe44e2e23c3b872e8c25f034b7bc05d630673f",
+      "src/features/course/assessment-navigation-exit.tsx": "734e5e628c726d1764b95b2ea3d43b00de2ad04fe73ae6fe1cc33166cf63dc06",
+      "src/features/course/course-hub.tsx": "80c23baa01be50bc6ebc2bdba89e845f24d82c49bf35766ef1a5f93e6a59a597",
+      "src/features/course/course.tsx": "fd285075c551fe70d38ae5fc977ed29ed11002f00b5c9300a6d3f2e73161ecbf",
+      "src/features/course/experience-motion.tsx": "743c9c475226c478d8da192048ee2ef580c462cb96db53f767bcec0814dc693d",
+      "src/features/course/hybrid-foundation.css": "2f171226e88b326586598b12f9f7e48892b985cc75ccab63b038cef7b10e105c",
+      "src/features/course/hybrid-foundation.test.ts": "328b05b4a25174e0341e0a21f9915c88aa7a7ffff8e3753f9e9ac82c3781b7d3",
+      "src/features/course/learning-fonts.ts": "1a8c4f8d1152e8b43dc4550914084aa0895761dad8780deed344741c998e4041",
+      "src/features/course/practical-lab.tsx": "1a0461a3aa4b198f6859acec21a3719a4d1688b9878159104161bb258760db51",
+      "src/features/course/savvy-shark.tsx": "970a54f6aab2a9fbd380b6efaedf4b4dfde1a0affca3a212e5aaafba055a28c8",
+      "src/features/design-review/model.ts": "94cac03db9fadcfe0b894c7c69820cf744bed09226f57bd0de66079fafe5b6d5",
+      "src/features/learning/compute-vm.tsx": "dc7973a76fd8b7159edded77f661d7117e8388703d6c04a26cd7f2c4e721caa6",
+      "src/features/learning/compute-workbench.tsx": "fd60e42270b60098aa572b391378efe54db30764a2de4b5ce3208d35530b6b6c",
+      "src/features/learning/expanded-module.tsx": "4ef1846d48f28730618b6129efffd0c0079a70fb6482aa2005e42aa92d7a411d",
+      "src/features/learning/foundations-v2.css": "833dc453de83d69f32c82fb185ddf59dba442e6bd96442b9814cb3d14301be9b",
+      "src/features/learning/foundations-v2.tsx": "ad37c88bba9e7096a61c305299a4363d82686e6c6abe347283e8b1e1253bddd8",
+      "src/features/learning/management-access.tsx": "181c9a10f5983997f73dd6c44ed53e2a1cc5040d262ddf55753bc91a7f982f2a",
+      "src/features/learning/refined-assessment.tsx": "49d940161edfe14f010730469dd2f34ae547a830c349c5f877fc508d23a9b8a7",
+      "src/features/learning/related-activities.css": "a08f9149e7b7a4e90fb8d933458e42d167c59131234fa7dc80af478f0f6a4c90",
+      "src/features/learning/related-activities.tsx": "41abf76e5cd80fc682fd85fdfdbc8cf4af61dc04fdad1d42688257ffaa793b0d",
+      "src/features/learning/source-disclosure.test.ts": "b1c63396ce861e711f32ab89064697a1440ca49676939db91774857190c01abf",
+      "tests/e2e/foundations-v2.spec.ts": "4051230a40cac1d893d95382c60a4bf7865d3d5f73f80c22dd5dd69cfcbd93da",
+      "tests/e2e/hybrid-experience.spec.ts": "15d19dd7cdc842a2dda874e4c4b1502282fe2049cb345c215bb8ae398a17715d",
+      "tests/e2e/owner-acceptance.spec.ts": "19ce216fc801c12f1776a0b054c1f95bea69c245be69d5a1f5c90469bc7daeda",
+      "tests/e2e/ux-refinement.spec.ts": "cd3f44873a40d1a4d990041d281f70aefbce2b373bf441fa749d0e3527cb2688"
     }
   },
-  "implementationFinished": "2026-11-02T20:39:06.470Z",
+  "implementationFinished": "2026-11-03T10:52:27.934Z",
   "review": {
     "status": "complete",
-    "fingerprint": "f7807bf05e8604656fa2aecf32767ced6937326b9f2d563bcd838d2b6ca52526",
-    "reviewer": {
-      "id": "/root/visual50_final_audit",
-      "kind": "agent"
-    },
-    "started": "2026-11-02T20:39:28.000Z",
+    "fingerprint": "66ae4fc48e1ddb366860677fad4d6d1f2a733974d7c24a3d6d2462d33daaf01f",
+    "reviewer": { "id": "/root/pr51_owner_final_audit", "kind": "agent" },
+    "started": "2026-11-03T10:53:34.337Z",
     "domains": {
       "content": {
-        "finding": "No manuscript, source, rubric, model or assessment delta. Snapshot delta limited to visual contract, presentation CSS and new PR50 test. Original actual source/content/capability audit retained through byte preservation; no new learning or exam coverage approval.",
+        "finding": "065 locale and original v2 manuscript/model/rubric prefix unchanged;312 other protected files hash-match. No new factual bank/whole-course approval; historical PARTIAL and human validation limits retained. Test-only CI reconciliation preserves all application bytes above f7; prior actual content/source evidence retained.",
         "evidence": [
-          {
-            "path": "docs/VISUAL_EXCELLENCE.md"
-          },
-          {
-            "path": "docs/PORTAL_CAPABILITY_MATRIX.md"
-          },
-          {
-            "path": "docs/reviews/evidence/visual50-preservation.json"
-          },
-          {
-            "path": "docs/quality/PR50_FINAL_AUDIT.md"
-          },
-          {
-            "path": "docs/quality/PR50_MOTION_RECHECK.md"
-          }
+          { "path": "docs/reviews/evidence/pr51-owner-preservation.json" },
+          { "path": "docs/reviews/evidence/pr51-owner-legacy-v2.json" },
+          { "path": "docs/quality/PR51_OWNER_FINAL_AUDIT.md" }
         ]
       },
       "technical": {
-        "finding": "All corrected snapshot hashes, 279 protected base files and 1,477,092 original locale bytes independently match. No navigation/provider/store/command/receipt/World/XP change. Native workspace ancestry actually has opacity 1, no animation/transform/translate/filter.",
+        "finding": "Schema3/lifecycle1 preserves schema2 replay; explicit navigation CAS/readback aid+abandon, durable denial/stale failure and terminal reserve challenged. Denied fallback traversal leak and inaccessible UI reserve were real MAJOR findings, now fixed and independently rechecked after the renewed stamp. Portal/Sandbox/public authorities unchanged. Test-only follow-up changes no runtime/domain/store/Portal bytes; prior technical and denial evidence retained by hash.",
         "evidence": [
-          {
-            "path": "src/features/design-review/visual-review.css"
-          },
-          {
-            "path": "src/features/design-review/model.ts"
-          },
-          {
-            "path": "src/features/portal/portal.tsx"
-          },
-          {
-            "path": "docs/quality/PR50_FINAL_AUDIT.md"
-          },
-          {
-            "path": "docs/quality/PR50_MOTION_RECHECK.md"
-          }
+          { "path": "src/domain/curriculum/foundations-v2.ts" },
+          { "path": "src/domain/curriculum/v2-store.ts" },
+          { "path": "src/features/course/assessment-navigation-exit.tsx" },
+          { "path": "src/features/learning/management-access.tsx" },
+          { "path": "docs/quality/PR51_OWNER_FINAL_AUDIT.md" }
         ]
       },
       "visual": {
-        "finding": "Independent normal-motion no-preference probe sampled actual authored animation at 0/110/220ms: 24 A/B Studio/theory desktop/800px samples plus 4 native resources. All 28 Axe scans zero; every readable wrapper/ancestor opacity 1; native no fade/transform. Actual temporal/compact/native frames inspected. Earlier reduced-motion audit missed transient contrast; corrected finding closed, prior minor rollout limits retained.",
+        "finding": "Actual before/after screenshots and six viewport sizes inspected. Keyboard native disclosures, readable full labels, footer clearance, reduced motion and Axe passed. Native125/200% getZoom1152/720CSSpx checked with readable direct CDP screenshots after rejecting invalid emulated-viewport captures. Application/CSS/assets unchanged in CI reconciliation, so prior actual viewport/zoom evidence is retained without a new visual claim.",
         "evidence": [
-          {
-            "path": "src/features/design-review/visual-review.css"
-          },
-          {
-            "path": "tests/e2e/visual-excellence.spec.ts"
-          },
-          {
-            "path": "docs/screenshots/visual-excellence/editorial-studio-controls-1024x500.png"
-          },
-          {
-            "path": "docs/quality/PR50_FINAL_AUDIT.md"
-          },
-          {
-            "path": "docs/quality/PR50_MOTION_RECHECK.md"
-          }
+          { "path": "src/features/learning/foundations-v2.css" },
+          { "path": "src/features/learning/related-activities.tsx" },
+          { "path": "docs/screenshots/pr51-owner/after-feedback-1024x500.png" },
+          { "path": "docs/screenshots/pr51-owner/native-zoom-125.png" },
+          { "path": "docs/screenshots/pr51-owner/native-zoom-200.png" },
+          { "path": "docs/quality/PR51_OWNER_FINAL_AUDIT.md" }
         ]
       },
       "assessment": {
-        "finding": "Banks/rubrics/first/help/retry and assistance JS unchanged. Prior independent denied-aid/draft-resume evidence retained by byte preservation; author original six-check local journey rerun inspected. CSS creates no evidence or learning claim; no psychometric/human approval.",
+        "finding": "Five old fixtures reproduced against separately compiled065 source; rubric/first/results unchanged. Abandon has no result and later work is always practice, with inherited aid. Current/prior first, eleven original explanations/option labels, success-only summary focus and no reload refocus passed;600→601 terminal Submit uses last confirmed draft. Reconciled inherited Previous/Back/reload test independently verifies archived draft/event-prefix preservation, no automatic form or submit, explicit empty assisted practice and intact archive.",
         "evidence": [
-          {
-            "path": "tests/e2e/visual-excellence.spec.ts"
-          },
-          {
-            "path": "src/features/learning/management-access.tsx"
-          },
-          {
-            "path": "src/features/design-review/preservation.test.ts"
-          },
-          {
-            "path": "docs/quality/PR50_FINAL_AUDIT.md"
-          },
-          {
-            "path": "docs/quality/PR50_MOTION_RECHECK.md"
-          }
+          { "path": "src/domain/curriculum/foundations-v2-lifecycle.test.ts" },
+          { "path": "docs/reviews/evidence/pr51-owner-legacy-v2.json" },
+          { "path": "src/features/learning/foundations-v2.tsx" },
+          { "path": "tests/e2e/owner-acceptance.spec.ts" },
+          { "path": "docs/quality/PR51_OWNER_FINAL_AUDIT.md" },
+          { "path": "tests/e2e/ux-refinement.spec.ts" }
         ]
       },
       "guidance": {
-        "finding": "Native briefing/Start/Cancel, active H1/H2/H3, original H3/H4/default route and same-candidate resident return source unchanged from independently verified original audit. Full-opacity immediate Portal removes compositing hazard without new events. Canonical-only character remains; 3 rejected/0 approved/19 planned means full art outcome still INCOMPLETE/BLOCKED.",
+        "finding": "Complete current safety list protects Start/Resume/final briefing Start, including same-task races. Actual resident PaaS Show guide and exact native topic/version/activity return preserve original start/id/boundary and technical/XP bytes. Journal aid does not abandon, other-tab teaching cannot silently close the source assessment. Guidance/boundary implementation unchanged in test-only follow-up; prior actual resident-guide evidence retained.",
         "evidence": [
-          {
-            "path": "src/features/learning/compute-vm.tsx"
-          },
-          {
-            "path": "src/features/design-review/character.tsx"
-          },
-          {
-            "path": "docs/SAVVYSHARK_CHARACTER_BIBLE.md"
-          },
-          {
-            "path": "public/design-review/characters/v1/manifest.json"
-          },
-          {
-            "path": "docs/quality/PR50_FINAL_AUDIT.md"
-          },
-          {
-            "path": "docs/quality/PR50_MOTION_RECHECK.md"
-          }
+          { "path": "src/features/course/practical-lab.tsx" },
+          { "path": "src/features/course/mission-context.ts" },
+          { "path": "src/features/course/course.tsx" },
+          { "path": "tests/e2e/owner-acceptance.spec.ts" },
+          { "path": "docs/quality/PR51_OWNER_FINAL_AUDIT.md" }
         ]
       },
       "regression": {
-        "finding": "Real first CI 41516358518 had 318 passed/2 flaky due transient opacity contrast and is historical only. Actual CSS fixed, existing test strengthened with paused-start/full-keyframe opacity assertions; no wait/reduced-motion substitute/threshold/worker/retry/timeout/skip change. Independent 28-scan probe exit0; author 6 fresh no-retry executions and corrected full624/503/20/build exit0 inspected. NEW full corrected-head320CI/strict and corrected-SHA anonymous external Gate7 pending.",
+        "finding": "Initial corrected f7 CI completed337:336passed/1failed inherited live-resume expectation. Owner-authorized abandonment semantics now reconcile that test while retaining original draft/no-submit assertions and adding event-prefix/archive/no-auto-restart/explicit-practice checks. Application and settings unchanged;337(307/30),worker1 retained. Independent affected case passed1/1 exit0 after renewed stamp;73 hashes/fingerprint match. Full successor CI/strict and new deployed-SHA anonymous Gate7 remain pending.",
         "evidence": [
-          {
-            "path": "tests/e2e/visual-excellence.spec.ts"
-          },
-          {
-            "path": "playwright.desktop.config.ts"
-          },
-          {
-            "path": "package.json"
-          },
-          {
-            "path": "docs/VISUAL_EXCELLENCE.md"
-          },
-          {
-            "path": "docs/quality/PR50_FINAL_AUDIT.md"
-          },
-          {
-            "path": "docs/quality/PR50_MOTION_RECHECK.md"
-          }
+          { "path": "playwright.desktop.config.ts" },
+          { "path": "tests/e2e/foundations-v2.spec.ts" },
+          { "path": "tests/e2e/owner-acceptance.spec.ts" },
+          { "path": "src/features/course/hybrid-foundation.test.ts" },
+          { "path": "docs/quality/PR51_OWNER_FINAL_AUDIT.md" },
+          { "path": "tests/e2e/ux-refinement.spec.ts" }
         ]
       }
     },
     "findings": [
       {
-        "id": "P50-MOTION-01",
+        "id": "P51-OWNER-FA-01",
         "severity": "major",
         "status": "fixed",
-        "description": "Real normal-motion whole-page opacity composited text below required contrast, exposed by first full CI with 318 passed and 2 flaky Studio Axe executions. Earlier reduced-motion audit did not establish temporal contrast.",
-        "fix": "Removed learning opacity keyframes; retain only 220ms 5px translation. Removed native workspace animation entirely. Existing test now pauses authored start and asserts current/all-frame opacity 1 before Axe; no scan delay or relaxed setting.",
+        "description": "Unsupported Navigation API fallback browser Back with denied Foundations write mounted answer-bearing teaching behind a dismissible recovery dialog.",
+        "fix": "Existing only=core teaching boundary now includes v2; Course explicitly excludes its own current v2 assessment. Raw Portal management-only inspection filter remains unchanged.",
         "retests": [
-          "Independent actual no-preference animation 0/110/220ms: A/B Studio/theory at 1440x900 and initial800x700, 24 samples opacity1/ancestor filter none, zero Axe.",
-          "Independent A/B native resource at desktop/800px: 4 samples immediate opacity1, no animation/transform/translate/filter, zero Axe. Probe exit0, no page errors; representative actual frames personally inspected.",
-          "Author 3desktop+3compact fresh executions all pass without retry; corrected full check624/503/20/build exit0 and local six-check original journey VERIFIED. Corrected full CI/external still pending."
+          "Independent final production fallback+native denied Back after Escape: no teaching mounted, exact active persisted attempt retained.",
+          "Renewed-stamp independent repetition of both traversal modes passed exit0; actual initial/final screenshots retained.",
+          "Author regression asserts absent Foundations article and manuscript after recovery dismissal."
         ]
       },
       {
-        "id": "P50-FA-01",
+        "id": "P51-OWNER-FA-02",
         "severity": "major",
         "status": "fixed",
-        "description": "Historical resident Portal return escaped the candidate into canonical Compute; resolved in original audited candidate and unchanged by motion correction.",
-        "fix": "Optional identity-default ComputePortalMission returnHref receives same-direction specimen guide, preserving canonical default.",
+        "description": "V2Assessment disabled Submit on limit even though schema3 store reserved terminal capacity, blocking direct submission of a confirmed complete draft.",
+        "fix": "Only schema3+limit permits terminal Submit; answer fieldsets and Begin remain disabled, and visible copy explains the use of confirmed answers.",
         "retests": [
-          "Original separate actual both-direction resident clicks retained wrapper/H1 focus and exact guide/World/XP; native default route and visit preserved. See PR50_FINAL_AUDIT.",
-          "Current snapshot delta proves no related JS/default/heading changes; author full local original journey rerun VERIFIED."
+          "Independent actual600-event fixture rejects edit3, submits confirmed2, stores601 events and practice result, focuses summary.",
+          "Renewed-stamp repetition passed exit0; denied Submit creates no result or success focus.",
+          "Author browser case verifies disabled edits, enabled terminal Submit, unchanged persisted draft and retry classification."
         ]
       },
       {
-        "id": "P50-FA-02",
+        "id": "P51-OWNER-FA-03",
         "severity": "minor",
         "status": "fixed",
-        "description": "Historical active specimen guide heading hierarchy correction remains unchanged.",
-        "fix": "Optional headingLevel2 provides specimen H2 mission/H3 references; native default keeps H3/H4.",
+        "description": "Four initial owner visualEvidence entries lacked inspected and observation fields required by strict release.",
+        "fix": "Author inspected actual screenshots and recorded truthful inspected:true plus observation; all final visual records have required fields.",
+        "retests": ["Independent final visualEvidence shape check reports zero invalid entries."]
+      },
+      {
+        "id": "P51-OWNER-FA-04",
+        "severity": "note",
+        "status": "accepted-limitation",
+        "description": "Full337 exact-head CI/strict and new anonymous deployed SHA-bound Gate7 remain pending. Broad rollout awaits owner acceptance; human novice/SME/UX/screen-reader/psychometric/learning-effect validation unperformed. No Stage2–5/PR52/merge/production approval."
+      },
+      {
+        "id": "P51-OWNER-FA-05",
+        "severity": "minor",
+        "status": "fixed",
+        "description": "Inherited UX test still expected a live active form after deliberate Previous/Back/reload, contradicting the owner-authorized abandonment lifecycle; first corrected-head CI remained failed336/337.",
+        "fix": "Test preserves exact draft/no-submit and original event-prefix requirements through archived answer UI; explicitly checks inactive/no automatic restart and empty assisted practice only after explicit Retry. No application or test-setting changes.",
         "retests": [
-          "Original actual selected-VM both-direction H1/H2/H3 and zero Axe; actual native H3/H4 verified. Current related source unchanged."
+          "Post-stamp independent exact affected desktop browser case passed1/1, process exit0, worker1, no local retry.",
+          "Independent Git comparison confirms src/public/packages/browser/CI configuration unchanged above f7;30 prior snapshot application/config hashes match.",
+          "Author typecheck/lint and unchanged337(307/30)/worker1 plan validation passed; complete successor CI remains pending."
         ]
-      },
-      {
-        "id": "P50-FA-03",
-        "severity": "minor",
-        "status": "accepted-limitation",
-        "description": "Extra42px frame still offsets native side-panel/compact recovery anchor into header/search. Controls reachable in original actual inspection. Correct geometry before production rollout; no Portal pixel-parity claim."
-      },
-      {
-        "id": "P50-FA-04",
-        "severity": "minor",
-        "status": "accepted-limitation",
-        "description": "Studio result still requires scrolling below diagram in500px windows; prediction/run placement improved but result discovery needs novice review before rollout."
-      },
-      {
-        "id": "P50-FA-05",
-        "severity": "minor",
-        "status": "accepted-limitation",
-        "description": "Partial Journal repeats Benefits/Services headings without track names; compact prototype identity/helper typography remains weak. These are not finished production patterns."
-      },
-      {
-        "id": "P50-FA-06",
-        "severity": "note",
-        "status": "accepted-limitation",
-        "description": "Separate full illustration ambition remains INCOMPLETE/BLOCKED:3 rejected specimens,0 new production-approved,19 planned null files. Canonical only active. Identity/export defects unresolved; owner controlled-master acceptance needed. No art approval."
-      },
-      {
-        "id": "P50-MOTION-02",
-        "severity": "note",
-        "status": "open",
-        "description": "New exact-head complete320CI/strict and anonymous external corrected full-SHA root/journey remain pending. Old de04/4ad receipt or local probe cannot substitute. Human novice/SME/UX/screenreader/learning and cold/RUM validation unperformed. No broad rollout, merge or production approval."
       }
     ],
-    "report": {
-      "path": "docs/quality/PR50_MOTION_RECHECK.md"
-    }
+    "report": { "path": "docs/quality/PR51_OWNER_FINAL_AUDIT.md" }
   }
 }

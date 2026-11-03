@@ -2,7 +2,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
-import { refinedAssessmentNb as c } from '@/content/nb';
+import { refinedAssessmentNb as c, nb } from '@/content/nb';
 import type { Track } from '@/domain/curriculum/expansion';
 import {
   completeRefined,
@@ -283,10 +283,12 @@ export function RefinedHistory({ track, legacy = false }: { track: Track; legacy
   const s = useRefined(track),
     old = useExpansion(track);
   return (
-    <section aria-label={t.history}>
+    <section aria-label={`${nb.official[track]} · ${t.history}`}>
       {legacy && (
         <section>
-          <h3>{t.legacy}</h3>
+          <h3>
+            {nb.official[track]} · {t.legacy}
+          </h3>
           {old.facts.submissions.map((a) => (
             <p key={a.attempt}>
               {a.retry ? t.retry : t.first} #{a.attempt} ·{' '}
@@ -298,7 +300,7 @@ export function RefinedHistory({ track, legacy = false }: { track: Track; legacy
         </section>
       )}
       <h3>
-        {t.title} · {t.history}
+        {nb.official[track]} · {t.title} {refinedVersion(track)} · {t.history}
       </h3>
       <RefinedRecovery track={track} />
       {!s.issue &&

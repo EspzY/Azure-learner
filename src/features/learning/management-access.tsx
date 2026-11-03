@@ -505,7 +505,7 @@ export function ManagementTeachingBoundary({
         item.id === 'governance' ||
         item.id === 'access' ||
         item.id === 'resilience' ||
-        (only === 'core' ? ['management', 'physical'].includes(item.id) : item.id === only)),
+        (only === 'core' ? ['management', 'physical', 'v2'].includes(item.id) : item.id === only)),
   );
   const token = JSON.stringify([
     identity,

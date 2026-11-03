@@ -1,9 +1,9 @@
 'use client';
 import { OtherGuideNotice } from '@/features/course/guided-mission-link';
 import { useGuideBriefing } from '@/features/course/guide-briefing-request';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
-import { computeNb as c } from '@/content/nb';
+import { computeNb as c, hybridExperienceNb as experience } from '@/content/nb';
 import {
   computeGuidedFacts,
   computeMilestoneFacts,
@@ -62,6 +62,14 @@ export function ComputeWorkbench({
           ? initialCapacity
           : initialHosting);
   const last = g?.runs.findLast((r) => r.input.kind === kind);
+  const resultRef = useRef<HTMLElement>(null);
+  const summaryRef = useRef<HTMLDivElement>(null);
+  const [revealResult, setRevealResult] = useState(0);
+  useEffect(() => {
+    if (!revealResult || document.querySelector('dialog[open]')) return;
+    summaryRef.current?.scrollIntoView({ block: 'nearest', behavior: 'instant' });
+    summaryRef.current?.focus({ preventScroll: true });
+  }, [revealResult]);
   const predictionLabels =
     kind === 'container' ? c.models.container.predictions : c.labels.predictionOptions;
   const [overlay, setOverlay] = useState<'brief' | 'container' | 'capacity' | null>(null),
@@ -106,6 +114,7 @@ export function ComputeWorkbench({
       return;
     }
     setFailed(false);
+    setRevealResult((n) => n + 1);
     const after = computeMilestoneFacts(t.store.getSnapshot().save);
     const id =
       mission === 'container' && after.container && !before.container
@@ -158,7 +167,7 @@ export function ComputeWorkbench({
           <OtherGuideNotice module="compute" mission={mission} />
           {g && (
             <>
-              <SavvyShark compact>
+              <SavvyShark compact dismissiblePortrait>
                 <dl>
                   <div>
                     <dt>{c.labels.next}</dt>
@@ -234,19 +243,58 @@ export function ComputeWorkbench({
                 {c.labels.run}
               </button>
               {last && (
-                <section className="compute-observation" aria-label={c.labels.observed}>
-                  <h4>{c.labels.observed}</h4>
-                  <p>
-                    {c.labels.predicted}: {predictionLabels[last.prediction + 1]} ·{' '}
-                    {c.labels.result}: {predictionLabels[runCompute(last.input)!.outcome + 1]}
-                  </p>
-                  {JSON.stringify(last.input) !== JSON.stringify(input) && (
-                    <p className="compute-boundary">
-                      {c.labels.configured} ≠ {c.labels.observed}
+                <>
+                  <div
+                    ref={summaryRef}
+                    tabIndex={-1}
+                    className="compute-result-summary"
+                    role="status"
+                    aria-live="polite"
+                  >
+                    <p>
+                      <strong>{experience.resultReady}</strong>
+                      <br />
+                      {predictionLabels[runCompute(last.input)!.outcome + 1]}
                     </p>
-                  )}
-                  <ComputeModelResult input={last.input} />
-                </section>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        const header = document.querySelector('.course-header');
+                        resultRef.current?.style.setProperty(
+                          'scroll-margin-top',
+                          `${Math.max(0, header?.getBoundingClientRect().bottom ?? 0) + 16}px`,
+                        );
+                        resultRef.current?.scrollIntoView({ block: 'start', behavior: 'instant' });
+                        resultRef.current?.focus({ preventScroll: true });
+                      }}
+                    >
+                      {experience.inspectResult}
+                    </button>
+                    {JSON.stringify(last.input) !== JSON.stringify(input) && (
+                      <p>
+                        {c.labels.configured} ≠ {c.labels.observed}
+                      </p>
+                    )}
+                  </div>
+                  <section
+                    ref={resultRef}
+                    tabIndex={-1}
+                    className="compute-observation"
+                    aria-label={c.labels.observed}
+                  >
+                    <h4>{c.labels.observed}</h4>
+                    <p>
+                      {c.labels.predicted}: {predictionLabels[last.prediction + 1]} ·{' '}
+                      {c.labels.result}: {predictionLabels[runCompute(last.input)!.outcome + 1]}
+                    </p>
+                    {JSON.stringify(last.input) !== JSON.stringify(input) && (
+                      <p className="compute-boundary">
+                        {c.labels.configured} ≠ {c.labels.observed}
+                      </p>
+                    )}
+                    <ComputeModelResult input={last.input} />
+                  </section>
+                </>
               )}
               {facts?.witnessed && !desktop && (
                 <section className="compute-debrief">

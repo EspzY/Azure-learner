@@ -32,6 +32,7 @@ import { ExpansionProvider } from '@/features/learning/expansion-provider';
 import { ServerlessProvider } from '@/features/learning/serverless-provider';
 import '@xyflow/react/dist/style.css';
 import './globals.css';
+import { learningSans, learningEditorial } from '@/features/course/learning-fonts';
 
 export const metadata: Metadata = {
   title: nb.metadata.title,
@@ -39,7 +40,7 @@ export const metadata: Metadata = {
 };
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="nb">
+    <html lang="nb" className={`${learningSans.variable} ${learningEditorial.variable}`}>
       <body>
         <ApplicationProvider>
           <RefinedProvider>

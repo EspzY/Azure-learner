@@ -1,6 +1,6 @@
 import { test, expect, type Page, type TestInfo } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
-import { nb } from '../../src/content/nb';
+import { nb, ownerAcceptanceNb as acceptance } from '../../src/content/nb';
 import { v2Criteria, v2Topics, foundationsV2Key } from '../../src/domain/curriculum/foundations-v2';
 import { learningKey, freshLearning, applyLearning } from '../../src/domain/curriculum/foundations';
 import { acknowledgeMilestone } from './portal-actions';
@@ -204,7 +204,8 @@ test('ordinary root delivers the whole v2 course, preserved objectives, actual l
     }
     await page.getByRole('button', { name: f.check, exact: true }).click();
   }
-  await page.getByRole('link', { name: t.summary, exact: true }).click();
+  await page.locator('.related-activities summary').click();
+  await page.getByRole('link', { name: acceptance.observations, exact: true }).click();
   await expect(page.getByText(t.complete, { exact: true })).toBeVisible();
   await step(page, 'resource-bridge');
   await page.getByRole('button', { name: c.startLab, exact: true }).click();
@@ -271,7 +272,8 @@ test('ordinary root delivers the whole v2 course, preserved objectives, actual l
   await capture(page, info, 'debrief');
   await page.reload();
   await expect(page.locator('#lab-debrief')).toContainText('teamA');
-  await page.getByRole('link', { name: t.assessment, exact: true }).click();
+  await page.locator('.related-activities summary').click();
+  await page.getByRole('link', { name: acceptance.assessment, exact: true }).click();
   await page.getByRole('button', { name: t.beginAssessment, exact: true }).click();
   await expect(page.getByText(t.submitted, { exact: true })).toHaveCount(0);
   await capture(page, info, 'independent');
@@ -296,7 +298,7 @@ test('ordinary root delivers the whole v2 course, preserved objectives, actual l
   await page.reload();
   await expect(page.getByLabel(t.extraItems[0]!.question, { exact: true })).toHaveValue('2');
   await page.getByRole('button', { name: t.sendAnswers, exact: true }).click();
-  await expect(page.getByText(t.first, { exact: true })).toBeVisible();
+  await expect(page.getByText(acceptance.first, { exact: true })).toBeVisible();
   await audit(page);
   expect(errors).toEqual([]);
   expect(external).toEqual([]);
