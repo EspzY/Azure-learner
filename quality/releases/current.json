@@ -650,7 +650,7 @@
     {
       "command": "npm run check",
       "result": "passed",
-      "details": "Actual exit0:626 Vitest/503 curriculum/20Node/build. After final small route-height fix: fresh typechecked production build, preservation6tests, ESLint and7targeted desktop passed without retry. Complete candidate329CI remains pending."
+      "details": "Actual exit0:626 Vitest/503 curriculum/20Node/build. After final small route-height fix: fresh typechecked production build, preservation6tests, ESLint and7targeted desktop passed without retry. Complete candidate329CI remains pending. Final external-discovered motion-readiness fix: fresh typechecked build/ESLint and all7desktop+2compact targeted executions passed without retry; exact-head full CI must rerun on the successor."
     },
     {
       "command": "npm run test:e2e:desktop",
@@ -768,10 +768,10 @@
       "docs/COURSE_HUB_REDESIGN.md": "42882dfdf518bc4705e7f51c04fbf7c914ecd354c2bf03848ab9a61f34c15d2b",
       "docs/DESIGN_SYSTEM.md": "9129b7d761453e34543360d15127e330bfccd8b2eb452087c86ada2d8325f4c2",
       "docs/EXPERIENCE_DESIGN.md": "3a1bd2d6f44b120748865659e31bc6244d448fc431e024e3b8de409e84d3ca21",
-      "docs/HYBRID_PRODUCTION_FOUNDATION.md": "480d061c31b276ed0e7aeb78ff8813e81e5c5956eab5fd51dba72fdf1d3428c0",
+      "docs/HYBRID_PRODUCTION_FOUNDATION.md": "1a7e2f481bc6f126f31d48cd3239139bb3ca7ea17c09f5a891a4016809c0e4c6",
       "docs/VISUAL_EXCELLENCE.md": "7f23bd7e26637e2fa2ecd296fa061a1eca11d68597e970984e9a7195e660c1fc",
       "docs/reviews/AZ900_REMEDIATION_PLAN.md": "b6508dec0279e84cbdf33c0967e8806182f59a87f111118297c12bd67dca3a95",
-      "docs/reviews/evidence/hybrid51-author-browser.json": "21d62d68f3fc68d178972cebe8a641ec19c1e11748492ced465805178327f0b9",
+      "docs/reviews/evidence/hybrid51-author-browser.json": "be9a0339e51540c6cd8cf051c96cf67e5f81b9ebf24deace35f06d0d6f73e2ff",
       "docs/reviews/evidence/hybrid51-design-sources.json": "9d76480a8ed8f0ffc7b2f7c8fd0d840901790251ea1e45440087a8aea84ed120",
       "docs/reviews/evidence/hybrid51-preservation.json": "780d5377156d278d3be8cd5d083a463786fcbbc8017cb2159ba531dcc4cf31c5",
       "docs/screenshots/hybrid-foundation/after-guide-1440x900.png": "bf740e8357d6312c21ea0fcf26fd7f3acc9cacb3d28a54862f0433769f2c92ec",
@@ -779,7 +779,7 @@
       "docs/screenshots/hybrid-foundation/after-hub-1440x900.png": "585ee5d13fd8c1384b3bb52af19c17129c712256ad334e47015da2244a098269",
       "docs/screenshots/hybrid-foundation/after-introduction-1440x900.png": "c04dabf7cb2636701c94fcf4e7addf21dfd4781e7154758c1144b8d8ac7a525f",
       "docs/screenshots/hybrid-foundation/after-journal-1440x900.png": "90cc75194b49fbc0fb0adfe00447b20c8a2eb98ec24a1ba792eb5f4575e4c2c9",
-      "docs/screenshots/hybrid-foundation/after-portal-handoff-midpoint-1440x900.png": "cdd8557f5cd354a5ce021d9c05c8f9a96e58f8fb8c19195bdaa9bc94c4ac8c9c",
+      "docs/screenshots/hybrid-foundation/after-portal-handoff-midpoint-1440x900.png": "32c8d357ce7420358ba8245a2421db3a5e7c80e1c4e8c9411c57311964f39069",
       "docs/screenshots/hybrid-foundation/after-portal-resource-1440x900.png": "e235f4510995be42e8c8fd705fcdbe23d7385f6f58fd716d1148359df1d0953d",
       "docs/screenshots/hybrid-foundation/after-return-debrief-1440x900.png": "4c94f5a22c4686989df2fb43ac059b04b0e1ccc1fad86778785b0cbe41439850",
       "docs/screenshots/hybrid-foundation/after-studio-1024x500.png": "506ea6eb0a6e3c3aaddc6cb106e427bdfb076a18ee22a92b04354a459c7857d3",
@@ -798,7 +798,7 @@
       "src/content/nb.ts": "c58b79e992eb65d24da07823e3aba77509beb88c59aed69adecb777193a4f37f",
       "src/features/course/course-hub.tsx": "80c23baa01be50bc6ebc2bdba89e845f24d82c49bf35766ef1a5f93e6a59a597",
       "src/features/course/course.tsx": "08b31cc91e45d07672d0eaa75526216bcb34ddc7c98cdf0bb0bb1d8a313d08bb",
-      "src/features/course/experience-motion.tsx": "5c8ef6427813bf9253c9a1af8c2c5ca06e441360592c533aed088115a510acf9",
+      "src/features/course/experience-motion.tsx": "743c9c475226c478d8da192048ee2ef580c462cb96db53f767bcec0814dc693d",
       "src/features/course/hybrid-foundation.css": "e569c07f0ead3afa512acee2606897dec332c8c1dc623b7c0d0e39ad91c13704",
       "src/features/course/hybrid-foundation.test.ts": "13d8708ed9f11d78d76d75403bc5da44c2bef34c452f535c0f1d4e019492c2d3",
       "src/features/course/learning-fonts.ts": "1a8c4f8d1152e8b43dc4550914084aa0895761dad8780deed344741c998e4041",
@@ -807,18 +807,18 @@
       "src/features/learning/compute-vm.tsx": "dc7973a76fd8b7159edded77f661d7117e8388703d6c04a26cd7f2c4e721caa6",
       "src/features/learning/compute-workbench.tsx": "fd60e42270b60098aa572b391378efe54db30764a2de4b5ce3208d35530b6b6c",
       "src/features/learning/refined-assessment.tsx": "49d940161edfe14f010730469dd2f34ae547a830c349c5f877fc508d23a9b8a7",
-      "tests/e2e/hybrid-experience.spec.ts": "8e25823727cba922ff704ef8154f21f27e80caedb55044b4d315b3a2ac7aa7d4"
+      "tests/e2e/hybrid-experience.spec.ts": "078b9c366575a21d7487f1461015d5f20e680c952a821c25b4e778e2318368c9"
     }
   },
-  "implementationFinished": "2026-11-03T05:58:19.004Z",
+  "implementationFinished": "2026-11-03T06:21:27.516Z",
   "review": {
     "status": "complete",
-    "fingerprint": "dc47e02bf221615cf316898a4e16de3fcfb2d9d00a490421fe689e894738bcd9",
+    "fingerprint": "c280513ed503058c98aca603a6dac0a71ac76b76c691776b70f5f9b0e9951214",
     "reviewer": {
       "id": "/root/hybrid51_final_audit",
       "kind": "agent"
     },
-    "started": "2026-11-03T05:59:12Z",
+    "started": "2026-11-03T06:23:58.804Z",
     "domains": {
       "content": {
         "finding": "Original manuscript/source/rubric/model bytes preserved; actual VM copy/closedSource browser check; no new Azure/coverage or human-SME claim.",
@@ -835,7 +835,7 @@
         ]
       },
       "technical": {
-        "finding": "Independent raw320basepath and locale-prefix comparison plus44finalhashes match. Existing stored Run summary/configured distinction and native route/resource/receipt authority retained. Header-aware target-only focus clearance fixed and independently rechecked; motion/portrait never writes evidence.",
+        "finding": "All44 final snapshot hashes and320 raw base paths/locale prefix independently match. Confirmed public async-destination mount MAJOR fixed by current-route-only bounded observer/coalescedframe/lifecycle cleanup, without navigation delay, root transform or learner writes. Six fresh controlled lifetime cases pass.",
         "evidence": [
           {
             "path": "src/features/learning/compute-workbench.tsx"
@@ -852,7 +852,7 @@
         ]
       },
       "visual": {
-        "finding": "Actual before/after and fresh1440/1024short/800compact inspected; real hybrid identity/technical Manrope/editorial serif. Independently found obscured result heading, corrected against measuredheader and rechecked3viewports/Axe0. Actual320ms0/mid/end fullopacity, reduced/unsupported, nativePortal overlays/returns pass. Catalogue density/helpertext and restrained marker remain honest minorlimits.",
+        "finding": "Independent public cold firsthead:3/3Compute and2/3Portal effects queried missingDOM and never retried. Corrected final local six-case readiness/cancel/expiry/reduced probe passes; fresh actual nativeVM0/160/320/fullopacity/header0/reduced/unsupported passes. Home now uses actualvisibleh2. Earlier focus-clearance fix retained; restrainedorientation/density/readability humanlimits remain.",
         "evidence": [
           {
             "path": "src/features/course/hybrid-foundation.css"
@@ -869,7 +869,7 @@
         ]
       },
       "assessment": {
-        "finding": "No historic bank/store/rubric/first/help/retry changes. Fresh800compact real independent draft/denieddurableaid/neutralJournal recovery/exactHubresume/reload preserve rawdraftandtechnicalbytes. RefinedHistory only changes track/version headings; complete Journal remains.",
+        "finding": "Original assessment/rubric/first/help/retry and teaching/Journal guards remain byteprotected. Earlier real denied-durableaid/exactdraft evidence remains valid for unchanged guard code. Six new lifecycle cases confirm enhancement-only whole-localStorage snapshots and actual World/XP unchanged; no new competence or historic rewrite.",
         "evidence": [
           {
             "path": "src/features/learning/refined-assessment.tsx"
@@ -886,7 +886,7 @@
         ]
       },
       "guidance": {
-        "finding": "Fresh nativebriefing Escape creates no guide; explicitStart/portrait hide retains required instructions. Actual nativeVM/Properties/reload/min-reopen and bothreturnlinks retain same guide/nonemptyWorld/XPbytes. CanonicalPNGhash unchanged; rejected3remainblocked,0newapproved/19planned.",
+        "finding": "Canonical native guides/explicitStart/Cancel/portrait and bothreturn mechanisms unchanged from actual independentjourneys. Current-route readiness enhancement cannot open teaching or mutate guidance; live reduced-motion pending/active cancellation rechecked. Originalcharacter only;3rejected/0newapproved/19planned unchanged.",
         "evidence": [
           {
             "path": "src/features/course/savvy-shark.tsx"
@@ -903,7 +903,7 @@
         ]
       },
       "regression": {
-        "finding": "Allold320executions/settings/testbodiespreserved; new329profile300/29. Independent6Vitest/assets/quality and four freshjourneys plus normal/reduced/unsupportedmotion, shortPortalpanels,3viewportpostfix passed. Author fullcheck626/503/20 and affected finalbuild/desktop/compactretetest inspected. Known earlier localtimeouts/PR50Backflake remain; final-headfullCI/strict/externalfullSHA pending.",
+        "finding": "Prior320executions/settings/testbodies preserved; total329(300/29). New normalmotion readiness assertion strengthens existingcase, no count/timeout/retry/worker change. Correctedbuild+ESLint+7desktop/2compact passed; independent6lifetime and freshtemporal/reduced/unsupported probe passed. Initialhead8ffe CI/Gate7 historical only; NEW exact-headfullCI/strict and anonymousnormal/reduced fullSHA Gate7 pending.",
         "evidence": [
           {
             "path": "playwright.desktop.config.ts"
@@ -952,13 +952,26 @@
         "id": "P51-FA-04",
         "severity": "minor",
         "status": "accepted-limitation",
-        "description": "Actual enhanced motion is a restrained destination bracket; clipped Home title makes it tiny. It is not a cinematic or human-validated handoff; laterStage3 remains separate."
+        "description": "Actual motion remains a restrained destination bracket, not a cinematic or human-validated handoff. Former tinyHomeanchor corrected in P51-FA-06; broaderStage3 remains separate."
       },
       {
         "id": "P51-FA-05",
         "severity": "note",
         "status": "accepted-limitation",
-        "description": "Complete exact-head329CI/strict and anonymous fullSHA normal/reduced Gate7 pending; human validation unperformed. Linux metric fallbacks absent; local font/fallback behavior measured, rootpreload is not demonstrated field-performance improvement."
+        "description": "NEW final-head329CI/strict and anonymous fullSHA normal/reduced Gate7 required; initial8ffe head receipts historical only. Human validation unperformed; local font/fallback behavior measured, not a field-performance guarantee."
+      },
+      {
+        "id": "P51-FA-06",
+        "severity": "major",
+        "status": "fixed",
+        "description": "Independent public cold3trials prove one-time route effect could query missing incoming DOM and never retry; local hot temporal checks missed it.",
+        "fix": "Current-route module/area matching, bounded child-list observer and coalescedframe/scroll readiness; cleanup on draw/supersession/expiry/unmount/live reduced-motion. NativeHomeusesactualvisibleheading. No navigationdelay or learning write.",
+        "retests": [
+          "Independent first-head PUBLIC3coldtrials: all3Compute and2of3Portal missingdestination skips recorded; oldheadnotaccepted.",
+          "Poststamp independent6lifetimecases: late/outgoing/superseded/expired/reducedpending/reducedactive; enhancement-only allLocalStorage andWorldXP unchanged.",
+          "Independent correctedlocal actualVM0/160/320ms fullopacity/header0/reduced/unsupported passed.",
+          "Author correctedtypecheckedbuild/ESLint/7desktop+2compact no retry; existingnormalcase strengthens missing-destination recovery."
+        ]
       }
     ],
     "report": {

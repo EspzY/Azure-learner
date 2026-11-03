@@ -212,6 +212,17 @@ test('enhanced normal motion preserves full-opacity text fixed Portal and action
 }) => {
   await seed(page);
   await page.addInitScript(() => {
+    const qa = window as Window & { hybridHoldDestination?: boolean; hybridTargetQueries?: number };
+    qa.hybridHoldDestination = true;
+    qa.hybridTargetQueries = 0;
+    const search = document.querySelector.bind(document);
+    document.querySelector = ((selector: string) => {
+      if (selector === '.portal[data-area]' && qa.hybridHoldDestination) {
+        qa.hybridTargetQueries! += 1;
+        return null;
+      }
+      return search(selector);
+    }) as typeof document.querySelector;
     const animate = Element.prototype.animate;
     Element.prototype.animate = function (frames, options) {
       const a = animate.call(this, frames, options);
@@ -232,6 +243,26 @@ test('enhanced normal motion preserves full-opacity text fixed Portal and action
     .getByRole('link', { name: nb.course.sandbox, exact: false })
     .click();
   await expect(page.locator('.portal-header')).toBeVisible();
+  // Controlled late destination lookup reproduces the independently observed cold
+  // Next/Suspense mount gap. The real Portal remains available throughout.
+  await expect
+    .poll(() =>
+      page.evaluate(
+        () => (window as Window & { hybridTargetQueries?: number }).hybridTargetQueries ?? 0,
+      ),
+    )
+    .toBeGreaterThan(0);
+  expect(
+    await page.locator('.experience-route-mark').evaluate((node) => node.getAnimations().length),
+  ).toBe(0);
+  await page.evaluate(() => {
+    (window as Window & { hybridHoldDestination?: boolean }).hybridHoldDestination = false;
+    const commit = document.createComment('QA destination commit');
+    document.body.appendChild(commit);
+    commit.remove();
+  });
+  await expect(page.locator('.experience-route-mark')).toHaveAttribute('data-running', 'true');
+  await expect(page.locator('.experience-route-mark')).toHaveAttribute('data-mode', 'workspace');
   for (const ms of [0, 160, 320]) {
     const style = await page.evaluate((ms) => {
       const mark = document.querySelector('.experience-route-mark')!;

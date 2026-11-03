@@ -466,5 +466,13 @@
         "animations": 0
       }
     ]
+  },
+  "motionReadiness": {
+    "firstHead": "8ffe331a4c4a6d87152bbbd7f0e64a8cb4d66bb0",
+    "finding": "MAJOR public cold Next/Suspense destination absent at first query; no later animation",
+    "independentReproduction": "Three cold public contexts: Compute3/3skip, Portal2/3skip. Same document and marker retained; normal media and WAAPI available.",
+    "fix": "Current-route bounded DOM child-list observer, coalesced frame measurement, scroll restoration,2sgracefuldeadline; exactcleanup on superseded/reduced context. Homevisibleh2replacesclippedtitle.",
+    "targetedRegression": "All7desktop+2compact passed without retry on rebuilt source, including controlled absent lookup→actualDOMcommit→authored0/mid/end. Separate normal/reduced/unsupported probe passed.",
+    "delivery": "Renewed stamp/review and complete final-headCI/strict/Gate7 required. Initialheadjourneys are historical only."
   }
 }
