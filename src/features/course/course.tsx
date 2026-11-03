@@ -107,7 +107,7 @@ import { ManagementLesson, CoreArchitectureJournal } from '@/features/learning/m
 import { managementTopics, isManagementTopic } from '@/domain/curriculum/architecture-management';
 import { usePractical } from './practical-provider';
 import { practicalHref } from '@/domain/sandbox/practical';
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { ChevronRight, FlaskConical, Menu } from 'lucide-react';
@@ -277,38 +277,41 @@ function CourseWorkspace({ module }: { module?: CourseModule }) {
   const [journal, setJournal] = useState(false),
     [menu, setMenu] = useState(false);
   const labRef = useRef<HTMLElement>(null),
-    debriefRef = useRef<HTMLElement>(null),
-    activityRef = useRef<HTMLDivElement>(null);
-  useEffect(() => {
-    if (
-      !module ||
-      !course.ready ||
-      chooseVersion ||
-      ['lab', 'debrief', 'practical', 'mission'].includes(query.get('activity') ?? '')
-    )
-      return;
-    let settled = 0;
-    const frame = requestAnimationFrame(() => {
-      settled = requestAnimationFrame(() => {
-        const heading = activityRef.current?.querySelector<HTMLElement>(
-          '[data-activity-heading], h2, h3',
-        );
-        if (heading) {
-          heading.tabIndex = -1;
-          const bounds = heading.getBoundingClientRect();
-          // Keep visible context in short lessons; forced scrolling to an already
-          // visible heading can push a sticky sidebar past its parent boundary.
-          if (bounds.top < 84 || bounds.bottom > window.innerHeight - 120)
-            heading.scrollIntoView({ block: 'start', behavior: 'instant' });
-          heading.focus({ preventScroll: true });
-        }
+    debriefRef = useRef<HTMLElement>(null);
+  // Focus belongs to the authorized activity mount, not an earlier route effect.
+  // The teaching boundary may still withhold this DOM after a history change.
+  const focusActivity = useCallback(
+    (element: HTMLDivElement | null) => {
+      if (
+        !element ||
+        !module ||
+        !course.ready ||
+        chooseVersion ||
+        ['lab', 'debrief', 'practical', 'mission'].includes(query.get('activity') ?? '')
+      )
+        return;
+      let settled = 0;
+      const frame = requestAnimationFrame(() => {
+        settled = requestAnimationFrame(() => {
+          const heading = element.querySelector<HTMLElement>('[data-activity-heading], h2, h3');
+          if (heading && element.isConnected) {
+            heading.tabIndex = -1;
+            const bounds = heading.getBoundingClientRect();
+            // Keep visible context in short lessons; forced scrolling to an already
+            // visible heading can push a sticky sidebar past its parent boundary.
+            if (bounds.top < 84 || bounds.bottom > window.innerHeight - 120)
+              heading.scrollIntoView({ block: 'start', behavior: 'instant' });
+            heading.focus({ preventScroll: true });
+          }
+        });
       });
-    });
-    return () => {
-      cancelAnimationFrame(frame);
-      cancelAnimationFrame(settled);
-    };
-  }, [module, topic, course.ready, chooseVersion, query]);
+      return () => {
+        cancelAnimationFrame(frame);
+        cancelAnimationFrame(settled);
+      };
+    },
+    [module, course.ready, chooseVersion, query],
+  );
   useEffect(() => {
     if (module && course.ready && !chooseVersion)
       course.store.update({ ...course.store.getSnapshot().save, resume: { module, topic } });
@@ -1413,7 +1416,7 @@ function CourseWorkspace({ module }: { module?: CourseModule }) {
                     </button>
                   </p>
                 )}
-                <div ref={activityRef} className="course-activity">
+                <div ref={focusActivity} className="course-activity">
                   <CourseJourneyContext
                     module={module}
                     topic={topic}

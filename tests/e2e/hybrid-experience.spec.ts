@@ -321,6 +321,7 @@ test('hybrid actual Hub and theory retain exact independent resume and denied du
   }, refinedKeys.benefits);
   await page.goto('/learn/compute?topic=vm');
   await expect(page.locator('.compute-theory')).toHaveCount(0);
+  await expect(page.locator('.course-activity')).toHaveCount(0);
   await page.getByRole('button', { name: nb.course.journal, exact: true }).click();
   await expect(page.getByRole('dialog').locator('.compute-theory')).toHaveCount(0);
   await expect(page.getByRole('dialog').locator('.course-storage').first()).toBeVisible();
@@ -365,6 +366,11 @@ test('hybrid desktop compact type keyboard native Journal short-height and reduc
   expect(
     await page.locator('.experience-route-mark').evaluate((e) => getComputedStyle(e).display),
   ).toBe('none');
+  const pathControl = page.locator('button[aria-controls="course-path-architecture"]');
+  await pathControl.hover();
+  expect(await pathControl.evaluate((el) => getComputedStyle(el).backgroundColor)).toBe(
+    'rgb(41, 73, 94)',
+  );
   await noOverflow(page);
   await axe(page);
 });

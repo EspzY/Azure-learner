@@ -76,6 +76,9 @@
 .course-hybrid .course-navigation :is(button, .course-sidebar-note) {
   color: #c5d6e2;
 }
+.course-hybrid .course-navigation button {
+  background: transparent;
+}
 .course-hybrid .course-tree-path h2 {
   background: #142b3d;
 }
@@ -91,6 +94,11 @@
 .course-hybrid .course-navigation :is(a[aria-current], button:hover, a:hover) {
   background: #29495e;
   color: #fff;
+}
+.course-hybrid .course-navigation button:hover:not(:disabled) {
+  background: #29495e;
+  color: #fff;
+  border-color: #496070;
 }
 .course-hybrid .course-navigation :is(a, button):focus-visible {
   outline-color: #8ddbed;
