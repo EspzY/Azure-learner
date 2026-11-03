@@ -62,7 +62,8 @@ for (const [width, height] of [
     await expect(explorer.getByRole('status')).toContainText(nb.portal.responsibility.customer);
     await expect(
       explorer.getByRole('link', { name: nb.expansion.common.recapDeep, exact: true }),
-    ).toHaveAttribute('href', '/learn/services?topic=overview');
+    ).toHaveCount(0);
+    await expect(explorer).toContainText(nb.expansion.common.recapNote);
     expect(
       await page.evaluate(() => localStorage.getItem('azurelab.portal.learning.v1')),
     ).toBeNull();

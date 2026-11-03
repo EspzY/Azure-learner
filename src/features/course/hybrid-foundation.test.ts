@@ -1,5 +1,6 @@
 import { expect, it } from 'vitest';
 import { readFileSync } from 'node:fs';
+import { execFileSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
 import pd01 from '../../../docs/reviews/evidence/pr52-preservation.json';
 import owner from '../../../docs/reviews/evidence/pr51-owner-preservation.json';
@@ -23,10 +24,23 @@ it('preserves the original learning domains, stores, rubrics, teaching and techn
     [
       'src/features/course/course-sidebar.tsx',
       'src/features/learning/foundations-visuals.tsx',
+      'src/features/learning/responsibility-recap.tsx',
     ].sort(),
   );
   for (const [path, expected] of Object.entries(proof.files)) {
     if (owner.authorizedChanges.includes(path)) continue;
+    if (path === 'src/features/learning/responsibility-recap.tsx') {
+      const original = execFileSync('git', ['show', `${pd01.base}:${path}`], {
+        encoding: 'utf8',
+      });
+      expect(hash(Buffer.from(original)), path).toBe(expected);
+      expect(readFileSync(path, 'utf8'), path).toBe(
+        original
+          .replace("import Link from 'next/link';\n", '')
+          .replace('      <Link href="/learn/services?topic=overview">{c.recapDeep}</Link>\n', ''),
+      );
+      continue;
+    }
     if (Object.hasOwn(pd01.authorizedPresentationChanges, path)) continue;
     expect(hash(readFileSync(path)), path).toBe(expected);
   }

@@ -1,4 +1,36 @@
-# PD-01 Stage A — Cloud Computing
+# Cloud Computing — pedagogical consolidation
+
+## Final learning-navigation cleanup — 3 November 2026
+
+The owner retains the six sessions, flat sidebar, original part headings and compact framing. This final correction removes three competing detours rather than changing the curriculum or creating a new menu:
+
+- ResponsibilityRecap's link to later Service Types overview is removed. Its existing note already says that the full comparison follows in module3. The complete original state, controls, responsibility calculation and explanations remain; only the Link import and that Link line differ.
+- The shared teaching-page `related-transfer`/TransferEntry wrapper is removed. It repeated the same bank on ordinary Computing, Benefits and Services pages. All three already end in their own canonical transfer activity; those sequences and Hub discovery are unchanged.
+- The six composed Cloud Computing sessions no longer append RelatedActivities. The original single disclosure at the closing `resource-bridge` activity remains: optional independent assessment and previous observations, each with its original purpose text. The footer owns recommended Next/Fortsett; the global Journal remains available. No replacement submenu or large panel is added.
+
+| Preserved destination                                 | Intended discovery and behavior                                                                                                                                               |
+| ----------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `/learn/computing?topic=v2-assessment`                | Optional local knowledge/application check from closing Portal-practice activity; opens its existing explicit Start, never begins by link.                                    |
+| `/learn/computing?topic=v2-summary`                   | Previous observations from that same closing choice; original versioned evidence and teaching boundary.                                                                       |
+| `/learn/computing?topic=transfer`                     | Last recommended Cloud Computing activity after Serverless and Portal practice; existing sidebar/footer and optional Hub discovery. Original cases and explicit Start remain. |
+| `/learn/benefits?topic=transfer`                      | Existing Benefits Summary→transfer ending and explicit Hub discovery.                                                                                                         |
+| `/learn/services?topic=transfer`                      | Existing modern Services Summary→transfer ending, Hub discovery and all old direct/version routes.                                                                            |
+| `/learn/services?topic=overview`                      | Normal later Service Types module entry and free catalogue navigation; no longer an unsolicited Cloud Computing recap shortcut.                                               |
+| All original topics/anchors/resume and global Journal | Unchanged parsers/stores/guards; direct access remains voluntary and does not grant credit.                                                                                   |
+
+Targeted inspection found the exact shared TransferEntry repetition in Benefits/Services, so its removal is included. Their own same-module assessment/history links, teaching, practical missions, TransferPreparation explanations, summaries and recommended module boundaries are untouched. No broader module consolidation is inferred.
+
+Actual7ef public baseline and candidate screenshots at1440×900/1024×500 show both repeated secondary disclosure rows gone from ordinary session endings; the recap's premature cross-module link is gone. Source disclosure and original synthesis remain. These are navigation-noise observations, not measured learning improvements.
+
+| Before7ef                                                                                                                               | Final navigation candidate                                                                                                                             |
+| --------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| ![Recap sends the learner to later Service Types](screenshots/cloud-consolidation/final-nav-before-v2-responsibility-1440x900.png)      | ![Original recap with existing later-module explanation and no detour](screenshots/cloud-consolidation/final-nav-after-v2-responsibility-1440x900.png) |
+| ![Repeated optional destinations at a normal session ending](screenshots/cloud-consolidation/final-nav-before-v2-metering-1440x900.png) | ![Original synthesis, sources and one recommended continuation](screenshots/cloud-consolidation/final-nav-after-v2-metering-1440x900.png)              |
+| ![Competing secondary rows in a short window](screenshots/cloud-consolidation/final-nav-before-v2-metering-1024x500.png)                | ![Short-window ending without repeated detours](screenshots/cloud-consolidation/final-nav-after-v2-metering-1024x500.png)                              |
+
+Preservation: all162 original domain files, entire locale, Foundations presenter, chapter metadata, course navigation, transfer presenter/bank, expanded modules and Hub remain byte-identical. The previous354 protected paths become353 only because the explicitly authorized recap Link removal changes that presenter; an exact normalized whole-file comparison proves its model/body unchanged. Original source IDs/URLs, schema2/3, first/help/retry/abandon, guided observations, World/commands/receipts/XP and sequence remain frozen.
+
+Tests retain all349 prior executions and every old first/assistance/history assertion. Historical Back tests now reach the assessment through the real closing entry and additionally return to their original provisioning address; no deleted shortcut is recreated. The original full journey visits the closing practical activity before its optional observations link. One new closing-choice case, run on desktop and distinct compact viewport, gives351(318/33), optional legacy636. Full check, renewed stamp/separate review, exact-head complete CI/strict and actual anonymous new-SHA Gate7 are pending for this correction. Earlier7ef success is dated evidence only. Known Compute help/Back assertion310 instability remains open unless actually diagnosed; no timeout/retry/skip change. Broader stages, PR53, P17/P18 and human validation remain outside scope.
 
 ## Owner acceptance refinement — 3 November 2026
 

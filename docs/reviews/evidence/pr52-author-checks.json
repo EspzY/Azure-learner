@@ -559,5 +559,227 @@
       "covers": "flat six-session menu/no part row; historical fragments, original topic/reload/resume; incomplete-debrief→lab focus; native keyboard/reduced motion/Axe; technical bytes unchanged",
       "timeoutsRetriesWorkersSkips": "unchanged"
     }
+  },
+  "finalNavigation": {
+    "parent": "7ef55815c59ee04cdb6b153f322b64428878d50c",
+    "runtimeScope": [
+      "src/features/course/course.tsx",
+      "src/features/learning/cloud-computing-chapter.tsx",
+      "src/features/learning/responsibility-recap.tsx"
+    ],
+    "preservedPaths": 353,
+    "recap": {
+      "exactChange": "Only Link import and one cross-module Link removed; all original state/buttons/responsibility function/body/note remain byte-identical.",
+      "beforeSHA256": "958dd696e08b240f54830ef69e583b065d77c443c066752863620719f7831fd6",
+      "afterSHA256": "73f1fc0f5ea47de85a9bb61ad421a3d79c8b9b46ce25a083426274a5e847c21c",
+      "normalizedOriginalBodyEqual": true
+    },
+    "unchanged": [
+      "src/content/nb.ts",
+      "src/features/learning/foundations-v2.tsx",
+      "src/features/course/cloud-computing-chapters.ts",
+      "src/features/course/course-navigation.tsx",
+      "src/features/learning/cloud-transfer.tsx",
+      "src/features/learning/expanded-module.tsx",
+      "src/features/course/course-hub.tsx"
+    ],
+    "targets": {
+      "optionalAssessment": "/learn/computing?topic=v2-assessment",
+      "observations": "/learn/computing?topic=v2-summary",
+      "closingChoiceLocation": "/learn/computing?topic=resource-bridge",
+      "canonicalTransfer": [
+        "/learn/computing?topic=transfer",
+        "/learn/benefits?topic=transfer",
+        "/learn/services?topic=transfer"
+      ],
+      "globalJournal": "unchanged global button; original durable teaching boundary"
+    },
+    "checks": "pending",
+    "ci": "pending new head",
+    "gate7": "pending new head",
+    "humanValidation": "unperformed",
+    "focused": {
+      "result": "passed",
+      "passed": 5,
+      "duration": "35.9s",
+      "desktop": 4,
+      "compact": 1,
+      "log": "focused.log",
+      "covers": "all14 Next/Previous; early missing detours; existing closing assessment/history links; all three module-local terminal transfer routes; real same-document closing-entry Back/native fallback/denied write; no automatic attempts, source or technical changes."
+    },
+    "visual": {
+      "before": {
+        "base": "https://azure-learner-git-codex-az900-cloud-comp-3bf852-espzys-projects.vercel.app",
+        "phase": "before",
+        "rows": [
+          {
+            "topic": "v2-responsibility",
+            "width": 1440,
+            "height": 900,
+            "screenshot": "before-v2-responsibility-1440x900.png",
+            "chapterRelated": 1,
+            "repeatedTransfer": 1,
+            "chapterServicesLinks": 1,
+            "chapterOptionalLinks": [
+              {
+                "text": "Gå til selvstendig vurdering",
+                "href": "/learn/computing?topic=v2-assessment"
+              },
+              {
+                "text": "Se dine observasjoner",
+                "href": "/learn/computing?topic=v2-summary"
+              }
+            ],
+            "scrollWidth": 1440,
+            "innerWidth": 1440
+          },
+          {
+            "topic": "v2-metering",
+            "width": 1440,
+            "height": 900,
+            "screenshot": "before-v2-metering-1440x900.png",
+            "chapterRelated": 1,
+            "repeatedTransfer": 1,
+            "chapterServicesLinks": 0,
+            "chapterOptionalLinks": [
+              {
+                "text": "Gå til selvstendig vurdering",
+                "href": "/learn/computing?topic=v2-assessment"
+              },
+              {
+                "text": "Se dine observasjoner",
+                "href": "/learn/computing?topic=v2-summary"
+              }
+            ],
+            "scrollWidth": 1440,
+            "innerWidth": 1440
+          },
+          {
+            "topic": "v2-metering",
+            "width": 1024,
+            "height": 500,
+            "screenshot": "before-v2-metering-1024x500.png",
+            "chapterRelated": 1,
+            "repeatedTransfer": 1,
+            "chapterServicesLinks": 0,
+            "chapterOptionalLinks": [
+              {
+                "text": "Gå til selvstendig vurdering",
+                "href": "/learn/computing?topic=v2-assessment"
+              },
+              {
+                "text": "Se dine observasjoner",
+                "href": "/learn/computing?topic=v2-summary"
+              }
+            ],
+            "scrollWidth": 1024,
+            "innerWidth": 1024
+          }
+        ]
+      },
+      "after": {
+        "base": "http://127.0.0.1:3210",
+        "phase": "after",
+        "rows": [
+          {
+            "topic": "v2-responsibility",
+            "width": 1440,
+            "height": 900,
+            "screenshot": "after-v2-responsibility-1440x900.png",
+            "chapterRelated": 0,
+            "repeatedTransfer": 0,
+            "chapterServicesLinks": 0,
+            "chapterOptionalLinks": [],
+            "scrollWidth": 1440,
+            "innerWidth": 1440
+          },
+          {
+            "topic": "v2-metering",
+            "width": 1440,
+            "height": 900,
+            "screenshot": "after-v2-metering-1440x900.png",
+            "chapterRelated": 0,
+            "repeatedTransfer": 0,
+            "chapterServicesLinks": 0,
+            "chapterOptionalLinks": [],
+            "scrollWidth": 1440,
+            "innerWidth": 1440
+          },
+          {
+            "topic": "v2-metering",
+            "width": 1024,
+            "height": 500,
+            "screenshot": "after-v2-metering-1024x500.png",
+            "chapterRelated": 0,
+            "repeatedTransfer": 0,
+            "chapterServicesLinks": 0,
+            "chapterOptionalLinks": [],
+            "scrollWidth": 1024,
+            "innerWidth": 1024
+          }
+        ]
+      },
+      "inspected": [
+        "before-v2-metering-1024x500",
+        "after-v2-metering-1024x500",
+        "before-v2-responsibility-1440x900",
+        "after-v2-responsibility-1440x900",
+        "before-v2-metering-1440x900",
+        "after-v2-metering-1440x900"
+      ]
+    },
+    "preservationResult": {
+      "result": "passed",
+      "protectedPaths": 353,
+      "domainFiles": 162,
+      "fullLocale": "byte-identical",
+      "parentFileChecks": 7
+    },
+    "domainTarget": {
+      "passed": 11,
+      "files": 2,
+      "log": "domain-target.log"
+    },
+    "regression": {
+      "passed": 12,
+      "duration": "2.2m",
+      "log": "regression.log",
+      "covers": "all historical URLs/live original model/Back Forward/reload/v1; source union/causal teaching; Computing, Benefits and Services transfer firsts/help/retry; denied assistance/Journal; guided PaaS; full actual RG/Policy/Plan/App/debrief/independent journey; original recap controls with removed early link."
+    },
+    "initialFullCheck": {
+      "result": "failed at lint",
+      "log": "check-initial.log",
+      "finding": "Removing the TransferEntry wrapper left its ownerAcceptanceNb alias unused. Removed that dead import; no runtime behavior or assertion changed. Fresh fullcheck required."
+    },
+    "secondFullCheck": {
+      "result": "failed",
+      "log": "check-preservation-and-timeouts.log",
+      "staticFinding": "Prior hybrid whole-file guard rejected owner-authorized recap Link removal. Replaced only that path guard with pinned original hash+exact normalized body equality; every other protected assertion remains.",
+      "unchangedTimeouts": [
+        "access-control additive generic-role test exceeded5000ms",
+        "identity-foundations pause/milestone/terminal reserve test exceeded5000ms"
+      ],
+      "cause": "No domain bytes changed; precise timeout cause unconfirmed. Targeted unchanged checks and fresh fullcheck required, no settings change."
+    },
+    "preservationAndTimeoutFollowup": {
+      "result": "passed",
+      "tests": 56,
+      "files": 3,
+      "duration": "1.41s",
+      "log": "preservation-domain-followup.log",
+      "settingsChanged": false,
+      "limit": "Earlier two timeout causes remain unconfirmed; unchanged isolated pass is non-reproduction, not a domain fix. Exact recap-normalization guard now passes."
+    },
+    "fullCheck": {
+      "result": "passed",
+      "exit": 0,
+      "vitest": 638,
+      "curriculumSubset": 503,
+      "node": 24,
+      "productionBuild": "passed",
+      "log": "check.log",
+      "priorFailuresRetained": ["check-initial.log", "check-preservation-and-timeouts.log"],
+      "settingsChanged": false
+    }
   }
 }

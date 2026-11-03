@@ -6,6 +6,10 @@ import baseline from './playwright.config';
 const compactCases = [
   [
     'cloud-owner-navigation.spec.ts',
+    'closing Cloud Computing choices distinguish voluntary assessment observations and recommended transfer without starting attempts',
+  ],
+  [
+    'cloud-owner-navigation.spec.ts',
     'owner flat Cloud Computing navigation short desktop keyboard reduced motion and Axe expose actual teaching without nested menus or credit',
   ],
   [

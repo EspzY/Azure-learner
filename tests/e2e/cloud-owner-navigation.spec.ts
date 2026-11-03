@@ -1,5 +1,7 @@
 import { test, expect } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
+import { nb, ownerAcceptanceNb as owner } from '../../src/content/nb';
+import { transferKey } from '../../src/domain/curriculum/transfer';
 import { cloudChapters } from '../../src/features/course/cloud-computing-chapters';
 import { foundationsV2Key, restoreV2, v2Facts } from '../../src/domain/curriculum/foundations-v2';
 const technical = (page: import('@playwright/test').Page) =>
@@ -35,6 +37,9 @@ test('owner flat Cloud Computing navigation short desktop keyboard reduced motio
       ),
     ).toHaveCount(0);
     await expect(page.getByText('Deler i økten', { exact: true })).toHaveCount(0);
+    await expect(page.locator('.cloud-chapter .related-activities, .related-transfer')).toHaveCount(
+      0,
+    );
     for (const [i, chapter] of cloudChapters.entries())
       await expect(page.locator('#course-activities-computing > li > a').nth(i)).toHaveText(
         chapter.title,
@@ -103,5 +108,76 @@ test('historical chapter fragment addresses focus their original sections and ig
   await expect(page.locator('#practical-lab')).toBeInViewport();
   expect((await facts(page)).submissions).toEqual([]);
   expect((await facts(page)).active).toBe(false);
+  expect(await technical(page)).toEqual(before);
+});
+
+test('closing Cloud Computing choices distinguish voluntary assessment observations and recommended transfer without starting attempts', async ({
+  page,
+}, info) => {
+  if (info.project.name === 'desktop-chromium')
+    await page.setViewportSize({ width: 1440, height: 900 });
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  await page.goto('/learn/computing?topic=resource-bridge');
+  await expect.poll(async () => (await facts(page)).visited('resource-bridge')).toBe(true);
+  const before = await technical(page);
+  const choice = page.locator('.related-activities');
+  await expect(choice).toHaveCount(1);
+  await expect(choice).not.toHaveAttribute('open');
+  const saved = await page.evaluate((key) => localStorage.getItem(key), foundationsV2Key);
+  await choice.locator('summary').focus();
+  await page.keyboard.press('Enter');
+  await expect(choice).toHaveAttribute('open');
+  expect(await page.evaluate((key) => localStorage.getItem(key), foundationsV2Key)).toBe(saved);
+  await expect(choice).toContainText(owner.assessmentPurpose);
+  await expect(choice).toContainText(owner.observationsPurpose);
+  await expect(choice.getByRole('link', { name: owner.assessment, exact: true })).toHaveAttribute(
+    'href',
+    '/learn/computing?topic=v2-assessment',
+  );
+  await expect(choice.getByRole('link', { name: owner.observations, exact: true })).toHaveAttribute(
+    'href',
+    '/learn/computing?topic=v2-summary',
+  );
+  await expect(page.locator('.course-nav-next a')).toHaveCount(1);
+  await expect(page.locator('.course-nav-next a')).toHaveAttribute(
+    'href',
+    '/learn/computing?topic=transfer',
+  );
+  expect((await new AxeBuilder({ page }).analyze()).violations).toEqual([]);
+  await page.screenshot({ path: info.outputPath('closing-secondary-choices.png') });
+  await choice.getByRole('link', { name: owner.assessment, exact: true }).click();
+  await expect(page).toHaveURL(/topic=v2-assessment$/);
+  await expect(
+    page.getByRole('button', { name: nb.foundationsV2.beginAssessment, exact: true }),
+  ).toBeVisible();
+  expect((await facts(page)).active).toBe(false);
+  await page.goBack();
+  await expect(page).toHaveURL(/topic=resource-bridge$/);
+  await page.locator('.related-activities summary').click();
+  await page.getByRole('link', { name: owner.observations, exact: true }).click();
+  await expect(page).toHaveURL(/topic=v2-summary$/);
+  await page.goBack();
+  await expect(page).toHaveURL(/topic=resource-bridge$/);
+  await page.locator('.course-nav-next a').click();
+  await expect(page).toHaveURL(/topic=transfer$/);
+  await expect(page.locator('.transfer-workspace')).toBeVisible();
+  await expect(page.locator('.course-nav-next a')).toHaveAttribute(
+    'href',
+    '/learn/benefits?topic=availability',
+  );
+  await page.reload();
+  await expect(page.locator('.transfer-workspace')).toBeVisible();
+  expect(
+    await page.evaluate(
+      (key) => JSON.parse(localStorage.getItem(key) ?? '{"events":[]}').events,
+      transferKey,
+    ),
+  ).toEqual([]);
+  expect((await facts(page)).active).toBe(false);
+  expect((await facts(page)).submissions).toEqual([]);
+  await page.getByRole('button', { name: nb.course.journal, exact: true }).click();
+  await expect(page.getByRole('dialog')).toBeVisible();
+  await page.keyboard.press('Escape');
+  await expect(page.getByRole('button', { name: nb.course.journal, exact: true })).toBeFocused();
   expect(await technical(page)).toEqual(before);
 });

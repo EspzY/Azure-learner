@@ -5,7 +5,6 @@ import { SavvyShark } from '@/features/course/savvy-shark';
 import { FoundationsV2, foundationsSources } from './foundations-v2';
 import { useFoundationsV2 } from './v2-provider';
 import { SourceDisclosure } from './source-disclosure';
-import { RelatedActivities } from './related-activities';
 import './cloud-computing-chapter.css';
 
 /** Composes unchanged teaching/mechanisms; never synthesizes completion or evidence. */
@@ -57,10 +56,6 @@ export function CloudComputingChapter({ topic }: { topic: string }) {
       </section>
       <p className="source-context">{nb.foundationsVisuals.sourceNote}</p>
       <SourceDisclosure entries={entries} />
-      <RelatedActivities
-        assessment="/learn/computing?topic=v2-assessment"
-        observations="/learn/computing?topic=v2-summary"
-      />
     </article>
   );
 }

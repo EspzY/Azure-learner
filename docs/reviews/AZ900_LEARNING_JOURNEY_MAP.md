@@ -1,3 +1,7 @@
+## PR52 final owner navigation — 3 November2026
+
+The six Cloud Computing sessions and14-entry sequence are unchanged. Ordinary sessions no longer offer the recap→later Services shortcut, repeated assessment/history disclosures or the shared transfer-bank detour. The original optional knowledge check/previous observations remain once at closing resource-bridge; canonical transfer remains the next/final activity. Benefits/Services retain their original Summary→transfer boundaries without repeated teaching-page transfer wrapper. Hub/direct/version/resume access and all evidence contracts remain. [Destinations and actual before/after](../CLOUD_COMPUTING_CONSOLIDATION.md#final-learning-navigation-cleanup--3-november-2026). This supersedes only prior presentation descriptions; dated audit observations remain historical, not erased.
+
 # AZ-900 — faktisk Learning Journey Map
 
 **Revisjonsbase:** `4732f93dfcdd233dcb6d7acc2a4838ba7a292141`, 1. november 2026. [Hovedfunn](AZ900_END_TO_END_AUDIT.md) · [Tiltak og akseptanse](AZ900_REMEDIATION_PLAN.md) · [Alle kanoniske ruter, familier og målemetode](evidence/audit42.json).

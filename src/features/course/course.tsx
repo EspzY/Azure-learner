@@ -1,5 +1,4 @@
 'use client';
-import { ownerAcceptanceNb as acceptance } from '@/content/nb';
 import { missionContextLabel } from './mission-context';
 import { useApplication } from '@/features/learning/application-provider';
 import { applicationHref } from '@/domain/curriculum/application-transfer';
@@ -100,7 +99,7 @@ import { useMissions } from './mission-provider';
 import { MissionActivity } from './missions';
 import { missionOrigin } from '@/domain/sandbox/missions';
 import { ManagementTeachingBoundary } from '@/features/learning/management-access';
-import { TransferAssessment, TransferEntry } from '@/features/learning/cloud-transfer';
+import { TransferAssessment } from '@/features/learning/cloud-transfer';
 import { useTransfer } from '@/features/learning/transfer-provider';
 import { transferHref } from '@/domain/curriculum/transfer';
 import { transferNb } from '@/content/nb';
@@ -1875,26 +1874,6 @@ function CourseWorkspace({ module }: { module?: CourseModule }) {
                     </Link>
                   </nav>
                 )}
-                {module !== 'compute' &&
-                  module !== 'networking' &&
-                  module !== 'storage' &&
-                  module !== 'migration' &&
-                  module !== 'security' &&
-                  module !== 'monitoring' &&
-                  module !== 'management-tools' &&
-                  module !== 'governance' &&
-                  module !== 'access-control' &&
-                  module !== 'identity' &&
-                  module !== 'storage-resilience' &&
-                  module !== 'connectivity' &&
-                  module !== 'cost' &&
-                  module !== 'architecture' &&
-                  topic !== 'transfer' && (
-                    <details className="related-transfer">
-                      <summary>{acceptance.transferActivities}</summary>
-                      <TransferEntry module={module} />
-                    </details>
-                  )}
                 {labTopic && !chooseVersion && !serviceChoice && (
                   <section
                     className="course-lab"

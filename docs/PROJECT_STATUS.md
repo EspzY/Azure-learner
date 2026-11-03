@@ -1,3 +1,7 @@
+## PR52 final learning-navigation cleanup candidate
+
+Owner keeps six Cloud Computing sessions and removes early Service Types/assessment detours. Only three presenter removals; existing closing practical choices, terminal transfer, direct/version/resume routes and every learning/technical authority remain. [Destination contract and before/after](CLOUD_COMPUTING_CONSOLIDATION.md#final-learning-navigation-cleanup--3-november-2026).351-profile exact-headCI/strict and new anonymousSHA Gate7 require fresh author check/stamp/separate review; prior7ef delivery is historical. Known Compute help/Back instability and human validation remain open. Same Draft52, no broader stages/PR53/P17/P18/merge/production.
+
 ## PR52 owner refinement candidate — 3 November2026
 
 Owner approves six-session pedagogy and requires removal of sidebar part submenus and top part-link rows. Same Draft52 on verified1239 head: flat14-entry ordinary journey, scoped compact context, preserved original section/fragment/topic/resume compatibility. [Current implementation and actual before/after](CLOUD_COMPUTING_CONSOLIDATION.md#owner-acceptance-refinement--3-november-2026). Retain346 prior browsers plus2desktop/1compact→349(317/32). Fresh fullcheck/audit/stamp/exact-headCI/strict/anonymousGate7 pending for this correction; prior1239 success remains historical evidence. Every domain/store/source/rubric/World/receipt/XP contract remains frozen. No PR53, broaderPD01, Stage2–5, P17/P18, merge or production.

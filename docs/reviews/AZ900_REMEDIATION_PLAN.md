@@ -1,3 +1,7 @@
+## PR52 final owner navigation cleanup — 3 November2026
+
+The six sessions/flat sidebar remain. Early recap→Services link and repeated teaching-page transfer entries are removed; the six basic sessions no longer repeat assessment/history disclosures. Original optional local check/observations remain once at closing Portal practice; terminal transfer and Hub/direct discovery remain. [Exact preserved destinations and actual before/after](../CLOUD_COMPUTING_CONSOLIDATION.md#final-learning-navigation-cleanup--3-november-2026).353 whole-file paths remain protected plus exact recap-model normalization; all domain/locale/source/rubric/evidence bytes remain. Retain349 earlier executions, new1desktop+1compact→351(318/33). Fresh fullcheck/stamp/independent audit/exact-headCI/strict/publicSHA Gate7 pending for this correction. Previous7ef success remains historical. Known Compute assertion310 flake, broaderPD01/AS02/PR01B/C and human validation remain open; no wider rollout/PR53/P17/P18/merge/production.
+
 # PR51 — selected hybrid production foundation
 
 The owner has approved the PR50 hybrid direction. The first in-place Course Hub/shell/Compute/Portal vertical rollout is described in [HYBRID_PRODUCTION_FOUNDATION](../HYBRID_PRODUCTION_FOUNDATION.md); final329CI/strict/anonymousSHA and independent audit are required on Draft PR51. This does not close broader PD-01, AS-02 or PR-01 StageB/C. Character production remains blocked pending a controlled master; stages2–5 are separate. Original audit findings and dated fixes below are preserved.

@@ -219,6 +219,8 @@ test('ordinary root delivers the whole v2 course, preserved objectives, actual l
     }
     await section.getByRole('button', { name: f.check, exact: true }).click();
   }
+  // Whole-course voluntary choices live at its existing closing practical activity.
+  await step(page, 'resource-bridge');
   await page.locator('.related-activities summary').click();
   await page.getByRole('link', { name: acceptance.observations, exact: true }).click();
   await expect(page.getByText(t.complete, { exact: true })).toBeVisible();

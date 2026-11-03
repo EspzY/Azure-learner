@@ -50,6 +50,13 @@ test('consolidated Cloud Computing follows fourteen meaningful entries with pres
   for (let i = 0; i < cloudRecommendedTopics.length; i++) {
     const topic = cloudRecommendedTopics[i]!;
     await expect(page.locator('.cloud-chapter-parts')).toHaveCount(0);
+    await expect(page.locator('.related-transfer')).toHaveCount(0);
+    if (i < 6) {
+      await expect(page.locator('.cloud-chapter .related-activities')).toHaveCount(0);
+      await expect(
+        page.locator('.cloud-chapter a[href="/learn/services?topic=overview"]'),
+      ).toHaveCount(0);
+    }
     await expect(page).toHaveURL(new RegExp(`topic=${topic}`));
     await expect(page.locator('.course-nav-context')).toContainText(`${i + 1} av 14`);
     if (i > 0)
