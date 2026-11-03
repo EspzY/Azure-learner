@@ -522,7 +522,6 @@
     "tests/e2e/serverless.spec.ts",
     "tests/e2e/storage-resilience.spec.ts",
     "tests/e2e/storage-services.spec.ts",
-    "tests/e2e/ux-refinement.spec.ts",
     "tests/e2e/visual-excellence.spec.ts"
   ],
   "gates": {
@@ -613,7 +612,7 @@
     {
       "command": "npm run test:e2e:desktop",
       "result": "pending",
-      "details": "337 complete final candidate:307desktop+30compact, all329 earlier executions retained."
+      "details": "First owner-correction head ran337:336passed/1legacy active-resume expectation failed. Test now preserves archived draft/no-submit and explicit-practice semantics required by owner; no settings changed. Full successor337CI pending."
     }
   ],
   "visualEvidence": [
@@ -764,7 +763,7 @@
       "docs/DEVELOPMENT_WORKFLOW.md": "73b605f35f3fd8e8c16222928f0e5f98d4f09db7ecf728ce8fd94da11e7338b7",
       "docs/EXPERIENCE_DESIGN.md": "3a1bd2d6f44b120748865659e31bc6244d448fc431e024e3b8de409e84d3ca21",
       "docs/HYBRID_PRODUCTION_FOUNDATION.md": "72a9205238fde45a501aa2685ff36ebc385eebc4fee2d5ac3e1c657466257982",
-      "docs/PR51_OWNER_ACCEPTANCE.md": "acdf3415883ce67ffc2c5988fed996e370739bc2e5311e8359cf71b8b413f8e4",
+      "docs/PR51_OWNER_ACCEPTANCE.md": "a903b9c794a19f5d67348416581c5896a562d87e211a3b78ca9d070b7d3e73fb",
       "docs/VISUAL_EXCELLENCE.md": "7f23bd7e26637e2fa2ecd296fa061a1eca11d68597e970984e9a7195e660c1fc",
       "docs/reviews/AZ900_REMEDIATION_PLAN.md": "b6508dec0279e84cbdf33c0967e8806182f59a87f111118297c12bd67dca3a95",
       "docs/reviews/evidence/hybrid51-author-browser.json": "efbf6262af8a9ae458aa6dcdbc726f87742f352f36ab0c143f0a79b549a03a88",
@@ -829,18 +828,19 @@
       "src/features/learning/source-disclosure.test.ts": "b1c63396ce861e711f32ab89064697a1440ca49676939db91774857190c01abf",
       "tests/e2e/foundations-v2.spec.ts": "4051230a40cac1d893d95382c60a4bf7865d3d5f73f80c22dd5dd69cfcbd93da",
       "tests/e2e/hybrid-experience.spec.ts": "15d19dd7cdc842a2dda874e4c4b1502282fe2049cb345c215bb8ae398a17715d",
-      "tests/e2e/owner-acceptance.spec.ts": "19ce216fc801c12f1776a0b054c1f95bea69c245be69d5a1f5c90469bc7daeda"
+      "tests/e2e/owner-acceptance.spec.ts": "19ce216fc801c12f1776a0b054c1f95bea69c245be69d5a1f5c90469bc7daeda",
+      "tests/e2e/ux-refinement.spec.ts": "cd3f44873a40d1a4d990041d281f70aefbce2b373bf441fa749d0e3527cb2688"
     }
   },
-  "implementationFinished": "2026-11-03T10:13:56.368Z",
+  "implementationFinished": "2026-11-03T10:52:27.934Z",
   "review": {
     "status": "complete",
-    "fingerprint": "9ccaf93bb7e75dab3f02314654fa922d8dd494e96846a99c69d8fea3bd5f3028",
+    "fingerprint": "66ae4fc48e1ddb366860677fad4d6d1f2a733974d7c24a3d6d2462d33daaf01f",
     "reviewer": { "id": "/root/pr51_owner_final_audit", "kind": "agent" },
-    "started": "2026-11-03T10:14:49.413Z",
+    "started": "2026-11-03T10:53:34.337Z",
     "domains": {
       "content": {
-        "finding": "065 locale and original v2 manuscript/model/rubric prefix unchanged;312 other protected files hash-match. No new factual bank/whole-course approval; historical PARTIAL and human validation limits retained.",
+        "finding": "065 locale and original v2 manuscript/model/rubric prefix unchanged;312 other protected files hash-match. No new factual bank/whole-course approval; historical PARTIAL and human validation limits retained. Test-only CI reconciliation preserves all application bytes above f7; prior actual content/source evidence retained.",
         "evidence": [
           { "path": "docs/reviews/evidence/pr51-owner-preservation.json" },
           { "path": "docs/reviews/evidence/pr51-owner-legacy-v2.json" },
@@ -848,7 +848,7 @@
         ]
       },
       "technical": {
-        "finding": "Schema3/lifecycle1 preserves schema2 replay; explicit navigation CAS/readback aid+abandon, durable denial/stale failure and terminal reserve challenged. Denied fallback traversal leak and inaccessible UI reserve were real MAJOR findings, now fixed and independently rechecked after the renewed stamp. Portal/Sandbox/public authorities unchanged.",
+        "finding": "Schema3/lifecycle1 preserves schema2 replay; explicit navigation CAS/readback aid+abandon, durable denial/stale failure and terminal reserve challenged. Denied fallback traversal leak and inaccessible UI reserve were real MAJOR findings, now fixed and independently rechecked after the renewed stamp. Portal/Sandbox/public authorities unchanged. Test-only follow-up changes no runtime/domain/store/Portal bytes; prior technical and denial evidence retained by hash.",
         "evidence": [
           { "path": "src/domain/curriculum/foundations-v2.ts" },
           { "path": "src/domain/curriculum/v2-store.ts" },
@@ -858,7 +858,7 @@
         ]
       },
       "visual": {
-        "finding": "Actual before/after screenshots and six viewport sizes inspected. Keyboard native disclosures, readable full labels, footer clearance, reduced motion and Axe passed. Native125/200% getZoom1152/720CSSpx checked with readable direct CDP screenshots after rejecting invalid emulated-viewport captures.",
+        "finding": "Actual before/after screenshots and six viewport sizes inspected. Keyboard native disclosures, readable full labels, footer clearance, reduced motion and Axe passed. Native125/200% getZoom1152/720CSSpx checked with readable direct CDP screenshots after rejecting invalid emulated-viewport captures. Application/CSS/assets unchanged in CI reconciliation, so prior actual viewport/zoom evidence is retained without a new visual claim.",
         "evidence": [
           { "path": "src/features/learning/foundations-v2.css" },
           { "path": "src/features/learning/related-activities.tsx" },
@@ -869,17 +869,18 @@
         ]
       },
       "assessment": {
-        "finding": "Five old fixtures reproduced against separately compiled065 source; rubric/first/results unchanged. Abandon has no result and later work is always practice, with inherited aid. Current/prior first, eleven original explanations/option labels, success-only summary focus and no reload refocus passed;600→601 terminal Submit uses last confirmed draft.",
+        "finding": "Five old fixtures reproduced against separately compiled065 source; rubric/first/results unchanged. Abandon has no result and later work is always practice, with inherited aid. Current/prior first, eleven original explanations/option labels, success-only summary focus and no reload refocus passed;600→601 terminal Submit uses last confirmed draft. Reconciled inherited Previous/Back/reload test independently verifies archived draft/event-prefix preservation, no automatic form or submit, explicit empty assisted practice and intact archive.",
         "evidence": [
           { "path": "src/domain/curriculum/foundations-v2-lifecycle.test.ts" },
           { "path": "docs/reviews/evidence/pr51-owner-legacy-v2.json" },
           { "path": "src/features/learning/foundations-v2.tsx" },
           { "path": "tests/e2e/owner-acceptance.spec.ts" },
-          { "path": "docs/quality/PR51_OWNER_FINAL_AUDIT.md" }
+          { "path": "docs/quality/PR51_OWNER_FINAL_AUDIT.md" },
+          { "path": "tests/e2e/ux-refinement.spec.ts" }
         ]
       },
       "guidance": {
-        "finding": "Complete current safety list protects Start/Resume/final briefing Start, including same-task races. Actual resident PaaS Show guide and exact native topic/version/activity return preserve original start/id/boundary and technical/XP bytes. Journal aid does not abandon, other-tab teaching cannot silently close the source assessment.",
+        "finding": "Complete current safety list protects Start/Resume/final briefing Start, including same-task races. Actual resident PaaS Show guide and exact native topic/version/activity return preserve original start/id/boundary and technical/XP bytes. Journal aid does not abandon, other-tab teaching cannot silently close the source assessment. Guidance/boundary implementation unchanged in test-only follow-up; prior actual resident-guide evidence retained.",
         "evidence": [
           { "path": "src/features/course/practical-lab.tsx" },
           { "path": "src/features/course/mission-context.ts" },
@@ -889,13 +890,14 @@
         ]
       },
       "regression": {
-        "finding": "329 retained executions/settings;337(307/30) profile pending complete exact-head CI. Independent24 Vitest, five inherited browser witnesses, final7 edge probes and post-stamp3 affected probes passed;312 preserved files and72 final snapshot hashes match. No complete candidate CI/strict or new anonymous deployed Gate7 result is claimed.",
+        "finding": "Initial corrected f7 CI completed337:336passed/1failed inherited live-resume expectation. Owner-authorized abandonment semantics now reconcile that test while retaining original draft/no-submit assertions and adding event-prefix/archive/no-auto-restart/explicit-practice checks. Application and settings unchanged;337(307/30),worker1 retained. Independent affected case passed1/1 exit0 after renewed stamp;73 hashes/fingerprint match. Full successor CI/strict and new deployed-SHA anonymous Gate7 remain pending.",
         "evidence": [
           { "path": "playwright.desktop.config.ts" },
           { "path": "tests/e2e/foundations-v2.spec.ts" },
           { "path": "tests/e2e/owner-acceptance.spec.ts" },
           { "path": "src/features/course/hybrid-foundation.test.ts" },
-          { "path": "docs/quality/PR51_OWNER_FINAL_AUDIT.md" }
+          { "path": "docs/quality/PR51_OWNER_FINAL_AUDIT.md" },
+          { "path": "tests/e2e/ux-refinement.spec.ts" }
         ]
       }
     },
@@ -937,6 +939,18 @@
         "severity": "note",
         "status": "accepted-limitation",
         "description": "Full337 exact-head CI/strict and new anonymous deployed SHA-bound Gate7 remain pending. Broad rollout awaits owner acceptance; human novice/SME/UX/screen-reader/psychometric/learning-effect validation unperformed. No Stage2–5/PR52/merge/production approval."
+      },
+      {
+        "id": "P51-OWNER-FA-05",
+        "severity": "minor",
+        "status": "fixed",
+        "description": "Inherited UX test still expected a live active form after deliberate Previous/Back/reload, contradicting the owner-authorized abandonment lifecycle; first corrected-head CI remained failed336/337.",
+        "fix": "Test preserves exact draft/no-submit and original event-prefix requirements through archived answer UI; explicitly checks inactive/no automatic restart and empty assisted practice only after explicit Retry. No application or test-setting changes.",
+        "retests": [
+          "Post-stamp independent exact affected desktop browser case passed1/1, process exit0, worker1, no local retry.",
+          "Independent Git comparison confirms src/public/packages/browser/CI configuration unchanged above f7;30 prior snapshot application/config hashes match.",
+          "Author typecheck/lint and unchanged337(307/30)/worker1 plan validation passed; complete successor CI remains pending."
+        ]
       }
     ],
     "report": { "path": "docs/quality/PR51_OWNER_FINAL_AUDIT.md" }

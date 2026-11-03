@@ -1,6 +1,7 @@
 import { test, expect } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
-import { nb } from '../../src/content/nb';
+import { nb, ownerAcceptanceNb as acceptance } from '../../src/content/nb';
+import { restoreV2, v2Facts } from '../../src/domain/curriculum/foundations-v2';
 const r = nb.refinement,
   t = nb.foundationsV2,
   c = nb.course;
@@ -131,6 +132,7 @@ test('assessment draft survives persistent Previous and browser return without s
   const radio = (await input.getAttribute('type')) === 'radio';
   if (radio) await input.check();
   else await input.fill('2');
+  const answerText = radio ? (await input.locator('..').innerText()).trim() : '2';
   const before = await page.evaluate(() =>
     localStorage.getItem('azurelab.learning.foundations.v2'),
   );
@@ -141,13 +143,36 @@ test('assessment draft survives persistent Previous and browser return without s
   await expect(page).toHaveURL(/topic=resource-bridge/);
   await page.goBack();
   await expect(page).toHaveURL(/topic=v2-assessment/);
-  if (radio) await expect(input).toBeChecked();
-  else await expect(input).toHaveValue('2');
+  // Owner correction: deliberate Previous ends the active attempt, retaining its
+  // draft as historical evidence. Browser return must not silently restart it.
+  await expect(page.locator('.foundations-v2 form')).toHaveCount(0);
+  await expect(page.locator('.v2-abandoned')).toContainText(acceptance.abandonedNote);
+  await page.locator('.v2-abandoned summary').click();
+  await expect(page.locator('.v2-abandoned dd').first()).toHaveText(answerText);
   await page.reload();
-  if (radio) await expect(input).toBeChecked();
-  else await expect(input).toHaveValue('2');
+  await expect(page.locator('.foundations-v2 form')).toHaveCount(0);
+  await page.locator('.v2-abandoned summary').click();
+  await expect(page.locator('.v2-abandoned dd').first()).toHaveText(answerText);
   const after = await page.evaluate(() => localStorage.getItem('azurelab.learning.foundations.v2'));
+  const oldSave = JSON.parse(before!);
+  const restored = restoreV2(after!);
+  expect(restored.issue).toBeNull();
+  expect(restored.save.events.slice(0, oldSave.events.length)).toEqual(oldSave.events);
+  const closed = v2Facts(restored.save);
+  expect(closed.active).toBe(false);
+  expect(closed.abandoned).toHaveLength(1);
+  expect(closed.abandoned[0]!.answers).toEqual(
+    oldSave.events.findLast((e: { kind: string }) => e.kind === 'draft').answers,
+  );
   expect(JSON.parse(after!).events.filter((e: { kind: string }) => e.kind === 'submit')).toEqual(
     JSON.parse(before!).events.filter((e: { kind: string }) => e.kind === 'submit'),
   );
+  await page.getByRole('button', { name: t.retry, exact: true }).click();
+  await expect(page.locator('.foundations-v2 form')).toBeVisible();
+  const restarted = v2Facts(
+    restoreV2(await page.evaluate(() => localStorage.getItem('azurelab.learning.foundations.v2')))
+      .save,
+  );
+  expect(restarted).toMatchObject({ active: true, assisted: true, draft: {}, submissions: [] });
+  expect(restarted.abandoned[0]!.answers).toEqual(closed.abandoned[0]!.answers);
 });
