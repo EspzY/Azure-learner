@@ -99,6 +99,17 @@ test('root course → complete serverless teaching, prediction, milestone, indep
       exact: true,
     }),
   ).toBeVisible();
+  // The composed session records only actually visible original teaching.
+  // Establish that exposure before freezing unrelated bytes; heading visibility
+  // alone can precede the asynchronous observer in the compact viewport.
+  await expect(page.locator('.cloud-chapter-heading h2')).toBeFocused();
+  await page
+    .locator('#cloud-part-intro-request .v2-explanation > p')
+    .first()
+    .evaluate((element) => element.scrollIntoView({ block: 'center', behavior: 'instant' }));
+  await expect
+    .poll(() => page.evaluate((key) => localStorage.getItem(key), foundationsV2Key))
+    .toContain('"topic":"intro-request"');
   const before = await protectedBytes(page);
   await topic(page, 'serverless-concept');
   for (const section of ['concept', 'mechanism', 'hosting'] as const) {

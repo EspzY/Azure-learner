@@ -301,8 +301,11 @@ function CourseWorkspace({ module }: { module?: CourseModule }) {
       const frame = requestAnimationFrame(() => {
         settled = requestAnimationFrame(() => {
           const heading =
-            element.querySelector<HTMLElement>('[data-activity-heading]') ??
-            element.querySelector<HTMLElement>('h2, h3');
+            element.querySelector<HTMLElement>(
+              module === 'computing' && cloudChapterFor(topic)
+                ? '[data-activity-heading]'
+                : '[data-activity-heading], h2, h3',
+            ) ?? element.querySelector<HTMLElement>('h2, h3');
           if (heading && element.isConnected) {
             heading.tabIndex = -1;
             const bounds = heading.getBoundingClientRect();
@@ -319,7 +322,7 @@ function CourseWorkspace({ module }: { module?: CourseModule }) {
         cancelAnimationFrame(settled);
       };
     },
-    [module, course.ready, chooseVersion, query],
+    [module, course.ready, chooseVersion, query, topic],
   );
   useEffect(() => {
     if (module && course.ready && !chooseVersion)

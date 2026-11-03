@@ -10,5 +10,12 @@
       "reason": "Owner-authorized chapter sidebar navigation and scoped SVG definition IDs; all original models/geometry/evidence remain."
     }
   },
-  "unchangedDomains": "All src/domain bytes and full src/content/nb.ts remain unchanged; exact checked by cloud-computing-chapters.test.ts. Original PR51 eight exceptions and old proof are not rewritten."
+  "unchangedDomains": "All src/domain bytes and full src/content/nb.ts remain unchanged; exact checked by cloud-computing-chapters.test.ts. Original PR51 eight exceptions and old proof are not rewritten.",
+  "authorizedTestSetupChanges": {
+    "tests/e2e/serverless.spec.ts": {
+      "beforeSHA256": "dbb3d1728ee6df941ea461f09dd76c308b85c62764784baf1811c75c656f51e6",
+      "reason": "Original initial compact setup now waits settled focus and centers original visible intro paragraph before snapshot, matching exposure-based visits. Final exact protectedBytes equality, all original cases/assertions, first/help/retry/Journal/network and settings unchanged. Product observer unchanged."
+    }
+  },
+  "finalPreservedPaths": 354
 }
