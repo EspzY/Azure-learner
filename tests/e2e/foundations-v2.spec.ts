@@ -21,6 +21,8 @@ const audit = async (page: Page) =>
   expect((await new AxeBuilder({ page }).analyze()).violations).toEqual([]);
 async function step(page: Page, id: (typeof v2Topics)[number]) {
   await openCloudPart(page, id);
+  await expect(page).toHaveURL(`/learn/computing?topic=${id}`);
+  await expect(page.locator('[data-activity-heading]')).toBeFocused();
   await expect(page.getByRole('heading', { name: t.topics[id].title, exact: true })).toBeVisible();
 }
 async function answer(page: Page, topic: keyof typeof t.checkItems, id: string) {

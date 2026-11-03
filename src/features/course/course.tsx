@@ -1226,7 +1226,7 @@ function CourseWorkspace({ module }: { module?: CourseModule }) {
             </div>
           )}
           <ManagementTeachingBoundary
-            identity={`course:${module}:${topic}`}
+            identity={`course:${module}:${module === 'computing' && currentV2 ? cloudNavigationTopic(topic) : topic}`}
             orientation={!module}
             only={
               topic !== 'transfer' &&
@@ -1734,7 +1734,7 @@ function CourseWorkspace({ module }: { module?: CourseModule }) {
                       }
                     />
                   ) : module === 'computing' && currentV2 ? (
-                    <CloudComputingChapter key={topic} topic={topic} />
+                    <CloudComputingChapter key={cloudNavigationTopic(topic)} topic={topic} />
                   ) : module === 'services' ? (
                     serviceChoice ? (
                       <section className="course-version-choice">

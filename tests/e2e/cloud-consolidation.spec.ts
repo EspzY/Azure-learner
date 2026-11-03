@@ -1,3 +1,4 @@
+import { serverlessTopics } from '../../src/domain/curriculum/serverless';
 import {
   v2Bindings,
   laterUnits,
@@ -8,12 +9,12 @@ import { test, expect, type Page } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import {
   cloudChapters,
-  cloudOriginalTopics,
   cloudRecommendedTopics,
   cloudNavigationTopic,
 } from '../../src/features/course/cloud-computing-chapters';
 import { nb } from '../../src/content/nb';
 import {
+  v2Topics,
   foundationsV2Key as key,
   restoreV2,
   v2Facts,
@@ -57,10 +58,10 @@ test('consolidated Cloud Computing follows fourteen meaningful entries with pres
   await next(page).click();
   await expect(page).toHaveURL(/learn\/benefits\?topic=availability/);
 });
-test('every historical Cloud Computing URL and saved resume resolves to the right session or original Serverless transfer and v1 context', async ({
+test('every historical Foundations v2 URL resolves to the right consolidated session without rewriting its address', async ({
   page,
 }) => {
-  for (const topic of cloudOriginalTopics) {
+  for (const topic of v2Topics) {
     await page.goto(`/learn/computing?topic=${topic}`);
     await expect(page).toHaveURL(new RegExp(`topic=${topic}$`));
     const chapter = cloudChapters.find((c) => c.topic === cloudNavigationTopic(topic));
@@ -71,6 +72,25 @@ test('every historical Cloud Computing URL and saved resume resolves to the righ
       await expect(page.locator('.course-units > li > a[aria-current=step]')).toHaveCount(1);
     }
   }
+});
+test('historical part navigation retains the same live investigation and exact saved resume through Back Forward reload and v1', async ({
+  page,
+}) => {
+  await page.goto('/learn/computing?topic=intro-request');
+  const ram = nb.foundationsVisuals.parts.find((part) => part.id === 'ram')!;
+  await page.getByRole('button', { name: new RegExp(`^${ram.name}`) }).click();
+  await expect(page.locator('.proof-part-detail')).toContainText(ram.explanation);
+  await openCloudPart(page, 'physical-server');
+  await expect(page).toHaveURL(/topic=physical-server$/);
+  await expect(page.locator('#cloud-part-physical-server h3').first()).toBeFocused();
+  await expect(page.locator('.proof-part-detail')).toContainText(ram.explanation);
+  await page.goBack();
+  await expect(page).toHaveURL(/topic=intro-request$/);
+  await expect(page.locator('.cloud-chapter-heading h2')).toBeFocused();
+  await expect(page.locator('.proof-part-detail')).toContainText(ram.explanation);
+  await page.goForward();
+  await expect(page.locator('#cloud-part-physical-server h3').first()).toBeFocused();
+  await expect(page.locator('.proof-part-detail')).toContainText(ram.explanation);
   await page.goto('/learn/computing?topic=provisioning');
   await page.reload();
   await expect(page.locator('#cloud-part-provisioning h3').first()).toBeFocused();
@@ -90,6 +110,21 @@ test('every historical Cloud Computing URL and saved resume resolves to the righ
   await expect(
     page.getByText(nb.foundations.units.capacity.mechanism, { exact: true }),
   ).toBeVisible();
+});
+test('historical Serverless transfer assessment and summary direct URLs retain their original independent stores and explicit starts', async ({
+  page,
+}) => {
+  for (const topic of [...serverlessTopics, 'transfer', 'v2-assessment', 'v2-summary']) {
+    await page.goto(`/learn/computing?topic=${topic}`);
+    await expect(page).toHaveURL(`/learn/computing?topic=${topic}`);
+    await expect(
+      page
+        .locator('.serverless-lesson, .transfer-workspace, .v2-assessment, .foundations-v2')
+        .first(),
+    ).toBeVisible();
+  }
+  expect((await facts(page)).active).toBe(false);
+  expect((await facts(page)).submissions).toEqual([]);
 });
 test('composed sections register only actually exposed visits and explicit model observations without completion World receipts or XP', async ({
   page,
