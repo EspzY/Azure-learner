@@ -1,0 +1,161 @@
+{
+  "base": "eefbcd3bc7f140b690829bad6542d800c57b7f74",
+  "fullCheck": {
+    "exit": 0,
+    "vitest": 638,
+    "curriculum": 503,
+    "node": 20
+  },
+  "browser": {
+    "finalTargetDesktop": 12,
+    "finalTargetCompact": 1,
+    "priorOwnerCases": 7,
+    "priorUxDesktopSizes": 3,
+    "allResults": "actual logs outside repo; final full candidate CI is separate and pending"
+  },
+  "plan": {
+    "retained": 337,
+    "newDesktop": 6,
+    "newCompact": 1,
+    "total": 344,
+    "desktop": 313,
+    "compact": 31,
+    "settings": "unchanged"
+  },
+  "visual": {
+    "baseSha": "Bygginformasjon · forhåndsvisningCommit: eefbcd3bc7f140b690829bad6542d800c57b7f74Gren: codex/azurelab-hybrid-production-foundation",
+    "rows": [
+      {
+        "width": 1920,
+        "height": 1080,
+        "topic": "intro-request",
+        "top": {
+          "width": 1920,
+          "height": 1080,
+          "scrollWidth": 1920,
+          "focus": "Fra nettside til fysisk server",
+          "exposed": ["intro-request"]
+        }
+      },
+      {
+        "width": 1440,
+        "height": 900,
+        "topic": "virtualization",
+        "top": {
+          "width": 1440,
+          "height": 900,
+          "scrollWidth": 1440,
+          "focus": "Virtualisering og bestilling av skykapasitet",
+          "exposed": ["intro-request", "virtualization"]
+        }
+      },
+      {
+        "width": 1366,
+        "height": 768,
+        "topic": "capacity-basics",
+        "top": {
+          "width": 1366,
+          "height": 768,
+          "scrollWidth": 1366,
+          "focus": "Kapasitet og etterspørsel",
+          "exposed": ["intro-request", "virtualization", "provisioning"]
+        }
+      },
+      {
+        "width": 1024,
+        "height": 768,
+        "topic": "v2-metering",
+        "top": {
+          "width": 1024,
+          "height": 768,
+          "scrollWidth": 1024,
+          "focus": "Forbruk, betaling og risiko",
+          "exposed": ["intro-request", "virtualization", "provisioning"]
+        }
+      },
+      {
+        "width": 1024,
+        "height": 500,
+        "topic": "virtualization",
+        "top": {
+          "width": 1024,
+          "height": 500,
+          "scrollWidth": 1024,
+          "focus": "Virtualisering og bestilling av skykapasitet",
+          "exposed": ["intro-request", "virtualization", "provisioning"]
+        }
+      },
+      {
+        "width": 800,
+        "height": 700,
+        "topic": "intro-request",
+        "top": {
+          "width": 800,
+          "height": 700,
+          "scrollWidth": 800,
+          "focus": "Fra nettside til fysisk server",
+          "exposed": ["intro-request", "virtualization", "provisioning"]
+        }
+      }
+    ]
+  },
+  "zoom": {
+    "method": "Native Chromium tabs.setZoom/getZoom, viewport:null, native-window CDP fromSurface:false",
+    "rows": [
+      {
+        "factor": 1.25,
+        "actual": 1.25,
+        "metrics": {
+          "innerWidth": 1152,
+          "innerHeight": 650,
+          "outerWidth": 1440,
+          "scrollWidth": 1152,
+          "focused": "Send konfigurasjonsbestilling"
+        },
+        "control": {
+          "x": 683.7000122070312,
+          "y": 249.15000915527344,
+          "width": 243.75,
+          "height": 33.99998474121094
+        },
+        "footer": {
+          "x": 285,
+          "y": 556.6000366210938,
+          "width": 867,
+          "height": 93.79998779296875
+        },
+        "violations": []
+      },
+      {
+        "factor": 2,
+        "actual": 2,
+        "metrics": {
+          "innerWidth": 720,
+          "innerHeight": 406,
+          "outerWidth": 1440,
+          "scrollWidth": 720,
+          "focused": "Send konfigurasjonsbestilling"
+        },
+        "control": {
+          "x": 50,
+          "y": 185.015625,
+          "width": 244.140625,
+          "height": 36
+        },
+        "footer": {
+          "x": 24,
+          "y": 1018.6796875,
+          "width": 672,
+          "height": 152.484375
+        },
+        "violations": []
+      }
+    ]
+  },
+  "audit": {
+    "production": 0,
+    "developmentModerate": 12,
+    "dependencyChanges": false
+  },
+  "limits": "Engineering checks only; no human SME/novice/UX/screenreader/learning/psychometric validation. No mastery or exam readiness inferred."
+}

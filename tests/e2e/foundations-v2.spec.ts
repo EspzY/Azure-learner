@@ -1,3 +1,4 @@
+import { openCloudPart } from './cloud-chapter-actions';
 import { test, expect, type Page, type TestInfo } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { nb, ownerAcceptanceNb as acceptance } from '../../src/content/nb';
@@ -19,14 +20,11 @@ const capture = async (page: Page, info: TestInfo, name: string) =>
 const audit = async (page: Page) =>
   expect((await new AxeBuilder({ page }).analyze()).violations).toEqual([]);
 async function step(page: Page, id: (typeof v2Topics)[number]) {
-  await page
-    .locator('.course-units')
-    .getByRole('link', { name: t.topics[id].title, exact: true })
-    .click();
+  await openCloudPart(page, id);
   await expect(page.getByRole('heading', { name: t.topics[id].title, exact: true })).toBeVisible();
 }
 async function answer(page: Page, topic: keyof typeof t.checkItems, id: string) {
-  const check = page.locator('.v2-check');
+  const check = page.locator(`#cloud-part-${topic} .v2-check`);
   const item = t.checkItems[topic];
   await check.getByLabel(item.choices.find(([value]) => value === id)![1], { exact: true }).check();
   await check.getByRole('button', { name: t.check, exact: true }).click();
@@ -81,13 +79,13 @@ test('ordinary root delivers the whole v2 course, preserved objectives, actual l
     await expect(
       page.getByText(nb.foundations.units.capacity.mechanism, { exact: true }),
     ).toHaveCount(0);
-    await expect(page.locator('.proof-server')).toBeVisible();
+    await expect(page.locator('#cloud-part-intro-request .proof-server')).toBeVisible();
     await capture(page, info, `${width}-request`);
     await audit(page);
   }
   await page.getByRole('button', { name: nb.foundationsVisuals.send, exact: true }).click();
   await answer(page, 'intro-request', 'browser');
-  await expect(page.locator('.v2-check [role=status]')).toHaveText(
+  await expect(page.locator('#cloud-part-intro-request .v2-check [role=status]')).toHaveText(
     t.checkItems['intro-request'].wrong,
   );
   await answer(page, 'intro-request', 'server');
@@ -104,17 +102,23 @@ test('ordinary root delivers the whole v2 course, preserved objectives, actual l
   await page.getByRole('button', { name: t.vm.apply, exact: true }).click();
   await page.getByLabel(t.vm.b, { exact: true }).selectOption('4');
   await page.getByRole('button', { name: t.vm.apply, exact: true }).click();
-  await expect(page.getByRole('status')).toContainText(t.vm.denied);
+  await expect(page.locator('#cloud-part-virtualization').getByRole('status')).toContainText(
+    t.vm.denied,
+  );
   await expect(page.getByText(`${t.vm.accepted}: 5 + 3 / 8`, { exact: true })).toBeVisible();
   await capture(page, info, 'virtualization');
   await answer(page, 'virtualization', 'finite');
   await audit(page);
   await step(page, 'provisioning');
   await page.getByRole('button', { name: t.provision.request, exact: true }).click();
-  await expect(page.getByRole('status')).toContainText(t.provision.accepted);
+  await expect(page.locator('#cloud-part-provisioning').getByRole('status')).toContainText(
+    t.provision.accepted,
+  );
   await page.getByLabel(t.provision.available, { exact: true }).uncheck();
   await page.getByRole('button', { name: t.provision.request, exact: true }).click();
-  await expect(page.getByRole('status')).toContainText(t.provision.denied);
+  await expect(page.locator('#cloud-part-provisioning').getByRole('status')).toContainText(
+    t.provision.denied,
+  );
   await answer(page, 'provisioning', 'control');
   await capture(page, info, 'provisioning');
   await step(page, 'capacity-basics');
@@ -138,7 +142,7 @@ test('ordinary root delivers the whole v2 course, preserved objectives, actual l
     [1366, 768],
   ]) {
     await page.setViewportSize({ width: width!, height: height! });
-    await page.locator('.v2-lesson-heading').evaluate((el) =>
+    await page.locator('#cloud-part-v2-capacity .v2-lesson-heading').evaluate((el) =>
       window.scrollTo({
         top: el.getBoundingClientRect().top + window.scrollY - 85,
         behavior: 'instant',
@@ -155,10 +159,11 @@ test('ordinary root delivers the whole v2 course, preserved objectives, actual l
     ).toBe(true);
   }
   await page.reload();
-  await expect(page.locator('.proof-capacity')).toBeVisible();
+  await expect(page.locator('#cloud-part-v2-capacity .proof-capacity')).toBeVisible();
   // Retain every original later manuscript, actual investigations and their causal answers.
   for (const unit of ['responsibility', 'models', 'placement', 'metering', 'pricing'] as const) {
     await step(page, `v2-${unit}`);
+    const section = page.locator(`#cloud-part-v2-${unit}`);
     for (const key of [
       'purpose',
       'mechanism',
@@ -168,28 +173,28 @@ test('ordinary root delivers the whole v2 course, preserved objectives, actual l
       'limits',
     ] as const)
       await expect(
-        page.locator('.v2-manuscript').getByText(f.units[unit][key], { exact: true }),
+        section.locator('.v2-manuscript').getByText(f.units[unit][key], { exact: true }),
       ).toBeVisible();
-    const run = () => page.getByRole('button', { name: f.run, exact: true }).click();
+    const run = () => section.getByRole('button', { name: f.run, exact: true }).click();
     if (unit === 'models') {
       for (const mode of ['public', 'private', 'hybrid']) {
-        await page.getByLabel(f.topology, { exact: true }).selectOption(mode);
+        await section.getByLabel(f.topology, { exact: true }).selectOption(mode);
         await run();
       }
-      await page.getByLabel(f.units.models.answers.private, { exact: true }).check();
+      await section.getByLabel(f.units.models.answers.private, { exact: true }).check();
     } else if (unit === 'metering') {
       await run();
-      await page.getByLabel(f.released, { exact: true }).check();
+      await section.getByLabel(f.released, { exact: true }).check();
       await run();
-      await page.getByLabel(f.units.metering.answers.allocated, { exact: true }).check();
+      await section.getByLabel(f.units.metering.answers.allocated, { exact: true }).check();
     } else if (unit === 'pricing') {
       for (const profile of ['steady', 'uncertain'])
         for (const price of ['usage', 'commitment']) {
-          await page.getByLabel(f.profile, { exact: true }).selectOption(profile);
-          await page.getByLabel(f.billing, { exact: true }).selectOption(price);
+          await section.getByLabel(f.profile, { exact: true }).selectOption(profile);
+          await section.getByLabel(f.billing, { exact: true }).selectOption(price);
           await run();
         }
-      await page.getByLabel(f.units.pricing.answers.usage, { exact: true }).check();
+      await section.getByLabel(f.units.pricing.answers.usage, { exact: true }).check();
     } else {
       await run();
       for (const [i, value] of (unit === 'responsibility'
@@ -202,7 +207,7 @@ test('ordinary root delivers the whole v2 course, preserved objectives, actual l
           })
           .selectOption(value);
     }
-    await page.getByRole('button', { name: f.check, exact: true }).click();
+    await section.getByRole('button', { name: f.check, exact: true }).click();
   }
   await page.locator('.related-activities summary').click();
   await page.getByRole('link', { name: acceptance.observations, exact: true }).click();

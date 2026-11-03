@@ -145,7 +145,13 @@ import { ExpandedModule, ExpansionReference } from '@/features/learning/expanded
 import { useExpansion, ExpansionAssistance } from '@/features/learning/expansion-provider';
 import { trackUnits } from '@/domain/curriculum/expansion';
 import { manuscript } from '@/domain/curriculum/expansion-content';
+import { CloudComputingChapter } from '@/features/learning/cloud-computing-chapter';
 import { FoundationsV2 } from '@/features/learning/foundations-v2';
+import {
+  cloudRecommendedTopics,
+  cloudChapterFor,
+  cloudNavigationTopic,
+} from './cloud-computing-chapters';
 import { useFoundationsV2 } from '@/features/learning/v2-provider';
 import { isV2Topic, v2Topics } from '@/domain/curriculum/foundations-v2';
 import '@/features/portal/portal.css';
@@ -153,7 +159,7 @@ import './course.css';
 const c = nb.course;
 import { useServerless } from '@/features/learning/serverless-provider';
 import { ServerlessLesson } from '@/features/learning/serverless';
-import { isServerlessTopic, serverlessTopics } from '@/domain/curriculum/serverless';
+import { isServerlessTopic } from '@/domain/curriculum/serverless';
 import { usePhysical } from '@/features/learning/physical-provider';
 import { PhysicalLesson } from '@/features/learning/physical';
 import { CourseHub, type HubRecord } from './course-hub';
@@ -294,7 +300,9 @@ function CourseWorkspace({ module }: { module?: CourseModule }) {
       let settled = 0;
       const frame = requestAnimationFrame(() => {
         settled = requestAnimationFrame(() => {
-          const heading = element.querySelector<HTMLElement>('[data-activity-heading], h2, h3');
+          const heading =
+            element.querySelector<HTMLElement>('[data-activity-heading]') ??
+            element.querySelector<HTMLElement>('h2, h3');
           if (heading && element.isConnected) {
             heading.tabIndex = -1;
             const bounds = heading.getBoundingClientRect();
@@ -657,17 +665,14 @@ function CourseWorkspace({ module }: { module?: CourseModule }) {
                                   ? [...trackUnits.benefits, 'summary', 'transfer']
                                   : module === 'computing'
                                     ? currentV2
-                                      ? [
-                                          ...v2Topics.slice(0, -1),
-                                          ...serverlessTopics,
-                                          v2Topics.at(-1)!,
-                                          'transfer',
-                                        ]
+                                      ? cloudRecommendedTopics
                                       : [...unitIds, 'transfer']
                                     : legacyServices
                                       ? topics
                                       : [...trackUnits.services, 'summary', 'transfer'];
-  const index = pathTopics.indexOf(topic);
+  const index = pathTopics.indexOf(
+    module === 'computing' && currentV2 ? cloudNavigationTopic(topic) : topic,
+  );
   const historicalReturn = pathTopics.filter((t) => t !== 'transfer').at(-1)!;
   const location = parseLocation(
     new URLSearchParams({ area: 'learn', module: module ?? 'services', topic }),
@@ -718,7 +723,8 @@ function CourseWorkspace({ module }: { module?: CourseModule }) {
                                           (t === 'summary'
                                             ? nb.expansion.common.summary
                                             : nb.expansion.common.assessment))
-                                      : (serverlessNb.topics[
+                                      : (cloudChapterFor(t)?.title ??
+                                        serverlessNb.topics[
                                           t as keyof typeof serverlessNb.topics
                                         ] ??
                                         nb.foundationsV2.topics[t as (typeof v2Topics)[number]]
@@ -749,7 +755,7 @@ function CourseWorkspace({ module }: { module?: CourseModule }) {
         ? pathTopics
         : hasV1 && v2.save.choice === 'v1'
           ? [...unitIds, 'transfer']
-          : [...v2Topics.slice(0, -1), ...serverlessTopics, v2Topics.at(-1)!, 'transfer'],
+          : cloudRecommendedTopics,
     benefits: [...trackUnits.benefits, 'summary', 'transfer'],
     services: legacyServices ? topics : [...trackUnits.services, 'summary', 'transfer'],
     architecture: [...physicalTopics, ...managementTopics],
@@ -925,6 +931,15 @@ function CourseWorkspace({ module }: { module?: CourseModule }) {
                 : undefined
             : undefined,
         title: title(part, activity) ?? activity,
+        activeTopics: part === 'computing' ? cloudChapterFor(activity)?.members : undefined,
+        parts:
+          part === 'computing' && cloudChapterFor(activity)
+            ? cloudChapterFor(activity)!.members.map((member) => ({
+                topic: member,
+                title: nb.foundationsV2.topics[member].title,
+                href: courseHref('computing', member),
+              }))
+            : undefined,
         href: part === 'services' ? serviceHref(activity) : courseHref(part, activity),
         observed:
           reliableHistory &&
@@ -1719,7 +1734,7 @@ function CourseWorkspace({ module }: { module?: CourseModule }) {
                       }
                     />
                   ) : module === 'computing' && currentV2 ? (
-                    <FoundationsV2 key={topic} topic={topic} />
+                    <CloudComputingChapter key={topic} topic={topic} />
                   ) : module === 'services' ? (
                     serviceChoice ? (
                       <section className="course-version-choice">

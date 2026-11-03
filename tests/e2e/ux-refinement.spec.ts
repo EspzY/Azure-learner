@@ -1,3 +1,4 @@
+import { openCloudPart } from './cloud-chapter-actions';
 import { test, expect } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { nb, ownerAcceptanceNb as acceptance } from '../../src/content/nb';
@@ -37,7 +38,7 @@ for (const [width, height] of [
     await page.screenshot({ path: info.outputPath(`31b1-after-navigation-${width}.png`) });
     await nav.getByRole('link', { name: new RegExp(c.next) }).focus();
     await page.keyboard.press('Enter');
-    await expect(page).toHaveURL(/topic=physical-server/);
+    await expect(page).toHaveURL(/topic=virtualization/);
     await expect(page.locator('[data-activity-heading]')).toBeFocused();
     const heading = await page.locator('[data-activity-heading]').boundingBox(),
       header = await page.locator('.course-header').boundingBox();
@@ -46,12 +47,9 @@ for (const [width, height] of [
     await expect(page).toHaveURL(/topic=intro-request/);
     await expect(page.locator('[data-activity-heading]')).toBeFocused();
     await page.goForward();
-    await expect(page).toHaveURL(/topic=physical-server/);
+    await expect(page).toHaveURL(/topic=virtualization/);
     await expect(page.locator('[data-activity-heading]')).toBeFocused();
-    await page
-      .locator('.course-units')
-      .getByRole('link', { name: t.topics['v2-responsibility'].title, exact: true })
-      .click();
+    await openCloudPart(page, 'v2-responsibility');
     const explorer = page.locator('.portal-responsibility');
     await explorer.scrollIntoViewIfNeeded();
     await explorer
@@ -78,10 +76,7 @@ for (const [width, height] of [
     await expect(
       page.getByText(nb.foundations.units.responsibility.limits, { exact: true }),
     ).toHaveCount(1);
-    await page
-      .locator('.course-units')
-      .getByRole('link', { name: t.topics['v2-models'].title, exact: true })
-      .click();
+    await openCloudPart(page, 'v2-models');
     const diagram = page.getByRole('region', { name: r.topology.title, exact: true });
     await diagram.scrollIntoViewIfNeeded();
     await diagram.evaluate((el) => el.scrollIntoView({ block: 'start', behavior: 'instant' }));

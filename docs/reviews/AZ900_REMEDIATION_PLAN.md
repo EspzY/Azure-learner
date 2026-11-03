@@ -2,6 +2,10 @@
 
 The owner has approved the PR50 hybrid direction. The first in-place Course Hub/shell/Compute/Portal vertical rollout is described in [HYBRID_PRODUCTION_FOUNDATION](../HYBRID_PRODUCTION_FOUNDATION.md); final329CI/strict/anonymousSHA and independent audit are required on Draft PR51. This does not close broader PD-01, AS-02 or PR-01 StageB/C. Character production remains blocked pending a controlled master; stages2–5 are separate. Original audit findings and dated fixes below are preserved.
 
+## PD-01 Stage A — Cloud Computing, PR52 candidate, 3 November2026
+
+The owner has authorized a bounded implemented consolidation of the19-entry Cloud Computing journey into14 recommended entries, with six substantial foundational sessions. [Inspection of every original entry, rationale and preservation contract](../CLOUD_COMPUTING_CONSOLIDATION.md). All technical topic IDs, direct/resume routes, manuscripts, models, rubric/store bytes and PR51 lifecycle remain. Stage A is **pending final audit/CI/strict/actual external Gate7**; broader PD-01 remains open. Historical PR42 evidence and other remediation statuses below are retained. No automatic Stage2–5/P17/P18 or cross-module restructuring.
+
 ## PR50 — visual design phase, 2 November 2026
 
 [Two actual interactive candidates](../VISUAL_EXCELLENCE.md) and an [honest Portal capability matrix](../PORTAL_CAPABILITY_MATRIX.md) explore presentation for the existing platform. They do not close PD-01, broader AS-02 or PR-01 Stage B/C. Stage A operational inspection remains unchanged; owner must choose the direction and bounded rollout. Original character is locked; three generated specimens were independently rejected and are quarantined, with full pose-library production still blocked. [Character Bible](../SAVVYSHARK_CHARACTER_BIBLE.md). Final technical/visual review, exact-head full CI/strict and actual external Gate7 are required on Draft PR50. Historical PR42 findings and PR43–49 status below are preserved. Human novice/SME/screenreader/learning validation unperformed. No P17/P18, merge or production.

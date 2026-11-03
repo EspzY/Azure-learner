@@ -2,6 +2,10 @@
 
 **Revisjonsbase:** `4732f93dfcdd233dcb6d7acc2a4838ba7a292141`, 1. november 2026. [Hovedfunn](AZ900_END_TO_END_AUDIT.md) · [Tiltak og akseptanse](AZ900_REMEDIATION_PLAN.md) · [Alle kanoniske ruter, familier og målemetode](evidence/audit42.json).
 
+## Current Cloud Computing session structure — PR52 candidate, 3 November2026
+
+The17-module/three-path journey and PR45 intermodule order remain. Inside Cloud Computing: request+physical server → virtualization+provisioning → capacity worked example+experiment → responsibility → cloud models+placement → metering+pricing → the original six Serverless entries → resource bridge → transfer. This is14 recommended entries instead of19; all19 historical URLs plus independent/summary and v1 stay valid. [Every original entry and exposure/evidence rules](../CLOUD_COMPUTING_CONSOLIDATION.md). This paragraph updates pedagogical navigation, not historical audit findings or learner results.
+
 ## Anbefalt nybegynnerreise — PR45, 2. november 2026
 
 Dette er en eksplisitt oppdatering av anbefalt navigasjon etter den historiske PR42-revisjonen. De tre faggruppene og inventaret under er bevart. Forkunnskapsgrafen er validert før endringen; ingen nye fullføringssperrer eller learner-record-migreringer.

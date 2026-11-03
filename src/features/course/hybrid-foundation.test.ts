@@ -1,6 +1,7 @@
 import { expect, it } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { createHash } from 'node:crypto';
+import pd01 from '../../../docs/reviews/evidence/pr52-preservation.json';
 import owner from '../../../docs/reviews/evidence/pr51-owner-preservation.json';
 import proof from '../../../docs/reviews/evidence/hybrid51-preservation.json';
 import { visualReviewAllowed } from '../design-review/model';
@@ -18,8 +19,15 @@ it('preserves the original learning domains, stores, rubrics, teaching and techn
       'src/features/learning/management-access.tsx',
     ].sort(),
   );
+  expect(Object.keys(pd01.authorizedPresentationChanges).sort()).toEqual(
+    [
+      'src/features/course/course-sidebar.tsx',
+      'src/features/learning/foundations-visuals.tsx',
+    ].sort(),
+  );
   for (const [path, expected] of Object.entries(proof.files)) {
     if (owner.authorizedChanges.includes(path)) continue;
+    if (Object.hasOwn(pd01.authorizedPresentationChanges, path)) continue;
     expect(hash(readFileSync(path)), path).toBe(expected);
   }
   expect(hash(readFileSync('src/content/nb.ts').subarray(0, proof.localeBytes))).toBe(

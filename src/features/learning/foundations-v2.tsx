@@ -2,7 +2,7 @@
 import { RelatedActivities } from './related-activities';
 import { ownerAcceptanceNb as acceptance } from '@/content/nb';
 import { SourceDisclosure } from './source-disclosure';
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import { nb } from '@/content/nb';
 import {
@@ -29,37 +29,104 @@ import { Server, CapacityBoard } from './foundations-visuals';
 import { VersionedInvestigation } from './investigation';
 import { ResponsibilityRecap } from './responsibility-recap';
 import { CloudDeployment } from './cloud-deployment';
-import { SavvyShark } from '@/features/course/savvy-shark';
 import './foundations-visuals.css';
 import './foundations-v2.css';
 const t = nb.foundationsV2,
   p = nb.foundationsVisuals;
-export function FoundationsV2({ topic, journal = false }: { topic: string; journal?: boolean }) {
+export function foundationsSources(topic: V2Topic): { id: string; url: string }[] {
+  const unit = laterUnits.find((u) => topic === `v2-${u}`);
+  return unit
+    ? units.find((u) => u.id === unit)!.sources.map((id) => ({ id, url: sourceUrl(id) }))
+    : v2Bindings
+        .find((b) => b.topic === topic)!
+        .sources.map((id) => ({
+          id,
+          url: id.startsWith('BL')
+            ? beginnerSources[id as keyof typeof beginnerSources]
+            : sourceUrl(id as 'L02'),
+        }));
+}
+export function FoundationsV2({
+  topic,
+  journal = false,
+  embedded = false,
+  focusPart = false,
+}: {
+  topic: string;
+  journal?: boolean;
+  embedded?: boolean;
+  focusPart?: boolean;
+}) {
   const v2 = useFoundationsV2(),
     { store, facts } = v2;
   const [part, setPart] = useState<(typeof p.parts)[number]['id']>('cpu');
   const [trace, setTrace] = useState(0),
     [catalogue, setCatalogue] = useState(false);
   const onProject = useCallback(() => {}, []);
+  const section = useRef<HTMLElement>(null);
   const unit = laterUnits.find((u) => topic === `v2-${u}`);
   const copy = t.topics[topic as V2Topic];
   const onPractice = useCallback(
     (event: unknown) => store.event({ kind: 'practice', event }),
     [store],
   );
+  const expose = useCallback(() => {
+    if (!v2.ready || !copy || journal || v2.issue) return;
+    if (!store.event({ kind: 'visit', topic })) return;
+    if (unit) onPractice({ kind: 'visit', unit });
+  }, [v2.ready, v2.issue, copy, journal, store, topic, unit, onPractice]);
   useEffect(() => {
-    if (v2.ready && copy && !journal) store.event({ kind: 'visit', topic });
-  }, [v2.ready, copy, store, topic, journal]);
-  useEffect(() => {
-    if (v2.ready && unit && !journal) onPractice({ kind: 'visit', unit });
-  }, [v2.ready, unit, onPractice, journal]);
+    if (!v2.ready || !copy || journal || v2.issue) return;
+    if (!embedded) {
+      expose();
+      return;
+    }
+    // A mounted chapter is not exposure to every part. Observe the actual
+    // explanation inside the reading viewport, not its offscreen wrapper.
+    const target = section.current?.querySelector('.v2-explanation > p');
+    if (!target || typeof IntersectionObserver === 'undefined') return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (
+          document.visibilityState === 'visible' &&
+          entries.some(
+            (entry) =>
+              entry.isIntersecting &&
+              entry.intersectionRect.height >= Math.min(64, entry.boundingClientRect.height),
+          )
+        ) {
+          expose();
+          observer.disconnect();
+        }
+      },
+      { threshold: [0, 0.1, 0.25, 0.5, 0.75, 1], rootMargin: '-84px 0px -160px 0px' },
+    );
+    observer.observe(target);
+    return () => observer.disconnect();
+  }, [v2.ready, v2.issue, copy, store, topic, journal, unit, onPractice, embedded, expose]);
   if (topic === 'v2-assessment') return <V2Assessment />;
   if (topic === 'v2-summary') return <V2Summary />;
   if (!copy) return null;
   const selected = p.parts.find((item) => item.id === part)!;
   return (
-    <article className="foundations-v2 proof-shell" aria-label={copy.title}>
-      {v2.issue && (
+    <article
+      ref={section}
+      onFocusCapture={
+        embedded
+          ? (event) => {
+              if (
+                event.target instanceof HTMLElement &&
+                event.target.matches('button,input,select,textarea')
+              )
+                expose();
+            }
+          : undefined
+      }
+      id={`cloud-part-${topic}`}
+      className={`foundations-v2 proof-shell${embedded ? ' cloud-chapter-part' : ''}`}
+      aria-label={copy.title}
+    >
+      {!embedded && v2.issue && (
         <div className="course-storage" role="status">
           <p>
             {t.storage} ({v2.issue})
@@ -69,19 +136,28 @@ export function FoundationsV2({ topic, journal = false }: { topic: string; journ
         </div>
       )}
       <header className="v2-lesson-heading">
-        <small>
-          {t.badge} · {String(v2Topics.indexOf(topic as V2Topic) + 1).padStart(2, '0')} / 12
-        </small>
-        <h2 data-activity-heading tabIndex={-1}>
-          {copy.title}
-        </h2>
-        <p>{copy.objective}</p>
+        {embedded ? (
+          <h3 data-activity-heading={focusPart || undefined} tabIndex={-1}>
+            {copy.title}
+          </h3>
+        ) : (
+          <>
+            <small>{t.badge}</small>
+            <h2 data-activity-heading tabIndex={-1}>
+              {copy.title}
+            </h2>
+          </>
+        )}
+        {!embedded && <p>{copy.objective}</p>}
       </header>
       {topic !== 'v2-capacity' && (
         <div
           className={`v2-teaching ${unit === 'models' || unit === 'responsibility' ? 'v2-comparison' : ''}`}
         >
-          <section className="v2-explanation" aria-label={nb.foundations.purpose}>
+          <section
+            className="v2-explanation"
+            aria-label={`${nb.foundations.purpose} · ${copy.title}`}
+          >
             <p>{copy.text}</p>
             <p>{copy.detail}</p>
             {topic === 'intro-request' && (
@@ -147,6 +223,7 @@ export function FoundationsV2({ topic, journal = false }: { topic: string; journ
             {(topic === 'intro-request' || topic === 'physical-server') && (
               <div className={`proof-system ${trace ? 'v2-traced' : ''}`}>
                 <Server
+                  idPrefix={embedded ? `${topic}-` : undefined}
                   selected={topic === 'intro-request' ? 'app' : part}
                   request={topic === 'intro-request'}
                   phase={trace}
@@ -180,7 +257,7 @@ export function FoundationsV2({ topic, journal = false }: { topic: string; journ
       {Object.hasOwn(checks, topic) && !journal && <PrerequisiteCheck topic={topic as CheckId} />}
       {unit && (
         <>
-          <section className="v2-manuscript" aria-label={t.journal}>
+          <section className="v2-manuscript" aria-label={`${t.journal} · ${copy.title}`}>
             {(['purpose', 'mechanism', 'azure', 'example', 'misconception', 'limits'] as const).map(
               (key) => (
                 <section key={key}>
@@ -216,25 +293,13 @@ export function FoundationsV2({ topic, journal = false }: { topic: string; journ
           )}
         </>
       )}
-      <SavvyShark compact>
-        <p>{topic === 'resource-bridge' ? t.topics['resource-bridge'].detail : t.guidedNote}</p>
-      </SavvyShark>
-      <p className="source-context">{p.sourceNote}</p>
-      <SourceDisclosure
-        entries={
-          unit
-            ? units.find((u) => u.id === unit)!.sources.map((id) => ({ id, url: sourceUrl(id) }))
-            : v2Bindings
-                .find((b) => b.topic === topic)!
-                .sources.map((id) => ({
-                  id,
-                  url: id.startsWith('BL')
-                    ? beginnerSources[id as keyof typeof beginnerSources]
-                    : sourceUrl(id as 'L02'),
-                }))
-        }
-      />
-      {!journal && (
+      {!embedded && (
+        <>
+          <p className="source-context">{p.sourceNote}</p>
+          <SourceDisclosure entries={foundationsSources(topic as V2Topic)} />
+        </>
+      )}
+      {!journal && !embedded && (
         <RelatedActivities
           assessment="/learn/computing?topic=v2-assessment"
           observations="/learn/computing?topic=v2-summary"

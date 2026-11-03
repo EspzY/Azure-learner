@@ -9,7 +9,15 @@ import { coursePaths, coursePathFor, moduleLabels } from './course-outline';
 export type CourseDestinations = Record<CourseModule, string>;
 export type CourseActivities = Record<
   CourseModule,
-  readonly { href: string; title: string; topic: string; observed?: boolean; section?: string }[]
+  readonly {
+    href: string;
+    title: string;
+    topic: string;
+    observed?: boolean;
+    section?: string;
+    activeTopics?: readonly string[];
+    parts?: readonly { topic: string; title: string; href: string }[];
+  }[]
 >;
 
 export function CourseSidebar({
@@ -131,7 +139,9 @@ export function CourseSidebar({
                                   <Link
                                     href={activity.href}
                                     aria-current={
-                                      module === part && topic === activity.topic
+                                      module === part &&
+                                      (topic === activity.topic ||
+                                        activity.activeTopics?.includes(topic))
                                         ? 'step'
                                         : undefined
                                     }
@@ -147,6 +157,27 @@ export function CourseSidebar({
                                       </span>
                                     )}
                                   </Link>
+                                  {activity.parts && (
+                                    <details
+                                      className="cloud-chapter-subtopics"
+                                      key={`${activity.topic}-${topic}`}
+                                      open={
+                                        activity.parts.some((item) => item.topic === topic) &&
+                                        topic !== activity.topic
+                                      }
+                                    >
+                                      <summary>Deler i økten</summary>
+                                      {activity.parts.map((item) => (
+                                        <Link
+                                          key={item.topic}
+                                          href={item.href}
+                                          onClick={onNavigate}
+                                        >
+                                          {item.title}
+                                        </Link>
+                                      ))}
+                                    </details>
+                                  )}
                                 </li>
                               ))}
                             </ol>

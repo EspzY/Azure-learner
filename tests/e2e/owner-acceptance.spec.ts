@@ -1,3 +1,4 @@
+import { openCloudPart } from './cloud-chapter-actions';
 import { test, expect, type Page } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { nb, ownerAcceptanceNb as a, labsNb, managementNb } from '../../src/content/nb';
@@ -25,10 +26,7 @@ async function start(page: Page) {
   await page.getByLabel(items[0]!.question, { exact: true }).fill('3');
 }
 async function leave(page: Page) {
-  await page
-    .locator('.course-units')
-    .getByRole('link', { name: t.topics.provisioning.title, exact: true })
-    .click();
+  await openCloudPart(page, 'provisioning');
   await expect(page).toHaveURL(/topic=provisioning/);
 }
 async function answerAll(page: Page, wrong = false) {
@@ -161,10 +159,7 @@ test('owner denied exit and Journal aid fail closed and stale tabs cannot turn a
   ).toHaveCount(0);
   expect(await read(page)).toBe(before);
   await page.keyboard.press('Escape');
-  await page
-    .locator('.course-units')
-    .getByRole('link', { name: t.topics.provisioning.title, exact: true })
-    .click();
+  await openCloudPart(page, 'provisioning');
   await expect(page.getByRole('dialog', { name: a.leaveFailedTitle })).toBeVisible();
   expect(await read(page)).toBe(before);
   expect((await facts(page)).active).toBe(true);
@@ -174,10 +169,7 @@ test('owner denied exit and Journal aid fail closed and stale tabs cannot turn a
   await other.goto(route);
   await other.getByLabel(items[0]!.question, { exact: true }).fill('4');
   await expect.poll(async () => (await read(page))!).toContain('"4"');
-  await page
-    .locator('.course-units')
-    .getByRole('link', { name: t.topics.provisioning.title, exact: true })
-    .click();
+  await openCloudPart(page, 'provisioning');
   await expect(page.getByRole('dialog', { name: a.leaveFailedTitle })).toBeVisible();
   expect((await facts(page)).active).toBe(true);
   expect((await facts(page)).submissions).toEqual([]);
@@ -234,10 +226,7 @@ test('owner guided PaaS resume shares independent safety and SavvyShark returns 
   await page.reload();
   await expect(page.locator('.v2-assessment form')).toBeVisible();
 
-  await page
-    .locator('.course-units')
-    .getByRole('link', { name: t.topics.provisioning.title, exact: true })
-    .click();
+  await openCloudPart(page, 'provisioning');
   await expect(page).toHaveURL(/topic=provisioning/);
   expect((await facts(page)).active).toBe(false);
   await page.goto('/learn/services?topic=paas&version=2&activity=practical');

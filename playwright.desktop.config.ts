@@ -5,6 +5,10 @@ import baseline from './playwright.config';
 // names. No test body, assertion, title, timeout or skip is modified.
 const compactCases = [
   [
+    'cloud-consolidation.spec.ts',
+    'consolidated chapter desktop compact short-height keyboard reduced motion and Axe keep explanations and controls reachable',
+  ],
+  [
     'owner-acceptance.spec.ts',
     'owner feedback short desktop keyboard reflow footer clearance Axe and reduced motion preserve readable content',
   ],
