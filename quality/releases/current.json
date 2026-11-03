@@ -1,11 +1,11 @@
 {
   "schema": 1,
-  "id": "PR51-hybrid-production-foundation",
+  "id": "PR51-owner-acceptance-corrections",
   "baseCommit": "daa4c6a03945a634633286711fcef452d14b785f",
   "author": "codex-hybrid51-author",
   "scope": {
-    "kind": "visual-production-foundation",
-    "description": "Owner-selected hybrid in actual Course Hub/shell/Compute and native Portal journey; not a second app or broad detailed17-module reskin.",
+    "kind": "hybrid-production-owner-corrections",
+    "description": "Same Draft51 owner corrections: explicit versioned Foundations assessment exit, durable storage, practical safety parity, secondary links and progressive readable feedback. Existing hybrid rollout remains, broad Stage2–5 withheld.",
     "objectives": ["visual.presentation"]
   },
   "sources": [
@@ -130,56 +130,44 @@
       "objectives": ["visual.presentation"],
       "claims": ["visual.portal.boundary"],
       "assessmentStatus": "unchanged-existing",
-      "limits": "Presentation-only approved Hub/shell/Compute foundation. Original source/manuscript/models/rubrics/evidence/World/receipts/XP preserved. Actual local checks and stamped independent review are recorded separately; complete final-head329CI/strict and anonymous normal/reduced fullSHA Gate7 are mandatory, initial heads cannot substitute. Human validation unperformed; no new art, broad17-module detailed rollout, merge/production or P17/P18.",
-      "theory": [
-        {
-          "path": "src/features/learning/compute.tsx"
-        }
-      ],
+      "limits": "Owner explicitly authorizes narrow schema3/lifecycle1 abandonment and durable v2-store correction. Frozen rubric2/schema2 golden results/manuscript prefix and all other technical authorities/mascot/sequence remain protected. Same Draft51; all337 final-head CI/strict and new anonymous SHA-bound Gate7 required. Human validation unperformed; broad rollout, Stage2–5, PR52/merge/production not authorized.",
+      "theory": [{ "path": "src/features/learning/compute.tsx" }],
       "mechanism": [
-        {
-          "path": "src/features/course/experience-motion.tsx"
-        },
-        {
-          "path": "src/features/learning/compute-workbench.tsx"
-        }
+        { "path": "src/features/course/experience-motion.tsx" },
+        { "path": "src/features/learning/compute-workbench.tsx" }
       ],
-      "practice": [
-        {
-          "path": "tests/e2e/hybrid-experience.spec.ts"
-        }
-      ],
+      "practice": [{ "path": "tests/e2e/hybrid-experience.spec.ts" }],
       "feedback": [
-        {
-          "path": "src/domain/curriculum/compute-model.ts"
-        },
-        {
-          "path": "src/features/learning/compute-workbench.tsx"
-        }
+        { "path": "src/domain/curriculum/compute-model.ts" },
+        { "path": "src/features/learning/compute-workbench.tsx" }
       ],
-      "visual": [
-        {
-          "path": "docs/HYBRID_PRODUCTION_FOUNDATION.md"
-        }
-      ],
-      "accessible": [
-        {
-          "path": "tests/e2e/hybrid-experience.spec.ts"
-        }
-      ],
-      "assessment": [
-        {
-          "path": "src/features/course/hybrid-foundation.test.ts"
-        }
-      ],
+      "visual": [{ "path": "docs/HYBRID_PRODUCTION_FOUNDATION.md" }],
+      "accessible": [{ "path": "tests/e2e/hybrid-experience.spec.ts" }],
+      "assessment": [{ "path": "src/features/course/hybrid-foundation.test.ts" }],
       "savvyshark": [
-        {
-          "path": "src/features/course/savvy-shark.tsx"
-        },
-        {
-          "path": "docs/SAVVYSHARK_CHARACTER_BIBLE.md"
-        }
+        { "path": "src/features/course/savvy-shark.tsx" },
+        { "path": "docs/SAVVYSHARK_CHARACTER_BIBLE.md" }
       ]
+    },
+    {
+      "id": "foundations-owner-exit-feedback",
+      "objectives": ["visual.presentation"],
+      "claims": ["visual.portal.boundary"],
+      "assessmentStatus": "unchanged-existing",
+      "limits": "Owner explicitly authorizes narrow schema3/lifecycle1 abandonment and durable v2-store correction. Frozen rubric2/schema2 golden results/manuscript prefix and all other technical authorities/mascot/sequence remain protected. Same Draft51; all337 final-head CI/strict and new anonymous SHA-bound Gate7 required. Human validation unperformed; broad rollout, Stage2–5, PR52/merge/production not authorized.",
+      "theory": [{ "path": "docs/PR51_OWNER_ACCEPTANCE.md" }],
+      "mechanism": [
+        { "path": "src/domain/curriculum/foundations-v2.ts" },
+        { "path": "src/domain/curriculum/v2-store.ts" },
+        { "path": "src/features/course/assessment-navigation-exit.tsx" },
+        { "path": "src/features/learning/management-access.tsx" }
+      ],
+      "practice": [{ "path": "tests/e2e/owner-acceptance.spec.ts" }],
+      "feedback": [{ "path": "src/features/learning/foundations-v2.tsx" }],
+      "visual": [{ "path": "docs/PR51_OWNER_ACCEPTANCE.md" }],
+      "accessible": [{ "path": "tests/e2e/owner-acceptance.spec.ts" }],
+      "assessment": [{ "path": "src/domain/curriculum/foundations-v2-lifecycle.test.ts" }],
+      "savvyshark": [{ "path": "src/features/course/practical-lab.tsx" }]
     }
   ],
   "modules": [],
@@ -252,8 +240,6 @@
     "src/domain/curriculum/expansion-store.ts",
     "src/domain/curriculum/expansion.test.ts",
     "src/domain/curriculum/expansion.ts",
-    "src/domain/curriculum/foundations-v2.test.ts",
-    "src/domain/curriculum/foundations-v2.ts",
     "src/domain/curriculum/foundations.test.ts",
     "src/domain/curriculum/foundations.ts",
     "src/domain/curriculum/governance-evidence.ts",
@@ -333,7 +319,6 @@
     "src/domain/curriculum/transfer-store.ts",
     "src/domain/curriculum/transfer.test.ts",
     "src/domain/curriculum/transfer.ts",
-    "src/domain/curriculum/v2-store.ts",
     "src/domain/guidance/milestone-preferences.ts",
     "src/domain/guidance/milestones.test.ts",
     "src/domain/guidance/milestones.ts",
@@ -402,12 +387,9 @@
     "src/features/learning/cost.tsx",
     "src/features/learning/curriculum-trail.tsx",
     "src/features/learning/diagram.tsx",
-    "src/features/learning/expanded-module.tsx",
     "src/features/learning/expansion-provider.tsx",
     "src/features/learning/expansion-visuals.tsx",
     "src/features/learning/expansion.css",
-    "src/features/learning/foundations-v2.css",
-    "src/features/learning/foundations-v2.tsx",
     "src/features/learning/foundations-visuals.css",
     "src/features/learning/foundations-visuals.tsx",
     "src/features/learning/governance-assessment.tsx",
@@ -428,7 +410,6 @@
     "src/features/learning/journal.tsx",
     "src/features/learning/learning-visuals.css",
     "src/features/learning/learning.css",
-    "src/features/learning/management-access.tsx",
     "src/features/learning/management-provider.tsx",
     "src/features/learning/management-recovery.tsx",
     "src/features/learning/management-tools-assessment.tsx",
@@ -486,7 +467,6 @@
     "src/features/learning/serverless.css",
     "src/features/learning/serverless.tsx",
     "src/features/learning/source-disclosure.css",
-    "src/features/learning/source-disclosure.test.ts",
     "src/features/learning/source-disclosure.tsx",
     "src/features/learning/storage-assessment.tsx",
     "src/features/learning/storage-provider.tsx",
@@ -521,7 +501,6 @@
     "tests/e2e/curriculum-expansion.spec.ts",
     "tests/e2e/dialog-placement.spec.ts",
     "tests/e2e/file-movement-migration.spec.ts",
-    "tests/e2e/foundations-v2.spec.ts",
     "tests/e2e/governance-compliance.spec.ts",
     "tests/e2e/guided-learning-polish.spec.ts",
     "tests/e2e/identity-foundations.spec.ts",
@@ -549,113 +528,92 @@
   "gates": {
     "source": {
       "checks": [
-        {
-          "path": "docs/HYBRID_PRODUCTION_FOUNDATION.md"
-        },
-        {
-          "path": "tests/e2e/hybrid-experience.spec.ts"
-        },
-        {
-          "path": "docs/reviews/evidence/hybrid51-preservation.json"
-        }
+        { "path": "docs/HYBRID_PRODUCTION_FOUNDATION.md" },
+        { "path": "tests/e2e/hybrid-experience.spec.ts" },
+        { "path": "docs/reviews/evidence/hybrid51-preservation.json" },
+        { "path": "docs/PR51_OWNER_ACCEPTANCE.md" },
+        { "path": "src/domain/curriculum/foundations-v2-lifecycle.test.ts" },
+        { "path": "tests/e2e/owner-acceptance.spec.ts" }
       ],
-      "limits": "Presentation-only approved Hub/shell/Compute foundation. Original source/manuscript/models/rubrics/evidence/World/receipts/XP preserved. Actual local checks and stamped independent review are recorded separately; complete final-head329CI/strict and anonymous normal/reduced fullSHA Gate7 are mandatory, initial heads cannot substitute. Human validation unperformed; no new art, broad17-module detailed rollout, merge/production or P17/P18."
+      "limits": "Owner explicitly authorizes narrow schema3/lifecycle1 abandonment and durable v2-store correction. Frozen rubric2/schema2 golden results/manuscript prefix and all other technical authorities/mascot/sequence remain protected. Same Draft51; all337 final-head CI/strict and new anonymous SHA-bound Gate7 required. Human validation unperformed; broad rollout, Stage2–5, PR52/merge/production not authorized."
     },
     "curriculum": {
       "checks": [
-        {
-          "path": "docs/HYBRID_PRODUCTION_FOUNDATION.md"
-        },
-        {
-          "path": "tests/e2e/hybrid-experience.spec.ts"
-        },
-        {
-          "path": "docs/reviews/evidence/hybrid51-preservation.json"
-        }
+        { "path": "docs/HYBRID_PRODUCTION_FOUNDATION.md" },
+        { "path": "tests/e2e/hybrid-experience.spec.ts" },
+        { "path": "docs/reviews/evidence/hybrid51-preservation.json" },
+        { "path": "docs/PR51_OWNER_ACCEPTANCE.md" },
+        { "path": "src/domain/curriculum/foundations-v2-lifecycle.test.ts" },
+        { "path": "tests/e2e/owner-acceptance.spec.ts" }
       ],
-      "limits": "Presentation-only approved Hub/shell/Compute foundation. Original source/manuscript/models/rubrics/evidence/World/receipts/XP preserved. Actual local checks and stamped independent review are recorded separately; complete final-head329CI/strict and anonymous normal/reduced fullSHA Gate7 are mandatory, initial heads cannot substitute. Human validation unperformed; no new art, broad17-module detailed rollout, merge/production or P17/P18."
+      "limits": "Owner explicitly authorizes narrow schema3/lifecycle1 abandonment and durable v2-store correction. Frozen rubric2/schema2 golden results/manuscript prefix and all other technical authorities/mascot/sequence remain protected. Same Draft51; all337 final-head CI/strict and new anonymous SHA-bound Gate7 required. Human validation unperformed; broad rollout, Stage2–5, PR52/merge/production not authorized."
     },
     "simulation": {
       "checks": [
-        {
-          "path": "docs/HYBRID_PRODUCTION_FOUNDATION.md"
-        },
-        {
-          "path": "tests/e2e/hybrid-experience.spec.ts"
-        },
-        {
-          "path": "docs/reviews/evidence/hybrid51-preservation.json"
-        }
+        { "path": "docs/HYBRID_PRODUCTION_FOUNDATION.md" },
+        { "path": "tests/e2e/hybrid-experience.spec.ts" },
+        { "path": "docs/reviews/evidence/hybrid51-preservation.json" },
+        { "path": "docs/PR51_OWNER_ACCEPTANCE.md" },
+        { "path": "src/domain/curriculum/foundations-v2-lifecycle.test.ts" },
+        { "path": "tests/e2e/owner-acceptance.spec.ts" }
       ],
-      "limits": "Presentation-only approved Hub/shell/Compute foundation. Original source/manuscript/models/rubrics/evidence/World/receipts/XP preserved. Actual local checks and stamped independent review are recorded separately; complete final-head329CI/strict and anonymous normal/reduced fullSHA Gate7 are mandatory, initial heads cannot substitute. Human validation unperformed; no new art, broad17-module detailed rollout, merge/production or P17/P18."
+      "limits": "Owner explicitly authorizes narrow schema3/lifecycle1 abandonment and durable v2-store correction. Frozen rubric2/schema2 golden results/manuscript prefix and all other technical authorities/mascot/sequence remain protected. Same Draft51; all337 final-head CI/strict and new anonymous SHA-bound Gate7 required. Human validation unperformed; broad rollout, Stage2–5, PR52/merge/production not authorized."
     },
     "savvyshark": {
       "checks": [
-        {
-          "path": "docs/HYBRID_PRODUCTION_FOUNDATION.md"
-        },
-        {
-          "path": "tests/e2e/hybrid-experience.spec.ts"
-        },
-        {
-          "path": "docs/reviews/evidence/hybrid51-preservation.json"
-        }
+        { "path": "docs/HYBRID_PRODUCTION_FOUNDATION.md" },
+        { "path": "tests/e2e/hybrid-experience.spec.ts" },
+        { "path": "docs/reviews/evidence/hybrid51-preservation.json" },
+        { "path": "docs/PR51_OWNER_ACCEPTANCE.md" },
+        { "path": "src/domain/curriculum/foundations-v2-lifecycle.test.ts" },
+        { "path": "tests/e2e/owner-acceptance.spec.ts" }
       ],
-      "limits": "Presentation-only approved Hub/shell/Compute foundation. Original source/manuscript/models/rubrics/evidence/World/receipts/XP preserved. Actual local checks and stamped independent review are recorded separately; complete final-head329CI/strict and anonymous normal/reduced fullSHA Gate7 are mandatory, initial heads cannot substitute. Human validation unperformed; no new art, broad17-module detailed rollout, merge/production or P17/P18."
+      "limits": "Owner explicitly authorizes narrow schema3/lifecycle1 abandonment and durable v2-store correction. Frozen rubric2/schema2 golden results/manuscript prefix and all other technical authorities/mascot/sequence remain protected. Same Draft51; all337 final-head CI/strict and new anonymous SHA-bound Gate7 required. Human validation unperformed; broad rollout, Stage2–5, PR52/merge/production not authorized."
     },
     "visual-accessibility": {
       "checks": [
-        {
-          "path": "docs/HYBRID_PRODUCTION_FOUNDATION.md"
-        },
-        {
-          "path": "tests/e2e/hybrid-experience.spec.ts"
-        },
-        {
-          "path": "docs/reviews/evidence/hybrid51-preservation.json"
-        }
+        { "path": "docs/HYBRID_PRODUCTION_FOUNDATION.md" },
+        { "path": "tests/e2e/hybrid-experience.spec.ts" },
+        { "path": "docs/reviews/evidence/hybrid51-preservation.json" },
+        { "path": "docs/PR51_OWNER_ACCEPTANCE.md" },
+        { "path": "src/domain/curriculum/foundations-v2-lifecycle.test.ts" },
+        { "path": "tests/e2e/owner-acceptance.spec.ts" }
       ],
-      "limits": "Presentation-only approved Hub/shell/Compute foundation. Original source/manuscript/models/rubrics/evidence/World/receipts/XP preserved. Actual local checks and stamped independent review are recorded separately; complete final-head329CI/strict and anonymous normal/reduced fullSHA Gate7 are mandatory, initial heads cannot substitute. Human validation unperformed; no new art, broad17-module detailed rollout, merge/production or P17/P18."
+      "limits": "Owner explicitly authorizes narrow schema3/lifecycle1 abandonment and durable v2-store correction. Frozen rubric2/schema2 golden results/manuscript prefix and all other technical authorities/mascot/sequence remain protected. Same Draft51; all337 final-head CI/strict and new anonymous SHA-bound Gate7 required. Human validation unperformed; broad rollout, Stage2–5, PR52/merge/production not authorized."
     },
     "independent-final-audit": {
       "checks": [
-        {
-          "path": "docs/HYBRID_PRODUCTION_FOUNDATION.md"
-        },
-        {
-          "path": "tests/e2e/hybrid-experience.spec.ts"
-        },
-        {
-          "path": "docs/reviews/evidence/hybrid51-preservation.json"
-        }
+        { "path": "docs/HYBRID_PRODUCTION_FOUNDATION.md" },
+        { "path": "tests/e2e/hybrid-experience.spec.ts" },
+        { "path": "docs/reviews/evidence/hybrid51-preservation.json" },
+        { "path": "docs/PR51_OWNER_ACCEPTANCE.md" },
+        { "path": "src/domain/curriculum/foundations-v2-lifecycle.test.ts" },
+        { "path": "tests/e2e/owner-acceptance.spec.ts" }
       ],
-      "limits": "Presentation-only approved Hub/shell/Compute foundation. Original source/manuscript/models/rubrics/evidence/World/receipts/XP preserved. Actual local checks and stamped independent review are recorded separately; complete final-head329CI/strict and anonymous normal/reduced fullSHA Gate7 are mandatory, initial heads cannot substitute. Human validation unperformed; no new art, broad17-module detailed rollout, merge/production or P17/P18."
+      "limits": "Owner explicitly authorizes narrow schema3/lifecycle1 abandonment and durable v2-store correction. Frozen rubric2/schema2 golden results/manuscript prefix and all other technical authorities/mascot/sequence remain protected. Same Draft51; all337 final-head CI/strict and new anonymous SHA-bound Gate7 required. Human validation unperformed; broad rollout, Stage2–5, PR52/merge/production not authorized."
     },
     "delivery": {
       "checks": [
-        {
-          "path": "docs/HYBRID_PRODUCTION_FOUNDATION.md"
-        },
-        {
-          "path": "tests/e2e/hybrid-experience.spec.ts"
-        },
-        {
-          "path": "docs/reviews/evidence/hybrid51-preservation.json"
-        }
+        { "path": "docs/HYBRID_PRODUCTION_FOUNDATION.md" },
+        { "path": "tests/e2e/hybrid-experience.spec.ts" },
+        { "path": "docs/reviews/evidence/hybrid51-preservation.json" },
+        { "path": "docs/PR51_OWNER_ACCEPTANCE.md" },
+        { "path": "src/domain/curriculum/foundations-v2-lifecycle.test.ts" },
+        { "path": "tests/e2e/owner-acceptance.spec.ts" }
       ],
-      "limits": "Presentation-only approved Hub/shell/Compute foundation. Original source/manuscript/models/rubrics/evidence/World/receipts/XP preserved. Actual local checks and stamped independent review are recorded separately; complete final-head329CI/strict and anonymous normal/reduced fullSHA Gate7 are mandatory, initial heads cannot substitute. Human validation unperformed; no new art, broad17-module detailed rollout, merge/production or P17/P18."
+      "limits": "Owner explicitly authorizes narrow schema3/lifecycle1 abandonment and durable v2-store correction. Frozen rubric2/schema2 golden results/manuscript prefix and all other technical authorities/mascot/sequence remain protected. Same Draft51; all337 final-head CI/strict and new anonymous SHA-bound Gate7 required. Human validation unperformed; broad rollout, Stage2–5, PR52/merge/production not authorized."
     }
   },
   "verification": [
     {
       "command": "npm run check",
       "result": "passed",
-      "details": "FINAL current source actual exit0:626 Vitest/503 curriculum/20Node/type/lint/format/docs/assets/quality/build. After actual CI hover/focus findings, unchangedCloud1440repeat3 +hybrid/native-dialog15 +compact5 all passed without retry; old settings/assertions retained. Complete successor329CI remains separate pending."
+      "details": "Full check actual exit0 after core-boundary correction:634 Vitest/503 curriculum/20Node and production build; terminal-submit UI correction additionally receives type/lint/build and affected domain/browser revalidation before restamp. Original schema2/rubric/source prefix and all other technical authorities retained. No threshold/retry/worker/skip changes."
     },
     {
       "command": "npm run test:e2e:desktop",
       "result": "pending",
-      "details": "Complete329 candidate(300desktop/29compact), preserved320prior; authoritative exact-head CI pending."
+      "details": "337 complete final candidate:307desktop+30compact, all329 earlier executions retained."
     }
   ],
   "visualEvidence": [
@@ -754,6 +712,42 @@
       "viewport": "1440x900",
       "inspected": true,
       "observation": "Actual authored320ms workspace transition sampled at160ms. Portal header is y0, text/ancestors remain full opacity/untransformed; only pointer-transparent orientation bracket animates."
+    },
+    {
+      "path": "docs/screenshots/pr51-owner/after-feedback-1440.png",
+      "viewport": "1440x900",
+      "inspected": true,
+      "observation": "Actual criterion summary, weak area and closed per-question details; raw answer IDs replaced by unchanged option text."
+    },
+    {
+      "path": "docs/screenshots/pr51-owner/after-feedback-1024x500.png",
+      "viewport": "1024x500",
+      "inspected": true,
+      "observation": "Actual short desktop feedback summary; retry and explanations remain scrollable above measured footer clearance."
+    },
+    {
+      "path": "docs/screenshots/pr51-owner/after-links-1440.png",
+      "viewport": "1440x900",
+      "inspected": true,
+      "observation": "Actual closed secondary navigation; footer remains recommended primary."
+    },
+    {
+      "path": "docs/screenshots/pr51-owner/after-links-expanded-1440.png",
+      "viewport": "1440x900",
+      "inspected": true,
+      "observation": "Actual purpose-labelled voluntary assessment/observations destinations, no auto begin."
+    },
+    {
+      "path": "docs/screenshots/pr51-owner/native-zoom-125.png",
+      "viewport": "native Chrome window, 125% actual tabs.getZoom",
+      "inspected": true,
+      "observation": "Independent native-window raw CDP fromSurface:false capture visually inspected; no emulated-viewport dark margins. Readable long feedback, visible retry and footer; DOM/Axe/overflow measured separately."
+    },
+    {
+      "path": "docs/screenshots/pr51-owner/native-zoom-200.png",
+      "viewport": "native Chrome window, 200% actual tabs.getZoom",
+      "inspected": true,
+      "observation": "Independent native-window raw CDP fromSurface:false capture visually inspected; no emulated-viewport dark margins. Readable long feedback, visible retry and footer; DOM/Axe/overflow measured separately."
     }
   ],
   "humanReview": {
@@ -764,16 +758,21 @@
   },
   "snapshot": {
     "files": {
-      "AGENTS.md": "dde96e174a61f43939d9f9257bfad900157d8dff781c1da069218954e8d035c6",
+      "AGENTS.md": "4a05c4c1ee2855c572ab4c5c9a61bd2644f085e625d2880b806a21386e9c7bed",
       "docs/COURSE_HUB_REDESIGN.md": "42882dfdf518bc4705e7f51c04fbf7c914ecd354c2bf03848ab9a61f34c15d2b",
       "docs/DESIGN_SYSTEM.md": "9129b7d761453e34543360d15127e330bfccd8b2eb452087c86ada2d8325f4c2",
+      "docs/DEVELOPMENT_WORKFLOW.md": "73b605f35f3fd8e8c16222928f0e5f98d4f09db7ecf728ce8fd94da11e7338b7",
       "docs/EXPERIENCE_DESIGN.md": "3a1bd2d6f44b120748865659e31bc6244d448fc431e024e3b8de409e84d3ca21",
-      "docs/HYBRID_PRODUCTION_FOUNDATION.md": "78b11aeefc4eb1f36b2b905ea610cf0630437cd6a6b32aba9ba6df411fd608a1",
+      "docs/HYBRID_PRODUCTION_FOUNDATION.md": "72a9205238fde45a501aa2685ff36ebc385eebc4fee2d5ac3e1c657466257982",
+      "docs/PR51_OWNER_ACCEPTANCE.md": "acdf3415883ce67ffc2c5988fed996e370739bc2e5311e8359cf71b8b413f8e4",
       "docs/VISUAL_EXCELLENCE.md": "7f23bd7e26637e2fa2ecd296fa061a1eca11d68597e970984e9a7195e660c1fc",
       "docs/reviews/AZ900_REMEDIATION_PLAN.md": "b6508dec0279e84cbdf33c0967e8806182f59a87f111118297c12bd67dca3a95",
       "docs/reviews/evidence/hybrid51-author-browser.json": "efbf6262af8a9ae458aa6dcdbc726f87742f352f36ab0c143f0a79b549a03a88",
       "docs/reviews/evidence/hybrid51-design-sources.json": "9d76480a8ed8f0ffc7b2f7c8fd0d840901790251ea1e45440087a8aea84ed120",
       "docs/reviews/evidence/hybrid51-preservation.json": "780d5377156d278d3be8cd5d083a463786fcbbc8017cb2159ba531dcc4cf31c5",
+      "docs/reviews/evidence/pr51-owner-author-checks.json": "a1969e0aba24d2713e5d8c784ed8dc05321aa5f2ad5fdd48add0b2c2c6341f99",
+      "docs/reviews/evidence/pr51-owner-legacy-v2.json": "232305539ea78aa16bcecb590f14699b9ae92ec36371a646c0af1398cd7d1b96",
+      "docs/reviews/evidence/pr51-owner-preservation.json": "93beaed629193c3851df230459845acc7c34f172e1930fdf610f94a0d5ce344a",
       "docs/screenshots/hybrid-foundation/after-guide-1440x900.png": "bf740e8357d6312c21ea0fcf26fd7f3acc9cacb3d28a54862f0433769f2c92ec",
       "docs/screenshots/hybrid-foundation/after-hub-1024x500.png": "7c289d605c9e785c6c06a94031b09ec9667fc00a16f6c1167fc5a14df18d3994",
       "docs/screenshots/hybrid-foundation/after-hub-1440x900.png": "585ee5d13fd8c1384b3bb52af19c17129c712256ad334e47015da2244a098269",
@@ -790,216 +789,156 @@
       "docs/screenshots/hybrid-foundation/before-introduction-1440x900.png": "00bdb635688272235fca517c1fe58bf90b6a9eb95da3062422fb01f5f38b2858",
       "docs/screenshots/hybrid-foundation/before-studio-1440x900.png": "2e1592135ae15a97ebdd5b8dfc3edf6ec70c8f4de96e02801670eaa312b9d4ee",
       "docs/screenshots/hybrid-foundation/before-theory-1440x900.png": "65c58cd97f629c109e2863274568126baebedf7505731b65c8cb05d6ec931e0f",
-      "playwright.desktop.config.ts": "130b38361afcd049e0c9ff6f05380584e3f9abc1dc29f5c2cd0e178918ae5086",
+      "docs/screenshots/pr51-owner/after-feedback-1024x500.png": "99c1400c42ffd4853b9083a5a91774b18dae57ae47e5caa432776636c0446399",
+      "docs/screenshots/pr51-owner/after-feedback-1440.png": "e755991e105ce25c77f97c5db902d25835f2313d8ab1a3fddbc773d1a1162d9f",
+      "docs/screenshots/pr51-owner/after-links-1440.png": "3759e99609b8f7bb6df0d9de33d482937121e8ff08ef3f3fe8b56ff36da66046",
+      "docs/screenshots/pr51-owner/after-links-expanded-1440.png": "75bade06a3f3329683166f937fdf2104062d7a85ce1b50706ee77016dbde5b00",
+      "docs/screenshots/pr51-owner/before-feedback-1440.png": "05923ca2108d019216bb4373c66f72472374083de019410821829ecea3f03b7a",
+      "docs/screenshots/pr51-owner/before-links-1440.png": "77b00c263b74ac981eea77fd01e91e1fd1df3a89c218d83dbc0af01d8f589eef",
+      "docs/screenshots/pr51-owner/native-zoom-125.png": "03406bfa830d2977474c1effcfa865d8e1cf8330e69528e0e6b0a1716a50bc0b",
+      "docs/screenshots/pr51-owner/native-zoom-200.png": "f02eff6cd05e0162b1789ee68c541add6485fb415ff281abc44433105d16e1f8",
+      "playwright.desktop.config.ts": "58197a75f268e61a69f1da3b447529be12f46ca4b5b0067e2e7f1aad85e2fdf3",
       "src/app/globals.css": "f2b22f64390da80e41e027a2bbef34ef4fe4b4c3bcb880e9b86d3506b79bb641",
       "src/app/layout.tsx": "6a4ae0cd01c83e267b7c88c376dab3d0cf278cd1b4f4b4018742df05b01e0131",
       "src/app/learn/layout.tsx": "7af5f5f5f506d7037f79d079585a37b7f90b0f5dd50ed21dddceab24dda92c8e",
-      "src/components/app-shell.tsx": "465ac5b74fc9a26fc2aa496b544c01bb9dd5f6fec548c6b251d8c1334719b7ac",
-      "src/content/nb.ts": "c58b79e992eb65d24da07823e3aba77509beb88c59aed69adecb777193a4f37f",
+      "src/components/app-shell.tsx": "b80ae290443353a78835272d5ba82e89597ad34f456e84f4f9e2c361e9926a18",
+      "src/content/nb.ts": "00a8ad2ccbc85e24b79921b4f9ebc4707fbf88eb0204333a5ef2f3e2f3ff14f2",
+      "src/domain/curriculum/foundations-v2-lifecycle.test.ts": "460f2edf39e24051d0d86a966dba9c666596ed04ab6badd58d65f93b794a94fa",
+      "src/domain/curriculum/foundations-v2.test.ts": "c64f0c096eab0b0f34c786abbea00e213bc9f2220487e8210343a2a1b2905e1c",
+      "src/domain/curriculum/foundations-v2.ts": "8a23d10495c5c49ffb8c5f2c0bec7ca992025b767a4cf0ab969039757565fbfe",
+      "src/domain/curriculum/v2-store.ts": "69d0a065553c28341f3b1cbe1bbe44e2e23c3b872e8c25f034b7bc05d630673f",
+      "src/features/course/assessment-navigation-exit.tsx": "734e5e628c726d1764b95b2ea3d43b00de2ad04fe73ae6fe1cc33166cf63dc06",
       "src/features/course/course-hub.tsx": "80c23baa01be50bc6ebc2bdba89e845f24d82c49bf35766ef1a5f93e6a59a597",
-      "src/features/course/course.tsx": "71b72d58dca48cf5fa91b77bf363ec4ad280dc6d0595a587845d5e2437c1e245",
+      "src/features/course/course.tsx": "fd285075c551fe70d38ae5fc977ed29ed11002f00b5c9300a6d3f2e73161ecbf",
       "src/features/course/experience-motion.tsx": "743c9c475226c478d8da192048ee2ef580c462cb96db53f767bcec0814dc693d",
       "src/features/course/hybrid-foundation.css": "2f171226e88b326586598b12f9f7e48892b985cc75ccab63b038cef7b10e105c",
-      "src/features/course/hybrid-foundation.test.ts": "13d8708ed9f11d78d76d75403bc5da44c2bef34c452f535c0f1d4e019492c2d3",
+      "src/features/course/hybrid-foundation.test.ts": "328b05b4a25174e0341e0a21f9915c88aa7a7ffff8e3753f9e9ac82c3781b7d3",
       "src/features/course/learning-fonts.ts": "1a8c4f8d1152e8b43dc4550914084aa0895761dad8780deed344741c998e4041",
+      "src/features/course/practical-lab.tsx": "1a0461a3aa4b198f6859acec21a3719a4d1688b9878159104161bb258760db51",
       "src/features/course/savvy-shark.tsx": "970a54f6aab2a9fbd380b6efaedf4b4dfde1a0affca3a212e5aaafba055a28c8",
       "src/features/design-review/model.ts": "94cac03db9fadcfe0b894c7c69820cf744bed09226f57bd0de66079fafe5b6d5",
       "src/features/learning/compute-vm.tsx": "dc7973a76fd8b7159edded77f661d7117e8388703d6c04a26cd7f2c4e721caa6",
       "src/features/learning/compute-workbench.tsx": "fd60e42270b60098aa572b391378efe54db30764a2de4b5ce3208d35530b6b6c",
+      "src/features/learning/expanded-module.tsx": "4ef1846d48f28730618b6129efffd0c0079a70fb6482aa2005e42aa92d7a411d",
+      "src/features/learning/foundations-v2.css": "833dc453de83d69f32c82fb185ddf59dba442e6bd96442b9814cb3d14301be9b",
+      "src/features/learning/foundations-v2.tsx": "ad37c88bba9e7096a61c305299a4363d82686e6c6abe347283e8b1e1253bddd8",
+      "src/features/learning/management-access.tsx": "181c9a10f5983997f73dd6c44ed53e2a1cc5040d262ddf55753bc91a7f982f2a",
       "src/features/learning/refined-assessment.tsx": "49d940161edfe14f010730469dd2f34ae547a830c349c5f877fc508d23a9b8a7",
-      "tests/e2e/hybrid-experience.spec.ts": "15d19dd7cdc842a2dda874e4c4b1502282fe2049cb345c215bb8ae398a17715d"
+      "src/features/learning/related-activities.css": "a08f9149e7b7a4e90fb8d933458e42d167c59131234fa7dc80af478f0f6a4c90",
+      "src/features/learning/related-activities.tsx": "41abf76e5cd80fc682fd85fdfdbc8cf4af61dc04fdad1d42688257ffaa793b0d",
+      "src/features/learning/source-disclosure.test.ts": "b1c63396ce861e711f32ab89064697a1440ca49676939db91774857190c01abf",
+      "tests/e2e/foundations-v2.spec.ts": "4051230a40cac1d893d95382c60a4bf7865d3d5f73f80c22dd5dd69cfcbd93da",
+      "tests/e2e/hybrid-experience.spec.ts": "15d19dd7cdc842a2dda874e4c4b1502282fe2049cb345c215bb8ae398a17715d",
+      "tests/e2e/owner-acceptance.spec.ts": "19ce216fc801c12f1776a0b054c1f95bea69c245be69d5a1f5c90469bc7daeda"
     }
   },
-  "implementationFinished": "2026-11-03T06:55:41.016Z",
+  "implementationFinished": "2026-11-03T10:13:56.368Z",
   "review": {
     "status": "complete",
-    "fingerprint": "76c78002b3a66fc55f13d858eb9b175f9abccd113300380660911308a2d581ed",
-    "reviewer": {
-      "id": "/root/hybrid51_final_audit",
-      "kind": "agent"
-    },
-    "started": "2026-11-03T06:56:55.800Z",
+    "fingerprint": "9ccaf93bb7e75dab3f02314654fa922d8dd494e96846a99c69d8fea3bd5f3028",
+    "reviewer": { "id": "/root/pr51_owner_final_audit", "kind": "agent" },
+    "started": "2026-11-03T10:14:49.413Z",
     "domains": {
       "content": {
-        "finding": "Original manuscript/source/rubric/model bytes and entire locale prefix preserved againstbase. Actual approved visual/focus/CSS corrections add no Azure/service/coverage claim, learning credit or human-SME approval.",
+        "finding": "065 locale and original v2 manuscript/model/rubric prefix unchanged;312 other protected files hash-match. No new factual bank/whole-course approval; historical PARTIAL and human validation limits retained.",
         "evidence": [
-          {
-            "path": "docs/HYBRID_PRODUCTION_FOUNDATION.md"
-          },
-          {
-            "path": "docs/reviews/evidence/hybrid51-preservation.json"
-          },
-          {
-            "path": "docs/quality/PR51_FINAL_AUDIT.md"
-          }
+          { "path": "docs/reviews/evidence/pr51-owner-preservation.json" },
+          { "path": "docs/reviews/evidence/pr51-owner-legacy-v2.json" },
+          { "path": "docs/quality/PR51_OWNER_FINAL_AUDIT.md" }
         ]
       },
       "technical": {
-        "finding": "All44 final snapshot hashes and320 raw base paths/locale prefix independently match. Only narrow navigation cascade and actual authorized activity ref focus lifecycle change; original guards/2frames/cleanup and all authority/store/Boundary semantics retained. No new progress or focus engine.",
+        "finding": "Schema3/lifecycle1 preserves schema2 replay; explicit navigation CAS/readback aid+abandon, durable denial/stale failure and terminal reserve challenged. Denied fallback traversal leak and inaccessible UI reserve were real MAJOR findings, now fixed and independently rechecked after the renewed stamp. Portal/Sandbox/public authorities unchanged.",
         "evidence": [
-          {
-            "path": "src/features/learning/compute-workbench.tsx"
-          },
-          {
-            "path": "src/features/course/experience-motion.tsx"
-          },
-          {
-            "path": "docs/reviews/evidence/hybrid51-preservation.json"
-          },
-          {
-            "path": "docs/quality/PR51_FINAL_AUDIT.md"
-          }
+          { "path": "src/domain/curriculum/foundations-v2.ts" },
+          { "path": "src/domain/curriculum/v2-store.ts" },
+          { "path": "src/features/course/assessment-navigation-exit.tsx" },
+          { "path": "src/features/learning/management-access.tsx" },
+          { "path": "docs/quality/PR51_OWNER_FINAL_AUDIT.md" }
         ]
       },
       "visual": {
-        "finding": "Independent priorPUBLIC contrast failures reproduced afterlatePortalCSS. Poststamp actualPortal→SPACourse returnall3paths/modulebuttons at1440/1024short/800: darkhover/white,9Axe0; CSSOMlatePortalorder verified, nativePortalhoverunchanged.18BackForward focus transitions, nativeJournal/briefing and positiveaidmodal focus/scroll checks passed; actualframesinspected.",
+        "finding": "Actual before/after screenshots and six viewport sizes inspected. Keyboard native disclosures, readable full labels, footer clearance, reduced motion and Axe passed. Native125/200% getZoom1152/720CSSpx checked with readable direct CDP screenshots after rejecting invalid emulated-viewport captures.",
         "evidence": [
-          {
-            "path": "src/features/course/hybrid-foundation.css"
-          },
-          {
-            "path": "tests/e2e/hybrid-experience.spec.ts"
-          },
-          {
-            "path": "docs/screenshots/hybrid-foundation/after-studio-1024x500.png"
-          },
-          {
-            "path": "docs/quality/PR51_FINAL_AUDIT.md"
-          }
+          { "path": "src/features/learning/foundations-v2.css" },
+          { "path": "src/features/learning/related-activities.tsx" },
+          { "path": "docs/screenshots/pr51-owner/after-feedback-1024x500.png" },
+          { "path": "docs/screenshots/pr51-owner/native-zoom-125.png" },
+          { "path": "docs/screenshots/pr51-owner/native-zoom-200.png" },
+          { "path": "docs/quality/PR51_OWNER_FINAL_AUDIT.md" }
         ]
       },
       "assessment": {
-        "finding": "Banks/rubrics/first/help/retry and original durableBoundary unchanged. Poststamp deniedaid leavesprotectedActivityunmounted andexactdraftresume; positiveJournalaid0to1 retainsmodalfocus, Escape/trigger andexactbackgroundscroll at2sizes. No new result or reinterpretation; technicalbytes retained.",
+        "finding": "Five old fixtures reproduced against separately compiled065 source; rubric/first/results unchanged. Abandon has no result and later work is always practice, with inherited aid. Current/prior first, eleven original explanations/option labels, success-only summary focus and no reload refocus passed;600→601 terminal Submit uses last confirmed draft.",
         "evidence": [
-          {
-            "path": "src/features/learning/refined-assessment.tsx"
-          },
-          {
-            "path": "src/features/learning/management-access.tsx"
-          },
-          {
-            "path": "src/features/course/hybrid-foundation.test.ts"
-          },
-          {
-            "path": "docs/quality/PR51_FINAL_AUDIT.md"
-          }
+          { "path": "src/domain/curriculum/foundations-v2-lifecycle.test.ts" },
+          { "path": "docs/reviews/evidence/pr51-owner-legacy-v2.json" },
+          { "path": "src/features/learning/foundations-v2.tsx" },
+          { "path": "tests/e2e/owner-acceptance.spec.ts" },
+          { "path": "docs/quality/PR51_OWNER_FINAL_AUDIT.md" }
         ]
       },
       "guidance": {
-        "finding": "Canonical native guides/explicitStart/Cancel/portrait and originalPortal returns unchanged. Fresh nativebriefing/JournalretainfocuswhileopenandEscape return; callback focusonlyactualauthorizedconnectedactivitymount. Character3rejected/0newapproved/19planned unchanged; originalmilestones/evidence bytepreserved.",
+        "finding": "Complete current safety list protects Start/Resume/final briefing Start, including same-task races. Actual resident PaaS Show guide and exact native topic/version/activity return preserve original start/id/boundary and technical/XP bytes. Journal aid does not abandon, other-tab teaching cannot silently close the source assessment.",
         "evidence": [
-          {
-            "path": "src/features/course/savvy-shark.tsx"
-          },
-          {
-            "path": "src/features/learning/compute-vm.tsx"
-          },
-          {
-            "path": "docs/SAVVYSHARK_CHARACTER_BIBLE.md"
-          },
-          {
-            "path": "docs/quality/PR51_FINAL_AUDIT.md"
-          }
+          { "path": "src/features/course/practical-lab.tsx" },
+          { "path": "src/features/course/mission-context.ts" },
+          { "path": "src/features/course/course.tsx" },
+          { "path": "tests/e2e/owner-acceptance.spec.ts" },
+          { "path": "docs/quality/PR51_OWNER_FINAL_AUDIT.md" }
         ]
       },
       "regression": {
-        "finding": "Final fullnpmcheck0(626/503/20/build) inspected. OriginalUX1440repeat3/3, native8dialogs+own7=15/15, original4CI-failingcompact+newhover=5/5 no retry. Independentpoststamp18historyfocus transitions,9lateCSSAxe0, nativeoverlays/aid/resume passed. Original320settings/testbodies preserved;329profile300/29. BothpriorfailedCIheads historical; NEW exactheadfullCI/strict/fullSHA Gate7 pending.",
+        "finding": "329 retained executions/settings;337(307/30) profile pending complete exact-head CI. Independent24 Vitest, five inherited browser witnesses, final7 edge probes and post-stamp3 affected probes passed;312 preserved files and72 final snapshot hashes match. No complete candidate CI/strict or new anonymous deployed Gate7 result is claimed.",
         "evidence": [
-          {
-            "path": "playwright.desktop.config.ts"
-          },
-          {
-            "path": "tests/e2e/hybrid-experience.spec.ts"
-          },
-          {
-            "path": "docs/reviews/evidence/hybrid51-author-browser.json"
-          },
-          {
-            "path": "docs/quality/PR51_FINAL_AUDIT.md"
-          }
+          { "path": "playwright.desktop.config.ts" },
+          { "path": "tests/e2e/foundations-v2.spec.ts" },
+          { "path": "tests/e2e/owner-acceptance.spec.ts" },
+          { "path": "src/features/course/hybrid-foundation.test.ts" },
+          { "path": "docs/quality/PR51_OWNER_FINAL_AUDIT.md" }
         ]
       }
     },
     "findings": [
       {
-        "id": "P51-FA-01",
+        "id": "P51-OWNER-FA-01",
         "severity": "major",
         "status": "fixed",
-        "description": "Explicit Inspect scrolled original result title beneath fixedheader; sectionpartial-viewport assertion missed it.",
-        "fix": "Target-only scroll-margin-top uses actualheaderbottom+16px before native scroll/focus; regression compares heading geometry at1024/800.",
+        "description": "Unsupported Navigation API fallback browser Back with denied Foundations write mounted answer-bearing teaching behind a dismissible recovery dialog.",
+        "fix": "Existing only=core teaching boundary now includes v2; Course explicitly excludes its own current v2 assessment. Raw Portal management-only inspection filter remains unchanged.",
         "retests": [
-          "Independent final production focused-result-recheck:1024x500/800x500/1440x900; title visible, focused target, Axe0.",
-          "Author exact desktop and compact result-discovery case passed without retry."
+          "Independent final production fallback+native denied Back after Escape: no teaching mounted, exact active persisted attempt retained.",
+          "Renewed-stamp independent repetition of both traversal modes passed exit0; actual initial/final screenshots retained.",
+          "Author regression asserts absent Foundations article and manuscript after recovery dismissal."
         ]
       },
       {
-        "id": "P51-FA-02",
+        "id": "P51-OWNER-FA-02",
+        "severity": "major",
+        "status": "fixed",
+        "description": "V2Assessment disabled Submit on limit even though schema3 store reserved terminal capacity, blocking direct submission of a confirmed complete draft.",
+        "fix": "Only schema3+limit permits terminal Submit; answer fieldsets and Begin remain disabled, and visible copy explains the use of confirmed answers.",
+        "retests": [
+          "Independent actual600-event fixture rejects edit3, submits confirmed2, stores601 events and practice result, focuses summary.",
+          "Renewed-stamp repetition passed exit0; denied Submit creates no result or success focus.",
+          "Author browser case verifies disabled edits, enabled terminal Submit, unchanged persisted draft and retry classification."
+        ]
+      },
+      {
+        "id": "P51-OWNER-FA-03",
         "severity": "minor",
         "status": "fixed",
-        "description": "Studio before/after table implied matched Run states although baseline only started guide.",
-        "fix": "Contract now explicitly labels earlier guide versus candidate accepted Run and denies matched-input/result comparison.",
-        "retests": [
-          "Independently read capture-before.mjs and final corrected production-contract table."
-        ]
+        "description": "Four initial owner visualEvidence entries lacked inspected and observation fields required by strict release.",
+        "fix": "Author inspected actual screenshots and recorded truthful inspected:true plus observation; all final visual records have required fields.",
+        "retests": ["Independent final visualEvidence shape check reports zero invalid entries."]
       },
       {
-        "id": "P51-FA-03",
-        "severity": "minor",
-        "status": "accepted-limitation",
-        "description": "Editorial Hub trades catalogue density for space;11/12px helper/sidebar text needs actual-user readability review. MainStart remains visible."
-      },
-      {
-        "id": "P51-FA-04",
-        "severity": "minor",
-        "status": "accepted-limitation",
-        "description": "Actual motion remains a restrained destination bracket, not a cinematic or human-validated handoff. Former tinyHomeanchor corrected in P51-FA-06; broaderStage3 remains separate."
-      },
-      {
-        "id": "P51-FA-05",
+        "id": "P51-OWNER-FA-04",
         "severity": "note",
         "status": "accepted-limitation",
-        "description": "NEW finalhead329CI/strict/fullSHA normal+reduced Gate7 required; bothpriorCIheadsfailedandalloldexternalreceipts historicalonly. Humanvalidation unperformed; fonts/humanreadability/rollout limits retained."
-      },
-      {
-        "id": "P51-FA-06",
-        "severity": "major",
-        "status": "fixed",
-        "description": "Independent public cold3trials prove one-time route effect could query missing incoming DOM and never retry; local hot temporal checks missed it.",
-        "fix": "Current-route module/area matching, bounded child-list observer and coalescedframe/scroll readiness; cleanup on draw/supersession/expiry/unmount/live reduced-motion. NativeHomeusesactualvisibleheading. No navigationdelay or learning write.",
-        "retests": [
-          "Independent first-head PUBLIC3coldtrials: all3Compute and2of3Portal missingdestination skips recorded; oldheadnotaccepted.",
-          "Poststamp independent6lifetimecases: late/outgoing/superseded/expired/reducedpending/reducedactive; enhancement-only allLocalStorage andWorldXP unchanged.",
-          "Independent correctedlocal actualVM0/160/320ms fullopacity/header0/reduced/unsupported passed.",
-          "Author correctedtypecheckedbuild/ESLint/7desktop+2compact no retry; existingnormalcase strengthens missing-destination recovery."
-        ]
-      },
-      {
-        "id": "P51-FA-07",
-        "severity": "major",
-        "status": "fixed",
-        "description": "Four originalcompactCItests failedcontrast: latePortalhoverCSS gavewhiteCoursepathtext a lightbackground; independentpriorpublicall3paths reproduced.",
-        "fix": "Learning-nav scopedenabledhover specificity outranksgenericPortal rule andtransparentbase; no nativePortalstylechange. Existinghybridcaseaddsactualpathhover/Axe withoutoldassertion/settings changes.",
-        "retests": [
-          "Poststamp independentnativePortal→SPAreturn all3paths+modulebuttons at1440x900/1024x500/800x700;9Axe0, darkhoverwhite, technicalunchanged.",
-          "CSSOM showsgenericPortalstylesheetlater; nativePortalNotifications hoverunchanged.",
-          "Original4failedcompact+newhover5casespassednoretry."
-        ]
-      },
-      {
-        "id": "P51-FA-08",
-        "severity": "major",
-        "status": "fixed",
-        "description": "Originalhistoryfocus regression reproduced; failedfinalroutehasvisibleh2andBODYfocuswithmissingquery/focusattempt, ratherthanlatersteal. One-shotrouteeffect couldmissauthorizedactivityDOMlifetime.",
-        "fix": "MemoizedReact19callbackref onactualauthorizedactivitymount schedulesoriginalguarded2framefocus/scroll withconnectedcheckandcleanup; originalBoundary/stores/lab/debrief effects unchanged.",
-        "retests": [
-          "Poststamp independent18Back/Forwardtransitions across1440x900/1024x500/800x700, Journal/briefingfocusandEscape, Axe0/technicalunchanged.",
-          "DeniedaidprotectedActivitycount0andexactdraftresume; positiveaidJournal2sizes aid0to1/dialogfocus/unchangedbackgroundscroll.",
-          "Original1440UXtestrepeat3/3 and15hybrid/native-dialogcasespassedunchangedsettings."
-        ]
+        "description": "Full337 exact-head CI/strict and new anonymous deployed SHA-bound Gate7 remain pending. Broad rollout awaits owner acceptance; human novice/SME/UX/screen-reader/psychometric/learning-effect validation unperformed. No Stage2–5/PR52/merge/production approval."
       }
     ],
-    "report": {
-      "path": "docs/quality/PR51_FINAL_AUDIT.md"
-    }
+    "report": { "path": "docs/quality/PR51_OWNER_FINAL_AUDIT.md" }
   }
 }

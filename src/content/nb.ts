@@ -21596,3 +21596,47 @@ export const hybridExperienceNb = {
   hidePortrait: 'Skjul SavvyShark-figuren',
   showPortrait: 'Vis SavvyShark-figuren',
 } as const;
+
+/** Owner acceptance refinements; original teaching, answer IDs and rubrics above remain frozen. */
+export const ownerAcceptanceNb = {
+  historyFull:
+    'Det er ikke plass til flere svarendringer. Du kan fortsatt levere de registrerte svarene eller forlate forsøket uten innlevering.',
+  transferActivities: 'Flere anvendelsessituasjoner · valgfritt',
+  leaveNote:
+    'Forlater du vurderingen via kursnavigasjonen, avsluttes forsøket uten innlevering. Svarene beholdes i historikken. Neste forsøk blir øving. Åpner du undervisning, registreres også hjelp.',
+  leaveFailedTitle: 'Forsøket kunne ikke avsluttes',
+  leaveFailed:
+    'Avslutningen er ikke bekreftet lagret. Beskyttet undervisning er fortsatt utilgjengelig. Last inn den lagrede vurderingen før du fortsetter.',
+  returnAssessment: 'Tilbake til vurderingen',
+  reload: 'Last inn lagret vurdering',
+  abandoned: 'Avsluttet uten innlevering',
+  abandonedNote:
+    'Dette forsøket har ikke et vurderingsresultat. Registrerte svar er bevart. Neste forsøk er øving, og tidligere hjelp følger historikken.',
+  abandonedAnswers: 'Se svar fra avsluttede forsøk',
+  otherActivities: 'Andre aktiviteter',
+  assessment: 'Gå til selvstendig vurdering',
+  assessmentPurpose:
+    'Prøv kunnskapen i en ny situasjon. Forsøket starter først når du velger Start.',
+  observations: 'Se dine observasjoner',
+  observationsPurpose: 'Åpne oversikten over tidligere arbeid i denne modulen.',
+  footerDirection: 'Følg Neste / Fortsett nederst for den anbefalte læringsreisen.',
+  labBlocked:
+    'Praktisk lab kan ikke åpnes mens en annen selvstendig vurdering er aktiv, eller læringshistorikken er usikker. Gå tilbake til vurderingen eller last inn gyldig historikk først.',
+  practice: 'Øvingsforsøk',
+  assistedPractice: 'Assistert øvingsforsøk',
+  first: 'Første uassisterte innlevering',
+  assisted: 'Assistert innlevering',
+  feedback: 'Tilbakemelding på innleveringen',
+  criteria: 'Oppfylte kriterier',
+  evidenceNote:
+    'Dette er resultatet av denne innleveringen, ikke dokumentasjon på samlet mestring.',
+  reviewAreas: 'Undersøk disse områdene nærmere',
+  allCriteria:
+    'Alle kriteriene er oppfylt i denne innleveringen. Du kan fortsatt åpne forklaringene og repetere temaene.',
+  answer: 'Ditt registrerte svar',
+  explanation: 'Faglig forklaring',
+  review: 'Repeter temaet',
+  historical: 'Tidligere innleveringer',
+  attempt: 'Innlevering',
+  noAnswer: 'Ikke besvart',
+} as const;

@@ -1,4 +1,6 @@
 'use client';
+import { RelatedActivities } from './related-activities';
+import { ownerAcceptanceNb as acceptance } from '@/content/nb';
 import { SourceDisclosure } from './source-disclosure';
 import { useCallback, useEffect, useState } from 'react';
 import Link from 'next/link';
@@ -232,12 +234,12 @@ export function FoundationsV2({ topic, journal = false }: { topic: string; journ
                 }))
         }
       />
-      <nav className="v2-evidence-nav" aria-label={t.summary}>
-        <Link href="/learn/computing?topic=v2-assessment">
-          {facts.active ? t.continueAssessment : t.assessment}
-        </Link>
-        <Link href="/learn/computing?topic=v2-summary">{t.summary}</Link>
-      </nav>
+      {!journal && (
+        <RelatedActivities
+          assessment="/learn/computing?topic=v2-assessment"
+          observations="/learn/computing?topic=v2-summary"
+        />
+      )}
     </article>
   );
 }
@@ -522,24 +524,42 @@ const assessmentItems = [
     .map((item) => (item.id === 'commitment' ? { ...item, question: t.commitmentQuestion } : item)),
 ];
 function V2Assessment() {
-  const { store, facts, issue } = useFoundationsV2(),
+  const [delivered, setDelivered] = useState(false);
+  const revealSummary = useCallback(
+    (node: HTMLHeadingElement | null) => {
+      if (!node || !delivered) return;
+      const frame = requestAnimationFrame(() => {
+        if (!node.isConnected) return;
+        node.scrollIntoView({ block: 'center', behavior: 'instant' });
+        node.focus({ preventScroll: true });
+      });
+      return () => cancelAnimationFrame(frame);
+    },
+    [delivered],
+  );
+  const { store, facts, issue, save } = useFoundationsV2(),
     last = facts.submissions.at(-1),
-    disabled = ['corrupt', 'unsupported', 'conflict', 'limit'].includes(issue ?? '');
+    disabled = !!issue,
+    terminalSubmit = issue === 'limit' && save.schema === 3;
   return (
-    <article className="foundations-v2">
-      <h2>{t.assessment}</h2>
+    <article className="foundations-v2 v2-assessment">
+      <h2 data-activity-heading tabIndex={-1}>
+        {t.assessment}
+      </h2>
       <p>{t.assessmentIntro}</p>
       <p>{t.assessmentRules}</p>
+      <p className="v2-attempt-note">{acceptance.leaveNote}</p>
       {facts.assisted && <p role="status">{t.aid}</p>}
+      {terminalSubmit && <p role="status">{acceptance.historyFull}</p>}
       {facts.active ? (
         <form
           onSubmit={(e) => {
             e.preventDefault();
-            store.event({ kind: 'submit', answers: facts.draft });
+            if (store.event({ kind: 'submit', answers: facts.draft })) setDelivered(true);
           }}
         >
           {assessmentItems.map((item) => (
-            <fieldset key={item.id}>
+            <fieldset key={item.id} disabled={disabled}>
               <legend>{item.question}</legend>
               {item.id === 'shortfall' ? (
                 <input
@@ -574,30 +594,67 @@ function V2Assessment() {
               )}
             </fieldset>
           ))}
-          <button disabled={disabled || v2Criteria.some((c) => !facts.draft[c.id])}>
+          <button
+            disabled={(disabled && !terminalSubmit) || v2Criteria.some((c) => !facts.draft[c.id])}
+          >
             {t.sendAnswers}
           </button>
         </form>
       ) : (
         <>
-          {last && (
-            <section>
-              <p role="status">{t.submitted}</p>
-              <strong>{last.retry ? t.retry : last.assisted ? t.assisted : t.first}</strong>
-              {assessmentItems.map((item) => (
-                <section key={item.id}>
-                  <h3>{item.question}</h3>
-                  <p>
-                    {last.answers[item.id]} ·{' '}
-                    {last.criteria[item.id] ? nb.foundations.correct : nb.foundations.incorrect}
-                  </p>
-                  <p>{item.explanation}</p>
-                </section>
-              ))}
+          {facts.abandoned.length > 0 && (
+            <section className="v2-abandoned">
+              <h3>{acceptance.abandoned}</h3>
+              <p>{acceptance.abandonedNote}</p>
+              <details>
+                <summary>
+                  {acceptance.abandonedAnswers} ({facts.abandoned.length})
+                </summary>
+                {facts.abandoned.map((attempt, index) => (
+                  <section key={index}>
+                    <h4>
+                      {acceptance.abandoned} {index + 1} ·{' '}
+                      {attempt.assisted ? acceptance.assisted : acceptance.practice}
+                    </h4>
+                    <dl>
+                      {assessmentItems
+                        .filter((item) => attempt.answers[item.id])
+                        .map((item) => (
+                          <div key={item.id}>
+                            <dt>{item.question}</dt>
+                            <dd>{answerLabel(item, attempt.answers[item.id])}</dd>
+                          </div>
+                        ))}
+                    </dl>
+                  </section>
+                ))}
+              </details>
             </section>
           )}
-          <button type="button" disabled={disabled} onClick={() => store.event({ kind: 'begin' })}>
-            {last ? t.retry : t.beginAssessment}
+          {last && <V2Feedback submission={last} onSummaryReady={revealSummary} />}
+          {facts.submissions.length > 1 && (
+            <details className="v2-feedback-history">
+              <summary>
+                {acceptance.historical} ({facts.submissions.length - 1})
+              </summary>
+              {facts.submissions.slice(0, -1).map((submission, index) => (
+                <section key={index}>
+                  <h3>
+                    {acceptance.attempt} {index + 1}
+                  </h3>
+                  <V2Feedback submission={submission} />
+                </section>
+              ))}
+            </details>
+          )}
+          <button
+            type="button"
+            disabled={disabled}
+            onClick={() => {
+              if (store.event({ kind: 'begin' })) setDelivered(false);
+            }}
+          >
+            {last || facts.abandoned.length ? t.retry : t.beginAssessment}
           </button>
         </>
       )}
@@ -633,12 +690,104 @@ function V2Summary() {
       </table>
       <p>
         {facts.submissions[0]
-          ? facts.submissions[0].assisted
-            ? t.assisted
-            : t.first
+          ? submissionStatus(facts.submissions[0])
           : nb.foundationsV2.noAssessment}
       </p>
       <Link href="/learn/computing?topic=v2-assessment">{t.assessment}</Link>
     </article>
+  );
+}
+
+type V2Submission = ReturnType<
+  typeof import('@/domain/curriculum/foundations-v2').v2Facts
+>['submissions'][number];
+function submissionStatus(s: V2Submission) {
+  return s.retry
+    ? s.assisted
+      ? acceptance.assistedPractice
+      : acceptance.practice
+    : s.assisted
+      ? acceptance.assisted
+      : acceptance.first;
+}
+function answerLabel(item: (typeof assessmentItems)[number], value?: string) {
+  if (item.id === 'shortfall') return value ?? acceptance.noAnswer;
+  return item.choices.find(([id]) => id === value)?.[1] ?? acceptance.noAnswer;
+}
+const feedbackTopics = {
+  shortfall: 'v2-capacity',
+  unused: 'v2-capacity',
+  cause: 'v2-capacity',
+  host: 'virtualization',
+  service: 'provisioning',
+  duties: 'v2-responsibility',
+  exclusive: 'v2-models',
+  integration: 'v2-placement',
+  idle: 'v2-metering',
+  uncertain: 'v2-pricing',
+  commitment: 'v2-pricing',
+} as const;
+function V2Feedback({
+  submission,
+  onSummaryReady,
+}: {
+  submission: V2Submission;
+  onSummaryReady?: React.Ref<HTMLHeadingElement>;
+}) {
+  const correct = Object.values(submission.criteria).filter(Boolean).length;
+  const review = [
+    ...new Set(
+      v2Criteria.filter((c) => !submission.criteria[c.id]).map((c) => feedbackTopics[c.id]),
+    ),
+  ];
+  return (
+    <section className="v2-feedback" aria-label={acceptance.feedback}>
+      <header>
+        <p role="status">
+          {t.submitted} · <strong>{submissionStatus(submission)}</strong>
+        </p>
+        <h3 ref={onSummaryReady} tabIndex={-1}>
+          {acceptance.criteria}: {correct} / {v2Criteria.length}
+        </h3>
+        <p>{acceptance.evidenceNote}</p>
+      </header>
+      {review.length ? (
+        <div className="v2-review-areas">
+          <h4>{acceptance.reviewAreas}</h4>
+          <ul>
+            {review.map((topic) => (
+              <li key={topic}>
+                <Link href={`/learn/computing?topic=${topic}`}>{t.topics[topic].title}</Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ) : (
+        <p>{acceptance.allCriteria}</p>
+      )}
+      <div className="v2-feedback-items">
+        {assessmentItems.map((item) => (
+          <details key={item.id}>
+            <summary>
+              <span>{item.question}</span>
+              <strong data-correct={submission.criteria[item.id]}>
+                {submission.criteria[item.id] ? nb.foundations.correct : nb.foundations.incorrect}
+              </strong>
+            </summary>
+            <div className="v2-feedback-detail">
+              <h4>{acceptance.answer}</h4>
+              <p>{answerLabel(item, submission.answers[item.id])}</p>
+              <h4>{acceptance.explanation}</h4>
+              <p>{item.explanation}</p>
+              <Link
+                href={`/learn/computing?topic=${feedbackTopics[item.id as keyof typeof feedbackTopics]}`}
+              >
+                {acceptance.review}
+              </Link>
+            </div>
+          </details>
+        ))}
+      </div>
+    </section>
   );
 }

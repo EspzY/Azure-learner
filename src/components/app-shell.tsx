@@ -1,5 +1,6 @@
 'use client';
 import { Suspense } from 'react';
+import { AssessmentNavigationExit } from '@/features/course/assessment-navigation-exit';
 import { ExperienceMotion } from '@/features/course/experience-motion';
 import { useManagement } from '@/features/learning/management-provider';
 
@@ -29,6 +30,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
     return (
       <>
         <Suspense fallback={null}>
+          <AssessmentNavigationExit />
           <ExperienceMotion />
         </Suspense>
         {children}
@@ -36,6 +38,9 @@ export function AppShell({ children }: { children: React.ReactNode }) {
     );
   return (
     <div className="app-shell">
+      <Suspense fallback={null}>
+        <AssessmentNavigationExit />
+      </Suspense>
       <a href="#main" className="skip-link">
         {nb.shell.skip}
       </a>

@@ -5,6 +5,10 @@ import baseline from './playwright.config';
 // names. No test body, assertion, title, timeout or skip is modified.
 const compactCases = [
   [
+    'owner-acceptance.spec.ts',
+    'owner feedback short desktop keyboard reflow footer clearance Axe and reduced motion preserve readable content',
+  ],
+  [
     'hybrid-experience.spec.ts',
     'hybrid Container short-window keyboard result discovery uses accepted stored run and marks changed assumptions without technical writes',
   ],

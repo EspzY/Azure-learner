@@ -1,5 +1,7 @@
 import {
   applyV2,
+  leaveV2,
+  v2Facts,
   freshV2,
   foundationsV2Key,
   restoreV2,
@@ -49,59 +51,63 @@ export class FoundationsV2Store {
       this.publish({ ...this.view, issue: 'unsaved' });
     }
   };
+  private commit(next: FoundationsV2Save, terminal = false): boolean {
+    if (!this.view.ready || (this.view.issue && !(terminal && this.view.issue === 'limit')))
+      return false;
+    try {
+      if (this.storage.getItem(foundationsV2Key) !== this.base) {
+        this.publish({ ...this.view, issue: 'conflict' });
+        return false;
+      }
+      if (next === this.view.save) return true;
+      const raw = JSON.stringify(next);
+      if (restoreV2(raw).issue) {
+        this.publish({ ...this.view, issue: 'limit' });
+        return false;
+      }
+      this.storage.setItem(foundationsV2Key, raw);
+      if (this.storage.getItem(foundationsV2Key) !== raw) {
+        this.publish({ ...this.view, issue: 'conflict' });
+        return false;
+      }
+      this.base = raw;
+      this.publish({ save: next, ready: true, issue: null });
+      return true;
+    } catch {
+      // Never publish an optimistic draft/result/abandonment as durable evidence.
+      this.publish({ ...this.view, issue: 'unsaved' });
+      return false;
+    }
+  }
   event = (raw: unknown) => {
-    if (
-      !this.view.ready ||
-      ['corrupt', 'unsupported', 'conflict', 'limit'].includes(this.view.issue ?? '')
-    )
+    const terminal =
+      this.view.save.schema === 3 &&
+      !!raw &&
+      typeof raw === 'object' &&
+      'kind' in raw &&
+      ['aid', 'submit', 'abandon'].includes(String(raw.kind));
+    if (!this.view.ready || (this.view.issue && !(terminal && this.view.issue === 'limit')))
       return false;
     const next = applyV2(this.view.save, raw);
     if (!next) {
       if (this.view.save.events.length >= 600) this.publish({ ...this.view, issue: 'limit' });
       return false;
     }
-    if (next === this.view.save) return true;
-    let readable = true;
-    try {
-      if (this.storage.getItem(foundationsV2Key) !== this.base) {
-        this.publish({ ...this.view, issue: 'conflict' });
-        return false;
-      }
-    } catch {
-      readable = false;
-    }
-    try {
-      if (!readable) throw Error('unreadable');
-      const raw = JSON.stringify(next);
-      this.storage.setItem(foundationsV2Key, raw);
-      this.base = raw;
-      this.publish({ save: next, ready: true, issue: null });
-    } catch {
-      this.publish({ save: next, ready: true, issue: 'unsaved' });
-    }
-    return true;
+    return this.commit(next, terminal);
   };
-  choose = (choice: 'v1' | 'v2') => {
+  /** A single CAS/readback transaction: required aid precedes explicit abandonment. */
+  leaveForNavigation = (expectedBegin: number, assistance: boolean) => {
     if (
       !this.view.ready ||
-      ['corrupt', 'unsupported', 'conflict', 'limit'].includes(this.view.issue ?? '')
+      (this.view.issue && this.view.issue !== 'limit') ||
+      !v2Facts(this.view.save).active ||
+      this.view.save.events.findLastIndex((e) => e.kind === 'begin') !== expectedBegin
     )
       return false;
-    const next = { ...this.view.save, choice };
-    try {
-      if (this.storage.getItem(foundationsV2Key) !== this.base) {
-        this.publish({ ...this.view, issue: 'conflict' });
-        return false;
-      }
-      const raw = JSON.stringify(next);
-      this.storage.setItem(foundationsV2Key, raw);
-      this.base = raw;
-      this.publish({ save: next, ready: true, issue: null });
-    } catch {
-      this.publish({ save: next, ready: true, issue: 'unsaved' });
-    }
-    return true;
+    const next = leaveV2(this.view.save, assistance);
+    return !!next && this.commit(next, true);
   };
+  choose = (choice: 'v1' | 'v2') => this.commit({ ...this.view.save, choice });
   clear = () => {
     let issue: LearningIssue = null;
     try {

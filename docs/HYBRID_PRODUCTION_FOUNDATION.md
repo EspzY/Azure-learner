@@ -1,5 +1,7 @@
 # PR51 — approved hybrid, first production implementation
 
+**Owner acceptance remains pending after actual preview testing.** The targeted [owner corrections](PR51_OWNER_ACCEPTANCE.md) extend the Foundations lifecycle and improve navigation/feedback without changing its rubric. Earlier byte-preservation and329-case delivery observations below are dated first-candidate evidence, not approval for broad rollout.
+
 Base: `daa4c6a03945a634633286711fcef452d14b785f`, branch `codex/azurelab-hybrid-production-foundation`. The owner selected B's paper/navy/editorial identity with A's compact technical precision. This is an in-place implementation on ordinary `/learn` and `/portal`, not a third prototype or a new application. Publication remains a Draft preview; merge and production deployment are not authorized.
 
 ## Actually implemented surfaces

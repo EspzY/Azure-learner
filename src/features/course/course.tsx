@@ -1,4 +1,5 @@
 'use client';
+import { ownerAcceptanceNb as acceptance } from '@/content/nb';
 import { missionContextLabel } from './mission-context';
 import { useApplication } from '@/features/learning/application-provider';
 import { applicationHref } from '@/domain/curriculum/application-transfer';
@@ -1233,53 +1234,55 @@ function CourseWorkspace({ module }: { module?: CourseModule }) {
                 : undefined
             }
             assessment={
-              applicationRoute
-                ? 'application'
-                : module === 'benefits' && topic === 'assessment'
-                  ? historicalBenefits
-                    ? 'benefits'
-                    : 'updatedBenefits'
-                  : module === 'services' && !legacyServices && topic === 'assessment'
-                    ? historicalServices
-                      ? 'services'
-                      : 'updatedServices'
-                    : module === 'migration' && topic === 'assessment'
-                      ? 'migration'
-                      : module === 'security' && topic === 'assessment'
-                        ? 'security'
-                        : module === 'monitoring' && topic === 'assessment'
-                          ? 'monitoring'
-                          : module === 'management-tools' && topic === 'assessment'
-                            ? 'tools'
-                            : module === 'governance' && topic === 'assessment'
-                              ? 'governance'
-                              : module === 'access-control' && topic === 'assessment'
-                                ? 'access'
-                                : module === 'identity' && topic === 'assessment'
-                                  ? 'identity'
-                                  : module === 'storage-resilience' && topic === 'assessment'
-                                    ? 'resilience'
-                                    : module === 'storage' && topic === 'assessment'
-                                      ? 'storage'
-                                      : module === 'connectivity' && topic === 'assessment'
-                                        ? 'connectivity'
-                                        : module === 'networking' && topic === 'assessment'
-                                          ? 'networking'
-                                          : module === 'compute' && topic === 'assessment'
-                                            ? 'compute'
-                                            : module === 'cost' && topic === 'assessment'
-                                              ? 'cost'
-                                              : topic === 'transfer'
-                                                ? 'transfer'
-                                                : module && missions.active && !missions.assisted
-                                                  ? 'missions'
-                                                  : module === 'architecture' &&
-                                                      topic === 'management-assessment'
-                                                    ? 'management'
+              module === 'computing' && currentV2 && topic === 'v2-assessment'
+                ? 'v2'
+                : applicationRoute
+                  ? 'application'
+                  : module === 'benefits' && topic === 'assessment'
+                    ? historicalBenefits
+                      ? 'benefits'
+                      : 'updatedBenefits'
+                    : module === 'services' && !legacyServices && topic === 'assessment'
+                      ? historicalServices
+                        ? 'services'
+                        : 'updatedServices'
+                      : module === 'migration' && topic === 'assessment'
+                        ? 'migration'
+                        : module === 'security' && topic === 'assessment'
+                          ? 'security'
+                          : module === 'monitoring' && topic === 'assessment'
+                            ? 'monitoring'
+                            : module === 'management-tools' && topic === 'assessment'
+                              ? 'tools'
+                              : module === 'governance' && topic === 'assessment'
+                                ? 'governance'
+                                : module === 'access-control' && topic === 'assessment'
+                                  ? 'access'
+                                  : module === 'identity' && topic === 'assessment'
+                                    ? 'identity'
+                                    : module === 'storage-resilience' && topic === 'assessment'
+                                      ? 'resilience'
+                                      : module === 'storage' && topic === 'assessment'
+                                        ? 'storage'
+                                        : module === 'connectivity' && topic === 'assessment'
+                                          ? 'connectivity'
+                                          : module === 'networking' && topic === 'assessment'
+                                            ? 'networking'
+                                            : module === 'compute' && topic === 'assessment'
+                                              ? 'compute'
+                                              : module === 'cost' && topic === 'assessment'
+                                                ? 'cost'
+                                                : topic === 'transfer'
+                                                  ? 'transfer'
+                                                  : module && missions.active && !missions.assisted
+                                                    ? 'missions'
                                                     : module === 'architecture' &&
-                                                        topic === 'assessment'
-                                                      ? 'physical'
-                                                      : undefined
+                                                        topic === 'management-assessment'
+                                                      ? 'management'
+                                                      : module === 'architecture' &&
+                                                          topic === 'assessment'
+                                                        ? 'physical'
+                                                        : undefined
             }
           >
             {!module ? (
@@ -1837,7 +1840,12 @@ function CourseWorkspace({ module }: { module?: CourseModule }) {
                   module !== 'connectivity' &&
                   module !== 'cost' &&
                   module !== 'architecture' &&
-                  topic !== 'transfer' && <TransferEntry module={module} />}
+                  topic !== 'transfer' && (
+                    <details className="related-transfer">
+                      <summary>{acceptance.transferActivities}</summary>
+                      <TransferEntry module={module} />
+                    </details>
+                  )}
                 {labTopic && !chooseVersion && !serviceChoice && (
                   <section
                     className="course-lab"

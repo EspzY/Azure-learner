@@ -1,0 +1,19 @@
+{
+  "baseline": "065d42cccde0f28052b5453ac10704eaa9eb57e7",
+  "authorizedChanges": [
+    "src/domain/curriculum/foundations-v2.test.ts",
+    "src/domain/curriculum/foundations-v2.ts",
+    "src/domain/curriculum/v2-store.ts",
+    "src/features/learning/expanded-module.tsx",
+    "src/features/learning/foundations-v2.css",
+    "src/features/learning/foundations-v2.tsx",
+    "src/features/learning/source-disclosure.test.ts",
+    "src/features/learning/management-access.tsx"
+  ],
+  "replacementEvidence": [
+    "src/domain/curriculum/foundations-v2-lifecycle.test.ts",
+    "docs/reviews/evidence/pr51-owner-legacy-v2.json",
+    "tests/e2e/owner-acceptance.spec.ts"
+  ],
+  "limits": "Only owner-requested Foundations v2 lifecycle/store/feedback and secondary-link adapters replace the previous byte-only protection. Original rubric, manuscript prefix, other stores, technical authorities, mascot and sequence remain protected. Existing core teaching boundary now explicitly includes v2; own v2 assessment is excluded in Course. Raw Portal management-only inspection remains neutral."
+}

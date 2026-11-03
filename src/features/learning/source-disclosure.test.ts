@@ -120,14 +120,18 @@ describe('Source presentation preservation', () => {
     }
   });
   it('preserves every original domain source record mapping rubric store and full authored content prefix against the verified base', () => {
-    // PR49 adds one isolated bank and a read-only projection. Every pre-existing
-    // domain/source/rubric/store/Portal byte remains frozen against delivered PR48.
+    // PR49 isolated bank and explicitly owner-authorized PR51 lifecycle1 are bounded
+    // exceptions. Freeze every other domain and the full original v2 source/model/rubric prefix.
     const navigationOnly = [
       'src/domain/curriculum/application-transfer.ts',
       'src/domain/curriculum/application-store.ts',
       'src/domain/curriculum/application-exposure.ts',
       'src/domain/curriculum/application-sources.ts',
       'src/domain/curriculum/application-transfer.test.ts',
+      'src/domain/curriculum/foundations-v2.ts',
+      'src/domain/curriculum/foundations-v2.test.ts',
+      'src/domain/curriculum/v2-store.ts',
+      'src/domain/curriculum/foundations-v2-lifecycle.test.ts',
     ];
     const changed = execFileSync('git', ['diff', '--name-only', base, '--', 'src/domain/'], {
       encoding: 'utf8',
@@ -136,6 +140,16 @@ describe('Source presentation preservation', () => {
       .split('\n')
       .filter(Boolean);
     expect(changed.filter((path) => !navigationOnly.includes(path))).toEqual([]);
+    const priorV2 = execFileSync(
+      'git',
+      ['show', base + ':src/domain/curriculum/foundations-v2.ts'],
+      { encoding: 'utf8' },
+    );
+    expect(
+      readFileSync('src/domain/curriculum/foundations-v2.ts', 'utf8').split(
+        'export type V2Event',
+      )[0],
+    ).toBe(priorV2.split('export type V2Event')[0]);
     const priorPortal = execFileSync('git', ['show', base + ':src/domain/portal/model.ts'], {
       encoding: 'utf8',
     });

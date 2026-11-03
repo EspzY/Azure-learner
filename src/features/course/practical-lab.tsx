@@ -1,9 +1,8 @@
 'use client';
-import { useApplication } from '@/features/learning/application-provider';
+import { useMissionSafetyContexts, missionContextLabel } from './mission-context';
+import { ownerAcceptanceNb as acceptance } from '@/content/nb';
 import { SourceDisclosure } from '@/features/learning/source-disclosure';
-import { useRefined } from '@/features/learning/refined-assessment-provider';
 import { usePortalGuideVisibility } from '@/features/course/portal-guide-visibility';
-import { useMissions } from './mission-provider';
 import { useEffect, useRef, useState } from 'react';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
@@ -26,7 +25,6 @@ import { useSandbox } from '@/features/portal/sandbox-provider';
 import { useSaas } from '@/features/portal/saas-provider';
 import { usePractical } from './practical-provider';
 import { useCourse } from './provider';
-import { usePortalLearning } from '@/features/portal/learning-provider';
 import { useExpansion } from '@/features/learning/expansion-provider';
 import { useLearning } from '@/features/learning/provider';
 import { SavvyShark } from './savvy-shark';
@@ -91,40 +89,36 @@ export function PracticalAssistance() {
   return null;
 }
 export function LabEntry({ kind, origin }: { kind: LabKind; origin: Origin }) {
-  const missions = useMissions();
+  const allSafety = useMissionSafetyContexts();
+  const safety = allSafety.filter(({ id }) => id !== 'practical');
   const { p, technical, saas } = usePracticalResult(),
     course = useCourse(),
     router = useRouter();
   const [briefing, setBriefing] = useState(false);
-  const original = usePortalLearning(),
-    benefits = useExpansion('benefits'),
-    services = useExpansion('services');
-  const application = useApplication();
-  const updatedBenefits = useRefined('benefits'),
-    updatedServices = useRefined('services');
+  const services = useExpansion('services');
   const allReady =
-    application.ready &&
-    !application.issue &&
-    updatedBenefits.ready &&
-    !updatedBenefits.issue &&
-    updatedServices.ready &&
-    !updatedServices.issue &&
     p.ready &&
-    technical.ready &&
+    !p.issue &&
     saas.ready &&
-    course.ready &&
-    original.ready &&
-    benefits.ready &&
-    services.ready;
-  const otherActive =
-    application.facts.active ||
-    updatedBenefits.facts.active ||
-    updatedServices.facts.active ||
-    original.facts.active ||
-    benefits.facts.active ||
-    services.facts.active ||
-    missions.active;
+    !saas.issue &&
+    safety.every(({ state }) => state.ready && !state.issue);
   const current = p.sessions.filter((s) => s.kind === kind).at(-1) ?? null;
+  const otherPractical =
+    p.activeIndependent && (p.current?.id !== current?.id || current?.mode !== 'independent');
+  const otherActive = safety.some(({ active }) => active) || otherPractical;
+  const canOpen = () => {
+    for (const { state } of safety) state.store.changed();
+    p.store.changed();
+    saas.store.changed();
+    return (
+      allReady &&
+      !otherActive &&
+      safety.every(({ state }) => !state.store.getSnapshot().issue) &&
+      !p.store.getSnapshot().issue &&
+      !saas.store.getSnapshot().issue
+    );
+  };
+
   const currentFindings = evaluatedSession(current, technical, saas);
   const ref = useRef<HTMLElement>(null),
     query = useSearchParams();
@@ -143,7 +137,7 @@ export function LabEntry({ kind, origin }: { kind: LabKind; origin: Origin }) {
     };
   }, [query, allReady]);
   const start = (mode: 'guided' | 'independent') => {
-    if (otherActive) return;
+    if (!canOpen() || p.activeIndependent) return;
     if (current?.status === 'active' && !currentFindings.verifiable) {
       if (p.current?.id !== current.id && !p.store.event({ type: 'resume', id: current.id }))
         return;
@@ -194,21 +188,47 @@ export function LabEntry({ kind, origin }: { kind: LabKind; origin: Origin }) {
           {t.storage} ({p.issue})
         </p>
       )}
+      {(!allReady || otherActive) && (
+        <div className="practical-blocked" role="status">
+          <p>{acceptance.labBlocked}</p>
+          <ul>
+            {[
+              ...safety,
+              ...(otherPractical ? allSafety.filter(({ id }) => id === 'practical') : []),
+            ]
+              .filter(({ state, active }) => !state.ready || state.issue || active)
+              .map(({ id, href }) => (
+                <li key={id}>
+                  <Link href={href}>{missionContextLabel(id)}</Link>
+                </li>
+              ))}
+          </ul>
+        </div>
+      )}
       <div className="practical-actions">
         {current?.status === 'active' && currentFindings.verifiable ? (
-          <Link
-            href={practicalHref(current, technical.attempt.engine)}
-            onClick={(e) => {
-              if (!p.store.event({ type: 'resume', id: current.id })) e.preventDefault();
-            }}
-          >
-            {t.resume}
-          </Link>
+          !allReady || otherActive ? (
+            <button type="button" disabled>
+              {t.resume}
+            </button>
+          ) : (
+            <Link
+              href={practicalHref(current, technical.attempt.engine)}
+              onClick={(e) => {
+                if (!canOpen() || !p.store.event({ type: 'resume', id: current.id }))
+                  e.preventDefault();
+              }}
+            >
+              {t.resume}
+            </Link>
+          )
         ) : (
           <button
             type="button"
             disabled={!allReady || otherActive}
-            onClick={() => setBriefing(true)}
+            onClick={() => {
+              if (canOpen() && !p.activeIndependent) setBriefing(true);
+            }}
           >
             {current?.status === 'active' && !currentFindings.verifiable
               ? t.restartUnavailable

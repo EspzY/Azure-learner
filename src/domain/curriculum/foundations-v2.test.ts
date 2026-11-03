@@ -166,6 +166,6 @@ describe('Foundations 2.0.0 version boundaries and instructional contracts', () 
     denied.load();
     denied.event({ kind: 'visit', topic: 'intro-request' });
     expect(denied.getSnapshot().issue).toBe('unsaved');
-    expect(denied.getSnapshot().save.events.length).toBe(1);
+    expect(denied.getSnapshot().save.events.length).toBe(0);
   });
 });

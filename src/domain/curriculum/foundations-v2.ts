@@ -188,9 +188,18 @@ export type V2Event =
   | { kind: 'capacity'; allocation: 4 | 6 | 10; prediction: number }
   | { kind: 'practice'; event: unknown }
   | { kind: 'begin' | 'aid' }
+  | { kind: 'abandon'; lifecycle: '1.0.0'; reason: 'navigation' }
   | { kind: 'draft' | 'submit'; answers: Record<string, string> };
-export interface FoundationsV2Save {
-  schema: 2;
+export type FoundationsV2Save =
+  | ({
+      schema: 2;
+      lifecycle?: never;
+    } & V2Record)
+  | ({
+      schema: 3;
+      lifecycle: '1.0.0';
+    } & V2Record);
+interface V2Record {
   content: '2.0.0';
   model: '2.0.0';
   rubric: '2.0.0';
@@ -233,21 +242,28 @@ export function v2Facts(save: FoundationsV2Save) {
     retry: boolean;
     criteria: Record<string, boolean>;
   }[] = [];
+  const abandoned: { answers: Record<string, string>; assisted: boolean }[] = [];
+  let exposedByAbandonment = false;
   for (const e of save.events) {
     if (e.kind === 'memory')
       memory = hostAllocation(memory, e.requested).accepted as [number, number];
     if (e.kind === 'practice') practice = applyLearning(practice, e.event) ?? practice;
     if (e.kind === 'begin') {
       active = true;
-      assisted = false;
+      assisted = exposedByAbandonment;
       draft = {};
     } else if (e.kind === 'submit' && active) {
       submissions.push({
         answers: e.answers,
         assisted,
-        retry: submissions.length > 0,
+        retry: submissions.length > 0 || abandoned.length > 0,
         criteria: Object.fromEntries(v2Criteria.map((c) => [c.id, e.answers[c.id] === c.answer])),
       });
+      active = false;
+      draft = {};
+    } else if (e.kind === 'abandon' && active) {
+      abandoned.push({ answers: { ...draft }, assisted });
+      exposedByAbandonment ||= assisted;
       active = false;
       draft = {};
     } else if (e.kind === 'draft' && active) draft = e.answers;
@@ -299,12 +315,15 @@ export function v2Facts(save: FoundationsV2Save) {
     assisted,
     draft,
     submissions,
+    abandoned,
     complete: v2Topics.filter((t) => t !== 'resource-bridge').every(guided),
   };
 }
 export function applyV2(save: FoundationsV2Save, raw: unknown): FoundationsV2Save | null {
-  if (!raw || typeof raw !== 'object' || Array.isArray(raw) || save.events.length >= 600)
-    return null;
+  if (!raw || typeof raw !== 'object' || Array.isArray(raw)) return null;
+  const terminal = ['aid', 'submit', 'abandon'].includes((raw as V2Event).kind);
+  // Schema2 retains its original bound; schema3 reserves four terminal events.
+  if (save.events.length >= (save.schema === 3 && terminal ? 604 : 600)) return null;
   const e = raw as V2Event,
     f = v2Facts(save);
   let valid = false;
@@ -353,6 +372,13 @@ export function applyV2(save: FoundationsV2Save, raw: unknown): FoundationsV2Sav
   }
   if (e.kind === 'begin') valid = exact(e, ['kind']) && !f.active;
   if (e.kind === 'aid') valid = exact(e, ['kind']) && f.active;
+  if (e.kind === 'abandon')
+    valid =
+      save.schema === 3 &&
+      f.active &&
+      exact(e, ['kind', 'lifecycle', 'reason']) &&
+      e.lifecycle === '1.0.0' &&
+      e.reason === 'navigation';
   if (e.kind === 'draft' || e.kind === 'submit') {
     const a = e.answers;
     valid =
@@ -383,24 +409,35 @@ export function restoreV2(raw: string | null): {
 } {
   if (raw === null) return { save: freshV2(), issue: null };
   try {
-    if (raw.length > 220000) throw Error('size');
+    if (raw.length > 222048) throw Error('size');
     const s = JSON.parse(raw);
     if (
       !s ||
-      s.schema !== 2 ||
+      ![2, 3].includes(s.schema) ||
+      (s.schema === 3 && s.lifecycle !== '1.0.0') ||
       s.content !== '2.0.0' ||
       s.model !== '2.0.0' ||
       s.rubric !== '2.0.0'
     )
       return { save: freshV2(), issue: 'unsupported' };
     if (
-      !exact(s, ['schema', 'content', 'model', 'rubric', 'choice', 'events']) ||
+      !exact(s, [
+        'schema',
+        'content',
+        'model',
+        'rubric',
+        'choice',
+        'events',
+        ...(s.schema === 3 ? ['lifecycle'] : []),
+      ]) ||
+      (s.schema === 2 && raw.length > 220000) ||
       ![null, 'v1', 'v2'].includes(s.choice) ||
       !Array.isArray(s.events) ||
-      s.events.length > 600
+      s.events.length > (s.schema === 3 ? 604 : 600)
     )
       throw Error('shape');
-    let save = freshV2();
+    let save: FoundationsV2Save =
+      s.schema === 3 ? { ...freshV2(), schema: 3, lifecycle: '1.0.0' } : freshV2();
     for (const e of s.events) {
       const next = applyV2(save, e);
       if (!next) throw Error('event');
@@ -410,4 +447,16 @@ export function restoreV2(raw: string | null): {
   } catch {
     return { save: freshV2(), issue: 'corrupt' };
   }
+}
+
+/** Explicit navigation only. Old events, choices and rubric stay untouched. */
+export function leaveV2(save: FoundationsV2Save, assistance: boolean): FoundationsV2Save | null {
+  if (!v2Facts(save).active) return null;
+  let next: FoundationsV2Save = { ...save, schema: 3, lifecycle: '1.0.0' };
+  if (assistance && !v2Facts(next).assisted) {
+    const aided = applyV2(next, { kind: 'aid' });
+    if (!aided) return null;
+    next = aided;
+  }
+  return applyV2(next, { kind: 'abandon', lifecycle: '1.0.0', reason: 'navigation' });
 }

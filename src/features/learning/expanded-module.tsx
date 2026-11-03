@@ -1,4 +1,5 @@
 'use client';
+import { RelatedActivities } from './related-activities';
 import { SourceDisclosure } from './source-disclosure';
 import { useEffect, useState, useRef } from 'react';
 import Link from 'next/link';
@@ -179,10 +180,10 @@ export function ExpandedModule({
           )}
           {track === 'benefits' && <BenefitsLabBridge topic={unit} />}
           <Sources unit={unit} />
-          <nav className="expanded-evidence">
-            <Link href={`/learn/${track}?topic=assessment`}>{t.assessment}</Link>
-            <Link href={`/learn/${track}?topic=summary`}>{t.summary}</Link>
-          </nav>
+          <RelatedActivities
+            assessment={`/learn/${track}?topic=assessment`}
+            observations={`/learn/${track}?topic=summary`}
+          />
         </>
       ) : null}
     </article>
