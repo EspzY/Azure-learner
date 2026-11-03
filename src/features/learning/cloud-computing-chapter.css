@@ -5,18 +5,10 @@
 }
 .cloud-chapter-heading {
   max-width: 72ch;
-  margin-bottom: 24px;
-}
-.cloud-chapter-parts {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px 24px;
-  padding-block: 12px;
-  border-block: 1px solid var(--learning-border, #c9d3d9);
-  font-size: 14px;
+  margin-bottom: 16px;
 }
 .cloud-chapter-part {
-  margin-block: 36px;
+  margin-block: 24px;
   scroll-margin-top: 100px;
   min-width: 0;
 }
@@ -34,7 +26,7 @@
   margin-block: 16px;
 }
 .cloud-chapter-guide {
-  margin-block: 20px;
+  margin-block: 4px;
   max-width: 76ch;
 }
 .cloud-chapter-guide summary {
@@ -51,17 +43,6 @@
   min-inline-size: 0;
   max-width: 100%;
 }
-.course-navigation .cloud-chapter-subtopics {
-  padding: 0 12px 8px 24px;
-  font-size: 12px;
-}
-.cloud-chapter-subtopics summary {
-  cursor: pointer;
-}
-.course-navigation .cloud-chapter-subtopics a {
-  display: block;
-  margin-top: 8px;
-}
 .cloud-chapter :is(a, summary):focus-visible {
   outline: 2px solid #0865bd;
   outline-offset: 4px;
@@ -71,26 +52,47 @@
     flex-wrap: wrap;
   }
 }
-.course-hybrid .course-navigation .cloud-chapter-subtopics summary {
-  color: #dce8f0;
-  font-size: 12px;
-  line-height: 1.6;
-}
-.course-hybrid .course-navigation .cloud-chapter-subtopics summary:focus-visible {
-  outline-color: #92d8ff;
-}
 .portal .cloud-chapter-heading h2 {
   font-family: var(--font-manrope), sans-serif;
   font-size: clamp(26px, 2.3vw, 32px);
   line-height: 1.3;
-  margin-block: 12px;
+  margin-block: 8px;
 }
 .cloud-chapter-part .v2-lesson-heading {
   border: 0;
   padding-top: 0;
-  margin: 0 0 20px;
+  margin: 0 0 12px;
 }
 .cloud-chapter-part .v2-check {
   border-bottom: 0;
   margin-bottom: 0;
+}
+
+/* Only the six composed reading sessions use a compact module context.
+ * Original module/lesson copy and the rest of the course shell are unchanged. */
+.course-hybrid .course-module-header.cloud-chapter-context {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 16px;
+  padding-bottom: 8px;
+}
+.course-hybrid .course-module-header.cloud-chapter-context h1 {
+  font-size: clamp(24px, 2vw, 28px);
+  margin: 0;
+}
+.course-hybrid .course-module-header.cloud-chapter-context p {
+  flex-basis: 100%;
+  margin-block: 4px;
+  line-height: 1.6;
+  font-size: 15px;
+}
+.cloud-chapter-heading > p {
+  margin-block: 8px 0;
+  font-size: 16px;
+  line-height: 1.65;
+}
+
+.cloud-chapter > .cloud-chapter-part:first-of-type {
+  margin-top: 8px;
 }

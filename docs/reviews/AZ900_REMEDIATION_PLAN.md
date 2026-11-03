@@ -2,7 +2,11 @@
 
 The owner has approved the PR50 hybrid direction. The first in-place Course Hub/shell/Compute/Portal vertical rollout is described in [HYBRID_PRODUCTION_FOUNDATION](../HYBRID_PRODUCTION_FOUNDATION.md); final329CI/strict/anonymousSHA and independent audit are required on Draft PR51. This does not close broader PD-01, AS-02 or PR-01 StageB/C. Character production remains blocked pending a controlled master; stages2–5 are separate. Original audit findings and dated fixes below are preserved.
 
-## PD-01 Stage A — Cloud Computing, PR52 candidate, 3 November2026
+## PD-01 Stage A — Cloud Computing, PR52 owner refinement, 3 November2026
+
+The owner approves the six-session direction and explicitly requires a flat sidebar and continuous reading without per-part menus. Both extra navigation layers are removed in the current correction; original headings, historical topic/fragment/resume identities and all content/evidence remain. Compact context and scoped short-window focus expose actual teaching sooner. [Before/after and preservation](../CLOUD_COMPUTING_CONSOLIDATION.md#owner-acceptance-refinement--3-november-2026). New349-case exact-headCI/strict, fresh stamped independent review and actual anonymous new-SHA Gate7 remain pending; prior1239 results are historical. Long sessions remain intact. BroaderPD01/human validation stay open. No wider rollout or PR53.
+
+### Initial Stage A implementation (historical candidate)
 
 The owner has authorized a bounded implemented consolidation of the19-entry Cloud Computing journey into14 recommended entries, with six substantial foundational sessions. [Inspection of every original entry, rationale and preservation contract](../CLOUD_COMPUTING_CONSOLIDATION.md). All technical topic IDs, direct/resume routes, manuscripts, models, rubric/store bytes and PR51 lifecycle remain. Stage A is **pending final audit/CI/strict/actual external Gate7**; broader PD-01 remains open. Historical PR42 evidence and other remediation statuses below are retained. No automatic Stage2–5/P17/P18 or cross-module restructuring.
 

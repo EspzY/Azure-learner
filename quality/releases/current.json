@@ -5,7 +5,7 @@
   "author": "pr52-implementation",
   "scope": {
     "kind": "pedagogical-composition",
-    "description": "PD-01 Stage A: six substantive Cloud Computing sessions compose eleven old topics;19→14 recommended entries, old domain/evidence/rubric/source/URL contracts unchanged. No broader rollout.",
+    "description": "PR52 owner refinement: retain six substantial sessions; remove sidebar part submenus and horizontal part row, compact only six reading contexts, preserve historical IDs/fragments/focus/resume and every evidence/model/rubric/source contract. No broader rollout.",
     "objectives": ["curriculum.presentation"]
   },
   "sources": [
@@ -113,62 +113,28 @@
       "assessmentStatus": "unchanged-existing",
       "limits": "Original manuscript/models/assessment keys/schema2/schema3/history unchanged; exposure is visit only, no completion or learning-effect claim.",
       "theory": [
-        {
-          "path": "src/features/learning/foundations-v2.tsx"
-        },
-        {
-          "path": "src/content/nb.ts"
-        }
+        { "path": "src/features/learning/foundations-v2.tsx" },
+        { "path": "src/content/nb.ts" }
       ],
       "mechanism": [
-        {
-          "path": "src/features/learning/cloud-computing-chapter.tsx"
-        },
-        {
-          "path": "src/domain/curriculum/foundations-v2.ts"
-        },
-        {
-          "path": "src/features/course/cloud-computing-chapters.ts"
-        }
+        { "path": "src/features/learning/cloud-computing-chapter.tsx" },
+        { "path": "src/domain/curriculum/foundations-v2.ts" },
+        { "path": "src/features/course/cloud-computing-chapters.ts" }
       ],
       "practice": [
-        {
-          "path": "tests/e2e/cloud-consolidation.spec.ts"
-        },
-        {
-          "path": "tests/e2e/foundations-v2.spec.ts"
-        }
+        { "path": "tests/e2e/cloud-consolidation.spec.ts" },
+        { "path": "tests/e2e/foundations-v2.spec.ts" }
       ],
-      "feedback": [
-        {
-          "path": "src/features/learning/foundations-v2.tsx"
-        }
-      ],
-      "visual": [
-        {
-          "path": "docs/CLOUD_COMPUTING_CONSOLIDATION.md"
-        }
-      ],
-      "accessible": [
-        {
-          "path": "tests/e2e/cloud-consolidation.spec.ts"
-        }
-      ],
+      "feedback": [{ "path": "src/features/learning/foundations-v2.tsx" }],
+      "visual": [{ "path": "docs/CLOUD_COMPUTING_CONSOLIDATION.md" }],
+      "accessible": [{ "path": "tests/e2e/cloud-consolidation.spec.ts" }],
       "assessment": [
-        {
-          "path": "src/domain/curriculum/foundations-v2-lifecycle.test.ts"
-        },
-        {
-          "path": "tests/e2e/owner-acceptance.spec.ts"
-        }
+        { "path": "src/domain/curriculum/foundations-v2-lifecycle.test.ts" },
+        { "path": "tests/e2e/owner-acceptance.spec.ts" }
       ],
       "savvyshark": [
-        {
-          "path": "src/features/learning/cloud-computing-chapter.tsx"
-        },
-        {
-          "path": "src/features/course/practical-lab.tsx"
-        }
+        { "path": "src/features/learning/cloud-computing-chapter.tsx" },
+        { "path": "src/features/course/practical-lab.tsx" }
       ]
     }
   ],
@@ -532,113 +498,71 @@
   "gates": {
     "source": {
       "checks": [
-        {
-          "path": "docs/CLOUD_COMPUTING_CONSOLIDATION.md"
-        },
-        {
-          "path": "src/features/course/cloud-computing-chapters.test.ts"
-        },
-        {
-          "path": "tests/e2e/cloud-consolidation.spec.ts"
-        }
+        { "path": "docs/CLOUD_COMPUTING_CONSOLIDATION.md" },
+        { "path": "src/features/course/cloud-computing-chapters.test.ts" },
+        { "path": "tests/e2e/cloud-consolidation.spec.ts" }
       ],
-      "limits": "PD-01 Cloud Computing Stage A only; unchanged domain/locale/rubric/World/receipt/XP/mascot/sequence. Independent final audit, full exact-head346 CI/strict and actual publicSHA Gate7 required. Human SME/UX/screenreader/learning validation unperformed; no merge/production or wider rollout."
+      "limits": "PD-01 Cloud Computing Stage A only; unchanged domain/locale/rubric/World/receipt/XP/mascot/sequence. Independent final audit, full exact-head349 CI/strict and actual publicSHA Gate7 required. Human SME/UX/screenreader/learning validation unperformed; no merge/production or wider rollout."
     },
     "curriculum": {
       "checks": [
-        {
-          "path": "docs/CLOUD_COMPUTING_CONSOLIDATION.md"
-        },
-        {
-          "path": "src/features/course/cloud-computing-chapters.test.ts"
-        },
-        {
-          "path": "tests/e2e/cloud-consolidation.spec.ts"
-        }
+        { "path": "docs/CLOUD_COMPUTING_CONSOLIDATION.md" },
+        { "path": "src/features/course/cloud-computing-chapters.test.ts" },
+        { "path": "tests/e2e/cloud-consolidation.spec.ts" }
       ],
-      "limits": "PD-01 Cloud Computing Stage A only; unchanged domain/locale/rubric/World/receipt/XP/mascot/sequence. Independent final audit, full exact-head346 CI/strict and actual publicSHA Gate7 required. Human SME/UX/screenreader/learning validation unperformed; no merge/production or wider rollout."
+      "limits": "PD-01 Cloud Computing Stage A only; unchanged domain/locale/rubric/World/receipt/XP/mascot/sequence. Independent final audit, full exact-head349 CI/strict and actual publicSHA Gate7 required. Human SME/UX/screenreader/learning validation unperformed; no merge/production or wider rollout."
     },
     "simulation": {
       "checks": [
-        {
-          "path": "docs/CLOUD_COMPUTING_CONSOLIDATION.md"
-        },
-        {
-          "path": "src/features/course/cloud-computing-chapters.test.ts"
-        },
-        {
-          "path": "tests/e2e/cloud-consolidation.spec.ts"
-        }
+        { "path": "docs/CLOUD_COMPUTING_CONSOLIDATION.md" },
+        { "path": "src/features/course/cloud-computing-chapters.test.ts" },
+        { "path": "tests/e2e/cloud-consolidation.spec.ts" }
       ],
-      "limits": "PD-01 Cloud Computing Stage A only; unchanged domain/locale/rubric/World/receipt/XP/mascot/sequence. Independent final audit, full exact-head346 CI/strict and actual publicSHA Gate7 required. Human SME/UX/screenreader/learning validation unperformed; no merge/production or wider rollout."
+      "limits": "PD-01 Cloud Computing Stage A only; unchanged domain/locale/rubric/World/receipt/XP/mascot/sequence. Independent final audit, full exact-head349 CI/strict and actual publicSHA Gate7 required. Human SME/UX/screenreader/learning validation unperformed; no merge/production or wider rollout."
     },
     "savvyshark": {
       "checks": [
-        {
-          "path": "docs/CLOUD_COMPUTING_CONSOLIDATION.md"
-        },
-        {
-          "path": "src/features/course/cloud-computing-chapters.test.ts"
-        },
-        {
-          "path": "tests/e2e/cloud-consolidation.spec.ts"
-        }
+        { "path": "docs/CLOUD_COMPUTING_CONSOLIDATION.md" },
+        { "path": "src/features/course/cloud-computing-chapters.test.ts" },
+        { "path": "tests/e2e/cloud-consolidation.spec.ts" }
       ],
-      "limits": "PD-01 Cloud Computing Stage A only; unchanged domain/locale/rubric/World/receipt/XP/mascot/sequence. Independent final audit, full exact-head346 CI/strict and actual publicSHA Gate7 required. Human SME/UX/screenreader/learning validation unperformed; no merge/production or wider rollout."
+      "limits": "PD-01 Cloud Computing Stage A only; unchanged domain/locale/rubric/World/receipt/XP/mascot/sequence. Independent final audit, full exact-head349 CI/strict and actual publicSHA Gate7 required. Human SME/UX/screenreader/learning validation unperformed; no merge/production or wider rollout."
     },
     "visual-accessibility": {
       "checks": [
-        {
-          "path": "docs/CLOUD_COMPUTING_CONSOLIDATION.md"
-        },
-        {
-          "path": "src/features/course/cloud-computing-chapters.test.ts"
-        },
-        {
-          "path": "tests/e2e/cloud-consolidation.spec.ts"
-        }
+        { "path": "docs/CLOUD_COMPUTING_CONSOLIDATION.md" },
+        { "path": "src/features/course/cloud-computing-chapters.test.ts" },
+        { "path": "tests/e2e/cloud-consolidation.spec.ts" }
       ],
-      "limits": "PD-01 Cloud Computing Stage A only; unchanged domain/locale/rubric/World/receipt/XP/mascot/sequence. Independent final audit, full exact-head346 CI/strict and actual publicSHA Gate7 required. Human SME/UX/screenreader/learning validation unperformed; no merge/production or wider rollout."
+      "limits": "PD-01 Cloud Computing Stage A only; unchanged domain/locale/rubric/World/receipt/XP/mascot/sequence. Independent final audit, full exact-head349 CI/strict and actual publicSHA Gate7 required. Human SME/UX/screenreader/learning validation unperformed; no merge/production or wider rollout."
     },
     "independent-final-audit": {
       "checks": [
-        {
-          "path": "docs/CLOUD_COMPUTING_CONSOLIDATION.md"
-        },
-        {
-          "path": "src/features/course/cloud-computing-chapters.test.ts"
-        },
-        {
-          "path": "tests/e2e/cloud-consolidation.spec.ts"
-        }
+        { "path": "docs/CLOUD_COMPUTING_CONSOLIDATION.md" },
+        { "path": "src/features/course/cloud-computing-chapters.test.ts" },
+        { "path": "tests/e2e/cloud-consolidation.spec.ts" }
       ],
-      "limits": "PD-01 Cloud Computing Stage A only; unchanged domain/locale/rubric/World/receipt/XP/mascot/sequence. Independent final audit, full exact-head346 CI/strict and actual publicSHA Gate7 required. Human SME/UX/screenreader/learning validation unperformed; no merge/production or wider rollout."
+      "limits": "PD-01 Cloud Computing Stage A only; unchanged domain/locale/rubric/World/receipt/XP/mascot/sequence. Independent final audit, full exact-head349 CI/strict and actual publicSHA Gate7 required. Human SME/UX/screenreader/learning validation unperformed; no merge/production or wider rollout."
     },
     "delivery": {
       "checks": [
-        {
-          "path": "docs/CLOUD_COMPUTING_CONSOLIDATION.md"
-        },
-        {
-          "path": "src/features/course/cloud-computing-chapters.test.ts"
-        },
-        {
-          "path": "tests/e2e/cloud-consolidation.spec.ts"
-        }
+        { "path": "docs/CLOUD_COMPUTING_CONSOLIDATION.md" },
+        { "path": "src/features/course/cloud-computing-chapters.test.ts" },
+        { "path": "tests/e2e/cloud-consolidation.spec.ts" }
       ],
-      "limits": "PD-01 Cloud Computing Stage A only; unchanged domain/locale/rubric/World/receipt/XP/mascot/sequence. Independent final audit, full exact-head346 CI/strict and actual publicSHA Gate7 required. Human SME/UX/screenreader/learning validation unperformed; no merge/production or wider rollout."
+      "limits": "PD-01 Cloud Computing Stage A only; unchanged domain/locale/rubric/World/receipt/XP/mascot/sequence. Independent final audit, full exact-head349 CI/strict and actual publicSHA Gate7 required. Human SME/UX/screenreader/learning validation unperformed; no merge/production or wider rollout."
     }
   },
   "verification": [
     {
       "command": "npm run check",
       "result": "passed",
-      "details": "Actual final correction npm run check exited0:638 Vitest/503curriculum/24Node/build. This ordinary actual-branch build precedes explicit nonhosted historical-review browser fixture. Original non-Computing focus restored; same-session continuity correction and all original authorities preserved."
+      "details": "Latest owner full npm run check passed after independent incomplete-debrief fallback correction:638 Vitest/503 curriculum subset/24 Node/build. Log check-after-review-fixed.log; final exact-head CI repeats fullcheck. No candidate browser receipt reused."
     },
     {
       "command": "npm run test:e2e:desktop",
       "result": "pending",
-      "details": "Final346=315desktop+31compact retains337 inherited executions. CI explicitly builds same candidate revision with frozen child historical-review label for inherited Designlab cases after normal fullcheck build. Runtime allowlist unchanged; normal public PR52 requires independent SHA-bound Gate7 plus Designlab404. Final CI receipt pending."
+      "details": "All346 prior cases retained plus2desktop/1compact give349(317/32). Original full CI command/limits/workers unchanged; inherited Designlab historical-review fixture and public normal-build Gate7/404 remain separate."
     }
   ],
   "visualEvidence": [
@@ -646,37 +570,61 @@
       "path": "docs/screenshots/cloud-consolidation/before-provisioning-1440.png",
       "viewport": "1440x900",
       "inspected": true,
-      "observation": "Actual anonymous EEF baseline: provisioning separate page with generic framing and19-entry sidebar."
+      "observation": "Historical initial consolidation capture; current owner refinement has separate before/after evidence. Actual anonymous EEF baseline: provisioning separate page with generic framing and19-entry sidebar."
     },
     {
       "path": "docs/screenshots/cloud-consolidation/after-virtualization-1440x900.png",
       "viewport": "1440x900",
       "inspected": true,
-      "observation": "Actual production candidate: clear session objective, two original parts, optional targeted guide and14-entry sidebar."
+      "observation": "Historical initial consolidation capture; current owner refinement has separate before/after evidence. Actual production candidate: clear session objective, two original parts, optional targeted guide and14-entry sidebar."
     },
     {
       "path": "docs/screenshots/cloud-consolidation/after-virtualization-1440x900-continued.png",
       "viewport": "1440x900",
       "inspected": true,
-      "observation": "Same actual session continued by ordinary scroll; original provisioning lanes and limits, correct footer onward to capacity."
+      "observation": "Historical initial consolidation capture; current owner refinement has separate before/after evidence. Same actual session continued by ordinary scroll; original provisioning lanes and limits, correct footer onward to capacity."
     },
     {
       "path": "docs/screenshots/cloud-consolidation/after-capacity-basics-1366x768.png",
       "viewport": "1366x768",
       "inspected": true,
-      "observation": "Original worked example precedes prediction/run on same session; original model and actual Next retained."
+      "observation": "Historical initial consolidation capture; current owner refinement has separate before/after evidence. Original worked example precedes prediction/run on same session; original model and actual Next retained."
     },
     {
       "path": "docs/screenshots/cloud-consolidation/after-v2-metering-1024x768.png",
       "viewport": "1024x768",
       "inspected": true,
-      "observation": "Original allocated-use caveat remains required visible reading; pricing is the next part of this same session."
+      "observation": "Historical initial consolidation capture; current owner refinement has separate before/after evidence. Original allocated-use caveat remains required visible reading; pricing is the next part of this same session."
     },
     {
       "path": "docs/screenshots/cloud-consolidation/after-virtualization-1024x500-continued.png",
       "viewport": "1024x500",
       "inspected": true,
-      "observation": "Actual continued short-window state: provisioning control available above footer; causal check continues by normal scroll, no overflow hiding."
+      "observation": "Historical initial consolidation capture; current owner refinement has separate before/after evidence. Actual continued short-window state: provisioning control available above footer; causal check continues by normal scroll, no overflow hiding."
+    },
+    {
+      "path": "docs/screenshots/cloud-consolidation/owner-before-1440x900.png",
+      "viewport": "1440x900",
+      "inspected": true,
+      "observation": "Actual owner refinement before capture; flat main sessions, original reading geometry/focus and footer measured. Before is public1239; after is actual local production candidate."
+    },
+    {
+      "path": "docs/screenshots/cloud-consolidation/owner-before-1024x500.png",
+      "viewport": "1024x500",
+      "inspected": true,
+      "observation": "Actual owner refinement before capture; flat main sessions, original reading geometry/focus and footer measured. Before is public1239; after is actual local production candidate."
+    },
+    {
+      "path": "docs/screenshots/cloud-consolidation/owner-after-1440x900.png",
+      "viewport": "1440x900",
+      "inspected": true,
+      "observation": "Actual owner refinement after capture; flat main sessions, original reading geometry/focus and footer measured. Before is public1239; after is actual local production candidate."
+    },
+    {
+      "path": "docs/screenshots/cloud-consolidation/owner-after-1024x500.png",
+      "viewport": "1024x500",
+      "inspected": true,
+      "observation": "Actual owner refinement after capture; flat main sessions, original reading geometry/focus and footer measured. Before is public1239; after is actual local production candidate."
     }
   ],
   "humanReview": {
@@ -687,128 +635,64 @@
   },
   "review": {
     "status": "complete",
-    "fingerprint": "44ad9fe3a796ee22ee76ce6a2ff6ce3173ef06119db955e84a07aa51510294fc",
-    "reviewer": {
-      "id": "/root/pr52_final_pedagogical_audit",
-      "kind": "agent"
-    },
-    "started": "2026-11-03T14:22:10.283Z",
+    "fingerprint": "1cacb8011e9ef404045622e30f7e32793f1618476dd5ebff891aaa6562338813",
+    "reviewer": { "id": "/root/pr52_owner_acceptance_audit", "kind": "agent" },
+    "started": "2026-11-03T16:33:33.174Z",
     "domains": {
       "content": {
-        "finding": "Original source banks/manuscripts/locale and six-session mechanisms remain unchanged; initial detailed pedagogical review applies to those exact bytes. Final35-file fingerprint matches, all162 original domain files/full locale and354 current protected paths match EEF. Three existing framing/length/sidebar MINORs remain. No measured-learning or human SME claim.",
+        "finding": "Six session objectives and all original manuscripts, causal checks, mechanisms and source unions remain unchanged; preserved source boundaries retained. No new academic or human approval. See owner addendum.",
         "evidence": [
-          {
-            "path": "docs/quality/PR52_FINAL_AUDIT.md"
-          },
-          {
-            "path": "src/features/course/cloud-computing-chapters.ts"
-          },
-          {
-            "path": "src/features/learning/cloud-computing-chapter.tsx"
-          },
-          {
-            "path": "docs/reviews/evidence/pr52-source-check.json"
-          }
+          { "path": "docs/quality/PR52_FINAL_AUDIT.md" },
+          { "path": "src/features/course/cloud-computing-chapters.ts" },
+          { "path": "src/features/learning/foundations-v2.tsx" },
+          { "path": "docs/reviews/evidence/pr52-source-check.json" }
         ]
       },
       "technical": {
-        "finding": "Fixed Services focus leakage by confining marker priority to actual composed Computing chapters; original selector order restored elsewhere. Historical public Designlab guard/model/page/layout remain byte-equal to8d. Explicit nonhosted child-build fixture rejects every Vercel key before Git/spawn, preserves parent/actualSHA and propagates failures. Independent4Node tests and current ordinary local Designlab404 passed. Observer unchanged; centered actual paragraph legitimately creates only original visit.",
+        "finding": "Independent all40 snapshot/fingerprint recomputation,354 protected paths/all162 original domains/full locale equalEEF, metadata/presenter equal1239. Scoped mount callbacks preserve original target choice without data writes. Final late recovery preserves exact technical bytes.",
         "evidence": [
-          {
-            "path": "docs/quality/PR52_FINAL_AUDIT.md"
-          },
-          {
-            "path": "src/features/learning/foundations-v2.tsx"
-          },
-          {
-            "path": "src/features/course/cloud-computing-chapters.test.ts"
-          },
-          {
-            "path": "tests/e2e/cloud-consolidation.spec.ts"
-          },
-          {
-            "path": "scripts/e2e-preview-build.mjs"
-          },
-          {
-            "path": "scripts/e2e-preview-build.test.mjs"
-          }
+          { "path": "docs/quality/PR52_FINAL_AUDIT.md" },
+          { "path": "src/features/course/course.tsx" },
+          { "path": "src/features/course/cloud-computing-chapters.test.ts" },
+          { "path": "src/features/learning/management-access.tsx" }
         ]
       },
       "visual": {
-        "finding": "Actual1440x900 Services overview and Computing historical-part focus frames independently inspected; both correct with no overflow. Original sequencing plus Designlab desktop/compact keyboard/Axe3cases passed. Earlier six-size/nativezoom/denial evidence applies to unchanged rendering. Compact actual observer geometry proves zero intersection after scrollIfNeeded and118.75px after centering. Three minor density/clutter limitations retained; human UX/screenreader unperformed.",
+        "finding": "Flat14-entry sidebar and no horizontal part row; actual all6 reading frames and1366/1024 capacity geometry closeFA01/03. Compact context absent from inspected Serverless/assessment/v1/Services. Keyboard/reduced-motion/Axe pass; personally inspected native125/200 images. Long sessions remain accepted limitation.",
         "evidence": [
-          {
-            "path": "docs/quality/PR52_FINAL_AUDIT.md"
-          },
-          {
-            "path": "docs/screenshots/cloud-consolidation/after-virtualization-1440x900.png"
-          },
-          {
-            "path": "docs/screenshots/cloud-consolidation/after-virtualization-1024x500-continued.png"
-          },
-          {
-            "path": "docs/reviews/evidence/pr52-author-checks.json"
-          }
+          { "path": "docs/quality/PR52_FINAL_AUDIT.md" },
+          { "path": "docs/screenshots/cloud-consolidation/owner-after-1440x900.png" },
+          { "path": "docs/screenshots/cloud-consolidation/owner-after-1024x500.png" },
+          { "path": "src/features/learning/cloud-computing-chapter.css" },
+          { "path": "tests/e2e/cloud-owner-navigation.spec.ts" }
         ]
       },
       "assessment": {
-        "finding": "Domain/store/schema/rubric/first/help/retry/independent guard bytes remain unchanged. Original complete compact Serverless journey passed independently on intentionally restarted final ordinary build, with unchanged final exact protectedBytes equality, first-result/Journal behavior and zero-external assertion. Test setup now awaits settled focus/actual centered introduction/visit before baseline; thresholds/settings/assertions unchanged.",
+        "finding": "Original banks/schema2/schema3/rubrics/first-help-retry-abandon protected by raw-byte equality. Actual post-stamp full UI journey and denied Journal/stale-tab case pass; no new result from menu/tip/focus or reading entry. No new blind-bank/psychometric claim.",
         "evidence": [
-          {
-            "path": "docs/quality/PR52_FINAL_AUDIT.md"
-          },
-          {
-            "path": "src/domain/curriculum/foundations-v2.ts"
-          },
-          {
-            "path": "src/domain/curriculum/foundations-v2-lifecycle.test.ts"
-          },
-          {
-            "path": "tests/e2e/foundations-v2.spec.ts"
-          }
+          { "path": "docs/quality/PR52_FINAL_AUDIT.md" },
+          { "path": "src/domain/curriculum/foundations-v2.ts" },
+          { "path": "tests/e2e/foundations-v2.spec.ts" },
+          { "path": "tests/e2e/owner-acceptance.spec.ts" }
         ]
       },
       "guidance": {
-        "finding": "Original guide/milestone/Journal engines and prior denial/cross-tab tests preserved. Independent complete Serverless compact journey retained actual prediction/run/milestone/first/help/retry/Journal/resume. No observer or automatic completion change; one original intro visit occurs before Serverless URL transition and raw Foundations bytes remain identical after entry/reload. Historical review access exists only in explicit nonhosted fixture; public guard unchanged.",
+        "finding": "Original tips, explicit Start, actual Portal return and authorization token retained. Final four incomplete routes, two completed direct routes and late recovered debrief select actual authorized mount; denied assistance still withholds teaching/Journal.",
         "evidence": [
-          {
-            "path": "docs/quality/PR52_FINAL_AUDIT.md"
-          },
-          {
-            "path": "src/features/learning/cloud-computing-chapter.tsx"
-          },
-          {
-            "path": "tests/e2e/owner-acceptance.spec.ts"
-          },
-          {
-            "path": "tests/e2e/foundations-v2.spec.ts"
-          }
+          { "path": "docs/quality/PR52_FINAL_AUDIT.md" },
+          { "path": "src/features/course/course.tsx" },
+          { "path": "src/features/learning/management-access.tsx" },
+          { "path": "src/features/course/practical-lab.tsx" }
         ]
       },
       "regression": {
-        "finding": "Closed global Services focus, historical-review CI context and false preservedPaths declaration findings; narrow centered exposure setup retains every original final assertion. Final actual fullcheck638/503/24 plus ordinarybuild passed; independent3 original browser/4Node, geometry/byte-attribution and final ordinary compact fullflow passed. Full346(315/31) CI receipt must describe explicit historical fixture; successor exact-head CI/strict and anonymous normal/reduced newSHA Gate7+Designlab404 remain pending. Prior058/8d/interim results are historical.",
+        "finding": "Actual349(317/32),legacy634/worker1 plan validated. Original346 executions/settings and six-size sweep retained. Post-stamp5 selected browser cases and7 focused scenarios passed; earlier timeout, server failure and audit setup errors retained. Full exact-head349 CI/strict and anonymous new-SHA Gate7 remain pending.",
         "evidence": [
-          {
-            "path": "docs/quality/PR52_FINAL_AUDIT.md"
-          },
-          {
-            "path": "playwright.desktop.config.ts"
-          },
-          {
-            "path": "tests/e2e/cloud-consolidation.spec.ts"
-          },
-          {
-            "path": "docs/DEVELOPMENT_WORKFLOW.md"
-          },
-          {
-            "path": ".github/workflows/ci.yml"
-          },
-          {
-            "path": "tests/e2e/serverless.spec.ts"
-          },
-          {
-            "path": "docs/reviews/evidence/pr52-preservation.json"
-          }
+          { "path": "docs/quality/PR52_FINAL_AUDIT.md" },
+          { "path": "playwright.desktop.config.ts" },
+          { "path": "tests/e2e/cloud-owner-navigation.spec.ts" },
+          { "path": "tests/e2e/cloud-consolidation.spec.ts" },
+          { "path": "docs/reviews/evidence/pr52-author-checks.json" }
         ]
       }
     },
@@ -816,144 +700,72 @@
       {
         "id": "P52-FA-01",
         "severity": "minor",
-        "status": "accepted-limitation",
-        "description": "Module/session framing pushes first model controls below the initial1366×768/short/compact viewport; actual scroll/part links/keyboard controls remain reachable above footer with no overflow or Axe findings. Broader shell redesign is outside this bounded consolidation; initial framing remains a documented limitation."
+        "status": "fixed",
+        "description": "Earlier initial framing pushed actual reading towards the bottom of short desktop windows.",
+        "fix": "Scoped compact six-session context plus actual below-fold reading detection; all original copy remains.",
+        "retests": [
+          "Independent all6 1440x900 frames; capacity1366x768 first paragraph y418.45/237.5px visible and1024x500 y251.27/118.75px visible; personally inspected images; final keyboard/Axe witnesses passed."
+        ]
       },
       {
         "id": "P52-FA-02",
         "severity": "minor",
         "status": "accepted-limitation",
-        "description": "Models+placement6328px and metering+pricing6105px at1440×900 remain long. Essential mechanisms/counterexamples justify retained substance;19→14 navigation is not measured study-time/cognitive-load/learning improvement. Human novice/transfer study unperformed."
+        "description": "Two substantive sessions remain long: actual1440x900 document heights6069px models/placement and5748px metering/pricing. Owner requires retaining six sessions and substance; learning/novice study remains unperformed."
       },
       {
         "id": "P52-FA-03",
         "severity": "minor",
-        "status": "accepted-limitation",
-        "description": "Responsibility sidebar has a one-member Deler i økten disclosure linking back to itself. Bounded redundant clutter/click; main body omits singleton part navigation and original route/evidence remains intact."
-      },
-      {
-        "id": "P52-FA-04",
-        "severity": "note",
-        "status": "accepted-limitation",
-        "description": "Final separate agent review binds44ad9fe3 fingerprint/35files/354 protected paths only. Complete346CI/strict explicitly tests a nonhosted historical-review build; normal public newSHA root/Portal/assessment/Journal+Designlab404 Gate7 remains separately pending. Earlier058/8d/interim reviews are historical; human SME/UX/screenreader/learning/psychometric validation unperformed."
-      },
-      {
-        "id": "P52-FA-05",
-        "severity": "major",
         "status": "fixed",
-        "description": "Published058 historical part URL navigation remounted the composed session and discarded an inspected RAM selection despite correct destination focus. Gate7 found a gap in initial route/focus-only continuity coverage.",
-        "fix": {
-          "path": "src/features/course/course.tsx",
-          "marker": "key={cloudNavigationTopic(topic)}"
-        },
+        "description": "Earlier singleton sidebar disclosure repeated the responsibility destination; owner also rejected both part-navigation layers.",
+        "fix": "Remove all sidebar submenus/data and horizontal part row; retain14 main entries and original headings/routes/fragments/resume.",
         "retests": [
-          {
-            "path": "docs/quality/PR52_FINAL_AUDIT.md",
-            "marker": "Fresh post-stamp independent production-browser execution passed"
-          },
-          {
-            "path": "tests/e2e/cloud-consolidation.spec.ts",
-            "marker": "historical part navigation retains the same live investigation"
-          }
+          "Final post-stamp new desktop navigation and historical fragment cases plus distinct compact witness passed; original14 boundaries/routes/live Back Forward/resume checks passed in representative regression."
         ]
       },
       {
-        "id": "P52-FA-06",
+        "id": "P52-FA-10",
         "severity": "major",
         "status": "fixed",
-        "description": "Marker-first chapter focus priority leaked globally, bypassing Services original earlier unmarked overview h2 and breaking the inherited accessible boundary contract.",
-        "fix": {
-          "path": "src/features/course/course.tsx",
-          "marker": "module === 'computing' && cloudChapterFor(topic)"
-        },
+        "description": "Completed debrief focus could run before the teaching boundary mounted its authorized DOM.",
+        "fix": "Focus the actual authorized debrief callback mount with original2RAF/instant-scroll policy, cleanup and connected-element guard.",
         "retests": [
-          {
-            "path": "docs/quality/PR52_FINAL_AUDIT.md",
-            "marker": "P52-FA-06"
-          },
-          {
-            "path": "tests/e2e/learning-sequencing.spec.ts",
-            "marker": "New learner starts Computing"
-          }
+          "Independent final UI-produced-state scoped recovery focusedSECTION#lab-debrief with exact Sandbox/progress bytes; final actual full Foundations Portal/debrief/recovery/independent journey passed46.7s."
         ]
       },
       {
-        "id": "P52-FA-07",
+        "id": "P52-FA-11",
         "severity": "major",
         "status": "fixed",
-        "description": "Historical Designlab browser cases could not run on PR52 under the correctly frozen PR50/51 runtime branch guard; CI needed explicit nonhosted environment parity without broadening public access.",
-        "fix": {
-          "path": "scripts/e2e-preview-build.mjs",
-          "marker": "reviewFixtureRef"
-        },
+        "description": "Independent fresh incomplete-debrief entry showedBODY focus and practical lab below fold after the first split correction removed the original lab fallback.",
+        "fix": "Both lab and debrief use the narrow authorized-mount helper; lab or incomplete-debrief selects practical-lab, completed-debrief selects lab-debrief.",
         "retests": [
-          {
-            "path": "scripts/e2e-preview-build.test.mjs"
-          },
-          {
-            "path": "docs/quality/PR52_FINAL_AUDIT.md",
-            "marker": "P52-FA-07"
-          },
-          {
-            "path": "tests/e2e/visual-excellence.spec.ts"
-          }
+          "Final fresh Computing/Services incomplete lab/debrief4 routes focusedSECTION#practical-lab; completed direct2 routes and late recovery passed; new historical-fragment fallback assertion passed."
         ]
       },
       {
-        "id": "P52-FA-08",
+        "id": "P52-FA-12",
         "severity": "minor",
         "status": "fixed",
-        "description": "Compact Serverless preservation froze an empty Foundations baseline before actual introduction exposure settled. scrollIfNeeded left the paragraph outside the conservative reading root; final exact equality legitimately saw its later intro visit.",
-        "fix": {
-          "path": "tests/e2e/serverless.spec.ts",
-          "marker": "block: 'center'"
-        },
+        "description": "New compact witness repeated the new desktop viewport sweep; initial independent desktop aggregate exhausted30s during Axe after22.454s first goto, latency cause unconfirmed.",
+        "fix": "Only the new desktop case uses1440x900/1024x500; its compact witness uses initial800x700. Original six-size sweep and every old test/limit/retry/worker remain unchanged.",
         "retests": [
-          {
-            "path": "docs/quality/PR52_FINAL_AUDIT.md",
-            "marker": "P52-FA-08"
-          },
-          {
-            "path": "tests/e2e/serverless.spec.ts",
-            "marker": "expect(await protectedBytes(page)).toEqual(before)"
-          }
-        ]
-      },
-      {
-        "id": "P52-FA-09",
-        "severity": "major",
-        "status": "fixed",
-        "description": "The final snapshot falsely retained tests/e2e/serverless.spec.ts among355 declared byte-preserved paths after its authorized setup correction. Independent raw comparison caught the exact declaration violation before strict release.",
-        "fix": {
-          "path": "docs/reviews/evidence/pr52-preservation.json",
-          "marker": "authorizedTestSetupChanges"
-        },
-        "retests": [
-          {
-            "path": "docs/quality/PR52_FINAL_AUDIT.md",
-            "marker": "P52-FA-09"
-          },
-          {
-            "path": "docs/reviews/evidence/pr52-preservation.json",
-            "marker": "\"finalPreservedPaths\": 354"
-          }
+          "Unchanged isolated old aggregate passed11.8s; final bounded new desktop+fragment+compact executions passed8.5/6.4/3.0s as part of five-case process exit0. Initial failure and trace retained."
         ]
       }
     ],
-    "report": {
-      "path": "docs/quality/PR52_FINAL_AUDIT.md"
-    }
+    "report": { "path": "docs/quality/PR52_FINAL_AUDIT.md" }
   },
   "snapshot": {
     "files": {
       ".github/workflows/ci.yml": "3acf8709c62983bbf232d2b54fe6ba2fe264d34b48a80537f9ef55ac1eaf30c8",
-      "AGENTS.md": "41ffde4dbcbe8388833927a67de328e3208c43669a15f12a3b80382a6bac0793",
-      "docs/CLOUD_COMPUTING_CONSOLIDATION.md": "6e5af823215ff801de005d57d10da7b4b186fef4d5c3cf3d7421109869ed62b4",
-      "docs/DEVELOPMENT_WORKFLOW.md": "07b0411ef7d4d84a5769b2a32e63302c63b9d1c0866ac9f9c36469fc58766b4c",
+      "AGENTS.md": "9293b06a12dcdd527a26e3e8dddb2fe140449ac6b61cc196604a57fb2774afaf",
+      "docs/CLOUD_COMPUTING_CONSOLIDATION.md": "cd7b0f2651328dc8a08be57399e1d42659d4513d4a8f2004eace8211c5cb26c5",
+      "docs/DEVELOPMENT_WORKFLOW.md": "21228444a30bda050547801cff0601bf19d95a19ca4c9120ef87a75b956b8d49",
       "docs/LEARNING_SEQUENCE.md": "83cc191f412aa42f9d5b18f4a61f0a2c6d608ebf76cc14fb3a82dbded531452f",
       "docs/reviews/AZ900_LEARNING_JOURNEY_MAP.md": "31ef2d35a4897264361203fdce7b433b4198d4f7dcb314070a7036a4ae1e1e96",
-      "docs/reviews/AZ900_REMEDIATION_PLAN.md": "496baa517a48e1cd6c6307208a4fe3ff9036aba7dc505e84c8f00d763ed1d99f",
-      "docs/reviews/evidence/pr52-author-checks.json": "9cc47c0bfd886313f0cf00f60b8dd0b6649897ed339222a13ada60a7dd13a877",
+      "docs/reviews/AZ900_REMEDIATION_PLAN.md": "71d974e40f2c714d55fce441a814b2abe152e9e33b7b3a68824c8a4f980e5662",
+      "docs/reviews/evidence/pr52-author-checks.json": "23592a1f8af63ccb822ed118aa9be89b375b041f3e4d4a0624cac63a34afb396",
       "docs/reviews/evidence/pr52-preservation.json": "817915893ad0d1d1e479e986d8e3c1a6b71901d33b5694daaf1a24b711897350",
       "docs/reviews/evidence/pr52-source-check.json": "2133d8b9251ccae050474529044fc72e2cb282d65cfafcfc40f29112ef482fb2",
       "docs/screenshots/cloud-consolidation/after-capacity-basics-1366x768.png": "834828ada8415aa2f1ee5a1df3fd216f4e6b7ac010d121717e69bda194cdbaf3",
@@ -962,26 +774,31 @@
       "docs/screenshots/cloud-consolidation/after-virtualization-1440x900-continued.png": "204a8c918bc487907b39be630be296ced7b901fa5a7086e0dcffe36072405b34",
       "docs/screenshots/cloud-consolidation/after-virtualization-1440x900.png": "c34f572d9d2e63e9cb00a8832c6c17af3e0100ea2c3251a12ea4dc6125e68979",
       "docs/screenshots/cloud-consolidation/before-provisioning-1440.png": "c5c8c8545d536c5d69e3c1b3dec1ab8e3d17bf37f7fb6df0d00cf21a2299cf9e",
+      "docs/screenshots/cloud-consolidation/owner-after-1024x500.png": "888b86af5590c3be9f632657433dcbd5b496a200a8a11959ded266a165f82978",
+      "docs/screenshots/cloud-consolidation/owner-after-1440x900.png": "ee1add5ba23c2ac50153ee7e527c5af720fd713d495d91a14712d209fa47cd1b",
+      "docs/screenshots/cloud-consolidation/owner-before-1024x500.png": "2fac7d7ea0f61f38cb0bfa0c97ba02062fb9e63a5614f77e4c05e67c63501b93",
+      "docs/screenshots/cloud-consolidation/owner-before-1440x900.png": "c34f572d9d2e63e9cb00a8832c6c17af3e0100ea2c3251a12ea4dc6125e68979",
       "package.json": "c40d001e7dd2e2e1e068a0b2074173660e11a68c58d75bc46dec7cd846161c84",
-      "playwright.desktop.config.ts": "b58aff873d539b76e8b530d5e80d8bc5e4c9b308d8edf73931bc97e95ba767cd",
+      "playwright.desktop.config.ts": "b56b471a97ca6622670a942a2580244640f4bcc54cac07f5e64935a5303f3cc9",
       "scripts/e2e-preview-build.mjs": "e16eba6f16b83642a9aa25c2f23c4cfc588064d02f754d320309f86000966684",
       "scripts/e2e-preview-build.test.mjs": "1247bb68750a704f5224c392fbc5368d18aa4fa87c31236966eba695fd8df314",
       "src/features/course/cloud-computing-chapters.test.ts": "d1f90fac016e75330ca0813cb4a0bf48a85150c8e2d4c89be33e33950c247ec8",
       "src/features/course/cloud-computing-chapters.ts": "0699d85654a593d5f33e92e6a26679747d01d46281d635688b53af5ad6089c9f",
-      "src/features/course/course-sidebar.tsx": "b8b62e506f9cf31dcf3667a7e4e581d0de813b732ad4fd0ffceb23d86ae4cdc4",
-      "src/features/course/course.tsx": "06b454d84fd0cf4284f165b5e3cb43cccc282f974ab36bc9a69046c91f879863",
+      "src/features/course/course-sidebar.tsx": "00d2688f6d73b89bb6714d3919f0c61edffa7b5aca3dab767eb02ad3c4ceab16",
+      "src/features/course/course.tsx": "8892112c300acc70ddaf2bbf991477e7eb6114812cb8d9ef8860f2dbc69e4a4a",
       "src/features/course/hybrid-foundation.test.ts": "bc5b04cf9f5bd9d1b9da81903484197bd85f81769f867a5805121d8e4be38ba7",
-      "src/features/learning/cloud-computing-chapter.css": "df721b81e9adcfc643af5ffef90b40cd65fcb487159b3008e6721b8f969e42d3",
-      "src/features/learning/cloud-computing-chapter.tsx": "8b9b08d021b1961538badbcacc29557c2b984b2c5568b2b1fcf088a67ee2b33d",
+      "src/features/learning/cloud-computing-chapter.css": "57f1a0322e533f75d26d381d3605bcab34a95a1c8e9ec99691b606820231e600",
+      "src/features/learning/cloud-computing-chapter.tsx": "53f5408dba8f81218597fed8cef0db1aeffd7254bf23d0ad636d9b281c6f5717",
       "src/features/learning/foundations-v2.tsx": "488ca06ff526bb72f03d273df652ec731bd7fcccc3b903a3fc76154e26a0a1f3",
       "src/features/learning/foundations-visuals.tsx": "acb2049914df0879528c93887c8cb999861fc8aa7072f2432605edbf7cadbe0b",
-      "tests/e2e/cloud-chapter-actions.ts": "7c2e102e79824fc2034d7bfac4bbc82720cf93d2b4cddbe14a7713671af2545d",
-      "tests/e2e/cloud-consolidation.spec.ts": "f53c8df8c1c76931a707c0257dcf234b2f821a9af6b17c2024ce701130892554",
-      "tests/e2e/foundations-v2.spec.ts": "0dd0d9a96a65f6496801a559585dc50f0e3344d42aafbea9ccd5555798f8e192",
-      "tests/e2e/owner-acceptance.spec.ts": "4c5b5cac31b807f09a2e4d1ed33d2ea14ffb7f367c20bf49e246c5391dbaffd8",
+      "tests/e2e/cloud-chapter-actions.ts": "23501e7a0be2f248ca19d8a147a2da98cbc88e483bfc766822416a42b40c93d2",
+      "tests/e2e/cloud-consolidation.spec.ts": "56d747fc288484db2a1b83a111f0cfa9575bf3f5e3976b03690c7acb2968a55c",
+      "tests/e2e/cloud-owner-navigation.spec.ts": "83baf3b4a943d4d4084598f92ce166a047ffe074e2187298b9354279ae7feb25",
+      "tests/e2e/foundations-v2.spec.ts": "645ff1760a7f721e77ec70df7228b7887a6b067bbfd53a9e9b740fa9a6ed90ed",
+      "tests/e2e/owner-acceptance.spec.ts": "d46a2bd983f3dc559e871042b513784e4bda905eb0b297ee6c662387d7755c0b",
       "tests/e2e/serverless.spec.ts": "60c097b3bfa6e515ca21e3cb29d02824d144722f2a0904ed9a9b46b83cd2d9f5",
       "tests/e2e/ux-refinement.spec.ts": "42b35bbbf5fa8670170e2ed035ff5e6d5dbaad381a093828810e64dd6001cfb4"
     }
   },
-  "implementationFinished": "2026-11-03T14:21:44.726Z"
+  "implementationFinished": "2026-11-03T16:33:02.281Z"
 }

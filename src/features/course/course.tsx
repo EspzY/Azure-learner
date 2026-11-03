@@ -108,7 +108,7 @@ import { ManagementLesson, CoreArchitectureJournal } from '@/features/learning/m
 import { managementTopics, isManagementTopic } from '@/domain/curriculum/architecture-management';
 import { usePractical } from './practical-provider';
 import { practicalHref } from '@/domain/sandbox/practical';
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import Link from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { ChevronRight, FlaskConical, Menu } from 'lucide-react';
@@ -185,6 +185,22 @@ const names = {
   services: nb.official.services,
   benefits: nb.official.benefits,
 };
+/** A guarded section can mount later than the route effect. No evidence writes. */
+function focusMountedLabSection(element: HTMLElement | null, enabled: boolean) {
+  if (!element || !enabled) return;
+  let settled = 0;
+  const frame = requestAnimationFrame(() => {
+    settled = requestAnimationFrame(() => {
+      if (!element.isConnected) return;
+      element.scrollIntoView({ block: 'start', behavior: 'instant' });
+      element.focus({ preventScroll: true });
+    });
+  });
+  return () => {
+    cancelAnimationFrame(frame);
+    cancelAnimationFrame(settled);
+  };
+}
 export function Course(props: { module?: CourseModule }) {
   return (
     <GuidedLearning>
@@ -283,8 +299,6 @@ function CourseWorkspace({ module }: { module?: CourseModule }) {
   const [briefing, setBriefing] = useState(false);
   const [journal, setJournal] = useState(false),
     [menu, setMenu] = useState(false);
-  const labRef = useRef<HTMLElement>(null),
-    debriefRef = useRef<HTMLElement>(null);
   // Focus belongs to the authorized activity mount, not an earlier route effect.
   // The teaching boundary may still withhold this DOM after a history change.
   const focusActivity = useCallback(
@@ -300,18 +314,35 @@ function CourseWorkspace({ module }: { module?: CourseModule }) {
       let settled = 0;
       const frame = requestAnimationFrame(() => {
         settled = requestAnimationFrame(() => {
+          const readingChapter = module === 'computing' ? cloudChapterFor(topic) : undefined;
+          // Keep historical fragment targets without recreating visible part menus.
+          // Match only this session's known IDs before using a DOM selector.
+          const fragmentPart = readingChapter?.members.find(
+            (member) => window.location.hash === `#cloud-part-${member}`,
+          );
           const heading =
+            (fragmentPart
+              ? element.querySelector<HTMLElement>(`#cloud-part-${fragmentPart} h3`)
+              : null) ??
             element.querySelector<HTMLElement>(
-              module === 'computing' && cloudChapterFor(topic)
-                ? '[data-activity-heading]'
-                : '[data-activity-heading], h2, h3',
-            ) ?? element.querySelector<HTMLElement>('h2, h3');
+              readingChapter ? '[data-activity-heading]' : '[data-activity-heading], h2, h3',
+            ) ??
+            element.querySelector<HTMLElement>('h2, h3');
           if (heading && element.isConnected) {
             heading.tabIndex = -1;
             const bounds = heading.getBoundingClientRect();
             // Keep visible context in short lessons; forced scrolling to an already
             // visible heading can push a sticky sidebar past its parent boundary.
-            if (bounds.top < 84 || bounds.bottom > window.innerHeight - 120)
+            const reading = readingChapter
+              ? element
+                  .querySelector<HTMLElement>(
+                    `#cloud-part-${fragmentPart ?? topic} .v2-explanation > p`,
+                  )
+                  ?.getBoundingClientRect()
+              : undefined;
+            const readingBelowFold =
+              reading && reading.top + Math.min(64, reading.height) > window.innerHeight - 120;
+            if (bounds.top < 84 || bounds.bottom > window.innerHeight - 120 || readingBelowFold)
               heading.scrollIntoView({ block: 'start', behavior: 'instant' });
             heading.focus({ preventScroll: true });
           }
@@ -404,25 +435,31 @@ function CourseWorkspace({ module }: { module?: CourseModule }) {
     boundary: null,
   };
   const existing = labFacts(existingSession, chapter.attempt.engine, chapter.attemptNumber);
-  useEffect(() => {
-    if (!course.ready || !chapter.ready || !labTopic) return;
-    const scroll = () => {
-      const activity = query.get('activity');
-      if (activity === 'debrief' || activity === 'lab') {
-        const target = activity === 'debrief' && lab.complete ? debriefRef.current : labRef.current;
-        target?.scrollIntoView({ block: 'start', behavior: 'instant' });
-        target?.focus({ preventScroll: true });
-      }
-    };
-    let settledFrame = 0;
-    const frame = requestAnimationFrame(() => {
-      settledFrame = requestAnimationFrame(scroll);
-    });
-    return () => {
-      cancelAnimationFrame(frame);
-      cancelAnimationFrame(settledFrame);
-    };
-  }, [course.ready, chapter.ready, labTopic, lab.complete, query]);
+  // Select the original target only when its authorized section mounts.
+  const labRef = useCallback(
+    (element: HTMLElement | null) =>
+      focusMountedLabSection(
+        element,
+        course.ready &&
+          chapter.ready &&
+          labTopic &&
+          (query.get('activity') === 'lab' ||
+            (query.get('activity') === 'debrief' && !lab.complete)),
+      ),
+    [course.ready, chapter.ready, labTopic, lab.complete, query],
+  );
+  const debriefRef = useCallback(
+    (element: HTMLElement | null) =>
+      focusMountedLabSection(
+        element,
+        course.ready &&
+          chapter.ready &&
+          labTopic &&
+          lab.complete &&
+          query.get('activity') === 'debrief',
+      ),
+    [course.ready, chapter.ready, labTopic, lab.complete, query],
+  );
   const preferredResume =
     course.save.resume ??
     (learning.save.events.length
@@ -935,14 +972,6 @@ function CourseWorkspace({ module }: { module?: CourseModule }) {
             : undefined,
         title: title(part, activity) ?? activity,
         activeTopics: part === 'computing' ? cloudChapterFor(activity)?.members : undefined,
-        parts:
-          part === 'computing' && cloudChapterFor(activity)
-            ? cloudChapterFor(activity)!.members.map((member) => ({
-                topic: member,
-                title: nb.foundationsV2.topics[member].title,
-                href: courseHref('computing', member),
-              }))
-            : undefined,
         href: part === 'services' ? serviceHref(activity) : courseHref(part, activity),
         observed:
           reliableHistory &&
@@ -1349,7 +1378,9 @@ function CourseWorkspace({ module }: { module?: CourseModule }) {
                   <ChevronRight size={14} />
                   <span>{names[module]}</span>
                 </div>
-                <header className="course-module-header">
+                <header
+                  className={`course-module-header${module === 'computing' && currentV2 && cloudChapterFor(topic) ? ' cloud-chapter-context' : ''}`}
+                >
                   <small>
                     {c.module}{' '}
                     {module === 'migration'

@@ -35,15 +35,6 @@ export function CloudComputingChapter({ topic }: { topic: string }) {
           <button onClick={v2.store.clear}>{nb.foundationsV2.reset}</button>
         </div>
       )}
-      {chapter.members.length > 1 && (
-        <nav className="cloud-chapter-parts" aria-label="I denne økten">
-          {chapter.members.map((member) => (
-            <a key={member} href={`#cloud-part-${member}`}>
-              {nb.foundationsV2.topics[member].title}
-            </a>
-          ))}
-        </nav>
-      )}
       {chapter.guide && (
         <details className="cloud-chapter-guide">
           <summary>SavvyShark · Tips til undersøkelsen</summary>

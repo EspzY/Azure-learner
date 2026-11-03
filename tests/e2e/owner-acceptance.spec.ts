@@ -27,7 +27,7 @@ async function start(page: Page) {
 }
 async function leave(page: Page) {
   await openCloudPart(page, 'provisioning');
-  await expect(page).toHaveURL(/topic=provisioning/);
+  await expect(page).toHaveURL(/topic=virtualization/);
 }
 async function answerAll(page: Page, wrong = false) {
   for (const c of v2Criteria) {
@@ -227,7 +227,7 @@ test('owner guided PaaS resume shares independent safety and SavvyShark returns 
   await expect(page.locator('.v2-assessment form')).toBeVisible();
 
   await openCloudPart(page, 'provisioning');
-  await expect(page).toHaveURL(/topic=provisioning/);
+  await expect(page).toHaveURL(/topic=virtualization/);
   expect((await facts(page)).active).toBe(false);
   await page.goto('/learn/services?topic=paas&version=2&activity=practical');
   await page

@@ -1,7 +1,11 @@
+import { cloudNavigationTopic } from '../../src/features/course/cloud-computing-chapters';
 import { openCloudPart } from './cloud-chapter-actions';
 import { test, expect, type Page, type TestInfo } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
-import { nb, ownerAcceptanceNb as acceptance } from '../../src/content/nb';
+import { nb, ownerAcceptanceNb as acceptance, networkingNb as network } from '../../src/content/nb';
+import { networkingKey } from '../../src/domain/curriculum/networking';
+import { sandboxKey } from '../../src/domain/sandbox/store';
+import { storageKey } from '../../src/domain/progression';
 import { v2Criteria, v2Topics, foundationsV2Key } from '../../src/domain/curriculum/foundations-v2';
 import { learningKey, freshLearning, applyLearning } from '../../src/domain/curriculum/foundations';
 import { acknowledgeMilestone } from './portal-actions';
@@ -20,10 +24,14 @@ const capture = async (page: Page, info: TestInfo, name: string) =>
 const audit = async (page: Page) =>
   expect((await new AxeBuilder({ page }).analyze()).violations).toEqual([]);
 async function step(page: Page, id: (typeof v2Topics)[number]) {
+  const target = `/learn/computing?topic=${cloudNavigationTopic(id)}`;
+  const changed = !page.url().endsWith(target);
   await openCloudPart(page, id);
-  await expect(page).toHaveURL(`/learn/computing?topic=${id}`);
-  await expect(page.locator('[data-activity-heading]')).toBeFocused();
-  await expect(page.getByRole('heading', { name: t.topics[id].title, exact: true })).toBeVisible();
+  await expect(page).toHaveURL(target);
+  if (changed) await expect(page.locator('[data-activity-heading]')).toBeFocused();
+  const originalHeading = page.getByRole('heading', { name: t.topics[id].title, exact: true });
+  await expect(originalHeading).toBeVisible();
+  await originalHeading.scrollIntoViewIfNeeded();
 }
 async function answer(page: Page, topic: keyof typeof t.checkItems, id: string) {
   const check = page.locator(`#cloud-part-${topic} .v2-check`);
@@ -279,6 +287,27 @@ test('ordinary root delivers the whole v2 course, preserved objectives, actual l
   await capture(page, info, 'debrief');
   await page.reload();
   await expect(page.locator('#lab-debrief')).toContainText('teamA');
+  // The real debrief may mount only after a scoped teaching-state recovery.
+  // Route/technical facts stay the same: focus must follow the authorized mount.
+  const technicalBeforeRecovery = await page.evaluate(
+    (keys) => keys.map((key) => localStorage.getItem(key)),
+    [sandboxKey, storageKey],
+  );
+  await page.evaluate((key) => localStorage.setItem(key, 'qa-corrupt-networking'), networkingKey);
+  await page.reload();
+  await expect(page.locator('#lab-debrief')).toHaveCount(0);
+  await page.getByRole('button', { name: network.storage.recover, exact: true }).first().click();
+  await page
+    .getByRole('dialog')
+    .getByRole('button', { name: network.storage.confirm, exact: true })
+    .click();
+  await expect(page.locator('#lab-debrief')).toBeFocused();
+  expect(
+    await page.evaluate(
+      (keys) => keys.map((key) => localStorage.getItem(key)),
+      [sandboxKey, storageKey],
+    ),
+  ).toEqual(technicalBeforeRecovery);
   await page.locator('.related-activities summary').click();
   await page.getByRole('link', { name: acceptance.assessment, exact: true }).click();
   await page.getByRole('button', { name: t.beginAssessment, exact: true }).click();

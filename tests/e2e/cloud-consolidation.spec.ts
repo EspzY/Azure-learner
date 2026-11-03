@@ -38,11 +38,25 @@ test('consolidated Cloud Computing follows fourteen meaningful entries with pres
   await page.goto('/learn');
   await page.getByRole('link', { name: `${nb.course.open}: Cloud computing`, exact: true }).click();
   await expect(page.locator('#course-activities-computing > li')).toHaveCount(14);
+  await expect(
+    page.locator('#course-activities-computing details, #course-activities-computing ol'),
+  ).toHaveCount(0);
+  await expect(page.getByText('Deler i økten', { exact: true })).toHaveCount(0);
+  for (const [i, chapter] of cloudChapters.entries())
+    await expect(page.locator('#course-activities-computing > li > a').nth(i)).toHaveText(
+      chapter.title,
+    );
   const before = await snapshot(page);
   for (let i = 0; i < cloudRecommendedTopics.length; i++) {
     const topic = cloudRecommendedTopics[i]!;
+    await expect(page.locator('.cloud-chapter-parts')).toHaveCount(0);
     await expect(page).toHaveURL(new RegExp(`topic=${topic}`));
     await expect(page.locator('.course-nav-context')).toContainText(`${i + 1} av 14`);
+    if (i > 0)
+      await expect(page.locator('.course-nav-previous a')).toHaveAttribute(
+        'href',
+        `/learn/computing?topic=${cloudRecommendedTopics[i - 1]}`,
+      );
     await expect(next(page)).toHaveAttribute(
       'href',
       i === 13
@@ -80,7 +94,8 @@ test('historical part navigation retains the same live investigation and exact s
   const ram = nb.foundationsVisuals.parts.find((part) => part.id === 'ram')!;
   await page.getByRole('button', { name: new RegExp(`^${ram.name}`) }).click();
   await expect(page.locator('.proof-part-detail')).toContainText(ram.explanation);
-  await openCloudPart(page, 'physical-server');
+  // Native history entry represents a historical part address; no visible part menu exists.
+  await page.evaluate(() => history.pushState(null, '', '/learn/computing?topic=physical-server'));
   await expect(page).toHaveURL(/topic=physical-server$/);
   await expect(page.locator('#cloud-part-physical-server h3').first()).toBeFocused();
   await expect(page.locator('.proof-part-detail')).toContainText(ram.explanation);
@@ -247,7 +262,8 @@ test('chapter navigation keeps PR51 explicit abandonment assisted practice denie
   await page.reload();
   expect((await facts(page)).active).toBe(true);
   await openCloudPart(page, 'provisioning');
-  await expect(page.locator('#cloud-part-provisioning h3').first()).toBeFocused();
+  await expect(page).toHaveURL(/topic=virtualization$/);
+  await expect(page.locator('.cloud-chapter-heading h2')).toBeFocused();
   expect((await facts(page)).active).toBe(false);
   expect((await facts(page)).abandoned).toHaveLength(1);
   expect((await facts(page)).submissions).toEqual([]);

@@ -16,7 +16,6 @@ export type CourseActivities = Record<
     observed?: boolean;
     section?: string;
     activeTopics?: readonly string[];
-    parts?: readonly { topic: string; title: string; href: string }[];
   }[]
 >;
 
@@ -157,27 +156,6 @@ export function CourseSidebar({
                                       </span>
                                     )}
                                   </Link>
-                                  {activity.parts && (
-                                    <details
-                                      className="cloud-chapter-subtopics"
-                                      key={`${activity.topic}-${topic}`}
-                                      open={
-                                        activity.parts.some((item) => item.topic === topic) &&
-                                        topic !== activity.topic
-                                      }
-                                    >
-                                      <summary>Deler i økten</summary>
-                                      {activity.parts.map((item) => (
-                                        <Link
-                                          key={item.topic}
-                                          href={item.href}
-                                          onClick={onNavigate}
-                                        >
-                                          {item.title}
-                                        </Link>
-                                      ))}
-                                    </details>
-                                  )}
                                 </li>
                               ))}
                             </ol>
