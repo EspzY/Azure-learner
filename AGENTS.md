@@ -1,3 +1,7 @@
+## PR51 approved hybrid production continuity
+
+Owner has explicitly approved B identity+A precision and the first real Course Hub/shell/Compute/Portal vertical rollout. Read [HYBRID_PRODUCTION_FOUNDATION](docs/HYBRID_PRODUCTION_FOUNDATION.md). Preserve every original domain/store/rubric/World/receipt/XP/first-help-retry/sequence and locale-prefix byte; no new progress engine. Local licensed fonts, measured footer clearance and nonsemantic motion never alter evidence or fixed Portal ancestry. No text-opacity entrance; normal0/mid/end, reduced/unsupported motion, true browserzoom, native guide/returns, independent durable denial and exact resume require actual production checks. Canonical mascot only; rejected library remains blocked. Historical Designlab is preview-only, not the default UI. Retain320prior browser executions and settings;7desktop+2compact give329(300/29). Full check, fresh stamped separate six-domain visual/frontend audit, exact-head fullCI/strict and anonymous fullSHA root/journey required. Human validation unperformed; subsequent stages2–5 remain separate. No merge/production, PR01B/C or P17/P18.
+
 # AzureLab engineering contract
 
 ## PR50 visual-review continuity

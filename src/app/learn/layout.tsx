@@ -17,7 +17,7 @@ export default function LearningLayout({ children }: { children: React.ReactNode
           </a>
         </aside>
       )}
-      {children}
+      <div className="course-route-surface">{children}</div>
       {visualReviewAllowed(process.env.VERCEL_ENV, branch, process.env.GITHUB_HEAD_REF) && (
         <aside className="visual-review-entry" aria-label={visualReviewNb.entry}>
           <a href={visualRoute}>{visualReviewNb.entry}</a>

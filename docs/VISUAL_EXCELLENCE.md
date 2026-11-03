@@ -1,3 +1,7 @@
+# PR51 — owner direction selected and first rollout
+
+The owner selected B identity+A precision. [Actual in-place implementation contract](HYBRID_PRODUCTION_FOUNDATION.md) distinguishes the first real Course Hub/shell/Compute rollout from this dated PR50 comparison. No new design competition, rejected-art activation or broad17-module redesign. The PR50 evidence below remains historical; original character/library and capability boundaries remain unchanged.
+
 # PR50 — visual direction and implementation contract
 
 Design phase, 2 November 2026. Base `4934408075fccdab944e629a108a0f23424ee3f8`. This is an interactive, preview-only candidate, not a replacement for the current course. No new learning, technical command, result or curriculum order is introduced. Human novice, Azure-SME, assistive-technology and measured learning validation remain unperformed.

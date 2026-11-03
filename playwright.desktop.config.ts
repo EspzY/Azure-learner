@@ -5,6 +5,14 @@ import baseline from './playwright.config';
 // names. No test body, assertion, title, timeout or skip is modified.
 const compactCases = [
   [
+    'hybrid-experience.spec.ts',
+    'hybrid Container short-window keyboard result discovery uses accepted stored run and marks changed assumptions without technical writes',
+  ],
+  [
+    'hybrid-experience.spec.ts',
+    'hybrid desktop compact type keyboard native Journal short-height and reduced motion retain usable real course controls',
+  ],
+  [
     'visual-excellence.spec.ts',
     'both visual directions preserve native controls Axe semantics and contrast in actual Studio',
   ],

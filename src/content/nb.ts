@@ -21588,3 +21588,11 @@ export const visualReviewNb = {
     manifest: 'Åpne versjonert asset-manifest',
   },
 } as const;
+
+export const hybridExperienceNb = {
+  companion: 'Lær et konsept. Undersøk mekanismen. Prøv det i den lokale simulatoren.',
+  resultReady: 'Sist lagrede modellresultat',
+  inspectResult: 'Se resultat og teknisk forklaring',
+  hidePortrait: 'Skjul SavvyShark-figuren',
+  showPortrait: 'Vis SavvyShark-figuren',
+} as const;

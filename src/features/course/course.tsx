@@ -110,7 +110,7 @@ import { practicalHref } from '@/domain/sandbox/practical';
 import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
-import { BookOpen, ChevronRight, FlaskConical, Menu } from 'lucide-react';
+import { ChevronRight, FlaskConical, Menu } from 'lucide-react';
 import { labsNb, nb, serverlessNb, architectureNb, managementNb } from '@/content/nb';
 import { unitIds } from '@/domain/curriculum/manifest';
 import { topics, portalHref, parseLocation, type PortalLocation } from '@/domain/portal/model';
@@ -1111,7 +1111,9 @@ function CourseWorkspace({ module }: { module?: CourseModule }) {
   };
   return (
     <div
-      className={`portal course-shell ${module === 'migration' || module === 'security' || module === 'monitoring' || module === 'management-tools' || module === 'governance' || module === 'access-control' || module === 'identity' || module === 'storage-resilience' || module === 'storage' || module === 'connectivity' || module === 'networking' || module === 'compute' || module === 'cost' || module === 'architecture' || currentV2 || module === 'benefits' || (module === 'services' && !legacyServices) ? 'course-v2' : ''}`}
+      data-course-module={module ?? 'hub'}
+      data-course-topic={topic}
+      className={`portal course-shell course-hybrid ${module === 'migration' || module === 'security' || module === 'monitoring' || module === 'management-tools' || module === 'governance' || module === 'access-control' || module === 'identity' || module === 'storage-resilience' || module === 'storage' || module === 'connectivity' || module === 'networking' || module === 'compute' || module === 'cost' || module === 'architecture' || currentV2 || module === 'benefits' || (module === 'services' && !legacyServices) ? 'course-v2' : ''}`}
     >
       <ExpansionAssistance />
       <PracticalAssistance />
@@ -1120,7 +1122,9 @@ function CourseWorkspace({ module }: { module?: CourseModule }) {
       </a>
       <header className="course-header">
         <Link className="course-brand" href="/learn">
-          <BookOpen size={23} />
+          <svg className="course-brand-mark" viewBox="0 0 32 32" aria-hidden="true">
+            <path d="M5 25L16 5l11 20M9 19h14M5 28h22" />
+          </svg>
           {c.brand}
           <small>AZ-900</small>
         </Link>

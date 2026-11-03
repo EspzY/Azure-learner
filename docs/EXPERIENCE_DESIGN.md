@@ -1,3 +1,7 @@
+# PR51 — actual hybrid learning journey
+
+The current course uses the owner-selected hybrid on ordinary root, with original Compute teaching, explicit guided models, immediate nearby run feedback and native Portal/receipt/return. [Scope, motion and safety contract](HYBRID_PRODUCTION_FOUNDATION.md). This is an in-place production-code foundation; no retired game or new simulator is restored. Human learning/UX acceptance is unperformed.
+
 # Experience design — resource world and expedition
 
 > **Historical record — retired 2026-10-26.** Game/SVG journey/cinematic/playback implementations and exclusive tests are removed, not supported alternative products. Paths and measurements below record the earlier phase, recoverable from Git at91f6cc4. Current course/Portal teaching and frozen technical contracts are preserved; see [classification and compatibility](LEGACY_AUDIT.md) and [current architecture](ARCHITECTURE.md).

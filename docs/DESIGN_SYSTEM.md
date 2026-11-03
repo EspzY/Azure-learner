@@ -1,3 +1,7 @@
+# PR51 — selected hybrid in the actual course
+
+Owner-selected paper/navy/Source Serif4 editorial identity plus compact Manrope technical controls now defines the actual Course Hub/shell and representative Compute journey. [Production surface/token/motion/preservation contract](HYBRID_PRODUCTION_FOUNDATION.md) supersedes the PR50 comparison-only restriction for this bounded rollout. Native Portal typography and technical authority remain. Other detailed Studio layouts await Stage2; full Journal presentation awaits Stage4. Only canonical SavvyShark is active.
+
 # PR50 — isolated visual candidates
 
 [Two interactive directions and scoped token/motion/rollout contract](VISUAL_EXCELLENCE.md) are available for owner comparison. The existing production design below remains authoritative until separate rollout approval. New character production is blocked under the [locked Character Bible](SAVVYSHARK_CHARACTER_BIBLE.md). No global reskin or evidence change.

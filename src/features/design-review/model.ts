@@ -19,7 +19,8 @@ export const surfaces = [
 export type Surface = (typeof surfaces)[number];
 export function visualReviewAllowed(environment?: string, branch?: string, ciHead?: string) {
   return (
-    (environment === 'preview' || environment === undefined) && (branch ?? ciHead) === visualBranch
+    (environment === 'preview' || environment === undefined) &&
+    [visualBranch, 'codex/azurelab-hybrid-production-foundation'].includes(branch ?? ciHead ?? '')
   );
 }
 export const directionFrom = (value: string | null): Direction =>
