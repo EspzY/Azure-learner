@@ -13,10 +13,12 @@ export function Server({
   selected,
   request = false,
   phase = 3,
+  idPrefix = '',
 }: {
   selected: Part;
   request?: boolean;
   phase?: number;
+  idPrefix?: string;
 }) {
   return (
     <svg
@@ -25,11 +27,11 @@ export function Server({
       aria-hidden="true"
     >
       <defs>
-        <linearGradient id="proof-chassis" x1="0" x2="1" y1="0" y2="1">
+        <linearGradient id={`${idPrefix}proof-chassis`} x1="0" x2="1" y1="0" y2="1">
           <stop stopColor="#233e55" />
           <stop offset="1" stopColor="#101f32" />
         </linearGradient>
-        <pattern id="proof-vents" width="8" height="6" patternUnits="userSpaceOnUse">
+        <pattern id={`${idPrefix}proof-vents`} width="8" height="6" patternUnits="userSpaceOnUse">
           <path d="M0 2h4" stroke="#506a7d" strokeWidth="2" />
         </pattern>
       </defs>
@@ -90,7 +92,7 @@ export function Server({
         </text>
         <path
           d="M30 58L457 58 492 81 492 355 457 377 30 377Z"
-          fill="url(#proof-chassis)"
+          fill={`url(#${idPrefix}proof-chassis)`}
           stroke="#7893a8"
         />
         <path d="M457 58v319m0-296h35" stroke="#456077" />
@@ -170,7 +172,13 @@ export function Server({
                 rx="3"
                 fill={selected === 'storage' ? '#126c9d' : '#3a5060'}
               />
-              <rect x="312" y={y + 7} width="82" height="18" fill="url(#proof-vents)" />
+              <rect
+                x="312"
+                y={y + 7}
+                width="82"
+                height="18"
+                fill={`url(#${idPrefix}proof-vents)`}
+              />
               <circle cx="414" cy={y + 16} r="3" fill="#7fc6c0" />
             </g>
           ))}

@@ -1,3 +1,17 @@
+## PR52 final learning-navigation cleanup candidate
+
+Owner keeps six Cloud Computing sessions and removes early Service Types/assessment detours. Only three presenter removals; existing closing practical choices, terminal transfer, direct/version/resume routes and every learning/technical authority remain. [Destination contract and before/after](CLOUD_COMPUTING_CONSOLIDATION.md#final-learning-navigation-cleanup--3-november-2026).351-profile exact-headCI/strict and new anonymousSHA Gate7 require fresh author check/stamp/separate review; prior7ef delivery is historical. Known Compute help/Back instability and human validation remain open. Same Draft52, no broader stages/PR53/P17/P18/merge/production.
+
+## PR52 owner refinement candidate — 3 November2026
+
+Owner approves six-session pedagogy and requires removal of sidebar part submenus and top part-link rows. Same Draft52 on verified1239 head: flat14-entry ordinary journey, scoped compact context, preserved original section/fragment/topic/resume compatibility. [Current implementation and actual before/after](CLOUD_COMPUTING_CONSOLIDATION.md#owner-acceptance-refinement--3-november-2026). Retain346 prior browsers plus2desktop/1compact→349(317/32). Fresh fullcheck/audit/stamp/exact-headCI/strict/anonymousGate7 pending for this correction; prior1239 success remains historical evidence. Every domain/store/source/rubric/World/receipt/XP contract remains frozen. No PR53, broaderPD01, Stage2–5, P17/P18, merge or production.
+
+## PR52 — Cloud Computing consolidation candidate, 3 November2026
+
+Owner-authorized PD-01 Stage A on verified PR51 EEF base. Six substantial foundational sessions compose11 old topics;19→14 recommended entries. Original text/models/checks, all domain/store/locale/assessment schema2/3, old URLs/resume and World/receipt/XP remain. [19-entry inspection and implementation](CLOUD_COMPUTING_CONSOLIDATION.md). Baseline337 retained plus8desktop/1compact gives346 (315/31). Targeted production checks/fullcheck/stamped independent pedagogical audit/exacthead fullCI/strict/anonymousGate7 remain required before final delivery. Broader PD-01/AS-02/PR-01B/C, human validation and design stages2–5 remain separate; no P17/P18, merge or production. Historical PR51 status below is dated evidence, not a prohibition on this explicit new owner task.
+
+Final CI correction restores original non-Computing focus and explicitly separates historical Designlab browser-fixture builds from normal public branch builds. Fullcheck638/503/24 passed; final-head346CI/strict and actual public Gate7 remain separate acceptance evidence. Runtime review allowlist and protected data unchanged.
+
 ## PR51 owner acceptance corrections —3 November2026
 
 Broad hybrid rollout is **not owner-approved**. Same Draft51 now adds an explicitly versioned Foundations v2 navigation-abandon lifecycle, durable-only write confirmation, practical Start/Resume safety parity, quiet secondary navigation and readable progressive feedback. Old rubrics/firsts/events remain frozen; other authorities/sequence/assets are preserved. [Owner scope and actual local evidence](PR51_OWNER_ACCEPTANCE.md). Full check and focused browser/zoom controls passed; fresh independent audit and new exact-head337CI/strict/public Gate7 must be verified before delivery. No Stage2–5/PR52/merge/production. Later final release evidence belongs to the existing Draft, not a reinterpretation of the initial065 preview acceptance.

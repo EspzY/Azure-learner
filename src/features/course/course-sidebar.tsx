@@ -9,7 +9,14 @@ import { coursePaths, coursePathFor, moduleLabels } from './course-outline';
 export type CourseDestinations = Record<CourseModule, string>;
 export type CourseActivities = Record<
   CourseModule,
-  readonly { href: string; title: string; topic: string; observed?: boolean; section?: string }[]
+  readonly {
+    href: string;
+    title: string;
+    topic: string;
+    observed?: boolean;
+    section?: string;
+    activeTopics?: readonly string[];
+  }[]
 >;
 
 export function CourseSidebar({
@@ -131,7 +138,9 @@ export function CourseSidebar({
                                   <Link
                                     href={activity.href}
                                     aria-current={
-                                      module === part && topic === activity.topic
+                                      module === part &&
+                                      (topic === activity.topic ||
+                                        activity.activeTopics?.includes(topic))
                                         ? 'step'
                                         : undefined
                                     }

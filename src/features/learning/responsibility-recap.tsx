@@ -1,6 +1,5 @@
 'use client';
 import { useState } from 'react';
-import Link from 'next/link';
 import { nb } from '@/content/nb';
 import { responsibility } from '@/domain/curriculum/responsibility';
 export function ResponsibilityRecap() {
@@ -22,7 +21,6 @@ export function ResponsibilityRecap() {
         <strong>{r[responsibility('paas', task)]}</strong>
         <p>{r.notes[task]}</p>
       </div>
-      <Link href="/learn/services?topic=overview">{c.recapDeep}</Link>
     </section>
   );
 }

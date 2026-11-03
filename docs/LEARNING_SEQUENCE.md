@@ -57,3 +57,7 @@ Reviewed2November2026: current [AZ-900 study guide](https://learn.microsoft.com/
 Actual full run [41401906187](https://github.com/EspzY/Azure-learner/actions/runs/41401906187) on `9633bd64831f287586a0a660e2f15969896ea744` ended280passed/1failed (16.8m). The old Identity route test still expected StorageB→Migration→Identity, despite the approved new sequence and correctly rendered Identity destination. Existing automatic retries also failed that same obsolete expectation; no passed candidate receipt was emitted and strict release did not run. This is a failed delivery run, not accepted regression proof.
 
 The Identity test now checks StorageB→Identity and reciprocal Previous→StorageB, then Migration→Hub. Every original sidebar, Back/Forward/reload, Portal return and empty-completed/first assertion is retained. No app code, assertion strength, worker/retry/timeout/skip setting or profile count changes. A targeted actual retest, renewed stamp and separate revalidation precede a new complete exact-head281CI/strict run. The earlier public Gate7 verifies only its9633SHA until the corrected head is actually tested again.
+
+## PR52 Cloud Computing consolidation
+
+Only the internal Cloud Computing pedagogical sequence changes: six composed foundational sessions then the unchanged Serverless6/resource bridge/transfer give14 recommended entries. The17-module order, three catalogue paths, active independent/guide priority, historical topic validation and exact saved resume are unchanged. [Session contract and19-entry inspection](CLOUD_COMPUTING_CONSOLIDATION.md).

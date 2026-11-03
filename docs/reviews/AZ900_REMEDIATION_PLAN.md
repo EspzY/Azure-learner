@@ -1,6 +1,18 @@
+## PR52 final owner navigation cleanup — 3 November2026
+
+The six sessions/flat sidebar remain. Early recap→Services link and repeated teaching-page transfer entries are removed; the six basic sessions no longer repeat assessment/history disclosures. Original optional local check/observations remain once at closing Portal practice; terminal transfer and Hub/direct discovery remain. [Exact preserved destinations and actual before/after](../CLOUD_COMPUTING_CONSOLIDATION.md#final-learning-navigation-cleanup--3-november-2026).353 whole-file paths remain protected plus exact recap-model normalization; all domain/locale/source/rubric/evidence bytes remain. Retain349 earlier executions, new1desktop+1compact→351(318/33). Fresh fullcheck/stamp/independent audit/exact-headCI/strict/publicSHA Gate7 pending for this correction. Previous7ef success remains historical. Known Compute assertion310 flake, broaderPD01/AS02/PR01B/C and human validation remain open; no wider rollout/PR53/P17/P18/merge/production.
+
 # PR51 — selected hybrid production foundation
 
 The owner has approved the PR50 hybrid direction. The first in-place Course Hub/shell/Compute/Portal vertical rollout is described in [HYBRID_PRODUCTION_FOUNDATION](../HYBRID_PRODUCTION_FOUNDATION.md); final329CI/strict/anonymousSHA and independent audit are required on Draft PR51. This does not close broader PD-01, AS-02 or PR-01 StageB/C. Character production remains blocked pending a controlled master; stages2–5 are separate. Original audit findings and dated fixes below are preserved.
+
+## PD-01 Stage A — Cloud Computing, PR52 owner refinement, 3 November2026
+
+The owner approves the six-session direction and explicitly requires a flat sidebar and continuous reading without per-part menus. Both extra navigation layers are removed in the current correction; original headings, historical topic/fragment/resume identities and all content/evidence remain. Compact context and scoped short-window focus expose actual teaching sooner. [Before/after and preservation](../CLOUD_COMPUTING_CONSOLIDATION.md#owner-acceptance-refinement--3-november-2026). New349-case exact-headCI/strict, fresh stamped independent review and actual anonymous new-SHA Gate7 remain pending; prior1239 results are historical. Long sessions remain intact. BroaderPD01/human validation stay open. No wider rollout or PR53.
+
+### Initial Stage A implementation (historical candidate)
+
+The owner has authorized a bounded implemented consolidation of the19-entry Cloud Computing journey into14 recommended entries, with six substantial foundational sessions. [Inspection of every original entry, rationale and preservation contract](../CLOUD_COMPUTING_CONSOLIDATION.md). All technical topic IDs, direct/resume routes, manuscripts, models, rubric/store bytes and PR51 lifecycle remain. Stage A is **pending final audit/CI/strict/actual external Gate7**; broader PD-01 remains open. Historical PR42 evidence and other remediation statuses below are retained. No automatic Stage2–5/P17/P18 or cross-module restructuring.
 
 ## PR50 — visual design phase, 2 November 2026
 

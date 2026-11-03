@@ -1,3 +1,4 @@
+import { openCloudPart } from './cloud-chapter-actions';
 import { test, expect, type Page } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { nb, ownerAcceptanceNb as a, labsNb, managementNb } from '../../src/content/nb';
@@ -25,11 +26,8 @@ async function start(page: Page) {
   await page.getByLabel(items[0]!.question, { exact: true }).fill('3');
 }
 async function leave(page: Page) {
-  await page
-    .locator('.course-units')
-    .getByRole('link', { name: t.topics.provisioning.title, exact: true })
-    .click();
-  await expect(page).toHaveURL(/topic=provisioning/);
+  await openCloudPart(page, 'provisioning');
+  await expect(page).toHaveURL(/topic=virtualization/);
 }
 async function answerAll(page: Page, wrong = false) {
   for (const c of v2Criteria) {
@@ -91,19 +89,31 @@ test('owner browser Back Forward and unsupported-navigation fallback close only 
     Object.defineProperty(window, 'navigation', { value: undefined, configurable: true }),
   );
   await page.goto('/learn/computing?topic=provisioning');
+  await expect(page.locator('.related-activities')).toHaveCount(0);
+  await page
+    .locator('#course-activities-computing > li > a[href$="topic=resource-bridge"]')
+    .click();
   await page.locator('.related-activities summary').click();
   await page.getByRole('link', { name: a.assessment, exact: true }).click();
   await page.getByRole('button', { name: t.beginAssessment, exact: true }).click();
   await page.goBack();
-  await expect(page).toHaveURL(/topic=provisioning/);
+  await expect(page).toHaveURL(/topic=resource-bridge/);
   await expect.poll(async () => (await facts(page)).active).toBe(false);
   expect((await facts(page)).abandoned).toHaveLength(1);
+  await page.goBack();
+  await expect(page).toHaveURL(/topic=provisioning/);
+  await page.goForward();
+  await expect(page).toHaveURL(/topic=resource-bridge/);
   await page.goForward();
   await expect(page.locator('.v2-abandoned')).toBeVisible();
   await page.reload();
   expect((await facts(page)).abandoned).toHaveLength(1);
   const native = await page.context().newPage();
   await native.goto('/learn/computing?topic=provisioning');
+  await expect(native.locator('.related-activities')).toHaveCount(0);
+  await native
+    .locator('#course-activities-computing > li > a[href$="topic=resource-bridge"]')
+    .click();
   await native.locator('.related-activities summary').click();
   await native.getByRole('link', { name: a.assessment, exact: true }).click();
   await native.getByRole('button', { name: t.retry, exact: true }).click();
@@ -117,6 +127,10 @@ test('owner browser Back Forward and unsupported-navigation fallback close only 
   );
   const denied = await deniedContext.newPage();
   await denied.goto('/learn/computing?topic=provisioning');
+  await expect(denied.locator('.related-activities')).toHaveCount(0);
+  await denied
+    .locator('#course-activities-computing > li > a[href$="topic=resource-bridge"]')
+    .click();
   await denied.locator('.related-activities summary').click();
   await denied.getByRole('link', { name: a.assessment, exact: true }).click();
   await denied.getByRole('button', { name: t.beginAssessment, exact: true }).click();
@@ -129,7 +143,7 @@ test('owner browser Back Forward and unsupported-navigation fallback close only 
     };
   }, key);
   await denied.goBack();
-  await expect(denied).toHaveURL(/topic=provisioning/);
+  await expect(denied).toHaveURL(/topic=resource-bridge/);
   await expect(denied.getByRole('dialog', { name: a.leaveFailedTitle })).toBeVisible();
   await expect(denied.locator('.foundations-v2')).toHaveCount(0);
   await expect(denied.getByText(t.topics.provisioning.text, { exact: true })).toHaveCount(0);
@@ -161,10 +175,7 @@ test('owner denied exit and Journal aid fail closed and stale tabs cannot turn a
   ).toHaveCount(0);
   expect(await read(page)).toBe(before);
   await page.keyboard.press('Escape');
-  await page
-    .locator('.course-units')
-    .getByRole('link', { name: t.topics.provisioning.title, exact: true })
-    .click();
+  await openCloudPart(page, 'provisioning');
   await expect(page.getByRole('dialog', { name: a.leaveFailedTitle })).toBeVisible();
   expect(await read(page)).toBe(before);
   expect((await facts(page)).active).toBe(true);
@@ -174,10 +185,7 @@ test('owner denied exit and Journal aid fail closed and stale tabs cannot turn a
   await other.goto(route);
   await other.getByLabel(items[0]!.question, { exact: true }).fill('4');
   await expect.poll(async () => (await read(page))!).toContain('"4"');
-  await page
-    .locator('.course-units')
-    .getByRole('link', { name: t.topics.provisioning.title, exact: true })
-    .click();
+  await openCloudPart(page, 'provisioning');
   await expect(page.getByRole('dialog', { name: a.leaveFailedTitle })).toBeVisible();
   expect((await facts(page)).active).toBe(true);
   expect((await facts(page)).submissions).toEqual([]);
@@ -234,11 +242,8 @@ test('owner guided PaaS resume shares independent safety and SavvyShark returns 
   await page.reload();
   await expect(page.locator('.v2-assessment form')).toBeVisible();
 
-  await page
-    .locator('.course-units')
-    .getByRole('link', { name: t.topics.provisioning.title, exact: true })
-    .click();
-  await expect(page).toHaveURL(/topic=provisioning/);
+  await openCloudPart(page, 'provisioning');
+  await expect(page).toHaveURL(/topic=virtualization/);
   expect((await facts(page)).active).toBe(false);
   await page.goto('/learn/services?topic=paas&version=2&activity=practical');
   await page
@@ -326,11 +331,12 @@ test('owner secondary destinations explain purpose preserve normal next and neve
   page,
 }) => {
   for (const [path, expected] of [
-    ['/learn/computing?topic=provisioning', route],
+    ['/learn/computing?topic=resource-bridge', route],
     ['/learn/benefits?topic=availability', '/learn/benefits?topic=assessment'],
     ['/learn/services?topic=paas&version=2', '/learn/services?topic=assessment'],
   ]) {
     await page.goto(path!);
+    await expect(page.locator('.related-transfer')).toHaveCount(0);
     const disclosure = page.locator('.related-activities');
     await expect(disclosure).not.toHaveAttribute('open');
     await disclosure.locator('summary').focus();
@@ -342,6 +348,16 @@ test('owner secondary destinations explain purpose preserve normal next and neve
     await expect(disclosure).toContainText(a.assessmentPurpose);
     await expect(disclosure).toContainText(a.observationsPurpose);
     await expect(page.locator('.course-nav-next a')).toHaveCount(1);
+  }
+  for (const track of ['benefits', 'services']) {
+    await page.goto(`/learn/${track}?topic=summary${track === 'services' ? '&version=2' : ''}`);
+    await expect(page.locator('.related-transfer')).toHaveCount(0);
+    await expect(page.locator('.course-nav-next a')).toHaveAttribute(
+      'href',
+      new RegExp(`/learn/${track}\\?topic=transfer`),
+    );
+    await page.locator('.course-nav-next a').click();
+    await expect(page.locator('.transfer-workspace')).toBeVisible();
   }
   expect((await facts(page)).submissions).toEqual([]);
   expect((await facts(page)).active).toBe(false);

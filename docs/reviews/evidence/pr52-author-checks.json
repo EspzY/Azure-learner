@@ -1,0 +1,785 @@
+{
+  "base": "eefbcd3bc7f140b690829bad6542d800c57b7f74",
+  "fullCheck": {
+    "exit": 0,
+    "vitest": 638,
+    "curriculum": 503,
+    "node": 24,
+    "log": "check-final.log",
+    "meaning": "Actual final correction fullcheck including original branch production build; historical review fixture built separately."
+  },
+  "browser": {
+    "continuityCorrectionDesktop": 16,
+    "correctionCompact": 1,
+    "finalDirectSupplementAndResume": 2,
+    "finalDirectFoundations": 1,
+    "results": "Actual correction processes exit0; one competing local direct-loop timeout remains archived, then isolated actual direct loop passed unchanged limits. Initial058 Vercel injection/aggregate-budget failures remain evidence, not accepted Gate7."
+  },
+  "plan": {
+    "retained": 337,
+    "newDesktop": 8,
+    "newCompact": 1,
+    "total": 346,
+    "desktop": 315,
+    "compact": 31,
+    "settings": "unchanged"
+  },
+  "visual": {
+    "baseSha": "Bygginformasjon · forhåndsvisningCommit: eefbcd3bc7f140b690829bad6542d800c57b7f74Gren: codex/azurelab-hybrid-production-foundation",
+    "rows": [
+      {
+        "width": 1920,
+        "height": 1080,
+        "topic": "intro-request",
+        "top": {
+          "width": 1920,
+          "height": 1080,
+          "scrollWidth": 1920,
+          "focus": "Fra nettside til fysisk server",
+          "exposed": ["intro-request"]
+        }
+      },
+      {
+        "width": 1440,
+        "height": 900,
+        "topic": "virtualization",
+        "top": {
+          "width": 1440,
+          "height": 900,
+          "scrollWidth": 1440,
+          "focus": "Virtualisering og bestilling av skykapasitet",
+          "exposed": ["intro-request", "virtualization"]
+        }
+      },
+      {
+        "width": 1366,
+        "height": 768,
+        "topic": "capacity-basics",
+        "top": {
+          "width": 1366,
+          "height": 768,
+          "scrollWidth": 1366,
+          "focus": "Kapasitet og etterspørsel",
+          "exposed": ["intro-request", "virtualization", "provisioning"]
+        }
+      },
+      {
+        "width": 1024,
+        "height": 768,
+        "topic": "v2-metering",
+        "top": {
+          "width": 1024,
+          "height": 768,
+          "scrollWidth": 1024,
+          "focus": "Forbruk, betaling og risiko",
+          "exposed": ["intro-request", "virtualization", "provisioning"]
+        }
+      },
+      {
+        "width": 1024,
+        "height": 500,
+        "topic": "virtualization",
+        "top": {
+          "width": 1024,
+          "height": 500,
+          "scrollWidth": 1024,
+          "focus": "Virtualisering og bestilling av skykapasitet",
+          "exposed": ["intro-request", "virtualization", "provisioning"]
+        }
+      },
+      {
+        "width": 800,
+        "height": 700,
+        "topic": "intro-request",
+        "top": {
+          "width": 800,
+          "height": 700,
+          "scrollWidth": 800,
+          "focus": "Fra nettside til fysisk server",
+          "exposed": ["intro-request", "virtualization", "provisioning"]
+        }
+      }
+    ]
+  },
+  "zoom": {
+    "method": "Native Chromium tabs.setZoom/getZoom, viewport:null, native-window CDP fromSurface:false",
+    "rows": [
+      {
+        "factor": 1.25,
+        "actual": 1.25,
+        "metrics": {
+          "innerWidth": 1152,
+          "innerHeight": 650,
+          "outerWidth": 1440,
+          "scrollWidth": 1152,
+          "focused": "Send konfigurasjonsbestilling"
+        },
+        "control": {
+          "x": 683.7000122070312,
+          "y": 249.15000915527344,
+          "width": 243.75,
+          "height": 33.99998474121094
+        },
+        "footer": {
+          "x": 285,
+          "y": 556.6000366210938,
+          "width": 867,
+          "height": 93.79998779296875
+        },
+        "violations": []
+      },
+      {
+        "factor": 2,
+        "actual": 2,
+        "metrics": {
+          "innerWidth": 720,
+          "innerHeight": 406,
+          "outerWidth": 1440,
+          "scrollWidth": 720,
+          "focused": "Send konfigurasjonsbestilling"
+        },
+        "control": {
+          "x": 50,
+          "y": 185.015625,
+          "width": 244.140625,
+          "height": 36
+        },
+        "footer": {
+          "x": 24,
+          "y": 1018.6796875,
+          "width": 672,
+          "height": 152.484375
+        },
+        "violations": []
+      }
+    ]
+  },
+  "audit": {
+    "production": 0,
+    "developmentModerate": 12,
+    "dependencyChanges": false
+  },
+  "limits": "Actual final correction fullcheck638/503/24 passed. Complete346 CI browser execution is explicitly a historical-review fixture build of the same candidate revision; ordinary public PR52 build must pass separate actual full-SHA Gate7 and deny Designlab. Human validation unperformed.",
+  "initialCandidate": {
+    "head": "058fb4fd68184beb2d02abf93088f5c221567fc6",
+    "delivery": "not accepted; deterministic same-session RAM reset reproduced externally",
+    "fullCheck": {
+      "exit": 0,
+      "vitest": 638,
+      "curriculum": 503,
+      "node": 20
+    },
+    "browser": {
+      "finalTargetDesktop": 12,
+      "finalTargetCompact": 1,
+      "priorOwnerCases": 7,
+      "priorUxDesktopSizes": 3,
+      "allResults": "actual logs outside repo; final full candidate CI is separate and pending"
+    }
+  },
+  "continuityCorrection": {
+    "paths": ["src/features/course/course.tsx"],
+    "meaning": "Canonical key/teaching identity only for already-composed Foundations teaching; old part URL/resume retained. Assessment identities and ready/issue/active/assisted guard values unchanged. No domain/store/schema/score changes.",
+    "checks": [
+      "typecheck/build",
+      "targeted ESLint",
+      "14 domain/preservation/lifecycle tests",
+      "16 browser correction cases and1compact",
+      "final focused direct route cases",
+      "346-case plan"
+    ]
+  },
+  "ciCorrection": {
+    "focus": "Marker priority scoped to composed Computing sessions; every other module keeps original first matching heading. Original Services boundary assertion retained.",
+    "fixture": "Explicit nonhosted historical review build of same Git revision; only child GITHUB_HEAD_REF uses frozen PR51 review label. Parent env/GITHUB_SHA/Git ref unchanged, any VERCEL marker rejected before Git/spawn. Runtime allowlist unchanged; public PR52 Designlab must return404.",
+    "tests": "Four Node fixture guard/provenance/failure tests included in npm test. Original Designlab browser bodies and strict zero-external assertions unchanged. Full346 CI and normal public Gate7 separately required.",
+    "targetedResults": {
+      "processes": 2,
+      "passed": 9,
+      "includes": "Original sequencing first-user/module-boundary focus case; all7 original Designlab desktop cases and distinct original compact witness. Zero retries/skips. First attempted focus command used nonexistent desktop project and collected0; corrected original project used.",
+      "logs": ["qa-fixture-target.log", "qa-fixture-remaining.log"]
+    },
+    "serverlessBaseline": "Completed8dCI336passed/10failed revealed compact initial exposure race in original unrelated-store snapshot. Explicitly expose original intro paragraph and await original visit before snapshot; final protectedBytes equality and all Serverless behavior remain unchanged. Old failure archived.",
+    "serverlessResults": {
+      "desktop": 4,
+      "compact": 1,
+      "result": "Passed original complete targeted flows. Compact snapshot setup waits settled heading focus and deliberately centers original intro paragraph in reading viewport before awaiting its original visit. Final exact protectedBytes assertion unchanged.",
+      "logs": [
+        "serverless-baseline-target.log (4desktop passed; initial compact setup failure retained)",
+        "serverless-exposure-centered.log (final1compact passed)"
+      ],
+      "actualGeometry": "800x700: scrollIfNeeded paragraph581.67–700.42 misses observer84–540; centered290.67–409.42 stores exactly original intro-request visit. Observer unchanged."
+    },
+    "preservationDeclaration": "Final audit caught stale355-path declaration including the now intentionally adapted Serverless setup test. Exclude exactly that test;354 remaining original protected paths, all162domains andfull locale stay byte-equal. Original strict gate unchanged. No model/store or scoring relaxation."
+  },
+  "ownerRefinement": {
+    "previousHead": "1239db4a0197939601c05ca931b0730e8b851cb8",
+    "scope": "Remove two visible part navigation layers; scope compact context/focus to six retained sessions; preserve original headings/topic IDs/fragments/resume/models/evidence. Authorized-mount debrief focus repair preserves actual Portal return after scoped recovery.",
+    "profile": {
+      "retained": 346,
+      "newDesktop": 2,
+      "newCompact": 1,
+      "desktop": 317,
+      "compact": 32,
+      "total": 349,
+      "legacy": 634,
+      "settings": "unchanged"
+    },
+    "targeted": {
+      "initial": {
+        "passed": 29,
+        "failed": 2,
+        "meaning": "Old historical Back expectations incorrectly changed to canonical (test-only corrected); actual late debrief focus race fixed."
+      },
+      "corrected": {
+        "passed": 4,
+        "failed": 1,
+        "meaning": "New UI/fragment/Back checks passed; long actual journey timed out during unchanged VM click. No script error recorded; precise cause unconfirmed, failed trace retained."
+      },
+      "isolatedOriginalJourney": {
+        "passed": 1,
+        "duration": "2.3m",
+        "result": "Original180s/action15s limits and assertions retained; real UI then scoped recovery, debrief focus, first/help/retry/World equality pass."
+      },
+      "domain": 11,
+      "debriefRecoveryProbe": {
+        "before": "failed with BODY focus after native recovery",
+        "after": "passed with SECTION#lab-debrief focus",
+        "technicalBytes": "unchanged",
+        "fixture": "Synthetic actual UI-produced saved RG/Policy/Plan/App state; no invented technical receipt."
+      }
+    },
+    "visual": {
+      "before": {
+        "base": "https://azure-learner-git-codex-az900-cloud-comp-3bf852-espzys-projects.vercel.app",
+        "rows": [
+          {
+            "viewport": [1440, 900],
+            "scrollY": 0,
+            "scrollWidth": 1440,
+            "module": {
+              "x": 328.1875,
+              "y": 135.796875,
+              "width": 1068.625,
+              "height": 196.75,
+              "top": 135.796875,
+              "right": 1396.8125,
+              "bottom": 332.546875,
+              "left": 328.1875
+            },
+            "chapter": {
+              "x": 328.1875,
+              "y": 344.546875,
+              "width": 648,
+              "height": 78.34375,
+              "top": 344.546875,
+              "right": 976.1875,
+              "bottom": 422.890625,
+              "left": 328.1875
+            },
+            "firstParagraph": {
+              "x": 328.1875,
+              "y": 627.265625,
+              "width": 414.640625,
+              "height": 207.8125,
+              "top": 627.265625,
+              "right": 742.828125,
+              "bottom": 835.078125,
+              "left": 328.1875
+            },
+            "footer": {
+              "x": 285,
+              "y": 806.015625,
+              "width": 1155,
+              "height": 93.984375,
+              "top": 806.015625,
+              "right": 1440,
+              "bottom": 900,
+              "left": 285
+            },
+            "partMenus": 6,
+            "partRows": 1
+          },
+          {
+            "viewport": [1024, 500],
+            "scrollY": 0,
+            "scrollWidth": 1024,
+            "module": {
+              "x": 270.71875,
+              "y": 135.796875,
+              "width": 722.5625,
+              "height": 181.140625,
+              "top": 135.796875,
+              "right": 993.28125,
+              "bottom": 316.9375,
+              "left": 270.71875
+            },
+            "chapter": {
+              "x": 270.71875,
+              "y": 328.9375,
+              "width": 648,
+              "height": 70.546875,
+              "top": 328.9375,
+              "right": 918.71875,
+              "bottom": 399.484375,
+              "left": 270.71875
+            },
+            "firstParagraph": {
+              "x": 270.71875,
+              "y": 603.859375,
+              "width": 722.5625,
+              "height": 118.75,
+              "top": 603.859375,
+              "right": 993.28125,
+              "bottom": 722.609375,
+              "left": 270.71875
+            },
+            "footer": {
+              "x": 240,
+              "y": 407.421875,
+              "width": 784,
+              "height": 92.578125,
+              "top": 407.421875,
+              "right": 1024,
+              "bottom": 500,
+              "left": 240
+            },
+            "partMenus": 6,
+            "partRows": 1
+          }
+        ]
+      },
+      "after": {
+        "base": "http://127.0.0.1:3203",
+        "rows": [
+          {
+            "viewport": [1440, 900],
+            "scrollY": 0,
+            "scrollWidth": 1440,
+            "module": {
+              "x": 328.1875,
+              "y": 135.796875,
+              "width": 1068.625,
+              "height": 103,
+              "top": 135.796875,
+              "right": 1396.8125,
+              "bottom": 238.796875,
+              "left": 328.1875
+            },
+            "chapter": {
+              "x": 328.1875,
+              "y": 246.796875,
+              "width": 648,
+              "height": 75.984375,
+              "top": 246.796875,
+              "right": 976.1875,
+              "bottom": 322.78125,
+              "left": 328.1875
+            },
+            "firstParagraph": {
+              "x": 328.1875,
+              "y": 420.0625,
+              "width": 414.640625,
+              "height": 207.8125,
+              "top": 420.0625,
+              "right": 742.828125,
+              "bottom": 627.875,
+              "left": 328.1875
+            },
+            "footer": {
+              "x": 285,
+              "y": 806.015625,
+              "width": 1155,
+              "height": 93.984375,
+              "top": 806.015625,
+              "right": 1440,
+              "bottom": 900,
+              "left": 285
+            },
+            "partMenus": 0,
+            "partRows": 0
+          },
+          {
+            "viewport": [1024, 500],
+            "scrollY": 156,
+            "scrollWidth": 1024,
+            "module": {
+              "x": 270.71875,
+              "y": -20.203125,
+              "width": 722.5625,
+              "height": 98,
+              "top": -20.203125,
+              "right": 993.28125,
+              "bottom": 77.796875,
+              "left": 270.71875
+            },
+            "chapter": {
+              "x": 270.71875,
+              "y": 85.796875,
+              "width": 648,
+              "height": 68.1875,
+              "top": 85.796875,
+              "right": 918.71875,
+              "bottom": 153.984375,
+              "left": 270.71875
+            },
+            "firstParagraph": {
+              "x": 270.71875,
+              "y": 251.265625,
+              "width": 722.5625,
+              "height": 118.75,
+              "top": 251.265625,
+              "right": 993.28125,
+              "bottom": 370.015625,
+              "left": 270.71875
+            },
+            "footer": {
+              "x": 240,
+              "y": 407.421875,
+              "width": 784,
+              "height": 92.578125,
+              "top": 407.421875,
+              "right": 1024,
+              "bottom": 500,
+              "left": 240
+            },
+            "partMenus": 0,
+            "partRows": 0
+          }
+        ]
+      },
+      "inspected": ["before-1440x900", "before-1024x500", "after-1440x900", "after-1024x500"]
+    },
+    "preservation": {
+      "src/features/course/cloud-computing-chapters.ts": "0699d85654a593d5f33e92e6a26679747d01d46281d635688b53af5ad6089c9f",
+      "src/features/learning/foundations-v2.tsx": "488ca06ff526bb72f03d273df652ec731bd7fcccc3b903a3fc76154e26a0a1f3",
+      "src/content/nb.ts": "00a8ad2ccbc85e24b79921b4f9ebc4707fbf88eb0204333a5ef2f3e2f3ff14f2"
+    },
+    "fullCheck": {
+      "exit": 0,
+      "vitest": 638,
+      "curriculumSubset": 503,
+      "node": 24,
+      "build": "passed",
+      "log": "check.log",
+      "lateTestAssertion": "An additional Previous-href assertion after fullcheck received targeted ESLint, typecheck and actual full14-transition browser check (1passed); final CI repeats fullcheck on exact frozen candidate."
+    },
+    "finalCI": "pending new head",
+    "gate7": "pending new head",
+    "humanValidation": "unperformed",
+    "nativeZoom": {
+      "method": "Native Chromium tabs.setZoom/getZoom, viewport:null, native-window CDP fromSurface:false",
+      "rows": [
+        {
+          "factor": 1.25,
+          "actual": 1.25,
+          "metrics": {
+            "innerWidth": 1152,
+            "innerHeight": 650,
+            "outerWidth": 1440,
+            "scrollWidth": 1152,
+            "focused": "Send konfigurasjonsbestilling"
+          },
+          "control": {
+            "x": 683.7000122070312,
+            "y": 249.35000610351562,
+            "width": 243.75,
+            "height": 34
+          },
+          "footer": {
+            "x": 285,
+            "y": 556.6000366210938,
+            "width": 867,
+            "height": 93.79998779296875
+          },
+          "violations": []
+        },
+        {
+          "factor": 2,
+          "actual": 2,
+          "metrics": {
+            "innerWidth": 720,
+            "innerHeight": 406,
+            "outerWidth": 1440,
+            "scrollWidth": 720,
+            "focused": "Send konfigurasjonsbestilling"
+          },
+          "control": {
+            "x": 50,
+            "y": 185.3203125,
+            "width": 244.140625,
+            "height": 36
+          },
+          "footer": {
+            "x": 24,
+            "y": 1018.984375,
+            "width": 672,
+            "height": 152.484375
+          },
+          "violations": []
+        }
+      ]
+    },
+    "explicitPreviousAndNext": {
+      "passed": 1,
+      "result": "All14 actual forward transitions and13 previous hrefs checked; unchanged limits."
+    },
+    "reviewCorrections": {
+      "boundedNewWitness": "Desktop tests only requested1440x900+1024x500; compact witness its distinct initial800x700. Removed redundant NEW default-size repetition; original346 including six-size aggregate untouched. Prior independent aggregate hit30s after22.454s initial navigation, cause unconfirmed; unchanged isolated predecessor passed11.8s. Bounded author desktop9.7s/compact4.6s passed before fallback correction.",
+      "incompleteDebrief": "Independent reviewer caught loss of original !complete debrief→practical-lab fallback. Stable authorized-mount callbacks now handle lab, incomplete-debrief→lab, complete-debrief→debrief with shared original2RAF policy; guards/stores unchanged. New regression in historical-route case retains raw technical equality."
+    },
+    "fullCheckAfterReview": {
+      "exit": 0,
+      "vitest": 638,
+      "curriculumSubset": 503,
+      "node": 24,
+      "build": "passed",
+      "log": "check-after-review-fixed.log",
+      "previousFailedCheck": "check-after-review.log rejected unused useRef import; import removed before this complete check"
+    },
+    "finalRecoveryProbe": {
+      "result": "passed",
+      "focus": "SECTION#lab-debrief",
+      "technicalBytesUnchanged": true,
+      "log": "debrief-recovery-final.log"
+    },
+    "localHarnessInterruption": {
+      "log": "final-focused.log",
+      "passed": 1,
+      "failed": 2,
+      "reason": "Background shell server disappeared during second case; ERR_CONNECTION_REFUSED, not an application assertion. Unchanged cases repeated under explicitly owned foreground server."
+    },
+    "postReviewFocused": {
+      "result": "passed",
+      "passed": 3,
+      "desktop": 2,
+      "compact": 1,
+      "duration": "24.2s",
+      "log": "final-focused-server-owned.log",
+      "covers": "flat six-session menu/no part row; historical fragments, original topic/reload/resume; incomplete-debrief→lab focus; native keyboard/reduced motion/Axe; technical bytes unchanged",
+      "timeoutsRetriesWorkersSkips": "unchanged"
+    }
+  },
+  "finalNavigation": {
+    "parent": "7ef55815c59ee04cdb6b153f322b64428878d50c",
+    "runtimeScope": [
+      "src/features/course/course.tsx",
+      "src/features/learning/cloud-computing-chapter.tsx",
+      "src/features/learning/responsibility-recap.tsx"
+    ],
+    "preservedPaths": 353,
+    "recap": {
+      "exactChange": "Only Link import and one cross-module Link removed; all original state/buttons/responsibility function/body/note remain byte-identical.",
+      "beforeSHA256": "958dd696e08b240f54830ef69e583b065d77c443c066752863620719f7831fd6",
+      "afterSHA256": "73f1fc0f5ea47de85a9bb61ad421a3d79c8b9b46ce25a083426274a5e847c21c",
+      "normalizedOriginalBodyEqual": true
+    },
+    "unchanged": [
+      "src/content/nb.ts",
+      "src/features/learning/foundations-v2.tsx",
+      "src/features/course/cloud-computing-chapters.ts",
+      "src/features/course/course-navigation.tsx",
+      "src/features/learning/cloud-transfer.tsx",
+      "src/features/learning/expanded-module.tsx",
+      "src/features/course/course-hub.tsx"
+    ],
+    "targets": {
+      "optionalAssessment": "/learn/computing?topic=v2-assessment",
+      "observations": "/learn/computing?topic=v2-summary",
+      "closingChoiceLocation": "/learn/computing?topic=resource-bridge",
+      "canonicalTransfer": [
+        "/learn/computing?topic=transfer",
+        "/learn/benefits?topic=transfer",
+        "/learn/services?topic=transfer"
+      ],
+      "globalJournal": "unchanged global button; original durable teaching boundary"
+    },
+    "checks": "pending",
+    "ci": "pending new head",
+    "gate7": "pending new head",
+    "humanValidation": "unperformed",
+    "focused": {
+      "result": "passed",
+      "passed": 5,
+      "duration": "35.9s",
+      "desktop": 4,
+      "compact": 1,
+      "log": "focused.log",
+      "covers": "all14 Next/Previous; early missing detours; existing closing assessment/history links; all three module-local terminal transfer routes; real same-document closing-entry Back/native fallback/denied write; no automatic attempts, source or technical changes."
+    },
+    "visual": {
+      "before": {
+        "base": "https://azure-learner-git-codex-az900-cloud-comp-3bf852-espzys-projects.vercel.app",
+        "phase": "before",
+        "rows": [
+          {
+            "topic": "v2-responsibility",
+            "width": 1440,
+            "height": 900,
+            "screenshot": "before-v2-responsibility-1440x900.png",
+            "chapterRelated": 1,
+            "repeatedTransfer": 1,
+            "chapterServicesLinks": 1,
+            "chapterOptionalLinks": [
+              {
+                "text": "Gå til selvstendig vurdering",
+                "href": "/learn/computing?topic=v2-assessment"
+              },
+              {
+                "text": "Se dine observasjoner",
+                "href": "/learn/computing?topic=v2-summary"
+              }
+            ],
+            "scrollWidth": 1440,
+            "innerWidth": 1440
+          },
+          {
+            "topic": "v2-metering",
+            "width": 1440,
+            "height": 900,
+            "screenshot": "before-v2-metering-1440x900.png",
+            "chapterRelated": 1,
+            "repeatedTransfer": 1,
+            "chapterServicesLinks": 0,
+            "chapterOptionalLinks": [
+              {
+                "text": "Gå til selvstendig vurdering",
+                "href": "/learn/computing?topic=v2-assessment"
+              },
+              {
+                "text": "Se dine observasjoner",
+                "href": "/learn/computing?topic=v2-summary"
+              }
+            ],
+            "scrollWidth": 1440,
+            "innerWidth": 1440
+          },
+          {
+            "topic": "v2-metering",
+            "width": 1024,
+            "height": 500,
+            "screenshot": "before-v2-metering-1024x500.png",
+            "chapterRelated": 1,
+            "repeatedTransfer": 1,
+            "chapterServicesLinks": 0,
+            "chapterOptionalLinks": [
+              {
+                "text": "Gå til selvstendig vurdering",
+                "href": "/learn/computing?topic=v2-assessment"
+              },
+              {
+                "text": "Se dine observasjoner",
+                "href": "/learn/computing?topic=v2-summary"
+              }
+            ],
+            "scrollWidth": 1024,
+            "innerWidth": 1024
+          }
+        ]
+      },
+      "after": {
+        "base": "http://127.0.0.1:3210",
+        "phase": "after",
+        "rows": [
+          {
+            "topic": "v2-responsibility",
+            "width": 1440,
+            "height": 900,
+            "screenshot": "after-v2-responsibility-1440x900.png",
+            "chapterRelated": 0,
+            "repeatedTransfer": 0,
+            "chapterServicesLinks": 0,
+            "chapterOptionalLinks": [],
+            "scrollWidth": 1440,
+            "innerWidth": 1440
+          },
+          {
+            "topic": "v2-metering",
+            "width": 1440,
+            "height": 900,
+            "screenshot": "after-v2-metering-1440x900.png",
+            "chapterRelated": 0,
+            "repeatedTransfer": 0,
+            "chapterServicesLinks": 0,
+            "chapterOptionalLinks": [],
+            "scrollWidth": 1440,
+            "innerWidth": 1440
+          },
+          {
+            "topic": "v2-metering",
+            "width": 1024,
+            "height": 500,
+            "screenshot": "after-v2-metering-1024x500.png",
+            "chapterRelated": 0,
+            "repeatedTransfer": 0,
+            "chapterServicesLinks": 0,
+            "chapterOptionalLinks": [],
+            "scrollWidth": 1024,
+            "innerWidth": 1024
+          }
+        ]
+      },
+      "inspected": [
+        "before-v2-metering-1024x500",
+        "after-v2-metering-1024x500",
+        "before-v2-responsibility-1440x900",
+        "after-v2-responsibility-1440x900",
+        "before-v2-metering-1440x900",
+        "after-v2-metering-1440x900"
+      ]
+    },
+    "preservationResult": {
+      "result": "passed",
+      "protectedPaths": 353,
+      "domainFiles": 162,
+      "fullLocale": "byte-identical",
+      "parentFileChecks": 7
+    },
+    "domainTarget": {
+      "passed": 11,
+      "files": 2,
+      "log": "domain-target.log"
+    },
+    "regression": {
+      "passed": 12,
+      "duration": "2.2m",
+      "log": "regression.log",
+      "covers": "all historical URLs/live original model/Back Forward/reload/v1; source union/causal teaching; Computing, Benefits and Services transfer firsts/help/retry; denied assistance/Journal; guided PaaS; full actual RG/Policy/Plan/App/debrief/independent journey; original recap controls with removed early link."
+    },
+    "initialFullCheck": {
+      "result": "failed at lint",
+      "log": "check-initial.log",
+      "finding": "Removing the TransferEntry wrapper left its ownerAcceptanceNb alias unused. Removed that dead import; no runtime behavior or assertion changed. Fresh fullcheck required."
+    },
+    "secondFullCheck": {
+      "result": "failed",
+      "log": "check-preservation-and-timeouts.log",
+      "staticFinding": "Prior hybrid whole-file guard rejected owner-authorized recap Link removal. Replaced only that path guard with pinned original hash+exact normalized body equality; every other protected assertion remains.",
+      "unchangedTimeouts": [
+        "access-control additive generic-role test exceeded5000ms",
+        "identity-foundations pause/milestone/terminal reserve test exceeded5000ms"
+      ],
+      "cause": "No domain bytes changed; precise timeout cause unconfirmed. Targeted unchanged checks and fresh fullcheck required, no settings change."
+    },
+    "preservationAndTimeoutFollowup": {
+      "result": "passed",
+      "tests": 56,
+      "files": 3,
+      "duration": "1.41s",
+      "log": "preservation-domain-followup.log",
+      "settingsChanged": false,
+      "limit": "Earlier two timeout causes remain unconfirmed; unchanged isolated pass is non-reproduction, not a domain fix. Exact recap-normalization guard now passes."
+    },
+    "fullCheck": {
+      "result": "passed",
+      "exit": 0,
+      "vitest": 638,
+      "curriculumSubset": 503,
+      "node": 24,
+      "productionBuild": "passed",
+      "log": "check.log",
+      "priorFailuresRetained": ["check-initial.log", "check-preservation-and-timeouts.log"],
+      "settingsChanged": false
+    }
+  }
+}
