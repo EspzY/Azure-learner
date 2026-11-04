@@ -358,8 +358,10 @@ function GuidedCase({ id }: { id: CaseId }) {
 export function IndependentChallenge({
   navigate,
   origin,
+  canBegin = true,
 }: {
   navigate: Navigate;
+  canBegin?: boolean;
   origin: ChallengeOrigin | null;
 }) {
   const { store, facts, ready, issue, originIssue } = usePortalLearning();
@@ -386,7 +388,7 @@ export function IndependentChallenge({
         <button
           type="button"
           className="primary"
-          disabled={!allowed || !!originIssue || starting}
+          disabled={!allowed || !!originIssue || starting || !canBegin}
           onClick={async () => {
             setStarting(true);
             try {

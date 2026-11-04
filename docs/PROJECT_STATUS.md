@@ -1,3 +1,13 @@
+## PR55 — CC-03: versjonert vurderingspremiss, 4. november 2026
+
+Implementert kandidat på `codex/cc03-iaas-assessment-validity`, fra verifisert PR54 `bb66ff2e5115d26304bb017295a9067c6f6fed5d`. Ny standard bruker separat `azurelab.portal.challenge.v2` og `portal-transfer@2`. Studenten får et eksplisitt krav om kundestyrt gjeste-OS og en kontrast der bekreftet plattformstøtte og endret driftskrav gjør PaaS relevant. Beslutning og begrunnelse må passe sammen. [Premiss, historikk og avgrensning](CC03_IAAS_ASSESSMENT.md).
+
+Portal-v1, opprinnelig tekst/rubric/replay/feedback, CC-01-sidecar, andre vurderinger og tekniske motorer forblir uendret. Ny vurdering binder eget forsøk og origin i egen autoritativ historikk; gammel aktiv vurdering oppgraderes ikke. Uklart eller konkurrerende opphav vises eksplisitt. Durable teaching/Journal/assistance omfatter begge versjoner; pågående Start håndteres som uavklart inntil varig registrering. Ingen navigasjonskreditt eller ny ressurskommando.
+
+42 målrettede domenetester og 11 bevaringskontroller bestod. 9 nye browserkjøringer bestod uten retry; utvidet32-kjøringsintegrasjon ga30 bestått og2 feilaktige testforventninger om uendret CC-01-href. Begge berørte brukerreiser bestod etter avgrenset testretting. Alle opprinnelige358 kontroller beholdes; full profil er367(332desktop/35kompakt). Full check, post-stamp separat sluttrevisjon, eksakt-head CI/streng release og faktisk anonym Gate7 gjenstår ved denne statusføringen og må dokumenteres på DraftPR55 før CC-03 lukkes. Status er ikke en automatisk gate-godkjenning.
+
+Låst student-only AI-blindreview, revidert blindløsning før nøkkelinnsyn og separat etterfølgende nøkkelsammenligning er bevart. Ingen menneskelig SME-/novice-/skjermleser-/psykometrisk validering påstås. 1688 hele historiske filer og tidligere locale-prefiks på1490126 byte er kontrollert; World/commands/receipts/XP,6 Computing-økter og modulrekkefølge bevares. CC-02 forblirP2; den historiske VM-oppgavens begrunnelsesnyanse og tidligere Compute-/Axe-ustabiliteter er ikke omdefinert som rettet. Ingen merge, produksjonsdeploy eller bredere utrulling.
+
 ## PR54 — CC-01: Web-utfordringens retur og gjenopptakelse, 4. november 2026
 
 Implementert på [Draft PR54](https://github.com/EspzY/Azure-learner/pull/54): eksplisitt Computing/resource-bridge-retur, forsøksbundet versjonert navigasjonsopplysning og samme korrekte Hub-resume. Aktiv vurdering returnerer til nøytral fortsettvisning; ukjent gammelt opphav gjettes ikke. Bekreftet durable Start/aid/draft/submit/abandon håndheves uten å endre gamle Portal-v1-events, rubrics eller førstesvar. Se [avgrensning og bevis](CC01_CHALLENGE_RETURN.md) og [uavhengig sluttrevisjon](quality/PR54_FINAL_AUDIT.md).

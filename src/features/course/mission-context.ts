@@ -1,9 +1,16 @@
 'use client';
+import { useChallenge2 } from '@/features/portal/challenge-v2-provider';
+import { challenge2Href } from '@/domain/portal/challenge-v2';
 import { challengeResumeHref } from '@/domain/portal/challenge-origin';
-import { missionsNb, applicationNb } from '@/content/nb';
+import { missionsNb, applicationNb, challenge2Nb } from '@/content/nb';
 export const missionContextLabel = (
-  id: keyof typeof missionsNb.recoveryContexts | 'application',
-) => (id === 'application' ? applicationNb.ui.title : missionsNb.recoveryContexts[id]);
+  id: keyof typeof missionsNb.recoveryContexts | 'application' | 'portalUpdated',
+) =>
+  id === 'portalUpdated'
+    ? challenge2Nb.ui.updated
+    : id === 'application'
+      ? applicationNb.ui.title
+      : missionsNb.recoveryContexts[id];
 import { useApplication } from '@/features/learning/application-provider';
 import { applicationHref } from '@/domain/curriculum/application-transfer';
 import { useRefined } from '@/features/learning/refined-assessment-provider';
@@ -68,6 +75,7 @@ export function useMissionResult(session?: MissionSession | null) {
 }
 /** Default: every independent context. Only PR24's own task controls omit their own store. */
 export function useMissionSafetyContexts(owner?: 'missions') {
+  const portalUpdated = useChallenge2();
   const missions = useMissions(),
     management = useManagement(),
     physical = usePhysical(),
@@ -240,12 +248,19 @@ export function useMissionSafetyContexts(owner?: 'missions') {
         href: '/learn/computing?topic=v2-assessment',
       },
       {
+        id: 'portalUpdated',
+        state: portalUpdated,
+        active: portalUpdated.facts.active,
+        href: challenge2Href(portalUpdated.issue ? null : portalUpdated.facts.origin),
+      },
+      {
         id: 'portal',
         state: old,
         active: old.facts.active,
-        href: challengeResumeHref(
-          !old.issue && !old.originIssue && old.originReady ? (old.origin ?? null) : null,
-        ),
+        href:
+          challengeResumeHref(
+            !old.issue && !old.originIssue && old.originReady ? (old.origin ?? null) : null,
+          ) + (old.issue ? '&assessment=legacy' : ''),
       },
       {
         id: 'benefits',

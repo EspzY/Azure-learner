@@ -1,0 +1,117 @@
+{
+  "title": "Oppdatert selvstendig Web-vurdering",
+  "instructions": "Fjordverk vurderer ulike driftskrav. Velg tjenestemodell og begrunnelse ut fra hvert behov. De to OS-situasjonene nedenfor er faglige beslutninger; Portal-praksisen dokumenterer bare de lokale Web-ressursene. Ingen VM eller applikasjonsruntime opprettes av et svarvalg.",
+  "items": [
+    {
+      "id": "wv2-01",
+      "title": "Hvem må styre gjesteoperativsystemet?",
+      "scenario": "Fjordverks valideringsprogram skal bruke et eget, støttet OS-image. Teamet må selv bestemme hvilke gjeste-OS-oppdateringer som installeres, teste dem mot programmet og vedlikeholde dette imaget. Kravet gjelder gjesteoperativsystemet, ikke den fysiske Azure-verten. En løsning hvor plattformleverandøren overtar gjeste-OS-vedlikeholdet oppfyller ikke det fastsatte driftskravet. Programmet skal beholdes; ferdig programvare kan ikke erstatte det. Hvilken tjenestemodell passer dette kravet?",
+      "decisions": [
+        [
+          "paas",
+          "PaaS"
+        ],
+        [
+          "iaas",
+          "IaaS"
+        ],
+        [
+          "saas",
+          "SaaS"
+        ]
+      ],
+      "reasons": [
+        [
+          "component-settings",
+          "Teamet installerer appkomponenter, mens leverandøren styrer vedlikeholdet av gjeste-OS."
+        ],
+        [
+          "guest-lifecycle",
+          "Teamet styrer eget støttet OS-image og vedlikeholder gjesteoperativsystemet."
+        ],
+        [
+          "finished-product",
+          "Teamet forvalter brukere og innstillinger i et ferdig levert program."
+        ]
+      ]
+    },
+    {
+      "id": "wv2-02",
+      "title": "Endret krav: plattformstøtte er verifisert",
+      "scenario": "Fjordverk endrer driftskravet for valideringsprogrammet: Det kan nå bruke plattformens Windows-miljø i stedet for et eget OS-image. Programmet bruker .NET og COM. En teknisk vurdering har bekreftet at App Service Managed Instance støtter programmets konkrete komponenter i valgt region og plantype. Teamet godtar plattformens OS-vedlikehold og ønsker minst mulig arbeid med gjesteoperativsystemet, samtidig som de beholder egen applikasjonskode. Hvilken tjenestemodell møter disse kravene?",
+      "decisions": [
+        [
+          "iaas",
+          "IaaS"
+        ],
+        [
+          "saas",
+          "SaaS"
+        ],
+        [
+          "paas",
+          "PaaS"
+        ]
+      ],
+      "reasons": [
+        [
+          "supported-platform",
+          "Plattformen dekker de verifiserte appbehovene og drifter OS; teamet drifter appen."
+        ],
+        [
+          "windows-control",
+          "Teamet bør styre OS-imaget fordi programmet har Windows- og COM-avhengigheter."
+        ],
+        [
+          "finished-product",
+          "Ferdig programvare dekker brukerbehovet, og teamet forvalter kontoer og innstillinger."
+        ]
+      ]
+    }
+  ],
+  "webBrief": "Trykk Start før du oppretter ressursene som skal inngå i vurderingen. Portal-delen gjelder en ny HTTP-applikasjon med egen kode uten behov for kundeadministrert gjeste-OS. Bruk Shared Sandbox. Opprett en ny Resource Group med metadata i Norway East, en ny App Service Plan i North Europe og en ny Web App i samme gruppe med referanse til planen. Velg egne navn. Åpne All resources for å finne de faktiske ressursene; Activity log viser kvitteringene. Tilbake i vurderingen velger du ressursene i feltene Resource Group, App Service Plan og Web App. Registrer også tjenestemodell og begrunnelse, modellen for ferdig levert samarbeidstjeneste og årsaken til appens hostingplassering. De to faglige OS-situasjonene krever ingen operativ VM-opprettelse.",
+  "webChoices": {
+    "models": [
+      [
+        "iaas",
+        "IaaS"
+      ],
+      [
+        "paas",
+        "PaaS"
+      ],
+      [
+        "saas",
+        "SaaS"
+      ]
+    ],
+    "reasons": [
+      [
+        "os-control",
+        "Kunden må styre og vedlikeholde gjesteoperativsystemet."
+      ],
+      [
+        "managed-platform",
+        "Teamet beholder egen kode og bruker leverandørens administrerte appplattform."
+      ],
+      [
+        "ready-service",
+        "Brukerne trenger ferdig programvare fremfor å drifte egen applikasjonskode."
+      ]
+    ],
+    "locationCauses": [
+      [
+        "metadata",
+        "Resource Groups metadata bestemmer plasseringen til alle ressursene."
+      ],
+      [
+        "plan",
+        "Appen bruker hostingplanens plassering; gruppemetadata er ikke hosting."
+      ],
+      [
+        "policy-everywhere",
+        "Policyen flytter appen til Resource Groups metadataregion ved opprettelse."
+      ]
+    ]
+  }
+}

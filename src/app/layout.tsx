@@ -1,3 +1,4 @@
+import { Challenge2Provider } from '@/features/portal/challenge-v2-provider';
 import { ApplicationProvider } from '@/features/learning/application-provider';
 import { RefinedProvider } from '@/features/learning/refined-assessment-provider';
 import { MigrationProvider } from '@/features/learning/migration-provider';
@@ -57,35 +58,37 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                                 <MissionProvider>
                                   <ManagementProvider>
                                     <PortalLearningProvider>
-                                      <FoundationsV2Provider>
-                                        <CourseProvider>
-                                          <ExpansionProvider>
-                                            <SandboxProvider>
-                                              <GovernanceProvider>
-                                                <ToolsProvider>
-                                                  <MonitoringProvider>
-                                                    <SecurityProvider>
-                                                      <MigrationProvider>
-                                                        <SaasProvider>
-                                                          <PracticalProvider>
-                                                            <ServerlessProvider>
-                                                              <PhysicalProvider>
-                                                                <LearningProvider>
-                                                                  <AppShell>{children}</AppShell>
-                                                                </LearningProvider>
-                                                              </PhysicalProvider>
-                                                            </ServerlessProvider>
-                                                          </PracticalProvider>
-                                                        </SaasProvider>
-                                                      </MigrationProvider>
-                                                    </SecurityProvider>
-                                                  </MonitoringProvider>
-                                                </ToolsProvider>
-                                              </GovernanceProvider>
-                                            </SandboxProvider>
-                                          </ExpansionProvider>
-                                        </CourseProvider>
-                                      </FoundationsV2Provider>
+                                      <Challenge2Provider>
+                                        <FoundationsV2Provider>
+                                          <CourseProvider>
+                                            <ExpansionProvider>
+                                              <SandboxProvider>
+                                                <GovernanceProvider>
+                                                  <ToolsProvider>
+                                                    <MonitoringProvider>
+                                                      <SecurityProvider>
+                                                        <MigrationProvider>
+                                                          <SaasProvider>
+                                                            <PracticalProvider>
+                                                              <ServerlessProvider>
+                                                                <PhysicalProvider>
+                                                                  <LearningProvider>
+                                                                    <AppShell>{children}</AppShell>
+                                                                  </LearningProvider>
+                                                                </PhysicalProvider>
+                                                              </ServerlessProvider>
+                                                            </PracticalProvider>
+                                                          </SaasProvider>
+                                                        </MigrationProvider>
+                                                      </SecurityProvider>
+                                                    </MonitoringProvider>
+                                                  </ToolsProvider>
+                                                </GovernanceProvider>
+                                              </SandboxProvider>
+                                            </ExpansionProvider>
+                                          </CourseProvider>
+                                        </FoundationsV2Provider>
+                                      </Challenge2Provider>
                                     </PortalLearningProvider>
                                   </ManagementProvider>
                                 </MissionProvider>

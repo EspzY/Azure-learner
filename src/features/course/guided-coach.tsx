@@ -1,4 +1,5 @@
 'use client';
+import { useChallenge2 } from '@/features/portal/challenge-v2-provider';
 import { useApplication } from '@/features/learning/application-provider';
 import { useRefined } from '@/features/learning/refined-assessment-provider';
 import { usePortalGuideVisibility } from '@/features/course/portal-guide-visibility';
@@ -41,11 +42,15 @@ export function GuidedCoach({
   const benefits = useExpansion('benefits'),
     services2 = useExpansion('services');
   const application = useApplication();
+  const portalUpdated = useChallenge2();
   const updatedBenefits = useRefined('benefits'),
     updatedServices = useRefined('services');
   const [minimized, setMinimized] = usePortalGuideVisibility();
   const lab = save.lab;
   const active =
+    portalUpdated.ready &&
+    !portalUpdated.issue &&
+    !portalUpdated.facts.active &&
     application.ready &&
     !application.issue &&
     !application.facts.active &&

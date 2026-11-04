@@ -24,7 +24,7 @@ const technical = (page: Page) =>
 const backCourse = (page: Page) =>
   page.locator('.portal-training-strip').getByRole('link', { name: c.returnCourse, exact: true });
 async function start(page: Page, href = computing) {
-  await page.goto(href);
+  await page.goto(href + '&assessment=legacy');
   await page.getByRole('button', { name: p.challenge.start, exact: true }).click();
   await expect(page.locator('.portal-challenge')).toContainText(p.challenge.active);
 }
@@ -178,6 +178,7 @@ test('Computing real Web lab returns through changed challenge to neutral origin
   await coach.getByRole('link', { name: c.returnCourse, exact: true }).click();
   await expect(page).toHaveURL(/computing\?topic=resource-bridge&activity=debrief/);
   await page.getByRole('button', { name: c.startIndependent, exact: true }).click();
+  await page.getByRole('link', { name: 'Tidligere vurderingsversjon', exact: true }).click();
   await expect(backCourse(page)).toHaveAttribute(
     'href',
     '/learn/computing?topic=resource-bridge&activity=debrief',
@@ -219,7 +220,7 @@ test('Computing real Web lab returns through changed challenge to neutral origin
   await create(page, 'plan', 'plan-cc54');
   await create(page, 'app', 'app-cc54');
   const afterOperations = await technical(page);
-  await page.goto(computing);
+  await page.goto(computing + '&assessment=legacy');
   await draft(page);
   const form = page.locator('.portal-challenge form');
   await form
@@ -246,7 +247,7 @@ test('Computing real Web lab returns through changed challenge to neutral origin
   await page.getByRole('button', { name: c.journal, exact: true }).click();
   await expect(page.getByRole('dialog')).toBeVisible();
   await page.keyboard.press('Escape');
-  await page.goto(computing);
+  await page.goto(computing + '&assessment=legacy');
   expect(await raw(page)).toBe(submitted);
   expect(await technical(page)).toEqual(afterOperations);
   await page.screenshot({ path: info.outputPath('computing-completed-1440.png') });
@@ -272,7 +273,7 @@ test('legacy unknown origin stays neutral despite mutable Computing or Services 
     key,
     historic,
   });
-  await page.goto(services);
+  await page.goto(services + '&assessment=legacy');
   await expect(page.locator('.portal-submission')).toHaveCount(0);
   await expect(page.locator('.portal-training-strip')).toContainText('opprinnelse ukjent');
   await expect(backCourse(page)).toHaveAttribute('href', '/learn?activity=challenge-return');
@@ -381,7 +382,7 @@ test('two tabs cannot repin the active challenge and corrupt navigation evidence
   page,
   context,
 }) => {
-  await page.goto(computing);
+  await page.goto(computing + '&assessment=legacy');
   const stale = await context.newPage();
   await stale.goto(services);
   await page.getByRole('button', { name: p.challenge.start, exact: true }).click();

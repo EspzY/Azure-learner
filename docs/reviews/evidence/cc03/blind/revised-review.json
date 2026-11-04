@@ -1,0 +1,296 @@
+{
+  "reviewType": "Separate locked revised-material pre-key AI recheck",
+  "lockedAtUTC": "2026-11-04T20:21:39Z",
+  "inputPath": "/workspace/azurelab-pr55/blind/student-revised.json",
+  "inputSHA256": "9be6b2dd75917e6ba4daccf9434a903252be38597b7699f7abfd1d29f67e4b50",
+  "outputSHA256Protocol": "SHA256 of the complete serialized revised-review.json is returned separately in the tool result and reviewer response. No self-referential digest is embedded in the file.",
+  "scope": {
+    "assessmentPurpose": "Narrow novice assessment-validity checks: defensibility of supplied decision/reason pairs, clarity of the changed requirement, basic Azure responsibility/location claims, and whether the local Web instructions identify the required workflow and evidence.",
+    "notClaimed": [
+      "Expert transfer assessment",
+      "Psychometric discrimination or reliability",
+      "Human subject-matter-expert validation",
+      "Executed sandbox or real Azure provisioning verification"
+    ],
+    "materialsReadInThisRecheck": [
+      "/workspace/azurelab-pr55/blind/student-revised.json"
+    ],
+    "newExternalSourcesConsulted": [],
+    "answerKeyAcceptedPairsRubricsFeedbackSourceCodeAuthorFilesOrPriorAuthorReviewsRead": false,
+    "initialReviewEditedOrReadFromDiskDuringRecheck": false,
+    "contextDisclosure": "I am the same AI reviewer who previously solved the original student-only material and consulted independent public Microsoft documentation before locking the initial review. This is a separate pre-key recheck of revised wording, not a fresh human or fresh-reviewer replication. The parent identified the intended narrow revisions but disclosed no author answer key or feedback.",
+    "lockCommitment": "Never rewrite initial-review.json or this locked revised-review.json after subsequent answer-key disclosure; record any comparison separately."
+  },
+  "items": [
+    {
+      "id": "wv2-01",
+      "allProfessionallyDefensiblePairs": [
+        {
+          "decision": "iaas",
+          "reason": "guest-lifecycle"
+        }
+      ],
+      "allOtherSuppliedPairsDefensible": false,
+      "suppliedPairsConsidered": 9,
+      "decisivePremises": [
+        "Customer must retain its supported OS image.",
+        "Customer must decide, test and maintain guest-OS updates.",
+        "Guest OS is explicitly distinguished from the physical Azure host.",
+        "Provider takeover of guest-OS maintenance and replacement with ready-made software are explicitly ruled out."
+      ],
+      "reasoning": "IaaS is the supplied model consistent with customer guest-image/lifecycle responsibility. The guest-lifecycle reason states that boundary. The coherent PaaS description delegates a responsibility the requirement reserves to the customer; the coherent SaaS description requires a replacement the scenario forbids. Cross-model/reason combinations do not remedy those contradictions.",
+      "conditionalAlternatives": "If the lifecycle ownership requirement were relaxed, a verified supported managed platform could become appropriate. A configurable managed platform or custom container alone does not satisfy retained guest-OS image and update lifecycle authority. No alternative supplied pair meets the current premises.",
+      "ambiguity": "No material answer ambiguity under the stated supported-image and responsibility premises."
+    },
+    {
+      "id": "wv2-02",
+      "allProfessionallyDefensiblePairs": [
+        {
+          "decision": "paas",
+          "reason": "supported-platform"
+        }
+      ],
+      "allOtherSuppliedPairsDefensible": false,
+      "suppliedPairsConsidered": 9,
+      "decisivePremises": [
+        "The same validation program may now use the platform Windows environment instead of its own OS image.",
+        "Its actual .NET/COM components have been verified as supported by Managed Instance in the selected region and plan type.",
+        "The team accepts platform OS maintenance and wants minimum guest-OS effort.",
+        "The team retains its own application code."
+      ],
+      "reasoning": "The revised responsibility boundary and verified compatibility make the managed application platform appropriate. Windows/COM does not force customer-controlled OS images after the question stipulates adequate platform support. IaaS could host many such programs, but its offered windows-control justification contradicts the stated requirement and minimum-OS-effort objective. Ready-made SaaS is not the stipulated own-code operating arrangement.",
+      "conditionalAlternatives": "If a concrete component were unsupported or customer guest-image lifecycle control remained mandatory, IaaS might be justified. Those are changes to this scenario, not defensible alternative supplied pairs.",
+      "changedRequirementEffect": {
+        "changesReasoning": true,
+        "sameProgramNowExplicit": true,
+        "explanation": "The item now explicitly revises the validation program from customer image/update-lifecycle ownership to accepted platform Windows and OS maintenance. Verified compatibility removes the technology-support objection. This changes the defensible answer from IaaS/guest-lifecycle to PaaS/supported-platform without treating Windows or COM as an automatic IaaS rule."
+      },
+      "ambiguity": "No material answer ambiguity. The acceptance of platform OS maintenance makes clear that the first scenario guest-OS-maintenance restriction is superseded."
+    }
+  ],
+  "webTask": {
+    "allProfessionallyDefensibleApplicationPairs": [
+      {
+        "decision": "paas",
+        "reason": "managed-platform"
+      }
+    ],
+    "allOtherSuppliedApplicationPairsDefensible": false,
+    "suppliedApplicationPairsConsidered": 9,
+    "applicationReasoning": "The task requires a Web App on an App Service Plan for their own code, with no required customer guest-OS administration. This is the managed application-platform/PaaS arrangement. Own code alone does not exclude IaaS, but the named resources and supplied justifications do: os-control asserts an absent requirement and ready-service describes a different consumption model.",
+    "finishedCollaborationService": {
+      "model": "saas",
+      "defensiblePairIfAReasonIsRequired": {
+        "decision": "saas",
+        "reason": "ready-service"
+      },
+      "reasoning": "Finished provider-delivered collaboration software consumed by users is SaaS. The brief requests its model and does not require its provisioning."
+    },
+    "allProfessionallyDefensibleLocationCauses": [
+      "plan"
+    ],
+    "locations": {
+      "resourceGroupMetadata": "Norway East",
+      "appServicePlanCompute": "North Europe",
+      "webAppHosting": "North Europe"
+    },
+    "locationReasoning": "The app runs on the regional compute supplied by its App Service Plan. Resource-group metadata in Norway East does not move or determine that hosting compute. The local Policy-moves-the-app statement is an incorrect causal alternative; no automatic relocation to the resource-group metadata region follows from Azure Policy.",
+    "workflowAndEvidenceInstructionsPresent": [
+      "Press Start before creating resources included in the assessment.",
+      "Use Shared Sandbox and choose new names.",
+      "Create the resource group in the stated metadata region, a new plan in the stated hosting region, and a Web App in that group referencing the plan.",
+      "Use All resources to find the actual resources and Activity log to view receipts.",
+      "Return to the assessment and choose resources in the named Resource Group, App Service Plan, and Web App fields.",
+      "Record model/reason, finished collaboration-service model, and hosting-location cause."
+    ],
+    "instructionsAdequateForTheStatedLocalNoviceTask": "The revised brief identifies start-before-creation, actual resource discovery, receipt discovery, and explicit submission fields. This resolves the concrete standalone guidance gaps identified in the first review. Further environment defaults need not be treated as assessment defects without evidence they prevent completion.",
+    "actualResourceReferences": null,
+    "actualReceipts": null,
+    "resourcesCreatedOrVerified": false,
+    "evidenceLimit": "This review does not assert resource creation, attempt timestamps, receipt availability, correct plan references, code deployment, an HTTP response, or a real Azure deployment. Those require executing or inspecting the authorized local task separately.",
+    "scopeSeparation": "Neither the conceptual choices nor the Web resource exercise creates or proves a VM or Managed Instance deployment for the validation program. The brief states that no operational VM creation is required."
+  },
+  "resolvedConcerns": [
+    {
+      "priorConcern": "Correct-reason leakage through item identifiers",
+      "recheck": "Resolved in this material. wv2-01 and wv2-02 are neutral and do not equal or encode the semantic reason ids."
+    },
+    {
+      "priorConcern": "Changed requirement title described another application",
+      "recheck": "Resolved. The second scenario explicitly revises the validation program operational requirement and accepts the platform OS boundary."
+    },
+    {
+      "priorConcern": "Unspecified local workflow and evidence submission",
+      "recheck": "Resolved at the text-instruction level. Start, All resources, Activity log, and all three resource-selection fields are named."
+    },
+    {
+      "priorConcern": "Overbroad universal one-region Policy distractor",
+      "recheck": "Resolved as a scope problem. The revised distractor targets the specific false causal claim that Policy relocates this app to the resource-group metadata region."
+    },
+    {
+      "priorConcern": "Strong definition/wording cues and simple alternatives",
+      "recheck": "Appropriate caveat for a narrow novice recognition/classification exercise, not a validity blocker or a claim of expert-transfer measurement."
+    }
+  ],
+  "azureFundamentalsCheck": {
+    "assertedTechnicalContradictionsFound": [],
+    "conclusions": "The stated IaaS/PaaS/SaaS responsibility boundaries and regional App Service plan relationship are defensible. Managed Instance compatibility is explicitly a premise tied to concrete components, region and plan type, not a universal promise.",
+    "interpretationCautions": [
+      "Do not infer that every Windows/COM application requires IaaS.",
+      "Do not infer that the platform maintains all customer-installed components; platform OS maintenance and customer component maintenance are distinct.",
+      "Do not infer code deployment or functional HTTP execution from creating the three requested resource records.",
+      "The false Policy and metadata statements are distractors; they are not asserted facts in the task."
+    ],
+    "documentationBasis": "Independent Microsoft Learn documentation consulted before locking the first review; no author references or new external material were consulted for this text-only recheck."
+  },
+  "remainingConcreteConcerns": [
+    {
+      "id": "R1",
+      "severity": "LOW",
+      "category": "Terminology consistency",
+      "finding": "The introduction still refers to three different needs and the third workload, although the first two scenarios now explicitly describe one validation program before and after a requirement change. There are three situations but only two distinct application workloads described.",
+      "impact": "The revised body clearly establishes the intended before/after relationship, so this does not change any defensible answer. The workload count is a small editorial inconsistency.",
+      "suggestion": "Call these three situations and call the practical exercise the separate Web workload."
+    },
+    {
+      "id": "R2",
+      "severity": "LOW",
+      "category": "Local answer-position cues",
+      "finding": "In item 1 and the Web choices, each model and its matching model-specific reason occupy the same list position. The Web model, reason and location cause all select position 2. Item 2 uses decision position 3/reason position 1, so no single whole-assessment position rule solves all items.",
+      "impact": "This is a modest cue and ordinary novice scaffolding; it is not evidence of an invalid answer key or a blocker.",
+      "suggestion": "Independently order model/reason choices if avoiding local position matching is desirable."
+    }
+  ],
+  "wordingAndDistractorAssessment": {
+    "strengths": [
+      "The guest/physical-host distinction isolates the intended responsibility boundary.",
+      "The second item now makes the same-program change explicit and supplies verified compatibility rather than an unsupported Windows/COM generalization.",
+      "The Web task uses different metadata and hosting regions to check a concrete conceptual distinction.",
+      "The task consistently separates model selection from operational provisioning."
+    ],
+    "appropriateLimits": [
+      "The stems state the decisive requirements and the selected reasons closely paraphrase them. This is suitable for a narrow novice classification objective.",
+      "SaaS is an easy alternative to reject for an explicitly retained own-code application.",
+      "The new Policy distractor is narrower and relevant to the local cause misconception, but remains straightforward for learners who understand the plan-region relationship."
+    ],
+    "notAnEmpiricalClaim": "No student-response data were available. These observations do not establish item discrimination, reliability, expert transfer, or learning gains."
+  },
+  "optionSignals": {
+    "items": [
+      {
+        "id": "wv2-01",
+        "modelOrder": [
+          "paas",
+          "iaas",
+          "saas"
+        ],
+        "reasonLengths": [
+          {
+            "id": "component-settings",
+            "position": 1,
+            "characters": 87,
+            "words": 9
+          },
+          {
+            "id": "guest-lifecycle",
+            "position": 2,
+            "characters": 76,
+            "words": 8
+          },
+          {
+            "id": "finished-product",
+            "position": 3,
+            "characters": 69,
+            "words": 10
+          }
+        ]
+      },
+      {
+        "id": "wv2-02",
+        "modelOrder": [
+          "iaas",
+          "saas",
+          "paas"
+        ],
+        "reasonLengths": [
+          {
+            "id": "supported-platform",
+            "position": 1,
+            "characters": 82,
+            "words": 11
+          },
+          {
+            "id": "windows-control",
+            "position": 2,
+            "characters": 78,
+            "words": 10
+          },
+          {
+            "id": "finished-product",
+            "position": 3,
+            "characters": 86,
+            "words": 10
+          }
+        ]
+      }
+    ],
+    "webReasonLengths": [
+      {
+        "id": "os-control",
+        "position": 1,
+        "characters": 55,
+        "words": 6
+      },
+      {
+        "id": "managed-platform",
+        "position": 2,
+        "characters": 77,
+        "words": 9
+      },
+      {
+        "id": "ready-service",
+        "position": 3,
+        "characters": 75,
+        "words": 9
+      }
+    ],
+    "webLocationCauseLengths": [
+      {
+        "id": "metadata",
+        "position": 1,
+        "characters": 68,
+        "words": 8
+      },
+      {
+        "id": "plan",
+        "position": 2,
+        "characters": 71,
+        "words": 8
+      },
+      {
+        "id": "policy-everywhere",
+        "position": 3,
+        "characters": 74,
+        "words": 9
+      }
+    ],
+    "lengthInterpretation": "The selected conceptual reasons are not uniformly the longest. Web managed-platform and plan are slightly longer locally, but no consistent longest-option shortcut solves all questions."
+  },
+  "severityConclusion": {
+    "confirmedBlockers": [],
+    "confirmedMajorFindings": [],
+    "unresolvedMediumFindings": [],
+    "remainingLowFindings": [
+      "Terminology counts situations as workloads after same-program revision.",
+      "Modest local answer-position cues."
+    ],
+    "overall": "The revised material supports one defensible supplied decision/reason pair per conceptual item and for the own-code Web task, plus SaaS for finished collaboration software and plan for the location cause. The specific revisions resolve the substantive text-level concerns of the first pre-key review. Actual sandbox behavior and scoring remain unverified, which is a limit of this authorized review rather than a demonstrated defect."
+  },
+  "aiAndProcessLimitations": [
+    "I am an AI reviewer, not a human SME.",
+    "I did not inspect author code, answer keys, accepted pairs, rubric, feedback, or author architecture.",
+    "I did not inspect other local input files during this recheck.",
+    "I have prior context from my own original pre-key solve; this is transparently a revision recheck, not a fresh independent reviewer.",
+    "I did not execute the sandbox or validate resource receipts, UI fields, filters, timestamp handling, implementation, accessibility, or scoring."
+  ]
+}

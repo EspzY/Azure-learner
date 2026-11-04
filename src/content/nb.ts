@@ -21663,3 +21663,201 @@ export const challengeReturnNb = {
   writeUnconfirmed: 'Lagringen kan ikke bekreftes. Last inn lagret vurdering før du fortsetter.',
   historyAid: 'Åpne tidligere tilbakemelding · registrerer hjelp',
 } as const;
+
+export const challenge2Nb = {
+  title: 'Oppdatert selvstendig Web-vurdering',
+  instructions:
+    'Fjordverk vurderer ulike driftskrav. Velg tjenestemodell og begrunnelse ut fra hvert behov. De to OS-situasjonene nedenfor er faglige beslutninger; Portal-praksisen dokumenterer bare de lokale Web-ressursene. Ingen VM eller applikasjonsruntime opprettes av et svarvalg.',
+  items: [
+    {
+      id: 'wv2-01',
+      title: 'Hvem må styre gjesteoperativsystemet?',
+      scenario:
+        'Fjordverks valideringsprogram skal bruke et eget, støttet OS-image. Teamet må selv bestemme hvilke gjeste-OS-oppdateringer som installeres, teste dem mot programmet og vedlikeholde dette imaget. Kravet gjelder gjesteoperativsystemet, ikke den fysiske Azure-verten. En løsning hvor plattformleverandøren overtar gjeste-OS-vedlikeholdet oppfyller ikke det fastsatte driftskravet. Programmet skal beholdes; ferdig programvare kan ikke erstatte det. Hvilken tjenestemodell passer dette kravet?',
+      decisions: [
+        ['paas', 'PaaS'],
+        ['iaas', 'IaaS'],
+        ['saas', 'SaaS'],
+      ],
+      reasons: [
+        [
+          'component-settings',
+          'Teamet installerer appkomponenter, mens leverandøren styrer vedlikeholdet av gjeste-OS.',
+        ],
+        [
+          'guest-lifecycle',
+          'Teamet styrer eget støttet OS-image og vedlikeholder gjesteoperativsystemet.',
+        ],
+        [
+          'finished-product',
+          'Teamet forvalter brukere og innstillinger i et ferdig levert program.',
+        ],
+      ],
+    },
+    {
+      id: 'wv2-02',
+      title: 'Endret krav: plattformstøtte er verifisert',
+      scenario:
+        'Fjordverk endrer driftskravet for valideringsprogrammet: Det kan nå bruke plattformens Windows-miljø i stedet for et eget OS-image. Programmet bruker .NET og COM. En teknisk vurdering har bekreftet at App Service Managed Instance støtter programmets konkrete komponenter i valgt region og plantype. Teamet godtar plattformens OS-vedlikehold og ønsker minst mulig arbeid med gjesteoperativsystemet, samtidig som de beholder egen applikasjonskode. Hvilken tjenestemodell møter disse kravene?',
+      decisions: [
+        ['iaas', 'IaaS'],
+        ['saas', 'SaaS'],
+        ['paas', 'PaaS'],
+      ],
+      reasons: [
+        [
+          'supported-platform',
+          'Plattformen dekker de verifiserte appbehovene og drifter OS; teamet drifter appen.',
+        ],
+        [
+          'windows-control',
+          'Teamet bør styre OS-imaget fordi programmet har Windows- og COM-avhengigheter.',
+        ],
+        [
+          'finished-product',
+          'Ferdig programvare dekker brukerbehovet, og teamet forvalter kontoer og innstillinger.',
+        ],
+      ],
+    },
+  ],
+  webBrief:
+    'Trykk Start før du oppretter ressursene som skal inngå i vurderingen. Portal-delen gjelder en ny HTTP-applikasjon med egen kode uten behov for kundeadministrert gjeste-OS. Bruk Shared Sandbox. Opprett en ny Resource Group med metadata i Norway East, en ny App Service Plan i North Europe og en ny Web App i samme gruppe med referanse til planen. Velg egne navn. Åpne All resources for å finne de faktiske ressursene; Activity log viser kvitteringene. Tilbake i vurderingen velger du ressursene i feltene Resource Group, App Service Plan og Web App. Registrer også tjenestemodell og begrunnelse, modellen for ferdig levert samarbeidstjeneste og årsaken til appens hostingplassering. De to faglige OS-situasjonene krever ingen operativ VM-opprettelse.',
+  webChoices: {
+    models: [
+      ['iaas', 'IaaS'],
+      ['paas', 'PaaS'],
+      ['saas', 'SaaS'],
+    ],
+    reasons: [
+      ['os-control', 'Kunden må styre og vedlikeholde gjesteoperativsystemet.'],
+      [
+        'managed-platform',
+        'Teamet beholder egen kode og bruker leverandørens administrerte appplattform.',
+      ],
+      [
+        'ready-service',
+        'Brukerne trenger ferdig programvare fremfor å drifte egen applikasjonskode.',
+      ],
+    ],
+    locationCauses: [
+      ['metadata', 'Resource Groups metadata bestemmer plasseringen til alle ressursene.'],
+      ['plan', 'Appen bruker hostingplanens plassering; gruppemetadata er ikke hosting.'],
+      [
+        'policy-everywhere',
+        'Policyen flytter appen til Resource Groups metadataregion ved opprettelse.',
+      ],
+    ],
+  },
+  sources: [
+    {
+      id: 'CC55-S1',
+      url: 'https://learn.microsoft.com/en-us/azure/security/fundamentals/shared-responsibility',
+      title: 'Shared responsibility in the cloud',
+    },
+    {
+      id: 'CC55-S2',
+      url: 'https://learn.microsoft.com/en-us/azure/architecture/guide/technology-choices/compute-decision-tree',
+      title: 'Choose an Azure compute service',
+    },
+    {
+      id: 'CC55-S3',
+      url: 'https://learn.microsoft.com/en-us/azure/app-service/overview',
+      title: 'App Service overview',
+    },
+    {
+      id: 'CC55-S4',
+      url: 'https://learn.microsoft.com/en-us/azure/app-service/overview-managed-instance',
+      title: 'Managed Instance on Azure App Service',
+    },
+    {
+      id: 'CC55-S5',
+      url: 'https://learn.microsoft.com/en-us/azure/app-service/configure-managed-instance',
+      title: 'Configure Managed Instance on Azure App Service',
+    },
+  ],
+  ui: {
+    loading: 'Vurderingshistorikken kontrolleres …',
+    legacy: 'Tidligere vurderingsversjon',
+    updated: 'Oppdatert selvstendig vurdering',
+    history: 'Tidligere resultater · oppdatert vurdering',
+    start: 'Start oppdatert vurdering',
+    retry: 'Start et øvingsforsøk',
+    active: 'Påbegynt oppdatert vurdering',
+    abandon: 'Avslutt uten innlevering',
+    submit: 'Lever oppdatert vurdering',
+    decision: 'Tjenestemodell',
+    reason: 'Teknisk begrunnelse',
+    aid: 'Åpne tidligere feedback · registrer hjelp',
+    draft: 'Svar lagres som utkast; navigasjon leverer ikke forsøket.',
+    storage: 'Avklar lagringen før arbeidet fortsetter.',
+    reload: 'Les denne vurderingslagringen på nytt',
+    reset: 'Fjern bare ugyldig oppdatert vurderingslagring',
+    resetConfirm:
+      'Dette fjerner bare den ugyldige oppdaterte vurderingsnøkkelen. Gamle resultater og tekniske ressurser beholdes.',
+    first: 'Første innlevering i oppdatert versjon',
+    practice: 'Øvingsforsøk',
+    assisted: 'Assistert øving',
+    abandoned: 'Avsluttet uten innlevering',
+    prior:
+      'Tidligere arbeid i den eldre Web-vurderingen er dokumentert. Dette er en ny versjon, ikke dokumentert førstegangseksponering.',
+    local:
+      'Ingen registrert hjelp i dette forsøket. Dette bekrefter ikke identitet eller hva du har gjort utenfor AzureLab.',
+    pass: 'Alle kriteriene i denne avgrensede vurderingen er oppfylt.',
+    fail: 'Noen av kriteriene er ikke oppfylt. Undersøk kravene og de konkrete forklaringene.',
+    details: 'Spørsmål, registrerte valg og forklaring',
+    yourDecision: 'Ditt valg',
+    yourReason: 'Din begrunnelse',
+    missing: 'Ikke registrert',
+    met: 'Oppfylt',
+    notMet: 'Ikke oppfylt',
+    limits:
+      'Faglig modellvalg og tekniske kvitteringer er forskjellige bevis. Web-kvitteringer dokumenterer lokal konfigurasjon, ikke kjørende app, gjeste-OS eller generell mestring. Ingen XP tildeles.',
+    conflict:
+      'Flere vurderinger er påbegynt. Velg et eksisterende forsøk; ingen ny vurdering startes eller oppgraderes her.',
+    resumeOld: 'Fortsett påbegynt tidligere Web-vurdering',
+    resumeNew: 'Fortsett påbegynt oppdatert Web-vurdering',
+    openOld: 'Se tidligere Web-resultat',
+    versionInfo:
+      'Den tidligere vurderingen bruker opprinnelig oppgave og rubric. Nye resultater lagres separat.',
+    neutralTitle: 'Oppdatert Web-oppgave',
+    neutralActive:
+      'Forsøket er fortsatt aktivt. Fortsett samme forsøk, eller åpne undervisning med nødvendig hjelperegistrering.',
+    neutralInactive: 'Resultatet eller avbruddet er bevart i denne vurderingsversjonen.',
+    unknownOrigin: 'Opprinnelig fagmodul kan ikke bekreftes fra den lagrede historikken.',
+    fromComputing: 'Tilbake fra Cloud Computing.',
+    fromServices: 'Tilbake fra Cloud Service Types.',
+    resume: 'Fortsett samme oppdaterte Web-oppgave',
+    teaching: 'Åpne undervisningen · registrer hjelp',
+    back: 'Tilbake til undervisningen',
+    overview: 'Kursoversikt',
+    closedHistory: 'Tidligere feedback holdes lukket mens du arbeider uassistert.',
+    notVerifiable: 'Den tekniske historikken kan ikke verifiseres mot forsøket.',
+    sources:
+      'Kildekontroll: 4. november 2026. Kontroller gjeldende støtte før et virkelig tjenestevalg.',
+  },
+  criteria: {
+    service: 'Egen HTTP-kode på administrert appplattform med kompatibel begrunnelse.',
+    os: 'Kundestyrt OS-livssyklus med kompatibel begrunnelse.',
+    platform:
+      'Verifisert plattformstøtte og minst mulig gjeste-OS-arbeid med kompatibel begrunnelse.',
+    ready: 'Ferdig samarbeidstjeneste som SaaS.',
+    scope: 'Ny gruppe i Shared Sandbox med metadata i Norway East.',
+    hosting: 'Ny plan og app i samme gruppe, North Europe og faktisk hostingreferanse.',
+    cause: 'Hosting følger planen, ikke Resource Groups metadata.',
+  },
+  feedback: {
+    os: 'Her er kundestyrt OS-image og vedlikehold uttrykkelig påkrevd. IaaS gir dette gjesteansvaret. PaaS ville vært aktuelt dersom kravet om kundestyrt OS-livssyklus ble endret og en verifisert plattform kunne overta vedlikeholdet. Dette følger ikke av Windows, COM, registry eller MSI alene.',
+    platform:
+      'Støtten er verifisert, kundestyrt OS-image er ikke nødvendig, og teamet ønsker mindre OS-arbeid. Derfor passer PaaS med plattformbegrunnelsen. IaaS gir kontroll, men oppfyller ikke ønsket om minst mulig gjestedrift like godt. SaaS ville krevd at ferdig programvare kunne erstatte egen kode. Kunden vedlikeholder fortsatt egen kode og komponenter installert med konfigurasjonsskript; plattformdrift fjerner ikke dette ansvaret.',
+    service:
+      'Egen HTTP-kode uten kundestyrt gjeste-OS passer administrert appplattform. En begrunnelse om OS-kontroll eller ferdig programvare beskriver et annet behov.',
+    ready:
+      'En ferdig samarbeidstjeneste er SaaS når brukerne administrerer kontoer og innstillinger fremfor egen applikasjonskode.',
+    scope:
+      'Kvitteringene må vise en ny gruppe etter denne forsøksgrensen i Shared Sandbox med metadata i Norway East. Tidligere ressurser er ikke ny gjennomføring.',
+    hosting:
+      'Kvitteringer og replay må vise en ny App Service Plan og Web App, samme gruppe, North Europe og appens faktiske planreferanse. Dette beviser konfigurasjon, ikke applikasjonsruntime.',
+    cause:
+      'Gruppens metadata er ikke plasseringen til alle dens ressurser. Appens hosting følger planen. Den lokale Web-policyen er avgrenset, ikke en universell Azure-regel.',
+  },
+} as const;

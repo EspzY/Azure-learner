@@ -1,3 +1,4 @@
+import { assertCC03Change, cc03Authorized } from './cc03-preservation';
 import { expect } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
@@ -30,7 +31,13 @@ export function assertCC01Change(path: string, historicalHash?: string) {
     expect(hash(before), path).toBe(change.before);
     if (historicalHash) expect(hash(before), path).toBe(historicalHash);
   }
-  expect(hash(readFileSync(path)), path).toBe(change.after);
+  if (cc03Authorized(path)) {
+    expect(
+      hash(execFileSync('git', ['show', `bb66ff2e5115d26304bb017295a9067c6f6fed5d:${path}`])),
+      path,
+    ).toBe(change.after);
+    assertCC03Change(path);
+  } else expect(hash(readFileSync(path)), path).toBe(change.after);
 }
 export function cc01Authorized(path: string) {
   return Object.hasOwn(amendment.files, path);

@@ -1,3 +1,4 @@
+import { assertCC03Change, cc03DomainChanges } from '../../../tests/cc03-preservation';
 import { assertCC01Change, cc01DomainChanges } from '../../../tests/cc01-preservation';
 import React from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
@@ -141,9 +142,15 @@ describe('Source presentation preservation', () => {
       .split('\n')
       .filter(Boolean);
     expect(
-      changed.filter((path) => !navigationOnly.includes(path) && !cc01DomainChanges.includes(path)),
+      changed.filter(
+        (path) =>
+          !navigationOnly.includes(path) &&
+          !cc01DomainChanges.includes(path) &&
+          !cc03DomainChanges.includes(path),
+      ),
     ).toEqual([]);
     for (const path of cc01DomainChanges) assertCC01Change(path);
+    for (const path of cc03DomainChanges) assertCC03Change(path);
     const priorV2 = execFileSync(
       'git',
       ['show', base + ':src/domain/curriculum/foundations-v2.ts'],

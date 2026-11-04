@@ -113,3 +113,25 @@ Leveransens endelige akseptansestatus følger [PR54s dokumenterte leveransegater
 avgrensede scope først når disse faktiske gatene er bekreftet på levert SHA.
 Inntil da er det implementert, ikke ferdig akseptert. Datert revisjonsevidens og
 CC-03/CC-02s prioriteringer over er fortsatt uendret.
+
+## PR55 — CC-03, versjonert Portal-etterfølger
+
+Den nye standarden bruker egen content2.0.0/`portal-transfer@2` og egen durable
+historikk. Kundestyrt OS-livssyklus er et uttrykkelig premiss; en kontrast med
+verifisert administrert plattform endrer det faglig gyldige paret til PaaS.
+[Kontrakten](../CC03_IAAS_ASSESSMENT.md) beskriver bevarte gamle rubrics,
+syv kriterier med gjenbrukt teknisk evaluator, egen origin, konflikt/recovery,
+blindreview og grenser. Gamle Portal-v1-forsøk fullføres og vises etter gammel
+kontrakt. CC01-retur, øvrige vurderingsbanker og VM-missionens `guest-control@1`
+beholdes. Missionens smalere begrunnelsesgap krever separat versjonert oppfølging
+hvis vurderingsbetydningen skal endres; det er ikke skjult rettet her.
+
+Før publisering er dette en implementert kandidat. CC-03s ordinære
+Portal-standard er rettet først når [PR55s faktiske leveransegater](https://github.com/EspzY/Azure-learner/pull/55)
+er verifisert på siste SHA: historisk bevaring, uavhengig review, komplett CI,
+streng release og faktisk anonym Gate7. Daterte PR53-observasjoner er ikke
+omskrevet. CC02 står fortsatt som P2; ingen bredere prioritet endres.
+
+Gjeldende lukkestatus og den endelige SHA-bundne leveransekvitteringen føres i
+[PR55s uavhengige sluttrapport](../quality/PR55_FINAL_AUDIT.md). Denne daterte
+kandidatbeskrivelsen omtolker ikke PR53s opprinnelige funn.
