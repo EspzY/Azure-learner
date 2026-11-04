@@ -2062,7 +2062,6 @@
     "tests/e2e/compute-hosting.spec.ts",
     "tests/e2e/cost-management.spec.ts",
     "tests/e2e/course-hub-actions.ts",
-    "tests/e2e/course-hub.spec.ts",
     "tests/e2e/curriculum-expansion.spec.ts",
     "tests/e2e/dialog-placement.spec.ts",
     "tests/e2e/file-movement-migration.spec.ts",
@@ -2082,7 +2081,6 @@
     "tests/e2e/portal-actions.ts",
     "tests/e2e/portal-fidelity.spec.ts",
     "tests/e2e/portal-inspection-bridge.spec.ts",
-    "tests/e2e/portal.spec.ts",
     "tests/e2e/practical-labs.spec.ts",
     "tests/e2e/practical-missions.spec.ts",
     "tests/e2e/quality-system.spec.ts",
@@ -2147,7 +2145,9 @@
       "checks": [
         { "path": "docs/CC01_CHALLENGE_RETURN.md" },
         { "path": "docs/reviews/evidence/cc01/full-check-result.json" },
-        { "path": "docs/reviews/evidence/cc01/targeted-results.json" }
+        { "path": "docs/reviews/evidence/cc01/targeted-results.json" },
+        { "path": "docs/reviews/evidence/cc01/preview-readiness.json" },
+        { "path": "docs/reviews/evidence/cc01/initial-ci-result.json" }
       ],
       "limits": "Scoped CC01 verification; preserved content, scoring, technical engine and historical audit are not reauthored. Human validation unperformed; current full CI and actual external Gate7 required."
     }
@@ -2182,23 +2182,23 @@
     {
       "command": "npm run check",
       "result": "passed",
-      "details": "Actual final localized full check exit0,2026-11-04T11:39:29.913655+00:00;651Vitest,503curriculum,24Node and production build. Earlier author failures: bounded historical freeze authorization, new helper typing, full-locale deep Buffer comparison; corrected via explicit old/new hashes, proper typing and exact efficient Buffer.equals, with no timeout or test-setting changes."
+      "details": "Final test-readiness follow-up actual full check exit0,2026-11-04T12:29:01.174566+00:00;651Vitest,503curriculum,24Node+build. Six targeted CI-failure desktop/compact cases passed without retry; all old assertions retained with confirmed-Start/destination waits and correct neutral unknown-origin route. No runtime or QA-setting changes; initial failedCI recorded separately."
     },
     {
       "command": "npm run test:e2e:desktop",
       "result": "pending",
-      "details": "Exact-head full CI required; 351 inherited cases plus six scoped desktop and one compact witness."
+      "details": "Final exact-head full358CI required after test-only follow-up commit. Initial6e CI failed5+flaky1+passed352; not reused as success."
     }
   ],
   "review": {
     "status": "complete",
-    "fingerprint": "5286f66bbae49a5be1975e8ee1baaaf0622a53c33fdba81bbcec3bef9181f2a9",
+    "fingerprint": "e982870361e3f7afe8916aaed472ac94d61a873aa1ffb5a104ee656d928f09cb",
     "reviewer": { "id": "pr54_independent_final_audit", "kind": "agent" },
-    "started": "2026-11-04T11:42:10Z",
-    "completed": "2026-11-04T11:44:55.794Z",
+    "started": "2026-11-04T12:31:52Z",
+    "completed": "2026-11-04T12:34:08.410Z",
     "domains": {
       "content": {
-        "finding": "Original manuscripts, sources, rubrics and complete1488942-byte locale prefix independently match base. Only1184 interface-copy bytes append; no fresh approval of unchanged premises. CC03 remains P1 and CC02 P2.",
+        "finding": "Original manuscripts, sources, rubrics and complete1488942-byte locale prefix independently match base. Only1184 interface-copy bytes append; no fresh approval of unchanged premises. CC03 remains P1 and CC02 P2. Production source remains byte-identical to published6e during test-only follow-up; no broader content or premise approval.",
         "evidence": [
           { "path": "docs/quality/PR54_FINAL_AUDIT.md" },
           { "path": "docs/reviews/evidence/cc01/preservation.json" },
@@ -2207,16 +2207,17 @@
         ]
       },
       "technical": {
-        "finding": "33 actual changed-file hashes/fingerprint independently match. Sidecar is latest-begin/prefix-bound navigation only; invalid/pending/stale records become unknown. Actual interrupted commit recovered one original active begin without invented origin/result. Durable event readback preserves original v1 schema/evaluator.",
+        "finding": "37 actual changed-file hashes and latest fingerprint independently match, with zero structural/snapshot/base errors. Production src byte-identical to published6e; original attempt-bound sidecar and durable readback/crash/stale behavior remain as independently reviewed. New test waits observe existing state and actual valid/accepted operations; no product hydration fix claimed.",
         "evidence": [
           { "path": "src/domain/portal/challenge-origin.ts" },
           { "path": "src/domain/portal/store.ts" },
           { "path": "src/domain/portal/challenge-origin.test.ts" },
-          { "path": "docs/quality/PR54_FINAL_AUDIT.md" }
+          { "path": "docs/quality/PR54_FINAL_AUDIT.md" },
+          { "path": "docs/reviews/evidence/cc01/preview-readiness.json" }
         ]
       },
       "visual": {
-        "finding": "Actual before/completed/neutral1440 and1024x500 images personally inspected. Independently rerun localized desktop and compact UI journeys passed no retry: heading/Tab/Enter focus, reduced motion, no overflow, Axe zero. Fresh short image matches inspected evidence bytes; no human screen-reader or real-device claim.",
+        "finding": "Actual before/completed/neutral1440 and1024x500 images personally inspected. Independently rerun localized desktop and compact UI journeys passed no retry: heading/Tab/Enter focus, reduced motion, no overflow, Axe zero. Fresh short image matches inspected evidence bytes; no human screen-reader or real-device claim. No renderer/style change in follow-up. Independently inspected actual anonymous external completed first with6 original successful criteria on published6e; new-head verification still required.",
         "evidence": [
           { "path": "docs/reviews/evidence/cc01/after-neutral-1440.png" },
           { "path": "docs/reviews/evidence/cc01/after-neutral-1024-500.png" },
@@ -2226,34 +2227,40 @@
         ]
       },
       "assessment": {
-        "finding": "Original v1 answers/events/rubric/evaluator/firsts unchanged. Prior feedback stays hidden during active unaided/conflicted work; explicit history opening requires original durable aid. Actual stale-history and denied-aid probes failed closed. No navigation completion/score/XP or new content approval.",
+        "finding": "Original v1 answers/events/rubric/evaluator/firsts unchanged. Prior feedback stays hidden during active unaided/conflicted work; explicit history opening requires original durable aid. Actual stale-history and denied-aid probes failed closed. No navigation completion/score/XP or new content approval. Independent external current-function assertions confirmed original first correct=true, exactly6 met criteria and unassisted, boundaryportal-4/attempt1 throughportal-7 with drafts and no aid/compare/guided. This does not fix CC03 P1 premise.",
         "evidence": [
           { "path": "src/features/portal/learning.tsx" },
           { "path": "src/features/learning/management-access.tsx" },
           { "path": "src/domain/portal/learning.ts" },
           { "path": "tests/e2e/challenge-return.spec.ts" },
-          { "path": "docs/quality/PR54_FINAL_AUDIT.md" }
+          { "path": "docs/quality/PR54_FINAL_AUDIT.md" },
+          { "path": "docs/reviews/evidence/cc01/preview-readiness.json" }
         ]
       },
       "guidance": {
-        "finding": "Independently executed real Computing denial/correction/hosting/challenge/return/Hub/history/reload/submission. Entire localStorage remained byte-identical across neutral return; deliberate teaching appended exactly aid. Unrelated updated Benefits aid denial withheld Computing teaching and retained Hub priority. Other lab origins explicitly excluded and inherited targeted routes retained.",
+        "finding": "Independently executed real Computing denial/correction/hosting/challenge/return/Hub/history/reload/submission. Entire localStorage remained byte-identical across neutral return; deliberate teaching appended exactly aid. Unrelated updated Benefits aid denial withheld Computing teaching and retained Hub priority. Other lab origins explicitly excluded and inherited targeted routes retained. New test protocol waits for observed guide/form/workspace and Services destination before reload; inherited Start tests await durable active state. Exact unknown-origin Hub expectation retained neutrally. No general runtime-input or prior flake resolution inferred.",
         "evidence": [
           { "path": "src/features/course/challenge-return.tsx" },
           { "path": "src/features/course/course.tsx" },
           { "path": "src/features/course/mission-context.ts" },
           { "path": "src/features/portal/portal.tsx" },
           { "path": "docs/reviews/evidence/cc01/targeted-results.json" },
-          { "path": "docs/quality/PR54_FINAL_AUDIT.md" }
+          { "path": "docs/quality/PR54_FINAL_AUDIT.md" },
+          { "path": "docs/reviews/evidence/cc01/preview-readiness.json" }
         ]
       },
       "regression": {
-        "finding": "Independently rehashed1691 whole preserved paths plus full locale prefix with zero mismatch; bounded old/new test amendments retain prior proof artifacts and all unamended assertions/settings.22 focused tests and358-case plan passed; author final fullcheck exit0 verified. Reviewer initial2 and localized2 browsers passed. Complete exact-head CI/strict and anonymous delivered-SHA Gate7 still pending; known flakes/humans unresolved.",
+        "finding": "First6e full CI41824040575 failed:352passed+1flaky+5failed, preserved honestly. Final test-only amendment adds waits and stronger original-result/scope/accepted-resource assertions; old Hub neutral expectation matches no-sidecar fixture. No old behavior assertion/settings weakened.Preservation independently reconciled to1689 whole entries plus complete1488942-byte locale prefix, zero mismatches; removed only explicitly amended Hub/Portal tests. Final author check exit0 at12:29,651/503/24+build;6 affected browsers passed no retry; independent plan358(324/34). Independent actual current first external journey passed on old6e with explicit6/unassisted, not native/full-CI/new-headGate7. New exact-head full CI/strict/Gate7 still required.",
         "evidence": [
+          { "path": "docs/reviews/evidence/cc01/initial-ci-result.json" },
+          { "path": "docs/reviews/evidence/cc01/preview-readiness.json" },
           { "path": "docs/reviews/evidence/cc01/preservation.json" },
-          { "path": "tests/cc01-preservation.ts" },
           { "path": "docs/reviews/evidence/cc01/full-check-result.json" },
           { "path": "docs/reviews/evidence/cc01/targeted-results.json" },
-          { "path": "playwright.desktop.config.ts" },
+          { "path": "tests/e2e/challenge-return.spec.ts" },
+          { "path": "tests/e2e/course-hub.spec.ts" },
+          { "path": "tests/e2e/portal.spec.ts" },
+          { "path": "tests/e2e/course.spec.ts" },
           { "path": "docs/quality/PR54_FINAL_AUDIT.md" }
         ]
       }
@@ -2274,18 +2281,35 @@
         ]
       },
       {
+        "id": "PR54-A2",
+        "severity": "minor",
+        "status": "fixed",
+        "description": "New and inherited browser protocols acted before observed workspace/form/committed Start state; Services reloaded before confirming navigation, and old Hub fixture expected Services for unknown origin. The initial full CI failed and native external deadline failures remain recorded.",
+        "fix": "Author added observed guide/workspace/destination/active waits, actual Shared Sandbox Review and accepted-resource checks, explicit original passed/unassisted result, and exact neutral unknown-origin fixture expectation. All original behavioral assertions/settings retained; production source unchanged.",
+        "retests": [
+          { "path": "tests/e2e/challenge-return.spec.ts" },
+          { "path": "tests/e2e/course-hub.spec.ts" },
+          { "path": "tests/e2e/course.spec.ts" },
+          { "path": "tests/e2e/portal.spec.ts" },
+          { "path": "docs/reviews/evidence/cc01/targeted-results.json" },
+          { "path": "docs/reviews/evidence/cc01/full-check-result.json" },
+          { "path": "docs/reviews/evidence/cc01/preview-readiness.json" },
+          { "path": "docs/quality/PR54_FINAL_AUDIT.md" }
+        ]
+      },
+      {
         "id": "PR54-N1",
         "severity": "note",
         "status": "open",
-        "description": "Delivery remains pending exact-head complete CI/strict full-browser receipt and actual anonymous delivered-SHA Gate7. Original CC03 P1 and CC02 P2 are outside this authorized correction and remain open at their original priorities; known Compute/Guidance flakes and human validation remain unresolved."
+        "description": "Initial6e CI41824040575 failed(352passed,1flaky,5failed). New-head complete358 CI/strict full-browser receipt and anonymous new-SHA Gate7 remain pending. Standalone old6e journeys cannot replace them. Original CC03 P1,CC02 P2,known Compute/Guidance flakes and human validation remain unresolved."
       }
     ],
-    "limitations": "Separate code-aware agent review only. No human SME/novice/screen-reader/psychometric/learning-transfer validation, no broad content reassessment, no complete CI or new-SHA external Gate7 claim, no merge/production authorization.",
+    "limitations": "Separate code-aware agent audit and bounded follow-up only. Initial failed CI/native failures and overwritten first native trace are disclosed. Independent actual old6e first journey verified, no new-head/full-CI claim. No general hydration-flake fix, human SME/novice/screen-reader/psychometric/learning-transfer validation, broad content acceptance, merge or production authorization.",
     "report": { "path": "docs/quality/PR54_FINAL_AUDIT.md" }
   },
   "snapshot": {
     "files": {
-      "docs/CC01_CHALLENGE_RETURN.md": "8d77e14f8af1a2cfb012e628b67820b37fd47328f0a577b0a04c6b7f63c2c8b8",
+      "docs/CC01_CHALLENGE_RETURN.md": "dbfe5d303879bf03ec5ef8fd874d85a3ff996fbd6a8b2da16a98d45e097e73c3",
       "docs/reviews/CLOUD_CONCEPTS_REMEDIATION_PLAN.md": "06c77e136787c06403545cc5f8b02fa4096581cd0d57de760ce54660a855730f",
       "docs/reviews/evidence/cc01/after-computing-completed.png": "bdf5a1af3b6e559f92ef60dc1963d66556ad0e6af52e33735cf05bd75d35d148",
       "docs/reviews/evidence/cc01/after-neutral-1024-500.png": "421df6fcb0d2d38ee857a11e1ab033a355f3349f8f9849c2e560360c1f95a668",
@@ -2295,9 +2319,11 @@
       "docs/reviews/evidence/cc01/before-denied-aid.json": "a460988d5c4efce2c2722448a8fed1cd81b001a0963c9c14ac00250fbfaa349e",
       "docs/reviews/evidence/cc01/before-reproduction.json": "04135ef2d90da8c76fd3cec0735f5b999fd1895f0bce22f597f9383cb05be874",
       "docs/reviews/evidence/cc01/before-root-sha.json": "25334a58efe660c322db68a56a5b893b4e566886b29865af52a259df10cd0493",
-      "docs/reviews/evidence/cc01/full-check-result.json": "5303ec5b3c3ac41681090f95fcab2df3c0a53e1f1f1ba7f37a40f8493bb6a66f",
-      "docs/reviews/evidence/cc01/preservation.json": "484bb5fa8ca29b40d774fb41c3abce0e2b3e5f8e3ec22f96baad465231010ea7",
-      "docs/reviews/evidence/cc01/targeted-results.json": "1eb23024a0e1738d095e863b4678cb99ee6ea2d8ef71d4cf0baad674e204c25d",
+      "docs/reviews/evidence/cc01/full-check-result.json": "77d30455acba14205288b6ce8bbbe4cb6023dc1ea6a0af9114723e4b83e29558",
+      "docs/reviews/evidence/cc01/initial-ci-result.json": "5b21d12a3148eb3119e697d670d42d1f1fa19416c90bc34295b445973b2285cb",
+      "docs/reviews/evidence/cc01/preservation.json": "67fcaad105d7c99aee5b5babda850c6142d7bc9b6afae67f1de1848c7e440dfb",
+      "docs/reviews/evidence/cc01/preview-readiness.json": "45f770b1b68a0e752844c0408d34518301c3eb61af8148f7826a6b699ba35196",
+      "docs/reviews/evidence/cc01/targeted-results.json": "1c007ad7b85c3fc052f64d58d7183cf21d35638c9877ed6c1609970fd7794ac6",
       "playwright.desktop.config.ts": "58985312072f22544c8a547cb22bd406e050de6bdff5bf2857b01cdf94ad2eaf",
       "src/content/nb.ts": "47713dbfede302189e442646a5a435038896ed26b0eafd76cae9e643a665a790",
       "src/domain/portal/challenge-origin.test.ts": "3252daaec1d5e926ab6bffa952532331b9e95439d0c3a8ce7918032e4eab7595",
@@ -2316,9 +2342,11 @@
       "src/features/portal/learning.tsx": "c62ded8fc8ddaf220193c642f447d5965013981243f6b82e2f7c32ec4b616842",
       "src/features/portal/portal.tsx": "5f265023a884a09c43bfaeaa2792aff9f264d128e11d52684422f7250d5de15a",
       "tests/cc01-preservation.ts": "4a83ba2fe07c01f13a170a92af4deb54412d5c58b692526b26f4ad1694fc93ef",
-      "tests/e2e/challenge-return.spec.ts": "0b1aed231188b99fc3fa5e6e621ed0921b22bde26504584c452a24c72e241bc9",
-      "tests/e2e/course.spec.ts": "266e22c8e164f5e784a0f1fb96e8ff6697f7cc576f719db712739f43ebdf097d"
+      "tests/e2e/challenge-return.spec.ts": "faf1a883e5618d8c7383aff22b264767f5e8e2c6f4ded1ae5dcbb63186e82956",
+      "tests/e2e/course-hub.spec.ts": "7b26e0daf290206b424929d0985ce171a10c14ebc43c98536bc41af971ad5e1e",
+      "tests/e2e/course.spec.ts": "1f73531be7e49ad2cdbe3522b14871e8ce7cb738c5e8d1adf608a6f2229dde72",
+      "tests/e2e/portal.spec.ts": "da112fe906713bb2ace7921caaafd987c80e2c196579e85bc76354d1e958ca8c"
     }
   },
-  "implementationFinished": "2026-11-04T11:41:31.112Z"
+  "implementationFinished": "2026-11-04T12:30:33.275Z"
 }

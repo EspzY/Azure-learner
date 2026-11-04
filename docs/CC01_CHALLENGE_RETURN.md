@@ -99,3 +99,15 @@ Alle nye retur-/lagrings-/historikketiketter ligger i `challengeReturnNb` i
 `src/content/nb.ts`. Hele det tidligere innholdet på 1 488 942 byte er uendret;
 bare den nye UI-eksporten er lagt til. Dette kontrolleres med lengde, SHA-256 og
 eksakt byteprefiks, i tillegg til de tidligere manuskript-/rubric-låsene.
+
+## Ekstern testprotokoll — avgrenset oppfølging
+
+Første preview viste at den nye vertikale testen leste meny-/feltstatus for tidlig
+og lastet Hub på nytt før Services-navigasjonen var ferdig. Dette er dokumentert i
+[readiness-beviset](reviews/evidence/cc01/preview-readiness.json). Den nye testen
+følger faktisk Search-veiledning, venter på observerte feltsteg og fokuserte
+arbeidsflater, kontrollerer reelt Shared Sandbox-scope og akseptert ressurs, og
+venter på destinasjon før reload. Produktkode og alle tidsfrister/QA-innstillinger
+er uendret. Ekstern native30s-utløp er ikke kalt en bestått native test; separate
+standalone-reiser er merket som faktisk brukerreise, ikke full CI. Endelig
+Gate7 må fortsatt kontrollere den nye leverte SHA-en.

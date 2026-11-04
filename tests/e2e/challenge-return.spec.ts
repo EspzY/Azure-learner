@@ -1,7 +1,7 @@
 import { test, expect, type Page } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { nb } from '../../src/content/nb';
-import { revealPortalLink, acknowledgeMilestone } from './portal-actions';
+import { acknowledgeMilestone } from './portal-actions';
 const p = nb.portal,
   c = nb.course;
 const computing =
@@ -29,12 +29,16 @@ async function start(page: Page, href = computing) {
   await expect(page.locator('.portal-challenge')).toContainText(p.challenge.active);
 }
 async function area(page: Page, id: 'groups' | 'plans' | 'apps') {
-  const link = page
-    .getByRole('navigation', { name: p.navLabel, exact: true })
-    .getByRole('link', { name: p.areas[id], exact: true });
-  await revealPortalLink(page, link);
+  const nav = page.locator('.portal-nav nav');
+  await nav.waitFor({ state: 'attached' });
+  if (!(await nav.isVisible()))
+    await page.getByRole('button', { name: p.menu, exact: true }).click();
+  await expect(nav).toBeVisible();
+  const link = nav.getByRole('link', { name: p.areas[id], exact: true });
+  await expect(link).toBeVisible();
   await link.click();
   await expect(page.locator('.portal-title h1')).toHaveText(p.areas[id]);
+  await expect(page.locator('.portal-title h1')).toBeFocused();
 }
 async function create(
   page: Page,
@@ -49,6 +53,8 @@ async function create(
     .locator('.portal-commandbar')
     .getByRole('button', { name: p.create, exact: true })
     .click();
+  await expect(page.locator('.portal-title h1')).toHaveText(p.createTitles[kind]);
+  await expect(page.locator('.portal-title h1')).toBeFocused();
   await page
     .getByRole('combobox', { name: p.subscription, exact: true })
     .selectOption('sub-shared');
@@ -68,9 +74,15 @@ async function create(
         .getByRole('combobox', { name: p.plan, exact: true })
         .selectOption({ label: `${plan} · North Europe` });
   }
+  await expect(page.getByRole('combobox', { name: p.subscription, exact: true })).toHaveValue(
+    'sub-shared',
+  );
   await page.locator('[data-guide="review"]').click();
+  await expect(page.locator('.portal-create dl')).toContainText('Shared Sandbox');
   await expect(page.locator('[data-guide="validation"]')).toContainText(p.valid);
   await page.locator('[data-guide="commit"]').click();
+  await expect(page.locator('.portal-title h1')).toHaveText(name);
+  await expect(page.locator('.portal-title h1')).toBeFocused();
 }
 async function draft(page: Page) {
   await page.getByRole('combobox', { name: p.challenge.os, exact: true }).selectOption('iaas');
@@ -88,16 +100,32 @@ test('Computing real Web lab returns through changed challenge to neutral origin
   await page.goto('/learn/computing?topic=resource-bridge');
   await page.getByRole('button', { name: c.startLab, exact: true }).click();
   await expect(page).toHaveURL(/lab=web-platform/);
+  const coach = page.getByRole('complementary', { name: c.guided, exact: true });
+  await expect(coach).toHaveAttribute('data-step', 'find-groups');
+  // Follow the guide's actual Search action and wait for observed form state.
+  // A URL change or enabled server-rendered input alone is not hydrated readiness.
+  await page.getByRole('searchbox', { name: p.search, exact: true }).fill('Resource groups');
+  await page
+    .locator('.portal-search-results a[href^="/portal?"]', { hasText: 'Resource groups' })
+    .click();
+  await expect(coach).toHaveAttribute('data-step', 'create-group');
   // Original guided lab uses App Sandbox and intentionally investigates a denied hosting location.
-  await area(page, 'groups');
   await page
     .locator('.portal-commandbar')
     .getByRole('button', { name: p.create, exact: true })
     .click();
+  await expect(coach).toHaveAttribute('data-step', 'subscription');
   await page.getByRole('combobox', { name: p.subscription, exact: true }).selectOption('sub-app');
+  await expect(coach).toHaveAttribute('data-step', 'group-name');
   await page.getByRole('textbox', { name: p.groupName, exact: true }).fill('rg-guided54');
+  await expect(coach).toHaveAttribute('data-step', 'metadata');
   await page.getByRole('combobox', { name: p.region, exact: true }).selectOption('norwayeast');
+  await expect(coach).toHaveAttribute('data-step', 'review-group');
+  await expect(page.getByRole('combobox', { name: p.subscription, exact: true })).toHaveValue(
+    'sub-app',
+  );
   await page.locator('[data-guide="review"]').click();
+  await expect(page.locator('[data-guide="validation"]')).toContainText(p.valid);
   await page.locator('[data-guide="commit"]').click();
   await area(page, 'plans');
   await page
@@ -111,7 +139,6 @@ test('Computing real Web lab returns through changed challenge to neutral origin
   await page.getByRole('combobox', { name: p.region, exact: true }).selectOption('northeurope');
   await page.locator('[data-guide="review"]').click();
   await page.locator('[data-guide="commit"]').click();
-  const coach = page.getByRole('complementary', { name: c.guided, exact: true });
   await coach.getByRole('button', { name: c.goPolicy, exact: true }).click();
   await acknowledgeMilestone(page, 'policy-denial');
   await area(page, 'plans');
@@ -186,6 +213,7 @@ test('Computing real Web lab returns through changed challenge to neutral origin
     computing,
   );
   await page.getByRole('link', { name: p.continueChallenge, exact: true }).click();
+  await expect(page.locator('.portal-title h1')).toBeFocused();
   expect(await technical(page)).toEqual(world);
   await create(page, 'group', 'rg-cc54');
   await create(page, 'plan', 'plan-cc54');
@@ -205,6 +233,12 @@ test('Computing real Web lab returns through changed challenge to neutral origin
     .selectOption({ label: 'app-cc54' });
   await page.getByRole('button', { name: p.challenge.submit, exact: true }).click();
   await expect(page.locator('.portal-challenge')).toContainText(p.challenge.first);
+  await expect(page.getByRole('region', { name: p.challenge.first, exact: true })).toContainText(
+    p.challenge.passed,
+  );
+  await expect(page.getByRole('region', { name: p.challenge.first, exact: true })).toContainText(
+    p.challenge.unassisted,
+  );
   const submitted = await raw(page);
   await backCourse(page).click();
   await expect(page).toHaveURL(/computing\?topic=resource-bridge&activity=debrief/);
@@ -288,6 +322,7 @@ test('documented Services origin survives reload and abandon; assisted retry pre
     services,
   );
   await page.getByRole('link', { name: p.continueChallenge, exact: true }).click();
+  await expect(page).toHaveURL(services);
   await page.reload();
   await expect(backCourse(page)).toHaveAttribute(
     'href',

@@ -1,5 +1,15 @@
 # PR54 — Independent Final Audit
 
+The active disposition is the bounded post-publication recheck at the end of
+this report. It reviews the **2026-11-04T12:30:33.275Z** stamp, **37 snapshot
+files**, fingerprint
+`e982870361e3f7afe8916aaed472ac94d61a873aa1ffb5a104ee656d928f09cb`.
+Two minor findings are corrected; no open scoped BLOCKER or MAJOR was identified.
+The failed first CI is retained. Complete new-head CI/strict and anonymous
+new-SHA Gate7 remain required. CC-03 remains P1 and CC-02 remains P2.
+
+## Initial implementation review — retained history
+
 **Disposition: scoped implementation review accepted. One minor contract defect
 was corrected; no open BLOCKER or MAJOR was identified in this CC-01 change.**
 This does not close delivery gates or approve wider rollout. CC-03 remains P1,
@@ -190,3 +200,125 @@ exited 1 **solely for the missing executed complete candidate browser profile**;
 there was no stale fingerprint, base, preservation, review or other structural
 error. The implementation stamp/snapshot and release payload outside `review`
 were preserved.
+
+## Bounded post-publication recheck — 4 November 2026
+
+Reviewer remains `pr54_independent_final_audit`, kind `agent`, separate from the
+implementation author. Recheck started **2026-11-04T12:31:52Z**, after the new
+**2026-11-04T12:30:33.275Z** implementation-finished stamp. This supersedes the
+then-current 33-file fingerprint above; the initial review remains history.
+Local HEAD/public runtime at this recheck:
+`6e065c785d386c25801bdecf9be15bb82369e65f`.
+Original PR base remains `0e96c991d5e735e6b217bed15f20a3d5ef765c98`.
+
+**PR54-A2 — minor, fixed: browser protocol did not await actual state.**
+The first new journey could decide menu visibility before the Portal workspace
+was ready and select fields before their state was observed. The missing
+subscription reached actual Review validation, which correctly blocked Create.
+A later independent helper could similarly operate with the wrong subscription.
+The Services case also reloaded immediately after a Hub click, allowing reload
+to abort the in-flight destination. Inherited Portal/Course tests navigated or
+captured immediately after asynchronous durable Start, and an old Hub fixture
+still expected a fabricated Services origin for a v1 record without a sidecar.
+These are concrete test-protocol/expectation defects, not evidence of deleted
+work or permission to weaken assistance or scoring.
+
+The author corrected only the four browser files. The new journey follows the
+actual Search action and waits for observed guide/form steps, workspace focus,
+Shared Sandbox in actual Review, accepted resource names and the original
+passed/unassisted result. Services now confirms its exact destination before
+reload. Portal/Course await confirmed active status before leaving Start; the
+Hub fixture now expects the exact neutral legacy route. All existing behavioral
+assertions remain; no timeout, action deadline, retry, worker, skip, count or
+production source byte changed. The old retry-to-abandon flow already waits for
+an active-only control and retains its assertions.
+
+The first complete CI run **41824040575**, head `6e065c…`, **failed** with
+**352 passed, 1 flaky and 5 failed**. I compared the saved sanitized CI summary
+with [the retained result](../reviews/evidence/cc01/initial-ci-result.json).
+It is not a green candidate receipt. The separate existing Compute help/Back
+and Guidance/Axe document-title issues remain causally unresolved; the old
+Course fixture's missing confirmed-Start wait does not establish fixes for them.
+
+The external native first case also exhausted its unchanged 30-second overall
+budget. I inspected the final trace actions: seven actual receipts, resource and
+answer selections, submission and first-result assertion had succeeded before
+the final return expectation. No native timeout is relabelled as passed.
+An initial native-menu trace was overwritten by output-directory reuse; its
+text log survives, along with the initial standalone failure JSON/screenshots.
+Later failures have separate directories. No recovery of that lost trace is
+claimed. The four-case follow-up runner's historical `VERIFIED` label is explicitly
+limited to its recorded cases in the
+[readiness record](../reviews/evidence/cc01/preview-readiness.json); it is not a
+complete native/full-CI or new-head Gate7 receipt. All eight artifact hashes in
+that record independently match their actual local files.
+
+### Independent actual external journey
+
+I independently ran the current first function without a helper monkeypatch in
+a fresh anonymous browser, through the ordinary root and visible Computing entry.
+The displayed full SHA was `6e065c785d386c25801bdecf9be15bb82369e65f`, with no
+cookies or page errors. The final explicit-postcondition run completed
+**12:12:17.676Z–12:12:32.388Z** and retained 45 route records, screenshots, trace
+and the synthetic local history in
+`/workspace/azurelab-pr54/independent-manual-first-v2/`.
+This was labelled standalone actual journey orchestration; it does not use or
+claim a native suite deadline, retry success or complete CI receipt.
+
+The journey performed the original guided denial/correction and RG/Plan/App
+work, neutral active return, exact draft/Hub/history/reload, and final debrief.
+I explicitly asserted first-result `data-correct=true`, exactly six criterion
+items each marked successful, and unassisted text. Original stored begin is
+boundary `portal-4`, attempt 1; submit is through `portal-7`; the intervening
+history contains drafts and no aid/compare/guided event. The actual completed
+image was personally inspected. A preliminary independent probe had an incorrect
+English validation-text expectation; the real Norwegian validation was valid,
+and the corrected probe passed. Its failed artifact was retained.
+
+This establishes a representative journey on the named **old published SHA**.
+The forthcoming child commit requires its own displayed-SHA/root verification.
+It is not legitimate to reuse this observation as anonymous new-head Gate7.
+
+### Bounded six-domain disposition and validation
+
+- Content/source and assessment: all production source bytes match published
+  `6e065c…`; original manuscripts, keys, rubrics and firsts remain as reviewed.
+  The test explicitly checks the frozen result; it does not approve CC-03's
+  unchanged premise or claim learning/SME validity.
+- Technical and guidance: the new waits observe existing durable Start and
+  workspace state. They neither authorize teaching nor issue commands. Actual
+  invalid scope was rejected. Neutral return, aid and sidecar contracts remain
+  the same. Exact hydration mechanics or a general product-input defect are
+  not claimed diagnosed or fixed by this test-only correction.
+- Visual/accessibility: there is no renderer or style change. Prior actual
+  neutral/short-window/Axe evidence remains applicable; the independently
+  inspected external completed view agrees with the original rubric result.
+- Regression: independently rebuilt the actual diff/untracked snapshot, not
+  merely the stored keys: **37 files**, exact active fingerprint, zero structural
+  or snapshot/base errors. All source files are unchanged from `6e065c…`.
+  The updated preservation manifest removes only the two explicitly amended
+  Hub/Portal test paths from the prior whole-file set. Every other entry retains
+  its earlier independently base-verified hash, and current bytes match all
+  **1,689** entries. The complete original **1,488,942-byte locale prefix** also
+  matches base exactly. Old proof artifacts and test settings remain intact.
+
+Reviewed actual final-candidate full check result/log: **exit 0 at
+12:29:01.174566Z**, 651 Vitest, 503 curriculum subset, 24 Node checks and production
+build. The affected browser retest finished **6 passed, no retry**, including the
+new Computing/Services and inherited Hub/Course/Portal desktop/compact cases.
+Independent collection validation retains **358 = 324 desktop + 34 compact**.
+The reviewed new test hash is
+`faf1a883e5618d8c7383aff22b264767f5e8e2c6f4ded1ae5dcbb63186e82956`,
+matching the independently executed current first-journey payload.
+
+**Active disposition: PR54-A1 and PR54-A2 fixed; no open scoped BLOCKER/MAJOR.**
+Complete full-358 CI/strict and actual anonymous Gate7 on the new delivered SHA
+remain pending. The failed first CI is not replaced by targeted or standalone
+passes. All previously stated human-validation, original product-finding and
+merge/production limits remain.
+
+Post-follow-up validation: `docs:check` and `quality:check` passed. Strict local
+`quality:release` exited 1 only for the missing executed complete candidate
+browser profile; no stale fingerprint, preservation, reviewer or other structural
+error remained. The new implementation stamp, snapshot and every non-review
+release field were preserved by this reviewer.

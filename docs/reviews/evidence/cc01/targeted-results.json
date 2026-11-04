@@ -31,5 +31,10 @@
     "result": "4 passed,3desktop+1compact,no retry; actual final localized production build",
     "limits": "Only existing visible strings were moved. Earlier seven-case vertical run and16 inherited cases remain distinct actual executions; final exact-head full CI required."
   },
-  "preservation": "1691 whole pre-existing paths plus every byte of the prior1488942-byte locale prefix"
+  "preservation": "1689 whole pre-existing paths plus every byte of prior1488942-byte locale prefix",
+  "ciFailureRetest": {
+    "command": "npx playwright test tests/e2e/challenge-return.spec.ts tests/e2e/course-hub.spec.ts tests/e2e/portal.spec.ts tests/e2e/course.spec.ts --config playwright.desktop.config.ts --grep 'Computing real|documented Services|all independent contexts|keyboard search, incomplete|original computing investigations' --reporter=list",
+    "result": "6 passed without retry,5desktop+1compact. All actual old assertions retained; legacy unknown expected neutral and confirmed Start awaited before navigation. New Computing vertical passed9.6s within unchanged30s.",
+    "runtimeDiffFromFirstPublishedHead": []
+  }
 }

@@ -299,6 +299,7 @@ test('course owns full theory, guided real controls, denial investigation, hosti
   await expect(page.locator('.portal-challenge')).toBeVisible();
   await expect(coach(page)).toHaveCount(0);
   await page.getByRole('button', { name: p.challenge.start, exact: true }).click();
+  await expect(page.locator('.portal-challenge')).toContainText(p.challenge.active);
   await capture(page, info, 'independent');
   await expect(page.locator('.guide-target-ring')).toHaveCount(0);
   await expect(page.locator('canvas')).toHaveCount(0);
@@ -432,6 +433,7 @@ test('original computing investigations, direct module access, tablet/narrow nav
   await expect(page.locator('canvas')).toHaveCount(0);
   await page.goto('/portal?area=challenge');
   await page.getByRole('button', { name: p.challenge.start, exact: true }).click();
+  await expect(page.locator('.portal-challenge')).toContainText(p.challenge.active);
   await page.goto('/learn');
   await expect(page.getByRole('link', { name: p.continueChallenge, exact: true })).toHaveAttribute(
     'href',
