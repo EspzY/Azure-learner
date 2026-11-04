@@ -1,0 +1,90 @@
+{
+  "base": "bb66ff2e5115d26304bb017295a9067c6f6fed5d",
+  "scope": "Owner-authorized CC03 isolated assessment successor, typed version navigation and shared teaching/guide/resume integration; historical scoring/technical engines remain frozen.",
+  "files": {
+    "src/app/layout.tsx": {
+      "before": "6a4ae0cd01c83e267b7c88c376dab3d0cf278cd1b4f4b4018742df05b01e0131",
+      "after": "d23aef473f24da37f5345fb27de1519838c9cdce1c959f8fb2a72da1131ad0a2"
+    },
+    "src/components/progress-provider.tsx": {
+      "before": "f81c2aba1d53f57712b339fe0b312f6b94c4b3d5cceb667f7056ab3eaf9ad103",
+      "after": "645109b3f9e5ab64bd2cbff8f4e5ac492316eda52c496b2b1db5d4aea1de624f"
+    },
+    "src/domain/portal/challenge-v2-store.ts": {
+      "before": null,
+      "after": "1dab30c2e103f73d102d3d54daf48f8fedc36ecf382dcfd7f03eceb936d9fd54"
+    },
+    "src/domain/portal/challenge-v2.test.ts": {
+      "before": null,
+      "after": "53161c28f722327cf4e7b486a03ec8a8c0e06a23cab623dd25bf4ea28d83360e"
+    },
+    "src/domain/portal/challenge-v2.ts": {
+      "before": null,
+      "after": "94ba5621912293ccbd3f60c481fd6ea182fae0ae218b900d14ec15718234dc29"
+    },
+    "src/domain/portal/model.ts": {
+      "before": "983544cf40f0c14ed0edb608d71b9208e57fc5ebf6975508366c7e2575d0af04",
+      "after": "491ccdbb4936ddc04d5ebb9bcda911862e7726fabeed7c343243ca0162af8f63"
+    },
+    "src/features/course/challenge-return.tsx": {
+      "before": "c5982304ce8746a2e6f6e82b917ee8c27b255e04b0642b906605484c4597492c",
+      "after": "2e5df315c64a493f6245d0fb3f883a2ba2ce2e4e478f3ff75f0c5579fddfc058"
+    },
+    "src/features/course/cloud-computing-chapters.test.ts": {
+      "before": "526484742fe5058c40c9854ee64237f219d8ae2b10f30fe90562d99606d028fd",
+      "after": "48f2f377f1e4339dfeb0ce18f2eea870fa92378b15b037e7823d4de75e61d307"
+    },
+    "src/features/course/course.tsx": {
+      "before": "986b05cdb8adabdb6cc86445ca7d671c0948164854458962c8849f0547e3865e",
+      "after": "a24deef2b9f88447b41545e89aef45b0dc4a604a8ba39d58872c658431371518"
+    },
+    "src/features/course/guided-coach.tsx": {
+      "before": "dcbcb3df47883ca5d2674ea4056bf217c3b119868755418cee4a76455e026723",
+      "after": "9d1969b4bc656e10475bb6b1ca7a12ce766b06086a62914cf1b47720913af2ce"
+    },
+    "src/features/course/hybrid-foundation.test.ts": {
+      "before": "1f4cd05b91c3c63309e8165b3df875d03a111fc0fb60edbc1c215c7b40595fff",
+      "after": "33aca9a0d3dfb09fbb141928b5ca859542aa87a42d6e1d59ed415a3231a683bb"
+    },
+    "src/features/course/mission-context.ts": {
+      "before": "b2524a6980aea0f90152d7aff4845d135b9641ffa6c27081d18a2c208b1fc31b",
+      "after": "d791c966b7250d25828315f27ec71b93f212e4c89278bd81188f77a026a6ead1"
+    },
+    "src/features/learning/journal.tsx": {
+      "before": "4e0e49b305244cf92afa187dd14d05bd1f84efa295bf670ccb6cb2532abe6018",
+      "after": "c8f68b54caf3b5a546605654b2ea5123acde3e53cef4c79b969ef5f4a159128e"
+    },
+    "src/features/learning/management-access.tsx": {
+      "before": "4b7a31d9209bc14ca4d3fe50bfc05325a3aa173a433569e9287746fd0f82affc",
+      "after": "e33c792e86bf4638518b8ef21f7541e39c6668da32a02b2b9bcf19954aa1ea65"
+    },
+    "src/features/learning/source-disclosure.test.ts": {
+      "before": "1636ac624cdaf278404e515caf4d0fe77d329c19ba76ca64ef0d924a04909b73",
+      "after": "6d4501cf1dbedbde2a782735ed9ae89373f3b79eadaf0522710e9713166e6f0d"
+    },
+    "src/features/portal/challenge-v2-provider.tsx": {
+      "before": null,
+      "after": "db676abf862790f200159db768a5b4fe557c1dcd1807dfd215f3e7bc204973c5"
+    },
+    "src/features/portal/challenge-v2.tsx": {
+      "before": null,
+      "after": "53d3ad50e0ec054c980be05dd2069c74e991234ad414881193d445d792c57989"
+    },
+    "src/features/portal/challenge-validity-preservation.test.ts": {
+      "before": null,
+      "after": "dca42cd1e85a1fcecfa1b25a12fd3abedb1f1b0b256f03f101ce2b403d7e70e9"
+    },
+    "src/features/portal/learning.tsx": {
+      "before": "c62ded8fc8ddaf220193c642f447d5965013981243f6b82e2f7c32ec4b616842",
+      "after": "79c36b994ea2b2b6a6bef0aa50f06be8f111b58221102238c3d2b1633a5d4b6b"
+    },
+    "src/features/portal/portal.css": {
+      "before": "f0ef7a5cc710ab9b7d82a054af4d2f6f24af1f953f893e1227af45f8cacc5697",
+      "after": "09d6a7043e0020855a3b5ec88b0ceca1ef8a0c5c22cf4758d464af7234173039"
+    },
+    "src/features/portal/portal.tsx": {
+      "before": "5f265023a884a09c43bfaeaa2792aff9f264d128e11d52684422f7250d5de15a",
+      "after": "361e2e9b451326b646917b0bee39e17eea762704d455b00feeeeecebb3a3add3"
+    }
+  }
+}

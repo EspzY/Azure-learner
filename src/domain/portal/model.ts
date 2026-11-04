@@ -47,6 +47,7 @@ export const resourceSections = [
 ] as const;
 export type ResourceSection = (typeof resourceSections)[number];
 export interface PortalLocation {
+  assessment?: 'legacy' | 'updated';
   view?: ResourceSection;
   resource?: string;
   migration?: 'method' | 'sync' | 'planning';
@@ -73,6 +74,9 @@ export function parseLocation(query: URLSearchParams): PortalLocation {
   const area = query.get('area') ?? 'home',
     mode = query.get('mode') ?? 'learn';
   return {
+    ...(['legacy', 'updated'].includes(query.get('assessment') ?? '')
+      ? { assessment: query.get('assessment') as 'legacy' | 'updated' }
+      : {}),
     ...(area === 'resource' && resourceSections.includes(query.get('view') as ResourceSection)
       ? { view: query.get('view') as ResourceSection }
       : {}),
@@ -268,6 +272,7 @@ export function portalHref(
     topic: next.topic,
     mode: next.mode,
   });
+  if (next.assessment) query.set('assessment', next.assessment);
   if (next.id) query.set('id', next.id);
   if (next.area === 'resource' && next.view) query.set('view', next.view);
   if (next.area === 'activity' && next.resource) query.set('resource', next.resource);

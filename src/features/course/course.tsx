@@ -1,4 +1,8 @@
 'use client';
+import { useChallenge2 } from '@/features/portal/challenge-v2-provider';
+import { challenge2Href } from '@/domain/portal/challenge-v2';
+import { Challenge2History } from '@/features/portal/challenge-v2';
+import { challenge2Nb } from '@/content/nb';
 import { challengeResumeHref } from '@/domain/portal/challenge-origin';
 import { ChallengeReturn } from './challenge-return';
 import { missionContextLabel } from './mission-context';
@@ -243,6 +247,7 @@ function CourseWorkspace({ module }: { module?: CourseModule }) {
     course = useCourse(),
     learning = useLearning(),
     services = usePortalLearning(),
+    portalUpdated = useChallenge2(),
     chapter = useChapter(),
     v2 = useFoundationsV2(),
     benefits = useExpansion('benefits'),
@@ -657,6 +662,9 @@ function CourseWorkspace({ module }: { module?: CourseModule }) {
                                                                                           preferredResume.topic,
                                                                                         )
                                                                                 : computingEntry;
+  const resumeWithUpdated = portalUpdated.facts.active
+    ? challenge2Href(portalUpdated.issue ? null : portalUpdated.facts.origin)
+    : storedResumeHref;
   const navigate = (area: PortalLocation['area'], change: Partial<PortalLocation> = {}) => {
     if (area === 'learn')
       router.push(courseHref(change.module ?? module ?? 'services', change.topic ?? topic));
@@ -905,7 +913,18 @@ function CourseWorkspace({ module }: { module?: CourseModule }) {
     ['chapter', hubCopy.recordLabels.chapter, chapter, '/portal'],
     ['learning', hubCopy.recordLabels.learning, learning, courseHref('computing', 'assessment')],
     ['v2', hubCopy.recordLabels.v2, v2, courseHref('computing', 'v2-assessment')],
-    ['services', hubCopy.recordLabels.services, services, '/portal?area=challenge'],
+    [
+      'services',
+      hubCopy.recordLabels.services,
+      services,
+      '/portal?area=challenge&assessment=legacy',
+    ],
+    [
+      'portalUpdated',
+      challenge2Nb.ui.updated,
+      portalUpdated,
+      challenge2Href(portalUpdated.issue ? null : portalUpdated.facts.origin),
+    ],
     ['benefits', hubCopy.recordLabels.benefits, benefits, courseHref('benefits', 'assessment')],
     ['service2', hubCopy.recordLabels.service2, service2, courseHref('services', 'assessment')],
     [
@@ -969,7 +988,10 @@ function CourseWorkspace({ module }: { module?: CourseModule }) {
   const activeAssessmentContexts = useMissionSafetyContexts().filter((context) => context.active);
   const assessmentConflict =
     activeAssessmentContexts.length > 1 &&
-    (application.facts.active || updatedBenefits.facts.active || updatedServices.facts.active);
+    (portalUpdated.facts.active ||
+      application.facts.active ||
+      updatedBenefits.facts.active ||
+      updatedServices.facts.active);
   const reliableHistory =
     !assessmentConflict && hubRecords.every((record) => record.ready && !record.issue);
   const navigationActivities = Object.fromEntries(
@@ -998,6 +1020,7 @@ function CourseWorkspace({ module }: { module?: CourseModule }) {
     ]),
   ) as unknown as CourseActivities;
   const activeIndependent =
+    portalUpdated.facts.active ||
     application.facts.active ||
     updatedBenefits.facts.active ||
     updatedServices.facts.active ||
@@ -1029,9 +1052,9 @@ function CourseWorkspace({ module }: { module?: CourseModule }) {
   const resumeHref = assessmentConflict
     ? '/learn'
     : activeIndependent || !reliableHistory
-      ? storedResumeHref
+      ? resumeWithUpdated
       : (guidedResume(guidedModules.find((m) => m.id === preferredResume?.module)) ??
-        storedResumeHref);
+        resumeWithUpdated);
   const recommendation = !reliableHistory
     ? {
         href: module ? courseHref(module, topic) : '/learn',
@@ -2128,6 +2151,7 @@ function CourseWorkspace({ module }: { module?: CourseModule }) {
       {journal && (
         <PortalDialog title={c.journal} onClose={() => setJournal(false)}>
           <ManagementTeachingBoundary identity="course-journal">
+            <Challenge2History />
             <ApplicationHistory />
             {!module && (
               <>

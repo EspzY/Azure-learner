@@ -28,6 +28,8 @@ async function area(page: Page, id: keyof typeof p.areas) {
   await revealPortalLink(page, link);
   await link.click();
   await expect(page.locator('.portal-title h1')).toHaveText(p.areas[id]);
+  if (id === 'challenge' && new URL(page.url()).searchParams.get('assessment') !== 'legacy')
+    await page.getByRole('link', { name: 'Tidligere vurderingsversjon', exact: true }).click();
 }
 async function create(
   page: Page,

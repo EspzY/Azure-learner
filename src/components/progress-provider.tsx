@@ -15,6 +15,7 @@ import { connectivityKey } from '@/domain/curriculum/connectivity';
 import { networkingKey } from '@/domain/curriculum/networking';
 
 import { retiredStorageKeys } from '@/domain/retired-storage';
+import { challenge2Key } from '@/domain/portal/challenge-v2';
 import { serviceLearningKey } from '@/domain/portal/learning';
 import { courseKey } from '@/domain/course/model';
 import { transferKey } from '@/domain/curriculum/transfer';
@@ -99,6 +100,7 @@ export function ProgressProvider({ children }: { children: React.ReactNode }) {
     try {
       for (const key of retiredStorageKeys) localStorage.removeItem(key);
       localStorage.removeItem(serviceLearningKey);
+      localStorage.removeItem(challenge2Key);
       localStorage.removeItem(courseKey);
       for (const key of [
         'azurelab.sandbox.v2',

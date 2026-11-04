@@ -1,0 +1,40 @@
+{
+  "head": "453640d1cdda6b811ab8ee1c3e545278378ef2af",
+  "firstExternal": {
+    "result": "NOT_VERIFIED",
+    "root": {
+      "url": "https://azure-learner-git-codex-cc03-iaas-assess-696eda-espzys-projects.vercel.app/learn",
+      "build": "Bygginformasjon · forhåndsvisning\n\nCommit: 453640d1cdda6b811ab8ee1c3e545278378ef2af\n\nGren: codex/cc03-iaas-assessment-validity",
+      "anonymousCookieNames": []
+    },
+    "passed": [
+      "updated Computing Web assessment follows actual lab, explicit paired premises, technical receipts, neutral return and exact Hub resume"
+    ],
+    "failed": [
+      {
+        "name": "updated Services origin and assessment selection survive resource navigation Back Forward reload and completed return",
+        "error": "Error: expect(locator).toBeFocused() failed\n\nLocator:  locator('.portal-title h1')\nExpected: focused\nReceived: inactive\nTimeout:  5000ms\n\nCall log:\n  - Expect \"toBeFocused\" locator('.portal-title h1') with timeout 5000ms\n  - waiting for locator('.portal-title h1')\n    14 × locator resolved to <h1 tabindex=\"-1\" id=\"portal-page-title\">Independent challenge</h1>\n       - unexpected value \"inactive\"\n"
+      }
+    ],
+    "journeySha256": "4100ca9b797940e090a9cb621d7595323fa613b0fbb29e0cc0ba32882aa73553"
+  },
+  "probe": {
+    "result": "VERIFIED",
+    "cases": [
+      "updated Services origin and assessment selection survive resource navigation Back Forward reload and completed return"
+    ],
+    "journeySha256": "2b3edb7422f06499dbd7eae930dd457fb762ebc555f66fa1245a3777685566d8",
+    "change": "Await observed committed Portal area/heading after Back and Forward and initial focused Activity heading after reload; preserve original Continue target-focus and all draft/World/return assertions. No timeout/retry/worker/skip changed."
+  },
+  "limits": "Single bounded external diagnostic, not native full-CI/new-headGate7. Product source unchanged; initial pending-route/focus timing not claimed as a general runtime fix or older-flake resolution. Original external logs/journey/screenshots retained under /workspace/azurelab-pr55/gate7-final and gate7-focus-probe.",
+  "nativeFocused": {
+    "command": "npx playwright test tests/e2e/challenge-validity.spec.ts --grep updated Services origin --config playwright.desktop.config.ts",
+    "result": "1passed,exit0,no retry,15.6s",
+    "logSha256": "733070564f1323b566bf7ec62067606ece7136735adb8a1356b61ddeaa917cdb"
+  },
+  "otherExternal": {
+    "result": "6passed standalone remainder on453640",
+    "limits": "Separate partial run, not complete native suite or final-headGate7. Original root/fullSHA verified each run."
+  },
+  "productSourceUnchanged": true
+}

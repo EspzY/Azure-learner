@@ -2206,3 +2206,35 @@
 .portal.portal-flyout .portal-nav.mobile-open {
   z-index: 90;
 }
+
+/* Updated assessment presentation; original Portal layout and dialogs remain. */
+.portal-challenge-updated {
+  max-width: 75rem;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.portal-challenge-updated fieldset > section {
+  margin-block: 1.5rem;
+  padding-block-end: 1rem;
+  border-bottom: 1px solid #d6dfe4;
+}
+.portal-challenge-updated fieldset {
+  min-width: 0;
+}
+.portal-challenge-updated label {
+  display: grid;
+  gap: 0.35rem;
+  margin-block: 0.85rem;
+}
+.portal-challenge-updated select {
+  max-width: 100%;
+  min-width: 0;
+  width: 100%;
+}
+.portal-challenge-updated details > summary {
+  cursor: pointer;
+  padding-block: 0.6rem;
+}
+.portal-challenge-updated details > section {
+  margin-block: 1.2rem;
+}

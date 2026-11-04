@@ -1,4 +1,7 @@
 'use client';
+import { useChallenge2 } from './challenge-v2-provider';
+import { challenge2Return } from '@/domain/portal/challenge-v2';
+import { ChallengeEntry } from './challenge-v2';
 import { challengeReturnNb } from '@/content/nb';
 import { challengeOriginFromLocation, challengeReturnHref } from '@/domain/portal/challenge-origin';
 import { useApplication } from '@/features/learning/application-provider';
@@ -82,12 +85,7 @@ import { usePortalLearning } from './learning-provider';
 import { PortalDialog, PropertyList, type Navigate } from './shared';
 import { ResourceTable, ResourceDetails } from './inventory';
 import { CreateResource } from './create-resource';
-import {
-  LearningWorkspace,
-  IndependentChallenge,
-  ServiceReference,
-  FoundationsReference,
-} from './learning';
+import { LearningWorkspace, ServiceReference, FoundationsReference } from './learning';
 import { ResponsibilityExplorer } from './responsibility';
 import { ArchitectureExplorer } from './architecture';
 import './portal.css';
@@ -128,7 +126,8 @@ function PortalWorkspace({ navigation }: { navigation?: PortalPresentationNaviga
     location = parseLocation(new URLSearchParams(query.toString()));
   const chapter = useChapter(),
     learning = useLearning(),
-    module = usePortalLearning();
+    module = usePortalLearning(),
+    portalUpdated = useChallenge2();
   const course = useCourse(),
     practical = usePractical(),
     missions = useMissions();
@@ -183,6 +182,7 @@ function PortalWorkspace({ navigation }: { navigation?: PortalPresentationNaviga
   const updatedBenefits = useRefined('benefits'),
     updatedServices = useRefined('services');
   const otherIndependentContext =
+    portalUpdated.facts.active ||
     application.facts.active ||
     updatedBenefits.facts.active ||
     updatedServices.facts.active ||
@@ -212,6 +212,7 @@ function PortalWorkspace({ navigation }: { navigation?: PortalPresentationNaviga
     services2.facts.active;
   const independentContext = otherIndependentContext || missions.active;
   const guidanceContexts = [
+    portalUpdated,
     application,
     updatedBenefits,
     updatedServices,
@@ -255,6 +256,7 @@ function PortalWorkspace({ navigation }: { navigation?: PortalPresentationNaviga
     services2.ready &&
     !!course.save.lab &&
     !practical.activeIndependent &&
+    !portalUpdated.facts.active &&
     !module.facts.active &&
     !benefits.facts.active &&
     !services2.facts.active;
@@ -271,13 +273,21 @@ function PortalWorkspace({ navigation }: { navigation?: PortalPresentationNaviga
     !location.monitoring &&
     !location.security &&
     !location.migration &&
-    (location.area === 'challenge' || module.facts.active);
+    (location.area === 'challenge' || module.facts.active || portalUpdated.facts.active);
   const challengeOrigin = module.save.events.some((event) => event.kind === 'begin')
     ? !module.issue && !module.originIssue && module.originReady
       ? (module.origin ?? null)
       : null
     : challengeOriginFromLocation(location);
-  const nativeCourseReturn = legacyChallenge
+  const updatedChallenge =
+    legacyChallenge &&
+    (portalUpdated.facts.active || (!module.facts.active && location.assessment !== 'legacy'));
+  const updatedOrigin = portalUpdated.save.events.length
+    ? portalUpdated.issue
+      ? null
+      : portalUpdated.facts.origin
+    : challengeOriginFromLocation(location);
+  const existingCourseReturn = legacyChallenge
     ? challengeReturnHref(challengeOrigin, module.facts.active)
     : location.migration
       ? migrationHref('studio') + '&perspective=' + location.migration
@@ -311,6 +321,10 @@ function PortalWorkspace({ navigation }: { navigation?: PortalPresentationNaviga
                           : location.course
                             ? courseHref(location.module, location.topic)
                             : '/learn';
+
+  const nativeCourseReturn = updatedChallenge
+    ? challenge2Return(updatedOrigin, portalUpdated.facts.active)
+    : existingCourseReturn;
   const courseReturn = navigation?.courseReturn ?? nativeCourseReturn;
   const returnLearning = () =>
     legacyChallenge ||
@@ -969,9 +983,9 @@ function PortalWorkspace({ navigation }: { navigation?: PortalPresentationNaviga
               }
             >
               {legacyChallenge
-                ? challengeOrigin?.module === 'computing'
+                ? (updatedChallenge ? updatedOrigin : challengeOrigin)?.module === 'computing'
                   ? nb.official.computing
-                  : challengeOrigin?.module === 'services'
+                  : (updatedChallenge ? updatedOrigin : challengeOrigin)?.module === 'services'
                     ? nb.official.services
                     : challengeReturnNb.portalUnknown
                 : location.networking
@@ -1004,7 +1018,7 @@ function PortalWorkspace({ navigation }: { navigation?: PortalPresentationNaviga
               {p.returnLearning}
             </button>
 
-            {module.facts.active ? (
+            {module.facts.active || portalUpdated.facts.active ? (
               <button type="button" onClick={() => navigate('challenge', { mode: 'independent' })}>
                 {p.continueChallenge}
               </button>
@@ -1135,12 +1149,16 @@ function PortalWorkspace({ navigation }: { navigation?: PortalPresentationNaviga
                           onClick={() =>
                             managementLab || practicalMission || location.bridge
                               ? returnLearning()
-                              : navigate(module.facts.active ? 'challenge' : 'learn')
+                              : navigate(
+                                  module.facts.active || portalUpdated.facts.active
+                                    ? 'challenge'
+                                    : 'learn',
+                                )
                           }
                         >
                           {managementLab || practicalMission || location.bridge
                             ? nb.course.returnCourse
-                            : module.facts.active
+                            : module.facts.active || portalUpdated.facts.active
                               ? p.continueChallenge
                               : p.startLearning}
                         </button>
@@ -1323,10 +1341,7 @@ function PortalWorkspace({ navigation }: { navigation?: PortalPresentationNaviga
                 ) : location.area === 'learn' ? (
                   <LearningWorkspace location={location} navigate={navigate} />
                 ) : location.area === 'challenge' ? (
-                  <IndependentChallenge
-                    navigate={navigate}
-                    origin={challengeOriginFromLocation(location)}
-                  />
+                  <ChallengeEntry navigate={navigate} location={location} />
                 ) : location.area === 'responsibility' ? (
                   <>
                     <h2>{p.responsibility.title}</h2>

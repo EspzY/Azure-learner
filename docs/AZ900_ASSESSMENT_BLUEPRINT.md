@@ -1,5 +1,9 @@
 # AZ-900 — fremtidig diagnostikk og læringsoverføring
 
+## PR55 — CC-03: Portal-vurdering med eksplisitte driftskrav
+
+Den isolerte Portal challenge v2 (`portal-transfer@2`) erstatter standardinngangen for nytt arbeid. To faglige beslutningspar skiller kundestyrt gjeste-OS fra bekreftet administrert plattformstøtte etter endret driftskrav. De opprinnelige tekniske Web-kriteriene gjenbrukes uendret. Portal-v1 (`portal-transfer@1`), Services teaching v2/assessment v3, Cloud Transfer og guest-control@1 er separate, frosne kontrakter. [Versjonering, kilder, blindreview og bevaring](CC03_IAAS_ASSESSMENT.md). Egne begin/draft/aid/submit/abandon, immutable first og forsøksbundet origin gir eksakt resume uten migrering. Dette er avgrenset faglig evidence, ikke en validert mestringsmåling. Endelig CC-03-lukking krever faktisk separat audit, eksakt-head CI/streng release og anonym Gate7 på DraftPR55.
+
 ## AS-02 Stage A — PR49, avgrenset nærtransfer
 
 Seks nye, isolerte tilfeller i Networking, Storage og Cost/Cloud Transfer supplerer de frosne bankene. Tre reelle kontrafaktiske par, kompatible stabile svar-ID-er, eksplisitt read-only familieeksponering og separat durable historikk er implementert. Begge gyldige lagringsadapterpar godtas. Låst blindreview og heuristikk-/legacy-bevis finnes i [Stage A-kontrakten](ASSESSMENT_TRANSFER_STAGE_A.md). Ingen generell diagnostikk, ny mastery-score, omskriving av de57 dekningsradene eller påstand om menneskelig generalisering. Endelig Stage A-akseptanse krever faktisk CI/audit/streng release/ekstern Gate7 på Draft PR49; bredere AS-02 gjenstår.

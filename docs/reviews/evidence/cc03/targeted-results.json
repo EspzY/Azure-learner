@@ -1,0 +1,62 @@
+{
+  "domain": {
+    "command": "npx vitest run src/domain/portal/challenge-v2.test.ts src/domain/portal/challenge-origin.test.ts src/domain/portal/portal.test.ts --reporter=dot",
+    "result": "40 passed,3 files,exit0"
+  },
+  "browser": {
+    "command": "npx playwright test tests/e2e/challenge-validity.spec.ts --config playwright.desktop.config.ts --reporter=list --output /workspace/azurelab-pr55/browser-corrected-results",
+    "result": "9 passed,8desktop+1compact,no retry,55.5s,exit0",
+    "productionBuild": "build-browser-corrected.log exit0; current runtime unchanged during subsequent test-only readiness fixes"
+  },
+  "initialBrowser": {
+    "result": "5 failed +4passed",
+    "causes": [
+      "Immediate reload aborted pending Next navigation; now waits for actual Portal destination and loaded saved choice.",
+      "Challenge lives under Portal learning-tools disclosure; use existing explicit training-strip Continue action.",
+      "Unscoped role=alert also matched Next route announcer; selector now scoped to actual assessment alert."
+    ],
+    "preservation": "Original logs/traces/error contexts retained outside repository in /workspace/azurelab-pr55/browser-initial-results."
+  },
+  "settings": "No retry/timeout/worker/skip changed. Existing358 executions retained;9 new executions yield367(332desktop/35compact), final exact-head CI required.",
+  "limits": "Agent technical/browser checks, not human SME/novice/screen-reader or psychometric evidence. Known older Compute help/Back and Guidance/Axe document-title instabilities remain causally unresolved.",
+  "finalDomain": {
+    "result": "42 passed,3 files,exit0",
+    "log": "domain-final-start.log",
+    "change": "Adds locked pending Start and competing same-version Start controls."
+  },
+  "preservation": {
+    "result": "11 passed,4files,exit0",
+    "wholeFiles": 1688,
+    "localePrefixBytes": 1490126
+  },
+  "integration": {
+    "result": "30 passed +2failed,32runs,5.2min,exit1",
+    "failures": "Two legacy test constants accidentally expected assessment=legacy in frozen CC01 resume href. Corrected only archive entry URLs, original production resume expectations retained.",
+    "retest": "Both affected actual Computing/Services journeys passed,2/2,no retry,22.4s,exit0",
+    "artifacts": "browser-integration-final-results and browser-cc01-retest-results retained outside repository."
+  },
+  "dependencyAudit": {
+    "development": {
+      "info": 0,
+      "low": 0,
+      "moderate": 10,
+      "high": 0,
+      "critical": 0,
+      "total": 10
+    },
+    "production": {
+      "info": 0,
+      "low": 0,
+      "moderate": 0,
+      "high": 0,
+      "critical": 0,
+      "total": 0
+    },
+    "limits": "Current advisory snapshot only; dependency bytes unchanged from PR54, no advisory fix or historical12-count resolution claimed."
+  },
+  "partialChecks": [
+    "Initial new preservation test TS disjoint-literal comparison failed typecheck; test corrected without runtime change.",
+    "Next attempt stopped at formatter for corrected test; formatted, no product behavior change.",
+    "Next check interrupted at lint by managed environment restart; not claimed as passed."
+  ]
+}

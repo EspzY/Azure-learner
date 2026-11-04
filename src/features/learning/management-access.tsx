@@ -1,4 +1,12 @@
 'use client';
+import { useChallenge2 } from '@/features/portal/challenge-v2-provider';
+import {
+  challenge2Key,
+  challenge2Facts,
+  restoreChallenge2,
+  challenge2Href,
+} from '@/domain/portal/challenge-v2';
+import { challenge2Nb } from '@/content/nb';
 import { useApplication } from '@/features/learning/application-provider';
 import { applicationHref } from '@/domain/curriculum/application-transfer';
 import { ApplicationRecovery } from './application-transfer';
@@ -156,9 +164,13 @@ import { ComputeRecovery } from './compute';
 import { useCost } from './cost-provider';
 import { costFacts, costKey, restoreCost, costHref } from '@/domain/curriculum/cost';
 import { CostRecovery } from './cost';
-export type TeachingContextId = keyof typeof c.accessContexts | 'application';
+export type TeachingContextId = keyof typeof c.accessContexts | 'application' | 'portalUpdated';
 const contextLabel = (id: TeachingContextId) =>
-  id === 'application' ? applicationNb.ui.title : c.accessContexts[id];
+  id === 'portalUpdated'
+    ? challenge2Nb.ui.updated
+    : id === 'application'
+      ? applicationNb.ui.title
+      : c.accessContexts[id];
 const read = (key: string) => localStorage.getItem(key);
 function check<S>(
   id: TeachingContextId,
@@ -226,9 +238,19 @@ export function ManagementTeachingBoundary({
     securityState = useSecurity(),
     migrationState = useMigration();
   const application = useApplication();
+  const portalUpdated = useChallenge2();
   const updatedBenefits = useRefined('benefits'),
     updatedServices = useRefined('services');
   const checks = [
+    check(
+      'portalUpdated',
+      portalUpdated,
+      challenge2Key,
+      restoreChallenge2,
+      challenge2Facts,
+      () => portalUpdated.store.event({ kind: 'aid' }),
+      challenge2Href(portalUpdated.facts.origin),
+    ),
     check(
       'application',
       application,
@@ -445,7 +467,7 @@ export function ManagementTeachingBoundary({
       restoreServices,
       serviceFacts,
       () => old.store.event({ kind: 'aid' }),
-      '/portal?area=challenge&mode=independent',
+      '/portal?area=challenge&mode=independent&assessment=legacy',
     ),
     check(
       'benefits',
@@ -488,6 +510,7 @@ export function ManagementTeachingBoundary({
         ((assessment === 'updatedBenefits' || assessment === 'updatedServices') &&
           ['benefits', 'services'].includes(item.id)) ||
         item.id === 'legacyServices' ||
+        item.id === 'portalUpdated' ||
         item.id === 'application' ||
         item.id === 'updatedBenefits' ||
         item.id === 'updatedServices' ||

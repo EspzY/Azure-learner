@@ -1,4 +1,5 @@
 'use client';
+import { Challenge2History } from '@/features/portal/challenge-v2';
 import { SourceDisclosure } from './source-disclosure';
 import { nb } from '@/content/nb';
 import { unitIds, units, sourceUrl, type UnitId } from '@/domain/curriculum/manifest';
@@ -24,6 +25,7 @@ export function KnowledgeJournal({
     <CommandDialog title={t.journal} onClose={onClose} wide>
       <ManagementTeachingBoundary identity={`global-journal:${unit}`}>
         <div className="knowledge-journal">
+          <Challenge2History />
           <p>{t.journalHint}</p>
           <CurriculumTrail overview unit={unit} />
           <label>

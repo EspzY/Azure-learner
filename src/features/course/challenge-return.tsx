@@ -1,4 +1,6 @@
 'use client';
+import { useSearchParams } from 'next/navigation';
+import { UpdatedChallengeReturn } from '@/features/portal/challenge-v2';
 import Link from 'next/link';
 import { nb, challengeReturnNb as copy } from '@/content/nb';
 import { useEffect, useRef } from 'react';
@@ -7,6 +9,14 @@ import { challengeResumeHref, challengeReturnHref } from '@/domain/portal/challe
 
 // A neutral return state: no lesson, feedback, visit or assistance is mounted here.
 export function ChallengeReturn() {
+  const query = useSearchParams();
+  return query.get('assessment') === 'updated' ? (
+    <UpdatedChallengeReturn />
+  ) : (
+    <LegacyChallengeReturn />
+  );
+}
+function LegacyChallengeReturn() {
   const state = usePortalLearning();
   const title = useRef<HTMLHeadingElement>(null);
   useEffect(() => {
@@ -46,7 +56,7 @@ export function ChallengeReturn() {
           <>
             <p>{state.facts.active ? copy.active : copy.inactive}</p>
             <p>
-              <Link className="primary" href={challengeResumeHref(origin)}>
+              <Link className="primary" href={challengeResumeHref(origin) + '&assessment=legacy'}>
                 {state.facts.active ? copy.resumeActive : copy.resumeHistory}
               </Link>
             </p>

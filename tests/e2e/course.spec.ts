@@ -296,6 +296,7 @@ test('course owns full theory, guided real controls, denial investigation, hosti
   await page.reload();
   await expect(page.getByRole('heading', { name: c.debrief, exact: true })).toBeVisible();
   await page.getByRole('button', { name: c.startIndependent, exact: true }).click();
+  await page.getByRole('link', { name: 'Tidligere vurderingsversjon', exact: true }).click();
   await expect(page.locator('.portal-challenge')).toBeVisible();
   await expect(coach(page)).toHaveCount(0);
   await page.getByRole('button', { name: p.challenge.start, exact: true }).click();
@@ -431,7 +432,7 @@ test('original computing investigations, direct module access, tablet/narrow nav
   await page.goto('/portal?lab=web-platform');
   await expect(coach(page)).toHaveCount(0);
   await expect(page.locator('canvas')).toHaveCount(0);
-  await page.goto('/portal?area=challenge');
+  await page.goto('/portal?area=challenge&assessment=legacy');
   await page.getByRole('button', { name: p.challenge.start, exact: true }).click();
   await expect(page.locator('.portal-challenge')).toContainText(p.challenge.active);
   await page.goto('/learn');

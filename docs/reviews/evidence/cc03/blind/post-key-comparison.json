@@ -1,0 +1,264 @@
+{
+  "reviewType": "POST-KEY comparison and feedback validation; not a blind solve",
+  "lockedAtUTC": "2026-11-04T20:26:13.706114Z",
+  "inputArtifacts": [
+    {
+      "artifact": "initialReview",
+      "path": "/workspace/azurelab-pr55/blind/initial-review.json",
+      "SHA256": "20624b447828494a9010d8a58823619a1ebcc6d959eebd32d0e4dbf24e8aaee5",
+      "matchesExpectedDigest": true
+    },
+    {
+      "artifact": "revisedReview",
+      "path": "/workspace/azurelab-pr55/blind/revised-review.json",
+      "SHA256": "33db61218d4ac8fab76ae1eabc101726dba7cd67898000909b2f626e068f24c4",
+      "matchesExpectedDigest": true
+    },
+    {
+      "artifact": "keyMaterial",
+      "path": "/workspace/azurelab-pr55/blind/key-comparison-material.json",
+      "SHA256": "ec2dacf833e72bae886a87f014d032311e9e0c8f1c2b2b708fb640a976f5015f",
+      "matchesExpectedDigest": true
+    }
+  ],
+  "studentInputHashesAsRecordedInPreservedReviews": {
+    "initial": "68e88c192bb33e5f9d66db7369f8a2e06020c407502810e7038c6515a2663307",
+    "revised": "9be6b2dd75917e6ba4daccf9434a903252be38597b7699f7abfd1d29f67e4b50"
+  },
+  "outputSHA256Protocol": "Digest of the complete post-key-comparison.json is returned separately after serialization; it is not embedded self-referentially.",
+  "accessTiming": {
+    "initialReviewLockedAtUTC": "2026-11-04T20:17:10Z",
+    "revisedReviewLockedAtUTC": "2026-11-04T20:21:39Z",
+    "firstKeyAccessStartedAtUTC": "2026-11-04T20:24:21.105584Z",
+    "firstKeyAccessCompletedAtUTC": "2026-11-04T20:24:21.105768Z",
+    "firstKeyAccessTimingSource": "UTC datetimes captured immediately before and after the first read_bytes call on key-comparison-material.json, printed in the first key-access tool result. These are actual access times, not the time the parent authorized access.",
+    "comparisonInputReadLog": [
+      {
+        "artifact": "initialReview",
+        "readStartedAtUTC": "2026-11-04T20:26:13.698373Z",
+        "readCompletedAtUTC": "2026-11-04T20:26:13.698759Z"
+      },
+      {
+        "artifact": "revisedReview",
+        "readStartedAtUTC": "2026-11-04T20:26:13.699459Z",
+        "readCompletedAtUTC": "2026-11-04T20:26:13.704166Z"
+      },
+      {
+        "artifact": "keyMaterial",
+        "readStartedAtUTC": "2026-11-04T20:26:13.705839Z",
+        "readCompletedAtUTC": "2026-11-04T20:26:13.705965Z"
+      }
+    ],
+    "bothPreKeyLocksPrecedeFirstKeyAccess": true,
+    "earlierLockHashesStillMatch": true
+  },
+  "processAndLimitations": {
+    "authorizedMaterialsReadSinceKeyDisclosure": [
+      "/workspace/azurelab-pr55/blind/initial-review.json",
+      "/workspace/azurelab-pr55/blind/revised-review.json",
+      "/workspace/azurelab-pr55/blind/key-comparison-material.json"
+    ],
+    "repositorySourceRubricOtherAuthorFilesOrImplementationInspected": false,
+    "externalSourcesConsultedInThisComparison": [],
+    "earlierSolvesModified": false,
+    "reviewer": "AI reviewer, not human SME",
+    "status": "The accepted pairs, authored feedback, criterion descriptions and UI boundary notes are now known to this reviewer. All conclusions below are explicitly key-exposed validation.",
+    "limits": [
+      "The first independent solve and revised pre-key recheck remain their original artifacts and hashes.",
+      "This review compares supplied authored material; it does not independently confirm that these are the values executed by the application.",
+      "No sandbox operation, actual receipt validation, replay validation, UI inspection, runtime test, security examination or psychometric study was performed.",
+      "UI disclosure statements are supplied assertions, not independently observed behavior.",
+      "Independent Microsoft Learn documentation was consulted before the initial lock, as disclosed there; no new documentation was needed here."
+    ]
+  },
+  "acceptedPairComparison": {
+    "items": [
+      {
+        "itemId": "wv2-01",
+        "lockedRevisedPairs": [
+          [
+            "iaas",
+            "guest-lifecycle"
+          ]
+        ],
+        "authoredAcceptedPairs": [
+          [
+            "iaas",
+            "guest-lifecycle"
+          ]
+        ],
+        "exactSetMatch": true
+      },
+      {
+        "itemId": "wv2-02",
+        "lockedRevisedPairs": [
+          [
+            "paas",
+            "supported-platform"
+          ]
+        ],
+        "authoredAcceptedPairs": [
+          [
+            "paas",
+            "supported-platform"
+          ]
+        ],
+        "exactSetMatch": true
+      }
+    ],
+    "allExplicitAuthoredPairSetsExactlyMatchLockedRevisedSolve": true,
+    "noPreviouslyDefensiblePairExcludedByTheSuppliedKeys": true,
+    "noAdditionalAuthoredPairBeyondTheLockedRevisedSolve": true,
+    "interpretation": "The two explicit authored accepted-pair sets agree exactly with the pre-key assessment. Agreement confirms consistency between the supplied key and the independently stated premises; it does not establish unique correctness for every possible unstated real-world requirement."
+  },
+  "webComparison": {
+    "importantEvidenceBoundary": "The supplied key artifact includes explicit acceptedPairs only for wv2-01 and wv2-02. Web agreement below is with the authored feedback and criterion descriptions, not an inspected executable accepted-pair table.",
+    "application": {
+      "lockedPair": {
+        "decision": "paas",
+        "reason": "managed-platform"
+      },
+      "authoredCriterion": "Egen HTTP-kode på administrert appplattform med kompatibel begrunnelse.",
+      "feedbackConsistent": true,
+      "reasoning": "The service feedback excludes both an asserted OS-control need and a ready-made-software arrangement for the requested own-code App Service workload."
+    },
+    "finishedCollaborationService": {
+      "lockedModel": "saas",
+      "lockedReasonIfNeeded": "ready-service",
+      "authoredFeedbackConsistent": true,
+      "reasoning": "The ready criterion explicitly identifies a finished collaboration service as SaaS. Accounts and settings are illustrative user responsibilities, not a claim that users have no data/security responsibilities."
+    },
+    "locationCause": {
+      "lockedChoice": "plan",
+      "authoredFeedbackConsistent": true,
+      "reasoning": "The cause feedback attributes hosting to the plan, rejects resource-group metadata as a universal hosting location, and limits the local policy claim rather than presenting it as a universal Azure rule."
+    },
+    "scopeAndEvidence": {
+      "authoredFeedbackConsistentWithRevisedInstructions": true,
+      "reasoning": "The revised brief requires Start before creation, new resources, stated group metadata/plan regions, an actual app-to-plan reference, actual resource selections, and receipt discovery. The scope and hosting feedback align with those requirements. Replay is an internal validation mechanism in this material, not an extra student action specified by the brief.",
+      "crucialLimitCorrectlyStated": "Hosting feedback explicitly says this proves configuration, not application runtime.",
+      "notIndependentlyVerified": [
+        "That the recorded resources were created after Start.",
+        "That the actual group/plan/app IDs and relationships match.",
+        "That replay and receipts are complete, tamper-resistant, or properly attributed.",
+        "That the submitted Web pair is enforced by the running scorer."
+      ]
+    }
+  },
+  "criterionFeedbackCoverage": {
+    "criterionIds": [
+      "cause",
+      "hosting",
+      "os",
+      "platform",
+      "ready",
+      "scope",
+      "service"
+    ],
+    "feedbackIds": [
+      "cause",
+      "hosting",
+      "os",
+      "platform",
+      "ready",
+      "scope",
+      "service"
+    ],
+    "allSevenCriteriaHaveSuppliedFeedback": true,
+    "missingFeedbackInSuppliedArtifact": [],
+    "coverageLimit": "This verifies the completeness of the provided comparison payload, not that every criterion and feedback message is rendered or reachable in the product."
+  },
+  "rationaleAndCounterfactualReview": [
+    {
+      "criterion": "os",
+      "verdict": "Substantively correct; optional counterfactual clarification",
+      "rationale": "The feedback grounds IaaS in required customer guest-image/lifecycle responsibility and explicitly rejects reasoning from Windows, COM, registry or MSI labels alone. This avoids a false technology-equals-IaaS rule.",
+      "counterfactualAssessment": "A supported platform is relevant only when it can meet the concrete application needs AND the customer operational requirement permits platform ownership of OS lifecycle. Merely discovering technical support does not override the original explicit customer-lifecycle requirement.",
+      "wordingRisk": "The phrase dersom en støttet plattform kunne eie OS-livssyklusen can reasonably mean the responsibility boundary is permitted to change, but could also be read as platform capability alone being sufficient.",
+      "suggestedOptionalNorwegianClarification": "PaaS ville vært aktuelt dersom driftskravet var endret slik at plattformen kunne overta OS-livssyklusen, og programmets konkrete behov var støttet.",
+      "severity": "LOW clarity suggestion; not a wrong rationale or key blocker",
+      "contextMitigation": "The revised second scenario explicitly changes the same program operational requirement and accepts provider OS maintenance, so the two-item sequence supplies the missing permission boundary clearly."
+    },
+    {
+      "criterion": "platform",
+      "verdict": "Correct and appropriately qualified",
+      "rationale": "The feedback combines verified concrete platform support, no need for a customer-controlled image, acceptance of platform maintenance, and the objective of minimizing guest-OS work. It correctly describes IaaS as offering control while being less aligned with the minimum-operations preference, rather than claiming IaaS cannot host the program.",
+      "platformVersusCustomComponents": "The feedback explicitly says customers still maintain their own code and components installed through configuration scripts. This is the important distinction: platform routine OS/stack upkeep does not maintain every customer-added component or remove customer responsibility for updates, compatibility and security of that code/components.",
+      "whyItMatchesTheLockedSolve": "The pre-key solve already distinguished platform OS maintenance from customer-installed component maintenance and treated verified compatibility as a premise, not an independently tested Azure application.",
+      "counterfactuals": [
+        "If a mandatory concrete component were unsupported by the managed platform, IaaS might become appropriate after evaluating the unmet requirement.",
+        "If customer guest-image/update lifecycle ownership remained mandatory, the PaaS answer would no longer follow merely from platform dependency support.",
+        "If a finished product could genuinely replace their custom application and that were accepted, SaaS could become appropriate. None of these modified premises applies to the authored scenario."
+      ],
+      "openIssue": null
+    },
+    {
+      "criterion": "service",
+      "verdict": "Correct in the supplied App Service task",
+      "rationale": "The own-code managed-platform reason matches the requested plan and app resources. Own HTTP code without a custom guest image is not by itself a universal proof that every conceivable solution must be PaaS, but the specified App Service topology and offered justifications make this pair defensible and unique here.",
+      "openIssue": null
+    },
+    {
+      "criterion": "ready",
+      "verdict": "Correct novice classification",
+      "rationale": "The finished collaboration-service description supplies the SaaS consumption premise. The feedback does not require inventing a named product, replacing the validation program, or provisioning a separate collaboration service.",
+      "openIssue": null
+    },
+    {
+      "criterion": "scope",
+      "verdict": "Consistent with revised attempt-boundary instructions",
+      "rationale": "A new group in the stated sandbox after Start is consistent with requiring current-attempt execution. Prior resources alone do not prove a new execution. The evidence claim remains limited to local records.",
+      "openIssue": null
+    },
+    {
+      "criterion": "hosting",
+      "verdict": "Correct configuration/runtime boundary",
+      "rationale": "New plan and app, same group, North Europe, and the actual app-to-plan relationship are the requested configuration evidence. The feedback explicitly avoids interpreting those records as code deployment or functioning application runtime.",
+      "openIssue": null
+    },
+    {
+      "criterion": "cause",
+      "verdict": "Correct regional hosting distinction",
+      "rationale": "Resource-group metadata location does not locate all contained resource compute. The app follows the App Service Plan compute region. A local sandbox policy does not establish a universal Azure regional rule or automatically relocate compute to the group metadata region.",
+      "openIssue": null
+    }
+  ],
+  "uiBoundaryAndExposureNotes": {
+    "itemIdentifierExposure": "The supplied UI note says rendered questions do not show item IDs. This means the initial conditional raw-JSON-ID concern is not established as an actual rendered-question defect; the revised student artifact also uses neutral item IDs.",
+    "clientSideBoundary": "The supplied note correctly says client-side source is not a secure exam boundary. This comparison does not characterize the novice local task as a secure high-stakes assessment.",
+    "legacyAttemptExposure": "The supplied note says updated history presents first within the updated version and documents prior legacy attempt exposure. That qualification is appropriate: first within a version must not be presented as first-ever exposure. Actual history display was not inspected.",
+    "syntheticCompatibility": "The supplied note explicitly identifies compatibility as stipulated, not an actually tested Azure application. This matches the pre-key limitation and avoids overstating migration or runtime validation."
+  },
+  "openFindings": [
+    {
+      "id": "P1",
+      "severity": "LOW",
+      "category": "Counterfactual wording",
+      "finding": "The OS feedback could explicitly require a changed/relaxed customer OS-lifecycle requirement in addition to verified platform support when describing when PaaS would become applicable.",
+      "status": "Optional clarification; the revised second scenario already makes this changed requirement explicit. No key or technical correction required."
+    },
+    {
+      "id": "R1-carried-forward",
+      "severity": "LOW",
+      "category": "Terminology consistency",
+      "finding": "The student introduction still calls the practical exercise the third workload, although the first two scenarios now describe one program before and after a requirement change.",
+      "status": "Editorial issue only; three situations versus two distinct programs does not affect pair correctness."
+    },
+    {
+      "id": "R2-carried-forward",
+      "severity": "LOW",
+      "category": "Local choice-order cue",
+      "finding": "Some model/reason lists align by position, and the Web model/reason/location answers all occupy position 2.",
+      "status": "Modest novice scaffolding/cue, not a demonstrated assessment-validity failure. No empirical discrimination claim is made."
+    }
+  ],
+  "severityConclusion": {
+    "confirmedBlockers": [],
+    "confirmedMajorFindings": [],
+    "confirmedMediumFindings": [],
+    "explicitAcceptedPairsMatch": "2 of 2 item pair sets match exactly.",
+    "webFeedbackConsistency": "Consistent for service/reason, SaaS classification, hosting cause, current-attempt scope, and resource relationship evidence; executable Web scorer was not inspected.",
+    "platformComponentResponsibility": "Correctly explicit in authored platform feedback; no unresolved conflation of provider OS upkeep with customer-installed component upkeep found.",
+    "overall": "The supplied accepted pairs and complete seven-criterion feedback are consistent with the preserved revised solve and the narrow novice objective. No substantive answer-key or feedback defect was identified. Remaining findings are low-severity wording/order observations, and implementation behavior remains outside this review."
+  }
+}

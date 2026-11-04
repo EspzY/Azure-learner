@@ -1,3 +1,4 @@
+import { assertCC03Change, cc03Authorized } from '../../../tests/cc03-preservation';
 import { assertCC01Change, cc01Authorized } from '../../../tests/cc01-preservation';
 import { expect, it } from 'vitest';
 import { readFileSync } from 'node:fs';
@@ -30,6 +31,10 @@ it('preserves the original learning domains, stores, rubrics, teaching and techn
   );
   for (const [path, expected] of Object.entries(proof.files)) {
     if (owner.authorizedChanges.includes(path)) continue;
+    if (cc03Authorized(path) && !cc01Authorized(path)) {
+      assertCC03Change(path, expected);
+      continue;
+    }
     if (cc01Authorized(path)) {
       assertCC01Change(path, expected);
       continue;
