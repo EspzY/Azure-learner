@@ -1,3 +1,4 @@
+import { assertCC01Change, cc01Authorized } from '../../../tests/cc01-preservation';
 import { expect, it } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
@@ -29,6 +30,10 @@ it('preserves the original learning domains, stores, rubrics, teaching and techn
   );
   for (const [path, expected] of Object.entries(proof.files)) {
     if (owner.authorizedChanges.includes(path)) continue;
+    if (cc01Authorized(path)) {
+      assertCC01Change(path, expected);
+      continue;
+    }
     if (path === 'src/features/learning/responsibility-recap.tsx') {
       const original = execFileSync('git', ['show', `${pd01.base}:${path}`], {
         encoding: 'utf8',

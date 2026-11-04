@@ -21640,3 +21640,26 @@ export const ownerAcceptanceNb = {
   attempt: 'Innlevering',
   noAnswer: 'Ikke besvart',
 } as const;
+
+export const challengeReturnNb = {
+  title: 'Endret Web-oppgave',
+  nav: 'Kurs',
+  overview: 'Kursoversikt',
+  fromComputing: 'Tilbake fra Cloud Computing.',
+  fromServices: 'Tilbake fra Cloud Service Types.',
+  unknownOrigin:
+    'Tidligere opprinnelse kan ikke bekreftes. Du kan fortsette den lagrede oppgaven uten å velge fagmodul.',
+  storageNeedsReview: 'Lagret tilstand må kontrolleres før du fortsetter.',
+  reloadSaved: 'Last inn lagret vurdering',
+  active:
+    'Forsøket er fortsatt aktivt. Returen leverer ikke svaret eller avslutter forsøket. Undervisning og Journal kan kreve registrert hjelp.',
+  inactive: 'Det finnes ikke et aktivt forsøk. Tidligere innleveringer er bevart.',
+  resumeActive: 'Fortsett samme Web-oppgave',
+  resumeHistory: 'Se lagret Web-oppgave',
+  openTeachingAid: 'Åpne undervisningen · registrerer hjelp',
+  returnTeaching: 'Tilbake til undervisningen',
+  loading: 'Kontrollerer lagret oppgave.',
+  portalUnknown: 'Endret Web-oppgave · opprinnelse ukjent',
+  writeUnconfirmed: 'Lagringen kan ikke bekreftes. Last inn lagret vurdering før du fortsetter.',
+  historyAid: 'Åpne tidligere tilbakemelding · registrerer hjelp',
+} as const;

@@ -1,4 +1,5 @@
 'use client';
+import { challengeResumeHref } from '@/domain/portal/challenge-origin';
 import { missionsNb, applicationNb } from '@/content/nb';
 export const missionContextLabel = (
   id: keyof typeof missionsNb.recoveryContexts | 'application',
@@ -242,7 +243,9 @@ export function useMissionSafetyContexts(owner?: 'missions') {
         id: 'portal',
         state: old,
         active: old.facts.active,
-        href: '/portal?area=challenge&mode=independent',
+        href: challengeResumeHref(
+          !old.issue && !old.originIssue && old.originReady ? (old.origin ?? null) : null,
+        ),
       },
       {
         id: 'benefits',

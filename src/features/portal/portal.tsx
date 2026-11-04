@@ -1,4 +1,6 @@
 'use client';
+import { challengeReturnNb } from '@/content/nb';
+import { challengeOriginFromLocation, challengeReturnHref } from '@/domain/portal/challenge-origin';
 import { useApplication } from '@/features/learning/application-provider';
 import { useRefined } from '@/features/learning/refined-assessment-provider';
 import { GuidedLearning } from '@/features/course/guided-learning';
@@ -257,37 +259,61 @@ function PortalWorkspace({ navigation }: { navigation?: PortalPresentationNaviga
     !benefits.facts.active &&
     !services2.facts.active;
   const managementLab = guidedLab && course.save.lab?.origin === 'architecture-management';
-  const nativeCourseReturn = location.migration
-    ? migrationHref('studio') + '&perspective=' + location.migration
-    : location.security
-      ? securityHref('studio') + '&perspective=' + location.security
-      : location.monitoring
-        ? monitoringHref('studio') + '&perspective=' + location.monitoring
-        : location.tools
-          ? toolsHref('studio') + '&perspective=intent'
-          : location.governance
-            ? governanceHref('studio') + '&perspective=policy'
-            : location.networking
-              ? networkingHref('dependencies')
-              : location.compute
-                ? computeHref('dependencies')
-                : location.mission
-                  ? missionOrigin(location.mission)
-                  : location.bridge
-                    ? `/learn/benefits?topic=${location.bridge}&activity=practical`
-                    : location.practice && practical.current
-                      ? practicalReturn(practical.current)
-                      : guidedLab
-                        ? courseLabHref(
-                            labFacts(course.save.lab, chapter.attempt.engine, chapter.attemptNumber)
-                              .complete,
-                            course.save.lab?.origin,
-                          )
-                        : location.course
-                          ? courseHref(location.module, location.topic)
-                          : '/learn';
+  const legacyChallenge =
+    !location.lab &&
+    !location.practice &&
+    !location.bridge &&
+    !location.mission &&
+    !location.compute &&
+    !location.networking &&
+    !location.governance &&
+    !location.tools &&
+    !location.monitoring &&
+    !location.security &&
+    !location.migration &&
+    (location.area === 'challenge' || module.facts.active);
+  const challengeOrigin = module.save.events.some((event) => event.kind === 'begin')
+    ? !module.issue && !module.originIssue && module.originReady
+      ? (module.origin ?? null)
+      : null
+    : challengeOriginFromLocation(location);
+  const nativeCourseReturn = legacyChallenge
+    ? challengeReturnHref(challengeOrigin, module.facts.active)
+    : location.migration
+      ? migrationHref('studio') + '&perspective=' + location.migration
+      : location.security
+        ? securityHref('studio') + '&perspective=' + location.security
+        : location.monitoring
+          ? monitoringHref('studio') + '&perspective=' + location.monitoring
+          : location.tools
+            ? toolsHref('studio') + '&perspective=intent'
+            : location.governance
+              ? governanceHref('studio') + '&perspective=policy'
+              : location.networking
+                ? networkingHref('dependencies')
+                : location.compute
+                  ? computeHref('dependencies')
+                  : location.mission
+                    ? missionOrigin(location.mission)
+                    : location.bridge
+                      ? `/learn/benefits?topic=${location.bridge}&activity=practical`
+                      : location.practice && practical.current
+                        ? practicalReturn(practical.current)
+                        : guidedLab
+                          ? courseLabHref(
+                              labFacts(
+                                course.save.lab,
+                                chapter.attempt.engine,
+                                chapter.attemptNumber,
+                              ).complete,
+                              course.save.lab?.origin,
+                            )
+                          : location.course
+                            ? courseHref(location.module, location.topic)
+                            : '/learn';
   const courseReturn = navigation?.courseReturn ?? nativeCourseReturn;
   const returnLearning = () =>
+    legacyChallenge ||
     location.migration ||
     location.security ||
     location.monitoring ||
@@ -942,21 +968,27 @@ function PortalWorkspace({ navigation }: { navigation?: PortalPresentationNaviga
                 !independentContext
               }
             >
-              {location.networking
-                ? networkingNb.title
-                : location.compute
-                  ? computeNb.title
-                  : location.mission
-                    ? missionsNb.missions[location.mission].title
-                    : managementLab
-                      ? architectureNb.title
-                      : location.bridge ||
-                          (location.practice && practical.current?.origin.module === 'benefits')
-                        ? nb.official.benefits
-                        : location.module === 'computing' ||
-                            (guidedLab && course.save.lab?.origin === 'computing-v2')
-                          ? nb.official.computing
-                          : nb.official.services}
+              {legacyChallenge
+                ? challengeOrigin?.module === 'computing'
+                  ? nb.official.computing
+                  : challengeOrigin?.module === 'services'
+                    ? nb.official.services
+                    : challengeReturnNb.portalUnknown
+                : location.networking
+                  ? networkingNb.title
+                  : location.compute
+                    ? computeNb.title
+                    : location.mission
+                      ? missionsNb.missions[location.mission].title
+                      : managementLab
+                        ? architectureNb.title
+                        : location.bridge ||
+                            (location.practice && practical.current?.origin.module === 'benefits')
+                          ? nb.official.benefits
+                          : location.module === 'computing' ||
+                              (guidedLab && course.save.lab?.origin === 'computing-v2')
+                            ? nb.official.computing
+                            : nb.official.services}
             </span>
             <Link href={courseReturn}>{nb.course.returnCourse}</Link>
             <button
@@ -1291,7 +1323,10 @@ function PortalWorkspace({ navigation }: { navigation?: PortalPresentationNaviga
                 ) : location.area === 'learn' ? (
                   <LearningWorkspace location={location} navigate={navigate} />
                 ) : location.area === 'challenge' ? (
-                  <IndependentChallenge navigate={navigate} />
+                  <IndependentChallenge
+                    navigate={navigate}
+                    origin={challengeOriginFromLocation(location)}
+                  />
                 ) : location.area === 'responsibility' ? (
                   <>
                     <h2>{p.responsibility.title}</h2>

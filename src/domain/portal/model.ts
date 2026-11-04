@@ -223,19 +223,22 @@ export function parseLocation(query: URLSearchParams): PortalLocation {
             ? 'app'
             : 'group',
     module: query.get('module') === 'computing' ? 'computing' : 'services',
-    topic: [
-      ...topics,
-      'capacity',
-      'responsibility',
-      'models',
-      'placement',
-      'metering',
-      'pricing',
-      'assessment',
-      'summary',
-    ].includes(query.get('topic') ?? '')
-      ? query.get('topic')!
-      : 'overview',
+    topic:
+      query.get('module') === 'computing' && query.get('topic') === 'resource-bridge'
+        ? 'resource-bridge'
+        : [
+              ...topics,
+              'capacity',
+              'responsibility',
+              'models',
+              'placement',
+              'metering',
+              'pricing',
+              'assessment',
+              'summary',
+            ].includes(query.get('topic') ?? '')
+          ? query.get('topic')!
+          : 'overview',
     mode:
       area === 'challenge'
         ? 'independent'

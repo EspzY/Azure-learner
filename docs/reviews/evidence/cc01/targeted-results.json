@@ -1,0 +1,35 @@
+{
+  "productionBuild": "full-check-accepted, exact current runtime",
+  "newBrowserCommand": "npx playwright test tests/e2e/challenge-return.spec.ts --config playwright.desktop.config.ts --reporter=list",
+  "newBrowserResult": "7 passed; 6 desktop + 1 compact; no retry",
+  "newBrowserLogSHA256": "289617ebb8e2bad785e02ec12de1a05e6856987404bafe52fe44f8af9afe4f5f",
+  "inheritedRegressionCommand": "npx playwright test tests/e2e/course.spec.ts tests/e2e/portal.spec.ts tests/e2e/portal-inspection-bridge.spec.ts --config playwright.desktop.config.ts --reporter=list",
+  "inheritedRegressionResult": "16 passed; inherited production Portal/Course/VM/Web/Policy/short-height coverage, no retry; final exact-head CI still required",
+  "domainTests": "43 focused tests passed; final whole Vitest 651 passed",
+  "audit": {
+    "info": 0,
+    "low": 0,
+    "moderate": 12,
+    "high": 0,
+    "critical": 0,
+    "total": 12
+  },
+  "productionAudit": {
+    "info": 0,
+    "low": 0,
+    "moderate": 0,
+    "high": 0,
+    "critical": 0,
+    "total": 0
+  },
+  "settings": "All inherited timeouts, retries, workers and skips unchanged; six new desktop cases use unmodified default 30s deadline; compact manifest adds one selected witness.",
+  "beforeEvidence": "Actual public base root SHA independently checked; initial repro collapsed build label is not the full SHA proof. See before-root-sha.json.",
+  "knownFlakes": "Prior Compute help/Back and Guidance/Axe document-title remain open and unconfirmed. No claim that a passing run fixes them.",
+  "humanReview": "unperformed",
+  "localizedRecheck": {
+    "command": "npx playwright test tests/e2e/challenge-return.spec.ts --config playwright.desktop.config.ts --grep 'legacy unknown|denied durable|challenge return desktop' --reporter=list",
+    "result": "4 passed,3desktop+1compact,no retry; actual final localized production build",
+    "limits": "Only existing visible strings were moved. Earlier seven-case vertical run and16 inherited cases remain distinct actual executions; final exact-head full CI required."
+  },
+  "preservation": "1691 whole pre-existing paths plus every byte of the prior1488942-byte locale prefix"
+}

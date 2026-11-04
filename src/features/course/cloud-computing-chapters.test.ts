@@ -1,3 +1,9 @@
+import {
+  assertCC01Change,
+  assertCC01LocaleAppend,
+  cc01DomainChanges,
+  cc01Authorized,
+} from '../../../tests/cc01-preservation';
 import { describe, it, expect } from 'vitest';
 import { execFileSync } from 'node:child_process';
 import { readFileSync } from 'node:fs';
@@ -43,19 +49,38 @@ describe('Cloud Computing pedagogical projection over historical topics', () => 
     const changed = execFileSync('git', ['diff', base, '--name-only', '--', 'src/domain/'], {
       encoding: 'utf8',
     }).trim();
-    expect(changed).toBe('');
+    expect(
+      changed
+        .split('\n')
+        .filter(Boolean)
+        .filter((path) => !cc01DomainChanges.includes(path)),
+    ).toEqual([]);
+    for (const path of cc01DomainChanges) assertCC01Change(path);
     for (const path of [
       'src/content/nb.ts',
       'src/features/learning/serverless.tsx',
       'src/features/course/assessment-navigation-exit.tsx',
       'src/features/learning/management-access.tsx',
-    ])
+    ]) {
+      if (path === 'src/content/nb.ts') {
+        assertCC01LocaleAppend();
+        const before = execFileSync('git', ['show', `${base}:${path}`], {
+          maxBuffer: 8 * 1024 * 1024,
+        });
+        expect(readFileSync(path).subarray(0, before.length).equals(before)).toBe(true);
+        continue;
+      }
+      if (cc01Authorized(path)) {
+        assertCC01Change(path);
+        continue;
+      }
       expect(readFileSync(path, 'utf8')).toBe(
         execFileSync('git', ['show', `${base}:${path}`], {
           encoding: 'utf8',
           maxBuffer: 8 * 1024 * 1024,
         }),
       );
+    }
   });
   it('keeps all original server figure geometry and labels when SVG identifiers become instance-scoped', () => {
     const path = 'src/features/learning/foundations-visuals.tsx';

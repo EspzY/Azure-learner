@@ -1,5 +1,6 @@
 'use client';
 import { createContext, useContext, useEffect, useState, useSyncExternalStore } from 'react';
+import { challengeOriginKey } from '@/domain/portal/challenge-origin';
 import { ServiceStore } from '@/domain/portal/store';
 import { serviceFacts, serviceLearningKey } from '@/domain/portal/learning';
 const Context = createContext<ServiceStore | null>(null);
@@ -15,7 +16,8 @@ export function PortalLearningProvider({ children }: { children: React.ReactNode
   useEffect(() => {
     store.load();
     const changed = (e: StorageEvent) => {
-      if (e.key === serviceLearningKey || e.key === null) store.changed();
+      if (e.key === serviceLearningKey || e.key === challengeOriginKey || e.key === null)
+        store.changed();
     };
     window.addEventListener('storage', changed);
     window.addEventListener('azurelab:clear', store.clear);

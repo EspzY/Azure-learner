@@ -5,6 +5,10 @@ import baseline from './playwright.config';
 // names. No test body, assertion, title, timeout or skip is modified.
 const compactCases = [
   [
+    'challenge-return.spec.ts',
+    'challenge return desktop compact keyboard short-height reduced motion Axe and original teaching destination stay accessible without evidence writes',
+  ],
+  [
     'cloud-owner-navigation.spec.ts',
     'closing Cloud Computing choices distinguish voluntary assessment observations and recommended transfer without starting attempts',
   ],

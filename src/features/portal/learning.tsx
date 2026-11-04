@@ -1,7 +1,8 @@
 'use client';
+import type { ChallengeOrigin } from '@/domain/portal/challenge-origin';
 import { SourceDisclosure } from '@/features/learning/source-disclosure';
 import { useCallback, useEffect, useState } from 'react';
-import { nb } from '@/content/nb';
+import { nb, challengeReturnNb as returnCopy } from '@/content/nb';
 import {
   cases,
   evaluateCase,
@@ -354,30 +355,50 @@ function GuidedCase({ id }: { id: CaseId }) {
     </form>
   );
 }
-export function IndependentChallenge({ navigate }: { navigate: Navigate }) {
-  const { store, facts, ready, issue } = usePortalLearning();
+export function IndependentChallenge({
+  navigate,
+  origin,
+}: {
+  navigate: Navigate;
+  origin: ChallengeOrigin | null;
+}) {
+  const { store, facts, ready, issue, originIssue } = usePortalLearning();
+  const [starting, setStarting] = useState(false);
   const { attempt, attemptNumber } = useChapter(),
     engine = attempt.engine;
   const t = p.challenge;
   const update = (answers: Answers) => store.event({ kind: 'draft', answers });
-  const allowed = ready && !['corrupt', 'unsupported', 'conflict', 'limit'].includes(issue ?? '');
+  const allowed = ready && !issue;
   return (
     <article className="portal-challenge">
       <h2>{t.title}</h2>
       <p>{t.brief}</p>
       <p>{p.modeHints.independent}</p>
+      {(issue || originIssue) && (
+        <p role="alert">
+          {returnCopy.writeUnconfirmed}{' '}
+          <button type="button" onClick={store.load}>
+            {returnCopy.reloadSaved}
+          </button>
+        </p>
+      )}
       {!facts.active ? (
         <button
           type="button"
           className="primary"
-          disabled={!allowed}
-          onClick={() =>
-            store.event({
-              kind: 'begin',
-              boundary: engine.ledger.at(-1)?.request.commandId ?? null,
-              attemptNumber,
-            })
-          }
+          disabled={!allowed || !!originIssue || starting}
+          onClick={async () => {
+            setStarting(true);
+            try {
+              await store.beginChallenge(
+                origin,
+                engine.ledger.at(-1)?.request.commandId ?? null,
+                attemptNumber,
+              );
+            } finally {
+              setStarting(false);
+            }
+          }}
         >
           {facts.submissions.length ? t.retry : t.start}
         </button>
@@ -386,7 +407,11 @@ export function IndependentChallenge({ navigate }: { navigate: Navigate }) {
           <p role="status">
             {t.active} {facts.assisted ? t.assisted : t.unassisted}
           </p>
-          <button type="button" onClick={() => store.event({ kind: 'abandon' })}>
+          <button
+            type="button"
+            disabled={!allowed}
+            onClick={() => store.event({ kind: 'abandon' })}
+          >
             {t.abandon}
           </button>
           <button type="button" onClick={() => navigate('resources', { mode: 'independent' })}>
@@ -493,37 +518,45 @@ export function IndependentChallenge({ navigate }: { navigate: Navigate }) {
       )}
       <h3>{t.history}</h3>
       {!facts.submissions.length && <p>{t.noSubmission}</p>}
-      {facts.submissions.map((s, index) => {
-        const result = evaluateSubmission(s, engine, attemptNumber);
-        return (
-          <section
-            key={index}
-            className="portal-submission"
-            data-correct={result.correct}
-            aria-label={index === 0 ? t.first : `${t.retryResult} ${index + 1}`}
-          >
-            <h3>{index === 0 ? t.first : `${t.retryResult} ${index + 1}`}</h3>
-            <p>{s.assisted ? t.assisted : index === 0 ? t.unassisted : t.retryResult}</p>
-            <strong>
-              {s.abandoned
-                ? t.abandoned
-                : !result.verifiable
-                  ? t.unverifiable
-                  : result.correct
-                    ? t.passed
-                    : t.failed}
-            </strong>
-            <ul>
-              {Object.entries(result.criteria).map(([id, met]) => (
-                <li key={id}>
-                  <span aria-hidden="true">{met ? '✓' : '✕'}</span>{' '}
-                  {t.criteria[id as keyof typeof t.criteria]}
-                </li>
-              ))}
-            </ul>
-          </section>
-        );
-      })}
+      {facts.active && !facts.assisted && facts.submissions.length > 0 && (
+        <button type="button" disabled={!allowed} onClick={() => store.event({ kind: 'aid' })}>
+          {returnCopy.historyAid}
+        </button>
+      )}
+      {ready &&
+        !issue &&
+        (!facts.active || facts.assisted) &&
+        facts.submissions.map((s, index) => {
+          const result = evaluateSubmission(s, engine, attemptNumber);
+          return (
+            <section
+              key={index}
+              className="portal-submission"
+              data-correct={result.correct}
+              aria-label={index === 0 ? t.first : `${t.retryResult} ${index + 1}`}
+            >
+              <h3>{index === 0 ? t.first : `${t.retryResult} ${index + 1}`}</h3>
+              <p>{s.assisted ? t.assisted : index === 0 ? t.unassisted : t.retryResult}</p>
+              <strong>
+                {s.abandoned
+                  ? t.abandoned
+                  : !result.verifiable
+                    ? t.unverifiable
+                    : result.correct
+                      ? t.passed
+                      : t.failed}
+              </strong>
+              <ul>
+                {Object.entries(result.criteria).map(([id, met]) => (
+                  <li key={id}>
+                    <span aria-hidden="true">{met ? '✓' : '✕'}</span>{' '}
+                    {t.criteria[id as keyof typeof t.criteria]}
+                  </li>
+                ))}
+              </ul>
+            </section>
+          );
+        })}
       <p>{t.notMastery}</p>
     </article>
   );

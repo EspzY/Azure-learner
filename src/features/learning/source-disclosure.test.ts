@@ -1,3 +1,4 @@
+import { assertCC01Change, cc01DomainChanges } from '../../../tests/cc01-preservation';
 import React from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { afterAll, describe, expect, it, vi } from 'vitest';
@@ -139,7 +140,10 @@ describe('Source presentation preservation', () => {
       .trim()
       .split('\n')
       .filter(Boolean);
-    expect(changed.filter((path) => !navigationOnly.includes(path))).toEqual([]);
+    expect(
+      changed.filter((path) => !navigationOnly.includes(path) && !cc01DomainChanges.includes(path)),
+    ).toEqual([]);
+    for (const path of cc01DomainChanges) assertCC01Change(path);
     const priorV2 = execFileSync(
       'git',
       ['show', base + ':src/domain/curriculum/foundations-v2.ts'],

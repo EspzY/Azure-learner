@@ -435,7 +435,7 @@ test('original computing investigations, direct module access, tablet/narrow nav
   await page.goto('/learn');
   await expect(page.getByRole('link', { name: p.continueChallenge, exact: true })).toHaveAttribute(
     'href',
-    '/portal?area=challenge&course=1&module=services&topic=practice',
+    '/portal?area=challenge&mode=independent',
   );
   expect(
     await page.evaluate(() =>

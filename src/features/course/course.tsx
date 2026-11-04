@@ -1,4 +1,6 @@
 'use client';
+import { challengeResumeHref } from '@/domain/portal/challenge-origin';
+import { ChallengeReturn } from './challenge-return';
 import { missionContextLabel } from './mission-context';
 import { useApplication } from '@/features/learning/application-provider';
 import { applicationHref } from '@/domain/curriculum/application-transfer';
@@ -201,6 +203,14 @@ function focusMountedLabSection(element: HTMLElement | null, enabled: boolean) {
   };
 }
 export function Course(props: { module?: CourseModule }) {
+  const query = useSearchParams();
+  if (
+    query.get('activity') === 'challenge-return' &&
+    (!props.module ||
+      (props.module === 'computing' && query.get('topic') === 'resource-bridge') ||
+      (props.module === 'services' && query.get('topic') === 'practice'))
+  )
+    return <ChallengeReturn />;
   return (
     <GuidedLearning>
       <CourseWorkspace {...props} />
@@ -516,7 +526,13 @@ function CourseWorkspace({ module }: { module?: CourseModule }) {
                                                   : service2.facts.active
                                                     ? refinedHref('services', true)
                                                     : services.facts.active
-                                                      ? '/portal?area=challenge&course=1&module=services&topic=practice'
+                                                      ? challengeResumeHref(
+                                                          !services.issue &&
+                                                            !services.originIssue &&
+                                                            services.originReady
+                                                            ? (services.origin ?? null)
+                                                            : null,
+                                                        )
                                                       : learning.facts.active
                                                         ? courseHref('computing', 'assessment')
                                                         : practical.current?.status === 'active'
@@ -1461,7 +1477,15 @@ function CourseWorkspace({ module }: { module?: CourseModule }) {
                     {c.activeAssessment}{' '}
                     <button
                       type="button"
-                      onClick={() => navigate('challenge', { mode: 'independent', lab: undefined })}
+                      onClick={() =>
+                        router.push(
+                          challengeResumeHref(
+                            !services.issue && !services.originIssue && services.originReady
+                              ? (services.origin ?? null)
+                              : null,
+                          ),
+                        )
+                      }
                     >
                       {nb.portal.continueChallenge}
                     </button>
