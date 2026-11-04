@@ -134,3 +134,75 @@ No human approval, public release, merge or production result is claimed.
 Subsequent SHA-bound author delivery receipts/status belong on
 [Draft PR55](https://github.com/EspzY/Azure-learner/pull/55) and in its external
 evidence bundle; they are not independent-reviewer executions or conclusions.
+
+## Bounded renewal — Services navigation protocol
+
+The initial audit above remains its original dated record. This bounded
+follow-up began **2026-11-04T21:33:15Z**, after the new implementation stamp
+**2026-11-04T21:32:47.424Z**, by the same separate reviewer
+`pr55_independent_final_audit`. Current reviewed fingerprint:
+`7e18a46f2c1398ad48ee63cdae87baa2d6fa4f1be28e0336fd730e3ac1c127bd`.
+
+The first published head was `453640d1cdda6b811ab8ee1c3e545278378ef2af`.
+Its external Computing journey passed; Services failed the existing heading-focus
+assertion after immediate Back/Forward/reload. The preserved route trace shows
+those history transitions occurring within milliseconds before the next
+challenge navigation. No page error was recorded. The original failure remains
+`NOT_VERIFIED`, including screenshot/log and journey SHA256
+`4100ca9b797940e090a9cb621d7595323fa613b0fbb29e0cc0ba32882aa73553`.
+
+The sole browser-test diff adds six assertions: observe the real Portal
+`data-area` and heading after Back and Forward, then observe Activity and its
+initial focused heading after reload before using Continue. The original
+Continue destination-focus, saved draft, World, assessment-version and return
+assertions remain. No focus is assigned by the test and no assertion, timeout,
+retry, worker or skip is weakened. On the same deployed source, the diagnostic
+protocol passed (journey SHA256
+`2b3edb7422f06499dbd7eae930dd457fb762ebc555f66fa1245a3777685566d8`).
+The other six external cases passed as a separate partial run. These records
+are accurately scoped in [preview readiness](../reviews/evidence/cc03/preview-readiness.json);
+they are not a complete native suite or final-head Gate7.
+
+**FA-04 — MINOR, fixed in the test protocol:** observe committed destinations and
+initial focus before issuing the next navigation. Reviewed the exact six-line
+diff and actual failure/probe screenshots. Independent affected production run:
+
+`PLAYWRIGHT_HTML_OUTPUT_DIR=/workspace/azurelab-pr55/final-audit-renewal/html npx playwright test --config playwright.desktop.config.ts tests/e2e/challenge-validity.spec.ts --project desktop-chromium --grep 'updated Services origin' --output /workspace/azurelab-pr55/final-audit-renewal/browser-results`
+
+**Exit 0, 1/1 passed, 15.9s**, one worker and no retries, against the existing
+production build and real start server. Log/exit:
+`/workspace/azurelab-pr55/final-audit-renewal/browser.log` and `browser.exit`.
+The author affected native run also passed 1/1, exit 0, 15.6s; its actual log
+hash matches the committed readiness record.
+
+Independent comparison with the first reviewed snapshot confirms that all
+`src` bytes and all prior stamped content/source/blind/preservation assets are
+unchanged. The only prior stamped file changed is
+`tests/e2e/challenge-validity.spec.ts`; the two additions are readiness evidence
+JSON. Thus content, technical, assessment and guidance conclusions of the first
+audit remain applicable by preservation. The visual review adds inspection of
+the original failure and successful same-code probe states; regression review
+adds the stronger protocol and independent affected run. The first report was
+verified byte-identical to its preserved copy before this append.
+
+The renewed author full check actually exited 0, with 668 Vitest, 503 curriculum,
+24 Node and optimized build. Its inspected log SHA256
+`05f9874066dabf34588555c9e6a2af137cd7cd7a074c7e722475ed34f0fd7d10`
+matches [the new receipt](../reviews/evidence/cc03/full-check-readiness-result.json).
+No full suite or broad source/content review was redundantly repeated here.
+Independent comparison evidence is in
+`/workspace/azurelab-pr55/final-audit-renewal/independent-comparison.json`.
+
+No new BLOCKER/MAJOR found. FA-01/02/03 and all human-validation limits remain.
+This is a protocol correction supported by bounded evidence, not a general
+runtime-focus fix or closure of either historical flake. The renewed candidate
+still requires its **own** complete 367 CI, strict release and actual new-head
+anonymous full-SHA Gate7; earlier-head results cannot satisfy them. Subsequent
+delivery evidence remains on [PR55](https://github.com/EspzY/Azure-learner/pull/55).
+
+Renewed `quality:check`, `docs:check` and report/current-metadata formatting
+checks exited 0. Renewed `quality:release -- --base bb66ff2e5115d26304bb017295a9067c6f6fed5d`
+exited 1 with the sole missing-executed-full-browser-profile error; log/exit
+remain under `final-audit-renewal/strict-preflight.*`. Independent semantic/byte
+checks confirm only the current record's `review` section changed during this
+renewal and the complete initial report remains an exact prefix of this file.

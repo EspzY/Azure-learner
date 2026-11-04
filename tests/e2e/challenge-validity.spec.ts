@@ -129,8 +129,14 @@ test('updated Services origin and assessment selection survive resource navigati
   await area(page, 'activity');
   await expect(page).toHaveURL(/assessment=updated/);
   await page.goBack();
+  await expect(page.locator('.portal[data-area]')).toHaveAttribute('data-area', 'challenge');
+  await expect(page.locator('.portal-title h1')).toHaveText(p.areas.challenge);
   await page.goForward();
+  await expect(page.locator('.portal[data-area]')).toHaveAttribute('data-area', 'activity');
+  await expect(page.locator('.portal-title h1')).toHaveText(p.areas.activity);
   await page.reload();
+  await expect(page.locator('.portal[data-area]')).toHaveAttribute('data-area', 'activity');
+  await expect(page.locator('.portal-title h1')).toBeFocused();
   await area(page, 'challenge');
   await expect(
     page.getByRole('combobox', { name: c.ui.decision, exact: true }).first(),
