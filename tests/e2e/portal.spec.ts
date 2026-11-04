@@ -247,6 +247,7 @@ test('source-backed learning, real Portal creation, policy recovery, live graph 
   await expect(page.locator('.portal-manuscript h2')).toHaveText(p.lesson.sections.paas.title);
   await area(page, 'challenge');
   await page.getByRole('button', { name: p.challenge.start, exact: true }).click();
+  await expect(page.locator('.portal-challenge')).toContainText(p.challenge.active);
   await capture(page, info, 'independent-brief');
   await buildChanged(page);
   await area(page, 'challenge');
@@ -332,6 +333,7 @@ test('keyboard search, incomplete practice, reference assistance, first submissi
     .click();
   await area(page, 'challenge');
   await page.getByRole('button', { name: p.challenge.start, exact: true }).click();
+  await expect(page.locator('.portal-challenge')).toContainText(p.challenge.active);
   await page.goto('/portal?area=learn&module=services&topic=iaas');
   await area(page, 'challenge');
   await expect(page.getByRole('status')).toContainText(p.challenge.assisted);

@@ -322,7 +322,7 @@ describe('service-types content/evidence is explicit and versioned', () => {
       },
     });
     denied.load();
-    expect(denied.event({ kind: 'begin', boundary: null, attemptNumber: 1 })).toBe(true);
+    expect(denied.event({ kind: 'begin', boundary: null, attemptNumber: 1 })).toBe(false);
     expect(denied.getSnapshot().issue).toBe('unsaved');
     expect(serviceFacts(denied.getSnapshot().save).submissions).toHaveLength(0);
   });

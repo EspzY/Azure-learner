@@ -237,7 +237,7 @@ test('all independent contexts resume their own exact route without metadata hel
     'azurelab.learning.serverless.v1': '/learn/computing?topic=serverless-assessment',
     'azurelab.learning.foundations.v1': '/learn/computing?topic=assessment',
     'azurelab.learning.foundations.v2': '/learn/computing?topic=v2-assessment',
-    'azurelab.portal.learning.v1': '/portal?area=challenge&course=1&module=services&topic=practice',
+    'azurelab.portal.learning.v1': '/portal?area=challenge&mode=independent',
     'azurelab.learning.benefits.v1': '/learn/benefits?topic=assessment&assessment=legacy',
     'azurelab.learning.service-types.v2':
       '/learn/services?topic=assessment&version=2&assessment=legacy',

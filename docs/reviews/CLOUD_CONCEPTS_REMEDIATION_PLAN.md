@@ -94,3 +94,22 @@ ikke læringseffekt eller psykometrisk gyldighet.
 Ingen automatisk bred PD-01-/designutrulling, nye SavvyShark-assets, PR-01 B/C,
 P17/P18 eller ny innholdsimplementering følger av denne revisjonen. Neste konkrete
 anbefalte oppdrag er CC-01-returrettingen etter eierens godkjenning av funnene.
+
+## PR54 — CC-01 implementeringsstatus
+
+CC-01 er rettet lokalt med eksplisitt Computing-topic, forsøksbundet versjonert
+navigasjonsopplysning, nøytral aktiv retur og samme read-only resume i Hub.
+Gamle forsøk uten dokumentert opphav gjettes ikke. Også avvist hjelp på den
+berørte Computing-undervisningen holdes nå lukket gjennom eksisterende
+teaching-preflight. Selve v1-eventene, rubrikken og førsteinnleveringene er bevart.
+Se [returkontrakten](../CC01_CHALLENGE_RETURN.md) for mekanisme og avgrensninger.
+
+Status før publisering: målrettet retest gjennomført; endelig lukking av CC-01
+avventer post-stamp uavhengig review, eksakt-head komplett CI/streng release og
+faktisk anonym Gate7. Dette er ikke en omskriving av PR53s historiske funn.
+CC-03 står fortsatt som P1, CC-02 som P2; øvrige prioriteter er uendret.
+
+Leveransens endelige akseptansestatus følger [PR54s dokumenterte leveransegater](https://github.com/EspzY/Azure-learner/pull/54). CC-01 er lukket for dette
+avgrensede scope først når disse faktiske gatene er bekreftet på levert SHA.
+Inntil da er det implementert, ikke ferdig akseptert. Datert revisjonsevidens og
+CC-03/CC-02s prioriteringer over er fortsatt uendret.

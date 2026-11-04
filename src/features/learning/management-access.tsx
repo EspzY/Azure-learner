@@ -487,6 +487,7 @@ export function ManagementTeachingBoundary({
       (!only ||
         ((assessment === 'updatedBenefits' || assessment === 'updatedServices') &&
           ['benefits', 'services'].includes(item.id)) ||
+        item.id === 'legacyServices' ||
         item.id === 'application' ||
         item.id === 'updatedBenefits' ||
         item.id === 'updatedServices' ||

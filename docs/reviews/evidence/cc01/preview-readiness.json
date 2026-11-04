@@ -1,0 +1,50 @@
+{
+  "checkedAt": "2026-11-04T12:14:44.053632+00:00",
+  "publishedRuntime": "6e065c785d386c25801bdecf9be15bb82369e65f",
+  "scope": "External anonymous actual first-candidate journeys, before final test-only follow-up. Runtime remains unchanged. Not a final-head CI or final-head Gate7 receipt.",
+  "observations": [
+    "Initial new vertical spec used an immediate nav visibility branch and acted before observed form state; cold preview exposed missing subscription in Review, which correctly blocked Create.",
+    "New spec follows the actual guided Search action, waits for observed subscription/group/name/metadata steps, waits for hydrated Portal heading focus, checks actual Shared Sandbox Review and accepted resource names before continuing.",
+    "Services test clicked Hub resume then immediately reloaded; explicit destination assertion now precedes reload. No runtime change or test deadline/retry/worker/skip change.",
+    "Native external first journey eventually reached seven real receipts and submitted first result; overall unchanged30s deadline expired at final return. The labelled standalone journey completed the same actual UI operations and postconditions; this is not a native full-profile pass.",
+    "Root standalone case1/2 passed in gate7-observed; case3 initially failed at the test reload race. Corrected standalone cases3–6 then passed independently in gate7-services-followup. Independent reviewer separately completed full first journey and checked all6 original criteria/unassisted first, original boundary and through.",
+    "One initial native-menu trace was overwritten when the first external output directory was reused. Its textual failure log survives. Original standalone failure JSON/PNG and all later uniquely named traces remain; no recovery of that missing trace is claimed.",
+    "The scoped cases3–6 runner initially emitted the overly broad result label VERIFIED. It only certifies its four actually recorded cases. Future runner distinguishes SCOPED_PASS from a complete six-case Gate7; final-head Gate7 still required."
+  ],
+  "actualArtifacts": [
+    {
+      "path": "/workspace/azurelab-pr54/gate7/journey.json",
+      "sha256": "8dcca02010f416c894014776a45b5c3978005276f6b8e96aab03b3f848e6cd74"
+    },
+    {
+      "path": "/workspace/azurelab-pr54/gate7-followup/journey.json",
+      "sha256": "dcf46e9e8d0ca7ac103998387157cd205a558655ee6fd01777189236aff9161e"
+    },
+    {
+      "path": "/workspace/azurelab-pr54/external-native-first.log",
+      "sha256": "0368717be404127b022015402889b99ba519e0a4e225040f02d0bbbdc93e25d0"
+    },
+    {
+      "path": "/workspace/azurelab-pr54/external-native-guided-search.log",
+      "sha256": "95a94d281ea839a93b10cd100211361d1262951d959bbdd35759039e8565ad00"
+    },
+    {
+      "path": "/workspace/azurelab-pr54/external-native-observed-ready.log",
+      "sha256": "10158ff40f0dd1edba04ebb612e24b07302d9be3c550e0f1757fe0bde5d5dd59"
+    },
+    {
+      "path": "/workspace/azurelab-pr54/external-native-focused-ready.log",
+      "sha256": "de1eeb2a8c364107fc0e9ffc811dd9f7911010a7e96f20fd187f71d589ae75f5"
+    },
+    {
+      "path": "/workspace/azurelab-pr54/gate7-observed/journey.json",
+      "sha256": "f520fbbe0c3e650de29611564f8256c5d40ca6b4561962cb6925145e174e2e9e"
+    },
+    {
+      "path": "/workspace/azurelab-pr54/gate7-services-followup/journey.json",
+      "sha256": "10aba16a150bfd21238efe162af1bfe952d1e38747e633ce300bea8399856b23"
+    }
+  ],
+  "settings": "No existing source runtime, rubric, event semantics, World, receipts, XP or QA deadlines/settings changed by this follow-up. Original651/503/24 full author check passed; new full check and stamp/review follow.",
+  "initialCIResult": "See initial-ci-result.json:5failed+1flaky+352passed; native retry settings unchanged. Targeted corrections now6passed without retry; final exact-head CI required."
+}

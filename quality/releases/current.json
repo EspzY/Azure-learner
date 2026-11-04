@@ -1,11 +1,11 @@
 {
   "schema": 1,
-  "id": "PR53-cloud-concepts-independent-review",
-  "baseCommit": "527b95140917e75e83899f21e6b2291e01df0a7d",
-  "author": "pr53-recovery-report-author",
+  "id": "PR54-cc01-challenge-return-resume",
+  "baseCommit": "0e96c991d5e735e6b217bed15f20a3d5ef765c98",
+  "author": "pr54-cc01-implementation-author",
   "scope": {
-    "kind": "audit-only",
-    "description": "Recover-or-rebuild independent Cloud Concepts review. Original lost report not recovered; new cold first reports are locked before owner-candidate/key comparison. Deliver dated evidence, findings and bounded implementation plan without changing any existing runtime, content, assessment, technical or historical contract.",
+    "kind": "scoped-ux-fix",
+    "description": "CC01 legacy challenge origin/return/resume, neutral active return, isolated versioned attempt-bound navigation metadata and durable-only legacy store writes. No scoring/event/schema/content/technical command changes.",
     "objectives": ["cloud-concepts.independent-review"]
   },
   "sources": [
@@ -392,19 +392,22 @@
   ],
   "activities": [
     {
-      "id": "cloud-concepts-independent-audit",
+      "id": "cc01-challenge-return",
       "objectives": ["cloud-concepts.independent-review"],
       "claims": ["review.cloud-concepts-mechanisms"],
       "assessmentStatus": "unchanged-existing",
-      "limits": "Audit-only. No new learner activity, scoring, mastery, rubric or technical capability. Coverage distinguishes reading, representative interactions, blind prompt solve, actual submissions and technical preservation. AI expert review does not establish human learning effect.",
-      "theory": [{ "path": "docs/reviews/CLOUD_CONCEPTS_INDEPENDENT_REVIEW.md" }],
-      "mechanism": [{ "path": "docs/reviews/CLOUD_CONCEPTS_INDEPENDENT_REVIEW.md" }],
-      "practice": [{ "path": "docs/reviews/CLOUD_CONCEPTS_INDEPENDENT_REVIEW.md" }],
-      "feedback": [{ "path": "docs/reviews/CLOUD_CONCEPTS_FINDINGS.md" }],
-      "visual": [{ "path": "docs/reviews/CLOUD_CONCEPTS_INDEPENDENT_REVIEW.md" }],
-      "accessible": [{ "path": "docs/reviews/CLOUD_CONCEPTS_INDEPENDENT_REVIEW.md" }],
-      "assessment": [{ "path": "docs/reviews/CLOUD_CONCEPTS_FINDINGS.md" }],
-      "savvyshark": [{ "path": "docs/reviews/CLOUD_CONCEPTS_FINDINGS.md" }]
+      "limits": "Navigation-only correction. Historical v1 events/rubric/answers/replay unchanged; no credit, technical operation or mastery claim.",
+      "theory": [{ "path": "docs/CC01_CHALLENGE_RETURN.md" }],
+      "mechanism": [
+        { "path": "src/domain/portal/challenge-origin.ts" },
+        { "path": "src/domain/portal/store.ts" }
+      ],
+      "practice": [{ "path": "tests/e2e/challenge-return.spec.ts" }],
+      "feedback": [{ "path": "docs/CC01_CHALLENGE_RETURN.md" }],
+      "visual": [{ "path": "docs/CC01_CHALLENGE_RETURN.md" }],
+      "accessible": [{ "path": "tests/e2e/challenge-return.spec.ts" }],
+      "assessment": [{ "path": "docs/CC01_CHALLENGE_RETURN.md" }],
+      "savvyshark": [{ "path": "docs/CC01_CHALLENGE_RETURN.md" }]
     }
   ],
   "modules": [],
@@ -558,9 +561,12 @@
     "docs/quality/PR51_FINAL_AUDIT.md",
     "docs/quality/PR51_OWNER_FINAL_AUDIT.md",
     "docs/quality/PR52_FINAL_AUDIT.md",
+    "docs/quality/PR53_FINAL_AUDIT.md",
     "docs/reviews/AZ900_END_TO_END_AUDIT.md",
     "docs/reviews/AZ900_LEARNING_JOURNEY_MAP.md",
     "docs/reviews/AZ900_REMEDIATION_PLAN.md",
+    "docs/reviews/CLOUD_CONCEPTS_FINDINGS.md",
+    "docs/reviews/CLOUD_CONCEPTS_INDEPENDENT_REVIEW.md",
     "docs/reviews/evidence/application49-bank-proof.json",
     "docs/reviews/evidence/application49-blind-final.json",
     "docs/reviews/evidence/application49-blind-initial.json",
@@ -574,6 +580,50 @@
     "docs/reviews/evidence/assessment46-heuristics.json",
     "docs/reviews/evidence/audit42-assessment.json",
     "docs/reviews/evidence/audit42.json",
+    "docs/reviews/evidence/cloud-concepts-independent/archive-index.json",
+    "docs/reviews/evidence/cloud-concepts-independent/assessment-postlock.txt",
+    "docs/reviews/evidence/cloud-concepts-independent/author-check-original.zip",
+    "docs/reviews/evidence/cloud-concepts-independent/cold-assessment-first-report.txt",
+    "docs/reviews/evidence/cloud-concepts-independent/cold-assessment-images-01.zip",
+    "docs/reviews/evidence/cloud-concepts-independent/cold-assessment-images-02.zip",
+    "docs/reviews/evidence/cloud-concepts-independent/cold-assessment-images-03.zip",
+    "docs/reviews/evidence/cloud-concepts-independent/cold-assessment-images-04.zip",
+    "docs/reviews/evidence/cloud-concepts-independent/cold-assessment-images-05.zip",
+    "docs/reviews/evidence/cloud-concepts-independent/cold-assessment-images-06.zip",
+    "docs/reviews/evidence/cloud-concepts-independent/cold-assessment-images-07.zip",
+    "docs/reviews/evidence/cloud-concepts-independent/cold-assessment-images-08.zip",
+    "docs/reviews/evidence/cloud-concepts-independent/cold-assessment-images-09.zip",
+    "docs/reviews/evidence/cloud-concepts-independent/cold-assessment-text.zip",
+    "docs/reviews/evidence/cloud-concepts-independent/cold-journey-first-report.txt",
+    "docs/reviews/evidence/cloud-concepts-independent/cold-journey-images-01.zip",
+    "docs/reviews/evidence/cloud-concepts-independent/cold-journey-images-02.zip",
+    "docs/reviews/evidence/cloud-concepts-independent/cold-journey-images-03.zip",
+    "docs/reviews/evidence/cloud-concepts-independent/cold-journey-images-04.zip",
+    "docs/reviews/evidence/cloud-concepts-independent/cold-journey-images-05.zip",
+    "docs/reviews/evidence/cloud-concepts-independent/cold-journey-images-06.zip",
+    "docs/reviews/evidence/cloud-concepts-independent/cold-journey-images-07.zip",
+    "docs/reviews/evidence/cloud-concepts-independent/cold-journey-text.zip",
+    "docs/reviews/evidence/cloud-concepts-independent/full-check-log.txt",
+    "docs/reviews/evidence/cloud-concepts-independent/full-check-result.json",
+    "docs/reviews/evidence/cloud-concepts-independent/images/base-full-sha.png",
+    "docs/reviews/evidence/cloud-concepts-independent/images/iaas-mission-premise.png",
+    "docs/reviews/evidence/cloud-concepts-independent/images/responsibility-guided.png",
+    "docs/reviews/evidence/cloud-concepts-independent/images/services-assessment-short.png",
+    "docs/reviews/evidence/cloud-concepts-independent/images/vm-complete-detail.png",
+    "docs/reviews/evidence/cloud-concepts-independent/images/vm-incomplete-debrief.png",
+    "docs/reviews/evidence/cloud-concepts-independent/images/web-hub-resume.png",
+    "docs/reviews/evidence/cloud-concepts-independent/journey-postlock.txt",
+    "docs/reviews/evidence/cloud-concepts-independent/legacy-cold-first-report.txt",
+    "docs/reviews/evidence/cloud-concepts-independent/legacy-cold-images-01.zip",
+    "docs/reviews/evidence/cloud-concepts-independent/legacy-cold-text.zip",
+    "docs/reviews/evidence/cloud-concepts-independent/legacy-postlock.txt",
+    "docs/reviews/evidence/cloud-concepts-independent/method-notes.txt",
+    "docs/reviews/evidence/cloud-concepts-independent/preservation.json",
+    "docs/reviews/evidence/cloud-concepts-independent/recovery-git-objects.txt",
+    "docs/reviews/evidence/cloud-concepts-independent/recovery.json",
+    "docs/reviews/evidence/cloud-concepts-independent/selected-images.json",
+    "docs/reviews/evidence/cloud-concepts-independent/source-check.json",
+    "docs/reviews/evidence/cloud-concepts-independent/source-discovery.json",
     "docs/reviews/evidence/hybrid51-author-browser.json",
     "docs/reviews/evidence/hybrid51-design-sources.json",
     "docs/reviews/evidence/hybrid51-preservation.json",
@@ -1537,7 +1587,6 @@
     "package-lock.json",
     "package.json",
     "playwright.config.ts",
-    "playwright.desktop.config.ts",
     "postcss.config.mjs",
     "public/design-review/characters/v1/explain-right-320.webp",
     "public/design-review/characters/v1/explain-right-640.webp",
@@ -1631,7 +1680,6 @@
     "src/components/icons.tsx",
     "src/components/progress-provider.tsx",
     "src/content/learning-journey.ts",
-    "src/content/nb.ts",
     "src/domain/assessment.ts",
     "src/domain/chapter01/model.test.ts",
     "src/domain/chapter01/model.ts",
@@ -1772,9 +1820,6 @@
     "src/domain/portal/inspection.test.ts",
     "src/domain/portal/inspection.ts",
     "src/domain/portal/learning.ts",
-    "src/domain/portal/model.ts",
-    "src/domain/portal/portal.test.ts",
-    "src/domain/portal/store.ts",
     "src/domain/progression.test.ts",
     "src/domain/progression.ts",
     "src/domain/retired-storage.ts",
@@ -1797,7 +1842,6 @@
     "src/features/course/assessment-navigation-exit.tsx",
     "src/features/course/audit-review.test.ts",
     "src/features/course/audit-review.ts",
-    "src/features/course/cloud-computing-chapters.test.ts",
     "src/features/course/cloud-computing-chapters.ts",
     "src/features/course/course-hub.tsx",
     "src/features/course/course-journey-context.tsx",
@@ -1807,7 +1851,6 @@
     "src/features/course/course-sequence.ts",
     "src/features/course/course-sidebar.tsx",
     "src/features/course/course.css",
-    "src/features/course/course.tsx",
     "src/features/course/experience-motion.tsx",
     "src/features/course/guidance-milestones.css",
     "src/features/course/guidance-milestones.tsx",
@@ -1818,14 +1861,12 @@
     "src/features/course/guided-mission-link.tsx",
     "src/features/course/highlight.ts",
     "src/features/course/hybrid-foundation.css",
-    "src/features/course/hybrid-foundation.test.ts",
     "src/features/course/learning-flow.css",
     "src/features/course/learning-flow.test.ts",
     "src/features/course/learning-flow.ts",
     "src/features/course/learning-fonts.ts",
     "src/features/course/mission-briefing.css",
     "src/features/course/mission-briefing.tsx",
-    "src/features/course/mission-context.ts",
     "src/features/course/mission-diagnosis.tsx",
     "src/features/course/mission-observations.tsx",
     "src/features/course/mission-portal.tsx",
@@ -1909,7 +1950,6 @@
     "src/features/learning/journal.tsx",
     "src/features/learning/learning-visuals.css",
     "src/features/learning/learning.css",
-    "src/features/learning/management-access.tsx",
     "src/features/learning/management-provider.tsx",
     "src/features/learning/management-recovery.tsx",
     "src/features/learning/management-tools-assessment.tsx",
@@ -1970,7 +2010,6 @@
     "src/features/learning/serverless.css",
     "src/features/learning/serverless.tsx",
     "src/features/learning/source-disclosure.css",
-    "src/features/learning/source-disclosure.test.ts",
     "src/features/learning/source-disclosure.tsx",
     "src/features/learning/storage-assessment.tsx",
     "src/features/learning/storage-provider.tsx",
@@ -1997,10 +2036,7 @@
     "src/features/portal/infrastructure-details.tsx",
     "src/features/portal/inspection-evidence.tsx",
     "src/features/portal/inventory.tsx",
-    "src/features/portal/learning-provider.tsx",
-    "src/features/portal/learning.tsx",
     "src/features/portal/portal.css",
-    "src/features/portal/portal.tsx",
     "src/features/portal/receipt-panel.tsx",
     "src/features/portal/receipts.css",
     "src/features/portal/responsibility.tsx",
@@ -2026,8 +2062,6 @@
     "tests/e2e/compute-hosting.spec.ts",
     "tests/e2e/cost-management.spec.ts",
     "tests/e2e/course-hub-actions.ts",
-    "tests/e2e/course-hub.spec.ts",
-    "tests/e2e/course.spec.ts",
     "tests/e2e/curriculum-expansion.spec.ts",
     "tests/e2e/dialog-placement.spec.ts",
     "tests/e2e/file-movement-migration.spec.ts",
@@ -2047,7 +2081,6 @@
     "tests/e2e/portal-actions.ts",
     "tests/e2e/portal-fidelity.spec.ts",
     "tests/e2e/portal-inspection-bridge.spec.ts",
-    "tests/e2e/portal.spec.ts",
     "tests/e2e/practical-labs.spec.ts",
     "tests/e2e/practical-missions.spec.ts",
     "tests/e2e/quality-system.spec.ts",
@@ -2072,266 +2105,248 @@
   "gates": {
     "source": {
       "checks": [
-        { "path": "docs/reviews/CLOUD_CONCEPTS_INDEPENDENT_REVIEW.md" },
-        { "path": "docs/reviews/CLOUD_CONCEPTS_FINDINGS.md" },
-        { "path": "docs/reviews/CLOUD_CONCEPTS_REMEDIATION_PLAN.md" },
-        { "path": "docs/reviews/evidence/cloud-concepts-independent/source-check.json" },
-        { "path": "docs/reviews/evidence/cloud-concepts-independent/source-discovery.json" }
+        { "path": "docs/CC01_CHALLENGE_RETURN.md" },
+        { "path": "docs/reviews/evidence/cloud-concepts-independent/source-check.json" }
       ],
-      "limits": "Twenty scoped public Microsoft pages actually inspected; no full57 content/source reassessment, copied Microsoft assessment or protected figure."
+      "limits": "Scoped CC01 verification; preserved content, scoring, technical engine and historical audit are not reauthored. Human validation unperformed; current full CI and actual external Gate7 required."
     },
     "curriculum": {
-      "checks": [
-        { "path": "docs/reviews/CLOUD_CONCEPTS_INDEPENDENT_REVIEW.md" },
-        { "path": "docs/reviews/CLOUD_CONCEPTS_FINDINGS.md" },
-        { "path": "docs/reviews/CLOUD_CONCEPTS_REMEDIATION_PLAN.md" }
-      ],
-      "limits": "Cloud Concepts review only; historical content/sequence and57/57 authored coverage remain unchanged, not learner mastery."
+      "checks": [{ "path": "docs/CC01_CHALLENGE_RETURN.md" }],
+      "limits": "Scoped CC01 verification; preserved content, scoring, technical engine and historical audit are not reauthored. Human validation unperformed; current full CI and actual external Gate7 required."
     },
     "simulation": {
       "checks": [
-        { "path": "docs/reviews/CLOUD_CONCEPTS_INDEPENDENT_REVIEW.md" },
-        { "path": "docs/reviews/CLOUD_CONCEPTS_FINDINGS.md" },
-        { "path": "docs/reviews/CLOUD_CONCEPTS_REMEDIATION_PLAN.md" },
-        { "path": "docs/reviews/evidence/cloud-concepts-independent/preservation.json" }
+        { "path": "docs/CC01_CHALLENGE_RETURN.md" },
+        { "path": "src/domain/portal/challenge-origin.test.ts" },
+        { "path": "tests/e2e/challenge-return.spec.ts" },
+        { "path": "docs/reviews/evidence/cc01/targeted-results.json" }
       ],
-      "limits": "Audit browser uses only synthetic local resources; local receipts are not Azure operations or runtime health. Every existing runtime/domain/test/script/config byte is preserved."
+      "limits": "Scoped CC01 verification; preserved content, scoring, technical engine and historical audit are not reauthored. Human validation unperformed; current full CI and actual external Gate7 required."
     },
     "savvyshark": {
-      "checks": [
-        { "path": "docs/reviews/CLOUD_CONCEPTS_INDEPENDENT_REVIEW.md" },
-        { "path": "docs/reviews/CLOUD_CONCEPTS_FINDINGS.md" },
-        { "path": "docs/reviews/CLOUD_CONCEPTS_REMEDIATION_PLAN.md" }
-      ],
-      "limits": "Actual representative guide/return checks are separated from untested missions; no guidance engine/state or credit change."
+      "checks": [{ "path": "docs/CC01_CHALLENGE_RETURN.md" }],
+      "limits": "Scoped CC01 verification; preserved content, scoring, technical engine and historical audit are not reauthored. Human validation unperformed; current full CI and actual external Gate7 required."
     },
     "visual-accessibility": {
       "checks": [
-        { "path": "docs/reviews/CLOUD_CONCEPTS_INDEPENDENT_REVIEW.md" },
-        { "path": "docs/reviews/CLOUD_CONCEPTS_FINDINGS.md" },
-        { "path": "docs/reviews/CLOUD_CONCEPTS_REMEDIATION_PLAN.md" }
+        { "path": "docs/CC01_CHALLENGE_RETURN.md" },
+        { "path": "docs/reviews/evidence/cc01/targeted-results.json" }
       ],
-      "limits": "Actual desktop/short browser evidence and representative keyboard/Axe checks only; no human screen-reader/novice validation or visual redesign."
+      "limits": "Scoped CC01 verification; preserved content, scoring, technical engine and historical audit are not reauthored. Human validation unperformed; current full CI and actual external Gate7 required."
     },
     "independent-final-audit": {
       "checks": [
-        { "path": "docs/reviews/CLOUD_CONCEPTS_INDEPENDENT_REVIEW.md" },
-        { "path": "docs/reviews/CLOUD_CONCEPTS_FINDINGS.md" },
-        { "path": "docs/reviews/CLOUD_CONCEPTS_REMEDIATION_PLAN.md" },
-        { "path": "docs/quality/PR53_FINAL_AUDIT.md" }
+        { "path": "docs/CC01_CHALLENGE_RETURN.md" },
+        { "path": "docs/quality/PR54_FINAL_AUDIT.md" }
       ],
-      "limits": "Separate fresh post-stamp reviewer audits the report/evidence/plan. Product P1 findings remain open for owner-scoped follow-ups; an unresolved report-quality BLOCKER/MAJOR blocks audit delivery."
+      "limits": "Scoped CC01 verification; preserved content, scoring, technical engine and historical audit are not reauthored. Human validation unperformed; current full CI and actual external Gate7 required."
     },
     "delivery": {
       "checks": [
-        { "path": "docs/reviews/CLOUD_CONCEPTS_INDEPENDENT_REVIEW.md" },
-        { "path": "docs/reviews/CLOUD_CONCEPTS_FINDINGS.md" },
-        { "path": "docs/reviews/CLOUD_CONCEPTS_REMEDIATION_PLAN.md" },
-        { "path": "docs/reviews/evidence/cloud-concepts-independent/full-check-result.json" }
+        { "path": "docs/CC01_CHALLENGE_RETURN.md" },
+        { "path": "docs/reviews/evidence/cc01/full-check-result.json" },
+        { "path": "docs/reviews/evidence/cc01/targeted-results.json" },
+        { "path": "docs/reviews/evidence/cc01/preview-readiness.json" },
+        { "path": "docs/reviews/evidence/cc01/initial-ci-result.json" }
       ],
-      "limits": "Full check, exact-head complete351CI/strict and actual anonymous preview/head verification remain distinct gates. No old PR52 result reused as candidate evidence. Final post-publication receipts belong to DraftPR53."
+      "limits": "Scoped CC01 verification; preserved content, scoring, technical engine and historical audit are not reauthored. Human validation unperformed; current full CI and actual external Gate7 required."
     }
   },
   "humanReview": { "sme": "unperformed", "learning": "unperformed" },
   "visualEvidence": [
     {
-      "path": "docs/reviews/evidence/cloud-concepts-independent/images/responsibility-guided.png",
+      "path": "docs/reviews/evidence/cc01/after-neutral-1440.png",
       "viewport": "1440x900",
       "inspected": true,
-      "observation": "Actual guided classification/cause result with flat six-session sidebar and scoped next action; read by root and cold journey reviewer."
+      "observation": "Actual active Computing return: warm neutral status, focused resume link, explicit separate teaching/help action, no mounted debrief/answers or fixed footer."
     },
     {
-      "path": "docs/reviews/evidence/cloud-concepts-independent/images/services-assessment-short.png",
+      "path": "docs/reviews/evidence/cc01/after-neutral-1024-500.png",
       "viewport": "1024x500",
       "inspected": true,
-      "observation": "Actual unsubmitted current Service Types question and decision/reason controls above fixed footer; representative short-window inspection only."
+      "observation": "Actually inspected short viewport; entire neutral explanation, resume and deliberate teaching action fit without horizontal clipping. No large new card or competing navigation."
     },
     {
-      "path": "docs/reviews/evidence/cloud-concepts-independent/images/vm-incomplete-debrief.png",
+      "path": "docs/reviews/evidence/cc01/after-computing-completed.png",
       "viewport": "1440x900",
       "inspected": true,
-      "observation": "Actual task-incomplete guided VM terminal with working next/new attempt; technical acceptance is not falsely presented as task completion."
-    },
-    {
-      "path": "docs/reviews/evidence/cloud-concepts-independent/images/vm-complete-detail.png",
-      "viewport": "1440x900",
-      "inspected": true,
-      "observation": "Actual second guided result, limits and generic next action. No runtime-health or independent-competence claim."
+      "observation": "Actual original portal-transfer@1 result after real post-boundary Shared Sandbox RG/Plan/App operations: all six original criteria met and unassisted first preserved; no changed rubric or false Azure runtime claim."
     }
   ],
   "verification": [
     {
+      "command": "targeted CC01 production-build browser profile",
+      "result": "passed",
+      "details": "Actual final production-build scoped profile:7 passed,6 desktop+1compact, no retry. Includes real Computing Web lab, all original technical operations, neutral active return, exact Hub/draft/history, durable aid, unknown origin, cross-tab, keyboard/reduced-motion/Axe. See cc01/targeted-results.json. Full CI pending. After the localization-only correction,4 focused desktop/compact browser checks passed without retry against the rebuilt final runtime; exact old locale-prefix preservation also passed."
+    },
+    {
       "command": "npm run check",
       "result": "passed",
-      "details": "Actual complete author check exit0, 2026-11-04T07:05:28.014361+00:00 to 2026-11-04T07:08:48.014952+00:00; full log in docs/reviews/evidence/cloud-concepts-independent/full-check-log.txt. Complete browser profile is still pending exact-head CI."
+      "details": "Final test-readiness follow-up actual full check exit0,2026-11-04T12:29:01.174566+00:00;651Vitest,503curriculum,24Node+build. Six targeted CI-failure desktop/compact cases passed without retry; all old assertions retained with confirmed-Start/destination waits and correct neutral unknown-origin route. No runtime or QA-setting changes; initial failedCI recorded separately."
     },
     {
       "command": "npm run test:e2e:desktop",
       "result": "pending",
-      "details": "Unchanged351 full-profile exact-head GitHub CI required after Draft publication; no historic result reused."
+      "details": "Final exact-head full358CI required after test-only follow-up commit. Initial6e CI failed5+flaky1+passed352; not reused as success."
     }
   ],
   "review": {
     "status": "complete",
-    "fingerprint": "7c7653224ff4835d1292e41b1203b676d158976ffc85aaccfd278850aef4b4f8",
-    "reviewer": { "id": "pr53_report_final_audit", "kind": "agent" },
-    "started": "2026-11-04T07:23:39Z",
+    "fingerprint": "e982870361e3f7afe8916aaed472ac94d61a873aa1ffb5a104ee656d928f09cb",
+    "reviewer": { "id": "pr54_independent_final_audit", "kind": "agent" },
+    "started": "2026-11-04T12:31:52Z",
+    "completed": "2026-11-04T12:34:08.410Z",
     "domains": {
       "content": {
-        "finding": "Post-correction recheck: underlying reviewed files are byte-unchanged from the initial six-domain audit. Concrete Norwegian repetition/terminology and bounded Learn comparison are evidenced. Independently re-fetched all20 author +3 supplemental sources:23 HTTP200, all HTML hashes match. No report-level major; human SME/novice validation remains unperformed.",
+        "finding": "Original manuscripts, sources, rubrics and complete1488942-byte locale prefix independently match base. Only1184 interface-copy bytes append; no fresh approval of unchanged premises. CC03 remains P1 and CC02 P2. Production source remains byte-identical to published6e during test-only follow-up; no broader content or premise approval.",
         "evidence": [
-          { "path": "docs/quality/PR53_FINAL_AUDIT.md" },
-          { "path": "docs/reviews/evidence/cloud-concepts-independent/source-check.json" },
-          { "path": "docs/reviews/evidence/cloud-concepts-independent/source-discovery.json" },
-          {
-            "path": "docs/reviews/evidence/cloud-concepts-independent/cold-journey-first-report.txt"
-          }
-        ]
-      },
-      "technical": {
-        "finding": "Post-correction recheck: raw check log/result preserved at original stamped hashes in author-check-original.zip; readable log differs solely3CRLF-toLF pairs; all20 cold archives and44 other original snapshot files unchanged. No runtime/protected/test bytes changed. Independently compared all1659 preserved files to exact base:zero changes;20 ZIPs/675 members and7 selected copies hash-verified. Archived driver scripts are audit evidence; no untracked executable/runtime scope creep. Local receipts never imply Azure operations or runtime health.",
-        "evidence": [
-          { "path": "docs/quality/PR53_FINAL_AUDIT.md" },
-          { "path": "docs/reviews/evidence/cloud-concepts-independent/preservation.json" },
-          { "path": "docs/reviews/evidence/cloud-concepts-independent/archive-index.json" },
-          { "path": "docs/reviews/evidence/cloud-concepts-independent/journey-postlock.txt" },
-          { "path": "docs/reviews/evidence/cloud-concepts-independent/author-check-original.zip" },
-          { "path": "docs/reviews/evidence/cloud-concepts-independent/full-check-result.json" }
-        ]
-      },
-      "visual": {
-        "finding": "Post-correction recheck: underlying reviewed files are byte-unchanged from the initial six-domain audit. Actually viewed all7 selected PNGs. VM incomplete/complete and1024x500 assessment claims match visible states and full text. Original Axe has0 violations/1 incomplete; representative keyboard/reduced-motion evidence is bounded, not human accessibility approval.",
-        "evidence": [
-          { "path": "docs/quality/PR53_FINAL_AUDIT.md" },
-          { "path": "docs/reviews/evidence/cloud-concepts-independent/selected-images.json" },
-          {
-            "path": "docs/reviews/evidence/cloud-concepts-independent/images/vm-incomplete-debrief.png"
-          },
-          {
-            "path": "docs/reviews/evidence/cloud-concepts-independent/images/vm-complete-detail.png"
-          },
-          {
-            "path": "docs/reviews/evidence/cloud-concepts-independent/images/services-assessment-short.png"
-          }
-        ]
-      },
-      "assessment": {
-        "finding": "Post-correction recheck: underlying reviewed files are byte-unchanged from the initial six-domain audit. First reports/packets match8 lock hashes and exact TXT copies; later key checks stay separate. Coverage29 routes=25 bodies+4 entrances,13 ordinary pairs/20 terminal pairs reconciles. CC03 open P1 premise triage is defensible with original medium opinion and no false-rejection claim; valid current matched pairs remain preserved.",
-        "evidence": [
-          { "path": "docs/quality/PR53_FINAL_AUDIT.md" },
-          {
-            "path": "docs/reviews/evidence/cloud-concepts-independent/cold-assessment-first-report.txt"
-          },
-          { "path": "docs/reviews/evidence/cloud-concepts-independent/assessment-postlock.txt" },
-          {
-            "path": "docs/reviews/evidence/cloud-concepts-independent/legacy-cold-first-report.txt"
-          },
-          { "path": "docs/reviews/evidence/cloud-concepts-independent/legacy-postlock.txt" },
+          { "path": "docs/quality/PR54_FINAL_AUDIT.md" },
+          { "path": "docs/reviews/evidence/cc01/preservation.json" },
+          { "path": "docs/reviews/evidence/cc01/authorized-changes.json" },
           { "path": "docs/reviews/CLOUD_CONCEPTS_FINDINGS.md" }
         ]
       },
-      "guidance": {
-        "finding": "Post-correction recheck: underlying reviewed files are byte-unchanged from the initial six-domain audit. CC01 open P1 return/resume loss is supported by exact source and original partial/submitted browser/boundary evidence; aid guard is functioning. CC02 is truthful incomplete feedback with working guided retry and P2 severity. CC07 correctly remains causally unresolved; plan preserves old origins/firsts/durable aid.",
+      "technical": {
+        "finding": "37 actual changed-file hashes and latest fingerprint independently match, with zero structural/snapshot/base errors. Production src byte-identical to published6e; original attempt-bound sidecar and durable readback/crash/stale behavior remain as independently reviewed. New test waits observe existing state and actual valid/accepted operations; no product hydration fix claimed.",
         "evidence": [
-          { "path": "docs/quality/PR53_FINAL_AUDIT.md" },
-          { "path": "docs/reviews/evidence/cloud-concepts-independent/journey-postlock.txt" },
-          { "path": "src/domain/portal/model.ts" },
+          { "path": "src/domain/portal/challenge-origin.ts" },
+          { "path": "src/domain/portal/store.ts" },
+          { "path": "src/domain/portal/challenge-origin.test.ts" },
+          { "path": "docs/quality/PR54_FINAL_AUDIT.md" },
+          { "path": "docs/reviews/evidence/cc01/preview-readiness.json" }
+        ]
+      },
+      "visual": {
+        "finding": "Actual before/completed/neutral1440 and1024x500 images personally inspected. Independently rerun localized desktop and compact UI journeys passed no retry: heading/Tab/Enter focus, reduced motion, no overflow, Axe zero. Fresh short image matches inspected evidence bytes; no human screen-reader or real-device claim. No renderer/style change in follow-up. Independently inspected actual anonymous external completed first with6 original successful criteria on published6e; new-head verification still required.",
+        "evidence": [
+          { "path": "docs/reviews/evidence/cc01/after-neutral-1440.png" },
+          { "path": "docs/reviews/evidence/cc01/after-neutral-1024-500.png" },
+          { "path": "docs/reviews/evidence/cc01/after-computing-completed.png" },
+          { "path": "tests/e2e/challenge-return.spec.ts" },
+          { "path": "docs/quality/PR54_FINAL_AUDIT.md" }
+        ]
+      },
+      "assessment": {
+        "finding": "Original v1 answers/events/rubric/evaluator/firsts unchanged. Prior feedback stays hidden during active unaided/conflicted work; explicit history opening requires original durable aid. Actual stale-history and denied-aid probes failed closed. No navigation completion/score/XP or new content approval. Independent external current-function assertions confirmed original first correct=true, exactly6 met criteria and unassisted, boundaryportal-4/attempt1 throughportal-7 with drafts and no aid/compare/guided. This does not fix CC03 P1 premise.",
+        "evidence": [
+          { "path": "src/features/portal/learning.tsx" },
+          { "path": "src/features/learning/management-access.tsx" },
+          { "path": "src/domain/portal/learning.ts" },
+          { "path": "tests/e2e/challenge-return.spec.ts" },
+          { "path": "docs/quality/PR54_FINAL_AUDIT.md" },
+          { "path": "docs/reviews/evidence/cc01/preview-readiness.json" }
+        ]
+      },
+      "guidance": {
+        "finding": "Independently executed real Computing denial/correction/hosting/challenge/return/Hub/history/reload/submission. Entire localStorage remained byte-identical across neutral return; deliberate teaching appended exactly aid. Unrelated updated Benefits aid denial withheld Computing teaching and retained Hub priority. Other lab origins explicitly excluded and inherited targeted routes retained. New test protocol waits for observed guide/form/workspace and Services destination before reload; inherited Start tests await durable active state. Exact unknown-origin Hub expectation retained neutrally. No general runtime-input or prior flake resolution inferred.",
+        "evidence": [
+          { "path": "src/features/course/challenge-return.tsx" },
           { "path": "src/features/course/course.tsx" },
-          { "path": "src/features/course/missions.tsx" },
-          { "path": "docs/reviews/CLOUD_CONCEPTS_REMEDIATION_PLAN.md" }
+          { "path": "src/features/course/mission-context.ts" },
+          { "path": "src/features/portal/portal.tsx" },
+          { "path": "docs/reviews/evidence/cc01/targeted-results.json" },
+          { "path": "docs/quality/PR54_FINAL_AUDIT.md" },
+          { "path": "docs/reviews/evidence/cc01/preview-readiness.json" }
         ]
       },
       "regression": {
-        "finding": "New47-file fingerprint recomputed exactly; only ZIP/log-copy/result-provenance differ from original snapshot. Git path clean-filter roundtrip matches raw bytes for all47 files. Complete author check is still the original exit0; no browser pass or new-head Gate7 claim. Prior9/9 quality tests and351(318/33) plan remain retained unchanged controls.",
+        "finding": "First6e full CI41824040575 failed:352passed+1flaky+5failed, preserved honestly. Final test-only amendment adds waits and stronger original-result/scope/accepted-resource assertions; old Hub neutral expectation matches no-sidecar fixture. No old behavior assertion/settings weakened.Preservation independently reconciled to1689 whole entries plus complete1488942-byte locale prefix, zero mismatches; removed only explicitly amended Hub/Portal tests. Final author check exit0 at12:29,651/503/24+build;6 affected browsers passed no retry; independent plan358(324/34). Independent actual current first external journey passed on old6e with explicit6/unassisted, not native/full-CI/new-headGate7. New exact-head full CI/strict/Gate7 still required.",
         "evidence": [
-          { "path": "docs/quality/PR53_FINAL_AUDIT.md" },
-          { "path": "docs/reviews/evidence/cloud-concepts-independent/full-check-log.txt" },
-          { "path": "docs/reviews/evidence/cloud-concepts-independent/full-check-result.json" },
-          { "path": "playwright.desktop.config.ts" },
-          { "path": "scripts/quality-check.test.mjs" },
-          { "path": "docs/reviews/evidence/cloud-concepts-independent/author-check-original.zip" }
+          { "path": "docs/reviews/evidence/cc01/initial-ci-result.json" },
+          { "path": "docs/reviews/evidence/cc01/preview-readiness.json" },
+          { "path": "docs/reviews/evidence/cc01/preservation.json" },
+          { "path": "docs/reviews/evidence/cc01/full-check-result.json" },
+          { "path": "docs/reviews/evidence/cc01/targeted-results.json" },
+          { "path": "tests/e2e/challenge-return.spec.ts" },
+          { "path": "tests/e2e/course-hub.spec.ts" },
+          { "path": "tests/e2e/portal.spec.ts" },
+          { "path": "tests/e2e/course.spec.ts" },
+          { "path": "docs/quality/PR54_FINAL_AUDIT.md" }
         ]
       }
     },
     "findings": [
       {
-        "id": "PR53-AUDIT-LIMITS",
-        "severity": "note",
-        "status": "accepted-limitation",
-        "description": "No audit-delivery BLOCKER/MAJOR identified. Procedural isolation and hashes prove artifact continuity, not OS isolation or human learning/SME/psychometric validation; those limits are disclosed. Product P1 findings remain open at their declared severity."
-      },
-      {
-        "id": "PR53-DELIVERY-PENDING",
-        "severity": "note",
-        "status": "open",
-        "description": "Complete exact-head351 browserCI/strict release and actual anonymous new-head Gate7 must execute after publication. Gate6 completion does not claim release or product fixes."
-      },
-      {
-        "id": "PR53-AUDIT-LOG-EOL",
+        "id": "PR54-A1",
         "severity": "minor",
         "status": "fixed",
-        "description": "Git LF normalization would change3CRLF pairs in the raw TXT check log after checkout, while the initial snapshot hashed raw TXT bytes; discovered before commit/publication.",
-        "fix": "Preserved exact original log/result in author-check-original.zip, normalized only the readable copy, disclosed original hashes/normalization in result, and renewed stamp/fingerprint before this bounded review.",
+        "description": "Initial neutral return, storage/history and unknown-origin interface strings were embedded in TSX despite the AGENTS locale contract.",
+        "fix": "Author appended challengeReturnNb to nb.ts and referenced the same visible strings. Every original locale byte remains unchanged; bounded exact-prefix check added.",
         "retests": [
-          "ZIP original log/result hashes equal initial stamped8b127a38…/42517ddb…; original outside-repository log also identical.",
-          "Readable copy equals raw.replace(CRLF,LF) exactly;3pairs only; all original result fields unchanged.",
-          "New47-file snapshot/fingerprint exact;44 other original files unchanged;20 cold ZIP hashes unchanged.",
-          "Git path clean-filter and raw hashes agree for every47snapshot file; structural/snapshot/base validation has0errors."
+          { "path": "src/content/nb.ts" },
+          { "path": "tests/cc01-preservation.ts" },
+          { "path": "docs/reviews/evidence/cc01/full-check-result.json" },
+          { "path": "tests/e2e/challenge-return.spec.ts" },
+          { "path": "docs/quality/PR54_FINAL_AUDIT.md" }
         ]
+      },
+      {
+        "id": "PR54-A2",
+        "severity": "minor",
+        "status": "fixed",
+        "description": "New and inherited browser protocols acted before observed workspace/form/committed Start state; Services reloaded before confirming navigation, and old Hub fixture expected Services for unknown origin. The initial full CI failed and native external deadline failures remain recorded.",
+        "fix": "Author added observed guide/workspace/destination/active waits, actual Shared Sandbox Review and accepted-resource checks, explicit original passed/unassisted result, and exact neutral unknown-origin fixture expectation. All original behavioral assertions/settings retained; production source unchanged.",
+        "retests": [
+          { "path": "tests/e2e/challenge-return.spec.ts" },
+          { "path": "tests/e2e/course-hub.spec.ts" },
+          { "path": "tests/e2e/course.spec.ts" },
+          { "path": "tests/e2e/portal.spec.ts" },
+          { "path": "docs/reviews/evidence/cc01/targeted-results.json" },
+          { "path": "docs/reviews/evidence/cc01/full-check-result.json" },
+          { "path": "docs/reviews/evidence/cc01/preview-readiness.json" },
+          { "path": "docs/quality/PR54_FINAL_AUDIT.md" }
+        ]
+      },
+      {
+        "id": "PR54-N1",
+        "severity": "note",
+        "status": "open",
+        "description": "Initial6e CI41824040575 failed(352passed,1flaky,5failed). New-head complete358 CI/strict full-browser receipt and anonymous new-SHA Gate7 remain pending. Standalone old6e journeys cannot replace them. Original CC03 P1,CC02 P2,known Compute/Guidance flakes and human validation remain unresolved."
       }
     ],
-    "report": { "path": "docs/quality/PR53_FINAL_AUDIT.md" }
+    "limitations": "Separate code-aware agent audit and bounded follow-up only. Initial failed CI/native failures and overwritten first native trace are disclosed. Independent actual old6e first journey verified, no new-head/full-CI claim. No general hydration-flake fix, human SME/novice/screen-reader/psychometric/learning-transfer validation, broad content acceptance, merge or production authorization.",
+    "report": { "path": "docs/quality/PR54_FINAL_AUDIT.md" }
   },
   "snapshot": {
     "files": {
-      "docs/reviews/CLOUD_CONCEPTS_FINDINGS.md": "233d5e2a7500aebcae635695a0549b2a157a1b8a12daa69baff060376a5774af",
-      "docs/reviews/CLOUD_CONCEPTS_INDEPENDENT_REVIEW.md": "4682e54a9265a0c55b74e9557fa9f92a9214d79106951cac654da509d5fe58ea",
-      "docs/reviews/CLOUD_CONCEPTS_REMEDIATION_PLAN.md": "b4a52c7bf8049a14b8c881072796ab5fffa604cb50118ddcf47504a06ef005d1",
-      "docs/reviews/evidence/cloud-concepts-independent/archive-index.json": "00648f10d4c70ba8a845bdcac97ad448283456f566c5d6efbe734f5cdcab92d8",
-      "docs/reviews/evidence/cloud-concepts-independent/assessment-postlock.txt": "478beebdbb76c6b17db478e0ac531b0da6559a9acdbc051c648c1bf40bcf7ac4",
-      "docs/reviews/evidence/cloud-concepts-independent/author-check-original.zip": "5d74e1adc88cf7797ce7a9febe82f7f0dd55a0e9cb2e22e63d9987810f74e03c",
-      "docs/reviews/evidence/cloud-concepts-independent/cold-assessment-first-report.txt": "8aa0b46d8923debf2e246788c458549aceddf51d04eff83a5e2f6bb1e4d3673f",
-      "docs/reviews/evidence/cloud-concepts-independent/cold-assessment-images-01.zip": "9f1038ef7520a9a2c0d3f8ee8a95633774d8777c505667ba9da1d93dacb98632",
-      "docs/reviews/evidence/cloud-concepts-independent/cold-assessment-images-02.zip": "715938d2e1c191cb3a92b43e0a14c06499a9825b6f6d646dd020a1b29880289a",
-      "docs/reviews/evidence/cloud-concepts-independent/cold-assessment-images-03.zip": "9b7b97200b395830a35a50bd1cd2282c96d6124e2b89d6765e0db04562d79bd5",
-      "docs/reviews/evidence/cloud-concepts-independent/cold-assessment-images-04.zip": "08321ac814c964814424d43dfa23da4b71d08665666f7c3c4546594c858b5255",
-      "docs/reviews/evidence/cloud-concepts-independent/cold-assessment-images-05.zip": "fdd4a8629e0500c2fdcef92665030cc3ea18e61a5586d3d8150f015a6d6ea67b",
-      "docs/reviews/evidence/cloud-concepts-independent/cold-assessment-images-06.zip": "339dc36780d4ffabdd3c3fdd2144ef99783c37f9fbad0bf3495727d0666659f6",
-      "docs/reviews/evidence/cloud-concepts-independent/cold-assessment-images-07.zip": "9f78547dfea6ec4002a08d9481eb470aac5634a786e69f4c4a657ab0ccd32475",
-      "docs/reviews/evidence/cloud-concepts-independent/cold-assessment-images-08.zip": "315fcb84c496ed08799d830db6a748cd559603e5a27819d59a8bcb52377fa881",
-      "docs/reviews/evidence/cloud-concepts-independent/cold-assessment-images-09.zip": "6803b4d745b22ef7bb67590388d43ab88b439b0a9cef3b2df626417464e2fdd6",
-      "docs/reviews/evidence/cloud-concepts-independent/cold-assessment-text.zip": "ae07dc279024899fe0d351dff7b7effb17a51b9175e17e5f8371b1a766841e42",
-      "docs/reviews/evidence/cloud-concepts-independent/cold-journey-first-report.txt": "74bc7e716fe3c54421afe48ccfcd26e934d5c0ca8160869af1cc27d6483b5d0b",
-      "docs/reviews/evidence/cloud-concepts-independent/cold-journey-images-01.zip": "6f60ff04993691085ee9cbe9047188c9f9ff04b076e5e27c657316caecdf6070",
-      "docs/reviews/evidence/cloud-concepts-independent/cold-journey-images-02.zip": "e54e7e22799123abc83f1c8b4c707f035028389eaa667bf447b01b591dd7cfd4",
-      "docs/reviews/evidence/cloud-concepts-independent/cold-journey-images-03.zip": "8ec55c9d634eb1ca8afe751d841c0057923f8fcdf315494c5496182ade2ed5dd",
-      "docs/reviews/evidence/cloud-concepts-independent/cold-journey-images-04.zip": "71d3002df17d0b210c84d65e6e0351254e05101dd228974ae092e9758062a0c9",
-      "docs/reviews/evidence/cloud-concepts-independent/cold-journey-images-05.zip": "9773b10fcc6a6394b25f6174933a1af411941cfdb94edf2eae530b2ac65274f2",
-      "docs/reviews/evidence/cloud-concepts-independent/cold-journey-images-06.zip": "686a5961c69bfb15712de0ba2f796661cfd9de1f41f05422a93c9ffa8ebc4b09",
-      "docs/reviews/evidence/cloud-concepts-independent/cold-journey-images-07.zip": "6058d4ef499d9f87fbe783d4238b33edacb3bf8c229a46a66698450640cc3fe0",
-      "docs/reviews/evidence/cloud-concepts-independent/cold-journey-text.zip": "45e514508135337133da896632ff1bc8d2acb9c50f03a6987833ea768e03f6b0",
-      "docs/reviews/evidence/cloud-concepts-independent/full-check-log.txt": "063ad2911b2d6f9dc06013d711bf93d944e24f221c3f15e07975da3b472bc97a",
-      "docs/reviews/evidence/cloud-concepts-independent/full-check-result.json": "b0abda75aed7ea394f485dbbede8ab040a226ed38c71b58e6e1d9457eddb1f68",
-      "docs/reviews/evidence/cloud-concepts-independent/images/base-full-sha.png": "46494db068fb28888d0080d54ccf2688d629574f486f210346ca9fd23d7f4afe",
-      "docs/reviews/evidence/cloud-concepts-independent/images/iaas-mission-premise.png": "64fd9adfce98f98fe3ac8c4466449facd9594ae4d646283b6f5c0f2d0d4f2f1d",
-      "docs/reviews/evidence/cloud-concepts-independent/images/responsibility-guided.png": "5c6a6d1c75b7b7e8f19fb3fd663087d0b2cd4e502a0b96461603370078a2c61b",
-      "docs/reviews/evidence/cloud-concepts-independent/images/services-assessment-short.png": "d65e67482c91ea158b221a68a850f8dcc366acfb38eeddac6b87f935a9d77dd6",
-      "docs/reviews/evidence/cloud-concepts-independent/images/vm-complete-detail.png": "8d5045278aed46e3808f32ea9158254b0c166c0019142a4d193ca5a2a9c55b86",
-      "docs/reviews/evidence/cloud-concepts-independent/images/vm-incomplete-debrief.png": "f8e66094353719abc3b956d9e80cbb8793a0b8a415369bbf0c97f6d270653c06",
-      "docs/reviews/evidence/cloud-concepts-independent/images/web-hub-resume.png": "56eb34e743d42090aab7f3dcad9e4525a7cdd259333414ed3d20b8b789cf9c00",
-      "docs/reviews/evidence/cloud-concepts-independent/journey-postlock.txt": "e2ed8f934cd1663dd937b497c5a3fd536e71e00eba09eb67f1707be0c7ce7b47",
-      "docs/reviews/evidence/cloud-concepts-independent/legacy-cold-first-report.txt": "17abf48d73900b994a8d7120cc3f45fd41109e5822c16a75c685f42c3bfe5740",
-      "docs/reviews/evidence/cloud-concepts-independent/legacy-cold-images-01.zip": "d2b6b819d6cb8b6ae7a4d39bf5a194d8bd153d296927d7dc62d49bfdc3aa1045",
-      "docs/reviews/evidence/cloud-concepts-independent/legacy-cold-text.zip": "8055873c4856ce233e3616e549252155c6800f2271821ac3e1b088d71b50fa73",
-      "docs/reviews/evidence/cloud-concepts-independent/legacy-postlock.txt": "bb4ba1ddf9940655dcede5423f6dd1cb99c896e5fedfda4379734cb98cf3336d",
-      "docs/reviews/evidence/cloud-concepts-independent/method-notes.txt": "669173857e03b793d66bbe446ca9db0f6401eb38a6938c1aa90bbf9f428bd466",
-      "docs/reviews/evidence/cloud-concepts-independent/preservation.json": "bcb1ca85a912fd0471a99508a3bf3b9afb7c520780bc76d077c8323518b2943c",
-      "docs/reviews/evidence/cloud-concepts-independent/recovery-git-objects.txt": "0f2f2449d771bd6cee4b2bef980a454a113060747ccfcb84eae1b37090818880",
-      "docs/reviews/evidence/cloud-concepts-independent/recovery.json": "6658e8473f611a0870768ccb5816d2814d365c1e9615e563fb748f1bc1d4db8d",
-      "docs/reviews/evidence/cloud-concepts-independent/selected-images.json": "c5c29cfca79aef098e4960ba6606b469fd152a1771c3158bcf8707627cc47461",
-      "docs/reviews/evidence/cloud-concepts-independent/source-check.json": "a5bdbdc77660c5d5bebe590564f61d21b2b06f90d9db3b85affb9ad6bccdd79d",
-      "docs/reviews/evidence/cloud-concepts-independent/source-discovery.json": "880988ed6265eb77f1a82ec52e005c61ad2f733a31e7cd28b3b0f83883211918"
+      "docs/CC01_CHALLENGE_RETURN.md": "dbfe5d303879bf03ec5ef8fd874d85a3ff996fbd6a8b2da16a98d45e097e73c3",
+      "docs/reviews/CLOUD_CONCEPTS_REMEDIATION_PLAN.md": "06c77e136787c06403545cc5f8b02fa4096581cd0d57de760ce54660a855730f",
+      "docs/reviews/evidence/cc01/after-computing-completed.png": "bdf5a1af3b6e559f92ef60dc1963d66556ad0e6af52e33735cf05bd75d35d148",
+      "docs/reviews/evidence/cc01/after-neutral-1024-500.png": "421df6fcb0d2d38ee857a11e1ab033a355f3349f8f9849c2e560360c1f95a668",
+      "docs/reviews/evidence/cc01/after-neutral-1440.png": "99fd4e8f1ea9ea180c8e5dd724d910db127549574d2f4ea26c3589b9c706737d",
+      "docs/reviews/evidence/cc01/authorized-changes.json": "868a4aef4ea9d3cb5f3ae526d753aa0349ed2e6cff99f32002d2d7f733c53976",
+      "docs/reviews/evidence/cc01/before-computing-active-1440.png": "779aa15d001d9716a3de82870473bab4b1665f33f40766302ed88311fcfc52d5",
+      "docs/reviews/evidence/cc01/before-denied-aid.json": "a460988d5c4efce2c2722448a8fed1cd81b001a0963c9c14ac00250fbfaa349e",
+      "docs/reviews/evidence/cc01/before-reproduction.json": "04135ef2d90da8c76fd3cec0735f5b999fd1895f0bce22f597f9383cb05be874",
+      "docs/reviews/evidence/cc01/before-root-sha.json": "25334a58efe660c322db68a56a5b893b4e566886b29865af52a259df10cd0493",
+      "docs/reviews/evidence/cc01/full-check-result.json": "77d30455acba14205288b6ce8bbbe4cb6023dc1ea6a0af9114723e4b83e29558",
+      "docs/reviews/evidence/cc01/initial-ci-result.json": "5b21d12a3148eb3119e697d670d42d1f1fa19416c90bc34295b445973b2285cb",
+      "docs/reviews/evidence/cc01/preservation.json": "67fcaad105d7c99aee5b5babda850c6142d7bc9b6afae67f1de1848c7e440dfb",
+      "docs/reviews/evidence/cc01/preview-readiness.json": "45f770b1b68a0e752844c0408d34518301c3eb61af8148f7826a6b699ba35196",
+      "docs/reviews/evidence/cc01/targeted-results.json": "1c007ad7b85c3fc052f64d58d7183cf21d35638c9877ed6c1609970fd7794ac6",
+      "playwright.desktop.config.ts": "58985312072f22544c8a547cb22bd406e050de6bdff5bf2857b01cdf94ad2eaf",
+      "src/content/nb.ts": "47713dbfede302189e442646a5a435038896ed26b0eafd76cae9e643a665a790",
+      "src/domain/portal/challenge-origin.test.ts": "3252daaec1d5e926ab6bffa952532331b9e95439d0c3a8ce7918032e4eab7595",
+      "src/domain/portal/challenge-origin.ts": "48f22ccf2396353dc58216c32069e0759542e7c8849dbf0a0fe8b72d5dbcd6ce",
+      "src/domain/portal/model.ts": "983544cf40f0c14ed0edb608d71b9208e57fc5ebf6975508366c7e2575d0af04",
+      "src/domain/portal/portal.test.ts": "2b1b3a35fcb8e06fd565ee0d8711d2b53ffaba7a3bd6416f14e1cc39865f3a14",
+      "src/domain/portal/store.ts": "69d4a42305d1149df02d6ccbb56e20521d5e91cae4e99817f7ec5dd20e1e1a0e",
+      "src/features/course/challenge-return.tsx": "c5982304ce8746a2e6f6e82b917ee8c27b255e04b0642b906605484c4597492c",
+      "src/features/course/cloud-computing-chapters.test.ts": "526484742fe5058c40c9854ee64237f219d8ae2b10f30fe90562d99606d028fd",
+      "src/features/course/course.tsx": "986b05cdb8adabdb6cc86445ca7d671c0948164854458962c8849f0547e3865e",
+      "src/features/course/hybrid-foundation.test.ts": "1f4cd05b91c3c63309e8165b3df875d03a111fc0fb60edbc1c215c7b40595fff",
+      "src/features/course/mission-context.ts": "b2524a6980aea0f90152d7aff4845d135b9641ffa6c27081d18a2c208b1fc31b",
+      "src/features/learning/management-access.tsx": "4b7a31d9209bc14ca4d3fe50bfc05325a3aa173a433569e9287746fd0f82affc",
+      "src/features/learning/source-disclosure.test.ts": "1636ac624cdaf278404e515caf4d0fe77d329c19ba76ca64ef0d924a04909b73",
+      "src/features/portal/learning-provider.tsx": "a5c23225322a21ccf3fa1877ca4bfa7903aa676e574c7737040be3fbe098fb0b",
+      "src/features/portal/learning.tsx": "c62ded8fc8ddaf220193c642f447d5965013981243f6b82e2f7c32ec4b616842",
+      "src/features/portal/portal.tsx": "5f265023a884a09c43bfaeaa2792aff9f264d128e11d52684422f7250d5de15a",
+      "tests/cc01-preservation.ts": "4a83ba2fe07c01f13a170a92af4deb54412d5c58b692526b26f4ad1694fc93ef",
+      "tests/e2e/challenge-return.spec.ts": "faf1a883e5618d8c7383aff22b264767f5e8e2c6f4ded1ae5dcbb63186e82956",
+      "tests/e2e/course-hub.spec.ts": "7b26e0daf290206b424929d0985ce171a10c14ebc43c98536bc41af971ad5e1e",
+      "tests/e2e/course.spec.ts": "1f73531be7e49ad2cdbe3522b14871e8ce7cb738c5e8d1adf608a6f2229dde72",
+      "tests/e2e/portal.spec.ts": "da112fe906713bb2ace7921caaafd987c80e2c196579e85bc76354d1e958ca8c"
     }
   },
-  "implementationFinished": "2026-11-04T07:23:06.459Z"
+  "implementationFinished": "2026-11-04T12:30:33.275Z"
 }
