@@ -369,7 +369,7 @@ test('denied durable aid fails closed and denied origin Start never claims an ac
     },
     { pinKey },
   );
-  await tab.goto(computing);
+  await tab.goto(computing + '&assessment=legacy');
   await tab.getByRole('button', { name: p.challenge.start, exact: true }).click();
   await expect(tab.locator('.portal-challenge [role=alert]')).toContainText(
     'Lagringen kan ikke bekreftes',
@@ -384,8 +384,11 @@ test('two tabs cannot repin the active challenge and corrupt navigation evidence
 }) => {
   await page.goto(computing + '&assessment=legacy');
   const stale = await context.newPage();
-  await stale.goto(services);
+  await stale.goto(services + '&assessment=legacy');
+  await expect(stale.getByRole('button', { name: p.challenge.start, exact: true })).toBeEnabled();
+  await expect(page.getByRole('button', { name: p.challenge.start, exact: true })).toBeEnabled();
   await page.getByRole('button', { name: p.challenge.start, exact: true }).click();
+  await expect(page.locator('.portal-challenge')).toContainText(p.challenge.active);
   await expect(stale.locator('.portal-challenge [role=alert]')).toContainText(
     'Lagringen kan ikke bekreftes',
   );

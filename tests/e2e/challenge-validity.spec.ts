@@ -122,6 +122,7 @@ test('updated Services origin and assessment selection survive resource navigati
   await page.getByRole('button', { name: nb.course.startIndependent, exact: true }).click();
   await expect(page).toHaveURL(/module=services.*assessment=updated/);
   await page.getByRole('button', { name: c.ui.start, exact: true }).click();
+  await expect(page.locator('.portal-challenge-updated')).toContainText(c.ui.active);
   await actualWeb(page);
   await fillNew(page);
   const saved = await raw(page),
@@ -189,6 +190,7 @@ test('denied durable updated Start and assistance expose no success teaching Jou
   });
   await page.reload();
   await page.getByRole('button', { name: c.ui.start, exact: true }).click();
+  await expect(page.locator('.portal-challenge-updated')).toContainText(c.ui.active);
   const before = await raw(page),
     old = await raw(page, oldKey),
     world = await technical(page);

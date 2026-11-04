@@ -1,0 +1,24 @@
+{
+  "run": 41915662193,
+  "head": "453640d1cdda6b811ab8ee1c3e545278378ef2af",
+  "counters": ["2 failed", "1 flaky", "364 passed (23.0m)"],
+  "failures": [
+    "1) [desktop-chromium] › tests/e2e/challenge-return.spec.ts:335:1 › denied durable aid fails closed and denied origin Start never claims an active attempt ",
+    "2) [desktop-chromium] › tests/e2e/challenge-return.spec.ts:381:1 › two tabs cannot repin the active challenge and corrupt navigation evidence recovers neutrally without changing draft or World ",
+    "3) [desktop-chromium] › tests/e2e/challenge-validity.spec.ts:168:1 › denied durable updated Start and assistance expose no success teaching Journal or prior legacy feedback "
+  ],
+  "errors": [
+    "Error: locator.click: Test ended.",
+    "Error: locator.click: Test ended.",
+    "Error: locator.click: Test ended.",
+    "Error: expect(locator).toContainText(expected) failed",
+    "Error: element(s) not found",
+    "Error: expect(locator).toContainText(expected) failed",
+    "Error: element(s) not found",
+    "Error: expect(locator).toContainText(expected) failed",
+    "Error: element(s) not found",
+    "Error: expect(received).toBe(expected) // Object.is equality"
+  ],
+  "strict": false,
+  "hasReceipt": false
+}

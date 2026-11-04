@@ -206,3 +206,90 @@ exited 1 with the sole missing-executed-full-browser-profile error; log/exit
 remain under `final-audit-renewal/strict-preflight.*`. Independent semantic/byte
 checks confirm only the current record's `review` section changed during this
 renewal and the complete initial report remains an exact prefix of this file.
+
+## Bounded CI renewal — archive aliases and fixture readiness
+
+This follow-up began **2026-11-04T22:02:22Z**, after the new implementation stamp
+**2026-11-04T22:01:41.289Z**, by `pr55_independent_final_audit`. Current reviewed
+fingerprint:
+`d8a0cfbce01949ea38d9cc0dc920f2fca9e16f12b489d9bb738ec5f11efdcac8`.
+All earlier audit text, findings and timing remain preserved above.
+
+The first complete CI run **41915662193** on
+`453640d1cdda6b811ab8ee1c3e545278378ef2af` ended **2 failed + 1 flaky + 364
+passed**, not a green complete profile. Strict release was skipped and no
+successful candidate-browser receipt was produced. Reviewed the safe selected
+failure blocks and [committed result](../reviews/evidence/cc03/initial-ci-result.json).
+Earlier targeted successes and audit samples did not cover all remaining
+helper-tab aliases or reliably establish the new async-Start/stale-read fixture
+boundaries; those were author test omissions exposed by full CI.
+
+**FA-05 — MINOR, fixed in the test fixtures/protocol:**
+
+- Two older helper tabs entered unqualified Computing/Services routes while
+  expecting the frozen legacy Start/alert. The new default correctly selected
+  the updated bank. Their entries now explicitly choose `assessment=legacy`;
+  original native Hub/resume URL assertions remain unchanged.
+- A new denied-aid test read its baseline before async locked begin committed,
+  then compared that null snapshot with the subsequently saved begin. It now
+  awaits the actual active status, which follows durable readback, before
+  snapshot/denial. Services likewise observes active state before technical work.
+- The first targeted follow-up still had **2 passed + 1 failed, exit 1**: the
+  second legacy provider had loaded after winner Start and correctly resumed,
+  so it was not stale. The preserved error context shows the active old form.
+  Both actual Start controls must now be enabled before winner Start, and winner
+  active state must be observed before checking the stale tab's conflict.
+
+Inspected the exact diff: changes are confined to the two E2E files, the two
+explicit legacy entry parameters, and five added readiness assertions. All
+original conflict, disabled-control, origin, saved draft/World, denied-aid,
+history and return assertions remain. No forced focus, sleeps, new retries,
+timeouts, workers, skips or weakened expectations were added. These are test
+corrections, not runtime changes or fixes for historical Compute/Axe flakes.
+The failed CI and failed first follow-up remain preserved in
+[the protocol record](../reviews/evidence/cc03/ci-protocol-followup.json).
+
+The author corrected affected run passed **4/4, exit 0, no retry, 29.3s**;
+inspected log SHA256
+`8660190659d06cc40f6ce25cf9309842a434ca6a54dcf7c1c5908d07ff7f6c48`
+matches the committed record. The prior failing targeted log also matches its
+recorded hash. Independently executed the two most relevant negative paths:
+
+`PLAYWRIGHT_HTML_OUTPUT_DIR=/workspace/azurelab-pr55/final-audit-ci-renewal/html npx playwright test --config playwright.desktop.config.ts tests/e2e/challenge-return.spec.ts tests/e2e/challenge-validity.spec.ts --project desktop-chromium --grep 'two tabs cannot repin|denied durable updated Start' --output /workspace/azurelab-pr55/final-audit-ci-renewal/browser-results`
+
+**Exit 0, 2/2 passed, 8.4s**, one worker, no retries, real production start server.
+This covers established stale-tab conflict/recovery without origin/draft/World
+replacement and denied new aid/history/Journal with no aid event or exposed
+answer content. Actual log/exit:
+`/workspace/azurelab-pr55/final-audit-ci-renewal/browser.log` and `browser.exit`.
+
+Independent snapshot comparison verified all current stamped file hashes, all
+prior content/source/blind/preservation hashes unchanged, and no `src` diff
+against either `453640` or `0cc0d459`. Only the two E2E files changed from the
+previous reviewed snapshot; three new evidence JSON files were added. Content,
+technical, assessment and visual conclusions therefore remain applicable by
+preservation. Guidance review adds explicit durable active-state preconditions;
+regression review adds the corrected archive/stale fixtures and actual negative
+path checks. Comparison evidence and the exact prior report are under
+`/workspace/azurelab-pr55/final-audit-ci-renewal/`.
+
+The renewed author full check actually exited 0: **668 Vitest, 503 curriculum,
+24 Node and optimized build**, confirmed from its actual log. SHA256
+`c1fa6cee82085984d327ace71a1503cee912515a346a4af92b0cfa5ed8e0b67e`
+matches [the new receipt](../reviews/evidence/cc03/full-check-ci-followup-result.json).
+No full suite was redundantly rerun by this reviewer.
+
+No open BLOCKER/MAJOR found in these corrections. FA-01/02/03/04 and human
+validation limits remain as recorded. Prior `0cc0d459` functional Gate7 evidence
+and its separate post-publication recheck are historical evidence for that head;
+they cannot satisfy the next commit's delivery gate. The new final candidate
+requires its own complete **367 CI, strict release and anonymous new-head
+full-SHA Gate7**. No earlier run, targeted success or prior fingerprint implies
+that those requirements have completed.
+
+For this renewal, `quality:check`, `docs:check` and report/current-record
+formatting checks exited 0. Strict preflight exited 1 with only the missing
+executed full browser profile error; actual log/exit are in
+`final-audit-ci-renewal/strict-preflight.*`. A semantic comparison confirms only
+the release `review` section changed, and every prior report byte remains an
+exact prefix after this append.
