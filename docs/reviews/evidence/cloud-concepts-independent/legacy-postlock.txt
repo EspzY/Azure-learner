@@ -1,0 +1,50 @@
+# Post-lock comparison
+
+This addendum was prepared only after the blind solve was locked at 2026-11-04T06:47:13.064Z and the parent explicitly authorized build verification and the two source excerpts. The original report, packet, lock, UI log, and initial screenshot were preserved. No answer was selected or submitted in either browser session, and no resource was created. The owner's missing-premise concern was supplied after the blind lock.
+
+## Separate build verification
+
+- A new anonymous Chromium context navigated to the same public host's ordinary root. The site redirected to `/learn`.
+- Opening the visible “Bygginformasjon · forhåndsvisning” control displayed, at 2026-11-04T06:48:20.979Z:
+
+```text
+Commit: 527b95140917e75e83899f21e6b2291e01df0a7d
+
+Gren: codex/az900-cloud-computing-consolidation
+```
+
+The full displayed SHA matches the supplied expected SHA. This verification happened after the blind solve; it does not alter the original report's accurate statement that the assessment page itself did not expose a full SHA.
+
+Evidence: [root UI text and timestamps](postlock-build-ui.json) and [opened build-information screenshot](postlock-build-info.png). The root page also exposed its ordinary course overview after the lock; no learning module, help, or assessment feedback was opened.
+
+## OS-dependent item versus acceptance
+
+The locked learner-visible question was “Hvilken modell passer OS-avhengig programvare?” The brief added only that two other requirements concern “OS-avhengig programvare og ferdig samarbeid.” Neither stated that this workload requires customer control of the guest OS, OS installation privileges, a custom kernel, unsupported system dependencies, or another constraint that excludes a compatible managed platform.
+
+The now-authorized local acceptance excerpt contains:
+
+```ts
+os: a.osModel === 'iaas',
+```
+
+The corresponding local content criterion says:
+
+```text
+OS-kontroll: IaaS passer det endrede kravet.
+```
+
+This establishes that the inspected acceptance implementation requires IaaS for the OS criterion. Its feedback wording assumes OS control, a stronger service-selection premise than the learner-visible OS dependence.
+
+My already locked choice was **IAAS**, explicitly conditional on the application requiring guest-OS control or an unsupported dependency. My locked **PAAS** alternative was explicitly conditional on the software and OS/runtime dependencies being supported by a managed platform. Both positions depend on facts absent from the visible requirement. A program being OS-dependent does not itself distinguish those cases, because managed platforms also run OS-dependent programs within their supported environments.
+
+The finding is therefore under-specification of service selection. It does not establish that every OS-dependent application belongs on PaaS, or that the locked IaaS choice is universally justified by the prompt. I submitted neither the conditional IaaS answer nor a PaaS alternative. No accepted alternative, false rejection, passing assessment, or runtime scoring outcome was demonstrated. Under the inspected equality, a PaaS value would not satisfy the OS criterion; that is a source-level observation only.
+
+The same limited acceptance excerpt also requires the HTTP model to be PaaS with the managed-platform reason and ready collaboration to be SaaS, matching my locked choices for those items. I inspected only the authorized source ranges. The local source checkout's provenance was not independently established by this narrow review; the deployed page's displayed SHA was verified separately above.
+
+## Preservation check
+
+- Original report SHA-256: `17abf48d73900b994a8d7120cc3f45fd41109e5822c16a75c685f42c3bfe5740` (matches lock).
+- Original packet SHA-256: `d461112025a4527655b19f4d2f420b8d8a5ce842f08c1eebccdde210868a9d62` (matches lock).
+- Original lock SHA-256: `9cbdd156840858afd8be25316d774440170e1c3f7d08ca2dac9f1dc6b021637a` (matches the previously reported lock digest).
+
+Source evidence: [authorized numbered excerpts](postlock-source-excerpts.txt). All post-lock observations use separate files. No application source/runtime change or technical-resource action occurred.
