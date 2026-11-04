@@ -1,0 +1,116 @@
+# Post-lock targeted findings — owner candidates P1-A and P1-B
+
+This addendum was commissioned after the cold report was locked. It is **not a revision** of that report. I then read relevant source/contracts and assessment rules, and received two owner hypotheses. These findings are therefore targeted and informed, not cold observations. The original report, index, coverage and command-log hashes were verified unchanged after this work.
+
+Public deployment and local source HEAD both match `527b95140917e75e83899f21e6b2291e01df0a7d`. The full displayed SHA was rechecked in [postlock/001](postlock/001-postlock-sha.png). All new browser work used a fresh anonymous context and [separate postlock harness/log](postlock/browser.cjs); the original browser context, receipts and evidence remain untouched. New synthetic resources were created only through ordinary local simulator UI. No app repository edit, cloud operation, data reset or technical attempt restart was performed.
+
+The new [evidence index](postlock/index.json), [exact attempted browser commands](postlock/commands.jsonl), [source excerpts](postlock/source-witnesses.txt) and [source hashes](postlock/source-provenance.json) preserve provenance. Source references below are to that exact HEAD. Captured DOM text is the complete body even when a viewport screenshot shows one part.
+
+## Triage
+
+| Owner candidate | Observed result | My severity |
+|---|---|---|
+| P1-A: changed independent Web return | Confirmed origin loss on the Computing-origin legacy Web challenge. Direct return goes to Computing’s first activity; Hub resume separately changes context to Service Types. Both partial and completed return fail to restore the original bridge/debrief. | **High / P1 candidate**, primarily because active return exposed theory and the same first attempt subsequently recorded assistance. Navigation remains recoverable; no resources or submission were lost. This is not a site outage. |
+| P1-B: guided VM terminal feedback | Correct task completion and a task-wrong but technically valid VM are distinguished correctly. Failure diagnosis and next action are too generic. A new guided attempt works. | **Medium / P2**, despite the owner’s P1-B label. I did not find a delivery-blocking dead end or false completion. |
+
+The assistance record in P1-A is an observed consequence of loading teaching. It is **not** evidence that the aid guard itself classified visible teaching incorrectly. Any fix should preserve honest assistance semantics.
+
+## P1-A — Computing-origin changed Web challenge loses its return context
+
+### Distinguish the three Web activities
+
+The application has separate contracts that must not be conflated:
+
+1. Ordinary guided Web lab, entered from Computing’s bridge: `lab=web-platform`, course lab state with `origin=computing-v2`.
+2. Its debrief button **“Prøv endrede krav uten veiledning”**: the older PortalLearning challenge, `area=challenge&course=1`, stored under `azurelab.portal.learning.v1`.
+3. Newer basic practical **“Start endret, selvstendig oppgave”**: `practice=paas`, a different practical store with explicit origin; plus the separate `mission=platform` changed mission.
+
+As a negative control, I started the newer `practice=paas` challenge from Benefits reliability. Partial return correctly used `/learn/benefits?topic=reliability&activity=practical`; Back/Forward/reload/resume preserved it (002–007). I explicitly abandoned that empty attempt through UI before the primary test. I did **not** complete that newer challenge, and did not test `mission=platform`. The confirmed candidate below is contract2.
+
+### Actual reproduction and routes
+
+1. From `/learn/computing?topic=resource-bridge`, choose **Start praktisk lab**. This opened `/portal?lab=web-platform&mode=guided&module=services&topic=practice`; the visible strip nevertheless correctly said **Describe cloud computing** because the saved ordinary lab origin was Computing (008).
+2. Complete the ordinary lab using synthetic `rg-postlock-web` in App Sandbox with Norway East metadata; request `plan-postlock-web` in North Europe, inspect its denial and policy, correct to West Europe, create `app-postlock-web`, and select app→plan **Hosting-avhengighet** in Architecture Explorer. Receipts portal-1–4 include the rejected plan; no technical attempt was reset (009–015). The policy milestone explained the real denial and local limits (012). Both ordinary guided return links correctly pointed to `/learn/computing?topic=resource-bridge&activity=debrief`.
+3. Follow that return. The actual Computing debrief contains the resource names and **Prøv endrede krav uten veiledning** (016). Click it. Actual challenge entrance: `/portal?area=challenge&module=computing&topic=resource-bridge&mode=independent&course=1` (017).
+4. Click **Start endret oppgave**. This starts the old PortalLearning assessment. Before return, the body says **“Ingen registrert hjelp i dette forsøket.”** The header **Tilbake til kurset** already has href `/learn/computing?topic=intro-request` (018), rather than the observed origin bridge/debrief.
+5. Click that header return. Actual destination is `/learn/computing?topic=intro-request`, title **Fra nettside til fysisk server** (019). Back restores the active challenge; Forward returns to the wrong first activity; reload retains that first-activity destination (020–022).
+6. The intro page exposes theory and offers **Fortsett den endrede oppgaven**. Clicking that button resumes `/portal?area=challenge&module=computing&topic=intro-request&mode=independent&course=1`. The same attempt now says **“Hjelp er registrert i dette forsøket.”** (023). Read-only event evidence contains one `begin` at boundary `portal-4`, attemptNumber1, followed by `aid`, not a second begin ([boundary log](postlock/p1a-learning-boundary.json)).
+7. Separately, go to CourseHub. Its **Fortsett den endrede oppgaven** link uses `/portal?area=challenge&course=1&module=services&topic=practice` (024). Clicking it changes the visible strip to **Describe cloud service types** while resuming the same active/assisted challenge (025). This is the observed **wrong-module** variant. Direct return in step5 was wrong activity within Computing, not a direct jump to Services.
+8. Build the changed requirements through normal UI: new `rg-postlock-independent`, Shared Sandbox, Norway East metadata; new `plan-postlock-independent` and `app-postlock-independent` in North Europe (026–027). These are accepted receipts portal-5–7 after boundary portal-4. The earlier ordinary lab resources and receipts remain.
+9. To isolate completed direct-origin behavior from the Hub drift, I explicitly reopened the already observed Computing challenge URL before submission (028). I selected IaaS/PaaS/SaaS for the respective requirements, the supported-platform rationale, hosting-plan location, and actual group/plan/app IDs group-4/plan-5/app-6. **Lever vurderingsgrunnlaget** produced all six criteria met; the first submission retained its assistance label (029).
+10. Even after completed submission, header return and **Tilbake til læringen** resolved to Computing `intro-request`; clicking the latter landed there (030). Back restored the completed history, Forward repeated the wrong return, and reloading the challenge preserved the first submitted result (031–033). No resume remains necessary for that completed attempt; the visible next action is a separate retry.
+
+### What persists, and what SavvyShark does
+
+This defect did not erase the technical world, change attemptNumber1, restart the assessment, or overwrite its first submission. The read-only log records begin boundaryportal-4 and submit throughportal-7. The first submission is assisted after the return exposed teaching. Later VM investigation used the same technical attempt without resetting these receipts.
+
+During the ordinary prerequisite lab, SavvyShark showed guided instructions and the denial milestone with actual receipt portal-2, North Europe and unchanged object count6→6 (012). During the active changed challenge, step-by-step solution highlighting was absent; it displayed the changed brief and aid status (018,023,025). I did not explicitly request SavvyShark help during that independent attempt. The relevant aid event followed the wrong course return, whose teaching content was actually shown. This review had already read rules after lock, so the assessment is a diagnostic test, not a claim of a genuine unaided learner result.
+
+### Source cause, verified at the deployed SHA
+
+- [course.tsx:1953](/workspace/Azure-learner/src/features/course/course.tsx:1953) launches the challenge from the completed ordinary lab through `navigate('challenge', {mode:'independent', lab:undefined})`; the browser URL preserves `module=computing&topic=resource-bridge` on first entrance.
+- [portal/model.ts:226](/workspace/Azure-learner/src/domain/portal/model.ts:226) uses a Portal topic allowlist that omits `resource-bridge`, coercing it to `overview` on parse. [portal.tsx:286](/workspace/Azure-learner/src/features/portal/portal.tsx:286) handles `course=1` return through `courseHref(location.module, location.topic)` after the guided-lab path no longer applies. `courseHref(computing,overview)` normalizes to `intro-request` in [course/model.ts:150](/workspace/Azure-learner/src/domain/course/model.ts:150).
+- [course.tsx:363](/workspace/Azure-learner/src/features/course/course.tsx:363) records aid for active old PortalLearning when a teaching module opens. The browser state change and stored event agree; removing this aid would hide actual teaching exposure.
+- [course.tsx:519](/workspace/Azure-learner/src/features/course/course.tsx:519) hardcodes the active old Portal challenge resume href to Services/practice, explaining the separate Hub drift. [portal/learning.ts:40](/workspace/Azure-learner/src/domain/portal/learning.ts:40) stores begin boundary and technical attempt, but no originating course route. This makes a broad “recover origin from assessment events” claim unjustified.
+
+### Bounded recommendation, history risk and acceptance
+
+Preserve one allowlisted course origin for this challenge across its actual entrance, internal resource navigation, return, reload and Hub resume. Correct the topic normalization/return adapter for the observed Computing bridge and remove the unconditional Services assumption from this resume branch. Do not accept arbitrary external return URLs, relabel this legacy assessment as the newer practical, or change grading/technical commands as part of a navigation fix.
+
+Existing records lack an assessment-origin field. A fix must define a conservative fallback for those records and avoid claiming an origin it cannot prove. Do not rewrite first submissions, remove an aid event after visible theory, migrate old results into a newer rubric, reset technical state or issue fresh XP. If a return is intended to be neutral while the attempt is active, it should lead to a neutral attempt/return context rather than silently loading teaching; explicit teaching access should retain the guard.
+
+Acceptance should exercise initial and resumed Computing-origin challenges before start, during partial work and after complete/incomplete submit, through both return controls, ordinary resource navigation, Hub, Back/Forward and reload. Assert exact module/topic/activity and unchanged technical attempt/boundary/through/receipt IDs. Demonstrate that navigation cannot silently change an unaided first attempt by loading unintended teaching, while deliberate teaching remains honestly marked as help. Preserve historical first/help/retry records and the working `practice=paas` origin behavior.
+
+## P1-B — guided VM terminal feedback is truthful but underspecified
+
+### Exact task and distinction from the basic VM lab
+
+Primary route: `/learn/services?topic=iaas&activity=mission&version=2`; Portal work uses `mission=infrastructure`. I launched the **IaaS · bygg for et konkret gjestekrav** mission via **Les SavvySharks oppdragsbrief → Start oppdraget** (035–036). The guided brief requires Ubuntu, Standard4vCPU/8GiB, separate32GiB data disk and Shared Sandbox. It requires a *new* VM after mission start, inspection of VM/OS disk/data disk/NIC/subnet and creation receipt, plus decision and consequence answers.
+
+The separate **Praktisk laboratorium · VM / IaaS · En VM med virkelige lokale avhengigheter** is explicitly labeled an existing basic lab below it. That uses `practice=vm` and a different practical evaluator. I did not launch or complete that basic lab during this addendum. Its acceptance must not be substituted for mission success: the guided basic VM evaluator accepts a newly configured VM with OS/NIC dependencies without this mission’s Ubuntu/Standard/data32/Shared requirement bundle ([practical.ts:291](/workspace/Azure-learner/src/domain/sandbox/practical.ts:291)).
+
+After the legacy Web challenge, Services initially offered the explicit v1/v2 history choice (034). I chose **Start Service Types versjon2**, preserving the prior old challenge history rather than assuming it had become new-version credit.
+
+### Two actual guided submissions
+
+| Witness | Technical operation and inspections | Reflection | Terminal result |
+|---|---|---|---|
+| First guided mission | Boundaryportal-7, technical attempt1. `vm-post-wrong` / vm-7: Ubuntu, **Small2vCPU/4GiB**, data32, Shared; created new network. Accepted receiptportal-8, revision6→7, objects11→17. Explicitly inspected all five required resources and receipt. | Correct guest-control decision and retained-operations/limits answer. | **Oppdraget har gjenstående kriterier**. Six criteria “Registrert”; only combined image/profile/data/subscription criterion “Gjenstår” (040–046). |
+| New guided attempt | Boundaryportal-8, same technical attempt1. `vm-post-good` / vm-13: Ubuntu, **Standard4vCPU/8GiB**, data32, Shared; explicitly reused the prior same-group/region subnet. Accepted receiptportal-9, revision7→8, objects17→21. Explicitly inspected all five required resources and receipt. | Same two correct answers. | **Kriteriene for dette avgrensede oppdraget er oppfylt**. All seven criteria registered, labeled a new attempt after prior submission (047–051). |
+
+The second attempt is a working retry, not an overwrite. Reload retained the correct terminal status (053); history lists both#1/#2 (055); [mission events](postlock/p1b-mission-boundaries.json) retain the first submission throughportal-8 and the second throughportal-9. [Synthetic technical commands](postlock/sandbox-synthetic-commands.json) contain nine commands, attemptNumber1, no archived/reset attempt. The first Small VM and its receipt remain alongside the new Standard VM.
+
+I did not submit a technically correct VM with an intentionally wrong understanding answer. The two separate decision/reason checks are established in source and visible terminal criteria, but this particular failure combination was not executed.
+
+### What the learner can understand
+
+The receipt and milestone make technical truth unusually clear. The accepted Small VM’s overview says **“Konfigurasjon registrert lokalt · kjøretid og helse er ikke vurdert”** and names its actual Small profile (041). Receiptportal-8 exposes image/profile/data32 and actual object references (044). The VM milestone says the accepted transaction contains a VM with OS-disk/NIC dependencies, explicitly denies proven boot/software/network traffic and suggests opening the OS disk/NIC (043). The correct VM’s corresponding milestone uses its own actual names and reused subnet (049). Neither milestone declares the mission fulfilled.
+
+The wrong terminal correctly leaves the task unfulfilled despite accepted creation and correct reflection. This is the key distinction between technical support, task fit and explanation. The successful terminal also says guided result is not independent competence, and its reflection states that allocation/relations are configured while no guest process or network connection has been tested (051,056). These are concrete strengths; this is not a false-completion issue.
+
+### What is missing at the terminal
+
+The failed result gives only **“Gjenstår · Image, profil, datadisk og subscription følger oppdraget”** (046 full text). It does not name `vm-post-wrong`, link receiptportal-8, or say **actualSmall2/4 versus requiredStandard4/8**. The actual mismatch can be reconstructed from the brief and separate receipt, but the terminal does not perform that diagnosis. It uses the same generic “OS-disk og datadisk har ulike roller…” paragraph as the successful terminal.
+
+Both failed and successful terminals give the same next instruction: **“Neste steg: bruk modulens selvstendige vurdering, eller prøv den endrede oppdragsvarianten.”** For a failed guided requirement, that is a weak next action: it does not suggest revisiting the criterion or starting a corrected guided attempt. Nevertheless, **Les SavvySharks oppdragsbrief** remains above, and I successfully used it to start a new guided mission and complete it. This bounds severity to **Medium/P2 feedback diagnosability and next-action quality**, not P1 inability to proceed.
+
+A related history limitation is visible: the history disclosure lists both attempt labels but does not reopen the earlier detailed debrief (055). Source renders plain list items. This matters when tightening feedback: do not accidentally replace the already frozen first result with a new current-world explanation.
+
+### Source cause and bounded recommendation
+
+- [missions.ts:424](/workspace/Azure-learner/src/domain/sandbox/missions.ts:424) combines image, profile, disk existence/size and subscription into one `checks.requirements` Boolean. It correctly fails the Small VM.
+- [missions.ts:645](/workspace/Azure-learner/src/domain/sandbox/missions.ts:645) evaluates decision and reason separately; `complete` requires every check. Technical creation does not alone award completion.
+- [missions.tsx:379](/workspace/Azure-learner/src/features/course/missions.tsx:379) renders each Boolean as label-only “Registrert/Gjenstår”. [MissionDebrief:563](/workspace/Azure-learner/src/features/course/missions.tsx:563) prints the same static mission feedback and [unconditional next text:584](/workspace/Azure-learner/src/features/course/missions.tsx:584) for both outcomes; it does not render the actual resource/receipt detail component used during active work.
+- [nb.ts:6049](/workspace/Azure-learner/src/content/nb.ts:6049) contains the generic next step, [6055](/workspace/Azure-learner/src/content/nb.ts:6055) the combined requirements label, and [6331](/workspace/Azure-learner/src/content/nb.ts:6331) the static VM feedback. [missions.tsx:250](/workspace/Azure-learner/src/features/course/missions.tsx:250) renders past attempts as noninteractive labels.
+
+A bounded presentation change could show the selected VM and original receipt, expected versus actual supported requirement fields, and separate “technical creation accepted”, “task requirements met” and “explanation recorded” in ordinary language. For failed guided requirements, offer a clear *new guided attempt* or read-only inspection route; do not imply an already submitted attempt can be edited in place. For completed work, retain the independent next step. Continue stating that boot, traffic, application behavior and security were not tested.
+
+Use the frozen session boundary/through and replayed snapshot for terminal/history explanations. Do not silently recompute an old submission from the latest inventory, change pinned rubric outcomes, create example resources, reset the sandbox, mutate the first answer, relabel a retry as a first attempt, or grant new completion/XP. The source already supplies replayed `result.chain`, `refs` and `receipts`; a copy/feedback improvement need not merge mission and basic-lab histories.
+
+Acceptance should cover accepted-but-wrong image/profile/disk/subscription individually, a fully correct mission, missing inspection, and wrong decision/reason, with actual versus expected fields and a clear next action. Preserve the existing outcomes and first/retry history byte-for-byte. Verify current and historical terminal views after reload and after later resources are created/deleted; unavailable evidence must remain honestly unverifiable. Include at least one actual return from the guided Portal and one working corrected guided retry. The executed pair here supplies the latter witness, but not every suggested acceptance case.
+
+## Limits and artifacts
+
+New screenshots/DOM captures are all in `postlock/`; no locked original log was appended. Source access and the read-only local event/technical logs occurred only after the first lock and with parent authorization. Several selector waits failed (one expected link was actually a button; one exact text selector included an additional status prefix; the version-choice state required an explicit choice). One ordinary guided policy milestone intercepted a subsequent edit until I closed it normally. These are preserved as collection limitations, not reported as application crashes. No increased timeouts, new workers/framework, local source changes, actual Azure action or empirical learning claim is involved.
+
+The collected post-lock script and attempted action log are reproducible audit inputs; source witnesses pin the causal paths. No implementation or new regression suite was written. The first report’s hash and scope remain exactly as locked; this addendum records the later informed triage separately.

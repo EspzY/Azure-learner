@@ -1,0 +1,99 @@
+# Post-lock key comparison and P1-C
+
+2026-11-04 UTC. Application source HEAD and the originally displayed build are `527b95140917e75e83899f21e6b2291e01df0a7d`. No implementation changes were made. All review artifacts were written outside the application repository.
+
+The first report and student packet remain unchanged and read-only. Their SHA256 values were rechecked before and after this work:
+
+- `FIRST_ASSESSMENT_REPORT.md`: `8aa0b46d8923debf2e246788c458549aceddf51d04eff83a5e2f6bb1e4d3673f`
+- `student-packet.json`: `5feff27de355c30636b987896868b19628e0aed906685eb9e11cb620d1f0ab57`
+
+The first-report lock is dated **06:36:22.836218 UTC**. Only after that lock and the parent's follow-up did this reviewer read application AGENTS/source, keys, rubrics and actual answer feedback. This addendum is explicitly no longer a cold solve. It does not retroactively change the original claims or exposure record. **The legacy challenge was not in the original blind question coverage; its discovery, reasoning and source comparison here are all post-key/nonblind.** No result from any subsequent independent legacy reviewer is claimed or has been read.
+
+## Prioritized finding
+
+**Owner candidate P1-C is supported as a missing-premise problem, with two different affected contracts. The current mandated VM mission has a rationale gap; the preserved v1 independent challenge has the clearer under-specified service-selection item. Neither is an observed rejection of a fully demonstrated valid alternative platform.** Recommended educational severity: medium; keep the owner tracking label P1-C distinct from a claim of an engine failure or universal VM-only requirement.
+
+| Contract and route | Visible premise and expected result | What is missing / impact | Acceptance evidence |
+|---|---|---|---|
+| Current IaaS mission, `/learn/services?topic=iaas&activity=mission&version=2`, independent mode | “en Windows-only, planlagt kontrollprosess” followed by required small profile, separate 32 GiB disk, App Sandbox and inspection of “VM, OS-/datadisk, NIC, subnet og opprettelseskvittering.” Reflection expects “Teamet trenger kontroll over gjeste-OS og egne pakker.” | The business requirement does not itself say that the process needs customer-controlled guest packages, a kernel driver, or a capability unsupported by the evaluated managed offers. Windows-only/scheduled execution does not establish that necessity. However, the task **already mandates VM artifacts**: recognising IaaS and implementing that VM is defensible. The flaw is explaining why the workload *needs* guest control from an unstated business premise, not the VM build requirements. | Source checks match the stated Windows/small/data32/App Sandbox contract. Reflection accepts `guest-control` + `retained-operations`. No full mission submission was performed; no actual rejection of a managed alternative is claimed. |
+| Preserved Service Types v1 independent challenge, reached from `/learn/services?topic=overview&version=1` → **Independent challenge** → `/portal?area=challenge&module=services&topic=overview&mode=independent&course=1` | Brief says only “To andre krav gjelder OS-avhengig programvare og ferdig samarbeid.” The item asks “Hvilken modell passer OS-avhengig programvare?” Choices: IaaS/PaaS/SaaS. The criterion accepts only IaaS. | “OS-dependent software” is broader than a requirement for unrestricted guest administration. A supported Windows/Linux application can depend on an OS while using an appropriate managed runtime. The independent brief does not identify the OS capability, required control, or evaluated-platform support boundary. A more explicit prior guided case cannot make this new independent prompt self-contained unless that requirement is clearly carried into it. | Source criterion is `a.osModel === 'iaas'`. The actual historical UI prompt was opened after Begin and recorded. No historical technical build/submission was completed, so the source-only exclusion of PaaS is not reported as an end-to-end demonstrated rejection. |
+
+Current mission evidence:
+
+- [nb.ts:6284](/workspace/Azure-learner/src/content/nb.ts:6284): the **guided** scenario explicitly has a Linux-native converter and own guest packages. The independent scenario at [nb.ts:6301](/workspace/Azure-learner/src/content/nb.ts:6301) replaces it with the Windows-only scheduled process without restating the own-package/control requirement. Its question, answer and feedback are at [nb.ts:6303](/workspace/Azure-learner/src/content/nb.ts:6303).
+- [missions.ts:423](/workspace/Azure-learner/src/domain/sandbox/missions.ts:423): independent configuration requires `windows-2022`, `small`, data disk 32 GiB, `sub-app`; guided mode requires Ubuntu/standard/Shared Sandbox. [missions.ts:226](/workspace/Azure-learner/src/domain/sandbox/missions.ts:226) lists the reflection IDs; [missions.ts:645](/workspace/Azure-learner/src/domain/sandbox/missions.ts:645) checks the first decision/reason IDs, `guest-control` and `retained-operations`.
+- Student-visible first-report evidence: `069-iaas-mission-course-after-return.txt/png`. It was already identified as an implementation/classification versus necessity distinction in locked finding 6.
+
+Preserved v1 challenge evidence:
+
+- [nb.ts:2532](/workspace/Azure-learner/src/content/nb.ts:2532) contains the brief; [nb.ts:2541](/workspace/Azure-learner/src/content/nb.ts:2541) contains the under-specified OS-dependent item. Feedback criterion text at [nb.ts:2561](/workspace/Azure-learner/src/content/nb.ts:2561) names “OS-kontroll” even though that control requirement was not supplied in the independent brief.
+- [learning.ts:231](/workspace/Azure-learner/src/domain/portal/learning.ts:231) accepts `osModel === 'iaas'`. The explicit guest-control wording in the separate guided case is at [nb.ts:2404](/workspace/Azure-learner/src/content/nb.ts:2404); it is stronger than the independent wording.
+- Actual UI: `postlock-v1-challenge-brief.txt/png` and `postlock-v1-challenge-questions.txt/png`. Directly requesting `?topic=assessment&version=1` showed the archived overview, **not** this challenge; the actual button path above is the reproducible entry.
+
+## Correction boundary, without implementing a fix
+
+For the current mission, choose the intended construct explicitly:
+
+1. If it is a **mandated VM configuration/classification exercise**, ask which service model this specified VM represents and what operations remain with the customer. Explain that the VM provides guest control, without asserting that the brief proved no other hosting could work.
+2. If it is a **requirements-based necessity decision**, add the missing concrete capability and checked support boundary—for example, a required Windows guest kernel driver and guest diagnostic controls confirmed unsupported by the particular managed alternatives considered, with a team able to maintain the guest. Keep the evaluation bounded to those alternatives. Merely adding “OS customization,” COM, registry access, an MSI installer, or “Windows-only” is insufficient as a universal VM-only premise.
+
+For the historical independent challenge, introduce a corrected **new variant/version** that states the actual guest-control requirement or permits justified alternatives. Preserve the old wording/rubric/results as an explicitly historical assessment. Do not silently broaden `osModel` acceptance or strengthen old prompt text under the same historical evidence identity.
+
+**IaaS does not choose Windows or Linux.** In the current mission, Windows is independently stated in the changed brief; Linux-native is stated in its guided brief. The available VM practical lab also explicitly requires Windows and eight GiB, and its Windows/standard/data64/Shared Sandbox key matches that requirement ([nb.ts:3783](/workspace/Azure-learner/src/content/nb.ts:3783), [practical.ts:291](/workspace/Azure-learner/src/domain/sandbox/practical.ts:291)). No mis-key forcing Windows merely because the learner chose IaaS was found in these inspected contracts.
+
+## Current Azure meaning constraining that correction
+
+Official Microsoft public documentation was actually retrieved on 2026-11-04; these pages expose `ms.date` 2026-08-18. Local HTML/text copies are retained. This was a bounded source check, not an audit of the unknown application's compatibility or an Azure operation.
+
+- [Configure Managed Instance on Azure App Service](https://learn.microsoft.com/en-us/azure/app-service/configure-managed-instance) says configuration scripts support persistent customization, with examples including “Component Object Model (COM) registration, Microsoft/Windows Installers (MSI) installs, and enabling Windows roles/features.” It separately documents registry key adapters. The page limits Managed Instance to Windows web apps in selected regions and Pv4/Pmv4 plans; it does not support Linux or containers. The actual installer example includes a “Database Driver.” These facts defeat a blanket “any OS customization/installer/driver label means VM only” explanation. They do **not** establish support for an arbitrary kernel driver or this unknown control process.
+- [Managed Instance quickstart](https://learn.microsoft.com/en-us/azure/app-service/quickstart-managed-instance) describes the bounded managed option and setup requirements. No setup was performed.
+- [Virtual machines in Azure](https://learn.microsoft.com/en-us/azure/virtual-machines/overview) applies to Linux and Windows VMs and lists the operating system as an explicit deployment choice.
+
+The locked report's current Services driver-item rationale should therefore be read narrowly: a VM provides the requested guest administration control; the word “driver” alone does not prove that every current App Service offering lacks support. Current `s-driver` names a driver installed in the guest and customer install/update control ([nb.ts:20505](/workspace/Azure-learner/src/content/nb.ts:20505)); its expected IaaS pair is defensible. The prompt does not specify a kernel driver or the exact managed offer's compatibility result. This is a precision constraint on explanations/corrections, **not** a demonstrated additional product contradiction or verified viable Managed Instance alternative for that specific tool. Terminal cc16 is stronger: it explicitly states kernel-driver support and that the evaluated managed web platform does not support it. Serverless B explicitly requires a kernel driver and OS diagnostics. Those declared boundaries remain valid.
+
+## Locked decisions versus actual keys
+
+`compare-locked-keys.cjs` reads only the locked packet and the matching source, transpiling source exports in memory. It writes `postlock-key-comparison.json`; it does not mutate the application or learner storage. It compares labels chosen independently before lock with the exact accepted stable IDs/indices after lock.
+
+| Population | Source comparison | Actual browser check |
+|---|---|---|
+| Current Benefits 2.0.0 | All six items; all six independently proposed pairs match. Numeric gap 5 matches the extra numeric check. | Not submitted in this addendum. |
+| Current Services 3.0.0 | All six items; **seven** independently proposed pairs match because the open hosting item has two valid pairs. | Two fresh-context submissions of all six items, differing only in the open hosting pair; both displayed **6/6 situasjoner med kompatible svar**. |
+| Terminal transfer 1.0.0 | All 19 cases; **20** proposed pairs match, including both cc18 hosting pairs. | cc18 submitted in three separate fresh contexts: VM+VM reason accepted; App Service+PaaS reason accepted; App Service+VM reason showed decision **Ja**, reason **Nei**. |
+| Computing successor | All 11 selected answers semantically match `v2Criteria`, including 2 and hours 1,3,4. | No post-lock submission. |
+| Serverless 1.0.0 | All seven selected field answers match `serverlessCriteria`. | No post-lock submission. |
+| Seven practical prompt families | The locked proposed reflection choices match the mission answer IDs and practical reason IDs. | No technical completion/submission; acceptance of a complete artifact set remains untested. |
+
+The source rule behind the ordinary pair grading is [refined-assessment.ts:38](/workspace/Azure-learner/src/domain/curriculum/refined-assessment.ts:38); matching only the decision is insufficient. Services `s-choice` accepts exactly `['iaas','os']` and `['paas','platform']` at [nb.ts:20854](/workspace/Azure-learner/src/content/nb.ts:20854). Terminal `two-valid-hosts` accepts zero-based `[1,0]` and `[2,1]` at [transfer.ts:198](/workspace/Azure-learner/src/domain/curriculum/transfer.ts:198); its cc18 route binding is at [transfer.ts:230](/workspace/Azure-learner/src/domain/curriculum/transfer.ts:230). The other key sources are [foundations-v2.ts:147](/workspace/Azure-learner/src/domain/curriculum/foundations-v2.ts:147), [serverless.ts:112](/workspace/Azure-learner/src/domain/curriculum/serverless.ts:112), and [practical.ts:375](/workspace/Azure-learner/src/domain/sandbox/practical.ts:375).
+
+Browser reproduction uses `postlock-ui.cjs` with the ordinary public preview and normal Start/select/submit controls, no storage injection or API calls. The source-derived labels equal the independent locked proposals. Relevant artifacts:
+
+- `postlock-services-iaas-before-submit.txt/png`, `postlock-services-iaas-feedback.txt/png`
+- `postlock-services-paas-before-submit.txt/png`, `postlock-services-paas-feedback.txt/png`
+- `postlock-transfer-iaas-feedback.txt/png`, `postlock-transfer-paas-feedback.txt/png`, `postlock-transfer-mismatch-feedback.txt/png`
+- `postlock-actions.jsonl`, `postlock-ui-stdout-run2.log`
+
+These are expert, key-exposed verification submissions after lock. Browser labels such as first/unassisted do not make them new cold trials or learner-outcome evidence.
+
+## Exact version and history boundaries
+
+| Layer | Route / identity | Meaning and history constraint |
+|---|---|---|
+| Current teaching/older ordinary assessment | Service Types teaching version 2.0.0, `azurelab.learning.service-types.v2` | Its older seven-field assessment lives at `/learn/services?topic=assessment&version=2&assessment=legacy`. The brief explicitly says “ufravikelig Windows-driver.” It already supports IaaS+`os-team` or PaaS+`platform-supported` for the separate open webapp. Actual Begin prompt inspected in `postlock-legacy-after-begin.txt/png`; not submitted. Key/source: [expansion.ts:9](/workspace/Azure-learner/src/domain/curriculum/expansion.ts:9), [expansion.ts:75](/workspace/Azure-learner/src/domain/curriculum/expansion.ts:75), [nb.ts:1145](/workspace/Azure-learner/src/content/nb.ts:1145). |
+| Current successor ordinary assessment | Task version 3.0.0, `/learn/services?topic=assessment&version=2&assessment=updated`, `azurelab.learning.service-types-assessment.v3` | Teaching version and assessment version are independent. Fresh default `?topic=assessment` resolves the updated task; explicit `assessment=legacy` selects the older assessment. An existing active older attempt wins only if no explicit assessment was requested ([refined-assessment.tsx:19](/workspace/Azure-learner/src/features/learning/refined-assessment.tsx:19)). Keys/versions are isolated ([refined-assessment.ts:3](/workspace/Azure-learner/src/domain/curriculum/refined-assessment.ts:3)). |
+| Preserved Service Types v1 | `/learn/services?topic=overview&version=1`; `azurelab.portal.learning.v1`, module 1.0.0 / `portal-transfer@1` | The visible archive label and its actual Independent challenge button remain. This is separate from the `assessment=legacy` **v2** assessment above. The OS-dependent item in this v1 challenge is the clearer historic premise gap. Source identity: [learning.ts:3](/workspace/Azure-learner/src/domain/portal/learning.ts:3). |
+| Terminal transfer | `?topic=transfer&case=cc18`; `azurelab.learning.cloud-transfer.v1`, content/rubric 1.0.0 | Independent supplement, not either ordinary Services assessment. Frozen accepted-pair identities must retain their original meaning. |
+| Current IaaS mission | `activity=mission&version=2` is the course origin; `azurelab.practical-missions.v1`, global content/model/rubric 1.0.0; infrastructure rubric label `guest-control@1` | Course `version=2` does not create a new mission rubric. All four missions share this versioned save. [missions.ts:153](/workspace/Azure-learner/src/domain/sandbox/missions.ts:153) pins the global save versions; [missions.ts:337](/workspace/Azure-learner/src/domain/sandbox/missions.ts:337) rejects unsupported versions. A blanket version bump under the same reader would strand old saves; an in-place semantic change would reinterpret old sessions. Preserve old rendering/evaluation and add an explicit corrected variant/version if changing the assessed requirement. |
+| Existing VM practical lab | `activity=practical&version=2`; `azurelab.practical-labs.v1`, lab `iaas-vm@1`, rubric `vm-transfer@1` | Explicit Windows/standard/data64/Shared Sandbox build, distinct from mission Windows/small/data32/App Sandbox. Do not conflate their technical acceptance or history. |
+
+Archived status does not remove the educational premise issue wherever a current course path leads into this retained challenge. This reviewer verified its actual button from the labelled v1 overview, but did not reproduce the complete current Computing lab/debrief entry path. The parent is separately cross-checking that reachability and obtaining a new isolated learner-only legacy solve; neither result is incorporated here.
+
+This addendum recommends a version-aware correction but does not design or implement a migration. Changing replayed answer semantics, route defaults, first submissions or old assistance/retry records requires separate implementation review.
+
+## Failures and remaining gaps
+
+Two post-lock browser-harness mistakes are retained rather than counted as product failures: an exact label selector omitted the current select's title-prefixed accessible name, and the first legacy Begin selector used the successor's button wording. Each hit the unchanged 30-second default timeout. The first run selected/submitted no answers; after correcting the selector, the five bounded current/transfer submissions above succeeded. The legacy prompt was then opened with its actual “Start egen besvarelse” control. No timeout/retry/worker settings or application runtime were changed. All failed-run stdout and error entries remain in the post-lock logs. Preview-toolbar CSP blocks and aborted navigation/prefetch requests remain separate network metadata.
+
+Historical inspection is representative, not exhaustive: the v2 older ordinary assessment was begun and its seven fields read; v1 overview/archive and the actual independent challenge were inspected; neither was submitted. All older activity variants and full historical saves were not reconstructed. No full practical artifact build, practical grading run, real Azure operation, external account, credentials or customer data were used. Current App Service compatibility for the unspecified process/driver remains unknown. Human SME, novice, accessibility and psychometric validation remain unperformed. Repository status showed other pre-existing untracked review artifacts; this reviewer neither opened nor modified them.
+
+The locked first report remains the only pre-key opinion. This addendum strengthens the historical identification and validates the open-pair acceptance while keeping the current VM mission's narrower rationale gap separate from unobserved platform rejection.

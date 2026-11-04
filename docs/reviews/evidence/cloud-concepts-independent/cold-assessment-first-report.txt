@@ -1,0 +1,204 @@
+# FIRST ASSESSMENT REPORT — LOCK CANDIDATE
+
+Review: 2026-11-04 UTC. Public learner UI: https://azure-learner-git-codex-az900-cloud-comp-3bf852-espzys-projects.vercel.app. Build information displayed the full commit **527b95140917e75e83899f21e6b2291e01df0a7d** (`002-build-info.txt/png`). This is an independent expert AI content review, not a novice trial, learning-outcomes study or psychometric validation.
+
+## Scope and isolation
+
+This review used procedural and context isolation, **not OS isolation**: the filesystem is shared. I worked only in this assessment directory, read its AGENTS.md, used the managed-cloud runtime skill for network readiness, and loaded installed Playwright through `createRequire('/workspace/Azure-learner/package.json')`. I did not read application source/AGENTS, nb.ts, domain/tests, old reviews/artifacts, another reviewer’s output, answer keys, accepted pairs, rubrics or answer feedback. There was no known prohibited exposure. Parent messages supplied scope/progress requests only, not findings.
+
+Fresh anonymous contexts were used for separate cases/activity attempts. No localStorage injection, answer selection, submission, previous answer history, explicit help, journal, model run, simulator resource mutation, operational Azure call, credential or customer data was used. Only explicit Start/Begin and ordinary navigation revealed prompts. The later fixed-viewport screenshots used clean contexts through the same Begin paths. Default Playwright timeouts were retained; no test retry/worker/skip settings were changed.
+
+Practical entry routes render the corresponding theory before Begin. I read that visible material and recorded it. Optional assessment discovery later exposed Service Types selection, Computing cloud-model/bridge, and Benefits availability teaching. In particular, the Service Types worked example says both an operationally justified VM and supported PaaS can be valid. No teaching model was run and no feedback was requested. The UI’s “unassisted” label describes those browser attempts; it does **not** make this expert reviewer globally teaching-naive. `student-packet.json` contains the full exposure snapshots and exact routes/times.
+
+Some immediate SPA-transition body snapshots retained the preceding visible screen while URL/screenshot had transitioned. Stable learner-page captures 069/075/078/081/084/088/091 are the cited practical snapshots. This was a capture-timing limitation, not exposure to internal application content.
+
+## Exact examined coverage
+
+| Population | Examined | Evidence |
+|---|---|---|
+| Ordinary Computing successor | All 11 items in “Endret oppgave · registreringspiloten”; no numeric task-version label displayed | `115-computing-current-all-questions.txt/png`, route `?topic=v2-assessment` |
+| Ordinary Serverless | Entire Serverless-tillegg 1.0.0: two decision/reason scenarios and three standalone items | `024-serverless-questions.txt/png` |
+| Ordinary Benefits | All six paired scenarios in displayed version 2.0.0, including the numeric capacity-gap input | `113-benefits-current-all-questions.txt/png` |
+| Ordinary Service Types | All six paired scenarios in displayed version 3.0.0 | `111-services-current-all-questions.txt/png` |
+| Terminal transfer | All 19 linked cases: six Computing, ten Benefits, three Service Types | Individual cc01–cc19 prompt snapshots; cc19 is the scale-out case |
+| Independent practical prompts | All four Hub mission families (diagnosis, governance, IaaS, PaaS) and all three Hub existing-lab independent variants (VM, Web App, fictional SaaS) | 069,075,078,081,084,088,091 |
+
+The ordinary assessments were found through actual expanded “Andre aktiviteter” UI, distinct from the Hub’s terminal-transfer links: Services 095 → `?topic=assessment`, Benefits 099 → `?topic=assessment`, Computing bridge 109 → `?topic=v2-assessment`. The public root’s Hub links and full SHA are in 001–003. Services and Benefits show separate updated/legacy links and separate histories; they are not interchangeable with terminal transfer.
+
+**Omitted:** all legacy assessment question bodies and their feedback; preserved Service Types v1 and older mission versions; guided model runs/approvals and the full teaching path; practical technical completion, post-operation feedback or any later newly revealed questions; all grading/accepted-pair checks; the two optional Cost Management transfer links; later Azure modules. Historical links were inventoried, not reviewed as question populations. No claim of exhaustive historical coverage or practical engine validation is made.
+
+## Findings grounded in visible wording
+
+1. **The current ordinary prompts generally supply enough premises for defensible answers.** Computing gives demands “1, 7, 4 og 2” with capacity “5 pakker per time” and explicitly says “Hver time regnes separat”; the peak deficit is 2, with unused capacity in hours 1,3,4. Benefits 1 gives four instances × 8 requests/s versus 37 and says no instance/dependency failed; the gap is 5 and a fifth equal instance supplies 40. These are transparent conditional calculations, not Azure measurements. Serverless B names a kernel driver and OS diagnostics; VM guest control follows from those requirements rather than from the weak distractor “Functions kan aldri brukes til langvarig arbeid.”
+
+2. **The open hosting cases support two matched solutions; there is no pre-lock evidence of a valid alternative being rejected.** Service Types 5 expressly says both proposals support the app/scaling and “Ingen særskilt OS-kontroll, prisrangering eller krav om lavest driftsarbeid er fastsatt.” I independently propose VM + customer guest/runtime operations **and** managed platform + provider platform OS/runtime with retained app/data duties. Terminal cc18 likewise states “Begge hostingalternativene oppfyller de oppgitte kodekravene.” Both pairs are recorded before any acceptance check. A mismatched explanation is still not defensible. Whether either pair is actually accepted is deliberately untested.
+
+3. **Several ordinary distractors test relevant partial truth, which makes the paired reasoning useful.** Benefits 2 offers frontend latency and readable database copies as relevant delbevis, but the prompt requires an order to be signed and completed; the tested reserve business flow is the direct evidence. Service Types 6 offers true statements about aggregate instance capacity and app limits, but asks for more memory in one process while two apps still share one plan: a larger suitable plan instance is the relevant change. These items demand aligning evidence with the actual requirement rather than merely spotting a false sentence.
+
+4. **Cueing reduces the challenge in the Computing/Serverless and three practical-lab reflections.** Computing contrasts the modelled physical limit with “VM-er er uavhengige av maskinvare”, and commitment risk with “Ubrukt forpliktelse er gratis og tallene er Azure-priser.” Serverless gives “VM er alltid billigst” and “Leverandøren overtar all applikasjonssikkerhet.” Such absolutes can be rejected with little scenario reasoning. In each of the three existing-lab independent variants, my semantically chosen responsibility statement is the first of only two options; the other attributes implausibly complete responsibility or automatic security to the provider/license. This is a concrete local position/wording cue in these three inspected binary items, not proof of a universal key-position pattern. Terminal choices do not exhibit a single common proposed-answer position.
+
+5. **Most work here establishes near transfer or bounded application, not broad unseen capability.** The Computing pilot explicitly reuses the taught model with different workload numbers; the private-cloud question closely matches the inspected theory’s third-party exclusive cloud example. The SaaS entry guided brief asks to offboard Mina; the independent prompt changes the person to Leo and explicitly enumerates “blokkering, fjern lisensen, sett rollen til member, bekreft teamdeling og registrer datagjennomgang.” That supports executing a prescribed offboarding workflow, with little independent planning. The practical PaaS mission is stronger: instead of the entry’s single-app staging maintenance sequence, it requires different settings on two apps sharing one plan and asks the correct scope. Governance adds an out-of-region non-Web VM as a counterexample to a universal policy claim; diagnosis requires comparing routing with predictions. These are meaningful changed conditions, though still heavily bounded simulator tasks.
+
+6. **The IaaS mission assesses implementation/classification more directly than open service selection.** Its title already names IaaS and its independent brief requires inspecting “VM, OS-/datadisk, NIC, subnet og opprettelseskvittering” before asking the learner to choose the service model. The changed business premise is “en Windows-only, planlagt kontrollprosess”; Windows-only alone does not rule out all supported managed Windows runtimes. A VM is a defensible way to implement the explicitly required VM configuration, but the reflection’s assertion that the team needs guest-OS/own-package control is more supplied by the exercise contract than deduced from that short business requirement. Add an explicit unsupported kernel/package requirement if the intended inference is necessity of IaaS rather than classification of a mandated VM task.
+
+7. **Technical limits are usually stated responsibly.** cc07 fixes one indivisible process needing 12 GB with 8 GB available and fixes the program edition, excluding an invented rewrite. cc05 explicitly stipulates eligible baseline and discount rather than claiming real Azure prices. cc10 asks for recovery data/secrets/traffic, not just region names or SLA. The practical prompts distinguish configuration/receipts from runtime, traffic, health and complete compliance. The fictional SaaS inventory explicitly says it is not Azure Portal/Microsoft 365/real access control. This supports the bounded lesson; it does not establish operational Azure competence.
+
+The full verbatim student snapshots, all choice labels, proposed pairs, rationale, alternatives, counterfactual changes and uncertainty are in `student-packet.json`. The following tables make the independent commitments easy to compare later.
+
+## Independent ordinary decisions
+
+### benefits — 2.0.0
+
+| Item | Proposed decision and compatible explanation | Rationale / limits |
+|---|---|---|
+| benefits-1 | Legge til en femte likeverdig instans i kapasitetspoolen.<br>Tilført kapasitet dekker gapet; dette tester ikke gjenoppretting ved feil. Numeric gap: **5 requests/s**. | Four times eight gives 32 requests/s, five short of 37. A fifth equal instance supplies 40 under the explicit even-distribution/no-failure assumptions. |
+| benefits-2 | Teste at én ordre signeres og fullføres gjennom den avklarte reserveflyten.<br>Gjenopprettingskravet gjelder en fullført forretningsflyt med signeringsavhengigheten. | A completed signed order through the available reserve flow is the direct evidence for the required business outcome. |
+| benefits-3 | Rapporten underbygger regionkravet; andre sikkerhetskrav trenger egne kontroller.<br>En avgrenset governance-kontroll dokumenterer det evaluerte konfigurasjonskravet. | The report evaluates only relevant resource region fields. It supports that bounded configuration claim, not all data-location or security obligations. |
+| benefits-4 | Gjennomgå parameterfilene, validere endringen og teste det utrullede resultatet.<br>Automatisering gjentar deklarerte input; input og faktisk resultat må kontrolleres. | Different parameter values explain the wrong sizes despite one shared definition. Review input, validate and test actual deployment. |
+| benefits-5 | Sammenligne fotavtrykk per levert ordre ved tilsvarende tjenestekvalitet.<br>Nytte og kvalitet må knyttes til et relevant energi- og utslippsgrunnlag. | Billing dropped 20% while useful orders dropped 50%; a financial decrease does not establish an energy/emissions improvement per useful output. Compare footprint per order with equivalent service quality and relevant evidence. |
+| benefits-6 | Modellere forventet bruk, priser og usikkerhet for faste og variable poster.<br>Bruksdriverne forklarer kostnadsanslaget; senere faktisk bruk kan avvike. | A forecast must model both base and variable drivers, growth and prices, with uncertainty; actual future use can differ. |
+
+### services — 3.0.0
+
+| Item | Proposed decision and compatible explanation | Rationale / limits |
+|---|---|---|
+| services-1 | En virtuell maskin med kundestyrt gjesteoperativsystem og driverinstallasjon.<br>Kunden trenger kontroll over gjeste-OS og beholder ansvar for dette programvaremiljøet. | Installing and updating the supplier-approved driver in the guest requires customer guest control, which the VM proposal offers. |
+| services-2 | Følge opp gjesteoppdateringen og verifisere det registrerte oppdateringsnivået.<br>Kundens gjeste-OS-ansvar gjenstår selv om leverandørens fysiske vert er vedlikeholdt. | The physical-host notice explicitly excludes installing the pending guest security update. Fjordverk must follow up and verify the guest update level. |
+| services-3 | Verifisere en støttet app- og hostingkombinasjon før den nye utgaven tas i bruk.<br>Runtime-støtte er et kompatibilitetskrav som må undersøkes før produksjonsbruk. | A bigger instance cannot make an unsupported runtime compatible. Verify a supported app/hosting combination before production use. |
+| services-4 | Avslutte relevant tilgang og gjennomgå deling, dataeierskap og bevaring.<br>SaaS reduserer driftsansvar, men kundens bruker-, delings- og dataansvar gjenstår. | The customer must remove relevant access and review sharing, ownership and retention so remaining colleagues retain needed documents. |
+| services-5 | Velge VM-forslaget med kundedrift av gjeste-OS, runtime og applikasjon.; Velge plattformforslaget med leverandørdrift av appplattformens OS og runtime.<br>Kunden drifter VM-ens gjeste-OS, runtime og app og har kompetanse til dette ansvaret.; Leverandøren drifter appplattformens OS og runtime; kunden håndterer egen app og data. | Both technically reviewed proposals satisfy app and scaling needs; no priority breaks the tie. VM pairs with customer OS/runtime operations, PaaS with provider platform OS/runtime and retained app/data work. |
+| services-6 | Velge en større støttet instansstørrelse for den delte planen.<br>Planstørrelsen gir instansressursene; begge appene deler den endrede kapasiteten. | The single-process job requires more memory per instance. Increase the shared plan to a suitable larger instance size; both apps continue sharing those resources. |
+
+### computing — Endret oppgave · registreringspiloten; no numeric task version displayed
+
+| Item | Proposed decision and compatible explanation | Rationale / limits |
+|---|---|---|
+| computing-1 | 2<br>Free numeric response | At demand 7 and capacity 5, two packages are uncovered in that hour. Hours are explicitly separate. |
+| computing-2 | Time 1, 3 og 4<br>Single-choice item; rationale supplied independently below. | Unused capacity is 4, 0, 1, 3 across the four hours. |
+| computing-3 | Samme allokering og behov gir samme behandlet arbeid<br>Single-choice item; rationale supplied independently below. | A supplier label does not increase the fixed allocation; processed work remains 1,5,4,2. |
+| computing-4 | VM-ressurser må understøttes av en begrenset fysisk vert<br>Single-choice item; rationale supplied independently below. | Virtual resources still require finite physical backing. |
+| computing-5 | Leverandørressurser tilbys og bestilles som tjenester<br>Single-choice item; rationale supplied independently below. | A service-based resource offering is the meaningful characteristic among these choices. |
+| computing-6 | Kunden<br>Single-choice item; rationale supplied independently below. | Customer decisions about their data, access and endpoint protection remain in shared responsibility. |
+| computing-7 | Private cloud<br>Single-choice item; rationale supplied independently below. | Exclusive organisational cloud use, not building address, supports private cloud. |
+| computing-8 | Hybrid, med reelt integrasjonsarbeid<br>Single-choice item; rationale supplied independently below. | Public frontend plus retained local system with required integration supports a hybrid whole. |
+| computing-9 | Måleren kan telle allokert kapasitet over tid<br>Single-choice item; rationale supplied independently below. | Allocated-capacity meters can accrue cost without requests. The wording can avoids claiming every plan does this. |
+| computing-10 | Pay-as-you-go og følg forbruket<br>Single-choice item; rationale supplied independently below. | Unknown lifetime does not justify a large commitment and no eviction tolerance excludes Spot as the sole approach. |
+| computing-11 | Ubrukt forpliktelse kan betales; tallene er bare undervisningsantakelser<br>Single-choice item; rationale supplied independently below. | Commitment creates payment exposure even if not used; teaching numbers are not real Azure quotes. |
+
+### serverless — Serverless-tillegg 1.0.0
+
+| Item | Proposed decision and compatible explanation | Rationale / limits |
+|---|---|---|
+| serverless-1 | Azure Functions<br>Kort kundekode aktiveres av hendelser uten behov for gjeste-OS-kontroll. | Short event-driven custom validation without guest operations makes Functions a reasonable starting point; latency and hosting plan still require evaluation. |
+| serverless-2 | Azure Virtual Machines<br>Kravet om driver og OS-diagnostikk krever gjeste-OS-kontroll. | The kernel driver and own OS diagnostics explicitly require guest control and the team can maintain it. |
+| serverless-3 | Undersøkt vellykket kjøring med forventede utdata<br>Single-choice item | A successful observed execution with expected output supports processing; configured inputs alone do not. |
+| serverless-4 | Kunden, innen plattformens ansvarsdeling<br>Single-choice item | The managed platform does not take over all customer code, data and access decisions. |
+| serverless-5 | Hostingplan, varm/allokert kapasitet og tilknyttede tjenester<br>Single-choice item | Idle cost depends on plan, allocation/warm capacity and related services; execution count alone is insufficient. |
+
+## Independent terminal decisions
+
+| Case | Proposed decision / compatible reason | Rationale |
+|---|---|---|
+| cc01 | Bruk offentlig sky for denne arbeidslasten<br>Arbeidslasten kan bruke leverandørens tilbud uten krav om eksklusivt miljø eller løpende lokal integrasjon. | The workload has no local integration, no exclusive-platform requirement, and verified regional permission. Public cloud is defensible. Own code determines service suitability, not deployment-model ownership. |
+| cc02 | Private cloud<br>En dedikert sky for én organisasjon kan driftes utenfor egne lokaler uten å bli en offentlig sky. | Exclusive use by one organisation plus cloud self-service defines the private-cloud case even when an external partner runs the building. |
+| cc03 | En sammenkoblet hybridløsning<br>Privat og offentlig sky må inngå i ett samvirkende miljø med løpende integrasjon etter kravene. | The private production cloud and public ordering service are both retained and must continuously exchange status: the combined environment is hybrid. |
+| cc04 | Pay-as-you-go for det usikre behovet<br>Fleksibelt forbruk unngår den ubegrunnede langsiktige bindingen; avbruddsrisiko må vurderes separat. | An uncertain six-week workload without a durable baseline does not support the proposed long commitment. Non-interruptible ordering excludes Spot as sole capacity. |
+| cc05 | Vurder commitment for grunnlasten og fleksibel betaling for toppene<br>Forutsigbart kvalifisert forbruk kan utnytte bindingen; toppene trenger ikke bindes på samme måte. | The prompt expressly stipulates eligible stable usage and a validated discount through the full term; commit only that baseline and keep variable peaks flexible. |
+| cc06 | Vurder Spot for de avbrytbare deljobbene<br>Spot kan passe arbeid som faktisk håndterer eviction, variasjon i kapasitet og ventetid før gjenopptakelse. | Tested checkpoint recovery, independent jobs, loose deadlines and willingness to wait are relevant conditions for Spot. |
+| cc07 | Velg en egnet større minneprofil for den ene instansen<br>Vertikal skalering kan møte prosessens minnebehov, men skaper ikke alene feilredundans. | An indivisible process needing 12 GB cannot use two independent 8 GB memories as one. A larger suitable memory profile addresses this bottleneck. |
+| cc08 | Kontroller og rett helsesjekk/ruting til frisk instans<br>Trafikken må faktisk nå en frisk instans for at redundansen skal gi den ønskede tilgjengeligheten. | Healthy B has no traffic path while failed A receives every request. Correcting health/routing addresses the supplied failure path. |
+| cc09 | Undersøk gjenoppretting eller en eksplisitt alternativ flyt for betaling<br>En felles nødvendig avhengighet kan stoppe hele ordreflyten selv med ledig compute på alle instansene. | The common required payment dependency blocks every web copy. Investigate recovery or a permitted alternative payment flow. |
+| cc19 | Legg til like instanser og fordel forespørslene mellom dem<br>Horisontal skalering kan øke kapasiteten når arbeidet lar seg fordele og resten av kjeden tåler lasten. | Requests are stateless and distributable; the CPU profile cannot be enlarged and downstream capacity has been checked. Add instances and distribute traffic. |
+| cc10 | Test gjenopprettingsforløpet, data og avhengigheter mot avtalte mål<br>Reliability krever et fungerende gjenopprettingsforløp med data og avhengigheter, ikke bare at kopien finnes. | Management needs end-to-end recovery evidence including usable data, secrets and traffic against agreed objectives. Copies alone do not establish it. |
+| cc11 | Oppdater bruksantakelser, angi usikkerhet og test den nye belastningen<br>Usikker etterspørsel og endret ressursbruk påvirker prognosen; belastningstest kan undersøke ytelse. | Larger files and a new user group change resource demand. Revise assumptions, expose uncertainty, and test the new performance workload. |
+| cc12 | Undersøk og rett datatilgangen; behold regionregelen som én av flere kontroller<br>En avgrenset governance-kontroll kan være oppfylt samtidig som andre sikkerhetskrav brytes. | The location rule checks only the declared resource field/type, while application code exposes data. Repair access and retain location as one control. |
+| cc13 | Bruk en egnet leserolle på det nødvendige test-scope<br>Autorisasjon bestemmer tillatte handlinger og scope; den bør tilpasses den konkrete leseoppgaven. | A read-only test-resource-group task calls for a suitable Reader role at that scope. Authentication identifies the user; authorisation grants actions. |
+| cc14 | Sammenlign nåværende ressursverdier med kilden og undersøk endringen før kontrollert retting<br>Ønsket konfigurasjon og faktisk tilstand må sammenlignes; en tidligere mal-kjøring håndhever ikke senere endringer. | The successful Monday run predates Friday drift; compare actual values against versioned desired values and investigate before controlled correction. |
+| cc15 | Rett og valider ønsket parameter, kjør kontrollert og inspiser resultatet<br>Automatisering gjentar kilden; konsistens og faglig korrekthet må vurderes separat. | The parameter selects test while the order requires production. Fix and validate input, redeploy carefully, inspect output. |
+| cc16 | Velg en støttet IaaS VM-konfigurasjon<br>IaaS kan gi nødvendig gjeste-OS-kontroll, med beholdt ansvar for patching og sikker konfigurasjon. | Supported kernel-driver and guest-OS control are explicit, with staff capable of retained maintenance. A supported VM meets them. |
+| cc17 | Bruk den vurderte ferdige SaaS-tjenesten<br>Ferdig funksjonalitet møter behovet uten egen programdrift; tilgang og data er fortsatt kundens ansvar. | An evaluated SaaS already supplies the required collaboration and identity integration; no custom code or application/OS maintenance capacity exists. |
+| cc18 | Bruk App Service med støttet runtime; Bruk en støttet VM-konfigurasjon<br>PaaS passer støttet kode og lar leverandøren håndtere plattform-OS; kunden beholder kode, data og tilgang.; IaaS er gyldig med teamets driftskapasitet; kunden må drifte og oppdatere gjeste-OS. | Both App Service and a supported VM meet the stated code and operational requirements. Pair each with its own honest responsibility boundary. |
+
+## Independent practical prompt decisions
+
+Technical work was not executed; these are proposed actions and reflection choices, not completion claims. All reflection alternatives are preserved in the cited full student snapshot.
+
+### iaas-mission
+
+Evidence: `069-iaas-mission-course-after-return.txt` (Current Hub IaaS mission; changed independent mode).
+
+Proposed reflection: Teamet trenger kontroll over gjeste-OS og egne pakker.; Kunden må fortsatt håndtere gjest, programvare, data og tilgang; NIC viser ikke bevist trafikk.
+
+Create the specified new Windows VM, small training profile (2 vCPU / 4 GiB), separate 32 GiB data disk, App Sandbox; inspect VM, disks, NIC, subnet and creation receipt. Retain guest/application operations.
+
+Alternative/limit: The mandatory VM/disk/NIC task is internally sufficient for implementation. Windows-only by itself would not establish that all managed alternatives are unsuitable; the title and required VM already supply the model classification. Counterfactual: Allow a supported managed Windows runtime with no guest-package/control requirement and open service selection; change the numeric/disk/scope requirements and reconfigure.
+
+### paas-mission
+
+Evidence: `075-paas-mission-reflection-stable.txt` (Current Hub PaaS mission; changed independent mode).
+
+Proposed reflection: På hver Web App, med egne verdier og en Apply på riktig app-ID.; Appene har forskjellig lagret konfigurasjon; kundekoden må fortsatt testes.
+
+Create/choose two apps sharing one plan. Save production/standard on publishing app and staging/read-only on the other; make a genuinely changed draft before publishing Apply; inspect both apps, shared plan, group and new receipts.
+
+Alternative/limit: App settings have per-app scope while plan compute is shared. This genuinely changes the single-app guided maintenance task into a same-plan/two-app scope problem. Values do not prove deployed code, traffic isolation or health. Counterfactual: If differences were compute SKU or OS requirements rather than app settings, evaluate separate plans or supported hosting changes.
+
+### diagnosis-mission
+
+Evidence: `088-diagnosis-mission-questions.txt` (Current Hub diagnosis mission; changed independent mode).
+
+Proposed reflection: Vurder uavhengighet gjennom hele nødvendige kjeden og test ruting/avhengigheter.; Konfigurasjonsreferanser og konsekvenser under erklærte antakelser; ikke faktisk oppetid.
+
+Create/select a supported VM reference chain; in the separately declared two-track model with distinct OS disks and track 1 disk failed, predict zero usable tracks for single routing and one for balanced routing, before each run.
+
+Alternative/limit: A healthy track 2 is unavailable to work if only failed track 1 receives it. The model expressly assumes otherwise functioning code and distinct disks/NICs; this is conceptual conditional analysis, not real Azure failure or failover. Counterfactual: Use a shared failed subnet dependency and both tracks can fail despite balanced routing; make routing already balanced and investigate the next limiting dependency.
+
+### governance-mission
+
+Evidence: `091-governance-mission-questions.txt` (Current Hub governance mission; changed independent mode).
+
+Proposed reflection: Den relevante Web-ressursens lokasjon, innenfor riktig subscription og typefilter.; At støttede tekniske krav og denne regelen ble tilfredsstilt; flere sikkerhetskontroller gjenstår.
+
+Inspect the actual policy. In App Sandbox with non-West-Europe group metadata, create a newly rejected out-of-region Web plan, a later corrected allowed plan/app, and a supported out-of-region VM as a non-Web counterexample; inspect their receipts.
+
+Alternative/limit: The type filter and resource location matter; group metadata is not Web hosting location. A non-Web accepted resource can refute the universal any-resource claim without proving general security or compliance. Counterfactual: Assign a policy covering VM types too and the proposed VM counterexample may fail; change the actual assigned scope/filter and inspect it again.
+
+### iaas-practical
+
+Evidence: `078-iaas-practical-questions.txt` (Available existing base lab; changed independent mode).
+
+Proposed reflection: Kunden må vedlikeholde gjeste-OS og programvare; et NIC beviser ikke nettverksforbindelse.
+
+Create a new Windows VM after start with standard training profile, eight GiB RAM, 64 GiB data disk and Shared Sandbox. Inspect it and explain retained guest patching.
+
+Alternative/limit: This is an explicit configuration task, not an open service choice. The customer responsibility reason is sound. A saved NIC reference does not test packets, application readiness or availability. Counterfactual: Change program memory or OS support and choose a suitable profile; add a network requirement and require separate connectivity evidence.
+
+### paas-practical
+
+Evidence: `081-paas-practical-questions.txt` (Available existing base lab; changed independent mode).
+
+Proposed reflection: Plattformen drifter OS, men kunden må levere kode som leser innstillingene og beskytte data og tilgang.
+
+Create a new plan and Web App after start; save production and read-only in the app settings and inspect the app/hosting relation. Entry teaching identifies the APP_ENVIRONMENT and CATALOG_MODE conventions.
+
+Alternative/limit: The settings are input, not implemented business logic. The short independent prompt relies on entry teaching for variable names; that grounding was visible, so it is not a self-contained unseen practical brief. Counterfactual: Supply code that ignores these variables and saving them still will not establish the requested runtime behaviour.
+
+### saas-practical
+
+Evidence: `084-saas-practical-questions.txt` (Available existing base lab; changed independent mode).
+
+Proposed reflection: Kunden styrer brukere, rettigheter og deling; blokkering henter ikke tilbake kopier som allerede er delt.
+
+Select Leo; perform new blocking, license removal, member role confirmation, team sharing confirmation and data-review recording after start. Explain that past shared copies are not thereby recalled.
+
+Alternative/limit: The prompt explicitly enumerates the actions, transferring the guided Mina offboarding task to Leo. The responsibility reason is sound but the reflection is a highly cued binary item. This is a fictional two-seat product, not M365/Entra administration. Counterfactual: If the employee remained employed, if legal hold required retention, or if a service had specific session revocation controls, reassess the exact actions; do not assume this toy workflow proves real-world complete offboarding.
+
+## Evidence and failures
+
+`browser-session.cjs` and `actions.jsonl` retain the actual browser commands, routes, text, visible link/button labels, network failures and 115 full-page screenshots captured with a 1440×900 viewport. `fixed-viewport-screenshots.cjs` and `viewport-actions.jsonl` retain eight actual viewport screenshots: Computing, Benefits, Services and Serverless at **1440×900** and **1024×500**. They show the same unsubmitted tasks; they do not constitute new answer trials. PNGs were inspected for the Services open-hosting case and Serverless small viewport, plus the IaaS portal guide. Fixed navigation occupies part of the small viewport, so a full prompt requires ordinary scrolling.
+
+Failures are separated in the packet: Vercel preview-toolbar `feedback.js` was CSP-blocked, and several navigation/prefetch requests logged `ERR_ABORTED`. These are not learner answer feedback and do not establish an assessment defect. The learner prompt pages loaded. One attempted “Andre aktiviteter” click on the Computing cloud-model page hit the unchanged default 30-second timeout because that page has no such menu; there was no retry there. The menu was found on the actual bridge page. During final screenshot collection the execution transport disconnected; a later shell read worked, while polling the old process ID reported unknown process. All eight image files and screenshot log entries existed, and collection was not rerun. No learner access failure was hidden, no timeout increased, and no skip introduced.
+
+## First-report boundary
+
+These decisions and observations precede every answer submission, key/rubric/accepted-pair inspection and prior finding comparison. Acceptance, scoring and alternative-pair rejection remain unknown. No general mastery, certification readiness, retention, novice difficulty or empirical item quality is inferred. After this report and packet are hashed and made read-only, comparison or corrections must go in a separately named addendum; these files are not to be altered.
