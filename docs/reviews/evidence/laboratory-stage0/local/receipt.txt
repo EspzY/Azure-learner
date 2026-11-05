@@ -1,0 +1,116 @@
+Hopp til innhold
+AzureLab 3.2.1
+SavvyShark · Veiledning
+TRAINING SIMULATOR
+Notifications (4)
+4
+Create a resource
+Home
+All services
+FAVORITES
+Subscriptions
+Resource groups
+All resources
+App Services
+App Service plans
+Virtual machines
+Activity log
+AzureLab learning tools
+Learning workspace
+Responsibility explorer
+Resource hierarchy
+Architecture Explorer
+Independent challenge
+Lokalt treningsmiljø · ingen Azure-tilkobling
+Home
+Activity log
+Activity log
+AzureLab Directory · Lokalt treningsmiljø · ingen Azure-tilkobling
+Refresh
+Guided Lab · veiledet praksis
+Describe cloud computing
+Tilbake til kurset
+Architecture Explorer
+Tilbake til læringen
+SavvyShark · Faglige milepæler
+Operations
+Sequence	Operation	Result	World revision
+portal-1	Opprett resource group	Registrert
+created
+	0 → 1
+portal-2	Opprett App Service plan	Avvist
+policy-location-denied
+	1 → 1
+portal-3	Opprett App Service plan	Registrert
+created
+	1 → 2
+portal-4	Opprett webapp	Registrert
+created
+	2 → 3
+Registrert · portal-4
+Teknisk årsak og tilstand
+
+Konfigurasjonen er registrert i den lokale modellen. Dette bekrefter ikke at kode kjører.
+
+Operasjon
+Opprett webapp
+Ressurstype
+Microsoft.Web/sites
+Mål-scope
+group-1
+Forespurt / avledet lokasjon
+West Europe
+Modellregel
+web-plan-location@1
+created
+Verdensrevisjon
+2 → 3
+Aktive objekter
+7 → 8
+Nye objekt-ID-er
+app-3
+Endre konfigurasjon
+Støttede felt i den opprinnelige forespørselen
+Name
+app-stage0
+Resource group ID
+group-1
+App Service plan ID
+plan-2
+Objektreferanser i denne operasjonen
+ app-stage0 · app-3
+Oppført som lagt til
+ rg-stage0 · group-1
+ plan-stage0 · plan-2
+Go to resource
+AzureLab er uavhengig av Microsoft. Dette er original undervisning og lokal simulering, ikke Azure Portal, Microsoft Learn-fullføring eller en sertifisering.
+Guided Lab · veiledet praksis
+Minimer veiledningen
+SavvyShark
+Din kontekstuelle læringsguide
+
+Nå i labben
+Undersøk hvorfor planen ble avvist
+
+Se oppdraget
+Åpne avvist operasjon
+Undersøk policyen
+
+INFORMASJON Å UNDERSØKE
+
+Hvor finner du kontrollen?
+Operation receipt i arbeidsflaten for den aktuelle kommandoen. Tidligere operasjoner finnes i Activity log.
+Hvorfor dette er viktig
+Kvitteringen identifiserer måltype, scope, ønsket lokasjon og regel. Det finnes ingen utrullet plan fra dette forsøket.
+Gjør dette nå
+Åpne den avviste operasjonen og følg lenken til policyen.
+Dette vil du se
+I operasjonen ser du ønsket lokasjon, policyen og uendret ressursantall. Policyvisningen gir grunnlaget for korreksjonen.
+
+Fra dette forsøket: CreatePlan · North Europe · Aktive objekter: 6 → 6
+
+Valgfritt hint
+
+Informasjonen er ikke tilgjengelig i denne visningen. Åpne ressursoversikten, operasjonen eller relasjonen som steget beskriver. Ingen annen overskrift markeres som erstatning.
+
+Avslutt labvisningen
