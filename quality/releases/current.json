@@ -1,432 +1,469 @@
 {
   "schema": 1,
-  "id": "PR55-cc03-iaas-assessment-validity",
-  "baseCommit": "bb66ff2e5115d26304bb017295a9067c6f6fed5d",
-  "author": "pr55-implementation-author",
+  "id": "PR56-cc02-vm-debrief-diagnostics",
+  "baseCommit": "fb229a977ef6fb0250ededbb0d35d5314951a31a",
+  "author": "pr56-implementation-author",
   "scope": {
-    "kind": "scoped-assessment-successor",
-    "description": "Isolated Portal challenge2/content2/rubric2, explicit guest-OS control and changed-requirement managed-platform contrast, frozen technical evaluator reuse, exact origin/resume and durable assistance integration. No old scoring/receipt/World meaning changes.",
-    "objectives": ["service-model.requirements", "service-model.responsibility"]
+    "kind": "read-only-diagnostic-feedback",
+    "description": "Historical through-pinned mode-specific expected/actual VM comparison and conditional next action; exact original guest-control@1 evaluator requirements extracted for shared presentation, no changed rubric/event/store/World/receipt/XP. Native submitted Portal notice requires the referenced original verifiable evidence; otherwise existing safety remains.",
+    "objectives": ["ST01", "ST04"]
   },
   "sources": [
     {
-      "id": "CC55-S1",
+      "id": "CC56-S1",
       "url": "https://learn.microsoft.com/en-us/azure/security/fundamentals/shared-responsibility",
       "title": "Shared responsibility in the cloud - Microsoft Azure | Microsoft Learn",
-      "reviewed": "2026-11-04",
-      "version": "Observed ms.date 2026-08-24T00:00:00Z; fetched SHA256 d3c9ff39ebcd87cb526f25250a6427a0008462387d7df4447d10ff6c66c81846",
+      "reviewed": "2026-11-05",
+      "limits": "Unchanged shared responsibility distinction only: local configuration/receipt is not actual runtime, traffic, availability or independent mastery. Standard/Small/disk/scope requirements are local frozen guest-control@1, not Microsoft SKU or workload performance claims.",
+      "version": "Observed ['2026-08-24T00:00:00Z']; SHA256 d3c9ff39ebcd87cb526f25250a6427a0008462387d7df4447d10ff6c66c81846",
       "kind": "official-public-documentation",
-      "objectives": ["service-model.requirements", "service-model.responsibility"],
-      "claims": ["guest-os.control", "platform.compatibility"],
+      "objectives": ["ST01", "ST04"],
+      "claims": ["vm-local-result.boundary"],
       "availability": "AVAILABLE",
-      "limits": "Service model determines guest OS responsibility; identity/data/application obligations remain. Does not justify Windows or generic customization as VM-only.",
       "discovery": [
         {
           "url": "https://learn.microsoft.com/en-us/azure/security/fundamentals/shared-responsibility",
           "disposition": "reviewed-essential",
-          "reason": "Service model determines guest OS responsibility; identity/data/application obligations remain. Does not justify Windows or generic customization as VM-only."
-        }
-      ]
-    },
-    {
-      "id": "CC55-S2",
-      "url": "https://learn.microsoft.com/en-us/azure/architecture/guide/technology-choices/compute-decision-tree",
-      "title": "Choose an Azure Compute Service - Azure Architecture Center | Microsoft Learn",
-      "reviewed": "2026-11-04",
-      "version": "Observed ms.date 2026-02-18T00:00:00Z; fetched SHA256 84d47358f975467455f0800db731c5d193a1a1c84dd94294ace29e5bcf5611af",
-      "kind": "official-public-documentation",
-      "objectives": ["service-model.requirements", "service-model.responsibility"],
-      "claims": ["guest-os.control", "platform.compatibility"],
-      "availability": "AVAILABLE",
-      "limits": "Compute choice follows actual constraints, not an application label. No universal IaaS/PaaS ranking.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/architecture/guide/technology-choices/compute-decision-tree",
-          "disposition": "reviewed-essential",
-          "reason": "Compute choice follows actual constraints, not an application label. No universal IaaS/PaaS ranking."
-        }
-      ]
-    },
-    {
-      "id": "CC55-S3",
-      "url": "https://learn.microsoft.com/en-us/azure/app-service/overview",
-      "title": "Overview of Azure App Service - Azure App Service | Microsoft Learn",
-      "reviewed": "2026-11-04",
-      "version": "Observed ms.date 2026-08-18T00:00:00Z; fetched SHA256 b52e54aed25f7449fb4797d8724ca9a96a20656b8a08717d2415a4ef5f1e2c80",
-      "kind": "official-public-documentation",
-      "objectives": ["service-model.requirements", "service-model.responsibility"],
-      "claims": ["guest-os.control", "platform.compatibility"],
-      "availability": "AVAILABLE",
-      "limits": "Managed Windows/Linux Web platform. Compatibility is workload/plan specific, not an assumed actual Azure validation.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/app-service/overview",
-          "disposition": "reviewed-essential",
-          "reason": "Managed Windows/Linux Web platform. Compatibility is workload/plan specific, not an assumed actual Azure validation."
-        }
-      ]
-    },
-    {
-      "id": "CC55-S4",
-      "url": "https://learn.microsoft.com/en-us/azure/app-service/overview-managed-instance",
-      "title": "Managed Instance on App Service overview - Azure App Service | Microsoft Learn",
-      "reviewed": "2026-11-04",
-      "version": "Observed ms.date 2026-08-28T00:00:00Z; fetched SHA256 cfa25eebaeee55c22531045f93bd0279521ea9a1264b7565b0fd89d82bf13c03",
-      "kind": "official-public-documentation",
-      "objectives": ["service-model.requirements", "service-model.responsibility"],
-      "claims": ["guest-os.control", "platform.compatibility"],
-      "availability": "AVAILABLE",
-      "limits": "Current Managed Instance supports specific Windows COM/registry/MSI customizations with platform/plan/region constraints. Direct ms.date differs from rendered footer2026-09-14; both recorded, no immutable document-version claim.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/app-service/overview-managed-instance",
-          "disposition": "reviewed-essential",
-          "reason": "Current Managed Instance supports specific Windows COM/registry/MSI customizations with platform/plan/region constraints. Direct ms.date differs from rendered footer2026-09-14; both recorded, no immutable document-version claim."
-        }
-      ]
-    },
-    {
-      "id": "CC55-S5",
-      "url": "https://learn.microsoft.com/en-us/azure/app-service/configure-managed-instance",
-      "title": "Configure Managed Instance on Azure App Service",
-      "reviewed": "2026-11-04",
-      "version": "Observed ms.date 2026-08-18T00:00:00Z; fetched SHA256 b47ec4c55fa7fc929b9d4da31b59f5ca8445c79a2398cb1521784973e81bf741",
-      "kind": "official-public-documentation",
-      "objectives": ["service-model.requirements", "service-model.responsibility"],
-      "claims": ["guest-os.control", "platform.compatibility"],
-      "availability": "AVAILABLE",
-      "limits": "Startup scripts/custom components remain customer maintained while managed guest OS receives platform maintenance. This is not customer-owned full guest OS image/lifecycle.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/app-service/configure-managed-instance",
-          "disposition": "reviewed-essential",
-          "reason": "Startup scripts/custom components remain customer maintained while managed guest OS receives platform maintenance. This is not customer-owned full guest OS image/lifecycle."
+          "reason": "Unchanged responsibility boundary; all exact profile/image/disk/scope criteria remain the local frozen mission contract."
         }
       ]
     }
   ],
   "activities": [
     {
-      "id": "portal-challenge2",
-      "objectives": ["service-model.requirements", "service-model.responsibility"],
-      "claims": ["guest-os.control", "platform.compatibility"],
-      "assessmentStatus": "new-independent",
-      "limits": "Seven criteria: two paired OS decisions plus frozen Web/service/ready/scope/hosting/cause/receipt mechanism. No real Azure/VM runtime or human mastery claim.",
-      "theory": [{ "path": "docs/CC03_IAAS_ASSESSMENT.md" }],
+      "id": "infrastructure-vm-debrief",
+      "objectives": ["ST01", "ST04"],
+      "claims": ["vm-local-result.boundary"],
+      "limits": "CC02 infrastructure feedback only; unchanged guest-control@1 and technical rules. Human learning/SME/UX/screen-reader validation unperformed. Exact-head full CI/strict and actual anonymous SHA Gate7 remain separate delivery proof.",
+      "assessmentStatus": "unchanged-existing",
+      "theory": [
+        {
+          "path": "src/content/nb.ts"
+        }
+      ],
       "mechanism": [
-        { "path": "src/domain/portal/challenge-v2.ts" },
-        { "path": "src/domain/portal/challenge-v2-store.ts" }
+        {
+          "path": "src/domain/sandbox/missions.ts"
+        },
+        {
+          "path": "src/domain/sandbox/vm-debrief.ts"
+        }
       ],
-      "practice": [{ "path": "tests/e2e/challenge-validity.spec.ts" }],
+      "practice": [
+        {
+          "path": "tests/e2e/vm-debrief.spec.ts"
+        }
+      ],
       "feedback": [
-        { "path": "src/features/portal/challenge-v2.tsx" },
-        { "path": "src/content/nb.ts" }
+        {
+          "path": "src/features/course/vm-debrief.tsx"
+        },
+        {
+          "path": "src/features/course/missions.tsx"
+        }
       ],
-      "visual": [{ "path": "docs/reviews/evidence/cc03/updated-active-1024-500.png" }],
-      "accessible": [{ "path": "tests/e2e/challenge-validity.spec.ts" }],
+      "visual": [
+        {
+          "path": "docs/reviews/evidence/cc02/diagnostic-1024x500.png"
+        }
+      ],
+      "accessible": [
+        {
+          "path": "tests/e2e/vm-debrief.spec.ts"
+        }
+      ],
       "assessment": [
-        { "path": "src/domain/portal/challenge-v2.test.ts" },
-        { "path": "docs/reviews/evidence/cc03/blind/revised-review.json" },
-        { "path": "docs/reviews/evidence/cc03/blind/post-key-comparison.json" }
+        {
+          "path": "src/domain/sandbox/vm-debrief.test.ts"
+        },
+        {
+          "path": "src/features/course/vm-debrief-preservation.test.ts"
+        }
       ],
       "savvyshark": [
-        { "path": "src/features/course/guided-coach.tsx" },
-        { "path": "src/features/portal/portal.tsx" }
+        {
+          "path": "src/features/course/mission-portal.tsx"
+        },
+        {
+          "path": "src/features/course/mission-context.ts"
+        }
       ]
     }
   ],
   "modules": [],
   "preservedPaths": [
-    "src/domain/portal/learning.ts",
-    "src/domain/portal/store.ts",
-    "src/domain/portal/challenge-origin.ts"
+    "src/domain/sandbox/model.ts",
+    "src/domain/sandbox/store.ts",
+    "src/domain/sandbox/mission-store.ts",
+    "src/domain/sandbox/replay.ts",
+    "src/domain/portal/",
+    "src/domain/curriculum/",
+    "src/features/course/mission-context.ts",
+    "src/features/course/mission-provider.tsx",
+    "public/",
+    "package.json",
+    "package-lock.json",
+    ".github/",
+    "scripts/"
   ],
   "gates": {
     "source": {
       "checks": [
-        { "path": "docs/CC03_IAAS_ASSESSMENT.md" },
-        { "path": "docs/reviews/evidence/cc03/source-records.json" }
+        {
+          "path": "docs/CC02_VM_DEBRIEF.md"
+        },
+        {
+          "path": "docs/reviews/evidence/cc02/source-record.json"
+        }
       ],
-      "limits": "Scoped versioned CC03 successor only. Historical technical/content contracts preserved. Human validation unperformed; exact-head fullCI/strict and actual anonymous fullSHA Gate7 independently required."
+      "limits": "CC02 infrastructure feedback only; unchanged guest-control@1 and technical rules. Human learning/SME/UX/screen-reader validation unperformed. Exact-head full CI/strict and actual anonymous SHA Gate7 remain separate delivery proof."
     },
     "curriculum": {
       "checks": [
-        { "path": "docs/CC03_IAAS_ASSESSMENT.md" },
-        { "path": "docs/reviews/evidence/cc03/blind/revised-review.json" }
+        {
+          "path": "docs/CC02_VM_DEBRIEF.md"
+        },
+        {
+          "path": "src/content/nb.ts"
+        }
       ],
-      "limits": "Scoped versioned CC03 successor only. Historical technical/content contracts preserved. Human validation unperformed; exact-head fullCI/strict and actual anonymous fullSHA Gate7 independently required."
+      "limits": "CC02 infrastructure feedback only; unchanged guest-control@1 and technical rules. Human learning/SME/UX/screen-reader validation unperformed. Exact-head full CI/strict and actual anonymous SHA Gate7 remain separate delivery proof."
     },
     "simulation": {
       "checks": [
-        { "path": "src/domain/portal/challenge-v2.test.ts" },
-        { "path": "tests/e2e/challenge-validity.spec.ts" },
-        { "path": "docs/reviews/evidence/cc03/preservation.json" }
+        {
+          "path": "src/domain/sandbox/vm-debrief.test.ts"
+        },
+        {
+          "path": "src/features/course/vm-debrief-preservation.test.ts"
+        },
+        {
+          "path": "docs/reviews/evidence/cc02/preservation.json"
+        }
       ],
-      "limits": "Scoped versioned CC03 successor only. Historical technical/content contracts preserved. Human validation unperformed; exact-head fullCI/strict and actual anonymous fullSHA Gate7 independently required."
+      "limits": "CC02 infrastructure feedback only; unchanged guest-control@1 and technical rules. Human learning/SME/UX/screen-reader validation unperformed. Exact-head full CI/strict and actual anonymous SHA Gate7 remain separate delivery proof."
     },
     "savvyshark": {
       "checks": [
-        { "path": "src/features/course/guided-coach.tsx" },
-        { "path": "tests/e2e/challenge-validity.spec.ts" }
+        {
+          "path": "src/features/course/mission-portal.tsx"
+        },
+        {
+          "path": "tests/e2e/vm-debrief.spec.ts"
+        }
       ],
-      "limits": "Scoped versioned CC03 successor only. Historical technical/content contracts preserved. Human validation unperformed; exact-head fullCI/strict and actual anonymous fullSHA Gate7 independently required."
+      "limits": "CC02 infrastructure feedback only; unchanged guest-control@1 and technical rules. Human learning/SME/UX/screen-reader validation unperformed. Exact-head full CI/strict and actual anonymous SHA Gate7 remain separate delivery proof."
     },
     "visual-accessibility": {
       "checks": [
-        { "path": "tests/e2e/challenge-validity.spec.ts" },
-        { "path": "docs/reviews/evidence/cc03/updated-active-1024-500.png" }
+        {
+          "path": "tests/e2e/vm-debrief.spec.ts"
+        },
+        {
+          "path": "docs/reviews/evidence/cc02/diagnostic-1024x500.png"
+        }
       ],
-      "limits": "Scoped versioned CC03 successor only. Historical technical/content contracts preserved. Human validation unperformed; exact-head fullCI/strict and actual anonymous fullSHA Gate7 independently required."
+      "limits": "CC02 infrastructure feedback only; unchanged guest-control@1 and technical rules. Human learning/SME/UX/screen-reader validation unperformed. Exact-head full CI/strict and actual anonymous SHA Gate7 remain separate delivery proof."
     },
     "independent-final-audit": {
-      "checks": [{ "path": "docs/quality/PR55_FINAL_AUDIT.md" }],
-      "limits": "Scoped versioned CC03 successor only. Historical technical/content contracts preserved. Human validation unperformed; exact-head fullCI/strict and actual anonymous fullSHA Gate7 independently required."
+      "checks": [
+        {
+          "path": "docs/quality/PR56_FINAL_AUDIT.md"
+        }
+      ],
+      "limits": "CC02 infrastructure feedback only; unchanged guest-control@1 and technical rules. Human learning/SME/UX/screen-reader validation unperformed. Exact-head full CI/strict and actual anonymous SHA Gate7 remain separate delivery proof."
     },
     "delivery": {
       "checks": [
-        { "path": "docs/CC03_IAAS_ASSESSMENT.md" },
-        { "path": "docs/reviews/evidence/cc03/targeted-results.json" }
+        {
+          "path": "docs/CC02_VM_DEBRIEF.md"
+        },
+        {
+          "path": "docs/reviews/evidence/cc02/targeted-results.json"
+        }
       ],
-      "limits": "Scoped versioned CC03 successor only. Historical technical/content contracts preserved. Human validation unperformed; exact-head fullCI/strict and actual anonymous fullSHA Gate7 independently required."
+      "limits": "CC02 infrastructure feedback only; unchanged guest-control@1 and technical rules. Human learning/SME/UX/screen-reader validation unperformed. Exact-head full CI/strict and actual anonymous SHA Gate7 remain separate delivery proof."
     }
   },
-  "humanReview": { "sme": "unperformed", "learning": "unperformed" },
+  "humanReview": {
+    "sme": "unperformed",
+    "learning": "unperformed"
+  },
   "visualEvidence": [
     {
-      "path": "docs/reviews/evidence/cc03/before-old-1440.png",
-      "viewport": "1440x900",
-      "inspected": true,
-      "observation": "Actual anonymous publicbb66 baseline: ambiguous OS-dependent prompt; old manuscript unchanged in archive."
-    },
-    {
-      "path": "docs/reviews/evidence/cc03/updated-active-1440-900.png",
-      "viewport": "1440x900",
-      "inspected": true,
-      "observation": "Actual new active form: explicit guest image/lifecycle premise and changed requirement contrast, readable bounded labels, no answer codes."
-    },
-    {
-      "path": "docs/reviews/evidence/cc03/updated-active-1024-500.png",
-      "viewport": "1024x500",
-      "inspected": true,
-      "observation": "Actual short window, content scrolls under preserved native header; text and selects fit; no artificial overlay or hidden mandatory fields."
-    },
-    {
-      "path": "docs/reviews/evidence/cc03/updated-result-1440.png",
+      "path": "docs/reviews/evidence/cc02/before-small-1440.png",
       "viewport": "1440x960",
       "inspected": true,
-      "observation": "Actual completed local new attempt: bounded result statement, progressive full detail/source disclosure; original Portal appearance preserved."
+      "observation": "Actual original-base guided Small result exposes only aggregated requirements and generic onward text."
+    },
+    {
+      "path": "docs/reviews/evidence/cc02/small-diagnostic-1440.png",
+      "viewport": "1440x960",
+      "inspected": true,
+      "observation": "Actual fresh Small creation accepted; profile mismatch and next guided preparation visible; other four-field evidence preserved."
+    },
+    {
+      "path": "docs/reviews/evidence/cc02/correct-diagnostic-1440.png",
+      "viewport": "1440x960",
+      "inspected": true,
+      "observation": "Actual subsequent Standard build completes original rubric, preserves first incomplete result and links existing independent assessment."
+    },
+    {
+      "path": "docs/reviews/evidence/cc02/diagnostic-1024x500.png",
+      "viewport": "1024x500",
+      "inspected": true,
+      "observation": "Short desktop has readable visible status, technical acceptance and profile diagnosis; action/table accessed through normal keyboard/vertical scroll with measured footer clearance and no horizontal overflow."
+    },
+    {
+      "path": "docs/reviews/evidence/cc02/original-receipt-1440.png",
+      "viewport": "1440x960",
+      "inspected": true,
+      "observation": "Actual original accepted CreateVmBundle receipt opens with verified submitted neutral notice and correct course return, instead of conflicting unverified claim."
     }
   ],
   "verification": [
     {
       "command": "targeted domain/preservation/browser",
       "result": "passed",
-      "details": "42domain+11preservation;new9;integration30/32 then both failed expectation cases retested2/2. Original failed artifacts preserved; settings unchanged.",
-      "evidence": [{ "path": "docs/reviews/evidence/cc03/targeted-results.json" }]
+      "details": "40 affected domain/preservation checks; original integration19 passed; final A1-corrected eight native desktop/compact journeys passed with positive/negative receipt destination checks. Earlier failures retained.",
+      "evidence": [
+        {
+          "path": "docs/reviews/evidence/cc02/targeted-results.json"
+        }
+      ]
     },
     {
       "command": "npm run check",
       "result": "passed",
-      "details": "Actual complete CI-follow-up check exit0:668Vitest(503curriculum subset),24Node,all static/source/assets/docs checks and optimized build. Four affected native journeys passed no retry; source/settings unchanged.",
+      "details": "A1-corrected complete npm run check exit0:685Vitest,24Node,all static checks and optimized build.",
       "evidence": [
-        { "path": "docs/reviews/evidence/cc03/full-check-ci-followup-result.json" },
-        { "path": "docs/reviews/evidence/cc03/ci-protocol-followup.json" },
-        { "path": "docs/reviews/evidence/cc03/initial-ci-result.json" }
+        {
+          "path": "docs/reviews/evidence/cc02/targeted-results.json"
+        }
       ]
     },
     {
       "command": "npm run test:e2e:desktop",
       "result": "pending",
-      "details": "Exact final-head complete367CI required; targeted results cannot replace it."
+      "details": "Actual exact-head complete375 CI required; collection/targeted runs are not full-profile proof."
     }
   ],
   "review": {
     "status": "complete",
-    "fingerprint": "d8a0cfbce01949ea38d9cc0dc920f2fca9e16f12b489d9bb738ec5f11efdcac8",
-    "reviewer": { "id": "pr55_independent_final_audit", "kind": "agent" },
-    "started": "2026-11-04T22:02:22Z",
+    "fingerprint": "89d6ff6af3775fef9b1037b1cd3b83011a7d221299c60b68b425874078c00f29",
+    "reviewer": {
+      "id": "pr56-independent-final-auditor",
+      "kind": "agent"
+    },
+    "started": "2026-11-05T12:15:03.101338+00:00",
     "domains": {
       "content": {
-        "finding": "Explicit customer guest-image/lifecycle premise makes the first pair determinate; the same-program changed requirement with stipulated Managed Instance compatibility supports the PaaS contrast. Captured Microsoft bodies support qualified COM/registry/MSI customization and retain customer-installed component upkeep; no universal technology-label rule found in new content. Bounded renewal verified unchanged src and all prior content/source/blind/preservation snapshot hashes; original conclusions remain applicable. CI-driven bounded renewal verifies unchanged product src and all prior source/content/blind/preservation bytes; conclusions preserved.",
+        "finding": "Concrete Small\u2192Standard feedback now separates local accepted creation, mode-specific configuration, incomplete learning and runtime limits. Captured actual Microsoft shared-responsibility source hash matches; exact image/profile/disk/scope values remain the frozen local contract. Historical Windows rationale remains explicitly out of scope.",
         "evidence": [
-          { "path": "src/content/nb.ts" },
-          { "path": "docs/CC03_IAAS_ASSESSMENT.md" },
-          { "path": "docs/reviews/evidence/cc03/source-records.json" },
-          { "path": "docs/quality/PR55_FINAL_AUDIT.md" }
+          {
+            "path": "docs/quality/PR56_FINAL_AUDIT.md"
+          },
+          {
+            "path": "src/content/nb.ts"
+          },
+          {
+            "path": "docs/reviews/evidence/cc02/source-record.json"
+          },
+          {
+            "path": "docs/reviews/evidence/cc02/before-small-1440.png"
+          }
         ]
       },
       "technical": {
-        "finding": "New reducer projects to frozen Portal-v1 technical evaluation; actual post-boundary IDs/hosting/attempt/replay remain required. Readback/CAS/terminal reserve/scoped recovery and pending/cancelled/competing locked Start controls passed independent focused tests; no new World/commands/receipts/XP. Bounded renewal verified unchanged src and all prior content/source/blind/preservation snapshot hashes; original conclusions remain applicable. CI-driven bounded renewal verifies unchanged product src and all prior source/content/blind/preservation bytes; conclusions preserved.",
+        "finding": "Unchanged attempt/through selection supplies original result.world/chain; new presenter adds no authority or persistence. Deleted/reset/archived/missing/corrupt/mode-specific checks passed. Major CC02-A1 at original receipt destination is fixed by exact original replay/ref membership and fail-closed context guards, then independently verified in actual production browser.",
         "evidence": [
-          { "path": "src/domain/portal/challenge-v2.ts" },
-          { "path": "src/domain/portal/challenge-v2-store.ts" },
-          { "path": "src/domain/portal/challenge-v2.test.ts" },
-          { "path": "docs/reviews/evidence/cc03/preservation.json" },
-          { "path": "docs/quality/PR55_FINAL_AUDIT.md" }
+          {
+            "path": "docs/quality/PR56_FINAL_AUDIT.md"
+          },
+          {
+            "path": "src/domain/sandbox/vm-debrief.ts"
+          },
+          {
+            "path": "src/features/course/mission-context.ts"
+          },
+          {
+            "path": "src/features/course/mission-portal.tsx"
+          },
+          {
+            "path": "src/domain/sandbox/vm-debrief.test.ts"
+          }
         ]
       },
       "visual": {
-        "finding": "Viewed actual baseline/updated screenshots and independent production results at 1440 and 1024 short heights. Native Portal, complete readable premises, normal vertical scrolling, progressive bounded feedback and no horizontal overflow observed; keyboard/reduced-motion/Axe browser case passed. Human accessibility acceptance remains unperformed. Bounded renewal additionally inspected original external Services focus-failure screenshot and successful same-deployed-code diagnostic screenshot; no product-source change. CI-driven bounded renewal verifies unchanged product src and all prior source/content/blind/preservation bytes; conclusions preserved.",
+        "finding": "Personally inspected actual baseline/current course and Portal images including final 1920\u00d71080,1366\u00d7768 and 1024\u00d7500 probes. Status, technical acceptance and named mismatch are readable; semantic table/disclosures and keyboard retry clear footer. At short height retry requires normal scroll while free course next remains visible; human novice/screen-reader usability remains unperformed.",
         "evidence": [
-          { "path": "docs/reviews/evidence/cc03/before-old-1440.png" },
-          { "path": "docs/reviews/evidence/cc03/updated-active-1440-900.png" },
-          { "path": "docs/reviews/evidence/cc03/updated-active-1024-500.png" },
-          { "path": "docs/reviews/evidence/cc03/updated-result-1440.png" },
-          { "path": "tests/e2e/challenge-validity.spec.ts" },
-          { "path": "docs/quality/PR55_FINAL_AUDIT.md" },
-          { "path": "docs/reviews/evidence/cc03/preview-readiness.json" }
+          {
+            "path": "docs/quality/PR56_FINAL_AUDIT.md"
+          },
+          {
+            "path": "docs/reviews/evidence/cc02/diagnostic-1024x500.png"
+          },
+          {
+            "path": "docs/reviews/evidence/cc02/small-diagnostic-1440.png"
+          },
+          {
+            "path": "docs/reviews/evidence/cc02/original-receipt-1440.png"
+          },
+          {
+            "path": "tests/e2e/vm-debrief.spec.ts"
+          }
         ]
       },
       "assessment": {
-        "finding": "Executable iaas/guest-lifecycle and paas/supported-platform exactly match revised pre-key solve; cross-pairs fail. All nine blind artifacts match original bytes; both recorded locks precede first key access, while final copy recheck is transparently key-exposed. First/prior exposure/help/retry/abandon and old/new rubrics remain separate. Modest novice wording/position cues remain a limited finding. Bounded renewal verified unchanged src and all prior content/source/blind/preservation snapshot hashes; original conclusions remain applicable. CI-driven bounded renewal verifies unchanged product src and all prior source/content/blind/preservation bytes; conclusions preserved.",
+        "finding": "Manually checked exact helper constants and independently reversed extraction to recover original missions.ts bytes. No item/key/rubric/schema changed; blind bank review is inapplicable. Actual fresh Small\u2192correct explicit retry preserves first prefix/history, independent table remains hidden before submit, and complete assessment link does not start a new assessment.",
         "evidence": [
-          { "path": "src/domain/portal/challenge-v2.test.ts" },
-          { "path": "src/features/portal/challenge-validity-preservation.test.ts" },
-          { "path": "docs/reviews/evidence/cc03/blind/initial-review.json" },
-          { "path": "docs/reviews/evidence/cc03/blind/revised-review.json" },
-          { "path": "docs/reviews/evidence/cc03/blind/post-key-comparison.json" },
-          { "path": "docs/reviews/evidence/cc03/blind/final-copy-recheck.json" },
-          { "path": "docs/quality/PR55_FINAL_AUDIT.md" }
+          {
+            "path": "docs/quality/PR56_FINAL_AUDIT.md"
+          },
+          {
+            "path": "src/domain/sandbox/missions.ts"
+          },
+          {
+            "path": "src/domain/sandbox/vm-debrief.test.ts"
+          },
+          {
+            "path": "src/features/course/vm-debrief-preservation.test.ts"
+          },
+          {
+            "path": "tests/e2e/vm-debrief.spec.ts"
+          }
         ]
       },
       "guidance": {
-        "finding": "New context is integrated through teaching preflight, Journal/history, mission safety, Portal/SavvyShark/guided coach, Hub resume/conflict and all-data reset. Unknown/conflicted/pending contexts withhold answers; own-assessment exceptions do not authorize other teaching. Independent production Computing journey confirmed saved same-origin draft, neutral return and exact Hub resume before real resource submission/Journal. Bounded renewal adds observed Back/Forward Portal area/heading and post-reload initial focus assertions before the original Continue focus assertion; no test assigns focus or weakens existing checks. CI-driven renewal adds actual durable-active preconditions before denied-aid baseline and Services technical work; original no-answer/no-aid/World assertions retained.",
+        "finding": "Incomplete guided result opens only existing briefing; only Start creates retry. Completed guided result links existing explicit-start independent assessment without mastery/XP. Original active guide byte-identical after inverse of narrow notice correction. Denied durable aid, Journal and cross-tab independent conflicts preserve shielding; linked valid original evidence now has truthful neutral submitted notice.",
         "evidence": [
-          { "path": "src/features/learning/management-access.tsx" },
-          { "path": "src/features/course/mission-context.ts" },
-          { "path": "src/features/course/guided-coach.tsx" },
-          { "path": "src/features/course/course.tsx" },
-          { "path": "src/features/portal/challenge-v2.tsx" },
-          { "path": "src/features/portal/portal.tsx" },
-          { "path": "tests/e2e/challenge-validity.spec.ts" },
-          { "path": "docs/quality/PR55_FINAL_AUDIT.md" },
-          { "path": "docs/reviews/evidence/cc03/preview-readiness.json" },
-          { "path": "docs/reviews/evidence/cc03/ci-protocol-followup.json" }
+          {
+            "path": "docs/quality/PR56_FINAL_AUDIT.md"
+          },
+          {
+            "path": "src/features/course/missions.tsx"
+          },
+          {
+            "path": "src/features/course/mission-portal.tsx"
+          },
+          {
+            "path": "src/features/course/mission-context.ts"
+          },
+          {
+            "path": "tests/e2e/vm-debrief.spec.ts"
+          }
         ]
       },
       "regression": {
-        "finding": "Independent direct-base comparison verified 1688 whole paths and full1490126-byte locale prefix; frozen Portal-v1/mission/technical-tail contracts remain intact. Independently passed53 focused domain/preservation and2 production browser journeys; plan validates367(332desktop/35compact), with unchanged worker/retry/timeout/skip settings. Full exact-head CI/strict and external Gate7 remain pending; historical Compute/Axe instability remains unresolved. Renewal independently passed affected Services browser1/1exit0(15.9s,no retry), verified exactly six added assertions/two added evidence JSON and new full-check receipt hash. All original conclusions/limits remain; final new-head367CI/strict/Gate7 still pending. First complete CI41915662193 honestly failed2+flaky1+passed364. Two omitted legacy-tab aliases and unestablished async/stale fixture preconditions corrected without weakening original assertions/settings. Author4/4 and independent2/2 negative browser paths passed,no retry. All src unchanged; new final-head367CI/strict/Gate7 still required.",
+        "finding": "Independent comparison verified original 477 protected files, then 476 plus one exactly bounded Portal-notice amendment after A1. Entire 1500941-byte locale prefix and original evaluator bytes remain identical; four legacy preservation tests+CC03 delegation retain original assertions/hashes and inverse tests passed. Reviewer 40 focused tests and native 8 initial journeys passed; corrected own 2 and follow-up 40 passed. Plan 375 preserves 367 prior executions/settings; exact-head complete CI/strict and external Gate7 remain pending.",
         "evidence": [
-          { "path": "docs/reviews/evidence/cc03/preservation.json" },
-          { "path": "docs/reviews/evidence/cc03/authorized-changes.json" },
-          { "path": "docs/reviews/evidence/cc03/targeted-results.json" },
-          { "path": "docs/reviews/evidence/cc03/full-check-result.json" },
-          { "path": "tests/e2e/challenge-validity.spec.ts" },
-          { "path": "docs/quality/PR55_FINAL_AUDIT.md" },
-          { "path": "docs/reviews/evidence/cc03/preview-readiness.json" },
-          { "path": "docs/reviews/evidence/cc03/full-check-readiness-result.json" },
-          { "path": "docs/reviews/evidence/cc03/ci-protocol-followup.json" },
-          { "path": "docs/reviews/evidence/cc03/initial-ci-result.json" },
-          { "path": "docs/reviews/evidence/cc03/full-check-ci-followup-result.json" }
+          {
+            "path": "docs/quality/PR56_FINAL_AUDIT.md"
+          },
+          {
+            "path": "docs/reviews/evidence/cc02/preservation.json"
+          },
+          {
+            "path": "src/features/course/vm-debrief-preservation.test.ts"
+          },
+          {
+            "path": "tests/cc02-preservation.ts"
+          },
+          {
+            "path": "tests/cc03-preservation.ts"
+          },
+          {
+            "path": "tests/e2e/practical-missions.spec.ts"
+          },
+          {
+            "path": "playwright.desktop.config.ts"
+          }
         ]
       }
     },
     "findings": [
       {
-        "id": "FA-01",
-        "severity": "minor",
-        "status": "accepted-limitation",
-        "description": "Novice stems explicitly supply the responsibility boundary, correct reasons restate it and some local answer positions align. Changed requirement breaks a global position rule and tested positional/length shortcuts do not fully pass. No expert-transfer/discrimination claim is established."
-      },
-      {
-        "id": "FA-02",
-        "severity": "note",
-        "status": "accepted-limitation",
-        "description": "Historical guest-control@1 VM mission retains its narrower Windows-only rationale gap, byte-frozen under owner scope. This successor does not approve that wording as a universal IaaS rule or reinterpret its historical evidence."
-      },
-      {
-        "id": "FA-03",
-        "severity": "note",
-        "status": "open",
-        "description": "Exact-head complete367browser CI, subsequent strict release and anonymous external full-SHA Gate7 remain pending. Local targeted checks cannot satisfy delivery; older Compute help/Back and Guidance/Axe document-title instabilities remain causally unresolved."
-      },
-      {
-        "id": "FA-04",
-        "severity": "minor",
+        "id": "CC02-A1",
+        "severity": "major",
         "status": "fixed",
-        "description": "New Services browser protocol issued Back/Forward/reload without observing each committed destination; initial external existing heading-focus assertion failed, with no page errors. This is a bounded test-protocol finding, not a claimed runtime or historical-flake fix.",
-        "fix": "Adds exactly six observed-area/heading/initial-focus assertions after history navigation/reload before continuing. All original focus, draft, World, version and return assertions/settings remain. Same deployed-code diagnostic passed.",
+        "description": "Verified submitted infrastructure original receipt opened correctly but inherited Portal mission notice falsely said technical attempt/references could not be verified and instructed recovery/abandonment. Independently reproduced in first stamped candidate.",
+        "fix": "Read-only submitted notice now requires ready/no-issue/not-blocked context, original verifiable current-attempt submitted infrastructure replay and exact requested original receipt/ref membership. Active guide unchanged; unsafe/unrelated evidence remains unverified.",
         "retests": [
-          "Author affected native Services browser1/1exit0,no retry,15.6s; new full check668Vitest+503curriculum+24Node+buildexit0.",
-          "Independent actual production Services browser1/1exit0,no retry,one worker,15.9s; exact diff/hash/evidence inspection in appended report."
+          {
+            "path": "docs/quality/PR56_FINAL_AUDIT.md"
+          },
+          {
+            "path": "tests/e2e/vm-debrief.spec.ts"
+          }
+        ],
+        "evidence": [
+          {
+            "path": "docs/quality/PR56_FINAL_AUDIT.md"
+          },
+          {
+            "path": "docs/reviews/evidence/cc02/original-receipt-1440.png"
+          }
         ]
       },
       {
-        "id": "FA-05",
-        "severity": "minor",
-        "status": "fixed",
-        "description": "Complete initial CI exposed author test omissions: two helper tabs expected frozen legacy controls on unqualified new-default routes, one denied-aid baseline preceded async begin, and a stale-tab fixture did not establish both ready initial reads. FirstCI2failed+1flaky+364passed and local followup2passed+1failed are preserved; these are test-fixture/protocol issues, not runtime/old-flake fixes.",
-        "fix": "Explicit legacy choice in both helper-tab entries; await both actual Start-enabled controls before winner Start and actual active state before stale assertion; await new active status before denied-aid baseline and Services technical operations. All original assertions/settings retained.",
-        "retests": [
-          "Author affected4/4exit0,no retry29.3s; renewed fullcheck668Vitest+503curriculum+24Node+buildexit0 with matching receipts.",
-          "Independent stale-tab and denied-new-aid actual production browser2/2exit0,no retry,one worker,8.4s; exact diff/hash/safe CI evidence review documented in appended report."
-        ]
+        "id": "CC02-A2",
+        "severity": "note",
+        "status": "accepted-limitation",
+        "description": "1024\u00d7500 initially shows diagnosis, while recommended retry requires normal vertical scroll and the separate free course footer remains visible. Keyboard focus/Enter/Cancel and footer clearance passed; novice interpretation is unvalidated."
+      },
+      {
+        "id": "CC02-A3",
+        "severity": "note",
+        "status": "accepted-limitation",
+        "description": "Historical Windows-only/customer-control rationale remains out of scope and open. Frozen original assessment is preserved; no new items/keys/rubrics and no blind-review claim."
+      },
+      {
+        "id": "CC02-A4",
+        "severity": "note",
+        "status": "accepted-limitation",
+        "description": "Full exact-head 375 CI/strict and actual anonymous full-SHA Gate7 pending. Human SME/novice/screen-reader/learning validation unperformed. Older Compute/help/Back/Axe flakes remain undiagnosed."
       }
     ],
-    "report": { "path": "docs/quality/PR55_FINAL_AUDIT.md" }
+    "report": {
+      "path": "docs/quality/PR56_FINAL_AUDIT.md"
+    }
   },
   "snapshot": {
     "files": {
-      ".prettierignore": "0242eb0f294ef1d4c6bcde7b56f5cd08a75b2c88e55ce27203c1fef4c1171588",
-      "docs/AZ900_ASSESSMENT_BLUEPRINT.md": "b434f3bb50da74fea90c3d7fd7346e090c093b09897ddf979a5c90c6c2c743ce",
-      "docs/CC03_IAAS_ASSESSMENT.md": "88e4adb901a746c171fbd0ad4c122df16e272970b60ff21521c759befa8a512b",
-      "docs/reviews/CLOUD_CONCEPTS_REMEDIATION_PLAN.md": "d7f47bb06e9694f49cb99018bf95e0c71e76de35472643f06565eb28a9dfec54",
-      "docs/reviews/evidence/cc03/authorized-changes.json": "e9ac8833211484149c29794b28ba0be08f28d418be4e5665464648fa9bb964b1",
-      "docs/reviews/evidence/cc03/before-old-1440.png": "779aa15d001d9716a3de82870473bab4b1665f33f40766302ed88311fcfc52d5",
-      "docs/reviews/evidence/cc03/before.json": "63d2b2d6ac5aad5826779a98ecafee44ef270e67e5d851c23bc35c8c4199e2c1",
-      "docs/reviews/evidence/cc03/blind/final-copy-recheck.json": "315579012f4eace72470c3853ddb4dac697c5e4db2862e1f3108e6c4bff1dc40",
-      "docs/reviews/evidence/cc03/blind/final-feedback-material.json": "e78782f76b70f6ad3c31541c29f4c12af5c89b33e5de2d93878142dc895482b1",
-      "docs/reviews/evidence/cc03/blind/initial-review.json": "20624b447828494a9010d8a58823619a1ebcc6d959eebd32d0e4dbf24e8aaee5",
-      "docs/reviews/evidence/cc03/blind/key-comparison-material.json": "ec2dacf833e72bae886a87f014d032311e9e0c8f1c2b2b708fb640a976f5015f",
-      "docs/reviews/evidence/cc03/blind/post-key-comparison.json": "0e4b6f55bbcba349cd7db1a38df78005c4cb379a077ab609ddc3aca55697a724",
-      "docs/reviews/evidence/cc03/blind/revised-review.json": "33db61218d4ac8fab76ae1eabc101726dba7cd67898000909b2f626e068f24c4",
-      "docs/reviews/evidence/cc03/blind/student-final.json": "5191ceee39ff4f25e09a7907a2cdf233748629f1ce6b43e91cb5d8e171be2347",
-      "docs/reviews/evidence/cc03/blind/student-revised.json": "9be6b2dd75917e6ba4daccf9434a903252be38597b7699f7abfd1d29f67e4b50",
-      "docs/reviews/evidence/cc03/blind/student.json": "68e88c192bb33e5f9d66db7369f8a2e06020c407502810e7038c6515a2663307",
-      "docs/reviews/evidence/cc03/ci-protocol-followup.json": "214642021d24af1fa8ea60fbb07e0c6a3f4ed2ba2289bddd0bf7ce3b3b2cc1b4",
-      "docs/reviews/evidence/cc03/full-check-ci-followup-result.json": "d1199e6a20e4f4588ae790bdd2c69305af405168fe101005ad05aa9399418925",
-      "docs/reviews/evidence/cc03/full-check-readiness-result.json": "c926186ad8a9bde0ee863e22b52eafb21fde85641c71a86d06c0842353f1bec2",
-      "docs/reviews/evidence/cc03/full-check-result.json": "adae17854b1ec90a7d16fbaf3655a11b8fcb55850b74f781909f3c74bc35d07e",
-      "docs/reviews/evidence/cc03/initial-ci-result.json": "293daf97b3bdc9ae8ee0869706f11fa8fc0d5494571a2c44a3cf0f494aaeda86",
-      "docs/reviews/evidence/cc03/preservation.json": "c19b44f359fd64a8d4d6cd76fae38956b150b600263fbe952a750ab175a9b088",
-      "docs/reviews/evidence/cc03/preview-readiness.json": "353e808c980738615e43f6e517508ad58f530f71f987a6cc07b635c1b5362659",
-      "docs/reviews/evidence/cc03/source-records.json": "69faa953ee8b2facdc02afb20b8b7da39de56446b6c303fdbdaabd81d2dba27e",
-      "docs/reviews/evidence/cc03/targeted-results.json": "6541af5f4df3c950374956492a4142733a3ccc7ce913a004ac5ba55903ca5f7b",
-      "docs/reviews/evidence/cc03/updated-active-1024-500.png": "fbefd179f9409076640b1ca2c223e8418fa0a2a29436c2991f2c1edb6c18d2fa",
-      "docs/reviews/evidence/cc03/updated-active-1024-768.png": "243f892465a1b24c837acb0575c26de2ef2a3684adc13f25b953829b5831a13a",
-      "docs/reviews/evidence/cc03/updated-active-1440-900.png": "8482168890a6083cae3846fa6af16cec8e4a5cafdf112ed6115c4759f192bb83",
-      "docs/reviews/evidence/cc03/updated-result-1440.png": "dc303ef5d1b9ae5ca6bde5f1d99498cfa76583c836c75c0c3ef31ff9767d094c",
-      "playwright.desktop.config.ts": "5ddae179b995e191467c533614afe3746dc7fbbda2f5ff92be1d9c7b971840df",
-      "src/app/layout.tsx": "d23aef473f24da37f5345fb27de1519838c9cdce1c959f8fb2a72da1131ad0a2",
-      "src/components/progress-provider.tsx": "645109b3f9e5ab64bd2cbff8f4e5ac492316eda52c496b2b1db5d4aea1de624f",
-      "src/content/nb.ts": "bc6809f3099d160504513ed019956b3371284d249713c13720b4dfd58c12805c",
-      "src/domain/portal/challenge-v2-store.ts": "1dab30c2e103f73d102d3d54daf48f8fedc36ecf382dcfd7f03eceb936d9fd54",
-      "src/domain/portal/challenge-v2.test.ts": "53161c28f722327cf4e7b486a03ec8a8c0e06a23cab623dd25bf4ea28d83360e",
-      "src/domain/portal/challenge-v2.ts": "94ba5621912293ccbd3f60c481fd6ea182fae0ae218b900d14ec15718234dc29",
-      "src/domain/portal/model.ts": "491ccdbb4936ddc04d5ebb9bcda911862e7726fabeed7c343243ca0162af8f63",
-      "src/features/course/challenge-return.tsx": "2e5df315c64a493f6245d0fb3f883a2ba2ce2e4e478f3ff75f0c5579fddfc058",
-      "src/features/course/cloud-computing-chapters.test.ts": "48f2f377f1e4339dfeb0ce18f2eea870fa92378b15b037e7823d4de75e61d307",
-      "src/features/course/course.tsx": "a24deef2b9f88447b41545e89aef45b0dc4a604a8ba39d58872c658431371518",
-      "src/features/course/guided-coach.tsx": "9d1969b4bc656e10475bb6b1ca7a12ce766b06086a62914cf1b47720913af2ce",
-      "src/features/course/hybrid-foundation.test.ts": "33aca9a0d3dfb09fbb141928b5ca859542aa87a42d6e1d59ed415a3231a683bb",
-      "src/features/course/mission-context.ts": "d791c966b7250d25828315f27ec71b93f212e4c89278bd81188f77a026a6ead1",
-      "src/features/learning/journal.tsx": "c8f68b54caf3b5a546605654b2ea5123acde3e53cef4c79b969ef5f4a159128e",
-      "src/features/learning/management-access.tsx": "e33c792e86bf4638518b8ef21f7541e39c6668da32a02b2b9bcf19954aa1ea65",
-      "src/features/learning/source-disclosure.test.ts": "6d4501cf1dbedbde2a782735ed9ae89373f3b79eadaf0522710e9713166e6f0d",
-      "src/features/portal/challenge-v2-provider.tsx": "db676abf862790f200159db768a5b4fe557c1dcd1807dfd215f3e7bc204973c5",
-      "src/features/portal/challenge-v2.tsx": "53d3ad50e0ec054c980be05dd2069c74e991234ad414881193d445d792c57989",
-      "src/features/portal/challenge-validity-preservation.test.ts": "dca42cd1e85a1fcecfa1b25a12fd3abedb1f1b0b256f03f101ce2b403d7e70e9",
-      "src/features/portal/learning.tsx": "79c36b994ea2b2b6a6bef0aa50f06be8f111b58221102238c3d2b1633a5d4b6b",
-      "src/features/portal/portal.css": "09d6a7043e0020855a3b5ec88b0ceca1ef8a0c5c22cf4758d464af7234173039",
-      "src/features/portal/portal.tsx": "361e2e9b451326b646917b0bee39e17eea762704d455b00feeeeecebb3a3add3",
-      "tests/cc01-preservation.ts": "f0d989d5ee60205edbadb837bf6151d836eae27108f538b677cfe798762e5a62",
-      "tests/cc03-preservation.ts": "247fa196a8a3dac49d78f2c99aa4c6dad5bf8a74f52dbc3d0705daab4dd6b276",
-      "tests/e2e/challenge-return.spec.ts": "5d2c7df7ca1e810d83cbc7da7d2bd360e32406b62c060bacaa658300e062e748",
-      "tests/e2e/challenge-v2-actions.ts": "cd600e33385f5a843a678fde7161cd79d0d8f99f9db6a2854ecb34a4cd259b77",
-      "tests/e2e/challenge-validity.spec.ts": "0db98601af9be87e776d82c8a29b15bff445562f12c52bef3645f13994f9fcda",
-      "tests/e2e/course.spec.ts": "e71bfa583baf64f4119b042f1b6ea5de11ef4227b4782df9b901c1e135f4a9fd",
-      "tests/e2e/portal.spec.ts": "42832b5c4cf991b81040bf66aecaceb01f88ea78492a35b544eff279a88a7e48"
+      "docs/CC02_VM_DEBRIEF.md": "fcb626299ae4c85263c7f7a7aebe27c86c1f49111eed91445602d1d172fab2c7",
+      "docs/reviews/CLOUD_CONCEPTS_REMEDIATION_PLAN.md": "ac354f9fe63af183d05edece8e8e6bd6a32e5a139ba7c6ac7a857e5f0a521453",
+      "docs/reviews/evidence/cc02/before-small-1440.png": "5f9a575cfc063619654070a98324d917be668a2d869676621fbd621f7ea96a22",
+      "docs/reviews/evidence/cc02/correct-diagnostic-1440.png": "c575da4d69b057f82d021c6650fae064c9bee629f2c93a9e8410afb3a0587ed8",
+      "docs/reviews/evidence/cc02/diagnostic-1024x500.png": "2cc1b71f157439bf55e94664a11ed3f028448df2498308b6cf4152ac87c79d66",
+      "docs/reviews/evidence/cc02/diagnostic-1024x768.png": "9b3e5e5e9f1ab6f6dd45001bda90909400c4f064070509a98feb406b3f2d5ffb",
+      "docs/reviews/evidence/cc02/diagnostic-1440x900.png": "8bc5a25ee8e4a63d861f240e1f949fd46b7ce75a10f8c14b5a48a628d8b5b6f2",
+      "docs/reviews/evidence/cc02/original-receipt-1440.png": "bdc3aa9841b65a3db0cfc880f270ba954e7673075829eff307ae0d71addce4c3",
+      "docs/reviews/evidence/cc02/preservation.json": "a877c0788e94e6c72dd880da8c5e4af19b5d59515de58a7cd36691e683df0ae1",
+      "docs/reviews/evidence/cc02/receipt-before-audit.png": "321774020c506751eb78953bfeb801b9f2694d1d4c4deeb94fc3333ffe475d5b",
+      "docs/reviews/evidence/cc02/small-diagnostic-1440.png": "69feda159edb423fe3eee9dca8d329b88c79c42839ff5393f7ee47b4b32fb77e",
+      "docs/reviews/evidence/cc02/source-record.json": "624d8c976055b7c4b693e4012c2755abd6cf3642f5ad44f6b575a54ab186f4fa",
+      "docs/reviews/evidence/cc02/targeted-results.json": "e4273b8223238d4b1651c76fb8b93f6ec191376eaf46c12afbf68d01713bff23",
+      "playwright.desktop.config.ts": "c526c04c88a0e720c0c6f65c9e537bf8fbc9405199d9b6fe84eb2e6083ecc09f",
+      "src/content/nb.ts": "5a0f4d73e1cf652d15d31c867ebb56f6620449a3eb463dcdc5b7db58c44ff20c",
+      "src/domain/sandbox/missions.ts": "1d2bb584e8caa058c9bdc6ed683bad82303822cf97fdf429b2e6d9bec2ea905e",
+      "src/domain/sandbox/vm-debrief.test.ts": "da95a921dd9c61f3581953a52d692d3172c271e250f6cd98410a3649ed3cb7d3",
+      "src/domain/sandbox/vm-debrief.ts": "cdf251c401d54e24c145c1b5436714cf0feb32b9ec105d60c286253c180ed23d",
+      "src/features/course/cloud-computing-chapters.test.ts": "a4c651313d34938c943ff93b3c2c6a5b0a6b25bed1e62ef286451e2cda79f16b",
+      "src/features/course/hybrid-foundation.test.ts": "bff7dc2cebac48b21e4ee99e123fbb1c443d120a597054c3ed6f8551701ad8a1",
+      "src/features/course/mission-portal.tsx": "6a1ac4afecb9f143cc84d614cf8e157606ba687dc4be6b20ba98e2c4b87ffb63",
+      "src/features/course/missions.css": "5052acddad86fe6e22249c3a12bcdc9a19850c804922485df4b123b28701fc22",
+      "src/features/course/missions.tsx": "fa3ef73dd04eb383ec62b4fdd356c51037010c8d20c0917194122ca09cc80f45",
+      "src/features/course/vm-debrief-preservation.test.ts": "7460e5d7ea41a8b3b6d86a2f233febca8c48c51448536b72e5f2329dbbbe1161",
+      "src/features/course/vm-debrief.tsx": "a1f331390e9a0beea388ea328db50a94424364b765fd43b37568a28ebdad9b77",
+      "src/features/learning/source-disclosure.test.ts": "a8e75f77c9d6724d17619f620c5e9b501dccb252d5c5a9aed918cc05bb7832da",
+      "src/features/portal/challenge-validity-preservation.test.ts": "75402b35d451adc4f39766558708e4add0b927eaab7cf15bc745cfc2e62f988e",
+      "tests/cc02-fixture.ts": "191ead03014d995784abacfd18ebd13189bd02616b2714d4a122a3b803f32be5",
+      "tests/cc02-preservation.ts": "996290a54b077999072ed7bce9e7a8d6f4ff59ccb14f2716d9bbe04d102b3820",
+      "tests/cc03-preservation.ts": "36ca214b787932a4381368dbaa3c1b4af13d717480bd1b500c33e67e035e1f68",
+      "tests/e2e/practical-missions.spec.ts": "78da9d55483c430243fd455dab4f2072a82649f161f27d100f744b6a334d92bb",
+      "tests/e2e/vm-debrief-actions.ts": "5a8d63282b85f9fd6f6f888128dc1c3ae96fc1a88cd982c488fefbae22c2e240",
+      "tests/e2e/vm-debrief.spec.ts": "14248167fc0145c887d712f8f3b1269d77256114bb75c6a681c8ad949f1d8ba2"
     }
   },
-  "implementationFinished": "2026-11-04T22:01:41.289Z"
+  "implementationFinished": "2026-11-05T12:14:19.843Z"
 }

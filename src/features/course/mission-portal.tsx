@@ -2,8 +2,8 @@
 import { usePortalGuideVisibility } from '@/features/course/portal-guide-visibility';
 import { useState } from 'react';
 import Link from 'next/link';
-import { missionsNb as c } from '@/content/nb';
-import { missionOrigin } from '@/domain/sandbox/missions';
+import { missionsNb as c, vmDebriefNb } from '@/content/nb';
+import { missionOrigin, missionEvaluation } from '@/domain/sandbox/missions';
 import { inventory, type PortalLocation } from '@/domain/portal/model';
 import { useMissionResult } from './mission-context';
 import { MissionRecovery, MissionActual, MissionSafetyRecovery } from './missions';
@@ -21,13 +21,40 @@ export function MissionPortalLayer({
     [minimized, setMinimized] = usePortalGuideVisibility(),
     [brief, setBrief] = useState(false);
   if (!location.mission) return null;
-  if (!s || s.mission !== location.mission || s.status !== 'active')
+  if (!s || s.mission !== location.mission || s.status !== 'active') {
+    // A submitted mission has no resident guide. Verify this exact evidence before
+    // describing it as submitted; neither today's unrelated resource nor another
+    // technical attempt may stand in for the original snapshot.
+    const submittedEvidence =
+      location.mission === 'infrastructure' &&
+      !blocked &&
+      m.ready &&
+      !m.issue &&
+      technical.ready &&
+      !technical.issue &&
+      m.sessions.some((prior) => {
+        if (
+          prior.mission !== 'infrastructure' ||
+          prior.status !== 'submitted' ||
+          prior.attempt !== technical.attemptNumber
+        )
+          return false;
+        const original = technical.store.engineFor(prior.attempt);
+        if (!original) return false;
+        const frozen = missionEvaluation(prior, original, prior.attempt);
+        return (
+          frozen.verifiable &&
+          ((location.area === 'activity' && frozen.receipts.includes(location.id ?? '')) ||
+            (location.area === 'resource' && frozen.refs.includes(location.id ?? '')))
+        );
+      });
     return (
       <section className="mission-portal-notice">
-        <p>{c.unverified}</p>
+        <p>{submittedEvidence ? vmDebriefNb.portalSubmitted : c.unverified}</p>
         <Link href={missionOrigin(location.mission)}>{c.return}</Link>
       </section>
     );
+  }
   const independent = s.mode === 'independent',
     data = c.missions[s.mission],
     world = technical.attempt.engine.world;

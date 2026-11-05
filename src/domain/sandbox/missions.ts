@@ -369,6 +369,15 @@ export function restoreMissions(raw: string | null): {
 }
 const index = (engine: Engine, ref: string | null) =>
   ref === null ? -1 : engine.ledger.findIndex((e) => e.receipt.commandId === ref);
+/** Frozen guest-control@1 requirements, shared with read-only debrief presentation. */
+export function infrastructureRequirements(mode: MissionSession['mode']) {
+  return {
+    image: mode === 'independent' ? 'windows-2022' : 'ubuntu-22-04',
+    profile: mode === 'independent' ? 'small' : 'standard',
+    dataDiskGiB: 32,
+    subscriptionId: mode === 'independent' ? 'sub-app' : 'sub-shared',
+  } as const;
+}
 export function missionEvaluation(s: MissionSession | null, engine: Engine, attempt: number) {
   const checks: Record<string, boolean> = {},
     refs: string[] = [],
@@ -420,14 +429,14 @@ export function missionEvaluation(s: MissionSession | null, engine: Engine, atte
         checks.newBuild = !!created;
         checks.receipt = !!created && inspected('receipt', created.receipt.commandId);
         if (created) receipts.push(created.receipt.commandId);
-        const independent = s.mode === 'independent';
+        const required = infrastructureRequirements(s.mode);
         checks.requirements =
-          chain.vm.image === (independent ? 'windows-2022' : 'ubuntu-22-04') &&
-          chain.vm.profile === (independent ? 'small' : 'standard') &&
+          chain.vm.image === required.image &&
+          chain.vm.profile === required.profile &&
           chain.data?.kind === 'disk' &&
-          chain.data.gib === 32 &&
+          chain.data.gib === required.dataDiskGiB &&
           w.groups.find((g) => g.id === chain.vm.groupId)?.subscriptionId ===
-            (independent ? 'sub-app' : 'sub-shared');
+            required.subscriptionId;
       } else {
         const runs = s.runs.flatMap((r) => {
           const at = index(engine, r.through);

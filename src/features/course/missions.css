@@ -250,3 +250,107 @@
     overflow-x: auto;
   }
 }
+
+/* CC-02: scoped read-only debrief; ordinary vertical scrolling, no overlay. */
+.vm-debrief-diagnostics {
+  color: var(--learning-ink, #142b3d);
+  overflow-wrap: anywhere;
+  min-width: 0;
+}
+.vm-debrief-diagnostics p,
+.vm-debrief-differences li {
+  max-width: 78ch;
+  line-height: 1.65;
+}
+.vm-debrief-diagnostics h4 {
+  font-size: 1.15rem;
+  margin: 14px 0;
+}
+.vm-debrief-differences {
+  padding-left: 22px;
+}
+.vm-debrief-differences li {
+  margin: 12px 0;
+}
+.vm-debrief-next {
+  margin: 18px 0;
+}
+.vm-debrief-next p,
+.vm-debrief-limit {
+  font-size: 0.9rem;
+}
+.vm-debrief-comparison {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  margin: 24px 0;
+}
+.vm-debrief-comparison caption {
+  text-align: left;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+.vm-debrief-comparison th,
+.vm-debrief-comparison td {
+  text-align: left;
+  vertical-align: top;
+  overflow-wrap: anywhere;
+  padding: 12px 8px;
+  border-bottom: 1px solid #bdcbd2;
+}
+.vm-debrief-comparison thead {
+  background: #f5f3ee;
+}
+.vm-debrief-evidence,
+.mission-debrief-explanations {
+  margin: 18px 0;
+}
+.vm-debrief-evidence summary,
+.mission-debrief-explanations summary,
+.vm-debrief-alternatives summary {
+  cursor: pointer;
+  font-weight: 600;
+}
+.vm-debrief-focus {
+  scroll-margin-block: 84px 160px;
+}
+.vm-debrief-focus:focus-visible {
+  outline: 2px solid #0865bd;
+  outline-offset: 4px;
+}
+.vm-debrief-alternatives {
+  margin: 16px 0;
+}
+@media (max-width: 600px) {
+  .vm-debrief-comparison {
+    font-size: 0.85rem;
+  }
+  .vm-debrief-comparison td,
+  .vm-debrief-comparison th {
+    padding: 10px 4px;
+  }
+}
+.mission-debrief-vm > p,
+.vm-debrief-diagnostics > p {
+  margin-block: 8px 12px;
+}
+.vm-debrief-diagnostics > .vm-debrief-status {
+  margin-block: 10px;
+  font-weight: 700;
+}
+.mission-debrief .vm-debrief-next button {
+  background: #0865bd;
+  color: #fff;
+  border: 1px solid #0865bd;
+  border-radius: 6px;
+  padding: 10px 14px;
+  font: inherit;
+  font-weight: 700;
+}
+.mission-debrief .vm-debrief-next button:hover {
+  background: #064f94;
+}
+.mission-debrief .vm-debrief-next button:focus-visible {
+  outline: 3px solid #142b3d;
+  outline-offset: 3px;
+}
