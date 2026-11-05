@@ -441,6 +441,7 @@ test('Service Types IaaS: new requirement, real bundle/attachments and changed i
   const prefix = (await state(page)).events;
   await page.reload();
   await expect(page.locator('.mission-debrief')).toContainText(c.complete);
+  await page.locator('.vm-debrief-alternatives > summary').click();
   await page
     .locator('.mission-entry')
     .getByRole('button', { name: c.independent, exact: true })

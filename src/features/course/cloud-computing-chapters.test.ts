@@ -1,3 +1,4 @@
+import { assertCC02Change, cc02DomainChanges } from '../../../tests/cc02-preservation';
 import { assertCC03Change, cc03DomainChanges } from '../../../tests/cc03-preservation';
 import {
   assertCC01Change,
@@ -54,10 +55,16 @@ describe('Cloud Computing pedagogical projection over historical topics', () => 
       changed
         .split('\n')
         .filter(Boolean)
-        .filter((path) => !cc01DomainChanges.includes(path) && !cc03DomainChanges.includes(path)),
+        .filter(
+          (path) =>
+            !cc01DomainChanges.includes(path) &&
+            !cc03DomainChanges.includes(path) &&
+            !cc02DomainChanges.includes(path),
+        ),
     ).toEqual([]);
     for (const path of cc01DomainChanges) assertCC01Change(path);
     for (const path of cc03DomainChanges) assertCC03Change(path);
+    for (const path of cc02DomainChanges) assertCC02Change(path);
     for (const path of [
       'src/content/nb.ts',
       'src/features/learning/serverless.tsx',

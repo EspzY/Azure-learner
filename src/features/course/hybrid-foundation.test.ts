@@ -1,3 +1,4 @@
+import { assertCC02Change, cc02PresentationChanges } from '../../../tests/cc02-preservation';
 import { assertCC03Change, cc03Authorized } from '../../../tests/cc03-preservation';
 import { assertCC01Change, cc01Authorized } from '../../../tests/cc01-preservation';
 import { expect, it } from 'vitest';
@@ -30,6 +31,14 @@ it('preserves the original learning domains, stores, rubrics, teaching and techn
     ].sort(),
   );
   for (const [path, expected] of Object.entries(proof.files)) {
+    if (path === 'src/domain/sandbox/missions.ts') {
+      assertCC02Change(path, expected);
+      continue;
+    }
+    if (cc02PresentationChanges.includes(path)) {
+      assertCC02Change(path, expected);
+      continue;
+    }
     if (owner.authorizedChanges.includes(path)) continue;
     if (cc03Authorized(path) && !cc01Authorized(path)) {
       assertCC03Change(path, expected);

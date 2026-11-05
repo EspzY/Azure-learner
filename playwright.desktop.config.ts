@@ -5,6 +5,10 @@ import baseline from './playwright.config';
 // names. No test body, assertion, title, timeout or skip is modified.
 const compactCases = [
   [
+    'vm-debrief.spec.ts',
+    'VM diagnostic desktop compact keyboard short-height focus reduced motion and Axe keep diagnosis and next action readable',
+  ],
+  [
     'challenge-validity.spec.ts',
     'updated Web assessment desktop compact short-height keyboard focus reduced motion and Axe keep complete premises readable',
   ],

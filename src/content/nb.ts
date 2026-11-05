@@ -21861,3 +21861,65 @@ export const challenge2Nb = {
       'Gruppens metadata er ikke plasseringen til alle dens ressurser. Appens hosting følger planen. Den lokale Web-policyen er avgrenset, ikke en universell Azure-regel.',
   },
 } as const;
+
+// PR56: read-only diagnostics; original mission manuscripts and rubrics remain frozen.
+export const vmDebriefNb = {
+  title: 'Dette viser VM-forsøket',
+  portalSubmitted:
+    'Oppdraget er innlevert. Du undersøker teknisk evidens; dette starter ingen ny veiledningsøkt. Gå tilbake til kurset for oppdragsdebriefen.',
+  technical:
+    'VM-en ble opprettet i den lokale simulatoren. Den originale kvitteringen bekrefter at opprettelsen ble akseptert.',
+  noCreation:
+    'Ingen ny, akseptert VM-opprettelse er dokumentert for den valgte ressursen etter oppdragets startgrense.',
+  complete:
+    'Oppdragets konfigurasjon, inspeksjoner og faglige svar er bekreftet etter de opprinnelige kriteriene.',
+  incomplete: 'Oppdraget er ikke fullført.',
+  configuration: 'Disse konfigurasjonsfeltene avviker fra oppdragskravet:',
+  remaining: 'Dette gjenstår i undersøkelsen:',
+  comparison: 'Konfigurasjonen ved innlevering',
+  field: 'Felt',
+  expected: 'Oppdragets krav',
+  actual: 'Registrert verdi',
+  status: 'Samsvar',
+  matches: 'Oppfylt',
+  differs: 'Avvik',
+  missing: 'Ikke dokumentert',
+  fields: {
+    image: 'VM-image',
+    profile: 'VM-profil',
+    dataDiskGiB: 'Datadisk',
+    subscriptionId: 'Subscription',
+  },
+  images: { 'ubuntu-22-04': 'Ubuntu 22.04', 'windows-2022': 'Windows Server 2022' },
+  profiles: { small: 'Small', standard: 'Standard' },
+  subscriptions: { 'sub-shared': 'Shared Sandbox', 'sub-app': 'App Sandbox' },
+  explanations: {
+    image:
+      'Oppgaven angir et bestemt gjesteimage. Et annet gyldig simulatorimage oppfyller ikke dette oppdragskravet.',
+    profile:
+      'Profilen angir oppgavens modellerte vCPU- og RAM-allokering. En annen profil kan opprettes teknisk, men oppfyller ikke den angitte allokeringen. Dette er ikke en måling av ytelse.',
+    dataDiskGiB:
+      'Oppgaven krever en separat datadisk med oppgitt kapasitet. OS-disken erstatter ikke denne datadisken.',
+    subscriptionId:
+      'Subscription angir oppgavens administrative ansvar. En gyldig ressurs i et annet scope oppfyller ikke det oppgitte scopekravet.',
+  },
+  details: 'Kriterier og registrerte faglige forklaringer',
+  evidence: 'Ressurs og original teknisk kvittering',
+  historical:
+    'Tabellen og kvitteringsopplysningene gjelder innleveringens tekniske forsøk og gjennom-ID. Ressurslenken viser dagens Portal og kan vise en endret eller slettet ressurs.',
+  archived:
+    'Dette er et tidligere teknisk forsøk. Kvitteringsopplysningene nedenfor kommer fra det verifiserte arkivet; dagens Portal brukes ikke som historisk bevis.',
+  through: 'Gjennom-ID',
+  receipt: 'Original CreateVmBundle-kvittering',
+  resource: 'Åpne ressursen i dagens Portal',
+  openReceipt: 'Åpne original kvittering',
+  unverified: 'Det tekniske resultatet kan ikke verifiseres.',
+  retry: 'Forbered et nytt guidet forsøk',
+  retryNote:
+    'Undersøk avvikene og oppdragskravene før du prøver igjen. Briefingen åpnes først; bare Start oppretter et nytt forsøk. Denne innleveringen beholdes.',
+  continue: 'Gå til modulens selvstendige vurdering',
+  limitation:
+    'Dette er et avgrenset lokalt oppdragsresultat. Kvitteringen tester ikke gjestens oppstart, applikasjonsatferd, nettverkstrafikk eller ytelse. Guidet arbeid dokumenterer ikke selvstendig mestring og gir ingen ny XP.',
+  alternatives: 'Andre forsøksvalg',
+  view: 'Se innlevering',
+} as const;

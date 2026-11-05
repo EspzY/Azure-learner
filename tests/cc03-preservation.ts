@@ -1,3 +1,4 @@
+import { cc02TestAuthorized, assertCC02TestChange } from './cc02-preservation';
 import { expect } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
@@ -26,5 +27,7 @@ export function assertCC03Change(path: string, historicalHash?: string) {
       execFileSync('git', ['cat-file', '-e', `${proof.base}:${path}`], { stdio: 'ignore' }),
     ).toThrow();
   }
-  expect(hash(readFileSync(path)), path).toBe(entry.after);
+  if (cc02TestAuthorized(path)) {
+    assertCC02TestChange(path, entry.after);
+  } else expect(hash(readFileSync(path)), path).toBe(entry.after);
 }

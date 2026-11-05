@@ -4,7 +4,7 @@ import { SourceDisclosure } from '@/features/learning/source-disclosure';
 import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
-import { missionsNb as c, nb } from '@/content/nb';
+import { missionsNb as c, nb, vmDebriefNb as vmCopy } from '@/content/nb';
 import {
   missionAnswerIds,
   missionDefinitions,
@@ -23,6 +23,7 @@ import { useMissionResult, useMissionSafety, useMissionSafetyContexts } from './
 import { MissionBriefing } from './mission-briefing';
 import { MissionMilestones } from './mission-observations';
 import { DiagnosisExplorer } from './mission-diagnosis';
+import { VmDebrief } from './vm-debrief';
 import './missions.css';
 export function MissionOverview() {
   const m = useMissions();
@@ -115,9 +116,24 @@ export function MissionEntry({ id }: { id: MissionId }) {
     safe = useMissionSafety('missions'),
     query = useSearchParams();
   const [brief, setBrief] = useState(false),
-    ref = useRef<HTMLElement>(null);
+    [historyId, setHistoryId] = useState<number | null>(null),
+    ref = useRef<HTMLElement>(null),
+    debriefRef = useRef<HTMLDivElement>(null);
   const session = m.sessions.filter((s) => s.mission === id).at(-1),
     data = c.missions[id];
+  const debrief =
+    id === 'infrastructure' && historyId !== null
+      ? (m.sessions.find((s) => s.id === historyId && s.mission === id && s.status !== 'active') ??
+        session)
+      : session;
+  useEffect(() => {
+    if (historyId === null) return;
+    const frame = requestAnimationFrame(() => {
+      debriefRef.current?.scrollIntoView({ block: 'start', behavior: 'instant' });
+      debriefRef.current?.focus({ preventScroll: true });
+    });
+    return () => cancelAnimationFrame(frame);
+  }, [historyId]);
   useEffect(() => {
     if (query.get('activity') !== 'mission' || !m.ready) return;
     const frame = requestAnimationFrame(() => {
@@ -149,6 +165,40 @@ export function MissionEntry({ id }: { id: MissionId }) {
         ),
       );
   };
+  const startActions = (
+    <div className="mission-actions">
+      <button
+        type="button"
+        disabled={
+          !safe ||
+          !m.ready ||
+          !!m.issue ||
+          !technical.ready ||
+          !!technical.issue ||
+          m.save.events.length >= 600 ||
+          !!m.activeSession
+        }
+        onClick={() => setBrief(true)}
+      >
+        {c.start}
+      </button>
+      <button
+        type="button"
+        disabled={
+          !safe ||
+          !m.ready ||
+          !!m.issue ||
+          !technical.ready ||
+          !!technical.issue ||
+          m.save.events.length >= 600 ||
+          !!m.activeSession
+        }
+        onClick={() => start('independent')}
+      >
+        {c.independent}
+      </button>
+    </div>
+  );
   if (!safe)
     return (
       <section className="mission-entry" ref={ref} tabIndex={-1} aria-label={data.title}>
@@ -189,40 +239,23 @@ export function MissionEntry({ id }: { id: MissionId }) {
         </>
       ) : (
         <>
-          <div className="mission-actions">
-            <button
-              type="button"
-              disabled={
-                !safe ||
-                !m.ready ||
-                !!m.issue ||
-                !technical.ready ||
-                !!technical.issue ||
-                m.save.events.length >= 600 ||
-                !!m.activeSession
-              }
-              onClick={() => setBrief(true)}
-            >
-              {c.start}
-            </button>
-            <button
-              type="button"
-              disabled={
-                !safe ||
-                !m.ready ||
-                !!m.issue ||
-                !technical.ready ||
-                !!technical.issue ||
-                m.save.events.length >= 600 ||
-                !!m.activeSession
-              }
-              onClick={() => start('independent')}
-            >
-              {c.independent}
-            </button>
-          </div>
+          {id === 'infrastructure' && session?.status === 'submitted' ? (
+            <details className="vm-debrief-alternatives">
+              <summary>{vmCopy.alternatives}</summary>
+              {startActions}
+            </details>
+          ) : (
+            startActions
+          )}
           {!safe && <p role="status">{c.blocked}</p>}
-          {session && <MissionDebrief session={session} />}
+          {debrief && (
+            <div ref={debriefRef} tabIndex={-1} className="vm-debrief-focus">
+              <MissionDebrief
+                session={debrief}
+                onRetry={m.save.events.length < 600 ? () => setBrief(true) : undefined}
+              />
+            </div>
+          )}
         </>
       )}
       {brief && (
@@ -257,6 +290,11 @@ export function MissionEntry({ id }: { id: MissionId }) {
                 <li key={s.id}>
                   #{s.id} · {s.mode === 'guided' ? c.guided : s.aided ? c.aided : c.unaided} ·{' '}
                   {s.status === 'abandoned' ? c.abandoned : c.result}
+                  {id === 'infrastructure' && !m.activeSession && s.status === 'submitted' && (
+                    <button type="button" onClick={() => setHistoryId(s.id)}>
+                      {vmCopy.view} #{s.id}
+                    </button>
+                  )}
                 </li>
               ))}
           </ol>
@@ -531,7 +569,7 @@ function MissionAttemptLabel({ session }: { session: MissionSession }) {
     </p>
   );
 }
-function MissionDebrief({ session }: { session: MissionSession }) {
+function MissionDebrief({ session, onRetry }: { session: MissionSession; onRetry?: () => void }) {
   const { m, result, technical } = useMissionResult(session),
     safe = useMissionSafety('missions');
   if (!safe || m.issue || !technical.ready || technical.issue)
@@ -544,44 +582,81 @@ function MissionDebrief({ session }: { session: MissionSession }) {
     );
   const data = assessmentCopy(session),
     options = data.choices as Record<string, readonly [string, string]>;
+  const explanations = (
+    <>
+      <MissionCriteria checks={result.checks} />
+      <p>{data.feedback}</p>
+      {(['decision', 'reason'] as const).map((field) => (
+        <section key={field}>
+          <h4>{data[field]}</h4>
+          <p>{options[session.answers[field] ?? '']?.[1]}</p>
+          <details>
+            <summary>{c.rationale}</summary>
+            <dl>
+              {missionAnswerIds(session)[field].map((value) => (
+                <div key={value}>
+                  <dt>{options[value]![0]}</dt>
+                  <dd>{options[value]![1]}</dd>
+                </div>
+              ))}
+            </dl>
+          </details>
+        </section>
+      ))}
+    </>
+  );
   return (
-    <section className="mission-debrief" aria-label={c.result}>
+    <section
+      className={`mission-debrief ${session.mission === 'infrastructure' ? 'mission-debrief-vm' : ''}`}
+      aria-label={c.result}
+    >
       <h3>{c.result}</h3>
-      <MissionAttemptLabel session={session} />
-      <p role="status">
-        {session.status === 'abandoned'
-          ? c.abandoned
-          : !result.verifiable
-            ? c.unverified
-            : result.complete
-              ? c.complete
-              : c.incomplete}
-      </p>
+      {session.mission !== 'infrastructure' && <MissionAttemptLabel session={session} />}
+      {(session.mission !== 'infrastructure' ||
+        !result.verifiable ||
+        session.status !== 'submitted') && (
+        <p role="status">
+          {session.status === 'abandoned'
+            ? c.abandoned
+            : !result.verifiable
+              ? session.mission === 'infrastructure'
+                ? vmCopy.unverified
+                : c.unverified
+              : result.complete
+                ? c.complete
+                : c.incomplete}
+        </p>
+      )}
       <p>
-        {session.mode === 'guided' ? c.guided : session.aided ? c.aided : c.unaided} · {c.first}
+        {session.mode === 'guided' ? c.guided : session.aided ? c.aided : c.unaided} ·{' '}
+        {session.mission === 'infrastructure' ? `#${session.id}` : c.first}
       </p>
+      {!result.verifiable &&
+        session.mission === 'infrastructure' &&
+        session.status === 'submitted' && (
+          <>
+            <p>{c.unverified}</p>
+            <Link href="/portal">
+              {c.reviewContext} · {c.recoveryContexts.technical}
+            </Link>
+          </>
+        )}
       {result.verifiable && session.status === 'submitted' && (
         <>
-          <MissionCriteria checks={result.checks} />
-          <p>{data.feedback}</p>
-          {(['decision', 'reason'] as const).map((field) => (
-            <section key={field}>
-              <h4>{data[field]}</h4>
-              <p>{options[session.answers[field] ?? '']?.[1]}</p>
-              <details>
-                <summary>{c.rationale}</summary>
-                <dl>
-                  {missionAnswerIds(session)[field].map((value) => (
-                    <div key={value}>
-                      <dt>{options[value]![0]}</dt>
-                      <dd>{options[value]![1]}</dd>
-                    </div>
-                  ))}
-                </dl>
-              </details>
-            </section>
-          ))}
-          <p>{c.next}</p>
+          {session.mission === 'infrastructure' && (
+            <VmDebrief session={session} onRetry={onRetry} />
+          )}
+          {session.mission === 'infrastructure' ? (
+            <details className="mission-debrief-explanations">
+              <summary>{vmCopy.details}</summary>
+              <MissionAttemptLabel session={session} />
+              <p>{c.first}</p>
+              {explanations}
+            </details>
+          ) : (
+            explanations
+          )}
+          {session.mission !== 'infrastructure' && <p>{c.next}</p>}
         </>
       )}
       <p>{c.boundary}</p>

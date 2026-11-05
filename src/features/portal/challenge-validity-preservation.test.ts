@@ -1,3 +1,4 @@
+import { assertCC02Change, cc02PresentationChanges } from '../../../tests/cc02-preservation';
 import { it, expect } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
@@ -10,8 +11,17 @@ import amendment from '../../../docs/reviews/evidence/cc03/authorized-changes.js
 const hash = (b: Buffer) => createHash('sha256').update(b).digest('hex');
 it('preserves every declared historical file, full PR54 locale prefix, technical adapter tail and CC01 authorities', () => {
   expect(proof.base).toBe('bb66ff2e5115d26304bb017295a9067c6f6fed5d');
-  for (const [path, expected] of Object.entries(proof.wholeFiles))
+  for (const [path, expected] of Object.entries(proof.wholeFiles)) {
+    if (cc02PresentationChanges.includes(path)) {
+      assertCC02Change(path, expected);
+      continue;
+    }
+    if (path === 'src/domain/sandbox/missions.ts') {
+      assertCC02Change(path, expected);
+      continue;
+    }
     expect(hash(readFileSync(path)), path).toBe(expected);
+  }
   const old = execFileSync('git', ['show', `${proof.base}:src/content/nb.ts`], {
     maxBuffer: 8 * 1024 * 1024,
   });

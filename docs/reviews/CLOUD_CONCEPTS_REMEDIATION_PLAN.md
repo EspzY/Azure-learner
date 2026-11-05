@@ -135,3 +135,18 @@ omskrevet. CC02 står fortsatt som P2; ingen bredere prioritet endres.
 Gjeldende lukkestatus og den endelige SHA-bundne leveransekvitteringen føres i
 [PR55s uavhengige sluttrapport](../quality/PR55_FINAL_AUDIT.md). Denne daterte
 kandidatbeskrivelsen omtolker ikke PR53s opprinnelige funn.
+
+## PR56 — CC-02: diagnostisk VM-debrief
+
+5. november 2026: avgrenset implementering av det bekreftede P2-funnet. Se
+   [CC02-kontrakten](../CC02_VM_DEBRIEF.md). Samme `guest-control@1`-krav og evaluator,
+   feltvis forventet/faktisk fra original attempt/through-replay, tydelig skille mellom
+   akseptert opprettelse og oppdragsresultat, eksplisitt guidet retry og historisk visning.
+   Ufullstendig arbeid anbefales ikke automatisk videre som fullført. Manglende arkiv
+   og avvist assistance gir ingen løsningsdetaljer eller oppdiktet teknisk suksess.
+
+**Implementert; sluttverifikasjon på Draft PR56 kreves før funnet regnes som rettet.**
+Originale PR53-observasjoner og alvorlighetsgrad er bevart over. CC01/CC03s godkjente
+rettinger gjenåpnes ikke. Den separate historiske VM-premissnyansen og øvrige
+Cloud Concepts-/PD01-/Portal-utvidelser forblir utenfor scope. Ingen menneskelig
+lærings- eller UX-validering hevdes.
