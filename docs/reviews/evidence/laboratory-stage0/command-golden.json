@@ -1,0 +1,2724 @@
+{
+  "base": "f0272ea5d181d88f2c3bad0ee186eac0893150e8",
+  "description": "Captured from unchanged base implementation; frozen Chapter01 prefix then sandbox@2. Original receipts and historical continuation Worlds, not future Storage semantics.",
+  "engine": {
+    "world": {
+      "revision": 13,
+      "nextId": 18,
+      "identity": {
+        "id": "tenant-lab",
+        "name": "AzureLab Directory"
+      },
+      "scopes": [
+        {
+          "id": "root-lab",
+          "kind": "root",
+          "name": "Tenant root group",
+          "tenantId": "tenant-lab"
+        },
+        {
+          "id": "mg-lab",
+          "kind": "management",
+          "name": "Learning",
+          "parentId": "root-lab"
+        },
+        {
+          "id": "sub-app",
+          "kind": "subscription",
+          "name": "App Sandbox",
+          "parentId": "mg-lab",
+          "tenantId": "tenant-lab"
+        },
+        {
+          "id": "sub-shared",
+          "kind": "subscription",
+          "name": "Shared Sandbox",
+          "parentId": "mg-lab",
+          "tenantId": "tenant-lab"
+        }
+      ],
+      "groups": [
+        {
+          "id": "group-1",
+          "name": "rg-prefix",
+          "subscriptionId": "sub-app",
+          "metadataLocation": "norwayeast"
+        },
+        {
+          "id": "group-5",
+          "name": "rg-vms",
+          "subscriptionId": "sub-shared",
+          "metadataLocation": "norwayeast"
+        }
+      ],
+      "resources": [
+        {
+          "id": "plan-2",
+          "type": "Microsoft.Web/serverfarms",
+          "name": "plan-prefix",
+          "groupId": "group-1",
+          "location": "westeurope",
+          "os": "linux",
+          "profile": "linux-learning-v1"
+        },
+        {
+          "id": "app-3",
+          "type": "Microsoft.Web/sites",
+          "name": "app-prefix",
+          "groupId": "group-1",
+          "planId": "plan-2",
+          "location": "westeurope",
+          "os": "linux"
+        },
+        {
+          "id": "plan-16",
+          "type": "Microsoft.Web/serverfarms",
+          "name": "plan-new",
+          "groupId": "group-1",
+          "location": "westeurope",
+          "os": "linux",
+          "profile": "linux-learning-v1"
+        },
+        {
+          "id": "app-17",
+          "type": "Microsoft.Web/sites",
+          "name": "app-new",
+          "groupId": "group-1",
+          "planId": "plan-16",
+          "location": "westeurope",
+          "os": "linux"
+        }
+      ],
+      "policies": [
+        {
+          "id": "policy-web-location",
+          "scopeId": "sub-app",
+          "mode": "all",
+          "targetTypes": ["Microsoft.Web/serverfarms", "Microsoft.Web/sites"],
+          "allowedLocations": ["westeurope"]
+        }
+      ],
+      "infrastructure": [
+        {
+          "groupId": "group-5",
+          "location": "northeurope",
+          "origin": "vm-6",
+          "id": "vnet-9",
+          "name": "vm-first-vnet",
+          "kind": "vnet",
+          "addressSpace": "10.42.0.0/16"
+        },
+        {
+          "groupId": "group-5",
+          "location": "northeurope",
+          "origin": "vm-6",
+          "id": "subnet-10",
+          "name": "vm-first-subnet",
+          "kind": "subnet",
+          "vnetId": "vnet-9",
+          "addressPrefix": "10.42.1.0/24"
+        }
+      ],
+      "appSettings": [
+        {
+          "appId": "app-3",
+          "environment": "staging",
+          "catalogMode": "read-only"
+        }
+      ]
+    },
+    "ledger": [
+      {
+        "request": {
+          "commandId": "old-group",
+          "expectedWorldRevision": 0,
+          "command": {
+            "type": "CreateGroup",
+            "subscriptionId": "sub-app",
+            "name": "rg-prefix",
+            "metadataRegion": "norwayeast"
+          }
+        },
+        "receipt": {
+          "commandId": "old-group",
+          "sequence": 1,
+          "beforeRevision": 0,
+          "afterRevision": 1,
+          "operation": "CreateGroup",
+          "targetType": "Microsoft.Resources/resourceGroups",
+          "scopeId": "sub-app",
+          "location": "norwayeast",
+          "outcome": "accepted",
+          "code": "created",
+          "ruleId": "scope@1",
+          "addedIds": ["group-1"],
+          "removedIds": [],
+          "beforeCount": 5,
+          "afterCount": 6
+        }
+      },
+      {
+        "request": {
+          "commandId": "old-plan",
+          "expectedWorldRevision": 1,
+          "command": {
+            "type": "CreatePlan",
+            "groupId": "group-1",
+            "name": "plan-prefix",
+            "region": "westeurope",
+            "profile": "linux-learning-v1"
+          }
+        },
+        "receipt": {
+          "commandId": "old-plan",
+          "sequence": 2,
+          "beforeRevision": 1,
+          "afterRevision": 2,
+          "operation": "CreatePlan",
+          "targetType": "Microsoft.Web/serverfarms",
+          "scopeId": "group-1",
+          "location": "westeurope",
+          "outcome": "accepted",
+          "code": "created",
+          "ruleId": "web-profile@1",
+          "addedIds": ["plan-2"],
+          "removedIds": [],
+          "beforeCount": 6,
+          "afterCount": 7
+        }
+      },
+      {
+        "request": {
+          "commandId": "old-app",
+          "expectedWorldRevision": 2,
+          "command": {
+            "type": "CreateWebApp",
+            "groupId": "group-1",
+            "name": "app-prefix",
+            "planId": "plan-2"
+          }
+        },
+        "receipt": {
+          "commandId": "old-app",
+          "sequence": 3,
+          "beforeRevision": 2,
+          "afterRevision": 3,
+          "operation": "CreateWebApp",
+          "targetType": "Microsoft.Web/sites",
+          "scopeId": "group-1",
+          "location": "westeurope",
+          "outcome": "accepted",
+          "code": "created",
+          "ruleId": "web-plan-location@1",
+          "addedIds": ["app-3"],
+          "removedIds": [],
+          "beforeCount": 7,
+          "afterCount": 8
+        }
+      },
+      {
+        "request": {
+          "commandId": "old-denied",
+          "expectedWorldRevision": 3,
+          "command": {
+            "type": "CreatePlan",
+            "groupId": "group-1",
+            "name": "plan-denied",
+            "region": "northeurope",
+            "profile": "linux-learning-v1"
+          }
+        },
+        "receipt": {
+          "commandId": "old-denied",
+          "sequence": 4,
+          "beforeRevision": 3,
+          "afterRevision": 3,
+          "operation": "CreatePlan",
+          "targetType": "Microsoft.Web/serverfarms",
+          "scopeId": "group-1",
+          "location": "northeurope",
+          "outcome": "rejected",
+          "code": "policy-location-denied",
+          "ruleId": "allowed-web-location@1",
+          "addedIds": [],
+          "removedIds": [],
+          "beforeCount": 8,
+          "afterCount": 8,
+          "field": "region",
+          "policy": {
+            "assignmentId": "policy-web-location",
+            "assignmentScope": "sub-app",
+            "targetType": "Microsoft.Web/serverfarms",
+            "requestedLocation": "northeurope",
+            "allowedLocations": ["westeurope"]
+          }
+        }
+      },
+      {
+        "request": {
+          "commandId": "empty-group",
+          "expectedWorldRevision": 3,
+          "command": {
+            "type": "CreateGroup",
+            "subscriptionId": "sub-shared",
+            "name": "rg-empty",
+            "metadataRegion": "westeurope"
+          }
+        },
+        "receipt": {
+          "commandId": "empty-group",
+          "sequence": 5,
+          "beforeRevision": 3,
+          "afterRevision": 4,
+          "operation": "CreateGroup",
+          "targetType": "Microsoft.Resources/resourceGroups",
+          "scopeId": "sub-shared",
+          "location": "westeurope",
+          "outcome": "accepted",
+          "code": "created",
+          "ruleId": "scope@1",
+          "addedIds": ["group-4"],
+          "removedIds": [],
+          "beforeCount": 8,
+          "afterCount": 9
+        }
+      },
+      {
+        "request": {
+          "commandId": "delete-empty",
+          "expectedWorldRevision": 4,
+          "command": {
+            "type": "DeleteEmptyGroup",
+            "groupId": "group-4"
+          }
+        },
+        "receipt": {
+          "commandId": "delete-empty",
+          "sequence": 6,
+          "beforeRevision": 4,
+          "afterRevision": 5,
+          "operation": "DeleteEmptyGroup",
+          "targetType": "Microsoft.Resources/resourceGroups",
+          "scopeId": "group-4",
+          "location": null,
+          "outcome": "accepted",
+          "code": "deleted",
+          "ruleId": "scope@1",
+          "addedIds": [],
+          "removedIds": ["group-4"],
+          "beforeCount": 9,
+          "afterCount": 8
+        }
+      },
+      {
+        "request": {
+          "commandId": "vm-group",
+          "expectedWorldRevision": 5,
+          "command": {
+            "type": "CreateGroup",
+            "subscriptionId": "sub-shared",
+            "name": "rg-vms",
+            "metadataRegion": "norwayeast"
+          }
+        },
+        "receipt": {
+          "commandId": "vm-group",
+          "sequence": 7,
+          "beforeRevision": 5,
+          "afterRevision": 6,
+          "operation": "CreateGroup",
+          "targetType": "Microsoft.Resources/resourceGroups",
+          "scopeId": "sub-shared",
+          "location": "norwayeast",
+          "outcome": "accepted",
+          "code": "created",
+          "ruleId": "scope@1",
+          "addedIds": ["group-5"],
+          "removedIds": [],
+          "beforeCount": 8,
+          "afterCount": 9
+        }
+      },
+      {
+        "request": {
+          "commandId": "vm-first",
+          "expectedWorldRevision": 6,
+          "command": {
+            "type": "CreateVmBundle",
+            "groupId": "group-5",
+            "name": "vm-first",
+            "region": "northeurope",
+            "image": "ubuntu-22-04",
+            "profile": "standard",
+            "dataDiskGiB": "32",
+            "subnetId": ""
+          }
+        },
+        "receipt": {
+          "commandId": "vm-first",
+          "sequence": 8,
+          "beforeRevision": 6,
+          "afterRevision": 7,
+          "operation": "CreateVmBundle",
+          "targetType": "Microsoft.Compute/virtualMachines",
+          "scopeId": "group-5",
+          "location": "northeurope",
+          "outcome": "accepted",
+          "code": "created",
+          "ruleId": "vm-profile@2",
+          "addedIds": ["vm-6", "disk-7", "nic-8", "vnet-9", "subnet-10", "disk-11"],
+          "removedIds": [],
+          "beforeCount": 9,
+          "afterCount": 15
+        }
+      },
+      {
+        "request": {
+          "commandId": "vm-second",
+          "expectedWorldRevision": 7,
+          "command": {
+            "type": "CreateVmBundle",
+            "groupId": "group-5",
+            "name": "vm-second",
+            "region": "northeurope",
+            "image": "ubuntu-22-04",
+            "profile": "standard",
+            "dataDiskGiB": "32",
+            "subnetId": "subnet-10"
+          }
+        },
+        "receipt": {
+          "commandId": "vm-second",
+          "sequence": 9,
+          "beforeRevision": 7,
+          "afterRevision": 8,
+          "operation": "CreateVmBundle",
+          "targetType": "Microsoft.Compute/virtualMachines",
+          "scopeId": "group-5",
+          "location": "northeurope",
+          "outcome": "accepted",
+          "code": "created",
+          "ruleId": "vm-profile@2",
+          "addedIds": ["vm-12", "disk-13", "nic-14", "disk-15"],
+          "removedIds": [],
+          "beforeCount": 15,
+          "afterCount": 19
+        }
+      },
+      {
+        "request": {
+          "commandId": "settings",
+          "expectedWorldRevision": 8,
+          "command": {
+            "type": "SetAppSettings",
+            "appId": "app-3",
+            "environment": "staging",
+            "catalogMode": "read-only"
+          }
+        },
+        "receipt": {
+          "commandId": "settings",
+          "sequence": 10,
+          "beforeRevision": 8,
+          "afterRevision": 9,
+          "operation": "SetAppSettings",
+          "targetType": "Microsoft.Web/sites",
+          "scopeId": "group-1",
+          "location": "westeurope",
+          "outcome": "accepted",
+          "code": "updated",
+          "ruleId": "app-settings@2",
+          "addedIds": [],
+          "removedIds": [],
+          "beforeCount": 19,
+          "afterCount": 19
+        }
+      },
+      {
+        "request": {
+          "commandId": "new-plan",
+          "expectedWorldRevision": 9,
+          "command": {
+            "type": "CreatePlan",
+            "groupId": "group-1",
+            "name": "plan-new",
+            "region": "westeurope",
+            "profile": "linux-learning-v1"
+          }
+        },
+        "receipt": {
+          "commandId": "new-plan",
+          "sequence": 11,
+          "beforeRevision": 9,
+          "afterRevision": 10,
+          "operation": "CreatePlan",
+          "targetType": "Microsoft.Web/serverfarms",
+          "scopeId": "group-1",
+          "location": "westeurope",
+          "outcome": "accepted",
+          "code": "created",
+          "ruleId": "web-profile@1",
+          "addedIds": ["plan-16"],
+          "removedIds": [],
+          "beforeCount": 19,
+          "afterCount": 20
+        }
+      },
+      {
+        "request": {
+          "commandId": "new-app",
+          "expectedWorldRevision": 10,
+          "command": {
+            "type": "CreateWebApp",
+            "groupId": "group-1",
+            "name": "app-new",
+            "planId": "plan-16"
+          }
+        },
+        "receipt": {
+          "commandId": "new-app",
+          "sequence": 12,
+          "beforeRevision": 10,
+          "afterRevision": 11,
+          "operation": "CreateWebApp",
+          "targetType": "Microsoft.Web/sites",
+          "scopeId": "group-1",
+          "location": "westeurope",
+          "outcome": "accepted",
+          "code": "created",
+          "ruleId": "web-plan-location@1",
+          "addedIds": ["app-17"],
+          "removedIds": [],
+          "beforeCount": 20,
+          "afterCount": 21
+        }
+      },
+      {
+        "request": {
+          "commandId": "deny-v2",
+          "expectedWorldRevision": 11,
+          "command": {
+            "type": "CreatePlan",
+            "groupId": "group-1",
+            "name": "plan-blocked",
+            "region": "northeurope",
+            "profile": "linux-learning-v1"
+          }
+        },
+        "receipt": {
+          "commandId": "deny-v2",
+          "sequence": 13,
+          "beforeRevision": 11,
+          "afterRevision": 11,
+          "operation": "CreatePlan",
+          "targetType": "Microsoft.Web/serverfarms",
+          "scopeId": "group-1",
+          "location": "northeurope",
+          "outcome": "rejected",
+          "code": "policy-location-denied",
+          "ruleId": "allowed-web-location@1",
+          "addedIds": [],
+          "removedIds": [],
+          "beforeCount": 21,
+          "afterCount": 21,
+          "field": "region",
+          "policy": {
+            "assignmentId": "policy-web-location",
+            "assignmentScope": "sub-app",
+            "targetType": "Microsoft.Web/serverfarms",
+            "requestedLocation": "northeurope",
+            "allowedLocations": ["westeurope"]
+          }
+        }
+      },
+      {
+        "request": {
+          "commandId": "nonempty",
+          "expectedWorldRevision": 11,
+          "command": {
+            "type": "DeleteEmptyGroup",
+            "groupId": "group-5"
+          }
+        },
+        "receipt": {
+          "commandId": "nonempty",
+          "sequence": 14,
+          "beforeRevision": 11,
+          "afterRevision": 11,
+          "operation": "DeleteEmptyGroup",
+          "targetType": "Microsoft.Resources/resourceGroups",
+          "scopeId": "group-5",
+          "location": null,
+          "outcome": "unsupported",
+          "code": "cascade-delete-unsupported",
+          "ruleId": "supported-operation@1",
+          "addedIds": [],
+          "removedIds": [],
+          "beforeCount": 21,
+          "afterCount": 21
+        }
+      },
+      {
+        "request": {
+          "commandId": "remove-first",
+          "expectedWorldRevision": 11,
+          "command": {
+            "type": "DeleteVmBundle",
+            "vmId": "vm-6"
+          }
+        },
+        "receipt": {
+          "commandId": "remove-first",
+          "sequence": 15,
+          "beforeRevision": 11,
+          "afterRevision": 12,
+          "operation": "DeleteVmBundle",
+          "targetType": "Microsoft.Compute/virtualMachines",
+          "scopeId": "group-5",
+          "location": null,
+          "outcome": "accepted",
+          "code": "deleted",
+          "ruleId": "vm-dependency@2",
+          "addedIds": [],
+          "removedIds": ["vm-6", "disk-7", "nic-8", "disk-11"],
+          "beforeCount": 21,
+          "afterCount": 17
+        }
+      },
+      {
+        "request": {
+          "commandId": "remove-second",
+          "expectedWorldRevision": 12,
+          "command": {
+            "type": "DeleteVmBundle",
+            "vmId": "vm-12"
+          }
+        },
+        "receipt": {
+          "commandId": "remove-second",
+          "sequence": 16,
+          "beforeRevision": 12,
+          "afterRevision": 13,
+          "operation": "DeleteVmBundle",
+          "targetType": "Microsoft.Compute/virtualMachines",
+          "scopeId": "group-5",
+          "location": null,
+          "outcome": "accepted",
+          "code": "deleted",
+          "ruleId": "vm-dependency@2",
+          "addedIds": [],
+          "removedIds": ["vm-12", "disk-13", "nic-14", "disk-15"],
+          "beforeCount": 17,
+          "afterCount": 13
+        }
+      },
+      {
+        "request": {
+          "commandId": "future-unsupported",
+          "expectedWorldRevision": 13,
+          "command": {
+            "type": "CreateStorageAccount",
+            "groupId": "group-1",
+            "name": "futurestorage"
+          }
+        },
+        "receipt": {
+          "commandId": "future-unsupported",
+          "sequence": 17,
+          "beforeRevision": 13,
+          "afterRevision": 13,
+          "operation": "CreateStorageAccount",
+          "targetType": "unsupported",
+          "scopeId": "group-1",
+          "location": null,
+          "outcome": "unsupported",
+          "code": "unsupported-capability",
+          "ruleId": "supported-operation@1",
+          "addedIds": [],
+          "removedIds": [],
+          "beforeCount": 13,
+          "afterCount": 13
+        }
+      }
+    ],
+    "modelVersion": "sandbox@2.0.0",
+    "prefix": 4
+  },
+  "continuationWorlds": [
+    {
+      "revision": 3,
+      "nextId": 4,
+      "identity": {
+        "id": "tenant-lab",
+        "name": "AzureLab Directory"
+      },
+      "scopes": [
+        {
+          "id": "root-lab",
+          "kind": "root",
+          "name": "Tenant root group",
+          "tenantId": "tenant-lab"
+        },
+        {
+          "id": "mg-lab",
+          "kind": "management",
+          "name": "Learning",
+          "parentId": "root-lab"
+        },
+        {
+          "id": "sub-app",
+          "kind": "subscription",
+          "name": "App Sandbox",
+          "parentId": "mg-lab",
+          "tenantId": "tenant-lab"
+        },
+        {
+          "id": "sub-shared",
+          "kind": "subscription",
+          "name": "Shared Sandbox",
+          "parentId": "mg-lab",
+          "tenantId": "tenant-lab"
+        }
+      ],
+      "groups": [
+        {
+          "id": "group-1",
+          "name": "rg-prefix",
+          "subscriptionId": "sub-app",
+          "metadataLocation": "norwayeast"
+        }
+      ],
+      "resources": [
+        {
+          "id": "plan-2",
+          "type": "Microsoft.Web/serverfarms",
+          "name": "plan-prefix",
+          "groupId": "group-1",
+          "location": "westeurope",
+          "os": "linux",
+          "profile": "linux-learning-v1"
+        },
+        {
+          "id": "app-3",
+          "type": "Microsoft.Web/sites",
+          "name": "app-prefix",
+          "groupId": "group-1",
+          "planId": "plan-2",
+          "location": "westeurope",
+          "os": "linux"
+        }
+      ],
+      "policies": [
+        {
+          "id": "policy-web-location",
+          "scopeId": "sub-app",
+          "mode": "all",
+          "targetTypes": ["Microsoft.Web/serverfarms", "Microsoft.Web/sites"],
+          "allowedLocations": ["westeurope"]
+        }
+      ],
+      "infrastructure": [],
+      "appSettings": []
+    },
+    {
+      "revision": 4,
+      "nextId": 5,
+      "identity": {
+        "id": "tenant-lab",
+        "name": "AzureLab Directory"
+      },
+      "scopes": [
+        {
+          "id": "root-lab",
+          "kind": "root",
+          "name": "Tenant root group",
+          "tenantId": "tenant-lab"
+        },
+        {
+          "id": "mg-lab",
+          "kind": "management",
+          "name": "Learning",
+          "parentId": "root-lab"
+        },
+        {
+          "id": "sub-app",
+          "kind": "subscription",
+          "name": "App Sandbox",
+          "parentId": "mg-lab",
+          "tenantId": "tenant-lab"
+        },
+        {
+          "id": "sub-shared",
+          "kind": "subscription",
+          "name": "Shared Sandbox",
+          "parentId": "mg-lab",
+          "tenantId": "tenant-lab"
+        }
+      ],
+      "groups": [
+        {
+          "id": "group-1",
+          "name": "rg-prefix",
+          "subscriptionId": "sub-app",
+          "metadataLocation": "norwayeast"
+        },
+        {
+          "id": "group-4",
+          "name": "rg-empty",
+          "subscriptionId": "sub-shared",
+          "metadataLocation": "westeurope"
+        }
+      ],
+      "resources": [
+        {
+          "id": "plan-2",
+          "type": "Microsoft.Web/serverfarms",
+          "name": "plan-prefix",
+          "groupId": "group-1",
+          "location": "westeurope",
+          "os": "linux",
+          "profile": "linux-learning-v1"
+        },
+        {
+          "id": "app-3",
+          "type": "Microsoft.Web/sites",
+          "name": "app-prefix",
+          "groupId": "group-1",
+          "planId": "plan-2",
+          "location": "westeurope",
+          "os": "linux"
+        }
+      ],
+      "policies": [
+        {
+          "id": "policy-web-location",
+          "scopeId": "sub-app",
+          "mode": "all",
+          "targetTypes": ["Microsoft.Web/serverfarms", "Microsoft.Web/sites"],
+          "allowedLocations": ["westeurope"]
+        }
+      ],
+      "infrastructure": [],
+      "appSettings": []
+    },
+    {
+      "revision": 5,
+      "nextId": 5,
+      "identity": {
+        "id": "tenant-lab",
+        "name": "AzureLab Directory"
+      },
+      "scopes": [
+        {
+          "id": "root-lab",
+          "kind": "root",
+          "name": "Tenant root group",
+          "tenantId": "tenant-lab"
+        },
+        {
+          "id": "mg-lab",
+          "kind": "management",
+          "name": "Learning",
+          "parentId": "root-lab"
+        },
+        {
+          "id": "sub-app",
+          "kind": "subscription",
+          "name": "App Sandbox",
+          "parentId": "mg-lab",
+          "tenantId": "tenant-lab"
+        },
+        {
+          "id": "sub-shared",
+          "kind": "subscription",
+          "name": "Shared Sandbox",
+          "parentId": "mg-lab",
+          "tenantId": "tenant-lab"
+        }
+      ],
+      "groups": [
+        {
+          "id": "group-1",
+          "name": "rg-prefix",
+          "subscriptionId": "sub-app",
+          "metadataLocation": "norwayeast"
+        }
+      ],
+      "resources": [
+        {
+          "id": "plan-2",
+          "type": "Microsoft.Web/serverfarms",
+          "name": "plan-prefix",
+          "groupId": "group-1",
+          "location": "westeurope",
+          "os": "linux",
+          "profile": "linux-learning-v1"
+        },
+        {
+          "id": "app-3",
+          "type": "Microsoft.Web/sites",
+          "name": "app-prefix",
+          "groupId": "group-1",
+          "planId": "plan-2",
+          "location": "westeurope",
+          "os": "linux"
+        }
+      ],
+      "policies": [
+        {
+          "id": "policy-web-location",
+          "scopeId": "sub-app",
+          "mode": "all",
+          "targetTypes": ["Microsoft.Web/serverfarms", "Microsoft.Web/sites"],
+          "allowedLocations": ["westeurope"]
+        }
+      ],
+      "infrastructure": [],
+      "appSettings": []
+    },
+    {
+      "revision": 6,
+      "nextId": 6,
+      "identity": {
+        "id": "tenant-lab",
+        "name": "AzureLab Directory"
+      },
+      "scopes": [
+        {
+          "id": "root-lab",
+          "kind": "root",
+          "name": "Tenant root group",
+          "tenantId": "tenant-lab"
+        },
+        {
+          "id": "mg-lab",
+          "kind": "management",
+          "name": "Learning",
+          "parentId": "root-lab"
+        },
+        {
+          "id": "sub-app",
+          "kind": "subscription",
+          "name": "App Sandbox",
+          "parentId": "mg-lab",
+          "tenantId": "tenant-lab"
+        },
+        {
+          "id": "sub-shared",
+          "kind": "subscription",
+          "name": "Shared Sandbox",
+          "parentId": "mg-lab",
+          "tenantId": "tenant-lab"
+        }
+      ],
+      "groups": [
+        {
+          "id": "group-1",
+          "name": "rg-prefix",
+          "subscriptionId": "sub-app",
+          "metadataLocation": "norwayeast"
+        },
+        {
+          "id": "group-5",
+          "name": "rg-vms",
+          "subscriptionId": "sub-shared",
+          "metadataLocation": "norwayeast"
+        }
+      ],
+      "resources": [
+        {
+          "id": "plan-2",
+          "type": "Microsoft.Web/serverfarms",
+          "name": "plan-prefix",
+          "groupId": "group-1",
+          "location": "westeurope",
+          "os": "linux",
+          "profile": "linux-learning-v1"
+        },
+        {
+          "id": "app-3",
+          "type": "Microsoft.Web/sites",
+          "name": "app-prefix",
+          "groupId": "group-1",
+          "planId": "plan-2",
+          "location": "westeurope",
+          "os": "linux"
+        }
+      ],
+      "policies": [
+        {
+          "id": "policy-web-location",
+          "scopeId": "sub-app",
+          "mode": "all",
+          "targetTypes": ["Microsoft.Web/serverfarms", "Microsoft.Web/sites"],
+          "allowedLocations": ["westeurope"]
+        }
+      ],
+      "infrastructure": [],
+      "appSettings": []
+    },
+    {
+      "revision": 7,
+      "nextId": 12,
+      "identity": {
+        "id": "tenant-lab",
+        "name": "AzureLab Directory"
+      },
+      "scopes": [
+        {
+          "id": "root-lab",
+          "kind": "root",
+          "name": "Tenant root group",
+          "tenantId": "tenant-lab"
+        },
+        {
+          "id": "mg-lab",
+          "kind": "management",
+          "name": "Learning",
+          "parentId": "root-lab"
+        },
+        {
+          "id": "sub-app",
+          "kind": "subscription",
+          "name": "App Sandbox",
+          "parentId": "mg-lab",
+          "tenantId": "tenant-lab"
+        },
+        {
+          "id": "sub-shared",
+          "kind": "subscription",
+          "name": "Shared Sandbox",
+          "parentId": "mg-lab",
+          "tenantId": "tenant-lab"
+        }
+      ],
+      "groups": [
+        {
+          "id": "group-1",
+          "name": "rg-prefix",
+          "subscriptionId": "sub-app",
+          "metadataLocation": "norwayeast"
+        },
+        {
+          "id": "group-5",
+          "name": "rg-vms",
+          "subscriptionId": "sub-shared",
+          "metadataLocation": "norwayeast"
+        }
+      ],
+      "resources": [
+        {
+          "id": "plan-2",
+          "type": "Microsoft.Web/serverfarms",
+          "name": "plan-prefix",
+          "groupId": "group-1",
+          "location": "westeurope",
+          "os": "linux",
+          "profile": "linux-learning-v1"
+        },
+        {
+          "id": "app-3",
+          "type": "Microsoft.Web/sites",
+          "name": "app-prefix",
+          "groupId": "group-1",
+          "planId": "plan-2",
+          "location": "westeurope",
+          "os": "linux"
+        }
+      ],
+      "policies": [
+        {
+          "id": "policy-web-location",
+          "scopeId": "sub-app",
+          "mode": "all",
+          "targetTypes": ["Microsoft.Web/serverfarms", "Microsoft.Web/sites"],
+          "allowedLocations": ["westeurope"]
+        }
+      ],
+      "infrastructure": [
+        {
+          "groupId": "group-5",
+          "location": "northeurope",
+          "origin": "vm-6",
+          "id": "vm-6",
+          "name": "vm-first",
+          "kind": "vm",
+          "image": "ubuntu-22-04",
+          "profile": "standard",
+          "osDiskId": "disk-7",
+          "dataDiskId": "disk-11",
+          "nicId": "nic-8"
+        },
+        {
+          "groupId": "group-5",
+          "location": "northeurope",
+          "origin": "vm-6",
+          "id": "disk-7",
+          "name": "vm-first-os",
+          "kind": "disk",
+          "role": "os",
+          "gib": 64
+        },
+        {
+          "groupId": "group-5",
+          "location": "northeurope",
+          "origin": "vm-6",
+          "id": "nic-8",
+          "name": "vm-first-nic",
+          "kind": "nic",
+          "subnetId": "subnet-10"
+        },
+        {
+          "groupId": "group-5",
+          "location": "northeurope",
+          "origin": "vm-6",
+          "id": "vnet-9",
+          "name": "vm-first-vnet",
+          "kind": "vnet",
+          "addressSpace": "10.42.0.0/16"
+        },
+        {
+          "groupId": "group-5",
+          "location": "northeurope",
+          "origin": "vm-6",
+          "id": "subnet-10",
+          "name": "vm-first-subnet",
+          "kind": "subnet",
+          "vnetId": "vnet-9",
+          "addressPrefix": "10.42.1.0/24"
+        },
+        {
+          "groupId": "group-5",
+          "location": "northeurope",
+          "origin": "vm-6",
+          "id": "disk-11",
+          "name": "vm-first-data",
+          "kind": "disk",
+          "role": "data",
+          "gib": 32
+        }
+      ],
+      "appSettings": []
+    },
+    {
+      "revision": 8,
+      "nextId": 16,
+      "identity": {
+        "id": "tenant-lab",
+        "name": "AzureLab Directory"
+      },
+      "scopes": [
+        {
+          "id": "root-lab",
+          "kind": "root",
+          "name": "Tenant root group",
+          "tenantId": "tenant-lab"
+        },
+        {
+          "id": "mg-lab",
+          "kind": "management",
+          "name": "Learning",
+          "parentId": "root-lab"
+        },
+        {
+          "id": "sub-app",
+          "kind": "subscription",
+          "name": "App Sandbox",
+          "parentId": "mg-lab",
+          "tenantId": "tenant-lab"
+        },
+        {
+          "id": "sub-shared",
+          "kind": "subscription",
+          "name": "Shared Sandbox",
+          "parentId": "mg-lab",
+          "tenantId": "tenant-lab"
+        }
+      ],
+      "groups": [
+        {
+          "id": "group-1",
+          "name": "rg-prefix",
+          "subscriptionId": "sub-app",
+          "metadataLocation": "norwayeast"
+        },
+        {
+          "id": "group-5",
+          "name": "rg-vms",
+          "subscriptionId": "sub-shared",
+          "metadataLocation": "norwayeast"
+        }
+      ],
+      "resources": [
+        {
+          "id": "plan-2",
+          "type": "Microsoft.Web/serverfarms",
+          "name": "plan-prefix",
+          "groupId": "group-1",
+          "location": "westeurope",
+          "os": "linux",
+          "profile": "linux-learning-v1"
+        },
+        {
+          "id": "app-3",
+          "type": "Microsoft.Web/sites",
+          "name": "app-prefix",
+          "groupId": "group-1",
+          "planId": "plan-2",
+          "location": "westeurope",
+          "os": "linux"
+        }
+      ],
+      "policies": [
+        {
+          "id": "policy-web-location",
+          "scopeId": "sub-app",
+          "mode": "all",
+          "targetTypes": ["Microsoft.Web/serverfarms", "Microsoft.Web/sites"],
+          "allowedLocations": ["westeurope"]
+        }
+      ],
+      "infrastructure": [
+        {
+          "groupId": "group-5",
+          "location": "northeurope",
+          "origin": "vm-6",
+          "id": "vm-6",
+          "name": "vm-first",
+          "kind": "vm",
+          "image": "ubuntu-22-04",
+          "profile": "standard",
+          "osDiskId": "disk-7",
+          "dataDiskId": "disk-11",
+          "nicId": "nic-8"
+        },
+        {
+          "groupId": "group-5",
+          "location": "northeurope",
+          "origin": "vm-6",
+          "id": "disk-7",
+          "name": "vm-first-os",
+          "kind": "disk",
+          "role": "os",
+          "gib": 64
+        },
+        {
+          "groupId": "group-5",
+          "location": "northeurope",
+          "origin": "vm-6",
+          "id": "nic-8",
+          "name": "vm-first-nic",
+          "kind": "nic",
+          "subnetId": "subnet-10"
+        },
+        {
+          "groupId": "group-5",
+          "location": "northeurope",
+          "origin": "vm-6",
+          "id": "vnet-9",
+          "name": "vm-first-vnet",
+          "kind": "vnet",
+          "addressSpace": "10.42.0.0/16"
+        },
+        {
+          "groupId": "group-5",
+          "location": "northeurope",
+          "origin": "vm-6",
+          "id": "subnet-10",
+          "name": "vm-first-subnet",
+          "kind": "subnet",
+          "vnetId": "vnet-9",
+          "addressPrefix": "10.42.1.0/24"
+        },
+        {
+          "groupId": "group-5",
+          "location": "northeurope",
+          "origin": "vm-6",
+          "id": "disk-11",
+          "name": "vm-first-data",
+          "kind": "disk",
+          "role": "data",
+          "gib": 32
+        },
+        {
+          "groupId": "group-5",
+          "location": "northeurope",
+          "origin": "vm-12",
+          "id": "vm-12",
+          "name": "vm-second",
+          "kind": "vm",
+          "image": "ubuntu-22-04",
+          "profile": "standard",
+          "osDiskId": "disk-13",
+          "dataDiskId": "disk-15",
+          "nicId": "nic-14"
+        },
+        {
+          "groupId": "group-5",
+          "location": "northeurope",
+          "origin": "vm-12",
+          "id": "disk-13",
+          "name": "vm-second-os",
+          "kind": "disk",
+          "role": "os",
+          "gib": 64
+        },
+        {
+          "groupId": "group-5",
+          "location": "northeurope",
+          "origin": "vm-12",
+          "id": "nic-14",
+          "name": "vm-second-nic",
+          "kind": "nic",
+          "subnetId": "subnet-10"
+        },
+        {
+          "groupId": "group-5",
+          "location": "northeurope",
+          "origin": "vm-12",
+          "id": "disk-15",
+          "name": "vm-second-data",
+          "kind": "disk",
+          "role": "data",
+          "gib": 32
+        }
+      ],
+      "appSettings": []
+    },
+    {
+      "revision": 9,
+      "nextId": 16,
+      "identity": {
+        "id": "tenant-lab",
+        "name": "AzureLab Directory"
+      },
+      "scopes": [
+        {
+          "id": "root-lab",
+          "kind": "root",
+          "name": "Tenant root group",
+          "tenantId": "tenant-lab"
+        },
+        {
+          "id": "mg-lab",
+          "kind": "management",
+          "name": "Learning",
+          "parentId": "root-lab"
+        },
+        {
+          "id": "sub-app",
+          "kind": "subscription",
+          "name": "App Sandbox",
+          "parentId": "mg-lab",
+          "tenantId": "tenant-lab"
+        },
+        {
+          "id": "sub-shared",
+          "kind": "subscription",
+          "name": "Shared Sandbox",
+          "parentId": "mg-lab",
+          "tenantId": "tenant-lab"
+        }
+      ],
+      "groups": [
+        {
+          "id": "group-1",
+          "name": "rg-prefix",
+          "subscriptionId": "sub-app",
+          "metadataLocation": "norwayeast"
+        },
+        {
+          "id": "group-5",
+          "name": "rg-vms",
+          "subscriptionId": "sub-shared",
+          "metadataLocation": "norwayeast"
+        }
+      ],
+      "resources": [
+        {
+          "id": "plan-2",
+          "type": "Microsoft.Web/serverfarms",
+          "name": "plan-prefix",
+          "groupId": "group-1",
+          "location": "westeurope",
+          "os": "linux",
+          "profile": "linux-learning-v1"
+        },
+        {
+          "id": "app-3",
+          "type": "Microsoft.Web/sites",
+          "name": "app-prefix",
+          "groupId": "group-1",
+          "planId": "plan-2",
+          "location": "westeurope",
+          "os": "linux"
+        }
+      ],
+      "policies": [
+        {
+          "id": "policy-web-location",
+          "scopeId": "sub-app",
+          "mode": "all",
+          "targetTypes": ["Microsoft.Web/serverfarms", "Microsoft.Web/sites"],
+          "allowedLocations": ["westeurope"]
+        }
+      ],
+      "infrastructure": [
+        {
+          "groupId": "group-5",
+          "location": "northeurope",
+          "origin": "vm-6",
+          "id": "vm-6",
+          "name": "vm-first",
+          "kind": "vm",
+          "image": "ubuntu-22-04",
+          "profile": "standard",
+          "osDiskId": "disk-7",
+          "dataDiskId": "disk-11",
+          "nicId": "nic-8"
+        },
+        {
+          "groupId": "group-5",
+          "location": "northeurope",
+          "origin": "vm-6",
+          "id": "disk-7",
+          "name": "vm-first-os",
+          "kind": "disk",
+          "role": "os",
+          "gib": 64
+        },
+        {
+          "groupId": "group-5",
+          "location": "northeurope",
+          "origin": "vm-6",
+          "id": "nic-8",
+          "name": "vm-first-nic",
+          "kind": "nic",
+          "subnetId": "subnet-10"
+        },
+        {
+          "groupId": "group-5",
+          "location": "northeurope",
+          "origin": "vm-6",
+          "id": "vnet-9",
+          "name": "vm-first-vnet",
+          "kind": "vnet",
+          "addressSpace": "10.42.0.0/16"
+        },
+        {
+          "groupId": "group-5",
+          "location": "northeurope",
+          "origin": "vm-6",
+          "id": "subnet-10",
+          "name": "vm-first-subnet",
+          "kind": "subnet",
+          "vnetId": "vnet-9",
+          "addressPrefix": "10.42.1.0/24"
+        },
+        {
+          "groupId": "group-5",
+          "location": "northeurope",
+          "origin": "vm-6",
+          "id": "disk-11",
+          "name": "vm-first-data",
+          "kind": "disk",
+          "role": "data",
+          "gib": 32
+        },
+        {
+          "groupId": "group-5",
+          "location": "northeurope",
+          "origin": "vm-12",
+          "id": "vm-12",
+          "name": "vm-second",
+          "kind": "vm",
+          "image": "ubuntu-22-04",
+          "profile": "standard",
+          "osDiskId": "disk-13",
+          "dataDiskId": "disk-15",
+          "nicId": "nic-14"
+        },
+        {
+          "groupId": "group-5",
+          "location": "northeurope",
+          "origin": "vm-12",
+          "id": "disk-13",
+          "name": "vm-second-os",
+          "kind": "disk",
+          "role": "os",
+          "gib": 64
+        },
+        {
+          "groupId": "group-5",
+          "location": "northeurope",
+          "origin": "vm-12",
+          "id": "nic-14",
+          "name": "vm-second-nic",
+          "kind": "nic",
+          "subnetId": "subnet-10"
+        },
+        {
+          "groupId": "group-5",
+          "location": "northeurope",
+          "origin": "vm-12",
+          "id": "disk-15",
+          "name": "vm-second-data",
+          "kind": "disk",
+          "role": "data",
+          "gib": 32
+        }
+      ],
+      "appSettings": [
+        {
+          "appId": "app-3",
+          "environment": "staging",
+          "catalogMode": "read-only"
+        }
+      ]
+    },
+    {
+      "revision": 10,
+      "nextId": 17,
+      "identity": {
+        "id": "tenant-lab",
+        "name": "AzureLab Directory"
+      },
+      "scopes": [
+        {
+          "id": "root-lab",
+          "kind": "root",
+          "name": "Tenant root group",
+          "tenantId": "tenant-lab"
+        },
+        {
+          "id": "mg-lab",
+          "kind": "management",
+          "name": "Learning",
+          "parentId": "root-lab"
+        },
+        {
+          "id": "sub-app",
+          "kind": "subscription",
+          "name": "App Sandbox",
+          "parentId": "mg-lab",
+          "tenantId": "tenant-lab"
+        },
+        {
+          "id": "sub-shared",
+          "kind": "subscription",
+          "name": "Shared Sandbox",
+          "parentId": "mg-lab",
+          "tenantId": "tenant-lab"
+        }
+      ],
+      "groups": [
+        {
+          "id": "group-1",
+          "name": "rg-prefix",
+          "subscriptionId": "sub-app",
+          "metadataLocation": "norwayeast"
+        },
+        {
+          "id": "group-5",
+          "name": "rg-vms",
+          "subscriptionId": "sub-shared",
+          "metadataLocation": "norwayeast"
+        }
+      ],
+      "resources": [
+        {
+          "id": "plan-2",
+          "type": "Microsoft.Web/serverfarms",
+          "name": "plan-prefix",
+          "groupId": "group-1",
+          "location": "westeurope",
+          "os": "linux",
+          "profile": "linux-learning-v1"
+        },
+        {
+          "id": "app-3",
+          "type": "Microsoft.Web/sites",
+          "name": "app-prefix",
+          "groupId": "group-1",
+          "planId": "plan-2",
+          "location": "westeurope",
+          "os": "linux"
+        },
+        {
+          "id": "plan-16",
+          "type": "Microsoft.Web/serverfarms",
+          "name": "plan-new",
+          "groupId": "group-1",
+          "location": "westeurope",
+          "os": "linux",
+          "profile": "linux-learning-v1"
+        }
+      ],
+      "policies": [
+        {
+          "id": "policy-web-location",
+          "scopeId": "sub-app",
+          "mode": "all",
+          "targetTypes": ["Microsoft.Web/serverfarms", "Microsoft.Web/sites"],
+          "allowedLocations": ["westeurope"]
+        }
+      ],
+      "infrastructure": [
+        {
+          "groupId": "group-5",
+          "location": "northeurope",
+          "origin": "vm-6",
+          "id": "vm-6",
+          "name": "vm-first",
+          "kind": "vm",
+          "image": "ubuntu-22-04",
+          "profile": "standard",
+          "osDiskId": "disk-7",
+          "dataDiskId": "disk-11",
+          "nicId": "nic-8"
+        },
+        {
+          "groupId": "group-5",
+          "location": "northeurope",
+          "origin": "vm-6",
+          "id": "disk-7",
+          "name": "vm-first-os",
+          "kind": "disk",
+          "role": "os",
+          "gib": 64
+        },
+        {
+          "groupId": "group-5",
+          "location": "northeurope",
+          "origin": "vm-6",
+          "id": "nic-8",
+          "name": "vm-first-nic",
+          "kind": "nic",
+          "subnetId": "subnet-10"
+        },
+        {
+          "groupId": "group-5",
+          "location": "northeurope",
+          "origin": "vm-6",
+          "id": "vnet-9",
+          "name": "vm-first-vnet",
+          "kind": "vnet",
+          "addressSpace": "10.42.0.0/16"
+        },
+        {
+          "groupId": "group-5",
+          "location": "northeurope",
+          "origin": "vm-6",
+          "id": "subnet-10",
+          "name": "vm-first-subnet",
+          "kind": "subnet",
+          "vnetId": "vnet-9",
+          "addressPrefix": "10.42.1.0/24"
+        },
+        {
+          "groupId": "group-5",
+          "location": "northeurope",
+          "origin": "vm-6",
+          "id": "disk-11",
+          "name": "vm-first-data",
+          "kind": "disk",
+          "role": "data",
+          "gib": 32
+        },
+        {
+          "groupId": "group-5",
+          "location": "northeurope",
+          "origin": "vm-12",
+          "id": "vm-12",
+          "name": "vm-second",
+          "kind": "vm",
+          "image": "ubuntu-22-04",
+          "profile": "standard",
+          "osDiskId": "disk-13",
+          "dataDiskId": "disk-15",
+          "nicId": "nic-14"
+        },
+        {
+          "groupId": "group-5",
+          "location": "northeurope",
+          "origin": "vm-12",
+          "id": "disk-13",
+          "name": "vm-second-os",
+          "kind": "disk",
+          "role": "os",
+          "gib": 64
+        },
+        {
+          "groupId": "group-5",
+          "location": "northeurope",
+          "origin": "vm-12",
+          "id": "nic-14",
+          "name": "vm-second-nic",
+          "kind": "nic",
+          "subnetId": "subnet-10"
+        },
+        {
+          "groupId": "group-5",
+          "location": "northeurope",
+          "origin": "vm-12",
+          "id": "disk-15",
+          "name": "vm-second-data",
+          "kind": "disk",
+          "role": "data",
+          "gib": 32
+        }
+      ],
+      "appSettings": [
+        {
+          "appId": "app-3",
+          "environment": "staging",
+          "catalogMode": "read-only"
+        }
+      ]
+    },
+    {
+      "revision": 11,
+      "nextId": 18,
+      "identity": {
+        "id": "tenant-lab",
+        "name": "AzureLab Directory"
+      },
+      "scopes": [
+        {
+          "id": "root-lab",
+          "kind": "root",
+          "name": "Tenant root group",
+          "tenantId": "tenant-lab"
+        },
+        {
+          "id": "mg-lab",
+          "kind": "management",
+          "name": "Learning",
+          "parentId": "root-lab"
+        },
+        {
+          "id": "sub-app",
+          "kind": "subscription",
+          "name": "App Sandbox",
+          "parentId": "mg-lab",
+          "tenantId": "tenant-lab"
+        },
+        {
+          "id": "sub-shared",
+          "kind": "subscription",
+          "name": "Shared Sandbox",
+          "parentId": "mg-lab",
+          "tenantId": "tenant-lab"
+        }
+      ],
+      "groups": [
+        {
+          "id": "group-1",
+          "name": "rg-prefix",
+          "subscriptionId": "sub-app",
+          "metadataLocation": "norwayeast"
+        },
+        {
+          "id": "group-5",
+          "name": "rg-vms",
+          "subscriptionId": "sub-shared",
+          "metadataLocation": "norwayeast"
+        }
+      ],
+      "resources": [
+        {
+          "id": "plan-2",
+          "type": "Microsoft.Web/serverfarms",
+          "name": "plan-prefix",
+          "groupId": "group-1",
+          "location": "westeurope",
+          "os": "linux",
+          "profile": "linux-learning-v1"
+        },
+        {
+          "id": "app-3",
+          "type": "Microsoft.Web/sites",
+          "name": "app-prefix",
+          "groupId": "group-1",
+          "planId": "plan-2",
+          "location": "westeurope",
+          "os": "linux"
+        },
+        {
+          "id": "plan-16",
+          "type": "Microsoft.Web/serverfarms",
+          "name": "plan-new",
+          "groupId": "group-1",
+          "location": "westeurope",
+          "os": "linux",
+          "profile": "linux-learning-v1"
+        },
+        {
+          "id": "app-17",
+          "type": "Microsoft.Web/sites",
+          "name": "app-new",
+          "groupId": "group-1",
+          "planId": "plan-16",
+          "location": "westeurope",
+          "os": "linux"
+        }
+      ],
+      "policies": [
+        {
+          "id": "policy-web-location",
+          "scopeId": "sub-app",
+          "mode": "all",
+          "targetTypes": ["Microsoft.Web/serverfarms", "Microsoft.Web/sites"],
+          "allowedLocations": ["westeurope"]
+        }
+      ],
+      "infrastructure": [
+        {
+          "groupId": "group-5",
+          "location": "northeurope",
+          "origin": "vm-6",
+          "id": "vm-6",
+          "name": "vm-first",
+          "kind": "vm",
+          "image": "ubuntu-22-04",
+          "profile": "standard",
+          "osDiskId": "disk-7",
+          "dataDiskId": "disk-11",
+          "nicId": "nic-8"
+        },
+        {
+          "groupId": "group-5",
+          "location": "northeurope",
+          "origin": "vm-6",
+          "id": "disk-7",
+          "name": "vm-first-os",
+          "kind": "disk",
+          "role": "os",
+          "gib": 64
+        },
+        {
+          "groupId": "group-5",
+          "location": "northeurope",
+          "origin": "vm-6",
+          "id": "nic-8",
+          "name": "vm-first-nic",
+          "kind": "nic",
+          "subnetId": "subnet-10"
+        },
+        {
+          "groupId": "group-5",
+          "location": "northeurope",
+          "origin": "vm-6",
+          "id": "vnet-9",
+          "name": "vm-first-vnet",
+          "kind": "vnet",
+          "addressSpace": "10.42.0.0/16"
+        },
+        {
+          "groupId": "group-5",
+          "location": "northeurope",
+          "origin": "vm-6",
+          "id": "subnet-10",
+          "name": "vm-first-subnet",
+          "kind": "subnet",
+          "vnetId": "vnet-9",
+          "addressPrefix": "10.42.1.0/24"
+        },
+        {
+          "groupId": "group-5",
+          "location": "northeurope",
+          "origin": "vm-6",
+          "id": "disk-11",
+          "name": "vm-first-data",
+          "kind": "disk",
+          "role": "data",
+          "gib": 32
+        },
+        {
+          "groupId": "group-5",
+          "location": "northeurope",
+          "origin": "vm-12",
+          "id": "vm-12",
+          "name": "vm-second",
+          "kind": "vm",
+          "image": "ubuntu-22-04",
+          "profile": "standard",
+          "osDiskId": "disk-13",
+          "dataDiskId": "disk-15",
+          "nicId": "nic-14"
+        },
+        {
+          "groupId": "group-5",
+          "location": "northeurope",
+          "origin": "vm-12",
+          "id": "disk-13",
+          "name": "vm-second-os",
+          "kind": "disk",
+          "role": "os",
+          "gib": 64
+        },
+        {
+          "groupId": "group-5",
+          "location": "northeurope",
+          "origin": "vm-12",
+          "id": "nic-14",
+          "name": "vm-second-nic",
+          "kind": "nic",
+          "subnetId": "subnet-10"
+        },
+        {
+          "groupId": "group-5",
+          "location": "northeurope",
+          "origin": "vm-12",
+          "id": "disk-15",
+          "name": "vm-second-data",
+          "kind": "disk",
+          "role": "data",
+          "gib": 32
+        }
+      ],
+      "appSettings": [
+        {
+          "appId": "app-3",
+          "environment": "staging",
+          "catalogMode": "read-only"
+        }
+      ]
+    },
+    {
+      "revision": 11,
+      "nextId": 18,
+      "identity": {
+        "id": "tenant-lab",
+        "name": "AzureLab Directory"
+      },
+      "scopes": [
+        {
+          "id": "root-lab",
+          "kind": "root",
+          "name": "Tenant root group",
+          "tenantId": "tenant-lab"
+        },
+        {
+          "id": "mg-lab",
+          "kind": "management",
+          "name": "Learning",
+          "parentId": "root-lab"
+        },
+        {
+          "id": "sub-app",
+          "kind": "subscription",
+          "name": "App Sandbox",
+          "parentId": "mg-lab",
+          "tenantId": "tenant-lab"
+        },
+        {
+          "id": "sub-shared",
+          "kind": "subscription",
+          "name": "Shared Sandbox",
+          "parentId": "mg-lab",
+          "tenantId": "tenant-lab"
+        }
+      ],
+      "groups": [
+        {
+          "id": "group-1",
+          "name": "rg-prefix",
+          "subscriptionId": "sub-app",
+          "metadataLocation": "norwayeast"
+        },
+        {
+          "id": "group-5",
+          "name": "rg-vms",
+          "subscriptionId": "sub-shared",
+          "metadataLocation": "norwayeast"
+        }
+      ],
+      "resources": [
+        {
+          "id": "plan-2",
+          "type": "Microsoft.Web/serverfarms",
+          "name": "plan-prefix",
+          "groupId": "group-1",
+          "location": "westeurope",
+          "os": "linux",
+          "profile": "linux-learning-v1"
+        },
+        {
+          "id": "app-3",
+          "type": "Microsoft.Web/sites",
+          "name": "app-prefix",
+          "groupId": "group-1",
+          "planId": "plan-2",
+          "location": "westeurope",
+          "os": "linux"
+        },
+        {
+          "id": "plan-16",
+          "type": "Microsoft.Web/serverfarms",
+          "name": "plan-new",
+          "groupId": "group-1",
+          "location": "westeurope",
+          "os": "linux",
+          "profile": "linux-learning-v1"
+        },
+        {
+          "id": "app-17",
+          "type": "Microsoft.Web/sites",
+          "name": "app-new",
+          "groupId": "group-1",
+          "planId": "plan-16",
+          "location": "westeurope",
+          "os": "linux"
+        }
+      ],
+      "policies": [
+        {
+          "id": "policy-web-location",
+          "scopeId": "sub-app",
+          "mode": "all",
+          "targetTypes": ["Microsoft.Web/serverfarms", "Microsoft.Web/sites"],
+          "allowedLocations": ["westeurope"]
+        }
+      ],
+      "infrastructure": [
+        {
+          "groupId": "group-5",
+          "location": "northeurope",
+          "origin": "vm-6",
+          "id": "vm-6",
+          "name": "vm-first",
+          "kind": "vm",
+          "image": "ubuntu-22-04",
+          "profile": "standard",
+          "osDiskId": "disk-7",
+          "dataDiskId": "disk-11",
+          "nicId": "nic-8"
+        },
+        {
+          "groupId": "group-5",
+          "location": "northeurope",
+          "origin": "vm-6",
+          "id": "disk-7",
+          "name": "vm-first-os",
+          "kind": "disk",
+          "role": "os",
+          "gib": 64
+        },
+        {
+          "groupId": "group-5",
+          "location": "northeurope",
+          "origin": "vm-6",
+          "id": "nic-8",
+          "name": "vm-first-nic",
+          "kind": "nic",
+          "subnetId": "subnet-10"
+        },
+        {
+          "groupId": "group-5",
+          "location": "northeurope",
+          "origin": "vm-6",
+          "id": "vnet-9",
+          "name": "vm-first-vnet",
+          "kind": "vnet",
+          "addressSpace": "10.42.0.0/16"
+        },
+        {
+          "groupId": "group-5",
+          "location": "northeurope",
+          "origin": "vm-6",
+          "id": "subnet-10",
+          "name": "vm-first-subnet",
+          "kind": "subnet",
+          "vnetId": "vnet-9",
+          "addressPrefix": "10.42.1.0/24"
+        },
+        {
+          "groupId": "group-5",
+          "location": "northeurope",
+          "origin": "vm-6",
+          "id": "disk-11",
+          "name": "vm-first-data",
+          "kind": "disk",
+          "role": "data",
+          "gib": 32
+        },
+        {
+          "groupId": "group-5",
+          "location": "northeurope",
+          "origin": "vm-12",
+          "id": "vm-12",
+          "name": "vm-second",
+          "kind": "vm",
+          "image": "ubuntu-22-04",
+          "profile": "standard",
+          "osDiskId": "disk-13",
+          "dataDiskId": "disk-15",
+          "nicId": "nic-14"
+        },
+        {
+          "groupId": "group-5",
+          "location": "northeurope",
+          "origin": "vm-12",
+          "id": "disk-13",
+          "name": "vm-second-os",
+          "kind": "disk",
+          "role": "os",
+          "gib": 64
+        },
+        {
+          "groupId": "group-5",
+          "location": "northeurope",
+          "origin": "vm-12",
+          "id": "nic-14",
+          "name": "vm-second-nic",
+          "kind": "nic",
+          "subnetId": "subnet-10"
+        },
+        {
+          "groupId": "group-5",
+          "location": "northeurope",
+          "origin": "vm-12",
+          "id": "disk-15",
+          "name": "vm-second-data",
+          "kind": "disk",
+          "role": "data",
+          "gib": 32
+        }
+      ],
+      "appSettings": [
+        {
+          "appId": "app-3",
+          "environment": "staging",
+          "catalogMode": "read-only"
+        }
+      ]
+    },
+    {
+      "revision": 11,
+      "nextId": 18,
+      "identity": {
+        "id": "tenant-lab",
+        "name": "AzureLab Directory"
+      },
+      "scopes": [
+        {
+          "id": "root-lab",
+          "kind": "root",
+          "name": "Tenant root group",
+          "tenantId": "tenant-lab"
+        },
+        {
+          "id": "mg-lab",
+          "kind": "management",
+          "name": "Learning",
+          "parentId": "root-lab"
+        },
+        {
+          "id": "sub-app",
+          "kind": "subscription",
+          "name": "App Sandbox",
+          "parentId": "mg-lab",
+          "tenantId": "tenant-lab"
+        },
+        {
+          "id": "sub-shared",
+          "kind": "subscription",
+          "name": "Shared Sandbox",
+          "parentId": "mg-lab",
+          "tenantId": "tenant-lab"
+        }
+      ],
+      "groups": [
+        {
+          "id": "group-1",
+          "name": "rg-prefix",
+          "subscriptionId": "sub-app",
+          "metadataLocation": "norwayeast"
+        },
+        {
+          "id": "group-5",
+          "name": "rg-vms",
+          "subscriptionId": "sub-shared",
+          "metadataLocation": "norwayeast"
+        }
+      ],
+      "resources": [
+        {
+          "id": "plan-2",
+          "type": "Microsoft.Web/serverfarms",
+          "name": "plan-prefix",
+          "groupId": "group-1",
+          "location": "westeurope",
+          "os": "linux",
+          "profile": "linux-learning-v1"
+        },
+        {
+          "id": "app-3",
+          "type": "Microsoft.Web/sites",
+          "name": "app-prefix",
+          "groupId": "group-1",
+          "planId": "plan-2",
+          "location": "westeurope",
+          "os": "linux"
+        },
+        {
+          "id": "plan-16",
+          "type": "Microsoft.Web/serverfarms",
+          "name": "plan-new",
+          "groupId": "group-1",
+          "location": "westeurope",
+          "os": "linux",
+          "profile": "linux-learning-v1"
+        },
+        {
+          "id": "app-17",
+          "type": "Microsoft.Web/sites",
+          "name": "app-new",
+          "groupId": "group-1",
+          "planId": "plan-16",
+          "location": "westeurope",
+          "os": "linux"
+        }
+      ],
+      "policies": [
+        {
+          "id": "policy-web-location",
+          "scopeId": "sub-app",
+          "mode": "all",
+          "targetTypes": ["Microsoft.Web/serverfarms", "Microsoft.Web/sites"],
+          "allowedLocations": ["westeurope"]
+        }
+      ],
+      "infrastructure": [
+        {
+          "groupId": "group-5",
+          "location": "northeurope",
+          "origin": "vm-6",
+          "id": "vm-6",
+          "name": "vm-first",
+          "kind": "vm",
+          "image": "ubuntu-22-04",
+          "profile": "standard",
+          "osDiskId": "disk-7",
+          "dataDiskId": "disk-11",
+          "nicId": "nic-8"
+        },
+        {
+          "groupId": "group-5",
+          "location": "northeurope",
+          "origin": "vm-6",
+          "id": "disk-7",
+          "name": "vm-first-os",
+          "kind": "disk",
+          "role": "os",
+          "gib": 64
+        },
+        {
+          "groupId": "group-5",
+          "location": "northeurope",
+          "origin": "vm-6",
+          "id": "nic-8",
+          "name": "vm-first-nic",
+          "kind": "nic",
+          "subnetId": "subnet-10"
+        },
+        {
+          "groupId": "group-5",
+          "location": "northeurope",
+          "origin": "vm-6",
+          "id": "vnet-9",
+          "name": "vm-first-vnet",
+          "kind": "vnet",
+          "addressSpace": "10.42.0.0/16"
+        },
+        {
+          "groupId": "group-5",
+          "location": "northeurope",
+          "origin": "vm-6",
+          "id": "subnet-10",
+          "name": "vm-first-subnet",
+          "kind": "subnet",
+          "vnetId": "vnet-9",
+          "addressPrefix": "10.42.1.0/24"
+        },
+        {
+          "groupId": "group-5",
+          "location": "northeurope",
+          "origin": "vm-6",
+          "id": "disk-11",
+          "name": "vm-first-data",
+          "kind": "disk",
+          "role": "data",
+          "gib": 32
+        },
+        {
+          "groupId": "group-5",
+          "location": "northeurope",
+          "origin": "vm-12",
+          "id": "vm-12",
+          "name": "vm-second",
+          "kind": "vm",
+          "image": "ubuntu-22-04",
+          "profile": "standard",
+          "osDiskId": "disk-13",
+          "dataDiskId": "disk-15",
+          "nicId": "nic-14"
+        },
+        {
+          "groupId": "group-5",
+          "location": "northeurope",
+          "origin": "vm-12",
+          "id": "disk-13",
+          "name": "vm-second-os",
+          "kind": "disk",
+          "role": "os",
+          "gib": 64
+        },
+        {
+          "groupId": "group-5",
+          "location": "northeurope",
+          "origin": "vm-12",
+          "id": "nic-14",
+          "name": "vm-second-nic",
+          "kind": "nic",
+          "subnetId": "subnet-10"
+        },
+        {
+          "groupId": "group-5",
+          "location": "northeurope",
+          "origin": "vm-12",
+          "id": "disk-15",
+          "name": "vm-second-data",
+          "kind": "disk",
+          "role": "data",
+          "gib": 32
+        }
+      ],
+      "appSettings": [
+        {
+          "appId": "app-3",
+          "environment": "staging",
+          "catalogMode": "read-only"
+        }
+      ]
+    },
+    {
+      "revision": 12,
+      "nextId": 18,
+      "identity": {
+        "id": "tenant-lab",
+        "name": "AzureLab Directory"
+      },
+      "scopes": [
+        {
+          "id": "root-lab",
+          "kind": "root",
+          "name": "Tenant root group",
+          "tenantId": "tenant-lab"
+        },
+        {
+          "id": "mg-lab",
+          "kind": "management",
+          "name": "Learning",
+          "parentId": "root-lab"
+        },
+        {
+          "id": "sub-app",
+          "kind": "subscription",
+          "name": "App Sandbox",
+          "parentId": "mg-lab",
+          "tenantId": "tenant-lab"
+        },
+        {
+          "id": "sub-shared",
+          "kind": "subscription",
+          "name": "Shared Sandbox",
+          "parentId": "mg-lab",
+          "tenantId": "tenant-lab"
+        }
+      ],
+      "groups": [
+        {
+          "id": "group-1",
+          "name": "rg-prefix",
+          "subscriptionId": "sub-app",
+          "metadataLocation": "norwayeast"
+        },
+        {
+          "id": "group-5",
+          "name": "rg-vms",
+          "subscriptionId": "sub-shared",
+          "metadataLocation": "norwayeast"
+        }
+      ],
+      "resources": [
+        {
+          "id": "plan-2",
+          "type": "Microsoft.Web/serverfarms",
+          "name": "plan-prefix",
+          "groupId": "group-1",
+          "location": "westeurope",
+          "os": "linux",
+          "profile": "linux-learning-v1"
+        },
+        {
+          "id": "app-3",
+          "type": "Microsoft.Web/sites",
+          "name": "app-prefix",
+          "groupId": "group-1",
+          "planId": "plan-2",
+          "location": "westeurope",
+          "os": "linux"
+        },
+        {
+          "id": "plan-16",
+          "type": "Microsoft.Web/serverfarms",
+          "name": "plan-new",
+          "groupId": "group-1",
+          "location": "westeurope",
+          "os": "linux",
+          "profile": "linux-learning-v1"
+        },
+        {
+          "id": "app-17",
+          "type": "Microsoft.Web/sites",
+          "name": "app-new",
+          "groupId": "group-1",
+          "planId": "plan-16",
+          "location": "westeurope",
+          "os": "linux"
+        }
+      ],
+      "policies": [
+        {
+          "id": "policy-web-location",
+          "scopeId": "sub-app",
+          "mode": "all",
+          "targetTypes": ["Microsoft.Web/serverfarms", "Microsoft.Web/sites"],
+          "allowedLocations": ["westeurope"]
+        }
+      ],
+      "infrastructure": [
+        {
+          "groupId": "group-5",
+          "location": "northeurope",
+          "origin": "vm-6",
+          "id": "vnet-9",
+          "name": "vm-first-vnet",
+          "kind": "vnet",
+          "addressSpace": "10.42.0.0/16"
+        },
+        {
+          "groupId": "group-5",
+          "location": "northeurope",
+          "origin": "vm-6",
+          "id": "subnet-10",
+          "name": "vm-first-subnet",
+          "kind": "subnet",
+          "vnetId": "vnet-9",
+          "addressPrefix": "10.42.1.0/24"
+        },
+        {
+          "groupId": "group-5",
+          "location": "northeurope",
+          "origin": "vm-12",
+          "id": "vm-12",
+          "name": "vm-second",
+          "kind": "vm",
+          "image": "ubuntu-22-04",
+          "profile": "standard",
+          "osDiskId": "disk-13",
+          "dataDiskId": "disk-15",
+          "nicId": "nic-14"
+        },
+        {
+          "groupId": "group-5",
+          "location": "northeurope",
+          "origin": "vm-12",
+          "id": "disk-13",
+          "name": "vm-second-os",
+          "kind": "disk",
+          "role": "os",
+          "gib": 64
+        },
+        {
+          "groupId": "group-5",
+          "location": "northeurope",
+          "origin": "vm-12",
+          "id": "nic-14",
+          "name": "vm-second-nic",
+          "kind": "nic",
+          "subnetId": "subnet-10"
+        },
+        {
+          "groupId": "group-5",
+          "location": "northeurope",
+          "origin": "vm-12",
+          "id": "disk-15",
+          "name": "vm-second-data",
+          "kind": "disk",
+          "role": "data",
+          "gib": 32
+        }
+      ],
+      "appSettings": [
+        {
+          "appId": "app-3",
+          "environment": "staging",
+          "catalogMode": "read-only"
+        }
+      ]
+    },
+    {
+      "revision": 13,
+      "nextId": 18,
+      "identity": {
+        "id": "tenant-lab",
+        "name": "AzureLab Directory"
+      },
+      "scopes": [
+        {
+          "id": "root-lab",
+          "kind": "root",
+          "name": "Tenant root group",
+          "tenantId": "tenant-lab"
+        },
+        {
+          "id": "mg-lab",
+          "kind": "management",
+          "name": "Learning",
+          "parentId": "root-lab"
+        },
+        {
+          "id": "sub-app",
+          "kind": "subscription",
+          "name": "App Sandbox",
+          "parentId": "mg-lab",
+          "tenantId": "tenant-lab"
+        },
+        {
+          "id": "sub-shared",
+          "kind": "subscription",
+          "name": "Shared Sandbox",
+          "parentId": "mg-lab",
+          "tenantId": "tenant-lab"
+        }
+      ],
+      "groups": [
+        {
+          "id": "group-1",
+          "name": "rg-prefix",
+          "subscriptionId": "sub-app",
+          "metadataLocation": "norwayeast"
+        },
+        {
+          "id": "group-5",
+          "name": "rg-vms",
+          "subscriptionId": "sub-shared",
+          "metadataLocation": "norwayeast"
+        }
+      ],
+      "resources": [
+        {
+          "id": "plan-2",
+          "type": "Microsoft.Web/serverfarms",
+          "name": "plan-prefix",
+          "groupId": "group-1",
+          "location": "westeurope",
+          "os": "linux",
+          "profile": "linux-learning-v1"
+        },
+        {
+          "id": "app-3",
+          "type": "Microsoft.Web/sites",
+          "name": "app-prefix",
+          "groupId": "group-1",
+          "planId": "plan-2",
+          "location": "westeurope",
+          "os": "linux"
+        },
+        {
+          "id": "plan-16",
+          "type": "Microsoft.Web/serverfarms",
+          "name": "plan-new",
+          "groupId": "group-1",
+          "location": "westeurope",
+          "os": "linux",
+          "profile": "linux-learning-v1"
+        },
+        {
+          "id": "app-17",
+          "type": "Microsoft.Web/sites",
+          "name": "app-new",
+          "groupId": "group-1",
+          "planId": "plan-16",
+          "location": "westeurope",
+          "os": "linux"
+        }
+      ],
+      "policies": [
+        {
+          "id": "policy-web-location",
+          "scopeId": "sub-app",
+          "mode": "all",
+          "targetTypes": ["Microsoft.Web/serverfarms", "Microsoft.Web/sites"],
+          "allowedLocations": ["westeurope"]
+        }
+      ],
+      "infrastructure": [
+        {
+          "groupId": "group-5",
+          "location": "northeurope",
+          "origin": "vm-6",
+          "id": "vnet-9",
+          "name": "vm-first-vnet",
+          "kind": "vnet",
+          "addressSpace": "10.42.0.0/16"
+        },
+        {
+          "groupId": "group-5",
+          "location": "northeurope",
+          "origin": "vm-6",
+          "id": "subnet-10",
+          "name": "vm-first-subnet",
+          "kind": "subnet",
+          "vnetId": "vnet-9",
+          "addressPrefix": "10.42.1.0/24"
+        }
+      ],
+      "appSettings": [
+        {
+          "appId": "app-3",
+          "environment": "staging",
+          "catalogMode": "read-only"
+        }
+      ]
+    },
+    {
+      "revision": 13,
+      "nextId": 18,
+      "identity": {
+        "id": "tenant-lab",
+        "name": "AzureLab Directory"
+      },
+      "scopes": [
+        {
+          "id": "root-lab",
+          "kind": "root",
+          "name": "Tenant root group",
+          "tenantId": "tenant-lab"
+        },
+        {
+          "id": "mg-lab",
+          "kind": "management",
+          "name": "Learning",
+          "parentId": "root-lab"
+        },
+        {
+          "id": "sub-app",
+          "kind": "subscription",
+          "name": "App Sandbox",
+          "parentId": "mg-lab",
+          "tenantId": "tenant-lab"
+        },
+        {
+          "id": "sub-shared",
+          "kind": "subscription",
+          "name": "Shared Sandbox",
+          "parentId": "mg-lab",
+          "tenantId": "tenant-lab"
+        }
+      ],
+      "groups": [
+        {
+          "id": "group-1",
+          "name": "rg-prefix",
+          "subscriptionId": "sub-app",
+          "metadataLocation": "norwayeast"
+        },
+        {
+          "id": "group-5",
+          "name": "rg-vms",
+          "subscriptionId": "sub-shared",
+          "metadataLocation": "norwayeast"
+        }
+      ],
+      "resources": [
+        {
+          "id": "plan-2",
+          "type": "Microsoft.Web/serverfarms",
+          "name": "plan-prefix",
+          "groupId": "group-1",
+          "location": "westeurope",
+          "os": "linux",
+          "profile": "linux-learning-v1"
+        },
+        {
+          "id": "app-3",
+          "type": "Microsoft.Web/sites",
+          "name": "app-prefix",
+          "groupId": "group-1",
+          "planId": "plan-2",
+          "location": "westeurope",
+          "os": "linux"
+        },
+        {
+          "id": "plan-16",
+          "type": "Microsoft.Web/serverfarms",
+          "name": "plan-new",
+          "groupId": "group-1",
+          "location": "westeurope",
+          "os": "linux",
+          "profile": "linux-learning-v1"
+        },
+        {
+          "id": "app-17",
+          "type": "Microsoft.Web/sites",
+          "name": "app-new",
+          "groupId": "group-1",
+          "planId": "plan-16",
+          "location": "westeurope",
+          "os": "linux"
+        }
+      ],
+      "policies": [
+        {
+          "id": "policy-web-location",
+          "scopeId": "sub-app",
+          "mode": "all",
+          "targetTypes": ["Microsoft.Web/serverfarms", "Microsoft.Web/sites"],
+          "allowedLocations": ["westeurope"]
+        }
+      ],
+      "infrastructure": [
+        {
+          "groupId": "group-5",
+          "location": "northeurope",
+          "origin": "vm-6",
+          "id": "vnet-9",
+          "name": "vm-first-vnet",
+          "kind": "vnet",
+          "addressSpace": "10.42.0.0/16"
+        },
+        {
+          "groupId": "group-5",
+          "location": "northeurope",
+          "origin": "vm-6",
+          "id": "subnet-10",
+          "name": "vm-first-subnet",
+          "kind": "subnet",
+          "vnetId": "vnet-9",
+          "addressPrefix": "10.42.1.0/24"
+        }
+      ],
+      "appSettings": [
+        {
+          "appId": "app-3",
+          "environment": "staging",
+          "catalogMode": "read-only"
+        }
+      ]
+    }
+  ]
+}
