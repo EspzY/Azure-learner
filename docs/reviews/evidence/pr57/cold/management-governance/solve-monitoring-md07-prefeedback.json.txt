@@ -1,0 +1,11 @@
+{
+  "utc": "2026-11-05T14:22:59.615Z",
+  "route": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/monitoring?topic=assessment&case=md07",
+  "case": "md07",
+  "premises": "Ordinary synthetic stateful metric alert Fired. One successive below-threshold check only confirmed; operator Closed. No complete resolution sequence or remediation documented.",
+  "decision": "Behold Closed som operatørens oppfølgingsstatus; kontroller videre evalueringer før monitor condition behandles som Resolved.",
+  "reason": "User response og monitor condition er separate; den oppgitte stateful metric-mekanismen krever tre påfølgende kontroller uten oppfylt betingelse.",
+  "ownReason": "Closed is an operator workflow field. One below-threshold check is insufficient for the stipulated ordinary metric auto-resolution; no basis for actual repair or full app health. The signal/aggregation reason is true but does not explain the status separation or required sequence.",
+  "counterfactual": "Three successive relevant below-threshold checks would support the automatic monitor-condition transition under the given mechanism; still not prove remediation.",
+  "feedbackSeen": false
+}

@@ -1,0 +1,271 @@
+# PR57 — separat pedagogisk strukturetterkontroll
+
+Dette er en **etterkontroll etter den opprinnelige kalde låsen**, laget 2026-11-05T15:41:55.369852Z. De69 elevaktivitetene er alle klassifisert i `activities.json`; `modules.json` gir eksakte nå-/ettertall og hele topic-medlemskapet i hver foreslått økt. Original cold-report, solve og lock er ikke endret. Alle544 låste filhash-er er kontrollert på nytt uten avvik. Repository er ikke redigert.
+
+**Før RC:** Ingen konkret alvorlig strukturhindring ble påvist i disse seks rutene. Behold den fungerende strukturen i RC. Fire par av nærliggende teorisider er foreslått som avgrenset **P2-oppfølging**, med middels sikkerhet om mulig pedagogisk gevinst. Ingen målt læringseffekt eller novice-observasjon påstås. Dette er ikke implementerings- eller sluttrevisjonsgodkjenning.
+
+## Grunnlag og klassifikasjon
+
+Vurderingen gjenbruker de69 faktisk leste komplette elevsnapshottene, lenke-/ruteinventaret,24 faktiske representative modellkjøringer, to fullførte guider og seks forhåndslåste førstesvar fra den kalde gjennomgangen. Bare de åtte sidene i de fire konkrete overgangene ble lest på nytt for samlingsspørsmålet. Ingen ny full browserregresjon, kilde-/fasitgjennomgang eller ekstra inputkombinasjoner er gjort i denne oppgaven. Den tidligere separate kildevalideringen er kjent, så denne rapporten omtales ikke som kald.
+
+A = behold; B = slå sammen til leseøkt med alle opprinnelige topicseksjoner bevart; C = integrer som seksjon; D = valgfri/flytt; E = mer undersøkelse. Klassene er muligheter, ikke en fordelingskvote. Her er61A og8B; ingen C/D/E er nødvendig. Fire B-par gir fire færre anbefalte stopp dersom alle senere vedtas, men **65 er et resultat av de konkrete forslagene, ikke et reduksjonsmål**. Ingen ord-, side- eller minuttterskel er brukt.
+
+En side er vurdert etter eget læringsspørsmål, ny mekanisme, avgrensning, praktisk funksjon og avhengighet — ikke etter hvor mye tekst den har. Derfor beholdes også korte oppdrags-/resultat-/testfunksjoner. Alle obligatoriske forklaringer, worked examples, moteksempler, kilder og presise forbehold skal bestå. Ingen obligatorisk AZ-900-undervisning flyttes til valgfri lesning.
+
+| Modul | Nå | Etter hvis kandidat vedtas | Handling |
+|---|---:|---:|---|
+| Storage Part A — Accounts & Services | 11 | 11 | Behold |
+| Storage Part B — Access Tiers & Redundancy | 10 | 10 | Behold |
+| Storage Part C — File Movement & Migration | 12 | 11 | Avgrenset B-kandidat etter RC |
+| Identity Part A — Identity Foundations | 12 | 11 | Avgrenset B-kandidat etter RC |
+| Access Part B — RBAC & Conditional Access | 12 | 11 | Avgrenset B-kandidat etter RC |
+| Security Part C — Security Principles & Defender for Cloud | 12 | 11 | Avgrenset B-kandidat etter RC |
+
+## Grenser som ikke skal slås sammen
+
+Alle seks Studio-arbeidsflater, seks oppdragsinnganger, seks independent-aktiviteter og seks Summary-sider beholdes som24 egne funksjonelle navigasjonspunkter. Modellenes perspektiver og navngitte oppdragsidentiteter er ikke nye foreslåtte økter; de beholder eksplisitt Start, pause/resume, prediksjon/observasjon og årsaksforklaring. Ingen teknisk forsøks-, receipt-, vurderings-, assistance- eller historikkgrense flyttes.
+
+Oppdragskort repeteres i introduksjon/Summary og på egen oppdragsside. Det er observert repetisjon, men kortene har faktisk start-/resume-/returfunksjon. Fjerning er ikke begrunnet bare fordi oppdragssiden ikke introduserer et nytt fagbegrep. Summary gir observerte, separate resultater og neste steg; independent krever egne nye beslutninger og bevarer førsteinnlevering. Disse korte funksjonene bør ikke skjules inne i en lengre teoriøkt.
+
+Storage B boundaries beholdes: den samler enkeltgrenser til en ny krysskombinasjonskontroll, blant annet Archive/ZRS som faktisk ble prøvd. Security Encryption & Key Vault beholdes til tross for merkelappen Learn-supplement: at rest/in transit og autorisasjonsgrensen er nødvendig konseptgrunnlag for data-/applikasjonsresonnement. Hele siden kan ikke gjøres valgfri bare fordi enkelte Key Vault-detaljer ligger utover det avgrensede målet.
+
+## Storage Part A — Accounts & Services
+
+Nå **11**, foreslått **11** anbefalte aktiviteter inklusive uendret Studio, oppdragsinngang, independent og Summary.
+
+**Konkret vurdering:** Ingen konkret strukturhindring er påvist. Fire datakontrakter, kontokompatibilitet og VM-diskgrensen har ulike spørsmål; et generelt «Storage»-kapittel ville skjule viktige forskjeller.
+
+**Mulig gevinst:** Behold gjenfinnbare mekanisme-/kontrollpunkter. Repetert oppdragsinngang kan vurderes senere, men navigasjonssletting er ikke nødvendig for RC.
+
+**Risiko/prioritet:** Samling av de fire tjenestene kan redusere synligheten av kø-/nøkkelmekanismen; ingen påvist fordel nå. behold; ingen strukturell endring anbefales nå. Ingen nødvendig strukturretting før RC er påvist.
+
+| Nåværende aktivitet | Klasse | Begrunnelse for egen side / seksjon |
+|---|---|---|
+| `introduction` · Lagring, data og kontoer | A | En faktisk kravramme før fire ulike mekanismer, ikke bare en modulvelkomst. |
+| `blob` · Azure Blob Storage · objekter | A | Én tydelig ressurs-/klientmodell som kan gjenfinnes separat fra Files. |
+| `files` · Azure Files · delte filer | A | Programkontrakt og protokollstøtte gir et annet spørsmål enn Blob-siden. |
+| `queues` · Azure Queue Storage · asynkront arbeid | A | En selvstendig tids- og feilmodell; bør ikke gjemmes i en generell tjenesteliste. |
+| `tables` · Azure Table Storage · nøkkelbaserte entities | A | Et nytt identifikasjons-/spørremønster krever egen forklaring. |
+| `accounts` · Storage account options · støttede kombinasjoner | A | Tverrsnittskontrollen har et annet utfall enn valg av datakontrakt. |
+| `disks` · Managed disks · VM-volum og datatjenester | A | Kort teknisk inspeksjon har egen sannhetsgrense og kan fortjene egen side selv uten ressurs. |
+| `studio` · Storage Workload Studio | A | Egen vedvarende arbeidsflate med utkast/resultat/oppdragsstatus; dette skillet er viktigere enn tekstmengden. |
+| `missions` · Guidede Storage-oppdrag | A | En kort praktisk start-/resume-funksjon kan fortjene et eget navigasjonspunkt. I denne kontrollen beholdes den for å beskytte oppdragsgrenser og gjenfinning. |
+| `assessment` · Selvstendig Storage-anvendelse | A | Beskyttet vurderingsgrense og egen oppgave må være separat uansett hvor kort eller lang teorien blir. |
+| `summary` · Storage Part A · dokumenterte resultater | A | En kort state-avhengig resultat- og overgangsfunksjon har en selvstendig rolle som ikke bør bli ren sluttekst i assessment. |
+
+Foreslått øktkart med eksakte opprinnelige topic-medlemmer:
+
+- **Lagring, data og kontoer**: `introduction`.
+- **Azure Blob Storage · objekter**: `blob`.
+- **Azure Files · delte filer**: `files`.
+- **Azure Queue Storage · asynkront arbeid**: `queues`.
+- **Azure Table Storage · nøkkelbaserte entities**: `tables`.
+- **Storage account options · støttede kombinasjoner**: `accounts`.
+- **Managed disks · VM-volum og datatjenester**: `disks`.
+- **Storage Workload Studio**: `studio`.
+- **Guidede Storage-oppdrag**: `missions`.
+- **Selvstendig Storage-anvendelse**: `assessment`.
+- **Storage Part A · dokumenterte resultater**: `summary`.
+## Storage Part B — Access Tiers & Redundancy
+
+Nå **10**, foreslått **10** anbefalte aktiviteter inklusive uendret Studio, oppdragsinngang, independent og Summary.
+
+**Konkret vurdering:** Ingen konkret strukturhindring er påvist. Tier, tilstandsendring, fysisk kopi, recovery og krysskombinasjon er forskjellige beslutninger.
+
+**Mulig gevinst:** Behold progressjonen fra krav → tilgjengelighet/kostnad → tilstand → feilgrense → recovery → kombinasjonskontroll.
+
+**Risiko/prioritet:** Å gjøre boundaries til valgfri referanse kan fjerne nødvendig Archive/ZRS- og tjenestestøtteundervisning. behold; ingen strukturell endring anbefales nå. Ingen nødvendig strukturretting før RC er påvist.
+
+| Nåværende aktivitet | Klasse | Begrunnelse for egen side / seksjon |
+|---|---|---|
+| `introduction` · Fra lagringstjeneste til tilgang og beskyttelse | A | Behovene må avgrenses før kostnad eller kopiantall velges; mer enn en velkomstside. |
+| `tiers` · Hot, Cool, Cold og Archive | A | Online/offline og kostnadsdriver er en samlet beslutning med et tydelig moteksempel. |
+| `lifecycle` · Standardtier, lifecycle og rehydrering | A | Tids-/tilstandssemantikk ville forsvinne i en ren fire-tier-tabell. |
+| `redundancy` · LRS, ZRS og geo-replikering | A | En egen avhengighets- og konsistensmodell før man diskuterer recovery. |
+| `recovery` · Sekundær lesing, failover og gjenoppretting | A | Trinnvis gjenoppretting og logisk sletting gir et annet spørsmål enn kopiplassering. |
+| `boundaries` · Tjenestegrenser og kombinasjoner | A | Egen tverrsnittskontroll hindrer at to isolert riktige valg fremstår som en gyldig kombinasjon. |
+| `studio` · Tier & Resilience Studio | A | Egen vedvarende arbeidsflate med utkast/resultat/oppdragsstatus; dette skillet er viktigere enn tekstmengden. |
+| `missions` · Guidede undersøkelser | A | En kort praktisk start-/resume-funksjon kan fortjene et eget navigasjonspunkt. I denne kontrollen beholdes den for å beskytte oppdragsgrenser og gjenfinning. |
+| `assessment` · Selvstendig anvendelse | A | Beskyttet vurderingsgrense og egen oppgave må være separat uansett hvor kort eller lang teorien blir. |
+| `summary` · Summary — Storage Part B | A | En kort state-avhengig resultat- og overgangsfunksjon har en selvstendig rolle som ikke bør bli ren sluttekst i assessment. |
+
+Foreslått øktkart med eksakte opprinnelige topic-medlemmer:
+
+- **Fra lagringstjeneste til tilgang og beskyttelse**: `introduction`.
+- **Hot, Cool, Cold og Archive**: `tiers`.
+- **Standardtier, lifecycle og rehydrering**: `lifecycle`.
+- **LRS, ZRS og geo-replikering**: `redundancy`.
+- **Sekundær lesing, failover og gjenoppretting**: `recovery`.
+- **Tjenestegrenser og kombinasjoner**: `boundaries`.
+- **Tier & Resilience Studio**: `studio`.
+- **Guidede undersøkelser**: `missions`.
+- **Selvstendig anvendelse**: `assessment`.
+- **Summary — Storage Part B**: `summary`.
+## Storage Part C — File Movement & Migration
+
+Nå **12**, foreslått **11** anbefalte aktiviteter inklusive uendret Studio, oppdragsinngang, independent og Summary.
+
+**Konkret vurdering:** Åpningen fordeler samme behovsramme over introduction og methods før verktøysidene; methods tilfører samtidig viktig fidelity som ikke kan kuttes.
+
+**Mulig gevinst:** En felles kravavklaringsøkt kan koble overgangstype direkte til arbeidsform og bevaringskrav før AzCopy/Explorer/File Sync/Migrate/Data Box.
+
+**Risiko/prioritet:** Introduksjonens bevisgrenser eller methods-ACL/fidelity kan drukne i en lengre økt; krever synlige underoverskrifter og presise gamle lenker. behold før RC; P2 avgrenset oppfølging for samlingskandidat. Ingen nødvendig strukturretting før RC er påvist.
+
+Konkret overgangsevidens: [introduction](/workspace/azurelab-pr57/cold/storage-identity-security/evidence/migration-introduction.txt) sier «Fjordverk har produktbilder i et lokalt arkiv, dokumenter på Windows-filservere og en applikasjon som bruker database, identitet og nettverksforbindelser. Å legge noe av dette i Azure er forskjellige oppdrag. En mappe med bilder kan». [methods](/workspace/azurelab-pr57/cold/storage-identity-security/evidence/migration-methods.txt) følger med «Begynn med arbeidsmåten. Et repeterbart kommandolinjesteg kan passe et automatisert bildeutvalg. Et lite, manuelt utvalg kan være enklere i et grafisk verktøy. Et kontor som skal beholde Windows-filservere og løpende endringer, trenger en». Begge fulle manuskript skal beholdes; dette er et forslag til sammenheng, ikke et funn om for lite innhold.
+
+| Nåværende aktivitet | Klasse | Begrunnelse for egen side / seksjon |
+|---|---|---|
+| `introduction` · Fra lagrede data til en kontrollert overgang | B | Har reell begrepssubstans, men kan være første del av én sammenhengende kravavklaring med methods. |
+| `methods` · Ett behov kan gi flere forsvarlige verktøyvalg | B | God sammenligning som egner seg som andre seksjon i kravavklaringen; ikke stoff som kan slettes. |
+| `azcopy` · AzCopy: en eksplisitt kilde, et mål og en jobb | A | Egen jobblogikk og farlige antakelser om sync fortjener separat lesepunkt. |
+| `explorer` · Storage Explorer: kontrollert, grafisk dataarbeid | A | Et selvstendig verktøy-/arbeidsformspørsmål, ikke bare én knapp i AzCopy-siden. |
+| `file-sync` · Azure File Sync: en vedvarende hybrid filrelasjon | A | Tidsavhengig flerendepunktsmodell er noe annet enn en enkeltkopi. |
+| `migrate` · Azure Migrate: fra oppdagelse til en verifisert overgang | A | En annen arbeidslast- og beviskjede enn filverktøyene. |
+| `databox` · Azure Data Box: fysisk transport er en del av planen | A | Fysisk venting og transport krever egen modell; verktøynavnet alene er utilstrekkelig. |
+| `validation` · Hva må resultatet faktisk dokumentere? | A | Felles etterkontroll på tvers av fem verktøy er et eget praktisk spørsmål. |
+| `studio` · File Movement & Migration Studio | A | Egen vedvarende arbeidsflate med utkast/resultat/oppdragsstatus; dette skillet er viktigere enn tekstmengden. |
+| `missions` · Guidede overføringsundersøkelser | A | En kort praktisk start-/resume-funksjon kan fortjene et eget navigasjonspunkt. I denne kontrollen beholdes den for å beskytte oppdragsgrenser og gjenfinning. |
+| `assessment` · Selvstendig File Movement & Migration | A | Beskyttet vurderingsgrense og egen oppgave må være separat uansett hvor kort eller lang teorien blir. |
+| `summary` · Summary — Storage Part C | A | En kort state-avhengig resultat- og overgangsfunksjon har en selvstendig rolle som ikke bør bli ren sluttekst i assessment. |
+
+Foreslått øktkart med eksakte opprinnelige topic-medlemmer:
+
+- **Avklar overgang og metodekrav**: `introduction`, `methods`.
+- **AzCopy: en eksplisitt kilde, et mål og en jobb**: `azcopy`.
+- **Storage Explorer: kontrollert, grafisk dataarbeid**: `explorer`.
+- **Azure File Sync: en vedvarende hybrid filrelasjon**: `file-sync`.
+- **Azure Migrate: fra oppdagelse til en verifisert overgang**: `migrate`.
+- **Azure Data Box: fysisk transport er en del av planen**: `databox`.
+- **Hva må resultatet faktisk dokumentere?**: `validation`.
+- **File Movement & Migration Studio**: `studio`.
+- **Guidede overføringsundersøkelser**: `missions`.
+- **Selvstendig File Movement & Migration**: `assessment`.
+- **Summary — Storage Part C**: `summary`.
+## Identity Part A — Identity Foundations
+
+Nå **12**, foreslått **11** anbefalte aktiviteter inklusive uendret Studio, oppdragsinngang, independent og Summary.
+
+**Konkret vurdering:** MFA og passwordless forklarer overlappende passkey/PIN-eksempler, men eleven må nettopp skille faktor, passordbruk og phishing-resistens.
+
+**Mulig gevinst:** En samlet to-akset metodevurdering kan gjøre sammenligningen direkte; AuthN/AuthZ, SSO, domain og external beholdes som egne spørsmål.
+
+**Risiko/prioritet:** Ikke komprimer passkey/Hello/Authenticator/SMS-støtte til en «passwordless er sterkere»-regel eller gjør SMS-forbehold usynlig. behold før RC; P2 avgrenset oppfølging for samlingskandidat. Ingen nødvendig strukturretting før RC er påvist.
+
+Konkret overgangsevidens: [mfa](/workspace/azurelab-pr57/cold/storage-identity-security/evidence/identity-mfa.txt) sier «Multifactor Authentication, MFA, bruker minst to relevante faktortyper: noe du vet, noe du har, og noe du er. Et passord er knowledge. En registrert sikkerhetsnøkkel eller telefon er possession. Et biometrisk kjennetegn brukt som». [passwordless](/workspace/azurelab-pr57/cold/storage-identity-security/evidence/identity-passwordless.txt) følger med «Passwordless betyr at innloggingen kan gjennomføres uten å skrive et vanlig kontopassord. Det sier ikke alene hvor mange faktortyper som brukes, om metoden er phishing-resistent eller hvilke apper som støttes. En enkelt besittelsesbasert». Begge fulle manuskript skal beholdes; dette er et forslag til sammenheng, ikke et funn om for lite innhold.
+
+| Nåværende aktivitet | Klasse | Begrunnelse for egen side / seksjon |
+|---|---|---|
+| `introduction` · Fra ressurser til identitet | A | En konkret behovsramme før fire lett sammenblandede identitetsspørsmål. |
+| `directory` · Microsoft Entra ID og tenant | A | Egen tillits-/objektmodell før innloggingsmetoder og rettigheter. |
+| `domain` · Microsoft Entra Domain Services | A | En selvstendig arkitektur-/driftsbeslutning med konkrete moteksempler. |
+| `authentication` · Authentication versus Authorization | A | Dette er en grunnleggende beslutningsgrense, ikke bare en ordforklaring. |
+| `sso` · Single Sign-On | A | Tverrapp-forløp er et annet spørsmål enn sterkere bevis; behold tydelig stopp før MFA. |
+| `mfa` · Multifactor Authentication | B | Har egen substans, men to nærliggende sider bør leses som to akser i én metodevurdering. |
+| `passwordless` · Passwordless Authentication | B | Metodene må beholdes fullt, men kan være andre seksjon i felles MFA/passwordless-økt. |
+| `external` · External Identities | A | Egen livssyklus-/tillitsbeslutning med andre forutsetninger enn intern innlogging. |
+| `studio` · Identity & Authentication Studio | A | Egen vedvarende arbeidsflate med utkast/resultat/oppdragsstatus; dette skillet er viktigere enn tekstmengden. |
+| `missions` · Guidede undersøkelser | A | En kort praktisk start-/resume-funksjon kan fortjene et eget navigasjonspunkt. I denne kontrollen beholdes den for å beskytte oppdragsgrenser og gjenfinning. |
+| `assessment` · Selvstendig anvendelse | A | Beskyttet vurderingsgrense og egen oppgave må være separat uansett hvor kort eller lang teorien blir. |
+| `summary` · Summary — Identity Foundations | A | En kort state-avhengig resultat- og overgangsfunksjon har en selvstendig rolle som ikke bør bli ren sluttekst i assessment. |
+
+Foreslått øktkart med eksakte opprinnelige topic-medlemmer:
+
+- **Fra ressurser til identitet**: `introduction`.
+- **Microsoft Entra ID og tenant**: `directory`.
+- **Microsoft Entra Domain Services**: `domain`.
+- **Authentication versus Authorization**: `authentication`.
+- **Single Sign-On**: `sso`.
+- **MFA, passwordless og phishing-resistens**: `mfa`, `passwordless`.
+- **External Identities**: `external`.
+- **Identity & Authentication Studio**: `studio`.
+- **Guidede undersøkelser**: `missions`.
+- **Selvstendig anvendelse**: `assessment`.
+- **Summary — Identity Foundations**: `summary`.
+## Access Part B — RBAC & Conditional Access
+
+Nå **12**, foreslått **11** anbefalte aktiviteter inklusive uendret Studio, oppdragsinngang, independent og Summary.
+
+**Konkret vurdering:** Enkeltpolicyens targeting/grant og flere policyers samlede krav er en sammenhengende evalueringskjede, men ligger nå på to nabosider.
+
+**Mulig gevinst:** Sammenlesing kan gjøre AND/OR innen én policy, flere policyer, Block og Report-only lettere å sammenholde. Testing/nødtilgang beholdes som egen praktisk stopp.
+
+**Risiko/prioritet:** En lengre CA-økt kan skjule rekkevidden av exclusions eller lokke til én samlet CA/RBAC-motor. Modellene og vurderingsgrenser skal ikke endres. behold før RC; P2 avgrenset oppfølging for samlingskandidat. Ingen nødvendig strukturretting før RC er påvist.
+
+Konkret overgangsevidens: [conditional](/workspace/azurelab-pr57/cold/storage-identity-security/evidence/access-control-conditional.txt) sier «Microsoft Entra Conditional Access bruker identitetssignaler og policyer for å styre et tilgangsforsøk. Det er ikke et synonym for MFA og erstatter ikke den første identitetsverifiseringen. Policyhåndheving kommer etter første faktor. En». [policies](/workspace/azurelab-pr57/cold/storage-identity-security/evidence/access-control-policies.txt) følger med «Alle relevante håndhevede Conditional Access-policyer må oppfylles. En policy som krever MFA og en annen som krever compliant device gir samlet begge krav. En vanlig grant-policy opphever ikke en gjeldende Block-policy. En allerede oppfylt». Begge fulle manuskript skal beholdes; dette er et forslag til sammenheng, ikke et funn om for lite innhold.
+
+| Nåværende aktivitet | Klasse | Begrunnelse for egen side / seksjon |
+|---|---|---|
+| `introduction` · Fra autentisering til handling | A | En nødvendig differensialdiagnose før to separate modeller. |
+| `rbac` · Principal, rolle og tildeling | A | En grunnmodell som alle senere rettighetsvalg trenger. |
+| `scope` · Scope og arv | A | Egen rekkeviddebeslutning som ikke kan erstattes av en rolleliste. |
+| `roles` · Azure- og Entra-roller | A | Faktisk hva-tilgang er et eget spørsmål fra scope. |
+| `planes` · Management og data | A | En kritisk, egen operasjonsgrense med egne forutsetninger. |
+| `conditional` · Conditional Access | B | Fullt innhold trengs, men bør være første del i en samlet policy-evalueringsøkt. |
+| `policies` · Samtidige policyer | B | Egen semantikk må beholdes, men passer etter én-policy-delen før en felles kontrast. |
+| `testing` · Testing og nødtilgang | A | En kortere praktisk sikkerhetsfunksjon fortjener eget kontrollpunkt før interaksjon. |
+| `studio` · Azure Access Decision Studio | A | Egen vedvarende arbeidsflate med utkast/resultat/oppdragsstatus; dette skillet er viktigere enn tekstmengden. |
+| `missions` · Guidede undersøkelser | A | En kort praktisk start-/resume-funksjon kan fortjene et eget navigasjonspunkt. I denne kontrollen beholdes den for å beskytte oppdragsgrenser og gjenfinning. |
+| `assessment` · Selvstendig anvendelse | A | Beskyttet vurderingsgrense og egen oppgave må være separat uansett hvor kort eller lang teorien blir. |
+| `summary` · Summary — Access Control | A | En kort state-avhengig resultat- og overgangsfunksjon har en selvstendig rolle som ikke bør bli ren sluttekst i assessment. |
+
+Foreslått øktkart med eksakte opprinnelige topic-medlemmer:
+
+- **Fra autentisering til handling**: `introduction`.
+- **Principal, rolle og tildeling**: `rbac`.
+- **Scope og arv**: `scope`.
+- **Azure- og Entra-roller**: `roles`.
+- **Management og data**: `planes`.
+- **Conditional Access: policy og samlet utfall**: `conditional`, `policies`.
+- **Testing og nødtilgang**: `testing`.
+- **Azure Access Decision Studio**: `studio`.
+- **Guidede undersøkelser**: `missions`.
+- **Selvstendig anvendelse**: `assessment`.
+- **Summary — Access Control**: `summary`.
+## Security Part C — Security Principles & Defender for Cloud
+
+Nå **12**, foreslått **11** anbefalte aktiviteter inklusive uendret Studio, oppdragsinngang, independent og Summary.
+
+**Konkret vurdering:** Defender-funksjonskartet og neste posture-side gjeninnfører anbefaling/CSPM før de konkrete plan-/datavilkårene.
+
+**Mulig gevinst:** Én funksjon→grunnlag→oppfølging-økt kan bevare begge forklaringer og redusere ny oppstart. Workload-alerts og score er ulike bevis-/tolkingsspørsmål som fortsatt fortjener egne sider.
+
+**Risiko/prioritet:** Ikke la CNAPP/CSPM/CWPP eller metadataforbehold bli skjult i en stor produktoversikt. Encryption beholdes; Learn-supplement er ikke i seg selv grunn til å fjerne nødvendig krypteringsgrunnlag. behold før RC; P2 avgrenset oppfølging for samlingskandidat. Ingen nødvendig strukturretting før RC er påvist.
+
+Konkret overgangsevidens: [defender](/workspace/azurelab-pr57/cold/storage-identity-security/evidence/security-defender.txt) sier «Microsoft Defender for Cloud er en Cloud Native Application Protection Platform, ofte forkortet CNAPP. Den samler funksjoner for å forstå sikkerhetskonfigurasjon, beskytte støttede arbeidslaster og koble sikkerhet til utviklingsløpet. På». [posture](/workspace/azurelab-pr57/cold/storage-identity-security/evidence/security-posture.txt) følger med «En sikkerhetsanbefaling kan identifisere en svak konfigurasjon, utilstrekkelig beskyttelse eller potensiell eksponering. Den beskriver hva som bør undersøkes og forbedres, og kan gi forklaring og forslag til tiltak. En posture finding er». Begge fulle manuskript skal beholdes; dette er et forslag til sammenheng, ikke et funn om for lite innhold.
+
+| Nåværende aktivitet | Klasse | Begrunnelse for egen side / seksjon |
+|---|---|---|
+| `introduction` · Sikkerhet som helhet | A | Setter en nødvendig sannhets-/risikoramme for avsluttende anvendelse. |
+| `zero-trust` · Zero Trust — tre prinsipper | A | En egen årsaksmodell med faktisk gjennomført guide og flere uavhengige prinsippakser. |
+| `depth` · Defense in Depth — sju lag | A | Stor kvalitativ spennvidde mellom fysiske og data-/applikasjonsmekanismer; ikke en kosmetisk liste. |
+| `encryption` · Encryption & Key Vault · Learn-supplement | A | Behold som egen tilgjengelig grunnforklaring selv om den heter Learn-supplement; hele siden kan ikke gjøres valgfri uten å kontrollere oppgaveavhengigheter. |
+| `defender` · Microsoft Defender for Cloud | B | Funksjonskartet trengs, men kan være første seksjon før konkret posture-/planvurdering. |
+| `posture` · CSPM, anbefalinger og planer | B | Behold full presisering i samme økt som funksjonskartet; ingen grunn til å slette eller gjøre den valgfri. |
+| `protection` · Workload Protection & Security Alerts | A | Eget undersøkelsesspørsmål og datagrunnlag bør ikke begraves i oversikten. |
+| `score` · To Secure Score-modeller | A | En kort, selvstendig tolkingsoppgave beskytter mot en konkret misvisende sikkerhetskonklusjon. |
+| `studio` · Security Decision Studio | A | Egen vedvarende arbeidsflate med utkast/resultat/oppdragsstatus; dette skillet er viktigere enn tekstmengden. |
+| `missions` · Guidede sikkerhetsundersøkelser | A | En kort praktisk start-/resume-funksjon kan fortjene et eget navigasjonspunkt. I denne kontrollen beholdes den for å beskytte oppdragsgrenser og gjenfinning. |
+| `assessment` · Selvstendig sikkerhetsanvendelse | A | Beskyttet vurderingsgrense og egen oppgave må være separat uansett hvor kort eller lang teorien blir. |
+| `summary` · Summary — Security Part C | A | En kort state-avhengig resultat- og overgangsfunksjon har en selvstendig rolle som ikke bør bli ren sluttekst i assessment. |
+
+Foreslått øktkart med eksakte opprinnelige topic-medlemmer:
+
+- **Sikkerhet som helhet**: `introduction`.
+- **Zero Trust — tre prinsipper**: `zero-trust`.
+- **Defense in Depth — sju lag**: `depth`.
+- **Encryption & Key Vault · Learn-supplement**: `encryption`.
+- **Defender for Cloud: posture, planer og oppfølging**: `defender`, `posture`.
+- **Workload Protection & Security Alerts**: `protection`.
+- **To Secure Score-modeller**: `score`.
+- **Security Decision Studio**: `studio`.
+- **Guidede sikkerhetsundersøkelser**: `missions`.
+- **Selvstendig sikkerhetsanvendelse**: `assessment`.
+- **Summary — Security Part C**: `summary`.
+
+## Felles risiko og avgrenset neste steg
+
+Ved eventuell prototype av de fire B-parene må begge opprinnelige manuskript gjengis fullt under tydelige overskrifter. Behold gamle topic-URL-er, fragment/heading, visit-semantikk, presise feedback-returer, kildetilknytning og alle støtte-/tidsforbehold. Montert sammensatt side må ikke registrere offscreen-seksjoner som lest eller guided fullført. Et gammelt aktivitetstall er ikke ny dokumentasjon på kompetanse. Eksisterende teaching/Journal/assistance-grenser gjelder også for de nye visningsgrensene.
+
+Prioritert oppfølging er å prøve de to mest kausalt koblede parene først: Identity MFA/passwordless og Access enkeltpolicy/samtidige policyer. Migration-kravavklaring og Security-funksjonskart/posture følger som separate små vurderinger dersom en prototype viser bedre sammenheng uten dårligere gjenfinning. Dette er en testbar implementeringshypotese, ikke et krav om automatisk fire sammenslåinger. Det finnes ingen demonstrert alvorlig læringshindring som krever noen av dem før RC.
+
+Per-aktivitet-JSON oppgir konkret mål, ny forståelse, kvalitativ substans, mekanisme/check/faktisk evidens, forkunnskaper, avhengighet, repetisjonsrolle, sidebegrunnelse, klasse/øktforslag, nav-effekt, risiko, prioritet, et faktisk snapshot med kort ordrett sitat og sikkerhet. Read-only teorisider tillegges ikke besvarelser eller fullføring. Interaksjonsevidens er samplet; alle verktøy-/policy-/auth-/Defender-kombinasjoner og scenariofamilier er ikke prøvd. Ingen menneskelig SME-/skjermleser-/psykometrisk-/målt læringsgodkjenning er utført.

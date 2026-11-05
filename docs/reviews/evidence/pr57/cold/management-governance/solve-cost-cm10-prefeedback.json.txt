@@ -1,0 +1,9 @@
+{
+  "utc": "2026-11-05T14:06:28.971Z",
+  "route": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/cost?topic=assessment&case=cm10",
+  "case": "cm10",
+  "decision": "Bruk dokumentert egnet PAYG-kapasitet nå, og undersøk bruk og rightsizing før nye bindinger.",
+  "reasonChoice": "Prisvalg må møte avbruddskrav og dokumentert bruk; betalingsvalg alene beviser ikke høy tilgjengelighet.",
+  "ownReason": "No restart after eviction and no fallback make sole Spot incompatible with stated work. A sufficient PAYG profile is explicitly documented. Variable demand without a measured baseline does not justify reserving peaks. PAYG pricing itself is not HA.",
+  "alternatives": "Spot could be reasonable with checkpoint/restart and tolerant deadline; reservation needs a documented qualified baseline. Those counterfactual premises are absent."
+}

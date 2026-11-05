@@ -1,0 +1,11 @@
+{
+  "at": "2026-11-05T14:16:55.975Z",
+  "stage": "LOCKED BEFORE SUBMIT OR FEEDBACK",
+  "sourceNotSeen": true,
+  "route": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/compute?topic=assessment&case=cp09",
+  "scenario": "cp09",
+  "decision": "Bruk et egnet NIC/VNet/subnet-grunnlag i region B og kontroller de faktiske referansene og subscription.",
+  "reason": "VM/NIC har dokumenterte regionale og abonnementsrelasjoner; felles management-kontekst opphever ikke det faste plasseringskravet.",
+  "rationale": "VM and NIC must fit regional attachment requirements; moving resource group metadata does not move existing NIC. B is fixed so A cannot meet assignment.",
+  "plausibleAlternatives": "None of the listed alternatives respects fixed B while preserving A."
+}

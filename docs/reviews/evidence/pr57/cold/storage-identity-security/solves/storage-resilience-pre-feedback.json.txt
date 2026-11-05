@@ -1,0 +1,12 @@
+{
+  "route": "storage-resilience",
+  "scenario": "rb09",
+  "decision": 1,
+  "reason": 0,
+  "rationale": "Both replicas contain the deletion. Failover cannot restore history. The premise explicitly supplies protected selective restore to a controlled target, allowing validation and recovery of that container without overwriting newer unrelated writes.",
+  "decisionText": "Gjenopprett den slettede containeren til kontrollert mål, valider og før relevante data tilbake.",
+  "reasonText": "Replikaer kan kopiere sletting; avgrenset restore fra historikk kan bevare nyere upåvirkede data.",
+  "at": "2026-11-05T14:15:23.265Z",
+  "promptFile": "evidence/storage-resilience-independent-prompt.json",
+  "promptSha256": "2db78bbfa4d5180aa5c53ab48ed740d7b61050f404e3f9f3cc3a8474b7c3fb62"
+}

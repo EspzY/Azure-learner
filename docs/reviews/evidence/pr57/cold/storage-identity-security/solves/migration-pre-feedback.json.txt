@@ -1,0 +1,12 @@
+{
+  "route": "migration",
+  "scenario": "fm07",
+  "decision": 0,
+  "reason": 1,
+  "rationale": "48 decimal TB times 8 divided by 200 Mbit/s = 1,920,000 s = 533.333 h before overhead. Physical steps sum 36+60+72+12=180 h. Alfa starts now and fits 240 h. Beta waits 168 h then takes 180 h, total348 h, and fails. All controls and verification are expressly satisfied.",
+  "decisionText": "Velg Alfa og gjennomfør lokal kopi, transport, Azure-behandling og verifikasjon før dataene godkjennes.",
+  "reasonText": "Ventetid må regnes sammen med arbeidstrinnene. Alfa gir180timer, Beta348timer og nettets nedre grense omtrent533timer; derfor passer bare Alfa under de erklærte tallene.",
+  "at": "2026-11-05T14:15:23.265Z",
+  "promptFile": "evidence/migration-independent-prompt.json",
+  "promptSha256": "0d01f7700180e78032e8dbb52153cfa01b07d5165fb6e85796f14d5de7726a4d"
+}

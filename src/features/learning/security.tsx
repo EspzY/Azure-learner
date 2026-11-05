@@ -3,7 +3,7 @@ import { SourceDisclosure } from './source-disclosure';
 import { GuidedMissionLink } from '@/features/course/guided-mission-link';
 import { useEffect } from 'react';
 import Link from 'next/link';
-import { securityNb as c } from '@/content/nb';
+import { securityPresentation as c } from './final-quality-copy';
 import {
   securityHref,
   securityMissions,

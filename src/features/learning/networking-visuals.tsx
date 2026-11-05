@@ -1,5 +1,6 @@
 'use client';
 import { networkingNb as c } from '@/content/nb';
+import { peeringResultText } from './final-quality-feedback';
 import { resolvePortalIcon } from '@/features/portal/service-icon';
 import {
   address,
@@ -150,7 +151,8 @@ export function NetworkingModelResult({ input }: { input: NetworkInput }) {
     );
   }
   if (input.kind === 'peering') {
-    const r = runPeering(input)!;
+    const r = runPeering(input)!,
+      explanation = peeringResultText(input);
     return (
       <section className="network-result" aria-label={c.model.peering}>
         <figure className="network-topology">
@@ -196,8 +198,7 @@ export function NetworkingModelResult({ input }: { input: NetworkInput }) {
             })}
           </svg>
           <figcaption>
-            A → {input.destination.toUpperCase()} ·{' '}
-            {r.permitted ? c.model.logical : !r.direct ? c.model.peeringMissing : c.model.partial}
+            A → {input.destination.toUpperCase()} · {explanation}
           </figcaption>
         </figure>
         <table className="network-table">
@@ -233,7 +234,7 @@ export function NetworkingModelResult({ input }: { input: NetworkInput }) {
         </dl>
         {input.scope === 'selected' && <p className="compute-boundary">{c.model.qualification}</p>}
         <p className="network-verdict" role="status">
-          {r.permitted ? c.model.logical : !r.direct ? c.model.peeringMissing : c.model.partial}
+          {explanation}
         </p>
       </section>
     );

@@ -1,0 +1,40 @@
+{
+  "at": "2026-11-05T14:07:31.690Z",
+  "stage": "LOCKED BEFORE SUBMIT OR FEEDBACK",
+  "route": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/architecture?topic=management-assessment",
+  "decisions": [
+    [
+      "Det utpekte produksjons-subscriptionet.",
+      "Production explicitly required; technical validity in Development is insufficient."
+    ],
+    [
+      "For å følge styrings-, ressurs- og kostnadskonteksten.",
+      "Subscription organizes governance/cost."
+    ],
+    [
+      "Egen gruppe for kampanjeappen; behold delt plan i plattformgruppen.",
+      "Separate lifetime of campaign app vs shared plan; prompt expressly evaluates real Azure cross-group support."
+    ],
+    [
+      "Planen har fortsatt andre forbrukere; gruppemetadata flytter ikke deres hosting.",
+      "Other apps still need the shared plan."
+    ],
+    [
+      "Production under Platform; ikke Research under søstergruppen.",
+      "Policy ancestry stops at sibling boundary."
+    ],
+    [
+      "Ingen av de tre avvises av denne regelen: location, type og ancestry gir ulike avgrensninger.",
+      "Production VM in allowed location; Web plan wrong type; Research VM out of scope."
+    ],
+    [
+      "Adskilte soner med riktig konfigurert redundans og alle nødvendige avhengigheter.",
+      "Administrative scopes do not isolate zone faults."
+    ],
+    [
+      "Directory gir identitetskontekst; grupper gir medlemskap; appens planreferanse gir hosting.",
+      "Different relation meanings."
+    ]
+  ],
+  "sourceNotSeen": true
+}

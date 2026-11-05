@@ -1,0 +1,927 @@
+{
+  "createdUtc": "2026-11-05T15:44:23.990789+00:00",
+  "reviewStage": "Separat pedagogisk struktur-etterkontroll etter kald lås og etter-lås kildevalidering; ikke nytt kaldt review.",
+  "basisSha": "a3f1b575b2eb5b257fd455fec1a73b30a38706f4",
+  "basis": "52 faktisk leste offentlige studenttekst-/figur-/kontrollsnapshots og tidligere registrerte interaksjoner fra den kalde passeringen. Ingen nytt kildearbeid eller ny bankreview for denne strukturvurderingen.",
+  "noNewBrowserTransitions": "Ingen nye browseroverganger var nødvendige: direkte sideinnhold, faktisk Next/Previous og guideprioritet finnes i låst inventar og vitner. Fremtidig sammensetting/resume er en implementeringsrisiko, ikke påstått testet.",
+  "classificationLegend": {
+    "A": "behold egen anbefalt aktivitet",
+    "B": "slå sammen jevnbyrdige aktiviteter til økt",
+    "C": "integrer som navngitt seksjon i annen aktivitet",
+    "D": "valgfri eller flytt til sekundær oversikt/tillegg",
+    "E": "mer undersøkelse før strukturvalg"
+  },
+  "originalIntegrity": {
+    "manifest": "/workspace/azurelab-pr57/cold/core-compute-network/lock.json",
+    "finishUtc": "2026-11-05T14:37:56.133237+00:00",
+    "filesChecked": 527,
+    "sha256Mismatches": 0
+  },
+  "limitations": [
+    "AI-pedagogisk strukturvurdering, ikke menneskelig novice-/SME-/skjermleser- eller målt læringseffektstudie.",
+    "Ingen ord-/sideterskel, ingen reduksjonsmål og ingen tvungen seksøktsstruktur. Kort funksjonell modell eller check kan legitimere egen aktivitet.",
+    "Snapshots er fra kald SHA før eventuelle senere PR57-rettinger; dette er ikke en fersk RC-UIverifikasjon.",
+    "Alle originale topic-/check-/guide-/assessmentidentiteter, Start/submit/aid/first/retry/resume, modeller, lagrede resultater og rubrics skal bevares.",
+    "Oppdragskart kan allerede bli forbigått av dynamisk Neste. Reduksjon av statiske oppføringer er ingen dokumentert tilsvarende klikkbesparelse.",
+    "Ingen konkret strukturell P1 er påvist; forslagene er en avgrenset oppfølging, ikke krav før RC."
+  ],
+  "aggregate": {
+    "currentActivities": 52,
+    "recommendedAfter": 44,
+    "optionalSecondaryAfter": 4,
+    "allSessionsIncludingOptionalAfter": 48,
+    "classificationCounts": {
+      "A": 44,
+      "C": 4,
+      "D": 4
+    },
+    "measuredClicksSaved": null,
+    "countMeaning": "Resultat av aktivitetenes funksjonelle begrunnelse, ikke et forhåndsbestemt reduksjonsmål. Alle52 originale topics bevares som egne økter, sekjsoner eller sekundære valg."
+  },
+  "modules": [
+    {
+      "module": "architecture",
+      "title": "Core Architecture A/B",
+      "currentCountExact": 17,
+      "countBasis": "Statiske anbefalte sidebar-/aktivitetsoppføringer i den låste ruteinventarlisten; ikke antall faktisk besøkte Neste-klikk.",
+      "currentTopics": [
+        "datacenters",
+        "regions",
+        "zones",
+        "pairs",
+        "sovereign",
+        "explorer",
+        "assessment",
+        "summary",
+        "organization",
+        "resources",
+        "groups",
+        "subscriptions",
+        "management",
+        "hierarchy",
+        "scope",
+        "management-assessment",
+        "core-summary"
+      ],
+      "proposedSessions": [
+        {
+          "id": "architecture-datacenters",
+          "title": "Maskinene trenger et sted å være",
+          "mode": "recommended",
+          "topics": [
+            "datacenters"
+          ],
+          "unchangedAttemptBoundaries": [],
+          "assessmentOrSummary": false,
+          "reason": "Behold aktivitetens distinkte lærings-/evidensfunksjon som dokumentert per aktivitet."
+        },
+        {
+          "id": "architecture-regions",
+          "title": "Geography og region",
+          "mode": "recommended",
+          "topics": [
+            "regions"
+          ],
+          "unchangedAttemptBoundaries": [],
+          "assessmentOrSummary": false,
+          "reason": "Behold aktivitetens distinkte lærings-/evidensfunksjon som dokumentert per aktivitet."
+        },
+        {
+          "id": "architecture-zones",
+          "title": "Soner er forskjellige feilgrenser",
+          "mode": "recommended",
+          "topics": [
+            "zones"
+          ],
+          "unchangedAttemptBoundaries": [],
+          "assessmentOrSummary": false,
+          "reason": "Behold aktivitetens distinkte lærings-/evidensfunksjon som dokumentert per aktivitet."
+        },
+        {
+          "id": "architecture-pairs",
+          "title": "Regionpar er ikke en beredskapsplan",
+          "mode": "recommended",
+          "topics": [
+            "pairs"
+          ],
+          "unchangedAttemptBoundaries": [],
+          "assessmentOrSummary": false,
+          "reason": "Behold aktivitetens distinkte lærings-/evidensfunksjon som dokumentert per aktivitet."
+        },
+        {
+          "id": "architecture-sovereign",
+          "title": "Region eller separat skymiljø?",
+          "mode": "recommended",
+          "topics": [
+            "sovereign"
+          ],
+          "unchangedAttemptBoundaries": [],
+          "assessmentOrSummary": false,
+          "reason": "Behold aktivitetens distinkte lærings-/evidensfunksjon som dokumentert per aktivitet."
+        },
+        {
+          "id": "architecture-explorer",
+          "title": "Azure Infrastructure Explorer",
+          "mode": "recommended",
+          "topics": [
+            "explorer"
+          ],
+          "unchangedAttemptBoundaries": [
+            "explorer"
+          ],
+          "assessmentOrSummary": false,
+          "reason": "Behold aktivitetens distinkte lærings-/evidensfunksjon som dokumentert per aktivitet."
+        },
+        {
+          "id": "architecture-assessment",
+          "title": "Selvstendig anvendelse · fysisk arkitektur",
+          "mode": "recommended",
+          "topics": [
+            "assessment"
+          ],
+          "unchangedAttemptBoundaries": [
+            "assessment"
+          ],
+          "assessmentOrSummary": true,
+          "reason": "Behold aktivitetens distinkte lærings-/evidensfunksjon som dokumentert per aktivitet."
+        },
+        {
+          "id": "architecture-summary",
+          "title": "Dine observasjoner · Part A",
+          "mode": "recommended",
+          "topics": [
+            "summary"
+          ],
+          "unchangedAttemptBoundaries": [],
+          "assessmentOrSummary": true,
+          "reason": "Behold aktivitetens distinkte lærings-/evidensfunksjon som dokumentert per aktivitet."
+        },
+        {
+          "id": "architecture-resources",
+          "title": "Fra administrativt problem til Azure-ressurs",
+          "mode": "recommended",
+          "topics": [
+            "organization",
+            "resources"
+          ],
+          "unchangedAttemptBoundaries": [],
+          "assessmentOrSummary": false,
+          "reason": "Absorber bare forberedende orientering/teori; samme arbeidsflate og opprinnelige grense."
+        },
+        {
+          "id": "architecture-groups",
+          "title": "Resource groups og livssyklus",
+          "mode": "recommended",
+          "topics": [
+            "groups"
+          ],
+          "unchangedAttemptBoundaries": [],
+          "assessmentOrSummary": false,
+          "reason": "Behold aktivitetens distinkte lærings-/evidensfunksjon som dokumentert per aktivitet."
+        },
+        {
+          "id": "architecture-subscriptions",
+          "title": "Subscriptions og identitet",
+          "mode": "recommended",
+          "topics": [
+            "subscriptions"
+          ],
+          "unchangedAttemptBoundaries": [],
+          "assessmentOrSummary": false,
+          "reason": "Behold aktivitetens distinkte lærings-/evidensfunksjon som dokumentert per aktivitet."
+        },
+        {
+          "id": "architecture-management",
+          "title": "Management groups og root",
+          "mode": "recommended",
+          "topics": [
+            "management"
+          ],
+          "unchangedAttemptBoundaries": [],
+          "assessmentOrSummary": false,
+          "reason": "Behold aktivitetens distinkte lærings-/evidensfunksjon som dokumentert per aktivitet."
+        },
+        {
+          "id": "architecture-hierarchy",
+          "title": "Management Hierarchy Explorer",
+          "mode": "recommended",
+          "topics": [
+            "hierarchy"
+          ],
+          "unchangedAttemptBoundaries": [
+            "hierarchy"
+          ],
+          "assessmentOrSummary": false,
+          "reason": "Behold aktivitetens distinkte lærings-/evidensfunksjon som dokumentert per aktivitet."
+        },
+        {
+          "id": "architecture-scope",
+          "title": "Scope, policy og praktisk undersøkelse",
+          "mode": "recommended",
+          "topics": [
+            "scope"
+          ],
+          "unchangedAttemptBoundaries": [
+            "scope"
+          ],
+          "assessmentOrSummary": false,
+          "reason": "Behold aktivitetens distinkte lærings-/evidensfunksjon som dokumentert per aktivitet."
+        },
+        {
+          "id": "architecture-management-assessment",
+          "title": "Part B · selvstendig anvendelse",
+          "mode": "recommended",
+          "topics": [
+            "management-assessment"
+          ],
+          "unchangedAttemptBoundaries": [
+            "management-assessment"
+          ],
+          "assessmentOrSummary": true,
+          "reason": "Behold aktivitetens distinkte lærings-/evidensfunksjon som dokumentert per aktivitet."
+        },
+        {
+          "id": "architecture-core-summary",
+          "title": "Core Architecture · samlet resultat",
+          "mode": "recommended",
+          "topics": [
+            "core-summary"
+          ],
+          "unchangedAttemptBoundaries": [],
+          "assessmentOrSummary": true,
+          "reason": "Behold aktivitetens distinkte lærings-/evidensfunksjon som dokumentert per aktivitet."
+        }
+      ],
+      "recommendedSessionOrder": [
+        "architecture-datacenters",
+        "architecture-regions",
+        "architecture-zones",
+        "architecture-pairs",
+        "architecture-sovereign",
+        "architecture-explorer",
+        "architecture-assessment",
+        "architecture-summary",
+        "architecture-resources",
+        "architecture-groups",
+        "architecture-subscriptions",
+        "architecture-management",
+        "architecture-hierarchy",
+        "architecture-scope",
+        "architecture-management-assessment",
+        "architecture-core-summary"
+      ],
+      "optionalSecondarySessions": [],
+      "countAfter": 16,
+      "countAfterDefinition": "Anbefalte økter inklusive uendrede assessment-, summary- og praksisaktiviteter; sekundære valg telles separat.",
+      "countAfterIncludingOptionalSecondary": 16,
+      "optionalSecondaryCount": 0,
+      "assessmentTopicsUnchanged": [
+        "assessment",
+        "management-assessment"
+      ],
+      "summaryTopicsUnchanged": [
+        "summary",
+        "core-summary"
+      ],
+      "practiceTopicsKeptSeparate": [
+        "explorer",
+        "hierarchy",
+        "scope"
+      ],
+      "allOriginalTopicsAccountedForExactlyOnce": true,
+      "documentedProblem": "Én etterfølgende problemorientering og resources gjentar samme fullhierarki og scope/identitet/fysisk-triade. Resten av de korte teorisidene har egne skiller og egne checks; explorer/scope er funksjonelle arbeid.",
+      "proposedGain": "Knytt caset i Part B og orienteringssjekk direkte til første ARM-objekter. Behold alle fysiske feilgrenser og administrative beslutninger, assessment for A/B og begge Summary-grenser.",
+      "risk": "Medium: bevar original organization-sjekk, undervisning i Part B/aid og eksisterende topicdestinasjon som seksjon; ingen offscreen visit eller implicit kreditt.",
+      "priority": "P2 oppfølging",
+      "mustBeforeRC": false,
+      "decision": "Én avgrenset etterfølgende segmenteringsleveranse; behold nåværende struktur gjennom RC.",
+      "navEffect": "Kun statisk rolle/komposisjon foreslås; dynamisk guidens Neste, Start/resume og attemptgrenser bevares. Netto klikkbesparelse er ikke målt og skal ikke utledes av telledifferansen.",
+      "evidence": [
+        {
+          "topic": "organization",
+          "snapshot": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/023-architecture-organization.json",
+          "quote": "Først problemet: hvem eier hva?"
+        }
+      ]
+    },
+    {
+      "module": "compute",
+      "title": "Compute & Hosting",
+      "currentCountExact": 14,
+      "countBasis": "Statiske anbefalte sidebar-/aktivitetsoppføringer i den låste ruteinventarlisten; ikke antall faktisk besøkte Neste-klikk.",
+      "currentTopics": [
+        "introduction",
+        "fundamentals",
+        "vm",
+        "dependencies",
+        "containers",
+        "functions",
+        "options",
+        "resilience",
+        "desktop",
+        "hosting",
+        "context",
+        "missions",
+        "assessment",
+        "summary"
+      ],
+      "proposedSessions": [
+        {
+          "id": "compute-fundamentals",
+          "title": "Fra arbeidslast til kjøremiljø",
+          "mode": "recommended",
+          "topics": [
+            "introduction",
+            "fundamentals"
+          ],
+          "unchangedAttemptBoundaries": [],
+          "assessmentOrSummary": false,
+          "reason": "Absorber bare forberedende orientering/teori; samme arbeidsflate og opprinnelige grense."
+        },
+        {
+          "id": "compute-vm",
+          "title": "Virtual Machines: guest og ressursprofil",
+          "mode": "recommended",
+          "topics": [
+            "vm"
+          ],
+          "unchangedAttemptBoundaries": [],
+          "assessmentOrSummary": false,
+          "reason": "Behold aktivitetens distinkte lærings-/evidensfunksjon som dokumentert per aktivitet."
+        },
+        {
+          "id": "compute-dependencies",
+          "title": "VM Resources & Dependencies",
+          "mode": "recommended",
+          "topics": [
+            "dependencies"
+          ],
+          "unchangedAttemptBoundaries": [
+            "dependencies"
+          ],
+          "assessmentOrSummary": false,
+          "reason": "Behold aktivitetens distinkte lærings-/evidensfunksjon som dokumentert per aktivitet."
+        },
+        {
+          "id": "compute-containers",
+          "title": "Container Execution Explorer",
+          "mode": "recommended",
+          "topics": [
+            "containers"
+          ],
+          "unchangedAttemptBoundaries": [
+            "containers"
+          ],
+          "assessmentOrSummary": false,
+          "reason": "Behold aktivitetens distinkte lærings-/evidensfunksjon som dokumentert per aktivitet."
+        },
+        {
+          "id": "compute-functions",
+          "title": "Functions i compute-landskapet",
+          "mode": "recommended",
+          "topics": [
+            "functions"
+          ],
+          "unchangedAttemptBoundaries": [],
+          "assessmentOrSummary": false,
+          "reason": "Behold aktivitetens distinkte lærings-/evidensfunksjon som dokumentert per aktivitet."
+        },
+        {
+          "id": "compute-resilience",
+          "title": "Velg VM-mekanisme og undersøk kapasitet/feil",
+          "mode": "recommended",
+          "topics": [
+            "options",
+            "resilience"
+          ],
+          "unchangedAttemptBoundaries": [
+            "resilience"
+          ],
+          "assessmentOrSummary": false,
+          "reason": "Absorber bare forberedende orientering/teori; samme arbeidsflate og opprinnelige grense."
+        },
+        {
+          "id": "compute-desktop",
+          "title": "Azure Virtual Desktop Explorer",
+          "mode": "recommended",
+          "topics": [
+            "desktop"
+          ],
+          "unchangedAttemptBoundaries": [
+            "desktop"
+          ],
+          "assessmentOrSummary": false,
+          "reason": "Behold aktivitetens distinkte lærings-/evidensfunksjon som dokumentert per aktivitet."
+        },
+        {
+          "id": "compute-hosting",
+          "title": "Hosting Decision Studio",
+          "mode": "recommended",
+          "topics": [
+            "hosting"
+          ],
+          "unchangedAttemptBoundaries": [
+            "hosting"
+          ],
+          "assessmentOrSummary": false,
+          "reason": "Behold aktivitetens distinkte lærings-/evidensfunksjon som dokumentert per aktivitet."
+        },
+        {
+          "id": "compute-context",
+          "title": "AI, machine learning og IoT/Edge",
+          "mode": "optional-secondary",
+          "topics": [
+            "context"
+          ],
+          "unchangedAttemptBoundaries": [],
+          "assessmentOrSummary": false,
+          "reason": "Bevart sekundær direkte/resume-destinasjon, ikke obligatorisk ny undervisningsøkt."
+        },
+        {
+          "id": "compute-missions",
+          "title": "Guidede anvendelser",
+          "mode": "optional-secondary",
+          "topics": [
+            "missions"
+          ],
+          "unchangedAttemptBoundaries": [],
+          "assessmentOrSummary": false,
+          "reason": "Bevart sekundær direkte/resume-destinasjon, ikke obligatorisk ny undervisningsøkt."
+        },
+        {
+          "id": "compute-assessment",
+          "title": "Selvstendig Compute-anvendelse",
+          "mode": "recommended",
+          "topics": [
+            "assessment"
+          ],
+          "unchangedAttemptBoundaries": [
+            "assessment"
+          ],
+          "assessmentOrSummary": true,
+          "reason": "Behold aktivitetens distinkte lærings-/evidensfunksjon som dokumentert per aktivitet."
+        },
+        {
+          "id": "compute-summary",
+          "title": "Oppsummering og dokumenterte resultater",
+          "mode": "recommended",
+          "topics": [
+            "summary"
+          ],
+          "unchangedAttemptBoundaries": [],
+          "assessmentOrSummary": true,
+          "reason": "Behold aktivitetens distinkte lærings-/evidensfunksjon som dokumentert per aktivitet."
+        }
+      ],
+      "recommendedSessionOrder": [
+        "compute-fundamentals",
+        "compute-vm",
+        "compute-dependencies",
+        "compute-containers",
+        "compute-functions",
+        "compute-resilience",
+        "compute-desktop",
+        "compute-hosting",
+        "compute-assessment",
+        "compute-summary"
+      ],
+      "optionalSecondarySessions": [
+        "compute-context",
+        "compute-missions"
+      ],
+      "countAfter": 10,
+      "countAfterDefinition": "Anbefalte økter inklusive uendrede assessment-, summary- og praksisaktiviteter; sekundære valg telles separat.",
+      "countAfterIncludingOptionalSecondary": 12,
+      "optionalSecondaryCount": 2,
+      "assessmentTopicsUnchanged": [
+        "assessment"
+      ],
+      "summaryTopicsUnchanged": [
+        "summary"
+      ],
+      "practiceTopicsKeptSeparate": [
+        "dependencies",
+        "containers",
+        "resilience",
+        "desktop",
+        "hosting"
+      ],
+      "allOriginalTopicsAccountedForExactlyOnce": true,
+      "documentedProblem": "Introduction og fundamentals viser samme Hva kjører koden?-stacks; options og resilience bruker samme FD/UD-matrise. Etter fullført containerguide gikk faktisk Neste direkte til resilience, så separat options kan ligge utenfor akkurat den guideflyten. Context er eksplisitt Learn-tillegg; missions gjentar kort/status.",
+      "proposedGain": "La case lede direkte til kjørelag, og la mekanismevalg stå rett før kapasitetseksperimentet. Behold VM-teori, operativ praksis med VM og alle lange modeller separat. Gjør tillegg og kart lette å oppsøke uten å være nye obligatoriske læringsstopp.",
+      "risk": "Medium: ingen ny VM/Start av guide ved sammensatt teori; behold Flexible/Uniform-nyansene og AVD-pekeren. Valgfritt context må ikke skjule forkunnskap som en bevart vurdering faktisk forutsetter.",
+      "priority": "P2 oppfølging",
+      "mustBeforeRC": false,
+      "decision": "Én avgrenset etterfølgende segmenteringsleveranse; behold nåværende struktur gjennom RC.",
+      "navEffect": "Kun statisk rolle/komposisjon foreslås; dynamisk guidens Neste, Start/resume og attemptgrenser bevares. Netto klikkbesparelse er ikke målt og skal ikke utledes av telledifferansen.",
+      "evidence": [
+        {
+          "topic": "introduction",
+          "snapshot": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/042-compute-introduction.json",
+          "quote": "Samme organisasjon, forskjellige kjørebehov"
+        },
+        {
+          "topic": "options",
+          "snapshot": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/074-compute-options.json",
+          "quote": "Fire VM-behov som må holdes fra hverandre"
+        },
+        {
+          "topic": "context",
+          "snapshot": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/090-compute-context.json",
+          "quote": "Learn-tillegg: hva slags løsning bruker compute?"
+        },
+        {
+          "topic": "missions",
+          "snapshot": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/091-compute-missions.json",
+          "quote": "Fullført guidet undersøkelse · tilgjengelig for repetisjon"
+        }
+      ]
+    },
+    {
+      "module": "networking",
+      "title": "Networking Part A",
+      "currentCountExact": 11,
+      "countBasis": "Statiske anbefalte sidebar-/aktivitetsoppføringer i den låste ruteinventarlisten; ikke antall faktisk besøkte Neste-klikk.",
+      "currentTopics": [
+        "introduction",
+        "fundamentals",
+        "vnet",
+        "addressing",
+        "dependencies",
+        "peering",
+        "dns",
+        "explorer",
+        "missions",
+        "assessment",
+        "summary"
+      ],
+      "proposedSessions": [
+        {
+          "id": "networking-fundamentals",
+          "title": "Fra applikasjonsbehov til navn, adresse og kommunikasjon",
+          "mode": "recommended",
+          "topics": [
+            "introduction",
+            "fundamentals"
+          ],
+          "unchangedAttemptBoundaries": [],
+          "assessmentOrSummary": false,
+          "reason": "Absorber bare forberedende orientering/teori; samme arbeidsflate og opprinnelige grense."
+        },
+        {
+          "id": "networking-vnet",
+          "title": "Virtual Networks og logiske grenser",
+          "mode": "recommended",
+          "topics": [
+            "vnet"
+          ],
+          "unchangedAttemptBoundaries": [],
+          "assessmentOrSummary": false,
+          "reason": "Behold aktivitetens distinkte lærings-/evidensfunksjon som dokumentert per aktivitet."
+        },
+        {
+          "id": "networking-addressing",
+          "title": "IP Addressing & CIDR Explorer",
+          "mode": "recommended",
+          "topics": [
+            "addressing"
+          ],
+          "unchangedAttemptBoundaries": [
+            "addressing"
+          ],
+          "assessmentOrSummary": false,
+          "reason": "Behold aktivitetens distinkte lærings-/evidensfunksjon som dokumentert per aktivitet."
+        },
+        {
+          "id": "networking-dependencies",
+          "title": "Undersøk en faktisk VM-nettverkskjede",
+          "mode": "recommended",
+          "topics": [
+            "dependencies"
+          ],
+          "unchangedAttemptBoundaries": [
+            "dependencies"
+          ],
+          "assessmentOrSummary": false,
+          "reason": "Behold aktivitetens distinkte lærings-/evidensfunksjon som dokumentert per aktivitet."
+        },
+        {
+          "id": "networking-peering",
+          "title": "VNet Peering · direkte forbindelser",
+          "mode": "recommended",
+          "topics": [
+            "peering"
+          ],
+          "unchangedAttemptBoundaries": [
+            "peering"
+          ],
+          "assessmentOrSummary": false,
+          "reason": "Behold aktivitetens distinkte lærings-/evidensfunksjon som dokumentert per aktivitet."
+        },
+        {
+          "id": "networking-dns",
+          "title": "Azure DNS · navn før nettverksvei",
+          "mode": "recommended",
+          "topics": [
+            "dns"
+          ],
+          "unchangedAttemptBoundaries": [
+            "dns"
+          ],
+          "assessmentOrSummary": false,
+          "reason": "Behold aktivitetens distinkte lærings-/evidensfunksjon som dokumentert per aktivitet."
+        },
+        {
+          "id": "networking-explorer",
+          "title": "Azure Network Path Explorer",
+          "mode": "recommended",
+          "topics": [
+            "explorer"
+          ],
+          "unchangedAttemptBoundaries": [
+            "explorer"
+          ],
+          "assessmentOrSummary": false,
+          "reason": "Behold aktivitetens distinkte lærings-/evidensfunksjon som dokumentert per aktivitet."
+        },
+        {
+          "id": "networking-missions",
+          "title": "Guidede nettverksoppdrag",
+          "mode": "optional-secondary",
+          "topics": [
+            "missions"
+          ],
+          "unchangedAttemptBoundaries": [],
+          "assessmentOrSummary": false,
+          "reason": "Bevart sekundær direkte/resume-destinasjon, ikke obligatorisk ny undervisningsøkt."
+        },
+        {
+          "id": "networking-assessment",
+          "title": "Selvstendig Networking-anvendelse",
+          "mode": "recommended",
+          "topics": [
+            "assessment"
+          ],
+          "unchangedAttemptBoundaries": [
+            "assessment"
+          ],
+          "assessmentOrSummary": true,
+          "reason": "Behold aktivitetens distinkte lærings-/evidensfunksjon som dokumentert per aktivitet."
+        },
+        {
+          "id": "networking-summary",
+          "title": "Part A · oppsummering og dokumenterte resultater",
+          "mode": "recommended",
+          "topics": [
+            "summary"
+          ],
+          "unchangedAttemptBoundaries": [],
+          "assessmentOrSummary": true,
+          "reason": "Behold aktivitetens distinkte lærings-/evidensfunksjon som dokumentert per aktivitet."
+        }
+      ],
+      "recommendedSessionOrder": [
+        "networking-fundamentals",
+        "networking-vnet",
+        "networking-addressing",
+        "networking-dependencies",
+        "networking-peering",
+        "networking-dns",
+        "networking-explorer",
+        "networking-assessment",
+        "networking-summary"
+      ],
+      "optionalSecondarySessions": [
+        "networking-missions"
+      ],
+      "countAfter": 9,
+      "countAfterDefinition": "Anbefalte økter inklusive uendrede assessment-, summary- og praksisaktiviteter; sekundære valg telles separat.",
+      "countAfterIncludingOptionalSecondary": 10,
+      "optionalSecondaryCount": 1,
+      "assessmentTopicsUnchanged": [
+        "assessment"
+      ],
+      "summaryTopicsUnchanged": [
+        "summary"
+      ],
+      "practiceTopicsKeptSeparate": [
+        "addressing",
+        "dependencies",
+        "peering",
+        "dns",
+        "explorer"
+      ],
+      "allOriginalTopicsAccountedForExactlyOnce": true,
+      "documentedProblem": "Introduction og fundamentals deler katalogens navn/adresse/vei/tilgangsproblem før nytt begrepsgrunnlag. Missions gjentar eksisterende kort. Adressering, faktisk inspeksjon, peering, DNS og samlet Explorer har distinkte handlinger/spørsmål.",
+      "proposedGain": "Bruk Nordverkcase som innledning til IP-/kommunikasjonsgrunnlaget. Behold alle fire guidegrenser og cross-perspective Explorer som egen syntese; kartet blir sekundært.",
+      "risk": "Medium for introduksjonsintegrering: behold faktisk/syntetisk-grensen og merking av Part A/B. Ingen sammenslåing av adressedesign og faktisk VMinspeksjon eller deres Start.",
+      "priority": "P2 oppfølging",
+      "mustBeforeRC": false,
+      "decision": "Én avgrenset etterfølgende segmenteringsleveranse; behold nåværende struktur gjennom RC.",
+      "navEffect": "Kun statisk rolle/komposisjon foreslås; dynamisk guidens Neste, Start/resume og attemptgrenser bevares. Netto klikkbesparelse er ikke målt og skal ikke utledes av telledifferansen.",
+      "evidence": [
+        {
+          "topic": "introduction",
+          "snapshot": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/103-networking-introduction.json",
+          "quote": "Hva må være på plass før katalogen kan svare?"
+        },
+        {
+          "topic": "missions",
+          "snapshot": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/131-networking-missions.json",
+          "quote": "Fullført guidet undersøkelse · tilgjengelig for repetisjon"
+        }
+      ]
+    },
+    {
+      "module": "connectivity",
+      "title": "Networking Part B",
+      "currentCountExact": 10,
+      "countBasis": "Statiske anbefalte sidebar-/aktivitetsoppføringer i den låste ruteinventarlisten; ikke antall faktisk besøkte Neste-klikk.",
+      "currentTopics": [
+        "introduction",
+        "vpn",
+        "expressroute",
+        "endpoints",
+        "private-dns",
+        "hybrid",
+        "explorer",
+        "missions",
+        "assessment",
+        "summary"
+      ],
+      "proposedSessions": [
+        {
+          "id": "connectivity-introduction",
+          "title": "Fra tilkoblet nettverk til brukbar tjeneste",
+          "mode": "recommended",
+          "topics": [
+            "introduction"
+          ],
+          "unchangedAttemptBoundaries": [],
+          "assessmentOrSummary": false,
+          "reason": "Behold aktivitetens distinkte lærings-/evidensfunksjon som dokumentert per aktivitet."
+        },
+        {
+          "id": "connectivity-vpn",
+          "title": "VPN Gateway · site, klient og VNet",
+          "mode": "recommended",
+          "topics": [
+            "vpn"
+          ],
+          "unchangedAttemptBoundaries": [
+            "vpn"
+          ],
+          "assessmentOrSummary": false,
+          "reason": "Behold aktivitetens distinkte lærings-/evidensfunksjon som dokumentert per aktivitet."
+        },
+        {
+          "id": "connectivity-expressroute",
+          "title": "ExpressRoute · privat transport og kryptering",
+          "mode": "recommended",
+          "topics": [
+            "expressroute"
+          ],
+          "unchangedAttemptBoundaries": [
+            "expressroute"
+          ],
+          "assessmentOrSummary": false,
+          "reason": "Behold aktivitetens distinkte lærings-/evidensfunksjon som dokumentert per aktivitet."
+        },
+        {
+          "id": "connectivity-endpoints",
+          "title": "Public & Private Endpoints · separate innganger",
+          "mode": "recommended",
+          "topics": [
+            "endpoints"
+          ],
+          "unchangedAttemptBoundaries": [
+            "endpoints"
+          ],
+          "assessmentOrSummary": false,
+          "reason": "Behold aktivitetens distinkte lærings-/evidensfunksjon som dokumentert per aktivitet."
+        },
+        {
+          "id": "connectivity-private-dns",
+          "title": "Private Link DNS · klientens oppslagsvei",
+          "mode": "recommended",
+          "topics": [
+            "private-dns"
+          ],
+          "unchangedAttemptBoundaries": [
+            "private-dns"
+          ],
+          "assessmentOrSummary": false,
+          "reason": "Behold aktivitetens distinkte lærings-/evidensfunksjon som dokumentert per aktivitet."
+        },
+        {
+          "id": "connectivity-hybrid",
+          "title": "Hybrid Connectivity Explorer",
+          "mode": "recommended",
+          "topics": [
+            "hybrid"
+          ],
+          "unchangedAttemptBoundaries": [
+            "hybrid"
+          ],
+          "assessmentOrSummary": false,
+          "reason": "Behold aktivitetens distinkte lærings-/evidensfunksjon som dokumentert per aktivitet."
+        },
+        {
+          "id": "connectivity-explorer",
+          "title": "Endpoint & DNS Explorer",
+          "mode": "recommended",
+          "topics": [
+            "explorer"
+          ],
+          "unchangedAttemptBoundaries": [
+            "explorer"
+          ],
+          "assessmentOrSummary": false,
+          "reason": "Behold aktivitetens distinkte lærings-/evidensfunksjon som dokumentert per aktivitet."
+        },
+        {
+          "id": "connectivity-missions",
+          "title": "Guidede Connectivity-oppdrag",
+          "mode": "optional-secondary",
+          "topics": [
+            "missions"
+          ],
+          "unchangedAttemptBoundaries": [],
+          "assessmentOrSummary": false,
+          "reason": "Bevart sekundær direkte/resume-destinasjon, ikke obligatorisk ny undervisningsøkt."
+        },
+        {
+          "id": "connectivity-assessment",
+          "title": "Selvstendig Connectivity-anvendelse",
+          "mode": "recommended",
+          "topics": [
+            "assessment"
+          ],
+          "unchangedAttemptBoundaries": [
+            "assessment"
+          ],
+          "assessmentOrSummary": true,
+          "reason": "Behold aktivitetens distinkte lærings-/evidensfunksjon som dokumentert per aktivitet."
+        },
+        {
+          "id": "connectivity-summary",
+          "title": "Networking Part B · dokumenterte resultater",
+          "mode": "recommended",
+          "topics": [
+            "summary"
+          ],
+          "unchangedAttemptBoundaries": [],
+          "assessmentOrSummary": true,
+          "reason": "Behold aktivitetens distinkte lærings-/evidensfunksjon som dokumentert per aktivitet."
+        }
+      ],
+      "recommendedSessionOrder": [
+        "connectivity-introduction",
+        "connectivity-vpn",
+        "connectivity-expressroute",
+        "connectivity-endpoints",
+        "connectivity-private-dns",
+        "connectivity-hybrid",
+        "connectivity-explorer",
+        "connectivity-assessment",
+        "connectivity-summary"
+      ],
+      "optionalSecondarySessions": [
+        "connectivity-missions"
+      ],
+      "countAfter": 9,
+      "countAfterDefinition": "Anbefalte økter inklusive uendrede assessment-, summary- og praksisaktiviteter; sekundære valg telles separat.",
+      "countAfterIncludingOptionalSecondary": 10,
+      "optionalSecondaryCount": 1,
+      "assessmentTopicsUnchanged": [
+        "assessment"
+      ],
+      "summaryTopicsUnchanged": [
+        "summary"
+      ],
+      "practiceTopicsKeptSeparate": [
+        "vpn",
+        "expressroute",
+        "endpoints",
+        "private-dns",
+        "hybrid",
+        "explorer"
+      ],
+      "allOriginalTopicsAccountedForExactlyOnce": true,
+      "documentedProblem": "Handoff, VPNscope, privattransport/kryptering, serviceinngang, DNS og samlet diagnose er forskjellige spørsmål. De lange to Explorerne gir faktiske premiss-/beviskjeder; de er ikke duplikater som bør fjernes for et sidetall. Bare missions er et gjentatt oversiktskart.",
+      "proposedGain": "Behold hele fag-/modellsekvensen. La kartet være sekundær resume/status slik at ingen ekstra teoriøkt antydes av de samme kortene.",
+      "risk": "Low: bevar eksisterende A/B/C/DStart, separate historie-/aidgrenser og kartets gjenopptakslenker. Ingen endring av transport-/endpointmodeller.",
+      "priority": "P3 oppfølging",
+      "mustBeforeRC": false,
+      "decision": "Én avgrenset etterfølgende segmenteringsleveranse; behold nåværende struktur gjennom RC.",
+      "navEffect": "Kun statisk rolle/komposisjon foreslås; dynamisk guidens Neste, Start/resume og attemptgrenser bevares. Netto klikkbesparelse er ikke målt og skal ikke utledes av telledifferansen.",
+      "evidence": [
+        {
+          "topic": "missions",
+          "snapshot": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/162-connectivity-missions.json",
+          "quote": "Fullført guidet undersøkelse · tilgjengelig for repetisjon"
+        }
+      ]
+    }
+  ]
+}

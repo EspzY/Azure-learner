@@ -1,0 +1,9 @@
+{
+  "utc": "2026-11-05T14:12:58.649Z",
+  "route": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/governance?topic=assessment&case=gc08",
+  "case": "gc08",
+  "decision": "Bruk den godkjente Storage File Service Delete Share-ruten; behold management-locken og kontoen.",
+  "reasonChoice": "Management-locken begrenser ikke automatisk en separat gyldig data-plane-rute; samme tjeneste kan ha begge plan.",
+  "ownReason": "The task explicitly declares File Service Delete Share a data-plane operation, confirms its authorization and other service requirements, and requires ReadOnly remain unchanged. ARM control-plane deletion is restricted by that lock even for Owner; weakening it contradicts the requirement.",
+  "alternatives": "If only an ARM endpoint existed, or data authorization/other data protection blocked deletion, the data-route conclusion would change. The premise excludes those conditions."
+}

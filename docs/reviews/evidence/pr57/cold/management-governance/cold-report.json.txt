@@ -1,0 +1,3112 @@
+{
+  "title": "PR57 cold product review — Azure Management & Governance",
+  "preparedUtc": "2026-11-05T14:33:36.439100Z",
+  "reviewer": "Independent AI Azure/learning/UX reviewer; internal RC readiness",
+  "conclusion": "No P0/P1 established in the performed coverage. Three bounded P2 findings and one optional P3 editorial item. Sampled mechanisms and ordinary local receipts support continued internal RC review; this is not human or measured-learning validation.",
+  "severityCounts": {
+    "P0": 0,
+    "P1": 0,
+    "P2": 3,
+    "P3": 1
+  },
+  "provenance": {
+    "root": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/",
+    "rootFinal": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn",
+    "anonymous": true,
+    "displayedFullSha": "a3f1b575b2eb5b257fd455fec1a73b30a38706f4",
+    "displayedBranch": "codex/cc02-vm-debrief-diagnostics",
+    "initialCookies": [],
+    "finalCookies": "All four isolated contexts []",
+    "startUtc": "2026-11-05T13:59:26.404Z",
+    "browserClosedUtc": "2026-11-05T14:27:59.253Z",
+    "evidence": [
+      "00-root.txt",
+      "00-root.png",
+      "01-build-provenance.txt",
+      "01-build-provenance.png",
+      "provenance.json",
+      "final-browser-metadata.json"
+    ],
+    "isolation": "No app/domain/content source, tests, AGENTS.md, README/status/audit/remediation/history or keys opened; no other reviewer findings received. Only runtime/network/tool docs, installed dependency APIs and actual public UI were used. Neutral browser/report scripts reside outside repository, in this artifact directory. The inherited operational instructions were neutral and isolation-first.",
+    "runtimeSkill": "cloud-environment:cloud-environment-runtime read for network/tool operation; no credentials accessed. Network policy unrestricted; no bypass."
+  },
+  "coverageSummary": {
+    "recommendedActivitiesRead": 50,
+    "teachingPagesRead": 39,
+    "missionsListsRead": 3,
+    "assessmentLandingsRead": 4,
+    "summariesRead": 4,
+    "guidedInvestigationsCompleted": 13,
+    "independentFirstUnassistedSubmissions": 5,
+    "independentFamiliesTotal": 37,
+    "moduleTeachingProgress": {
+      "cost": "7/7",
+      "governance": "10/10",
+      "management": "13/13",
+      "monitoring": "9/9"
+    },
+    "moduleGuidedProgress": {
+      "cost": "4/4",
+      "governance": "3/3",
+      "management": "3/3",
+      "monitoring": "3/3"
+    },
+    "journal": "opened and rendered content read in all four contexts",
+    "routeInventory": "route-inventory.json"
+  },
+  "activities": [
+    {
+      "module": "cost",
+      "order": 1,
+      "visitedUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/cost?topic=introduction",
+      "pageHeading": "Hvorfor koster løsningen penger?",
+      "topic": "introduction",
+      "kind": "teaching",
+      "observedUtc": "2026-11-05T14:00:29.822Z",
+      "previous": [
+        {
+          "text": "← Forrige aktivitet\nAzure RBAC & Conditional Access",
+          "href": "/learn/access-control?topic=summary",
+          "target": ""
+        }
+      ],
+      "next": [
+        {
+          "text": "Neste aktivitet →\nKostnadsdrivere og fakturerbart forbruk",
+          "href": "/learn/cost?topic=drivers",
+          "target": ""
+        }
+      ],
+      "textEvidence": "cost-01-introduction.txt",
+      "screenshotEvidence": "cost-01-introduction.png",
+      "coverage": {
+        "studentText": "read in rendered browser DOM; full capture retained",
+        "figures": "rendered labels/tables/diagram text read with page; visual sampling separately identified",
+        "modelInteraction": "not applicable to this activity",
+        "assessment": "not an assessment landing"
+      },
+      "recommendedSidebarHref": "/learn/cost?topic=introduction",
+      "nextRecommendedSidebarHref": "/learn/cost?topic=drivers",
+      "observedBottomCtaVariants": [
+        {
+          "text": "← Forrige aktivitet\nAzure RBAC & Conditional Access",
+          "href": "/learn/access-control?topic=summary",
+          "target": "",
+          "evidence": "cost-01-introduction.txt"
+        },
+        {
+          "text": "Neste aktivitet →\nKostnadsdrivere og fakturerbart forbruk",
+          "href": "/learn/cost?topic=drivers",
+          "target": "",
+          "evidence": "cost-01-introduction.txt"
+        }
+      ]
+    },
+    {
+      "module": "cost",
+      "order": 2,
+      "visitedUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/cost?topic=drivers",
+      "pageHeading": "Kostnadsdrivere og fakturerbart forbruk",
+      "topic": "drivers",
+      "kind": "teaching",
+      "observedUtc": "2026-11-05T14:01:00.790Z",
+      "previous": [
+        {
+          "text": "← Forrige aktivitet\nHvorfor koster løsningen penger?",
+          "href": "/learn/cost?topic=introduction",
+          "target": ""
+        }
+      ],
+      "next": [
+        {
+          "text": "Neste aktivitet →\nPricing Calculator · bygg og sammenlign",
+          "href": "/learn/cost?topic=estimate",
+          "target": ""
+        }
+      ],
+      "textEvidence": "cost-02-drivers.txt",
+      "screenshotEvidence": "cost-02-drivers.png",
+      "coverage": {
+        "studentText": "read in rendered browser DOM; full capture retained",
+        "figures": "rendered labels/tables/diagram text read with page; visual sampling separately identified",
+        "modelInteraction": "not applicable to this activity",
+        "assessment": "not an assessment landing"
+      },
+      "recommendedSidebarHref": "/learn/cost?topic=drivers",
+      "nextRecommendedSidebarHref": "/learn/cost?topic=estimate",
+      "observedBottomCtaVariants": [
+        {
+          "text": "← Forrige aktivitet\nHvorfor koster løsningen penger?",
+          "href": "/learn/cost?topic=introduction",
+          "target": "",
+          "evidence": "cost-02-drivers.txt"
+        },
+        {
+          "text": "Neste aktivitet →\nPricing Calculator · bygg og sammenlign",
+          "href": "/learn/cost?topic=estimate",
+          "target": "",
+          "evidence": "cost-02-drivers.txt"
+        }
+      ]
+    },
+    {
+      "module": "cost",
+      "order": 3,
+      "visitedUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/cost?topic=estimate",
+      "pageHeading": "Pricing Calculator · bygg og sammenlign",
+      "topic": "estimate",
+      "kind": "teaching",
+      "observedUtc": "2026-11-05T14:01:13.795Z",
+      "previous": [
+        {
+          "text": "← Forrige aktivitet\nKostnadsdrivere og fakturerbart forbruk",
+          "href": "/learn/cost?topic=drivers",
+          "target": ""
+        }
+      ],
+      "next": [
+        {
+          "text": "Start undersøkelsen →\nOppdrag A · begrunn et løsningsestimat",
+          "href": "/learn/cost?topic=estimate&brief=estimate",
+          "target": ""
+        }
+      ],
+      "textEvidence": "cost-03-estimate-before.txt",
+      "screenshotEvidence": "cost-03-estimate-before.png",
+      "coverage": {
+        "studentText": "read in rendered browser DOM; full capture retained",
+        "figures": "rendered labels/tables/diagram text read with page; visual sampling separately identified",
+        "modelInteraction": "actual guided model contrasts and cause explanation completed: Estimate",
+        "assessment": "not an assessment landing"
+      },
+      "recommendedSidebarHref": "/learn/cost?topic=estimate",
+      "nextRecommendedSidebarHref": "/learn/cost?topic=analysis",
+      "observedBottomCtaVariants": [
+        {
+          "text": "← Forrige aktivitet\nKostnadsdrivere og fakturerbart forbruk",
+          "href": "/learn/cost?topic=drivers",
+          "target": "",
+          "evidence": "cost-03-estimate-240.txt"
+        },
+        {
+          "text": "Fullfør årsaksforklaringen →\nOppdrag A · begrunn et løsningsestimat",
+          "href": "/learn/cost?topic=estimate#guided-cause",
+          "target": "",
+          "evidence": "cost-03-estimate-240.txt"
+        },
+        {
+          "text": "Fortsett undersøkelsen →\nOppdrag A · begrunn et løsningsestimat",
+          "href": "/learn/cost?topic=estimate#guided-work",
+          "target": "",
+          "evidence": "cost-03-estimate-720.txt"
+        },
+        {
+          "text": "Start undersøkelsen →\nOppdrag A · begrunn et løsningsestimat",
+          "href": "/learn/cost?topic=estimate&brief=estimate",
+          "target": "",
+          "evidence": "cost-03-estimate-before.txt"
+        }
+      ]
+    },
+    {
+      "module": "cost",
+      "order": 4,
+      "visitedUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/cost?topic=analysis",
+      "pageHeading": "Cost Analysis · undersøk et avvik",
+      "topic": "analysis",
+      "kind": "teaching",
+      "observedUtc": "2026-11-05T14:02:28.724Z",
+      "previous": [
+        {
+          "text": "← Forrige aktivitet\nPricing Calculator · bygg og sammenlign",
+          "href": "/learn/cost?topic=estimate",
+          "target": ""
+        }
+      ],
+      "next": [
+        {
+          "text": "Fortsett nåværende guidede oppdrag",
+          "href": "/learn/cost?topic=estimate",
+          "target": ""
+        },
+        {
+          "text": "Start undersøkelsen →\nOppdrag B · finn kostnadsavvikets årsak",
+          "href": "/learn/cost?topic=analysis&brief=analysis",
+          "target": ""
+        }
+      ],
+      "textEvidence": "cost-04-analysis-before.txt",
+      "screenshotEvidence": "cost-04-analysis-before.png",
+      "coverage": {
+        "studentText": "read in rendered browser DOM; full capture retained",
+        "figures": "rendered labels/tables/diagram text read with page; visual sampling separately identified",
+        "modelInteraction": "actual guided model contrasts and cause explanation completed: Cost Analysis",
+        "assessment": "not an assessment landing"
+      },
+      "recommendedSidebarHref": "/learn/cost?topic=analysis",
+      "nextRecommendedSidebarHref": "/learn/cost?topic=budgets",
+      "observedBottomCtaVariants": [
+        {
+          "text": "← Forrige aktivitet\nPricing Calculator · bygg og sammenlign",
+          "href": "/learn/cost?topic=estimate",
+          "target": "",
+          "evidence": "cost-04-analysis-app.txt"
+        },
+        {
+          "text": "Fullfør årsaksforklaringen →\nOppdrag B · finn kostnadsavvikets årsak",
+          "href": "/learn/cost?topic=analysis#guided-cause",
+          "target": "",
+          "evidence": "cost-04-analysis-app.txt"
+        },
+        {
+          "text": "Fortsett nåværende guidede oppdrag",
+          "href": "/learn/cost?topic=estimate",
+          "target": "",
+          "evidence": "cost-04-analysis-before.txt"
+        },
+        {
+          "text": "Start undersøkelsen →\nOppdrag B · finn kostnadsavvikets årsak",
+          "href": "/learn/cost?topic=analysis&brief=analysis",
+          "target": "",
+          "evidence": "cost-04-analysis-before.txt"
+        },
+        {
+          "text": "Fortsett undersøkelsen →\nOppdrag B · finn kostnadsavvikets årsak",
+          "href": "/learn/cost?topic=analysis#guided-work",
+          "target": "",
+          "evidence": "cost-04-analysis-start.txt"
+        }
+      ]
+    },
+    {
+      "module": "cost",
+      "order": 5,
+      "visitedUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/cost?topic=budgets",
+      "pageHeading": "Budgets · kostnad og prognose",
+      "topic": "budgets",
+      "kind": "teaching",
+      "observedUtc": "2026-11-05T14:03:08.622Z",
+      "previous": [
+        {
+          "text": "← Forrige aktivitet\nCost Analysis · undersøk et avvik",
+          "href": "/learn/cost?topic=analysis",
+          "target": ""
+        }
+      ],
+      "next": [
+        {
+          "text": "Fortsett nåværende guidede oppdrag",
+          "href": "/learn/cost?topic=analysis",
+          "target": ""
+        },
+        {
+          "text": "Start undersøkelsen →\nOppdrag C · undersøk et kommende budsjettavvik",
+          "href": "/learn/cost?topic=budgets&brief=budgets",
+          "target": ""
+        }
+      ],
+      "textEvidence": "cost-05-budgets-before.txt",
+      "screenshotEvidence": "cost-05-budgets-before.png",
+      "coverage": {
+        "studentText": "read in rendered browser DOM; full capture retained",
+        "figures": "rendered labels/tables/diagram text read with page; visual sampling separately identified",
+        "modelInteraction": "actual guided model contrasts and cause explanation completed: Budget",
+        "assessment": "not an assessment landing"
+      },
+      "recommendedSidebarHref": "/learn/cost?topic=budgets",
+      "nextRecommendedSidebarHref": "/learn/cost?topic=tags",
+      "observedBottomCtaVariants": [
+        {
+          "text": "← Forrige aktivitet\nCost Analysis · undersøk et avvik",
+          "href": "/learn/cost?topic=analysis",
+          "target": "",
+          "evidence": "cost-05-budget-actual.txt"
+        },
+        {
+          "text": "Fortsett undersøkelsen →\nOppdrag C · undersøk et kommende budsjettavvik",
+          "href": "/learn/cost?topic=budgets#guided-work",
+          "target": "",
+          "evidence": "cost-05-budget-actual.txt"
+        },
+        {
+          "text": "Fullfør årsaksforklaringen →\nOppdrag C · undersøk et kommende budsjettavvik",
+          "href": "/learn/cost?topic=budgets#guided-cause",
+          "target": "",
+          "evidence": "cost-05-budget-forecast.txt"
+        },
+        {
+          "text": "Fortsett nåværende guidede oppdrag",
+          "href": "/learn/cost?topic=analysis",
+          "target": "",
+          "evidence": "cost-05-budgets-before.txt"
+        },
+        {
+          "text": "Start undersøkelsen →\nOppdrag C · undersøk et kommende budsjettavvik",
+          "href": "/learn/cost?topic=budgets&brief=budgets",
+          "target": "",
+          "evidence": "cost-05-budgets-before.txt"
+        },
+        {
+          "text": "Fortsett nåværende guidede oppdrag",
+          "href": "/learn/cost?topic=tags",
+          "target": "",
+          "evidence": "cost-small-interactive.txt"
+        },
+        {
+          "text": "Fortsett til selvstendig anvendelse →\nNytt selvstendig forsøk starter først når du velger Start.",
+          "href": "/learn/cost?topic=assessment",
+          "target": "",
+          "evidence": "cost-small-interactive.txt"
+        }
+      ]
+    },
+    {
+      "module": "cost",
+      "order": 6,
+      "visitedUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/cost?topic=tags",
+      "pageHeading": "Tags · organisering og kostnadsfordeling",
+      "topic": "tags",
+      "kind": "teaching",
+      "observedUtc": "2026-11-05T14:04:26.891Z",
+      "previous": [
+        {
+          "text": "← Forrige aktivitet\nBudgets · kostnad og prognose",
+          "href": "/learn/cost?topic=budgets",
+          "target": ""
+        }
+      ],
+      "next": [
+        {
+          "text": "Fortsett nåværende guidede oppdrag",
+          "href": "/learn/cost?topic=budgets",
+          "target": ""
+        },
+        {
+          "text": "Start undersøkelsen →\nOppdrag D · gjør kostnadsfordelingen etterprøvbar",
+          "href": "/learn/cost?topic=tags&brief=tags",
+          "target": ""
+        }
+      ],
+      "textEvidence": "cost-06-tags-before.txt",
+      "screenshotEvidence": "cost-06-tags-before.png",
+      "coverage": {
+        "studentText": "read in rendered browser DOM; full capture retained",
+        "figures": "rendered labels/tables/diagram text read with page; visual sampling separately identified",
+        "modelInteraction": "actual guided model contrasts and cause explanation completed: Tag allocation",
+        "assessment": "not an assessment landing"
+      },
+      "recommendedSidebarHref": "/learn/cost?topic=tags",
+      "nextRecommendedSidebarHref": "/learn/cost?topic=optimization",
+      "observedBottomCtaVariants": [
+        {
+          "text": "Fortsett nåværende guidede oppdrag",
+          "href": "/learn/cost?topic=budgets",
+          "target": "",
+          "evidence": "cost-06-tags-before.txt"
+        },
+        {
+          "text": "← Forrige aktivitet\nBudgets · kostnad og prognose",
+          "href": "/learn/cost?topic=budgets",
+          "target": "",
+          "evidence": "cost-06-tags-before.txt"
+        },
+        {
+          "text": "Start undersøkelsen →\nOppdrag D · gjør kostnadsfordelingen etterprøvbar",
+          "href": "/learn/cost?topic=tags&brief=tags",
+          "target": "",
+          "evidence": "cost-06-tags-before.txt"
+        },
+        {
+          "text": "Fortsett undersøkelsen →\nOppdrag D · gjør kostnadsfordelingen etterprøvbar",
+          "href": "/learn/cost?topic=tags#guided-work",
+          "target": "",
+          "evidence": "cost-06-tags-direct.txt"
+        },
+        {
+          "text": "Fullfør årsaksforklaringen →\nOppdrag D · gjør kostnadsfordelingen etterprøvbar",
+          "href": "/learn/cost?topic=tags#guided-cause",
+          "target": "",
+          "evidence": "cost-06-tags-parent.txt"
+        }
+      ]
+    },
+    {
+      "module": "cost",
+      "order": 7,
+      "visitedUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/cost?topic=optimization",
+      "pageHeading": "Optimalisering med driftskrav",
+      "topic": "optimization",
+      "kind": "teaching",
+      "observedUtc": "2026-11-05T14:05:43.137Z",
+      "previous": [
+        {
+          "text": "← Forrige aktivitet\nTags · organisering og kostnadsfordeling",
+          "href": "/learn/cost?topic=tags",
+          "target": ""
+        }
+      ],
+      "next": [
+        {
+          "text": "Neste aktivitet →\nSelvstendig økonomisk anvendelse",
+          "href": "/learn/cost?topic=assessment",
+          "target": ""
+        }
+      ],
+      "textEvidence": "cost-07-optimization.txt",
+      "screenshotEvidence": "cost-07-optimization.png",
+      "coverage": {
+        "studentText": "read in rendered browser DOM; full capture retained",
+        "figures": "rendered labels/tables/diagram text read with page; visual sampling separately identified",
+        "modelInteraction": "not applicable to this activity",
+        "assessment": "not an assessment landing"
+      },
+      "recommendedSidebarHref": "/learn/cost?topic=optimization",
+      "nextRecommendedSidebarHref": "/learn/cost?topic=assessment",
+      "observedBottomCtaVariants": [
+        {
+          "text": "← Forrige aktivitet\nTags · organisering og kostnadsfordeling",
+          "href": "/learn/cost?topic=tags",
+          "target": "",
+          "evidence": "cost-07-optimization.txt"
+        },
+        {
+          "text": "Neste aktivitet →\nSelvstendig økonomisk anvendelse",
+          "href": "/learn/cost?topic=assessment",
+          "target": "",
+          "evidence": "cost-07-optimization.txt"
+        }
+      ]
+    },
+    {
+      "module": "cost",
+      "order": 8,
+      "visitedUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/cost?topic=assessment",
+      "pageHeading": "Selvstendig økonomisk anvendelse",
+      "topic": "assessment",
+      "kind": "assessment-landing",
+      "observedUtc": "2026-11-05T14:05:44.223Z",
+      "previous": [
+        {
+          "text": "← Forrige aktivitet\nOptimalisering med driftskrav",
+          "href": "/learn/cost?topic=optimization",
+          "target": ""
+        }
+      ],
+      "next": [
+        {
+          "text": "Neste aktivitet →\nHva har du dokumentert?",
+          "href": "/learn/cost?topic=summary",
+          "target": ""
+        }
+      ],
+      "textEvidence": "cost-08-assessment-before.txt",
+      "screenshotEvidence": "cost-08-assessment-before.png",
+      "coverage": {
+        "studentText": "read in rendered browser DOM; full capture retained",
+        "figures": "rendered labels/tables/diagram text read with page; visual sampling separately identified",
+        "modelInteraction": "not applicable to this activity",
+        "assessment": "landing read; actual Start/submission recorded separately"
+      },
+      "recommendedSidebarHref": "/learn/cost?topic=assessment",
+      "nextRecommendedSidebarHref": "/learn/cost?topic=summary",
+      "observedBottomCtaVariants": [
+        {
+          "text": "← Forrige aktivitet\nOptimalisering med driftskrav",
+          "href": "/learn/cost?topic=optimization",
+          "target": "",
+          "evidence": "cost-08-assessment-before.txt"
+        },
+        {
+          "text": "Neste aktivitet →\nHva har du dokumentert?",
+          "href": "/learn/cost?topic=summary",
+          "target": "",
+          "evidence": "cost-08-assessment-before.txt"
+        },
+        {
+          "text": "Fortsett vurderingen →\nAktivt selvstendig arbeid",
+          "href": "/learn/cost?topic=assessment&case=cm10",
+          "target": "",
+          "evidence": "cost-08-cm10-premise.txt"
+        }
+      ]
+    },
+    {
+      "module": "cost",
+      "order": 9,
+      "visitedUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/cost?topic=summary",
+      "pageHeading": "Hva har du dokumentert?",
+      "topic": "summary",
+      "kind": "summary",
+      "observedUtc": "2026-11-05T14:06:51.765Z",
+      "previous": [
+        {
+          "text": "← Forrige aktivitet\nSelvstendig økonomisk anvendelse",
+          "href": "/learn/cost?topic=assessment",
+          "target": ""
+        }
+      ],
+      "next": [
+        {
+          "text": "Neste aktivitet →\nGovernance & Compliance",
+          "href": "/learn/governance?topic=introduction",
+          "target": ""
+        }
+      ],
+      "textEvidence": "cost-09-summary.txt",
+      "screenshotEvidence": "cost-09-summary.png",
+      "coverage": {
+        "studentText": "read in rendered browser DOM; full capture retained",
+        "figures": "rendered labels/tables/diagram text read with page; visual sampling separately identified",
+        "modelInteraction": "not applicable to this activity",
+        "assessment": "not an assessment landing"
+      },
+      "recommendedSidebarHref": "/learn/cost?topic=summary",
+      "nextRecommendedSidebarHref": null,
+      "observedBottomCtaVariants": [
+        {
+          "text": "← Forrige aktivitet\nSelvstendig økonomisk anvendelse",
+          "href": "/learn/cost?topic=assessment",
+          "target": "",
+          "evidence": "cost-09-summary.txt"
+        },
+        {
+          "text": "Neste aktivitet →\nGovernance & Compliance",
+          "href": "/learn/governance?topic=introduction",
+          "target": "",
+          "evidence": "cost-09-summary.txt"
+        }
+      ]
+    },
+    {
+      "module": "governance",
+      "order": 1,
+      "visitedUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/governance?topic=introduction",
+      "pageHeading": "Fra kostnader til styring",
+      "topic": "introduction",
+      "kind": "teaching",
+      "observedUtc": "2026-11-05T14:07:08.227Z",
+      "previous": [
+        {
+          "text": "← Forrige aktivitet\nDescribe cost management in Azure",
+          "href": "/learn/cost?topic=summary",
+          "target": ""
+        }
+      ],
+      "next": [
+        {
+          "text": "Neste aktivitet →\nMicrosoft Purview",
+          "href": "/learn/governance?topic=purview",
+          "target": ""
+        }
+      ],
+      "textEvidence": "governance-01-read.txt",
+      "screenshotEvidence": "governance-01-read.png",
+      "coverage": {
+        "studentText": "read in rendered browser DOM; full capture retained",
+        "figures": "rendered labels/tables/diagram text read with page; visual sampling separately identified",
+        "modelInteraction": "not applicable to this activity",
+        "assessment": "not an assessment landing"
+      },
+      "recommendedSidebarHref": "/learn/governance?topic=introduction",
+      "nextRecommendedSidebarHref": "/learn/governance?topic=purview",
+      "observedBottomCtaVariants": [
+        {
+          "text": "← Forrige aktivitet\nDescribe cost management in Azure",
+          "href": "/learn/cost?topic=summary",
+          "target": "",
+          "evidence": "governance-01-read.txt"
+        },
+        {
+          "text": "Neste aktivitet →\nMicrosoft Purview",
+          "href": "/learn/governance?topic=purview",
+          "target": "",
+          "evidence": "governance-01-read.txt"
+        }
+      ]
+    },
+    {
+      "module": "governance",
+      "order": 2,
+      "visitedUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/governance?topic=purview",
+      "pageHeading": "Microsoft Purview",
+      "topic": "purview",
+      "kind": "teaching",
+      "observedUtc": "2026-11-05T14:07:09.854Z",
+      "previous": [
+        {
+          "text": "← Forrige aktivitet\nFra kostnader til styring",
+          "href": "/learn/governance?topic=introduction",
+          "target": ""
+        }
+      ],
+      "next": [
+        {
+          "text": "Neste aktivitet →\nMetadata, eiere og lineage",
+          "href": "/learn/governance?topic=catalog",
+          "target": ""
+        }
+      ],
+      "textEvidence": "governance-02-read.txt",
+      "screenshotEvidence": "governance-02-read.png",
+      "coverage": {
+        "studentText": "read in rendered browser DOM; full capture retained",
+        "figures": "rendered labels/tables/diagram text read with page; visual sampling separately identified",
+        "modelInteraction": "not applicable to this activity",
+        "assessment": "not an assessment landing"
+      },
+      "recommendedSidebarHref": "/learn/governance?topic=purview",
+      "nextRecommendedSidebarHref": "/learn/governance?topic=catalog",
+      "observedBottomCtaVariants": [
+        {
+          "text": "← Forrige aktivitet\nFra kostnader til styring",
+          "href": "/learn/governance?topic=introduction",
+          "target": "",
+          "evidence": "governance-02-read.txt"
+        },
+        {
+          "text": "Neste aktivitet →\nMetadata, eiere og lineage",
+          "href": "/learn/governance?topic=catalog",
+          "target": "",
+          "evidence": "governance-02-read.txt"
+        }
+      ]
+    },
+    {
+      "module": "governance",
+      "order": 3,
+      "visitedUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/governance?topic=catalog",
+      "pageHeading": "Metadata, eiere og lineage",
+      "topic": "catalog",
+      "kind": "teaching",
+      "observedUtc": "2026-11-05T14:07:11.208Z",
+      "previous": [
+        {
+          "text": "← Forrige aktivitet\nMicrosoft Purview",
+          "href": "/learn/governance?topic=purview",
+          "target": ""
+        }
+      ],
+      "next": [
+        {
+          "text": "Neste aktivitet →\nAzure Policy",
+          "href": "/learn/governance?topic=policy",
+          "target": ""
+        }
+      ],
+      "textEvidence": "governance-03-read.txt",
+      "screenshotEvidence": "governance-03-read.png",
+      "coverage": {
+        "studentText": "read in rendered browser DOM; full capture retained",
+        "figures": "rendered labels/tables/diagram text read with page; visual sampling separately identified",
+        "modelInteraction": "not applicable to this activity",
+        "assessment": "not an assessment landing"
+      },
+      "recommendedSidebarHref": "/learn/governance?topic=catalog",
+      "nextRecommendedSidebarHref": "/learn/governance?topic=policy",
+      "observedBottomCtaVariants": [
+        {
+          "text": "← Forrige aktivitet\nMicrosoft Purview",
+          "href": "/learn/governance?topic=purview",
+          "target": "",
+          "evidence": "governance-03-read.txt"
+        },
+        {
+          "text": "Neste aktivitet →\nAzure Policy",
+          "href": "/learn/governance?topic=policy",
+          "target": "",
+          "evidence": "governance-03-read.txt"
+        }
+      ]
+    },
+    {
+      "module": "governance",
+      "order": 4,
+      "visitedUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/governance?topic=policy",
+      "pageHeading": "Azure Policy",
+      "topic": "policy",
+      "kind": "teaching",
+      "observedUtc": "2026-11-05T14:07:12.696Z",
+      "previous": [
+        {
+          "text": "← Forrige aktivitet\nMetadata, eiere og lineage",
+          "href": "/learn/governance?topic=catalog",
+          "target": ""
+        }
+      ],
+      "next": [
+        {
+          "text": "Neste aktivitet →\nAssignment, scope og unntak",
+          "href": "/learn/governance?topic=assignments",
+          "target": ""
+        }
+      ],
+      "textEvidence": "governance-04-read.txt",
+      "screenshotEvidence": "governance-04-read.png",
+      "coverage": {
+        "studentText": "read in rendered browser DOM; full capture retained",
+        "figures": "rendered labels/tables/diagram text read with page; visual sampling separately identified",
+        "modelInteraction": "not applicable to this activity",
+        "assessment": "not an assessment landing"
+      },
+      "recommendedSidebarHref": "/learn/governance?topic=policy",
+      "nextRecommendedSidebarHref": "/learn/governance?topic=assignments",
+      "observedBottomCtaVariants": [
+        {
+          "text": "← Forrige aktivitet\nMetadata, eiere og lineage",
+          "href": "/learn/governance?topic=catalog",
+          "target": "",
+          "evidence": "governance-04-read.txt"
+        },
+        {
+          "text": "Neste aktivitet →\nAssignment, scope og unntak",
+          "href": "/learn/governance?topic=assignments",
+          "target": "",
+          "evidence": "governance-04-read.txt"
+        }
+      ]
+    },
+    {
+      "module": "governance",
+      "order": 5,
+      "visitedUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/governance?topic=assignments",
+      "pageHeading": "Assignment, scope og unntak",
+      "topic": "assignments",
+      "kind": "teaching",
+      "observedUtc": "2026-11-05T14:07:14.005Z",
+      "previous": [
+        {
+          "text": "← Forrige aktivitet\nAzure Policy",
+          "href": "/learn/governance?topic=policy",
+          "target": ""
+        }
+      ],
+      "next": [
+        {
+          "text": "Neste aktivitet →\nCompliance og remediation",
+          "href": "/learn/governance?topic=compliance",
+          "target": ""
+        }
+      ],
+      "textEvidence": "governance-05-read.txt",
+      "screenshotEvidence": "governance-05-read.png",
+      "coverage": {
+        "studentText": "read in rendered browser DOM; full capture retained",
+        "figures": "rendered labels/tables/diagram text read with page; visual sampling separately identified",
+        "modelInteraction": "not applicable to this activity",
+        "assessment": "not an assessment landing"
+      },
+      "recommendedSidebarHref": "/learn/governance?topic=assignments",
+      "nextRecommendedSidebarHref": "/learn/governance?topic=compliance",
+      "observedBottomCtaVariants": [
+        {
+          "text": "← Forrige aktivitet\nAzure Policy",
+          "href": "/learn/governance?topic=policy",
+          "target": "",
+          "evidence": "governance-05-read.txt"
+        },
+        {
+          "text": "Neste aktivitet →\nCompliance og remediation",
+          "href": "/learn/governance?topic=compliance",
+          "target": "",
+          "evidence": "governance-05-read.txt"
+        }
+      ]
+    },
+    {
+      "module": "governance",
+      "order": 6,
+      "visitedUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/governance?topic=compliance",
+      "pageHeading": "Compliance og remediation",
+      "topic": "compliance",
+      "kind": "teaching",
+      "observedUtc": "2026-11-05T14:07:15.156Z",
+      "previous": [
+        {
+          "text": "← Forrige aktivitet\nAssignment, scope og unntak",
+          "href": "/learn/governance?topic=assignments",
+          "target": ""
+        }
+      ],
+      "next": [
+        {
+          "text": "Neste aktivitet →\nResource Locks",
+          "href": "/learn/governance?topic=locks",
+          "target": ""
+        }
+      ],
+      "textEvidence": "governance-06-read.txt",
+      "screenshotEvidence": "governance-06-read.png",
+      "coverage": {
+        "studentText": "read in rendered browser DOM; full capture retained",
+        "figures": "rendered labels/tables/diagram text read with page; visual sampling separately identified",
+        "modelInteraction": "not applicable to this activity",
+        "assessment": "not an assessment landing"
+      },
+      "recommendedSidebarHref": "/learn/governance?topic=compliance",
+      "nextRecommendedSidebarHref": "/learn/governance?topic=locks",
+      "observedBottomCtaVariants": [
+        {
+          "text": "← Forrige aktivitet\nAssignment, scope og unntak",
+          "href": "/learn/governance?topic=assignments",
+          "target": "",
+          "evidence": "governance-06-read.txt"
+        },
+        {
+          "text": "Neste aktivitet →\nResource Locks",
+          "href": "/learn/governance?topic=locks",
+          "target": "",
+          "evidence": "governance-06-read.txt"
+        }
+      ]
+    },
+    {
+      "module": "governance",
+      "order": 7,
+      "visitedUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/governance?topic=locks",
+      "pageHeading": "Resource Locks",
+      "topic": "locks",
+      "kind": "teaching",
+      "observedUtc": "2026-11-05T14:07:16.356Z",
+      "previous": [
+        {
+          "text": "← Forrige aktivitet\nCompliance og remediation",
+          "href": "/learn/governance?topic=compliance",
+          "target": ""
+        }
+      ],
+      "next": [
+        {
+          "text": "Neste aktivitet →\nControl plane og data plane",
+          "href": "/learn/governance?topic=planes",
+          "target": ""
+        }
+      ],
+      "textEvidence": "governance-07-read.txt",
+      "screenshotEvidence": "governance-07-read.png",
+      "coverage": {
+        "studentText": "read in rendered browser DOM; full capture retained",
+        "figures": "rendered labels/tables/diagram text read with page; visual sampling separately identified",
+        "modelInteraction": "not applicable to this activity",
+        "assessment": "not an assessment landing"
+      },
+      "recommendedSidebarHref": "/learn/governance?topic=locks",
+      "nextRecommendedSidebarHref": "/learn/governance?topic=planes",
+      "observedBottomCtaVariants": [
+        {
+          "text": "← Forrige aktivitet\nCompliance og remediation",
+          "href": "/learn/governance?topic=compliance",
+          "target": "",
+          "evidence": "governance-07-read.txt"
+        },
+        {
+          "text": "Neste aktivitet →\nControl plane og data plane",
+          "href": "/learn/governance?topic=planes",
+          "target": "",
+          "evidence": "governance-07-read.txt"
+        }
+      ]
+    },
+    {
+      "module": "governance",
+      "order": 8,
+      "visitedUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/governance?topic=planes",
+      "pageHeading": "Control plane og data plane",
+      "topic": "planes",
+      "kind": "teaching",
+      "observedUtc": "2026-11-05T14:07:18.758Z",
+      "previous": [
+        {
+          "text": "← Forrige aktivitet\nResource Locks",
+          "href": "/learn/governance?topic=locks",
+          "target": ""
+        }
+      ],
+      "next": [
+        {
+          "text": "Neste aktivitet →\nService Trust Portal",
+          "href": "/learn/governance?topic=trust",
+          "target": ""
+        }
+      ],
+      "textEvidence": "governance-08-read.txt",
+      "screenshotEvidence": "governance-08-read.png",
+      "coverage": {
+        "studentText": "read in rendered browser DOM; full capture retained",
+        "figures": "rendered labels/tables/diagram text read with page; visual sampling separately identified",
+        "modelInteraction": "not applicable to this activity",
+        "assessment": "not an assessment landing"
+      },
+      "recommendedSidebarHref": "/learn/governance?topic=planes",
+      "nextRecommendedSidebarHref": "/learn/governance?topic=trust",
+      "observedBottomCtaVariants": [
+        {
+          "text": "← Forrige aktivitet\nResource Locks",
+          "href": "/learn/governance?topic=locks",
+          "target": "",
+          "evidence": "governance-08-read.txt"
+        },
+        {
+          "text": "Neste aktivitet →\nService Trust Portal",
+          "href": "/learn/governance?topic=trust",
+          "target": "",
+          "evidence": "governance-08-read.txt"
+        }
+      ]
+    },
+    {
+      "module": "governance",
+      "order": 9,
+      "visitedUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/governance?topic=trust",
+      "pageHeading": "Service Trust Portal",
+      "topic": "trust",
+      "kind": "teaching",
+      "observedUtc": "2026-11-05T14:07:21.413Z",
+      "previous": [
+        {
+          "text": "← Forrige aktivitet\nControl plane og data plane",
+          "href": "/learn/governance?topic=planes",
+          "target": ""
+        }
+      ],
+      "next": [
+        {
+          "text": "Neste aktivitet →\nGovernance Decision Studio",
+          "href": "/learn/governance?topic=studio",
+          "target": ""
+        }
+      ],
+      "textEvidence": "governance-09-read.txt",
+      "screenshotEvidence": "governance-09-read.png",
+      "coverage": {
+        "studentText": "read in rendered browser DOM; full capture retained",
+        "figures": "rendered labels/tables/diagram text read with page; visual sampling separately identified",
+        "modelInteraction": "not applicable to this activity",
+        "assessment": "not an assessment landing"
+      },
+      "recommendedSidebarHref": "/learn/governance?topic=trust",
+      "nextRecommendedSidebarHref": "/learn/governance?topic=studio",
+      "observedBottomCtaVariants": [
+        {
+          "text": "← Forrige aktivitet\nControl plane og data plane",
+          "href": "/learn/governance?topic=planes",
+          "target": "",
+          "evidence": "governance-09-read.txt"
+        },
+        {
+          "text": "Neste aktivitet →\nGovernance Decision Studio",
+          "href": "/learn/governance?topic=studio",
+          "target": "",
+          "evidence": "governance-09-read.txt"
+        }
+      ]
+    },
+    {
+      "module": "governance",
+      "order": 10,
+      "visitedUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/governance?topic=studio",
+      "pageHeading": "Governance Decision Studio",
+      "topic": "studio",
+      "kind": "teaching",
+      "observedUtc": "2026-11-05T14:07:29.591Z",
+      "previous": [
+        {
+          "text": "← Forrige aktivitet\nService Trust Portal",
+          "href": "/learn/governance?topic=trust",
+          "target": ""
+        }
+      ],
+      "next": [
+        {
+          "text": "Start undersøkelsen →\nGovern the Data Estate",
+          "href": "/learn/governance?topic=studio&perspective=data&brief=data",
+          "target": ""
+        }
+      ],
+      "textEvidence": "governance-10-studio-before.txt",
+      "screenshotEvidence": "governance-10-studio-before.png",
+      "coverage": {
+        "studentText": "read in rendered browser DOM; full capture retained",
+        "figures": "rendered labels/tables/diagram text read with page; visual sampling separately identified",
+        "modelInteraction": "actual guided model contrasts and cause explanation completed: Data / Policy / Locks",
+        "assessment": "not an assessment landing"
+      },
+      "recommendedSidebarHref": "/learn/governance?topic=studio",
+      "nextRecommendedSidebarHref": "/learn/governance?topic=missions",
+      "observedBottomCtaVariants": [
+        {
+          "text": "← Forrige aktivitet\nService Trust Portal",
+          "href": "/learn/governance?topic=trust",
+          "target": "",
+          "evidence": "governance-10-data-start.txt"
+        },
+        {
+          "text": "Fortsett undersøkelsen →\nGovern the Data Estate",
+          "href": "/learn/governance?topic=studio&perspective=data#guided-work",
+          "target": "",
+          "evidence": "governance-10-data-start.txt"
+        },
+        {
+          "text": "Start undersøkelsen →\nGovern the Data Estate",
+          "href": "/learn/governance?topic=studio&perspective=data&brief=data",
+          "target": "",
+          "evidence": "governance-10-studio-before.txt"
+        },
+        {
+          "text": "Fullfør årsaksforklaringen →\nGovern the Data Estate",
+          "href": "/learn/governance?topic=studio&perspective=data#guided-cause",
+          "target": "",
+          "evidence": "governance-data-authorized.txt"
+        },
+        {
+          "text": "Fortsett undersøkelsen →\nProtect a Critical Resource",
+          "href": "/learn/governance?topic=studio&perspective=locks#guided-work",
+          "target": "",
+          "evidence": "governance-lock-blob-delete.txt"
+        },
+        {
+          "text": "Fullfør årsaksforklaringen →\nProtect a Critical Resource",
+          "href": "/learn/governance?topic=studio&perspective=locks#guided-cause",
+          "target": "",
+          "evidence": "governance-lock-group-child-lock.txt"
+        },
+        {
+          "text": "Fortsett til selvstendig anvendelse →\nNytt selvstendig forsøk starter først når du velger Start.",
+          "href": "/learn/governance?topic=assessment",
+          "target": "",
+          "evidence": "governance-lock-guided-completed.txt"
+        },
+        {
+          "text": "Fortsett undersøkelsen →\nInvestigate an Azure Policy Denial",
+          "href": "/learn/governance?topic=studio&perspective=policy#guided-work",
+          "target": "",
+          "evidence": "governance-policy-audit.txt"
+        },
+        {
+          "text": "Start undersøkelsen →\nInvestigate an Azure Policy Denial",
+          "href": "/learn/governance?topic=studio&perspective=policy&brief=policy",
+          "target": "",
+          "evidence": "governance-policy-before.txt"
+        },
+        {
+          "text": "Fullfør årsaksforklaringen →\nInvestigate an Azure Policy Denial",
+          "href": "/learn/governance?topic=studio&perspective=policy#guided-cause",
+          "target": "",
+          "evidence": "governance-policy-inspected.txt"
+        }
+      ]
+    },
+    {
+      "module": "governance",
+      "order": 11,
+      "visitedUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/governance?topic=missions",
+      "pageHeading": "Guidede undersøkelser",
+      "topic": "missions",
+      "kind": "missions-list",
+      "observedUtc": "2026-11-05T14:12:12.985Z",
+      "previous": [
+        {
+          "text": "← Forrige aktivitet\nGovernance Decision Studio",
+          "href": "/learn/governance?topic=studio",
+          "target": ""
+        }
+      ],
+      "next": [
+        {
+          "text": "Neste aktivitet →\nSelvstendig anvendelse",
+          "href": "/learn/governance?topic=assessment",
+          "target": ""
+        }
+      ],
+      "textEvidence": "governance-11-missions.txt",
+      "screenshotEvidence": "governance-11-missions.png",
+      "coverage": {
+        "studentText": "read in rendered browser DOM; full capture retained",
+        "figures": "rendered labels/tables/diagram text read with page; visual sampling separately identified",
+        "modelInteraction": "not applicable to this activity",
+        "assessment": "not an assessment landing"
+      },
+      "recommendedSidebarHref": "/learn/governance?topic=missions",
+      "nextRecommendedSidebarHref": "/learn/governance?topic=assessment",
+      "observedBottomCtaVariants": [
+        {
+          "text": "← Forrige aktivitet\nGovernance Decision Studio",
+          "href": "/learn/governance?topic=studio",
+          "target": "",
+          "evidence": "governance-11-missions.txt"
+        },
+        {
+          "text": "Neste aktivitet →\nSelvstendig anvendelse",
+          "href": "/learn/governance?topic=assessment",
+          "target": "",
+          "evidence": "governance-11-missions.txt"
+        }
+      ]
+    },
+    {
+      "module": "governance",
+      "order": 12,
+      "visitedUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/governance?topic=assessment",
+      "pageHeading": "Selvstendig anvendelse",
+      "topic": "assessment",
+      "kind": "assessment-landing",
+      "observedUtc": "2026-11-05T14:12:14.037Z",
+      "previous": [
+        {
+          "text": "← Forrige aktivitet\nGuidede undersøkelser",
+          "href": "/learn/governance?topic=missions",
+          "target": ""
+        }
+      ],
+      "next": [
+        {
+          "text": "Neste aktivitet →\nSummary — Governance",
+          "href": "/learn/governance?topic=summary",
+          "target": ""
+        }
+      ],
+      "textEvidence": "governance-12-assessment-before.txt",
+      "screenshotEvidence": "governance-12-assessment-before.png",
+      "coverage": {
+        "studentText": "read in rendered browser DOM; full capture retained",
+        "figures": "rendered labels/tables/diagram text read with page; visual sampling separately identified",
+        "modelInteraction": "not applicable to this activity",
+        "assessment": "landing read; actual Start/submission recorded separately"
+      },
+      "recommendedSidebarHref": "/learn/governance?topic=assessment",
+      "nextRecommendedSidebarHref": "/learn/governance?topic=summary",
+      "observedBottomCtaVariants": [
+        {
+          "text": "← Forrige aktivitet\nGuidede undersøkelser",
+          "href": "/learn/governance?topic=missions",
+          "target": "",
+          "evidence": "governance-12-assessment-before.txt"
+        },
+        {
+          "text": "Neste aktivitet →\nSummary — Governance",
+          "href": "/learn/governance?topic=summary",
+          "target": "",
+          "evidence": "governance-12-assessment-before.txt"
+        },
+        {
+          "text": "Fortsett vurderingen →\nAktivt selvstendig arbeid",
+          "href": "/learn/governance?topic=assessment&case=gc08",
+          "target": "",
+          "evidence": "governance-gc08-premise.txt"
+        }
+      ]
+    },
+    {
+      "module": "governance",
+      "order": 13,
+      "visitedUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/governance?topic=summary",
+      "pageHeading": "Summary — Governance",
+      "topic": "summary",
+      "kind": "summary",
+      "observedUtc": "2026-11-05T14:13:04.571Z",
+      "previous": [
+        {
+          "text": "← Forrige aktivitet\nSelvstendig anvendelse",
+          "href": "/learn/governance?topic=assessment",
+          "target": ""
+        }
+      ],
+      "next": [
+        {
+          "text": "Neste aktivitet →\nManagement & Deployment Tools",
+          "href": "/learn/management-tools?topic=introduction",
+          "target": ""
+        }
+      ],
+      "textEvidence": "governance-13-summary.txt",
+      "screenshotEvidence": "governance-13-summary.png",
+      "coverage": {
+        "studentText": "read in rendered browser DOM; full capture retained",
+        "figures": "rendered labels/tables/diagram text read with page; visual sampling separately identified",
+        "modelInteraction": "not applicable to this activity",
+        "assessment": "not an assessment landing"
+      },
+      "recommendedSidebarHref": "/learn/governance?topic=summary",
+      "nextRecommendedSidebarHref": null,
+      "observedBottomCtaVariants": [
+        {
+          "text": "← Forrige aktivitet\nSelvstendig anvendelse",
+          "href": "/learn/governance?topic=assessment",
+          "target": "",
+          "evidence": "governance-13-summary.txt"
+        },
+        {
+          "text": "Neste aktivitet →\nManagement & Deployment Tools",
+          "href": "/learn/management-tools?topic=introduction",
+          "target": "",
+          "evidence": "governance-13-summary.txt"
+        }
+      ]
+    },
+    {
+      "module": "management",
+      "order": 1,
+      "visitedUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/management-tools?topic=introduction",
+      "pageHeading": "Fra intensjon til konfigurasjon",
+      "topic": "introduction",
+      "kind": "teaching",
+      "observedUtc": "2026-11-05T14:08:26.162Z",
+      "previous": [
+        {
+          "text": "← Forrige aktivitet\nGovernance & Compliance",
+          "href": "/learn/governance?topic=summary",
+          "target": ""
+        }
+      ],
+      "next": [
+        {
+          "text": "Neste aktivitet →\nAzure Portal",
+          "href": "/learn/management-tools?topic=portal",
+          "target": ""
+        }
+      ],
+      "textEvidence": "management-01-read.txt",
+      "screenshotEvidence": "management-01-read.png",
+      "coverage": {
+        "studentText": "read in rendered browser DOM; full capture retained",
+        "figures": "rendered labels/tables/diagram text read with page; visual sampling separately identified",
+        "modelInteraction": "not applicable to this activity",
+        "assessment": "not an assessment landing"
+      },
+      "recommendedSidebarHref": "/learn/management-tools?topic=introduction",
+      "nextRecommendedSidebarHref": "/learn/management-tools?topic=portal",
+      "observedBottomCtaVariants": [
+        {
+          "text": "← Forrige aktivitet\nGovernance & Compliance",
+          "href": "/learn/governance?topic=summary",
+          "target": "",
+          "evidence": "management-01-read.txt"
+        },
+        {
+          "text": "Neste aktivitet →\nAzure Portal",
+          "href": "/learn/management-tools?topic=portal",
+          "target": "",
+          "evidence": "management-01-read.txt"
+        }
+      ]
+    },
+    {
+      "module": "management",
+      "order": 2,
+      "visitedUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/management-tools?topic=portal",
+      "pageHeading": "Azure Portal",
+      "topic": "portal",
+      "kind": "teaching",
+      "observedUtc": "2026-11-05T14:08:27.725Z",
+      "previous": [
+        {
+          "text": "← Forrige aktivitet\nFra intensjon til konfigurasjon",
+          "href": "/learn/management-tools?topic=introduction",
+          "target": ""
+        }
+      ],
+      "next": [
+        {
+          "text": "Neste aktivitet →\nAzure Cloud Shell",
+          "href": "/learn/management-tools?topic=shell",
+          "target": ""
+        }
+      ],
+      "textEvidence": "management-02-read.txt",
+      "screenshotEvidence": "management-02-read.png",
+      "coverage": {
+        "studentText": "read in rendered browser DOM; full capture retained",
+        "figures": "rendered labels/tables/diagram text read with page; visual sampling separately identified",
+        "modelInteraction": "not applicable to this activity",
+        "assessment": "not an assessment landing"
+      },
+      "recommendedSidebarHref": "/learn/management-tools?topic=portal",
+      "nextRecommendedSidebarHref": "/learn/management-tools?topic=shell",
+      "observedBottomCtaVariants": [
+        {
+          "text": "← Forrige aktivitet\nFra intensjon til konfigurasjon",
+          "href": "/learn/management-tools?topic=introduction",
+          "target": "",
+          "evidence": "management-02-read.txt"
+        },
+        {
+          "text": "Neste aktivitet →\nAzure Cloud Shell",
+          "href": "/learn/management-tools?topic=shell",
+          "target": "",
+          "evidence": "management-02-read.txt"
+        }
+      ]
+    },
+    {
+      "module": "management",
+      "order": 3,
+      "visitedUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/management-tools?topic=shell",
+      "pageHeading": "Azure Cloud Shell",
+      "topic": "shell",
+      "kind": "teaching",
+      "observedUtc": "2026-11-05T14:08:28.888Z",
+      "previous": [
+        {
+          "text": "← Forrige aktivitet\nAzure Portal",
+          "href": "/learn/management-tools?topic=portal",
+          "target": ""
+        }
+      ],
+      "next": [
+        {
+          "text": "Neste aktivitet →\nAzure CLI",
+          "href": "/learn/management-tools?topic=cli",
+          "target": ""
+        }
+      ],
+      "textEvidence": "management-03-read.txt",
+      "screenshotEvidence": "management-03-read.png",
+      "coverage": {
+        "studentText": "read in rendered browser DOM; full capture retained",
+        "figures": "rendered labels/tables/diagram text read with page; visual sampling separately identified",
+        "modelInteraction": "not applicable to this activity",
+        "assessment": "not an assessment landing"
+      },
+      "recommendedSidebarHref": "/learn/management-tools?topic=shell",
+      "nextRecommendedSidebarHref": "/learn/management-tools?topic=cli",
+      "observedBottomCtaVariants": [
+        {
+          "text": "← Forrige aktivitet\nAzure Portal",
+          "href": "/learn/management-tools?topic=portal",
+          "target": "",
+          "evidence": "management-03-read.txt"
+        },
+        {
+          "text": "Neste aktivitet →\nAzure CLI",
+          "href": "/learn/management-tools?topic=cli",
+          "target": "",
+          "evidence": "management-03-read.txt"
+        }
+      ]
+    },
+    {
+      "module": "management",
+      "order": 4,
+      "visitedUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/management-tools?topic=cli",
+      "pageHeading": "Azure CLI",
+      "topic": "cli",
+      "kind": "teaching",
+      "observedUtc": "2026-11-05T14:08:30.066Z",
+      "previous": [
+        {
+          "text": "← Forrige aktivitet\nAzure Cloud Shell",
+          "href": "/learn/management-tools?topic=shell",
+          "target": ""
+        }
+      ],
+      "next": [
+        {
+          "text": "Neste aktivitet →\nAzure PowerShell",
+          "href": "/learn/management-tools?topic=powershell",
+          "target": ""
+        }
+      ],
+      "textEvidence": "management-04-read.txt",
+      "screenshotEvidence": "management-04-read.png",
+      "coverage": {
+        "studentText": "read in rendered browser DOM; full capture retained",
+        "figures": "rendered labels/tables/diagram text read with page; visual sampling separately identified",
+        "modelInteraction": "not applicable to this activity",
+        "assessment": "not an assessment landing"
+      },
+      "recommendedSidebarHref": "/learn/management-tools?topic=cli",
+      "nextRecommendedSidebarHref": "/learn/management-tools?topic=powershell",
+      "observedBottomCtaVariants": [
+        {
+          "text": "← Forrige aktivitet\nAzure Cloud Shell",
+          "href": "/learn/management-tools?topic=shell",
+          "target": "",
+          "evidence": "management-04-read.txt"
+        },
+        {
+          "text": "Neste aktivitet →\nAzure PowerShell",
+          "href": "/learn/management-tools?topic=powershell",
+          "target": "",
+          "evidence": "management-04-read.txt"
+        }
+      ]
+    },
+    {
+      "module": "management",
+      "order": 5,
+      "visitedUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/management-tools?topic=powershell",
+      "pageHeading": "Azure PowerShell",
+      "topic": "powershell",
+      "kind": "teaching",
+      "observedUtc": "2026-11-05T14:08:31.256Z",
+      "previous": [
+        {
+          "text": "← Forrige aktivitet\nAzure CLI",
+          "href": "/learn/management-tools?topic=cli",
+          "target": ""
+        }
+      ],
+      "next": [
+        {
+          "text": "Neste aktivitet →\nAzure Resource Manager",
+          "href": "/learn/management-tools?topic=arm",
+          "target": ""
+        }
+      ],
+      "textEvidence": "management-05-read.txt",
+      "screenshotEvidence": "management-05-read.png",
+      "coverage": {
+        "studentText": "read in rendered browser DOM; full capture retained",
+        "figures": "rendered labels/tables/diagram text read with page; visual sampling separately identified",
+        "modelInteraction": "not applicable to this activity",
+        "assessment": "not an assessment landing"
+      },
+      "recommendedSidebarHref": "/learn/management-tools?topic=powershell",
+      "nextRecommendedSidebarHref": "/learn/management-tools?topic=arm",
+      "observedBottomCtaVariants": [
+        {
+          "text": "← Forrige aktivitet\nAzure CLI",
+          "href": "/learn/management-tools?topic=cli",
+          "target": "",
+          "evidence": "management-05-read.txt"
+        },
+        {
+          "text": "Neste aktivitet →\nAzure Resource Manager",
+          "href": "/learn/management-tools?topic=arm",
+          "target": "",
+          "evidence": "management-05-read.txt"
+        }
+      ]
+    },
+    {
+      "module": "management",
+      "order": 6,
+      "visitedUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/management-tools?topic=arm",
+      "pageHeading": "Azure Resource Manager",
+      "topic": "arm",
+      "kind": "teaching",
+      "observedUtc": "2026-11-05T14:08:32.768Z",
+      "previous": [
+        {
+          "text": "← Forrige aktivitet\nAzure PowerShell",
+          "href": "/learn/management-tools?topic=powershell",
+          "target": ""
+        }
+      ],
+      "next": [
+        {
+          "text": "Neste aktivitet →\nInfrastructure as Code",
+          "href": "/learn/management-tools?topic=iac",
+          "target": ""
+        }
+      ],
+      "textEvidence": "management-06-read.txt",
+      "screenshotEvidence": "management-06-read.png",
+      "coverage": {
+        "studentText": "read in rendered browser DOM; full capture retained",
+        "figures": "rendered labels/tables/diagram text read with page; visual sampling separately identified",
+        "modelInteraction": "not applicable to this activity",
+        "assessment": "not an assessment landing"
+      },
+      "recommendedSidebarHref": "/learn/management-tools?topic=arm",
+      "nextRecommendedSidebarHref": "/learn/management-tools?topic=iac",
+      "observedBottomCtaVariants": [
+        {
+          "text": "← Forrige aktivitet\nAzure PowerShell",
+          "href": "/learn/management-tools?topic=powershell",
+          "target": "",
+          "evidence": "management-06-read.txt"
+        },
+        {
+          "text": "Neste aktivitet →\nInfrastructure as Code",
+          "href": "/learn/management-tools?topic=iac",
+          "target": "",
+          "evidence": "management-06-read.txt"
+        }
+      ]
+    },
+    {
+      "module": "management",
+      "order": 7,
+      "visitedUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/management-tools?topic=iac",
+      "pageHeading": "Infrastructure as Code",
+      "topic": "iac",
+      "kind": "teaching",
+      "observedUtc": "2026-11-05T14:08:33.959Z",
+      "previous": [
+        {
+          "text": "← Forrige aktivitet\nAzure Resource Manager",
+          "href": "/learn/management-tools?topic=arm",
+          "target": ""
+        }
+      ],
+      "next": [
+        {
+          "text": "Neste aktivitet →\nARM templates",
+          "href": "/learn/management-tools?topic=templates",
+          "target": ""
+        }
+      ],
+      "textEvidence": "management-07-read.txt",
+      "screenshotEvidence": "management-07-read.png",
+      "coverage": {
+        "studentText": "read in rendered browser DOM; full capture retained",
+        "figures": "rendered labels/tables/diagram text read with page; visual sampling separately identified",
+        "modelInteraction": "not applicable to this activity",
+        "assessment": "not an assessment landing"
+      },
+      "recommendedSidebarHref": "/learn/management-tools?topic=iac",
+      "nextRecommendedSidebarHref": "/learn/management-tools?topic=templates",
+      "observedBottomCtaVariants": [
+        {
+          "text": "← Forrige aktivitet\nAzure Resource Manager",
+          "href": "/learn/management-tools?topic=arm",
+          "target": "",
+          "evidence": "management-07-read.txt"
+        },
+        {
+          "text": "Neste aktivitet →\nARM templates",
+          "href": "/learn/management-tools?topic=templates",
+          "target": "",
+          "evidence": "management-07-read.txt"
+        }
+      ]
+    },
+    {
+      "module": "management",
+      "order": 8,
+      "visitedUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/management-tools?topic=templates",
+      "pageHeading": "ARM templates",
+      "topic": "templates",
+      "kind": "teaching",
+      "observedUtc": "2026-11-05T14:08:35.207Z",
+      "previous": [
+        {
+          "text": "← Forrige aktivitet\nInfrastructure as Code",
+          "href": "/learn/management-tools?topic=iac",
+          "target": ""
+        }
+      ],
+      "next": [
+        {
+          "text": "Neste aktivitet →\nBicep",
+          "href": "/learn/management-tools?topic=bicep",
+          "target": ""
+        }
+      ],
+      "textEvidence": "management-08-read.txt",
+      "screenshotEvidence": "management-08-read.png",
+      "coverage": {
+        "studentText": "read in rendered browser DOM; full capture retained",
+        "figures": "rendered labels/tables/diagram text read with page; visual sampling separately identified",
+        "modelInteraction": "not applicable to this activity",
+        "assessment": "not an assessment landing"
+      },
+      "recommendedSidebarHref": "/learn/management-tools?topic=templates",
+      "nextRecommendedSidebarHref": "/learn/management-tools?topic=bicep",
+      "observedBottomCtaVariants": [
+        {
+          "text": "← Forrige aktivitet\nInfrastructure as Code",
+          "href": "/learn/management-tools?topic=iac",
+          "target": "",
+          "evidence": "management-08-read.txt"
+        },
+        {
+          "text": "Neste aktivitet →\nBicep",
+          "href": "/learn/management-tools?topic=bicep",
+          "target": "",
+          "evidence": "management-08-read.txt"
+        }
+      ]
+    },
+    {
+      "module": "management",
+      "order": 9,
+      "visitedUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/management-tools?topic=bicep",
+      "pageHeading": "Bicep",
+      "topic": "bicep",
+      "kind": "teaching",
+      "observedUtc": "2026-11-05T14:08:36.214Z",
+      "previous": [
+        {
+          "text": "← Forrige aktivitet\nARM templates",
+          "href": "/learn/management-tools?topic=templates",
+          "target": ""
+        }
+      ],
+      "next": [
+        {
+          "text": "Neste aktivitet →\nParametere, dependencies og What-if",
+          "href": "/learn/management-tools?topic=changes",
+          "target": ""
+        }
+      ],
+      "textEvidence": "management-09-read.txt",
+      "screenshotEvidence": "management-09-read.png",
+      "coverage": {
+        "studentText": "read in rendered browser DOM; full capture retained",
+        "figures": "rendered labels/tables/diagram text read with page; visual sampling separately identified",
+        "modelInteraction": "not applicable to this activity",
+        "assessment": "not an assessment landing"
+      },
+      "recommendedSidebarHref": "/learn/management-tools?topic=bicep",
+      "nextRecommendedSidebarHref": "/learn/management-tools?topic=changes",
+      "observedBottomCtaVariants": [
+        {
+          "text": "← Forrige aktivitet\nARM templates",
+          "href": "/learn/management-tools?topic=templates",
+          "target": "",
+          "evidence": "management-09-read.txt"
+        },
+        {
+          "text": "Neste aktivitet →\nParametere, dependencies og What-if",
+          "href": "/learn/management-tools?topic=changes",
+          "target": "",
+          "evidence": "management-09-read.txt"
+        }
+      ]
+    },
+    {
+      "module": "management",
+      "order": 10,
+      "visitedUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/management-tools?topic=changes",
+      "pageHeading": "Parametere, dependencies og What-if",
+      "topic": "changes",
+      "kind": "teaching",
+      "observedUtc": "2026-11-05T14:08:37.211Z",
+      "previous": [
+        {
+          "text": "← Forrige aktivitet\nBicep",
+          "href": "/learn/management-tools?topic=bicep",
+          "target": ""
+        }
+      ],
+      "next": [
+        {
+          "text": "Neste aktivitet →\nAzure Arc",
+          "href": "/learn/management-tools?topic=arc",
+          "target": ""
+        }
+      ],
+      "textEvidence": "management-10-read.txt",
+      "screenshotEvidence": "management-10-read.png",
+      "coverage": {
+        "studentText": "read in rendered browser DOM; full capture retained",
+        "figures": "rendered labels/tables/diagram text read with page; visual sampling separately identified",
+        "modelInteraction": "not applicable to this activity",
+        "assessment": "not an assessment landing"
+      },
+      "recommendedSidebarHref": "/learn/management-tools?topic=changes",
+      "nextRecommendedSidebarHref": "/learn/management-tools?topic=arc",
+      "observedBottomCtaVariants": [
+        {
+          "text": "← Forrige aktivitet\nBicep",
+          "href": "/learn/management-tools?topic=bicep",
+          "target": "",
+          "evidence": "management-10-read.txt"
+        },
+        {
+          "text": "Neste aktivitet →\nAzure Arc",
+          "href": "/learn/management-tools?topic=arc",
+          "target": "",
+          "evidence": "management-10-read.txt"
+        }
+      ]
+    },
+    {
+      "module": "management",
+      "order": 11,
+      "visitedUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/management-tools?topic=arc",
+      "pageHeading": "Azure Arc",
+      "topic": "arc",
+      "kind": "teaching",
+      "observedUtc": "2026-11-05T14:08:41.951Z",
+      "previous": [
+        {
+          "text": "← Forrige aktivitet\nParametere, dependencies og What-if",
+          "href": "/learn/management-tools?topic=changes",
+          "target": ""
+        }
+      ],
+      "next": [
+        {
+          "text": "Neste aktivitet →\nCopilot — kort supplement",
+          "href": "/learn/management-tools?topic=copilot",
+          "target": ""
+        }
+      ],
+      "textEvidence": "management-11-read.txt",
+      "screenshotEvidence": "management-11-read.png",
+      "coverage": {
+        "studentText": "read in rendered browser DOM; full capture retained",
+        "figures": "rendered labels/tables/diagram text read with page; visual sampling separately identified",
+        "modelInteraction": "not applicable to this activity",
+        "assessment": "not an assessment landing"
+      },
+      "recommendedSidebarHref": "/learn/management-tools?topic=arc",
+      "nextRecommendedSidebarHref": "/learn/management-tools?topic=copilot",
+      "observedBottomCtaVariants": [
+        {
+          "text": "← Forrige aktivitet\nParametere, dependencies og What-if",
+          "href": "/learn/management-tools?topic=changes",
+          "target": "",
+          "evidence": "management-11-read.txt"
+        },
+        {
+          "text": "Neste aktivitet →\nCopilot — kort supplement",
+          "href": "/learn/management-tools?topic=copilot",
+          "target": "",
+          "evidence": "management-11-read.txt"
+        }
+      ]
+    },
+    {
+      "module": "management",
+      "order": 12,
+      "visitedUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/management-tools?topic=copilot",
+      "pageHeading": "Copilot — kort supplement",
+      "topic": "copilot",
+      "kind": "teaching",
+      "observedUtc": "2026-11-05T14:08:44.472Z",
+      "previous": [
+        {
+          "text": "← Forrige aktivitet\nAzure Arc",
+          "href": "/learn/management-tools?topic=arc",
+          "target": ""
+        }
+      ],
+      "next": [
+        {
+          "text": "Neste aktivitet →\nManagement & Deployment Studio",
+          "href": "/learn/management-tools?topic=studio",
+          "target": ""
+        }
+      ],
+      "textEvidence": "management-12-read.txt",
+      "screenshotEvidence": "management-12-read.png",
+      "coverage": {
+        "studentText": "read in rendered browser DOM; full capture retained",
+        "figures": "rendered labels/tables/diagram text read with page; visual sampling separately identified",
+        "modelInteraction": "not applicable to this activity",
+        "assessment": "not an assessment landing"
+      },
+      "recommendedSidebarHref": "/learn/management-tools?topic=copilot",
+      "nextRecommendedSidebarHref": "/learn/management-tools?topic=studio",
+      "observedBottomCtaVariants": [
+        {
+          "text": "← Forrige aktivitet\nAzure Arc",
+          "href": "/learn/management-tools?topic=arc",
+          "target": "",
+          "evidence": "management-12-read.txt"
+        },
+        {
+          "text": "Neste aktivitet →\nManagement & Deployment Studio",
+          "href": "/learn/management-tools?topic=studio",
+          "target": "",
+          "evidence": "management-12-read.txt"
+        }
+      ]
+    },
+    {
+      "module": "management",
+      "order": 13,
+      "visitedUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/management-tools?topic=studio",
+      "pageHeading": "Management & Deployment Studio",
+      "topic": "studio",
+      "kind": "teaching",
+      "observedUtc": "2026-11-05T14:10:44.846Z",
+      "previous": [
+        {
+          "text": "← Forrige aktivitet\nCopilot — kort supplement",
+          "href": "/learn/management-tools?topic=copilot",
+          "target": ""
+        }
+      ],
+      "next": [
+        {
+          "text": "Start undersøkelsen →\nManage the Same Resource",
+          "href": "/learn/management-tools?topic=studio&perspective=intent&brief=intent",
+          "target": ""
+        }
+      ],
+      "textEvidence": "management-13-studio-before.txt",
+      "screenshotEvidence": "management-13-studio-before.png",
+      "coverage": {
+        "studentText": "read in rendered browser DOM; full capture retained",
+        "figures": "rendered labels/tables/diagram text read with page; visual sampling separately identified",
+        "modelInteraction": "actual guided model contrasts and cause explanation completed: Tools / IaC / Arc",
+        "assessment": "not an assessment landing"
+      },
+      "recommendedSidebarHref": "/learn/management-tools?topic=studio",
+      "nextRecommendedSidebarHref": "/learn/management-tools?topic=missions",
+      "observedBottomCtaVariants": [
+        {
+          "text": "← Forrige aktivitet\nCopilot — kort supplement",
+          "href": "/learn/management-tools?topic=copilot",
+          "target": "",
+          "evidence": "management-13-studio-before.txt"
+        },
+        {
+          "text": "Start undersøkelsen →\nManage the Same Resource",
+          "href": "/learn/management-tools?topic=studio&perspective=intent&brief=intent",
+          "target": "",
+          "evidence": "management-13-studio-before.txt"
+        },
+        {
+          "text": "Fortsett undersøkelsen →\nManage the Same Resource",
+          "href": "/learn/management-tools?topic=studio&perspective=intent#guided-work",
+          "target": "",
+          "evidence": "management-13-tools-start.txt"
+        },
+        {
+          "text": "Fortsett undersøkelsen →\nExtend Management, Keep the Workload",
+          "href": "/learn/management-tools?topic=studio&perspective=arc#guided-work",
+          "target": "",
+          "evidence": "management-arc-arc-cluster.txt"
+        },
+        {
+          "text": "Fullfør årsaksforklaringen →\nExtend Management, Keep the Workload",
+          "href": "/learn/management-tools?topic=studio&perspective=arc#guided-cause",
+          "target": "",
+          "evidence": "management-arc-disconnected.txt"
+        },
+        {
+          "text": "Fortsett til selvstendig anvendelse →\nNytt selvstendig forsøk starter først når du velger Start.",
+          "href": "/learn/management-tools?topic=assessment",
+          "target": "",
+          "evidence": "management-arc-guided-completed.txt"
+        },
+        {
+          "text": "Fortsett undersøkelsen →\nDiagnose an IaC Change",
+          "href": "/learn/management-tools?topic=studio&perspective=change#guided-work",
+          "target": "",
+          "evidence": "management-iac-arm-empty-again.txt"
+        },
+        {
+          "text": "Fullfør årsaksforklaringen →\nDiagnose an IaC Change",
+          "href": "/learn/management-tools?topic=studio&perspective=change#guided-cause",
+          "target": "",
+          "evidence": "management-iac-bicep-implicit.txt"
+        },
+        {
+          "text": "Fullfør årsaksforklaringen →\nManage the Same Resource",
+          "href": "/learn/management-tools?topic=studio&perspective=intent#guided-cause",
+          "target": "",
+          "evidence": "management-tools-inspected.txt"
+        }
+      ]
+    },
+    {
+      "module": "management",
+      "order": 14,
+      "visitedUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/management-tools?topic=missions",
+      "pageHeading": "Guidede undersøkelser",
+      "topic": "missions",
+      "kind": "missions-list",
+      "observedUtc": "2026-11-05T14:15:05.440Z",
+      "previous": [
+        {
+          "text": "← Forrige aktivitet\nManagement & Deployment Studio",
+          "href": "/learn/management-tools?topic=studio",
+          "target": ""
+        }
+      ],
+      "next": [
+        {
+          "text": "Neste aktivitet →\nSelvstendig anvendelse",
+          "href": "/learn/management-tools?topic=assessment",
+          "target": ""
+        }
+      ],
+      "textEvidence": "management-14-missions.txt",
+      "screenshotEvidence": "management-14-missions.png",
+      "coverage": {
+        "studentText": "read in rendered browser DOM; full capture retained",
+        "figures": "rendered labels/tables/diagram text read with page; visual sampling separately identified",
+        "modelInteraction": "not applicable to this activity",
+        "assessment": "not an assessment landing"
+      },
+      "recommendedSidebarHref": "/learn/management-tools?topic=missions",
+      "nextRecommendedSidebarHref": "/learn/management-tools?topic=assessment",
+      "observedBottomCtaVariants": [
+        {
+          "text": "← Forrige aktivitet\nManagement & Deployment Studio",
+          "href": "/learn/management-tools?topic=studio",
+          "target": "",
+          "evidence": "management-14-missions.txt"
+        },
+        {
+          "text": "Neste aktivitet →\nSelvstendig anvendelse",
+          "href": "/learn/management-tools?topic=assessment",
+          "target": "",
+          "evidence": "management-14-missions.txt"
+        }
+      ]
+    },
+    {
+      "module": "management",
+      "order": 15,
+      "visitedUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/management-tools?topic=assessment",
+      "pageHeading": "Selvstendig anvendelse",
+      "topic": "assessment",
+      "kind": "assessment-landing",
+      "observedUtc": "2026-11-05T14:15:06.506Z",
+      "previous": [
+        {
+          "text": "← Forrige aktivitet\nGuidede undersøkelser",
+          "href": "/learn/management-tools?topic=missions",
+          "target": ""
+        }
+      ],
+      "next": [
+        {
+          "text": "Neste aktivitet →\nSummary — Management & Deployment",
+          "href": "/learn/management-tools?topic=summary",
+          "target": ""
+        }
+      ],
+      "textEvidence": "management-15-assessment-before.txt",
+      "screenshotEvidence": "management-15-assessment-before.png",
+      "coverage": {
+        "studentText": "read in rendered browser DOM; full capture retained",
+        "figures": "rendered labels/tables/diagram text read with page; visual sampling separately identified",
+        "modelInteraction": "not applicable to this activity",
+        "assessment": "landing read; actual Start/submission recorded separately"
+      },
+      "recommendedSidebarHref": "/learn/management-tools?topic=assessment",
+      "nextRecommendedSidebarHref": "/learn/management-tools?topic=summary",
+      "observedBottomCtaVariants": [
+        {
+          "text": "← Forrige aktivitet\nGuidede undersøkelser",
+          "href": "/learn/management-tools?topic=missions",
+          "target": "",
+          "evidence": "management-15-assessment-before.txt"
+        },
+        {
+          "text": "Neste aktivitet →\nSummary — Management & Deployment",
+          "href": "/learn/management-tools?topic=summary",
+          "target": "",
+          "evidence": "management-15-assessment-before.txt"
+        },
+        {
+          "text": "Fortsett vurderingen →\nAktivt selvstendig arbeid",
+          "href": "/learn/management-tools?topic=assessment&case=mt07",
+          "target": "",
+          "evidence": "management-mt07-premise.txt"
+        }
+      ]
+    },
+    {
+      "module": "management",
+      "order": 16,
+      "visitedUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/management-tools?topic=summary",
+      "pageHeading": "Summary — Management & Deployment",
+      "topic": "summary",
+      "kind": "summary",
+      "observedUtc": "2026-11-05T14:20:10.879Z",
+      "previous": [
+        {
+          "text": "← Forrige aktivitet\nSelvstendig anvendelse",
+          "href": "/learn/management-tools?topic=assessment",
+          "target": ""
+        }
+      ],
+      "next": [
+        {
+          "text": "Neste aktivitet →\nMonitoring & Diagnostic Tools",
+          "href": "/learn/monitoring?topic=introduction",
+          "target": ""
+        }
+      ],
+      "textEvidence": "management-16-summary.txt",
+      "screenshotEvidence": "management-16-summary.png",
+      "coverage": {
+        "studentText": "read in rendered browser DOM; full capture retained",
+        "figures": "rendered labels/tables/diagram text read with page; visual sampling separately identified",
+        "modelInteraction": "not applicable to this activity",
+        "assessment": "not an assessment landing"
+      },
+      "recommendedSidebarHref": "/learn/management-tools?topic=summary",
+      "nextRecommendedSidebarHref": null,
+      "observedBottomCtaVariants": [
+        {
+          "text": "← Forrige aktivitet\nSelvstendig anvendelse",
+          "href": "/learn/management-tools?topic=assessment",
+          "target": "",
+          "evidence": "management-16-summary.txt"
+        },
+        {
+          "text": "Neste aktivitet →\nMonitoring & Diagnostic Tools",
+          "href": "/learn/monitoring?topic=introduction",
+          "target": "",
+          "evidence": "management-16-summary.txt"
+        }
+      ]
+    },
+    {
+      "module": "monitoring",
+      "order": 1,
+      "visitedUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/monitoring?topic=introduction",
+      "pageHeading": "Fra konfigurasjon til driftsinnsikt",
+      "topic": "introduction",
+      "kind": "teaching",
+      "observedUtc": "2026-11-05T14:09:13.550Z",
+      "previous": [
+        {
+          "text": "← Forrige aktivitet\nManagement & Deployment Tools",
+          "href": "/learn/management-tools?topic=summary",
+          "target": ""
+        }
+      ],
+      "next": [
+        {
+          "text": "Neste aktivitet →\nAzure Advisor",
+          "href": "/learn/monitoring?topic=advisor",
+          "target": ""
+        }
+      ],
+      "textEvidence": "monitoring-01-read.txt",
+      "screenshotEvidence": "monitoring-01-read.png",
+      "coverage": {
+        "studentText": "read in rendered browser DOM; full capture retained",
+        "figures": "rendered labels/tables/diagram text read with page; visual sampling separately identified",
+        "modelInteraction": "not applicable to this activity",
+        "assessment": "not an assessment landing"
+      },
+      "recommendedSidebarHref": "/learn/monitoring?topic=introduction",
+      "nextRecommendedSidebarHref": "/learn/monitoring?topic=advisor",
+      "observedBottomCtaVariants": [
+        {
+          "text": "← Forrige aktivitet\nManagement & Deployment Tools",
+          "href": "/learn/management-tools?topic=summary",
+          "target": "",
+          "evidence": "monitoring-01-read.txt"
+        },
+        {
+          "text": "Neste aktivitet →\nAzure Advisor",
+          "href": "/learn/monitoring?topic=advisor",
+          "target": "",
+          "evidence": "monitoring-01-read.txt"
+        }
+      ]
+    },
+    {
+      "module": "monitoring",
+      "order": 2,
+      "visitedUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/monitoring?topic=advisor",
+      "pageHeading": "Azure Advisor",
+      "topic": "advisor",
+      "kind": "teaching",
+      "observedUtc": "2026-11-05T14:09:14.739Z",
+      "previous": [
+        {
+          "text": "← Forrige aktivitet\nFra konfigurasjon til driftsinnsikt",
+          "href": "/learn/monitoring?topic=introduction",
+          "target": ""
+        }
+      ],
+      "next": [
+        {
+          "text": "Neste aktivitet →\nService Health, Status og Resource Health",
+          "href": "/learn/monitoring?topic=health",
+          "target": ""
+        }
+      ],
+      "textEvidence": "monitoring-02-read.txt",
+      "screenshotEvidence": "monitoring-02-read.png",
+      "coverage": {
+        "studentText": "read in rendered browser DOM; full capture retained",
+        "figures": "rendered labels/tables/diagram text read with page; visual sampling separately identified",
+        "modelInteraction": "not applicable to this activity",
+        "assessment": "not an assessment landing"
+      },
+      "recommendedSidebarHref": "/learn/monitoring?topic=advisor",
+      "nextRecommendedSidebarHref": "/learn/monitoring?topic=health",
+      "observedBottomCtaVariants": [
+        {
+          "text": "← Forrige aktivitet\nFra konfigurasjon til driftsinnsikt",
+          "href": "/learn/monitoring?topic=introduction",
+          "target": "",
+          "evidence": "monitoring-02-read.txt"
+        },
+        {
+          "text": "Neste aktivitet →\nService Health, Status og Resource Health",
+          "href": "/learn/monitoring?topic=health",
+          "target": "",
+          "evidence": "monitoring-02-read.txt"
+        }
+      ]
+    },
+    {
+      "module": "monitoring",
+      "order": 3,
+      "visitedUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/monitoring?topic=health",
+      "pageHeading": "Service Health, Status og Resource Health",
+      "topic": "health",
+      "kind": "teaching",
+      "observedUtc": "2026-11-05T14:09:18.661Z",
+      "previous": [
+        {
+          "text": "← Forrige aktivitet\nAzure Advisor",
+          "href": "/learn/monitoring?topic=advisor",
+          "target": ""
+        }
+      ],
+      "next": [
+        {
+          "text": "Neste aktivitet →\nAzure Monitor",
+          "href": "/learn/monitoring?topic=monitor",
+          "target": ""
+        }
+      ],
+      "textEvidence": "monitoring-03-read.txt",
+      "screenshotEvidence": "monitoring-03-read.png",
+      "coverage": {
+        "studentText": "read in rendered browser DOM; full capture retained",
+        "figures": "rendered labels/tables/diagram text read with page; visual sampling separately identified",
+        "modelInteraction": "not applicable to this activity",
+        "assessment": "not an assessment landing"
+      },
+      "recommendedSidebarHref": "/learn/monitoring?topic=health",
+      "nextRecommendedSidebarHref": "/learn/monitoring?topic=monitor",
+      "observedBottomCtaVariants": [
+        {
+          "text": "← Forrige aktivitet\nAzure Advisor",
+          "href": "/learn/monitoring?topic=advisor",
+          "target": "",
+          "evidence": "monitoring-03-read.txt"
+        },
+        {
+          "text": "Neste aktivitet →\nAzure Monitor",
+          "href": "/learn/monitoring?topic=monitor",
+          "target": "",
+          "evidence": "monitoring-03-read.txt"
+        }
+      ]
+    },
+    {
+      "module": "monitoring",
+      "order": 4,
+      "visitedUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/monitoring?topic=monitor",
+      "pageHeading": "Azure Monitor",
+      "topic": "monitor",
+      "kind": "teaching",
+      "observedUtc": "2026-11-05T14:09:21.830Z",
+      "previous": [
+        {
+          "text": "← Forrige aktivitet\nService Health, Status og Resource Health",
+          "href": "/learn/monitoring?topic=health",
+          "target": ""
+        }
+      ],
+      "next": [
+        {
+          "text": "Neste aktivitet →\nMetrics, logs, events og traces",
+          "href": "/learn/monitoring?topic=signals",
+          "target": ""
+        }
+      ],
+      "textEvidence": "monitoring-04-read.txt",
+      "screenshotEvidence": "monitoring-04-read.png",
+      "coverage": {
+        "studentText": "read in rendered browser DOM; full capture retained",
+        "figures": "rendered labels/tables/diagram text read with page; visual sampling separately identified",
+        "modelInteraction": "not applicable to this activity",
+        "assessment": "not an assessment landing"
+      },
+      "recommendedSidebarHref": "/learn/monitoring?topic=monitor",
+      "nextRecommendedSidebarHref": "/learn/monitoring?topic=signals",
+      "observedBottomCtaVariants": [
+        {
+          "text": "← Forrige aktivitet\nService Health, Status og Resource Health",
+          "href": "/learn/monitoring?topic=health",
+          "target": "",
+          "evidence": "monitoring-04-read.txt"
+        },
+        {
+          "text": "Neste aktivitet →\nMetrics, logs, events og traces",
+          "href": "/learn/monitoring?topic=signals",
+          "target": "",
+          "evidence": "monitoring-04-read.txt"
+        }
+      ]
+    },
+    {
+      "module": "monitoring",
+      "order": 5,
+      "visitedUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/monitoring?topic=signals",
+      "pageHeading": "Metrics, logs, events og traces",
+      "topic": "signals",
+      "kind": "teaching",
+      "observedUtc": "2026-11-05T14:09:23.333Z",
+      "previous": [
+        {
+          "text": "← Forrige aktivitet\nAzure Monitor",
+          "href": "/learn/monitoring?topic=monitor",
+          "target": ""
+        }
+      ],
+      "next": [
+        {
+          "text": "Neste aktivitet →\nLog Analytics og KQL",
+          "href": "/learn/monitoring?topic=logs",
+          "target": ""
+        }
+      ],
+      "textEvidence": "monitoring-05-read.txt",
+      "screenshotEvidence": "monitoring-05-read.png",
+      "coverage": {
+        "studentText": "read in rendered browser DOM; full capture retained",
+        "figures": "rendered labels/tables/diagram text read with page; visual sampling separately identified",
+        "modelInteraction": "not applicable to this activity",
+        "assessment": "not an assessment landing"
+      },
+      "recommendedSidebarHref": "/learn/monitoring?topic=signals",
+      "nextRecommendedSidebarHref": "/learn/monitoring?topic=logs",
+      "observedBottomCtaVariants": [
+        {
+          "text": "← Forrige aktivitet\nAzure Monitor",
+          "href": "/learn/monitoring?topic=monitor",
+          "target": "",
+          "evidence": "monitoring-05-read.txt"
+        },
+        {
+          "text": "Neste aktivitet →\nLog Analytics og KQL",
+          "href": "/learn/monitoring?topic=logs",
+          "target": "",
+          "evidence": "monitoring-05-read.txt"
+        }
+      ]
+    },
+    {
+      "module": "monitoring",
+      "order": 6,
+      "visitedUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/monitoring?topic=logs",
+      "pageHeading": "Log Analytics og KQL",
+      "topic": "logs",
+      "kind": "teaching",
+      "observedUtc": "2026-11-05T14:09:24.406Z",
+      "previous": [
+        {
+          "text": "← Forrige aktivitet\nMetrics, logs, events og traces",
+          "href": "/learn/monitoring?topic=signals",
+          "target": ""
+        }
+      ],
+      "next": [
+        {
+          "text": "Neste aktivitet →\nAzure Monitor Alerts",
+          "href": "/learn/monitoring?topic=alerts",
+          "target": ""
+        }
+      ],
+      "textEvidence": "monitoring-06-read.txt",
+      "screenshotEvidence": "monitoring-06-read.png",
+      "coverage": {
+        "studentText": "read in rendered browser DOM; full capture retained",
+        "figures": "rendered labels/tables/diagram text read with page; visual sampling separately identified",
+        "modelInteraction": "not applicable to this activity",
+        "assessment": "not an assessment landing"
+      },
+      "recommendedSidebarHref": "/learn/monitoring?topic=logs",
+      "nextRecommendedSidebarHref": "/learn/monitoring?topic=alerts",
+      "observedBottomCtaVariants": [
+        {
+          "text": "← Forrige aktivitet\nMetrics, logs, events og traces",
+          "href": "/learn/monitoring?topic=signals",
+          "target": "",
+          "evidence": "monitoring-06-read.txt"
+        },
+        {
+          "text": "Neste aktivitet →\nAzure Monitor Alerts",
+          "href": "/learn/monitoring?topic=alerts",
+          "target": "",
+          "evidence": "monitoring-06-read.txt"
+        }
+      ]
+    },
+    {
+      "module": "monitoring",
+      "order": 7,
+      "visitedUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/monitoring?topic=alerts",
+      "pageHeading": "Azure Monitor Alerts",
+      "topic": "alerts",
+      "kind": "teaching",
+      "observedUtc": "2026-11-05T14:09:25.524Z",
+      "previous": [
+        {
+          "text": "← Forrige aktivitet\nLog Analytics og KQL",
+          "href": "/learn/monitoring?topic=logs",
+          "target": ""
+        }
+      ],
+      "next": [
+        {
+          "text": "Neste aktivitet →\nApplication Insights",
+          "href": "/learn/monitoring?topic=insights",
+          "target": ""
+        }
+      ],
+      "textEvidence": "monitoring-07-read.txt",
+      "screenshotEvidence": "monitoring-07-read.png",
+      "coverage": {
+        "studentText": "read in rendered browser DOM; full capture retained",
+        "figures": "rendered labels/tables/diagram text read with page; visual sampling separately identified",
+        "modelInteraction": "not applicable to this activity",
+        "assessment": "not an assessment landing"
+      },
+      "recommendedSidebarHref": "/learn/monitoring?topic=alerts",
+      "nextRecommendedSidebarHref": "/learn/monitoring?topic=insights",
+      "observedBottomCtaVariants": [
+        {
+          "text": "← Forrige aktivitet\nLog Analytics og KQL",
+          "href": "/learn/monitoring?topic=logs",
+          "target": "",
+          "evidence": "monitoring-07-read.txt"
+        },
+        {
+          "text": "Neste aktivitet →\nApplication Insights",
+          "href": "/learn/monitoring?topic=insights",
+          "target": "",
+          "evidence": "monitoring-07-read.txt"
+        }
+      ]
+    },
+    {
+      "module": "monitoring",
+      "order": 8,
+      "visitedUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/monitoring?topic=insights",
+      "pageHeading": "Application Insights",
+      "topic": "insights",
+      "kind": "teaching",
+      "observedUtc": "2026-11-05T14:09:26.692Z",
+      "previous": [
+        {
+          "text": "← Forrige aktivitet\nAzure Monitor Alerts",
+          "href": "/learn/monitoring?topic=alerts",
+          "target": ""
+        }
+      ],
+      "next": [
+        {
+          "text": "Neste aktivitet →\nMonitoring & Diagnostics Studio",
+          "href": "/learn/monitoring?topic=studio",
+          "target": ""
+        }
+      ],
+      "textEvidence": "monitoring-08-read.txt",
+      "screenshotEvidence": "monitoring-08-read.png",
+      "coverage": {
+        "studentText": "read in rendered browser DOM; full capture retained",
+        "figures": "rendered labels/tables/diagram text read with page; visual sampling separately identified",
+        "modelInteraction": "not applicable to this activity",
+        "assessment": "not an assessment landing"
+      },
+      "recommendedSidebarHref": "/learn/monitoring?topic=insights",
+      "nextRecommendedSidebarHref": "/learn/monitoring?topic=studio",
+      "observedBottomCtaVariants": [
+        {
+          "text": "← Forrige aktivitet\nAzure Monitor Alerts",
+          "href": "/learn/monitoring?topic=alerts",
+          "target": "",
+          "evidence": "monitoring-08-read.txt"
+        },
+        {
+          "text": "Neste aktivitet →\nMonitoring & Diagnostics Studio",
+          "href": "/learn/monitoring?topic=studio",
+          "target": "",
+          "evidence": "monitoring-08-read.txt"
+        }
+      ]
+    },
+    {
+      "module": "monitoring",
+      "order": 9,
+      "visitedUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/monitoring?topic=studio",
+      "pageHeading": "Monitoring & Diagnostics Studio",
+      "topic": "studio",
+      "kind": "teaching",
+      "observedUtc": "2026-11-05T14:13:38.828Z",
+      "previous": [
+        {
+          "text": "← Forrige aktivitet\nApplication Insights",
+          "href": "/learn/monitoring?topic=insights",
+          "target": ""
+        }
+      ],
+      "next": [
+        {
+          "text": "Start undersøkelsen →\nFind the Right Evidence",
+          "href": "/learn/monitoring?topic=studio&perspective=evidence&brief=evidence",
+          "target": ""
+        }
+      ],
+      "textEvidence": "monitoring-09-studio-before.txt",
+      "screenshotEvidence": "monitoring-09-studio-before.png",
+      "coverage": {
+        "studentText": "read in rendered browser DOM; full capture retained",
+        "figures": "rendered labels/tables/diagram text read with page; visual sampling separately identified",
+        "modelInteraction": "actual guided model contrasts and cause explanation completed: Evidence / Health / Telemetry",
+        "assessment": "not an assessment landing"
+      },
+      "recommendedSidebarHref": "/learn/monitoring?topic=studio",
+      "nextRecommendedSidebarHref": "/learn/monitoring?topic=missions",
+      "observedBottomCtaVariants": [
+        {
+          "text": "← Forrige aktivitet\nApplication Insights",
+          "href": "/learn/monitoring?topic=insights",
+          "target": "",
+          "evidence": "monitoring-09-studio-before.txt"
+        },
+        {
+          "text": "Start undersøkelsen →\nFind the Right Evidence",
+          "href": "/learn/monitoring?topic=studio&perspective=evidence&brief=evidence",
+          "target": "",
+          "evidence": "monitoring-09-studio-before.txt"
+        },
+        {
+          "text": "Fortsett undersøkelsen →\nFind the Right Evidence",
+          "href": "/learn/monitoring?topic=studio&perspective=evidence#guided-work",
+          "target": "",
+          "evidence": "monitoring-evidence-advisor-request.txt"
+        },
+        {
+          "text": "Fullfør årsaksforklaringen →\nFind the Right Evidence",
+          "href": "/learn/monitoring?topic=studio&perspective=evidence#guided-cause",
+          "target": "",
+          "evidence": "monitoring-evidence-performance.txt"
+        },
+        {
+          "text": "Fortsett undersøkelsen →\nDiagnose an Incident",
+          "href": "/learn/monitoring?topic=studio&perspective=health#guided-work",
+          "target": "",
+          "evidence": "monitoring-health-app-available-again.txt"
+        },
+        {
+          "text": "Fullfør årsaksforklaringen →\nDiagnose an Incident",
+          "href": "/learn/monitoring?topic=studio&perspective=health#guided-cause",
+          "target": "",
+          "evidence": "monitoring-health-stale.txt"
+        },
+        {
+          "text": "Fortsett til selvstendig anvendelse →\nNytt selvstendig forsøk starter først når du velger Start.",
+          "href": "/learn/monitoring?topic=assessment",
+          "target": "",
+          "evidence": "monitoring-portal-return.txt"
+        },
+        {
+          "text": "Fortsett undersøkelsen →\nInvestigate an Alert",
+          "href": "/learn/monitoring?topic=studio&perspective=telemetry#guided-work",
+          "target": "",
+          "evidence": "monitoring-telemetry-action-group.txt"
+        },
+        {
+          "text": "Fullfør årsaksforklaringen →\nInvestigate an Alert",
+          "href": "/learn/monitoring?topic=studio&perspective=telemetry#guided-cause",
+          "target": "",
+          "evidence": "monitoring-telemetry-resource-filter.txt"
+        }
+      ]
+    },
+    {
+      "module": "monitoring",
+      "order": 10,
+      "visitedUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/monitoring?topic=missions",
+      "pageHeading": "Guidede undersøkelser",
+      "topic": "missions",
+      "kind": "missions-list",
+      "observedUtc": "2026-11-05T14:21:00.600Z",
+      "previous": [
+        {
+          "text": "← Forrige aktivitet\nMonitoring & Diagnostics Studio",
+          "href": "/learn/monitoring?topic=studio",
+          "target": ""
+        }
+      ],
+      "next": [
+        {
+          "text": "Neste aktivitet →\nSelvstendig anvendelse",
+          "href": "/learn/monitoring?topic=assessment",
+          "target": ""
+        }
+      ],
+      "textEvidence": "monitoring-10-missions.txt",
+      "screenshotEvidence": "monitoring-10-missions.png",
+      "coverage": {
+        "studentText": "read in rendered browser DOM; full capture retained",
+        "figures": "rendered labels/tables/diagram text read with page; visual sampling separately identified",
+        "modelInteraction": "not applicable to this activity",
+        "assessment": "not an assessment landing"
+      },
+      "recommendedSidebarHref": "/learn/monitoring?topic=missions",
+      "nextRecommendedSidebarHref": "/learn/monitoring?topic=assessment",
+      "observedBottomCtaVariants": [
+        {
+          "text": "← Forrige aktivitet\nMonitoring & Diagnostics Studio",
+          "href": "/learn/monitoring?topic=studio",
+          "target": "",
+          "evidence": "monitoring-10-missions.txt"
+        },
+        {
+          "text": "Neste aktivitet →\nSelvstendig anvendelse",
+          "href": "/learn/monitoring?topic=assessment",
+          "target": "",
+          "evidence": "monitoring-10-missions.txt"
+        }
+      ]
+    },
+    {
+      "module": "monitoring",
+      "order": 11,
+      "visitedUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/monitoring?topic=assessment",
+      "pageHeading": "Selvstendig anvendelse",
+      "topic": "assessment",
+      "kind": "assessment-landing",
+      "observedUtc": "2026-11-05T14:20:58.426Z",
+      "previous": [
+        {
+          "text": "← Forrige aktivitet\nGuidede undersøkelser",
+          "href": "/learn/monitoring?topic=missions",
+          "target": ""
+        }
+      ],
+      "next": [
+        {
+          "text": "Neste aktivitet →\nSummary — Monitoring & Diagnostics",
+          "href": "/learn/monitoring?topic=summary",
+          "target": ""
+        }
+      ],
+      "textEvidence": "monitoring-11-assessment-before.txt",
+      "screenshotEvidence": "monitoring-11-assessment-before.png",
+      "coverage": {
+        "studentText": "read in rendered browser DOM; full capture retained",
+        "figures": "rendered labels/tables/diagram text read with page; visual sampling separately identified",
+        "modelInteraction": "not applicable to this activity",
+        "assessment": "landing read; actual Start/submission recorded separately"
+      },
+      "recommendedSidebarHref": "/learn/monitoring?topic=assessment",
+      "nextRecommendedSidebarHref": "/learn/monitoring?topic=summary",
+      "observedBottomCtaVariants": [
+        {
+          "text": "← Forrige aktivitet\nGuidede undersøkelser",
+          "href": "/learn/monitoring?topic=missions",
+          "target": "",
+          "evidence": "monitoring-11-assessment-before.txt"
+        },
+        {
+          "text": "Neste aktivitet →\nSummary — Monitoring & Diagnostics",
+          "href": "/learn/monitoring?topic=summary",
+          "target": "",
+          "evidence": "monitoring-11-assessment-before.txt"
+        },
+        {
+          "text": "Fortsett vurderingen →\nAktivt selvstendig arbeid",
+          "href": "/learn/monitoring?topic=assessment&case=md07",
+          "target": "",
+          "evidence": "monitoring-md07-premise.txt"
+        }
+      ]
+    },
+    {
+      "module": "monitoring",
+      "order": 12,
+      "visitedUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/monitoring?topic=summary",
+      "pageHeading": "Summary — Monitoring & Diagnostics",
+      "topic": "summary",
+      "kind": "summary",
+      "observedUtc": "2026-11-05T14:24:12.567Z",
+      "previous": [
+        {
+          "text": "← Forrige aktivitet\nSelvstendig anvendelse",
+          "href": "/learn/monitoring?topic=assessment",
+          "target": ""
+        }
+      ],
+      "next": [
+        {
+          "text": "Neste aktivitet →\nSecurity Principles & Defender for Cloud",
+          "href": "/learn/security?topic=introduction",
+          "target": ""
+        }
+      ],
+      "textEvidence": "monitoring-12-summary.txt",
+      "screenshotEvidence": "monitoring-12-summary.png",
+      "coverage": {
+        "studentText": "read in rendered browser DOM; full capture retained",
+        "figures": "rendered labels/tables/diagram text read with page; visual sampling separately identified",
+        "modelInteraction": "not applicable to this activity",
+        "assessment": "not an assessment landing"
+      },
+      "recommendedSidebarHref": "/learn/monitoring?topic=summary",
+      "nextRecommendedSidebarHref": null,
+      "observedBottomCtaVariants": [
+        {
+          "text": "← Forrige aktivitet\nSelvstendig anvendelse",
+          "href": "/learn/monitoring?topic=assessment",
+          "target": "",
+          "evidence": "monitoring-12-summary.txt"
+        },
+        {
+          "text": "Neste aktivitet →\nSecurity Principles & Defender for Cloud",
+          "href": "/learn/security?topic=introduction",
+          "target": "",
+          "evidence": "monitoring-12-summary.txt"
+        }
+      ]
+    }
+  ],
+  "assessmentRuns": [
+    {
+      "case": "cm10",
+      "module": "cost",
+      "utc": "2026-11-05T14:06:28.971Z",
+      "route": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/cost?topic=assessment&case=cm10",
+      "solve": "solve-cost-cm10-prefeedback.json",
+      "originalLock": "solve-cost-cm10-prefeedback.json.lock.json",
+      "sha256": "48796fd0fda4c4746d402e194a3f6c708239d5e761e913b5ad82a306c05c38cb",
+      "actualStart": true,
+      "actualSubmit": true,
+      "feedbackRead": true,
+      "result": "decision and full reason accepted; first unassisted",
+      "feedbackEvidence": "cost-08-cm10-feedback.txt",
+      "scope": "One representative family; not the whole module bank"
+    },
+    {
+      "case": "gc08",
+      "module": "governance",
+      "utc": "2026-11-05T14:12:58.649Z",
+      "route": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/governance?topic=assessment&case=gc08",
+      "solve": "solve-governance-gc08-prefeedback.json",
+      "originalLock": "solve-governance-gc08-prefeedback.json.lock.json",
+      "sha256": "6799b02c4142cbc4c1948a934b49abf1085d58b17d0cddfd3d9ed1b7b28a1e99",
+      "actualStart": true,
+      "actualSubmit": true,
+      "feedbackRead": true,
+      "result": "decision and full reason accepted; first unassisted",
+      "feedbackEvidence": "governance-gc08-feedback.txt",
+      "scope": "One representative family; not the whole module bank"
+    },
+    {
+      "case": "mt01",
+      "module": "management",
+      "utc": "2026-11-05T14:15:55.412Z",
+      "route": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/management-tools?topic=assessment&case=mt01",
+      "solve": "solve-management-mt01-prefeedback.json",
+      "originalLock": "solve-management-mt01-prefeedback.json.lock.json",
+      "sha256": "1168d948d3d0426953c438f50c30e0faaab1523355509fa97af26c19c5feb823",
+      "actualStart": true,
+      "actualSubmit": true,
+      "feedbackRead": true,
+      "result": "decision and full reason accepted; first unassisted",
+      "feedbackEvidence": "management-mt01-feedback.txt",
+      "scope": "One representative family; not the whole module bank"
+    },
+    {
+      "case": "mt07",
+      "module": "management",
+      "utc": "2026-11-05T14:19:43.108Z",
+      "route": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/management-tools?topic=assessment&case=mt07",
+      "solve": "solve-management-mt07-prefeedback.json",
+      "originalLock": "solve-management-mt07-prefeedback.lock.json",
+      "sha256": "b3328d467a6320256a462f50226fa19fe5092cd11bc12145149c79ebc4b993a5",
+      "actualStart": true,
+      "actualSubmit": true,
+      "feedbackRead": true,
+      "result": "decision and full reason accepted; first unassisted",
+      "feedbackEvidence": "management-mt07-feedback.txt",
+      "scope": "One representative family; not the whole module bank"
+    },
+    {
+      "case": "md07",
+      "module": "monitoring",
+      "utc": "2026-11-05T14:22:59.615Z",
+      "route": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/monitoring?topic=assessment&case=md07",
+      "solve": "solve-monitoring-md07-prefeedback.json",
+      "originalLock": "solve-monitoring-md07-prefeedback.lock.json",
+      "sha256": "1d9897ca1682c51993cba06dd73463050e20d0a26799859559af46eaac8aac7e",
+      "actualStart": true,
+      "actualSubmit": true,
+      "feedbackRead": true,
+      "result": "decision and full reason accepted; first unassisted",
+      "feedbackEvidence": "monitoring-md07-feedback.txt",
+      "scope": "One representative family; not the whole module bank"
+    }
+  ],
+  "interactionTraces": [
+    {
+      "module": "cost",
+      "mechanism": "Estimate time-dependent versus other line items",
+      "coverage": "actual guided complete",
+      "actions": "720 h → 240 h, all other inputs held; predictions before each run; saved cause",
+      "observed": "741 → 261 fictional ØK; compute 720 → 240, storage 10/operations 1/traffic 10 unchanged",
+      "evidence": [
+        "cost-03-estimate-720.txt",
+        "cost-03-estimate-240.txt",
+        "cost-03-estimate-completed.txt"
+      ]
+    },
+    {
+      "module": "cost",
+      "mechanism": "Cost Analysis scope, comparable periods and meter/mix",
+      "coverage": "actual guided complete",
+      "actions": "App Sandbox, component grouping, 1–10 versus 11–20; investigated VM hours/profile mix",
+      "observed": "437 actual, compute is the largest increase; guidance distinguishes hours, rate and mix",
+      "evidence": [
+        "cost-04-analysis-app.txt"
+      ]
+    },
+    {
+      "module": "cost",
+      "mechanism": "Actual versus forecast budget evaluation",
+      "coverage": "actual guided complete",
+      "actions": "Same App Sandbox budget 600; actual threshold 80% then forecast 100%; prediction and cause",
+      "observed": "437 < 480 actual; 782 ≥ 600 forecast; no automatic resource stop claimed",
+      "evidence": [
+        "cost-05-budget-actual.txt",
+        "cost-05-budget-forecast.txt",
+        "cost-09-summary.txt"
+      ]
+    },
+    {
+      "module": "cost",
+      "mechanism": "Direct ARM tags versus report inheritance/conflict precedence",
+      "coverage": "actual guided complete",
+      "actions": "Classified large VM/disk Product/Development; compared keep-resource and prefer-parent",
+      "observed": "627 total retained; initial unassigned 167; prefer-parent report shows Product437/Shared190 without rewriting direct ARM tags",
+      "evidence": [
+        "cost-06-tags-unassigned.txt",
+        "cost-06-tags-direct.txt",
+        "cost-06-tags-keep.txt",
+        "cost-06-tags-parent.txt",
+        "cost-09-summary.txt"
+      ]
+    },
+    {
+      "module": "governance",
+      "mechanism": "Catalog metadata, discovery, lineage and separate source authorization",
+      "coverage": "actual guided complete",
+      "actions": "Changed registration, classification, owner/glossary, lineage and source access independently",
+      "observed": "A completed metadata picture did not grant source access; bounded source premise was met only after separate authorization",
+      "evidence": [
+        "governance-data-01-unregistered.txt",
+        "governance-data-lineage.txt",
+        "governance-data-authorized.txt",
+        "governance-data-guided-completed.txt"
+      ]
+    },
+    {
+      "module": "governance",
+      "mechanism": "Audit/Deny and assignment scope",
+      "coverage": "actual guided complete",
+      "actions": "Same North Europe request Audit → Deny; Shared group outside App assignment → parent Learning MG",
+      "observed": "Audit observes without denial; Deny blocks matching in-scope request; out-of-scope request is not applicable",
+      "evidence": [
+        "governance-policy-audit.txt",
+        "governance-policy-deny.txt",
+        "governance-policy-shared-outside.txt",
+        "governance-policy-shared-parent.txt",
+        "governance-policy-guided-completed.txt"
+      ]
+    },
+    {
+      "module": "governance",
+      "mechanism": "Actual local policy receipt and technical attempt boundary",
+      "coverage": "actual ordinary Portal actions and original-receipt inspection",
+      "actions": "Created rg-pr57-governance; requested plan-pr57-policy in North Europe; corrected same form to West Europe; returned using course link and inspected originals",
+      "observed": "Group accepted 0→1 (5→6 active objects). Plan denied policy-location-denied 1→1 (6→6). Corrected plan accepted 1→2 (6→7). Policy inspector verified five required items and both original receipt references",
+      "evidence": [
+        "governance-portal-rg-created.txt",
+        "governance-portal-plan-denied.txt",
+        "governance-portal-plan-accepted-receipt.txt",
+        "governance-policy-return.txt",
+        "governance-policy-inspected.txt"
+      ]
+    },
+    {
+      "module": "governance",
+      "mechanism": "Lock type, ancestors, operation plane and group deletion",
+      "coverage": "actual guided complete",
+      "actions": "CanNotDelete modify/delete; start under CanNotDelete/ReadOnly; ReadOnly ListKeys versus Blob data delete; no lock versus child lock when deleting group",
+      "observed": "CanNotDelete allows modification/start but denies delete; ReadOnly denies management start/ListKeys; separately authorized Blob data deletion remains outside management lock; child lock blocks whole-group delete without generic upward inheritance",
+      "evidence": [
+        "governance-lock-modify.txt",
+        "governance-lock-delete.txt",
+        "governance-lock-list-keys.txt",
+        "governance-lock-blob-delete.txt",
+        "governance-lock-group-child-lock.txt",
+        "governance-lock-guided-completed.txt"
+      ]
+    },
+    {
+      "module": "management",
+      "mechanism": "Client, host, prerequisites and request versus execution",
+      "coverage": "actual guided complete; six saved model runs",
+      "actions": "CLI local Bash missing/installed; Portal browser; PowerShell Cloud Shell; ARM JSON and Bicep authoring",
+      "observed": "Client syntax and suitable host/prerequisites are distinguished; no shell or template runtime is claimed",
+      "evidence": [
+        "management-tools-missing.txt",
+        "management-tools-installed.txt",
+        "management-tools-portal.txt",
+        "management-tools-powershell.txt",
+        "management-tools-arm.txt",
+        "management-tools-bicep.txt"
+      ]
+    },
+    {
+      "module": "management",
+      "mechanism": "Actual Web App hosting relation and original receipts",
+      "coverage": "actual ordinary Portal actions and original-receipt inspection",
+      "actions": "Created rg-pr57-management, plan-pr57-management and app-pr57-management through ordinary forms; inspected app properties; returned to original Studio intent",
+      "observed": "Accepted receipts portal1 0→1, portal2 1→2, portal3 2→3, inventory5→8; inspected full subscription/group/plan/app relationship, location and OS; all required checks verified",
+      "evidence": [
+        "management-portal-rg-created.txt",
+        "management-portal-plan-created.txt",
+        "management-portal-app-created.txt",
+        "management-portal-app-properties.txt",
+        "management-portal-return.txt",
+        "management-tools-inspected.txt",
+        "management-tools-guided-completed.txt"
+      ]
+    },
+    {
+      "module": "management",
+      "mechanism": "Reference, dependency, parameterized desired state and incremental preview",
+      "coverage": "actual guided complete; seven saved model runs",
+      "actions": "ARM empty no order → explicit dependsOn; unchanged dev; changed costCenter; prod-derived names; Bicep symbolic implicit reference",
+      "observed": "resourceId alone did not establish creation order; explicit ARM dependency and symbolic Bicep reference worked; same dev NoChange, changed tags Modify, prod names Create while old dev remains. This is a declared model, not actual What-if/deployment",
+      "evidence": [
+        "management-iac-arm-no-order.txt",
+        "management-iac-arm-explicit.txt",
+        "management-iac-dev-same.txt",
+        "management-iac-dev-tag.txt",
+        "management-iac-prod-names.txt",
+        "management-iac-bicep-implicit.txt",
+        "management-iac-guided-completed.txt"
+      ]
+    },
+    {
+      "module": "management",
+      "mechanism": "Arc integration versus physical workload and connection",
+      "coverage": "actual guided complete; six saved model runs",
+      "actions": "External server native → Arc Servers; cluster Servers → Kubernetes; other-cloud server connected → disconnected",
+      "observed": "Relevant integration depends on resource type; representation does not move workload or create native Azure VM control; disconnected representation remains but current management status is not established",
+      "evidence": [
+        "management-arc-native-server.txt",
+        "management-arc-arc-server.txt",
+        "management-arc-server-cluster.txt",
+        "management-arc-arc-cluster.txt",
+        "management-arc-disconnected.txt",
+        "management-arc-guided-completed.txt"
+      ]
+    },
+    {
+      "module": "monitoring",
+      "mechanism": "Evidence selection and freshness",
+      "coverage": "actual guided complete; five saved model runs",
+      "actions": "Advisor for failed request → correlated Application Insights rows; stale/current cost advice; performance advice",
+      "observed": "Source and signal must fit the question, time and coverage; recommendation is not a request-level failure diagnosis",
+      "evidence": [
+        "monitoring-evidence-advisor-request.txt",
+        "monitoring-evidence-insights-request.txt",
+        "monitoring-evidence-cost-stale.txt",
+        "monitoring-evidence-cost-current.txt",
+        "monitoring-evidence-guided-completed.txt"
+      ]
+    },
+    {
+      "module": "monitoring",
+      "mechanism": "Platform event scope/time, Resource Health and app symptoms",
+      "coverage": "actual guided complete; five saved model runs",
+      "actions": "App subscription versus Shared subscription; Unknown → Available; current → later/stale observation",
+      "observed": "Event relevance, resource status and reported app errors are separate. Available did not prove the app healthy, stale status became insufficient current evidence",
+      "evidence": [
+        "monitoring-health-shared.txt",
+        "monitoring-health-app-unknown.txt",
+        "monitoring-health-app-available-again.txt",
+        "monitoring-health-stale.txt",
+        "monitoring-health-guided-completed.txt"
+      ]
+    },
+    {
+      "module": "monitoring",
+      "mechanism": "Telemetry aggregation, complete window, rule, notification path, logs and trace",
+      "coverage": "actual guided complete; twelve saved model runs",
+      "actions": "No rule → matching active rule; action group off/on; Average/Maximum; full/missing point; Resource Logs unrouted/routed; all/error filter; declared app instrumentation and correlated trace",
+      "observed": "5-point Average66 versus Maximum90 at strict >70; missing point retained available aggregate but blocked the model’s complete-window decision; action group did not change metric condition; query did not create rule; configured path was not delivery or remediation. Instrumented request/dependency/exception share operation-a, without asserted root cause",
+      "evidence": [
+        "monitoring-telemetry-no-rule.txt",
+        "monitoring-telemetry-active-rule.txt",
+        "monitoring-telemetry-action-group.txt",
+        "monitoring-telemetry-average.txt",
+        "monitoring-telemetry-maximum.txt",
+        "monitoring-telemetry-missing-point.txt",
+        "monitoring-telemetry-resource-all-unrouted.txt",
+        "monitoring-telemetry-resource-all-routed.txt",
+        "monitoring-telemetry-resource-filter.txt",
+        "monitoring-telemetry-trace.txt",
+        "monitoring-telemetry-guided-completed.txt",
+        "monitoring-metric-figure.png"
+      ]
+    },
+    {
+      "module": "monitoring",
+      "mechanism": "Actual local configuration inspector versus synthetic telemetry",
+      "coverage": "ordinary Portal read-only path followed and returned",
+      "actions": "Followed offered Portal resource-inspection link and original Tilbake til kurset link",
+      "observed": "Fresh module context had zero suitable resources; no telemetry or command receipt manufactured. Return restored Studio telemetry perspective",
+      "evidence": [
+        "monitoring-portal-empty-inspection.txt",
+        "monitoring-portal-return.txt"
+      ]
+    }
+  ],
+  "findings": [
+    {
+      "id": "MG-01",
+      "severity": "P2",
+      "title": "Cost Summary describes available modules as still planned",
+      "route": "/learn/cost?topic=summary",
+      "quotedPremise": "Neste planlagte fagområde er Compute & Hosting. Øvrig Management & Governance er fortsatt planlagt.",
+      "repro": [
+        "Open the anonymous Hub and Cost Management.",
+        "Open Hva har du dokumentert? in the module sidebar.",
+        "Read the planned-topic sentence and the same page’s Neste aktivitet → Governance & Compliance CTA.",
+        "Return to Hub: Governance, Management Tools and Monitoring are ordinary available modules."
+      ],
+      "observed": "The sentence contradicts the next CTA and the four available module cards/sidebars at this SHA.",
+      "consequence": "A learner can believe that the next available activities are unfinished or choose the wrong next area. Navigation still works.",
+      "whyThisSeverity": "Bounded journey copy contradiction; does not prevent the work or establish a major learning failure.",
+      "recommendation": "Align the Cost Summary with the actual current module sequence and availability.",
+      "evidence": [
+        "cost-09-summary.txt",
+        "cost-09-summary.png",
+        "cost-summary-small-sources.txt",
+        "cost-1024x500-interactive.png",
+        "00-root.txt",
+        "00-root.png"
+      ]
+    },
+    {
+      "id": "MG-02",
+      "severity": "P2",
+      "title": "Missing word/number spacing interrupts core Monitoring explanations",
+      "route": "/learn/monitoring?topic=studio&perspective=telemetry",
+      "quotedPremise": "Med samme oppsett: sammenlign bare Average og Maximum over5punkt. Forklar66mot90og den strenge terskelen70.",
+      "repro": [
+        "Open Monitoring & Diagnostics Studio and Telemetry, Logs & Alerts.",
+        "Start Investigate an Alert and read the required contrast instructions.",
+        "Also read Metrics, logs, events og traces and Log Analytics og KQL."
+      ],
+      "observed": "Visible screenshot confirms merged strings over5punkt, Forklar66mot90og and terskelen70. Teaching text also contains er40,70,90,80,50prosent and på90dager.",
+      "consequence": "The numbers are the point of these examples; merged strings slow parsing and weaken the Norwegian prose. Arithmetic and model results remain interpretable.",
+      "whyThisSeverity": "Specific bounded language/readability defect, not evidence of an impossible task or measured learning effect.",
+      "recommendation": "Restore spaces around interpolated numbers and adjacent words in instructions, examples and Journal text.",
+      "evidence": [
+        "monitoring-number-spacing-1440x900.png",
+        "monitoring-telemetry-guided-completed.txt",
+        "monitoring-05-read.txt",
+        "monitoring-06-read.txt",
+        "monitoring-journal.txt"
+      ]
+    },
+    {
+      "id": "MG-03",
+      "severity": "P2",
+      "title": "Telemetry control sections skip a heading level",
+      "route": "/learn/monitoring?topic=studio&perspective=telemetry",
+      "quotedPremise": "Metric, dekning og aggregasjon",
+      "repro": [
+        "Open Telemetry, Logs & Alerts in Monitoring Studio.",
+        "Inspect the rendered heading outline or run Axe on the page."
+      ],
+      "observed": "H1 Monitoring & Diagnostic Tools → H2 Studio → H3 Investigate an Alert → H5 Metric, dekning og aggregasjon (and two other H5 control-group titles). Axe reports heading-order, moderate, one node.",
+      "consequence": "The semantic outline omits a level before key control groups, making heading-based navigation less predictable. Visual controls and keyboard access remain available in the sampled state.",
+      "whyThisSeverity": "Bounded semantic hierarchy issue; no screen-reader user validation or full WCAG conformance claim.",
+      "recommendation": "Use an appropriate consecutive heading level or a fieldset/legend for these control groups.",
+      "evidence": [
+        "axe-monitoring-interactive-confirmed.json",
+        "final-browser-metadata.json",
+        "monitoring-number-spacing-1440x900.png"
+      ]
+    },
+    {
+      "id": "MG-04",
+      "severity": "P3",
+      "title": "Optional editorial pass for authoring vocabulary in learner text",
+      "route": "/learn/cost?topic=optimization; /learn/cost?topic=tags; /learn/monitoring?topic=studio",
+      "quotedPremise": "P04 kjøper ingen reservation eller savings plan, endrer ingen VM og implementerer ingen Advisor-motor.",
+      "repro": [
+        "Read the Cost optimization boundary paragraph.",
+        "Read the tags model row labels and Monitoring Studio glossary."
+      ],
+      "observed": "Learner copy exposes P04, fixture-vm/fixture-large and fixturen, plus Syntetisk fixture / faktisk runtime and Guidance in Monitoring. The synthetic-data boundary itself is explained.",
+      "consequence": "These labels add vocabulary that is not needed to reason about Azure. Meaning is largely recoverable; this is polish rather than a blocker.",
+      "whyThisSeverity": "Optional plain-language editing, not a major pedagogy claim.",
+      "recommendation": "Use a learner-facing phrase for the local synthetic dataset and remove the unexplained P04 code.",
+      "evidence": [
+        "cost-07-optimization.txt",
+        "cost-06-tags-parent.txt",
+        "monitoring-09-studio-before.txt"
+      ]
+    }
+  ],
+  "positives": [
+    {
+      "mechanism": "Matched parameter contrasts require causal explanation",
+      "evidence": "Cost time-only estimate, budget actual/forecast, Governance locks and Monitoring aggregation changed distinct premises; task completion also required the cause. This adds active reasoning beyond reading Learn, without proving transfer."
+    },
+    {
+      "mechanism": "Original technical receipts remain distinct from conceptual results",
+      "evidence": "Actual Policy deny retained revision/object count; correction accepted. Actual Web app relation and three original receipts were inspected; model text never represented these as Azure deployment or app health."
+    },
+    {
+      "mechanism": "Assessment evaluates the complete premise and accepts visible alternatives",
+      "evidence": "Pre-feedback solves stored reasons/counterfactuals. mt07 accepted imperative PowerShell as well as explaining the valid declarative alternative. md07 rejected equivalence between Closed and Resolved in its feedback."
+    },
+    {
+      "mechanism": "SavvyShark supplies concrete local next actions and bounds conclusions",
+      "evidence": "Briefing → required contrast → saved observation → debrief/cause workflow; no unrestricted AI commands. Evidence/health/alert guidance directs source, scope, time and what remains unknown."
+    },
+    {
+      "mechanism": "Summary separates evidence types and retains first attempt",
+      "evidence": "Teaching opened, guided completion, receipts, unassisted first submissions and assistance/retry are explicitly distinguished. Cost draft reload preserved two selections; all four summaries showed the expected completed guided counts."
+    },
+    {
+      "mechanism": "Beginner prerequisites and optional sources are locally anchored",
+      "evidence": "Introductions reference resource scope, authorization and earlier cost concepts; glossary/worked example/boundary structure repeats predictably. Source lists are collapsible, main next action is explicit. Density and repeated caveats still merit human novice observation."
+    }
+  ],
+  "languageAndDensity": "Norwegian explanatory prose generally gives mechanism, worked example and boundary with useful distinctions. Repeated glossary/example/boundary sections and long Studio histories are dense but did not establish a P1. Fixed top/bottom navigation consumes substantial 1024×500 height; controls remained scroll-reachable in sampled states. Specific merged numeral strings are filed as MG-02; internal authoring labels as optional MG-04.",
+  "accessibility": {
+    "axeEvidence": [
+      "axe-cost-interactive-confirmed.json",
+      "axe-governance-interactive-confirmed.json",
+      "axe-management-interactive-confirmed.json",
+      "axe-monitoring-interactive-confirmed.json"
+    ],
+    "stableSampleResults": {
+      "cost": 0,
+      "governance": 0,
+      "management": 0,
+      "monitoring": "one moderate heading-order violation"
+    },
+    "keyboard": "keyboard-sample.json",
+    "responsive": "responsive-samples.json; *-1024x500-confirmed.png; monitoring-1024x500-assessment.png",
+    "visual": "monitoring-metric-figure.png and monitoring-number-spacing-1440x900.png inspected; representative viewport PNGs inspected",
+    "limits": "See limitations; no screen-reader validation or full conformance claim."
+  },
+  "limitations": [
+    "AI Azure/learning/UX reviewer. No human Azure SME, novice learner, assistive-technology user, psychometric, measured transfer or learning-effect validation.",
+    "Public preview only, read-only product review except authorized ordinary simulator UI actions. No repository source/tests/AGENTS/history/remediation docs/answer keys, Git mutation, deployment, secret or real Azure access.",
+    "All 50 recommended activities had rendered student text read (39 teaching pages, 3 missions lists, 4 assessment landings, 4 summaries). Figure/diagram labels and tables were read in DOM; visual inspection was representative, not a pixel-by-pixel inspection of every full-page PNG.",
+    "Only five of 37 independent scenario families were actually started/submitted (cm10, gc08, mt01, mt07, md07). Assessment landing visits do not imply a run. Other scenarios and retries are unverified.",
+    "All 13 guided investigations were completed; not every option/permutation was tried. Policy Modify/deployIfNotExists, DoNotEnforce, exemption expiry/remediation timing, several Arc extension/GitOps/data-service controls and other model branches were taught/read but not separately run.",
+    "Cost optional at-cost-01/at-cost-02 transfer extensions and real external Pricing Calculator were not opened/run. All source labels/hrefs inventoried, external link contents/status were not validated.",
+    "Actual draft reload was tested for Cost cm10 (both selected choices persisted); Governance Summary reload preserved progress; original Portal return paths were exercised in Governance, Management and Monitoring. Explicit browser Back/Forward, guided pause/resume, active-attempt abandon/retry, multi-tab assistance/storage conflicts, browser restart and private-mode persistence were not separately exercised.",
+    "1440×900 throughout primary pass and representative 1024×500 checks. No horizontal document overflow observed in sampled states, reduced-motion preference true and no running animations at sampling. No touch device, zoom matrix, high-contrast mode or full accessibility certification.",
+    "Axe sampled Cost/Governance/Management summaries and stable interactive pages in all four modules. One Monitoring heading-order finding. Keyboard sample covered Journal opening, Tab navigation, Escape and return focus. The attempted initial-Tab sample followed browser-restored focus and does not establish skip-link behavior.",
+    "Some automated captures crossed transient React routing/loading states: URL, body/main and PNG are not atomic. Earlier stale/mislabeled captures are preserved, not used as findings. Confirmed screenshot names, headings in final metadata and canonical teaching main text are identified. A rapid mt07 selection initially started visible mt01; it was treated as mt01 and independently solved. No product race finding asserted from that automation.",
+    "Browser logs contain seven preview feedback-script CSP blocks and 47 unused-CSS-preload warnings; no captured application pageerror/HTTP failure or associated necessary-work blockage. This does not establish a clean network at all times."
+  ],
+  "lock": "lock.json is generated after this report and route inventory; original solve locks are preserved and reverified."
+}

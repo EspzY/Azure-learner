@@ -4,6 +4,7 @@ import { useGuideBriefing } from '@/features/course/guide-briefing-request';
 import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import { computeNb as c, hybridExperienceNb as experience } from '@/content/nb';
+import { finalQualityNb } from '@/content/nb';
 import {
   computeGuidedFacts,
   computeMilestoneFacts,
@@ -71,7 +72,11 @@ export function ComputeWorkbench({
     summaryRef.current?.focus({ preventScroll: true });
   }, [revealResult]);
   const predictionLabels =
-    kind === 'container' ? c.models.container.predictions : c.labels.predictionOptions;
+    kind === 'container'
+      ? c.models.container.predictions
+      : desktop
+        ? finalQualityNb.avdPredictions
+        : c.labels.predictionOptions;
   const [overlay, setOverlay] = useState<'brief' | 'container' | 'capacity' | null>(null),
     [failed, setFailed] = useState(false),
     [warning, setWarning] = useState(false),

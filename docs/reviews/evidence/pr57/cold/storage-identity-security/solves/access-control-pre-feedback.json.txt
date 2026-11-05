@@ -1,0 +1,12 @@
+{
+  "route": "access-control",
+  "scenario": "ab06",
+  "decision": 0,
+  "reason": 2,
+  "rationale": "Both users must retain read on their present noncompliant devices, and neither may change VM configuration. Replace VM Contributor with Reader. Adding Reader cannot subtract additive VM Contributor rights. Enforcing the same-app device policy would block reading too, while report-only explains no enforcement difference.",
+  "decisionText": "Erstatt VM Contributor med Reader på VM-en for den tidligere endringsbrukeren.",
+  "reasonText": "Report-only håndhever ikke forskjellen; ressursrollen må snevres inn mens nødvendig lesing beholdes.",
+  "at": "2026-11-05T14:15:23.265Z",
+  "promptFile": "evidence/access-control-independent-prompt.json",
+  "promptSha256": "2cca8039da414c2c781c9a265d1008ee2507cceecf201ca21185b2a6be6cf69f"
+}
