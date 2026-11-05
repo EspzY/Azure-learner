@@ -139,7 +139,7 @@
       ],
       "practice": [
         {
-          "path": "src/domain/sandbox/laboratory-contract.test.ts"
+          "path": "src/laboratory-contract.test.ts"
         }
       ],
       "feedback": [
@@ -234,7 +234,7 @@
     {
       "command": "npm run check",
       "result": "passed",
-      "details": "Actual local final check exit0:704 Vitest,24 Node,503 curriculum-targeted; type/lint/format/docs/quality/audit/assets/legacy and production build passed. Earlier typing/format and one unchanged CC03 timing failure retained; candidate/base isolated rechecks passed, no root-cause fix claim.",
+      "details": "Latest Git-staged relocated candidate full check exit0:704 Vitest,24Node,503curriculum-targeted, all other gates and production build. Initial CI702/704 path-guard failure and earlier local timing/typing/format failures retained. No old guard/assertion/settings/runtime change.",
       "evidence": [
         {
           "path": "docs/reviews/evidence/laboratory-stage0/verification.json"
@@ -245,19 +245,24 @@
       "command": "npm run test:e2e:desktop",
       "result": "pending",
       "details": "Candidate379-profile CI required; inherited PR57 pass is not PR58 evidence."
+    },
+    {
+      "command": "npx vitest run src/laboratory-contract.test.ts src/features/course/cloud-computing-chapters.test.ts src/features/learning/source-disclosure.test.ts",
+      "result": "passed",
+      "details": "18/18 after git-add, including both exact older Git-diff guards. Only new test relocated out of frozen src/domain; no prior assertion/settings/runtime change. First CI702/704 failure retained."
     }
   ],
   "review": {
     "status": "complete",
-    "fingerprint": "616d43156a7db8ec675c8b2da05c078a06489fdd8b914c34c6d2ad83b1493596",
+    "fingerprint": "3d9b826fac1f91dbdaf52d78987da1227f4dae678370ab0849eec73a47b29f16",
     "reviewer": {
       "id": "/root/pr58_independent_final_audit",
       "kind": "agent"
     },
-    "started": "2026-11-05T22:47:45Z",
+    "started": "2026-11-05T23:00:18Z",
     "domains": {
       "content": {
-        "finding": "Checked both new contracts and five retained official source captures against scoped naming, plane and overwrite claims. Local limits/Storage remain proposals, not operative capability or new teaching. VM first-letter omission corrected/rechecked. No full curriculum or human source approval inferred.",
+        "finding": "Checked both new contracts and five retained official source captures against scoped naming, plane and overwrite claims. Local limits/Storage remain proposals, not operative capability or new teaching. VM first-letter omission corrected/rechecked. No full curriculum or human source approval inferred. CI follow-up changes only the test documentation pointer; source/design conclusions preserved.",
         "evidence": [
           {
             "path": "docs/LABORATORY_PLATFORM_CONTRACT.md"
@@ -271,7 +276,7 @@
         ]
       },
       "technical": {
-        "finding": "Traced seven handlers/six exposed actions, provider, replay/store and projections. Existing read-only APIs suffice without new adapter. Exact-base probe reproduced17 receipts/14 Worlds/final engine; unknown schema/model rejected. Owner-raised old-writer challenge independently reproduced with real store: separate hypothetical key leaves old v2 writer active. Final design explicitly gates writer retirement, source-change/fail-closed recovery and two-tab tests before activation; no v3 safety claimed.",
+        "finding": "Traced seven handlers/six exposed actions, provider, replay/store and projections. Existing read-only APIs suffice without new adapter. Exact-base probe reproduced17 receipts/14 Worlds/final engine; unknown schema/model rejected. Owner-raised old-writer challenge independently reproduced with real store: separate hypothetical key leaves old v2 writer active. Final design explicitly gates writer retirement, source-change/fail-closed recovery and two-tab tests before activation; no v3 safety claimed. CI correction is a mechanically verified root-test relocation only; all historical src/domain bytes and behavior preserved.",
         "evidence": [
           {
             "path": "src/domain/sandbox/model.ts"
@@ -297,7 +302,7 @@
         ]
       },
       "visual": {
-        "finding": "Personally opened all three PNGs/both receipt texts; read real root-to-Web-lab action/reload/return script/results. Compact image is Activity log with selected receipt below fold, not proof of all visible fields. Author local Axe0/no-overflow/reduced-motion evidence retained; reviewer did not repeat browser or claim new keyboard/zoom/human accessibility coverage. UI/assets byte-preserved.",
+        "finding": "Personally opened all three PNGs/both receipt texts; read real root-to-Web-lab action/reload/return script/results. Compact image is Activity log with selected receipt below fold, not proof of all visible fields. Author local Axe0/no-overflow/reduced-motion evidence retained; reviewer did not repeat browser or claim new keyboard/zoom/human accessibility coverage. UI/assets byte-preserved. The actual081d anonymous journey passed but is historical; replacement SHA still needs a fresh Gate7.",
         "evidence": [
           {
             "path": "docs/reviews/evidence/laboratory-stage0/local/hub.png"
@@ -317,7 +322,7 @@
         ]
       },
       "assessment": {
-        "finding": "All original assessment/course/domain/locale bytes preserved. Inspected actual mission/practical boundary-through replay and original VM debrief evaluation. Focused tests cover incomplete-first/correct retry/missing-corrupt archives. Accepted technical or memory-only outcome/current inventory cannot create guided completion or replace immutable first/help/retry evidence. No new bank/psychometric approval.",
+        "finding": "All original assessment/course/domain/locale bytes preserved. Inspected actual mission/practical boundary-through replay and original VM debrief evaluation. Focused tests cover incomplete-first/correct retry/missing-corrupt archives. Accepted technical or memory-only outcome/current inventory cannot create guided completion or replace immutable first/help/retry evidence. No new bank/psychometric approval. Mechanical relocation preserves every new assertion as well as every old assessment byte.",
         "evidence": [
           {
             "path": "src/domain/sandbox/missions.ts"
@@ -337,7 +342,7 @@
         ]
       },
       "guidance": {
-        "finding": "Shared mission safety and pinned result selection checked; guides/assistance/independent guards/origins/mascot byte-preserved. Images show unfinished guide tied to original denial, not automatic correction/completion. Raw inspection remains separate from teaching assistance. Inherited full guidance regressions remain required CI.",
+        "finding": "Shared mission safety and pinned result selection checked; guides/assistance/independent guards/origins/mascot byte-preserved. Images show unfinished guide tied to original denial, not automatic correction/completion. Raw inspection remains separate from teaching assistance. Inherited full guidance regressions remain required CI. CI correction adds no guide/runtime change; preservation reverified.",
         "evidence": [
           {
             "path": "src/features/course/mission-context.ts"
@@ -354,10 +359,10 @@
         ]
       },
       "regression": {
-        "finding": "Matched exact1877-path base minus two mutable paths to all1875 manifest entries and original/current bytes;169 historical domain files/locked PR57 evidence unchanged. Final1875 rehash and13-file stamp/fingerprint match. Focused4files/50tests passed after VM-wording stamp; final change is future-design Markdown only. Fullcheck704Vitest/24Node/503curriculum/build read with retained unexplained timeout/rechecks. Full379 CI/strict and anonymous exact-SHA Gate7 remain pending.",
+        "finding": "Follow-up independently verified CI42124798963 head081d failed702/704 on two unchanged Git-tracked domain guards, distinct from earlier timeout. Mechanical new-test move changes exactly9 import paths, no assertions; staged root test equals current bytes and base src/domain diff is empty. Fresh tracked new+both old guard files18/18 exit0 after final stamp; relocated fullcheck704Vitest/24Node/503curriculum/build read. All1875 original/current hashes and final13-file fingerprint match. All old assertions/settings preserved. New-head379 CI/strict and anonymous Gate7 pending;081d journey is historical.",
         "evidence": [
           {
-            "path": "src/domain/sandbox/laboratory-contract.test.ts"
+            "path": "src/laboratory-contract.test.ts"
           },
           {
             "path": "docs/reviews/evidence/laboratory-stage0/preservation.json"
@@ -367,6 +372,12 @@
           },
           {
             "path": "docs/quality/PR58_FINAL_AUDIT.md"
+          },
+          {
+            "path": "src/features/course/cloud-computing-chapters.test.ts"
+          },
+          {
+            "path": "src/features/learning/source-disclosure.test.ts"
           }
         ]
       }
@@ -405,7 +416,7 @@
         "id": "PR58-FA-05",
         "severity": "note",
         "status": "open",
-        "description": "Exact delivered-head full379-profile CI/strict and actual anonymous ordinary-root/full-SHA/action/reload/return/screenshots remain mandatory pending delivery conditions after Draft publication."
+        "description": "Replacement delivered-head full379-profile CI/strict and fresh actual anonymous ordinary-root/full-SHA/action/reload/return/screenshots remain mandatory. First081d CI failed; its actual successful external journey is historical, not replacement proof."
       },
       {
         "id": "PR58-FA-06",
@@ -416,6 +427,18 @@
         "retests": [
           "Actual unchanged SandboxStore in-memory hypothetical-key probe exit0 reproduced issue=null, old v2 write accepted and captured source changed.",
           "Final follow-up22:47:45Z reread new gate paragraphs against provider key listener and store CAS; final13-file hash/fingerprint and1875-file rehash match."
+        ]
+      },
+      {
+        "id": "PR58-FA-07",
+        "severity": "major",
+        "status": "fixed",
+        "description": "Actual CI42124798963 failed702/704 because the added Git-tracked src/domain test violated two unchanged historical domain guards. Earlier precommit untracked checks, including initial audit, missed this tracking-sensitive failure. This was not the prior timeout.",
+        "fix": "Author relocated only the new test to src/laboratory-contract.test.ts with9 relative-import rewrites and updated current docs/evidence pointers. New test staged before targeted/fullcheck; old guards/assertions/config untouched; no base src/domain diff.",
+        "retests": [
+          "Reviewer mechanically reconstructed moved file byte-exact except9 import paths; staged bytes equal current and old path absent.",
+          "Fresh post-stamp npx vitest run src/laboratory-contract.test.ts src/features/course/cloud-computing-chapters.test.ts src/features/learning/source-disclosure.test.ts:3files/18tests exit0,23:01:01,5.64s.",
+          "Read Git-staged fullcheck-relocated exit0:704Vitest/24Node/503curriculum/production build; independently verified all1875 original/current hashes and13file replacement stamp."
         ]
       }
     ],
@@ -446,7 +469,7 @@
     "simulation": {
       "checks": [
         {
-          "path": "src/domain/sandbox/laboratory-contract.test.ts"
+          "path": "src/laboratory-contract.test.ts"
         },
         {
           "path": "docs/reviews/evidence/laboratory-stage0/command-golden.json"
@@ -495,7 +518,7 @@
   },
   "snapshot": {
     "files": {
-      "docs/LABORATORY_PLATFORM_CONTRACT.md": "2c6955c832ce5ec7e5650bca72acc98eafca830e2479f509effcbc2bb79d72fe",
+      "docs/LABORATORY_PLATFORM_CONTRACT.md": "982e8b35e07f9e6ad563559fc1ac1aab36e74f76b81fb86880152f0d82e1efcc",
       "docs/STORAGE_VERTICAL_DESIGN.md": "b5bc28f0bc1209ce5fc4e09a065d0e9976ce9c895b2eda1fa88409e0e3bc41e5",
       "docs/reviews/evidence/laboratory-stage0/command-golden.json": "8f3dd7758a74d8e5b5cc7aeb75e7cc4e1550c7381a82da326f8b181ccf47a90c",
       "docs/reviews/evidence/laboratory-stage0/local/app.png": "2d7e7e2d052845ce841e80ae2784c72b89a01ba3b85926de4a7cfa3ade8c106c",
@@ -506,9 +529,9 @@
       "docs/reviews/evidence/laboratory-stage0/local/results.json": "75e4420036e6d5e425b28560bb3ecd5e87875ed0f51b719161b7b8fa34da9bad",
       "docs/reviews/evidence/laboratory-stage0/preservation.json": "7e4e824c925f45d8a21a97306f158b2e1a90294afc0f760b566c07538f8ff830",
       "docs/reviews/evidence/laboratory-stage0/sources.json": "d32b9ce796724755ee5225aebfa7386bcfb6a09096dfa387272ed0ebf185e838",
-      "docs/reviews/evidence/laboratory-stage0/verification.json": "38784e46b5e4c0d91b690e1c84cae3f6be30c625f0d3e062845a48cdc3bcf7b0",
-      "src/domain/sandbox/laboratory-contract.test.ts": "4a32803a5805379a58e2de4cfcd989eb83f540649434874ae6869c21333bdf9d"
+      "docs/reviews/evidence/laboratory-stage0/verification.json": "8945459653475c7c611d251d71f252003838c61a2e8bfba730e4fbf1c95ccfcf",
+      "src/laboratory-contract.test.ts": "4c4ec0cc8fd38ef2666b225681d5fdddce9c719d34d2bdec33c3dc5ecfe57775"
     }
   },
-  "implementationFinished": "2026-11-05T22:47:29.044Z"
+  "implementationFinished": "2026-11-05T23:00:03.415Z"
 }

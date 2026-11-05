@@ -1,21 +1,21 @@
 import { createHash } from 'node:crypto';
 import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
-import { execute as legacyExecute, freshEngine as legacyFresh } from '../chapter01/model';
+import { execute as legacyExecute, freshEngine as legacyFresh } from './domain/chapter01/model';
 import {
   continueEngine,
   execute,
   infrastructureRelations,
   type Command,
   type Engine,
-} from './model';
-import { replayEngine } from './replay';
-import { SandboxStore, sandboxKey, type StoragePort } from './store';
-import { inventory, projectArchitecture, reviewCommand } from '../portal/model';
-import { receiptReferences, resourceOperations } from '../portal/inspection';
-import { vmChain } from './missions';
-import golden from '../../../docs/reviews/evidence/laboratory-stage0/command-golden.json';
-import preservation from '../../../docs/reviews/evidence/laboratory-stage0/preservation.json';
+} from './domain/sandbox/model';
+import { replayEngine } from './domain/sandbox/replay';
+import { SandboxStore, sandboxKey, type StoragePort } from './domain/sandbox/store';
+import { inventory, projectArchitecture, reviewCommand } from './domain/portal/model';
+import { receiptReferences, resourceOperations } from './domain/portal/inspection';
+import { vmChain } from './domain/sandbox/missions';
+import golden from '../docs/reviews/evidence/laboratory-stage0/command-golden.json';
+import preservation from '../docs/reviews/evidence/laboratory-stage0/preservation.json';
 
 // JSON imports widen discriminants; the tests below validate actual replay and every receipt.
 const original = () => structuredClone(golden.engine) as unknown as Engine;
