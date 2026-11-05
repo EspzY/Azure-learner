@@ -21923,3 +21923,71 @@ export const vmDebriefNb = {
   alternatives: 'Andre forsøksvalg',
   view: 'Se innlevering',
 } as const;
+
+/** Current presentation only; the original teaching and assessment objects above stay frozen. */
+export const finalQualityNb = {
+  storageAvailable: storageNb.available.replace(
+    'Part B om access tiers og redundans kommer senere.',
+    'Part B om access tiers og redundans er tilgjengelig som neste del i læringsreisen.',
+  ),
+  computeAvailable: computeNb.available.replace(
+    'Storage kommer senere.',
+    'Storage er også tilgjengelig i kursoversikten.',
+  ),
+  security: {
+    introductionLimit: securityNb.sections.introduction.limit.replace(
+      'Full A–F-innholdsdekning',
+      'Gjennomgått innhold',
+    ),
+    zeroTrust: securityNb.sections['zero-trust'].paragraphs[1].replace(
+      'P10/P11',
+      'Identity Foundations og RBAC & Conditional Access',
+    ),
+    posture: securityNb.sections.posture.paragraphs[4].replace(
+      'en avgrenset fixtureforutsetning',
+      'en avgrenset forutsetning i undervisningseksemplet',
+    ),
+  },
+  monitoring: {
+    available: monitoringNb.available.replace('læringssti02', 'læringssti 02'),
+    healthExample: monitoringNb.sections.health.example.replace('klokken08:', 'klokken 08:'),
+    signalsExample: monitoringNb.sections.signals.example
+      .replace('er40,70,90,80,50prosent', 'er 40, 70, 90, 80, 50 prosent')
+      .replace('er66prosent, maksimum90', 'er 66 prosent, maksimum 90')
+      .replace('enn70', 'enn 70'),
+    logs: monitoringNb.sections.logs.paragraphs[2].replace('på90dager', 'på 90 dager'),
+    alerts: monitoringNb.sections.alerts.paragraphs[0]
+      .replace('enn70', 'enn 70')
+      .replace('lik70', 'lik 70'),
+    alertsExample: monitoringNb.sections.alerts.example.replace(
+      'gir90mot terskelen70',
+      'gir 90 mot terskelen 70',
+    ),
+    insightsExample: monitoringNb.sections.insights.example.replace('er650ms', 'er 650 ms'),
+    telemetryWhere: monitoringNb.missions.telemetry.where.replace('klokken08:', 'klokken 08:'),
+    telemetryStep: monitoringNb.missions.telemetry.steps[2].replace(
+      'over5punkt. Forklar66mot90og den strenge terskelen70.',
+      'over 5 punkt. Forklar 66 mot 90 og den strenge terskelen 70.',
+    ),
+  },
+  avdPredictions: [
+    'Velg prediksjon',
+    'Publiseringsforutsetningene er ikke oppfylt',
+    'Publisert uten deklarert session host',
+    'Publisert med deklarert session host',
+  ],
+  peering: {
+    overlap:
+      'Adresseområdene til det valgte VNet-paret overlapper. Standardeksemplet avviser denne peering-relasjonen; en annen Connected-relasjon i figuren løser ikke overlappet.',
+    oneSide:
+      'Bare én peering-retning er konfigurert mot valgt mål. Modellen krever begge retninger for Connected.',
+    missing:
+      'Det mangler en direkte, tosidig Connected-peering til valgt mål i dette standardeksemplet.',
+    subnet:
+      'Valgt subnet er ikke med i den erklærte deltakelsen. En Connected-relasjon alene oppfyller derfor ikke modellens scopekrav.',
+    route: 'Peering og subnet-deltakelse er avklart, men videre nettverksvei er ukjent i modellen.',
+    denied:
+      'Modellen har en avklart nettverksvei, men den deklarerte tilgangen er avslått. Nettverksforbindelse gir ikke i seg selv applikasjonstilgang.',
+    unknown: 'Modellen har en avklart nettverksvei, men den deklarerte tilgangen er uavklart.',
+  },
+} as const;

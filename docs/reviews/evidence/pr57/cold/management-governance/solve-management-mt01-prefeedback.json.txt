@@ -1,0 +1,9 @@
+{
+  "utc": "2026-11-05T14:15:55.412Z",
+  "route": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/management-tools?topic=assessment&case=mt01",
+  "case": "mt01",
+  "decision": "Velg relevante subscription-filtre, match full ID og åpne egenskapene for dette objektet.",
+  "reasonChoice": "Full resource ID avgrenser instansens scope og type; et navn eller en tjenestekategori alene skiller ikke disse treffene.",
+  "ownReason": "Duplicate names across subscriptions require matching the supplied full scoped ID; Portal graphical inspection with appropriate filters matches the requested workflow. Provider/type and Recently visited do not identify the particular instance.",
+  "counterfactual": "If only one matching object existed, a name could be enough for orientation; the explicit duplicate premise makes it insufficient here."
+}

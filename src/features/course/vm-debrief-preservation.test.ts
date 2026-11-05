@@ -1,11 +1,17 @@
 import { it, expect } from 'vitest';
+import { assertPR57Presentation, pr57PresentationChanges } from '../../../tests/pr57-preservation';
 import { readFileSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import proof from '../../../docs/reviews/evidence/cc02/preservation.json';
 const hash = (bytes: Uint8Array | string) => createHash('sha256').update(bytes).digest('hex');
 it('preserves all original technical and assessment contracts, source data and full locale prefix', () => {
-  for (const [path, sha] of Object.entries(proof.wholeFiles))
+  for (const [path, sha] of Object.entries(proof.wholeFiles)) {
+    if (pr57PresentationChanges.includes(path)) {
+      assertPR57Presentation(path, sha);
+      continue;
+    }
     expect(hash(readFileSync(path)), path).toBe(sha);
+  }
   expect(hash(readFileSync('src/content/nb.ts').subarray(0, proof.localePrefix.bytes))).toBe(
     proof.localePrefix.sha256,
   );

@@ -1,0 +1,12 @@
+{
+  "route": "storage",
+  "scenario": "sa04",
+  "decision": 1,
+  "reason": 0,
+  "rationale": "Visibility can expire while worker A remains alive, so worker B may receive the same job. Renew visibility where appropriate, make application effects idempotent with durable coordination, and retain job status separately from message count. Other choices either confuse receive/delete with completion or assume Table supplies worker claiming.",
+  "decisionText": "Behold køen, håndter visibility under arbeid og utform idempotens samt separat varig jobbstatus.",
+  "reasonText": "Visibility kan utløpe før jobben er ferdig; jobbstatus og sideeffekt må håndteres i appen.",
+  "at": "2026-11-05T14:15:23.265Z",
+  "promptFile": "evidence/storage-independent-prompt.json",
+  "promptSha256": "cbed7adfe32af56cad431402b0914b2a5dda8393c065e2bfacc9c570c5aa8265"
+}

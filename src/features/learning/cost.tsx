@@ -304,7 +304,6 @@ function CostSummary() {
           </tbody>
         </table>
       </CostTable>
-      <p>{c.summary.next}</p>
       <p>{c.human}</p>
       <CostSources />
     </section>

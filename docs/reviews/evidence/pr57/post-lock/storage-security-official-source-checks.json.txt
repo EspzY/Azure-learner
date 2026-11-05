@@ -1,0 +1,54 @@
+[
+  {
+    "name": "zero-trust",
+    "url": "https://learn.microsoft.com/en-us/security/zero-trust/zero-trust-overview",
+    "final": "https://learn.microsoft.com/en-us/security/zero-trust/zero-trust-overview",
+    "status": 200,
+    "retrievedUTC": "2026-11-05T14:32:34.523148+00:00",
+    "bodySha256": "ef9c78b288a344b9de5195f8eba14e88eeb1747df06fcb26c8cc3f0826bb1e62",
+    "contentType": null,
+    "lastModified": null,
+    "excerpts": [
+      {
+        "term": "Verify explicitly",
+        "text": "cess decisions and security controls.\r\n\r\n| **Principle** | **Implementation** |\r\n| --- | --- |\r\n| **Verify explicitly** | Every access request is **authenticated and authorized using all available signals**. |\r\n| **Use least privilege access** | User and workloads get **only the access they need, for the shortest time required**. |\r\n| **Assume breach** | Security controls are designed with the expectation that **attackers might be operating inside the environment**. Controls focus on limiting breach impact, and enabling rapid threat detection and response. |\r\n\r\n## Zero Trust outcomes\r\n\r\nWhen applied consistently, Zero Trust leads to clear, consistent, and measurable security outcomes that replace traditional \"trust-by-default\" models with \"trust-by-exception\".\r\n\r\n- **Access is explicitly granted and continuously evaluated**: Trust isn't s"
+      },
+      {
+        "term": "least privilege",
+        "text": " | Every access request is **authenticated and authorized using all available signals**. |\r\n| **Use least privilege access** | User and workloads get **only the access they need, for the shortest time required**. |\r\n| **Assume breach** | Security controls are designed with the expectation that **attackers might be operating inside the environment**. Controls focus on limiting breach impact, and enabling rapid threat detection and response. |\r\n\r\n## Zero Trust outcomes\r\n\r\nWhen applied consistently, Zero Trust leads to clear, consistent, and measurable security outcomes that replace traditional \"trust-by-default\" models with \"trust-by-exception\".\r\n\r\n- **Access is explicitly granted and continuously evaluated**: Trust isn't static. Every request is assessed in real time as conditions change.\r\n- **Access is conditional and temporary**: Permiss"
+      },
+      {
+        "term": "Assume breach",
+        "text": "ss** | User and workloads get **only the access they need, for the shortest time required**. |\r\n| **Assume breach** | Security controls are designed with the expectation that **attackers might be operating inside the environment**. Controls focus on limiting breach impact, and enabling rapid threat detection and response. |\r\n\r\n## Zero Trust outcomes\r\n\r\nWhen applied consistently, Zero Trust leads to clear, consistent, and measurable security outcomes that replace traditional \"trust-by-default\" models with \"trust-by-exception\".\r\n\r\n- **Access is explicitly granted and continuously evaluated**: Trust isn't static. Every request is assessed in real time as conditions change.\r\n- **Access is conditional and temporary**: Permissions are granted only when required and are removed when no longer valid.\r\n- **Permissions are tightly scoped**: Users a"
+      }
+    ]
+  },
+  {
+    "name": "cspm",
+    "url": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/concept-cloud-security-posture-management",
+    "final": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/concept-cloud-security-posture-management",
+    "status": 200,
+    "retrievedUTC": "2026-11-05T14:32:34.499888+00:00",
+    "bodySha256": "1b1e18470b0d1d322af8762daff3a4a066cf31ef7ca2658980088d644ca7fffe",
+    "contentType": null,
+    "lastModified": null,
+    "excerpts": [
+      {
+        "term": "Foundational CSPM",
+        "text": "assessments provide risk-prioritized recommendations without requiring other configuration.\r\n\r\nWhen Foundational CSPM is enabled, the [Microsoft Cloud Security Benchmark (MCSB)](concept-regulatory-compliance) standard provides recommendations to help secure your multicloud environment. The [secure score](secure-score-security-controls) based on some of the MCSB recommendations helps you monitor cloud compliance. A higher score indicates a lower identified risk level.\r\n\r\n## CSPM plans\r\n\r\nDefender for Cloud offers two CSPM plans:\r\n\r\n- **Foundational CSPM** (free): Available at no cost.\r\n- **Defender CSPM** (paid): Provides extra capabilities beyond the Foundational CSPM plan, including advanced CSPM tools for cloud visibility and compliance monitoring. This plan offers advanced security posture features such as AI security posture, attack p"
+      },
+      {
+        "term": "Defender CSPM",
+        "text": "e cloud misconfigurations and security risks.\r\n\r\nFor Azure Database for PostgreSQL flexible server, Defender CSPM continuously evaluates server-level and database-level configurations against PostgreSQL security best practices. The assessments identify network security, auditing, and operational resilience issues. If Defender CSPM is already enabled, the assessments provide risk-prioritized recommendations without requiring other configuration.\r\n\r\nWhen Foundational CSPM is enabled, the [Microsoft Cloud Security Benchmark (MCSB)](concept-regulatory-compliance) standard provides recommendations to help secure your multicloud environment. The [secure score](secure-score-security-controls) based on some of the MCSB recommendations helps you monitor cloud compliance. A higher score indicates a lower identified risk level.\r\n\r\n## CSPM plans\r\n\r\nD"
+      },
+      {
+        "term": "risk prioritization",
+        "text": "an offers advanced security posture features such as AI security posture, attack path analysis, and risk prioritization.\r\n\r\n### Plan availability\r\n\r\nDefender CSPM supports multiple deployment models and cloud environments:\r\n\r\n- **Commercial clouds**: Available in all Azure commercial regions.\r\n- **Government clouds**: Available in Azure Government and Azure Government Secret.\r\n- **Multi-cloud**: Support for Azure, AWS, and GCP environments.\r\n- **Hybrid**: On-premises resources connected through Azure Arc.\r\n- **DevOps**: GitHub, Azure DevOps, and GitLab integration.\r\n- **External registries**: Docker Hub and JFrog Artifactory connectors support selected Foundational CSPM and Defender CSPM capabilities. Defender for Containers also supports selected container image capabilities. For plan-specific availability, see [external registry capabil"
+      },
+      {
+        "term": "attack path",
+        "text": "liance monitoring. This plan offers advanced security posture features such as AI security posture, attack path analysis, and risk prioritization.\r\n\r\n### Plan availability\r\n\r\nDefender CSPM supports multiple deployment models and cloud environments:\r\n\r\n- **Commercial clouds**: Available in all Azure commercial regions.\r\n- **Government clouds**: Available in Azure Government and Azure Government Secret.\r\n- **Multi-cloud**: Support for Azure, AWS, and GCP environments.\r\n- **Hybrid**: On-premises resources connected through Azure Arc.\r\n- **DevOps**: GitHub, Azure DevOps, and GitLab integration.\r\n- **External registries**: Docker Hub and JFrog Artifactory connectors support selected Foundational CSPM and Defender CSPM capabilities. Defender for Containers also supports selected container image capabilities. For plan-specific availability, see "
+      }
+    ]
+  }
+]

@@ -1,0 +1,217 @@
+# Management & Governance — pedagogisk segmentstruktur
+
+**Etter-lås-etterkontroll, ikke kaldt review eller endelig audit.** 2026-11-05T15:43:47.894416Z. Kildeversjon `a3f1b575b2eb5b257fd455fec1a73b30a38706f4`.
+
+Ingen konkret alvorlig strukturell hindring før RC er etablert. Behold dagens struktur nå. De avgrensede forslagene under kan behandles samlet i én senere presentasjonsleveranse; de er ikke implementert og gir ingen påstand om målt lærings- eller tidsgevinst.
+
+Grunnlaget er de 50 anbefalte elevaktivitetene som faktisk ble lest og de 13 guidene som faktisk ble gjennomført i den låste offentlige nettleserpasseringen. Kun konkrete forbindelser ble gjenlest i de eksisterende snapshotene: Cost-behov/drivere, Purview/metadata, locks/data-plane og klient-/template-/Copilot-overgangene. Ingen ny full nettlesertur eller ny vurderingsbankgjennomgang ble gjort. Denne etterkontrollen endret ingen repo-filer og vurderer ikke samtidige implementasjonsendringer etter den opprinnelige passeringen. Originale kaldrapporter, solve-filer og lock beholdes.
+
+## Vurderingsmåte
+
+Hver aktivitet er vurdert etter nytt læringsspørsmål, forklaring/mekanisme, eksempler/moteksempler, kontroll eller registrert bevis, forkunnskap og overgang. Korte sider med en viktig praktisk eller teknisk grense beholdes. Samme tjenestenavn gir ikke i seg selv grunn til sammenslåing. Ingen ord-/sideterskel eller reduksjonskvote er brukt.
+
+- **A:** behold egen økt/side eller ankerside.
+- **B:** samle navngitte, sammenhengende teorimedlemmer med tydelige seksjoner.
+- **C:** integrer full tekst som synlig navngitt seksjon i en eksisterende økt.
+- **D:** behold ruten som valgfritt oppslagskart, uten anbefalt lineær plass.
+- **E:** mer undersøkelse før beslutning. Ingen aktivitet er plassert i E i dette avgrensede forslaget; sammensetningenes lesbarhet er likevel uvalidert og må kontrolleres før vedtak.
+
+`activities.json` har alle 50 aktiviteter med læringsmål, ny forståelse, konkret substans, mekanisme/sjekk/evidens, avhengighet, repetisjon, sidebegrunnelse, klassifikasjon, foreslått økt, nav-effekt, risiko, prioritet, kort eksakt sitat og confidence. `modules.json` angir eksakte medlemskap og opptelling.
+
+## Omfang og opptelling
+
+| Modul | Nåværende anbefalte aktiviteter | Foreslåtte anbefalte økter | Uendrede praksisflater | Uendret assessment / Summary |
+|---|---:|---:|---|---|
+| cost | 9 | 8 | estimate, analysis, budgets, tags | assessment / summary |
+| governance | 13 | 11 | studio | assessment / summary |
+| management | 16 | 12 | studio | assessment / summary |
+| monitoring | 12 | 11 | studio | assessment / summary |
+
+Tallene er konsekvenser av de navngitte forslagene, ikke et reduksjonsmål. De inkluderer alle uendrede assessment-, Summary- og praksisflater. Tre missions-ruter beholdes som valgfrie oppslag. De fire Cost-benkene og tre Studio-flater beholder til sammen alle 13 separate guide-/attempt-identiteter. Historiske topic-ruter bevares selv der flere topicmedlemmer kan vises i én økt.
+
+**Færre statiske oppføringer er ikke en målt klikkgevinst.** Den låste passeringen viste at ferdige guider allerede kan få «Fortsett til selvstendig anvendelse». PR43 kan dermed gå forbi oppdragskartet uten at kartets statiske plass er fjernet. Gevinsten ved D-forslaget er en tydeligere rolle i sidemeny og anbefalt rekkefølge, ikke et bestemt antall sparte klikk eller minutter.
+
+## cost — 9 → 8 anbefalte økter
+
+**Problem:** Introduksjonen hevder at ressursantall ikke er en måler, mens neste separate side straks forklarer målerne. Overgangen kan fungere som én grunnøkt; de fire benkene har derimot forskjellige aktive beslutninger.
+
+**Gevinst:** Knytter arbeidslastens behov direkte til konkret fakturerbar mengde før første estimat. Egen analyse, budsjett, tags og optimeringssyntese beholdes.
+
+**Risiko:** Innledningens oversiktsfunksjon og konkrete forbruksmekanismer må begge være synlige; ikke fyll grunnøkten med de fire aktive benkene.
+
+**Prioritet:** Én avgrenset senere leveranse / P2-presentasjon. Behold nåværende struktur fram til gjennomarbeidet implementering.
+
+Ikke slå analyse+budsjett+tags sammen: de har ulike prediksjoner, resultatgrenser og egne guidede avslutninger.
+
+| Foreslått økt | Eksakte topicmedlemmer | Rolle |
+|---|---|---|
+| Behov, kostnadsdrivere og fakturerbart forbruk | `introduction`, `drivers` | teori |
+| Bygg og sammenlign et estimat | `estimate` | praksis med egen guided-grense |
+| Undersøk et kostnadsavvik | `analysis` | praksis med egen guided-grense |
+| Undersøk actual og forecast mot budsjett | `budgets` | praksis med egen guided-grense |
+| Forklar kostnadsfordeling med tags | `tags` | praksis med egen guided-grense |
+| Optimalisering med driftskrav | `optimization` | teori |
+| Selvstendig økonomisk anvendelse | `assessment` | uendret independent |
+| Hva har du dokumentert? | `summary` | uendret evidensoversikt |
+
+| Nåværende aktivitet | Klasse | Begrunnelse for side/foreslått rolle |
+|---|---|---|
+| `introduction` — Hvorfor koster løsningen penger? | B | Viktig innledning, men trenger ikke et eget sideskift før den konkrete forklaringen av fakturerbar mengde. |
+| `drivers` — Kostnadsdrivere og fakturerbart forbruk | B | Passer som egen tydelig seksjon i samme grunnøkt som introduction, før første benk. |
+| `estimate` — Pricing Calculator · bygg og sammenlign | A | Egen side er begrunnet av reell parametervariasjon, prediksjon, resultat, årsak og eksplisitt oppdragsgrense. |
+| `analysis` — Cost Analysis · undersøk et avvik | A | Egen analytisk oppgave med eget bevis og feilslutninger; behold atskilt fra både estimat og budsjett. |
+| `budgets` — Budgets · kostnad og prognose | A | Kortere konsept enn noen andre sider, men kontrasten og egen guided-avslutning legitimerer egen side. |
+| `tags` — Tags · organisering og kostnadsfordeling | A | Egen mekanisme og aktiv fordeling; bør ikke legges inn i en generell Cost Analysis-samleside. |
+| `optimization` — Optimalisering med driftskrav | A | Egen syntese før independent-caser; sammenslåing med alle benkene ville skjule et annet beslutningsnivå. |
+| `assessment` — Selvstendig økonomisk anvendelse | A | Behold helt separat. Ingen teorisammenslåing, auto-Start, delt forsøks-ID eller inngang som viser forklaring før innlevering. |
+| `summary` — Hva har du dokumentert? | A | Behold egen avslutning. Den skal ikke være en ny teoriside eller blandes inn i aktiv independent-feedback. |
+
+## governance — 13 → 11 anbefalte økter
+
+**Problem:** Purview-oversikten og metadata/lineage fortsetter samme katalogcase på to sider. Et separat missions-kart gjentar tre guideinnganger.
+
+**Gevinst:** Samler produktets datarelasjoner og mekanismene som gjør metadata nyttig; kartet beholdes for direktevalg. Policy-effekt, scope/unntak, remediation og lock-/data-plane-trinn forblir tydelige.
+
+**Risiko:** Purview+catalog må være to lesbare seksjoner med alle rettighetsgrenser. Ikke koble katalogtekst direkte til faktisk autorisasjon eller bland modelldata med kildedata.
+
+**Prioritet:** Én avgrenset senere leveranse / P2-presentasjon. Behold nåværende struktur fram til gjennomarbeidet implementering.
+
+Ingen hel Governance-samleside og ingen Policy+scope+remediation-megaøkt. STP beholdes til tross for supplementstatus fordi leverandørbevis er et annet spørsmål.
+
+| Foreslått økt | Eksakte topicmedlemmer | Rolle |
+|---|---|---|
+| Fra kostnader til styring | `introduction` | teori |
+| Purview: finn, forstå og forvalt data | `purview`, `catalog` | teori |
+| Policy-definition og effect | `policy` | teori |
+| Scope, assignments og unntak | `assignments` | teori |
+| Compliance, timing og remediation | `compliance` | teori |
+| Administrativt ressursvern | `locks` | teori |
+| Operasjonsplan, datatilgang og backupgrense | `planes` | teori |
+| Service Trust Portal og leverandørdokumentasjon | `trust` | teori |
+| Governance Decision Studio | `studio` | uendret praksisflate: tre guider |
+| Selvstendig Governance-anvendelse | `assessment` | uendret independent |
+| Summary — Governance | `summary` | uendret evidensoversikt |
+| Guidede undersøkelser — valgfritt oppslagskart | `missions` | valgfritt oppslag, utenfor anbefalt opptelling |
+
+| Nåværende aktivitet | Klasse | Begrunnelse for side/foreslått rolle |
+|---|---|---|
+| `introduction` — Fra kostnader til styring | A | Behold som egen kort, men viktig overgang mellom økonomi og styring; den bestemmer hvilket problem verktøyene skal løse. |
+| `purview` — Microsoft Purview | B | Produktintroduksjonen gir mest sammenheng når den følger direkte over i den forklarende metadata-/lineage-seksjonen. |
+| `catalog` — Metadata, eiere og lineage | B | Behold som tydelig andre seksjon i felles Purview-økt; ikke flytt dette inn i den operative Studio-benken. |
+| `policy` — Azure Policy | A | Behold egen side: flere effects og request/eksisterende-ressurs-skillet er nok egen substans; ikke samle hele Policy-trilogien til én lang side. |
+| `assignments` — Assignment, scope og unntak | A | Egen side er begrunnet av den selvstendige scope-/unntaksbeslutningen og mange plausible feilslutninger. |
+| `compliance` — Compliance og remediation | A | Behold etter assignments: den avslutter Policy-mekanismen uten å gjøre første Policy-lesing til en overfylt samleside. |
+| `locks` — Resource Locks | A | Behold egen side: lock-modellen er substansiell og trenger ikke hele data-plane-forklaringen på samme side. |
+| `planes` — Control plane og data plane | A | Behold: den korte overgangen fra locks er faglig sammenhengende og blir en ny kontrolloppgave. Ingen påvist nødvendig omflytting. |
+| `trust` — Service Trust Portal | A | Behold egen avgrenset side selv om den er et Learn-supplement: dokumentasjons- og tilgangsgrensen er et viktig selvstendig valg. |
+| `studio` — Governance Decision Studio | A | Behold praksissiden og alle tre eksisterende mission-/attempt-identiteter. Ikke bygg den inn i en lang teoriside eller slå tre guider til ett forsøk. |
+| `missions` — Guidede undersøkelser | D | Behold som valgfri oppslagsrute, men egen anbefalt lineær aktivitetsplass er svakere begrunnet enn praksissiden. |
+| `assessment` — Selvstendig anvendelse | A | Behold helt separat. Ingen teorisammenslåing, auto-Start, delt forsøks-ID eller inngang som viser forklaring før innlevering. |
+| `summary` — Summary — Governance | A | Behold egen avslutning. Den skal ikke være en ny teoriside eller blandes inn i aktiv independent-feedback. |
+
+## management — 16 → 12 anbefalte økter
+
+**Problem:** CLI/Pwsh og ARM JSON/Bicep er uttrykkelige sammenlikningspar over samme mål, men ligger som isolerte produktsider. Copilot-eksemplet bruker samme endringsreview som changes. Missions-kartet er gjentatt navigasjon.
+
+**Gevinst:** Gir direkte kontrast mellom klienter og mellom deklarative formater, mens host, ARM-lag, IaC-prinsipp, What-if og Arc beholder egne læringsspørsmål. Copilot blir en konkret anvendelse av reviewkravet.
+
+**Risiko:** Ikke reduser PowerShell til et CLI-alias eller Bicep til kort JSON. Formatøkten kan bli tett; behold eksempel- og moteksempelstrukturen og kontroller reell visning før endelig vedtak.
+
+**Prioritet:** Én avgrenset senere leveranse / P2-presentasjon. Behold nåværende struktur fram til gjennomarbeidet implementering.
+
+Ikke samle Portal+Cloud Shell+CLI+Pwsh til én verktøykatalog, og ikke samle ARM+IaC+templates+Bicep+What-if til én svært lang økt.
+
+| Foreslått økt | Eksakte topicmedlemmer | Rolle |
+|---|---|---|
+| Fra intensjon til konfigurasjon | `introduction` | teori |
+| Grafisk administrasjon og ressursinspeksjon | `portal` | teori |
+| Cloud Shell, host og sesjonsvilkår | `shell` | teori |
+| Samme intensjon med Azure CLI og PowerShell | `cli`, `powershell` | teori |
+| ARM, scope og resource providers | `arm` | teori |
+| IaC som gjennomgåelig arbeidsform | `iac` | teori |
+| Samme ønsket konfigurasjon i ARM JSON og Bicep | `templates`, `bicep` | teori |
+| Endringsanalyse, review og etterprøving | `changes`, `copilot` | teori |
+| Arc: administrer eksternt uten å flytte workload | `arc` | teori |
+| Management & Deployment Studio | `studio` | uendret praksisflate: tre guider |
+| Selvstendig Management-anvendelse | `assessment` | uendret independent |
+| Summary — Management & Deployment | `summary` | uendret evidensoversikt |
+| Guidede undersøkelser — valgfritt oppslagskart | `missions` | valgfritt oppslag, utenfor anbefalt opptelling |
+
+| Nåværende aktivitet | Klasse | Begrunnelse for side/foreslått rolle |
+|---|---|---|
+| `introduction` — Fra intensjon til konfigurasjon | A | Behold egen innledning: den forebygger at den kommende verktøyrekken blir et navnekatalog-kurs. |
+| `portal` — Azure Portal | A | Behold: grafisk inspeksjon er et selvstendig arbeidsvalg, ikke en kortere utgave av kommandolinjeteorien. |
+| `shell` — Azure Cloud Shell | A | Behold egen side. Å legge denne sammen med begge klientene ville gjøre tre ulike beslutninger til en unødvendig lang innføring. |
+| `cli` — Azure CLI | B | Samles med PowerShell som to tydelige klientseksjoner rundt samme intensjon; ingen grunn til å samle host eller ARM-laget her. |
+| `powershell` — Azure PowerShell | B | Samles med CLI; behold to navn, full syntaks, outputforskjell og egne moteksempler som seksjoner. |
+| `arm` — Azure Resource Manager | A | Behold separat før IaC. Å slå alt med ARM i navnet sammen ville blande lag og beskrivelser. |
+| `iac` — Infrastructure as Code | A | Behold egen side før syntaks. Den må ikke drukne i JSON/Bicep-felter eller tolkes som bare deklarativ IaC. |
+| `templates` — ARM templates | B | Samles med Bicep som to avgrensede formatseksjoner; behold all incremental/API-forklaring og ikke legg What-if til samme samleside. |
+| `bicep` — Bicep | B | Samles med templates, med selvstendig Bicep-seksjon og separat sammenlikning; ikke redusere det til «kortere JSON». |
+| `changes` — Parametere, dependencies og What-if | A | Behold som egen økt og anker; et synlig Copilot-supplement kan avslutte denne review-/etterprøvingsforklaringen. |
+| `arc` — Azure Arc | A | Behold egen side. Hybrid/multicloud og støttede integrasjoner er et annet problem enn kodeformat eller klient. |
+| `copilot` — Copilot — kort supplement | C | Integrer som navngitt synlig seksjon i changes; behold kilde og grense, men egen anbefalt side er ikke nødvendig for denne anvendelsen. |
+| `studio` — Management & Deployment Studio | A | Behold praksissiden og alle tre eksisterende mission-/attempt-identiteter. Ikke bygg den inn i en lang teoriside eller slå tre guider til ett forsøk. |
+| `missions` — Guidede undersøkelser | D | Behold som valgfri oppslagsrute, men egen anbefalt lineær aktivitetsplass er svakere begrunnet enn praksissiden. |
+| `assessment` — Selvstendig anvendelse | A | Behold helt separat. Ingen teorisammenslåing, auto-Start, delt forsøks-ID eller inngang som viser forklaring før innlevering. |
+| `summary` — Summary — Management & Deployment | A | Behold egen avslutning. Den skal ikke være en ny teoriside eller blandes inn i aktiv independent-feedback. |
+
+## monitoring — 12 → 11 anbefalte økter
+
+**Problem:** De åtte teorisidene representerer forskjellige bevis-/kontrollmekanismer; den tydelige strukturelle gjentakelsen er missions-kartet etter en allerede navigerbar Studio-flate.
+
+**Gevinst:** Beholder den eksisterende mekanismeinndelingen og gir kartet en presis oppslagsrolle. Gjør ikke monitorering til én samleside med mange nye statuser og datakilder.
+
+**Risiko:** Valgfritt kart må fortsatt kunne brukes til å finne riktig perspektiv; det er ikke dokumentert at alle elever oppdager samme valg gjennom tabs alene.
+
+**Prioritet:** Én avgrenset senere leveranse / P2-presentasjon. Behold nåværende struktur fram til gjennomarbeidet implementering.
+
+Ingen tvungen sammenslåing av Advisor/Health/Monitor eller Signals/Logs/Alerts/Insights. Lik programvareplattform er ikke samme læringsspørsmål.
+
+| Foreslått økt | Eksakte topicmedlemmer | Rolle |
+|---|---|---|
+| Fra konfigurasjon til driftsinnsikt | `introduction` | teori |
+| Vurder forbedringsråd | `advisor` | teori |
+| Plattform-, subscription- og ressurshelse | `health` | teori |
+| Innsamling, datalager, analyse og respons | `monitor` | teori |
+| Signaltyper, aggregasjon og dekning | `signals` | teori |
+| Log Analytics og avgrenset KQL-analyse | `logs` | teori |
+| Regel, status, varslingsvei og oppfølging | `alerts` | teori |
+| Instrumentert applikasjon og transaksjonsspor | `insights` | teori |
+| Monitoring & Diagnostics Studio | `studio` | uendret praksisflate: tre guider |
+| Selvstendig Monitoring-anvendelse | `assessment` | uendret independent |
+| Summary — Monitoring & Diagnostics | `summary` | uendret evidensoversikt |
+| Guidede undersøkelser — valgfritt oppslagskart | `missions` | valgfritt oppslag, utenfor anbefalt opptelling |
+
+| Nåværende aktivitet | Klasse | Begrunnelse for side/foreslått rolle |
+|---|---|---|
+| `introduction` — Fra konfigurasjon til driftsinnsikt | A | Behold kort innledning; en felles problemramme forebygger at resten blir en løs produktnavnliste. |
+| `advisor` — Azure Advisor | A | Behold egen side: den forebygger en egen klasse feiltolkninger før Health og telemetri. |
+| `health` — Service Health, Status og Resource Health | A | Behold egen side og samlet tre-nivå-forklaring; ikke splitt Status/Service Health/Resource Health til tre navnesider. |
+| `monitor` — Azure Monitor | A | Behold som ramme før datatyper; ikke samle alle Monitor-underemner til én lang side. |
+| `signals` — Metrics, logs, events og traces | A | Behold egen side. Dette er grunnlaget for å tolke output, ikke en kort definisjonsliste som kan skjules i glossary. |
+| `logs` — Log Analytics og KQL | A | Behold egen side med synlige kodeeksempler og et tydelig begrenset analysebevis. |
+| `alerts` — Azure Monitor Alerts | A | Behold egen side. De mange statusaksene bør ikke legges inn i Logs eller skjules i Studio-instruksjoner. |
+| `insights` — Application Insights | A | Behold egen side etter de generelle analyse-/varslingsmekanismene; ikke samle all telemetri til én megaøkt. |
+| `studio` — Monitoring & Diagnostics Studio | A | Behold praksissiden og alle tre eksisterende mission-/attempt-identiteter. Ikke bygg den inn i en lang teoriside eller slå tre guider til ett forsøk. |
+| `missions` — Guidede undersøkelser | D | Behold som valgfri oppslagsrute, men egen anbefalt lineær aktivitetsplass er svakere begrunnet enn praksissiden. |
+| `assessment` — Selvstendig anvendelse | A | Behold helt separat. Ingen teorisammenslåing, auto-Start, delt forsøks-ID eller inngang som viser forklaring før innlevering. |
+| `summary` — Summary — Monitoring & Diagnostics | A | Behold egen avslutning. Den skal ikke være en ny teoriside eller blandes inn i aktiv independent-feedback. |
+
+## Vernegrenser og konkret overgangsgevinst
+
+De fire teoriparene samles fordi teksten selv binder dem sammen: Cost forklarer først at en ressurs ikke er en universell faktureringsenhet og konkretiserer deretter målerne; Purview-katalogeksemplet fortsetter til metadata/lineage og separat kildetilgang; CLI/Pwsh bruker tilsvarende Resource Group-behov med ulik syntaks/output; ARM JSON/Bicep beskriver samme plan/app-relasjon med ulik referanse-/avhengighetsmekanisme. Behold begge opprinnelige forklaringer som navngitte seksjoner. Det er ikke foreslått å komprimere dem til korte sammendrag.
+
+Cloud Shell beholdes separat fra klientparet fordi vert, installasjon, ephemeral/lagrede filer og nattjobbkrav er en annen beslutning. ARM-laget, IaC-arbeidsformen og endringsanalyse beholdes separat fra formatparet. Copilot flyttes kun som en synlig seksjon til den reviewprosessen det eksisterende eksemplet allerede bruker. Governance beholder de tre Policy-trinnene og det egne data-plane-trinnet: nye effects, scope/unntak, timing/remediation og konkret endpoint er forskjellige spørsmål. Monitoring beholder alle åtte teoritrinn fordi de avklarer forskjellige evidenstyper og kontrollledd.
+
+Alle operative oppdrag, native Portal-kommandoer, receipts og tekniske forsøksgrenser skal forbli atskilt fra teorikomposisjon. Det samme gjelder hver selvstendige Start/draft/aid/submit/retry/first-grense og Summaryens personlige evidensrolle. Mounting av flere tekstseksjoner må ikke automatisk registrere alle gamle topicbesøk, guided completion eller kompetanse. Eksakte gamle deep links, Back/Forward, lagret resume, fokus og assistance må fortsatt knyttes til riktig opprinnelig topic.
+
+En senere gjennomføring bør rendere hvert foreslått par i faktisk desktop- og kortvinduvisning før det vedtas, beholde klare lesestarter og originalt fagstoff, og kontrollere lenker/kildeunion uten doble wrapperlister. Dersom et par blir en tung samleside, behold de to eksisterende sidene. Dette er ikke et argument for å skjule stoff eller blande flere praksisflater inn i økten.
+
+## RC, evidens og begrensninger
+
+Ingen av de foreslåtte strukturendringene er et MÅ før RC. De observerte P2-tekst-/headingfunnene i den kalde rapporten er konkrete presentasjonsfunn med separat kildeforklaring; de omklassifiseres ikke til en alvorlig strukturell hindring. Det er ikke utført implementering, regressjonstest av en ny struktur eller ny levering.
+
+Vurderingen er gjort av en AI Azure-/lærings-/UX-reviewer. Menneskelig nybegynner-/SME-/skjermleserarbeid og målt læringseffekt er ikke gjennomført. Forslagene har middels confidence fordi de sammensatte øktene ennå ikke er rendret; dagens tekst og oppgitt faktisk modellevidens har høyere observasjonsgrunnlag.
+
+Autoritativ originalproveniens og SHA256 finnes i [cold lock](/workspace/azurelab-pr57/cold/management-governance/lock.json). Full aktivitetsoversikt og evidens finnes i [activities.json](activities.json); eksakte sesjoner/opptellinger finnes i [modules.json](modules.json).

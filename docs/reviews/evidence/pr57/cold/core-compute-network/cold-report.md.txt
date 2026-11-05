@@ -1,0 +1,125 @@
+# PR57 cold public product review
+
+**Ready for a limited, facilitated internal pilot/demo on the tested routes. No observed P0/P1 blocker.** This risk-based AI inspection found two P2 and two P3 clarity/feedback issues; it does not validate novice transfer, human SME accuracy or accessibility with assistive technology.
+
+Preview: https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app  
+Expected and displayed full SHA: `a3f1b575b2eb5b257fd455fec1a73b30a38706f4`  
+Visible branch: `codex/cc02-vm-debrief-diagnostics`.
+
+## Provenance and isolation
+
+Started anonymous at ordinary `/`, which resolved to `/learn` Hub. Initial cookies were empty, and all four final contexts also had zero cookies. Routes were discovered from ordinary Hub and sidebar/footer links. Fresh independent BrowserContexts were used per module; Core A/B shared their module context. No learner fixtures, authentication bypass, real Azure, source changes, Git mutation, deployment or QA configuration change.
+
+**Application source, domain/content files, existing tests, AGENTS, README/status/review/remediation documents, prior findings and answer keys were not seen before this report lock.** Only runtime skill/network documentation, installed browser/axe runtime, public rendered UI, and this review's neutral scripts/artifacts were read. Author feedback was seen only after the timestamped selected solve files were written. This is an independent AI Azure/learning/UX review, not a human SME review.
+
+## Coverage and depth
+
+All recommended student text was read on **17 Core Architecture topics, 14 Compute topics, 11 Networking A topics and 10 Networking B topics**. [route-inventory.json](route-inventory.json) records actual visited URLs, rendered page headings, sidebar destinations and actual Next/Previous hrefs; assessment landing, started draft and submitted feedback captures are distinguished. [interaction-traces.json](interaction-traces.json) records premise changes, predictions, explicit Runs, results and exact evidence.
+
+| Route | Performed | Deliberately unverified |
+|---|---|---|
+| Core A/B | All theory; physical-redundancy guide; deny/audit scope runs; actual Portal bridge/return; both independent assessments (10 and 8 displayed criteria); Summary/Journal; active A draft reload | Part B actual resource/hosting Portal guide completion; deep populated hierarchy exploration |
+| Compute | All theory; ordinary Portal RG+foundation VM+new Windows/standard/64 GiB index VM reusing subnet; reference/receipt debrief; four guides; container persistence, resilience/scaling, AVD and hosting comparisons; cp09/cp11; Summary/Journal | Remaining12independent scenarios; all runtime/Hyper-V/AVD combinations; actual Azure execution |
+| Networking A | All theory; address,peering,DNSguides; overlap/one-sided/nontransitive/direct paths; no-link→linked→routeunknown DNS; nw11; Summary/Journal | Actual VM-inspection guide in this fresh context; remaining11scenarios; full selected-subnet permutations |
+| Networking B | All theory; hybridA and endpointC guides; VPN/ER/IPsec contrasts; public/private ingress separation; wrongingress/correctDNS+deniedauth; nc12; Summary/Journal; Back/Forward/reload | HybridB fallback guide; separateDNSguideD completion; remaining11scenarios; every pending/resolver/failure combination |
+
+Compute Summary recorded11/11teaching,4/4guides,2/14independent. NetworkingA8/8,3/4,1/12; B7/7,2/4,1/12. Core correctly withheld an overall completion claim. These are app records of the work above, not learning-effect measures.
+
+## Findings
+
+### F1 · P2 · Peering overlap feedback repeats unrelated A–C transitivity cause for selected A–B target
+
+Route: `/learn/networking?topic=explorer`. Exact text: “A → B · Modellen finner ikke et direkte Connected-grunnlag for valgt mål. A↔B↔C gir ikke automatisk A↔C.”
+
+Reproduce: Start Peering Topology guide → Have both A/B sides selected; select B overlap10.84.0.0/17 and target VNet B → Predict not fulfilled and Run.
+
+Table correctly says AB Avvist adresseoverlap i standardeksemplet, but main causal sentence explains absent AC transit even though AC is now Connected and selected target is B. Learner must reconcile correct table with a prominent explanation of a different failed premise; weakens cause-based diagnostic practice.
+
+Suggested correction: Use the actual first failed premise (address overlap), selected target and side status in result explanation.
+
+Evidence: [evidence/123-networking-peering-overlap.txt](evidence/123-networking-peering-overlap.txt), [evidence/123-networking-peering-overlap.png](evidence/123-networking-peering-overlap.png). This is not an internal-pilot blocker.
+
+### F2 · P2 · AVD zero-host result uses ambiguous generic capacity headline
+
+Route: `/learn/compute?topic=desktop`. Exact text: “Noe arbeid eller kapasitet gjenstår”
+
+Reproduce: Start AVD explorer → Use pooled/RemoteApp,workspace registration and assigned user → Run with2hosts,then change declared sessionhosts to0,predict partial and Run.
+
+Main result and prediction bucket say some work/capacity remains, while detail correctly says Publiseringen finnes, men ingen deklarert session host gir kjøregrunnlag. Generic compute-capacity vocabulary blurs publication surviving versus executable capacity; the selected headline can be read as capacity still available with zero hosts. Detailed chain rescues interpretation, so not P1.
+
+Suggested correction: Give AVD a publication-versus-runtime headline/prediction wording or explicitly say published but no host execution basis.
+
+Evidence: [evidence/084-compute-avd-published-hosts.txt](evidence/084-compute-avd-published-hosts.txt), [evidence/085-compute-avd-no-hosts.txt](evidence/085-compute-avd-no-hosts.txt), [evidence/085-compute-avd-no-hosts.png](evidence/085-compute-avd-no-hosts.png). This is not an internal-pilot blocker.
+
+### F3 · P3 · Summary says Storage comes later despite live Hub destinations
+
+Route: `/learn/compute?topic=summary`. Exact text: “Storage kommer senere.”
+
+Reproduce: Open Compute Summary → Compare visible Hub/course sidebar with Storage Parts A/B/C already offered and ConnectivitySummary next link to StorageA.
+
+Outdated availability copy in summary. Learner may infer Storage is unavailable and stop despite normal navigation offering it.
+
+Suggested correction: Align sentence with current available next module.
+
+Evidence: [evidence/101-compute-summary.txt](evidence/101-compute-summary.txt), [root-observations.json](root-observations.json), [evidence/168-connectivity-summary-stable.txt](evidence/168-connectivity-summary-stable.txt). This is not an internal-pilot blocker.
+
+### F4 · P3 · Endpoint model repeats tunnel-encryption boilerplate outside tunnel task
+
+Route: `/learn/connectivity?topic=explorer`. Exact text: “Tunnelkryptering gjelder de erklærte klient-/gatewayendepunktene, ikke automatisk TLS helt til tjenesteprosessen.”
+
+Reproduce: Open/start Endpoint & DNS Explorer → Run endpoint/DNS model and read controls,figure caption,and result note.
+
+Identical hybrid-tunnel limitation repeated around pure endpoint/DNS/authorization model; terms like deklarerte fixtures also appear in teaching. Adds reading burden and an unrelated technical branch when learner is trying to identify endpoint/DNS/access stage. This is clarity debt, not a demand for new design/content.
+
+Suggested correction: Use brief relevant model-boundary text for this explorer; remove redundant tunnel-specific sentence here.
+
+Evidence: [evidence/154-connectivity-endpoint-controls.txt](evidence/154-connectivity-endpoint-controls.txt), [evidence/158-connectivity-private-with-public-disabled.txt](evidence/158-connectivity-private-with-public-disabled.txt). This is not an internal-pilot blocker.
+
+## Evidence-based strengths and learner value
+
+- **End-to-end availability reasoning replaces app-count optimism.** Learner predicts, changes data redundancy while holding zone failure, observes app+data+routing dependency and saves causal explanation. Evidence: [evidence/014-architecture-app-only-run.txt](evidence/014-architecture-app-only-run.txt), [evidence/015-architecture-redundant-run.txt](evidence/015-architecture-redundant-run.txt).
+
+- **Core technical boundaries are unusually explicit.** One-or-more facilities per zone, subscription-specific zone numbering, nonautomatic pairedregion recovery and management ancestry are contrasted, not collapsed into one hierarchy. Evidence: [evidence/007-architecture-zones.txt](evidence/007-architecture-zones.txt), [evidence/008-architecture-pairs.txt](evidence/008-architecture-pairs.txt), [evidence/029-architecture-scope.txt](evidence/029-architecture-scope.txt).
+
+- **Compute VM guide produces inspectable local technical evidence.** Ordinary forms, explicit Create,accepted original request,concrete dependencyIDs and explicit confirmations tie configuration to debrief without claiming indexer boot/backup/traffic. Evidence: [evidence/065-compute-index-receipt-inspect.txt](evidence/065-compute-index-receipt-inspect.txt), [evidence/066-compute-vm-return-debrief.txt](evidence/066-compute-vm-return-debrief.txt), [evidence/067-compute-vm-guided-feedback.txt](evidence/067-compute-vm-guided-feedback.txt).
+
+- **Container and capacity models expose meaningful changed-premise comparisons.** Recreate changes instance but external data survives; zone-spread compute still depends on shared data. Models explain what changed and what remained hypothetical. Evidence: [evidence/070-compute-container-ephemeral-run.txt](evidence/070-compute-container-ephemeral-run.txt), [evidence/071-compute-container-persistent-run.txt](evidence/071-compute-container-persistent-run.txt), [evidence/078-compute-resilience-zones.txt](evidence/078-compute-resilience-zones.txt), [evidence/080-compute-resilience-data-failure.txt](evidence/080-compute-resilience-data-failure.txt).
+
+- **Networking teaches a diagnostic chain instead of equating DNS with working service.** Correct DNS is retained while route becomes unknown or authorization denies. Public ingress can be switched independently of Approved Private Endpoint. Evidence: [evidence/129-networking-dns-path-unknown.txt](evidence/129-networking-dns-path-unknown.txt), [evidence/157-connectivity-public-disabled.txt](evidence/157-connectivity-public-disabled.txt), [evidence/161-connectivity-dns-correct-auth-denied.txt](evidence/161-connectivity-dns-correct-auth-denied.txt).
+
+- **Sampled independent prompts have sufficient premises and treat plausible alternatives fairly.** Mandatory existingplan reuse disambiguates AppService from ContainerApps; customDNS retained disambiguates forwarding; File support explicitly stated. Feedback explains when alternatives could become valid and why true generic facts do not explain this case. Evidence: [evidence/100-compute-cp11-feedback.txt](evidence/100-compute-cp11-feedback.txt), [evidence/135-networking-nw11-feedback.txt](evidence/135-networking-nw11-feedback.txt), [evidence/165-connectivity-nc12-feedback.txt](evidence/165-connectivity-nc12-feedback.txt).
+
+- **Summary/Journal separates exposure,guided work and independent attempts.** Opened pages and guides do not earn independent result. Incomplete guides/unsolved cases remain visible and no examreadiness/XP/realAzure success is inferred. Evidence: [evidence/041-architecture-core-summary.txt](evidence/041-architecture-core-summary.txt), [evidence/101-compute-summary.txt](evidence/101-compute-summary.txt), [evidence/136-networking-summary.txt](evidence/136-networking-summary.txt), [evidence/168-connectivity-summary-stable.txt](evidence/168-connectivity-summary-stable.txt).
+
+The distinctive value beyond a Learn reading sequence is the local **predict → Run → change a meaningful premise → explain** cycle, plus inspectable local Portal command provenance and first-answer decision/reason feedback. Container recreate versus external data, surviving apps with unavailable data, custom DNS forwarding, and private endpoints versus public access provide concrete causal contrasts. This is a plausible learning mechanism; no comparative human learning gain was measured.
+
+Sampled independent questions supplied enough premises: cp11 explicitly required approved existing-plan reuse; nw11 required keeping custom DNS and stated forwarding absent; nc12 explicitly confirmed File support. Feedback explained plausible alternatives under changed premises rather than treating a generally valid service as universally wrong. Exact selected decisions/reasons were written before Submit/feedback in the original `solves-*` files, indexed with timestamps in the JSON report.
+
+Norwegian explanations were generally precise and appropriately qualified. English service/UI terms mostly had context. Repeated guide/boundary prose, implementation identifiers such as `CP03`, `P06/P07` and `CreateVmBundle`, and fused inline spacing such as `separat64GiB` add density; the concrete findings above concern meaning and next action, not a new visual design proposal.
+
+## Browser and accessibility sample
+
+1440×900 was used throughout. A 1024×500 Connectivity Summary/Journal sample remained scrollable; Journal Tab focused its source disclosure, Escape closed and returned visible focus to Journal. The short screenshots are in `evidence/short-1024x500-*.png`. This is one viewport/state sample, not a module-wide fit or tab-order audit. All four contexts requested reduced motion and `matchMedia` confirmed it; no exhaustive animation review.
+
+Axe WCAG2A/AA and2.1AA on the four final Summary states returned zero violations and one incomplete each; full results are `evidence/axe-*.json`. This does not cover every control/modal state or screen-reader behavior. ArchitectureA retained an active unassisted draft after reload. Connectivity Back/Forward restored assessment/summary URLs and a full reload retained its2guides and original nc12result; see `browser-checks.json`.
+
+No browser pageerror or HTTP4xx/5xx was observed. Logs contain6Vercel feedback-script CSP errors and52unusedCSS preload warnings. Cold browser/runtime startup overhead is not an app-performance finding. An immediately captured Connectivity Summary context-check gate resolved by the next capture and reload; no persistent block was established.
+
+## Limits and artifact cautions
+
+- Independent AI Azure/learning/UX product review, not a human Azure SME, novice study, screen-reader audit or psychometric/learning-effect approval. Correct AI choices do not validate human transfer.
+- No repository application source, domain/content files, tests, AGENTS, README/status/review/remediation docs, prior findings or answer keys read before lock. Runtime skill/dependency runtime only. Author feedback seen only after original solve files were written.
+- All17Core,14Compute,11NetworkingA,10NetworkingB recommended topic pages fully read as rendered text/control inventories through actual Hub/sidebar/footer links. Not all external citations expanded/validated, optional transfer links and every diagram hotspot/combination exercised.
+- PartB Core Portal practical guide not completed. NetworkingA actual-resource guide not started; Compute performed real local VM chain instead in its own fresh context. No fake completions seeded.
+- Compute2/14,NetworkingA1/12,NetworkingB1/12 scenario pairs sampled. CoreA/B all displayed criteria solved once. No exhaustive bankreview.
+- Guided Compute4/4,NetworkingA3/4,NetworkingB2/4. B hybrid fallback and separate DNSguide uncompleted. DNS/endpoint contrasts were still run in guideC history.
+- 1440x900 throughout. One1024x500ConnectivitySummary/Journal visual/keyboard sample only; no claim every module or dialog fits short viewport. All contexts requested reduced motion and matchMedia true; no exhaustive animation audit.
+- Axe WCAG2A/AA+2.1AA on four final Summary states found0violations and1incomplete each. This excludes interactive state coverage and human assistive-technology behavior.
+- Keyboard Tab focus within short Journal and Escape close/return checked; no exhaustive tab order/trap audit. Back/Forward+reload on Connectivity and active ArchitectureA draftreload checked; not every Portal resume/reload path.
+- Capture061 was taken before data-disk navigation settled and is OSdisk,not data disk. Dedicated data-disk visual evidence is unavailable; accepted64GiB request/receipt and final guide inspection registration are retained.
+- Automated rapid-click races/transient context gate documented without treating them as reproducible learner blockers. Browser/runtime cold startup overhead not scored as app failure.
+- No real Azure account/resources, packets, DNSqueries, networkhealth, Windows sessions, backup/restore, application execution or live policy evaluated. Existing learner evidence untouched; fresh contexts exported for review.
+
+Original PNG/text/JSON captures, full browser logs and final fresh-context learner storage are retained under `evidence/`. Capture names are labels, not proof of a particular settled page: notably `061-compute-data-disk-inspect` still contains the OSdisk while navigation was pending. The original is preserved and is not counted as a verified standalone data-disk view. The accepted request/receipt documents the64GiBdata disk; final debrief records all seven confirmations.
+
+The scope was narrowed by the owner to completing remaining central NetworkingBmodels and one representative pre-locked independent decision per Networkingroute, then report/lock. No unperformed full bank or full UI-combination claim is made. `lock.json` records UTC finish and SHA256 of original report, solve, inventory, trace and evidence files. Originals remain unchanged thereafter.

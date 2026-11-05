@@ -3,7 +3,7 @@ import { SourceDisclosure } from './source-disclosure';
 import { GuidedMissionLink } from '@/features/course/guided-mission-link';
 import { useEffect } from 'react';
 import Link from 'next/link';
-import { monitoringNb as c } from '@/content/nb';
+import { monitoringPresentation as c } from './final-quality-copy';
 import {
   monitoringHref,
   monitoringMissions,

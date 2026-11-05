@@ -4,7 +4,7 @@ import { SourceDisclosure } from './source-disclosure';
 import { GuidedMissionLink } from '@/features/course/guided-mission-link';
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { computeNb as c } from '@/content/nb';
+import { computePresentation as c } from './final-quality-copy';
 import {
   computeHref,
   computeTopics,

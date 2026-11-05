@@ -1,0 +1,1004 @@
+{
+  "meta": {
+    "type": "separate post-lock pedagogical structure review",
+    "createdUTC": "2026-11-05T15:41:55.369852Z",
+    "coldLockUTC": "2026-11-05T14:27:45.533331Z",
+    "coldFilesReverified": 544,
+    "coldMismatches": [],
+    "fullDisplayedSHA": "a3f1b575b2eb5b257fd455fec1a73b30a38706f4",
+    "basis": "69 actual full-read learner snapshots and prior actual mechanism runs; eight close transitions reread; no new browser, source or repository edits in this structure task",
+    "classificationKey": {
+      "A": "behold",
+      "B": "slå sammen til leseøkt, med alle opprinnelige temaer og grenser bevart",
+      "C": "integrer som seksjon",
+      "D": "valgfri/flytt",
+      "E": "mer undersøkelse"
+    },
+    "notUsed": "No forced quota: C/D/E are available judgments but none is necessary for these 69 activities. In particular, no obligatory teaching is made optional.",
+    "notApproval": "No implementation, measured learning effect, human novice/SME or final release approval."
+  },
+  "modules": [
+    {
+      "module": "storage",
+      "title": "Storage Part A — Accounts & Services",
+      "currentCount": 11,
+      "currentTopics": [
+        "introduction",
+        "blob",
+        "files",
+        "queues",
+        "tables",
+        "accounts",
+        "disks",
+        "studio",
+        "missions",
+        "assessment",
+        "summary"
+      ],
+      "proposedSessions": [
+        {
+          "id": "storage:introduction",
+          "title": "Lagring, data og kontoer",
+          "members": [
+            "introduction"
+          ],
+          "classification": "A",
+          "role": "undervisning — selvstendig begrep/mekanisme",
+          "preserveDistinctBoundary": false
+        },
+        {
+          "id": "storage:blob",
+          "title": "Azure Blob Storage · objekter",
+          "members": [
+            "blob"
+          ],
+          "classification": "A",
+          "role": "undervisning — selvstendig begrep/mekanisme",
+          "preserveDistinctBoundary": false
+        },
+        {
+          "id": "storage:files",
+          "title": "Azure Files · delte filer",
+          "members": [
+            "files"
+          ],
+          "classification": "A",
+          "role": "undervisning — selvstendig begrep/mekanisme",
+          "preserveDistinctBoundary": false
+        },
+        {
+          "id": "storage:queues",
+          "title": "Azure Queue Storage · asynkront arbeid",
+          "members": [
+            "queues"
+          ],
+          "classification": "A",
+          "role": "undervisning — selvstendig begrep/mekanisme",
+          "preserveDistinctBoundary": false
+        },
+        {
+          "id": "storage:tables",
+          "title": "Azure Table Storage · nøkkelbaserte entities",
+          "members": [
+            "tables"
+          ],
+          "classification": "A",
+          "role": "undervisning — selvstendig begrep/mekanisme",
+          "preserveDistinctBoundary": false
+        },
+        {
+          "id": "storage:accounts",
+          "title": "Storage account options · støttede kombinasjoner",
+          "members": [
+            "accounts"
+          ],
+          "classification": "A",
+          "role": "undervisning — selvstendig begrep/mekanisme",
+          "preserveDistinctBoundary": false
+        },
+        {
+          "id": "storage:disks",
+          "title": "Managed disks · VM-volum og datatjenester",
+          "members": [
+            "disks"
+          ],
+          "classification": "A",
+          "role": "undervisning — selvstendig begrep/mekanisme",
+          "preserveDistinctBoundary": false
+        },
+        {
+          "id": "storage:studio",
+          "title": "Storage Workload Studio",
+          "members": [
+            "studio"
+          ],
+          "classification": "A",
+          "role": "interaktiv undervisnings-/undersøkelsesflate; oppdrag starter bare eksplisitt",
+          "preserveDistinctBoundary": true
+        },
+        {
+          "id": "storage:missions",
+          "title": "Guidede Storage-oppdrag",
+          "members": [
+            "missions"
+          ],
+          "classification": "A",
+          "role": "oppdragsvalg og eksplisitt briefing/start/resume-inngang",
+          "preserveDistinctBoundary": true
+        },
+        {
+          "id": "storage:assessment",
+          "title": "Selvstendig Storage-anvendelse",
+          "members": [
+            "assessment"
+          ],
+          "classification": "A",
+          "role": "separat selvstendig anvendelse og låst førsteinnlevering",
+          "preserveDistinctBoundary": true
+        },
+        {
+          "id": "storage:summary",
+          "title": "Storage Part A · dokumenterte resultater",
+          "members": [
+            "summary"
+          ],
+          "classification": "A",
+          "role": "lokal resultat-/returflate og overgang videre",
+          "preserveDistinctBoundary": true
+        }
+      ],
+      "afterCount": 11,
+      "countIncludes": [
+        "all original recommended teaching topics",
+        "studio",
+        "missions",
+        "assessment",
+        "summary"
+      ],
+      "unchangedFunctionalBoundaries": [
+        "studio",
+        "missions",
+        "assessment",
+        "summary"
+      ],
+      "allOriginalTopicsPreservedExactlyOnce": true,
+      "problem": "Ingen konkret strukturhindring er påvist. Fire datakontrakter, kontokompatibilitet og VM-diskgrensen har ulike spørsmål; et generelt «Storage»-kapittel ville skjule viktige forskjeller.",
+      "potentialGain": "Behold gjenfinnbare mekanisme-/kontrollpunkter. Repetert oppdragsinngang kan vurderes senere, men navigasjonssletting er ikke nødvendig for RC.",
+      "risk": "Samling av de fire tjenestene kan redusere synligheten av kø-/nøkkelmekanismen; ingen påvist fordel nå.",
+      "priority": "behold; ingen strukturell endring anbefales nå",
+      "beforeRC": {
+        "seriousStructureBlockerObserved": false,
+        "requiredChange": "none"
+      },
+      "confidence": "medium for proposed educational gain; high for actual current roles and counts",
+      "evidence": [
+        "/workspace/azurelab-pr57/cold/storage-identity-security/evidence/storage-introduction.txt",
+        "/workspace/azurelab-pr57/cold/storage-identity-security/evidence/storage-studio.txt",
+        "/workspace/azurelab-pr57/cold/storage-identity-security/evidence/storage-missions.txt",
+        "/workspace/azurelab-pr57/cold/storage-identity-security/evidence/storage-assessment.txt",
+        "/workspace/azurelab-pr57/cold/storage-identity-security/evidence/storage-final-summary.txt"
+      ],
+      "limit": "This is a post-lock AI structure judgment over actual snapshots; no prototype or measured learner effect."
+    },
+    {
+      "module": "storage-resilience",
+      "title": "Storage Part B — Access Tiers & Redundancy",
+      "currentCount": 10,
+      "currentTopics": [
+        "introduction",
+        "tiers",
+        "lifecycle",
+        "redundancy",
+        "recovery",
+        "boundaries",
+        "studio",
+        "missions",
+        "assessment",
+        "summary"
+      ],
+      "proposedSessions": [
+        {
+          "id": "storage-resilience:introduction",
+          "title": "Fra lagringstjeneste til tilgang og beskyttelse",
+          "members": [
+            "introduction"
+          ],
+          "classification": "A",
+          "role": "undervisning — selvstendig begrep/mekanisme",
+          "preserveDistinctBoundary": false
+        },
+        {
+          "id": "storage-resilience:tiers",
+          "title": "Hot, Cool, Cold og Archive",
+          "members": [
+            "tiers"
+          ],
+          "classification": "A",
+          "role": "undervisning — selvstendig begrep/mekanisme",
+          "preserveDistinctBoundary": false
+        },
+        {
+          "id": "storage-resilience:lifecycle",
+          "title": "Standardtier, lifecycle og rehydrering",
+          "members": [
+            "lifecycle"
+          ],
+          "classification": "A",
+          "role": "undervisning — selvstendig begrep/mekanisme",
+          "preserveDistinctBoundary": false
+        },
+        {
+          "id": "storage-resilience:redundancy",
+          "title": "LRS, ZRS og geo-replikering",
+          "members": [
+            "redundancy"
+          ],
+          "classification": "A",
+          "role": "undervisning — selvstendig begrep/mekanisme",
+          "preserveDistinctBoundary": false
+        },
+        {
+          "id": "storage-resilience:recovery",
+          "title": "Sekundær lesing, failover og gjenoppretting",
+          "members": [
+            "recovery"
+          ],
+          "classification": "A",
+          "role": "undervisning — selvstendig begrep/mekanisme",
+          "preserveDistinctBoundary": false
+        },
+        {
+          "id": "storage-resilience:boundaries",
+          "title": "Tjenestegrenser og kombinasjoner",
+          "members": [
+            "boundaries"
+          ],
+          "classification": "A",
+          "role": "undervisning — selvstendig begrep/mekanisme",
+          "preserveDistinctBoundary": false
+        },
+        {
+          "id": "storage-resilience:studio",
+          "title": "Tier & Resilience Studio",
+          "members": [
+            "studio"
+          ],
+          "classification": "A",
+          "role": "interaktiv undervisnings-/undersøkelsesflate; oppdrag starter bare eksplisitt",
+          "preserveDistinctBoundary": true
+        },
+        {
+          "id": "storage-resilience:missions",
+          "title": "Guidede undersøkelser",
+          "members": [
+            "missions"
+          ],
+          "classification": "A",
+          "role": "oppdragsvalg og eksplisitt briefing/start/resume-inngang",
+          "preserveDistinctBoundary": true
+        },
+        {
+          "id": "storage-resilience:assessment",
+          "title": "Selvstendig anvendelse",
+          "members": [
+            "assessment"
+          ],
+          "classification": "A",
+          "role": "separat selvstendig anvendelse og låst førsteinnlevering",
+          "preserveDistinctBoundary": true
+        },
+        {
+          "id": "storage-resilience:summary",
+          "title": "Summary — Storage Part B",
+          "members": [
+            "summary"
+          ],
+          "classification": "A",
+          "role": "lokal resultat-/returflate og overgang videre",
+          "preserveDistinctBoundary": true
+        }
+      ],
+      "afterCount": 10,
+      "countIncludes": [
+        "all original recommended teaching topics",
+        "studio",
+        "missions",
+        "assessment",
+        "summary"
+      ],
+      "unchangedFunctionalBoundaries": [
+        "studio",
+        "missions",
+        "assessment",
+        "summary"
+      ],
+      "allOriginalTopicsPreservedExactlyOnce": true,
+      "problem": "Ingen konkret strukturhindring er påvist. Tier, tilstandsendring, fysisk kopi, recovery og krysskombinasjon er forskjellige beslutninger.",
+      "potentialGain": "Behold progressjonen fra krav → tilgjengelighet/kostnad → tilstand → feilgrense → recovery → kombinasjonskontroll.",
+      "risk": "Å gjøre boundaries til valgfri referanse kan fjerne nødvendig Archive/ZRS- og tjenestestøtteundervisning.",
+      "priority": "behold; ingen strukturell endring anbefales nå",
+      "beforeRC": {
+        "seriousStructureBlockerObserved": false,
+        "requiredChange": "none"
+      },
+      "confidence": "medium for proposed educational gain; high for actual current roles and counts",
+      "evidence": [
+        "/workspace/azurelab-pr57/cold/storage-identity-security/evidence/storage-resilience-introduction.txt",
+        "/workspace/azurelab-pr57/cold/storage-identity-security/evidence/storage-resilience-studio.txt",
+        "/workspace/azurelab-pr57/cold/storage-identity-security/evidence/storage-resilience-missions.txt",
+        "/workspace/azurelab-pr57/cold/storage-identity-security/evidence/storage-resilience-assessment.txt",
+        "/workspace/azurelab-pr57/cold/storage-identity-security/evidence/storage-resilience-final-summary.txt"
+      ],
+      "limit": "This is a post-lock AI structure judgment over actual snapshots; no prototype or measured learner effect."
+    },
+    {
+      "module": "migration",
+      "title": "Storage Part C — File Movement & Migration",
+      "currentCount": 12,
+      "currentTopics": [
+        "introduction",
+        "methods",
+        "azcopy",
+        "explorer",
+        "file-sync",
+        "migrate",
+        "databox",
+        "validation",
+        "studio",
+        "missions",
+        "assessment",
+        "summary"
+      ],
+      "proposedSessions": [
+        {
+          "id": "migration-needs",
+          "title": "Avklar overgang og metodekrav",
+          "members": [
+            "introduction",
+            "methods"
+          ],
+          "classification": "B",
+          "role": "undervisning — selvstendig begrep/mekanisme",
+          "preserveDistinctBoundary": false
+        },
+        {
+          "id": "migration:azcopy",
+          "title": "AzCopy: en eksplisitt kilde, et mål og en jobb",
+          "members": [
+            "azcopy"
+          ],
+          "classification": "A",
+          "role": "undervisning — selvstendig begrep/mekanisme",
+          "preserveDistinctBoundary": false
+        },
+        {
+          "id": "migration:explorer",
+          "title": "Storage Explorer: kontrollert, grafisk dataarbeid",
+          "members": [
+            "explorer"
+          ],
+          "classification": "A",
+          "role": "undervisning — selvstendig begrep/mekanisme",
+          "preserveDistinctBoundary": false
+        },
+        {
+          "id": "migration:file-sync",
+          "title": "Azure File Sync: en vedvarende hybrid filrelasjon",
+          "members": [
+            "file-sync"
+          ],
+          "classification": "A",
+          "role": "undervisning — selvstendig begrep/mekanisme",
+          "preserveDistinctBoundary": false
+        },
+        {
+          "id": "migration:migrate",
+          "title": "Azure Migrate: fra oppdagelse til en verifisert overgang",
+          "members": [
+            "migrate"
+          ],
+          "classification": "A",
+          "role": "undervisning — selvstendig begrep/mekanisme",
+          "preserveDistinctBoundary": false
+        },
+        {
+          "id": "migration:databox",
+          "title": "Azure Data Box: fysisk transport er en del av planen",
+          "members": [
+            "databox"
+          ],
+          "classification": "A",
+          "role": "undervisning — selvstendig begrep/mekanisme",
+          "preserveDistinctBoundary": false
+        },
+        {
+          "id": "migration:validation",
+          "title": "Hva må resultatet faktisk dokumentere?",
+          "members": [
+            "validation"
+          ],
+          "classification": "A",
+          "role": "undervisning — selvstendig begrep/mekanisme",
+          "preserveDistinctBoundary": false
+        },
+        {
+          "id": "migration:studio",
+          "title": "File Movement & Migration Studio",
+          "members": [
+            "studio"
+          ],
+          "classification": "A",
+          "role": "interaktiv undervisnings-/undersøkelsesflate; oppdrag starter bare eksplisitt",
+          "preserveDistinctBoundary": true
+        },
+        {
+          "id": "migration:missions",
+          "title": "Guidede overføringsundersøkelser",
+          "members": [
+            "missions"
+          ],
+          "classification": "A",
+          "role": "oppdragsvalg og eksplisitt briefing/start/resume-inngang",
+          "preserveDistinctBoundary": true
+        },
+        {
+          "id": "migration:assessment",
+          "title": "Selvstendig File Movement & Migration",
+          "members": [
+            "assessment"
+          ],
+          "classification": "A",
+          "role": "separat selvstendig anvendelse og låst førsteinnlevering",
+          "preserveDistinctBoundary": true
+        },
+        {
+          "id": "migration:summary",
+          "title": "Summary — Storage Part C",
+          "members": [
+            "summary"
+          ],
+          "classification": "A",
+          "role": "lokal resultat-/returflate og overgang videre",
+          "preserveDistinctBoundary": true
+        }
+      ],
+      "afterCount": 11,
+      "countIncludes": [
+        "all original recommended teaching topics",
+        "studio",
+        "missions",
+        "assessment",
+        "summary"
+      ],
+      "unchangedFunctionalBoundaries": [
+        "studio",
+        "missions",
+        "assessment",
+        "summary"
+      ],
+      "allOriginalTopicsPreservedExactlyOnce": true,
+      "problem": "Åpningen fordeler samme behovsramme over introduction og methods før verktøysidene; methods tilfører samtidig viktig fidelity som ikke kan kuttes.",
+      "potentialGain": "En felles kravavklaringsøkt kan koble overgangstype direkte til arbeidsform og bevaringskrav før AzCopy/Explorer/File Sync/Migrate/Data Box.",
+      "risk": "Introduksjonens bevisgrenser eller methods-ACL/fidelity kan drukne i en lengre økt; krever synlige underoverskrifter og presise gamle lenker.",
+      "priority": "behold før RC; P2 avgrenset oppfølging for samlingskandidat",
+      "beforeRC": {
+        "seriousStructureBlockerObserved": false,
+        "requiredChange": "none"
+      },
+      "confidence": "medium for proposed educational gain; high for actual current roles and counts",
+      "evidence": [
+        "/workspace/azurelab-pr57/cold/storage-identity-security/evidence/migration-introduction.txt",
+        "/workspace/azurelab-pr57/cold/storage-identity-security/evidence/migration-studio.txt",
+        "/workspace/azurelab-pr57/cold/storage-identity-security/evidence/migration-missions.txt",
+        "/workspace/azurelab-pr57/cold/storage-identity-security/evidence/migration-assessment.txt",
+        "/workspace/azurelab-pr57/cold/storage-identity-security/evidence/migration-final-summary.txt"
+      ],
+      "limit": "This is a post-lock AI structure judgment over actual snapshots; no prototype or measured learner effect."
+    },
+    {
+      "module": "identity",
+      "title": "Identity Part A — Identity Foundations",
+      "currentCount": 12,
+      "currentTopics": [
+        "introduction",
+        "directory",
+        "domain",
+        "authentication",
+        "sso",
+        "mfa",
+        "passwordless",
+        "external",
+        "studio",
+        "missions",
+        "assessment",
+        "summary"
+      ],
+      "proposedSessions": [
+        {
+          "id": "identity:introduction",
+          "title": "Fra ressurser til identitet",
+          "members": [
+            "introduction"
+          ],
+          "classification": "A",
+          "role": "undervisning — selvstendig begrep/mekanisme",
+          "preserveDistinctBoundary": false
+        },
+        {
+          "id": "identity:directory",
+          "title": "Microsoft Entra ID og tenant",
+          "members": [
+            "directory"
+          ],
+          "classification": "A",
+          "role": "undervisning — selvstendig begrep/mekanisme",
+          "preserveDistinctBoundary": false
+        },
+        {
+          "id": "identity:domain",
+          "title": "Microsoft Entra Domain Services",
+          "members": [
+            "domain"
+          ],
+          "classification": "A",
+          "role": "undervisning — selvstendig begrep/mekanisme",
+          "preserveDistinctBoundary": false
+        },
+        {
+          "id": "identity:authentication",
+          "title": "Authentication versus Authorization",
+          "members": [
+            "authentication"
+          ],
+          "classification": "A",
+          "role": "undervisning — selvstendig begrep/mekanisme",
+          "preserveDistinctBoundary": false
+        },
+        {
+          "id": "identity:sso",
+          "title": "Single Sign-On",
+          "members": [
+            "sso"
+          ],
+          "classification": "A",
+          "role": "undervisning — selvstendig begrep/mekanisme",
+          "preserveDistinctBoundary": false
+        },
+        {
+          "id": "identity-strong-authentication",
+          "title": "MFA, passwordless og phishing-resistens",
+          "members": [
+            "mfa",
+            "passwordless"
+          ],
+          "classification": "B",
+          "role": "undervisning — selvstendig begrep/mekanisme",
+          "preserveDistinctBoundary": false
+        },
+        {
+          "id": "identity:external",
+          "title": "External Identities",
+          "members": [
+            "external"
+          ],
+          "classification": "A",
+          "role": "undervisning — selvstendig begrep/mekanisme",
+          "preserveDistinctBoundary": false
+        },
+        {
+          "id": "identity:studio",
+          "title": "Identity & Authentication Studio",
+          "members": [
+            "studio"
+          ],
+          "classification": "A",
+          "role": "interaktiv undervisnings-/undersøkelsesflate; oppdrag starter bare eksplisitt",
+          "preserveDistinctBoundary": true
+        },
+        {
+          "id": "identity:missions",
+          "title": "Guidede undersøkelser",
+          "members": [
+            "missions"
+          ],
+          "classification": "A",
+          "role": "oppdragsvalg og eksplisitt briefing/start/resume-inngang",
+          "preserveDistinctBoundary": true
+        },
+        {
+          "id": "identity:assessment",
+          "title": "Selvstendig anvendelse",
+          "members": [
+            "assessment"
+          ],
+          "classification": "A",
+          "role": "separat selvstendig anvendelse og låst førsteinnlevering",
+          "preserveDistinctBoundary": true
+        },
+        {
+          "id": "identity:summary",
+          "title": "Summary — Identity Foundations",
+          "members": [
+            "summary"
+          ],
+          "classification": "A",
+          "role": "lokal resultat-/returflate og overgang videre",
+          "preserveDistinctBoundary": true
+        }
+      ],
+      "afterCount": 11,
+      "countIncludes": [
+        "all original recommended teaching topics",
+        "studio",
+        "missions",
+        "assessment",
+        "summary"
+      ],
+      "unchangedFunctionalBoundaries": [
+        "studio",
+        "missions",
+        "assessment",
+        "summary"
+      ],
+      "allOriginalTopicsPreservedExactlyOnce": true,
+      "problem": "MFA og passwordless forklarer overlappende passkey/PIN-eksempler, men eleven må nettopp skille faktor, passordbruk og phishing-resistens.",
+      "potentialGain": "En samlet to-akset metodevurdering kan gjøre sammenligningen direkte; AuthN/AuthZ, SSO, domain og external beholdes som egne spørsmål.",
+      "risk": "Ikke komprimer passkey/Hello/Authenticator/SMS-støtte til en «passwordless er sterkere»-regel eller gjør SMS-forbehold usynlig.",
+      "priority": "behold før RC; P2 avgrenset oppfølging for samlingskandidat",
+      "beforeRC": {
+        "seriousStructureBlockerObserved": false,
+        "requiredChange": "none"
+      },
+      "confidence": "medium for proposed educational gain; high for actual current roles and counts",
+      "evidence": [
+        "/workspace/azurelab-pr57/cold/storage-identity-security/evidence/identity-introduction.txt",
+        "/workspace/azurelab-pr57/cold/storage-identity-security/evidence/identity-studio.txt",
+        "/workspace/azurelab-pr57/cold/storage-identity-security/evidence/identity-missions.txt",
+        "/workspace/azurelab-pr57/cold/storage-identity-security/evidence/identity-assessment.txt",
+        "/workspace/azurelab-pr57/cold/storage-identity-security/evidence/identity-final-summary.txt"
+      ],
+      "limit": "This is a post-lock AI structure judgment over actual snapshots; no prototype or measured learner effect."
+    },
+    {
+      "module": "access-control",
+      "title": "Access Part B — RBAC & Conditional Access",
+      "currentCount": 12,
+      "currentTopics": [
+        "introduction",
+        "rbac",
+        "scope",
+        "roles",
+        "planes",
+        "conditional",
+        "policies",
+        "testing",
+        "studio",
+        "missions",
+        "assessment",
+        "summary"
+      ],
+      "proposedSessions": [
+        {
+          "id": "access-control:introduction",
+          "title": "Fra autentisering til handling",
+          "members": [
+            "introduction"
+          ],
+          "classification": "A",
+          "role": "undervisning — selvstendig begrep/mekanisme",
+          "preserveDistinctBoundary": false
+        },
+        {
+          "id": "access-control:rbac",
+          "title": "Principal, rolle og tildeling",
+          "members": [
+            "rbac"
+          ],
+          "classification": "A",
+          "role": "undervisning — selvstendig begrep/mekanisme",
+          "preserveDistinctBoundary": false
+        },
+        {
+          "id": "access-control:scope",
+          "title": "Scope og arv",
+          "members": [
+            "scope"
+          ],
+          "classification": "A",
+          "role": "undervisning — selvstendig begrep/mekanisme",
+          "preserveDistinctBoundary": false
+        },
+        {
+          "id": "access-control:roles",
+          "title": "Azure- og Entra-roller",
+          "members": [
+            "roles"
+          ],
+          "classification": "A",
+          "role": "undervisning — selvstendig begrep/mekanisme",
+          "preserveDistinctBoundary": false
+        },
+        {
+          "id": "access-control:planes",
+          "title": "Management og data",
+          "members": [
+            "planes"
+          ],
+          "classification": "A",
+          "role": "undervisning — selvstendig begrep/mekanisme",
+          "preserveDistinctBoundary": false
+        },
+        {
+          "id": "access-conditional-evaluation",
+          "title": "Conditional Access: policy og samlet utfall",
+          "members": [
+            "conditional",
+            "policies"
+          ],
+          "classification": "B",
+          "role": "undervisning — selvstendig begrep/mekanisme",
+          "preserveDistinctBoundary": false
+        },
+        {
+          "id": "access-control:testing",
+          "title": "Testing og nødtilgang",
+          "members": [
+            "testing"
+          ],
+          "classification": "A",
+          "role": "undervisning — selvstendig begrep/mekanisme",
+          "preserveDistinctBoundary": false
+        },
+        {
+          "id": "access-control:studio",
+          "title": "Azure Access Decision Studio",
+          "members": [
+            "studio"
+          ],
+          "classification": "A",
+          "role": "interaktiv undervisnings-/undersøkelsesflate; oppdrag starter bare eksplisitt",
+          "preserveDistinctBoundary": true
+        },
+        {
+          "id": "access-control:missions",
+          "title": "Guidede undersøkelser",
+          "members": [
+            "missions"
+          ],
+          "classification": "A",
+          "role": "oppdragsvalg og eksplisitt briefing/start/resume-inngang",
+          "preserveDistinctBoundary": true
+        },
+        {
+          "id": "access-control:assessment",
+          "title": "Selvstendig anvendelse",
+          "members": [
+            "assessment"
+          ],
+          "classification": "A",
+          "role": "separat selvstendig anvendelse og låst førsteinnlevering",
+          "preserveDistinctBoundary": true
+        },
+        {
+          "id": "access-control:summary",
+          "title": "Summary — Access Control",
+          "members": [
+            "summary"
+          ],
+          "classification": "A",
+          "role": "lokal resultat-/returflate og overgang videre",
+          "preserveDistinctBoundary": true
+        }
+      ],
+      "afterCount": 11,
+      "countIncludes": [
+        "all original recommended teaching topics",
+        "studio",
+        "missions",
+        "assessment",
+        "summary"
+      ],
+      "unchangedFunctionalBoundaries": [
+        "studio",
+        "missions",
+        "assessment",
+        "summary"
+      ],
+      "allOriginalTopicsPreservedExactlyOnce": true,
+      "problem": "Enkeltpolicyens targeting/grant og flere policyers samlede krav er en sammenhengende evalueringskjede, men ligger nå på to nabosider.",
+      "potentialGain": "Sammenlesing kan gjøre AND/OR innen én policy, flere policyer, Block og Report-only lettere å sammenholde. Testing/nødtilgang beholdes som egen praktisk stopp.",
+      "risk": "En lengre CA-økt kan skjule rekkevidden av exclusions eller lokke til én samlet CA/RBAC-motor. Modellene og vurderingsgrenser skal ikke endres.",
+      "priority": "behold før RC; P2 avgrenset oppfølging for samlingskandidat",
+      "beforeRC": {
+        "seriousStructureBlockerObserved": false,
+        "requiredChange": "none"
+      },
+      "confidence": "medium for proposed educational gain; high for actual current roles and counts",
+      "evidence": [
+        "/workspace/azurelab-pr57/cold/storage-identity-security/evidence/access-control-introduction.txt",
+        "/workspace/azurelab-pr57/cold/storage-identity-security/evidence/access-control-studio.txt",
+        "/workspace/azurelab-pr57/cold/storage-identity-security/evidence/access-control-missions.txt",
+        "/workspace/azurelab-pr57/cold/storage-identity-security/evidence/access-control-assessment.txt",
+        "/workspace/azurelab-pr57/cold/storage-identity-security/evidence/access-control-final-summary.txt"
+      ],
+      "limit": "This is a post-lock AI structure judgment over actual snapshots; no prototype or measured learner effect."
+    },
+    {
+      "module": "security",
+      "title": "Security Part C — Security Principles & Defender for Cloud",
+      "currentCount": 12,
+      "currentTopics": [
+        "introduction",
+        "zero-trust",
+        "depth",
+        "encryption",
+        "defender",
+        "posture",
+        "protection",
+        "score",
+        "studio",
+        "missions",
+        "assessment",
+        "summary"
+      ],
+      "proposedSessions": [
+        {
+          "id": "security:introduction",
+          "title": "Sikkerhet som helhet",
+          "members": [
+            "introduction"
+          ],
+          "classification": "A",
+          "role": "undervisning — selvstendig begrep/mekanisme",
+          "preserveDistinctBoundary": false
+        },
+        {
+          "id": "security:zero-trust",
+          "title": "Zero Trust — tre prinsipper",
+          "members": [
+            "zero-trust"
+          ],
+          "classification": "A",
+          "role": "undervisning — selvstendig begrep/mekanisme",
+          "preserveDistinctBoundary": false
+        },
+        {
+          "id": "security:depth",
+          "title": "Defense in Depth — sju lag",
+          "members": [
+            "depth"
+          ],
+          "classification": "A",
+          "role": "undervisning — selvstendig begrep/mekanisme",
+          "preserveDistinctBoundary": false
+        },
+        {
+          "id": "security:encryption",
+          "title": "Encryption & Key Vault · Learn-supplement",
+          "members": [
+            "encryption"
+          ],
+          "classification": "A",
+          "role": "undervisning — selvstendig begrep/mekanisme",
+          "preserveDistinctBoundary": false
+        },
+        {
+          "id": "security-posture-and-coverage",
+          "title": "Defender for Cloud: posture, planer og oppfølging",
+          "members": [
+            "defender",
+            "posture"
+          ],
+          "classification": "B",
+          "role": "undervisning — selvstendig begrep/mekanisme",
+          "preserveDistinctBoundary": false
+        },
+        {
+          "id": "security:protection",
+          "title": "Workload Protection & Security Alerts",
+          "members": [
+            "protection"
+          ],
+          "classification": "A",
+          "role": "undervisning — selvstendig begrep/mekanisme",
+          "preserveDistinctBoundary": false
+        },
+        {
+          "id": "security:score",
+          "title": "To Secure Score-modeller",
+          "members": [
+            "score"
+          ],
+          "classification": "A",
+          "role": "undervisning — selvstendig begrep/mekanisme",
+          "preserveDistinctBoundary": false
+        },
+        {
+          "id": "security:studio",
+          "title": "Security Decision Studio",
+          "members": [
+            "studio"
+          ],
+          "classification": "A",
+          "role": "interaktiv undervisnings-/undersøkelsesflate; oppdrag starter bare eksplisitt",
+          "preserveDistinctBoundary": true
+        },
+        {
+          "id": "security:missions",
+          "title": "Guidede sikkerhetsundersøkelser",
+          "members": [
+            "missions"
+          ],
+          "classification": "A",
+          "role": "oppdragsvalg og eksplisitt briefing/start/resume-inngang",
+          "preserveDistinctBoundary": true
+        },
+        {
+          "id": "security:assessment",
+          "title": "Selvstendig sikkerhetsanvendelse",
+          "members": [
+            "assessment"
+          ],
+          "classification": "A",
+          "role": "separat selvstendig anvendelse og låst førsteinnlevering",
+          "preserveDistinctBoundary": true
+        },
+        {
+          "id": "security:summary",
+          "title": "Summary — Security Part C",
+          "members": [
+            "summary"
+          ],
+          "classification": "A",
+          "role": "lokal resultat-/returflate og overgang videre",
+          "preserveDistinctBoundary": true
+        }
+      ],
+      "afterCount": 11,
+      "countIncludes": [
+        "all original recommended teaching topics",
+        "studio",
+        "missions",
+        "assessment",
+        "summary"
+      ],
+      "unchangedFunctionalBoundaries": [
+        "studio",
+        "missions",
+        "assessment",
+        "summary"
+      ],
+      "allOriginalTopicsPreservedExactlyOnce": true,
+      "problem": "Defender-funksjonskartet og neste posture-side gjeninnfører anbefaling/CSPM før de konkrete plan-/datavilkårene.",
+      "potentialGain": "Én funksjon→grunnlag→oppfølging-økt kan bevare begge forklaringer og redusere ny oppstart. Workload-alerts og score er ulike bevis-/tolkingsspørsmål som fortsatt fortjener egne sider.",
+      "risk": "Ikke la CNAPP/CSPM/CWPP eller metadataforbehold bli skjult i en stor produktoversikt. Encryption beholdes; Learn-supplement er ikke i seg selv grunn til å fjerne nødvendig krypteringsgrunnlag.",
+      "priority": "behold før RC; P2 avgrenset oppfølging for samlingskandidat",
+      "beforeRC": {
+        "seriousStructureBlockerObserved": false,
+        "requiredChange": "none"
+      },
+      "confidence": "medium for proposed educational gain; high for actual current roles and counts",
+      "evidence": [
+        "/workspace/azurelab-pr57/cold/storage-identity-security/evidence/security-introduction.txt",
+        "/workspace/azurelab-pr57/cold/storage-identity-security/evidence/security-studio.txt",
+        "/workspace/azurelab-pr57/cold/storage-identity-security/evidence/security-missions.txt",
+        "/workspace/azurelab-pr57/cold/storage-identity-security/evidence/security-assessment.txt",
+        "/workspace/azurelab-pr57/cold/storage-identity-security/evidence/security-final-summary.txt"
+      ],
+      "limit": "This is a post-lock AI structure judgment over actual snapshots; no prototype or measured learner effect."
+    }
+  ],
+  "totals": {
+    "current": 69,
+    "afterIfAllBoundedCandidatesAdopted": 65,
+    "classificationCounts": {
+      "A": 61,
+      "B": 8,
+      "C": 0,
+      "D": 0,
+      "E": 0
+    },
+    "functionalBoundariesUnchanged": 24,
+    "beforeRCSeriousStructureBlockers": 0
+  }
+}

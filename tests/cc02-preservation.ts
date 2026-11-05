@@ -1,4 +1,5 @@
 import { expect } from 'vitest';
+import { assertPR57Presentation, pr57PresentationChanges } from './pr57-preservation';
 import { execFileSync } from 'node:child_process';
 import { readFileSync } from 'node:fs';
 import { createHash } from 'node:crypto';
@@ -14,6 +15,7 @@ export const cc02PresentationChanges = [
   'src/features/course/missions.css',
   'src/features/course/missions.tsx',
   'tests/e2e/practical-missions.spec.ts',
+  ...pr57PresentationChanges,
 ];
 /** Exact reverse of the authorized extraction, not an exclusion of evaluator assertions. */
 export function originalMissionSource() {
@@ -38,6 +40,10 @@ export function originalMissionSource() {
     .replace('required.subscriptionId;', "(independent ? 'sub-app' : 'sub-shared');");
 }
 export function assertCC02Change(path: string, historicalHash?: string) {
+  if (pr57PresentationChanges.includes(path)) {
+    assertPR57Presentation(path, historicalHash);
+    return;
+  }
   expect(proof.base).toBe('fb229a977ef6fb0250ededbb0d35d5314951a31a');
   expect([...cc02DomainChanges, ...cc02PresentationChanges]).toContain(path);
   const entry =

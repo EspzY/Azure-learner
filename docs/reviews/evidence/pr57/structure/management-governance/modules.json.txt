@@ -1,0 +1,812 @@
+{
+  "reviewType": "Separat etter-lås-etterkontroll av pedagogisk segmentstruktur; ikke kaldt review eller endelig audit",
+  "generatedUtc": "2026-11-05T15:43:47.894416Z",
+  "sourceSha": "a3f1b575b2eb5b257fd455fec1a73b30a38706f4",
+  "coldLock": "/workspace/azurelab-pr57/cold/management-governance/lock.json",
+  "scope": [
+    "cost",
+    "governance",
+    "management",
+    "monitoring"
+  ],
+  "basis": "50 faktisk leste anbefalte aktiviteter og 13 fullførte guided-undersøkelser fra kald passering. Kun konkrete usikre overganger gjenlest i låste snapshots; ingen ny full nettlesertur eller repoendring.",
+  "classificationDefinitions": {
+    "A": "behold egen økt/side",
+    "B": "slå sammen med navngitt teoripartner",
+    "C": "integrer som synlig seksjon",
+    "D": "flytt til valgfritt oppslag; behold route",
+    "E": "mer undersøkelse før forslag"
+  },
+  "decision": "Ingen påvist alvorlig strukturell RC-hindring. Behold nå; eventuelle vedtatte forslag håndteres i én avgrenset senere presentasjonsleveranse.",
+  "limitations": [
+    "AI-reviewer, ikke menneskelig SME-/novice-/skjermleser- eller målt læringseffektvalidering.",
+    "Ingen ord-/sideterskel eller reduksjonsmål brukt.",
+    "Foreslåtte sammensatte økter er ikke rendret; lesbarhet og faktisk navigasjon må kontrolleres før vedtak.",
+    "Færre statiske oppføringer er ikke like mange sparte klikk: PR43s dynamiske Neste kan allerede gå forbi missions-kartet.",
+    "Ingen reduksjon i innhold, teorisubstans, modeller, 13 guidede identiteter, operative forsøksgrenser, assessment/Summary eller historiske URL-er er foreslått."
+  ],
+  "currentCount": 50,
+  "afterCount": 42,
+  "retainedOptionalRouteCount": 3,
+  "modules": [
+    {
+      "module": "cost",
+      "currentCount": 9,
+      "currentTopics": [
+        "introduction",
+        "drivers",
+        "estimate",
+        "analysis",
+        "budgets",
+        "tags",
+        "optimization",
+        "assessment",
+        "summary"
+      ],
+      "proposedSessions": [
+        {
+          "id": "cost-foundation",
+          "title": "Behov, kostnadsdrivere og fakturerbart forbruk",
+          "topicMembers": [
+            "introduction",
+            "drivers"
+          ],
+          "role": "teori",
+          "canonicalAnchorTopic": "introduction",
+          "status": "forslag til senere presentasjon; ikke implementert",
+          "preservation": "Alle topicmedlemmer, kildehenvisninger, eksempler, forbehold og opprinnelige historikk-/assistance-identiteter beholdes.",
+          "unchangedBoundary": false
+        },
+        {
+          "id": "cost-estimate",
+          "title": "Bygg og sammenlign et estimat",
+          "topicMembers": [
+            "estimate"
+          ],
+          "role": "praksis med egen guided-grense",
+          "canonicalAnchorTopic": "estimate",
+          "status": "forslag til senere presentasjon; ikke implementert",
+          "preservation": "Alle topicmedlemmer, kildehenvisninger, eksempler, forbehold og opprinnelige historikk-/assistance-identiteter beholdes.",
+          "unchangedBoundary": true
+        },
+        {
+          "id": "cost-analysis",
+          "title": "Undersøk et kostnadsavvik",
+          "topicMembers": [
+            "analysis"
+          ],
+          "role": "praksis med egen guided-grense",
+          "canonicalAnchorTopic": "analysis",
+          "status": "forslag til senere presentasjon; ikke implementert",
+          "preservation": "Alle topicmedlemmer, kildehenvisninger, eksempler, forbehold og opprinnelige historikk-/assistance-identiteter beholdes.",
+          "unchangedBoundary": true
+        },
+        {
+          "id": "cost-budgets",
+          "title": "Undersøk actual og forecast mot budsjett",
+          "topicMembers": [
+            "budgets"
+          ],
+          "role": "praksis med egen guided-grense",
+          "canonicalAnchorTopic": "budgets",
+          "status": "forslag til senere presentasjon; ikke implementert",
+          "preservation": "Alle topicmedlemmer, kildehenvisninger, eksempler, forbehold og opprinnelige historikk-/assistance-identiteter beholdes.",
+          "unchangedBoundary": true
+        },
+        {
+          "id": "cost-tags",
+          "title": "Forklar kostnadsfordeling med tags",
+          "topicMembers": [
+            "tags"
+          ],
+          "role": "praksis med egen guided-grense",
+          "canonicalAnchorTopic": "tags",
+          "status": "forslag til senere presentasjon; ikke implementert",
+          "preservation": "Alle topicmedlemmer, kildehenvisninger, eksempler, forbehold og opprinnelige historikk-/assistance-identiteter beholdes.",
+          "unchangedBoundary": true
+        },
+        {
+          "id": "cost-optimization",
+          "title": "Optimalisering med driftskrav",
+          "topicMembers": [
+            "optimization"
+          ],
+          "role": "teori",
+          "canonicalAnchorTopic": "optimization",
+          "status": "forslag til senere presentasjon; ikke implementert",
+          "preservation": "Alle topicmedlemmer, kildehenvisninger, eksempler, forbehold og opprinnelige historikk-/assistance-identiteter beholdes.",
+          "unchangedBoundary": false
+        },
+        {
+          "id": "cost-assessment",
+          "title": "Selvstendig økonomisk anvendelse",
+          "topicMembers": [
+            "assessment"
+          ],
+          "role": "uendret independent",
+          "canonicalAnchorTopic": "assessment",
+          "status": "forslag til senere presentasjon; ikke implementert",
+          "preservation": "Alle topicmedlemmer, kildehenvisninger, eksempler, forbehold og opprinnelige historikk-/assistance-identiteter beholdes.",
+          "unchangedBoundary": true
+        },
+        {
+          "id": "cost-summary",
+          "title": "Hva har du dokumentert?",
+          "topicMembers": [
+            "summary"
+          ],
+          "role": "uendret evidensoversikt",
+          "canonicalAnchorTopic": "summary",
+          "status": "forslag til senere presentasjon; ikke implementert",
+          "preservation": "Alle topicmedlemmer, kildehenvisninger, eksempler, forbehold og opprinnelige historikk-/assistance-identiteter beholdes.",
+          "unchangedBoundary": true
+        }
+      ],
+      "afterCount": 8,
+      "retainedOptionalRoutes": [],
+      "countBasis": "Antall anbefalte statiske økter inklusive uendrede assessment-, Summary- og praksisflater. Ikke antall offentlige historiske URL-er, guidede forsøk, sparte klikk eller læringstid.",
+      "unchangedBoundaries": {
+        "assessment": [
+          "assessment"
+        ],
+        "summary": [
+          "summary"
+        ],
+        "practice": [
+          "estimate",
+          "analysis",
+          "budgets",
+          "tags"
+        ],
+        "guidedInvestigations": 4,
+        "independentEvidence": "Gamle item/family/first/help/retry/draft/submit-identiteter og operative receipts endres ikke."
+      },
+      "problem": "Introduksjonen hevder at ressursantall ikke er en måler, mens neste separate side straks forklarer målerne. Overgangen kan fungere som én grunnøkt; de fire benkene har derimot forskjellige aktive beslutninger.",
+      "benefit": "Knytter arbeidslastens behov direkte til konkret fakturerbar mengde før første estimat. Egen analyse, budsjett, tags og optimeringssyntese beholdes.",
+      "risk": "Innledningens oversiktsfunksjon og konkrete forbruksmekanismer må begge være synlige; ikke fyll grunnøkten med de fire aktive benkene.",
+      "rejected": "Ikke slå analyse+budsjett+tags sammen: de har ulike prediksjoner, resultatgrenser og egne guidede avslutninger.",
+      "priority": "Én avgrenset senere leveranse / P2-presentasjon. Behold nåværende struktur fram til gjennomarbeidet implementering.",
+      "mustBeforeRC": false,
+      "rcJudgment": "Ingen konkret alvorlig strukturell hindring etablert i den utførte passeringen. Ingen ny nødvendig før-RC-omstrukturering anbefales.",
+      "evidence": [
+        "/workspace/azurelab-pr57/cold/management-governance/cost-01-introduction.txt",
+        "/workspace/azurelab-pr57/cold/management-governance/cost-02-drivers.txt",
+        "/workspace/azurelab-pr57/cold/management-governance/cost-03-estimate-before.txt",
+        "/workspace/azurelab-pr57/cold/management-governance/cost-04-analysis-before.txt",
+        "/workspace/azurelab-pr57/cold/management-governance/cost-05-budgets-before.txt",
+        "/workspace/azurelab-pr57/cold/management-governance/cost-06-tags-before.txt",
+        "/workspace/azurelab-pr57/cold/management-governance/cost-07-optimization.txt",
+        "/workspace/azurelab-pr57/cold/management-governance/cost-08-assessment-before.txt",
+        "/workspace/azurelab-pr57/cold/management-governance/cost-09-summary.txt"
+      ],
+      "confidence": "Høy om dagens elevinnhold og de utførte mekanismene; middels om ikke-implementerte sammensetninger. Ingen målt lærings-/tidsgevinst."
+    },
+    {
+      "module": "governance",
+      "currentCount": 13,
+      "currentTopics": [
+        "introduction",
+        "purview",
+        "catalog",
+        "policy",
+        "assignments",
+        "compliance",
+        "locks",
+        "planes",
+        "trust",
+        "studio",
+        "missions",
+        "assessment",
+        "summary"
+      ],
+      "proposedSessions": [
+        {
+          "id": "gov-introduction",
+          "title": "Fra kostnader til styring",
+          "topicMembers": [
+            "introduction"
+          ],
+          "role": "teori",
+          "canonicalAnchorTopic": "introduction",
+          "status": "forslag til senere presentasjon; ikke implementert",
+          "preservation": "Alle topicmedlemmer, kildehenvisninger, eksempler, forbehold og opprinnelige historikk-/assistance-identiteter beholdes.",
+          "unchangedBoundary": false
+        },
+        {
+          "id": "gov-data-governance",
+          "title": "Purview: finn, forstå og forvalt data",
+          "topicMembers": [
+            "purview",
+            "catalog"
+          ],
+          "role": "teori",
+          "canonicalAnchorTopic": "purview",
+          "status": "forslag til senere presentasjon; ikke implementert",
+          "preservation": "Alle topicmedlemmer, kildehenvisninger, eksempler, forbehold og opprinnelige historikk-/assistance-identiteter beholdes.",
+          "unchangedBoundary": false
+        },
+        {
+          "id": "gov-policy",
+          "title": "Policy-definition og effect",
+          "topicMembers": [
+            "policy"
+          ],
+          "role": "teori",
+          "canonicalAnchorTopic": "policy",
+          "status": "forslag til senere presentasjon; ikke implementert",
+          "preservation": "Alle topicmedlemmer, kildehenvisninger, eksempler, forbehold og opprinnelige historikk-/assistance-identiteter beholdes.",
+          "unchangedBoundary": false
+        },
+        {
+          "id": "gov-assignments",
+          "title": "Scope, assignments og unntak",
+          "topicMembers": [
+            "assignments"
+          ],
+          "role": "teori",
+          "canonicalAnchorTopic": "assignments",
+          "status": "forslag til senere presentasjon; ikke implementert",
+          "preservation": "Alle topicmedlemmer, kildehenvisninger, eksempler, forbehold og opprinnelige historikk-/assistance-identiteter beholdes.",
+          "unchangedBoundary": false
+        },
+        {
+          "id": "gov-compliance",
+          "title": "Compliance, timing og remediation",
+          "topicMembers": [
+            "compliance"
+          ],
+          "role": "teori",
+          "canonicalAnchorTopic": "compliance",
+          "status": "forslag til senere presentasjon; ikke implementert",
+          "preservation": "Alle topicmedlemmer, kildehenvisninger, eksempler, forbehold og opprinnelige historikk-/assistance-identiteter beholdes.",
+          "unchangedBoundary": false
+        },
+        {
+          "id": "gov-locks",
+          "title": "Administrativt ressursvern",
+          "topicMembers": [
+            "locks"
+          ],
+          "role": "teori",
+          "canonicalAnchorTopic": "locks",
+          "status": "forslag til senere presentasjon; ikke implementert",
+          "preservation": "Alle topicmedlemmer, kildehenvisninger, eksempler, forbehold og opprinnelige historikk-/assistance-identiteter beholdes.",
+          "unchangedBoundary": false
+        },
+        {
+          "id": "gov-planes",
+          "title": "Operasjonsplan, datatilgang og backupgrense",
+          "topicMembers": [
+            "planes"
+          ],
+          "role": "teori",
+          "canonicalAnchorTopic": "planes",
+          "status": "forslag til senere presentasjon; ikke implementert",
+          "preservation": "Alle topicmedlemmer, kildehenvisninger, eksempler, forbehold og opprinnelige historikk-/assistance-identiteter beholdes.",
+          "unchangedBoundary": false
+        },
+        {
+          "id": "gov-trust",
+          "title": "Service Trust Portal og leverandørdokumentasjon",
+          "topicMembers": [
+            "trust"
+          ],
+          "role": "teori",
+          "canonicalAnchorTopic": "trust",
+          "status": "forslag til senere presentasjon; ikke implementert",
+          "preservation": "Alle topicmedlemmer, kildehenvisninger, eksempler, forbehold og opprinnelige historikk-/assistance-identiteter beholdes.",
+          "unchangedBoundary": false
+        },
+        {
+          "id": "gov-studio",
+          "title": "Governance Decision Studio",
+          "topicMembers": [
+            "studio"
+          ],
+          "role": "uendret praksisflate: tre guider",
+          "canonicalAnchorTopic": "studio",
+          "status": "forslag til senere presentasjon; ikke implementert",
+          "preservation": "Alle topicmedlemmer, kildehenvisninger, eksempler, forbehold og opprinnelige historikk-/assistance-identiteter beholdes.",
+          "unchangedBoundary": true
+        },
+        {
+          "id": "gov-assessment",
+          "title": "Selvstendig Governance-anvendelse",
+          "topicMembers": [
+            "assessment"
+          ],
+          "role": "uendret independent",
+          "canonicalAnchorTopic": "assessment",
+          "status": "forslag til senere presentasjon; ikke implementert",
+          "preservation": "Alle topicmedlemmer, kildehenvisninger, eksempler, forbehold og opprinnelige historikk-/assistance-identiteter beholdes.",
+          "unchangedBoundary": true
+        },
+        {
+          "id": "gov-summary",
+          "title": "Summary — Governance",
+          "topicMembers": [
+            "summary"
+          ],
+          "role": "uendret evidensoversikt",
+          "canonicalAnchorTopic": "summary",
+          "status": "forslag til senere presentasjon; ikke implementert",
+          "preservation": "Alle topicmedlemmer, kildehenvisninger, eksempler, forbehold og opprinnelige historikk-/assistance-identiteter beholdes.",
+          "unchangedBoundary": true
+        }
+      ],
+      "afterCount": 11,
+      "retainedOptionalRoutes": [
+        {
+          "id": "governance-missions-reference",
+          "title": "Guidede undersøkelser — valgfritt oppslagskart",
+          "topicMembers": [
+            "missions"
+          ],
+          "route": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/governance?topic=missions",
+          "retention": "Beholdes som tilgjengelig oppslag med original semantikk; ikke i anbefalt lineær opptelling."
+        }
+      ],
+      "countBasis": "Antall anbefalte statiske økter inklusive uendrede assessment-, Summary- og praksisflater. Ikke antall offentlige historiske URL-er, guidede forsøk, sparte klikk eller læringstid.",
+      "unchangedBoundaries": {
+        "assessment": [
+          "assessment"
+        ],
+        "summary": [
+          "summary"
+        ],
+        "practice": [
+          "studio"
+        ],
+        "guidedInvestigations": 3,
+        "independentEvidence": "Gamle item/family/first/help/retry/draft/submit-identiteter og operative receipts endres ikke."
+      },
+      "problem": "Purview-oversikten og metadata/lineage fortsetter samme katalogcase på to sider. Et separat missions-kart gjentar tre guideinnganger.",
+      "benefit": "Samler produktets datarelasjoner og mekanismene som gjør metadata nyttig; kartet beholdes for direktevalg. Policy-effekt, scope/unntak, remediation og lock-/data-plane-trinn forblir tydelige.",
+      "risk": "Purview+catalog må være to lesbare seksjoner med alle rettighetsgrenser. Ikke koble katalogtekst direkte til faktisk autorisasjon eller bland modelldata med kildedata.",
+      "rejected": "Ingen hel Governance-samleside og ingen Policy+scope+remediation-megaøkt. STP beholdes til tross for supplementstatus fordi leverandørbevis er et annet spørsmål.",
+      "priority": "Én avgrenset senere leveranse / P2-presentasjon. Behold nåværende struktur fram til gjennomarbeidet implementering.",
+      "mustBeforeRC": false,
+      "rcJudgment": "Ingen konkret alvorlig strukturell hindring etablert i den utførte passeringen. Ingen ny nødvendig før-RC-omstrukturering anbefales.",
+      "evidence": [
+        "/workspace/azurelab-pr57/cold/management-governance/governance-01-read.txt",
+        "/workspace/azurelab-pr57/cold/management-governance/governance-02-read.txt",
+        "/workspace/azurelab-pr57/cold/management-governance/governance-03-read.txt",
+        "/workspace/azurelab-pr57/cold/management-governance/governance-04-read.txt",
+        "/workspace/azurelab-pr57/cold/management-governance/governance-05-read.txt",
+        "/workspace/azurelab-pr57/cold/management-governance/governance-06-read.txt",
+        "/workspace/azurelab-pr57/cold/management-governance/governance-07-read.txt",
+        "/workspace/azurelab-pr57/cold/management-governance/governance-08-read.txt",
+        "/workspace/azurelab-pr57/cold/management-governance/governance-09-read.txt",
+        "/workspace/azurelab-pr57/cold/management-governance/governance-10-studio-before.txt",
+        "/workspace/azurelab-pr57/cold/management-governance/governance-11-missions.txt",
+        "/workspace/azurelab-pr57/cold/management-governance/governance-12-assessment-before.txt",
+        "/workspace/azurelab-pr57/cold/management-governance/governance-13-summary.txt"
+      ],
+      "confidence": "Høy om dagens elevinnhold og de utførte mekanismene; middels om ikke-implementerte sammensetninger. Ingen målt lærings-/tidsgevinst."
+    },
+    {
+      "module": "management",
+      "currentCount": 16,
+      "currentTopics": [
+        "introduction",
+        "portal",
+        "shell",
+        "cli",
+        "powershell",
+        "arm",
+        "iac",
+        "templates",
+        "bicep",
+        "changes",
+        "arc",
+        "copilot",
+        "studio",
+        "missions",
+        "assessment",
+        "summary"
+      ],
+      "proposedSessions": [
+        {
+          "id": "tools-introduction",
+          "title": "Fra intensjon til konfigurasjon",
+          "topicMembers": [
+            "introduction"
+          ],
+          "role": "teori",
+          "canonicalAnchorTopic": "introduction",
+          "status": "forslag til senere presentasjon; ikke implementert",
+          "preservation": "Alle topicmedlemmer, kildehenvisninger, eksempler, forbehold og opprinnelige historikk-/assistance-identiteter beholdes.",
+          "unchangedBoundary": false
+        },
+        {
+          "id": "tools-portal",
+          "title": "Grafisk administrasjon og ressursinspeksjon",
+          "topicMembers": [
+            "portal"
+          ],
+          "role": "teori",
+          "canonicalAnchorTopic": "portal",
+          "status": "forslag til senere presentasjon; ikke implementert",
+          "preservation": "Alle topicmedlemmer, kildehenvisninger, eksempler, forbehold og opprinnelige historikk-/assistance-identiteter beholdes.",
+          "unchangedBoundary": false
+        },
+        {
+          "id": "tools-shell",
+          "title": "Cloud Shell, host og sesjonsvilkår",
+          "topicMembers": [
+            "shell"
+          ],
+          "role": "teori",
+          "canonicalAnchorTopic": "shell",
+          "status": "forslag til senere presentasjon; ikke implementert",
+          "preservation": "Alle topicmedlemmer, kildehenvisninger, eksempler, forbehold og opprinnelige historikk-/assistance-identiteter beholdes.",
+          "unchangedBoundary": false
+        },
+        {
+          "id": "tools-clients",
+          "title": "Samme intensjon med Azure CLI og PowerShell",
+          "topicMembers": [
+            "cli",
+            "powershell"
+          ],
+          "role": "teori",
+          "canonicalAnchorTopic": "cli",
+          "status": "forslag til senere presentasjon; ikke implementert",
+          "preservation": "Alle topicmedlemmer, kildehenvisninger, eksempler, forbehold og opprinnelige historikk-/assistance-identiteter beholdes.",
+          "unchangedBoundary": false
+        },
+        {
+          "id": "tools-arm",
+          "title": "ARM, scope og resource providers",
+          "topicMembers": [
+            "arm"
+          ],
+          "role": "teori",
+          "canonicalAnchorTopic": "arm",
+          "status": "forslag til senere presentasjon; ikke implementert",
+          "preservation": "Alle topicmedlemmer, kildehenvisninger, eksempler, forbehold og opprinnelige historikk-/assistance-identiteter beholdes.",
+          "unchangedBoundary": false
+        },
+        {
+          "id": "tools-iac",
+          "title": "IaC som gjennomgåelig arbeidsform",
+          "topicMembers": [
+            "iac"
+          ],
+          "role": "teori",
+          "canonicalAnchorTopic": "iac",
+          "status": "forslag til senere presentasjon; ikke implementert",
+          "preservation": "Alle topicmedlemmer, kildehenvisninger, eksempler, forbehold og opprinnelige historikk-/assistance-identiteter beholdes.",
+          "unchangedBoundary": false
+        },
+        {
+          "id": "tools-declarations",
+          "title": "Samme ønsket konfigurasjon i ARM JSON og Bicep",
+          "topicMembers": [
+            "templates",
+            "bicep"
+          ],
+          "role": "teori",
+          "canonicalAnchorTopic": "templates",
+          "status": "forslag til senere presentasjon; ikke implementert",
+          "preservation": "Alle topicmedlemmer, kildehenvisninger, eksempler, forbehold og opprinnelige historikk-/assistance-identiteter beholdes.",
+          "unchangedBoundary": false
+        },
+        {
+          "id": "tools-changes",
+          "title": "Endringsanalyse, review og etterprøving",
+          "topicMembers": [
+            "changes",
+            "copilot"
+          ],
+          "role": "teori",
+          "canonicalAnchorTopic": "changes",
+          "status": "forslag til senere presentasjon; ikke implementert",
+          "preservation": "Alle topicmedlemmer, kildehenvisninger, eksempler, forbehold og opprinnelige historikk-/assistance-identiteter beholdes.",
+          "unchangedBoundary": false
+        },
+        {
+          "id": "tools-arc",
+          "title": "Arc: administrer eksternt uten å flytte workload",
+          "topicMembers": [
+            "arc"
+          ],
+          "role": "teori",
+          "canonicalAnchorTopic": "arc",
+          "status": "forslag til senere presentasjon; ikke implementert",
+          "preservation": "Alle topicmedlemmer, kildehenvisninger, eksempler, forbehold og opprinnelige historikk-/assistance-identiteter beholdes.",
+          "unchangedBoundary": false
+        },
+        {
+          "id": "tools-studio",
+          "title": "Management & Deployment Studio",
+          "topicMembers": [
+            "studio"
+          ],
+          "role": "uendret praksisflate: tre guider",
+          "canonicalAnchorTopic": "studio",
+          "status": "forslag til senere presentasjon; ikke implementert",
+          "preservation": "Alle topicmedlemmer, kildehenvisninger, eksempler, forbehold og opprinnelige historikk-/assistance-identiteter beholdes.",
+          "unchangedBoundary": true
+        },
+        {
+          "id": "tools-assessment",
+          "title": "Selvstendig Management-anvendelse",
+          "topicMembers": [
+            "assessment"
+          ],
+          "role": "uendret independent",
+          "canonicalAnchorTopic": "assessment",
+          "status": "forslag til senere presentasjon; ikke implementert",
+          "preservation": "Alle topicmedlemmer, kildehenvisninger, eksempler, forbehold og opprinnelige historikk-/assistance-identiteter beholdes.",
+          "unchangedBoundary": true
+        },
+        {
+          "id": "tools-summary",
+          "title": "Summary — Management & Deployment",
+          "topicMembers": [
+            "summary"
+          ],
+          "role": "uendret evidensoversikt",
+          "canonicalAnchorTopic": "summary",
+          "status": "forslag til senere presentasjon; ikke implementert",
+          "preservation": "Alle topicmedlemmer, kildehenvisninger, eksempler, forbehold og opprinnelige historikk-/assistance-identiteter beholdes.",
+          "unchangedBoundary": true
+        }
+      ],
+      "afterCount": 12,
+      "retainedOptionalRoutes": [
+        {
+          "id": "management-missions-reference",
+          "title": "Guidede undersøkelser — valgfritt oppslagskart",
+          "topicMembers": [
+            "missions"
+          ],
+          "route": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/management-tools?topic=missions",
+          "retention": "Beholdes som tilgjengelig oppslag med original semantikk; ikke i anbefalt lineær opptelling."
+        }
+      ],
+      "countBasis": "Antall anbefalte statiske økter inklusive uendrede assessment-, Summary- og praksisflater. Ikke antall offentlige historiske URL-er, guidede forsøk, sparte klikk eller læringstid.",
+      "unchangedBoundaries": {
+        "assessment": [
+          "assessment"
+        ],
+        "summary": [
+          "summary"
+        ],
+        "practice": [
+          "studio"
+        ],
+        "guidedInvestigations": 3,
+        "independentEvidence": "Gamle item/family/first/help/retry/draft/submit-identiteter og operative receipts endres ikke."
+      },
+      "problem": "CLI/Pwsh og ARM JSON/Bicep er uttrykkelige sammenlikningspar over samme mål, men ligger som isolerte produktsider. Copilot-eksemplet bruker samme endringsreview som changes. Missions-kartet er gjentatt navigasjon.",
+      "benefit": "Gir direkte kontrast mellom klienter og mellom deklarative formater, mens host, ARM-lag, IaC-prinsipp, What-if og Arc beholder egne læringsspørsmål. Copilot blir en konkret anvendelse av reviewkravet.",
+      "risk": "Ikke reduser PowerShell til et CLI-alias eller Bicep til kort JSON. Formatøkten kan bli tett; behold eksempel- og moteksempelstrukturen og kontroller reell visning før endelig vedtak.",
+      "rejected": "Ikke samle Portal+Cloud Shell+CLI+Pwsh til én verktøykatalog, og ikke samle ARM+IaC+templates+Bicep+What-if til én svært lang økt.",
+      "priority": "Én avgrenset senere leveranse / P2-presentasjon. Behold nåværende struktur fram til gjennomarbeidet implementering.",
+      "mustBeforeRC": false,
+      "rcJudgment": "Ingen konkret alvorlig strukturell hindring etablert i den utførte passeringen. Ingen ny nødvendig før-RC-omstrukturering anbefales.",
+      "evidence": [
+        "/workspace/azurelab-pr57/cold/management-governance/management-01-read.txt",
+        "/workspace/azurelab-pr57/cold/management-governance/management-02-read.txt",
+        "/workspace/azurelab-pr57/cold/management-governance/management-03-read.txt",
+        "/workspace/azurelab-pr57/cold/management-governance/management-04-read.txt",
+        "/workspace/azurelab-pr57/cold/management-governance/management-05-read.txt",
+        "/workspace/azurelab-pr57/cold/management-governance/management-06-read.txt",
+        "/workspace/azurelab-pr57/cold/management-governance/management-07-read.txt",
+        "/workspace/azurelab-pr57/cold/management-governance/management-08-read.txt",
+        "/workspace/azurelab-pr57/cold/management-governance/management-09-read.txt",
+        "/workspace/azurelab-pr57/cold/management-governance/management-10-read.txt",
+        "/workspace/azurelab-pr57/cold/management-governance/management-11-read.txt",
+        "/workspace/azurelab-pr57/cold/management-governance/management-12-read.txt",
+        "/workspace/azurelab-pr57/cold/management-governance/management-13-studio-before.txt",
+        "/workspace/azurelab-pr57/cold/management-governance/management-14-missions.txt",
+        "/workspace/azurelab-pr57/cold/management-governance/management-15-assessment-before.txt",
+        "/workspace/azurelab-pr57/cold/management-governance/management-16-summary.txt"
+      ],
+      "confidence": "Høy om dagens elevinnhold og de utførte mekanismene; middels om ikke-implementerte sammensetninger. Ingen målt lærings-/tidsgevinst."
+    },
+    {
+      "module": "monitoring",
+      "currentCount": 12,
+      "currentTopics": [
+        "introduction",
+        "advisor",
+        "health",
+        "monitor",
+        "signals",
+        "logs",
+        "alerts",
+        "insights",
+        "studio",
+        "missions",
+        "assessment",
+        "summary"
+      ],
+      "proposedSessions": [
+        {
+          "id": "monitoring-introduction",
+          "title": "Fra konfigurasjon til driftsinnsikt",
+          "topicMembers": [
+            "introduction"
+          ],
+          "role": "teori",
+          "canonicalAnchorTopic": "introduction",
+          "status": "forslag til senere presentasjon; ikke implementert",
+          "preservation": "Alle topicmedlemmer, kildehenvisninger, eksempler, forbehold og opprinnelige historikk-/assistance-identiteter beholdes.",
+          "unchangedBoundary": false
+        },
+        {
+          "id": "monitoring-advisor",
+          "title": "Vurder forbedringsråd",
+          "topicMembers": [
+            "advisor"
+          ],
+          "role": "teori",
+          "canonicalAnchorTopic": "advisor",
+          "status": "forslag til senere presentasjon; ikke implementert",
+          "preservation": "Alle topicmedlemmer, kildehenvisninger, eksempler, forbehold og opprinnelige historikk-/assistance-identiteter beholdes.",
+          "unchangedBoundary": false
+        },
+        {
+          "id": "monitoring-health",
+          "title": "Plattform-, subscription- og ressurshelse",
+          "topicMembers": [
+            "health"
+          ],
+          "role": "teori",
+          "canonicalAnchorTopic": "health",
+          "status": "forslag til senere presentasjon; ikke implementert",
+          "preservation": "Alle topicmedlemmer, kildehenvisninger, eksempler, forbehold og opprinnelige historikk-/assistance-identiteter beholdes.",
+          "unchangedBoundary": false
+        },
+        {
+          "id": "monitoring-monitor",
+          "title": "Innsamling, datalager, analyse og respons",
+          "topicMembers": [
+            "monitor"
+          ],
+          "role": "teori",
+          "canonicalAnchorTopic": "monitor",
+          "status": "forslag til senere presentasjon; ikke implementert",
+          "preservation": "Alle topicmedlemmer, kildehenvisninger, eksempler, forbehold og opprinnelige historikk-/assistance-identiteter beholdes.",
+          "unchangedBoundary": false
+        },
+        {
+          "id": "monitoring-signals",
+          "title": "Signaltyper, aggregasjon og dekning",
+          "topicMembers": [
+            "signals"
+          ],
+          "role": "teori",
+          "canonicalAnchorTopic": "signals",
+          "status": "forslag til senere presentasjon; ikke implementert",
+          "preservation": "Alle topicmedlemmer, kildehenvisninger, eksempler, forbehold og opprinnelige historikk-/assistance-identiteter beholdes.",
+          "unchangedBoundary": false
+        },
+        {
+          "id": "monitoring-logs",
+          "title": "Log Analytics og avgrenset KQL-analyse",
+          "topicMembers": [
+            "logs"
+          ],
+          "role": "teori",
+          "canonicalAnchorTopic": "logs",
+          "status": "forslag til senere presentasjon; ikke implementert",
+          "preservation": "Alle topicmedlemmer, kildehenvisninger, eksempler, forbehold og opprinnelige historikk-/assistance-identiteter beholdes.",
+          "unchangedBoundary": false
+        },
+        {
+          "id": "monitoring-alerts",
+          "title": "Regel, status, varslingsvei og oppfølging",
+          "topicMembers": [
+            "alerts"
+          ],
+          "role": "teori",
+          "canonicalAnchorTopic": "alerts",
+          "status": "forslag til senere presentasjon; ikke implementert",
+          "preservation": "Alle topicmedlemmer, kildehenvisninger, eksempler, forbehold og opprinnelige historikk-/assistance-identiteter beholdes.",
+          "unchangedBoundary": false
+        },
+        {
+          "id": "monitoring-insights",
+          "title": "Instrumentert applikasjon og transaksjonsspor",
+          "topicMembers": [
+            "insights"
+          ],
+          "role": "teori",
+          "canonicalAnchorTopic": "insights",
+          "status": "forslag til senere presentasjon; ikke implementert",
+          "preservation": "Alle topicmedlemmer, kildehenvisninger, eksempler, forbehold og opprinnelige historikk-/assistance-identiteter beholdes.",
+          "unchangedBoundary": false
+        },
+        {
+          "id": "monitoring-studio",
+          "title": "Monitoring & Diagnostics Studio",
+          "topicMembers": [
+            "studio"
+          ],
+          "role": "uendret praksisflate: tre guider",
+          "canonicalAnchorTopic": "studio",
+          "status": "forslag til senere presentasjon; ikke implementert",
+          "preservation": "Alle topicmedlemmer, kildehenvisninger, eksempler, forbehold og opprinnelige historikk-/assistance-identiteter beholdes.",
+          "unchangedBoundary": true
+        },
+        {
+          "id": "monitoring-assessment",
+          "title": "Selvstendig Monitoring-anvendelse",
+          "topicMembers": [
+            "assessment"
+          ],
+          "role": "uendret independent",
+          "canonicalAnchorTopic": "assessment",
+          "status": "forslag til senere presentasjon; ikke implementert",
+          "preservation": "Alle topicmedlemmer, kildehenvisninger, eksempler, forbehold og opprinnelige historikk-/assistance-identiteter beholdes.",
+          "unchangedBoundary": true
+        },
+        {
+          "id": "monitoring-summary",
+          "title": "Summary — Monitoring & Diagnostics",
+          "topicMembers": [
+            "summary"
+          ],
+          "role": "uendret evidensoversikt",
+          "canonicalAnchorTopic": "summary",
+          "status": "forslag til senere presentasjon; ikke implementert",
+          "preservation": "Alle topicmedlemmer, kildehenvisninger, eksempler, forbehold og opprinnelige historikk-/assistance-identiteter beholdes.",
+          "unchangedBoundary": true
+        }
+      ],
+      "afterCount": 11,
+      "retainedOptionalRoutes": [
+        {
+          "id": "monitoring-missions-reference",
+          "title": "Guidede undersøkelser — valgfritt oppslagskart",
+          "topicMembers": [
+            "missions"
+          ],
+          "route": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/monitoring?topic=missions",
+          "retention": "Beholdes som tilgjengelig oppslag med original semantikk; ikke i anbefalt lineær opptelling."
+        }
+      ],
+      "countBasis": "Antall anbefalte statiske økter inklusive uendrede assessment-, Summary- og praksisflater. Ikke antall offentlige historiske URL-er, guidede forsøk, sparte klikk eller læringstid.",
+      "unchangedBoundaries": {
+        "assessment": [
+          "assessment"
+        ],
+        "summary": [
+          "summary"
+        ],
+        "practice": [
+          "studio"
+        ],
+        "guidedInvestigations": 3,
+        "independentEvidence": "Gamle item/family/first/help/retry/draft/submit-identiteter og operative receipts endres ikke."
+      },
+      "problem": "De åtte teorisidene representerer forskjellige bevis-/kontrollmekanismer; den tydelige strukturelle gjentakelsen er missions-kartet etter en allerede navigerbar Studio-flate.",
+      "benefit": "Beholder den eksisterende mekanismeinndelingen og gir kartet en presis oppslagsrolle. Gjør ikke monitorering til én samleside med mange nye statuser og datakilder.",
+      "risk": "Valgfritt kart må fortsatt kunne brukes til å finne riktig perspektiv; det er ikke dokumentert at alle elever oppdager samme valg gjennom tabs alene.",
+      "rejected": "Ingen tvungen sammenslåing av Advisor/Health/Monitor eller Signals/Logs/Alerts/Insights. Lik programvareplattform er ikke samme læringsspørsmål.",
+      "priority": "Én avgrenset senere leveranse / P2-presentasjon. Behold nåværende struktur fram til gjennomarbeidet implementering.",
+      "mustBeforeRC": false,
+      "rcJudgment": "Ingen konkret alvorlig strukturell hindring etablert i den utførte passeringen. Ingen ny nødvendig før-RC-omstrukturering anbefales.",
+      "evidence": [
+        "/workspace/azurelab-pr57/cold/management-governance/monitoring-01-read.txt",
+        "/workspace/azurelab-pr57/cold/management-governance/monitoring-02-read.txt",
+        "/workspace/azurelab-pr57/cold/management-governance/monitoring-03-read.txt",
+        "/workspace/azurelab-pr57/cold/management-governance/monitoring-04-read.txt",
+        "/workspace/azurelab-pr57/cold/management-governance/monitoring-05-read.txt",
+        "/workspace/azurelab-pr57/cold/management-governance/monitoring-06-read.txt",
+        "/workspace/azurelab-pr57/cold/management-governance/monitoring-07-read.txt",
+        "/workspace/azurelab-pr57/cold/management-governance/monitoring-08-read.txt",
+        "/workspace/azurelab-pr57/cold/management-governance/monitoring-09-studio-before.txt",
+        "/workspace/azurelab-pr57/cold/management-governance/monitoring-10-missions.txt",
+        "/workspace/azurelab-pr57/cold/management-governance/monitoring-11-assessment-before.txt",
+        "/workspace/azurelab-pr57/cold/management-governance/monitoring-12-summary.txt"
+      ],
+      "confidence": "Høy om dagens elevinnhold og de utførte mekanismene; middels om ikke-implementerte sammensetninger. Ingen målt lærings-/tidsgevinst."
+    }
+  ],
+  "versionScope": "Vurderer den opprinnelige a3f1b575-kalde passeringens segmentstruktur; er ikke en etter-fix-validering av samtidige repository-endringer. Denne etterkontrollen endret ingen repo-filer."
+}

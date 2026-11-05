@@ -1,0 +1,59 @@
+{
+  "at": "2026-11-05T14:04:00.039Z",
+  "stage": "LOCKED BEFORE SUBMIT OR FEEDBACK",
+  "sourceNotSeen": true,
+  "route": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/architecture?topic=assessment",
+  "decisions": [
+    [
+      "1 placement",
+      "Fordel app og data på støttede soner, med egnet ruting og tjenestespesifikk recovery.",
+      "An end-to-end booking service requires both app and data beyond the failed zone and routing/recovery."
+    ],
+    [
+      "1 scope",
+      "En sonefeil krever uavhengige soner og hele avhengighetskjeden; regionfeil er et annet krav.",
+      "No requirement for whole region failure."
+    ],
+    [
+      "1 mapping",
+      "Den fysiske mappingen må undersøkes; likt logisk nummer beviser ikke samme eller ulik fysisk sone.",
+      "Logical zone IDs can map differently across subscriptions."
+    ],
+    [
+      "2 regions",
+      "De godkjente regionene kan brukes dersom tjenester, datakopier, ruting og recovery støtter kravene.",
+      "Explicit approval and configured replication rather than region-pair metadata."
+    ],
+    [
+      "2 location",
+      "Replikaer, backup, avhengigheter og faktisk tjenestebehandling må vurderes, ikke bare primærregionens navn.",
+      "Data location covers complete processing/recovery."
+    ],
+    [
+      "2 government",
+      "Undersøk og bruk det kvalifiserte Azure Government-miljøet med dets egne tjenester og operative rammer.",
+      "Explicit named environment requirement and eligibility."
+    ],
+    [
+      "2 asymmetric",
+      "Parrelasjonen kan være asymmetrisk; den definerer ikke i seg selv appkopier eller failover.",
+      "Metadata direction not app behavior."
+    ],
+    [
+      "3 rack",
+      "Fysisk infrastruktur i et datacenter",
+      "Facility infrastructure includes racks and power/cooling."
+    ],
+    [
+      "3 zones",
+      "Ett eller flere datasentre innenfor én region",
+      "Zone spans one or more facilities."
+    ],
+    [
+      "3 buildings",
+      "Begge ligger innenfor sonefeilens omfang; forskjellige bygninger beskytter ikke mot den beskrevne fellesfeilen.",
+      "Both copies share the failing scope."
+    ]
+  ],
+  "plausibleAlternatives": "None under stated premises; broader multiregion could work but is outside the provided choices and not required."
+}

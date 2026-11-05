@@ -1,0 +1,851 @@
+{
+  "meta": {
+    "reviewType": "PR57 pedagogisk struktur-etterkontroll; ikke ny cold audit eller implementering",
+    "reviewedAtUtc": "2026-11-05T15:47:53.859947+00:00",
+    "publicRoot": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app",
+    "verifiedDisplayedCommit": "a3f1b575b2eb5b257fd455fec1a73b30a38706f4",
+    "displayedDeploymentBranch": "codex/cc02-vm-debrief-diagnostics",
+    "workspaceBranchAsAssigned": "codex/az900-final-quality-sprint",
+    "scope": [
+      "benefits",
+      "services"
+    ],
+    "recommendedActivitiesReviewed": 15,
+    "screenshotsVisuallyInspected": 15,
+    "newAssessmentAttempts": 0,
+    "newLabsStarted": 0,
+    "modelExperimentsRun": 0,
+    "studentViewFirst": true,
+    "humanValidation": false,
+    "classificationLegend": {
+      "A": "behold selvstendig",
+      "B": "slå sammen",
+      "C": "integrer som seksjon",
+      "D": "flytt eller valgfri",
+      "E": "mer undersøkelse"
+    },
+    "classificationCounts": {
+      "A": 15,
+      "B": 0,
+      "C": 0,
+      "D": 0,
+      "E": 0
+    },
+    "scopeLimits": [
+      "Alle 15 faktiske anbefalte sidekropper lest; transfer bare prestart, ingen skjulte prompts eller besvarelser.",
+      "Ingen ny full PR53, vurderingsbankaudit, full praktisk gjennomføring, Azure, lokal build/server, store-injeksjon eller auth-bypass.",
+      "Ingen menneskelig novice-/SME-/skjermleser-/læringseffektvalidering.",
+      "Cloud Computing sine seks økter er utenfor endringsscope."
+    ],
+    "preservation": [
+      "Historiske topics/URLs/resume/sources og eksplisitt Start/attempt/origin beholdes.",
+      "visit/practice-visit må knyttes til faktisk eksponert opprinnelig innhold; samlesidemontering må aldri introdusere/kreditere alle deltopics.",
+      "first/help/retry/abandon, independent-assessment-identitet, World/receipts/XP beholdes."
+    ],
+    "workflowAndIntegrityRead": [
+      "AGENTS.md",
+      "README.md",
+      "docs/PROJECT_STATUS.md",
+      "docs/DEVELOPMENT_WORKFLOW.md",
+      "docs/QUALITY_CONTRACT.md",
+      "docs/CONTENT_STANDARDS.md",
+      "src/domain/curriculum/integrity.ts"
+    ],
+    "postStudentViewReferences": [
+      "docs/CLOUD_BENEFITS_CONTENT.md",
+      "docs/SERVICE_TYPES_DEEP_LEARNING.md",
+      "docs/MODULE_01_02_03_PROGRESSION_AUDIT.md",
+      "docs/GUIDED_LEARNING_REFINEMENT.md",
+      "docs/LEARNING_FLOW_GUIDANCE.md",
+      "docs/reviews/CLOUD_CONCEPTS_INDEPENDENT_REVIEW.md:150-195",
+      "docs/CC02_VM_DEBRIEF.md",
+      "src/features/course/course.tsx:816-823,1044-1075,1855-1890,2085-2140",
+      "src/features/course/course-navigation.tsx:34",
+      "src/features/course/guided-learning.tsx:88",
+      "src/domain/curriculum/expansion.ts:2-17,217-239"
+    ],
+    "clickAccounting": "15 anbefalte oppføringer er ikke 15 dokumentert unødvendige klikk. Ingen strukturendring foreslås og dokumentert innsparing er 0. Normal fersk footer i dette utvalget viste forrige/neste. PR43 kan overstyre til aktiv/neste guide i sine 13 nyere moduler, og aktiv independent/recovery har generell prioritet. Ingen nytt aktivt forsøk ble laget for å måle disse tilstandene."
+  },
+  "activities": [
+    {
+      "module": "benefits",
+      "moduleTitle": "Benefits of cloud services",
+      "topic": "availability",
+      "title": "Kapasitet er ikke det samme som tilgjengelighet",
+      "currentRole": "Forklaring + prediksjon/kapasitetsmodell + guidet kontroll; separate VM-labinnganger.",
+      "learningGoal": "Skille vertikal og horisontal skalering fra redundans, rute og tilgjengelighet (CB01).",
+      "newUnderstanding": "At arbeid bare kan utføres av fungerende kopier trafikken når; stor frisk kapasitet gir ikke automatisk feilmargin.",
+      "substance": "Instans og redundans defineres før bruk. Mekanismen skiller flere/større instanser, feil og fast/balansert rute. Arbeidet eksempel på seks jobber og fire/åtte kapasitet følges av egne forutsigelser, moteksempel om delte avhengigheter og presise SLA-/modellgrenser. Figuren viser arbeid inn, valgt rute og kopier.",
+      "mechanism": {
+        "studentAction": "Velg antall/størrelse, etterspørsel, feil og rute; skriv heltallsprediksjon før Kjør. Sammenlign frisk enkeltinstans, samme etter feil og redundant balansert oppsett.",
+        "observedInThisReview": "Elevtekst, figur/representasjon, kontroller, tilgjengelige grenser og navigasjonsmål lest i faktisk deploy. Ingen modellkjøring, forsøk eller lab startet."
+      },
+      "check": "Tre navngitte observasjoner før begrunnet svar om alternative kopier, rute og avhengigheter. Begrunn-knapp er sperret uten observasjoner.",
+      "recordedEvidence": "UI sier at hypotesen lagres også når den er feil. Modellen har egne observasjonskrav; sidebesøk gir bare introdusert, ikke guided. VM-lab har separat Start og tidligere kontrakt. Ikke kjørt på nytt her.",
+      "prerequisites": [
+        "Cloud Computing: server, ressurskapasitet, etterspørsel."
+      ],
+      "dependency": "availability danner konkret grunnlag for reliability; ingen hard adgangslås observert.",
+      "repetition": "Kapasitet repeteres fra Computing som forutsetning, men feil + rute + redundans er en ny årsakskontrast. VM-labblokken gjentas på sustainability; det er gjenbruk av inngang, ikke en ny obligatorisk lab hver gang.",
+      "pageJustification": "En samlet modell med selvstendig prediksjon og tre kontraster begrunner egen økt. Sammenslåing med reliability ville gjøre to forskjellige årsaksrom og to kontrollsett til én allerede lang side.",
+      "classification": "A",
+      "classificationLabel": "Behold selvstendig",
+      "proposedSessionId": "benefits-availability",
+      "proposedSessionTitle": "Kapasitet er ikke det samme som tilgjengelighet",
+      "proposalReason": "En samlet modell med selvstendig prediksjon og tre kontraster begrunner egen økt. Sammenslåing med reliability ville gjøre to forskjellige årsaksrom og to kontrollsett til én allerede lang side.",
+      "navEffect": {
+        "recommendedEntriesBefore": 1,
+        "recommendedEntriesAfter": 1,
+        "documentedClicksSaved": 0,
+        "assessment": "Behold samme sidemenyoppføring og direkte topic-URL. Fersk observerte footer bruker ordinær Neste. Ingen oppføringsreduksjon eller dokumentert klikkgevinst foreslås. Global aktiv independent/recovery kan overstyre Neste; PR43 tillater ellers dynamiske guided-destinasjoner i sine støttede moduler."
+      },
+      "risk": "Beholdt side har lang vei til labinngangen. En større samleside ville øke skrolling og gjøre modellens observasjonsgrense mindre tydelig; eventuell senere opprydding av gjentatte labinnganger må bevare origin/Start.",
+      "priority": "BEHOLD i PR57; ingen dokumentert MÅ før RC",
+      "evidence": {
+        "url": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/benefits?topic=availability",
+        "snapshot": "evidence/02-benefits-availability.snapshot.txt",
+        "screenshot": "evidence/02-benefits-availability.png",
+        "textControlsLinks": "evidence/02-benefits-availability.json",
+        "quotes": [
+          "En større maskin og en ekstra kopi løser forskjellige problemer.",
+          "Utfør de angitte undersøkelsene først. Å åpne siden gir ingen øvingsgodkjenning."
+        ],
+        "navigation": {
+          "method": "visible module entry from course shell",
+          "previousUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn",
+          "clickedHref": "/learn/benefits?topic=availability"
+        },
+        "visualInspected": true
+      },
+      "confidence": "Høy for struktur; ingen ny full funksjons-/læringsvalidering."
+    },
+    {
+      "module": "benefits",
+      "moduleTitle": "Benefits of cloud services",
+      "topic": "reliability",
+      "title": "Finn årsaken før du velger tiltak",
+      "currentRole": "Diagnose/recovery/trend-modell, guidet kontroll og separat praktisk diagnoseoppdrag.",
+      "learningGoal": "Knytte tiltak til riktig feilkilde og skille reliability/recovery fra tilgjengelighet og forutsigbarhet (CB02).",
+      "newUnderstanding": "At samme synlige stopp kan skyldes kapasitet, instans/rute eller nødvendig felles avhengighet; trend krever oppfølging, ikke en oppdiktet hendelse.",
+      "substance": "Kritisk kjøpsflyt og lageroppslag gir en konkret avhengighet. Fire hendelser kobles til fire tiltak. Figur følger kunde → web → lager. Eksemplet på stigende to/fire/seks skiller trend fra avbrudd. Kostnadsestimat/budsjett og Monitor er kvalifisert, uten faktisk telemetri.",
+      "mechanism": {
+        "studentAction": "Velg hendelse og tiltak, Kjør og sammenlign feil behandling med relevant årsakstiltak i fire situasjoner.",
+        "observedInThisReview": "Elevtekst, figur/representasjon, kontroller, tilgjengelige grenser og navigasjonsmål lest i faktisk deploy. Ingen modellkjøring, forsøk eller lab startet."
+      },
+      "check": "Krever kapasitetstiltak, korrigert rute, gjenopprettet avhengighet og trendoppfølging før begrunnet årsakssvar.",
+      "recordedEvidence": "Modellobservasjoner og guidet svar eies av Benefits. Praktisk Diagnose har egen briefing/Start/independent-familie; PaaS-grunnlab er enda en eksplisitt tidligere kontrakt. Ingen av dem startet her.",
+      "prerequisites": [
+        "availability: instans, kapasitet, trafikkrute."
+      ],
+      "dependency": "Bygger videre på availability fra antall/rute til feildiagnose gjennom en avhengighetskjede.",
+      "repetition": "Mer kapasitet og frisk alternativ kopi gjenbrukes for å avsløre når de ikke hjelper. Dette er fordypning. PaaS-grunnlab og advarsler om konfigurasjon/drift går igjen på flere sider.",
+      "pageJustification": "Diagnostisk valg av årsak/tiltak er et eget læringsmål og observasjonsrom. Det passer ikke som kort recap under availability.",
+      "classification": "A",
+      "classificationLabel": "Behold selvstendig",
+      "proposedSessionId": "benefits-reliability",
+      "proposedSessionTitle": "Finn årsaken før du velger tiltak",
+      "proposalReason": "Diagnostisk valg av årsak/tiltak er et eget læringsmål og observasjonsrom. Det passer ikke som kort recap under availability.",
+      "navEffect": {
+        "recommendedEntriesBefore": 1,
+        "recommendedEntriesAfter": 1,
+        "documentedClicksSaved": 0,
+        "assessment": "Behold samme sidemenyoppføring og direkte topic-URL. Fersk observerte footer bruker ordinær Neste. Ingen oppføringsreduksjon eller dokumentert klikkgevinst foreslås. Global aktiv independent/recovery kan overstyre Neste; PR43 tillater ellers dynamiske guided-destinasjoner i sine støttede moduler."
+      },
+      "risk": "En samleside med availability kan forveksle forutsigelse av gjennomløp med diagnose av hendelse. Den eksisterende siden har mange praktiske innganger; samlet senere vurdering av disse er rimelig, uten å slå sammen forsøk.",
+      "priority": "BEHOLD i PR57; ingen dokumentert MÅ før RC",
+      "evidence": {
+        "url": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/benefits?topic=reliability",
+        "snapshot": "evidence/03-benefits-reliability.snapshot.txt",
+        "screenshot": "evidence/03-benefits-reliability.png",
+        "textControlsLinks": "evidence/03-benefits-reliability.json",
+        "quotes": [
+          "Et tiltak må påvirke den delen som faktisk begrenser flyten.",
+          "Mer webkapasitet reparerer ikke lagerdatatjenesten."
+        ],
+        "navigation": {
+          "method": "visible sidebar link",
+          "previousUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/benefits?topic=availability",
+          "clickedHref": "/learn/benefits?topic=reliability"
+        },
+        "visualInspected": true
+      },
+      "confidence": "Høy for struktur; ingen ny full funksjons-/læringsvalidering."
+    },
+    {
+      "module": "benefits",
+      "moduleTitle": "Benefits of cloud services",
+      "topic": "governance",
+      "title": "Tillatelse, policy og sikkerhet er forskjellige spørsmål",
+      "currentRole": "Tilgang/policy/sikkerhet forklares; scope/location-modell med kvittering; separat governance-mission.",
+      "learningGoal": "Skille autorisasjon, organisasjonsregel og sikkerhets-/compliance-vurdering (CB03).",
+      "newUnderstanding": "At autorisert aktør fortsatt kan få policyavslag, og at én tillatt konfigurasjon ikke betyr sikker løsning. Scope og forespurt ressurslokasjon virker ulikt.",
+      "substance": "Principal/rolle/scope forklares, deretter konkret App versus Shared Sandbox og en avgrenset Web-location-regel. Figuren skiller forespørsel og fast assignment. En engangskopi av lokal motor forklarer avslag uten Portal-mutasjon. Authentication versus Authorization utdypes før independent.",
+      "mechanism": {
+        "studentAction": "Sammenlign North/West Europe i App Sandbox og samme forespørsel i Shared Sandbox. Les modellkvitteringen etter Kjør.",
+        "observedInThisReview": "Elevtekst, figur/representasjon, kontroller, tilgjengelige grenser og navigasjonsmål lest i faktisk deploy. Ingen modellkjøring, forsøk eller lab startet."
+      },
+      "check": "Tre scope/location-observasjoner og begrunnet svar om hva én policy-acceptance faktisk beviser.",
+      "recordedEvidence": "Benefits-observasjoner kommer fra unsaved fork og kan ikke bli World-ressurser. Separat governance-mission krever virkelig lokal receipt og eget forsøk. PaaS-grunnlab er tidligere kontrakt. Ikke kjørt på nytt.",
+      "prerequisites": [
+        "Management-scope, identitet og autorisasjon introduseres på siden; tidligere ressurs-/ansvarsgrunnlag."
+      ],
+      "dependency": "Forbereder praktisk policyundersøkelse og senere Governance/Access Control. Senere dybde erstatter ikke dette nødvendige innføringsskillet.",
+      "repetition": "Delt kundeansvar er recap, men to scope/lokasjoner og ett grønt svar som ikke sikkerhetsdom er ny mekanisme. Policy kommer senere igjen med større presisjon og annen anvendelse.",
+      "pageJustification": "Et eget kontrollspørsmål og observerbar evalueringsmekanisme skiller denne fra kapasitet, recovery og konfigurasjonsgjentakelse.",
+      "classification": "A",
+      "classificationLabel": "Behold selvstendig",
+      "proposedSessionId": "benefits-governance",
+      "proposedSessionTitle": "Tillatelse, policy og sikkerhet er forskjellige spørsmål",
+      "proposalReason": "Et eget kontrollspørsmål og observerbar evalueringsmekanisme skiller denne fra kapasitet, recovery og konfigurasjonsgjentakelse.",
+      "navEffect": {
+        "recommendedEntriesBefore": 1,
+        "recommendedEntriesAfter": 1,
+        "documentedClicksSaved": 0,
+        "assessment": "Behold samme sidemenyoppføring og direkte topic-URL. Fersk observerte footer bruker ordinær Neste. Ingen oppføringsreduksjon eller dokumentert klikkgevinst foreslås. Global aktiv independent/recovery kan overstyre Neste; PR43 tillater ellers dynamiske guided-destinasjoner i sine støttede moduler."
+      },
+      "risk": "Sammenslåing med management kan skjule forskjellen på regelvurdering og metode for å sette verdier. Flere praktiske innganger er en samlet senere redaksjonell sak; obligatorisk grunnlag beholdes.",
+      "priority": "BEHOLD i PR57; ingen dokumentert MÅ før RC",
+      "evidence": {
+        "url": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/benefits?topic=governance",
+        "snapshot": "evidence/04-benefits-governance.snapshot.txt",
+        "screenshot": "evidence/04-benefits-governance.png",
+        "textControlsLinks": "evidence/04-benefits-governance.json",
+        "quotes": [
+          "Ett grønt resultat kan ikke svare på alle tre spørsmålene.",
+          "Scope avgjør om regelen gjelder. Ressurslokasjon avgjør om forespørselen passer regelen. Dette er ikke en tilgangs- eller nettverksregel."
+        ],
+        "navigation": {
+          "method": "visible sidebar link",
+          "previousUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/benefits?topic=reliability",
+          "clickedHref": "/learn/benefits?topic=governance"
+        },
+        "visualInspected": true
+      },
+      "confidence": "Høy for struktur; ingen ny full funksjons-/læringsvalidering."
+    },
+    {
+      "module": "benefits",
+      "moduleTitle": "Benefits of cloud services",
+      "topic": "management",
+      "title": "Gjenta en konfigurasjon — også feil kan gjentas",
+      "currentRole": "Management of/in cloud og repeterbarhet forklares med konfigurasjonsmodell og begrunnet kontroll.",
+      "learningGoal": "Skille hva som styres fra hvordan, og skille konsistens fra riktig konfigurasjon (CB04).",
+      "newUnderstanding": "At automatisering kan gjenta samme feil i alle miljøer; en historisk korrekt kjøring er heller ikke bevis på dagens konfigurasjon.",
+      "substance": "Portal/CLI/PowerShell/API/IaC gis ulike roller. Tre manuelle regionfelt sammenlignes med én felles malverdi. Figuren viser én-til-mange eller separate valg. Eksempler og senere drift-avvik er konkrete; ingen CLI eller deployering hevdes kjørt.",
+      "mechanism": {
+        "studentAction": "Velg manuell/mal, endre regioner og Kjør blandet oppsett, korrekt mal og konsekvent feil mal.",
+        "observedInThisReview": "Elevtekst, figur/representasjon, kontroller, tilgjengelige grenser og navigasjonsmål lest i faktisk deploy. Ingen modellkjøring, forsøk eller lab startet."
+      },
+      "check": "Tre navngitte kontraster før forklaring av korrigering av mal/parameter.",
+      "recordedEvidence": "Benefits-modellens kjøringer/observasjoner er adskilt fra PaaS App settings-lab og receipts. Siden viser ingen godkjenning ved bare besøk.",
+      "prerequisites": [
+        "Konfigurasjon og standard defineres før kontrollene; grunnleggende ressursforståelse."
+      ],
+      "dependency": "Governance gir regelbegrepet; management viser hvordan samme verdi gjentas og senere avviker. Senere Tools gir dypere metodearbeid.",
+      "repetition": "Region/policyord overlapper governance, men her sammenlignes likhet og standardoppfyllelse. PaaS settings-blokk gjentas fra andre Benefits-sider.",
+      "pageJustification": "Den selvstendige feilpropageringskontrasten og skillet mellom verktøy, deklarasjon og signal gir en hel økt. Ingen tom mellomside.",
+      "classification": "A",
+      "classificationLabel": "Behold selvstendig",
+      "proposedSessionId": "benefits-management",
+      "proposedSessionTitle": "Gjenta en konfigurasjon — også feil kan gjentas",
+      "proposalReason": "Den selvstendige feilpropageringskontrasten og skillet mellom verktøy, deklarasjon og signal gir en hel økt. Ingen tom mellomside.",
+      "navEffect": {
+        "recommendedEntriesBefore": 1,
+        "recommendedEntriesAfter": 1,
+        "documentedClicksSaved": 0,
+        "assessment": "Behold samme sidemenyoppføring og direkte topic-URL. Fersk observerte footer bruker ordinær Neste. Ingen oppføringsreduksjon eller dokumentert klikkgevinst foreslås. Global aktiv independent/recovery kan overstyre Neste; PR43 tillater ellers dynamiske guided-destinasjoner i sine støttede moduler."
+      },
+      "risk": "Felles side med governance kan få mal som ser ut som policy enforcement; sammenslåing med sustainability vil legge et annet regnerom til en allerede komplett mekanisme.",
+      "priority": "BEHOLD i PR57; ingen dokumentert MÅ før RC",
+      "evidence": {
+        "url": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/benefits?topic=management",
+        "snapshot": "evidence/05-benefits-management.snapshot.txt",
+        "screenshot": "evidence/05-benefits-management.png",
+        "textControlsLinks": "evidence/05-benefits-management.json",
+        "quotes": [
+          "Et program kan gjenta en feil mer konsekvent enn et menneske.",
+          "En grønn historisk kjøring er en observasjon fra det tidspunktet; den beviser ikke dagens tilstand."
+        ],
+        "navigation": {
+          "method": "visible sidebar link",
+          "previousUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/benefits?topic=governance",
+          "clickedHref": "/learn/benefits?topic=management"
+        },
+        "visualInspected": true
+      },
+      "confidence": "Høy for struktur; ingen ny full funksjons-/læringsvalidering."
+    },
+    {
+      "module": "benefits",
+      "moduleTitle": "Benefits of cloud services",
+      "topic": "sustainability",
+      "title": "Reduser unødvendig ressursbruk uten å fjerne funksjonen",
+      "currentRole": "Ressurseffektivitet med tidsplan/allokeringsmodell og avgrenset bærekraftskontroll.",
+      "learningGoal": "Tilpasse ressurser til funksjonskrav og avgrense hva kapasitetstimer kan si om miljøeffekt (CB05).",
+      "newUnderstanding": "At lavere allokering kan være riktig for dev og feil for kritisk døgnfunksjon; modellert kapasitetstime er ikke energi eller CO₂.",
+      "substance": "Ny enhet defineres før bruk. Figuren har nødvendige og valgte aktive timer samt kapasitet × kopier × timer. Right-sizing, redundans, stopp/fakturering og målegrenser forklares. Samme åttetimersplan testes mot to funksjonsvinduer.",
+      "mechanism": {
+        "studentAction": "Velg dev/kritisk, kapasitet, antall kopier og åtte/tjuefire timer; sammenlign stor dev-allokering, mindre arbeidsdag og kritisk døgnbehov.",
+        "observedInThisReview": "Elevtekst, figur/representasjon, kontroller, tilgjengelige grenser og navigasjonsmål lest i faktisk deploy. Ingen modellkjøring, forsøk eller lab startet."
+      },
+      "check": "Tre observasjonskrav og kontroll av hva færre kapasitetstimer faglig tillater å konkludere.",
+      "recordedEvidence": "Modellerte jobber og kapasitetstimer i eget Benefits-spor; ingen energi-, penge- eller karbonmåling. Separat VM-praksis har egen Start, ikke bærekraftsgodkjenning.",
+      "prerequisites": [
+        "Allokert kapasitet, utført arbeid og udekket behov fra Computing/availability."
+      ],
+      "dependency": "Tilfører tids- og funksjonsdimensjon etter kapasitet/feilmargin; er ingen duplikat av forbruksprisen i Computing.",
+      "repetition": "Allokering og ledig kapasitet repeteres som inngang. Det nye er funksjonsvindu og evidensgrense. VM-labinngangen er samme tidligere grunnlab som availability.",
+      "pageJustification": "Et nytt sammenligningsrom og vesentlig moteksempel begrunner egen side, selv om kapasitetsbegrepene gjenbrukes.",
+      "classification": "A",
+      "classificationLabel": "Behold selvstendig",
+      "proposedSessionId": "benefits-sustainability",
+      "proposedSessionTitle": "Reduser unødvendig ressursbruk uten å fjerne funksjonen",
+      "proposalReason": "Et nytt sammenligningsrom og vesentlig moteksempel begrunner egen side, selv om kapasitetsbegrepene gjenbrukes.",
+      "navEffect": {
+        "recommendedEntriesBefore": 1,
+        "recommendedEntriesAfter": 1,
+        "documentedClicksSaved": 0,
+        "assessment": "Behold samme sidemenyoppføring og direkte topic-URL. Fersk observerte footer bruker ordinær Neste. Ingen oppføringsreduksjon eller dokumentert klikkgevinst foreslås. Global aktiv independent/recovery kan overstyre Neste; PR43 tillater ellers dynamiske guided-destinasjoner i sine støttede moduler."
+      },
+      "risk": "Å integrere som kort avsnitt om kostnad vil kunne miste kritisk-funksjon-moteksemplet og målegrensen. Ingen miljøgevinst eller læringseffekt kan utledes fra tellingsreduksjon.",
+      "priority": "BEHOLD i PR57; ingen dokumentert MÅ før RC",
+      "evidence": {
+        "url": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/benefits?topic=sustainability",
+        "snapshot": "evidence/06-benefits-sustainability.snapshot.txt",
+        "screenshot": "evidence/06-benefits-sustainability.png",
+        "textControlsLinks": "evidence/06-benefits-sustainability.json",
+        "quotes": [
+          "En effektiv plan må både unngå unødvendig allokering og dekke riktig tilgjengelighetsvindu.",
+          "Kapasitet × kopier × timer = tildelte kapasitets-timer. Dette er ikke energi eller CO₂."
+        ],
+        "navigation": {
+          "method": "visible sidebar link",
+          "previousUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/benefits?topic=management",
+          "clickedHref": "/learn/benefits?topic=sustainability"
+        },
+        "visualInspected": true
+      },
+      "confidence": "Høy for struktur; ingen ny full funksjons-/læringsvalidering."
+    },
+    {
+      "module": "benefits",
+      "moduleTitle": "Benefits of cloud services",
+      "topic": "summary",
+      "title": "Observasjoner og neste steg",
+      "currentRole": "Samlet lokal status og historikk; separate lenker til oppdatert og tidligere assessment.",
+      "learningGoal": "Tolke introdusert, veiledet undersøkt og uavhengig vurdering som ulike typer lokal evidens.",
+      "newUnderstanding": "Ingen ny teknisk mekanisme; ny metakognitiv oversikt over hva eget arbeid ennå ikke dokumenterer.",
+      "substance": "Tabell med fem undervisningstema viser Introdusert mot Ikke bekreftet etter rene sidebesøk. Historikk sier ingen innlevering i oppdatert 2.0.0 og bevarer tidligere vurdering separat. Neste modul varsles kort.",
+      "mechanism": {
+        "studentAction": "Les status og velg et ubekreftet tema eller riktig versjon av vurderingen; ingen Start ved åpning.",
+        "observedInThisReview": "Elevtekst, figur/representasjon, kontroller, tilgjengelige grenser og navigasjonsmål lest i faktisk deploy. Ingen modellkjøring, forsøk eller lab startet."
+      },
+      "check": "Dette er inspeksjon og navigasjon, ikke et nytt spørsmål eller øvingsbevis.",
+      "recordedEvidence": "Faktisk UI etter fem besøk viste fem Introdusert og fem Ikke bekreftet. Ingen assessment innlevert. Historiske vurderinger omtales med opprinnelig oppgave/fasit.",
+      "prerequisites": [
+        "De fem Benefits-aktivitetene gir tabellens kontekst."
+      ],
+      "dependency": "Fungerer også som gjenfinningsside før terminal transfer; status og aktiv assessment må holdes adskilt fra undervisning.",
+      "repetition": "Temaoverskriftene gjentas funksjonelt som status/retur, ikke som en ny tekstlig recap. Oppdatert assessment er en annen inngang enn terminal transfer.",
+      "pageJustification": "Den korte siden har en selvstendig oversikts- og historikkfunksjon. Lengde alene er ingen grunn til å fjerne den.",
+      "classification": "A",
+      "classificationLabel": "Behold selvstendig",
+      "proposedSessionId": "benefits-summary",
+      "proposedSessionTitle": "Observasjoner og neste steg",
+      "proposalReason": "Den korte siden har en selvstendig oversikts- og historikkfunksjon. Lengde alene er ingen grunn til å fjerne den.",
+      "navEffect": {
+        "recommendedEntriesBefore": 1,
+        "recommendedEntriesAfter": 1,
+        "documentedClicksSaved": 0,
+        "assessment": "Behold samme sidemenyoppføring og direkte topic-URL. Fersk observerte footer bruker ordinær Neste. Ingen oppføringsreduksjon eller dokumentert klikkgevinst foreslås. Global aktiv independent/recovery kan overstyre Neste; PR43 tillater ellers dynamiske guided-destinasjoner i sine støttede moduler."
+      },
+      "risk": "Hvis summary legges inn i sustainability eller assessment, kan personlig historikk og undervisning/active-attempt-grenser bli uklare. Dynamisk direktefortsettelse må bevares.",
+      "priority": "BEHOLD i PR57; ingen dokumentert MÅ før RC",
+      "evidence": {
+        "url": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/benefits?topic=summary",
+        "snapshot": "evidence/07-benefits-summary.snapshot.txt",
+        "screenshot": "evidence/07-benefits-summary.png",
+        "textControlsLinks": "evidence/07-benefits-summary.json",
+        "quotes": [
+          "Introduksjon, guided practice og første uavhengige svar er separate.",
+          "Veiledet løp har fortsatt ubekreftede aktiviteter"
+        ],
+        "navigation": {
+          "method": "visible sidebar link",
+          "previousUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/benefits?topic=sustainability",
+          "clickedHref": "/learn/benefits?topic=summary"
+        },
+        "visualInspected": true
+      },
+      "confidence": "Høy for struktur; ingen ny full funksjons-/læringsvalidering."
+    },
+    {
+      "module": "benefits",
+      "moduleTitle": "Benefits of cloud services",
+      "topic": "transfer",
+      "title": "Prøv kunnskapen i nye situasjoner",
+      "currentRole": "Terminal selvstendig Cloud Concepts-transferinngang med ti tilfeller, eksplisitt Start og historikk.",
+      "learningGoal": "Anvende beslutning og årsaksbegrunnelse i nye situasjoner under en egen uavhengig forsøksgrense.",
+      "newUnderstanding": "Endrede situasjoner er vurderingsanvendelse, ikke ny undervisning. Bare prestart-inngangen ble lest her; prompt-/rubric-kvalitet er ikke nybedømt.",
+      "substance": "Faktisk inngang lister blant annet gjenoppretting, budsjettendring, tilgang og konfigurasjonsavvik; beskriver parvise valg, feedback etter innsending, durable hjelp, retry etter avbrudd og lokalt utkast. Eget historikkvalg.",
+      "mechanism": {
+        "studentAction": "Velg et tilfelle og eksplisitt Start. I denne etterkontrollen ble ingen tilfeller startet eller besvart.",
+        "observedInThisReview": "Elevtekst, figur/representasjon, kontroller, tilgjengelige grenser og navigasjonsmål lest i faktisk deploy. Ingen modellkjøring, forsøk eller lab startet."
+      },
+      "check": "Beslutning og begrunnelse må passe sammen; feedback kommer etter innlevering. Detaljert kontroll/familieinnhold gjenbrukes som tidligere gjennomgått kontrakt, ikke revalidert her.",
+      "recordedEvidence": "Sidebesøk starter ingen assessment. Første innlevering overskrives aldri; senere familieeksponering er ikke ny usett først. Ingen nye records produsert av reviewer.",
+      "prerequisites": [
+        "Benefits-temaenes mekanismer og grunnlaget i Computing."
+      ],
+      "dependency": "Uavhengig av guided completion og de oppdaterte modulvurderingene. Må ikke monteres inne i en undervisningssamleside.",
+      "repetition": "De samme faglige begrepene gjenkommer med endrede situasjoner og annen evidensrolle. Delte transfer-komponenter betyr ikke samme forsøk.",
+      "pageJustification": "Eksplisitt assessment-grense, tilfellevalg og historikk begrunner egen side selv om prestart-teksten er kort.",
+      "classification": "A",
+      "classificationLabel": "Behold selvstendig",
+      "proposedSessionId": "benefits-transfer",
+      "proposedSessionTitle": "Prøv kunnskapen i nye situasjoner",
+      "proposalReason": "Eksplisitt assessment-grense, tilfellevalg og historikk begrunner egen side selv om prestart-teksten er kort.",
+      "navEffect": {
+        "recommendedEntriesBefore": 1,
+        "recommendedEntriesAfter": 1,
+        "documentedClicksSaved": 0,
+        "assessment": "Behold samme sidemenyoppføring og direkte topic-URL. Fersk observerte footer bruker ordinær Neste. Ingen oppføringsreduksjon eller dokumentert klikkgevinst foreslås. Global aktiv independent/recovery kan overstyre Neste; PR43 tillater ellers dynamiske guided-destinasjoner i sine støttede moduler."
+      },
+      "risk": "Sammenslåing med summary/undervisning kan åpne teori sammen med aktiv assessment og gi utydelig hjelp/abandon. Ingen valgfrihetsforslag for obligatorisk faggrunnlag.",
+      "priority": "BEHOLD i PR57; ingen dokumentert MÅ før RC",
+      "evidence": {
+        "url": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/benefits?topic=transfer",
+        "snapshot": "evidence/08-benefits-transfer.snapshot.txt",
+        "screenshot": "evidence/08-benefits-transfer.png",
+        "textControlsLinks": "evidence/08-benefits-transfer.json",
+        "quotes": [
+          "Velg et tilfelle. Ingen vurdering starter ved sidebesøk.",
+          "Et nytt forsøk i samme familie merkes retry, også etter avbrudd."
+        ],
+        "navigation": {
+          "method": "visible sidebar link",
+          "previousUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/benefits?topic=summary",
+          "clickedHref": "/learn/benefits?topic=transfer"
+        },
+        "visualInspected": true
+      },
+      "confidence": "Høy for behovet for egen prestart-/historikkside; begrenset til inngangens faktiske tekst. Ingen ny bank-, gjennomførings- eller psykometrisk validering."
+    },
+    {
+      "module": "services",
+      "moduleTitle": "Cloud service types",
+      "topic": "overview",
+      "title": "Fra ansvarsoversikt til operativt valg",
+      "currentRole": "Full ansvarssammenligning + operativ modulinnføring + egen guided sammenligningskontroll.",
+      "learningGoal": "Bruke konkret tjenestegrense og gjenstående kundeoppgaver som grunnlag for ST01–ST04.",
+      "newUnderstanding": "At et flyttet driftsansvar ikke fjerner laget eller krav til kode, kompatibilitet, data og tilgang; samme lag kan undersøkes på tvers av tre tjenester.",
+      "substance": "Begreper som OS, runtime, hosting og scope er definert. Den leverte siden inneholder både original teori og operativ forklaring, tre navngitte tjenester og ni lag. Valgt lag viser hvem som utfører arbeidet og tjenestespesifikke forbehold. Dette er mer enn en overskrift/velkomstside.",
+      "mechanism": {
+        "studentAction": "Sammenlign VM, App Service med innebygget runtime og Microsoft 365; velg lag og les ansvar/forklaring i hver.",
+        "observedInThisReview": "Elevtekst, figur/representasjon, kontroller, tilgjengelige grenser og navigasjonsmål lest i faktisk deploy. Ingen modellkjøring, forsøk eller lab startet."
+      },
+      "check": "Tre tjenestesammenligninger kreves før kontrollspørsmål om krav, runtime, kode, konfigurasjon og tilgang.",
+      "recordedEvidence": "Siden presiserer at M1-observasjoner og gamle v1-svar ikke blir ny operativ læring. Ingen sammenligninger eller godkjenning ble produsert her.",
+      "prerequisites": [
+        "Computing: fysisk/virtuell ressurs og grunnansvar; Benefits: egenskaper må utformes."
+      ],
+      "dependency": "Gir referanserammen før de tre tekniske undersøkelsene. Egen oversikt er nyttig uten å kreve navigasjon gjennom en av modellene.",
+      "repetition": "Ansvarsgrunnlag og public/private/hybrid er uttalt recap. Original og operativ innledning overlapper på samme side. Det er redaksjonell duplisering, men selve matrisen og kontrollen har egen funksjon.",
+      "pageJustification": "Sammenligning på tvers av tjenestegrenser bør være en egen refererbar økt; å integrere den i IaaS ville gjøre de andre modellene til vedheng og øke sidens lengde.",
+      "classification": "A",
+      "classificationLabel": "Behold selvstendig",
+      "proposedSessionId": "services-overview",
+      "proposedSessionTitle": "Fra ansvarsoversikt til operativt valg",
+      "proposalReason": "Sammenligning på tvers av tjenestegrenser bør være en egen refererbar økt; å integrere den i IaaS ville gjøre de andre modellene til vedheng og øke sidens lengde.",
+      "navEffect": {
+        "recommendedEntriesBefore": 1,
+        "recommendedEntriesAfter": 1,
+        "documentedClicksSaved": 0,
+        "assessment": "Behold samme sidemenyoppføring og direkte topic-URL. Fersk observerte footer bruker ordinær Neste. Ingen oppføringsreduksjon eller dokumentert klikkgevinst foreslås. Global aktiv independent/recovery kan overstyre Neste; PR43 tillater ellers dynamiske guided-destinasjoner i sine støttede moduler."
+      },
+      "risk": "Siden er lang før matrisen nås. En senere samlet manuskriptkomposisjon kan redusere lokal dobbeltforklaring med full essensiell dekning og versjons-/besøksgrenser bevart; ingen ny navigasjonsstruktur nødvendig.",
+      "priority": "BEHOLD i PR57; ingen dokumentert MÅ før RC",
+      "evidence": {
+        "url": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/services?topic=overview",
+        "snapshot": "evidence/09-services-overview.snapshot.txt",
+        "screenshot": "evidence/09-services-overview.png",
+        "textControlsLinks": "evidence/09-services-overview.json",
+        "quotes": [
+          "Å kjenne eieren av OS er ikke nok til å velge en komplett løsning.",
+          "Sammenlign tjenestene og velg et lag. Fordelingen endres; de tekniske lagene forsvinner ikke."
+        ],
+        "navigation": {
+          "method": "visible module entry from course shell",
+          "previousUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/benefits?topic=transfer",
+          "clickedHref": "/learn/services?topic=overview"
+        },
+        "visualInspected": true
+      },
+      "confidence": "Høy for struktur; ingen ny full funksjons-/læringsvalidering."
+    },
+    {
+      "module": "services",
+      "moduleTitle": "Cloud service types",
+      "topic": "iaas",
+      "title": "Bygg en forståelig VM-konfigurasjon",
+      "currentRole": "IaaS-teori, konseptuell VM-komponentundersøkelse og separate mission-/grunnlabinnganger.",
+      "learningGoal": "Forklare komponenter og kundens løpende gjestedrift ved IaaS (ST01).",
+      "newUnderstanding": "At nødvendig OS-kontroll må matches med runtime, minne, varig data og nettverk; ekstra vCPU erstatter ingen av dem eller en patch-plan.",
+      "substance": "Originalt gjesteansvar følges av avgrenset Windows/åtte GiB-plan, begreper vCPU/GiB/NIC og vert/guest/disk/nettverksfigur. Syv inputfelt skiller komponenter. Kundens backup-/tilgangs-/tilgjengelighetsansvar kvalifiseres; konseptuell plan kalles aldri deployert/frisk.",
+      "mechanism": {
+        "studentAction": "Undersøk ufullstendig plan, korriger OS/minne/runtime/lagring/nettverkskrav/vedlikehold og Kjør. Separat praktisk Linux-konverterer har egen briefing, ikke samme plan.",
+        "observedInThisReview": "Elevtekst, figur/representasjon, kontroller, tilgjengelige grenser og navigasjonsmål lest i faktisk deploy. Ingen modellkjøring, forsøk eller lab startet."
+      },
+      "check": "Ufullstendig og avklart plan må observeres før begrunnet OS-kontrollsvar. Mission og VM-grunnlab er adskilte Start-/independent-handlinger.",
+      "recordedEvidence": "Konseptuell ST01-evidens er eget spor; faktiske ressursreferanser og mission-debrief tilhører separate praktiske kontrakter. PR56/CC02-debrief gjenbrukes som dokumentert tidligere kontroll, ikke gjennomført på nytt.",
+      "prerequisites": [
+        "OS, vert, CPU/RAM/lagring fra Computing; overview ansvar; nødvendig nettverk forklares lokalt."
+      ],
+      "dependency": "Bygger konkret kontrollbehov før PaaS-kontrasten og senere Compute-dybde. Ingen sammenfletting av ST-modell og mission-forsøk.",
+      "repetition": "IaaS-ansvar forklares to ganger på samme side (original og operativ), med nye komponentkrav i det andre laget. VM-lab gjenbrukes også fra Benefits. Dette er ikke grunnlag for å fjerne modellen.",
+      "pageJustification": "VM-komponentavklaring har et annet resultatrom og annen kundekontroll enn PaaS og SaaS; egen økt hindrer en stor modellblanding.",
+      "classification": "A",
+      "classificationLabel": "Behold selvstendig",
+      "proposedSessionId": "services-iaas",
+      "proposedSessionTitle": "Bygg en forståelig VM-konfigurasjon",
+      "proposalReason": "VM-komponentavklaring har et annet resultatrom og annen kundekontroll enn PaaS og SaaS; egen økt hindrer en stor modellblanding.",
+      "navEffect": {
+        "recommendedEntriesBefore": 1,
+        "recommendedEntriesAfter": 1,
+        "documentedClicksSaved": 0,
+        "assessment": "Behold samme sidemenyoppføring og direkte topic-URL. Fersk observerte footer bruker ordinær Neste. Ingen oppføringsreduksjon eller dokumentert klikkgevinst foreslås. Global aktiv independent/recovery kan overstyre Neste; PR43 tillater ellers dynamiske guided-destinasjoner i sine støttede moduler."
+      },
+      "risk": "Å samle alle tjenestetyper ville gi mange uavhengige kontrollsett og praktiske attempts i én side. Lokal manuskriptduplisering er senere redaksjonell oppfølging; behold diagnose/retur ved mission.",
+      "priority": "BEHOLD i PR57; ingen dokumentert MÅ før RC",
+      "evidence": {
+        "url": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/services?topic=iaas",
+        "snapshot": "evidence/10-services-iaas.snapshot.txt",
+        "screenshot": "evidence/10-services-iaas.png",
+        "textControlsLinks": "evidence/10-services-iaas.json",
+        "quotes": [
+          "Mer vCPU løser ikke feil OS eller manglende runtime. RAM er ikke en erstatning for varig lagring.",
+          "En passende plan vises som avklart, aldri som deployert eller frisk."
+        ],
+        "navigation": {
+          "method": "visible sidebar link",
+          "previousUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/services?topic=overview",
+          "clickedHref": "/learn/services?topic=iaas"
+        },
+        "visualInspected": true
+      },
+      "confidence": "Høy for struktur; ingen ny full funksjons-/læringsvalidering."
+    },
+    {
+      "module": "services",
+      "moduleTitle": "Cloud service types",
+      "topic": "paas",
+      "title": "Kode, runtime og hosting er ulike deler",
+      "currentRole": "PaaS-teori + kompatibilitets-/kundevalgmodell; separate vedlikeholdsmisson og PaaS-grunnlab.",
+      "learningGoal": "Undersøke støttet plattform og kundens gjenværende applikasjonsarbeid (ST02).",
+      "newUnderstanding": "At støttet kodepakke, plan, appkonfigurasjon, tilgang og data er forskjellige hensyn; større hosting gir ikke runtime-støtte.",
+      "substance": "Original App Service-arbeidsdeling følges av tre konkrete leveranser, kompatibilitetsgrense og beholdte appvalg. Figuren viser kundekode over plattformgrense med separate data/tilgang/config-felt. Plan/app/group og metadata/lokasjon skilles. Kundelevert image får egne vedlikeholdskrav.",
+      "mechanism": {
+        "studentAction": "Velg støttet webkode, ikke støttet runtime eller OS-driver; avklar config/data/tilgang og Kjør. Bruk siden som grunnlag før faktisk Portal-praksis.",
+        "observedInThisReview": "Elevtekst, figur/representasjon, kontroller, tilgjengelige grenser og navigasjonsmål lest i faktisk deploy. Ingen modellkjøring, forsøk eller lab startet."
+      },
+      "check": "Ikke-støttet pakke og støttet kode med retained valg må observeres før begrunnet svar. To praktiske innganger har egne brief/Start og tidligere kontrakter.",
+      "recordedEvidence": "Konseptuell kompatibilitet kjører ingen kode. Mission har to lagrede App settings-tilstander; grunnlab etablerer/rebruker plan/app. Actual hosting-praksis på practice krever egen teknisk bekreftelse.",
+      "prerequisites": [
+        "overview og IaaS gir kontrast; hosting-plan, runtime og innstilling defineres før modellen."
+      ],
+      "dependency": "Forbereder service selection og praktisk hosting, men kompatibilitetsarbeid er ikke det samme som Portal-bygg.",
+      "repetition": "Original og operativ teori gjentar administrert OS/kundekode; operativt lag tilfører kompatibilitet og retained kundevalg. Praktisk PaaS-knapp gjentas senere uten at det betyr ny labkreditt.",
+      "pageJustification": "Et selvstendig kompatibilitetsproblem med feil- og komplett kontrast begrunner egen side. Å slå den sammen med practice ville blande konseptuell egnethet med faktisk kommando-/receipt-evidens.",
+      "classification": "A",
+      "classificationLabel": "Behold selvstendig",
+      "proposedSessionId": "services-paas",
+      "proposedSessionTitle": "Kode, runtime og hosting er ulike deler",
+      "proposalReason": "Et selvstendig kompatibilitetsproblem med feil- og komplett kontrast begrunner egen side. Å slå den sammen med practice ville blande konseptuell egnethet med faktisk kommando-/receipt-evidens.",
+      "navEffect": {
+        "recommendedEntriesBefore": 1,
+        "recommendedEntriesAfter": 1,
+        "documentedClicksSaved": 0,
+        "assessment": "Behold samme sidemenyoppføring og direkte topic-URL. Fersk observerte footer bruker ordinær Neste. Ingen oppføringsreduksjon eller dokumentert klikkgevinst foreslås. Global aktiv independent/recovery kan overstyre Neste; PR43 tillater ellers dynamiske guided-destinasjoner i sine støttede moduler."
+      },
+      "risk": "Siden er lang og har to praksisinnganger. En senere samlet presentasjonsrevisjon kan gjøre kontrast og valgt praksis tydeligere, med originalt innhold og eksakte origin-/attempt-grenser bevart.",
+      "priority": "BEHOLD i PR57; ingen dokumentert MÅ før RC",
+      "evidence": {
+        "url": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/services?topic=paas",
+        "snapshot": "evidence/11-services-paas.snapshot.txt",
+        "screenshot": "evidence/11-services-paas.png",
+        "textControlsLinks": "evidence/11-services-paas.json",
+        "quotes": [
+          "En større hosting-plan gjør ikke en usupportert runtime støttet.",
+          "En ressurskvittering er ikke det samme som en ferdig kodeutrulling."
+        ],
+        "navigation": {
+          "method": "visible sidebar link",
+          "previousUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/services?topic=iaas",
+          "clickedHref": "/learn/services?topic=paas"
+        },
+        "visualInspected": true
+      },
+      "confidence": "Høy for struktur; ingen ny full funksjons-/læringsvalidering."
+    },
+    {
+      "module": "services",
+      "moduleTitle": "Cloud service types",
+      "topic": "saas",
+      "title": "Administrer en ferdig tjeneste, ikke en gjesteplattform",
+      "currentRole": "SaaS-teori, fiktiv konto/lisens/rolle/deling-modell og egen produktlabinngang.",
+      "learningGoal": "Gjøre kundens SaaS-ansvar konkret (ST03).",
+      "newUnderstanding": "At konto, lisens, adminmyndighet og deling er fire forskjellige valg; blokkering alene opphever ikke tidligere deling og dataforpliktelser.",
+      "substance": "Original produktforklaring utdypes med Mina/Fjord-oppdrag. Figuren har person → konto/lisens → produkt og separate myndighets-/delingsgrener. Konto, lisens, rolle og deling kan endres. Microsoft 365-eksemplet avgrenses fra fiktiv modell og Azure ARM.",
+      "mechanism": {
+        "studentAction": "Sammenlign risikabelt oppsett, avtalt aktiv/lisensiert teammedlem og avsluttet konto. Kjør eksplisitt før resultat. Separat produktlab gir ekte lokale avslag/historikk i sin avgrensede store.",
+        "observedInThisReview": "Elevtekst, figur/representasjon, kontroller, tilgjengelige grenser og navigasjonsmål lest i faktisk deploy. Ingen modellkjøring, forsøk eller lab startet."
+      },
+      "check": "Tre observasjonskrav før begrunnelse om behov, rolle og deling. Produktlab/independent startes eksplisitt og er ikke åpnet i denne kontrollen.",
+      "recordedEvidence": "Konseptuell SaaS-evidens er adskilt fra produktlab og Microsoft tenant. Ingen konto eller lisens endres i Azure. Tidligere PR53-gjennomgang av faktisk 2/2-avslag og avgang gjenbrukes bare som kontraktreferanse.",
+      "prerequisites": [
+        "overview: leverandørdriver ferdig app; konto/lisens/adminrolle defineres lokalt."
+      ],
+      "dependency": "Ny administrasjonsmekanisme sammenlignet med VM og egen kode. Forbereder service selection og senere Identity/Security uten å erstatte dem.",
+      "repetition": "Kundeansvar repeteres fra overview og original teori; ny konkret rolle/lisens/deling/departure gir en annen handling. Ingen servicekategori-rangstige.",
+      "pageJustification": "SaaS trenger eget produktadministrativt beslutningsrom. Det kan ikke reduseres til én rad i ansvarsmatrisen uten å miste mekanismen.",
+      "classification": "A",
+      "classificationLabel": "Behold selvstendig",
+      "proposedSessionId": "services-saas",
+      "proposedSessionTitle": "Administrer en ferdig tjeneste, ikke en gjesteplattform",
+      "proposalReason": "SaaS trenger eget produktadministrativt beslutningsrom. Det kan ikke reduseres til én rad i ansvarsmatrisen uten å miste mekanismen.",
+      "navEffect": {
+        "recommendedEntriesBefore": 1,
+        "recommendedEntriesAfter": 1,
+        "documentedClicksSaved": 0,
+        "assessment": "Behold samme sidemenyoppføring og direkte topic-URL. Fersk observerte footer bruker ordinær Neste. Ingen oppføringsreduksjon eller dokumentert klikkgevinst foreslås. Global aktiv independent/recovery kan overstyre Neste; PR43 tillater ellers dynamiske guided-destinasjoner i sine støttede moduler."
+      },
+      "risk": "Én samlet IaaS/PaaS/SaaS-side ville blande ressurskonfigurasjon og separat produktstore. Lokal dobbel forklaring kan redigeres senere med obligatorisk grunnlag og evidensgrenser bevart.",
+      "priority": "BEHOLD i PR57; ingen dokumentert MÅ før RC",
+      "evidence": {
+        "url": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/services?topic=saas",
+        "snapshot": "evidence/12-services-saas.snapshot.txt",
+        "screenshot": "evidence/12-services-saas.png",
+        "textControlsLinks": "evidence/12-services-saas.json",
+        "quotes": [
+          "Tilgang, myndighet og deling er tre ulike relasjoner. En lisens gjør ikke en bruker til administrator.",
+          "Å blokkere en konto er heller ikke dokumentasjon på at alle tidligere delinger og dataforpliktelser er håndtert."
+        ],
+        "navigation": {
+          "method": "visible sidebar link",
+          "previousUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/services?topic=paas",
+          "clickedHref": "/learn/services?topic=saas"
+        },
+        "visualInspected": true
+      },
+      "confidence": "Høy for struktur; ingen ny full funksjons-/læringsvalidering."
+    },
+    {
+      "module": "services",
+      "moduleTitle": "Cloud service types",
+      "topic": "selection",
+      "title": "Velg en løsning ut fra krav og driftsarbeid",
+      "currentRole": "Guidet syntese: krav, servicegrense og faglig begrunnelse, med flere gyldige alternativer.",
+      "learningGoal": "Begrunne servicevalg og vurdere alternativer ut fra støtte og retained drift (ST04).",
+      "newUnderstanding": "At riktig kategori med feil begrunnelse er utilstrekkelig, og at både VM og støttet PaaS kan passe en åpen situasjon hvis driftsforutsetningene forklares.",
+      "substance": "Krav versus preferanse og teamets driftskapasitet forklares. Fire kravsituasjoner (inkludert en åpen), tre modeller og tre grunner knyttes sammen. Figuren sammenligner beholdt arbeid. Originalt og operativt tekstlag overlapper, men den åpne situasjonen gir reell syntese.",
+      "mechanism": {
+        "studentAction": "Velg situasjon, modell og begrunnelse; Kjør og sammenlign tre tydelige krav og den åpne webkodesituasjonen.",
+        "observedInThisReview": "Elevtekst, figur/representasjon, kontroller, tilgjengelige grenser og navigasjonsmål lest i faktisk deploy. Ingen modellkjøring, forsøk eller lab startet."
+      },
+      "check": "Fire begrunnede situasjoner må observeres før sluttkontroll om flere forsvarlige løsninger. Guidet feedback er forskjellig fra senere independent.",
+      "recordedEvidence": "Guidede valg/observasjoner eies av service-types.v2. De er ikke den oppdaterte 3.0.0-assessment eller terminal transfer; de starter ikke ved bare besøk.",
+      "prerequisites": [
+        "iaas, paas, saas: komponenter, støtte og retained administration."
+      ],
+      "dependency": "Integrerer tre tidligere mekanismer før praktisk anvendelse og selvstendig transfer; forutsetter at modellene er skilt først.",
+      "repetition": "Gjenbruker de tre tjenestetypenes tydelige eksempler funksjonelt, men tilfører parvis begrunnelse og flere forsvarlige valg. Original/operativ forklaring innen siden kan strammes senere.",
+      "pageJustification": "Syntese har en egen pedagogisk handling. Den er ikke bare en tekstlig oppsummering og bør ikke blandes med independent-start eller én av modellene.",
+      "classification": "A",
+      "classificationLabel": "Behold selvstendig",
+      "proposedSessionId": "services-selection",
+      "proposedSessionTitle": "Velg en løsning ut fra krav og driftsarbeid",
+      "proposalReason": "Syntese har en egen pedagogisk handling. Den er ikke bare en tekstlig oppsummering og bør ikke blandes med independent-start eller én av modellene.",
+      "navEffect": {
+        "recommendedEntriesBefore": 1,
+        "recommendedEntriesAfter": 1,
+        "documentedClicksSaved": 0,
+        "assessment": "Behold samme sidemenyoppføring og direkte topic-URL. Fersk observerte footer bruker ordinær Neste. Ingen oppføringsreduksjon eller dokumentert klikkgevinst foreslås. Global aktiv independent/recovery kan overstyre Neste; PR43 tillater ellers dynamiske guided-destinasjoner i sine støttede moduler."
+      },
+      "risk": "Sammenslåing med transfer kan vise løsningsgivende guided feedback i independent-kontekst. Å legge den under SaaS kan skjule at den sammenligner alle tre.",
+      "priority": "BEHOLD i PR57; ingen dokumentert MÅ før RC",
+      "evidence": {
+        "url": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/services?topic=selection",
+        "snapshot": "evidence/13-services-selection.snapshot.txt",
+        "screenshot": "evidence/13-services-selection.png",
+        "textControlsLinks": "evidence/13-services-selection.json",
+        "quotes": [
+          "En riktig etikett med feil begrunnelse er ikke et godt løsningsforslag.",
+          "To løsninger kan være forsvarlige med forskjellige driftsforutsetninger."
+        ],
+        "navigation": {
+          "method": "visible sidebar link",
+          "previousUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/services?topic=saas",
+          "clickedHref": "/learn/services?topic=selection"
+        },
+        "visualInspected": true
+      },
+      "confidence": "Høy for struktur; ingen ny full funksjons-/læringsvalidering."
+    },
+    {
+      "module": "services",
+      "moduleTitle": "Cloud service types",
+      "topic": "practice",
+      "title": "Bruk og forklar den faktiske hostingkonfigurasjonen",
+      "currentRole": "Anvendt guided Portal-lab med forklaring; faktisk teknisk bekreftelse kreves.",
+      "learningGoal": "Undersøke group, plan, app og policy og forklare PaaS-arbeidsdelingen (ST02/ST04 med G01/C01).",
+      "newUnderstanding": "At group-medlemskap og app→plan-hosting er ulike relasjoner, policyavslag ikke gir en plan, og faktisk teknisk arbeid må kombineres med en ny faglig begrunnelse.",
+      "substance": "Original policy-/hosting-brief og operativ labforankring beskriver North/West Europe, type/scope, metadata versus resource location og replaybar gjenbruk. Faktisk fersk side viser teknisk grunnlag ubekreftet og en sperret begrunnelse. Nederst finnes eksplisitt Start praktisk lab og separat hierarchy-disclosure.",
+      "mechanism": {
+        "studentAction": "Start/fortsett faktisk lab gjennom briefing, opprett eller eksplisitt gjenbruk gyldig teknisk arbeid, les avslag/korrigering og inspiser app→plan mot app→group, begrunn retained arbeid. Ingen Start trykket i denne kontrollen.",
+        "observedInThisReview": "Elevtekst, figur/representasjon, kontroller, tilgjengelige grenser og navigasjonsmål lest i faktisk deploy. Ingen modellkjøring, forsøk eller lab startet."
+      },
+      "check": "Ny retained-kundebegrunnelse pluss bekreftet aktuell labkonfigurasjon og inspeksjoner. UI sier at tidligere guided arbeid ikke er ny uavhengig læring.",
+      "recordedEvidence": "Actual Lab bruker den uendrede bounded Portal-motoren og receipt/replay; v2-grunnlag arver ikke gamle sammenligninger/svar. PR53-dokumentert avslag, korreksjon og App settings-praksis gjenbrukes som tidligere kontrakt, ikke nye reviewerhandlinger.",
+      "prerequisites": [
+        "PaaS, selection og innførte group/plan/app/scope; anvendt resource-organization forklares."
+      ],
+      "dependency": "Selvstendig Start/attempt/origin-grense mellom lesing og lab; må holdes atskilt fra konseptuell PaaS-modell og independent.",
+      "repetition": "Policy og hosting gjentas fra Benefits governance/PaaS med ny evidensrolle: faktisk lagret konfigurasjon, receipt, inspeksjon og egen forklaring. Gjenbruk av teknisk arbeid er eksplisitt.",
+      "pageJustification": "Praktisk anvendelse fortjener egen økt selv om flere forklaringer er kjent. Den tekniske gate gjør siden funksjonelt forskjellig fra paas.",
+      "classification": "A",
+      "classificationLabel": "Behold selvstendig",
+      "proposedSessionId": "services-practice",
+      "proposedSessionTitle": "Bruk og forklar den faktiske hostingkonfigurasjonen",
+      "proposalReason": "Praktisk anvendelse fortjener egen økt selv om flere forklaringer er kjent. Den tekniske gate gjør siden funksjonelt forskjellig fra paas.",
+      "navEffect": {
+        "recommendedEntriesBefore": 1,
+        "recommendedEntriesAfter": 1,
+        "documentedClicksSaved": 0,
+        "assessment": "Behold samme sidemenyoppføring og direkte topic-URL. Fersk observerte footer bruker ordinær Neste. Ingen oppføringsreduksjon eller dokumentert klikkgevinst foreslås. Global aktiv independent/recovery kan overstyre Neste; PR43 tillater ellers dynamiske guided-destinasjoner i sine støttede moduler."
+      },
+      "risk": "Integrasjon i paas eller selection kan skjule hvilke krav som er modellavklaringer versus teknisk labbekreftelse, eller starte/godskrive utilsiktet. Behold opprinnelig lab, præcis retur og historikk.",
+      "priority": "BEHOLD i PR57; ingen dokumentert MÅ før RC",
+      "evidence": {
+        "url": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/services?topic=practice",
+        "snapshot": "evidence/14-services-practice.snapshot.txt",
+        "screenshot": "evidence/14-services-practice.png",
+        "textControlsLinks": "evidence/14-services-practice.json",
+        "quotes": [
+          "Teknisk arbeid og ny faglig begrunnelse er ulike evidenskilder.",
+          "Dette er guided practice, ikke uavhengig mestring."
+        ],
+        "navigation": {
+          "method": "visible sidebar link",
+          "previousUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/services?topic=selection",
+          "clickedHref": "/learn/services?topic=practice"
+        },
+        "visualInspected": true
+      },
+      "confidence": "Høy for struktur; ingen ny full funksjons-/læringsvalidering."
+    },
+    {
+      "module": "services",
+      "moduleTitle": "Cloud service types",
+      "topic": "summary",
+      "title": "Observasjoner og neste steg",
+      "currentRole": "Samlet introduksjons-/guided-status og separat oppdatert/tidligere vurderingshistorikk.",
+      "learningGoal": "Tolke lokal evidens på tvers av seks aktiviteter uten å forveksle introduksjon med fullføring.",
+      "newUnderstanding": "Ingen ny tjenestemekanisme; metakognitiv kontroll av hva de seks øktene faktisk har dokumentert og hvilken vurderingsversjon man åpner.",
+      "substance": "Seks rader viste Introdusert og Ikke bekreftet etter bare sidebesøk. Oppdatert vurdering 3.0.0 har egen historikk og eldre vurdering egen lenke. Språket avgrenser XP, Learn-fullføring, mestring og exam readiness.",
+      "mechanism": {
+        "studentAction": "Les status, vend tilbake til ubekreftet aktivitet eller velg eksplisitt vurderingsversjon.",
+        "observedInThisReview": "Elevtekst, figur/representasjon, kontroller, tilgjengelige grenser og navigasjonsmål lest i faktisk deploy. Ingen modellkjøring, forsøk eller lab startet."
+      },
+      "check": "Statusinspeksjon og navigasjon, ikke ny guided kontroll eller assessment-start.",
+      "recordedEvidence": "Faktisk UI viste seks introduserte/ingen bekreftede aktiviteter og ingen innlevering i assessment 3.0.0. Ingen historikk omtolkes.",
+      "prerequisites": [
+        "De seks serviceaktivitetene gir radene mening."
+      ],
+      "dependency": "Felles gjenfinningspunkt før transfer, separat fra independent-attempt og praksis.",
+      "repetition": "Tittel-/statusgjentakelse har orienteringsfunksjon. Assessmenthistorikk er adskilt fra terminal transfer og må ikke telles som samme bank eller redundant side.",
+      "pageJustification": "Kort statusflate har egen verdi for gjenfinning og ærlig evidenstolkning, selv uten ny teori. Den bør beholdes selvstendig.",
+      "classification": "A",
+      "classificationLabel": "Behold selvstendig",
+      "proposedSessionId": "services-summary",
+      "proposedSessionTitle": "Observasjoner og neste steg",
+      "proposalReason": "Kort statusflate har egen verdi for gjenfinning og ærlig evidenstolkning, selv uten ny teori. Den bør beholdes selvstendig.",
+      "navEffect": {
+        "recommendedEntriesBefore": 1,
+        "recommendedEntriesAfter": 1,
+        "documentedClicksSaved": 0,
+        "assessment": "Behold samme sidemenyoppføring og direkte topic-URL. Fersk observerte footer bruker ordinær Neste. Ingen oppføringsreduksjon eller dokumentert klikkgevinst foreslås. Global aktiv independent/recovery kan overstyre Neste; PR43 tillater ellers dynamiske guided-destinasjoner i sine støttede moduler."
+      },
+      "risk": "Plassering inni practice kan la teknisk/lokal evidens se ut som en samlet læringsgodkjenning. Sammenfletting med transfer gjør undervisnings- og assessment-grenser vanskeligere.",
+      "priority": "BEHOLD i PR57; ingen dokumentert MÅ før RC",
+      "evidence": {
+        "url": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/services?topic=summary",
+        "snapshot": "evidence/15-services-summary.snapshot.txt",
+        "screenshot": "evidence/15-services-summary.png",
+        "textControlsLinks": "evidence/15-services-summary.json",
+        "quotes": [
+          "Introduksjon, guided practice og første uavhengige svar er separate.",
+          "Tidligere vurderinger bruker sin opprinnelige oppgave og fasit. Nye resultater erstatter dem ikke."
+        ],
+        "navigation": {
+          "method": "visible sidebar link",
+          "previousUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/services?topic=practice",
+          "clickedHref": "/learn/services?topic=summary"
+        },
+        "visualInspected": true
+      },
+      "confidence": "Høy for struktur; ingen ny full funksjons-/læringsvalidering."
+    },
+    {
+      "module": "services",
+      "moduleTitle": "Cloud service types",
+      "topic": "transfer",
+      "title": "Prøv kunnskapen i nye situasjoner",
+      "currentRole": "Terminal selvstendig Cloud Concepts-transferinngang for tre servicevalgssituasjoner.",
+      "learningGoal": "Velge beslutning og faglig begrunnelse under en separat uavhengig forsøksgrense.",
+      "newUnderstanding": "Changed-context anvendelse skal undersøkes uassistert; inngangen lærer vurderings-/hjelperegler. Selve prompts er ikke åpnet i denne etterkontrollen.",
+      "substance": "Tre tilfellevalg (spesialisert verktøy, ferdig samarbeid, ny webtjeneste), eksplisitt Start, forklaring av paired decisions/reasons og feedback etter levering. Historikk bevarer første innlevering og familieeksponering.",
+      "mechanism": {
+        "studentAction": "Velg tilfelle, deretter eksplisitt Start. Ingen vurderinger startet; ingen oppgaver besvart her.",
+        "observedInThisReview": "Elevtekst, figur/representasjon, kontroller, tilgjengelige grenser og navigasjonsmål lest i faktisk deploy. Ingen modellkjøring, forsøk eller lab startet."
+      },
+      "check": "Beslutning og begrunnelse skal passe sammen. Tidligere PR53 bank-/familie-/rubric-kontrakt gjenbrukes som tidligere dokumentasjon; ingen ny fasitkontroll.",
+      "recordedEvidence": "Å åpne teori under aktivt forsøk registrerer hjelp først; samme familie blir retry også etter avbrudd. Første innlevering overskrives aldri. Ingen ny elevprestasjon produsert.",
+      "prerequisites": [
+        "overview, IaaS/PaaS/SaaS og guidet selection."
+      ],
+      "dependency": "Eget spor, ikke samme aktivitet eller rubric som guidet selection eller modulassessment 3.0.0. Behold separate attempt/hjelp/historikk-grenser.",
+      "repetition": "Servicevalg gjenbrukes i nye situasjoner med uavhengig evidensrolle. En felles komponent med Benefits betyr ikke samme tilfelle/forsøk.",
+      "pageJustification": "Egen prestart-/historikkside gjør vurderingskontrakten synlig uten automatisk Start. Kort introduksjon kan derfor fortjene egen side.",
+      "classification": "A",
+      "classificationLabel": "Behold selvstendig",
+      "proposedSessionId": "services-transfer",
+      "proposedSessionTitle": "Prøv kunnskapen i nye situasjoner",
+      "proposalReason": "Egen prestart-/historikkside gjør vurderingskontrakten synlig uten automatisk Start. Kort introduksjon kan derfor fortjene egen side.",
+      "navEffect": {
+        "recommendedEntriesBefore": 1,
+        "recommendedEntriesAfter": 1,
+        "documentedClicksSaved": 0,
+        "assessment": "Behold samme sidemenyoppføring og direkte topic-URL. Fersk observerte footer bruker ordinær Neste. Ingen oppføringsreduksjon eller dokumentert klikkgevinst foreslås. Global aktiv independent/recovery kan overstyre Neste; PR43 tillater ellers dynamiske guided-destinasjoner i sine støttede moduler."
+      },
+      "risk": "Å integrere i selection ville plassere guidet begrunnelse og independent på samme flate. Færre klikk kan ikke begrunne svekket vurderingsgrense.",
+      "priority": "BEHOLD i PR57; ingen dokumentert MÅ før RC",
+      "evidence": {
+        "url": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/services?topic=transfer",
+        "snapshot": "evidence/16-services-transfer.snapshot.txt",
+        "screenshot": "evidence/16-services-transfer.png",
+        "textControlsLinks": "evidence/16-services-transfer.json",
+        "quotes": [
+          "Velg et tilfelle. Ingen vurdering starter ved sidebesøk.",
+          "Å åpne forklaringer eller teori under et aktivt forsøk registrerer hjelp først."
+        ],
+        "navigation": {
+          "method": "visible sidebar link",
+          "previousUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/services?topic=summary",
+          "clickedHref": "/learn/services?topic=transfer"
+        },
+        "visualInspected": true
+      },
+      "confidence": "Høy for struktur og vurderingsgrense, begrenset til faktisk prestart-side; ingen ny innhold-/rubric-/psykometrisk gjennomgang av de tre oppgavene."
+    }
+  ]
+}

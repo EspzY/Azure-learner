@@ -2,7 +2,7 @@
 import { OtherGuideNotice } from '@/features/course/guided-mission-link';
 import { useGuideBriefing } from '@/features/course/guide-briefing-request';
 import { useEffect, useState } from 'react';
-import { monitoringNb as c } from '@/content/nb';
+import { monitoringPresentation as c } from './final-quality-copy';
 import {
   monitoringGuidedFacts,
   monitoringWitnesses,

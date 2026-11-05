@@ -1,0 +1,31 @@
+{
+  "retrievedUtc": "2026-11-05T14:44:15.921676+00:00",
+  "access": "Official Microsoft Learn public body read via web tool; some pages display a generic authorization banner while returning full public main text. No sign-in or access-control bypass used.",
+  "sources": [
+    {
+      "url": "https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-manage-peering",
+      "title": "Create, change, or delete a virtual network peering",
+      "lastUpdated": "2025-07-29",
+      "sections": "Requirements and constraints",
+      "shortQuote": "The virtual networks you peer must have nonoverlapping IP address spaces.",
+      "paraphrase": "A Resource Manager peering has a side on each network; both must reach Connected. Separate AB and BC links are not transitive AC connectivity. An explicit AC peering or separately configured NVA/routing is a different design."
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/azure/virtual-desktop/terminology",
+      "requestedAlias": "https://learn.microsoft.com/en-us/azure/virtual-desktop/environment-setup",
+      "title": "Azure Virtual Desktop terminology",
+      "lastUpdated": "2025-06-20",
+      "sections": "Host pools; Application groups; Workspaces",
+      "shortQuote": "RemoteApp: users access individual applications you select and publish to the application group. Available with pooled host pools only.",
+      "paraphrase": "Host pools collect session-host VMs. Application groups govern access to resources from one host pool. Workspace association and user assignment are separate from the session-host execution substrate."
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/azure/virtual-desktop/publish-applications-stream-remoteapp",
+      "title": "Publish applications with RemoteApp in Azure Virtual Desktop",
+      "lastUpdated": "2026-09-01",
+      "sections": "Prerequisites",
+      "shortQuote": "At least one session host is powered on in the host pool the application group is assigned to.",
+      "paraphrase": "Publishing prerequisites include an existing host pool/session hosts, RemoteApp application group, workspace, installed or appropriately attached applications, and required permissions. This does not support treating metadata publication with zero hosts as a runnable application."
+    }
+  ]
+}

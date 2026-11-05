@@ -1,0 +1,93 @@
+# PR57 — separat kildevalidering etter kald lås
+
+Utført 5. november 2026 etter uttrykkelig autorisasjon fra oppdragsansvarlig. Dette forklarer de tre tidligere låste funnene; det er ikke en ny kald gjennomgang eller endelig audit. Repository er ikke redigert. Den kalde rapporten, løsningsfilene og `lock.json` er urørt: alle **544** registrerte filhash-er stemte ved kontroll 14:33:51 UTC, uten avvik (`cold-preservation-check.json`).
+
+Kilde-HEAD var `a3f1b575b2eb5b257fd455fec1a73b30a38706f4`, samme fulle SHA som den kalde browsergjennomgangen og denne separate offentlige disclosure-prøven. Arbeidsgrenen heter nå `codex/az900-final-quality-sprint`; den viste preview-grenen er fortsatt `codex/cc02-vm-debrief-diagnostics`. En allerede eksisterende uregistrert `docs/AZ900_DEMO_GUIDE.md` ble observert, men ikke endret.
+
+## Kontrakt og historisk forklaring
+
+Lest relevant `AGENTS.md`, README/status, `QUALITY_CONTRACT`, `CONTENT_QA_STANDARD`, `CONTENT_STANDARDS`, `SOURCE_COVERAGE_PROTOCOL`, `RELEASE_ACCEPTANCE`, `DEVELOPMENT_WORKFLOW`, Storage-/Security-manuskriptdokumentene, `LEARNING_SEQUENCE`, hybrid-bevaringsbeskrivelsen og CC-02s nåværende bevaringskontrakt. Historiske fasebegrensninger er datert kontekst; denne oppgaven autoriserer kildevalidering, ikke implementering.
+
+- [QUALITY_CONTRACT.md](/workspace/Azure-learner/docs/QUALITY_CONTRACT.md:9) krever proporsjonal reviewdybde og bevaringsbevis for uendrede domener. Innholdsdekning og menneskelig validering er ulike påstander.
+- [CONTENT_STANDARDS.md](/workspace/Azure-learner/docs/CONTENT_STANDARDS.md:87) krever versjonering ved materielle semantiske endringer. De foreslåtte fire tekstprojeksjonene endrer ikke fagpremiss, oppgavekrav eller svarrelasjon.
+- [STORAGE_SERVICES.md](/workspace/Azure-learner/docs/STORAGE_SERVICES.md:3) sier uttrykkelig at PR34 la til tilgjengelig Part B, mens PR33s manuskript og rubric ble bevart. Den synlige «kommer senere»-teksten er altså en bevart PR33-status som aldri ble oppdatert i akkurat denne nøkkelen.
+- [LEARNING_SEQUENCE.md](/workspace/Azure-learner/docs/LEARNING_SEQUENCE.md:29) dokumenterer en tidligere avgrenset presentasjonsretting av tre andre `available`-nøkler, men ikke `storageNb.available`. Den samme endringen la ny orientering i `src/content/learning-journey.ts`. Dette er et presedensmønster, ikke en generell tillatelse til å endre frosne manuskript-/localeobjekter.
+- [SECURITY_PRINCIPLES.md](/workspace/Azure-learner/docs/SECURITY_PRINCIPLES.md:7) bruker P10/P11 som interne implementeringsfaser og A–F som forfatterens innholds-/auditdekning. Disse begrepene er nyttige i utviklerdokumentasjon, men er ikke navnene eleven ser i sidemenyen.
+- [CC02_VM_DEBRIEF.md](/workspace/Azure-learner/docs/CC02_VM_DEBRIEF.md:44) og `docs/reviews/evidence/cc02/preservation.json` beskytter hele det historiske locale-prefikset på **1 500 941 byte**, SHA256 `bc6809f3099d160504513ed019956b3371284d249713c13720b4dfd58c12805c`. Det prefikset stemmer fortsatt. Alle de fire aktuelle tekstene ligger inne i det, ved byteoffset 755138, 1264907, 1263915 og 1278050. `storage.tsx`, `security.tsx`, `learn/layout.tsx` og `content/learning-journey.ts` er også hele bevarte filer i den gamle CC-02-kontrakten. En senere retting må føre en eksplisitt, smal presentasjonsdifferanse i sitt nye bevaringsspor; den må ikke omskrive det gamle bevaringsbeviset.
+
+## SIS-01: Storage-statusens kilde og alle visningssteder
+
+Kilden er [nb.ts](/workspace/Azure-learner/src/content/nb.ts:11481), **`storageNb.available`**:
+
+> Part A er tilgjengelig med egen versjonert historikk. Part B om access tiers og redundans kommer senere. Lokal konseptundervisning; ingen Storage Account eller data opprettes i Azure.
+
+Direkte lesere er samme komponentfamilie:
+
+| Visning | Fil/symbol/linje |
+|---|---|
+| Knowledge Journal | [`StorageLesson`, journal-grenen](/workspace/Azure-learner/src/features/learning/storage.tsx:79) |
+| Introduksjon | [`StorageLesson`, introduction-grenen](/workspace/Azure-learner/src/features/learning/storage.tsx:111) |
+| Summary | [`StorageSummary`](/workspace/Azure-learner/src/features/learning/storage.tsx:210) |
+
+Journal er ikke en separat kopi av setningen: [Course](/workspace/Azure-learner/src/features/course/course.tsx:2182) monterer `StorageLesson` med `journal`. Den kalde rapportens tre synlige forekomster har derfor én tekstkilde. Den anbefalte modulrekkefølgen har Storage A direkte før Storage B i [recommendedModules](/workspace/Azure-learner/src/features/course/course-sequence.ts:12).
+
+**Minimalt rettingsomfang:** én presentasjonsnøkkel for tilgjengelighetsavsnittet, brukt i alle tre visningssteder. Erstatt bare «Part B om access tiers og redundans kommer senere.» med «Part B om access tiers og redundans er tilgjengelig som neste del i læringsreisen.» Behold historikk- og Azure-avgrensningen. Dette er lokal produktstatus, ikke en ny Azure-påstand. Ingen ny nav-/progress-/state-logikk er nødvendig.
+
+## SIS-02: tre navngitte felter i Security-teori
+
+| Synlig formulering | Kilde / nøyaktig felt | Minimalt forslag |
+|---|---|---|
+| «Dette bygger på P10/P11» | [nb.ts:18246](/workspace/Azure-learner/src/content/nb.ts:18246), `securityNb.sections['zero-trust'].paragraphs[1]` | «Dette bygger på Identity Foundations og RBAC & Conditional Access»; resten av avsnittet beholdes. |
+| «Full A–F-innholdsdekning er ikke dokumentert elevmestring eller eksamensberedskap.» | [nb.ts:18240](/workspace/Azure-learner/src/content/nb.ts:18240), `securityNb.sections.introduction.limit` | «Gjennomgått innhold er ikke dokumentert elevmestring eller eksamensberedskap.»; setningen om hypotetisk risiko beholdes. |
+| «en avgrenset fixtureforutsetning» | [nb.ts:18341](/workspace/Azure-learner/src/content/nb.ts:18341), `securityNb.sections.posture.paragraphs[4]` | «en avgrenset forutsetning i undervisningseksemplet»; den universelle matrise-avgrensningen og vilkårene beholdes. |
+
+Alle tre går gjennom **`SecurityTheory`**: [seksjonsvalg](/workspace/Azure-learner/src/features/learning/security.tsx:209), [avsnittsrendering](/workspace/Azure-learner/src/features/learning/security.tsx:216) og [limit-rendering](/workspace/Azure-learner/src/features/learning/security.tsx:238). Den vanlige teorisiden bruker funksjonen fra linje113; Journal bruker samme funksjon fra linje80, etter at `Course` har montert [SecurityLesson journal](/workspace/Azure-learner/src/features/course/course.tsx:2165). En smal projeksjon på disse feltene retter derfor også Journal uten å lage to manuskriptvarianter i UI. De tidligere modulenes allerede synlige navn/lenker finnes i [SecurityPrerequisites](/workspace/Azure-learner/src/features/learning/security.tsx:263).
+
+**Minimalt rettingsomfang:** tre navngitte felt ved teoriens visningsgrense. Behold avsnittsrekkefølge, innholdets øvrige mekanismer, vilkår, kilder, modeller, mission- og assessment-objekter. Ikke bruk global string-replace, regex over DOM, CSS-skjuling eller en generell kopiomskriver. Det er ikke nødvendig å åpne eller endre scenariofasit for å rette disse tre uttrykkene.
+
+## Hvordan bevare locale og historisk vurdering
+
+Direkte redigering av de eksisterende fire `nb.ts`-feltene vil **bryte det frosne locale-prefikset**, selv om teksten bare er presentasjon. Det anbefales derfor ikke under nåværende bevaringskrav.
+
+En konkret, liten implementering kan gjøre følgende:
+
+1. La alle opprinnelige localeobjekter, scenario-/itembanker, rubrics, modeller og stores ligge byte-uendret.
+2. Legg fire korrigerte UI-strenger i et isolert presentasjonsobjekt. Append-only ny UI-kopi bakerst i `nb.ts` følger tidligere leveransers mønster og bevarer det gamle prefikset, men endrer naturligvis filen ved å legge til bytes.
+3. Dersom **hele** `nb.ts` skal forbli byte-uendret, legg objektet i en særskilt `src/content/...`-presentasjonsfil etter det eksplisitte PR45-mønsteret. En slik filplassering må fremgå av det nye implementeringsscopet, siden hovedkontrakten ellers legger elevtekst i `nb.ts`. Den tidligere PR45-unntakstillatelsen kan ikke antas å gjelde automatisk for nytt arbeid.
+4. Bruk Storage-presentasjonsnøkkelen på de tre nevnte `available`-visningsstedene og en presist typet teori-projeksjon i `SecurityTheory` for bare de tre nevnte feltene. Ingen provider, assessment-renderer, event, schema, sourcebank eller `course-sequence` trenger å endres.
+5. Før de tre eksisterende presentasjonsfilene som eksplisitte begrensede avvik i et **nytt** bevaringsmanifest; behold gamle manifest og kald rapport. Nye kopistrenger er ikke grunnlag for å oppgradere gammel læringshistorikk eller vurderingsversjon.
+
+Dette kan altså gjennomføres uten endring av historiske scenario-/rubric-/locale**bytes**. «Ingen localeendring» må skilles fra «ingen ny lokalisert UI-kopi»: sistnevnte tillater ikke engang de ønskede nye formuleringene.
+
+## SIS-03: faktisk landemerke med disclosure lukket og åpen
+
+Kilden er [LearningLayout](/workspace/Azure-learner/src/app/learn/layout.tsx:27). Preview-betingelsen rendrer `<details className="course-build">` direkte under `.course-learning-surface`, etter kursruten. Commit-/Gren-avsnittene på linje30 og40 har ingen landmark-forfader. SHA/branch valideres før visning; dette funnet handler om semantisk plassering, ikke om nye data eller credentials.
+
+En ny anonym BrowserContext fulgte ordinær `/` → Hub → Storage A → Studio på det samme offentlige previewet. Ved 1024×500 og reduced motion ble bare Axe-regelen **`region`** kjørt i tre tilstander. Ingen assessment eller guide ble startet. Full SHA ble kontrollert fra faktisk åpnet disclosure.
+
+| Tilstand | `details.open` | `region`-avvik |
+|---|---:|---:|
+| Opprinnelig lukket | false | 0 |
+| Åpnet med vanlig summary-klikk | true | 2: Commit og Gren |
+| Lukket igjen | false | 0 |
+
+`build-info-states.json` og `closed/opened/reclosed-axe.json` inneholder UTC, URL, faktisk DOM, treff og tom anonym cookie-liste. `closed.png`, `opened.png` og `reclosed.png` er faktiske skjermbilder. Dette bekrefter det låste P3-funnet **bare når metadataene er eksponert**; det er ikke et generelt landemerkefeilfunn for hovedundervisningen. Ingen menneskelig skjermleservirkning er validert.
+
+**Minimalt tiltak:** pakk den eksisterende `details` i et semantisk, navngitt `aside`, med det allerede eksisterende `nb.foundationsV2.build` som `aria-label`. Behold selve `details`, summary-klikk, lukket standardtilstand og direkte `.course-build > summary/p`-struktur. Dermed bevares eksisterende CSS og testselektorer. Ikke gi `details` en overstyrende ARIA-rolle eller introduser ny vedvarende åpen/lukket-status.
+
+CSS for bygginfo er i [foundations-v2.css](/workspace/Azure-learner/src/features/learning/foundations-v2.css:250); kortskjermens navigasjonsklarering finnes allerede i [course.css](/workspace/Azure-learner/src/features/course/course.css:706). Den eksisterende desktoptesten [ux-refinement.spec.ts](/workspace/Azure-learner/tests/e2e/ux-refinement.spec.ts:33) kontrollerer siste metadataavsnitt over footer etter eksplisitt scroll til bunn. Det åpne nye bildet viser grenlinjen delvis bak fast navigasjon etter at bare summary ble scrollet i syne. Den prøven kan ikke brukes til å hevde at bunnklareringen er defekt: scriptet utførte ikke testens fulle scroll-til-bunn-steg. Jeg åpner ikke et nytt layoutfunn fra dette bildet.
+
+## Avgrenset offisiell faktasjekk
+
+De foreslåtte endringene innfører ingen nye Azure-funksjoner. For å kontrollere det faglige innholdet rundt de to Security-formuleringene ble to gjeldende offisielle Microsoft-sider faktisk hentet med vanlig TLS, HTTP200, 5. november2026 kl.14:32:34 UTC:
+
+- [Zero Trust as a security foundation](https://learn.microsoft.com/en-us/security/zero-trust/zero-trust-overview): alle tilgjengelige signaler ved autentisering/autorisasjon, bare nødvendig tilgang i kortest nødvendig tid, og assume breach med begrensning av konsekvens/deteksjon/respons. Det støtter den eksisterende mekanismen; P10/P11 er lokal henvisningsspråk, ikke et faglig nødvendig begrep.
+- [Cloud security posture management](https://learn.microsoft.com/en-us/azure/defender-for-cloud/concept-cloud-security-posture-management): Foundational CSPM er kostnadsfri, Defender CSPM er betalt og inkluderer avanserte funksjoner som attack-path-analyse og risikoprioritering. Dette støtter det tilgrensende planavsnittet. Den lokale regelen om hvilket syntetisk funn som krever hvilken plan bør fortsatt merkes som en erklært undervisningsforutsetning, ikke som universell produktmatrise.
+
+`official-source-checks.json` registrerer URL, slutt-URL, tidspunkt, bodyhash og konkrete utdrag. `*-official.txt` er faktisk hentet artikkeltekst. Ingen påstand om ny gjennomgang av alle Learn-enheter, hele støttematrisen, Secure Score, alle seks modulenes fakta eller alle vurderingsfasiter følger av denne smale kontrollen. Ingen beskyttet assessment eller reell Azure-operasjon ble åpnet.
+
+## Anbefalt kontroll ved eventuell implementering
+
+Kontroller at originalt locale-prefiks, domener, stores, source-/scenario-/rubricbanker og historiske bevaringsfiler fortsatt har samme bytes. Gjør målrettet faktisk UI-kontroll av Storage introduksjon/Summary/Journal og de tre Security-teorifeltene pluss Journal. Kjør `region` med bygginfo lukket/åpen/lukket, bevar existing summary/focus/scroll-test og inspiser 1440×900 og1024×500. En guard-/assessment-regresjon trenger ikke omskrives, men en eksisterende aktiv-independent/Journal-prøve er relevant når de samme teorikomponentene endres. Ikke gjenta full seksmoduls kald gjennomgang eller alle inputkombinasjoner for fire kopifelter og en semantisk wrapper.
+
+Dette arbeidet kjørte ingen repository-tester og gjør ingen implementerings-/releasegodkjenning. Endelig retting vil fortsatt trenge sitt faktiske avgrensede testbevis og prosjektets aktuelle leveransegater. Kald rapport og alvorlighetsgrader er ikke omskrevet av kildevalideringen.

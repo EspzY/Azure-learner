@@ -1,0 +1,229 @@
+# Pedagogisk segmentstruktur — Core, Compute og Networking A/B
+
+**Ingen konkret strukturell P1 er påvist før RC. Behold nåværende struktur gjennom RC.** Gjennomfør eventuelt én avgrenset oppfølgingsleveranse som samler forberedende orientering ved første faglige anvendelse og gjør gjentatte oppdragskart/et erklært tillegg sekundære. Det er ingen begrunnelse for å presse disse rutene til seks økter eller slå sammen de lange funksjonelle Studio-/Explorer-sidene.
+
+Dette er en **etterkontroll etter tidligere kald lås**, ikke et nytt kaldt review. Den bygger på de samme 52 faktisk leste studenttekst-, figur- og kontrollsnapshottene ved SHA `a3f1b575b2eb5b257fd455fec1a73b30a38706f4`, samt deres registrerte modell-/Portal-/vurderingsspor. Tidligere etter-lås-kildekunnskap finnes, men ingen ny bankreview eller kildeendring inngår her. Ingen ny browserrunde var nødvendig: faktisk sideinnhold, tidligere kjørte modeller og Next/Previous-/guidehrefs var allerede fanget. Det er ikke gjennomført en fersk UI-kontroll av senere PR57-rettinger.
+
+Alle 527 originale manifestfiler er kontrollert mot SHA256 uendret. Ingen original cold-, solve-, lockfil eller fil i repositoryet er skrevet. Bare de tre nye strukturartefaktene er levert. Ingen målt læringseffekt, novicevalidering eller menneskelig SME-godkjenning påstås.
+
+[activities.json](activities.json) inneholder alle 52 vurderinger med mål, ny forståelse, substans, mekanisme/check/evidens, forkunnskaper, repetisjon, sidebegrunnelse, klassifisering, økt, grunn, nav-effekt, risiko, prioritet, snapshot/sitat og sikkerhet. [modules.json](modules.json) inneholder eksakte topics per foreslått økt og alle telledefinisjoner.
+
+## Kriterier og klassifisering
+
+Hver side vurderes ut fra hva eleven skal forstå/gjøre annerledes, hvordan figur/kontroll/check støtter det, og om en egen navigasjonsavslutning beskytter en faglig eller operativ grense. Ingen ord-/sideterskel er brukt. Lang tekst er ikke automatisk substans; kort tekst med meningsfull modell, check eller arbeid kan begrunne egen aktivitet.
+
+- **A:** behold egen anbefalt aktivitet.
+- **B:** slå sammen jevnbyrdige aktiviteter. Ingen slik sammenblanding av egne arbeidsoppgaver er nødvendig her.
+- **C:** integrer som navngitt seksjon i et annet faglig anker.
+- **D:** behold tilgjengelig, men gjør sekundær/valgfri eller flytt rollen.
+- **E:** mer undersøkelse før strukturvalg. Ingen ekstra strukturendring er foreslått på usikkert grunnlag her; fremtidige komposisjons-/resumevirkninger må prøves ved eventuell implementering.
+
+## Eksakte strukturtall
+
+Tallene gjelder **statiske anbefalte aktivitetsoppføringer**, ikke antall faktiske klikk i en dynamisk guideflyt. Alle uendrede assessment-, Summary- og praksisaktiviteter er inkludert. Sekundære sider er talt separat; alle 52 originale topics er plassert nøyaktig én gang som økt, seksjon eller sekundært valg.
+
+| Rute | Nå | Anbefalte økter etter forslag | Sekundære/valgfrie økter | Alle økter inkl. sekundære |
+|---|---:|---:|---:|---:|
+| Core Architecture A/B | 17 | 16 | 0 | 16 |
+| Compute & Hosting | 14 | 10 | 2 | 12 |
+| Networking Part A | 11 | 9 | 1 | 10 |
+| Networking Part B | 10 | 9 | 1 | 10 |
+| Totalt | 52 | 44 | 4 | 48 |
+
+Dette er resultatet av de konkrete begrunnelsene, ikke et ønsket reduksjonsmål. 44 A, 4 C og 4 D er brukt; B/E er ikke tvunget inn for å fylle kategorier.
+
+**Ingen generell klikkbesparelse er beregnet.** De låste Compute-vitnene viser at fullført VM-guide peker direkte til container, container direkte til resilience og resilience direkte til hosting. Det går allerede forbi flere statiske oppføringer og oppdragskartet. Networking A/B-vitnene viser også kontekster der Neste fortsatt går via kartet til manglende guide. Begge observasjoner må beholdes: å endre kartets statiske rolle er ikke automatisk ett spart klikk i alle normale forløp.
+
+Konkrete navigasjonsvitner: [Compute VM→container](../../cold/core-compute-network/evidence/067-compute-vm-guided-feedback.json), [container→resilience](../../cold/core-compute-network/evidence/072-compute-container-guided-feedback.json), [resilience→hosting](../../cold/core-compute-network/evidence/081-compute-resilience-guided-feedback.json), [Networking-kart→faktisk inspeksjonsbriefing](../../cold/core-compute-network/evidence/131-networking-missions.json), [Connectivity-kart→briefing for hybrid B](../../cold/core-compute-network/evidence/162-connectivity-missions.json).
+
+## Én avgrenset oppfølgingsleveranse
+
+Innhold og alle kontroll-/forsøksidentiteter beholdes. Fire forberedende aktiviteter blir navngitte seksjoner ved sitt faglige anker:
+
+1. Core `organization` før `resources`: administrativt problem, triaden identitet/scope/fysisk og egen orienteringssjekk beholdes før ARM-objektene.
+2. Compute `introduction` før `fundamentals`: de fem arbeidslastene knyttes rett til instruksjon/kernel/runtime og den allerede gjentatte stack-sammenligningen.
+3. Compute `options` før `resilience`: Flexible/Uniform, scale in/out og valget av VM-mekanisme beholdes før eksperimentet. Den faktiske guidens Neste-destinasjonen er allerede resilience; dette plasserer nødvendig kvalifikasjon ved anvendelsen uten en ny Start-grense.
+4. Networking A `introduction` før `fundamentals`: katalogcaset, faktisk/konseptuell avgrensning og merking av Part A/B beholdes foran IP-/kommunikasjonsgrunnlaget.
+
+De tre `missions`-sidene beholdes som sekundære oppdrags-/resumekart. Compute `context` beholdes som eksplisitt Learn-tillegg etter Summary/under Les videre. Denne orienteringen erklærer selv at den ikke legger til nye scoped mål; før flytting må en implementør likevel kontrollere at ingen bevart vurdering forventer den som ny obligatorisk forkunnskap.
+
+Alle øvrige sider beholdes. Ikke flytt et faktisk Start inn i en automatisk montert seksjon. Ikke bind lesing av introduksjonen til å starte en guide. Ikke la en kombinert side markere alle deltopics/checks som lest eller fullført. Bevar opprinnelige direkte-/resume-lenker, aktivt forsøk/aid, første-/retry-/avbruddsgrenser og egne assessment-/Summary-flater. Selve operativ praksis i VM/Portal og alle konseptmodeller forblir egne arbeidsoppgaver med de samme grensene.
+
+## Vurdering per modul og aktivitet
+
+### Core Architecture A/B
+
+Én etterfølgende problemorientering og resources gjentar samme fullhierarki og scope/identitet/fysisk-triade. Resten av de korte teorisidene har egne skiller og egne checks; explorer/scope er funksjonelle arbeid.
+
+Gevinst: Knytt caset i Part B og orienteringssjekk direkte til første ARM-objekter. Behold alle fysiske feilgrenser og administrative beslutninger, assessment for A/B og begge Summary-grenser. Risiko: Medium: bevar original organization-sjekk, undervisning i Part B/aid og eksisterende topicdestinasjon som seksjon; ingen offscreen visit eller implicit kreditt. Prioritet: **P2 oppfølging**, ingen P1 før RC.
+
+Foreslåtte anbefalte økter med eksakte medlemmer:
+
+- **Maskinene trenger et sted å være**: `datacenters`.
+- **Geography og region**: `regions`.
+- **Soner er forskjellige feilgrenser**: `zones`.
+- **Regionpar er ikke en beredskapsplan**: `pairs`.
+- **Region eller separat skymiljø?**: `sovereign`.
+- **Azure Infrastructure Explorer**: `explorer`.
+- **Selvstendig anvendelse · fysisk arkitektur**: `assessment`.
+- **Dine observasjoner · Part A**: `summary`.
+- **Fra administrativt problem til Azure-ressurs**: `organization`, `resources`.
+- **Resource groups og livssyklus**: `groups`.
+- **Subscriptions og identitet**: `subscriptions`.
+- **Management groups og root**: `management`.
+- **Management Hierarchy Explorer**: `hierarchy`.
+- **Scope, policy og praktisk undersøkelse**: `scope`.
+- **Part B · selvstendig anvendelse**: `management-assessment`.
+- **Core Architecture · samlet resultat**: `core-summary`.
+
+Hver nåværende aktivitet:
+
+| Topic | Rolle/mål | Valg | Begrunnelse og faktisk evidens |
+|---|---|---|---|
+| `datacenters` | Fysisk grunnmodell, case, skisse og lokal begrepssjekk — Forklare fysisk avhengighet under en virtuell ressurs. | **A** | Egen side er begrunnet av første fysisk feilmodell og målrettet kontrastsjekk. [Snapshot](../../cold/core-compute-network/evidence/005-architecture-datacenters-loaded.json): «To ressursnavn eller resource groups skaper ingen fysisk separasjon.» |
+| `regions` | Regional plassering, kartorientering og sjekk — Velge region etter tjeneste-, data- og arbeidslastkrav. | **A** | Regionvalg er et eget spørsmål før sone-/recoverydesign; kart og sjekk forsvarer egen side. [Snapshot](../../cold/core-compute-network/evidence/006-architecture-regions.json): «Velg sted etter krav, ikke etter kartfarge» |
+| `zones` | Feilgrenseforklaring, mappingfigur og sjekk — Skille zonal, zone-redundant og nonzonal fra antall kopier. | **A** | Ny feilgrense og ikke-trivielt logisk/fysisk skille fortjener egen stopp. [Snapshot](../../cold/core-compute-network/evidence/007-architecture-zones.json): «En sone er en isolasjonsgrense, ikke en ekstra kopi» |
+| `pairs` | Regionrelasjoner, kontrafaktiske figurer og sjekk — Skille regionparmetadata fra en konfigurert multiregion-plan. | **A** | Regionhendelse og plattformmetadata er en egen begrunnelsesoppgave; bør ikke skjules i soneøvelsen. [Snapshot](../../cold/core-compute-network/evidence/008-architecture-pairs.json): «Et regionpar garanterer ikke generell automatisk replikering, failover eller null datatap.» |
+| `sovereign` | Miljøvalg, sammenligning og sjekk — Skille public-cloud-region fra separat Azure-miljø. | **A** | Egen beslutningstype med høy feilkonsekvens; behold fremfor å slå sammen av visuell likhet. [Snapshot](../../cold/core-compute-network/evidence/009-architecture-sovereign.json): «Et annet regionsnavn er ikke nødvendigvis et annet skymiljø» |
+| `explorer` | Eksplisitt guidet konseptundersøkelse — Forutsi og forklare tjenestetilgjengelighet gjennom fysisk feil og app/data/ruting. | **A** | Funksjonell modell og eksplisitt forsøksgrense gir klar egen sidebegrunnelse. [Snapshot](../../cold/core-compute-network/evidence/010-architecture-explorer.json): «Appen trenger både ruting og en tilgjengelig datakopi.» |
+| `assessment` | Selvstendig Part A-forsøk og feedback — Begrunne nye fysiske arkitekturvalg uten trinnvis hjelp. | **A** | Behold egen attempt-grense og egen anbefalt aktivitet. [Snapshot](../../cold/core-compute-network/evidence/017-architecture-independent-before-start.json): «Alle svar leveres samlet før feedback.» |
+| `summary` | Part A-status og overgang til Part B — Tolke avgrensede fysiske observasjoner separat fra Part B. | **A** | Egen debrief/handoff før Part B beskytter tolking av resultatene. [Snapshot](../../cold/core-compute-network/evidence/021-architecture-a-summary.json): «Part A-resultater · fysisk arkitektur, separat fra Part B» |
+| `organization` | Part B-problemorientering, hierarchyfigur og lokal sjekk — Skille eierskap, identitet, administrativt scope og fysisk plassering før ressursvalg. | **C** | Integrer hele caset og sjekken som innledning til resources. Eleven får straks objektene som skal løse det administrative problemet; behold Part A/B-handoff og sjekk-ID. [Snapshot](../../cold/core-compute-network/evidence/023-architecture-organization.json): «Først problemet: hvem eier hva?» |
+| `resources` | ARM-objekter, relasjonstyper, figur og lokal sjekk — Identifisere provider/type/ID og skille medlemskap fra hosting. | **A** | Behold som faglig anker; kan romme organization-problemet før definisjonene. [Snapshot](../../cold/core-compute-network/evidence/024-architecture-resources.json): «Medlemskap forklarer hvor noe administreres; hosting forklarer hva det trenger.» |
+| `groups` | Livssyklus-/grupperingsbeslutning og lokal sjekk — Gruppere ressurser etter relevant livssyklus og ansvar. | **A** | Eget praktisk feilvalg og kontrollpunkt gjør separat aktivitet meningsfull. [Snapshot](../../cold/core-compute-network/evidence/025-architecture-groups.json): «Resource groups: organiser etter livssyklus» |
+| `subscriptions` | Administrativ/kostnads-/identitetsgrense og sjekk — Velge riktig subscription selv for ellers gyldig ressurs. | **A** | Egen scopebeslutning bør ikke drukne i gruppens livssyklus. [Snapshot](../../cold/core-compute-network/evidence/026-architecture-subscriptions.json): «Subscription er en enhet for forbruksregistrering, men innebærer ikke alltid én separat faktura.» |
+| `management` | Ancestry/root-governance og lokal sjekk — Lese parent/children og assignment-rekkevidde over subscriptions. | **A** | Behold egen overordnet styringsbeslutning før faktisk nodeundersøkelse. [Snapshot](../../cold/core-compute-network/evidence/027-architecture-management.json): «Management groups: styr flere subscriptions» |
+| `hierarchy` | Read-only faktisk inventory- og relasjonsutforsker — Følge faktisk node, parents og avhengigheter uten å oppfinne ressurser. | **A** | Kortere forklaring legitimeres av faktisk interaktiv inspeksjon; behold før policy og operativ praksis. [Snapshot](../../cold/core-compute-network/evidence/028-architecture-hierarchy.json): «valg av node er navigasjon og gir ingen kompetanseregistrering.» |
+| `scope` | Konseptuell policyundersøkelse og separat faktisk Portal-bro — Forutsi type/location/ancestry og skille audit fra deny; undersøke faktisk resultat. | **A** | Funksjonell modell og separat operativ bro begrunner egen side; slå ikke sammen forsøksgrenser med forrige read-only side. [Snapshot](../../cold/core-compute-network/evidence/029-architecture-scope.json): «Konseptmodellen kan sammenligne en større scope eller annen effekt, men kan ikke skrive noen av valgene til Portalen.» |
+| `management-assessment` | Selvstendig Part B-forsøk — Anvende adminstruktur og relasjoner på nye premisser. | **A** | Behold egen vurderingsflate og attempt-grense. [Snapshot](../../cold/core-compute-network/evidence/039-architecture-b-independent-prompts.json): «Fire nye situasjoner. Velg både en handling og dens begrunnelse.» |
+| `core-summary` | Samlet avgrenset status for A og B — Tolke hva de ulike registreringene faktisk dokumenterer. | **A** | Egen sluttoppsummering må stå etter begge separate vurderinger. [Snapshot](../../cold/core-compute-network/evidence/041-architecture-core-summary.json): «Samlede, versjonerte observasjoner fra Part A og B» |
+
+### Compute & Hosting
+
+Introduction og fundamentals viser samme Hva kjører koden?-stacks; options og resilience bruker samme FD/UD-matrise. Etter fullført containerguide gikk faktisk Neste direkte til resilience, så separat options kan ligge utenfor akkurat den guideflyten. Context er eksplisitt Learn-tillegg; missions gjentar kort/status.
+
+Gevinst: La case lede direkte til kjørelag, og la mekanismevalg stå rett før kapasitetseksperimentet. Behold VM-teori, operativ praksis med VM og alle lange modeller separat. Gjør tillegg og kart lette å oppsøke uten å være nye obligatoriske læringsstopp. Risiko: Medium: ingen ny VM/Start av guide ved sammensatt teori; behold Flexible/Uniform-nyansene og AVD-pekeren. Valgfritt context må ikke skjule forkunnskap som en bevart vurdering faktisk forutsetter. Prioritet: **P2 oppfølging**, ingen P1 før RC.
+
+Foreslåtte anbefalte økter med eksakte medlemmer:
+
+- **Fra arbeidslast til kjøremiljø**: `introduction`, `fundamentals`.
+- **Virtual Machines: guest og ressursprofil**: `vm`.
+- **VM Resources & Dependencies**: `dependencies`.
+- **Container Execution Explorer**: `containers`.
+- **Functions i compute-landskapet**: `functions`.
+- **Velg VM-mekanisme og undersøk kapasitet/feil**: `options`, `resilience`.
+- **Azure Virtual Desktop Explorer**: `desktop`.
+- **Hosting Decision Studio**: `hosting`.
+- **Selvstendig Compute-anvendelse**: `assessment`.
+- **Oppsummering og dokumenterte resultater**: `summary`.
+
+Sekundære/valgfrie økter:
+
+- **AI, machine learning og IoT/Edge**: `context`.
+- **Guidede anvendelser**: `missions`.
+
+Hver nåværende aktivitet:
+
+| Topic | Rolle/mål | Valg | Begrunnelse og faktisk evidens |
+|---|---|---|---|
+| `introduction` | Arbeidslastcase, orientering, stack-sammenligning og oppdragskart — Knytte fem arbeidslaster til ulike kjørebehov før plattformvalg. | **C** | Integrer arbeidslastorienteringen som startseksjon i fundamentals. Behold alle fem behov, simulatorgrensen og tilgang til opprinnelige briefinger; unngå å avslutte samme stackforklaring to ganger. [Snapshot](../../cold/core-compute-network/evidence/042-compute-introduction.json): «Samme organisasjon, forskjellige kjørebehov» |
+| `fundamentals` | Compute-/kernel-/runtime-grunnlag med stack-sammenligning — Skille instruksjon, kernel, språkruntime og distribuert enhet. | **A** | Behold faglig anker, men med caseorienteringen integrert før første stackforklaring. [Snapshot](../../cold/core-compute-network/evidence/043-compute-fundamentals.json): «En Java Virtual Machine er derfor ikke det samme som en Azure Virtual Machine.» |
+| `vm` | Guest-ansvar, image/profil og oppgavekrav — Begrunne VM når guest-/systemkontroll kreves og lese størrelse/image korrekt. | **A** | Egen konfiguratorisk beslutning før operativ forsøksgrense er nyttig; behold. [Snapshot](../../cold/core-compute-network/evidence/044-compute-vm.json): «Virtual Machines: kontrollen følger ansvaret» |
+| `dependencies` | Teori ved operativ VM-praksis og faktisk resource/receipt-inspeksjon — Opprette riktig ny VM og følge faktiske disk-/NIC-/subnet-/VNet-referanser. | **A** | En tydelig operativ arbeidsøkt må forbli egen aktivitet. [Snapshot](../../cold/core-compute-network/evidence/045-compute-dependencies.json): «Et historisk inventory kan brukes til undersøkelse, men kan ikke alene oppfylle kravet om en ny VM etter dette oppdragets tekniske startgrense.» |
+| `containers` | Containerteori og guidet livssyklusmodell — Skille image, runtime, instans, prosess, isolasjon og data som må overleve recreate. | **A** | Behold lang funksjonell Explorer som egen arbeidsøkt; en tidligere orienteringsduplikasjon rettferdiggjør ikke å fjerne den. [Snapshot](../../cold/core-compute-network/evidence/068-compute-containers.json): «Image er oppskriften; instansen er det som kjører» |
+| `functions` | Hendelsesdrevet compute-valg og kobling til eksisterende Serverless-modell — Vurdere funksjonsprogrammodell og plan mot kontinuerlig prosess/containert jobb. | **A** | En egen hendelsesdrevet beslutning er nødvendig før Hosting; behold med eksisterende modulgrense. [Snapshot](../../cold/core-compute-network/evidence/073-compute-functions.json): «Functions flytter starten til en hendelse, ikke ansvaret bort» |
+| `options` | Sammenligning av VMSS/set/AVD og skalering/plassering før Lab — Velge mekanisme for kapasitet, feilseparasjon eller brukerleveranse. | **C** | Integrer options som teori-/valgseksjon før resilience-modellen. Dette plasserer Flexible/Uniform og scale-out-forklaringen på den faktiske guideflytens resilience-destinasjon, uten å slå sammen to Start-grenser. [Snapshot](../../cold/core-compute-network/evidence/074-compute-options.json): «Fire VM-behov som må holdes fra hverandre» |
+| `resilience` | Guidet kapasitet-/feil-/avhengighetsmodell — Skille antall, FD/UD, soner, skaleringsregel og leverbar tjeneste. | **A** | Behold funksjonell Lab; den kan absorbere options-innføringen uten at Lab-Start flyttes eller automatisk utføres. [Snapshot](../../cold/core-compute-network/evidence/075-compute-resilience.json): «Kapasitet, plassering og en fungerende tjeneste er ulike ting» |
+| `desktop` | AVD-servicekjede og modellert publiseringsundersøkelse — Skille workspace/application group/pool/session hosts og brukertilordning. | **A** | Behold separat funksjonell side selv om guidet historikk deles med Hosting; ikke slå sammen lange, forskjellige arbeidsoppgaver. [Snapshot](../../cold/core-compute-network/evidence/082-compute-desktop.json): «En VM alene oppretter ingen publisert AVD-tjeneste.» |
+| `hosting` | Kravbasert sammenligning og guidet beslutningsmodell — Velge og begrunne hosting fra konkret arbeidsform og kontrollbehov. | **A** | Behold funksjonell Studio som egen økt; ikke aggregér AVD og transportlignende begreper bare for færre sider. [Snapshot](../../cold/core-compute-network/evidence/086-compute-hosting.json): «Hosting velges fra krav, ikke fra en rangstige» |
+| `context` | Merket Learn-tillegg om AI/ML/IoT/Edge — Orientere om kategorier som bruker compute uten å skape nye scoped mestringsmål. | **D** | Flytt til tydelig valgfritt Les videre etter Summary eller sekundær innholdsoversikt; bevar direkte lenke og kilde-/begrensningstekst. Kontroller at ingen bevart vurdering forutsetter dette som ny undervisningsplikt før implementering. [Snapshot](../../cold/core-compute-network/evidence/090-compute-context.json): «Learn-tillegg: hva slags løsning bruker compute?» |
+| `missions` | Oversikts-/resume-kart for fire eksisterende guider — Finne et manglende eller tidligere guidet oppdrag. | **D** | Flytt kartets anbefalte rolle til sekundær Oppdragsoversikt/Resume, med kompatibel eksisterende route. Ingen flytting eller sammenblanding av de fire opprinnelige Start-/attempt-grensene. [Snapshot](../../cold/core-compute-network/evidence/091-compute-missions.json): «Fullført guidet undersøkelse · tilgjengelig for repetisjon» |
+| `assessment` | Selvstendig scenarioforsøk med beslutning+begrunnelse — Anvende compute-krav uten guidede løsningshint. | **A** | Behold egen aktivitet og attempt-/aid-grense. [Snapshot](../../cold/core-compute-network/evidence/092-compute-assessment.json): «Velg både beslutning og en faglig begrunnelse som passer valget.» |
+| `summary` | Avgrenset fremdrifts-/resultatdebrief — Lese separat besøk, guided og uavhengige innleveringer. | **A** | Behold egen avslutning, også hvis kart/context blir sekundært. [Snapshot](../../cold/core-compute-network/evidence/101-compute-summary.json): «Ingen XP, Microsoft Learn-fullføring eller exam readiness utledes.» |
+
+### Networking Part A
+
+Introduction og fundamentals deler katalogens navn/adresse/vei/tilgangsproblem før nytt begrepsgrunnlag. Missions gjentar eksisterende kort. Adressering, faktisk inspeksjon, peering, DNS og samlet Explorer har distinkte handlinger/spørsmål.
+
+Gevinst: Bruk Nordverkcase som innledning til IP-/kommunikasjonsgrunnlaget. Behold alle fire guidegrenser og cross-perspective Explorer som egen syntese; kartet blir sekundært. Risiko: Medium for introduksjonsintegrering: behold faktisk/syntetisk-grensen og merking av Part A/B. Ingen sammenslåing av adressedesign og faktisk VMinspeksjon eller deres Start. Prioritet: **P2 oppfølging**, ingen P1 før RC.
+
+Foreslåtte anbefalte økter med eksakte medlemmer:
+
+- **Fra applikasjonsbehov til navn, adresse og kommunikasjon**: `introduction`, `fundamentals`.
+- **Virtual Networks og logiske grenser**: `vnet`.
+- **IP Addressing & CIDR Explorer**: `addressing`.
+- **Undersøk en faktisk VM-nettverkskjede**: `dependencies`.
+- **VNet Peering · direkte forbindelser**: `peering`.
+- **Azure DNS · navn før nettverksvei**: `dns`.
+- **Azure Network Path Explorer**: `explorer`.
+- **Selvstendig Networking-anvendelse**: `assessment`.
+- **Part A · oppsummering og dokumenterte resultater**: `summary`.
+
+Sekundære/valgfrie økter:
+
+- **Guidede nettverksoppdrag**: `missions`.
+
+Hver nåværende aktivitet:
+
+| Topic | Rolle/mål | Valg | Begrunnelse og faktisk evidens |
+|---|---|---|---|
+| `introduction` | Arbeidslastorientering, firetrinnsdiagnose og oppdragskart — Formulere navn/adresse/vei/tilgang/tjeneste som separate spørsmål. | **C** | Integrer Nordverk-caset og faktisk/konseptuell avgrensning før IP-/DNS-grunnlaget i fundamentals. Behold oppdragslenker som sekundær oversikt og Part A/B-markering. [Snapshot](../../cold/core-compute-network/evidence/103-networking-introduction.json): «Hva må være på plass før katalogen kan svare?» |
+| `fundamentals` | IP-/resolver-/kommunikasjonsgrunnlag — Skille privat IP, DNS-navn, nettverksrute og autorisert respons. | **A** | Behold som faglig grunnlag, med introduksjonen integrert før definisjonene. [Snapshot](../../cold/core-compute-network/evidence/104-networking-fundamentals.json): «En privat adresse er ikke et sikkerhetsstempel.» |
+| `vnet` | Logisk nettverksstruktur og grenseskiller — Lese VM→NIC→subnet→VNet ved siden av administrative scopes. | **A** | Egen logisk medlemskapsoppgave gir substans før CIDR og faktisk inspeksjon. [Snapshot](../../cold/core-compute-network/evidence/105-networking-vnet.json): «Et subnet skaper ikke automatisk en sikkerhetsgrense bare ved å få et navn som «database».» |
+| `addressing` | CIDR-teori ved guidet adresseplanmodell — Beregne og kontrollere containment, overlap og tilgjengelig kapasitet. | **A** | Funksjonell modell og to observerbare design gjør egen side nødvendig. [Snapshot](../../cold/core-compute-network/evidence/106-networking-addressing.json): «Containment betyr at hele subnettintervallet ligger innenfor et av VNet-områdene.» |
+| `dependencies` | Faktisk VM-nettverksinspeksjon med eget guided Start — Følge eksisterende faktiske referanser og original receipt uten å oppfinne IP/trafikk. | **A** | Operativ versus konseptuell grense forsvarer egen aktivitet, uansett tekstmengde. [Snapshot](../../cold/core-compute-network/evidence/112-networking-dependencies.json): «Du skal følge identitetene, ikke bare like navn.» |
+| `peering` | Tosidig topologi og guidet feildiagnose — Forklare direkte peeringstatus, adressekrav og ikke-transitivitet. | **A** | Behold egen funksjonell undersøkelse; kildevaliderte feedbackdetaljer er separat fra segmentering. [Snapshot](../../cold/core-compute-network/evidence/113-networking-peering.json): «Koble nettverk direkte uten å finne på videre transit» |
+| `dns` | DNS-tjenester/records/resolverteori ved guidet navne-/veimodell — Følge faktisk resolver-/zone-/record-forutsetning før nettverksvei. | **A** | Substansiell egen navneoppgave før samlet diagnose; ikke slå inn i peering-Studio. [Snapshot](../../cold/core-compute-network/evidence/114-networking-dns.json): «Navn, adresse, vei og tilgang er fire forskjellige spørsmål» |
+| `explorer` | Samlet lesestrategi og fireperspektivs-workbench — Finne første udokumenterte trinn og velge riktig nettverksperspektiv. | **A** | Behold samlet funksjonell arbeidsflate som egen synteseøkt; en sammenslåing med DNS ville skjule de andre perspektivene og kreve mer state-/guidevalidering. [Snapshot](../../cold/core-compute-network/evidence/115-networking-explorer.json): «Finn det første trinnet som ikke er dokumentert» |
+| `missions` | Oversikt og gjenopptak av fire eksisterende nettverksguider — Finne manglende faktisk/konseptuell guide og gjenoppta rett sted. | **D** | Behold route/status/resume som sekundær Oppdragsoversikt og i eksisterende modulorientering. Fjern bare rollen som obligatorisk statisk aktivitetsstopp; bevar alle fire Start-/attempt-grenser. [Snapshot](../../cold/core-compute-network/evidence/131-networking-missions.json): «Fullført guidet undersøkelse · tilgjengelig for repetisjon» |
+| `assessment` | Selvstendig Networking A-forsøk og valgfri overføringslenke — Begrunne nettverksvalg fra nye krav uten guided løsning. | **A** | Behold egen attempt-grense; ikke bygg undervisningsseksjoner inn i aktiv vurdering. [Snapshot](../../cold/core-compute-network/evidence/132-networking-assessment.json): «Tidligere guidet arbeid gir ingen ny selvstendig vurderingskreditt.» |
+| `summary` | Part A-resultat og tydelig Part B-handoff — Tolke Part A-evidens uten å anta hele Networking ferdig. | **A** | Egen avslutning er nødvendig mellom delenes historikk og neste lag. [Snapshot](../../cold/core-compute-network/evidence/136-networking-summary.json): «Dette er Part A-resultater.» |
+
+### Networking Part B
+
+Handoff, VPNscope, privattransport/kryptering, serviceinngang, DNS og samlet diagnose er forskjellige spørsmål. De lange to Explorerne gir faktiske premiss-/beviskjeder; de er ikke duplikater som bør fjernes for et sidetall. Bare missions er et gjentatt oversiktskart.
+
+Gevinst: Behold hele fag-/modellsekvensen. La kartet være sekundær resume/status slik at ingen ekstra teoriøkt antydes av de samme kortene. Risiko: Low: bevar eksisterende A/B/C/DStart, separate historie-/aidgrenser og kartets gjenopptakslenker. Ingen endring av transport-/endpointmodeller. Prioritet: **P3 oppfølging**, ingen P1 før RC.
+
+Foreslåtte anbefalte økter med eksakte medlemmer:
+
+- **Fra tilkoblet nettverk til brukbar tjeneste**: `introduction`.
+- **VPN Gateway · site, klient og VNet**: `vpn`.
+- **ExpressRoute · privat transport og kryptering**: `expressroute`.
+- **Public & Private Endpoints · separate innganger**: `endpoints`.
+- **Private Link DNS · klientens oppslagsvei**: `private-dns`.
+- **Hybrid Connectivity Explorer**: `hybrid`.
+- **Endpoint & DNS Explorer**: `explorer`.
+- **Selvstendig Connectivity-anvendelse**: `assessment`.
+- **Networking Part B · dokumenterte resultater**: `summary`.
+
+Sekundære/valgfrie økter:
+
+- **Guidede Connectivity-oppdrag**: `missions`.
+
+Hver nåværende aktivitet:
+
+| Topic | Rolle/mål | Valg | Begrunnelse og faktisk evidens |
+|---|---|---|---|
+| `introduction` | Part A/B-overgang, samlet diagnostisk ramme og oppdragsorientering — Formulere transport, navnesvar, inngang og autorisasjon som separate delspørsmål. | **A** | Behold egen handoff, slik at Part B ikke starter som bare et VPN-kapittel eller arver tidligere resultater. [Snapshot](../../cold/core-compute-network/evidence/138-connectivity-introduction.json): «Fire forskjellige spørsmål før et program kan bruke tjenesten» |
+| `vpn` | VPN-scope/protokollforklaring og inngang til hybridfeilguide — Velge site, individuell klient eller annetVNet med passende tunnel-/underlagsforutsetninger. | **A** | Egen omfangsbeslutning er nødvendig før ExpressRoute-sammenligningen. [Snapshot](../../cold/core-compute-network/evidence/139-connectivity-vpn.json): «VPN Gateway knytter et bestemt omfang til et VNet» |
+| `expressroute` | Privattransport-/krypteringsforklaring og guide A-inngang — Skille provider/circuit/peering/ruting fra ende-til-ende-beskyttelse. | **A** | Behold egen beslutningsdimensjon før samlet avhengighetseksperiment. [Snapshot](../../cold/core-compute-network/evidence/140-connectivity-expressroute.json): «Velg privat transport og beskyttelse hver for seg» |
+| `endpoints` | Offentlig/privat tjenesteinngang og guide C-inngang — Skille privat tilknytning, godkjenning, public network access og apprettighet. | **A** | Behold eget tjenesteinngangsspørsmål; ikke slå lang teori inn i DNS bare fordi de samspiller. [Snapshot](../../cold/core-compute-network/evidence/141-connectivity-endpoints.json): «En offentlig adresse er ikke en offentlig datatillatelse» |
+| `private-dns` | PrivateLink-navneperspektiv og guide D-inngang — Beholde normalt hostname mens riktig privatadresse velges for faktisk resolver. | **A** | Behold egen konkret klientoppslagsoppgave før samlet endpointdiagnose. [Snapshot](../../cold/core-compute-network/evidence/142-connectivity-private-dns.json): «Klientens DNS-perspektiv avgjør hvilken inngang den forsøker» |
+| `hybrid` | Samlet transport-/krypterings-/feil-workbench — Forutsi om deklarerte avhengigheter og reserve faktisk dekker valgte krav. | **A** | Behold funksjonell Explorer; lang teori foran er ikke grunn til å absorbere selve arbeidsflaten. [Snapshot](../../cold/core-compute-network/evidence/143-connectivity-hybrid.json): «Les transportens avhengigheter og feilgrenser» |
+| `explorer` | Endpoint/DNS-syntese med syvtrinnsdiagnose — Finne første utilstrekkelige ledd fra hostname til deklarert respons. | **A** | Behold egen funksjonell Studio med nytt diagnostisk mål; ikke slå tre lange sider sammen for å oppnå et sidetall. [Snapshot](../../cold/core-compute-network/evidence/144-connectivity-explorer.json): «Følg navnet gjennom adressen til en tillatelse» |
+| `missions` | Oversikts-/resume-kart for fire eksisterende Connectivityguider — Gjenoppta riktig transport- eller endpointundersøkelse. | **D** | Flytt kartet til sekundær Oppdragsoversikt/Resume og behold route og original Start. I dette vitnet gikk Neste fortsatt via kartet; andre guidekonfigurasjoner kan allerede hoppe direkte. Ingen generell klikkbesparelse beregnes. [Snapshot](../../cold/core-compute-network/evidence/162-connectivity-missions.json): «Fullført guidet undersøkelse · tilgjengelig for repetisjon» |
+| `assessment` | Selvstendig Connectivityforsøk — Velge tiltak og årsak under nye transport-/inngangs-/tilgangspremisser. | **A** | Behold egen aktivitet og alle attemptgrenser. [Snapshot](../../cold/core-compute-network/evidence/163-connectivity-assessment.json): «Tidligere Part A-resultater eller guidet Part B-arbeid blir ikke en ny selvstendig førstegangsinnlevering.» |
+| `summary` | Separatstatus for Part B og videre Storagehåndoff — Tolke faktiskePart Bobservasjoner uten å arvePart A eller utlede virkelig tilgang. | **A** | Behold separat oppsummering mellom delens evidens og neste modul. [Snapshot](../../cold/core-compute-network/evidence/168-connectivity-summary-stable.json): «Part B-observasjoner er adskilt fra tidligere Part A-svar.» |
+
+## Hvorfor lange funksjonelle sider beholdes
+
+Core Infrastructure Explorer endrer fysisk plassering, data og routing, og Scope-siden skiller ren policykjøring fra separat faktisk PaaSlab. Compute har ulike læringshandlinger i faktisk praksis med VM, containerrecreate, kapasitet/feil, AVDpublisering og hostingbeslutning. Korte innledninger på disse sidene er ikke tegn på tomme segmenter.
+
+Networking A sin samlede Explorer gjenbruker kontrollperspektiver, men introduserer et reelt syntesespørsmål: hvilket bevis/trinn mangler, og hvilket perspektiv bør undersøkes? Den faktiske strukturen, adresseplanen, topologien og DNS må fortsatt være lesbare hver for seg. Networking B sin hybridmodell og syvtrinns endpointmodell undersøker ulike avhengigheter; de skal ikke slås sammen med hverandre eller med lange teoriaktiviteter for å treffe et sidetall. Gjentakelse av nødvendig begrep ved en ny feilpremiss er et legitimt læringsgrep; identisk orientering eller et tredje kortkart er noe annet.
+
+## Risiko og verifikasjonsbehov ved eventuell senere implementering
+
+Forslaget er presentasjon/sekvensering, ikke nye mål eller forkortet innhold. Før implementering må komposisjon beskrives eksplisitt og verifiseres mot bevart felt-/event-/rubric-/kildekontrakt. Etterpå kreves målrettede browserbevis for ordinær root/sidebar/Next, aktivguides egne prioriteringer, direkte historiske topics, reload/resume, Back/Forward, egen Start, aid og assessment. Behold sjekkens identitet selv når den blir en seksjon. Ikke migrer gamle resultater eller oppgrader dem fordi to forklaringer deler flate.
+
+Det er ikke observert en strukturfeil som gjør den eksisterende anbefalte reisen ubrukelig eller åpner feil attempt-/vurderingsgrense. Dette begrunner **oppfølging fremfor MÅ før RC**. Effekten på forståelse, kognitiv belastning og faktisk antall klikk må undersøkes med nye konkrete vitner og eventuelt menneskelig pilot; den er ikke målt her.

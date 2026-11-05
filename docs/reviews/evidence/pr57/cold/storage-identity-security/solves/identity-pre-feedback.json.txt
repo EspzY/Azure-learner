@@ -1,0 +1,12 @@
+{
+  "route": "identity",
+  "scenario": "if10",
+  "decision": 2,
+  "reason": 1,
+  "rationale": "Resource inbound direct-connect is already allowed; the relevant missing direction is home-tenant outbound toward the resource. Home inbound controls the reverse direction. Guest/standard-channel substitution violates the stated shared-channel/home-context requirement.",
+  "decisionText": "Kontroller hjemmeorganisasjonens outbound direct connect mot ressursorganisasjonen.",
+  "reasonText": "Denne reisen krever ressursens inbound og hjemmeorganisasjonens outbound.",
+  "at": "2026-11-05T14:15:23.265Z",
+  "promptFile": "evidence/identity-independent-prompt.json",
+  "promptSha256": "3938fd7ee0ac88468c119e7c64de4a9df1452791d29d6e2c7dcbd11d54bcf6b4"
+}

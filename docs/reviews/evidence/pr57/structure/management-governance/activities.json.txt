@@ -1,0 +1,2380 @@
+{
+  "reviewType": "Separat etter-lås-etterkontroll av pedagogisk segmentstruktur; ikke kaldt review eller endelig audit",
+  "generatedUtc": "2026-11-05T15:43:47.894416Z",
+  "sourceSha": "a3f1b575b2eb5b257fd455fec1a73b30a38706f4",
+  "coldLock": "/workspace/azurelab-pr57/cold/management-governance/lock.json",
+  "scope": [
+    "cost",
+    "governance",
+    "management",
+    "monitoring"
+  ],
+  "basis": "50 faktisk leste anbefalte aktiviteter og 13 fullførte guided-undersøkelser fra kald passering. Kun konkrete usikre overganger gjenlest i låste snapshots; ingen ny full nettlesertur eller repoendring.",
+  "classificationDefinitions": {
+    "A": "behold egen økt/side",
+    "B": "slå sammen med navngitt teoripartner",
+    "C": "integrer som synlig seksjon",
+    "D": "flytt til valgfritt oppslag; behold route",
+    "E": "mer undersøkelse før forslag"
+  },
+  "decision": "Ingen påvist alvorlig strukturell RC-hindring. Behold nå; eventuelle vedtatte forslag håndteres i én avgrenset senere presentasjonsleveranse.",
+  "limitations": [
+    "AI-reviewer, ikke menneskelig SME-/novice-/skjermleser- eller målt læringseffektvalidering.",
+    "Ingen ord-/sideterskel eller reduksjonsmål brukt.",
+    "Foreslåtte sammensatte økter er ikke rendret; lesbarhet og faktisk navigasjon må kontrolleres før vedtak.",
+    "Færre statiske oppføringer er ikke like mange sparte klikk: PR43s dynamiske Neste kan allerede gå forbi missions-kartet.",
+    "Ingen reduksjon i innhold, teorisubstans, modeller, 13 guidede identiteter, operative forsøksgrenser, assessment/Summary eller historiske URL-er er foreslått."
+  ],
+  "count": 50,
+  "classificationCounts": {
+    "A": 38,
+    "B": 8,
+    "C": 1,
+    "D": 3,
+    "E": 0
+  },
+  "activities": [
+    {
+      "module": "cost",
+      "topic": "introduction",
+      "title": "Hvorfor koster løsningen penger?",
+      "currentOrder": 1,
+      "currentUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/cost?topic=introduction",
+      "currentRole": "Orientering og faglig grunnramme",
+      "learningGoal": "Knytte arbeidslastens behov til økonomiske spørsmål og en etterprøvbar kostnadssyklus.",
+      "newUnderstanding": "Ressursantall er ikke en faktureringsenhet; estimat, observert kostnad, budsjett og prognose har forskjellige roller.",
+      "substance": "Fjordverk-caset, behovsspørsmålene, FinOps/scope, et worked example og kartet over fire konkrete benker gir reell orientering.",
+      "mechanism": "Behov → tjenester/målere → estimat → observasjon → tiltak og kontroll.",
+      "check": "Leseeksempel og konkret valg av senere benk; ingen selvstendig sjekk på denne siden.",
+      "prerequisites": [
+        "Cloud Computing: måling og prising",
+        "Service Types",
+        "Subscription/resource group"
+      ],
+      "dependency": "Forkunnskaper er faglige forbindelser, ikke nye tilgangs- eller fullføringskrav.",
+      "repetition": "Forklarer kostnadsdrivere på overordnet nivå som neste side konkretiserer. Fire oppdragsinnganger gjentas senere med annen rolle.",
+      "pageJustification": "Viktig innledning, men trenger ikke et eget sideskift før den konkrete forklaringen av fakturerbar mengde.",
+      "recordedEvidence": {
+        "kind": "read/status/navigation; not mastery evidence",
+        "detail": "Leseeksempel og konkret valg av senere benk; ingen selvstendig sjekk på denne siden."
+      },
+      "classification": "B",
+      "proposedSessionId": "cost-foundation",
+      "proposedSessionTitle": "Behov, kostnadsdrivere og fakturerbart forbruk",
+      "proposalReason": "Begge sider følger samme årsakskjede fra arbeidslastens behov til måleenhet. To navngitte seksjoner kan forbinde introduksjonens påstand med drivers-eksemplet uten å ta inn noen benk.",
+      "classificationLabel": "slå sammen med navngitt teoripartner",
+      "navEffect": "Én anbefalt økt for de navngitte topicmedlemmene. Gamle topic-URL-er, fragment/fokus og eksakt lagret resume må fortsatt åpne riktig originalseksjon. Bare faktisk synlig originaltekst kan registrere sitt gamle visit; montering av partnerseksjon gir ikke automatisk besøk eller completion.",
+      "risk": "Sammenslått økt er ennå ikke rendret. Behold to tydelige seksjoner, egne eksempler/forbehold og riktig lesestart; ikke legg flere mekanismer eller praksis inn i økten. Bekreft reell lesbarhet før vedtak.",
+      "priority": "P2 — én avgrenset senere presentasjonsleveranse; ikke før-RC-krav",
+      "mustBeforeRC": false,
+      "evidence": {
+        "snapshot": "/workspace/azurelab-pr57/cold/management-governance/cost-01-introduction.txt",
+        "screenshot": "/workspace/azurelab-pr57/cold/management-governance/cost-01-introduction.png",
+        "quote": "En ressurs er en administrativ enhet, ikke en universell faktureringsenhet.",
+        "relatedSnapshots": [],
+        "readingStatus": "Faktisk lest i kald nettleserpassering før kildeinnsyn; gjenbrukt etter lås.",
+        "interactionStatus": "Leseeksempel og konkret valg av senere benk; ingen selvstendig sjekk på denne siden."
+      },
+      "confidence": {
+        "currentMaterial": "høy: faktisk tekst lest og oppgitt modellarbeid utført",
+        "proposal": "middels",
+        "qualification": "Sammensatte økter er forslag, ikke implementert eller validert med menneskelige nybegynnere."
+      }
+    },
+    {
+      "module": "cost",
+      "topic": "drivers",
+      "title": "Kostnadsdrivere og fakturerbart forbruk",
+      "currentOrder": 2,
+      "currentUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/cost?topic=drivers",
+      "currentRole": "Begreps- og mekanismeundervisning",
+      "learningGoal": "Identifisere tjenesteavhengige målere og skille kapasitet, nyttig arbeid og fakturerbart forbruk.",
+      "newUnderstanding": "Compute, beholdt disk, operasjoner, trafikk, lisens og support kan endre seg uavhengig; billigere profil beviser ikke samme arbeid.",
+      "substance": "VM/App Service/Storage-eksempler, SKU/region/driftskrav, beholdte avhengigheter og et separat instanstime/lager-regnestykke tilfører mekanisme.",
+      "mechanism": "Tjenesteprisregel × riktig mengdeenhet; deallokering av compute fjerner ikke automatisk lagring.",
+      "check": "Worked example sammenligner compute og beholdt lagring. Aktiv modellkontrast ligger på estimate.",
+      "prerequisites": [
+        "Cost introduction",
+        "Compute/Storage som kjente tjenestetyper"
+      ],
+      "dependency": "Forkunnskaper er faglige forbindelser, ikke nye tilgangs- eller fullføringskrav.",
+      "repetition": "Tar opp behov/forutsetninger fra introduction, men tilfører målere og moteksempler. Gjentakelsen er en overgang, ikke overflødig fagstoff.",
+      "pageJustification": "Passer som egen tydelig seksjon i samme grunnøkt som introduction, før første benk.",
+      "recordedEvidence": {
+        "kind": "read/status/navigation; not mastery evidence",
+        "detail": "Worked example sammenligner compute og beholdt lagring. Aktiv modellkontrast ligger på estimate."
+      },
+      "classification": "B",
+      "proposedSessionId": "cost-foundation",
+      "proposedSessionTitle": "Behov, kostnadsdrivere og fakturerbart forbruk",
+      "proposalReason": "Begge sider følger samme årsakskjede fra arbeidslastens behov til måleenhet. To navngitte seksjoner kan forbinde introduksjonens påstand med drivers-eksemplet uten å ta inn noen benk.",
+      "classificationLabel": "slå sammen med navngitt teoripartner",
+      "navEffect": "Én anbefalt økt for de navngitte topicmedlemmene. Gamle topic-URL-er, fragment/fokus og eksakt lagret resume må fortsatt åpne riktig originalseksjon. Bare faktisk synlig originaltekst kan registrere sitt gamle visit; montering av partnerseksjon gir ikke automatisk besøk eller completion.",
+      "risk": "Sammenslått økt er ennå ikke rendret. Behold to tydelige seksjoner, egne eksempler/forbehold og riktig lesestart; ikke legg flere mekanismer eller praksis inn i økten. Bekreft reell lesbarhet før vedtak.",
+      "priority": "P2 — én avgrenset senere presentasjonsleveranse; ikke før-RC-krav",
+      "mustBeforeRC": false,
+      "evidence": {
+        "snapshot": "/workspace/azurelab-pr57/cold/management-governance/cost-02-drivers.txt",
+        "screenshot": "/workspace/azurelab-pr57/cold/management-governance/cost-02-drivers.png",
+        "quote": "Kapasitet er det løsningen kan levere. Nyttig arbeid er det applikasjonen faktisk får gjort.",
+        "relatedSnapshots": [],
+        "readingStatus": "Faktisk lest i kald nettleserpassering før kildeinnsyn; gjenbrukt etter lås.",
+        "interactionStatus": "Worked example sammenligner compute og beholdt lagring. Aktiv modellkontrast ligger på estimate."
+      },
+      "confidence": {
+        "currentMaterial": "høy: faktisk tekst lest og oppgitt modellarbeid utført",
+        "proposal": "middels",
+        "qualification": "Sammensatte økter er forslag, ikke implementert eller validert med menneskelige nybegynnere."
+      }
+    },
+    {
+      "module": "cost",
+      "topic": "estimate",
+      "title": "Pricing Calculator · bygg og sammenlign",
+      "currentOrder": 3,
+      "currentUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/cost?topic=estimate",
+      "currentRole": "Undervisning og eksplisitt guidet estimatbenk",
+      "learningGoal": "Bygge et avgrenset komponentestimat og forklare effekten av én endret forutsetning.",
+      "newUnderstanding": "Faste og tidsavhengige poster reagerer forskjellig; en kalkulasjon oppretter ingen ressurs og er ikke observert bruk.",
+      "substance": "Produktvalg, region/OS/tier/mengde, flere kostnadsposter, lavt/høyt forbrukstilfelle, lokal ØK-modell og valgfri offentlig kalkulator.",
+      "mechanism": "Prediker → kjør 720/240 timer med ellers like valg → sammenlign poster → lagre årsak.",
+      "check": "Faktisk fullført: 741→261 ØK; compute endres, beholdte poster står. Selvstendig cm10 er separat.",
+      "prerequisites": [
+        "Cost drivers",
+        "Arbeidslastens driftskrav"
+      ],
+      "dependency": "Forkunnskaper er faglige forbindelser, ikke nye tilgangs- eller fullføringskrav.",
+      "repetition": "Gjentar enhetsgrensen fra drivers for å gjøre den aktivt undersøkbar. Den lokale benken og ekstern kalkulator har forskjellige grenser.",
+      "pageJustification": "Egen side er begrunnet av reell parametervariasjon, prediksjon, resultat, årsak og eksplisitt oppdragsgrense.",
+      "recordedEvidence": {
+        "kind": "actual guided model/cause and local receipt where stated",
+        "detail": "Faktisk fullført: 741→261 ØK; compute endres, beholdte poster står. Selvstendig cm10 er separat."
+      },
+      "classification": "A",
+      "proposedSessionId": "cost-estimate",
+      "proposedSessionTitle": "Bygg og sammenlign et estimat",
+      "proposalReason": "Behold som egen anbefalt økt: Egen side er begrunnet av reell parametervariasjon, prediksjon, resultat, årsak og eksplisitt oppdragsgrense.",
+      "classificationLabel": "behold egen økt/side",
+      "navEffect": "Behold egen anbefalt økt, canonical topic, tidligere direkte URL-er og eksisterende statiske/dynamiske Neste-regler.",
+      "risk": "Ingen påvist alvorlig strukturell hindring. Behold originalt innhold, fokus, historikk og aktuelle attempt-/assistance-grenser ved eventuell omkringliggende presentasjonsendring.",
+      "priority": "Behold; intet nytt strukturelt før-RC-krav",
+      "mustBeforeRC": false,
+      "evidence": {
+        "snapshot": "/workspace/azurelab-pr57/cold/management-governance/cost-03-estimate-before.txt",
+        "screenshot": "/workspace/azurelab-pr57/cold/management-governance/cost-03-estimate-before.png",
+        "quote": "Azure Pricing Calculator brukes til å undersøke forventet kostnad før man velger og oppretter tjenester.",
+        "relatedSnapshots": [
+          "/workspace/azurelab-pr57/cold/management-governance/cost-03-estimate-720.txt",
+          "/workspace/azurelab-pr57/cold/management-governance/cost-03-estimate-240.txt",
+          "/workspace/azurelab-pr57/cold/management-governance/cost-03-estimate-completed.txt"
+        ],
+        "readingStatus": "Faktisk lest i kald nettleserpassering før kildeinnsyn; gjenbrukt etter lås.",
+        "interactionStatus": "Faktisk fullført: 741→261 ØK; compute endres, beholdte poster står. Selvstendig cm10 er separat."
+      },
+      "confidence": {
+        "currentMaterial": "høy: faktisk tekst lest og oppgitt modellarbeid utført",
+        "proposal": "høy for å beholde grensen; ingen målt læringseffekt",
+        "qualification": "Sammensatte økter er forslag, ikke implementert eller validert med menneskelige nybegynnere."
+      }
+    },
+    {
+      "module": "cost",
+      "topic": "analysis",
+      "title": "Cost Analysis · undersøk et avvik",
+      "currentOrder": 4,
+      "currentUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/cost?topic=analysis",
+      "currentRole": "Undervisning og guidet kostnadsanalyse",
+      "learningGoal": "Undersøke registrerte poster innen riktig scope og sammenlignbare perioder.",
+      "newUnderstanding": "Største nåværende post er ikke nødvendigvis største økning; pris, mengde og miks må undersøkes hver for seg.",
+      "substance": "Cost Analysis versus kalkulator, avtale/rettighetsavhengig scope, filtre, datalatens og actual/forecast-begreper forankres i daterte poster.",
+      "mechanism": "Velg App Sandbox/komponent, sammenlign 1–10 og 11–20, identifiser økning og undersøk timer/profilmiks.",
+      "check": "Faktisk fullført med 437 registrert kostnad og begrunnet compute-/miksundersøkelse.",
+      "prerequisites": [
+        "Cost estimate",
+        "Scope og periode"
+      ],
+      "dependency": "Forkunnskaper er faglige forbindelser, ikke nye tilgangs- eller fullføringskrav.",
+      "repetition": "Estimate/actual-skillet gjentas med ny datakilde og nytt spørsmål; budsjettsiden bruker samme data uten samme beslutning.",
+      "pageJustification": "Egen analytisk oppgave med eget bevis og feilslutninger; behold atskilt fra både estimat og budsjett.",
+      "recordedEvidence": {
+        "kind": "actual guided model/cause and local receipt where stated",
+        "detail": "Faktisk fullført med 437 registrert kostnad og begrunnet compute-/miksundersøkelse."
+      },
+      "classification": "A",
+      "proposedSessionId": "cost-analysis",
+      "proposedSessionTitle": "Undersøk et kostnadsavvik",
+      "proposalReason": "Behold som egen anbefalt økt: Egen analytisk oppgave med eget bevis og feilslutninger; behold atskilt fra både estimat og budsjett.",
+      "classificationLabel": "behold egen økt/side",
+      "navEffect": "Behold egen anbefalt økt, canonical topic, tidligere direkte URL-er og eksisterende statiske/dynamiske Neste-regler.",
+      "risk": "Ingen påvist alvorlig strukturell hindring. Behold originalt innhold, fokus, historikk og aktuelle attempt-/assistance-grenser ved eventuell omkringliggende presentasjonsendring.",
+      "priority": "Behold; intet nytt strukturelt før-RC-krav",
+      "mustBeforeRC": false,
+      "evidence": {
+        "snapshot": "/workspace/azurelab-pr57/cold/management-governance/cost-04-analysis-before.txt",
+        "screenshot": "/workspace/azurelab-pr57/cold/management-governance/cost-04-analysis-before.png",
+        "quote": "Microsoft Cost Management hjelper en organisasjon å synliggjøre, analysere, følge opp og optimalisere kostnader.",
+        "relatedSnapshots": [
+          "/workspace/azurelab-pr57/cold/management-governance/cost-04-analysis-app.txt"
+        ],
+        "readingStatus": "Faktisk lest i kald nettleserpassering før kildeinnsyn; gjenbrukt etter lås.",
+        "interactionStatus": "Faktisk fullført med 437 registrert kostnad og begrunnet compute-/miksundersøkelse."
+      },
+      "confidence": {
+        "currentMaterial": "høy: faktisk tekst lest og oppgitt modellarbeid utført",
+        "proposal": "høy for å beholde grensen; ingen målt læringseffekt",
+        "qualification": "Sammensatte økter er forslag, ikke implementert eller validert med menneskelige nybegynnere."
+      }
+    },
+    {
+      "module": "cost",
+      "topic": "budgets",
+      "title": "Budgets · kostnad og prognose",
+      "currentOrder": 5,
+      "currentUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/cost?topic=budgets",
+      "currentRole": "Undervisning og guidet terskel-/prognosebenk",
+      "learningGoal": "Vurdere actual- og forecast-varsel på samme budsjett og avklare oppfølging.",
+      "newUnderstanding": "Terskel, tid, registrert kostnad, prognose og separat automatisering er forskjellige ledd.",
+      "substance": "Scope/periode/beløp/terskler, behandlingsforsinkelse, mottakeransvar og fravær av automatisk ressursstopp forklares med samme scenario.",
+      "mechanism": "Samme budsjett600: actual80% mot 437, forecast100% mot 782; prediksjon, kontrast og årsak.",
+      "check": "Faktisk fullført: actual under480 og forecast over600; ingen stopp eller melding ble utført.",
+      "prerequisites": [
+        "Cost Analysis: actual/forecast",
+        "Prosent av budsjett og relevant periode"
+      ],
+      "dependency": "Forkunnskaper er faglige forbindelser, ikke nye tilgangs- eller fullføringskrav.",
+      "repetition": "Rebruker analysens kostnadsbegreper med ny kontrollmekanisme. Varslingens grenser er nødvendig repetisjon.",
+      "pageJustification": "Kortere konsept enn noen andre sider, men kontrasten og egen guided-avslutning legitimerer egen side.",
+      "recordedEvidence": {
+        "kind": "actual guided model/cause and local receipt where stated",
+        "detail": "Faktisk fullført: actual under480 og forecast over600; ingen stopp eller melding ble utført."
+      },
+      "classification": "A",
+      "proposedSessionId": "cost-budgets",
+      "proposedSessionTitle": "Undersøk actual og forecast mot budsjett",
+      "proposalReason": "Behold som egen anbefalt økt: Kortere konsept enn noen andre sider, men kontrasten og egen guided-avslutning legitimerer egen side.",
+      "classificationLabel": "behold egen økt/side",
+      "navEffect": "Behold egen anbefalt økt, canonical topic, tidligere direkte URL-er og eksisterende statiske/dynamiske Neste-regler.",
+      "risk": "Ingen påvist alvorlig strukturell hindring. Behold originalt innhold, fokus, historikk og aktuelle attempt-/assistance-grenser ved eventuell omkringliggende presentasjonsendring.",
+      "priority": "Behold; intet nytt strukturelt før-RC-krav",
+      "mustBeforeRC": false,
+      "evidence": {
+        "snapshot": "/workspace/azurelab-pr57/cold/management-governance/cost-05-budgets-before.txt",
+        "screenshot": "/workspace/azurelab-pr57/cold/management-governance/cost-05-budgets-before.png",
+        "quote": "Et Azure-budget følger kostnader innen et valgt scope, eventuelt med filtre, i en definert periode.",
+        "relatedSnapshots": [
+          "/workspace/azurelab-pr57/cold/management-governance/cost-05-budget-actual.txt",
+          "/workspace/azurelab-pr57/cold/management-governance/cost-05-budget-forecast.txt",
+          "/workspace/azurelab-pr57/cold/management-governance/cost-09-summary.txt"
+        ],
+        "readingStatus": "Faktisk lest i kald nettleserpassering før kildeinnsyn; gjenbrukt etter lås.",
+        "interactionStatus": "Faktisk fullført: actual under480 og forecast over600; ingen stopp eller melding ble utført."
+      },
+      "confidence": {
+        "currentMaterial": "høy: faktisk tekst lest og oppgitt modellarbeid utført",
+        "proposal": "høy for å beholde grensen; ingen målt læringseffekt",
+        "qualification": "Sammensatte økter er forslag, ikke implementert eller validert med menneskelige nybegynnere."
+      }
+    },
+    {
+      "module": "cost",
+      "topic": "tags",
+      "title": "Tags · organisering og kostnadsfordeling",
+      "currentOrder": 6,
+      "currentUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/cost?topic=tags",
+      "currentRole": "Undervisning og guidet metadata-/rapportbenk",
+      "learningGoal": "Fordele kostnader med direkte metadata og separat rapportarv uten å hevde tilgangsstyring.",
+      "newUnderstanding": "ARM-tags og Cost Management-inheritance kan vise ulike verdier uten at totalen eller ressursens direkte tags endres.",
+      "substance": "Key/value-konvensjoner, manglende verdier, følsomme data, Policy versus tag inheritance, konfliktvalg og synlig ufordelt kostnad.",
+      "mechanism": "Klassifiser stor VM/disk, sammenlign keep-resource/prefer-parent og kontroller totalen.",
+      "check": "Faktisk fullført: total627 bevart; direkte klassifisering og rapportarv ga forskjellige fordelinger.",
+      "prerequisites": [
+        "Resource hierarchy",
+        "Cost Analysis grupperinger"
+      ],
+      "dependency": "Forkunnskaper er faglige forbindelser, ikke nye tilgangs- eller fullføringskrav.",
+      "repetition": "Metadata≠tilgang gjentas senere i Purview med en annen datamodell; det er en viktig overførbar grense.",
+      "pageJustification": "Egen mekanisme og aktiv fordeling; bør ikke legges inn i en generell Cost Analysis-samleside.",
+      "recordedEvidence": {
+        "kind": "actual guided model/cause and local receipt where stated",
+        "detail": "Faktisk fullført: total627 bevart; direkte klassifisering og rapportarv ga forskjellige fordelinger."
+      },
+      "classification": "A",
+      "proposedSessionId": "cost-tags",
+      "proposedSessionTitle": "Forklar kostnadsfordeling med tags",
+      "proposalReason": "Behold som egen anbefalt økt: Egen mekanisme og aktiv fordeling; bør ikke legges inn i en generell Cost Analysis-samleside.",
+      "classificationLabel": "behold egen økt/side",
+      "navEffect": "Behold egen anbefalt økt, canonical topic, tidligere direkte URL-er og eksisterende statiske/dynamiske Neste-regler.",
+      "risk": "Ingen påvist alvorlig strukturell hindring. Behold originalt innhold, fokus, historikk og aktuelle attempt-/assistance-grenser ved eventuell omkringliggende presentasjonsendring.",
+      "priority": "Behold; intet nytt strukturelt før-RC-krav",
+      "mustBeforeRC": false,
+      "evidence": {
+        "snapshot": "/workspace/azurelab-pr57/cold/management-governance/cost-06-tags-before.txt",
+        "screenshot": "/workspace/azurelab-pr57/cold/management-governance/cost-06-tags-before.png",
+        "quote": "En Azure-tag er et key-value-par.",
+        "relatedSnapshots": [
+          "/workspace/azurelab-pr57/cold/management-governance/cost-06-tags-unassigned.txt",
+          "/workspace/azurelab-pr57/cold/management-governance/cost-06-tags-direct.txt",
+          "/workspace/azurelab-pr57/cold/management-governance/cost-06-tags-keep.txt",
+          "/workspace/azurelab-pr57/cold/management-governance/cost-06-tags-parent.txt",
+          "/workspace/azurelab-pr57/cold/management-governance/cost-09-summary.txt"
+        ],
+        "readingStatus": "Faktisk lest i kald nettleserpassering før kildeinnsyn; gjenbrukt etter lås.",
+        "interactionStatus": "Faktisk fullført: total627 bevart; direkte klassifisering og rapportarv ga forskjellige fordelinger."
+      },
+      "confidence": {
+        "currentMaterial": "høy: faktisk tekst lest og oppgitt modellarbeid utført",
+        "proposal": "høy for å beholde grensen; ingen målt læringseffekt",
+        "qualification": "Sammensatte økter er forslag, ikke implementert eller validert med menneskelige nybegynnere."
+      }
+    },
+    {
+      "module": "cost",
+      "topic": "optimization",
+      "title": "Optimalisering med driftskrav",
+      "currentOrder": 7,
+      "currentUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/cost?topic=optimization",
+      "currentRole": "Kravbasert økonomisk syntese",
+      "learningGoal": "Velge tiltak og betalingsalternativ etter bruk, kapasitet, varighet og avbruddstoleranse.",
+      "newUnderstanding": "Rightsizing før binding; prisfordel er ikke kapasitetsreservasjon, høy tilgjengelighet eller egnet Spot-arbeidslast.",
+      "substance": "Opprydding/avhengigheter, reservations, hourly savings commitment, Spot og Advisor settes opp mot konkrete driftsmessige moteksempler.",
+      "mechanism": "Beslutningsrekkefølge fra krav og målt grunnlast til tiltak; kontraster mellom fleksibilitet, binding og avbrudd.",
+      "check": "Worked example lest; cm10 senere faktisk løst før feedback med PAYG under uforenlige Spot-premisser.",
+      "prerequisites": [
+        "Cost drivers/estimate",
+        "Compute-avbrudd og kapasitet"
+      ],
+      "dependency": "Forkunnskaper er faglige forbindelser, ikke nye tilgangs- eller fullføringskrav.",
+      "repetition": "Henter opp tidligere betalingsord, men knytter dem nå til full kostnad og drift. Ikke en ren reprise.",
+      "pageJustification": "Egen syntese før independent-caser; sammenslåing med alle benkene ville skjule et annet beslutningsnivå.",
+      "recordedEvidence": {
+        "kind": "read/status/navigation; not mastery evidence",
+        "detail": "Worked example lest; cm10 senere faktisk løst før feedback med PAYG under uforenlige Spot-premisser."
+      },
+      "classification": "A",
+      "proposedSessionId": "cost-optimization",
+      "proposedSessionTitle": "Optimalisering med driftskrav",
+      "proposalReason": "Behold som egen anbefalt økt: Egen syntese før independent-caser; sammenslåing med alle benkene ville skjule et annet beslutningsnivå.",
+      "classificationLabel": "behold egen økt/side",
+      "navEffect": "Behold egen anbefalt økt, canonical topic, tidligere direkte URL-er og eksisterende statiske/dynamiske Neste-regler.",
+      "risk": "Ingen påvist alvorlig strukturell hindring. Behold originalt innhold, fokus, historikk og aktuelle attempt-/assistance-grenser ved eventuell omkringliggende presentasjonsendring.",
+      "priority": "Behold; intet nytt strukturelt før-RC-krav",
+      "mustBeforeRC": false,
+      "evidence": {
+        "snapshot": "/workspace/azurelab-pr57/cold/management-governance/cost-07-optimization.txt",
+        "screenshot": "/workspace/azurelab-pr57/cold/management-governance/cost-07-optimization.png",
+        "quote": "Optimalisering begynner med bruk og krav: hvilke ressurser er nødvendige, når trengs de, og hvilken kapasitet og tilgjengelighet kreves?",
+        "relatedSnapshots": [],
+        "readingStatus": "Faktisk lest i kald nettleserpassering før kildeinnsyn; gjenbrukt etter lås.",
+        "interactionStatus": "Worked example lest; cm10 senere faktisk løst før feedback med PAYG under uforenlige Spot-premisser."
+      },
+      "confidence": {
+        "currentMaterial": "høy: faktisk tekst lest og oppgitt modellarbeid utført",
+        "proposal": "høy for å beholde grensen; ingen målt læringseffekt",
+        "qualification": "Sammensatte økter er forslag, ikke implementert eller validert med menneskelige nybegynnere."
+      }
+    },
+    {
+      "module": "cost",
+      "topic": "assessment",
+      "title": "Selvstendig økonomisk anvendelse",
+      "currentOrder": 8,
+      "currentUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/cost?topic=assessment",
+      "currentRole": "Selvstendig anvendelse med egen Start-/innleveringsgrense",
+      "learningGoal": "Velge en forsvarlig beslutning og hele den tekniske begrunnelsen i et endret scenario.",
+      "newUnderstanding": "Tidligere guided evidence gir ikke automatisk riktig beslutning under nye premisser; hjelp/retry/førstesvar har forskjellige betydninger.",
+      "substance": "Egen scenarioinngang, nøytral førstebesvarelse og valgt-spesifikk feedback på beslutning og begrunnelse.",
+      "mechanism": "Eksplisitt Start → eget varig utkast → låst Submit → feedback; teori/Journal/historikk er separate hjelphandlinger.",
+      "check": "Faktisk låst før feedback og innlevert: cm10. Andre casefamilier er ikke verifisert av denne reviewer.",
+      "prerequisites": [
+        "Relevante undervisningsmekanismer",
+        "Kjenne hjelp/første/retry-grensen"
+      ],
+      "dependency": "Forkunnskaper er faglige forbindelser, ikke nye tilgangs- eller fullføringskrav.",
+      "repetition": "Deler fagbegreper med guide, men nye premisser og uassistert valg er en annen funksjon enn undervisning.",
+      "pageJustification": "Behold helt separat. Ingen teorisammenslåing, auto-Start, delt forsøks-ID eller inngang som viser forklaring før innlevering.",
+      "recordedEvidence": {
+        "kind": "actual first independent submission",
+        "detail": "Faktisk låst før feedback og innlevert: cm10. Andre casefamilier er ikke verifisert av denne reviewer."
+      },
+      "classification": "A",
+      "proposedSessionId": "cost-assessment",
+      "proposedSessionTitle": "Selvstendig økonomisk anvendelse",
+      "proposalReason": "Behold som egen anbefalt økt: Behold helt separat. Ingen teorisammenslåing, auto-Start, delt forsøks-ID eller inngang som viser forklaring før innlevering.",
+      "classificationLabel": "behold egen økt/side",
+      "navEffect": "Behold egen anbefalt økt, canonical topic, tidligere direkte URL-er og eksisterende statiske/dynamiske Neste-regler.",
+      "risk": "Ingen påvist alvorlig strukturell hindring. Behold originalt innhold, fokus, historikk og aktuelle attempt-/assistance-grenser ved eventuell omkringliggende presentasjonsendring.",
+      "priority": "Behold; intet nytt strukturelt før-RC-krav",
+      "mustBeforeRC": false,
+      "evidence": {
+        "snapshot": "/workspace/azurelab-pr57/cold/management-governance/cost-08-assessment-before.txt",
+        "screenshot": "/workspace/azurelab-pr57/cold/management-governance/cost-08-assessment-before.png",
+        "quote": "Velg løsning og teknisk begrunnelse ut fra kravene.",
+        "relatedSnapshots": [
+          "/workspace/azurelab-pr57/cold/management-governance/cost-08-cm10-feedback.txt"
+        ],
+        "readingStatus": "Faktisk lest i kald nettleserpassering før kildeinnsyn; gjenbrukt etter lås.",
+        "interactionStatus": "Faktisk låst før feedback og innlevert: cm10. Andre casefamilier er ikke verifisert av denne reviewer."
+      },
+      "confidence": {
+        "currentMaterial": "høy: faktisk tekst lest og oppgitt modellarbeid utført",
+        "proposal": "høy for å beholde grensen; ingen målt læringseffekt",
+        "qualification": "Sammensatte økter er forslag, ikke implementert eller validert med menneskelige nybegynnere."
+      }
+    },
+    {
+      "module": "cost",
+      "topic": "summary",
+      "title": "Hva har du dokumentert?",
+      "currentOrder": 9,
+      "currentUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/cost?topic=summary",
+      "currentRole": "Evidensoversikt, repetisjon og videreføring",
+      "learningGoal": "Tolke hva egne registreringer viser og velge presis repetisjon eller neste modul.",
+      "newUnderstanding": "Besøk, guided, faktiske receipts, førsteinnlevering, hjelp og retry må leses som forskjellige registreringer.",
+      "substance": "Modulspesifikke tellere og førsteinnleveringer, lenker tilbake til konkrete undersøkelser og videreføring. Dette er syntese/evidenstolkning, ikke et nytt Azure-produkt.",
+      "mechanism": "Vis faktisk historikk → avgrens konklusjon → velg repetisjon/videre modul.",
+      "check": "Summary faktisk lest etter gjennomført arbeid; forventede guided-tall og egne førsteinnleveringer var synlige.",
+      "prerequisites": [
+        "De gjennomførte eller besøkte aktivitetene"
+      ],
+      "dependency": "Forkunnskaper er faglige forbindelser, ikke nye tilgangs- eller fullføringskrav.",
+      "repetition": "Oppdragslisten gjentar kartet, men her sammen med faktisk personlig evidens. Den konteksten begrunner gjentakelsen.",
+      "pageJustification": "Behold egen avslutning. Den skal ikke være en ny teoriside eller blandes inn i aktiv independent-feedback.",
+      "recordedEvidence": {
+        "kind": "read/status/navigation; not mastery evidence",
+        "detail": "Summary faktisk lest etter gjennomført arbeid; forventede guided-tall og egne førsteinnleveringer var synlige."
+      },
+      "classification": "A",
+      "proposedSessionId": "cost-summary",
+      "proposedSessionTitle": "Hva har du dokumentert?",
+      "proposalReason": "Behold som egen anbefalt økt: Behold egen avslutning. Den skal ikke være en ny teoriside eller blandes inn i aktiv independent-feedback.",
+      "classificationLabel": "behold egen økt/side",
+      "navEffect": "Behold egen anbefalt økt, canonical topic, tidligere direkte URL-er og eksisterende statiske/dynamiske Neste-regler.",
+      "risk": "Ingen påvist alvorlig strukturell hindring. Behold originalt innhold, fokus, historikk og aktuelle attempt-/assistance-grenser ved eventuell omkringliggende presentasjonsendring.",
+      "priority": "Behold; intet nytt strukturelt før-RC-krav",
+      "mustBeforeRC": false,
+      "evidence": {
+        "snapshot": "/workspace/azurelab-pr57/cold/management-governance/cost-09-summary.txt",
+        "screenshot": "/workspace/azurelab-pr57/cold/management-governance/cost-09-summary.png",
+        "quote": "Disse lokale resultatene sier hvilke versjonerte aktiviteter du har utført.",
+        "relatedSnapshots": [],
+        "readingStatus": "Faktisk lest i kald nettleserpassering før kildeinnsyn; gjenbrukt etter lås.",
+        "interactionStatus": "Summary faktisk lest etter gjennomført arbeid; forventede guided-tall og egne førsteinnleveringer var synlige."
+      },
+      "confidence": {
+        "currentMaterial": "høy: faktisk tekst lest og oppgitt modellarbeid utført",
+        "proposal": "høy for å beholde grensen; ingen målt læringseffekt",
+        "qualification": "Sammensatte økter er forslag, ikke implementert eller validert med menneskelige nybegynnere."
+      }
+    },
+    {
+      "module": "governance",
+      "topic": "introduction",
+      "title": "Fra kostnader til styring",
+      "currentOrder": 1,
+      "currentUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/governance?topic=introduction",
+      "currentRole": "Orientering og mekanismekart",
+      "learningGoal": "Velge mellom rettighet, konfigurasjonskrav, datastyring, ressursvern og leverandørdokumentasjon.",
+      "newUnderstanding": "En autorisert eller policy-godkjent handling er ikke dermed full compliance.",
+      "substance": "Ett Fjordverk-problem med feil region, sletting og uklart rapportopphav viser hvorfor fem kontrolltyper trengs.",
+      "mechanism": "Spørsmål/krav → passende kontroll og avgrenset konklusjon.",
+      "check": "Worked example og oppdragskart lest; ingen ny teknisk handling på denne siden.",
+      "prerequisites": [
+        "Cost",
+        "Architecture hierarchy",
+        "Access Control"
+      ],
+      "dependency": "Forkunnskaper er faglige forbindelser, ikke nye tilgangs- eller fullføringskrav.",
+      "repetition": "Gjenbruker RBAC og scope som forkunnskap; de etterfølgende sidene går ned i forskjellige mekanismer.",
+      "pageJustification": "Behold som egen kort, men viktig overgang mellom økonomi og styring; den bestemmer hvilket problem verktøyene skal løse.",
+      "recordedEvidence": {
+        "kind": "read/status/navigation; not mastery evidence",
+        "detail": "Worked example og oppdragskart lest; ingen ny teknisk handling på denne siden."
+      },
+      "classification": "A",
+      "proposedSessionId": "gov-introduction",
+      "proposedSessionTitle": "Fra kostnader til styring",
+      "proposalReason": "Behold som egen anbefalt økt: Behold som egen kort, men viktig overgang mellom økonomi og styring; den bestemmer hvilket problem verktøyene skal løse.",
+      "classificationLabel": "behold egen økt/side",
+      "navEffect": "Behold egen anbefalt økt, canonical topic, tidligere direkte URL-er og eksisterende statiske/dynamiske Neste-regler.",
+      "risk": "Ingen påvist alvorlig strukturell hindring. Behold originalt innhold, fokus, historikk og aktuelle attempt-/assistance-grenser ved eventuell omkringliggende presentasjonsendring.",
+      "priority": "Behold; intet nytt strukturelt før-RC-krav",
+      "mustBeforeRC": false,
+      "evidence": {
+        "snapshot": "/workspace/azurelab-pr57/cold/management-governance/governance-01-read.txt",
+        "screenshot": "/workspace/azurelab-pr57/cold/management-governance/governance-01-read.png",
+        "quote": "Fjordverk vet nå hvem som administrerer Azure, hvor ressursene ligger og hva de koster.",
+        "relatedSnapshots": [],
+        "readingStatus": "Faktisk lest i kald nettleserpassering før kildeinnsyn; gjenbrukt etter lås.",
+        "interactionStatus": "Worked example og oppdragskart lest; ingen ny teknisk handling på denne siden."
+      },
+      "confidence": {
+        "currentMaterial": "høy: faktisk tekst lest og oppgitt modellarbeid utført",
+        "proposal": "høy for å beholde grensen; ingen målt læringseffekt",
+        "qualification": "Sammensatte økter er forslag, ikke implementert eller validert med menneskelige nybegynnere."
+      }
+    },
+    {
+      "module": "governance",
+      "topic": "purview",
+      "title": "Microsoft Purview",
+      "currentOrder": 2,
+      "currentUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/governance?topic=purview",
+      "currentRole": "Data governance og produktmodell",
+      "learningGoal": "Forklare Purview-porteføljens roller og hvordan assets, Data Map, Catalog og eiere henger sammen.",
+      "newUnderstanding": "Governance domain/data product er et datastyringshierarki og ikke management groups eller kildetillatelse.",
+      "substance": "Porteføljeavgrensning, scanningens vilkår, owner/steward og produkt/asset-relasjoner forankres i samme produktkatalog.",
+      "mechanism": "Registrert metadata → kuratering/oppdagelse → ansvarlig bruk med separat kildeautorisasjon.",
+      "check": "Teori og worked example lest; metadata/source-authorization-kontrast faktisk fullført senere i Studio.",
+      "prerequisites": [
+        "Governance introduction",
+        "Skillet data/metadata"
+      ],
+      "dependency": "Forkunnskaper er faglige forbindelser, ikke nye tilgangs- eller fullføringskrav.",
+      "repetition": "Eiere, katalogoppdagelse og kildetilgang kommer igjen på catalog med mer konkret mekanisme.",
+      "pageJustification": "Produktintroduksjonen gir mest sammenheng når den følger direkte over i den forklarende metadata-/lineage-seksjonen.",
+      "recordedEvidence": {
+        "kind": "read/status/navigation; not mastery evidence",
+        "detail": "Teori og worked example lest; metadata/source-authorization-kontrast faktisk fullført senere i Studio."
+      },
+      "classification": "B",
+      "proposedSessionId": "gov-data-governance",
+      "proposedSessionTitle": "Purview: finn, forstå og forvalt data",
+      "proposalReason": "Data Map/Catalog/owner forklarer rammen; metadata, glossary og lineage forklarer hvordan samme produktkatalog brukes. Behold to tydelige seksjoner og alle tilgangsgrenser; ingen modell flyttes inn.",
+      "classificationLabel": "slå sammen med navngitt teoripartner",
+      "navEffect": "Én anbefalt økt for de navngitte topicmedlemmene. Gamle topic-URL-er, fragment/fokus og eksakt lagret resume må fortsatt åpne riktig originalseksjon. Bare faktisk synlig originaltekst kan registrere sitt gamle visit; montering av partnerseksjon gir ikke automatisk besøk eller completion.",
+      "risk": "Sammenslått økt er ennå ikke rendret. Behold to tydelige seksjoner, egne eksempler/forbehold og riktig lesestart; ikke legg flere mekanismer eller praksis inn i økten. Bekreft reell lesbarhet før vedtak.",
+      "priority": "P2 — én avgrenset senere presentasjonsleveranse; ikke før-RC-krav",
+      "mustBeforeRC": false,
+      "evidence": {
+        "snapshot": "/workspace/azurelab-pr57/cold/management-governance/governance-02-read.txt",
+        "screenshot": "/workspace/azurelab-pr57/cold/management-governance/governance-02-read.png",
+        "quote": "Publiseringen erstatter ikke kildens egen tilgangskontroll.",
+        "relatedSnapshots": [],
+        "readingStatus": "Faktisk lest i kald nettleserpassering før kildeinnsyn; gjenbrukt etter lås.",
+        "interactionStatus": "Teori og worked example lest; metadata/source-authorization-kontrast faktisk fullført senere i Studio."
+      },
+      "confidence": {
+        "currentMaterial": "høy: faktisk tekst lest og oppgitt modellarbeid utført",
+        "proposal": "middels",
+        "qualification": "Sammensatte økter er forslag, ikke implementert eller validert med menneskelige nybegynnere."
+      }
+    },
+    {
+      "module": "governance",
+      "topic": "catalog",
+      "title": "Metadata, eiere og lineage",
+      "currentOrder": 3,
+      "currentUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/governance?topic=catalog",
+      "currentRole": "Metadata-, begreps- og relasjonsundervisning",
+      "learningGoal": "Bruke klassifisering, glossary, eierskap og lineage til forståelse uten å tilskrive dem universell beskyttelse.",
+      "newUnderstanding": "Katalogoppføring, synlig relasjon, datakvalitet og faktisk kildeautorisasjon er forskjellige bevis.",
+      "substance": "Netto-salg-begrep, kilde→sammenstilling→rapport, manglende lineage-dekning og separat kundetabelltilgang er substansielle moteksempler.",
+      "mechanism": "Beskriv/kurater metadata og følg opphav; avklar tilgang hos separat kilde.",
+      "check": "Worked example lest; faktisk Studio-kontrast viser at metadata alene ikke gir data access.",
+      "prerequisites": [
+        "Purview assets/Data Map/Catalog",
+        "Access Control"
+      ],
+      "dependency": "Forkunnskaper er faglige forbindelser, ikke nye tilgangs- eller fullføringskrav.",
+      "repetition": "Viderefører samme eier-/katalogcase og gjentar tilgangsgrensen med konkret lineage/classification-mekanisme.",
+      "pageJustification": "Behold som tydelig andre seksjon i felles Purview-økt; ikke flytt dette inn i den operative Studio-benken.",
+      "recordedEvidence": {
+        "kind": "read/status/navigation; not mastery evidence",
+        "detail": "Worked example lest; faktisk Studio-kontrast viser at metadata alene ikke gir data access."
+      },
+      "classification": "B",
+      "proposedSessionId": "gov-data-governance",
+      "proposedSessionTitle": "Purview: finn, forstå og forvalt data",
+      "proposalReason": "Data Map/Catalog/owner forklarer rammen; metadata, glossary og lineage forklarer hvordan samme produktkatalog brukes. Behold to tydelige seksjoner og alle tilgangsgrenser; ingen modell flyttes inn.",
+      "classificationLabel": "slå sammen med navngitt teoripartner",
+      "navEffect": "Én anbefalt økt for de navngitte topicmedlemmene. Gamle topic-URL-er, fragment/fokus og eksakt lagret resume må fortsatt åpne riktig originalseksjon. Bare faktisk synlig originaltekst kan registrere sitt gamle visit; montering av partnerseksjon gir ikke automatisk besøk eller completion.",
+      "risk": "Sammenslått økt er ennå ikke rendret. Behold to tydelige seksjoner, egne eksempler/forbehold og riktig lesestart; ikke legg flere mekanismer eller praksis inn i økten. Bekreft reell lesbarhet før vedtak.",
+      "priority": "P2 — én avgrenset senere presentasjonsleveranse; ikke før-RC-krav",
+      "mustBeforeRC": false,
+      "evidence": {
+        "snapshot": "/workspace/azurelab-pr57/cold/management-governance/governance-03-read.txt",
+        "screenshot": "/workspace/azurelab-pr57/cold/management-governance/governance-03-read.png",
+        "quote": "Katalogtilgang og tilgang til kildedata er separate spørsmål.",
+        "relatedSnapshots": [],
+        "readingStatus": "Faktisk lest i kald nettleserpassering før kildeinnsyn; gjenbrukt etter lås.",
+        "interactionStatus": "Worked example lest; faktisk Studio-kontrast viser at metadata alene ikke gir data access."
+      },
+      "confidence": {
+        "currentMaterial": "høy: faktisk tekst lest og oppgitt modellarbeid utført",
+        "proposal": "middels",
+        "qualification": "Sammensatte økter er forslag, ikke implementert eller validert med menneskelige nybegynnere."
+      }
+    },
+    {
+      "module": "governance",
+      "topic": "policy",
+      "title": "Azure Policy",
+      "currentOrder": 4,
+      "currentUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/governance?topic=policy",
+      "currentRole": "Regel-/effektundervisning",
+      "learningGoal": "Forklare hva en Policy-definition og ulike effects faktisk gjør med relevante requests.",
+      "newUnderstanding": "Audit, Deny, Modify og deployIfNotExists har forskjellige virkninger; eksisterende avvik blir ikke automatisk slettet eller reparert.",
+      "substance": "Definition/initiative/assignment, type/mode/vilkår og håndheving før request behandles gir flere egne tekniske skiller.",
+      "mechanism": "Regelvilkår + effect vurdert mot konkret ressurstype og operasjon.",
+      "check": "Teori lest; Audit→Deny faktisk kjørt; ordinær lokal Policy-avvisning og korrigering faktisk inspisert senere.",
+      "prerequisites": [
+        "Governance introduction",
+        "ARM request/resource type"
+      ],
+      "dependency": "Forkunnskaper er faglige forbindelser, ikke nye tilgangs- eller fullføringskrav.",
+      "repetition": "Scope og timing nevnes for å kvalifisere effekter og forklares videre på egne sider.",
+      "pageJustification": "Behold egen side: flere effects og request/eksisterende-ressurs-skillet er nok egen substans; ikke samle hele Policy-trilogien til én lang side.",
+      "recordedEvidence": {
+        "kind": "read/status/navigation; not mastery evidence",
+        "detail": "Teori lest; Audit→Deny faktisk kjørt; ordinær lokal Policy-avvisning og korrigering faktisk inspisert senere."
+      },
+      "classification": "A",
+      "proposedSessionId": "gov-policy",
+      "proposedSessionTitle": "Policy-definition og effect",
+      "proposalReason": "Behold som egen anbefalt økt: Behold egen side: flere effects og request/eksisterende-ressurs-skillet er nok egen substans; ikke samle hele Policy-trilogien til én lang side.",
+      "classificationLabel": "behold egen økt/side",
+      "navEffect": "Behold egen anbefalt økt, canonical topic, tidligere direkte URL-er og eksisterende statiske/dynamiske Neste-regler.",
+      "risk": "Ingen påvist alvorlig strukturell hindring. Behold originalt innhold, fokus, historikk og aktuelle attempt-/assistance-grenser ved eventuell omkringliggende presentasjonsendring.",
+      "priority": "Behold; intet nytt strukturelt før-RC-krav",
+      "mustBeforeRC": false,
+      "evidence": {
+        "snapshot": "/workspace/azurelab-pr57/cold/management-governance/governance-04-read.txt",
+        "screenshot": "/workspace/azurelab-pr57/cold/management-governance/governance-04-read.png",
+        "quote": "Azure Policy hjelper organisasjoner å vurdere og håndheve standarder for støttede Azure-ressurser.",
+        "relatedSnapshots": [],
+        "readingStatus": "Faktisk lest i kald nettleserpassering før kildeinnsyn; gjenbrukt etter lås.",
+        "interactionStatus": "Teori lest; Audit→Deny faktisk kjørt; ordinær lokal Policy-avvisning og korrigering faktisk inspisert senere."
+      },
+      "confidence": {
+        "currentMaterial": "høy: faktisk tekst lest og oppgitt modellarbeid utført",
+        "proposal": "høy for å beholde grensen; ingen målt læringseffekt",
+        "qualification": "Sammensatte økter er forslag, ikke implementert eller validert med menneskelige nybegynnere."
+      }
+    },
+    {
+      "module": "governance",
+      "topic": "assignments",
+      "title": "Assignment, scope og unntak",
+      "currentOrder": 5,
+      "currentUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/governance?topic=assignments",
+      "currentRole": "Scope og unntaksstruktur",
+      "learningGoal": "Avgjøre om en regel gjelder og hva notScopes, exemptions og flere assignments innebærer.",
+      "newUnderstanding": "Bredt scope betyr ikke alle typer; Exempt eller excluded betyr ikke faktisk oppfylt krav.",
+      "substance": "Søster-subscriptions, arvet scope, waiver/mitigated, begrunnelse/utløp og uavhengige relevante regler tilfører nye årsaksledd.",
+      "mechanism": "Assignment-rekkevidde → type/vilkår → unntak → øvrige samtidige kontroller.",
+      "check": "Teori lest; App/Shared/parent-scope faktisk sammenlignet i Studio. Ikke alle exemption-varianter kjørt.",
+      "prerequisites": [
+        "Azure Policy definition/effect",
+        "Management hierarchy"
+      ],
+      "dependency": "Forkunnskaper er faglige forbindelser, ikke nye tilgangs- eller fullføringskrav.",
+      "repetition": "Gjentar definition/assignment-navn for å skifte fra virkning til rekkevidde; ikke en ren reprise av policy.",
+      "pageJustification": "Egen side er begrunnet av den selvstendige scope-/unntaksbeslutningen og mange plausible feilslutninger.",
+      "recordedEvidence": {
+        "kind": "read/status/navigation; not mastery evidence",
+        "detail": "Teori lest; App/Shared/parent-scope faktisk sammenlignet i Studio. Ikke alle exemption-varianter kjørt."
+      },
+      "classification": "A",
+      "proposedSessionId": "gov-assignments",
+      "proposedSessionTitle": "Scope, assignments og unntak",
+      "proposalReason": "Behold som egen anbefalt økt: Egen side er begrunnet av den selvstendige scope-/unntaksbeslutningen og mange plausible feilslutninger.",
+      "classificationLabel": "behold egen økt/side",
+      "navEffect": "Behold egen anbefalt økt, canonical topic, tidligere direkte URL-er og eksisterende statiske/dynamiske Neste-regler.",
+      "risk": "Ingen påvist alvorlig strukturell hindring. Behold originalt innhold, fokus, historikk og aktuelle attempt-/assistance-grenser ved eventuell omkringliggende presentasjonsendring.",
+      "priority": "Behold; intet nytt strukturelt før-RC-krav",
+      "mustBeforeRC": false,
+      "evidence": {
+        "snapshot": "/workspace/azurelab-pr57/cold/management-governance/governance-05-read.txt",
+        "screenshot": "/workspace/azurelab-pr57/cold/management-governance/governance-05-read.png",
+        "quote": "Management Group → Subscription → Resource Group → Resource gir administrative nivåer.",
+        "relatedSnapshots": [],
+        "readingStatus": "Faktisk lest i kald nettleserpassering før kildeinnsyn; gjenbrukt etter lås.",
+        "interactionStatus": "Teori lest; App/Shared/parent-scope faktisk sammenlignet i Studio. Ikke alle exemption-varianter kjørt."
+      },
+      "confidence": {
+        "currentMaterial": "høy: faktisk tekst lest og oppgitt modellarbeid utført",
+        "proposal": "høy for å beholde grensen; ingen målt læringseffekt",
+        "qualification": "Sammensatte økter er forslag, ikke implementert eller validert med menneskelige nybegynnere."
+      }
+    },
+    {
+      "module": "governance",
+      "topic": "compliance",
+      "title": "Compliance og remediation",
+      "currentOrder": 6,
+      "currentUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/governance?topic=compliance",
+      "currentRole": "Timing, observasjon og remediation",
+      "learningGoal": "Tolke status og planlegge retting med riktige tids-, tillatelses- og effektforutsetninger.",
+      "newUnderstanding": "Non-compliant, exempt, ikke relevant og ikke ferdig vurdert er ikke samme resultat; ny håndheving er ikke eksisterende remediation.",
+      "substance": "Statussemantikk, forsinkede evalueringer, DoNotEnforce, Modify/DINE og eksplisitt remediation gir en tydelig tidsakse.",
+      "mechanism": "Vurdering/ny request/etterfølgende reparasjon er ulike hendelser og krever ulike forutsetninger.",
+      "check": "Studenttekst og moteksempler lest; ingen egen full remediation-/timing-run på alle varianter.",
+      "prerequisites": [
+        "Policy effects",
+        "Assignment/scope/unntak"
+      ],
+      "dependency": "Forkunnskaper er faglige forbindelser, ikke nye tilgangs- eller fullføringskrav.",
+      "repetition": "Rebruker effects for å forklare tidsforløp; konkret ny forståelse, ikke grunnlag for å fjerne siden.",
+      "pageJustification": "Behold etter assignments: den avslutter Policy-mekanismen uten å gjøre første Policy-lesing til en overfylt samleside.",
+      "recordedEvidence": {
+        "kind": "read/status/navigation; not mastery evidence",
+        "detail": "Studenttekst og moteksempler lest; ingen egen full remediation-/timing-run på alle varianter."
+      },
+      "classification": "A",
+      "proposedSessionId": "gov-compliance",
+      "proposedSessionTitle": "Compliance, timing og remediation",
+      "proposalReason": "Behold som egen anbefalt økt: Behold etter assignments: den avslutter Policy-mekanismen uten å gjøre første Policy-lesing til en overfylt samleside.",
+      "classificationLabel": "behold egen økt/side",
+      "navEffect": "Behold egen anbefalt økt, canonical topic, tidligere direkte URL-er og eksisterende statiske/dynamiske Neste-regler.",
+      "risk": "Ingen påvist alvorlig strukturell hindring. Behold originalt innhold, fokus, historikk og aktuelle attempt-/assistance-grenser ved eventuell omkringliggende presentasjonsendring.",
+      "priority": "Behold; intet nytt strukturelt før-RC-krav",
+      "mustBeforeRC": false,
+      "evidence": {
+        "snapshot": "/workspace/azurelab-pr57/cold/management-governance/governance-06-read.txt",
+        "screenshot": "/workspace/azurelab-pr57/cold/management-governance/governance-06-read.png",
+        "quote": "En compliance-vurdering må knyttes til en bestemt regel, ressurs og evalueringskontekst.",
+        "relatedSnapshots": [],
+        "readingStatus": "Faktisk lest i kald nettleserpassering før kildeinnsyn; gjenbrukt etter lås.",
+        "interactionStatus": "Studenttekst og moteksempler lest; ingen egen full remediation-/timing-run på alle varianter."
+      },
+      "confidence": {
+        "currentMaterial": "høy: faktisk tekst lest og oppgitt modellarbeid utført",
+        "proposal": "høy for å beholde grensen; ingen målt læringseffekt",
+        "qualification": "Sammensatte økter er forslag, ikke implementert eller validert med menneskelige nybegynnere."
+      }
+    },
+    {
+      "module": "governance",
+      "topic": "locks",
+      "title": "Resource Locks",
+      "currentOrder": 7,
+      "currentUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/governance?topic=locks",
+      "currentRole": "Administrativt ressursvern",
+      "learningGoal": "Velge lock-type og forklare arv, POST-konsekvenser og sletting av en gruppe med låst barn.",
+      "newUnderstanding": "ReadOnly kan stoppe start/ListKeys; Owner overstyrer ikke operasjonen; barnelock er ikke generell oppadgående arv.",
+      "substance": "CanNotDelete/ReadOnly, mest restriktiv relevant lock, egne lock-rettigheter og hele-gruppe-operasjonen gir en selvstendig kontrollmodell.",
+      "mechanism": "Lock-type + scope/ancestor + konkret management-operasjon.",
+      "check": "Teori lest; modify/delete/start og hel gruppe med/uten barnelock faktisk sammenlignet og årsak lagret.",
+      "prerequisites": [
+        "Management hierarchy",
+        "Principal/tillatelse",
+        "Policy som annen kontroll"
+      ],
+      "dependency": "Forkunnskaper er faglige forbindelser, ikke nye tilgangs- eller fullføringskrav.",
+      "repetition": "Data/management-grensen introduseres kort og utdypes neste side med andre operasjoner.",
+      "pageJustification": "Behold egen side: lock-modellen er substansiell og trenger ikke hele data-plane-forklaringen på samme side.",
+      "recordedEvidence": {
+        "kind": "read/status/navigation; not mastery evidence",
+        "detail": "Teori lest; modify/delete/start og hel gruppe med/uten barnelock faktisk sammenlignet og årsak lagret."
+      },
+      "classification": "A",
+      "proposedSessionId": "gov-locks",
+      "proposedSessionTitle": "Administrativt ressursvern",
+      "proposalReason": "Behold som egen anbefalt økt: Behold egen side: lock-modellen er substansiell og trenger ikke hele data-plane-forklaringen på samme side.",
+      "classificationLabel": "behold egen økt/side",
+      "navEffect": "Behold egen anbefalt økt, canonical topic, tidligere direkte URL-er og eksisterende statiske/dynamiske Neste-regler.",
+      "risk": "Ingen påvist alvorlig strukturell hindring. Behold originalt innhold, fokus, historikk og aktuelle attempt-/assistance-grenser ved eventuell omkringliggende presentasjonsendring.",
+      "priority": "Behold; intet nytt strukturelt før-RC-krav",
+      "mustBeforeRC": false,
+      "evidence": {
+        "snapshot": "/workspace/azurelab-pr57/cold/management-governance/governance-07-read.txt",
+        "screenshot": "/workspace/azurelab-pr57/cold/management-governance/governance-07-read.png",
+        "quote": "Resource Locks begrenser bestemte management-operasjoner på en subscription, resource group eller ressurs.",
+        "relatedSnapshots": [],
+        "readingStatus": "Faktisk lest i kald nettleserpassering før kildeinnsyn; gjenbrukt etter lås.",
+        "interactionStatus": "Teori lest; modify/delete/start og hel gruppe med/uten barnelock faktisk sammenlignet og årsak lagret."
+      },
+      "confidence": {
+        "currentMaterial": "høy: faktisk tekst lest og oppgitt modellarbeid utført",
+        "proposal": "høy for å beholde grensen; ingen målt læringseffekt",
+        "qualification": "Sammensatte økter er forslag, ikke implementert eller validert med menneskelige nybegynnere."
+      }
+    },
+    {
+      "module": "governance",
+      "topic": "planes",
+      "title": "Control plane og data plane",
+      "currentOrder": 8,
+      "currentUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/governance?topic=planes",
+      "currentRole": "Operasjonsplan og databeskyttelsesgrense",
+      "learningGoal": "Identifisere konkret endpoint/operasjon og vurdere lockens grense mot data og backup.",
+      "newUnderstanding": "Samme tjeneste og tilsynelatende samme handling kan ha management- eller data-route; indirekte ListKeys-avhengighet er et eget ledd.",
+      "substance": "ListKeys versus Blob-delete, File Share-ruter, separat Entra-tilgang og backup/redundans-moteksempler er konkret ny anvendelse.",
+      "mechanism": "Konkret request/endpoint → operasjonsplan → lock og separat autorisasjon.",
+      "check": "Teori lest; ReadOnly ListKeys versus godkjent Blob-delete kjørt; gc08 File Service-valg senere selvstendig løst.",
+      "prerequisites": [
+        "Resource Locks",
+        "Access Control data/management"
+      ],
+      "dependency": "Forkunnskaper er faglige forbindelser, ikke nye tilgangs- eller fullføringskrav.",
+      "repetition": "Gjentatt management-grense er nødvendig anvendelse, ikke et duplisert lock-kapittel.",
+      "pageJustification": "Behold: den korte overgangen fra locks er faglig sammenhengende og blir en ny kontrolloppgave. Ingen påvist nødvendig omflytting.",
+      "recordedEvidence": {
+        "kind": "read/status/navigation; not mastery evidence",
+        "detail": "Teori lest; ReadOnly ListKeys versus godkjent Blob-delete kjørt; gc08 File Service-valg senere selvstendig løst."
+      },
+      "classification": "A",
+      "proposedSessionId": "gov-planes",
+      "proposedSessionTitle": "Operasjonsplan, datatilgang og backupgrense",
+      "proposalReason": "Behold som egen anbefalt økt: Behold: den korte overgangen fra locks er faglig sammenhengende og blir en ny kontrolloppgave. Ingen påvist nødvendig omflytting.",
+      "classificationLabel": "behold egen økt/side",
+      "navEffect": "Behold egen anbefalt økt, canonical topic, tidligere direkte URL-er og eksisterende statiske/dynamiske Neste-regler.",
+      "risk": "Ingen påvist alvorlig strukturell hindring. Behold originalt innhold, fokus, historikk og aktuelle attempt-/assistance-grenser ved eventuell omkringliggende presentasjonsendring.",
+      "priority": "Behold; intet nytt strukturelt før-RC-krav",
+      "mustBeforeRC": false,
+      "evidence": {
+        "snapshot": "/workspace/azurelab-pr57/cold/management-governance/governance-08-read.txt",
+        "screenshot": "/workspace/azurelab-pr57/cold/management-governance/governance-08-read.png",
+        "quote": "Control plane brukes til å administrere Azure-ressursen, vanligvis gjennom Azure Resource Manager.",
+        "relatedSnapshots": [],
+        "readingStatus": "Faktisk lest i kald nettleserpassering før kildeinnsyn; gjenbrukt etter lås.",
+        "interactionStatus": "Teori lest; ReadOnly ListKeys versus godkjent Blob-delete kjørt; gc08 File Service-valg senere selvstendig løst."
+      },
+      "confidence": {
+        "currentMaterial": "høy: faktisk tekst lest og oppgitt modellarbeid utført",
+        "proposal": "høy for å beholde grensen; ingen målt læringseffekt",
+        "qualification": "Sammensatte økter er forslag, ikke implementert eller validert med menneskelige nybegynnere."
+      }
+    },
+    {
+      "module": "governance",
+      "topic": "trust",
+      "title": "Service Trust Portal",
+      "currentOrder": 9,
+      "currentUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/governance?topic=trust",
+      "currentRole": "Leverandørdokumentasjon og ansvar",
+      "learningGoal": "Velge Service Trust Portal for relevante rapporter og tolke omfang, periode og kundens eget ansvar.",
+      "newUnderstanding": "Microsofts attestasjon er et annet bevis enn kundens Policy-status; offentlig omtale er ikke rett til beskyttet rapport.",
+      "substance": "Leverandørvurdering, aktuelle rapportversjoner, NDA/tilgangsgrenser og innkjøpseksemplet svarer på et nytt spørsmål.",
+      "mechanism": "Revisjonsspørsmål → riktig dokumentasjonskilde → rapportens tjeneste/scope/periode → eget ansvar.",
+      "check": "Tekst og worked example lest; ingen beskyttet rapport, innlogging eller NDA-handling utført.",
+      "prerequisites": [
+        "Governance/compliance-begreper",
+        "Policy som kundens konfigurasjonsbevis"
+      ],
+      "dependency": "Forkunnskaper er faglige forbindelser, ikke nye tilgangs- eller fullføringskrav.",
+      "repetition": "Den avsluttende verktøysammenligningen repeterer mekanismekartet for å plassere en ny beviskilde.",
+      "pageJustification": "Behold egen avgrenset side selv om den er et Learn-supplement: dokumentasjons- og tilgangsgrensen er et viktig selvstendig valg.",
+      "recordedEvidence": {
+        "kind": "read/status/navigation; not mastery evidence",
+        "detail": "Tekst og worked example lest; ingen beskyttet rapport, innlogging eller NDA-handling utført."
+      },
+      "classification": "A",
+      "proposedSessionId": "gov-trust",
+      "proposedSessionTitle": "Service Trust Portal og leverandørdokumentasjon",
+      "proposalReason": "Behold som egen anbefalt økt: Behold egen avgrenset side selv om den er et Learn-supplement: dokumentasjons- og tilgangsgrensen er et viktig selvstendig valg.",
+      "classificationLabel": "behold egen økt/side",
+      "navEffect": "Behold egen anbefalt økt, canonical topic, tidligere direkte URL-er og eksisterende statiske/dynamiske Neste-regler.",
+      "risk": "Ingen påvist alvorlig strukturell hindring. Behold originalt innhold, fokus, historikk og aktuelle attempt-/assistance-grenser ved eventuell omkringliggende presentasjonsendring.",
+      "priority": "Behold; intet nytt strukturelt før-RC-krav",
+      "mustBeforeRC": false,
+      "evidence": {
+        "snapshot": "/workspace/azurelab-pr57/cold/management-governance/governance-09-read.txt",
+        "screenshot": "/workspace/azurelab-pr57/cold/management-governance/governance-09-read.png",
+        "quote": "Når Fjordverk vurderer en skytjeneste, trenger organisasjonen også dokumentasjon fra leverandøren.",
+        "relatedSnapshots": [],
+        "readingStatus": "Faktisk lest i kald nettleserpassering før kildeinnsyn; gjenbrukt etter lås.",
+        "interactionStatus": "Tekst og worked example lest; ingen beskyttet rapport, innlogging eller NDA-handling utført."
+      },
+      "confidence": {
+        "currentMaterial": "høy: faktisk tekst lest og oppgitt modellarbeid utført",
+        "proposal": "høy for å beholde grensen; ingen målt læringseffekt",
+        "qualification": "Sammensatte økter er forslag, ikke implementert eller validert med menneskelige nybegynnere."
+      }
+    },
+    {
+      "module": "governance",
+      "topic": "studio",
+      "title": "Governance Decision Studio",
+      "currentOrder": 10,
+      "currentUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/governance?topic=studio",
+      "currentRole": "Praksisflate med tre separate guidede perspektiver",
+      "learningGoal": "Anvende metadata/kildetilgang, policy/scope og locks/operasjonsplan gjennom prediksjon, kontrollert kontrast og årsaksforklaring.",
+      "newUnderstanding": "Egne premissendringer og lagrede observasjoner må støtte konklusjonen; gjennomført sidebesøk er ikke samme bevis.",
+      "substance": "Tre forskjellige kontrastoppgaver med eksplisitt start, lagrede runs og årsak; Policy inkluderer opprinnelige lokale receipts.",
+      "mechanism": "Eksplisitt briefing/Start → egne deklarerte valg/prediksjon → Run/observasjon → kontrast → årsak; eventuell ordinær Portal-retur beholder kontekst.",
+      "check": "Alle tre guider faktisk fullført i kald passering. Modeller, lokal Portal og independent-arbeid ble holdt atskilt.",
+      "prerequisites": [
+        "De foregående mekanismesidene",
+        "Modulens forkunnskaper og sikkerhetsgrenser"
+      ],
+      "dependency": "Forkunnskaper er faglige forbindelser, ikke nye tilgangs- eller fullføringskrav.",
+      "repetition": "Kort Studio-intro og senere oppdragskart/Summary gjentar oppdragstitler. Selve aktive undersøkelsene tilfører reell anvendelse.",
+      "pageJustification": "Behold praksissiden og alle tre eksisterende mission-/attempt-identiteter. Ikke bygg den inn i en lang teoriside eller slå tre guider til ett forsøk.",
+      "recordedEvidence": {
+        "kind": "actual guided model/cause and local receipt where stated",
+        "detail": "Alle tre guider faktisk fullført i kald passering. Modeller, lokal Portal og independent-arbeid ble holdt atskilt."
+      },
+      "classification": "A",
+      "proposedSessionId": "gov-studio",
+      "proposedSessionTitle": "Governance Decision Studio",
+      "proposalReason": "Behold som egen anbefalt økt: Behold praksissiden og alle tre eksisterende mission-/attempt-identiteter. Ikke bygg den inn i en lang teoriside eller slå tre guider til ett forsøk.",
+      "classificationLabel": "behold egen økt/side",
+      "navEffect": "Behold egen anbefalt økt, canonical topic, tidligere direkte URL-er og eksisterende statiske/dynamiske Neste-regler.",
+      "risk": "Ingen påvist alvorlig strukturell hindring. Behold originalt innhold, fokus, historikk og aktuelle attempt-/assistance-grenser ved eventuell omkringliggende presentasjonsendring.",
+      "priority": "Behold; intet nytt strukturelt før-RC-krav",
+      "mustBeforeRC": false,
+      "evidence": {
+        "snapshot": "/workspace/azurelab-pr57/cold/management-governance/governance-10-studio-before.txt",
+        "screenshot": "/workspace/azurelab-pr57/cold/management-governance/governance-10-studio-before.png",
+        "quote": "Velg datastyring, Policy eller ressursbeskyttelse.",
+        "relatedSnapshots": [
+          "/workspace/azurelab-pr57/cold/management-governance/governance-data-guided-completed.txt",
+          "/workspace/azurelab-pr57/cold/management-governance/governance-policy-guided-completed.txt",
+          "/workspace/azurelab-pr57/cold/management-governance/governance-lock-guided-completed.txt"
+        ],
+        "readingStatus": "Faktisk lest i kald nettleserpassering før kildeinnsyn; gjenbrukt etter lås.",
+        "interactionStatus": "Alle tre guider faktisk fullført i kald passering. Modeller, lokal Portal og independent-arbeid ble holdt atskilt."
+      },
+      "confidence": {
+        "currentMaterial": "høy: faktisk tekst lest og oppgitt modellarbeid utført",
+        "proposal": "høy for å beholde grensen; ingen målt læringseffekt",
+        "qualification": "Sammensatte økter er forslag, ikke implementert eller validert med menneskelige nybegynnere."
+      }
+    },
+    {
+      "module": "governance",
+      "topic": "missions",
+      "title": "Guidede undersøkelser",
+      "currentOrder": 11,
+      "currentUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/governance?topic=missions",
+      "currentRole": "Oppslagskart over tre guidede undersøkelser",
+      "learningGoal": "Velge eller finne igjen riktig undersøkelse og lese situasjon/mål/status.",
+      "newUnderstanding": "Gir oversikt over hvor en bestemt mekanisme kan prøves; introduserer ikke en ny teknisk regel.",
+      "substance": "Tre konkrete situasjoner/mål og statuslenker er nyttige ved direktevalg/repetisjon, men selve undersøkelsen foregår i Studio.",
+      "mechanism": "Les kart → følg riktig guideinnsteg; Start og evidens skjer først på opprinnelig praksisflate.",
+      "check": "Kartet lest etter faktisk fullførte guider; kartbesøket ga ikke selv nye modellobservasjoner.",
+      "prerequisites": [
+        "Kjenne modulens tre mekanismer"
+      ],
+      "dependency": "Forkunnskaper er faglige forbindelser, ikke nye tilgangs- eller fullføringskrav.",
+      "repetition": "Samme tre situasjoner/mål/statuslenker finnes også i modulintroduksjon/Summary; Studio har dessuten perspektivvalg.",
+      "pageJustification": "Behold som valgfri oppslagsrute, men egen anbefalt lineær aktivitetsplass er svakere begrunnet enn praksissiden.",
+      "recordedEvidence": {
+        "kind": "read/status/navigation; not mastery evidence",
+        "detail": "Kartet lest etter faktisk fullførte guider; kartbesøket ga ikke selv nye modellobservasjoner."
+      },
+      "classification": "D",
+      "proposedSessionId": "governance-missions-reference",
+      "proposedSessionTitle": "Guidede undersøkelser — valgfritt oppslagskart",
+      "proposalReason": "Behold eksisterende route og guideinnsteg som sekundært oppslag; kartet tilfører oversikt, mens modellen/Start/evidens ligger på uendret Studio-flate. Dynamisk Neste kan allerede gå direkte fra ferdige guider til assessment.",
+      "classificationLabel": "flytt til valgfritt oppslag; behold route",
+      "navEffect": "Eksisterende missions-route og lenker beholdes, men som valgfritt sekundært oppslagskart. Anbefalt statisk følge går Studio→assessment. PR43 kan allerede gi dette målet dynamisk; ingen generell spart-klikk-gevinst påstås.",
+      "risk": "Direktevalg av en annen guide og historisk missions-resume kan bli mindre synlig. Behold et klart sekundært kartinnsteg og alle opprinnelige Start-/resume-/attempt-grenser.",
+      "priority": "P2 — én avgrenset senere presentasjonsleveranse; ikke før-RC-krav",
+      "mustBeforeRC": false,
+      "evidence": {
+        "snapshot": "/workspace/azurelab-pr57/cold/management-governance/governance-11-missions.txt",
+        "screenshot": "/workspace/azurelab-pr57/cold/management-governance/governance-11-missions.png",
+        "quote": "Fjordverks rapportbrukere finner ikke et pålitelig, forståelig datagrunnlag.",
+        "relatedSnapshots": [
+          "/workspace/azurelab-pr57/cold/management-governance/governance-13-summary.txt"
+        ],
+        "readingStatus": "Faktisk lest i kald nettleserpassering før kildeinnsyn; gjenbrukt etter lås.",
+        "interactionStatus": "Kartet lest etter faktisk fullførte guider; kartbesøket ga ikke selv nye modellobservasjoner."
+      },
+      "confidence": {
+        "currentMaterial": "høy: faktisk tekst lest og oppgitt modellarbeid utført",
+        "proposal": "middels",
+        "qualification": "Sammensatte økter er forslag, ikke implementert eller validert med menneskelige nybegynnere."
+      }
+    },
+    {
+      "module": "governance",
+      "topic": "assessment",
+      "title": "Selvstendig anvendelse",
+      "currentOrder": 12,
+      "currentUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/governance?topic=assessment",
+      "currentRole": "Selvstendig anvendelse med egen Start-/innleveringsgrense",
+      "learningGoal": "Velge en forsvarlig beslutning og hele den tekniske begrunnelsen i et endret scenario.",
+      "newUnderstanding": "Tidligere guided evidence gir ikke automatisk riktig beslutning under nye premisser; hjelp/retry/førstesvar har forskjellige betydninger.",
+      "substance": "Egen scenarioinngang, nøytral førstebesvarelse og valgt-spesifikk feedback på beslutning og begrunnelse.",
+      "mechanism": "Eksplisitt Start → eget varig utkast → låst Submit → feedback; teori/Journal/historikk er separate hjelphandlinger.",
+      "check": "Faktisk låst før feedback og innlevert: gc08. Andre casefamilier er ikke verifisert av denne reviewer.",
+      "prerequisites": [
+        "Relevante undervisningsmekanismer",
+        "Kjenne hjelp/første/retry-grensen"
+      ],
+      "dependency": "Forkunnskaper er faglige forbindelser, ikke nye tilgangs- eller fullføringskrav.",
+      "repetition": "Deler fagbegreper med guide, men nye premisser og uassistert valg er en annen funksjon enn undervisning.",
+      "pageJustification": "Behold helt separat. Ingen teorisammenslåing, auto-Start, delt forsøks-ID eller inngang som viser forklaring før innlevering.",
+      "recordedEvidence": {
+        "kind": "actual first independent submission",
+        "detail": "Faktisk låst før feedback og innlevert: gc08. Andre casefamilier er ikke verifisert av denne reviewer."
+      },
+      "classification": "A",
+      "proposedSessionId": "gov-assessment",
+      "proposedSessionTitle": "Selvstendig Governance-anvendelse",
+      "proposalReason": "Behold som egen anbefalt økt: Behold helt separat. Ingen teorisammenslåing, auto-Start, delt forsøks-ID eller inngang som viser forklaring før innlevering.",
+      "classificationLabel": "behold egen økt/side",
+      "navEffect": "Behold egen anbefalt økt, canonical topic, tidligere direkte URL-er og eksisterende statiske/dynamiske Neste-regler.",
+      "risk": "Ingen påvist alvorlig strukturell hindring. Behold originalt innhold, fokus, historikk og aktuelle attempt-/assistance-grenser ved eventuell omkringliggende presentasjonsendring.",
+      "priority": "Behold; intet nytt strukturelt før-RC-krav",
+      "mustBeforeRC": false,
+      "evidence": {
+        "snapshot": "/workspace/azurelab-pr57/cold/management-governance/governance-12-assessment-before.txt",
+        "screenshot": "/workspace/azurelab-pr57/cold/management-governance/governance-12-assessment-before.png",
+        "quote": "Velg en faglig forsvarlig beslutning og begrunnelsen som best forklarer hele valget under alle oppgitte krav.",
+        "relatedSnapshots": [
+          "/workspace/azurelab-pr57/cold/management-governance/governance-gc08-feedback.txt"
+        ],
+        "readingStatus": "Faktisk lest i kald nettleserpassering før kildeinnsyn; gjenbrukt etter lås.",
+        "interactionStatus": "Faktisk låst før feedback og innlevert: gc08. Andre casefamilier er ikke verifisert av denne reviewer."
+      },
+      "confidence": {
+        "currentMaterial": "høy: faktisk tekst lest og oppgitt modellarbeid utført",
+        "proposal": "høy for å beholde grensen; ingen målt læringseffekt",
+        "qualification": "Sammensatte økter er forslag, ikke implementert eller validert med menneskelige nybegynnere."
+      }
+    },
+    {
+      "module": "governance",
+      "topic": "summary",
+      "title": "Summary — Governance",
+      "currentOrder": 13,
+      "currentUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/governance?topic=summary",
+      "currentRole": "Evidensoversikt, repetisjon og videreføring",
+      "learningGoal": "Tolke hva egne registreringer viser og velge presis repetisjon eller neste modul.",
+      "newUnderstanding": "Besøk, guided, faktiske receipts, førsteinnlevering, hjelp og retry må leses som forskjellige registreringer.",
+      "substance": "Modulspesifikke tellere og førsteinnleveringer, lenker tilbake til konkrete undersøkelser og videreføring. Dette er syntese/evidenstolkning, ikke et nytt Azure-produkt.",
+      "mechanism": "Vis faktisk historikk → avgrens konklusjon → velg repetisjon/videre modul.",
+      "check": "Summary faktisk lest etter gjennomført arbeid; forventede guided-tall og egne førsteinnleveringer var synlige.",
+      "prerequisites": [
+        "De gjennomførte eller besøkte aktivitetene"
+      ],
+      "dependency": "Forkunnskaper er faglige forbindelser, ikke nye tilgangs- eller fullføringskrav.",
+      "repetition": "Oppdragslisten gjentar kartet, men her sammen med faktisk personlig evidens. Den konteksten begrunner gjentakelsen.",
+      "pageJustification": "Behold egen avslutning. Den skal ikke være en ny teoriside eller blandes inn i aktiv independent-feedback.",
+      "recordedEvidence": {
+        "kind": "read/status/navigation; not mastery evidence",
+        "detail": "Summary faktisk lest etter gjennomført arbeid; forventede guided-tall og egne førsteinnleveringer var synlige."
+      },
+      "classification": "A",
+      "proposedSessionId": "gov-summary",
+      "proposedSessionTitle": "Summary — Governance",
+      "proposalReason": "Behold som egen anbefalt økt: Behold egen avslutning. Den skal ikke være en ny teoriside eller blandes inn i aktiv independent-feedback.",
+      "classificationLabel": "behold egen økt/side",
+      "navEffect": "Behold egen anbefalt økt, canonical topic, tidligere direkte URL-er og eksisterende statiske/dynamiske Neste-regler.",
+      "risk": "Ingen påvist alvorlig strukturell hindring. Behold originalt innhold, fokus, historikk og aktuelle attempt-/assistance-grenser ved eventuell omkringliggende presentasjonsendring.",
+      "priority": "Behold; intet nytt strukturelt før-RC-krav",
+      "mustBeforeRC": false,
+      "evidence": {
+        "snapshot": "/workspace/azurelab-pr57/cold/management-governance/governance-13-summary.txt",
+        "screenshot": "/workspace/azurelab-pr57/cold/management-governance/governance-13-summary.png",
+        "quote": "Purview, Azure Policy og Resource Locks med et kort Service Trust Portal-supplement.",
+        "relatedSnapshots": [],
+        "readingStatus": "Faktisk lest i kald nettleserpassering før kildeinnsyn; gjenbrukt etter lås.",
+        "interactionStatus": "Summary faktisk lest etter gjennomført arbeid; forventede guided-tall og egne førsteinnleveringer var synlige."
+      },
+      "confidence": {
+        "currentMaterial": "høy: faktisk tekst lest og oppgitt modellarbeid utført",
+        "proposal": "høy for å beholde grensen; ingen målt læringseffekt",
+        "qualification": "Sammensatte økter er forslag, ikke implementert eller validert med menneskelige nybegynnere."
+      }
+    },
+    {
+      "module": "management",
+      "topic": "introduction",
+      "title": "Fra intensjon til konfigurasjon",
+      "currentOrder": 1,
+      "currentUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/management-tools?topic=introduction",
+      "currentRole": "Intensjon, grensesnitt og evidensramme",
+      "learningGoal": "Følge en administrativ intensjon fra klient til etablert konfigurasjon og etterkontroll.",
+      "newUnderstanding": "Skrevet request, akseptert lokal kommando og applikasjonens funksjon er forskjellige bevis.",
+      "substance": "Kjent gruppe/plan/app-case, forkunnskapslenker og kartet over verktøy, endring og ekstern management skaper en sammenhengende oppgave.",
+      "mechanism": "Intensjon → grensesnitt → management-lag → resultat/konfigurasjon → separat funksjonskontroll.",
+      "check": "Orientering lest; tre senere undersøkelser faktisk gjennomført, ikke automatisk fullført av innledningen.",
+      "prerequisites": [
+        "Architecture scopes",
+        "Governance",
+        "Access Control"
+      ],
+      "dependency": "Forkunnskaper er faglige forbindelser, ikke nye tilgangs- eller fullføringskrav.",
+      "repetition": "Tar opp Portal/receipt-grensen fra tidligere moduler; den fungerer som forkunnskapsaktivering før nye klienter.",
+      "pageJustification": "Behold egen innledning: den forebygger at den kommende verktøyrekken blir et navnekatalog-kurs.",
+      "recordedEvidence": {
+        "kind": "read/status/navigation; not mastery evidence",
+        "detail": "Orientering lest; tre senere undersøkelser faktisk gjennomført, ikke automatisk fullført av innledningen."
+      },
+      "classification": "A",
+      "proposedSessionId": "tools-introduction",
+      "proposedSessionTitle": "Fra intensjon til konfigurasjon",
+      "proposalReason": "Behold som egen anbefalt økt: Behold egen innledning: den forebygger at den kommende verktøyrekken blir et navnekatalog-kurs.",
+      "classificationLabel": "behold egen økt/side",
+      "navEffect": "Behold egen anbefalt økt, canonical topic, tidligere direkte URL-er og eksisterende statiske/dynamiske Neste-regler.",
+      "risk": "Ingen påvist alvorlig strukturell hindring. Behold originalt innhold, fokus, historikk og aktuelle attempt-/assistance-grenser ved eventuell omkringliggende presentasjonsendring.",
+      "priority": "Behold; intet nytt strukturelt før-RC-krav",
+      "mustBeforeRC": false,
+      "evidence": {
+        "snapshot": "/workspace/azurelab-pr57/cold/management-governance/management-01-read.txt",
+        "screenshot": "/workspace/azurelab-pr57/cold/management-governance/management-01-read.png",
+        "quote": "Fjordverk har bestemt hvem som får administrere Azure og hvilke krav ressursene skal følge.",
+        "relatedSnapshots": [],
+        "readingStatus": "Faktisk lest i kald nettleserpassering før kildeinnsyn; gjenbrukt etter lås.",
+        "interactionStatus": "Orientering lest; tre senere undersøkelser faktisk gjennomført, ikke automatisk fullført av innledningen."
+      },
+      "confidence": {
+        "currentMaterial": "høy: faktisk tekst lest og oppgitt modellarbeid utført",
+        "proposal": "høy for å beholde grensen; ingen målt læringseffekt",
+        "qualification": "Sammensatte økter er forslag, ikke implementert eller validert med menneskelige nybegynnere."
+      }
+    },
+    {
+      "module": "management",
+      "topic": "portal",
+      "title": "Azure Portal",
+      "currentOrder": 2,
+      "currentUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/management-tools?topic=portal",
+      "currentRole": "Grafisk arbeidsflyt og ressursinspeksjon",
+      "learningGoal": "Finne riktig instans, scope, properties og opprinnelig operasjonsresultat i et grafisk grensesnitt.",
+      "newUnderstanding": "Et navn eller et åpent serviceområde identifiserer ikke alene ressursen; opprettelse beviser ikke runtime.",
+      "substance": "Portalens søk/filtre, full ID, oversikt/egenskaper og forholdet mellom metadata, relasjon og drift har en praktisk brukskjede.",
+      "mechanism": "Filtrer riktig scope → match ressurs-ID → inspiser properties og operasjon.",
+      "check": "Tekst lest; faktisk RG/Plan/App-opprettelse og properties/receipts senere i Studio; mt01 selvstendig løst.",
+      "prerequisites": [
+        "Management introduction",
+        "Resource ID og subscription"
+      ],
+      "dependency": "Forkunnskaper er faglige forbindelser, ikke nye tilgangs- eller fullføringskrav.",
+      "repetition": "Gjentar konfigurasjon≠helse med konkret grafisk kontroll; den praktiske anvendelsen gjør en egen side rimelig.",
+      "pageJustification": "Behold: grafisk inspeksjon er et selvstendig arbeidsvalg, ikke en kortere utgave av kommandolinjeteorien.",
+      "recordedEvidence": {
+        "kind": "read/status/navigation; not mastery evidence",
+        "detail": "Tekst lest; faktisk RG/Plan/App-opprettelse og properties/receipts senere i Studio; mt01 selvstendig løst."
+      },
+      "classification": "A",
+      "proposedSessionId": "tools-portal",
+      "proposedSessionTitle": "Grafisk administrasjon og ressursinspeksjon",
+      "proposalReason": "Behold som egen anbefalt økt: Behold: grafisk inspeksjon er et selvstendig arbeidsvalg, ikke en kortere utgave av kommandolinjeteorien.",
+      "classificationLabel": "behold egen økt/side",
+      "navEffect": "Behold egen anbefalt økt, canonical topic, tidligere direkte URL-er og eksisterende statiske/dynamiske Neste-regler.",
+      "risk": "Ingen påvist alvorlig strukturell hindring. Behold originalt innhold, fokus, historikk og aktuelle attempt-/assistance-grenser ved eventuell omkringliggende presentasjonsendring.",
+      "priority": "Behold; intet nytt strukturelt før-RC-krav",
+      "mustBeforeRC": false,
+      "evidence": {
+        "snapshot": "/workspace/azurelab-pr57/cold/management-governance/management-02-read.txt",
+        "screenshot": "/workspace/azurelab-pr57/cold/management-governance/management-02-read.png",
+        "quote": "Azure Portal er Microsofts nettbaserte, grafiske konsoll for å finne, opprette, konfigurere og undersøke Azure-ressurser.",
+        "relatedSnapshots": [],
+        "readingStatus": "Faktisk lest i kald nettleserpassering før kildeinnsyn; gjenbrukt etter lås.",
+        "interactionStatus": "Tekst lest; faktisk RG/Plan/App-opprettelse og properties/receipts senere i Studio; mt01 selvstendig løst."
+      },
+      "confidence": {
+        "currentMaterial": "høy: faktisk tekst lest og oppgitt modellarbeid utført",
+        "proposal": "høy for å beholde grensen; ingen målt læringseffekt",
+        "qualification": "Sammensatte økter er forslag, ikke implementert eller validert med menneskelige nybegynnere."
+      }
+    },
+    {
+      "module": "management",
+      "topic": "shell",
+      "title": "Azure Cloud Shell",
+      "currentOrder": 3,
+      "currentUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/management-tools?topic=shell",
+      "currentRole": "Vertsmiljø og sesjonsforutsetninger",
+      "learningGoal": "Skille shell, installert Azure-verktøy, hosted session og varig automatiseringsmiljø.",
+      "newUnderstanding": "Cloud Shell er ikke synonym for CLI; ephemeral/lagret sesjon har ulike fil- og ressursforutsetninger.",
+      "substance": "Bash/PowerShell/CLI/Az, ephemeral versus lagring, identitet/scope og nattjobb-moteksempel forklarer reelle forutsetninger.",
+      "mechanism": "Arbeidsflyt og eksisterende syntaks → egnet host/verktøy → tilgang og lagringsvilkår.",
+      "check": "Teori lest; lokal CLI uten/med installasjon og Cloud PowerShell faktisk sammenlignet i verktøymodellen.",
+      "prerequisites": [
+        "Portal/intensjon",
+        "Autentisering versus autorisasjon"
+      ],
+      "dependency": "Forkunnskaper er faglige forbindelser, ikke nye tilgangs- eller fullføringskrav.",
+      "repetition": "CLI/Pwsh nevnes som klienter før de sammenlignes konkret. Bevar forskjellen mellom vert og klient.",
+      "pageJustification": "Behold egen side. Å legge denne sammen med begge klientene ville gjøre tre ulike beslutninger til en unødvendig lang innføring.",
+      "recordedEvidence": {
+        "kind": "read/status/navigation; not mastery evidence",
+        "detail": "Teori lest; lokal CLI uten/med installasjon og Cloud PowerShell faktisk sammenlignet i verktøymodellen."
+      },
+      "classification": "A",
+      "proposedSessionId": "tools-shell",
+      "proposedSessionTitle": "Cloud Shell, host og sesjonsvilkår",
+      "proposalReason": "Behold som egen anbefalt økt: Behold egen side. Å legge denne sammen med begge klientene ville gjøre tre ulike beslutninger til en unødvendig lang innføring.",
+      "classificationLabel": "behold egen økt/side",
+      "navEffect": "Behold egen anbefalt økt, canonical topic, tidligere direkte URL-er og eksisterende statiske/dynamiske Neste-regler.",
+      "risk": "Ingen påvist alvorlig strukturell hindring. Behold originalt innhold, fokus, historikk og aktuelle attempt-/assistance-grenser ved eventuell omkringliggende presentasjonsendring.",
+      "priority": "Behold; intet nytt strukturelt før-RC-krav",
+      "mustBeforeRC": false,
+      "evidence": {
+        "snapshot": "/workspace/azurelab-pr57/cold/management-governance/management-03-read.txt",
+        "screenshot": "/workspace/azurelab-pr57/cold/management-governance/management-03-read.png",
+        "quote": "Azure Cloud Shell er en autentisert terminalopplevelse tilgjengelig i nettleseren, blant annet fra Azure Portal og shell.azure.com.",
+        "relatedSnapshots": [],
+        "readingStatus": "Faktisk lest i kald nettleserpassering før kildeinnsyn; gjenbrukt etter lås.",
+        "interactionStatus": "Teori lest; lokal CLI uten/med installasjon og Cloud PowerShell faktisk sammenlignet i verktøymodellen."
+      },
+      "confidence": {
+        "currentMaterial": "høy: faktisk tekst lest og oppgitt modellarbeid utført",
+        "proposal": "høy for å beholde grensen; ingen målt læringseffekt",
+        "qualification": "Sammensatte økter er forslag, ikke implementert eller validert med menneskelige nybegynnere."
+      }
+    },
+    {
+      "module": "management",
+      "topic": "cli",
+      "title": "Azure CLI",
+      "currentOrder": 4,
+      "currentUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/management-tools?topic=cli",
+      "currentRole": "Kommandolinjeklient og imperativ request",
+      "learningGoal": "Les az-kommandoens handling/parametere og velg egnet interaktiv eller automatisert arbeidsflyt.",
+      "newUnderstanding": "CLI-verktøy, shell, JSON-output, håndtert feil og faktisk receipt er forskjellige ting.",
+      "substance": "Gruppeopprettelse/-inspeksjon, eksplisitt subscription, skriptfeil og idempotensgrense gir konkret teknisk innhold.",
+      "mechanism": "az group create/show → riktig kontekst/parametere → sjekk feil og faktisk ressurs.",
+      "check": "Illustrasjoner lest, ingen ekte CLI kjørt; CLI-host-forutsetninger faktisk prøvd i Same Intent-modellen.",
+      "prerequisites": [
+        "Cloud Shell/vertsmiljø",
+        "Portal-gruppebehov"
+      ],
+      "dependency": "Forkunnskaper er faglige forbindelser, ikke nye tilgangs- eller fullføringskrav.",
+      "repetition": "PowerShell-siden bruker uttrykkelig det tilsvarende gruppebehovet og sammenligner syntaks/output.",
+      "pageJustification": "Samles med PowerShell som to tydelige klientseksjoner rundt samme intensjon; ingen grunn til å samle host eller ARM-laget her.",
+      "recordedEvidence": {
+        "kind": "read/status/navigation; not mastery evidence",
+        "detail": "Illustrasjoner lest, ingen ekte CLI kjørt; CLI-host-forutsetninger faktisk prøvd i Same Intent-modellen."
+      },
+      "classification": "B",
+      "proposedSessionId": "tools-clients",
+      "proposedSessionTitle": "Samme intensjon med Azure CLI og PowerShell",
+      "proposalReason": "Begge bruker samme Resource Group-behov og eksplisitt sammenlikner syntaks/output. Vis to komplette klientseksjoner og en direkte kontrast; hold host-siden atskilt.",
+      "classificationLabel": "slå sammen med navngitt teoripartner",
+      "navEffect": "Én anbefalt økt for de navngitte topicmedlemmene. Gamle topic-URL-er, fragment/fokus og eksakt lagret resume må fortsatt åpne riktig originalseksjon. Bare faktisk synlig originaltekst kan registrere sitt gamle visit; montering av partnerseksjon gir ikke automatisk besøk eller completion.",
+      "risk": "Sammenslått økt er ennå ikke rendret. Behold to tydelige seksjoner, egne eksempler/forbehold og riktig lesestart; ikke legg flere mekanismer eller praksis inn i økten. Bekreft reell lesbarhet før vedtak.",
+      "priority": "P2 — én avgrenset senere presentasjonsleveranse; ikke før-RC-krav",
+      "mustBeforeRC": false,
+      "evidence": {
+        "snapshot": "/workspace/azurelab-pr57/cold/management-governance/management-04-read.txt",
+        "screenshot": "/workspace/azurelab-pr57/cold/management-governance/management-04-read.png",
+        "quote": "Azure CLI og Azure PowerShell overlapper i administrasjonsmuligheter, men har forskjellig syntaks, output og utgivelsestakt.",
+        "relatedSnapshots": [],
+        "readingStatus": "Faktisk lest i kald nettleserpassering før kildeinnsyn; gjenbrukt etter lås.",
+        "interactionStatus": "Illustrasjoner lest, ingen ekte CLI kjørt; CLI-host-forutsetninger faktisk prøvd i Same Intent-modellen."
+      },
+      "confidence": {
+        "currentMaterial": "høy: faktisk tekst lest og oppgitt modellarbeid utført",
+        "proposal": "middels",
+        "qualification": "Sammensatte økter er forslag, ikke implementert eller validert med menneskelige nybegynnere."
+      }
+    },
+    {
+      "module": "management",
+      "topic": "powershell",
+      "title": "Azure PowerShell",
+      "currentOrder": 5,
+      "currentUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/management-tools?topic=powershell",
+      "currentRole": "Alternativ klient, modul og outputmodell",
+      "learningGoal": "Kjenne Az-cmdlets, subscription-kontekst og objektpipeline og skille dem fra CLI kjørt i PowerShell.",
+      "newUnderstanding": "PowerShell er shell/språk, Az er moduler; en sendt deklarativ template blir ikke imperativ fordi klienten er PowerShell.",
+      "substance": "New-/Get-AzResourceGroup, Set-AzContext, objekter og sammenlikning med az/JSON forklarer den relevante forskjellen.",
+      "mechanism": "Samme gruppeintensjon via cmdlet/context → objektresultat og feilkontroll.",
+      "check": "Eksempler lest, ingen PowerShell runtime; hosted PowerShell/Az-forutsetninger prøvd i modell.",
+      "prerequisites": [
+        "CLI-sammenligning",
+        "Shell/verktøy-skillet"
+      ],
+      "dependency": "Forkunnskaper er faglige forbindelser, ikke nye tilgangs- eller fullføringskrav.",
+      "repetition": "Gjentar samme gruppeopprettelse for å muliggjøre en ekte kontrast; isolert sidegrense gjør sammenlikningen mer minnebasert.",
+      "pageJustification": "Samles med CLI; behold to navn, full syntaks, outputforskjell og egne moteksempler som seksjoner.",
+      "recordedEvidence": {
+        "kind": "read/status/navigation; not mastery evidence",
+        "detail": "Eksempler lest, ingen PowerShell runtime; hosted PowerShell/Az-forutsetninger prøvd i modell."
+      },
+      "classification": "B",
+      "proposedSessionId": "tools-clients",
+      "proposedSessionTitle": "Samme intensjon med Azure CLI og PowerShell",
+      "proposalReason": "Begge bruker samme Resource Group-behov og eksplisitt sammenlikner syntaks/output. Vis to komplette klientseksjoner og en direkte kontrast; hold host-siden atskilt.",
+      "classificationLabel": "slå sammen med navngitt teoripartner",
+      "navEffect": "Én anbefalt økt for de navngitte topicmedlemmene. Gamle topic-URL-er, fragment/fokus og eksakt lagret resume må fortsatt åpne riktig originalseksjon. Bare faktisk synlig originaltekst kan registrere sitt gamle visit; montering av partnerseksjon gir ikke automatisk besøk eller completion.",
+      "risk": "Sammenslått økt er ennå ikke rendret. Behold to tydelige seksjoner, egne eksempler/forbehold og riktig lesestart; ikke legg flere mekanismer eller praksis inn i økten. Bekreft reell lesbarhet før vedtak.",
+      "priority": "P2 — én avgrenset senere presentasjonsleveranse; ikke før-RC-krav",
+      "mustBeforeRC": false,
+      "evidence": {
+        "snapshot": "/workspace/azurelab-pr57/cold/management-governance/management-05-read.txt",
+        "screenshot": "/workspace/azurelab-pr57/cold/management-governance/management-05-read.png",
+        "quote": "En annen gruppe kan bruke az group show og JSON.",
+        "relatedSnapshots": [],
+        "readingStatus": "Faktisk lest i kald nettleserpassering før kildeinnsyn; gjenbrukt etter lås.",
+        "interactionStatus": "Eksempler lest, ingen PowerShell runtime; hosted PowerShell/Az-forutsetninger prøvd i modell."
+      },
+      "confidence": {
+        "currentMaterial": "høy: faktisk tekst lest og oppgitt modellarbeid utført",
+        "proposal": "middels",
+        "qualification": "Sammensatte økter er forslag, ikke implementert eller validert med menneskelige nybegynnere."
+      }
+    },
+    {
+      "module": "management",
+      "topic": "arm",
+      "title": "Azure Resource Manager",
+      "currentOrder": 6,
+      "currentUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/management-tools?topic=arm",
+      "currentRole": "Felles management-lag og provider",
+      "learningGoal": "Skille klient, ARM, provider, scope og ressursidentifikasjon.",
+      "newUnderstanding": "ARM er et felles kontrollplanlag; en template er en beskrivelse og en provider har egne støttede operasjoner/regioner.",
+      "substance": "Scope for gruppe versus Web-ressurs, ID, providerregistrering og rettigheter svarer på hvor requesten håndteres.",
+      "mechanism": "Klientrequest → ARM/scope → relevant provider-operasjon → konfigurert ressurs.",
+      "check": "Teori lest; faktiske lokale receipts ble bevisst holdt atskilt fra Azure ARM-svar.",
+      "prerequisites": [
+        "Portal/CLI/Pwsh som klienter",
+        "Hierarchy/Governance"
+      ],
+      "dependency": "Forkunnskaper er faglige forbindelser, ikke nye tilgangs- eller fullføringskrav.",
+      "repetition": "Samme plan/app-navn går videre til templates, men dette er plattformlaget, ikke et nytt filformat.",
+      "pageJustification": "Behold separat før IaC. Å slå alt med ARM i navnet sammen ville blande lag og beskrivelser.",
+      "recordedEvidence": {
+        "kind": "read/status/navigation; not mastery evidence",
+        "detail": "Teori lest; faktiske lokale receipts ble bevisst holdt atskilt fra Azure ARM-svar."
+      },
+      "classification": "A",
+      "proposedSessionId": "tools-arm",
+      "proposedSessionTitle": "ARM, scope og resource providers",
+      "proposalReason": "Behold som egen anbefalt økt: Behold separat før IaC. Å slå alt med ARM i navnet sammen ville blande lag og beskrivelser.",
+      "classificationLabel": "behold egen økt/side",
+      "navEffect": "Behold egen anbefalt økt, canonical topic, tidligere direkte URL-er og eksisterende statiske/dynamiske Neste-regler.",
+      "risk": "Ingen påvist alvorlig strukturell hindring. Behold originalt innhold, fokus, historikk og aktuelle attempt-/assistance-grenser ved eventuell omkringliggende presentasjonsendring.",
+      "priority": "Behold; intet nytt strukturelt før-RC-krav",
+      "mustBeforeRC": false,
+      "evidence": {
+        "snapshot": "/workspace/azurelab-pr57/cold/management-governance/management-06-read.txt",
+        "screenshot": "/workspace/azurelab-pr57/cold/management-governance/management-06-read.png",
+        "quote": "Azure Resource Manager, ARM, er Azures deployment- og management-tjeneste.",
+        "relatedSnapshots": [],
+        "readingStatus": "Faktisk lest i kald nettleserpassering før kildeinnsyn; gjenbrukt etter lås.",
+        "interactionStatus": "Teori lest; faktiske lokale receipts ble bevisst holdt atskilt fra Azure ARM-svar."
+      },
+      "confidence": {
+        "currentMaterial": "høy: faktisk tekst lest og oppgitt modellarbeid utført",
+        "proposal": "høy for å beholde grensen; ingen målt læringseffekt",
+        "qualification": "Sammensatte økter er forslag, ikke implementert eller validert med menneskelige nybegynnere."
+      }
+    },
+    {
+      "module": "management",
+      "topic": "iac",
+      "title": "Infrastructure as Code",
+      "currentOrder": 7,
+      "currentUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/management-tools?topic=iac",
+      "currentRole": "Arbeidsform, review og ønsket tilstand",
+      "learningGoal": "Skille imperativ handling fra deklarativ ønsket konfigurasjon innen et bredere IaC-prinsipp.",
+      "newUnderstanding": "Git og gjentakelse alene gir ikke sikkerhet, idempotens eller samme faktiske miljø under endrede parametere.",
+      "substance": "Team/review/parametere, navn/scope, drift og sikkerhetsmoteksempler gir grunnlaget for senere fil- og endringslesing.",
+      "mechanism": "Kode/inndata/review → støttet utføring → separat kontroll av etablert konfigurasjon.",
+      "check": "Teori lest; mt07 faktisk selvstendig løst med gyldig imperativ PowerShell-plan.",
+      "prerequisites": [
+        "ARM versus klient",
+        "Versjonskontroll som kjent idé"
+      ],
+      "dependency": "Forkunnskaper er faglige forbindelser, ikke nye tilgangs- eller fullføringskrav.",
+      "repetition": "Følgende formatforklaringer konkretiserer denne arbeidsformen; prinsippet er ikke bare en gjentatt template-definisjon.",
+      "pageJustification": "Behold egen side før syntaks. Den må ikke drukne i JSON/Bicep-felter eller tolkes som bare deklarativ IaC.",
+      "recordedEvidence": {
+        "kind": "read/status/navigation; not mastery evidence",
+        "detail": "Teori lest; mt07 faktisk selvstendig løst med gyldig imperativ PowerShell-plan."
+      },
+      "classification": "A",
+      "proposedSessionId": "tools-iac",
+      "proposedSessionTitle": "IaC som gjennomgåelig arbeidsform",
+      "proposalReason": "Behold som egen anbefalt økt: Behold egen side før syntaks. Den må ikke drukne i JSON/Bicep-felter eller tolkes som bare deklarativ IaC.",
+      "classificationLabel": "behold egen økt/side",
+      "navEffect": "Behold egen anbefalt økt, canonical topic, tidligere direkte URL-er og eksisterende statiske/dynamiske Neste-regler.",
+      "risk": "Ingen påvist alvorlig strukturell hindring. Behold originalt innhold, fokus, historikk og aktuelle attempt-/assistance-grenser ved eventuell omkringliggende presentasjonsendring.",
+      "priority": "Behold; intet nytt strukturelt før-RC-krav",
+      "mustBeforeRC": false,
+      "evidence": {
+        "snapshot": "/workspace/azurelab-pr57/cold/management-governance/management-07-read.txt",
+        "screenshot": "/workspace/azurelab-pr57/cold/management-governance/management-07-read.png",
+        "quote": "Infrastructure as Code, IaC, betyr å forvalte infrastruktur gjennom kodebaserte beskrivelser og automatisering fremfor bare manuelle klikk.",
+        "relatedSnapshots": [],
+        "readingStatus": "Faktisk lest i kald nettleserpassering før kildeinnsyn; gjenbrukt etter lås.",
+        "interactionStatus": "Teori lest; mt07 faktisk selvstendig løst med gyldig imperativ PowerShell-plan."
+      },
+      "confidence": {
+        "currentMaterial": "høy: faktisk tekst lest og oppgitt modellarbeid utført",
+        "proposal": "høy for å beholde grensen; ingen målt læringseffekt",
+        "qualification": "Sammensatte økter er forslag, ikke implementert eller validert med menneskelige nybegynnere."
+      }
+    },
+    {
+      "module": "management",
+      "topic": "templates",
+      "title": "ARM templates",
+      "currentOrder": 8,
+      "currentUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/management-tools?topic=templates",
+      "currentRole": "Deklarativ ARM JSON-kontrakt",
+      "learningGoal": "Lese template-felter og plan/app-relasjon samt skille identifikator fra etableringsrekkefølge.",
+      "newUnderstanding": "apiVersion/contentVersion, resourceId/dependsOn og utelatte ressurser/properties er forskjellige mekanismer.",
+      "substance": "Parameters/variables/resources/outputs, Web-referanse og incremental-begrensning er konkret leseinnhold med et metadataeksempel.",
+      "mechanism": "Ønsket definisjon + parametere + gyldig rekkefølge; output er ikke apphelse.",
+      "check": "Teori lest; ARM uten rekkefølge versus eksplisitt dependsOn og parameterdiff faktisk kjørt senere.",
+      "prerequisites": [
+        "ARM-laget",
+        "IaC"
+      ],
+      "dependency": "Forkunnskaper er faglige forbindelser, ikke nye tilgangs- eller fullføringskrav.",
+      "repetition": "Bicep forklarer samme ressurspar og avhengighet med annen forfatting; dette er en eksplisitt sammenlikningskjede.",
+      "pageJustification": "Samles med Bicep som to avgrensede formatseksjoner; behold all incremental/API-forklaring og ikke legg What-if til samme samleside.",
+      "recordedEvidence": {
+        "kind": "read/status/navigation; not mastery evidence",
+        "detail": "Teori lest; ARM uten rekkefølge versus eksplisitt dependsOn og parameterdiff faktisk kjørt senere."
+      },
+      "classification": "B",
+      "proposedSessionId": "tools-declarations",
+      "proposedSessionTitle": "Samme ønsket konfigurasjon i ARM JSON og Bicep",
+      "proposalReason": "Samme plan/app-relasjon kan sammenlignes direkte mellom resourceId+dependsOn og plan.id. Behold begge formatforklaringer og grenser; What-if og faktisk endring får fortsatt egen økt.",
+      "classificationLabel": "slå sammen med navngitt teoripartner",
+      "navEffect": "Én anbefalt økt for de navngitte topicmedlemmene. Gamle topic-URL-er, fragment/fokus og eksakt lagret resume må fortsatt åpne riktig originalseksjon. Bare faktisk synlig originaltekst kan registrere sitt gamle visit; montering av partnerseksjon gir ikke automatisk besøk eller completion.",
+      "risk": "Sammenslått økt er ennå ikke rendret. Behold to tydelige seksjoner, egne eksempler/forbehold og riktig lesestart; ikke legg flere mekanismer eller praksis inn i økten. Bekreft reell lesbarhet før vedtak.",
+      "priority": "P2 — én avgrenset senere presentasjonsleveranse; ikke før-RC-krav",
+      "mustBeforeRC": false,
+      "evidence": {
+        "snapshot": "/workspace/azurelab-pr57/cold/management-governance/management-08-read.txt",
+        "screenshot": "/workspace/azurelab-pr57/cold/management-governance/management-08-read.png",
+        "quote": "I illustrasjonen brukes resourceId til å danne ID-en og dependsOn til eksplisitt deployment-rekkefølge.",
+        "relatedSnapshots": [],
+        "readingStatus": "Faktisk lest i kald nettleserpassering før kildeinnsyn; gjenbrukt etter lås.",
+        "interactionStatus": "Teori lest; ARM uten rekkefølge versus eksplisitt dependsOn og parameterdiff faktisk kjørt senere."
+      },
+      "confidence": {
+        "currentMaterial": "høy: faktisk tekst lest og oppgitt modellarbeid utført",
+        "proposal": "middels",
+        "qualification": "Sammensatte økter er forslag, ikke implementert eller validert med menneskelige nybegynnere."
+      }
+    },
+    {
+      "module": "management",
+      "topic": "bicep",
+      "title": "Bicep",
+      "currentOrder": 9,
+      "currentUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/management-tools?topic=bicep",
+      "currentRole": "Alternativ deklarativ forfatting og implisitt avhengighet",
+      "learningGoal": "Forklare Bicep→ARM JSON og symbolsk referanse som kan etablere deployment-avhengighet.",
+      "newUnderstanding": "plan.id, bokstavelig ID, kompilering, autorisasjon og faktisk deployment beviser forskjellige ting.",
+      "substance": "Kompilering, plan/app-symboler, unødvendige dependsOn og samme parameter-/scopevalg i begge språk gir en konkret kontrast.",
+      "mechanism": "Symbolsk deklarasjon → generert ARM template med relevant rekkefølge; fortsatte provider- og policykrav.",
+      "check": "Teori lest; Bicep implisitt referanse versus ARM resourceId/dependsOn faktisk sammenlignet.",
+      "prerequisites": [
+        "ARM JSON-template",
+        "IaC og ARM-laget"
+      ],
+      "dependency": "Forkunnskaper er faglige forbindelser, ikke nye tilgangs- eller fullføringskrav.",
+      "repetition": "Gjentatt plan/app-case er tilsiktet sammenlikning. Egen side krever at leseren bærer JSON-kontrakten over sideskiftet.",
+      "pageJustification": "Samles med templates, med selvstendig Bicep-seksjon og separat sammenlikning; ikke redusere det til «kortere JSON».",
+      "recordedEvidence": {
+        "kind": "read/status/navigation; not mastery evidence",
+        "detail": "Teori lest; Bicep implisitt referanse versus ARM resourceId/dependsOn faktisk sammenlignet."
+      },
+      "classification": "B",
+      "proposedSessionId": "tools-declarations",
+      "proposedSessionTitle": "Samme ønsket konfigurasjon i ARM JSON og Bicep",
+      "proposalReason": "Samme plan/app-relasjon kan sammenlignes direkte mellom resourceId+dependsOn og plan.id. Behold begge formatforklaringer og grenser; What-if og faktisk endring får fortsatt egen økt.",
+      "classificationLabel": "slå sammen med navngitt teoripartner",
+      "navEffect": "Én anbefalt økt for de navngitte topicmedlemmene. Gamle topic-URL-er, fragment/fokus og eksakt lagret resume må fortsatt åpne riktig originalseksjon. Bare faktisk synlig originaltekst kan registrere sitt gamle visit; montering av partnerseksjon gir ikke automatisk besøk eller completion.",
+      "risk": "Sammenslått økt er ennå ikke rendret. Behold to tydelige seksjoner, egne eksempler/forbehold og riktig lesestart; ikke legg flere mekanismer eller praksis inn i økten. Bekreft reell lesbarhet før vedtak.",
+      "priority": "P2 — én avgrenset senere presentasjonsleveranse; ikke før-RC-krav",
+      "mustBeforeRC": false,
+      "evidence": {
+        "snapshot": "/workspace/azurelab-pr57/cold/management-governance/management-09-read.txt",
+        "screenshot": "/workspace/azurelab-pr57/cold/management-governance/management-09-read.png",
+        "quote": "Den viste ARM JSON-varianten bruker resourceId og et eksplisitt dependsOn.",
+        "relatedSnapshots": [],
+        "readingStatus": "Faktisk lest i kald nettleserpassering før kildeinnsyn; gjenbrukt etter lås.",
+        "interactionStatus": "Teori lest; Bicep implisitt referanse versus ARM resourceId/dependsOn faktisk sammenlignet."
+      },
+      "confidence": {
+        "currentMaterial": "høy: faktisk tekst lest og oppgitt modellarbeid utført",
+        "proposal": "middels",
+        "qualification": "Sammensatte økter er forslag, ikke implementert eller validert med menneskelige nybegynnere."
+      }
+    },
+    {
+      "module": "management",
+      "topic": "changes",
+      "title": "Parametere, dependencies og What-if",
+      "currentOrder": 10,
+      "currentUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/management-tools?topic=changes",
+      "currentRole": "Endringsanalyse og etterprøving",
+      "learningGoal": "Tolke faktiske parametere/førtilstand, referanse og What-if med riktige rettigheter og grenser.",
+      "newUnderstanding": "Git-diff, forventet management-diff, utført deployment og apphelse er fire forskjellige bevis.",
+      "substance": "Dev→prod-navn, costCenter, eksisterende plan, syklisk avhengighet, write-rettigheter og uavklarte previews gir egne undersøkelser.",
+      "mechanism": "Førtilstand + ønsket konfigurasjon + parametere → avgrenset forventet differanse → separat utføring/etterkontroll.",
+      "check": "Teori lest; NoChange/Modify/Create og beholdt dev faktisk modellert. Ingen faktisk Azure What-if utført.",
+      "prerequisites": [
+        "IaC",
+        "ARM JSON/Bicep-referanse og rekkefølge"
+      ],
+      "dependency": "Forkunnskaper er faglige forbindelser, ikke nye tilgangs- eller fullføringskrav.",
+      "repetition": "Rebruker filfelter fra formatøkten med nytt endringsspørsmål. Copilot-eksemplet anvender nettopp samme reviewkrav.",
+      "pageJustification": "Behold som egen økt og anker; et synlig Copilot-supplement kan avslutte denne review-/etterprøvingsforklaringen.",
+      "recordedEvidence": {
+        "kind": "read/status/navigation; not mastery evidence",
+        "detail": "Teori lest; NoChange/Modify/Create og beholdt dev faktisk modellert. Ingen faktisk Azure What-if utført."
+      },
+      "classification": "A",
+      "proposedSessionId": "tools-changes",
+      "proposedSessionTitle": "Endringsanalyse, review og etterprøving",
+      "proposalReason": "Changes beholder egen side. Copilots ene konkrete template-eksempel bruker samme review av kilde, parametere, scope og endring; det kan være en navngitt synlig sluttseksjon uten egen anbefalt side.",
+      "classificationLabel": "behold egen økt/side",
+      "navEffect": "Behold egen anbefalt økt, canonical topic, tidligere direkte URL-er og eksisterende statiske/dynamiske Neste-regler. Copilot blir bare en synlig sluttseksjon; selve endringsanalysens rute og bevisrolle beholdes.",
+      "risk": "Ingen påvist alvorlig strukturell hindring. Behold originalt innhold, fokus, historikk og aktuelle attempt-/assistance-grenser ved eventuell omkringliggende presentasjonsendring.",
+      "priority": "Behold; intet nytt strukturelt før-RC-krav",
+      "mustBeforeRC": false,
+      "evidence": {
+        "snapshot": "/workspace/azurelab-pr57/cold/management-governance/management-10-read.txt",
+        "screenshot": "/workspace/azurelab-pr57/cold/management-governance/management-10-read.png",
+        "quote": "En endringsanalyse starter med korrekt førtilstand, ønsket definisjon og faktiske parameterverdier.",
+        "relatedSnapshots": [],
+        "readingStatus": "Faktisk lest i kald nettleserpassering før kildeinnsyn; gjenbrukt etter lås.",
+        "interactionStatus": "Teori lest; NoChange/Modify/Create og beholdt dev faktisk modellert. Ingen faktisk Azure What-if utført."
+      },
+      "confidence": {
+        "currentMaterial": "høy: faktisk tekst lest og oppgitt modellarbeid utført",
+        "proposal": "høy for å beholde grensen; ingen målt læringseffekt",
+        "qualification": "Sammensatte økter er forslag, ikke implementert eller validert med menneskelige nybegynnere."
+      }
+    },
+    {
+      "module": "management",
+      "topic": "arc",
+      "title": "Azure Arc",
+      "currentOrder": 11,
+      "currentUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/management-tools?topic=arc",
+      "currentRole": "Ekstern representasjon og integrasjon",
+      "learningGoal": "Velge relevant Arc-integrasjon uten å flytte workload eller tilskrive native VM-handlinger.",
+      "newUnderstanding": "Fysisk plassering, ARM-representasjon, registrering, forbindelse og tjenestespesifikke tillegg er uavhengige forhold.",
+      "substance": "Servers/Kubernetes/data services, agentkrav, frakoblet status og lokal Flux/Git-forbindelse gir flere konkrete begrensninger.",
+      "mechanism": "Ekstern ressurstype → støttet integrasjon → separat registrering/forbindelse/funksjonsvilkår.",
+      "check": "Teori lest; ekstern server/klynge, feil/riktig integrasjon og frakoblet representasjon faktisk prøvd.",
+      "prerequisites": [
+        "ARM-representasjon",
+        "Server/VM/Kubernetes som kjente typer"
+      ],
+      "dependency": "Forkunnskaper er faglige forbindelser, ikke nye tilgangs- eller fullføringskrav.",
+      "repetition": "Gjentar konfigurasjon≠apphelse i en ny fysisk/administrativ grense; ikke grunnlag for å fjerne siden.",
+      "pageJustification": "Behold egen side. Hybrid/multicloud og støttede integrasjoner er et annet problem enn kodeformat eller klient.",
+      "recordedEvidence": {
+        "kind": "read/status/navigation; not mastery evidence",
+        "detail": "Teori lest; ekstern server/klynge, feil/riktig integrasjon og frakoblet representasjon faktisk prøvd."
+      },
+      "classification": "A",
+      "proposedSessionId": "tools-arc",
+      "proposedSessionTitle": "Arc: administrer eksternt uten å flytte workload",
+      "proposalReason": "Behold som egen anbefalt økt: Behold egen side. Hybrid/multicloud og støttede integrasjoner er et annet problem enn kodeformat eller klient.",
+      "classificationLabel": "behold egen økt/side",
+      "navEffect": "Behold egen anbefalt økt, canonical topic, tidligere direkte URL-er og eksisterende statiske/dynamiske Neste-regler.",
+      "risk": "Ingen påvist alvorlig strukturell hindring. Behold originalt innhold, fokus, historikk og aktuelle attempt-/assistance-grenser ved eventuell omkringliggende presentasjonsendring.",
+      "priority": "Behold; intet nytt strukturelt før-RC-krav",
+      "mustBeforeRC": false,
+      "evidence": {
+        "snapshot": "/workspace/azurelab-pr57/cold/management-governance/management-11-read.txt",
+        "screenshot": "/workspace/azurelab-pr57/cold/management-governance/management-11-read.png",
+        "quote": "Fjordverk har en Azure VM, en server i eget datasenter og en server hos en annen cloud-leverandør.",
+        "relatedSnapshots": [],
+        "readingStatus": "Faktisk lest i kald nettleserpassering før kildeinnsyn; gjenbrukt etter lås.",
+        "interactionStatus": "Teori lest; ekstern server/klynge, feil/riktig integrasjon og frakoblet representasjon faktisk prøvd."
+      },
+      "confidence": {
+        "currentMaterial": "høy: faktisk tekst lest og oppgitt modellarbeid utført",
+        "proposal": "høy for å beholde grensen; ingen målt læringseffekt",
+        "qualification": "Sammensatte økter er forslag, ikke implementert eller validert med menneskelige nybegynnere."
+      }
+    },
+    {
+      "module": "management",
+      "topic": "copilot",
+      "title": "Copilot — kort supplement",
+      "currentOrder": 12,
+      "currentUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/management-tools?topic=copilot",
+      "currentRole": "Supplerende operatørreview av AI-assistanse",
+      "learningGoal": "Vurdere et forslag med de samme kravene til kilde, scope, parametere, tillatelser og etterkontroll.",
+      "newUnderstanding": "Et plausibelt AI-forslag er ikke teknisk bevis; det må gjennom samme konkrete endringsreview.",
+      "substance": "Aktuelt produktnavn/tilgangsgrenser og ett template-forslag gir et viktig, men avgrenset anvendelseseksempel.",
+      "mechanism": "Forslag → ordinær autorisert review → eventuell utføring → kontroll; ingen AI-kommando i produktet.",
+      "check": "Studenttekst lest; ingen Copilot-integrasjon eller egen kontrollmekanisme kjørt.",
+      "prerequisites": [
+        "Endringsanalyse/What-if",
+        "Operatøransvar"
+      ],
+      "dependency": "Forkunnskaper er faglige forbindelser, ikke nye tilgangs- eller fullføringskrav.",
+      "repetition": "Det konkrete eksemplet gjentar eksplisitt samme template-/parameter-/scope-review som changes.",
+      "pageJustification": "Integrer som navngitt synlig seksjon i changes; behold kilde og grense, men egen anbefalt side er ikke nødvendig for denne anvendelsen.",
+      "recordedEvidence": {
+        "kind": "read/status/navigation; not mastery evidence",
+        "detail": "Studenttekst lest; ingen Copilot-integrasjon eller egen kontrollmekanisme kjørt."
+      },
+      "classification": "C",
+      "proposedSessionId": "tools-changes",
+      "proposedSessionTitle": "Endringsanalyse, review og etterprøving",
+      "proposalReason": "Changes beholder egen side. Copilots ene konkrete template-eksempel bruker samme review av kilde, parametere, scope og endring; det kan være en navngitt synlig sluttseksjon uten egen anbefalt side.",
+      "classificationLabel": "integrer som synlig seksjon",
+      "navEffect": "Copilot tas ut av anbefalt selvstendig plass og vises som navngitt seksjon i changes før Arc. Gammel topic=copilot og lagret resume skal fortsatt lande på riktig seksjon med samme assistance-/visit-betydning.",
+      "risk": "Kan bli skjult eller framstå som utførende AI. Behold full synlig forklaring, kilde og grense; ikke gi seksjonen egen kommando-, guide- eller vurderingsautoritet.",
+      "priority": "P2 — én avgrenset senere presentasjonsleveranse; ikke før-RC-krav",
+      "mustBeforeRC": false,
+      "evidence": {
+        "snapshot": "/workspace/azurelab-pr57/cold/management-governance/management-12-read.txt",
+        "screenshot": "/workspace/azurelab-pr57/cold/management-governance/management-12-read.png",
+        "quote": "Et forslag om å opprette produksjonsressurser med en bestemt template må gjennom samme review av kilde, parametere, scope og endringsanalyse som et menneskeskrevet forslag.",
+        "relatedSnapshots": [],
+        "readingStatus": "Faktisk lest i kald nettleserpassering før kildeinnsyn; gjenbrukt etter lås.",
+        "interactionStatus": "Studenttekst lest; ingen Copilot-integrasjon eller egen kontrollmekanisme kjørt."
+      },
+      "confidence": {
+        "currentMaterial": "høy: faktisk tekst lest og oppgitt modellarbeid utført",
+        "proposal": "middels",
+        "qualification": "Sammensatte økter er forslag, ikke implementert eller validert med menneskelige nybegynnere."
+      }
+    },
+    {
+      "module": "management",
+      "topic": "studio",
+      "title": "Management & Deployment Studio",
+      "currentOrder": 13,
+      "currentUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/management-tools?topic=studio",
+      "currentRole": "Praksisflate med tre separate guidede perspektiver",
+      "learningGoal": "Anvende klient/host, deklarativ endring og arc-representasjon gjennom prediksjon, kontrollert kontrast og årsaksforklaring.",
+      "newUnderstanding": "Egne premissendringer og lagrede observasjoner må støtte konklusjonen; gjennomført sidebesøk er ikke samme bevis.",
+      "substance": "Tre forskjellige undersøkelser; Same Intent har faktisk RG/Plan/App-inspeksjon og originale tekniske receipts.",
+      "mechanism": "Eksplisitt briefing/Start → egne deklarerte valg/prediksjon → Run/observasjon → kontrast → årsak; eventuell ordinær Portal-retur beholder kontekst.",
+      "check": "Alle tre guider faktisk fullført i kald passering. Modeller, lokal Portal og independent-arbeid ble holdt atskilt.",
+      "prerequisites": [
+        "De foregående mekanismesidene",
+        "Modulens forkunnskaper og sikkerhetsgrenser"
+      ],
+      "dependency": "Forkunnskaper er faglige forbindelser, ikke nye tilgangs- eller fullføringskrav.",
+      "repetition": "Kort Studio-intro og senere oppdragskart/Summary gjentar oppdragstitler. Selve aktive undersøkelsene tilfører reell anvendelse.",
+      "pageJustification": "Behold praksissiden og alle tre eksisterende mission-/attempt-identiteter. Ikke bygg den inn i en lang teoriside eller slå tre guider til ett forsøk.",
+      "recordedEvidence": {
+        "kind": "actual guided model/cause and local receipt where stated",
+        "detail": "Alle tre guider faktisk fullført i kald passering. Modeller, lokal Portal og independent-arbeid ble holdt atskilt."
+      },
+      "classification": "A",
+      "proposedSessionId": "tools-studio",
+      "proposedSessionTitle": "Management & Deployment Studio",
+      "proposalReason": "Behold som egen anbefalt økt: Behold praksissiden og alle tre eksisterende mission-/attempt-identiteter. Ikke bygg den inn i en lang teoriside eller slå tre guider til ett forsøk.",
+      "classificationLabel": "behold egen økt/side",
+      "navEffect": "Behold egen anbefalt økt, canonical topic, tidligere direkte URL-er og eksisterende statiske/dynamiske Neste-regler.",
+      "risk": "Ingen påvist alvorlig strukturell hindring. Behold originalt innhold, fokus, historikk og aktuelle attempt-/assistance-grenser ved eventuell omkringliggende presentasjonsendring.",
+      "priority": "Behold; intet nytt strukturelt før-RC-krav",
+      "mustBeforeRC": false,
+      "evidence": {
+        "snapshot": "/workspace/azurelab-pr57/cold/management-governance/management-13-studio-before.txt",
+        "screenshot": "/workspace/azurelab-pr57/cold/management-governance/management-13-studio-before.png",
+        "quote": "Velg verktøyperspektiv, deklarativ endring eller Arc.",
+        "relatedSnapshots": [
+          "/workspace/azurelab-pr57/cold/management-governance/management-tools-guided-completed.txt",
+          "/workspace/azurelab-pr57/cold/management-governance/management-iac-guided-completed.txt",
+          "/workspace/azurelab-pr57/cold/management-governance/management-arc-guided-completed.txt"
+        ],
+        "readingStatus": "Faktisk lest i kald nettleserpassering før kildeinnsyn; gjenbrukt etter lås.",
+        "interactionStatus": "Alle tre guider faktisk fullført i kald passering. Modeller, lokal Portal og independent-arbeid ble holdt atskilt."
+      },
+      "confidence": {
+        "currentMaterial": "høy: faktisk tekst lest og oppgitt modellarbeid utført",
+        "proposal": "høy for å beholde grensen; ingen målt læringseffekt",
+        "qualification": "Sammensatte økter er forslag, ikke implementert eller validert med menneskelige nybegynnere."
+      }
+    },
+    {
+      "module": "management",
+      "topic": "missions",
+      "title": "Guidede undersøkelser",
+      "currentOrder": 14,
+      "currentUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/management-tools?topic=missions",
+      "currentRole": "Oppslagskart over tre guidede undersøkelser",
+      "learningGoal": "Velge eller finne igjen riktig undersøkelse og lese situasjon/mål/status.",
+      "newUnderstanding": "Gir oversikt over hvor en bestemt mekanisme kan prøves; introduserer ikke en ny teknisk regel.",
+      "substance": "Tre konkrete situasjoner/mål og statuslenker er nyttige ved direktevalg/repetisjon, men selve undersøkelsen foregår i Studio.",
+      "mechanism": "Les kart → følg riktig guideinnsteg; Start og evidens skjer først på opprinnelig praksisflate.",
+      "check": "Kartet lest etter faktisk fullførte guider; kartbesøket ga ikke selv nye modellobservasjoner.",
+      "prerequisites": [
+        "Kjenne modulens tre mekanismer"
+      ],
+      "dependency": "Forkunnskaper er faglige forbindelser, ikke nye tilgangs- eller fullføringskrav.",
+      "repetition": "Samme tre situasjoner/mål/statuslenker finnes også i modulintroduksjon/Summary; Studio har dessuten perspektivvalg.",
+      "pageJustification": "Behold som valgfri oppslagsrute, men egen anbefalt lineær aktivitetsplass er svakere begrunnet enn praksissiden.",
+      "recordedEvidence": {
+        "kind": "read/status/navigation; not mastery evidence",
+        "detail": "Kartet lest etter faktisk fullførte guider; kartbesøket ga ikke selv nye modellobservasjoner."
+      },
+      "classification": "D",
+      "proposedSessionId": "management-missions-reference",
+      "proposedSessionTitle": "Guidede undersøkelser — valgfritt oppslagskart",
+      "proposalReason": "Behold eksisterende route og guideinnsteg som sekundært oppslag; kartet tilfører oversikt, mens modellen/Start/evidens ligger på uendret Studio-flate. Dynamisk Neste kan allerede gå direkte fra ferdige guider til assessment.",
+      "classificationLabel": "flytt til valgfritt oppslag; behold route",
+      "navEffect": "Eksisterende missions-route og lenker beholdes, men som valgfritt sekundært oppslagskart. Anbefalt statisk følge går Studio→assessment. PR43 kan allerede gi dette målet dynamisk; ingen generell spart-klikk-gevinst påstås.",
+      "risk": "Direktevalg av en annen guide og historisk missions-resume kan bli mindre synlig. Behold et klart sekundært kartinnsteg og alle opprinnelige Start-/resume-/attempt-grenser.",
+      "priority": "P2 — én avgrenset senere presentasjonsleveranse; ikke før-RC-krav",
+      "mustBeforeRC": false,
+      "evidence": {
+        "snapshot": "/workspace/azurelab-pr57/cold/management-governance/management-14-missions.txt",
+        "screenshot": "/workspace/azurelab-pr57/cold/management-governance/management-14-missions.png",
+        "quote": "Fjordverk skal uttrykke samme gruppebehov gjennom ulike verktøy og kontrollere hva faktisk lokal konfigurasjon dokumenterer.",
+        "relatedSnapshots": [
+          "/workspace/azurelab-pr57/cold/management-governance/management-16-summary.txt"
+        ],
+        "readingStatus": "Faktisk lest i kald nettleserpassering før kildeinnsyn; gjenbrukt etter lås.",
+        "interactionStatus": "Kartet lest etter faktisk fullførte guider; kartbesøket ga ikke selv nye modellobservasjoner."
+      },
+      "confidence": {
+        "currentMaterial": "høy: faktisk tekst lest og oppgitt modellarbeid utført",
+        "proposal": "middels",
+        "qualification": "Sammensatte økter er forslag, ikke implementert eller validert med menneskelige nybegynnere."
+      }
+    },
+    {
+      "module": "management",
+      "topic": "assessment",
+      "title": "Selvstendig anvendelse",
+      "currentOrder": 15,
+      "currentUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/management-tools?topic=assessment",
+      "currentRole": "Selvstendig anvendelse med egen Start-/innleveringsgrense",
+      "learningGoal": "Velge en forsvarlig beslutning og hele den tekniske begrunnelsen i et endret scenario.",
+      "newUnderstanding": "Tidligere guided evidence gir ikke automatisk riktig beslutning under nye premisser; hjelp/retry/førstesvar har forskjellige betydninger.",
+      "substance": "Egen scenarioinngang, nøytral førstebesvarelse og valgt-spesifikk feedback på beslutning og begrunnelse.",
+      "mechanism": "Eksplisitt Start → eget varig utkast → låst Submit → feedback; teori/Journal/historikk er separate hjelphandlinger.",
+      "check": "Faktisk låst før feedback og innlevert: mt01 og mt07. Andre casefamilier er ikke verifisert av denne reviewer.",
+      "prerequisites": [
+        "Relevante undervisningsmekanismer",
+        "Kjenne hjelp/første/retry-grensen"
+      ],
+      "dependency": "Forkunnskaper er faglige forbindelser, ikke nye tilgangs- eller fullføringskrav.",
+      "repetition": "Deler fagbegreper med guide, men nye premisser og uassistert valg er en annen funksjon enn undervisning.",
+      "pageJustification": "Behold helt separat. Ingen teorisammenslåing, auto-Start, delt forsøks-ID eller inngang som viser forklaring før innlevering.",
+      "recordedEvidence": {
+        "kind": "actual first independent submission",
+        "detail": "Faktisk låst før feedback og innlevert: mt01 og mt07. Andre casefamilier er ikke verifisert av denne reviewer."
+      },
+      "classification": "A",
+      "proposedSessionId": "tools-assessment",
+      "proposedSessionTitle": "Selvstendig Management-anvendelse",
+      "proposalReason": "Behold som egen anbefalt økt: Behold helt separat. Ingen teorisammenslåing, auto-Start, delt forsøks-ID eller inngang som viser forklaring før innlevering.",
+      "classificationLabel": "behold egen økt/side",
+      "navEffect": "Behold egen anbefalt økt, canonical topic, tidligere direkte URL-er og eksisterende statiske/dynamiske Neste-regler.",
+      "risk": "Ingen påvist alvorlig strukturell hindring. Behold originalt innhold, fokus, historikk og aktuelle attempt-/assistance-grenser ved eventuell omkringliggende presentasjonsendring.",
+      "priority": "Behold; intet nytt strukturelt før-RC-krav",
+      "mustBeforeRC": false,
+      "evidence": {
+        "snapshot": "/workspace/azurelab-pr57/cold/management-governance/management-15-assessment-before.txt",
+        "screenshot": "/workspace/azurelab-pr57/cold/management-governance/management-15-assessment-before.png",
+        "quote": "Velg en faglig forsvarlig beslutning og begrunnelsen som best forklarer hele valget under alle oppgitte krav.",
+        "relatedSnapshots": [
+          "/workspace/azurelab-pr57/cold/management-governance/management-mt01-feedback.txt",
+          "/workspace/azurelab-pr57/cold/management-governance/management-mt07-feedback.txt"
+        ],
+        "readingStatus": "Faktisk lest i kald nettleserpassering før kildeinnsyn; gjenbrukt etter lås.",
+        "interactionStatus": "Faktisk låst før feedback og innlevert: mt01 og mt07. Andre casefamilier er ikke verifisert av denne reviewer."
+      },
+      "confidence": {
+        "currentMaterial": "høy: faktisk tekst lest og oppgitt modellarbeid utført",
+        "proposal": "høy for å beholde grensen; ingen målt læringseffekt",
+        "qualification": "Sammensatte økter er forslag, ikke implementert eller validert med menneskelige nybegynnere."
+      }
+    },
+    {
+      "module": "management",
+      "topic": "summary",
+      "title": "Summary — Management & Deployment",
+      "currentOrder": 16,
+      "currentUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/management-tools?topic=summary",
+      "currentRole": "Evidensoversikt, repetisjon og videreføring",
+      "learningGoal": "Tolke hva egne registreringer viser og velge presis repetisjon eller neste modul.",
+      "newUnderstanding": "Besøk, guided, faktiske receipts, førsteinnlevering, hjelp og retry må leses som forskjellige registreringer.",
+      "substance": "Modulspesifikke tellere og førsteinnleveringer, lenker tilbake til konkrete undersøkelser og videreføring. Dette er syntese/evidenstolkning, ikke et nytt Azure-produkt.",
+      "mechanism": "Vis faktisk historikk → avgrens konklusjon → velg repetisjon/videre modul.",
+      "check": "Summary faktisk lest etter gjennomført arbeid; forventede guided-tall og egne førsteinnleveringer var synlige.",
+      "prerequisites": [
+        "De gjennomførte eller besøkte aktivitetene"
+      ],
+      "dependency": "Forkunnskaper er faglige forbindelser, ikke nye tilgangs- eller fullføringskrav.",
+      "repetition": "Oppdragslisten gjentar kartet, men her sammen med faktisk personlig evidens. Den konteksten begrunner gjentakelsen.",
+      "pageJustification": "Behold egen avslutning. Den skal ikke være en ny teoriside eller blandes inn i aktiv independent-feedback.",
+      "recordedEvidence": {
+        "kind": "read/status/navigation; not mastery evidence",
+        "detail": "Summary faktisk lest etter gjennomført arbeid; forventede guided-tall og egne førsteinnleveringer var synlige."
+      },
+      "classification": "A",
+      "proposedSessionId": "tools-summary",
+      "proposedSessionTitle": "Summary — Management & Deployment",
+      "proposalReason": "Behold som egen anbefalt økt: Behold egen avslutning. Den skal ikke være en ny teoriside eller blandes inn i aktiv independent-feedback.",
+      "classificationLabel": "behold egen økt/side",
+      "navEffect": "Behold egen anbefalt økt, canonical topic, tidligere direkte URL-er og eksisterende statiske/dynamiske Neste-regler.",
+      "risk": "Ingen påvist alvorlig strukturell hindring. Behold originalt innhold, fokus, historikk og aktuelle attempt-/assistance-grenser ved eventuell omkringliggende presentasjonsendring.",
+      "priority": "Behold; intet nytt strukturelt før-RC-krav",
+      "mustBeforeRC": false,
+      "evidence": {
+        "snapshot": "/workspace/azurelab-pr57/cold/management-governance/management-16-summary.txt",
+        "screenshot": "/workspace/azurelab-pr57/cold/management-governance/management-16-summary.png",
+        "quote": "Portal, Cloud Shell, CLI, PowerShell, ARM, IaC, Bicep og Arc er tilgjengelig som undervisning.",
+        "relatedSnapshots": [],
+        "readingStatus": "Faktisk lest i kald nettleserpassering før kildeinnsyn; gjenbrukt etter lås.",
+        "interactionStatus": "Summary faktisk lest etter gjennomført arbeid; forventede guided-tall og egne førsteinnleveringer var synlige."
+      },
+      "confidence": {
+        "currentMaterial": "høy: faktisk tekst lest og oppgitt modellarbeid utført",
+        "proposal": "høy for å beholde grensen; ingen målt læringseffekt",
+        "qualification": "Sammensatte økter er forslag, ikke implementert eller validert med menneskelige nybegynnere."
+      }
+    },
+    {
+      "module": "monitoring",
+      "topic": "introduction",
+      "title": "Fra konfigurasjon til driftsinnsikt",
+      "currentOrder": 1,
+      "currentUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/monitoring?topic=introduction",
+      "currentRole": "Problem- og evidensramme",
+      "learningGoal": "Avklare hvilket spørsmål hvert signal kan besvare før teamet endrer konfigurasjon.",
+      "newUnderstanding": "Accepted receipt, regional melding, metric, logg og trace gir forskjellige bevis om samme symptom.",
+      "substance": "Fjordverk-bestillingsfeil og tidligere lokal Web-konfigurasjon etablerer kilde/tid/scope som gjennomgående spørsmål.",
+      "mechanism": "Symptom → relevant kilde og dekning → begrenset observasjon → neste undersøkelse.",
+      "check": "Orientering og worked example lest; tre senere årsaksundersøkelser faktisk fullført.",
+      "prerequisites": [
+        "Management Tools konfigurasjon/receipt",
+        "Cost råd versus faktisk kostnad"
+      ],
+      "dependency": "Forkunnskaper er faglige forbindelser, ikke nye tilgangs- eller fullføringskrav.",
+      "repetition": "Gjentar konfigurasjon≠drift som nødvendig modulovergang, men forbereder nå kildevalg.",
+      "pageJustification": "Behold kort innledning; en felles problemramme forebygger at resten blir en løs produktnavnliste.",
+      "recordedEvidence": {
+        "kind": "read/status/navigation; not mastery evidence",
+        "detail": "Orientering og worked example lest; tre senere årsaksundersøkelser faktisk fullført."
+      },
+      "classification": "A",
+      "proposedSessionId": "monitoring-introduction",
+      "proposedSessionTitle": "Fra konfigurasjon til driftsinnsikt",
+      "proposalReason": "Behold som egen anbefalt økt: Behold kort innledning; en felles problemramme forebygger at resten blir en løs produktnavnliste.",
+      "classificationLabel": "behold egen økt/side",
+      "navEffect": "Behold egen anbefalt økt, canonical topic, tidligere direkte URL-er og eksisterende statiske/dynamiske Neste-regler.",
+      "risk": "Ingen påvist alvorlig strukturell hindring. Behold originalt innhold, fokus, historikk og aktuelle attempt-/assistance-grenser ved eventuell omkringliggende presentasjonsendring.",
+      "priority": "Behold; intet nytt strukturelt før-RC-krav",
+      "mustBeforeRC": false,
+      "evidence": {
+        "snapshot": "/workspace/azurelab-pr57/cold/management-governance/monitoring-01-read.txt",
+        "screenshot": "/workspace/azurelab-pr57/cold/management-governance/monitoring-01-read.png",
+        "quote": "En mandag melder ansatte i Fjordverk at bestillingsappen er treg og noen bestillinger feiler.",
+        "relatedSnapshots": [],
+        "readingStatus": "Faktisk lest i kald nettleserpassering før kildeinnsyn; gjenbrukt etter lås.",
+        "interactionStatus": "Orientering og worked example lest; tre senere årsaksundersøkelser faktisk fullført."
+      },
+      "confidence": {
+        "currentMaterial": "høy: faktisk tekst lest og oppgitt modellarbeid utført",
+        "proposal": "høy for å beholde grensen; ingen målt læringseffekt",
+        "qualification": "Sammensatte økter er forslag, ikke implementert eller validert med menneskelige nybegynnere."
+      }
+    },
+    {
+      "module": "monitoring",
+      "topic": "advisor",
+      "title": "Azure Advisor",
+      "currentOrder": 2,
+      "currentUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/monitoring?topic=advisor",
+      "currentRole": "Anbefaling som en bestemt evidenstype",
+      "learningGoal": "Vurdere et forbedringsråd mot kategori, datagrunnlag og driftskrav uten å gjøre det til hendelsesdiagnose.",
+      "newUnderstanding": "Tom rådgivningsliste beviser ikke optimalitet; security-råd er ikke alene kompromitteringsbevis.",
+      "substance": "Fem kategorier, lav gjennomsnittsbruk med månedsjobb, vurderingsansvar og registrert kostnad som annen kilde gir en konkret beslutning.",
+      "mechanism": "Anbefaling/kategori + tid/bruk → kontrollert vurdering av tiltak.",
+      "check": "Teori lest; Advisor versus request-feil og gamle/nye råd faktisk sammenlignet i evidence-guiden.",
+      "prerequisites": [
+        "Monitoring introduction",
+        "Cost optimalisering"
+      ],
+      "dependency": "Forkunnskaper er faglige forbindelser, ikke nye tilgangs- eller fullføringskrav.",
+      "repetition": "Gjenbruker Advisor fra Cost, men hovedspørsmålet skifter fra besparelse til hva råd kan bevise.",
+      "pageJustification": "Behold egen side: den forebygger en egen klasse feiltolkninger før Health og telemetri.",
+      "recordedEvidence": {
+        "kind": "read/status/navigation; not mastery evidence",
+        "detail": "Teori lest; Advisor versus request-feil og gamle/nye råd faktisk sammenlignet i evidence-guiden."
+      },
+      "classification": "A",
+      "proposedSessionId": "monitoring-advisor",
+      "proposedSessionTitle": "Vurder forbedringsråd",
+      "proposalReason": "Behold som egen anbefalt økt: Behold egen side: den forebygger en egen klasse feiltolkninger før Health og telemetri.",
+      "classificationLabel": "behold egen økt/side",
+      "navEffect": "Behold egen anbefalt økt, canonical topic, tidligere direkte URL-er og eksisterende statiske/dynamiske Neste-regler.",
+      "risk": "Ingen påvist alvorlig strukturell hindring. Behold originalt innhold, fokus, historikk og aktuelle attempt-/assistance-grenser ved eventuell omkringliggende presentasjonsendring.",
+      "priority": "Behold; intet nytt strukturelt før-RC-krav",
+      "mustBeforeRC": false,
+      "evidence": {
+        "snapshot": "/workspace/azurelab-pr57/cold/management-governance/monitoring-02-read.txt",
+        "screenshot": "/workspace/azurelab-pr57/cold/management-governance/monitoring-02-read.png",
+        "quote": "Azure Advisor gir personlige anbefalinger basert på relevant ressurskonfigurasjon og brukstelemetri.",
+        "relatedSnapshots": [],
+        "readingStatus": "Faktisk lest i kald nettleserpassering før kildeinnsyn; gjenbrukt etter lås.",
+        "interactionStatus": "Teori lest; Advisor versus request-feil og gamle/nye råd faktisk sammenlignet i evidence-guiden."
+      },
+      "confidence": {
+        "currentMaterial": "høy: faktisk tekst lest og oppgitt modellarbeid utført",
+        "proposal": "høy for å beholde grensen; ingen målt læringseffekt",
+        "qualification": "Sammensatte økter er forslag, ikke implementert eller validert med menneskelige nybegynnere."
+      }
+    },
+    {
+      "module": "monitoring",
+      "topic": "health",
+      "title": "Service Health, Status og Resource Health",
+      "currentOrder": 3,
+      "currentUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/monitoring?topic=health",
+      "currentRole": "Tre helse-/kommunikasjonsnivåer",
+      "learningGoal": "Sammenholde offentlig Status, relevant Service Health og støttet Resource Health med appens symptom.",
+      "newUnderstanding": "Ingen bred melding utelukker ikke relevant hendelse; Available/Unknown og samtidig appfeil er forskjellige observasjoner.",
+      "substance": "Offentlig/personlig/ressursspesifikk vinkel, region/tjeneste/subscription/tid og brukerstopp/manglende støtte gir tydelige moteksempler.",
+      "mechanism": "Hendelsesscope/tid → ressurskontekst/status → separat appbevis.",
+      "check": "Teori lest; relevant/feil subscription, Available/Unknown og gammel/aktuell observasjon faktisk kjørt.",
+      "prerequisites": [
+        "Monitoring evidensramme",
+        "Region/subscription/ressurs"
+      ],
+      "dependency": "Forkunnskaper er faglige forbindelser, ikke nye tilgangs- eller fullføringskrav.",
+      "repetition": "Gjentar grenser for årsak og helse med andre datakilder enn Advisor.",
+      "pageJustification": "Behold egen side og samlet tre-nivå-forklaring; ikke splitt Status/Service Health/Resource Health til tre navnesider.",
+      "recordedEvidence": {
+        "kind": "read/status/navigation; not mastery evidence",
+        "detail": "Teori lest; relevant/feil subscription, Available/Unknown og gammel/aktuell observasjon faktisk kjørt."
+      },
+      "classification": "A",
+      "proposedSessionId": "monitoring-health",
+      "proposedSessionTitle": "Plattform-, subscription- og ressurshelse",
+      "proposalReason": "Behold som egen anbefalt økt: Behold egen side og samlet tre-nivå-forklaring; ikke splitt Status/Service Health/Resource Health til tre navnesider.",
+      "classificationLabel": "behold egen økt/side",
+      "navEffect": "Behold egen anbefalt økt, canonical topic, tidligere direkte URL-er og eksisterende statiske/dynamiske Neste-regler.",
+      "risk": "Ingen påvist alvorlig strukturell hindring. Behold originalt innhold, fokus, historikk og aktuelle attempt-/assistance-grenser ved eventuell omkringliggende presentasjonsendring.",
+      "priority": "Behold; intet nytt strukturelt før-RC-krav",
+      "mustBeforeRC": false,
+      "evidence": {
+        "snapshot": "/workspace/azurelab-pr57/cold/management-governance/monitoring-03-read.txt",
+        "screenshot": "/workspace/azurelab-pr57/cold/management-governance/monitoring-03-read.png",
+        "quote": "Azure Service Health er en familie av visninger som gjør helseopplysninger relevante på forskjellig nivå.",
+        "relatedSnapshots": [],
+        "readingStatus": "Faktisk lest i kald nettleserpassering før kildeinnsyn; gjenbrukt etter lås.",
+        "interactionStatus": "Teori lest; relevant/feil subscription, Available/Unknown og gammel/aktuell observasjon faktisk kjørt."
+      },
+      "confidence": {
+        "currentMaterial": "høy: faktisk tekst lest og oppgitt modellarbeid utført",
+        "proposal": "høy for å beholde grensen; ingen målt læringseffekt",
+        "qualification": "Sammensatte økter er forslag, ikke implementert eller validert med menneskelige nybegynnere."
+      }
+    },
+    {
+      "module": "monitoring",
+      "topic": "monitor",
+      "title": "Azure Monitor",
+      "currentOrder": 4,
+      "currentUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/monitoring?topic=monitor",
+      "currentRole": "Innsamling, datalager og responsplattform",
+      "learningGoal": "Forklare hvordan datakilde, innsamling, lagring, analyse og konfigurert respons henger sammen.",
+      "newUnderstanding": "Workspace-eksistens er ikke innsamlet logg; Log Analytics-workspace og Monitor-workspace er forskjellige ressurstyper.",
+      "substance": "Plattform/gjest/app, diagnostic settings/agent/instrumentering, datalagre, tilgang og kostnader setter forutsetninger for analyse.",
+      "mechanism": "Kilde → relevant innsamling → egnet datalager/verktøy → avgrenset respons.",
+      "check": "Teori lest; ruting/instrumentering senere prøvd som deklarerte modellforutsetninger, ikke faktisk ingestion.",
+      "prerequisites": [
+        "Management konfigurasjon",
+        "Health versus appsignal"
+      ],
+      "dependency": "Forkunnskaper er faglige forbindelser, ikke nye tilgangs- eller fullføringskrav.",
+      "repetition": "Signals/Logs/Insights utdyper forskjellige ledd; denne arkitekturen er mer enn en gjentatt produktintroduksjon.",
+      "pageJustification": "Behold som ramme før datatyper; ikke samle alle Monitor-underemner til én lang side.",
+      "recordedEvidence": {
+        "kind": "read/status/navigation; not mastery evidence",
+        "detail": "Teori lest; ruting/instrumentering senere prøvd som deklarerte modellforutsetninger, ikke faktisk ingestion."
+      },
+      "classification": "A",
+      "proposedSessionId": "monitoring-monitor",
+      "proposedSessionTitle": "Innsamling, datalager, analyse og respons",
+      "proposalReason": "Behold som egen anbefalt økt: Behold som ramme før datatyper; ikke samle alle Monitor-underemner til én lang side.",
+      "classificationLabel": "behold egen økt/side",
+      "navEffect": "Behold egen anbefalt økt, canonical topic, tidligere direkte URL-er og eksisterende statiske/dynamiske Neste-regler.",
+      "risk": "Ingen påvist alvorlig strukturell hindring. Behold originalt innhold, fokus, historikk og aktuelle attempt-/assistance-grenser ved eventuell omkringliggende presentasjonsendring.",
+      "priority": "Behold; intet nytt strukturelt før-RC-krav",
+      "mustBeforeRC": false,
+      "evidence": {
+        "snapshot": "/workspace/azurelab-pr57/cold/management-governance/monitoring-04-read.txt",
+        "screenshot": "/workspace/azurelab-pr57/cold/management-governance/monitoring-04-read.png",
+        "quote": "Azure Monitor er Microsofts plattform for å samle, analysere og følge opp telemetri fra Azure, applikasjoner og støttede hybride miljøer.",
+        "relatedSnapshots": [],
+        "readingStatus": "Faktisk lest i kald nettleserpassering før kildeinnsyn; gjenbrukt etter lås.",
+        "interactionStatus": "Teori lest; ruting/instrumentering senere prøvd som deklarerte modellforutsetninger, ikke faktisk ingestion."
+      },
+      "confidence": {
+        "currentMaterial": "høy: faktisk tekst lest og oppgitt modellarbeid utført",
+        "proposal": "høy for å beholde grensen; ingen målt læringseffekt",
+        "qualification": "Sammensatte økter er forslag, ikke implementert eller validert med menneskelige nybegynnere."
+      }
+    },
+    {
+      "module": "monitoring",
+      "topic": "signals",
+      "title": "Metrics, logs, events og traces",
+      "currentOrder": 5,
+      "currentUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/monitoring?topic=signals",
+      "currentRole": "Bevistyper, aggregasjon og dekning",
+      "learningGoal": "Velge og tolke metric/log/event/trace med enhet, tidsvindu, dimensjon og datadekning.",
+      "newUnderstanding": "Average/Maximum, NULL/zero, request-vektet versus likt vektet og korrelasjon/årsak er forskjellige spørsmål.",
+      "substance": "CPU-regnestykke, trace/spans, manglende punkt og query-/hendelsesgrenser er flere konkrete mekanismer.",
+      "mechanism": "Gyldige punkter + eksplisitt vindu/aggregasjon → begrenset observasjon; sammenkoblede spor krever dekning.",
+      "check": "Teori lest; faktisk 66 versus90, manglende punkt og operation-a-spor undersøkt senere i telemetry.",
+      "prerequisites": [
+        "Monitor innsamling/lagring",
+        "Enkle tall/prosent"
+      ],
+      "dependency": "Forkunnskaper er faglige forbindelser, ikke nye tilgangs- eller fullføringskrav.",
+      "repetition": "De følgende verktøysidene bruker datatypene aktivt; gjentakelsen er nødvendig stillas.",
+      "pageJustification": "Behold egen side. Dette er grunnlaget for å tolke output, ikke en kort definisjonsliste som kan skjules i glossary.",
+      "recordedEvidence": {
+        "kind": "read/status/navigation; not mastery evidence",
+        "detail": "Teori lest; faktisk 66 versus90, manglende punkt og operation-a-spor undersøkt senere i telemetry."
+      },
+      "classification": "A",
+      "proposedSessionId": "monitoring-signals",
+      "proposedSessionTitle": "Signaltyper, aggregasjon og dekning",
+      "proposalReason": "Behold som egen anbefalt økt: Behold egen side. Dette er grunnlaget for å tolke output, ikke en kort definisjonsliste som kan skjules i glossary.",
+      "classificationLabel": "behold egen økt/side",
+      "navEffect": "Behold egen anbefalt økt, canonical topic, tidligere direkte URL-er og eksisterende statiske/dynamiske Neste-regler.",
+      "risk": "Ingen påvist alvorlig strukturell hindring. Behold originalt innhold, fokus, historikk og aktuelle attempt-/assistance-grenser ved eventuell omkringliggende presentasjonsendring.",
+      "priority": "Behold; intet nytt strukturelt før-RC-krav",
+      "mustBeforeRC": false,
+      "evidence": {
+        "snapshot": "/workspace/azurelab-pr57/cold/management-governance/monitoring-05-read.txt",
+        "screenshot": "/workspace/azurelab-pr57/cold/management-governance/monitoring-05-read.png",
+        "quote": "En metric er en numerisk tidsserie med enhet, ressurs-/dimensjonskontekst og tidspunkt.",
+        "relatedSnapshots": [],
+        "readingStatus": "Faktisk lest i kald nettleserpassering før kildeinnsyn; gjenbrukt etter lås.",
+        "interactionStatus": "Teori lest; faktisk 66 versus90, manglende punkt og operation-a-spor undersøkt senere i telemetry."
+      },
+      "confidence": {
+        "currentMaterial": "høy: faktisk tekst lest og oppgitt modellarbeid utført",
+        "proposal": "høy for å beholde grensen; ingen målt læringseffekt",
+        "qualification": "Sammensatte økter er forslag, ikke implementert eller validert med menneskelige nybegynnere."
+      }
+    },
+    {
+      "module": "monitoring",
+      "topic": "logs",
+      "title": "Log Analytics og KQL",
+      "currentOrder": 6,
+      "currentUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/monitoring?topic=logs",
+      "currentRole": "Workspace, KQL og tilgjengelige rader",
+      "learningGoal": "Velge tabell, scope og tidsfilter og skille manglende innsamling fra et avgrenset søkeresultat.",
+      "newUnderstanding": "Activity Log, ruting til workspace, Log Analytics-query og alert rule er separate mekanismer.",
+      "substance": "AzureActivity/AppRequests-illustrasjoner, where/project/summarize/bin, rettigheter/ruting og tomt resultat gir konkret analyseinnhold.",
+      "mechanism": "Tilgjengelig relevant tabell → filter/agg → resultat innen tidsrom; separat konfigurasjon for løpende varsling.",
+      "check": "Teori/KQL-illustrasjoner lest; faste Resource Logs-rader/ruting/feilfilter faktisk prøvd, ingen KQL-interpreter kjørt.",
+      "prerequisites": [
+        "Monitor datalager",
+        "Signals/loggtype og dekning"
+      ],
+      "dependency": "Forkunnskaper er faglige forbindelser, ikke nye tilgangs- eller fullføringskrav.",
+      "repetition": "Gjentar innsamlingskrav med nytt query- og tabellspørsmål; ikke grunn til å slå sammen med hele Monitor-rammen.",
+      "pageJustification": "Behold egen side med synlige kodeeksempler og et tydelig begrenset analysebevis.",
+      "recordedEvidence": {
+        "kind": "read/status/navigation; not mastery evidence",
+        "detail": "Teori/KQL-illustrasjoner lest; faste Resource Logs-rader/ruting/feilfilter faktisk prøvd, ingen KQL-interpreter kjørt."
+      },
+      "classification": "A",
+      "proposedSessionId": "monitoring-logs",
+      "proposedSessionTitle": "Log Analytics og avgrenset KQL-analyse",
+      "proposalReason": "Behold som egen anbefalt økt: Behold egen side med synlige kodeeksempler og et tydelig begrenset analysebevis.",
+      "classificationLabel": "behold egen økt/side",
+      "navEffect": "Behold egen anbefalt økt, canonical topic, tidligere direkte URL-er og eksisterende statiske/dynamiske Neste-regler.",
+      "risk": "Ingen påvist alvorlig strukturell hindring. Behold originalt innhold, fokus, historikk og aktuelle attempt-/assistance-grenser ved eventuell omkringliggende presentasjonsendring.",
+      "priority": "Behold; intet nytt strukturelt før-RC-krav",
+      "mustBeforeRC": false,
+      "evidence": {
+        "snapshot": "/workspace/azurelab-pr57/cold/management-governance/monitoring-06-read.txt",
+        "screenshot": "/workspace/azurelab-pr57/cold/management-governance/monitoring-06-read.png",
+        "quote": "Et Log Analytics-workspace er et organisert datalager med tabeller, tilgang og innstillinger for innsamlede logger og traces.",
+        "relatedSnapshots": [],
+        "readingStatus": "Faktisk lest i kald nettleserpassering før kildeinnsyn; gjenbrukt etter lås.",
+        "interactionStatus": "Teori/KQL-illustrasjoner lest; faste Resource Logs-rader/ruting/feilfilter faktisk prøvd, ingen KQL-interpreter kjørt."
+      },
+      "confidence": {
+        "currentMaterial": "høy: faktisk tekst lest og oppgitt modellarbeid utført",
+        "proposal": "høy for å beholde grensen; ingen målt læringseffekt",
+        "qualification": "Sammensatte økter er forslag, ikke implementert eller validert med menneskelige nybegynnere."
+      }
+    },
+    {
+      "module": "monitoring",
+      "topic": "alerts",
+      "title": "Azure Monitor Alerts",
+      "currentOrder": 7,
+      "currentUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/monitoring?topic=alerts",
+      "currentRole": "Evaluering, status og varslingsvei",
+      "learningGoal": "Skille signalbetingelse, regel, monitor condition, User response, notification og remediation.",
+      "newUnderstanding": "Fired er ikke levert melding; Closed er ikke Resolved; stateful oppløsning har egen mekanisme.",
+      "substance": "Metric/log/activity-regler, strict operator, action group, stateful/stateless og etterfølgende tiltak gir en egen kontrollkjede.",
+      "mechanism": "Signal/vindu/aggregasjon + aktiv matchende regel → condition; separat varslings-/oppfølgingsvei.",
+      "check": "Teori lest; regel/action group/Average/Maximum faktisk kontrastert og md07 selvstendig løst.",
+      "prerequisites": [
+        "Signals",
+        "Loggquery versus regel"
+      ],
+      "dependency": "Forkunnskaper er faglige forbindelser, ikke nye tilgangs- eller fullføringskrav.",
+      "repetition": "Gjenbruker datatypene og KQL-grensen for å forklare en ny løpende kontroll, ikke bare en annen skjerm.",
+      "pageJustification": "Behold egen side. De mange statusaksene bør ikke legges inn i Logs eller skjules i Studio-instruksjoner.",
+      "recordedEvidence": {
+        "kind": "read/status/navigation; not mastery evidence",
+        "detail": "Teori lest; regel/action group/Average/Maximum faktisk kontrastert og md07 selvstendig løst."
+      },
+      "classification": "A",
+      "proposedSessionId": "monitoring-alerts",
+      "proposedSessionTitle": "Regel, status, varslingsvei og oppfølging",
+      "proposalReason": "Behold som egen anbefalt økt: Behold egen side. De mange statusaksene bør ikke legges inn i Logs eller skjules i Studio-instruksjoner.",
+      "classificationLabel": "behold egen økt/side",
+      "navEffect": "Behold egen anbefalt økt, canonical topic, tidligere direkte URL-er og eksisterende statiske/dynamiske Neste-regler.",
+      "risk": "Ingen påvist alvorlig strukturell hindring. Behold originalt innhold, fokus, historikk og aktuelle attempt-/assistance-grenser ved eventuell omkringliggende presentasjonsendring.",
+      "priority": "Behold; intet nytt strukturelt før-RC-krav",
+      "mustBeforeRC": false,
+      "evidence": {
+        "snapshot": "/workspace/azurelab-pr57/cold/management-governance/monitoring-07-read.txt",
+        "screenshot": "/workspace/azurelab-pr57/cold/management-governance/monitoring-07-read.png",
+        "quote": "En Azure Monitor alert rule beskriver hva som skal overvåkes: scope, signal og betingelse.",
+        "relatedSnapshots": [],
+        "readingStatus": "Faktisk lest i kald nettleserpassering før kildeinnsyn; gjenbrukt etter lås.",
+        "interactionStatus": "Teori lest; regel/action group/Average/Maximum faktisk kontrastert og md07 selvstendig løst."
+      },
+      "confidence": {
+        "currentMaterial": "høy: faktisk tekst lest og oppgitt modellarbeid utført",
+        "proposal": "høy for å beholde grensen; ingen målt læringseffekt",
+        "qualification": "Sammensatte økter er forslag, ikke implementert eller validert med menneskelige nybegynnere."
+      }
+    },
+    {
+      "module": "monitoring",
+      "topic": "insights",
+      "title": "Application Insights",
+      "currentOrder": 8,
+      "currentUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/monitoring?topic=insights",
+      "currentRole": "Instrumentert applikasjon og transaksjonsspor",
+      "learningGoal": "Undersøke request/dependency/exception med korrelasjon og instrumenteringsgrenser.",
+      "newUnderstanding": "App Service-konfigurasjon beviser ikke APM-data; korrelert timeout er et undersøkelsesspor, ikke ferdig rotårsak.",
+      "substance": "APM, server/klient-instrumentering, OTel/JS-kontekst, sampling og ett sammenhengende operation-ID-case gir konkret ny forståelse.",
+      "mechanism": "Instrumentert request → dependency/exception i samme arbeid → videre hypotese og kontrast.",
+      "check": "Teori lest; source-valg og deklarert instrumentert operation-a-spor faktisk undersøkt i Studio.",
+      "prerequisites": [
+        "Signals trace/span",
+        "Monitor innsamling",
+        "Logs/operasjonskontekst"
+      ],
+      "dependency": "Forkunnskaper er faglige forbindelser, ikke nye tilgangs- eller fullføringskrav.",
+      "repetition": "Utdyper traces fra signals med egen instrumentering og applikasjonsfeil; denne repetisjonen er anvendelse.",
+      "pageJustification": "Behold egen side etter de generelle analyse-/varslingsmekanismene; ikke samle all telemetri til én megaøkt.",
+      "recordedEvidence": {
+        "kind": "read/status/navigation; not mastery evidence",
+        "detail": "Teori lest; source-valg og deklarert instrumentert operation-a-spor faktisk undersøkt i Studio."
+      },
+      "classification": "A",
+      "proposedSessionId": "monitoring-insights",
+      "proposedSessionTitle": "Instrumentert applikasjon og transaksjonsspor",
+      "proposalReason": "Behold som egen anbefalt økt: Behold egen side etter de generelle analyse-/varslingsmekanismene; ikke samle all telemetri til én megaøkt.",
+      "classificationLabel": "behold egen økt/side",
+      "navEffect": "Behold egen anbefalt økt, canonical topic, tidligere direkte URL-er og eksisterende statiske/dynamiske Neste-regler.",
+      "risk": "Ingen påvist alvorlig strukturell hindring. Behold originalt innhold, fokus, historikk og aktuelle attempt-/assistance-grenser ved eventuell omkringliggende presentasjonsendring.",
+      "priority": "Behold; intet nytt strukturelt før-RC-krav",
+      "mustBeforeRC": false,
+      "evidence": {
+        "snapshot": "/workspace/azurelab-pr57/cold/management-governance/monitoring-08-read.txt",
+        "screenshot": "/workspace/azurelab-pr57/cold/management-governance/monitoring-08-read.png",
+        "quote": "Application Insights er application performance monitoring, APM, som en del av Azure Monitor.",
+        "relatedSnapshots": [],
+        "readingStatus": "Faktisk lest i kald nettleserpassering før kildeinnsyn; gjenbrukt etter lås.",
+        "interactionStatus": "Teori lest; source-valg og deklarert instrumentert operation-a-spor faktisk undersøkt i Studio."
+      },
+      "confidence": {
+        "currentMaterial": "høy: faktisk tekst lest og oppgitt modellarbeid utført",
+        "proposal": "høy for å beholde grensen; ingen målt læringseffekt",
+        "qualification": "Sammensatte økter er forslag, ikke implementert eller validert med menneskelige nybegynnere."
+      }
+    },
+    {
+      "module": "monitoring",
+      "topic": "studio",
+      "title": "Monitoring & Diagnostics Studio",
+      "currentOrder": 9,
+      "currentUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/monitoring?topic=studio",
+      "currentRole": "Praksisflate med tre separate guidede perspektiver",
+      "learningGoal": "Anvende kildevalg, helse/scope/tid og telemetri/varsling gjennom prediksjon, kontrollert kontrast og årsaksforklaring.",
+      "newUnderstanding": "Egne premissendringer og lagrede observasjoner må støtte konklusjonen; gjennomført sidebesøk er ikke samme bevis.",
+      "substance": "Tre årsaksundersøkelser med syntetiske signaler og separat faktisk konfigurasjonsinspeksjon.",
+      "mechanism": "Eksplisitt briefing/Start → egne deklarerte valg/prediksjon → Run/observasjon → kontrast → årsak; eventuell ordinær Portal-retur beholder kontekst.",
+      "check": "Alle tre guider faktisk fullført i kald passering. Modeller, lokal Portal og independent-arbeid ble holdt atskilt.",
+      "prerequisites": [
+        "De foregående mekanismesidene",
+        "Modulens forkunnskaper og sikkerhetsgrenser"
+      ],
+      "dependency": "Forkunnskaper er faglige forbindelser, ikke nye tilgangs- eller fullføringskrav.",
+      "repetition": "Kort Studio-intro og senere oppdragskart/Summary gjentar oppdragstitler. Selve aktive undersøkelsene tilfører reell anvendelse.",
+      "pageJustification": "Behold praksissiden og alle tre eksisterende mission-/attempt-identiteter. Ikke bygg den inn i en lang teoriside eller slå tre guider til ett forsøk.",
+      "recordedEvidence": {
+        "kind": "actual guided model/cause and local receipt where stated",
+        "detail": "Alle tre guider faktisk fullført i kald passering. Modeller, lokal Portal og independent-arbeid ble holdt atskilt."
+      },
+      "classification": "A",
+      "proposedSessionId": "monitoring-studio",
+      "proposedSessionTitle": "Monitoring & Diagnostics Studio",
+      "proposalReason": "Behold som egen anbefalt økt: Behold praksissiden og alle tre eksisterende mission-/attempt-identiteter. Ikke bygg den inn i en lang teoriside eller slå tre guider til ett forsøk.",
+      "classificationLabel": "behold egen økt/side",
+      "navEffect": "Behold egen anbefalt økt, canonical topic, tidligere direkte URL-er og eksisterende statiske/dynamiske Neste-regler.",
+      "risk": "Ingen påvist alvorlig strukturell hindring. Behold originalt innhold, fokus, historikk og aktuelle attempt-/assistance-grenser ved eventuell omkringliggende presentasjonsendring.",
+      "priority": "Behold; intet nytt strukturelt før-RC-krav",
+      "mustBeforeRC": false,
+      "evidence": {
+        "snapshot": "/workspace/azurelab-pr57/cold/management-governance/monitoring-09-studio-before.txt",
+        "screenshot": "/workspace/azurelab-pr57/cold/management-governance/monitoring-09-studio-before.png",
+        "quote": "Alle tall, hendelser og spor er faste syntetiske Fjordverk-eksempler.",
+        "relatedSnapshots": [
+          "/workspace/azurelab-pr57/cold/management-governance/monitoring-evidence-guided-completed.txt",
+          "/workspace/azurelab-pr57/cold/management-governance/monitoring-health-guided-completed.txt",
+          "/workspace/azurelab-pr57/cold/management-governance/monitoring-telemetry-guided-completed.txt"
+        ],
+        "readingStatus": "Faktisk lest i kald nettleserpassering før kildeinnsyn; gjenbrukt etter lås.",
+        "interactionStatus": "Alle tre guider faktisk fullført i kald passering. Modeller, lokal Portal og independent-arbeid ble holdt atskilt."
+      },
+      "confidence": {
+        "currentMaterial": "høy: faktisk tekst lest og oppgitt modellarbeid utført",
+        "proposal": "høy for å beholde grensen; ingen målt læringseffekt",
+        "qualification": "Sammensatte økter er forslag, ikke implementert eller validert med menneskelige nybegynnere."
+      }
+    },
+    {
+      "module": "monitoring",
+      "topic": "missions",
+      "title": "Guidede undersøkelser",
+      "currentOrder": 10,
+      "currentUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/monitoring?topic=missions",
+      "currentRole": "Oppslagskart over tre guidede undersøkelser",
+      "learningGoal": "Velge eller finne igjen riktig undersøkelse og lese situasjon/mål/status.",
+      "newUnderstanding": "Gir oversikt over hvor en bestemt mekanisme kan prøves; introduserer ikke en ny teknisk regel.",
+      "substance": "Tre konkrete situasjoner/mål og statuslenker er nyttige ved direktevalg/repetisjon, men selve undersøkelsen foregår i Studio.",
+      "mechanism": "Les kart → følg riktig guideinnsteg; Start og evidens skjer først på opprinnelig praksisflate.",
+      "check": "Kartet lest etter faktisk fullførte guider; kartbesøket ga ikke selv nye modellobservasjoner.",
+      "prerequisites": [
+        "Kjenne modulens tre mekanismer"
+      ],
+      "dependency": "Forkunnskaper er faglige forbindelser, ikke nye tilgangs- eller fullføringskrav.",
+      "repetition": "Samme tre situasjoner/mål/statuslenker finnes også i modulintroduksjon/Summary; Studio har dessuten perspektivvalg.",
+      "pageJustification": "Behold som valgfri oppslagsrute, men egen anbefalt lineær aktivitetsplass er svakere begrunnet enn praksissiden.",
+      "recordedEvidence": {
+        "kind": "read/status/navigation; not mastery evidence",
+        "detail": "Kartet lest etter faktisk fullførte guider; kartbesøket ga ikke selv nye modellobservasjoner."
+      },
+      "classification": "D",
+      "proposedSessionId": "monitoring-missions-reference",
+      "proposedSessionTitle": "Guidede undersøkelser — valgfritt oppslagskart",
+      "proposalReason": "Behold eksisterende route og guideinnsteg som sekundært oppslag; kartet tilfører oversikt, mens modellen/Start/evidens ligger på uendret Studio-flate. Dynamisk Neste kan allerede gå direkte fra ferdige guider til assessment.",
+      "classificationLabel": "flytt til valgfritt oppslag; behold route",
+      "navEffect": "Eksisterende missions-route og lenker beholdes, men som valgfritt sekundært oppslagskart. Anbefalt statisk følge går Studio→assessment. PR43 kan allerede gi dette målet dynamisk; ingen generell spart-klikk-gevinst påstås.",
+      "risk": "Direktevalg av en annen guide og historisk missions-resume kan bli mindre synlig. Behold et klart sekundært kartinnsteg og alle opprinnelige Start-/resume-/attempt-grenser.",
+      "priority": "P2 — én avgrenset senere presentasjonsleveranse; ikke før-RC-krav",
+      "mustBeforeRC": false,
+      "evidence": {
+        "snapshot": "/workspace/azurelab-pr57/cold/management-governance/monitoring-10-missions.txt",
+        "screenshot": "/workspace/azurelab-pr57/cold/management-governance/monitoring-10-missions.png",
+        "quote": "Fjordverk har et kapasitetsråd, men brukerne melder en konkret feilet forespørsel.",
+        "relatedSnapshots": [
+          "/workspace/azurelab-pr57/cold/management-governance/monitoring-12-summary.txt"
+        ],
+        "readingStatus": "Faktisk lest i kald nettleserpassering før kildeinnsyn; gjenbrukt etter lås.",
+        "interactionStatus": "Kartet lest etter faktisk fullførte guider; kartbesøket ga ikke selv nye modellobservasjoner."
+      },
+      "confidence": {
+        "currentMaterial": "høy: faktisk tekst lest og oppgitt modellarbeid utført",
+        "proposal": "middels",
+        "qualification": "Sammensatte økter er forslag, ikke implementert eller validert med menneskelige nybegynnere."
+      }
+    },
+    {
+      "module": "monitoring",
+      "topic": "assessment",
+      "title": "Selvstendig anvendelse",
+      "currentOrder": 11,
+      "currentUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/monitoring?topic=assessment",
+      "currentRole": "Selvstendig anvendelse med egen Start-/innleveringsgrense",
+      "learningGoal": "Velge en forsvarlig beslutning og hele den tekniske begrunnelsen i et endret scenario.",
+      "newUnderstanding": "Tidligere guided evidence gir ikke automatisk riktig beslutning under nye premisser; hjelp/retry/førstesvar har forskjellige betydninger.",
+      "substance": "Egen scenarioinngang, nøytral førstebesvarelse og valgt-spesifikk feedback på beslutning og begrunnelse.",
+      "mechanism": "Eksplisitt Start → eget varig utkast → låst Submit → feedback; teori/Journal/historikk er separate hjelphandlinger.",
+      "check": "Faktisk låst før feedback og innlevert: md07. Andre casefamilier er ikke verifisert av denne reviewer.",
+      "prerequisites": [
+        "Relevante undervisningsmekanismer",
+        "Kjenne hjelp/første/retry-grensen"
+      ],
+      "dependency": "Forkunnskaper er faglige forbindelser, ikke nye tilgangs- eller fullføringskrav.",
+      "repetition": "Deler fagbegreper med guide, men nye premisser og uassistert valg er en annen funksjon enn undervisning.",
+      "pageJustification": "Behold helt separat. Ingen teorisammenslåing, auto-Start, delt forsøks-ID eller inngang som viser forklaring før innlevering.",
+      "recordedEvidence": {
+        "kind": "actual first independent submission",
+        "detail": "Faktisk låst før feedback og innlevert: md07. Andre casefamilier er ikke verifisert av denne reviewer."
+      },
+      "classification": "A",
+      "proposedSessionId": "monitoring-assessment",
+      "proposedSessionTitle": "Selvstendig Monitoring-anvendelse",
+      "proposalReason": "Behold som egen anbefalt økt: Behold helt separat. Ingen teorisammenslåing, auto-Start, delt forsøks-ID eller inngang som viser forklaring før innlevering.",
+      "classificationLabel": "behold egen økt/side",
+      "navEffect": "Behold egen anbefalt økt, canonical topic, tidligere direkte URL-er og eksisterende statiske/dynamiske Neste-regler.",
+      "risk": "Ingen påvist alvorlig strukturell hindring. Behold originalt innhold, fokus, historikk og aktuelle attempt-/assistance-grenser ved eventuell omkringliggende presentasjonsendring.",
+      "priority": "Behold; intet nytt strukturelt før-RC-krav",
+      "mustBeforeRC": false,
+      "evidence": {
+        "snapshot": "/workspace/azurelab-pr57/cold/management-governance/monitoring-11-assessment-before.txt",
+        "screenshot": "/workspace/azurelab-pr57/cold/management-governance/monitoring-11-assessment-before.png",
+        "quote": "Velg en faglig forsvarlig beslutning og begrunnelsen som best forklarer hele valget under alle oppgitte krav.",
+        "relatedSnapshots": [
+          "/workspace/azurelab-pr57/cold/management-governance/monitoring-md07-feedback.txt"
+        ],
+        "readingStatus": "Faktisk lest i kald nettleserpassering før kildeinnsyn; gjenbrukt etter lås.",
+        "interactionStatus": "Faktisk låst før feedback og innlevert: md07. Andre casefamilier er ikke verifisert av denne reviewer."
+      },
+      "confidence": {
+        "currentMaterial": "høy: faktisk tekst lest og oppgitt modellarbeid utført",
+        "proposal": "høy for å beholde grensen; ingen målt læringseffekt",
+        "qualification": "Sammensatte økter er forslag, ikke implementert eller validert med menneskelige nybegynnere."
+      }
+    },
+    {
+      "module": "monitoring",
+      "topic": "summary",
+      "title": "Summary — Monitoring & Diagnostics",
+      "currentOrder": 12,
+      "currentUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/monitoring?topic=summary",
+      "currentRole": "Evidensoversikt, repetisjon og videreføring",
+      "learningGoal": "Tolke hva egne registreringer viser og velge presis repetisjon eller neste modul.",
+      "newUnderstanding": "Besøk, guided, faktiske receipts, førsteinnlevering, hjelp og retry må leses som forskjellige registreringer.",
+      "substance": "Modulspesifikke tellere og førsteinnleveringer, lenker tilbake til konkrete undersøkelser og videreføring. Dette er syntese/evidenstolkning, ikke et nytt Azure-produkt.",
+      "mechanism": "Vis faktisk historikk → avgrens konklusjon → velg repetisjon/videre modul.",
+      "check": "Summary faktisk lest etter gjennomført arbeid; forventede guided-tall og egne førsteinnleveringer var synlige.",
+      "prerequisites": [
+        "De gjennomførte eller besøkte aktivitetene"
+      ],
+      "dependency": "Forkunnskaper er faglige forbindelser, ikke nye tilgangs- eller fullføringskrav.",
+      "repetition": "Oppdragslisten gjentar kartet, men her sammen med faktisk personlig evidens. Den konteksten begrunner gjentakelsen.",
+      "pageJustification": "Behold egen avslutning. Den skal ikke være en ny teoriside eller blandes inn i aktiv independent-feedback.",
+      "recordedEvidence": {
+        "kind": "read/status/navigation; not mastery evidence",
+        "detail": "Summary faktisk lest etter gjennomført arbeid; forventede guided-tall og egne førsteinnleveringer var synlige."
+      },
+      "classification": "A",
+      "proposedSessionId": "monitoring-summary",
+      "proposedSessionTitle": "Summary — Monitoring & Diagnostics",
+      "proposalReason": "Behold som egen anbefalt økt: Behold egen avslutning. Den skal ikke være en ny teoriside eller blandes inn i aktiv independent-feedback.",
+      "classificationLabel": "behold egen økt/side",
+      "navEffect": "Behold egen anbefalt økt, canonical topic, tidligere direkte URL-er og eksisterende statiske/dynamiske Neste-regler.",
+      "risk": "Ingen påvist alvorlig strukturell hindring. Behold originalt innhold, fokus, historikk og aktuelle attempt-/assistance-grenser ved eventuell omkringliggende presentasjonsendring.",
+      "priority": "Behold; intet nytt strukturelt før-RC-krav",
+      "mustBeforeRC": false,
+      "evidence": {
+        "snapshot": "/workspace/azurelab-pr57/cold/management-governance/monitoring-12-summary.txt",
+        "screenshot": "/workspace/azurelab-pr57/cold/management-governance/monitoring-12-summary.png",
+        "quote": "Advisor, Service Health og Azure Monitor med Log Analytics, alerts og Application Insights er tilgjengelige her.",
+        "relatedSnapshots": [],
+        "readingStatus": "Faktisk lest i kald nettleserpassering før kildeinnsyn; gjenbrukt etter lås.",
+        "interactionStatus": "Summary faktisk lest etter gjennomført arbeid; forventede guided-tall og egne førsteinnleveringer var synlige."
+      },
+      "confidence": {
+        "currentMaterial": "høy: faktisk tekst lest og oppgitt modellarbeid utført",
+        "proposal": "høy for å beholde grensen; ingen målt læringseffekt",
+        "qualification": "Sammensatte økter er forslag, ikke implementert eller validert med menneskelige nybegynnere."
+      }
+    }
+  ],
+  "versionScope": "Vurderer den opprinnelige a3f1b575-kalde passeringens segmentstruktur; er ikke en etter-fix-validering av samtidige repository-endringer. Denne etterkontrollen endret ingen repo-filer."
+}

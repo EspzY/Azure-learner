@@ -1,0 +1,13 @@
+{
+  "route": "security",
+  "scenario": "sp08",
+  "decision": 2,
+  "reason": 2,
+  "rationale": "Assign one operator to StorageC execution and verification and investigate ServerB using ServerB-specific evidence. ServerA maintenance cannot classify a different server alert. Decision option2 is also plausible/valid: it gives the same parallel investigation/verification plan. Option3 explicitly assigns ownership and execution. Neither infers compromise or closes alert from the unrelated log.",
+  "plausibleAlternativeDecision": 1,
+  "decisionText": "Start med ServerB-undersøkelsen og gi samtidig den andre personen eierskap til gjennomføring og verifikasjon av StorageC-endringen.",
+  "reasonText": "StorageC trenger verifikasjon av konfigurasjonsrettelsen. ServerB trenger aktivitetskontekst som gjelder den ressursen, fordi vedlikehold dokumentert på ServerA ikke klassifiserer ServerB-hendelsen; undersøkelser med ulike bevis kan foregå parallelt.",
+  "at": "2026-11-05T14:15:23.265Z",
+  "promptFile": "evidence/security-independent-prompt.json",
+  "promptSha256": "975fd2959a8fb635ab29ba12961986e95fed227a1e151109ff526a39cf85b0fe"
+}

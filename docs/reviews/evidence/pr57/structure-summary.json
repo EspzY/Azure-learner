@@ -1,0 +1,1346 @@
+{
+  "schema": 1,
+  "stage": "post-lock pedagogical structure review; proposals only",
+  "base": "a3f1b575b2eb5b257fd455fec1a73b30a38706f4",
+  "generatedUTC": "2026-11-05T15:52:00.110223+00:00",
+  "validation": {
+    "all186CanonicalActivitiesExactlyOnce": true,
+    "all16ModuleSessionPartitionsExact": true,
+    "classificationCounts": {
+      "A": 158,
+      "C": 5,
+      "D": 7,
+      "B": 16
+    },
+    "before": 186,
+    "proposedRecommendedAfter": 166,
+    "secondaryRoutesRetained": 7,
+    "beforeWholeCourse": 200,
+    "proposedWholeCourseIncludingUnchangedComputing": 180,
+    "implementedStructureChanges": 0,
+    "measuredClicksSaved": null,
+    "humanLearningEffect": "unmeasured"
+  },
+  "modules": [
+    {
+      "module": "benefits",
+      "title": "Benefits of Cloud Services",
+      "before": 7,
+      "afterProposed": 7,
+      "secondaryRetained": 0,
+      "sessions": [
+        {
+          "id": "benefits-availability",
+          "title": "Kapasitet er ikke det samme som tilgjengelighet",
+          "topics": ["availability"],
+          "recommended": true
+        },
+        {
+          "id": "benefits-reliability",
+          "title": "Finn årsaken før du velger tiltak",
+          "topics": ["reliability"],
+          "recommended": true
+        },
+        {
+          "id": "benefits-governance",
+          "title": "Tillatelse, policy og sikkerhet er forskjellige spørsmål",
+          "topics": ["governance"],
+          "recommended": true
+        },
+        {
+          "id": "benefits-management",
+          "title": "Gjenta en konfigurasjon — også feil kan gjentas",
+          "topics": ["management"],
+          "recommended": true
+        },
+        {
+          "id": "benefits-sustainability",
+          "title": "Reduser unødvendig ressursbruk uten å fjerne funksjonen",
+          "topics": ["sustainability"],
+          "recommended": true
+        },
+        {
+          "id": "benefits-summary",
+          "title": "Observasjoner og neste steg",
+          "topics": ["summary"],
+          "recommended": true
+        },
+        {
+          "id": "benefits-transfer",
+          "title": "Prøv kunnskapen i nye situasjoner",
+          "topics": ["transfer"],
+          "recommended": true
+        }
+      ],
+      "problem": [
+        "Fem substansielle og forskjellige modeller: kapasitet/feilrute, diagnose/avhengighet/trend, scoped policy, malpropagering og behovs-/kapasitetstimer. Hver har egne observasjonskrav og begrunnet kontroll.",
+        "Summary har faktisk introdusert-versus-guided status; terminal transfer har eksplisitt Start og annen evidensrolle.",
+        "VM- og PaaS-grunnlabblokker gjentas som innganger på flere sider. De er tydelig merket separat tidligere læringskontrakt og bør ikke telles som nye anbefalte obligatoriske labs hver gang."
+      ],
+      "gain": "Beholde skille mellom hver mekanisme, kontroll, praktisk Start og independent. Ingen målt læringsgevinst påstås.",
+      "risk": "Sammenslåing ville gi flere adskilte kontrollsett og lengre skroll, og kunne blande konseptuell observasjon, faktisk lab og independent-hjelp. Beholdte sider er lange, særlig Services med to teorilag.",
+      "priority": "BEHOLD nå. P2/P3 samlet redaksjonell oppfølging av lokal repetisjon og gjentatte labinnganger; ingen dokumentert MÅ før RC.",
+      "evidenceGroup": "cloud-concepts"
+    },
+    {
+      "module": "services",
+      "title": "Cloud Service Types",
+      "before": 8,
+      "afterProposed": 8,
+      "secondaryRetained": 0,
+      "sessions": [
+        {
+          "id": "services-overview",
+          "title": "Fra ansvarsoversikt til operativt valg",
+          "topics": ["overview"],
+          "recommended": true
+        },
+        {
+          "id": "services-iaas",
+          "title": "Bygg en forståelig VM-konfigurasjon",
+          "topics": ["iaas"],
+          "recommended": true
+        },
+        {
+          "id": "services-paas",
+          "title": "Kode, runtime og hosting er ulike deler",
+          "topics": ["paas"],
+          "recommended": true
+        },
+        {
+          "id": "services-saas",
+          "title": "Administrer en ferdig tjeneste, ikke en gjesteplattform",
+          "topics": ["saas"],
+          "recommended": true
+        },
+        {
+          "id": "services-selection",
+          "title": "Velg en løsning ut fra krav og driftsarbeid",
+          "topics": ["selection"],
+          "recommended": true
+        },
+        {
+          "id": "services-practice",
+          "title": "Bruk og forklar den faktiske hostingkonfigurasjonen",
+          "topics": ["practice"],
+          "recommended": true
+        },
+        {
+          "id": "services-summary",
+          "title": "Observasjoner og neste steg",
+          "topics": ["summary"],
+          "recommended": true
+        },
+        {
+          "id": "services-transfer",
+          "title": "Prøv kunnskapen i nye situasjoner",
+          "topics": ["transfer"],
+          "recommended": true
+        }
+      ],
+      "problem": [
+        "Overview har sammenligning på tvers av tre konkrete tjenester og ni lag. IaaS, PaaS og SaaS har forskjellige input-/konsekvensmodeller; selection krever matchende beslutning/årsak og åpent alternativ.",
+        "Practice krever faktisk teknisk labbekreftelse pluss ny begrunnelse. Summary og terminal transfer har separate status-/historikk-/attempt-funksjoner.",
+        "Originalt og operativt manuskript ligger etter hverandre på de seks første sidene. Konkret overlapp finnes om OS-ansvar og kundens kode/data/tilgang samt policy/hosting; modellene og nye kontraster gir samtidig reell fordypning."
+      ],
+      "gain": "Beholde skille mellom hver mekanisme, kontroll, praktisk Start og independent. Ingen målt læringsgevinst påstås.",
+      "risk": "Sammenslåing ville gi flere adskilte kontrollsett og lengre skroll, og kunne blande konseptuell observasjon, faktisk lab og independent-hjelp. Beholdte sider er lange, særlig Services med to teorilag.",
+      "priority": "BEHOLD nå. P2/P3 samlet redaksjonell oppfølging av lokal repetisjon og gjentatte labinnganger; ingen dokumentert MÅ før RC.",
+      "evidenceGroup": "cloud-concepts"
+    },
+    {
+      "module": "architecture",
+      "title": "Core Architecture A/B",
+      "before": 17,
+      "afterProposed": 16,
+      "secondaryRetained": 0,
+      "sessions": [
+        {
+          "id": "architecture-datacenters",
+          "title": "Maskinene trenger et sted å være",
+          "topics": ["datacenters"],
+          "recommended": true
+        },
+        {
+          "id": "architecture-regions",
+          "title": "Geography og region",
+          "topics": ["regions"],
+          "recommended": true
+        },
+        {
+          "id": "architecture-zones",
+          "title": "Soner er forskjellige feilgrenser",
+          "topics": ["zones"],
+          "recommended": true
+        },
+        {
+          "id": "architecture-pairs",
+          "title": "Regionpar er ikke en beredskapsplan",
+          "topics": ["pairs"],
+          "recommended": true
+        },
+        {
+          "id": "architecture-sovereign",
+          "title": "Region eller separat skymiljø?",
+          "topics": ["sovereign"],
+          "recommended": true
+        },
+        {
+          "id": "architecture-explorer",
+          "title": "Azure Infrastructure Explorer",
+          "topics": ["explorer"],
+          "recommended": true
+        },
+        {
+          "id": "architecture-assessment",
+          "title": "Selvstendig anvendelse · fysisk arkitektur",
+          "topics": ["assessment"],
+          "recommended": true
+        },
+        {
+          "id": "architecture-summary",
+          "title": "Dine observasjoner · Part A",
+          "topics": ["summary"],
+          "recommended": true
+        },
+        {
+          "id": "architecture-resources",
+          "title": "Fra administrativt problem til Azure-ressurs",
+          "topics": ["organization", "resources"],
+          "recommended": true
+        },
+        {
+          "id": "architecture-groups",
+          "title": "Resource groups og livssyklus",
+          "topics": ["groups"],
+          "recommended": true
+        },
+        {
+          "id": "architecture-subscriptions",
+          "title": "Subscriptions og identitet",
+          "topics": ["subscriptions"],
+          "recommended": true
+        },
+        {
+          "id": "architecture-management",
+          "title": "Management groups og root",
+          "topics": ["management"],
+          "recommended": true
+        },
+        {
+          "id": "architecture-hierarchy",
+          "title": "Management Hierarchy Explorer",
+          "topics": ["hierarchy"],
+          "recommended": true
+        },
+        {
+          "id": "architecture-scope",
+          "title": "Scope, policy og praktisk undersøkelse",
+          "topics": ["scope"],
+          "recommended": true
+        },
+        {
+          "id": "architecture-management-assessment",
+          "title": "Part B · selvstendig anvendelse",
+          "topics": ["management-assessment"],
+          "recommended": true
+        },
+        {
+          "id": "architecture-core-summary",
+          "title": "Core Architecture · samlet resultat",
+          "topics": ["core-summary"],
+          "recommended": true
+        }
+      ],
+      "problem": "Én etterfølgende problemorientering og resources gjentar samme fullhierarki og scope/identitet/fysisk-triade. Resten av de korte teorisidene har egne skiller og egne checks; explorer/scope er funksjonelle arbeid.",
+      "gain": "Knytt caset i Part B og orienteringssjekk direkte til første ARM-objekter. Behold alle fysiske feilgrenser og administrative beslutninger, assessment for A/B og begge Summary-grenser.",
+      "risk": "Medium: bevar original organization-sjekk, undervisning i Part B/aid og eksisterende topicdestinasjon som seksjon; ingen offscreen visit eller implicit kreditt.",
+      "priority": "P2 oppfølging",
+      "evidenceGroup": "core-compute-network"
+    },
+    {
+      "module": "compute",
+      "title": "Compute & Hosting",
+      "before": 14,
+      "afterProposed": 10,
+      "secondaryRetained": 2,
+      "sessions": [
+        {
+          "id": "compute-fundamentals",
+          "title": "Fra arbeidslast til kjøremiljø",
+          "topics": ["introduction", "fundamentals"],
+          "recommended": true
+        },
+        {
+          "id": "compute-vm",
+          "title": "Virtual Machines: guest og ressursprofil",
+          "topics": ["vm"],
+          "recommended": true
+        },
+        {
+          "id": "compute-dependencies",
+          "title": "VM Resources & Dependencies",
+          "topics": ["dependencies"],
+          "recommended": true
+        },
+        {
+          "id": "compute-containers",
+          "title": "Container Execution Explorer",
+          "topics": ["containers"],
+          "recommended": true
+        },
+        {
+          "id": "compute-functions",
+          "title": "Functions i compute-landskapet",
+          "topics": ["functions"],
+          "recommended": true
+        },
+        {
+          "id": "compute-resilience",
+          "title": "Velg VM-mekanisme og undersøk kapasitet/feil",
+          "topics": ["options", "resilience"],
+          "recommended": true
+        },
+        {
+          "id": "compute-desktop",
+          "title": "Azure Virtual Desktop Explorer",
+          "topics": ["desktop"],
+          "recommended": true
+        },
+        {
+          "id": "compute-hosting",
+          "title": "Hosting Decision Studio",
+          "topics": ["hosting"],
+          "recommended": true
+        },
+        {
+          "id": "compute-context",
+          "title": "AI, machine learning og IoT/Edge",
+          "topics": ["context"],
+          "recommended": false
+        },
+        {
+          "id": "compute-missions",
+          "title": "Guidede anvendelser",
+          "topics": ["missions"],
+          "recommended": false
+        },
+        {
+          "id": "compute-assessment",
+          "title": "Selvstendig Compute-anvendelse",
+          "topics": ["assessment"],
+          "recommended": true
+        },
+        {
+          "id": "compute-summary",
+          "title": "Oppsummering og dokumenterte resultater",
+          "topics": ["summary"],
+          "recommended": true
+        }
+      ],
+      "problem": "Introduction og fundamentals viser samme Hva kjører koden?-stacks; options og resilience bruker samme FD/UD-matrise. Etter fullført containerguide gikk faktisk Neste direkte til resilience, så separat options kan ligge utenfor akkurat den guideflyten. Context er eksplisitt Learn-tillegg; missions gjentar kort/status.",
+      "gain": "La case lede direkte til kjørelag, og la mekanismevalg stå rett før kapasitetseksperimentet. Behold VM-teori, operativ praksis med VM og alle lange modeller separat. Gjør tillegg og kart lette å oppsøke uten å være nye obligatoriske læringsstopp.",
+      "risk": "Medium: ingen ny VM/Start av guide ved sammensatt teori; behold Flexible/Uniform-nyansene og AVD-pekeren. Valgfritt context må ikke skjule forkunnskap som en bevart vurdering faktisk forutsetter.",
+      "priority": "P2 oppfølging",
+      "evidenceGroup": "core-compute-network"
+    },
+    {
+      "module": "networking",
+      "title": "Networking A",
+      "before": 11,
+      "afterProposed": 9,
+      "secondaryRetained": 1,
+      "sessions": [
+        {
+          "id": "networking-fundamentals",
+          "title": "Fra applikasjonsbehov til navn, adresse og kommunikasjon",
+          "topics": ["introduction", "fundamentals"],
+          "recommended": true
+        },
+        {
+          "id": "networking-vnet",
+          "title": "Virtual Networks og logiske grenser",
+          "topics": ["vnet"],
+          "recommended": true
+        },
+        {
+          "id": "networking-addressing",
+          "title": "IP Addressing & CIDR Explorer",
+          "topics": ["addressing"],
+          "recommended": true
+        },
+        {
+          "id": "networking-dependencies",
+          "title": "Undersøk en faktisk VM-nettverkskjede",
+          "topics": ["dependencies"],
+          "recommended": true
+        },
+        {
+          "id": "networking-peering",
+          "title": "VNet Peering · direkte forbindelser",
+          "topics": ["peering"],
+          "recommended": true
+        },
+        {
+          "id": "networking-dns",
+          "title": "Azure DNS · navn før nettverksvei",
+          "topics": ["dns"],
+          "recommended": true
+        },
+        {
+          "id": "networking-explorer",
+          "title": "Azure Network Path Explorer",
+          "topics": ["explorer"],
+          "recommended": true
+        },
+        {
+          "id": "networking-missions",
+          "title": "Guidede nettverksoppdrag",
+          "topics": ["missions"],
+          "recommended": false
+        },
+        {
+          "id": "networking-assessment",
+          "title": "Selvstendig Networking-anvendelse",
+          "topics": ["assessment"],
+          "recommended": true
+        },
+        {
+          "id": "networking-summary",
+          "title": "Part A · oppsummering og dokumenterte resultater",
+          "topics": ["summary"],
+          "recommended": true
+        }
+      ],
+      "problem": "Introduction og fundamentals deler katalogens navn/adresse/vei/tilgangsproblem før nytt begrepsgrunnlag. Missions gjentar eksisterende kort. Adressering, faktisk inspeksjon, peering, DNS og samlet Explorer har distinkte handlinger/spørsmål.",
+      "gain": "Bruk Nordverkcase som innledning til IP-/kommunikasjonsgrunnlaget. Behold alle fire guidegrenser og cross-perspective Explorer som egen syntese; kartet blir sekundært.",
+      "risk": "Medium for introduksjonsintegrering: behold faktisk/syntetisk-grensen og merking av Part A/B. Ingen sammenslåing av adressedesign og faktisk VMinspeksjon eller deres Start.",
+      "priority": "P2 oppfølging",
+      "evidenceGroup": "core-compute-network"
+    },
+    {
+      "module": "connectivity",
+      "title": "Networking B",
+      "before": 10,
+      "afterProposed": 9,
+      "secondaryRetained": 1,
+      "sessions": [
+        {
+          "id": "connectivity-introduction",
+          "title": "Fra tilkoblet nettverk til brukbar tjeneste",
+          "topics": ["introduction"],
+          "recommended": true
+        },
+        {
+          "id": "connectivity-vpn",
+          "title": "VPN Gateway · site, klient og VNet",
+          "topics": ["vpn"],
+          "recommended": true
+        },
+        {
+          "id": "connectivity-expressroute",
+          "title": "ExpressRoute · privat transport og kryptering",
+          "topics": ["expressroute"],
+          "recommended": true
+        },
+        {
+          "id": "connectivity-endpoints",
+          "title": "Public & Private Endpoints · separate innganger",
+          "topics": ["endpoints"],
+          "recommended": true
+        },
+        {
+          "id": "connectivity-private-dns",
+          "title": "Private Link DNS · klientens oppslagsvei",
+          "topics": ["private-dns"],
+          "recommended": true
+        },
+        {
+          "id": "connectivity-hybrid",
+          "title": "Hybrid Connectivity Explorer",
+          "topics": ["hybrid"],
+          "recommended": true
+        },
+        {
+          "id": "connectivity-explorer",
+          "title": "Endpoint & DNS Explorer",
+          "topics": ["explorer"],
+          "recommended": true
+        },
+        {
+          "id": "connectivity-missions",
+          "title": "Guidede Connectivity-oppdrag",
+          "topics": ["missions"],
+          "recommended": false
+        },
+        {
+          "id": "connectivity-assessment",
+          "title": "Selvstendig Connectivity-anvendelse",
+          "topics": ["assessment"],
+          "recommended": true
+        },
+        {
+          "id": "connectivity-summary",
+          "title": "Networking Part B · dokumenterte resultater",
+          "topics": ["summary"],
+          "recommended": true
+        }
+      ],
+      "problem": "Handoff, VPNscope, privattransport/kryptering, serviceinngang, DNS og samlet diagnose er forskjellige spørsmål. De lange to Explorerne gir faktiske premiss-/beviskjeder; de er ikke duplikater som bør fjernes for et sidetall. Bare missions er et gjentatt oversiktskart.",
+      "gain": "Behold hele fag-/modellsekvensen. La kartet være sekundær resume/status slik at ingen ekstra teoriøkt antydes av de samme kortene.",
+      "risk": "Low: bevar eksisterende A/B/C/DStart, separate historie-/aidgrenser og kartets gjenopptakslenker. Ingen endring av transport-/endpointmodeller.",
+      "priority": "P3 oppfølging",
+      "evidenceGroup": "core-compute-network"
+    },
+    {
+      "module": "storage",
+      "title": "Storage A",
+      "before": 11,
+      "afterProposed": 11,
+      "secondaryRetained": 0,
+      "sessions": [
+        {
+          "id": "storage:introduction",
+          "title": "Lagring, data og kontoer",
+          "topics": ["introduction"],
+          "recommended": true
+        },
+        {
+          "id": "storage:blob",
+          "title": "Azure Blob Storage · objekter",
+          "topics": ["blob"],
+          "recommended": true
+        },
+        {
+          "id": "storage:files",
+          "title": "Azure Files · delte filer",
+          "topics": ["files"],
+          "recommended": true
+        },
+        {
+          "id": "storage:queues",
+          "title": "Azure Queue Storage · asynkront arbeid",
+          "topics": ["queues"],
+          "recommended": true
+        },
+        {
+          "id": "storage:tables",
+          "title": "Azure Table Storage · nøkkelbaserte entities",
+          "topics": ["tables"],
+          "recommended": true
+        },
+        {
+          "id": "storage:accounts",
+          "title": "Storage account options · støttede kombinasjoner",
+          "topics": ["accounts"],
+          "recommended": true
+        },
+        {
+          "id": "storage:disks",
+          "title": "Managed disks · VM-volum og datatjenester",
+          "topics": ["disks"],
+          "recommended": true
+        },
+        {
+          "id": "storage:studio",
+          "title": "Storage Workload Studio",
+          "topics": ["studio"],
+          "recommended": true
+        },
+        {
+          "id": "storage:missions",
+          "title": "Guidede Storage-oppdrag",
+          "topics": ["missions"],
+          "recommended": true
+        },
+        {
+          "id": "storage:assessment",
+          "title": "Selvstendig Storage-anvendelse",
+          "topics": ["assessment"],
+          "recommended": true
+        },
+        {
+          "id": "storage:summary",
+          "title": "Storage Part A · dokumenterte resultater",
+          "topics": ["summary"],
+          "recommended": true
+        }
+      ],
+      "problem": "Ingen konkret strukturhindring er påvist. Fire datakontrakter, kontokompatibilitet og VM-diskgrensen har ulike spørsmål; et generelt «Storage»-kapittel ville skjule viktige forskjeller.",
+      "gain": "Behold gjenfinnbare mekanisme-/kontrollpunkter. Repetert oppdragsinngang kan vurderes senere, men navigasjonssletting er ikke nødvendig for RC.",
+      "risk": "Samling av de fire tjenestene kan redusere synligheten av kø-/nøkkelmekanismen; ingen påvist fordel nå.",
+      "priority": "behold; ingen strukturell endring anbefales nå",
+      "evidenceGroup": "storage-identity-security"
+    },
+    {
+      "module": "storage-resilience",
+      "title": "Storage B",
+      "before": 10,
+      "afterProposed": 10,
+      "secondaryRetained": 0,
+      "sessions": [
+        {
+          "id": "storage-resilience:introduction",
+          "title": "Fra lagringstjeneste til tilgang og beskyttelse",
+          "topics": ["introduction"],
+          "recommended": true
+        },
+        {
+          "id": "storage-resilience:tiers",
+          "title": "Hot, Cool, Cold og Archive",
+          "topics": ["tiers"],
+          "recommended": true
+        },
+        {
+          "id": "storage-resilience:lifecycle",
+          "title": "Standardtier, lifecycle og rehydrering",
+          "topics": ["lifecycle"],
+          "recommended": true
+        },
+        {
+          "id": "storage-resilience:redundancy",
+          "title": "LRS, ZRS og geo-replikering",
+          "topics": ["redundancy"],
+          "recommended": true
+        },
+        {
+          "id": "storage-resilience:recovery",
+          "title": "Sekundær lesing, failover og gjenoppretting",
+          "topics": ["recovery"],
+          "recommended": true
+        },
+        {
+          "id": "storage-resilience:boundaries",
+          "title": "Tjenestegrenser og kombinasjoner",
+          "topics": ["boundaries"],
+          "recommended": true
+        },
+        {
+          "id": "storage-resilience:studio",
+          "title": "Tier & Resilience Studio",
+          "topics": ["studio"],
+          "recommended": true
+        },
+        {
+          "id": "storage-resilience:missions",
+          "title": "Guidede undersøkelser",
+          "topics": ["missions"],
+          "recommended": true
+        },
+        {
+          "id": "storage-resilience:assessment",
+          "title": "Selvstendig anvendelse",
+          "topics": ["assessment"],
+          "recommended": true
+        },
+        {
+          "id": "storage-resilience:summary",
+          "title": "Summary — Storage Part B",
+          "topics": ["summary"],
+          "recommended": true
+        }
+      ],
+      "problem": "Ingen konkret strukturhindring er påvist. Tier, tilstandsendring, fysisk kopi, recovery og krysskombinasjon er forskjellige beslutninger.",
+      "gain": "Behold progressjonen fra krav → tilgjengelighet/kostnad → tilstand → feilgrense → recovery → kombinasjonskontroll.",
+      "risk": "Å gjøre boundaries til valgfri referanse kan fjerne nødvendig Archive/ZRS- og tjenestestøtteundervisning.",
+      "priority": "behold; ingen strukturell endring anbefales nå",
+      "evidenceGroup": "storage-identity-security"
+    },
+    {
+      "module": "migration",
+      "title": "Storage C — File Movement & Migration",
+      "before": 12,
+      "afterProposed": 11,
+      "secondaryRetained": 0,
+      "sessions": [
+        {
+          "id": "migration-needs",
+          "title": "Avklar overgang og metodekrav",
+          "topics": ["introduction", "methods"],
+          "recommended": true
+        },
+        {
+          "id": "migration:azcopy",
+          "title": "AzCopy: en eksplisitt kilde, et mål og en jobb",
+          "topics": ["azcopy"],
+          "recommended": true
+        },
+        {
+          "id": "migration:explorer",
+          "title": "Storage Explorer: kontrollert, grafisk dataarbeid",
+          "topics": ["explorer"],
+          "recommended": true
+        },
+        {
+          "id": "migration:file-sync",
+          "title": "Azure File Sync: en vedvarende hybrid filrelasjon",
+          "topics": ["file-sync"],
+          "recommended": true
+        },
+        {
+          "id": "migration:migrate",
+          "title": "Azure Migrate: fra oppdagelse til en verifisert overgang",
+          "topics": ["migrate"],
+          "recommended": true
+        },
+        {
+          "id": "migration:databox",
+          "title": "Azure Data Box: fysisk transport er en del av planen",
+          "topics": ["databox"],
+          "recommended": true
+        },
+        {
+          "id": "migration:validation",
+          "title": "Hva må resultatet faktisk dokumentere?",
+          "topics": ["validation"],
+          "recommended": true
+        },
+        {
+          "id": "migration:studio",
+          "title": "File Movement & Migration Studio",
+          "topics": ["studio"],
+          "recommended": true
+        },
+        {
+          "id": "migration:missions",
+          "title": "Guidede overføringsundersøkelser",
+          "topics": ["missions"],
+          "recommended": true
+        },
+        {
+          "id": "migration:assessment",
+          "title": "Selvstendig File Movement & Migration",
+          "topics": ["assessment"],
+          "recommended": true
+        },
+        {
+          "id": "migration:summary",
+          "title": "Summary — Storage Part C",
+          "topics": ["summary"],
+          "recommended": true
+        }
+      ],
+      "problem": "Åpningen fordeler samme behovsramme over introduction og methods før verktøysidene; methods tilfører samtidig viktig fidelity som ikke kan kuttes.",
+      "gain": "En felles kravavklaringsøkt kan koble overgangstype direkte til arbeidsform og bevaringskrav før AzCopy/Explorer/File Sync/Migrate/Data Box.",
+      "risk": "Introduksjonens bevisgrenser eller methods-ACL/fidelity kan drukne i en lengre økt; krever synlige underoverskrifter og presise gamle lenker.",
+      "priority": "behold før RC; P2 avgrenset oppfølging for samlingskandidat",
+      "evidenceGroup": "storage-identity-security"
+    },
+    {
+      "module": "identity",
+      "title": "Identity A",
+      "before": 12,
+      "afterProposed": 11,
+      "secondaryRetained": 0,
+      "sessions": [
+        {
+          "id": "identity:introduction",
+          "title": "Fra ressurser til identitet",
+          "topics": ["introduction"],
+          "recommended": true
+        },
+        {
+          "id": "identity:directory",
+          "title": "Microsoft Entra ID og tenant",
+          "topics": ["directory"],
+          "recommended": true
+        },
+        {
+          "id": "identity:domain",
+          "title": "Microsoft Entra Domain Services",
+          "topics": ["domain"],
+          "recommended": true
+        },
+        {
+          "id": "identity:authentication",
+          "title": "Authentication versus Authorization",
+          "topics": ["authentication"],
+          "recommended": true
+        },
+        {
+          "id": "identity:sso",
+          "title": "Single Sign-On",
+          "topics": ["sso"],
+          "recommended": true
+        },
+        {
+          "id": "identity-strong-authentication",
+          "title": "MFA, passwordless og phishing-resistens",
+          "topics": ["mfa", "passwordless"],
+          "recommended": true
+        },
+        {
+          "id": "identity:external",
+          "title": "External Identities",
+          "topics": ["external"],
+          "recommended": true
+        },
+        {
+          "id": "identity:studio",
+          "title": "Identity & Authentication Studio",
+          "topics": ["studio"],
+          "recommended": true
+        },
+        {
+          "id": "identity:missions",
+          "title": "Guidede undersøkelser",
+          "topics": ["missions"],
+          "recommended": true
+        },
+        {
+          "id": "identity:assessment",
+          "title": "Selvstendig anvendelse",
+          "topics": ["assessment"],
+          "recommended": true
+        },
+        {
+          "id": "identity:summary",
+          "title": "Summary — Identity Foundations",
+          "topics": ["summary"],
+          "recommended": true
+        }
+      ],
+      "problem": "MFA og passwordless forklarer overlappende passkey/PIN-eksempler, men eleven må nettopp skille faktor, passordbruk og phishing-resistens.",
+      "gain": "En samlet to-akset metodevurdering kan gjøre sammenligningen direkte; AuthN/AuthZ, SSO, domain og external beholdes som egne spørsmål.",
+      "risk": "Ikke komprimer passkey/Hello/Authenticator/SMS-støtte til en «passwordless er sterkere»-regel eller gjør SMS-forbehold usynlig.",
+      "priority": "behold før RC; P2 avgrenset oppfølging for samlingskandidat",
+      "evidenceGroup": "storage-identity-security"
+    },
+    {
+      "module": "access-control",
+      "title": "Identity B — Access Control",
+      "before": 12,
+      "afterProposed": 11,
+      "secondaryRetained": 0,
+      "sessions": [
+        {
+          "id": "access-control:introduction",
+          "title": "Fra autentisering til handling",
+          "topics": ["introduction"],
+          "recommended": true
+        },
+        {
+          "id": "access-control:rbac",
+          "title": "Principal, rolle og tildeling",
+          "topics": ["rbac"],
+          "recommended": true
+        },
+        {
+          "id": "access-control:scope",
+          "title": "Scope og arv",
+          "topics": ["scope"],
+          "recommended": true
+        },
+        {
+          "id": "access-control:roles",
+          "title": "Azure- og Entra-roller",
+          "topics": ["roles"],
+          "recommended": true
+        },
+        {
+          "id": "access-control:planes",
+          "title": "Management og data",
+          "topics": ["planes"],
+          "recommended": true
+        },
+        {
+          "id": "access-conditional-evaluation",
+          "title": "Conditional Access: policy og samlet utfall",
+          "topics": ["conditional", "policies"],
+          "recommended": true
+        },
+        {
+          "id": "access-control:testing",
+          "title": "Testing og nødtilgang",
+          "topics": ["testing"],
+          "recommended": true
+        },
+        {
+          "id": "access-control:studio",
+          "title": "Azure Access Decision Studio",
+          "topics": ["studio"],
+          "recommended": true
+        },
+        {
+          "id": "access-control:missions",
+          "title": "Guidede undersøkelser",
+          "topics": ["missions"],
+          "recommended": true
+        },
+        {
+          "id": "access-control:assessment",
+          "title": "Selvstendig anvendelse",
+          "topics": ["assessment"],
+          "recommended": true
+        },
+        {
+          "id": "access-control:summary",
+          "title": "Summary — Access Control",
+          "topics": ["summary"],
+          "recommended": true
+        }
+      ],
+      "problem": "Enkeltpolicyens targeting/grant og flere policyers samlede krav er en sammenhengende evalueringskjede, men ligger nå på to nabosider.",
+      "gain": "Sammenlesing kan gjøre AND/OR innen én policy, flere policyer, Block og Report-only lettere å sammenholde. Testing/nødtilgang beholdes som egen praktisk stopp.",
+      "risk": "En lengre CA-økt kan skjule rekkevidden av exclusions eller lokke til én samlet CA/RBAC-motor. Modellene og vurderingsgrenser skal ikke endres.",
+      "priority": "behold før RC; P2 avgrenset oppfølging for samlingskandidat",
+      "evidenceGroup": "storage-identity-security"
+    },
+    {
+      "module": "security",
+      "title": "Identity C — Security",
+      "before": 12,
+      "afterProposed": 11,
+      "secondaryRetained": 0,
+      "sessions": [
+        {
+          "id": "security:introduction",
+          "title": "Sikkerhet som helhet",
+          "topics": ["introduction"],
+          "recommended": true
+        },
+        {
+          "id": "security:zero-trust",
+          "title": "Zero Trust — tre prinsipper",
+          "topics": ["zero-trust"],
+          "recommended": true
+        },
+        {
+          "id": "security:depth",
+          "title": "Defense in Depth — sju lag",
+          "topics": ["depth"],
+          "recommended": true
+        },
+        {
+          "id": "security:encryption",
+          "title": "Encryption & Key Vault · Learn-supplement",
+          "topics": ["encryption"],
+          "recommended": true
+        },
+        {
+          "id": "security-posture-and-coverage",
+          "title": "Defender for Cloud: posture, planer og oppfølging",
+          "topics": ["defender", "posture"],
+          "recommended": true
+        },
+        {
+          "id": "security:protection",
+          "title": "Workload Protection & Security Alerts",
+          "topics": ["protection"],
+          "recommended": true
+        },
+        {
+          "id": "security:score",
+          "title": "To Secure Score-modeller",
+          "topics": ["score"],
+          "recommended": true
+        },
+        {
+          "id": "security:studio",
+          "title": "Security Decision Studio",
+          "topics": ["studio"],
+          "recommended": true
+        },
+        {
+          "id": "security:missions",
+          "title": "Guidede sikkerhetsundersøkelser",
+          "topics": ["missions"],
+          "recommended": true
+        },
+        {
+          "id": "security:assessment",
+          "title": "Selvstendig sikkerhetsanvendelse",
+          "topics": ["assessment"],
+          "recommended": true
+        },
+        {
+          "id": "security:summary",
+          "title": "Summary — Security Part C",
+          "topics": ["summary"],
+          "recommended": true
+        }
+      ],
+      "problem": "Defender-funksjonskartet og neste posture-side gjeninnfører anbefaling/CSPM før de konkrete plan-/datavilkårene.",
+      "gain": "Én funksjon→grunnlag→oppfølging-økt kan bevare begge forklaringer og redusere ny oppstart. Workload-alerts og score er ulike bevis-/tolkingsspørsmål som fortsatt fortjener egne sider.",
+      "risk": "Ikke la CNAPP/CSPM/CWPP eller metadataforbehold bli skjult i en stor produktoversikt. Encryption beholdes; Learn-supplement er ikke i seg selv grunn til å fjerne nødvendig krypteringsgrunnlag.",
+      "priority": "behold før RC; P2 avgrenset oppfølging for samlingskandidat",
+      "evidenceGroup": "storage-identity-security"
+    },
+    {
+      "module": "cost",
+      "title": "Cost Management",
+      "before": 9,
+      "afterProposed": 8,
+      "secondaryRetained": 0,
+      "sessions": [
+        {
+          "id": "cost-foundation",
+          "title": "Behov, kostnadsdrivere og fakturerbart forbruk",
+          "topics": ["introduction", "drivers"],
+          "recommended": true
+        },
+        {
+          "id": "cost-estimate",
+          "title": "Bygg og sammenlign et estimat",
+          "topics": ["estimate"],
+          "recommended": true
+        },
+        {
+          "id": "cost-analysis",
+          "title": "Undersøk et kostnadsavvik",
+          "topics": ["analysis"],
+          "recommended": true
+        },
+        {
+          "id": "cost-budgets",
+          "title": "Undersøk actual og forecast mot budsjett",
+          "topics": ["budgets"],
+          "recommended": true
+        },
+        {
+          "id": "cost-tags",
+          "title": "Forklar kostnadsfordeling med tags",
+          "topics": ["tags"],
+          "recommended": true
+        },
+        {
+          "id": "cost-optimization",
+          "title": "Optimalisering med driftskrav",
+          "topics": ["optimization"],
+          "recommended": true
+        },
+        {
+          "id": "cost-assessment",
+          "title": "Selvstendig økonomisk anvendelse",
+          "topics": ["assessment"],
+          "recommended": true
+        },
+        {
+          "id": "cost-summary",
+          "title": "Hva har du dokumentert?",
+          "topics": ["summary"],
+          "recommended": true
+        }
+      ],
+      "problem": "Introduksjonen hevder at ressursantall ikke er en måler, mens neste separate side straks forklarer målerne. Overgangen kan fungere som én grunnøkt; de fire benkene har derimot forskjellige aktive beslutninger.",
+      "gain": "Knytter arbeidslastens behov direkte til konkret fakturerbar mengde før første estimat. Egen analyse, budsjett, tags og optimeringssyntese beholdes.",
+      "risk": "Innledningens oversiktsfunksjon og konkrete forbruksmekanismer må begge være synlige; ikke fyll grunnøkten med de fire aktive benkene.",
+      "priority": "Én avgrenset senere leveranse / P2-presentasjon. Behold nåværende struktur fram til gjennomarbeidet implementering.",
+      "evidenceGroup": "management-governance"
+    },
+    {
+      "module": "governance",
+      "title": "Governance & Compliance",
+      "before": 13,
+      "afterProposed": 11,
+      "secondaryRetained": 1,
+      "sessions": [
+        {
+          "id": "gov-introduction",
+          "title": "Fra kostnader til styring",
+          "topics": ["introduction"],
+          "recommended": true
+        },
+        {
+          "id": "gov-data-governance",
+          "title": "Purview: finn, forstå og forvalt data",
+          "topics": ["purview", "catalog"],
+          "recommended": true
+        },
+        {
+          "id": "gov-policy",
+          "title": "Policy-definition og effect",
+          "topics": ["policy"],
+          "recommended": true
+        },
+        {
+          "id": "gov-assignments",
+          "title": "Scope, assignments og unntak",
+          "topics": ["assignments"],
+          "recommended": true
+        },
+        {
+          "id": "gov-compliance",
+          "title": "Compliance, timing og remediation",
+          "topics": ["compliance"],
+          "recommended": true
+        },
+        {
+          "id": "gov-locks",
+          "title": "Administrativt ressursvern",
+          "topics": ["locks"],
+          "recommended": true
+        },
+        {
+          "id": "gov-planes",
+          "title": "Operasjonsplan, datatilgang og backupgrense",
+          "topics": ["planes"],
+          "recommended": true
+        },
+        {
+          "id": "gov-trust",
+          "title": "Service Trust Portal og leverandørdokumentasjon",
+          "topics": ["trust"],
+          "recommended": true
+        },
+        {
+          "id": "gov-studio",
+          "title": "Governance Decision Studio",
+          "topics": ["studio"],
+          "recommended": true
+        },
+        {
+          "id": "gov-assessment",
+          "title": "Selvstendig Governance-anvendelse",
+          "topics": ["assessment"],
+          "recommended": true
+        },
+        {
+          "id": "gov-summary",
+          "title": "Summary — Governance",
+          "topics": ["summary"],
+          "recommended": true
+        },
+        {
+          "id": "governance-missions-reference",
+          "title": "Guidede undersøkelser — valgfritt oppslagskart",
+          "topics": ["missions"],
+          "recommended": false
+        }
+      ],
+      "problem": "Purview-oversikten og metadata/lineage fortsetter samme katalogcase på to sider. Et separat missions-kart gjentar tre guideinnganger.",
+      "gain": "Samler produktets datarelasjoner og mekanismene som gjør metadata nyttig; kartet beholdes for direktevalg. Policy-effekt, scope/unntak, remediation og lock-/data-plane-trinn forblir tydelige.",
+      "risk": "Purview+catalog må være to lesbare seksjoner med alle rettighetsgrenser. Ikke koble katalogtekst direkte til faktisk autorisasjon eller bland modelldata med kildedata.",
+      "priority": "Én avgrenset senere leveranse / P2-presentasjon. Behold nåværende struktur fram til gjennomarbeidet implementering.",
+      "evidenceGroup": "management-governance"
+    },
+    {
+      "module": "management-tools",
+      "title": "Management & Deployment Tools",
+      "before": 16,
+      "afterProposed": 12,
+      "secondaryRetained": 1,
+      "sessions": [
+        {
+          "id": "tools-introduction",
+          "title": "Fra intensjon til konfigurasjon",
+          "topics": ["introduction"],
+          "recommended": true
+        },
+        {
+          "id": "tools-portal",
+          "title": "Grafisk administrasjon og ressursinspeksjon",
+          "topics": ["portal"],
+          "recommended": true
+        },
+        {
+          "id": "tools-shell",
+          "title": "Cloud Shell, host og sesjonsvilkår",
+          "topics": ["shell"],
+          "recommended": true
+        },
+        {
+          "id": "tools-clients",
+          "title": "Samme intensjon med Azure CLI og PowerShell",
+          "topics": ["cli", "powershell"],
+          "recommended": true
+        },
+        {
+          "id": "tools-arm",
+          "title": "ARM, scope og resource providers",
+          "topics": ["arm"],
+          "recommended": true
+        },
+        {
+          "id": "tools-iac",
+          "title": "IaC som gjennomgåelig arbeidsform",
+          "topics": ["iac"],
+          "recommended": true
+        },
+        {
+          "id": "tools-declarations",
+          "title": "Samme ønsket konfigurasjon i ARM JSON og Bicep",
+          "topics": ["templates", "bicep"],
+          "recommended": true
+        },
+        {
+          "id": "tools-changes",
+          "title": "Endringsanalyse, review og etterprøving",
+          "topics": ["changes", "copilot"],
+          "recommended": true
+        },
+        {
+          "id": "tools-arc",
+          "title": "Arc: administrer eksternt uten å flytte workload",
+          "topics": ["arc"],
+          "recommended": true
+        },
+        {
+          "id": "tools-studio",
+          "title": "Management & Deployment Studio",
+          "topics": ["studio"],
+          "recommended": true
+        },
+        {
+          "id": "tools-assessment",
+          "title": "Selvstendig Management-anvendelse",
+          "topics": ["assessment"],
+          "recommended": true
+        },
+        {
+          "id": "tools-summary",
+          "title": "Summary — Management & Deployment",
+          "topics": ["summary"],
+          "recommended": true
+        },
+        {
+          "id": "management-missions-reference",
+          "title": "Guidede undersøkelser — valgfritt oppslagskart",
+          "topics": ["missions"],
+          "recommended": false
+        }
+      ],
+      "problem": "CLI/Pwsh og ARM JSON/Bicep er uttrykkelige sammenlikningspar over samme mål, men ligger som isolerte produktsider. Copilot-eksemplet bruker samme endringsreview som changes. Missions-kartet er gjentatt navigasjon.",
+      "gain": "Gir direkte kontrast mellom klienter og mellom deklarative formater, mens host, ARM-lag, IaC-prinsipp, What-if og Arc beholder egne læringsspørsmål. Copilot blir en konkret anvendelse av reviewkravet.",
+      "risk": "Ikke reduser PowerShell til et CLI-alias eller Bicep til kort JSON. Formatøkten kan bli tett; behold eksempel- og moteksempelstrukturen og kontroller reell visning før endelig vedtak.",
+      "priority": "Én avgrenset senere leveranse / P2-presentasjon. Behold nåværende struktur fram til gjennomarbeidet implementering.",
+      "evidenceGroup": "management-governance"
+    },
+    {
+      "module": "monitoring",
+      "title": "Monitoring & Diagnostics",
+      "before": 12,
+      "afterProposed": 11,
+      "secondaryRetained": 1,
+      "sessions": [
+        {
+          "id": "monitoring-introduction",
+          "title": "Fra konfigurasjon til driftsinnsikt",
+          "topics": ["introduction"],
+          "recommended": true
+        },
+        {
+          "id": "monitoring-advisor",
+          "title": "Vurder forbedringsråd",
+          "topics": ["advisor"],
+          "recommended": true
+        },
+        {
+          "id": "monitoring-health",
+          "title": "Plattform-, subscription- og ressurshelse",
+          "topics": ["health"],
+          "recommended": true
+        },
+        {
+          "id": "monitoring-monitor",
+          "title": "Innsamling, datalager, analyse og respons",
+          "topics": ["monitor"],
+          "recommended": true
+        },
+        {
+          "id": "monitoring-signals",
+          "title": "Signaltyper, aggregasjon og dekning",
+          "topics": ["signals"],
+          "recommended": true
+        },
+        {
+          "id": "monitoring-logs",
+          "title": "Log Analytics og avgrenset KQL-analyse",
+          "topics": ["logs"],
+          "recommended": true
+        },
+        {
+          "id": "monitoring-alerts",
+          "title": "Regel, status, varslingsvei og oppfølging",
+          "topics": ["alerts"],
+          "recommended": true
+        },
+        {
+          "id": "monitoring-insights",
+          "title": "Instrumentert applikasjon og transaksjonsspor",
+          "topics": ["insights"],
+          "recommended": true
+        },
+        {
+          "id": "monitoring-studio",
+          "title": "Monitoring & Diagnostics Studio",
+          "topics": ["studio"],
+          "recommended": true
+        },
+        {
+          "id": "monitoring-assessment",
+          "title": "Selvstendig Monitoring-anvendelse",
+          "topics": ["assessment"],
+          "recommended": true
+        },
+        {
+          "id": "monitoring-summary",
+          "title": "Summary — Monitoring & Diagnostics",
+          "topics": ["summary"],
+          "recommended": true
+        },
+        {
+          "id": "monitoring-missions-reference",
+          "title": "Guidede undersøkelser — valgfritt oppslagskart",
+          "topics": ["missions"],
+          "recommended": false
+        }
+      ],
+      "problem": "De åtte teorisidene representerer forskjellige bevis-/kontrollmekanismer; den tydelige strukturelle gjentakelsen er missions-kartet etter en allerede navigerbar Studio-flate.",
+      "gain": "Beholder den eksisterende mekanismeinndelingen og gir kartet en presis oppslagsrolle. Gjør ikke monitorering til én samleside med mange nye statuser og datakilder.",
+      "risk": "Valgfritt kart må fortsatt kunne brukes til å finne riktig perspektiv; det er ikke dokumentert at alle elever oppdager samme valg gjennom tabs alene.",
+      "priority": "Én avgrenset senere leveranse / P2-presentasjon. Behold nåværende struktur fram til gjennomarbeidet implementering.",
+      "evidenceGroup": "management-governance"
+    }
+  ],
+  "rawReports": [
+    {
+      "path": "docs/reviews/evidence/pr57/structure/cloud-concepts/review.md.txt",
+      "sha256": "49395bc54d241e30f863478840bd98077b54081f9ec8862453bd054e43e74741"
+    },
+    {
+      "path": "docs/reviews/evidence/pr57/structure/cloud-concepts/activities.json.txt",
+      "sha256": "c4e01f7a148bae8c63069410ffd30cd01c01e120bcd24e7fb8a844b947753daf"
+    },
+    {
+      "path": "docs/reviews/evidence/pr57/structure/cloud-concepts/modules.json.txt",
+      "sha256": "f3642de653639d62055d27cdc5e2e614449946b88f987d5e2c059605d6a47083"
+    },
+    {
+      "path": "docs/reviews/evidence/pr57/structure/core-compute-network/review.md.txt",
+      "sha256": "3d5af691823ac3413a060dad1aa6d0baec1397150372db449038c62a08f635b6"
+    },
+    {
+      "path": "docs/reviews/evidence/pr57/structure/core-compute-network/activities.json.txt",
+      "sha256": "f17887140404b75c15e21a00fac7a3d60c7fdc96f2c1af75a27bb4c8c5f3ee3a"
+    },
+    {
+      "path": "docs/reviews/evidence/pr57/structure/core-compute-network/modules.json.txt",
+      "sha256": "8514d30712f5d63a057d66497e4db1b7887cdc4b8bc6b1b396c8254fb6341e73"
+    },
+    {
+      "path": "docs/reviews/evidence/pr57/structure/storage-identity-security/review.md.txt",
+      "sha256": "feef5b899cde09e6faeddd048a66ef6d5b69a432b55aa8733018ed5bf3e02f11"
+    },
+    {
+      "path": "docs/reviews/evidence/pr57/structure/storage-identity-security/activities.json.txt",
+      "sha256": "470db5f37b8f0bd4076baee2d3698bc3da212fcbbce67c4f3546a224d81ddcfc"
+    },
+    {
+      "path": "docs/reviews/evidence/pr57/structure/storage-identity-security/modules.json.txt",
+      "sha256": "f13e55bc065f9849580dc6d34ecc0b7cde9cab2b2f89abb2939a69546ad05d09"
+    },
+    {
+      "path": "docs/reviews/evidence/pr57/structure/management-governance/review.md.txt",
+      "sha256": "675a5e3cff94a5ef18768c72bd64dd50a22026e9054132bb3794654dabf64a63"
+    },
+    {
+      "path": "docs/reviews/evidence/pr57/structure/management-governance/activities.json.txt",
+      "sha256": "c567961ce59c43f3245992d989757e4cf3804f38d25467ef45e355f7d35e39b9"
+    },
+    {
+      "path": "docs/reviews/evidence/pr57/structure/management-governance/modules.json.txt",
+      "sha256": "2bb59647092de760b38c92c90e605d6ed8e0a681ed08a1f1d91f97bcbc9d5446"
+    }
+  ]
+}

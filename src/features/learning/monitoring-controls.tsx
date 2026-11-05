@@ -81,7 +81,7 @@ export function MonitoringControls({
   return (
     <>
       <div className="monitoring-control-group">
-        <h5>{c.visual.metricControls}</h5>
+        <h4>{c.visual.metricControls}</h4>
         {select('fixture')}
         {select('signal', ['cpu', 'duration'])}
         {select('coverage')}
@@ -90,13 +90,13 @@ export function MonitoringControls({
         {select('threshold')}
       </div>
       <div className="monitoring-control-group">
-        <h5>{c.visual.alertControls}</h5>
+        <h4>{c.visual.alertControls}</h4>
         {select('rule')}
         {select('ruleSignal')}
         {check('actionGroup')}
       </div>
       <div className="monitoring-control-group">
-        <h5>{c.visual.logControls}</h5>
+        <h4>{c.visual.logControls}</h4>
         {select('logSource')}
         {select('filter')}
         {check('routed')}
