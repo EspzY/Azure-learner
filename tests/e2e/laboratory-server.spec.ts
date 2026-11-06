@@ -1,3 +1,4 @@
+import { revealLaboratoryLink } from './laboratory-actions';
 import { test, expect, type Page } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { createHash } from 'node:crypto';
@@ -92,6 +93,7 @@ test('server Laboratory actual Storage chain commits escaped text metadata origi
   await expect(dialog).toContainText(c.resetNote);
   await dialog.getByRole('button', { name: c.confirmReset, exact: true }).click();
   await expect(page.locator('.lab-result')).toContainText(c.codes.updated);
+  await revealLaboratoryLink(page, page.getByRole('link', { name: c.groups, exact: true }));
   await page.getByRole('link', { name: c.groups, exact: true }).click();
   await expect(page.getByRole('table')).toContainText(c.empty);
   expect(await oldBytes(page)).toBe(before);

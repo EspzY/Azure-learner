@@ -1,6 +1,7 @@
 'use client';
 import { nb, operationExplanation, regionLabels } from '@/content/nb';
 import type { Receipt } from '@/domain/chapter01/model';
+import { PortalReceiptSummary } from './presentation';
 export function ReceiptPanel({
   receipt,
   onPolicy,
@@ -16,13 +17,17 @@ export function ReceiptPanel({
     ? t.operations[receipt.operation as keyof typeof t.operations]
     : t.operations.unknown;
   return (
-    <div className={`chapter-receipt receipt-${receipt.outcome}`} data-outcome={receipt.outcome}>
-      <span className="eyebrow">
-        {t.outcomes[receipt.outcome]} · {receipt.commandId}
-      </span>
-      <h2>{t.receiptTitle}</h2>
-      {receipt.probe && <p className="probe-notice">{t.probeReceipt}</p>}
-      <p className="receipt-cause">{operationExplanation(receipt)}</p>
+    <PortalReceiptSummary
+      outcome={receipt.outcome}
+      identity={
+        <>
+          {t.outcomes[receipt.outcome]} · {receipt.commandId}
+        </>
+      }
+      title={t.receiptTitle}
+      notice={receipt.probe && <p className="probe-notice">{t.probeReceipt}</p>}
+      description={operationExplanation(receipt)}
+    >
       <dl className="technical-properties">
         <div>
           <dt>{t.operation}</dt>
@@ -93,6 +98,6 @@ export function ReceiptPanel({
           {t.editConfiguration}
         </button>
       )}
-    </div>
+    </PortalReceiptSummary>
   );
 }
