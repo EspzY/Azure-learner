@@ -1253,11 +1253,13 @@ export function Laboratory() {
                       <PropertyList
                         items={Object.entries(resource.source).map(([key, value]) => [
                           label(key),
-                          ['origin', 'associationOrigin'].includes(key)
-                            ? receiptLink(String(value))
-                            : typeof value === 'object'
-                              ? JSON.stringify(value)
-                              : String(value),
+                          value === null
+                            ? '—'
+                            : ['origin', 'associationOrigin'].includes(key)
+                              ? receiptLink(String(value))
+                              : typeof value === 'object'
+                                ? JSON.stringify(value)
+                                : String(value),
                         ])}
                       />
                     </>

@@ -80,3 +80,5 @@ Prior local failures and their narrow corrections are retained in [verification]
 | Keyboard Create after Tab                   | ![Final Review keyboard action](reviews/evidence/pr63/shared-review-1024-500.png)            |
 
 The Review images use distinct real synthetic sessions and name fields, not one fabricated before/after World. Review itself preserved each original verified snapshot/ledger; the displayed preview is not a persisted receipt or a created resource. The separate audit retains the original failing Axe probe and its own subsequent actual request/receipt comparison.
+
+A final native Properties regression exposed a null `associationOrigin` being formatted as a receipt link for an unassociated subnet. Null metadata now displays an em dash; only an actual non-null origin is linked. The existing shared resource search/Properties case explicitly creates an unassociated subnet and checks zero phantom-null links plus its one original create-receipt link. This is a read-only display correction, not a new association, receipt or completion rule. Initial failing browser evidence and the renewed independent verification remain distinct checkpoints.

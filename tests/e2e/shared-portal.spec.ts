@@ -155,6 +155,19 @@ test('shared Portal free search filters parent properties Back Forward and reloa
   await page.getByRole('textbox', { name: c.name, exact: true }).fill('vnet-shared');
   await page.getByRole('textbox', { name: n.addressSpace, exact: true }).fill('10.20.0.0/16');
   await commit(page, 'vnet-shared');
+  await page.getByRole('button', { name: n.newSubnet, exact: true }).click();
+  await page.getByRole('textbox', { name: c.name, exact: true }).fill('snet-shared');
+  await commit(page, 'snet-shared');
+  await page
+    .locator('.portal-resource-menu')
+    .getByRole('button', { name: nb.portalUi.properties, exact: true })
+    .click();
+  await expect(page).toHaveURL(/section=properties/);
+  await expect(page.locator('.portal-properties a[href*="receipt=null"]')).toHaveCount(0);
+  await expect(page.locator('.portal-properties').getByRole('link')).toHaveCount(1);
+  await page.goBack();
+  await expect(page).not.toHaveURL(/section=properties/);
+  await expect(page.getByRole('button', { name: n.associate, exact: true })).toBeVisible();
   await nav(page, c.groups);
   await page.getByRole('link', { name: 'rg-shared-portal', exact: true }).click();
   await page.getByRole('button', { name: c.newAccount, exact: true }).click();
@@ -175,9 +188,16 @@ test('shared Portal free search filters parent properties Back Forward and reloa
     .locator('.portal-resource-menu')
     .getByRole('button', { name: nb.portalUi.properties, exact: true })
     .click();
+  await expect(page).toHaveURL(/section=properties/);
+  await expect(
+    page
+      .locator('.portal-resource-main')
+      .getByRole('heading', { name: nb.portalUi.properties, exact: true }),
+  ).toBeVisible();
   await expect(page.locator('.portal-properties')).toContainText('10.20.0.0/16');
   await page.goBack();
   await expect(page).not.toHaveURL(/section=properties/);
+  await expect(page.getByRole('button', { name: n.newSubnet, exact: true })).toBeVisible();
   await page.goForward();
   await expect(page).toHaveURL(/section=properties/);
   await page.reload();
