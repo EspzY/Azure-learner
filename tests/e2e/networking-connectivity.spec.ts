@@ -44,7 +44,7 @@ const read = async (page: Page) =>
   ) as ConnectivitySave;
 const facts = async (page: Page) => connectivityFacts(await read(page));
 async function root(page: Page) {
-  await page.goto('/');
+  await page.goto('/learn');
   await page.locator('.learn-hub-module[data-module="connectivity"]').getByRole('link').click();
   await expect(page).toHaveURL(/learn\/connectivity/);
   await expect(page.locator('.connectivity-lesson [data-activity-heading]')).toBeVisible();
@@ -424,7 +424,7 @@ test('Part A teaching and feedback durably classify aid for the new context; alr
   await page.getByRole('button', { name: nb.course.journal, exact: true }).click();
   await expect(page.getByRole('dialog')).toContainText(networkingNb.sections.dns.paragraphs[0]);
   const peer = await page.context().newPage();
-  await peer.goto('/');
+  await peer.goto('/learn');
   const newer = applyConnectivity(await read(page), {
     kind: 'draft',
     answer: { decision: 0, reason: 1 },
@@ -548,7 +548,7 @@ test('active assisted Part B continues to shield earlier automatic teaching with
   await page.goto('/learn/compute?topic=containers');
   await expect(page.getByText(computeNb.storage.unsafe, { exact: true })).toBeVisible();
   await expect(page.getByRole('dialog')).toHaveCount(0);
-  await page.goto('/');
+  await page.goto('/learn');
   await page.locator('.learn-hub-module[data-module="connectivity"]').getByRole('link').click();
   await expect(page).toHaveURL(/topic=assessment.*case=nc08/);
   await answer(page, 'nc08', 2, 2);
@@ -572,7 +572,7 @@ test('invalid recovery is scoped and a newer valid replacement survives an alrea
     applyConnectivity(freshConnectivity(), { kind: 'begin', item: 'nc03' })!,
   );
   const peer = await page.context().newPage();
-  await peer.goto('/');
+  await peer.goto('/learn');
   await peer.evaluate(({ key, raw }) => localStorage.setItem(key, raw), {
     key: connectivityKey,
     raw: replacement,

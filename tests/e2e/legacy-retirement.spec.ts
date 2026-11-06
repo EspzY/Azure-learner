@@ -1,3 +1,4 @@
+import { landingNb } from '../../src/content/nb';
 import { test, expect } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { nb } from '../../src/content/nb';
@@ -64,6 +65,8 @@ test('current root, Journal and Portal preserve raw historical work without load
   });
   page.on('pageerror', (e) => errors.push(e.message));
   await page.goto('/');
+  await page.getByRole('link', { name: landingNb.az900Link, exact: true }).click();
+  await expect(page).toHaveURL('/learn');
   await page.evaluate((entries) => {
     for (const [key, raw] of Object.entries(entries)) localStorage.setItem(key, raw);
   }, records);
@@ -142,6 +145,8 @@ test('corrupt progress and denied storage remain usable without a legacy fallbac
     });
   });
   await page.goto('/');
+  await page.getByRole('link', { name: landingNb.az900Link, exact: true }).click();
+  await expect(page).toHaveURL('/learn');
   await expect(page).toHaveURL(/\/learn$/);
   await expect(page.getByRole('heading', { name: nb.course.title, exact: true })).toBeVisible();
   await expect(page.locator('.storage-warning')).toContainText(nb.shell.storageError);

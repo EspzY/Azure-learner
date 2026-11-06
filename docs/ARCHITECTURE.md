@@ -1,5 +1,9 @@
 # Architecture
 
+## PR61 — product entry, unchanged course and laboratory authorities
+
+`/` now renders the product landing with one live AZ-900 link to `/learn`, two planned courses and a separate free-Lab link to `/labs/laboratory`. Only the existing CourseStore's validated position is read for a limited ongoing/unknown card indicator. There is no new resume selector, completion issuer, storage key, resource/assessment action or backend probe. The original AppShell plain-content branch includes root; existing course and Laboratory providers/guards remain. [Landing contract](PREMIUM_LANDING.md) and [future completion proposal](COURSE_COMPLETION_CONTRACT.md) distinguish display support from approved aggregate evidence. All prior server/v2 boundaries below remain.
+
 ## Laboratory v3 — eksplisitt separat serverautoritet (PR60)
 
 Den nye ruten `/labs/laboratory` bruker Next.js Node Route Handlers og dedikert PostgreSQL-schema `laboratory_v3`. Én radlåst transaksjon validerer cookie-scope, original replay, commandId og expectedRevision, og lagrer World + original receipt atomisk før svar. Den isolerte modellen er `laboratory@3.0.0`, med RG/Storage Account/privat container/tekstblob. Token lagres kun hashet; frontend får ingen databasehemmeligheter. Det eksisterende kurset og `/portal` bruker fortsatt frosset Chapter01/sandbox2 og egne historiske learner stores. Ingen import, ny vurderingsautoritet eller erstatning av v2 skjer. Se [serverkontrakten](LABORATORY_V3_SERVER.md) for protokoll, SQL-eierskap, anonyme sesjoner og offentlig DB-blocker.

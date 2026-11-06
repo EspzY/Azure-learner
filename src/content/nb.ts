@@ -22113,3 +22113,36 @@ export const laboratoryV3Nb = {
       'Resultatet er uavklart. Kontroller servertilstanden eller prøv samme forespørsel igjen. Ingen suksess er bekreftet her.',
   },
 } as const;
+
+export const landingNb = {
+  brand: 'AzureLab',
+  labTitle: 'AzureLab Laboratory',
+  skip: 'Gå til kursvalg',
+  description: 'Lær Azure. Velg et kurs eller utforsk laboratoriet.',
+  coursesTitle: 'Velg ditt kurs',
+  courses: [
+    { code: 'AZ-900', name: 'Azure Fundamentals' },
+    { code: 'AZ-104', name: 'Azure Administrator' },
+    { code: 'AZ-305', name: 'Azure Solutions Architect' },
+  ],
+  planned: 'Planlagt',
+  openCourse: 'Åpne kurset',
+  az900Link: 'Åpne kurset · AZ-900 Azure Fundamentals',
+  status: {
+    available: 'Tilgjengelig',
+    'in-progress': 'Pågår',
+    complete: 'Fullført',
+    unknown: 'Kontroller historikk',
+  },
+  statusNames: {
+    available: 'AZ-900 er tilgjengelig',
+    'in-progress': 'AZ-900 pågår · lagret kursposisjon',
+    complete: 'Kurs fullført i AzureLab · ikke en Microsoft-sertifisering',
+    unknown: 'AZ-900 · historikk må kontrolleres i kursoversikten',
+  },
+  labDescription: 'Utforsk og bygg fritt, adskilt fra kursarbeidet.',
+  openLab: 'Åpne laboratoriet',
+  labLink: 'Åpne laboratoriet · AzureLab Laboratory, separat arbeidsområde',
+  footer: 'Simulert Azure · Ingen skykostnader.',
+  build: 'Bygginformasjon · forhåndsvisning',
+} as const;

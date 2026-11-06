@@ -6,7 +6,7 @@ import { auditReviewHref } from '../../src/features/course/audit-review';
 test('ordinary course stays unchanged and preview audit navigation cannot write learning records', async ({
   page,
 }, info) => {
-  await page.goto('/');
+  await page.goto('/learn');
   await expect(page).toHaveURL(/\/learn$/);
   await expect(page.getByRole('heading', { name: nb.course.title, exact: true })).toBeVisible();
   const before = await page.evaluate(() => ({ ...localStorage }));

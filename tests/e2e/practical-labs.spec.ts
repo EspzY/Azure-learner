@@ -50,7 +50,7 @@ test('current lab entry preserves genuine v1 records and imports the validated t
     },
     { oldLearning, oldChapter, selected: JSON.stringify(selected) },
   );
-  await page.goto('/');
+  await page.goto('/learn');
   await openPathActivities(page, 'cloud');
   expect(
     await page.evaluate(() => localStorage.getItem('azurelab.learning.service-types.v2')),
@@ -176,7 +176,7 @@ test('root course to persisted VM, app settings, separate SaaS, exact debrief an
     if (new URL(r.url()).origin !== new URL(info.project.use.baseURL!).origin)
       external.push(r.url());
   });
-  await page.goto('/');
+  await page.goto('/learn');
   await desktopEvidence(page, info, 'course-root');
   await page
     .getByRole('link', { name: `${nb.course.open}: Cloud service types`, exact: true })
@@ -490,7 +490,7 @@ test('independent VM uses changed requirements, preserves first delivery and cla
 }, info) => {
   test.skip(info.project.name !== 'desktop-chromium', 'New interaction is desktop-first.');
   await page.emulateMedia({ reducedMotion: 'reduce' });
-  await page.goto('/');
+  await page.goto('/learn');
   await openServiceLab(page, 'iaas');
   await page
     .locator('.practical-entry')
@@ -607,7 +607,7 @@ test('changed PaaS and SaaS tasks assess actual new operations without coach hig
   page,
 }, info) => {
   test.skip(info.project.name !== 'desktop-chromium', 'Desktop-first operational tasks.');
-  await page.goto('/');
+  await page.goto('/learn');
   await openServiceLab(page, 'paas');
   await page
     .locator('.practical-entry')
@@ -671,7 +671,7 @@ test('explicit SaaS and Portal reset rebind guided sessions and retain abandoned
   page,
 }, info) => {
   test.skip(info.project.name !== 'desktop-chromium', 'Desktop reset and resume contract.');
-  await page.goto('/');
+  await page.goto('/learn');
   await openServiceLab(page, 'saas');
   await page
     .locator('.practical-entry')

@@ -35,7 +35,7 @@ async function state(page: Page) {
   return page.evaluate((key) => JSON.parse(localStorage.getItem(key)!), transferKey);
 }
 async function start(page: Page, id: TransferItemId) {
-  await page.goto('/');
+  await page.goto('/learn');
   await openPathActivities(page, 'cloud');
   await page
     .locator('.transfer-entry')
@@ -204,7 +204,7 @@ test('historical transfer feedback is withheld on denied old-context assistance 
   expect(JSON.stringify(await state(page))).toBe(raw);
   expect((await new AxeBuilder({ page }).analyze()).violations).toEqual([]);
   const other = await context.newPage();
-  await other.goto('/');
+  await other.goto('/learn');
   await other.evaluate(({ key, raw }) => localStorage.setItem(key, raw), {
     key: expansionKeys.benefits,
     raw: JSON.stringify({
@@ -455,7 +455,7 @@ for (const older of ['benefits', 'practical', 'none'] as const) {
         practical,
       },
     );
-    await page.goto('/');
+    await page.goto('/learn');
     await openPathActivities(page, 'cloud');
     const href =
       older === 'benefits'
@@ -534,7 +534,7 @@ test('standalone SaaS withholds authored guidance on denied aid and already-open
   expect(await page.evaluate((k) => localStorage.getItem(k), practicalKey)).toBe(practical);
   expect((await new AxeBuilder({ page }).analyze()).violations).toEqual([]);
   const other = await context.newPage();
-  await other.goto('/');
+  await other.goto('/learn');
   await other.evaluate(
     (key) =>
       localStorage.setItem(
@@ -637,7 +637,7 @@ test('full valid history explains its bound, preserves firsts and keeps submitte
     key: transferKey,
     raw,
   });
-  await page.goto('/');
+  await page.goto('/learn');
   await openPathActivities(page, 'cloud');
   await page
     .locator('.transfer-entry')

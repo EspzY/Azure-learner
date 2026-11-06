@@ -1,139 +1,103 @@
 {
   "schema": 1,
-  "id": "PR60-server-authoritative-laboratory-storage",
-  "baseCommit": "cb99705b1b0650d2099f6c95f5c7e32776448483",
-  "author": "pr60-server-storage-author",
+  "id": "PR61-premium-product-landing",
+  "baseCommit": "d567d19504ac33a27252d30e24385679287d3987",
+  "author": "pr61-product-landing-author",
   "scope": {
-    "kind": "isolated-server-platform-and-storage",
-    "description": "New explicitly separate laboratory@3.0.0 PostgreSQL workspace, anonymous cookie scope, transactional command/World/original receipt authority and first RG/account/private-container/text-blob chain. No v2 import/migration; PR59 cutover blocker/evidence unchanged. Six old entry/config/append-only locale deltas and five import-only preservation delegations; two additive architecture notes. Existing course, assessments, World, receipts and XP unchanged. Public persistent Storage Gate7 blocked until owner supplies isolated preview database.",
-    "objectives": ["LP-V3-STORAGE"]
+    "kind": "product-entry-ui-navigation",
+    "description": "Replace root redirect with premium three-course catalog and separate Laboratory3 entry. AZ900 links unchanged Hub; planned AZ104/305 have no fake actions. Read-only position badge cannot issue Complete. Preserve old runtime/domain/backend/assessment/history/assets, apart from exact root shell/additive UI-copy delta and equivalent old course-test entrances. Owner additionally requires all choices and footer without normal desktop scrolling, including1024x500/800x700. Normal document reflow/scroll remains available at high zoom; no overflow clipping. Final owner refinement: clean selection only, no description/resume/planned paragraphs; concise brand hero and one-line Laboratory copy. Original backend unavailable state remains at actual Lab destination. After first full CI395pass+1flaky+1failed, test-only synchronization correction:3explicit Hub URL commit waits before old fixture injection; unique visible correct Course module/topic/chapter before cross-tab expectation. Production UI and all old assertions/settings unchanged.",
+    "objectives": ["PRODUCT-ENTRY"]
   },
   "sources": [
     {
-      "id": "LP58-planes",
-      "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/control-plane-and-data-plane",
-      "title": "Control plane and data plane operations - Azure Resource Manager | Microsoft Learn",
-      "reviewed": "2026-11-05T22:20:25.534695+00:00",
-      "version": "{\"ms.date\": \"2026-02-27T00:00:00Z\", \"updated_at\": \"2026-02-27T18:31:00Z\"}; body SHA256 28b152613b823ce4060b7cfd586c46990e54917e1dbf923f995244cb0a47e7f7",
-      "kind": "official-public-product-documentation",
-      "objectives": ["LP-V3-STORAGE"],
-      "claims": ["storage.planes"],
+      "id": "landing-az900",
+      "url": "https://learn.microsoft.com/en-us/credentials/certifications/azure-fundamentals/",
+      "title": "Microsoft Certified: Azure Fundamentals - Certifications | Microsoft Learn",
+      "reviewed": "2026-11-06T10:34:46.673292+00:00",
+      "version": "{\"updated_at\": \"2026-07-20T21:35:00Z\"}; original HTTP body SHA256 0857f5856d593cfa9fdbceff6ea38c1dc014eaec2289a3d52f57dcdf5dd6dfcb",
+      "kind": "official-public-certification-role-overview",
+      "objectives": ["PRODUCT-ENTRY"],
+      "claims": ["landing-az900.catalog-role"],
       "availability": "AVAILABLE",
-      "limits": "Retained original actually reviewed Stage0 source/date, unchanged scoped names/parent/control-data-plane/create-only claims only. New server security/transaction references have separate actual captures in docs/reviews/evidence/pr60/sources.json. No AZ900 teaching, assessment, Azure API or human approval.",
+      "limits": "Official course naming only; AzureLab availability is the explicit owner-approved catalog state. No official affiliation, new role teaching, assessment/curriculum or certification claim.",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/control-plane-and-data-plane",
+          "url": "https://learn.microsoft.com/en-us/credentials/certifications/azure-fundamentals/",
           "disposition": "reviewed-essential",
-          "reason": "Validate only the Storage naming/plane/create semantics used in the Stage1 design; related SDK/auth/production operations remain outside this local scope."
+          "reason": "Course naming only. Study guides, Practice Assessments, exams and new curriculum are outside this UI scope; no questions or teaching copied."
         }
       ]
     },
     {
-      "id": "LP58-accounts",
-      "url": "https://learn.microsoft.com/en-us/azure/storage/common/storage-account-overview",
-      "title": "Storage Account Overview - Azure Storage | Microsoft Learn",
-      "reviewed": "2026-11-05T22:20:25.549826+00:00",
-      "version": "{\"ms.date\": \"2026-07-16T00:00:00Z\", \"updated_at\": \"2026-10-16T22:20:00Z\"}; body SHA256 3b70dc4917787082c09c426e8ad4f62d1d884c489a2cf47a36deeb819aed9613",
-      "kind": "official-public-product-documentation",
-      "objectives": ["LP-V3-STORAGE"],
-      "claims": ["storage.account-scope-naming"],
+      "id": "landing-az104",
+      "url": "https://learn.microsoft.com/en-us/credentials/certifications/azure-administrator/",
+      "title": "Microsoft Certified: Azure Administrator Associate - Certifications | Microsoft Learn",
+      "reviewed": "2026-11-06T10:34:46.759117+00:00",
+      "version": "{\"updated_at\": \"2026-11-03T00:40:00Z\"}; original HTTP body SHA256 8d15e9e2d3d349ed9771ecb4422e395e7769501a9f83deb3b6698959281edbad",
+      "kind": "official-public-certification-role-overview",
+      "objectives": ["PRODUCT-ENTRY"],
+      "claims": ["landing-az104.catalog-role"],
       "availability": "AVAILABLE",
-      "limits": "Retained original actually reviewed Stage0 source/date, unchanged scoped names/parent/control-data-plane/create-only claims only. New server security/transaction references have separate actual captures in docs/reviews/evidence/pr60/sources.json. No AZ900 teaching, assessment, Azure API or human approval.",
+      "limits": "Official course naming only; AzureLab availability is the explicit owner-approved catalog state. No official affiliation, new role teaching, assessment/curriculum or certification claim.",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/storage/common/storage-account-overview",
+          "url": "https://learn.microsoft.com/en-us/credentials/certifications/azure-administrator/",
           "disposition": "reviewed-essential",
-          "reason": "Validate only the Storage naming/plane/create semantics used in the Stage1 design; related SDK/auth/production operations remain outside this local scope."
+          "reason": "Course naming only. Study guides, Practice Assessments, exams and new curriculum are outside this UI scope; no questions or teaching copied."
         }
       ]
     },
     {
-      "id": "LP58-names",
-      "url": "https://learn.microsoft.com/en-us/azure/storage/blobs/storage-blob-container-create",
-      "title": "Create a blob container with .NET - Azure Storage | Microsoft Learn",
-      "reviewed": "2026-11-05T22:20:25.540897+00:00",
-      "version": "{\"ms.date\": \"2024-08-05T00:00:00Z\", \"updated_at\": \"2025-07-30T05:10:00Z\"}; body SHA256 98858bef60a1198efbebfe2bd2367fdb02cc72e31edac6b712cd063a6e706605",
-      "kind": "official-public-product-documentation",
-      "objectives": ["LP-V3-STORAGE"],
-      "claims": ["storage.container"],
+      "id": "landing-az305",
+      "url": "https://learn.microsoft.com/en-us/credentials/certifications/azure-solutions-architect/",
+      "title": "Microsoft Certified: Azure Solutions Architect Expert - Certifications | Microsoft Learn",
+      "reviewed": "2026-11-06T10:34:46.683226+00:00",
+      "version": "{\"updated_at\": \"2026-11-05T22:08:00Z\"}; original HTTP body SHA256 9964b3d6abbe9253655e0bae8887e8202b1f500f4834d3a215e44fec7bf4ce70",
+      "kind": "official-public-certification-role-overview",
+      "objectives": ["PRODUCT-ENTRY"],
+      "claims": ["landing-az305.catalog-role"],
       "availability": "AVAILABLE",
-      "limits": "Retained original actually reviewed Stage0 source/date, unchanged scoped names/parent/control-data-plane/create-only claims only. New server security/transaction references have separate actual captures in docs/reviews/evidence/pr60/sources.json. No AZ900 teaching, assessment, Azure API or human approval.",
+      "limits": "Official course naming only; AzureLab availability is the explicit owner-approved catalog state. No official affiliation, new role teaching, assessment/curriculum or certification claim.",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/storage/blobs/storage-blob-container-create",
+          "url": "https://learn.microsoft.com/en-us/credentials/certifications/azure-solutions-architect/",
           "disposition": "reviewed-essential",
-          "reason": "Validate only the Storage naming/plane/create semantics used in the Stage1 design; related SDK/auth/production operations remain outside this local scope."
-        }
-      ]
-    },
-    {
-      "id": "LP58-blobs",
-      "url": "https://learn.microsoft.com/en-us/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata",
-      "title": "Naming and Referencing Containers, Blobs, and Metadata - Azure Storage | Microsoft Learn",
-      "reviewed": "2026-11-05T22:20:25.439085+00:00",
-      "version": "{\"ms.date\": \"2023-10-04T00:00:00Z\", \"updated_at\": \"2026-07-21T22:25:00Z\"}; body SHA256 1fd78ccfbcaef02b46d7602c0b048af3210215a4d5c26ee7b38b32ed09d1021c",
-      "kind": "official-public-product-documentation",
-      "objectives": ["LP-V3-STORAGE"],
-      "claims": ["storage.namespace"],
-      "availability": "AVAILABLE",
-      "limits": "Retained original actually reviewed Stage0 source/date, unchanged scoped names/parent/control-data-plane/create-only claims only. New server security/transaction references have separate actual captures in docs/reviews/evidence/pr60/sources.json. No AZ900 teaching, assessment, Azure API or human approval.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata",
-          "disposition": "reviewed-essential",
-          "reason": "Validate only the Storage naming/plane/create semantics used in the Stage1 design; related SDK/auth/production operations remain outside this local scope."
-        }
-      ]
-    },
-    {
-      "id": "LP58-put",
-      "url": "https://learn.microsoft.com/en-us/rest/api/storageservices/put-blob",
-      "title": "Put Blob (REST API) - Azure Storage | Microsoft Learn",
-      "reviewed": "2026-11-05T22:20:25.534457+00:00",
-      "version": "{\"ms.date\": \"2023-01-30T00:00:00Z\", \"updated_at\": \"2026-03-26T22:22:00Z\"}; body SHA256 9b6bc309d927935ec7b3a3521ffbe8c380cfcf5767244f9f170f5e8dba127b84",
-      "kind": "official-public-product-documentation",
-      "objectives": ["LP-V3-STORAGE"],
-      "claims": ["storage.create-only-limit"],
-      "availability": "AVAILABLE",
-      "limits": "Retained original actually reviewed Stage0 source/date, unchanged scoped names/parent/control-data-plane/create-only claims only. New server security/transaction references have separate actual captures in docs/reviews/evidence/pr60/sources.json. No AZ900 teaching, assessment, Azure API or human approval.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/rest/api/storageservices/put-blob",
-          "disposition": "reviewed-essential",
-          "reason": "Validate only the Storage naming/plane/create semantics used in the Stage1 design; related SDK/auth/production operations remain outside this local scope."
+          "reason": "Course naming only. Study guides, Practice Assessments, exams and new curriculum are outside this UI scope; no questions or teaching copied."
         }
       ]
     }
   ],
   "activities": [
     {
-      "id": "LP60-server-storage",
-      "objectives": ["LP-V3-STORAGE"],
+      "id": "PR61-product-entry",
+      "objectives": ["PRODUCT-ENTRY"],
       "claims": [
-        "storage.planes",
-        "storage.account-scope-naming",
-        "storage.container",
-        "storage.namespace",
-        "storage.create-only-limit"
+        "landing-az900.catalog-role",
+        "landing-az104.catalog-role",
+        "landing-az305.catalog-role"
       ],
       "assessmentStatus": "unchanged-existing",
-      "limits": "Operative isolated simulator, not a new course/assessment or v2 migration. New local server/database commands and receipts give no XP or learning result. Public persistent preview remains unconfigured.",
-      "theory": [{ "path": "docs/LABORATORY_V3_SERVER.md" }],
-      "mechanism": [
-        { "path": "src/laboratory/v3/domain.ts" },
-        { "path": "src/laboratory/v3/repository.ts" },
-        { "path": "database/laboratory-v3/001.sql" }
+      "limits": "Product-entry presentation only; no new course, scoring, completion issuer, progress/resume engine or technical operation. Green display reserved, zero completion awards. Public persistent Laboratory Storage Gate7 remains DB-blocked. Human UX/screen-reader/learning validation unperformed. Full candidate CI/strict and anonymous exact-SHA journey pending actual execution.",
+      "theory": [
+        { "path": "docs/PREMIUM_LANDING.md" },
+        { "path": "docs/COURSE_COMPLETION_CONTRACT.md" }
       ],
-      "practice": [{ "path": "tests/e2e/laboratory-server.spec.ts" }],
-      "feedback": [{ "path": "src/features/laboratory/laboratory.tsx" }],
-      "visual": [{ "path": "docs/reviews/evidence/pr60/blob-1440-900.png" }],
-      "accessible": [{ "path": "tests/e2e/laboratory-server.spec.ts" }],
-      "assessment": [{ "path": "src/laboratory-v3-preservation.test.ts" }],
+      "mechanism": [
+        { "path": "src/features/landing/landing.tsx" },
+        { "path": "src/features/landing/course-status.ts" }
+      ],
+      "practice": [{ "path": "tests/e2e/premium-landing.spec.ts" }],
+      "feedback": [{ "path": "src/features/landing/course-status-badge.tsx" }],
+      "visual": [{ "path": "docs/reviews/evidence/pr61/landing-1440-900.png" }],
+      "accessible": [{ "path": "tests/e2e/premium-landing.spec.ts" }],
+      "assessment": [{ "path": "src/features/landing/preservation.test.ts" }],
       "savvyshark": [{ "path": "src/features/course/mission-context.ts" }]
     }
   ],
   "modules": [],
   "preservedPaths": [
+    ".github/workflows/ci.yml",
+    "database/laboratory-v3/001.sql",
     "docs/LABORATORY_STAGE1_BLOCKER.md",
     "docs/LABORATORY_V3_ACTIVATION.md",
     "docs/quality/PR20_FINAL_AUDIT.md",
@@ -183,6 +147,7 @@
     "docs/quality/PR57_FINAL_AUDIT.md",
     "docs/quality/PR58_FINAL_AUDIT.md",
     "docs/quality/PR59_FINAL_AUDIT.md",
+    "docs/quality/PR60_FINAL_AUDIT.md",
     "docs/reviews/AZ900_END_TO_END_AUDIT.md",
     "docs/reviews/AZ900_FINAL_PRODUCT_REVIEW.md",
     "docs/reviews/AZ900_LEARNING_JOURNEY_MAP.md",
@@ -401,6 +366,14 @@
     "docs/reviews/evidence/pr57/visual/before-monitoring-steps.png",
     "docs/reviews/evidence/pr57/visual/before-peering-clear-1440.png",
     "docs/reviews/evidence/pr57/visual/before-security.png",
+    "docs/reviews/evidence/pr60/audit-workspace-before.json",
+    "docs/reviews/evidence/pr60/blob-1024-500.png",
+    "docs/reviews/evidence/pr60/blob-1024-768.png",
+    "docs/reviews/evidence/pr60/blob-1440-900.png",
+    "docs/reviews/evidence/pr60/preservation.json",
+    "docs/reviews/evidence/pr60/sources.json",
+    "docs/reviews/evidence/pr60/storage-chain.png",
+    "docs/reviews/evidence/pr60/verification.json",
     "docs/reviews/evidence/source47-preservation.json",
     "docs/reviews/evidence/visual50-axe-final.json",
     "docs/reviews/evidence/visual50-character-review-initial.json",
@@ -437,6 +410,8 @@
     "docs/reviews/screenshots/portal-storage-search-1440.png",
     "docs/reviews/screenshots/root-1440.png",
     "docs/reviews/screenshots/sequence-migration-prerequisites-1024.png",
+    "package-lock.json",
+    "package.json",
     "playwright.config.ts",
     "public/design-review/characters/v1/explain-right-320.webp",
     "public/design-review/characters/v1/explain-right-640.webp",
@@ -501,16 +476,22 @@
     "scripts/e2e-plan-check.mjs",
     "scripts/e2e-preview-build.mjs",
     "scripts/e2e-preview-build.test.mjs",
+    "scripts/laboratory-db.mjs",
     "scripts/legacy-check.mjs",
     "scripts/next.mjs",
     "scripts/quality-check.mjs",
     "scripts/quality-check.test.mjs",
     "scripts/verify-desktop-ci.mjs",
+    "src/app/api/laboratory/command/route.ts",
+    "src/app/api/laboratory/review/route.ts",
+    "src/app/api/laboratory/session/route.ts",
+    "src/app/api/laboratory/state/route.ts",
     "src/app/design/foundations-31a/page.tsx",
     "src/app/expedition-3d/page.tsx",
     "src/app/explore/page.tsx",
     "src/app/globals.css",
     "src/app/icon.svg",
+    "src/app/labs/laboratory/page.tsx",
     "src/app/labs/saas/page.tsx",
     "src/app/layout.tsx",
     "src/app/learn/[module]/page.tsx",
@@ -521,10 +502,8 @@
     "src/app/legacy/rpg/page.tsx",
     "src/app/missions/page.tsx",
     "src/app/not-found.tsx",
-    "src/app/page.tsx",
     "src/app/portal/page.tsx",
     "src/app/progress/page.tsx",
-    "src/components/app-shell.tsx",
     "src/components/command-dialog.tsx",
     "src/components/icons.tsx",
     "src/components/progress-provider.tsx",
@@ -704,6 +683,7 @@
     "src/features/course/challenge-return.tsx",
     "src/features/course/cloud-computing-chapters.test.ts",
     "src/features/course/cloud-computing-chapters.ts",
+    "src/features/course/course-hub.tsx",
     "src/features/course/course-journey-context.tsx",
     "src/features/course/course-navigation.tsx",
     "src/features/course/course-outline.ts",
@@ -747,6 +727,7 @@
     "src/features/course/practical.css",
     "src/features/course/provider.tsx",
     "src/features/course/savvy-shark.tsx",
+    "src/features/course/vm-debrief-preservation.test.ts",
     "src/features/course/vm-debrief.tsx",
     "src/features/design-review/character.tsx",
     "src/features/design-review/model.test.ts",
@@ -754,6 +735,8 @@
     "src/features/design-review/preservation.test.ts",
     "src/features/design-review/visual-review.css",
     "src/features/design-review/visual-review.tsx",
+    "src/features/laboratory/laboratory.css",
+    "src/features/laboratory/laboratory.tsx",
     "src/features/learning/access-control-assessment.tsx",
     "src/features/learning/access-control-controls.tsx",
     "src/features/learning/access-control-provider.tsx",
@@ -796,6 +779,7 @@
     "src/features/learning/final-quality-copy.ts",
     "src/features/learning/final-quality-feedback.test.ts",
     "src/features/learning/final-quality-feedback.ts",
+    "src/features/learning/final-quality-preservation.test.ts",
     "src/features/learning/foundations-v2.css",
     "src/features/learning/foundations-v2.tsx",
     "src/features/learning/foundations-visuals.css",
@@ -902,6 +886,7 @@
     "src/features/portal/architecture.tsx",
     "src/features/portal/challenge-v2-provider.tsx",
     "src/features/portal/challenge-v2.tsx",
+    "src/features/portal/challenge-validity-preservation.test.ts",
     "src/features/portal/create-resource.tsx",
     "src/features/portal/guide-recovery.css",
     "src/features/portal/guide-recovery.tsx",
@@ -925,59 +910,45 @@
     "src/features/portal/vm-form.tsx",
     "src/laboratory-activation.test.ts",
     "src/laboratory-contract.test.ts",
+    "src/laboratory-v3.integration.test.ts",
+    "src/laboratory-v3.test.ts",
+    "src/laboratory/v3/contract.ts",
+    "src/laboratory/v3/domain.ts",
+    "src/laboratory/v3/repository.ts",
+    "src/laboratory/v3/server.ts",
     "tests/cc01-preservation.ts",
     "tests/cc02-fixture.ts",
+    "tests/cc02-preservation.ts",
+    "tests/cc03-preservation.ts",
     "tests/e2e/access-control.spec.ts",
     "tests/e2e/application-transfer.spec.ts",
-    "tests/e2e/architecture-management.spec.ts",
-    "tests/e2e/architecture-physical.spec.ts",
     "tests/e2e/assessment-refinement.spec.ts",
-    "tests/e2e/az900-audit.spec.ts",
     "tests/e2e/challenge-return.spec.ts",
     "tests/e2e/challenge-v2-actions.ts",
     "tests/e2e/challenge-validity.spec.ts",
     "tests/e2e/cloud-chapter-actions.ts",
     "tests/e2e/cloud-consolidation.spec.ts",
     "tests/e2e/cloud-owner-navigation.spec.ts",
-    "tests/e2e/cloud-transfer.spec.ts",
     "tests/e2e/collapsible-sources.spec.ts",
-    "tests/e2e/compute-hosting.spec.ts",
-    "tests/e2e/cost-management.spec.ts",
     "tests/e2e/course-hub-actions.ts",
     "tests/e2e/course-hub.spec.ts",
-    "tests/e2e/course.spec.ts",
-    "tests/e2e/curriculum-expansion.spec.ts",
     "tests/e2e/dialog-placement.spec.ts",
     "tests/e2e/file-movement-migration.spec.ts",
-    "tests/e2e/final-quality-sprint.spec.ts",
-    "tests/e2e/foundations-v2.spec.ts",
     "tests/e2e/governance-compliance.spec.ts",
-    "tests/e2e/guided-learning-polish.spec.ts",
-    "tests/e2e/hybrid-experience.spec.ts",
     "tests/e2e/identity-foundations.spec.ts",
     "tests/e2e/laboratory-activation.spec.ts",
     "tests/e2e/learning-flow-guidance.spec.ts",
     "tests/e2e/learning-sequencing.spec.ts",
-    "tests/e2e/legacy-retirement.spec.ts",
     "tests/e2e/management-tools.spec.ts",
     "tests/e2e/monitoring-diagnostics.spec.ts",
-    "tests/e2e/networking-connectivity.spec.ts",
-    "tests/e2e/networking-foundations.spec.ts",
     "tests/e2e/owner-acceptance.spec.ts",
     "tests/e2e/portal-actions.ts",
-    "tests/e2e/portal-fidelity.spec.ts",
     "tests/e2e/portal-inspection-bridge.spec.ts",
     "tests/e2e/portal.spec.ts",
-    "tests/e2e/practical-labs.spec.ts",
-    "tests/e2e/practical-missions.spec.ts",
-    "tests/e2e/quality-system.spec.ts",
     "tests/e2e/security-principles.spec.ts",
-    "tests/e2e/serverless.spec.ts",
     "tests/e2e/storage-resilience.spec.ts",
     "tests/e2e/storage-services.spec.ts",
-    "tests/e2e/ux-refinement.spec.ts",
     "tests/e2e/visual-excellence.spec.ts",
-    "tests/e2e/vm-debrief-actions.ts",
     "tests/e2e/vm-debrief.spec.ts",
     "tests/fixtures/access.ts",
     "tests/fixtures/active-teaching-contexts.ts",
@@ -997,284 +968,283 @@
   "humanReview": { "sme": "unperformed", "learning": "unperformed" },
   "visualEvidence": [
     {
-      "path": "docs/reviews/evidence/pr60/blob-1440-900.png",
+      "path": "docs/reviews/evidence/pr61/landing-1440-900.png",
       "viewport": "1440x900",
       "inspected": true,
-      "observation": "Actual local Next/PostgreSQL UI after normal Resource Group/account/private container/text Blob operations. Plain text, hash/metadata, real parent and original receipt link readable. Scoped sidebar CSS corrected after actual image inspection. No artificial positive World/receipt, Azure runtime or human learning claim."
+      "observation": "Actual final no-scroll production build after owner refinement: both AZ900 and separate Laboratory links plus footer visible at all five ordinary desktop sizes; document height equals viewport. No text clipping, horizontal overflow or fake status. Axe0, native zoom/reflow retains normal scroll and all controls."
     },
     {
-      "path": "docs/reviews/evidence/pr60/blob-1024-500.png",
+      "path": "docs/reviews/evidence/pr61/landing-1024-500.png",
       "viewport": "1024x500",
       "inspected": true,
-      "observation": "Actual local Next/PostgreSQL UI after normal Resource Group/account/private container/text Blob operations. Plain text, hash/metadata, real parent and original receipt link readable. Scoped sidebar CSS corrected after actual image inspection. No artificial positive World/receipt, Azure runtime or human learning claim."
+      "observation": "Actual final no-scroll production build after owner refinement: both AZ900 and separate Laboratory links plus footer visible at all five ordinary desktop sizes; document height equals viewport. No text clipping, horizontal overflow or fake status. Axe0, native zoom/reflow retains normal scroll and all controls."
     }
   ],
   "verification": [
     {
-      "command": "npx vitest run src/laboratory-v3.test.ts src/laboratory-v3.integration.test.ts",
+      "command": "npx vitest run src/features/landing/landing.test.ts",
       "result": "passed",
-      "details": "Actual38 unit/domain/isolated PostgreSQL tests, exit0. Concurrent writers/idempotency/rollback after INSERT+UPDATE, replay/reset/through, ownership/origin/HTTPS cookie/UUID precondition/corruption verified. Real DB; no skip."
+      "details": "8 real unit tests. Available/ongoing/unknown and reserved accessible Complete rendering; current production projection excludes Complete; forged flags ignored."
     },
     {
-      "command": "npx playwright test tests/e2e/laboratory-server.spec.ts --config=playwright.desktop.config.ts",
+      "command": "npx vitest run src/features/landing/preservation.test.ts src/laboratory-v3-preservation.test.ts src/features/learning/final-quality-preservation.test.ts src/features/course/vm-debrief-preservation.test.ts src/features/portal/challenge-validity-preservation.test.ts src/features/landing/landing.test.ts",
       "result": "passed",
-      "details": "Actual8 runs exit0,31.6s after independent MAJOR fix. Full Storage/receipt/invalid-name, concurrency/lost reply/isolation/old writer/short desktop/Axe/reduced motion plus new changed-cookie Review/Create/Reset regression; all original new7 retained."
+      "details": "28/28 in6files,3.47s. Exact53 old course-entrance changes, all original assertions, original locale prefix,2import-only readers and all other historical source/domain/backend/SQL/asset/audit bytes verified."
+    },
+    {
+      "command": "npx playwright test tests/e2e/premium-landing.spec.ts --config=playwright.desktop.config.ts",
+      "result": "passed",
+      "details": "Final clean owner-refined production build:7/7passed39.3s,0retries, normal desktop no-scroll5sizes, real125/200%zoom/Axe, independent draft/resume, unavailable backend, corrupt/cross-tab/no-completion and real PostgreSQL bidirectional reset isolation. Earlier pre-cleanup6pass+1Portalbudgetfailure/isolatedpass retained; timing not claimed fixed."
     },
     {
       "command": "npm run check",
       "result": "passed",
-      "details": "Fresh full npm run check after independent MAJOR UI-intent correction exit0:755 Vitest/61files,24Node,503curriculum,TypeScript/lint/format/docs/quality/AZ900/assets/legacy/production build. All historical rules and settings retained; no skip."
+      "details": "Renewed final check after causal CI test correction exit0:769Vitest/63files,24Node,503curriculum,TypeScript/lint/format/docs/quality/AZ900/assets/legacy and production build. Runtime UI/engine bytes identical to61e; no test thresholds changed. New397CI still pending."
     },
     {
       "command": "npm run test:e2e:desktop",
       "result": "pending",
-      "details": "Complete390 candidate profile required on exact head; retain382 old runs and all settings. One additional distinct workspace-retarget regression follows independent MAJOR reproduction. No public Storage Gate7 without persistent preview DB."
+      "details": "397=359desktop+38compact retains390 old executions/settings. Actual exact-head authoritative CI receipt required."
     },
     {
-      "command": "npm audit --audit-level=high",
+      "command": "npx playwright test tests/e2e/course.spec.ts tests/e2e/legacy-retirement.spec.ts --config=playwright.desktop.config.ts --project=desktop-chromium",
       "result": "passed",
-      "details": "exit0;0 high/critical,10 moderate development-chain alerts. No new pg/server-only findings and no threshold/dependency forcing."
+      "details": "7/7,56.7s, no retries. Real root entry/course/guidedPolicy/debrief/Journal/historical bytes/reset/denied storage preserved."
     },
     {
-      "command": "npx playwright test tests/e2e/laboratory-server.spec.ts --config=playwright.desktop.config.ts --project=desktop-chromium -g 'actual Storage chain'",
+      "command": "npx playwright test tests/e2e/premium-landing.spec.ts --config=playwright.desktop.config.ts --project=desktop-chromium -g 'actual browser zoom'",
       "result": "passed",
-      "details": "exit0,1pass/10.7s after adding actual invalid-name Review/no-event and original Blob receipt checks. Full7 were already passed; only the changed case was rerun."
+      "details": "1/1,6.2s/10.5s total on final test code. Real Chrome125/200%, width1152/720, focus/overflow/Axe0, native capture; no new timeout/retry."
+    },
+    {
+      "command": "npx playwright test tests/e2e/premium-landing.spec.ts --config=playwright.desktop.config.ts -g 'responsive keyboard|actual browser zoom'",
+      "result": "passed",
+      "details": "Final owner no-scroll refinement:3/3 in17.5s; five viewport document heights<=viewport incl1024x500/800x700, both real links in viewport, keyboard/Axe0/reduced motion and actual native125/200% zoom. Renewed first check found2px1440overflow; real spacing fixed, assertion retained."
+    },
+    {
+      "command": "npx playwright test tests/e2e/premium-landing.spec.ts tests/e2e/legacy-retirement.spec.ts tests/e2e/course.spec.ts --config=playwright.desktop.config.ts --project=desktop-chromium",
+      "result": "passed",
+      "details": "13/13,1.6m,0retries on exact original CI historical-review production fixture after causal test correction. Original failed CI/before repro/hidden-node+delayed-RSC observations preserved in ci-attempt-1.json. No production UI/old assertions/threshold changes."
     }
   ],
   "review": {
     "status": "complete",
-    "fingerprint": "28c88acec581f1206844b086c1860da0cf44ab7a4a7f845de57731726a786adf",
-    "reviewer": { "id": "/root/pr60_independent_final_audit", "kind": "agent" },
-    "started": "2026-11-06T09:11:12Z",
+    "fingerprint": "6abdf826aa270bcbc5917c31350886079fdbff12efaae9cf8773c87a6ae44d53",
+    "reviewer": { "id": "pr61-independent-final-audit-agent", "kind": "agent" },
+    "started": "2026-11-06T12:06:16.000Z",
     "domains": {
       "content": {
-        "finding": "Isolated local simulator/session/name/privacy/hash limits are explicit; no new AZ900 teaching or credit. Original course/Stage0 dates preserved. Five readable captures match explicit extracted hashes after source ambiguity correction; original HTML was not independently refetched.",
+        "finding": "Fresh corrective follow-up: actual changed-path comparison proves all production copy/manuscripts/source captures/questions/keys unchanged since firstreview61e; documentation now preserves failedCI/causal evidence. Initial source/content audit retained, no new official-source/human review claimed.",
         "evidence": [
-          { "path": "docs/LABORATORY_V3_SERVER.md" },
-          { "path": "docs/reviews/evidence/pr60/sources.json" },
-          { "path": "src/content/nb.ts" }
+          { "path": "docs/reviews/evidence/pr61/ci-attempt-1.json" },
+          { "path": "src/content/nb.ts" },
+          { "path": "docs/quality/PR61_FINAL_AUDIT.md", "marker": "Post-CI corrective follow-up" }
         ]
       },
       "technical": {
-        "finding": "Single-client row-locked PostgreSQL transaction validates original replay, cookie scope, workspace, canonical idempotency and revision before atomic event/World writes and acknowledged COMMIT. Independent actual DB/unit checks52 passed. MAJOR reviewed-request workspace retargeting reproduced on rejected original stamp, fixed with explicit preview/reset workspace and pinned reset revision, then actual stale Create/Reset recheck passed. No open new blocker/major.",
+        "finding": "All runtime/domain/backend/SQL/allowlists/assets/settings byte-identical to61e; only src test changes. Rebuilt unchanged nonhosted historical CI review fixture with original command and passed2affected actual browser journeys. No runtime rule, server or infrastructure correction claimed.",
         "evidence": [
-          { "path": "src/laboratory/v3/repository.ts" },
-          { "path": "src/laboratory/v3/server.ts" },
-          { "path": "src/laboratory/v3/domain.ts" },
-          { "path": "database/laboratory-v3/001.sql" },
-          { "path": "docs/reviews/evidence/pr60/audit-workspace-before.json" },
-          { "path": "tests/e2e/laboratory-server.spec.ts" }
+          { "path": "scripts/e2e-preview-build.mjs" },
+          { "path": "tests/e2e/premium-landing.spec.ts" },
+          { "path": "docs/quality/PR61_FINAL_AUDIT.md", "marker": "Post-CI corrective follow-up" }
         ]
       },
       "visual": {
-        "finding": "Personally inspected committed and independently regenerated1440x900/1024x500 PNGs: readable text, UTF8/hash metadata, real parent/original receipt, visible limits and no clipping. Actual independent1024x768/short-window/reduced-motion/Axe0/Reset keyboard/Escape-focus-return case passed. No human usability/screen-reader or all-zoom claim.",
+        "finding": "CSS/components/fonts/assets and actual five-size/nativezoom images unchanged; first independent actual inspection remains applicable and is not relabelled as rerun. New readiness assertion requires1exposed correct lesson, no first-match bypass. Original Journal/Portal/Axe journey passed current2case recheck. Human UX/screen-reader unperformed.",
         "evidence": [
-          { "path": "docs/reviews/evidence/pr60/blob-1440-900.png" },
-          { "path": "docs/reviews/evidence/pr60/blob-1024-500.png" },
-          { "path": "tests/e2e/laboratory-server.spec.ts" },
-          { "path": "docs/quality/PR60_FINAL_AUDIT.md" }
+          { "path": "docs/reviews/evidence/pr61/landing-1024-500.png" },
+          { "path": "docs/reviews/evidence/pr61/browser-zoom-2.png" },
+          { "path": "tests/e2e/legacy-retirement.spec.ts" },
+          { "path": "docs/quality/PR61_FINAL_AUDIT.md", "marker": "Post-CI corrective follow-up" }
         ]
       },
       "assessment": {
-        "finding": "All870 historical source/test/script/asset/audit paths and original locale prefix preserved within exact authorized deltas; five readers retain every original assertion. No assessment/rubric/XP/first/help/retry/history migration or new course evidence authority. Independent complete real chain preserved baseline old local records through reset; original v1/v2 remains course authority.",
+        "finding": "All rubric/first-help-retry-abandon/store/completion code unchanged. Every original assertion preserved by direct exact-body compare with PR60 and61e; precisely3stronger URL commit waits before fixture/subsequent actions. Cross-tab/corrupt/forged/no-backend negatives remain and passed. No issuer/award/evidence upgrade.",
         "evidence": [
-          { "path": "src/laboratory-v3-preservation.test.ts" },
-          { "path": "tests/pr60-preservation.ts" },
-          { "path": "docs/reviews/evidence/pr60/preservation.json" },
-          { "path": "docs/LABORATORY_V3_SERVER.md" }
+          { "path": "src/features/landing/preservation.test.ts" },
+          { "path": "src/features/landing/course-status.ts" },
+          { "path": "tests/e2e/premium-landing.spec.ts" },
+          { "path": "docs/quality/PR61_FINAL_AUDIT.md", "marker": "Post-CI corrective follow-up" }
         ]
       },
       "guidance": {
-        "finding": "Old mission context, durable aid, independent guards, origins, guides and mascot code byte-preserved. Separate free workspace adds no automatic help, command, award or completion and exposes explicit old Portal/course returns. Historical full assistance journeys remain CI obligations.",
+        "finding": "Mission/mascot/durable teaching/assistance and navigation guards byte-identical to firstreview; test synchronization adds no runtime teaching/help/start/reward behavior. Actual old Journal/Portal/history journey passed, original assistance boundaries preserved.",
         "evidence": [
+          { "path": "src/features/course/assessment-navigation-exit.tsx" },
           { "path": "src/features/course/mission-context.ts" },
-          { "path": "src/laboratory-v3-preservation.test.ts" },
-          { "path": "src/features/laboratory/laboratory.tsx" }
+          { "path": "tests/e2e/legacy-retirement.spec.ts" },
+          { "path": "docs/quality/PR61_FINAL_AUDIT.md", "marker": "Post-CI corrective follow-up" }
         ]
       },
       "regression": {
-        "finding": "Independent post-fix52tests/6files exit0, actual3browser cases exit0/16.1s, plan390=353desktop+37compact/worker1/legacy706 exit0; all382 prior runs/settings preserved. All40 hashes/fingerprint match. Author corrected full755Vitest/24Node/503curriculum/build and8browser logs inspected/hash-verified. Full exact-head CI/strict and anonymous deployed-root/SHA pending; public persistent Storage Gate7 blocked. No full local390 or human validation claimed.",
+        "finding": "Rejected first397CI395pass+1flaky+1failed kept truthful, no success receipt. Independently verified61hash/fingerprint,29authorlogs+rawCIhash+embedded observer, no runtime/settings changes and original assertions retained. Renewed CIfixture build exit0; independent28tests4.93s+2browsers14.9s0retries passed. Full new397CI/strict and newSHA anonymous journey pending; earlier Portal/Compute/Axe/CC03 mysteries not claimed fixed.",
         "evidence": [
-          { "path": "docs/reviews/evidence/pr60/verification.json" },
-          { "path": "src/laboratory-v3-preservation.test.ts" },
-          { "path": "tests/e2e/laboratory-server.spec.ts" },
-          { "path": "docs/quality/PR60_FINAL_AUDIT.md" }
+          { "path": "docs/reviews/evidence/pr61/ci-attempt-1.json" },
+          { "path": "docs/reviews/evidence/pr61/verification.json" },
+          { "path": "src/features/landing/preservation.test.ts" },
+          { "path": "docs/quality/PR61_FINAL_AUDIT.md", "marker": "Post-CI corrective follow-up" }
         ]
       }
     },
     "findings": [
       {
-        "id": "PR60-FA-01",
-        "severity": "major",
-        "status": "fixed",
-        "description": "Original stamp independently reproduced Review A/replacement-cookie B/Refresh/Create committing the A-reviewed request in B at equal revision0. Reset current-world fallback had same risk by code inspection. Original unsafe result/fingerprint retained; original stamp rejected.",
-        "fix": "Every run requires an explicit reviewed workspace; Create passes preview.workspace; Reset pins workspace/revision; observed changed/expired contexts clear intent and stale Review responses are refused.",
-        "retests": [
-          "Independent actual changed-session browser case: refreshed Review disappears; unseen replacement cookie rejects stale Create; equal-revision stale Reset leaves replacement resource, attempt and history intact.",
-          "Independent actual complete-chain and compact/native-dialog cases passed; post-fix52unit/integration/preservation tests exit0."
-        ]
-      },
-      {
-        "id": "PR60-FA-02",
-        "severity": "minor",
-        "status": "fixed",
-        "description": "Two original PostgreSQL HTML digests were ambiguous against extracted readable .txt review captures.",
-        "fix": "Explicit hashScope plus extractedReviewTextSha256 distinguishes response payload from readable capture.",
-        "retests": [
-          "All5 extracted readable capture hashes independently match actual local files; original HTML not independently refetched."
-        ]
-      },
-      {
-        "id": "PR60-FA-03",
+        "id": "PR61-FA-01",
         "severity": "note",
         "status": "open",
-        "description": "Delivery still requires complete390 exact-head CI/strict and actual anonymous deployed root/fullSHA/visible-entry/return. Targeted runs and collection cannot satisfy these gates."
+        "description": "First complete397CI on61e failed395passed+1flaky+1failed,27.5min,exit1; no receipt/strict success. Corrective payload needs actual new exact-head full397CI/strict and anonymous deployed new full-SHA root/course/Laboratory-entry/return. Prior public61e check cannot satisfy nextSHA."
       },
       {
-        "id": "PR60-FA-04",
+        "id": "PR61-FA-02",
         "severity": "note",
         "status": "accepted-limitation",
-        "description": "Public persistent Storage Gate7 remains BLOCKED without owner-approved new isolated preview PostgreSQL/roles/runtime/TLS/origin. No external paid/reused DB or production configuration provisioned. Operator expiry/backup/capacity/abuse planning and human security review remain outside local prototype verification."
+        "description": "Public persistent Laboratory Storage Gate7 remains database-blocked. Honest unavailable entry/local PostgreSQL reset isolation do not establish public persistent Storage success. No provisioning is authorized or performed."
       },
       {
-        "id": "PR60-FA-05",
+        "id": "PR61-FA-03",
+        "severity": "note",
+        "status": "open",
+        "description": "Earlier unchanged30s Portal-navigation budget failure remains unexplained despite isolated/final/independent later passes. Existing Compute/Axe/CC03 timing uncertainty remains open; settings/retries/skips unchanged."
+      },
+      {
+        "id": "PR61-FA-04",
         "severity": "note",
         "status": "accepted-limitation",
-        "description": "PR59 old-writer/ABA cutover blocker/evidence remain unchanged and unresolved; new empty server workspace does not repair migration. Historical Compute/Axe and CC03/architecture-helper timing uncertainty and all human SME/learning/usability/screen-reader/transfer validation remain unresolved/unperformed."
+        "description": "PR59 old-writer/ABA migration blocker remains unchanged. Human SME/learning/UX/screen-reader/transfer review remains unperformed; completion proposal and higher-course workspaces remain unapproved/unimplemented."
+      },
+      {
+        "id": "PR61-FA-05",
+        "severity": "major",
+        "status": "fixed",
+        "description": "Cross-tab test unfiltered .course-shell locator failed strictness in all3CI attempts because React streaming briefly retained exactly1visible and1hidden tree.",
+        "fix": "Require exactly1 .course-shell:visible, correct computing module/intro-request topic and1visible cloud chapter; no first-match bypass and every subsequent negative/assertion unchanged.",
+        "retests": [
+          "Independent corrected CI-review fixture: unavailable/cross-tab test passed as part of2/2 in14.9s,0retries.",
+          "Independent28unit/preservation checks passed6files4.93s; direct exact-delta/runtime/settings checks passed."
+        ]
+      },
+      {
+        "id": "PR61-FA-06",
+        "severity": "major",
+        "status": "fixed",
+        "description": "Old root/history case injected fixture data and reloaded before real RSC navigation committed; actual CI flaky and unchanged-case local before-fix failure receivedRoot rather thanLearn. Delayed real-response observation confirmed click resolved atRoot beforeLearn commit.",
+        "fix": "Add explicit /learn URL commit assertion after all3 real root-to-AZ900 clicks, before fixture injection/subsequent navigation. All original old assertions retained by independently reconstructed exact additive transform.",
+        "retests": [
+          "Independent corrected CI-review fixture: old raw-history/Journal/Portal/XP/Axe journey passed as part of2/2 in14.9s,0retries.",
+          "Independent28unit/preservation checks and direct PR60/first-reviewed-commit whole-body comparisons passed."
+        ]
       }
     ],
-    "report": { "path": "docs/quality/PR60_FINAL_AUDIT.md" },
-    "retests": [
-      {
-        "command": "Independent original actual Next/PostgreSQL workspace-retarget reproduction",
-        "exit": 0,
-        "result": "Unsafe result reproduced and original stamp rejected; preserved audit-workspace-before.json."
-      },
-      {
-        "command": "npx vitest run src/laboratory-v3.test.ts src/laboratory-v3.integration.test.ts src/laboratory-v3-preservation.test.ts src/features/course/vm-debrief-preservation.test.ts src/features/learning/final-quality-preservation.test.ts src/features/portal/challenge-validity-preservation.test.ts",
-        "exit": 0,
-        "result": "Post-fix52/52,six files,3.18s; actual start09:11:15."
-      },
-      {
-        "command": "npx playwright test tests/e2e/laboratory-server.spec.ts --config=playwright.desktop.config.ts --project=desktop-chromium -g 'actual Storage chain|changed session|compact native' --output=/workspace/azurelab-pr60/independent-browser-artifacts",
-        "exit": 0,
-        "result": "3/3 actual real-runtime cases,16.1s; complete chain/short keyboard+Axe/workspace intent rejection; fresh images personally inspected."
-      },
-      {
-        "command": "npm run test:e2e:plan",
-        "exit": 0,
-        "result": "390=353desktop+37compact,worker1,optional legacy706; collection only."
-      },
-      {
-        "command": "Independent PostgreSQL privilege/isolation, static-build/ignored-env, normalized hashes/fingerprint and source/log artifact checks",
-        "exit": 0,
-        "result": "Expected least privilege; no browser config markers;40/40 hashes,fingerprint/snapshot valid;5readable sources/9verification logs match."
-      },
-      {
-        "command": "npm run docs:check",
-        "exit": 0,
-        "result": "170 Markdown files, required documentation/local links valid after report creation."
-      },
-      {
-        "command": "npm run quality:check",
-        "exit": 0,
-        "result": "Seven-gate structural/source/activity references valid; no human approval inferred."
-      },
-      {
-        "command": "npm run quality:release -- --base cb99705b1b0650d2099f6c95f5c7e32776448483",
-        "exit": 1,
-        "result": "ONLY missing executed complete candidate browser-profile evidence; no stale fingerprint/order/preservation/source or open delivery blocker/major error. Pending delivery, not a passed strict release."
-      },
-      {
-        "command": "Independent non-review record digest comparison and staged/unstaged git diff --check",
-        "exit": 0,
-        "result": "Every non-review release field structurally unchanged; no whitespace errors."
-      }
-    ],
-    "completed": "2026-11-06T09:14:56.266Z"
+    "report": {
+      "path": "docs/quality/PR61_FINAL_AUDIT.md",
+      "marker": "Post-CI corrective follow-up"
+    }
   },
   "gates": {
     "source": {
-      "checks": [
-        { "path": "docs/reviews/evidence/pr60/sources.json" },
-        { "path": "docs/STORAGE_VERTICAL_DESIGN.md" }
-      ],
-      "limits": "New isolated server laboratory only. Historical v2/course/assessment/guide preserved. Full candidate CI/strict remains pending until actual run. Public persistent Storage Gate7 BLOCKED without owner-approved isolated database. No human SME/learning/security approval."
+      "checks": [{ "path": "docs/reviews/evidence/pr61/sources.json" }],
+      "limits": "Product-entry presentation only; no new course, scoring, completion issuer, progress/resume engine or technical operation. Green display reserved, zero completion awards. Public persistent Laboratory Storage Gate7 remains DB-blocked. Human UX/screen-reader/learning validation unperformed. Full candidate CI/strict and anonymous exact-SHA journey pending actual execution."
     },
     "curriculum": {
-      "checks": [{ "path": "src/laboratory-v3-preservation.test.ts" }],
-      "limits": "New isolated server laboratory only. Historical v2/course/assessment/guide preserved. Full candidate CI/strict remains pending until actual run. Public persistent Storage Gate7 BLOCKED without owner-approved isolated database. No human SME/learning/security approval."
+      "checks": [
+        { "path": "src/features/landing/preservation.test.ts" },
+        { "path": "docs/COURSE_COMPLETION_CONTRACT.md" }
+      ],
+      "limits": "Product-entry presentation only; no new course, scoring, completion issuer, progress/resume engine or technical operation. Green display reserved, zero completion awards. Public persistent Laboratory Storage Gate7 remains DB-blocked. Human UX/screen-reader/learning validation unperformed. Full candidate CI/strict and anonymous exact-SHA journey pending actual execution."
     },
     "simulation": {
       "checks": [
-        { "path": "src/laboratory-v3.integration.test.ts" },
-        { "path": "src/laboratory-v3.test.ts" }
+        { "path": "src/laboratory-v3-preservation.test.ts" },
+        { "path": "tests/e2e/premium-landing.spec.ts" }
       ],
-      "limits": "New isolated server laboratory only. Historical v2/course/assessment/guide preserved. Full candidate CI/strict remains pending until actual run. Public persistent Storage Gate7 BLOCKED without owner-approved isolated database. No human SME/learning/security approval."
+      "limits": "Product-entry presentation only; no new course, scoring, completion issuer, progress/resume engine or technical operation. Green display reserved, zero completion awards. Public persistent Laboratory Storage Gate7 remains DB-blocked. Human UX/screen-reader/learning validation unperformed. Full candidate CI/strict and anonymous exact-SHA journey pending actual execution."
     },
     "savvyshark": {
-      "checks": [{ "path": "src/features/course/mission-context.ts" }],
-      "limits": "New isolated server laboratory only. Historical v2/course/assessment/guide preserved. Full candidate CI/strict remains pending until actual run. Public persistent Storage Gate7 BLOCKED without owner-approved isolated database. No human SME/learning/security approval."
+      "checks": [
+        { "path": "src/features/course/mission-context.ts" },
+        { "path": "src/features/landing/preservation.test.ts" }
+      ],
+      "limits": "Product-entry presentation only; no new course, scoring, completion issuer, progress/resume engine or technical operation. Green display reserved, zero completion awards. Public persistent Laboratory Storage Gate7 remains DB-blocked. Human UX/screen-reader/learning validation unperformed. Full candidate CI/strict and anonymous exact-SHA journey pending actual execution."
     },
     "visual-accessibility": {
       "checks": [
-        { "path": "docs/reviews/evidence/pr60/blob-1024-500.png" },
-        { "path": "tests/e2e/laboratory-server.spec.ts" }
+        { "path": "docs/reviews/evidence/pr61/landing-1024-500.png" },
+        { "path": "tests/e2e/premium-landing.spec.ts" }
       ],
-      "limits": "New isolated server laboratory only. Historical v2/course/assessment/guide preserved. Full candidate CI/strict remains pending until actual run. Public persistent Storage Gate7 BLOCKED without owner-approved isolated database. No human SME/learning/security approval."
+      "limits": "Product-entry presentation only; no new course, scoring, completion issuer, progress/resume engine or technical operation. Green display reserved, zero completion awards. Public persistent Laboratory Storage Gate7 remains DB-blocked. Human UX/screen-reader/learning validation unperformed. Full candidate CI/strict and anonymous exact-SHA journey pending actual execution."
     },
     "independent-final-audit": {
-      "checks": [{ "path": "docs/LABORATORY_V3_SERVER.md" }],
-      "limits": "New isolated server laboratory only. Historical v2/course/assessment/guide preserved. Full candidate CI/strict remains pending until actual run. Public persistent Storage Gate7 BLOCKED without owner-approved isolated database. No human SME/learning/security approval."
+      "checks": [{ "path": "docs/PREMIUM_LANDING.md" }],
+      "limits": "Product-entry presentation only; no new course, scoring, completion issuer, progress/resume engine or technical operation. Green display reserved, zero completion awards. Public persistent Laboratory Storage Gate7 remains DB-blocked. Human UX/screen-reader/learning validation unperformed. Full candidate CI/strict and anonymous exact-SHA journey pending actual execution."
     },
     "delivery": {
-      "checks": [{ "path": "docs/LABORATORY_V3_SERVER.md" }],
-      "limits": "New isolated server laboratory only. Historical v2/course/assessment/guide preserved. Full candidate CI/strict remains pending until actual run. Public persistent Storage Gate7 BLOCKED without owner-approved isolated database. No human SME/learning/security approval."
+      "checks": [{ "path": "docs/PREMIUM_LANDING.md" }],
+      "limits": "Product-entry presentation only; no new course, scoring, completion issuer, progress/resume engine or technical operation. Green display reserved, zero completion awards. Public persistent Laboratory Storage Gate7 remains DB-blocked. Human UX/screen-reader/learning validation unperformed. Full candidate CI/strict and anonymous exact-SHA journey pending actual execution."
     }
   },
   "snapshot": {
     "files": {
-      ".github/workflows/ci.yml": "5ef8bb6144ca32ce5cd54e44ef1535a935bde3920efbffad1651726229c891bf",
-      "database/laboratory-v3/001.sql": "354de1d0f35d321ffbeaf02481c41b062d2a779c3551ce313d24d69f34f24cda",
-      "docs/ARCHITECTURE.md": "8b01e684c0309c711d4b941c88f8c0e55c84abdc6d620ed26b023e2f537fe62f",
-      "docs/DECISIONS.md": "00242609c8381f9d9b975fd55ae4b3197f1021599b5f5ca898a71598dd7909e1",
-      "docs/LABORATORY_V3_SERVER.md": "3406f38c51d00e34e7ca46ecbb51859b8fd77755e7db9943ee5d98f52a2bcabf",
-      "docs/reviews/evidence/pr60/audit-workspace-before.json": "48ee7f5a223bc8ca216f01281e34149d91c8d835b6c9b9f25a63e1e7da404419",
-      "docs/reviews/evidence/pr60/blob-1024-500.png": "1cb3e4c67a2e4f85e3e5ac7a74d7192d9d2e1f3976aeec45b032935eefdd6e34",
-      "docs/reviews/evidence/pr60/blob-1024-768.png": "237534f0793ddd95d5851b6f9f79af85121f0a7dd9c18aeff20be4bf22e73618",
-      "docs/reviews/evidence/pr60/blob-1440-900.png": "4248323bba842bdc99aabb888e648c34b61cdb12f28d33ff65561691423969de",
-      "docs/reviews/evidence/pr60/preservation.json": "dc0787beccf7499bda887e0431ffb05354a35826e02d65cb9e81d1daf00b1d46",
-      "docs/reviews/evidence/pr60/sources.json": "e5cf03c6e668e7306f2da420b2dbb2ced3e5178f5238837b0c689fbbc7fbb200",
-      "docs/reviews/evidence/pr60/storage-chain.png": "40a88d8c4767c3cfdf15ba06758b7a9a49838d9e2119d3b6f9e054f664c7a4b6",
-      "docs/reviews/evidence/pr60/verification.json": "5d18eaf7973aeb9ad8dc3358c7ec78bdf2b0e9ec74b53443d9e929d0a95d2533",
-      "package-lock.json": "19bc93a14aaf2384bc857b8f17acded389d7e1b1b86a8a1cd8093024f281f3ff",
-      "package.json": "519cd5af55712e76d19ee0c54bca578522865ef24030e0a79512f66640129db7",
-      "playwright.desktop.config.ts": "9a77a4a64f78ed2150a5d483622a9eaed82a27d065724864ac8e58d6742d5878",
-      "scripts/laboratory-db.mjs": "0d4402283559415e4083090bf06a0f1b930b84676ce079a18a0a014ea76c1bb0",
-      "src/app/api/laboratory/command/route.ts": "03a1bb94ae7c337745d14f3f43d7734c9eb2e84bfd2108753f973c1bd326df5d",
-      "src/app/api/laboratory/review/route.ts": "c4f01474e177e92b9ecf5fab578c0ac0b676c8363172b13221479867b7667ef2",
-      "src/app/api/laboratory/session/route.ts": "ba97bae64860b670cd3d22950e4b0f15951ef3ee26dde847c0b1c20928922d59",
-      "src/app/api/laboratory/state/route.ts": "ef894d070dc0322832a86279b58b008e4a6a4b609a22546a35b60962460435a3",
-      "src/app/labs/laboratory/page.tsx": "f85f1ade4a898da43a2f8a58f1e2db56fe7b2b2f8bf49272608b58a22f939b53",
-      "src/content/nb.ts": "eec03f15df95c4d9df746009c6b407d56d9c5f908554f59a0653428810413b31",
-      "src/features/course/course-hub.tsx": "a210128c1c0420f2a4b6532811e1e12387afd0e7e63d58f1f4d76d92039d25bd",
-      "src/features/course/vm-debrief-preservation.test.ts": "861849aa475f6f78f84df70b33d8a2a2dbd803804c426fafcc20f2acb565ae92",
-      "src/features/laboratory/laboratory.css": "910d5551076064ab2ba5cbe0db3b5780cf53136b25e11e613c4a1ea49281957d",
-      "src/features/laboratory/laboratory.tsx": "dafab8c1e0c958d666a18ab98b7f0f6064ee5f5073b6b73c50ad556e8b5b72c8",
-      "src/features/learning/final-quality-preservation.test.ts": "9fd706018bd0a9d91f0d3e73778b3401782f319e83f8fa31cd96bf7d36855f98",
-      "src/features/portal/challenge-validity-preservation.test.ts": "d4377577824cbc1d1cf82fcb0a970a976a03d88a33940b29dc02954ca1e9afb6",
-      "src/laboratory-v3-preservation.test.ts": "b70390dddd8fb2371e9ca5dd7de25ac1677817dc3ed4c6307b774e96b1b0305f",
-      "src/laboratory-v3.integration.test.ts": "6914c3eedebba4350e256b56d6447da0aed16045d8e49e6f7e5aef1a5db18fb4",
-      "src/laboratory-v3.test.ts": "8917f07c3b9427ce1f185671e1e48f76452b54a598d3a936a51f7d15eaff0c0d",
-      "src/laboratory/v3/contract.ts": "4672731501c241890220bb0f25417c32115f97db57e4931b582024db9361da9e",
-      "src/laboratory/v3/domain.ts": "bf83271cfaa5c57f5d0005c63598fcb76452cf860a4336d124df0833f8ae7394",
-      "src/laboratory/v3/repository.ts": "8944f42504f665d27c8cab65c121ae0f2b42632e052581903e5ed15b7f3f3321",
-      "src/laboratory/v3/server.ts": "602700967d665ac7b1859067eabbee5b51cf84b1f7595b6a6ec172b5a5a106af",
-      "tests/cc02-preservation.ts": "c6906c93089aa6c2f3f44522e752829cdac52edf65f5c93990c9cfc87b7bc39e",
-      "tests/cc03-preservation.ts": "d585cd02f101b76c968160a1dd055d3a502fccdfe58c6701fa003b2f06902455",
-      "tests/e2e/laboratory-server.spec.ts": "3e3d74b5bfcfe961d87f0c9bfbe8f84cddb053f62f4744b9807e0f19d69cf629",
-      "tests/pr60-preservation.ts": "5697ee002b26aba2af0b0499337b9ff2c88e37bf7df95776c937bdf8e973da64"
+      "AGENTS.md": "259ab6e03ab12dbdaf9eb5629782db217e371f2d81e88f77ff88da9fee8196e3",
+      "README.md": "a76ed5d65e1184cdf3208264e342296d4e831541fb717a8a87d9f9972b765e0f",
+      "docs/ARCHITECTURE.md": "bb8e96d93d57897a7abe9cc11dcefb85999380e234d20dc8a614ffe79e04f099",
+      "docs/COURSE_COMPLETION_CONTRACT.md": "4b3883e2e56dab52a894dabde6b2a28d936c164fa251b458e221e88adf40d123",
+      "docs/DECISIONS.md": "9ebc1f425a26b0ffe9e8f1739ddcbd29905d68d928daabc314798cb95ef6e997",
+      "docs/PREMIUM_LANDING.md": "d737a09fed189471a8d1d7a5c2e65305c2c6d32eba2069fd315295b77e42a6b8",
+      "docs/reviews/evidence/pr61/before-root-1440-900.png": "8c4eb8b7b951879b9dddb2132b132e0c60829a1f8d1a12ab339b37099da1c8a2",
+      "docs/reviews/evidence/pr61/browser-zoom-1.25.png": "d165ea20757ab186286ae911381938fea29cfb87ca2a536cc5d0514ccbe80b00",
+      "docs/reviews/evidence/pr61/browser-zoom-2.png": "f13cd08f226e5eeea938a49bc3e3f7a3a904145e3924d94bba35f85c8f1c409f",
+      "docs/reviews/evidence/pr61/ci-attempt-1.json": "76873ae923f53300efa002f7352ed9e04d7e90b7ef153bff71fd20e038332284",
+      "docs/reviews/evidence/pr61/landing-1024-500.png": "1139c8fa5a8e6381952087022b73ae8a3bcbaba4ca4975f7ac73b76f5f631dfd",
+      "docs/reviews/evidence/pr61/landing-1024-768.png": "4525a6ca15f740f3c9fdee8c787829510515ff6f42166830d1fd94d64026d029",
+      "docs/reviews/evidence/pr61/landing-1440-900.png": "588415064e246f461fc601abfd6d071b1c5cd1eb23ef245183df4a1bc3f8dce9",
+      "docs/reviews/evidence/pr61/landing-1920-1080.png": "5d563f42df758ff14514bdfd3bb4234a2598696d069aa924cafa07bcb626fa37",
+      "docs/reviews/evidence/pr61/landing-800-700.png": "b179397b9acff9510a2f4b4f33160b2bebaaea058928b13a4b0da9be8aaeb26c",
+      "docs/reviews/evidence/pr61/landing-laboratory-800-700.png": "b179397b9acff9510a2f4b4f33160b2bebaaea058928b13a4b0da9be8aaeb26c",
+      "docs/reviews/evidence/pr61/preservation.json": "4becf0588fefa508c976e9cacb2a0c454891ed85f73ba2ed3f94891a60852e3d",
+      "docs/reviews/evidence/pr61/sources.json": "0174be121f07e8d55060f6dffea9cf28ce867df430cd42e32dbfe9c1ae057979",
+      "docs/reviews/evidence/pr61/status-presentation-only.png": "437a4ad0681200604130fe6d4e342427c5dc8427b9c3fdee4ffbc0df37ca12d3",
+      "docs/reviews/evidence/pr61/verification.json": "a6302d0935b6f459b40ed199718a541d6de90365c722f5a6ce49f563cd1bf1fa",
+      "docs/reviews/evidence/pr61/visual-measurements.json": "ca85a304e8e7e65690b9e2150d843da66c656f83ff6c441a73c4f1ac17698c23",
+      "docs/reviews/evidence/pr61/visual-provenance.json": "5e28d50be6e5f789199157db36c10b935548d6071dde04f95561daa823d04aa4",
+      "playwright.desktop.config.ts": "ecf785d29ea7a5ad5cb18905248ec9a2503222aa6460dcd79796ece3ae5250d5",
+      "src/app/page.tsx": "63e3fd0169e3ac748a9799acfdbc68bb4d3159de3433fd8c5d466a82a0a1f25e",
+      "src/components/app-shell.tsx": "587d8ab74f3142ce73ed052ea05daaf55055b82b63283a821ddba40ae96269b1",
+      "src/content/nb.ts": "8081507d1a97e92a1baee370b783b4bc08cecfddba16825f3b0b8ce386cb8b02",
+      "src/features/landing/course-status-badge.tsx": "bc1bfdb8e804cb98d0333408be639fb4e88e7a0edf6bfc47b2a52a81d9ae697d",
+      "src/features/landing/course-status.ts": "2f717f34bd2e17e5c0caae3a3f7183b57cba7a0c4d1afb0ee5fdcc3989326718",
+      "src/features/landing/landing.css": "f18123edabedbc6543a83d475c41ed896b6a1996e6fb526619086fdc2bf275b3",
+      "src/features/landing/landing.test.ts": "c67d846ba80ee9c0daaa16678c840b9620fce07768b8c092d32d60fdda423ae4",
+      "src/features/landing/landing.tsx": "9d4c6f51d88953fe21efdfe1de343d87f0e7a201f96179c1cb76bf43cf427934",
+      "src/features/landing/preservation.test.ts": "dc2c51c2f263204f4682747f8bd31163cb0a9f7e7ffdfde25ed3fc9fcf7f876a",
+      "src/laboratory-v3-preservation.test.ts": "a51c9a85ef3fe89e9419cd4422e41d5e2dc0867269507f65cc12f23367c1182c",
+      "tests/e2e/architecture-management.spec.ts": "43ab75fe35979bc0eda51ac6c43524c570bd247db459557797c6c8e8c8a79a5a",
+      "tests/e2e/architecture-physical.spec.ts": "06a6c6f66dc6165e8c98e0c9e41bd62fd0c91e1f2f176286068190a11a18da3f",
+      "tests/e2e/az900-audit.spec.ts": "9939385771eca1448594f529d1c99335c8a931d02daeb44a2b501e9edb705c94",
+      "tests/e2e/cloud-transfer.spec.ts": "cadd1a15f3d269ac441b80eb626425abe886361afca0a61048f49f9274063f16",
+      "tests/e2e/compute-hosting.spec.ts": "a54638c8aa3974b85c3e2d7f803901219c03ab38cc16e7d53cb08119070deae9",
+      "tests/e2e/cost-management.spec.ts": "b2cda3dfd331c41ff8c13b59fe2ac15969392c1dfe074f7a7a337bc206295a13",
+      "tests/e2e/course.spec.ts": "7648f2176310e8e6ac626a7b50729599de352828da3d27e11e17bd65138e668a",
+      "tests/e2e/curriculum-expansion.spec.ts": "fdb1dd456519352e32b6ca65f1fa11c353a82c4f4b7f523daee2f69105fc3a94",
+      "tests/e2e/final-quality-sprint.spec.ts": "bcc98e202c74fbd7953cb01739d8aeb68defb8e9d0c3662e45d678e43c010157",
+      "tests/e2e/foundations-v2.spec.ts": "95bf621b57923043976a08cf1da7b03f1f1591859ecfc8721c5f240fc82ef7ed",
+      "tests/e2e/guided-learning-polish.spec.ts": "28e9faf90ba69a23f351fab2e78c20e2211d21c8a3947a1dc32f74dfe93c3467",
+      "tests/e2e/hybrid-experience.spec.ts": "04487048e8b9626b7ce2b81c6cfbf81105955d186c157fb7a72924802b0d5d4f",
+      "tests/e2e/laboratory-server.spec.ts": "62dc0de84d26c0ca5e9c22b811dbff14b790041c30565ef949762a0de77d1e65",
+      "tests/e2e/legacy-retirement.spec.ts": "9b57d9ed820b33fae4d98b294df1d09964203cd2aa9e7fbf16ac2e1a100134d1",
+      "tests/e2e/networking-connectivity.spec.ts": "9d4c60916d869a947dd4c15334f4ac2fe4e447ce6c8065ec50bc4bcf25ebd4f6",
+      "tests/e2e/networking-foundations.spec.ts": "3a2dbf6a68e9eae7ffe64c1ab2f98b450c5e9c0aaa2f0369cc4f7fa101632abd",
+      "tests/e2e/portal-fidelity.spec.ts": "571ae40257dc50df9b16cd85d8bf05857c94e31731c88cc0e25f697946aa4a15",
+      "tests/e2e/practical-labs.spec.ts": "954fab8fb59a724523014287bd2fe2d8321ff7e60c6f8e2f6908fccfb6f52cfa",
+      "tests/e2e/practical-missions.spec.ts": "cb5e1db123e983445f266e014e63076c34f99a6424ee605b13c8fc49e946bf4c",
+      "tests/e2e/premium-landing.spec.ts": "7dd4577408b9364cbf9b727a68515b1509983c259575153e398be50f641f3107",
+      "tests/e2e/quality-system.spec.ts": "7f13b43b06fdd2738b4d4d2113b68cea2ad108f941452a8b8cbfb2c57ee9f4fa",
+      "tests/e2e/serverless.spec.ts": "33b03567678c0fbf6c8cc8f90825f80c1b86fc2a07a6883bc995b906c909c980",
+      "tests/e2e/ux-refinement.spec.ts": "2555801e785b5ee356e3f563df33f581334db908a34138dc7d654cffd0c33c98",
+      "tests/e2e/vm-debrief-actions.ts": "0a347e75a248a341c8e1c3b9056371d4164d0c46d23e41444bfeb40167ee1595",
+      "tests/fixtures/landing-zoom-extension/manifest.json": "f4458f250d681f6d8c491ce6620b32bae87062ec00545ebec332c67a2a0d465d",
+      "tests/fixtures/landing-zoom-extension/worker.js": "c0648d1612e10b249772d886c8548fbeca5348e79017f1fa074cbb0187168525",
+      "tests/pr60-preservation.ts": "a18d3ac8cb5ef33d7cfcf5b4162c75194d549eabe34d819206053b6cf26edda0",
+      "tests/pr61-preservation.ts": "6e8485983edc0fe39349ce80957e3cce78313580a1a1f702fffb6f6df8676d40"
     }
   },
-  "implementationFinished": "2026-11-06T09:10:56.044Z"
+  "implementationFinished": "2026-11-06T12:05:42.477Z"
 }

@@ -19,7 +19,7 @@ const read = async (page: Page) =>
     (await page.evaluate((k) => localStorage.getItem(k), costKey)) ?? JSON.stringify(freshCost()),
   ) as CostSave;
 const root = async (page: Page) => {
-  await page.goto('/');
+  await page.goto('/learn');
   await page.locator('.learn-hub-module[data-module="cost"]').getByRole('link').click();
   await expect(page).toHaveURL(/\/learn\/cost/);
 };
@@ -76,7 +76,7 @@ test('actual Portal configuration is read-only context, never fabricated economi
   context,
 }) => {
   const p = nb.portal;
-  await page.goto('/');
+  await page.goto('/learn');
   await page.getByRole('link', { name: 'Fri Portal-sandbox', exact: true }).click();
   await expect(page.locator('.portal-title h1')).toBeVisible();
   const groups = page
@@ -377,7 +377,7 @@ test('already-open historical cost feedback closes on real cross-tab conflict an
   await page.getByRole('button', { name: c.assessment.submit, exact: true }).click();
   await expect(page.getByRole('region', { name: c.currentFeedback, exact: true })).toBeVisible();
   const peer = await context.newPage();
-  await peer.goto('/');
+  await peer.goto('/learn');
   await peer.evaluate(
     ({ key }) => {
       const s = JSON.parse(localStorage.getItem(key)!);
@@ -421,7 +421,7 @@ test('invalid cost recovery is isolated and newer valid replacement is never rem
   expect((await read(page)).events).toEqual([{ kind: 'visit', topic: 'assessment' }]);
   expect(costFacts(await read(page)).firsts).toHaveLength(0);
   const peer = await context.newPage();
-  await peer.goto('/');
+  await peer.goto('/learn');
   await peer.evaluate((key) => localStorage.setItem(key, '{'), costKey);
   await page.getByRole('button', { name: c.storage.load, exact: true }).first().click();
   await page.getByRole('button', { name: c.storage.recover, exact: true }).first().click();
@@ -511,7 +511,7 @@ test('actual UI-history repair clears stale warnings without replaying an old in
   await expect(page.getByRole('dialog')).toHaveCount(0);
   const saved = await read(page),
     peer = await context.newPage();
-  await peer.goto('/');
+  await peer.goto('/learn');
   const repair = async (raw: string) => {
     await peer.evaluate(({ key, raw }) => localStorage.setItem(key, raw), {
       key: milestonePreferenceKey,

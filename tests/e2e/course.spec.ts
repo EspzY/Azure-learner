@@ -1,3 +1,4 @@
+import { landingNb } from '../../src/content/nb';
 import { test, expect, type Page, type TestInfo } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { nb, learningPolishNb as polish } from '../../src/content/nb';
@@ -51,6 +52,8 @@ test('course owns full theory, guided real controls, denial investigation, hosti
     if (/\.(glb|wav)(\?|$)|\/game\//.test(u.pathname)) game.push(r.url());
   });
   await page.goto('/');
+  await page.getByRole('link', { name: landingNb.az900Link, exact: true }).click();
+  await expect(page).toHaveURL('/learn');
   await expect(page).toHaveURL(/\/learn$/);
   await expect(page.getByRole('heading', { name: c.title, exact: true })).toBeVisible();
   await expect(page.locator('.learn-hub-module[data-module="computing"]')).toContainText(

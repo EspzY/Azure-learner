@@ -53,7 +53,7 @@ async function area(page: Page, name: keyof typeof p.areas) {
   await expect(page.locator('.portal-title h1')).toHaveText(p.areas[name]);
 }
 async function launch(page: Page, kind: 'vm' | 'paas') {
-  await page.goto('/');
+  await page.goto('/learn');
   await openServiceLab(page, kind === 'vm' ? 'iaas' : 'paas');
   const entry = page.locator('.practical-entry');
   await expect

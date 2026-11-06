@@ -20,7 +20,7 @@ for (const [width, height] of [
       'Desktop-first refinement; existing narrow regressions retained.',
     );
     await page.setViewportSize({ width: width!, height: height! });
-    await page.goto('/');
+    await page.goto('/learn');
     await page.getByRole('link', { name: `${c.open}: Cloud computing`, exact: true }).click();
     await expect(page.locator('[data-activity-heading]')).toBeFocused();
     const nav = page.getByRole('navigation', { name: c.next, exact: true });

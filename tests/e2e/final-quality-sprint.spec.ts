@@ -41,7 +41,7 @@ test('final quality current Storage orientation and named build disclosure prese
   page,
 }, info) => {
   await page.setViewportSize({ width: 1440, height: 900 });
-  await page.goto('/');
+  await page.goto('/learn');
   await page.locator('.learn-hub-module[data-module="storage"]').getByRole('link').click();
   await expect(page.getByText(f.storageAvailable, { exact: true })).toBeVisible();
   const before = await technical(page);

@@ -75,7 +75,7 @@ test('ordinary root delivers the whole v2 course, preserved objectives, actual l
     [1366, 768],
   ]) {
     await page.setViewportSize({ width: width!, height: height! });
-    await page.goto('/');
+    await page.goto('/learn');
     await expect(page).toHaveURL(/\/learn$/);
     await expect(
       page.getByRole('link', { name: nb.foundationsVisuals.reviewAction, exact: true }),

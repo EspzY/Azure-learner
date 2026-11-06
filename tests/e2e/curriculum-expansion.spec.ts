@@ -41,7 +41,7 @@ test('root → complete Benefits investigations → independent changed context 
     if (new URL(r.url()).origin !== new URL(info.project.use.baseURL!).origin)
       external.push(r.url());
   });
-  await page.goto('/');
+  await page.goto('/learn');
   await expect(page).toHaveURL(/\/learn$/);
   const old = await page.evaluate(() =>
     Object.fromEntries(
@@ -182,7 +182,7 @@ test('root → complete Benefits investigations → independent changed context 
 test('operational Service Types configurations, wrong causes, separate version and assessment aid', async ({
   page,
 }, info) => {
-  await page.goto('/');
+  await page.goto('/learn');
   await page
     .getByRole('link', { name: `${nb.course.open}: Cloud service types`, exact: true })
     .click();
@@ -371,7 +371,7 @@ for (const [width, height] of [
   test(`desktop ${width}: live operational composition and keyboard`, async ({ page }, info) => {
     test.skip(info.project.name !== 'desktop-chromium', 'Desktop-first reference');
     await page.setViewportSize({ width: width!, height: height! });
-    await page.goto('/');
+    await page.goto('/learn');
     await page.screenshot({ path: info.outputPath(`32-landing-${width}.png`) });
     await page
       .getByRole('link', { name: `${nb.course.open}: Benefits of cloud services`, exact: true })

@@ -104,7 +104,7 @@ for (const [width, height] of [
       if (new URL(r.url()).origin !== new URL(info.project.use.baseURL!).origin)
         external.push(r.url());
     });
-    await page.goto('/');
+    await page.goto('/learn');
     await expect(page.getByRole('heading', { name: nb.course.title, exact: true })).toBeVisible();
     await page.evaluate((raw) => localStorage.setItem('azurelab.sandbox.v2', raw), fixture());
     await page.getByRole('link', { name: nb.course.sandbox, exact: true }).click();
@@ -342,7 +342,7 @@ test('guided coach minimization restores the actual operational workspace withou
   page,
 }) => {
   await page.setViewportSize({ width: 1440, height: 900 });
-  await page.goto('/');
+  await page.goto('/learn');
   await openServiceLab(page, 'iaas');
   await page
     .locator('.practical-entry')

@@ -9,7 +9,7 @@ test.setTimeout(120000);
 test('corrupt supplement has explicit scoped recovery from Portal and course, preserving old bytes', async ({
   page,
 }, info) => {
-  await page.goto('/');
+  await page.goto('/learn');
   const old = JSON.stringify(applyV2(freshV2(), { kind: 'visit', topic: 'intro-request' }));
   await page.evaluate(
     ({ key, oldKey, old }) => {
@@ -90,7 +90,7 @@ test('root course → complete serverless teaching, prediction, milestone, indep
     if (new URL(r.url()).origin !== new URL(info.project.use.baseURL!).origin)
       external.push(r.url());
   });
-  await page.goto('/');
+  await page.goto('/learn');
   await expect(page).toHaveURL(/\/learn$/);
   await page.getByRole('link', { name: `${nb.course.open}: Cloud computing`, exact: true }).click();
   await expect(

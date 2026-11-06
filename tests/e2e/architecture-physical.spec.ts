@@ -66,7 +66,7 @@ test('ordinary root → full Part A teaching, three causal witnesses, first part
     if (new URL(r.url()).origin !== new URL(info.project.use.baseURL!).origin)
       external.push(r.url());
   });
-  await page.goto('/');
+  await page.goto('/learn');
   await expect(page).toHaveURL(/\/learn$/);
   const before = await protectedBytes(page);
   if (info.project.name === 'desktop-chromium') {
@@ -277,7 +277,7 @@ test('isolated corrupt/future recovery, once-only history and real cross-tab ind
   page,
   context,
 }) => {
-  await page.goto('/');
+  await page.goto('/learn');
   const previous = JSON.stringify(
     applyServerless(freshServerless(), { kind: 'visit', topic: 'serverless-concept' }),
   );

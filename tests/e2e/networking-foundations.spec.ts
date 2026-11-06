@@ -42,7 +42,7 @@ const read = async (page: Page) =>
       JSON.stringify(freshNetworking()),
   ) as NetworkingSave;
 async function root(page: Page) {
-  await page.goto('/');
+  await page.goto('/learn');
   await page.locator('.learn-hub-module[data-module="networking"]').getByRole('link').click();
   await expect(page).toHaveURL(/learn\/networking/);
   await expect(page.locator('.networking-lesson [data-activity-heading]')).toBeVisible();
@@ -169,7 +169,7 @@ test('peering diagnosis distinguishes nontransitivity, explicit sides and overla
   expect(networkingFacts(await read(page)).completed).toContain('peering');
   const raw = await page.evaluate((k) => localStorage.getItem(k), milestonePreferenceKey),
     peer = await page.context().newPage();
-  await peer.goto('/');
+  await peer.goto('/learn');
   await peer.evaluate((k) => localStorage.setItem(k, '{broken'), milestonePreferenceKey);
   await expect(page.getByText(c.storage.milestones, { exact: true })).toBeVisible();
   await peer.evaluate(({ k, v }) => localStorage.setItem(k, v!), {
@@ -423,7 +423,7 @@ test('all-context preflight records durable aid and blocks historical feedback a
   await lesson(page, 'assessment');
   await expect(page.getByRole('region', { name: c.currentFeedback, exact: true })).toBeVisible();
   const peer = await page.context().newPage();
-  await peer.goto('/');
+  await peer.goto('/learn');
   await peer.evaluate((k) => localStorage.setItem(k, '{broken'), networkingKey);
   await expect(page.getByRole('region', { name: c.currentFeedback, exact: true })).toHaveCount(0);
   await expect(page.getByText(networkingItemsNb.nw01.decisive, { exact: true })).toHaveCount(0);

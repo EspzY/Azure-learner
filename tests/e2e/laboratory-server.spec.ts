@@ -3,7 +3,7 @@ import AxeBuilder from '@axe-core/playwright';
 import { createHash } from 'node:crypto';
 import { laboratoryV3Nb as c, nb } from '../../src/content/nb';
 async function start(page: Page) {
-  await page.goto('/');
+  await page.goto('/learn');
   await page.getByRole('link', { name: c.entry, exact: true }).click();
   await expect(page.getByRole('heading', { name: c.title, exact: true })).toBeVisible();
   await page.getByRole('button', { name: c.start, exact: true }).click();
