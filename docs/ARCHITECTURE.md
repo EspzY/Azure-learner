@@ -1,5 +1,9 @@
 # Architecture
 
+## Laboratory v3 — eksplisitt separat serverautoritet (PR60)
+
+Den nye ruten `/labs/laboratory` bruker Next.js Node Route Handlers og dedikert PostgreSQL-schema `laboratory_v3`. Én radlåst transaksjon validerer cookie-scope, original replay, commandId og expectedRevision, og lagrer World + original receipt atomisk før svar. Den isolerte modellen er `laboratory@3.0.0`, med RG/Storage Account/privat container/tekstblob. Token lagres kun hashet; frontend får ingen databasehemmeligheter. Det eksisterende kurset og `/portal` bruker fortsatt frosset Chapter01/sandbox2 og egne historiske learner stores. Ingen import, ny vurderingsautoritet eller erstatning av v2 skjer. Se [serverkontrakten](LABORATORY_V3_SERVER.md) for protokoll, SQL-eierskap, anonyme sesjoner og offentlig DB-blocker.
+
 ## P16 isolated file movement and migration models
 
 [Storage Part C contract](FILE_MOVEMENT_MIGRATION.md): pure typed requirements, tiny synthetic manifest and declared planning perspectives import no filesystem/World/command API. Five tool roles have qualified support/fidelity assumptions. Directional sync cannot mutate server B; ambiguous hybrid edits remain unresolved, missing local bytes stay missing after tiering is disabled. Transport/check/cutover/app validation are separate declared evidence. Read-only original local scope/resource/receipt context never supplies migrated data. Isolated azurelab.learning.file-movement-migration.v1 reuses strict replay/durable CAS/reserve/recovery and immutable first/family history. All24 shared contexts protect teaching, Journal, Summary, feedback, missions and Portal. Existing Storage A/B and all earlier rubrics remain unchanged.

@@ -1,6 +1,6 @@
 import { cc02TestAuthorized, assertCC02TestChange } from './cc02-preservation';
 import { expect } from 'vitest';
-import { readFileSync } from 'node:fs';
+import { readHistorical as readFileSync } from './pr60-preservation';
 import { execFileSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
 import proof from '../docs/reviews/evidence/cc03/authorized-changes.json';

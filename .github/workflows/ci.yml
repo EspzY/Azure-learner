@@ -9,7 +9,24 @@ jobs:
   verify:
     runs-on: ubuntu-latest
     timeout-minutes: 35 # Complete course, Portal and persistence verification
+    services:
+      laboratory-postgres:
+        image: postgres:17-bookworm@sha256:665dc7b37ac52a17e298511414c21d23ffa4e6a6ef6225b3e5d59c7afb35e994
+        env:
+          POSTGRES_DB: azurelab_lab_ci
+          POSTGRES_PASSWORD: laboratory_ci_only_fixture
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -h 127.0.0.1 -U postgres -d azurelab_lab_ci"
+          --health-interval 5s --health-timeout 3s --health-retries 10
     env:
+      # Disposable, isolated CI-only credentials; never use for a hosted database.
+      LAB_ADMIN_DATABASE_URL: postgresql://postgres:laboratory_ci_only_fixture@127.0.0.1:5432/azurelab_lab_ci
+      LAB_DATABASE_URL: postgresql://laboratory_v3_app:laboratory_runtime_ci_only@127.0.0.1:5432/azurelab_lab_ci
+      LAB_TEST_ADMIN_DATABASE_URL: postgresql://postgres:laboratory_ci_only_fixture@127.0.0.1:5432/azurelab_lab_test_ci
+      LAB_TEST_DATABASE_URL: postgresql://laboratory_v3_app:laboratory_runtime_ci_only@127.0.0.1:5432/azurelab_lab_test_ci
+      LAB_ORIGIN: http://127.0.0.1:3000
       NEXT_TELEMETRY_DISABLED: '1'
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -20,6 +37,7 @@ jobs:
           node-version: 24
           cache: npm
       - run: npm ci
+      - run: npm run lab:db:setup # Explicit initialization of only the isolated local service.
       - run: npm run check # Includes required documentation/local-link validation
       - run: npm audit --audit-level=high
       - run: npm run build:e2e:review # Explicit nonhosted historical Designlab fixture; same Git revision, unchanged public guard.

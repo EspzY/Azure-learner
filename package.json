@@ -25,14 +25,17 @@
     "legacy:check": "node scripts/legacy-check.mjs",
     "test:e2e:desktop": "npm run test:e2e:plan && playwright test --config playwright.desktop.config.ts",
     "test:e2e:plan": "node scripts/e2e-plan-check.mjs",
-    "build:e2e:review": "node scripts/e2e-preview-build.mjs"
+    "build:e2e:review": "node scripts/e2e-preview-build.mjs",
+    "lab:db:setup": "node scripts/laboratory-db.mjs"
   },
   "dependencies": {
     "@xyflow/react": "12.12.0",
     "lucide-react": "1.61.0",
     "next": "16.4.2",
+    "pg": "8.23.1",
     "react": "19.3.1",
-    "react-dom": "19.3.1"
+    "react-dom": "19.3.1",
+    "server-only": "0.0.1"
   },
   "devDependencies": {
     "@axe-core/playwright": "4.14.0",
@@ -40,6 +43,7 @@
     "@playwright/test": "1.64.1",
     "@tailwindcss/postcss": "4.3.3",
     "@types/node": "26.6.5",
+    "@types/pg": "8.20.0",
     "@types/react": "19.3.0",
     "@types/react-dom": "19.3.0",
     "eslint": "10.13.0",
