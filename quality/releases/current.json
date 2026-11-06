@@ -1,12 +1,12 @@
 {
   "schema": 1,
-  "id": "PR58-laboratory-platform-stage-0",
-  "baseCommit": "f0272ea5d181d88f2c3bad0ee186eac0893150e8",
-  "author": "pr58-platform-contract-author",
+  "id": "PR59-storage-activation-blocker-investigation",
+  "baseCommit": "a667b26276cc7a1bbed9aa9203cf431eb9001ada",
+  "author": "pr59-activation-investigation-author",
   "scope": {
-    "kind": "platform-contract-and-preservation-tests",
-    "description": "Read-only factual contract for current Laboratory boundaries, seven commands, existing evidence APIs and versioned Storage proposal. New contract tests/fixtures only. All1875 pre-existing files except mutable current release/status byte-preserved; no runtime/course/UI/store/command/schema change.",
-    "objectives": ["LP-ST0"]
+    "kind": "test-only-blocked-activation-investigation",
+    "description": "Owner stop rule: Storage NOT activated. Reproducible actual frozen-v2 same-origin writer/Web-Lock/tombstone/ABA counterexamples and rejected candidate protocol. No v3 simulator, production migration, UI or Storage command. All1889 old files except status/current release byte-preserved. A passed probe proves a candidate unsafe; it is not a Stage1 feature pass.",
+    "objectives": ["LP-ST1-ACTIVATION"]
   },
   "sources": [
     {
@@ -16,10 +16,10 @@
       "reviewed": "2026-11-05T22:20:25.534695+00:00",
       "version": "{\"ms.date\": \"2026-02-27T00:00:00Z\", \"updated_at\": \"2026-02-27T18:31:00Z\"}; body SHA256 28b152613b823ce4060b7cfd586c46990e54917e1dbf923f995244cb0a47e7f7",
       "kind": "official-public-product-documentation",
-      "objectives": ["LP-ST0"],
+      "objectives": ["LP-ST1-ACTIVATION"],
       "claims": ["storage.planes"],
       "availability": "AVAILABLE",
-      "limits": "Scoped architecture proposal only, not new teaching or implemented Azure capability. Relevant public body read; local payload/ID/version design is our proposal. No full study-guide/unit re-audit or human validation.",
+      "limits": "Retained actually reviewed Stage0 source (date unchanged), only unchanged Storage design claims. No new Azure teaching or operative service. Current browser-API source evidence is in laboratory-stage1/sources.json; same-origin failure is established by actual tests.",
       "discovery": [
         {
           "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/control-plane-and-data-plane",
@@ -35,10 +35,10 @@
       "reviewed": "2026-11-05T22:20:25.549826+00:00",
       "version": "{\"ms.date\": \"2026-07-16T00:00:00Z\", \"updated_at\": \"2026-10-16T22:20:00Z\"}; body SHA256 3b70dc4917787082c09c426e8ad4f62d1d884c489a2cf47a36deeb819aed9613",
       "kind": "official-public-product-documentation",
-      "objectives": ["LP-ST0"],
+      "objectives": ["LP-ST1-ACTIVATION"],
       "claims": ["storage.account-scope-naming"],
       "availability": "AVAILABLE",
-      "limits": "Scoped architecture proposal only, not new teaching or implemented Azure capability. Relevant public body read; local payload/ID/version design is our proposal. No full study-guide/unit re-audit or human validation.",
+      "limits": "Retained actually reviewed Stage0 source (date unchanged), only unchanged Storage design claims. No new Azure teaching or operative service. Current browser-API source evidence is in laboratory-stage1/sources.json; same-origin failure is established by actual tests.",
       "discovery": [
         {
           "url": "https://learn.microsoft.com/en-us/azure/storage/common/storage-account-overview",
@@ -54,10 +54,10 @@
       "reviewed": "2026-11-05T22:20:25.540897+00:00",
       "version": "{\"ms.date\": \"2024-08-05T00:00:00Z\", \"updated_at\": \"2025-07-30T05:10:00Z\"}; body SHA256 98858bef60a1198efbebfe2bd2367fdb02cc72e31edac6b712cd063a6e706605",
       "kind": "official-public-product-documentation",
-      "objectives": ["LP-ST0"],
+      "objectives": ["LP-ST1-ACTIVATION"],
       "claims": ["storage.container"],
       "availability": "AVAILABLE",
-      "limits": "Scoped architecture proposal only, not new teaching or implemented Azure capability. Relevant public body read; local payload/ID/version design is our proposal. No full study-guide/unit re-audit or human validation.",
+      "limits": "Retained actually reviewed Stage0 source (date unchanged), only unchanged Storage design claims. No new Azure teaching or operative service. Current browser-API source evidence is in laboratory-stage1/sources.json; same-origin failure is established by actual tests.",
       "discovery": [
         {
           "url": "https://learn.microsoft.com/en-us/azure/storage/blobs/storage-blob-container-create",
@@ -73,10 +73,10 @@
       "reviewed": "2026-11-05T22:20:25.439085+00:00",
       "version": "{\"ms.date\": \"2023-10-04T00:00:00Z\", \"updated_at\": \"2026-07-21T22:25:00Z\"}; body SHA256 1fd78ccfbcaef02b46d7602c0b048af3210215a4d5c26ee7b38b32ed09d1021c",
       "kind": "official-public-product-documentation",
-      "objectives": ["LP-ST0"],
+      "objectives": ["LP-ST1-ACTIVATION"],
       "claims": ["storage.namespace"],
       "availability": "AVAILABLE",
-      "limits": "Scoped architecture proposal only, not new teaching or implemented Azure capability. Relevant public body read; local payload/ID/version design is our proposal. No full study-guide/unit re-audit or human validation.",
+      "limits": "Retained actually reviewed Stage0 source (date unchanged), only unchanged Storage design claims. No new Azure teaching or operative service. Current browser-API source evidence is in laboratory-stage1/sources.json; same-origin failure is established by actual tests.",
       "discovery": [
         {
           "url": "https://learn.microsoft.com/en-us/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata",
@@ -92,10 +92,10 @@
       "reviewed": "2026-11-05T22:20:25.534457+00:00",
       "version": "{\"ms.date\": \"2023-01-30T00:00:00Z\", \"updated_at\": \"2026-03-26T22:22:00Z\"}; body SHA256 9b6bc309d927935ec7b3a3521ffbe8c380cfcf5767244f9f170f5e8dba127b84",
       "kind": "official-public-product-documentation",
-      "objectives": ["LP-ST0"],
+      "objectives": ["LP-ST1-ACTIVATION"],
       "claims": ["storage.create-only-limit"],
       "availability": "AVAILABLE",
-      "limits": "Scoped architecture proposal only, not new teaching or implemented Azure capability. Relevant public body read; local payload/ID/version design is our proposal. No full study-guide/unit re-audit or human validation.",
+      "limits": "Retained actually reviewed Stage0 source (date unchanged), only unchanged Storage design claims. No new Azure teaching or operative service. Current browser-API source evidence is in laboratory-stage1/sources.json; same-origin failure is established by actual tests.",
       "discovery": [
         {
           "url": "https://learn.microsoft.com/en-us/rest/api/storageservices/put-blob",
@@ -107,59 +107,44 @@
   ],
   "activities": [
     {
-      "id": "existing-platform-evidence-and-future-storage-boundary",
-      "objectives": ["LP-ST0"],
-      "claims": [
-        "storage.planes",
-        "storage.account-scope-naming",
-        "storage.container",
-        "storage.namespace",
-        "storage.create-only-limit"
-      ],
+      "id": "LP59-activation-investigation",
+      "objectives": ["LP-ST1-ACTIVATION"],
+      "claims": ["storage.planes"],
       "assessmentStatus": "unchanged-existing",
-      "limits": "Technical contract verification, not learner activity or a new competence. Existing assessment engines and evidence preserved. Future Storage remains unimplemented.",
+      "limits": "Test-only activation investigation. No Storage, new assessment, v3 runtime/replay or human validation. Counterexamples intentionally expose failed candidates.",
       "theory": [
         {
-          "path": "docs/LABORATORY_PLATFORM_CONTRACT.md"
-        },
-        {
-          "path": "docs/STORAGE_VERTICAL_DESIGN.md"
+          "path": "docs/LABORATORY_V3_ACTIVATION.md"
         }
       ],
       "mechanism": [
-        {
-          "path": "src/domain/sandbox/model.ts"
-        },
-        {
-          "path": "src/domain/sandbox/replay.ts"
-        },
         {
           "path": "src/domain/sandbox/store.ts"
         }
       ],
       "practice": [
         {
-          "path": "src/laboratory-contract.test.ts"
+          "path": "tests/e2e/laboratory-activation.spec.ts"
         }
       ],
       "feedback": [
         {
-          "path": "src/domain/sandbox/vm-debrief.ts"
+          "path": "docs/LABORATORY_STAGE1_BLOCKER.md"
         }
       ],
       "visual": [
         {
-          "path": "docs/reviews/evidence/laboratory-stage0/local/hub.png"
+          "path": "docs/reviews/evidence/laboratory-stage1/aba-counterexample.png"
         }
       ],
       "accessible": [
         {
-          "path": "docs/reviews/evidence/laboratory-stage0/local/results.json"
+          "path": "docs/LABORATORY_STAGE1_BLOCKER.md"
         }
       ],
       "assessment": [
         {
-          "path": "docs/reviews/evidence/laboratory-stage0/preservation.json"
+          "path": "docs/reviews/evidence/laboratory-stage1/preservation.json"
         }
       ],
       "savvyshark": [
@@ -188,7 +173,6 @@
     "src/domain/sandbox/practical-store.ts",
     "src/domain/sandbox/vm-debrief.ts",
     "public/",
-    "tests/",
     "scripts/",
     ".github/",
     "package.json",
@@ -199,7 +183,78 @@
     "docs/reviews/AZ900_FINAL_PRODUCT_REVIEW.md",
     "docs/reviews/AZ900_PEDAGOGICAL_CONSOLIDATION_REVIEW.md",
     "docs/quality/PR57_FINAL_AUDIT.md",
-    "docs/LABORATORY_PLATFORM_HANDOVER.md"
+    "docs/LABORATORY_PLATFORM_HANDOVER.md",
+    "tests/cc01-preservation.ts",
+    "tests/cc02-fixture.ts",
+    "tests/cc02-preservation.ts",
+    "tests/cc03-preservation.ts",
+    "tests/e2e/access-control.spec.ts",
+    "tests/e2e/application-transfer.spec.ts",
+    "tests/e2e/architecture-management.spec.ts",
+    "tests/e2e/architecture-physical.spec.ts",
+    "tests/e2e/assessment-refinement.spec.ts",
+    "tests/e2e/az900-audit.spec.ts",
+    "tests/e2e/challenge-return.spec.ts",
+    "tests/e2e/challenge-v2-actions.ts",
+    "tests/e2e/challenge-validity.spec.ts",
+    "tests/e2e/cloud-chapter-actions.ts",
+    "tests/e2e/cloud-consolidation.spec.ts",
+    "tests/e2e/cloud-owner-navigation.spec.ts",
+    "tests/e2e/cloud-transfer.spec.ts",
+    "tests/e2e/collapsible-sources.spec.ts",
+    "tests/e2e/compute-hosting.spec.ts",
+    "tests/e2e/cost-management.spec.ts",
+    "tests/e2e/course-hub-actions.ts",
+    "tests/e2e/course-hub.spec.ts",
+    "tests/e2e/course.spec.ts",
+    "tests/e2e/curriculum-expansion.spec.ts",
+    "tests/e2e/dialog-placement.spec.ts",
+    "tests/e2e/file-movement-migration.spec.ts",
+    "tests/e2e/final-quality-sprint.spec.ts",
+    "tests/e2e/foundations-v2.spec.ts",
+    "tests/e2e/governance-compliance.spec.ts",
+    "tests/e2e/guided-learning-polish.spec.ts",
+    "tests/e2e/hybrid-experience.spec.ts",
+    "tests/e2e/identity-foundations.spec.ts",
+    "tests/e2e/learning-flow-guidance.spec.ts",
+    "tests/e2e/learning-sequencing.spec.ts",
+    "tests/e2e/legacy-retirement.spec.ts",
+    "tests/e2e/management-tools.spec.ts",
+    "tests/e2e/monitoring-diagnostics.spec.ts",
+    "tests/e2e/networking-connectivity.spec.ts",
+    "tests/e2e/networking-foundations.spec.ts",
+    "tests/e2e/owner-acceptance.spec.ts",
+    "tests/e2e/portal-actions.ts",
+    "tests/e2e/portal-fidelity.spec.ts",
+    "tests/e2e/portal-inspection-bridge.spec.ts",
+    "tests/e2e/portal.spec.ts",
+    "tests/e2e/practical-labs.spec.ts",
+    "tests/e2e/practical-missions.spec.ts",
+    "tests/e2e/quality-system.spec.ts",
+    "tests/e2e/security-principles.spec.ts",
+    "tests/e2e/serverless.spec.ts",
+    "tests/e2e/storage-resilience.spec.ts",
+    "tests/e2e/storage-services.spec.ts",
+    "tests/e2e/ux-refinement.spec.ts",
+    "tests/e2e/visual-excellence.spec.ts",
+    "tests/e2e/vm-debrief-actions.ts",
+    "tests/e2e/vm-debrief.spec.ts",
+    "tests/fixtures/access.ts",
+    "tests/fixtures/active-teaching-contexts.ts",
+    "tests/fixtures/az900-routes.ts",
+    "tests/fixtures/governance.ts",
+    "tests/fixtures/identity.ts",
+    "tests/fixtures/management-tools.ts",
+    "tests/fixtures/migration.ts",
+    "tests/fixtures/monitoring.ts",
+    "tests/fixtures/portal-inspection.ts",
+    "tests/fixtures/security.ts",
+    "tests/pr57-preservation.ts",
+    "src/laboratory-contract.test.ts",
+    "docs/reviews/evidence/laboratory-stage0/",
+    "docs/quality/PR58_FINAL_AUDIT.md",
+    "docs/LABORATORY_PLATFORM_CONTRACT.md",
+    "docs/STORAGE_VERTICAL_DESIGN.md"
   ],
   "humanReview": {
     "sme": "unperformed",
@@ -207,275 +262,252 @@
   },
   "visualEvidence": [
     {
-      "path": "docs/reviews/evidence/laboratory-stage0/local/hub.png",
-      "viewport": "1440x900",
+      "path": "docs/reviews/evidence/laboratory-stage1/aba-counterexample.png",
+      "viewport": "1440x960; same-origin test fixture",
       "inspected": true,
-      "observation": "Unchanged actual Course Hub from root on base production build; identity/actions retained. No new UI in PR58."
-    },
-    {
-      "path": "docs/reviews/evidence/laboratory-stage0/local/app.png",
-      "viewport": "1440x900",
-      "inspected": true,
-      "observation": "Existing actual locally created Web App and original training context, not a new service."
-    },
-    {
-      "path": "docs/reviews/evidence/laboratory-stage0/local/receipt-1024.png",
-      "viewport": "1024x500; reduced motion",
-      "inspected": true,
-      "observation": "Unchanged actual Activity log at1024x500 with reduced motion. Original selected receipt text is recorded below the first viewport in the browser text capture; this image alone does not show all receipt fields. No horizontal overflow; ordinary scroll remains necessary."
+      "observation": "Personally inspected actual 1440x960 counterexample screenshot. It shows candidate-accepts after ABA/reload, plainly labeled test-only/no Storage. Long escaped raw JSON extends beyond its diagnostic viewport; full bytes are retained in the JSON artifact. This is test tooling, not production UI/accessibility evidence. Original product UI is byte-preserved; external ordinary-root journey is separate."
     }
   ],
   "verification": [
     {
-      "command": "npx vitest run src/domain/sandbox/laboratory-contract.test.ts src/domain/sandbox/sandbox.test.ts src/domain/sandbox/vm-debrief.test.ts",
+      "command": "npx vitest run src/laboratory-activation.test.ts src/laboratory-contract.test.ts",
       "result": "passed",
-      "details": "Initial42 tests across three files passed, exit0. New11 include17 original command receipts/14 historical continuation Worlds. Following the local unchanged CC03 timeout, candidate challenge-v2 plus new contract file26/26 pass; recurring hash guard now pins169 historical domain files. Separate1875-file delivery rehash0 changes."
+      "details": "19 tests across new8 activation probes and original11 golden-contract tests, exit0, 585ms. All169 old domain bytes unchanged; real Chapter prefix/attempt7, archived/current attempt, VM/appSettings and old unsupported Storage/through retained."
+    },
+    {
+      "command": "npx playwright test tests/e2e/laboratory-activation.spec.ts --config=playwright.desktop.config.ts --project=desktop-chromium",
+      "result": "passed",
+      "details": "3 actual same-origin reproductions, exit0, 8s first run and repeated only to retain JSON evidence files. Frozen PR58 store/requestFor source hashes checked; no positive World/receipt injection. Expected protocol failures prove Storage gate blocked."
     },
     {
       "command": "npm run check",
       "result": "passed",
-      "details": "Latest Git-staged relocated candidate full check exit0:704 Vitest,24Node,503curriculum-targeted, all other gates and production build. Initial CI702/704 path-guard failure and earlier local timing/typing/format failures retained. No old guard/assertion/settings/runtime change.",
-      "evidence": [
-        {
-          "path": "docs/reviews/evidence/laboratory-stage0/verification.json"
-        }
-      ]
+      "details": "Git-staged full check exit0:712 Vitest across58 files,24 Node,503 curriculum-targeted, TypeScript/lint/format/docs/quality/AZ900/assets/legacy and production build. No test setting changes."
     },
     {
       "command": "npm run test:e2e:desktop",
       "result": "pending",
-      "details": "Candidate379-profile CI required; inherited PR57 pass is not PR58 evidence."
-    },
-    {
-      "command": "npx vitest run src/laboratory-contract.test.ts src/features/course/cloud-computing-chapters.test.ts src/features/learning/source-disclosure.test.ts",
-      "result": "passed",
-      "details": "18/18 after git-add, including both exact older Git-diff guards. Only new test relocated out of frozen src/domain; no prior assertion/settings/runtime change. First CI702/704 failure retained."
+      "details": "Complete382 profile required on exact candidate; baseline379 not candidate evidence."
     }
   ],
   "review": {
     "status": "complete",
-    "fingerprint": "3d9b826fac1f91dbdaf52d78987da1227f4dae678370ab0849eec73a47b29f16",
+    "fingerprint": "ce9f9a7c149d41b0dfc77506735c587fc685aa6f22e6571c92c43b0e89ba4679",
     "reviewer": {
-      "id": "/root/pr58_independent_final_audit",
+      "id": "/root/pr59_independent_final_audit",
       "kind": "agent"
     },
-    "started": "2026-11-05T23:00:18Z",
+    "started": "2026-11-06T06:21:14Z",
     "domains": {
       "content": {
-        "finding": "Checked both new contracts and five retained official source captures against scoped naming, plane and overwrite claims. Local limits/Storage remain proposals, not operative capability or new teaching. VM first-letter omission corrected/rechecked. No full curriculum or human source approval inferred. CI follow-up changes only the test documentation pointer; source/design conclusions preserved.",
+        "finding": "Protocol/blocker scope is explicit: test-only rejected checkpoint, no new Azure teaching, full v3 or impossibility claim. Browser source captures support only scoped API facts; actual counterexamples are executable. Unchanged Stage0 sources/content preserved.",
         "evidence": [
           {
-            "path": "docs/LABORATORY_PLATFORM_CONTRACT.md"
+            "path": "docs/LABORATORY_STAGE1_BLOCKER.md"
           },
           {
-            "path": "docs/STORAGE_VERTICAL_DESIGN.md"
+            "path": "docs/LABORATORY_V3_ACTIVATION.md"
           },
           {
-            "path": "docs/reviews/evidence/laboratory-stage0/sources.json"
+            "path": "docs/reviews/evidence/laboratory-stage1/sources.json"
           }
         ]
       },
       "technical": {
-        "finding": "Traced seven handlers/six exposed actions, provider, replay/store and projections. Existing read-only APIs suffice without new adapter. Exact-base probe reproduced17 receipts/14 Worlds/final engine; unknown schema/model rejected. Owner-raised old-writer challenge independently reproduced with real store: separate hypothetical key leaves old v2 writer active. Final design explicitly gates writer retirement, source-change/fail-closed recovery and two-tab tests before activation; no v3 safety claimed. CI correction is a mechanically verified root-test relocation only; all historical src/domain bytes and behavior preserved.",
+        "finding": "Independent 3-case same-origin rerun reproduced new-lock nonparticipation, rejected tombstone loss and genuine old-writer byte-identical ABA after reload. Exact frozen9 source hashes and14 stamped hashes verified. LP59-ACT-01 remains OPEN BLOCKER for Storage activation; eight-field active-probe checkpoint is not v3 World/save/replay/runtime.",
         "evidence": [
           {
-            "path": "src/domain/sandbox/model.ts"
+            "path": "tests/e2e/laboratory-activation.spec.ts"
           },
           {
-            "path": "src/domain/sandbox/replay.ts"
+            "path": "tests/fixtures/laboratory-v2-client.ts"
           },
           {
-            "path": "src/domain/sandbox/store.ts"
+            "path": "tests/laboratory-probe-bundle.ts"
           },
           {
-            "path": "src/features/portal/sandbox-provider.tsx"
+            "path": "tests/laboratory-activation-probe.ts"
           },
           {
-            "path": "src/domain/portal/inspection.ts"
-          },
-          {
-            "path": "docs/STORAGE_VERTICAL_DESIGN.md"
-          },
-          {
-            "path": "docs/reviews/evidence/laboratory-stage0/command-golden.json"
+            "path": "docs/reviews/evidence/laboratory-stage1/aba-reload.json"
           }
         ]
       },
       "visual": {
-        "finding": "Personally opened all three PNGs/both receipt texts; read real root-to-Web-lab action/reload/return script/results. Compact image is Activity log with selected receipt below fold, not proof of all visible fields. Author local Axe0/no-overflow/reduced-motion evidence retained; reviewer did not repeat browser or claim new keyboard/zoom/human accessibility coverage. UI/assets byte-preserved. The actual081d anonymous journey passed but is historical; replacement SHA still needs a fresh Gate7.",
+        "finding": "Personally inspected actual1440x960 PNG: test-only/no-production label and candidate-accepts visible. Long JSON clips horizontally; complete bytes/timeline require JSON and executable assertions. This is diagnostic evidence, no product Storage/accessibility/Gate7 approval. Prior UI/assets byte-preserved.",
         "evidence": [
           {
-            "path": "docs/reviews/evidence/laboratory-stage0/local/hub.png"
+            "path": "docs/reviews/evidence/laboratory-stage1/aba-counterexample.png"
           },
           {
-            "path": "docs/reviews/evidence/laboratory-stage0/local/app.png"
+            "path": "docs/reviews/evidence/laboratory-stage1/aba-reload.json"
           },
           {
-            "path": "docs/reviews/evidence/laboratory-stage0/local/receipt-1024.png"
-          },
-          {
-            "path": "docs/reviews/evidence/laboratory-stage0/local/receipt-1024.txt"
-          },
-          {
-            "path": "docs/reviews/evidence/laboratory-stage0/local/results.json"
+            "path": "docs/reviews/evidence/laboratory-stage1/preservation.json"
           }
         ]
       },
       "assessment": {
-        "finding": "All original assessment/course/domain/locale bytes preserved. Inspected actual mission/practical boundary-through replay and original VM debrief evaluation. Focused tests cover incomplete-first/correct retry/missing-corrupt archives. Accepted technical or memory-only outcome/current inventory cannot create guided completion or replace immutable first/help/retry evidence. No new bank/psychometric approval. Mechanical relocation preserves every new assertion as well as every old assessment byte.",
+        "finding": "Exact1889 original Git/current preservation includes169 domain files and all course/rubric/store/first/help/retry/attempt/origin/debrief/XP boundaries. Independent19 tests passed including Chapter attempt7/archive/VM/appSettings/old unsupported Storage-through. learningSafe is only a test boolean; production active-learning/v3 adapters are explicitly unimplemented.",
         "evidence": [
           {
-            "path": "src/domain/sandbox/missions.ts"
+            "path": "src/laboratory-activation.test.ts"
           },
           {
-            "path": "src/domain/sandbox/practical.ts"
+            "path": "src/laboratory-contract.test.ts"
           },
           {
-            "path": "src/domain/sandbox/vm-debrief.ts"
+            "path": "docs/reviews/evidence/laboratory-stage1/preservation.json"
           },
           {
-            "path": "src/domain/sandbox/vm-debrief.test.ts"
-          },
-          {
-            "path": "docs/reviews/evidence/laboratory-stage0/preservation.json"
+            "path": "docs/LABORATORY_STAGE1_BLOCKER.md"
           }
         ]
       },
       "guidance": {
-        "finding": "Shared mission safety and pinned result selection checked; guides/assistance/independent guards/origins/mascot byte-preserved. Images show unfinished guide tied to original denial, not automatic correction/completion. Raw inspection remains separate from teaching assistance. Inherited full guidance regressions remain required CI. CI correction adds no guide/runtime change; preservation reverified.",
+        "finding": "Guide, mission context, independent shielding, durable assistance, origin and mascot code all match original Git bytes. No new help/commands/completion. No new active-learning cutover or human approval inferred; historical full regressions remain required.",
         "evidence": [
           {
             "path": "src/features/course/mission-context.ts"
           },
           {
-            "path": "src/features/portal/sandbox-provider.tsx"
+            "path": "docs/reviews/evidence/laboratory-stage1/preservation.json"
           },
           {
-            "path": "docs/reviews/evidence/laboratory-stage0/local/app.png"
-          },
-          {
-            "path": "docs/reviews/evidence/laboratory-stage0/preservation.json"
+            "path": "docs/LABORATORY_STAGE1_BLOCKER.md"
           }
         ]
       },
       "regression": {
-        "finding": "Follow-up independently verified CI42124798963 head081d failed702/704 on two unchanged Git-tracked domain guards, distinct from earlier timeout. Mechanical new-test move changes exactly9 import paths, no assertions; staged root test equals current bytes and base src/domain diff is empty. Fresh tracked new+both old guard files18/18 exit0 after final stamp; relocated fullcheck704Vitest/24Node/503curriculum/build read. All1875 original/current hashes and final13-file fingerprint match. All old assertions/settings preserved. New-head379 CI/strict and anonymous Gate7 pending;081d journey is historical.",
+        "finding": "Independent targeted unit19 and browser3 exit0; plan382=346/36 exit0 with all379 old executions/settings preserved. Author staged fullcheck log shows712 Vitest/24Node/503curriculum/build pass. Exact-head full CI/strict and anonymous new-SHA existing-app journey pending. No full local E2E rerun, no human validation.",
         "evidence": [
           {
-            "path": "src/laboratory-contract.test.ts"
+            "path": "docs/reviews/evidence/laboratory-stage1/verification.json"
           },
           {
-            "path": "docs/reviews/evidence/laboratory-stage0/preservation.json"
+            "path": "docs/reviews/evidence/laboratory-stage1/preservation.json"
           },
           {
-            "path": "docs/reviews/evidence/laboratory-stage0/verification.json"
+            "path": "tests/e2e/laboratory-activation.spec.ts"
           },
           {
-            "path": "docs/quality/PR58_FINAL_AUDIT.md"
-          },
-          {
-            "path": "src/features/course/cloud-computing-chapters.test.ts"
-          },
-          {
-            "path": "src/features/learning/source-disclosure.test.ts"
+            "path": "docs/quality/PR59_FINAL_AUDIT.md"
           }
         ]
       }
     },
     "findings": [
       {
-        "id": "PR58-FA-01",
-        "severity": "minor",
-        "status": "fixed",
-        "description": "VM command table omitted actual lowercase initial-letter requirement.",
-        "fix": "Author corrected table to match ^[a-z][a-z0-9-]{1,13}[a-z0-9]$ and re-stamped; no runtime change.",
-        "retests": [
-          "Independent final-table/regex comparison and stamp equality.",
-          "Focused four-file Vitest50/50 exit0 after VM-wording stamp; unchanged tests carried forward after later design-only clarification."
-        ]
-      },
-      {
-        "id": "PR58-FA-02",
-        "severity": "note",
-        "status": "accepted-limitation",
-        "description": "Current technical persistence remains best-effort without general readback, allows memory-only accepted outcomes and retains one prior archive. Contract/tests expose existing limits; ready/issue, validated history/version/attempt/through checks remain required."
-      },
-      {
-        "id": "PR58-FA-03",
-        "severity": "note",
-        "status": "accepted-limitation",
-        "description": "Storage remains unimplemented. Exact schema/key, capacity/byte/archive/durable budgets and new-epoch dispatch are Stage1 decisions. Preserve historical unsupported receipts and cross-family capacity/group-deletion/active-attempt rules; no protocol activation approval."
-      },
-      {
-        "id": "PR58-FA-04",
-        "severity": "minor",
-        "status": "accepted-limitation",
-        "description": "Earlier unchanged CC03 reserved-terminal timeout remains unexplained; isolated candidate/base and later fullcheck passed without settings changes. No root-cause/timing fix or closure of prior Compute/Axe instability claimed."
-      },
-      {
-        "id": "PR58-FA-05",
+        "id": "PR59-FA-01",
         "severity": "note",
         "status": "open",
-        "description": "Replacement delivered-head full379-profile CI/strict and fresh actual anonymous ordinary-root/full-SHA/action/reload/return/screenshots remain mandatory. First081d CI failed; its actual successful external journey is historical, not replacement proof."
+        "description": "Bounded Draft delivery condition: exact-head full382 CI/strict and anonymous ordinary-root/fullSHA/action/reload/return remain pending. Targeted reproductions and old379 baseline cannot replace those gates; no Storage journey is claimed."
       },
       {
-        "id": "PR58-FA-06",
+        "id": "PR59-FA-02",
         "severity": "minor",
-        "status": "fixed",
-        "description": "Separate-key opt-in v3 design did not explicitly gate already-open v2 writers and mutable upgrade sources; owner raised challenge and reviewer independently reproduced old writer remaining active.",
-        "fix": "Author clarified one-active-World as unproven, requiring explicit writer retirement/activation/source-change detection, fail-closed partial-write recovery, preserved raw history and two-tab before/during/after activation tests plus owner-reviewed concrete protocol before Storage activation. No runtime implementation.",
-        "retests": [
-          "Actual unchanged SandboxStore in-memory hypothetical-key probe exit0 reproduced issue=null, old v2 write accepted and captured source changed.",
-          "Final follow-up22:47:45Z reread new gate paragraphs against provider key listener and store CAS; final13-file hash/fingerprint and1875-file rehash match."
-        ]
+        "status": "accepted-limitation",
+        "description": "Diagnostic PNG clips long JSON horizontally; complete raw/hash JSON and deterministic browser assertions establish bytes and schedule. No screenshot-only byte proof or production accessibility approval is credited."
       },
       {
-        "id": "PR58-FA-07",
-        "severity": "major",
-        "status": "fixed",
-        "description": "Actual CI42124798963 failed702/704 because the added Git-tracked src/domain test violated two unchanged historical domain guards. Earlier precommit untracked checks, including initial audit, missed this tracking-sensitive failure. This was not the prior timeout.",
-        "fix": "Author relocated only the new test to src/laboratory-contract.test.ts with9 relative-import rewrites and updated current docs/evidence pointers. New test staged before targeted/fullcheck; old guards/assertions/config untouched; no base src/domain diff.",
-        "retests": [
-          "Reviewer mechanically reconstructed moved file byte-exact except9 import paths; staged bytes equal current and old path absent.",
-          "Fresh post-stamp npx vitest run src/laboratory-contract.test.ts src/features/course/cloud-computing-chapters.test.ts src/features/learning/source-disclosure.test.ts:3files/18tests exit0,23:01:01,5.64s.",
-          "Read Git-staged fullcheck-relocated exit0:704Vitest/24Node/503curriculum/production build; independently verified all1875 original/current hashes and13file replacement stamp."
-        ]
+        "id": "PR59-FA-03",
+        "severity": "note",
+        "status": "accepted-limitation",
+        "description": "Historical Compute/Axe/CC03 timing uncertainty remains unresolved. No human validation or full v3/runtime/migration/replay/active-learning integration is claimed."
       }
     ],
     "report": {
-      "path": "docs/quality/PR58_FINAL_AUDIT.md"
-    }
+      "path": "docs/quality/PR59_FINAL_AUDIT.md"
+    },
+    "activationDecision": {
+      "status": "blocked",
+      "blocker": "LP59-ACT-01",
+      "blockerStatus": "open",
+      "scope": "Storage feature activation; separate from approval of bounded test/report Draft",
+      "reason": "Independent actual old-writer ABA rerun defeats the test-only checkpoint after reload. No safe replacement version/replay/recovery/active-learning boundary is implemented or verified."
+    },
+    "retests": [
+      {
+        "command": "npx vitest run src/laboratory-activation.test.ts src/laboratory-contract.test.ts",
+        "exit": 0,
+        "result": "19/19,2 files,576ms; actual06:21:16"
+      },
+      {
+        "command": "npx playwright test tests/e2e/laboratory-activation.spec.ts --config=playwright.desktop.config.ts --project=desktop-chromium --output=/workspace/azurelab-pr59/independent-browser-artifacts",
+        "exit": 0,
+        "result": "3/3 actual same-origin expected counterexamples,9.6s; fresh artifacts06:21:52-55"
+      },
+      {
+        "command": "npm run test:e2e:plan",
+        "exit": 0,
+        "result": "382=346desktop+36compact; worker1; optional legacy692; collection only"
+      },
+      {
+        "command": "Independent inline Python/Node original Git/current preservation and snapshot/fingerprint/artifact checks",
+        "exit": 0,
+        "result": "Exact1889 set/169 domains;14/14 stamped hashes; fingerprint equal; all9 original source hashes in3 proofs; ABA raw/hash/revision/portal-1 verified"
+      },
+      {
+        "command": "Independent actual production static/server JavaScript probe-marker scan",
+        "exit": 0,
+        "result": "No probe key/functions/route/active-probe markers in application build"
+      },
+      {
+        "command": "npm run docs:check",
+        "exit": 0,
+        "result": "168 Markdown files and local links valid after report edit"
+      },
+      {
+        "command": "npm run quality:check",
+        "exit": 0,
+        "result": "Seven-gate structural/source/activity checks valid; no human approval inferred"
+      },
+      {
+        "command": "npm run quality:release -- --base a667b26276cc7a1bbed9aa9203cf431eb9001ada",
+        "exit": 1,
+        "result": "ONLY missing executed full candidate browser-profile evidence. No stale fingerprint/order/preservation/open delivery blocker/major error. Pending delivery, not passed strict release."
+      },
+      {
+        "command": "Independent non-review release structural equality and staged/unstaged git diff --check",
+        "exit": 0,
+        "result": "Every non-review release field unchanged; status additive; no whitespace errors"
+      }
+    ],
+    "completed": "2026-11-06T06:24:49Z"
   },
   "gates": {
     "source": {
       "checks": [
         {
-          "path": "docs/STORAGE_VERTICAL_DESIGN.md"
+          "path": "docs/reviews/evidence/laboratory-stage1/sources.json"
         },
         {
-          "path": "docs/reviews/evidence/laboratory-stage0/sources.json"
+          "path": "docs/STORAGE_VERTICAL_DESIGN.md"
         }
       ],
-      "limits": "Risk-based Stage0 read-only contract/tests. All existing runtime/course/assets/tests/configs and locked PR57 evidence unchanged. Complete candidate CI/strict and anonymous exact-SHA external journey remain required after push; human review unperformed."
+      "limits": "This is a stop-rule blocker delivery, NOT operative Storage Stage1. Activation is blocked and no production code changes. Existing runtime/course/assessment/assets/settings preserved. Full candidate CI/strict and anonymous root/SHA actual existing operations remain pending; no human validation."
     },
     "curriculum": {
       "checks": [
         {
-          "path": "docs/reviews/evidence/laboratory-stage0/preservation.json"
+          "path": "docs/reviews/evidence/laboratory-stage1/preservation.json"
         }
       ],
-      "limits": "Risk-based Stage0 read-only contract/tests. All existing runtime/course/assets/tests/configs and locked PR57 evidence unchanged. Complete candidate CI/strict and anonymous exact-SHA external journey remain required after push; human review unperformed."
+      "limits": "This is a stop-rule blocker delivery, NOT operative Storage Stage1. Activation is blocked and no production code changes. Existing runtime/course/assessment/assets/settings preserved. Full candidate CI/strict and anonymous root/SHA actual existing operations remain pending; no human validation."
     },
     "simulation": {
       "checks": [
         {
-          "path": "src/laboratory-contract.test.ts"
+          "path": "src/laboratory-activation.test.ts"
         },
         {
-          "path": "docs/reviews/evidence/laboratory-stage0/command-golden.json"
+          "path": "tests/e2e/laboratory-activation.spec.ts"
+        },
+        {
+          "path": "docs/reviews/evidence/laboratory-stage1/aba-reload.json"
         }
       ],
-      "limits": "Risk-based Stage0 read-only contract/tests. All existing runtime/course/assets/tests/configs and locked PR57 evidence unchanged. Complete candidate CI/strict and anonymous exact-SHA external journey remain required after push; human review unperformed."
+      "limits": "This is a stop-rule blocker delivery, NOT operative Storage Stage1. Activation is blocked and no production code changes. Existing runtime/course/assessment/assets/settings preserved. Full candidate CI/strict and anonymous root/SHA actual existing operations remain pending; no human validation."
     },
     "savvyshark": {
       "checks": [
@@ -483,55 +515,53 @@
           "path": "src/features/course/mission-context.ts"
         },
         {
-          "path": "docs/reviews/evidence/laboratory-stage0/preservation.json"
+          "path": "docs/reviews/evidence/laboratory-stage1/preservation.json"
         }
       ],
-      "limits": "Risk-based Stage0 read-only contract/tests. All existing runtime/course/assets/tests/configs and locked PR57 evidence unchanged. Complete candidate CI/strict and anonymous exact-SHA external journey remain required after push; human review unperformed."
+      "limits": "This is a stop-rule blocker delivery, NOT operative Storage Stage1. Activation is blocked and no production code changes. Existing runtime/course/assessment/assets/settings preserved. Full candidate CI/strict and anonymous root/SHA actual existing operations remain pending; no human validation."
     },
     "visual-accessibility": {
       "checks": [
         {
-          "path": "docs/reviews/evidence/laboratory-stage0/local/results.json"
+          "path": "docs/reviews/evidence/laboratory-stage1/aba-counterexample.png"
         }
       ],
-      "limits": "Risk-based Stage0 read-only contract/tests. All existing runtime/course/assets/tests/configs and locked PR57 evidence unchanged. Complete candidate CI/strict and anonymous exact-SHA external journey remain required after push; human review unperformed."
+      "limits": "This is a stop-rule blocker delivery, NOT operative Storage Stage1. Activation is blocked and no production code changes. Existing runtime/course/assessment/assets/settings preserved. Full candidate CI/strict and anonymous root/SHA actual existing operations remain pending; no human validation."
     },
     "independent-final-audit": {
       "checks": [
         {
-          "path": "docs/quality/PR58_FINAL_AUDIT.md"
+          "path": "docs/quality/PR59_FINAL_AUDIT.md"
         }
       ],
-      "limits": "Risk-based Stage0 read-only contract/tests. All existing runtime/course/assets/tests/configs and locked PR57 evidence unchanged. Complete candidate CI/strict and anonymous exact-SHA external journey remain required after push; human review unperformed."
+      "limits": "This is a stop-rule blocker delivery, NOT operative Storage Stage1. Activation is blocked and no production code changes. Existing runtime/course/assessment/assets/settings preserved. Full candidate CI/strict and anonymous root/SHA actual existing operations remain pending; no human validation."
     },
     "delivery": {
       "checks": [
         {
-          "path": "docs/LABORATORY_PLATFORM_CONTRACT.md"
-        },
-        {
-          "path": "docs/reviews/evidence/laboratory-stage0/verification.json"
+          "path": "docs/LABORATORY_STAGE1_BLOCKER.md"
         }
       ],
-      "limits": "Risk-based Stage0 read-only contract/tests. All existing runtime/course/assets/tests/configs and locked PR57 evidence unchanged. Complete candidate CI/strict and anonymous exact-SHA external journey remain required after push; human review unperformed."
+      "limits": "This is a stop-rule blocker delivery, NOT operative Storage Stage1. Activation is blocked and no production code changes. Existing runtime/course/assessment/assets/settings preserved. Full candidate CI/strict and anonymous root/SHA actual existing operations remain pending; no human validation."
     }
   },
   "snapshot": {
     "files": {
-      "docs/LABORATORY_PLATFORM_CONTRACT.md": "982e8b35e07f9e6ad563559fc1ac1aab36e74f76b81fb86880152f0d82e1efcc",
-      "docs/STORAGE_VERTICAL_DESIGN.md": "b5bc28f0bc1209ce5fc4e09a065d0e9976ce9c895b2eda1fa88409e0e3bc41e5",
-      "docs/reviews/evidence/laboratory-stage0/command-golden.json": "8f3dd7758a74d8e5b5cc7aeb75e7cc4e1550c7381a82da326f8b181ccf47a90c",
-      "docs/reviews/evidence/laboratory-stage0/local/app.png": "2d7e7e2d052845ce841e80ae2784c72b89a01ba3b85926de4a7cfa3ade8c106c",
-      "docs/reviews/evidence/laboratory-stage0/local/hub.png": "585ee5d13fd8c1384b3bb52af19c17129c712256ad334e47015da2244a098269",
-      "docs/reviews/evidence/laboratory-stage0/local/receipt-1024.png": "40c2817aeb86a2a718c0a35cad5eac13ec2cbbbec8c4893ace4a977b4bbb127d",
-      "docs/reviews/evidence/laboratory-stage0/local/receipt-1024.txt": "0f33fdb451240bd5ad82911fd9c292a0ddf07cff7a4e9ee7f2ed60ee088b7ace",
-      "docs/reviews/evidence/laboratory-stage0/local/receipt.txt": "1f299d97a52e9021b1dc9c88a42ad7a4087c63a86933ed4215aaef01f8a0f51f",
-      "docs/reviews/evidence/laboratory-stage0/local/results.json": "75e4420036e6d5e425b28560bb3ecd5e87875ed0f51b719161b7b8fa34da9bad",
-      "docs/reviews/evidence/laboratory-stage0/preservation.json": "7e4e824c925f45d8a21a97306f158b2e1a90294afc0f760b566c07538f8ff830",
-      "docs/reviews/evidence/laboratory-stage0/sources.json": "d32b9ce796724755ee5225aebfa7386bcfb6a09096dfa387272ed0ebf185e838",
-      "docs/reviews/evidence/laboratory-stage0/verification.json": "8945459653475c7c611d251d71f252003838c61a2e8bfba730e4fbf1c95ccfcf",
-      "src/laboratory-contract.test.ts": "4c4ec0cc8fd38ef2666b225681d5fdddce9c719d34d2bdec33c3dc5ecfe57775"
+      "docs/LABORATORY_STAGE1_BLOCKER.md": "84db60314b62208d1864be6b90b42eff42bd89f4f09b53cff3fd9535e1adfb89",
+      "docs/LABORATORY_V3_ACTIVATION.md": "61d100a635f45d273857b4a2c11710667a67aa71c50f793be012a8c5113adf3f",
+      "docs/reviews/evidence/laboratory-stage1/aba-counterexample.png": "6b51693ad0b0fc3302e8e8e8958290dd905e4dfdf60f02c9d735bb59efe495c5",
+      "docs/reviews/evidence/laboratory-stage1/aba-reload.json": "6e6f817c96114850a2418c20c49d92db213cb4efdfffaa004b4779ef0a478d10",
+      "docs/reviews/evidence/laboratory-stage1/preservation.json": "3d9c72fb899caf0898be1f2fda62a0ebaeeda329ff1cf13646bf75b7ece6af1a",
+      "docs/reviews/evidence/laboratory-stage1/simple-fork.json": "38aba04c6ce6d7210a125d3c27ea3806f607bfaf763cdaddd8d2bf21c502f6c5",
+      "docs/reviews/evidence/laboratory-stage1/sources.json": "1d6301de3c188ef6d634e042b6759be274bb11147cfb6b2d1e9228ed23691d68",
+      "docs/reviews/evidence/laboratory-stage1/tombstone-loss.json": "45c40e8b1cda8148348acf769190423515f3d87ffb55a9af5c8094d437176645",
+      "docs/reviews/evidence/laboratory-stage1/verification.json": "5d0a2334f7cced003ca8620d3bb8fab906c16ea9f6a2a044ba9e5bacd9f07baa",
+      "src/laboratory-activation.test.ts": "10fd2e2ccc49072469c4d9d1a2670cd61bdd98a075841a9f5dfaf68b04777467",
+      "tests/e2e/laboratory-activation.spec.ts": "f117906e5b814f1cdea49a064015e38dfd2a21d0e5c293434d7069b3c6a6ca4e",
+      "tests/fixtures/laboratory-v2-client.ts": "63bfe22ad6ab84f4b9236e3faca0c757001e3d7eb8414ddfbcbdc5b598200df3",
+      "tests/laboratory-activation-probe.ts": "b4c02a8b0ca39adb7d8f2b6a6232c599792fde01a2b8df60c975d203e563f295",
+      "tests/laboratory-probe-bundle.ts": "e937f64f6f567daebff97b4ec3e919cb946ce8c92a238dc84dd4e44f3543018b"
     }
   },
-  "implementationFinished": "2026-11-05T23:00:03.415Z"
+  "implementationFinished": "2026-11-06T06:20:15.342Z"
 }

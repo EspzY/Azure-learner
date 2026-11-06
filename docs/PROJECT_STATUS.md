@@ -1,3 +1,11 @@
+## PR59 — Laboratory Stage1: aktiveringsgate blokkert, 6. november 2026
+
+[Blocker-rapporten](LABORATORY_STAGE1_BLOCKER.md) og [konkret protokollkandidat](LABORATORY_V3_ACTIVATION.md) dokumenterer hvorfor Storage **ikke aktiveres**. Faktisk uendret PR58-skrivekode i flere faner på samme origin viser både ignorert ny Web Lock, tap ved tombstone-rekkefølge og ABA: en divergent akseptert v2-World kan overskrives av byteidentisk opprinnelig state, slik at en ny checkpointprobe etter reload overser forken. Grønn reproduksjon er bevis på blokkeringen, ikke bestått aktiveringsgate.
+
+Kun nye test-/dokumentasjons-/evidensfiler og mutable release/status endres. Alle1889 andre tidligere filer, herunder169 domenefiler, hele kurset, assessments, assistance, PR54–56, World/receipts/XP, assets, gamle tester og QA-innstillinger, er bytebevart. Ingen v3-runtime, Storage-kommando, migrering, læringshendelse eller Portal-kontroll er innført. Testproben er ikke en v3-simulator eller produksjonsaktivering. Ingen manuell datainjeksjon brukes som teknisk suksessbevis.
+
+Målrettede nye protokoll-/bevaringskontroller og tre faktiske browsermoteksempler foreligger. Full check, ny kvalitetssignering/separat audit, komplett kandidat-CI/streng release og anonym ordinær-root/full-SHA-bevaringsreise må registreres på samme DraftPR59 når de faktisk er kjørt. Profilen beholder379 kontroller og legger til3 begrunnede desktop-protokollreproduksjoner:382 (346desktop/36kompakt), uten endrede retries/timeouts/workers/skips. Gamle Compute-/Axe-/CC03-tidsustabiliteter og menneskelig validering står uavklart. Neste arbeid er en vurderbar og testet cutover-/writergrense; først deretter den avgrensede Storage-vertikalen. Ingen merge eller produksjonsdeploy.
+
 ## PR58 — Laboratory Platform Stage0, 5. november 2026
 
 [Plattformkontrakten](LABORATORY_PLATFORM_CONTRACT.md) er kildekodekontrollert mot PR57 `f0272ea5d181d88f2c3bad0ee186eac0893150e8`. Den avgrenser plattform, Portal og kurs; beskriver alle sju operative domenekommandoer, hvorav seks faktisk er eksponert, og binder teknisk evidens til original request/receipt, versjon, attempt og verifisert through. Eksisterende read-only API-er er tilstrekkelige; ingen ny adapter eller runtime-refaktorering er innført.
