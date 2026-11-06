@@ -1,1463 +1,595 @@
 {
   "schema": 1,
-  "id": "PR62-laboratory-networking-part-a",
-  "baseCommit": "3e7de9622be78a641b1d890950e46918be9f8a76",
-  "author": "pr62-networking-author",
+  "id": "PR63-shared-portal-experience-stage-a",
+  "baseCommit": "26408f5bcb77fdc2aa5bde5027c1959f14d6c928",
+  "author": "pr63-shared-portal-author",
   "scope": {
-    "kind": "versioned-laboratory-resource-extension",
-    "description": "Add explicit laboratory3.1 new workspaces with VNet/subnets/NSG/rules/association and shared Storage, one authoritative server/transaction model, additive002 metadata/SQL constraints and frozen3.0 replay. Preserve all courses/v2/history/assessments/XP. Local PostgreSQL/isolated CI only; no external infrastructure.",
-    "objectives": ["LAB-NETWORK-A"]
+    "kind": "shared-portal-presentation",
+    "description": "Extract and actually reuse Portal presentation for original course-v2 and independent server Laboratory without mounting course providers over v3, preserving all authorities/history and capability boundaries.",
+    "objectives": ["LAB-SHARED-PORTAL-A"]
   },
   "sources": [
     {
-      "id": "network-names",
-      "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules",
-      "title": "Naming rules and restrictions for Azure resources - Azure Resource Manager | Microsoft Learn",
-      "reviewed": "2026-11-06T14:19:20.293688+00:00",
-      "version": "['2026-08-05T00:00:00Z', '2026-08-07T17:22:00Z']; actual HTML SHA256 841c4ce5afa8213404be0736d9ee828c2415c8cbc329fc9da8147a0b081996fd",
-      "kind": "official-public-networking-schema-or-product-reference",
-      "objectives": ["LAB-NETWORK-A"],
-      "claims": ["network-names.contract"],
+      "id": "portal-overview",
+      "url": "https://learn.microsoft.com/en-us/azure/azure-portal/azure-portal-overview",
+      "title": "What is the Azure portal? - Azure portal | Microsoft Learn",
+      "reviewed": "2026-11-06T16:53:11.243439+00:00",
+      "version": "['2026-01-26T00:00:00Z', '2026-04-07T06:02:00Z']; actual retrieved HTML SHA256 b3a0e9526993345c6bb4f87520635f6dd4943a0cd42c521dad5bb16ae1cb4193",
+      "kind": "official-public-portal-workflow-or-training-icon-terms",
+      "objectives": ["LAB-SHARED-PORTAL-A"],
+      "claims": ["portal.presentation"],
       "availability": "AVAILABLE",
-      "limits": "Relevant public article/schema sections actually retrieved and read. Azure capabilities are distinguished from finite simulator scope; linked services, all full Azure schemas and packet behavior remain unsupported. No article/screenshots/code redistributed.",
+      "limits": "Reference for header/search/menu and explicit RG Review/Create, and bounded original training icon use. Does not validate our engines or imply full Portal parity, actual Azure authentication, deployment or service operation. Current Portal icon variants remain UNVERIFIED.",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules",
+          "url": "https://learn.microsoft.com/en-us/azure/azure-portal/azure-portal-overview",
           "disposition": "reviewed-essential",
-          "reason": "Scoped names, IPv4/subnets/reserved addresses, NSG priority/defaults/association and ARM fields. Other linked networking services remain out of scope."
+          "reason": "Actual scoped public text read. Unsupported Azure services, private Portal screenshots/code, account controls and unrelated links not imported."
         }
       ]
     },
     {
-      "id": "network-vnet",
-      "url": "https://learn.microsoft.com/en-us/azure/virtual-network/virtual-networks-faq",
-      "title": "Azure Virtual Network FAQ | Microsoft Learn",
-      "reviewed": "2026-11-06T14:19:20.526718+00:00",
-      "version": "['2026-07-08T00:00:00Z', '2026-07-09T22:04:00Z']; actual HTML SHA256 6020604b5534eadd1a59a54602c4354a20320a88e28c27ab22d6dd463e10a0af",
-      "kind": "official-public-networking-schema-or-product-reference",
-      "objectives": ["LAB-NETWORK-A"],
-      "claims": ["network-vnet.contract"],
+      "id": "resource-groups",
+      "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/manage-resource-groups-portal",
+      "title": "Use the Azure portal and Azure Resource Manager to Manage Resource Groups - Azure Resource Manager | Microsoft Learn",
+      "reviewed": "2026-11-06T16:53:11.243439+00:00",
+      "version": "['2026-02-27T00:00:00Z', '2026-03-04T23:27:00Z']; actual retrieved HTML SHA256 218f1ce761bd8bf20c7bc4f15d98d313565318b99818580e1ddde5a79f372123",
+      "kind": "official-public-portal-workflow-or-training-icon-terms",
+      "objectives": ["LAB-SHARED-PORTAL-A"],
+      "claims": ["portal.create"],
       "availability": "AVAILABLE",
-      "limits": "Relevant public article/schema sections actually retrieved and read. Azure capabilities are distinguished from finite simulator scope; linked services, all full Azure schemas and packet behavior remain unsupported. No article/screenshots/code redistributed.",
+      "limits": "Reference for header/search/menu and explicit RG Review/Create, and bounded original training icon use. Does not validate our engines or imply full Portal parity, actual Azure authentication, deployment or service operation. Current Portal icon variants remain UNVERIFIED.",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/virtual-network/virtual-networks-faq",
+          "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/manage-resource-groups-portal",
           "disposition": "reviewed-essential",
-          "reason": "Scoped names, IPv4/subnets/reserved addresses, NSG priority/defaults/association and ARM fields. Other linked networking services remain out of scope."
+          "reason": "Actual scoped public text read. Unsupported Azure services, private Portal screenshots/code, account controls and unrelated links not imported."
         }
       ]
     },
     {
-      "id": "network-subnets",
-      "url": "https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-manage-subnet",
-      "title": "Add, change, or delete a subnet | Microsoft Learn",
-      "reviewed": "2026-11-06T14:19:20.227007+00:00",
-      "version": "['2025-07-29T00:00:00Z', '2026-04-09T17:25:00Z']; actual HTML SHA256 e854d62dde988f649b82d525bc705eb1c602687287b74090bdbd218069e2282b",
-      "kind": "official-public-networking-schema-or-product-reference",
-      "objectives": ["LAB-NETWORK-A"],
-      "claims": ["network-subnets.contract"],
+      "id": "training-icons",
+      "url": "https://learn.microsoft.com/en-us/azure/architecture/icons/",
+      "title": "Azure Icons - Azure Architecture Center | Microsoft Learn",
+      "reviewed": "2026-11-06T16:53:11.243439+00:00",
+      "version": "['2026-07-09T00:00:00Z', '2026-11-05T06:03:00Z']; actual retrieved HTML SHA256 11906cc2b9fb28bff122f0e3d837ec333a1d503a6ce711d8222d4319ba8b94b5",
+      "kind": "official-public-portal-workflow-or-training-icon-terms",
+      "objectives": ["LAB-SHARED-PORTAL-A"],
+      "claims": ["portal.icons"],
       "availability": "AVAILABLE",
-      "limits": "Relevant public article/schema sections actually retrieved and read. Azure capabilities are distinguished from finite simulator scope; linked services, all full Azure schemas and packet behavior remain unsupported. No article/screenshots/code redistributed.",
+      "limits": "Reference for header/search/menu and explicit RG Review/Create, and bounded original training icon use. Does not validate our engines or imply full Portal parity, actual Azure authentication, deployment or service operation. Current Portal icon variants remain UNVERIFIED.",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-manage-subnet",
+          "url": "https://learn.microsoft.com/en-us/azure/architecture/icons/",
           "disposition": "reviewed-essential",
-          "reason": "Scoped names, IPv4/subnets/reserved addresses, NSG priority/defaults/association and ARM fields. Other linked networking services remain out of scope."
-        }
-      ]
-    },
-    {
-      "id": "network-nsg",
-      "url": "https://learn.microsoft.com/en-us/azure/virtual-network/network-security-groups-overview",
-      "title": "Azure network security groups overview | Microsoft Learn",
-      "reviewed": "2026-11-06T14:19:20.143296+00:00",
-      "version": "['2025-07-15T00:00:00Z', '2025-10-23T11:11:00Z']; actual HTML SHA256 bc347ceb6bf037a4843546842ea366a982d01a703249ada01ae89144521a6753",
-      "kind": "official-public-networking-schema-or-product-reference",
-      "objectives": ["LAB-NETWORK-A"],
-      "claims": ["network-nsg.contract"],
-      "availability": "AVAILABLE",
-      "limits": "Relevant public article/schema sections actually retrieved and read. Azure capabilities are distinguished from finite simulator scope; linked services, all full Azure schemas and packet behavior remain unsupported. No article/screenshots/code redistributed.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/virtual-network/network-security-groups-overview",
-          "disposition": "reviewed-essential",
-          "reason": "Scoped names, IPv4/subnets/reserved addresses, NSG priority/defaults/association and ARM fields. Other linked networking services remain out of scope."
-        }
-      ]
-    },
-    {
-      "id": "network-nsg-manage",
-      "url": "https://learn.microsoft.com/en-us/azure/virtual-network/manage-network-security-group",
-      "title": "Create, Change, or Delete Azure Network Security Groups | Microsoft Learn",
-      "reviewed": "2026-11-06T14:19:20.282042+00:00",
-      "version": "['2025-07-26T00:00:00Z', '2025-10-08T22:11:00Z']; actual HTML SHA256 c2bea3f66c244b52c12527fc13de39e13851225be60c1e999b827a085a236da0",
-      "kind": "official-public-networking-schema-or-product-reference",
-      "objectives": ["LAB-NETWORK-A"],
-      "claims": ["network-nsg-manage.contract"],
-      "availability": "AVAILABLE",
-      "limits": "Relevant public article/schema sections actually retrieved and read. Azure capabilities are distinguished from finite simulator scope; linked services, all full Azure schemas and packet behavior remain unsupported. No article/screenshots/code redistributed.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/virtual-network/manage-network-security-group",
-          "disposition": "reviewed-essential",
-          "reason": "Scoped names, IPv4/subnets/reserved addresses, NSG priority/defaults/association and ARM fields. Other linked networking services remain out of scope."
-        }
-      ]
-    },
-    {
-      "id": "network-arm",
-      "url": "https://learn.microsoft.com/en-us/azure/templates/microsoft.network/networksecuritygroups/securityrules",
-      "title": "Microsoft.Network/networkSecurityGroups/securityRules - Bicep, ARM template & Terraform AzAPI reference | Microsoft Learn",
-      "reviewed": "2026-11-06T14:19:20.386483+00:00",
-      "version": "['2024-12-09T00:00:00Z', '2026-10-20T20:55:00Z']; actual HTML SHA256 0aa553afc25939a956aa6b9446bda072f49ede72adbd29a279e848a4a55e2655",
-      "kind": "official-public-networking-schema-or-product-reference",
-      "objectives": ["LAB-NETWORK-A"],
-      "claims": ["network-arm.contract"],
-      "availability": "AVAILABLE",
-      "limits": "Relevant public article/schema sections actually retrieved and read. Azure capabilities are distinguished from finite simulator scope; linked services, all full Azure schemas and packet behavior remain unsupported. No article/screenshots/code redistributed.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/templates/microsoft.network/networksecuritygroups/securityrules",
-          "disposition": "reviewed-essential",
-          "reason": "Scoped names, IPv4/subnets/reserved addresses, NSG priority/defaults/association and ARM fields. Other linked networking services remain out of scope."
-        }
-      ]
-    },
-    {
-      "id": "network-subnet-arm",
-      "url": "https://learn.microsoft.com/en-us/azure/templates/microsoft.network/virtualnetworks/subnets",
-      "title": "Microsoft.Network/virtualNetworks/subnets - Bicep, ARM template & Terraform AzAPI reference | Microsoft Learn",
-      "reviewed": "2026-11-06T14:19:20.514883+00:00",
-      "version": "['2024-12-09T00:00:00Z', '2026-10-20T20:55:00Z']; actual HTML SHA256 6deda8e9b0d4402308111b966d1ac5eb7d9c9021e63d6f5f254ff530343c007f",
-      "kind": "official-public-networking-schema-or-product-reference",
-      "objectives": ["LAB-NETWORK-A"],
-      "claims": ["network-subnet-arm.contract"],
-      "availability": "AVAILABLE",
-      "limits": "Relevant public article/schema sections actually retrieved and read. Azure capabilities are distinguished from finite simulator scope; linked services, all full Azure schemas and packet behavior remain unsupported. No article/screenshots/code redistributed.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/templates/microsoft.network/virtualnetworks/subnets",
-          "disposition": "reviewed-essential",
-          "reason": "Scoped names, IPv4/subnets/reserved addresses, NSG priority/defaults/association and ARM fields. Other linked networking services remain out of scope."
+          "reason": "Actual scoped public text read. Unsupported Azure services, private Portal screenshots/code, account controls and unrelated links not imported."
         }
       ]
     }
   ],
   "activities": [
     {
-      "id": "PR62-networking-part-a",
-      "objectives": ["LAB-NETWORK-A"],
-      "claims": [
-        "network-names.contract",
-        "network-vnet.contract",
-        "network-subnets.contract",
-        "network-nsg.contract",
-        "network-nsg-manage.contract",
-        "network-arm.contract",
-        "network-subnet-arm.contract"
-      ],
+      "id": "PR63-shared-portal",
+      "objectives": ["LAB-SHARED-PORTAL-A"],
+      "claims": ["portal.presentation", "portal.create", "portal.icons"],
       "assessmentStatus": "unchanged-existing",
-      "limits": "Bounded local PostgreSQL simulator configuration only; no traffic, IP allocation, Azure API, new teaching/assessment/XP or external database. Frozen3.0 retained;3.1 only new explicit sessions. Public persistent networking Gate7 deferred by owner. Human SME/UX/security/learning validation unperformed.",
+      "limits": "Shared presentation only, separate original course-v2 and free PostgreSQL3.0/3.1 authorities. No World/commands/receipts/schema/rubric/first-help-retry/XP change, no migration or external database. Public backend503 is accepted; local/CI actual PG verification remains distinct. Human SME/learning/UX/screen-reader/security validation unperformed.",
       "theory": [
         {
-          "path": "docs/LABORATORY_NETWORKING_PART_A.md"
+          "path": "docs/SHARED_PORTAL_EXPERIENCE.md"
         }
       ],
       "mechanism": [
         {
-          "path": "src/laboratory/v31/domain.ts"
+          "path": "src/features/portal/presentation.tsx"
         },
         {
-          "path": "src/laboratory/engine.ts"
+          "path": "src/features/laboratory/portal-adapter.tsx"
         }
       ],
       "practice": [
         {
-          "path": "tests/e2e/laboratory-networking.spec.ts"
+          "path": "tests/e2e/shared-portal.spec.ts"
         }
       ],
       "feedback": [
         {
-          "path": "src/content/laboratory-networking-nb.ts"
+          "path": "src/features/portal/receipt-panel.tsx"
+        },
+        {
+          "path": "src/content/portal-workspace-nb.ts"
         }
       ],
       "visual": [
         {
-          "path": "src/features/laboratory/networking.tsx"
+          "path": "src/features/portal/presentation.tsx"
         }
       ],
       "accessible": [
         {
-          "path": "tests/e2e/laboratory-networking.spec.ts"
+          "path": "tests/e2e/shared-portal.spec.ts"
         }
       ],
       "assessment": [
         {
-          "path": "src/laboratory-networking-preservation.test.ts"
+          "path": "src/shared-portal-preservation.test.ts"
         }
       ],
       "savvyshark": [
         {
-          "path": "src/features/course/mission-context.ts"
+          "path": "src/features/portal/guide-recovery.tsx"
+        },
+        {
+          "path": "src/shared-portal-preservation.test.ts"
         }
       ]
     }
   ],
   "modules": [],
   "preservedPaths": [
-    ".github/workflows/ci.yml",
-    "database/laboratory-v3/001.sql",
-    "docs/LABORATORY_STAGE1_BLOCKER.md",
-    "docs/LABORATORY_V3_ACTIVATION.md",
-    "docs/quality/PR20_FINAL_AUDIT.md",
-    "docs/quality/PR21_FINAL_AUDIT.md",
-    "docs/quality/PR22_FINAL_AUDIT.md",
-    "docs/quality/PR23_FINAL_AUDIT.md",
-    "docs/quality/PR24_FINAL_AUDIT.md",
-    "docs/quality/PR25_FINAL_AUDIT.md",
-    "docs/quality/PR26_FINAL_AUDIT.md",
-    "docs/quality/PR27_BLIND_CONTENT_REVIEW.md",
-    "docs/quality/PR27_BLIND_RENEWAL.md",
-    "docs/quality/PR27_FINAL_AUDIT.md",
-    "docs/quality/PR28_BLIND_RENEWAL.md",
-    "docs/quality/PR28_FINAL_AUDIT.md",
-    "docs/quality/PR29_BLIND_REVIEW.md",
-    "docs/quality/PR29_FINAL_AUDIT.md",
-    "docs/quality/PR30_FINAL_AUDIT.md",
-    "docs/quality/PR31_FINAL_AUDIT.md",
-    "docs/quality/PR32_FINAL_AUDIT.md",
-    "docs/quality/PR33_FINAL_AUDIT.md",
-    "docs/quality/PR34_FINAL_AUDIT.md",
-    "docs/quality/PR35_FINAL_AUDIT.md",
-    "docs/quality/PR36_FINAL_AUDIT.md",
-    "docs/quality/PR37_FINAL_AUDIT.md",
-    "docs/quality/PR38_FINAL_AUDIT.md",
-    "docs/quality/PR38_VISUAL_INSPECTION.md",
-    "docs/quality/PR39_FINAL_AUDIT.md",
-    "docs/quality/PR40_FINAL_AUDIT.md",
-    "docs/quality/PR41_FINAL_AUDIT.md",
-    "docs/quality/PR42_FINAL_AUDIT.md",
-    "docs/quality/PR43_FINAL_AUDIT.md",
-    "docs/quality/PR44_FINAL_AUDIT.md",
-    "docs/quality/PR45_FINAL_AUDIT.md",
-    "docs/quality/PR46_FINAL_AUDIT.md",
-    "docs/quality/PR47_FINAL_AUDIT.md",
-    "docs/quality/PR48_FINAL_AUDIT.md",
-    "docs/quality/PR49_FINAL_AUDIT.md",
-    "docs/quality/PR50_FINAL_AUDIT.md",
-    "docs/quality/PR50_MOTION_RECHECK.md",
-    "docs/quality/PR51_FINAL_AUDIT.md",
-    "docs/quality/PR51_OWNER_FINAL_AUDIT.md",
-    "docs/quality/PR52_FINAL_AUDIT.md",
-    "docs/quality/PR53_FINAL_AUDIT.md",
-    "docs/quality/PR54_FINAL_AUDIT.md",
-    "docs/quality/PR55_FINAL_AUDIT.md",
-    "docs/quality/PR56_FINAL_AUDIT.md",
-    "docs/quality/PR57_FINAL_AUDIT.md",
-    "docs/quality/PR58_FINAL_AUDIT.md",
-    "docs/quality/PR59_FINAL_AUDIT.md",
-    "docs/quality/PR60_FINAL_AUDIT.md",
-    "docs/reviews/AZ900_END_TO_END_AUDIT.md",
-    "docs/reviews/AZ900_FINAL_PRODUCT_REVIEW.md",
-    "docs/reviews/AZ900_LEARNING_JOURNEY_MAP.md",
-    "docs/reviews/AZ900_PEDAGOGICAL_CONSOLIDATION_REVIEW.md",
-    "docs/reviews/AZ900_REMEDIATION_PLAN.md",
-    "docs/reviews/CLOUD_CONCEPTS_FINDINGS.md",
-    "docs/reviews/CLOUD_CONCEPTS_INDEPENDENT_REVIEW.md",
-    "docs/reviews/CLOUD_CONCEPTS_REMEDIATION_PLAN.md",
-    "docs/reviews/evidence/application49-bank-proof.json",
-    "docs/reviews/evidence/application49-blind-final.json",
-    "docs/reviews/evidence/application49-blind-initial.json",
-    "docs/reviews/evidence/application49-blind-release.json",
-    "docs/reviews/evidence/application49-blind-revised.json",
-    "docs/reviews/evidence/application49-review-provenance.json",
-    "docs/reviews/evidence/application49-source-review.json",
-    "docs/reviews/evidence/assessment46-blind-initial.json",
-    "docs/reviews/evidence/assessment46-blind-release.json",
-    "docs/reviews/evidence/assessment46-blind-revised.json",
-    "docs/reviews/evidence/assessment46-heuristics.json",
-    "docs/reviews/evidence/audit42-assessment.json",
-    "docs/reviews/evidence/audit42.json",
-    "docs/reviews/evidence/cc01/after-computing-completed.png",
-    "docs/reviews/evidence/cc01/after-neutral-1024-500.png",
-    "docs/reviews/evidence/cc01/after-neutral-1440.png",
-    "docs/reviews/evidence/cc01/authorized-changes.json",
-    "docs/reviews/evidence/cc01/before-computing-active-1440.png",
-    "docs/reviews/evidence/cc01/before-denied-aid.json",
-    "docs/reviews/evidence/cc01/before-reproduction.json",
-    "docs/reviews/evidence/cc01/before-root-sha.json",
-    "docs/reviews/evidence/cc01/full-check-result.json",
-    "docs/reviews/evidence/cc01/initial-ci-result.json",
-    "docs/reviews/evidence/cc01/preservation.json",
-    "docs/reviews/evidence/cc01/preview-readiness.json",
-    "docs/reviews/evidence/cc01/targeted-results.json",
-    "docs/reviews/evidence/cc02/before-small-1440.png",
-    "docs/reviews/evidence/cc02/correct-diagnostic-1440.png",
-    "docs/reviews/evidence/cc02/diagnostic-1024x500.png",
-    "docs/reviews/evidence/cc02/diagnostic-1024x768.png",
-    "docs/reviews/evidence/cc02/diagnostic-1440x900.png",
-    "docs/reviews/evidence/cc02/original-receipt-1440.png",
-    "docs/reviews/evidence/cc02/preservation.json",
-    "docs/reviews/evidence/cc02/receipt-before-audit.png",
-    "docs/reviews/evidence/cc02/small-diagnostic-1440.png",
-    "docs/reviews/evidence/cc02/source-record.json",
-    "docs/reviews/evidence/cc02/targeted-results.json",
-    "docs/reviews/evidence/cc03/authorized-changes.json",
-    "docs/reviews/evidence/cc03/before-old-1440.png",
-    "docs/reviews/evidence/cc03/before.json",
-    "docs/reviews/evidence/cc03/blind/final-copy-recheck.json",
-    "docs/reviews/evidence/cc03/blind/final-feedback-material.json",
-    "docs/reviews/evidence/cc03/blind/initial-review.json",
-    "docs/reviews/evidence/cc03/blind/key-comparison-material.json",
-    "docs/reviews/evidence/cc03/blind/post-key-comparison.json",
-    "docs/reviews/evidence/cc03/blind/revised-review.json",
-    "docs/reviews/evidence/cc03/blind/student-final.json",
-    "docs/reviews/evidence/cc03/blind/student-revised.json",
-    "docs/reviews/evidence/cc03/blind/student.json",
-    "docs/reviews/evidence/cc03/ci-protocol-followup.json",
-    "docs/reviews/evidence/cc03/full-check-ci-followup-result.json",
-    "docs/reviews/evidence/cc03/full-check-readiness-result.json",
-    "docs/reviews/evidence/cc03/full-check-result.json",
-    "docs/reviews/evidence/cc03/initial-ci-result.json",
-    "docs/reviews/evidence/cc03/preservation.json",
-    "docs/reviews/evidence/cc03/preview-readiness.json",
-    "docs/reviews/evidence/cc03/source-records.json",
-    "docs/reviews/evidence/cc03/targeted-results.json",
-    "docs/reviews/evidence/cc03/updated-active-1024-500.png",
-    "docs/reviews/evidence/cc03/updated-active-1024-768.png",
-    "docs/reviews/evidence/cc03/updated-active-1440-900.png",
-    "docs/reviews/evidence/cc03/updated-result-1440.png",
-    "docs/reviews/evidence/cloud-concepts-independent/archive-index.json",
-    "docs/reviews/evidence/cloud-concepts-independent/assessment-postlock.txt",
-    "docs/reviews/evidence/cloud-concepts-independent/author-check-original.zip",
-    "docs/reviews/evidence/cloud-concepts-independent/cold-assessment-first-report.txt",
-    "docs/reviews/evidence/cloud-concepts-independent/cold-assessment-images-01.zip",
-    "docs/reviews/evidence/cloud-concepts-independent/cold-assessment-images-02.zip",
-    "docs/reviews/evidence/cloud-concepts-independent/cold-assessment-images-03.zip",
-    "docs/reviews/evidence/cloud-concepts-independent/cold-assessment-images-04.zip",
-    "docs/reviews/evidence/cloud-concepts-independent/cold-assessment-images-05.zip",
-    "docs/reviews/evidence/cloud-concepts-independent/cold-assessment-images-06.zip",
-    "docs/reviews/evidence/cloud-concepts-independent/cold-assessment-images-07.zip",
-    "docs/reviews/evidence/cloud-concepts-independent/cold-assessment-images-08.zip",
-    "docs/reviews/evidence/cloud-concepts-independent/cold-assessment-images-09.zip",
-    "docs/reviews/evidence/cloud-concepts-independent/cold-assessment-text.zip",
-    "docs/reviews/evidence/cloud-concepts-independent/cold-journey-first-report.txt",
-    "docs/reviews/evidence/cloud-concepts-independent/cold-journey-images-01.zip",
-    "docs/reviews/evidence/cloud-concepts-independent/cold-journey-images-02.zip",
-    "docs/reviews/evidence/cloud-concepts-independent/cold-journey-images-03.zip",
-    "docs/reviews/evidence/cloud-concepts-independent/cold-journey-images-04.zip",
-    "docs/reviews/evidence/cloud-concepts-independent/cold-journey-images-05.zip",
-    "docs/reviews/evidence/cloud-concepts-independent/cold-journey-images-06.zip",
-    "docs/reviews/evidence/cloud-concepts-independent/cold-journey-images-07.zip",
-    "docs/reviews/evidence/cloud-concepts-independent/cold-journey-text.zip",
-    "docs/reviews/evidence/cloud-concepts-independent/full-check-log.txt",
-    "docs/reviews/evidence/cloud-concepts-independent/full-check-result.json",
-    "docs/reviews/evidence/cloud-concepts-independent/images/base-full-sha.png",
-    "docs/reviews/evidence/cloud-concepts-independent/images/iaas-mission-premise.png",
-    "docs/reviews/evidence/cloud-concepts-independent/images/responsibility-guided.png",
-    "docs/reviews/evidence/cloud-concepts-independent/images/services-assessment-short.png",
-    "docs/reviews/evidence/cloud-concepts-independent/images/vm-complete-detail.png",
-    "docs/reviews/evidence/cloud-concepts-independent/images/vm-incomplete-debrief.png",
-    "docs/reviews/evidence/cloud-concepts-independent/images/web-hub-resume.png",
-    "docs/reviews/evidence/cloud-concepts-independent/journey-postlock.txt",
-    "docs/reviews/evidence/cloud-concepts-independent/legacy-cold-first-report.txt",
-    "docs/reviews/evidence/cloud-concepts-independent/legacy-cold-images-01.zip",
-    "docs/reviews/evidence/cloud-concepts-independent/legacy-cold-text.zip",
-    "docs/reviews/evidence/cloud-concepts-independent/legacy-postlock.txt",
-    "docs/reviews/evidence/cloud-concepts-independent/method-notes.txt",
-    "docs/reviews/evidence/cloud-concepts-independent/preservation.json",
-    "docs/reviews/evidence/cloud-concepts-independent/recovery-git-objects.txt",
-    "docs/reviews/evidence/cloud-concepts-independent/recovery.json",
-    "docs/reviews/evidence/cloud-concepts-independent/selected-images.json",
-    "docs/reviews/evidence/cloud-concepts-independent/source-check.json",
-    "docs/reviews/evidence/cloud-concepts-independent/source-discovery.json",
-    "docs/reviews/evidence/hybrid51-author-browser.json",
-    "docs/reviews/evidence/hybrid51-design-sources.json",
-    "docs/reviews/evidence/hybrid51-preservation.json",
-    "docs/reviews/evidence/inspection48-preservation.json",
-    "docs/reviews/evidence/laboratory-stage0/command-golden.json",
-    "docs/reviews/evidence/laboratory-stage0/local/app.png",
-    "docs/reviews/evidence/laboratory-stage0/local/hub.png",
-    "docs/reviews/evidence/laboratory-stage0/local/receipt-1024.png",
-    "docs/reviews/evidence/laboratory-stage0/local/receipt-1024.txt",
-    "docs/reviews/evidence/laboratory-stage0/local/receipt.txt",
-    "docs/reviews/evidence/laboratory-stage0/local/results.json",
-    "docs/reviews/evidence/laboratory-stage0/preservation.json",
-    "docs/reviews/evidence/laboratory-stage0/sources.json",
-    "docs/reviews/evidence/laboratory-stage0/verification.json",
-    "docs/reviews/evidence/laboratory-stage1/aba-counterexample.png",
-    "docs/reviews/evidence/laboratory-stage1/aba-reload.json",
-    "docs/reviews/evidence/laboratory-stage1/preservation.json",
-    "docs/reviews/evidence/laboratory-stage1/simple-fork.json",
-    "docs/reviews/evidence/laboratory-stage1/sources.json",
-    "docs/reviews/evidence/laboratory-stage1/tombstone-loss.json",
-    "docs/reviews/evidence/laboratory-stage1/verification.json",
-    "docs/reviews/evidence/pr51-owner-author-checks.json",
-    "docs/reviews/evidence/pr51-owner-legacy-v2.json",
-    "docs/reviews/evidence/pr51-owner-preservation.json",
-    "docs/reviews/evidence/pr52-author-checks.json",
-    "docs/reviews/evidence/pr52-preservation.json",
-    "docs/reviews/evidence/pr52-source-check.json",
-    "docs/reviews/evidence/pr57/cold-provenance.json",
-    "docs/reviews/evidence/pr57/cold/core-compute-network/cold-report.json.txt",
-    "docs/reviews/evidence/pr57/cold/core-compute-network/cold-report.md.txt",
-    "docs/reviews/evidence/pr57/cold/core-compute-network/lock.json.txt",
-    "docs/reviews/evidence/pr57/cold/core-compute-network/route-inventory.json.txt",
-    "docs/reviews/evidence/pr57/cold/core-compute-network/solves-architecture-a-prefeedback.json.txt",
-    "docs/reviews/evidence/pr57/cold/core-compute-network/solves-architecture-b-prefeedback.json.txt",
-    "docs/reviews/evidence/pr57/cold/core-compute-network/solves-compute-cp09-prefeedback.json.txt",
-    "docs/reviews/evidence/pr57/cold/core-compute-network/solves-compute-cp11-prefeedback.json.txt",
-    "docs/reviews/evidence/pr57/cold/core-compute-network/solves-connectivity-nc12-prefeedback.json.txt",
-    "docs/reviews/evidence/pr57/cold/management-governance/cold-report.json.txt",
-    "docs/reviews/evidence/pr57/cold/management-governance/cold-report.md.txt",
-    "docs/reviews/evidence/pr57/cold/management-governance/lock.json.txt",
-    "docs/reviews/evidence/pr57/cold/management-governance/route-inventory.json.txt",
-    "docs/reviews/evidence/pr57/cold/management-governance/solve-cost-cm10-prefeedback.json.lock.json.txt",
-    "docs/reviews/evidence/pr57/cold/management-governance/solve-cost-cm10-prefeedback.json.txt",
-    "docs/reviews/evidence/pr57/cold/management-governance/solve-governance-gc08-prefeedback.json.lock.json.txt",
-    "docs/reviews/evidence/pr57/cold/management-governance/solve-governance-gc08-prefeedback.json.txt",
-    "docs/reviews/evidence/pr57/cold/management-governance/solve-management-mt01-prefeedback.json.lock.json.txt",
-    "docs/reviews/evidence/pr57/cold/management-governance/solve-management-mt01-prefeedback.json.txt",
-    "docs/reviews/evidence/pr57/cold/management-governance/solve-management-mt07-prefeedback.json.txt",
-    "docs/reviews/evidence/pr57/cold/management-governance/solve-management-mt07-prefeedback.lock.json.txt",
-    "docs/reviews/evidence/pr57/cold/management-governance/solve-monitoring-md07-prefeedback.json.txt",
-    "docs/reviews/evidence/pr57/cold/management-governance/solve-monitoring-md07-prefeedback.lock.json.txt",
-    "docs/reviews/evidence/pr57/cold/storage-identity-security/cold-report.json.txt",
-    "docs/reviews/evidence/pr57/cold/storage-identity-security/cold-report.md.txt",
-    "docs/reviews/evidence/pr57/cold/storage-identity-security/lock.json.txt",
-    "docs/reviews/evidence/pr57/cold/storage-identity-security/route-inventory.json.txt",
-    "docs/reviews/evidence/pr57/cold/storage-identity-security/solves/access-control-pre-feedback.json.txt",
-    "docs/reviews/evidence/pr57/cold/storage-identity-security/solves/identity-pre-feedback.json.txt",
-    "docs/reviews/evidence/pr57/cold/storage-identity-security/solves/migration-pre-feedback.json.txt",
-    "docs/reviews/evidence/pr57/cold/storage-identity-security/solves/security-pre-feedback.json.txt",
-    "docs/reviews/evidence/pr57/cold/storage-identity-security/solves/solve-lock.json.txt",
-    "docs/reviews/evidence/pr57/cold/storage-identity-security/solves/storage-pre-feedback.json.txt",
-    "docs/reviews/evidence/pr57/cold/storage-identity-security/solves/storage-resilience-pre-feedback.json.txt",
-    "docs/reviews/evidence/pr57/demo-preflight.json",
-    "docs/reviews/evidence/pr57/local-browser-results.json",
-    "docs/reviews/evidence/pr57/npm-audit-production.json.txt",
-    "docs/reviews/evidence/pr57/npm-audit.json.txt",
-    "docs/reviews/evidence/pr57/post-lock/core-compute-network.md.txt",
-    "docs/reviews/evidence/pr57/post-lock/core-official-source-checks.json.txt",
-    "docs/reviews/evidence/pr57/post-lock/management-governance.md.txt",
-    "docs/reviews/evidence/pr57/post-lock/storage-identity-security.md.txt",
-    "docs/reviews/evidence/pr57/post-lock/storage-security-official-source-checks.json.txt",
-    "docs/reviews/evidence/pr57/preservation.json",
-    "docs/reviews/evidence/pr57/recommended-routes-base.json",
-    "docs/reviews/evidence/pr57/source-record.json",
-    "docs/reviews/evidence/pr57/structure-summary.json",
-    "docs/reviews/evidence/pr57/structure/cloud-concepts/activities.json.txt",
-    "docs/reviews/evidence/pr57/structure/cloud-concepts/modules.json.txt",
-    "docs/reviews/evidence/pr57/structure/cloud-concepts/review.md.txt",
-    "docs/reviews/evidence/pr57/structure/core-compute-network/activities.json.txt",
-    "docs/reviews/evidence/pr57/structure/core-compute-network/modules.json.txt",
-    "docs/reviews/evidence/pr57/structure/core-compute-network/review.md.txt",
-    "docs/reviews/evidence/pr57/structure/management-governance/activities.json.txt",
-    "docs/reviews/evidence/pr57/structure/management-governance/modules.json.txt",
-    "docs/reviews/evidence/pr57/structure/management-governance/review.md.txt",
-    "docs/reviews/evidence/pr57/structure/storage-identity-security/activities.json.txt",
-    "docs/reviews/evidence/pr57/structure/storage-identity-security/modules.json.txt",
-    "docs/reviews/evidence/pr57/structure/storage-identity-security/review.md.txt",
-    "docs/reviews/evidence/pr57/targeted-results.json",
-    "docs/reviews/evidence/pr57/visual/after-avd-summary.png",
-    "docs/reviews/evidence/pr57/visual/after-cost.png",
-    "docs/reviews/evidence/pr57/visual/after-monitoring-1024.png",
-    "docs/reviews/evidence/pr57/visual/after-monitoring-steps.png",
-    "docs/reviews/evidence/pr57/visual/after-peering-clear-1440.png",
-    "docs/reviews/evidence/pr57/visual/after-security.png",
-    "docs/reviews/evidence/pr57/visual/base-demo-capacity-10-current-context.png",
-    "docs/reviews/evidence/pr57/visual/base-demo-global-journal.png",
-    "docs/reviews/evidence/pr57/visual/base-demo-vm-small-debrief-1440.png",
-    "docs/reviews/evidence/pr57/visual/base-demo-vm-standard-debrief-1440.png",
-    "docs/reviews/evidence/pr57/visual/before-avd-summary.png",
-    "docs/reviews/evidence/pr57/visual/before-cost.png",
-    "docs/reviews/evidence/pr57/visual/before-monitoring-1024.png",
-    "docs/reviews/evidence/pr57/visual/before-monitoring-steps.png",
-    "docs/reviews/evidence/pr57/visual/before-peering-clear-1440.png",
-    "docs/reviews/evidence/pr57/visual/before-security.png",
-    "docs/reviews/evidence/pr60/audit-workspace-before.json",
-    "docs/reviews/evidence/pr60/blob-1024-500.png",
-    "docs/reviews/evidence/pr60/blob-1024-768.png",
-    "docs/reviews/evidence/pr60/blob-1440-900.png",
-    "docs/reviews/evidence/pr60/preservation.json",
-    "docs/reviews/evidence/pr60/sources.json",
-    "docs/reviews/evidence/pr60/storage-chain.png",
-    "docs/reviews/evidence/pr60/verification.json",
-    "docs/reviews/evidence/source47-preservation.json",
-    "docs/reviews/evidence/visual50-axe-final.json",
-    "docs/reviews/evidence/visual50-character-review-initial.json",
-    "docs/reviews/evidence/visual50-character-review-revision.json",
-    "docs/reviews/evidence/visual50-local-journey.json",
-    "docs/reviews/evidence/visual50-measurements.json",
-    "docs/reviews/evidence/visual50-preservation.json",
-    "docs/reviews/evidence/visual50-product-design-recheck.json",
-    "docs/reviews/evidence/visual50-product-design-review.json",
-    "docs/reviews/evidence/visual50-sources.json",
-    "docs/reviews/screenshots/assessment-benefits-1440.png",
-    "docs/reviews/screenshots/assessment-benefits-first-options-result-1440.png",
-    "docs/reviews/screenshots/assessment-services-1440.png",
-    "docs/reviews/screenshots/assessment-services-first-options-result-1440.png",
-    "docs/reviews/screenshots/corrupt-state-1024x500.png",
-    "docs/reviews/screenshots/hub-first-fold-1024.png",
-    "docs/reviews/screenshots/hub-first-fold-1440.png",
-    "docs/reviews/screenshots/hub-short-1024x500.png",
-    "docs/reviews/screenshots/owner01-independent-protection.png",
-    "docs/reviews/screenshots/owner01-mission-list.png",
-    "docs/reviews/screenshots/owner01-native-briefing.png",
-    "docs/reviews/screenshots/owner01-next-returns-list.png",
-    "docs/reviews/screenshots/owner02-open-sources-1024.png",
-    "docs/reviews/screenshots/owner03-assessment-dialog-1024x500.png",
-    "docs/reviews/screenshots/owner03-assessment-dialog-1024x768.png",
-    "docs/reviews/screenshots/owner03-assessment-dialog-1440x900.png",
-    "docs/reviews/screenshots/owner03-journal-1440.png",
-    "docs/reviews/screenshots/portal-actual-ledger-1440.png",
-    "docs/reviews/screenshots/portal-group-basics-1440.png",
-    "docs/reviews/screenshots/portal-home-1440.png",
-    "docs/reviews/screenshots/portal-notification-sidepanel-1024x500.png",
-    "docs/reviews/screenshots/portal-plan-basics-1440.png",
-    "docs/reviews/screenshots/portal-policy-denial-1440.png",
-    "docs/reviews/screenshots/portal-storage-search-1440.png",
-    "docs/reviews/screenshots/root-1440.png",
-    "docs/reviews/screenshots/sequence-migration-prerequisites-1024.png",
-    "package-lock.json",
-    "package.json",
-    "playwright.config.ts",
-    "public/design-review/characters/v1/explain-right-320.webp",
-    "public/design-review/characters/v1/explain-right-640.webp",
-    "public/design-review/characters/v1/explain-right-candidate.png",
-    "public/design-review/characters/v1/manifest.json",
-    "public/design-review/characters/v1/thinking-320.webp",
-    "public/design-review/characters/v1/thinking-640.webp",
-    "public/design-review/characters/v1/thinking-candidate.png",
-    "public/design-review/characters/v1/wave-320.webp",
-    "public/design-review/characters/v1/wave-640.webp",
-    "public/design-review/characters/v1/wave-candidate.png",
-    "public/design-review/fonts/manifest.json",
-    "public/design-review/fonts/manrope-OFL.txt",
-    "public/design-review/fonts/manrope.woff2",
-    "public/design-review/fonts/source-serif-4-OFL.txt",
-    "public/design-review/fonts/source-serif-4.woff2",
-    "public/icons/azure/00007-icon-service-Activity-Log.svg",
-    "public/icons/azure/00046-icon-service-App-Service-Plans.svg",
-    "public/icons/azure/02742-icon-service-Subnet.svg",
-    "public/icons/azure/10001-icon-service-All-Resources.svg",
-    "public/icons/azure/10002-icon-service-Subscriptions.svg",
-    "public/icons/azure/10007-icon-service-Resource-Groups.svg",
-    "public/icons/azure/10011-icon-service-Management-Groups.svg",
-    "public/icons/azure/10021-icon-service-Virtual-Machine.svg",
-    "public/icons/azure/10032-icon-service-Disks.svg",
-    "public/icons/azure/10035-icon-service-App-Services.svg",
-    "public/icons/azure/10061-icon-service-Virtual-Networks.svg",
-    "public/icons/azure/10080-icon-service-Network-Interfaces.svg",
-    "public/icons/azure/10316-icon-service-Policy.svg",
-    "public/icons/fluent/add_16_regular.svg",
-    "public/icons/fluent/alert_16_regular.svg",
-    "public/icons/fluent/arrow_clockwise_16_regular.svg",
-    "public/icons/fluent/book_open_16_regular.svg",
-    "public/icons/fluent/chevron_right_16_regular.svg",
-    "public/icons/fluent/compass_northwest_16_regular.svg",
-    "public/icons/fluent/dismiss_16_regular.svg",
-    "public/icons/fluent/edit_16_regular.svg",
-    "public/icons/fluent/eye_16_regular.svg",
-    "public/icons/fluent/filter_16_regular.svg",
-    "public/icons/fluent/home_16_regular.svg",
-    "public/icons/fluent/layer_diagonal_16_regular.svg",
-    "public/icons/fluent/line_horizontal_3_16_regular.svg",
-    "public/icons/fluent/link_16_regular.svg",
-    "public/icons/fluent/organization_16_regular.svg",
-    "public/icons/fluent/question_circle_16_regular.svg",
-    "public/icons/fluent/search_16_regular.svg",
-    "public/icons/fluent/settings_16_regular.svg",
-    "public/icons/fluent/star_16_regular.svg",
-    "public/icons/fluent/text_bullet_list_square_16_regular.svg",
-    "public/icons/licenses/Fluent-MIT.txt",
-    "public/icons/licenses/Microsoft_Terms_of_Use.pdf",
-    "public/icons/manifest.json",
-    "public/mascot/manifest.json",
-    "public/mascot/savvy-shark-default.png",
-    "scripts/assets-check.mjs",
-    "scripts/az900-audit-check.mjs",
-    "scripts/az900-audit-check.test.mjs",
-    "scripts/design-assets-check.mjs",
-    "scripts/design-assets-check.test.mjs",
-    "scripts/docs-check.mjs",
-    "scripts/docs-check.test.mjs",
-    "scripts/e2e-plan-check.mjs",
-    "scripts/e2e-preview-build.mjs",
-    "scripts/e2e-preview-build.test.mjs",
-    "scripts/legacy-check.mjs",
-    "scripts/next.mjs",
-    "scripts/quality-check.mjs",
-    "scripts/quality-check.test.mjs",
-    "scripts/verify-desktop-ci.mjs",
-    "src/app/api/laboratory/command/route.ts",
-    "src/app/api/laboratory/review/route.ts",
-    "src/app/api/laboratory/session/route.ts",
-    "src/app/api/laboratory/state/route.ts",
-    "src/app/design/foundations-31a/page.tsx",
-    "src/app/expedition-3d/page.tsx",
-    "src/app/explore/page.tsx",
-    "src/app/globals.css",
-    "src/app/icon.svg",
-    "src/app/labs/laboratory/page.tsx",
-    "src/app/labs/saas/page.tsx",
-    "src/app/layout.tsx",
-    "src/app/learn/[module]/page.tsx",
-    "src/app/learn/design-review/page.tsx",
-    "src/app/learn/layout.tsx",
-    "src/app/learn/page.tsx",
-    "src/app/legacy-expedition/page.tsx",
-    "src/app/legacy/rpg/page.tsx",
-    "src/app/missions/page.tsx",
-    "src/app/not-found.tsx",
-    "src/app/portal/page.tsx",
-    "src/app/progress/page.tsx",
-    "src/components/command-dialog.tsx",
-    "src/components/icons.tsx",
-    "src/components/progress-provider.tsx",
-    "src/content/learning-journey.ts",
+    "src/domain/",
+    "src/laboratory/",
+    "src/app/api/",
+    "database/",
+    "public/mascot/",
     "src/content/nb.ts",
-    "src/domain/assessment.ts",
-    "src/domain/chapter01/model.test.ts",
-    "src/domain/chapter01/model.ts",
-    "src/domain/chapter01/persistence.ts",
-    "src/domain/chapter01/scenario.ts",
-    "src/domain/course/course.test.ts",
-    "src/domain/course/model.ts",
-    "src/domain/course/store.ts",
-    "src/domain/curriculum/access-control-items.ts",
-    "src/domain/curriculum/access-control-model.ts",
-    "src/domain/curriculum/access-control-sources.ts",
-    "src/domain/curriculum/access-control-store.ts",
-    "src/domain/curriculum/access-control.test.ts",
-    "src/domain/curriculum/access-control.ts",
-    "src/domain/curriculum/application-exposure.ts",
-    "src/domain/curriculum/application-sources.ts",
-    "src/domain/curriculum/application-store.ts",
-    "src/domain/curriculum/application-transfer.test.ts",
-    "src/domain/curriculum/application-transfer.ts",
-    "src/domain/curriculum/architecture-management-store.ts",
-    "src/domain/curriculum/architecture-management.test.ts",
-    "src/domain/curriculum/architecture-management.ts",
-    "src/domain/curriculum/architecture-physical-store.ts",
-    "src/domain/curriculum/architecture-physical.test.ts",
-    "src/domain/curriculum/architecture-physical.ts",
-    "src/domain/curriculum/capacity.test.ts",
-    "src/domain/curriculum/capacity.ts",
-    "src/domain/curriculum/compute-items.ts",
-    "src/domain/curriculum/compute-model.ts",
-    "src/domain/curriculum/compute-sources.ts",
-    "src/domain/curriculum/compute-store.ts",
-    "src/domain/curriculum/compute-vm.ts",
-    "src/domain/curriculum/compute.test.ts",
-    "src/domain/curriculum/compute.ts",
-    "src/domain/curriculum/connectivity-items.ts",
-    "src/domain/curriculum/connectivity-model.ts",
-    "src/domain/curriculum/connectivity-sources.ts",
-    "src/domain/curriculum/connectivity-store.ts",
-    "src/domain/curriculum/connectivity.test.ts",
-    "src/domain/curriculum/connectivity.ts",
-    "src/domain/curriculum/cost-model.ts",
-    "src/domain/curriculum/cost-sources.ts",
-    "src/domain/curriculum/cost-store.ts",
-    "src/domain/curriculum/cost.test.ts",
-    "src/domain/curriculum/cost.ts",
-    "src/domain/curriculum/expansion-content.ts",
-    "src/domain/curriculum/expansion-models.ts",
-    "src/domain/curriculum/expansion-store.ts",
-    "src/domain/curriculum/expansion.test.ts",
-    "src/domain/curriculum/expansion.ts",
-    "src/domain/curriculum/foundations-v2-lifecycle.test.ts",
-    "src/domain/curriculum/foundations-v2.test.ts",
-    "src/domain/curriculum/foundations-v2.ts",
-    "src/domain/curriculum/foundations.test.ts",
-    "src/domain/curriculum/foundations.ts",
-    "src/domain/curriculum/governance-evidence.ts",
-    "src/domain/curriculum/governance-items.ts",
-    "src/domain/curriculum/governance-model.ts",
-    "src/domain/curriculum/governance-sources.ts",
-    "src/domain/curriculum/governance-store.ts",
-    "src/domain/curriculum/governance.test.ts",
-    "src/domain/curriculum/governance.ts",
-    "src/domain/curriculum/identity-foundations-items.ts",
-    "src/domain/curriculum/identity-foundations-model.ts",
-    "src/domain/curriculum/identity-foundations-sources.ts",
-    "src/domain/curriculum/identity-foundations-store.ts",
-    "src/domain/curriculum/identity-foundations.test.ts",
-    "src/domain/curriculum/identity-foundations.ts",
-    "src/domain/curriculum/integrity.test.ts",
-    "src/domain/curriculum/integrity.ts",
-    "src/domain/curriculum/management-tools-evidence.ts",
-    "src/domain/curriculum/management-tools-items.ts",
-    "src/domain/curriculum/management-tools-model.ts",
-    "src/domain/curriculum/management-tools-sources.ts",
-    "src/domain/curriculum/management-tools-store.ts",
-    "src/domain/curriculum/management-tools.test.ts",
-    "src/domain/curriculum/management-tools.ts",
-    "src/domain/curriculum/manifest.ts",
-    "src/domain/curriculum/migration-items.ts",
-    "src/domain/curriculum/migration-model.ts",
-    "src/domain/curriculum/migration-sources.ts",
-    "src/domain/curriculum/migration-store.ts",
-    "src/domain/curriculum/migration.test.ts",
-    "src/domain/curriculum/migration.ts",
-    "src/domain/curriculum/monitoring-items.ts",
-    "src/domain/curriculum/monitoring-model.ts",
-    "src/domain/curriculum/monitoring-sources.ts",
-    "src/domain/curriculum/monitoring-store.ts",
-    "src/domain/curriculum/monitoring.test.ts",
-    "src/domain/curriculum/monitoring.ts",
-    "src/domain/curriculum/networking-inspection.ts",
-    "src/domain/curriculum/networking-items.ts",
-    "src/domain/curriculum/networking-model.ts",
-    "src/domain/curriculum/networking-sources.ts",
-    "src/domain/curriculum/networking-store.ts",
-    "src/domain/curriculum/networking.test.ts",
-    "src/domain/curriculum/networking.ts",
-    "src/domain/curriculum/official.test.ts",
-    "src/domain/curriculum/official.ts",
-    "src/domain/curriculum/refined-assessment-store.ts",
-    "src/domain/curriculum/refined-assessment.test.ts",
-    "src/domain/curriculum/refined-assessment.ts",
-    "src/domain/curriculum/responsibility.test.ts",
-    "src/domain/curriculum/responsibility.ts",
-    "src/domain/curriculum/security-items.ts",
-    "src/domain/curriculum/security-model.ts",
-    "src/domain/curriculum/security-sources.ts",
-    "src/domain/curriculum/security-store.ts",
-    "src/domain/curriculum/security.test.ts",
-    "src/domain/curriculum/security.ts",
-    "src/domain/curriculum/serverless-store.ts",
-    "src/domain/curriculum/serverless.test.ts",
-    "src/domain/curriculum/serverless.ts",
-    "src/domain/curriculum/storage-items.ts",
-    "src/domain/curriculum/storage-model.ts",
-    "src/domain/curriculum/storage-resilience-items.ts",
-    "src/domain/curriculum/storage-resilience-model.ts",
-    "src/domain/curriculum/storage-resilience-sources.ts",
-    "src/domain/curriculum/storage-resilience-store.ts",
-    "src/domain/curriculum/storage-resilience.test.ts",
-    "src/domain/curriculum/storage-resilience.ts",
-    "src/domain/curriculum/storage-sources.ts",
-    "src/domain/curriculum/storage-store.ts",
-    "src/domain/curriculum/storage.test.ts",
-    "src/domain/curriculum/storage.ts",
-    "src/domain/curriculum/store.ts",
-    "src/domain/curriculum/teaching-access.test.ts",
-    "src/domain/curriculum/teaching-access.ts",
-    "src/domain/curriculum/transfer-sources.ts",
-    "src/domain/curriculum/transfer-store.ts",
-    "src/domain/curriculum/transfer.test.ts",
-    "src/domain/curriculum/transfer.ts",
-    "src/domain/curriculum/v2-store.ts",
-    "src/domain/guidance/milestone-preferences.ts",
-    "src/domain/guidance/milestones.test.ts",
-    "src/domain/guidance/milestones.ts",
-    "src/domain/portal/challenge-origin.test.ts",
-    "src/domain/portal/challenge-origin.ts",
-    "src/domain/portal/challenge-v2-store.ts",
-    "src/domain/portal/challenge-v2.test.ts",
-    "src/domain/portal/challenge-v2.ts",
-    "src/domain/portal/content.ts",
-    "src/domain/portal/inspection.test.ts",
-    "src/domain/portal/inspection.ts",
-    "src/domain/portal/learning.ts",
-    "src/domain/portal/model.ts",
-    "src/domain/portal/portal.test.ts",
-    "src/domain/portal/store.ts",
-    "src/domain/progression.test.ts",
-    "src/domain/progression.ts",
-    "src/domain/retired-storage.ts",
-    "src/domain/sandbox/content.ts",
-    "src/domain/sandbox/mission-sources.ts",
-    "src/domain/sandbox/mission-store.ts",
-    "src/domain/sandbox/missions.test.ts",
-    "src/domain/sandbox/missions.ts",
-    "src/domain/sandbox/model.ts",
-    "src/domain/sandbox/practical-store.ts",
-    "src/domain/sandbox/practical.test.ts",
-    "src/domain/sandbox/practical.ts",
-    "src/domain/sandbox/replay.ts",
-    "src/domain/sandbox/saas-store.ts",
-    "src/domain/sandbox/saas.ts",
-    "src/domain/sandbox/sandbox.test.ts",
-    "src/domain/sandbox/store.ts",
-    "src/domain/sandbox/vm-debrief.test.ts",
-    "src/domain/sandbox/vm-debrief.ts",
-    "src/domain/simulation.test.ts",
-    "src/domain/simulation.ts",
-    "src/features/course/assessment-navigation-exit.tsx",
-    "src/features/course/audit-review.test.ts",
-    "src/features/course/audit-review.ts",
-    "src/features/course/challenge-return.tsx",
-    "src/features/course/cloud-computing-chapters.test.ts",
-    "src/features/course/cloud-computing-chapters.ts",
-    "src/features/course/course-hub.tsx",
-    "src/features/course/course-journey-context.tsx",
-    "src/features/course/course-navigation.tsx",
-    "src/features/course/course-outline.ts",
-    "src/features/course/course-sequence.test.ts",
-    "src/features/course/course-sequence.ts",
-    "src/features/course/course-sidebar.tsx",
-    "src/features/course/course.css",
-    "src/features/course/course.tsx",
-    "src/features/course/experience-motion.tsx",
-    "src/features/course/final-route-structure.test.ts",
-    "src/features/course/guidance-milestones.css",
-    "src/features/course/guidance-milestones.tsx",
-    "src/features/course/guidance-window.tsx",
-    "src/features/course/guide-briefing-request.ts",
-    "src/features/course/guided-coach.tsx",
-    "src/features/course/guided-learning.tsx",
-    "src/features/course/guided-mission-link.tsx",
-    "src/features/course/highlight.ts",
-    "src/features/course/hybrid-foundation.css",
-    "src/features/course/hybrid-foundation.test.ts",
-    "src/features/course/learning-flow.css",
-    "src/features/course/learning-flow.test.ts",
-    "src/features/course/learning-flow.ts",
-    "src/features/course/learning-fonts.ts",
-    "src/features/course/mission-briefing.css",
-    "src/features/course/mission-briefing.tsx",
-    "src/features/course/mission-context.ts",
-    "src/features/course/mission-diagnosis.tsx",
-    "src/features/course/mission-observations.tsx",
-    "src/features/course/mission-portal.tsx",
-    "src/features/course/mission-provider.tsx",
-    "src/features/course/missions.css",
-    "src/features/course/missions.tsx",
-    "src/features/course/portal-guide-visibility.tsx",
-    "src/features/course/portal-inspection-bridge.tsx",
-    "src/features/course/portal-inspection.css",
-    "src/features/course/practical-guidance.test.ts",
-    "src/features/course/practical-guidance.ts",
-    "src/features/course/practical-lab.tsx",
-    "src/features/course/practical-provider.tsx",
-    "src/features/course/practical.css",
-    "src/features/course/provider.tsx",
-    "src/features/course/savvy-shark.tsx",
-    "src/features/course/vm-debrief-preservation.test.ts",
-    "src/features/course/vm-debrief.tsx",
-    "src/features/design-review/character.tsx",
-    "src/features/design-review/model.test.ts",
-    "src/features/design-review/model.ts",
-    "src/features/design-review/preservation.test.ts",
-    "src/features/design-review/visual-review.css",
-    "src/features/design-review/visual-review.tsx",
-    "src/features/learning/access-control-assessment.tsx",
-    "src/features/learning/access-control-controls.tsx",
-    "src/features/learning/access-control-provider.tsx",
-    "src/features/learning/access-control-visuals.tsx",
-    "src/features/learning/access-control-workbench.tsx",
-    "src/features/learning/access-control.css",
-    "src/features/learning/access-control.tsx",
-    "src/features/learning/application-provider.tsx",
-    "src/features/learning/application-transfer.css",
-    "src/features/learning/application-transfer.tsx",
-    "src/features/learning/cloud-computing-chapter.css",
-    "src/features/learning/cloud-computing-chapter.tsx",
-    "src/features/learning/cloud-deployment.tsx",
-    "src/features/learning/cloud-transfer.tsx",
-    "src/features/learning/compute-assessment.tsx",
-    "src/features/learning/compute-provider.tsx",
-    "src/features/learning/compute-visuals.tsx",
-    "src/features/learning/compute-vm.tsx",
-    "src/features/learning/compute-workbench.tsx",
-    "src/features/learning/compute.css",
-    "src/features/learning/compute.tsx",
-    "src/features/learning/connectivity-assessment.tsx",
-    "src/features/learning/connectivity-provider.tsx",
-    "src/features/learning/connectivity-visuals.tsx",
-    "src/features/learning/connectivity-workbench.tsx",
-    "src/features/learning/connectivity.css",
-    "src/features/learning/connectivity.tsx",
-    "src/features/learning/cost-assessment.tsx",
-    "src/features/learning/cost-provider.tsx",
-    "src/features/learning/cost-visuals.tsx",
-    "src/features/learning/cost-workbench.tsx",
-    "src/features/learning/cost.css",
-    "src/features/learning/cost.tsx",
-    "src/features/learning/curriculum-trail.tsx",
-    "src/features/learning/diagram.tsx",
-    "src/features/learning/expanded-module.tsx",
-    "src/features/learning/expansion-provider.tsx",
-    "src/features/learning/expansion-visuals.tsx",
-    "src/features/learning/expansion.css",
-    "src/features/learning/final-quality-copy.ts",
-    "src/features/learning/final-quality-feedback.test.ts",
-    "src/features/learning/final-quality-feedback.ts",
-    "src/features/learning/final-quality-preservation.test.ts",
-    "src/features/learning/foundations-v2.css",
-    "src/features/learning/foundations-v2.tsx",
-    "src/features/learning/foundations-visuals.css",
-    "src/features/learning/foundations-visuals.tsx",
-    "src/features/learning/governance-assessment.tsx",
-    "src/features/learning/governance-controls.tsx",
-    "src/features/learning/governance-evidence.tsx",
-    "src/features/learning/governance-provider.tsx",
-    "src/features/learning/governance-visuals.tsx",
-    "src/features/learning/governance-workbench.tsx",
-    "src/features/learning/governance.css",
-    "src/features/learning/governance.tsx",
-    "src/features/learning/identity-foundations-assessment.tsx",
-    "src/features/learning/identity-foundations-provider.tsx",
-    "src/features/learning/identity-foundations-visuals.tsx",
-    "src/features/learning/identity-foundations-workbench.tsx",
-    "src/features/learning/identity-foundations.css",
-    "src/features/learning/identity-foundations.tsx",
-    "src/features/learning/investigation.tsx",
-    "src/features/learning/journal.tsx",
-    "src/features/learning/learning-visuals.css",
-    "src/features/learning/learning.css",
-    "src/features/learning/management-access.tsx",
-    "src/features/learning/management-provider.tsx",
-    "src/features/learning/management-recovery.tsx",
-    "src/features/learning/management-tools-assessment.tsx",
-    "src/features/learning/management-tools-controls.tsx",
-    "src/features/learning/management-tools-evidence.tsx",
-    "src/features/learning/management-tools-provider.tsx",
-    "src/features/learning/management-tools-visuals.tsx",
-    "src/features/learning/management-tools-workbench.tsx",
-    "src/features/learning/management-tools.css",
-    "src/features/learning/management-tools.tsx",
-    "src/features/learning/management.css",
-    "src/features/learning/management.tsx",
-    "src/features/learning/migration-assessment.tsx",
-    "src/features/learning/migration-context.tsx",
-    "src/features/learning/migration-controls.tsx",
-    "src/features/learning/migration-provider.tsx",
-    "src/features/learning/migration-visuals.tsx",
-    "src/features/learning/migration-workbench.tsx",
-    "src/features/learning/migration.css",
-    "src/features/learning/migration.tsx",
-    "src/features/learning/monitoring-assessment.tsx",
-    "src/features/learning/monitoring-context.tsx",
-    "src/features/learning/monitoring-controls.tsx",
-    "src/features/learning/monitoring-provider.tsx",
-    "src/features/learning/monitoring-visuals.tsx",
-    "src/features/learning/monitoring-workbench.tsx",
-    "src/features/learning/monitoring.css",
-    "src/features/learning/monitoring.tsx",
-    "src/features/learning/networking-assessment.tsx",
-    "src/features/learning/networking-inspection.tsx",
-    "src/features/learning/networking-provider.tsx",
-    "src/features/learning/networking-visuals.tsx",
-    "src/features/learning/networking-workbench.tsx",
-    "src/features/learning/networking.css",
-    "src/features/learning/networking.tsx",
-    "src/features/learning/physical-entry.tsx",
-    "src/features/learning/physical-provider.tsx",
-    "src/features/learning/physical-recovery.tsx",
-    "src/features/learning/physical-visual.tsx",
-    "src/features/learning/physical.css",
-    "src/features/learning/physical.tsx",
-    "src/features/learning/provider.tsx",
-    "src/features/learning/refined-assessment-provider.tsx",
-    "src/features/learning/refined-assessment.tsx",
-    "src/features/learning/related-activities.css",
-    "src/features/learning/related-activities.tsx",
-    "src/features/learning/responsibility-recap.tsx",
-    "src/features/learning/security-assessment.tsx",
-    "src/features/learning/security-context.tsx",
-    "src/features/learning/security-controls.tsx",
-    "src/features/learning/security-provider.tsx",
-    "src/features/learning/security-visuals.tsx",
-    "src/features/learning/security-workbench.tsx",
-    "src/features/learning/security.css",
-    "src/features/learning/security.tsx",
-    "src/features/learning/serverless-provider.tsx",
-    "src/features/learning/serverless-recovery.tsx",
-    "src/features/learning/serverless.css",
-    "src/features/learning/serverless.tsx",
-    "src/features/learning/source-disclosure.css",
-    "src/features/learning/source-disclosure.test.ts",
-    "src/features/learning/source-disclosure.tsx",
-    "src/features/learning/storage-assessment.tsx",
-    "src/features/learning/storage-provider.tsx",
-    "src/features/learning/storage-resilience-assessment.tsx",
-    "src/features/learning/storage-resilience-provider.tsx",
-    "src/features/learning/storage-resilience-visuals.tsx",
-    "src/features/learning/storage-resilience-workbench.tsx",
-    "src/features/learning/storage-resilience.css",
-    "src/features/learning/storage-resilience.tsx",
-    "src/features/learning/storage-visuals.tsx",
-    "src/features/learning/storage-workbench.tsx",
-    "src/features/learning/storage.css",
-    "src/features/learning/storage.tsx",
-    "src/features/learning/summary.tsx",
-    "src/features/learning/transfer-provider.tsx",
-    "src/features/learning/transfer.css",
-    "src/features/learning/transfer.tsx",
-    "src/features/learning/v2-provider.tsx",
-    "src/features/portal/app-settings.tsx",
-    "src/features/portal/architecture.tsx",
-    "src/features/portal/challenge-v2-provider.tsx",
-    "src/features/portal/challenge-v2.tsx",
-    "src/features/portal/challenge-validity-preservation.test.ts",
-    "src/features/portal/create-resource.tsx",
-    "src/features/portal/guide-recovery.css",
-    "src/features/portal/guide-recovery.tsx",
-    "src/features/portal/infrastructure-details.tsx",
-    "src/features/portal/inspection-evidence.tsx",
-    "src/features/portal/inventory.tsx",
-    "src/features/portal/learning-provider.tsx",
-    "src/features/portal/learning.tsx",
-    "src/features/portal/portal.css",
-    "src/features/portal/portal.tsx",
-    "src/features/portal/receipt-panel.tsx",
-    "src/features/portal/receipts.css",
-    "src/features/portal/responsibility.tsx",
-    "src/features/portal/saas-lab.tsx",
-    "src/features/portal/saas-provider.tsx",
-    "src/features/portal/saas.css",
-    "src/features/portal/sandbox-provider.tsx",
-    "src/features/portal/service-icon.test.ts",
-    "src/features/portal/service-icon.tsx",
-    "src/features/portal/shared.tsx",
-    "src/features/portal/vm-form.tsx",
-    "src/laboratory-activation.test.ts",
-    "src/laboratory-contract.test.ts",
-    "src/laboratory-v3.integration.test.ts",
-    "src/laboratory-v3.test.ts",
-    "src/laboratory/v3/contract.ts",
-    "src/laboratory/v3/domain.ts",
-    "tests/cc01-preservation.ts",
-    "tests/cc02-fixture.ts",
-    "tests/cc02-preservation.ts",
-    "tests/cc03-preservation.ts",
-    "tests/e2e/access-control.spec.ts",
-    "tests/e2e/application-transfer.spec.ts",
-    "tests/e2e/assessment-refinement.spec.ts",
-    "tests/e2e/challenge-return.spec.ts",
-    "tests/e2e/challenge-v2-actions.ts",
-    "tests/e2e/challenge-validity.spec.ts",
-    "tests/e2e/cloud-chapter-actions.ts",
-    "tests/e2e/cloud-consolidation.spec.ts",
-    "tests/e2e/cloud-owner-navigation.spec.ts",
-    "tests/e2e/collapsible-sources.spec.ts",
-    "tests/e2e/course-hub-actions.ts",
-    "tests/e2e/course-hub.spec.ts",
-    "tests/e2e/dialog-placement.spec.ts",
-    "tests/e2e/file-movement-migration.spec.ts",
-    "tests/e2e/governance-compliance.spec.ts",
-    "tests/e2e/identity-foundations.spec.ts",
-    "tests/e2e/laboratory-activation.spec.ts",
-    "tests/e2e/learning-flow-guidance.spec.ts",
-    "tests/e2e/learning-sequencing.spec.ts",
-    "tests/e2e/management-tools.spec.ts",
-    "tests/e2e/monitoring-diagnostics.spec.ts",
-    "tests/e2e/owner-acceptance.spec.ts",
-    "tests/e2e/portal-actions.ts",
-    "tests/e2e/portal-inspection-bridge.spec.ts",
-    "tests/e2e/portal.spec.ts",
-    "tests/e2e/security-principles.spec.ts",
-    "tests/e2e/storage-resilience.spec.ts",
-    "tests/e2e/storage-services.spec.ts",
-    "tests/e2e/visual-excellence.spec.ts",
-    "tests/e2e/vm-debrief.spec.ts",
-    "tests/fixtures/access.ts",
-    "tests/fixtures/active-teaching-contexts.ts",
-    "tests/fixtures/az900-routes.ts",
-    "tests/fixtures/governance.ts",
-    "tests/fixtures/identity.ts",
-    "tests/fixtures/laboratory-v2-client.ts",
-    "tests/fixtures/management-tools.ts",
-    "tests/fixtures/migration.ts",
-    "tests/fixtures/monitoring.ts",
-    "tests/fixtures/portal-inspection.ts",
-    "tests/fixtures/security.ts",
-    "tests/laboratory-activation-probe.ts",
-    "tests/laboratory-probe-bundle.ts",
-    "tests/pr57-preservation.ts"
+    "src/features/course/",
+    "src/features/learning/",
+    "src/features/landing/",
+    "src/app/page.tsx",
+    "package.json",
+    "package-lock.json",
+    "docs/reviews/evidence/pr62/"
   ],
+  "gates": {
+    "source": {
+      "checks": [
+        {
+          "path": "docs/reviews/evidence/pr63/sources.json"
+        },
+        {
+          "path": "docs/SHARED_PORTAL_EXPERIENCE.md"
+        }
+      ],
+      "limits": "Shared presentation only, separate original course-v2 and free PostgreSQL3.0/3.1 authorities. No World/commands/receipts/schema/rubric/first-help-retry/XP change, no migration or external database. Public backend503 is accepted; local/CI actual PG verification remains distinct. Human SME/learning/UX/screen-reader/security validation unperformed."
+    },
+    "curriculum": {
+      "checks": [
+        {
+          "path": "src/shared-portal-preservation.test.ts"
+        }
+      ],
+      "limits": "Shared presentation only, separate original course-v2 and free PostgreSQL3.0/3.1 authorities. No World/commands/receipts/schema/rubric/first-help-retry/XP change, no migration or external database. Public backend503 is accepted; local/CI actual PG verification remains distinct. Human SME/learning/UX/screen-reader/security validation unperformed."
+    },
+    "simulation": {
+      "checks": [
+        {
+          "path": "src/features/laboratory/portal-adapter.test.ts"
+        },
+        {
+          "path": "src/shared-portal-preservation.test.ts"
+        }
+      ],
+      "limits": "Shared presentation only, separate original course-v2 and free PostgreSQL3.0/3.1 authorities. No World/commands/receipts/schema/rubric/first-help-retry/XP change, no migration or external database. Public backend503 is accepted; local/CI actual PG verification remains distinct. Human SME/learning/UX/screen-reader/security validation unperformed."
+    },
+    "savvyshark": {
+      "checks": [
+        {
+          "path": "src/features/portal/guide-recovery.tsx"
+        },
+        {
+          "path": "tests/e2e/shared-portal.spec.ts"
+        }
+      ],
+      "limits": "Shared presentation only, separate original course-v2 and free PostgreSQL3.0/3.1 authorities. No World/commands/receipts/schema/rubric/first-help-retry/XP change, no migration or external database. Public backend503 is accepted; local/CI actual PG verification remains distinct. Human SME/learning/UX/screen-reader/security validation unperformed."
+    },
+    "visual-accessibility": {
+      "checks": [
+        {
+          "path": "tests/e2e/shared-portal.spec.ts"
+        },
+        {
+          "path": "src/features/portal/presentation.css"
+        }
+      ],
+      "limits": "Shared presentation only, separate original course-v2 and free PostgreSQL3.0/3.1 authorities. No World/commands/receipts/schema/rubric/first-help-retry/XP change, no migration or external database. Public backend503 is accepted; local/CI actual PG verification remains distinct. Human SME/learning/UX/screen-reader/security validation unperformed."
+    },
+    "independent-final-audit": {
+      "checks": [
+        {
+          "path": "docs/SHARED_PORTAL_EXPERIENCE.md"
+        },
+        {
+          "path": "docs/quality/PR63_FINAL_AUDIT.md"
+        }
+      ],
+      "limits": "Shared presentation only, separate original course-v2 and free PostgreSQL3.0/3.1 authorities. No World/commands/receipts/schema/rubric/first-help-retry/XP change, no migration or external database. Public backend503 is accepted; local/CI actual PG verification remains distinct. Human SME/learning/UX/screen-reader/security validation unperformed."
+    },
+    "delivery": {
+      "checks": [
+        {
+          "path": "docs/SHARED_PORTAL_EXPERIENCE.md"
+        }
+      ],
+      "limits": "Shared presentation only, separate original course-v2 and free PostgreSQL3.0/3.1 authorities. No World/commands/receipts/schema/rubric/first-help-retry/XP change, no migration or external database. Public backend503 is accepted; local/CI actual PG verification remains distinct. Human SME/learning/UX/screen-reader/security validation unperformed."
+    }
+  },
   "humanReview": {
     "sme": "unperformed",
-    "learning": "unperformed"
+    "learning": "unperformed",
+    "ux": "unperformed",
+    "screenReader": "unperformed",
+    "security": "unperformed"
   },
   "visualEvidence": [
     {
-      "path": "docs/reviews/evidence/pr62/network-form-1024-500.png",
-      "viewport": "1024x500",
+      "path": "docs/reviews/evidence/pr63/after/free-v3-list-1440-900.png",
+      "viewport": "1440x900",
       "inspected": true,
-      "observation": "Actual server-backed1024x500 rule form, full field names and visible priority focus; normal vertical scroll retains all controls, no document overflow, Axe0/reduced motion. No packet result shown. Updated actual image shows qualified NSG scope after independent minor correction."
+      "observation": "Actual PG/native UI: shared header/search/navigation, actual scope-filtered table and one RG. Compared with actual before and unchanged course layout; capability subset honest."
     },
     {
-      "path": "docs/reviews/evidence/pr62/nsg-rules-1440.png",
-      "viewport": "1440x960",
+      "path": "docs/reviews/evidence/pr63/after/free-v3-detail-1024-500.png",
+      "viewport": "1024x500",
       "inspected": true,
-      "observation": "Actual NSG resource with parent scope, stored custom rule and separately expanded read-only default references. Existing Portal composition retained; symbolic tags not resolved."
+      "observation": "Actual local PG RG: contextual title, same resource-menu/Overview/Properties shell and single combined child table. All controls remain accessible by ordinary scroll/drawer, no document overflow."
+    },
+    {
+      "path": "docs/reviews/evidence/pr63/after/free-v3-create-1024-500.png",
+      "viewport": "1024x500",
+      "inspected": true,
+      "observation": "Actual controlled Review/Create form with shared action component. Original field set/server request retained; compact primary Review and cancellation, no fictive command or status."
+    },
+    {
+      "path": "docs/reviews/evidence/pr63/after/course-v2-detail-1440-900.png",
+      "viewport": "1440x900",
+      "inspected": true,
+      "observation": "Actual original v2 RG through native Create, same header/menu/table primitives; original learning and receipt callbacks remain. Pre-existing focused title outline retained, not claimed fixed."
+    },
+    {
+      "path": "docs/reviews/evidence/pr63/shared-review-focus-1024-500.png",
+      "viewport": "1024x500",
+      "inspected": true,
+      "observation": "Final actual immediate Review after native explicit-action scroll: validated-only copy, readable expected command and visible original Create abovefooter BEFORE keyboard Tab. Compared with retained initial and insufficient focus-only checkpoints. No command committed by Review."
     }
   ],
   "verification": [
     {
-      "command": "npx vitest run src/laboratory-networking.test.ts",
+      "command": "npx vitest run src/features/laboratory/portal-adapter.test.ts src/shared-portal-preservation.test.ts src/laboratory-networking-preservation.test.ts src/laboratory-v3-preservation.test.ts src/features/landing/preservation.test.ts",
       "result": "passed",
-      "details": "First50 pure domain cases passed; new pinned golden and complete rerun pending."
+      "details": "25passed5files3.43s; actual bounded before/after pins, all other original bytes and callbacks, no mutation in projections. Full check renews after last common-action-only correction."
     },
     {
-      "command": "npx vitest run src/laboratory-networking.integration.test.ts",
+      "command": "npx playwright test --config playwright.desktop.config.ts tests/e2e/laboratory-server.spec.ts tests/e2e/laboratory-networking.spec.ts tests/e2e/portal-fidelity.spec.ts --project desktop-chromium",
+      "result": "failed",
+      "details": "First broader17passed1failed3.2m; visible model-note selector restored after moving to footer. Subsequent combined all15 Storage/network cases passed. Original5Portal fidelity cases passed. Other initial new-test failures retained in verification.json, never relabelled passed."
+    },
+    {
+      "command": "npx playwright test --config playwright.desktop.config.ts tests/e2e/shared-portal.spec.ts tests/e2e/challenge-return.spec.ts tests/e2e/practical-missions.spec.ts tests/e2e/vm-debrief.spec.ts --grep 'shared Portal|Computing real Web lab|denied durable aid fails|Service Types PaaS:|independent mission Journal|VM debrief distinguishes'",
       "result": "passed",
-      "details": "6 real PostgreSQL tests passed including actual001→002 isolated migration/repeat and no original payload changes."
+      "details": "Actual scoped grep documented in verification.json/log:10passed1.9m0retries;5new shared mode journeys and original Computingreturn/deniedaid/PaaS/independentJournal/VMdebrief. Not a full-profile run."
+    },
+    {
+      "command": "npx playwright test --config playwright.desktop.config.ts tests/e2e/shared-portal.spec.ts tests/e2e/laboratory-server.spec.ts tests/e2e/laboratory-networking.spec.ts --grep 'shared Portal actual course|actual Storage chain|actual VNet two|short desktop keyboard|server Laboratory compact'",
+      "result": "passed",
+      "details": "Actual scoped grep retained in verification.json/log:7passed53.1s0retries after common-action refinement, full native Storage/Networking chains, original course/new free RG create/reset, compact keyboard/focus/Axe/reduced-motion both existing witnesses."
+    },
+    {
+      "command": "npm run test:e2e:plan",
+      "result": "passed",
+      "details": "409=369desktop+40compact;738optionallegacy; retains original404controls and all workers/retries/timeouts/skips. Complete candidate execution remains pending."
+    },
+    {
+      "command": "Actual production paired capture/native PostgreSQL",
+      "result": "passed",
+      "details": "All24 actual PNGs visually inspected; before12/after12 at1440x900/1024x500. Same synthetic RG, real original receipts, course bytes unchanged, no pageerrors or document overflow. After source hashes in evidence record."
     },
     {
       "command": "npm run test:e2e:desktop",
       "result": "pending",
-      "details": "Authoritative full404 =365desktop+39compact after the independent selector-scope correction; retains all397 previous executions/settings. No targeted run is full candidate proof."
+      "details": "Complete authoritative409candidate CI pending. No targeted/plan/baseline result is full regression proof."
     },
     {
-      "command": "npx vitest run src/laboratory-networking.test.ts src/laboratory-networking.integration.test.ts src/laboratory-networking-preservation.test.ts src/laboratory-v3.test.ts src/laboratory-v3.integration.test.ts src/laboratory-v3-preservation.test.ts src/features/landing/preservation.test.ts",
+      "command": "npm run check",
       "result": "passed",
-      "details": "111passed in7files,3.08s; prior2preservation failures retained in verification.json; exact historical assertion bodies restored."
+      "details": "Final author production check exit0:843Vitest/68files including actual local PostgreSQL integration,24Node,503curriculum; TypeScript/lint/format/docs/quality/AZ900/assets/legacy and production build all passed. No changed thresholds or execution settings. Log /workspace/azurelab-pr63/full-check.log."
     },
     {
-      "command": "npx playwright test --config playwright.desktop.config.ts tests/e2e/laboratory-networking.spec.ts tests/e2e/laboratory-server.spec.ts tests/e2e/premium-landing.spec.ts",
+      "command": "npm run check",
+      "result": "passed",
+      "details": "Renewed after both independent Review corrections:843Vitest/68files,24Node,503curriculum and all static/quality/assets/build gates passed exit0. No command/rubric/history change. /workspace/azurelab-pr63/full-check-renewed.log."
+    },
+    {
+      "command": "npx playwright test --config playwright.desktop.config.ts tests/e2e/shared-portal.spec.ts tests/e2e/laboratory-server.spec.ts tests/e2e/laboratory-networking.spec.ts --grep 'shared Portal|actual Storage chain|actual VNet two'",
+      "result": "passed",
+      "details": "Final Review discovery/copy/heading correction:7passed42.3s0retries, realPG Storage+Networking+all5shared-mode cases. Requires immediate Create fully inviewport abovefooter BEFORE Tab, focusedh2, Review Axe0, no created-copy/no World write; earlier focus-only result was insufficient and retained as negative image."
+    },
+    {
+      "command": "npm run check",
+      "result": "passed",
+      "details": "Final after actual immediate Review discovery fix:843Vitest/68files,24Node,503curriculum and all TypeScript/lint/format/docs/quality/AZ900/assets/legacy/production-build gates passed exit0. RealPG integration included. Log /workspace/azurelab-pr63/full-check-final.log."
+    },
+    {
+      "command": "Independent initial audit: focused Vitest preservation/projection controls",
+      "result": "passed",
+      "details": "Separate reviewer initial25passed/5files2.62s exit0; /workspace/azurelab-pr63/audit/vitest.log. Original bytes,14declared pins/callbacks, deep-frozen projection and landing preservation. Renewed final25passed2.37s separately recorded."
+    },
+    {
+      "command": "Independent initial audit: focused production browser controls",
+      "result": "passed",
+      "details": "Actual command/grep in docs/quality/PR63_FINAL_AUDIT.md and /workspace/azurelab-pr63/audit/browser-targeted.log:10passed1.4m1worker0retries, realPG;5shared cases plus old keyboard/assistance/immutable-result/malformed-store, staleguide, lostresponse-idempotency and staleworkspace controls;2compact. Not full409."
+    },
+    {
+      "command": "Independent initial native Review Axe/discovery probe",
       "result": "failed",
-      "details": "Targeted grep of15:14passed+1compact screenshot/trace stall. No false full success. Actual records/images retained; causes/tests/settings unchanged; independent retest/fullCI pending."
+      "details": "Actual heading-order moderate plus immediate1024x500 Create belowfold; logs/Axe/image retained under /workspace/azurelab-pr63/audit and initial evidence PNG. Complementary native probe explicitly completed-with-minor-heading-order-finding; no relabelled pass. Corrected and independently rechecked only after new stamp."
     },
     {
-      "command": "npm run check",
+      "command": "Independent post-stamp Vitest preservation/projection controls",
       "result": "passed",
-      "details": "Full final author run exit0:833Vitest/66files,24Node,503curriculum,TypeScript/lint/format/docs/quality/AZ900/assets/legacy and production build. No thresholds/settings changed."
+      "details": "25passed/5files2.37s exit0 at17:30:56 after implementationFinished17:30:36.856; /workspace/azurelab-pr63/audit/vitest-final.log. Exact source snapshot62files e6f5c97538a49b524d9ceb9327a35acdf7a4b553557692f78a2493a470da085e."
     },
     {
-      "command": "npx playwright test --config playwright.desktop.config.ts tests/e2e/laboratory-networking.spec.ts --project compact-chromium",
+      "command": "Independent post-stamp native Review real-PG browser follow-up",
       "result": "passed",
-      "details": "Unmodified isolated compact recheck1/1passed11.0s,0retries; actual3sizes/keyboard/focus/Axe0/reduced-motion/reset/through. Previous screenshot/trace stall retained as unresolved; not claimed causally fixed."
+      "details": "/workspace/azurelab-pr63/audit/review-followup.json at17:33:03.551Z:1024x500 reducedmotion, accepted+invalid-name Review semanticfocusedh2/Axe0/no-write; immediate Create y376.1-403.0 abovefooter459 beforeTab, Tabfocus/Entercommit; raw preview/receipt/entry exactly original, coursebytes identical, no pageerrors. Initial audit-script state-before-Start readiness error retained separately; original visible-workspace wait corrected probe only."
     },
     {
-      "command": "npm run check",
+      "command": "Independent fingerprint/original bytes/source and asset provenance/visual inspection",
       "result": "passed",
-      "details": "Renewed after independent selector-scope correction exit0:833Vitest/66files,24Node,503curriculum, unchanged static/quality thresholds and production build."
+      "details": "Final62file normalized snapshot independently reconstructed against26408f5bcb77fdc2aa5bde5027c1959f14d6c928;932originalfiles14declaredpins8course+4Labhandlers unchanged. Fresh3MicrosoftHTTP200 bodies exact source receipt hashes;4SVGs archive-byte-exact. Viewed24pairs +12refreshedafter +finalimmediateReview/nativeimages; pairedcapture pre-scroll checkpoint exact reconstructed source bindings, finalReview separately current. /workspace/azurelab-pr63/audit/integrity.json, final-delta.json, provenance.json, source-retrieval.json."
     },
     {
-      "command": "npx playwright test --config playwright.desktop.config.ts tests/e2e/laboratory-networking.spec.ts --grep 'duplicate parent names|short desktop'",
+      "command": "Independent npm run test:e2e:plan",
       "result": "passed",
-      "details": "3/3passed29.6s0retries on actual production build: new duplicate RG/VNet/subnet/NSG scope selection and both desktop/compact short keyboard/focus/Axe/reset/replay witnesses. All previous tests/settings retained."
+      "details": "409=369desktop+40compact; optionallegacy738. /workspace/azurelab-pr63/audit/plan.log; collection only, original404retained; no retries/workers/timeouts/skips weakened."
     },
     {
-      "command": "npx playwright test --config playwright.desktop.config.ts tests/e2e/laboratory-networking.spec.ts --grep 'duplicate parent names|short desktop keyboard|existing3.0 cookie'",
+      "command": "Independent npm run docs:check and npm run quality:check",
       "result": "passed",
-      "details": "Independent post-renewal audit:4/4passed30.4s, one worker,0retries; new qualified duplicate scopes, desktop/compact short keyboard/focus/Axe and original3.0 cookie/history/reset. Targeted evidence only; not complete404CI."
+      "details": "Post-review actual docs check177 Markdown/local links and quality seven-gate references valid, exit0. Logs /workspace/azurelab-pr63/audit/docs-final.log and quality-final.log. No final/human approval inferred by ordinary quality check."
     },
     {
-      "command": "npx vitest run src/laboratory-networking-preservation.test.ts src/laboratory-v3-preservation.test.ts src/features/landing/preservation.test.ts",
-      "result": "passed",
-      "details": "Independent post-renewal audit:15passed3files1.95s; original assertion bodies and protected bytes retained. Initial broader113tests/6browsers/independent SQL and migration controls apply to byte-identical domain/backend paths."
-    },
-    {
-      "command": "npx playwright test --config playwright.desktop.config.ts tests/e2e/laboratory-networking.spec.ts",
-      "result": "passed",
-      "details": "After actual CI99 selector/navigation failure403passed+1failed, complete targeted network file7/7passed52.7s0retries. Added target-heading wait and exact original-rule receipt href assertion; no application/domain/SQL or prior test/settings changes."
-    },
-    {
-      "command": "npm run check",
-      "result": "passed",
-      "details": "Renewed after bounded CI test synchronization correction:833Vitest/24Node/503curriculum and all mandatory static/quality/build checks exit0. New complete exact-head404CI required; first failed CI retained."
-    },
-    {
-      "command": "npx playwright test --config playwright.desktop.config.ts tests/e2e/laboratory-networking.spec.ts --project desktop-chromium --grep 'actual VNet two subnets NSG rule association Storage parent receipts and reload share one authoritative World'",
-      "result": "passed",
-      "details": "Independent renewed CI-correction audit:1/1passed9.4s,one worker0retries,actual PostgreSQL production path; intended committed rule and original receipt identity, reload/Back/Forward/Storage/learning-byte assertions retained. Targeted only, not404CI."
-    },
-    {
-      "command": "npx vitest run src/laboratory-networking-preservation.test.ts src/laboratory-v3-preservation.test.ts src/features/landing/preservation.test.ts",
-      "result": "passed",
-      "details": "Independent renewed CI-correction audit15passed3files1.64s; exact5added test lines reconstruct entire8b722953 test body, every runtime/settings/source/scope/gate byte unchanged;33file09451ace… fingerprint verified."
+      "command": "Independent npm run quality:release -- --base 26408f5bcb77fdc2aa5bde5027c1959f14d6c928",
+      "result": "failed",
+      "details": "Actual strict preflight exits1 with exactly one requirement: Missing executed full browser profile (npm run test:e2e or candidate-bound npm run test:e2e:desktop). Review/snapshot/source checks report no errors. Full409candidate delivery remains pending, no strict pass claimed. /workspace/azurelab-pr63/audit/strict-preflight.log."
     }
   ],
   "review": {
     "status": "complete",
-    "fingerprint": "09451ace7559668f2a5e6dc84aa7edc3fcb8bc3bf31fb5b574f80371048f9f48",
+    "fingerprint": "e6f5c97538a49b524d9ceb9327a35acdf7a4b553557692f78a2493a470da085e",
     "reviewer": {
-      "id": "/root/pr62_independent_final_audit",
+      "id": "/root/pr63_shared_portal_final_audit",
       "kind": "agent"
     },
-    "started": "2026-11-06T15:55:35.123Z",
+    "started": "2026-11-06T17:30:54.561Z",
     "domains": {
       "content": {
-        "finding": "Bounded CI-correction follow-up: all production copy/source claim records and scope metadata are byte-identical to8b722953. Official-source/limits audit retained; contract and verification now truthfully preserve actual failed404CI and five-line synchronization correction. No new source/human approval claimed.",
+        "finding": "Fresh HTTP200 retrieval of all three Microsoft sources exactly matches receipt hashes; Portal workflow and four archive-exact V24 SVGs support bounded training presentation. Accepted Review wording conflicted with no-write semantics and is now corrected without raw receipt changes. No human SME/legal approval.",
         "evidence": [
           {
-            "path": "docs/LABORATORY_NETWORKING_PART_A.md"
+            "path": "docs/reviews/evidence/pr63/sources.json"
           },
           {
-            "path": "docs/reviews/evidence/pr62/verification.json"
+            "path": "docs/SHARED_PORTAL_EXPERIENCE.md"
           },
           {
-            "path": "src/content/laboratory-networking-nb.ts"
+            "path": "src/content/portal-workspace-nb.ts"
           },
           {
-            "path": "docs/quality/PR62_FINAL_AUDIT.md",
-            "marker": "Post-CI test synchronization follow-up"
+            "path": "docs/quality/PR63_FINAL_AUDIT.md"
           }
         ]
       },
       "technical": {
-        "finding": "Every runtime/UI/domain/version-dispatch/repository/server/SQL byte unchanged. Prior independent113tests,12235oracle/SQL controls and full original001/Storage-golden/002 replay proof remain applicable. New test waits exact rule heading and strict receipt href equal to persisted original rule origin; actual1/1production/PostgreSQL browser9.4s passed. No ID/payload/model/transaction/history changes.",
+        "finding": "Actual shared presentation has no authority imports; original course controller and server callbacks remain original (8+4 write-bearing JSX handlers checked). Ephemeral projection keeps original sources/NSG authority. Independent real-PG probes prove denied/accepted Review no-write, stale/pending safety, exact raw receipt and course-byte isolation; no engine/schema/migration.",
         "evidence": [
           {
-            "path": "src/laboratory/engine.ts"
+            "path": "src/features/portal/presentation.tsx"
           },
           {
-            "path": "src/laboratory/v31/domain.ts"
+            "path": "src/features/laboratory/portal-adapter.tsx"
           },
           {
-            "path": "src/laboratory/v3/repository.ts"
+            "path": "src/features/laboratory/portal-adapter.test.ts"
           },
           {
-            "path": "database/laboratory-v3/002-networking.sql"
+            "path": "tests/e2e/laboratory-server.spec.ts"
           },
           {
-            "path": "tests/e2e/laboratory-networking.spec.ts"
-          },
-          {
-            "path": "docs/quality/PR62_FINAL_AUDIT.md",
-            "marker": "Post-CI test synchronization follow-up"
+            "path": "docs/quality/PR63_FINAL_AUDIT.md"
           }
         ]
       },
       "visual": {
-        "finding": "CSS/components/assets/actual stamped screenshots and prior desktop/compact keyboard/Axe/short-height evidence unchanged. Affected actual normal browser path passed1/1,9.4s0retries, with stricter unique heading and original receipt identity. No first/nth bypass. Existing compact default-table wrapping/scroll limitation and human UX/screen-reader gaps retained; no fresh full visual audit inferred.",
+        "finding": "Viewed all24 paired images and all12 refreshed after images, final Review images and independent live layouts. Final 1024x500 immediate Review h2 y147.6/Create y376.1-403.0 abovefooter459 beforeTab, then keyboard focused; accepted/denied Axe0/reduced-motion. Initial heading-order/discovery issue fixed; inherited title-focus segment/long-form scrolling accepted. Paired manifest accurately binds pre-scroll checkpoint.",
         "evidence": [
           {
-            "path": "docs/reviews/evidence/pr62/network-form-1024-500.png"
+            "path": "docs/reviews/evidence/pr63/images.json"
           },
           {
-            "path": "docs/reviews/evidence/pr62/nsg-rules-1440.png"
+            "path": "docs/reviews/evidence/pr63/after/result.json"
           },
           {
-            "path": "tests/e2e/laboratory-networking.spec.ts"
+            "path": "docs/reviews/evidence/pr63/shared-review-focus-1024-500.png"
           },
           {
-            "path": "docs/quality/PR62_FINAL_AUDIT.md",
-            "marker": "Post-CI test synchronization follow-up"
+            "path": "docs/reviews/evidence/pr63/shared-review-1024-500.png"
+          },
+          {
+            "path": "docs/quality/PR63_FINAL_AUDIT.md"
           }
         ]
       },
       "assessment": {
-        "finding": "No production course/v2/locale/rubric/first-help-retry-abandon/store/XP change. Exact reconstruction proves every pre-correction assertion and interaction body preserved; five additions strengthen ready-resource/original-receipt verification. Independent15preservation tests1.64s passed. No old evidence reinterpretation or new assessment/credit.",
+        "finding": "932 original files byte-checked outside14 explicit presentation/test pins; no rubric/items/course/store/XP changes. Actual independent-assessment cross-tab draft remains identical after free create; original reference-aid and immutable first-result controls pass. Historical import adapters transparently verify before/after pins and do not substitute for browser behavior; no human transfer validation.",
         "evidence": [
           {
-            "path": "src/laboratory-networking-preservation.test.ts"
+            "path": "docs/reviews/evidence/pr63/preservation.json"
           },
           {
-            "path": "src/features/landing/preservation.test.ts"
+            "path": "tests/pr63-preservation.ts"
           },
           {
-            "path": "tests/e2e/laboratory-networking.spec.ts"
+            "path": "tests/e2e/shared-portal.spec.ts"
           },
           {
-            "path": "docs/quality/PR62_FINAL_AUDIT.md",
-            "marker": "Post-CI test synchronization follow-up"
+            "path": "tests/e2e/portal.spec.ts"
+          },
+          {
+            "path": "docs/quality/PR63_FINAL_AUDIT.md"
           }
         ]
       },
       "guidance": {
-        "finding": "Guidance/mission/mascot/independent guards, session Start and3.0/new3.1 boundary all byte unchanged. Test synchronization creates no runtime guidance, assistance, implicit upgrade or reward. Corrected actual path retains assertion that azurelab localStorage bytes remain unchanged. Prior deep guidance/preservation evidence retained explicitly.",
+        "finding": "Caller-owned course slots retain original guide recovery, mission/coaches/Journal assistance boundaries and handlers. Free adapter mounts no PortalWorkspace/learning hooks or targets while unchanged root providers remain. Fresh old keyboard/practice/aid/first-result/malformed-store/stale-context browser controls pass; free help Escape/focus and no-assistance isolation verified. No human screen-reader/learning approval.",
         "evidence": [
           {
-            "path": "src/features/course/mission-context.ts"
+            "path": "src/features/portal/portal.tsx"
           },
           {
             "path": "src/features/laboratory/laboratory.tsx"
           },
           {
-            "path": "src/laboratory-networking-preservation.test.ts"
+            "path": "tests/e2e/learning-flow-guidance.spec.ts"
           },
           {
-            "path": "tests/e2e/laboratory-networking.spec.ts"
+            "path": "tests/e2e/shared-portal.spec.ts"
           },
           {
-            "path": "docs/quality/PR62_FINAL_AUDIT.md",
-            "marker": "Post-CI test synchronization follow-up"
+            "path": "docs/quality/PR63_FINAL_AUDIT.md"
           }
         ]
       },
       "regression": {
-        "finding": "Direct GitHub job127970841434 confirms run99 failed403passed+1failed27.6m; original plus2retries each resolved2receipt links and strict release skipped. No false success receipt. Exact five-line reconstruction/33hash/fingerprint/metadata controls passed. Independent affected1browser9.4s0retries+15preservation1.64s passed; author7network52.7s and full833/24/503/build logs inspected. New exact-head404CI/strict and corrected-SHA external delivery remain pending; screenshot/Compute/Axe causes unresolved.",
+        "finding": "Independent62-file fingerprint e6f5c975... matches renewed post-author stamp;25 preservation tests passed again and native real-PG Review recheck passed. Initial10 targeted browser controls passed without retries, plus retained real Review failure/fix evidence. Plan409/369desktop/40compact retains404controls/settings; complete candidate CI/strict and anonymous preview still pending; prior flake causes unresolved.",
         "evidence": [
           {
-            "path": "docs/reviews/evidence/pr62/verification.json"
+            "path": "src/shared-portal-preservation.test.ts"
           },
           {
-            "path": "tests/e2e/laboratory-networking.spec.ts"
-          },
-          {
-            "path": "src/laboratory-networking-preservation.test.ts"
+            "path": "docs/reviews/evidence/pr63/verification.json"
           },
           {
             "path": "playwright.desktop.config.ts"
           },
           {
-            "path": "docs/quality/PR62_FINAL_AUDIT.md",
-            "marker": "Post-CI test synchronization follow-up"
+            "path": "docs/quality/PR63_FINAL_AUDIT.md"
           }
         ]
       }
     },
     "findings": [
       {
-        "id": "PR62-IFA-01",
+        "id": "PR63-IFA-01",
         "severity": "minor",
         "status": "fixed",
-        "description": "Initial actual same-name NSG choices in distinct RGs exposed only names; valid scope could not be distinguished in networking parent controls.",
-        "fix": "Qualify networking RG labels with subscription, VNet/NSG labels with RG/subscription/region, and subnet labels with the qualified parent VNet. Exact reconstruction confirms option IDs/state/command payloads and original3.0 Storage controls unchanged.",
+        "description": "Free Review h3 skipped heading level (Axe heading-order); at1024x500 immediate Create was belowfold and focus body. Focus-only intermediate still obscured result/commit discovery.",
+        "fix": "Use h2 with explicit instant native scroll to reading start, focus preventScroll and header margin. Existing compact witness now checks immediate Create bounds before Tab plus Axe0/keyboard/no-write.",
         "retests": [
-          "Independent post-stamp4/4actual browsers30.4s0retries: same-name RG/VNet/subnet/NSG case confirms explicit intended association, desktop/compact short keyboard/Axe and legacy-cookie/history/reset.",
-          "Independent15preservation tests1.95s, exact original presenter/test hash reconstruction,33file final snapshot and metadata checks; refreshed1024x500 screenshot inspected."
+          "Independent post-stamp production probe 2026-11-06T17:33:03.551Z: accepted/rejected Review Axe0; Create y376.1-403.0 abovefooter459 beforeTab, then Tabfocus and Entercommit.",
+          "Author final scoped7passed42.3s0retries; fullcheck843Vitest/24Node/503curriculum/build exit0."
         ]
       },
       {
-        "id": "PR62-IFA-02",
+        "id": "PR63-IFA-02",
+        "severity": "minor",
+        "status": "fixed",
+        "description": "Accepted preflight inherited created wording despite actual revision0/entries0 and no-write note.",
+        "fix": "Display-only validation wording now explicitly says only Create/Apply saves; original rejected code/field and raw receipts remain unchanged.",
+        "retests": [
+          "Independent accepted/denied Review exact-state equality, edited-preview invalidation; committed receipt deep-equals accepted preview, expanded entry equals actual server entry, course bytes unchanged.",
+          "Post-stamp25preservation tests passed2.37s; actual final7browser controls include no-created-copy assertion."
+        ]
+      },
+      {
+        "id": "PR63-IFA-03",
         "severity": "minor",
         "status": "accepted-limitation",
-        "description": "At800x700, standard-rule long names/directions wrap and comparing the rightmost Access column requires horizontal scrolling. The named region is focusable and keyboard scrollable; all six immutable rows remain reachable with no document overflow. Human accessibility/UX review is unperformed."
+        "description": "Inherited course compact title focus-outline segment remains; long forms need normal vertical scrolling and bounded NSG default reference horizontal scrolling. Baseline comparison confirms existing behavior; no human UX/current-live-Portal parity approval."
       },
       {
-        "id": "PR62-IFA-03",
-        "severity": "note",
-        "status": "open",
-        "description": "Author14pass+1compact screenshot/trace stall remains causally unexplained. Author isolated compact and initial6/6plus renewed4/4independent runs passed without retry; none proves a causal fix. Existing Compute/Axe timing uncertainties remain separate; no worker/retry/timeout/skip changes."
-      },
-      {
-        "id": "PR62-IFA-04",
-        "severity": "note",
-        "status": "open",
-        "description": "Actual Quality run99 on8b722953 failed403passed+1new-network-selector failure27.6m; GitHub independently confirms strict release skipped. Corrected complete exact-head404CI/strict and anonymous new-SHA delivery remain pending. Local targeted passes do not establish those results. Public persistent networking remains deferred without an authorized backend; no external infrastructure/credential change."
-      },
-      {
-        "id": "PR62-IFA-05",
+        "id": "PR63-IFA-04",
         "severity": "note",
         "status": "accepted-limitation",
-        "description": "Existing anonymous3.0 users intentionally retain their original cookie, Storage/history and reset model; networking requires a separately started fresh browser session. No implicit upgrade, switcher, cookie replacement or v2 migration is supplied. Human SME/security/learning/novice/UX/screen-reader/transfer validation remains unperformed."
+        "description": "Shared presentation preserves differing actual service/command subsets and unchanged global provider tree. Free adapter does not mount course PortalWorkspace/bind learning context; future course-owned server workspace/evidence contract remains documentation only."
       },
       {
-        "id": "PR62-IFA-06",
-        "severity": "major",
-        "status": "fixed",
-        "description": "New main network browser case advanced from NSG to receipt before verifying committed rule view; strict receipt locator matched2links in actual complete CI initial attempt and both existing retries, failing404CI.",
-        "fix": "Exactly five additive test lines await unique visible allow-https heading and assert exact receipt href against original.world.securityRules[0].origin before original click. All old assertion bodies, interactions and runtime/settings bytes independently reconstructed unchanged; no first/nth selection or weakened strictness.",
-        "retests": [
-          "Independent post-stamp actual main production/PostgreSQL browser1/1passed9.4s,0retries, including original rule receipt, reload, Back/Forward, shared Storage and unchanged learning bytes.",
-          "Independent15preservation tests3files1.64s passed; exact five-line original-body reconstruction,33file normalized fingerprint and all runtime/settings/metadata hashes passed.",
-          "Inspected direct GitHub failed job127970841434, author7/7network52.7s0retries and renewed full833Vitest/24Node/503curriculum/build logs. Complete corrected404CI remains pending."
-        ]
+        "id": "PR63-IFA-05",
+        "severity": "note",
+        "status": "accepted-limitation",
+        "description": "Complete409candidate CI/strict and anonymous deployed-candidate checks pending. Public persistent Laboratory and human reviews unperformed; expected public503 is not persistent Gate7. Prior PR62 landing transient/Compute-Axe/local artifact stall causes remain unresolved."
       }
     ],
     "report": {
-      "path": "docs/quality/PR62_FINAL_AUDIT.md",
-      "marker": "Post-CI test synchronization follow-up"
-    }
-  },
-  "gates": {
-    "source": {
-      "checks": [
-        {
-          "path": "docs/reviews/evidence/pr62/sources.json"
-        },
-        {
-          "path": "docs/LABORATORY_NETWORKING_PART_A.md"
-        }
-      ],
-      "limits": "Bounded local PostgreSQL simulator configuration only; no traffic, IP allocation, Azure API, new teaching/assessment/XP or external database. Frozen3.0 retained;3.1 only new explicit sessions. Public persistent networking Gate7 deferred by owner. Human SME/UX/security/learning validation unperformed."
-    },
-    "curriculum": {
-      "checks": [
-        {
-          "path": "src/laboratory-networking-preservation.test.ts"
-        }
-      ],
-      "limits": "Bounded local PostgreSQL simulator configuration only; no traffic, IP allocation, Azure API, new teaching/assessment/XP or external database. Frozen3.0 retained;3.1 only new explicit sessions. Public persistent networking Gate7 deferred by owner. Human SME/UX/security/learning validation unperformed."
-    },
-    "simulation": {
-      "checks": [
-        {
-          "path": "src/laboratory-networking.integration.test.ts"
-        },
-        {
-          "path": "src/laboratory-networking.test.ts"
-        },
-        {
-          "path": "database/laboratory-v3/002-networking.sql"
-        }
-      ],
-      "limits": "Bounded local PostgreSQL simulator configuration only; no traffic, IP allocation, Azure API, new teaching/assessment/XP or external database. Frozen3.0 retained;3.1 only new explicit sessions. Public persistent networking Gate7 deferred by owner. Human SME/UX/security/learning validation unperformed."
-    },
-    "savvyshark": {
-      "checks": [
-        {
-          "path": "src/features/course/mission-context.ts"
-        },
-        {
-          "path": "src/laboratory-networking-preservation.test.ts"
-        }
-      ],
-      "limits": "Bounded local PostgreSQL simulator configuration only; no traffic, IP allocation, Azure API, new teaching/assessment/XP or external database. Frozen3.0 retained;3.1 only new explicit sessions. Public persistent networking Gate7 deferred by owner. Human SME/UX/security/learning validation unperformed."
-    },
-    "visual-accessibility": {
-      "checks": [
-        {
-          "path": "tests/e2e/laboratory-networking.spec.ts"
-        },
-        {
-          "path": "docs/reviews/evidence/pr62/network-form-1024-500.png"
-        }
-      ],
-      "limits": "Bounded local PostgreSQL simulator configuration only; no traffic, IP allocation, Azure API, new teaching/assessment/XP or external database. Frozen3.0 retained;3.1 only new explicit sessions. Public persistent networking Gate7 deferred by owner. Human SME/UX/security/learning validation unperformed."
-    },
-    "independent-final-audit": {
-      "checks": [
-        {
-          "path": "docs/LABORATORY_NETWORKING_PART_A.md"
-        }
-      ],
-      "limits": "Bounded local PostgreSQL simulator configuration only; no traffic, IP allocation, Azure API, new teaching/assessment/XP or external database. Frozen3.0 retained;3.1 only new explicit sessions. Public persistent networking Gate7 deferred by owner. Human SME/UX/security/learning validation unperformed."
-    },
-    "delivery": {
-      "checks": [
-        {
-          "path": "docs/LABORATORY_NETWORKING_PART_A.md"
-        }
-      ],
-      "limits": "Bounded local PostgreSQL simulator configuration only; no traffic, IP allocation, Azure API, new teaching/assessment/XP or external database. Frozen3.0 retained;3.1 only new explicit sessions. Public persistent networking Gate7 deferred by owner. Human SME/UX/security/learning validation unperformed."
+      "path": "docs/quality/PR63_FINAL_AUDIT.md"
     }
   },
   "snapshot": {
     "files": {
-      "database/laboratory-v3/002-networking.sql": "64e41a6f786e8d1c8a7c0144655c3594745738b433949014c7252e9355f48a9d",
-      "docs/LABORATORY_NETWORKING_PART_A.md": "1d1c850331d8a2d4d2b62db9cafec762be6965137082d290e7e307d54498b774",
-      "docs/LABORATORY_V3_SERVER.md": "be5063c9bd6d077c23241cd729a102146404a4a89e7c513a1ba292f28fafd993",
-      "docs/PORTAL_CAPABILITY_MATRIX.md": "11a8b5323257b9015a0dd6241db0626715e0b4d6f0be55b6e4ebbedc129814c5",
-      "docs/reviews/evidence/pr62/laboratory30-golden.json": "c0df7f91144749f2e6b3fd77640819b57e5f151bad817f05733de6276166ccaa",
-      "docs/reviews/evidence/pr62/network-form-1024-500.png": "8eb964417f7067768897721c923613aa2e7ad5e60395c5a2b61dd23642eb6212",
-      "docs/reviews/evidence/pr62/network-form-1024-768.png": "f98132b581bc7a74db0d0c3a21835e24adbb6c80611aa2cb33dd81c8b4d6826a",
-      "docs/reviews/evidence/pr62/network-form-1440-900.png": "3602599f5fb96234cf3228d7778a69beb6a8667239c09c4e2c20ae3153a70d2f",
-      "docs/reviews/evidence/pr62/nsg-rules-1440.png": "fc2d7d7569609129210ac5a785eef67079e2bdfd0701175b7d623def457241d6",
-      "docs/reviews/evidence/pr62/preservation.json": "e9a3616c8501e1254f4d33109df20328de72f30b8f8056029683f28dc63b2e46",
-      "docs/reviews/evidence/pr62/sources.json": "6070e7275944237049bf4db23f94dacf88ed5d627683a0b26bfdfd4865e2a798",
-      "docs/reviews/evidence/pr62/subnet-associated-1440.png": "f87952a78a51e637320535bfde411c81269a6b6988a6b0483b6b90a8df69e917",
-      "docs/reviews/evidence/pr62/verification.json": "930f9ec3643f3cdf19d1c007c2d7223d8c83a8c1a41e04ba939f4fe424edf72e",
-      "playwright.desktop.config.ts": "0fb4dbf4eb9be6b88526b4b193b533e900e972f1a5f90c6f0787be904e5cf411",
-      "scripts/laboratory-db.mjs": "1b4af6ab7727135298ffe4d3d24fad4118f29c43a0ef00aba6f8e39eec32474b",
-      "src/content/laboratory-networking-nb.ts": "14f2e4a6e4c1cb2826549f278b4e98d94a26dfe3a977ca47137377f954feaadf",
-      "src/features/laboratory/laboratory.css": "1cd539e56f0ede0f5b8a92103da3765d272d1e2c4bb6107834f035c14b83d3f9",
-      "src/features/laboratory/laboratory.tsx": "f47e2c18ffe8b26bd0dc611aeb170d97c980fa3db01f41f921f682356029b8e8",
-      "src/features/laboratory/networking.tsx": "02432494c4559144316dc40c5cbfbb894cbd5e1facc9538bfc06d193dd627c77",
-      "src/features/landing/preservation.test.ts": "a46dcefb0e8229b8c5762f18b16899cd7fedc57467e134594c71a3d3eaedf065",
-      "src/laboratory-networking-preservation.test.ts": "52675643c65fc994e4b3790daf430cd54f7b7eea51b90c8ab3baba02203c76f6",
-      "src/laboratory-networking.integration.test.ts": "c6da172e9036dd193b66f1c096e16ab36dcd917f7f8e28a8f325d9cb9c38182f",
-      "src/laboratory-networking.test.ts": "37db94a9b59b7359da800a6b57bec031c38ca1e2936f4fcdaf077f544cc834d5",
-      "src/laboratory/engine.ts": "2d6eb79776168fd0eee4aa25ca059089a324abe5470436f470758cceb6743734",
-      "src/laboratory/v3/repository.ts": "d93c5b1f33a744e0fdce3963bcd96e01d77a9e4ed252ed666e4eb1185cce77e1",
-      "src/laboratory/v3/server.ts": "2b7df7fa168099e036a2531ff1c40fd5bec593f77b45bfa1ceef946fabe8e7b7",
-      "src/laboratory/v31/contract.ts": "2a90880ff98bfcaeaacb52bd2289b8feec6169e22204ed84a91f4cbbd85658fc",
-      "src/laboratory/v31/default-rules.ts": "6a22947d700039f7d149ef47de93927c41be2c7bb9b2b4f08a8687db66b29766",
-      "src/laboratory/v31/domain.ts": "ceff998659d2bf84f2b282fa883b98c0bd9eb97f752541123360a121a16caf61",
-      "src/laboratory/v31/ip.ts": "4c453e8fb982dc54dc08d4c2cab255ad9170c72f3e7bdb57391503d715c23c95",
-      "tests/e2e/laboratory-networking.spec.ts": "5d8785f5911af9a6d05672fe9494d2aada45595b4730e0ad3b5989b0e3971d6e",
-      "tests/pr61-preservation.ts": "c6caf3cbcc56e2fe63a44e430d4f3ad5bd5125d96e865265c18b0c2a3642c280",
-      "tests/pr62-preservation.ts": "24e6d105ded8323cee736078b785a7eb107a417c8408feb3021ed39a6286e0c5"
+      "AGENTS.md": "f4185de6d51f33cd11847f2b7e516426d2d7306a213e9c540b17a21167282e65",
+      "docs/SHARED_PORTAL_EXPERIENCE.md": "d8150b8a178417fe83784f8a0a9c2c957a68f891d14a3a8bd1d379f16e2a633d",
+      "docs/reviews/evidence/pr63/after/course-v2-create-1024-500.png": "94c63174d0009692b703a3fa89c8608053087f438cdb14173fe73aa26ddbd13c",
+      "docs/reviews/evidence/pr63/after/course-v2-create-1440-900.png": "35a6c6bbfc966a964394e63ef36195b2375562fc200336c882f1bc6300391642",
+      "docs/reviews/evidence/pr63/after/course-v2-detail-1024-500.png": "16da61cca2a74b96b67785b115dae3ef48d51e07e065b32bd85077525e056bed",
+      "docs/reviews/evidence/pr63/after/course-v2-detail-1440-900.png": "0e558883ef11c413931017c39c440ed1b2df8461edd535d87fa94ca5f2229ab2",
+      "docs/reviews/evidence/pr63/after/course-v2-list-1024-500.png": "d460dd3b9bbae2696466eb2b6820c84e28a0dd9a75c6feb58d465262df8f04a6",
+      "docs/reviews/evidence/pr63/after/course-v2-list-1440-900.png": "cd72ab06bfd755b1a3d21334b7c76ecb8562d2cda11af0f30f6547084cc0431c",
+      "docs/reviews/evidence/pr63/after/free-v3-create-1024-500.png": "49dcc62fb89d3ab2f1d5722314c036dd2ee05ebe0176c01e902d62f03df9d29a",
+      "docs/reviews/evidence/pr63/after/free-v3-create-1440-900.png": "cc429988c3898c3e733aa4d704dc80babeb042936e416288e7c57f6ac3df5df9",
+      "docs/reviews/evidence/pr63/after/free-v3-detail-1024-500.png": "f00ce0cbf68835cc6af220044dd7e77dd4dfc18a930e0b8f6fb5502908ef554d",
+      "docs/reviews/evidence/pr63/after/free-v3-detail-1440-900.png": "12696873cd0fdd4c1daa9885d03a7913836e36655f351c6bc6d4b9563f09ba39",
+      "docs/reviews/evidence/pr63/after/free-v3-list-1024-500.png": "1daa2cba943593dfe701b8c2dc87315164480359085852e64557593cee1c3fcf",
+      "docs/reviews/evidence/pr63/after/free-v3-list-1440-900.png": "0326d97265d16acc23206bd60bed7ac6bfb80f4e129d2748e3f5d5a496709eaa",
+      "docs/reviews/evidence/pr63/after/result.json": "251c60794dbf664398cdef037135e624d2420cbc325fd0a9ba56ad7ab08e9ba2",
+      "docs/reviews/evidence/pr63/before/course-v2-create-1024-500.png": "64220ef3f42ebca4410324a251927cf9aadb4aed082a2a383d664323de435d3e",
+      "docs/reviews/evidence/pr63/before/course-v2-create-1440-900.png": "ec26ed1b557654879c1b78ab3ad157998fda640786259332c9dc47dcf3a9211b",
+      "docs/reviews/evidence/pr63/before/course-v2-detail-1024-500.png": "1dd45152c7b87aba89d4c7278f1d296e1c613bc82010aa09db1cbf9b5814a7aa",
+      "docs/reviews/evidence/pr63/before/course-v2-detail-1440-900.png": "20352dd9de782400bac753e2c351ad2c8670cb45ed4c145ea09b1e486ee932c2",
+      "docs/reviews/evidence/pr63/before/course-v2-list-1024-500.png": "d460dd3b9bbae2696466eb2b6820c84e28a0dd9a75c6feb58d465262df8f04a6",
+      "docs/reviews/evidence/pr63/before/course-v2-list-1440-900.png": "d5b3bb0d79bb66efec532df562b921a12f4f1b4ac46ddc27fa4878b1d91b59a7",
+      "docs/reviews/evidence/pr63/before/free-v3-create-1024-500.png": "4f7dee0d1ca5c5def54d0afc9bd10bf081be5393725ef431291b5183ffd28921",
+      "docs/reviews/evidence/pr63/before/free-v3-create-1440-900.png": "d0c9bb8de8bf703658c14fa3d7bd18a7c7183c7a4f8f19647263961c8256b99a",
+      "docs/reviews/evidence/pr63/before/free-v3-detail-1024-500.png": "0c642c430d449025416e4e5785962d4cc96aadfa80d96e63214e059146195fea",
+      "docs/reviews/evidence/pr63/before/free-v3-detail-1440-900.png": "733b574af1bcf98fd9e5482efacfeb34152d501e26c72ef524a68016e58f6453",
+      "docs/reviews/evidence/pr63/before/free-v3-list-1024-500.png": "034d2eb0da4225bfb538d13e211ded771cf804d0542335776820acc7a587de5f",
+      "docs/reviews/evidence/pr63/before/free-v3-list-1440-900.png": "dc2dfc4731facea5baa2663285b6d7cf238b5be132bbbd97cbdbf9d3f4a7aeb0",
+      "docs/reviews/evidence/pr63/before/result.json": "3393639cd0ee1fac04f230d021682efcb285ebfe9f0d2f8e1e2f4d627a0b5239",
+      "docs/reviews/evidence/pr63/images.json": "e43d8f8f1c0e449bcc0a51f59d65c16c11e365efc88da3be944ef6c428cee0b6",
+      "docs/reviews/evidence/pr63/preservation.json": "ac42bc010286d92a039bf6bf52289e07b918d8aa6f3d885d4cf4351065e4707e",
+      "docs/reviews/evidence/pr63/review-focus-only-intermediate-1024-500.png": "0fe134e6ecbc9770f89f718f7e00c99ddbf36c5099cfbc182ef3f23fa61d386b",
+      "docs/reviews/evidence/pr63/review-initial-audit-1024-500.png": "3ba0043203da70ba87556e345f96f53c01892542fe061e9080a84be76edcf7c8",
+      "docs/reviews/evidence/pr63/shared-review-1024-500.png": "8f08a3ab34b84e4b19e602c603ddef3f8578456dd843af392404f028e57717d0",
+      "docs/reviews/evidence/pr63/shared-review-focus-1024-500.png": "af771d54ebf24c7a153c831278421975597a1104d6567d2b11105bf6b0b54d52",
+      "docs/reviews/evidence/pr63/sources.json": "8d6322e17f8b338285e97a21f214ea2c2cd6e24d09dbe27a43451566354f04d3",
+      "docs/reviews/evidence/pr63/verification.json": "3b51075f1aab08fab11c6d1888b9744eb78bd57810d87258f8ce98498a0fe19f",
+      "playwright.desktop.config.ts": "a94fbc48cc719b32ea3eee3710deded4c770611aafc32c8ed424d0df901ad106",
+      "public/icons/azure/10067-icon-service-Network-Security-Groups.svg": "cf4023ddaa11961904e1e4601864ccd20b9f60686cb38ad7f8ff8385d855c4de",
+      "public/icons/azure/10086-icon-service-Storage-Accounts.svg": "7190d3bb14ce30ce74bd0af873915830fe821e8c5f6ef6f3149e6f7cfb2aa4f7",
+      "public/icons/azure/10780-icon-service-Blob-Block.svg": "649cdb593d0c7f56a227e4c28df40a3e5c489e303867d32502af2ee4b4865ea3",
+      "public/icons/azure/10839-icon-service-Storage-Container.svg": "cc50afdf3d9386f6872d314fd4f570645a594680c727bc709dfe8c4d6e5a6b2a",
+      "public/icons/manifest.json": "4828607cdcdd3595734dbf1ad404d003facab5b298c448bb7d29d11e0def8988",
+      "src/content/portal-workspace-nb.ts": "e39fe731aa2b5f3db69afaa30caacd75df06220dae3b4d086655b14775b47ee9",
+      "src/features/laboratory/laboratory.css": "dc2bb7fdebd11ed9d9e3ac2c0230200d0b5286edcc1ab0517fb1fb4317fe5bba",
+      "src/features/laboratory/laboratory.tsx": "8ffeb887f29c9b1d9756742e82aa4292845f3e870c1282a170cd6af7098ac6ae",
+      "src/features/laboratory/networking.tsx": "3236b52217c671b9d6f376ec4b014215fa56ee3fea9e8a4a7ee8118d5e7c70b7",
+      "src/features/laboratory/portal-adapter.test.ts": "5cf134ab3dc5520a18a2a250662b0e30743928f94cc4831685d1c666b9620932",
+      "src/features/laboratory/portal-adapter.tsx": "d5e55a03b36f02f04d53df9e1445123c69f3c77f9590102423f382f7d0ec15cc",
+      "src/features/portal/create-resource.tsx": "4d05885b23af4cd167938b9f767ccc5a8e300615d625ff90dad4189d0812f2b2",
+      "src/features/portal/inventory.tsx": "af067700a350c96917ac8d64c0939adb6217568e8ca5336ae60ad95a20f33ef2",
+      "src/features/portal/portal.tsx": "bed0245ba9b345b5c39260389cf672147ba6c9202181235c283bbe63d69fc54c",
+      "src/features/portal/presentation.css": "6de0c424bb2358450390aa74997d24690cda43c3a14af31d742c541bacb196b7",
+      "src/features/portal/presentation.tsx": "863ef6104582d8c072ff8fa0b13583eb753f8d700b8ccbdda65643c33c03bc4d",
+      "src/features/portal/receipt-panel.tsx": "c68cd11afdabf7ee7685e12d3424a7caf1f5c2815460df25ae7d2627155c71f4",
+      "src/laboratory-networking-preservation.test.ts": "3134019aaa06f28658034fd76c0e160cbe45739a6d709532453b7e096bafd66a",
+      "src/shared-portal-preservation.test.ts": "7638ac2e4f78f85ddba9f16d7d06bbc9817b08dbe7425ab00eaa2aa2f0f5da9a",
+      "tests/e2e/laboratory-actions.ts": "de4df4bc449e8fdc9d510c733b8bdb23ede08898829c7e4887482da99b362256",
+      "tests/e2e/laboratory-networking.spec.ts": "3293a81b45fc315183c4567ac1e5168ea9bccea34157a9e17d31d659a6d22b64",
+      "tests/e2e/laboratory-server.spec.ts": "729faf035558b5a0c4133af18a7f1ba0b982ff2efd690da61129edbf7d4b5c2c",
+      "tests/e2e/shared-portal.spec.ts": "b0e72b80fe0566308db4c9850cdb132b20579601feb81cb3de5cf70d4a25bd3e",
+      "tests/pr62-preservation.ts": "2c8f8834503bc2ae066805bc529bd6273c71ddb5cf5e826b977e1fc5a252c443",
+      "tests/pr63-preservation.ts": "e56e2a9797b2346d59be43e401a9f1f4c3bbf41ebd28e6c38569b52c9c2e342a"
     }
   },
-  "implementationFinished": "2026-11-06T15:55:03.280Z"
+  "implementationFinished": "2026-11-06T17:30:36.856Z"
 }

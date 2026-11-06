@@ -37,6 +37,8 @@ type Props = {
   receipt: (id: string) => ReactNode;
   list: (type: string, rows: { id: string; name: string; origin: string }[]) => ReactNode;
   headingRef: RefObject<HTMLHeadingElement | null>;
+  headings?: boolean;
+  actions?: boolean;
 };
 export function NetworkViews({
   world: w,
@@ -47,6 +49,8 @@ export function NetworkViews({
   receipt,
   list,
   headingRef,
+  headings = true,
+  actions = true,
 }: Props) {
   const vnet = w.vnets.find((x) => x.id === id),
     subnet = w.subnets.find((x) => x.id === id),
@@ -62,11 +66,18 @@ export function NetworkViews({
       ],
       [c.subscription, w.groups.find((g) => g.id === groupId)?.subscriptionId],
     ] as [string, ReactNode][];
-  const create = (type: Command['type'], title: string) => (
-    <button disabled={disabled} onClick={() => begin(type)}>
-      {title}
-    </button>
-  );
+  const heading = (name: string) =>
+    headings ? (
+      <h2 ref={headingRef} tabIndex={-1}>
+        {name}
+      </h2>
+    ) : null;
+  const create = (type: Command['type'], title: string) =>
+    actions && (
+      <button disabled={disabled} onClick={() => begin(type)}>
+        {title}
+      </button>
+    );
   const table = (groupId: string) => (
     <div className="lab-rules-scroll" role="region" aria-label={n.rules} tabIndex={0}>
       <table className="lab-table">
@@ -129,9 +140,7 @@ export function NetworkViews({
       )}
       {view === 'vnet' && vnet && (
         <>
-          <h2 ref={headingRef} tabIndex={-1}>
-            {vnet.name}
-          </h2>
+          {heading(vnet.name)}
           <PropertyList
             items={[
               [c.id, vnet.id],
@@ -155,9 +164,7 @@ export function NetworkViews({
             meta = subnetMetadata(subnet.addressPrefix)!;
           return (
             <>
-              <h2 ref={headingRef} tabIndex={-1}>
-                {subnet.name}
-              </h2>
+              {heading(subnet.name)}
               <PropertyList
                 items={[
                   [c.id, subnet.id],
@@ -198,9 +205,7 @@ export function NetworkViews({
         })()}
       {view === 'nsg' && nsg && (
         <>
-          <h2 ref={headingRef} tabIndex={-1}>
-            {nsg.name}
-          </h2>
+          {heading(nsg.name)}
           <PropertyList items={[[c.id, nsg.id], [c.region, nsg.region], ...scope(nsg.groupId)]} />
           {receipt(nsg.origin)}
           {create('CreateSecurityRule', n.newRule)}
@@ -255,9 +260,7 @@ export function NetworkViews({
       )}
       {view === 'rule' && rule && (
         <>
-          <h2 ref={headingRef} tabIndex={-1}>
-            {rule.name}
-          </h2>
+          {heading(rule.name)}
           <PropertyList
             items={[
               [c.id, rule.id],

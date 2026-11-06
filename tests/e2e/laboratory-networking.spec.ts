@@ -1,3 +1,4 @@
+import { revealLaboratoryLink, closeLaboratoryDrawer } from './laboratory-actions';
 import { test, expect, type Page } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { laboratoryNetworkNb as n } from '../../src/content/laboratory-networking-nb';
@@ -12,7 +13,9 @@ async function start(page: Page) {
     })
     .click();
   await page.getByRole('button', { name: c.start, exact: true }).click();
+  await revealLaboratoryLink(page, page.getByRole('link', { name: n.vnets, exact: true }));
   await expect(page.getByRole('link', { name: n.vnets, exact: true })).toBeVisible();
+  await closeLaboratoryDrawer(page);
 }
 async function fill(page: Page, values: Record<string, string>) {
   for (const [name, value] of Object.entries(values))
@@ -41,6 +44,7 @@ async function subnet(page: Page, name = 'snet-web', cidr = '10.20.1.0/24') {
   await commit(page, name);
 }
 async function nsg(page: Page) {
+  await revealLaboratoryLink(page, page.getByRole('link', { name: n.nsgs, exact: true }));
   await page.getByRole('link', { name: n.nsgs, exact: true }).click();
   await page.getByRole('button', { name: n.newNsg, exact: true }).click();
   await fill(page, { [c.name]: 'nsg-web' });
@@ -74,6 +78,7 @@ test('network Laboratory actual VNet two subnets NSG rule association Storage pa
   await subnet(page, 'snet-data', '10.20.2.0/24');
   await nsg(page);
   await rule(page);
+  await revealLaboratoryLink(page, page.getByRole('link', { name: n.vnets, exact: true }));
   await page.getByRole('link', { name: n.vnets, exact: true }).click();
   await page.getByRole('link', { name: 'vnet-app', exact: true }).click();
   await page.getByRole('link', { name: 'snet-web', exact: true }).click();
@@ -95,7 +100,7 @@ test('network Laboratory actual VNet two subnets NSG rule association Storage pa
   await expect(page.getByRole('link', { name: 'allow-https', exact: true })).toBeVisible();
   await page.getByText(n.defaultRules, { exact: true }).first().click();
   await expect(page.locator('.lab-default-rules')).toContainText('65500');
-  expect(await page.locator('.lab-default-rules button,input,select').count()).toBe(0);
+  expect(await page.locator('.lab-default-rules').locator('button,input,select').count()).toBe(0);
   await page.screenshot({ path: info.outputPath('nsg-rules.png') });
   await page.getByRole('link', { name: 'allow-https', exact: true }).click();
   await expect(page.getByRole('heading', { name: 'allow-https', exact: true })).toBeVisible();
@@ -111,6 +116,7 @@ test('network Laboratory actual VNet two subnets NSG rule association Storage pa
   await expect(page.getByRole('heading', { name: 'allow-https', exact: true })).toBeVisible();
   await page.goForward();
   await expect(page.locator('.lab-result')).toContainText(c.committed);
+  await revealLaboratoryLink(page, page.getByRole('link', { name: c.accounts, exact: true }));
   await page.getByRole('link', { name: c.accounts, exact: true }).click();
   await page.getByRole('button', { name: c.newAccount, exact: true }).click();
   await fill(page, { [c.name]: 'networkstorage' });
@@ -304,6 +310,7 @@ test('network Laboratory duplicate parent names expose RG subscription and regio
   await vnet(page);
   await subnet(page);
   await nsg(page);
+  await revealLaboratoryLink(page, page.getByRole('link', { name: c.groups, exact: true }));
   await page.getByRole('link', { name: c.groups, exact: true }).click();
   await page.getByRole('button', { name: c.newGroup, exact: true }).click();
   await fill(page, { [c.name]: 'rg-network' });

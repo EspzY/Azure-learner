@@ -1,5 +1,22 @@
 'use client';
 import { useCallback, useEffect, useRef, useState } from 'react';
+import { nb } from '@/content/nb';
+import { portalWorkspaceNb as w } from '@/content/portal-workspace-nb';
+import { laboratoryInventory, LaboratoryResourceList } from './portal-adapter';
+import {
+  PortalFrame,
+  PortalHeader,
+  PortalSearch,
+  PortalNavigation,
+  PortalTitle,
+  PortalBreadcrumbs,
+  PortalResourceLayout,
+  PortalResourceMenu,
+  PortalCreateLayout,
+  PortalCreateActions,
+  PortalOperationTable,
+  PortalReceiptSummary,
+} from '@/features/portal/presentation';
 import Link from 'next/link';
 import { useSearchParams, useRouter } from 'next/navigation';
 import { laboratoryV3Nb as c } from '@/content/nb';
@@ -318,50 +335,13 @@ export function Laboratory() {
   const receiptLink = (origin: string) => (
     <Link href={href('history', undefined, origin)}>{c.receipt}</Link>
   );
+  const records = world ? laboratoryInventory(world) : [];
   const links = (type: string, rows: { id: string; name: string; origin: string }[]) => (
-    <table className="lab-table">
-      <caption>
-        {type === 'group'
-          ? c.groups
-          : type === 'account'
-            ? c.accounts
-            : type === 'vnet'
-              ? n.vnets
-              : type === 'subnet'
-                ? n.subnets
-                : type === 'nsg'
-                  ? n.nsgs
-                  : type === 'rule'
-                    ? n.rules
-                    : type === 'container'
-                      ? c.containers
-                      : c.blobs}
-      </caption>
-      <thead>
-        <tr>
-          <th>{c.name}</th>
-          <th>{c.id}</th>
-          <th>{c.receipt}</th>
-        </tr>
-      </thead>
-      <tbody>
-        {rows.length ? (
-          rows.map((r) => (
-            <tr key={r.id}>
-              <td>
-                <Link href={href(type, r.id)}>{r.name}</Link>
-              </td>
-              <td>{r.id}</td>
-              <td>{receiptLink(r.origin)}</td>
-            </tr>
-          ))
-        ) : (
-          <tr>
-            <td colSpan={3}>{c.empty}</td>
-          </tr>
-        )}
-      </tbody>
-    </table>
+    <LaboratoryResourceList
+      rows={records.filter((r) => r.view === type && rows.some((x) => x.id === r.id))}
+      groups={type === 'group'}
+      href={href}
+    />
   );
   const field = (key: string, label: string, options?: [string, string][], note?: string) => (
     <label key={key}>
@@ -454,72 +434,544 @@ export function Laboratory() {
       setBusy(false);
     }
   };
-  return (
-    <div className="portal laboratory-v3">
-      <a className="portal-skip" href="#lab-main">
-        {c.title}
-      </a>
-      <header className="portal-header">
-        <Link className="lab-brand" href={base}>
-          AzureLab · {c.title}
-        </Link>
-        <span>{c.subtitle}</span>
-        <Link href="/portal">{c.oldPortal}</Link>
-        <Link href="/learn">{c.course}</Link>
-      </header>
-      <div className="portal-body">
-        <aside className="portal-nav">
-          <nav aria-label={c.navigation}>
-            {[
-              ['groups', c.groups],
-              ['accounts', c.accounts],
-              ...(network
-                ? [
-                    ['vnets', n.vnets],
-                    ['nsgs', n.nsgs],
-                  ]
-                : []),
-              ['history', c.history],
-            ].map(([v, label]) => (
-              <Link key={v} href={href(v!)} aria-current={view === v ? 'page' : undefined}>
-                {v === 'groups' && <ServiceIcon kind="groups" />}
-                {v === 'vnets' && <ServiceIcon kind="vnet" />}
-                {label}
-              </Link>
+  const [menu, setMenu] = useState(false),
+    [collapsed, setCollapsed] = useState(false),
+    [narrow, setNarrow] = useState(false),
+    [search, setSearch] = useState(''),
+    [help, setHelp] = useState(false);
+  const searchRef = useRef<HTMLInputElement>(null);
+  const reviewHeading = useRef<HTMLHeadingElement>(null);
+  useEffect(() => {
+    if (preview) {
+      reviewHeading.current?.scrollIntoView({ block: 'start', behavior: 'instant' });
+      reviewHeading.current?.focus({ preventScroll: true });
+    }
+  }, [preview]);
+  const priorForm = useRef(form);
+  useEffect(() => {
+    if (!form && priorForm.current) resultRef.current?.focus({ preventScroll: true });
+    priorForm.current = form;
+  }, [form]);
+  useEffect(() => {
+    if (!query.has('id') && query.get('view') !== 'history')
+      resultRef.current?.focus({ preventScroll: true });
+  }, [query]);
+  useEffect(() => {
+    const media = matchMedia('(max-width:1100px)');
+    const update = () => setNarrow(media.matches);
+    update();
+    media.addEventListener('change', update);
+    return () => media.removeEventListener('change', update);
+  }, []);
+  const visit = (next: string, target?: string, receipt?: string) => {
+    setMenu(false);
+    setSearch('');
+    setForm(null);
+    setPreview(null);
+    router.push(href(next, target, receipt));
+  };
+  const resource = records.find((r) => r.id === id && r.view === view);
+  const section = query.get('section') === 'properties' ? 'properties' : 'overview';
+  const services: [string, string, string][] = [
+    ['groups', c.groups, 'groups'],
+    ['accounts', c.accounts, 'account'],
+    ...(network
+      ? ([
+          ['vnets', n.vnets, 'vnet'],
+          ['nsgs', n.nsgs, 'nsg'],
+        ] as [string, string, string][])
+      : []),
+  ];
+  const serviceView = resource
+    ? (
+        {
+          group: 'groups',
+          account: 'accounts',
+          container: 'accounts',
+          blob: 'accounts',
+          vnet: 'vnets',
+          subnet: 'vnets',
+          nsg: 'nsgs',
+          rule: 'nsgs',
+        } as Record<string, string>
+      )[resource.view]
+    : view;
+  const title = !snapshot
+    ? c.title
+    : (resource?.name ??
+      (view === 'history'
+        ? c.history
+        : view === 'resources'
+          ? nb.portal.areas.resources
+          : view === 'services'
+            ? nb.portal.areas.services
+            : (services.find(([key]) => key === view)?.[1] ?? c.missing)));
+  const titleIcon =
+    resource?.kind ??
+    services.find(([key]) => key === view)?.[2] ??
+    (view === 'history' ? 'activity' : view === 'services' ? 'services' : 'resources');
+  const formIcon =
+    form === 'CreateGroup'
+      ? 'groups'
+      : form === 'CreateStorageAccount'
+        ? 'account'
+        : form === 'CreateBlobContainer'
+          ? 'container'
+          : form === 'CreateTextBlob'
+            ? 'blob'
+            : form === 'CreateVirtualNetwork'
+              ? 'vnet'
+              : form === 'CreateSubnet'
+                ? 'subnet'
+                : form === 'CreateNetworkSecurityGroup'
+                  ? 'nsg'
+                  : 'settings';
+  const parent = records.find((r) => r.id === resource?.parentId);
+  const actions: [Command['type'], string][] =
+    view === 'group'
+      ? [
+          ['CreateStorageAccount', c.newAccount],
+          ...(network
+            ? ([
+                ['CreateVirtualNetwork', n.newVnet],
+                ['CreateNetworkSecurityGroup', n.newNsg],
+              ] as [Command['type'], string][])
+            : []),
+        ]
+      : view === 'account'
+        ? [['CreateBlobContainer', c.newContainer]]
+        : view === 'container'
+          ? [['CreateTextBlob', c.newBlob]]
+          : view === 'vnet'
+            ? [['CreateSubnet', n.newSubnet]]
+            : view === 'subnet'
+              ? [['AssociateSubnetNsg', n.associate]]
+              : view === 'nsg'
+                ? [['CreateSecurityRule', n.newRule]]
+                : [];
+  const body = snapshot && world && (
+    <>
+      {view === 'services' && (
+        <>
+          <p>{w.menuNote}</p>
+          <div className="portal-services-index">
+            {services.map(([key, title, icon]) => (
+              <button key={key} type="button" onClick={() => visit(key)}>
+                <ServiceIcon kind={icon} size={22} />
+                <span>{title}</span>
+                <ServiceIcon kind="next" size={14} />
+              </button>
             ))}
-          </nav>
-          <small>{c.limits}</small>
-        </aside>
-        <main id="lab-main" className="portal-working">
-          <div className="portal-title">
-            <h1>{c.title}</h1>
-            <p>{c.separation}</p>
           </div>
-          <div className="portal-commandbar">
-            <button
-              onClick={() => {
-                void load();
-              }}
-              disabled={busy}
+        </>
+      )}
+      {view === 'resources' && (
+        <LaboratoryResourceList
+          rows={records.filter((r) => r.category === 'resource')}
+          href={href}
+        />
+      )}
+      {view === 'groups' && (
+        <>
+          <button disabled={busy || !!error} onClick={() => begin('CreateGroup')}>
+            {c.newGroup}
+          </button>
+          {links('group', world.groups)}
+        </>
+      )}
+      {view === 'accounts' && (
+        <>
+          <button
+            disabled={busy || !!error || !world.groups.length}
+            onClick={() => begin('CreateStorageAccount')}
+          >
+            {c.newAccount}
+          </button>
+          {links('account', world.accounts)}
+        </>
+      )}
+      {view === 'group' && group && (
+        <>
+          <h2>{nb.portalUi.essentials}</h2>
+          <PropertyList
+            items={[
+              [c.id, group.id],
+              [c.subscription, group.subscriptionId],
+              [nb.portal.metadata, group.metadataRegion],
+            ]}
+          />
+          {receiptLink(group.origin)}
+          <LaboratoryResourceList
+            rows={records.filter((r) => r.category === 'resource' && r.groupId === group.id)}
+            href={href}
+          />
+        </>
+      )}
+      {view === 'account' && account && (
+        <>
+          <h2>{nb.portalUi.essentials}</h2>
+          <PropertyList
+            items={[
+              [c.id, account.id],
+              [c.kind, account.kind],
+              [c.sku, account.sku],
+              [c.region, account.region],
+              [
+                c.group,
+                <Link href={href('group', account.groupId)} key="group">
+                  {world.groups.find((g) => g.id === account.groupId)?.name}
+                </Link>,
+              ],
+              [c.subscription, world.groups.find((g) => g.id === account.groupId)?.subscriptionId],
+            ]}
+          />
+          {receiptLink(account.origin)}
+
+          {links(
+            'container',
+            world.containers.filter((x) => x.accountId === account.id),
+          )}
+        </>
+      )}
+      {view === 'container' && container && (
+        <>
+          <h2>{nb.portalUi.essentials}</h2>
+          <PropertyList
+            items={[
+              [c.id, container.id],
+              [c.access, container.access],
+              [
+                c.account,
+                <Link href={href('account', container.accountId)} key="parent">
+                  {world.accounts.find((a) => a.id === container.accountId)?.name}
+                </Link>,
+              ],
+            ]}
+          />
+          {receiptLink(container.origin)}
+
+          {links(
+            'blob',
+            world.blobs.filter((b) => b.containerId === container.id),
+          )}
+        </>
+      )}
+      {view === 'blob' && blob && (
+        <>
+          <h2>{nb.portalUi.essentials}</h2>
+          <PropertyList
+            items={[
+              [c.id, blob.id],
+              [c.contentType, blob.contentType],
+              [c.bytes, blob.byteLength],
+              [c.hash, <code key="hash">{blob.sha256}</code>],
+              [
+                c.container,
+                <Link href={href('container', blob.containerId)} key="parent">
+                  {world.containers.find((x) => x.id === blob.containerId)?.name}
+                </Link>,
+              ],
+            ]}
+          />
+          <pre className="lab-blob" aria-label={c.text}>
+            {blob.text}
+          </pre>
+          {receiptLink(blob.origin)}
+        </>
+      )}
+      {network && (
+        <NetworkViews
+          world={network}
+          view={view}
+          id={id}
+          begin={begin}
+          disabled={busy || !!error}
+          receipt={receiptLink}
+          list={links}
+          headingRef={resultRef}
+          headings={false}
+          actions={!resource}
+        />
+      )}
+      {view === 'history' && (
+        <>
+          {selectedReceipt ? (
+            <PortalReceiptSummary
+              outcome={selectedReceipt.receipt.outcome}
+              className="lab-result"
+              live="polite"
+              identity={selectedReceipt.receipt.commandId}
+              title={
+                <>
+                  {c.result} · {selectedReceipt.receipt.sequence}
+                </>
+              }
+              description={
+                <>
+                  {selectedReceipt.receipt.outcome === 'accepted' ? c.committed : c.rejected}{' '}
+                  {message(selectedReceipt.receipt.code)}
+                </>
+              }
             >
-              {c.refresh}
-            </button>
-            {world && (
-              <>
-                <span>
-                  {c.revision}: {world.revision} · {c.attempt}: {world.attempt}
-                </span>
-                <button
-                  disabled={busy || !!error}
-                  onClick={() =>
-                    setReset({ workspace: snapshot!.workspace, revision: world.revision })
-                  }
-                >
-                  {c.reset}
-                </button>
-              </>
+              <PropertyList
+                items={[
+                  [c.attempt, selectedReceipt.attempt],
+                  [
+                    c.revision,
+                    `${selectedReceipt.receipt.beforeRevision} → ${selectedReceipt.receipt.afterRevision}`,
+                  ],
+                  ['commandId', selectedReceipt.receipt.commandId],
+                ]}
+              />
+              <details>
+                <summary>{c.details}</summary>
+                <pre>{JSON.stringify(selectedReceipt, null, 2)}</pre>
+              </details>
+            </PortalReceiptSummary>
+          ) : query.has('receipt') ? (
+            <p role="status">{c.missing}</p>
+          ) : null}
+          <PortalOperationTable
+            receipts={snapshot!.entries.map((e) => e.receipt)}
+            caption={c.history}
+            empty={c.empty}
+            renderIdentity={(r) => (
+              <Link href={href('history', undefined, r.commandId)}>{r.commandId}</Link>
             )}
-          </div>
+            operationLabel={(r) => operation(r.operation)}
+            outcomeLabel={(r) => (r.outcome === 'accepted' ? w.accepted : w.denied)}
+          />
+        </>
+      )}
+      {(![
+        'services',
+        'resources',
+        'groups',
+        'group',
+        'accounts',
+        'account',
+        'container',
+        'blob',
+        'history',
+        ...(network ? ['vnets', 'vnet', 'subnet', 'nsgs', 'nsg', 'rule'] : []),
+      ].includes(view) ||
+        (view === 'group' && !group) ||
+        (view === 'account' && !account) ||
+        (view === 'container' && !container) ||
+        (view === 'blob' && !blob)) && <p role="status">{c.missing}</p>}
+    </>
+  );
+  return (
+    <PortalFrame
+      mode="laboratory"
+      className={`portal laboratory-v3 ${collapsed ? 'portal-collapsed' : ''}`}
+      training="free"
+      area={form ? 'create' : view}
+      mainId="lab-main"
+      titleId="lab-page-title"
+      header={
+        <PortalHeader
+          expanded={narrow ? menu : !collapsed}
+          onToggle={() => (narrow ? setMenu(!menu) : setCollapsed(!collapsed))}
+          homeHref={base}
+          onHome={(e) => {
+            e.preventDefault();
+            visit('groups');
+          }}
+          search={
+            <PortalSearch
+              value={search}
+              onChange={setSearch}
+              inputRef={searchRef}
+              label={w.search}
+              placeholder={w.search}
+            >
+              <strong>{nb.portal.searchResults}</strong>
+              <div className="portal-search-group">
+                <strong>{nb.portalUi.services}</strong>
+                {[...services, ['resources', nb.portal.areas.resources, 'resources']]
+                  .filter(([, label]) => label!.toLowerCase().includes(search.toLowerCase()))
+                  .map(([key, label, icon]) => (
+                    <Link
+                      key={key}
+                      href={href(key!)}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        visit(key!);
+                      }}
+                    >
+                      <ServiceIcon kind={icon!} />
+                      {label}
+                    </Link>
+                  ))}
+              </div>
+              <div className="portal-search-group">
+                <strong>{w.searchObjects}</strong>
+                {records
+                  .filter((r) =>
+                    `${r.name} ${r.typeName} ${r.groupName}`
+                      .toLowerCase()
+                      .includes(search.toLowerCase()),
+                  )
+                  .slice(0, 30)
+                  .map((r) => (
+                    <Link
+                      key={r.id}
+                      href={href(r.view, r.id)}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        visit(r.view, r.id);
+                      }}
+                    >
+                      <ServiceIcon kind={r.kind} />
+                      {r.name}
+                      <small>
+                        {r.typeName} · {r.groupName}
+                      </small>
+                    </Link>
+                  ))}
+              </div>
+              {!records.some((r) =>
+                `${r.name} ${r.typeName} ${r.groupName}`
+                  .toLowerCase()
+                  .includes(search.toLowerCase()),
+              ) &&
+                ![...services, ['resources', nb.portal.areas.resources]].some(([, label]) =>
+                  label!.toLowerCase().includes(search.toLowerCase()),
+                ) && <p>{nb.portal.noResults}</p>}
+            </PortalSearch>
+          }
+        >
+          <span className="portal-simulation">{w.free}</span>
+          <button type="button" aria-label={c.history} onClick={() => visit('history')}>
+            <ServiceIcon kind="notifications" size={19} />
+          </button>
+          <button type="button" aria-label={nb.portal.limitations} onClick={() => setHelp(true)}>
+            <ServiceIcon kind="help" size={17} />
+          </button>
+          <Link className="portal-workspace-link" href="/portal">
+            {w.course}
+          </Link>
+          <Link className="portal-workspace-link" href="/learn">
+            {c.course}
+          </Link>
+        </PortalHeader>
+      }
+      navigation={
+        <PortalNavigation open={menu} label={c.navigation} footer={w.menuNote}>
+          <Link
+            href={href('services')}
+            onClick={(e) => {
+              e.preventDefault();
+              visit('services');
+            }}
+          >
+            <ServiceIcon kind="create" />
+            {nb.portalUi.create}
+          </Link>
+          <Link
+            href={href('services')}
+            aria-current={view === 'services' ? 'page' : undefined}
+            onClick={(e) => {
+              e.preventDefault();
+              visit('services');
+            }}
+          >
+            <ServiceIcon kind="services" />
+            {nb.portal.areas.services}
+          </Link>
+          <span className="portal-nav-category">
+            <ServiceIcon kind="favorite" size={12} />
+            {nb.portalUi.favorites}
+          </span>
+          {[
+            ['resources', nb.portal.areas.resources, 'resources'],
+            ...services,
+            ['history', c.history, 'activity'],
+          ].map(([key, label, icon]) => (
+            <Link
+              key={key}
+              href={href(key!)}
+              aria-current={serviceView === key ? 'page' : undefined}
+              onClick={(e) => {
+                e.preventDefault();
+                visit(key!);
+              }}
+            >
+              <ServiceIcon kind={icon!} />
+              {label}
+            </Link>
+          ))}
+        </PortalNavigation>
+      }
+      layers={
+        <>
+          {' '}
+          {reset && world && (
+            <PortalDialog title={c.resetTitle} onClose={() => setReset(null)}>
+              <p>{c.resetNote}</p>
+              <button
+                disabled={busy}
+                onClick={() => {
+                  void run(
+                    {
+                      commandId: crypto.randomUUID(),
+                      expectedRevision: reset.revision,
+                      command: { type: 'ResetWorkspace' },
+                    },
+                    reset.workspace,
+                  );
+                }}
+              >
+                {c.confirmReset}
+              </button>
+              <button onClick={() => setReset(null)}>{c.cancel}</button>
+            </PortalDialog>
+          )}
+          {help && (
+            <PortalDialog title={nb.portal.limitations} onClose={() => setHelp(false)}>
+              <p>{w.scopeNote}</p>
+              <p>{c.limits}</p>
+              <p>{c.startNote}</p>
+            </PortalDialog>
+          )}
+        </>
+      }
+    >
+      <PortalBreadcrumbs>
+        <button type="button" onClick={() => visit('groups')}>
+          {w.free}
+        </button>
+        <ServiceIcon kind="next" size={12} />
+        <button type="button" onClick={() => visit(serviceView ?? 'groups')}>
+          {services.find(([key]) => key === serviceView)?.[1] ?? title}
+        </button>
+        {parent && (
+          <>
+            <ServiceIcon kind="next" size={12} />
+            <button type="button" onClick={() => visit(parent.view, parent.id)}>
+              {parent.name}
+            </button>
+          </>
+        )}
+        {resource && (
+          <>
+            <ServiceIcon kind="next" size={12} />
+            <span>{resource.name}</span>
+          </>
+        )}
+      </PortalBreadcrumbs>
+      {!form && (
+        <PortalTitle
+          id="lab-page-title"
+          title={title}
+          headingRef={resultRef}
+          icon={<ServiceIcon kind={titleIcon} size={28} />}
+          subtitle={resource ? `${resource.typeName} · ${w.modeNote}` : w.modeNote}
+        />
+      )}
+      <div className="portal-content">
+        <div className="portal-view">
           {loading && <p role="status">{c.loading}</p>}
           {error && (
             <div role="alert" className="lab-alert">
@@ -554,17 +1006,24 @@ export function Laboratory() {
               </button>
             </section>
           )}
+
           {snapshot && world && (
             <>
-              <p className="lab-model-note">
-                {n.model}: {world.model}
-              </p>
               {!network && <p className="lab-network-boundary">{n.legacy}</p>}
               {form ? (
-                <section className="lab-form">
-                  <h2 ref={formHeading} tabIndex={-1}>
-                    {operation(form)}
-                  </h2>
+                <PortalCreateLayout
+                  className="lab-form"
+                  intro={w.createNote}
+                  title={
+                    <PortalTitle
+                      id="lab-page-title"
+                      title={operation(form!)}
+                      headingRef={formHeading}
+                      subtitle={w.modeNote}
+                      icon={<ServiceIcon kind={formIcon} size={28} />}
+                    />
+                  }
+                >
                   <form
                     onSubmit={(e) => {
                       e.preventDefault();
@@ -707,26 +1166,32 @@ export function Laboratory() {
                           {field('contentType', c.contentType, [['text/plain', 'text/plain']])}
                         </>
                       )}
-                      <button type="submit" disabled={busy}>
-                        {c.review}
-                      </button>
-                      <button
-                        type="button"
-                        onClick={() => {
-                          setForm(null);
-                          setPreview(null);
-                        }}
-                      >
-                        {c.cancel}
-                      </button>
+                      <PortalCreateActions>
+                        <button type="submit" className="primary" disabled={busy}>
+                          {c.review}
+                        </button>
+                        <button
+                          type="button"
+                          onClick={() => {
+                            setForm(null);
+                            setPreview(null);
+                          }}
+                        >
+                          {c.cancel}
+                        </button>
+                      </PortalCreateActions>
                     </fieldset>
                   </form>
                   {preview && (
                     <section className="lab-review" aria-label={c.review}>
-                      <h3>{c.review}</h3>
+                      <h2 ref={reviewHeading} tabIndex={-1}>
+                        {c.review}
+                      </h2>
                       <p>{c.reviewNote}</p>
                       <p>
-                        {message(preview.receipt.code)}{' '}
+                        {preview.receipt.outcome === 'accepted'
+                          ? w.reviewAccepted
+                          : message(preview.receipt.code)}{' '}
                         {preview.receipt.field && label(preview.receipt.field)}
                       </p>
                       <PropertyList
@@ -736,6 +1201,7 @@ export function Laboratory() {
                         ])}
                       />
                       <button
+                        className="primary"
                         disabled={busy || preview.receipt.outcome !== 'accepted' || !!error}
                         onClick={() => {
                           void run(preview.request, preview.workspace);
@@ -745,282 +1211,113 @@ export function Laboratory() {
                       </button>
                     </section>
                   )}
-                </section>
-              ) : (
-                <>
-                  {view === 'groups' && (
-                    <>
-                      <button disabled={busy || !!error} onClick={() => begin('CreateGroup')}>
-                        {c.newGroup}
-                      </button>
-                      {links('group', world.groups)}
-                    </>
-                  )}
-                  {view === 'accounts' && (
-                    <>
-                      <button
-                        disabled={busy || !!error || !world.groups.length}
-                        onClick={() => begin('CreateStorageAccount')}
-                      >
-                        {c.newAccount}
-                      </button>
-                      {links('account', world.accounts)}
-                    </>
-                  )}
-                  {view === 'group' && group && (
-                    <>
-                      <h2 ref={resultRef} tabIndex={-1}>
-                        {group.name}
-                      </h2>
-                      <PropertyList
-                        items={[
-                          [c.id, group.id],
-                          [c.subscription, group.subscriptionId],
-                          [c.region, group.metadataRegion],
-                        ]}
-                      />
-                      {receiptLink(group.origin)}
-                      {network && (
-                        <>
-                          <button
-                            disabled={busy || !!error}
-                            onClick={() => begin('CreateVirtualNetwork')}
-                          >
-                            {n.newVnet}
-                          </button>
-                          <button
-                            disabled={busy || !!error}
-                            onClick={() => begin('CreateNetworkSecurityGroup')}
-                          >
-                            {n.newNsg}
-                          </button>
-                          {links(
-                            'vnet',
-                            network.vnets.filter((x) => x.groupId === group.id),
-                          )}
-                          {links(
-                            'nsg',
-                            network.nsgs.filter((x) => x.groupId === group.id),
-                          )}
-                        </>
-                      )}
-                      <button
-                        disabled={busy || !!error}
-                        onClick={() => begin('CreateStorageAccount')}
-                      >
-                        {c.newAccount}
-                      </button>
-                      {links(
-                        'account',
-                        world.accounts.filter((a) => a.groupId === group.id),
-                      )}
-                    </>
-                  )}
-                  {view === 'account' && account && (
-                    <>
-                      <h2 ref={resultRef} tabIndex={-1}>
-                        {account.name}
-                      </h2>
-                      <PropertyList
-                        items={[
-                          [c.id, account.id],
-                          [c.kind, account.kind],
-                          [c.sku, account.sku],
-                          [c.region, account.region],
-                          [
-                            c.group,
-                            <Link href={href('group', account.groupId)} key="group">
-                              {world.groups.find((g) => g.id === account.groupId)?.name}
-                            </Link>,
-                          ],
-                          [
-                            c.subscription,
-                            world.groups.find((g) => g.id === account.groupId)?.subscriptionId,
-                          ],
-                        ]}
-                      />
-                      {receiptLink(account.origin)}
-                      <button
-                        disabled={busy || !!error}
-                        onClick={() => begin('CreateBlobContainer')}
-                      >
-                        {c.newContainer}
-                      </button>
-                      {links(
-                        'container',
-                        world.containers.filter((x) => x.accountId === account.id),
-                      )}
-                    </>
-                  )}
-                  {view === 'container' && container && (
-                    <>
-                      <h2 ref={resultRef} tabIndex={-1}>
-                        {container.name}
-                      </h2>
-                      <PropertyList
-                        items={[
-                          [c.id, container.id],
-                          [c.access, container.access],
-                          [
-                            c.account,
-                            <Link href={href('account', container.accountId)} key="parent">
-                              {world.accounts.find((a) => a.id === container.accountId)?.name}
-                            </Link>,
-                          ],
-                        ]}
-                      />
-                      {receiptLink(container.origin)}
-                      <button disabled={busy || !!error} onClick={() => begin('CreateTextBlob')}>
-                        {c.newBlob}
-                      </button>
-                      {links(
-                        'blob',
-                        world.blobs.filter((b) => b.containerId === container.id),
-                      )}
-                    </>
-                  )}
-                  {view === 'blob' && blob && (
-                    <>
-                      <h2 ref={resultRef} tabIndex={-1}>
-                        {blob.name}
-                      </h2>
-                      <PropertyList
-                        items={[
-                          [c.id, blob.id],
-                          [c.contentType, blob.contentType],
-                          [c.bytes, blob.byteLength],
-                          [c.hash, <code key="hash">{blob.sha256}</code>],
-                          [
-                            c.container,
-                            <Link href={href('container', blob.containerId)} key="parent">
-                              {world.containers.find((x) => x.id === blob.containerId)?.name}
-                            </Link>,
-                          ],
-                        ]}
-                      />
-                      <pre className="lab-blob" aria-label={c.text}>
-                        {blob.text}
-                      </pre>
-                      {receiptLink(blob.origin)}
-                    </>
-                  )}
-                  {network && (
-                    <NetworkViews
-                      world={network}
-                      view={view}
-                      id={id}
-                      begin={begin}
-                      disabled={busy || !!error}
-                      receipt={receiptLink}
-                      list={links}
-                      headingRef={resultRef}
+                </PortalCreateLayout>
+              ) : resource ? (
+                <PortalResourceLayout
+                  menu={
+                    <PortalResourceMenu
+                      key={resource.id}
+                      name={resource.name}
+                      icon={resource.kind}
+                      items={[
+                        {
+                          key: 'overview',
+                          label: nb.portal.overview,
+                          icon: resource.kind,
+                          active: section === 'overview',
+                          onSelect: () => router.push(href(view, id ?? undefined)),
+                        },
+                        {
+                          key: 'history',
+                          label: nb.portal.areas.activity,
+                          icon: 'activity',
+                          onSelect: () => visit('history', undefined, resource.origin),
+                        },
+                        {
+                          key: 'properties',
+                          label: nb.portalUi.properties,
+                          icon: 'properties',
+                          settings: true,
+                          active: section === 'properties',
+                          onSelect: () =>
+                            router.push(href(view, id ?? undefined) + '&section=properties'),
+                        },
+                      ]}
+                      footer={w.localScope}
                     />
-                  )}
-                  {view === 'history' && (
+                  }
+                >
+                  {section === 'properties' ? (
                     <>
-                      <h2 ref={resultRef} tabIndex={-1}>
-                        {c.history}
-                      </h2>
-                      {selectedReceipt ? (
-                        <section className="lab-result" aria-live="polite">
-                          <h3>
-                            {c.result} · {selectedReceipt.receipt.sequence}
-                          </h3>
-                          <p>
-                            {selectedReceipt.receipt.outcome === 'accepted'
-                              ? c.committed
-                              : c.rejected}
-                          </p>
-                          <p>{message(selectedReceipt.receipt.code)}</p>
-                          <PropertyList
-                            items={[
-                              [c.attempt, selectedReceipt.attempt],
-                              [
-                                c.revision,
-                                `${selectedReceipt.receipt.beforeRevision} → ${selectedReceipt.receipt.afterRevision}`,
-                              ],
-                              ['commandId', selectedReceipt.receipt.commandId],
-                            ]}
-                          />
-                          <details>
-                            <summary>{c.details}</summary>
-                            <pre>{JSON.stringify(selectedReceipt, null, 2)}</pre>
-                          </details>
-                        </section>
-                      ) : query.has('receipt') ? (
-                        <p role="status">{c.missing}</p>
-                      ) : null}
-                      <table className="lab-table">
-                        <caption>{c.history}</caption>
-                        <thead>
-                          <tr>
-                            <th>commandId</th>
-                            <th>{c.result}</th>
-                            <th>{c.revision}</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          {snapshot.entries.map((e) => (
-                            <tr key={e.request.commandId}>
-                              <td>
-                                <Link href={href('history', undefined, e.request.commandId)}>
-                                  {e.request.commandId}
-                                </Link>
-                              </td>
-                              <td>
-                                {operation(e.receipt.operation)} · {e.receipt.outcome}
-                              </td>
-                              <td>
-                                {e.receipt.beforeRevision} → {e.receipt.afterRevision}
-                              </td>
-                            </tr>
+                      <h2>{nb.portalUi.properties}</h2>
+                      <PropertyList
+                        items={Object.entries(resource.source).map(([key, value]) => [
+                          label(key),
+                          ['origin', 'associationOrigin'].includes(key)
+                            ? receiptLink(String(value))
+                            : typeof value === 'object'
+                              ? JSON.stringify(value)
+                              : String(value),
+                        ])}
+                      />
+                    </>
+                  ) : (
+                    <>
+                      {!!actions.length && (
+                        <div className="portal-commandbar">
+                          {actions.map(([type, label]) => (
+                            <button
+                              key={type}
+                              type="button"
+                              disabled={busy || !!error}
+                              onClick={() => begin(type)}
+                            >
+                              <ServiceIcon kind="create" />
+                              {label}
+                            </button>
                           ))}
-                        </tbody>
-                      </table>
+                        </div>
+                      )}
+                      {body}
                     </>
                   )}
-                  {(![
-                    'groups',
-                    'group',
-                    'accounts',
-                    'account',
-                    'container',
-                    'blob',
-                    'history',
-                    ...(network ? ['vnets', 'vnet', 'subnet', 'nsgs', 'nsg', 'rule'] : []),
-                  ].includes(view) ||
-                    (view === 'group' && !group) ||
-                    (view === 'account' && !account) ||
-                    (view === 'container' && !container) ||
-                    (view === 'blob' && !blob)) && <p role="status">{c.missing}</p>}
-                </>
+                </PortalResourceLayout>
+              ) : (
+                body
               )}
             </>
           )}
           {busy && <p role="status">{c.busy}</p>}
-        </main>
+        </div>
       </div>
-      {reset && world && (
-        <PortalDialog title={c.resetTitle} onClose={() => setReset(null)}>
-          <p>{c.resetNote}</p>
-          <button
-            disabled={busy}
-            onClick={() => {
-              void run(
-                {
-                  commandId: crypto.randomUUID(),
-                  expectedRevision: reset.revision,
-                  command: { type: 'ResetWorkspace' },
-                },
-                reset.workspace,
-              );
-            }}
-          >
-            {c.confirmReset}
-          </button>
-          <button onClick={() => setReset(null)}>{c.cancel}</button>
-        </PortalDialog>
-      )}
-    </div>
+      <footer className="portal-footer laboratory-workspace-status">
+        <span>{w.free}</span>
+        <button
+          type="button"
+          onClick={() => {
+            void load();
+          }}
+          disabled={busy}
+        >
+          <ServiceIcon kind="refresh" size={15} />
+          {c.refresh}
+        </button>
+        {world && (
+          <>
+            <span className="lab-model-note">
+              {c.revision}: {world.revision} · {c.attempt}: {world.attempt} · {n.model}:{' '}
+              {world.model}
+            </span>
+            <button
+              type="button"
+              disabled={busy || !!error}
+              onClick={() => setReset({ workspace: snapshot!.workspace, revision: world.revision })}
+            >
+              {c.reset}
+            </button>
+          </>
+        )}
+      </footer>
+    </PortalFrame>
   );
 }

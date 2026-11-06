@@ -11,6 +11,7 @@ import {
   type PortalLocation,
 } from '@/domain/portal/model';
 import { PropertyList, type Navigate } from './shared';
+import { PortalCreateLayout, PortalCreateActions } from './presentation';
 const p = nb.portal;
 export function CreateResource({
   engine,
@@ -61,8 +62,7 @@ export function CreateResource({
   }, [onObserve, step, subscription, name, region, group, plan, preflightReady]);
   useEffect(() => () => onObserve?.(null), [onObserve]);
   return (
-    <div className="portal-create">
-      <p>{p.createNote}</p>
+    <PortalCreateLayout intro={p.createNote}>
       <nav className="portal-create-tabs" aria-label={p.review}>
         {(['basics', ...(kind === 'group' ? ['tags' as const] : []), 'review'] as const).map(
           (s) => (
@@ -280,7 +280,7 @@ export function CreateResource({
             <p>{kind === 'group' ? p.locationNote : kind === 'plan' ? p.planNote : p.appNote}</p>
           </section>
         )}
-        <footer className="portal-create-footer">
+        <PortalCreateActions>
           {step !== 'review' && (
             <button
               className="primary"
@@ -320,8 +320,8 @@ export function CreateResource({
           >
             {p.close}
           </button>
-        </footer>
+        </PortalCreateActions>
       </form>
-    </div>
+    </PortalCreateLayout>
   );
 }

@@ -342,6 +342,46 @@
       "source": "package/icons/organization_16_regular.svg",
       "reference": "Fluent 16 regular; Portal action variant not proven identical",
       "result": "UNVERIFIED"
+    },
+    "account": {
+      "family": "azure",
+      "file": "azure/10086-icon-service-Storage-Accounts.svg",
+      "bytes": 1157,
+      "sha256": "7190d3bb14ce30ce74bd0af873915830fe821e8c5f6ef6f3149e6f7cfb2aa4f7",
+      "source": "Azure_Public_Service_Icons/Icons/storage/10086-icon-service-Storage-Accounts.svg",
+      "reference": "Original Microsoft V24 identity, inspected16/24/32/48px2026-11-06; current live Portal variant not verified",
+      "result": "UNVERIFIED",
+      "name": "Storage accounts"
+    },
+    "nsg": {
+      "family": "azure",
+      "file": "azure/10067-icon-service-Network-Security-Groups.svg",
+      "bytes": 1353,
+      "sha256": "cf4023ddaa11961904e1e4601864ccd20b9f60686cb38ad7f8ff8385d855c4de",
+      "source": "Azure_Public_Service_Icons/Icons/networking/10067-icon-service-Network-Security-Groups.svg",
+      "reference": "Original Microsoft V24 identity, inspected16/24/32/48px2026-11-06; current live Portal variant not verified",
+      "result": "UNVERIFIED",
+      "name": "Network security groups"
+    },
+    "container": {
+      "family": "azure",
+      "file": "azure/10839-icon-service-Storage-Container.svg",
+      "bytes": 1369,
+      "sha256": "cc50afdf3d9386f6872d314fd4f570645a594680c727bc709dfe8c4d6e5a6b2a",
+      "source": "Azure_Public_Service_Icons/Icons/general/10839-icon-service-Storage-Container.svg",
+      "reference": "Original Microsoft V24 identity, inspected16/24/32/48px2026-11-06; current live Portal variant not verified",
+      "result": "UNVERIFIED",
+      "name": "Blob containers"
+    },
+    "blob": {
+      "family": "azure",
+      "file": "azure/10780-icon-service-Blob-Block.svg",
+      "bytes": 1073,
+      "sha256": "649cdb593d0c7f56a227e4c28df40a3e5c489e303867d32502af2ee4b4865ea3",
+      "source": "Azure_Public_Service_Icons/Icons/general/10780-icon-service-Blob-Block.svg",
+      "reference": "Original Microsoft V24 identity, inspected16/24/32/48px2026-11-06; current live Portal variant not verified",
+      "result": "UNVERIFIED",
+      "name": "Text blob objects"
     }
   },
   "aliases": {
@@ -352,7 +392,11 @@
     "plans": "plan",
     "apps": "app",
     "root": "management",
-    "hierarchy": "management"
+    "hierarchy": "management",
+    "accounts": "account",
+    "nsgs": "nsg",
+    "containers": "container",
+    "blobs": "blob"
   },
   "licenses": {
     "licenses/Microsoft_Terms_of_Use.pdf": {

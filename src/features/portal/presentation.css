@@ -1,0 +1,15 @@
+.portal .portal-header > .portal-workspace-link {
+  color: #fff;
+  white-space: nowrap;
+  font-size: 12px;
+  padding: 4px 6px;
+}
+.portal .portal-header > .portal-workspace-link:focus-visible {
+  outline-color: #fff;
+}
+@media (max-width: 800px) {
+  .portal .portal-header > .portal-workspace-link {
+    white-space: normal;
+    max-width: 110px;
+  }
+}
