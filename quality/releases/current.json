@@ -5,7 +5,7 @@
   "author": "pr61-product-landing-author",
   "scope": {
     "kind": "product-entry-ui-navigation",
-    "description": "Replace root redirect with premium three-course catalog and separate Laboratory3 entry. AZ900 links unchanged Hub; planned AZ104/305 have no fake actions. Read-only position badge cannot issue Complete. Preserve old runtime/domain/backend/assessment/history/assets, apart from exact root shell/additive UI-copy delta and equivalent old course-test entrances. Owner additionally requires all choices and footer without normal desktop scrolling, including1024x500/800x700. Normal document reflow/scroll remains available at high zoom; no overflow clipping. Final owner refinement: clean selection only, no description/resume/planned paragraphs; concise brand hero and one-line Laboratory copy. Original backend unavailable state remains at actual Lab destination.",
+    "description": "Replace root redirect with premium three-course catalog and separate Laboratory3 entry. AZ900 links unchanged Hub; planned AZ104/305 have no fake actions. Read-only position badge cannot issue Complete. Preserve old runtime/domain/backend/assessment/history/assets, apart from exact root shell/additive UI-copy delta and equivalent old course-test entrances. Owner additionally requires all choices and footer without normal desktop scrolling, including1024x500/800x700. Normal document reflow/scroll remains available at high zoom; no overflow clipping. Final owner refinement: clean selection only, no description/resume/planned paragraphs; concise brand hero and one-line Laboratory copy. Original backend unavailable state remains at actual Lab destination. After first full CI395pass+1flaky+1failed, test-only synchronization correction:3explicit Hub URL commit waits before old fixture injection; unique visible correct Course module/topic/chapter before cross-tab expectation. Production UI and all old assertions/settings unchanged.",
     "objectives": ["PRODUCT-ENTRY"]
   },
   "sources": [
@@ -999,7 +999,7 @@
     {
       "command": "npm run check",
       "result": "passed",
-      "details": "Final clean owner-refined candidate full npm run check exit0:769Vitest/63files,24Node,503curriculum,TypeScript/lint/format/docs/quality/AZ900/assets/legacy and production build. All historical contracts retained; no QA setting change."
+      "details": "Renewed final check after causal CI test correction exit0:769Vitest/63files,24Node,503curriculum,TypeScript/lint/format/docs/quality/AZ900/assets/legacy and production build. Runtime UI/engine bytes identical to61e; no test thresholds changed. New397CI still pending."
     },
     {
       "command": "npm run test:e2e:desktop",
@@ -1020,64 +1020,69 @@
       "command": "npx playwright test tests/e2e/premium-landing.spec.ts --config=playwright.desktop.config.ts -g 'responsive keyboard|actual browser zoom'",
       "result": "passed",
       "details": "Final owner no-scroll refinement:3/3 in17.5s; five viewport document heights<=viewport incl1024x500/800x700, both real links in viewport, keyboard/Axe0/reduced motion and actual native125/200% zoom. Renewed first check found2px1440overflow; real spacing fixed, assertion retained."
+    },
+    {
+      "command": "npx playwright test tests/e2e/premium-landing.spec.ts tests/e2e/legacy-retirement.spec.ts tests/e2e/course.spec.ts --config=playwright.desktop.config.ts --project=desktop-chromium",
+      "result": "passed",
+      "details": "13/13,1.6m,0retries on exact original CI historical-review production fixture after causal test correction. Original failed CI/before repro/hidden-node+delayed-RSC observations preserved in ci-attempt-1.json. No production UI/old assertions/threshold changes."
     }
   ],
   "review": {
     "status": "complete",
-    "fingerprint": "bbcbe0e25e4fa79482c89e65e379811bac79da3b56435c1e7b4bd287284fb988",
+    "fingerprint": "6abdf826aa270bcbc5917c31350886079fdbff12efaae9cf8773c87a6ae44d53",
     "reviewer": { "id": "pr61-independent-final-audit-agent", "kind": "agent" },
-    "started": "2026-11-06T11:16:27.000Z",
+    "started": "2026-11-06T12:06:16.000Z",
     "domains": {
       "content": {
-        "finding": "Read official naming captures and new clean copy; planned AZ104/305 are nonlinks, separate from unchanged AZ900 paths. No new teaching, certification or availability claim from official sources; all prior source/teaching bytes preserved. Fresh network source retrieval and human SME review not claimed.",
+        "finding": "Fresh corrective follow-up: actual changed-path comparison proves all production copy/manuscripts/source captures/questions/keys unchanged since firstreview61e; documentation now preserves failedCI/causal evidence. Initial source/content audit retained, no new official-source/human review claimed.",
         "evidence": [
-          { "path": "docs/reviews/evidence/pr61/sources.json" },
+          { "path": "docs/reviews/evidence/pr61/ci-attempt-1.json" },
           { "path": "src/content/nb.ts" },
-          { "path": "docs/quality/PR61_FINAL_AUDIT.md" }
+          { "path": "docs/quality/PR61_FINAL_AUDIT.md", "marker": "Post-CI corrective follow-up" }
         ]
       },
       "technical": {
-        "finding": "Independent actual production root returns200 and creates zero Storage writes, Laboratory/remote requests, cookies or errors. AZ900 delegates unchanged /learn; free Lab only /labs/laboratory. Seven actual browser cases passed real PostgreSQL bidirectional reset isolation and unavailable/corrupt handling; no backend/SQL/domain byte changed.",
+        "finding": "All runtime/domain/backend/SQL/allowlists/assets/settings byte-identical to61e; only src test changes. Rebuilt unchanged nonhosted historical CI review fixture with original command and passed2affected actual browser journeys. No runtime rule, server or infrastructure correction claimed.",
         "evidence": [
-          { "path": "src/features/landing/landing.tsx" },
+          { "path": "scripts/e2e-preview-build.mjs" },
           { "path": "tests/e2e/premium-landing.spec.ts" },
-          { "path": "docs/quality/PR61_FINAL_AUDIT.md" }
+          { "path": "docs/quality/PR61_FINAL_AUDIT.md", "marker": "Post-CI corrective follow-up" }
         ]
       },
       "visual": {
-        "finding": "Personally inspected all five committed desktop images, both native zoom images and independent captures. All five ordinary document heights equal viewport, both44px actions/footer visible incl1024x500. Native125/200% zoom and extra320px normal scroll/reflow, skip/main/action focus,3px outline, reduced motion and Axe0 passed. No clipping or fake completed learner; human UX/screen-reader validation unperformed.",
+        "finding": "CSS/components/fonts/assets and actual five-size/nativezoom images unchanged; first independent actual inspection remains applicable and is not relabelled as rerun. New readiness assertion requires1exposed correct lesson, no first-match bypass. Original Journal/Portal/Axe journey passed current2case recheck. Human UX/screen-reader unperformed.",
         "evidence": [
-          { "path": "docs/reviews/evidence/pr61/landing-1440-900.png" },
           { "path": "docs/reviews/evidence/pr61/landing-1024-500.png" },
           { "path": "docs/reviews/evidence/pr61/browser-zoom-2.png" },
-          { "path": "docs/quality/PR61_FINAL_AUDIT.md" }
+          { "path": "tests/e2e/legacy-retirement.spec.ts" },
+          { "path": "docs/quality/PR61_FINAL_AUDIT.md", "marker": "Post-CI corrective follow-up" }
         ]
       },
       "assessment": {
-        "finding": "Current status projection explicitly excludes complete and reads existing CourseSave only. Actual independent PortalChallenge2 answer/draft and bytes survived root-Hub-exact resume/reload. Forged/corrupt completion cannot turn green. Reserved primitive is test-only; production fixture URL independently404. No issuer, scoring, XP, rubric/history change or approved completion policy.",
+        "finding": "All rubric/first-help-retry-abandon/store/completion code unchanged. Every original assertion preserved by direct exact-body compare with PR60 and61e; precisely3stronger URL commit waits before fixture/subsequent actions. Cross-tab/corrupt/forged/no-backend negatives remain and passed. No issuer/award/evidence upgrade.",
         "evidence": [
+          { "path": "src/features/landing/preservation.test.ts" },
           { "path": "src/features/landing/course-status.ts" },
-          { "path": "src/features/landing/landing.test.ts" },
-          { "path": "docs/COURSE_COMPLETION_CONTRACT.md" },
-          { "path": "docs/quality/PR61_FINAL_AUDIT.md" }
+          { "path": "tests/e2e/premium-landing.spec.ts" },
+          { "path": "docs/quality/PR61_FINAL_AUDIT.md", "marker": "Post-CI corrective follow-up" }
         ]
       },
       "guidance": {
-        "finding": "Original mission/mascot/durable teaching/assistance and AssessmentNavigationExit remain byte-identical. Landing adds no guide/start/help/reward; actual independent draft navigation left history unchanged. Original explicit departure policy remains its preserved contract; no claim of recertifying every old assistance journey.",
+        "finding": "Mission/mascot/durable teaching/assistance and navigation guards byte-identical to firstreview; test synchronization adds no runtime teaching/help/start/reward behavior. Actual old Journal/Portal/history journey passed, original assistance boundaries preserved.",
         "evidence": [
-          { "path": "src/features/course/mission-context.ts" },
           { "path": "src/features/course/assessment-navigation-exit.tsx" },
-          { "path": "src/features/landing/preservation.test.ts" },
-          { "path": "docs/quality/PR61_FINAL_AUDIT.md" }
+          { "path": "src/features/course/mission-context.ts" },
+          { "path": "tests/e2e/legacy-retirement.spec.ts" },
+          { "path": "docs/quality/PR61_FINAL_AUDIT.md", "marker": "Post-CI corrective follow-up" }
         ]
       },
       "regression": {
-        "finding": "Separate direct Git checks bypassed original-byte projection helper:60snapshot hashes/fingerprint,23author log hashes,1899unchanged originals,53equivalent course entrances and2import-only readers verified. Independent28tests/6files3.52s and7production browsers33.6s passed without retries. Plan397/359/38 worker1 only; full exact-head CI/strict and anonymousSHA journey pending. Historical timing/PR59 blocker remain unresolved.",
+        "finding": "Rejected first397CI395pass+1flaky+1failed kept truthful, no success receipt. Independently verified61hash/fingerprint,29authorlogs+rawCIhash+embedded observer, no runtime/settings changes and original assertions retained. Renewed CIfixture build exit0; independent28tests4.93s+2browsers14.9s0retries passed. Full new397CI/strict and newSHA anonymous journey pending; earlier Portal/Compute/Axe/CC03 mysteries not claimed fixed.",
         "evidence": [
-          { "path": "tests/pr61-preservation.ts" },
-          { "path": "src/features/landing/preservation.test.ts" },
+          { "path": "docs/reviews/evidence/pr61/ci-attempt-1.json" },
           { "path": "docs/reviews/evidence/pr61/verification.json" },
-          { "path": "docs/quality/PR61_FINAL_AUDIT.md" }
+          { "path": "src/features/landing/preservation.test.ts" },
+          { "path": "docs/quality/PR61_FINAL_AUDIT.md", "marker": "Post-CI corrective follow-up" }
         ]
       }
     },
@@ -1086,7 +1091,7 @@
         "id": "PR61-FA-01",
         "severity": "note",
         "status": "open",
-        "description": "Delivery gate pending: actual exact-head full397CI/strict and anonymous deployed full-SHA root/course/Laboratory-entry/return must be executed. Targeted passes and collection are not full candidate proof."
+        "description": "First complete397CI on61e failed395passed+1flaky+1failed,27.5min,exit1; no receipt/strict success. Corrective payload needs actual new exact-head full397CI/strict and anonymous deployed new full-SHA root/course/Laboratory-entry/return. Prior public61e check cannot satisfy nextSHA."
       },
       {
         "id": "PR61-FA-02",
@@ -1105,9 +1110,34 @@
         "severity": "note",
         "status": "accepted-limitation",
         "description": "PR59 old-writer/ABA migration blocker remains unchanged. Human SME/learning/UX/screen-reader/transfer review remains unperformed; completion proposal and higher-course workspaces remain unapproved/unimplemented."
+      },
+      {
+        "id": "PR61-FA-05",
+        "severity": "major",
+        "status": "fixed",
+        "description": "Cross-tab test unfiltered .course-shell locator failed strictness in all3CI attempts because React streaming briefly retained exactly1visible and1hidden tree.",
+        "fix": "Require exactly1 .course-shell:visible, correct computing module/intro-request topic and1visible cloud chapter; no first-match bypass and every subsequent negative/assertion unchanged.",
+        "retests": [
+          "Independent corrected CI-review fixture: unavailable/cross-tab test passed as part of2/2 in14.9s,0retries.",
+          "Independent28unit/preservation checks passed6files4.93s; direct exact-delta/runtime/settings checks passed."
+        ]
+      },
+      {
+        "id": "PR61-FA-06",
+        "severity": "major",
+        "status": "fixed",
+        "description": "Old root/history case injected fixture data and reloaded before real RSC navigation committed; actual CI flaky and unchanged-case local before-fix failure receivedRoot rather thanLearn. Delayed real-response observation confirmed click resolved atRoot beforeLearn commit.",
+        "fix": "Add explicit /learn URL commit assertion after all3 real root-to-AZ900 clicks, before fixture injection/subsequent navigation. All original old assertions retained by independently reconstructed exact additive transform.",
+        "retests": [
+          "Independent corrected CI-review fixture: old raw-history/Journal/Portal/XP/Axe journey passed as part of2/2 in14.9s,0retries.",
+          "Independent28unit/preservation checks and direct PR60/first-reviewed-commit whole-body comparisons passed."
+        ]
       }
     ],
-    "report": { "path": "docs/quality/PR61_FINAL_AUDIT.md" }
+    "report": {
+      "path": "docs/quality/PR61_FINAL_AUDIT.md",
+      "marker": "Post-CI corrective follow-up"
+    }
   },
   "gates": {
     "source": {
@@ -1158,20 +1188,21 @@
       "docs/ARCHITECTURE.md": "bb8e96d93d57897a7abe9cc11dcefb85999380e234d20dc8a614ffe79e04f099",
       "docs/COURSE_COMPLETION_CONTRACT.md": "4b3883e2e56dab52a894dabde6b2a28d936c164fa251b458e221e88adf40d123",
       "docs/DECISIONS.md": "9ebc1f425a26b0ffe9e8f1739ddcbd29905d68d928daabc314798cb95ef6e997",
-      "docs/PREMIUM_LANDING.md": "a8812d4e9bcdd9d53f9cd0ce8e0663e205e1c6e508d915fd892e7ac20f29586d",
+      "docs/PREMIUM_LANDING.md": "d737a09fed189471a8d1d7a5c2e65305c2c6d32eba2069fd315295b77e42a6b8",
       "docs/reviews/evidence/pr61/before-root-1440-900.png": "8c4eb8b7b951879b9dddb2132b132e0c60829a1f8d1a12ab339b37099da1c8a2",
       "docs/reviews/evidence/pr61/browser-zoom-1.25.png": "d165ea20757ab186286ae911381938fea29cfb87ca2a536cc5d0514ccbe80b00",
       "docs/reviews/evidence/pr61/browser-zoom-2.png": "f13cd08f226e5eeea938a49bc3e3f7a3a904145e3924d94bba35f85c8f1c409f",
+      "docs/reviews/evidence/pr61/ci-attempt-1.json": "76873ae923f53300efa002f7352ed9e04d7e90b7ef153bff71fd20e038332284",
       "docs/reviews/evidence/pr61/landing-1024-500.png": "1139c8fa5a8e6381952087022b73ae8a3bcbaba4ca4975f7ac73b76f5f631dfd",
       "docs/reviews/evidence/pr61/landing-1024-768.png": "4525a6ca15f740f3c9fdee8c787829510515ff6f42166830d1fd94d64026d029",
       "docs/reviews/evidence/pr61/landing-1440-900.png": "588415064e246f461fc601abfd6d071b1c5cd1eb23ef245183df4a1bc3f8dce9",
       "docs/reviews/evidence/pr61/landing-1920-1080.png": "5d563f42df758ff14514bdfd3bb4234a2598696d069aa924cafa07bcb626fa37",
       "docs/reviews/evidence/pr61/landing-800-700.png": "b179397b9acff9510a2f4b4f33160b2bebaaea058928b13a4b0da9be8aaeb26c",
       "docs/reviews/evidence/pr61/landing-laboratory-800-700.png": "b179397b9acff9510a2f4b4f33160b2bebaaea058928b13a4b0da9be8aaeb26c",
-      "docs/reviews/evidence/pr61/preservation.json": "996e515f9dc4487c93e80bd95890866c0809b3ac4837f080088aefede884f223",
+      "docs/reviews/evidence/pr61/preservation.json": "4becf0588fefa508c976e9cacb2a0c454891ed85f73ba2ed3f94891a60852e3d",
       "docs/reviews/evidence/pr61/sources.json": "0174be121f07e8d55060f6dffea9cf28ce867df430cd42e32dbfe9c1ae057979",
       "docs/reviews/evidence/pr61/status-presentation-only.png": "437a4ad0681200604130fe6d4e342427c5dc8427b9c3fdee4ffbc0df37ca12d3",
-      "docs/reviews/evidence/pr61/verification.json": "0eaa7d79f3bf248091a73cc740acfe520ff6a8cb7be8ea5dfd74bedc9468d418",
+      "docs/reviews/evidence/pr61/verification.json": "a6302d0935b6f459b40ed199718a541d6de90365c722f5a6ce49f563cd1bf1fa",
       "docs/reviews/evidence/pr61/visual-measurements.json": "ca85a304e8e7e65690b9e2150d843da66c656f83ff6c441a73c4f1ac17698c23",
       "docs/reviews/evidence/pr61/visual-provenance.json": "5e28d50be6e5f789199157db36c10b935548d6071dde04f95561daa823d04aa4",
       "playwright.desktop.config.ts": "ecf785d29ea7a5ad5cb18905248ec9a2503222aa6460dcd79796ece3ae5250d5",
@@ -1183,7 +1214,7 @@
       "src/features/landing/landing.css": "f18123edabedbc6543a83d475c41ed896b6a1996e6fb526619086fdc2bf275b3",
       "src/features/landing/landing.test.ts": "c67d846ba80ee9c0daaa16678c840b9620fce07768b8c092d32d60fdda423ae4",
       "src/features/landing/landing.tsx": "9d4c6f51d88953fe21efdfe1de343d87f0e7a201f96179c1cb76bf43cf427934",
-      "src/features/landing/preservation.test.ts": "2fb5ee5c20961c85e42f6d9ae2ae6a3f430e0828b421605616e8698884cac29e",
+      "src/features/landing/preservation.test.ts": "dc2c51c2f263204f4682747f8bd31163cb0a9f7e7ffdfde25ed3fc9fcf7f876a",
       "src/laboratory-v3-preservation.test.ts": "a51c9a85ef3fe89e9419cd4422e41d5e2dc0867269507f65cc12f23367c1182c",
       "tests/e2e/architecture-management.spec.ts": "43ab75fe35979bc0eda51ac6c43524c570bd247db459557797c6c8e8c8a79a5a",
       "tests/e2e/architecture-physical.spec.ts": "06a6c6f66dc6165e8c98e0c9e41bd62fd0c91e1f2f176286068190a11a18da3f",
@@ -1191,20 +1222,20 @@
       "tests/e2e/cloud-transfer.spec.ts": "cadd1a15f3d269ac441b80eb626425abe886361afca0a61048f49f9274063f16",
       "tests/e2e/compute-hosting.spec.ts": "a54638c8aa3974b85c3e2d7f803901219c03ab38cc16e7d53cb08119070deae9",
       "tests/e2e/cost-management.spec.ts": "b2cda3dfd331c41ff8c13b59fe2ac15969392c1dfe074f7a7a337bc206295a13",
-      "tests/e2e/course.spec.ts": "b68c04fa079cafd961b66229cdfb494baba78326bfd88e391a800de5a1ebe4db",
+      "tests/e2e/course.spec.ts": "7648f2176310e8e6ac626a7b50729599de352828da3d27e11e17bd65138e668a",
       "tests/e2e/curriculum-expansion.spec.ts": "fdb1dd456519352e32b6ca65f1fa11c353a82c4f4b7f523daee2f69105fc3a94",
       "tests/e2e/final-quality-sprint.spec.ts": "bcc98e202c74fbd7953cb01739d8aeb68defb8e9d0c3662e45d678e43c010157",
       "tests/e2e/foundations-v2.spec.ts": "95bf621b57923043976a08cf1da7b03f1f1591859ecfc8721c5f240fc82ef7ed",
       "tests/e2e/guided-learning-polish.spec.ts": "28e9faf90ba69a23f351fab2e78c20e2211d21c8a3947a1dc32f74dfe93c3467",
       "tests/e2e/hybrid-experience.spec.ts": "04487048e8b9626b7ce2b81c6cfbf81105955d186c157fb7a72924802b0d5d4f",
       "tests/e2e/laboratory-server.spec.ts": "62dc0de84d26c0ca5e9c22b811dbff14b790041c30565ef949762a0de77d1e65",
-      "tests/e2e/legacy-retirement.spec.ts": "8079f51837b87ca0006bab47279c4f4c6d931a9b6cb287f1202bc1b3d091381e",
+      "tests/e2e/legacy-retirement.spec.ts": "9b57d9ed820b33fae4d98b294df1d09964203cd2aa9e7fbf16ac2e1a100134d1",
       "tests/e2e/networking-connectivity.spec.ts": "9d4c60916d869a947dd4c15334f4ac2fe4e447ce6c8065ec50bc4bcf25ebd4f6",
       "tests/e2e/networking-foundations.spec.ts": "3a2dbf6a68e9eae7ffe64c1ab2f98b450c5e9c0aaa2f0369cc4f7fa101632abd",
       "tests/e2e/portal-fidelity.spec.ts": "571ae40257dc50df9b16cd85d8bf05857c94e31731c88cc0e25f697946aa4a15",
       "tests/e2e/practical-labs.spec.ts": "954fab8fb59a724523014287bd2fe2d8321ff7e60c6f8e2f6908fccfb6f52cfa",
       "tests/e2e/practical-missions.spec.ts": "cb5e1db123e983445f266e014e63076c34f99a6424ee605b13c8fc49e946bf4c",
-      "tests/e2e/premium-landing.spec.ts": "bd3db40a6b95a486de37160207dc50db400ca62903cf049260767eb317c6778a",
+      "tests/e2e/premium-landing.spec.ts": "7dd4577408b9364cbf9b727a68515b1509983c259575153e398be50f641f3107",
       "tests/e2e/quality-system.spec.ts": "7f13b43b06fdd2738b4d4d2113b68cea2ad108f941452a8b8cbfb2c57ee9f4fa",
       "tests/e2e/serverless.spec.ts": "33b03567678c0fbf6c8cc8f90825f80c1b86fc2a07a6883bc995b906c909c980",
       "tests/e2e/ux-refinement.spec.ts": "2555801e785b5ee356e3f563df33f581334db908a34138dc7d654cffd0c33c98",
@@ -1215,5 +1246,5 @@
       "tests/pr61-preservation.ts": "6e8485983edc0fe39349ce80957e3cce78313580a1a1f702fffb6f6df8676d40"
     }
   },
-  "implementationFinished": "2026-11-06T11:15:39.943Z"
+  "implementationFinished": "2026-11-06T12:05:42.477Z"
 }

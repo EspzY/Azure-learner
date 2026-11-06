@@ -157,7 +157,13 @@ test('landing unavailable backend and corrupt forged or cross-tab course status 
   await root(page);
   const other = await context.newPage();
   await other.goto('/learn/computing?topic=intro-request');
-  await expect(other.locator('.course-shell')).toBeVisible();
+  // React streaming may briefly retain a hidden copy of the same course tree.
+  // Require exactly one visible, committed lesson; duplicate visible UI still fails.
+  const visibleCourse = other.locator('.course-shell:visible');
+  await expect(visibleCourse).toHaveCount(1);
+  await expect(visibleCourse).toHaveAttribute('data-course-module', 'computing');
+  await expect(visibleCourse).toHaveAttribute('data-course-topic', 'intro-request');
+  await expect(visibleCourse.locator('.cloud-chapter:visible')).toHaveCount(1);
   await expect(page.locator('.landing-status')).toContainText(t.status.unknown);
   await other.close();
   await page.reload();

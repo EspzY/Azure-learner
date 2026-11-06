@@ -6,6 +6,8 @@ Produksjonsbygget og faktisk visuell inspeksjon brukes under implementering. All
 
 Eierens siste instruks er implementert: kortene har bare kurskode/navn/status/én handling; gjentatte forklaringer, stor salgstekst og databaseinformasjon er fjernet fra root. Hele siden får plass uten scrolling i alle fem vanlige desktopstørrelser, inkludert1024×500. Endelig ren browserbatch bestod7/7 i39.3s uten retry; siste fornyede fullcheck bestod769Vitest/63filer,24Node,503curriculum og produksjonsbygg. Ny signering og separat audit utføres før eksakt-head397CI/streng release og faktisk anonym Gate7; endelige head-/CI-/preview-bevis føres på samme PR.
 
+Første komplette CI feilet395pass+1flaky+1failed av397. Reproduserte testårsaker: skjult streamet Course-kopi og fixture/reload før lenkens kurs-URL var committed. Kun test-synkronisering er rettet; alle gamle asserts og produksjonsbytes er bevart.13målrettede browserreiser mot identisk CI-reviewbygg og14unit bestod. Ny fullcheck/signering/uavhengig kontroll/fullCI/streng release og ny anonym SHA-verifisering er påkrevd; første feilbevis er bevart.
+
 Offentlig persistent Laboratory-database er fortsatt ikke konfigurert. Root lenker til faktisk v3-rute med eksisterende utilgjengelig-tilstand; ingen lokal fallback, falsk demo, import, ny tjeneste eller ekstern database opprettes. Ingen kursinnhold, rubrics, first/help/retry/abandon, World/receipts/XP eller PR60-serverkontrakt endres. Ingen merge eller produksjonsdeploy.
 
 ## PR59 — Laboratory Stage1: aktiveringsgate blokkert, 6. november 2026

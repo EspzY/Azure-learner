@@ -116,6 +116,36 @@
       "localArtifact": "/workspace/azurelab-pr61/check-clean-final.log",
       "sha256": "aa2e436a7fb424333473099231525ef5902f4c7237191ef03293814e3c45c10b",
       "bytes": 7864
+    },
+    "ci-fixture-repro-build.log": {
+      "localArtifact": "/workspace/azurelab-pr61/ci-fixture-repro-build.log",
+      "sha256": "5259be017b24a981c5bed06642a45d878a5ae3640c6b2c2ed31e1890c604486f",
+      "bytes": 1651
+    },
+    "ci-fixture-before-fix.log": {
+      "localArtifact": "/workspace/azurelab-pr61/ci-fixture-before-fix.log",
+      "sha256": "01d7035fc7c239219bf480fdb27bca5ceafd8b090311c3c773779ca58577b503",
+      "bytes": 3039
+    },
+    "entry-diagnostic.log": {
+      "localArtifact": "/workspace/azurelab-pr61/entry-diagnostic.log",
+      "sha256": "53746584ce3780cc8856b7ca0097c7566858cbadb1309010667cdf5a7d51f042",
+      "bytes": 1860
+    },
+    "ci-correction-unit.log": {
+      "localArtifact": "/workspace/azurelab-pr61/ci-correction-unit.log",
+      "sha256": "e18c5cead0c6d70f51588064a16483d4431611d1cbcbaa1ed9113fb5651a2b07",
+      "bytes": 187
+    },
+    "ci-fixture-corrected-browser.log": {
+      "localArtifact": "/workspace/azurelab-pr61/ci-fixture-corrected-browser.log",
+      "sha256": "0d63f3d7c8b69a07f434ba32eb4761f412d4b97bd2d6fea977e7638a84bf316c",
+      "bytes": 2987
+    },
+    "check-ci-corrected-final.log": {
+      "localArtifact": "/workspace/azurelab-pr61/check-ci-corrected-final.log",
+      "sha256": "6cdbdd43fdb42d488651537401ccc2aab1f68f874f053e6dc2847affd8cd3ddf",
+      "bytes": 7866
     }
   },
   "newBrowserFinalBatch": "6 passed +1 unchanged30s Portal-navigation budget failure; same unchanged case isolated diagnostic passed3.5s. No retry/timeout/workers/skips altered; timing not explained/fixed.",
@@ -127,5 +157,8 @@
   "ownerNoScrollRefinement": "Added after first complete check/stamp, before independent review. New final3/3 affected browser runs passed17.5s; renewed check caught2px1440overflow and spacing corrected. No clipped text/overflow-hidden/QA changes. Renewed fullcheck and fresh stamp/review required.",
   "finalCleanBrowser": "Actual7/7passed39.3s0retries after final owner-requested clean copy/layout. Earlier Portal budget failure remains historical unexplained timing, not declared repaired.",
   "setupFailure": "One clean browser command was launched before production build completed and webServer failed before any test ran. Original startup log retained. Build completed successfully before actual final7case run.",
-  "finalizedAt": "2026-11-06T11:15:37.654572+00:00"
+  "finalizedAt": "2026-11-06T11:15:37.654572+00:00",
+  "firstFullCI": "FAILED395passed+1flaky+1failed/all397,27.5min; original ci-attempt-1.json and actual causal observations retained. Strict not passed/no positive receipt.",
+  "correctedTargeted": "Test-only causal correction13/13browser1.6min and14unit passed; no production change. Fresh fullcheck/stamp/followup/397CI required.",
+  "correctedFullcheck": "Actual renewed complete check after CI-only test corrections exit0:769Vitest/63files,24Node,503curriculum and production build. New397CI/strict remains pending."
 }

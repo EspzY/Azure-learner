@@ -94,7 +94,7 @@ it('retains every old browser test name, assertion, safety control and fixture e
         "import { landingNb } from '../../src/content/nb';\n" +
         before.replaceAll(
           "await page.goto('/');",
-          "await page.goto('/');\n  await page.getByRole('link', { name: landingNb.az900Link, exact: true }).click();",
+          "await page.goto('/');\n  await page.getByRole('link', { name: landingNb.az900Link, exact: true }).click();\n  await expect(page).toHaveURL('/learn');",
         );
     } else expected = before.replaceAll("goto('/')", "goto('/learn')");
     expect(readFileSync(path, 'utf8'), path).toBe(expected);
