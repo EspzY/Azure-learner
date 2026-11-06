@@ -98,6 +98,11 @@ test('network Laboratory actual VNet two subnets NSG rule association Storage pa
   expect(await page.locator('.lab-default-rules button,input,select').count()).toBe(0);
   await page.screenshot({ path: info.outputPath('nsg-rules.png') });
   await page.getByRole('link', { name: 'allow-https', exact: true }).click();
+  await expect(page.getByRole('heading', { name: 'allow-https', exact: true })).toBeVisible();
+  await expect(page.getByRole('link', { name: c.receipt, exact: true })).toHaveAttribute(
+    'href',
+    '/labs/laboratory?view=history&receipt=' + original.world.securityRules[0].origin,
+  );
   await page.getByRole('link', { name: c.receipt, exact: true }).click();
   await page.getByText(c.details, { exact: true }).click();
   await expect(page.locator('.lab-result pre')).toContainText('CreateSecurityRule');

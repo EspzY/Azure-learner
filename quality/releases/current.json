@@ -1143,46 +1143,63 @@
       "command": "npx vitest run src/laboratory-networking-preservation.test.ts src/laboratory-v3-preservation.test.ts src/features/landing/preservation.test.ts",
       "result": "passed",
       "details": "Independent post-renewal audit:15passed3files1.95s; original assertion bodies and protected bytes retained. Initial broader113tests/6browsers/independent SQL and migration controls apply to byte-identical domain/backend paths."
+    },
+    {
+      "command": "npx playwright test --config playwright.desktop.config.ts tests/e2e/laboratory-networking.spec.ts",
+      "result": "passed",
+      "details": "After actual CI99 selector/navigation failure403passed+1failed, complete targeted network file7/7passed52.7s0retries. Added target-heading wait and exact original-rule receipt href assertion; no application/domain/SQL or prior test/settings changes."
+    },
+    {
+      "command": "npm run check",
+      "result": "passed",
+      "details": "Renewed after bounded CI test synchronization correction:833Vitest/24Node/503curriculum and all mandatory static/quality/build checks exit0. New complete exact-head404CI required; first failed CI retained."
+    },
+    {
+      "command": "npx playwright test --config playwright.desktop.config.ts tests/e2e/laboratory-networking.spec.ts --project desktop-chromium --grep 'actual VNet two subnets NSG rule association Storage parent receipts and reload share one authoritative World'",
+      "result": "passed",
+      "details": "Independent renewed CI-correction audit:1/1passed9.4s,one worker0retries,actual PostgreSQL production path; intended committed rule and original receipt identity, reload/Back/Forward/Storage/learning-byte assertions retained. Targeted only, not404CI."
+    },
+    {
+      "command": "npx vitest run src/laboratory-networking-preservation.test.ts src/laboratory-v3-preservation.test.ts src/features/landing/preservation.test.ts",
+      "result": "passed",
+      "details": "Independent renewed CI-correction audit15passed3files1.64s; exact5added test lines reconstruct entire8b722953 test body, every runtime/settings/source/scope/gate byte unchanged;33file09451ace… fingerprint verified."
     }
   ],
   "review": {
     "status": "complete",
-    "fingerprint": "654aa9a5688d6e284e33053e4bb5fa7bedd0ffcc6964472d145e1cab94d70d1c",
+    "fingerprint": "09451ace7559668f2a5e6dc84aa7edc3fcb8bc3bf31fb5b574f80371048f9f48",
     "reviewer": {
       "id": "/root/pr62_independent_final_audit",
       "kind": "agent"
     },
-    "started": "2026-11-06T15:09:11.491Z",
+    "started": "2026-11-06T15:55:35.123Z",
     "domains": {
       "content": {
-        "finding": "Actual official naming/subnet/NSG references checked against bounded copy: canonical RFC1918 subset, five reservations, per-direction priorities, six read-only defaults and same subscription/location association are truthful. Wider Azure capabilities are explicit exclusions. Qualified-label correction changes no claims; human SME/learning approval remains unperformed.",
+        "finding": "Bounded CI-correction follow-up: all production copy/source claim records and scope metadata are byte-identical to8b722953. Official-source/limits audit retained; contract and verification now truthfully preserve actual failed404CI and five-line synchronization correction. No new source/human approval claimed.",
         "evidence": [
           {
             "path": "docs/LABORATORY_NETWORKING_PART_A.md"
           },
           {
-            "path": "docs/reviews/evidence/pr62/sources.json"
+            "path": "docs/reviews/evidence/pr62/verification.json"
           },
           {
             "path": "src/content/laboratory-networking-nb.ts"
           },
           {
             "path": "docs/quality/PR62_FINAL_AUDIT.md",
-            "marker": "Post-correction independent follow-up"
+            "marker": "Post-CI test synchronization follow-up"
           }
         ]
       },
       "technical": {
-        "finding": "Initial independent113tests,4096BigInt network comparisons within12235controls and separate real001/full5-entry Storage golden/002-twice migration proved strict IPv4/overlap/scopes, original payload/replay, SQL model constraints, command identity, rollback, through/reset and legacy3.0. All domain/dispatch/repository/server/SQL bytes unchanged at final stamp; exact reconstruction proves only option-label text changed, preserving IDs/commands.",
+        "finding": "Every runtime/UI/domain/version-dispatch/repository/server/SQL byte unchanged. Prior independent113tests,12235oracle/SQL controls and full original001/Storage-golden/002 replay proof remain applicable. New test waits exact rule heading and strict receipt href equal to persisted original rule origin; actual1/1production/PostgreSQL browser9.4s passed. No ID/payload/model/transaction/history changes.",
         "evidence": [
           {
-            "path": "src/laboratory/v31/domain.ts"
-          },
-          {
-            "path": "src/laboratory/v31/ip.ts"
-          },
-          {
             "path": "src/laboratory/engine.ts"
+          },
+          {
+            "path": "src/laboratory/v31/domain.ts"
           },
           {
             "path": "src/laboratory/v3/repository.ts"
@@ -1191,20 +1208,17 @@
             "path": "database/laboratory-v3/002-networking.sql"
           },
           {
-            "path": "src/laboratory-networking.integration.test.ts"
+            "path": "tests/e2e/laboratory-networking.spec.ts"
           },
           {
             "path": "docs/quality/PR62_FINAL_AUDIT.md",
-            "marker": "Post-correction independent follow-up"
+            "marker": "Post-CI test synchronization follow-up"
           }
         ]
       },
       "visual": {
-        "finding": "Initial6actual browsers and separate root/UI Tab-order/Enter/Axe0 journey inspected. Renewed4/4browser executions30.4s0retries and refreshed1024x500 image confirm qualified scopes, keyboard/focus, native vertical scroll and desktop/compact Axe. Same-name resource association now unambiguous. Compact default-table identifier wrapping/horizontal comparison remains a concrete minor limitation; no human UX/screen-reader or Portal-parity approval.",
+        "finding": "CSS/components/assets/actual stamped screenshots and prior desktop/compact keyboard/Axe/short-height evidence unchanged. Affected actual normal browser path passed1/1,9.4s0retries, with stricter unique heading and original receipt identity. No first/nth bypass. Existing compact default-table wrapping/scroll limitation and human UX/screen-reader gaps retained; no fresh full visual audit inferred.",
         "evidence": [
-          {
-            "path": "tests/e2e/laboratory-networking.spec.ts"
-          },
           {
             "path": "docs/reviews/evidence/pr62/network-form-1024-500.png"
           },
@@ -1212,16 +1226,16 @@
             "path": "docs/reviews/evidence/pr62/nsg-rules-1440.png"
           },
           {
-            "path": "docs/reviews/evidence/pr62/subnet-associated-1440.png"
+            "path": "tests/e2e/laboratory-networking.spec.ts"
           },
           {
             "path": "docs/quality/PR62_FINAL_AUDIT.md",
-            "marker": "Post-correction independent follow-up"
+            "marker": "Post-CI test synchronization follow-up"
           }
         ]
       },
       "assessment": {
-        "finding": "No new assessment or learning authority. Base-byte controls preserve locale/course/v2/rubrics/first-help-retry-abandon/history/XP and all original assertions. Explicit Review/Create/Apply and rejection receipts distinguish preview/configuration from commitment; no packet/security-test or completion credit.15renewed preservation tests passed; all prior learning semantics unchanged.",
+        "finding": "No production course/v2/locale/rubric/first-help-retry-abandon/store/XP change. Exact reconstruction proves every pre-correction assertion and interaction body preserved; five additions strengthen ready-resource/original-receipt verification. Independent15preservation tests1.64s passed. No old evidence reinterpretation or new assessment/credit.",
         "evidence": [
           {
             "path": "src/laboratory-networking-preservation.test.ts"
@@ -1230,22 +1244,22 @@
             "path": "src/features/landing/preservation.test.ts"
           },
           {
-            "path": "src/laboratory/v3/contract.ts"
-          },
-          {
-            "path": "src/laboratory/v3/domain.ts"
+            "path": "tests/e2e/laboratory-networking.spec.ts"
           },
           {
             "path": "docs/quality/PR62_FINAL_AUDIT.md",
-            "marker": "Post-correction independent follow-up"
+            "marker": "Post-CI test synchronization follow-up"
           }
         ]
       },
       "guidance": {
-        "finding": "No new mascot, mission, automatic guide, answer exposure or reward. Existing mission/guidance/assets are byte preserved; actual initial operations left azurelab local storage unchanged. Renewed legacy-cookie/reset case confirms old3.0 access remains original;3.1 requires explicit Start in a separate fresh browser session, without switch/import/upgrade.",
+        "finding": "Guidance/mission/mascot/independent guards, session Start and3.0/new3.1 boundary all byte unchanged. Test synchronization creates no runtime guidance, assistance, implicit upgrade or reward. Corrected actual path retains assertion that azurelab localStorage bytes remain unchanged. Prior deep guidance/preservation evidence retained explicitly.",
         "evidence": [
           {
             "path": "src/features/course/mission-context.ts"
+          },
+          {
+            "path": "src/features/laboratory/laboratory.tsx"
           },
           {
             "path": "src/laboratory-networking-preservation.test.ts"
@@ -1254,32 +1268,29 @@
             "path": "tests/e2e/laboratory-networking.spec.ts"
           },
           {
-            "path": "src/features/laboratory/laboratory.tsx"
-          },
-          {
             "path": "docs/quality/PR62_FINAL_AUDIT.md",
-            "marker": "Post-correction independent follow-up"
+            "marker": "Post-CI test synchronization follow-up"
           }
         ]
       },
       "regression": {
-        "finding": "Initial113tests/7files and6browsers plus independent oracle/SQL/migration/UI controls passed. Renewed15preservation tests/3files1.95s and4focused browsers30.4s passed. Hash reconstruction preserves every original networking assertion; metadata/33file final fingerprint verified. Current404plan=365desktop+39compact keeps397prior/settings. Renewed author833Vitest/24Node/503curriculum/build log inspected. Full404CI/strict, new-SHA anonymous delivery and public persistent backend proof remain pending; prior screenshot/trace stall causally unresolved.",
+        "finding": "Direct GitHub job127970841434 confirms run99 failed403passed+1failed27.6m; original plus2retries each resolved2receipt links and strict release skipped. No false success receipt. Exact five-line reconstruction/33hash/fingerprint/metadata controls passed. Independent affected1browser9.4s0retries+15preservation1.64s passed; author7network52.7s and full833/24/503/build logs inspected. New exact-head404CI/strict and corrected-SHA external delivery remain pending; screenshot/Compute/Axe causes unresolved.",
         "evidence": [
           {
-            "path": "src/laboratory-networking-preservation.test.ts"
+            "path": "docs/reviews/evidence/pr62/verification.json"
           },
           {
-            "path": "tests/pr62-preservation.ts"
+            "path": "tests/e2e/laboratory-networking.spec.ts"
+          },
+          {
+            "path": "src/laboratory-networking-preservation.test.ts"
           },
           {
             "path": "playwright.desktop.config.ts"
           },
           {
-            "path": "docs/reviews/evidence/pr62/verification.json"
-          },
-          {
             "path": "docs/quality/PR62_FINAL_AUDIT.md",
-            "marker": "Post-correction independent follow-up"
+            "marker": "Post-CI test synchronization follow-up"
           }
         ]
       }
@@ -1312,18 +1323,30 @@
         "id": "PR62-IFA-04",
         "severity": "note",
         "status": "open",
-        "description": "Complete exact-head404CI and strict release, plus anonymous new-SHA root/unavailability delivery, remain pending. Local checks/plan collection do not establish those results. Public persistent networking Gate7 remains deferred without an authorized backend; no external database/credentials/Vercel/Azure/production changes were performed."
+        "description": "Actual Quality run99 on8b722953 failed403passed+1new-network-selector failure27.6m; GitHub independently confirms strict release skipped. Corrected complete exact-head404CI/strict and anonymous new-SHA delivery remain pending. Local targeted passes do not establish those results. Public persistent networking remains deferred without an authorized backend; no external infrastructure/credential change."
       },
       {
         "id": "PR62-IFA-05",
         "severity": "note",
         "status": "accepted-limitation",
         "description": "Existing anonymous3.0 users intentionally retain their original cookie, Storage/history and reset model; networking requires a separately started fresh browser session. No implicit upgrade, switcher, cookie replacement or v2 migration is supplied. Human SME/security/learning/novice/UX/screen-reader/transfer validation remains unperformed."
+      },
+      {
+        "id": "PR62-IFA-06",
+        "severity": "major",
+        "status": "fixed",
+        "description": "New main network browser case advanced from NSG to receipt before verifying committed rule view; strict receipt locator matched2links in actual complete CI initial attempt and both existing retries, failing404CI.",
+        "fix": "Exactly five additive test lines await unique visible allow-https heading and assert exact receipt href against original.world.securityRules[0].origin before original click. All old assertion bodies, interactions and runtime/settings bytes independently reconstructed unchanged; no first/nth selection or weakened strictness.",
+        "retests": [
+          "Independent post-stamp actual main production/PostgreSQL browser1/1passed9.4s,0retries, including original rule receipt, reload, Back/Forward, shared Storage and unchanged learning bytes.",
+          "Independent15preservation tests3files1.64s passed; exact five-line original-body reconstruction,33file normalized fingerprint and all runtime/settings/metadata hashes passed.",
+          "Inspected direct GitHub failed job127970841434, author7/7network52.7s0retries and renewed full833Vitest/24Node/503curriculum/build logs. Complete corrected404CI remains pending."
+        ]
       }
     ],
     "report": {
       "path": "docs/quality/PR62_FINAL_AUDIT.md",
-      "marker": "Post-correction independent follow-up"
+      "marker": "Post-CI test synchronization follow-up"
     }
   },
   "gates": {
@@ -1402,7 +1425,7 @@
   "snapshot": {
     "files": {
       "database/laboratory-v3/002-networking.sql": "64e41a6f786e8d1c8a7c0144655c3594745738b433949014c7252e9355f48a9d",
-      "docs/LABORATORY_NETWORKING_PART_A.md": "fd56b99854e981eceef2d5bd050f95cc52a5a5198ed201ba35817fccc02c8e1e",
+      "docs/LABORATORY_NETWORKING_PART_A.md": "1d1c850331d8a2d4d2b62db9cafec762be6965137082d290e7e307d54498b774",
       "docs/LABORATORY_V3_SERVER.md": "be5063c9bd6d077c23241cd729a102146404a4a89e7c513a1ba292f28fafd993",
       "docs/PORTAL_CAPABILITY_MATRIX.md": "11a8b5323257b9015a0dd6241db0626715e0b4d6f0be55b6e4ebbedc129814c5",
       "docs/reviews/evidence/pr62/laboratory30-golden.json": "c0df7f91144749f2e6b3fd77640819b57e5f151bad817f05733de6276166ccaa",
@@ -1413,7 +1436,7 @@
       "docs/reviews/evidence/pr62/preservation.json": "e9a3616c8501e1254f4d33109df20328de72f30b8f8056029683f28dc63b2e46",
       "docs/reviews/evidence/pr62/sources.json": "6070e7275944237049bf4db23f94dacf88ed5d627683a0b26bfdfd4865e2a798",
       "docs/reviews/evidence/pr62/subnet-associated-1440.png": "f87952a78a51e637320535bfde411c81269a6b6988a6b0483b6b90a8df69e917",
-      "docs/reviews/evidence/pr62/verification.json": "77c46a7c41b5a22c895d5ba4303e5a377d1a5e0cdf51798ef74d5b988506738a",
+      "docs/reviews/evidence/pr62/verification.json": "930f9ec3643f3cdf19d1c007c2d7223d8c83a8c1a41e04ba939f4fe424edf72e",
       "playwright.desktop.config.ts": "0fb4dbf4eb9be6b88526b4b193b533e900e972f1a5f90c6f0787be904e5cf411",
       "scripts/laboratory-db.mjs": "1b4af6ab7727135298ffe4d3d24fad4118f29c43a0ef00aba6f8e39eec32474b",
       "src/content/laboratory-networking-nb.ts": "14f2e4a6e4c1cb2826549f278b4e98d94a26dfe3a977ca47137377f954feaadf",
@@ -1431,10 +1454,10 @@
       "src/laboratory/v31/default-rules.ts": "6a22947d700039f7d149ef47de93927c41be2c7bb9b2b4f08a8687db66b29766",
       "src/laboratory/v31/domain.ts": "ceff998659d2bf84f2b282fa883b98c0bd9eb97f752541123360a121a16caf61",
       "src/laboratory/v31/ip.ts": "4c453e8fb982dc54dc08d4c2cab255ad9170c72f3e7bdb57391503d715c23c95",
-      "tests/e2e/laboratory-networking.spec.ts": "56df572e1a560c53a6a12e0fc6e1b0d79eb75b4dc655c2e8429211603973580d",
+      "tests/e2e/laboratory-networking.spec.ts": "5d8785f5911af9a6d05672fe9494d2aada45595b4730e0ad3b5989b0e3971d6e",
       "tests/pr61-preservation.ts": "c6caf3cbcc56e2fe63a44e430d4f3ad5bd5125d96e865265c18b0c2a3642c280",
       "tests/pr62-preservation.ts": "24e6d105ded8323cee736078b785a7eb107a417c8408feb3021ed39a6286e0c5"
     }
   },
-  "implementationFinished": "2026-11-06T15:08:39.060Z"
+  "implementationFinished": "2026-11-06T15:55:03.280Z"
 }
