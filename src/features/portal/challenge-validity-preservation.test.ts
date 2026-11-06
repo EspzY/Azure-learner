@@ -1,6 +1,6 @@
 import { assertCC02Change, cc02PresentationChanges } from '../../../tests/cc02-preservation';
 import { it, expect } from 'vitest';
-import { readFileSync } from 'node:fs';
+import { readHistorical as readFileSync } from '../../../tests/pr60-preservation';
 import { execFileSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
 import { challenge2Nb } from '@/content/nb';

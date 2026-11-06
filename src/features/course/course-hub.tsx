@@ -1,6 +1,7 @@
 'use client';
 import Link from 'next/link';
 import { ArrowRight, BookOpen, FlaskConical, ShieldCheck } from 'lucide-react';
+import { laboratoryV3Nb } from '@/content/nb';
 import { hybridExperienceNb } from '@/content/nb';
 import { architectureNb, nb, courseHubNb as h, missionsNb, transferNb, labsNb } from '@/content/nb';
 import { courseHref, type CourseModule } from '@/domain/course/model';
@@ -242,6 +243,7 @@ export function CourseHub({
           {h.sandbox}
           <ArrowRight size={15} aria-hidden="true" />
         </Link>
+        <Link href="/labs/laboratory">{laboratoryV3Nb.entry}</Link>
       </footer>
     </div>
   );

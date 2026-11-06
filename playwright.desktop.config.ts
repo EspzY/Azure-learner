@@ -5,6 +5,10 @@ import baseline from './playwright.config';
 // names. No test body, assertion, title, timeout or skip is modified.
 const compactCases = [
   [
+    'laboratory-server.spec.ts',
+    'server Laboratory compact native keyboard short-height reduced motion Axe and actual Blob read remain usable',
+  ],
+  [
     'vm-debrief.spec.ts',
     'VM diagnostic desktop compact keyboard short-height focus reduced motion and Axe keep diagnosis and next action readable',
   ],

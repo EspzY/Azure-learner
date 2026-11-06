@@ -1,5 +1,9 @@
 # Decisions
 
+## PR60 — nytt serverarbeidsområde fremfor lokal cutover
+
+Eieren autoriserer eksplisitt en ny isolert Laboratory v3 med Next Route Handlers/PostgreSQL. PR59s påviste gamle-writer/ABA-problem repareres ikke: v2-localStorage og v3-databasen deler ingen write-autoritet, og det utføres ingen migrering/import. Nye anonyme sesjoner begynner ved eksplisitt handling. Databasens radlås/commit gir konsistent World/receipt; en ny browserlås brukes bare ved opprettelse av cookie, aldri som generell konsistensgaranti. Den første operative kjeden begrenses til RG/account/private container/create-only tekstblob, uten kursintegrasjon eller Azure-kall. Ingen ekstern betalt/gjenbrukt database provisioneres; lokal funksjonalitet og faktisk CI leveres mens offentlig persistent Storage Gate7 forblir blokkert uten eierkonfigurert database. [Detaljer og grenser](LABORATORY_V3_SERVER.md).
+
 ## P16 — compare bounded consequences instead of emulating file tools
 
 Keep three closed perspectives in Storage Part C: tool requirements, deterministic manifest consequences and declared migration readiness. Accept multiple defensible plans and paired reasons. Local/Blob directional fixtures do not claim universal AzCopy pair/protocol support; Windows-local→Files NFS is explicitly incompatible. File Sync fixture is established topology with one declared event, not a universal conflict resolver. Disabling cloud tiering cannot manufacture local bytes. Separate metadata generation, integrity checks, final write boundary and app validation from data transport. Source conflicts/retired Data Box variants/current Migrate discovery paths remain explicit. No new global engine or operative file runtime. After this final authored-content expansion, prioritize the separate complete learning-journey audit before any diagnostic engine or question bank.

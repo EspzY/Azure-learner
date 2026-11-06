@@ -1,0 +1,68 @@
+[
+  {
+    "id": "LP60-transactions",
+    "url": "https://www.postgresql.org/docs/17/tutorial-transactions.html",
+    "title": "PostgreSQL: Documentation: 17: 3.4.\u00a0Transactions",
+    "reviewed": "2026-11-06T08:49:13.400504+00:00",
+    "sha256": "bb4f03bc1d2d45e761dd6bd23e5aef39d4a25f72c7c649da319404133b3c922a",
+    "status": 200,
+    "checkedClaim": "BEGIN/COMMIT/ROLLBACK provide all-or-nothing transaction boundaries; no success before acknowledged commit.",
+    "limits": "Implementation reference only, not new Azure teaching or human security certification. Runtime behavior is verified separately by actual PostgreSQL/HTTP/browser tests.",
+    "hashScope": "Original HTTP response body bytes (HTML for PostgreSQL; MD/MDX for maintainer repository alternatives)",
+    "extractedReviewTextSha256": "d0f62f82a7e85db9e97ef92b5eb9bee2511ee752e532aea0a25d609c40a546c9"
+  },
+  {
+    "id": "LP60-locks",
+    "url": "https://www.postgresql.org/docs/17/explicit-locking.html",
+    "title": "PostgreSQL: Documentation: 17: 13.3.\u00a0Explicit Locking",
+    "reviewed": "2026-11-06T08:49:18.005855+00:00",
+    "sha256": "8936a65ba0e306ba789f894aa763cbb5d981151f557a4e9175bbc000b9bd0d38",
+    "status": 200,
+    "checkedClaim": "SELECT FOR UPDATE blocks competing row mutations until transaction end; subsequent operations must revalidate the committed state.",
+    "limits": "Implementation reference only, not new Azure teaching or human security certification. Runtime behavior is verified separately by actual PostgreSQL/HTTP/browser tests.",
+    "hashScope": "Original HTTP response body bytes (HTML for PostgreSQL; MD/MDX for maintainer repository alternatives)",
+    "extractedReviewTextSha256": "3920016ebc4df60d10824eda86684786c367fa981872010bb5a42af78c68f036"
+  },
+  {
+    "id": "LP60-pg",
+    "url": "https://raw.githubusercontent.com/brianc/node-postgres/master/docs/pages/features/transactions.mdx",
+    "original": "https://node-postgres.com/features/transactions",
+    "originalAccess": "403 Forbidden; did not bypass",
+    "title": "node-postgres \u2014 Transactions (maintainer documentation source)",
+    "reviewed": "2026-11-06T08:51:22.312315+00:00",
+    "sha256": "a99645cdfd3056f1fceb1988a64dac587df90ffedb2590ed463ac68359fd3417",
+    "status": 200,
+    "checkedClaim": "Every statement of a transaction must use the same checked-out pg client, not pool.query.",
+    "limits": "Implementation reference only, not new Azure teaching or human security certification. Runtime behavior is verified separately by actual PostgreSQL/HTTP/browser tests.",
+    "hashScope": "Original HTTP response body bytes (HTML for PostgreSQL; MD/MDX for maintainer repository alternatives)",
+    "extractedReviewTextSha256": "a99645cdfd3056f1fceb1988a64dac587df90ffedb2590ed463ac68359fd3417"
+  },
+  {
+    "id": "LP60-session",
+    "url": "https://raw.githubusercontent.com/OWASP/CheatSheetSeries/master/cheatsheets/Session_Management_Cheat_Sheet.md",
+    "original": "https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html",
+    "originalAccess": "403 Forbidden; did not bypass",
+    "title": "# Session Management Cheat Sheet",
+    "reviewed": "2026-11-06T08:51:22.640424+00:00",
+    "sha256": "c6dfdd81905de29eb149fa3826fa803da38e37f186b309dbdc85000c732aa514",
+    "status": 200,
+    "checkedClaim": "Unpredictable session token, server-side scope, Secure/HttpOnly/SameSite protections; same-origin XSS remains outside CSRF protection.",
+    "limits": "Implementation reference only, not new Azure teaching or human security certification. Runtime behavior is verified separately by actual PostgreSQL/HTTP/browser tests.",
+    "hashScope": "Original HTTP response body bytes (HTML for PostgreSQL; MD/MDX for maintainer repository alternatives)",
+    "extractedReviewTextSha256": "c6dfdd81905de29eb149fa3826fa803da38e37f186b309dbdc85000c732aa514"
+  },
+  {
+    "id": "LP60-csrf",
+    "url": "https://raw.githubusercontent.com/OWASP/CheatSheetSeries/master/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.md",
+    "original": "https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html",
+    "originalAccess": "403 Forbidden; did not bypass",
+    "title": "# Cross-Site Request Forgery Prevention Cheat Sheet",
+    "reviewed": "2026-11-06T08:51:22.948708+00:00",
+    "sha256": "fb6fb6a43e11dd0ae2709ddcad06ee3682ebc55fef4b8f7bc89e4852d0ba0ff4",
+    "status": 200,
+    "checkedClaim": "Exact Origin verification and SameSite/Fetch Metadata as layered CSRF controls; no state-changing GET technical operations.",
+    "limits": "Implementation reference only, not new Azure teaching or human security certification. Runtime behavior is verified separately by actual PostgreSQL/HTTP/browser tests.",
+    "hashScope": "Original HTTP response body bytes (HTML for PostgreSQL; MD/MDX for maintainer repository alternatives)",
+    "extractedReviewTextSha256": "fb6fb6a43e11dd0ae2709ddcad06ee3682ebc55fef4b8f7bc89e4852d0ba0ff4"
+  }
+]

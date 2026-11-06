@@ -1,0 +1,68 @@
+{
+  "base": "cb99705b1b0650d2099f6c95f5c7e32776448483",
+  "scope": "Local actual PostgreSQL and browser evidence, not public persistent Storage Gate7. No v2 import/cutover; PR59 blocker unchanged.",
+  "results": [
+    {
+      "artifact": "server-security.log",
+      "exitCode": 0,
+      "sha256": "3c7329c9b19c08aee1a2f94f3b225ea4705f72e6ffdb74d532bc869c1ca5db18",
+      "observed": "38 real domain/PostgreSQL tests passed"
+    },
+    {
+      "artifact": "preservation-final.log",
+      "exitCode": 0,
+      "sha256": "87b1b94b5cd6b33dfab45698acab914d230fb666fc786064b45cc1d933c89953",
+      "observed": "14 exact-preservation assertions passed"
+    },
+    {
+      "artifact": "browser-visual.log",
+      "exitCode": 0,
+      "sha256": "82c7afe3b00b9c618790f84a5b2fec9517f2764af9fcb3925938009bf560f860",
+      "observed": "7 actual browser executions passed"
+    },
+    {
+      "artifact": "browser-original-blob-receipt.log",
+      "exitCode": 0,
+      "sha256": "3a3b23ae9466be1ab6734a07ebe2d406131f25d23880122eeda2dee718067090",
+      "observed": "changed actual-chain case passed, original Blob receipt and invalid-name review"
+    },
+    {
+      "artifact": "full-check-corrected.log",
+      "exitCode": 0,
+      "sha256": "98f1ef283e114f91ad12d1fa026778ad3d0987707a1b99235e1faedb4628beab",
+      "observed": "755 Vitest,24Node,503curriculum and all fullcheck stages"
+    },
+    {
+      "artifact": "plan.log",
+      "exitCode": 0,
+      "sha256": "82a5c1da7e56a6aa5ebd75000a9a6a7dad4322e909c10441f7830f8fccb89b05",
+      "observed": "389=352desktop+37compact; all382 prior runs retained; legacy704"
+    },
+    {
+      "artifact": "npm-audit.json",
+      "exitCode": 0,
+      "sha256": "2a2a264924593f70c13adcc8444744e45c2513616c458e645a46ea8377793d18",
+      "observed": "0high/critical,10moderate; no pg/server-only findings"
+    }
+  ],
+  "earlyFailures": "Before successful local setup an initial PostgreSQL readiness/auth run failed. New lost-response E2E initially used an ambiguous generic alert locator; scoped to actual .lab-alert. Initial lint required standard regex spacing correction. New preservation check replaced per-file git subprocesses with exact local Git blob identities; no timeout increase. Early parallel preservation run exceeded existing5s, final bounded14 checks passed3.08s and full755 passed. Actual screenshot exposed scoped sidebar inline border issue, corrected and seven-browser retest passed. No failed run is credited as a pass.",
+  "publicStorageGate7": "BLOCKED: no approved isolated persistent preview database configured",
+  "knownFlakes": "Prior Compute/Axe and PR59 architecture helper timeout remain causally unresolved; a new green run does not fix them.",
+  "independentCorrection": {
+    "originalStampRejected": "085b0edbe44f9b4ff5822b7d47c9d6f4f51256cb3a250660e9969561953b5f7c",
+    "finding": "Actual new cookie/Refresh could retarget a reviewed request to replacement workspace; separate reviewer reproduced. Before evidence retained in audit-workspace-before.json.",
+    "fix": "Every run requires explicit reviewed workspace; Reset pins revision/workspace; changed/expired contexts clear old intent. No server/domain/store/rubric changes.",
+    "retest": {
+      "artifact": "browser-intent-correction.log",
+      "sha256": "88467e814483556b32b0048caf10dbeb55da2531ccdb463d2996f78763442a3b",
+      "exitCode": 0,
+      "observed": "8 actual browser executions passed31.6s, including unseen-cookie stale Create/Reset server rejection and refreshed Review removal."
+    },
+    "fullcheck": {
+      "artifact": "full-check-audit-corrected.log",
+      "sha256": "6b2c301b1c70ef6db5cf9dec5149cdcf41b5e9089d6c12c5fb98f18480bf70b9",
+      "exitCode": 0,
+      "observed": "755 Vitest/24Node/503curriculum and all complete check stages passed after correction."
+    }
+  }
+}

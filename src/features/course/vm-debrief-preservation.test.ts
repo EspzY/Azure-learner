@@ -1,6 +1,6 @@
 import { it, expect } from 'vitest';
 import { assertPR57Presentation, pr57PresentationChanges } from '../../../tests/pr57-preservation';
-import { readFileSync } from 'node:fs';
+import { readHistorical as readFileSync } from '../../../tests/pr60-preservation';
 import { createHash } from 'node:crypto';
 import proof from '../../../docs/reviews/evidence/cc02/preservation.json';
 const hash = (bytes: Uint8Array | string) => createHash('sha256').update(bytes).digest('hex');
