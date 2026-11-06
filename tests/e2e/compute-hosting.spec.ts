@@ -58,7 +58,7 @@ const read = async (page: Page) =>
       JSON.stringify(freshCompute()),
   ) as ComputeSave;
 const root = async (page: Page) => {
-  await page.goto('/');
+  await page.goto('/learn');
   await page.locator('.learn-hub-module[data-module="compute"]').getByRole('link').click();
   await expect(page).toHaveURL(/learn\/compute/);
 };
@@ -363,7 +363,7 @@ test('new Compute assessment shields Portal/SavvyShark and already-open teaching
   await expect(page.getByText(c.sections.functions.paragraphs[1], { exact: true })).toBeVisible();
   expect(computeFacts(await read(page)).assisted).toBe(true);
   const peer = await context.newPage();
-  await peer.goto('/');
+  await peer.goto('/learn');
   await peer.evaluate((k) => localStorage.setItem(k, '{broken'), computeKey);
   await expect(page.getByText(c.sections.functions.paragraphs[1], { exact: true })).toHaveCount(0);
   await expect(page.getByRole('button', { name: c.storage.reload, exact: true })).toBeVisible();
@@ -632,7 +632,7 @@ test('actual VM mission uses real Portal create/accepted receipt and all live de
   const technicalRaw = await page.evaluate((k) => localStorage.getItem(k), sandboxKey);
   const learningRaw = await page.evaluate((k) => localStorage.getItem(k), computeKey);
   const peer = await page.context().newPage();
-  await peer.goto('/');
+  await peer.goto('/learn');
   await peer.evaluate((k) => localStorage.setItem(k, '{broken'), sandboxKey);
   await expect(vmRow).toContainText(c.vmCopy.unverified);
   await expect(vmRow).not.toContainText(c.labels.done);

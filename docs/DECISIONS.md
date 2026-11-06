@@ -1,5 +1,9 @@
 # Decisions
 
+## PR61 — product selection before course navigation
+
+Owner explicitly authorizes a dark product landing at `/`, superseding the historical direct `/learn` redirect for root only. AZ-900 retains its own three paths/17 routes and authoritative Hub resume. Planned AZ-104/305 are distinct future courses, not renamed AZ-900 paths. Free Laboratory3 remains a separate server workspace. Do not infer whole-course completion from position/XP/guides: prepare the green display variant but issue no Complete until a separate versioned policy/evidence contract is approved. [Scope and limits](PREMIUM_LANDING.md).
+
 ## PR60 — nytt serverarbeidsområde fremfor lokal cutover
 
 Eieren autoriserer eksplisitt en ny isolert Laboratory v3 med Next Route Handlers/PostgreSQL. PR59s påviste gamle-writer/ABA-problem repareres ikke: v2-localStorage og v3-databasen deler ingen write-autoritet, og det utføres ingen migrering/import. Nye anonyme sesjoner begynner ved eksplisitt handling. Databasens radlås/commit gir konsistent World/receipt; en ny browserlås brukes bare ved opprettelse av cookie, aldri som generell konsistensgaranti. Den første operative kjeden begrenses til RG/account/private container/create-only tekstblob, uten kursintegrasjon eller Azure-kall. Ingen ekstern betalt/gjenbrukt database provisioneres; lokal funksjonalitet og faktisk CI leveres mens offentlig persistent Storage Gate7 forblir blokkert uten eierkonfigurert database. [Detaljer og grenser](LABORATORY_V3_SERVER.md).

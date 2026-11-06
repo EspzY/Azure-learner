@@ -78,7 +78,7 @@ async function seed(page: Page, kind: 'vm' | 'app') {
   );
 }
 async function start(page: Page, id: MissionId, mode = 'guided') {
-  await page.goto('/');
+  await page.goto('/learn');
   await openPathActivities(page, 'cloud');
   await page
     .locator('.mission-discovery')
@@ -587,7 +587,7 @@ test('mission accessibility: keyboard briefing/cancel, short window, reduced mot
     if (/^https?:\/\//.test(request.url()) && new URL(request.url()).origin !== applicationOrigin)
       requests.push(request.url());
   });
-  await page.goto('/');
+  await page.goto('/learn');
   await openPathActivities(page, 'cloud');
   await page
     .locator('.mission-discovery')
@@ -653,7 +653,7 @@ test('mission recovery names non-Core and technical conflicts, preserves latest 
   await seed(page, 'app');
   await start(page, 'platform');
   await returnCourse(page, 'platform');
-  await page.goto('/');
+  await page.goto('/learn');
   await openPathActivities(page, 'cloud');
   await page
     .locator('.mission-discovery')

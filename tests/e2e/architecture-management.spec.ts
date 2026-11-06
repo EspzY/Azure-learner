@@ -95,7 +95,7 @@ test('ordinary root → Part A/B theory → actual lab → hierarchy/policy → 
     if (new URL(r.url()).origin !== new URL(info.project.use.baseURL!).origin)
       external.push(r.url());
   });
-  await page.goto('/');
+  await page.goto('/learn');
   await expect(page).toHaveURL(/\/learn$/);
   if (info.project.name === 'desktop-chromium')
     await page.setViewportSize({ width: 1920, height: 1080 });
@@ -355,7 +355,7 @@ test('assessment Summary/Journal assistance, first result and retries remain dis
   await page.reload();
   await expect(page.getByRole('status')).toContainText(b.assisted);
   await expect(page.getByRole('dialog')).toHaveCount(0);
-  await page.goto('/');
+  await page.goto('/learn');
   await expect(page.getByRole('link', { name: a.open, exact: true })).toHaveAttribute(
     'href',
     '/learn/architecture?topic=management-assessment',
@@ -558,14 +558,14 @@ test('shared Core teaching and Journal shield every active or uncertain independ
   for (const fixture of activeTeachingContexts()) {
     const context = await browser.newContext({ baseURL: info.project.use.baseURL });
     const first = await context.newPage();
-    await first.goto('/');
+    await first.goto('/learn');
     await first.evaluate(({ key, raw }) => localStorage.setItem(key, raw), {
       key: fixture.key,
       raw: fixture.raw,
     });
     await first.reload();
     const other = await context.newPage();
-    await other.goto('/');
+    await other.goto('/learn');
     const newer = JSON.stringify(JSON.parse(fixture.raw), null, 2);
     await other.evaluate(({ key, raw }) => localStorage.setItem(key, raw), {
       key: fixture.key,

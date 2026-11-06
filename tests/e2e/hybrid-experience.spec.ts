@@ -59,7 +59,7 @@ test('hybrid actual Hub preserves three paths seventeen modules and authoritativ
       }
     }).observe({ type: 'layout-shift', buffered: true });
   });
-  await page.goto('/');
+  await page.goto('/learn');
   await expect(page.locator('.course-hybrid')).toHaveAttribute('data-course-module', 'hub');
   await expect(page.locator('.learn-hub-path')).toHaveCount(3);
   await expect(page.locator('.learn-hub-module')).toHaveCount(17);

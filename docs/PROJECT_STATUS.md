@@ -1,3 +1,13 @@
+## PR61 — ny produktinngang, kandidat6.november2026
+
+Faktisk ny `/`-landing skiller AZ-900, planlagt AZ-104/AZ-305 og fritt Laboratory3. `/learn` og dets autoritative resume/prioritet er bevart. Root leser bare validert lagret kursposisjon og oppretter ingen Lab-sesjon, vurdering eller ressurs. Grønt Fullført er en testet presentasjonsvariant, men ingen komplett godkjent kurspolicy/issuer finnes og ingen slik status tildeles. [Produktkontrakt](PREMIUM_LANDING.md) og [separat fullføringsforslag](COURSE_COMPLETION_CONTRACT.md).
+
+Produksjonsbygget og faktisk visuell inspeksjon brukes under implementering. Alle390 tidligere browserkontroller/innstillinger bevares; gamle kursentréer flyttes eksplisitt fra den tidligere root-redirecten til `/learn`, mens nye tester dekker reell root→kurs/Lab, reset-isolasjon, aktiv independent, ukjent historikk, tastatur/Axe/reduced motion og ekte125/200%browserzoom. Faktisk full `npm run check` bestod:769 Vitest/63filer,24Node,503curriculum og produksjonsbygg. Sju eldre kurs-/historikkreiser og endelig ekte browserzoom bestod. Ny browserbatch hadde6pass+1 tidsbudsjettavvik; samme uendrede aktive-vurderingstest bestod isolert uten endrede grenser.397=359desktop+38kompakt er kandidatprofilen; separat audit, eksakt-head CI/streng release og anonym Gate7 er fortsatt ventende til faktisk utførelse.
+
+Eierens siste instruks er implementert: kortene har bare kurskode/navn/status/én handling; gjentatte forklaringer, stor salgstekst og databaseinformasjon er fjernet fra root. Hele siden får plass uten scrolling i alle fem vanlige desktopstørrelser, inkludert1024×500. Endelig ren browserbatch bestod7/7 i39.3s uten retry; siste fornyede fullcheck bestod769Vitest/63filer,24Node,503curriculum og produksjonsbygg. Ny signering og separat audit utføres før eksakt-head397CI/streng release og faktisk anonym Gate7; endelige head-/CI-/preview-bevis føres på samme PR.
+
+Offentlig persistent Laboratory-database er fortsatt ikke konfigurert. Root lenker til faktisk v3-rute med eksisterende utilgjengelig-tilstand; ingen lokal fallback, falsk demo, import, ny tjeneste eller ekstern database opprettes. Ingen kursinnhold, rubrics, first/help/retry/abandon, World/receipts/XP eller PR60-serverkontrakt endres. Ingen merge eller produksjonsdeploy.
+
 ## PR59 — Laboratory Stage1: aktiveringsgate blokkert, 6. november 2026
 
 ## PR60 — isolert, serverautoritativ Laboratory v3, 6. november 2026

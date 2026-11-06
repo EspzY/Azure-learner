@@ -22,6 +22,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
     management = useManagement();
   const active = nb.nav.find((item) => item.href === pathname);
   if (
+    pathname === '/' ||
     pathname.startsWith('/labs/') ||
     pathname === '/portal' ||
     pathname === '/learn' ||

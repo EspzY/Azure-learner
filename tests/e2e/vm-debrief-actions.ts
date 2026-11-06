@@ -11,7 +11,7 @@ import {
 } from '../../src/domain/sandbox/missions';
 const p = nb.portal;
 export async function start(page: Page, id: MissionId, mode = 'guided') {
-  await page.goto('/');
+  await page.goto('/learn');
   await openPathActivities(page, 'cloud');
   await page
     .locator('.mission-discovery')

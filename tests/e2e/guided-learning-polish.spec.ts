@@ -33,7 +33,7 @@ test('ordinary root → Benefits → mission briefing → real Portal → exact 
       external.push(r.url());
   });
   await page.setViewportSize({ width: 1920, height: 1080 });
-  await page.goto('/');
+  await page.goto('/learn');
   await page
     .getByRole('link', { name: `${nb.course.open}: Benefits of cloud services`, exact: true })
     .click();
