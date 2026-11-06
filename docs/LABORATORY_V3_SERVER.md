@@ -1,5 +1,13 @@
 # Laboratory v3 · server authority and first Storage vertical
 
+## PR62 model extension — explicit new workspaces
+
+The original PR60 contract below describes `laboratory@3.0.0`. [Networking Part A](LABORATORY_NETWORKING_PART_A.md) adds `laboratory@3.1.0` for newly started workspaces without changing historical3.0 JSON, events or receipts. One repository/server and the same tables remain authoritative; schema002 adds immutable workspace/model metadata and a matching event foreign key. Apply001 **then**002 explicitly; the local-only setup script does both, with its original remote refusal intact. Migration002 is transactional and rerunnable. No migration is performed by a request or build.
+
+Updated UI Start requests3.1 explicitly; old session requests without model retain3.0 compatibility. Existing cookies resume their original workspace/model. Reset stays in that model. Historical3.0 users can retain Storage/history; networking starts in a separate new browser session, without replacing the old anonymous cookie. No in-place workspace upgrade or new workspace-switching authority is implemented.
+
+The database-readiness review confirms local PostgreSQL17 and isolated CI; no external database, credentials, provider integration or Vercel variables are being configured. Runtime remains generic `pg` plus LAB_DATABASE_URL/LAB_ORIGIN and verified TLS for non-loopback. Future approved deployment applies both explicit migrations with an operator role; runtime retains least privilege. No changes to World/receipts/course history are required merely to choose a PostgreSQL host. Public persistent networking/Storage Gate7 is intentionally deferred until a separately approved database exists.
+
 6 November 2026. PR60 on PR59 `cb99705b1b0650d2099f6c95f5c7e32776448483`.
 
 **Implemented:** a new, isolated workspace at `/labs/laboratory`, discoverable through the ordinary Course Hub footer. Next.js Node Route Handlers use a dedicated PostgreSQL database/schema. Resource Group → Storage Account → private container → synthetic text blob can be created, inspected and read again after reload. These are AzureLab simulator objects; no Azure service, authentication, deployment, billing or learning credit is performed.

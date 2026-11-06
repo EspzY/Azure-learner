@@ -1,4 +1,4 @@
-import { readFileSync } from 'node:fs';
+import { readPR62 as readFileSync } from './pr62-preservation';
 import { execFileSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
 import { expect } from 'vitest';

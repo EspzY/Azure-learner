@@ -5,6 +5,10 @@ import baseline from './playwright.config';
 // names. No test body, assertion, title, timeout or skip is modified.
 const compactCases = [
   [
+    'laboratory-networking.spec.ts',
+    'network Laboratory short desktop keyboard focus reduced motion Axe resource forms and reset keep historical receipts accessible',
+  ],
+  [
     'premium-landing.spec.ts',
     'landing responsive keyboard short desktop status semantics reduced motion and Axe preserve primary choices',
   ],

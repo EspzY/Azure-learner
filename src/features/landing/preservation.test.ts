@@ -1,5 +1,5 @@
 import { it, expect } from 'vitest';
-import { readFileSync } from 'node:fs';
+import { readPR62 as readFileSync } from '../../../tests/pr62-preservation';
 import { execFileSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
 import proof from '../../../docs/reviews/evidence/pr61/preservation.json';

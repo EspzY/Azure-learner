@@ -46,7 +46,8 @@ try {
     const client = new pg.Client({ connectionString: target });
     await client.connect();
     try {
-      await client.query(readFileSync('database/laboratory-v3/001.sql', 'utf8'));
+      for (const migration of ['001.sql', '002-networking.sql'])
+        await client.query(readFileSync('database/laboratory-v3/' + migration, 'utf8'));
       const db = new URL(target).pathname.slice(1);
       await client.query(`REVOKE ALL ON DATABASE "${db}" FROM PUBLIC`);
       await client.query(`GRANT CONNECT ON DATABASE "${db}" TO laboratory_v3_app`);

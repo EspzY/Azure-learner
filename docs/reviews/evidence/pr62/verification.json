@@ -1,0 +1,43 @@
+{
+  "at": "2026-11-06T14:43:54.096528+00:00",
+  "priorResults": [
+    {
+      "id": "browser-initial",
+      "rawLogSha256": "5a49cb3e701da8cd0a34452880db1572689cb031bc4ed600013241ff5a23da00",
+      "rawLogPathOutsideRepo": "/workspace/azurelab-pr62/browser-first.log",
+      "observation": "1passed+5failed; exact CIDR accessible-name selectors saw nested helper text. Corrected field names/describedby and pre-emptively corrected NSG Allow default; no assertions removed."
+    },
+    {
+      "id": "browser-regression-first",
+      "rawLogSha256": "6b1029d9feaec6614e92cca2e7d1f4a6aab6cdfff4f4dd9932db3f997c659634",
+      "rawLogPathOutsideRepo": "/workspace/azurelab-pr62/browser-final.log",
+      "observation": "14passed+1failed; compact page.screenshot stalled after fonts loaded; trace teardown also timed out/truncated. Cause unresolved; no timeout/retry/worker/skip change. A new isolated retest and fullCI remain required."
+    },
+    {
+      "id": "domain-first",
+      "rawLogSha256": "1aaa61704472f05cc44c534dd095297b5d44c06559aa52742ceaef677939398e",
+      "rawLogPathOutsideRepo": "/workspace/azurelab-pr62/targeted-domains.log",
+      "observation": "107passed+2failed; independent preservation checks caught global replacement of an expected string in the import adapter. Restored exact old assertion body, only first import delegated; subsequent111passed."
+    },
+    {
+      "id": "plan-first",
+      "rawLogSha256": "4cdd2f9ea2e8c0be9f855143622e580b6d63effcf4b2ff81d0b39f2e7529befa",
+      "rawLogPathOutsideRepo": "/workspace/azurelab-pr62/plan.log",
+      "observation": "Collection subprocess hit its existing30s cap while overlapping a redundant direct tsc and build. Redundant tsc cancelled; unchanged serial plan passed403. Not a product test success."
+    },
+    {
+      "id": "full-check-initial",
+      "rawLogSha256": "bb40e837a44f079c2ebf2ad37db13d0f5eaee074f95c2e66ed139500fd7d03a7",
+      "observation": "831passed+1failed: existing whole-file preservation correctly detected new capability-matrix header. Added bounded historical projection plus independent exact original-body check; unchanged current implementation then passed full833."
+    }
+  ],
+  "current": {
+    "fullCheck": "Renewed after selector correction:833Vitest/24Node/503curriculum, all mandatory tools/build,exit0",
+    "browserScopeFollowup": "3passed29.6s0retries; duplicate actual parent scopes and desktop/compact keyboard/focus/Axe short-height witnesses",
+    "priorScreenshotStall": "Unresolved screenshot/trace stall; unmodified compact isolated recheck1passed11s and new scoped compact passed12.8s. No causal fix claimed.",
+    "ci404": "PENDING at final author checkpoint",
+    "publicNetworking": "DEFERRED by owner, no external database",
+    "independentAudit": "Original full six-domain pass found no blocker/major; selector ambiguity corrected; bounded renewed fingerprint review pending"
+  },
+  "updatedAt": "2026-11-06T15:08:37.290330+00:00"
+}
