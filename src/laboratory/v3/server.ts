@@ -1,7 +1,7 @@
 import 'server-only';
 import { Pool } from 'pg';
 import { Repository, LabError } from './repository';
-import { parseRequest } from './domain';
+import { parseRequest, models, type Model } from '../engine';
 let pool: Pool | undefined;
 function config() {
   const connectionString = process.env.LAB_DATABASE_URL,
@@ -115,8 +115,9 @@ export async function handle(req: Request, action: 'session' | 'state' | 'review
         !value ||
         typeof value !== 'object' ||
         Array.isArray(value) ||
-        Object.keys(value).some((k) => k !== 'newWorkspace') ||
-        ('newWorkspace' in value && value.newWorkspace !== true)
+        Object.keys(value).some((k) => !['newWorkspace', 'model'].includes(k)) ||
+        ('newWorkspace' in value && value.newWorkspace !== true) ||
+        ('model' in value && !models.includes(value.model as Model))
       )
         throw new LabError('invalid-request', 400);
       if (session && !('newWorkspace' in value)) {
@@ -126,7 +127,9 @@ export async function handle(req: Request, action: 'session' | 'state' | 'review
           if (!(e instanceof LabError) || e.code !== 'session-required') throw e;
         }
       }
-      const created = await repo.createSession();
+      const created = await repo.createSession(
+        'model' in value ? (value.model as Model) : undefined,
+      );
       return json(
         created.snapshot,
         201,

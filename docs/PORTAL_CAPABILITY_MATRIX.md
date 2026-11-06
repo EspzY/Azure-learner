@@ -1,5 +1,20 @@
 # PR50 — Portal capability and fidelity matrix
 
+## PR62 — isolated Laboratory networking, separate from the legacy Portal
+
+New `laboratory@3.1.0` workspaces in `/labs/laboratory` support the following bounded operations in the same server-authoritative World as Storage. Historical3.0 workspaces retain their original evaluator; no implicit upgrade/import. Local PostgreSQL/isolated CI only; public backend503 remains accepted. See [networking contract](LABORATORY_NETWORKING_PART_A.md).
+
+| Capability         | Actual operation                                                                                                         | Explicit boundary                                                                                                 |
+| ------------------ | ------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------- |
+| VNet               | CreateVirtualNetwork, stable RG/subscription/region, one private IPv4 CIDR, original receipt, reload                     | RFC1918/8–/29 only; no IPv6, peering or routes                                                                    |
+| Subnet             | CreateSubnet, parent VNet, canonical contained prefix, overlap/name validation, reserved-address metadata                | No actual IP allocation, service subnet, NIC or VM attachment                                                     |
+| NSG                | CreateNetworkSecurityGroup, independent RG/region scope, actual custom-rule inventory                                    | No traffic filtering or Network Watcher execution                                                                 |
+| NSG custom rule    | CreateSecurityRule, Inbound/Outbound, unique directional priority100–4096, Tcp/Udp/Any, IPv4/CIDR/wildcard, single ports | No custom service tags, ASGs, augmented expressions, edit/delete; read-only standard-rule references are separate |
+| Subnet association | AssociateSubnetNsg, same subscription/region, cross-RG permitted, original Apply receipt                                 | One NSG/subnet; no NIC association or effective flow result                                                       |
+| Storage            | Original bounded RG/account/private-container/text-blob operations also in3.1                                            | Create-only; no v2 migration, Azure authentication or external API                                                |
+
+The dated original matrix below concerns the legacy Portal and remains historical evidence. Its teaching-only Storage and read-only VNet rows are **not** a claim about the separate server Laboratory.
+
 Actual code inspected2 November2026 on base4934408075fccdab944e629a108a0f23424ee3f8. This is an inventory of **local AzureLab support**, not Azure product completeness. `src/domain/sandbox/model.ts`, frozen `src/domain/chapter01/model.ts`, `src/domain/portal/model.ts`, original `portal.tsx` and PR48 inspection projections are authoritative. Icon presence, teaching and conceptual examples do not establish operative support.
 
 | Area                                          | Actual classification                          | Supported local behavior                                                                                                               | Important absence / next scope                                                                 |

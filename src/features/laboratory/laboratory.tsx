@@ -3,7 +3,10 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import { useSearchParams, useRouter } from 'next/navigation';
 import { laboratoryV3Nb as c } from '@/content/nb';
-import type { Snapshot, Request as LabRequest, Command, Receipt } from '@/laboratory/v3/contract';
+import type { Snapshot, Request as LabRequest, Command, Receipt } from '@/laboratory/engine';
+import { laboratoryModel } from '@/laboratory/v31/contract';
+import { laboratoryNetworkNb as n } from '@/content/laboratory-networking-nb';
+import { NetworkViews, networkFields } from './networking';
 import { PropertyList, PortalDialog } from '@/features/portal/shared';
 import { ServiceIcon } from '@/features/portal/service-icon';
 import '@/features/portal/portal.css';
@@ -14,11 +17,23 @@ const href = (view: string, id?: string, receipt?: string) =>
   '?' +
   new URLSearchParams({ view, ...(id ? { id } : {}), ...(receipt ? { receipt } : {}) });
 const message = (code: string) =>
-  Object.hasOwn(c.codes, code) ? c.codes[code as keyof typeof c.codes] : c.unavailable;
+  Object.hasOwn(n.codes, code)
+    ? n.codes[code as keyof typeof n.codes]
+    : Object.hasOwn(c.codes, code)
+      ? c.codes[code as keyof typeof c.codes]
+      : c.unavailable;
 const label = (key: string) =>
-  Object.hasOwn(c.fields, key) ? c.fields[key as keyof typeof c.fields] : key;
+  Object.hasOwn(n.fields, key)
+    ? n.fields[key as keyof typeof n.fields]
+    : Object.hasOwn(c.fields, key)
+      ? c.fields[key as keyof typeof c.fields]
+      : key;
 const operation = (key: string) =>
-  Object.hasOwn(c.operations, key) ? c.operations[key as keyof typeof c.operations] : key;
+  Object.hasOwn(n.operations, key)
+    ? n.operations[key as keyof typeof n.operations]
+    : Object.hasOwn(c.operations, key)
+      ? c.operations[key as keyof typeof c.operations]
+      : key;
 async function api(action: string, request?: unknown, workspace?: string) {
   let response: Response, value;
   try {
@@ -65,7 +80,11 @@ export function Laboratory() {
     channel = useRef<BroadcastChannel | null>(null),
     version = useRef(0),
     snapshotRef = useRef(snapshot),
-    resultRef = useRef<HTMLHeadingElement>(null);
+    resultRef = useRef<HTMLHeadingElement>(null),
+    formHeading = useRef<HTMLHeadingElement>(null);
+  useEffect(() => {
+    if (form) formHeading.current?.focus({ preventScroll: true });
+  }, [form]);
   const updatePending = useCallback((value: { request: LabRequest; workspace: string } | null) => {
     pending.current = value;
     setPendingView(value);
@@ -178,17 +197,27 @@ export function Laboratory() {
         setReset(null);
         const target = result.receipt.addedIds[0];
         const kind =
-          request.command.type === 'CreateGroup'
+          (
+            {
+              CreateVirtualNetwork: 'vnet',
+              CreateSubnet: 'subnet',
+              CreateNetworkSecurityGroup: 'nsg',
+              CreateSecurityRule: 'rule',
+            } as Record<string, string>
+          )[request.command.type] ??
+          (request.command.type === 'CreateGroup'
             ? 'group'
             : request.command.type === 'CreateStorageAccount'
               ? 'account'
               : request.command.type === 'CreateBlobContainer'
                 ? 'container'
-                : 'blob';
+                : 'blob');
         router.push(
-          target && result.receipt.outcome === 'accepted'
-            ? href(kind, target)
-            : href('history', undefined, result.receipt.commandId),
+          request.command.type === 'AssociateSubnetNsg' && result.receipt.outcome === 'accepted'
+            ? href('subnet', request.command.subnetId)
+            : target && result.receipt.outcome === 'accepted'
+              ? href(kind, target)
+              : href('history', undefined, result.receipt.commandId),
         );
         channel.current?.postMessage('changed');
       } else {
@@ -222,7 +251,7 @@ export function Laboratory() {
     try {
       if (!navigator.locks) throw Error('backend-unavailable');
       await navigator.locks.request('azurelab.laboratory.v3.session', async () => {
-        const incoming = await api('session', {});
+        const incoming = await api('session', { model: laboratoryModel });
         updatePending(null);
         setForm(null);
         setPreview(null);
@@ -240,6 +269,7 @@ export function Laboratory() {
     }
   };
   const world = snapshot?.world,
+    network = world?.model === laboratoryModel ? world : undefined,
     view = query.get('view') ?? 'groups',
     id = query.get('id'),
     selectedReceipt = snapshot?.entries.find((e) => e.receipt.commandId === query.get('receipt'));
@@ -247,6 +277,14 @@ export function Laboratory() {
     account = world?.accounts.find((r) => r.id === id),
     container = world?.containers.find((r) => r.id === id),
     blob = world?.blobs.find((r) => r.id === id);
+  const groupScope = (groupId: string) => {
+    const g = world?.groups.find((item) => item.id === groupId);
+    return g ? `${g.name} · ${g.subscriptionId}` : groupId;
+  };
+  const vnetScope = (vnetId: string) => {
+    const v = network?.vnets.find((item) => item.id === vnetId);
+    return v ? `${v.name} · ${groupScope(v.groupId)} · ${v.region}` : vnetId;
+  };
   const begin = (type: Command['type']) => {
     setForm(type);
     setPreview(null);
@@ -259,10 +297,22 @@ export function Laboratory() {
       kind: 'StorageV2',
       sku: 'Standard_LRS',
       accountId: account?.id ?? world?.accounts[0]?.id ?? '',
-      access: 'private',
+      access: type === 'CreateSecurityRule' ? 'Allow' : 'private',
       containerId: container?.id ?? world?.containers[0]?.id ?? '',
       text: '',
       contentType: 'text/plain',
+      vnetId: network?.vnets.find((x) => x.id === id)?.id ?? network?.vnets[0]?.id ?? '',
+      subnetId: network?.subnets.find((x) => x.id === id)?.id ?? network?.subnets[0]?.id ?? '',
+      nsgId: network?.nsgs.find((x) => x.id === id)?.id ?? network?.nsgs[0]?.id ?? '',
+      addressSpace: '10.20.0.0/16',
+      addressPrefix: '10.20.1.0/24',
+      direction: 'Inbound',
+      priority: '100',
+      protocol: 'Tcp',
+      source: '*',
+      sourcePort: '*',
+      destination: '*',
+      destinationPort: '443',
     });
   };
   const receiptLink = (origin: string) => (
@@ -275,9 +325,17 @@ export function Laboratory() {
           ? c.groups
           : type === 'account'
             ? c.accounts
-            : type === 'container'
-              ? c.containers
-              : c.blobs}
+            : type === 'vnet'
+              ? n.vnets
+              : type === 'subnet'
+                ? n.subnets
+                : type === 'nsg'
+                  ? n.nsgs
+                  : type === 'rule'
+                    ? n.rules
+                    : type === 'container'
+                      ? c.containers
+                      : c.blobs}
       </caption>
       <thead>
         <tr>
@@ -310,6 +368,8 @@ export function Laboratory() {
       {label}
       {options ? (
         <select
+          aria-label={label}
+          aria-describedby={note ? `lab-note-${key}` : undefined}
           value={values[key] ?? ''}
           onChange={(e) => {
             setValues({ ...values, [key]: e.target.value });
@@ -328,6 +388,8 @@ export function Laboratory() {
         </select>
       ) : key === 'text' ? (
         <textarea
+          aria-label={label}
+          aria-describedby={note ? `lab-note-${key}` : undefined}
           maxLength={120}
           required
           value={values[key] ?? ''}
@@ -338,6 +400,8 @@ export function Laboratory() {
         />
       ) : (
         <input
+          aria-label={label}
+          aria-describedby={note ? `lab-note-${key}` : undefined}
           required
           maxLength={key === 'name' ? 90 : 120}
           value={values[key] ?? ''}
@@ -347,7 +411,7 @@ export function Laboratory() {
           }}
         />
       )}
-      {note && <small>{note}</small>}
+      {note && <small id={`lab-note-${key}`}>{note}</small>}
     </label>
   );
   const regions: [string, string][] = [
@@ -359,13 +423,14 @@ export function Laboratory() {
     if (!world || !form || !snapshot) return;
     setBusy(true);
     const keys =
-      form === 'CreateGroup'
+      networkFields[form] ??
+      (form === 'CreateGroup'
         ? ['subscriptionId', 'name', 'metadataRegion']
         : form === 'CreateStorageAccount'
           ? ['groupId', 'name', 'region', 'kind', 'sku']
           : form === 'CreateBlobContainer'
             ? ['accountId', 'name', 'access']
-            : ['containerId', 'name', 'text', 'contentType'];
+            : ['containerId', 'name', 'text', 'contentType']);
     const request: LabRequest = {
       commandId: crypto.randomUUID(),
       expectedRevision: world.revision,
@@ -408,10 +473,17 @@ export function Laboratory() {
             {[
               ['groups', c.groups],
               ['accounts', c.accounts],
+              ...(network
+                ? [
+                    ['vnets', n.vnets],
+                    ['nsgs', n.nsgs],
+                  ]
+                : []),
               ['history', c.history],
             ].map(([v, label]) => (
               <Link key={v} href={href(v!)} aria-current={view === v ? 'page' : undefined}>
                 {v === 'groups' && <ServiceIcon kind="groups" />}
+                {v === 'vnets' && <ServiceIcon kind="vnet" />}
                 {label}
               </Link>
             ))}
@@ -484,9 +556,15 @@ export function Laboratory() {
           )}
           {snapshot && world && (
             <>
+              <p className="lab-model-note">
+                {n.model}: {world.model}
+              </p>
+              {!network && <p className="lab-network-boundary">{n.legacy}</p>}
               {form ? (
                 <section className="lab-form">
-                  <h2>{c.operations[form]}</h2>
+                  <h2 ref={formHeading} tabIndex={-1}>
+                    {operation(form)}
+                  </h2>
                   <form
                     onSubmit={(e) => {
                       e.preventDefault();
@@ -494,17 +572,98 @@ export function Laboratory() {
                     }}
                   >
                     <fieldset disabled={busy || !!pendingView}>
-                      {field(
-                        'name',
-                        c.name,
-                        undefined,
-                        form === 'CreateStorageAccount'
-                          ? c.accountLimit
-                          : form === 'CreateBlobContainer'
-                            ? c.containerLimit
-                            : form === 'CreateTextBlob'
-                              ? c.blobLimit
-                              : undefined,
+                      {form !== 'AssociateSubnetNsg' &&
+                        field(
+                          'name',
+                          c.name,
+                          undefined,
+                          form === 'CreateStorageAccount'
+                            ? c.accountLimit
+                            : form === 'CreateBlobContainer'
+                              ? c.containerLimit
+                              : form === 'CreateTextBlob'
+                                ? c.blobLimit
+                                : undefined,
+                        )}
+                      {network && networkFields[form] && (
+                        <>
+                          {['CreateVirtualNetwork', 'CreateNetworkSecurityGroup'].includes(
+                            form,
+                          ) && (
+                            <>
+                              {field(
+                                'groupId',
+                                c.group,
+                                world.groups.map((g) => [g.id, groupScope(g.id)]),
+                              )}
+                              {field('region', c.region, regions)}
+                            </>
+                          )}
+                          {form === 'CreateVirtualNetwork' &&
+                            field('addressSpace', n.addressSpace, undefined, n.privateLimit)}
+                          {form === 'CreateSubnet' && (
+                            <>
+                              {field(
+                                'vnetId',
+                                n.vnet,
+                                network.vnets.map((v) => [v.id, vnetScope(v.id)]),
+                              )}
+                              {field('addressPrefix', n.addressPrefix, undefined, n.subnetLimit)}
+                            </>
+                          )}
+                          {form === 'CreateSecurityRule' && (
+                            <>
+                              {field(
+                                'nsgId',
+                                n.nsg,
+                                network.nsgs.map((g) => [
+                                  g.id,
+                                  `${g.name} · ${groupScope(g.groupId)} · ${g.region}`,
+                                ]),
+                              )}
+                              {field('direction', n.direction, [
+                                ['Inbound', 'Inbound'],
+                                ['Outbound', 'Outbound'],
+                              ])}
+                              {field('priority', n.priority)}
+                              {field('protocol', n.protocol, [
+                                ['Tcp', 'TCP'],
+                                ['Udp', 'UDP'],
+                                ['*', 'Any'],
+                              ])}
+                              {field('source', n.source)}
+                              {field('sourcePort', n.sourcePort)}
+                              {field('destination', n.destination)}
+                              {field('destinationPort', n.destinationPort)}
+                              {field('access', n.access, [
+                                ['Allow', 'Allow'],
+                                ['Deny', 'Deny'],
+                              ])}
+                              <p className="lab-form-note">{n.ruleLimit}</p>
+                            </>
+                          )}
+                          {form === 'AssociateSubnetNsg' && (
+                            <>
+                              {field(
+                                'subnetId',
+                                n.subnet,
+                                network.subnets.map((x) => [
+                                  x.id,
+                                  `${x.name} · ${vnetScope(x.vnetId)}`,
+                                ]),
+                              )}
+                              {field(
+                                'nsgId',
+                                n.nsg,
+                                network.nsgs.map((x) => [
+                                  x.id,
+                                  `${x.name} · ${groupScope(x.groupId)} · ${x.region}`,
+                                ]),
+                              )}
+                              <p className="lab-form-note">{n.associationLimit}</p>
+                            </>
+                          )}
+                        </>
                       )}
                       {form === 'CreateGroup' && (
                         <>
@@ -582,7 +741,7 @@ export function Laboratory() {
                           void run(preview.request, preview.workspace);
                         }}
                       >
-                        {c.create}
+                        {form === 'AssociateSubnetNsg' ? n.apply : c.create}
                       </button>
                     </section>
                   )}
@@ -621,6 +780,30 @@ export function Laboratory() {
                         ]}
                       />
                       {receiptLink(group.origin)}
+                      {network && (
+                        <>
+                          <button
+                            disabled={busy || !!error}
+                            onClick={() => begin('CreateVirtualNetwork')}
+                          >
+                            {n.newVnet}
+                          </button>
+                          <button
+                            disabled={busy || !!error}
+                            onClick={() => begin('CreateNetworkSecurityGroup')}
+                          >
+                            {n.newNsg}
+                          </button>
+                          {links(
+                            'vnet',
+                            network.vnets.filter((x) => x.groupId === group.id),
+                          )}
+                          {links(
+                            'nsg',
+                            network.nsgs.filter((x) => x.groupId === group.id),
+                          )}
+                        </>
+                      )}
                       <button
                         disabled={busy || !!error}
                         onClick={() => begin('CreateStorageAccount')}
@@ -721,6 +904,18 @@ export function Laboratory() {
                       {receiptLink(blob.origin)}
                     </>
                   )}
+                  {network && (
+                    <NetworkViews
+                      world={network}
+                      view={view}
+                      id={id}
+                      begin={begin}
+                      disabled={busy || !!error}
+                      receipt={receiptLink}
+                      list={links}
+                      headingRef={resultRef}
+                    />
+                  )}
                   {view === 'history' && (
                     <>
                       <h2 ref={resultRef} tabIndex={-1}>
@@ -792,6 +987,7 @@ export function Laboratory() {
                     'container',
                     'blob',
                     'history',
+                    ...(network ? ['vnets', 'vnet', 'subnet', 'nsgs', 'nsg', 'rule'] : []),
                   ].includes(view) ||
                     (view === 'group' && !group) ||
                     (view === 'account' && !account) ||

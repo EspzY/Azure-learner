@@ -147,3 +147,31 @@
     gap: 8px;
   }
 }
+
+.laboratory-v3 .lab-network-boundary {
+  max-width: 82ch;
+  padding: 8px 12px;
+  border-left: 3px solid #0e706a;
+  background: #f2f7f6;
+}
+.laboratory-v3 .lab-model-note {
+  font-size: 12px;
+  color: #46515c;
+}
+.laboratory-v3 .lab-rules-scroll {
+  max-width: 100%;
+  overflow-x: auto;
+  margin: 20px 0;
+}
+.laboratory-v3 .lab-rules-scroll .lab-table {
+  min-width: 650px;
+  margin-top: 0;
+}
+.laboratory-v3 .lab-default-rules {
+  margin: 24px 0;
+}
+.laboratory-v3 .lab-form-note {
+  grid-column: 1 / -1;
+  margin: 0;
+  max-width: 75ch;
+}

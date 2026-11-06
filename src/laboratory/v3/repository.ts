@@ -1,16 +1,19 @@
 import 'server-only';
 import { randomBytes, randomUUID, createHash } from 'node:crypto';
 import type { Pool, PoolClient } from 'pg';
-import { canonical, execute, freshWorld, replay } from './domain';
 import {
-  laboratoryModel,
-  limits,
+  canonical,
+  execute,
+  freshWorld,
+  replay,
+  type Model,
   type Entry,
   type Request,
   type Snapshot,
   type World,
   type CommandResult,
-} from './contract';
+} from '../engine';
+import { limits, laboratoryModel } from './contract';
 export class LabError extends Error {
   constructor(
     public code: string,
@@ -49,8 +52,8 @@ export class Repository {
   }
   private async workspace(client: PoolClient, token: string, lock = true) {
     if (!/^[A-Za-z0-9_-]{43}$/.test(token)) throw new LabError('session-required', 401);
-    const result = await client.query<{ id: string; world: World; sequence: number }>(
-      `SELECT id,world,sequence FROM laboratory_v3.workspaces WHERE token_hash=$1 AND expires_at>now()${lock ? ' FOR UPDATE' : ''}`,
+    const result = await client.query<{ id: string; world: World; sequence: number; model: Model }>(
+      `SELECT id,world,sequence,model FROM laboratory_v3.workspaces WHERE token_hash=$1 AND expires_at>now()${lock ? ' FOR UPDATE' : ''}`,
       [tokenHash(token)],
     );
     if (!result.rows[0]) throw new LabError('session-required', 401);
@@ -64,15 +67,16 @@ export class Repository {
   }
   private async verified(
     client: PoolClient,
-    row: { id: string; world: World; sequence: number },
+    row: { id: string; world: World; sequence: number; model: Model },
   ): Promise<Entry[]> {
     const result = await client.query<Entry>(
       `SELECT ${columns} FROM laboratory_v3.events WHERE workspace_id=$1 ORDER BY sequence`,
       [row.id],
     );
     const entries = result.rows,
-      original = replay(entries);
+      original = replay(entries, row.model);
     if (
+      row.world.model !== row.model ||
       entries.length !== row.sequence ||
       !original ||
       canonical(original) !== canonical(row.world)
@@ -80,7 +84,7 @@ export class Repository {
       throw new LabError('unverifiable-history', 503);
     return entries;
   }
-  createSession = async () =>
+  createSession = async (model: Model = laboratoryModel) =>
     this.transaction(async (client) => {
       await client.query('SELECT id FROM laboratory_v3.admission WHERE id=1 FOR UPDATE');
       const rate = await client.query(
@@ -94,10 +98,10 @@ export class Repository {
         throw new LabError('session-capacity', 429);
       const id = randomUUID();
       const token = randomBytes(32).toString('base64url'),
-        world = freshWorld();
+        world = freshWorld(model);
       await client.query(
-        "INSERT INTO laboratory_v3.workspaces(id,token_hash,expires_at,world) VALUES($1,$2,now()+interval '7 days',$3)",
-        [id, tokenHash(token), world],
+        "INSERT INTO laboratory_v3.workspaces(id,token_hash,expires_at,world,model) VALUES($1,$2,now()+interval '7 days',$3,$4)",
+        [id, tokenHash(token), world, model],
       );
       return {
         token,
@@ -109,7 +113,7 @@ export class Repository {
       const row = await this.workspace(client, token),
         entries = await this.verified(client, row);
       if (through !== undefined) {
-        const world = replay(entries, through);
+        const world = replay(entries, row.model, through);
         if (!world) throw new LabError('invalid-through', 400);
         return {
           workspace: row.id,
@@ -159,7 +163,7 @@ export class Repository {
         throw new LabError('history-limit', 409);
       const next = execute(row.world, request, entries.length + 1);
       const entry: Entry = {
-        model: laboratoryModel,
+        model: row.model,
         attempt: row.world.attempt,
         request,
         receipt: next.receipt,
@@ -170,7 +174,7 @@ export class Repository {
           row.id,
           next.receipt.sequence,
           request.commandId,
-          laboratoryModel,
+          row.model,
           entry.attempt,
           request,
           next.receipt,
