@@ -1,0 +1,22 @@
+{
+  "base": "a667b26276cc7a1bbed9aa9203cf431eb9001ada",
+  "captured": "2026-11-06T06:14:17.967Z",
+  "sourceHashes": {
+    "src/domain/sandbox/store.ts": "a767b2593f1f35f6727f6012f85994535498c4946cbeef2feb0525664d14361b",
+    "src/domain/chapter01/persistence.ts": "db7aebc04e1ef1f0a52279cdaa8891c15965572a7d78ef45b6fcd8f7fd3c8aad",
+    "src/domain/chapter01/scenario.ts": "b98a3e576f7185d268544300b5654f32bf9e653783b0ad8d0f4b35fadbc3565a",
+    "src/domain/chapter01/model.ts": "1d1dc7b39a98b5959477302d8e028726ba3ad19528d4355dd75910f913bb17dd",
+    "src/domain/simulation.ts": "8515051c84b0764ea24fae6259d57530ba86875d4fb108eba097c35c04ba4522",
+    "src/domain/sandbox/model.ts": "896bedcb3e0feebb1525c0189005f5aa981a1555edd7a96989939948f5475842",
+    "src/domain/portal/model.ts": "491ccdbb4936ddc04d5ebb9bcda911862e7726fabeed7c343243ca0162af8f63",
+    "src/domain/sandbox/replay.ts": "abc32183cf238104fe61c9a8a5f15ef65a750586de0d0a51cd30b95c29dc1dd2",
+    "src/domain/sandbox/missions.ts": "1d2bb584e8caa058c9bdc6ed683bad82303822cf97fdf429b2e6d9bec2ea905e"
+  },
+  "oldWriteAccepted": true,
+  "candidate": {
+    "status": "blocked",
+    "reason": "source-conflict"
+  },
+  "v3Unchanged": true,
+  "conclusion": "Detection works for a persistent changed source; the new lock did not fence the old writer."
+}

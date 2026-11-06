@@ -1,0 +1,37 @@
+{
+  "base": "a667b26276cc7a1bbed9aa9203cf431eb9001ada",
+  "captured": "2026-11-06T06:14:20.636Z",
+  "sourceHashes": {
+    "src/domain/sandbox/store.ts": "a767b2593f1f35f6727f6012f85994535498c4946cbeef2feb0525664d14361b",
+    "src/domain/chapter01/persistence.ts": "db7aebc04e1ef1f0a52279cdaa8891c15965572a7d78ef45b6fcd8f7fd3c8aad",
+    "src/domain/chapter01/scenario.ts": "b98a3e576f7185d268544300b5654f32bf9e653783b0ad8d0f4b35fadbc3565a",
+    "src/domain/chapter01/model.ts": "1d1dc7b39a98b5959477302d8e028726ba3ad19528d4355dd75910f913bb17dd",
+    "src/domain/simulation.ts": "8515051c84b0764ea24fae6259d57530ba86875d4fb108eba097c35c04ba4522",
+    "src/domain/sandbox/model.ts": "896bedcb3e0feebb1525c0189005f5aa981a1555edd7a96989939948f5475842",
+    "src/domain/portal/model.ts": "491ccdbb4936ddc04d5ebb9bcda911862e7726fabeed7c343243ca0162af8f63",
+    "src/domain/sandbox/replay.ts": "abc32183cf238104fe61c9a8a5f15ef65a750586de0d0a51cd30b95c29dc1dd2",
+    "src/domain/sandbox/missions.ts": "1d2bb584e8caa058c9bdc6ed683bad82303822cf97fdf429b2e6d9bec2ea905e"
+  },
+  "origin": "http://127.0.0.1:3000",
+  "clients": {
+    "legacy": "unchanged PR58 SandboxStore and Portal requestFor",
+    "candidate": "test-only schema3 checkpoint probe; no v3 simulator"
+  },
+  "sourceA": {
+    "hash": "5c974d39c2bcc5f3a8ebaa2dc0affeffff30493ff578b116859aa43969f93b4a",
+    "raw": "{\"schema\":2,\"model\":\"sandbox@2.0.0\",\"revision\":1,\"legacy\":null,\"attemptNumber\":1,\"commands\":[{\"commandId\":\"portal-1\",\"expectedWorldRevision\":0,\"command\":{\"type\":\"CreateGroup\",\"subscriptionId\":\"sub-shared\",\"name\":\"rg-alpha\",\"metadataRegion\":\"norwayeast\"}}],\"archive\":[]}"
+  },
+  "sourceB": {
+    "hash": "da4c18a360eb63e13fe887091f08e86b325bd7f3b827689b9de56bb9640462fd",
+    "raw": "{\"schema\":2,\"model\":\"sandbox@2.0.0\",\"revision\":1,\"legacy\":null,\"attemptNumber\":1,\"commands\":[{\"commandId\":\"portal-1\",\"expectedWorldRevision\":0,\"command\":{\"type\":\"CreateGroup\",\"subscriptionId\":\"sub-shared\",\"name\":\"rg-divergent\",\"metadataRegion\":\"norwayeast\"}}],\"archive\":[]}"
+  },
+  "sourceAgain": {
+    "hash": "5c974d39c2bcc5f3a8ebaa2dc0affeffff30493ff578b116859aa43969f93b4a",
+    "raw": "{\"schema\":2,\"model\":\"sandbox@2.0.0\",\"revision\":1,\"legacy\":null,\"attemptNumber\":1,\"commands\":[{\"commandId\":\"portal-1\",\"expectedWorldRevision\":0,\"command\":{\"type\":\"CreateGroup\",\"subscriptionId\":\"sub-shared\",\"name\":\"rg-alpha\",\"metadataRegion\":\"norwayeast\"}}],\"archive\":[]}"
+  },
+  "divergentAccepted": true,
+  "repeatedAccepted": true,
+  "candidateAfterReload": "candidate-accepts",
+  "storageActivated": false,
+  "conclusion": "Full byte comparison and Web Locks cannot prove no competing old fork existed. This candidate fails the activation gate; no production Storage is enabled."
+}
