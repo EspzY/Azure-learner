@@ -1,5 +1,9 @@
 # Decisions
 
+## PR65 scoped extension
+
+PR65 decision: use an immutable new3.3 model for explicit new workspaces, not live upgrade. Model NIC/IP and NIC-NSG relations in the same World. Reuse frozen3.2 route analysis through a read-only projection. Service tags have partial positive evidence plus unknown; never private/public heuristics. Route/NSG results do not prove actual connectivity. Current initializer skips superseded constraint-only003 in favor of004 without editing historical SQL. See [Part C](LABORATORY_NETWORKING_PART_C.md).
+
 ## PR64 — scope and route-selection decision
 
 Use a new explicit3.2 workspace, no in-place upgrade. Reuse frozen3.1 rules through a bounded version adapter and preserve its snapshots/receipts. Peer status is derived from reciprocal records. Route analysis models current documented system prefixes and LPM before UDR/System tie priority; BGP/endpoint exceptions and packet evaluation are expressly unsupported. Conservative VnetLocal association checks and explicit ambiguous-route errors prevent invented next hops. No external database or Vercel configuration. [Contract](LABORATORY_NETWORKING_PART_B.md).

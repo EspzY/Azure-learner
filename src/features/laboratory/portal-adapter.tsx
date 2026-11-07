@@ -6,6 +6,7 @@ import type { World } from '@/laboratory/engine';
 import { nb, regionLabels, laboratoryV3Nb as c } from '@/content/nb';
 import { portalWorkspaceNb as copy } from '@/content/portal-workspace-nb';
 import { ServiceIcon } from '@/features/portal/service-icon';
+import { routingProjection } from '@/laboratory/v33/projection';
 import { peeringStatus } from '@/laboratory/v32/peering';
 import { PortalListFilters, PortalTable, type PortalColumn } from '@/features/portal/presentation';
 
@@ -51,7 +52,7 @@ export function laboratoryInventory(world: World): readonly LaboratoryResource[]
       category:
         view === 'group'
           ? 'scope'
-          : ['account', 'vnet', 'nsg', 'routeTable'].includes(view)
+          : ['account', 'vnet', 'nsg', 'routeTable', 'nic'].includes(view)
             ? 'resource'
             : ['container', 'blob'].includes(view)
               ? 'data'
@@ -92,7 +93,7 @@ export function laboratoryInventory(world: World): readonly LaboratoryResource[]
       if (nsg) add('rule', rule, nsg.groupId, nsg.region, nsg.id);
     }
   }
-  if (world.model === 'laboratory@3.2.0') {
+  if (world.model === 'laboratory@3.2.0' || world.model === 'laboratory@3.3.0') {
     for (const table of world.routeTables)
       add('routeTable', table, table.groupId, table.region, table.groupId);
     for (const route of world.routes) {
@@ -102,9 +103,21 @@ export function laboratoryInventory(world: World): readonly LaboratoryResource[]
     for (const peering of world.peerings) {
       const vnet = world.vnets.find((x) => x.id === peering.vnetId);
       if (vnet)
-        add('peering', peering, vnet.groupId, vnet.region, vnet.id, peeringStatus(world, peering));
+        add(
+          'peering',
+          peering,
+          vnet.groupId,
+          vnet.region,
+          vnet.id,
+          peeringStatus(
+            world.model === 'laboratory@3.3.0' ? routingProjection(world) : world,
+            peering,
+          ),
+        );
     }
   }
+  if (world.model === 'laboratory@3.3.0')
+    for (const nic of world.nics) add('nic', nic, nic.groupId, nic.region, nic.subnetId);
   return rows;
 }
 

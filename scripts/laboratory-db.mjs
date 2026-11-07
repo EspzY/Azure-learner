@@ -46,7 +46,8 @@ try {
     const client = new pg.Client({ connectionString: target });
     await client.connect();
     try {
-      for (const migration of ['001.sql', '002-networking.sql', '003-routing.sql'])
+      //004 supersedes003's constraint-only allowlist. Reapplying003 would reject populated3.3 workspaces.
+      for (const migration of ['001.sql', '002-networking.sql', '004-endpoints.sql'])
         await client.query(readFileSync('database/laboratory-v3/' + migration, 'utf8'));
       const db = new URL(target).pathname.slice(1);
       await client.query(`REVOKE ALL ON DATABASE "${db}" FROM PUBLIC`);

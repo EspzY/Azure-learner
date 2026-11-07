@@ -1,5 +1,9 @@
 # PR50 — Portal capability and fidelity matrix
 
+## PR65 scoped extension
+
+PR65 scoped extension: new3.3 workspaces expose CreateNetworkInterface, AssociateNicNsg and DisassociateNicNsg through shared Review/Create/Apply and original receipts. One primary static private IPv4; same subscription/region as VNet, first4/last reserved, unique per subnet. Read-only NSG Policy Analysis uses actual persisted NICs and frozen routing, four ordered NSG layers and partial service-tag knowledge. No VM runtime/packet delivery/Network Watcher/full tags. Existing3.0/3.1/3.2 workspaces retain original capabilities. See [Part C](LABORATORY_NETWORKING_PART_C.md).
+
 ## PR64 — Laboratory Networking Part B
 
 New explicit `laboratory@3.2.0` workspaces expose directional VNet peerings (Initiated/Connected), Route Tables, bounded IPv4 UDRs (`VnetLocal`, `Internet`, `None`), explicit subnet table association/replacement/removal, original receipts and a read-only persisted-World route-selection analysis. The existing shared Portal primitives serve both free Laboratory and unchanged course mode. No packet/NSG/end-to-end connection result is claimed. No BGP, service endpoints, gateway/appliance/Firewall routing or transit is implemented. Existing3.0/3.1 workspaces stay on their original versions. [Exact contract and Azure sources](LABORATORY_NETWORKING_PART_B.md).

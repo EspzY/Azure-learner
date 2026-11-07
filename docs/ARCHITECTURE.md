@@ -1,5 +1,9 @@
 # Architecture
 
+## PR65 scoped extension
+
+PR65 adds explicit new laboratory@3.3.0 NIC resources and read-only five-tuple NSG policy projection. One PostgreSQL authority and shared Portal remain. Frozen3.0/3.1/3.2 replay, receipts and course/v2 are unchanged. Additive004 replaces allowed-model constraints only; current initialization uses001/002/004 to avoid narrowing populated3.3 with historical003. See [Networking Part C](LABORATORY_NETWORKING_PART_C.md).
+
 ## PR64 — immutable Laboratory3.2
 
 The existing repository dispatches persisted immutable model3.0/3.1/3.2. Additive SQL003 expands version constraints; frozen evaluators, World/receipt JSON and course engines are untouched. Part B adds peering/UDR records and subnet references to the one server World. Read-only route analysis consumes verified repository snapshots; no extra authority/store. Shared Portal presentation remains the only shell. See [bounded networking contract](LABORATORY_NETWORKING_PART_B.md).

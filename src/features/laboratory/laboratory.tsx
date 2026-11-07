@@ -21,7 +21,9 @@ import Link from 'next/link';
 import { useSearchParams, useRouter } from 'next/navigation';
 import { laboratoryV3Nb as c } from '@/content/nb';
 import type { Snapshot, Request as LabRequest, Command, Receipt, Model } from '@/laboratory/engine';
-import { laboratoryModel } from '@/laboratory/v32/contract';
+import { laboratoryModel } from '@/laboratory/v33/contract';
+import { laboratoryEndpointsNb as e } from '@/content/laboratory-endpoints-nb';
+import { EndpointViews, PolicyAnalysisView, endpointFields } from './endpoints';
 import { laboratoryRoutingNb as r } from '@/content/laboratory-routing-nb';
 import { RoutingViews, RouteAnalysis, routingFields } from './routing';
 import { laboratoryNetworkNb as n } from '@/content/laboratory-networking-nb';
@@ -36,31 +38,42 @@ const href = (view: string, id?: string, receipt?: string) =>
   '?' +
   new URLSearchParams({ view, ...(id ? { id } : {}), ...(receipt ? { receipt } : {}) });
 const message = (code: string, operation?: string) =>
-  code === 'incompatible-association' && operation === 'AssociateSubnetRouteTable'
-    ? r.associationError
-    : Object.hasOwn(r.codes, code)
-      ? r.codes[code as keyof typeof r.codes]
-      : Object.hasOwn(n.codes, code)
-        ? n.codes[code as keyof typeof n.codes]
-        : Object.hasOwn(c.codes, code)
-          ? c.codes[code as keyof typeof c.codes]
-          : c.unavailable;
+  code === 'incompatible-association' &&
+  ['CreateNetworkInterface', 'AssociateNicNsg'].includes(operation ?? '')
+    ? e.associationError
+    : code === 'not-associated' && operation === 'DisassociateNicNsg'
+      ? e.noAssociation
+      : Object.hasOwn(e.codes, code)
+        ? e.codes[code as keyof typeof e.codes]
+        : code === 'incompatible-association' && operation === 'AssociateSubnetRouteTable'
+          ? r.associationError
+          : Object.hasOwn(r.codes, code)
+            ? r.codes[code as keyof typeof r.codes]
+            : Object.hasOwn(n.codes, code)
+              ? n.codes[code as keyof typeof n.codes]
+              : Object.hasOwn(c.codes, code)
+                ? c.codes[code as keyof typeof c.codes]
+                : c.unavailable;
 const label = (key: string) =>
-  Object.hasOwn(r.fields, key)
-    ? r.fields[key as keyof typeof r.fields]
-    : Object.hasOwn(n.fields, key)
-      ? n.fields[key as keyof typeof n.fields]
-      : Object.hasOwn(c.fields, key)
-        ? c.fields[key as keyof typeof c.fields]
-        : key;
+  Object.hasOwn(e.fields, key)
+    ? e.fields[key as keyof typeof e.fields]
+    : Object.hasOwn(r.fields, key)
+      ? r.fields[key as keyof typeof r.fields]
+      : Object.hasOwn(n.fields, key)
+        ? n.fields[key as keyof typeof n.fields]
+        : Object.hasOwn(c.fields, key)
+          ? c.fields[key as keyof typeof c.fields]
+          : key;
 const operation = (key: string) =>
-  Object.hasOwn(r.operations, key)
-    ? r.operations[key as keyof typeof r.operations]
-    : Object.hasOwn(n.operations, key)
-      ? n.operations[key as keyof typeof n.operations]
-      : Object.hasOwn(c.operations, key)
-        ? c.operations[key as keyof typeof c.operations]
-        : key;
+  Object.hasOwn(e.operations, key)
+    ? e.operations[key as keyof typeof e.operations]
+    : Object.hasOwn(r.operations, key)
+      ? r.operations[key as keyof typeof r.operations]
+      : Object.hasOwn(n.operations, key)
+        ? n.operations[key as keyof typeof n.operations]
+        : Object.hasOwn(c.operations, key)
+          ? c.operations[key as keyof typeof c.operations]
+          : key;
 async function api(action: string, request?: unknown, workspace?: string) {
   let response: Response, value;
   try {
@@ -228,6 +241,7 @@ export function Laboratory() {
         const kind =
           (
             {
+              CreateNetworkInterface: 'nic',
               CreateVirtualNetwork: 'vnet',
               CreateSubnet: 'subnet',
               CreateNetworkSecurityGroup: 'nsg',
@@ -245,17 +259,21 @@ export function Laboratory() {
                 ? 'container'
                 : 'blob');
         router.push(
-          [
-            'AssociateSubnetNsg',
-            'AssociateSubnetRouteTable',
-            'DisassociateSubnetRouteTable',
-          ].includes(request.command.type) &&
-            'subnetId' in request.command &&
+          ['AssociateNicNsg', 'DisassociateNicNsg'].includes(request.command.type) &&
+            'nicId' in request.command &&
             result.receipt.outcome === 'accepted'
-            ? href('subnet', request.command.subnetId)
-            : target && result.receipt.outcome === 'accepted'
-              ? href(kind, target)
-              : href('history', undefined, result.receipt.commandId),
+            ? href('nic', request.command.nicId)
+            : [
+                  'AssociateSubnetNsg',
+                  'AssociateSubnetRouteTable',
+                  'DisassociateSubnetRouteTable',
+                ].includes(request.command.type) &&
+                'subnetId' in request.command &&
+                result.receipt.outcome === 'accepted'
+              ? href('subnet', request.command.subnetId)
+              : target && result.receipt.outcome === 'accepted'
+                ? href(kind, target)
+                : href('history', undefined, result.receipt.commandId),
         );
         channel.current?.postMessage('changed');
       } else {
@@ -312,7 +330,9 @@ export function Laboratory() {
   };
   const world = snapshot?.world,
     network = world && world.model !== 'laboratory@3.0.0' ? world : undefined,
-    routing = world?.model === laboratoryModel ? world : undefined,
+    routing =
+      world?.model === 'laboratory@3.2.0' || world?.model === laboratoryModel ? world : undefined,
+    endpoints = world?.model === laboratoryModel ? world : undefined,
     view = query.get('view') ?? 'groups',
     id = query.get('id'),
     selectedReceipt = snapshot?.entries.find((e) => e.receipt.commandId === query.get('receipt'));
@@ -329,9 +349,18 @@ export function Laboratory() {
     return v ? `${v.name} · ${groupScope(v.groupId)} · ${v.region}` : vnetId;
   };
   const begin = (type: Command['type']) => {
+    const chosenSubnet = network?.subnets.find((x) => x.id === id);
+    const chosenVnet =
+      chosenSubnet?.vnetId ??
+      network?.vnets.find((x) => x.id === id)?.id ??
+      network?.vnets[0]?.id ??
+      '';
     setForm(type);
     setPreview(null);
     setValues({
+      nicId: endpoints?.nics.find((x) => x.id === id)?.id ?? endpoints?.nics[0]?.id ?? '',
+      privateIpAddress: '',
+      allocation: 'Static',
       name: '',
       subscriptionId: 'sub-shared',
       metadataRegion: 'norwayeast',
@@ -344,8 +373,8 @@ export function Laboratory() {
       containerId: container?.id ?? world?.containers[0]?.id ?? '',
       text: '',
       contentType: 'text/plain',
-      vnetId: network?.vnets.find((x) => x.id === id)?.id ?? network?.vnets[0]?.id ?? '',
-      subnetId: network?.subnets.find((x) => x.id === id)?.id ?? network?.subnets[0]?.id ?? '',
+      vnetId: chosenVnet,
+      subnetId: chosenSubnet?.id ?? network?.subnets.find((x) => x.vnetId === chosenVnet)?.id ?? '',
       nsgId: network?.nsgs.find((x) => x.id === id)?.id ?? network?.nsgs[0]?.id ?? '',
       addressSpace: '10.20.0.0/16',
       addressPrefix: '10.20.1.0/24',
@@ -382,7 +411,11 @@ export function Laboratory() {
           aria-describedby={note ? `lab-note-${key}` : undefined}
           value={values[key] ?? ''}
           onChange={(e) => {
-            setValues({ ...values, [key]: e.target.value });
+            setValues({
+              ...values,
+              [key]: e.target.value,
+              ...(key === 'vnetId' && form === 'CreateNetworkInterface' ? { subnetId: '' } : {}),
+            });
             setPreview(null);
           }}
           required
@@ -433,6 +466,7 @@ export function Laboratory() {
     if (!world || !form || !snapshot) return;
     setBusy(true);
     const keys =
+      endpointFields[form] ??
       routingFields[form] ??
       networkFields[form] ??
       (form === 'CreateGroup'
@@ -504,6 +538,12 @@ export function Laboratory() {
   const resource = records.find((r) => r.id === id && r.view === view);
   const section = query.get('section') === 'properties' ? 'properties' : 'overview';
   const services: [string, string, string][] = [
+    ...(endpoints
+      ? ([
+          ['nics', e.nics, 'nic'],
+          ['policy', e.analysis, 'properties'],
+        ] as [string, string, string][])
+      : []),
     ['groups', c.groups, 'groups'],
     ['accounts', c.accounts, 'account'],
     ...(network
@@ -522,6 +562,7 @@ export function Laboratory() {
   const serviceView = resource
     ? (
         {
+          nic: 'nics',
           group: 'groups',
           account: 'accounts',
           container: 'accounts',
@@ -572,47 +613,66 @@ export function Laboratory() {
                   : 'settings';
   const parent = records.find((r) => r.id === resource?.parentId);
   const actions: [Command['type'], string][] =
-    view === 'group'
+    view === 'nic' && endpoints
       ? [
-          ['CreateStorageAccount', c.newAccount],
-          ...(routing
-            ? ([['CreateRouteTable', r.operations.CreateRouteTable]] as [Command['type'], string][])
-            : []),
-          ...(network
-            ? ([
-                ['CreateVirtualNetwork', n.newVnet],
-                ['CreateNetworkSecurityGroup', n.newNsg],
-              ] as [Command['type'], string][])
+          ['AssociateNicNsg', e.operations.AssociateNicNsg],
+          ...(endpoints.nics.find((x) => x.id === id)?.nsgId
+            ? ([['DisassociateNicNsg', e.operations.DisassociateNicNsg]] as [
+                Command['type'],
+                string,
+              ][])
             : []),
         ]
-      : view === 'account'
-        ? [['CreateBlobContainer', c.newContainer]]
-        : view === 'container'
-          ? [['CreateTextBlob', c.newBlob]]
-          : view === 'vnet'
-            ? [['CreateSubnet', n.newSubnet]]
-            : view === 'subnet'
-              ? [
-                  ['AssociateSubnetNsg', n.associate],
-                  ...(routing
-                    ? ([
-                        ['AssociateSubnetRouteTable', r.operations.AssociateSubnetRouteTable],
-                        ...(routing.subnets.find((x) => x.id === id)?.routeTableId
-                          ? [
-                              [
-                                'DisassociateSubnetRouteTable',
-                                r.operations.DisassociateSubnetRouteTable,
-                              ],
-                            ]
-                          : []),
-                      ] as [Command['type'], string][])
-                    : []),
-                ]
-              : view === 'nsg'
-                ? [['CreateSecurityRule', n.newRule]]
-                : view === 'routeTable' && routing
-                  ? [['CreateRoute', r.operations.CreateRoute]]
-                  : [];
+      : view === 'group'
+        ? [
+            ['CreateStorageAccount', c.newAccount],
+            ...(endpoints
+              ? ([['CreateNetworkInterface', e.operations.CreateNetworkInterface]] as [
+                  Command['type'],
+                  string,
+                ][])
+              : []),
+            ...(routing
+              ? ([['CreateRouteTable', r.operations.CreateRouteTable]] as [
+                  Command['type'],
+                  string,
+                ][])
+              : []),
+            ...(network
+              ? ([
+                  ['CreateVirtualNetwork', n.newVnet],
+                  ['CreateNetworkSecurityGroup', n.newNsg],
+                ] as [Command['type'], string][])
+              : []),
+          ]
+        : view === 'account'
+          ? [['CreateBlobContainer', c.newContainer]]
+          : view === 'container'
+            ? [['CreateTextBlob', c.newBlob]]
+            : view === 'vnet'
+              ? [['CreateSubnet', n.newSubnet]]
+              : view === 'subnet'
+                ? [
+                    ['AssociateSubnetNsg', n.associate],
+                    ...(routing
+                      ? ([
+                          ['AssociateSubnetRouteTable', r.operations.AssociateSubnetRouteTable],
+                          ...(routing.subnets.find((x) => x.id === id)?.routeTableId
+                            ? [
+                                [
+                                  'DisassociateSubnetRouteTable',
+                                  r.operations.DisassociateSubnetRouteTable,
+                                ],
+                              ]
+                            : []),
+                        ] as [Command['type'], string][])
+                      : []),
+                  ]
+                : view === 'nsg'
+                  ? [['CreateSecurityRule', n.newRule]]
+                  : view === 'routeTable' && routing
+                    ? [['CreateRoute', r.operations.CreateRoute]]
+                    : [];
   const body = snapshot && world && (
     <>
       {view === 'services' && (
@@ -776,6 +836,25 @@ export function Laboratory() {
           accept={accept}
         />
       )}
+      {endpoints && (
+        <EndpointViews
+          world={endpoints}
+          view={view}
+          id={id}
+          begin={begin}
+          disabled={busy || !!error}
+          receipt={receiptLink}
+          list={links}
+        />
+      )}
+      {endpoints && view === 'policy' && (
+        <PolicyAnalysisView
+          key={snapshot.workspace + ':' + id}
+          snapshot={snapshot}
+          initialSource={id}
+          accept={accept}
+        />
+      )}
       {view === 'history' && (
         <>
           {selectedReceipt ? (
@@ -836,6 +915,7 @@ export function Laboratory() {
         'container',
         'blob',
         'history',
+        ...(endpoints ? ['nics', 'nic', 'policy'] : []),
         ...(network ? ['vnets', 'vnet', 'subnet', 'nsgs', 'nsg', 'rule'] : []),
         ...(routing
           ? ['peerings', 'peering', 'routeTables', 'routeTable', 'route', 'analysis']
@@ -1015,8 +1095,8 @@ export function Laboratory() {
             </PortalDialog>
           )}
           {newWorkspace && (
-            <PortalDialog title={r.newWorkspace} onClose={() => setNewWorkspace(false)}>
-              <p>{r.newWorkspaceNote}</p>
+            <PortalDialog title={e.newWorkspace} onClose={() => setNewWorkspace(false)}>
+              <p>{e.newWorkspaceNote}</p>
               <button
                 className="primary"
                 disabled={busy}
@@ -1024,7 +1104,7 @@ export function Laboratory() {
                   void start(true);
                 }}
               >
-                {r.newWorkspace}
+                {e.newWorkspace}
               </button>
               <button onClick={() => setNewWorkspace(false)}>{c.cancel}</button>
             </PortalDialog>
@@ -1105,7 +1185,8 @@ export function Laboratory() {
                     value={startModel}
                     onChange={(e) => setStartModel(e.target.value as Model)}
                   >
-                    <option value={laboratoryModel}>3.2 · Storage og Networking A/B</option>
+                    <option value={laboratoryModel}>3.3 · Storage og Networking A/B/C</option>
+                    <option value="laboratory@3.2.0">3.2 · Storage og Networking A/B</option>
                     <option value="laboratory@3.1.0">3.1 · Storage og Networking A</option>
                     <option value="laboratory@3.0.0">3.0 · Storage</option>
                   </select>
@@ -1129,14 +1210,14 @@ export function Laboratory() {
           {snapshot && world && (
             <>
               {!network && <p className="lab-network-boundary">{n.legacy}</p>}
-              {!routing && ['groups', 'services'].includes(view) && (
+              {!endpoints && ['groups', 'services'].includes(view) && (
                 <div className="lab-network-boundary">
-                  <p>{r.legacy}</p>
+                  <p>{e.legacy}</p>
                   <button
                     disabled={busy || !!pendingView || !!error}
                     onClick={() => setNewWorkspace(true)}
                   >
-                    {r.newWorkspace}
+                    {e.newWorkspace}
                   </button>
                 </div>
               )}
@@ -1162,6 +1243,8 @@ export function Laboratory() {
                   >
                     <fieldset disabled={busy || !!pendingView}>
                       {![
+                        'AssociateNicNsg',
+                        'DisassociateNicNsg',
                         'AssociateSubnetNsg',
                         'AssociateSubnetRouteTable',
                         'DisassociateSubnetRouteTable',
@@ -1178,6 +1261,64 @@ export function Laboratory() {
                                 ? c.blobLimit
                                 : undefined,
                         )}
+                      {endpoints && endpointFields[form] && (
+                        <>
+                          {form === 'CreateNetworkInterface' && (
+                            <>
+                              {field(
+                                'groupId',
+                                c.group,
+                                world.groups.map((g) => [g.id, groupScope(g.id)]),
+                              )}
+                              {field('region', c.region, regions)}
+                              {field(
+                                'vnetId',
+                                n.vnet,
+                                endpoints.vnets.map((v) => [v.id, vnetScope(v.id)]),
+                              )}
+                              {field(
+                                'subnetId',
+                                n.subnet,
+                                endpoints.subnets
+                                  .filter((x) => x.vnetId === values.vnetId)
+                                  .map((x) => [x.id, `${x.name} · ${x.addressPrefix}`]),
+                              )}
+                              {field(
+                                'privateIpAddress',
+                                e.fields.privateIpAddress,
+                                undefined,
+                                e.ipNote,
+                              )}
+                              {field('allocation', e.fields.allocation, [['Static', 'Static']])}
+                              <p className="lab-form-note">
+                                {e.nameNote} {e.boundary}
+                              </p>
+                            </>
+                          )}
+                          {['AssociateNicNsg', 'DisassociateNicNsg'].includes(form) && (
+                            <>
+                              {field(
+                                'nicId',
+                                e.nic,
+                                endpoints.nics.map((x) => [
+                                  x.id,
+                                  `${x.name} · ${x.privateIpAddress} · ${groupScope(x.groupId)}`,
+                                ]),
+                              )}
+                              {form === 'AssociateNicNsg' &&
+                                field(
+                                  'nsgId',
+                                  n.nsg,
+                                  endpoints.nsgs.map((x) => [
+                                    x.id,
+                                    `${x.name} · ${groupScope(x.groupId)} · ${x.region}`,
+                                  ]),
+                                )}
+                              <p className="lab-form-note">{e.associationNote}</p>
+                            </>
+                          )}
+                        </>
+                      )}
                       {network && networkFields[form] && (
                         <>
                           {['CreateVirtualNetwork', 'CreateNetworkSecurityGroup'].includes(
@@ -1414,6 +1555,8 @@ export function Laboratory() {
                         }}
                       >
                         {[
+                          'AssociateNicNsg',
+                          'DisassociateNicNsg',
                           'AssociateSubnetNsg',
                           'AssociateSubnetRouteTable',
                           'DisassociateSubnetRouteTable',

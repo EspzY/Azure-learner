@@ -1,5 +1,6 @@
 'use client';
 import Link from 'next/link';
+import { laboratoryEndpointsNb as e } from '@/content/laboratory-endpoints-nb';
 import type { ReactNode, RefObject } from 'react';
 import type { World as PreviousWorld } from '@/laboratory/v31/contract';
 import type { World as RoutingWorld } from '@/laboratory/v32/contract';
@@ -31,7 +32,7 @@ const href = (view: string, id?: string) =>
   '/labs/laboratory?' + new URLSearchParams({ view, ...(id ? { id } : {}) });
 
 type Props = {
-  world: PreviousWorld | RoutingWorld;
+  world: PreviousWorld | RoutingWorld | import('@/laboratory/v33/contract').World;
   view: string;
   id: string | null;
   begin: (type: Command['type']) => void;
@@ -180,7 +181,7 @@ export function NetworkViews({
                   [n.addressPrefix, subnet.addressPrefix],
                   [n.interval, `${meta.first} – ${meta.last}`],
                   [n.reserved, meta.reserved.join(', ')],
-                  [n.usable, meta.usableCount],
+                  [w.model === 'laboratory@3.3.0' ? e.usable : n.usable, meta.usableCount],
                   [c.region, parent.region],
                   ...scope(parent.groupId),
                   [
@@ -215,7 +216,7 @@ export function NetworkViews({
           {table(nsg.id)}
           <details className="lab-default-rules">
             <summary>{n.defaultRules}</summary>
-            <p>{n.defaultNote}</p>
+            <p>{w.model === 'laboratory@3.3.0' ? e.defaultNote : n.defaultNote}</p>
             <div
               className="lab-rules-scroll"
               role="region"
