@@ -22,5 +22,8 @@ export const portalWorkspaceNb = {
     subnet: 'Subnet',
     nsg: 'Network security group',
     rule: 'Security rule',
+    peering: 'VNet peering',
+    routeTable: 'Route table',
+    route: 'User-defined route',
   },
 } as const;

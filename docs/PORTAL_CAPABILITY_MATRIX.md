@@ -1,5 +1,11 @@
 # PR50 — Portal capability and fidelity matrix
 
+## PR64 — Laboratory Networking Part B
+
+New explicit `laboratory@3.2.0` workspaces expose directional VNet peerings (Initiated/Connected), Route Tables, bounded IPv4 UDRs (`VnetLocal`, `Internet`, `None`), explicit subnet table association/replacement/removal, original receipts and a read-only persisted-World route-selection analysis. The existing shared Portal primitives serve both free Laboratory and unchanged course mode. No packet/NSG/end-to-end connection result is claimed. No BGP, service endpoints, gateway/appliance/Firewall routing or transit is implemented. Existing3.0/3.1 workspaces stay on their original versions. [Exact contract and Azure sources](LABORATORY_NETWORKING_PART_B.md).
+
+Local PostgreSQL and isolated CI only. Public backend503 remains owner-approved; no external database or storage fallback. Verification status is recorded in the PR64 evidence, independently of these capability descriptions.
+
 ## PR62 — isolated Laboratory networking, separate from the legacy Portal
 
 New `laboratory@3.1.0` workspaces in `/labs/laboratory` support the following bounded operations in the same server-authoritative World as Storage. Historical3.0 workspaces retain their original evaluator; no implicit upgrade/import. Local PostgreSQL/isolated CI only; public backend503 remains accepted. See [networking contract](LABORATORY_NETWORKING_PART_A.md).

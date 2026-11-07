@@ -5,6 +5,10 @@ import baseline from './playwright.config';
 // names. No test body, assertion, title, timeout or skip is modified.
 const compactCases = [
   [
+    'laboratory-routing.spec.ts',
+    'routing Laboratory compact native analysis keyboard reduced motion Axe properties review and original receipts stay accessible',
+  ],
+  [
     'shared-portal.spec.ts',
     'shared Portal compact native search drawer properties dialogs reduced motion Axe and unavailable server preserve scope and visible controls',
   ],

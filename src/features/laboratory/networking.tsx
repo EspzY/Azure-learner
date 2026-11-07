@@ -1,7 +1,9 @@
 'use client';
 import Link from 'next/link';
 import type { ReactNode, RefObject } from 'react';
-import type { World, Command } from '@/laboratory/v31/contract';
+import type { World as PreviousWorld } from '@/laboratory/v31/contract';
+import type { World as RoutingWorld } from '@/laboratory/v32/contract';
+import type { Command } from '@/laboratory/engine';
 import { subnetMetadata } from '@/laboratory/v31/ip';
 import { defaultRules as defaults } from '@/laboratory/v31/default-rules';
 import { laboratoryNetworkNb as n } from '@/content/laboratory-networking-nb';
@@ -29,7 +31,7 @@ const href = (view: string, id?: string) =>
   '/labs/laboratory?' + new URLSearchParams({ view, ...(id ? { id } : {}) });
 
 type Props = {
-  world: World;
+  world: PreviousWorld | RoutingWorld;
   view: string;
   id: string | null;
   begin: (type: Command['type']) => void;
@@ -123,9 +125,10 @@ export function NetworkViews({
   );
   return (
     <>
-      {['vnets', 'nsgs', 'vnet', 'subnet', 'nsg', 'rule'].includes(view) && (
-        <p className="lab-network-boundary">{n.boundary}</p>
-      )}
+      {w.model === 'laboratory@3.1.0' &&
+        ['vnets', 'nsgs', 'vnet', 'subnet', 'nsg', 'rule'].includes(view) && (
+          <p className="lab-network-boundary">{n.boundary}</p>
+        )}
       {view === 'vnets' && (
         <>
           {create('CreateVirtualNetwork', n.newVnet)}

@@ -1,5 +1,9 @@
 # Architecture
 
+## PR64 — immutable Laboratory3.2
+
+The existing repository dispatches persisted immutable model3.0/3.1/3.2. Additive SQL003 expands version constraints; frozen evaluators, World/receipt JSON and course engines are untouched. Part B adds peering/UDR records and subnet references to the one server World. Read-only route analysis consumes verified repository snapshots; no extra authority/store. Shared Portal presentation remains the only shell. See [bounded networking contract](LABORATORY_NETWORKING_PART_B.md).
+
 ## PR61 — product entry, unchanged course and laboratory authorities
 
 `/` now renders the product landing with one live AZ-900 link to `/learn`, two planned courses and a separate free-Lab link to `/labs/laboratory`. Only the existing CourseStore's validated position is read for a limited ongoing/unknown card indicator. There is no new resume selector, completion issuer, storage key, resource/assessment action or backend probe. The original AppShell plain-content branch includes root; existing course and Laboratory providers/guards remain. [Landing contract](PREMIUM_LANDING.md) and [future completion proposal](COURSE_COMPLETION_CONTRACT.md) distinguish display support from approved aggregate evidence. All prior server/v2 boundaries below remain.

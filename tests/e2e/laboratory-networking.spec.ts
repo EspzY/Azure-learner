@@ -12,6 +12,10 @@ async function start(page: Page) {
       exact: true,
     })
     .click();
+  await page.getByText('Tidligere arbeidsområdemodeller', { exact: true }).click();
+  await page
+    .getByRole('combobox', { name: 'Arbeidsområdemodell', exact: true })
+    .selectOption(model);
   await page.getByRole('button', { name: c.start, exact: true }).click();
   await revealLaboratoryLink(page, page.getByRole('link', { name: n.vnets, exact: true }));
   await expect(page.getByRole('link', { name: n.vnets, exact: true })).toBeVisible();
