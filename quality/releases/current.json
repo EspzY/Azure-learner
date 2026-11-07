@@ -1,126 +1,224 @@
 {
   "schema": 1,
-  "id": "PR63-shared-portal-experience-stage-a",
-  "baseCommit": "26408f5bcb77fdc2aa5bde5027c1959f14d6c928",
-  "author": "pr63-shared-portal-author",
+  "id": "PR64-laboratory-networking-part-b",
+  "baseCommit": "33065cb3cf69f6c9ba5e3d04496e386a2f7f92be",
+  "author": "pr64-networking-author",
   "scope": {
-    "kind": "shared-portal-presentation",
-    "description": "Extract and actually reuse Portal presentation for original course-v2 and independent server Laboratory without mounting course providers over v3, preserving all authorities/history and capability boundaries.",
-    "objectives": ["LAB-SHARED-PORTAL-A"]
+    "kind": "server-laboratory-networking",
+    "description": "Operative versioned peerings, Route Tables/UDR and persisted-World read-only explainable route selection in the existing shared Portal, preserving historical engines and all course state.",
+    "objectives": ["LAB-NETWORKING-B"]
   },
   "sources": [
     {
-      "id": "portal-overview",
-      "url": "https://learn.microsoft.com/en-us/azure/azure-portal/azure-portal-overview",
-      "title": "What is the Azure portal? - Azure portal | Microsoft Learn",
-      "reviewed": "2026-11-06T16:53:11.243439+00:00",
-      "version": "['2026-01-26T00:00:00Z', '2026-04-07T06:02:00Z']; actual retrieved HTML SHA256 b3a0e9526993345c6bb4f87520635f6dd4943a0cd42c521dad5bb16ae1cb4193",
-      "kind": "official-public-portal-workflow-or-training-icon-terms",
-      "objectives": ["LAB-SHARED-PORTAL-A"],
-      "claims": ["portal.presentation"],
+      "id": "routing",
+      "url": "https://learn.microsoft.com/en-us/azure/virtual-network/virtual-networks-udr-overview",
+      "title": "routing — official Microsoft networking contract",
+      "reviewed": "2026-11-07T13:16:29.015673+00:00",
+      "version": "Retrieved HTML SHA256 4ca0afedaf9a73e808e1da2ecd0dc5095d46489b44b0988cc874cec35f87159d",
+      "kind": "official-public-Microsoft-Learn-ARM",
+      "objectives": ["LAB-NETWORKING-B"],
+      "claims": ["network.selection", "network.routes"],
       "availability": "AVAILABLE",
-      "limits": "Reference for header/search/menu and explicit RG Review/Create, and bounded original training icon use. Does not validate our engines or imply full Portal parity, actual Azure authentication, deployment or service operation. Current Portal icon variants remain UNVERIFIED.",
+      "limits": "New explicit immutable laboratory@3.2.0 workspaces only. Frozen3.0/3.1 and all course/v2/history untouched. Read-only route selection, not packet/NSG/end-to-end traffic or Network Watcher. No BGP/endpoints/gateway/appliance/Firewall/transit. Local PG/CI only; public persistent Laboratory owner-deferred with honest503. No external resources, Vercel secrets, migration, XP or merge/deploy. Human SME/learning/UX/screen-reader/security review unperformed.",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/azure-portal/azure-portal-overview",
+          "url": "https://learn.microsoft.com/en-us/azure/virtual-network/virtual-networks-udr-overview",
           "disposition": "reviewed-essential",
-          "reason": "Actual scoped public text read. Unsupported Azure services, private Portal screenshots/code, account controls and unrelated links not imported."
+          "reason": "Actual scoped HTML/text retrieved and read; fetched source hashes retained. Unimplemented linked services/advanced options expressly excluded, no copied course/assessment text."
         }
       ]
     },
     {
-      "id": "resource-groups",
-      "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/manage-resource-groups-portal",
-      "title": "Use the Azure portal and Azure Resource Manager to Manage Resource Groups - Azure Resource Manager | Microsoft Learn",
-      "reviewed": "2026-11-06T16:53:11.243439+00:00",
-      "version": "['2026-02-27T00:00:00Z', '2026-03-04T23:27:00Z']; actual retrieved HTML SHA256 218f1ce761bd8bf20c7bc4f15d98d313565318b99818580e1ddde5a79f372123",
-      "kind": "official-public-portal-workflow-or-training-icon-terms",
-      "objectives": ["LAB-SHARED-PORTAL-A"],
-      "claims": ["portal.create"],
+      "id": "peering",
+      "url": "https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-manage-peering",
+      "title": "peering — official Microsoft networking contract",
+      "reviewed": "2026-11-07T13:16:29.193656+00:00",
+      "version": "Retrieved HTML SHA256 1a53e892df336369542b2e9ebd32b8fd5a2454a1b7f782f3744c0773d88ddbb0",
+      "kind": "official-public-Microsoft-Learn-ARM",
+      "objectives": ["LAB-NETWORKING-B"],
+      "claims": ["network.peering"],
       "availability": "AVAILABLE",
-      "limits": "Reference for header/search/menu and explicit RG Review/Create, and bounded original training icon use. Does not validate our engines or imply full Portal parity, actual Azure authentication, deployment or service operation. Current Portal icon variants remain UNVERIFIED.",
+      "limits": "New explicit immutable laboratory@3.2.0 workspaces only. Frozen3.0/3.1 and all course/v2/history untouched. Read-only route selection, not packet/NSG/end-to-end traffic or Network Watcher. No BGP/endpoints/gateway/appliance/Firewall/transit. Local PG/CI only; public persistent Laboratory owner-deferred with honest503. No external resources, Vercel secrets, migration, XP or merge/deploy. Human SME/learning/UX/screen-reader/security review unperformed.",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/manage-resource-groups-portal",
+          "url": "https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-manage-peering",
           "disposition": "reviewed-essential",
-          "reason": "Actual scoped public text read. Unsupported Azure services, private Portal screenshots/code, account controls and unrelated links not imported."
+          "reason": "Actual scoped HTML/text retrieved and read; fetched source hashes retained. Unimplemented linked services/advanced options expressly excluded, no copied course/assessment text."
         }
       ]
     },
     {
-      "id": "training-icons",
-      "url": "https://learn.microsoft.com/en-us/azure/architecture/icons/",
-      "title": "Azure Icons - Azure Architecture Center | Microsoft Learn",
-      "reviewed": "2026-11-06T16:53:11.243439+00:00",
-      "version": "['2026-07-09T00:00:00Z', '2026-11-05T06:03:00Z']; actual retrieved HTML SHA256 11906cc2b9fb28bff122f0e3d837ec333a1d503a6ce711d8222d4319ba8b94b5",
-      "kind": "official-public-portal-workflow-or-training-icon-terms",
-      "objectives": ["LAB-SHARED-PORTAL-A"],
-      "claims": ["portal.icons"],
+      "id": "faq",
+      "url": "https://learn.microsoft.com/en-us/azure/virtual-network/virtual-networks-faq",
+      "title": "faq — official Microsoft networking contract",
+      "reviewed": "2026-11-07T13:16:29.335558+00:00",
+      "version": "Retrieved HTML SHA256 6020604b5534eadd1a59a54602c4354a20320a88e28c27ab22d6dd463e10a0af",
+      "kind": "official-public-Microsoft-Learn-ARM",
+      "objectives": ["LAB-NETWORKING-B"],
+      "claims": ["network.peering"],
       "availability": "AVAILABLE",
-      "limits": "Reference for header/search/menu and explicit RG Review/Create, and bounded original training icon use. Does not validate our engines or imply full Portal parity, actual Azure authentication, deployment or service operation. Current Portal icon variants remain UNVERIFIED.",
+      "limits": "New explicit immutable laboratory@3.2.0 workspaces only. Frozen3.0/3.1 and all course/v2/history untouched. Read-only route selection, not packet/NSG/end-to-end traffic or Network Watcher. No BGP/endpoints/gateway/appliance/Firewall/transit. Local PG/CI only; public persistent Laboratory owner-deferred with honest503. No external resources, Vercel secrets, migration, XP or merge/deploy. Human SME/learning/UX/screen-reader/security review unperformed.",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/architecture/icons/",
+          "url": "https://learn.microsoft.com/en-us/azure/virtual-network/virtual-networks-faq",
           "disposition": "reviewed-essential",
-          "reason": "Actual scoped public text read. Unsupported Azure services, private Portal screenshots/code, account controls and unrelated links not imported."
+          "reason": "Actual scoped HTML/text retrieved and read; fetched source hashes retained. Unimplemented linked services/advanced options expressly excluded, no copied course/assessment text."
+        }
+      ]
+    },
+    {
+      "id": "routes",
+      "url": "https://learn.microsoft.com/en-us/azure/virtual-network/manage-route-table",
+      "title": "routes — official Microsoft networking contract",
+      "reviewed": "2026-11-07T13:16:29.481765+00:00",
+      "version": "Retrieved HTML SHA256 70b599b3ce34f3e64ee3c7f487e739a6b30c2fafdb227f73efd990fa50c4b481",
+      "kind": "official-public-Microsoft-Learn-ARM",
+      "objectives": ["LAB-NETWORKING-B"],
+      "claims": ["network.routes"],
+      "availability": "AVAILABLE",
+      "limits": "New explicit immutable laboratory@3.2.0 workspaces only. Frozen3.0/3.1 and all course/v2/history untouched. Read-only route selection, not packet/NSG/end-to-end traffic or Network Watcher. No BGP/endpoints/gateway/appliance/Firewall/transit. Local PG/CI only; public persistent Laboratory owner-deferred with honest503. No external resources, Vercel secrets, migration, XP or merge/deploy. Human SME/learning/UX/screen-reader/security review unperformed.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/virtual-network/manage-route-table",
+          "disposition": "reviewed-essential",
+          "reason": "Actual scoped HTML/text retrieved and read; fetched source hashes retained. Unimplemented linked services/advanced options expressly excluded, no copied course/assessment text."
+        }
+      ]
+    },
+    {
+      "id": "names",
+      "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules",
+      "title": "names — official Microsoft networking contract",
+      "reviewed": "2026-11-07T13:16:29.652916+00:00",
+      "version": "Retrieved HTML SHA256 841c4ce5afa8213404be0736d9ee828c2415c8cbc329fc9da8147a0b081996fd",
+      "kind": "official-public-Microsoft-Learn-ARM",
+      "objectives": ["LAB-NETWORKING-B"],
+      "claims": ["network.validation"],
+      "availability": "AVAILABLE",
+      "limits": "New explicit immutable laboratory@3.2.0 workspaces only. Frozen3.0/3.1 and all course/v2/history untouched. Read-only route selection, not packet/NSG/end-to-end traffic or Network Watcher. No BGP/endpoints/gateway/appliance/Firewall/transit. Local PG/CI only; public persistent Laboratory owner-deferred with honest503. No external resources, Vercel secrets, migration, XP or merge/deploy. Human SME/learning/UX/screen-reader/security review unperformed.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules",
+          "disposition": "reviewed-essential",
+          "reason": "Actual scoped HTML/text retrieved and read; fetched source hashes retained. Unimplemented linked services/advanced options expressly excluded, no copied course/assessment text."
+        }
+      ]
+    },
+    {
+      "id": "route-api",
+      "url": "https://learn.microsoft.com/en-us/azure/templates/microsoft.network/routetables/routes",
+      "title": "route-api — official Microsoft networking contract",
+      "reviewed": "2026-11-07T13:16:29.785896+00:00",
+      "version": "Retrieved HTML SHA256 cf3f49ba97c518e4ac0313d4c46ed893739afbd1cd2ddeef726d6855030fc291",
+      "kind": "official-public-Microsoft-Learn-ARM",
+      "objectives": ["LAB-NETWORKING-B"],
+      "claims": ["network.routes"],
+      "availability": "AVAILABLE",
+      "limits": "New explicit immutable laboratory@3.2.0 workspaces only. Frozen3.0/3.1 and all course/v2/history untouched. Read-only route selection, not packet/NSG/end-to-end traffic or Network Watcher. No BGP/endpoints/gateway/appliance/Firewall/transit. Local PG/CI only; public persistent Laboratory owner-deferred with honest503. No external resources, Vercel secrets, migration, XP or merge/deploy. Human SME/learning/UX/screen-reader/security review unperformed.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/templates/microsoft.network/routetables/routes",
+          "disposition": "reviewed-essential",
+          "reason": "Actual scoped HTML/text retrieved and read; fetched source hashes retained. Unimplemented linked services/advanced options expressly excluded, no copied course/assessment text."
+        }
+      ]
+    },
+    {
+      "id": "peer-api",
+      "url": "https://learn.microsoft.com/en-us/azure/templates/microsoft.network/virtualnetworks/virtualnetworkpeerings",
+      "title": "peer-api — official Microsoft networking contract",
+      "reviewed": "2026-11-07T13:16:29.977562+00:00",
+      "version": "Retrieved HTML SHA256 4454e610b2502d7746ffe7e5a6203bbcf0976bf889b8600c3f165d20095c47cc",
+      "kind": "official-public-Microsoft-Learn-ARM",
+      "objectives": ["LAB-NETWORKING-B"],
+      "claims": ["network.peering"],
+      "availability": "AVAILABLE",
+      "limits": "New explicit immutable laboratory@3.2.0 workspaces only. Frozen3.0/3.1 and all course/v2/history untouched. Read-only route selection, not packet/NSG/end-to-end traffic or Network Watcher. No BGP/endpoints/gateway/appliance/Firewall/transit. Local PG/CI only; public persistent Laboratory owner-deferred with honest503. No external resources, Vercel secrets, migration, XP or merge/deploy. Human SME/learning/UX/screen-reader/security review unperformed.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/templates/microsoft.network/virtualnetworks/virtualnetworkpeerings",
+          "disposition": "reviewed-essential",
+          "reason": "Actual scoped HTML/text retrieved and read; fetched source hashes retained. Unimplemented linked services/advanced options expressly excluded, no copied course/assessment text."
+        }
+      ]
+    },
+    {
+      "id": "platform-ip",
+      "url": "https://learn.microsoft.com/en-us/azure/virtual-network/what-is-ip-address-168-63-129-16",
+      "title": "platform-ip — official Microsoft networking contract",
+      "reviewed": "2026-11-07T13:16:30.125421+00:00",
+      "version": "Retrieved HTML SHA256 18b806cf7b1076139f1cca0c2ea76ad721c9c7a59d07d2e47d44ce219d0c2f00",
+      "kind": "official-public-Microsoft-Learn-ARM",
+      "objectives": ["LAB-NETWORKING-B"],
+      "claims": ["network.selection"],
+      "availability": "AVAILABLE",
+      "limits": "New explicit immutable laboratory@3.2.0 workspaces only. Frozen3.0/3.1 and all course/v2/history untouched. Read-only route selection, not packet/NSG/end-to-end traffic or Network Watcher. No BGP/endpoints/gateway/appliance/Firewall/transit. Local PG/CI only; public persistent Laboratory owner-deferred with honest503. No external resources, Vercel secrets, migration, XP or merge/deploy. Human SME/learning/UX/screen-reader/security review unperformed.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/virtual-network/what-is-ip-address-168-63-129-16",
+          "disposition": "reviewed-essential",
+          "reason": "Actual scoped HTML/text retrieved and read; fetched source hashes retained. Unimplemented linked services/advanced options expressly excluded, no copied course/assessment text."
         }
       ]
     }
   ],
   "activities": [
     {
-      "id": "PR63-shared-portal",
-      "objectives": ["LAB-SHARED-PORTAL-A"],
-      "claims": ["portal.presentation", "portal.create", "portal.icons"],
+      "id": "PR64-networking-B",
+      "objectives": ["LAB-NETWORKING-B"],
+      "claims": ["network.peering", "network.routes", "network.selection", "network.validation"],
       "assessmentStatus": "unchanged-existing",
-      "limits": "Shared presentation only, separate original course-v2 and free PostgreSQL3.0/3.1 authorities. No World/commands/receipts/schema/rubric/first-help-retry/XP change, no migration or external database. Public backend503 is accepted; local/CI actual PG verification remains distinct. Human SME/learning/UX/screen-reader/security validation unperformed.",
+      "limits": "New explicit immutable laboratory@3.2.0 workspaces only. Frozen3.0/3.1 and all course/v2/history untouched. Read-only route selection, not packet/NSG/end-to-end traffic or Network Watcher. No BGP/endpoints/gateway/appliance/Firewall/transit. Local PG/CI only; public persistent Laboratory owner-deferred with honest503. No external resources, Vercel secrets, migration, XP or merge/deploy. Human SME/learning/UX/screen-reader/security review unperformed.",
       "theory": [
         {
-          "path": "docs/SHARED_PORTAL_EXPERIENCE.md"
+          "path": "docs/LABORATORY_NETWORKING_PART_B.md"
         }
       ],
       "mechanism": [
         {
-          "path": "src/features/portal/presentation.tsx"
+          "path": "src/laboratory/v32/domain.ts"
         },
         {
-          "path": "src/features/laboratory/portal-adapter.tsx"
+          "path": "src/laboratory/v32/analysis.ts"
         }
       ],
       "practice": [
         {
-          "path": "tests/e2e/shared-portal.spec.ts"
+          "path": "tests/e2e/laboratory-routing.spec.ts"
         }
       ],
       "feedback": [
         {
-          "path": "src/features/portal/receipt-panel.tsx"
+          "path": "src/features/laboratory/routing.tsx"
         },
         {
-          "path": "src/content/portal-workspace-nb.ts"
+          "path": "src/content/laboratory-routing-nb.ts"
         }
       ],
       "visual": [
         {
           "path": "src/features/portal/presentation.tsx"
+        },
+        {
+          "path": "src/features/laboratory/routing.tsx"
         }
       ],
       "accessible": [
         {
-          "path": "tests/e2e/shared-portal.spec.ts"
+          "path": "tests/e2e/laboratory-routing.spec.ts"
         }
       ],
       "assessment": [
         {
-          "path": "src/shared-portal-preservation.test.ts"
+          "path": "src/laboratory-routing-preservation.test.ts"
         }
       ],
       "savvyshark": [
         {
-          "path": "src/features/portal/guide-recovery.tsx"
+          "path": "src/features/portal/portal.tsx"
         },
         {
-          "path": "src/shared-portal-preservation.test.ts"
+          "path": "src/laboratory-routing-preservation.test.ts"
         }
       ]
     }
@@ -128,90 +226,103 @@
   "modules": [],
   "preservedPaths": [
     "src/domain/",
-    "src/laboratory/",
-    "src/app/api/",
-    "database/",
+    "src/laboratory/v3/contract.ts",
+    "src/laboratory/v3/domain.ts",
+    "src/laboratory/v3/repository.ts",
+    "src/laboratory/v31/",
+    "database/laboratory-v3/001.sql",
+    "database/laboratory-v3/002-networking.sql",
     "public/mascot/",
     "src/content/nb.ts",
     "src/features/course/",
     "src/features/learning/",
     "src/features/landing/",
+    "src/features/portal/",
     "src/app/page.tsx",
     "package.json",
     "package-lock.json",
-    "docs/reviews/evidence/pr62/"
+    "docs/reviews/evidence/pr63/"
   ],
   "gates": {
     "source": {
       "checks": [
         {
-          "path": "docs/reviews/evidence/pr63/sources.json"
+          "path": "docs/LABORATORY_NETWORKING_PART_B.md"
         },
         {
-          "path": "docs/SHARED_PORTAL_EXPERIENCE.md"
+          "path": "docs/reviews/evidence/pr64/verification.json"
         }
       ],
-      "limits": "Shared presentation only, separate original course-v2 and free PostgreSQL3.0/3.1 authorities. No World/commands/receipts/schema/rubric/first-help-retry/XP change, no migration or external database. Public backend503 is accepted; local/CI actual PG verification remains distinct. Human SME/learning/UX/screen-reader/security validation unperformed."
+      "limits": "New explicit immutable laboratory@3.2.0 workspaces only. Frozen3.0/3.1 and all course/v2/history untouched. Read-only route selection, not packet/NSG/end-to-end traffic or Network Watcher. No BGP/endpoints/gateway/appliance/Firewall/transit. Local PG/CI only; public persistent Laboratory owner-deferred with honest503. No external resources, Vercel secrets, migration, XP or merge/deploy. Human SME/learning/UX/screen-reader/security review unperformed."
     },
     "curriculum": {
       "checks": [
         {
-          "path": "src/shared-portal-preservation.test.ts"
+          "path": "docs/LABORATORY_NETWORKING_PART_B.md"
+        },
+        {
+          "path": "docs/reviews/evidence/pr64/verification.json"
         }
       ],
-      "limits": "Shared presentation only, separate original course-v2 and free PostgreSQL3.0/3.1 authorities. No World/commands/receipts/schema/rubric/first-help-retry/XP change, no migration or external database. Public backend503 is accepted; local/CI actual PG verification remains distinct. Human SME/learning/UX/screen-reader/security validation unperformed."
+      "limits": "New explicit immutable laboratory@3.2.0 workspaces only. Frozen3.0/3.1 and all course/v2/history untouched. Read-only route selection, not packet/NSG/end-to-end traffic or Network Watcher. No BGP/endpoints/gateway/appliance/Firewall/transit. Local PG/CI only; public persistent Laboratory owner-deferred with honest503. No external resources, Vercel secrets, migration, XP or merge/deploy. Human SME/learning/UX/screen-reader/security review unperformed."
     },
     "simulation": {
       "checks": [
         {
-          "path": "src/features/laboratory/portal-adapter.test.ts"
+          "path": "docs/LABORATORY_NETWORKING_PART_B.md"
         },
         {
-          "path": "src/shared-portal-preservation.test.ts"
+          "path": "docs/reviews/evidence/pr64/verification.json"
         }
       ],
-      "limits": "Shared presentation only, separate original course-v2 and free PostgreSQL3.0/3.1 authorities. No World/commands/receipts/schema/rubric/first-help-retry/XP change, no migration or external database. Public backend503 is accepted; local/CI actual PG verification remains distinct. Human SME/learning/UX/screen-reader/security validation unperformed."
+      "limits": "New explicit immutable laboratory@3.2.0 workspaces only. Frozen3.0/3.1 and all course/v2/history untouched. Read-only route selection, not packet/NSG/end-to-end traffic or Network Watcher. No BGP/endpoints/gateway/appliance/Firewall/transit. Local PG/CI only; public persistent Laboratory owner-deferred with honest503. No external resources, Vercel secrets, migration, XP or merge/deploy. Human SME/learning/UX/screen-reader/security review unperformed."
     },
     "savvyshark": {
       "checks": [
         {
-          "path": "src/features/portal/guide-recovery.tsx"
+          "path": "docs/LABORATORY_NETWORKING_PART_B.md"
         },
         {
-          "path": "tests/e2e/shared-portal.spec.ts"
+          "path": "docs/reviews/evidence/pr64/verification.json"
         }
       ],
-      "limits": "Shared presentation only, separate original course-v2 and free PostgreSQL3.0/3.1 authorities. No World/commands/receipts/schema/rubric/first-help-retry/XP change, no migration or external database. Public backend503 is accepted; local/CI actual PG verification remains distinct. Human SME/learning/UX/screen-reader/security validation unperformed."
+      "limits": "New explicit immutable laboratory@3.2.0 workspaces only. Frozen3.0/3.1 and all course/v2/history untouched. Read-only route selection, not packet/NSG/end-to-end traffic or Network Watcher. No BGP/endpoints/gateway/appliance/Firewall/transit. Local PG/CI only; public persistent Laboratory owner-deferred with honest503. No external resources, Vercel secrets, migration, XP or merge/deploy. Human SME/learning/UX/screen-reader/security review unperformed."
     },
     "visual-accessibility": {
       "checks": [
         {
-          "path": "tests/e2e/shared-portal.spec.ts"
+          "path": "docs/LABORATORY_NETWORKING_PART_B.md"
         },
         {
-          "path": "src/features/portal/presentation.css"
+          "path": "docs/reviews/evidence/pr64/verification.json"
         }
       ],
-      "limits": "Shared presentation only, separate original course-v2 and free PostgreSQL3.0/3.1 authorities. No World/commands/receipts/schema/rubric/first-help-retry/XP change, no migration or external database. Public backend503 is accepted; local/CI actual PG verification remains distinct. Human SME/learning/UX/screen-reader/security validation unperformed."
+      "limits": "New explicit immutable laboratory@3.2.0 workspaces only. Frozen3.0/3.1 and all course/v2/history untouched. Read-only route selection, not packet/NSG/end-to-end traffic or Network Watcher. No BGP/endpoints/gateway/appliance/Firewall/transit. Local PG/CI only; public persistent Laboratory owner-deferred with honest503. No external resources, Vercel secrets, migration, XP or merge/deploy. Human SME/learning/UX/screen-reader/security review unperformed."
     },
     "independent-final-audit": {
       "checks": [
         {
-          "path": "docs/SHARED_PORTAL_EXPERIENCE.md"
+          "path": "docs/LABORATORY_NETWORKING_PART_B.md"
         },
         {
-          "path": "docs/quality/PR63_FINAL_AUDIT.md"
+          "path": "docs/reviews/evidence/pr64/verification.json"
+        },
+        {
+          "path": "docs/quality/PR64_FINAL_AUDIT.md"
         }
       ],
-      "limits": "Shared presentation only, separate original course-v2 and free PostgreSQL3.0/3.1 authorities. No World/commands/receipts/schema/rubric/first-help-retry/XP change, no migration or external database. Public backend503 is accepted; local/CI actual PG verification remains distinct. Human SME/learning/UX/screen-reader/security validation unperformed."
+      "limits": "New explicit immutable laboratory@3.2.0 workspaces only. Frozen3.0/3.1 and all course/v2/history untouched. Read-only route selection, not packet/NSG/end-to-end traffic or Network Watcher. No BGP/endpoints/gateway/appliance/Firewall/transit. Local PG/CI only; public persistent Laboratory owner-deferred with honest503. No external resources, Vercel secrets, migration, XP or merge/deploy. Human SME/learning/UX/screen-reader/security review unperformed."
     },
     "delivery": {
       "checks": [
         {
-          "path": "docs/SHARED_PORTAL_EXPERIENCE.md"
+          "path": "docs/LABORATORY_NETWORKING_PART_B.md"
+        },
+        {
+          "path": "docs/reviews/evidence/pr64/verification.json"
         }
       ],
-      "limits": "Shared presentation only, separate original course-v2 and free PostgreSQL3.0/3.1 authorities. No World/commands/receipts/schema/rubric/first-help-retry/XP change, no migration or external database. Public backend503 is accepted; local/CI actual PG verification remains distinct. Human SME/learning/UX/screen-reader/security validation unperformed."
+      "limits": "New explicit immutable laboratory@3.2.0 workspaces only. Frozen3.0/3.1 and all course/v2/history untouched. Read-only route selection, not packet/NSG/end-to-end traffic or Network Watcher. No BGP/endpoints/gateway/appliance/Firewall/transit. Local PG/CI only; public persistent Laboratory owner-deferred with honest503. No external resources, Vercel secrets, migration, XP or merge/deploy. Human SME/learning/UX/screen-reader/security review unperformed."
     }
   },
   "humanReview": {
@@ -223,429 +334,276 @@
   },
   "visualEvidence": [
     {
-      "path": "docs/reviews/evidence/pr63/after/free-v3-list-1440-900.png",
+      "path": "docs/reviews/evidence/pr64/peering-connected-desktop-chromium.png",
       "viewport": "1440x900",
       "inspected": true,
-      "observation": "Actual PG/native UI: shared header/search/navigation, actual scope-filtered table and one RG. Compared with actual before and unchanged course layout; capability subset honest."
+      "observation": "Actual reciprocal peering detail from native localPG commands; shared original header/menu/Properties/receipt, Connected is configuration status and no traffic verification claimed."
     },
     {
-      "path": "docs/reviews/evidence/pr63/after/free-v3-detail-1024-500.png",
-      "viewport": "1024x500",
-      "inspected": true,
-      "observation": "Actual local PG RG: contextual title, same resource-menu/Overview/Properties shell and single combined child table. All controls remain accessible by ordinary scroll/drawer, no document overflow."
-    },
-    {
-      "path": "docs/reviews/evidence/pr63/after/free-v3-create-1024-500.png",
-      "viewport": "1024x500",
-      "inspected": true,
-      "observation": "Actual controlled Review/Create form with shared action component. Original field set/server request retained; compact primary Review and cancellation, no fictive command or status."
-    },
-    {
-      "path": "docs/reviews/evidence/pr63/after/course-v2-detail-1440-900.png",
+      "path": "docs/reviews/evidence/pr64/route-table-associated-desktop-chromium.png",
       "viewport": "1440x900",
       "inspected": true,
-      "observation": "Actual original v2 RG through native Create, same header/menu/table primitives; original learning and receipt callbacks remain. Pre-existing focused title outline retained, not claimed fixed."
+      "observation": "Actual table, two original UDR children and associated subnet share the original Portal resource list. Long content uses ordinary scroll, no new app."
     },
     {
-      "path": "docs/reviews/evidence/pr63/shared-review-focus-1024-500.png",
+      "path": "docs/reviews/evidence/pr64/routing-1024-500-compact-chromium.png",
       "viewport": "1024x500",
       "inspected": true,
-      "observation": "Final actual immediate Review after native explicit-action scroll: validated-only copy, readable expected command and visible original Create abovefooter BEFORE keyboard Tab. Compared with retained initial and insufficient focus-only checkpoints. No command committed by Review."
+      "observation": "Actual result after explicit calculation and mounted-heading focus/instant scroll. Readable selected prefix/hop/revision and traffic caveat; candidate table below uses normal scroll, no overlap or document overflow."
+    },
+    {
+      "path": "docs/reviews/evidence/pr64/route-association-denial-desktop-chromium.png",
+      "viewport": "1440x900",
+      "inspected": true,
+      "observation": "Actual wrong-region Route Table Review shows the operation-specific region/subscription explanation and disabled Apply. This is a no-write preflight; the same control subsequently reads a real rejected original receipt and compares its raw entry."
     }
   ],
   "verification": [
     {
-      "command": "npx vitest run src/features/laboratory/portal-adapter.test.ts src/shared-portal-preservation.test.ts src/laboratory-networking-preservation.test.ts src/laboratory-v3-preservation.test.ts src/features/landing/preservation.test.ts",
-      "result": "passed",
-      "details": "25passed5files3.43s; actual bounded before/after pins, all other original bytes and callbacks, no mutation in projections. Full check renews after last common-action-only correction."
-    },
-    {
-      "command": "npx playwright test --config playwright.desktop.config.ts tests/e2e/laboratory-server.spec.ts tests/e2e/laboratory-networking.spec.ts tests/e2e/portal-fidelity.spec.ts --project desktop-chromium",
-      "result": "failed",
-      "details": "First broader17passed1failed3.2m; visible model-note selector restored after moving to footer. Subsequent combined all15 Storage/network cases passed. Original5Portal fidelity cases passed. Other initial new-test failures retained in verification.json, never relabelled passed."
-    },
-    {
-      "command": "npx playwright test --config playwright.desktop.config.ts tests/e2e/shared-portal.spec.ts tests/e2e/challenge-return.spec.ts tests/e2e/practical-missions.spec.ts tests/e2e/vm-debrief.spec.ts --grep 'shared Portal|Computing real Web lab|denied durable aid fails|Service Types PaaS:|independent mission Journal|VM debrief distinguishes'",
-      "result": "passed",
-      "details": "Actual scoped grep documented in verification.json/log:10passed1.9m0retries;5new shared mode journeys and original Computingreturn/deniedaid/PaaS/independentJournal/VMdebrief. Not a full-profile run."
-    },
-    {
-      "command": "npx playwright test --config playwright.desktop.config.ts tests/e2e/shared-portal.spec.ts tests/e2e/laboratory-server.spec.ts tests/e2e/laboratory-networking.spec.ts --grep 'shared Portal actual course|actual Storage chain|actual VNet two|short desktop keyboard|server Laboratory compact'",
-      "result": "passed",
-      "details": "Actual scoped grep retained in verification.json/log:7passed53.1s0retries after common-action refinement, full native Storage/Networking chains, original course/new free RG create/reset, compact keyboard/focus/Axe/reduced-motion both existing witnesses."
-    },
-    {
-      "command": "npm run test:e2e:plan",
-      "result": "passed",
-      "details": "409=369desktop+40compact;738optionallegacy; retains original404controls and all workers/retries/timeouts/skips. Complete candidate execution remains pending."
-    },
-    {
-      "command": "Actual production paired capture/native PostgreSQL",
-      "result": "passed",
-      "details": "All24 actual PNGs visually inspected; before12/after12 at1440x900/1024x500. Same synthetic RG, real original receipts, course bytes unchanged, no pageerrors or document overflow. After source hashes in evidence record."
-    },
-    {
-      "command": "npm run test:e2e:desktop",
-      "result": "pending",
-      "details": "Complete authoritative409candidate CI pending. No targeted/plan/baseline result is full regression proof."
-    },
-    {
       "command": "npm run check",
       "result": "passed",
-      "details": "Final author production check exit0:843Vitest/68files including actual local PostgreSQL integration,24Node,503curriculum; TypeScript/lint/format/docs/quality/AZ900/assets/legacy and production build all passed. No changed thresholds or execution settings. Log /workspace/azurelab-pr63/full-check.log."
+      "details": "864Vitest/71files;24Node;503curriculum;57objectives/126facets;179Markdown;41registeredicons/39originalSVGs; types/lint/format/docs/quality/legacy/build exit0. Real isolated local PostgreSQL included."
     },
     {
-      "command": "npm run check",
+      "command": "targeted Playwright actual server Laboratory browser controls",
       "result": "passed",
-      "details": "Renewed after both independent Review corrections:843Vitest/68files,24Node,503curriculum and all static/quality/assets/build gates passed exit0. No command/rubric/history change. /workspace/azurelab-pr63/full-check-renewed.log."
+      "details": "Final9/9 and held real-response2/2,0retry; initial20/25 failures retained in actual verification record, not relabelled passed. Candidate full414 CI remains pending."
     },
     {
-      "command": "npx playwright test --config playwright.desktop.config.ts tests/e2e/shared-portal.spec.ts tests/e2e/laboratory-server.spec.ts tests/e2e/laboratory-networking.spec.ts --grep 'shared Portal|actual Storage chain|actual VNet two'",
+      "command": "npx vitest run src/laboratory-routing.test.ts src/laboratory-routing.integration.test.ts src/laboratory-routing-preservation.test.ts",
       "result": "passed",
-      "details": "Final Review discovery/copy/heading correction:7passed42.3s0retries, realPG Storage+Networking+all5shared-mode cases. Requires immediate Create fully inviewport abovefooter BEFORE Tab, focusedh2, Review Axe0, no created-copy/no World write; earlier focus-only result was insufficient and retained as negative image."
+      "details": "21targeted domain/realPG/preservation tests plus all864 in full check; additive migration, same-prefix fallback, bounded ambiguous topologies, no mutation, original replay/rollback and session isolation covered."
     },
     {
-      "command": "npm run check",
+      "command": "post-audit focused browser and complete check renewal",
       "result": "passed",
-      "details": "Final after actual immediate Review discovery fix:843Vitest/68files,24Node,503curriculum and all TypeScript/lint/format/docs/quality/AZ900/assets/legacy/production-build gates passed exit0. RealPG integration included. Log /workspace/azurelab-pr63/full-check-final.log."
-    },
-    {
-      "command": "Independent initial audit: focused Vitest preservation/projection controls",
-      "result": "passed",
-      "details": "Separate reviewer initial25passed/5files2.62s exit0; /workspace/azurelab-pr63/audit/vitest.log. Original bytes,14declared pins/callbacks, deep-frozen projection and landing preservation. Renewed final25passed2.37s separately recorded."
-    },
-    {
-      "command": "Independent initial audit: focused production browser controls",
-      "result": "passed",
-      "details": "Actual command/grep in docs/quality/PR63_FINAL_AUDIT.md and /workspace/azurelab-pr63/audit/browser-targeted.log:10passed1.4m1worker0retries, realPG;5shared cases plus old keyboard/assistance/immutable-result/malformed-store, staleguide, lostresponse-idempotency and staleworkspace controls;2compact. Not full409."
-    },
-    {
-      "command": "Independent initial native Review Axe/discovery probe",
-      "result": "failed",
-      "details": "Actual heading-order moderate plus immediate1024x500 Create belowfold; logs/Axe/image retained under /workspace/azurelab-pr63/audit and initial evidence PNG. Complementary native probe explicitly completed-with-minor-heading-order-finding; no relabelled pass. Corrected and independently rechecked only after new stamp."
-    },
-    {
-      "command": "Independent post-stamp Vitest preservation/projection controls",
-      "result": "passed",
-      "details": "25passed/5files2.37s exit0 at17:30:56 after implementationFinished17:30:36.856; /workspace/azurelab-pr63/audit/vitest-final.log. Exact source snapshot62files e6f5c97538a49b524d9ceb9327a35acdf7a4b553557692f78a2493a470da085e."
-    },
-    {
-      "command": "Independent post-stamp native Review real-PG browser follow-up",
-      "result": "passed",
-      "details": "/workspace/azurelab-pr63/audit/review-followup.json at17:33:03.551Z:1024x500 reducedmotion, accepted+invalid-name Review semanticfocusedh2/Axe0/no-write; immediate Create y376.1-403.0 abovefooter459 beforeTab, Tabfocus/Entercommit; raw preview/receipt/entry exactly original, coursebytes identical, no pageerrors. Initial audit-script state-before-Start readiness error retained separately; original visible-workspace wait corrected probe only."
-    },
-    {
-      "command": "Independent fingerprint/original bytes/source and asset provenance/visual inspection",
-      "result": "passed",
-      "details": "Final62file normalized snapshot independently reconstructed against26408f5bcb77fdc2aa5bde5027c1959f14d6c928;932originalfiles14declaredpins8course+4Labhandlers unchanged. Fresh3MicrosoftHTTP200 bodies exact source receipt hashes;4SVGs archive-byte-exact. Viewed24pairs +12refreshedafter +finalimmediateReview/nativeimages; pairedcapture pre-scroll checkpoint exact reconstructed source bindings, finalReview separately current. /workspace/azurelab-pr63/audit/integrity.json, final-delta.json, provenance.json, source-retrieval.json."
-    },
-    {
-      "command": "Independent npm run test:e2e:plan",
-      "result": "passed",
-      "details": "409=369desktop+40compact; optionallegacy738. /workspace/azurelab-pr63/audit/plan.log; collection only, original404retained; no retries/workers/timeouts/skips weakened."
-    },
-    {
-      "command": "Independent npm run docs:check and npm run quality:check",
-      "result": "passed",
-      "details": "Post-review actual docs check177 Markdown/local links and quality seven-gate references valid, exit0. Logs /workspace/azurelab-pr63/audit/docs-final.log and quality-final.log. No final/human approval inferred by ordinary quality check."
-    },
-    {
-      "command": "Independent npm run quality:release -- --base 26408f5bcb77fdc2aa5bde5027c1959f14d6c928",
-      "result": "failed",
-      "details": "Actual strict preflight exits1 with exactly one requirement: Missing executed full browser profile (npm run test:e2e or candidate-bound npm run test:e2e:desktop). Review/snapshot/source checks report no errors. Full409candidate delivery remains pending, no strict pass claimed. /workspace/azurelab-pr63/audit/strict-preflight.log."
-    },
-    {
-      "command": "npm run check",
-      "result": "passed",
-      "details": "Null metadata display correction runtime check passed843Vitest/68files,24Node,503curriculum/allstatic/build exit0. Subsequent test-only exact Properties/Overview view synchronization receives final renewed fullcheck."
-    },
-    {
-      "command": "npx playwright test --config playwright.desktop.config.ts tests/e2e/shared-portal.spec.ts tests/e2e/laboratory-server.spec.ts tests/e2e/laboratory-networking.spec.ts --grep 'shared Portal|actual Storage chain|actual VNet two'",
-      "result": "passed",
-      "details": "Final7passed52.3s0retries: unassociated subnet Properties has zero receipt=null links and one original create receipt; all5shared +realStorageNetwork. Initial real defect red1/1 and afterfix6pass1test-only view-commit race retained; no app history/retry/timeout change."
-    },
-    {
-      "command": "npm run check",
-      "result": "passed",
-      "details": "Final nullable Properties/explicit view-commit wait candidate:843Vitest/68files,24Node,503curriculum and every static/quality/assets/legacy/production-build check exit0. /workspace/azurelab-pr63/full-check-last.log. Fresh stamp/follow-up required; previous409CI d18 does not cover this delta."
-    },
-    {
-      "command": "Independent post-null-display snapshot/pin/callback review",
-      "result": "passed",
-      "details": "Started17:55:50.619Z after finished17:55:26.668Z. Independently reconstructed83a8b1f7976b7262bf5437fe15db789529aba931ed2caa0b0393ff45d72d617e/62files;932originalfiles14pins8course+4Labhandlers unchanged. Exact5path delta from committed d18; sources/scope/gates/visualmetadata unchanged. /workspace/azurelab-pr63/audit-null/integrity.json and delta.json."
-    },
-    {
-      "command": "Independent post-null-display focused Vitest preservation controls",
-      "result": "passed",
-      "details": "25passed/5files2.71s exit0 on renewed snapshot. /workspace/azurelab-pr63/audit-null/vitest.log; no full local profile/check repeat claimed."
-    },
-    {
-      "command": "Independent post-null-display native Properties and association browser probe",
-      "result": "passed",
-      "details": "Actual production/localPG passed17:57:45.311Z: nullnsg/associationOrigin renderedemdash, only1truecreate receipt; after actualassociation2trueoriginlinks, both entriesequal originalserverJSON; inspection/back/reload0POSTs exactstate/coursebytes;3Properties states Axe0/reducedmotion/pageerrors0. Own initial lookup TypeError retained/corrected in externalprobe only. /workspace/azurelab-pr63/audit-null/native.json/log/trace.zip and3actualPNGs."
-    },
-    {
-      "command": "Independent renewed native Review regression probe",
-      "result": "passed",
-      "details": "Actual production/localPG17:57:01.076Z accepted/rejectedReviewAxe0/no-write/fieldinvalidation; immediateCreate376.1-403.0abovefooter459 beforeTab, Tabfocus/Entercommit and rawpreview/receipt/entry equality/coursebytes unchanged. /workspace/azurelab-pr63/audit-null/review-followup.json. Does not replace new exact-head409CI/strict or anonymousnewSHA."
-    },
-    {
-      "command": "Independent renewed docs/quality/format checks",
-      "result": "passed",
-      "details": "New checkpoint docs177Markdown/local links and qualitycontract checks exit0; report/currentJSON formatted with Prettier. Original report prefix and all prior finding/retest values retained exactly; other release fields and priorverification unchanged. /workspace/azurelab-pr63/audit-null/docs.log and quality.log."
-    },
-    {
-      "command": "Independent renewed quality:release --base26408f5bcb77fdc2aa5bde5027c1959f14d6c928",
-      "result": "failed",
-      "details": "Actual strict preflight exit1 with exactly one pending requirement: Missing executed full browser profile (npm run test:e2e or candidate-bound npm run test:e2e:desktop). No other preflight errors, no newhead CI/strict/public pass claimed. /workspace/azurelab-pr63/audit-null/strict.log. Ownedserver stopped, port3000 no listener/connectionrefused/reusablebind verified17:58:18.395Z."
+      "details": "4affected native/actual-server controls passed31.2s,0retry;864Vitest/24Node/503curriculum/build passed before these. Independent minor resource-label mismatch fixed only in presenter; original NSG meaning/receipt bytes retained."
     }
   ],
   "review": {
     "status": "complete",
-    "fingerprint": "83a8b1f7976b7262bf5437fe15db789529aba931ed2caa0b0393ff45d72d617e",
+    "fingerprint": "f8a15da0d6504bd398b897a9ba305390ba2a673babdf4df73bccfa25a9bd1e24",
     "reviewer": {
-      "id": "/root/pr63_shared_portal_final_audit",
+      "id": "/root/pr64_independent_final_audit",
       "kind": "agent"
     },
-    "started": "2026-11-06T17:55:50.619Z",
+    "started": "2026-11-07T14:03:31Z",
     "domains": {
       "content": {
-        "finding": "Fresh HTTP200 retrieval of all three Microsoft sources exactly matches receipt hashes; Portal workflow and four archive-exact V24 SVGs support bounded training presentation. Accepted Review wording conflicted with no-write semantics and is now corrected without raw receipt changes. No human SME/legal approval. Null-Properties follow-up: absent metadata now displays em dash instead of phantom receipt; original copy/source/icon/course bytes unchanged. Author-discovered minor PR63-IFA-06 fixed, actual origin receipts unchanged.",
+        "finding": "Current Microsoft claims independently checked; bounded operation and route-result guidance accurately distinguishes configuration, route selection and unevaluated traffic. Original course content remains exact base bytes; no new course/mastery claim.",
         "evidence": [
           {
-            "path": "docs/reviews/evidence/pr63/sources.json"
+            "path": "docs/LABORATORY_NETWORKING_PART_B.md"
           },
           {
-            "path": "docs/SHARED_PORTAL_EXPERIENCE.md"
+            "path": "docs/reviews/evidence/pr64/source-fetch.json"
           },
           {
-            "path": "src/content/portal-workspace-nb.ts"
+            "path": "src/content/laboratory-routing-nb.ts"
           },
           {
-            "path": "docs/quality/PR63_FINAL_AUDIT.md"
+            "path": "docs/quality/PR64_FINAL_AUDIT.md"
           }
         ]
       },
       "technical": {
-        "finding": "Actual shared presentation has no authority imports; original course controller and server callbacks remain original (8+4 write-bearing JSX handlers checked). Ephemeral projection keeps original sources/NSG authority. Independent real-PG probes prove denied/accepted Review no-write, stale/pending safety, exact raw receipt and course-byte isolation; no engine/schema/migration. Post17:55 stamp: exact null-first display branch only; native unassociated Properties1true-origin link, associated2true-origin links, each entry equals server original; inspection/back/reload zeroPOSTs and exactstate/coursebytes. Original8+4handlers and932protectedfiles/14pins revalidated.",
+        "finding": "Inspected authoritative3.2 command/domain/analysis/server/repository/migration path. Independent real PostgreSQL21-test run and native/API/race probes passed; LPM precedes UDR tie preference, exact defaults are replaced, pending/transitive/ambiguous/unsupported paths fail honestly, old immutable models/history and same transaction/session/revision/identity/reset/through remain.",
+        "evidence": [
+          {
+            "path": "src/laboratory/v32/domain.ts"
+          },
+          {
+            "path": "src/laboratory/v32/analysis.ts"
+          },
+          {
+            "path": "src/laboratory/v3/server.ts"
+          },
+          {
+            "path": "src/laboratory/v3/repository.ts"
+          },
+          {
+            "path": "database/laboratory-v3/003-routing.sql"
+          },
+          {
+            "path": "src/laboratory-routing.integration.test.ts"
+          },
+          {
+            "path": "docs/quality/PR64_FINAL_AUDIT.md"
+          }
+        ]
+      },
+      "visual": {
+        "finding": "Personally inspected native and committed actual peering/table/analysis/course frames. Independent1440x900/1024x500 keyboard/Enter/Tab/focus/reduced-motion/no-overflow and Axe0 passed. Original shared Portal ancestry and honest traffic caveat remain readable. Human UX/screen-reader and pixel fidelity remain unperformed/unverified.",
         "evidence": [
           {
             "path": "src/features/portal/presentation.tsx"
           },
           {
-            "path": "src/features/laboratory/portal-adapter.tsx"
+            "path": "src/features/laboratory/routing.tsx"
           },
           {
-            "path": "src/features/laboratory/portal-adapter.test.ts"
+            "path": "docs/reviews/evidence/pr64/peering-connected-desktop-chromium.png"
           },
           {
-            "path": "tests/e2e/laboratory-server.spec.ts"
+            "path": "docs/reviews/evidence/pr64/route-table-associated-desktop-chromium.png"
           },
           {
-            "path": "docs/quality/PR63_FINAL_AUDIT.md"
-          }
-        ]
-      },
-      "visual": {
-        "finding": "Viewed all24 paired images and all12 refreshed after images, final Review images and independent live layouts. Final 1024x500 immediate Review h2 y147.6/Create y376.1-403.0 abovefooter459 beforeTab, then keyboard focused; accepted/denied Axe0/reduced-motion. Initial heading-order/discovery issue fixed; inherited title-focus segment/long-form scrolling accepted. Paired manifest accurately binds pre-scroll checkpoint. Renewed native1440x900 unassociated/associated +1024x500 unassociated images personally viewed, emdash/null-origin correctly shown, all Axe0/reducedmotion/pageerrors0. Prior Review native recheck passed immediate action bounds/focus/no-write/receipt equality.",
-        "evidence": [
-          {
-            "path": "docs/reviews/evidence/pr63/images.json"
+            "path": "docs/reviews/evidence/pr64/routing-1024-500-compact-chromium.png"
           },
           {
-            "path": "docs/reviews/evidence/pr63/after/result.json"
-          },
-          {
-            "path": "docs/reviews/evidence/pr63/shared-review-focus-1024-500.png"
-          },
-          {
-            "path": "docs/reviews/evidence/pr63/shared-review-1024-500.png"
-          },
-          {
-            "path": "docs/quality/PR63_FINAL_AUDIT.md"
+            "path": "docs/quality/PR64_FINAL_AUDIT.md"
           }
         ]
       },
       "assessment": {
-        "finding": "932 original files byte-checked outside14 explicit presentation/test pins; no rubric/items/course/store/XP changes. Actual independent-assessment cross-tab draft remains identical after free create; original reference-aid and immutable first-result controls pass. Historical import adapters transparently verify before/after pins and do not substitute for browser behavior; no human transfer validation. New display-only delta leaves all assessment/item/rubric/store/XP bytes unchanged; protected-file checks and actual course-storage equality pass. No additional human approval inferred.",
+        "finding": "No new assessment or rubric; all original domain, full course locale and learning authority bytes preserved. Independent native Laboratory journey left course localStorage unchanged and granted no course XP/assessment evidence. No human transfer validation claimed.",
         "evidence": [
           {
-            "path": "docs/reviews/evidence/pr63/preservation.json"
+            "path": "src/laboratory-routing-preservation.test.ts"
           },
           {
-            "path": "tests/pr63-preservation.ts"
+            "path": "src/content/nb.ts"
           },
           {
-            "path": "tests/e2e/shared-portal.spec.ts"
+            "path": "src/domain/"
           },
           {
-            "path": "tests/e2e/portal.spec.ts"
-          },
-          {
-            "path": "docs/quality/PR63_FINAL_AUDIT.md"
+            "path": "docs/quality/PR64_FINAL_AUDIT.md"
           }
         ]
       },
       "guidance": {
-        "finding": "Caller-owned course slots retain original guide recovery, mission/coaches/Journal assistance boundaries and handlers. Free adapter mounts no PortalWorkspace/learning hooks or targets while unchanged root providers remain. Fresh old keyboard/practice/aid/first-result/malformed-store/stale-context browser controls pass; free help Escape/focus and no-assistance isolation verified. No human screen-reader/learning approval. Course/shared/guidance source bytes and caller-owned hooks unchanged; null display introduces no guidance callback. Native free creation/inspection preserves coursebytes; earlier guidance controls remain proportionate unchanged evidence.",
+        "finding": "Free Laboratory uses factual local operation guidance without a course SavvyShark/mission layer or implicit guided start. Course v2 Portal/assistance/first-help-retry-abandon remain preserved; native return showed separate original course mode/menu. Minor wrong-resource denial wording was corrected and independently rechecked as recorded in the report.",
         "evidence": [
-          {
-            "path": "src/features/portal/portal.tsx"
-          },
           {
             "path": "src/features/laboratory/laboratory.tsx"
           },
           {
-            "path": "tests/e2e/learning-flow-guidance.spec.ts"
+            "path": "src/features/laboratory/routing.tsx"
           },
           {
-            "path": "tests/e2e/shared-portal.spec.ts"
+            "path": "src/features/portal/portal.tsx"
           },
           {
-            "path": "docs/quality/PR63_FINAL_AUDIT.md"
+            "path": "src/laboratory-routing-preservation.test.ts"
+          },
+          {
+            "path": "docs/quality/PR64_FINAL_AUDIT.md"
           }
         ]
       },
       "regression": {
-        "finding": "Independent62-file fingerprint e6f5c975... matches renewed post-author stamp;25 preservation tests passed again and native real-PG Review recheck passed. Initial10 targeted browser controls passed without retries, plus retained real Review failure/fix evidence. Plan409/369desktop/40compact retains404controls/settings; complete candidate CI/strict and anonymous preview still pending; prior flake causes unresolved. Renewed83a8b1f7...62file fingerprint independently validated after17:55:26.668 stamp;25tests passed2.71s and native actualPGProperties/association/retainedReview passed. Author7targeted52.3s and full843/24/503/build verified as author evidence; oldd18CI/publicprobe not reused, new409CI/strict/anonymous pending.",
+        "finding": "Independent changed-file hash/fingerprint and448 protected Git-byte comparison matched;21 targeted real-PG/domain/preservation tests and independent domain/native/temporal probes passed. Plan validates414=373desktop+41compact, retaining409 controls and unchanged settings. Full candidate CI/strict, external deployed-SHA/503 checks and unresolved inherited compact timeout causes remain pending; targeted success is not full-profile proof.",
         "evidence": [
           {
-            "path": "src/shared-portal-preservation.test.ts"
+            "path": "src/laboratory-routing-preservation.test.ts"
           },
           {
-            "path": "docs/reviews/evidence/pr63/verification.json"
+            "path": "tests/pr64-preservation.ts"
+          },
+          {
+            "path": "tests/e2e/laboratory-routing.spec.ts"
           },
           {
             "path": "playwright.desktop.config.ts"
           },
           {
-            "path": "docs/quality/PR63_FINAL_AUDIT.md"
+            "path": "docs/reviews/evidence/pr64/verification.json"
+          },
+          {
+            "path": "docs/quality/PR64_FINAL_AUDIT.md"
           }
         ]
       }
     },
     "findings": [
       {
-        "id": "PR63-IFA-01",
+        "id": "PR64-AUDIT-01",
         "severity": "minor",
         "status": "fixed",
-        "description": "Free Review h3 skipped heading level (Axe heading-order); at1024x500 immediate Create was belowfold and focus body. Focus-only intermediate still obscured result/commit discovery.",
-        "fix": "Use h2 with explicit instant native scroll to reading start, focus preventScroll and header margin. Existing compact witness now checks immediate Create bounds before Tab plus Axe0/keyboard/no-write.",
+        "description": "An incompatible Route Table association displayed inherited NSG wording in Review and original receipt; validation and form guidance were correct.",
+        "fix": "Author added operation-specific Route Table wording only in presentation. Frozen domain codes/receipts and NSG text remain unchanged. See report and author evidence PR64-IFA-01.",
         "retests": [
-          "Independent post-stamp production probe 2026-11-06T17:33:03.551Z: accepted/rejected Review Axe0; Create y376.1-403.0 abovefooter459 beforeTab, then Tabfocus and Entercommit.",
-          "Author final scoped7passed42.3s0retries; fullcheck843Vitest/24Node/503curriculum/build exit0."
+          "Independent post-stamp native correction probe passed2 checkpoints: real incompatible resources; Review correct text/disabled Apply/no ledger write; real rejected command and native original-receipt/raw-event equality. Screenshots personally inspected at1440x900 and1024x500.",
+          "Independent renewed preservation run passed3tests. Author renewed fullcheck passed864Vitest/24Node/503curriculum/build and4 affected native browser controls passed31.2s with0unexpected/0flaky/0skip."
         ]
       },
       {
-        "id": "PR63-IFA-02",
-        "severity": "minor",
-        "status": "fixed",
-        "description": "Accepted preflight inherited created wording despite actual revision0/entries0 and no-write note.",
-        "fix": "Display-only validation wording now explicitly says only Create/Apply saves; original rejected code/field and raw receipts remain unchanged.",
-        "retests": [
-          "Independent accepted/denied Review exact-state equality, edited-preview invalidation; committed receipt deep-equals accepted preview, expanded entry equals actual server entry, course bytes unchanged.",
-          "Post-stamp25preservation tests passed2.37s; actual final7browser controls include no-created-copy assertion."
-        ]
-      },
-      {
-        "id": "PR63-IFA-03",
-        "severity": "minor",
-        "status": "accepted-limitation",
-        "description": "Inherited course compact title focus-outline segment remains; long forms need normal vertical scrolling and bounded NSG default reference horizontal scrolling. Baseline comparison confirms existing behavior; no human UX/current-live-Portal parity approval."
-      },
-      {
-        "id": "PR63-IFA-04",
+        "id": "PR64-AUDIT-02",
         "severity": "note",
         "status": "accepted-limitation",
-        "description": "Shared presentation preserves differing actual service/command subsets and unchanged global provider tree. Free adapter does not mount course PortalWorkspace/bind learning context; future course-owned server workspace/evidence contract remains documentation only."
+        "description": "Bounded read-only route selection does not evaluate packets/NSGs/return path/NAT/egress/VM-NIC effective routes/Network Watcher/RBAC. BGP/endpoints/gateway/appliance/advanced peering/platform destinations and ambiguous peer-route selection remain unsupported and honestly labelled."
       },
       {
-        "id": "PR63-IFA-05",
+        "id": "PR64-AUDIT-03",
         "severity": "note",
-        "status": "accepted-limitation",
-        "description": "Complete409candidate CI/strict and anonymous deployed-candidate checks pending. Public persistent Laboratory and human reviews unperformed; expected public503 is not persistent Gate7. Prior PR62 landing transient/Compute-Axe/local artifact stall causes remain unresolved."
+        "status": "open",
+        "description": "Complete candidate CI/strict and anonymous deployed-SHA/root/expected503 checks remain pending delivery gates. Public persistent Laboratory is owner-deferred; expected503 is not functional Networking Gate7. Human SME/learning/UX/screen-reader/security review remains unperformed."
       },
       {
-        "id": "PR63-IFA-06",
-        "severity": "minor",
-        "status": "fixed",
-        "description": "Author-discovered actual unassociated Subnet Properties rendered null associationOrigin as receipt=null, implying a nonexistent original operation. Initial audit did not detect this state.",
-        "fix": "Display null as em dash before original receipt formatting; existing shared Properties case now creates actual unassociated subnet and asserts0null-links/1original-create link. Explicit mounted URL/Properties/Overview readiness corrects test transition wait; no app navigation/settings change.",
-        "retests": [
-          "Independent native real-PG UI probe passed2026-11-06T17:57:45.311Z: unassociated1create-origin link, associated2actual-origin links, original rawentries equal, inspection0POSTs/exactstate/coursebytes,1440x900+1024x500Axe0/reducedmotion.",
-          "Independent25preservation tests passed2.71s; native retainedReview probe passed17:57:01Z. Author final7targeted52.3s0retries and full843Vitest/24Node/503curriculum/build exit0, separately attributed."
-        ]
+        "id": "PR64-AUDIT-04",
+        "severity": "note",
+        "status": "open",
+        "description": "Three earlier inherited compact timeouts remain unroot-caused. Overlapping lint is unproven causality; later targeted successes do not establish414-case stability. Historical failures are retained; settings/assertions/skips were not weakened."
       }
     ],
     "report": {
-      "path": "docs/quality/PR63_FINAL_AUDIT.md"
+      "path": "docs/quality/PR64_FINAL_AUDIT.md"
     }
   },
   "snapshot": {
     "files": {
-      "AGENTS.md": "f4185de6d51f33cd11847f2b7e516426d2d7306a213e9c540b17a21167282e65",
-      "docs/SHARED_PORTAL_EXPERIENCE.md": "c87b2f3f59cb440f2ddfefa58823e9fb99d3c65189139785ea2ae0ab8ea191d6",
-      "docs/reviews/evidence/pr63/after/course-v2-create-1024-500.png": "94c63174d0009692b703a3fa89c8608053087f438cdb14173fe73aa26ddbd13c",
-      "docs/reviews/evidence/pr63/after/course-v2-create-1440-900.png": "35a6c6bbfc966a964394e63ef36195b2375562fc200336c882f1bc6300391642",
-      "docs/reviews/evidence/pr63/after/course-v2-detail-1024-500.png": "16da61cca2a74b96b67785b115dae3ef48d51e07e065b32bd85077525e056bed",
-      "docs/reviews/evidence/pr63/after/course-v2-detail-1440-900.png": "0e558883ef11c413931017c39c440ed1b2df8461edd535d87fa94ca5f2229ab2",
-      "docs/reviews/evidence/pr63/after/course-v2-list-1024-500.png": "d460dd3b9bbae2696466eb2b6820c84e28a0dd9a75c6feb58d465262df8f04a6",
-      "docs/reviews/evidence/pr63/after/course-v2-list-1440-900.png": "cd72ab06bfd755b1a3d21334b7c76ecb8562d2cda11af0f30f6547084cc0431c",
-      "docs/reviews/evidence/pr63/after/free-v3-create-1024-500.png": "49dcc62fb89d3ab2f1d5722314c036dd2ee05ebe0176c01e902d62f03df9d29a",
-      "docs/reviews/evidence/pr63/after/free-v3-create-1440-900.png": "cc429988c3898c3e733aa4d704dc80babeb042936e416288e7c57f6ac3df5df9",
-      "docs/reviews/evidence/pr63/after/free-v3-detail-1024-500.png": "f00ce0cbf68835cc6af220044dd7e77dd4dfc18a930e0b8f6fb5502908ef554d",
-      "docs/reviews/evidence/pr63/after/free-v3-detail-1440-900.png": "12696873cd0fdd4c1daa9885d03a7913836e36655f351c6bc6d4b9563f09ba39",
-      "docs/reviews/evidence/pr63/after/free-v3-list-1024-500.png": "1daa2cba943593dfe701b8c2dc87315164480359085852e64557593cee1c3fcf",
-      "docs/reviews/evidence/pr63/after/free-v3-list-1440-900.png": "0326d97265d16acc23206bd60bed7ac6bfb80f4e129d2748e3f5d5a496709eaa",
-      "docs/reviews/evidence/pr63/after/result.json": "251c60794dbf664398cdef037135e624d2420cbc325fd0a9ba56ad7ab08e9ba2",
-      "docs/reviews/evidence/pr63/before/course-v2-create-1024-500.png": "64220ef3f42ebca4410324a251927cf9aadb4aed082a2a383d664323de435d3e",
-      "docs/reviews/evidence/pr63/before/course-v2-create-1440-900.png": "ec26ed1b557654879c1b78ab3ad157998fda640786259332c9dc47dcf3a9211b",
-      "docs/reviews/evidence/pr63/before/course-v2-detail-1024-500.png": "1dd45152c7b87aba89d4c7278f1d296e1c613bc82010aa09db1cbf9b5814a7aa",
-      "docs/reviews/evidence/pr63/before/course-v2-detail-1440-900.png": "20352dd9de782400bac753e2c351ad2c8670cb45ed4c145ea09b1e486ee932c2",
-      "docs/reviews/evidence/pr63/before/course-v2-list-1024-500.png": "d460dd3b9bbae2696466eb2b6820c84e28a0dd9a75c6feb58d465262df8f04a6",
-      "docs/reviews/evidence/pr63/before/course-v2-list-1440-900.png": "d5b3bb0d79bb66efec532df562b921a12f4f1b4ac46ddc27fa4878b1d91b59a7",
-      "docs/reviews/evidence/pr63/before/free-v3-create-1024-500.png": "4f7dee0d1ca5c5def54d0afc9bd10bf081be5393725ef431291b5183ffd28921",
-      "docs/reviews/evidence/pr63/before/free-v3-create-1440-900.png": "d0c9bb8de8bf703658c14fa3d7bd18a7c7183c7a4f8f19647263961c8256b99a",
-      "docs/reviews/evidence/pr63/before/free-v3-detail-1024-500.png": "0c642c430d449025416e4e5785962d4cc96aadfa80d96e63214e059146195fea",
-      "docs/reviews/evidence/pr63/before/free-v3-detail-1440-900.png": "733b574af1bcf98fd9e5482efacfeb34152d501e26c72ef524a68016e58f6453",
-      "docs/reviews/evidence/pr63/before/free-v3-list-1024-500.png": "034d2eb0da4225bfb538d13e211ded771cf804d0542335776820acc7a587de5f",
-      "docs/reviews/evidence/pr63/before/free-v3-list-1440-900.png": "dc2dfc4731facea5baa2663285b6d7cf238b5be132bbbd97cbdbf9d3f4a7aeb0",
-      "docs/reviews/evidence/pr63/before/result.json": "3393639cd0ee1fac04f230d021682efcb285ebfe9f0d2f8e1e2f4d627a0b5239",
-      "docs/reviews/evidence/pr63/images.json": "e43d8f8f1c0e449bcc0a51f59d65c16c11e365efc88da3be944ef6c428cee0b6",
-      "docs/reviews/evidence/pr63/preservation.json": "da298d8750a8ac527b746c328db2b6ddc5fc1bfaf02d8f9a8f72439ab173cd9b",
-      "docs/reviews/evidence/pr63/review-focus-only-intermediate-1024-500.png": "0fe134e6ecbc9770f89f718f7e00c99ddbf36c5099cfbc182ef3f23fa61d386b",
-      "docs/reviews/evidence/pr63/review-initial-audit-1024-500.png": "3ba0043203da70ba87556e345f96f53c01892542fe061e9080a84be76edcf7c8",
-      "docs/reviews/evidence/pr63/shared-review-1024-500.png": "8f08a3ab34b84e4b19e602c603ddef3f8578456dd843af392404f028e57717d0",
-      "docs/reviews/evidence/pr63/shared-review-focus-1024-500.png": "af771d54ebf24c7a153c831278421975597a1104d6567d2b11105bf6b0b54d52",
-      "docs/reviews/evidence/pr63/sources.json": "8d6322e17f8b338285e97a21f214ea2c2cd6e24d09dbe27a43451566354f04d3",
-      "docs/reviews/evidence/pr63/verification.json": "27d40903c440c006d34e8a41652344dba4be0f474aa642b82c635fe5d2208e7d",
-      "playwright.desktop.config.ts": "a94fbc48cc719b32ea3eee3710deded4c770611aafc32c8ed424d0df901ad106",
-      "public/icons/azure/10067-icon-service-Network-Security-Groups.svg": "cf4023ddaa11961904e1e4601864ccd20b9f60686cb38ad7f8ff8385d855c4de",
-      "public/icons/azure/10086-icon-service-Storage-Accounts.svg": "7190d3bb14ce30ce74bd0af873915830fe821e8c5f6ef6f3149e6f7cfb2aa4f7",
-      "public/icons/azure/10780-icon-service-Blob-Block.svg": "649cdb593d0c7f56a227e4c28df40a3e5c489e303867d32502af2ee4b4865ea3",
-      "public/icons/azure/10839-icon-service-Storage-Container.svg": "cc50afdf3d9386f6872d314fd4f570645a594680c727bc709dfe8c4d6e5a6b2a",
-      "public/icons/manifest.json": "4828607cdcdd3595734dbf1ad404d003facab5b298c448bb7d29d11e0def8988",
-      "src/content/portal-workspace-nb.ts": "e39fe731aa2b5f3db69afaa30caacd75df06220dae3b4d086655b14775b47ee9",
-      "src/features/laboratory/laboratory.css": "dc2bb7fdebd11ed9d9e3ac2c0230200d0b5286edcc1ab0517fb1fb4317fe5bba",
-      "src/features/laboratory/laboratory.tsx": "e8034f1187da78e5ddcfc91be216e6ac886a4b663c4d58a8a6971a742adb5514",
-      "src/features/laboratory/networking.tsx": "3236b52217c671b9d6f376ec4b014215fa56ee3fea9e8a4a7ee8118d5e7c70b7",
-      "src/features/laboratory/portal-adapter.test.ts": "5cf134ab3dc5520a18a2a250662b0e30743928f94cc4831685d1c666b9620932",
-      "src/features/laboratory/portal-adapter.tsx": "d5e55a03b36f02f04d53df9e1445123c69f3c77f9590102423f382f7d0ec15cc",
-      "src/features/portal/create-resource.tsx": "4d05885b23af4cd167938b9f767ccc5a8e300615d625ff90dad4189d0812f2b2",
-      "src/features/portal/inventory.tsx": "af067700a350c96917ac8d64c0939adb6217568e8ca5336ae60ad95a20f33ef2",
-      "src/features/portal/portal.tsx": "bed0245ba9b345b5c39260389cf672147ba6c9202181235c283bbe63d69fc54c",
-      "src/features/portal/presentation.css": "6de0c424bb2358450390aa74997d24690cda43c3a14af31d742c541bacb196b7",
-      "src/features/portal/presentation.tsx": "863ef6104582d8c072ff8fa0b13583eb753f8d700b8ccbdda65643c33c03bc4d",
-      "src/features/portal/receipt-panel.tsx": "c68cd11afdabf7ee7685e12d3424a7caf1f5c2815460df25ae7d2627155c71f4",
-      "src/laboratory-networking-preservation.test.ts": "3134019aaa06f28658034fd76c0e160cbe45739a6d709532453b7e096bafd66a",
-      "src/shared-portal-preservation.test.ts": "7638ac2e4f78f85ddba9f16d7d06bbc9817b08dbe7425ab00eaa2aa2f0f5da9a",
-      "tests/e2e/laboratory-actions.ts": "de4df4bc449e8fdc9d510c733b8bdb23ede08898829c7e4887482da99b362256",
-      "tests/e2e/laboratory-networking.spec.ts": "3293a81b45fc315183c4567ac1e5168ea9bccea34157a9e17d31d659a6d22b64",
-      "tests/e2e/laboratory-server.spec.ts": "729faf035558b5a0c4133af18a7f1ba0b982ff2efd690da61129edbf7d4b5c2c",
-      "tests/e2e/shared-portal.spec.ts": "16d04f9a2f0d12182a46834ae8b70620921eab1fa8ca1cdd1324c2f7533a2dc3",
-      "tests/pr62-preservation.ts": "2c8f8834503bc2ae066805bc529bd6273c71ddb5cf5e826b977e1fc5a252c443",
-      "tests/pr63-preservation.ts": "e56e2a9797b2346d59be43e401a9f1f4c3bbf41ebd28e6c38569b52c9c2e342a"
+      "AGENTS.md": "402e4bc20878450b322b5ccdc9f06c8b8047dffb54e8627e51a7e1a84b492a3a",
+      "database/laboratory-v3/003-routing.sql": "54a86005c520f1a3211fce2f1ebdad559dcc86078570ec04ec053d572e696f08",
+      "docs/ARCHITECTURE.md": "ac4e2406d6426f521c8d87f9e0bad60fe0a704520da0bc20a12b876fee5cd0ef",
+      "docs/DECISIONS.md": "855537171f216d043ec73a12cb50673f79f85d1da21088919edb8183a385ab6d",
+      "docs/LABORATORY_NETWORKING_PART_B.md": "8fb005a6e487a18cc4baa52ab9314a320558dfe97db62457fce90a3b7eaab1d0",
+      "docs/PORTAL_CAPABILITY_MATRIX.md": "a965b437494a35e50096122564387dc7f4727cbc081804d797c4f2efc4efd413",
+      "docs/reviews/evidence/pr64/frozen-golden.json": "ae37a3800f8c655af036286cc92e7ea72e2eaab51115f342d9894b1685251e8c",
+      "docs/reviews/evidence/pr64/hub-spoke-direct-route-desktop-chromium.png": "5cdc6f52a01b5485659c170b7e71b5ab8a6c61c0783288493da8d1b70004e1fe",
+      "docs/reviews/evidence/pr64/images.json": "fa6a5b97fcc1d31c44a43299f969cd12f0b25e43f7e9aa04bd4dc6b21f263c0c",
+      "docs/reviews/evidence/pr64/peering-connected-desktop-chromium.png": "72eb858c875225595172290c7906e1f46c089fac582561ca0dc3ae15fc916491",
+      "docs/reviews/evidence/pr64/preservation.json": "1bfc2b54c5765be8cf21c29d1e79372566f9e91cc9083dc5600f9d19846ea88a",
+      "docs/reviews/evidence/pr64/route-association-denial-desktop-chromium.png": "6acca7f8d8bf2ce82529f0f63824a872373882d6772a87c1b8d82cd278075ba3",
+      "docs/reviews/evidence/pr64/route-selection-desktop-chromium.png": "b10166a04336f1bf8f623c972eed2a86f22976e4368dc513c22e1a4f9787bbf2",
+      "docs/reviews/evidence/pr64/route-selection-initial.png": "fb4b77a6d72556a25a3214e9bfc4644813ebd01ce5202350d812b90d6e2711ec",
+      "docs/reviews/evidence/pr64/route-table-associated-desktop-chromium.png": "6d173e0fe2f3e41e2c79432ef7313293ac386e9f31125e8239b71b9648280a65",
+      "docs/reviews/evidence/pr64/routing-1024-500-compact-chromium.png": "28b24b4329e8f81f8519651da5676edf7bb63a6831f1f42c15ab511b4650ba24",
+      "docs/reviews/evidence/pr64/routing-1024-500-desktop-chromium.png": "28b24b4329e8f81f8519651da5676edf7bb63a6831f1f42c15ab511b4650ba24",
+      "docs/reviews/evidence/pr64/routing-1024-768-compact-chromium.png": "9754101fd5b3e9dee1cf076c70279884f7f852c9a4c220edad2902e00e2d8214",
+      "docs/reviews/evidence/pr64/routing-1024-768-desktop-chromium.png": "9754101fd5b3e9dee1cf076c70279884f7f852c9a4c220edad2902e00e2d8214",
+      "docs/reviews/evidence/pr64/routing-1440-900-compact-chromium.png": "e8f482158144482223e766b00d192df848c510d70efe06ca6d725e665cea432e",
+      "docs/reviews/evidence/pr64/routing-1440-900-desktop-chromium.png": "e8f482158144482223e766b00d192df848c510d70efe06ca6d725e665cea432e",
+      "docs/reviews/evidence/pr64/source-fetch.json": "7a442f595e55fed793265ba80bb89d4185162a62cfc071439e76454f9745bed8",
+      "docs/reviews/evidence/pr64/verification.json": "20dfd84481135eaf68062ea8b9937559558f8a522491e585cc8049103fa41453",
+      "playwright.desktop.config.ts": "e0093d11462c1ed4cd45c4f1d0037ced78045b36820e4d2f8a14ac42a4ca4463",
+      "public/icons/azure/01285-icon-service-Peerings.svg": "e3ce70101ff5562a805e2346d2bc293d6426851a732403ede1a4870229b1f0bc",
+      "public/icons/azure/10082-icon-service-Route-Tables.svg": "17ba16b418d7110c555190e7265eb5441b5058132727fb83df57f6384bc0db22",
+      "public/icons/manifest.json": "aafecab3a300c67e9900d80d04261cbfca5ac4b04672a7059f10ce1b5140a526",
+      "scripts/laboratory-db.mjs": "f37e1329c6382a47bcc6e95a8d8301d31a2492114da07eae6b6e607d403b86e3",
+      "src/app/api/laboratory/analysis/route.ts": "06a267bc900119033b0226f3eadda1205460df11c6488626c867da92b73aac3d",
+      "src/content/laboratory-routing-nb.ts": "4339020fe3c9d9aa7a6a10cebb1b47f04798a3e4da612b37895d75c4998be632",
+      "src/content/portal-workspace-nb.ts": "f464a75091cec11511aeea1267ecf7a1b89ea7a9902c9e3ab901cb935e6bff05",
+      "src/features/laboratory/laboratory.css": "4b330436cbae4b9daae3858376f391569c1eeff9907ea2ff3f145cd256578447",
+      "src/features/laboratory/laboratory.tsx": "67ff98c97cb3891414fb09ed56465a211d124c85ca8bef7d7eee18599b275079",
+      "src/features/laboratory/networking.tsx": "6b113f457ebd2f93d7ab297e87b1f571211deffb5331ac85f77863af5ccdbc78",
+      "src/features/laboratory/portal-adapter.tsx": "c6f483076dbb7825f18e7ddb94b89c8c5774f8d1f9c1314bdfaf1b64db078335",
+      "src/features/laboratory/routing.tsx": "9a4d63c719b79eaccd8ecded891260392f4be334548bd470d1e6b63b590c058f",
+      "src/laboratory-routing-preservation.test.ts": "5d6b44c368853f54cea968bf2b348b4e796f78795a7b43c74313c14b906156ff",
+      "src/laboratory-routing.integration.test.ts": "34bc0263c491e82756367eb4502ae724fa9e1e3629e9a2234ffa006cfc002df4",
+      "src/laboratory-routing.test.ts": "b4857318603d595b751140dbc8636bc2b2683152b2e9d4073734b6ea6371b045",
+      "src/laboratory/engine.ts": "4aa824741a39580b0a746b7421ad71364155df1fcbc6f7a7a4dfb7912b4e9f8a",
+      "src/laboratory/v3/server.ts": "cd97b2b62b4c77a1a30a8c730f7aeda06f2dffd47bb998445fa5e75ff99c0440",
+      "src/laboratory/v32/analysis.ts": "ec95314fd1ee89054a6d386ba2f2e14597cd442e94e6117ab65408e897060717",
+      "src/laboratory/v32/contract.ts": "1bfda160470490cca7aecedfa5c1f79d5c9f881341afaacaf2a050383df1fe73",
+      "src/laboratory/v32/domain.ts": "ff9cab359b783bc12b2684dafdad0564164ecd7f374268a8011af5499e9c451a",
+      "src/laboratory/v32/peering.ts": "8e4f8e064919b29c14e2b85bf1a14602dbb39358f74dcda4271767217556d440",
+      "src/shared-portal-preservation.test.ts": "603d2899924aa515d81feb5485d499ade75ea49b5a1398c489dd7a70b9b2300a",
+      "tests/e2e/laboratory-networking.spec.ts": "a48dcb9da62edfe1e8e61ae6f9c0367d558d310cac1aeb5ac965fa95e7252228",
+      "tests/e2e/laboratory-routing.spec.ts": "00fe267cac6d5f141e5ca734ddc299a4065f5790032c3043fe315b905626558b",
+      "tests/pr63-preservation.ts": "17328ddbfe1a8fefcbee9b6cc230923aeb85a6acf180e7a3bc161b64b5c3c159",
+      "tests/pr64-preservation.ts": "b8bde4d24c2723e6a5f2133e9ea74ad76f8eb5c8c7a1993ca531babbe1492c2d"
     }
   },
-  "implementationFinished": "2026-11-06T17:55:26.668Z"
+  "implementationFinished": "2026-11-07T14:03:02.628Z"
 }

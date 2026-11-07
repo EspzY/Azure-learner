@@ -20,8 +20,10 @@ import {
 import Link from 'next/link';
 import { useSearchParams, useRouter } from 'next/navigation';
 import { laboratoryV3Nb as c } from '@/content/nb';
-import type { Snapshot, Request as LabRequest, Command, Receipt } from '@/laboratory/engine';
-import { laboratoryModel } from '@/laboratory/v31/contract';
+import type { Snapshot, Request as LabRequest, Command, Receipt, Model } from '@/laboratory/engine';
+import { laboratoryModel } from '@/laboratory/v32/contract';
+import { laboratoryRoutingNb as r } from '@/content/laboratory-routing-nb';
+import { RoutingViews, RouteAnalysis, routingFields } from './routing';
 import { laboratoryNetworkNb as n } from '@/content/laboratory-networking-nb';
 import { NetworkViews, networkFields } from './networking';
 import { PropertyList, PortalDialog } from '@/features/portal/shared';
@@ -33,24 +35,32 @@ const href = (view: string, id?: string, receipt?: string) =>
   base +
   '?' +
   new URLSearchParams({ view, ...(id ? { id } : {}), ...(receipt ? { receipt } : {}) });
-const message = (code: string) =>
-  Object.hasOwn(n.codes, code)
-    ? n.codes[code as keyof typeof n.codes]
-    : Object.hasOwn(c.codes, code)
-      ? c.codes[code as keyof typeof c.codes]
-      : c.unavailable;
+const message = (code: string, operation?: string) =>
+  code === 'incompatible-association' && operation === 'AssociateSubnetRouteTable'
+    ? r.associationError
+    : Object.hasOwn(r.codes, code)
+      ? r.codes[code as keyof typeof r.codes]
+      : Object.hasOwn(n.codes, code)
+        ? n.codes[code as keyof typeof n.codes]
+        : Object.hasOwn(c.codes, code)
+          ? c.codes[code as keyof typeof c.codes]
+          : c.unavailable;
 const label = (key: string) =>
-  Object.hasOwn(n.fields, key)
-    ? n.fields[key as keyof typeof n.fields]
-    : Object.hasOwn(c.fields, key)
-      ? c.fields[key as keyof typeof c.fields]
-      : key;
+  Object.hasOwn(r.fields, key)
+    ? r.fields[key as keyof typeof r.fields]
+    : Object.hasOwn(n.fields, key)
+      ? n.fields[key as keyof typeof n.fields]
+      : Object.hasOwn(c.fields, key)
+        ? c.fields[key as keyof typeof c.fields]
+        : key;
 const operation = (key: string) =>
-  Object.hasOwn(n.operations, key)
-    ? n.operations[key as keyof typeof n.operations]
-    : Object.hasOwn(c.operations, key)
-      ? c.operations[key as keyof typeof c.operations]
-      : key;
+  Object.hasOwn(r.operations, key)
+    ? r.operations[key as keyof typeof r.operations]
+    : Object.hasOwn(n.operations, key)
+      ? n.operations[key as keyof typeof n.operations]
+      : Object.hasOwn(c.operations, key)
+        ? c.operations[key as keyof typeof c.operations]
+        : key;
 async function api(action: string, request?: unknown, workspace?: string) {
   let response: Response, value;
   try {
@@ -79,6 +89,8 @@ export function Laboratory() {
   const query = useSearchParams(),
     router = useRouter();
   const [snapshot, setSnapshot] = useState<Snapshot | null>(null),
+    [startModel, setStartModel] = useState<Model>(laboratoryModel),
+    [newWorkspace, setNewWorkspace] = useState(false),
     [loading, setLoading] = useState(true),
     [error, setError] = useState(''),
     [busy, setBusy] = useState(false),
@@ -220,6 +232,9 @@ export function Laboratory() {
               CreateSubnet: 'subnet',
               CreateNetworkSecurityGroup: 'nsg',
               CreateSecurityRule: 'rule',
+              CreateVnetPeering: 'peering',
+              CreateRouteTable: 'routeTable',
+              CreateRoute: 'route',
             } as Record<string, string>
           )[request.command.type] ??
           (request.command.type === 'CreateGroup'
@@ -230,7 +245,13 @@ export function Laboratory() {
                 ? 'container'
                 : 'blob');
         router.push(
-          request.command.type === 'AssociateSubnetNsg' && result.receipt.outcome === 'accepted'
+          [
+            'AssociateSubnetNsg',
+            'AssociateSubnetRouteTable',
+            'DisassociateSubnetRouteTable',
+          ].includes(request.command.type) &&
+            'subnetId' in request.command &&
+            result.receipt.outcome === 'accepted'
             ? href('subnet', request.command.subnetId)
             : target && result.receipt.outcome === 'accepted'
               ? href(kind, target)
@@ -263,16 +284,20 @@ export function Laboratory() {
       setBusy(false);
     }
   };
-  const start = async () => {
+  const start = async (replace = false) => {
     setBusy(true);
     try {
       if (!navigator.locks) throw Error('backend-unavailable');
       await navigator.locks.request('azurelab.laboratory.v3.session', async () => {
-        const incoming = await api('session', { model: laboratoryModel });
+        const incoming = await api('session', {
+          model: replace ? laboratoryModel : startModel,
+          ...(replace ? { newWorkspace: true } : {}),
+        });
         updatePending(null);
         setForm(null);
         setPreview(null);
         setReset(null);
+        setNewWorkspace(false);
         ++version.current;
         accept(incoming);
         setError('');
@@ -286,7 +311,8 @@ export function Laboratory() {
     }
   };
   const world = snapshot?.world,
-    network = world?.model === laboratoryModel ? world : undefined,
+    network = world && world.model !== 'laboratory@3.0.0' ? world : undefined,
+    routing = world?.model === laboratoryModel ? world : undefined,
     view = query.get('view') ?? 'groups',
     id = query.get('id'),
     selectedReceipt = snapshot?.entries.find((e) => e.receipt.commandId === query.get('receipt'));
@@ -330,6 +356,10 @@ export function Laboratory() {
       sourcePort: '*',
       destination: '*',
       destinationPort: '443',
+      remoteVnetId: routing?.vnets.find((x) => x.id !== id)?.id ?? '',
+      routeTableId:
+        routing?.routeTables.find((x) => x.id === id)?.id ?? routing?.routeTables[0]?.id ?? '',
+      nextHopType: 'None',
     });
   };
   const receiptLink = (origin: string) => (
@@ -403,6 +433,7 @@ export function Laboratory() {
     if (!world || !form || !snapshot) return;
     setBusy(true);
     const keys =
+      routingFields[form] ??
       networkFields[form] ??
       (form === 'CreateGroup'
         ? ['subscriptionId', 'name', 'metadataRegion']
@@ -481,6 +512,12 @@ export function Laboratory() {
           ['nsgs', n.nsgs, 'nsg'],
         ] as [string, string, string][])
       : []),
+    ...(routing
+      ? ([
+          ['routeTables', r.tables, 'routeTable'],
+          ['analysis', r.analysis, 'properties'],
+        ] as [string, string, string][])
+      : []),
   ];
   const serviceView = resource
     ? (
@@ -493,19 +530,26 @@ export function Laboratory() {
           subnet: 'vnets',
           nsg: 'nsgs',
           rule: 'nsgs',
+          peering: 'vnets',
+          routeTable: 'routeTables',
+          route: 'routeTables',
         } as Record<string, string>
       )[resource.view]
-    : view;
+    : view === 'peerings'
+      ? 'vnets'
+      : view;
   const title = !snapshot
     ? c.title
-    : (resource?.name ??
-      (view === 'history'
-        ? c.history
-        : view === 'resources'
-          ? nb.portal.areas.resources
-          : view === 'services'
-            ? nb.portal.areas.services
-            : (services.find(([key]) => key === view)?.[1] ?? c.missing)));
+    : view === 'peerings' && routing?.vnets.some((x) => x.id === id)
+      ? `${routing.vnets.find((x) => x.id === id)?.name} · ${r.peerings}`
+      : (resource?.name ??
+        (view === 'history'
+          ? c.history
+          : view === 'resources'
+            ? nb.portal.areas.resources
+            : view === 'services'
+              ? nb.portal.areas.services
+              : (services.find(([key]) => key === view)?.[1] ?? c.missing)));
   const titleIcon =
     resource?.kind ??
     services.find(([key]) => key === view)?.[2] ??
@@ -531,6 +575,9 @@ export function Laboratory() {
     view === 'group'
       ? [
           ['CreateStorageAccount', c.newAccount],
+          ...(routing
+            ? ([['CreateRouteTable', r.operations.CreateRouteTable]] as [Command['type'], string][])
+            : []),
           ...(network
             ? ([
                 ['CreateVirtualNetwork', n.newVnet],
@@ -545,10 +592,27 @@ export function Laboratory() {
           : view === 'vnet'
             ? [['CreateSubnet', n.newSubnet]]
             : view === 'subnet'
-              ? [['AssociateSubnetNsg', n.associate]]
+              ? [
+                  ['AssociateSubnetNsg', n.associate],
+                  ...(routing
+                    ? ([
+                        ['AssociateSubnetRouteTable', r.operations.AssociateSubnetRouteTable],
+                        ...(routing.subnets.find((x) => x.id === id)?.routeTableId
+                          ? [
+                              [
+                                'DisassociateSubnetRouteTable',
+                                r.operations.DisassociateSubnetRouteTable,
+                              ],
+                            ]
+                          : []),
+                      ] as [Command['type'], string][])
+                    : []),
+                ]
               : view === 'nsg'
                 ? [['CreateSecurityRule', n.newRule]]
-                : [];
+                : view === 'routeTable' && routing
+                  ? [['CreateRoute', r.operations.CreateRoute]]
+                  : [];
   const body = snapshot && world && (
     <>
       {view === 'services' && (
@@ -693,6 +757,25 @@ export function Laboratory() {
           actions={!resource}
         />
       )}
+      {routing && (
+        <RoutingViews
+          world={routing}
+          view={view}
+          id={id}
+          begin={begin}
+          disabled={busy || !!error}
+          receipt={receiptLink}
+          list={links}
+        />
+      )}
+      {routing && view === 'analysis' && (
+        <RouteAnalysis
+          key={snapshot.workspace + ':' + id}
+          snapshot={snapshot}
+          initialSource={id}
+          accept={accept}
+        />
+      )}
       {view === 'history' && (
         <>
           {selectedReceipt ? (
@@ -709,7 +792,7 @@ export function Laboratory() {
               description={
                 <>
                   {selectedReceipt.receipt.outcome === 'accepted' ? c.committed : c.rejected}{' '}
-                  {message(selectedReceipt.receipt.code)}
+                  {message(selectedReceipt.receipt.code, selectedReceipt.receipt.operation)}
                 </>
               }
             >
@@ -754,6 +837,9 @@ export function Laboratory() {
         'blob',
         'history',
         ...(network ? ['vnets', 'vnet', 'subnet', 'nsgs', 'nsg', 'rule'] : []),
+        ...(routing
+          ? ['peerings', 'peering', 'routeTables', 'routeTable', 'route', 'analysis']
+          : []),
       ].includes(view) ||
         (view === 'group' && !group) ||
         (view === 'account' && !account) ||
@@ -928,6 +1014,21 @@ export function Laboratory() {
               <button onClick={() => setReset(null)}>{c.cancel}</button>
             </PortalDialog>
           )}
+          {newWorkspace && (
+            <PortalDialog title={r.newWorkspace} onClose={() => setNewWorkspace(false)}>
+              <p>{r.newWorkspaceNote}</p>
+              <button
+                className="primary"
+                disabled={busy}
+                onClick={() => {
+                  void start(true);
+                }}
+              >
+                {r.newWorkspace}
+              </button>
+              <button onClick={() => setNewWorkspace(false)}>{c.cancel}</button>
+            </PortalDialog>
+          )}
           {help && (
             <PortalDialog title={nb.portal.limitations} onClose={() => setHelp(false)}>
               <p>{w.scopeNote}</p>
@@ -996,6 +1097,24 @@ export function Laboratory() {
                   ? c.unavailable
                   : c.startNote}
               </p>
+              <details className="lab-model-choice">
+                <summary>Tidligere arbeidsområdemodeller</summary>
+                <label>
+                  Arbeidsområdemodell
+                  <select
+                    value={startModel}
+                    onChange={(e) => setStartModel(e.target.value as Model)}
+                  >
+                    <option value={laboratoryModel}>3.2 · Storage og Networking A/B</option>
+                    <option value="laboratory@3.1.0">3.1 · Storage og Networking A</option>
+                    <option value="laboratory@3.0.0">3.0 · Storage</option>
+                  </select>
+                </label>
+                <p>
+                  Valget gjelder bare et nytt arbeidsområde. Eksisterende sesjon gjenopptas uten
+                  oppgradering.
+                </p>
+              </details>
               <button
                 disabled={busy || error === 'backend-unavailable'}
                 onClick={() => {
@@ -1010,6 +1129,17 @@ export function Laboratory() {
           {snapshot && world && (
             <>
               {!network && <p className="lab-network-boundary">{n.legacy}</p>}
+              {!routing && ['groups', 'services'].includes(view) && (
+                <div className="lab-network-boundary">
+                  <p>{r.legacy}</p>
+                  <button
+                    disabled={busy || !!pendingView || !!error}
+                    onClick={() => setNewWorkspace(true)}
+                  >
+                    {r.newWorkspace}
+                  </button>
+                </div>
+              )}
               {form ? (
                 <PortalCreateLayout
                   className="lab-form"
@@ -1031,7 +1161,11 @@ export function Laboratory() {
                     }}
                   >
                     <fieldset disabled={busy || !!pendingView}>
-                      {form !== 'AssociateSubnetNsg' &&
+                      {![
+                        'AssociateSubnetNsg',
+                        'AssociateSubnetRouteTable',
+                        'DisassociateSubnetRouteTable',
+                      ].includes(form) &&
                         field(
                           'name',
                           c.name,
@@ -1124,6 +1258,78 @@ export function Laboratory() {
                           )}
                         </>
                       )}
+                      {routing && routingFields[form] && (
+                        <>
+                          {form === 'CreateRouteTable' && (
+                            <>
+                              {field(
+                                'groupId',
+                                c.group,
+                                world.groups.map((g) => [g.id, groupScope(g.id)]),
+                              )}
+                              {field('region', c.region, regions)}
+                            </>
+                          )}
+                          {form === 'CreateVnetPeering' && (
+                            <>
+                              {field(
+                                'vnetId',
+                                n.vnet,
+                                routing.vnets.map((v) => [v.id, vnetScope(v.id)]),
+                              )}
+                              {field(
+                                'remoteVnetId',
+                                r.fields.remoteVnetId,
+                                routing.vnets.map((v) => [v.id, vnetScope(v.id)]),
+                              )}
+                              <p>{r.peeringNote}</p>
+                            </>
+                          )}
+                          {form === 'CreateRoute' && (
+                            <>
+                              {field(
+                                'routeTableId',
+                                r.table,
+                                routing.routeTables.map((t) => [
+                                  t.id,
+                                  `${t.name} · ${groupScope(t.groupId)} · ${t.region}`,
+                                ]),
+                              )}
+                              {field('addressPrefix', n.addressPrefix)}
+                              {field('nextHopType', r.fields.nextHopType, [
+                                ['VnetLocal', 'Virtual network'],
+                                ['Internet', 'Internet'],
+                                ['None', 'None · dropp'],
+                              ])}
+                              <p>{r.routeNote}</p>
+                            </>
+                          )}
+                          {['AssociateSubnetRouteTable', 'DisassociateSubnetRouteTable'].includes(
+                            form,
+                          ) && (
+                            <>
+                              {field(
+                                'subnetId',
+                                n.subnet,
+                                routing.subnets.map((s) => [
+                                  s.id,
+                                  `${s.name} · ${vnetScope(s.vnetId)}`,
+                                ]),
+                              )}
+                              {form === 'AssociateSubnetRouteTable' &&
+                                field(
+                                  'routeTableId',
+                                  r.table,
+                                  routing.routeTables.map((t) => [
+                                    t.id,
+                                    `${t.name} · ${groupScope(t.groupId)} · ${t.region}`,
+                                  ]),
+                                )}
+                              <p>{r.association}</p>
+                            </>
+                          )}
+                        </>
+                      )}
                       {form === 'CreateGroup' && (
                         <>
                           {field('subscriptionId', c.subscription, [
@@ -1191,7 +1397,7 @@ export function Laboratory() {
                       <p>
                         {preview.receipt.outcome === 'accepted'
                           ? w.reviewAccepted
-                          : message(preview.receipt.code)}{' '}
+                          : message(preview.receipt.code, preview.request.command.type)}{' '}
                         {preview.receipt.field && label(preview.receipt.field)}
                       </p>
                       <PropertyList
@@ -1207,7 +1413,13 @@ export function Laboratory() {
                           void run(preview.request, preview.workspace);
                         }}
                       >
-                        {form === 'AssociateSubnetNsg' ? n.apply : c.create}
+                        {[
+                          'AssociateSubnetNsg',
+                          'AssociateSubnetRouteTable',
+                          'DisassociateSubnetRouteTable',
+                        ].includes(form)
+                          ? n.apply
+                          : c.create}
                       </button>
                     </section>
                   )}
@@ -1233,6 +1445,16 @@ export function Laboratory() {
                           icon: 'activity',
                           onSelect: () => visit('history', undefined, resource.origin),
                         },
+                        ...(routing && resource.view === 'vnet'
+                          ? [
+                              {
+                                key: 'peerings',
+                                label: r.peerings,
+                                icon: 'peering',
+                                onSelect: () => visit('peerings', resource.id),
+                              },
+                            ]
+                          : []),
                         {
                           key: 'properties',
                           label: nb.portalUi.properties,
@@ -1255,7 +1477,9 @@ export function Laboratory() {
                           label(key),
                           value === null
                             ? '—'
-                            : ['origin', 'associationOrigin'].includes(key)
+                            : ['origin', 'associationOrigin', 'routeAssociationOrigin'].includes(
+                                  key,
+                                )
                               ? receiptLink(String(value))
                               : typeof value === 'object'
                                 ? JSON.stringify(value)

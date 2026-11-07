@@ -2,6 +2,8 @@ import 'server-only';
 import { Pool } from 'pg';
 import { Repository, LabError } from './repository';
 import { parseRequest, models, type Model } from '../engine';
+import { laboratoryModel as routingModel } from '../v32/contract';
+import { analyseRoutes } from '../v32/analysis';
 let pool: Pool | undefined;
 function config() {
   const connectionString = process.env.LAB_DATABASE_URL,
@@ -78,7 +80,10 @@ async function body(req: Request) {
     throw new LabError('invalid-json', 400);
   }
 }
-export async function handle(req: Request, action: 'session' | 'state' | 'review' | 'command') {
+export async function handle(
+  req: Request,
+  action: 'session' | 'state' | 'review' | 'command' | 'analysis',
+) {
   try {
     const cfg = config(),
       origin = req.headers.get('origin'),
@@ -90,9 +95,11 @@ export async function handle(req: Request, action: 'session' | 'state' | 'review
     )
       throw new LabError('origin-denied', 403);
     const url = new URL(req.url);
+    const queryKeys =
+      action === 'state' ? ['through'] : action === 'analysis' ? ['subnetId', 'destination'] : [];
     if (
-      [...url.searchParams.keys()].some((k) => action !== 'state' || k !== 'through') ||
-      url.searchParams.getAll('through').length > 1
+      [...url.searchParams.keys()].some((k) => !queryKeys.includes(k)) ||
+      queryKeys.some((k) => url.searchParams.getAll(k).length > 1)
     )
       throw new LabError('invalid-query', 400);
     if (!pool) {
@@ -142,6 +149,19 @@ export async function handle(req: Request, action: 'session' | 'state' | 'review
       if (value !== null && !/^(0|[1-9][0-9]{0,3})$/.test(value))
         throw new LabError('invalid-through', 400);
       return json(await repo.read(session, value === null ? undefined : Number(value)));
+    }
+    if (action === 'analysis') {
+      const subnetId = url.searchParams.get('subnetId'),
+        destination = url.searchParams.get('destination');
+      if (!subnetId || subnetId.length > 80 || !destination || destination.length > 15)
+        throw new LabError('invalid-query', 400);
+      const snapshot = await repo.read(session);
+      if (req.headers.get('If-Laboratory-Workspace') !== snapshot.workspace)
+        throw new LabError('workspace-changed', 409);
+      if (snapshot.world.model !== routingModel) throw new LabError('unsupported-model', 422);
+      const result = analyseRoutes(snapshot.world, subnetId, destination);
+      if (!result.ok) throw new LabError(result.code, 422);
+      return json({ ...snapshot, analysis: result.analysis });
     }
     const request = parseRequest(await body(req));
     if (!request) throw new LabError('invalid-request', 400);

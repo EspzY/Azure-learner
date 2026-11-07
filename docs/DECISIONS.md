@@ -1,5 +1,9 @@
 # Decisions
 
+## PR64 — scope and route-selection decision
+
+Use a new explicit3.2 workspace, no in-place upgrade. Reuse frozen3.1 rules through a bounded version adapter and preserve its snapshots/receipts. Peer status is derived from reciprocal records. Route analysis models current documented system prefixes and LPM before UDR/System tie priority; BGP/endpoint exceptions and packet evaluation are expressly unsupported. Conservative VnetLocal association checks and explicit ambiguous-route errors prevent invented next hops. No external database or Vercel configuration. [Contract](LABORATORY_NETWORKING_PART_B.md).
+
 ## PR61 — product selection before course navigation
 
 Owner explicitly authorizes a dark product landing at `/`, superseding the historical direct `/learn` redirect for root only. AZ-900 retains its own three paths/17 routes and authoritative Hub resume. Planned AZ-104/305 are distinct future courses, not renamed AZ-900 paths. Free Laboratory3 remains a separate server workspace. Do not infer whole-course completion from position/XP/guides: prepare the green display variant but issue no Complete until a separate versioned policy/evidence contract is approved. [Scope and limits](PREMIUM_LANDING.md).

@@ -6,6 +6,7 @@ import type { World } from '@/laboratory/engine';
 import { nb, regionLabels, laboratoryV3Nb as c } from '@/content/nb';
 import { portalWorkspaceNb as copy } from '@/content/portal-workspace-nb';
 import { ServiceIcon } from '@/features/portal/service-icon';
+import { peeringStatus } from '@/laboratory/v32/peering';
 import { PortalListFilters, PortalTable, type PortalColumn } from '@/features/portal/presentation';
 
 export type LaboratoryResource = {
@@ -24,6 +25,7 @@ export type LaboratoryResource = {
   readonly parentId?: string;
   readonly origin: string;
   readonly source: Readonly<object>;
+  readonly status?: string;
 };
 const subscriptionName = (id: string) =>
   id === 'sub-shared' ? 'Shared Sandbox' : id === 'sub-app' ? 'App Sandbox' : id;
@@ -37,18 +39,19 @@ export function laboratoryInventory(world: World): readonly LaboratoryResource[]
     groupId: string,
     region: string,
     parentId?: string,
+    status?: string,
   ) => {
     const group = world.groups.find((g) => g.id === groupId);
     rows.push({
       id: source.id,
       name: source.name,
       view,
-      kind: view === 'group' ? 'groups' : view === 'rule' ? 'properties' : view,
+      kind: view === 'group' ? 'groups' : ['rule', 'route'].includes(view) ? 'properties' : view,
       typeName: copy.resourceKinds[view],
       category:
         view === 'group'
           ? 'scope'
-          : ['account', 'vnet', 'nsg'].includes(view)
+          : ['account', 'vnet', 'nsg', 'routeTable'].includes(view)
             ? 'resource'
             : ['container', 'blob'].includes(view)
               ? 'data'
@@ -62,6 +65,7 @@ export function laboratoryInventory(world: World): readonly LaboratoryResource[]
       parentId,
       origin: source.origin,
       source,
+      ...(status ? { status } : {}),
     });
   };
   for (const group of world.groups) add('group', group, group.id, group.metadataRegion);
@@ -76,7 +80,7 @@ export function laboratoryInventory(world: World): readonly LaboratoryResource[]
     const account = world.accounts.find((x) => x.id === container?.accountId);
     if (container && account) add('blob', blob, account.groupId, account.region, container.id);
   }
-  if (world.model === 'laboratory@3.1.0') {
+  if (world.model !== 'laboratory@3.0.0') {
     for (const vnet of world.vnets) add('vnet', vnet, vnet.groupId, vnet.region, vnet.groupId);
     for (const subnet of world.subnets) {
       const vnet = world.vnets.find((x) => x.id === subnet.vnetId);
@@ -86,6 +90,19 @@ export function laboratoryInventory(world: World): readonly LaboratoryResource[]
     for (const rule of world.securityRules) {
       const nsg = world.nsgs.find((x) => x.id === rule.nsgId);
       if (nsg) add('rule', rule, nsg.groupId, nsg.region, nsg.id);
+    }
+  }
+  if (world.model === 'laboratory@3.2.0') {
+    for (const table of world.routeTables)
+      add('routeTable', table, table.groupId, table.region, table.groupId);
+    for (const route of world.routes) {
+      const table = world.routeTables.find((x) => x.id === route.routeTableId);
+      if (table) add('route', route, table.groupId, table.region, table.id);
+    }
+    for (const peering of world.peerings) {
+      const vnet = world.vnets.find((x) => x.id === peering.vnetId);
+      if (vnet)
+        add('peering', peering, vnet.groupId, vnet.region, vnet.id, peeringStatus(world, peering));
     }
   }
   return rows;
@@ -151,6 +168,9 @@ export function LaboratoryResourceList({
         </Link>
       ),
     },
+    ...(rows.some((r) => r.status)
+      ? [{ key: 'status', label: 'Status', cell: (r: LaboratoryResource) => r.status ?? '—' }]
+      : []),
     ...(groups
       ? [
           {
