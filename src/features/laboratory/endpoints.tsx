@@ -4,6 +4,7 @@ import Link from 'next/link';
 import type { World, Command } from '@/laboratory/v33/contract';
 import type { PolicyAnalysis } from '@/laboratory/v33/policy';
 import type { Snapshot } from '@/laboratory/engine';
+import { laboratoryComputeNb as m } from '@/content/laboratory-compute-nb';
 import { laboratoryEndpointsNb as e } from '@/content/laboratory-endpoints-nb';
 import { laboratoryRoutingNb as r } from '@/content/laboratory-routing-nb';
 import { laboratoryNetworkNb as n } from '@/content/laboratory-networking-nb';
@@ -34,7 +35,7 @@ export function EndpointViews({
   list,
   receipt,
 }: {
-  world: World;
+  world: World | import('@/laboratory/v34/contract').World;
   view: string;
   id: string | null;
   begin: (type: Command['type']) => void;
@@ -49,7 +50,9 @@ export function EndpointViews({
     <>
       {view === 'nics' && (
         <>
-          <p className="lab-network-boundary">{e.boundary}</p>
+          <p className="lab-network-boundary">
+            {world.model === 'laboratory@3.4.0' ? m.nicBoundary : e.boundary}
+          </p>
           <button disabled={disabled} onClick={() => begin('CreateNetworkInterface')}>
             {e.operations.CreateNetworkInterface}
           </button>
@@ -58,7 +61,9 @@ export function EndpointViews({
       )}
       {view === 'nic' && nic && (
         <div className="lab-endpoint-detail">
-          <p className="lab-network-boundary">{e.boundary}</p>
+          <p className="lab-network-boundary">
+            {world.model === 'laboratory@3.4.0' ? m.nicBoundary : e.boundary}
+          </p>
           <PropertyList
             items={[
               [c.id, nic.id],
@@ -138,7 +143,12 @@ export function PolicyAnalysisView({
     }),
     [busy, setBusy] = useState(false),
     [error, setError] = useState(''),
-    [result, setResult] = useState<(PolicyAnalysis & { workspace: string }) | null>(null);
+    [result, setResult] = useState<
+      | ((PolicyAnalysis | import('@/laboratory/v34/analysis').PolicyAnalysis) & {
+          workspace: string;
+        })
+      | null
+    >(null);
   const current = useRef(snapshot),
     mounted = useRef(true),
     heading = useRef<HTMLHeadingElement>(null);
@@ -161,7 +171,8 @@ export function PolicyAnalysisView({
       heading.current?.focus({ preventScroll: true });
     }
   }, [result, snapshot.workspace, snapshot.world.revision]);
-  if (snapshot.world.model !== 'laboratory@3.3.0') return null;
+  if (snapshot.world.model !== 'laboratory@3.3.0' && snapshot.world.model !== 'laboratory@3.4.0')
+    return null;
   const world = snapshot.world,
     stale =
       result && (result.workspace !== snapshot.workspace || result.revision !== world.revision);

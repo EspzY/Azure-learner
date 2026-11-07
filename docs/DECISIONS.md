@@ -1,5 +1,9 @@
 # Decisions
 
+## PR66 — Compute Part A
+
+PR66 chooses explicit static private IPv4, x64 Gen2 Ubuntu22.04/Windows2022 and two Dsv4 profiles. The real Portal-style flow creates a new NIC and metadata-only OS disk atomically; existing NIC attachment is out of scope. Frozen3.3 NIC/IP/NSG rules are reused via a pure proposal. Use immutable3.4 only for explicit new workspaces and additive005, never live upgrade or v2 migration. No VM runtime, credentials, power state, publicIP, deletion or second traffic analyser. See [the bounded contract](LABORATORY_COMPUTE_PART_A.md).
+
 ## PR65 scoped extension
 
 PR65 decision: use an immutable new3.3 model for explicit new workspaces, not live upgrade. Model NIC/IP and NIC-NSG relations in the same World. Reuse frozen3.2 route analysis through a read-only projection. Service tags have partial positive evidence plus unknown; never private/public heuristics. Route/NSG results do not prove actual connectivity. Current initializer skips superseded constraint-only003 in favor of004 without editing historical SQL. See [Part C](LABORATORY_NETWORKING_PART_C.md).

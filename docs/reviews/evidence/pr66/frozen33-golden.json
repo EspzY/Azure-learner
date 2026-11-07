@@ -1,0 +1,237 @@
+{
+  "base": "c9cf4f375e5b332b1f17a5ba31d021d093b1cb47",
+  "model": "laboratory@3.3.0",
+  "entries": [
+    {
+      "model": "laboratory@3.3.0",
+      "attempt": 1,
+      "request": {
+        "commandId": "frozen33-1",
+        "expectedRevision": 0,
+        "command": {
+          "type": "CreateGroup",
+          "name": "rg-golden",
+          "subscriptionId": "sub-shared",
+          "metadataRegion": "norwayeast"
+        }
+      },
+      "receipt": {
+        "commandId": "frozen33-1",
+        "sequence": 1,
+        "beforeRevision": 0,
+        "afterRevision": 1,
+        "operation": "CreateGroup",
+        "targetType": "Microsoft.Resources/resourceGroups",
+        "scopeId": "sub-shared",
+        "location": "norwayeast",
+        "outcome": "accepted",
+        "code": "created",
+        "ruleId": "lab-storage@3.3",
+        "addedIds": ["group-1"],
+        "removedIds": [],
+        "beforeCount": 0,
+        "afterCount": 1
+      }
+    },
+    {
+      "model": "laboratory@3.3.0",
+      "attempt": 1,
+      "request": {
+        "commandId": "frozen33-2",
+        "expectedRevision": 1,
+        "command": {
+          "type": "CreateVirtualNetwork",
+          "name": "vnet-golden",
+          "groupId": "group-1",
+          "region": "norwayeast",
+          "addressSpace": "10.30.0.0/16"
+        }
+      },
+      "receipt": {
+        "commandId": "frozen33-2",
+        "sequence": 2,
+        "beforeRevision": 1,
+        "afterRevision": 2,
+        "operation": "CreateVirtualNetwork",
+        "targetType": "Microsoft.Network/virtualNetworks",
+        "scopeId": "group-1",
+        "location": "norwayeast",
+        "outcome": "accepted",
+        "code": "created",
+        "ruleId": "lab-network@3.3",
+        "addedIds": ["vnet-2"],
+        "removedIds": [],
+        "beforeCount": 1,
+        "afterCount": 2
+      }
+    },
+    {
+      "model": "laboratory@3.3.0",
+      "attempt": 1,
+      "request": {
+        "commandId": "frozen33-3",
+        "expectedRevision": 2,
+        "command": {
+          "type": "CreateSubnet",
+          "name": "snet-app",
+          "vnetId": "vnet-2",
+          "addressPrefix": "10.30.1.0/24"
+        }
+      },
+      "receipt": {
+        "commandId": "frozen33-3",
+        "sequence": 3,
+        "beforeRevision": 2,
+        "afterRevision": 3,
+        "operation": "CreateSubnet",
+        "targetType": "Microsoft.Network/virtualNetworks/subnets",
+        "scopeId": "vnet-2",
+        "location": "norwayeast",
+        "outcome": "accepted",
+        "code": "created",
+        "ruleId": "lab-network@3.3",
+        "addedIds": ["subnet-3"],
+        "removedIds": [],
+        "beforeCount": 2,
+        "afterCount": 3
+      }
+    },
+    {
+      "model": "laboratory@3.3.0",
+      "attempt": 1,
+      "request": {
+        "commandId": "frozen33-4",
+        "expectedRevision": 3,
+        "command": {
+          "type": "CreateNetworkInterface",
+          "name": "nic-original",
+          "groupId": "group-1",
+          "region": "norwayeast",
+          "vnetId": "vnet-2",
+          "subnetId": "subnet-3",
+          "privateIpAddress": "10.30.1.10",
+          "allocation": "Static"
+        }
+      },
+      "receipt": {
+        "commandId": "frozen33-4",
+        "sequence": 4,
+        "beforeRevision": 3,
+        "afterRevision": 4,
+        "operation": "CreateNetworkInterface",
+        "targetType": "Microsoft.Network/networkInterfaces",
+        "scopeId": "group-1",
+        "location": "norwayeast",
+        "outcome": "accepted",
+        "code": "created",
+        "ruleId": "lab-endpoint@3.3",
+        "addedIds": ["nic-4"],
+        "removedIds": [],
+        "beforeCount": 3,
+        "afterCount": 4
+      }
+    },
+    {
+      "model": "laboratory@3.3.0",
+      "attempt": 1,
+      "request": {
+        "commandId": "frozen33-5",
+        "expectedRevision": 4,
+        "command": {
+          "type": "CreateVirtualMachine",
+          "name": "vm-unsupported",
+          "groupId": "group-1",
+          "region": "norwayeast",
+          "image": "ubuntu-22.04-gen2",
+          "size": "Standard_D2s_v4",
+          "subnetId": "subnet-3",
+          "privateIpAddress": "10.30.1.11",
+          "allocation": "Static",
+          "nsgId": "none",
+          "osDiskSku": "StandardSSD_LRS",
+          "osDiskSizeGiB": "128"
+        }
+      },
+      "receipt": {
+        "commandId": "frozen33-5",
+        "sequence": 5,
+        "beforeRevision": 4,
+        "afterRevision": 4,
+        "operation": "CreateVirtualMachine",
+        "targetType": "local/workspace",
+        "scopeId": "group-1",
+        "location": null,
+        "outcome": "unsupported",
+        "code": "unsupported-capability",
+        "ruleId": "lab-input@3.3",
+        "addedIds": [],
+        "removedIds": [],
+        "beforeCount": 4,
+        "afterCount": 4,
+        "field": "type"
+      }
+    }
+  ],
+  "world": {
+    "model": "laboratory@3.3.0",
+    "revision": 4,
+    "nextId": 5,
+    "attempt": 1,
+    "groups": [
+      {
+        "id": "group-1",
+        "name": "rg-golden",
+        "subscriptionId": "sub-shared",
+        "metadataRegion": "norwayeast",
+        "origin": "frozen33-1"
+      }
+    ],
+    "accounts": [],
+    "containers": [],
+    "blobs": [],
+    "vnets": [
+      {
+        "id": "vnet-2",
+        "name": "vnet-golden",
+        "groupId": "group-1",
+        "region": "norwayeast",
+        "addressSpace": "10.30.0.0/16",
+        "origin": "frozen33-2"
+      }
+    ],
+    "subnets": [
+      {
+        "id": "subnet-3",
+        "name": "snet-app",
+        "vnetId": "vnet-2",
+        "addressPrefix": "10.30.1.0/24",
+        "nsgId": null,
+        "associationOrigin": null,
+        "origin": "frozen33-3",
+        "routeTableId": null,
+        "routeAssociationOrigin": null
+      }
+    ],
+    "nsgs": [],
+    "securityRules": [],
+    "peerings": [],
+    "routeTables": [],
+    "routes": [],
+    "nics": [
+      {
+        "id": "nic-4",
+        "name": "nic-original",
+        "groupId": "group-1",
+        "region": "norwayeast",
+        "subnetId": "subnet-3",
+        "privateIpAddress": "10.30.1.10",
+        "allocation": "Static",
+        "ipVersion": "IPv4",
+        "primary": true,
+        "nsgId": null,
+        "associationOrigin": null,
+        "origin": "frozen33-4"
+      }
+    ]
+  }
+}

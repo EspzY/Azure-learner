@@ -1,0 +1,99 @@
+[WebServer] (node:34907) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+
+Running 5 tests using 1 worker
+
+(node:34923) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1/5] [desktop-chromium] › tests/e2e/laboratory-compute.spec.ts:75:1 › compute native Linux atomic VM NIC disk Properties networking original receipt reload and through preserve authoritative identities
+[2/5] [desktop-chromium] › tests/e2e/laboratory-compute.spec.ts:143:1 › compute native Windows profile and invalid reserved duplicate IP name and region reviews never create partial bundles
+[3/5] [desktop-chromium] › tests/e2e/laboratory-compute.spec.ts:195:1 › compute native two-tab stale review and lost response recover original three-resource commit without duplicate VMs
+  1) [desktop-chromium] › tests/e2e/laboratory-compute.spec.ts:195:1 › compute native two-tab stale review and lost response recover original three-resource commit without duplicate VMs 
+
+    Error: expect(locator).toContainText(expected) failed
+
+    Locator: getByRole('alert')
+    Expected substring: "Arbeidsområdet ble endret av en annen forespørsel. Kontroller den nye tilstanden og gjennomfør en ny Review."
+    Received string:    ""
+    Timeout: 5000ms
+
+    Call log:
+      - Expect "toContainText" getByRole('alert') with timeout 5000ms
+      - waiting for getByRole('alert')
+        14 × locator resolved to <div role="alert" aria-live="assertive" id="__next-route-announcer__"></div>
+           - unexpected value ""
+
+
+      206 |   const stale = page.getByRole('region', { name: c.review, exact: true });
+      207 |   await stale.getByRole('button', { name: c.create, exact: true }).click();
+    > 208 |   await expect(page.getByRole('alert')).toContainText(c.codes['stale-revision']);
+          |                                         ^
+      209 |   expect((await state(page)).world.vms).toHaveLength(1);
+      210 |   await page.reload();
+      211 |   await form(page, 'vm-tab-01', '10.30.1.10');
+        at /workspace/Azure-learner/tests/e2e/laboratory-compute.spec.ts:208:41
+
+    Error Context: test-results/laboratory-compute-compute-140c6-ommit-without-duplicate-VMs-desktop-chromium/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/laboratory-compute-compute-140c6-ommit-without-duplicate-VMs-desktop-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/laboratory-compute-compute-140c6-ommit-without-duplicate-VMs-desktop-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+(node:35068) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[4/5] [desktop-chromium] › tests/e2e/laboratory-compute.spec.ts:239:1 › compute explicit reset retains historical through and course bytes while earlier workspace model stays unchanged
+  2) [desktop-chromium] › tests/e2e/laboratory-compute.spec.ts:239:1 › compute explicit reset retains historical through and course bytes while earlier workspace model stays unchanged 
+
+    Error: expect(locator).toHaveText(expected) failed
+
+    Locator:  locator('.portal-title h1')
+    Expected: "Resource groups"
+    Received: "Originale kvitteringer"
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toHaveText" locator('.portal-title h1') with timeout 5000ms
+      - waiting for locator('.portal-title h1')
+        14 × locator resolved to <h1 tabindex="-1" id="lab-page-title">Originale kvitteringer</h1>
+           - unexpected value "Originale kvitteringer"
+
+
+      250 |   const dialog = page.getByRole('dialog');
+      251 |   await dialog.getByRole('button', { name: c.confirmReset, exact: true }).click();
+    > 252 |   await expect(page.locator('.portal-title h1')).toHaveText(c.groups);
+          |                                                  ^
+      253 |   const after = await state(page);
+      254 |   expect(after.world.vms).toEqual([]);
+      255 |   expect(after.world.nics).toEqual([]);
+        at /workspace/Azure-learner/tests/e2e/laboratory-compute.spec.ts:252:50
+
+    Error Context: test-results/laboratory-compute-compute-887b1-space-model-stays-unchanged-desktop-chromium/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/laboratory-compute-compute-887b1-space-model-stays-unchanged-desktop-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/laboratory-compute-compute-887b1-space-model-stays-unchanged-desktop-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+(node:35240) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[5/5] [desktop-chromium] › tests/e2e/laboratory-compute.spec.ts:286:1 › compute compact native keyboard Properties networking focus reduced motion Axe and original three-resource receipt remain usable
+  2 failed
+    [desktop-chromium] › tests/e2e/laboratory-compute.spec.ts:195:1 › compute native two-tab stale review and lost response recover original three-resource commit without duplicate VMs 
+    [desktop-chromium] › tests/e2e/laboratory-compute.spec.ts:239:1 › compute explicit reset retains historical through and course bytes while earlier workspace model stays unchanged 
+  3 passed (52.9s)

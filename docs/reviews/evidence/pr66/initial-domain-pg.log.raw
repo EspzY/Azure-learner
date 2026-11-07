@@ -1,0 +1,33 @@
+
+ RUN  v5.0.5 /workspace/Azure-learner
+
+ ❯ src/laboratory-compute.integration.test.ts (5 tests | 1 failed) 1049ms
+   × reuses server route/policy analysis for persisted VM NICs, read-only and session scoped; corrupt snapshots fail closed 80ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/laboratory-compute.integration.test.ts > reuses server route/policy analysis for persisted VM NICs, read-only and session scoped; corrupt snapshots fail closed
+AssertionError: expected 401 to be 200 // Object.is equality
+
+- Expected
++ Received
+
+- 200
++ 401
+
+ ❯ src/laboratory-compute.integration.test.ts:189:27
+    187|     );
+    188|   const response = await read();
+    189|   expect(response.status).toBe(200);
+       |                           ^
+    190|   expect((await response.json()).analysis).toMatchObject({
+    191|     model: laboratoryModel,
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed | 1 passed (2)
+      Tests  1 failed | 28 passed (29)
+   Start at  22:51:42
+   Duration  1.49s (tests 74%, transform 16%, import 9%, worker 1%)
+

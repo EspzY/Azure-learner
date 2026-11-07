@@ -21,7 +21,10 @@ import Link from 'next/link';
 import { useSearchParams, useRouter } from 'next/navigation';
 import { laboratoryV3Nb as c } from '@/content/nb';
 import type { Snapshot, Request as LabRequest, Command, Receipt, Model } from '@/laboratory/engine';
-import { laboratoryModel } from '@/laboratory/v33/contract';
+import { laboratoryModel } from '@/laboratory/v34/contract';
+import { laboratoryComputeNb as m } from '@/content/laboratory-compute-nb';
+import { images, sizes, diskSizes, childNames } from '@/laboratory/v34/profiles';
+import { ComputeViews, computeFields } from './compute';
 import { laboratoryEndpointsNb as e } from '@/content/laboratory-endpoints-nb';
 import { EndpointViews, PolicyAnalysisView, endpointFields } from './endpoints';
 import { laboratoryRoutingNb as r } from '@/content/laboratory-routing-nb';
@@ -39,7 +42,7 @@ const href = (view: string, id?: string, receipt?: string) =>
   new URLSearchParams({ view, ...(id ? { id } : {}), ...(receipt ? { receipt } : {}) });
 const message = (code: string, operation?: string) =>
   code === 'incompatible-association' &&
-  ['CreateNetworkInterface', 'AssociateNicNsg'].includes(operation ?? '')
+  ['CreateNetworkInterface', 'AssociateNicNsg', 'CreateVirtualMachine'].includes(operation ?? '')
     ? e.associationError
     : code === 'not-associated' && operation === 'DisassociateNicNsg'
       ? e.noAssociation
@@ -55,25 +58,29 @@ const message = (code: string, operation?: string) =>
                 ? c.codes[code as keyof typeof c.codes]
                 : c.unavailable;
 const label = (key: string) =>
-  Object.hasOwn(e.fields, key)
-    ? e.fields[key as keyof typeof e.fields]
-    : Object.hasOwn(r.fields, key)
-      ? r.fields[key as keyof typeof r.fields]
-      : Object.hasOwn(n.fields, key)
-        ? n.fields[key as keyof typeof n.fields]
-        : Object.hasOwn(c.fields, key)
-          ? c.fields[key as keyof typeof c.fields]
-          : key;
+  Object.hasOwn(m.fields, key)
+    ? m.fields[key as keyof typeof m.fields]
+    : Object.hasOwn(e.fields, key)
+      ? e.fields[key as keyof typeof e.fields]
+      : Object.hasOwn(r.fields, key)
+        ? r.fields[key as keyof typeof r.fields]
+        : Object.hasOwn(n.fields, key)
+          ? n.fields[key as keyof typeof n.fields]
+          : Object.hasOwn(c.fields, key)
+            ? c.fields[key as keyof typeof c.fields]
+            : key;
 const operation = (key: string) =>
-  Object.hasOwn(e.operations, key)
-    ? e.operations[key as keyof typeof e.operations]
-    : Object.hasOwn(r.operations, key)
-      ? r.operations[key as keyof typeof r.operations]
-      : Object.hasOwn(n.operations, key)
-        ? n.operations[key as keyof typeof n.operations]
-        : Object.hasOwn(c.operations, key)
-          ? c.operations[key as keyof typeof c.operations]
-          : key;
+  key === 'CreateVirtualMachine'
+    ? m.create
+    : Object.hasOwn(e.operations, key)
+      ? e.operations[key as keyof typeof e.operations]
+      : Object.hasOwn(r.operations, key)
+        ? r.operations[key as keyof typeof r.operations]
+        : Object.hasOwn(n.operations, key)
+          ? n.operations[key as keyof typeof n.operations]
+          : Object.hasOwn(c.operations, key)
+            ? c.operations[key as keyof typeof c.operations]
+            : key;
 async function api(action: string, request?: unknown, workspace?: string) {
   let response: Response, value;
   try {
@@ -241,6 +248,7 @@ export function Laboratory() {
         const kind =
           (
             {
+              CreateVirtualMachine: 'vm',
               CreateNetworkInterface: 'nic',
               CreateVirtualNetwork: 'vnet',
               CreateSubnet: 'subnet',
@@ -331,8 +339,14 @@ export function Laboratory() {
   const world = snapshot?.world,
     network = world && world.model !== 'laboratory@3.0.0' ? world : undefined,
     routing =
-      world?.model === 'laboratory@3.2.0' || world?.model === laboratoryModel ? world : undefined,
-    endpoints = world?.model === laboratoryModel ? world : undefined,
+      world?.model === 'laboratory@3.2.0' ||
+      world?.model === 'laboratory@3.3.0' ||
+      world?.model === laboratoryModel
+        ? world
+        : undefined,
+    endpoints =
+      world?.model === laboratoryModel || world?.model === 'laboratory@3.3.0' ? world : undefined,
+    compute = world?.model === laboratoryModel ? world : undefined,
     view = query.get('view') ?? 'groups',
     id = query.get('id'),
     selectedReceipt = snapshot?.entries.find((e) => e.receipt.commandId === query.get('receipt'));
@@ -358,6 +372,10 @@ export function Laboratory() {
     setForm(type);
     setPreview(null);
     setValues({
+      image: 'ubuntu-22.04-gen2',
+      size: 'Standard_D2s_v4',
+      osDiskSku: 'StandardSSD_LRS',
+      osDiskSizeGiB: '128',
       nicId: endpoints?.nics.find((x) => x.id === id)?.id ?? endpoints?.nics[0]?.id ?? '',
       privateIpAddress: '',
       allocation: 'Static',
@@ -375,7 +393,10 @@ export function Laboratory() {
       contentType: 'text/plain',
       vnetId: chosenVnet,
       subnetId: chosenSubnet?.id ?? network?.subnets.find((x) => x.vnetId === chosenVnet)?.id ?? '',
-      nsgId: network?.nsgs.find((x) => x.id === id)?.id ?? network?.nsgs[0]?.id ?? '',
+      nsgId:
+        type === 'CreateVirtualMachine'
+          ? 'none'
+          : (network?.nsgs.find((x) => x.id === id)?.id ?? network?.nsgs[0]?.id ?? ''),
       addressSpace: '10.20.0.0/16',
       addressPrefix: '10.20.1.0/24',
       direction: 'Inbound',
@@ -414,7 +435,10 @@ export function Laboratory() {
             setValues({
               ...values,
               [key]: e.target.value,
-              ...(key === 'vnetId' && form === 'CreateNetworkInterface' ? { subnetId: '' } : {}),
+              ...(key === 'vnetId' &&
+              ['CreateNetworkInterface', 'CreateVirtualMachine'].includes(form ?? '')
+                ? { subnetId: '' }
+                : {}),
             });
             setPreview(null);
           }}
@@ -466,6 +490,7 @@ export function Laboratory() {
     if (!world || !form || !snapshot) return;
     setBusy(true);
     const keys =
+      computeFields[form] ??
       endpointFields[form] ??
       routingFields[form] ??
       networkFields[form] ??
@@ -536,8 +561,19 @@ export function Laboratory() {
     router.push(href(next, target, receipt));
   };
   const resource = records.find((r) => r.id === id && r.view === view);
-  const section = query.get('section') === 'properties' ? 'properties' : 'overview';
+  const section =
+    query.get('section') === 'properties'
+      ? 'properties'
+      : query.get('section') === 'networking' && view === 'vm' && compute
+        ? 'networking'
+        : 'overview';
   const services: [string, string, string][] = [
+    ...(compute
+      ? ([
+          ['vms', m.vms, 'vm'],
+          ['disks', m.disks, 'disk'],
+        ] as [string, string, string][])
+      : []),
     ...(endpoints
       ? ([
           ['nics', e.nics, 'nic'],
@@ -562,6 +598,8 @@ export function Laboratory() {
   const serviceView = resource
     ? (
         {
+          vm: 'vms',
+          disk: 'disks',
           nic: 'nics',
           group: 'groups',
           account: 'accounts',
@@ -596,21 +634,23 @@ export function Laboratory() {
     services.find(([key]) => key === view)?.[2] ??
     (view === 'history' ? 'activity' : view === 'services' ? 'services' : 'resources');
   const formIcon =
-    form === 'CreateGroup'
-      ? 'groups'
-      : form === 'CreateStorageAccount'
-        ? 'account'
-        : form === 'CreateBlobContainer'
-          ? 'container'
-          : form === 'CreateTextBlob'
-            ? 'blob'
-            : form === 'CreateVirtualNetwork'
-              ? 'vnet'
-              : form === 'CreateSubnet'
-                ? 'subnet'
-                : form === 'CreateNetworkSecurityGroup'
-                  ? 'nsg'
-                  : 'settings';
+    form === 'CreateVirtualMachine'
+      ? 'vm'
+      : form === 'CreateGroup'
+        ? 'groups'
+        : form === 'CreateStorageAccount'
+          ? 'account'
+          : form === 'CreateBlobContainer'
+            ? 'container'
+            : form === 'CreateTextBlob'
+              ? 'blob'
+              : form === 'CreateVirtualNetwork'
+                ? 'vnet'
+                : form === 'CreateSubnet'
+                  ? 'subnet'
+                  : form === 'CreateNetworkSecurityGroup'
+                    ? 'nsg'
+                    : 'settings';
   const parent = records.find((r) => r.id === resource?.parentId);
   const actions: [Command['type'], string][] =
     view === 'nic' && endpoints
@@ -626,6 +666,9 @@ export function Laboratory() {
       : view === 'group'
         ? [
             ['CreateStorageAccount', c.newAccount],
+            ...(compute
+              ? ([['CreateVirtualMachine', m.create]] as [Command['type'], string][])
+              : []),
             ...(endpoints
               ? ([['CreateNetworkInterface', e.operations.CreateNetworkInterface]] as [
                   Command['type'],
@@ -803,6 +846,18 @@ export function Laboratory() {
           {receiptLink(blob.origin)}
         </>
       )}
+      {compute && (
+        <ComputeViews
+          world={compute}
+          view={view}
+          id={id}
+          begin={begin}
+          disabled={busy || !!error}
+          receipt={receiptLink}
+          list={links}
+          networking={query.get('section') === 'networking'}
+        />
+      )}
       {network && (
         <NetworkViews
           world={network}
@@ -833,6 +888,7 @@ export function Laboratory() {
           key={snapshot.workspace + ':' + id}
           snapshot={snapshot}
           initialSource={id}
+          initialNic={query.get('nic')}
           accept={accept}
         />
       )}
@@ -883,6 +939,19 @@ export function Laboratory() {
                     `${selectedReceipt.receipt.beforeRevision} → ${selectedReceipt.receipt.afterRevision}`,
                   ],
                   ['commandId', selectedReceipt.receipt.commandId],
+                  ...selectedReceipt.receipt.addedIds.map(
+                    (id) =>
+                      [
+                        c.id,
+                        records.find((r) => r.id === id) ? (
+                          <Link href={href(records.find((r) => r.id === id)!.view, id)}>
+                            {records.find((r) => r.id === id)!.name} · {id}
+                          </Link>
+                        ) : (
+                          id
+                        ),
+                      ] as [string, React.ReactNode],
+                  ),
                 ]}
               />
               <details>
@@ -915,6 +984,7 @@ export function Laboratory() {
         'container',
         'blob',
         'history',
+        ...(compute ? ['vms', 'vm', 'disks', 'disk'] : []),
         ...(endpoints ? ['nics', 'nic', 'policy'] : []),
         ...(network ? ['vnets', 'vnet', 'subnet', 'nsgs', 'nsg', 'rule'] : []),
         ...(routing
@@ -1095,8 +1165,8 @@ export function Laboratory() {
             </PortalDialog>
           )}
           {newWorkspace && (
-            <PortalDialog title={e.newWorkspace} onClose={() => setNewWorkspace(false)}>
-              <p>{e.newWorkspaceNote}</p>
+            <PortalDialog title={m.newWorkspace} onClose={() => setNewWorkspace(false)}>
+              <p>{m.newWorkspaceNote}</p>
               <button
                 className="primary"
                 disabled={busy}
@@ -1104,7 +1174,7 @@ export function Laboratory() {
                   void start(true);
                 }}
               >
-                {e.newWorkspace}
+                {m.newWorkspace}
               </button>
               <button onClick={() => setNewWorkspace(false)}>{c.cancel}</button>
             </PortalDialog>
@@ -1185,7 +1255,8 @@ export function Laboratory() {
                     value={startModel}
                     onChange={(e) => setStartModel(e.target.value as Model)}
                   >
-                    <option value={laboratoryModel}>3.3 · Storage og Networking A/B/C</option>
+                    <option value={laboratoryModel}>3.4 · Storage, Networking og Compute A</option>
+                    <option value="laboratory@3.3.0">3.3 · Storage og Networking A/B/C</option>
                     <option value="laboratory@3.2.0">3.2 · Storage og Networking A/B</option>
                     <option value="laboratory@3.1.0">3.1 · Storage og Networking A</option>
                     <option value="laboratory@3.0.0">3.0 · Storage</option>
@@ -1210,14 +1281,14 @@ export function Laboratory() {
           {snapshot && world && (
             <>
               {!network && <p className="lab-network-boundary">{n.legacy}</p>}
-              {!endpoints && ['groups', 'services'].includes(view) && (
+              {!compute && ['groups', 'services'].includes(view) && (
                 <div className="lab-network-boundary">
-                  <p>{e.legacy}</p>
+                  <p>{m.legacy}</p>
                   <button
                     disabled={busy || !!pendingView || !!error}
                     onClick={() => setNewWorkspace(true)}
                   >
-                    {e.newWorkspace}
+                    {m.newWorkspace}
                   </button>
                 </div>
               )}
@@ -1261,6 +1332,77 @@ export function Laboratory() {
                                 ? c.blobLimit
                                 : undefined,
                         )}
+                      {compute && form === 'CreateVirtualMachine' && (
+                        <>
+                          {field(
+                            'groupId',
+                            c.group,
+                            world.groups.map((g) => [g.id, groupScope(g.id)]),
+                          )}
+                          {field('region', c.region, regions)}
+                          {field(
+                            'image',
+                            m.image,
+                            images.map((x) => [x.id, x.name]),
+                            m.imageNote,
+                          )}
+                          {field(
+                            'size',
+                            m.size,
+                            sizes.map((x) => [
+                              x.id,
+                              `${x.id} · ${x.vcpus} vCPU / ${x.memoryGiB} GiB`,
+                            ]),
+                          )}
+                          {field(
+                            'vnetId',
+                            n.vnet,
+                            compute.vnets.map((v) => [v.id, vnetScope(v.id)]),
+                          )}
+                          {field(
+                            'subnetId',
+                            n.subnet,
+                            compute.subnets
+                              .filter((x) => x.vnetId === values.vnetId)
+                              .map((x) => [x.id, `${x.name} · ${x.addressPrefix}`]),
+                          )}
+                          {field(
+                            'privateIpAddress',
+                            e.fields.privateIpAddress,
+                            undefined,
+                            m.staticNote,
+                          )}
+                          {field('allocation', e.fields.allocation, [['Static', 'Static']])}
+                          {field('nsgId', n.nsg, [
+                            ['none', m.none],
+                            ...compute.nsgs.map(
+                              (x) =>
+                                [x.id, `${x.name} · ${groupScope(x.groupId)} · ${x.region}`] as [
+                                  string,
+                                  string,
+                                ],
+                            ),
+                          ])}
+                          {field('osDiskSku', m.osDiskSku, [
+                            ['StandardSSD_LRS', 'Standard SSD LRS'],
+                          ])}
+                          {field(
+                            'osDiskSizeGiB',
+                            m.osDiskSizeGiB,
+                            diskSizes.map((x) => [x, x]),
+                          )}
+                          <p>
+                            {m.nameNote} {m.childNote}
+                          </p>
+                          <PropertyList
+                            items={[
+                              [m.nicName, childNames(values.name ?? '').nic],
+                              [m.osDiskName, childNames(values.name ?? '').disk],
+                            ]}
+                          />
+                          <p>{m.boundary}</p>
+                        </>
+                      )}
                       {endpoints && endpointFields[form] && (
                         <>
                           {form === 'CreateNetworkInterface' && (
@@ -1544,9 +1686,38 @@ export function Laboratory() {
                       <PropertyList
                         items={Object.entries(preview.request.command).map(([k, v]) => [
                           label(k),
-                          v,
+                          k === 'image'
+                            ? (images.find((x) => x.id === v)?.name ?? v)
+                            : k === 'nsgId' && v === 'none'
+                              ? m.none
+                              : records.find((x) => x.id === v)
+                                ? `${records.find((x) => x.id === v)!.name} · ${v}`
+                                : v,
                         ])}
                       />
+                      {preview.request.command.type === 'CreateVirtualMachine' && (
+                        <PropertyList
+                          items={[
+                            [m.nicName, childNames(preview.request.command.name).nic],
+                            [m.osDiskName, childNames(preview.request.command.name).disk],
+                            [
+                              'VNet',
+                              compute?.vnets.find(
+                                (v) =>
+                                  v.id ===
+                                  compute.subnets.find(
+                                    (x) =>
+                                      x.id ===
+                                      (
+                                        preview.request
+                                          .command as import('@/laboratory/v34/contract').ComputeCommand
+                                      ).subnetId,
+                                  )?.vnetId,
+                              )?.name,
+                            ],
+                          ]}
+                        />
+                      )}
                       <button
                         className="primary"
                         disabled={busy || preview.receipt.outcome !== 'accepted' || !!error}
@@ -1588,6 +1759,18 @@ export function Laboratory() {
                           icon: 'activity',
                           onSelect: () => visit('history', undefined, resource.origin),
                         },
+                        ...(compute && resource.view === 'vm'
+                          ? [
+                              {
+                                key: 'networking',
+                                label: m.network,
+                                icon: 'nic',
+                                active: section === 'networking',
+                                onSelect: () =>
+                                  router.push(href(view, id ?? undefined) + '&section=networking'),
+                              },
+                            ]
+                          : []),
                         ...(routing && resource.view === 'vnet'
                           ? [
                               {
@@ -1617,16 +1800,32 @@ export function Laboratory() {
                       <h2>{nb.portalUi.properties}</h2>
                       <PropertyList
                         items={Object.entries(resource.source).map(([key, value]) => [
-                          label(key),
-                          value === null
-                            ? '—'
-                            : ['origin', 'associationOrigin', 'routeAssociationOrigin'].includes(
-                                  key,
-                                )
-                              ? receiptLink(String(value))
-                              : typeof value === 'object'
-                                ? JSON.stringify(value)
-                                : String(value),
+                          resource.view === 'disk' && key === 'sku' ? m.osDiskSku : label(key),
+                          value === null ? (
+                            '—'
+                          ) : ['origin', 'associationOrigin', 'routeAssociationOrigin'].includes(
+                              key,
+                            ) ? (
+                            receiptLink(String(value))
+                          ) : [
+                              'nicId',
+                              'osDiskId',
+                              'subnetId',
+                              'vnetId',
+                              'groupId',
+                              'nsgId',
+                              'routeTableId',
+                            ].includes(key) && records.some((r) => r.id === value) ? (
+                            <Link
+                              href={href(records.find((r) => r.id === value)!.view, String(value))}
+                            >
+                              {records.find((r) => r.id === value)!.name} · {String(value)}
+                            </Link>
+                          ) : typeof value === 'object' ? (
+                            JSON.stringify(value)
+                          ) : (
+                            String(value)
+                          ),
                         ])}
                       />
                     </>

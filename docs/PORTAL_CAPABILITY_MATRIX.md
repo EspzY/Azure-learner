@@ -1,5 +1,9 @@
 # PR50 — Portal capability and fidelity matrix
 
+## PR66 — Compute Part A
+
+New explicit `laboratory@3.4.0` workspaces expose CreateVirtualMachine through the shared Portal Review/Create flow, with one new primary static-IPv4 NIC and one managed OS disk. VM/NIC/disk lists, Overview/Properties/Networking, original receipts and existing read-only route/NSG analysis use the same PostgreSQL World. Existing3.0–3.3 retain original capabilities. OS disks are metadata, images are symbolic configuration, no VM/runtime/start/stop/SSH/RDP or real traffic. Local PostgreSQL/isolated CI only; public503 remains intentional. See [the bounded contract](LABORATORY_COMPUTE_PART_A.md).
+
 ## PR65 scoped extension
 
 PR65 scoped extension: new3.3 workspaces expose CreateNetworkInterface, AssociateNicNsg and DisassociateNicNsg through shared Review/Create/Apply and original receipts. One primary static private IPv4; same subscription/region as VNet, first4/last reserved, unique per subnet. Read-only NSG Policy Analysis uses actual persisted NICs and frozen routing, four ordered NSG layers and partial service-tag knowledge. No VM runtime/packet delivery/Network Watcher/full tags. Existing3.0/3.1/3.2 workspaces retain original capabilities. See [Part C](LABORATORY_NETWORKING_PART_C.md).

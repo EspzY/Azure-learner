@@ -5,6 +5,7 @@ import type { World, Command } from '@/laboratory/v32/contract';
 import type { Snapshot } from '@/laboratory/engine';
 import type { Analysis } from '@/laboratory/v32/analysis';
 import { routingProjection } from '@/laboratory/v33/projection';
+import { endpointProjection } from '@/laboratory/v34/projection';
 import { peeringStatus } from '@/laboratory/v32/peering';
 import { laboratoryRoutingNb as r } from '@/content/laboratory-routing-nb';
 import { laboratoryV3Nb as c } from '@/content/nb';
@@ -28,7 +29,8 @@ export function RoutingViews({
   receipt,
   list,
 }: {
-  world: World | import('@/laboratory/v33/contract').World;
+  world:
+    World | import('@/laboratory/v33/contract').World | import('@/laboratory/v34/contract').World;
   view: string;
   id: string | null;
   begin: (type: Command['type']) => void;
@@ -99,7 +101,14 @@ export function RoutingViews({
               [r.fields.remoteVnetId, vnetLink(peering.remoteVnetId)],
               [
                 'Status',
-                peeringStatus(w.model === 'laboratory@3.3.0' ? routingProjection(w) : w, peering),
+                peeringStatus(
+                  w.model === 'laboratory@3.4.0'
+                    ? routingProjection(endpointProjection(w))
+                    : w.model === 'laboratory@3.3.0'
+                      ? routingProjection(w)
+                      : w,
+                  peering,
+                ),
               ],
               [r.fields.allowVirtualNetworkAccess, 'Aktivert'],
             ]}
@@ -190,10 +199,12 @@ export function RoutingViews({
 export function RouteAnalysis({
   snapshot,
   initialSource,
+  initialNic,
   accept,
 }: {
   snapshot: Snapshot;
   initialSource: string | null;
+  initialNic?: string | null;
   accept: (s: Snapshot) => void;
 }) {
   const [source, setSource] = useState(initialSource ?? ''),
@@ -201,7 +212,12 @@ export function RouteAnalysis({
     [busy, setBusy] = useState(false),
     [error, setError] = useState(''),
     [result, setResult] = useState<
-      ((Analysis | import('@/laboratory/v33/route').RouteAnalysis) & { workspace: string }) | null
+      | ((
+          | Analysis
+          | import('@/laboratory/v33/route').RouteAnalysis
+          | import('@/laboratory/v34/analysis').RouteAnalysis
+        ) & { workspace: string })
+      | null
     >(null);
   const current = useRef(snapshot);
   const mounted = useRef(true);
@@ -225,8 +241,16 @@ export function RouteAnalysis({
       heading.current?.focus({ preventScroll: true });
     }
   }, [result, snapshot.workspace, snapshot.world.revision]);
-  if (snapshot.world.model !== 'laboratory@3.2.0' && snapshot.world.model !== 'laboratory@3.3.0')
+  if (
+    snapshot.world.model !== 'laboratory@3.2.0' &&
+    snapshot.world.model !== 'laboratory@3.3.0' &&
+    snapshot.world.model !== 'laboratory@3.4.0'
+  )
     return null;
+  const nicContext =
+    snapshot.world.model === 'laboratory@3.4.0'
+      ? snapshot.world.nics.find((x) => x.id === initialNic && x.subnetId === source)
+      : undefined;
   const calculate = async () => {
     const workspace = snapshot.workspace;
     setBusy(true);
@@ -270,6 +294,14 @@ export function RouteAnalysis({
   return (
     <section className="lab-route-analysis">
       <p>{r.priority}</p>
+      {nicContext && (
+        <p>
+          NIC:{' '}
+          <Link href={href('nic', nicContext.id)}>
+            {nicContext.name} · {nicContext.privateIpAddress} · {nicContext.id}
+          </Link>
+        </p>
+      )}
       <form
         onSubmit={(e) => {
           e.preventDefault();
