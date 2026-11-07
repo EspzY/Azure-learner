@@ -541,10 +541,10 @@
   ],
   "review": {
     "status": "complete",
-    "fingerprint": "e71fdd510497e6b5fe4579b4e8cd025585606830ef38a7ed2fa324db23feeaa4",
+    "fingerprint": "967ae47608774d88ded432af8b851c88b48ad0844fbf1d797884b63c1f2e83e9",
     "reviewer": { "id": "pr66-independent-final-auditor", "kind": "agent" },
-    "started": "2026-11-07T23:24:56.107Z",
-    "completed": "2026-11-07T23:26:43.687Z",
+    "started": "2026-11-07T23:28:49.333Z",
+    "completed": "2026-11-07T23:29:46.000Z",
     "domains": {
       "content": {
         "finding": "New metadata-only Compute claims checked against actual Microsoft HTML/text;14saved hashes and4fresh byte-identical HTTP200 sources verified. Symbolic images, Dsv4/x64/Gen2, naming subset, disk and no-runtime/capacity boundaries are explicit. Existing AZ-900 content/source bytes preserved; no human SME approval.",
@@ -598,7 +598,7 @@
         ]
       },
       "regression": {
-        "finding": "Final106-file snapshot/fingerprint independently exact; follow-up changes only one new assertion and four evidence paths, with prior bytes preserved. Native7/7 plus2external probes passed initially; corrected affected journey1/1 passed. Original420controls/settings remain in426profile. Author933Vitest/24Node/fullcheck evidence inspected; complete candidate CI/strict and public exact-SHA checks remain pending.",
+        "finding": "Final107-file snapshot/fingerprint independently exact. Artifact-only follow-up adds one scoped PR66 *.raw -text rule; all prior106 working payload hashes remain unchanged. Original full-check raw CRLF bytes now equal staged and checkout-filtered bytes, and all107 staged normalized hashes match. Prior domain/realPG/native/capture results remain valid; no runtime/test/QA threshold change. Original420controls/settings remain in426profile. Complete candidate CI/strict and public exact-SHA checks remain pending.",
         "evidence": [
           { "path": "docs/quality/PR66_FINAL_AUDIT.md" },
           { "path": "docs/reviews/evidence/pr66/full-check-final.log.raw" },
@@ -629,6 +629,23 @@
             "marker": "toHaveText(disk.name)"
           }
         ]
+      },
+      {
+        "id": "PR66-IFA-02",
+        "severity": "note",
+        "status": "fixed",
+        "description": "Owner identified before push that root text=auto normalized3CRLF sequences in one new raw full-check log when staging the initial unpublished commit. Reviewer independently confirmed only line-ending conversion; original working evidence and all106 prior payload hashes were unchanged.",
+        "fix": "Add only scoped docs/reviews/evidence/pr66/.gitattributes with *.raw -text; stage the original raw bytes. Parent/global attributes and earlier evidence untouched. Independent full107-file/staged-blob/checkout-filter checks now match exact original evidence.",
+        "retests": [
+          {
+            "path": "docs/quality/PR66_FINAL_AUDIT.md",
+            "marker": "Artifact-only follow-up — final107-file binding"
+          },
+          {
+            "path": "docs/reviews/evidence/pr66/.gitattributes",
+            "marker": "*.raw -text"
+          }
+        ]
       }
     ],
     "report": { "path": "docs/quality/PR66_FINAL_AUDIT.md" }
@@ -641,6 +658,7 @@
       "docs/DECISIONS.md": "10922d9fb852b6a47e5cab89bd9a65d75197bd7ea9c742af8b4c7ae45aa71a30",
       "docs/LABORATORY_COMPUTE_PART_A.md": "fa54ece26499c3eb373e127ff95a820d70856646e164db6fa48c631995e9f5be",
       "docs/PORTAL_CAPABILITY_MATRIX.md": "59cbfdb4a983e1eacc7dea5dcb3f79758e2b5569d605fa1bea1d03a183a6a909",
+      "docs/reviews/evidence/pr66/.gitattributes": "1d7ed204fb616eb95f564f6dcc5dde9f27e59b038bd6eaab8ba61945daa4ee90",
       "docs/reviews/evidence/pr66/NAVIGATION_INVESTIGATION.md": "d44a2c5a86dbc2e821592c891da23a7fe41152348ff62471066c8f87bbe10fa4",
       "docs/reviews/evidence/pr66/audit-original/mislabeled-vm-os-disk.png": "f36902f97946f7b1bfac50e1dda3d7f0cbcedb4c87a5f45c4d337ac954a3fa23",
       "docs/reviews/evidence/pr66/before-capture.json": "97399d295cb2af1b5b759b3bd6587348284377d5f01978ae6f4298b6571699b5",
@@ -743,5 +761,5 @@
       "tests/pr66-preservation.ts": "17a2858a370b637c32d3f9aa4cfedeecdea20dc2f75b538ddc23245138f5515f"
     }
   },
-  "implementationFinished": "2026-11-07T23:24:30.589Z"
+  "implementationFinished": "2026-11-07T23:28:15.196Z"
 }
