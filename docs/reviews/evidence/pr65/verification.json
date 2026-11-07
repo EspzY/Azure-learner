@@ -1,0 +1,81 @@
+{
+  "base": "42ab1ba33c1972fc685f09097eb7e4de48a3e7fd",
+  "status": "Corrected candidate local final production verification complete; original independently confirmed MAJOR and raw reproducer preserved. Follow-up post-stamp review is in docs/quality/PR65_FINAL_AUDIT.md. Exact-head completeCI/strict and anonymous deployed-SHA are PR delivery gates, not claimed here.",
+  "initialFailures": [
+    {
+      "command": "first new domain run",
+      "result": "26passed1failed",
+      "reason": "New peering fixture reused the same name within a VNet. Corrected unique names; no evaluator change."
+    },
+    {
+      "command": "first PG migration run",
+      "result": "30passed1failed",
+      "reason": "Expected Snapshot omitted original historical=false field; corrected expected original shape."
+    },
+    {
+      "command": "first native start",
+      "result": "no tests executed",
+      "reason": "Author launched browser server before build completion. Retained harness sequencing error; later launches use complete production build."
+    },
+    {
+      "command": "first completed native profile",
+      "result": "4passed1failed54.6s0retry",
+      "reason": "Held-response test expected role alert; actual stale-result status hid obsolete result and preserved revision. Corrected only new test to assert explicit stale message and no outcome."
+    },
+    {
+      "command": "first preservation integration",
+      "result": "51passed2failed",
+      "reason": "Import replacement also modified an old assertion literal. Restored byte-identical old body and changed only first import occurrence. Renewed6 preservation checks passed."
+    },
+    {
+      "command": "first fullcheck typecheck",
+      "result": "failed before lint/tests/build",
+      "reason": "New test-only reader inferred NonSharedBuffer under Node26 types. Added explicit Buffer annotation; full check then passed."
+    },
+    {
+      "command": "pre-stamp final renewal format check",
+      "result": "failed",
+      "reason": "New release-evidence JSON was written after the check started and needed formatting. Evidence preparation now finishes before serial verification."
+    },
+    {
+      "command": "independent final native duplicate-scope probe",
+      "result": "MAJOR PR65-AUDIT-01 confirmed",
+      "reason": "NIC names/IP/subnet names repeated across distinct RG/VNets produced indistinguishable selection/result text. Read-only domain outcomes remained correct. Added authoritative full scope and stable ID to text plus actual native regression."
+    }
+  ],
+  "results": [
+    {
+      "command": "npm run check",
+      "result": "passed",
+      "details": "898 Vitest/74files,24 Node,503curriculum,57objectives/126facets,181Markdown,types/lint/format/docs/quality/legacy/assets/productionbuild passed. Actual isolated PostgreSQL included."
+    },
+    {
+      "command": "targeted new domain/PG/preservation",
+      "result": "passed",
+      "details": "27pure domain +4 real PostgreSQL +3 scoped preservation tests; inherited preservation six-test run also passed."
+    },
+    {
+      "command": "30 scoped browser controls",
+      "result": "passed",
+      "details": "30/30,2.7min,0retry/0flaky/0skip. Existing Storage/NetworkingA/B/sharedPortal/currentv2 included. Native localPG; no injected positive World."
+    },
+    {
+      "command": "final normal production browser controls",
+      "result": "passed",
+      "details": "After independent identity correction:6/6,54.5s,0retry/flaky/skip. Includes native duplicate names/IP/VNet/subnet across two RGs, visibly different source/destination scope and stable IDs, correct Allow versus Undetermined, read-only state and reload; plus all original native NIC/NSG/receipt/concurrency/stale/compact/Axe controls."
+    },
+    {
+      "command": "npm run test:e2e:plan",
+      "result": "passed",
+      "details": "420=378desktop+42compact; all414priorcontrols/settings retained;5newdesktop+1compact;legacy756 available;worker1. Extra duplicate-scope witness addresses actual independent MAJOR."
+    }
+  ],
+  "limits": "No external database or public functional Laboratory Gate7. No retries/timeouts/workers/skips changed. Historical Compute/Axe uncertainties remain. Human reviews unperformed.",
+  "at": "2026-11-07T15:27:40.281238+00:00",
+  "independentOriginalEvidence": {
+    "identity-nic-4.png": "0989dc42110794c657389be330eaa26d7b52b11b385aa7b60514ec57df01eea5",
+    "identity-nic-8.png": "5ae942a2657b96240b2fe4aa0066c922418763d471d9826d63171c6d0c0ba5bf",
+    "identity-probe.json.raw": "ab3ced47dd9e15a413488d8e55c7ea2020d29f8483c2326098f5f23d29def23c"
+  },
+  "independentOriginalEvidenceNote": "Original reviewer JSON retained byte-identically with .raw suffix to avoid reformatting locked observational evidence. PNGs are exact original bytes; initial report/fingerprint remain in separate audit section."
+}

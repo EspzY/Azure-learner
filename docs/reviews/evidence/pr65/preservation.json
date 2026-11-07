@@ -1,0 +1,74 @@
+{
+  "base": "42ab1ba33c1972fc685f09097eb7e4de48a3e7fd",
+  "scope": "Explicit3.3 dispatcher/API/migration initialization/free Portal and two historical test-only read adapters. All other old bytes physically frozen.",
+  "files": {
+    "AGENTS.md": {
+      "before": "402e4bc20878450b322b5ccdc9f06c8b8047dffb54e8627e51a7e1a84b492a3a",
+      "after": "739e96c8a90c24a8e71d4bf21be7c58e6c5f982de1a85148d937294965023e90"
+    },
+    "docs/ARCHITECTURE.md": {
+      "before": "ac4e2406d6426f521c8d87f9e0bad60fe0a704520da0bc20a12b876fee5cd0ef",
+      "after": "f33b9d50906804c0879f0013632f6827c6f9b9f731c91070f93f5d6e6cabaa46"
+    },
+    "docs/DECISIONS.md": {
+      "before": "855537171f216d043ec73a12cb50673f79f85d1da21088919edb8183a385ab6d",
+      "after": "d9aef7bdfda528a160a0e4a3113d8c057de201cc2db0fea79b011235ff68c15c"
+    },
+    "docs/PORTAL_CAPABILITY_MATRIX.md": {
+      "before": "a965b437494a35e50096122564387dc7f4727cbc081804d797c4f2efc4efd413",
+      "after": "95755d7fac9f1f50aea22eb29f04e1bb7d76b4c8bc808c72bcd1fadf5fb2c6d3"
+    },
+    "playwright.desktop.config.ts": {
+      "before": "e0093d11462c1ed4cd45c4f1d0037ced78045b36820e4d2f8a14ac42a4ca4463",
+      "after": "2be5cdf4145c625332266c6642ed36dfac64f49955094537391b4db76631fcad"
+    },
+    "scripts/laboratory-db.mjs": {
+      "before": "f37e1329c6382a47bcc6e95a8d8301d31a2492114da07eae6b6e607d403b86e3",
+      "after": "e405aa2d8141d5846f750c0d9f0a0d758121a8fbfb3c99556f81639708d0ef17"
+    },
+    "src/content/portal-workspace-nb.ts": {
+      "before": "f464a75091cec11511aeea1267ecf7a1b89ea7a9902c9e3ab901cb935e6bff05",
+      "after": "6b0ac0c3ffa9dce3b3bf83cfa2f9cbf74613e3ec3deb0ad123af67a300bd5e8a"
+    },
+    "src/features/laboratory/laboratory.css": {
+      "before": "4b330436cbae4b9daae3858376f391569c1eeff9907ea2ff3f145cd256578447",
+      "after": "685911aad7d483295606917e71e4140e79301266251c7b45197fb640cbf54409"
+    },
+    "src/features/laboratory/laboratory.tsx": {
+      "before": "67ff98c97cb3891414fb09ed56465a211d124c85ca8bef7d7eee18599b275079",
+      "after": "5a7699057898defc54614150a73c8733c4ce544a13dfa2ebf8ba64119df8c7a2"
+    },
+    "src/features/laboratory/networking.tsx": {
+      "before": "6b113f457ebd2f93d7ab297e87b1f571211deffb5331ac85f77863af5ccdbc78",
+      "after": "40bf6db2cce05ac4f088dee6ae6e984e0daab29540b08376af15a66e7796bd56"
+    },
+    "src/features/laboratory/portal-adapter.tsx": {
+      "before": "c6f483076dbb7825f18e7ddb94b89c8c5774f8d1f9c1314bdfaf1b64db078335",
+      "after": "704fe4b26a2d511e8582255e339f7195dc1adc05ae0c91ac9fae690a82283cee"
+    },
+    "src/features/laboratory/routing.tsx": {
+      "before": "9a4d63c719b79eaccd8ecded891260392f4be334548bd470d1e6b63b590c058f",
+      "after": "4ffa53779b32e82adc5e1ceb7000a49c731bb3d9e0168790f8c31f81af4c6574"
+    },
+    "src/laboratory-routing-preservation.test.ts": {
+      "before": "5d6b44c368853f54cea968bf2b348b4e796f78795a7b43c74313c14b906156ff",
+      "after": "d2d9d0cb2d6cef78e26049a4781f280de189bfa115081dcec36d608a04430ab1"
+    },
+    "src/laboratory/engine.ts": {
+      "before": "4aa824741a39580b0a746b7421ad71364155df1fcbc6f7a7a4dfb7912b4e9f8a",
+      "after": "9a0254e5d635b8505f4524fbc1214e8926c2ac8644683d348f72c8ac545d2cf0"
+    },
+    "src/laboratory/v3/server.ts": {
+      "before": "cd97b2b62b4c77a1a30a8c730f7aeda06f2dffd47bb998445fa5e75ff99c0440",
+      "after": "98f477b107b3ededd284d28a2ced0862b57efff2588ad095651e83786c87f940"
+    },
+    "tests/e2e/laboratory-routing.spec.ts": {
+      "before": "00fe267cac6d5f141e5ca734ddc299a4065f5790032c3043fe315b905626558b",
+      "after": "e9885433c96f663a58861ca315784a8dcefee88bf54a1fbe0b6df769fa570d22"
+    },
+    "tests/pr64-preservation.ts": {
+      "before": "b8bde4d24c2723e6a5f2133e9ea74ad76f8eb5c8c7a1993ca531babbe1492c2d",
+      "after": "a51d5a17740ee881c653d782cae81d334cc232ceec14651f7b61786cbd9db1db"
+    }
+  }
+}

@@ -1,5 +1,9 @@
 ## PR61 — ny produktinngang, kandidat6.november2026
 
+## PR65 Networking Part C — prepublication candidate
+
+New3.3 NIC/static-IP and read-only four-layer NSG new-initiation policy operate in the shared Portal and original PostgreSQL World. Local fullcheck:898Vitest/24Node/503curriculum/build;30 existing/new scoped browser controls and final6/6 production controls passed without retry. Profile420 retains every414 prior control. Old engines/SQL/course/receipts and locked evidence are byte-preserved. Separate post-stamp review is recorded in [PR65 audit](quality/PR65_FINAL_AUDIT.md); complete exact-head CI/strict and deployed-SHA checks are publication gates tracked in the Draft PR. This section records prepublication evidence, not an invented delivery pass. Public functional Laboratory remains owner-deferred without a database; expected503 is not functional Gate7. [Contract](LABORATORY_NETWORKING_PART_C.md).
+
 ## PR64 — Networking Part B candidate
 
 Local implementation adds peerings, Route Tables, bounded UDR and read-only route selection in the shared free Portal. New immutable model3.2 and additive migration003; original3.0/3.1/course authorities preserved. Local fullcheck864Vitest/24Node/503curriculum and final real-PG browser9+2 controls passed without retry. Separate post-stamp audit completed with no open BLOCKER/MAJOR; its Route Table wording finding was fixed and independently rechecked. Complete414-case CI/strict and anonymous deployed-SHA evidence are delivery checks reported on PR64. Public persistent Laboratory remains owner-deferred; no public functional-Laboratory claim. No external DB, merge or production deployment.

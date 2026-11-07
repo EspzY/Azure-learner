@@ -4,6 +4,9 @@ import { Repository, LabError } from './repository';
 import { parseRequest, models, type Model } from '../engine';
 import { laboratoryModel as routingModel } from '../v32/contract';
 import { analyseRoutes } from '../v32/analysis';
+import { laboratoryModel as endpointModel } from '../v33/contract';
+import { analyseRoutes as analyseEndpointRoutes } from '../v33/route';
+import { analysePolicy } from '../v33/policy';
 let pool: Pool | undefined;
 function config() {
   const connectionString = process.env.LAB_DATABASE_URL,
@@ -82,7 +85,7 @@ async function body(req: Request) {
 }
 export async function handle(
   req: Request,
-  action: 'session' | 'state' | 'review' | 'command' | 'analysis',
+  action: 'session' | 'state' | 'review' | 'command' | 'analysis' | 'policy-analysis',
 ) {
   try {
     const cfg = config(),
@@ -96,7 +99,13 @@ export async function handle(
       throw new LabError('origin-denied', 403);
     const url = new URL(req.url);
     const queryKeys =
-      action === 'state' ? ['through'] : action === 'analysis' ? ['subnetId', 'destination'] : [];
+      action === 'state'
+        ? ['through']
+        : action === 'analysis'
+          ? ['subnetId', 'destination']
+          : action === 'policy-analysis'
+            ? ['sourceNicId', 'destinationNicId', 'protocol', 'sourcePort', 'destinationPort']
+            : [];
     if (
       [...url.searchParams.keys()].some((k) => !queryKeys.includes(k)) ||
       queryKeys.some((k) => url.searchParams.getAll(k).length > 1)
@@ -158,8 +167,30 @@ export async function handle(
       const snapshot = await repo.read(session);
       if (req.headers.get('If-Laboratory-Workspace') !== snapshot.workspace)
         throw new LabError('workspace-changed', 409);
-      if (snapshot.world.model !== routingModel) throw new LabError('unsupported-model', 422);
-      const result = analyseRoutes(snapshot.world, subnetId, destination);
+      if (snapshot.world.model !== routingModel && snapshot.world.model !== endpointModel)
+        throw new LabError('unsupported-model', 422);
+      const result =
+        snapshot.world.model === routingModel
+          ? analyseRoutes(snapshot.world, subnetId, destination)
+          : analyseEndpointRoutes(snapshot.world, subnetId, destination);
+      if (!result.ok) throw new LabError(result.code, 422);
+      return json({ ...snapshot, analysis: result.analysis });
+    }
+    if (action === 'policy-analysis') {
+      const values = Object.fromEntries(queryKeys.map((k) => [k, url.searchParams.get(k)]));
+      if (queryKeys.some((k) => !values[k] || values[k]!.length > (k.endsWith('NicId') ? 80 : 10)))
+        throw new LabError('invalid-query', 400);
+      const snapshot = await repo.read(session);
+      if (req.headers.get('If-Laboratory-Workspace') !== snapshot.workspace)
+        throw new LabError('workspace-changed', 409);
+      if (snapshot.world.model !== endpointModel) throw new LabError('unsupported-model', 422);
+      const result = analysePolicy(snapshot.world, {
+        sourceNicId: values.sourceNicId!,
+        destinationNicId: values.destinationNicId!,
+        protocol: values.protocol!,
+        sourcePort: values.sourcePort!,
+        destinationPort: values.destinationPort!,
+      });
       if (!result.ok) throw new LabError(result.code, 422);
       return json({ ...snapshot, analysis: result.analysis });
     }

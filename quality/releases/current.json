@@ -1,225 +1,231 @@
 {
   "schema": 1,
-  "id": "PR64-laboratory-networking-part-b",
-  "baseCommit": "33065cb3cf69f6c9ba5e3d04496e386a2f7f92be",
-  "author": "pr64-networking-author",
+  "id": "PR65-network-endpoints-nsg",
+  "baseCommit": "42ab1ba33c1972fc685f09097eb7e4de48a3e7fd",
+  "author": "pr65-endpoint-author",
   "scope": {
     "kind": "server-laboratory-networking",
-    "description": "Operative versioned peerings, Route Tables/UDR and persisted-World read-only explainable route selection in the existing shared Portal, preserving historical engines and all course state.",
-    "objectives": ["LAB-NETWORKING-B"]
+    "description": "NIC static private IPv4 resources, original NIC NSG associations and persisted-World read-only explainable four-layer NSG new-initiation policy, preserving frozen prior models and course state.",
+    "objectives": ["LAB-NETWORKING-C"]
   },
   "sources": [
     {
-      "id": "routing",
-      "url": "https://learn.microsoft.com/en-us/azure/virtual-network/virtual-networks-udr-overview",
-      "title": "routing — official Microsoft networking contract",
-      "reviewed": "2026-11-07T13:16:29.015673+00:00",
-      "version": "Retrieved HTML SHA256 4ca0afedaf9a73e808e1da2ecd0dc5095d46489b44b0988cc874cec35f87159d",
+      "id": "nic",
+      "url": "https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-network-interface",
+      "title": "nic — official Microsoft NIC/NSG networking reference",
+      "reviewed": "2026-11-07T15:03:09.532492+00:00",
+      "version": "Retrieved HTML SHA256 893b2c8de8d36a9e9e1e13994d7bfe66189c451f29ae2fde3942011be56ab8be",
       "kind": "official-public-Microsoft-Learn-ARM",
-      "objectives": ["LAB-NETWORKING-B"],
-      "claims": ["network.selection", "network.routes"],
+      "objectives": ["LAB-NETWORKING-C"],
+      "claims": ["network.endpoints"],
       "availability": "AVAILABLE",
-      "limits": "New explicit immutable laboratory@3.2.0 workspaces only. Frozen3.0/3.1 and all course/v2/history untouched. Read-only route selection, not packet/NSG/end-to-end traffic or Network Watcher. No BGP/endpoints/gateway/appliance/Firewall/transit. Local PG/CI only; public persistent Laboratory owner-deferred with honest503. No external resources, Vercel secrets, migration, XP or merge/deploy. Human SME/learning/UX/screen-reader/security review unperformed.",
+      "limits": "Explicit new immutable laboratory@3.3.0 only. Frozen3.0/3.1/3.2, SQL001–003, v2/course/assessments/history/XP unchanged. Static private NICs and bounded read-only new-initiation policy; partial service tags, no VM/runtime/traffic/stateful connection/verified connectivity/Network Watcher. No external database, migration/import, secrets, merge/deploy. Public persistent Laboratory owner-deferred with honest503. Human SME/learning/UX/screen-reader/security review unperformed.",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/virtual-network/virtual-networks-udr-overview",
+          "url": "https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-network-interface",
           "disposition": "reviewed-essential",
-          "reason": "Actual scoped HTML/text retrieved and read; fetched source hashes retained. Unimplemented linked services/advanced options expressly excluded, no copied course/assessment text."
+          "reason": "Actual scoped HTML/text retrieved and read; dated fetch hashes retained. Advanced resources and full tag resolution explicitly unsupported."
         }
       ]
     },
     {
-      "id": "peering",
-      "url": "https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-manage-peering",
-      "title": "peering — official Microsoft networking contract",
-      "reviewed": "2026-11-07T13:16:29.193656+00:00",
-      "version": "Retrieved HTML SHA256 1a53e892df336369542b2e9ebd32b8fd5a2454a1b7f782f3744c0773d88ddbb0",
+      "id": "nsg",
+      "url": "https://learn.microsoft.com/en-us/azure/virtual-network/network-security-groups-overview",
+      "title": "nsg — official Microsoft NIC/NSG networking reference",
+      "reviewed": "2026-11-07T15:03:09.534970+00:00",
+      "version": "Retrieved HTML SHA256 bc347ceb6bf037a4843546842ea366a982d01a703249ada01ae89144521a6753",
       "kind": "official-public-Microsoft-Learn-ARM",
-      "objectives": ["LAB-NETWORKING-B"],
-      "claims": ["network.peering"],
+      "objectives": ["LAB-NETWORKING-C"],
+      "claims": ["network.nsg", "network.policy"],
       "availability": "AVAILABLE",
-      "limits": "New explicit immutable laboratory@3.2.0 workspaces only. Frozen3.0/3.1 and all course/v2/history untouched. Read-only route selection, not packet/NSG/end-to-end traffic or Network Watcher. No BGP/endpoints/gateway/appliance/Firewall/transit. Local PG/CI only; public persistent Laboratory owner-deferred with honest503. No external resources, Vercel secrets, migration, XP or merge/deploy. Human SME/learning/UX/screen-reader/security review unperformed.",
+      "limits": "Explicit new immutable laboratory@3.3.0 only. Frozen3.0/3.1/3.2, SQL001–003, v2/course/assessments/history/XP unchanged. Static private NICs and bounded read-only new-initiation policy; partial service tags, no VM/runtime/traffic/stateful connection/verified connectivity/Network Watcher. No external database, migration/import, secrets, merge/deploy. Public persistent Laboratory owner-deferred with honest503. Human SME/learning/UX/screen-reader/security review unperformed.",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-manage-peering",
+          "url": "https://learn.microsoft.com/en-us/azure/virtual-network/network-security-groups-overview",
           "disposition": "reviewed-essential",
-          "reason": "Actual scoped HTML/text retrieved and read; fetched source hashes retained. Unimplemented linked services/advanced options expressly excluded, no copied course/assessment text."
+          "reason": "Actual scoped HTML/text retrieved and read; dated fetch hashes retained. Advanced resources and full tag resolution explicitly unsupported."
+        }
+      ]
+    },
+    {
+      "id": "nsg-block",
+      "url": "https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-network/virtual-network-troubleshoot-nsg-blocking-traffic",
+      "title": "nsg-block — official Microsoft NIC/NSG networking reference",
+      "reviewed": "2026-11-07T15:03:09.544587+00:00",
+      "version": "Retrieved HTML SHA256 94307ba5230becfd7c87c7b191ff118a660b4375dacea5b065be4ea26e2843c2",
+      "kind": "official-public-Microsoft-Learn-ARM",
+      "objectives": ["LAB-NETWORKING-C"],
+      "claims": ["network.nsg", "network.policy"],
+      "availability": "AVAILABLE",
+      "limits": "Explicit new immutable laboratory@3.3.0 only. Frozen3.0/3.1/3.2, SQL001–003, v2/course/assessments/history/XP unchanged. Static private NICs and bounded read-only new-initiation policy; partial service tags, no VM/runtime/traffic/stateful connection/verified connectivity/Network Watcher. No external database, migration/import, secrets, merge/deploy. Public persistent Laboratory owner-deferred with honest503. Human SME/learning/UX/screen-reader/security review unperformed.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-network/virtual-network-troubleshoot-nsg-blocking-traffic",
+          "disposition": "reviewed-essential",
+          "reason": "Actual scoped HTML/text retrieved and read; dated fetch hashes retained. Advanced resources and full tag resolution explicitly unsupported."
+        }
+      ]
+    },
+    {
+      "id": "routing",
+      "url": "https://learn.microsoft.com/en-us/azure/virtual-network/virtual-networks-udr-overview",
+      "title": "routing — official Microsoft NIC/NSG networking reference",
+      "reviewed": "2026-11-07T15:03:09.559643+00:00",
+      "version": "Retrieved HTML SHA256 4ca0afedaf9a73e808e1da2ecd0dc5095d46489b44b0988cc874cec35f87159d",
+      "kind": "official-public-Microsoft-Learn-ARM",
+      "objectives": ["LAB-NETWORKING-C"],
+      "claims": ["network.policy"],
+      "availability": "AVAILABLE",
+      "limits": "Explicit new immutable laboratory@3.3.0 only. Frozen3.0/3.1/3.2, SQL001–003, v2/course/assessments/history/XP unchanged. Static private NICs and bounded read-only new-initiation policy; partial service tags, no VM/runtime/traffic/stateful connection/verified connectivity/Network Watcher. No external database, migration/import, secrets, merge/deploy. Public persistent Laboratory owner-deferred with honest503. Human SME/learning/UX/screen-reader/security review unperformed.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/virtual-network/virtual-networks-udr-overview",
+          "disposition": "reviewed-essential",
+          "reason": "Actual scoped HTML/text retrieved and read; dated fetch hashes retained. Advanced resources and full tag resolution explicitly unsupported."
+        }
+      ]
+    },
+    {
+      "id": "watcher",
+      "url": "https://learn.microsoft.com/en-us/azure/network-watcher/diagnose-vm-network-traffic-filtering-problem",
+      "title": "watcher — official Microsoft NIC/NSG networking reference",
+      "reviewed": "2026-11-07T15:03:10.104573+00:00",
+      "version": "Retrieved HTML SHA256 162266bc2c1e6b0dc3d69ce62f120c11b9363b02d69fad7a233204f0604ae678",
+      "kind": "official-public-Microsoft-Learn-ARM",
+      "objectives": ["LAB-NETWORKING-C"],
+      "claims": ["network.policy"],
+      "availability": "AVAILABLE",
+      "limits": "Explicit new immutable laboratory@3.3.0 only. Frozen3.0/3.1/3.2, SQL001–003, v2/course/assessments/history/XP unchanged. Static private NICs and bounded read-only new-initiation policy; partial service tags, no VM/runtime/traffic/stateful connection/verified connectivity/Network Watcher. No external database, migration/import, secrets, merge/deploy. Public persistent Laboratory owner-deferred with honest503. Human SME/learning/UX/screen-reader/security review unperformed.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/network-watcher/diagnose-vm-network-traffic-filtering-problem",
+          "disposition": "reviewed-essential",
+          "reason": "Actual scoped HTML/text retrieved and read; dated fetch hashes retained. Advanced resources and full tag resolution explicitly unsupported."
+        }
+      ]
+    },
+    {
+      "id": "service-tags",
+      "url": "https://learn.microsoft.com/en-us/azure/virtual-network/service-tags-overview",
+      "title": "service-tags — official Microsoft NIC/NSG networking reference",
+      "reviewed": "2026-11-07T15:03:09.813474+00:00",
+      "version": "Retrieved HTML SHA256 2d9c9a55761a549e9c75073f0e9eb580cbb455e7cbb745ff9d0e2e82a7553f42",
+      "kind": "official-public-Microsoft-Learn-ARM",
+      "objectives": ["LAB-NETWORKING-C"],
+      "claims": ["network.nsg", "network.policy"],
+      "availability": "AVAILABLE",
+      "limits": "Explicit new immutable laboratory@3.3.0 only. Frozen3.0/3.1/3.2, SQL001–003, v2/course/assessments/history/XP unchanged. Static private NICs and bounded read-only new-initiation policy; partial service tags, no VM/runtime/traffic/stateful connection/verified connectivity/Network Watcher. No external database, migration/import, secrets, merge/deploy. Public persistent Laboratory owner-deferred with honest503. Human SME/learning/UX/screen-reader/security review unperformed.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/virtual-network/service-tags-overview",
+          "disposition": "reviewed-essential",
+          "reason": "Actual scoped HTML/text retrieved and read; dated fetch hashes retained. Advanced resources and full tag resolution explicitly unsupported."
         }
       ]
     },
     {
       "id": "faq",
       "url": "https://learn.microsoft.com/en-us/azure/virtual-network/virtual-networks-faq",
-      "title": "faq — official Microsoft networking contract",
-      "reviewed": "2026-11-07T13:16:29.335558+00:00",
+      "title": "faq — official Microsoft NIC/NSG networking reference",
+      "reviewed": "2026-11-07T15:03:09.831720+00:00",
       "version": "Retrieved HTML SHA256 6020604b5534eadd1a59a54602c4354a20320a88e28c27ab22d6dd463e10a0af",
       "kind": "official-public-Microsoft-Learn-ARM",
-      "objectives": ["LAB-NETWORKING-B"],
-      "claims": ["network.peering"],
+      "objectives": ["LAB-NETWORKING-C"],
+      "claims": ["network.endpoints"],
       "availability": "AVAILABLE",
-      "limits": "New explicit immutable laboratory@3.2.0 workspaces only. Frozen3.0/3.1 and all course/v2/history untouched. Read-only route selection, not packet/NSG/end-to-end traffic or Network Watcher. No BGP/endpoints/gateway/appliance/Firewall/transit. Local PG/CI only; public persistent Laboratory owner-deferred with honest503. No external resources, Vercel secrets, migration, XP or merge/deploy. Human SME/learning/UX/screen-reader/security review unperformed.",
+      "limits": "Explicit new immutable laboratory@3.3.0 only. Frozen3.0/3.1/3.2, SQL001–003, v2/course/assessments/history/XP unchanged. Static private NICs and bounded read-only new-initiation policy; partial service tags, no VM/runtime/traffic/stateful connection/verified connectivity/Network Watcher. No external database, migration/import, secrets, merge/deploy. Public persistent Laboratory owner-deferred with honest503. Human SME/learning/UX/screen-reader/security review unperformed.",
       "discovery": [
         {
           "url": "https://learn.microsoft.com/en-us/azure/virtual-network/virtual-networks-faq",
           "disposition": "reviewed-essential",
-          "reason": "Actual scoped HTML/text retrieved and read; fetched source hashes retained. Unimplemented linked services/advanced options expressly excluded, no copied course/assessment text."
+          "reason": "Actual scoped HTML/text retrieved and read; dated fetch hashes retained. Advanced resources and full tag resolution explicitly unsupported."
         }
       ]
     },
     {
-      "id": "routes",
-      "url": "https://learn.microsoft.com/en-us/azure/virtual-network/manage-route-table",
-      "title": "routes — official Microsoft networking contract",
-      "reviewed": "2026-11-07T13:16:29.481765+00:00",
-      "version": "Retrieved HTML SHA256 70b599b3ce34f3e64ee3c7f487e739a6b30c2fafdb227f73efd990fa50c4b481",
+      "id": "private-ip",
+      "url": "https://learn.microsoft.com/en-us/azure/virtual-network/ip-services/private-ip-addresses",
+      "title": "private-ip — official Microsoft NIC/NSG networking reference",
+      "reviewed": "2026-11-07T15:03:09.822259+00:00",
+      "version": "Retrieved HTML SHA256 8326e4e08980432265658475b4e179da6166e26d1683510d05073e4a23acb55c",
       "kind": "official-public-Microsoft-Learn-ARM",
-      "objectives": ["LAB-NETWORKING-B"],
-      "claims": ["network.routes"],
+      "objectives": ["LAB-NETWORKING-C"],
+      "claims": ["network.endpoints"],
       "availability": "AVAILABLE",
-      "limits": "New explicit immutable laboratory@3.2.0 workspaces only. Frozen3.0/3.1 and all course/v2/history untouched. Read-only route selection, not packet/NSG/end-to-end traffic or Network Watcher. No BGP/endpoints/gateway/appliance/Firewall/transit. Local PG/CI only; public persistent Laboratory owner-deferred with honest503. No external resources, Vercel secrets, migration, XP or merge/deploy. Human SME/learning/UX/screen-reader/security review unperformed.",
+      "limits": "Explicit new immutable laboratory@3.3.0 only. Frozen3.0/3.1/3.2, SQL001–003, v2/course/assessments/history/XP unchanged. Static private NICs and bounded read-only new-initiation policy; partial service tags, no VM/runtime/traffic/stateful connection/verified connectivity/Network Watcher. No external database, migration/import, secrets, merge/deploy. Public persistent Laboratory owner-deferred with honest503. Human SME/learning/UX/screen-reader/security review unperformed.",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/virtual-network/manage-route-table",
+          "url": "https://learn.microsoft.com/en-us/azure/virtual-network/ip-services/private-ip-addresses",
           "disposition": "reviewed-essential",
-          "reason": "Actual scoped HTML/text retrieved and read; fetched source hashes retained. Unimplemented linked services/advanced options expressly excluded, no copied course/assessment text."
+          "reason": "Actual scoped HTML/text retrieved and read; dated fetch hashes retained. Advanced resources and full tag resolution explicitly unsupported."
+        }
+      ]
+    },
+    {
+      "id": "nic-arm",
+      "url": "https://learn.microsoft.com/en-us/azure/templates/microsoft.network/networkinterfaces",
+      "title": "nic-arm — official Microsoft NIC/NSG networking reference",
+      "reviewed": "2026-11-07T15:03:10.294284+00:00",
+      "version": "Retrieved HTML SHA256 3e17b3fdd1b022f2f9e9269a09f2e8a006219e32c80d0c4cec380c0f59e9b157",
+      "kind": "official-public-Microsoft-Learn-ARM",
+      "objectives": ["LAB-NETWORKING-C"],
+      "claims": ["network.endpoints"],
+      "availability": "AVAILABLE",
+      "limits": "Explicit new immutable laboratory@3.3.0 only. Frozen3.0/3.1/3.2, SQL001–003, v2/course/assessments/history/XP unchanged. Static private NICs and bounded read-only new-initiation policy; partial service tags, no VM/runtime/traffic/stateful connection/verified connectivity/Network Watcher. No external database, migration/import, secrets, merge/deploy. Public persistent Laboratory owner-deferred with honest503. Human SME/learning/UX/screen-reader/security review unperformed.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/templates/microsoft.network/networkinterfaces",
+          "disposition": "reviewed-essential",
+          "reason": "Actual scoped HTML/text retrieved and read; dated fetch hashes retained. Advanced resources and full tag resolution explicitly unsupported."
         }
       ]
     },
     {
       "id": "names",
       "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules",
-      "title": "names — official Microsoft networking contract",
-      "reviewed": "2026-11-07T13:16:29.652916+00:00",
+      "title": "names — official Microsoft NIC/NSG networking reference",
+      "reviewed": "2026-11-07T15:03:10.072846+00:00",
       "version": "Retrieved HTML SHA256 841c4ce5afa8213404be0736d9ee828c2415c8cbc329fc9da8147a0b081996fd",
       "kind": "official-public-Microsoft-Learn-ARM",
-      "objectives": ["LAB-NETWORKING-B"],
-      "claims": ["network.validation"],
+      "objectives": ["LAB-NETWORKING-C"],
+      "claims": ["network.endpoints"],
       "availability": "AVAILABLE",
-      "limits": "New explicit immutable laboratory@3.2.0 workspaces only. Frozen3.0/3.1 and all course/v2/history untouched. Read-only route selection, not packet/NSG/end-to-end traffic or Network Watcher. No BGP/endpoints/gateway/appliance/Firewall/transit. Local PG/CI only; public persistent Laboratory owner-deferred with honest503. No external resources, Vercel secrets, migration, XP or merge/deploy. Human SME/learning/UX/screen-reader/security review unperformed.",
+      "limits": "Explicit new immutable laboratory@3.3.0 only. Frozen3.0/3.1/3.2, SQL001–003, v2/course/assessments/history/XP unchanged. Static private NICs and bounded read-only new-initiation policy; partial service tags, no VM/runtime/traffic/stateful connection/verified connectivity/Network Watcher. No external database, migration/import, secrets, merge/deploy. Public persistent Laboratory owner-deferred with honest503. Human SME/learning/UX/screen-reader/security review unperformed.",
       "discovery": [
         {
           "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules",
           "disposition": "reviewed-essential",
-          "reason": "Actual scoped HTML/text retrieved and read; fetched source hashes retained. Unimplemented linked services/advanced options expressly excluded, no copied course/assessment text."
-        }
-      ]
-    },
-    {
-      "id": "route-api",
-      "url": "https://learn.microsoft.com/en-us/azure/templates/microsoft.network/routetables/routes",
-      "title": "route-api — official Microsoft networking contract",
-      "reviewed": "2026-11-07T13:16:29.785896+00:00",
-      "version": "Retrieved HTML SHA256 cf3f49ba97c518e4ac0313d4c46ed893739afbd1cd2ddeef726d6855030fc291",
-      "kind": "official-public-Microsoft-Learn-ARM",
-      "objectives": ["LAB-NETWORKING-B"],
-      "claims": ["network.routes"],
-      "availability": "AVAILABLE",
-      "limits": "New explicit immutable laboratory@3.2.0 workspaces only. Frozen3.0/3.1 and all course/v2/history untouched. Read-only route selection, not packet/NSG/end-to-end traffic or Network Watcher. No BGP/endpoints/gateway/appliance/Firewall/transit. Local PG/CI only; public persistent Laboratory owner-deferred with honest503. No external resources, Vercel secrets, migration, XP or merge/deploy. Human SME/learning/UX/screen-reader/security review unperformed.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/templates/microsoft.network/routetables/routes",
-          "disposition": "reviewed-essential",
-          "reason": "Actual scoped HTML/text retrieved and read; fetched source hashes retained. Unimplemented linked services/advanced options expressly excluded, no copied course/assessment text."
-        }
-      ]
-    },
-    {
-      "id": "peer-api",
-      "url": "https://learn.microsoft.com/en-us/azure/templates/microsoft.network/virtualnetworks/virtualnetworkpeerings",
-      "title": "peer-api — official Microsoft networking contract",
-      "reviewed": "2026-11-07T13:16:29.977562+00:00",
-      "version": "Retrieved HTML SHA256 4454e610b2502d7746ffe7e5a6203bbcf0976bf889b8600c3f165d20095c47cc",
-      "kind": "official-public-Microsoft-Learn-ARM",
-      "objectives": ["LAB-NETWORKING-B"],
-      "claims": ["network.peering"],
-      "availability": "AVAILABLE",
-      "limits": "New explicit immutable laboratory@3.2.0 workspaces only. Frozen3.0/3.1 and all course/v2/history untouched. Read-only route selection, not packet/NSG/end-to-end traffic or Network Watcher. No BGP/endpoints/gateway/appliance/Firewall/transit. Local PG/CI only; public persistent Laboratory owner-deferred with honest503. No external resources, Vercel secrets, migration, XP or merge/deploy. Human SME/learning/UX/screen-reader/security review unperformed.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/templates/microsoft.network/virtualnetworks/virtualnetworkpeerings",
-          "disposition": "reviewed-essential",
-          "reason": "Actual scoped HTML/text retrieved and read; fetched source hashes retained. Unimplemented linked services/advanced options expressly excluded, no copied course/assessment text."
-        }
-      ]
-    },
-    {
-      "id": "platform-ip",
-      "url": "https://learn.microsoft.com/en-us/azure/virtual-network/what-is-ip-address-168-63-129-16",
-      "title": "platform-ip — official Microsoft networking contract",
-      "reviewed": "2026-11-07T13:16:30.125421+00:00",
-      "version": "Retrieved HTML SHA256 18b806cf7b1076139f1cca0c2ea76ad721c9c7a59d07d2e47d44ce219d0c2f00",
-      "kind": "official-public-Microsoft-Learn-ARM",
-      "objectives": ["LAB-NETWORKING-B"],
-      "claims": ["network.selection"],
-      "availability": "AVAILABLE",
-      "limits": "New explicit immutable laboratory@3.2.0 workspaces only. Frozen3.0/3.1 and all course/v2/history untouched. Read-only route selection, not packet/NSG/end-to-end traffic or Network Watcher. No BGP/endpoints/gateway/appliance/Firewall/transit. Local PG/CI only; public persistent Laboratory owner-deferred with honest503. No external resources, Vercel secrets, migration, XP or merge/deploy. Human SME/learning/UX/screen-reader/security review unperformed.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/virtual-network/what-is-ip-address-168-63-129-16",
-          "disposition": "reviewed-essential",
-          "reason": "Actual scoped HTML/text retrieved and read; fetched source hashes retained. Unimplemented linked services/advanced options expressly excluded, no copied course/assessment text."
+          "reason": "Actual scoped HTML/text retrieved and read; dated fetch hashes retained. Advanced resources and full tag resolution explicitly unsupported."
         }
       ]
     }
   ],
   "activities": [
     {
-      "id": "PR64-networking-B",
-      "objectives": ["LAB-NETWORKING-B"],
-      "claims": ["network.peering", "network.routes", "network.selection", "network.validation"],
+      "id": "PR65-networking-C",
+      "objectives": ["LAB-NETWORKING-C"],
+      "claims": ["network.endpoints", "network.nsg", "network.policy"],
       "assessmentStatus": "unchanged-existing",
-      "limits": "New explicit immutable laboratory@3.2.0 workspaces only. Frozen3.0/3.1 and all course/v2/history untouched. Read-only route selection, not packet/NSG/end-to-end traffic or Network Watcher. No BGP/endpoints/gateway/appliance/Firewall/transit. Local PG/CI only; public persistent Laboratory owner-deferred with honest503. No external resources, Vercel secrets, migration, XP or merge/deploy. Human SME/learning/UX/screen-reader/security review unperformed.",
-      "theory": [
-        {
-          "path": "docs/LABORATORY_NETWORKING_PART_B.md"
-        }
-      ],
+      "limits": "Explicit new immutable laboratory@3.3.0 only. Frozen3.0/3.1/3.2, SQL001–003, v2/course/assessments/history/XP unchanged. Static private NICs and bounded read-only new-initiation policy; partial service tags, no VM/runtime/traffic/stateful connection/verified connectivity/Network Watcher. No external database, migration/import, secrets, merge/deploy. Public persistent Laboratory owner-deferred with honest503. Human SME/learning/UX/screen-reader/security review unperformed.",
+      "theory": [{ "path": "docs/LABORATORY_NETWORKING_PART_C.md" }],
       "mechanism": [
-        {
-          "path": "src/laboratory/v32/domain.ts"
-        },
-        {
-          "path": "src/laboratory/v32/analysis.ts"
-        }
+        { "path": "src/laboratory/v33/domain.ts" },
+        { "path": "src/laboratory/v33/policy.ts" }
       ],
-      "practice": [
-        {
-          "path": "tests/e2e/laboratory-routing.spec.ts"
-        }
-      ],
+      "practice": [{ "path": "tests/e2e/laboratory-endpoints.spec.ts" }],
       "feedback": [
-        {
-          "path": "src/features/laboratory/routing.tsx"
-        },
-        {
-          "path": "src/content/laboratory-routing-nb.ts"
-        }
+        { "path": "src/features/laboratory/endpoints.tsx" },
+        { "path": "src/content/laboratory-endpoints-nb.ts" }
       ],
       "visual": [
-        {
-          "path": "src/features/portal/presentation.tsx"
-        },
-        {
-          "path": "src/features/laboratory/routing.tsx"
-        }
+        { "path": "src/features/portal/presentation.tsx" },
+        { "path": "src/features/laboratory/endpoints.tsx" }
       ],
-      "accessible": [
-        {
-          "path": "tests/e2e/laboratory-routing.spec.ts"
-        }
-      ],
-      "assessment": [
-        {
-          "path": "src/laboratory-routing-preservation.test.ts"
-        }
-      ],
+      "accessible": [{ "path": "tests/e2e/laboratory-endpoints.spec.ts" }],
+      "assessment": [{ "path": "src/laboratory-endpoints-preservation.test.ts" }],
       "savvyshark": [
-        {
-          "path": "src/features/portal/portal.tsx"
-        },
-        {
-          "path": "src/laboratory-routing-preservation.test.ts"
-        }
+        { "path": "src/features/portal/portal.tsx" },
+        { "path": "src/laboratory-endpoints-preservation.test.ts" }
       ]
     }
   ],
@@ -241,88 +247,64 @@
     "src/app/page.tsx",
     "package.json",
     "package-lock.json",
-    "docs/reviews/evidence/pr63/"
+    "docs/reviews/evidence/pr63/",
+    "src/laboratory/v32/",
+    "database/laboratory-v3/003-routing.sql",
+    "src/content/laboratory-routing-nb.ts",
+    "docs/reviews/evidence/pr64/",
+    "docs/quality/PR64_FINAL_AUDIT.md"
   ],
   "gates": {
     "source": {
       "checks": [
-        {
-          "path": "docs/LABORATORY_NETWORKING_PART_B.md"
-        },
-        {
-          "path": "docs/reviews/evidence/pr64/verification.json"
-        }
+        { "path": "docs/LABORATORY_NETWORKING_PART_C.md" },
+        { "path": "docs/reviews/evidence/pr65/verification.json" },
+        { "path": "docs/reviews/evidence/pr65/source-fetch.json" }
       ],
-      "limits": "New explicit immutable laboratory@3.2.0 workspaces only. Frozen3.0/3.1 and all course/v2/history untouched. Read-only route selection, not packet/NSG/end-to-end traffic or Network Watcher. No BGP/endpoints/gateway/appliance/Firewall/transit. Local PG/CI only; public persistent Laboratory owner-deferred with honest503. No external resources, Vercel secrets, migration, XP or merge/deploy. Human SME/learning/UX/screen-reader/security review unperformed."
+      "limits": "Explicit new immutable laboratory@3.3.0 only. Frozen3.0/3.1/3.2, SQL001–003, v2/course/assessments/history/XP unchanged. Static private NICs and bounded read-only new-initiation policy; partial service tags, no VM/runtime/traffic/stateful connection/verified connectivity/Network Watcher. No external database, migration/import, secrets, merge/deploy. Public persistent Laboratory owner-deferred with honest503. Human SME/learning/UX/screen-reader/security review unperformed."
     },
     "curriculum": {
       "checks": [
-        {
-          "path": "docs/LABORATORY_NETWORKING_PART_B.md"
-        },
-        {
-          "path": "docs/reviews/evidence/pr64/verification.json"
-        }
+        { "path": "docs/LABORATORY_NETWORKING_PART_C.md" },
+        { "path": "docs/reviews/evidence/pr65/verification.json" }
       ],
-      "limits": "New explicit immutable laboratory@3.2.0 workspaces only. Frozen3.0/3.1 and all course/v2/history untouched. Read-only route selection, not packet/NSG/end-to-end traffic or Network Watcher. No BGP/endpoints/gateway/appliance/Firewall/transit. Local PG/CI only; public persistent Laboratory owner-deferred with honest503. No external resources, Vercel secrets, migration, XP or merge/deploy. Human SME/learning/UX/screen-reader/security review unperformed."
+      "limits": "Explicit new immutable laboratory@3.3.0 only. Frozen3.0/3.1/3.2, SQL001–003, v2/course/assessments/history/XP unchanged. Static private NICs and bounded read-only new-initiation policy; partial service tags, no VM/runtime/traffic/stateful connection/verified connectivity/Network Watcher. No external database, migration/import, secrets, merge/deploy. Public persistent Laboratory owner-deferred with honest503. Human SME/learning/UX/screen-reader/security review unperformed."
     },
     "simulation": {
       "checks": [
-        {
-          "path": "docs/LABORATORY_NETWORKING_PART_B.md"
-        },
-        {
-          "path": "docs/reviews/evidence/pr64/verification.json"
-        }
+        { "path": "docs/LABORATORY_NETWORKING_PART_C.md" },
+        { "path": "docs/reviews/evidence/pr65/verification.json" }
       ],
-      "limits": "New explicit immutable laboratory@3.2.0 workspaces only. Frozen3.0/3.1 and all course/v2/history untouched. Read-only route selection, not packet/NSG/end-to-end traffic or Network Watcher. No BGP/endpoints/gateway/appliance/Firewall/transit. Local PG/CI only; public persistent Laboratory owner-deferred with honest503. No external resources, Vercel secrets, migration, XP or merge/deploy. Human SME/learning/UX/screen-reader/security review unperformed."
+      "limits": "Explicit new immutable laboratory@3.3.0 only. Frozen3.0/3.1/3.2, SQL001–003, v2/course/assessments/history/XP unchanged. Static private NICs and bounded read-only new-initiation policy; partial service tags, no VM/runtime/traffic/stateful connection/verified connectivity/Network Watcher. No external database, migration/import, secrets, merge/deploy. Public persistent Laboratory owner-deferred with honest503. Human SME/learning/UX/screen-reader/security review unperformed."
     },
     "savvyshark": {
       "checks": [
-        {
-          "path": "docs/LABORATORY_NETWORKING_PART_B.md"
-        },
-        {
-          "path": "docs/reviews/evidence/pr64/verification.json"
-        }
+        { "path": "docs/LABORATORY_NETWORKING_PART_C.md" },
+        { "path": "docs/reviews/evidence/pr65/verification.json" }
       ],
-      "limits": "New explicit immutable laboratory@3.2.0 workspaces only. Frozen3.0/3.1 and all course/v2/history untouched. Read-only route selection, not packet/NSG/end-to-end traffic or Network Watcher. No BGP/endpoints/gateway/appliance/Firewall/transit. Local PG/CI only; public persistent Laboratory owner-deferred with honest503. No external resources, Vercel secrets, migration, XP or merge/deploy. Human SME/learning/UX/screen-reader/security review unperformed."
+      "limits": "Explicit new immutable laboratory@3.3.0 only. Frozen3.0/3.1/3.2, SQL001–003, v2/course/assessments/history/XP unchanged. Static private NICs and bounded read-only new-initiation policy; partial service tags, no VM/runtime/traffic/stateful connection/verified connectivity/Network Watcher. No external database, migration/import, secrets, merge/deploy. Public persistent Laboratory owner-deferred with honest503. Human SME/learning/UX/screen-reader/security review unperformed."
     },
     "visual-accessibility": {
       "checks": [
-        {
-          "path": "docs/LABORATORY_NETWORKING_PART_B.md"
-        },
-        {
-          "path": "docs/reviews/evidence/pr64/verification.json"
-        }
+        { "path": "docs/LABORATORY_NETWORKING_PART_C.md" },
+        { "path": "docs/reviews/evidence/pr65/verification.json" }
       ],
-      "limits": "New explicit immutable laboratory@3.2.0 workspaces only. Frozen3.0/3.1 and all course/v2/history untouched. Read-only route selection, not packet/NSG/end-to-end traffic or Network Watcher. No BGP/endpoints/gateway/appliance/Firewall/transit. Local PG/CI only; public persistent Laboratory owner-deferred with honest503. No external resources, Vercel secrets, migration, XP or merge/deploy. Human SME/learning/UX/screen-reader/security review unperformed."
+      "limits": "Explicit new immutable laboratory@3.3.0 only. Frozen3.0/3.1/3.2, SQL001–003, v2/course/assessments/history/XP unchanged. Static private NICs and bounded read-only new-initiation policy; partial service tags, no VM/runtime/traffic/stateful connection/verified connectivity/Network Watcher. No external database, migration/import, secrets, merge/deploy. Public persistent Laboratory owner-deferred with honest503. Human SME/learning/UX/screen-reader/security review unperformed."
     },
     "independent-final-audit": {
       "checks": [
-        {
-          "path": "docs/LABORATORY_NETWORKING_PART_B.md"
-        },
-        {
-          "path": "docs/reviews/evidence/pr64/verification.json"
-        },
-        {
-          "path": "docs/quality/PR64_FINAL_AUDIT.md"
-        }
+        { "path": "docs/LABORATORY_NETWORKING_PART_C.md" },
+        { "path": "docs/reviews/evidence/pr65/verification.json" },
+        { "path": "docs/quality/PR65_FINAL_AUDIT.md" }
       ],
-      "limits": "New explicit immutable laboratory@3.2.0 workspaces only. Frozen3.0/3.1 and all course/v2/history untouched. Read-only route selection, not packet/NSG/end-to-end traffic or Network Watcher. No BGP/endpoints/gateway/appliance/Firewall/transit. Local PG/CI only; public persistent Laboratory owner-deferred with honest503. No external resources, Vercel secrets, migration, XP or merge/deploy. Human SME/learning/UX/screen-reader/security review unperformed."
+      "limits": "Explicit new immutable laboratory@3.3.0 only. Frozen3.0/3.1/3.2, SQL001–003, v2/course/assessments/history/XP unchanged. Static private NICs and bounded read-only new-initiation policy; partial service tags, no VM/runtime/traffic/stateful connection/verified connectivity/Network Watcher. No external database, migration/import, secrets, merge/deploy. Public persistent Laboratory owner-deferred with honest503. Human SME/learning/UX/screen-reader/security review unperformed."
     },
     "delivery": {
       "checks": [
-        {
-          "path": "docs/LABORATORY_NETWORKING_PART_B.md"
-        },
-        {
-          "path": "docs/reviews/evidence/pr64/verification.json"
-        }
+        { "path": "docs/LABORATORY_NETWORKING_PART_C.md" },
+        { "path": "docs/reviews/evidence/pr65/verification.json" }
       ],
-      "limits": "New explicit immutable laboratory@3.2.0 workspaces only. Frozen3.0/3.1 and all course/v2/history untouched. Read-only route selection, not packet/NSG/end-to-end traffic or Network Watcher. No BGP/endpoints/gateway/appliance/Firewall/transit. Local PG/CI only; public persistent Laboratory owner-deferred with honest503. No external resources, Vercel secrets, migration, XP or merge/deploy. Human SME/learning/UX/screen-reader/security review unperformed."
+      "limits": "Explicit new immutable laboratory@3.3.0 only. Frozen3.0/3.1/3.2, SQL001–003, v2/course/assessments/history/XP unchanged. Static private NICs and bounded read-only new-initiation policy; partial service tags, no VM/runtime/traffic/stateful connection/verified connectivity/Network Watcher. No external database, migration/import, secrets, merge/deploy. Public persistent Laboratory owner-deferred with honest503. Human SME/learning/UX/screen-reader/security review unperformed."
     }
   },
   "humanReview": {
@@ -334,276 +316,197 @@
   },
   "visualEvidence": [
     {
-      "path": "docs/reviews/evidence/pr64/peering-connected-desktop-chromium.png",
+      "path": "docs/reviews/evidence/pr65/nic-properties.png",
       "viewport": "1440x900",
       "inspected": true,
-      "observation": "Actual reciprocal peering detail from native localPG commands; shared original header/menu/Properties/receipt, Connected is configuration status and no traffic verification claimed."
+      "observation": "Real persisted NIC primary Static IPv4, subnet identity and original create/change receipts in shared Properties; no VM/MAC/runtime invented."
     },
     {
-      "path": "docs/reviews/evidence/pr64/route-table-associated-desktop-chromium.png",
+      "path": "docs/reviews/evidence/pr65/nic-nsg.png",
       "viewport": "1440x900",
       "inspected": true,
-      "observation": "Actual table, two original UDR children and associated subnet share the original Portal resource list. Long content uses ordinary scroll, no new app."
+      "observation": "Real NIC NSG attachment shown in shared resource layout and original Apply receipt; separate course/free mode anchors remain."
     },
     {
-      "path": "docs/reviews/evidence/pr64/routing-1024-500-compact-chromium.png",
+      "path": "docs/reviews/evidence/pr65/policy-nic-deny.png",
+      "viewport": "1440x900",
+      "inspected": true,
+      "observation": "Actual subnet Allow followed by NIC deny with decisive custom rule/priority; no connection-success claim."
+    },
+    {
+      "path": "docs/reviews/evidence/pr65/policy-1024x500.png",
       "viewport": "1024x500",
       "inspected": true,
-      "observation": "Actual result after explicit calculation and mounted-heading focus/instant scroll. Readable selected prefix/hop/revision and traffic caveat; candidate table below uses normal scroll, no overlap or document overflow."
+      "observation": "Result receives focus with actual source/destination/IP/port/revision/route visible in short desktop; later layers use normal scroll, no overflow."
     },
     {
-      "path": "docs/reviews/evidence/pr64/route-association-denial-desktop-chromium.png",
+      "path": "docs/reviews/evidence/pr65/policy-allow.png",
       "viewport": "1440x900",
       "inspected": true,
-      "observation": "Actual wrong-region Route Table Review shows the operation-specific region/subscription explanation and disabled Apply. This is a no-write preflight; the same control subsequently reads a real rejected original receipt and compares its raw entry."
+      "observation": "Actual1433 custom rule and original attachment receipt with all four explicitly ordered layers, no invented traffic receipt."
+    },
+    {
+      "path": "docs/reviews/evidence/pr65/rg-identity-b.png",
+      "viewport": "1440x900",
+      "inspected": true,
+      "observation": "Corrected same-name/IP destination in rg-identity-b shows actual RG/subscription/VNet/subnet/region/local-ID scope and Undetermined rather than falsely selecting the same-VNet identity."
     }
   ],
   "verification": [
     {
       "command": "npm run check",
       "result": "passed",
-      "details": "864Vitest/71files;24Node;503curriculum;57objectives/126facets;179Markdown;41registeredicons/39originalSVGs; types/lint/format/docs/quality/legacy/build exit0. Real isolated local PostgreSQL included."
+      "details": "898 Vitest/74files,24 Node,503curriculum,57objectives/126facets,181Markdown,types/lint/format/docs/quality/legacy/assets/productionbuild passed. Actual isolated PostgreSQL included."
     },
     {
-      "command": "targeted Playwright actual server Laboratory browser controls",
+      "command": "targeted new domain/PG/preservation",
       "result": "passed",
-      "details": "Final9/9 and held real-response2/2,0retry; initial20/25 failures retained in actual verification record, not relabelled passed. Candidate full414 CI remains pending."
+      "details": "27pure domain +4 real PostgreSQL +3 scoped preservation tests; inherited preservation six-test run also passed."
     },
     {
-      "command": "npx vitest run src/laboratory-routing.test.ts src/laboratory-routing.integration.test.ts src/laboratory-routing-preservation.test.ts",
+      "command": "30 scoped browser controls",
       "result": "passed",
-      "details": "21targeted domain/realPG/preservation tests plus all864 in full check; additive migration, same-prefix fallback, bounded ambiguous topologies, no mutation, original replay/rollback and session isolation covered."
+      "details": "30/30,2.7min,0retry/0flaky/0skip. Existing Storage/NetworkingA/B/sharedPortal/currentv2 included. Native localPG; no injected positive World."
     },
     {
-      "command": "post-audit focused browser and complete check renewal",
+      "command": "final normal production browser controls",
       "result": "passed",
-      "details": "4affected native/actual-server controls passed31.2s,0retry;864Vitest/24Node/503curriculum/build passed before these. Independent minor resource-label mismatch fixed only in presenter; original NSG meaning/receipt bytes retained."
+      "details": "After independent identity correction:6/6,54.5s,0retry/flaky/skip. Includes native duplicate names/IP/VNet/subnet across two RGs, visibly different source/destination scope and stable IDs, correct Allow versus Undetermined, read-only state and reload; plus all original native NIC/NSG/receipt/concurrency/stale/compact/Axe controls."
+    },
+    {
+      "command": "npm run test:e2e:plan",
+      "result": "passed",
+      "details": "420=378desktop+42compact; all414priorcontrols/settings retained;5newdesktop+1compact;legacy756 available;worker1. Extra duplicate-scope witness addresses actual independent MAJOR."
     }
   ],
   "review": {
     "status": "complete",
-    "fingerprint": "f8a15da0d6504bd398b897a9ba305390ba2a673babdf4df73bccfa25a9bd1e24",
-    "reviewer": {
-      "id": "/root/pr64_independent_final_audit",
-      "kind": "agent"
-    },
-    "started": "2026-11-07T14:03:31Z",
+    "fingerprint": "70db06ca65e5ddfbe12e6bd5df289afded8f9820bbea43dfd994fe1cab1e149f",
+    "reviewer": { "id": "pr65-independent-final-audit-agent", "kind": "agent" },
+    "started": "2026-11-07T15:47:45.749Z",
     "domains": {
       "content": {
-        "finding": "Current Microsoft claims independently checked; bounded operation and route-result guidance accurately distinguishes configuration, route selection and unevaluated traffic. Original course content remains exact base bytes; no new course/mastery claim.",
+        "finding": "Original actual Microsoft source review retained; no new Azure/content claim in the correction. Rechecked all10 retained source hashes with no mismatch; bounded static NIC, partial tags and no-connectivity claims remain accurate.",
         "evidence": [
-          {
-            "path": "docs/LABORATORY_NETWORKING_PART_B.md"
-          },
-          {
-            "path": "docs/reviews/evidence/pr64/source-fetch.json"
-          },
-          {
-            "path": "src/content/laboratory-routing-nb.ts"
-          },
-          {
-            "path": "docs/quality/PR64_FINAL_AUDIT.md"
-          }
+          { "path": "docs/LABORATORY_NETWORKING_PART_C.md" },
+          { "path": "docs/reviews/evidence/pr65/source-fetch.json" },
+          { "path": "docs/quality/PR65_FINAL_AUDIT.md" }
         ]
       },
       "technical": {
-        "finding": "Inspected authoritative3.2 command/domain/analysis/server/repository/migration path. Independent real PostgreSQL21-test run and native/API/race probes passed; LPM precedes UDR tie preference, exact defaults are replaced, pending/transitive/ambiguous/unsupported paths fail honestly, old immutable models/history and same transaction/session/revision/identity/reset/through remain.",
+        "finding": "MAJOR PR65-AUDIT-01 fixed: policy options/results now derive actual NIC RG/subscription/VNet/subnet/region/stable ID from the same World. Independent rebuilt original duplicate-scope topology preserves correct Allowed versus Undetermined, exact resource identity, reload and unchanged state. Seven engine/server hashes unchanged;37 realPG/domain/preservation tests pass again.",
         "evidence": [
-          {
-            "path": "src/laboratory/v32/domain.ts"
-          },
-          {
-            "path": "src/laboratory/v32/analysis.ts"
-          },
-          {
-            "path": "src/laboratory/v3/server.ts"
-          },
-          {
-            "path": "src/laboratory/v3/repository.ts"
-          },
-          {
-            "path": "database/laboratory-v3/003-routing.sql"
-          },
-          {
-            "path": "src/laboratory-routing.integration.test.ts"
-          },
-          {
-            "path": "docs/quality/PR64_FINAL_AUDIT.md"
-          }
+          { "path": "src/features/laboratory/endpoints.tsx" },
+          { "path": "src/laboratory/v33/policy.ts" },
+          { "path": "src/laboratory-endpoints.integration.test.ts" },
+          { "path": "docs/quality/PR65_FINAL_AUDIT.md" }
         ]
       },
       "visual": {
-        "finding": "Personally inspected native and committed actual peering/table/analysis/course frames. Independent1440x900/1024x500 keyboard/Enter/Tab/focus/reduced-motion/no-overflow and Axe0 passed. Original shared Portal ancestry and honest traffic caveat remain readable. Human UX/screen-reader and pixel fidelity remain unperformed/unverified.",
+        "finding": "Personally inspected corrected author screenshots plus independent800x700/1024x500 forms/results/opened selector. Distinct RG visible when native selector opens; results wrap full scope/ID. Independent six outcome states have zero Axe violations/document overflow and correct focus/keyboard/reduced motion. Compact closed select truncation explicitly recorded; no open major visual issue identified.",
         "evidence": [
-          {
-            "path": "src/features/portal/presentation.tsx"
-          },
-          {
-            "path": "src/features/laboratory/routing.tsx"
-          },
-          {
-            "path": "docs/reviews/evidence/pr64/peering-connected-desktop-chromium.png"
-          },
-          {
-            "path": "docs/reviews/evidence/pr64/route-table-associated-desktop-chromium.png"
-          },
-          {
-            "path": "docs/reviews/evidence/pr64/routing-1024-500-compact-chromium.png"
-          },
-          {
-            "path": "docs/quality/PR64_FINAL_AUDIT.md"
-          }
+          { "path": "src/features/laboratory/endpoints.tsx" },
+          { "path": "docs/reviews/evidence/pr65/rg-identity-a.png" },
+          { "path": "docs/reviews/evidence/pr65/rg-identity-b.png" },
+          { "path": "docs/reviews/evidence/pr65/policy-1024x500.png" },
+          { "path": "docs/quality/PR65_FINAL_AUDIT.md" }
         ]
       },
       "assessment": {
-        "finding": "No new assessment or rubric; all original domain, full course locale and learning authority bytes preserved. Independent native Laboratory journey left course localStorage unchanged and granted no course XP/assessment evidence. No human transfer validation claimed.",
+        "finding": "No bank/rubric/credit/XP change; course and historical evidence preservation passes. Native duplicate-scope regression now targets the actual original defect and verifies distinct outcomes/read-only/reload. Human learning/transfer unperformed.",
         "evidence": [
-          {
-            "path": "src/laboratory-routing-preservation.test.ts"
-          },
-          {
-            "path": "src/content/nb.ts"
-          },
-          {
-            "path": "src/domain/"
-          },
-          {
-            "path": "docs/quality/PR64_FINAL_AUDIT.md"
-          }
+          { "path": "src/laboratory-endpoints-preservation.test.ts" },
+          { "path": "tests/e2e/laboratory-endpoints.spec.ts" },
+          { "path": "docs/quality/PR65_FINAL_AUDIT.md" }
         ]
       },
       "guidance": {
-        "finding": "Free Laboratory uses factual local operation guidance without a course SavvyShark/mission layer or implicit guided start. Course v2 Portal/assistance/first-help-retry-abandon remain preserved; native return showed separate original course mode/menu. Minor wrong-resource denial wording was corrected and independently rechecked as recorded in the report.",
+        "finding": "No course/SavvyShark callback/provider changes; same explicit Starts/Apply/reset and free/course isolation. Correct scope helps identify diagnostic targets without configuring or rewarding work; original no-traffic/no-response boundaries remain. Human novice/screen-reader review unperformed.",
         "evidence": [
-          {
-            "path": "src/features/laboratory/laboratory.tsx"
-          },
-          {
-            "path": "src/features/laboratory/routing.tsx"
-          },
-          {
-            "path": "src/features/portal/portal.tsx"
-          },
-          {
-            "path": "src/laboratory-routing-preservation.test.ts"
-          },
-          {
-            "path": "docs/quality/PR64_FINAL_AUDIT.md"
-          }
+          { "path": "src/features/laboratory/laboratory.tsx" },
+          { "path": "src/features/laboratory/portal-adapter.tsx" },
+          { "path": "docs/quality/PR65_FINAL_AUDIT.md" }
         ]
       },
       "regression": {
-        "finding": "Independent changed-file hash/fingerprint and448 protected Git-byte comparison matched;21 targeted real-PG/domain/preservation tests and independent domain/native/temporal probes passed. Plan validates414=373desktop+41compact, retaining409 controls and unchanged settings. Full candidate CI/strict, external deployed-SHA/503 checks and unresolved inherited compact timeout causes remain pending; targeted success is not full-profile proof.",
+        "finding": "Independent follow-up37 domain/PG/preservation tests and3 new/compact native controls pass; separate corrected six-state compact probe passes. Plan420=378desktop42compact,legacy756 retains414 prior controls/settings. All48 stamped hashes and original source/audit hashes verified; original blocked report preserved. Full420 candidate CI/strict/deployedSHA remain delivery gates; inherited Compute/Axe causes unresolved.",
         "evidence": [
-          {
-            "path": "src/laboratory-routing-preservation.test.ts"
-          },
-          {
-            "path": "tests/pr64-preservation.ts"
-          },
-          {
-            "path": "tests/e2e/laboratory-routing.spec.ts"
-          },
-          {
-            "path": "playwright.desktop.config.ts"
-          },
-          {
-            "path": "docs/reviews/evidence/pr64/verification.json"
-          },
-          {
-            "path": "docs/quality/PR64_FINAL_AUDIT.md"
-          }
+          { "path": "src/laboratory-endpoints-preservation.test.ts" },
+          { "path": "tests/e2e/laboratory-endpoints.spec.ts" },
+          { "path": "playwright.desktop.config.ts" },
+          { "path": "docs/reviews/evidence/pr65/audit-original/identity-probe.json.raw" },
+          { "path": "docs/quality/PR65_FINAL_AUDIT.md" }
         ]
       }
     },
     "findings": [
       {
-        "id": "PR64-AUDIT-01",
-        "severity": "minor",
+        "id": "PR65-AUDIT-01",
+        "severity": "major",
         "status": "fixed",
-        "description": "An incompatible Route Table association displayed inherited NSG wording in Review and original receipt; validation and form guidance were correct.",
-        "fix": "Author added operation-specific Route Table wording only in presentation. Frozen domain codes/receipts and NSG text remain unchanged. See report and author evidence PR64-IFA-01.",
+        "description": "Original independently reproduced same-name/IP/subnet NICs across RGs/VNets were indistinguishable in policy options/results while actual outcomes differed. Original blocked report and original artifacts retained.",
+        "fix": "Shared nicLabel now adds actual NIC RG/subscription, VNet/subnet, region and stable local ID to both source/destination selectors and results. New ordinary-UI regression verifies duplicate scopes, correct different outcomes, read-only state and reload.",
         "retests": [
-          "Independent post-stamp native correction probe passed2 checkpoints: real incompatible resources; Review correct text/disabled Apply/no ledger write; real rejected command and native original-receipt/raw-event equality. Screenshots personally inspected at1440x900 and1024x500.",
-          "Independent renewed preservation run passed3tests. Author renewed fullcheck passed864Vitest/24Node/503curriculum/build and4 affected native browser controls passed31.2s with0unexpected/0flaky/0skip."
+          "Independent37 domain/realPG/preservation tests pass,3.67s.",
+          "Independent new duplicate-scope plus desktop/compact native controls3/3 pass26.3s with no retry/skip.",
+          "Independent corrected original probe: Allowed/Undetermined with actual RG/ID at1440x900,800x700,1024x500; six zero-Axe/no-overflow states; keyboard/focus/reduced motion/read-only/reload pass.",
+          "Personally inspected original and corrected screenshots including opened800x700 native selector; original portable artifact/source hashes verified."
         ]
-      },
-      {
-        "id": "PR64-AUDIT-02",
-        "severity": "note",
-        "status": "accepted-limitation",
-        "description": "Bounded read-only route selection does not evaluate packets/NSGs/return path/NAT/egress/VM-NIC effective routes/Network Watcher/RBAC. BGP/endpoints/gateway/appliance/advanced peering/platform destinations and ambiguous peer-route selection remain unsupported and honestly labelled."
-      },
-      {
-        "id": "PR64-AUDIT-03",
-        "severity": "note",
-        "status": "open",
-        "description": "Complete candidate CI/strict and anonymous deployed-SHA/root/expected503 checks remain pending delivery gates. Public persistent Laboratory is owner-deferred; expected503 is not functional Networking Gate7. Human SME/learning/UX/screen-reader/security review remains unperformed."
-      },
-      {
-        "id": "PR64-AUDIT-04",
-        "severity": "note",
-        "status": "open",
-        "description": "Three earlier inherited compact timeouts remain unroot-caused. Overlapping lint is unproven causality; later targeted successes do not establish414-case stability. Historical failures are retained; settings/assertions/skips were not weakened."
       }
     ],
-    "report": {
-      "path": "docs/quality/PR64_FINAL_AUDIT.md"
-    }
+    "report": { "path": "docs/quality/PR65_FINAL_AUDIT.md" }
   },
   "snapshot": {
     "files": {
-      "AGENTS.md": "402e4bc20878450b322b5ccdc9f06c8b8047dffb54e8627e51a7e1a84b492a3a",
-      "database/laboratory-v3/003-routing.sql": "54a86005c520f1a3211fce2f1ebdad559dcc86078570ec04ec053d572e696f08",
-      "docs/ARCHITECTURE.md": "ac4e2406d6426f521c8d87f9e0bad60fe0a704520da0bc20a12b876fee5cd0ef",
-      "docs/DECISIONS.md": "855537171f216d043ec73a12cb50673f79f85d1da21088919edb8183a385ab6d",
-      "docs/LABORATORY_NETWORKING_PART_B.md": "8fb005a6e487a18cc4baa52ab9314a320558dfe97db62457fce90a3b7eaab1d0",
-      "docs/PORTAL_CAPABILITY_MATRIX.md": "a965b437494a35e50096122564387dc7f4727cbc081804d797c4f2efc4efd413",
-      "docs/reviews/evidence/pr64/frozen-golden.json": "ae37a3800f8c655af036286cc92e7ea72e2eaab51115f342d9894b1685251e8c",
-      "docs/reviews/evidence/pr64/hub-spoke-direct-route-desktop-chromium.png": "5cdc6f52a01b5485659c170b7e71b5ab8a6c61c0783288493da8d1b70004e1fe",
-      "docs/reviews/evidence/pr64/images.json": "fa6a5b97fcc1d31c44a43299f969cd12f0b25e43f7e9aa04bd4dc6b21f263c0c",
-      "docs/reviews/evidence/pr64/peering-connected-desktop-chromium.png": "72eb858c875225595172290c7906e1f46c089fac582561ca0dc3ae15fc916491",
-      "docs/reviews/evidence/pr64/preservation.json": "1bfc2b54c5765be8cf21c29d1e79372566f9e91cc9083dc5600f9d19846ea88a",
-      "docs/reviews/evidence/pr64/route-association-denial-desktop-chromium.png": "6acca7f8d8bf2ce82529f0f63824a872373882d6772a87c1b8d82cd278075ba3",
-      "docs/reviews/evidence/pr64/route-selection-desktop-chromium.png": "b10166a04336f1bf8f623c972eed2a86f22976e4368dc513c22e1a4f9787bbf2",
-      "docs/reviews/evidence/pr64/route-selection-initial.png": "fb4b77a6d72556a25a3214e9bfc4644813ebd01ce5202350d812b90d6e2711ec",
-      "docs/reviews/evidence/pr64/route-table-associated-desktop-chromium.png": "6d173e0fe2f3e41e2c79432ef7313293ac386e9f31125e8239b71b9648280a65",
-      "docs/reviews/evidence/pr64/routing-1024-500-compact-chromium.png": "28b24b4329e8f81f8519651da5676edf7bb63a6831f1f42c15ab511b4650ba24",
-      "docs/reviews/evidence/pr64/routing-1024-500-desktop-chromium.png": "28b24b4329e8f81f8519651da5676edf7bb63a6831f1f42c15ab511b4650ba24",
-      "docs/reviews/evidence/pr64/routing-1024-768-compact-chromium.png": "9754101fd5b3e9dee1cf076c70279884f7f852c9a4c220edad2902e00e2d8214",
-      "docs/reviews/evidence/pr64/routing-1024-768-desktop-chromium.png": "9754101fd5b3e9dee1cf076c70279884f7f852c9a4c220edad2902e00e2d8214",
-      "docs/reviews/evidence/pr64/routing-1440-900-compact-chromium.png": "e8f482158144482223e766b00d192df848c510d70efe06ca6d725e665cea432e",
-      "docs/reviews/evidence/pr64/routing-1440-900-desktop-chromium.png": "e8f482158144482223e766b00d192df848c510d70efe06ca6d725e665cea432e",
-      "docs/reviews/evidence/pr64/source-fetch.json": "7a442f595e55fed793265ba80bb89d4185162a62cfc071439e76454f9745bed8",
-      "docs/reviews/evidence/pr64/verification.json": "20dfd84481135eaf68062ea8b9937559558f8a522491e585cc8049103fa41453",
-      "playwright.desktop.config.ts": "e0093d11462c1ed4cd45c4f1d0037ced78045b36820e4d2f8a14ac42a4ca4463",
-      "public/icons/azure/01285-icon-service-Peerings.svg": "e3ce70101ff5562a805e2346d2bc293d6426851a732403ede1a4870229b1f0bc",
-      "public/icons/azure/10082-icon-service-Route-Tables.svg": "17ba16b418d7110c555190e7265eb5441b5058132727fb83df57f6384bc0db22",
-      "public/icons/manifest.json": "aafecab3a300c67e9900d80d04261cbfca5ac4b04672a7059f10ce1b5140a526",
-      "scripts/laboratory-db.mjs": "f37e1329c6382a47bcc6e95a8d8301d31a2492114da07eae6b6e607d403b86e3",
-      "src/app/api/laboratory/analysis/route.ts": "06a267bc900119033b0226f3eadda1205460df11c6488626c867da92b73aac3d",
-      "src/content/laboratory-routing-nb.ts": "4339020fe3c9d9aa7a6a10cebb1b47f04798a3e4da612b37895d75c4998be632",
-      "src/content/portal-workspace-nb.ts": "f464a75091cec11511aeea1267ecf7a1b89ea7a9902c9e3ab901cb935e6bff05",
-      "src/features/laboratory/laboratory.css": "4b330436cbae4b9daae3858376f391569c1eeff9907ea2ff3f145cd256578447",
-      "src/features/laboratory/laboratory.tsx": "67ff98c97cb3891414fb09ed56465a211d124c85ca8bef7d7eee18599b275079",
-      "src/features/laboratory/networking.tsx": "6b113f457ebd2f93d7ab297e87b1f571211deffb5331ac85f77863af5ccdbc78",
-      "src/features/laboratory/portal-adapter.tsx": "c6f483076dbb7825f18e7ddb94b89c8c5774f8d1f9c1314bdfaf1b64db078335",
-      "src/features/laboratory/routing.tsx": "9a4d63c719b79eaccd8ecded891260392f4be334548bd470d1e6b63b590c058f",
-      "src/laboratory-routing-preservation.test.ts": "5d6b44c368853f54cea968bf2b348b4e796f78795a7b43c74313c14b906156ff",
-      "src/laboratory-routing.integration.test.ts": "34bc0263c491e82756367eb4502ae724fa9e1e3629e9a2234ffa006cfc002df4",
-      "src/laboratory-routing.test.ts": "b4857318603d595b751140dbc8636bc2b2683152b2e9d4073734b6ea6371b045",
-      "src/laboratory/engine.ts": "4aa824741a39580b0a746b7421ad71364155df1fcbc6f7a7a4dfb7912b4e9f8a",
-      "src/laboratory/v3/server.ts": "cd97b2b62b4c77a1a30a8c730f7aeda06f2dffd47bb998445fa5e75ff99c0440",
-      "src/laboratory/v32/analysis.ts": "ec95314fd1ee89054a6d386ba2f2e14597cd442e94e6117ab65408e897060717",
-      "src/laboratory/v32/contract.ts": "1bfda160470490cca7aecedfa5c1f79d5c9f881341afaacaf2a050383df1fe73",
-      "src/laboratory/v32/domain.ts": "ff9cab359b783bc12b2684dafdad0564164ecd7f374268a8011af5499e9c451a",
-      "src/laboratory/v32/peering.ts": "8e4f8e064919b29c14e2b85bf1a14602dbb39358f74dcda4271767217556d440",
-      "src/shared-portal-preservation.test.ts": "603d2899924aa515d81feb5485d499ade75ea49b5a1398c489dd7a70b9b2300a",
-      "tests/e2e/laboratory-networking.spec.ts": "a48dcb9da62edfe1e8e61ae6f9c0367d558d310cac1aeb5ac965fa95e7252228",
-      "tests/e2e/laboratory-routing.spec.ts": "00fe267cac6d5f141e5ca734ddc299a4065f5790032c3043fe315b905626558b",
-      "tests/pr63-preservation.ts": "17328ddbfe1a8fefcbee9b6cc230923aeb85a6acf180e7a3bc161b64b5c3c159",
-      "tests/pr64-preservation.ts": "b8bde4d24c2723e6a5f2133e9ea74ad76f8eb5c8c7a1993ca531babbe1492c2d"
+      "AGENTS.md": "739e96c8a90c24a8e71d4bf21be7c58e6c5f982de1a85148d937294965023e90",
+      "database/laboratory-v3/004-endpoints.sql": "9ce47b6886a2fbf2911046545a7cac504cbf7cb69bca47ebc9e4d361889d3fdd",
+      "docs/ARCHITECTURE.md": "f33b9d50906804c0879f0013632f6827c6f9b9f731c91070f93f5d6e6cabaa46",
+      "docs/DECISIONS.md": "d9aef7bdfda528a160a0e4a3113d8c057de201cc2db0fea79b011235ff68c15c",
+      "docs/LABORATORY_NETWORKING_PART_C.md": "854d5de88ceaf1bef4263295ecddca0dbcc65361f4ecb164559dda420c0fb098",
+      "docs/PORTAL_CAPABILITY_MATRIX.md": "95755d7fac9f1f50aea22eb29f04e1bb7d76b4c8bc808c72bcd1fadf5fb2c6d3",
+      "docs/reviews/evidence/pr65/audit-original/identity-nic-4.png": "0989dc42110794c657389be330eaa26d7b52b11b385aa7b60514ec57df01eea5",
+      "docs/reviews/evidence/pr65/audit-original/identity-nic-8.png": "5ae942a2657b96240b2fe4aa0066c922418763d471d9826d63171c6d0c0ba5bf",
+      "docs/reviews/evidence/pr65/audit-original/identity-probe.json.raw": "ab3ced47dd9e15a413488d8e55c7ea2020d29f8483c2326098f5f23d29def23c",
+      "docs/reviews/evidence/pr65/frozen32-golden.json": "1d10e0dfed92bd801bcb99b81792138028e3a4c8013cecb2f8e9330c3dd43e82",
+      "docs/reviews/evidence/pr65/nic-nsg.png": "e92a3bc0e46d756ea91aa29ee02c5c6f013716f455272d446652091783dbe145",
+      "docs/reviews/evidence/pr65/nic-properties.png": "156de02bde522ae2c77fb2d8a8e367b1c1baa9bd5eb68ca72c0f477dea8b33a7",
+      "docs/reviews/evidence/pr65/policy-1024x500.png": "4f7dd80ed03014cfcbcfb874544177e398e7cb10bc8d8f39650976ee8e8fa114",
+      "docs/reviews/evidence/pr65/policy-1024x768.png": "85377b3bcbcb768f53c58d7eb777b785dc69a6849266a2c35898990353b87f4c",
+      "docs/reviews/evidence/pr65/policy-1440x900.png": "3e1a1bf8ecb0b92d9d63ae073a0e497c45be1773251e8567cf4c6e22ab16c3af",
+      "docs/reviews/evidence/pr65/policy-allow.png": "6cbe8a11280d9dc25ab77ad51ed2ba5ab6818e0dfe218cee079f0b96a1dc9cf9",
+      "docs/reviews/evidence/pr65/policy-nic-deny.png": "b7d47801fff2d9347109bc02496e9a0ba1a4fc8dcb2a563c5fc0258b085e53ba",
+      "docs/reviews/evidence/pr65/preservation.json": "ab9b1ec96bddc84769351fe52827a4da2cf32083bbe9f40a721c8a6b0d707ec4",
+      "docs/reviews/evidence/pr65/rg-identity-a.png": "fc5a38b723fd1981339558f337e9112be9c20e377eb2e0b8873a22ca7f1c2fbc",
+      "docs/reviews/evidence/pr65/rg-identity-b.png": "1f56792ca603db0a6fa70036d23eda2a4e58c84d402be7eb5d72ae3e5db2d000",
+      "docs/reviews/evidence/pr65/source-fetch.json": "d1452fa1d71223a8974246177b6b8e2beaf01a2d50043065c3ffd1e2da4e6797",
+      "docs/reviews/evidence/pr65/verification.json": "3273c36974dcdea265a16c7539b23fad424d7ded628f5965e2337d164c728fb9",
+      "playwright.desktop.config.ts": "2be5cdf4145c625332266c6642ed36dfac64f49955094537391b4db76631fcad",
+      "scripts/laboratory-db.mjs": "e405aa2d8141d5846f750c0d9f0a0d758121a8fbfb3c99556f81639708d0ef17",
+      "src/app/api/laboratory/policy-analysis/route.ts": "775776538411162ce61bb750538f8acee66d53bfbe4e2bb2de0f36039a8b2b10",
+      "src/content/laboratory-endpoints-nb.ts": "f0b509a00dbbab854177c972d4d6a014d9cb5575930c5bb296a90feb9f604009",
+      "src/content/portal-workspace-nb.ts": "6b0ac0c3ffa9dce3b3bf83cfa2f9cbf74613e3ec3deb0ad123af67a300bd5e8a",
+      "src/features/laboratory/endpoints.tsx": "d8d96d51142e4fbe9940abfbff91e214264cd48d64161c273a18f20be8efca51",
+      "src/features/laboratory/laboratory.css": "685911aad7d483295606917e71e4140e79301266251c7b45197fb640cbf54409",
+      "src/features/laboratory/laboratory.tsx": "5a7699057898defc54614150a73c8733c4ce544a13dfa2ebf8ba64119df8c7a2",
+      "src/features/laboratory/networking.tsx": "40bf6db2cce05ac4f088dee6ae6e984e0daab29540b08376af15a66e7796bd56",
+      "src/features/laboratory/portal-adapter.tsx": "704fe4b26a2d511e8582255e339f7195dc1adc05ae0c91ac9fae690a82283cee",
+      "src/features/laboratory/routing.tsx": "4ffa53779b32e82adc5e1ceb7000a49c731bb3d9e0168790f8c31f81af4c6574",
+      "src/laboratory-endpoints-preservation.test.ts": "dfef56291bc45bbb615851c80f57accea41bf2e93e692a5a4c50ffe640c20b5d",
+      "src/laboratory-endpoints.integration.test.ts": "7dd2a7f10243f009843a9d3ef5019fe7fe9efbfc9f73a1b55de7b3d539ac84a1",
+      "src/laboratory-endpoints.test.ts": "91b7918fc606d5c3517a4b8b40cdff441b46040bcf08762a6cf7bad563226da2",
+      "src/laboratory-routing-preservation.test.ts": "d2d9d0cb2d6cef78e26049a4781f280de189bfa115081dcec36d608a04430ab1",
+      "src/laboratory/engine.ts": "9a0254e5d635b8505f4524fbc1214e8926c2ac8644683d348f72c8ac545d2cf0",
+      "src/laboratory/v3/server.ts": "98f477b107b3ededd284d28a2ced0862b57efff2588ad095651e83786c87f940",
+      "src/laboratory/v33/contract.ts": "df08a13ae15f6e0d1dc237f4a7c5aefe2d2562e4b5a349cada0ad957518667b1",
+      "src/laboratory/v33/domain.ts": "15c2b207539c6a47fa05cc0833a125509c6b3b4c58ebda57779cd161d30265eb",
+      "src/laboratory/v33/policy.ts": "9cbabe0c454043bd0aa8ec3057207a38911212183a32c58ce9f564f628b9d967",
+      "src/laboratory/v33/projection.ts": "89d078d48e9a59d12284bfdc278ef53ecd7d199dae60a11481882c1560db6c84",
+      "src/laboratory/v33/route.ts": "13c2f063de70fc186c22563ac04b9f783a074117e22bbb037d133185dab07031",
+      "tests/e2e/laboratory-endpoints.spec.ts": "9f861098f91183b8785172069685fb71ceb91d9df47b6032bc1640462ab89305",
+      "tests/e2e/laboratory-routing.spec.ts": "e9885433c96f663a58861ca315784a8dcefee88bf54a1fbe0b6df769fa570d22",
+      "tests/pr64-preservation.ts": "a51d5a17740ee881c653d782cae81d334cc232ceec14651f7b61786cbd9db1db",
+      "tests/pr65-preservation.ts": "5ced822783a0501f5e8d5cb2ce16ba10e0dc9a42c0a7a9638f1b2afff8f4a623"
     }
   },
-  "implementationFinished": "2026-11-07T14:03:02.628Z"
+  "implementationFinished": "2026-11-07T15:47:22.138Z"
 }

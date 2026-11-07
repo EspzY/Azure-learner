@@ -157,3 +157,40 @@
 .laboratory-v3 .lab-route-analysis h2 {
   scroll-margin-top: 64px;
 }
+
+.laboratory-v3 .lab-policy-analysis form {
+  max-width: 940px;
+  margin-block: 20px;
+}
+.laboratory-v3 .lab-policy-analysis fieldset {
+  grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr));
+  align-items: end;
+}
+.laboratory-v3 .lab-policy-analysis h2 {
+  scroll-margin-top: 64px;
+}
+.laboratory-v3 .lab-policy-layers {
+  list-style: none;
+  padding: 0;
+  max-width: 1100px;
+}
+.laboratory-v3 .lab-policy-layers > li {
+  border-block-start: 1px solid #c7d1da;
+  padding: 16px 0;
+}
+.laboratory-v3 .lab-rule-kind {
+  display: block;
+  color: #46515c;
+}
+.laboratory-v3 .lab-policy-outcome {
+  display: inline-block;
+  padding: 6px 10px;
+  background: #eaf2f8;
+  border-inline-start: 3px solid #0865bd;
+}
+
+.laboratory-v3 .lab-policy-analysis a,
+.laboratory-v3 .lab-endpoint-detail a {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}

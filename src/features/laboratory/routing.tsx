@@ -4,6 +4,7 @@ import Link from 'next/link';
 import type { World, Command } from '@/laboratory/v32/contract';
 import type { Snapshot } from '@/laboratory/engine';
 import type { Analysis } from '@/laboratory/v32/analysis';
+import { routingProjection } from '@/laboratory/v33/projection';
 import { peeringStatus } from '@/laboratory/v32/peering';
 import { laboratoryRoutingNb as r } from '@/content/laboratory-routing-nb';
 import { laboratoryV3Nb as c } from '@/content/nb';
@@ -27,7 +28,7 @@ export function RoutingViews({
   receipt,
   list,
 }: {
-  world: World;
+  world: World | import('@/laboratory/v33/contract').World;
   view: string;
   id: string | null;
   begin: (type: Command['type']) => void;
@@ -96,7 +97,10 @@ export function RoutingViews({
               [c.id, peering.id],
               ['Lokalt VNet', vnetLink(peering.vnetId)],
               [r.fields.remoteVnetId, vnetLink(peering.remoteVnetId)],
-              ['Status', peeringStatus(w, peering)],
+              [
+                'Status',
+                peeringStatus(w.model === 'laboratory@3.3.0' ? routingProjection(w) : w, peering),
+              ],
               [r.fields.allowVirtualNetworkAccess, 'Aktivert'],
             ]}
           />
@@ -196,7 +200,9 @@ export function RouteAnalysis({
     [destination, setDestination] = useState('10.20.1.5'),
     [busy, setBusy] = useState(false),
     [error, setError] = useState(''),
-    [result, setResult] = useState<(Analysis & { workspace: string }) | null>(null);
+    [result, setResult] = useState<
+      ((Analysis | import('@/laboratory/v33/route').RouteAnalysis) & { workspace: string }) | null
+    >(null);
   const current = useRef(snapshot);
   const mounted = useRef(true);
   useEffect(() => {
@@ -219,7 +225,8 @@ export function RouteAnalysis({
       heading.current?.focus({ preventScroll: true });
     }
   }, [result, snapshot.workspace, snapshot.world.revision]);
-  if (snapshot.world.model !== 'laboratory@3.2.0') return null;
+  if (snapshot.world.model !== 'laboratory@3.2.0' && snapshot.world.model !== 'laboratory@3.3.0')
+    return null;
   const calculate = async () => {
     const workspace = snapshot.workspace;
     setBusy(true);
@@ -286,7 +293,8 @@ export function RouteAnalysis({
             {snapshot.world.subnets.map((s) => (
               <option key={s.id} value={s.id}>
                 {s.name} ·{' '}
-                {snapshot.world.model === 'laboratory@3.2.0' &&
+                {snapshot.world.model !== 'laboratory@3.0.0' &&
+                  snapshot.world.model !== 'laboratory@3.1.0' &&
                   snapshot.world.vnets.find((v) => v.id === s.vnetId)?.name}
               </option>
             ))}

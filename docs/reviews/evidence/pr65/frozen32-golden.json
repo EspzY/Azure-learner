@@ -1,0 +1,245 @@
+{
+  "provenance": {
+    "base": "42ab1ba33c1972fc685f09097eb7e4de48a3e7fd",
+    "generatedAt": "2026-11-07T15:17:58.039Z",
+    "generator": "unchanged frozen v32 execute; source pinned against base by preservation test"
+  },
+  "entries": [
+    {
+      "model": "laboratory@3.2.0",
+      "attempt": 1,
+      "request": {
+        "commandId": "frozen32-1",
+        "expectedRevision": 0,
+        "command": {
+          "type": "CreateGroup",
+          "subscriptionId": "sub-shared",
+          "name": "rg-frozen32",
+          "metadataRegion": "norwayeast"
+        }
+      },
+      "receipt": {
+        "commandId": "frozen32-1",
+        "sequence": 1,
+        "beforeRevision": 0,
+        "afterRevision": 1,
+        "operation": "CreateGroup",
+        "targetType": "Microsoft.Resources/resourceGroups",
+        "scopeId": "sub-shared",
+        "location": "norwayeast",
+        "outcome": "accepted",
+        "code": "created",
+        "ruleId": "lab-storage@3.2",
+        "addedIds": ["group-1"],
+        "removedIds": [],
+        "beforeCount": 0,
+        "afterCount": 1
+      }
+    },
+    {
+      "model": "laboratory@3.2.0",
+      "attempt": 1,
+      "request": {
+        "commandId": "frozen32-2",
+        "expectedRevision": 1,
+        "command": {
+          "type": "CreateVirtualNetwork",
+          "groupId": "group-1",
+          "name": "vnet-old",
+          "region": "norwayeast",
+          "addressSpace": "10.0.0.0/16"
+        }
+      },
+      "receipt": {
+        "commandId": "frozen32-2",
+        "sequence": 2,
+        "beforeRevision": 1,
+        "afterRevision": 2,
+        "operation": "CreateVirtualNetwork",
+        "targetType": "Microsoft.Network/virtualNetworks",
+        "scopeId": "group-1",
+        "location": "norwayeast",
+        "outcome": "accepted",
+        "code": "created",
+        "ruleId": "lab-network@3.2",
+        "addedIds": ["vnet-2"],
+        "removedIds": [],
+        "beforeCount": 1,
+        "afterCount": 2
+      }
+    },
+    {
+      "model": "laboratory@3.2.0",
+      "attempt": 1,
+      "request": {
+        "commandId": "frozen32-3",
+        "expectedRevision": 2,
+        "command": {
+          "type": "CreateSubnet",
+          "vnetId": "vnet-2",
+          "name": "sub-old",
+          "addressPrefix": "10.0.1.0/24"
+        }
+      },
+      "receipt": {
+        "commandId": "frozen32-3",
+        "sequence": 3,
+        "beforeRevision": 2,
+        "afterRevision": 3,
+        "operation": "CreateSubnet",
+        "targetType": "Microsoft.Network/virtualNetworks/subnets",
+        "scopeId": "vnet-2",
+        "location": "norwayeast",
+        "outcome": "accepted",
+        "code": "created",
+        "ruleId": "lab-network@3.2",
+        "addedIds": ["subnet-3"],
+        "removedIds": [],
+        "beforeCount": 2,
+        "afterCount": 3
+      }
+    },
+    {
+      "model": "laboratory@3.2.0",
+      "attempt": 1,
+      "request": {
+        "commandId": "frozen32-4",
+        "expectedRevision": 3,
+        "command": {
+          "type": "CreateNetworkSecurityGroup",
+          "groupId": "group-1",
+          "region": "norwayeast",
+          "name": "nsg-old"
+        }
+      },
+      "receipt": {
+        "commandId": "frozen32-4",
+        "sequence": 4,
+        "beforeRevision": 3,
+        "afterRevision": 4,
+        "operation": "CreateNetworkSecurityGroup",
+        "targetType": "Microsoft.Network/networkSecurityGroups",
+        "scopeId": "group-1",
+        "location": "norwayeast",
+        "outcome": "accepted",
+        "code": "created",
+        "ruleId": "lab-network@3.2",
+        "addedIds": ["nsg-4"],
+        "removedIds": [],
+        "beforeCount": 3,
+        "afterCount": 4
+      }
+    },
+    {
+      "model": "laboratory@3.2.0",
+      "attempt": 1,
+      "request": {
+        "commandId": "frozen32-5",
+        "expectedRevision": 4,
+        "command": {
+          "type": "AssociateSubnetNsg",
+          "subnetId": "subnet-3",
+          "nsgId": "nsg-4"
+        }
+      },
+      "receipt": {
+        "commandId": "frozen32-5",
+        "sequence": 5,
+        "beforeRevision": 4,
+        "afterRevision": 5,
+        "operation": "AssociateSubnetNsg",
+        "targetType": "Microsoft.Network/virtualNetworks/subnets",
+        "scopeId": "subnet-3",
+        "location": "norwayeast",
+        "outcome": "accepted",
+        "code": "updated",
+        "ruleId": "lab-network@3.2",
+        "addedIds": [],
+        "removedIds": [],
+        "beforeCount": 4,
+        "afterCount": 4
+      }
+    },
+    {
+      "model": "laboratory@3.2.0",
+      "attempt": 1,
+      "request": {
+        "commandId": "frozen32-6",
+        "expectedRevision": 5,
+        "command": {
+          "type": "CreateNetworkInterface",
+          "groupId": "group-1",
+          "vnetId": "vnet-2",
+          "subnetId": "subnet-3",
+          "name": "unsupported-nic",
+          "region": "norwayeast",
+          "privateIpAddress": "10.0.1.10",
+          "allocation": "Static"
+        }
+      },
+      "receipt": {
+        "commandId": "frozen32-6",
+        "sequence": 6,
+        "beforeRevision": 5,
+        "afterRevision": 5,
+        "operation": "CreateNetworkInterface",
+        "targetType": "local/workspace",
+        "scopeId": "group-1",
+        "location": null,
+        "outcome": "unsupported",
+        "code": "unsupported-capability",
+        "ruleId": "lab-input@3.2",
+        "addedIds": [],
+        "removedIds": [],
+        "beforeCount": 4,
+        "afterCount": 4,
+        "field": "type"
+      }
+    },
+    {
+      "model": "laboratory@3.2.0",
+      "attempt": 1,
+      "request": {
+        "commandId": "frozen32-7",
+        "expectedRevision": 5,
+        "command": {
+          "type": "ResetWorkspace"
+        }
+      },
+      "receipt": {
+        "commandId": "frozen32-7",
+        "sequence": 7,
+        "beforeRevision": 5,
+        "afterRevision": 6,
+        "operation": "ResetWorkspace",
+        "targetType": "local/workspace",
+        "scopeId": "",
+        "location": null,
+        "outcome": "accepted",
+        "code": "updated",
+        "ruleId": "lab-reset@3.2",
+        "addedIds": [],
+        "removedIds": ["group-1", "vnet-2", "subnet-3", "nsg-4"],
+        "beforeCount": 4,
+        "afterCount": 0
+      }
+    }
+  ],
+  "world": {
+    "model": "laboratory@3.2.0",
+    "revision": 6,
+    "nextId": 5,
+    "attempt": 2,
+    "groups": [],
+    "accounts": [],
+    "containers": [],
+    "blobs": [],
+    "vnets": [],
+    "subnets": [],
+    "nsgs": [],
+    "securityRules": [],
+    "peerings": [],
+    "routeTables": [],
+    "routes": []
+  }
+}
