@@ -356,3 +356,7 @@ Keep original Benefits/Services expansion contracts and Cloud Transfer byte-iden
 ## 8 November2026 — PR67 bounded Firewall inspection
 
 Choose a separate laboratory@3.5.0 workspace instead of changing historical route/peering semantics. Model Standard VNet Firewall and Standard Public IP configuration in one atomic operation; no concrete public address is assigned. Collection-level action and group/collection priorities mirror the supported Policy hierarchy. Preserve receiving-side forwarded-traffic direction and require explicit spoke return routing. A stored Firewall ID cannot resolve an ambiguous next-hop IP: use a conservative direct selected hub lookup on both sides, returning incomplete for unsupported resolution. This is narrower than Azure NVA resolution, never a claim of complete recursive routing. Reuse the shared Portal and original route/NSG engines; no packet/flow-state/NAT simulator or parallel inventory. Keep the original independently reproduced ambiguous-hub defect and its correction evidence.
+
+## PR68 — topology is a projection, diagnostics are existing server evidence
+
+Architecture Studio shares Portal presentation and the original server analyses. It stores neither a graph nor a new World, adds no model/SQL/command, and grants no learning credit. Typed relations and explicit review/unknown findings never become universal architecture scores. Future scenario provisioning/evidence requires a separately approved versioned contract and must respect the documented create/update/delete gaps.

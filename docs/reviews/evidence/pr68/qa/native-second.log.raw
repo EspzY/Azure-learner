@@ -1,0 +1,169 @@
+[WebServer] (node:31545) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 6 tests using 1 worker
+
+(node:31561) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 [desktop-chromium] › tests/e2e/laboratory-studio.spec.ts:63:1 › Studio live hub topology reuses server Firewall NSG routes and original resource Properties with URL-only return and no inspection writes (8.2s)
+(node:31642) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  2 [desktop-chromium] › tests/e2e/laboratory-studio.spec.ts:104:1 › Studio refresh invalidates a real changed forwarding path and shows the concrete NSG conflict without manufacturing policy success (3.7s)
+  ✘  3 [desktop-chromium] › tests/e2e/laboratory-studio.spec.ts:164:1 › Studio duplicate names filters peering status and broad Allow observations retain actual scope and identity (7.3s)
+(node:31752) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  4 [desktop-chromium] › tests/e2e/laboratory-studio.spec.ts:228:1 › Studio near-capacity graph semantic list keyboard focus reduced motion Axe and short desktop remain usable without moving resource nodes (9.7s)
+(node:31920) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  5 [desktop-chromium] › tests/e2e/laboratory-studio.spec.ts:271:1 › Studio unavailable backend remains empty and historical Storage workspace is inspected without upgrade or new analysis commands (1.7s)
+(node:32013) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  6 [compact-chromium] › tests/e2e/laboratory-studio.spec.ts:228:1 › Studio near-capacity graph semantic list keyboard focus reduced motion Axe and short desktop remain usable without moving resource nodes (9.3s)
+
+
+  1) [desktop-chromium] › tests/e2e/laboratory-studio.spec.ts:63:1 › Studio live hub topology reuses server Firewall NSG routes and original resource Properties with URL-only return and no inspection writes 
+
+    Error: expect(locator).toContainText(expected) failed
+
+    Locator: getByRole('complementary', { name: 'Ressursinspeksjon', exact: true })
+    Expected substring: "nic-22"
+    Received string:    "Valgt ressursVelg en ressurs i grafen eller listen."
+    Timeout: 5000ms
+
+    Call log:
+      - Expect "toContainText" getByRole('complementary', { name: 'Ressursinspeksjon', exact: true }) with timeout 5000ms
+      - waiting for getByRole('complementary', { name: 'Ressursinspeksjon', exact: true })
+        14 × locator resolved to <aside class="studio-inspector" aria-label="Ressursinspeksjon">…</aside>
+           - unexpected value "Valgt ressursVelg en ressurs i grafen eller listen."
+
+
+      86 |     .click();
+      87 |   const pane = page.getByRole('complementary', { name: t.inspect, exact: true });
+    > 88 |   await expect(pane).toContainText(a.appNic);
+         |                      ^
+      89 |   const saved = new URL(page.url()).searchParams;
+      90 |   await pane.getByRole('link', { name: t.open, exact: true }).click();
+      91 |   await expect(page.locator('#lab-page-title')).toHaveText('vm-app-01');
+        at /workspace/Azure-learner/tests/e2e/laboratory-studio.spec.ts:88:22
+
+    Error Context: ../azurelab-pr68/native-second/laboratory-studio-Studio-l-3f132-rn-and-no-inspection-writes-desktop-chromium/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../azurelab-pr68/native-second/laboratory-studio-Studio-l-3f132-rn-and-no-inspection-writes-desktop-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace ../azurelab-pr68/native-second/laboratory-studio-Studio-l-3f132-rn-and-no-inspection-writes-desktop-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) [desktop-chromium] › tests/e2e/laboratory-studio.spec.ts:164:1 › Studio duplicate names filters peering status and broad Allow observations retain actual scope and identity 
+
+    Error: expect(locator).toHaveCount(expected) failed
+
+    Locator:  getByRole('table', { name: 'Ressursliste', exact: true }).getByRole('button', { name: 'vnet-app · vnet-3', exact: true })
+    Expected: 0
+    Received: 1
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toHaveCount" getByRole('table', { name: 'Ressursliste', exact: true }).getByRole('button', { name: 'vnet-app · vnet-3', exact: true }) with timeout 5000ms
+      - waiting for getByRole('table', { name: 'Ressursliste', exact: true }).getByRole('button', { name: 'vnet-app · vnet-3', exact: true })
+        14 × locator resolved to 1 element
+           - unexpected value "1"
+
+
+      217 |     table.getByRole('button', { name: `vnet-app · ${duplicate}`, exact: true }),
+      218 |   ).toBeVisible();
+    > 219 |   await expect(table.getByRole('button', { name: `vnet-app · ${a.app}`, exact: true })).toHaveCount(
+          |                                                                                         ^
+      220 |     0,
+      221 |   );
+      222 |   await expect(page.locator('[data-observation="peering-not-connected"]')).toContainText(
+        at /workspace/Azure-learner/tests/e2e/laboratory-studio.spec.ts:219:89
+
+    Error Context: ../azurelab-pr68/native-second/laboratory-studio-Studio-d-173f7-n-actual-scope-and-identity-desktop-chromium/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../azurelab-pr68/native-second/laboratory-studio-Studio-d-173f7-n-actual-scope-and-identity-desktop-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace ../azurelab-pr68/native-second/laboratory-studio-Studio-d-173f7-n-actual-scope-and-identity-desktop-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  3) [desktop-chromium] › tests/e2e/laboratory-studio.spec.ts:228:1 › Studio near-capacity graph semantic list keyboard focus reduced motion Axe and short desktop remain usable without moving resource nodes 
+
+    Error: expect(locator).toContainText(expected) failed
+
+    Locator: getByRole('complementary', { name: 'Ressursinspeksjon', exact: true })
+    Expected substring: "vm-23"
+    Received string:    "Valgt ressursVelg en ressurs i grafen eller listen."
+    Timeout: 5000ms
+
+    Call log:
+      - Expect "toContainText" getByRole('complementary', { name: 'Ressursinspeksjon', exact: true }) with timeout 5000ms
+      - waiting for getByRole('complementary', { name: 'Ressursinspeksjon', exact: true })
+        14 × locator resolved to <aside class="studio-inspector" aria-label="Ressursinspeksjon">…</aside>
+           - unexpected value "Valgt ressursVelg en ressurs i grafen eller listen."
+
+
+      241 |   await table.getByRole('button', { name: `vm-app-01 · ${a.appVm}`, exact: true }).focus();
+      242 |   await page.keyboard.press('Enter');
+    > 243 |   await expect(page.getByRole('complementary', { name: t.inspect, exact: true })).toContainText(
+          |                                                                                   ^
+      244 |     a.appVm,
+      245 |   );
+      246 |   await page
+        at /workspace/Azure-learner/tests/e2e/laboratory-studio.spec.ts:243:83
+
+    Error Context: ../azurelab-pr68/native-second/laboratory-studio-Studio-n-11598-thout-moving-resource-nodes-desktop-chromium/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../azurelab-pr68/native-second/laboratory-studio-Studio-n-11598-thout-moving-resource-nodes-desktop-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace ../azurelab-pr68/native-second/laboratory-studio-Studio-n-11598-thout-moving-resource-nodes-desktop-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  4) [compact-chromium] › tests/e2e/laboratory-studio.spec.ts:228:1 › Studio near-capacity graph semantic list keyboard focus reduced motion Axe and short desktop remain usable without moving resource nodes 
+
+    Error: expect(locator).toContainText(expected) failed
+
+    Locator: getByRole('complementary', { name: 'Ressursinspeksjon', exact: true })
+    Expected substring: "vm-23"
+    Received string:    "Valgt ressursVelg en ressurs i grafen eller listen."
+    Timeout: 5000ms
+
+    Call log:
+      - Expect "toContainText" getByRole('complementary', { name: 'Ressursinspeksjon', exact: true }) with timeout 5000ms
+      - waiting for getByRole('complementary', { name: 'Ressursinspeksjon', exact: true })
+        14 × locator resolved to <aside class="studio-inspector" aria-label="Ressursinspeksjon">…</aside>
+           - unexpected value "Valgt ressursVelg en ressurs i grafen eller listen."
+
+
+      241 |   await table.getByRole('button', { name: `vm-app-01 · ${a.appVm}`, exact: true }).focus();
+      242 |   await page.keyboard.press('Enter');
+    > 243 |   await expect(page.getByRole('complementary', { name: t.inspect, exact: true })).toContainText(
+          |                                                                                   ^
+      244 |     a.appVm,
+      245 |   );
+      246 |   await page
+        at /workspace/Azure-learner/tests/e2e/laboratory-studio.spec.ts:243:83
+
+    Error Context: ../azurelab-pr68/native-second/laboratory-studio-Studio-n-11598-thout-moving-resource-nodes-compact-chromium/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../azurelab-pr68/native-second/laboratory-studio-Studio-n-11598-thout-moving-resource-nodes-compact-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace ../azurelab-pr68/native-second/laboratory-studio-Studio-n-11598-thout-moving-resource-nodes-compact-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  4 failed
+    [desktop-chromium] › tests/e2e/laboratory-studio.spec.ts:63:1 › Studio live hub topology reuses server Firewall NSG routes and original resource Properties with URL-only return and no inspection writes 
+    [desktop-chromium] › tests/e2e/laboratory-studio.spec.ts:164:1 › Studio duplicate names filters peering status and broad Allow observations retain actual scope and identity 
+    [desktop-chromium] › tests/e2e/laboratory-studio.spec.ts:228:1 › Studio near-capacity graph semantic list keyboard focus reduced motion Axe and short desktop remain usable without moving resource nodes 
+    [compact-chromium] › tests/e2e/laboratory-studio.spec.ts:228:1 › Studio near-capacity graph semantic list keyboard focus reduced motion Axe and short desktop remain usable without moving resource nodes 
+  2 passed (47.7s)

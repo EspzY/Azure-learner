@@ -38,8 +38,11 @@ import { PropertyList, PortalDialog } from '@/features/portal/shared';
 import { ServiceIcon } from '@/features/portal/service-icon';
 import '@/features/portal/portal.css';
 import './laboratory.css';
+import { ArchitectureStudio } from './studio';
+import { architectureStudioNb as studioCopy } from '@/content/architecture-studio-nb';
+import { studioContext, studioReturn } from './studio-location';
 const base = '/labs/laboratory';
-const href = (view: string, id?: string, receipt?: string) =>
+const baseHref = (view: string, id?: string, receipt?: string) =>
   base +
   '?' +
   new URLSearchParams({ view, ...(id ? { id } : {}), ...(receipt ? { receipt } : {}) });
@@ -121,6 +124,14 @@ async function api(action: string, request?: unknown, workspace?: string) {
 export function Laboratory() {
   const query = useSearchParams(),
     router = useRouter();
+  const href = (view: string, id?: string, receipt?: string) =>
+    studioContext(baseHref(view, id, receipt), query);
+  const routeFocusKey = [
+    query.get('view'),
+    query.get('id'),
+    query.get('section'),
+    query.get('receipt'),
+  ].join('|');
   const [snapshot, setSnapshot] = useState<Snapshot | null>(null),
     [startModel, setStartModel] = useState<Model>(laboratoryModel),
     [newWorkspace, setNewWorkspace] = useState(false),
@@ -155,10 +166,9 @@ export function Laboratory() {
     snapshotRef.current = snapshot;
   }, [snapshot]);
   useEffect(() => {
-    // Route commit, not a guessed timer after push. Background refreshes retain focus.
-    if (query.has('id') || query.get('view') === 'history')
-      resultRef.current?.focus({ preventScroll: true });
-  }, [query]);
+    // Route commits move focus; presentation-only Studio filters/pan must not steal it.
+    resultRef.current?.focus({ preventScroll: true });
+  }, [routeFocusKey]);
   const accept = useCallback(
     (incoming: Snapshot) =>
       setSnapshot((previous) =>
@@ -601,10 +611,6 @@ export function Laboratory() {
     priorForm.current = form;
   }, [form]);
   useEffect(() => {
-    if (!query.has('id') && query.get('view') !== 'history')
-      resultRef.current?.focus({ preventScroll: true });
-  }, [query]);
-  useEffect(() => {
     const media = matchMedia('(max-width:1100px)');
     const update = () => setNarrow(media.matches);
     update();
@@ -634,6 +640,7 @@ export function Laboratory() {
         ? 'networking'
         : 'overview';
   const services: [string, string, string][] = [
+    ['studio', studioCopy.title, 'architecture'],
     ...(firewall
       ? ([
           ['firewalls', f.firewalls, 'firewall'],
@@ -803,6 +810,16 @@ export function Laboratory() {
                     : [];
   const body = snapshot && world && (
     <>
+      {view === 'studio' &&
+        (error ? (
+          <p role="status">{c.unavailable}</p>
+        ) : (
+          <ArchitectureStudio
+            key={`${snapshot.workspace}:${snapshot.world.model}:${snapshot.world.attempt}`}
+            snapshot={snapshot}
+            accept={accept}
+          />
+        ))}
       {view === 'services' && (
         <>
           <p>{w.menuNote}</p>
@@ -1328,6 +1345,11 @@ export function Laboratory() {
           </>
         )}
       </PortalBreadcrumbs>
+      {query.get('studio') === '1' && view !== 'studio' && (
+        <p className="studio-return">
+          <Link href={studioReturn(query)}>{studioCopy.back}</Link>
+        </p>
+      )}
       {!form && (
         <PortalTitle
           id="lab-page-title"

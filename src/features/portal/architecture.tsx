@@ -1,16 +1,7 @@
 'use client';
 import { useMemo, useState } from 'react';
-import {
-  ReactFlow,
-  Background,
-  Controls,
-  Handle,
-  Position,
-  MarkerType,
-  type Node,
-  type NodeProps,
-  type Edge,
-} from '@xyflow/react';
+import { MarkerType, type Edge } from '@xyflow/react';
+import { PortalArchitectureGraph, type DiagramNode } from './architecture-graph';
 import { ServiceIcon } from './service-icon';
 import { labsNb, nb, regionLabels, scopeCopy } from '@/content/nb';
 import { projectArchitecture } from '@/domain/portal/model';
@@ -22,26 +13,6 @@ import { usePortalLearning } from './learning-provider';
 import { ManagementTeachingBoundary } from '@/features/learning/management-access';
 const t = nb.portal,
   g = t.graph;
-type DiagramNode = Node<{ label: string; kind: string; location?: string }, 'resource'>;
-function ResourceNode({ data }: NodeProps<DiagramNode>) {
-  return (
-    <>
-      <Handle type="target" position={Position.Top} />
-      <Handle type="target" position={Position.Right} id="side-in" />
-      <div className={`portal-graph-node kind-${data.kind}`}>
-        <ServiceIcon kind={data.kind} size={21} />
-        <div>
-          <small>{g.types[data.kind as keyof typeof g.types]}</small>
-          <strong>{data.label}</strong>
-          {data.location && <span>{regionLabels[data.location as keyof typeof regionLabels]}</span>}
-        </div>
-      </div>
-      <Handle type="source" position={Position.Bottom} />
-      <Handle type="source" position={Position.Left} id="side-out" />
-    </>
-  );
-}
-const nodeTypes = { resource: ResourceNode };
 const colors = {
   'disk-attachment': '#8b5e16',
   'nic-attachment': '#b54d83',
@@ -130,31 +101,12 @@ export function ArchitectureExplorer({
         <div>
           {!list && (
             <div className="portal-graph" aria-label={g.diagram}>
-              <ReactFlow
-                key={world.revision}
+              <PortalArchitectureGraph
+                graphKey={world.revision}
                 nodes={nodes}
                 edges={edges}
-                nodeTypes={nodeTypes}
-                fitView
-                fitViewOptions={{ padding: 0.22 }}
-                minZoom={0.2}
-                maxZoom={1.6}
-                nodesConnectable={false}
-                nodesDraggable={false}
-                deleteKeyCode={null}
-                onNodeClick={(_, n) => select(n.id)}
-                onEdgeClick={(_, e) => select(e.id)}
-                colorMode="light"
-                ariaLabelConfig={{
-                  'controls.zoomIn.ariaLabel': nb.explore.controls.zoomIn,
-                  'controls.zoomOut.ariaLabel': nb.explore.controls.zoomOut,
-                  'controls.fitView.ariaLabel': nb.explore.controls.fit,
-                  'node.a11yDescription.default': g.select,
-                }}
-              >
-                <Background gap={24} color="#c5cdd2" />
-                <Controls showInteractive={false} />
-              </ReactFlow>
+                onSelect={select}
+              />
             </div>
           )}
           <div className="portal-legend" aria-label={g.legend}>

@@ -1,0 +1,132 @@
+[WebServer] (node:40353) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 7 tests using 1 worker
+
+(node:40369) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 [desktop-chromium] › tests/e2e/laboratory-studio.spec.ts:63:1 › Studio live hub topology reuses server Firewall NSG routes and original resource Properties with URL-only return and no inspection writes (8.6s)
+(node:40449) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  2 [desktop-chromium] › tests/e2e/laboratory-studio.spec.ts:110:1 › Studio refresh invalidates a real changed forwarding path and shows the concrete NSG conflict without manufacturing policy success (4.8s)
+  ✓  3 [desktop-chromium] › tests/e2e/laboratory-studio.spec.ts:201:1 › Studio duplicate names filters peering status and broad Allow observations retain actual scope and identity (2.8s)
+  ✘  4 [desktop-chromium] › tests/e2e/laboratory-studio.spec.ts:277:1 › Studio near-capacity graph semantic list keyboard focus reduced motion Axe and short desktop remain usable without moving resource nodes (5.1s)
+(node:40574) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  5 [desktop-chromium] › tests/e2e/laboratory-studio.spec.ts:340:1 › Studio unavailable backend remains empty and historical Storage workspace is inspected without upgrade or new analysis commands (1.7s)
+(node:40652) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  6 [desktop-chromium] › tests/e2e/practical-labs.spec.ts:164:1 › root course to persisted VM, app settings, separate SaaS, exact debrief and resume (24.3s)
+(node:41022) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  7 [compact-chromium] › tests/e2e/laboratory-studio.spec.ts:277:1 › Studio near-capacity graph semantic list keyboard focus reduced motion Axe and short desktop remain usable without moving resource nodes (5.7s)
+
+
+  1) [desktop-chromium] › tests/e2e/laboratory-studio.spec.ts:63:1 › Studio live hub topology reuses server Firewall NSG routes and original resource Properties with URL-only return and no inspection writes 
+
+    Error: expect(locator).toHaveText(expected) failed
+
+    Locator:  locator('#lab-page-title')
+    Expected: "vm-app-01"
+    Received: "Architecture Studio"
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toHaveText" locator('#lab-page-title') with timeout 5000ms
+      - waiting for locator('#lab-page-title')
+        14 × locator resolved to <h1 tabindex="-1" id="lab-page-title">Architecture Studio</h1>
+           - unexpected value "Architecture Studio"
+
+
+       97 |     expect(new URL(page.url()).searchParams.get(key)).toBe(saved.get(key));
+       98 |   await page.goForward();
+    >  99 |   await expect(page.locator('#lab-page-title')).toHaveText('vm-app-01');
+          |                                                 ^
+      100 |   await page.goBack();
+      101 |   await expect(studio(page)).toBeVisible();
+      102 |   await page.reload();
+        at /workspace/Azure-learner/tests/e2e/laboratory-studio.spec.ts:99:49
+
+    Error Context: ../azurelab-pr68/native-final-candidate/laboratory-studio-Studio-l-3f132-rn-and-no-inspection-writes-desktop-chromium/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../azurelab-pr68/native-final-candidate/laboratory-studio-Studio-l-3f132-rn-and-no-inspection-writes-desktop-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace ../azurelab-pr68/native-final-candidate/laboratory-studio-Studio-l-3f132-rn-and-no-inspection-writes-desktop-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) [desktop-chromium] › tests/e2e/laboratory-studio.spec.ts:277:1 › Studio near-capacity graph semantic list keyboard focus reduced motion Axe and short desktop remain usable without moving resource nodes 
+
+    Error: expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 6
+
+    - Array []
+    + Array [
+    +   Array [
+    +     43,
+    +     91,
+    +   ],
+    + ]
+
+      319 |     return pairs;
+      320 |   });
+    > 321 |   expect(overlaps).toEqual([]);
+          |                    ^
+      322 |   for (const viewport of [
+      323 |     { width: 1440, height: 900 },
+      324 |     { width: 1024, height: 768 },
+        at /workspace/Azure-learner/tests/e2e/laboratory-studio.spec.ts:321:20
+
+    Error Context: ../azurelab-pr68/native-final-candidate/laboratory-studio-Studio-n-11598-thout-moving-resource-nodes-desktop-chromium/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../azurelab-pr68/native-final-candidate/laboratory-studio-Studio-n-11598-thout-moving-resource-nodes-desktop-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace ../azurelab-pr68/native-final-candidate/laboratory-studio-Studio-n-11598-thout-moving-resource-nodes-desktop-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  3) [compact-chromium] › tests/e2e/laboratory-studio.spec.ts:277:1 › Studio near-capacity graph semantic list keyboard focus reduced motion Axe and short desktop remain usable without moving resource nodes 
+
+    Error: expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 6
+
+    - Array []
+    + Array [
+    +   Array [
+    +     43,
+    +     91,
+    +   ],
+    + ]
+
+      319 |     return pairs;
+      320 |   });
+    > 321 |   expect(overlaps).toEqual([]);
+          |                    ^
+      322 |   for (const viewport of [
+      323 |     { width: 1440, height: 900 },
+      324 |     { width: 1024, height: 768 },
+        at /workspace/Azure-learner/tests/e2e/laboratory-studio.spec.ts:321:20
+
+    Error Context: ../azurelab-pr68/native-final-candidate/laboratory-studio-Studio-n-11598-thout-moving-resource-nodes-compact-chromium/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../azurelab-pr68/native-final-candidate/laboratory-studio-Studio-n-11598-thout-moving-resource-nodes-compact-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace ../azurelab-pr68/native-final-candidate/laboratory-studio-Studio-n-11598-thout-moving-resource-nodes-compact-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  3 failed
+    [desktop-chromium] › tests/e2e/laboratory-studio.spec.ts:63:1 › Studio live hub topology reuses server Firewall NSG routes and original resource Properties with URL-only return and no inspection writes 
+    [desktop-chromium] › tests/e2e/laboratory-studio.spec.ts:277:1 › Studio near-capacity graph semantic list keyboard focus reduced motion Axe and short desktop remain usable without moving resource nodes 
+    [compact-chromium] › tests/e2e/laboratory-studio.spec.ts:277:1 › Studio near-capacity graph semantic list keyboard focus reduced motion Axe and short desktop remain usable without moving resource nodes 
+  4 passed (1.1m)

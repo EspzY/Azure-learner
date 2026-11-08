@@ -90,3 +90,7 @@ Broader fidelity is not closed by a polished shell or screenshot. Human Azure wo
 | AZ-900 v2 and Laboratory3.0–3.4                                        | Prior capabilities unchanged; no Firewall activation or automatic migration.                                                                           |
 
 See [contract and source distinctions](LABORATORY_FIREWALL_PART_A.md). Public Laboratory without database returns expected503; this is not a public Firewall demo.
+
+## PR68 — Architecture Studio (read-only)
+
+Free Laboratory navigation now exposes actual topology, scope/type filters, selection/Properties/original receipt links, accessible resource/relationship lists and the existing route/NSG/Firewall analysis in context. All resource identities come from the verified owned Snapshot; older models show only existing families. Zoom/filter/select/analyse create no technical events or receipts. No graph provisioning, live traffic, security score, scenario import or extra Azure operation. [Contract and sources](ARCHITECTURE_STUDIO_PART_A.md); [exact remediation capability matrix](LABORATORY_REMEDIATION_CAPABILITIES.md). Public503 without configured database remains intentional.
