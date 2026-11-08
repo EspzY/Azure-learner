@@ -1,4 +1,6 @@
 'use client';
+import { FirewallPathDetails } from './firewall';
+import { laboratoryFirewallNb as f } from '@/content/laboratory-firewall-nb';
 import { useEffect, useRef, useState, type ReactNode } from 'react';
 import Link from 'next/link';
 import type { World, Command } from '@/laboratory/v33/contract';
@@ -35,7 +37,8 @@ export function EndpointViews({
   list,
   receipt,
 }: {
-  world: World | import('@/laboratory/v34/contract').World;
+  world:
+    World | import('@/laboratory/v34/contract').World | import('@/laboratory/v35/contract').World;
   view: string;
   id: string | null;
   begin: (type: Command['type']) => void;
@@ -51,7 +54,9 @@ export function EndpointViews({
       {view === 'nics' && (
         <>
           <p className="lab-network-boundary">
-            {world.model === 'laboratory@3.4.0' ? m.nicBoundary : e.boundary}
+            {world.model === 'laboratory@3.4.0' || world.model === 'laboratory@3.5.0'
+              ? m.nicBoundary
+              : e.boundary}
           </p>
           <button disabled={disabled} onClick={() => begin('CreateNetworkInterface')}>
             {e.operations.CreateNetworkInterface}
@@ -62,7 +67,9 @@ export function EndpointViews({
       {view === 'nic' && nic && (
         <div className="lab-endpoint-detail">
           <p className="lab-network-boundary">
-            {world.model === 'laboratory@3.4.0' ? m.nicBoundary : e.boundary}
+            {world.model === 'laboratory@3.4.0' || world.model === 'laboratory@3.5.0'
+              ? m.nicBoundary
+              : e.boundary}
           </p>
           <PropertyList
             items={[
@@ -144,7 +151,11 @@ export function PolicyAnalysisView({
     [busy, setBusy] = useState(false),
     [error, setError] = useState(''),
     [result, setResult] = useState<
-      | ((PolicyAnalysis | import('@/laboratory/v34/analysis').PolicyAnalysis) & {
+      | ((
+          | PolicyAnalysis
+          | import('@/laboratory/v34/analysis').PolicyAnalysis
+          | import('@/laboratory/v35/analysis').PolicyAnalysis
+        ) & {
           workspace: string;
         })
       | null
@@ -171,7 +182,11 @@ export function PolicyAnalysisView({
       heading.current?.focus({ preventScroll: true });
     }
   }, [result, snapshot.workspace, snapshot.world.revision]);
-  if (snapshot.world.model !== 'laboratory@3.3.0' && snapshot.world.model !== 'laboratory@3.4.0')
+  if (
+    snapshot.world.model !== 'laboratory@3.3.0' &&
+    snapshot.world.model !== 'laboratory@3.4.0' &&
+    snapshot.world.model !== 'laboratory@3.5.0'
+  )
     return null;
   const world = snapshot.world,
     stale =
@@ -223,7 +238,9 @@ export function PolicyAnalysisView({
       vnet = world.vnets.find((x) => x.id === subnet?.vnetId),
       group = world.groups.find((x) => x.id === nic?.groupId);
     if (!nic) return id;
-    return `${nic.name} · ${nic.privateIpAddress} · ${group?.name ?? nic.groupId} / ${group?.subscriptionId ?? '—'} · ${vnet?.name ?? '—'} / ${subnet?.name ?? nic.subnetId} · ${nic.region} · ${nic.id}`;
+    const vm =
+      world.model === 'laboratory@3.5.0' ? world.vms.find((v) => v.nicId === nic.id) : undefined;
+    return `${vm ? vm.name + ' / ' : ''}${nic.name} · ${nic.privateIpAddress} · ${group?.name ?? nic.groupId} / ${group?.subscriptionId ?? '—'} · ${vnet?.name ?? '—'} / ${subnet?.name ?? nic.subnetId} · ${nic.region} · ${nic.id}`;
   };
   const set = (key: keyof typeof input, value: string) => {
     setInput({ ...input, [key]: value });
@@ -286,10 +303,20 @@ export function PolicyAnalysisView({
           <h2 tabIndex={-1} ref={heading}>
             {e.result}
           </h2>
-          <strong className="lab-policy-outcome" data-outcome={result.status}>
-            {e.statuses[result.status]}
-          </strong>
-          <p>{e.reasons[result.reason]}</p>
+          {'firewallPath' in result && world.model === 'laboratory@3.5.0' ? (
+            <FirewallPathDetails world={world} analysis={result} />
+          ) : (
+            <>
+              <strong className="lab-policy-outcome" data-outcome={result.status}>
+                {e.statuses[result.status]}
+              </strong>
+              <p>
+                {'firewallPath' in result
+                  ? (f.reasons[result.reason as keyof typeof f.reasons] ?? f.unknown)
+                  : e.reasons[result.reason]}
+              </p>
+            </>
+          )}
           <PropertyList
             items={[
               [e.source, nicLabel(result.sourceNicId)],
@@ -302,14 +329,16 @@ export function PolicyAnalysisView({
               [
                 'Rute',
                 result.route
-                  ? `${result.route.selected.addressPrefix} → ${r.nextHops[result.route.selected.nextHop]}`
+                  ? `${result.route.selected.addressPrefix} → ${result.route.selected.nextHop === 'VirtualAppliance' ? 'Virtual appliance' : r.nextHops[result.route.selected.nextHop]}`
                   : (r.codes[result.routeError as keyof typeof r.codes] ?? 'Uavklart'),
               ],
             ]}
           />
-          <p className="lab-network-boundary">
-            Ingen trafikk er sendt. Dette bekrefter ikke at en VM eller tjeneste svarer.
-          </p>
+          {!('firewallPath' in result) && (
+            <p className="lab-network-boundary">
+              Ingen trafikk er sendt. Dette bekrefter ikke at en VM eller tjeneste svarer.
+            </p>
+          )}
           <p>
             <Link href={href('analysis', result.sourceSubnetId)}>{r.analysis}</Link>
           </p>

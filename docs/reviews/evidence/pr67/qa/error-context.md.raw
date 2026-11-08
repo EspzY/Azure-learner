@@ -1,0 +1,478 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: pr67-probe-architecture-management.spec.ts >> capacity termination, stale recovery and isolated invalid data
+- Location: tests/e2e/pr67-probe-architecture-management.spec.ts:365:1
+
+# Error details
+
+```
+TimeoutError: locator.click: Timeout 15000ms exceeded.
+Call log:
+  - waiting for getByRole('button', { name: 'Kursinnhold', exact: true })
+
+```
+
+# Page snapshot
+
+```yaml
+- generic [ref=e1]:
+  - generic [ref=e2]:
+    - generic [ref=e4]:
+      - link "Hopp til innhold" [ref=e5] [cursor=pointer]:
+        - /url: "#course-main"
+      - banner [ref=e6]:
+        - link "AzureLab AZ-900" [ref=e7] [cursor=pointer]:
+          - /url: /learn
+          - text: AzureLab
+          - generic [ref=e10]: AZ-900
+        - navigation "Læringsreisen" [ref=e11]:
+          - link "Læringsreisen" [ref=e12] [cursor=pointer]:
+            - /url: /learn
+          - link "Fri Portal-sandbox" [ref=e13] [cursor=pointer]:
+            - /url: /portal
+        - button "Knowledge Journal" [ref=e16] [cursor=pointer]
+      - generic [ref=e17]:
+        - complementary [ref=e18]:
+          - navigation "Læringsstier og aktiviteter" [ref=e19]:
+            - generic [ref=e20]:
+              - generic [ref=e21]: AZ-900
+              - strong [ref=e22]: Azure Fundamentals
+            - link "Kursoversikt" [ref=e23] [cursor=pointer]:
+              - /url: /learn
+            - generic [ref=e29]:
+              - heading [level=2] [ref=e31]:
+                - button "01 Cloud Concepts" [ref=e32] [cursor=pointer]:
+                  - generic [ref=e33]: "01"
+                  - generic [ref=e34]: Cloud Concepts
+              - generic [ref=e37]:
+                - heading [level=2] [ref=e38]:
+                  - button "02 Azure Architecture & Services" [expanded] [ref=e39] [cursor=pointer]:
+                    - generic [ref=e40]: "02"
+                    - generic [ref=e41]: Azure Architecture & Services
+                - list [ref=e45]:
+                  - listitem [ref=e46]:
+                    - generic [ref=e47]:
+                      - generic [ref=e48]:
+                        - link "Core Architecture" [ref=e49] [cursor=pointer]:
+                          - /url: /learn/architecture?topic=datacenters
+                        - 'button "Aktiviteter: Core Architecture" [expanded] [ref=e50] [cursor=pointer]'
+                      - list [ref=e53]:
+                        - listitem [ref=e54]:
+                          - generic [ref=e55]: Del A · Fysisk infrastruktur
+                          - link "Maskinene trenger et sted å være" [ref=e56] [cursor=pointer]:
+                            - /url: /learn/architecture?topic=datacenters
+                        - listitem [ref=e57]:
+                          - link "Geography og region" [ref=e58] [cursor=pointer]:
+                            - /url: /learn/architecture?topic=regions
+                        - listitem [ref=e59]:
+                          - link "Soner er forskjellige feilgrenser" [ref=e60] [cursor=pointer]:
+                            - /url: /learn/architecture?topic=zones
+                        - listitem [ref=e61]:
+                          - link "Regionpar er ikke en beredskapsplan" [ref=e62] [cursor=pointer]:
+                            - /url: /learn/architecture?topic=pairs
+                        - listitem [ref=e63]:
+                          - link "Region eller separat skymiljø?" [ref=e64] [cursor=pointer]:
+                            - /url: /learn/architecture?topic=sovereign
+                        - listitem [ref=e65]:
+                          - link "Azure Infrastructure Explorer" [ref=e66] [cursor=pointer]:
+                            - /url: /learn/architecture?topic=explorer
+                        - listitem [ref=e67]:
+                          - link "Selvstendig anvendelse · fysisk arkitektur" [ref=e68] [cursor=pointer]:
+                            - /url: /learn/architecture?topic=assessment
+                        - listitem [ref=e69]:
+                          - link "Dine observasjoner · Part A" [ref=e70] [cursor=pointer]:
+                            - /url: /learn/architecture?topic=summary
+                        - listitem [ref=e71]:
+                          - generic [ref=e72]: Del B · Organisering og styring
+                          - link "Hvorfor et management-hierarki?" [ref=e73] [cursor=pointer]:
+                            - /url: /learn/architecture?topic=organization
+                        - listitem [ref=e74]:
+                          - link "Azure resources og providers" [ref=e75] [cursor=pointer]:
+                            - /url: /learn/architecture?topic=resources
+                        - listitem [ref=e76]:
+                          - link "Resource groups og livssyklus" [ref=e77] [cursor=pointer]:
+                            - /url: /learn/architecture?topic=groups
+                        - listitem [ref=e78]:
+                          - link "Subscriptions og identitet" [ref=e79] [cursor=pointer]:
+                            - /url: /learn/architecture?topic=subscriptions
+                        - listitem [ref=e80]:
+                          - link "Management groups og root" [ref=e81] [cursor=pointer]:
+                            - /url: /learn/architecture?topic=management
+                        - listitem [ref=e82]:
+                          - link "Management Hierarchy Explorer" [ref=e83] [cursor=pointer]:
+                            - /url: /learn/architecture?topic=hierarchy
+                        - listitem [ref=e84]:
+                          - link "Scope, policy og praktisk undersøkelse" [ref=e85] [cursor=pointer]:
+                            - /url: /learn/architecture?topic=scope
+                        - listitem [ref=e86]:
+                          - link "Part B · selvstendig anvendelse" [ref=e87] [cursor=pointer]:
+                            - /url: /learn/architecture?topic=management-assessment
+                        - listitem [ref=e88]:
+                          - link "Core Architecture · samlet resultat" [ref=e89] [cursor=pointer]:
+                            - /url: /learn/architecture?topic=core-summary
+                  - listitem [ref=e90]:
+                    - generic [ref=e92]:
+                      - link "Compute & Hosting" [ref=e93] [cursor=pointer]:
+                        - /url: /learn/compute?topic=introduction
+                      - 'button "Aktiviteter: Compute & Hosting" [ref=e94] [cursor=pointer]'
+                  - listitem [ref=e97]:
+                    - generic [ref=e98]: Networking
+                    - generic [ref=e100]:
+                      - link "Del A · Nettverksgrunnlag" [ref=e101] [cursor=pointer]:
+                        - /url: /learn/networking?topic=introduction
+                      - 'button "Aktiviteter: Del A · Nettverksgrunnlag" [ref=e102] [cursor=pointer]'
+                    - generic [ref=e106]:
+                      - link "Del B · Hybrid og endpoints" [ref=e107] [cursor=pointer]:
+                        - /url: /learn/connectivity?topic=introduction
+                      - 'button "Aktiviteter: Del B · Hybrid og endpoints" [ref=e108] [cursor=pointer]'
+                  - listitem [ref=e111]:
+                    - generic [ref=e112]: Storage
+                    - generic [ref=e114]:
+                      - link "Storage Accounts & Services · Part A" [ref=e115] [cursor=pointer]:
+                        - /url: /learn/storage?topic=introduction
+                      - 'button "Aktiviteter: Storage Accounts & Services · Part A" [ref=e116] [cursor=pointer]'
+                    - generic [ref=e120]:
+                      - link "Part B — Tiers & Redundancy" [ref=e121] [cursor=pointer]:
+                        - /url: /learn/storage-resilience?topic=introduction
+                      - 'button "Aktiviteter: Part B — Tiers & Redundancy" [ref=e122] [cursor=pointer]'
+                    - generic [ref=e126]:
+                      - link "Part C — File Movement & Migration" [ref=e127] [cursor=pointer]:
+                        - /url: /learn/migration?topic=introduction
+                      - 'button "Aktiviteter: Part C — File Movement & Migration" [ref=e128] [cursor=pointer]'
+                  - listitem [ref=e131]:
+                    - generic [ref=e132]: Identity, Access & Security
+                    - generic [ref=e134]:
+                      - link "Part A — Identity Foundations" [ref=e135] [cursor=pointer]:
+                        - /url: /learn/identity?topic=introduction
+                      - 'button "Aktiviteter: Part A — Identity Foundations" [ref=e136] [cursor=pointer]'
+                    - generic [ref=e140]:
+                      - link "Part B — RBAC & Conditional Access" [ref=e141] [cursor=pointer]:
+                        - /url: /learn/access-control?topic=introduction
+                      - 'button "Aktiviteter: Part B — RBAC & Conditional Access" [ref=e142] [cursor=pointer]'
+                    - generic [ref=e146]:
+                      - link "Part C — Security Principles & Defender for Cloud" [ref=e147] [cursor=pointer]:
+                        - /url: /learn/security?topic=introduction
+                      - 'button "Aktiviteter: Part C — Security Principles & Defender for Cloud" [ref=e148] [cursor=pointer]'
+              - heading [level=2] [ref=e152]:
+                - button "03 Azure Management & Governance" [ref=e153] [cursor=pointer]:
+                  - generic [ref=e154]: "03"
+                  - generic [ref=e155]: Azure Management & Governance
+            - paragraph [ref=e158]: Læringshistorikken lagres i denne nettleseren.
+        - main [ref=e159]:
+          - generic [ref=e160]:
+            - link "Kursoversikt" [ref=e161] [cursor=pointer]:
+              - /url: /learn
+            - generic [ref=e164]: Describe the core architectural components of Azure
+          - generic [ref=e165]:
+            - generic [ref=e166]: Modul 04 · Part A og B er tilgjengelige · resultater registreres separat
+            - heading "Describe the core architectural components of Azure" [level=1] [ref=e167]
+            - paragraph [ref=e168]: Forstå både fysisk Azure-infrastruktur og hvordan ressurser organiseres og styres. Part A og B danner ett kursområde med separate, versjonerte vurderinger.
+          - article "Part B · Management infrastructure" [ref=e170]:
+            - generic [ref=e171]:
+              - generic [ref=e172]: Part B · Management infrastructure · 1.0.0
+              - heading "Part B · selvstendig anvendelse" [active] [level=2] [ref=e173]
+              - paragraph [ref=e174]: CA04–07 · Resources, Resource groups, subscriptions, management groups og hierarchy. Ingen ny XP eller automatisk kompetanseoppgradering.
+            - status [ref=e175]:
+              - paragraph [ref=e176]: Part B-historikken er full og beholdes lesbar. Nye øvelser og forsøk kan ikke registreres her. Et aktivt forsøk kan leveres med et komplett lagret utkast eller avbrytes. Åpnet undervisning registreres fortsatt som hjelp. Andre kurs og Portal fungerer videre; ingen tidligere resultater slettes.
+              - link "Se aktiv vurdering eller tidligere resultat" [ref=e177] [cursor=pointer]:
+                - /url: /learn/architecture?topic=management-assessment
+            - paragraph [ref=e178]: "Forkunnskaper: Cloud Concepts, tjenestemodeller og Part A. Skill en konfigurert ressurs fra faktisk drift, og region fra administrativt scope."
+            - generic [ref=e179]:
+              - heading "Selvstendig anvendelse · nye krav" [level=3] [ref=e180]
+              - paragraph [ref=e181]: Fire nye situasjoner. Velg både en handling og dens begrunnelse. Første besvarelse beholdes. Journal, Summary og annen undervisning under et aktivt forsøk registreres som hjelp. Ingen automatisk løsningsveiledning vises.
+              - status [ref=e182]: Aktivt forsøk · svarutkast lagres · Uten registrert hjelp ·
+              - generic [ref=e183]:
+                - heading "A · Produksjonsansvar" [level=3] [ref=e184]
+                - paragraph [ref=e185]: Et logistikkteam skal opprette en støttet ressurs for produksjon. Organisasjonen har utpekt Production som riktig subscription med egne budsjetter og styringskrav. Development ville også akseptert samme tekniske konfigurasjon.
+                - group "Hvilket subscription oppfyller oppdraget?" [ref=e186]:
+                  - generic [ref=e188]:
+                    - radio "Utviklings-subscriptionet; det godtar samme ressurs." [disabled] [ref=e189]
+                    - generic [ref=e190]: Utviklings-subscriptionet; det godtar samme ressurs.
+                  - generic [ref=e191]:
+                    - radio "Det utpekte produksjons-subscriptionet." [checked] [disabled] [ref=e192]
+                    - generic [ref=e193]: Det utpekte produksjons-subscriptionet.
+                  - generic [ref=e194]:
+                    - radio "Et hvilket som helst subscription i riktig region." [disabled] [ref=e195]
+                    - generic [ref=e196]: Et hvilket som helst subscription i riktig region.
+                - group "Hvorfor er valget nødvendig?" [ref=e197]:
+                  - generic [ref=e199]:
+                    - radio "Fordi ett subscription alltid gir én egen faktura." [disabled] [ref=e200]
+                    - generic [ref=e201]: Fordi ett subscription alltid gir én egen faktura.
+                  - generic [ref=e202]:
+                    - radio "Fordi subscriptions alltid ligger på ulike fysiske steder." [disabled] [ref=e203]
+                    - generic [ref=e204]: Fordi subscriptions alltid ligger på ulike fysiske steder.
+                  - generic [ref=e205]:
+                    - radio "For å følge styrings-, ressurs- og kostnadskonteksten." [checked] [disabled] [ref=e206]
+                    - generic [ref=e207]: For å følge styrings-, ressurs- og kostnadskonteksten.
+              - generic [ref=e208]:
+                - heading "B · Kampanje på delt hosting" [level=3] [ref=e209]
+                - paragraph [ref=e210]: En kampanjeapp skal avvikles etter en måned. Den bruker en eksisterende App Service plan som også hoster to varige apper og fortsatt må drives av plattformteamet. Alle ligger i samme subscription og West Europe; de støttede hostingvilkårene er oppfylt. Planen ligger allerede i en plattformgruppe. Den nye appgruppens metadata-location foreslås satt til North Europe. Vurder virkelig Azure-organisering; lokal create-lab støtter bare app og plan i samme gruppe.
+                - group "Hvilken gruppering passer best?" [ref=e211]:
+                  - generic [ref=e213]:
+                    - radio "Flytt den delte planen til appens gruppe og avvikle begge ved kampanjeslutt." [disabled] [ref=e214]
+                    - generic [ref=e215]: Flytt den delte planen til appens gruppe og avvikle begge ved kampanjeslutt.
+                  - generic [ref=e216]:
+                    - radio "Egen gruppe for kampanjeappen; behold delt plan i plattformgruppen." [checked] [disabled] [ref=e217]
+                    - generic [ref=e218]: Egen gruppe for kampanjeappen; behold delt plan i plattformgruppen.
+                  - generic [ref=e219]:
+                    - radio "Samle alle komponentene i én gruppe fordi de ligger i West Europe." [disabled] [ref=e220]
+                    - generic [ref=e221]: Samle alle komponentene i én gruppe fordi de ligger i West Europe.
+                - group "Hvorfor følger ikke planen kampanjeappens avvikling?" [ref=e222]:
+                  - generic [ref=e224]:
+                    - radio "Planen har fortsatt andre forbrukere; gruppemetadata flytter ikke deres hosting." [checked] [disabled] [ref=e225]
+                    - generic [ref=e226]: Planen har fortsatt andre forbrukere; gruppemetadata flytter ikke deres hosting.
+                  - generic [ref=e227]:
+                    - radio "Alle medlemmer blir fysisk flyttet dit." [disabled] [ref=e228]
+                    - generic [ref=e229]: Alle medlemmer blir fysisk flyttet dit.
+                  - generic [ref=e230]:
+                    - radio "Den oppretter automatisk hosting mellom app og plan." [disabled] [ref=e231]
+                    - generic [ref=e232]: Den oppretter automatisk hosting mellom app og plan.
+              - generic [ref=e233]:
+                - heading "C · Les en hypotetisk regel" [level=3] [ref=e234]
+                - paragraph [ref=e235]: "Tenant root group har to søstergrupper: Platform med subscription Production, og Laboratory med subscription Research. Bare Platform har en hypotetisk deny-assignment: Microsoft.Compute/virtualMachines må ha location North Europe. Tre create-forespørsler undersøkes: en VM i Production/North Europe, et Web-plan i Production/West Europe, og en VM i Research/West Europe. Ingen andre regler inngår i oppgaven. Dette endrer ikke AzureLabs faktiske policy."
+                - group "Hvilke subscriptions ligger innenfor assignmentets rekkevidde?" [ref=e236]:
+                  - generic [ref=e238]:
+                    - radio "Både Production og Research fordi de deler Tenant root group." [disabled] [ref=e239]
+                    - generic [ref=e240]: Både Production og Research fordi de deler Tenant root group.
+                  - generic [ref=e241]:
+                    - radio "Ingen, siden policy bare kan tilordnes Resource groups." [disabled] [ref=e242]
+                    - generic [ref=e243]: Ingen, siden policy bare kan tilordnes Resource groups.
+                  - generic [ref=e244]:
+                    - radio "Production under Platform; ikke Research under søstergruppen." [checked] [disabled] [ref=e245]
+                    - generic [ref=e246]: Production under Platform; ikke Research under søstergruppen.
+                - group "Hvordan vurderes de tre beskrevne create-forespørslene av akkurat denne regelen?" [ref=e247]:
+                  - generic [ref=e249]:
+                    - radio "Alle avvises; deny på et management group gjelder hele directoryet." [disabled] [ref=e250]
+                    - generic [ref=e251]: Alle avvises; deny på et management group gjelder hele directoryet.
+                  - generic [ref=e252]:
+                    - 'radio "Ingen av de tre avvises av denne regelen: location, type og ancestry gir ulike avgrensninger." [checked] [disabled] [ref=e253]'
+                    - generic [ref=e254]: "Ingen av de tre avvises av denne regelen: location, type og ancestry gir ulike avgrensninger."
+                  - generic [ref=e255]:
+                    - radio "Bare Web-planen i Production avvises fordi West Europe ikke er tillatt." [disabled] [ref=e256]
+                    - generic [ref=e257]: Bare Web-planen i Production avvises fordi West Europe ikke er tillatt.
+              - generic [ref=e258]:
+                - heading "D · Sykehusets feilgrense" [level=3] [ref=e259]
+                - paragraph [ref=e260]: Et sykehus vil at en tjeneste skal tåle en hendelse som rammer én hel Availability Zone. Et forslag er bare å dele ressursene mellom to subscriptions og grupper, uten å endre fysisk plassering eller avhengigheter.
+                - group "Hvilket prinsipp adresserer den beskrevne fysiske feilen?" [ref=e261]:
+                  - generic [ref=e263]:
+                    - radio "To subscriptions alene, uten å endre plassering." [disabled] [ref=e264]
+                    - generic [ref=e265]: To subscriptions alene, uten å endre plassering.
+                  - generic [ref=e266]:
+                    - radio "To Resource groups med samme ressurser i én sone." [disabled] [ref=e267]
+                    - generic [ref=e268]: To Resource groups med samme ressurser i én sone.
+                  - generic [ref=e269]:
+                    - radio "Adskilte soner med riktig konfigurert redundans og alle nødvendige avhengigheter." [checked] [disabled] [ref=e270]
+                    - generic [ref=e271]: Adskilte soner med riktig konfigurert redundans og alle nødvendige avhengigheter.
+                - group "Hvordan leser du identitet, styring og hosting korrekt?" [ref=e272]:
+                  - generic [ref=e274]:
+                    - radio "Directory gir identitetskontekst; grupper gir medlemskap; appens planreferanse gir hosting." [checked] [disabled] [ref=e275]
+                    - generic [ref=e276]: Directory gir identitetskontekst; grupper gir medlemskap; appens planreferanse gir hosting.
+                  - generic [ref=e277]:
+                    - radio "Alle pilene betyr samme fysiske plassering." [disabled] [ref=e278]
+                    - generic [ref=e279]: Alle pilene betyr samme fysiske plassering.
+                  - generic [ref=e280]:
+                    - radio "Directory er en ekstra region over subscriptions." [disabled] [ref=e281]
+                    - generic [ref=e282]: Directory er en ekstra region over subscriptions.
+              - generic [ref=e283]:
+                - button "Lever alle Part B-svar" [ref=e284] [cursor=pointer]
+                - button "Be om hjelp · registrerer assistanse" [ref=e285] [cursor=pointer]
+                - button "Avbryt forsøket" [ref=e286] [cursor=pointer]
+          - navigation "Neste aktivitet" [ref=e287]:
+            - link "← Forrige aktivitet Scope, policy og praktisk undersøkelse" [ref=e289] [cursor=pointer]:
+              - /url: /learn/architecture?topic=scope
+              - text: ← Forrige aktivitet
+              - generic [ref=e290]: Scope, policy og praktisk undersøkelse
+            - generic [ref=e291]:
+              - generic [ref=e292]: Describe the core architectural components of Azure · Aktivitet 16 av 17
+              - strong [ref=e293]: Part B · selvstendig anvendelse
+            - link "Fortsett vurderingen → Aktivt selvstendig arbeid" [ref=e295] [cursor=pointer]:
+              - /url: /learn/architecture?topic=management-assessment
+              - text: Fortsett vurderingen →
+              - generic [ref=e296]: Aktivt selvstendig arbeid
+          - generic [ref=e297]: AzureLab er uavhengig av Microsoft. Dette er original undervisning og lokal simulering, ikke Azure Portal, Microsoft Learn-fullføring eller en sertifisering.
+    - complementary "Bygginformasjon · forhåndsvisning" [ref=e298]:
+      - group [ref=e299]:
+        - generic "Bygginformasjon · forhåndsvisning" [ref=e300] [cursor=pointer]
+  - alert [ref=e301]
+```
+
+# Test source
+
+```ts
+  1   | import { openCoursePath } from './course-hub-actions';
+  2   | import { test, expect, type Page, type TestInfo } from '@playwright/test';
+  3   | import AxeBuilder from '@axe-core/playwright';
+  4   | import {
+  5   |   nb,
+  6   |   managementNb as b,
+  7   |   architectureNb as a,
+  8   |   serverlessNb,
+  9   |   learningPolishNb as polish,
+  10  | } from '../../src/content/nb';
+  11  | import {
+  12  |   managementKey,
+  13  |   managementCriteria,
+  14  |   managementStudy,
+  15  |   freshManagement,
+  16  |   applyManagement,
+  17  |   type ManagementTopic,
+  18  | } from '../../src/domain/curriculum/architecture-management';
+  19  | import { SandboxStore, sandboxKey } from '../../src/domain/sandbox/store';
+  20  | import { acknowledgeMilestone } from './portal-actions';
+  21  | import { activeTeachingContexts } from '../fixtures/active-teaching-contexts';
+  22  | import { physicalCriteria, physicalKey } from '../../src/domain/curriculum/architecture-physical';
+  23  | const c = nb.course,
+  24  |   p = nb.portal;
+  25  | test.use({ trace: 'on', video: 'on', actionTimeout: 15000 });
+  26  | test.setTimeout(210000);
+  27  | const coach = (page: Page) => page.getByRole('complementary', { name: c.guided, exact: true });
+  28  | async function capture(page: Page, info: TestInfo, name: string) {
+  29  |   await page.screenshot({ path: info.outputPath(`management-${name}.png`), scale: 'css' });
+  30  | }
+  31  | async function modelShot(page: Page, info: TestInfo, name: string) {
+  32  |   const scene = page.locator('.ma-scope-structure');
+  33  |   await scene.evaluate((el) => el.scrollIntoView({ block: 'center', behavior: 'instant' }));
+  34  |   await page.evaluate(() => new Promise<void>((resolve) => requestAnimationFrame(() => resolve())));
+  35  |   await scene.screenshot({ path: info.outputPath(name) });
+  36  | }
+  37  | async function audit(page: Page) {
+  38  |   const a = await new AxeBuilder({ page }).analyze();
+  39  |   expect(
+  40  |     a.violations.map((v) => ({
+  41  |       id: v.id,
+  42  |       nodes: v.nodes.map((n) => ({ target: n.target, summary: n.failureSummary })),
+  43  |     })),
+  44  |   ).toEqual([]);
+  45  |   expect(
+  46  |     await page.evaluate(
+  47  |       () => document.documentElement.scrollWidth <= document.documentElement.clientWidth,
+  48  |     ),
+  49  |   ).toBe(true);
+  50  | }
+  51  | async function area(page: Page, key: 'groups' | 'plans' | 'apps' | 'architecture') {
+  52  |   const nav = page.getByRole('navigation', { name: p.navLabel, exact: true });
+  53  |   const link = nav.getByRole('link', { name: p.areas[key], exact: true });
+  54  |   if (!(await link.isVisible()))
+  55  |     await page.getByRole('button', { name: p.menu, exact: true }).click();
+  56  |   await link.click();
+  57  |   await expect(page.locator('.portal-title h1')).toHaveText(p.areas[key]);
+  58  | }
+  59  | async function review(page: Page) {
+  60  |   await page.locator('[data-guide="review"]').click();
+  61  |   await expect(page.locator('[data-guide="validation"]')).toContainText(p.valid);
+  62  |   await page.locator('[data-guide="commit"]').click();
+  63  | }
+  64  | 
+  65  | async function go(page: Page, topic: ManagementTopic) {
+  66  |   const nav = page.locator('.course-architecture-nav');
+  67  |   const link = nav.getByRole('link', { name: b.topics[topic], exact: true });
+  68  |   if (!(await link.isVisible()))
+> 69  |     await page.getByRole('button', { name: c.learning, exact: true }).click();
+      |                                                                       ^ TimeoutError: locator.click: Timeout 15000ms exceeded.
+  70  |   await link.click();
+  71  |   await expect(page.locator('.management-lesson > header h2')).toHaveText(b.topics[topic]);
+  72  | }
+  73  | async function oldBytes(page: Page) {
+  74  |   return page.evaluate(() =>
+  75  |     Object.fromEntries(
+  76  |       Object.entries(localStorage).filter(
+  77  |         ([k]) =>
+  78  |           ![
+  79  |             'azurelab.learning.architecture-management.v1',
+  80  |             'azurelab.course.v1',
+  81  |             'azurelab.guidance.milestones.v1',
+  82  |             'azurelab.sandbox.v2',
+  83  |           ].includes(k),
+  84  |       ),
+  85  |     ),
+  86  |   );
+  87  | }
+  88  | test('ordinary root → Part A/B theory → actual lab → hierarchy/policy → independent → common Journal and resume', async ({
+  89  |   page,
+  90  | }, info) => {
+  91  |   const errors: string[] = [],
+  92  |     external: string[] = [];
+  93  |   page.on('pageerror', (e) => errors.push(e.message));
+  94  |   page.on('request', (r) => {
+  95  |     if (new URL(r.url()).origin !== new URL(info.project.use.baseURL!).origin)
+  96  |       external.push(r.url());
+  97  |   });
+  98  |   await page.goto('/learn');
+  99  |   await expect(page).toHaveURL(/\/learn$/);
+  100 |   if (info.project.name === 'desktop-chromium')
+  101 |     await page.setViewportSize({ width: 1920, height: 1080 });
+  102 |   await capture(page, info, 'root');
+  103 |   await page.getByRole('link', { name: a.open, exact: true }).click();
+  104 |   await expect(page.locator('.physical-lesson > header h2')).toHaveText(a.topics.datacenters);
+  105 |   const old = await oldBytes(page);
+  106 |   await go(page, 'organization');
+  107 |   for (const section of Object.keys(managementStudy) as (keyof typeof managementStudy)[]) {
+  108 |     await go(page, section);
+  109 |     const text = b.sections[section];
+  110 |     await expect(page.getByText(text.paragraphs[0], { exact: true })).toBeVisible();
+  111 |     await page
+  112 |       .getByRole('radio', {
+  113 |         name: text.choices.find(([id]) => id === managementStudy[section].answer)![1],
+  114 |         exact: true,
+  115 |       })
+  116 |       .check();
+  117 |   }
+  118 |   await capture(page, info, 'theory');
+  119 |   await go(page, 'scope');
+  120 |   await page.getByRole('button', { name: b.start, exact: true }).click();
+  121 |   await expect(page.getByRole('dialog')).toBeVisible();
+  122 |   await audit(page);
+  123 |   await capture(page, info, 'mission');
+  124 |   await page
+  125 |     .getByRole('dialog')
+  126 |     .getByRole('button', { name: serverlessNb.start, exact: true })
+  127 |     .click();
+  128 |   await page.getByRole('combobox', { name: b.prediction, exact: true }).selectOption('0');
+  129 |   await page.getByRole('button', { name: b.run, exact: true }).click();
+  130 |   await expect(page.locator('.ma-scope table')).toContainText(b.statuses.denied);
+  131 |   await modelShot(page, info, 'management-scope-deny-model.png');
+  132 |   await expect(page.locator('.ma-scope')).toContainText(b.result + ': 1');
+  133 |   await page.getByRole('combobox', { name: b.scopeLabel, exact: true }).selectOption('parent');
+  134 |   await page.getByRole('combobox', { name: b.effectLabel, exact: true }).selectOption('audit');
+  135 |   await page.getByRole('combobox', { name: b.prediction, exact: true }).selectOption('0');
+  136 |   await page.getByRole('button', { name: b.run, exact: true }).click();
+  137 |   await page.getByRole('radio', { name: b.explainChoices[0][1], exact: true }).check();
+  138 |   await modelShot(page, info, 'management-scope-audit-model.png');
+  139 |   await capture(page, info, 'scope-result');
+  140 |   await audit(page);
+  141 |   await page.getByRole('button', { name: b.portalStart, exact: true }).click();
+  142 |   await page
+  143 |     .getByRole('dialog')
+  144 |     .getByRole('button', { name: polish.briefing.start, exact: true })
+  145 |     .click();
+  146 |   await expect(page).toHaveURL(/lab=web-platform/);
+  147 |   await expect(page.locator('.portal-training-strip')).toContainText(a.title);
+  148 |   const search = page.getByRole('searchbox', { name: p.search, exact: true });
+  149 |   await search.fill('Resource groups');
+  150 |   await page
+  151 |     .locator('.portal-search-results')
+  152 |     .locator('a[href^="/portal?"]', { hasText: 'Resource groups' })
+  153 |     .click();
+  154 |   await expect(coach(page)).toHaveAttribute('data-step', 'create-group');
+  155 |   await page
+  156 |     .locator('.portal-commandbar')
+  157 |     .getByRole('button', { name: p.create, exact: true })
+  158 |     .click();
+  159 |   await expect(coach(page)).toHaveAttribute('data-step', 'subscription');
+  160 |   await page.getByRole('combobox', { name: p.subscription, exact: true }).selectOption('sub-app');
+  161 |   await expect(coach(page)).toHaveAttribute('data-step', 'group-name');
+  162 |   await page.getByRole('textbox', { name: p.groupName, exact: true }).fill('rg-course');
+  163 |   await expect(coach(page)).toHaveAttribute('data-step', 'metadata');
+  164 |   await page.getByRole('combobox', { name: p.region, exact: true }).selectOption('norwayeast');
+  165 |   await expect(coach(page)).toHaveAttribute('data-step', 'review-group');
+  166 |   if (page.viewportSize()!.width <= 800) {
+  167 |     await coach(page).getByRole('button', { name: c.locate, exact: true }).click();
+  168 |     await expect(page.locator('[data-guide="review"]')).toBeInViewport({ ratio: 1 });
+  169 |     await expect(page.locator('.guide-target-ring')).toBeVisible();
+```

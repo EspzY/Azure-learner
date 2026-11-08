@@ -1,4 +1,6 @@
 'use client';
+import { computeProjection } from '@/laboratory/v35/projection';
+import { laboratoryFirewallNb as f } from '@/content/laboratory-firewall-nb';
 import { useEffect, useRef, useState, type ReactNode } from 'react';
 import Link from 'next/link';
 import type { World, Command } from '@/laboratory/v32/contract';
@@ -30,7 +32,10 @@ export function RoutingViews({
   list,
 }: {
   world:
-    World | import('@/laboratory/v33/contract').World | import('@/laboratory/v34/contract').World;
+    | World
+    | import('@/laboratory/v33/contract').World
+    | import('@/laboratory/v34/contract').World
+    | import('@/laboratory/v35/contract').World;
   view: string;
   id: string | null;
   begin: (type: Command['type']) => void;
@@ -47,7 +52,7 @@ export function RoutingViews({
   );
   const peerTable = (parent: string) => (
     <>
-      <p>{r.peeringNote}</p>
+      <p>{w.model === 'laboratory@3.5.0' ? f.peerNote : r.peeringNote}</p>
       {list(
         'peering',
         w.peerings.filter((p) => p.vnetId === parent),
@@ -66,7 +71,9 @@ export function RoutingViews({
   return (
     <>
       {['routeTables', 'routeTable', 'route', 'peerings', 'peering', 'analysis'].includes(view) && (
-        <p className="lab-network-boundary">{r.boundary}</p>
+        <p className="lab-network-boundary">
+          {w.model === 'laboratory@3.5.0' ? f.routeNote : r.boundary}
+        </p>
       )}
       {view === 'routeTables' && (
         <>
@@ -102,11 +109,13 @@ export function RoutingViews({
               [
                 'Status',
                 peeringStatus(
-                  w.model === 'laboratory@3.4.0'
-                    ? routingProjection(endpointProjection(w))
-                    : w.model === 'laboratory@3.3.0'
-                      ? routingProjection(w)
-                      : w,
+                  w.model === 'laboratory@3.5.0'
+                    ? routingProjection(endpointProjection(computeProjection(w)))
+                    : w.model === 'laboratory@3.4.0'
+                      ? routingProjection(endpointProjection(w))
+                      : w.model === 'laboratory@3.3.0'
+                        ? routingProjection(w)
+                        : w,
                   peering,
                 ),
               ],
@@ -114,7 +123,7 @@ export function RoutingViews({
             ]}
           />
           {receipt(peering.origin)}
-          <p>{r.peeringNote}</p>
+          <p>{w.model === 'laboratory@3.5.0' ? f.peerNote : r.peeringNote}</p>
           <p>
             <Link href={href('peerings', peering.remoteVnetId)}>Åpne peerings i eksternt VNet</Link>
           </p>
@@ -136,7 +145,7 @@ export function RoutingViews({
             ]}
           />
           {receipt(table.origin)}
-          <p>{r.routeNote}</p>
+          <p>{w.model === 'laboratory@3.5.0' ? f.routeNote : r.routeNote}</p>
           <h2>{r.routes}</h2>
           {list(
             'route',
@@ -161,11 +170,16 @@ export function RoutingViews({
                 </Link>,
               ],
               ['Adresseprefiks', route.addressPrefix],
-              [r.fields.nextHopType, r.nextHops[route.nextHopType]],
+              [
+                r.fields.nextHopType,
+                route.nextHopType === 'VirtualAppliance'
+                  ? 'Virtual appliance · Azure Firewall'
+                  : r.nextHops[route.nextHopType],
+              ],
             ]}
           />
           {receipt(route.origin)}
-          <p>{r.routeNote}</p>
+          <p>{w.model === 'laboratory@3.5.0' ? f.routeNote : r.routeNote}</p>
         </>
       )}
       {view === 'subnet' && subnet && (
@@ -200,15 +214,17 @@ export function RouteAnalysis({
   snapshot,
   initialSource,
   initialNic,
+  initialDestination,
   accept,
 }: {
   snapshot: Snapshot;
   initialSource: string | null;
   initialNic?: string | null;
+  initialDestination?: string | null;
   accept: (s: Snapshot) => void;
 }) {
   const [source, setSource] = useState(initialSource ?? ''),
-    [destination, setDestination] = useState('10.20.1.5'),
+    [destination, setDestination] = useState(initialDestination ?? '10.20.1.5'),
     [busy, setBusy] = useState(false),
     [error, setError] = useState(''),
     [result, setResult] = useState<
@@ -216,6 +232,7 @@ export function RouteAnalysis({
           | Analysis
           | import('@/laboratory/v33/route').RouteAnalysis
           | import('@/laboratory/v34/analysis').RouteAnalysis
+          | import('@/laboratory/v35/analysis').RouteAnalysis
         ) & { workspace: string })
       | null
     >(null);
@@ -244,11 +261,12 @@ export function RouteAnalysis({
   if (
     snapshot.world.model !== 'laboratory@3.2.0' &&
     snapshot.world.model !== 'laboratory@3.3.0' &&
-    snapshot.world.model !== 'laboratory@3.4.0'
+    snapshot.world.model !== 'laboratory@3.4.0' &&
+    snapshot.world.model !== 'laboratory@3.5.0'
   )
     return null;
   const nicContext =
-    snapshot.world.model === 'laboratory@3.4.0'
+    snapshot.world.model === 'laboratory@3.4.0' || snapshot.world.model === 'laboratory@3.5.0'
       ? snapshot.world.nics.find((x) => x.id === initialNic && x.subnetId === source)
       : undefined;
   const calculate = async () => {
@@ -361,7 +379,12 @@ export function RouteAnalysis({
               [r.destination, result.destination],
               ['Valgt prefiks', result.selected.addressPrefix],
               ['Rutetype', result.selected.source === 'User' ? 'Brukerdefinert' : 'System'],
-              [r.fields.nextHopType, r.nextHops[result.selected.nextHop]],
+              [
+                r.fields.nextHopType,
+                result.selected.nextHop === 'VirtualAppliance'
+                  ? 'Virtual appliance · ' + result.selected.nextHopIp
+                  : r.nextHops[result.selected.nextHop],
+              ],
               [c.revision, result.revision],
             ]}
           />
@@ -371,7 +394,7 @@ export function RouteAnalysis({
               {r.inactive} {result.inactivePeerings.join(', ')}
             </p>
           )}
-          <PortalTable
+          <PortalTable<Analysis['selected'] | import('@/laboratory/v35/analysis').Candidate>
             caption="Kandidatruter og begrunnelse"
             rows={result.candidates}
             empty={c.empty}
@@ -382,7 +405,14 @@ export function RouteAnalysis({
                 label: 'Rutetype',
                 cell: (x) => (x.source === 'User' ? 'Brukerdefinert' : 'System'),
               },
-              { key: 'hop', label: r.fields.nextHopType, cell: (x) => r.nextHops[x.nextHop] },
+              {
+                key: 'hop',
+                label: r.fields.nextHopType,
+                cell: (x) =>
+                  x.nextHop === 'VirtualAppliance'
+                    ? 'Virtual appliance · ' + x.nextHopIp
+                    : r.nextHops[x.nextHop],
+              },
               {
                 key: 'reason',
                 label: 'Hvorfor',

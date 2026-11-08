@@ -1,4 +1,5 @@
 'use client';
+import { computeProjection } from '@/laboratory/v35/projection';
 
 import { useState } from 'react';
 import Link from 'next/link';
@@ -53,7 +54,18 @@ export function laboratoryInventory(world: World): readonly LaboratoryResource[]
       category:
         view === 'group'
           ? 'scope'
-          : ['account', 'vnet', 'nsg', 'routeTable', 'nic', 'vm', 'disk'].includes(view)
+          : [
+                'account',
+                'vnet',
+                'nsg',
+                'routeTable',
+                'nic',
+                'vm',
+                'disk',
+                'firewall',
+                'firewallPolicy',
+                'publicIp',
+              ].includes(view)
             ? 'resource'
             : ['container', 'blob'].includes(view)
               ? 'data'
@@ -97,7 +109,8 @@ export function laboratoryInventory(world: World): readonly LaboratoryResource[]
   if (
     world.model === 'laboratory@3.2.0' ||
     world.model === 'laboratory@3.3.0' ||
-    world.model === 'laboratory@3.4.0'
+    world.model === 'laboratory@3.4.0' ||
+    world.model === 'laboratory@3.5.0'
   ) {
     for (const table of world.routeTables)
       add('routeTable', table, table.groupId, table.region, table.groupId);
@@ -115,21 +128,48 @@ export function laboratoryInventory(world: World): readonly LaboratoryResource[]
           vnet.region,
           vnet.id,
           peeringStatus(
-            world.model === 'laboratory@3.4.0'
-              ? routingProjection(endpointProjection(world))
-              : world.model === 'laboratory@3.3.0'
-                ? routingProjection(world)
-                : world,
+            world.model === 'laboratory@3.5.0'
+              ? routingProjection(endpointProjection(computeProjection(world)))
+              : world.model === 'laboratory@3.4.0'
+                ? routingProjection(endpointProjection(world))
+                : world.model === 'laboratory@3.3.0'
+                  ? routingProjection(world)
+                  : world,
             peering,
           ),
         );
     }
   }
-  if (world.model === 'laboratory@3.3.0' || world.model === 'laboratory@3.4.0')
+  if (
+    world.model === 'laboratory@3.3.0' ||
+    world.model === 'laboratory@3.4.0' ||
+    world.model === 'laboratory@3.5.0'
+  )
     for (const nic of world.nics) add('nic', nic, nic.groupId, nic.region, nic.subnetId);
-  if (world.model === 'laboratory@3.4.0') {
+  if (world.model === 'laboratory@3.4.0' || world.model === 'laboratory@3.5.0') {
     for (const vm of world.vms) add('vm', vm, vm.groupId, vm.region, vm.groupId);
     for (const disk of world.disks) add('disk', disk, disk.groupId, disk.region, disk.groupId);
+  }
+  if (world.model === 'laboratory@3.5.0') {
+    for (const x of world.firewalls) add('firewall', x, x.groupId, x.region, x.groupId);
+    for (const x of world.publicIps) add('publicIp', x, x.groupId, x.region, x.groupId);
+    for (const x of world.firewallPolicies)
+      add('firewallPolicy', x, x.groupId, x.region, x.groupId);
+    for (const x of world.firewallGroups) {
+      const p = world.firewallPolicies.find((p) => p.id === x.policyId);
+      if (p) add('firewallGroup', x, p.groupId, p.region, p.id);
+    }
+    for (const x of world.firewallCollections) {
+      const g = world.firewallGroups.find((g) => g.id === x.collectionGroupId),
+        p = world.firewallPolicies.find((p) => p.id === g?.policyId);
+      if (g && p) add('firewallCollection', x, p.groupId, p.region, g.id);
+    }
+    for (const x of world.firewallRules) {
+      const c = world.firewallCollections.find((c) => c.id === x.collectionId),
+        g = world.firewallGroups.find((g) => g.id === c?.collectionGroupId),
+        p = world.firewallPolicies.find((p) => p.id === g?.policyId);
+      if (c && p) add('firewallRule', x, p.groupId, p.region, c.id);
+    }
   }
   return rows;
 }

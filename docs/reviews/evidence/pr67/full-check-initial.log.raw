@@ -1,0 +1,110 @@
+
+> azurelab@0.1.0 check
+> npm run typecheck && npm run lint && npm run format:check && npm run docs:check && npm run quality:check && npm run az900:audit:check && npm run curriculum:check && npm run assets:check && npm run legacy:check && npm test && npm run build
+
+
+> azurelab@0.1.0 typecheck
+> node scripts/next.mjs typegen && tsc --noEmit
+
+Generating route types...
+✓ Types generated successfully
+
+> azurelab@0.1.0 lint
+> eslint . --max-warnings 0
+
+
+> azurelab@0.1.0 format:check
+> prettier --check .
+
+Checking formatting...
+All matched files use Prettier code style!
+
+> azurelab@0.1.0 docs:check
+> node scripts/docs-check.mjs
+
+Documentation OK: 191 Markdown files; required files and local links verified.
+
+> azurelab@0.1.0 quality:check
+> node scripts/quality-check.mjs
+
+Seven-gate quality contracts/source/activity references valid; no final or human approval inferred.
+
+> azurelab@0.1.0 az900:audit:check
+> node scripts/az900-audit-check.mjs
+
+AZ-900 audit: 57 objectives / 126 facets, evidence references and generated matrix valid; no educational approval inferred.
+
+> azurelab@0.1.0 curriculum:check
+> vitest run src/domain/curriculum/integrity.test.ts src/domain/curriculum/official.test.ts src/domain/curriculum/responsibility.test.ts src/domain/portal/portal.test.ts src/domain/course/course.test.ts src/domain/curriculum/foundations-v2.test.ts src/domain/curriculum/expansion.test.ts src/domain/sandbox/practical.test.ts src/domain/guidance/milestones.test.ts src/domain/curriculum/serverless.test.ts src/domain/curriculum/architecture-physical.test.ts src/domain/curriculum/architecture-management.test.ts src/domain/curriculum/teaching-access.test.ts src/domain/sandbox/missions.test.ts src/domain/curriculum/transfer.test.ts src/domain/curriculum/cost.test.ts src/domain/curriculum/compute.test.ts src/domain/curriculum/networking.test.ts src/domain/curriculum/connectivity.test.ts src/domain/curriculum/storage.test.ts src/domain/curriculum/storage-resilience.test.ts src/domain/curriculum/identity-foundations.test.ts src/domain/curriculum/access-control.test.ts src/domain/curriculum/governance.test.ts src/domain/curriculum/management-tools.test.ts src/domain/curriculum/monitoring.test.ts src/domain/curriculum/security.test.ts src/domain/curriculum/migration.test.ts src/domain/curriculum/refined-assessment.test.ts src/domain/curriculum/application-transfer.test.ts
+
+
+ RUN  v5.0.5 /workspace/Azure-learner
+
+
+ Test Files  30 passed (30)
+      Tests  503 passed (503)
+   Start at  10:32:07
+   Duration  6.68s (tests 54%, import 37%, transform 8%, worker 2%)
+
+    Isolate  30 workers spawned · ~199ms startup each (spawn + environment, per file)
+             at least ~1.79s faster with isolate: false — reuses workers across files instead of one per file
+
+
+> azurelab@0.1.0 assets:check
+> node scripts/assets-check.mjs && node scripts/design-assets-check.mjs
+
+Assets: owner-authorized local SavvyShark PNG, 76509 bytes; signature, hash, size and registration valid. Retired game assets are not shipped.
+Portal icons: 44 explicit identities, 42 source SVGs / 43989 bytes, original hashes, local paths, safe SVG and provenance validated. No generic fallback.
+{"produced":3,"approved":0,"planned":19,"fontBytes":146892}
+
+> azurelab@0.1.0 legacy:check
+> node scripts/legacy-check.mjs
+
+Legacy boundary: 501 current source/style files; no retired imports, renderer dependencies or game assets.
+
+> azurelab@0.1.0 test
+> vitest run && node --test scripts/docs-check.test.mjs scripts/az900-audit-check.test.mjs scripts/quality-check.test.mjs scripts/design-assets-check.test.mjs scripts/e2e-preview-build.test.mjs
+
+
+ RUN  v5.0.5 /workspace/Azure-learner
+
+ ❯ src/laboratory-compute.test.ts (26 tests | 1 failed) 122ms
+   ❯ Compute3.4 atomic configuration and frozen networking (26)
+     × keeps3.3 unsupported VM receipts and World exactly frozen 9ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/laboratory-compute.test.ts > Compute3.4 atomic configuration and frozen networking > keeps3.3 unsupported VM receipts and World exactly frozen
+AssertionError: expected [ 'laboratory@3.0.0', …(5) ] to deeply equal [ 'laboratory@3.0.0', …(4) ]
+
+- Expected
++ Received
+
+@@ -2,6 +2,7 @@
+    "laboratory@3.0.0",
+    "laboratory@3.1.0",
+    "laboratory@3.2.0",
+    "laboratory@3.3.0",
+    "laboratory@3.4.0",
++   "laboratory@3.5.0",
+  ]
+
+ ❯ src/laboratory-compute.test.ts:275:27
+    273|       engine.execute(old, { commandId: 'old-vm', expectedRevision: old…
+    274|     ).toEqual(r);
+    275|     expect(engine.models).toEqual([
+       |                           ^
+    276|       'laboratory@3.0.0',
+    277|       'laboratory@3.1.0',
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed | 79 passed (80)
+      Tests  1 failed | 965 passed (966)
+   Start at  10:32:15
+   Duration  18.89s (tests 67%, import 24%, transform 7%, worker 1%)
+
+    Isolate  80 workers spawned · ~175ms startup each (spawn + environment, per file)
+             at least ~4.48s faster with isolate: false — reuses workers across files instead of one per file
+

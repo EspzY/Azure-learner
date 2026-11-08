@@ -1,0 +1,19 @@
+
+> azurelab@0.1.0 build
+> node scripts/next.mjs build
+
+▲ Next.js 16.4.2 (Turbopack)
+- Environments: .env.local
+✓ Running next.config.ts took 39ms
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 1319ms
+  Running TypeScript ...
+tests/e2e/laboratory-firewall.spec.ts(665,9): error TS2769: No overload matches this call.
+  Overload 1 of 2, '(type: "change", listener: (this: MediaQueryList, ev: MediaQueryListEvent) => any, options?: boolean | EventListenerOptions | undefined): void', gave the following error.
+    Argument of type 'string' is not assignable to parameter of type '"change"'.
+  Overload 2 of 2, '(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions | undefined): void', gave the following error.
+    Argument of type 'EventListenerOrEventListenerObject | null' is not assignable to parameter of type 'EventListenerOrEventListenerObject'.
+      Type 'null' is not assignable to type 'EventListenerOrEventListenerObject'.
+Failed to type check.
+

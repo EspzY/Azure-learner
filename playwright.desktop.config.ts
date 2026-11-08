@@ -5,6 +5,10 @@ import baseline from './playwright.config';
 // names. No test body, assertion, title, timeout or skip is modified.
 const compactCases = [
   [
+    'laboratory-firewall.spec.ts',
+    'firewall compact native Policy Properties Review keyboard focus reduced motion Axe and short desktop keep real controls and evidence readable',
+  ],
+  [
     'laboratory-compute.spec.ts',
     'compute compact native keyboard Properties networking focus reduced motion Axe and original three-resource receipt remain usable',
   ],

@@ -1,0 +1,369 @@
+
+			
+		
+			
+				
+				
+ Table of contents 
+			
+			
+				
+				
+Exit editor mode
+			
+		
+	
+		
+	
+				
+					
+			
+				
+			
+				
+					
+				
+			
+			
+		
+		
+	 
+			
+			
+				
+			
+		
+		
+			
+				
+			
+			
+Ask Learn
+		
+		
+			
+				
+			
+			
+Ask Learn
+		
+	 
+			
+				
+					
+						
+					
+				
+				
+					
+			
+				
+			
+			
+Reading mode
+		
+	 
+			
+			
+Table of contents
+		
+	 
+			
+				
+			
+			
+Read in English
+		
+	
+		
+			
+				
+			
+			
+Add
+		
+	 
+			
+				
+			
+			
+Add to Plans
+		
+	 
+		
+			
+				
+			
+			
+Edit
+		
+	  
+		
+					
+						
+						
+						
+					
+					
+Copy Markdown
+				
+		   
+					
+						
+					
+					
+Print
+				
+		  
+				
+			
+		
+	
+		
+	  
+		
+			
+			
+				
+					
+						
+						
+Note
+					
+					
+						Access to this page requires authorization. You can try 
+signing in
+ or 
+changing directories
+.
+					
+						Access to this page requires authorization. You can try 
+changing directories
+.
+				
+			
+		
+	
+Deploy an Azure Firewall with multiple public IP addresses by using Azure PowerShell
+					
+			 
+					
+			
+				
+			
+			
+Feedback
+		
+	
+		  
+	 
+			
+				
+					
+				
+				
+					
+						Summarize this article for me
+				
+			
+			
+			
+		
+	 
+			
+				In this article
+		
+	 
+This feature enables the following scenarios:
+DNAT
+ - You can translate multiple standard port instances to your backend servers. For example, if you have two public IP addresses, you can translate TCP port 3389 (RDP) for both IP addresses.
+SNAT
+ - Additional ports are available for outbound SNAT connections, reducing the potential for SNAT port exhaustion. Azure Firewall randomly selects the first source public IP address to use for a connection and selects another public IP after ports from the first IP are exhausted. If you have any downstream filtering on your network, you need to allow all public IP addresses associated with your firewall.
+You can access Azure Firewall with multiple public IP addresses through the Azure portal, Azure PowerShell, Azure CLI, REST, and templates.
+You can associate up to 250 public IP addresses with an Azure Firewall deployed in a virtual network. DNAT destination rules also count toward the 250 maximum. For an Azure Firewall deployed in a secured virtual hub (VHub), you can associate up to 80 public IP addresses.
+Important
+Azure Firewall doesn't support attaching a public IP prefix itself, but it can use individual Standard SKU public IP addresses provisioned from a public IP prefix.
+Note
+Adding multiple public IP addresses is the lower-cost way to scale SNAT ports. In scenarios with high traffic volume and throughput, use a 
+NAT Gateway
+ instead for a more scalable solution. NAT Gateway dynamically allocates SNAT ports across all public IPs associated with it. For more information, see 
+Integrate NAT Gateway with Azure Firewall
+ and the 
+option comparison in best practices
+.
+The following Azure PowerShell examples show how you can configure, add, and remove public IP addresses for Azure Firewall.
+Important
+You can't remove the first IP configuration from the Azure Firewall public IP address configuration page. If you want to modify the IP address, use Azure PowerShell.
+Create a firewall with two or more public IP addresses
+This example creates a firewall attached to virtual network 
+myVirtualNetwork
+ with two public IP addresses. Use 
+Get-AzVirtualNetwork
+ to retrieve the existing virtual network, 
+New-AzPublicIpAddress
+ to create each public IP address, and 
+New-AzFirewall
+ to deploy the firewall with both IPs.
+$rgName = "resourceGroupName"
+$vnet = Get-AzVirtualNetwork `
+  -Name "myVirtualNetwork" `
+  -ResourceGroupName $rgName
+$pip1 = New-AzPublicIpAddress `
+  -Name "AzFwPublicIp1" `
+  -ResourceGroupName $rgName `
+  -Sku "Standard" `
+  -Location "centralus" `
+  -AllocationMethod Static
+$pip2 = New-AzPublicIpAddress `
+  -Name "AzFwPublicIp2" `
+  -ResourceGroupName $rgName `
+  -Sku "Standard" `
+  -Location "centralus" `
+  -AllocationMethod Static
+New-AzFirewall `
+  -Name "azFw" `
+  -ResourceGroupName $rgName `
+  -Location centralus `
+  -VirtualNetwork $vnet `
+  -PublicIpAddress @($pip1, $pip2)
+Add a public IP address to an existing firewall
+In this example, the public IP address 
+azFwPublicIp1
+ is attached to the firewall. Use 
+New-AzPublicIpAddress
+ to create the new IP, 
+Get-AzFirewall
+ to retrieve the existing firewall object, and 
+Set-AzFirewall
+ to save the updated configuration.
+$pip = New-AzPublicIpAddress `
+  -Name "azFwPublicIp1" `
+  -ResourceGroupName "rg" `
+  -Sku "Standard" `
+  -Location "centralus" `
+  -AllocationMethod Static
+$azFw = Get-AzFirewall `
+  -Name "AzureFirewall" `
+  -ResourceGroupName "rg"
+$azFw.AddPublicIpAddress($pip)
+$azFw | Set-AzFirewall
+Remove a public IP address from an existing firewall
+In this example, the public IP address 
+azFwPublicIp1
+ is detached from the firewall. Use 
+Get-AzPublicIpAddress
+ to retrieve the existing IP, 
+Get-AzFirewall
+ to retrieve the firewall object, and 
+Set-AzFirewall
+ to save the updated configuration.
+$pip = Get-AzPublicIpAddress `
+  -Name "azFwPublicIp1" `
+  -ResourceGroupName "rg"
+$azFw = Get-AzFirewall `
+  -Name "AzureFirewall" `
+  -ResourceGroupName "rg"
+$azFw.RemovePublicIpAddress($pip)
+$azFw | Set-AzFirewall
+Next steps
+Quickstart: Create an Azure Firewall with multiple public IP addresses - Resource Manager template
+					
+	 
+		
+	
+		
+		
+			
+			
+Feedback
+			
+				
+					Was this page helpful?
+				
+					
+						
+							
+						
+						
+Yes
+					
+					
+						
+							
+						
+						
+No
+					
+					
+						
+							
+								
+							
+							
+No
+						
+						
+							
+								Need help with this topic?
+							
+								Want to try using Ask Learn to clarify or guide you through this topic?
+							
+			
+		
+			
+				
+			
+		
+		
+			
+				
+			
+			
+Ask Learn
+		
+		
+			
+				
+			
+			
+Ask Learn
+		
+	
+			
+				
+					
+				
+				
+ Suggest a fix? 
+			
+		
+	
+					
+				
+			
+		
+		
+	
+				
+			
+			
+				Additional resources
+			
+	 
+	 
+	
+	 
+			
+			
+				
+			
+				
+Last updated on 
+		2026-10-14
+			
+		
+			
+		
+	
+		
+				

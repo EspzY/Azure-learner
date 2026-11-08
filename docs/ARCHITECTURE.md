@@ -250,3 +250,7 @@ The Course groups `storage` and `storage-resilience` as parts, without a navigat
 ## P11 Access Control
 
 P11 reuses the established durable learning pattern at access-control.v1 and existing Course Hub/teaching guards. Read-only Sandbox ancestry supplies a labelled captured scope, never a role database or technical World mutation. Bounded RBAC/CA functions are declared education, not general policy evaluators. See [contract](ACCESS_CONTROL.md).
+
+## PR67 — isolated Laboratory3.5 Firewall profile
+
+[Firewall Part A](LABORATORY_FIREWALL_PART_A.md) adds a new explicit workspace model. The existing repository alone owns row locking, revision, idempotency and atomic append-only event/snapshot commit. SQL006 extends supported model constraints; no automatic upgrade. Policy hierarchy, Firewall and its atomic Public IP configuration live in the same World as Storage, VM/NIC/disk and networking. Shared Portal adapters use real resource IDs. Read-only path analysis composes the frozen route selector/NSG matcher with scoped Firewall rules and verified return topology; it never creates evidence. All3.0–3.4 evaluators and old course/v2 authorities remain byte-identical. Public503 without an approved DB remains intentional.

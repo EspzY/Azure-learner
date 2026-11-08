@@ -402,6 +402,36 @@
       "reference": "https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-manage-peering",
       "result": "UNVERIFIED",
       "name": "VNet peerings"
+    },
+    "firewall": {
+      "family": "azure",
+      "file": "azure/10084-icon-service-Firewalls.svg",
+      "bytes": 1474,
+      "sha256": "154c416cc15b95b7c6c1ab61a5ecb33f14845197b7d163bd9dc6f1968c14be1e",
+      "source": "Azure_Public_Service_Icons/Icons/networking/10084-icon-service-Firewalls.svg",
+      "reference": "official V24 asset; current Portal variant not independently matched",
+      "result": "UNVERIFIED",
+      "name": "Azure Firewall"
+    },
+    "firewallPolicy": {
+      "family": "azure",
+      "file": "azure/00272-icon-service-Azure-Firewall-Policy.svg",
+      "bytes": 2323,
+      "sha256": "6a42c15570ee4715c73a44e47f451f4c3ebb6db197862a54da0802700a5a99c9",
+      "source": "Azure_Public_Service_Icons/Icons/networking/00272-icon-service-Azure-Firewall-Policy.svg",
+      "reference": "official V24 asset; current Portal variant not independently matched",
+      "result": "UNVERIFIED",
+      "name": "Firewall Policy"
+    },
+    "publicIp": {
+      "family": "azure",
+      "file": "azure/10069-icon-service-Public-IP-Addresses.svg",
+      "bytes": 1024,
+      "sha256": "549fbcf643129dd913c8aa3424a51beb6b718c412ac4c7963214f00ef839c50b",
+      "source": "Azure_Public_Service_Icons/Icons/networking/10069-icon-service-Public-IP-Addresses.svg",
+      "reference": "official V24 asset; current Portal variant not independently matched",
+      "result": "UNVERIFIED",
+      "name": "Public IP addresses"
     }
   },
   "aliases": {
@@ -416,7 +446,10 @@
     "accounts": "account",
     "nsgs": "nsg",
     "containers": "container",
-    "blobs": "blob"
+    "blobs": "blob",
+    "firewallGroup": "properties",
+    "firewallCollection": "properties",
+    "firewallRule": "properties"
   },
   "licenses": {
     "licenses/Microsoft_Terms_of_Use.pdf": {

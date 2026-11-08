@@ -1,0 +1,45 @@
+[WebServer] (node:22140) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 1 test using 1 worker
+
+(node:22156) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 [desktop-chromium] › tests/e2e/laboratory-firewall.spec.ts:621:1 › firewall shared Portal menu uses actual viewport during pending media delivery and Escape closes the drawer without technical writes (7.2s)
+
+
+  1) [desktop-chromium] › tests/e2e/laboratory-firewall.spec.ts:621:1 › firewall shared Portal menu uses actual viewport during pending media delivery and Escape closes the drawer without technical writes 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByRole('navigation', { name: 'Laboratory v3 navigasjon', exact: true })
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" getByRole('navigation', { name: 'Laboratory v3 navigasjon', exact: true }) with timeout 5000ms
+      - waiting for getByRole('navigation', { name: 'Laboratory v3 navigasjon', exact: true })
+
+
+      679 |   await expect(nav).not.toBeVisible();
+      680 |   await page.getByRole('button', { name: nb.portal.menu, exact: true }).click();
+    > 681 |   await expect(nav).toBeVisible();
+          |                     ^
+      682 |   await page.keyboard.press('Escape');
+      683 |   await expect(nav).not.toBeVisible();
+      684 |   await page.getByRole('button', { name: nb.portal.menu, exact: true }).click();
+        at /workspace/Azure-learner/tests/e2e/laboratory-firewall.spec.ts:681:21
+
+    Error Context: ../azurelab-pr67/ci107/menu-red/laboratory-firewall-firewa-4c497-er-without-technical-writes-desktop-chromium/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../azurelab-pr67/ci107/menu-red/laboratory-firewall-firewa-4c497-er-without-technical-writes-desktop-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace ../azurelab-pr67/ci107/menu-red/laboratory-firewall-firewa-4c497-er-without-technical-writes-desktop-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    [desktop-chromium] › tests/e2e/laboratory-firewall.spec.ts:621:1 › firewall shared Portal menu uses actual viewport during pending media delivery and Escape closes the drawer without technical writes 

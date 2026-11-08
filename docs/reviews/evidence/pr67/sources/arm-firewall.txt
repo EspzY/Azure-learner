@@ -1,0 +1,2348 @@
+
+			
+		
+			
+				
+				
+ Table of contents 
+			
+			
+				
+				
+Exit editor mode
+			
+		
+	
+		
+	
+				
+					
+			
+				
+			
+				
+					
+				
+			
+			
+		
+		
+	 
+			
+			
+				
+			
+		
+		
+			
+				
+			
+			
+Ask Learn
+		
+		
+			
+				
+			
+			
+Ask Learn
+		
+	 
+			
+				
+					
+						
+					
+				
+				
+					
+			
+				
+			
+			
+Reading mode
+		
+	 
+			
+			
+Table of contents
+		
+	 
+			
+				
+			
+			
+Read in English
+		
+	
+		
+			
+				
+			
+			
+Add
+		
+	 
+			
+				
+			
+			
+Add to Plans
+		
+	 
+		
+			
+				
+			
+			
+Edit
+		
+	  
+		
+					
+						
+						
+						
+					
+					
+Copy Markdown
+				
+		   
+					
+						
+					
+					
+Print
+				
+		  
+				
+			
+		
+	
+		
+	  
+		
+			
+			
+				
+					
+						
+						
+Note
+					
+					
+						Access to this page requires authorization. You can try 
+signing in
+ or 
+changing directories
+.
+					
+						Access to this page requires authorization. You can try 
+changing directories
+.
+				
+			
+		
+	
+Microsoft.Network azureFirewalls
+					
+			 
+					
+			
+				
+			
+			
+Feedback
+		
+	
+		  
+	 
+			
+				
+					
+				
+				
+					
+						Summarize this article for me
+				
+			
+			
+			
+		
+	 
+			
+				In this article
+		
+	 
+Latest
+2026-03-01
+2026-01-01
+2025-09-01
+2025-07-01
+2025-05-01
+2025-03-01
+2025-01-01
+2024-10-01
+2024-07-01
+2024-05-01
+2024-03-01
+2024-01-01
+2023-11-01
+2023-09-01
+2023-06-01
+2023-05-01
+2023-04-01
+2023-02-01
+2022-11-01
+2022-09-01
+2022-07-01
+2022-05-01
+2022-01-01
+2021-08-01
+2021-05-01
+2021-03-01
+2021-02-01
+2020-11-01
+2020-08-01
+2020-07-01
+2020-06-01
+2020-05-01
+2020-04-01
+2020-03-01
+2019-12-01
+2019-11-01
+2019-09-01
+2019-08-01
+2019-07-01
+2019-06-01
+2019-04-01
+2019-02-01
+2018-12-01
+2018-11-01
+2018-10-01
+2018-08-01
+2018-07-01
+2018-06-01
+2018-04-01
+Bicep resource definition
+The azureFirewalls resource type can be deployed with operations that target:
+Resource groups
+ - See 
+resource group deployment commands
+For a list of changed properties in each API version, see 
+change log
+.
+Usage Examples
+Bicep Samples
+A basic example of deploying Azure Firewall.
+param resourceName string = 'acctest0001'
+param location string = 'westeurope'
+resource virtualNetwork 'Microsoft.Network/virtualNetworks@2022-07-01' = {
+  name: resourceName
+  location: location
+  properties: {
+    addressSpace: {
+      addressPrefixes: [
+        '10.0.0.0/16'
+      ]
+    }
+    dhcpOptions: {
+      dnsServers: []
+    }
+    subnets: []
+  }
+}
+resource subnet 'Microsoft.Network/virtualNetworks/subnets@2022-07-01' = {
+  name: 'AzureFirewallSubnet'
+  parent: virtualNetwork
+  properties: {
+    addressPrefix: '10.0.1.0/24'
+    delegations: []
+    privateEndpointNetworkPolicies: 'Enabled'
+    privateLinkServiceNetworkPolicies: 'Enabled'
+    serviceEndpointPolicies: []
+    serviceEndpoints: []
+  }
+}
+resource azureFirewall 'Microsoft.Network/azureFirewalls@2022-07-01' = {
+  name: resourceName
+  location: location
+  properties: {
+    additionalProperties: {}
+    ipConfigurations: [
+      {
+        name: 'configuration'
+        properties: {
+          publicIPAddress: {
+            id: publicIPAddress.id
+          }
+          subnet: {
+            id: subnet.id
+          }
+        }
+      }
+    ]
+    sku: {
+      name: 'AZFW_VNet'
+      tier: 'Standard'
+    }
+    threatIntelMode: 'Deny'
+  }
+}
+resource publicIPAddress 'Microsoft.Network/publicIPAddresses@2022-07-01' = {
+  name: resourceName
+  location: location
+  sku: {
+    name: 'Standard'
+    tier: 'Regional'
+  }
+  properties: {
+    ddosSettings: {
+      protectionMode: 'VirtualNetworkInherited'
+    }
+    idleTimeoutInMinutes: 4
+    publicIPAddressVersion: 'IPv4'
+    publicIPAllocationMethod: 'Static'
+  }
+}
+Azure Verified Modules
+The following 
+Azure Verified Modules
+ can be used to deploy this resource type.
+Module
+Description
+Azure Firewall
+AVM Resource Module for Azure Firewall
+Azure Quickstart Samples
+The following 
+Azure Quickstart templates
+ contain Bicep samples for deploying this resource type.
+Bicep File
+Description
+Create a Firewall and FirewallPolicy with Rules and Ipgroups
+This template deploys an Azure Firewall with Firewall Policy (including multiple application and network rules) referencing IP Groups in application and network rules.
+Create a sandbox setup of Azure Firewall with Linux VMs
+This template creates a virtual network with 3 subnets (server subnet, jumpbox subet and AzureFirewall subnet), a jumpbox VM with public IP, A server VM, UDR route to point to Azure Firewall for the Server Subnet and an Azure Firewall with 1 or more Public IP addresses, 1 sample application rule, 1 sample network rule and default private ranges
+Create a sandbox setup of Azure Firewall with Zones
+This template creates a virtual network with three subnets (server subnet, jumpbox subnet, and Azure Firewall subnet), a jumpbox VM with public IP, A server VM, UDR route to point to Azure Firewall for the ServerSubnet,an Azure Firewall with one or more Public IP addresses, one sample application rule, and one sample network rule and Azure Firewall in Availability Zones 1, 2, and 3.
+Create an Azure Firewall with IpGroups
+This template creates an Azure Firewall with Application and Network Rules referring to IP Groups. Also, includes a Linux Jumpbox vm setup
+Create an Azure Firewall with multiple IP public addresses
+This template creates an Azure Firewall with two public IP addresses and two Windows Server 2019 servers to test.
+Create sandbox of Azure Firewall, client VM, and server VM
+This template creates a virtual network with 2 subnets (server subnet and AzureFirewall subnet), A server VM, a client VM, a public IP address for each VM, and a route table to send traffic between VMs through the firewall.
+Hub-Spoke Network with NAT Gateway and Azure Firewall
+Deploy a hub-spoke network topology with NAT gateway, Azure Firewall, and virtual machine
+Secured virtual hubs
+This template creates a secured virtual hub using Azure Firewall to secure your cloud network traffic destined to the Internet.
+Testing environment for Azure Firewall Premium
+This template creates an Azure Firewall Premium and Firewall Policy with premium features such as Intrusion Inspection Detection (IDPS), TLS inspection and Web Category filtering
+Use Azure Firewall as a DNS Proxy in a Hub & Spoke topology
+This sample show how to deploy a hub-spoke topology in Azure using the Azure Firewall. The hub virtual network acts as a central point of connectivity to many spoke virtual networks that are connected to hub virtual network via virtual network peering.
+Resource format
+To create a Microsoft.Network/azureFirewalls resource, add the following Bicep to your template.
+resource symbolicname 'Microsoft.Network/azureFirewalls@2026-03-01' = {
+  extendedLocation: {
+    name: 'string'
+    type: 'string'
+  }
+  location: 'string'
+  name: 'string'
+  properties: {
+    additionalProperties: {
+      {customized property}: 'string'
+    }
+    aiSecurityAddOn: bool
+    applicationRuleCollections: [
+      {
+        id: 'string'
+        name: 'string'
+        properties: {
+          action: {
+            type: 'string'
+          }
+          priority: int
+          rules: [
+            {
+              description: 'string'
+              fqdnTags: [
+                'string'
+              ]
+              name: 'string'
+              protocols: [
+                {
+                  port: int
+                  protocolType: 'string'
+                }
+              ]
+              sourceAddresses: [
+                'string'
+              ]
+              sourceIpGroups: [
+                'string'
+              ]
+              targetFqdns: [
+                'string'
+              ]
+            }
+          ]
+        }
+      }
+    ]
+    autoscaleConfiguration: {
+      maxCapacity: int
+      minCapacity: int
+    }
+    firewallPolicy: {
+      id: 'string'
+    }
+    hubIPAddresses: {
+      privateIPAddress: 'string'
+      publicIPs: {
+        addresses: [
+          {
+            address: 'string'
+          }
+        ]
+        count: int
+      }
+    }
+    ipConfigurations: [
+      {
+        id: 'string'
+        name: 'string'
+        properties: {
+          publicIPAddress: {
+            id: 'string'
+          }
+          subnet: {
+            id: 'string'
+          }
+        }
+      }
+    ]
+    managementIpConfiguration: {
+      id: 'string'
+      name: 'string'
+      properties: {
+        publicIPAddress: {
+          id: 'string'
+        }
+        subnet: {
+          id: 'string'
+        }
+      }
+    }
+    natRuleCollections: [
+      {
+        id: 'string'
+        name: 'string'
+        properties: {
+          action: {
+            type: 'string'
+          }
+          priority: int
+          rules: [
+            {
+              description: 'string'
+              destinationAddresses: [
+                'string'
+              ]
+              destinationPorts: [
+                'string'
+              ]
+              name: 'string'
+              protocols: [
+                'string'
+              ]
+              sourceAddresses: [
+                'string'
+              ]
+              sourceIpGroups: [
+                'string'
+              ]
+              translatedAddress: 'string'
+              translatedFqdn: 'string'
+              translatedPort: 'string'
+            }
+          ]
+        }
+      }
+    ]
+    networkRuleCollections: [
+      {
+        id: 'string'
+        name: 'string'
+        properties: {
+          action: {
+            type: 'string'
+          }
+          priority: int
+          rules: [
+            {
+              description: 'string'
+              destinationAddresses: [
+                'string'
+              ]
+              destinationFqdns: [
+                'string'
+              ]
+              destinationIpGroups: [
+                'string'
+              ]
+              destinationPorts: [
+                'string'
+              ]
+              name: 'string'
+              protocols: [
+                'string'
+              ]
+              sourceAddresses: [
+                'string'
+              ]
+              sourceIpGroups: [
+                'string'
+              ]
+            }
+          ]
+        }
+      }
+    ]
+    sku: {
+      name: 'string'
+      tier: 'string'
+    }
+    threatIntelMode: 'string'
+    virtualHub: {
+      id: 'string'
+    }
+  }
+  tags: {
+    {customized property}: 'string'
+  }
+  zones: [
+    'string'
+  ]
+}
+Property Values
+Microsoft.Network/azureFirewalls
+Name
+Description
+Value
+extendedLocation
+The extended location of type local virtual network gateway.
+ExtendedLocation
+location
+Resource location.
+string
+name
+The resource name
+string (required)
+properties
+Properties of the azure firewall.
+AzureFirewallPropertiesFormat
+tags
+Resource tags
+Dictionary of tag names and values. See 
+Tags in templates
+zones
+A list of availability zones denoting where the resource needs to come from.
+string[]
+AzureFirewallApplicationRule
+Name
+Description
+Value
+description
+Description of the rule.
+string
+fqdnTags
+List of FQDN Tags for this rule.
+string[]
+name
+Name of the application rule.
+string
+protocols
+Array of ApplicationRuleProtocols.
+AzureFirewallApplicationRuleProtocol
+[]
+sourceAddresses
+List of source IP addresses for this rule.
+string[]
+sourceIpGroups
+List of source IpGroups for this rule.
+string[]
+targetFqdns
+List of FQDNs for this rule.
+string[]
+AzureFirewallApplicationRuleCollection
+Name
+Description
+Value
+id
+Resource ID.
+string
+name
+The name of the resource that is unique within the Azure firewall. This name can be used to access the resource.
+string
+properties
+Properties of the azure firewall application rule collection.
+AzureFirewallApplicationRuleCollectionPropertiesFormat
+AzureFirewallApplicationRuleCollectionPropertiesFormat
+Name
+Description
+Value
+action
+The action type of a rule collection.
+AzureFirewallRCAction
+priority
+Priority of the application rule collection resource.
+int 
+Constraints:
+Min value = 100
+Max value = 65000
+rules
+Collection of rules used by a application rule collection.
+AzureFirewallApplicationRule
+[]
+AzureFirewallApplicationRuleProtocol
+Name
+Description
+Value
+port
+Port number for the protocol, cannot be greater than 64000. This field is optional.
+int 
+Constraints:
+Min value = 0
+Max value = 64000
+protocolType
+Protocol type.
+'Http'
+'Https'
+'Mssql'
+AzureFirewallAutoscaleConfiguration
+Name
+Description
+Value
+maxCapacity
+The maximum number of capacity units for this azure firewall. Use null to reset the value to the service default.
+int 
+Constraints:
+Min value = 2
+minCapacity
+The minimum number of capacity units for this azure firewall. Use null to reset the value to the service default.
+int 
+Constraints:
+Min value = 2
+AzureFirewallIPConfiguration
+Name
+Description
+Value
+id
+Resource ID.
+string
+name
+Name of the resource that is unique within a resource group. This name can be used to access the resource.
+string
+properties
+Properties of the azure firewall IP configuration.
+AzureFirewallIPConfigurationPropertiesFormat
+AzureFirewallIPConfigurationPropertiesFormat
+Name
+Description
+Value
+publicIPAddress
+Reference to the PublicIP resource. This field is a mandatory input if subnet is not null.
+SubResource
+subnet
+Reference to the subnet resource. This resource must be named 'AzureFirewallSubnet' or 'AzureFirewallManagementSubnet'.
+SubResource
+AzureFirewallNatRCAction
+Name
+Description
+Value
+type
+The type of action.
+'Dnat'
+'Snat'
+AzureFirewallNatRule
+Name
+Description
+Value
+description
+Description of the rule.
+string
+destinationAddresses
+List of destination IP addresses for this rule. Supports IP ranges, prefixes, and service tags.
+string[]
+destinationPorts
+List of destination ports.
+string[]
+name
+Name of the NAT rule.
+string
+protocols
+Array of AzureFirewallNetworkRuleProtocols applicable to this NAT rule.
+String array containing any of:
+'Any'
+'ICMP'
+'TCP'
+'UDP'
+sourceAddresses
+List of source IP addresses for this rule.
+string[]
+sourceIpGroups
+List of source IpGroups for this rule.
+string[]
+translatedAddress
+The translated address for this NAT rule.
+string
+translatedFqdn
+The translated FQDN for this NAT rule.
+string
+translatedPort
+The translated port for this NAT rule.
+string
+AzureFirewallNatRuleCollection
+Name
+Description
+Value
+id
+Resource ID.
+string
+name
+The name of the resource that is unique within the Azure firewall. This name can be used to access the resource.
+string
+properties
+Properties of the azure firewall NAT rule collection.
+AzureFirewallNatRuleCollectionProperties
+AzureFirewallNatRuleCollectionProperties
+Name
+Description
+Value
+action
+The action type of a NAT rule collection.
+AzureFirewallNatRCAction
+priority
+Priority of the NAT rule collection resource.
+int 
+Constraints:
+Min value = 100
+Max value = 65000
+rules
+Collection of rules used by a NAT rule collection.
+AzureFirewallNatRule
+[]
+AzureFirewallNetworkRule
+Name
+Description
+Value
+description
+Description of the rule.
+string
+destinationAddresses
+List of destination IP addresses.
+string[]
+destinationFqdns
+List of destination FQDNs.
+string[]
+destinationIpGroups
+List of destination IpGroups for this rule.
+string[]
+destinationPorts
+List of destination ports.
+string[]
+name
+Name of the network rule.
+string
+protocols
+Array of AzureFirewallNetworkRuleProtocols.
+String array containing any of:
+'Any'
+'ICMP'
+'TCP'
+'UDP'
+sourceAddresses
+List of source IP addresses for this rule.
+string[]
+sourceIpGroups
+List of source IpGroups for this rule.
+string[]
+AzureFirewallNetworkRuleCollection
+Name
+Description
+Value
+id
+Resource ID.
+string
+name
+The name of the resource that is unique within the Azure firewall. This name can be used to access the resource.
+string
+properties
+Properties of the azure firewall network rule collection.
+AzureFirewallNetworkRuleCollectionPropertiesFormat
+AzureFirewallNetworkRuleCollectionPropertiesFormat
+Name
+Description
+Value
+action
+The action type of a rule collection.
+AzureFirewallRCAction
+priority
+Priority of the network rule collection resource.
+int 
+Constraints:
+Min value = 100
+Max value = 65000
+rules
+Collection of rules used by a network rule collection.
+AzureFirewallNetworkRule
+[]
+AzureFirewallPropertiesFormat
+Name
+Description
+Value
+additionalProperties
+The additional properties used to further config this azure firewall.
+AzureFirewallPropertiesFormatAdditionalProperties
+aiSecurityAddOn
+Indicates whether the AI security add-on is enabled for the Azure Firewall.
+bool
+applicationRuleCollections
+Collection of application rule collections used by Azure Firewall.
+AzureFirewallApplicationRuleCollection
+[]
+autoscaleConfiguration
+Properties to provide a custom autoscale configuration to this azure firewall.
+AzureFirewallAutoscaleConfiguration
+firewallPolicy
+The firewallPolicy associated with this azure firewall.
+SubResource
+hubIPAddresses
+IP addresses associated with AzureFirewall.
+HubIPAddresses
+ipConfigurations
+IP configuration of the Azure Firewall resource.
+AzureFirewallIPConfiguration
+[]
+managementIpConfiguration
+IP configuration of the Azure Firewall used for management traffic.
+AzureFirewallIPConfiguration
+natRuleCollections
+Collection of NAT rule collections used by Azure Firewall.
+AzureFirewallNatRuleCollection
+[]
+networkRuleCollections
+Collection of network rule collections used by Azure Firewall.
+AzureFirewallNetworkRuleCollection
+[]
+sku
+The Azure Firewall Resource SKU.
+AzureFirewallSku
+threatIntelMode
+The operation mode for Threat Intelligence.
+'Alert'
+'Deny'
+'Off'
+virtualHub
+The virtualHub to which the firewall belongs.
+SubResource
+AzureFirewallPropertiesFormatAdditionalProperties
+Name
+Description
+Value
+AzureFirewallPublicIPAddress
+Name
+Description
+Value
+address
+Public IP Address value.
+string
+AzureFirewallRCAction
+Name
+Description
+Value
+type
+The type of action.
+'Allow'
+'Deny'
+AzureFirewallSku
+Name
+Description
+Value
+name
+Name of an Azure Firewall SKU.
+'AZFW_Hub'
+'AZFW_VNet'
+tier
+Tier of an Azure Firewall.
+'Basic'
+'Premium'
+'Standard'
+ExtendedLocation
+Name
+Description
+Value
+name
+The name of the extended location.
+string
+type
+The type of the extended location.
+'EdgeZone'
+HubIPAddresses
+Name
+Description
+Value
+privateIPAddress
+Private IP Address associated with azure firewall.
+string
+publicIPs
+Public IP addresses associated with azure firewall.
+HubPublicIPAddresses
+HubPublicIPAddresses
+Name
+Description
+Value
+addresses
+The list of Public IP addresses associated with azure firewall or IP addresses to be retained.
+AzureFirewallPublicIPAddress
+[]
+count
+The number of Public IP addresses associated with azure firewall.
+int
+ResourceTags
+Name
+Description
+Value
+SubResource
+Name
+Description
+Value
+id
+Resource ID.
+string
+ARM template resource definition
+The azureFirewalls resource type can be deployed with operations that target:
+Resource groups
+ - See 
+resource group deployment commands
+For a list of changed properties in each API version, see 
+change log
+.
+Usage Examples
+Azure Quickstart Templates
+The following 
+Azure Quickstart templates
+ deploy this resource type.
+Template
+Description
+Create a Firewall and FirewallPolicy with Rules and Ipgroups
+This template deploys an Azure Firewall with Firewall Policy (including multiple application and network rules) referencing IP Groups in application and network rules.
+Create a Firewall with FirewallPolicy and IpGroups
+This template creates an Azure Firewall with FirewalllPolicy referencing Network Rules with IpGroups. Also, includes a Linux Jumpbox vm setup
+Create a Firewall, FirewallPolicy with Explicit Proxy
+This template creates an Azure Firewall, FirewalllPolicy with Explicit Proxy and Network Rules with IpGroups. Also, includes a Linux Jumpbox vm setup
+Create a sandbox setup of Azure Firewall with Linux VMs
+This template creates a virtual network with 3 subnets (server subnet, jumpbox subet and AzureFirewall subnet), a jumpbox VM with public IP, A server VM, UDR route to point to Azure Firewall for the Server Subnet and an Azure Firewall with 1 or more Public IP addresses, 1 sample application rule, 1 sample network rule and default private ranges
+Create a sandbox setup of Azure Firewall with Zones
+This template creates a virtual network with three subnets (server subnet, jumpbox subnet, and Azure Firewall subnet), a jumpbox VM with public IP, A server VM, UDR route to point to Azure Firewall for the ServerSubnet,an Azure Firewall with one or more Public IP addresses, one sample application rule, and one sample network rule and Azure Firewall in Availability Zones 1, 2, and 3.
+Create a sandbox setup with Firewall Policy
+This template creates a virtual network with 3 subnets (server subnet, jumpbox subet and AzureFirewall subnet), a jumpbox VM with public IP, A server VM, UDR route to point to Azure Firewall for the Server Subnet and an Azure Firewall with 1 or more Public IP addresses. Also creates a Firewall policy with 1 sample application rule, 1 sample network rule and default private ranges
+Create an Azure Firewall sandbox with forced tunneling
+This template creates an Azure Firewall sandbox (Linux) with one firewall force tunneled through another firewall in a peered VNET
+Create an Azure Firewall with Availability Zones
+This template creates an Azure Firewall with Availability Zones and any number of Public IPs in a virtual network and sets up 1 sample application rule and 1 sample network rule
+Create an Azure Firewall with IpGroups
+This template creates an Azure Firewall with Application and Network Rules referring to IP Groups. Also, includes a Linux Jumpbox vm setup
+Create an Azure Firewall with multiple IP public addresses
+This template creates an Azure Firewall with two public IP addresses and two Windows Server 2019 servers to test.
+Create sandbox of Azure Firewall, client VM, and server VM
+This template creates a virtual network with 2 subnets (server subnet and AzureFirewall subnet), A server VM, a client VM, a public IP address for each VM, and a route table to send traffic between VMs through the firewall.
+Hub-Spoke Network with NAT Gateway and Azure Firewall
+Deploy a hub-spoke network topology with NAT gateway, Azure Firewall, and virtual machine
+Secured virtual hubs
+This template creates a secured virtual hub using Azure Firewall to secure your cloud network traffic destined to the Internet.
+Testing environment for Azure Firewall Premium
+This template creates an Azure Firewall Premium and Firewall Policy with premium features such as Intrusion Inspection Detection (IDPS), TLS inspection and Web Category filtering
+Use Azure Firewall as a DNS Proxy in a Hub & Spoke topology
+This sample show how to deploy a hub-spoke topology in Azure using the Azure Firewall. The hub virtual network acts as a central point of connectivity to many spoke virtual networks that are connected to hub virtual network via virtual network peering.
+Resource format
+To create a Microsoft.Network/azureFirewalls resource, add the following JSON to your template.
+{
+  "type": "Microsoft.Network/azureFirewalls",
+  "apiVersion": "2026-03-01",
+  "name": "string",
+  "extendedLocation": {
+    "name": "string",
+    "type": "string"
+  },
+  "location": "string",
+  "properties": {
+    "additionalProperties": {
+      "{customized property}": "string"
+    },
+    "aiSecurityAddOn": "bool",
+    "applicationRuleCollections": [
+      {
+        "id": "string",
+        "name": "string",
+        "properties": {
+          "action": {
+            "type": "string"
+          },
+          "priority": "int",
+          "rules": [
+            {
+              "description": "string",
+              "fqdnTags": [ "string" ],
+              "name": "string",
+              "protocols": [
+                {
+                  "port": "int",
+                  "protocolType": "string"
+                }
+              ],
+              "sourceAddresses": [ "string" ],
+              "sourceIpGroups": [ "string" ],
+              "targetFqdns": [ "string" ]
+            }
+          ]
+        }
+      }
+    ],
+    "autoscaleConfiguration": {
+      "maxCapacity": "int",
+      "minCapacity": "int"
+    },
+    "firewallPolicy": {
+      "id": "string"
+    },
+    "hubIPAddresses": {
+      "privateIPAddress": "string",
+      "publicIPs": {
+        "addresses": [
+          {
+            "address": "string"
+          }
+        ],
+        "count": "int"
+      }
+    },
+    "ipConfigurations": [
+      {
+        "id": "string",
+        "name": "string",
+        "properties": {
+          "publicIPAddress": {
+            "id": "string"
+          },
+          "subnet": {
+            "id": "string"
+          }
+        }
+      }
+    ],
+    "managementIpConfiguration": {
+      "id": "string",
+      "name": "string",
+      "properties": {
+        "publicIPAddress": {
+          "id": "string"
+        },
+        "subnet": {
+          "id": "string"
+        }
+      }
+    },
+    "natRuleCollections": [
+      {
+        "id": "string",
+        "name": "string",
+        "properties": {
+          "action": {
+            "type": "string"
+          },
+          "priority": "int",
+          "rules": [
+            {
+              "description": "string",
+              "destinationAddresses": [ "string" ],
+              "destinationPorts": [ "string" ],
+              "name": "string",
+              "protocols": [ "string" ],
+              "sourceAddresses": [ "string" ],
+              "sourceIpGroups": [ "string" ],
+              "translatedAddress": "string",
+              "translatedFqdn": "string",
+              "translatedPort": "string"
+            }
+          ]
+        }
+      }
+    ],
+    "networkRuleCollections": [
+      {
+        "id": "string",
+        "name": "string",
+        "properties": {
+          "action": {
+            "type": "string"
+          },
+          "priority": "int",
+          "rules": [
+            {
+              "description": "string",
+              "destinationAddresses": [ "string" ],
+              "destinationFqdns": [ "string" ],
+              "destinationIpGroups": [ "string" ],
+              "destinationPorts": [ "string" ],
+              "name": "string",
+              "protocols": [ "string" ],
+              "sourceAddresses": [ "string" ],
+              "sourceIpGroups": [ "string" ]
+            }
+          ]
+        }
+      }
+    ],
+    "sku": {
+      "name": "string",
+      "tier": "string"
+    },
+    "threatIntelMode": "string",
+    "virtualHub": {
+      "id": "string"
+    }
+  },
+  "tags": {
+    "{customized property}": "string"
+  },
+  "zones": [ "string" ]
+}
+Property Values
+Microsoft.Network/azureFirewalls
+Name
+Description
+Value
+apiVersion
+The api version
+'2026-03-01'
+extendedLocation
+The extended location of type local virtual network gateway.
+ExtendedLocation
+location
+Resource location.
+string
+name
+The resource name
+string (required)
+properties
+Properties of the azure firewall.
+AzureFirewallPropertiesFormat
+tags
+Resource tags
+Dictionary of tag names and values. See 
+Tags in templates
+type
+The resource type
+'Microsoft.Network/azureFirewalls'
+zones
+A list of availability zones denoting where the resource needs to come from.
+string[]
+AzureFirewallApplicationRule
+Name
+Description
+Value
+description
+Description of the rule.
+string
+fqdnTags
+List of FQDN Tags for this rule.
+string[]
+name
+Name of the application rule.
+string
+protocols
+Array of ApplicationRuleProtocols.
+AzureFirewallApplicationRuleProtocol
+[]
+sourceAddresses
+List of source IP addresses for this rule.
+string[]
+sourceIpGroups
+List of source IpGroups for this rule.
+string[]
+targetFqdns
+List of FQDNs for this rule.
+string[]
+AzureFirewallApplicationRuleCollection
+Name
+Description
+Value
+id
+Resource ID.
+string
+name
+The name of the resource that is unique within the Azure firewall. This name can be used to access the resource.
+string
+properties
+Properties of the azure firewall application rule collection.
+AzureFirewallApplicationRuleCollectionPropertiesFormat
+AzureFirewallApplicationRuleCollectionPropertiesFormat
+Name
+Description
+Value
+action
+The action type of a rule collection.
+AzureFirewallRCAction
+priority
+Priority of the application rule collection resource.
+int 
+Constraints:
+Min value = 100
+Max value = 65000
+rules
+Collection of rules used by a application rule collection.
+AzureFirewallApplicationRule
+[]
+AzureFirewallApplicationRuleProtocol
+Name
+Description
+Value
+port
+Port number for the protocol, cannot be greater than 64000. This field is optional.
+int 
+Constraints:
+Min value = 0
+Max value = 64000
+protocolType
+Protocol type.
+'Http'
+'Https'
+'Mssql'
+AzureFirewallAutoscaleConfiguration
+Name
+Description
+Value
+maxCapacity
+The maximum number of capacity units for this azure firewall. Use null to reset the value to the service default.
+int 
+Constraints:
+Min value = 2
+minCapacity
+The minimum number of capacity units for this azure firewall. Use null to reset the value to the service default.
+int 
+Constraints:
+Min value = 2
+AzureFirewallIPConfiguration
+Name
+Description
+Value
+id
+Resource ID.
+string
+name
+Name of the resource that is unique within a resource group. This name can be used to access the resource.
+string
+properties
+Properties of the azure firewall IP configuration.
+AzureFirewallIPConfigurationPropertiesFormat
+AzureFirewallIPConfigurationPropertiesFormat
+Name
+Description
+Value
+publicIPAddress
+Reference to the PublicIP resource. This field is a mandatory input if subnet is not null.
+SubResource
+subnet
+Reference to the subnet resource. This resource must be named 'AzureFirewallSubnet' or 'AzureFirewallManagementSubnet'.
+SubResource
+AzureFirewallNatRCAction
+Name
+Description
+Value
+type
+The type of action.
+'Dnat'
+'Snat'
+AzureFirewallNatRule
+Name
+Description
+Value
+description
+Description of the rule.
+string
+destinationAddresses
+List of destination IP addresses for this rule. Supports IP ranges, prefixes, and service tags.
+string[]
+destinationPorts
+List of destination ports.
+string[]
+name
+Name of the NAT rule.
+string
+protocols
+Array of AzureFirewallNetworkRuleProtocols applicable to this NAT rule.
+String array containing any of:
+'Any'
+'ICMP'
+'TCP'
+'UDP'
+sourceAddresses
+List of source IP addresses for this rule.
+string[]
+sourceIpGroups
+List of source IpGroups for this rule.
+string[]
+translatedAddress
+The translated address for this NAT rule.
+string
+translatedFqdn
+The translated FQDN for this NAT rule.
+string
+translatedPort
+The translated port for this NAT rule.
+string
+AzureFirewallNatRuleCollection
+Name
+Description
+Value
+id
+Resource ID.
+string
+name
+The name of the resource that is unique within the Azure firewall. This name can be used to access the resource.
+string
+properties
+Properties of the azure firewall NAT rule collection.
+AzureFirewallNatRuleCollectionProperties
+AzureFirewallNatRuleCollectionProperties
+Name
+Description
+Value
+action
+The action type of a NAT rule collection.
+AzureFirewallNatRCAction
+priority
+Priority of the NAT rule collection resource.
+int 
+Constraints:
+Min value = 100
+Max value = 65000
+rules
+Collection of rules used by a NAT rule collection.
+AzureFirewallNatRule
+[]
+AzureFirewallNetworkRule
+Name
+Description
+Value
+description
+Description of the rule.
+string
+destinationAddresses
+List of destination IP addresses.
+string[]
+destinationFqdns
+List of destination FQDNs.
+string[]
+destinationIpGroups
+List of destination IpGroups for this rule.
+string[]
+destinationPorts
+List of destination ports.
+string[]
+name
+Name of the network rule.
+string
+protocols
+Array of AzureFirewallNetworkRuleProtocols.
+String array containing any of:
+'Any'
+'ICMP'
+'TCP'
+'UDP'
+sourceAddresses
+List of source IP addresses for this rule.
+string[]
+sourceIpGroups
+List of source IpGroups for this rule.
+string[]
+AzureFirewallNetworkRuleCollection
+Name
+Description
+Value
+id
+Resource ID.
+string
+name
+The name of the resource that is unique within the Azure firewall. This name can be used to access the resource.
+string
+properties
+Properties of the azure firewall network rule collection.
+AzureFirewallNetworkRuleCollectionPropertiesFormat
+AzureFirewallNetworkRuleCollectionPropertiesFormat
+Name
+Description
+Value
+action
+The action type of a rule collection.
+AzureFirewallRCAction
+priority
+Priority of the network rule collection resource.
+int 
+Constraints:
+Min value = 100
+Max value = 65000
+rules
+Collection of rules used by a network rule collection.
+AzureFirewallNetworkRule
+[]
+AzureFirewallPropertiesFormat
+Name
+Description
+Value
+additionalProperties
+The additional properties used to further config this azure firewall.
+AzureFirewallPropertiesFormatAdditionalProperties
+aiSecurityAddOn
+Indicates whether the AI security add-on is enabled for the Azure Firewall.
+bool
+applicationRuleCollections
+Collection of application rule collections used by Azure Firewall.
+AzureFirewallApplicationRuleCollection
+[]
+autoscaleConfiguration
+Properties to provide a custom autoscale configuration to this azure firewall.
+AzureFirewallAutoscaleConfiguration
+firewallPolicy
+The firewallPolicy associated with this azure firewall.
+SubResource
+hubIPAddresses
+IP addresses associated with AzureFirewall.
+HubIPAddresses
+ipConfigurations
+IP configuration of the Azure Firewall resource.
+AzureFirewallIPConfiguration
+[]
+managementIpConfiguration
+IP configuration of the Azure Firewall used for management traffic.
+AzureFirewallIPConfiguration
+natRuleCollections
+Collection of NAT rule collections used by Azure Firewall.
+AzureFirewallNatRuleCollection
+[]
+networkRuleCollections
+Collection of network rule collections used by Azure Firewall.
+AzureFirewallNetworkRuleCollection
+[]
+sku
+The Azure Firewall Resource SKU.
+AzureFirewallSku
+threatIntelMode
+The operation mode for Threat Intelligence.
+'Alert'
+'Deny'
+'Off'
+virtualHub
+The virtualHub to which the firewall belongs.
+SubResource
+AzureFirewallPropertiesFormatAdditionalProperties
+Name
+Description
+Value
+AzureFirewallPublicIPAddress
+Name
+Description
+Value
+address
+Public IP Address value.
+string
+AzureFirewallRCAction
+Name
+Description
+Value
+type
+The type of action.
+'Allow'
+'Deny'
+AzureFirewallSku
+Name
+Description
+Value
+name
+Name of an Azure Firewall SKU.
+'AZFW_Hub'
+'AZFW_VNet'
+tier
+Tier of an Azure Firewall.
+'Basic'
+'Premium'
+'Standard'
+ExtendedLocation
+Name
+Description
+Value
+name
+The name of the extended location.
+string
+type
+The type of the extended location.
+'EdgeZone'
+HubIPAddresses
+Name
+Description
+Value
+privateIPAddress
+Private IP Address associated with azure firewall.
+string
+publicIPs
+Public IP addresses associated with azure firewall.
+HubPublicIPAddresses
+HubPublicIPAddresses
+Name
+Description
+Value
+addresses
+The list of Public IP addresses associated with azure firewall or IP addresses to be retained.
+AzureFirewallPublicIPAddress
+[]
+count
+The number of Public IP addresses associated with azure firewall.
+int
+ResourceTags
+Name
+Description
+Value
+SubResource
+Name
+Description
+Value
+id
+Resource ID.
+string
+Terraform (AzAPI provider) resource definition
+The azureFirewalls resource type can be deployed with operations that target:
+Resource groups
+For a list of changed properties in each API version, see 
+change log
+.
+Usage Examples
+Terraform Samples
+A basic example of deploying Azure Firewall.
+terraform {
+  required_providers {
+    azapi = {
+      source = "Azure/azapi"
+    }
+  }
+}
+provider "azapi" {
+  skip_provider_registration = false
+}
+variable "resource_name" {
+  type    = string
+  default = "acctest0001"
+}
+variable "location" {
+  type    = string
+  default = "westeurope"
+}
+resource "azapi_resource" "resourceGroup" {
+  type     = "Microsoft.Resources/resourceGroups@2020-06-01"
+  name     = var.resource_name
+  location = var.location
+}
+resource "azapi_resource" "virtualNetwork" {
+  type      = "Microsoft.Network/virtualNetworks@2022-07-01"
+  parent_id = azapi_resource.resourceGroup.id
+  name      = var.resource_name
+  location  = var.location
+  body = {
+    properties = {
+      addressSpace = {
+        addressPrefixes = [
+          "10.0.0.0/16",
+        ]
+      }
+      dhcpOptions = {
+        dnsServers = [
+        ]
+      }
+      subnets = [
+      ]
+    }
+  }
+  schema_validation_enabled = false
+  response_export_values    = ["*"]
+  lifecycle {
+    ignore_changes = [body.properties.subnets]
+  }
+}
+resource "azapi_resource" "publicIPAddress" {
+  type      = "Microsoft.Network/publicIPAddresses@2022-07-01"
+  parent_id = azapi_resource.resourceGroup.id
+  name      = var.resource_name
+  location  = var.location
+  body = {
+    properties = {
+      ddosSettings = {
+        protectionMode = "VirtualNetworkInherited"
+      }
+      idleTimeoutInMinutes     = 4
+      publicIPAddressVersion   = "IPv4"
+      publicIPAllocationMethod = "Static"
+    }
+    sku = {
+      name = "Standard"
+      tier = "Regional"
+    }
+  }
+  schema_validation_enabled = false
+  response_export_values    = ["*"]
+}
+resource "azapi_resource" "subnet" {
+  type      = "Microsoft.Network/virtualNetworks/subnets@2022-07-01"
+  parent_id = azapi_resource.virtualNetwork.id
+  name      = "AzureFirewallSubnet"
+  body = {
+    properties = {
+      addressPrefix = "10.0.1.0/24"
+      delegations = [
+      ]
+      privateEndpointNetworkPolicies    = "Enabled"
+      privateLinkServiceNetworkPolicies = "Enabled"
+      serviceEndpointPolicies = [
+      ]
+      serviceEndpoints = [
+      ]
+    }
+  }
+  schema_validation_enabled = false
+  response_export_values    = ["*"]
+}
+resource "azapi_resource" "azureFirewall" {
+  type      = "Microsoft.Network/azureFirewalls@2022-07-01"
+  parent_id = azapi_resource.resourceGroup.id
+  name      = var.resource_name
+  location  = var.location
+  body = {
+    properties = {
+      additionalProperties = {
+      }
+      ipConfigurations = [
+        {
+          name = "configuration"
+          properties = {
+            publicIPAddress = {
+              id = azapi_resource.publicIPAddress.id
+            }
+            subnet = {
+              id = azapi_resource.subnet.id
+            }
+          }
+        },
+      ]
+      sku = {
+        name = "AZFW_VNet"
+        tier = "Standard"
+      }
+      threatIntelMode = "Deny"
+    }
+  }
+  schema_validation_enabled = false
+  response_export_values    = ["*"]
+}
+Azure Verified Modules
+The following 
+Azure Verified Modules
+ can be used to deploy this resource type.
+Module
+Description
+Azure Firewall
+AVM Resource Module for Azure Firewall
+Resource format
+To create a Microsoft.Network/azureFirewalls resource, add the following Terraform to your template.
+resource "azapi_resource" "symbolicname" {
+  type = "Microsoft.Network/azureFirewalls@2026-03-01"
+  name = "string"
+  parent_id = "string"
+  location = "string"
+  tags = {
+    {customized property} = "string"
+  }
+  body = {
+    extendedLocation = {
+      name = "string"
+      type = "string"
+    }
+    properties = {
+      additionalProperties = {
+        {customized property} = "string"
+      }
+      aiSecurityAddOn = bool
+      applicationRuleCollections = [
+        {
+          id = "string"
+          name = "string"
+          properties = {
+            action = {
+              type = "string"
+            }
+            priority = int
+            rules = [
+              {
+                description = "string"
+                fqdnTags = [
+                  "string"
+                ]
+                name = "string"
+                protocols = [
+                  {
+                    port = int
+                    protocolType = "string"
+                  }
+                ]
+                sourceAddresses = [
+                  "string"
+                ]
+                sourceIpGroups = [
+                  "string"
+                ]
+                targetFqdns = [
+                  "string"
+                ]
+              }
+            ]
+          }
+        }
+      ]
+      autoscaleConfiguration = {
+        maxCapacity = int
+        minCapacity = int
+      }
+      firewallPolicy = {
+        id = "string"
+      }
+      hubIPAddresses = {
+        privateIPAddress = "string"
+        publicIPs = {
+          addresses = [
+            {
+              address = "string"
+            }
+          ]
+          count = int
+        }
+      }
+      ipConfigurations = [
+        {
+          id = "string"
+          name = "string"
+          properties = {
+            publicIPAddress = {
+              id = "string"
+            }
+            subnet = {
+              id = "string"
+            }
+          }
+        }
+      ]
+      managementIpConfiguration = {
+        id = "string"
+        name = "string"
+        properties = {
+          publicIPAddress = {
+            id = "string"
+          }
+          subnet = {
+            id = "string"
+          }
+        }
+      }
+      natRuleCollections = [
+        {
+          id = "string"
+          name = "string"
+          properties = {
+            action = {
+              type = "string"
+            }
+            priority = int
+            rules = [
+              {
+                description = "string"
+                destinationAddresses = [
+                  "string"
+                ]
+                destinationPorts = [
+                  "string"
+                ]
+                name = "string"
+                protocols = [
+                  "string"
+                ]
+                sourceAddresses = [
+                  "string"
+                ]
+                sourceIpGroups = [
+                  "string"
+                ]
+                translatedAddress = "string"
+                translatedFqdn = "string"
+                translatedPort = "string"
+              }
+            ]
+          }
+        }
+      ]
+      networkRuleCollections = [
+        {
+          id = "string"
+          name = "string"
+          properties = {
+            action = {
+              type = "string"
+            }
+            priority = int
+            rules = [
+              {
+                description = "string"
+                destinationAddresses = [
+                  "string"
+                ]
+                destinationFqdns = [
+                  "string"
+                ]
+                destinationIpGroups = [
+                  "string"
+                ]
+                destinationPorts = [
+                  "string"
+                ]
+                name = "string"
+                protocols = [
+                  "string"
+                ]
+                sourceAddresses = [
+                  "string"
+                ]
+                sourceIpGroups = [
+                  "string"
+                ]
+              }
+            ]
+          }
+        }
+      ]
+      sku = {
+        name = "string"
+        tier = "string"
+      }
+      threatIntelMode = "string"
+      virtualHub = {
+        id = "string"
+      }
+    }
+    zones = [
+      "string"
+    ]
+  }
+}
+Property Values
+Microsoft.Network/azureFirewalls
+Name
+Description
+Value
+extendedLocation
+The extended location of type local virtual network gateway.
+ExtendedLocation
+location
+Resource location.
+string
+name
+The resource name
+string (required)
+properties
+Properties of the azure firewall.
+AzureFirewallPropertiesFormat
+tags
+Resource tags
+Dictionary of tag names and values.
+type
+The resource type
+"Microsoft.Network/azureFirewalls@2026-03-01"
+zones
+A list of availability zones denoting where the resource needs to come from.
+string[]
+AzureFirewallApplicationRule
+Name
+Description
+Value
+description
+Description of the rule.
+string
+fqdnTags
+List of FQDN Tags for this rule.
+string[]
+name
+Name of the application rule.
+string
+protocols
+Array of ApplicationRuleProtocols.
+AzureFirewallApplicationRuleProtocol
+[]
+sourceAddresses
+List of source IP addresses for this rule.
+string[]
+sourceIpGroups
+List of source IpGroups for this rule.
+string[]
+targetFqdns
+List of FQDNs for this rule.
+string[]
+AzureFirewallApplicationRuleCollection
+Name
+Description
+Value
+id
+Resource ID.
+string
+name
+The name of the resource that is unique within the Azure firewall. This name can be used to access the resource.
+string
+properties
+Properties of the azure firewall application rule collection.
+AzureFirewallApplicationRuleCollectionPropertiesFormat
+AzureFirewallApplicationRuleCollectionPropertiesFormat
+Name
+Description
+Value
+action
+The action type of a rule collection.
+AzureFirewallRCAction
+priority
+Priority of the application rule collection resource.
+int 
+Constraints:
+Min value = 100
+Max value = 65000
+rules
+Collection of rules used by a application rule collection.
+AzureFirewallApplicationRule
+[]
+AzureFirewallApplicationRuleProtocol
+Name
+Description
+Value
+port
+Port number for the protocol, cannot be greater than 64000. This field is optional.
+int 
+Constraints:
+Min value = 0
+Max value = 64000
+protocolType
+Protocol type.
+'Http'
+'Https'
+'Mssql'
+AzureFirewallAutoscaleConfiguration
+Name
+Description
+Value
+maxCapacity
+The maximum number of capacity units for this azure firewall. Use null to reset the value to the service default.
+int 
+Constraints:
+Min value = 2
+minCapacity
+The minimum number of capacity units for this azure firewall. Use null to reset the value to the service default.
+int 
+Constraints:
+Min value = 2
+AzureFirewallIPConfiguration
+Name
+Description
+Value
+id
+Resource ID.
+string
+name
+Name of the resource that is unique within a resource group. This name can be used to access the resource.
+string
+properties
+Properties of the azure firewall IP configuration.
+AzureFirewallIPConfigurationPropertiesFormat
+AzureFirewallIPConfigurationPropertiesFormat
+Name
+Description
+Value
+publicIPAddress
+Reference to the PublicIP resource. This field is a mandatory input if subnet is not null.
+SubResource
+subnet
+Reference to the subnet resource. This resource must be named 'AzureFirewallSubnet' or 'AzureFirewallManagementSubnet'.
+SubResource
+AzureFirewallNatRCAction
+Name
+Description
+Value
+type
+The type of action.
+'Dnat'
+'Snat'
+AzureFirewallNatRule
+Name
+Description
+Value
+description
+Description of the rule.
+string
+destinationAddresses
+List of destination IP addresses for this rule. Supports IP ranges, prefixes, and service tags.
+string[]
+destinationPorts
+List of destination ports.
+string[]
+name
+Name of the NAT rule.
+string
+protocols
+Array of AzureFirewallNetworkRuleProtocols applicable to this NAT rule.
+String array containing any of:
+'Any'
+'ICMP'
+'TCP'
+'UDP'
+sourceAddresses
+List of source IP addresses for this rule.
+string[]
+sourceIpGroups
+List of source IpGroups for this rule.
+string[]
+translatedAddress
+The translated address for this NAT rule.
+string
+translatedFqdn
+The translated FQDN for this NAT rule.
+string
+translatedPort
+The translated port for this NAT rule.
+string
+AzureFirewallNatRuleCollection
+Name
+Description
+Value
+id
+Resource ID.
+string
+name
+The name of the resource that is unique within the Azure firewall. This name can be used to access the resource.
+string
+properties
+Properties of the azure firewall NAT rule collection.
+AzureFirewallNatRuleCollectionProperties
+AzureFirewallNatRuleCollectionProperties
+Name
+Description
+Value
+action
+The action type of a NAT rule collection.
+AzureFirewallNatRCAction
+priority
+Priority of the NAT rule collection resource.
+int 
+Constraints:
+Min value = 100
+Max value = 65000
+rules
+Collection of rules used by a NAT rule collection.
+AzureFirewallNatRule
+[]
+AzureFirewallNetworkRule
+Name
+Description
+Value
+description
+Description of the rule.
+string
+destinationAddresses
+List of destination IP addresses.
+string[]
+destinationFqdns
+List of destination FQDNs.
+string[]
+destinationIpGroups
+List of destination IpGroups for this rule.
+string[]
+destinationPorts
+List of destination ports.
+string[]
+name
+Name of the network rule.
+string
+protocols
+Array of AzureFirewallNetworkRuleProtocols.
+String array containing any of:
+'Any'
+'ICMP'
+'TCP'
+'UDP'
+sourceAddresses
+List of source IP addresses for this rule.
+string[]
+sourceIpGroups
+List of source IpGroups for this rule.
+string[]
+AzureFirewallNetworkRuleCollection
+Name
+Description
+Value
+id
+Resource ID.
+string
+name
+The name of the resource that is unique within the Azure firewall. This name can be used to access the resource.
+string
+properties
+Properties of the azure firewall network rule collection.
+AzureFirewallNetworkRuleCollectionPropertiesFormat
+AzureFirewallNetworkRuleCollectionPropertiesFormat
+Name
+Description
+Value
+action
+The action type of a rule collection.
+AzureFirewallRCAction
+priority
+Priority of the network rule collection resource.
+int 
+Constraints:
+Min value = 100
+Max value = 65000
+rules
+Collection of rules used by a network rule collection.
+AzureFirewallNetworkRule
+[]
+AzureFirewallPropertiesFormat
+Name
+Description
+Value
+additionalProperties
+The additional properties used to further config this azure firewall.
+AzureFirewallPropertiesFormatAdditionalProperties
+aiSecurityAddOn
+Indicates whether the AI security add-on is enabled for the Azure Firewall.
+bool
+applicationRuleCollections
+Collection of application rule collections used by Azure Firewall.
+AzureFirewallApplicationRuleCollection
+[]
+autoscaleConfiguration
+Properties to provide a custom autoscale configuration to this azure firewall.
+AzureFirewallAutoscaleConfiguration
+firewallPolicy
+The firewallPolicy associated with this azure firewall.
+SubResource
+hubIPAddresses
+IP addresses associated with AzureFirewall.
+HubIPAddresses
+ipConfigurations
+IP configuration of the Azure Firewall resource.
+AzureFirewallIPConfiguration
+[]
+managementIpConfiguration
+IP configuration of the Azure Firewall used for management traffic.
+AzureFirewallIPConfiguration
+natRuleCollections
+Collection of NAT rule collections used by Azure Firewall.
+AzureFirewallNatRuleCollection
+[]
+networkRuleCollections
+Collection of network rule collections used by Azure Firewall.
+AzureFirewallNetworkRuleCollection
+[]
+sku
+The Azure Firewall Resource SKU.
+AzureFirewallSku
+threatIntelMode
+The operation mode for Threat Intelligence.
+'Alert'
+'Deny'
+'Off'
+virtualHub
+The virtualHub to which the firewall belongs.
+SubResource
+AzureFirewallPropertiesFormatAdditionalProperties
+Name
+Description
+Value
+AzureFirewallPublicIPAddress
+Name
+Description
+Value
+address
+Public IP Address value.
+string
+AzureFirewallRCAction
+Name
+Description
+Value
+type
+The type of action.
+'Allow'
+'Deny'
+AzureFirewallSku
+Name
+Description
+Value
+name
+Name of an Azure Firewall SKU.
+'AZFW_Hub'
+'AZFW_VNet'
+tier
+Tier of an Azure Firewall.
+'Basic'
+'Premium'
+'Standard'
+ExtendedLocation
+Name
+Description
+Value
+name
+The name of the extended location.
+string
+type
+The type of the extended location.
+'EdgeZone'
+HubIPAddresses
+Name
+Description
+Value
+privateIPAddress
+Private IP Address associated with azure firewall.
+string
+publicIPs
+Public IP addresses associated with azure firewall.
+HubPublicIPAddresses
+HubPublicIPAddresses
+Name
+Description
+Value
+addresses
+The list of Public IP addresses associated with azure firewall or IP addresses to be retained.
+AzureFirewallPublicIPAddress
+[]
+count
+The number of Public IP addresses associated with azure firewall.
+int
+ResourceTags
+Name
+Description
+Value
+SubResource
+Name
+Description
+Value
+id
+Resource ID.
+string
+					
+	 
+		
+	
+		
+		
+			
+			
+Feedback
+			
+				
+					Was this page helpful?
+				
+					
+						
+							
+						
+						
+Yes
+					
+					
+						
+							
+						
+						
+No
+					
+					
+						
+							
+								
+							
+							
+No
+						
+						
+							
+								Need help with this topic?
+							
+								Want to try using Ask Learn to clarify or guide you through this topic?
+							
+			
+		
+			
+				
+			
+		
+		
+			
+				
+			
+			
+Ask Learn
+		
+		
+			
+				
+			
+			
+Ask Learn
+		
+	
+			
+				
+					
+				
+				
+ Suggest a fix? 
+			
+		
+	
+					
+				
+			
+		
+		
+	
+				
+			
+			
+				Additional resources
+			 
+	 
+	
+	 
+			
+			
+				
+			
+				
+Last updated on 
+		2026-07-20
+			
+		
+			
+		
+	
+		
+				

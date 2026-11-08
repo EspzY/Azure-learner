@@ -76,3 +76,17 @@ P50-07 Fluent2 motion and P50-08 W3C animation-from-interactions were also read 
 3. **Stage C proposal:** progressively refine native list/resource/search/menu fidelity and later AZ104/AZ305 work habits. Real billing, network traffic, Entra, monitoring and cloud API integration remain separate architectures and authorizations.
 
 Broader fidelity is not closed by a polished shell or screenshot. Human Azure workflow/novice usability testing and measured learning transfer remain unperformed.
+
+## PR67 — Laboratory3.5 only
+
+| Capability                                                             | Classification and boundary                                                                                                                            |
+| ---------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Standard VNet Azure Firewall + Standard Public IP configuration        | Operational local simulation; one atomic command and original two-resource receipt. Public address is not allocated.                                   |
+| Firewall Policy / RCG / network collection / network rule              | Operational local resources; group then collection priority100–65000, collection action, literal IPv4/prefix/_, TCP/UDP and single destination port/_. |
+| VirtualAppliance UDR                                                   | Operational only to an actual compatible Firewall private IP; original route/delete receipts and explicit subnet association.                          |
+| Receiving peering allowForwardedTraffic                                | Explicit directional Apply in3.5; old peering histories unchanged.                                                                                     |
+| Firewall-aware inspection                                              | Read-only projection from verified World; route/NSG reuse, default deny, exact forward/return identities, no connectivity claim.                       |
+| Public IP traffic / NAT / application filtering / Premium / flow state | Not implemented; no decorative operational controls.                                                                                                   |
+| AZ-900 v2 and Laboratory3.0–3.4                                        | Prior capabilities unchanged; no Firewall activation or automatic migration.                                                                           |
+
+See [contract and source distinctions](LABORATORY_FIREWALL_PART_A.md). Public Laboratory without database returns expected503; this is not a public Firewall demo.

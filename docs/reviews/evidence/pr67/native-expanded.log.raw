@@ -1,0 +1,15 @@
+[WebServer] (node:7605) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 6 tests using 1 worker
+
+(node:7621) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 [desktop-chromium] › tests/e2e/laboratory-firewall.spec.ts:247:1 › firewall native hub spoke inspection uses actual VM NICs, collection policy, original Firewall Public IP receipt and reload (15.4s)
+  ✓  2 [desktop-chromium] › tests/e2e/laboratory-firewall.spec.ts:285:1 › firewall native source UDR forwarding and return mutations expose the actual incomplete or dropped leg without starting traffic (16.5s)
+  ✓  3 [desktop-chromium] › tests/e2e/laboratory-firewall.spec.ts:338:1 › firewall native hierarchy priority default deny and NSG conflict retain concrete decisive rules and invalidate older analyses (16.0s)
+  ✓  4 [desktop-chromium] › tests/e2e/laboratory-firewall.spec.ts:397:1 › firewall native rejected Review validates subnet name profile scope next hop rule expressions and priority without persisting phantom resources (7.2s)
+  ✓  5 [desktop-chromium] › tests/e2e/laboratory-firewall.spec.ts:442:1 › firewall native same IP in overlapping hubs cannot be resolved by inventory identity or falsely reported as inspected success (16.3s)
+  ✓  6 [desktop-chromium] › tests/e2e/laboratory-firewall.spec.ts:484:1 › firewall compact native Policy Properties Review keyboard focus reduced motion Axe and short desktop keep real controls and evidence readable (9.6s)
+
+  6 passed (1.4m)

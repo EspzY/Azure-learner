@@ -1,3 +1,8 @@
+import { laboratoryModel as firewallModel } from '../v35/contract';
+import {
+  analyseRoutes as analyseFirewallRoutes,
+  analysePolicy as analyseFirewallPolicy,
+} from '../v35/analysis';
 import { laboratoryModel as computeModel } from '../v34/contract';
 import {
   analyseRoutes as analyseComputeRoutes,
@@ -175,7 +180,8 @@ export async function handle(
       if (
         snapshot.world.model !== routingModel &&
         snapshot.world.model !== endpointModel &&
-        snapshot.world.model !== computeModel
+        snapshot.world.model !== computeModel &&
+        snapshot.world.model !== firewallModel
       )
         throw new LabError('unsupported-model', 422);
       const result =
@@ -183,9 +189,17 @@ export async function handle(
           ? analyseRoutes(snapshot.world, subnetId, destination)
           : snapshot.world.model === endpointModel
             ? analyseEndpointRoutes(snapshot.world, subnetId, destination)
-            : analyseComputeRoutes(snapshot.world, subnetId, destination);
+            : snapshot.world.model === computeModel
+              ? analyseComputeRoutes(snapshot.world, subnetId, destination)
+              : analyseFirewallRoutes(snapshot.world, subnetId, destination);
       if (!result.ok) throw new LabError(result.code, 422);
-      return json({ ...snapshot, analysis: result.analysis });
+      return json({
+        ...snapshot,
+        analysis:
+          snapshot.world.model === firewallModel
+            ? { ...result.analysis, workspace: snapshot.workspace }
+            : result.analysis,
+      });
     }
     if (action === 'policy-analysis') {
       const values = Object.fromEntries(queryKeys.map((k) => [k, url.searchParams.get(k)]));
@@ -194,7 +208,11 @@ export async function handle(
       const snapshot = await repo.read(session);
       if (req.headers.get('If-Laboratory-Workspace') !== snapshot.workspace)
         throw new LabError('workspace-changed', 409);
-      if (snapshot.world.model !== endpointModel && snapshot.world.model !== computeModel)
+      if (
+        snapshot.world.model !== endpointModel &&
+        snapshot.world.model !== computeModel &&
+        snapshot.world.model !== firewallModel
+      )
         throw new LabError('unsupported-model', 422);
       const input = {
         sourceNicId: values.sourceNicId!,
@@ -206,9 +224,17 @@ export async function handle(
       const result =
         snapshot.world.model === endpointModel
           ? analysePolicy(snapshot.world, input)
-          : analyseComputePolicy(snapshot.world, input);
+          : snapshot.world.model === computeModel
+            ? analyseComputePolicy(snapshot.world, input)
+            : analyseFirewallPolicy(snapshot.world, input);
       if (!result.ok) throw new LabError(result.code, 422);
-      return json({ ...snapshot, analysis: result.analysis });
+      return json({
+        ...snapshot,
+        analysis:
+          snapshot.world.model === firewallModel
+            ? { ...result.analysis, workspace: snapshot.workspace }
+            : result.analysis,
+      });
     }
     const request = parseRequest(await body(req));
     if (!request) throw new LabError('invalid-request', 400);

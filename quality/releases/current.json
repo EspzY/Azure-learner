@@ -1,296 +1,312 @@
 {
   "schema": 1,
-  "id": "PR66-compute-part-a",
-  "baseCommit": "c9cf4f375e5b332b1f17a5ba31d021d093b1cb47",
-  "author": "pr66-compute-author",
+  "id": "PR67-firewall-part-a",
+  "baseCommit": "9252739eb1bdf7bf6aabc2696ae57000aa02a49f",
+  "author": "pr67-firewall-author",
   "scope": {
-    "kind": "server-laboratory-compute",
-    "description": "Atomic VM/primary NIC/managed OS disk configuration, frozen network-rule reuse, shared Portal and original PostgreSQL receipts, explicit immutable3.4 workspace.",
-    "objectives": ["LAB-COMPUTE-A"]
+    "kind": "server-laboratory-firewall",
+    "description": "Explicit3.5 Standard VNet Firewall/Public IP configuration, authoritative Policy hierarchy, appliance routing/receiving forwarding and read-only hub/spoke inspection in the shared Portal. No course changes.",
+    "objectives": ["LAB-FIREWALL-A"]
   },
   "sources": [
     {
-      "id": "vm-portal",
-      "url": "https://learn.microsoft.com/en-us/azure/virtual-machines/linux/quick-create-portal",
-      "title": "vm-portal — official Microsoft Compute/network configuration reference",
-      "reviewed": "2026-11-07T22:37:17.383855+00:00",
-      "version": "Retrieved HTML SHA256 584f058f30cc4e9d502da0a1ecad896a0d82d356c1d40d1dbce068f1b0a92f8f",
+      "id": "design",
+      "url": "https://learn.microsoft.com/en-us/azure/networking/design-guide/azure-firewall",
+      "title": "design \u2014 official Microsoft Firewall/network/ARM reference",
+      "reviewed": "2026-11-08T10:24:04.885826+00:00",
+      "version": "HTML SHA256 7e7c2259355e7bde6e9b2e00199c9f22a87da779954ebb69ba8e5ef48c5f6da5; ms.date 2026-06-17T00:00:00Z",
       "kind": "official-public-Microsoft-Learn-ARM",
-      "objectives": ["LAB-COMPUTE-A"],
-      "claims": ["compute.configuration"],
+      "objectives": ["LAB-FIREWALL-A"],
+      "claims": ["firewall.configuration", "firewall.inspection"],
       "availability": "AVAILABLE",
-      "limits": "Explicit new laboratory@3.4.0 only;3.0–3.3/SQL001–004/course/v2/assessment/XP/locked evidence preserved. Static IPv4, metadata-only VM and OS disk; no runtime, credentials, capacity guarantee or verified connectivity. Local PostgreSQL/isolated CI only; public persistent Laboratory owner-deferred503. No migration, external infrastructure, secrets, merge or production. Human validation unperformed.",
+      "limits": "Explicit new laboratory@3.5.0 only. Frozen3.0\u20133.4/course/v2/rubrics/XP and original historical evidence unchanged. Standard VNet Firewall and network-only Policy profile; conservative direct next-hop checks, same-region/subscription RFC1918 spokes. No NAT, packet transmission, runtime or verified connectivity. Local PostgreSQL/isolated CI only; public functional Firewall owner-deferred503. No migration, external resources, secrets, merge or production. Human SME/learning/UX/screen-reader/security review unperformed.",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/virtual-machines/linux/quick-create-portal",
+          "url": "https://learn.microsoft.com/en-us/azure/networking/design-guide/azure-firewall",
           "disposition": "reviewed-essential",
-          "reason": "Actual scoped HTML/text retrieved and read. Representative configuration only; live capacity/runtime explicitly unsupported."
+          "reason": "Actual public body retrieved and checked before implementation; product/API references, not a new course or exam bank. Unsupported planes excluded."
         }
       ]
     },
     {
-      "id": "vm-windows",
-      "url": "https://learn.microsoft.com/en-us/azure/virtual-machines/windows/quick-create-portal",
-      "title": "vm-windows — official Microsoft Compute/network configuration reference",
-      "reviewed": "2026-11-07T22:37:15.931535+00:00",
-      "version": "Retrieved HTML SHA256 5e06d7122a1bb5483ffbc549d0e475dd1cd6e31636dfda65e417c5fba46c37be",
+      "id": "hub-spoke",
+      "url": "https://learn.microsoft.com/en-us/azure/networking/cross-service-scenarios/design-secure-hub-spoke-network",
+      "title": "hub-spoke \u2014 official Microsoft Firewall/network/ARM reference",
+      "reviewed": "2026-11-08T10:24:04.887724+00:00",
+      "version": "HTML SHA256 a14a79035c97cec38d82c7dce167f8d1ffe33577a890a1332cd7b0caf5c7cfc3; ms.date 2026-08-05T00:00:00Z",
       "kind": "official-public-Microsoft-Learn-ARM",
-      "objectives": ["LAB-COMPUTE-A"],
-      "claims": ["compute.configuration"],
+      "objectives": ["LAB-FIREWALL-A"],
+      "claims": ["firewall.configuration", "firewall.inspection"],
       "availability": "AVAILABLE",
-      "limits": "Explicit new laboratory@3.4.0 only;3.0–3.3/SQL001–004/course/v2/assessment/XP/locked evidence preserved. Static IPv4, metadata-only VM and OS disk; no runtime, credentials, capacity guarantee or verified connectivity. Local PostgreSQL/isolated CI only; public persistent Laboratory owner-deferred503. No migration, external infrastructure, secrets, merge or production. Human validation unperformed.",
+      "limits": "Explicit new laboratory@3.5.0 only. Frozen3.0\u20133.4/course/v2/rubrics/XP and original historical evidence unchanged. Standard VNet Firewall and network-only Policy profile; conservative direct next-hop checks, same-region/subscription RFC1918 spokes. No NAT, packet transmission, runtime or verified connectivity. Local PostgreSQL/isolated CI only; public functional Firewall owner-deferred503. No migration, external resources, secrets, merge or production. Human SME/learning/UX/screen-reader/security review unperformed.",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/virtual-machines/windows/quick-create-portal",
+          "url": "https://learn.microsoft.com/en-us/azure/networking/cross-service-scenarios/design-secure-hub-spoke-network",
           "disposition": "reviewed-essential",
-          "reason": "Actual scoped HTML/text retrieved and read. Representative configuration only; live capacity/runtime explicitly unsupported."
+          "reason": "Actual public body retrieved and checked before implementation; product/API references, not a new course or exam bank. Unsupported planes excluded."
         }
       ]
     },
     {
-      "id": "vm-arm",
-      "url": "https://learn.microsoft.com/en-us/azure/templates/microsoft.compute/virtualmachines",
-      "title": "vm-arm — official Microsoft Compute/network configuration reference",
-      "reviewed": "2026-11-07T22:37:17.251278+00:00",
-      "version": "Retrieved HTML SHA256 a735358e25ddeb3da961ed9efa57f318c83d68a65f503872466cef421c488551",
+      "id": "policy",
+      "url": "https://learn.microsoft.com/en-us/azure/firewall/policy-rule-sets",
+      "title": "policy \u2014 official Microsoft Firewall/network/ARM reference",
+      "reviewed": "2026-11-08T10:24:04.890565+00:00",
+      "version": "HTML SHA256 25f0a1b43174ef201f9a2ec7725370896615f1325046c31b67c5190345ed86f9; ms.date 2026-03-28T00:00:00Z",
       "kind": "official-public-Microsoft-Learn-ARM",
-      "objectives": ["LAB-COMPUTE-A"],
-      "claims": ["compute.configuration"],
+      "objectives": ["LAB-FIREWALL-A"],
+      "claims": ["firewall.configuration", "firewall.inspection"],
       "availability": "AVAILABLE",
-      "limits": "Explicit new laboratory@3.4.0 only;3.0–3.3/SQL001–004/course/v2/assessment/XP/locked evidence preserved. Static IPv4, metadata-only VM and OS disk; no runtime, credentials, capacity guarantee or verified connectivity. Local PostgreSQL/isolated CI only; public persistent Laboratory owner-deferred503. No migration, external infrastructure, secrets, merge or production. Human validation unperformed.",
+      "limits": "Explicit new laboratory@3.5.0 only. Frozen3.0\u20133.4/course/v2/rubrics/XP and original historical evidence unchanged. Standard VNet Firewall and network-only Policy profile; conservative direct next-hop checks, same-region/subscription RFC1918 spokes. No NAT, packet transmission, runtime or verified connectivity. Local PostgreSQL/isolated CI only; public functional Firewall owner-deferred503. No migration, external resources, secrets, merge or production. Human SME/learning/UX/screen-reader/security review unperformed.",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/templates/microsoft.compute/virtualmachines",
+          "url": "https://learn.microsoft.com/en-us/azure/firewall/policy-rule-sets",
           "disposition": "reviewed-essential",
-          "reason": "Actual scoped HTML/text retrieved and read. Representative configuration only; live capacity/runtime explicitly unsupported."
+          "reason": "Actual public body retrieved and checked before implementation; product/API references, not a new course or exam bank. Unsupported planes excluded."
         }
       ]
     },
     {
-      "id": "disk-arm",
-      "url": "https://learn.microsoft.com/en-us/azure/templates/microsoft.compute/disks",
-      "title": "disk-arm — official Microsoft Compute/network configuration reference",
-      "reviewed": "2026-11-07T22:37:15.996798+00:00",
-      "version": "Retrieved HTML SHA256 a21339d9300afeed392396691280b516d92b074718dae36ac474a884b30b5bd0",
+      "id": "processing",
+      "url": "https://learn.microsoft.com/en-us/azure/firewall/rule-processing",
+      "title": "processing \u2014 official Microsoft Firewall/network/ARM reference",
+      "reviewed": "2026-11-08T10:24:04.891133+00:00",
+      "version": "HTML SHA256 0ac86d6d10fdaeb60dd55acd0889ac3668a7377848751fe3f346f20273ae82b1; ms.date 2026-03-23T00:00:00Z",
       "kind": "official-public-Microsoft-Learn-ARM",
-      "objectives": ["LAB-COMPUTE-A"],
-      "claims": ["compute.configuration"],
+      "objectives": ["LAB-FIREWALL-A"],
+      "claims": ["firewall.configuration", "firewall.inspection"],
       "availability": "AVAILABLE",
-      "limits": "Explicit new laboratory@3.4.0 only;3.0–3.3/SQL001–004/course/v2/assessment/XP/locked evidence preserved. Static IPv4, metadata-only VM and OS disk; no runtime, credentials, capacity guarantee or verified connectivity. Local PostgreSQL/isolated CI only; public persistent Laboratory owner-deferred503. No migration, external infrastructure, secrets, merge or production. Human validation unperformed.",
+      "limits": "Explicit new laboratory@3.5.0 only. Frozen3.0\u20133.4/course/v2/rubrics/XP and original historical evidence unchanged. Standard VNet Firewall and network-only Policy profile; conservative direct next-hop checks, same-region/subscription RFC1918 spokes. No NAT, packet transmission, runtime or verified connectivity. Local PostgreSQL/isolated CI only; public functional Firewall owner-deferred503. No migration, external resources, secrets, merge or production. Human SME/learning/UX/screen-reader/security review unperformed.",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/templates/microsoft.compute/disks",
+          "url": "https://learn.microsoft.com/en-us/azure/firewall/rule-processing",
           "disposition": "reviewed-essential",
-          "reason": "Actual scoped HTML/text retrieved and read. Representative configuration only; live capacity/runtime explicitly unsupported."
+          "reason": "Actual public body retrieved and checked before implementation; product/API references, not a new course or exam bank. Unsupported planes excluded."
         }
       ]
     },
     {
-      "id": "images",
-      "url": "https://learn.microsoft.com/en-us/azure/virtual-machines/linux/cli-ps-findimage",
-      "title": "images — official Microsoft Compute/network configuration reference",
-      "reviewed": "2026-11-07T22:37:16.106684+00:00",
-      "version": "Retrieved HTML SHA256 ff8650a7b688dbd933dcf9d252c18ef6b0dfff34dd9ca35c84b88e371a359218",
+      "id": "faq",
+      "url": "https://learn.microsoft.com/en-us/azure/firewall/firewall-faq",
+      "title": "faq \u2014 official Microsoft Firewall/network/ARM reference",
+      "reviewed": "2026-11-08T10:24:04.886796+00:00",
+      "version": "HTML SHA256 6361045ff65bc7172159917e6a5192be77f37a668115c23b371b36133980cb86; ms.date 2026-10-14T00:00:00Z",
       "kind": "official-public-Microsoft-Learn-ARM",
-      "objectives": ["LAB-COMPUTE-A"],
-      "claims": ["compute.configuration"],
+      "objectives": ["LAB-FIREWALL-A"],
+      "claims": ["firewall.configuration", "firewall.inspection"],
       "availability": "AVAILABLE",
-      "limits": "Explicit new laboratory@3.4.0 only;3.0–3.3/SQL001–004/course/v2/assessment/XP/locked evidence preserved. Static IPv4, metadata-only VM and OS disk; no runtime, credentials, capacity guarantee or verified connectivity. Local PostgreSQL/isolated CI only; public persistent Laboratory owner-deferred503. No migration, external infrastructure, secrets, merge or production. Human validation unperformed.",
+      "limits": "Explicit new laboratory@3.5.0 only. Frozen3.0\u20133.4/course/v2/rubrics/XP and original historical evidence unchanged. Standard VNet Firewall and network-only Policy profile; conservative direct next-hop checks, same-region/subscription RFC1918 spokes. No NAT, packet transmission, runtime or verified connectivity. Local PostgreSQL/isolated CI only; public functional Firewall owner-deferred503. No migration, external resources, secrets, merge or production. Human SME/learning/UX/screen-reader/security review unperformed.",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/virtual-machines/linux/cli-ps-findimage",
+          "url": "https://learn.microsoft.com/en-us/azure/firewall/firewall-faq",
           "disposition": "reviewed-essential",
-          "reason": "Actual scoped HTML/text retrieved and read. Representative configuration only; live capacity/runtime explicitly unsupported."
+          "reason": "Actual public body retrieved and checked before implementation; product/API references, not a new course or exam bank. Unsupported planes excluded."
         }
       ]
     },
     {
-      "id": "ubuntu",
-      "url": "https://learn.microsoft.com/en-us/azure/virtual-machines/linux/quick-create-cli",
-      "title": "ubuntu — official Microsoft Compute/network configuration reference",
-      "reviewed": "2026-11-07T22:37:17.164056+00:00",
-      "version": "Retrieved HTML SHA256 dce5092f437393516ad45b6455eb01629b048cca4ee0b11ebccb1f4265a12950",
+      "id": "peering",
+      "url": "https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-manage-peering",
+      "title": "peering \u2014 official Microsoft Firewall/network/ARM reference",
+      "reviewed": "2026-11-08T10:24:04.889728+00:00",
+      "version": "HTML SHA256 1a53e892df336369542b2e9ebd32b8fd5a2454a1b7f782f3744c0773d88ddbb0; ms.date 2025-07-29T00:00:00Z",
       "kind": "official-public-Microsoft-Learn-ARM",
-      "objectives": ["LAB-COMPUTE-A"],
-      "claims": ["compute.configuration"],
+      "objectives": ["LAB-FIREWALL-A"],
+      "claims": ["firewall.configuration", "firewall.inspection"],
       "availability": "AVAILABLE",
-      "limits": "Explicit new laboratory@3.4.0 only;3.0–3.3/SQL001–004/course/v2/assessment/XP/locked evidence preserved. Static IPv4, metadata-only VM and OS disk; no runtime, credentials, capacity guarantee or verified connectivity. Local PostgreSQL/isolated CI only; public persistent Laboratory owner-deferred503. No migration, external infrastructure, secrets, merge or production. Human validation unperformed.",
+      "limits": "Explicit new laboratory@3.5.0 only. Frozen3.0\u20133.4/course/v2/rubrics/XP and original historical evidence unchanged. Standard VNet Firewall and network-only Policy profile; conservative direct next-hop checks, same-region/subscription RFC1918 spokes. No NAT, packet transmission, runtime or verified connectivity. Local PostgreSQL/isolated CI only; public functional Firewall owner-deferred503. No migration, external resources, secrets, merge or production. Human SME/learning/UX/screen-reader/security review unperformed.",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/virtual-machines/linux/quick-create-cli",
+          "url": "https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-manage-peering",
           "disposition": "reviewed-essential",
-          "reason": "Actual scoped HTML/text retrieved and read. Representative configuration only; live capacity/runtime explicitly unsupported."
+          "reason": "Actual public body retrieved and checked before implementation; product/API references, not a new course or exam bank. Unsupported planes excluded."
         }
       ]
     },
     {
-      "id": "sizes",
-      "url": "https://learn.microsoft.com/en-us/azure/virtual-machines/sizes/general-purpose/dsv5-series",
-      "title": "sizes — official Microsoft Compute/network configuration reference",
-      "reviewed": "2026-11-07T22:37:16.296357+00:00",
-      "version": "Retrieved HTML SHA256 000bfd47489680d8f0eb8148ad569301edcb3e6b0d93bd35ffc5ecf0a8e975dd",
+      "id": "udr",
+      "url": "https://learn.microsoft.com/en-us/azure/virtual-network/virtual-networks-udr-overview",
+      "title": "udr \u2014 official Microsoft Firewall/network/ARM reference",
+      "reviewed": "2026-11-08T10:24:04.891913+00:00",
+      "version": "HTML SHA256 4ca0afedaf9a73e808e1da2ecd0dc5095d46489b44b0988cc874cec35f87159d; ms.date 2026-03-31T00:00:00Z",
       "kind": "official-public-Microsoft-Learn-ARM",
-      "objectives": ["LAB-COMPUTE-A"],
-      "claims": ["compute.configuration"],
+      "objectives": ["LAB-FIREWALL-A"],
+      "claims": ["firewall.configuration", "firewall.inspection"],
       "availability": "AVAILABLE",
-      "limits": "Explicit new laboratory@3.4.0 only;3.0–3.3/SQL001–004/course/v2/assessment/XP/locked evidence preserved. Static IPv4, metadata-only VM and OS disk; no runtime, credentials, capacity guarantee or verified connectivity. Local PostgreSQL/isolated CI only; public persistent Laboratory owner-deferred503. No migration, external infrastructure, secrets, merge or production. Human validation unperformed.",
+      "limits": "Explicit new laboratory@3.5.0 only. Frozen3.0\u20133.4/course/v2/rubrics/XP and original historical evidence unchanged. Standard VNet Firewall and network-only Policy profile; conservative direct next-hop checks, same-region/subscription RFC1918 spokes. No NAT, packet transmission, runtime or verified connectivity. Local PostgreSQL/isolated CI only; public functional Firewall owner-deferred503. No migration, external resources, secrets, merge or production. Human SME/learning/UX/screen-reader/security review unperformed.",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/virtual-machines/sizes/general-purpose/dsv5-series",
+          "url": "https://learn.microsoft.com/en-us/azure/virtual-network/virtual-networks-udr-overview",
           "disposition": "reviewed-essential",
-          "reason": "Actual scoped HTML/text retrieved and read. Representative configuration only; live capacity/runtime explicitly unsupported."
+          "reason": "Actual public body retrieved and checked before implementation; product/API references, not a new course or exam bank. Unsupported planes excluded."
         }
       ]
     },
     {
-      "id": "disks",
-      "url": "https://learn.microsoft.com/en-us/azure/virtual-machines/managed-disks-overview",
-      "title": "disks — official Microsoft Compute/network configuration reference",
-      "reviewed": "2026-11-07T22:37:17.105790+00:00",
-      "version": "Retrieved HTML SHA256 eb20ed32dcf9eec7b8c23162040df1427e45020c8a623c3b97abb0fd4a854b62",
+      "id": "arm-firewall",
+      "url": "https://learn.microsoft.com/en-us/azure/templates/microsoft.network/azurefirewalls",
+      "title": "arm-firewall \u2014 official Microsoft Firewall/network/ARM reference",
+      "reviewed": "2026-11-08T10:24:04.876351+00:00",
+      "version": "HTML SHA256 9183c987cffe608dd931b24351dd9e43608dd8c4223f2b983bb642f6fc9c62ac; ms.date 2024-12-09T00:00:00Z",
       "kind": "official-public-Microsoft-Learn-ARM",
-      "objectives": ["LAB-COMPUTE-A"],
-      "claims": ["compute.configuration"],
+      "objectives": ["LAB-FIREWALL-A"],
+      "claims": ["firewall.configuration", "firewall.inspection"],
       "availability": "AVAILABLE",
-      "limits": "Explicit new laboratory@3.4.0 only;3.0–3.3/SQL001–004/course/v2/assessment/XP/locked evidence preserved. Static IPv4, metadata-only VM and OS disk; no runtime, credentials, capacity guarantee or verified connectivity. Local PostgreSQL/isolated CI only; public persistent Laboratory owner-deferred503. No migration, external infrastructure, secrets, merge or production. Human validation unperformed.",
+      "limits": "Explicit new laboratory@3.5.0 only. Frozen3.0\u20133.4/course/v2/rubrics/XP and original historical evidence unchanged. Standard VNet Firewall and network-only Policy profile; conservative direct next-hop checks, same-region/subscription RFC1918 spokes. No NAT, packet transmission, runtime or verified connectivity. Local PostgreSQL/isolated CI only; public functional Firewall owner-deferred503. No migration, external resources, secrets, merge or production. Human SME/learning/UX/screen-reader/security review unperformed.",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/virtual-machines/managed-disks-overview",
+          "url": "https://learn.microsoft.com/en-us/azure/templates/microsoft.network/azurefirewalls",
           "disposition": "reviewed-essential",
-          "reason": "Actual scoped HTML/text retrieved and read. Representative configuration only; live capacity/runtime explicitly unsupported."
+          "reason": "Actual public body retrieved and checked before implementation; product/API references, not a new course or exam bank. Unsupported planes excluded."
         }
       ]
     },
     {
-      "id": "disk-expand",
-      "url": "https://learn.microsoft.com/en-us/azure/virtual-machines/windows/expand-os-disk",
-      "title": "disk-expand — official Microsoft Compute/network configuration reference",
-      "reviewed": "2026-11-07T22:37:17.457930+00:00",
-      "version": "Retrieved HTML SHA256 2367e652250c279d66301a4ce125d3240682c452ae6a99456b29077069fdb42e",
+      "id": "arm-policy",
+      "url": "https://learn.microsoft.com/en-us/azure/templates/microsoft.network/firewallpolicies",
+      "title": "arm-policy \u2014 official Microsoft Firewall/network/ARM reference",
+      "reviewed": "2026-11-08T10:24:04.883947+00:00",
+      "version": "HTML SHA256 827adaf2da2f86547a6a99be22cd80a0ea6948b338f87daa65bdcb4aed4c4e78; ms.date 2024-12-09T00:00:00Z",
       "kind": "official-public-Microsoft-Learn-ARM",
-      "objectives": ["LAB-COMPUTE-A"],
-      "claims": ["compute.configuration"],
+      "objectives": ["LAB-FIREWALL-A"],
+      "claims": ["firewall.configuration", "firewall.inspection"],
       "availability": "AVAILABLE",
-      "limits": "Explicit new laboratory@3.4.0 only;3.0–3.3/SQL001–004/course/v2/assessment/XP/locked evidence preserved. Static IPv4, metadata-only VM and OS disk; no runtime, credentials, capacity guarantee or verified connectivity. Local PostgreSQL/isolated CI only; public persistent Laboratory owner-deferred503. No migration, external infrastructure, secrets, merge or production. Human validation unperformed.",
+      "limits": "Explicit new laboratory@3.5.0 only. Frozen3.0\u20133.4/course/v2/rubrics/XP and original historical evidence unchanged. Standard VNet Firewall and network-only Policy profile; conservative direct next-hop checks, same-region/subscription RFC1918 spokes. No NAT, packet transmission, runtime or verified connectivity. Local PostgreSQL/isolated CI only; public functional Firewall owner-deferred503. No migration, external resources, secrets, merge or production. Human SME/learning/UX/screen-reader/security review unperformed.",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/virtual-machines/windows/expand-os-disk",
+          "url": "https://learn.microsoft.com/en-us/azure/templates/microsoft.network/firewallpolicies",
           "disposition": "reviewed-essential",
-          "reason": "Actual scoped HTML/text retrieved and read. Representative configuration only; live capacity/runtime explicitly unsupported."
+          "reason": "Actual public body retrieved and checked before implementation; product/API references, not a new course or exam bank. Unsupported planes excluded."
         }
       ]
     },
     {
-      "id": "private-ip",
-      "url": "https://learn.microsoft.com/en-us/azure/virtual-network/ip-services/private-ip-addresses",
-      "title": "private-ip — official Microsoft Compute/network configuration reference",
-      "reviewed": "2026-11-07T22:37:17.341709+00:00",
-      "version": "Retrieved HTML SHA256 8326e4e08980432265658475b4e179da6166e26d1683510d05073e4a23acb55c",
+      "id": "arm-rcg",
+      "url": "https://learn.microsoft.com/en-us/azure/templates/microsoft.network/firewallpolicies/rulecollectiongroups",
+      "title": "arm-rcg \u2014 official Microsoft Firewall/network/ARM reference",
+      "reviewed": "2026-11-08T10:24:04.885435+00:00",
+      "version": "HTML SHA256 527dd817792ae17707ab1633acde700928f7bc1379d00df4e440facfc74883e1; ms.date 2024-12-09T00:00:00Z",
       "kind": "official-public-Microsoft-Learn-ARM",
-      "objectives": ["LAB-COMPUTE-A"],
-      "claims": ["compute.configuration"],
+      "objectives": ["LAB-FIREWALL-A"],
+      "claims": ["firewall.configuration", "firewall.inspection"],
       "availability": "AVAILABLE",
-      "limits": "Explicit new laboratory@3.4.0 only;3.0–3.3/SQL001–004/course/v2/assessment/XP/locked evidence preserved. Static IPv4, metadata-only VM and OS disk; no runtime, credentials, capacity guarantee or verified connectivity. Local PostgreSQL/isolated CI only; public persistent Laboratory owner-deferred503. No migration, external infrastructure, secrets, merge or production. Human validation unperformed.",
+      "limits": "Explicit new laboratory@3.5.0 only. Frozen3.0\u20133.4/course/v2/rubrics/XP and original historical evidence unchanged. Standard VNet Firewall and network-only Policy profile; conservative direct next-hop checks, same-region/subscription RFC1918 spokes. No NAT, packet transmission, runtime or verified connectivity. Local PostgreSQL/isolated CI only; public functional Firewall owner-deferred503. No migration, external resources, secrets, merge or production. Human SME/learning/UX/screen-reader/security review unperformed.",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/virtual-network/ip-services/private-ip-addresses",
+          "url": "https://learn.microsoft.com/en-us/azure/templates/microsoft.network/firewallpolicies/rulecollectiongroups",
           "disposition": "reviewed-essential",
-          "reason": "Actual scoped HTML/text retrieved and read. Representative configuration only; live capacity/runtime explicitly unsupported."
+          "reason": "Actual public body retrieved and checked before implementation; product/API references, not a new course or exam bank. Unsupported planes excluded."
         }
       ]
     },
     {
-      "id": "nic",
-      "url": "https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-network-interface",
-      "title": "nic — official Microsoft Compute/network configuration reference",
-      "reviewed": "2026-11-07T22:37:17.441663+00:00",
-      "version": "Retrieved HTML SHA256 893b2c8de8d36a9e9e1e13994d7bfe66189c451f29ae2fde3942011be56ab8be",
+      "id": "arm-pip",
+      "url": "https://learn.microsoft.com/en-us/azure/templates/microsoft.network/publicipaddresses",
+      "title": "arm-pip \u2014 official Microsoft Firewall/network/ARM reference",
+      "reviewed": "2026-11-08T10:24:04.883089+00:00",
+      "version": "HTML SHA256 f1a0d5e10aee44402134e50baff075504a0c92a682b16e044c4a8027edddb2cd; ms.date 2024-12-09T00:00:00Z",
       "kind": "official-public-Microsoft-Learn-ARM",
-      "objectives": ["LAB-COMPUTE-A"],
-      "claims": ["compute.configuration"],
+      "objectives": ["LAB-FIREWALL-A"],
+      "claims": ["firewall.configuration", "firewall.inspection"],
       "availability": "AVAILABLE",
-      "limits": "Explicit new laboratory@3.4.0 only;3.0–3.3/SQL001–004/course/v2/assessment/XP/locked evidence preserved. Static IPv4, metadata-only VM and OS disk; no runtime, credentials, capacity guarantee or verified connectivity. Local PostgreSQL/isolated CI only; public persistent Laboratory owner-deferred503. No migration, external infrastructure, secrets, merge or production. Human validation unperformed.",
+      "limits": "Explicit new laboratory@3.5.0 only. Frozen3.0\u20133.4/course/v2/rubrics/XP and original historical evidence unchanged. Standard VNet Firewall and network-only Policy profile; conservative direct next-hop checks, same-region/subscription RFC1918 spokes. No NAT, packet transmission, runtime or verified connectivity. Local PostgreSQL/isolated CI only; public functional Firewall owner-deferred503. No migration, external resources, secrets, merge or production. Human SME/learning/UX/screen-reader/security review unperformed.",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-network-interface",
+          "url": "https://learn.microsoft.com/en-us/azure/templates/microsoft.network/publicipaddresses",
           "disposition": "reviewed-essential",
-          "reason": "Actual scoped HTML/text retrieved and read. Representative configuration only; live capacity/runtime explicitly unsupported."
+          "reason": "Actual public body retrieved and checked before implementation; product/API references, not a new course or exam bank. Unsupported planes excluded."
+        }
+      ]
+    },
+    {
+      "id": "firewall-ip",
+      "url": "https://learn.microsoft.com/en-us/azure/firewall/deploy-multi-public-ip-powershell",
+      "title": "firewall-ip \u2014 official Microsoft Firewall/network/ARM reference",
+      "reviewed": "2026-11-08T10:24:04.887437+00:00",
+      "version": "HTML SHA256 c5ad838028a6bb05ceec932375204a38d1e1d3079d1dd7fbc8b07b8ad9006947; ms.date 2026-10-14T00:00:00Z",
+      "kind": "official-public-Microsoft-Learn-ARM",
+      "objectives": ["LAB-FIREWALL-A"],
+      "claims": ["firewall.configuration", "firewall.inspection"],
+      "availability": "AVAILABLE",
+      "limits": "Explicit new laboratory@3.5.0 only. Frozen3.0\u20133.4/course/v2/rubrics/XP and original historical evidence unchanged. Standard VNet Firewall and network-only Policy profile; conservative direct next-hop checks, same-region/subscription RFC1918 spokes. No NAT, packet transmission, runtime or verified connectivity. Local PostgreSQL/isolated CI only; public functional Firewall owner-deferred503. No migration, external resources, secrets, merge or production. Human SME/learning/UX/screen-reader/security review unperformed.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/firewall/deploy-multi-public-ip-powershell",
+          "disposition": "reviewed-essential",
+          "reason": "Actual public body retrieved and checked before implementation; product/API references, not a new course or exam bank. Unsupported planes excluded."
         }
       ]
     },
     {
       "id": "names",
       "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules",
-      "title": "names — official Microsoft Compute/network configuration reference",
-      "reviewed": "2026-11-07T22:37:17.536504+00:00",
-      "version": "Retrieved HTML SHA256 841c4ce5afa8213404be0736d9ee828c2415c8cbc329fc9da8147a0b081996fd",
+      "title": "names \u2014 official Microsoft Firewall/network/ARM reference",
+      "reviewed": "2026-11-08T10:24:04.889395+00:00",
+      "version": "HTML SHA256 841c4ce5afa8213404be0736d9ee828c2415c8cbc329fc9da8147a0b081996fd; ms.date 2026-08-05T00:00:00Z",
       "kind": "official-public-Microsoft-Learn-ARM",
-      "objectives": ["LAB-COMPUTE-A"],
-      "claims": ["compute.configuration"],
+      "objectives": ["LAB-FIREWALL-A"],
+      "claims": ["firewall.configuration", "firewall.inspection"],
       "availability": "AVAILABLE",
-      "limits": "Explicit new laboratory@3.4.0 only;3.0–3.3/SQL001–004/course/v2/assessment/XP/locked evidence preserved. Static IPv4, metadata-only VM and OS disk; no runtime, credentials, capacity guarantee or verified connectivity. Local PostgreSQL/isolated CI only; public persistent Laboratory owner-deferred503. No migration, external infrastructure, secrets, merge or production. Human validation unperformed.",
+      "limits": "Explicit new laboratory@3.5.0 only. Frozen3.0\u20133.4/course/v2/rubrics/XP and original historical evidence unchanged. Standard VNet Firewall and network-only Policy profile; conservative direct next-hop checks, same-region/subscription RFC1918 spokes. No NAT, packet transmission, runtime or verified connectivity. Local PostgreSQL/isolated CI only; public functional Firewall owner-deferred503. No migration, external resources, secrets, merge or production. Human SME/learning/UX/screen-reader/security review unperformed.",
       "discovery": [
         {
           "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules",
           "disposition": "reviewed-essential",
-          "reason": "Actual scoped HTML/text retrieved and read. Representative configuration only; live capacity/runtime explicitly unsupported."
-        }
-      ]
-    },
-    {
-      "id": "sizes-v3",
-      "url": "https://learn.microsoft.com/en-us/azure/virtual-machines/sizes/general-purpose/dsv3-series",
-      "title": "sizes-v3 — official Microsoft Compute/network configuration reference",
-      "reviewed": "2026-11-07T22:38:26.669536+00:00",
-      "version": "Retrieved HTML SHA256 25541c5c0edd9357e429e524a7583fc6125629ad2af5d810bf96467b3b5740fd",
-      "kind": "official-public-Microsoft-Learn-ARM",
-      "objectives": ["LAB-COMPUTE-A"],
-      "claims": ["compute.configuration"],
-      "availability": "AVAILABLE",
-      "limits": "Explicit new laboratory@3.4.0 only;3.0–3.3/SQL001–004/course/v2/assessment/XP/locked evidence preserved. Static IPv4, metadata-only VM and OS disk; no runtime, credentials, capacity guarantee or verified connectivity. Local PostgreSQL/isolated CI only; public persistent Laboratory owner-deferred503. No migration, external infrastructure, secrets, merge or production. Human validation unperformed.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/virtual-machines/sizes/general-purpose/dsv3-series",
-          "disposition": "reviewed-essential",
-          "reason": "Actual scoped HTML/text retrieved and read. Representative configuration only; live capacity/runtime explicitly unsupported."
-        }
-      ]
-    },
-    {
-      "id": "sizes-v4",
-      "url": "https://learn.microsoft.com/en-us/azure/virtual-machines/sizes/general-purpose/dsv4-series",
-      "title": "sizes-v4 — official Microsoft Compute/network configuration reference",
-      "reviewed": "2026-11-07T22:40:20.171380+00:00",
-      "version": "Retrieved HTML SHA256 4f650f4430cde1d69314acc3d9b02226dbce9b6425ae56b81b8015d3b0a7facc",
-      "kind": "official-public-Microsoft-Learn-ARM",
-      "objectives": ["LAB-COMPUTE-A"],
-      "claims": ["compute.configuration"],
-      "availability": "AVAILABLE",
-      "limits": "Explicit new laboratory@3.4.0 only;3.0–3.3/SQL001–004/course/v2/assessment/XP/locked evidence preserved. Static IPv4, metadata-only VM and OS disk; no runtime, credentials, capacity guarantee or verified connectivity. Local PostgreSQL/isolated CI only; public persistent Laboratory owner-deferred503. No migration, external infrastructure, secrets, merge or production. Human validation unperformed.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/virtual-machines/sizes/general-purpose/dsv4-series",
-          "disposition": "reviewed-essential",
-          "reason": "Actual scoped HTML/text retrieved and read. Representative configuration only; live capacity/runtime explicitly unsupported."
+          "reason": "Actual public body retrieved and checked before implementation; product/API references, not a new course or exam bank. Unsupported planes excluded."
         }
       ]
     }
   ],
   "activities": [
     {
-      "id": "PR66-compute-A",
-      "objectives": ["LAB-COMPUTE-A"],
-      "claims": ["compute.configuration"],
+      "id": "PR67-firewall-A",
+      "objectives": ["LAB-FIREWALL-A"],
+      "claims": ["firewall.configuration", "firewall.inspection"],
       "assessmentStatus": "unchanged-existing",
-      "limits": "Explicit new laboratory@3.4.0 only;3.0–3.3/SQL001–004/course/v2/assessment/XP/locked evidence preserved. Static IPv4, metadata-only VM and OS disk; no runtime, credentials, capacity guarantee or verified connectivity. Local PostgreSQL/isolated CI only; public persistent Laboratory owner-deferred503. No migration, external infrastructure, secrets, merge or production. Human validation unperformed.",
-      "theory": [{ "path": "docs/LABORATORY_COMPUTE_PART_A.md" }],
-      "mechanism": [{ "path": "src/laboratory/v34/domain.ts" }],
-      "practice": [{ "path": "tests/e2e/laboratory-compute.spec.ts" }],
-      "feedback": [{ "path": "src/features/laboratory/compute.tsx" }],
-      "visual": [{ "path": "src/features/portal/presentation.tsx" }],
-      "accessible": [{ "path": "tests/e2e/laboratory-compute.spec.ts" }],
-      "assessment": [{ "path": "src/laboratory-compute-preservation.test.ts" }],
-      "savvyshark": [{ "path": "src/laboratory-compute-preservation.test.ts" }]
+      "limits": "Explicit new laboratory@3.5.0 only. Frozen3.0\u20133.4/course/v2/rubrics/XP and original historical evidence unchanged. Standard VNet Firewall and network-only Policy profile; conservative direct next-hop checks, same-region/subscription RFC1918 spokes. No NAT, packet transmission, runtime or verified connectivity. Local PostgreSQL/isolated CI only; public functional Firewall owner-deferred503. No migration, external resources, secrets, merge or production. Human SME/learning/UX/screen-reader/security review unperformed.",
+      "theory": [
+        {
+          "path": "docs/LABORATORY_FIREWALL_PART_A.md"
+        }
+      ],
+      "mechanism": [
+        {
+          "path": "src/laboratory/v35/domain.ts"
+        },
+        {
+          "path": "src/laboratory/v35/analysis.ts"
+        }
+      ],
+      "practice": [
+        {
+          "path": "tests/e2e/laboratory-firewall.spec.ts"
+        }
+      ],
+      "feedback": [
+        {
+          "path": "src/features/laboratory/firewall.tsx"
+        }
+      ],
+      "visual": [
+        {
+          "path": "src/features/portal/presentation.tsx"
+        }
+      ],
+      "accessible": [
+        {
+          "path": "tests/e2e/laboratory-firewall.spec.ts"
+        }
+      ],
+      "assessment": [
+        {
+          "path": "src/laboratory-firewall-preservation.test.ts"
+        }
+      ],
+      "savvyshark": [
+        {
+          "path": "src/laboratory-firewall-preservation.test.ts"
+        }
+      ]
     }
   ],
   "modules": [],
@@ -371,59 +387,94 @@
     "src/features/course/provider.tsx",
     "src/features/course/savvy-shark.tsx",
     "src/features/course/vm-debrief-preservation.test.ts",
-    "src/features/course/vm-debrief.tsx"
+    "src/features/course/vm-debrief.tsx",
+    "src/laboratory/v34/",
+    "database/laboratory-v3/005-compute.sql",
+    "src/content/laboratory-compute-nb.ts",
+    "docs/reviews/evidence/pr66/",
+    "docs/quality/PR66_FINAL_AUDIT.md",
+    "src/features/course/course-sidebar.tsx"
   ],
   "gates": {
     "source": {
       "checks": [
-        { "path": "docs/LABORATORY_COMPUTE_PART_A.md" },
-        { "path": "docs/reviews/evidence/pr66/verification.json" },
-        { "path": "docs/reviews/evidence/pr66/source-fetch.json" }
+        {
+          "path": "docs/LABORATORY_FIREWALL_PART_A.md"
+        },
+        {
+          "path": "docs/reviews/evidence/pr67/verification.json"
+        }
       ],
-      "limits": "Explicit new laboratory@3.4.0 only;3.0–3.3/SQL001–004/course/v2/assessment/XP/locked evidence preserved. Static IPv4, metadata-only VM and OS disk; no runtime, credentials, capacity guarantee or verified connectivity. Local PostgreSQL/isolated CI only; public persistent Laboratory owner-deferred503. No migration, external infrastructure, secrets, merge or production. Human validation unperformed."
+      "limits": "Explicit new laboratory@3.5.0 only. Frozen3.0\u20133.4/course/v2/rubrics/XP and original historical evidence unchanged. Standard VNet Firewall and network-only Policy profile; conservative direct next-hop checks, same-region/subscription RFC1918 spokes. No NAT, packet transmission, runtime or verified connectivity. Local PostgreSQL/isolated CI only; public functional Firewall owner-deferred503. No migration, external resources, secrets, merge or production. Human SME/learning/UX/screen-reader/security review unperformed."
     },
     "curriculum": {
       "checks": [
-        { "path": "docs/LABORATORY_COMPUTE_PART_A.md" },
-        { "path": "docs/reviews/evidence/pr66/verification.json" }
+        {
+          "path": "docs/LABORATORY_FIREWALL_PART_A.md"
+        },
+        {
+          "path": "docs/reviews/evidence/pr67/verification.json"
+        }
       ],
-      "limits": "Explicit new laboratory@3.4.0 only;3.0–3.3/SQL001–004/course/v2/assessment/XP/locked evidence preserved. Static IPv4, metadata-only VM and OS disk; no runtime, credentials, capacity guarantee or verified connectivity. Local PostgreSQL/isolated CI only; public persistent Laboratory owner-deferred503. No migration, external infrastructure, secrets, merge or production. Human validation unperformed."
+      "limits": "Explicit new laboratory@3.5.0 only. Frozen3.0\u20133.4/course/v2/rubrics/XP and original historical evidence unchanged. Standard VNet Firewall and network-only Policy profile; conservative direct next-hop checks, same-region/subscription RFC1918 spokes. No NAT, packet transmission, runtime or verified connectivity. Local PostgreSQL/isolated CI only; public functional Firewall owner-deferred503. No migration, external resources, secrets, merge or production. Human SME/learning/UX/screen-reader/security review unperformed."
     },
     "simulation": {
       "checks": [
-        { "path": "docs/LABORATORY_COMPUTE_PART_A.md" },
-        { "path": "docs/reviews/evidence/pr66/verification.json" }
+        {
+          "path": "docs/LABORATORY_FIREWALL_PART_A.md"
+        },
+        {
+          "path": "docs/reviews/evidence/pr67/verification.json"
+        }
       ],
-      "limits": "Explicit new laboratory@3.4.0 only;3.0–3.3/SQL001–004/course/v2/assessment/XP/locked evidence preserved. Static IPv4, metadata-only VM and OS disk; no runtime, credentials, capacity guarantee or verified connectivity. Local PostgreSQL/isolated CI only; public persistent Laboratory owner-deferred503. No migration, external infrastructure, secrets, merge or production. Human validation unperformed."
+      "limits": "Explicit new laboratory@3.5.0 only. Frozen3.0\u20133.4/course/v2/rubrics/XP and original historical evidence unchanged. Standard VNet Firewall and network-only Policy profile; conservative direct next-hop checks, same-region/subscription RFC1918 spokes. No NAT, packet transmission, runtime or verified connectivity. Local PostgreSQL/isolated CI only; public functional Firewall owner-deferred503. No migration, external resources, secrets, merge or production. Human SME/learning/UX/screen-reader/security review unperformed."
     },
     "savvyshark": {
       "checks": [
-        { "path": "docs/LABORATORY_COMPUTE_PART_A.md" },
-        { "path": "docs/reviews/evidence/pr66/verification.json" }
+        {
+          "path": "docs/LABORATORY_FIREWALL_PART_A.md"
+        },
+        {
+          "path": "docs/reviews/evidence/pr67/verification.json"
+        }
       ],
-      "limits": "Explicit new laboratory@3.4.0 only;3.0–3.3/SQL001–004/course/v2/assessment/XP/locked evidence preserved. Static IPv4, metadata-only VM and OS disk; no runtime, credentials, capacity guarantee or verified connectivity. Local PostgreSQL/isolated CI only; public persistent Laboratory owner-deferred503. No migration, external infrastructure, secrets, merge or production. Human validation unperformed."
+      "limits": "Explicit new laboratory@3.5.0 only. Frozen3.0\u20133.4/course/v2/rubrics/XP and original historical evidence unchanged. Standard VNet Firewall and network-only Policy profile; conservative direct next-hop checks, same-region/subscription RFC1918 spokes. No NAT, packet transmission, runtime or verified connectivity. Local PostgreSQL/isolated CI only; public functional Firewall owner-deferred503. No migration, external resources, secrets, merge or production. Human SME/learning/UX/screen-reader/security review unperformed."
     },
     "visual-accessibility": {
       "checks": [
-        { "path": "docs/LABORATORY_COMPUTE_PART_A.md" },
-        { "path": "docs/reviews/evidence/pr66/verification.json" }
+        {
+          "path": "docs/LABORATORY_FIREWALL_PART_A.md"
+        },
+        {
+          "path": "docs/reviews/evidence/pr67/verification.json"
+        }
       ],
-      "limits": "Explicit new laboratory@3.4.0 only;3.0–3.3/SQL001–004/course/v2/assessment/XP/locked evidence preserved. Static IPv4, metadata-only VM and OS disk; no runtime, credentials, capacity guarantee or verified connectivity. Local PostgreSQL/isolated CI only; public persistent Laboratory owner-deferred503. No migration, external infrastructure, secrets, merge or production. Human validation unperformed."
+      "limits": "Explicit new laboratory@3.5.0 only. Frozen3.0\u20133.4/course/v2/rubrics/XP and original historical evidence unchanged. Standard VNet Firewall and network-only Policy profile; conservative direct next-hop checks, same-region/subscription RFC1918 spokes. No NAT, packet transmission, runtime or verified connectivity. Local PostgreSQL/isolated CI only; public functional Firewall owner-deferred503. No migration, external resources, secrets, merge or production. Human SME/learning/UX/screen-reader/security review unperformed."
     },
     "independent-final-audit": {
       "checks": [
-        { "path": "docs/LABORATORY_COMPUTE_PART_A.md" },
-        { "path": "docs/reviews/evidence/pr66/verification.json" },
-        { "path": "docs/quality/PR66_FINAL_AUDIT.md" }
+        {
+          "path": "docs/LABORATORY_FIREWALL_PART_A.md"
+        },
+        {
+          "path": "docs/reviews/evidence/pr67/verification.json"
+        },
+        {
+          "path": "docs/quality/PR67_FINAL_AUDIT.md"
+        }
       ],
-      "limits": "Explicit new laboratory@3.4.0 only;3.0–3.3/SQL001–004/course/v2/assessment/XP/locked evidence preserved. Static IPv4, metadata-only VM and OS disk; no runtime, credentials, capacity guarantee or verified connectivity. Local PostgreSQL/isolated CI only; public persistent Laboratory owner-deferred503. No migration, external infrastructure, secrets, merge or production. Human validation unperformed."
+      "limits": "Explicit new laboratory@3.5.0 only. Frozen3.0\u20133.4/course/v2/rubrics/XP and original historical evidence unchanged. Standard VNet Firewall and network-only Policy profile; conservative direct next-hop checks, same-region/subscription RFC1918 spokes. No NAT, packet transmission, runtime or verified connectivity. Local PostgreSQL/isolated CI only; public functional Firewall owner-deferred503. No migration, external resources, secrets, merge or production. Human SME/learning/UX/screen-reader/security review unperformed."
     },
     "delivery": {
       "checks": [
-        { "path": "docs/LABORATORY_COMPUTE_PART_A.md" },
-        { "path": "docs/reviews/evidence/pr66/verification.json" }
+        {
+          "path": "docs/LABORATORY_FIREWALL_PART_A.md"
+        },
+        {
+          "path": "docs/reviews/evidence/pr67/verification.json"
+        }
       ],
-      "limits": "Explicit new laboratory@3.4.0 only;3.0–3.3/SQL001–004/course/v2/assessment/XP/locked evidence preserved. Static IPv4, metadata-only VM and OS disk; no runtime, credentials, capacity guarantee or verified connectivity. Local PostgreSQL/isolated CI only; public persistent Laboratory owner-deferred503. No migration, external infrastructure, secrets, merge or production. Human validation unperformed."
+      "limits": "Explicit new laboratory@3.5.0 only. Frozen3.0\u20133.4/course/v2/rubrics/XP and original historical evidence unchanged. Standard VNet Firewall and network-only Policy profile; conservative direct next-hop checks, same-region/subscription RFC1918 spokes. No NAT, packet transmission, runtime or verified connectivity. Local PostgreSQL/isolated CI only; public functional Firewall owner-deferred503. No migration, external resources, secrets, merge or production. Human SME/learning/UX/screen-reader/security review unperformed."
     }
   },
   "humanReview": {
@@ -435,353 +486,622 @@
   },
   "visualEvidence": [
     {
-      "path": "docs/reviews/evidence/pr66/before-services.png",
+      "path": "docs/reviews/evidence/pr66/vm-policy-1440x900.png",
       "inspected": true,
       "viewport": "1440x900",
-      "observation": "Untouched3.3 production baseline: actual shared Portal services omit VM/disk capabilities; no invented before-VM screen."
+      "observation": "Historical PR66 original pre-Firewall policy UI, kept unchanged; compare supported3.4 path only, no invented before-Firewall view."
     },
     {
-      "path": "docs/reviews/evidence/pr66/before-nic-create.png",
+      "path": "docs/reviews/evidence/pr67/firewall-inspection-allow.png",
       "inspected": true,
       "viewport": "1440x900",
-      "observation": "Untouched3.3 standalone NIC creation uses the same shared header/sidebar/review controls, explicit static IPv4 and real parent selectors."
+      "observation": "Actual modeled1433Allow, decisive rule/collection first, one scope statement, disclosed route details and reused NSG traces."
     },
     {
-      "path": "docs/reviews/evidence/pr66/before-nic-overview.png",
-      "inspected": true,
-      "viewport": "1440x900",
-      "observation": "Untouched3.3 actual standalone NIC shows original subnet/VNet and create receipt, without a fictitious VM owner."
-    },
-    {
-      "path": "docs/reviews/evidence/pr66/vm-create.png",
-      "inspected": true,
-      "viewport": "1440x900",
-      "observation": "Actual3.4 VM form has bounded image/size/disk profiles, existing parent selection and explicit Static IPv4; generated NIC/disk names and no-runtime scope visible."
-    },
-    {
-      "path": "docs/reviews/evidence/pr66/vm-overview.png",
-      "inspected": true,
-      "viewport": "1440x900",
-      "observation": "Actual persisted VM configuration links the original primary NIC and OS disk, includes symbolic-image detail and no boot/power or runtime claim."
-    },
-    {
-      "path": "docs/reviews/evidence/pr66/vm-nic.png",
-      "inspected": true,
-      "viewport": "1440x900",
-      "observation": "Actual generated NIC links back to its VM and forward to subnet/VNet; updated3.4 text distinguishes modeled VM configuration from absent runtime/MAC/traffic."
-    },
-    {
-      "path": "docs/reviews/evidence/pr66/vm-os-disk.png",
-      "inspected": true,
-      "viewport": "1440x900",
-      "observation": "Actual managed OS disk metadata displays original ID/profile/size/OS-type, real owner link and original bundle receipt; no installed OS/block-data claim."
-    },
-    {
-      "path": "docs/reviews/evidence/pr66/vm-list.png",
-      "inspected": true,
-      "viewport": "1440x900",
-      "observation": "VM resource row, group/region/subscription and filters use the shared Portal table; one Create action and explicit simulation boundary."
-    },
-    {
-      "path": "docs/reviews/evidence/pr66/vm-create-1024x500.png",
+      "path": "docs/reviews/evidence/pr67/inspection-1024x500.png",
       "inspected": true,
       "viewport": "1024x500",
-      "observation": "Short native form keeps Review/Cancel reachable with normal vertical scrolling; measured Review/footer clearance and keyboard focus passed, no document overflow."
+      "observation": "Short-window positive diagnosis and matched rule remain visible without horizontal overflow; natural vertical scroll to remaining details."
     },
     {
-      "path": "docs/reviews/evidence/pr66/vm-create-800x700.png",
+      "path": "docs/reviews/evidence/pr67/firewall-1024x500.png",
+      "inspected": true,
+      "viewport": "1024x500",
+      "observation": "Shared Portal actual Firewall Overview links the real hub/subnet/policy/Public IP configuration; no operational/power/traffic claim."
+    },
+    {
+      "path": "docs/reviews/evidence/pr67/firewall-create.png",
+      "inspected": true,
+      "viewport": "1440x900",
+      "observation": "Real Standard Firewall form and exact dedicated subnet/policy; atomic Public IP configuration boundary and explicit Review."
+    },
+    {
+      "path": "docs/reviews/evidence/pr67/compact-firewall-create.png",
       "inspected": true,
       "viewport": "800x700",
-      "observation": "Initial compact PC form retains native parent/profile/IP controls and visible Review/Cancel; closed long native select truncates but opened choice and scoped context remain available."
+      "observation": "Same shared form/header on compact desktop; native vertical scrolling and visible Review, not a separate app."
     },
     {
-      "path": "docs/reviews/evidence/pr66/vm-policy-1024x500.png",
+      "path": "docs/reviews/evidence/pr67/final-01/default-review-corrected.png",
+      "viewport": "1440x960",
       "inspected": true,
-      "viewport": "1024x500",
-      "observation": "Focused result wraps actual NIC scope/IDs and revision, shows modeled policy Allow plus explicit no-traffic/no-VM-response boundary; layers continue through normal vertical scroll."
-    },
-    {
-      "path": "docs/reviews/evidence/pr66/vm-disk-1024x500.png",
-      "inspected": true,
-      "viewport": "1024x500",
-      "observation": "Short disk Properties shows correct OS-disk profile and size labels, original receipt and parent link with usable fixed workspace footer, no horizontal overflow."
+      "observation": "Actual untouched-default Review matches posted second hub RG/WestEurope/dedicated subnet and compatible Policy; original mismatched form retained separately."
     }
   ],
   "verification": [
     {
       "command": "npm run check",
       "result": "passed",
-      "details": "933Vitest/77files,24Node,503curriculum,57objectives/126facets; types/lint/format/docs/quality/assets/legacy/preservation/realPG/build passed."
+      "details": "Exit0:967Vitest/80files,24Node,503curriculum,57objectives/126facets; TypeScript/lint/format/docs/source/quality/assets/legacy/preservation/realPG/productionbuild."
     },
     {
-      "command": "final native Compute desktop+compact",
+      "command": "native local Firewall and historical Compute desktop+compact",
       "result": "passed",
-      "details": "6/6,1.1m,0retry/flaky/skip; actual server/UI and measured short-window Review/footer clearance, keyboard/focus/reduced-motion/Axe/overflow."
-    },
-    {
-      "command": "original unchanged owner Back/Forward test x15",
-      "result": "passed",
-      "details": "15/15,2.1m,0retry. Baseline14pass1fail plus actual trace retained;20 post-fix observer journeys show0 duplicates and SSR raw response has0 disclosure IDs."
-    },
-    {
-      "command": "inherited Part C browser regression",
-      "result": "passed",
-      "details": "All6 old Part C controls passed in actual second12-case batch; the new Linux test’s route-commit race corrected and subsequently passed. Original failure logs preserved."
+      "details": "13/13,3.0m,0retry/flaky/skip: all6newFirewall desktop,1compact, all5historicalCompute desktop+1compact; ordinary local PostgreSQL/UI. A\u2013G, read-only original receipts/reload, cross-tab stale invalidation, invalid Review/no writes, priority, ambiguous hub, keyboard/focus/Axe/reduced-motion/1440x900/1024x768/1024x500."
     },
     {
       "command": "npm run test:e2e:plan",
       "result": "passed",
-      "details": "426=383desktop+43compact; all420 prior controls/settings/assertions retained;5newdesktop+1compact;legacy766."
+      "details": "433=389desktop+44compact, all426inherited retained. legacy778. Existing worker/retry/timeout/skip settings unchanged."
     },
     {
-      "command": "corrected actual OS-disk capture",
-      "result": "passed",
-      "details": "Independent MINOR found the disk PNG still showed VM Overview during route commit. Original frame retained; exact disk-title assertion added to new Linux journey. Final affected native run1/1,11.9s,0retry/flaky/skip; actual disk Overview captured. Runtime unchanged; renewed independent follow-up pending."
-    },
-    {
-      "command": "first complete CI run105",
+      "command": "initial npm run check",
       "result": "failed",
-      "scope": "historical-failed-candidate",
-      "testedSha": "a625756e6bfdb3686b10e09a9f8d95380f7911d4",
-      "details": "425passed1failed0flaky0skip,29.9m. Deterministic original subnet Properties link-count assertion: expected1/actual2. Strict release skipped. Original log/artifact reference retained; new reference links now scoped to3.4 VM/disk, original tests unchanged."
+      "scope": "development-failure",
+      "details": "965passed1failed/966. Only failure: inherited exact engine.models expectation omitted the new registered3.5; original log retained. No old model removed and no evaluator changed."
     },
     {
-      "command": "CI105 Properties correction targeted native controls",
+      "command": "original architecture helper trace/observer baseline and correction",
       "result": "passed",
-      "details": "8/8,1.1m,0retry/flaky/skip. Original failed shared-Portal assertion unchanged and passed; new VM/disk Properties navigation and compact controls retained. Real local PostgreSQL, no injected World."
+      "details": "Original instrumented bodies:29passed1failed/30,retry0. Architecture reproduced stream/readiness cause; exact corrected test15/15. VM status/older Compute/Axe causes remain open."
+    },
+    {
+      "command": "first post-stamp final audit",
+      "result": "failed",
+      "details": "Fresh127-file stamped audit found MAJOR displayed/submitted subnet mismatch. Original report/record/Review and red trace retained; independent approval withheld. Correction and new untouched-default regression are under verification."
     },
     {
       "command": "npm run check",
       "result": "passed",
-      "details": "After scoped Properties correction:933Vitest/77files,24Node,503curriculum,57objectives126facets; types/lint/format/docs/quality/assets/legacy/preservation/realPG/productionbuild passed. Original shared-Portal spec unchanged; complete new-head CI pending."
+      "details": "Post-FINAL-01: exit0,967Vitest/80files,24Node,503curriculum; types/lint/format/docs/quality/assets/legacy/preservation/realPG/build passed."
+    },
+    {
+      "command": "FINAL-01 corrected native default and affected UI",
+      "result": "passed",
+      "details": "4/4 actual Allow/receipt/reload, untouched-default and desktop/compact checks,46.1s; expanded no-eligible/earlier-incompatible-Policy/default scope case1/1,10.3s.0retry/flaky/skip; no domain/repository/course changes."
+    },
+    {
+      "command": "npm run test:e2e:plan",
+      "result": "passed",
+      "details": "434=390desktop44compact;426inherited retained. New ordinary-first default mismatch case gives concrete new coverage; old settings unchanged."
+    },
+    {
+      "command": "first complete CI107",
+      "result": "failed",
+      "scope": "historical-failed-candidate",
+      "testedSha": "aa61600822ccdd998ea001b834b58b16dc332225",
+      "details": "431passed2flaky1failed/434,24.1min. CompactCompute drawer intercepted Networking; desktopCompute andnewFirewalltab flakies. Strictskipped. Original log/digest/blockedtrace provenance retained. No domain/PG failure."
+    },
+    {
+      "command": "CI107 correction targeted native",
+      "result": "passed",
+      "details": "4/4,59.9s: originalCompute desktop/compact,newFirewall2tab,controlled-real-media case; expanded oldhelperordering test1/1,6.1s.0retry/flaky/skip; actualWorld/event/coursebytes unchanged. Exact original CI interleaving/extra-tab cause remains unverified."
+    },
+    {
+      "command": "npm run check",
+      "result": "passed",
+      "details": "AfterCI107UI/helpercorrection: exit0,968Vitest/80files,24Node,503curriculum,57objectives126facets; types/lint/format/docs/quality/assets/legacy/preservation/realPG/productionbuild."
+    },
+    {
+      "command": "npm run test:e2e:plan",
+      "result": "passed",
+      "details": "435=391desktop44compact; all426inherited and originalcasebodies/settingsretained. One meaningful desktop regression guards actual breakpoint/keyboard/menu/no-write risk; legacy782 remains."
     }
   ],
   "review": {
     "status": "complete",
-    "fingerprint": "3e4ac63cf00c90ad50421924b55fab605da33ed0543e3253a0c94d011ca49a0c",
-    "reviewer": { "id": "pr66-ci-correction-independent-auditor", "kind": "agent" },
-    "started": "2026-11-08T00:16:58.425Z",
-    "completed": "2026-11-08T00:22:39.577Z",
+    "verdict": "implementation-accepted-delivery-pending",
+    "reviewer": {
+      "id": "codex-pr67-independent-final-auditor",
+      "kind": "agent"
+    },
+    "started": "2026-11-08T11:44:04Z",
+    "completed": "2026-11-08T11:47:21.377Z",
+    "implementationFinished": "2026-11-08T11:43:07.403Z",
+    "fingerprint": "a5264ad89f0c8241ab4cdcc9597c94fde01b362e049fc598ed2bbc51a010c278",
+    "fileCount": 159,
+    "baseCommit": "9252739eb1bdf7bf6aabc2696ae57000aa02a49f",
     "domains": {
       "content": {
-        "finding": "No content/profile/source/claim byte changed since prior full source audit;111-file delta verifies preservation. Bounded contract states corrected Properties scope only; metadata-only limits remain. Human SME unperformed.",
+        "finding": "No changed Azure/source/course content; prior substantive review preserved. Source retrieval-time provenance MINOR remains accepted; no fresh attestation or human validation inferred.",
         "evidence": [
-          { "path": "docs/quality/PR66_FINAL_AUDIT.md" },
-          { "path": "docs/LABORATORY_COMPUTE_PART_A.md" },
-          { "path": "src/content/laboratory-compute-nb.ts" },
-          { "path": "src/laboratory/v34/profiles.ts" }
+          {
+            "path": "docs/quality/PR67_FINAL_AUDIT.md",
+            "marker": "## Independent post-CI107 correction follow-up"
+          },
+          {
+            "path": "docs/quality/PR67_FINAL_AUDIT.md",
+            "marker": "## Independent correction follow-up"
+          },
+          {
+            "path": "docs/quality/PR67_FINAL_AUDIT.md",
+            "marker": "### Content"
+          },
+          {
+            "path": "docs/reviews/evidence/pr67/source-fetch.json"
+          },
+          {
+            "path": "src/content/laboratory-firewall-nb.ts"
+          }
         ]
       },
       "technical": {
-        "finding": "Only runtime delta is exact3.4 VM/disk Properties guard; receipt branch and record targets unchanged. No engine/SQL/API/repository change. Fresh4/4preservation and actual state-equal inspection/reload pass; original atomicity/replay evidence preserved.",
+        "finding": "Independently controlled real-media test and ordinary DOM probe verify actual-viewport menu toggles, idempotent Escape, real overlay/aria agreement and no World/events writes. Domain/repo/SQL/form-default fixes unchanged. Demonstrated CI107 vulnerability class fixed; exact original CI event order remains unverified.",
         "evidence": [
-          { "path": "docs/quality/PR66_FINAL_AUDIT.md" },
-          { "path": "src/features/laboratory/laboratory.tsx" },
-          { "path": "src/laboratory-compute-preservation.test.ts" },
-          { "path": "docs/reviews/evidence/pr66/preservation.json" }
+          {
+            "path": "docs/quality/PR67_FINAL_AUDIT.md",
+            "marker": "## Independent post-CI107 correction follow-up"
+          },
+          {
+            "path": "docs/quality/PR67_FINAL_AUDIT.md",
+            "marker": "## Independent correction follow-up"
+          },
+          {
+            "path": "docs/quality/PR67_FINAL_AUDIT.md",
+            "marker": "PR67-FINAL-01"
+          },
+          {
+            "path": "src/features/laboratory/laboratory.tsx"
+          },
+          {
+            "path": "src/laboratory/v35/analysis.ts"
+          },
+          {
+            "path": "src/laboratory-firewall.integration.test.ts"
+          }
         ]
       },
       "visual": {
-        "finding": "Fresh native8/8 plus separate2/2 Properties probes passed. Inspected1366VM/800disk/800legacyNIC and1024x500native frames. Old raw IDs/receipt-only links restored; VM4links/disk2links exact, keyboard and Axe pass. Inherited2px overflow at800 matches real3.3NIC; retained as minor, no zero-overflow claim.",
+        "finding": "Actual independent1024x500 drawer open/closed screenshots inspected; overlay disappears with Escape and desktop collapse/reopen works. Original Compute keyboard/reduced-motion/Axe assertions execute unchanged; shared presentation/CSS and human/tenant parity limits retained.",
         "evidence": [
-          { "path": "docs/quality/PR66_FINAL_AUDIT.md" },
-          { "path": "docs/quality/PR66_CI_CORRECTION.md" },
-          { "path": "docs/reviews/evidence/pr66/ci105/corrected-browser.log.raw" }
+          {
+            "path": "docs/quality/PR67_FINAL_AUDIT.md",
+            "marker": "## Independent post-CI107 correction follow-up"
+          },
+          {
+            "path": "docs/quality/PR67_FINAL_AUDIT.md",
+            "marker": "## Independent correction follow-up"
+          },
+          {
+            "path": "docs/quality/PR67_FINAL_AUDIT.md",
+            "marker": "### Visual and accessibility"
+          },
+          {
+            "path": "docs/quality/PR67_VISUAL_REVIEW.md"
+          },
+          {
+            "path": "docs/reviews/evidence/pr67/inspection-1024x500.png"
+          }
         ]
       },
       "assessment": {
-        "finding": "No assessment/content/provider/rubric/XP or original test/assertion byte changed from reviewed head. Fresh preservation and original active-independent-draft/free-Portal isolation passed. No learning credit created by reads.",
+        "finding": "No bank/rubric/XP/attempt/completion/course evidence authority changes. Fresh direct helper preservation and other preservation cases pass; actual menu actions preserve course storage. No new human learning or blind-bank claim.",
         "evidence": [
-          { "path": "docs/quality/PR66_FINAL_AUDIT.md" },
-          { "path": "tests/e2e/shared-portal.spec.ts" },
-          { "path": "src/laboratory-compute-preservation.test.ts" }
+          {
+            "path": "docs/quality/PR67_FINAL_AUDIT.md",
+            "marker": "## Independent post-CI107 correction follow-up"
+          },
+          {
+            "path": "docs/quality/PR67_FINAL_AUDIT.md",
+            "marker": "## Independent correction follow-up"
+          },
+          {
+            "path": "docs/quality/PR67_FINAL_AUDIT.md",
+            "marker": "### Assessment"
+          },
+          {
+            "path": "src/laboratory-firewall-preservation.test.ts"
+          },
+          {
+            "path": "docs/reviews/evidence/pr67/preservation.json"
+          }
         ]
       },
       "guidance": {
-        "finding": "No course/guidance/SavvyShark/hydration or owner-test change since prior audit. Free Laboratory remains isolated from course guidance; correction is Properties-only. Older Compute help/Back and Axe/document-title causes remain open.",
+        "finding": "Escape reliably dismisses free Laboratory navigation without selecting/configuring resources. No course provider/mascot/assessment-help changes; real missing link/loading error still fails helper assertions. New-tab original cause remains OPEN.",
         "evidence": [
-          { "path": "docs/quality/PR66_FINAL_AUDIT.md" },
-          { "path": "src/features/course/course-sidebar.tsx" },
-          { "path": "docs/reviews/evidence/pr66/NAVIGATION_INVESTIGATION.md" },
-          { "path": "tests/e2e/shared-portal.spec.ts" }
+          {
+            "path": "docs/quality/PR67_FINAL_AUDIT.md",
+            "marker": "## Independent post-CI107 correction follow-up"
+          },
+          {
+            "path": "docs/quality/PR67_FINAL_AUDIT.md",
+            "marker": "## Independent correction follow-up"
+          },
+          {
+            "path": "docs/quality/PR67_FINAL_AUDIT.md",
+            "marker": "### Guidance"
+          },
+          {
+            "path": "src/features/laboratory/firewall.tsx"
+          },
+          {
+            "path": "src/laboratory-firewall-preservation.test.ts"
+          }
         ]
       },
       "regression": {
-        "finding": "Exact111working/staged hashes/fingerprint independently match. Only Laboratory runtime changed; tests/config/settings unchanged. Native8/8 and preservation4/4; final comparative2/2. OriginalCI425pass1fail and extra setup timeout/2px failures retained honestly. Corrected-head fullCI/strict/publicSHA pending.",
+        "finding": "Independent39/39targeted(4files incl5realPG),4/4production native54.2s(originalCompute desktop+compact,expanded controlled menu,overlapping-hub extra-tab),realDOM/no-write probe and435plan(391/44)passed. Existing7Firewall bodies and Compute/config/domain/shared files byte-identical to submittedhead. Authorfullcheck968/24/503/buildexit0. CI107actual431pass2flaky1fail/434 preserved; new exact-headfullCI/strict and public verification pending.",
         "evidence": [
-          { "path": "docs/quality/PR66_FINAL_AUDIT.md" },
-          { "path": "docs/reviews/evidence/pr66/ci105/result.json" },
-          { "path": "docs/reviews/evidence/pr66/ci105/ci-job.log.raw" },
-          { "path": "docs/reviews/evidence/pr66/ci105/full-check-corrected.log.raw" }
+          {
+            "path": "docs/quality/PR67_FINAL_AUDIT.md",
+            "marker": "## Independent post-CI107 correction follow-up"
+          },
+          {
+            "path": "docs/quality/PR67_FINAL_AUDIT.md",
+            "marker": "## Independent correction follow-up"
+          },
+          {
+            "path": "docs/quality/PR67_FINAL_AUDIT.md",
+            "marker": "### Regression"
+          },
+          {
+            "path": "docs/reviews/evidence/pr67/full-check-initial.log.raw"
+          },
+          {
+            "path": "docs/reviews/evidence/pr67/full-check-corrected.log.raw"
+          },
+          {
+            "path": "docs/quality/PR67_QA_INVESTIGATION.md"
+          }
         ]
       }
     },
     "findings": [
       {
-        "id": "PR66-IFA-01",
-        "description": "The initial vm-os-disk.png showed the preceding VM Overview (vm-app-01/vm-6) although labelled Managed OS disk. The new test captured immediately after the disk link click without awaiting the destination title; independently reproduced. Actual disk Properties and subsequent relationship/receipt behavior passed, so severity is minor evidence accuracy.",
-        "severity": "minor",
+        "id": "PR67-FINAL-01",
+        "severity": "major",
         "status": "fixed",
-        "fix": "Await the exact OS-disk title before capture; preserve the original PNG byte-for-byte in audit-original, replace the declared capture with the actual disk-7 page, retain the original finding and append the correction record. No runtime or original test/settings change. Renewed106-file stamp independently verified.",
-        "retests": [
-          { "path": "docs/quality/PR66_FINAL_AUDIT.md", "marker": "Exit0,1/1 passed,9.2s" },
-          {
-            "path": "docs/reviews/evidence/pr66/disk-capture-corrected.log.raw",
-            "marker": "1 passed (11.9s)"
-          },
-          { "path": "tests/e2e/laboratory-compute.spec.ts", "marker": "toHaveText(disk.name)" }
-        ]
-      },
-      {
-        "id": "PR66-IFA-02",
-        "severity": "note",
-        "status": "fixed",
-        "description": "Owner identified before push that root text=auto normalized3CRLF sequences in one new raw full-check log when staging the initial unpublished commit. Reviewer independently confirmed only line-ending conversion; original working evidence and all106 prior payload hashes were unchanged.",
-        "fix": "Add only scoped docs/reviews/evidence/pr66/.gitattributes with *.raw -text; stage the original raw bytes. Parent/global attributes and earlier evidence untouched. Independent full107-file/staged-blob/checkout-filter checks now match exact original evidence.",
+        "description": "Ordinary-first VNet/subnet order causes Create Firewall to display supported dedicated subnet-5 while Review POST submits ordinary subnet-3, correctly rejected invalid-firewall-subnet. Existing native tests explicitly select Subnet and mask default mismatch.",
+        "fix": "3.5 CreateAzureFirewall defaults choose actual dedicated subnet, owning RG/region and compatible Policy; absent new-family options show required empty placeholder; entry disabled without dedicated subnet. Original red retained; current request/display agreement and atomic creates independently proved.",
         "retests": [
           {
-            "path": "docs/quality/PR66_FINAL_AUDIT.md",
-            "marker": "Artifact-only follow-up — final107-file binding"
+            "path": "docs/quality/PR67_FINAL_AUDIT.md",
+            "marker": "## Independent correction follow-up"
           },
-          { "path": "docs/reviews/evidence/pr66/.gitattributes", "marker": "*.raw -text" }
-        ]
+          {
+            "path": "tests/e2e/laboratory-firewall.spec.ts",
+            "marker": "firewall native untouched dedicated subnet default"
+          },
+          {
+            "path": "docs/reviews/evidence/pr67/final-01/default-corrected.log.raw"
+          },
+          {
+            "path": "docs/reviews/evidence/pr67/final-01/full-check-corrected.log.raw"
+          }
+        ],
+        "requiredFix": "Use an actual supported current-model subnet default with coherent scope, or explicit empty required choice. Add ordinary-first native request/display equality and accepted bundle regression without touching Subnet; test no eligible/multiple scope choices; restamp and independent follow-up.",
+        "evidence": [
+          {
+            "path": "docs/quality/PR67_FINAL_AUDIT.md",
+            "marker": "### PR67-FINAL-01"
+          }
+        ],
+        "localEvidence": "/workspace/azurelab-pr67/final-audit/form-defaults.json",
+        "originalStatus": "open on original9632abb223ba066f918a90be954a8e51ee616370b1c54f3e9a8f501fae6d6601",
+        "originalEvidence": {
+          "path": "docs/reviews/evidence/pr67/final-01/original-form-defaults.json.raw"
+        },
+        "localRetestEvidence": "/workspace/azurelab-pr67/final-audit/followup/scope-results.json"
       },
       {
-        "id": "PR66-CI105-01",
-        "description": "First completeCI original subnet Properties assertion expected1link, received2; new generic vnetId reference was overbroad UI scope, not an inherited navigation flake.",
-        "severity": "minor",
-        "status": "fixed",
-        "fix": "Scope clickable Properties references to exact3.4 VM/disk. Preserve original receipt branch and all old test assertions/settings.",
-        "retests": [
-          { "path": "docs/quality/PR66_FINAL_AUDIT.md", "marker": "Exit0,8/8 passed,1.3min" },
-          { "path": "docs/quality/PR66_FINAL_AUDIT.md", "marker": "final exit0,2/2 passed,15.6s" }
-        ]
-      },
-      {
-        "id": "PR66-CI105-02",
-        "description": "Inherited shared resource layout at800 has2px horizontal overflow: left−2/right802/document802. Independently matches explicit3.3NIC,3.4NIC and3.4disk. No obscured control/text; Axe0. Original zero-overflow failures retained; no claimed fix.",
+        "id": "PR67-FINAL-02",
         "severity": "minor",
         "status": "accepted-limitation",
-        "disposition": "Document inherited cosmetic residual outside bounded Properties guard correction; unchanged shared layout/CSS byte-equal toPR65. Final comparison verifies same legacy geometry and keyboard navigation.",
-        "evidence": [{ "path": "docs/quality/PR66_FINAL_AUDIT.md" }]
+        "description": "Retained source manifest lacks actual retrieval timestamp/response Date; msDate and copied-file review times are not HTTP freshness evidence.",
+        "fix": "Retain original provenance; future captures should record actual retrieval timestamp and available response metadata.",
+        "retests": [
+          {
+            "path": "docs/quality/PR67_FINAL_AUDIT.md",
+            "marker": "### Content"
+          }
+        ]
+      },
+      {
+        "id": "PR67-IMPL-02",
+        "severity": "major",
+        "status": "fixed",
+        "description": "Prior same-private-IP/wrong-hub false positive was corrected before this stamp; this review independently confirmed rejection.",
+        "fix": "Require source/return next-hop lookup to select unambiguous direct VnetPeering to exact Firewall hub; retain exact endpoint onward/return identity checks.",
+        "retests": [
+          {
+            "path": "src/laboratory-firewall.test.ts",
+            "marker": "rejects ambiguous/wrong actual next-hop hub identity"
+          },
+          {
+            "path": "tests/e2e/laboratory-firewall.spec.ts",
+            "marker": "firewall native same IP"
+          },
+          {
+            "path": "docs/quality/PR67_FINAL_AUDIT.md",
+            "marker": "### PR67-IMPL-02"
+          }
+        ]
+      },
+      {
+        "id": "PR67-FINAL-03",
+        "severity": "note",
+        "status": "accepted-limitation",
+        "description": "VM duplicate-status and older Compute/Axe causes remain unresolved; architecture helper alone has traced correction evidence. Unchanged dependency audit exits0 at high threshold but reports10moderate advisories.",
+        "fix": "No claim of closure or clean security approval; preserve original failures and unchanged QA settings.",
+        "retests": [
+          {
+            "path": "docs/quality/PR67_QA_INVESTIGATION.md"
+          },
+          {
+            "path": "docs/quality/PR67_FINAL_AUDIT.md",
+            "marker": "### PR67-FINAL-03"
+          }
+        ]
+      },
+      {
+        "id": "PR67-FINAL-04",
+        "severity": "note",
+        "status": "accepted-limitation",
+        "description": "Exact-head completeCI/strict, anonymous root/fullSHA/expected503 and human SME/usability/screen-reader/learning validation remain separate pending/unperformed gates. Current tenant Portal parity unverified.",
+        "fix": "Do not infer delivery or human approval from this local audit.",
+        "retests": [
+          {
+            "path": "docs/quality/PR67_FINAL_AUDIT.md",
+            "marker": "### PR67-FINAL-04"
+          }
+        ]
+      },
+      {
+        "id": "PR67-CI107-01",
+        "severity": "major",
+        "status": "fixed",
+        "description": "Demonstrated free Laboratory stale-media callback fails compact opening; old toggle-as-close helper can open overlay when its desktop aria read precedes real media delivery. This is a proven vulnerability class, not reconstructed original CI timing.",
+        "fix": "Header reads current native media at click with functional updates; Escape idempotently sets menu false. Laboratory helper fences visible app/loading and asserts actual compact overlay dismissal via Escape. Original bodies/settings retained with exact filesystem guard.",
+        "retests": [
+          {
+            "path": "docs/quality/PR67_FINAL_AUDIT.md",
+            "marker": "## Independent post-CI107 correction follow-up"
+          },
+          {
+            "path": "tests/e2e/laboratory-firewall.spec.ts",
+            "marker": "firewall shared Portal menu uses actual viewport during pending media delivery"
+          },
+          {
+            "path": "src/laboratory-firewall-preservation.test.ts",
+            "marker": "strengthens actual readiness and drawer-dismissal postconditions only"
+          }
+        ],
+        "localRetestEvidence": "/workspace/azurelab-pr67/final-audit/ci107-followup/native-dom.json"
+      },
+      {
+        "id": "PR67-CI107-02",
+        "severity": "note",
+        "status": "open",
+        "description": "Original CI107 exact interleaving and original extra-tab missing Virtual networks link cause remain unverified. CI trace unavailable; editor DOM notes were not attached after editor.close. Local corrected/old green runs do not establish those causes.",
+        "fix": null,
+        "retests": [
+          {
+            "path": "docs/quality/PR67_FINAL_AUDIT.md",
+            "marker": "## Independent post-CI107 correction follow-up"
+          },
+          {
+            "path": "docs/quality/PR67_CI107_CORRECTION.md"
+          },
+          {
+            "path": "docs/reviews/evidence/pr67/ci107/INDEPENDENT_TRIAGE.md.raw"
+          }
+        ]
       }
     ],
-    "report": { "path": "docs/quality/PR66_FINAL_AUDIT.md" }
+    "report": {
+      "path": "docs/quality/PR67_FINAL_AUDIT.md"
+    },
+    "localEvidenceRoot": "/workspace/azurelab-pr67/final-audit/ci107-followup",
+    "priorReviews": [
+      {
+        "fingerprint": "9632abb223ba066f918a90be954a8e51ee616370b1c54f3e9a8f501fae6d6601",
+        "started": "2026-11-08T10:36:49Z",
+        "completed": "2026-11-08T10:43:46.838Z",
+        "verdict": "changes-required",
+        "fileCount": 127,
+        "report": {
+          "path": "docs/reviews/evidence/pr67/final-01/original-final-audit.md.raw"
+        }
+      },
+      {
+        "fingerprint": "b7726ac24d7400bb8d0e91faed69832a4f341338d4b0c4ba6e21ac9313bc2eab",
+        "started": "2026-11-08T10:48:29Z",
+        "completed": "2026-11-08T10:53:48.057Z",
+        "verdict": "implementation-accepted-delivery-pending",
+        "fileCount": 141,
+        "report": {
+          "path": "docs/reviews/evidence/pr67/ci107/original141-final-audit.md.raw"
+        }
+      }
+    ],
+    "openBlockerMajor": 0,
+    "ci107": {
+      "run": 42473433589,
+      "job": 128709343906,
+      "head": "aa61600822ccdd998ea001b834b58b16dc332225",
+      "testedMerge": "747912f08e8ffcccc4a42af5bd083f7abfacc6e3",
+      "result": "failed",
+      "passed": 431,
+      "flaky": 2,
+      "failed": 1,
+      "total": 434,
+      "strict": "skipped",
+      "originalTraceInspected": false
+    }
   },
   "snapshot": {
     "files": {
-      "AGENTS.md": "8854abf47a2c3dee328ae718895ead46ab861f27f3c9b2fce765ac9112f25e9d",
-      "database/laboratory-v3/005-compute.sql": "8a6f9eea29e319c1e31decbc32482d8b1ffc9e09451274dbe818fe8da070e95b",
-      "docs/ARCHITECTURE.md": "a2ad4473c13e8f3ed9a12149f7f71d8d4631dc11adf1e24039990aadfcf4108d",
-      "docs/DECISIONS.md": "10922d9fb852b6a47e5cab89bd9a65d75197bd7ea9c742af8b4c7ae45aa71a30",
-      "docs/LABORATORY_COMPUTE_PART_A.md": "47eff7004fb0e66731b4d37cb54bbe1c249208f3256e144e280b9cee784cc2c5",
-      "docs/PORTAL_CAPABILITY_MATRIX.md": "59cbfdb4a983e1eacc7dea5dcb3f79758e2b5569d605fa1bea1d03a183a6a909",
-      "docs/reviews/evidence/pr66/.gitattributes": "1d7ed204fb616eb95f564f6dcc5dde9f27e59b038bd6eaab8ba61945daa4ee90",
-      "docs/reviews/evidence/pr66/NAVIGATION_INVESTIGATION.md": "d44a2c5a86dbc2e821592c891da23a7fe41152348ff62471066c8f87bbe10fa4",
-      "docs/reviews/evidence/pr66/audit-original/mislabeled-vm-os-disk.png": "f36902f97946f7b1bfac50e1dda3d7f0cbcedb4c87a5f45c4d337ac954a3fa23",
-      "docs/reviews/evidence/pr66/before-capture.json": "97399d295cb2af1b5b759b3bd6587348284377d5f01978ae6f4298b6571699b5",
-      "docs/reviews/evidence/pr66/before-nic-create.png": "62373d774470d69dc3a525c1fbab1aa32b574ac6b95236b9482f49099c191399",
-      "docs/reviews/evidence/pr66/before-nic-list.png": "37b91374cd8b26c31fd4bf31c9217a34e9088cbd8054f9d4a0405e668abeb1d8",
-      "docs/reviews/evidence/pr66/before-nic-overview.png": "38423dd883a407634be3391770ad7f5ff70519fc090021619c701a824f3777cb",
-      "docs/reviews/evidence/pr66/before-services.png": "96ecbb2d545f25138ed6c85b97c6e1bfde782b21a59fe762ea9fa882f6179d80",
-      "docs/reviews/evidence/pr66/browser-accepted.log.raw": "ddd5253c45ff6731d0ae59335805f3bff71cbe49de2b883008034f195913a1e7",
-      "docs/reviews/evidence/pr66/ci105/ci-job.log.raw": "d01e8ed670f90dade83e143319f6e1a02952863990e2bcf99f4ffcd263345d88",
-      "docs/reviews/evidence/pr66/ci105/corrected-browser.log.raw": "35f3bde62129440ee9a634c6def159334588c8db0921268b4c7c78dd521d2ee5",
-      "docs/reviews/evidence/pr66/ci105/full-check-corrected.log.raw": "9d70419d73372713aad710881f4a7e8ac3c601a17113d344ad4d43eb79f2d7fe",
-      "docs/reviews/evidence/pr66/ci105/result.json": "45caa50785ba4a14a7120a522e79664cf010b7b5c4b796202754e8940a4047df",
-      "docs/reviews/evidence/pr66/compute-tests-third.log.raw": "11e01b4148401ecbd91591df106f20938972fbe0b8420ba1af80c66f0a27326b",
-      "docs/reviews/evidence/pr66/disk-capture-corrected.log.raw": "b4246797688565401a8670f8bef5cf45e3e438e6bcb285b45c875ebf776286f9",
-      "docs/reviews/evidence/pr66/frozen33-golden.json": "a8ebd3f7ab5679d631c6ba1c5b8d7840ff153b23ef49ff47cdd65ff712511d65",
-      "docs/reviews/evidence/pr66/full-check-final.log.raw": "af3e8716942a07f85c5c30f216aa13c791fe4b33eadf663b8f7e902dbd62445c",
-      "docs/reviews/evidence/pr66/initial-browser.log.raw": "f1b4e5bf706998393c9a52fe2aeb65b999803d85694c15f057ec0b6bd5deab89",
-      "docs/reviews/evidence/pr66/initial-domain-pg.log.raw": "e863bd3c5445249405144dc5e4ed41fc984f16f5acbaa1e4df4c7d9d76062ce3",
-      "docs/reviews/evidence/pr66/navigation-observation.json": "1e6f455e6802aee21355ef1850f8ea2549004e4346d9069a7a15ab2ffd076731",
-      "docs/reviews/evidence/pr66/navigation/fixed-observer.json": "9e16ffb1b4f671b1c6a7dcff0ed5d3d4c81536935cba215356a65ee745d5201a",
-      "docs/reviews/evidence/pr66/navigation/fixed-observer.log.raw": "c066fbc11ee234725862649e1e41eb6070c002e4e6d8b4832c69d4e3bbd3b90f",
-      "docs/reviews/evidence/pr66/navigation/fixed-observer.mjs.raw": "5d6ae22656130780e79efd0309b9a485184e62efd8f4655bbe324e254ca159f3",
-      "docs/reviews/evidence/pr66/navigation/fixed-original-test-repeat.log.raw": "05c939dd2be807e264741027a4b9049dd3e967ff59664273b2bd373097066625",
-      "docs/reviews/evidence/pr66/navigation/fixed-server-page.html.raw": "2d47b958f379b74872a44190ea6e58a138f79873fca2bf9fcedf7592807f1dd2",
-      "docs/reviews/evidence/pr66/navigation/observer.json.raw": "c13266c30fec0630b7f41f802595b8e7d49116af99ce6ddc5dec5769d67eeb4f",
-      "docs/reviews/evidence/pr66/navigation/original-failure-trace.zip": "1faccafd6dc306d6f01cba8fd886312f457a41c3188172ec3c6d02f4c4c28f30",
-      "docs/reviews/evidence/pr66/navigation/original-observer.mjs.raw": "f5b59e595a57658efb5211ab844ac462175f5802376f1f16ee1069b3310958ab",
-      "docs/reviews/evidence/pr66/navigation/original-test-repeat.log.raw": "469eb2c8dd87c1ce12f068042cc38b126f17111a62d3f26c0466eb316275d691",
-      "docs/reviews/evidence/pr66/navigation/pr65-original-ci.log.raw": "f38371048010f41d5bb56ea194693c9bb163ac7bddda2e24ceebcb250499fecf",
-      "docs/reviews/evidence/pr66/plan.log.raw": "f051bf176d2d7f34bd68298004c85ba9b057f57ef75246b54d9e460f4e8b9180",
-      "docs/reviews/evidence/pr66/preservation.json": "b471cf7b92ba4fccfa451bfb75e792ae7ffa73fd094af7080f7beac9aa1ffe4c",
-      "docs/reviews/evidence/pr66/second-browser.log.raw": "048be169cf19544c66a40727fbb1ca7c4185c786f7a652504c4cfcd8f54a0998",
-      "docs/reviews/evidence/pr66/source-fetch.json": "9e818604425affa5ec74167407a7fe567fd7d62d6f264e650dfc6805982dd27e",
-      "docs/reviews/evidence/pr66/sources/disk-arm.html.raw": "a21339d9300afeed392396691280b516d92b074718dae36ac474a884b30b5bd0",
-      "docs/reviews/evidence/pr66/sources/disk-arm.txt": "47345c99b290b2e372a92bee822be5590b1eac7392996365f0fa47451236c813",
-      "docs/reviews/evidence/pr66/sources/disk-expand.html.raw": "2367e652250c279d66301a4ce125d3240682c452ae6a99456b29077069fdb42e",
-      "docs/reviews/evidence/pr66/sources/disk-expand.txt": "6eba149abf74523a361bdec7aa8230e5d3e5aa93fb99daa322ac0fe798b8d79a",
-      "docs/reviews/evidence/pr66/sources/disks.html.raw": "eb20ed32dcf9eec7b8c23162040df1427e45020c8a623c3b97abb0fd4a854b62",
-      "docs/reviews/evidence/pr66/sources/disks.txt": "ea301e279438b427bcc0d7a238d12d28a921a1077aee7e438dcfba10d87dbd89",
-      "docs/reviews/evidence/pr66/sources/images.html.raw": "ff8650a7b688dbd933dcf9d252c18ef6b0dfff34dd9ca35c84b88e371a359218",
-      "docs/reviews/evidence/pr66/sources/images.txt": "807dd16ce25c6c9008e683112c0c9d1b69c2b928ddceb9dcd0b812829e6a5b73",
-      "docs/reviews/evidence/pr66/sources/names.html.raw": "841c4ce5afa8213404be0736d9ee828c2415c8cbc329fc9da8147a0b081996fd",
-      "docs/reviews/evidence/pr66/sources/names.txt": "19c080b0856a1fc8fbb01f20e1bed05efabfd9c3f5190d9acfd5471946a8eb35",
-      "docs/reviews/evidence/pr66/sources/nic.html.raw": "893b2c8de8d36a9e9e1e13994d7bfe66189c451f29ae2fde3942011be56ab8be",
-      "docs/reviews/evidence/pr66/sources/nic.txt": "5418e1a68d92e486b3db18f36938b2543f4c1c0358893d482435373d2934b8e6",
-      "docs/reviews/evidence/pr66/sources/private-ip.html.raw": "8326e4e08980432265658475b4e179da6166e26d1683510d05073e4a23acb55c",
-      "docs/reviews/evidence/pr66/sources/private-ip.txt": "2ea146e73d0d224fc96fa409899ce1ece1cc8fdb6fc247751a902919998546e6",
-      "docs/reviews/evidence/pr66/sources/sizes-v3.html.raw": "25541c5c0edd9357e429e524a7583fc6125629ad2af5d810bf96467b3b5740fd",
-      "docs/reviews/evidence/pr66/sources/sizes-v3.txt": "8a0191049d4d5040ce8c209179688c112e4ef9346c075780a3e9ab70ea5e57dd",
-      "docs/reviews/evidence/pr66/sources/sizes-v4.html.raw": "4f650f4430cde1d69314acc3d9b02226dbce9b6425ae56b81b8015d3b0a7facc",
-      "docs/reviews/evidence/pr66/sources/sizes-v4.txt": "a874d6a558f6c809e282a1ca714a21ab43f6ad9b5f2ca0a6fc12357f3e5c807b",
-      "docs/reviews/evidence/pr66/sources/sizes.html.raw": "000bfd47489680d8f0eb8148ad569301edcb3e6b0d93bd35ffc5ecf0a8e975dd",
-      "docs/reviews/evidence/pr66/sources/sizes.txt": "ead2c487abdc4ce1f40e0e45e84c02689497d2bdc287fcc52c1686b6220fcc9a",
-      "docs/reviews/evidence/pr66/sources/ubuntu.html.raw": "dce5092f437393516ad45b6455eb01629b048cca4ee0b11ebccb1f4265a12950",
-      "docs/reviews/evidence/pr66/sources/ubuntu.txt": "1c448ed4bf5030b86c7048311f421d03583cc061e376bd33a7937606ea45bf9d",
-      "docs/reviews/evidence/pr66/sources/vm-arm.html.raw": "a735358e25ddeb3da961ed9efa57f318c83d68a65f503872466cef421c488551",
-      "docs/reviews/evidence/pr66/sources/vm-arm.txt": "f28ba0f4ce3c195178f79d233dd4e02f9d7fdfa889b79ef8e45fdebe2c9f09e2",
-      "docs/reviews/evidence/pr66/sources/vm-portal.html.raw": "584f058f30cc4e9d502da0a1ecad896a0d82d356c1d40d1dbce068f1b0a92f8f",
-      "docs/reviews/evidence/pr66/sources/vm-portal.txt": "9798d941742dff9325c00887c68a0820f9ffcc5997ba1ed154f57b4532554c8c",
-      "docs/reviews/evidence/pr66/sources/vm-windows.html.raw": "5e06d7122a1bb5483ffbc549d0e475dd1cd6e31636dfda65e417c5fba46c37be",
-      "docs/reviews/evidence/pr66/sources/vm-windows.txt": "cfe531e2c8adb3b762c2ff81246409a0ebfbff5497e64f0597907dd258ed156f",
-      "docs/reviews/evidence/pr66/third-browser.log.raw": "9647e81d07058e4ad45d9dd67e3081032d0e4cf0237f6ff4fb677225fbca3676",
-      "docs/reviews/evidence/pr66/verification.json": "8072fe607671ccaad03c3a4c9bd26169346f0de92c69d2f6f93e385791df4952",
-      "docs/reviews/evidence/pr66/vm-create-1024x500.png": "9b77dcdccfe4ae31b0f44e67dcefea56cd1eb080afacd927a9639b196c460c6a",
-      "docs/reviews/evidence/pr66/vm-create-800x700.png": "99d53819d72b2c1c5d2c0fdbe89d2523171bd6d5c7b290ad78cd3f21a2ee12c8",
-      "docs/reviews/evidence/pr66/vm-create-initial.png": "f4d4a8aad6e5d99bda791f155e26aaf3bb0af30230be9c2b69f98dc616f247b7",
-      "docs/reviews/evidence/pr66/vm-create.png": "239923e756b522532123d56f97819378e953b97b67c087f2c67550be25acf1ea",
-      "docs/reviews/evidence/pr66/vm-disk-1024x500.png": "64730250438a33cc38827198cf96c57db40f17bdbfde208a8c5818c983c18a7a",
-      "docs/reviews/evidence/pr66/vm-disk-1024x768.png": "fb3716884c19f5126dedfc21400fbcf1e1ebeec0b5dc76d9bf5d5ba39b72fa52",
-      "docs/reviews/evidence/pr66/vm-disk-1440x900.png": "6ace1106baa7721647b25025c33a8ea4598742f136a7aa15ea530bbaf348c4bd",
-      "docs/reviews/evidence/pr66/vm-list.png": "aa7dd5055b2980db8b34316b1a3cbc77586473f9b217036b438c55ee74b89ae0",
-      "docs/reviews/evidence/pr66/vm-nic.png": "8c118a1439830fb1dc794da1abff06c1b7ca0186f477ae0615cf366db1430772",
-      "docs/reviews/evidence/pr66/vm-os-disk.png": "043c39f0816e82c9eafc3fbf8644e07a611f5ab054c718055a22159be1eef407",
-      "docs/reviews/evidence/pr66/vm-overview.png": "087d834bf5dff6dbbaabd91991e6679d18508e8a41194a182b10317dd382916f",
-      "docs/reviews/evidence/pr66/vm-policy-1024x500.png": "1dbc404e9dc17fbecdfcda91c57a604c5536d97ad2114c31b974c6327d3e82b2",
-      "docs/reviews/evidence/pr66/vm-policy-1024x768.png": "541e761407ba6ed0ce057d6760a1f7f55cf4b6bcf566c91721665d3009111a67",
-      "docs/reviews/evidence/pr66/vm-policy-1440x900.png": "e2d2715123563e36b7a2db40cfa36c185567e378b689ca61427832bd5ad0b7a6",
-      "playwright.desktop.config.ts": "7563b1e857cc8d4cfd8bff5873f81fd848e1374c1a2b6ba438bb74d4fa77e329",
-      "scripts/laboratory-db.mjs": "71fb2ff961e12ff3842898a5569a1c9474cf0c349b7bb81f960aa893c9be8d1f",
-      "src/content/laboratory-compute-nb.ts": "5d12e20839aa98a77cbfa695888237adf147ed4a91773c3d5faee3e14d783c68",
-      "src/content/portal-workspace-nb.ts": "6dcd216495c4996f545f91713ffe08eba4b3c56ebdc2411ca0edf064f6a98731",
-      "src/features/course/course-sidebar.tsx": "3afb5ac2e951edc0f8252a1e02d87ed9a31c174badda69250a6cbe34c4b527ad",
-      "src/features/laboratory/compute.tsx": "9199742008c8d80b1906678f37678cdba1604248f5ba862b7fa6751e89cf33a0",
-      "src/features/laboratory/endpoints.tsx": "3a3df71b4292defc146f9b094c425663a54486263a4619933e096b03d52d473f",
-      "src/features/laboratory/laboratory.tsx": "3879bea12d2bf6cbb9a05f41b5805abd45d6afabba36dc9217c472e81e667ab6",
-      "src/features/laboratory/networking.tsx": "4c14618f1f68444ee8ba3449213b3aad5ee5e44409385fc0252f356042e02c85",
-      "src/features/laboratory/portal-adapter.tsx": "5cb9bdab0d4fa0471fc061f6db89365b2bb715b1d7cae01d1371a2d8cf4af788",
-      "src/features/laboratory/routing.tsx": "2c7e61c921831ae095001b1bbca2416ea7cf0e6a16b7e91039c1a656d912bd2b",
-      "src/laboratory-compute-preservation.test.ts": "490d6eedd906550b10c0319de07fd5aa514a99d73b6f12b58ef8e815c6545451",
-      "src/laboratory-compute.integration.test.ts": "8a557c82febdc94f372143769714e072a5ea7f25ab50847bef010108ef19ce40",
-      "src/laboratory-compute.test.ts": "ff168aeb4169719758888ec4be6cd8c946e66455b94d7e5ad2918838556f1c96",
-      "src/laboratory-endpoints-preservation.test.ts": "c226d2cf73b4d0646e7ab8833d5cbf186ebfffff063374433b3fad31a49ebd15",
-      "src/laboratory/engine.ts": "59cf3814a4e582d8fe806f0f3d69917074dadff1a88d1e33590420cd1ad3d1dc",
-      "src/laboratory/v3/server.ts": "b85a846c218e16307c4b1f8ef526d1f51ec4c60f92026c414c6f16d036158d4e",
-      "src/laboratory/v34/analysis.ts": "e7032e30b0cd32164345c5fadd7a4fb1b9032ba07506123a0324a5d3c1b274bf",
-      "src/laboratory/v34/contract.ts": "cd9eccb0578a0fc4cc5a21cffbc2b898ae8328bef51609db3b5002c43d73e9cc",
-      "src/laboratory/v34/domain.ts": "9693147dfc7c753589aa6351faef1500b745c001f3342dc2cc9b278c281ac3f3",
-      "src/laboratory/v34/network.ts": "88a076e57cf68787aaea710b98c90863b47f7c6dd5bad48ad2f7f03982741cdd",
-      "src/laboratory/v34/profiles.ts": "8b7e7ae9cb2cd717fe4d511bfc9efe13aa08737f36f1d65898165d36c9f182d3",
-      "src/laboratory/v34/projection.ts": "d41521092c70d207e4bb43ba05b37e829d4405ae5d1b94a03579458326a299eb",
-      "tests/e2e/laboratory-compute.spec.ts": "15d4af71ad0d449d1fee30dbcd152ccae075d8fdaf8fa61ca29259480588a218",
-      "tests/e2e/laboratory-endpoints.spec.ts": "b216c21b5f4ddfe0710769fa534589f0eadde215eab0f3efcdb94895e3947278",
-      "tests/pr65-preservation.ts": "dfdc6a6d756c99b27c59a93d425e8740dfc7f45ac2cd9fb6bf848b409bbbbac0",
-      "tests/pr66-preservation.ts": "17a2858a370b637c32d3f9aa4cfedeecdea20dc2f75b538ddc23245138f5515f"
+      "AGENTS.md": "eda08fe00116ab7f68f97bd6979e20b7aefec42c4f0cadc1a9df3b58b2cf47cb",
+      "database/laboratory-v3/006-firewall.sql": "ef3ea0f613e7345f9f286a12ec737055f88d53b8c6fb71d69dbdd60c7d395e61",
+      "docs/ARCHITECTURE.md": "0acc040bacc86126ab9042d2caefe0949ee0e2a012f3963709db6fb67ee8a662",
+      "docs/DECISIONS.md": "59f8afc4550fa8a78e75c0c0086a06f30c15f441a37acd5ec7f904b5e413f7b2",
+      "docs/LABORATORY_FIREWALL_PART_A.md": "0aacd4715003cdd15a572e9e2b0c30a7cb37b4bab411a12d815711ae0dfecab9",
+      "docs/PORTAL_CAPABILITY_MATRIX.md": "1deaf633689c98cc7fa8cbbd15f8c6f341b29b78993046083e53de12bb4254fa",
+      "docs/reviews/evidence/pr67/.gitattributes": "790f5f7d9cddfcf9839093868d537bef7e7734e7b65213ed2db612c4d0da2f8d",
+      "docs/reviews/evidence/pr67/DESIGN_REVIEW.md.raw": "ee3c23c2b399446562d56c2a389c10c445e1d3d46ddab63998b13054299a2d52",
+      "docs/reviews/evidence/pr67/audit-original-next-hop/README.md": "35aed0275bc7a90c6a1489044003a1a0b90b21657f4511dbd2416ffdb932e293",
+      "docs/reviews/evidence/pr67/audit-original-next-hop/original-source-and-reproduction.zip": "67b0ba32bf608e26c1b0c349b108d1eeff82a7fdfbfe3b26c04496f845c234df",
+      "docs/reviews/evidence/pr67/ci107/INDEPENDENT_TRIAGE.md.raw": "5e1a59fa530810e88222340ab5dd53c95a9fed694531c61d9a3e7e8d2da5855c",
+      "docs/reviews/evidence/pr67/ci107/ci-job.log.raw": "1a72ecdaa5e3c642ec031bb367613d8aa817fd1d22c74b25017609d5bf4334c4",
+      "docs/reviews/evidence/pr67/ci107/compute-probes.log.raw": "db11ff4eb7ff043b25b0e772ae9ca6401d31432cce69a8b59ab13ee40c52bef1",
+      "docs/reviews/evidence/pr67/ci107/controlled-menu-red-trace.zip": "7a8116c0fad202a99addb2f194279797b082a81a1a2d9bff82f55f2db8dbb8bd",
+      "docs/reviews/evidence/pr67/ci107/firewall-probes.log.raw": "d319b29e815428124210c187cc8253c45a70c524371c001595542e0624fa0603",
+      "docs/reviews/evidence/pr67/ci107/full-check-corrected.log.raw": "921b2b8f81ef08f843ed54144af77ad11065d9c96056b8de962497cd251b39d9",
+      "docs/reviews/evidence/pr67/ci107/local-original-dom-observations.json.raw": "0d9c3c27df4bf0738938492a07b3f80e5efa943fadd285d7d1179587084416e7",
+      "docs/reviews/evidence/pr67/ci107/menu-build-corrected.log.raw": "3edfc9849a68d3f9320cd0c80876829e3a478d1d7e3a15de48881f4a61675b13",
+      "docs/reviews/evidence/pr67/ci107/menu-build.log.raw": "3b3efd810030163154eb048af2695fc3b460251b07eb7d9db3fc1c278066d2fa",
+      "docs/reviews/evidence/pr67/ci107/menu-confirmed.log.raw": "95819549d212e0e99c4b9c205c2bad761df6d8bfb397c8ddf65d864b2104ded3",
+      "docs/reviews/evidence/pr67/ci107/menu-corrected.log.raw": "54cb6ca1bcccfd61f218b0283d1690eb6478d69838de31b83831bfbe33994674",
+      "docs/reviews/evidence/pr67/ci107/menu-red.log.raw": "db5f9a9c5965eb9efd876c66f02ccc0c25119273e849f57e119a733388b8afb0",
+      "docs/reviews/evidence/pr67/ci107/original-laboratory-actions.ts.raw": "de4df4bc449e8fdc9d510c733b8bdb23ede08898829c7e4887482da99b362256",
+      "docs/reviews/evidence/pr67/ci107/original-laboratory.tsx.raw": "6bbf511b055203a953e2997de0b7f618a2cbc9630a737f2dd4c75b3bef2a2276",
+      "docs/reviews/evidence/pr67/ci107/original141-final-audit.md.raw": "4e170f8f78e7b3e2c6b4bed664d2647eaabe4fcc4438475e6045097bd4179ea6",
+      "docs/reviews/evidence/pr67/ci107/original141-stamp.json.raw": "36b742b2833b10e7238abd7bf2c23674829dce519f3f2923eb76f415aabda089",
+      "docs/reviews/evidence/pr67/ci107/result.json": "2bb8ada61e83895ee6a1022fedc9da47630ef80c5b2aac4de330a2d481af2392",
+      "docs/reviews/evidence/pr67/compact-firewall-1024x500.png": "f7953e92aa2a317f7f3991b3bd1c4a25ca09bed845e7047ae265f18215ccd7d2",
+      "docs/reviews/evidence/pr67/compact-firewall-1024x768.png": "2e0e27c1a70cee0df499d18ea39b7acaabbc86b9806e05ee57c6ee1821d36ac1",
+      "docs/reviews/evidence/pr67/compact-firewall-1440x900.png": "479fe02faf69bb4ff80a9a78008e6a9591679a3dc817fa5a457e5b2a550989b9",
+      "docs/reviews/evidence/pr67/compact-firewall-create.png": "f51b310be7f51c72812a826cb5cef1183c5f09b2740b431f60e5a269f2c7858a",
+      "docs/reviews/evidence/pr67/compact-firewall-review.png": "71764dd3211cb7918e46b3bd2caec09459088d835e8c8c8b85ca05f748d14f2b",
+      "docs/reviews/evidence/pr67/domain-corrected.log.raw": "2634a2f7217a664849a72c191c140fb77a782d244b770608b0a4656cd5020954",
+      "docs/reviews/evidence/pr67/domain-initial.log.raw": "e80b41cca185245d74c55a00b5db26c2deec021740152ee81aee9b5f31fcd2d7",
+      "docs/reviews/evidence/pr67/final-01/default-corrected.log.raw": "1a2ffde2b73c018b8abfffb7c3751dff308a260f0a7bb330d4d126437286c2ed",
+      "docs/reviews/evidence/pr67/final-01/default-expanded-corrected.log.raw": "ef334d7fd24efbb09f3139a9cfd05618a0dba8d207ba3e564be2db3402a7cf71",
+      "docs/reviews/evidence/pr67/final-01/default-red-trace.zip": "20b1b9d97f4ff319ef2406a5453bfc9227ba0585a7737d2c1e16fc467678f941",
+      "docs/reviews/evidence/pr67/final-01/default-red.log.raw": "68ed34af7478bf5260bfae1fb3b4641e63caa49d4642d5c685435f4c0a3c3786",
+      "docs/reviews/evidence/pr67/final-01/default-review-corrected.png": "758b63485062122125b02743235b9d002897006fc37a486a2bc03d91ab87ee7f",
+      "docs/reviews/evidence/pr67/final-01/full-check-corrected.log.raw": "da2e24882affab97cb808b139e7dde37acbb360185471613618ce5bf2479be03",
+      "docs/reviews/evidence/pr67/final-01/initial-test-label-error.log.raw": "34d31e53ed66f4b42f1844bf503901b807a9a4bf8fafa4df6dc5bb608d19395a",
+      "docs/reviews/evidence/pr67/final-01/original-final-audit.md.raw": "ac5e66cff64f848768fbbe313b443de1cb286bc7db9b1892c13181e215764cd3",
+      "docs/reviews/evidence/pr67/final-01/original-final-review.json.raw": "72af376b1f429665e9ab838f79ba75c5245bf23a0ff0b9fdf4e6829c880c53ca",
+      "docs/reviews/evidence/pr67/final-01/original-firewall.tsx.raw": "9da17aa100ad4d2b28147745b2aadac4c18834c52d790b2246a8ebb9e1961ee9",
+      "docs/reviews/evidence/pr67/final-01/original-form-defaults.json.raw": "a074ced9f03834f6b6f8f05cb440a3080cfd4b231b8283f6f45263b7fe7a5de8",
+      "docs/reviews/evidence/pr67/final-01/original-form.png": "75a5cdb587072ff6e20a43109911bb2ae5b844425ab2a1208104d43997b865b3",
+      "docs/reviews/evidence/pr67/final-01/original-laboratory.tsx.raw": "bcce34e150884df6b79dbc5277dce16b451ed6180e26e23c62b14cbe7df68aef",
+      "docs/reviews/evidence/pr67/final-01/original127-snapshot.json.raw": "659577d2370368ce8bdd49cdcf7037521cd15c00e0ae801b1423fd6ead093cc8",
+      "docs/reviews/evidence/pr67/firewall-1024x500.png": "f7953e92aa2a317f7f3991b3bd1c4a25ca09bed845e7047ae265f18215ccd7d2",
+      "docs/reviews/evidence/pr67/firewall-1024x768.png": "2e0e27c1a70cee0df499d18ea39b7acaabbc86b9806e05ee57c6ee1821d36ac1",
+      "docs/reviews/evidence/pr67/firewall-1440x900.png": "479fe02faf69bb4ff80a9a78008e6a9591679a3dc817fa5a457e5b2a550989b9",
+      "docs/reviews/evidence/pr67/firewall-create.png": "846820ab5174d8ce622149e4f8a0f4846f46a15feb6dc330a5e22a1445ff56d1",
+      "docs/reviews/evidence/pr67/firewall-inspection-allow.png": "9a1b811a1acea4731566e318f9cdd941d926a1e10408481acfd44386ceda0992",
+      "docs/reviews/evidence/pr67/firewall-overview.png": "0a7e7d3094b4e97f29bd0b820661410a8a10cd2c4495ae4235c70e9a06d43bdb",
+      "docs/reviews/evidence/pr67/firewall-review.png": "a804569c18c905a47c6f76190a23813c35b983b6909c3e3d302c0c25c2ad3071",
+      "docs/reviews/evidence/pr67/frozen34-golden.json": "ea4c1a3830472365e62b23ba9d6b6064d2aeed783abcdc5c1ff214ec8add6f23",
+      "docs/reviews/evidence/pr67/full-check-corrected.log.raw": "606122f8c882858821a9e360f4ef77969608334d1d30afaa9819232f8773a82e",
+      "docs/reviews/evidence/pr67/full-check-initial.log.raw": "9b8769abd815c45f7f0ad661f1c3939edd4c52953e460b7befb74761acd2ca10",
+      "docs/reviews/evidence/pr67/inspection-1024x500.png": "85bdafcf4e71725593d2d42b59a6a774948ee521651ea56e973bd525454c76e4",
+      "docs/reviews/evidence/pr67/inspection-1024x768.png": "c9d68b8c85f122842e8218f23a39290a07859876e2db752cbcc7a04fd88779b4",
+      "docs/reviews/evidence/pr67/missing-return.png": "20168f71fc72c9ec787ac2b1f2b3fadda288faed0b7b82ed507a3705f03f4ce9",
+      "docs/reviews/evidence/pr67/native-cross-compact.log.raw": "e4b25428d0ef16a87a497c02a19c19a588fe57dd23ddf63e82ca234f36001c4e",
+      "docs/reviews/evidence/pr67/native-expanded.log.raw": "d9f7e5eb1e296a21bb5a40b3749278673afffd33e99f07fb60423a2d97b9fcfd",
+      "docs/reviews/evidence/pr67/native-final.log.raw": "a6ec9e220444308f00182dabffd7a6062cc4102f1e4936efe8c6c7dad384bf8f",
+      "docs/reviews/evidence/pr67/native-initial-failure.log.raw": "1d7883fa2ae06afa992d7d6f893f65c1844f302122d4fcf1266cca847c1d8c7f",
+      "docs/reviews/evidence/pr67/next-hop-corrected.log.raw": "8137e8c552a2c37fcc4737f189c1a0adf61b3f6ee6737e0f6df1043407948a9b",
+      "docs/reviews/evidence/pr67/next-hop-red.log.raw": "5e560cab7c9b55c289c245d1e0f7696402efc3c9a87cabbe3c2408aa9be4a483",
+      "docs/reviews/evidence/pr67/next-hop-wrong-hub.png": "8eaf32932e4906e1450856a06b69c551874b051ebf3cf05fd6d7e5fdac0fb540",
+      "docs/reviews/evidence/pr67/nsg-firewall-conflict.png": "28bd2f78c7a3d2f8854100a9d175efedc3133770c9986e66fac1983ee0a5934b",
+      "docs/reviews/evidence/pr67/preservation-corrected.log.raw": "c50badb434f260f77c626504c543a7b26c5f67bb68a636653e824df35f9c9316",
+      "docs/reviews/evidence/pr67/preservation-initial-failure.log.raw": "e0128fe030f345ff37618f17a9500c93baab129c254ed78ac30e734cc4238b84",
+      "docs/reviews/evidence/pr67/preservation.json": "9f55eec65daba0499d5eaa7bd724757f3c28c0361c330d36322b5ef8e0348453",
+      "docs/reviews/evidence/pr67/qa/architecture-management.instrumented.ts.raw": "5817fe2f3d641ba91f44dfdfb7f05323f4d65a821cdadb1c9c52189205a43334",
+      "docs/reviews/evidence/pr67/qa/baseline-observer.log.raw": "715912b362ba9387b2f79362b73a24de35ed43183fba657f849895ddfc043e39",
+      "docs/reviews/evidence/pr67/qa/corrected-native.log.raw": "e967228ffb828eedc5ddbc8ccdd081cddf158cbafd6ac2a034f40168473e58a4",
+      "docs/reviews/evidence/pr67/qa/error-context.md.raw": "c9c023c83ab19653618fb038c3502aa65534478043879d91ac7b6ffed59db23b",
+      "docs/reviews/evidence/pr67/qa/observer-summary.json.raw": "24039e41b48658b87a09aaf2a43311f7255acafaa1d8eb9bc637f1bda4909d1e",
+      "docs/reviews/evidence/pr67/qa/original-ci106.log.raw": "628fc284e03bbd06f3f7890acb47b54455d0ba1f2d2b64fa0387a1053f78a09e",
+      "docs/reviews/evidence/pr67/qa/parsed-trace.json.raw": "0c36ff8e2b6ecda0b98f9c63f90014a48e352fa7ebdc3851fb6685f0f80af32c",
+      "docs/reviews/evidence/pr67/qa/trace.zip": "8f0c38e731bcf1633f9d51f879b22879d2ed9bbc7118e5120f390a681514aebc",
+      "docs/reviews/evidence/pr67/qa/video.webm": "c4ba175e594e5dedf501b4a7f4cbb7baf5fd298b62a0f95e081bee0583c8197d",
+      "docs/reviews/evidence/pr67/qa/vm-debrief.instrumented.ts.raw": "386f7002459b9a184f821cd345598f4ea85e5d3cd7464f1e9dc79f00a0a374b7",
+      "docs/reviews/evidence/pr67/reference-fetch.json": "b9dd373deab1755a016d0976f50f97aef38373afbd4a567bf3d184f5f51ea417",
+      "docs/reviews/evidence/pr67/source-fetch.json": "789de8f04640b30f5e91030d47e966f53d73a7effcb76cfdb35d6c6d85178402",
+      "docs/reviews/evidence/pr67/sources/arm-firewall.html.raw": "9183c987cffe608dd931b24351dd9e43608dd8c4223f2b983bb642f6fc9c62ac",
+      "docs/reviews/evidence/pr67/sources/arm-firewall.txt": "a802533ba753c9aa515e1c89f70de96aa0d53ea69e1509eac8173d437f6c0c05",
+      "docs/reviews/evidence/pr67/sources/arm-pip.html.raw": "f1a0d5e10aee44402134e50baff075504a0c92a682b16e044c4a8027edddb2cd",
+      "docs/reviews/evidence/pr67/sources/arm-pip.txt": "ac51b99c1006276584caad68ef3f5229cd9205b83557c7f441edd5e10c9f9b85",
+      "docs/reviews/evidence/pr67/sources/arm-policy.html.raw": "827adaf2da2f86547a6a99be22cd80a0ea6948b338f87daa65bdcb4aed4c4e78",
+      "docs/reviews/evidence/pr67/sources/arm-policy.txt": "a031268fd687e3be41deda7f985b82df962cc95d60712f3d38c3fb8a8668757d",
+      "docs/reviews/evidence/pr67/sources/arm-rcg.html.raw": "527dd817792ae17707ab1633acde700928f7bc1379d00df4e440facfc74883e1",
+      "docs/reviews/evidence/pr67/sources/arm-rcg.txt": "5177f7f579b2eed1168c6ec7c22fda480644b2a748b782c8ab2e09b0dd8cccd1",
+      "docs/reviews/evidence/pr67/sources/design.html.raw": "7e7c2259355e7bde6e9b2e00199c9f22a87da779954ebb69ba8e5ef48c5f6da5",
+      "docs/reviews/evidence/pr67/sources/design.txt": "8e0efc18939aa6dd8bd3e1b5ba27dab738b5206073d177ace4f66a54208579be",
+      "docs/reviews/evidence/pr67/sources/faq.html.raw": "6361045ff65bc7172159917e6a5192be77f37a668115c23b371b36133980cb86",
+      "docs/reviews/evidence/pr67/sources/faq.txt": "f8e53e0324fbaef5b7ec145970fb3ba791dc6cc3882c3d348e0bef8d7c41015b",
+      "docs/reviews/evidence/pr67/sources/firewall-ip.html.raw": "c5ad838028a6bb05ceec932375204a38d1e1d3079d1dd7fbc8b07b8ad9006947",
+      "docs/reviews/evidence/pr67/sources/firewall-ip.txt": "ca3dd7f01509f2507185945b7a3a044022d642b447809005e958f861039996b4",
+      "docs/reviews/evidence/pr67/sources/hub-spoke.html.raw": "a14a79035c97cec38d82c7dce167f8d1ffe33577a890a1332cd7b0caf5c7cfc3",
+      "docs/reviews/evidence/pr67/sources/hub-spoke.txt": "a22530f12c022d46d3753b2aa738469f7cbde41d59ae32424f239b67a2c8465d",
+      "docs/reviews/evidence/pr67/sources/names.html.raw": "841c4ce5afa8213404be0736d9ee828c2415c8cbc329fc9da8147a0b081996fd",
+      "docs/reviews/evidence/pr67/sources/names.txt": "f804560bd042ea26e7857bdcfbc1ace6711efcbbfc4c120903042ce77c7f3af2",
+      "docs/reviews/evidence/pr67/sources/peering.html.raw": "1a53e892df336369542b2e9ebd32b8fd5a2454a1b7f782f3744c0773d88ddbb0",
+      "docs/reviews/evidence/pr67/sources/peering.txt": "fadfe6dc808fefe53c444ba48b750551ceb2019b2370c009f8e493d7d3171742",
+      "docs/reviews/evidence/pr67/sources/policy.html.raw": "25f0a1b43174ef201f9a2ec7725370896615f1325046c31b67c5190345ed86f9",
+      "docs/reviews/evidence/pr67/sources/policy.txt": "3d2803fded002a4a917d8e654a932af46417ae00d3173fe92165638adbada386",
+      "docs/reviews/evidence/pr67/sources/processing.html.raw": "0ac86d6d10fdaeb60dd55acd0889ac3668a7377848751fe3f346f20273ae82b1",
+      "docs/reviews/evidence/pr67/sources/processing.txt": "1f34b38f7c3464081ccf36140a355122cd8a6e2aa0201b82f232ec038aeb55f1",
+      "docs/reviews/evidence/pr67/sources/relevant-extracts.txt": "41e6f1e5c1de0d3723cb444eb9f6ce1cd96161e09406b3493d77bbed94bee948",
+      "docs/reviews/evidence/pr67/sources/udr.html.raw": "4ca0afedaf9a73e808e1da2ecd0dc5095d46489b44b0988cc874cec35f87159d",
+      "docs/reviews/evidence/pr67/sources/udr.txt": "042afe4bf0a7c42b7abfd4279cef309716dfada7537726aca0661a214020926c",
+      "docs/reviews/evidence/pr67/verification.json": "76a37d740c1af85a79b65e697879918b0a6dc138ff962e2db411aa84b041b0f7",
+      "docs/reviews/evidence/pr67/vm-create-1024x500.png": "9b77dcdccfe4ae31b0f44e67dcefea56cd1eb080afacd927a9639b196c460c6a",
+      "docs/reviews/evidence/pr67/vm-create-initial.png": "cacc41c1e7524f1161345dcc105d7f001cd5277af261a626a78eb8ca27314e8c",
+      "docs/reviews/evidence/pr67/vm-create.png": "239923e756b522532123d56f97819378e953b97b67c087f2c67550be25acf1ea",
+      "docs/reviews/evidence/pr67/vm-disk-1024x500.png": "64730250438a33cc38827198cf96c57db40f17bdbfde208a8c5818c983c18a7a",
+      "docs/reviews/evidence/pr67/vm-disk-1024x768.png": "fb3716884c19f5126dedfc21400fbcf1e1ebeec0b5dc76d9bf5d5ba39b72fa52",
+      "docs/reviews/evidence/pr67/vm-disk-1440x900.png": "6ace1106baa7721647b25025c33a8ea4598742f136a7aa15ea530bbaf348c4bd",
+      "docs/reviews/evidence/pr67/vm-list.png": "aa7dd5055b2980db8b34316b1a3cbc77586473f9b217036b438c55ee74b89ae0",
+      "docs/reviews/evidence/pr67/vm-nic.png": "49420599830a7ce06abb04f48fb12d24bf6a875f1e3e6519deb47084ea8ebf2d",
+      "docs/reviews/evidence/pr67/vm-os-disk.png": "566051259d92024d87f6a7e2b1d43ef76fa2d8206137dc23eb8b93d98a6e22a0",
+      "docs/reviews/evidence/pr67/vm-overview.png": "087d834bf5dff6dbbaabd91991e6679d18508e8a41194a182b10317dd382916f",
+      "docs/reviews/evidence/pr67/vm-policy-1024x500.png": "1dbc404e9dc17fbecdfcda91c57a604c5536d97ad2114c31b974c6327d3e82b2",
+      "docs/reviews/evidence/pr67/vm-policy-1024x768.png": "541e761407ba6ed0ce057d6760a1f7f55cf4b6bcf566c91721665d3009111a67",
+      "docs/reviews/evidence/pr67/vm-policy-1440x900.png": "e2d2715123563e36b7a2db40cfa36c185567e378b689ca61427832bd5ad0b7a6",
+      "playwright.desktop.config.ts": "be03de4cd79c3b48df13fb52d6fbd8245ed74ba92e4edf9290f0c952427bc51c",
+      "public/icons/azure/00272-icon-service-Azure-Firewall-Policy.svg": "6a42c15570ee4715c73a44e47f451f4c3ebb6db197862a54da0802700a5a99c9",
+      "public/icons/azure/10069-icon-service-Public-IP-Addresses.svg": "549fbcf643129dd913c8aa3424a51beb6b718c412ac4c7963214f00ef839c50b",
+      "public/icons/azure/10084-icon-service-Firewalls.svg": "154c416cc15b95b7c6c1ab61a5ecb33f14845197b7d163bd9dc6f1968c14be1e",
+      "public/icons/manifest.json": "91183dd51b17844f85c628de80c5965ffe0787db4d2c0c103ba04aab23a7ad26",
+      "scripts/laboratory-db.mjs": "2940e60d0194e323e91463ce786346e5131176e6d5a853a0aa7bcb73d8e99f54",
+      "src/content/laboratory-firewall-nb.ts": "e156186c1009e81a0938feb09b06629ff1789ff23091511b1011e69d685135fe",
+      "src/content/portal-workspace-nb.ts": "07ce9d8435761e1e6c8054d81ae690c01acefa7d09551b55dcead9176647e99c",
+      "src/features/laboratory/compute.tsx": "6a68567e5918f9cea38e277b11b04ed9b851b728b980435046280b95c7c24fe9",
+      "src/features/laboratory/endpoints.tsx": "0cc836769179b7ee03a234290249f1436c6f232ffdacc7e4d3198eb78e50eef7",
+      "src/features/laboratory/firewall.tsx": "8b3daa9a45bf80563d9b89f559777147b3e4a095b762676b59459999ff7213a7",
+      "src/features/laboratory/laboratory.tsx": "348d6247628d628c04fbf83258131f8354bd15b4912037b12b514525c21c92a3",
+      "src/features/laboratory/networking.tsx": "bc26cf6dd37ce47d607790b5afa825dcaf066a7308f6b4d502ae2ba9fa346036",
+      "src/features/laboratory/portal-adapter.tsx": "11716fed8e01031dc1c60b68e2bcdfe690d8b62f6750a51d8d48d079da3079f3",
+      "src/features/laboratory/routing.tsx": "7dd32333e5336a106bc311b3f7ab0fdba720044f4ab2fa250e901b60284c5edb",
+      "src/laboratory-compute-preservation.test.ts": "deda7e537aa402b518b8027d09ca0fa041c18195219ce859f961ffd31a573f54",
+      "src/laboratory-compute.test.ts": "5d40ac6b5189d94fec2628c9f84decf163c22e2cfeca87d205e07d97eae09b5b",
+      "src/laboratory-firewall-preservation.test.ts": "619dc4d5b4b3510fdd89d21e2059818608ca3710b64c4fc5e1fb2f3b282fd6e6",
+      "src/laboratory-firewall.integration.test.ts": "c215b773a939fe1193842897f29e5522cc817d45e582c5dcf3be704994020ecb",
+      "src/laboratory-firewall.test.ts": "3eb13e544e980c3b72e7319aef8041cdac2842ccfe68c6493dc9eedf21af263c",
+      "src/laboratory/engine.ts": "98f39533cbf3a46c9078fdc0110e50c84c0c5d9d6fbfb1d2dd8e739ef9158053",
+      "src/laboratory/v3/server.ts": "41dab147ee77093f78ef7ed554071f73c3afa7ef780fecef515486129794f203",
+      "src/laboratory/v35/analysis.ts": "71b4c1481b9e7ea4cf7ce93db2923b8ebe057e6c7b8e390b9a0d81bdd82af113",
+      "src/laboratory/v35/contract.ts": "feba30e0371298fd855ed8a0eb8e668cd5924d68a3f645a261e01b610602f2fa",
+      "src/laboratory/v35/domain.ts": "74197872808dad730cadca587f016ce39a699759b0ba9b65821fa53d128bda82",
+      "src/laboratory/v35/projection.ts": "18ab770dce0ef3ab28d2bce58b55bd0984a3db9e7d7aae617bf3183cd8721a67",
+      "src/laboratory/v35/topology.ts": "7fa39dc3e794dbb3c7e2f116759fa0e33244518aa15cde119276358762d7038c",
+      "tests/e2e/architecture-management.spec.ts": "a74f0915bb72140dcc1482456768377494d5ad24cdea906a2bc4551ae49b3c87",
+      "tests/e2e/laboratory-actions.ts": "6524a237344600283171866bb03f2d4a05971e1b336270a4afc81e6da5406177",
+      "tests/e2e/laboratory-compute.spec.ts": "7ce84ea270f18d89f9ce743b940c9ef4fc138274c1aa6b6f7473656a89ca4ee4",
+      "tests/e2e/laboratory-firewall.spec.ts": "6fe6e636ba5a83f349c44de58992652e033df5182849855d5567b0bd617a300b",
+      "tests/fixtures/firewall-world.ts": "059455fe05070aa8d46b56f76e536b73cd4dc2bfcd07870cce515eea2fecfd4d",
+      "tests/pr66-preservation.ts": "2063db9679ca159926df6004634c36a22a68ad6c856dd28989604267f82a844c",
+      "tests/pr67-preservation.ts": "cdcad5bbd916be29cd0d268dd3bfca4a673d4f4ba75587faa796da8f5dc7a410"
     }
   },
-  "implementationFinished": "2026-11-08T00:16:00.582Z"
+  "implementationFinished": "2026-11-08T11:43:07.403Z"
 }

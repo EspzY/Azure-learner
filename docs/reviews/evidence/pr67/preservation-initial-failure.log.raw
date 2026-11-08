@@ -1,0 +1,71 @@
+
+ RUN  v5.0.5 /workspace/Azure-learner
+
+ ❯ src/laboratory-firewall-preservation.test.ts (3 tests | 1 failed) 1137ms
+   × retains exact inherited browser bodies and settings with only traced readiness and explicit historical fixture choice 19ms
+ ❯ src/laboratory-compute-preservation.test.ts (4 tests | 1 failed) 1144ms
+   × keeps every inherited browser assertion and original owner Back Forward test byte, only selecting explicit historical3.3 through UI 14ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/laboratory-compute-preservation.test.ts > keeps every inherited browser assertion and original owner Back Forward test byte, only selecting explicit historical3.3 through UI
+AssertionError: expected 'import { readPR66 as readFileSync } f…' to be 'import { readFileSync } from \'node:f…' // Object.is equality
+
+- Expected
++ Received
+
+@@ -1,6 +1,6 @@
+- import { readFileSync } from 'node:fs';
++ import { readPR66 as readFileSync } from './pr66-preservation';
+  import { execFileSync } from 'node:child_process';
+  import { createHash } from 'node:crypto';
+  import { expect } from 'vitest';
+  import proof from '../docs/reviews/evidence/pr65/preservation.json';
+  export const pr65Base = '42ab1ba33c1972fc685f09097eb7e4de48a3e7fd';
+
+ ❯ src/laboratory-compute-preservation.test.ts:80:41
+     78|     ['src/laboratory-endpoints-preservation.test.ts', '../tests/'],
+     79|   ])
+     80|     expect(readFileSync(path!, 'utf8')).toBe(
+       |                                         ^
+     81|       original66(path!)
+     82|         .toString()
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  src/laboratory-firewall-preservation.test.ts > retains exact inherited browser bodies and settings with only traced readiness and explicit historical fixture choice
+AssertionError: expected 'import golden from \'../docs/reviews/…' to be 'import golden from \'../docs/reviews/…' // Object.is equality
+
+- Expected
++ Received
+
+@@ -79,11 +79,11 @@
+    ])
+      expect(readFileSync(path!, 'utf8')).toBe(
+        original66(path!)
+          .toString()
+          .replace(
+-           "import { readFileSync } from 'node:fs';",
++           "import { readPR67 as readFileSync } from '../tests/pr67-preservation';",
+            `import { readPR66 as readFileSync } from '${prefix}pr66-preservation';`,
+          ),
+      );
+    const fixture =
+      "  await page.getByText('Tidligere arbeidsområdemodeller', { exact: true }).click();\n  await page\n    .getByRole('combobox', { name: 'Arbeidsområdemodell', exact: true })\n    .selectOption('laboratory@3.3.0');\n";
+
+ ❯ src/laboratory-firewall-preservation.test.ts:84:41
+     82|     ['src/laboratory-compute-preservation.test.ts', '../tests/'],
+     83|   ])
+     84|     expect(readFileSync(path!, 'utf8')).toBe(
+       |                                         ^
+     85|       original67(path!)
+     86|         .toString()
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  2 failed | 1 passed (3)
+      Tests  2 failed | 8 passed (10)
+   Start at  10:26:40
+   Duration  1.85s (tests 82%, transform 11%, import 6%, worker 1%)
+

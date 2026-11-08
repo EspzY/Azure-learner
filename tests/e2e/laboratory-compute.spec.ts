@@ -24,6 +24,10 @@ async function start(page: Page) {
       exact: true,
     })
     .click();
+  await page.getByText('Tidligere arbeidsområdemodeller', { exact: true }).click();
+  await page
+    .getByRole('combobox', { name: 'Arbeidsområdemodell', exact: true })
+    .selectOption('laboratory@3.4.0');
   await page.getByRole('button', { name: c.start, exact: true }).click();
   await expect(page.getByRole('button', { name: c.newGroup, exact: true })).toBeVisible();
   expect((await state(page)).world.model).toBe('laboratory@3.4.0');
