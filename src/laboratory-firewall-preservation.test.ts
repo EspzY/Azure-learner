@@ -29,6 +29,7 @@ it('preserves all original course authority, models3.0–3.4 SQL and locked evid
     'src/laboratory/v3/server.ts',
     'tests/e2e/architecture-management.spec.ts',
     'tests/e2e/laboratory-compute.spec.ts',
+    'tests/e2e/laboratory-actions.ts',
     'tests/pr66-preservation.ts',
   ];
   expect(Object.keys(proof.files).sort()).toEqual(allowed.sort());
@@ -142,4 +143,18 @@ it('extends only the exact model registry expectation while retaining all histor
         "      'laboratory@3.4.0',\n      'laboratory@3.5.0',\n    ]);",
       ),
   );
+});
+
+it('keeps inherited Laboratory helper actions and strengthens actual readiness and drawer-dismissal postconditions only', () => {
+  const before = original67('tests/e2e/laboratory-actions.ts').toString();
+  const expected = before
+    .replace(
+      "  const nav = page.getByRole('navigation', { name: c.navigation, exact: true });",
+      "  await expect(page.locator('[data-portal-mode=\"laboratory\"]:visible')).toBeVisible();\n  await expect(page.getByRole('status').filter({ hasText: c.loading })).toHaveCount(0);\n  const nav = page.getByRole('navigation', { name: c.navigation, exact: true });",
+    )
+    .replace(
+      "    const toggle = page.getByRole('button', { name: nb.portal.menu, exact: true });\n    if ((await toggle.getAttribute('aria-expanded')) === 'true') await toggle.click();",
+      "    await page.keyboard.press('Escape');\n    const nav = page.locator('aside[data-portal-component=\"navigation\"]');\n    await expect(nav).not.toHaveClass(/mobile-open/);\n    await expect(nav).not.toBeVisible();",
+    );
+  expect(readFileSync('tests/e2e/laboratory-actions.ts', 'utf8')).toBe(expected);
 });

@@ -617,3 +617,97 @@ test('firewall native untouched dedicated subnet default matches posted Review a
   await page.reload();
   await expect(page.locator('#lab-main')).toContainText('hub-second');
 });
+
+test('firewall shared Portal menu uses actual viewport during pending media delivery and Escape closes the drawer without technical writes', async ({
+  page,
+}) => {
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.addInitScript(() => {
+    const native = matchMedia.bind(window);
+    const pending: (() => void)[] = [];
+    const gate = {
+      hold: false,
+      release() {
+        this.hold = false;
+        for (const call of pending.splice(0)) call();
+      },
+    };
+    (window as unknown as { __labMediaGate: typeof gate }).__labMediaGate = gate;
+    window.matchMedia = (query) => {
+      const media = native(query);
+      if (query !== '(max-width:1100px)') return media;
+      const add = media.addEventListener.bind(media),
+        remove = media.removeEventListener.bind(media);
+      const wrappers = new Map<EventListenerOrEventListenerObject, EventListener>();
+      media.addEventListener = ((
+        type: string,
+        listener: EventListenerOrEventListenerObject | null,
+        options?: boolean | AddEventListenerOptions,
+      ) => {
+        if (!listener) return;
+        if (type !== 'change') return add(type, listener, options);
+        const wrapped: EventListener = (event) => {
+          const run = () =>
+            typeof listener === 'function'
+              ? listener.call(media, event)
+              : listener.handleEvent(event);
+          if (gate.hold) pending.push(run);
+          else run();
+        };
+        wrappers.set(listener, wrapped);
+        add(type, wrapped, options);
+      }) as typeof media.addEventListener;
+      media.removeEventListener = ((
+        type: string,
+        listener: EventListenerOrEventListenerObject | null,
+        options?: boolean | EventListenerOptions,
+      ) => {
+        if (listener) remove(type, wrappers.get(listener) ?? listener, options);
+      }) as typeof media.removeEventListener;
+      return media;
+    };
+  });
+  const initial = await start(page),
+    before = await oldBytes(page);
+  await page.evaluate(() => {
+    (window as unknown as { __labMediaGate: { hold: boolean } }).__labMediaGate.hold = true;
+  });
+  await page.setViewportSize({ width: 1024, height: 500 });
+  const nav = page.getByRole('navigation', { name: c.navigation, exact: true });
+  await expect(nav).not.toBeVisible();
+  await page.getByRole('button', { name: nb.portal.menu, exact: true }).click();
+  await expect(nav).toBeVisible();
+  await page.keyboard.press('Escape');
+  await expect(nav).not.toBeVisible();
+  await page.getByRole('button', { name: nb.portal.menu, exact: true }).click();
+  await expect(nav).toBeVisible();
+  await closeLaboratoryDrawer(page);
+  await expect(nav).not.toBeVisible();
+  await page.evaluate(() => {
+    (window as unknown as { __labMediaGate: { release: () => void } }).__labMediaGate.release();
+  });
+  // Recreate the old helper's stale decision: read desktop aria state after CSS
+  // resized, then act after the real media event reaches React. A toggle opens
+  // the drawer; the idempotent Escape close must dismiss that actual overlay.
+  await page.setViewportSize({ width: 1440, height: 900 });
+  const toggle = page.getByRole('button', { name: nb.portal.menu, exact: true });
+  await expect(toggle).toHaveAttribute('aria-expanded', 'true');
+  await page.evaluate(() => {
+    (window as unknown as { __labMediaGate: { hold: boolean } }).__labMediaGate.hold = true;
+  });
+  await page.setViewportSize({ width: 1024, height: 500 });
+  await expect(nav).not.toBeVisible();
+  expect(await toggle.getAttribute('aria-expanded')).toBe('true');
+  await page.evaluate(() => {
+    (window as unknown as { __labMediaGate: { release: () => void } }).__labMediaGate.release();
+  });
+  await expect(toggle).toHaveAttribute('aria-expanded', 'false');
+  await toggle.click();
+  await expect(nav).toBeVisible();
+  await closeLaboratoryDrawer(page);
+  await expect(nav).not.toBeVisible();
+  const after = await page.request.get('/api/laboratory/state').then((r) => r.json());
+  expect(after.world).toEqual(initial.world);
+  expect(after.entries).toEqual(initial.entries);
+  expect(await oldBytes(page)).toBe(before);
+});

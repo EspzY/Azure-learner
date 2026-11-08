@@ -611,6 +611,14 @@ export function Laboratory() {
     media.addEventListener('change', update);
     return () => media.removeEventListener('change', update);
   }, []);
+  useEffect(() => {
+    // Match the course Portal: Escape dismisses navigation, never toggles it.
+    const dismiss = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setMenu(false);
+    };
+    window.addEventListener('keydown', dismiss);
+    return () => window.removeEventListener('keydown', dismiss);
+  }, []);
   const visit = (next: string, target?: string, receipt?: string) => {
     setMenu(false);
     setSearch('');
@@ -1110,7 +1118,13 @@ export function Laboratory() {
       header={
         <PortalHeader
           expanded={narrow ? menu : !collapsed}
-          onToggle={() => (narrow ? setMenu(!menu) : setCollapsed(!collapsed))}
+          onToggle={() => {
+            // CSS can cross the breakpoint before its change event reaches React.
+            const compact = matchMedia('(max-width:1100px)').matches;
+            setNarrow(compact);
+            if (compact) setMenu((open) => !open);
+            else setCollapsed((closed) => !closed);
+          }}
           homeHref={base}
           onHome={(e) => {
             e.preventDefault();
