@@ -1,0 +1,60 @@
+{
+  "schema": 1,
+  "base": "41a187a4437eeea76749c61c94219a2577848645",
+  "model": "laboratory@3.7.0",
+  "local": {
+    "fullCheck": {
+      "result": "passed",
+      "vitest": 1082,
+      "files": 89,
+      "node": 24,
+      "curriculum": 503,
+      "objectives": 57,
+      "facets": 126,
+      "log": "qa/check-final.log.raw"
+    },
+    "targeted": {
+      "result": "passed",
+      "count": 40,
+      "log": "qa/targeted-precheck.log.raw"
+    },
+    "nativeFinal": {
+      "result": "passed",
+      "count": 7,
+      "retry": 0,
+      "seconds": 55.8,
+      "log": "qa/browser-final.log.raw"
+    },
+    "nativeHistorical36": {
+      "result": "passed",
+      "count": 7,
+      "retry": 0,
+      "log": "qa/browser-legacy.log.raw"
+    },
+    "plan": {
+      "desktop": 408,
+      "compact": 47,
+      "total": 455,
+      "executedFullProfile": false,
+      "log": "qa/plan-final.log.raw"
+    }
+  },
+  "focusedIndependent": {
+    "originalMajor": "unselected disabled peering supplied a positive VirtualNetwork default tag",
+    "correction": "original2 plus9 adversarial read-only and replay cases pass; initial evidence preserved",
+    "report": "qa/independent-peering-correction-validation.md.raw"
+  },
+  "pending": [
+    "separate post-stamp final audit",
+    "authoritative exact-head complete CI",
+    "strict release",
+    "anonymous deployed full-SHA root and expected Laboratory503"
+  ],
+  "limitations": [
+    "Peering Delete deferred, not implemented",
+    "Public functional Laboratory intentionally unavailable without database",
+    "Frozen3.5 malformed history not repaired",
+    "Older Compute/Back, landing/resume, Axe, CI-budget causes remain open",
+    "No human learning/UX/SME or real Azure connectivity validation"
+  ]
+}

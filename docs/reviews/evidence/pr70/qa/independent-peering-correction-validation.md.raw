@@ -1,0 +1,27 @@
+# PR70 independent peering correction validation
+
+AI review only, 8 November 2026. This is a separate follow-up to `independent-peering-review.md`; the initial report, failing-result JSON, script, and two command histories remain unchanged. The original MAJOR is **resolved in the reviewed correction**. No remaining BLOCKER/MAJOR was demonstrated by this focused semantic recheck.
+
+Reviewed `src/laboratory/v37/analysis.ts` SHA-256: `a2858c5f34075a3ad522f5d1d4729f8307bf5912a9e5b5887d65534b0749ad3b`. The new `tagPeerings` guard at lines 87–105 collects affected source/destination `VirtualNetwork` dependencies from evaluated match/unknown rule traces, independent of route-selected links. It checks the actual packet address against the remote VNet range and considers both local and reverse access. Disabled affected relationships now trigger the existing conservative result clearing at lines 124–137. The original frozen matching code remains unchanged.
+
+The original reproduction was rerun from a copy whose only change redirects artifact output into `correction/`. Both original command histories are byte-identical to their initial saved histories. The one-disabled and both-disabled cases now return `undetermined`, `undetermined-disabled-peering`, `incomplete`, `configurationPathAssessed: false`, and no Firewall decision. All NSG layers are not-evaluated with no matched/uncertain rule or retained rule trace. Both histories still replay exactly. See `correction/original-repro-rerun.mjs` and `correction/independent-peering-repro.json`.
+
+Nine additional command-created challenge executions passed assertions in `correction/challenge.mjs`:
+
+| Case | Observed result |
+| --- | --- |
+| Source default tag, local access disabled | Undetermined |
+| Source default tag, reverse access disabled | Undetermined |
+| Source default tag, both access flags disabled | Undetermined |
+| Destination default tag, local access disabled | Undetermined |
+| Destination default tag, reverse access disabled | Undetermined |
+| Both endpoint default tags, both access flags disabled | Undetermined |
+| Literal custom Allows; unused direct peering disabled both ways | Allowed through the enabled Firewall path |
+| Literal custom Deny; unused direct peering disabled both ways | Denied by the literal NSG rule |
+| Source default tag uses enabled endpoint peering; a different remote range is disabled | Allowed through the enabled Firewall path |
+
+Every challenge also asserts that analysis does not mutate World and that the complete registered command history replays exactly. Every uncertain result asserts that all NSG matches/traces and the Firewall decision are cleared. The definite literal Deny is supported by the actual literal rule and does not depend on service-tag membership. The unrelated-range case confirms that the correction does not infer a blanket topology prohibition from an unused disabled relationship. Results are in `correction/challenge.json`; individual replayable command histories are alongside it.
+
+Static challenge found no additional false-certainty path in this guard's current supported rule profile. Filtering out rules whose result is no-match is appropriate when another known field prevents the rule from matching; not-evaluated later rules cannot determine the existing result. The custom-rule validator still restricts this model to literal addresses; tag dependence arises from the inherited default rules. The correction covers positive default-tag membership supplied by disabled local or reverse endpoint relationships while retaining valid literal matching.
+
+This does not establish full Azure `VirtualNetwork` membership after disabling access, actual effective-route propagation, or production traffic behavior. The original review's source limits and supported directional/status/Delete decisions remain. No implementation edits, external calls, credentials, full suite, or human Azure SME validation were performed. `correction/manifest.json` pins the unchanged initial evidence, correction artifacts, and reviewed implementation hash. No changes under frozen `v31`–`v36` paths were present in the diff against the supplied base during this recheck.

@@ -1,0 +1,261 @@
+---
+layout: Reference
+monikers:
+- rest-virtualnetwork-2026-01-01
+defaultMoniker: rest-virtualnetwork-2026-01-01
+useMonikerList: 1
+versioningType: Combined
+title: Virtual Network Peerings - Delete - REST API (Azure Virtual Networks) | Microsoft Learn
+canonicalUrl: https://learn.microsoft.com/en-us/rest/api/virtualnetwork/virtual-network-peerings/delete?view=rest-virtualnetwork-2026-01-01
+uid: management.azure.com.virtualnetwork.virtualnetworkpeerings.delete
+enable_rest_try_it: true
+rest_product: Azure
+uhfHeaderId: azure
+breadcrumb_path: ../../../breadcrumb/toc.json
+ms.author: smmark
+author: markjulmar
+ms.topic: generated-reference
+ms.devlang: rest-api
+ms.date: 2026-10-23T00:00:00.0000000Z
+products:
+- https://authoring-docs-microsoft.poolparty.biz/devrel/20ed8455-bc18-4537-87a4-83784e7b2a39
+ms.service: azure-virtual-network
+description: 'Learn more about Virtual Networks service - Deletes the specified virtual network peering. '
+locale: en-us
+moniker_definition_rel: ../../../.monikers.Azure.AzureRestApi.json
+document_id: 8d1517a5-b08e-3a6c-7287-f48695ee7427
+document_version_independent_id: fbe0e96e-bf81-c31f-ff42-da270dc77974
+updated_at: 2026-10-13T22:43:00.0000000Z
+original_content_git_url: https://github.com/MicrosoftDocs/azure-docs-rest-apis/blob/live/docs-ref-autogen/virtualnetwork/rest-virtualnetwork-2026-01-01/Virtual-Network-Peerings/Delete.yml
+gitcommit: https://github.com/MicrosoftDocs/azure-docs-rest-apis/blob/bdad299c8efb26b13efcff2ce9dd409fecdc2d87/docs-ref-autogen/virtualnetwork/rest-virtualnetwork-2026-01-01/Virtual-Network-Peerings/Delete.yml
+git_commit_id: bdad299c8efb26b13efcff2ce9dd409fecdc2d87
+default_moniker: rest-virtualnetwork-2026-01-01
+site_name: Docs
+depot_name: Azure.AzureRestApi
+page_type: rest
+page_kind: operation
+toc_rel: ../../azure/toc.json
+feedback_system: None
+feedback_product_url: ''
+feedback_help_link_type: ''
+feedback_help_link_url: ''
+asset_id: api/virtualnetwork/virtual-network-peerings/delete
+moniker_range_name: 
+monikers:
+- rest-virtualnetwork-2026-01-01
+item_type: Content
+source_path: docs-ref-autogen/virtualnetwork/rest-virtualnetwork-2026-01-01/Virtual-Network-Peerings/Delete.yml
+use_moniker_list: 1
+cmProducts:
+- https://authoring-docs-microsoft.poolparty.biz/devrel/20ed8455-bc18-4537-87a4-83784e7b2a39
+spProducts:
+- https://authoring-docs-microsoft.poolparty.biz/devrel/9a7f703b-30bb-4d62-9eb4-97213f571849
+platformId: 95eeedad-c859-95ff-243c-ac3c57f9685e
+---
+
+# Virtual Network Peerings - Delete
+
+- Service:
+    - Virtual Networks
+
+- API Version:
+    - 2026-01-01
+
+Deletes the specified virtual network peering.
+
+```http
+DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/virtualNetworkPeerings/{virtualNetworkPeeringName}?api-version=2026-01-01
+```
+
+## URI Parameters
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| resourceGroupName | path | True | string <br>minLength: 1maxLength: 90 | The name of the resource group. The name is case insensitive. |
+| subscriptionId | path | True | string (uuid) | The ID of the target subscription. The value must be an UUID. |
+| virtualNetworkName | path | True | string | The name of the virtual network. |
+| virtualNetworkPeeringName | path | True | string | The name of the virtual network peering. |
+| api-version | query | True | string <br>minLength: 1 | The API version to use for this operation. |
+
+## Responses
+
+| Name | Type | Description |
+| --- | --- | --- |
+| 200 OK |  | Resource deleted successfully. |
+| 202 Accepted |  | Resource deletion accepted.<br><br>Headers<br><br>- Location: string<br>- Retry-After: integer |
+| 204 No Content |  | Resource does not exist. |
+| Other Status Codes | CloudError | An unexpected error response. |
+
+## Security
+
+### azure\_auth
+
+Azure Active Directory OAuth2 Flow.
+
+Type:  oauth2Flow:  implicitAuthorization URL:  https://login.microsoftonline.com/common/oauth2/authorize
+
+#### Scopes
+
+| Name | Description |
+| --- | --- |
+| user\_impersonation | impersonate your user account |
+
+## Examples
+
+### Delete peering
+
+#### Sample request
+
+# [HTTP](#tab/HTTP)
+```http
+DELETE https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/peerTest/providers/Microsoft.Network/virtualNetworks/vnet1/virtualNetworkPeerings/peer?api-version=2026-01-01
+```
+
+# [Java](#tab/Java)
+```java
+
+/**
+ * Samples for VirtualNetworkPeerings Delete.
+ */
+public final class Main {
+    /*
+     * x-ms-original-file: 2026-01-01/VirtualNetworkPeeringDelete.json
+     */
+    /**
+     * Sample code: Delete peering.
+     * 
+     * @param manager Entry point to NetworkManager.
+     */
+    public static void deletePeering(com.azure.resourcemanager.network.NetworkManager manager) {
+        manager.serviceClient().getVirtualNetworkPeerings().delete("peerTest", "vnet1", "peer",
+            com.azure.core.util.Context.NONE);
+    }
+}
+
+```
+
+To use the Azure SDK library in your project, see [this documentation](https://github.com/Azure/azure-sdk-for-java/blob/com.azure.resourcemanager+azure-resourcemanager-network_2.61.2/sdk/network/azure-resourcemanager-network/README.md). To provide feedback on this code sample, [open a GitHub issue](https://github.com/Azure/azure-rest-api-specs-examples/issues/new?assignees=&amp;labels=&amp;template=sample_issue_report.yml&amp;title=%5bSample%20Issue%5d)
+
+# [Python](#tab/Python)
+```python
+from azure.identity import DefaultAzureCredential
+
+from azure.mgmt.network import NetworkManagementClient
+
+"""
+# PREREQUISITES
+    pip install azure-identity
+    pip install azure-mgmt-network
+# USAGE
+    python virtual_network_peering_delete.py
+
+    Before run the sample, please set the values of the client ID, tenant ID and client secret
+    of the AAD application as environment variables: AZURE_CLIENT_ID, AZURE_TENANT_ID,
+    AZURE_CLIENT_SECRET. For more info about how to get the value, please see:
+    https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal
+"""
+
+def main():
+    client = NetworkManagementClient(
+        credential=DefaultAzureCredential(),
+        subscription_id="SUBSCRIPTION_ID",
+    )
+
+    client.virtual_network_peerings.begin_delete(
+        resource_group_name="peerTest",
+        virtual_network_name="vnet1",
+        virtual_network_peering_name="peer",
+    ).result()
+
+# x-ms-original-file: 2026-01-01/VirtualNetworkPeeringDelete.json
+if __name__ == "__main__":
+    main()
+
+```
+
+To use the Azure SDK library in your project, see [this documentation](https://github.com/Azure/azure-sdk-for-python/blob/azure-mgmt-network_33.0.0/sdk/network/azure-mgmt-network/README.md). To provide feedback on this code sample, [open a GitHub issue](https://github.com/Azure/azure-rest-api-specs-examples/issues/new?assignees=&amp;labels=&amp;template=sample_issue_report.yml&amp;title=%5bSample%20Issue%5d)
+
+# [Go](#tab/Go)
+```go
+package armnetwork_test
+
+import ("context""log"
+"github.com/Azure/azure-sdk-for-go/sdk/azidentity""github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/network/armnetwork/v12"
+)
+
+// Generated from example definition: 2026-01-01/VirtualNetworkPeeringDelete.json
+func ExampleVirtualNetworkPeeringsClient_BeginDelete() {cred, err := azidentity.NewDefaultAzureCredential(nil)if err != nil {	log.Fatalf("failed to obtain a credential: %v", err)}ctx := context.Background()clientFactory, err := armnetwork.NewClientFactory("00000000-0000-0000-0000-000000000000", cred, nil)if err != nil {	log.Fatalf("failed to create client: %v", err)}poller, err := clientFactory.NewVirtualNetworkPeeringsClient().BeginDelete(ctx, "peerTest", "vnet1", "peer", nil)if err != nil {	log.Fatalf("failed to finish the request: %v", err)}res, err := poller.PollUntilDone(ctx, nil)if err != nil {	log.Fatalf("failed to poll the result: %v", err)}// You could use response here. We use blank identifier for just demo purposes._ = res// If the HTTP response code is 200 as defined in example definition, your response structure would look as follows. Please pay attention that all the values in the output are fake values for just demo purposes.// res = armnetwork.VirtualNetworkPeeringsClientDeleteResponse{// }
+}
+
+```
+
+To use the Azure SDK library in your project, see [this documentation](https://github.com/Azure/azure-sdk-for-go/blob/sdk%2Fresourcemanager%2Fnetwork%2Farmnetwork%2Fv12.0.0/sdk/resourcemanager/network/armnetwork/README.md). To provide feedback on this code sample, [open a GitHub issue](https://github.com/Azure/azure-rest-api-specs-examples/issues/new?assignees=&amp;labels=&amp;template=sample_issue_report.yml&amp;title=%5bSample%20Issue%5d)
+
+# [JavaScript](#tab/JavaScript)
+```js
+const { NetworkManagementClient } = require("@azure/arm-network");
+const { DefaultAzureCredential } = require("@azure/identity");
+
+/**
+ * This sample demonstrates how to deletes the specified virtual network peering.
+ *
+ * @summary deletes the specified virtual network peering.
+ * x-ms-original-file: 2026-01-01/VirtualNetworkPeeringDelete.json
+ */
+async function deletePeering() {
+  const credential = new DefaultAzureCredential();
+  const subscriptionId = "00000000-0000-0000-0000-000000000000";
+  const client = new NetworkManagementClient(credential, subscriptionId);
+  await client.virtualNetworkPeerings.delete("peerTest", "vnet1", "peer");
+}
+
+```
+
+To use the Azure SDK library in your project, see [this documentation](https://github.com/Azure/azure-sdk-for-js/blob/%40azure%2Farm-network_39.0.0/sdk/network/arm-network/README.md). To provide feedback on this code sample, [open a GitHub issue](https://github.com/Azure/azure-rest-api-specs-examples/issues/new?assignees=&amp;labels=&amp;template=sample_issue_report.yml&amp;title=%5bSample%20Issue%5d)
+
+---
+
+#### Sample response
+
+- Status code:
+    - 200
+
+- Status code:
+    - 202
+
+```http
+Location: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/peerTest/providers/Microsoft.Network/virtualNetworks/vnet1/virtualNetworkPeerings/peer?api-version=2025-07-01
+```
+
+- Status code:
+    - 204
+
+## Definitions
+
+| Name | Description |
+| --- | --- |
+| CloudError | An error response from the service. |
+| CloudErrorBody | An error response from the service. |
+
+### CloudError
+
+Object
+
+An error response from the service.
+
+| Name | Type | Description |
+| --- | --- | --- |
+| error | CloudErrorBody | Cloud error body. |
+
+### CloudErrorBody
+
+Object
+
+An error response from the service.
+
+| Name | Type | Description |
+| --- | --- | --- |
+| code | string | An identifier for the error. Codes are invariant and are intended to be consumed programmatically. |
+| details | CloudErrorBody[] | A list of additional details about the error. |
+| message | string | A message describing the error, intended to be suitable for display in a user interface. |
+| target | string | The target of the particular error. For example, the name of the property in error. |

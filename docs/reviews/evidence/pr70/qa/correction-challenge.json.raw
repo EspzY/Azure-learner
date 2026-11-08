@@ -1,0 +1,327 @@
+[
+  {
+    "name": "source-default-local-disabled",
+    "disabled": "local",
+    "fallback": "source",
+    "expected": "undetermined",
+    "actual": "undetermined",
+    "accessEvaluation": "undetermined",
+    "virtualNetworkTagScope": "undetermined-disabled-peering",
+    "pathDisposition": "incomplete",
+    "configurationPathAssessed": false,
+    "layers": [
+      {
+        "id": "source-nic-outbound",
+        "status": "not-evaluated",
+        "matchedRuleId": null
+      },
+      {
+        "id": "source-subnet-outbound",
+        "status": "not-evaluated",
+        "matchedRuleId": null
+      },
+      {
+        "id": "destination-subnet-inbound",
+        "status": "not-evaluated",
+        "matchedRuleId": null
+      },
+      {
+        "id": "destination-nic-inbound",
+        "status": "not-evaluated",
+        "matchedRuleId": null
+      }
+    ],
+    "commandCount": 36,
+    "replayMatches": true,
+    "analysisReadOnly": true
+  },
+  {
+    "name": "source-default-reverse-disabled",
+    "disabled": "reverse",
+    "fallback": "source",
+    "expected": "undetermined",
+    "actual": "undetermined",
+    "accessEvaluation": "undetermined",
+    "virtualNetworkTagScope": "undetermined-disabled-peering",
+    "pathDisposition": "incomplete",
+    "configurationPathAssessed": false,
+    "layers": [
+      {
+        "id": "source-nic-outbound",
+        "status": "not-evaluated",
+        "matchedRuleId": null
+      },
+      {
+        "id": "source-subnet-outbound",
+        "status": "not-evaluated",
+        "matchedRuleId": null
+      },
+      {
+        "id": "destination-subnet-inbound",
+        "status": "not-evaluated",
+        "matchedRuleId": null
+      },
+      {
+        "id": "destination-nic-inbound",
+        "status": "not-evaluated",
+        "matchedRuleId": null
+      }
+    ],
+    "commandCount": 36,
+    "replayMatches": true,
+    "analysisReadOnly": true
+  },
+  {
+    "name": "source-default-both-disabled",
+    "disabled": "both",
+    "fallback": "source",
+    "expected": "undetermined",
+    "actual": "undetermined",
+    "accessEvaluation": "undetermined",
+    "virtualNetworkTagScope": "undetermined-disabled-peering",
+    "pathDisposition": "incomplete",
+    "configurationPathAssessed": false,
+    "layers": [
+      {
+        "id": "source-nic-outbound",
+        "status": "not-evaluated",
+        "matchedRuleId": null
+      },
+      {
+        "id": "source-subnet-outbound",
+        "status": "not-evaluated",
+        "matchedRuleId": null
+      },
+      {
+        "id": "destination-subnet-inbound",
+        "status": "not-evaluated",
+        "matchedRuleId": null
+      },
+      {
+        "id": "destination-nic-inbound",
+        "status": "not-evaluated",
+        "matchedRuleId": null
+      }
+    ],
+    "commandCount": 37,
+    "replayMatches": true,
+    "analysisReadOnly": true
+  },
+  {
+    "name": "destination-default-local-disabled",
+    "disabled": "local",
+    "fallback": "destination",
+    "expected": "undetermined",
+    "actual": "undetermined",
+    "accessEvaluation": "undetermined",
+    "virtualNetworkTagScope": "undetermined-disabled-peering",
+    "pathDisposition": "incomplete",
+    "configurationPathAssessed": false,
+    "layers": [
+      {
+        "id": "source-nic-outbound",
+        "status": "not-evaluated",
+        "matchedRuleId": null
+      },
+      {
+        "id": "source-subnet-outbound",
+        "status": "not-evaluated",
+        "matchedRuleId": null
+      },
+      {
+        "id": "destination-subnet-inbound",
+        "status": "not-evaluated",
+        "matchedRuleId": null
+      },
+      {
+        "id": "destination-nic-inbound",
+        "status": "not-evaluated",
+        "matchedRuleId": null
+      }
+    ],
+    "commandCount": 36,
+    "replayMatches": true,
+    "analysisReadOnly": true
+  },
+  {
+    "name": "destination-default-reverse-disabled",
+    "disabled": "reverse",
+    "fallback": "destination",
+    "expected": "undetermined",
+    "actual": "undetermined",
+    "accessEvaluation": "undetermined",
+    "virtualNetworkTagScope": "undetermined-disabled-peering",
+    "pathDisposition": "incomplete",
+    "configurationPathAssessed": false,
+    "layers": [
+      {
+        "id": "source-nic-outbound",
+        "status": "not-evaluated",
+        "matchedRuleId": null
+      },
+      {
+        "id": "source-subnet-outbound",
+        "status": "not-evaluated",
+        "matchedRuleId": null
+      },
+      {
+        "id": "destination-subnet-inbound",
+        "status": "not-evaluated",
+        "matchedRuleId": null
+      },
+      {
+        "id": "destination-nic-inbound",
+        "status": "not-evaluated",
+        "matchedRuleId": null
+      }
+    ],
+    "commandCount": 36,
+    "replayMatches": true,
+    "analysisReadOnly": true
+  },
+  {
+    "name": "both-defaults-both-disabled",
+    "disabled": "both",
+    "fallback": "both",
+    "expected": "undetermined",
+    "actual": "undetermined",
+    "accessEvaluation": "undetermined",
+    "virtualNetworkTagScope": "undetermined-disabled-peering",
+    "pathDisposition": "incomplete",
+    "configurationPathAssessed": false,
+    "layers": [
+      {
+        "id": "source-nic-outbound",
+        "status": "not-evaluated",
+        "matchedRuleId": null
+      },
+      {
+        "id": "source-subnet-outbound",
+        "status": "not-evaluated",
+        "matchedRuleId": null
+      },
+      {
+        "id": "destination-subnet-inbound",
+        "status": "not-evaluated",
+        "matchedRuleId": null
+      },
+      {
+        "id": "destination-nic-inbound",
+        "status": "not-evaluated",
+        "matchedRuleId": null
+      }
+    ],
+    "commandCount": 38,
+    "replayMatches": true,
+    "analysisReadOnly": true
+  },
+  {
+    "name": "literal-allows-unused-both-disabled",
+    "disabled": "both",
+    "fallback": "none",
+    "expected": "allowed-by-modeled-network-policy",
+    "actual": "allowed-by-modeled-network-policy",
+    "accessEvaluation": "enabled",
+    "virtualNetworkTagScope": "original-enabled-profile",
+    "pathDisposition": "allowed-via-firewall",
+    "configurationPathAssessed": true,
+    "layers": [
+      {
+        "id": "source-nic-outbound",
+        "status": "not-associated",
+        "matchedRuleId": null
+      },
+      {
+        "id": "source-subnet-outbound",
+        "status": "allow",
+        "matchedRuleId": "rule-30"
+      },
+      {
+        "id": "destination-subnet-inbound",
+        "status": "allow",
+        "matchedRuleId": "rule-31"
+      },
+      {
+        "id": "destination-nic-inbound",
+        "status": "not-associated",
+        "matchedRuleId": null
+      }
+    ],
+    "commandCount": 36,
+    "replayMatches": true,
+    "analysisReadOnly": true
+  },
+  {
+    "name": "literal-deny-unused-both-disabled",
+    "disabled": "both",
+    "fallback": "none",
+    "deny": true,
+    "expected": "denied-by-modeled-network-policy",
+    "actual": "denied-by-modeled-network-policy",
+    "accessEvaluation": "enabled",
+    "virtualNetworkTagScope": "original-enabled-profile",
+    "pathDisposition": "denied-by-nsg",
+    "configurationPathAssessed": false,
+    "layers": [
+      {
+        "id": "source-nic-outbound",
+        "status": "not-associated",
+        "matchedRuleId": null
+      },
+      {
+        "id": "source-subnet-outbound",
+        "status": "deny",
+        "matchedRuleId": "rule-30"
+      },
+      {
+        "id": "destination-subnet-inbound",
+        "status": "not-evaluated",
+        "matchedRuleId": null
+      },
+      {
+        "id": "destination-nic-inbound",
+        "status": "not-evaluated",
+        "matchedRuleId": null
+      }
+    ],
+    "commandCount": 37,
+    "replayMatches": true,
+    "analysisReadOnly": true
+  },
+  {
+    "name": "source-default-unrelated-disabled-range",
+    "disabled": "unrelated",
+    "fallback": "source",
+    "expected": "allowed-by-modeled-network-policy",
+    "actual": "allowed-by-modeled-network-policy",
+    "accessEvaluation": "enabled",
+    "virtualNetworkTagScope": "original-enabled-profile",
+    "pathDisposition": "allowed-via-firewall",
+    "configurationPathAssessed": true,
+    "layers": [
+      {
+        "id": "source-nic-outbound",
+        "status": "not-associated",
+        "matchedRuleId": null
+      },
+      {
+        "id": "source-subnet-outbound",
+        "status": "allow",
+        "matchedRuleId": "default:nsg-28:AllowVnetOutBound"
+      },
+      {
+        "id": "destination-subnet-inbound",
+        "status": "allow",
+        "matchedRuleId": "rule-31"
+      },
+      {
+        "id": "destination-nic-inbound",
+        "status": "not-associated",
+        "matchedRuleId": null
+      }
+    ],
+    "commandCount": 39,
+    "replayMatches": true,
+    "analysisReadOnly": true
+  }
+]

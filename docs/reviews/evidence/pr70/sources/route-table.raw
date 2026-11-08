@@ -1,0 +1,368 @@
+---
+layout: HowTo
+title: Create, change, or delete an Azure route table - Azure Virtual Network | Microsoft Learn
+canonicalUrl: https://learn.microsoft.com/en-us/azure/virtual-network/manage-route-table
+breadcrumb_path: /azure/bread/toc.json
+feedback_help_link_url: https://learn.microsoft.com/answers/tags/143/azure-virtual-network/
+feedback_help_link_type: get-help-at-qna
+feedback_product_url: https://feedback.azure.com/d365community/forum/79b1327d-d925-ec11-b6e6-000d3a4f06a4
+feedback_system: Standard
+permissioned-type: public
+recommendations: true
+recommendation_types:
+- Training
+- Certification
+uhfHeaderId: azure
+ms.suite: office
+adobe-target: true
+manager: kumud
+ms.collection: networking
+ms.reviewer: allensu
+description: Learn where to find information about virtual network traffic routing, and how to create, change, or delete a route table.
+author: asudbring
+ms.author: allensu
+ms.date: 2025-04-21T00:00:00.0000000Z
+ms.service: azure-virtual-network
+ms.topic: how-to
+ms.custom:
+- sfi-image-nochange
+- ge-structured-content-pilot
+- linux-related-content
+locale: en-us
+document_id: 98972ae6-8a56-77e5-8614-5db6b20d5a85
+document_version_independent_id: 3964d451-2bc6-bcc1-26c1-cd5e0ccb1407
+updated_at: 2025-10-08T22:11:00.0000000Z
+original_content_git_url: https://github.com/MicrosoftDocs/azure-docs-pr/blob/live/articles/virtual-network/manage-route-table.yml
+gitcommit: https://github.com/MicrosoftDocs/azure-docs-pr/blob/136130fc1149e51f3cc15b573e22d653e7ad6353/articles/virtual-network/manage-route-table.yml
+git_commit_id: 136130fc1149e51f3cc15b573e22d653e7ad6353
+site_name: Docs
+depot_name: Azure.azure-documents
+page_type: HowTo
+toc_rel: toc.json
+asset_id: virtual-network/manage-route-table
+moniker_range_name: 
+monikers: []
+item_type: Content
+source_path: articles/virtual-network/manage-route-table.yml
+cmProducts:
+- https://authoring-docs-microsoft.poolparty.biz/devrel/68ec7f3a-2bc6-459f-b959-19beb729907d
+- https://authoring-docs-microsoft.poolparty.biz/devrel/20ed8455-bc18-4537-87a4-83784e7b2a39
+- https://authoring-docs-microsoft.poolparty.biz/devrel/089c8ba6-d135-43ff-bfaf-b8197fb72fb9
+spProducts:
+- https://authoring-docs-microsoft.poolparty.biz/devrel/90370425-aca4-4a39-9533-d52e5e002a5d
+- https://authoring-docs-microsoft.poolparty.biz/devrel/9a7f703b-30bb-4d62-9eb4-97213f571849
+- https://authoring-docs-microsoft.poolparty.biz/devrel/32516e21-6665-416f-be21-413febe47d91
+platformId: fcef9884-b611-4bc5-ce59-85b030a0ae46
+---
+
+# Create, change, or delete an Azure route table - Azure Virtual Network | Microsoft Learn
+
+Azure automatically routes traffic between Azure subnets, virtual networks, and on-premises networks. If you want to change Azure's default routing, you do so by creating a route table. If you're new to routing in virtual networks, you can learn more about it in [virtual network traffic routing](virtual-networks-udr-overview) or by completing a [tutorial](tutorial-create-route-table-portal).
+
+## Prerequisites
+
+If you don't have one, set up an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn). Then complete one of these tasks before starting steps in any section of this article:
+
+- **Portal users**: Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
+- **PowerShell users**: Either run the commands in the [Azure Cloud Shell](https://shell.azure.com/powershell), or run PowerShell from your computer. The Azure Cloud Shell is a free interactive shell that you can use to run the steps in this article. It has common Azure tools preinstalled and configured to use with your account. In the Azure Cloud Shell browser tab, find the **Select environment** dropdown list, then choose **PowerShell** if it isn't already selected.
+
+    If you're running PowerShell locally, use Azure PowerShell module version 1.0.0 or later. Run `Get-Module -ListAvailable Az.Network` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/en-us/powershell/azure/install-azure-powershell). Also run `Connect-AzAccount` to create a connection with Azure.
+- **Azure CLI users**: Run the commands via either the [Azure Cloud Shell](https://shell.azure.com/bash) or the Azure CLI running locally. Use Azure CLI version 2.0.31 or later if you're running the Azure CLI locally. Run `az --version` to find the installed version. If you need to install or upgrade, see [Install Azure CLI](/en-us/cli/azure/install-azure-cli). Also run `az login` to create a connection with Azure.
+
+    Assign the [Network contributor role](../role-based-access-control/built-in-roles?toc=/azure/virtual-network/toc.json#network-contributor) or a [Custom role](../role-based-access-control/custom-roles?toc=/azure/virtual-network/toc.json) with the appropriate Permissions.
+
+## Create a route table
+
+There's a limit to how many route tables you can create per Azure location and subscription. For details, see [Networking limits - Azure Resource Manager](../azure-resource-manager/management/azure-subscription-service-limits?toc=/azure/virtual-network/toc.json#azure-resource-manager-virtual-networking-limits).
+
+1. On the [Azure portal](https://portal.azure.com) menu or from the **Home** page, select **Create a resource**.
+2. In the search box, enter *Route table*. When **Route table** appears in the search results, select it.
+3. In the **Route table** page, select **Create**.
+4. In the **Create route table** dialog box:
+
+    ![Screenshot of the create route table page.](media/manage-route-table/create-route-table.png)
+
+    | Setting | Value |
+    | --- | --- |
+    | Name | Enter a **name** for the route table. |
+    | Subscription | Select the **subscription** to deploy the route table in. |
+    | Resource group | Choose an existing **Resource group** or select **Create new** to create a new resource group. |
+    | Location | Select a **region** to deploy the route table in. |
+    | Propagate gateway routes | If you plan to associate the route table to a subnet in a virtual network that's connected to your on-premises network through a VPN gateway, and you don't want to propagate your on-premises routes to the network interfaces in the subnet, set **Virtual network gateway route propagation** to **Disabled**. |
+5. Select **Review + create** and then **Create** to create your new route table.
+
+### Create route table - commands
+
+    | Tool | Command |
+    | --- | --- |
+    | Azure CLI | [az network route-table create](/en-us/cli/azure/network/route-table#az-network-route-table-create) |
+    | PowerShell | [New-AzRouteTable](/en-us/powershell/module/az.network/new-azroutetable) |
+
+## View route tables
+
+To manage your virtual network, access the Azure portal and use the search function to locate "Route tables." A list of all the route tables available within your subscription is displayed.
+
+![Screenshot of the list of route tables in the Azure subscription.](media/manage-route-table/list.png)
+
+1. Go to the [Azure portal](https://portal.azure.com) to manage your virtual network.
+2. Search for and select **Route tables**. The route tables that exist in your subscription are listed.
+
+### View route table - commands
+
+    | Tool | Command |
+    | --- | --- |
+    | Azure CLI | [az network route-table list](/en-us/cli/azure/network/route-table#az-network-route-table-list) |
+    | PowerShell | [Get-AzRouteTable](/en-us/powershell/module/az.network/get-azroutetable) |
+
+## View details of a route table
+
+Follow the below steps:
+
+1. Go to the [Azure portal](https://portal.azure.com) to manage your virtual network. Search for and select **Route tables**.
+2. In the route table list, choose the route table that you want to view details for.
+3. In the route table page, under **Settings**, view the **Routes** in the route table or the **Subnets** the route table is associated to. ![Screenshot of the overview page of a route tables in an Azure subscription.](media/manage-route-table/route-table.png)
+
+    To learn more about common Azure settings, see the following information:
+
+    - [Activity log](/en-us/azure/azure-monitor/essentials/platform-logs-overview)
+    - [Access control (IAM)](../role-based-access-control/overview)
+    - [Tags](../azure-resource-manager/management/tag-resources?toc=/azure/virtual-network/toc.json)
+    - [Locks](../azure-resource-manager/management/lock-resources?toc=/azure/virtual-network/toc.json)
+    - [Automation script](../azure-resource-manager/templates/export-template-portal)
+
+### View details of route table - commands
+
+    | Tool | Command |
+    | --- | --- |
+    | Azure CLI | [az network route-table show](/en-us/cli/azure/network/route-table#az-network-route-table-show) |
+    | PowerShell | [Get-AzRouteTable](/en-us/powershell/module/az.network/get-azroutetable) |
+
+## Change a route table
+
+Follow the below steps:
+
+1. Go to the [Azure portal](https://portal.azure.com) to manage your virtual network. Search for and select **Route tables**.
+2. In the route table list, choose the route table that you want to change. ![Screenshot of the routes in a route table.](media/manage-route-table/routes.png)
+
+    The most common changes are to add routes, remove routes, associate route tables to subnets, or dissociate route tables from subnets.
+
+### Change a route table - commands
+
+    | Tool | Command |
+    | --- | --- |
+    | Azure CLI | [az network route-table update](/en-us/cli/azure/network/route-table#az-network-route-table-update) |
+    | PowerShell | [Set-AzRouteTable](/en-us/powershell/module/az.network/set-azroutetable) |
+
+## Associate a route table to a subnet
+
+You can optionally associate a route table to a subnet. A route table can be associated to zero or more subnets. Route tables aren't associated to virtual networks. You must associate a route table to each subnet you want the route table associated to.
+
+Azure routes all traffic leaving the subnet based on routes created:
+
+- Within route tables
+- [Default routes](virtual-networks-udr-overview#default)
+- Routes propagated from an on-premises network, if the virtual network is connected to an Azure virtual network gateway (ExpressRoute or VPN).
+
+You can only associate a route table to subnets in virtual networks that exist in the same Azure location and subscription as the route table.
+
+1. Go to the [Azure portal](https://portal.azure.com) to manage your virtual network. Search for and select **Virtual networks**.
+2. In the virtual network list, choose the virtual network that contains the subnet you want to associate a route table to.
+3. In the virtual network menu bar, choose **Subnets**.
+4. Select the subnet you want to associate the route table to.
+5. In **Route table**, choose the route table you want to associate to the subnet.
+
+    ![Screenshot of associating a route table to a subnet.](media/manage-route-table/subnet-route-table.png)
+6. Select **Save**.
+
+    If your virtual network is connected to an Azure VPN gateway, don't associate a route table to the [gateway subnet](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings?toc=/azure/virtual-network/toc.json#gwsub) that includes a route with a destination of *0.0.0.0/0*. Doing so can prevent the gateway from functioning properly. For more information about using *0.0.0.0/0* in a route, see [Virtual network traffic routing](virtual-networks-udr-overview#default-route).
+
+### Associate a route table - commands
+
+    | Tool | Command |
+    | --- | --- |
+    | Azure CLI | [az network vnet subnet update](/en-us/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update) |
+    | PowerShell | [Set-AzVirtualNetworkSubnetConfig](/en-us/powershell/module/az.network/set-azvirtualnetworksubnetconfig) |
+
+## Dissociate a route table from a subnet
+
+When you dissociate a route table from a subnet, Azure routes traffic based on its [default routes](virtual-networks-udr-overview#default).
+
+1. Go to the [Azure portal](https://portal.azure.com) to manage your virtual network. Search for and select **Virtual networks**.
+2. In the virtual network list, choose the virtual network that contains the subnet you want to dissociate a route table from.
+3. In the virtual network menu bar, choose **Subnets**.
+4. Select the subnet you want to dissociate the route table from.
+5. In **Route table**, choose **None**.
+
+    ![Screenshot of removing a route table from a subnet.](media/manage-route-table/remove-route-table.png)
+6. Select **Save**.
+
+### Dissociate a route table - commands
+
+    | Tool | Command |
+    | --- | --- |
+    | Azure CLI | [az network vnet subnet update](/en-us/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update) |
+    | PowerShell | [Set-AzVirtualNetworkSubnetConfig](/en-us/powershell/module/az.network/set-azvirtualnetworksubnetconfig) |
+
+## Delete a route table
+
+You can't delete a route table associated to any subnets. Dissociate a route table from all subnets before attempting to delete it.
+
+1. Go to the [Azure portal](https://portal.azure.com) to manage your route tables. Search for and select **Route tables**.
+2. In the route table list, choose the route table you want to delete.
+3. Select **Delete**, and then select **Yes** in the confirmation dialog box. ![Screenshot of the delete button for a route table.](media/manage-route-table/delete-route-table.png)
+
+### Delete a route table - commands
+
+    | Tool | Command |
+    | --- | --- |
+    | Azure CLI | [az network route-table delete](/en-us/cli/azure/network/route-table#az-network-route-table-delete) |
+    | PowerShell | [Remove-AzRouteTable](/en-us/powershell/module/az.network/remove-azroutetable) |
+
+## Create a route
+
+There's a limit to how many routes per route table can create per Azure location and subscription. For details, see [Networking limits - Azure Resource Manager](../azure-resource-manager/management/azure-subscription-service-limits?toc=/azure/virtual-network/toc.json#azure-resource-manager-virtual-networking-limits).
+
+1. Go to the [Azure portal](https://portal.azure.com) to manage your route tables. Search for and select **Route tables**.
+2. In the route table list, choose the route table you want to add a route to.
+3. From the route table menu bar, choose **Routes** and then select **+ Add**.
+4. Enter a unique **Route name** for the route within the route table. ![Screenshot of add a route page for a route table.](media/manage-route-table/add-route.png)
+5. Enter the **Address prefix**, in Classless Inter-Domain Routing (CIDR) notation, that you want to route traffic to. The prefix can't be duplicated in more than one route within the route table, though the prefix can be within another prefix. For example, if you defined *10.0.0.0/16* as a prefix in one route, you can still define another route with the *10.0.0.0/22* address prefix. Azure selects a route for traffic based on longest prefix match. To learn more, see [How Azure selects a route](virtual-networks-udr-overview#how-azure-selects-a-route).
+6. Choose a **Next hop type**. To learn more about next hop types, see [Virtual network traffic routing](virtual-networks-udr-overview).
+7. If you chose a **Next hop type** of **Virtual appliance**, enter an IP address for **Next hop address**.
+8. Select **OK**.
+
+### Create a route - commands
+
+    | Tool | Command |
+    | --- | --- |
+    | Azure CLI | [az network route-table route create](/en-us/cli/azure/network/route-table/route#az-network-route-table-route-create) |
+    | PowerShell | [New-AzRouteConfig](/en-us/powershell/module/az.network/new-azrouteconfig) |
+
+## View routes
+
+A route table contains zero or more routes. To learn more about the information listed when viewing routes, see [Virtual network traffic routing](virtual-networks-udr-overview).
+
+1. Go to the [Azure portal](https://portal.azure.com) to manage your route tables. Search for and select **Route tables**.
+2. In the route table list, choose the route table you want to view routes for.
+3. In the route table menu bar, choose **Routes** to see the list of routes. ![Screenshot of the routes in a route table.](media/manage-route-table/routes.png)
+
+### View routes - commands
+
+    | Tool | Command |
+    | --- | --- |
+    | Azure CLI | [az network route-table route list](/en-us/cli/azure/network/route-table/route#az-network-route-table-route-list) |
+    | PowerShell | [Get-AzRouteConfig](/en-us/powershell/module/az.network/get-azrouteconfig) |
+
+## View details of a route
+
+Follow the below steps:
+
+1. Go to the [Azure portal](https://portal.azure.com) to manage your route tables. Search for and select **Route tables**.
+2. In the route table list, choose the route table containing the route you want to view details for.
+3. In the route table menu bar, choose **Routes** to see the list of routes.
+4. Select the route you want to view details of. ![Screenshot of a route details page](media/manage-route-table/view-route.png)
+
+### View details of a route - commands
+
+    | Tool | Command |
+    | --- | --- |
+    | Azure CLI | [az network route-table route show](/en-us/cli/azure/network/route-table/route#az-network-route-table-route-show) |
+    | PowerShell | [Get-AzRouteConfig](/en-us/powershell/module/az.network/get-azrouteconfig) |
+
+## Change a route
+
+Follow the below steps:
+
+1. Go to the [Azure portal](https://portal.azure.com) to manage your route tables. Search for and select **Route tables**.
+2. In the route table list, choose the route table containing the route you want to change.
+3. In the route table menu bar, choose **Routes** to see the list of routes.
+4. Choose the route you want to change.
+5. Change existing settings to their new settings, then select **Save**.
+
+### Change a route - commands
+
+    | Tool | Command |
+    | --- | --- |
+    | Azure CLI | [az network route-table route update](/en-us/cli/azure/network/route-table/route#az-network-route-table-route-update) |
+    | PowerShell | [Set-AzRouteConfig](/en-us/powershell/module/az.network/set-azrouteconfig) |
+
+## Delete a route
+
+Follow the below steps:
+
+1. Go to the [Azure portal](https://portal.azure.com) to manage your route tables. Search for and select **Route tables**.
+2. In the route table list, choose the route table containing the route you want to delete.
+3. In the route table menu bar, choose **Routes** to see the list of routes.
+4. Choose the route you want to delete.
+5. Select the **...** and then select **Delete**. Select **Yes** in the confirmation dialog box. ![Screenshot of the delete button for a route from a route table.](media/manage-route-table/delete-route.png)
+
+### Delete a route - commands
+
+    | Tool | Command |
+    | --- | --- |
+    | Azure CLI | [az network route-table route delete](/en-us/cli/azure/network/route-table/route#az-network-route-table-route-delete) |
+    | PowerShell | [Remove-AzRouteConfig](/en-us/powershell/module/az.network/remove-azrouteconfig) |
+
+## View effective routes
+
+The effective routes for each VM-attached network interface are a combination of route tables created, Azure's default routes, and any routes propagated from on-premises networks via the Border Gateway Protocol (BGP) through an Azure virtual network gateway. Understanding the effective routes for a network interface is helpful when troubleshooting routing problems. You can view the effective routes for any network interface attached to a running virtual machine.
+
+1. Go to the [Azure portal](https://portal.azure.com) to manage your VMs. Search for and select **Virtual machines**.
+2. In the virtual machine list, choose the VM you want to view effective routes for.
+3. In the VM menu bar, choose **Networking**.
+4. Select the name of a network interface.
+5. In the network interface menu bar, select **Effective routes**. ![Screenshot of the effective routes for a network interface.](media/manage-route-table/effective-routes.png)
+6. Review the list of effective routes to see whether the correct route exists for where you want to route traffic to. Learn more about next hop types that you see in this list in [Virtual network traffic routing](virtual-networks-udr-overview).
+
+### View effective routes - commands
+
+    | Tool | Command |
+    | --- | --- |
+    | Azure CLI | [az network nic show-effective-route-table](/en-us/cli/azure/network/nic#az-network-nic-show-effective-route-table) |
+    | PowerShell | [Get-AzEffectiveRouteTable](/en-us/powershell/module/az.network/get-azeffectiveroutetable) |
+
+## Validate routing between two endpoints
+
+You can determine the next hop type between a virtual machine and the IP address of another Azure resource, an on-premises resource, or a resource on the Internet. Determining Azure's routing is helpful when troubleshooting routing problems. To complete this task, you must have an existing network watcher. If you don't have an existing network watcher, create one by completing the steps in [Create a Network Watcher instance](../network-watcher/network-watcher-create?toc=/azure/virtual-network/toc.json).
+
+1. Go to the [Azure portal](https://portal.azure.com) to manage your network watchers. Search for and select **Network Watcher**.
+2. In the network watcher menu bar, choose **Next hop**.
+3. In the **Network Watcher | Next hop** page: ![Screenshot of add a route page for a route table.](media/manage-route-table/add-route.png)
+
+    | Setting | Value |
+    | --- | --- |
+    | Subscription | Select the **subscription** the source VM is in. |
+    | Resource group | Select the **resource group** that contains the VM. |
+    | Virtual machine | Select the **VM** you want to test against. |
+    | Network interface | Select the **network interface** you want to test next hop from. |
+    | Source IP address | The default **source IP** has been selected for you. You can change the source IP if the network interface has more than one. |
+    | Destination IP address | Enter the **destination IP** to want to view the next hop for the VM. |
+4. Select **Next hop**.
+
+    After a short wait, Azure tells you the next hop type and the ID of the route that routed the traffic. Learn more about next hop types that you see returned in [Virtual network traffic routing](virtual-networks-udr-overview).
+
+### Validate routing between two endpoints - commands
+
+    | Tool | Command |
+    | --- | --- |
+    | Azure CLI | [az network watcher show-next-hop](/en-us/cli/azure/network/watcher#az-network-watcher-show-next-hop) |
+    | PowerShell | [Get-AzNetworkWatcherNextHop](/en-us/powershell/module/az.network/get-aznetworkwatchernexthop) |
+
+## Permissions
+
+To do tasks on route tables and routes, your account must be assigned to
+
+1. the [Network contributor role](../role-based-access-control/built-in-roles?toc=/azure/virtual-network/toc.json#network-contributor)
+2. or to a [Custom role](../role-based-access-control/custom-roles?toc=/azure/virtual-network/toc.json) that's assigned the appropriate actions listed in the following table:
+
+    | Action | Name |
+    | --- | --- |
+    | Microsoft.Network/routeTables/read | Read a route table |
+    | Microsoft.Network/routeTables/write | Create or update a route table |
+    | Microsoft.Network/routeTables/delete | Delete a route table |
+    | Microsoft.Network/routeTables/join/action | Associate a route table to a subnet |
+    | Microsoft.Network/routeTables/routes/read | Read a route |
+    | Microsoft.Network/routeTables/routes/write | Create or update a route |
+    | Microsoft.Network/routeTables/routes/delete | Delete a route |
+    | Microsoft.Network/networkInterfaces/effectiveRouteTable/action | Get the effective route table for a network interface |
+    | Microsoft.Network/networkWatchers/nextHop/action | Gets the next hop from a VM |

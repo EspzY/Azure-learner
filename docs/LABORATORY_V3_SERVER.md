@@ -91,3 +91,7 @@ Actual local browser evidence: [1440×900](reviews/evidence/pr60/blob-1440-900.p
 ## PR69 — Migration007 and model3.6
 
 Cold local install now applies001,002,007;007 supersedes constraint-only003–006. Historical populated databases on003/004/005/006 apply007 additively; no snapshots or receipts are rewritten. Repeated setup remains supported. Existing workspaces keep their model. Explicit new3.6 workspaces add four security-rule lifecycle commands. PostgreSQL integration tests cover all five cold/upgrade paths and original runtime append-only permissions. See [contract](LABORATORY_SECURITY_REMEDIATION_PART_A.md).
+
+## PR70 — additive008 and model3.7
+
+Current local setup applies001→002→008. Migration008 supersedes narrower constraint-only003–007 for cold installation; populated003/004/005/006/007 databases add008 without rewriting existing rows. Repeat setup is supported; applying narrower007 over a populated3.7 database fails rather than discards history. Existing sessions retain their original model, including3.6. New3.7 Route Update, subnet NSG detach and peering access use the unchanged original repository transaction, owner checks, row lock, idempotency, revision and commit-before-response contracts. Pure/real-PG tests cover those cold/upgrade paths. No hosted configuration or historical3.5 recovery is performed. [Topology contract](LABORATORY_TOPOLOGY_REMEDIATION_PART_B.md).

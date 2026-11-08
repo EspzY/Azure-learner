@@ -1,14 +1,13 @@
 'use client';
-import { computeView as computeProjection, isFirewallWorld } from './capabilities';
+import { isFirewallWorld } from './capabilities';
 import { laboratoryFirewallNb as f } from '@/content/laboratory-firewall-nb';
 import { useEffect, useRef, useState, type ReactNode } from 'react';
 import Link from 'next/link';
+import { TopologyAccess } from './topology-access';
 import type { World, Command } from '@/laboratory/v32/contract';
 import type { Snapshot } from '@/laboratory/engine';
 import type { Analysis } from '@/laboratory/v32/analysis';
-import { routingProjection } from '@/laboratory/v33/projection';
-import { endpointProjection } from '@/laboratory/v34/projection';
-import { peeringStatus } from '@/laboratory/v32/peering';
+import { peeringState } from './capabilities';
 import { laboratoryRoutingNb as r } from '@/content/laboratory-routing-nb';
 import { laboratoryV3Nb as c } from '@/content/nb';
 import { PropertyList } from '@/features/portal/shared';
@@ -36,7 +35,8 @@ export function RoutingViews({
     | import('@/laboratory/v33/contract').World
     | import('@/laboratory/v34/contract').World
     | import('@/laboratory/v35/contract').World
-    | import('@/laboratory/v36/contract').World;
+    | import('@/laboratory/v36/contract').World
+    | import('@/laboratory/v37/contract').World;
   view: string;
   id: string | null;
   begin: (type: Command['type']) => void;
@@ -105,20 +105,11 @@ export function RoutingViews({
               [c.id, peering.id],
               ['Lokalt VNet', vnetLink(peering.vnetId)],
               [r.fields.remoteVnetId, vnetLink(peering.remoteVnetId)],
+              ['Status', peeringState(w, peering.id)],
               [
-                'Status',
-                peeringStatus(
-                  isFirewallWorld(w)
-                    ? routingProjection(endpointProjection(computeProjection(w)))
-                    : w.model === 'laboratory@3.4.0'
-                      ? routingProjection(endpointProjection(w))
-                      : w.model === 'laboratory@3.3.0'
-                        ? routingProjection(w)
-                        : w,
-                  peering,
-                ),
+                r.fields.allowVirtualNetworkAccess,
+                peering.allowVirtualNetworkAccess ? 'Aktivert' : 'Deaktivert',
               ],
-              [r.fields.allowVirtualNetworkAccess, 'Aktivert'],
             ]}
           />
           {receipt(peering.origin)}
@@ -233,6 +224,7 @@ export function RouteAnalysis({
           | import('@/laboratory/v34/analysis').RouteAnalysis
           | import('@/laboratory/v35/analysis').RouteAnalysis
           | import('@/laboratory/v36/analysis').RouteAnalysis
+          | import('@/laboratory/v37/analysis').RouteAnalysis
         ) & { workspace: string })
       | null
     >(null);
@@ -371,6 +363,7 @@ export function RouteAnalysis({
       {stale && <p role="status">{r.stale}</p>}
       {result && !stale && (
         <>
+          {'accessChecks' in result && <TopologyAccess analysis={result} />}
           <h2 tabIndex={-1} ref={heading}>
             {r.computed}
           </h2>

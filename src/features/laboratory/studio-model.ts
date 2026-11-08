@@ -1,5 +1,6 @@
 /** Read-only display projection. Inputs are the existing verified snapshot and canonical inventory. */
 import { isFirewallWorld } from './capabilities';
+import { laboratoryTopologyNb as topologyCopy } from '@/content/laboratory-topology-nb';
 import type { Snapshot } from '@/laboratory/engine';
 import type { LaboratoryResource } from './portal-adapter';
 import type { LaboratoryPolicyResult } from './endpoints';
@@ -175,7 +176,7 @@ export function currentAnalysis(
 }
 export type Observation = {
   id: string;
-  type: keyof typeof t.observationTypes;
+  type: keyof typeof t.observationTypes | keyof typeof topologyCopy.observationTypes;
   classification: keyof typeof t.classes;
   resourceId: string;
   reason: string;
@@ -226,6 +227,23 @@ export function architectureObservations(
       )
         add('broad-allow', 'review', r.id, t.reasons.broad);
   if (currentAnalysis(snapshot, analysis)) {
+    if (w.model === 'laboratory@3.7.0') {
+      if (analysis.route?.selected.source === 'User' && analysis.route.selected.nextHop === 'None')
+        add(
+          'route-blocks-modeled-flow',
+          'finding',
+          analysis.route.selected.id,
+          topologyCopy.routeDrop,
+        );
+      if ('accessChecks' in analysis)
+        for (const p of analysis.accessChecks.filter((p) => !p.allowVirtualNetworkAccess))
+          add(
+            'peering-access-disabled',
+            'unknown',
+            p.peeringId,
+            topologyCopy.peeringAccessObservation,
+          );
+    }
     for (const l of analysis.layers)
       if (l.status === 'deny' && l.matchedRuleId)
         add(

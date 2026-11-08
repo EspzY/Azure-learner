@@ -1,0 +1,821 @@
+---
+layout: Conceptual
+title: Microsoft.Network/virtualNetworks/virtualNetworkPeerings - Bicep, ARM template & Terraform AzAPI reference | Microsoft Learn
+canonicalUrl: https://learn.microsoft.com/en-us/azure/templates/microsoft.network/virtualnetworks/virtualnetworkpeerings
+feedback_system: Standard
+breadcrumb_path: /azure/templates/breadcrumb/toc.json
+zone_pivot_group_filename: templates/zone-pivot-groups.json
+uhfHeaderId: azure
+ms.date: 2024-12-09T00:00:00.0000000Z
+author: kgremban
+ms.author: kgremban
+ms.manager: akashdubey
+description: Azure Microsoft.Network/virtualNetworks/virtualNetworkPeerings syntax and properties to use in Azure Resource Manager templates for deploying the resource. API version latest
+zone_pivot_groups: deployment-languages-reference
+ms.service: azure-resource-manager
+ms.topic: reference
+locale: en-us
+document_id: 3445dffa-9d70-cc04-4fcd-fb4cc8a9a180
+document_version_independent_id: cede6ad4-2aee-0d17-bd88-20f7591f2c8e
+updated_at: 2026-10-20T20:55:00.0000000Z
+original_content_git_url: https://github.com/MicrosoftDocs/azure-resource-manager-schema-reference-pr/blob/live/arm-schema-ref/Microsoft.Network/virtualNetworks/virtualNetworkPeerings.md
+gitcommit: https://github.com/MicrosoftDocs/azure-resource-manager-schema-reference-pr/blob/34186641da814105fd2729b572f9fe866f2cc961/arm-schema-ref/Microsoft.Network/virtualNetworks/virtualNetworkPeerings.md
+git_commit_id: 34186641da814105fd2729b572f9fe866f2cc961
+site_name: Docs
+depot_name: MSDN.arm-schema-ref
+page_type: conceptual
+toc_rel: ../../toc.json
+feedback_product_url: ''
+feedback_help_link_type: ''
+feedback_help_link_url: ''
+word_count: 2914
+asset_id: microsoft.network/virtualnetworks/virtualnetworkpeerings
+moniker_range_name: 
+monikers: []
+item_type: Content
+source_path: arm-schema-ref/Microsoft.Network/virtualNetworks/virtualNetworkPeerings.md
+cmProducts:
+- https://authoring-docs-microsoft.poolparty.biz/devrel/20ed8455-bc18-4537-87a4-83784e7b2a39
+- https://authoring-docs-microsoft.poolparty.biz/devrel/68ec7f3a-2bc6-459f-b959-19beb729907d
+spProducts:
+- https://authoring-docs-microsoft.poolparty.biz/devrel/9a7f703b-30bb-4d62-9eb4-97213f571849
+- https://authoring-docs-microsoft.poolparty.biz/devrel/90370425-aca4-4a39-9533-d52e5e002a5d
+platformId: eb3e135a-4e10-8af0-a121-2fa5cbbc174d
+---
+
+# Microsoft.Network/virtualNetworks/virtualNetworkPeerings - Bicep, ARM template & Terraform AzAPI reference | Microsoft Learn
+
+- [Latest](virtualnetworkpeerings)
+- [2026-03-01](../2026-03-01/virtualnetworks/virtualnetworkpeerings)
+- [2026-01-01](../2026-01-01/virtualnetworks/virtualnetworkpeerings)
+- [2025-09-01](../2025-09-01/virtualnetworks/virtualnetworkpeerings)
+- [2025-07-01](../2025-07-01/virtualnetworks/virtualnetworkpeerings)
+- [2025-05-01](../2025-05-01/virtualnetworks/virtualnetworkpeerings)
+- [2025-03-01](../2025-03-01/virtualnetworks/virtualnetworkpeerings)
+- [2025-01-01](../2025-01-01/virtualnetworks/virtualnetworkpeerings)
+- [2024-10-01](../2024-10-01/virtualnetworks/virtualnetworkpeerings)
+- [2024-07-01](../2024-07-01/virtualnetworks/virtualnetworkpeerings)
+- [2024-05-01](../2024-05-01/virtualnetworks/virtualnetworkpeerings)
+- [2024-03-01](../2024-03-01/virtualnetworks/virtualnetworkpeerings)
+- [2024-01-01](../2024-01-01/virtualnetworks/virtualnetworkpeerings)
+- [2023-11-01](../2023-11-01/virtualnetworks/virtualnetworkpeerings)
+- [2023-09-01](../2023-09-01/virtualnetworks/virtualnetworkpeerings)
+- [2023-06-01](../2023-06-01/virtualnetworks/virtualnetworkpeerings)
+- [2023-05-01](../2023-05-01/virtualnetworks/virtualnetworkpeerings)
+- [2023-04-01](../2023-04-01/virtualnetworks/virtualnetworkpeerings)
+- [2023-02-01](../2023-02-01/virtualnetworks/virtualnetworkpeerings)
+- [2022-11-01](../2022-11-01/virtualnetworks/virtualnetworkpeerings)
+- [2022-09-01](../2022-09-01/virtualnetworks/virtualnetworkpeerings)
+- [2022-07-01](../2022-07-01/virtualnetworks/virtualnetworkpeerings)
+- [2022-05-01](../2022-05-01/virtualnetworks/virtualnetworkpeerings)
+- [2022-01-01](../2022-01-01/virtualnetworks/virtualnetworkpeerings)
+- [2021-08-01](../2021-08-01/virtualnetworks/virtualnetworkpeerings)
+- [2021-05-01](../2021-05-01/virtualnetworks/virtualnetworkpeerings)
+- [2021-03-01](../2021-03-01/virtualnetworks/virtualnetworkpeerings)
+- [2021-02-01](../2021-02-01/virtualnetworks/virtualnetworkpeerings)
+- [2020-11-01](../2020-11-01/virtualnetworks/virtualnetworkpeerings)
+- [2020-08-01](../2020-08-01/virtualnetworks/virtualnetworkpeerings)
+- [2020-07-01](../2020-07-01/virtualnetworks/virtualnetworkpeerings)
+- [2020-06-01](../2020-06-01/virtualnetworks/virtualnetworkpeerings)
+- [2020-05-01](../2020-05-01/virtualnetworks/virtualnetworkpeerings)
+- [2020-04-01](../2020-04-01/virtualnetworks/virtualnetworkpeerings)
+- [2020-03-01](../2020-03-01/virtualnetworks/virtualnetworkpeerings)
+- [2019-12-01](../2019-12-01/virtualnetworks/virtualnetworkpeerings)
+- [2019-11-01](../2019-11-01/virtualnetworks/virtualnetworkpeerings)
+- [2019-09-01](../2019-09-01/virtualnetworks/virtualnetworkpeerings)
+- [2019-08-01](../2019-08-01/virtualnetworks/virtualnetworkpeerings)
+- [2019-07-01](../2019-07-01/virtualnetworks/virtualnetworkpeerings)
+- [2019-06-01](../2019-06-01/virtualnetworks/virtualnetworkpeerings)
+- [2019-04-01](../2019-04-01/virtualnetworks/virtualnetworkpeerings)
+- [2019-02-01](../2019-02-01/virtualnetworks/virtualnetworkpeerings)
+- [2018-12-01](../2018-12-01/virtualnetworks/virtualnetworkpeerings)
+- [2018-11-01](../2018-11-01/virtualnetworks/virtualnetworkpeerings)
+- [2018-10-01](../2018-10-01/virtualnetworks/virtualnetworkpeerings)
+- [2018-08-01](../2018-08-01/virtualnetworks/virtualnetworkpeerings)
+- [2018-07-01](../2018-07-01/virtualnetworks/virtualnetworkpeerings)
+- [2018-06-01](../2018-06-01/virtualnetworks/virtualnetworkpeerings)
+- [2018-04-01](../2018-04-01/virtualnetworks/virtualnetworkpeerings)
+- [2018-02-01](../2018-02-01/virtualnetworks/virtualnetworkpeerings)
+- [2018-01-01](../2018-01-01/virtualnetworks/virtualnetworkpeerings)
+- [2017-11-01](../2017-11-01/virtualnetworks/virtualnetworkpeerings)
+- [2017-10-01](../2017-10-01/virtualnetworks/virtualnetworkpeerings)
+- [2017-09-01](../2017-09-01/virtualnetworks/virtualnetworkpeerings)
+- [2017-08-01](../2017-08-01/virtualnetworks/virtualnetworkpeerings)
+- [2017-06-01](../2017-06-01/virtualnetworks/virtualnetworkpeerings)
+- [2017-03-30](../2017-03-30/virtualnetworks/virtualnetworkpeerings)
+- [2017-03-01](../2017-03-01/virtualnetworks/virtualnetworkpeerings)
+- [2016-12-01](../2016-12-01/virtualnetworks/virtualnetworkpeerings)
+- [2016-09-01](../2016-09-01/virtualnetworks/virtualnetworkpeerings)
+- [2016-06-01](../2016-06-01/virtualnetworks/virtualnetworkpeerings)
+
+::: zone pivot="deployment-language-bicep"
+
+## Bicep resource definition
+
+The virtualNetworks/virtualNetworkPeerings resource type can be deployed with operations that target:
+
+- **Resource groups** - See [resource group deployment commands](/en-us/azure/azure-resource-manager/bicep/deploy-to-resource-group)
+
+For a list of changed properties in each API version, see [change log](../change-log/virtualnetworks/virtualnetworkpeerings).
+
+## Usage Examples
+
+### Bicep Samples
+
+A basic example of deploying virtual network peering which allows resources to access other.
+
+```bicep
+param resourceName string = 'acctest0001'
+param location string = 'westeurope'
+
+resource workspace 'Microsoft.Databricks/workspaces@2023-02-01' = {
+  name: resourceName
+  location: location
+  sku: {
+    name: 'standard'
+  }
+  properties: {
+    managedResourceGroupId: resourceGroup().id
+    parameters: {
+      prepareEncryption: {
+        value: false
+      }
+      requireInfrastructureEncryption: {
+        value: false
+      }
+    }
+    publicNetworkAccess: 'Enabled'
+  }
+}
+
+resource virtualNetworkPeering 'Microsoft.Databricks/workspaces/virtualNetworkPeerings@2023-02-01' = {
+  name: resourceName
+  parent: workspace
+  properties: {
+    allowForwardedTraffic: false
+    allowGatewayTransit: false
+    allowVirtualNetworkAccess: true
+    databricksAddressSpace: {
+      addressPrefixes: [
+        '10.139.0.0/16'
+      ]
+    }
+    remoteAddressSpace: {
+      addressPrefixes: [
+        '10.0.1.0/24'
+      ]
+    }
+    remoteVirtualNetwork: {
+      id: virtualNetwork.id
+    }
+    useRemoteGateways: false
+  }
+}
+
+resource virtualNetwork 'Microsoft.Network/virtualNetworks@2022-07-01' = {
+  name: resourceName
+  location: location
+  properties: {
+    addressSpace: {
+      addressPrefixes: [
+        '10.0.1.0/24'
+      ]
+    }
+    dhcpOptions: {
+      dnsServers: []
+    }
+    subnets: []
+  }
+}
+```
+
+### Azure Verified Modules
+
+The following [Azure Verified Modules](https://aka.ms/avm) can be used to deploy this resource type.
+
+| Module | Description |
+| --- | --- |
+| [Virtual Network - Peering](https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/network/virtual-network/virtual-network-peering) | AVM Child Module for Virtual Network - Peering |
+
+### Azure Quickstart Samples
+
+The following [Azure Quickstart templates](https://aka.ms/azqst) contain Bicep samples for deploying this resource type.
+
+| Bicep File | Description |
+| --- | --- |
+| [Azure Game Developer Virtual Machine](https://github.com/Azure/azure-quickstart-templates/tree/master/application-workloads/azure-gamedev/gamedev-vm/main.bicep) | Azure Game Developer Virtual Machine includes Licencsed Engines like Unreal. |
+| [Create a vNet to vNet connection using vNet Peering](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/vnet-to-vnet-peering/main.bicep) | This template allows you to connect two vNets using vNet Peering |
+| [Deploy a Bastion host in a hub Virtual Network](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/bastion-hub-spoke-vnet/main.bicep) | This template creates two vNets with peerings, a Bastion host in the Hub vNet and a Linux VM in the spoke vNet |
+| [Hub-Spoke Network with NAT Gateway and Azure Firewall](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/nat-gateway-hub-spoke-firewall/main.bicep) | Deploy a hub-spoke network topology with NAT gateway, Azure Firewall, and virtual machine |
+| [Peer two existing VNets within a single region](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/existing-vnet-to-vnet-peering/main.bicep) | This template allows you to connect two VNETs from the same or different resource groups in the same region using VNet Peering |
+| [Public Load Balancer chained to a Gateway Load Balancer](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/load-balancer-gateway/main.bicep) | This template allows you to deploy a Public Standard Load Balancer chained to a Gateway Load Balancer. The traffic incoming from internet is routed to the Gateway Load Balancer with linux VMs (NVAs) in the backend pool. |
+| [Use Azure Firewall as a DNS Proxy in a Hub & Spoke topology](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/azure-firewall-dns-proxy/main.bicep) | This sample show how to deploy a hub-spoke topology in Azure using the Azure Firewall. The hub virtual network acts as a central point of connectivity to many spoke virtual networks that are connected to hub virtual network via virtual network peering. |
+
+## Resource format
+
+To create a Microsoft.Network/virtualNetworks/virtualNetworkPeerings resource, add the following Bicep to your template.
+
+```bicep
+resource symbolicname 'Microsoft.Network/virtualNetworks/virtualNetworkPeerings@2026-03-01' = {
+  parent: resourceSymbolicName
+  name: 'string'
+  properties: {
+    allowForwardedTraffic: bool
+    allowGatewayTransit: bool
+    allowVirtualNetworkAccess: bool
+    doNotVerifyRemoteGateways: bool
+    enableOnlyIPv6Peering: bool
+    localAddressSpace: {
+      addressPrefixes: [
+        'string'
+      ]
+      ipamPoolPrefixAllocations: [
+        {
+          numberOfIpAddresses: 'string'
+          pool: {
+            id: 'string'
+          }
+        }
+      ]
+    }
+    localSubnetNames: [
+      'string'
+    ]
+    localVirtualNetworkAddressSpace: {
+      addressPrefixes: [
+        'string'
+      ]
+      ipamPoolPrefixAllocations: [
+        {
+          numberOfIpAddresses: 'string'
+          pool: {
+            id: 'string'
+          }
+        }
+      ]
+    }
+    peerCompleteVnets: bool
+    peeringState: 'string'
+    peeringSyncLevel: 'string'
+    remoteAddressSpace: {
+      addressPrefixes: [
+        'string'
+      ]
+      ipamPoolPrefixAllocations: [
+        {
+          numberOfIpAddresses: 'string'
+          pool: {
+            id: 'string'
+          }
+        }
+      ]
+    }
+    remoteBgpCommunities: {
+      virtualNetworkCommunity: 'string'
+    }
+    remoteSubnetNames: [
+      'string'
+    ]
+    remoteVirtualNetwork: {
+      id: 'string'
+    }
+    remoteVirtualNetworkAddressSpace: {
+      addressPrefixes: [
+        'string'
+      ]
+      ipamPoolPrefixAllocations: [
+        {
+          numberOfIpAddresses: 'string'
+          pool: {
+            id: 'string'
+          }
+        }
+      ]
+    }
+    useRemoteGateways: bool
+  }
+}
+```
+
+## Property Values
+
+### Microsoft.Network/virtualNetworks/virtualNetworkPeerings
+
+| Name | Description | Value |
+| --- | --- | --- |
+| name | The resource name | string (required) |
+| parent | In Bicep, you can specify the parent resource for a child resource. You only need to add this property when the child resource is declared outside of the parent resource.For more information, see [Child resource outside parent resource](/en-us/azure/azure-resource-manager/bicep/child-resource-name-type#outside-parent-resource). | Symbolic name for resource of type: [virtualNetworks](../virtualnetworks) |
+| properties | Properties of the virtual network peering. | VirtualNetworkPeeringPropertiesFormat |
+
+### AddressSpace
+
+| Name | Description | Value |
+| --- | --- | --- |
+| addressPrefixes | A list of address blocks reserved for this virtual network in CIDR notation. | string[] |
+| ipamPoolPrefixAllocations | A list of IPAM Pools allocating IP address prefixes. | IpamPoolPrefixAllocation[] |
+
+### IpamPoolPrefixAllocation
+
+| Name | Description | Value |
+| --- | --- | --- |
+| numberOfIpAddresses | Number of IP addresses to allocate. | string |
+| pool |  | IpamPoolPrefixAllocationPool |
+
+### IpamPoolPrefixAllocationPool
+
+| Name | Description | Value |
+| --- | --- | --- |
+| id | Resource id of the associated Azure IpamPool resource. | string |
+
+### SubResource
+
+| Name | Description | Value |
+| --- | --- | --- |
+| id | Resource ID. | string |
+
+### VirtualNetworkBgpCommunities
+
+| Name | Description | Value |
+| --- | --- | --- |
+| virtualNetworkCommunity | The BGP community associated with the virtual network. | string (required) |
+
+### VirtualNetworkPeeringPropertiesFormat
+
+| Name | Description | Value |
+| --- | --- | --- |
+| allowForwardedTraffic | Whether the forwarded traffic from the VMs in the local virtual network will be allowed/disallowed in remote virtual network. | bool |
+| allowGatewayTransit | If gateway links can be used in remote virtual networking to link to this virtual network. | bool |
+| allowVirtualNetworkAccess | Whether the VMs in the local virtual network space would be able to access the VMs in remote virtual network space. | bool |
+| doNotVerifyRemoteGateways | If we need to verify the provisioning state of the remote gateway. | bool |
+| enableOnlyIPv6Peering | Whether only Ipv6 address space is peered for subnet peering. | bool |
+| localAddressSpace | The local address space of the local virtual network that is peered. | AddressSpace |
+| localSubnetNames | List of local subnet names that are subnet peered with remote virtual network. | string[] |
+| localVirtualNetworkAddressSpace | The current local address space of the local virtual network that is peered. | AddressSpace |
+| peerCompleteVnets | Whether complete virtual network address space is peered. | bool |
+| peeringState | The status of the virtual network peering. | 'Connected''Disconnected''Initiated' |
+| peeringSyncLevel | The peering sync status of the virtual network peering. | 'FullyInSync''LocalAndRemoteNotInSync''LocalNotInSync''RemoteNotInSync' |
+| remoteAddressSpace | The reference to the address space peered with the remote virtual network. | AddressSpace |
+| remoteBgpCommunities | The reference to the remote virtual network's Bgp Communities. | VirtualNetworkBgpCommunities |
+| remoteSubnetNames | List of remote subnet names from remote virtual network that are subnet peered. | string[] |
+| remoteVirtualNetwork | The reference to the remote virtual network. The remote virtual network can be in the same or different region (preview). See here to register for the preview and learn more (/azure/virtual-network/virtual-network-create-peering). | SubResource |
+| remoteVirtualNetworkAddressSpace | The reference to the current address space of the remote virtual network. | AddressSpace |
+| useRemoteGateways | If remote gateways can be used on this virtual network. If the flag is set to true, and allowGatewayTransit on remote peering is also true, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to true. This flag cannot be set if virtual network already has a gateway. | bool |
+
+::: zone-end
+
+::: zone pivot="deployment-language-arm-template"
+
+## ARM template resource definition
+
+The virtualNetworks/virtualNetworkPeerings resource type can be deployed with operations that target:
+
+- **Resource groups** - See [resource group deployment commands](/en-us/azure/azure-resource-manager/templates/deploy-to-resource-group) For a list of changed properties in each API version, see [change log](../change-log/virtualnetworks/virtualnetworkpeerings).
+
+## Usage Examples
+
+### Azure Quickstart Templates
+
+The following [Azure Quickstart templates](https://aka.ms/azqst) deploy this resource type.
+
+| Template | Description |
+| --- | --- |
+| [Azure Game Developer Virtual Machine](https://github.com/Azure/azure-quickstart-templates/tree/master/application-workloads/azure-gamedev/gamedev-vm)[![Deploy to Azure](../../media/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fapplication-workloads%2Fazure-gamedev%2Fgamedev-vm%2Fazuredeploy.json) | Azure Game Developer Virtual Machine includes Licencsed Engines like Unreal. |
+| [Create a vNet to vNet connection using vNet Peering](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/vnet-to-vnet-peering)[![Deploy to Azure](../../media/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.network%2Fvnet-to-vnet-peering%2Fazuredeploy.json) | This template allows you to connect two vNets using vNet Peering |
+| [Create an Azure Firewall sandbox with forced tunneling](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/azurefirewall-forced-tunneling)[![Deploy to Azure](../../media/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.network%2Fazurefirewall-forced-tunneling%2Fazuredeploy.json) | This template creates an Azure Firewall sandbox (Linux) with one firewall force tunneled through another firewall in a peered VNET |
+| [Deploy a Bastion host in a hub Virtual Network](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/bastion-hub-spoke-vnet)[![Deploy to Azure](../../media/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.network%2Fbastion-hub-spoke-vnet%2Fazuredeploy.json) | This template creates two vNets with peerings, a Bastion host in the Hub vNet and a Linux VM in the spoke vNet |
+| [Deploy a Hub and Spoke topology sandbox](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/hub-and-spoke-sandbox)[![Deploy to Azure](../../media/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fdemos%2Fhub-and-spoke-sandbox%2Fazuredeploy.json) | This template creates a basic hub-and-spoke topology setup. It creates a Hub VNet with subnets DMZ, Management, Shared and Gateway (optionally), with two Spoke VNets (development and production) containing a workload subnet each. It also deploys a Windows Jump-Host on the Management subnet of the HUB, and establishes VNet peerings between the Hub and the two spokes. |
+| [Deploy HBase replication with two VNets in one region](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.hdinsight/hdinsight-hbase-replication-two-vnets-same-region)[![Deploy to Azure](../../media/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.hdinsight%2Fhdinsight-hbase-replication-two-vnets-same-region%2Fazuredeploy.json) | This template allows you to configure aN HBase environment with two HBase clusters within two VNets in the same region for configuring HBase replication. |
+| [Hub-Spoke Network with NAT Gateway and Azure Firewall](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/nat-gateway-hub-spoke-firewall)[![Deploy to Azure](../../media/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.network%2Fnat-gateway-hub-spoke-firewall%2Fazuredeploy.json) | Deploy a hub-spoke network topology with NAT gateway, Azure Firewall, and virtual machine |
+| [Peer two existing VNets within a single region](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/existing-vnet-to-vnet-peering)[![Deploy to Azure](../../media/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.network%2Fexisting-vnet-to-vnet-peering%2Fazuredeploy.json) | This template allows you to connect two VNETs from the same or different resource groups in the same region using VNet Peering |
+| [Public Load Balancer chained to a Gateway Load Balancer](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/load-balancer-gateway)[![Deploy to Azure](../../media/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fdemos%2Fload-balancer-gateway%2Fazuredeploy.json) | This template allows you to deploy a Public Standard Load Balancer chained to a Gateway Load Balancer. The traffic incoming from internet is routed to the Gateway Load Balancer with linux VMs (NVAs) in the backend pool. |
+| [Use Azure Firewall as a DNS Proxy in a Hub & Spoke topology](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/azure-firewall-dns-proxy)[![Deploy to Azure](../../media/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.network%2Fazure-firewall-dns-proxy%2Fazuredeploy.json) | This sample show how to deploy a hub-spoke topology in Azure using the Azure Firewall. The hub virtual network acts as a central point of connectivity to many spoke virtual networks that are connected to hub virtual network via virtual network peering. |
+
+## Resource format
+
+To create a Microsoft.Network/virtualNetworks/virtualNetworkPeerings resource, add the following JSON to your template.
+
+```json
+{
+  "type": "Microsoft.Network/virtualNetworks/virtualNetworkPeerings",
+  "apiVersion": "2026-03-01",
+  "name": "string",
+  "properties": {
+    "allowForwardedTraffic": "bool",
+    "allowGatewayTransit": "bool",
+    "allowVirtualNetworkAccess": "bool",
+    "doNotVerifyRemoteGateways": "bool",
+    "enableOnlyIPv6Peering": "bool",
+    "localAddressSpace": {
+      "addressPrefixes": [ "string" ],
+      "ipamPoolPrefixAllocations": [
+        {
+          "numberOfIpAddresses": "string",
+          "pool": {
+            "id": "string"
+          }
+        }
+      ]
+    },
+    "localSubnetNames": [ "string" ],
+    "localVirtualNetworkAddressSpace": {
+      "addressPrefixes": [ "string" ],
+      "ipamPoolPrefixAllocations": [
+        {
+          "numberOfIpAddresses": "string",
+          "pool": {
+            "id": "string"
+          }
+        }
+      ]
+    },
+    "peerCompleteVnets": "bool",
+    "peeringState": "string",
+    "peeringSyncLevel": "string",
+    "remoteAddressSpace": {
+      "addressPrefixes": [ "string" ],
+      "ipamPoolPrefixAllocations": [
+        {
+          "numberOfIpAddresses": "string",
+          "pool": {
+            "id": "string"
+          }
+        }
+      ]
+    },
+    "remoteBgpCommunities": {
+      "virtualNetworkCommunity": "string"
+    },
+    "remoteSubnetNames": [ "string" ],
+    "remoteVirtualNetwork": {
+      "id": "string"
+    },
+    "remoteVirtualNetworkAddressSpace": {
+      "addressPrefixes": [ "string" ],
+      "ipamPoolPrefixAllocations": [
+        {
+          "numberOfIpAddresses": "string",
+          "pool": {
+            "id": "string"
+          }
+        }
+      ]
+    },
+    "useRemoteGateways": "bool"
+  }
+}
+```
+
+## Property Values
+
+### Microsoft.Network/virtualNetworks/virtualNetworkPeerings
+
+| Name | Description | Value |
+| --- | --- | --- |
+| apiVersion | The api version | '2026-03-01' |
+| name | The resource name | string (required) |
+| properties | Properties of the virtual network peering. | VirtualNetworkPeeringPropertiesFormat |
+| type | The resource type | 'Microsoft.Network/virtualNetworks/virtualNetworkPeerings' |
+
+### AddressSpace
+
+| Name | Description | Value |
+| --- | --- | --- |
+| addressPrefixes | A list of address blocks reserved for this virtual network in CIDR notation. | string[] |
+| ipamPoolPrefixAllocations | A list of IPAM Pools allocating IP address prefixes. | IpamPoolPrefixAllocation[] |
+
+### IpamPoolPrefixAllocation
+
+| Name | Description | Value |
+| --- | --- | --- |
+| numberOfIpAddresses | Number of IP addresses to allocate. | string |
+| pool |  | IpamPoolPrefixAllocationPool |
+
+### IpamPoolPrefixAllocationPool
+
+| Name | Description | Value |
+| --- | --- | --- |
+| id | Resource id of the associated Azure IpamPool resource. | string |
+
+### SubResource
+
+| Name | Description | Value |
+| --- | --- | --- |
+| id | Resource ID. | string |
+
+### VirtualNetworkBgpCommunities
+
+| Name | Description | Value |
+| --- | --- | --- |
+| virtualNetworkCommunity | The BGP community associated with the virtual network. | string (required) |
+
+### VirtualNetworkPeeringPropertiesFormat
+
+| Name | Description | Value |
+| --- | --- | --- |
+| allowForwardedTraffic | Whether the forwarded traffic from the VMs in the local virtual network will be allowed/disallowed in remote virtual network. | bool |
+| allowGatewayTransit | If gateway links can be used in remote virtual networking to link to this virtual network. | bool |
+| allowVirtualNetworkAccess | Whether the VMs in the local virtual network space would be able to access the VMs in remote virtual network space. | bool |
+| doNotVerifyRemoteGateways | If we need to verify the provisioning state of the remote gateway. | bool |
+| enableOnlyIPv6Peering | Whether only Ipv6 address space is peered for subnet peering. | bool |
+| localAddressSpace | The local address space of the local virtual network that is peered. | AddressSpace |
+| localSubnetNames | List of local subnet names that are subnet peered with remote virtual network. | string[] |
+| localVirtualNetworkAddressSpace | The current local address space of the local virtual network that is peered. | AddressSpace |
+| peerCompleteVnets | Whether complete virtual network address space is peered. | bool |
+| peeringState | The status of the virtual network peering. | 'Connected''Disconnected''Initiated' |
+| peeringSyncLevel | The peering sync status of the virtual network peering. | 'FullyInSync''LocalAndRemoteNotInSync''LocalNotInSync''RemoteNotInSync' |
+| remoteAddressSpace | The reference to the address space peered with the remote virtual network. | AddressSpace |
+| remoteBgpCommunities | The reference to the remote virtual network's Bgp Communities. | VirtualNetworkBgpCommunities |
+| remoteSubnetNames | List of remote subnet names from remote virtual network that are subnet peered. | string[] |
+| remoteVirtualNetwork | The reference to the remote virtual network. The remote virtual network can be in the same or different region (preview). See here to register for the preview and learn more (/azure/virtual-network/virtual-network-create-peering). | SubResource |
+| remoteVirtualNetworkAddressSpace | The reference to the current address space of the remote virtual network. | AddressSpace |
+| useRemoteGateways | If remote gateways can be used on this virtual network. If the flag is set to true, and allowGatewayTransit on remote peering is also true, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to true. This flag cannot be set if virtual network already has a gateway. | bool |
+
+::: zone-end
+
+::: zone pivot="deployment-language-terraform"
+
+## Terraform (AzAPI provider) resource definition
+
+The virtualNetworks/virtualNetworkPeerings resource type can be deployed with operations that target:
+
+- **Resource groups** For a list of changed properties in each API version, see [change log](../change-log/virtualnetworks/virtualnetworkpeerings).
+
+## Usage Examples
+
+### Terraform Samples
+
+A basic example of deploying virtual network peering which allows resources to access other.
+
+```terraform
+terraform {
+  required_providers {
+    azapi = {
+      source = "Azure/azapi"
+    }
+  }
+}
+
+provider "azapi" {
+  skip_provider_registration = false
+}
+
+variable "resource_name" {
+  type    = string
+  default = "acctest0001"
+}
+
+variable "location" {
+  type    = string
+  default = "westeurope"
+}
+
+resource "azapi_resource" "resourceGroup" {
+  type     = "Microsoft.Resources/resourceGroups@2020-06-01"
+  name     = var.resource_name
+  location = var.location
+}
+
+data "azapi_resource_id" "workspace_resource_group" {
+  type      = "Microsoft.Resources/resourceGroups@2020-06-01"
+  parent_id = azapi_resource.resourceGroup.parent_id
+  name      = "databricks-rg-${var.resource_name}"
+}
+
+resource "azapi_resource" "workspace" {
+  type      = "Microsoft.Databricks/workspaces@2023-02-01"
+  parent_id = azapi_resource.resourceGroup.id
+  name      = var.resource_name
+  location  = var.location
+  body = {
+    properties = {
+      managedResourceGroupId = data.azapi_resource_id.workspace_resource_group.id
+      parameters = {
+        prepareEncryption = {
+          value = false
+        }
+        requireInfrastructureEncryption = {
+          value = false
+        }
+      }
+      publicNetworkAccess = "Enabled"
+    }
+    sku = {
+      name = "standard"
+    }
+  }
+  schema_validation_enabled = false
+  response_export_values    = ["*"]
+}
+
+resource "azapi_resource" "virtualNetwork" {
+  type      = "Microsoft.Network/virtualNetworks@2022-07-01"
+  parent_id = azapi_resource.resourceGroup.id
+  name      = var.resource_name
+  location  = var.location
+  body = {
+    properties = {
+      addressSpace = {
+        addressPrefixes = [
+          "10.0.1.0/24",
+        ]
+      }
+      dhcpOptions = {
+        dnsServers = [
+        ]
+      }
+      subnets = [
+      ]
+    }
+  }
+  schema_validation_enabled = false
+  response_export_values    = ["*"]
+  lifecycle {
+    ignore_changes = [body.properties.subnets]
+  }
+}
+
+resource "azapi_resource" "virtualNetworkPeering" {
+  type      = "Microsoft.Databricks/workspaces/virtualNetworkPeerings@2023-02-01"
+  parent_id = azapi_resource.workspace.id
+  name      = var.resource_name
+  body = {
+    properties = {
+      allowForwardedTraffic     = false
+      allowGatewayTransit       = false
+      allowVirtualNetworkAccess = true
+      databricksAddressSpace = {
+        addressPrefixes = [
+          "10.139.0.0/16"
+        ]
+      }
+      remoteAddressSpace = {
+        addressPrefixes = [
+          "10.0.1.0/24",
+        ]
+      }
+      remoteVirtualNetwork = {
+        id = azapi_resource.virtualNetwork.id
+      }
+      useRemoteGateways = false
+    }
+  }
+  schema_validation_enabled = false
+  response_export_values    = ["*"]
+}
+```
+
+## Resource format
+
+To create a Microsoft.Network/virtualNetworks/virtualNetworkPeerings resource, add the following Terraform to your template.
+
+```terraform
+resource "azapi_resource" "symbolicname" {
+  type = "Microsoft.Network/virtualNetworks/virtualNetworkPeerings@2026-03-01"
+  name = "string"
+  parent_id = "string"
+  body = {
+    properties = {
+      allowForwardedTraffic = bool
+      allowGatewayTransit = bool
+      allowVirtualNetworkAccess = bool
+      doNotVerifyRemoteGateways = bool
+      enableOnlyIPv6Peering = bool
+      localAddressSpace = {
+        addressPrefixes = [
+          "string"
+        ]
+        ipamPoolPrefixAllocations = [
+          {
+            numberOfIpAddresses = "string"
+            pool = {
+              id = "string"
+            }
+          }
+        ]
+      }
+      localSubnetNames = [
+        "string"
+      ]
+      localVirtualNetworkAddressSpace = {
+        addressPrefixes = [
+          "string"
+        ]
+        ipamPoolPrefixAllocations = [
+          {
+            numberOfIpAddresses = "string"
+            pool = {
+              id = "string"
+            }
+          }
+        ]
+      }
+      peerCompleteVnets = bool
+      peeringState = "string"
+      peeringSyncLevel = "string"
+      remoteAddressSpace = {
+        addressPrefixes = [
+          "string"
+        ]
+        ipamPoolPrefixAllocations = [
+          {
+            numberOfIpAddresses = "string"
+            pool = {
+              id = "string"
+            }
+          }
+        ]
+      }
+      remoteBgpCommunities = {
+        virtualNetworkCommunity = "string"
+      }
+      remoteSubnetNames = [
+        "string"
+      ]
+      remoteVirtualNetwork = {
+        id = "string"
+      }
+      remoteVirtualNetworkAddressSpace = {
+        addressPrefixes = [
+          "string"
+        ]
+        ipamPoolPrefixAllocations = [
+          {
+            numberOfIpAddresses = "string"
+            pool = {
+              id = "string"
+            }
+          }
+        ]
+      }
+      useRemoteGateways = bool
+    }
+  }
+}
+```
+
+## Property Values
+
+### Microsoft.Network/virtualNetworks/virtualNetworkPeerings
+
+| Name | Description | Value |
+| --- | --- | --- |
+| name | The resource name | string (required) |
+| parent\_id | The ID of the resource that is the parent for this resource. | ID for resource of type: [virtualNetworks](../virtualnetworks) |
+| properties | Properties of the virtual network peering. | VirtualNetworkPeeringPropertiesFormat |
+| type | The resource type | "Microsoft.Network/virtualNetworks/virtualNetworkPeerings@2026-03-01" |
+
+### AddressSpace
+
+| Name | Description | Value |
+| --- | --- | --- |
+| addressPrefixes | A list of address blocks reserved for this virtual network in CIDR notation. | string[] |
+| ipamPoolPrefixAllocations | A list of IPAM Pools allocating IP address prefixes. | IpamPoolPrefixAllocation[] |
+
+### IpamPoolPrefixAllocation
+
+| Name | Description | Value |
+| --- | --- | --- |
+| numberOfIpAddresses | Number of IP addresses to allocate. | string |
+| pool |  | IpamPoolPrefixAllocationPool |
+
+### IpamPoolPrefixAllocationPool
+
+| Name | Description | Value |
+| --- | --- | --- |
+| id | Resource id of the associated Azure IpamPool resource. | string |
+
+### SubResource
+
+| Name | Description | Value |
+| --- | --- | --- |
+| id | Resource ID. | string |
+
+### VirtualNetworkBgpCommunities
+
+| Name | Description | Value |
+| --- | --- | --- |
+| virtualNetworkCommunity | The BGP community associated with the virtual network. | string (required) |
+
+### VirtualNetworkPeeringPropertiesFormat
+
+| Name | Description | Value |
+| --- | --- | --- |
+| allowForwardedTraffic | Whether the forwarded traffic from the VMs in the local virtual network will be allowed/disallowed in remote virtual network. | bool |
+| allowGatewayTransit | If gateway links can be used in remote virtual networking to link to this virtual network. | bool |
+| allowVirtualNetworkAccess | Whether the VMs in the local virtual network space would be able to access the VMs in remote virtual network space. | bool |
+| doNotVerifyRemoteGateways | If we need to verify the provisioning state of the remote gateway. | bool |
+| enableOnlyIPv6Peering | Whether only Ipv6 address space is peered for subnet peering. | bool |
+| localAddressSpace | The local address space of the local virtual network that is peered. | AddressSpace |
+| localSubnetNames | List of local subnet names that are subnet peered with remote virtual network. | string[] |
+| localVirtualNetworkAddressSpace | The current local address space of the local virtual network that is peered. | AddressSpace |
+| peerCompleteVnets | Whether complete virtual network address space is peered. | bool |
+| peeringState | The status of the virtual network peering. | 'Connected''Disconnected''Initiated' |
+| peeringSyncLevel | The peering sync status of the virtual network peering. | 'FullyInSync''LocalAndRemoteNotInSync''LocalNotInSync''RemoteNotInSync' |
+| remoteAddressSpace | The reference to the address space peered with the remote virtual network. | AddressSpace |
+| remoteBgpCommunities | The reference to the remote virtual network's Bgp Communities. | VirtualNetworkBgpCommunities |
+| remoteSubnetNames | List of remote subnet names from remote virtual network that are subnet peered. | string[] |
+| remoteVirtualNetwork | The reference to the remote virtual network. The remote virtual network can be in the same or different region (preview). See here to register for the preview and learn more (/azure/virtual-network/virtual-network-create-peering). | SubResource |
+| remoteVirtualNetworkAddressSpace | The reference to the current address space of the remote virtual network. | AddressSpace |
+| useRemoteGateways | If remote gateways can be used on this virtual network. If the flag is set to true, and allowGatewayTransit on remote peering is also true, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to true. This flag cannot be set if virtual network already has a gateway. | bool |
+
+::: zone-end

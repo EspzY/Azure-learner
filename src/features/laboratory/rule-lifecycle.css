@@ -20,6 +20,12 @@
 .lab-rule-editor .portal-properties dd {
   overflow-wrap: anywhere;
 }
+@media (min-width: 800px) {
+  .lab-topology-editor .portal-properties {
+    grid-template-columns: minmax(7rem, auto) minmax(0, 1fr) minmax(7rem, auto) minmax(0, 1fr);
+    column-gap: 0.8rem;
+  }
+}
 .lab-rule-fields {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -74,4 +80,7 @@
   .lab-rule-fields {
     grid-template-columns: 1fr;
   }
+}
+.portal a.lab-evidence-link {
+  text-decoration: underline;
 }

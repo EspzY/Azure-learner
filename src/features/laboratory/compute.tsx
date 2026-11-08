@@ -35,7 +35,10 @@ export function ComputeViews({
   networking,
 }: {
   world:
-    World | import('@/laboratory/v35/contract').World | import('@/laboratory/v36/contract').World;
+    | World
+    | import('@/laboratory/v35/contract').World
+    | import('@/laboratory/v36/contract').World
+    | import('@/laboratory/v37/contract').World;
   view: string;
   id: string | null;
   begin: (type: Command['type']) => void;

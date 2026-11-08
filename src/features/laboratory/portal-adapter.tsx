@@ -1,5 +1,5 @@
 'use client';
-import { computeView as computeProjection, isFirewallWorld } from './capabilities';
+import { isFirewallWorld } from './capabilities';
 
 import { useState } from 'react';
 import Link from 'next/link';
@@ -7,9 +7,7 @@ import type { World } from '@/laboratory/engine';
 import { nb, regionLabels, laboratoryV3Nb as c } from '@/content/nb';
 import { portalWorkspaceNb as copy } from '@/content/portal-workspace-nb';
 import { ServiceIcon } from '@/features/portal/service-icon';
-import { routingProjection } from '@/laboratory/v33/projection';
-import { endpointProjection } from '@/laboratory/v34/projection';
-import { peeringStatus } from '@/laboratory/v32/peering';
+import { peeringState } from './capabilities';
 import { PortalListFilters, PortalTable, type PortalColumn } from '@/features/portal/presentation';
 
 export type LaboratoryResource = {
@@ -127,16 +125,7 @@ export function laboratoryInventory(world: World): readonly LaboratoryResource[]
           vnet.groupId,
           vnet.region,
           vnet.id,
-          peeringStatus(
-            isFirewallWorld(world)
-              ? routingProjection(endpointProjection(computeProjection(world)))
-              : world.model === 'laboratory@3.4.0'
-                ? routingProjection(endpointProjection(world))
-                : world.model === 'laboratory@3.3.0'
-                  ? routingProjection(world)
-                  : world,
-            peering,
-          ),
+          peeringState(world, peering.id),
         );
     }
   }

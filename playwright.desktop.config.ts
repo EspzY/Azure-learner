@@ -5,6 +5,10 @@ import baseline from './playwright.config';
 // names. No test body, assertion, title, timeout or skip is modified.
 const compactCases = [
   [
+    'laboratory-topology.spec.ts',
+    'topology native short desktop Review keyboard focus reduced motion Axe and pinned disassociation preserve actual resource evidence',
+  ],
+  [
     'laboratory-remediation.spec.ts',
     'remediation compact native Review keyboard focus reduced motion Axe pinned delete and short desktop preserve readable rule evidence',
   ],

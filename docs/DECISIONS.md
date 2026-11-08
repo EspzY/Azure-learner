@@ -364,3 +364,7 @@ Architecture Studio shares Portal presentation and the original server analyses.
 ## PR69 — Versioned rule remediation
 
 Use3.6 only for new workspaces;007 is additive. Preserve stable rule ID and Create-origin; append complete before/after change evidence on each accepted mutation. Do not add a mutable result store or per-rule Firewall action/priority. Old evaluators, SQL001–006 and course semantics remain untouched. See [contract](LABORATORY_SECURITY_REMEDIATION_PART_A.md).
+
+## PR70 — explicit topology epoch and conservative peering boundary
+
+Use laboratory@3.7.0 only for new workspaces, additive008 and immutable topology-change receipts. Never rebind IDs or overwrite Create-origin to edit a route. Reuse frozen complete validators in private proposals and validate all subnet associations before committing once. Keep peering access separate from relationship/forwarding status; uncertain VirtualNetwork tag dependencies include unselected peerings. Current official Delete sources do not establish one safe shared Portal side-effect contract, so defer that single operation. No synthetic Disconnected/cascade or default-rule certainty is invented. [Contract](LABORATORY_TOPOLOGY_REMEDIATION_PART_B.md).

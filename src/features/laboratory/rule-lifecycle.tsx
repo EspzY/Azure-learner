@@ -1,6 +1,9 @@
 'use client';
 import { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
+import { topologyTarget, topologyKeys, topologyCommand } from './topology-target';
+import { laboratoryTopologyNb as topo } from '@/content/laboratory-topology-nb';
+import type { TopologyChange } from '@/laboratory/v37/contract';
 import type { Snapshot, Request, Receipt, Entry, Command } from '@/laboratory/engine';
 import {
   laboratoryModel,
@@ -9,6 +12,7 @@ import {
   type RuleChange,
 } from '@/laboratory/v36/contract';
 import { laboratoryRemediationNb as t } from '@/content/laboratory-remediation-nb';
+import { laboratoryRoutingNb as routeCopy } from '@/content/laboratory-routing-nb';
 import { laboratoryNetworkNb as n } from '@/content/laboratory-networking-nb';
 import { laboratoryFirewallNb as f } from '@/content/laboratory-firewall-nb';
 import { PortalDialog, PropertyList } from '@/features/portal/shared';
@@ -29,8 +33,11 @@ type Editor = {
   name: string;
   parentId: string;
   nsg: boolean;
+  topologyView: string | null;
 };
-const fieldLabel = (key: string) => n.fields[key as keyof typeof n.fields] ?? key;
+const fieldLabel = (key: string) =>
+  topo.fields[key as keyof typeof topo.fields] ?? n.fields[key as keyof typeof n.fields] ?? key;
+const changeOf = (r: Receipt) => r.topologyChange ?? r.change;
 export const lifecycleMessage = (code: string) =>
   code === 'read-only-rule'
     ? t.readonly
@@ -44,25 +51,34 @@ export const lifecycleMessage = (code: string) =>
             ? t.missingRule
             : Object.hasOwn(n.codes, code)
               ? n.codes[code as keyof typeof n.codes]
-              : Object.hasOwn(f.codes, code)
-                ? f.codes[code as keyof typeof f.codes]
-                : t.invalid;
-export function RuleDiff({ change }: { change: RuleChange }) {
+              : Object.hasOwn(routeCopy.codes, code)
+                ? routeCopy.codes[code as keyof typeof routeCopy.codes]
+                : Object.hasOwn(f.codes, code)
+                  ? f.codes[code as keyof typeof f.codes]
+                  : t.invalid;
+export function RuleDiff({ change }: { change: RuleChange | TopologyChange }) {
   return (
     <PortalTable
       caption={t.diff}
-      rows={Object.entries(change.before).map(([id, before]) => ({
-        id,
-        before,
-        after: change.after?.[id],
-      }))}
+      rows={[...new Set([...Object.keys(change.before), ...Object.keys(change.after ?? {})])].map(
+        (id) => ({
+          id,
+          before: change.before[id],
+          after: change.after?.[id],
+        }),
+      )}
       columns={[
         { key: 'field', label: t.field, cell: (r) => fieldLabel(r.id) },
-        { key: 'before', label: t.before, cell: (r) => String(r.before) },
+        {
+          key: 'before',
+          label: t.before,
+          cell: (r) => (r.before === undefined ? '—' : String(r.before)),
+        },
         {
           key: 'after',
           label: t.after,
-          cell: (r) => (change.after === null ? t.removed : String(r.after)),
+          cell: (r) =>
+            change.after === null ? t.removed : r.after === undefined ? '—' : String(r.after),
         },
       ]}
     />
@@ -99,14 +115,18 @@ export function RuleLifecycle({
     else if (editor?.mode === 'edit')
       fields.current?.querySelector<HTMLInputElement | HTMLSelectElement>('input, select')?.focus();
   }, [preview, editor]);
-  if (snapshot.world.model !== laboratoryModel) return null;
+  if (snapshot.world.model !== laboratoryModel && snapshot.world.model !== 'laboratory@3.7.0')
+    return null;
   const world = snapshot.world,
     nsg = view === 'rule',
-    rule = nsg
-      ? world.securityRules.find((r) => r.id === id)
-      : world.firewallRules.find((r) => r.id === id);
+    topology = topologyTarget(snapshot, view, id),
+    rule =
+      topology?.resource ??
+      (nsg
+        ? world.securityRules.find((r) => r.id === id)
+        : world.firewallRules.find((r) => r.id === id));
   const latest = snapshot.entries.findLast(
-    (e) => e.receipt.outcome === 'accepted' && e.receipt.change?.id === id,
+    (e) => e.receipt.outcome === 'accepted' && changeOf(e.receipt)?.id === id,
   );
   const stale =
     !!editor &&
@@ -123,16 +143,25 @@ export function RuleLifecycle({
       revision: world.revision,
       id: rule.id,
       name: rule.name,
-      parentId: 'nsgId' in rule ? rule.nsgId : rule.collectionId,
+      parentId:
+        topology?.parentId ??
+        ('nsgId' in rule && typeof rule.nsgId === 'string'
+          ? rule.nsgId
+          : 'collectionId' in rule && typeof rule.collectionId === 'string'
+            ? rule.collectionId
+            : ''),
       nsg,
+      topologyView: topology ? view : null,
     });
     setValues(
-      Object.fromEntries(
-        (nsg ? nsgEditable : firewallEditable).map((k) => [
-          k,
-          String((rule as unknown as Record<string, unknown>)[k]),
-        ]),
-      ),
+      topology
+        ? { ...topology.config }
+        : Object.fromEntries(
+            (nsg ? nsgEditable : firewallEditable).map((k) => [
+              k,
+              String((rule as unknown as Record<string, unknown>)[k]),
+            ]),
+          ),
     );
     setPreview(null);
     setConfirm(false);
@@ -152,12 +181,14 @@ export function RuleLifecycle({
     const request: Request = {
       commandId: crypto.randomUUID(),
       expectedRevision: editor.revision,
-      command: {
-        type,
-        ruleId: editor.id,
-        ...(editor.nsg ? { nsgId: editor.parentId } : { collectionId: editor.parentId }),
-        ...(editor.mode === 'edit' ? values : {}),
-      } as Command,
+      command: editor.topologyView
+        ? topologyCommand(editor.topologyView, editor.id, editor.parentId, values)
+        : ({
+            type,
+            ruleId: editor.id,
+            ...(editor.nsg ? { nsgId: editor.parentId } : { collectionId: editor.parentId }),
+            ...(editor.mode === 'edit' ? values : {}),
+          } as Command),
     };
     try {
       const r = await review(request, editor.workspace);
@@ -165,8 +196,8 @@ export function RuleLifecycle({
       if (
         r.preview.outcome === 'accepted' &&
         (r.revision !== editor.revision ||
-          r.preview.change?.id !== editor.id ||
-          r.preview.change.parentId !== editor.parentId)
+          changeOf(r.preview)?.id !== editor.id ||
+          changeOf(r.preview)?.parentId !== editor.parentId)
       )
         throw Error(t.unavailable);
       setPreview({ request, receipt: r.preview });
@@ -178,46 +209,54 @@ export function RuleLifecycle({
     }
   };
   const options = (k: string): string[] | undefined =>
-    (
-      ({
-        direction: ['Inbound', 'Outbound'],
-        protocol: nsg ? ['Tcp', 'Udp', '*'] : ['Tcp', 'Udp'],
-        access: ['Allow', 'Deny'],
-      }) as Record<string, string[]>
-    )[k];
+    k === 'nextHopType'
+      ? ['VnetLocal', 'Internet', 'None', 'VirtualAppliance']
+      : k === 'value'
+        ? ['true', 'false']
+        : (
+            {
+              direction: ['Inbound', 'Outbound'],
+              protocol: nsg ? ['Tcp', 'Udp', '*'] : ['Tcp', 'Udp'],
+              access: ['Allow', 'Deny'],
+            } as Record<string, string[]>
+          )[k];
   return (
     <section className="lab-rule-lifecycle" aria-label={t.edit}>
       {rule && (
         <>
           <div className="portal-toolbar">
-            <button disabled={disabled} onClick={() => open('edit')}>
-              {t.edit}
-            </button>
-            <button disabled={disabled} onClick={() => open('delete')}>
-              {t.remove}
-            </button>
+            {(!topology || topology.canEdit) && (
+              <button disabled={disabled} onClick={() => open('edit')}>
+                {topology?.title ?? t.edit}
+              </button>
+            )}
+            {(!topology || topology.canDelete) && (
+              <button disabled={disabled} onClick={() => open('delete')}>
+                {topology?.title ?? t.remove}
+              </button>
+            )}
             {latest && (
               <Link href={href('history', undefined, latest.receipt.commandId)}>{t.latest}</Link>
             )}
           </div>
-          {!nsg && <p>{t.nested}</p>}
+          {!topology && !nsg && <p>{t.nested}</p>}
         </>
       )}
       {editor && (
         <PortalDialog
-          title={editor.mode === 'edit' ? t.editing : t.deleting}
+          title={topology?.title ?? (editor.mode === 'edit' ? t.editing : t.deleting)}
           onClose={() => {
             if (!working) setEditor(null);
           }}
         >
           <PortalCreateLayout
-            className="lab-rule-editor"
-            intro={editor.mode === 'edit' ? t.immutable : t.deleteNote}
+            className={'lab-rule-editor' + (editor.topologyView ? ' lab-topology-editor' : '')}
+            intro={topology?.note ?? (editor.mode === 'edit' ? t.immutable : t.deleteNote)}
           >
             <PropertyList
               items={[
-                [t.name, editor.name],
-                [t.identity, editor.id],
+                [editor.topologyView ? topo.name : t.name, editor.name],
+                [editor.topologyView ? topo.identity : t.identity, editor.id],
                 [t.scope, editor.parentId],
                 [t.workspace, editor.workspace],
                 [t.model, editor.model],
@@ -236,10 +275,36 @@ export function RuleLifecycle({
               {editor.mode === 'edit' && (
                 <fieldset ref={fields} disabled={working || disabled} className="lab-rule-fields">
                   <legend>{t.editing}</legend>
-                  {(editor.nsg ? nsgEditable : firewallEditable).map((k) => (
+                  {(editor.topologyView
+                    ? topologyKeys(editor.topologyView, values)
+                    : editor.nsg
+                      ? nsgEditable
+                      : firewallEditable
+                  ).map((k) => (
                     <label key={k}>
                       {fieldLabel(k)}
-                      {options(k) ? (
+                      {k === 'firewallId' && world.model === 'laboratory@3.7.0' ? (
+                        <select
+                          aria-label={fieldLabel(k)}
+                          value={values[k] ?? ''}
+                          onChange={(e) => {
+                            const f = world.firewalls.find((f) => f.id === e.target.value);
+                            setValues({
+                              ...values,
+                              firewallId: e.target.value,
+                              nextHopIp: f?.privateIpAddress ?? '',
+                            });
+                            setPreview(null);
+                          }}
+                        >
+                          <option value="">—</option>
+                          {world.firewalls.map((f) => (
+                            <option key={f.id} value={f.id}>
+                              {f.name} · {f.id} · {f.region}
+                            </option>
+                          ))}
+                        </select>
+                      ) : options(k) ? (
                         <select
                           aria-label={fieldLabel(k)}
                           value={values[k] ?? ''}
@@ -280,8 +345,8 @@ export function RuleLifecycle({
                 <h3 tabIndex={-1} ref={heading}>
                   {t.review}
                 </h3>
-                {preview.receipt.outcome === 'accepted' && preview.receipt.change ? (
-                  <RuleDiff change={preview.receipt.change} />
+                {preview.receipt.outcome === 'accepted' && changeOf(preview.receipt) ? (
+                  <RuleDiff change={changeOf(preview.receipt)!} />
                 ) : (
                   <p role="alert">
                     {lifecycleMessage(preview.receipt.code)}{' '}
@@ -296,7 +361,8 @@ export function RuleLifecycle({
                       onChange={(e) => setConfirm(e.target.checked)}
                     />{' '}
                     <span>
-                      {t.confirm} {editor.name} · {editor.id}
+                      {editor.topologyView === 'subnet' ? topo.confirmDetach : t.confirm}{' '}
+                      {editor.name} · {editor.id}
                     </span>
                   </label>
                 )}
@@ -326,7 +392,11 @@ export function RuleLifecycle({
                   }
                 }}
               >
-                {editor.mode === 'edit' ? t.save : t.remove}
+                {editor.mode === 'edit'
+                  ? t.save
+                  : editor.topologyView === 'subnet'
+                    ? topo.disassociate
+                    : t.remove}
               </button>
               <button disabled={working} onClick={() => setEditor(null)}>
                 {t.cancel}
@@ -352,7 +422,7 @@ export function RuleHistory({
   const [pair, setPair] = useState<[Snapshot, Snapshot] | null>(null),
     [error, setError] = useState(''),
     [busy, setBusy] = useState(false);
-  const change = entry.receipt.change;
+  const change = changeOf(entry.receipt);
   if (!change) return null;
   const verify = async () => {
     setBusy(true);
@@ -383,7 +453,10 @@ export function RuleHistory({
   };
   return (
     <section className="lab-rule-history">
-      <h3>{t.operations[entry.receipt.operation as keyof typeof t.operations]}</h3>
+      <h3>
+        {topo.operations[entry.receipt.operation as keyof typeof topo.operations] ??
+          t.operations[entry.receipt.operation as keyof typeof t.operations]}
+      </h3>
       <PropertyList
         items={[
           [t.name, change.name],
@@ -398,7 +471,13 @@ export function RuleHistory({
         <Link href={href('history', undefined, change.createOrigin)}>{t.original}</Link> ·{' '}
         <Link
           href={href(
-            entry.receipt.operation.includes('Firewall') ? 'firewallCollection' : 'nsg',
+            entry.receipt.topologyChange
+              ? entry.receipt.operation === 'UpdateRoute'
+                ? 'routeTable'
+                : 'vnet'
+              : entry.receipt.operation.includes('Firewall')
+                ? 'firewallCollection'
+                : 'nsg',
             change.parentId,
           )}
         >
@@ -414,10 +493,14 @@ export function RuleHistory({
           <p role="status">{t.verified}</p>
           {pair.map((s, i) => {
             const row =
-              s.world.model === laboratoryModel
-                ? [...s.world.securityRules, ...s.world.firewallRules].find(
-                    (r) => r.id === change.id,
-                  )
+              s.world.model === laboratoryModel || s.world.model === 'laboratory@3.7.0'
+                ? [
+                    ...s.world.securityRules,
+                    ...s.world.firewallRules,
+                    ...s.world.routes,
+                    ...s.world.subnets,
+                    ...s.world.peerings,
+                  ].find((r) => r.id === change.id)
                 : undefined;
             return (
               <details key={i}>
@@ -425,7 +508,15 @@ export function RuleHistory({
                   {i === 0 ? t.beforeState : t.afterState} · {s.entries.length} · {s.world.model} ·{' '}
                   {s.world.revision}
                 </summary>
-                {row ? <pre>{JSON.stringify(row, null, 2)}</pre> : <p>{t.missingHistoricalRule}</p>}
+                {row ? (
+                  <pre>{JSON.stringify(row, null, 2)}</pre>
+                ) : (
+                  <p>
+                    {entry.receipt.topologyChange
+                      ? topo.missingHistorical
+                      : t.missingHistoricalRule}
+                  </p>
+                )}
               </details>
             );
           })}
