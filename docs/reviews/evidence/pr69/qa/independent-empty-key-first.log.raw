@@ -1,0 +1,37 @@
+(!) Your Vite config uses features that are unsupported by `configLoader: 'native'`, which is planned to become the default in a future major version of Vite:
+  - ESM syntax in a file loaded as CommonJS (../azurelab-pr69/independent/vitest.config.ts:1:1). Use a `.mjs` extension or set `"type": "module"` in the closest package.json
+Set `VITE_CONFIG_NATIVE_IGNORE_WARNING=true` to suppress this warning.
+
+ RUN  v5.0.5 /workspace/Azure-learner
+
+ ❯ ../azurelab-pr69/independent/adversarial.test.ts (8 tests | 1 failed | 7 skipped) 844ms
+   × independent empty unsupported field name must reject Delete without committing configuration 842ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  ../azurelab-pr69/independent/adversarial.test.ts > independent empty unsupported field name must reject Delete without committing configuration
+AssertionError: expected { …(17) } to match object { outcome: 'unsupported', …(2) }
+(21 matching properties omitted from actual)
+
+- Expected
++ Received
+
+  {
+-   "code": "unsupported-field",
+-   "field": "",
+-   "outcome": "unsupported",
++   "code": "updated",
++   "outcome": "accepted",
+  }
+
+ ❯ ../azurelab-pr69/independent/adversarial.test.ts:78:25
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 7 skipped (8)
+   Start at  18:57:03
+   Duration  1.50s (tests 77%, transform 16%, import 6%)
+

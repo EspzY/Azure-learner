@@ -1,15 +1,21 @@
 'use client';
 import Link from 'next/link';
 import type { ReactNode } from 'react';
-import type { World, Command } from '@/laboratory/v35/contract';
-import type { PolicyAnalysis } from '@/laboratory/v35/analysis';
+import type { World as PreviousWorld, Command } from '@/laboratory/v35/contract';
+type World = PreviousWorld | import('@/laboratory/v36/contract').World;
+import type { PolicyAnalysis as PreviousAnalysis } from '@/laboratory/v35/analysis';
 import { laboratoryFirewallNb as f } from '@/content/laboratory-firewall-nb';
 import { laboratoryV3Nb as c } from '@/content/nb';
 import { PropertyList } from '@/features/portal/shared';
 import { PortalTable } from '@/features/portal/presentation';
+type PolicyAnalysis = PreviousAnalysis | import('@/laboratory/v36/analysis').PolicyAnalysis;
 const href = (view: string, id?: string) =>
   '/labs/laboratory?' + new URLSearchParams({ view, ...(id ? { id } : {}) });
-export function firewallDefaults(world: World, id: string | null, type?: Command['type']) {
+export function firewallDefaults(
+  world: World,
+  id: string | null,
+  type?: import('@/laboratory/engine').Command['type'],
+) {
   const policy = world.firewallPolicies.find((p) => p.id === id) ?? world.firewallPolicies[0],
     group = world.firewallGroups.find((p) => p.id === id) ?? world.firewallGroups[0],
     collection = world.firewallCollections.find((p) => p.id === id) ?? world.firewallCollections[0],

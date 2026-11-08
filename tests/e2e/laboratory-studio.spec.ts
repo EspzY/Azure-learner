@@ -11,6 +11,10 @@ const studio = (page: Page) => page.locator('.architecture-studio');
 async function seed(page: Page, near = false) {
   await page.goto('/labs/laboratory');
   await expect(page.getByRole('button', { name: c.start, exact: true })).toBeEnabled();
+  await page.getByText('Tidligere arbeidsområdemodeller', { exact: true }).click();
+  await page
+    .getByRole('combobox', { name: 'Arbeidsområdemodell', exact: true })
+    .selectOption('laboratory@3.5.0');
   await page.getByRole('button', { name: c.start, exact: true }).click();
   await expect(page.locator('.laboratory-workspace-status')).toContainText('laboratory@3.5.0');
   const initial = await (await page.request.get('/api/laboratory/state')).json();

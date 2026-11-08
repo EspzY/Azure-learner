@@ -1,4 +1,9 @@
 import { laboratoryModel as firewallModel } from '../v35/contract';
+import { laboratoryModel as remediationModel } from '../v36/contract';
+import {
+  analyseRoutes as analyseRemediationRoutes,
+  analysePolicy as analyseRemediationPolicy,
+} from '../v36/analysis';
 import {
   analyseRoutes as analyseFirewallRoutes,
   analysePolicy as analyseFirewallPolicy,
@@ -181,7 +186,8 @@ export async function handle(
         snapshot.world.model !== routingModel &&
         snapshot.world.model !== endpointModel &&
         snapshot.world.model !== computeModel &&
-        snapshot.world.model !== firewallModel
+        snapshot.world.model !== firewallModel &&
+        snapshot.world.model !== remediationModel
       )
         throw new LabError('unsupported-model', 422);
       const result =
@@ -191,12 +197,14 @@ export async function handle(
             ? analyseEndpointRoutes(snapshot.world, subnetId, destination)
             : snapshot.world.model === computeModel
               ? analyseComputeRoutes(snapshot.world, subnetId, destination)
-              : analyseFirewallRoutes(snapshot.world, subnetId, destination);
+              : snapshot.world.model === firewallModel
+                ? analyseFirewallRoutes(snapshot.world, subnetId, destination)
+                : analyseRemediationRoutes(snapshot.world, subnetId, destination);
       if (!result.ok) throw new LabError(result.code, 422);
       return json({
         ...snapshot,
         analysis:
-          snapshot.world.model === firewallModel
+          snapshot.world.model === firewallModel || snapshot.world.model === remediationModel
             ? { ...result.analysis, workspace: snapshot.workspace }
             : result.analysis,
       });
@@ -211,7 +219,8 @@ export async function handle(
       if (
         snapshot.world.model !== endpointModel &&
         snapshot.world.model !== computeModel &&
-        snapshot.world.model !== firewallModel
+        snapshot.world.model !== firewallModel &&
+        snapshot.world.model !== remediationModel
       )
         throw new LabError('unsupported-model', 422);
       const input = {
@@ -226,12 +235,14 @@ export async function handle(
           ? analysePolicy(snapshot.world, input)
           : snapshot.world.model === computeModel
             ? analyseComputePolicy(snapshot.world, input)
-            : analyseFirewallPolicy(snapshot.world, input);
+            : snapshot.world.model === firewallModel
+              ? analyseFirewallPolicy(snapshot.world, input)
+              : analyseRemediationPolicy(snapshot.world, input);
       if (!result.ok) throw new LabError(result.code, 422);
       return json({
         ...snapshot,
         analysis:
-          snapshot.world.model === firewallModel
+          snapshot.world.model === firewallModel || snapshot.world.model === remediationModel
             ? { ...result.analysis, workspace: snapshot.workspace }
             : result.analysis,
       });

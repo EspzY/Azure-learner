@@ -94,3 +94,7 @@ See [contract and source distinctions](LABORATORY_FIREWALL_PART_A.md). Public La
 ## PR68 — Architecture Studio (read-only)
 
 Free Laboratory navigation now exposes actual topology, scope/type filters, selection/Properties/original receipt links, accessible resource/relationship lists and the existing route/NSG/Firewall analysis in context. All resource identities come from the verified owned Snapshot; older models show only existing families. Zoom/filter/select/analyse create no technical events or receipts. No graph provisioning, live traffic, security score, scenario import or extra Azure operation. [Contract and sources](ARCHITECTURE_STUDIO_PART_A.md); [exact remediation capability matrix](LABORATORY_REMEDIATION_CAPABILITIES.md). Public503 without configured database remains intentional.
+
+## PR69 — Rule remediation in free Laboratory3.6
+
+Custom NSG rules: full supported-field Update/Delete. Nested Firewall network rules: source/destination/protocol/destination-port Update/Delete. Existing frozen models have no such operations. Standard NSG rules remain read-only; Firewall collection action/priority and ancestry remain fixed. Shared Portal Review → Save/Delete, immutable receipts, before/after replay and Studio return are implemented through the original server command path. No AZ-900/v2 capability is implied. See [contract](LABORATORY_SECURITY_REMEDIATION_PART_A.md).

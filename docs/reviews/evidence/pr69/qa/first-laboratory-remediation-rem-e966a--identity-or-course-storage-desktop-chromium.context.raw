@@ -1,0 +1,360 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: laboratory-remediation.spec.ts >> remediation Studio observation opens the actual NSG rule and native Review Save narrows policy without changing original identity or course storage
+- Location: tests/e2e/laboratory-remediation.spec.ts:108:1
+
+# Error details
+
+```
+Error: locator.fill: Error: strict mode violation: getByRole('textbox') resolved to 6 elements:
+    1) <input value="" required="" maxlength="90" aria-label="Name"/> aka getByRole('textbox', { name: 'Name' })
+    2) <input required="" value="100" maxlength="120" aria-label="Priority"/> aka getByRole('textbox', { name: 'Priority' })
+    3) <input value="*" required="" maxlength="120" aria-label="Source IPv4/CIDR"/> aka getByRole('textbox', { name: 'Source IPv4/CIDR' })
+    4) <input value="*" required="" maxlength="120" aria-label="Source port"/> aka getByRole('textbox', { name: 'Source port' })
+    5) <input value="*" required="" maxlength="120" aria-label="Destination IPv4/CIDR"/> aka getByRole('textbox', { name: 'Destination IPv4/CIDR' })
+    6) <input required="" value="443" maxlength="120" aria-label="Destination port"/> aka getByRole('textbox', { name: 'Destination port' })
+
+Call log:
+  - waiting for getByRole('textbox')
+
+```
+
+# Page snapshot
+
+```yaml
+- generic [ref=f2e1]:
+  - alert [ref=f2e2]
+  - generic [ref=f2e3]:
+    - link "Hopp til innhold" [ref=f2e4] [cursor=pointer]:
+      - /url: "#lab-main"
+    - banner [ref=f2e5]:
+      - button "Åpne eller lukk portalmenyen" [expanded] [ref=f2e6] [cursor=pointer]
+      - link "AzureLab 3.2.1" [ref=f2e8] [cursor=pointer]:
+        - /url: /labs/laboratory
+      - searchbox "Search resources and services" [ref=f2e10]
+      - generic [ref=f2e11]: Fri Laboratory
+      - button "Originale kvitteringer" [ref=f2e12] [cursor=pointer]
+      - button "Modellgrenser" [ref=f2e14] [cursor=pointer]
+      - link "Kursarbeidsområde" [ref=f2e16] [cursor=pointer]:
+        - /url: /portal
+      - link "Til kurset" [ref=f2e17] [cursor=pointer]:
+        - /url: /learn
+    - generic [ref=f2e18]:
+      - complementary "Laboratory v3 navigasjon" [ref=f2e19]:
+        - navigation "Laboratory v3 navigasjon" [ref=f2e20]:
+          - link "Create a resource" [ref=f2e21] [cursor=pointer]:
+            - /url: /labs/laboratory?view=services
+          - link "All services" [ref=f2e23] [cursor=pointer]:
+            - /url: /labs/laboratory?view=services
+          - generic [ref=f2e25]: FAVORITES
+          - link "All resources" [ref=f2e27] [cursor=pointer]:
+            - /url: /labs/laboratory?view=resources
+          - link "Architecture Studio" [ref=f2e29] [cursor=pointer]:
+            - /url: /labs/laboratory?view=studio
+          - link "Azure Firewalls" [ref=f2e31] [cursor=pointer]:
+            - /url: /labs/laboratory?view=firewalls
+          - link "Firewall Policies" [ref=f2e33] [cursor=pointer]:
+            - /url: /labs/laboratory?view=firewallPolicies
+          - link "Public IP addresses" [ref=f2e35] [cursor=pointer]:
+            - /url: /labs/laboratory?view=publicIps
+          - link "Virtual machines" [ref=f2e37] [cursor=pointer]:
+            - /url: /labs/laboratory?view=vms
+          - link "Managed disks" [ref=f2e39] [cursor=pointer]:
+            - /url: /labs/laboratory?view=disks
+          - link "Network interfaces" [ref=f2e41] [cursor=pointer]:
+            - /url: /labs/laboratory?view=nics
+          - link "Network Policy Analysis" [ref=f2e43] [cursor=pointer]:
+            - /url: /labs/laboratory?view=policy
+          - link "Resource groups" [ref=f2e45] [cursor=pointer]:
+            - /url: /labs/laboratory?view=groups
+          - link "Storage accounts" [ref=f2e47] [cursor=pointer]:
+            - /url: /labs/laboratory?view=accounts
+          - link "Virtual networks" [ref=f2e49] [cursor=pointer]:
+            - /url: /labs/laboratory?view=vnets
+          - link "Network security groups" [ref=f2e51] [cursor=pointer]:
+            - /url: /labs/laboratory?view=nsgs
+          - link "Route tables" [ref=f2e53] [cursor=pointer]:
+            - /url: /labs/laboratory?view=routeTables
+          - link "Ruteanalyse" [ref=f2e55] [cursor=pointer]:
+            - /url: /labs/laboratory?view=analysis
+          - link "Originale kvitteringer" [ref=f2e57] [cursor=pointer]:
+            - /url: /labs/laboratory?view=history
+        - generic [ref=f2e59]: Støttede tjenester i dette arbeidsområdet
+      - main [ref=f2e60]:
+        - generic [ref=f2e61]:
+          - button "Fri Laboratory" [ref=f2e62] [cursor=pointer]
+          - button "Network security groups" [ref=f2e64] [cursor=pointer]
+          - button "rg-firewall" [ref=f2e66] [cursor=pointer]
+          - generic [ref=f2e68]: nsg-app
+        - generic [ref=f2e71]:
+          - generic [ref=f2e75]:
+            - heading "Add security rule" [active] [level=1] [ref=f2e76]
+            - generic [ref=f2e77]: Lokal AzureLab-simulator · eget serverlagret arbeidsområde · ingen kursresultater eller XP
+          - paragraph [ref=f2e78]: Kontroller konfigurasjonen med Review. Bare Create eller Apply lagrer en operasjon.
+          - group [ref=f2e80]:
+            - generic [ref=f2e81]:
+              - text: Name
+              - textbox "Name" [ref=f2e82]
+            - generic [ref=f2e83]:
+              - text: Network security group
+              - combobox "Network security group" [ref=f2e84]:
+                - option "—" [disabled]
+                - option "nsg-app · rg-firewall · sub-shared · norwayeast" [selected]
+                - option "nsg-data · rg-firewall · sub-shared · norwayeast"
+            - generic [ref=f2e85]:
+              - text: Direction
+              - combobox "Direction" [ref=f2e86]:
+                - option "—" [disabled]
+                - option "Inbound" [selected]
+                - option "Outbound"
+            - generic [ref=f2e87]:
+              - text: Priority
+              - textbox "Priority" [ref=f2e88]: "100"
+            - generic [ref=f2e89]:
+              - text: Protocol
+              - combobox "Protocol" [ref=f2e90]:
+                - option "—" [disabled]
+                - option "TCP" [selected]
+                - option "UDP"
+                - option "Any"
+            - generic [ref=f2e91]:
+              - text: Source IPv4/CIDR
+              - textbox "Source IPv4/CIDR" [ref=f2e92]: "*"
+            - generic [ref=f2e93]:
+              - text: Source port
+              - textbox "Source port" [ref=f2e94]: "*"
+            - generic [ref=f2e95]:
+              - text: Destination IPv4/CIDR
+              - textbox "Destination IPv4/CIDR" [ref=f2e96]: "*"
+            - generic [ref=f2e97]:
+              - text: Destination port
+              - textbox "Destination port" [ref=f2e98]: "443"
+            - generic [ref=f2e99]:
+              - text: Access
+              - combobox "Access" [ref=f2e100]:
+                - option "—" [disabled]
+                - option "Allow" [selected]
+                - option "Deny"
+            - paragraph [ref=f2e101]: Ett IPv4/CIDR eller * per adressefelt; én port0–65535 eller * per portfelt. Ingen service tags, ASG-er, lister eller intervaller i egendefinerte regler.
+            - generic [ref=f2e102]:
+              - button "Review" [ref=f2e103] [cursor=pointer]
+              - button "Avbryt" [ref=f2e104] [cursor=pointer]
+        - generic [ref=f2e105]:
+          - generic [ref=f2e106]: Fri Laboratory
+          - button "Oppdater fra serveren" [ref=f2e107] [cursor=pointer]
+          - generic [ref=f2e109]: "World-revisjon: 35 · Arbeidsforsøk: 1 · Arbeidsområdets modell: laboratory@3.6.0"
+          - button "Nullstill eget arbeidsområde" [ref=f2e110] [cursor=pointer]
+```
+
+# Test source
+
+```ts
+  30  |   for (const entry of a.s.entries) {
+  31  |     const response = await page.request.post('/api/laboratory/command', {
+  32  |       headers: { Origin: 'http://127.0.0.1:3000', 'If-Laboratory-Workspace': before.workspace },
+  33  |       data: entry.request,
+  34  |     });
+  35  |     expect(response.status()).toBe(200);
+  36  |     expect((await response.json()).receipt).toEqual(entry.receipt);
+  37  |   }
+  38  |   return { ...a, workspace: before.workspace };
+  39  | }
+  40  | async function open(page: Page, view: string, id: string) {
+  41  |   await page.goto('/labs/laboratory?' + new URLSearchParams({ view, id }));
+  42  |   await expect(
+  43  |     page.locator('.lab-rule-lifecycle').getByRole('button', { name: t.edit, exact: true }),
+  44  |   ).toBeEnabled();
+  45  | }
+  46  | async function edit(page: Page, fields: Record<string, string>) {
+  47  |   await page
+  48  |     .locator('.lab-rule-lifecycle')
+  49  |     .getByRole('button', { name: t.edit, exact: true })
+  50  |     .click();
+  51  |   const dialog = page.getByRole('dialog', { name: t.editing, exact: true });
+  52  |   for (const [key, value] of Object.entries(fields)) {
+  53  |     const name = n.fields[key as keyof typeof n.fields];
+  54  |     if (['direction', 'protocol', 'access'].includes(key))
+  55  |       await dialog.getByRole('combobox', { name, exact: true }).selectOption(value);
+  56  |     else await dialog.getByRole('textbox', { name, exact: true }).fill(value);
+  57  |   }
+  58  |   const before = await state(page);
+  59  |   await dialog.getByRole('button', { name: t.review, exact: true }).click();
+  60  |   await expect(dialog.getByRole('button', { name: t.save, exact: true })).toBeEnabled();
+  61  |   expect(await state(page)).toEqual(before);
+  62  |   await expect(dialog.locator('.lab-rule-review h3')).toBeFocused();
+  63  |   return dialog;
+  64  | }
+  65  | async function save(page: Page) {
+  66  |   await page.getByRole('dialog').getByRole('button', { name: t.save, exact: true }).click();
+  67  |   await expect(page.getByRole('dialog')).toHaveCount(0);
+  68  | }
+  69  | async function analyse(page: Page, a: ReturnType<typeof remediationWorld>, port: string) {
+  70  |   const form = page.locator('.studio-diagnostics .lab-policy-analysis');
+  71  |   if (!(await form.isVisible()))
+  72  |     await page
+  73  |       .locator('.portal-graph-toolbar')
+  74  |       .getByRole('button', { name: st.diagnostics, exact: true })
+  75  |       .click();
+  76  |   await form.getByRole('combobox', { name: e.source, exact: true }).selectOption(a.appNic);
+  77  |   await form.getByRole('combobox', { name: e.destination, exact: true }).selectOption(a.dataNic);
+  78  |   await form.getByRole('textbox', { name: e.destinationPort, exact: true }).fill(port);
+  79  |   await form.getByRole('button', { name: e.calculate, exact: true }).click();
+  80  |   return form;
+  81  | }
+  82  | async function broaden(page: Page, a: ReturnType<typeof remediationWorld>) {
+  83  |   const r = a.s.world.securityRules.find((x) => x.id === a.dataRule)!;
+  84  |   await apply(page, {
+  85  |     type: 'UpdateSecurityRule',
+  86  |     ruleId: r.id,
+  87  |     nsgId: r.nsgId,
+  88  |     priority: String(r.priority),
+  89  |     direction: r.direction,
+  90  |     protocol: r.protocol,
+  91  |     source: r.source,
+  92  |     sourcePort: r.sourcePort,
+  93  |     destination: r.destination,
+  94  |     destinationPort: '*',
+  95  |     access: r.access,
+  96  |   });
+  97  |   await apply(page, {
+  98  |     type: 'UpdateFirewallNetworkRule',
+  99  |     ruleId: a.rule,
+  100 |     collectionId: a.collection,
+  101 |     source: '*',
+  102 |     destination: '*',
+  103 |     protocol: 'Tcp',
+  104 |     destinationPort: '*',
+  105 |   });
+  106 | }
+  107 | 
+  108 | test('remediation Studio observation opens the actual NSG rule and native Review Save narrows policy without changing original identity or course storage', async ({
+  109 |   page,
+  110 | }) => {
+  111 |   const a = await seed(page);
+  112 |   await broaden(page, a);
+  113 |   const original = a.s.world.securityRules.find((r) => r.id === a.appRule)!;
+  114 |   await apply(page, {
+  115 |     type: 'UpdateSecurityRule',
+  116 |     ruleId: original.id,
+  117 |     nsgId: original.nsgId,
+  118 |     priority: '300',
+  119 |     direction: 'Outbound',
+  120 |     protocol: 'Tcp',
+  121 |     source: '*',
+  122 |     sourcePort: '*',
+  123 |     destination: '*',
+  124 |     destinationPort: '*',
+  125 |     access: 'Deny',
+  126 |   });
+  127 |   await open(page, 'rule', a.appRule);
+  128 |   await page.goto('/labs/laboratory?view=nsg&id=' + a.appNsg);
+  129 |   await page.getByRole('button', { name: n.operations.CreateSecurityRule, exact: true }).click();
+> 130 |   await page.getByRole('textbox', { name: n.fields.name, exact: true }).fill('broad-remediation');
+      |                                                                         ^ Error: locator.fill: Error: strict mode violation: getByRole('textbox') resolved to 6 elements:
+  131 |   await page
+  132 |     .getByRole('combobox', { name: n.fields.direction, exact: true })
+  133 |     .selectOption('Outbound');
+  134 |   await page.getByRole('textbox', { name: n.fields.destinationPort, exact: true }).fill('*');
+  135 |   await page.getByRole('button', { name: c.review, exact: true }).click();
+  136 |   await page.locator('.lab-review').getByRole('button', { name: c.create, exact: true }).click();
+  137 |   const created = await state(page),
+  138 |     rule = created.world.securityRules.find(
+  139 |       (r: { name: string }) => r.name === 'broad-remediation',
+  140 |     );
+  141 |   expect(rule).toBeTruthy();
+  142 |   const storage = await page.evaluate(() => JSON.stringify(localStorage));
+  143 |   await page.goto('/labs/laboratory?view=studio');
+  144 |   await expect(await analyse(page, a, '3389')).toContainText(f.outcome['allowed-via-firewall']);
+  145 |   await page.screenshot({ path: test.info().outputPath('nsg-before-broad-studio.png') });
+  146 |   await page
+  147 |     .locator('[data-observation="broad-allow"]')
+  148 |     .getByRole('button', { name: `broad-remediation · ${rule.id}`, exact: true })
+  149 |     .click();
+  150 |   await page
+  151 |     .getByRole('complementary', { name: st.inspect, exact: true })
+  152 |     .getByRole('link', { name: st.open, exact: true })
+  153 |     .click();
+  154 |   await edit(page, { source: '10.10.1.10', destination: '10.20.1.10', destinationPort: '1433' });
+  155 |   await page.screenshot({ path: test.info().outputPath('nsg-review-diff.png') });
+  156 |   await save(page);
+  157 |   const after = await state(page),
+  158 |     changed = after.world.securityRules.find((r: { id: string }) => r.id === rule.id);
+  159 |   expect(changed).toEqual({
+  160 |     ...rule,
+  161 |     source: '10.10.1.10',
+  162 |     destination: '10.20.1.10',
+  163 |     destinationPort: '1433',
+  164 |   });
+  165 |   expect(after.entries.slice(0, created.entries.length)).toEqual(created.entries);
+  166 |   await page.locator('.studio-return a').click();
+  167 |   await expect(
+  168 |     page
+  169 |       .locator('[data-observation="broad-allow"]')
+  170 |       .getByRole('button', { name: `broad-remediation · ${rule.id}`, exact: true }),
+  171 |   ).toHaveCount(0);
+  172 |   await expect(await analyse(page, a, '1433')).toContainText(f.outcome['allowed-via-firewall']);
+  173 |   await expect(await analyse(page, a, '3389')).toContainText(f.outcome['denied-by-nsg']);
+  174 |   await expect(page.locator('.studio-diagnostics')).toContainText(original.name);
+  175 |   await expect(page.getByText(c.missing, { exact: true })).toHaveCount(0);
+  176 |   expect(await page.evaluate(() => JSON.stringify(localStorage))).toBe(storage);
+  177 |   await page.reload();
+  178 |   expect(await state(page)).toEqual(after);
+  179 |   await page.screenshot({ path: test.info().outputPath('nsg-after-narrow-studio.png') });
+  180 | });
+  181 | 
+  182 | test('remediation Firewall native edit and delete preserve nested collection action priority and original Create receipt with default deny and remaining rule matching', async ({
+  183 |   page,
+  184 | }) => {
+  185 |   const a = await seed(page);
+  186 |   await broaden(page, a);
+  187 |   const before = await state(page);
+  188 |   await open(page, 'firewallRule', a.rule);
+  189 |   await expect(page.locator('.lab-rule-lifecycle')).toContainText(t.nested);
+  190 |   const dialog = await edit(page, {
+  191 |     source: '10.10.1.10',
+  192 |     destination: '10.20.1.10',
+  193 |     destinationPort: '1433',
+  194 |   });
+  195 |   await expect(dialog.getByRole('combobox', { name: 'Action', exact: true })).toHaveCount(0);
+  196 |   await expect(dialog.getByRole('textbox', { name: 'Priority', exact: true })).toHaveCount(0);
+  197 |   await save(page);
+  198 |   await page.goto('/labs/laboratory?view=studio');
+  199 |   await expect(await analyse(page, a, '1433')).toContainText(f.outcome['allowed-via-firewall']);
+  200 |   await expect(await analyse(page, a, '3389')).toContainText(f.outcome['denied-by-firewall']);
+  201 |   const remaining = await apply(page, {
+  202 |     type: 'CreateFirewallNetworkRule',
+  203 |     collectionId: a.collection,
+  204 |     name: 'remaining-sql',
+  205 |     source: '10.10.1.10',
+  206 |     destination: '10.20.1.10',
+  207 |     protocol: 'Tcp',
+  208 |     destinationPort: '1433',
+  209 |   });
+  210 |   await open(page, 'firewallRule', a.rule);
+  211 |   await page
+  212 |     .locator('.lab-rule-lifecycle')
+  213 |     .getByRole('button', { name: t.remove, exact: true })
+  214 |     .click();
+  215 |   const removal = page.getByRole('dialog', { name: t.deleting, exact: true });
+  216 |   await removal.getByRole('button', { name: t.review, exact: true }).click();
+  217 |   await expect(removal.getByRole('button', { name: t.remove, exact: true })).toBeDisabled();
+  218 |   await removal.getByRole('checkbox').check();
+  219 |   await removal.getByRole('button', { name: t.remove, exact: true }).click();
+  220 |   await expect(page.locator('.lab-rule-history')).toContainText(a.rule);
+  221 |   await page
+  222 |     .locator('.lab-rule-history')
+  223 |     .getByRole('button', { name: t.verify, exact: true })
+  224 |     .click();
+  225 |   await expect(page.locator('.lab-rule-history')).toContainText(t.verified);
+  226 |   const after = await state(page);
+  227 |   for (const key of [
+  228 |     'firewallPolicies',
+  229 |     'firewallCollectionGroups',
+  230 |     'firewallCollections',
+```

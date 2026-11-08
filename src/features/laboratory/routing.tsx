@@ -1,5 +1,5 @@
 'use client';
-import { computeProjection } from '@/laboratory/v35/projection';
+import { computeView as computeProjection, isFirewallWorld } from './capabilities';
 import { laboratoryFirewallNb as f } from '@/content/laboratory-firewall-nb';
 import { useEffect, useRef, useState, type ReactNode } from 'react';
 import Link from 'next/link';
@@ -35,7 +35,8 @@ export function RoutingViews({
     | World
     | import('@/laboratory/v33/contract').World
     | import('@/laboratory/v34/contract').World
-    | import('@/laboratory/v35/contract').World;
+    | import('@/laboratory/v35/contract').World
+    | import('@/laboratory/v36/contract').World;
   view: string;
   id: string | null;
   begin: (type: Command['type']) => void;
@@ -52,7 +53,7 @@ export function RoutingViews({
   );
   const peerTable = (parent: string) => (
     <>
-      <p>{w.model === 'laboratory@3.5.0' ? f.peerNote : r.peeringNote}</p>
+      <p>{isFirewallWorld(w) ? f.peerNote : r.peeringNote}</p>
       {list(
         'peering',
         w.peerings.filter((p) => p.vnetId === parent),
@@ -71,9 +72,7 @@ export function RoutingViews({
   return (
     <>
       {['routeTables', 'routeTable', 'route', 'peerings', 'peering', 'analysis'].includes(view) && (
-        <p className="lab-network-boundary">
-          {w.model === 'laboratory@3.5.0' ? f.routeNote : r.boundary}
-        </p>
+        <p className="lab-network-boundary">{isFirewallWorld(w) ? f.routeNote : r.boundary}</p>
       )}
       {view === 'routeTables' && (
         <>
@@ -109,7 +108,7 @@ export function RoutingViews({
               [
                 'Status',
                 peeringStatus(
-                  w.model === 'laboratory@3.5.0'
+                  isFirewallWorld(w)
                     ? routingProjection(endpointProjection(computeProjection(w)))
                     : w.model === 'laboratory@3.4.0'
                       ? routingProjection(endpointProjection(w))
@@ -123,7 +122,7 @@ export function RoutingViews({
             ]}
           />
           {receipt(peering.origin)}
-          <p>{w.model === 'laboratory@3.5.0' ? f.peerNote : r.peeringNote}</p>
+          <p>{isFirewallWorld(w) ? f.peerNote : r.peeringNote}</p>
           <p>
             <Link href={href('peerings', peering.remoteVnetId)}>Åpne peerings i eksternt VNet</Link>
           </p>
@@ -145,7 +144,7 @@ export function RoutingViews({
             ]}
           />
           {receipt(table.origin)}
-          <p>{w.model === 'laboratory@3.5.0' ? f.routeNote : r.routeNote}</p>
+          <p>{isFirewallWorld(w) ? f.routeNote : r.routeNote}</p>
           <h2>{r.routes}</h2>
           {list(
             'route',
@@ -179,7 +178,7 @@ export function RoutingViews({
             ]}
           />
           {receipt(route.origin)}
-          <p>{w.model === 'laboratory@3.5.0' ? f.routeNote : r.routeNote}</p>
+          <p>{isFirewallWorld(w) ? f.routeNote : r.routeNote}</p>
         </>
       )}
       {view === 'subnet' && subnet && (
@@ -233,6 +232,7 @@ export function RouteAnalysis({
           | import('@/laboratory/v33/route').RouteAnalysis
           | import('@/laboratory/v34/analysis').RouteAnalysis
           | import('@/laboratory/v35/analysis').RouteAnalysis
+          | import('@/laboratory/v36/analysis').RouteAnalysis
         ) & { workspace: string })
       | null
     >(null);
@@ -262,11 +262,11 @@ export function RouteAnalysis({
     snapshot.world.model !== 'laboratory@3.2.0' &&
     snapshot.world.model !== 'laboratory@3.3.0' &&
     snapshot.world.model !== 'laboratory@3.4.0' &&
-    snapshot.world.model !== 'laboratory@3.5.0'
+    !isFirewallWorld(snapshot.world)
   )
     return null;
   const nicContext =
-    snapshot.world.model === 'laboratory@3.4.0' || snapshot.world.model === 'laboratory@3.5.0'
+    snapshot.world.model === 'laboratory@3.4.0' || isFirewallWorld(snapshot.world)
       ? snapshot.world.nics.find((x) => x.id === initialNic && x.subnetId === source)
       : undefined;
   const calculate = async () => {

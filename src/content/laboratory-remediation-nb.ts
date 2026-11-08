@@ -1,0 +1,58 @@
+export const laboratoryRemediationNb = {
+  edit: 'Edit',
+  remove: 'Delete',
+  review: 'Review changes',
+  save: 'Save changes',
+  backEdit: 'Tilbake til redigering',
+  newWorkspace: 'Nytt Laboratory-arbeidsområde',
+  legacy:
+    'Dette arbeidsområdet beholder sin opprinnelige modell. Regelredigering er tilgjengelig i et nytt3.6-arbeidsområde.',
+  newWorkspaceNote:
+    'Start et separat3.6-arbeidsområde med Storage, Networking, Compute, Firewall og regelredigering. Det gamle miljøet og originalhistorikken beholdes på serveren; ingen ressurser eller kursdata overføres. Siden bytter til det nye arbeidsområdet.',
+  cancel: 'Avbryt',
+  editing: 'Edit security rule',
+  deleting: 'Delete security rule',
+  latest: 'Siste endringskvittering',
+  original: 'Original Create Receipt',
+  parent: 'Til parent-ressurs',
+  name: 'Regelnavn',
+  identity: 'Regel-ID',
+  workspace: 'Arbeidsområde',
+  model: 'Modell',
+  revision: 'Gjennomgått revisjon',
+  scope: 'Parent-scope',
+  immutable:
+    'Navn, parent og original Create-origin beholdes. Endringen gjelder bare dette arbeidsområdet.',
+  nested:
+    'Network rule er innhold i Policy → Rule Collection Group → Network Rule Collection. Allow/Deny og prioritet tilhører collection, ikke denne regelen.',
+  reviewNote: 'Review er skrivebeskyttet. Først Save bekrefter en atomisk endring på serveren.',
+  deleteNote:
+    'Bare denne egendefinerte regelen fjernes fra aktiv konfigurasjon. Parent og original teknisk historikk beholdes.',
+  confirm: 'Jeg bekrefter sletting av',
+  stale:
+    'Arbeidsområdet eller revisjonen er endret. Denne godkjenningen kan ikke brukes. Avbryt og åpne Edit eller Delete på nytt med gjeldende konfigurasjon.',
+  unavailable: 'Serverresultatet kunne ikke bekreftes. Ingen vellykket endring er bekreftet.',
+  readonly: 'Standardregler kan ikke redigeres eller slettes.',
+  noChange: 'Konfigurasjonen er uendret. Endre et støttet felt før ny Review.',
+  invalid: 'Review ble avvist. Korriger feltet før en ny gjennomgang.',
+  parentMismatch:
+    'Regelen tilhører ikke oppgitt parent-scope. Åpne regelen fra gjeldende ressursoversikt.',
+  missingRule: 'Regel-ID eller parent finnes ikke i dette arbeidsområdet. Oppdater fra serveren.',
+  before: 'Før',
+  after: 'Etter',
+  field: 'Felt',
+  diff: 'Bekreftet endringsgrunnlag',
+  removed: 'Fjernet fra aktiv konfigurasjon',
+  verify: 'Verifiser før/etter med historisk replay',
+  verified: 'Historisk replay er verifisert',
+  historyUnavailable: 'Det historiske resultatet kunne ikke verifiseres.',
+  beforeState: 'Tilstand før kommandoen',
+  afterState: 'Tilstand etter kommandoen',
+  missingHistoricalRule: 'Regelen finnes ikke i denne historiske tilstanden.',
+  operations: {
+    UpdateSecurityRule: 'Update security rule',
+    DeleteSecurityRule: 'Delete security rule',
+    UpdateFirewallNetworkRule: 'Update Firewall network rule',
+    DeleteFirewallNetworkRule: 'Delete Firewall network rule',
+  },
+} as const;

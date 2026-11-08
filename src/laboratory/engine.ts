@@ -11,6 +11,8 @@ import * as compute from './v34/domain';
 import * as v34 from './v34/contract';
 import * as firewall from './v35/domain';
 import * as v35 from './v35/contract';
+import * as remediation from './v36/domain';
+import * as v36 from './v36/contract';
 export const models = [
   v30.laboratoryModel,
   v31.laboratoryModel,
@@ -18,29 +20,33 @@ export const models = [
   v33.laboratoryModel,
   v34.laboratoryModel,
   v35.laboratoryModel,
+  v36.laboratoryModel,
 ] as const;
 export type Model = (typeof models)[number];
-export type World = v30.World | v31.World | v32.World | v33.World | v34.World | v35.World;
-export type Request = v35.Request;
-export type Command = v35.Command;
-export type Receipt = v35.Receipt;
+export type World =
+  v30.World | v31.World | v32.World | v33.World | v34.World | v35.World | v36.World;
+export type Request = v36.Request;
+export type Command = v36.Command;
+export type Receipt = v36.Receipt;
 export type Entry = { model: Model; attempt: number; request: Request; receipt: Receipt };
 export type Snapshot = { workspace: string; world: World; entries: Entry[]; historical: boolean };
 export type CommandResult = Snapshot & { receipt: Receipt; redelivered: boolean };
 export const canonical = legacy.canonical;
-export const parseRequest = firewall.parseRequest;
+export const parseRequest = remediation.parseRequest;
 export const freshWorld = (model: Model = v30.laboratoryModel): World =>
-  model === v35.laboratoryModel
-    ? firewall.freshWorld()
-    : model === v34.laboratoryModel
-      ? compute.freshWorld()
-      : model === v33.laboratoryModel
-        ? endpoints.freshWorld()
-        : model === v32.laboratoryModel
-          ? routing.freshWorld()
-          : model === v31.laboratoryModel
-            ? current.freshWorld()
-            : legacy.freshWorld();
+  model === v36.laboratoryModel
+    ? remediation.freshWorld()
+    : model === v35.laboratoryModel
+      ? firewall.freshWorld()
+      : model === v34.laboratoryModel
+        ? compute.freshWorld()
+        : model === v33.laboratoryModel
+          ? endpoints.freshWorld()
+          : model === v32.laboratoryModel
+            ? routing.freshWorld()
+            : model === v31.laboratoryModel
+              ? current.freshWorld()
+              : legacy.freshWorld();
 export const execute = (
   world: World,
   request: Request,
@@ -56,7 +62,9 @@ export const execute = (
           ? endpoints.execute(world, request as v33.Request, sequence)
           : world.model === v34.laboratoryModel
             ? compute.execute(world, request as v34.Request, sequence)
-            : firewall.execute(world, request, sequence);
+            : world.model === v35.laboratoryModel
+              ? firewall.execute(world, request as v35.Request, sequence)
+              : remediation.execute(world, request, sequence);
 export const replay = (entries: Entry[], model: Model, through = entries.length): World | null => {
   if (!models.includes(model)) return null;
   return model === v30.laboratoryModel
@@ -69,5 +77,7 @@ export const replay = (entries: Entry[], model: Model, through = entries.length)
           ? endpoints.replay(entries as v33.Entry[], through)
           : model === v34.laboratoryModel
             ? compute.replay(entries as v34.Entry[], through)
-            : firewall.replay(entries as v35.Entry[], through);
+            : model === v35.laboratoryModel
+              ? firewall.replay(entries as v35.Entry[], through)
+              : remediation.replay(entries as v36.Entry[], through);
 };

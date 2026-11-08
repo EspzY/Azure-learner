@@ -258,3 +258,7 @@ P11 reuses the established durable learning pattern at access-control.v1 and exi
 ## Architecture Studio Part A
 
 The free Laboratory uses [read-only Studio](ARCHITECTURE_STUDIO_PART_A.md): original verified Snapshot/inventory, deterministic topology and the same server policy analysis. The pure PortalArchitectureGraph renderer is shared with the original course explorer; its course/teaching controller stays separate. URL-only filters/selection/viewport are presentation, never inventory or ownership. No new model, SQL or command. See [actual remediation limits](LABORATORY_REMEDIATION_CAPABILITIES.md) before planning customer exercises.
+
+## PR69 — Security Rule Lifecycle
+
+New workspaces may explicitly use laboratory@3.6.0; old3.0–3.5 dispatch stays frozen. Four typed rule Update/Delete commands use original PostgreSQL locking/commit/receipt authority. A private validator proposal reuses existing full Create validation without publishing a temporary resource. Shared Portal pins Review/Save/Delete to actual workspace/model/revision/ID/parent. Studio remains a read-only consumer. See [contract](LABORATORY_SECURITY_REMEDIATION_PART_A.md).

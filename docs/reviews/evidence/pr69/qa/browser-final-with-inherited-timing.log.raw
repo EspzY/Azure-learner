@@ -1,0 +1,75 @@
+[WebServer] (node:56149) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 8 tests using 1 worker
+
+(node:56165) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 [desktop-chromium] › tests/e2e/laboratory-remediation.spec.ts:108:1 › remediation Studio observation opens the actual NSG rule and native Review Save narrows policy without changing original identity or course storage (9.3s)
+  ✓  2 [desktop-chromium] › tests/e2e/laboratory-remediation.spec.ts:201:1 › remediation Firewall native edit and delete preserve nested collection action priority and original Create receipt with default deny and remaining rule matching (7.3s)
+  ✓  3 [desktop-chromium] › tests/e2e/laboratory-remediation.spec.ts:266:1 › remediation NSG Delete confirmation exact identity read-only Review historical through reset and original receipt remain verifiable (4.7s)
+  ✓  4 [desktop-chromium] › tests/e2e/laboratory-remediation.spec.ts:319:1 › remediation two native editors preserve pinned revisions reject stale saves and replay identical command IDs without lost updates (8.2s)
+  ✓  5 [desktop-chromium] › tests/e2e/laboratory-remediation.spec.ts:398:1 › remediation compact native Review keyboard focus reduced motion Axe pinned delete and short desktop preserve readable rule evidence (10.8s)
+  ✘  6 [desktop-chromium] › tests/e2e/laboratory-studio.spec.ts:302:1 › Studio near-capacity graph semantic list keyboard focus reduced motion Axe and short desktop remain usable without moving resource nodes (32.9s)
+(node:56430) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  7 [compact-chromium] › tests/e2e/laboratory-remediation.spec.ts:398:1 › remediation compact native Review keyboard focus reduced motion Axe pinned delete and short desktop preserve readable rule evidence (8.8s)
+  ✘  8 [compact-chromium] › tests/e2e/laboratory-studio.spec.ts:302:1 › Studio near-capacity graph semantic list keyboard focus reduced motion Axe and short desktop remain usable without moving resource nodes (32.7s)
+
+
+  1) [desktop-chromium] › tests/e2e/laboratory-studio.spec.ts:302:1 › Studio near-capacity graph semantic list keyboard focus reduced motion Axe and short desktop remain usable without moving resource nodes 
+
+    Test timeout of 30000ms exceeded.
+
+    Error: apiRequestContext.get: Test timeout of 30000ms exceeded.
+
+      53 | }
+      54 | async function state(page: Page) {
+    > 55 |   return (await page.request.get('/api/laboratory/state')).json();
+         |                              ^
+      56 | }
+      57 | const storage = (page: Page) =>
+      58 |   page.evaluate(() =>
+        at state (/workspace/Azure-learner/tests/e2e/laboratory-studio.spec.ts:55:30)
+        at /workspace/Azure-learner/tests/e2e/laboratory-studio.spec.ts:387:16
+
+    Error Context: test-results/laboratory-studio-Studio-n-11598-thout-moving-resource-nodes-desktop-chromium/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/laboratory-studio-Studio-n-11598-thout-moving-resource-nodes-desktop-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/laboratory-studio-Studio-n-11598-thout-moving-resource-nodes-desktop-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) [compact-chromium] › tests/e2e/laboratory-studio.spec.ts:302:1 › Studio near-capacity graph semantic list keyboard focus reduced motion Axe and short desktop remain usable without moving resource nodes 
+
+    Test timeout of 30000ms exceeded.
+
+    Error: apiRequestContext.get: Test timeout of 30000ms exceeded.
+
+      53 | }
+      54 | async function state(page: Page) {
+    > 55 |   return (await page.request.get('/api/laboratory/state')).json();
+         |                              ^
+      56 | }
+      57 | const storage = (page: Page) =>
+      58 |   page.evaluate(() =>
+        at state (/workspace/Azure-learner/tests/e2e/laboratory-studio.spec.ts:55:30)
+        at /workspace/Azure-learner/tests/e2e/laboratory-studio.spec.ts:387:16
+
+    Error Context: test-results/laboratory-studio-Studio-n-11598-thout-moving-resource-nodes-compact-chromium/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/laboratory-studio-Studio-n-11598-thout-moving-resource-nodes-compact-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/laboratory-studio-Studio-n-11598-thout-moving-resource-nodes-compact-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2 failed
+    [desktop-chromium] › tests/e2e/laboratory-studio.spec.ts:302:1 › Studio near-capacity graph semantic list keyboard focus reduced motion Axe and short desktop remain usable without moving resource nodes 
+    [compact-chromium] › tests/e2e/laboratory-studio.spec.ts:302:1 › Studio near-capacity graph semantic list keyboard focus reduced motion Axe and short desktop remain usable without moving resource nodes 
+  6 passed (2.1m)
