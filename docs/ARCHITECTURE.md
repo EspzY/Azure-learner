@@ -254,3 +254,7 @@ P11 reuses the established durable learning pattern at access-control.v1 and exi
 ## PR67 — isolated Laboratory3.5 Firewall profile
 
 [Firewall Part A](LABORATORY_FIREWALL_PART_A.md) adds a new explicit workspace model. The existing repository alone owns row locking, revision, idempotency and atomic append-only event/snapshot commit. SQL006 extends supported model constraints; no automatic upgrade. Policy hierarchy, Firewall and its atomic Public IP configuration live in the same World as Storage, VM/NIC/disk and networking. Shared Portal adapters use real resource IDs. Read-only path analysis composes the frozen route selector/NSG matcher with scoped Firewall rules and verified return topology; it never creates evidence. All3.0–3.4 evaluators and old course/v2 authorities remain byte-identical. Public503 without an approved DB remains intentional.
+
+## Architecture Studio Part A
+
+The free Laboratory uses [read-only Studio](ARCHITECTURE_STUDIO_PART_A.md): original verified Snapshot/inventory, deterministic topology and the same server policy analysis. The pure PortalArchitectureGraph renderer is shared with the original course explorer; its course/teaching controller stays separate. URL-only filters/selection/viewport are presentation, never inventory or ownership. No new model, SQL or command. See [actual remediation limits](LABORATORY_REMEDIATION_CAPABILITIES.md) before planning customer exercises.

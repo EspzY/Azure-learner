@@ -132,14 +132,21 @@ export function EndpointViews({
     </>
   );
 }
+export type LaboratoryPolicyResult = (
+  | PolicyAnalysis
+  | import('@/laboratory/v34/analysis').PolicyAnalysis
+  | import('@/laboratory/v35/analysis').PolicyAnalysis
+) & { workspace: string };
 export function PolicyAnalysisView({
   snapshot,
   initialSource,
   accept,
+  onAnalysis,
 }: {
   snapshot: Snapshot;
   initialSource: string | null;
   accept: (s: Snapshot) => void;
+  onAnalysis?: (result: LaboratoryPolicyResult | null) => void;
 }) {
   const [input, setInput] = useState({
       sourceNicId: initialSource ?? '',
@@ -150,16 +157,17 @@ export function PolicyAnalysisView({
     }),
     [busy, setBusy] = useState(false),
     [error, setError] = useState(''),
-    [result, setResult] = useState<
-      | ((
-          | PolicyAnalysis
-          | import('@/laboratory/v34/analysis').PolicyAnalysis
-          | import('@/laboratory/v35/analysis').PolicyAnalysis
-        ) & {
-          workspace: string;
-        })
-      | null
-    >(null);
+    [result, setResult] = useState<LaboratoryPolicyResult | null>(null);
+  useEffect(() => {
+    onAnalysis?.(
+      result &&
+        result.workspace === snapshot.workspace &&
+        result.model === snapshot.world.model &&
+        result.revision === snapshot.world.revision
+        ? result
+        : null,
+    );
+  }, [onAnalysis, result, snapshot.workspace, snapshot.world.model, snapshot.world.revision]);
   const current = useRef(snapshot),
     mounted = useRef(true),
     heading = useRef<HTMLHeadingElement>(null);

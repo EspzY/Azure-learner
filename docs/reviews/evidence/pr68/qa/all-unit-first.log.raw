@@ -1,0 +1,454 @@
+
+> azurelab@0.1.0 test
+> vitest run && node --test scripts/docs-check.test.mjs scripts/az900-audit-check.test.mjs scripts/quality-check.test.mjs scripts/design-assets-check.test.mjs scripts/e2e-preview-build.test.mjs
+
+
+ RUN  v5.0.5 /workspace/Azure-learner
+
+ ❯ src/features/portal/challenge-validity-preservation.test.ts (2 tests | 1 failed) 3988ms
+   × preserves every declared historical file, full PR54 locale prefix, technical adapter tail and CC01 authorities 3983ms
+ ❯ src/laboratory-firewall-preservation.test.ts (5 tests | 2 failed) 849ms
+   × preserves all original course authority, models3.0–3.4 SQL and locked evidence; pins finite reviewed3.5 adapters 736ms
+   × retains exact inherited browser bodies and settings with only traced readiness and explicit historical fixture choice 63ms
+ ❯ src/shared-portal-preservation.test.ts (7 tests | 3 failed) 1255ms
+   × pins only the explicit shared presentation scope and preserves every other original authority history assessment provider asset and locked review byte 601ms
+   × preserves the complete course Portal controller and free session request review run load and pending recovery code 49ms
+   × keeps common presentation authority-free and retains every original CI setting with one justified compact witness 2ms
+ ❯ src/laboratory-compute-preservation.test.ts (4 tests | 2 failed) 690ms
+   × preserves all prior engines SQL course rubrics receipts assertions and locked evidence; pins only literal bounded3.4 adapters 444ms
+   × keeps every inherited browser assertion and original owner Back Forward test byte, only selecting explicit historical3.3 through UI 200ms
+ ❯ src/features/landing/preservation.test.ts (6 tests | 2 failed) 966ms
+   × bounds all original changes and preserves every other source asset domain server database script fixture and locked audit byte 433ms
+   × adds exactly one compact witness while preserving every previous selection and execution setting 4ms
+ ❯ src/laboratory-routing-preservation.test.ts (3 tests | 2 failed) 867ms
+   × pins the explicit3.2 dispatcher API free-presentation and test-fixture boundary while freezing every other prior course, model, database and locked review byte 765ms
+   × preserves every old assertion and setting; only selects the actual historical3.1 workspace fixture and delegates two historical readers 42ms
+ ❯ src/features/course/vm-debrief-preservation.test.ts (3 tests | 1 failed) 1122ms
+   × preserves all original technical and assessment contracts, source data and full locale prefix 257ms
+ ❯ src/laboratory-v3-preservation.test.ts (5 tests | 2 failed) 627ms
+   × retains every old source, domain, browser, script, asset and locked audit byte except six explicit entry/backend setup deltas and five import-only test delegations 440ms
+   × retains the original complete CI command, release, pinned browsers and all prior execution settings 8ms
+ ❯ src/features/learning/final-quality-preservation.test.ts (4 tests | 1 failed) 374ms
+   × preserves every other original source/asset/config file and the entire base locale prefix 100ms
+ ❯ src/laboratory-endpoints-preservation.test.ts (3 tests | 2 failed) 636ms
+   × pins bounded3.3 adapters while every other prior course model SQL assertion receipt and locked review remains byte identical to verified PR64 581ms
+   × all inherited assertions settings and test bodies survive: only historical3.2 fixture and test-only read delegates change 35ms
+ ❯ src/laboratory-networking-preservation.test.ts (4 tests | 2 failed) 325ms
+   × bounds the new version adapter and preserves every other original runtime teaching assessment asset database and locked review byte 245ms
+   × only adds one compact witness and appends the explicit002 migration to original local-only setup 3ms
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 20 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/laboratory-compute-preservation.test.ts > preserves all prior engines SQL course rubrics receipts assertions and locked evidence; pins only literal bounded3.4 adapters
+AssertionError: playwright.desktop.config.ts: expected '8fb9a1c24a15a241006afc642edf86fda91ff…' to be 'be03de4cd79c3b48df13fb52d6fbd8245ed74…' // Object.is equality
+
+Expected: "be03de4cd79c3b48df13fb52d6fbd8245ed74ba92e4edf9290f0c952427bc51c"
+Received: "8fb9a1c24a15a241006afc642edf86fda91ff1630ec0f88ca00128e1fad608d7"
+
+ ❯ readPR67 tests/pr67-preservation.ts:26:33
+     24|     const entry = (proof.files as Record<string, { before: string; aft…
+     25|     expect(hash67(original67(path)), path).toBe(entry.before);
+     26|     expect(hash67(bytes), path).toBe(entry.after);
+       |                                 ^
+     27|     bytes = original67(path);
+     28|   }
+ ❯ src/laboratory-compute-preservation.test.ts:63:15
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/20]⎯
+
+ FAIL  src/laboratory-compute-preservation.test.ts > keeps every inherited browser assertion and original owner Back Forward test byte, only selecting explicit historical3.3 through UI
+AssertionError: playwright.desktop.config.ts: expected '8fb9a1c24a15a241006afc642edf86fda91ff…' to be 'be03de4cd79c3b48df13fb52d6fbd8245ed74…' // Object.is equality
+
+Expected: "be03de4cd79c3b48df13fb52d6fbd8245ed74ba92e4edf9290f0c952427bc51c"
+Received: "8fb9a1c24a15a241006afc642edf86fda91ff1630ec0f88ca00128e1fad608d7"
+
+ ❯ readPR67 tests/pr67-preservation.ts:26:33
+     24|     const entry = (proof.files as Record<string, { before: string; aft…
+     25|     expect(hash67(original67(path)), path).toBe(entry.before);
+     26|     expect(hash67(bytes), path).toBe(entry.after);
+       |                                 ^
+     27|     bytes = original67(path);
+     28|   }
+ ❯ src/laboratory-compute-preservation.test.ts:103:10
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/20]⎯
+
+ FAIL  src/laboratory-endpoints-preservation.test.ts > pins bounded3.3 adapters while every other prior course model SQL assertion receipt and locked review remains byte identical to verified PR64
+AssertionError: playwright.desktop.config.ts: expected '8fb9a1c24a15a241006afc642edf86fda91ff…' to be 'be03de4cd79c3b48df13fb52d6fbd8245ed74…' // Object.is equality
+
+Expected: "be03de4cd79c3b48df13fb52d6fbd8245ed74ba92e4edf9290f0c952427bc51c"
+Received: "8fb9a1c24a15a241006afc642edf86fda91ff1630ec0f88ca00128e1fad608d7"
+
+ ❯ readPR67 tests/pr67-preservation.ts:26:33
+     24|     const entry = (proof.files as Record<string, { before: string; aft…
+     25|     expect(hash67(original67(path)), path).toBe(entry.before);
+     26|     expect(hash67(bytes), path).toBe(entry.after);
+       |                                 ^
+     27|     bytes = original67(path);
+     28|   }
+ ❯ readPR66 tests/pr66-preservation.ts:21:23
+ ❯ src/laboratory-endpoints-preservation.test.ts:63:15
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/20]⎯
+
+ FAIL  src/laboratory-endpoints-preservation.test.ts > all inherited assertions settings and test bodies survive: only historical3.2 fixture and test-only read delegates change
+AssertionError: playwright.desktop.config.ts: expected '8fb9a1c24a15a241006afc642edf86fda91ff…' to be 'be03de4cd79c3b48df13fb52d6fbd8245ed74…' // Object.is equality
+
+Expected: "be03de4cd79c3b48df13fb52d6fbd8245ed74ba92e4edf9290f0c952427bc51c"
+Received: "8fb9a1c24a15a241006afc642edf86fda91ff1630ec0f88ca00128e1fad608d7"
+
+ ❯ readPR67 tests/pr67-preservation.ts:26:33
+     24|     const entry = (proof.files as Record<string, { before: string; aft…
+     25|     expect(hash67(original67(path)), path).toBe(entry.before);
+     26|     expect(hash67(bytes), path).toBe(entry.after);
+       |                                 ^
+     27|     bytes = original67(path);
+     28|   }
+ ❯ readPR66 tests/pr66-preservation.ts:21:23
+ ❯ src/laboratory-endpoints-preservation.test.ts:97:10
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/20]⎯
+
+ FAIL  src/laboratory-firewall-preservation.test.ts > preserves all original course authority, models3.0–3.4 SQL and locked evidence; pins finite reviewed3.5 adapters
+AssertionError: playwright.desktop.config.ts: expected '8fb9a1c24a15a241006afc642edf86fda91ff…' to be 'be03de4cd79c3b48df13fb52d6fbd8245ed74…' // Object.is equality
+
+Expected: "be03de4cd79c3b48df13fb52d6fbd8245ed74ba92e4edf9290f0c952427bc51c"
+Received: "8fb9a1c24a15a241006afc642edf86fda91ff1630ec0f88ca00128e1fad608d7"
+
+ ❯ src/laboratory-firewall-preservation.test.ts:73:35
+     71|       const p = (proof.files as Record<string, { before: string; after…
+     72|       expect(hash67(original67(path)), path).toBe(p.before);
+     73|       expect(hash67(bytes), path).toBe(p.after);
+       |                                   ^
+     74|     } else
+     75|       expect(
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/20]⎯
+
+ FAIL  src/laboratory-firewall-preservation.test.ts > retains exact inherited browser bodies and settings with only traced readiness and explicit historical fixture choice
+AssertionError: expected 'import { defineConfig, devices } from…' to be 'import { defineConfig, devices } from…' // Object.is equality
+
+- Expected
++ Received
+
+@@ -3,10 +3,14 @@
+
+  // Exact existing witnesses; collection validation rejects missing/ambiguous
+  // names. No test body, assertion, title, timeout or skip is modified.
+  const compactCases = [
+    [
++     'laboratory-studio.spec.ts',
++     'Studio near-capacity graph semantic list keyboard focus reduced motion Axe and short desktop remain usable without moving resource nodes',
++   ],
++   [
+      'laboratory-compute.spec.ts',
+      'compute compact native keyboard Properties networking focus reduced motion Axe and original three-resource receipt remain usable',
+    ],
+    [
+      'laboratory-endpoints.spec.ts',
+
+ ❯ src/laboratory-firewall-preservation.test.ts:106:83
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/20]⎯
+
+ FAIL  src/laboratory-networking-preservation.test.ts > bounds the new version adapter and preserves every other original runtime teaching assessment asset database and locked review byte
+AssertionError: playwright.desktop.config.ts: expected '8fb9a1c24a15a241006afc642edf86fda91ff…' to be 'be03de4cd79c3b48df13fb52d6fbd8245ed74…' // Object.is equality
+
+Expected: "be03de4cd79c3b48df13fb52d6fbd8245ed74ba92e4edf9290f0c952427bc51c"
+Received: "8fb9a1c24a15a241006afc642edf86fda91ff1630ec0f88ca00128e1fad608d7"
+
+ ❯ readPR67 tests/pr67-preservation.ts:26:33
+     24|     const entry = (proof.files as Record<string, { before: string; aft…
+     25|     expect(hash67(original67(path)), path).toBe(entry.before);
+     26|     expect(hash67(bytes), path).toBe(entry.after);
+       |                                 ^
+     27|     bytes = original67(path);
+     28|   }
+ ❯ readPR66 tests/pr66-preservation.ts:21:23
+ ❯ readPR65 tests/pr65-preservation.ts:21:23
+ ❯ readPR64 tests/pr64-preservation.ts:29:21
+ ❯ readPR63 tests/pr63-preservation.ts:31:21
+ ❯ src/laboratory-networking-preservation.test.ts:47:15
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/20]⎯
+
+ FAIL  src/laboratory-networking-preservation.test.ts > only adds one compact witness and appends the explicit002 migration to original local-only setup
+AssertionError: playwright.desktop.config.ts: expected '8fb9a1c24a15a241006afc642edf86fda91ff…' to be 'be03de4cd79c3b48df13fb52d6fbd8245ed74…' // Object.is equality
+
+Expected: "be03de4cd79c3b48df13fb52d6fbd8245ed74ba92e4edf9290f0c952427bc51c"
+Received: "8fb9a1c24a15a241006afc642edf86fda91ff1630ec0f88ca00128e1fad608d7"
+
+ ❯ readPR67 tests/pr67-preservation.ts:26:33
+     24|     const entry = (proof.files as Record<string, { before: string; aft…
+     25|     expect(hash67(original67(path)), path).toBe(entry.before);
+     26|     expect(hash67(bytes), path).toBe(entry.after);
+       |                                 ^
+     27|     bytes = original67(path);
+     28|   }
+ ❯ readPR66 tests/pr66-preservation.ts:21:23
+ ❯ readPR65 tests/pr65-preservation.ts:21:23
+ ❯ readPR64 tests/pr64-preservation.ts:29:21
+ ❯ readPR63 tests/pr63-preservation.ts:31:21
+ ❯ src/laboratory-networking-preservation.test.ts:76:10
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/20]⎯
+
+ FAIL  src/laboratory-routing-preservation.test.ts > pins the explicit3.2 dispatcher API free-presentation and test-fixture boundary while freezing every other prior course, model, database and locked review byte
+AssertionError: playwright.desktop.config.ts: expected '8fb9a1c24a15a241006afc642edf86fda91ff…' to be 'be03de4cd79c3b48df13fb52d6fbd8245ed74…' // Object.is equality
+
+Expected: "be03de4cd79c3b48df13fb52d6fbd8245ed74ba92e4edf9290f0c952427bc51c"
+Received: "8fb9a1c24a15a241006afc642edf86fda91ff1630ec0f88ca00128e1fad608d7"
+
+ ❯ readPR67 tests/pr67-preservation.ts:26:33
+     24|     const entry = (proof.files as Record<string, { before: string; aft…
+     25|     expect(hash67(original67(path)), path).toBe(entry.before);
+     26|     expect(hash67(bytes), path).toBe(entry.after);
+       |                                 ^
+     27|     bytes = original67(path);
+     28|   }
+ ❯ readPR66 tests/pr66-preservation.ts:21:23
+ ❯ readPR65 tests/pr65-preservation.ts:21:23
+ ❯ src/laboratory-routing-preservation.test.ts:60:19
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[9/20]⎯
+
+ FAIL  src/laboratory-routing-preservation.test.ts > preserves every old assertion and setting; only selects the actual historical3.1 workspace fixture and delegates two historical readers
+AssertionError: playwright.desktop.config.ts: expected '8fb9a1c24a15a241006afc642edf86fda91ff…' to be 'be03de4cd79c3b48df13fb52d6fbd8245ed74…' // Object.is equality
+
+Expected: "be03de4cd79c3b48df13fb52d6fbd8245ed74ba92e4edf9290f0c952427bc51c"
+Received: "8fb9a1c24a15a241006afc642edf86fda91ff1630ec0f88ca00128e1fad608d7"
+
+ ❯ readPR67 tests/pr67-preservation.ts:26:33
+     24|     const entry = (proof.files as Record<string, { before: string; aft…
+     25|     expect(hash67(original67(path)), path).toBe(entry.before);
+     26|     expect(hash67(bytes), path).toBe(entry.after);
+       |                                 ^
+     27|     bytes = original67(path);
+     28|   }
+ ❯ readPR66 tests/pr66-preservation.ts:21:23
+ ❯ readPR65 tests/pr65-preservation.ts:21:23
+ ❯ src/laboratory-routing-preservation.test.ts:87:10
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[10/20]⎯
+
+ FAIL  src/laboratory-v3-preservation.test.ts > retains every old source, domain, browser, script, asset and locked audit byte except six explicit entry/backend setup deltas and five import-only test delegations
+AssertionError: playwright.desktop.config.ts: expected '8fb9a1c24a15a241006afc642edf86fda91ff…' to be 'be03de4cd79c3b48df13fb52d6fbd8245ed74…' // Object.is equality
+
+Expected: "be03de4cd79c3b48df13fb52d6fbd8245ed74ba92e4edf9290f0c952427bc51c"
+Received: "8fb9a1c24a15a241006afc642edf86fda91ff1630ec0f88ca00128e1fad608d7"
+
+ ❯ readPR67 tests/pr67-preservation.ts:26:33
+     24|     const entry = (proof.files as Record<string, { before: string; aft…
+     25|     expect(hash67(original67(path)), path).toBe(entry.before);
+     26|     expect(hash67(bytes), path).toBe(entry.after);
+       |                                 ^
+     27|     bytes = original67(path);
+     28|   }
+ ❯ readPR66 tests/pr66-preservation.ts:21:23
+ ❯ readPR65 tests/pr65-preservation.ts:21:23
+ ❯ readPR64 tests/pr64-preservation.ts:29:21
+ ❯ readPR63 tests/pr63-preservation.ts:31:21
+ ❯ readPR62 tests/pr62-preservation.ts:28:17
+ ❯ assertPR61Delta tests/pr61-preservation.ts:22:15
+ ❯ readPR61 tests/pr61-preservation.ts:33:5
+ ❯ assertPR60Runtime tests/pr60-preservation.ts:66:15
+ ❯ src/laboratory-v3-preservation.test.ts:45:44
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[11/20]⎯
+
+ FAIL  src/laboratory-v3-preservation.test.ts > retains the original complete CI command, release, pinned browsers and all prior execution settings
+AssertionError: playwright.desktop.config.ts: expected '8fb9a1c24a15a241006afc642edf86fda91ff…' to be 'be03de4cd79c3b48df13fb52d6fbd8245ed74…' // Object.is equality
+
+Expected: "be03de4cd79c3b48df13fb52d6fbd8245ed74ba92e4edf9290f0c952427bc51c"
+Received: "8fb9a1c24a15a241006afc642edf86fda91ff1630ec0f88ca00128e1fad608d7"
+
+ ❯ readPR67 tests/pr67-preservation.ts:26:33
+     24|     const entry = (proof.files as Record<string, { before: string; aft…
+     25|     expect(hash67(original67(path)), path).toBe(entry.before);
+     26|     expect(hash67(bytes), path).toBe(entry.after);
+       |                                 ^
+     27|     bytes = original67(path);
+     28|   }
+ ❯ readPR66 tests/pr66-preservation.ts:21:23
+ ❯ readPR65 tests/pr65-preservation.ts:21:23
+ ❯ readPR64 tests/pr64-preservation.ts:29:21
+ ❯ readPR63 tests/pr63-preservation.ts:31:21
+ ❯ readPR62 tests/pr62-preservation.ts:28:17
+ ❯ assertPR61Delta tests/pr61-preservation.ts:22:15
+ ❯ readPR61 tests/pr61-preservation.ts:33:5
+ ❯ src/laboratory-v3-preservation.test.ts:138:18
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[12/20]⎯
+
+ FAIL  src/shared-portal-preservation.test.ts > pins only the explicit shared presentation scope and preserves every other original authority history assessment provider asset and locked review byte
+AssertionError: playwright.desktop.config.ts: expected '8fb9a1c24a15a241006afc642edf86fda91ff…' to be 'be03de4cd79c3b48df13fb52d6fbd8245ed74…' // Object.is equality
+
+Expected: "be03de4cd79c3b48df13fb52d6fbd8245ed74ba92e4edf9290f0c952427bc51c"
+Received: "8fb9a1c24a15a241006afc642edf86fda91ff1630ec0f88ca00128e1fad608d7"
+
+ ❯ readPR67 tests/pr67-preservation.ts:26:33
+     24|     const entry = (proof.files as Record<string, { before: string; aft…
+     25|     expect(hash67(original67(path)), path).toBe(entry.before);
+     26|     expect(hash67(bytes), path).toBe(entry.after);
+       |                                 ^
+     27|     bytes = original67(path);
+     28|   }
+ ❯ readPR66 tests/pr66-preservation.ts:21:23
+ ❯ readPR65 tests/pr65-preservation.ts:21:23
+ ❯ readPR64 tests/pr64-preservation.ts:29:21
+ ❯ src/shared-portal-preservation.test.ts:56:19
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[13/20]⎯
+
+ FAIL  src/shared-portal-preservation.test.ts > preserves the complete course Portal controller and free session request review run load and pending recovery code
+AssertionError: src/features/laboratory/laboratory.tsx: expected '973ef2072a01e2216687f58a8b2957b1f0b9c…' to be '348d6247628d628c04fbf83258131f8354bd1…' // Object.is equality
+
+Expected: "348d6247628d628c04fbf83258131f8354bd15b4912037b12b514525c21c92a3"
+Received: "973ef2072a01e2216687f58a8b2957b1f0b9cd7c0865a96e851b4d9ad571b42a"
+
+ ❯ readPR67 tests/pr67-preservation.ts:26:33
+     24|     const entry = (proof.files as Record<string, { before: string; aft…
+     25|     expect(hash67(original67(path)), path).toBe(entry.before);
+     26|     expect(hash67(bytes), path).toBe(entry.after);
+       |                                 ^
+     27|     bytes = original67(path);
+     28|   }
+ ❯ readPR66 tests/pr66-preservation.ts:21:23
+ ❯ readPR65 tests/pr65-preservation.ts:21:23
+ ❯ readPR64 tests/pr64-preservation.ts:29:21
+ ❯ src/shared-portal-preservation.test.ts:95:16
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[14/20]⎯
+
+ FAIL  src/shared-portal-preservation.test.ts > keeps common presentation authority-free and retains every original CI setting with one justified compact witness
+AssertionError: playwright.desktop.config.ts: expected '8fb9a1c24a15a241006afc642edf86fda91ff…' to be 'be03de4cd79c3b48df13fb52d6fbd8245ed74…' // Object.is equality
+
+Expected: "be03de4cd79c3b48df13fb52d6fbd8245ed74ba92e4edf9290f0c952427bc51c"
+Received: "8fb9a1c24a15a241006afc642edf86fda91ff1630ec0f88ca00128e1fad608d7"
+
+ ❯ readPR67 tests/pr67-preservation.ts:26:33
+     24|     const entry = (proof.files as Record<string, { before: string; aft…
+     25|     expect(hash67(original67(path)), path).toBe(entry.before);
+     26|     expect(hash67(bytes), path).toBe(entry.after);
+       |                                 ^
+     27|     bytes = original67(path);
+     28|   }
+ ❯ readPR66 tests/pr66-preservation.ts:21:23
+ ❯ readPR65 tests/pr65-preservation.ts:21:23
+ ❯ readPR64 tests/pr64-preservation.ts:29:21
+ ❯ src/shared-portal-preservation.test.ts:186:10
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[15/20]⎯
+
+ FAIL  src/features/course/vm-debrief-preservation.test.ts > preserves all original technical and assessment contracts, source data and full locale prefix
+AssertionError: src/features/portal/architecture.tsx: expected 'f0675c8d2a11181fc1a762f93fc33f5a20e45…' to be 'a311ce567d888c2d615e8e606182d47f96336…' // Object.is equality
+
+Expected: "a311ce567d888c2d615e8e606182d47f96336a993f0b86f7d03bd5b988ee7a9a"
+Received: "f0675c8d2a11181fc1a762f93fc33f5a20e454ad1dfc70bab87f25028a25271b"
+
+ ❯ src/features/course/vm-debrief-preservation.test.ts:13:44
+     11|       continue;
+     12|     }
+     13|     expect(hash(readFileSync(path)), path).toBe(sha);
+       |                                            ^
+     14|   }
+     15|   expect(hash(readFileSync('src/content/nb.ts').subarray(0, proof.loca…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[16/20]⎯
+
+ FAIL  src/features/landing/preservation.test.ts > bounds all original changes and preserves every other source asset domain server database script fixture and locked audit byte
+AssertionError: playwright.desktop.config.ts: expected '8fb9a1c24a15a241006afc642edf86fda91ff…' to be 'be03de4cd79c3b48df13fb52d6fbd8245ed74…' // Object.is equality
+
+Expected: "be03de4cd79c3b48df13fb52d6fbd8245ed74ba92e4edf9290f0c952427bc51c"
+Received: "8fb9a1c24a15a241006afc642edf86fda91ff1630ec0f88ca00128e1fad608d7"
+
+ ❯ readPR67 tests/pr67-preservation.ts:26:33
+     24|     const entry = (proof.files as Record<string, { before: string; aft…
+     25|     expect(hash67(original67(path)), path).toBe(entry.before);
+     26|     expect(hash67(bytes), path).toBe(entry.after);
+       |                                 ^
+     27|     bytes = original67(path);
+     28|   }
+ ❯ readPR66 tests/pr66-preservation.ts:21:23
+ ❯ readPR65 tests/pr65-preservation.ts:21:23
+ ❯ readPR64 tests/pr64-preservation.ts:29:21
+ ❯ readPR63 tests/pr63-preservation.ts:31:21
+ ❯ readPR62 tests/pr62-preservation.ts:28:17
+ ❯ assertPR61Delta tests/pr61-preservation.ts:22:15
+ ❯ src/features/landing/preservation.test.ts:74:43
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[17/20]⎯
+
+ FAIL  src/features/landing/preservation.test.ts > adds exactly one compact witness while preserving every previous selection and execution setting
+AssertionError: playwright.desktop.config.ts: expected '8fb9a1c24a15a241006afc642edf86fda91ff…' to be 'be03de4cd79c3b48df13fb52d6fbd8245ed74…' // Object.is equality
+
+Expected: "be03de4cd79c3b48df13fb52d6fbd8245ed74ba92e4edf9290f0c952427bc51c"
+Received: "8fb9a1c24a15a241006afc642edf86fda91ff1630ec0f88ca00128e1fad608d7"
+
+ ❯ readPR67 tests/pr67-preservation.ts:26:33
+     24|     const entry = (proof.files as Record<string, { before: string; aft…
+     25|     expect(hash67(original67(path)), path).toBe(entry.before);
+     26|     expect(hash67(bytes), path).toBe(entry.after);
+       |                                 ^
+     27|     bytes = original67(path);
+     28|   }
+ ❯ readPR66 tests/pr66-preservation.ts:21:23
+ ❯ readPR65 tests/pr65-preservation.ts:21:23
+ ❯ readPR64 tests/pr64-preservation.ts:29:21
+ ❯ readPR63 tests/pr63-preservation.ts:31:21
+ ❯ readPR62 tests/pr62-preservation.ts:28:17
+ ❯ src/features/landing/preservation.test.ts:132:18
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[18/20]⎯
+
+ FAIL  src/features/learning/final-quality-preservation.test.ts > preserves every other original source/asset/config file and the entire base locale prefix
+AssertionError: playwright.desktop.config.ts: expected '8fb9a1c24a15a241006afc642edf86fda91ff…' to be 'be03de4cd79c3b48df13fb52d6fbd8245ed74…' // Object.is equality
+
+Expected: "be03de4cd79c3b48df13fb52d6fbd8245ed74ba92e4edf9290f0c952427bc51c"
+Received: "8fb9a1c24a15a241006afc642edf86fda91ff1630ec0f88ca00128e1fad608d7"
+
+ ❯ readPR67 tests/pr67-preservation.ts:26:33
+     24|     const entry = (proof.files as Record<string, { before: string; aft…
+     25|     expect(hash67(original67(path)), path).toBe(entry.before);
+     26|     expect(hash67(bytes), path).toBe(entry.after);
+       |                                 ^
+     27|     bytes = original67(path);
+     28|   }
+ ❯ readPR66 tests/pr66-preservation.ts:21:23
+ ❯ readPR65 tests/pr65-preservation.ts:21:23
+ ❯ readPR64 tests/pr64-preservation.ts:29:21
+ ❯ readPR63 tests/pr63-preservation.ts:31:21
+ ❯ readPR62 tests/pr62-preservation.ts:28:17
+ ❯ assertPR61Delta tests/pr61-preservation.ts:22:15
+ ❯ readPR61 tests/pr61-preservation.ts:33:5
+ ❯ assertPR60Runtime tests/pr60-preservation.ts:66:15
+ ❯ readHistorical tests/pr60-preservation.ts:97:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[19/20]⎯
+
+ FAIL  src/features/portal/challenge-validity-preservation.test.ts > preserves every declared historical file, full PR54 locale prefix, technical adapter tail and CC01 authorities
+AssertionError: src/features/portal/architecture.tsx: expected 'f0675c8d2a11181fc1a762f93fc33f5a20e45…' to be 'a311ce567d888c2d615e8e606182d47f96336…' // Object.is equality
+
+Expected: "a311ce567d888c2d615e8e606182d47f96336a993f0b86f7d03bd5b988ee7a9a"
+Received: "f0675c8d2a11181fc1a762f93fc33f5a20e454ad1dfc70bab87f25028a25271b"
+
+ ❯ src/features/portal/challenge-validity-preservation.test.ts:23:44
+     21|       continue;
+     22|     }
+     23|     expect(hash(readFileSync(path)), path).toBe(expected);
+       |                                            ^
+     24|   }
+     25|   const old = execFileSync('git', ['show', `${proof.base}:src/content/…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[20/20]⎯
+
+
+ Test Files  11 failed | 71 passed (82)
+      Tests  20 failed | 961 passed (981)
+   Start at  13:38:09
+   Duration  30.44s (tests 66%, import 25%, transform 7%, worker 1%)
+
+    Isolate  82 workers spawned · ~292ms startup each (spawn + environment, per file)
+             at least ~7.68s faster with isolate: false — reuses workers across files instead of one per file
+

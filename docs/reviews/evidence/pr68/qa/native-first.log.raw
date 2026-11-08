@@ -1,0 +1,35 @@
+[WebServer] (node:31366) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 1 test using 1 worker
+
+(node:31382) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 [desktop-chromium] › tests/e2e/laboratory-studio.spec.ts:63:1 › Studio live hub topology reuses server Firewall NSG routes and original resource Properties with URL-only return and no inspection writes (3.0s)
+
+
+  1) [desktop-chromium] › tests/e2e/laboratory-studio.spec.ts:63:1 › Studio live hub topology reuses server Firewall NSG routes and original resource Properties with URL-only return and no inspection writes 
+
+    TypeError: Cannot read properties of undefined (reading 'allowed-via-firewall')
+
+      75 |   );
+      76 |   const result = await analyse(page, a);
+    > 77 |   await expect(result).toContainText(f.dispositions['allowed-via-firewall']);
+         |                                                    ^
+      78 |   await expect(page.locator('.studio-analysed')).not.toHaveCount(0);
+      79 |   await page
+      80 |     .locator('.portal-graph-toolbar')
+        at /workspace/Azure-learner/tests/e2e/laboratory-studio.spec.ts:77:52
+
+    Error Context: ../azurelab-pr68/native-first/laboratory-studio-Studio-l-3f132-rn-and-no-inspection-writes-desktop-chromium/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../azurelab-pr68/native-first/laboratory-studio-Studio-l-3f132-rn-and-no-inspection-writes-desktop-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace ../azurelab-pr68/native-first/laboratory-studio-Studio-l-3f132-rn-and-no-inspection-writes-desktop-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    [desktop-chromium] › tests/e2e/laboratory-studio.spec.ts:63:1 › Studio live hub topology reuses server Firewall NSG routes and original resource Properties with URL-only return and no inspection writes 
